@@ -1,0 +1,557 @@
+# Room Skill Prototype
+# Directories as activation contexts
+
+skill:
+  name: "room"
+  tier: 1  # File-only
+  protocol: "ROOM-AS-FUNCTION"
+  
+  description: |
+    Rooms are directories that serve as activation contexts.
+    Enter = call function, push context.
+    Exit = return, pop context.
+    Cards in play = active task instances.
+    
+  motto: "Entering is calling. Exiting is returning."
+
+inputs:
+  name:
+    type: string
+    required: true
+    description: "Name of the room"
+    
+  purpose:
+    type: string
+    required: true
+    description: "What this room is for"
+    
+  parent:
+    type: path
+    default: ".agent/rooms/"
+    description: "Where to create the room"
+
+outputs:
+  room_path: "{parent}/{name}/"
+  room_file: "ROOM.yml"
+  readme_file: "README.md"
+
+# ═══════════════════════════════════════════════════════════════════
+# ROOM SCHEMA
+# ═══════════════════════════════════════════════════════════════════
+
+room_schema:
+  required:
+    - name
+    - purpose
+    
+  optional:
+    - context
+    - cards_in_play
+    - working_set
+    - exits          # Doors to other rooms
+    - nested         # Rooms inside this room
+    - outside        # Parent room (auto-link)
+    - atmosphere
+    - portable       # Can this room be picked up?
+    - location       # Where is this room currently?
+
+# ═══════════════════════════════════════════════════════════════════
+# CONNECTIONS & NAVIGATION
+# ═══════════════════════════════════════════════════════════════════
+
+connections:
+  description: |
+    Rooms have doors/links to other rooms.
+    Navigation is traversing the connection graph.
+    
+  exit_schema:
+    name: "Door/link name (e.g., 'north', 'to-lobby', 'deeper')"
+    target: "path/to/destination/room"
+    description: "What you see when you look at this exit"
+    locked: "boolean - requires key/condition?"
+    
+  special_exits:
+    outside:
+      description: "Always exists. Link to parent room."
+      auto_generated: true
+      
+    nested:
+      description: "List of rooms contained inside this room"
+      auto_generated: "From subdirectories with ROOM.yml"
+      
+  example: |
+    exits:
+      - name: "lobby"
+        target: "../lobby/"
+        description: "Back to the main entrance"
+      - name: "deeper"
+        target: "./archives/"
+        description: "Into the dusty archives"
+    outside: "../"  # Auto-link to parent
+    nested:
+      - "./archives/"
+      - "./vault/"
+
+# ═══════════════════════════════════════════════════════════════════
+# NESTED ROOMS (Rooms in Rooms)
+# ═══════════════════════════════════════════════════════════════════
+
+nesting:
+  description: |
+    Rooms can contain other rooms.
+    Subdirectories with ROOM.yml are nested rooms.
+    
+  structure: |
+    palace/
+      ROOM.yml           # The palace
+      treasury/
+        ROOM.yml         # Room inside the palace
+        vault/
+          ROOM.yml       # Room inside the treasury
+          
+  auto_linking: |
+    When you enter a room:
+    - `outside` automatically points to parent
+    - `nested` automatically lists child rooms
+    - No manual linking required for hierarchy
+
+# ═══════════════════════════════════════════════════════════════════
+# HYPERCARD STRUCTURE
+# ═══════════════════════════════════════════════════════════════════
+
+hypercard_analogy:
+  description: |
+    Rooms map naturally to HyperCard's hierarchy:
+    - Stack = top-level room
+    - Background = shared context (inherited by cards)
+    - Card = individual room/view
+    - Object = button, field, card in play
+    
+  directory_as_action: |
+    Sub-directory NAMES are action/direction names:
+    
+    room/
+      ROOM.yml           # The room itself
+      north/             # GO NORTH = enter this sub-room
+        ROOM.yml
+      examine-chest/     # EXAMINE CHEST = enter OR launch task
+        ROOM.yml         # If has ROOM.yml → sub-room
+      open-door/         # OPEN DOOR = play card if no ROOM.yml
+        CARD.yml         # Task button → plays card in parent room
+        
+  leaf_as_button: |
+    Directories without ROOM.yml are "buttons" that launch tasks or play cards or cast spells or delegate messages:
+    
+    room/
+      debug/             # Has ROOM.yml → sub-room (enter it)
+        ROOM.yml
+      run-tests/         # No ROOM.yml → button (launch task)
+        CARD.yml         # Card to play in parent room
+        parameters.yml   # Task parameters
+        
+  message_delegation: |
+    Messages flow LEAF → ROOT (like HyperCard):
+    
+    vault/               # Leaf room
+      ↓ (not handled)
+    treasury/            # Parent
+      ↓ (not handled)  
+    palace/              # Grandparent
+      ↓ (not handled)
+    root/                # Root room
+      ↓ (not handled)
+    system               # System handler
+    
+    Example: "SEARCH" in vault
+    1. vault doesn't handle SEARCH → delegate up
+    2. treasury has search capability → handles it
+    
+  inheritance: |
+    Like HyperCard backgrounds, parent room context is inherited:
+    - Cards in play in parent are "visible" from child
+    - Working set cascades down
+    - Atmosphere/mood inherits unless overridden
+
+# ═══════════════════════════════════════════════════════════════════
+# RETURN STACK / CONTINUATIONS
+# ═══════════════════════════════════════════════════════════════════
+
+return_stack:
+  description: |
+    List of rooms to return to — like continuation passing.
+    Browser history. Call stack. Breadcrumbs.
+    
+  kept_in_pocket: |
+    The return stack travels WITH YOU:
+    - Portable across sessions
+    - Can save and restore navigation history
+    - Share your journey with others
+    
+  schema:
+    return_stack:
+      - path: "projects/moollm/"
+        entered: "2025-01-15T10:00:00Z"
+        context_snapshot: "working on README"
+      - path: "projects/moollm/skills/"
+        entered: "2025-01-15T10:05:00Z"
+        context_snapshot: "exploring skills"
+      - path: "projects/moollm/skills/room/"
+        entered: "2025-01-15T10:10:00Z"
+        context_snapshot: "current location"
+        
+  operations:
+    back:
+      description: "Pop and return to previous room"
+      like: "Browser back button"
+      
+    forward:
+      description: "Go forward in history (if backed up)"
+      like: "Browser forward button"
+      
+    history:
+      description: "Show navigation history"
+      like: "Browser history view"
+      
+    bookmark:
+      description: "Save current location for quick return"
+      like: "Browser bookmark"
+      
+    goto_bookmark:
+      description: "Jump to bookmarked location"
+      
+  continuation_passing: |
+    The return stack IS a continuation:
+    - First-class: can save, share, serialize
+    - Resumable: pick up where you left off
+    - Forkable: branch into multiple paths
+    
+    Like Scheme call/cc:
+    - Capture current continuation (where to return)
+    - Pass it around, invoke it later
+    - Multiple returns possible
+    
+  browser_analogy: |
+    return_stack  ←→  browser history
+    bookmark      ←→  browser bookmark
+    back          ←→  back button
+    forward       ←→  forward button
+    new_tab       ←→  fork continuation
+    
+  multiple_stacks: |
+    Can have MULTIPLE return stacks (like browser tabs):
+    
+    stacks:
+      main:        [lobby → project → code]
+      research:    [library → papers → arxiv]
+      debugging:   [logs → stack-trace → source]
+      
+    Switch between stacks = switch cognitive contexts
+
+# ═══════════════════════════════════════════════════════════════════
+# PORTABLE ROOMS (Vehicles & Pockets)
+# ═══════════════════════════════════════════════════════════════════
+
+portable_rooms:
+  description: |
+    Some rooms are PORTABLE — you can pick them up and carry them.
+    Like LambdaMOO vehicles, TARDIS, bags of holding.
+    
+  operations:
+    embark:
+      description: "Enter a portable room (get in the vehicle)"
+      effect: "You're now inside the portable room"
+      
+    disembark:
+      description: "Exit to wherever the portable room is located"
+      effect: "You're now in the room containing the portable"
+      
+    pick_up:
+      description: "Put the portable room in your pocket/inventory"
+      effect: "Room becomes an item you carry"
+      requires: "Room must be empty of other characters"
+      
+    drop:
+      description: "Place the portable room in current location"
+      effect: "Room becomes accessible in this location"
+      
+    drive:
+      description: "Move the portable room to a new location"
+      effect: "Everyone inside moves with it"
+      
+  schema:
+    portable: true
+    location: "path/to/current/container"  # Where is this room?
+    capacity: "how many can be inside"
+    embarked: ["list", "of", "occupants"]
+    
+  examples:
+    tardis:
+      description: "Bigger on the inside. Can go anywhere."
+      portable: true
+      
+    bag_of_holding:
+      description: "Pocket dimension for storage"
+      portable: true
+      capacity: 100
+      
+    research_tent:
+      description: "Set up camp anywhere"
+      portable: true
+      working_set: ["research notes", "tools"]
+      
+  use_cases:
+    - "Carry your workspace between projects"
+    - "Deploy a debugging environment anywhere"
+    - "Share a room by handing it to someone"
+    - "Archive a room by putting it in storage"
+
+# ═══════════════════════════════════════════════════════════════════
+# CARD IN PLAY SCHEMA
+# ═══════════════════════════════════════════════════════════════════
+
+card_instance_schema:
+  required:
+    - instance      # Unique instance ID
+    - card          # Card template name
+    - goal          # What this instance is working toward
+    
+  optional:
+    - parameters    # Input parameters
+    - state         # Current working state
+    - subgoals      # Decomposed goals
+    - return_value  # Filled when complete
+
+# ═══════════════════════════════════════════════════════════════════
+# OPERATIONS
+# ═══════════════════════════════════════════════════════════════════
+
+operations:
+  enter_room:
+    description: "Enter a room, push its context"
+    inputs: [path]
+    effects:
+      - "Load ROOM.yml"
+      - "Add working_set to context"
+      - "Room becomes current"
+      
+  exit_room:
+    description: "Exit room, pop context"
+    effects:
+      - "Save state changes"
+      - "Pop from context"
+      - "Return to parent"
+      
+  activate_card:
+    description: "Put a card in play in current room"
+    inputs: [card, parameters, goal]
+    effects:
+      - "Clone card template"
+      - "Add to cards_in_play"
+      - "Card begins work"
+    note: "Same card can be active in multiple rooms simultaneously"
+      
+  complete_card:
+    description: "Mark card instance as complete"
+    inputs: [instance, return_value]
+    effects:
+      - "Write return_value"
+      - "Mark complete"
+      - "Optionally remove"
+      
+  look:
+    description: "Describe current room"
+    outputs: ["Room description", "Cards in play", "Exits"]
+    
+  send_message:
+    description: "Send data to another card instance"
+    inputs: [from_instance, to_instance, content]
+    effects:
+      - "Append to target's messages_received"
+      - "Target can incorporate or respond"
+    note: "Cross-room communication between actors"
+
+# ═══════════════════════════════════════════════════════════════════
+# MULTI-PRESENCE & DATA FLOW
+# ═══════════════════════════════════════════════════════════════════
+
+multi_presence:
+  description: "Cards can be active in multiple rooms simultaneously"
+  
+  patterns:
+    parallel_exploration:
+      description: "Same expertise applied to different problems"
+      example: "Papert in research/, writing/, and debugging/"
+      
+    cross_pollination:
+      description: "Insights flow between instances"
+      mechanism: "message_to / messages_received"
+      
+    distributed_work:
+      description: "One persona, many concurrent tasks"
+      
+    consensus:
+      description: "Multiple instances synthesize into decision"
+
+message_schema:
+  message_to:
+    target: "path to recipient instance"
+    content: "any structured data"
+    
+  messages_received:
+    type: array
+    items:
+      from: "path to sender"
+      content: "structured data"
+      timestamp: "when received"
+      incorporated: "boolean - has this been processed?"
+
+# ═══════════════════════════════════════════════════════════════════
+# ROOM TYPES
+# ═══════════════════════════════════════════════════════════════════
+
+room_types:
+  session:
+    description: "Temporary work context"
+    lifetime: "Task duration"
+    examples: ["debug-session/", "feature-work/"]
+    
+  project:
+    description: "Persistent project home"
+    lifetime: "Long-term"
+    examples: ["moollm/", "my-app/"]
+    
+  concept:
+    description: "Knowledge location in memory palace"
+    lifetime: "Permanent"
+    examples: ["yaml-jazz/", "bpip/"]
+    
+  character:
+    description: "Persona's living space"
+    lifetime: "Permanent"
+    examples: ["gardener/", "archivist/"]
+    
+  portable:
+    description: "Carryable room — TARDIS, bag of holding"
+    lifetime: "Until discarded"
+    portable: true
+    examples: ["research-tent/", "debugging-kit/", "workshop/"]
+    
+  vehicle:
+    description: "Room you drive around"
+    lifetime: "Until parked"
+    portable: true
+    examples: ["mobile-lab/", "expedition/"]
+
+# ═══════════════════════════════════════════════════════════════════
+# COMMANDS
+# ═══════════════════════════════════════════════════════════════════
+
+commands:
+  # Basic navigation
+  ROOM:
+    syntax: "ROOM [name]"
+    action: "Create or enter room"
+    
+  LOOK:
+    syntax: "LOOK"
+    action: "Describe current room, exits, nested rooms, cards"
+    
+  GO:
+    syntax: "GO [exit-name]"
+    action: "Take an exit to another room"
+    
+  EXIT:
+    syntax: "EXIT"
+    action: "Go to 'outside' (parent room)"
+    
+  ENTER:
+    syntax: "ENTER [nested-room]"
+    action: "Enter a nested room"
+    
+  # Card operations
+  ACTIVATE:
+    syntax: "ACTIVATE [card] [goal]"
+    action: "Put card in play"
+    
+  COMPLETE:
+    syntax: "COMPLETE [instance]"
+    action: "Mark card done"
+    
+  # Portable room operations
+  EMBARK:
+    syntax: "EMBARK [portable-room]"
+    action: "Enter a portable room"
+    
+  DISEMBARK:
+    syntax: "DISEMBARK"
+    action: "Exit portable to its container"
+    
+  PICKUP:
+    syntax: "PICKUP [portable-room]"
+    action: "Put room in pocket/inventory"
+    
+  DROP:
+    syntax: "DROP [portable-room]"
+    action: "Place room in current location"
+    
+  DRIVE:
+    syntax: "DRIVE [portable-room] [destination]"
+    action: "Move portable room to new location"
+    
+  # Navigation history (continuation passing)
+  BACK:
+    syntax: "BACK"
+    action: "Return to previous room in history"
+    like: "Browser back button"
+    
+  FORWARD:
+    syntax: "FORWARD"
+    action: "Go forward in history (if backed up)"
+    like: "Browser forward button"
+    
+  HISTORY:
+    syntax: "HISTORY"
+    action: "Show navigation breadcrumbs"
+    like: "Browser history"
+    
+  BOOKMARK:
+    syntax: "BOOKMARK [name]"
+    action: "Save current location for quick return"
+    like: "Browser bookmark"
+    
+  GOTO:
+    syntax: "GOTO [bookmark-name]"
+    action: "Jump to bookmarked location"
+    
+  STACK:
+    syntax: "STACK [name]"
+    action: "Switch to named navigation stack (like browser tab)"
+    
+  FORK:
+    syntax: "FORK [stack-name]"
+    action: "Create new stack from current position"
+
+# ═══════════════════════════════════════════════════════════════════
+# INTEGRATION
+# ═══════════════════════════════════════════════════════════════════
+
+integrates_with:
+  - skill: "trading-card"
+    how: "Cards live in rooms as active instances"
+    
+  - skill: "memory-palace"
+    how: "Rooms ARE the palace locations"
+    
+  - skill: "soul-chat"
+    how: "Rooms can speak (type: room)"
+    
+  - skill: "adventure-protocol"
+    how: "Narrative room exploration"
+    
+  - protocol: "WORKING-SET"
+    how: "Rooms define their context files"
+
+see_also:
+  - "../trading-card/"
+  - "../memory-palace/"
+  - "../../PROTOCOLS.yml#ROOM-AS-FUNCTION"

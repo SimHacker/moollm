@@ -1,0 +1,50 @@
+# Room: {{name}}
+# Created: {{timestamp}}
+
+room:
+  name: "{{name}}"
+  purpose: "{{purpose}}"
+  created: "{{timestamp}}"
+  
+  # What you need to know when entering this room
+  context:
+    - "{{context_item_1}}"
+    - "{{context_item_2}}"
+    
+  # Cards currently in play
+  # (Activated instances living in this room)
+  cards_in_play: []
+  # Example:
+  # - instance: "goblin-001"
+  #   card: "Git Goblin"
+  #   goal: "Find bug introduction"
+  #   state:
+  #     current_commit: "abc123"
+  
+  # Files to include in working_set when in this room
+  working_set:
+    - "ROOM.yml"
+    - "README.md"
+    - "state/*.yml"
+    
+  # Navigation to other rooms
+  exits:
+    parent: "../"
+    # Add related rooms:
+    # related: "../other-room/"
+    # child: "./sub-room/"
+    
+  # Atmosphere for soul-chat
+  # (How this room "feels" when it speaks)
+  atmosphere: "{{atmosphere}}"
+
+# ═══════════════════════════════════════════════════════════════════
+# ROOM LIFECYCLE
+# ═══════════════════════════════════════════════════════════════════
+#
+# 1. ENTER: Context pushed, working_set loaded
+# 2. WORK: Activate cards, they work toward goals
+# 3. COMPLETE: Cards finish, write return values
+# 4. EXIT: Context popped, return to parent
+#
+# ═══════════════════════════════════════════════════════════════════

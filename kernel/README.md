@@ -1,14 +1,17 @@
-# MOOLLM Kernel
-## Low-Level Operating System Protocols
+# Kernel
 
-*"The orchestrator is the operating system. The LLM is the CPU."*
+> *"The orchestrator is the Operating System. The LLM is the Coherence Engine. The Repo is the Microworld."*
+
+The **minimal, stable core** that all higher-level protocols and skills depend on.
+
+> [!NOTE]
+> **This is the basement.** Start with [skills/](../skills/) for userland, come here for the plumbing.
 
 ---
 
 ## What is the Kernel?
 
-The MOOLLM kernel is the **minimal, stable core** that all higher-level
-protocols and skills depend on. It provides:
+The kernel provides **infrastructure**, not semantics:
 
 1. **Tool Execution** — File ops, search, sandboxed execution
 2. **Context Assembly** — Building prompts from working sets
@@ -16,148 +19,165 @@ protocols and skills depend on. It provides:
 4. **Memory Management** — Hot/cold hints, summarization
 5. **Self-Healing** — Robust-first repair and bootstrap
 
-The kernel does NOT encode semantics about:
-- What "memory palaces" are
-- What "adventure rooms" mean
-- How "trading cards" work
-- Character personalities
+### What the Kernel Does NOT Know
 
-Those are **skills** (userland protocols).
+> [!IMPORTANT]
+> The kernel does **NOT** encode semantics about:
+> - What "memory palaces" are
+> - What "adventure rooms" mean
+> - How "trading cards" work
+> - Character personalities
+> - Soul chat patterns
+> - The Sims-style advertisements
+>
+> Those are **[skills](../skills/)** (userland protocols). The kernel just provides files, context, and repair.
 
 ---
 
-## Modular Architecture
-
-The kernel is designed to run on **multiple orchestrators**:
+## 🗺️ You Are Here
 
 ```
-┌─────────────────────────────────────────┐
-│         constitution-core.md            │
-│         (Universal Principles)          │
-├─────────────────────────────────────────┤
-│   drivers/cursor.yml  │  drivers/...    │
-│   (Orchestrator-Specific Adaptations)   │
-├─────────────────────────────────────────┤
-│   Cursor  │  Claude Code  │  Custom     │
-│   (Orchestrator Runtime)                │
-└─────────────────────────────────────────┘
-```
-
-### Constitution Layers
-
-| Layer | File | Purpose |
-|-------|------|---------|
-| Core | `constitution-core.md` | Universal principles |
-| Full | `constitution-template.md` | Complete template (custom) |
-| Driver | `drivers/*.yml` | Orchestrator adaptations |
-
-### Available Drivers
-
-| Driver | Tier | Key Differences |
-|--------|------|-----------------|
-| `cursor.yml` | 4 | No `why` param, convention-based append |
-| `claude-code.yml` | 5 | MCP support, can add custom tools |
-| `custom.yml` | 6 | Full control, all features enforced |
-| `generic.yml` | 1 | Minimal assumptions, maximum compat |
-
----
-
-## Kernel Files
-
-| File | Purpose |
-|------|---------|
-| `constitution-core.md` | Universal principles (orchestrator-independent) |
-| `constitution-template.md` | Full template for custom orchestrators |
-| `tool-calling-protocol.md` | How tools are defined and called |
-| `context-assembly-protocol.md` | How prompts are built from files |
-| `memory-management-protocol.md` | Hot/cold, summaries, GC |
-| `self-healing-protocol.md` | MFM-inspired repair |
-| `event-logging-protocol.md` | Append-only audit |
-| `drivers/` | Orchestrator-specific configurations |
-
----
-
-## Capability Tiers
-
-Different orchestrators provide different capabilities:
-
-| Tier | Capabilities | Examples |
-|------|-------------|----------|
-| 0 | Text only | Basic chat |
-| 1 | File read | Most UIs |
-| 2 | File read/write | IDEs |
-| 3 | + Search | Cursor, Claude Code |
-| 4 | + Execution | Cursor, Claude Code |
-| 5 | + Custom tools (MCP) | Claude Code |
-| 6 | + Full kernel control | Custom only |
-
-### Feature Availability by Tier
-
-| Feature | Tier 1-2 | Tier 3-4 | Tier 5 | Tier 6 |
-|---------|----------|----------|--------|--------|
-| `why` parameter | ❌ Convention | ❌ Convention | ⚠️ Via MCP | ✅ Enforced |
-| Append-only | ❌ Convention | ❌ Convention | ⚠️ Via MCP | ✅ Enforced |
-| Event logging | ❌ Manual | ⚠️ Markdown | ⚠️ Via MCP | ✅ JSONL |
-| Working set | ❌ Manual | ⚠️ Reference | ⚠️ Reference | ✅ Integrated |
-| Hot/cold hints | ❌ Manual | ⚠️ Reference | ⚠️ Reference | ✅ Automated |
-
-**Key:** ✅ = Enforced, ⚠️ = Supported, ❌ = Convention only
-
----
-
-## The Kernel Contract
-
-```yaml
-kernel_guarantees:
-  - Tool calls execute or fail cleanly
-  - Context fits in token budget
-  - Events are never lost
-  - State can always be recovered
-  - Missing files trigger repair, not crash
-
-kernel_does_not_guarantee:
-  - Meaningful output (that's the LLM's job)
-  - Correct planning (that's emergent)
-  - User satisfaction (that's the skill's job)
+moollm/
+├── README.md           ← Project entrance
+├── PROTOCOLS.yml       ← Symbol index
+├── kernel/             ← YOU ARE HERE (the basement)
+│   ├── README.md       ← This file
+│   ├── drivers/        ← Orchestrator adapters
+│   └── *.md            ← Core protocols
+├── skills/             ← Userland (upstairs)
+├── schemas/            ← Data formats
+└── designs/            ← Historical archives
 ```
 
 ---
 
-## Integration with MOOLLM Protocols
+## Protocols
 
-The kernel sits beneath all MOOLLM protocols:
-
-```
-┌─────────────────────────────────────────┐
-│     MOOLLM Protocols (P-0.x, P-1.x)     │
-│     Trading Cards, Rooms, Characters    │
-├─────────────────────────────────────────┤
-│     Skills / Userland Protocols         │
-│     Memory Palaces, Adventures, etc.    │
-├─────────────────────────────────────────┤
-│     KERNEL                              │
-│     Tools, Context, Memory, Repair      │
-├─────────────────────────────────────────┤
-│     LLM (stateless token predictor)     │
-└─────────────────────────────────────────┘
-```
+| Protocol | Purpose | File |
+|----------|---------|------|
+| **Constitution** | Universal principles | [constitution-core.md](./constitution-core.md) |
+| **Tool Calling** | How tools work | [tool-calling-protocol.md](./tool-calling-protocol.md) |
+| **Context Assembly** | Building prompts | [context-assembly-protocol.md](./context-assembly-protocol.md) |
+| **Memory Management** | Hot/cold, summaries | [memory-management-protocol.md](./memory-management-protocol.md) |
+| **Event Logging** | Audit trail | [event-logging-protocol.md](./event-logging-protocol.md) |
+| **Self-Healing** | Repair demons | [self-healing-protocol.md](./self-healing-protocol.md) |
+| **Naming** | File organization | [NAMING.yml](./NAMING.yml) |
 
 ---
 
-## Design Philosophy
+## The Layer Cake
+
+```mermaid
+graph TD
+    subgraph "Userland (skills/)"
+        S[Soul Chat, Trading Cards, Rooms...]
+    end
+    
+    subgraph "Kernel (kernel/)"
+        K[Tools, Context, Memory, Repair]
+    end
+    
+    subgraph "Hardware (LLM)"
+        L[Stateless Token Predictor]
+    end
+    
+    S --> K
+    K --> L
+```
+
+Skills don't talk to the LLM directly — they go through kernel protocols.
+
+---
+
+## Drivers (Orchestrator Adapters)
+
+The kernel runs on multiple orchestrators. Drivers adapt protocols to each:
+
+| Driver | Tier | For |
+|--------|------|-----|
+| [cursor.yml](./drivers/cursor.yml) | 4 | Cursor IDE |
+| [claude-code.yml](./drivers/claude-code.yml) | 5 | Claude Code + MCP |
+| [custom.yml](./drivers/custom.yml) | 6 | Full control |
+| [generic.yml](./drivers/generic.yml) | 1 | Maximum compatibility |
+
+See [drivers/README.md](./drivers/README.md) for details.
+
+---
+
+## Key Principles
+
+| Symbol | Meaning | Defined In |
+|--------|---------|------------|
+| `NEVER-CRASH` | Missing state → repair | [self-healing-protocol.md](./self-healing-protocol.md) |
+| `APPEND-ONLY` | Never modify logs | [event-logging-protocol.md](./event-logging-protocol.md) |
+| `WHY-REQUIRED` | Tool calls explain themselves | [tool-calling-protocol.md](./tool-calling-protocol.md) |
+| `HOT-COLD` | Memory hints | [memory-management-protocol.md](./memory-management-protocol.md) |
+| `BIG-ENDIAN` | Naming convention | [NAMING.yml](./NAMING.yml) |
+
+Full symbol index: [PROTOCOLS.yml](../PROTOCOLS.yml)
+
+---
+
+## Philosophy
 
 Inspired by:
-- **Dave Ackley's Robust-First Computing** — Survivability over correctness
-- **Movable Feast Machine** — Local repair, homeostatic goals
-- **SELF Language** — Prototypes and delegation
-- **Unix Philosophy** — Simple tools, composition
 
-> *"Make the kernel boring so the protocols can be exciting."*
+| Source | Contribution |
+|--------|--------------|
+| **Dave Ackley** | Robust-first computing |
+| **Movable Feast Machine** | Local repair, homeostasis |
+| **Self Language** | Prototypes and delegation |
+| **Unix** | Simple tools, composition |
+| **Papert/Kay** | Microworld as OS |
+| **Chuck Shotton / Kilroy** | Decentralized swarms, small LLMs, visual programming |
+
+> *"Make the kernel boring so the skills can be exciting."*
 
 ---
 
-**See also:**
-- `../MOOLLM-PROTOCOLS.md` — Protocol compendium
-- `../MOOLLM-MANIFESTO.md` — Philosophy
-- `../skills/` — Userland protocols
-- `../schemas/` — Data formats
+## The Intertwingularity
+
+The kernel is the basement. Skills build on top.
+
+```mermaid
+graph TD
+    subgraph "Userland (skills/)"
+        PLL[play-learn-lift]
+        R[room]
+        TC[trading-card]
+        SC[soul-chat]
+    end
+    
+    subgraph "Kernel"
+        CON[constitution]
+        TC_K[tool-calling]
+        CTX[context-assembly]
+        MEM[memory-mgmt]
+        HEAL[self-healing]
+        LOG[event-logging]
+    end
+    
+    PLL --> CON
+    R --> CTX
+    TC --> TC_K
+    SC --> LOG
+    
+    CON --> TC_K
+    CTX --> MEM
+    MEM --> HEAL
+    HEAL --> LOG
+```
+
+---
+
+## Navigation
+
+| Direction | Destination |
+|-----------|-------------|
+| ⬆️ Up | [Project Root](../) |
+| 📖 Quick | [QUICKSTART.md](../QUICKSTART.md) |
+| 🎭 Sibling | [skills/](../skills/) — Userland protocols |
+| 📐 Sibling | [schemas/](../schemas/) — Data formats |
+| 📜 Sibling | [designs/](../designs/) — Historical archives |
+| ⬇️ Down | [drivers/](./drivers/) — Orchestrator adapters |
+| 📋 Symbols | [PROTOCOLS.yml](../PROTOCOLS.yml) — K-line index |

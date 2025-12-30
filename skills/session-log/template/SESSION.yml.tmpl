@@ -1,0 +1,34 @@
+# Session Metadata
+
+session:
+  id: "{{session_id}}"
+  name: "{{session_name}}"
+  started: "{{timestamp}}"
+  status: "active"  # active | paused | ended
+  
+  log_file: "session-log.md"
+  
+# ═══════════════════════════════════════════════════════════════════
+# STATISTICS (updated periodically)
+# ═══════════════════════════════════════════════════════════════════
+
+stats:
+  events_logged: 1
+  tool_calls: 0
+  repairs: 0
+  last_event: "{{timestamp}}"
+  
+# ═══════════════════════════════════════════════════════════════════
+# WORKING SET SNAPSHOT
+# ═══════════════════════════════════════════════════════════════════
+
+working_set_snapshot:
+  files: []
+  token_budget: null
+  
+# ═══════════════════════════════════════════════════════════════════
+# NOTES
+# ═══════════════════════════════════════════════════════════════════
+
+notes: |
+  # Session notes can go here

@@ -287,7 +287,7 @@ hotness_factors:
 2. **Summarize** — Create summaries where appropriate
 3. **Update sidecars** — Mark files as summarized/archived
 4. **Update working set** — Remove from manifest
-5. **Log** — Record GC actions in events.jsonl
+5. **Log** — Record GC actions in session-log.md
 
 ### GC Report
 

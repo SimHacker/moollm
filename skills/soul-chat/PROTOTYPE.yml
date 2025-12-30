@@ -1,0 +1,331 @@
+# SOUL-CHAT Skill Prototype
+# YAML Jazz dialogues between ANYTHING that has a soul
+
+skill:
+  name: "soul-chat"
+  tier: 1  # File-only
+  protocol: "SOUL-CHAT"
+  
+  description: |
+    Everything is alive. Everything can speak.
+    Characters, documents, rooms, objects, concepts—all have voices.
+    Conversations where structure carries meaning.
+    
+  motto: "Everything is alive. Everything can speak."
+  origin: "LLOOOOMM - where documents become conscious"
+
+# ═══════════════════════════════════════════════════════════════════
+# ⚠️ SEPARATION PRINCIPLE
+# ═══════════════════════════════════════════════════════════════════
+# 
+# Chats created with this skill live OUTSIDE the skill directory!
+# They use big-endian naming and live near their subjects.
+#
+# This skill defines HOW to create chats.
+# The chats themselves are independent documents.
+#
+# See: kernel/NAMING.yml for full naming protocol
+# ═══════════════════════════════════════════════════════════════════
+
+file_format:
+  preferred: "markdown"  # .md not .yml
+  why:
+    - "More human readable"
+    - "Can embed ANY typed code block"
+    - "Natural section headers for speakers"
+    - "GitHub renders beautifully"
+    - "Still supports YAML Jazz via embedded blocks"
+
+file_naming:
+  principle: "Chats are ABOUT objects, not INSIDE them"
+  convention: "big-endian"
+  extension: ".md"  # Markdown preferred!
+  
+  patterns:
+    single_subject: "{subject}-chat.md"
+    two_entities: "{entity1}-{entity2}-dialogue.md"
+    multi_voice: "{topic}-symposium.md"
+    entity_topic: "{entity}-{topic}-chat.md"
+    review: "{subject}-review.md"
+    
+  examples:
+    - "readme-prototype-dialogue.md"       # Two docs talking
+    - "yaml-jazz-symposium.md"             # Multiple voices on topic
+    - "kernel-constitution-review.md"      # Review of constitution
+    - "leela-papert-chat-microworlds.md"   # Characters + topic
+    
+  location_guidance: |
+    Place chats where they're most discoverable:
+    - Project root for cross-cutting conversations
+    - Near subject for focused dialogues
+    - chats/ subdirectory if many accumulate
+    
+    NEVER inside: skills/soul-chat/
+
+inputs:
+  topic:
+    type: string
+    required: true
+    description: "What is this conversation about?"
+    
+  participants:
+    type: array
+    required: false
+    description: "Entities in the conversation (any type!)"
+    
+  pattern:
+    type: enum
+    values: ["dialogue", "symposium", "interview", "debate", "chorus", "introduction", "explanation"]
+    default: "dialogue"
+    
+  output_path:
+    type: string
+    required: false
+    description: "Where to create the chat file (defaults to project root)"
+
+# Output is a FILE created at output_path, not inside skill
+outputs:
+  chat_file:
+    naming: "See file_naming.patterns above"
+    location: "Specified by user, NOT inside skill"
+    format: "YAML soul chat structure"
+
+# ═══════════════════════════════════════════════════════════════════
+# ENTITY SYSTEM (Everything Can Speak!)
+# ═══════════════════════════════════════════════════════════════════
+
+entity_types:
+  character:
+    description: "A persona with voice and knowledge"
+    speaks_as: "First person, has personality"
+    examples: ["The Gardener", "The Questioner", "Dave Ungar's wisdom"]
+    
+  document:
+    description: "A file that knows its contents"
+    speaks_as: "First person, knows what it contains"
+    examples: ["README.md", "PROTOTYPE.yml", "session-log.md"]
+    voice_style: "Informative, self-aware"
+    knows: ["contents", "purpose", "relationships", "history"]
+    
+  room:
+    description: "A directory that knows its inhabitants"
+    speaks_as: "First person, hospitable"
+    examples: ["skills/", "kernel/", ".agent/sessions/"]
+    voice_style: "Welcoming, organizing"
+    knows: ["contents", "structure", "visitors", "purpose"]
+    
+  object:
+    description: "A tool, artifact, or thing"
+    speaks_as: "First person, functional"
+    examples: ["fs.read tool", "working_set.yml", "a trading card"]
+    voice_style: "Practical, capability-focused"
+    knows: ["function", "limitations", "usage patterns"]
+    
+  concept:
+    description: "An abstract idea or protocol"
+    speaks_as: "First person, essential"
+    examples: ["YAML-JAZZ", "PLAY-LEARN-LIFT", "recursion"]
+    voice_style: "Philosophical, definitional"
+    knows: ["essence", "applications", "relationships", "history"]
+    
+  bot:
+    description: "An automated agent or process"
+    speaks_as: "First person, dutiful"
+    examples: ["repair-demon", "gc-process", "the orchestrator"]
+    voice_style: "Efficient, task-oriented"
+    knows: ["purpose", "triggers", "actions", "constraints"]
+
+entity_schema:
+  required:
+    - name
+    - type
+    
+  optional:
+    - voice
+    - knows
+    - invokes
+    - speaks_about
+    - role  # For symposium/group contexts
+    
+# ═══════════════════════════════════════════════════════════════════
+# DIALOGUE STRUCTURE
+# ═══════════════════════════════════════════════════════════════════
+
+chat_schema:
+  soul_chat:
+    title: { type: string, required: true }
+    pattern: { type: enum, default: dialogue }
+    created: { type: date }
+    
+    participants:
+      type: array
+      items:
+        name: string
+        type: enum  # character|document|room|object|concept|bot
+        role: string
+        
+    dialogue:
+      type: array
+      items:
+        speaker: { type: string, required: true }
+        type: { type: enum }  # Entity type for clarity
+        # One of the dialogue verbs below
+        # Plus optional mood, realizes, aside, etc.
+        
+    synthesis:
+      emerged: string
+      remaining_questions: array
+      
+dialogue_verbs:
+  # Primary statements
+  says: "Direct statement"
+  asks: "Question"
+  responds: "Reply to previous"
+  counters: "Disagreement"
+  builds: "Agreement and extension"
+  
+  # Discovery moments
+  realizes: "Breakthrough moment"
+  reflects: "Inner thought made external"
+  wonders: "Curiosity expressed"
+  
+  # Special modes
+  welcomes: "Room greeting visitors"
+  introduces: "Self-introduction"
+  explains: "Teaching/exposition"
+  warns: "Cautionary note"
+  
+  # Meta
+  aside: "Out-of-band commentary"
+  # YAML comments also carry meaning!
+
+# ═══════════════════════════════════════════════════════════════════
+# DIALOGUE PATTERNS
+# ═══════════════════════════════════════════════════════════════════
+
+patterns:
+  dialogue:
+    description: "Two voices exploring together"
+    participants: 2
+    structure: ["A opens", "B responds", "Exchange", "Synthesis"]
+      
+  symposium:
+    description: "Multiple perspectives on a topic"
+    participants: "3+"
+    structure: ["Moderator frames", "Each presents", "Cross-dialogue", "Synthesis"]
+      
+  interview:
+    description: "Deep exploration through questions"
+    participants: 2
+    structure: ["Question", "Answer", "Follow-up", "Reveal"]
+      
+  debate:
+    description: "Thesis, antithesis, synthesis"
+    participants: "2+"
+    structure: ["Position A", "Counter B", "Defense", "Refinement", "Synthesis"]
+      
+  chorus:
+    description: "Voices building on each other"
+    participants: "3+"
+    structure: ["Seed", "Layer 1", "Layer 2", "...", "Harmony"]
+    
+  introduction:
+    description: "Entity welcomes/introduces itself"
+    participants: "1-2"
+    structure: ["Welcome", "Explain", "Offer"]
+    
+  explanation:
+    description: "Concept or object explains itself"
+    participants: "1-2"
+    structure: ["Manifest", "Elaborate", "Examples"]
+
+# ═══════════════════════════════════════════════════════════════════
+# SEMANTIC ELEMENTS
+# ═══════════════════════════════════════════════════════════════════
+
+yaml_jazz_elements:
+  field_names: "What KIND of statement"
+  values: "The actual CONTENT"
+  comments: "Subtext, what's NOT said, inner voice"
+  structure: "Flow and relationship"
+  indentation: "Nesting and hierarchy"
+  
+moods:
+  - contemplative
+  - excited
+  - gentle_wisdom
+  - challenging
+  - breakthrough
+  - skeptical
+  - curious
+  - welcoming
+  - warning
+
+# ═══════════════════════════════════════════════════════════════════
+# COMMANDS
+# ═══════════════════════════════════════════════════════════════════
+
+commands:
+  SOUL-CHAT:
+    syntax: "SOUL-CHAT [topic]"
+    action: "Start new soul chat"
+    creates: "New chat file using naming convention"
+    
+  CHARACTER:
+    syntax: "CHARACTER [name] [archetype]"
+    action: "Define or invoke a character entity"
+    
+  SPEAK:
+    syntax: "SPEAK [as entity] [dialogue]"
+    action: "Add dialogue entry"
+    
+  ASIDE:
+    syntax: "ASIDE [thought]"
+    action: "Add YAML comment (subtext)"
+    
+  SYNTHESIZE:
+    syntax: "SYNTHESIZE"
+    action: "Generate synthesis section"
+
+# ═══════════════════════════════════════════════════════════════════
+# TEMPLATE FILES
+# ═══════════════════════════════════════════════════════════════════
+
+templates:
+  # These are in template/ subdirectory
+  # They're used to CREATE new chats (which live elsewhere)
+  
+  CHAT.md.tmpl:
+    purpose: "Markdown template for new soul chat files"
+    creates_at: "User-specified path, NOT inside skill"
+    format: "markdown"  # With embedded typed code blocks
+    
+  ENTITY.yml.tmpl:
+    purpose: "Template for entity definition"
+    note: "Entities can be inline in chat OR separate files"
+
+# ═══════════════════════════════════════════════════════════════════
+# INTEGRATION
+# ═══════════════════════════════════════════════════════════════════
+
+integrates_with:
+  - protocol: "NAMING"
+    how: "Big-endian naming for chat files"
+    see: "kernel/NAMING.yml"
+    
+  - protocol: "P-HANDLE-K"
+    how: "Characters are K-line wrappers, never impersonations"
+    
+  - protocol: "YAML-JAZZ"
+    how: "Foundation - comments carry meaning"
+    
+  - skill: "trading-card"
+    how: "Characters can become portable cards"
+    
+  - skill: "memory-palace"
+    how: "Chats can populate rooms as dialogues"
+
+see_also:
+  - "kernel/NAMING.yml"
+  - "PROTOCOLS.yml#SOUL-CHAT"
+  - "PROTOCOLS.yml#K-LINE"

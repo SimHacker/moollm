@@ -32,8 +32,8 @@ Each driver defines:
 ```yaml
 driver:
   name: "orchestrator-name"
-  version: "0.1"
   tier: 4
+  # NO VERSIONS — the driver IS the current adapter
   
 capabilities:
   file_read: true
@@ -93,7 +93,7 @@ When a feature isn't available, drivers specify fallbacks:
 |---------|-------------|----------|
 | `why` parameter | Include in tool call | Document in response |
 | Append-only | Enforced by orchestrator | Convention only |
-| Event logging | `events.jsonl` | `session-log.md` |
+| Event logging | `session-log.md` (YAML blocks) | Markdown narrative |
 | Vector search | `search.vector` | Grep/manual scan |
 | Sandboxed exec | Isolated container | Trust-based |
 
@@ -109,6 +109,19 @@ When a feature isn't available, drivers specify fallbacks:
 
 ---
 
-**See also:**
-- `../constitution-core.md` — Universal principles
-- `../constitution-template.md` — Full template (for custom)
+---
+
+## 🗺️ Navigation
+
+| Direction | Destination |
+|-----------|-------------|
+| ⬆️ Up | [kernel/](../) |
+| ⬆️⬆️ Root | [Project Root](../../) |
+
+---
+
+## See Also
+
+- [constitution-core.md](../constitution-core.md) — Universal principles
+- [constitution-template.md](../constitution-template.md) — Full template
+- [PROTOCOLS.yml](../../PROTOCOLS.yml) — Protocol symbols

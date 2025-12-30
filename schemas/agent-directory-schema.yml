@@ -1,0 +1,181 @@
+# Agent Directory Schema
+# Canonical structure for .agent/ session state
+#
+# This is the "filesystem as RAM" — where agent state lives.
+# Everything here is inspectable, auditable, and recoverable.
+
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "moollm/agent-directory"
+title: "Agent Directory Structure"
+description: "Canonical layout for .agent/ session state"
+
+# ═══════════════════════════════════════════════════════════════════
+# DIRECTORY STRUCTURE
+# ═══════════════════════════════════════════════════════════════════
+
+structure:
+  .agent/:
+    description: "Root of all agent state. The membrane."
+    contents:
+    
+      sessions/:
+        description: "Session workspaces"
+        contents:
+          current/:
+            description: "Active session (symlink or actual)"
+            required_files:
+              - session-log.md      # Append-only audit trail
+              - working_set.yml     # What's in context
+            optional_files:
+              - hot.yml             # Keep these loaded
+              - cold.yml            # These can be evicted
+              - INSTANCE.yml        # If inside a skill instance
+            subdirs:
+              instances/:
+                description: "Active skill instances"
+                pattern: "<skill>-NNNN/"
+                contents:
+                  - INSTANCE.yml    # Instance metadata
+                  - RESULT.md       # Output (when complete)
+                  - RETURN.md       # Compact output for parent
+                  - "*.yml"         # Skill-specific state
+                  - "*.md"          # Skill-specific docs
+              rooms/:
+                description: "Active room contexts"
+                contents:
+                  - ROOM.yml
+                  - README.md
+                  - "*.yml"         # Cards in play
+          archive/:
+            description: "Completed/abandoned sessions"
+            pattern: "YYYY-MM-DD-HHMMSS/"
+            
+      skills/:
+        description: "Installed skill prototypes"
+        pattern: "<skill-name>/"
+        contents:
+          - README.md
+          - SKILL.md
+          - PROTOTYPE.yml
+          - template/
+          
+      rooms/:
+        description: "Persistent rooms (not session-scoped)"
+        pattern: "<room-name>/"
+        contents:
+          - ROOM.yml
+          - README.md
+          
+      cards/:
+        description: "Card collection (persistent)"
+        pattern: "<card-name>.yml"
+        
+      config/:
+        description: "Agent configuration"
+        contents:
+          - constitution.yml    # Agent's constitution overlay
+          - preferences.yml     # User preferences
+          - drivers/            # Loaded driver configs
+
+# ═══════════════════════════════════════════════════════════════════
+# FILE SPECIFICATIONS
+# ═══════════════════════════════════════════════════════════════════
+
+files:
+
+  session-log.md:
+    mode: APPEND-ONLY
+    format: markdown
+    description: |
+      Human-readable audit trail with embedded YAML blocks.
+      Every tool call, result, repair, and model output logged.
+    example: |
+      ## 12:00:05 — Tool Call: fs.read
+      
+      Reading parser to check expression handling.
+      
+      ```yaml
+      type: tool_call
+      tool: fs.read
+      args:
+        path: src/parser.ts
+        why: "Check recursive descent"
+      ```
+      
+  working_set.yml:
+    mode: READ/WRITE
+    format: yaml
+    schema: "moollm/working-set"
+    description: "Manifest of files currently in context"
+    
+  hot.yml:
+    mode: READ/WRITE
+    format: yaml
+    description: "Advisory: keep these files loaded"
+    example: |
+      keep:
+        - path: "current_task.md"
+          why: "Active work in progress"
+          
+  cold.yml:
+    mode: READ/WRITE
+    format: yaml
+    description: "Advisory: these can be evicted"
+    example: |
+      evict:
+        - path: "old_log.txt"
+          why: "Superseded by newer output"
+          suggested_action: "summarize_then_evict"
+          
+  INSTANCE.yml:
+    mode: READ/WRITE
+    format: yaml
+    description: "Skill instance metadata"
+    fields:
+      instance_id: "Unique identifier"
+      prototype:
+        name: "Skill name"
+        path: "Path to prototype"
+      created: "ISO timestamp"
+      status: "active | finalized | abandoned | archived"
+      parent_instance: "Path to parent if nested"
+      
+  ROOM.yml:
+    mode: READ/WRITE
+    format: yaml
+    schema: "moollm/room"
+    description: "Room definition and state"
+
+# ═══════════════════════════════════════════════════════════════════
+# INVARIANTS
+# ═══════════════════════════════════════════════════════════════════
+
+invariants:
+  - "session-log.md is APPEND-ONLY"
+  - "All state inside .agent/ (membrane)"
+  - "No hidden state outside filesystem"
+  - "Missing files trigger repair, not crash"
+  - "Corrupted files renamed to .corrupted, fresh created"
+
+# ═══════════════════════════════════════════════════════════════════
+# BOOTSTRAP
+# ═══════════════════════════════════════════════════════════════════
+
+bootstrap:
+  description: "When .agent/ doesn't exist, create minimal structure"
+  create:
+    - ".agent/sessions/current/"
+    - ".agent/sessions/current/session-log.md"
+    - ".agent/sessions/current/working_set.yml"
+  log: |
+    ## Session Start — Bootstrap
+    
+    Created minimal .agent/ structure.
+    
+    ```yaml
+    type: bootstrap
+    created:
+      - .agent/sessions/current/
+      - .agent/sessions/current/session-log.md
+      - .agent/sessions/current/working_set.yml
+    ```

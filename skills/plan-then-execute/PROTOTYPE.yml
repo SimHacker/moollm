@@ -1,0 +1,204 @@
+# Plan-Then-Execute Skill Prototype
+# Frozen plans with control-flow integrity
+
+skill:
+  name: "plan-then-execute"
+  tier: 2
+  description: "Execute frozen plans with human approval gate"
+  security_model: "Isolates planner from tool outputs to prevent prompt injection"
+
+inputs:
+  task:
+    type: string
+    required: true
+    description: "What to accomplish"
+    
+  available_tools:
+    type: list
+    required: true
+    description: "Tools the plan may use"
+    items:
+      name: string
+      description: string
+      params_schema: object
+      
+  auto_approve:
+    type: boolean
+    required: false
+    default: false
+    description: "Skip human approval (use with caution)"
+    
+  max_actions:
+    type: integer
+    required: false
+    default: 20
+    description: "Maximum actions in plan"
+
+outputs:
+  plan_file:
+    type: path
+    description: "Path to PLAN.yml"
+    
+  execution_log:
+    type: path
+    description: "Path to EXECUTION_LOG.md"
+    
+  status:
+    type: enum
+    values: ["pending_approval", "approved", "rejected", "executing", "completed", "failed", "aborted"]
+    
+  results:
+    type: object
+    description: "Final outputs from execution"
+
+working_set:
+  hot:
+    - "PLAN.yml"
+    - "EXECUTION_LOG.md"
+
+plan_states:
+  pending_approval:
+    description: "Plan created, awaiting human review"
+    can_transition_to: ["approved", "rejected"]
+    
+  approved:
+    description: "Human approved, ready for execution"
+    can_transition_to: ["executing"]
+    
+  rejected:
+    description: "Human rejected, will not execute"
+    can_transition_to: []
+    
+  executing:
+    description: "Currently running actions"
+    can_transition_to: ["completed", "failed", "aborted"]
+    
+  completed:
+    description: "All actions succeeded"
+    can_transition_to: []
+    
+  failed:
+    description: "Action failed, execution stopped"
+    can_transition_to: []
+    
+  aborted:
+    description: "Human or system stopped execution"
+    can_transition_to: []
+
+action_schema:
+  id:
+    type: integer
+    description: "Sequential identifier"
+    
+  tool:
+    type: string
+    description: "Tool to invoke (must be in available_tools)"
+    
+  why:
+    type: string
+    description: "Intent explanation for audit"
+    
+  params:
+    type: object
+    description: "Tool parameters (static or dynamic)"
+    
+  outputs:
+    type: list
+    description: "Outputs to capture"
+    items:
+      name: string
+      path: string  # JSONPath
+      
+  on_failure:
+    type: enum
+    values: ["stop", "skip", "retry"]
+    default: "stop"
+
+dynamic_resolution:
+  syntax: "${path.to.value}"
+  sources:
+    - "actions[N].outputs.X"   # Output X from action N
+    - "actions[N].result"      # Full result from action N
+    - "plan.*"                 # Plan metadata
+    - "approval.*"             # Approval metadata
+
+phases:
+  plan:
+    steps:
+      - "Receive task description"
+      - "Enumerate available tools"
+      - "Decompose task into ordered actions"
+      - "Declare tool, params, outputs for each"
+      - "Write PLAN.yml with status pending_approval"
+    constraints:
+      - "LLM does NOT see tool outputs"
+      - "Action sequence is frozen"
+      - "All tools must be in available_tools"
+      
+  approve:
+    steps:
+      - "Human reviews PLAN.yml"
+      - "Approve, reject, or modify"
+      - "Record approval metadata"
+    constraints:
+      - "Required unless auto_approve=true"
+      - "Modifications reset approval"
+      
+  execute:
+    steps:
+      - "Verify plan is approved"
+      - "For each action in sequence:"
+      - "  Resolve dynamic parameters"
+      - "  Execute tool"
+      - "  Log result"
+      - "  Capture outputs"
+      - "Mark completed or failed"
+    constraints:
+      - "Cannot add/remove/reorder actions"
+      - "Tool outputs cannot change action sequence"
+      - "Dynamic params only affect values, not tool selection"
+
+invariants:
+  - "Plan is immutable after approval"
+  - "Execution follows exact sequence"
+  - "All actions logged with results"
+  - "No replanning during execution"
+  - "Tool outputs isolated from planner"
+
+pda_integration:
+  strategy: "plan-execute"
+  reasoning: "structured-planner-v1"
+  human_gate: "human-coordinator-v1"
+  dsl_pattern: "observe-plan-execute"
+
+conventions:
+  action_ids:
+    - "Sequential integers starting at 1"
+    - "Never reuse IDs"
+  params:
+    - "Prefer static over dynamic"
+    - "Document all ${...} references"
+  outputs:
+    - "Capture only what downstream needs"
+    - "Use JSONPath for extraction"
+  why:
+    - "Required for every action"
+    - "Explains intent for audit"
+
+lifecycle:
+  create:
+    - "Define task"
+    - "List available tools"
+    - "Generate frozen plan"
+    - "Await approval"
+    
+  approve:
+    - "Human reviews"
+    - "Approve/reject/modify"
+    - "Record decision"
+    
+  execute:
+    - "Run actions in order"
+    - "Log everything"
+    - "Capture outputs"
+    - "Mark complete"

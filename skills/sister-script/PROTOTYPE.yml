@@ -1,0 +1,86 @@
+# SISTER-SCRIPT Skill Prototype
+# Document-first automation
+
+skill:
+  name: "sister-script"
+  tier: 2  # Read + Execute (to run generated scripts)
+  protocol: "SISTER-SCRIPT"
+  
+  description: |
+    Automate proven procedures while keeping the document as source of truth.
+    Script and document evolve bidirectionally.
+    
+  motto: "The document is the source of truth. Scripts are its children."
+
+inputs:
+  procedure_name:
+    type: string
+    required: true
+    description: "Name of the procedure to automate"
+    
+  target_language:
+    type: string
+    required: false
+    default: "python"
+    description: "Language for the sister script"
+    
+  source_document:
+    type: path
+    required: false
+    description: "Path to existing procedure document"
+
+outputs:
+  manifest: "SISTER.yml"
+  procedure: "PROCEDURE.md"
+  script: "SISTER.{{language}}"
+  sync_log: "SYNC_LOG.md"
+
+phases:
+  DOCUMENT:
+    description: "Document the procedure first"
+    actions:
+      - "Describe goal in natural language"
+      - "Add manual commands"
+      - "Test and refine"
+      - "Document edge cases"
+      
+  GENERATE:
+    description: "Create sister script"
+    actions:
+      - "Identify automation candidates"
+      - "Generate script with doc references"
+      - "Include source comments"
+      - "Test against documented cases"
+      
+  SYNC:
+    description: "Keep in sync"
+    actions:
+      - "Check alignment on each use"
+      - "Propagate doc changes to script"
+      - "Propagate script insights to doc"
+
+commands:
+  PROCEDURE:
+    syntax: "PROCEDURE [name]"
+    action: "Start documenting a procedure"
+    
+  SISTER:
+    syntax: "SISTER [language]"
+    action: "Generate sister script from procedure"
+    
+  SYNC:
+    syntax: "SYNC"
+    action: "Check and fix alignment"
+
+working_set:
+  always_include:
+    - "SISTER.yml"
+    - "PROCEDURE.md"
+    - "SISTER.*"
+
+integrates_with:
+  - skill: "play-learn-lift"
+    how: "Sister scripts are LIFT output"
+    
+  - skill: "plan-then-execute"
+    how: "Scripts become plan steps"

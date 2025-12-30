@@ -1,0 +1,107 @@
+# SESSION-LOG Skill Prototype
+# Structured logging for audit and debugging
+
+skill:
+  name: "session-log"
+  tier: 1  # File-only
+  protocol: "SESSION-LOG"
+  
+  description: |
+    Maintain append-only session logs in human-readable Markdown
+    with embedded YAML blocks.
+    
+  motto: "Every action leaves a trace."
+
+inputs:
+  session_name:
+    type: string
+    required: false
+    description: "Optional session identifier"
+
+outputs:
+  log_file: "session-log.md"
+  session_meta: "SESSION.yml"
+
+format:
+  structure: "Markdown with embedded YAML code blocks"
+  
+  entry_template: |
+    ## [timestamp] — [event_type]: [summary]
+    
+    [human-readable description]
+    
+    ```yaml
+    type: [event_type]
+    [structured data]
+    ```
+    
+  why: |
+    - Human-readable: Can review logs directly
+    - Appendable: Natural append-only structure
+    - Embedded YAML: Structured data when needed
+    - YAML comments: Semantic annotations (YAML-JAZZ)
+    - Tool-friendly: grep, search, parse
+
+event_types:
+  session:
+    - session_start
+    - session_end
+    
+  tool:
+    - tool_call
+    - tool_result
+    - tool_error
+    
+  model:
+    - model_input
+    - model_output
+    
+  memory:
+    - context_assembly
+    - gc_run
+    
+  repair:
+    - repair_action
+
+append_only:
+  rules:
+    - "NEVER modify past entries"
+    - "NEVER delete entries"
+    - "Only append new events"
+    
+  corruption_recovery:
+    - "Backup corrupted file"
+    - "Create fresh log"
+    - "Log recovery event"
+
+commands:
+  LOG:
+    syntax: "LOG [event_type] [details]"
+    action: "Append event to session log"
+    
+  REPLAY:
+    syntax: "REPLAY [from_time] [to_time]"
+    action: "Show log segment"
+    
+  SEARCH:
+    syntax: "SEARCH [pattern]"
+    action: "Find in log"
+    
+  STATS:
+    syntax: "STATS"
+    action: "Show session statistics"
+
+working_set:
+  always_include:
+    - "session-log.md"
+    - "SESSION.yml"
+
+integrates_with:
+  - skill: "self-repair"
+    how: "Logs all repairs"
+    
+  - skill: "plan-then-execute"
+    how: "Logs plan execution"
+    
+  - skill: "summarize"
+    how: "Logs can be summarized"

@@ -1,0 +1,39 @@
+# Summary Index
+# Tracks all summaries and their sources
+
+index:
+  created: "{{timestamp}}"
+  last_gc: "{{timestamp}}"
+
+# ═══════════════════════════════════════════════════════════════════
+# ACTIVE SUMMARIES
+# ═══════════════════════════════════════════════════════════════════
+
+summaries:
+  # - source: "path/to/original.md"
+  #   summary: "summaries/original.summary.md"
+  #   level: "WORKING"
+  #   created: "timestamp"
+  #   source_modified: "timestamp"
+  #   stale: false
+
+# ═══════════════════════════════════════════════════════════════════
+# COMPRESSION STATS
+# ═══════════════════════════════════════════════════════════════════
+
+stats:
+  total_summaries: 0
+  tokens_saved: 0
+  by_level:
+    WORKING: 0
+    REFERENCE: 0
+    POINTER: 0
+
+# ═══════════════════════════════════════════════════════════════════
+# GC POLICY
+# ═══════════════════════════════════════════════════════════════════
+
+gc_policy:
+  stale_after: "7d"  # Mark stale if source changed
+  delete_stale_after: "30d"
+  keep_wisdom: true  # Never GC WISDOM summaries

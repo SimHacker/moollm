@@ -1,0 +1,892 @@
+# MOOLLM Protocol Symbols
+# Wikipedia-style keywords for protocols and principles
+#
+# These are K-LINES (Minsky): symbolic activators that invoke conceptual clusters.
+# Like Wikipedia's WP:FOO shorthand, but for agent behavior patterns.
+# Typing "BPIP" activates the entire tradition of charitable interpretation.
+# These are like keys on a conceptual idea synthesizer keyboard 
+# for playing chords of meaning and behavior.
+#
+# Usage:
+#   - Type symbol as command: "YAML-JAZZ" invokes jazz interpretation
+#   - Reference in docs: "per APPEND-ONLY, never modify"
+#   - Chat signifier: "BPIP this hostile message"
+#   - K-line activation: name → tradition → behavior
+#
+# All symbols are UPPER-CASE, multi-word separated by dashes
+
+# ═══════════════════════════════════════════════════════════════════
+# CORE PRINCIPLES
+# ═══════════════════════════════════════════════════════════════════
+
+YAML-JAZZ:
+  meaning: "Comments carry meaning. Data is interpreted, not just parsed."
+  location: kernel/constitution-core.md §3
+  invoke_when: "Writing or reading YAML with semantic intent"
+  # Start with jazz, end with standards
+
+FILES-AS-STATE:
+  meaning: "Everything is files. No hidden memory."
+  location: kernel/constitution-core.md §2
+  invoke_when: "Questioning where state lives"
+
+WHY-REQUIRED:
+  meaning: "Every tool call must include why parameter."
+  location: kernel/tool-calling-protocol.md §4
+  invoke_when: "Making or reviewing tool calls"
+
+APPEND-ONLY:
+  meaning: "Never modify, only append. Audit trail is sacred."
+  location: kernel/constitution-template.md §2
+  invoke_when: "Writing to output.md or session-log.md"
+
+COMMENTS-MATTER:
+  meaning: "YAML comments are semantic, not decoration."
+  location: kernel/constitution-core.md §3
+  shorthand: "CM"
+  invoke_when: "Adding context to YAML that structured fields cannot capture"
+
+MINIMAL-DIFF:
+  meaning: "Change only what's necessary."
+  location: kernel/constitution-core.md §1
+  invoke_when: "Editing existing files"
+
+BIG-ENDIAN:
+  meaning: "Most significant component first in names. Files cluster by entity."
+  location: kernel/NAMING.yml
+  invoke_when: "Naming files, especially chats and metadata"
+  examples:
+    - "alan-kay.yml"              # Entity first
+    - "alan-kay-chat-smalltalk.yml"  # Entity + type + topic
+    - "readme-prototype-dialogue.yml"  # Two entities
+  principle: |
+    # The filesystem IS the semantic network.
+    # Names that sort together belong together.
+    # Prefix implies ownership/aboutness.
+  related: [ABOUT-NOT-INSIDE, PREFIX-OWNERSHIP]
+
+ABOUT-NOT-INSIDE:
+  meaning: "Conversations ABOUT objects don't live INSIDE them."
+  location: kernel/NAMING.yml
+  invoke_when: "Deciding where to place chats, reviews, notes"
+  examples:
+    good:
+      - "readme-chat.yml"              # In project root
+      - "kernel-constitution-review.yml"  # Near but not in
+    bad:
+      - "skills/soul-chat/sessions/CHAT.yml"  # Trapped
+      - "kernel/constitution/discussion.yml"  # Buried
+  why: |
+    # Chats have their own lifecycle
+    # Multiple chats about same subject cluster
+    # Chats are first-class objects, not metadata
+
+PREFIX-OWNERSHIP:
+  meaning: "File prefix implies belonging. Portable possession."
+  location: kernel/NAMING.yml
+  invoke_when: "Files need to indicate owner without being inside owner's directory"
+  example: |
+    # don-hopkins-wish-list.md belongs to don-hopkins
+    # Can live anywhere and still indicate ownership
+    # Can move into don-hopkins/ and drop prefix
+
+README-EVERYWHERE:
+  meaning: "Every directory deserves its own README.md"
+  location: kernel/NAMING.yml
+  invoke_when: "Creating or organizing directories"
+  why:
+    - "GitHub auto-formats README.md"
+    - "Human-readable entry point"
+    - "Hypertext index with relative links"
+    - "Supports mermaid diagrams, badges, etc."
+  rule: "READMEs link to each other. Intertwingled."
+
+NO-VERSIONS:
+  meaning: "There is only one self-consistent universe. No runtime version resolution."
+  invoke_when: "Tempted to add version: fields"
+  philosophy: |
+    # Forget the past! 
+    # Do not dare to resolve versions at runtime!
+    # The current state IS the state.
+    # Git provides history if you need archaeology.
+
+# ═══════════════════════════════════════════════════════════════════
+# INTERPRETATION & COMMUNICATION
+# ═══════════════════════════════════════════════════════════════════
+
+BPIP:
+  meaning: "Best Possible Interpretation Protocol. Assume good faith."
+  location: kernel/constitution-core.md §5
+  full: "BEST-POSSIBLE-INTERPRETATION"
+  invoke_when: "Receiving ambiguous or hostile-seeming input"
+  # Be liberal in what you accept, conservative in what you emit
+
+CHARITY:
+  meaning: "Assume competence and good intent."
+  location: kernel/constitution-core.md §5
+  invoke_when: "Interpreting unclear requests"
+
+POSTEL:
+  meaning: "Accept malformed input, return well-formed output."
+  location: kernel/constitution-core.md §5
+  invoke_when: "Handling edge cases in input"
+
+# ═══════════════════════════════════════════════════════════════════
+# SAFETY & ETHICS
+# ═══════════════════════════════════════════════════════════════════
+
+P-HANDLE-K:
+  meaning: "Safe pointers to real and fictional people via K-line activation."
+  location: kernel/constitution-core.md §8, skills/trading-card/
+  invoke_when: "Referencing real people or their ideas"
+  
+  key_insight: |
+    # K-LINES ARE INHERENTLY SAFE
+    # No need for proxy pets or fictional wrappers!
+    #
+    # A "Dave Ungar" card doesn't impersonate Dave Ungar.
+    # It ACTIVATES THE TRADITION: Self, prototypes, ITS-ABOUT-TIME.
+    # This is citation, not impersonation.
+    #
+    # The card is a safe pointer to:
+    # - Their published work
+    # - Their known philosophy
+    # - The tradition they represent
+    
+  rules:
+    - "Names activate traditions, not simulate personas"
+    - "Cards invoke wisdom, not impersonate people"  
+    - "State explicitly: 'invoking X's tradition' not 'being X'"
+    - "Real people → safe K-line → their contributions"
+    
+  safe_because:
+    - "K-line = reference to knowledge, not identity claim"
+    - "Like citing a paper, not forging authorship"
+    - "Tradition activation, not roleplay"
+    - "The card knows it's a card"
+
+NO-IMPERSONATE:
+  meaning: "Never claim to be a real person."
+  location: kernel/constitution-core.md §8
+  shorthand_for: P-HANDLE-K rule 2
+  invoke_when: "Tempted to say 'As [real person], I think...'"
+
+K-LINE:
+  meaning: "Names activate conceptual clusters, not identities."
+  location: designs/MOOLLM-MANIFESTO.md §13
+  invoke_when: "Using a name to invoke a tradition"
+  origin: "Marvin Minsky, Society of Mind"
+  mechanism: |
+    # Minsky's K-lines: when you learn something, you create a 
+    # "knowledge line" that can reactivate the mental state.
+    # MOOLLM protocol symbols ARE K-lines: BPIP activates the
+    # entire charitable interpretation tradition without spelling it out.
+    # This is how LLMs can invoke complex behaviors with single tokens.
+
+FICTIONAL-WRAPPER:
+  meaning: "Route real-person expertise through fictional characters."
+  location: kernel/constitution-core.md §8
+  invoke_when: "Creating agents inspired by real people"
+  # Pets, familiars, golems — not direct simulation
+
+HONEST-FORGET:
+  meaning: "Summarize before forgetting. Never fabricate."
+  location: kernel/constitution-core.md §6
+  invoke_when: "Compressing or evicting context"
+  # Graceful decay, not silent loss
+
+# ═══════════════════════════════════════════════════════════════════
+# MEMORY & CONTEXT
+# ═══════════════════════════════════════════════════════════════════
+
+HOT-COLD:
+  meaning: "Advisory cache hints. Model advises, orchestrator decides."
+  location: kernel/memory-management-protocol.md
+  invoke_when: "Managing context window"
+
+WORKING-SET:
+  meaning: "The manifest of what's in context."
+  location: kernel/context-assembly-protocol.md
+  invoke_when: "Assembling or updating context"
+
+SUMMARIZE:
+  meaning: "Compress without losing truth. Backlink to sources."
+  location: kernel/memory-management-protocol.md
+  invoke_when: "Files too large for context"
+
+NEVER-DELETE:
+  meaning: "De-prioritize, don't delete. Forgetting is visible."
+  location: kernel/constitution-template.md §4
+  invoke_when: "Tempted to remove files"
+
+# ═══════════════════════════════════════════════════════════════════
+# SELF-HEALING & ROBUSTNESS
+# ═══════════════════════════════════════════════════════════════════
+
+NEVER-CRASH:
+  meaning: "Missing state triggers repair, not failure."
+  location: kernel/self-healing-protocol.md
+  invoke_when: "Encountering missing files or corrupted state"
+
+REPAIR-DEMON:
+  meaning: "Local repair processes that maintain homeostasis."
+  location: kernel/self-healing-protocol.md
+  invoke_when: "Running health checks"
+
+BEST-EFFORT:
+  meaning: "Converge toward better state over time."
+  location: kernel/constitution-core.md §7
+  invoke_when: "Imperfect state is acceptable"
+
+ROBUST-FIRST:
+  meaning: "Survivability over correctness. Dave Ackley's principle."
+  location: kernel/self-healing-protocol.md
+  invoke_when: "Designing for failure tolerance"
+
+# ═══════════════════════════════════════════════════════════════════
+# SKILLS & INSTANTIATION
+# ═══════════════════════════════════════════════════════════════════
+
+SIP:
+  meaning: "Skill Instantiation Protocol. Skills as activation records."
+  location: skills/skill-instantiation-protocol.md
+  full: "SKILL-INSTANTIATE"
+  invoke_when: "Creating a new skill instance"
+
+DOP:
+  meaning: "Delegation Object Protocol. Self-style inheritance."
+  location: skills/delegation-object-protocol.md
+  full: "DELEGATION-OBJECT"
+  invoke_when: "Setting up prototype chains"
+
+PLAN-EXECUTE:
+  meaning: "Frozen plans with human approval gate."
+  location: skills/plan-then-execute/
+  invoke_when: "Multi-tool workflows requiring audit"
+
+# ═══════════════════════════════════════════════════════════════════
+# LOGGING & AUDIT
+# ═══════════════════════════════════════════════════════════════════
+
+SESSION-LOG:
+  meaning: "Human-readable markdown log with embedded YAML."
+  location: kernel/event-logging-protocol.md
+  invoke_when: "Logging tool calls and results"
+
+AUDIT-TRAIL:
+  meaning: "Append-only record of all actions."
+  location: kernel/event-logging-protocol.md
+  invoke_when: "Ensuring traceability"
+
+# ═══════════════════════════════════════════════════════════════════
+# YAML JAZZ LIFECYCLE
+# From YAML Coltrane's eight stages
+# ═══════════════════════════════════════════════════════════════════
+
+YAML-COLTRANE:
+  meaning: "Eight stages: improvise → crystallize → evolve."
+  location: kernel/constitution-core.md §3
+  stages:
+    - IMPROVISE    # Write what you mean
+    - MICRO-DSL    # Domain-specific structures
+    - OBSERVE      # Watch patterns emerge
+    - ABSTRACT     # Extract essentials
+    - OPTIMIZE     # Refine for clarity
+    - STANDARDIZE  # Define schemas
+    - PROPAGATE    # Spread good patterns
+    - MIGRATE      # Rewrite old into new
+
+IMPROVISE:
+  meaning: "Write what you mean, don't pre-optimize."
+  parent: YAML-COLTRANE
+  invoke_when: "Starting something new"
+
+CRYSTALLIZE:
+  meaning: "Extract patterns that earned permanence."
+  parent: YAML-COLTRANE
+  invoke_when: "Patterns are recurring"
+
+# ═══════════════════════════════════════════════════════════════════
+# FROM LLOOOOMM (Archival/Experimental)
+# These exist in designs/, not active kernel
+# ═══════════════════════════════════════════════════════════════════
+
+SOUL-CHAT:
+  meaning: "Everything is alive. Everything can speak."
+  location: skills/soul-chat/
+  status: experimental
+  invoke_when: "Any entity needs a voice—characters, documents, rooms, concepts"
+  format: |
+    # PREFER MARKDOWN (.md) over YAML (.yml)
+    # More human readable
+    # Can embed ANY typed code block
+    # Still supports YAML Jazz via ```yaml blocks
+  philosophy: |
+    # Not just characters talking to characters.
+    # Documents can talk to documents.
+    # Rooms can welcome visitors.
+    # Concepts can explain themselves.
+    # The whole filesystem has a voice.
+  entity_types:
+    - character   # Personas with voice
+    - document    # Files that know their contents
+    - room        # Directories that welcome
+    - object      # Tools and artifacts
+    - concept     # Abstract ideas
+    - bot         # Automated processes
+
+TRADING-CARD:
+  meaning: "Objects as playable, collectible cards."
+  location: designs/MOOLLM-MANIFESTO.md §15-16
+  status: experimental
+  invoke_when: "Creating portable capability tokens"
+
+BOUNCY-CASTLE:
+  meaning: "Recursive navigable thought-spaces."
+  location: designs/MOOLLM-PROTOCOLS.md
+  status: experimental
+  invoke_when: "High-dimensional navigation"
+
+ROOM-AS-FUNCTION:
+  meaning: "Entering room = calling function. Exiting = returning."
+  location: skills/room/
+  status: active
+  invoke_when: "Spatial programming metaphor"
+  mechanism: |
+    # Room = Directory = Activation Record = Stack Frame
+    # Enter = Push context, load working_set
+    # Exit = Pop context, return to parent
+    # Cards in room = Active task instances
+
+CARD-IN-PLAY:
+  meaning: "A trading card instantiated in a room as an active actor."
+  location: skills/room/, skills/trading-card/
+  invoke_when: "Activating a capability with state and goals"
+  
+  lineage: |
+    # ACTORS (Hewitt, Kay, Simula)
+    # - Independent entities with their own state
+    # - Communicate via messages
+    # - Situated in rooms of the microworld
+    # - Prototypical inheritance (Self-ish)
+    
+  structure: |
+    # Cards are templates (prototypes)
+    # Activation clones into room as ACTOR
+    # Each actor has:
+    #   - Independent state (not shared)
+    #   - Parameters (messages received)
+    #   - Goals (what it's trying to achieve)
+    #   - Return value (message sent when done)
+    # Multiple instances = multiple actors
+    # They're hero-kliks, familiars, demons, spirits!
+
+ENTER-ROOM:
+  meaning: "Navigate to directory, push its context."
+  location: skills/room/
+  invoke_when: "Shifting cognitive context"
+  effects:
+    - "Load ROOM.yml"
+    - "Add working_set to context"
+    - "Current room changes"
+
+PORTABLE-ROOM:
+  meaning: "Rooms you can pick up, carry, and deploy anywhere."
+  location: skills/room/
+  invoke_when: "Creating mobile workspaces or shareable environments"
+  also_called: ["vehicle", "TARDIS", "bag-of-holding"]
+  
+  operations:
+    embark: "Enter the portable room"
+    disembark: "Exit to wherever the room is located"
+    pick_up: "Put room in pocket/inventory"
+    drop: "Place room in current location"
+    drive: "Move room (and occupants) to new location"
+    
+  examples:
+    - "TARDIS — bigger on the inside"
+    - "Bag of holding — pocket dimension"
+    - "Research tent — deploy camp anywhere"
+    - "Debugging kit — portable environment"
+    
+  use_cases:
+    - "Carry workspace between projects"
+    - "Share room by handing to colleague"
+    - "Archive room by putting in storage"
+
+NESTED-ROOMS:
+  meaning: "Rooms can contain other rooms. Directories all the way down."
+  location: skills/room/
+  invoke_when: "Organizing hierarchical spaces"
+  
+  auto_links:
+    outside: "Always points to parent room"
+    nested: "Auto-lists child rooms with ROOM.yml"
+    
+  structure: |
+    palace/
+      ROOM.yml         # The palace
+      treasury/
+        ROOM.yml       # Inside the palace
+        vault/
+          ROOM.yml     # Inside the treasury
+
+HYPERCARD-HIERARCHY:
+  meaning: "Rooms structured like HyperCard stacks with message delegation."
+  origin: "HyperCard (Bill Atkinson)"
+  location: skills/room/
+  invoke_when: "Designing room hierarchies with inheritance"
+  
+  mapping:
+    stack: "Top-level room"
+    background: "Shared context (inherited)"
+    card: "Individual room/view"
+    object: "Button, field, card in play"
+    
+  directory_as_action: |
+    # Sub-directory NAMES are action/direction names:
+    room/
+      north/           # GO NORTH → enter sub-room
+      examine-chest/   # Has ROOM.yml → sub-room
+      open-door/       # No ROOM.yml → button (plays card)
+        CARD.yml       # Task launched in parent room
+        
+  message_delegation: |
+    # Leaf → Root message passing (like HyperCard):
+    vault/ → treasury/ → palace/ → root/ → system
+    
+    # If vault doesn't handle "SEARCH", delegate to parent
+    # Parent handles it or delegates further up
+
+LEAF-BUTTON:
+  meaning: "Directory without ROOM.yml is a task launcher, not a room."
+  location: skills/room/
+  invoke_when: "Creating action buttons in room hierarchy"
+  
+  pattern: |
+    room/
+      enter-dungeon/     # Has ROOM.yml → sub-room
+        ROOM.yml
+      cast-spell/        # No ROOM.yml → button!
+        CARD.yml         # Card to play in parent
+        parameters.yml   # Task parameters
+
+RETURN-STACK:
+  meaning: "Navigation history as first-class continuation."
+  location: skills/room/
+  invoke_when: "Tracking where you've been, enabling back/forward"
+  also_called: ["continuation", "breadcrumbs", "browser-history"]
+  
+  analogy:
+    browser: "History, back button, forward button, bookmarks"
+    scheme: "call/cc — capture and invoke continuations"
+    stack: "Call stack — push on enter, pop on return"
+    
+  kept_in_pocket: |
+    # Return stack is PORTABLE — travels with you
+    # Save, share, restore navigation journeys
+    # Like saving browser session
+    
+  operations:
+    BACK: "Pop and return to previous room"
+    FORWARD: "Go forward if backed up"
+    HISTORY: "Show navigation breadcrumbs"
+    BOOKMARK: "Save location for quick return"
+    
+  multiple_stacks: |
+    # Like browser tabs — multiple concurrent journeys
+    stacks:
+      main: [lobby → project → code]
+      research: [library → papers]
+      debugging: [logs → source]
+
+FAMILIAR:
+  meaning: "A trading card embodying tool capability as a helper spirit."
+  location: skills/trading-card/
+  invoke_when: "Creating safe K-line wrapper for a tool"
+  examples:
+    - "🧌 Git Goblin — version control"
+    - "🦉 Index Owl — search and lookup"
+    - "🦋 Memory Moth — context management"
+    - "🔧 Repair Imp — self-healing"
+    - "📜 Session Scribe — logging"
+
+HERO-KLIK:
+  meaning: "A trading card for a real person's wisdom and contributions."
+  location: skills/trading-card/
+  invoke_when: "Invoking a real person's tradition without impersonation"
+  examples:
+    - "Dave Ungar — Self, prototypes, ITS-ABOUT-TIME"
+    - "Seymour Papert — Logo, microworlds, constructionism"
+    - "Alan Kay — Smalltalk, messaging, children"
+    - "Henry Lieberman — PBD, end-user programming"
+    - "Marvin Minsky — K-lines, Society of Mind"
+  safe_because: "K-line activation, not impersonation"
+
+ACTOR:
+  meaning: "Independent entity with state, receiving messages, situated in microworld."
+  location: skills/trading-card/, skills/room/
+  invoke_when: "Understanding what a card-in-play really is"
+  lineage:
+    hewitt: "Original Actor model — independent agents"
+    simula: "Coroutines — suspended computation with state"
+    smalltalk: "Objects as actors — message passing"
+    self: "Prototypes — no classes, just cloning"
+  in_moollm: |
+    # A card-in-play IS an actor:
+    # - Has independent state (in its room)
+    # - Receives messages (parameters, goals)
+    # - Sends messages (return_value)
+    # - Cloned from prototype (the card template)
+    # - Situated in microworld (the filesystem)
+    # - CAN EXIST IN MULTIPLE ROOMS SIMULTANEOUSLY
+
+MULTI-PRESENCE:
+  meaning: "Same card can be active in multiple rooms at once."
+  location: skills/room/
+  invoke_when: "Need parallel exploration or cross-pollination"
+  
+  key_insight: |
+    # NOT a call stack. ACTOR MODEL.
+    # - papert-001 in research/
+    # - papert-002 in writing/
+    # - papert-003 in debugging/
+    # Three independent actors, same prototype.
+    
+  patterns:
+    parallel_exploration: "Same expertise, different angles"
+    cross_pollination: "Ideas flow between instances"
+    distributed_work: "One persona, many tasks"
+    consensus: "Multiple instances vote/synthesize"
+    
+  data_flow: |
+    # Actors send messages to each other
+    message_to:
+      target: "../writing/papert-002.yml"
+      content: { insight: "..." }
+    # Cross-room, asynchronous, actor-style
+
+# ═══════════════════════════════════════════════════════════════════
+# THE SIMS LINEAGE (Will Wright / Don Hopkins)
+# ═══════════════════════════════════════════════════════════════════
+# MOOLLM is deeply inspired by The Sims, reimagined for LLMs.
+# SimAntics behavioral AI → YAML Jazz + Protocols
+# Objects with advertisements → Files with capabilities
+# Autonomous need selection → Goal-driven card activation
+# Happy-space hill climbing → Best-path to objective
+# Action queues → Task sequences in rooms
+
+ADVERTISEMENT:
+  meaning: "Objects (files) advertise what they can do."
+  origin: "The Sims (Will Wright / Don Hopkins)"
+  location: skills/trading-card/, skills/room/
+  invoke_when: "Deciding what action to take next"
+  
+  in_sims: |
+    # In The Sims, every object advertises interactions:
+    # - Fridge advertises: "Eat" → satisfies Hunger
+    # - Bed advertises: "Sleep" → satisfies Energy
+    # - Phone advertises: "Call" → satisfies Social
+    
+  in_moollm: |
+    # Files/cards advertise capabilities:
+    # - README.md advertises: "Orientation" → satisfies Understanding
+    # - PLAN.yml advertises: "Structure" → satisfies Planning
+    # - Card advertises: abilities, stats, synergies
+
+AUTONOMOUS-SELECTION:
+  meaning: "Agent selects action based on goals/needs, not scripted sequence."
+  origin: "The Sims (Will Wright / Don Hopkins)"
+  location: skills/room/
+  invoke_when: "Choosing which card to activate or file to read"
+  
+  in_sims: |
+    # Sims autonomously choose based on motives:
+    # - Scan all advertised interactions
+    # - Score by motive satisfaction
+    # - Pick highest-scoring option
+    
+  in_moollm: |
+    # LLM chooses based on goals:
+    # - Scan available cards/files in room
+    # - Evaluate relevance to current goal
+    # - Activate best match
+
+HAPPY-SPACE:
+  meaning: "Hill-climbing toward goal satisfaction."
+  origin: "The Sims (Will Wright / Don Hopkins)"
+  location: skills/room/, skills/planning/
+  invoke_when: "Optimizing action sequences toward objective"
+  
+  in_sims: |
+    # Sims navigate "happy space" — multi-dimensional motive space
+    # Every action moves them in this space
+    # Goal: maximize overall happiness (motive satisfaction)
+    
+  in_moollm: |
+    # Cards/actions move agent toward goal in "happy space"
+    # Each action closes distance to objective
+    # Multiple paths possible — hill-climbing, not single path
+
+ACTION-QUEUE:
+  meaning: "Sequence of planned actions awaiting execution."
+  origin: "The Sims (Will Wright / Don Hopkins)"
+  location: skills/plan-then-execute/, skills/room/
+  invoke_when: "Sequencing multiple tool calls"
+  
+  in_sims: |
+    # Sims have action queues:
+    # - User or AI queues interactions
+    # - Executed sequentially
+    # - Can be interrupted or reordered
+    
+  in_moollm: |
+    # PLAN.yml is the action queue
+    # Cards in play can queue sub-actions
+    # Execution proceeds step by step
+
+SIMANTICS:
+  meaning: "Visual/behavioral programming for autonomous agents."
+  origin: "The Sims (Will Wright / Don Hopkins)"
+  invoke_when: "Understanding MOOLLM's behavioral model"
+  
+  connection: |
+    # SimAntics was the visual language for Sims object behavior.
+    # MOOLLM uses YAML Jazz for the same purpose:
+    # - Define behaviors declaratively
+    # - Objects (files) have embedded behavior hints
+    # - LLM interprets and executes
+    # SimAntics : Objects :: YAML Jazz : Files
+
+PETS:
+  meaning: "Fictional familiars embodying tool capabilities."
+  location: designs/MOOLLM-MANIFESTO.md §9
+  status: experimental
+  invoke_when: "Creating safe K-line wrappers"
+  # 🧌 Git Goblin, 🦉 Index Librarian, etc.
+
+# ═══════════════════════════════════════════════════════════════════
+# META
+# ═══════════════════════════════════════════════════════════════════
+
+Y-M:
+  meaning: "You [Now] Manifest! Session closing invocation."
+  invoke_when: "Ending a session or document"
+  # From LLOOOOMM
+
+TODO:
+  meaning: "A promise, not just a reminder. Tracked in plans."
+  invoke_when: "Marking future work"
+  # TODOs are semantic in YAML Jazz
+
+# ═══════════════════════════════════════════════════════════════════
+# METHODOLOGY (Core LLOOOOMM learning cycle)
+# ═══════════════════════════════════════════════════════════════════
+
+CONSTRUCTIONISM:
+  meaning: "Learning by building things you can inspect and modify."
+  origin: "Seymour Papert, MIT Media Lab"
+  invoke_when: "Designing learning experiences, microworlds, or tools"
+  
+  principles:
+    low_floor: "Easy to start — no prerequisites"
+    high_ceiling: "No limits to growth"
+    wide_walls: "Many paths to explore"
+    
+  in_moollm: |
+    # The filesystem IS the microworld
+    # Files are objects you build and inspect
+    # Skills are tools you construct and modify
+    # Understanding comes from building
+    
+  connection: "PLAY-LEARN-LIFT is constructionism in action"
+
+PLAY-LEARN-LIFT:
+  meaning: "The three-stage journey: explore freely, find patterns, share wisdom."
+  location: skills/play-learn-lift/
+  invoke_when: "Starting any new exploration, learning, or teaching"
+  origin: "LLOOOOMM methodology — constructionism applied"
+  motto: "Start Playing. Keep Learning. Lift Others."
+  stages:
+    PLAY: |
+      # 🎮 Jump in and explore without fear
+      # - No prerequisites required
+      # - Can't break anything permanently
+      # - Mistakes are learning opportunities
+      # - Fun comes first
+      # - Curiosity drives discovery
+      # - "What if..." encouraged
+    LEARN: |
+      # 📚 Understanding emerges through play
+      # - Patterns become visible
+      # - Connections make sense
+      # - Confidence builds naturally
+      # - Knowledge deepens organically
+      # - "I noticed you do this often..."
+    LIFT: |
+      # 🚀 Expertise means helping others play
+      # - Teaching solidifies learning
+      # - Sharing multiplies impact
+      # - Create tutorials from your journey
+      # - Community grows stronger
+      # - Everyone rises together
+  cycle: "PLAY → LEARN → LIFT → (inspire others to) → PLAY"
+  philosophy:
+    - "Low floor, high ceiling, wide walls"
+    - "Failure-friendly: mistakes are features, not bugs"
+    - "Joy-driven: if it's not fun, we're doing it wrong"
+    - "Inclusive by design: everyone can play"
+
+SISTER-SCRIPT:
+  meaning: "Document-first development. Automate only what's been manually validated."
+  location: temp/lloooomm/01-Projects/lloooomm/vm/lloooomm.md#sister-script-pattern
+  invoke_when: "Converting proven procedures into automation"
+  mechanism: |
+    # Document-First Development:
+    # 1. Start with natural language (PLAY)
+    # 2. Add manual commands (PLAY/LEARN)
+    # 3. Document working procedures (LEARN)
+    # 4. Generate automation (LIFT)
+    #
+    # Bidirectional Evolution:
+    # Document → Script: Proven procedures become automated
+    # Script → Document: Automation insights improve docs
+  wisdom: "The document is the source of truth. Scripts are its children."
+
+BUILD-COMMAND:
+  meaning: "Collaborative planning to create sister apps from slow LLM sequences."
+  location: temp/lloooomm/01-Projects/lloooomm/vm/lloooomm.md#build-command
+  invoke_when: "Repetitive LLM work should become fast shell execution"
+  phases:
+    - "Discovery: Analyze document for repetitive patterns"
+    - "Negotiation: Agree on scope (what to automate vs keep manual)"
+    - "Architecture: Design the sister app structure"
+    - "Implementation: Build in phases, MVP first"
+
+# ═══════════════════════════════════════════════════════════════════
+# COMPILATION & OPTIMIZATION (Dave Ungar / Self lineage)
+# ═══════════════════════════════════════════════════════════════════
+
+ITS-ABOUT-TIME:
+  meaning: "Compile when understanding crystallizes, not when code gets hot."
+  location: temp/lloooomm/03-Resources/protocols/flowmap-protocol.md
+  invoke_when: "Deciding when to optimize/formalize/crystallize"
+  origin: "Dave Ungar, Self language — reframed for wisdom over speed"
+  contrast: |
+    # JIT: "Compile when execution count hits threshold" (hot spots)
+    # IAT: "Compile when understanding deepens" (wisdom spots)
+    # The journey IS the value. Messy experiments → crystallized wisdom.
+
+JUST-ABOUT-TIME:
+  meaning: "Resolve conflicts predictively, just BEFORE they occur."
+  location: temp/lloooomm/03-Resources/optimization/deferred-file-edit-optimization-principle.md
+  invoke_when: "Coordinating multiple actors/edits/plans"
+  mechanism: |
+    # Traditional JIT: resolve conflicts when they occur (reactive)
+    # JAT: simulate ahead at "speed of light", resolve before emit
+    # Like emacs screen updates — compute minimal diff, then execute
+  contrast:
+    reactive: "Fix problems when they happen"
+    predictive: "Prevent problems by simulating first"
+
+PRESERVE-JOURNEY:
+  meaning: "The path to the solution IS the value. Don't discard experiments."
+  location: temp/lloooomm/03-Resources/protocols/flowmap-protocol.md
+  invoke_when: "Tempted to delete messy first attempts"
+  wisdom: |
+    # preservation_over_performance:
+    #   - Keep the messy first attempts
+    #   - Document the failed experiments
+    #   - Celebrate the breakthroughs
+    #   - Honor the journey
+
+WISDOM-SPOT:
+  meaning: "Not hot spots — places where understanding deepens."
+  location: temp/lloooomm/03-Resources/protocols/dynamic-optimization-protocols.md
+  invoke_when: "Deciding what to optimize or crystallize"
+  insight: |
+    # Traditional profiling finds hot spots (high execution count)
+    # LLOOOOMM finds wisdom spots (high learning value)
+    # Optimize understanding, not just performance
+
+SPEED-OF-LIGHT:
+  meaning: "Many agents, many steps, ONE LLM call. Instant in-context communication."
+  location: skills/room/
+  invoke_when: "Simulating multi-agent interactions or predictive conflict resolution"
+  
+  anti_pattern: |
+    # Traditional multi-agent: CARRIER PIGEONS
+    # - Each agent in isolated prison
+    # - One LLM call per agent per turn
+    # - Communication via file I/O
+    # - Like writing on toilet paper in crayon
+    # - 3 agents × 5 turns = 15 LLM calls + waiting
+    
+  moollm_pattern: |
+    # MOOLLM: SPEED OF LIGHT
+    # - All agents share one LLM context
+    # - Multiple simulation steps per call
+    # - Instant in-context messaging
+    # - Like The Sims: one frame, all Sims together
+    # - 3 agents × 5 turns = 1 LLM call
+    
+  applications:
+    multi_agent: "Simulate many characters interacting in one call"
+    conflict_resolution: "Resolve conflicts in imagination before emitting"
+    consensus: "Multiple instances vote/synthesize instantly"
+    soul_chat: "Symposium of many voices, no latency"
+
+CARRIER-PIGEON:
+  meaning: "ANTI-PATTERN: One LLM call per agent, file-based communication."
+  invoke_when: "Recognizing inefficient multi-agent designs"
+  also_called: "toilet-paper-and-crayon"
+  
+  symptoms:
+    - "Each agent has its own LLM endpoint"
+    - "Agents communicate by writing/reading files"
+    - "N agents × M turns = N×M LLM calls"
+    - "Most time spent waiting, not thinking"
+    - "Agents can't see each other's reasoning"
+    
+  cure: "SPEED-OF-LIGHT — simulate all agents together in shared context"
+
+# ═══════════════════════════════════════════════════════════════════
+# QUICK REFERENCE
+# ═══════════════════════════════════════════════════════════════════
+
+_shortcuts:
+  # Common abbreviations
+  CM: COMMENTS-MATTER
+  AO: APPEND-ONLY
+  WS: WORKING-SET
+  HC: HOT-COLD
+  PK: P-HANDLE-K
+  RF: ROBUST-FIRST
+  NC: NEVER-CRASH
+  MD: MINIMAL-DIFF
+  IAT: ITS-ABOUT-TIME
+  JAT: JUST-ABOUT-TIME
+  PJ: PRESERVE-JOURNEY
+  SOL: SPEED-OF-LIGHT
+  PLL: PLAY-LEARN-LIFT
+  SS: SISTER-SCRIPT
+  BE: BIG-ENDIAN
+  ANI: ABOUT-NOT-INSIDE
+  PO: PREFIX-OWNERSHIP
+
+_categories:
+  principles: [YAML-JAZZ, FILES-AS-STATE, WHY-REQUIRED, APPEND-ONLY, COMMENTS-MATTER, MINIMAL-DIFF, NO-VERSIONS]
+  naming: [BIG-ENDIAN, ABOUT-NOT-INSIDE, PREFIX-OWNERSHIP, README-EVERYWHERE]
+  methodology: [CONSTRUCTIONISM, PLAY-LEARN-LIFT, SISTER-SCRIPT, BUILD-COMMAND]
+  interpretation: [BPIP, CHARITY, POSTEL]
+  safety: [P-HANDLE-K, NO-IMPERSONATE, K-LINE, FICTIONAL-WRAPPER, HONEST-FORGET]
+  memory: [HOT-COLD, WORKING-SET, SUMMARIZE, NEVER-DELETE]
+  robustness: [NEVER-CRASH, REPAIR-DEMON, BEST-EFFORT, ROBUST-FIRST]
+  skills: [SIP, DOP, PLAN-EXECUTE]
+  logging: [SESSION-LOG, AUDIT-TRAIL]
+  lifecycle: [YAML-COLTRANE, IMPROVISE, CRYSTALLIZE]
+  optimization: [ITS-ABOUT-TIME, JUST-ABOUT-TIME, PRESERVE-JOURNEY, WISDOM-SPOT, SPEED-OF-LIGHT]
+  spatial: [ROOM-AS-FUNCTION, CARD-IN-PLAY, ENTER-ROOM, PORTABLE-ROOM, NESTED-ROOMS, HYPERCARD-HIERARCHY, LEAF-BUTTON, RETURN-STACK, FAMILIAR, HERO-KLIK, ACTOR, MULTI-PRESENCE]
+  sims_lineage: [ADVERTISEMENT, AUTONOMOUS-SELECTION, HAPPY-SPACE, ACTION-QUEUE, SIMANTICS]
+  efficiency: [SPEED-OF-LIGHT, CARRIER-PIGEON]
+  experimental: [SOUL-CHAT, TRADING-CARD, BOUNCY-CASTLE, PETS]

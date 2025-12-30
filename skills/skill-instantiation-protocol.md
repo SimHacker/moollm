@@ -92,14 +92,14 @@ See examples/ directory.
 
 ```yaml
 # PROTOTYPE.yml
-protocol: SIP/0.1
 name: "skill-name"
-version: "0.1.0"
 description: "One-line description"
+
+# NO VERSIONS — there is only one self-consistent universe.
+# Git provides history if you need archaeology.
 
 author: "creator"
 created: "2025-12-30"
-updated: "2025-12-30"
 
 tier: 1  # 0=prompt, 1=file, 2=search, 3=exec, 4=external
 
@@ -176,12 +176,11 @@ task:
 
 ```yaml
 # INSTANCE.yml
-protocol: SIP/0.1
 instance_id: "data-analysis-0003"
 prototype:
   name: "data-analysis"
-  version: "0.1.0"
   path: ".skills/data-analysis"
+# NO VERSIONS — there is only one self-consistent universe
   
 created: "2025-12-30T12:30:00Z"
 status: "active"  # active | finalized | abandoned | archived
@@ -193,10 +192,9 @@ parent_instance: null  # or path to parent if nested
 
 ```yaml
 # PROTOTYPES.yml (for DOP compatibility)
-protocol: DOP/0.1
 prototypes:
   - path: ".skills/data-analysis"
-    version: "0.1.0"
+    # NO VERSIONS — git provides history
 resolution:
   strategy: "first-match-wins"
 ```
@@ -211,22 +209,19 @@ resolution:
 
 ## 6. Instance Lifecycle
 
-```
-┌─────────────┐
-│   active    │ ← Instantiation creates this
-└──────┬──────┘
-       │
-       ├──────────────┐
-       ▼              ▼
-┌─────────────┐ ┌─────────────┐
-│  finalized  │ │  abandoned  │
-└──────┬──────┘ └──────┬──────┘
-       │               │
-       └───────┬───────┘
-               ▼
-        ┌─────────────┐
-        │  archived   │
-        └─────────────┘
+```mermaid
+stateDiagram-v2
+    direction TB
+    
+    [*] --> active : instantiate
+    
+    active --> finalized : success
+    active --> abandoned : fail/cancel
+    
+    finalized --> archived : cleanup
+    abandoned --> archived : cleanup
+    
+    archived --> [*]
 ```
 
 ### Status Transitions
@@ -395,18 +390,16 @@ Always keep:
 
 ```yaml
 # .skills/INDEX.yml
-protocol: SIP/0.1
 skills:
   - name: "data-analysis"
-    version: "0.1.0"
     path: ".skills/data-analysis"
     description: "Analyze datasets and produce insights"
     tier: 2
     
   - name: "code-review"
-    version: "0.2.0"
     path: ".skills/code-review"
     description: "Review code for quality and issues"
+    # NO VERSIONS — the current state IS the state
     tier: 1
 ```
 

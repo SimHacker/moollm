@@ -1,10 +1,31 @@
 # Event Log Schema
-# Defines events.jsonl entry formats
+# Defines the structure of events embedded in session-log.md
+#
+# Events are logged as YAML code blocks within markdown.
+# This schema defines what goes INSIDE the ```yaml blocks.
+#
+# IMPORTANT: YAML comments within events are SEMANTIC, not decoration.
+# They provide context that structured fields cannot capture.
+#
+# Example in session-log.md:
+#
+# ## 12:00:05 — Tool Call: fs.read
+#
+# Reading parser to check recursive descent handling.
+#
+# ```yaml
+# type: tool_call
+# tool: fs.read
+# args:
+#   path: src/parser.ts
+#   # Part of expression parser audit
+#   why: "Check recursive descent handling"
+# ```
 
 $schema: "https://json-schema.org/draft/2020-12/schema"
 $id: "moollm/event"
 title: "Event Log Entry"
-description: "Single entry in events.jsonl"
+description: "Single event embedded in session-log.md as a YAML code block"
 
 # Events are discriminated by 'type' field
 oneOf:
@@ -16,15 +37,20 @@ oneOf:
   - $ref: "#/$defs/error_event"
 
 $defs:
+  # Base schema - all events have type and timestamp
+  # Note: timestamp may be inferred from markdown header
   base:
     type: object
     properties:
       type:
         type: string
+        # The type field discriminates between event kinds
       timestamp:
         type: string
         format: date-time
-    required: [type, timestamp]
+        # ISO 8601 format; may be omitted if in markdown header
+    required: [type]
+    # YAML comments are encouraged for additional context
     
   session_event:
     allOf:
@@ -36,8 +62,10 @@ $defs:
             type: string
           reason:
             type: string
+            # Why the session ended (e.g., user_exit, timeout, error)
           stats:
             type: object
+            # Summary statistics for the session
             
   tool_event:
     allOf:
@@ -47,12 +75,17 @@ $defs:
             enum: [tool_call, tool_result, tool_error]
           tool:
             type: string
+            # Tool identifier (e.g., fs.read, search.vector)
           call_id:
             type: string
+            # Links call to result/error
           args:
             type: object
+            # Tool arguments - MUST include 'why' for most tools
+            # Use YAML comments to add context beyond the 'why' field
           result:
             type: object
+            # Tool output (for tool_result)
           success:
             type: boolean
           duration_ms:
@@ -62,8 +95,11 @@ $defs:
             properties:
               code:
                 type: string
+                # Machine-readable error code
               message:
                 type: string
+                # Human-readable description
+              # Add comments for recovery suggestions
                 
   model_event:
     allOf:
@@ -73,12 +109,16 @@ $defs:
             enum: [model_input, model_output, model_turn]
           tokens:
             type: integer
+            # Token count for this input/output
           files_in_context:
             type: array
             items:
               type: string
+            # Files included in this context assembly
           tool_calls:
             type: integer
+            # Number of tool calls in this output
+          # Use comments to note budget pressure, truncation, etc.
             
   memory_event:
     allOf:
@@ -88,12 +128,16 @@ $defs:
             enum: [context_assembly, working_set_update, cache_advice, gc_run, summary_created]
           action:
             type: string
+            # What happened (add, remove, summarize, etc.)
           path:
             type: string
           budget:
             type: integer
+            # Token budget for context
           used:
             type: integer
+            # Tokens actually used
+          # Comments should explain WHY files were included/excluded
             
   repair_event:
     allOf:
@@ -103,14 +147,17 @@ $defs:
             enum: [repair, bootstrap]
           demon:
             type: string
+            # Which repair demon acted
           action:
             type: string
+            # created, moved, fixed, etc.
           path:
             type: string
           files_created:
             type: array
             items:
               type: string
+          # Comments should explain what was wrong and how it was fixed
               
   error_event:
     allOf:
@@ -124,3 +171,5 @@ $defs:
             type: string
           recovery:
             type: string
+            # What was done to recover
+          # Comments provide additional debugging context

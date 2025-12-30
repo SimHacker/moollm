@@ -5,6 +5,17 @@ skills:
   # TIER 1: FILE-ONLY (No execution required)
   # ═══════════════════════════════════════════════════════════════════
   
+  # --- CORE METHODOLOGY ---
+  
+  - name: "play-learn-lift"
+    path: "skills/play-learn-lift"
+    description: "The three-stage methodology: explore → patterns → share"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "PLAY-LEARN-LIFT"
+    tags: ["methodology", "learning", "essential", "foundational"]
+    use_when: "Starting any exploration, learning, or teaching task"
+    
   - name: "scratchpad"
     path: "skills/scratchpad"
     description: "Working memory for thinking out loud"
@@ -21,6 +32,8 @@ skills:
     tags: ["planning", "tasks", "essential"]
     use_when: "You have a multi-step task to complete"
     
+  # --- MEMORY & CONTEXT ---
+    
   - name: "memory-palace"
     path: "skills/memory-palace"
     description: "Spatial organization of knowledge in navigable directories"
@@ -28,6 +41,46 @@ skills:
     entry: "SKILL.md"
     tags: ["memory", "navigation", "organization"]
     use_when: "Building a knowledge base or organizing research"
+    
+  - name: "room"
+    path: "skills/room"
+    description: "Directories as activation contexts where cards come to life"
+    tier: 1
+    entry: "SKILL.md"
+    tags: ["spatial", "activation", "context", "cards"]
+    use_when: "Managing task contexts, activating cards, navigating cognitive spaces"
+    related: ["trading-card", "memory-palace", "adventure-protocol"]
+    
+  - name: "summarize"
+    path: "skills/summarize"
+    description: "Context compression—compress without losing meaning"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "SUMMARIZE"
+    tags: ["memory", "context", "compression"]
+    use_when: "Context budget is low or need reference summaries"
+    
+  # --- ROBUSTNESS & LOGGING ---
+    
+  - name: "self-repair"
+    path: "skills/self-repair"
+    description: "Checklist-based self-healing—missing state triggers repair"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "REPAIR-DEMON"
+    tags: ["robustness", "healing", "essential"]
+    use_when: "Bootstrap, recovery, or periodic health checks"
+    
+  - name: "session-log"
+    path: "skills/session-log"
+    description: "Structured logging—every action leaves a trace"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "SESSION-LOG"
+    tags: ["logging", "audit", "essential"]
+    use_when: "Always (automatic), debugging, compliance"
+    
+  # --- EXPLORATION ---
     
   - name: "adventure-protocol"
     path: "skills/adventure-protocol"
@@ -37,10 +90,69 @@ skills:
     tags: ["exploration", "narrative", "investigation"]
     use_when: "Exploring an unfamiliar codebase or investigating a bug"
     
+  # --- LLOOOOMM EXPERIMENTAL ---
+  
+  - name: "soul-chat"
+    path: "skills/soul-chat"
+    description: "YAML Jazz conversations between characters"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "SOUL-CHAT"
+    tags: ["characters", "dialogue", "yaml-jazz", "lloooomm"]
+    use_when: "Multi-perspective exploration, character dialogues"
+    
+  - name: "trading-card"
+    path: "skills/trading-card"
+    description: "Capabilities as portable, collectible cards"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "TRADING-CARD"
+    tags: ["gamification", "capabilities", "lloooomm"]
+    use_when: "Packaging capabilities for reuse, building collections"
+    
+  - name: "honest-forget"
+    path: "skills/honest-forget"
+    description: "Graceful memory compression—summarize before forgetting"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "HONEST-FORGET"
+    tags: ["memory", "compression", "integrity"]
+    use_when: "Context overflow, archiving completed work"
+    
+  # --- RESEARCH & DEBUGGING ---
+  
+  - name: "research-notebook"
+    path: "skills/research-notebook"
+    description: "Structured research with sources, findings, decisions"
+    tier: 1
+    entry: "SKILL.md"
+    tags: ["research", "investigation", "documentation"]
+    use_when: "Learning something new, comparing options, due diligence"
+    
   # ═══════════════════════════════════════════════════════════════════
   # TIER 2: READ + EXECUTE
   # ═══════════════════════════════════════════════════════════════════
   
+  - name: "sister-script"
+    path: "skills/sister-script"
+    description: "Document-first automation—the doc is the source of truth"
+    tier: 2
+    entry: "SKILL.md"
+    protocol: "SISTER-SCRIPT"
+    requires: ["file-read", "file-write", "tool-execute"]
+    tags: ["automation", "documentation", "methodology"]
+    use_when: "Converting proven procedures into automation"
+    
+  - name: "plan-then-execute"
+    path: "skills/plan-then-execute"
+    description: "Frozen plans with human approval gate—control-flow integrity"
+    tier: 2
+    entry: "SKILL.md"
+    requires: ["file-read", "file-write", "tool-execute"]
+    tags: ["planning", "security", "audit", "execution"]
+    use_when: "Multi-tool workflows with untrusted data or audit requirements"
+    security: "Isolates planner from tool outputs to prevent prompt injection"
+    
   - name: "code-review"
     path: "skills/code-review"
     description: "Systematic code analysis with evidence collection"
@@ -49,6 +161,15 @@ skills:
     requires: ["file-read", "terminal-execute"]
     tags: ["development", "quality", "review"]
     use_when: "Reviewing PRs, auditing code quality, or security review"
+    
+  - name: "debugging"
+    path: "skills/debugging"
+    description: "Systematic bug investigation with hypothesis tracking"
+    tier: 2
+    entry: "SKILL.md"
+    requires: ["file-read", "terminal-execute"]
+    tags: ["debugging", "investigation", "methodology"]
+    use_when: "Something isn't working, mysterious behavior, performance issues"
     
   # ═══════════════════════════════════════════════════════════════════
   # TEMPLATES (For learning and bootstrapping)
@@ -67,16 +188,6 @@ skills:
 # ═══════════════════════════════════════════════════════════════════
 
 planned:
-  - name: "research-notebook"
-    description: "Structured research with sources, findings, decisions"
-    tier: 2
-    status: "planned"
-    
-  - name: "debugging"
-    description: "Systematic bug investigation with hypothesis tracking"
-    tier: 2
-    status: "planned"
-    
   - name: "refactoring"
     description: "Safe code transformation with verification"
     tier: 3
@@ -87,11 +198,26 @@ planned:
     tier: 3
     status: "planned"
     
-  - name: "soul-chat"
-    description: "YAML Jazz conversations between characters"
+  - name: "bouncy-castle"
+    description: "Recursive navigable thought-spaces"
     tier: 1
     status: "planned"
-    notes: "LLOOOOMM-specific, needs character system"
+    protocol: "BOUNCY-CASTLE"
+    notes: "LLOOOOMM experimental - high-dimensional navigation"
+    
+  - name: "yaml-coltrane"
+    description: "YAML Jazz lifecycle management—improvise to standardize"
+    tier: 1
+    status: "planned"
+    protocol: "YAML-COLTRANE"
+    notes: "Eight stages from improvisation to migration"
+    
+  - name: "pets"
+    description: "Fictional familiars embodying tool capabilities"
+    tier: 1
+    status: "planned"
+    protocol: "PETS"
+    notes: "LLOOOOMM experimental - safe K-line wrappers"
 
 # ═══════════════════════════════════════════════════════════════════
 # GUIDELINES

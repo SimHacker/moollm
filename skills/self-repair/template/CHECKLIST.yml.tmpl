@@ -1,0 +1,58 @@
+# Self-Repair Checklist
+# What to check and how to repair
+
+checklist:
+  name: "{{checklist_name}}"
+  created: "{{timestamp}}"
+  last_run: null
+
+# ═══════════════════════════════════════════════════════════════════
+# CRITICAL CHECKS
+# ═══════════════════════════════════════════════════════════════════
+
+critical:
+  - check: "output.md exists"
+    repair: |
+      Create empty output.md with header:
+      # Session Output
+      ---
+    verified: false
+    
+  - check: "session-log.md exists"
+    repair: |
+      Create session-log.md with session_start event
+    verified: false
+
+# ═══════════════════════════════════════════════════════════════════
+# HIGH PRIORITY CHECKS
+# ═══════════════════════════════════════════════════════════════════
+
+high:
+  - check: "working_set.yml exists and valid"
+    repair: |
+      Create minimal working_set.yml:
+      files: []
+      priority: medium
+    verified: false
+
+# ═══════════════════════════════════════════════════════════════════
+# MEDIUM PRIORITY CHECKS
+# ═══════════════════════════════════════════════════════════════════
+
+medium:
+  - check: "hot.yml exists"
+    repair: "touch hot.yml"
+    verified: false
+    
+  - check: "cold.yml exists"
+    repair: "touch cold.yml"
+    verified: false
+
+# ═══════════════════════════════════════════════════════════════════
+# STATUS
+# ═══════════════════════════════════════════════════════════════════
+
+status:
+  healthy: null  # Set after CHECK
+  issues_found: 0
+  issues_repaired: 0

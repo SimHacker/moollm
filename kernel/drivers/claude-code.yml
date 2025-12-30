@@ -22,7 +22,7 @@ capabilities:
 paths:
   session_root: ".agent/"
   output_sink: ".agent/output.md"
-  event_log: ".agent/events.jsonl"
+  event_log: ".agent/session-log.md"  # Human-readable markdown with YAML blocks
   working_set: ".agent/working_set.yml"
   hot_cache: ".agent/hot.yml"
   cold_cache: ".agent/cold.yml"
@@ -78,7 +78,7 @@ adaptations:
     supported: true
     format: "jsonl"
     instruction: |
-      Log to events.jsonl in standard format:
+      Log to session-log.md in markdown with YAML blocks:
       {"type":"...", "timestamp":"...", ...}
 
 # MCP Integration
@@ -131,7 +131,7 @@ boot:
     - ".agent/"
   create_if_missing:
     - ".agent/output.md"
-    - ".agent/events.jsonl"
+    - ".agent/session-log.md"
     - ".agent/working_set.yml"
     - ".agent/hot.yml"
     - ".agent/cold.yml"

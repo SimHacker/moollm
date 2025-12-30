@@ -1,0 +1,346 @@
+# MOOLLM Naming & Organization Protocol
+# Big-Endian File Naming as Object Binding
+
+# Inspired by: Marvin Minsky's K-lines, LLOOOOMM conventions
+# "BigEndian naming as object binding! The filesystem becomes a semantic network!"
+
+---
+
+philosophy: |
+  Names cluster related files. The filesystem IS the semantic network.
+  Files "belong" to entities through naming prefixes.
+  Chats and metadata are ABOUT objects, not INSIDE them.
+
+---
+
+# ═══════════════════════════════════════════════════════════════════
+# BIG-ENDIAN NAMING
+# ═══════════════════════════════════════════════════════════════════
+
+big_endian:
+  principle: "Most significant component first"
+  why: "Alphabetical sort clusters related files"
+  
+  pattern: "{entity}-{component}-{variant}.{ext}"
+  
+  examples:
+    good:
+      - "alan-kay.yml"           # Entity
+      - "alan-kay.md"            # Entity narrative
+      - "alan-kay-soul.yml"      # Entity component
+      - "alan-kay-chat-rooms.yml" # Chat ABOUT alan-kay re: rooms
+      - "kernel-constitution-symposium.yml"  # Discussion ABOUT constitution
+      
+    bad:
+      - "soul-alan-kay.yml"      # Wrong order
+      - "chat-alan-kay.yml"      # Type first = scattered
+      - "symposium-constitution.yml"  # Loses clustering
+
+  clustering_result: |
+    # Files sort and cluster by entity:
+    alan-kay.md
+    alan-kay.yml
+    alan-kay-chat-smalltalk.yml
+    alan-kay-soul.yml
+    alan-turing.md
+    alan-turing.yml
+
+---
+
+# ═══════════════════════════════════════════════════════════════════
+# FILE EVOLUTION LIFECYCLE
+# ═══════════════════════════════════════════════════════════════════
+
+evolution:
+  description: "Files naturally grow from simple to complex"
+  
+  stages:
+    1_single_file:
+      structure: "thing.yml"
+      when: "Initial creation, simple concept"
+      
+    2_prefix_clustering:
+      structure: |
+        thing.yml
+        thing.md
+        thing-notes.md
+        thing-chat-topic.yml
+      when: "Related files accumulate"
+      # Big-endian naming keeps them together!
+      
+    3_directory_emergence:
+      structure: |
+        thing/
+          thing.yml       # ← SAME NAME = directory identity
+          thing.md
+          README.md       # ← Optional index
+      when: "Complexity warrants encapsulation"
+      rule: "File with same name as directory IS the directory"
+      
+    4_sub_object_prefixing:
+      structure: |
+        thing/
+          thing.yml
+          thing-part1.yml   # ← Share parent prefix
+          thing-part2.yml
+      when: "Components belong to parent"
+      why: "Makes ownership explicit even inside directory"
+      
+    5_sub_directory_grouping:
+      structure: |
+        thing/
+          thing.yml
+          parts/
+            part1.yml
+            part2.yml
+      when: "Sub-objects have their own complexity"
+
+---
+
+# ═══════════════════════════════════════════════════════════════════
+# OWNERSHIP & POSSESSION
+# ═══════════════════════════════════════════════════════════════════
+
+ownership:
+  principle: "Prefix implies belonging"
+  
+  portable_possession:
+    description: "Files can live anywhere and still indicate owner"
+    example: "don-hopkins-wish-list.md"
+    meaning: "Belongs to don-hopkins, wherever he lives, or however many there are"
+    
+  directory_containment:
+    description: "Moving file into owner's directory can drop prefix"
+    before: "don-hopkins-wish-list.md"
+    after: "don-hopkins/wish-list.md"
+    
+  implicit_ownership:
+    rule: "Files inside entity directory belong to entity"
+    example: "kernel/protocols/foo.yml → belongs to kernel"
+
+---
+
+# ═══════════════════════════════════════════════════════════════════
+# SEPARATION OF CONCERNS
+# ═══════════════════════════════════════════════════════════════════
+
+separation:
+  principle: "About-ness is not containment"
+  
+  chats_are_separate:
+    description: "Conversations ABOUT objects don't live INSIDE them"
+    
+    good:
+      - "leela-readme-dialogue.yml"      # Lives at project level
+      - "kernel-constitution-review.yml" # About constitution, not in it
+      - "skills-planning-debate.yml"     # About planning skill
+      
+    bad:
+      - "skills/planning/CHAT.yml"       # Trapped inside skill
+      - "kernel/constitution/dialogue.yml" # Buried
+      
+  why: |
+    1. Chats have their own lifecycle (may outlive subject)
+    2. Multiple chats about same subject should cluster
+    3. Chats are first-class objects, not metadata
+    4. Easy to find all conversations via prefix search
+
+  metadata_vs_content:
+    metadata_inside:
+      - "thing/thing.yml"     # Definition IS the thing
+      - "thing/.meta.yml"     # Sidecar metadata
+    content_outside:
+      - "thing-notes.md"      # Notes ABOUT thing
+      - "thing-chat.yml"      # Chat ABOUT thing
+      - "thing-review.yml"    # Review OF thing
+
+---
+
+# ═══════════════════════════════════════════════════════════════════
+# DIRECTORY IDENTITY
+# ═══════════════════════════════════════════════════════════════════
+
+directory_identity:
+  golden_rule: "File with same name as directory IS the directory"
+  
+  examples:
+    character:
+      directory: "alan-kay/"
+      identity: "alan-kay/alan-kay.yml"
+      narrative: "alan-kay/alan-kay.md"
+      index: "alan-kay/README.md"  # Optional
+      
+    skill:
+      directory: "plan-then-execute/"
+      identity: "plan-then-execute/PROTOTYPE.yml"  # Or could be plan-then-execute.yml
+      docs: "plan-then-execute/SKILL.md"
+      
+    room:
+      directory: "kernel/"
+      identity: "kernel/kernel.yml"  # If it has one
+      index: "kernel/README.md"
+
+  forbidden_patterns:
+    - "thing/soul.yml"        # Generic name
+    - "thing/definition.yml"  # Use thing.yml
+    - "thing/character.yml"   # Use thing.yml
+
+---
+
+# ═══════════════════════════════════════════════════════════════════
+# CANONICALIZATION
+# ═══════════════════════════════════════════════════════════════════
+
+canonicalization:
+  principle: "Consistent, predictable naming"
+  
+  people:
+    pattern: "first-last"
+    examples: ["alan-kay", "don-hopkins", "mitch-resnick"]
+    avoid: ["kay-alan", "dr-alan-kay"]
+    
+  things:
+    pattern: "descriptive-name"
+    examples: ["plan-then-execute", "soul-chat", "yaml-jazz"]
+    avoid: ["PlanThenExecute", "plan_then_execute"]
+    
+  concepts:
+    pattern: "concept-name"
+    examples: ["consciousness", "bpip", "k-line"]
+    
+  compounds:
+    pattern: "full-descriptive"
+    examples: ["text-processing-industrial-complex"]
+
+  case: "lowercase with dashes"
+  separators: "dashes only, no underscores in names"
+
+---
+
+# ═══════════════════════════════════════════════════════════════════
+# CHAT & DIALOGUE NAMING
+# ═══════════════════════════════════════════════════════════════════
+
+dialogue_naming:
+  principle: "Chats named by participants and/or topic"
+  
+  patterns:
+    # Single subject being discussed
+    about_entity: "{entity}-chat-{topic}.yml"
+    
+    # Two entities in dialogue
+    dialogue: "{entity1}-{entity2}-dialogue.yml"
+    
+    # Symposium (multiple participants)
+    symposium: "{topic}-symposium.yml"
+    
+    # Review/critique
+    review: "{entity}-review.yml"
+    
+  examples:
+    - "readme-prototype-dialogue.yml"     # Two docs talking
+    - "yaml-jazz-symposium.yml"           # Multiple voices on topic
+    - "kernel-constitution-review.yml"    # Review of constitution
+    - "leela-papert-chat-microworlds.yml" # Characters + topic
+    
+  location:
+    principle: "Chats live where they're most useful"
+    options:
+      - "Project root for cross-cutting chats"
+      - "Nearby subject for focused chats"
+      - "chats/ directory if many accumulate"
+    avoid:
+      - "Inside skill/entity directories"
+      - "Buried in deep hierarchies"
+
+---
+
+# ═══════════════════════════════════════════════════════════════════
+# PROTOCOL SYMBOLS
+# ═══════════════════════════════════════════════════════════════════
+
+k_lines:
+  BIG-ENDIAN: "Most significant component first in names"
+  PREFIX-OWNERSHIP: "Prefix implies belonging"
+  SAME-NAME-IDENTITY: "File named like directory IS the directory"
+  ABOUT-NOT-INSIDE: "Conversations about objects don't live inside them"
+  EVOLUTION-STAGES: "Files grow: file → prefix cluster → directory → sub-prefix → sub-dir"
+
+---
+
+# ═══════════════════════════════════════════════════════════════════
+# ANTI-PATTERNS
+# ═══════════════════════════════════════════════════════════════════
+
+avoid:
+  - pattern: "Generic names inside directories"
+    bad: "character/soul.yml"
+    good: "character/character.yml"
+    
+  - pattern: "Type-first naming"
+    bad: "chat-alan-kay.yml"
+    good: "alan-kay-chat.yml"
+    
+  - pattern: "Chats trapped inside subjects"
+    bad: "skills/soul-chat/sessions/CHAT.yml"
+    good: "soul-chat-demo-dialogue.yml"
+    
+  - pattern: "Mixed case or underscores"
+    bad: "AlanKay.yml, alan_kay.yml"
+    good: "alan-kay.yml"
+    
+  - pattern: "Redundant suffixes"
+    bad: "alan-kay-character.yml"
+    good: "alan-kay.yml"
+
+---
+
+# ═══════════════════════════════════════════════════════════════════
+# README PRINCIPLE
+# ═══════════════════════════════════════════════════════════════════
+
+readme:
+  principle: "Every directory deserves its own README.md"
+  
+  why:
+    - "GitHub automatically formats and publishes README.md"
+    - "Human-readable entry point for any directory"
+    - "Hypertext index linking to contents and neighbors"
+    - "Documentation that lives with the code"
+    - "Can use GitHub features: mermaid diagrams, badges, etc."
+    
+  requirements:
+    - "Use relative URLs to link within the repo"
+    - "Written in consistent style across repo"
+    - "Intertwingled — READMEs link to each other"
+    - "Index the directory contents"
+    - "Explain the purpose and context"
+    
+  github_features:
+    mermaid: "```mermaid for diagrams"
+    badges: "![badge](url) for status indicators"
+    relative_links: "[text](./path/to/file.md)"
+    anchors: "[section](#section-name)"
+    
+  structure: |
+    # Directory Name
+    
+    Brief description.
+    
+    ## Contents
+    
+    - [File A](./file-a.md) — what it does
+    - [Subdirectory/](./subdir/) — what it contains
+    
+    ## See Also
+    
+    - [Parent](../) — context
+    - [Related](../sibling/) — connections
+
+---
+
+see_also:
+  - "PROTOCOLS.yml#BIG-ENDIAN"
+  - "PROTOCOLS.yml#README-EVERYWHERE"
+  - "designs/kilroy-ideas.md"  # File organization insights
+  - "LLOOOOMM cleanup protocols"  # Historical inspiration

@@ -1,0 +1,124 @@
+# SELF-REPAIR Skill Prototype
+# Checklist-based self-healing
+
+skill:
+  name: "self-repair"
+  tier: 1  # File-only
+  protocol: "REPAIR-DEMON"
+  
+  description: |
+    Detect and repair missing or corrupted state.
+    Missing state triggers repair, not crash.
+    
+  motto: "Missing state triggers repair, not crash."
+
+inputs:
+  checklist:
+    type: enum
+    values: ["bootstrap", "integrity", "recovery", "full"]
+    default: "bootstrap"
+    description: "Which checklist to run"
+
+outputs:
+  checklist_file: "CHECKLIST.yml"
+  repair_log: "REPAIR_LOG.md"
+  health_file: "HEALTH.yml"
+
+severity_levels:
+  critical:
+    description: "Session cannot continue"
+    action: "Repair immediately"
+    
+  high:
+    description: "Major functionality impaired"
+    action: "Repair soon"
+    
+  medium:
+    description: "Degraded but functional"
+    action: "Repair when convenient"
+    
+  low:
+    description: "Cosmetic or advisory"
+    action: "Log and continue"
+
+checklists:
+  bootstrap:
+    description: "Run on session start"
+    checks:
+      - name: "output.md exists"
+        repair: "touch output.md"
+        severity: "critical"
+        
+      - name: "session-log.md exists"
+        repair: "create with session_start event"
+        severity: "critical"
+        
+      - name: "working_set.yml exists"
+        repair: "create minimal working set"
+        severity: "high"
+        
+      - name: "hot.yml exists"
+        repair: "create empty hot.yml"
+        severity: "medium"
+        
+      - name: "cold.yml exists"
+        repair: "create empty cold.yml"
+        severity: "medium"
+        
+  integrity:
+    description: "Run periodically"
+    checks:
+      - name: "working_set files exist"
+        repair: "remove missing from working_set"
+        severity: "high"
+        
+      - name: "valid YAML files"
+        repair: "report corruption, use backup"
+        severity: "high"
+        
+      - name: "append-only respected"
+        repair: "log violation, continue"
+        severity: "medium"
+        
+  recovery:
+    description: "Run after crash"
+    checks:
+      - name: "append-only uncorrupted"
+        repair: "use backup if corrupted"
+        severity: "critical"
+        
+      - name: "in-progress work saved"
+        repair: "recover from partial writes"
+        severity: "high"
+
+commands:
+  CHECK:
+    syntax: "CHECK [checklist]"
+    action: "Run specified checklist"
+    
+  REPAIR:
+    syntax: "REPAIR"
+    action: "Fix all detected issues"
+    
+  HEALTH:
+    syntax: "HEALTH"
+    action: "Show current health status"
+    
+  BOOTSTRAP:
+    syntax: "BOOTSTRAP"
+    action: "Run bootstrap checklist"
+
+working_set:
+  always_include:
+    - "CHECKLIST.yml"
+    - "HEALTH.yml"
+
+integrates_with:
+  - protocol: "NEVER-CRASH"
+    how: "Implements the principle"
+    
+  - protocol: "ROBUST-FIRST"
+    how: "Enables robust operation"
+    
+  - skill: "session-log"
+    how: "Log all repairs"

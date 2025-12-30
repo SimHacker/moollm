@@ -1,0 +1,69 @@
+# Honest Forget Session
+
+session:
+  created: "{{timestamp}}"
+  reason: "{{reason}}"
+  urgency: "{{urgency}}"  # low | medium | high | critical
+  
+# ═══════════════════════════════════════════════════════════════════
+# ASSESSMENT
+# ═══════════════════════════════════════════════════════════════════
+
+assessment:
+  target: "{{target}}"
+  tokens: null  # Estimate
+  
+  contains:
+    decisions: []
+    learnings: []
+    dead_ends: []
+    questions_answered: []
+    
+  importance:
+    for_current_task: "medium"  # high | medium | low
+    for_future_reference: "medium"
+
+# ═══════════════════════════════════════════════════════════════════
+# EXTRACTION PLAN
+# ═══════════════════════════════════════════════════════════════════
+
+extraction:
+  wisdom_to_extract:
+    - lesson: "What to extract"
+      from: "Which part"
+      
+  pointers_to_create:
+    - to: "What to point to"
+      summary: "Brief description"
+
+# ═══════════════════════════════════════════════════════════════════
+# COMPRESSION DECISION
+# ═══════════════════════════════════════════════════════════════════
+
+compression:
+  level: "WISDOM"  # FULL | WISDOM | SUMMARY | POINTER
+  rationale: "Why this level"
+  
+# ═══════════════════════════════════════════════════════════════════
+# RELEASE CHECKLIST
+# ═══════════════════════════════════════════════════════════════════
+
+checklist:
+  - task: "Wisdom extracted"
+    done: false
+    
+  - task: "Pointers created"
+    done: false
+    
+  - task: "Archive created"
+    done: false
+    
+  - task: "Safe to release"
+    done: false
+
+# ═══════════════════════════════════════════════════════════════════
+# STATUS
+# ═══════════════════════════════════════════════════════════════════
+
+status: "assessing"  # assessing | extracting | compressing | released
+released_at: null

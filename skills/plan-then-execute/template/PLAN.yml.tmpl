@@ -1,0 +1,90 @@
+# Frozen Execution Plan
+# Status: pending_approval
+# WARNING: Do not execute until approved
+
+plan:
+  name: "{{ plan_name }}"
+  task: "{{ task }}"
+  status: "pending_approval"
+  created: "{{ created_date }}"
+  max_actions: {{ max_actions | default 20 }}
+
+# Tools available to this plan
+# Actions may ONLY use tools listed here
+available_tools:
+{{ #each available_tools }}
+  - name: "{{ name }}"
+    description: "{{ description }}"
+{{ /each }}
+
+# Frozen action sequence
+# This sequence is IMMUTABLE after approval
+# Tool outputs shape parameters, not action selection
+actions:
+{{ #each actions }}
+  - id: {{ id }}
+    tool: "{{ tool }}"
+    why: "{{ why }}"
+    params:
+{{ #each params }}
+      {{ @key }}: {{ this }}
+{{ /each }}
+{{ #if outputs }}
+    outputs:
+{{ #each outputs }}
+      - name: "{{ name }}"
+        path: "{{ path }}"
+{{ /each }}
+{{ /if }}
+    on_failure: "{{ on_failure | default 'stop' }}"
+
+{{ /each }}
+  # Template for additional actions:
+  # - id: N
+  #   tool: "tool_name"
+  #   why: "Explanation for audit"
+  #   params:
+  #     static_param: "value"
+  #     dynamic_param: "${actions[M].outputs.X}"
+  #   outputs:
+  #     - name: "output_name"
+  #       path: "$.json.path"
+  #   on_failure: "stop"
+
+# Approval gate
+# Plan MUST be approved before execution
+approval:
+  status: "pending"
+  approved_by: null
+  approved_at: null
+  notes: ""
+  # Modification history (if any):
+  # modifications:
+  #   - date: "timestamp"
+  #     by: "who"
+  #     change: "what"
+
+# Execution state
+# Filled during execution phase
+execution:
+  status: "not_started"
+  started_at: null
+  completed_at: null
+  current_action: null
+  results: {}
+  # Captured outputs from each action
+  # outputs:
+  #   1:
+  #     output_name: "value"
+  #   2:
+  #     another_output: "value"
+
+# Audit metadata
+audit:
+  plan_generated_by: "{{ generated_by | default 'moollm' }}"
+  plan_generated_at: "{{ created_date }}"
+  # Execution events appended here:
+  # events:
+  #   - timestamp: "..."
+  #     action: "..."
+  #     status: "..."

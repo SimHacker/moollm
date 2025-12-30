@@ -26,7 +26,7 @@ capabilities:
 paths:
   session_root: ".agent/sessions/{session_id}/"
   output_sink: "output.md"
-  event_log: "events.jsonl"
+  event_log: "session-log.md"  # Human-readable markdown with YAML blocks
   working_set: "working_set.yml"
   hot_cache: "hot.yml"
   cold_cache: "cold.yml"
@@ -141,7 +141,7 @@ enforcement:
     log_intent: true
     
   append_only:
-    files: ["output.md", "events.jsonl"]
+    files: ["output.md", "session-log.md"]
     enforced: true
     reject_overwrites: true
     
@@ -177,6 +177,6 @@ boot:
     Driver: custom (Tier 6 - Full Control)
     
     Tools: All require 'why' parameter
-    Append-only: output.md, events.jsonl (enforced)
+    Append-only: output.md, session-log.md (enforced)
     
     Ready.

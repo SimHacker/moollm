@@ -1,0 +1,304 @@
+# TRADING-CARD Skill Prototype
+# Capabilities as collectible, playable cards
+
+skill:
+  name: "trading-card"
+  tier: 1  # File-only
+  protocol: "TRADING-CARD"
+  
+  description: |
+    Encapsulate capabilities into portable, instantiable cards.
+    Cards are TEMPLATES. Activate them in ROOMS to create instances.
+    Each instance has state, parameters, goals, return value.
+    Like little tasks, demons, familiars, spirits!
+    
+  motto: "Capabilities you can collect, activate, and play."
+  origin: "LLOOOOMM experimental protocol"
+
+# ═══════════════════════════════════════════════════════════════════
+# ACTIVATION MODEL (Cards in Play)
+# ═══════════════════════════════════════════════════════════════════
+
+activation:
+  principle: |
+    Cards are templates. Rooms are where they come to life.
+    Activating a card = clone + parameterize into a room.
+    Multiple instances of same card can exist.
+    
+  instance_schema:
+    required:
+      - instance_id    # Unique identifier
+      - card           # Source card name
+      - room           # Where it's activated
+      - goal           # What this instance is working toward
+      
+    optional:
+      - parameters     # Input parameters
+      - state          # Current working state
+      - subgoals       # Decomposed goals
+      - return_value   # Filled when complete
+      
+  lifecycle:
+    1_activate: "Clone card, parameterize, add to room"
+    2_work: "Instance pursues its goal"
+    3_complete: "Fill return_value, optionally remove"
+    
+  example: |
+    # Instance in .agent/rooms/debug-session/goblin-001.yml
+    activation:
+      instance_id: "goblin-001"
+      card: "Git Goblin"
+      room: ".agent/rooms/debug-session/"
+      
+      parameters:
+        repo_path: "/path/to/repo"
+        
+      goal: "Find when bug was introduced"
+      
+      state:
+        current_commit: "abc123"
+        remaining_commits: 5
+        
+      return_value: null  # Filled when done
+
+inputs:
+  card_name:
+    type: string
+    required: true
+    description: "Name of the card"
+    
+  card_type:
+    type: enum
+    values: ["person", "character", "tool", "familiar", "concept", "place", "technique", "artifact"]
+    required: true
+    description: |
+      person    — Real human (hero-klik, safe K-line)
+      character — Fictional persona
+      tool      — A capability
+      familiar  — Helper spirit for tools
+      concept   — An abstract idea
+      place     — A location/room link
+      technique — A method/approach
+      artifact  — A persistent thing
+    
+  rarity:
+    type: enum
+    values: ["common", "uncommon", "rare", "legendary"]
+    default: "common"
+
+outputs:
+  card_file: "CARD.yml"
+  collection_file: "COLLECTION.yml"
+  deck_file: "DECK.yml"
+
+card_schema:
+  required:
+    - name
+    - type
+    - ability
+  optional:
+    - rarity
+    - power
+    - cost
+    - art
+    - flavor_text
+    - invokes
+
+# ═══════════════════════════════════════════════════════════════════
+# ACTOR LINEAGE
+# ═══════════════════════════════════════════════════════════════════
+
+actor_model:
+  description: |
+    Cards-in-play ARE actors in the Hewitt/Kay/Simula tradition.
+    Independent entities with state, situated in the microworld.
+    
+  lineage:
+    hewitt_1973: "Original Actor model — concurrent independent agents"
+    simula_1967: "Coroutines — suspended computation with state"
+    smalltalk_1972: "Objects as actors — everything is message passing"
+    self_1987: "Prototypes — no classes, clone and modify"
+    
+  in_moollm:
+    card_template: "Prototype (like Self prototype)"
+    card_in_play: "Actor (cloned, independent, stateful)"
+    room: "Stage where actors perform"
+    message: "Goal, parameter, or return_value"
+
+# ═══════════════════════════════════════════════════════════════════
+# CARD TYPES
+# ═══════════════════════════════════════════════════════════════════
+
+card_types:
+  person:
+    description: "Real human's wisdom — HERO-KLIK"
+    also_called: "hero-klik"
+    safety: "K-line activation, not impersonation"
+    typical_stats:
+      - wisdom
+      - domain_expertise
+      - influence
+    fields:
+      invokes: "Traditions and ideas they represent"
+      wisdom: "Key insight or quote"
+      contributions: "What they created/discovered"
+    examples:
+      - "Dave Ungar — Self, prototypes, ITS-ABOUT-TIME"
+      - "Seymour Papert — Logo, microworlds"
+      - "Alan Kay — Smalltalk, messaging"
+    integrates_with: "soul-chat (can speak their wisdom)"
+    
+  character:
+    description: "Fictional persona with voice"
+    typical_stats:
+      - wisdom
+      - creativity
+      - domain_expertise
+    integrates_with: "soul-chat"
+    
+  tool:
+    description: "A capability that does something"
+    typical_stats:
+      - power
+      - reliability
+      - versatility
+      
+  familiar:
+    description: "Tool capability as helper spirit"
+    typical_stats:
+      - helpfulness
+      - domain_coverage
+      - reliability
+    examples:
+      - "🧌 Git Goblin"
+      - "🦉 Index Owl"
+      
+  concept:
+    description: "An abstract idea or protocol"
+    typical_stats:
+      - depth
+      - applicability
+      - learning_curve
+    examples:
+      - "YAML-JAZZ"
+      - "PLAY-LEARN-LIFT"
+      
+  place:
+    description: "A room/location link"
+    typical_stats:
+      - accessibility
+      - richness
+    integrates_with: "room, memory-palace"
+      
+  technique:
+    description: "A method or approach"
+    typical_stats:
+      - effectiveness
+      - learning_curve
+      - applicability
+      
+  artifact:
+    description: "Persistent thing with effects"
+    typical_stats:
+      - durability
+      - power
+      - side_effects
+
+rarity_levels:
+  common:
+    description: "Basic, widely applicable"
+    drop_rate: "60%"
+    
+  uncommon:
+    description: "More specialized"
+    drop_rate: "25%"
+    
+  rare:
+    description: "Powerful, specific use"
+    drop_rate: "12%"
+    
+  legendary:
+    description: "Unique, transformative"
+    drop_rate: "3%"
+
+commands:
+  CARD:
+    syntax: "CARD [name] [type]"
+    action: "Create new card"
+    
+  PLAY:
+    syntax: "PLAY [card]"
+    action: "Activate card ability"
+    
+  COLLECT:
+    syntax: "COLLECT [card]"
+    action: "Add to collection"
+    
+  DECK:
+    syntax: "DECK [name]"
+    action: "Build or select deck"
+    
+  DRAW:
+    syntax: "DRAW"
+    action: "Random card from deck"
+
+working_set:
+  always_include:
+    - "COLLECTION.yml"
+    - "DECK.yml"
+
+# ═══════════════════════════════════════════════════════════════════
+# FAMILIARS (Special Card Type)
+# ═══════════════════════════════════════════════════════════════════
+
+familiars:
+  description: "Cards that embody tool capabilities as helper spirits"
+  
+  examples:
+    - name: "Git Goblin"
+      emoji: "🧌"
+      domain: "Version control"
+      abilities: ["track changes", "commit", "navigate history", "bisect"]
+      
+    - name: "Index Owl"
+      emoji: "🦉"
+      domain: "Search and lookup"
+      abilities: ["semantic search", "find references", "index contents"]
+      
+    - name: "Memory Moth"
+      emoji: "🦋"
+      domain: "Context management"
+      abilities: ["summarize", "hot/cold hints", "working set"]
+      
+    - name: "Repair Imp"
+      emoji: "🔧"
+      domain: "Self-healing"
+      abilities: ["run checklist", "fix missing files", "repair state"]
+      
+    - name: "Session Scribe"
+      emoji: "📜"
+      domain: "Logging"
+      abilities: ["log events", "audit trail", "append-only writes"]
+
+# ═══════════════════════════════════════════════════════════════════
+# INTEGRATION
+# ═══════════════════════════════════════════════════════════════════
+
+integrates_with:
+  - skill: "room"
+    how: "Cards are activated in rooms as instances"
+    
+  - skill: "soul-chat"
+    how: "Characters become character cards that can speak"
+    
+  - skill: "memory-palace"
+    how: "Collections populate palace rooms"
+    
+  - skill: "adventure-protocol"
+    how: "Cards as companion helpers"
+    
+  - protocol: "P-HANDLE-K"
+    how: "Familiars are safe K-line wrappers for tools"
+    
+  - protocol: "K-LINE"
+    how: "Card names invoke conceptual traditions"

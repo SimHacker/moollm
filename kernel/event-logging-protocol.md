@@ -1,5 +1,5 @@
 # Event Logging Protocol
-## Append-Only Audit Trail
+## Append-Only Audit Trail in Human-Readable Format
 
 ---
 
@@ -12,111 +12,294 @@ This provides:
 - Debugging support
 - Analytics foundation
 
-**Invariant:** `events.jsonl` is APPEND-ONLY. Never modify, never delete.
+**Format Philosophy:** Events are logged to Markdown files with embedded YAML/JSON code blocks. Markdown is maximally human-readable while still supporting arbitrary structured data. YAML is preferred for its support of comments—**comments carry meaning**.
+
+**Invariant:** Session logs are APPEND-ONLY. Never modify, never delete.
 
 ---
 
-## 2. Event Schema
+## 2. Why Markdown Over JSONL
+
+| Aspect | JSONL | Markdown + Code Blocks |
+|--------|-------|------------------------|
+| Human readability | Poor | Excellent |
+| Git diffs | Noisy | Clean |
+| Comments | None | Full support |
+| Context | None | Narrative possible |
+| Parsing | Direct | Requires block extraction |
+| Flexibility | Rigid | Arbitrary verbosity |
+
+**The key insight**: Debugging is a human activity. Logs should serve humans first, machines second. Structured data lives in fenced code blocks; narrative context lives around them.
+
+---
+
+## 3. Log File Structure
+
+### Location
+```
+.agent/sessions/<session_id>/session-log.md
+```
+
+### Format
+
+```markdown
+# Session Log: <session_id>
+
+Started: 2025-12-30T12:00:00Z
+Protocol: EVENT-LOG/0.2
+
+---
+
+## 12:00:00 — Session Start
+
+<!-- Minimal metadata for session initialization -->
 
 ```yaml
-event:
-  type: string          # Event category
-  timestamp: string     # ISO 8601
-  session_id: string?   # Session context
-  
-  # Type-specific fields...
-  
-  metadata:
-    protocol: string    # Protocol version
-    sequence: int?      # Event sequence number
+type: session_start
+session_id: sess-001
+protocol: EVENT-LOG/0.2
 ```
 
 ---
 
-## 3. Event Types
+## 12:00:05 — Tool Call: fs.read
+
+Reading parser to check recursive descent handling.
+
+```yaml
+type: tool_call
+tool: fs.read
+call_id: call-001
+args:
+  path: src/parser.ts
+  # Check if the recursive descent handles nested expressions
+  # This is part of the expression parser audit
+  why: "Check if recursive descent handles nested expressions"
+```
+
+---
+
+## 12:00:05 — Tool Result: fs.read
+
+```yaml
+type: tool_result
+call_id: call-001
+success: true
+duration_ms: 12
+result:
+  lines: 50
+  # File contains the expected parseExpression function
+```
+
+---
+```
+
+### Key Principles
+
+1. **Timestamps as headers** — Easy visual scanning
+2. **Narrative before blocks** — Human context first
+3. **YAML in code blocks** — Parseable structure
+4. **Comments inside YAML** — Intent and context preserved
+5. **Horizontal rules** — Clear event separation
+
+---
+
+## 4. Event Types
 
 ### Session Events
 
-```jsonl
-{"type":"session_start","timestamp":"2025-12-30T12:00:00Z","session_id":"sess-001","protocol":"EVENT-LOG/0.1"}
-{"type":"session_end","timestamp":"2025-12-30T14:30:00Z","session_id":"sess-001","reason":"user_exit","stats":{"turns":45,"tools":123}}
+```yaml
+# Session start - always first entry
+type: session_start
+timestamp: "2025-12-30T12:00:00Z"
+session_id: sess-001
+protocol: EVENT-LOG/0.2
+# Optional context about what this session is for
+purpose: "Debugging the expression parser"
+```
+
+```yaml
+# Session end - always last entry
+type: session_end
+timestamp: "2025-12-30T14:30:00Z"
+session_id: sess-001
+reason: user_exit
+stats:
+  turns: 45
+  tools: 123
+  # High repair count suggests fragile state going in
+  repairs: 7
 ```
 
 ### Tool Events
 
-```jsonl
-{"type":"tool_call","timestamp":"...","tool":"fs.read","args":{"path":"x.md","why":"Check content"},"call_id":"call-001"}
-{"type":"tool_result","timestamp":"...","tool":"fs.read","call_id":"call-001","success":true,"result":{"lines":50},"duration_ms":12}
-{"type":"tool_error","timestamp":"...","tool":"fs.read","call_id":"call-001","error":{"code":"NOT_FOUND","message":"File not found"}}
+```yaml
+type: tool_call
+tool: fs.read
+call_id: call-001
+args:
+  path: src/parser.ts
+  # The 'why' is REQUIRED - it's not bureaucracy, it's self-documentation
+  why: "Check if recursive descent handles nested expressions"
+```
+
+```yaml
+type: tool_result
+call_id: call-001
+success: true
+duration_ms: 12
+result:
+  lines: 50
+  # Truncated actual content - just metadata here
+```
+
+```yaml
+type: tool_error
+call_id: call-001
+error:
+  code: NOT_FOUND
+  message: "File not found: src/parser.ts"
+  # Recovery suggestion for self-healing
+  suggestion: "Check if file was renamed or moved"
 ```
 
 ### Model Events
 
-```jsonl
-{"type":"model_input","timestamp":"...","tokens":2500,"files_in_context":["a.md","b.md"]}
-{"type":"model_output","timestamp":"...","tokens":500,"tool_calls":1,"text_length":1200}
-{"type":"model_turn","timestamp":"...","turn":15,"input_tokens":2500,"output_tokens":500}
+```yaml
+type: model_input
+timestamp: "..."
+tokens: 2500
+files_in_context:
+  - a.md
+  - b.md
+# Context was tight - watch for truncation issues
+budget_usage: 0.89
+```
+
+```yaml
+type: model_output
+timestamp: "..."
+tokens: 500
+tool_calls: 1
+# Model seemed confident about the fix
+text_length: 1200
 ```
 
 ### Memory Events
 
-```jsonl
-{"type":"context_assembly","timestamp":"...","budget":28000,"used":23456,"included":["a.md"],"excluded":["b.md"]}
-{"type":"working_set_update","timestamp":"...","action":"add","path":"new.md","priority":0.7}
-{"type":"cache_advice","timestamp":"...","hot_added":["a.md"],"cold_added":["b.md"]}
-{"type":"gc_run","timestamp":"...","trigger":"budget","freed_tokens":5000,"files_affected":3}
-{"type":"summary_created","timestamp":"...","source":["a.md","b.md"],"target":"summaries/ab.md"}
+```yaml
+type: context_assembly
+timestamp: "..."
+budget: 28000
+used: 23456
+included:
+  - a.md  # Hot - actively working
+  - b.md  # Hot - referenced by a.md
+excluded:
+  - old_log.md  # Cold - not needed this turn
+# Approaching budget limit - consider summarization
+warning: "Budget usage at 84%"
+```
+
+```yaml
+type: gc_run
+trigger: budget
+freed_tokens: 5000
+files_affected: 3
+# Summarized rather than deleted
+action: summarize_then_evict
 ```
 
 ### Repair Events
 
-```jsonl
-{"type":"repair","timestamp":"...","demon":"checklist_repairer","action":"created","path":"hot.yml"}
-{"type":"repair","timestamp":"...","demon":"membrane_keeper","action":"moved","from":"stray.md","to":".agent/stray/stray.md"}
-{"type":"bootstrap","timestamp":"...","files_created":["output.md","events.jsonl","working_set.yml"]}
+```yaml
+type: repair
+demon: checklist_repairer
+action: created
+path: hot.yml
+# File was missing, created minimal stub
+stub_contents: "keep: []"
+```
+
+```yaml
+type: bootstrap
+# Fresh session, created canonical files
+files_created:
+  - output.md
+  - session-log.md
+  - working_set.yml
 ```
 
 ### User Events
 
-```jsonl
-{"type":"user_message","timestamp":"...","length":150,"attachments":["file.png"]}
-{"type":"user_approval","timestamp":"...","action":"tool_call","tool":"terminal.run","approved":true}
-{"type":"user_edit","timestamp":"...","file":"output.md","change":"added paragraph"}
+```yaml
+type: user_message
+timestamp: "..."
+length: 150
+attachments:
+  - file.png
+# Message tone: question about implementation
 ```
 
-### Error Events
-
-```jsonl
-{"type":"error","timestamp":"...","code":"BUDGET_EXCEEDED","message":"Context too large","recovery":"truncated"}
-{"type":"warning","timestamp":"...","code":"MISSING_SIDECAR","message":"File lacks .meta.yml","path":"orphan.md"}
-```
-
----
-
-## 4. Event File Format
-
-### Location
-```
-.agent/sessions/<session_id>/events.jsonl
-```
-
-### Format
-- JSON Lines (one JSON object per line)
-- UTF-8 encoded
-- Newline-delimited
-- No trailing comma
-
-### Example
-```jsonl
-{"type":"session_start","timestamp":"2025-12-30T12:00:00Z","session_id":"sess-001"}
-{"type":"tool_call","timestamp":"2025-12-30T12:00:05Z","tool":"fs.ls","args":{"path":".","why":"Survey workspace"}}
-{"type":"tool_result","timestamp":"2025-12-30T12:00:05Z","tool":"fs.ls","success":true,"result":{"count":15}}
-{"type":"model_output","timestamp":"2025-12-30T12:00:10Z","tokens":200}
+```yaml
+type: user_approval
+action: tool_call
+tool: terminal.run
+approved: true
+# User reviewed the command before execution
+command_preview: "npm test"
 ```
 
 ---
 
-## 5. Append-Only Guarantee
+## 5. Verbosity Levels
+
+Log verbosity should adapt to context:
+
+### Minimal (Production)
+Just types, timestamps, success/failure.
+
+```yaml
+type: tool_result
+call_id: call-001
+success: true
+```
+
+### Standard (Development)
+Add args, results, and key comments.
+
+```yaml
+type: tool_result
+call_id: call-001
+success: true
+duration_ms: 12
+result:
+  lines: 50
+# Parser looks correct
+```
+
+### Verbose (Debugging)
+Full context, reasoning, suggestions.
+
+```yaml
+type: tool_result
+call_id: call-001
+success: true
+duration_ms: 12
+result:
+  lines: 50
+  first_line: "export function parseExpression(tokens: Token[])"
+  # Contains recursive call at line 23
+  # Uses precedence climbing, not recursive descent
+  analysis_notes: |
+    This is actually precedence climbing, not recursive descent.
+    The recursion is in parseAtom, not parseExpression itself.
+    Need to revise the audit approach.
+```
+
+---
+
+## 6. Append-Only Guarantee
 
 ### Why Append-Only?
 
@@ -127,57 +310,65 @@ event:
 
 ### Enforcement
 
-- Orchestrator MUST only append to events.jsonl
-- Model CANNOT call `fs.write` or `fs.patch` on events.jsonl
+- Orchestrator MUST only append to session-log.md
+- Model CANNOT call write tools on session-log.md except to append
 - Any modification attempt is logged as a violation
 - Corruption triggers recovery (backup + new file)
 
 ### Recovery from Corruption
 
 ```yaml
-if events.jsonl corrupted:
-  1. rename: events.jsonl → events.jsonl.corrupted
-  2. create: events.jsonl (fresh)
-  3. log: {"type":"recovery","from":"corruption","backup":"events.jsonl.corrupted"}
+if session_log corrupted:
+  1. rename: session-log.md → session-log.md.corrupted
+  2. create: session-log.md (fresh)
+  3. append:
+    type: recovery
+    from: corruption
+    backup: session-log.md.corrupted
+    # Human should review corrupted file
 ```
 
 ---
 
-## 6. Querying Events
+## 7. Querying Events
 
-Events can be queried for analysis:
+Events can be extracted and queried:
+
+```bash
+# Extract all YAML blocks from log
+grep -Pzo '```yaml\n[\s\S]*?```' session-log.md
+
+# Find all tool errors
+grep -A 10 'type: tool_error' session-log.md
+
+# Count events by type
+grep '^type:' session-log.md | sort | uniq -c
+```
+
+### For Programmatic Access
+
+Parse the markdown, extract fenced code blocks, parse as YAML:
 
 ```python
-# Example: Find all tool errors
-grep '"type":"tool_error"' events.jsonl | jq .
+import re
+import yaml
 
-# Example: Count tool calls by type
-cat events.jsonl | jq -r 'select(.type=="tool_call") | .tool' | sort | uniq -c
-
-# Example: Session duration
-first=$(head -1 events.jsonl | jq -r .timestamp)
-last=$(tail -1 events.jsonl | jq -r .timestamp)
+def extract_events(log_path):
+    content = open(log_path).read()
+    blocks = re.findall(r'```yaml\n(.*?)```', content, re.DOTALL)
+    return [yaml.safe_load(block) for block in blocks]
 ```
-
-### Useful Queries
-
-| Query | Purpose |
-|-------|---------|
-| Tool call frequency | Performance analysis |
-| Error patterns | Debugging |
-| Context usage | Memory optimization |
-| Turn duration | Latency tracking |
-| Repair frequency | Health monitoring |
 
 ---
 
-## 7. Event Retention
+## 8. Event Retention
 
 ### During Session
-- All events kept in `events.jsonl`
+- All events kept in session-log.md
 - No pruning during active session
 
 ### After Session
+
 ```yaml
 retention_policy:
   hot: "keep indefinitely"    # Recent sessions
@@ -185,106 +376,89 @@ retention_policy:
   cold: "archive after 30d"   # Much older
   
 compression:
-  - Remove verbose results (keep summaries)
-  - Aggregate repetitive events
-  - Keep error and repair events
+  # Remove verbose results but keep the narrative
+  - Collapse repetitive tool calls into summaries
+  - Keep error and repair events (debugging gold)
+  - Preserve all comments (they carry meaning!)
 ```
 
-### Archival Format
+### Session Summary
 
-```
-.agent/archive/
-  sessions/
-    2025-12/
-      sess-001.events.jsonl.gz
-      sess-001.summary.yml
-```
-
----
-
-## 8. Cross-Session Events
-
-Some events span sessions:
-
-```jsonl
-{"type":"cross_session_link","timestamp":"...","from_session":"sess-001","to_session":"sess-002","artifact":"shared_doc.md"}
-{"type":"memory_import","timestamp":"...","from_session":"sess-001","imported":["decisions.md","glossary.md"]}
-```
-
----
-
-## 9. Event Aggregation
-
-For analytics, events can be aggregated:
+At session end, generate a summary:
 
 ```yaml
-# session_summary.yml (generated at session end)
-session_id: "sess-001"
+# session-summary.yml (generated at session end)
+session_id: sess-001
 duration_minutes: 150
 turns: 45
 
 tool_usage:
-  fs.read: 67
-  fs.write: 23
+  fs.read: 67   # Heavy reading - exploration phase
+  fs.write: 23  # Moderate writing - implementation
   search.vector: 15
-  terminal.run: 8
-  
+  terminal.run: 8  # Some test runs
+
 errors:
   total: 3
   by_code:
-    NOT_FOUND: 2
+    NOT_FOUND: 2  # Missing files - need better discovery
     TIMEOUT: 1
-    
+
 repairs:
   total: 5
   by_demon:
     checklist_repairer: 2
     sticky_note_maintainer: 3
     
-memory:
-  peak_context_usage: 0.87
-  gc_runs: 2
-  summaries_created: 4
+# Session seemed productive - completed main task
+retrospective: |
+  Started with parser audit, discovered it uses precedence climbing.
+  Refactored the audit approach mid-session.
+  Main goal achieved, some cleanup remaining.
 ```
 
 ---
 
-## 10. Privacy & Security
+## 9. Comments Are Sacred
 
-### Sensitive Data
+**YAML comments in logs are not decoration—they are data.**
 
-Events MAY contain sensitive data. Handle appropriately:
-- User messages logged (can be scrubbed)
-- File contents NOT logged (only paths)
-- Tool args logged (may need scrubbing)
-
-### Scrubbing Policy
-
+Good log entry:
 ```yaml
-scrub_before_export:
-  - user_message.content
-  - tool_call.args.password
-  - tool_call.args.api_key
+type: tool_call
+tool: fs.write
+args:
+  path: output.md
+  content: "..."
+  # Appending final summary after all tests passed
+  # This concludes the debugging session
+  why: "Append final summary"
 ```
 
-### Access Control
+Bad log entry:
+```yaml
+type: tool_call
+tool: fs.write
+args:
+  path: output.md
+  content: "..."
+  why: "Append final summary"
+```
 
-- Events readable by user and system
-- Events not shared externally without consent
-- Export requires explicit action
+The comments provide context that the structured fields cannot capture.
 
 ---
 
-## 11. Dovetails With
+## 10. Dovetails With
 
 - **Constitution** (§6): Audit requirements
-- **Tool Calling Protocol**: Tool events
-- **Memory Management**: GC events
+- **Tool Calling Protocol**: Tool events, `why` parameter
+- **Memory Management**: GC events, summarization
 - **Self-Healing Protocol**: Repair events
-- **MOOLLM FlowMap Protocol (P-1.2)**: Data lineage
+- **YAML Jazz**: Comments carry meaning
 
 ---
 
 *Every action leaves a trace.*
-*The trace is append-only.*
+*The trace is human-readable.*
 *The trace enables trust.*

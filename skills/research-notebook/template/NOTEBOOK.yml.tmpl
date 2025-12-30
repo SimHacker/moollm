@@ -1,0 +1,74 @@
+# Research Notebook: {{topic}}
+
+notebook:
+  topic: "{{topic}}"
+  created: "{{timestamp}}"
+  status: "active"  # active | paused | complete
+  
+# ═══════════════════════════════════════════════════════════════════
+# RESEARCH QUESTIONS
+# ═══════════════════════════════════════════════════════════════════
+
+questions:
+  primary:
+    - question: "{{primary_question}}"
+      status: "open"  # open | answered | deferred
+      
+  secondary:
+    # - question: "..."
+    #   status: "open"
+
+# ═══════════════════════════════════════════════════════════════════
+# PROGRESS
+# ═══════════════════════════════════════════════════════════════════
+
+progress:
+  current_phase: "QUESTION"  # QUESTION | GATHER | ANALYZE | SYNTHESIZE | APPLY
+  
+  phases:
+    QUESTION:
+      status: "in_progress"
+      started: "{{timestamp}}"
+      
+    GATHER:
+      status: "pending"
+      sources_collected: 0
+      
+    ANALYZE:
+      status: "pending"
+      findings_documented: 0
+      
+    SYNTHESIZE:
+      status: "pending"
+      
+    APPLY:
+      status: "pending"
+
+# ═══════════════════════════════════════════════════════════════════
+# SCOPE
+# ═══════════════════════════════════════════════════════════════════
+
+scope:
+  in_scope:
+    - "What we're trying to learn"
+    
+  out_of_scope:
+    - "What we're explicitly NOT covering"
+    
+  success_criteria:
+    - "How we'll know we're done"
+
+# ═══════════════════════════════════════════════════════════════════
+# TIMELINE
+# ═══════════════════════════════════════════════════════════════════
+
+timeline:
+  deadline: null
+  time_budget: null
+  
+# ═══════════════════════════════════════════════════════════════════
+# NOTES
+# ═══════════════════════════════════════════════════════════════════
+
+notes: |
+  # Research notes and observations

@@ -350,16 +350,33 @@ memory.advise:
 ### Examples
 
 ```yaml
-# Good
+# Good - intent is clear, context provided
 why: "Find where YAML Jazz is defined to understand its principles"
 why: "Create summary of tool outputs to reduce context size"
 why: "Run tests to verify the patch works"
 
-# Bad
-why: "read the file"        # Too mechanical
-why: "because I need it"    # Not informative
+# Bad - mechanical, uninformative
+why: "read the file"        # Too mechanical - WHY read it?
+why: "because I need it"    # Circular, not informative
 why: ""                     # Empty (will be rejected)
 ```
+
+### YAML Comments in Tool Calls
+
+When logging tool calls, include YAML comments for additional context:
+
+```yaml
+type: tool_call
+tool: fs.read
+args:
+  path: src/parser.ts
+  # Part of the expression parser audit
+  # Previous read showed parseAtom, now checking parseExpression
+  why: "Check if recursive descent handles nested expressions"
+```
+
+**Comments are semantic**. They provide context that structured fields cannot.
+The `why` parameter is required; comments are optional but valuable.
 
 ### Enforcement
 
@@ -369,35 +386,28 @@ Tool calls without `why` MUST be rejected by the orchestrator.
 
 ## 5. Tool Call Flow
 
+```mermaid
+sequenceDiagram
+    participant M as Model
+    participant O as Orchestrator
+    participant F as Filesystem
+    participant L as session-log.md
+
+    M->>O: emit tool call (fs.read, why)
+    O->>O: validate schema, why, permissions
+    O->>F: execute with timeout
+    F-->>O: result or error
+    O->>L: append tool_call + result
+    O-->>M: inject result into context
 ```
-1. Model emits tool call
-   {
-     "name": "fs.read",
-     "args": {
-       "path": "example.md",
-       "why": "Check current implementation"
-     }
-   }
 
-2. Orchestrator validates
-   - Schema conformance
-   - `why` present
-   - Permissions
-   - Sandbox rules
+### Flow Details
 
-3. Orchestrator executes
-   - Apply timeout
-   - Capture output
-   - Handle errors
-
-4. Log to events.jsonl
-   {"type":"tool_call", "tool":"fs.read", "args":{...}, "timestamp":"..."}
-   {"type":"tool_result", "tool":"fs.read", "result":{...}, "timestamp":"..."}
-
-5. Inject result into context
-   - Add to conversation
-   - Update working set if needed
-```
+1. **Model emits**: Tool name, args, and required `why`
+2. **Orchestrator validates**: Schema, `why` present, permissions, sandbox
+3. **Orchestrator executes**: Apply timeout, capture output, handle errors
+4. **Log**: Append to `session-log.md` (YAML block in markdown)
+5. **Inject**: Add result to conversation, update working set if needed
 
 ---
 

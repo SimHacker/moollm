@@ -42,7 +42,7 @@ These files SHOULD exist in every session:
 | File | Purpose | Mode |
 |------|---------|------|
 | `output.md` | User-visible results | APPEND-ONLY |
-| `events.jsonl` | Audit log | APPEND-ONLY |
+| `session-log.md` | Audit log | APPEND-ONLY |
 | `working_set.yml` | Context manifest | READ/WRITE |
 | `hot.yml` | Cache keep hints | READ/WRITE |
 | `cold.yml` | Cache evict hints | READ/WRITE |
@@ -68,7 +68,7 @@ Created: [timestamp]
 ```
 
 ```jsonl
-<!-- events.jsonl (minimal) -->
+<!-- session-log.md (minimal markdown with YAML blocks) -->
 {"type":"session_start","timestamp":"...","protocol":"SELF-HEAL/0.1"}
 ```
 
@@ -87,7 +87,7 @@ actions:
   - check: "output.md exists"
     if_missing: "create minimal stub"
     
-  - check: "events.jsonl exists"
+  - check: "session-log.md exists"
     if_missing: "create with session_start event"
     
   - check: "working_set.yml exists"
@@ -163,14 +163,14 @@ Last checked: 2025-12-30T12:30:00Z
 
 ## Canonical Files
 - [x] output.md exists
-- [x] events.jsonl exists
+- [x] session-log.md exists
 - [x] working_set.yml exists
 - [x] hot.yml exists
 - [x] cold.yml exists
 
 ## Invariants
 - [x] output.md is append-only (no modifications detected)
-- [x] events.jsonl is append-only
+- [x] session-log.md is append-only
 - [x] All recent tool calls have 'why'
 
 ## Health Metrics
@@ -221,7 +221,7 @@ error: NOT_FOUND
 file: "some/missing/file.md"
 
 recovery:
-  1. Log error to events.jsonl
+  1. Log error to session-log.md
   2. Check if canonical file → create stub
   3. Check if can continue without → continue
   4. Check if critical → escalate to user
@@ -272,7 +272,7 @@ Given only:
 The system:
 1. Creates `sessions/<new-id>/`
 2. Creates all canonical files
-3. Writes boot event to `events.jsonl`
+3. Writes boot event to `session-log.md`
 4. Sets up `working_set.yml` with constitution
 5. Ready to operate
 
@@ -282,7 +282,7 @@ The system:
 bootstrap:
   - mkdir: ".agent/sessions/{session_id}/"
   - create: "output.md"          # minimal stub
-  - create: "events.jsonl"       # with session_start
+  - create: "session-log.md"      # with session_start header
   - create: "working_set.yml"    # with constitution only
   - create: "hot.yml"            # empty
   - create: "cold.yml"           # empty

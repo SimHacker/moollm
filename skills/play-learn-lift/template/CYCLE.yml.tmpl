@@ -1,0 +1,46 @@
+# PLAY-LEARN-LIFT Cycle State
+# Tracks current phase and progress
+
+cycle:
+  topic: "{{topic}}"
+  goal: "{{goal}}"
+  started: "{{timestamp}}"
+  
+  current_phase: "PLAY"  # PLAY | LEARN | LIFT
+  
+  phases:
+    PLAY:
+      status: "active"  # active | complete
+      started: "{{timestamp}}"
+      observations: 0
+      questions: 0
+      
+    LEARN:
+      status: "pending"
+      patterns_found: 0
+      procedures_documented: 0
+      
+    LIFT:
+      status: "pending"
+      templates_created: 0
+      shared: false
+
+# ═══════════════════════════════════════════════════════════════════
+# CYCLE LOG
+# ═══════════════════════════════════════════════════════════════════
+
+log:
+  - timestamp: "{{timestamp}}"
+    event: "cycle_started"
+    phase: "PLAY"
+    note: "Starting exploration of {{topic}}"
+
+# ═══════════════════════════════════════════════════════════════════
+# NOTES
+# ═══════════════════════════════════════════════════════════════════
+
+notes: |
+  # Remember:
+  # 🎮 PLAY: No fear, just explore
+  # 📚 LEARN: Find the patterns
+  # 🚀 LIFT: Share what you learned

@@ -1,0 +1,142 @@
+# HONEST-FORGET Skill Prototype
+# Graceful memory compression with integrity
+
+skill:
+  name: "honest-forget"
+  tier: 1  # File-only
+  protocol: "HONEST-FORGET"
+  
+  description: |
+    Compress context gracefully. Extract wisdom, leave pointers,
+    release with integrity. Never silently lose or fabricate.
+    
+  motto: "Summarize before forgetting. Never fabricate."
+
+inputs:
+  target:
+    type: path
+    required: true
+    description: "What to potentially forget"
+    
+  urgency:
+    type: enum
+    values: ["low", "medium", "high", "critical"]
+    default: "medium"
+    description: "How urgently we need to free context"
+
+outputs:
+  forget_file: "FORGET.yml"
+  wisdom_file: "WISDOM.yml"
+  pointers_file: "POINTERS.yml"
+  archive_dir: "archive/"
+
+cycle:
+  steps:
+    - ASSESS
+    - EXTRACT
+    - COMPRESS
+    - POINTER
+    - RELEASE
+
+assessment_schema:
+  required:
+    - file
+    - tokens
+    - importance
+  optional:
+    - decisions
+    - learnings
+    - dead_ends
+
+wisdom_schema:
+  required:
+    - id
+    - title
+    - lesson
+  optional:
+    - compressed_from
+    - pitfalls
+    - example
+    - retrieval_hint
+
+pointer_schema:
+  required:
+    - to
+    - summary
+  optional:
+    - retrieve_when
+    - contains
+
+compression_levels:
+  FULL:
+    ratio: "1:1"
+    keeps: "Everything"
+    use_when: "Still actively needed"
+    
+  WISDOM:
+    ratio: "~5:1"
+    keeps: "Lessons, decisions, key facts"
+    use_when: "Work is done, wisdom remains"
+    
+  SUMMARY:
+    ratio: "~10:1"
+    keeps: "Essence and pointers"
+    use_when: "Background reference only"
+    
+  POINTER:
+    ratio: "~50:1"
+    keeps: "Just retrieval hints"
+    use_when: "Rarely needed, but should remember it exists"
+
+honesty_rules:
+  DO:
+    - "Acknowledge what was forgotten"
+    - "Leave pointers for retrieval"
+    - "Extract lessons before release"
+    - "Document compression decisions"
+    
+  DONT:
+    - "Silently lose information"
+    - "Fabricate what was forgotten"
+    - "Pretend to remember details"
+    - "Hallucinate from partial memory"
+
+commands:
+  ASSESS:
+    syntax: "ASSESS [file]"
+    action: "Evaluate what's there"
+    
+  EXTRACT:
+    syntax: "EXTRACT [wisdom]"
+    action: "Pull out lessons"
+    
+  COMPRESS:
+    syntax: "COMPRESS [level]"
+    action: "Create summary at level"
+    
+  POINTER:
+    syntax: "POINTER [to] [summary]"
+    action: "Leave retrieval hint"
+    
+  RELEASE:
+    syntax: "RELEASE [file]"
+    action: "Remove from context"
+
+working_set:
+  always_include:
+    - "FORGET.yml"
+    - "WISDOM.yml"
+    - "POINTERS.yml"
+
+integrates_with:
+  - skill: "summarize"
+    how: "The compression mechanism"
+    
+  - skill: "session-log"
+    how: "What to potentially forget"
+    
+  - skill: "memory-palace"
+    how: "Where wisdom lives"
+    
+  - protocol: "NEVER-DELETE"
+    how: "Archive, don't destroy"
