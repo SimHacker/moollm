@@ -259,7 +259,7 @@ graph LR
 | Symbol | Meaning | Link |
 |--------|---------|------|
 | `TRADING-CARD` | Capabilities as cards | [PROTOCOLS.yml](../../PROTOCOLS.yml#TRADING-CARD) |
-| `HERO-KLIK` | Real person cards (safe) | [PROTOCOLS.yml](../../PROTOCOLS.yml#HERO-KLIK) |
+| `HERO-STORY` | Real person cards (safe) | [PROTOCOLS.yml](../../PROTOCOLS.yml#HERO-STORY) |
 | `FAMILIAR` | Tool spirits | [PROTOCOLS.yml](../../PROTOCOLS.yml#FAMILIAR) |
 | `P-HANDLE-K` | Why K-lines are safe | [PROTOCOLS.yml](../../PROTOCOLS.yml#P-HANDLE-K) |
 | `ACTOR` | Cards-in-play are actors | [PROTOCOLS.yml](../../PROTOCOLS.yml#ACTOR) |

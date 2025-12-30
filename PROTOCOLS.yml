@@ -511,17 +511,30 @@ FAMILIAR:
     - "🔧 Repair Imp — self-healing"
     - "📜 Session Scribe — logging"
 
-HERO-KLIK:
-  meaning: "A trading card for a real person's wisdom and contributions."
+HERO-STORY:
+  meaning: "A trading card that tells a real person's story — their contributions, tradition, wisdom."
   location: skills/trading-card/
   invoke_when: "Invoking a real person's tradition without impersonation"
+  
+  key_insight: |
+    # "Tell me the Dave Ungar story"
+    # This invokes Self, prototypes, ITS-ABOUT-TIME — the NARRATIVE TRADITION.
+    # Not "be Dave Ungar" but "what did Dave Ungar contribute?"
+    # The hero's story IS the value. Conversational storytelling.
+    
   examples:
     - "Dave Ungar — Self, prototypes, ITS-ABOUT-TIME"
     - "Seymour Papert — Logo, microworlds, constructionism"
     - "Alan Kay — Smalltalk, messaging, children"
     - "Henry Lieberman — PBD, end-user programming"
     - "Marvin Minsky — K-lines, Society of Mind"
-  safe_because: "K-line activation, not impersonation"
+    - "Chuck Shotton — WebSTAR, Kilroy, decentralized AI"
+    
+  safe_because:
+    - "Story = contributions, not identity"
+    - "K-line activation invokes tradition"
+    - "Conversational storytelling, not roleplay"
+    - "The card tells a story about, not speaks as"
 
 ACTOR:
   meaning: "Independent entity with state, receiving messages, situated in microworld."
@@ -819,7 +832,7 @@ SPEED-OF-LIGHT:
     # - Each agent in isolated prison
     # - One LLM call per agent per turn
     # - Communication via file I/O
-    # - Like writing on toilet paper in crayon
+    # - Like writing on toilet paper in crayon via carrier pigeon
     # - 3 agents × 5 turns = 15 LLM calls + waiting
     
   moollm_pattern: |
@@ -886,7 +899,7 @@ _categories:
   logging: [SESSION-LOG, AUDIT-TRAIL]
   lifecycle: [YAML-COLTRANE, IMPROVISE, CRYSTALLIZE]
   optimization: [ITS-ABOUT-TIME, JUST-ABOUT-TIME, PRESERVE-JOURNEY, WISDOM-SPOT, SPEED-OF-LIGHT]
-  spatial: [ROOM-AS-FUNCTION, CARD-IN-PLAY, ENTER-ROOM, PORTABLE-ROOM, NESTED-ROOMS, HYPERCARD-HIERARCHY, LEAF-BUTTON, RETURN-STACK, FAMILIAR, HERO-KLIK, ACTOR, MULTI-PRESENCE]
+  spatial: [ROOM-AS-FUNCTION, CARD-IN-PLAY, ENTER-ROOM, PORTABLE-ROOM, NESTED-ROOMS, HYPERCARD-HIERARCHY, LEAF-BUTTON, RETURN-STACK, FAMILIAR, HERO-STORY, ACTOR, MULTI-PRESENCE]
   sims_lineage: [ADVERTISEMENT, AUTONOMOUS-SELECTION, HAPPY-SPACE, ACTION-QUEUE, SIMANTICS]
   efficiency: [SPEED-OF-LIGHT, CARRIER-PIGEON]
   experimental: [SOUL-CHAT, TRADING-CARD, BOUNCY-CASTLE, PETS]
