@@ -11,30 +11,28 @@
 
 A skill for creating conversations where the **structure carries meaning** beyond the words. Not just characters talking—documents can talk to documents, rooms can welcome visitors, concepts can explain themselves.
 
-**Prefer Markdown format** — more human readable, can embed any typed code block:
+**Prefer Markdown format** — more human readable, can embed any typed code block.
 
-```markdown
-## The Gardener
-
-I've been tending these patterns for a while now.
+**Format:** `## Speaker Name` headers, prose, then typed code blocks for data.
 
 ```yaml
-observation:
-  pattern: "Files cluster by prefix"
-  confidence: high
-  # This YAML block is data I'm sharing
+# Example structure (not a real code block, just illustration):
+# 
+# ## The Gardener
+# 
+# I've been tending these patterns for a while now.
+# 
+# ```yaml
+# observation:
+#   pattern: "Files cluster by prefix"
+# ```
+# 
+# ## The Archivist
+# 
+# Let me add some context...
 ```
 
-What do you think, Archivist?
-
-## The Archivist
-
-Fascinating! Let me add some context:
-
-```json
-{"related_patterns": ["big-endian", "prefix-ownership"]}
-```
-```
+Characters share data by embedding YAML/JSON blocks in their dialogue — [YAML-JAZZ](../../PROTOCOLS.yml) in action.
 
 ## Contents
 
@@ -48,36 +46,11 @@ Fascinating! Let me add some context:
 
 Chats live **OUTSIDE** this directory (per [ABOUT-NOT-INSIDE](../../PROTOCOLS.yml)).
 
-**Use Markdown format** — `.md` not `.yml`:
+**Use Markdown format** — `.md` not `.yml`.
 
-```markdown
-# yaml-jazz-symposium.md
+Name chats with the subject first: `readme-symposium.md`, `yaml-jazz-debate.md`
 
-A conversation about the nature of YAML Jazz.
-
----
-
-## YAML-JAZZ (concept)
-
-I am the principle that comments carry meaning.
-Structure is semantic, not just syntactic.
-
-```yaml
-# See? This comment IS semantic.
-example:
-  field: value
-  # This explains why field exists
-```
-
-## A Skeptic (character)
-
-But parsers strip comments!
-
-## YAML-JAZZ
-
-LLMs read comments. Humans read comments.
-The parser is not the only reader.
-```
+See [template/CHAT.md.tmpl](./template/CHAT.md.tmpl) for the full template.
 
 ## Entity Types
 
@@ -112,7 +85,7 @@ graph LR
 ### Sister Skills
 | Skill | Relationship |
 |-------|--------------|
-| [trading-card/](../trading-card/) | Cards **speak** through soul-chat. Hero-kliks have voice. |
+| [trading-card/](../trading-card/) | Cards **speak** through soul-chat. Hero-stories have voice. |
 | [room/](../room/) | Rooms can **welcome visitors**, have personality |
 | [memory-palace/](../memory-palace/) | Rooms in palace can speak, guide navigation |
 | [adventure-protocol/](../adventure-protocol/) | NPCs and environments speak |

@@ -379,7 +379,7 @@ CARD-IN-PLAY:
     #   - Goals (what it's trying to achieve)
     #   - Return value (message sent when done)
     # Multiple instances = multiple actors
-    # They're hero-kliks, familiars, demons, spirits!
+    # They're hero-stories, familiars, demons, spirits!
 
 ENTER-ROOM:
   meaning: "Navigate to directory, push its context."
@@ -501,7 +501,7 @@ RETURN-STACK:
       debugging: [logs → source]
 
 FAMILIAR:
-  meaning: "A trading card embodying tool capability as a helper spirit."
+  meaning: "A trading card embodying tool capability as a helper spirit animal."
   location: skills/trading-card/
   invoke_when: "Creating safe K-line wrapper for a tool"
   examples:

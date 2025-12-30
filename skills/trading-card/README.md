@@ -5,7 +5,7 @@
 Cards are templates. Put them "in play" in a [room](../room/) to activate them.
 
 > [!TIP]
-> **Hero-kliks.** Actors. Safe pointers to wisdom. No risks of impersonation, just tribute, heroification, skill sharing and composing.
+> **Hero-stories.** Actors. Safe pointers to wisdom. No risks of impersonation, just tribute, storytelling, skill sharing and composing.
 
 ---
 
@@ -81,7 +81,7 @@ When you "play" this card, you invoke the tradition — not simulate the person.
 
 ## Card Anatomy
 
-### Hero-Klik (Real Person)
+### Hero-Story (Real Person)
 
 ```yaml
 card:
@@ -110,7 +110,7 @@ card:
     domain_expertise: ["languages", "VMs", "UI"]
 ```
 
-### Familiar (Tool Spirit)
+### Familiar (Tool Spirit Animal)
 
 ```yaml
 card:
@@ -251,7 +251,7 @@ graph LR
 | Skill | Relationship |
 |-------|--------------|
 | [room/](../room/) | Cards **activate** in rooms. Rooms hold card instances. |
-| [soul-chat/](../soul-chat/) | Cards can **speak** — hero-kliks, familiars, all have voice |
+| [soul-chat/](../soul-chat/) | Cards can **speak** — hero-stories, familiars, all have voice |
 | [adventure-protocol/](../adventure-protocol/) | Cards are your **companions** on quests |
 | [play-learn-lift/](../play-learn-lift/) | Card creation follows PLL — play with ideas, learn patterns, lift into cards |
 
@@ -260,7 +260,7 @@ graph LR
 |--------|---------|------|
 | `TRADING-CARD` | Capabilities as cards | [PROTOCOLS.yml](../../PROTOCOLS.yml#TRADING-CARD) |
 | `HERO-STORY` | Real person cards (safe) | [PROTOCOLS.yml](../../PROTOCOLS.yml#HERO-STORY) |
-| `FAMILIAR` | Tool spirits | [PROTOCOLS.yml](../../PROTOCOLS.yml#FAMILIAR) |
+| `FAMILIAR` | Tool spirit animals | [PROTOCOLS.yml](../../PROTOCOLS.yml#FAMILIAR) |
 | `P-HANDLE-K` | Why K-lines are safe | [PROTOCOLS.yml](../../PROTOCOLS.yml#P-HANDLE-K) |
 | `ACTOR` | Cards-in-play are actors | [PROTOCOLS.yml](../../PROTOCOLS.yml#ACTOR) |
 | `CARD-IN-PLAY` | Activated instance | [PROTOCOLS.yml](../../PROTOCOLS.yml#CARD-IN-PLAY) |

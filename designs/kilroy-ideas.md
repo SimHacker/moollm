@@ -184,19 +184,7 @@ system_prompt: |
   Try bold experiments!
 ```
 
-**Key difference:** MOOLLM changes are logged to [`session-log.md`](../kernel/event-logging-protocol.md).
-
-```markdown
-## 2025-01-02T14:00:00Z — Prompt Modification
-
-User requested agent personality change.
-
-```yaml
-type: config_change
-file: "agents/reviewer.yml"
-field: system_prompt
-why: "User wants exploratory mode"
-```
+**Key difference:** MOOLLM changes are logged to [`session-log.md`](../kernel/event-logging-protocol.md) — every config change is an append-only log entry with `why` field.
 
 **Protocol symbols:**
 - [`YAML-JAZZ`](../PROTOCOLS.yml) — comments carry meaning

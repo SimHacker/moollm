@@ -72,7 +72,7 @@ inputs:
     values: ["person", "character", "tool", "familiar", "concept", "place", "technique", "artifact"]
     required: true
     description: |
-      person    — Real human (hero-klik, safe K-line)
+      person    — Real human (hero-story, safe K-line)
       character — Fictional persona
       tool      — A capability
       familiar  — Helper spirit for tools
@@ -132,7 +132,7 @@ actor_model:
 card_types:
   person:
     description: "Real human's wisdom — HERO-STORY"
-    also_called: "hero-klik"
+    also_called: "hero-story"
     safety: "K-line activation, not impersonation"
     typical_stats:
       - wisdom

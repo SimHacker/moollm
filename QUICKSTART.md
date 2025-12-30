@@ -2,8 +2,37 @@
 
 **Read time: 3 minutes** ⏱️
 
-> [!TIP]
-> This is the executive summary. For the full picture, see the [main README](./README.md).
+---
+
+## What the Hell Is This?
+
+**The problem:** LLM agents are black boxes. They have "memory" you can't inspect, "planning" you can't audit, and crash when they encounter missing data. You feed tokens into a void and hope.
+
+**The solution:** MOOLLM makes the invisible visible. Every thought is a file. Every action is logged. Every plan is YAML you can read. The agent navigates its own memory like a filesystem because *it IS a filesystem*.
+
+**Why it matters:**
+
+| Black Box Agent | MOOLLM Agent |
+|-----------------|--------------|
+| "Trust me, I remembered" | Read `hot.yml` — see exactly what's loaded |
+| Crashes on missing context | Self-heals, creates stub, continues |
+| "I planned internally" | Read `PLAN.yml` — approve before execution |
+| Isolated single-agent calls | Many agents talk in ONE LLM call (speed of light) |
+| Hidden state | **Everything is files. No magic.** |
+
+---
+
+## What's Unique?
+
+1. **Spatial programming.** Directories are rooms. Enter a room = push context. Exit = pop. Cards activate in rooms like function calls with state.
+
+2. **Multi-agent without the bullshit.** Traditional: 3 agents × 5 turns = 15 LLM calls, file I/O between each. MOOLLM: 3 agents × 5 turns = 1 LLM call. They talk at the speed of light *inside the context*.
+
+3. **Self-healing by design.** Missing file? Create it. Corrupted state? Rename `.corrupted`, start fresh, log what happened. NEVER crash. Inspired by Dave Ackley's robust-first computing.
+
+4. **YAML Jazz.** Comments aren't decoration — they're semantic. `timeout: 30 # generous because API flaky on Mondays` tells the LLM *why*, not just *what*.
+
+5. **No impersonation, just storytelling.** Reference real people's wisdom through "Hero-Stories" — K-line activation of their *tradition*, not simulation of their *identity*.
 
 ---
 
@@ -126,13 +155,16 @@ Full index: [PROTOCOLS.yml](./PROTOCOLS.yml)
 
 ---
 
-## Influences (Why It Works)
+## Standing on Giants
 
-- **The Sims**: Objects advertise, agents select autonomously
-- **HyperCard**: Stacks, cards, message passing
-- **Self**: Prototype-based, no classes
-- **LambdaMOO**: Rooms, objects, spatial programming
-- **MFM**: Robust-first, local repair
+| System | What We Took | Why It Works |
+|--------|--------------|--------------|
+| **The Sims** | Objects advertise capabilities | Agent picks best action based on goals, not scripts |
+| **HyperCard** | Stacks, cards, message delegation | Non-programmers built apps in 1987. We can too. |
+| **Self** | Prototypes, no classes | Clone and modify beats rigid inheritance |
+| **LambdaMOO** | Rooms as spatial programming | Navigation IS cognition |
+| **MFM** | Robust-first, local repair | Survivability beats correctness |
+| **Kilroy** | Decentralized swarms | Many small LLMs beat one big prison |
 
 ---
 

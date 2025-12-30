@@ -9,19 +9,25 @@ Append-only audit trail that humans can actually read.
 
 ## Format
 
-```markdown
-## 12:00:05 — Tool Call: fs.read
-
-Reading parser to understand recursive descent.
+Each entry is a markdown heading with an embedded YAML block:
 
 ```yaml
-type: tool_call
-tool: fs.read
-args:
-  path: src/parser.ts
-  why: "Check implementation"  # Intent is explicit
+# Entry structure:
+#
+# ## 12:00:05 — Tool Call: fs.read
+#
+# Reading parser to understand recursive descent.
+#
+# ```yaml
+# type: tool_call
+# tool: fs.read
+# args:
+#   path: src/parser.ts
+#   why: "Check implementation"  # Intent is explicit
+# ```
 ```
-```
+
+See [template/session-log.md.tmpl](./template/session-log.md.tmpl) for full format.
 
 ## Why Markdown + YAML?
 
