@@ -206,7 +206,7 @@ Navigate to remember. Place things to store.
 - **→ trading-card/**: Cards live in rooms
 - **→ memory-palace/**: Rooms as memory locations
 - **→ soul-chat/**: Rooms can speak (type: room)
-- **→ adventure-protocol/**: Narrative room exploration
+- **→ adventure/**: Narrative room exploration
 - **← working_set**: Rooms define their context
 
 ---
@@ -215,7 +215,7 @@ Navigate to remember. Place things to store.
 
 - **[../trading-card/](../trading-card/)** — Cards activate in rooms
 - **[../memory-palace/](../memory-palace/)** — Memory Palace IS Room + mnemonic intent
-- **[../adventure-protocol/](../adventure-protocol/)** — Adventure IS Room + narrative
+- **[../adventure/](../adventure/)** — Adventure IS Room + narrative
 - **[../soul-chat/](../soul-chat/)** — Rooms can speak
 - **[../../kernel/context-assembly-protocol.md](../../kernel/context-assembly-protocol.md)** — Room working_set mechanics
 - **[../../PROTOCOLS.yml](../../PROTOCOLS.yml)** — ROOM-AS-FUNCTION, HYPERCARD-HIERARCHY symbols

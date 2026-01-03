@@ -155,5 +155,5 @@ confidence:
 - **[../play-learn-lift/](../play-learn-lift/)** — Research IS PLAY→LEARN stage
 - **[../summarize/](../summarize/)** — Compress research
 - **[../debugging/](../debugging/)** — Investigation companion
-- **[../adventure-protocol/](../adventure-protocol/)** — Evidence collection
+- **[../adventure/](../adventure/)** — Evidence collection
 - **[../../PROTOCOLS.yml](../../PROTOCOLS.yml)** — PRESERVE-JOURNEY symbol

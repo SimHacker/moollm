@@ -1,4 +1,4 @@
-# Adventure Protocol
+# Adventure
 
 > *"Every directory is a room. Every file is a clue. Navigation is investigation."*
 

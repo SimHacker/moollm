@@ -252,7 +252,7 @@ graph LR
 |-------|--------------|
 | [room/](../room/) | Cards **activate** in rooms. Rooms hold card instances. |
 | [soul-chat/](../soul-chat/) | Cards can **speak** — hero-stories, familiars, all have voice |
-| [adventure-protocol/](../adventure-protocol/) | Cards are your **companions** on quests |
+| [adventure/](../adventure/) | Cards are your **companions** on quests |
 | [play-learn-lift/](../play-learn-lift/) | Card creation follows PLL — play with ideas, learn patterns, lift into cards |
 
 ### Protocol Symbols
@@ -264,6 +264,7 @@ graph LR
 | `P-HANDLE-K` | Why K-lines are safe | [PROTOCOLS.yml](../../PROTOCOLS.yml#P-HANDLE-K) |
 | `ACTOR` | Cards-in-play are actors | [PROTOCOLS.yml](../../PROTOCOLS.yml#ACTOR) |
 | `CARD-IN-PLAY` | Activated instance | [PROTOCOLS.yml](../../PROTOCOLS.yml#CARD-IN-PLAY) |
+| `INVENTORY` | Things characters carry | [PROTOCOLS.yml](../../PROTOCOLS.yml#INVENTORY) |
 
 ### Meta
 - [delegation-object-protocol.md](../delegation-object-protocol.md) — How cards inherit from prototypes

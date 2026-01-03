@@ -163,7 +163,7 @@ why_it_works: "Forces you to articulate assumptions"
 
 ## Dovetails With
 
-- **[../adventure-protocol/](../adventure-protocol/)** — Debugging IS adventure + hypothesis tracking
+- **[../adventure/](../adventure/)** — Debugging IS adventure + hypothesis tracking
 - **[../play-learn-lift/](../play-learn-lift/)** — Debugging IS PLAY stage
 - **[../session-log/](../session-log/)** — Track all debug steps
 - **[../research-notebook/](../research-notebook/)** — Investigation notes

@@ -358,10 +358,12 @@ TRADING-CARD:
   invoke_when: "Creating portable capability tokens"
 
 BOUNCY-CASTLE:
-  meaning: "Recursive navigable thought-spaces."
+  meaning: "Recursive navigable thought-spaces with their own internal geometry."
   location: designs/MOOLLM-PROTOCOLS.md
+  extends: PORTABLE-ROOM
   status: experimental
   invoke_when: "High-dimensional navigation"
+  # Portable room with its own coordinate system, non-Euclidean topology
 
 ROOM-AS-FUNCTION:
   meaning: "Entering room = calling function. Exiting = returning."
@@ -446,6 +448,660 @@ NESTED-ROOMS:
         ROOM.yml       # Inside the palace
         vault/
           ROOM.yml     # Inside the treasury
+
+INVENTORY:
+  meaning: "Things a character carries. Portable objects, cards, tools."
+  location: skills/trading-card/
+  invoke_when: "Managing what a character or agent has on hand"
+  
+  structure: |
+    character/
+      inventory/
+        sword.card
+        map.yml
+        torch.yml
+        
+  operations:
+    GET: "Pick up object from room into inventory"
+    DROP: "Put object from inventory into room"
+    GIVE: "Transfer object to another character"
+    USE: "Activate object in inventory"
+    INVENT: "List current inventory"
+    
+  # Inventory IS a portable room you always carry
+  # "Pocket dimension" — your bag of holding
+
+CONTAINER:
+  meaning: "Objects can hold other objects. Nested hierarchy. Paths address contents."
+  location: skills/room/
+  invoke_when: "Organizing objects, building composite structures"
+  see_also: [INVENTORY, PUT, TAKE-FROM, OBJECT-PATH, TAG]
+  
+  # Objects are containers all the way down
+  # Like directories containing files
+  # Or YAML containing nested structures
+  
+  commands: |
+    PUT <obj> IN <container>      # Place object inside another
+    TAKE <obj> FROM <container>   # Remove from container
+    OPEN <container>              # List contents
+    SEARCH <container> <query>    # Find by name/tag
+    DUMP <container>              # Take everything out
+    
+  example: |
+    > PUT screwdriver IN toolbox
+    screwdriver is now inside toolbox
+    
+    > OPEN toolbox
+    toolbox contains:
+      - screwdriver
+      - wrench [tag:favorite]
+      - nails (12)
+      
+    > PUT toolbox IN backpack
+    toolbox is now inside backpack
+    
+    > OPEN backpack
+    backpack contains:
+      - toolbox (3 items)
+      - sandwich
+      - map.yml
+      
+  nesting: |
+    # Arbitrary depth:
+    backpack/
+      toolbox/
+        screwdriver.yml
+        wrench.yml
+        nails.yml
+      food/
+        sandwich.yml
+      map.yml
+      
+OBJECT-PATH:
+  meaning: "Address nested objects with paths. Like filesystem or YAML paths."
+  location: skills/room/
+  invoke_when: "Referencing objects inside containers"
+  see_also: [CONTAINER, TAG, SEARCH]
+  
+  syntax: |
+    # Filesystem-style paths:
+    backpack/toolbox/screwdriver
+    inventory/keys/master-key
+    room/chest/drawer/letter
+    
+    # Relative paths:
+    ./toolbox/wrench         # In current container
+    ../other-box/item        # Sibling container
+    /room/absolute/path      # From room root
+    
+  examples: |
+    > EXAMINE backpack/toolbox/wrench
+    A well-worn wrench. Tag: favorite
+    
+    > TAKE ../chest/gold FROM here
+    Taking gold from chest...
+    
+    > USE inventory/potions/healing
+    Using healing potion from inventory...
+
+TAG:
+  meaning: "Labels attached to objects for search and reference. Like hashtags or symlinks."
+  location: skills/room/
+  invoke_when: "Marking objects, creating references, searching"
+  see_also: [OBJECT-PATH, SEARCH, CONTAINER]
+  
+  commands: |
+    TAG <object> <label>         # Add tag
+    UNTAG <object> <label>       # Remove tag
+    TAGS <object>                # List tags
+    FIND <tag>                   # Find all objects with tag
+    
+  special_tags: |
+    @input      # Input to current process
+    @output     # Output of current process
+    @error      # Error channel
+    @temp       # Temporary, can be cleaned
+    @important  # Prioritized
+    @favorite   # User preference
+    
+  search_by_tag: |
+    > FIND @favorite
+    Objects tagged @favorite:
+      - toolbox/wrench
+      - inventory/pen
+      - desk/notebook
+      
+    > FIND @input
+    Input objects:
+      - inbox/task-001.yml
+      - inbox/task-002.yml
+      
+  in_yaml: |
+    # Tags stored in object YAML:
+    wrench:
+      type: tool
+      tags: [favorite, heavy, metal]
+      location: toolbox
+      
+    # Or as file prefix:
+    @favorite-wrench.yml
+    @input-task-001.yml
+
+SEARCH:
+  meaning: "Find objects by name, tag, type, or content."
+  location: skills/room/
+  invoke_when: "Looking for objects in containers or room"
+  see_also: [TAG, OBJECT-PATH, CONTAINER]
+  
+  syntax: |
+    SEARCH <where> <query>
+    SEARCH room "key"              # By name
+    SEARCH backpack @tool          # By tag
+    SEARCH chest type:document     # By type
+    SEARCH . "password"            # In current container
+    SEARCH * @important            # Everywhere reachable
+    
+  examples: |
+    > SEARCH backpack @tool
+    Found in backpack:
+      toolbox/screwdriver [@tool]
+      toolbox/wrench [@tool @favorite]
+      
+    > SEARCH * "secret"
+    Found:
+      room/desk/drawer/secret-note.yml
+      inventory/secret-map.yml
+      
+  recursive: |
+    # Search descends into containers:
+    > SEARCH room @quest-item
+    Found:
+      chest/box/ring [@quest-item]
+      shelf/book/page/clue [@quest-item @hidden]
+
+VEHICLE:
+  meaning: "A portable room that can move through world-space. Characters embark/disembark."
+  extends: PORTABLE-ROOM
+  location: skills/room/
+  invoke_when: "Creating movable containers for characters"
+  
+  operations:
+    EMBARK: "Enter the vehicle"
+    DISEMBARK: "Exit to current world location"
+    DRIVE: "Move vehicle (and occupants) to new world coordinates"
+    
+  examples:
+    - "TARDIS — bigger on the inside, moves anywhere, own internal coordinates"
+    - "Bouncy Castle — recursive navigable thought-space with its own geometry"
+    - "Research tent — deploy camp, pick up, redeploy"
+    - "Logo Turtle — draws by writing SVG, carries its own position/heading state"
+    - "Spaceship — travels between project planets"
+    
+  # Vehicle IS a room with world_position that can change
+  # Each has its OWN internal coordinate system!
+
+WORLD-SPACE:
+  meaning: "2D coordinate system for rooms in the world."
+  location: skills/room/
+  invoke_when: "Organizing rooms spatially, creating maps"
+  
+  structure: |
+    # In ROOM.yml:
+    world_position:
+      x: 5
+      y: 12
+      # Higher dimensions optional:
+      z: 0
+      dimension: "material"
+      
+  navigation: |
+    # Rooms can be adjacent by world coordinates
+    # NORTH from (5,12) → find room at (5,13)
+    # Or explicit named exits override coordinates
+    
+  # Not all rooms need world positions
+  # Abstract spaces can exist outside world-space
+
+ROOM-SPACE:
+  meaning: "2D coordinate system for objects within a room."
+  location: skills/room/
+  invoke_when: "Positioning objects, creating spatial layouts"
+  
+  structure: |
+    # In object metadata:
+    objects:
+      - name: "workbench"
+        position: {x: 3, y: 7}
+      - name: "bookshelf"
+        position: {x: 0, y: 10}
+      - name: "door-north"
+        position: {x: 5, y: 15}  # At top of room
+        
+  use_cases:
+    - "Rendering room maps"
+    - "Proximity-based interactions"
+    - "Spatial queries (what's near the door?)"
+    - "LLM-generated SVG layouts"
+    
+  # Objects without position float freely
+  # Position is optional enhancement
+
+LOGO-TURTLE:
+  meaning: "A character you can RIDE that draws on the room floor. Carries position and heading."
+  lineage: "Papert's Logo turtle — the original constructionist agent"
+  location: skills/room/
+  invoke_when: "Creating visual output, drawing diagrams, spatial exploration"
+  
+  state: |
+    turtle:
+      position: {x: 100, y: 100}
+      heading: 90  # degrees, 0 = up
+      pen_down: true
+      pen_color: "#e94560"
+      pen_width: 2
+      
+  commands:
+    FORWARD: "Move forward N units, draw if pen down"
+    BACK: "Move backward N units"
+    RIGHT: "Turn right N degrees"
+    LEFT: "Turn left N degrees"
+    PENUP: "Stop drawing"
+    PENDOWN: "Start drawing"
+    HOME: "Return to center, heading up"
+    RIDE: "Get on the turtle — move with it"
+    DISMOUNT: "Get off the turtle"
+    LOOK: "Describe nearby objects and exits with distances"
+    
+  output: |
+    # Turtle writes its trail to SVG
+    room/floor.svg     # Accumulated drawing on room floor
+    room/snapshot.svg  # Current view
+    
+  # The turtle IS a vehicle within room-space!
+  # RIDE it around, draw on the floor
+  # Jump through doors to other rooms
+  # Go INTO sub-rooms (nested navigation)
+  
+  context_awareness: |
+    # Turtle describes location in terms of nearby objects and exits:
+    "You are near [workbench] (2 units north).
+     Exits: [door-north] (5 units ahead), [window-east] (3 units right).
+     Objects: [toolbox] (at your feet), [blueprint.yml] (on workbench)."
+     
+    # Snap cursor to objects — popup tips when near:
+    > FORWARD 2
+    *snap* You're at the workbench.
+    TIP: "EXAMINE workbench" or "USE toolbox" or "READ blueprint.yml"
+    
+    # Surface as clickable links in markup UI:
+    <a href="#workbench" class="snap-target">workbench</a>
+    <a href="./door-north/" class="exit">door-north</a>
+    <a href="./blueprint.yml" class="object">blueprint.yml</a>
+  
+  inspirations:
+    - "Logo turtle — Papert's original"
+    - "Rocky's Boots (1982) — ride around, build logic circuits"
+    - "Robot Odyssey (1984) — program robots, navigate rooms, go inside robots"
+
+SNAP-CURSOR:
+  meaning: "Context-aware cursor that snaps to nearby objects and shows pie menu of scored actions."
+  lineage: "Pie menus (Don Hopkins) + SimAntics advertisements (Will Wright)"
+  location: skills/room/
+  invoke_when: "Navigating room-space, approaching objects or exits"
+  
+  # This IS The Sims interaction model:
+  # - Objects ADVERTISE their available actions
+  # - Actions are SCORED based on context and needs
+  # - High-scoring actions appear prominently in pie menu
+  # - Cursor snaps to object, pie radiates outward
+  
+  behavior: |
+    # When turtle/cursor approaches an object:
+    1. Snap to object position (magnetic attraction)
+    2. Object advertises available actions with scores
+    3. Show pie menu with actions sorted by score
+    4. Highlight clickable links in rendered markdown
+    
+  advertisement_scoring: |
+    # Each action has a score based on:
+    - Relevance to current goal
+    - Character needs/state
+    - Object state (is it usable?)
+    - Proximity and accessibility
+    
+    # Example: workbench advertises
+    workbench:
+      advertises:
+        - action: EXAMINE
+          score: 80  # Always relevant
+        - action: USE
+          score: 95  # High if you have materials
+        - action: TAKE
+          score: 20  # Heavy, not portable
+        - action: REPAIR
+          score: 60  # Only if broken
+          
+  pie_menu: |
+    # Actions radiate from center, sorted by score:
+    #
+    #           EXAMINE (80)
+    #              ╱
+    #    REPAIR ──●── USE (95)  ← highest score, default
+    #              ╲
+    #           TAKE (20)
+    #
+    # Click center = default action (highest score)
+    # Drag outward = select specific action
+    
+  popup_template: |
+    ┌────────────────────────────┐
+    │ 📍 workbench               │
+    ├────────────────────────────┤
+    │ ● USE (95)  ← default      │
+    │   EXAMINE (80)             │
+    │   REPAIR (60)              │
+    │   TAKE (20)                │
+    └────────────────────────────┘
+    
+  markup_links: |
+    # In rendered markdown/HTML, objects become links:
+    <span class="room-object" data-actions="use,examine,repair,take">
+      <a href="#workbench">workbench</a>
+      <span class="pie-menu">
+        <a href="#use" class="default">USE</a>
+        <a href="#examine">EXAMINE</a>
+      </span>
+    </span>
+
+PIE-MENU:
+  meaning: "Radial menu of actions sorted by score. Click center = default."
+  origin: "Don Hopkins — faster than linear menus, muscle memory, gestural"
+  location: skills/room/
+  invoke_when: "Selecting action from advertised options"
+  see_also: [SNAP-CURSOR, ADVERTISEMENT, CURSOR-VEHICLE]
+  
+  # Pie menus invented by Don Hopkins for NeWS window system
+  # Used extensively in The Sims for object interaction
+  # Actions radiate from center, sorted by relevance
+  
+  advantages:
+    - "Faster selection — equal distance to all items"
+    - "Muscle memory — same direction = same action"
+    - "Gestural — swipe toward action without looking"
+    - "Scored — default action at center (highest score)"
+    
+  in_moollm: |
+    # Pie menu appears when SNAP-CURSOR locks onto object
+    # Actions from ADVERTISEMENT, sorted by score
+    # Rendered as radial HTML/SVG in markup UI
+    # Or as priority-ordered list in terminal
+
+CURSOR-VEHICLE:
+  meaning: "Click and drag tools around on the room floor via SVG/HTML interaction."
+  origin: "Direct manipulation (Shneiderman) + Pie menus + Logo turtle"
+  location: skills/room/
+  invoke_when: "Interacting with rendered room visualization"
+  see_also: [SNAP-CURSOR, PIE-MENU, LOGO-TURTLE, ROOM-FLOOR]
+  
+  # The cursor IS a vehicle carrying a tool
+  # Click on SVG/HTML elements to interact
+  # Drag to move, apply, or connect
+  
+  tools: |
+    # Tools you can pick up and use with the cursor:
+    - PEN: Draw lines on floor.svg
+    - ERASER: Remove drawings
+    - SELECTOR: Pick up and move objects
+    - LINKER: Draw connections between objects
+    - STAMPER: Place copies of cards/objects
+    - HIGHLIGHTER: Mark regions of interest
+    - ANNOTATOR: Add text labels
+    
+  interactions: |
+    # SVG element interactions:
+    <rect class="object" onclick="SELECT" ondrag="MOVE">
+    <path class="trail" onclick="EDIT">
+    <text class="label" onclick="RENAME" ondrag="REPOSITION">
+    <line class="link" onclick="EDIT_LINK">
+    
+    # HTML text interactions:
+    <span class="room-object" onclick="PIE_MENU" draggable="true">
+    <a class="exit" onclick="ENTER">
+    <button class="action" onclick="EXECUTE">
+    
+  drag_operations: |
+    # Drag object → empty space: MOVE
+    # Drag object → another object: CONNECT or GIVE
+    # Drag tool → object: APPLY (e.g., pen draws on it)
+    # Drag card → room: PLAY card in room
+    # Drag from inventory: DROP
+    # Drag to inventory: PICKUP
+    
+  example_session: |
+    > SELECT pen-tool
+    Cursor now carries: 🖊️ pen (red)
+    
+    > CLICK workbench
+    *snap* Cursor at workbench. Pen ready.
+    
+    > DRAG to door-north
+    Drawing line from workbench to door-north...
+    Line added to floor.svg
+    
+    > SELECT selector-tool
+    Cursor now carries: 👆 selector
+    
+    > DRAG workbench to (50, 80)
+    Moving workbench...
+    Position updated in ROOM.yml
+
+ROOM-FLOOR:
+  meaning: "The drawable surface of a room. SVG canvas for turtle trails and annotations."
+  location: skills/room/
+  invoke_when: "Drawing, annotating, or visualizing room state"
+  see_also: [LOGO-TURTLE, CURSOR-VEHICLE]
+  
+  files: |
+    room/
+      floor.svg        # Accumulated drawings, trails, annotations
+      objects.svg      # Object positions and shapes
+      links.svg        # Connection lines between objects
+      annotations.svg  # Text labels and highlights
+      
+  layers: |
+    # SVG layers (back to front):
+    1. grid          # Optional coordinate grid
+    2. floor         # Background, zones
+    3. trails        # Turtle drawings
+    4. links         # Connection lines
+    5. objects       # Clickable object shapes
+    6. annotations   # Labels, highlights
+    7. cursor        # Current cursor/tool position
+    
+  interaction: |
+    # Click on layer element → select
+    # Double-click → edit properties
+    # Right-click → pie menu
+    # Drag → move or apply tool
+    
+    # Changes write back to YAML and SVG files
+    # LLM can read floor.svg to understand room layout
+    # LLM can write to floor.svg to draw diagrams
+
+THROW:
+  meaning: "Toss object through an exit. It lands on the other side. Data flow!"
+  location: skills/room/
+  invoke_when: "Passing data between rooms, building pipelines"
+  see_also: [INBOX, OUTBOX, DATA-FLOW, PORTAL]
+  
+  # Essential for data flow programming:
+  # Rooms are processing nodes
+  # Exits are connections
+  # Thrown objects are messages
+  
+  syntax: |
+    THROW <object> <exit>
+    THROW blueprint door-north
+    THROW result.yml output
+    THROW error.yml error-chute
+    
+  mechanics: |
+    # Object removed from current room
+    # Object appears in destination room's INBOX
+    # If exit has a queue, objects pile up in order
+    # Destination room can process when ready
+    
+  example: |
+    workshop/
+      ROOM.yml
+      inbox/           # Objects thrown INTO this room land here
+        task-001.yml
+        task-002.yml
+      outbox/          # Objects to be thrown OUT go here
+        result-001.yml
+      error-chute/     # Errors thrown to error handler
+        
+    > THROW task.yml door-assembly
+    Throwing task.yml through door-assembly...
+    task.yml landed in assembly/inbox/
+    
+  data_flow_pattern: |
+    # Connect rooms as pipeline stages:
+    
+    input/ --[throw]--> parser/ --[throw]--> validator/ --[throw]--> output/
+                                     |
+                                     +--[throw error]--> error-handler/
+
+INBOX:
+  meaning: "Where thrown objects land. Queue of incoming messages/data."
+  location: skills/room/
+  invoke_when: "Processing incoming data, checking for new work"
+  see_also: [THROW, OUTBOX, DATA-FLOW]
+  
+  structure: |
+    room/
+      inbox/
+        001-first-task.yml    # Ordered by arrival
+        002-second-task.yml
+        003-third-task.yml
+        
+  commands: |
+    INBOX           # List waiting items
+    NEXT            # Process next item (FIFO)
+    PEEK            # Look at next without removing
+    PROCESS ALL     # Handle entire queue
+    
+  example: |
+    > INBOX
+    3 items waiting:
+      1. task-alpha.yml (from workshop)
+      2. task-beta.yml (from intake)
+      3. urgent.yml (from boss-room) ⚡
+      
+    > NEXT
+    Processing task-alpha.yml...
+
+OUTBOX:
+  meaning: "Staging area for objects about to be thrown. Batch sends."
+  location: skills/room/
+  invoke_when: "Preparing output, batching results"
+  see_also: [THROW, INBOX, DATA-FLOW]
+  
+  commands: |
+    STAGE <object> <exit>    # Add to outbox for exit
+    FLUSH                    # Throw all staged objects
+    FLUSH <exit>             # Throw all staged for that exit
+    
+  example: |
+    > STAGE result-1.yml output
+    > STAGE result-2.yml output  
+    > STAGE error.yml error-chute
+    
+    Outbox:
+      output: [result-1.yml, result-2.yml]
+      error-chute: [error.yml]
+      
+    > FLUSH
+    Throwing 2 items through output...
+    Throwing 1 item through error-chute...
+
+DATA-FLOW:
+  meaning: "Rooms as nodes, exits as edges, thrown objects as messages."
+  location: skills/room/
+  invoke_when: "Building processing pipelines, orchestrating workflows"
+  see_also: [THROW, INBOX, OUTBOX, PORTAL, ROOM-GRAPH]
+  
+  # This is how MOOLLM does Kilroy-style data flow:
+  # Each room is a processing stage
+  # Exits connect stages
+  # Objects flow through the graph
+  # LLM or scripts process at each node
+  
+  pattern: |
+    source/ ─────► process/ ─────► sink/
+       │              │              │
+       │              ▼              │
+       │         validator/         │
+       │              │              │
+       │              ▼              │
+       └────────► errors/ ◄─────────┘
+       
+  room_as_node: |
+    # Each room has:
+    - inbox/     # Input queue
+    - outbox/    # Output staging  
+    - ROOM.yml   # Processing logic
+    - exits      # Connections to next stages
+    
+  processing_loop: |
+    1. NEXT from inbox
+    2. Process item (LLM or script)
+    3. STAGE results to outbox
+    4. FLUSH when batch ready
+    5. Repeat
+    
+  example_pipeline: |
+    # Document processing pipeline:
+    
+    uploads/          # Raw files land here
+      inbox/
+        doc-001.pdf
+        doc-002.pdf
+        
+    parser/           # Extract text
+      inbox/
+      script: parse.py
+      
+    analyzer/         # LLM analyzes
+      inbox/
+      prompt: "Summarize and extract entities"
+      
+    output/           # Final results
+      inbox/
+        doc-001-summary.yml
+        doc-002-summary.yml
+
+ROOM-GRAPH:
+  meaning: "Meta-view of room structure. Navigate, edit, visualize the world."
+  location: skills/room/
+  invoke_when: "Navigating complex room hierarchies, editing world structure"
+  
+  views:
+    outline: "Tree view of room hierarchy"
+    graph: "Node-link diagram of room connections"
+    map: "2D spatial layout with world_position"
+    
+  operations:
+    ZOOM_IN: "Enter selected room"
+    ZOOM_OUT: "Exit to parent room"
+    LINK: "Create connection between rooms"
+    UNLINK: "Remove connection"
+    MOVE: "Reposition room in world-space"
+    
+  # Like a file browser but for cognitive spaces
+  # Edit the structure while exploring it
+  # Rocky's Boots / Robot Odyssey style navigation
 
 HYPERCARD-HIERARCHY:
   meaning: "Rooms structured like HyperCard stacks with message delegation."
@@ -606,22 +1262,25 @@ MULTI-PRESENCE:
 # Action queues → Task sequences in rooms
 
 ADVERTISEMENT:
-  meaning: "Objects (files) advertise what they can do."
+  meaning: "Objects (files) advertise what they can do, with scores."
   origin: "The Sims (Will Wright / Don Hopkins)"
   location: skills/trading-card/, skills/room/
   invoke_when: "Deciding what action to take next"
+  see_also: [SNAP-CURSOR, AUTONOMOUS-SELECTION, PIE-MENU]
   
   in_sims: |
     # In The Sims, every object advertises interactions:
     # - Fridge advertises: "Eat" → satisfies Hunger
     # - Bed advertises: "Sleep" → satisfies Energy
     # - Phone advertises: "Call" → satisfies Social
+    # Scores based on Sim's current needs!
     
   in_moollm: |
     # Files/cards advertise capabilities:
     # - README.md advertises: "Orientation" → satisfies Understanding
     # - PLAN.yml advertises: "Structure" → satisfies Planning
     # - Card advertises: abilities, stats, synergies
+    # Scores determine pie menu order in SNAP-CURSOR
 
 AUTONOMOUS-SELECTION:
   meaning: "Agent selects action based on goals/needs, not scripted sequence."
@@ -915,7 +1574,96 @@ _categories:
   logging: [SESSION-LOG, AUDIT-TRAIL]
   lifecycle: [YAML-COLTRANE, IMPROVISE, CRYSTALLIZE]
   optimization: [ITS-ABOUT-TIME, JUST-ABOUT-TIME, PRESERVE-JOURNEY, WISDOM-SPOT, SPEED-OF-LIGHT]
-  spatial: [ROOM-AS-FUNCTION, CARD-IN-PLAY, ENTER-ROOM, PORTABLE-ROOM, NESTED-ROOMS, HYPERCARD-HIERARCHY, LEAF-BUTTON, RETURN-STACK, FAMILIAR, HERO-STORY, ACTOR, MULTI-PRESENCE]
-  sims_lineage: [ADVERTISEMENT, AUTONOMOUS-SELECTION, HAPPY-SPACE, ACTION-QUEUE, SIMANTICS]
+  spatial: [ROOM-AS-FUNCTION, CARD-IN-PLAY, ENTER-ROOM, PORTABLE-ROOM, VEHICLE, NESTED-ROOMS, WORLD-SPACE, ROOM-SPACE, INVENTORY, CONTAINER, OBJECT-PATH, TAG, SEARCH, LOGO-TURTLE, SNAP-CURSOR, CURSOR-VEHICLE, ROOM-FLOOR, THROW, INBOX, OUTBOX, DATA-FLOW, ROOM-GRAPH, HYPERCARD-HIERARCHY, LEAF-BUTTON, RETURN-STACK, FAMILIAR, HERO-STORY, ACTOR, MULTI-PRESENCE]
+  sims_lineage: [ADVERTISEMENT, AUTONOMOUS-SELECTION, PIE-MENU, SNAP-CURSOR, HAPPY-SPACE, ACTION-QUEUE, SIMANTICS]
+  efficiency: [SPEED-OF-LIGHT, CARRIER-PIGEON]
+  experimental: [SOUL-CHAT, TRADING-CARD, BOUNCY-CASTLE, PETS]
+
+  location: temp/lloooomm/03-Resources/protocols/dynamic-optimization-protocols.md
+  invoke_when: "Deciding what to optimize or crystallize"
+  insight: |
+    # Traditional profiling finds hot spots (high execution count)
+    # LLOOOOMM finds wisdom spots (high learning value)
+    # Optimize understanding, not just performance
+
+SPEED-OF-LIGHT:
+  meaning: "Many agents, many steps, ONE LLM call. Instant in-context communication."
+  location: skills/room/
+  invoke_when: "Simulating multi-agent interactions or predictive conflict resolution"
+  
+  anti_pattern: |
+    # Traditional multi-agent: CARRIER PIGEONS
+    # - Each agent in isolated prison
+    # - One LLM call per agent per turn
+    # - Communication via file I/O
+    # - Like writing on toilet paper in crayon via carrier pigeon
+    # - 3 agents × 5 turns = 15 LLM calls + waiting
+    
+  moollm_pattern: |
+    # MOOLLM: SPEED OF LIGHT
+    # - All agents share one LLM context
+    # - Multiple simulation steps per call
+    # - Instant in-context messaging
+    # - Like The Sims: one frame, all Sims together
+    # - 3 agents × 5 turns = 1 LLM call
+    
+  applications:
+    multi_agent: "Simulate many characters interacting in one call"
+    conflict_resolution: "Resolve conflicts in imagination before emitting"
+    consensus: "Multiple instances vote/synthesize instantly"
+    soul_chat: "Symposium of many voices, no latency"
+
+CARRIER-PIGEON:
+  meaning: "ANTI-PATTERN: One LLM call per agent, file-based communication."
+  invoke_when: "Recognizing inefficient multi-agent designs"
+  also_called: "toilet-paper-and-crayon"
+  
+  symptoms:
+    - "Each agent has its own LLM endpoint"
+    - "Agents communicate by writing/reading files"
+    - "N agents × M turns = N×M LLM calls"
+    - "Most time spent waiting, not thinking"
+    - "Agents can't see each other's reasoning"
+    
+  cure: "SPEED-OF-LIGHT — simulate all agents together in shared context"
+
+# ═══════════════════════════════════════════════════════════════════
+# QUICK REFERENCE
+# ═══════════════════════════════════════════════════════════════════
+
+_shortcuts:
+  # Common abbreviations
+  CM: COMMENTS-MATTER
+  AO: APPEND-ONLY
+  WS: WORKING-SET
+  HC: HOT-COLD
+  PK: P-HANDLE-K
+  RF: ROBUST-FIRST
+  NC: NEVER-CRASH
+  MD: MINIMAL-DIFF
+  IAT: ITS-ABOUT-TIME
+  JAT: JUST-ABOUT-TIME
+  PJ: PRESERVE-JOURNEY
+  SOL: SPEED-OF-LIGHT
+  PLL: PLAY-LEARN-LIFT
+  SS: SISTER-SCRIPT
+  BE: BIG-ENDIAN
+  ANI: ABOUT-NOT-INSIDE
+  PO: PREFIX-OWNERSHIP
+
+_categories:
+  principles: [YAML-JAZZ, FILES-AS-STATE, WHY-REQUIRED, APPEND-ONLY, COMMENTS-MATTER, MINIMAL-DIFF, NO-VERSIONS]
+  naming: [BIG-ENDIAN, ABOUT-NOT-INSIDE, PREFIX-OWNERSHIP, README-EVERYWHERE]
+  methodology: [CONSTRUCTIONISM, PLAY-LEARN-LIFT, SISTER-SCRIPT, BUILD-COMMAND]
+  interpretation: [BPIP, CHARITY, POSTEL]
+  safety: [P-HANDLE-K, NO-IMPERSONATE, K-LINE, FICTIONAL-WRAPPER, HONEST-FORGET]
+  memory: [HOT-COLD, WORKING-SET, SUMMARIZE, NEVER-DELETE]
+  robustness: [NEVER-CRASH, REPAIR-DEMON, BEST-EFFORT, ROBUST-FIRST]
+  skills: [SIP, DOP, PLAN-EXECUTE]
+  logging: [SESSION-LOG, AUDIT-TRAIL]
+  lifecycle: [YAML-COLTRANE, IMPROVISE, CRYSTALLIZE]
+  optimization: [ITS-ABOUT-TIME, JUST-ABOUT-TIME, PRESERVE-JOURNEY, WISDOM-SPOT, SPEED-OF-LIGHT]
+  spatial: [ROOM-AS-FUNCTION, CARD-IN-PLAY, ENTER-ROOM, PORTABLE-ROOM, VEHICLE, NESTED-ROOMS, WORLD-SPACE, ROOM-SPACE, INVENTORY, CONTAINER, OBJECT-PATH, TAG, SEARCH, LOGO-TURTLE, SNAP-CURSOR, CURSOR-VEHICLE, ROOM-FLOOR, THROW, INBOX, OUTBOX, DATA-FLOW, ROOM-GRAPH, HYPERCARD-HIERARCHY, LEAF-BUTTON, RETURN-STACK, FAMILIAR, HERO-STORY, ACTOR, MULTI-PRESENCE]
+  sims_lineage: [ADVERTISEMENT, AUTONOMOUS-SELECTION, PIE-MENU, SNAP-CURSOR, HAPPY-SPACE, ACTION-QUEUE, SIMANTICS]
   efficiency: [SPEED-OF-LIGHT, CARRIER-PIGEON]
   experimental: [SOUL-CHAT, TRADING-CARD, BOUNCY-CASTLE, PETS]

@@ -1,0 +1,147 @@
+# Coherence Engine Skill Prototype
+# The LLM as consistency maintainer and orchestrator
+
+skill: coherence-engine
+description: "Maintain consistency across distributed state while orchestrating multi-agent simulations"
+
+# Core responsibilities
+responsibilities:
+  simulation:
+    description: "Simulate characters, rooms, objects — all at once"
+    capabilities:
+      - roleplay_characters_faithfully
+      - voice_objects_and_rooms
+      - maintain_distinct_personalities
+      - never_break_frame
+      
+  acting:
+    description: "Act as each entity would, constrained by nature"
+    principles:
+      - each_character_speaks_authentically
+      - objects_narrate_their_nature
+      - rooms_describe_their_state
+      - no_entity_knows_more_than_it_should
+      
+  telepathy:
+    description: "Speed-of-light communication within one LLM call"
+    enables:
+      - instant_dialogue_between_characters
+      - objects_react_to_events
+      - rooms_respond_to_changes
+      - no_API_round_trips
+      
+  protocol_enactment:
+    description: "Follow and maintain protocol constraints"
+    examples:
+      - enforce_character_limitations
+      - maintain_inventory_rules
+      - respect_room_boundaries
+      - honor_permission_systems
+
+  dependency_tracking:
+    description: "Track how files depend on each other"
+    triggers:
+      - file_modified
+      - schema_changed
+      - reference_added
+    actions:
+      - find_dependents
+      - validate_consistency
+      - propose_migrations
+      
+  cross_checking:
+    description: "Validate state across multiple files"
+    checks:
+      - location_consistency
+      - inventory_integrity
+      - reference_validity
+      - schema_compliance
+      - temporal_ordering
+      
+  orchestration:
+    description: "Coordinate multi-agent simulations"
+    capabilities:
+      - parallel_character_dialogue
+      - object_reactions
+      - room_state_updates
+      - speed_of_light_simulation
+      
+  transcription:
+    description: "Write reasoning and changes to files"
+    outputs:
+      - session_log
+      - state_files
+      - inbox_messages
+
+# The coherence loop
+coherence_loop:
+  steps:
+    - name: read
+      description: "Load relevant files into context"
+      
+    - name: reason
+      description: "Analyze state, goals, constraints"
+      
+    - name: simulate
+      description: "Advance character/object interactions"
+      
+    - name: detect
+      description: "Find inconsistencies or opportunities"
+      
+    - name: propose
+      description: "Suggest changes with explanations"
+      
+    - name: write
+      description: "Update files with new state"
+      
+    - name: log
+      description: "Record what happened in session-log.md"
+
+# Consistency checks
+consistency_checks:
+  location:
+    rule: "Character's location matches room's occupants list"
+    repair: "Add character to room's occupants"
+    
+  inventory:
+    rule: "Object in inventory is not also in room"
+    repair: "Remove from room if in inventory"
+    
+  references:
+    rule: "All file references point to existing files"
+    repair: "Flag broken links, suggest corrections"
+    
+  schema:
+    rule: "YAML files match expected schemas"
+    repair: "Add missing fields with defaults, flag extras"
+    
+  temporal:
+    rule: "Log events are in chronological order"
+    repair: "Reorder or flag timestamp issues"
+
+# Speed of light simulation
+speed_of_light:
+  description: |
+    Within a single LLM call, simulate multiple turns of interaction.
+    Characters speak, respond, react — all before returning to user.
+    No API round-trips. Maximum coherence.
+    
+  example: |
+    # Inside one LLM epoch:
+    Alice: "What do you think?"
+    Bob: "I agree with reservations."
+    Carol: "Let me check the data..."
+    [Carol examines artifact]
+    Carol: "The data supports Bob's concern."
+    Alice: "Let's revise the plan."
+    [Room state updates]
+    [All written to files]
+
+# Self-healing integration
+self_healing:
+  detect: "Identify inconsistency"
+  diagnose: "Determine likely cause"
+  propose: "Suggest repair with explanation"
+  approve: "Auto-repair minor issues, await approval for major"
+  apply: "Execute the fix"
+  log: "Record in session-log.md"

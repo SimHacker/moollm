@@ -1,0 +1,102 @@
+# Speed of Light Skill Prototype
+# Many turns in one LLM call — instant multi-agent simulation
+
+skill: speed-of-light
+description: "Simulate multiple agents taking multiple turns within a single LLM call"
+origin: "The Sims game tick, parallel simulation, actor model"
+
+# Core concept
+concept: |
+  Traditional: One API call per agent turn (slow, expensive)
+  Speed of Light: Many turns per API call (fast, cheap, coherent)
+  
+  The LLM's context window is a stage. All actors perform at once.
+  Communication is instant — no round-trips, no waiting.
+
+# Epoch structure
+epoch:
+  definition: "One LLM call = one epoch"
+  within_epoch:
+    - instant_communication: true
+    - perfect_consistency: true
+    - unlimited_turns: true
+    - state_changes_queued: true
+  at_epoch_end:
+    - write_state_to_files: true
+    - append_to_log: true
+    - pause_for_trigger: true
+
+# Scene setup
+scene_setup:
+  template: |
+    === SCENE: {room_name} ===
+    
+    Characters present:
+    {for character in characters}
+    - {character.name} ({character.role}) [{character.traits}]
+    {end}
+    
+    Objects:
+    {for object in objects}
+    - {object.name} [{object.state}]
+    {end}
+    
+    Current state:
+    - Topic: {current_topic}
+    - Tension: {dramatic_tension}
+    
+    --- ACTION ---
+
+# Simulation rules
+simulation_rules:
+  character_constraints:
+    - maintain_distinct_voices
+    - respect_knowledge_limits
+    - honor_personality_traits
+    - stay_in_physical_bounds
+    
+  turn_taking:
+    - natural_conversation_flow
+    - allow_interruptions
+    - objects_can_react
+    - room_can_narrate
+    
+  state_management:
+    - queue_changes_during_epoch
+    - write_all_at_end
+    - log_everything
+
+# Benefits
+benefits:
+  speed: "One call vs. many — 10x faster"
+  cost: "Fewer API calls — 10x cheaper"
+  consistency: "All in one context — no sync issues"
+  coherence: "LLM sees everything — better reasoning"
+  naturalness: "Conversations flow — not stilted"
+
+# Sims parallel
+sims_comparison:
+  game_tick: "One LLM call"
+  all_sims_update: "All characters act"
+  frame_render: "State written to files"
+  next_tick: "Next epoch"
+
+# Example epoch
+example_epoch:
+  input: "Debug this authentication bug"
+  turns:
+    - speaker: Debugger
+      says: "Let's trace the flow. Where does auth start?"
+    - speaker: Codebase
+      action: "*highlights auth.py*"
+      says: "Entry point is login()."
+    - speaker: Debugger
+      says: "And where does it fail?"
+    - speaker: Error Log
+      says: "Stack trace shows failure at line 47."
+    - speaker: Debugger
+      says: "Found it. The key was rotated. Solution: restart."
+  output:
+    solution: "Restart auth service to pick up new key"
+    files_updated: [session-log.md]
+    turns_in_one_call: 5

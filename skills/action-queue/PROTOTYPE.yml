@@ -1,0 +1,124 @@
+# Action Queue Skill Prototype
+# Queue up what to do next — The Sims style
+
+skill: action-queue
+description: "Sims-inspired task scheduling — queue actions, execute in order"
+origin: "The Sims action queue, task scheduling"
+
+# Complements return-stack
+relationship:
+  return_stack: "Where you've been (past)"
+  action_queue: "What you'll do (future)"
+  current: "The present moment"
+
+# Commands
+commands:
+  DO:
+    syntax: "DO <action>"
+    effect: "Add action to end of queue"
+    
+  NEXT:
+    syntax: "NEXT"
+    effect: "Execute next queued action"
+    
+  QUEUE:
+    syntax: "QUEUE"
+    effect: "Show current queue"
+    
+  URGENT:
+    syntax: "URGENT <action>"
+    effect: "Insert action at front of queue"
+    
+  CANCEL:
+    syntax: "CANCEL <n>"
+    effect: "Remove action #n from queue"
+    
+  CLEAR:
+    syntax: "CLEAR"
+    effect: "Empty the queue"
+    
+  REORDER:
+    syntax: "REORDER <n> <m>"
+    effect: "Move action #n to position #m"
+    
+  PAUSE:
+    syntax: "PAUSE"
+    effect: "Stop executing, keep queue"
+    
+  RESUME:
+    syntax: "RESUME"
+    effect: "Continue executing queue"
+
+# Queue entry structure
+queue_entry:
+  action: string        # What to do
+  target: string        # What to do it to (optional)
+  added: timestamp      # When queued
+  conditions: object    # When to execute (optional)
+    if: string          # Condition that must be true
+    after: string       # Action that must complete first
+
+# Character state
+character_queue:
+  action_queue: list    # Pending actions
+  queue_state:
+    paused: boolean
+    current_index: number
+    mode: enum [manual, autonomous]
+
+# Execution modes
+modes:
+  manual:
+    description: "User triggers NEXT to advance"
+    
+  autonomous:
+    description: "Agent auto-advances through queue"
+    config:
+      auto_advance: true
+      pause_on_error: true
+      pause_on_user_input: true
+
+# Compound actions
+compound_actions:
+  description: "Multiple steps as one queue item"
+  example:
+    - action: "[go-library, find-book, read-chapter]"
+      expands_to:
+        - go-library
+        - find-book
+        - read-chapter
+
+# Sims heritage
+sims_heritage:
+  click_to_queue: "DO action"
+  shift_click: "URGENT action (insert at front)"
+  cancel_action: "CANCEL n"
+  see_queue: "QUEUE"
+  auto_execute: "autonomous mode"
+
+# Food chain pattern
+food_chain:
+  description: |
+    Objects push actions onto queue front, creating prerequisite chains.
+    "Dangling a carrot in front of a donkey."
+    
+  example: |
+    > DO eat
+    Fridge: "Need food first" → pushes GET-FOOD
+    Food: "Needs preparation" → pushes PREPARE  
+    Stove: "Needs cooking" → pushes COOK
+    
+    Queue: [COOK, PREPARE, GET-FOOD, EAT]
+    
+  benefits:
+    - no_hardcoded_recipes: "Objects know their prerequisites"
+    - emergent_behavior: "Complex sequences from simple rules"
+    - interruptible: "Cancel anytime"
+    - discoverable: "Agent learns by trying"
+    
+  mechanism: |
+    When object receives action it can't satisfy:
+    1. Check what's missing (advertisement preconditions)
+    2. Find object that can provide it
+    3. Push that action to queue front
+    4. Original action stays, will execute when ready

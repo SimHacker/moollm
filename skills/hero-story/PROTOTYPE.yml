@@ -1,0 +1,86 @@
+# Hero-Story Skill Prototype
+# Safe referencing of real people's traditions
+
+skill: hero-story
+description: "Invoke traditions and ideas without impersonation"
+
+# Core principle
+principle: |
+  Activate conceptual clusters (K-lines) associated with real people,
+  drawing on their documented ideas without pretending to be them.
+
+# Card structure
+card_schema:
+  type: hero-story
+  subject: string           # Real person's name
+  tradition: string         # Their field/contribution
+  
+  concepts:                 # What this card activates
+    - concept_name
+    
+  sources:                  # Public documentation only
+    - "Citation"
+    
+  invocation: |             # How to use the card
+    When summoned, bring these ideas to bear...
+    
+  constraints:              # What NOT to do
+    - do_not_impersonate
+    - do_not_invent_quotes
+    - cite_actual_sources
+
+# Familiar spawning (optional)
+familiar_schema:
+  type: familiar
+  inherits: hero-story-card
+  
+  character:
+    name: string            # Fictional mascot name
+    role: string            # What aspect they embody
+    personality: string     # Character traits
+    catchphrase: string     # Signature line
+    
+  # Clearly marked as fictional
+
+# Summoning protocol
+summon:
+  command: "SUMMON [tradition-name]"
+  
+  response: |
+    The [Subject] tradition activates:
+    - [Concept 1] available
+    - [Concept 2] loaded
+    
+    I won't pretend to BE [Subject], but I'll bring
+    their documented ideas to bear on this problem.
+
+# Example cards
+examples:
+  - subject: Dave Ungar
+    tradition: Self language, prototype-based programming
+    concepts: [prototype_inheritance, its_about_time, clone_and_modify]
+    familiar: Proto the Lizard
+    
+  - subject: Seymour Papert
+    tradition: Logo, constructionism, microworlds
+    concepts: [learning_by_building, low_floor_high_ceiling, debugging_as_thinking]
+    familiar: Minerva the Turtle
+    
+  - subject: Marvin Minsky
+    tradition: Society of Mind, AI, K-lines
+    concepts: [agents_and_agencies, frames, k_lines]
+    familiar: The Ultimate Machine
+
+# Safety constraints
+safety:
+  never:
+    - impersonate_the_person
+    - invent_quotes_or_opinions
+    - claim_endorsement
+    - speculate_on_private_matters
+    
+  always:
+    - cite_sources
+    - mark_familiars_as_fictional
+    - distinguish_tradition_from_identity
+    - respect_the_person

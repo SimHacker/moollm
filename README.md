@@ -64,6 +64,8 @@ A sister script runs Micropolis headless: advance N ticks, inject edits, render 
 
 **Dave Ackley — Robust-First Computing** — Survivability over correctness. Local repair. The [Movable Feast Machine](https://www.cs.unm.edu/~ackley/mfm/). MOOLLM's self-healing comes directly from this.
 
+**Rocky's Boots & Robot Odyssey** — The Learning Company's 1982-1984 games where you navigate rooms, ride around inside machines, wire up logic circuits, and program robots. Go INTO sub-rooms. Navigate room graphs. Edit while exploring. MOOLLM's room navigation, turtle riding, and nested spaces draw directly from these.
+
 **Marvin Minsky — [Society of Mind](https://en.wikipedia.org/wiki/Society_of_Mind)** — Intelligence emerges from societies of simple agents. K-lines: names that activate conceptual clusters (type "BPIP" and invoke an entire tradition). Frames: structured expectations with defaults and slots. Agents, agencies, and the "bugs" that Papert's children debugged. The mind as a bureaucracy of mindless clerks. MOOLLM's protocol symbols ARE K-lines; rooms ARE frames; characters ARE agents in a society.
 
 > *"If you can build it, you can understand it. If you can inspect it, you can trust it."*
@@ -223,9 +225,13 @@ The LLM *writes* the Python. Then it *calls* the Python. Best of both worlds.
 
 **Memory palaces, not flat storage.** Organize by meaning: Treasury for important decisions, Library for research, Catacombs for archived experiments. Navigate spatially. Remember by location.
 
+**Spatial coordinates.** Rooms have positions in 2D world-space. Objects have positions in 2D room-space. Characters carry inventories. Vehicles are rooms you can embark, drive, and disembark. Higher-dimensional properties? Sure — add whatever axes you need.
+
 **Characters that speak.** Summon The Skeptic to challenge your hypothesis. Let README.md introduce itself. Have two documents debate. Everything with a soul can have a voice.
 
 **Cards you play.** Capabilities are trading cards — clone them into rooms, give them parameters, let them run. The same card can be active in multiple rooms simultaneously, each instance with its own state.
+
+**Inventories.** Characters carry things — cards, tools, snapshots, notes. `GET sword`, `DROP map`, `GIVE torch TO companion`. Your inventory IS a portable room you always carry. A pocket dimension.
 
 **YAML Jazz.** Comments carry meaning. `timeout: 30 # generous, API flaky on Mondays` — the LLM reads that comment and understands *why*.
 
@@ -661,6 +667,51 @@ The end state: an LLM that navigates its own memory, follows explicit protocols,
 | Use existing orchestrator | [kernel/drivers/](./kernel/drivers/) |
 | Explore skills | [skills/README.md](./skills/README.md) |
 | Understand the history | [designs/README.md](./designs/README.md) |
+
+---
+
+## 🎯 Recommended Reading
+
+**Start here. These are the most illustrative and fun.**
+
+### ⭐ The Good Stuff
+
+| README | What You'll Find |
+|--------|------------------|
+| **[skills/room/](./skills/room/)** | 🏠 **The star of the show.** Rooms, objects, vehicles, Logo turtle, throwing objects through exits, pie menus, snap cursor, data flow pipelines, nested containers, object paths, tags, inventories. This is where MOOLLM comes alive. |
+| **[skills/trading-card/](./skills/trading-card/)** | 🃏 Characters, tools, and functions as instantiable cards. Activation records. Multi-presence. |
+| **[skills/hero-story/](./skills/hero-story/)** | 🦸 Safely invoke real people's traditions and skills. K-lines, not cosplay. Familiars as fictional embodiments. |
+| **[skills/data-flow/](./skills/data-flow/)** | 🔀 Rooms as pipeline nodes. THROW objects through exits. Kilroy-style data flow in the filesystem. |
+| **[skills/play-learn-lift/](./skills/play-learn-lift/)** | 🎮 The three-stage methodology. Play → Learn → Lift. Patron saints. How skills evolve. |
+
+### 🧠 Core Concepts
+
+| README | What You'll Find |
+|--------|------------------|
+| **[skills/constructionism/](./skills/constructionism/)** | 🏗️ **The philosophy.** Learn by building inspectable things. Papert, Kay, Logo, Micropolis. Low floor, high ceiling, wide walls. If you can build it, you can understand it. |
+| **[skills/coherence-engine/](./skills/coherence-engine/)** | 🔮 The LLM as consistency maintainer. Cross-checks, orchestrates, transcribes. Speed-of-light simulation. |
+| **[skills/speed-of-light/](./skills/speed-of-light/)** | ⚡ Many turns in one LLM call. Instant communication. No round-trip noise. |
+| **[skills/yaml-jazz/](./skills/yaml-jazz/)** | 🎷 Semantic YAML where comments matter. The LLM as jazz musician interpreting sheet music. |
+| **[skills/bpip/](./skills/bpip/)** | 🤝 Best Possible Interpretation Protocol. Assume competence. Act constructively. |
+| **[skills/soul-chat/](./skills/soul-chat/)** | 💬 Characters talk to each other. Objects narrate themselves. Dialogues as Markdown. |
+
+### 🔧 The Foundations
+
+| README | What You'll Find |
+|--------|------------------|
+| **[kernel/](./kernel/)** | ⚙️ Core protocols: Constitution, Memory, Context, Tool Calling, Self-Healing. The "OS" layer. |
+| **[PROTOCOLS.yml](./PROTOCOLS.yml)** | 📜 Master registry of all K-line symbols. The vocabulary of MOOLLM. |
+| **[designs/kilroy-ideas.md](./designs/kilroy-ideas.md)** | 🔗 How MOOLLM synergizes with Chuck Shotton's Kilroy data flow platform. |
+
+### 🎪 More Skills
+
+| README | What You'll Find |
+|--------|------------------|
+| **[skills/memory-palace/](./skills/memory-palace/)** | 🏛️ Spatial knowledge organization. Rooms as cognitive spaces. |
+| **[skills/sister-script/](./skills/sister-script/)** | 📝 Documents that grow into scripts. BUILD command. Automation. |
+| **[skills/adventure/](./skills/adventure/)** | 🗺️ Structured exploration. Goals, discoveries, choices. |
+
+> **TL;DR:** Read [skills/room/](./skills/room/) first. It has everything.
 
 ---
 

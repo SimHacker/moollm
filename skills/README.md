@@ -5,7 +5,7 @@
 Userland protocols over files.
 
 > [!TIP]
-> **New here?** Start with [play-learn-lift/](./play-learn-lift/) to learn the methodology, then explore [room/](./room/) and [trading-card/](./trading-card/).
+> **New here?** Start with [constructionism/](./constructionism/) — the philosophy. Then explore [room/](./room/) — it has everything! Then [coherence-engine/](./coherence-engine/) and [play-learn-lift/](./play-learn-lift/).
 
 ---
 
@@ -73,15 +73,43 @@ No hidden state, no magic.
 
 | Skill | Purpose | Tier |
 |-------|---------|------|
-| [room/](./room/) | Directories as activation contexts | 1 |
+| [room/](./room/) | Directories as activation contexts, objects, vehicles, turtle | 1 |
 | [trading-card/](./trading-card/) | Capabilities as instantiable cards | 1 |
-| [adventure-protocol/](./adventure-protocol/) | Narrative room exploration | 1 |
+| [data-flow/](./data-flow/) | Rooms as pipeline nodes, THROW/INBOX/OUTBOX | 1 |
+| [adventure/](./adventure/) | Narrative room exploration | 1 |
+| [hero-story/](./hero-story/) | Safe K-line references to real people | 1 |
 
 ### Entity & Dialogue
 
 | Skill | Purpose | Tier |
 |-------|---------|------|
 | [soul-chat/](./soul-chat/) | Everything speaks — multi-voice dialogues | 1 |
+
+### Core Concepts (Foundational Protocols)
+
+| Skill | Purpose | Tier |
+|-------|---------|------|
+| [constructionism/](./constructionism/) | **The philosophy.** Learn by building inspectable things. Papert, Kay, Logo, Micropolis. | 1 |
+| [coherence-engine/](./coherence-engine/) | LLM as consistency maintainer, simulator, orchestrator | 1 |
+| [speed-of-light/](./speed-of-light/) | Many turns in one call, no round-trip noise | 1 |
+| [yaml-jazz/](./yaml-jazz/) | Semantic YAML where comments matter | 1 |
+| [bpip/](./bpip/) | Best Possible Interpretation Protocol | 1 |
+| [robust-first/](./robust-first/) | Survive first, be correct later | 1 |
+
+### Simulation & Performance
+
+| Skill | Purpose | Tier |
+|-------|---------|------|
+| [speed-of-light/](./speed-of-light/) | Many turns in one LLM call — instant communication | 1 |
+| [multi-presence/](./multi-presence/) | Same card active in multiple rooms at once | 1 |
+| [advertisement/](./advertisement/) | Objects announce what they can do (The Sims style) | 1 |
+
+### Navigation & Scheduling
+
+| Skill | Purpose | Tier |
+|-------|---------|------|
+| [return-stack/](./return-stack/) | Where you've been — navigation history as continuation | 1 |
+| [action-queue/](./action-queue/) | What you'll do — Sims-style task queue | 1 |
 
 ### Development
 
@@ -198,7 +226,7 @@ graph TD
     PLL -->|PLAY stage| SL[session-log]
     
     R[room] <-->|cards live in| TC[trading-card]
-    R -->|narrative framing| AP[adventure-protocol]
+    R -->|narrative framing| AP[adventure]
     R -->|mnemonic framing| MP[memory-palace]
     
     TC -->|can speak| SC[soul-chat]

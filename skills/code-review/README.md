@@ -5,7 +5,7 @@
 Review code like an investigator.
 
 > [!TIP]
-> **Code review IS an [adventure](../adventure-protocol/).** The codebase is the dungeon. Findings are clues.
+> **Code review IS an [adventure](../adventure/).** The codebase is the dungeon. Findings are clues.
 
 ---
 
@@ -75,7 +75,7 @@ Code review IS an adventure:
 - Findings are clues
 - The report is your evidence collection
 
-Use [adventure-protocol/](../adventure-protocol/) for narrative framing.
+Use [adventure/](../adventure/) for narrative framing.
 
 ---
 
@@ -91,7 +91,7 @@ Use [adventure-protocol/](../adventure-protocol/) for narrative framing.
 
 ## The Intertwingularity
 
-Code review is [adventure](../adventure-protocol/) applied to code quality.
+Code review is [adventure](../adventure/) applied to code quality.
 
 ```mermaid
 graph LR
@@ -108,7 +108,7 @@ graph LR
 ### Sister Skills
 | Skill | Relationship |
 |-------|--------------|
-| [adventure-protocol/](../adventure-protocol/) | Code review IS adventure |
+| [adventure/](../adventure/) | Code review IS adventure |
 | [debugging/](../debugging/) | Fix what you find |
 | [research-notebook/](../research-notebook/) | Deep investigation |
 | [session-log/](../session-log/) | Track review process |
@@ -123,5 +123,5 @@ graph LR
 |-----------|-------------|
 | ⬆️ Up | [skills/](../) |
 | ⬆️⬆️ Root | [Project Root](../../) |
-| ⚔️ Sister | [adventure-protocol/](../adventure-protocol/) |
+| ⚔️ Sister | [adventure/](../adventure/) |
 | 🔧 Sister | [debugging/](../debugging/) |

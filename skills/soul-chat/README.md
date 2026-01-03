@@ -88,7 +88,7 @@ graph LR
 | [trading-card/](../trading-card/) | Cards **speak** through soul-chat. Hero-stories have voice. |
 | [room/](../room/) | Rooms can **welcome visitors**, have personality |
 | [memory-palace/](../memory-palace/) | Rooms in palace can speak, guide navigation |
-| [adventure-protocol/](../adventure-protocol/) | NPCs and environments speak |
+| [adventure/](../adventure/) | NPCs and environments speak |
 
 ### Protocol Symbols
 | Symbol | Link |

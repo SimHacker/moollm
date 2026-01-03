@@ -73,7 +73,7 @@ graph LR
 | [summarize/](../summarize/) | Compress findings |
 | [sister-script/](../sister-script/) | Research feeds automation |
 | [debugging/](../debugging/) | Research supports hypothesis tracking |
-| [adventure-protocol/](../adventure-protocol/) | Evidence collection |
+| [adventure/](../adventure/) | Evidence collection |
 
 ### Protocol Symbols
 | Symbol | Link |

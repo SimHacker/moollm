@@ -1,0 +1,45 @@
+# YAML Jazz Skill Prototype
+# This file IS an example of YAML Jazz
+
+skill: yaml-jazz
+description: "Semantic YAML interpretation where comments carry meaning"
+
+# The skill itself demonstrates the principle:
+# - These comments are instructions
+# - Structure implies priority
+# - The LLM should read ALL of this
+
+principles:
+  - name: comments_matter
+    # Most important! Never strip comments.
+    rule: "Comments are data, not decoration"
+    
+  - name: structure_is_semantic
+    rule: "Order, grouping, and indentation carry meaning"
+    # First item = highest priority
+    
+  - name: improvise_within_constraints
+    rule: "Fill gaps reasonably, note uncertainty"
+    # Like jazz: follow the changes, make it your own
+
+interpretation_guidance: |
+  When reading YAML Jazz:
+  1. Read ALL comments — they're instructions
+  2. Note the ordering — it implies priority
+  3. Infer from context — but flag assumptions
+  4. Preserve soul — don't strip meaning
+  
+  When writing YAML Jazz:
+  1. Comment your reasoning
+  2. Order by importance
+  3. Group related items
+  4. Leave room for interpretation
+
+# Example of improvisational extension:
+# An LLM might add fields like this:
+_llm_notes:
+  confidence: high
+  assumptions:
+    - "User prefers concise comments"
+    - "Standard YAML 1.2 syntax"
+  last_interpreted: "2024-01-15"

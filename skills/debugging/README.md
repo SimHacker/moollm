@@ -5,7 +5,7 @@
 Structured approach to finding and fixing problems.
 
 > [!TIP]
-> **Use [adventure-protocol](../adventure-protocol/) for narrative framing.** Debugging IS a quest.
+> **Use [adventure](../adventure/) for narrative framing.** Debugging IS a quest.
 
 ## The Process
 
@@ -46,7 +46,7 @@ debug:
 
 ## The Intertwingularity
 
-Debugging is [adventure-protocol](../adventure-protocol/) with hypothesis tracking.
+Debugging is [adventure](../adventure/) with hypothesis tracking.
 
 ```mermaid
 graph LR
@@ -65,7 +65,7 @@ graph LR
 ### Sister Skills
 | Skill | Relationship |
 |-------|--------------|
-| [adventure-protocol/](../adventure-protocol/) | Debugging IS adventure + hypothesis tracking |
+| [adventure/](../adventure/) | Debugging IS adventure + hypothesis tracking |
 | [research-notebook/](../research-notebook/) | Investigation notes |
 | [session-log/](../session-log/) | Track all debug steps |
 | [room/](../room/) | Debug sessions are rooms |
@@ -82,5 +82,5 @@ graph LR
 |-----------|-------------|
 | ⬆️ Up | [skills/](../) |
 | ⬆️⬆️ Root | [Project Root](../../) |
-| ⚔️ Sister | [adventure-protocol/](../adventure-protocol/) |
+| ⚔️ Sister | [adventure/](../adventure/) |
 | 📓 Sister | [research-notebook/](../research-notebook/) |

@@ -71,7 +71,7 @@ graph LR
 | [play-learn-lift/](../play-learn-lift/) | Session-log is the PLAY capture stage |
 | [summarize/](../summarize/) | Compress session-log when too long |
 | [self-repair/](../self-repair/) | Monitors session-log integrity |
-| [adventure-protocol/](../adventure-protocol/) | Adventure LOG.md is session-log variant |
+| [adventure/](../adventure/) | Adventure LOG.md is session-log variant |
 | [debugging/](../debugging/) | Debug sessions log here |
 
 ### Protocol Symbols

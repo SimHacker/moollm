@@ -133,7 +133,7 @@ graph LR
 | Skill | Relationship |
 |-------|--------------|
 | [room/](../room/) | Memory Palace IS Room + spatial mnemonic intent |
-| [adventure-protocol/](../adventure-protocol/) | Adventure IS Room + narrative quest framing |
+| [adventure/](../adventure/) | Adventure IS Room + narrative quest framing |
 | [trading-card/](../trading-card/) | Objects placed in rooms can be cards |
 | [soul-chat/](../soul-chat/) | Palace rooms can speak, guide visitors |
 | [summarize/](../summarize/) | Compress palace knowledge for context |
@@ -159,4 +159,4 @@ graph LR
 | ⬆️ Up | [skills/](../) |
 | ⬆️⬆️ Root | [Project Root](../../) |
 | 🚪 Sister | [room/](../room/) |
-| ⚔️ Sister | [adventure-protocol/](../adventure-protocol/) |
+| ⚔️ Sister | [adventure/](../adventure/) |
