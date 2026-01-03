@@ -416,6 +416,172 @@ object:
       description: "Item gains magical properties"
       
   # ─────────────────────────────────────────────────────────────────
+  # 📦 ACME MAIL-ORDER CATALOG
+  # "If It Exists, ACME Makes It!™"
+  # (Results may vary. ACME is not responsible for ironic mishaps.)
+  # ─────────────────────────────────────────────────────────────────
+  
+  acme_catalog:
+    description: |
+      A dog-eared catalog sits on the counter, its cover showing a
+      smiling coyote giving a thumbs up. The ACME logo gleams.
+      
+      "ORDER ANYTHING! DELIVERED IN 2-4 TURNS!"
+      "Satisfaction Guaranteed!*"
+      
+      *Guarantee does not cover: explosions, implosions, gravity-related
+      incidents, ironic timing, roadrunner encounters, or existential dread.
+      
+    how_to_order: |
+      1. BROWSE CATALOG — See available items
+      2. ORDER [item] — Place an order (costs gold)
+      3. Wait 2-4 turns
+      4. Item appears on counter (CHECK CAREFULLY!)
+      
+    catalog_sections:
+      
+      adventure_gear:
+        - item: "ACME Portable Hole"
+          cost: 15
+          description: "Place on any surface. Creates hole. Remove to close."
+          warning: "Do not fold while inside."
+          malfunction_chance: 20%
+          malfunction: "Hole is one-way. Or leads somewhere unexpected."
+          
+        - item: "ACME Instant Tunnel Paint"
+          cost: 10
+          description: "Paint a tunnel on a wall. It becomes real!"
+          warning: "Only works if you believe."
+          malfunction_chance: 30%
+          malfunction: "Tunnel only works for others. You hit the wall."
+          
+        - item: "ACME Grue-B-Gone Spray"
+          cost: 8
+          description: "One spray keeps grues away for 10 turns!"
+          warning: "Do not use near open flame."
+          malfunction_chance: 25%
+          malfunction: "Attracts grues instead. Smells delicious to them."
+          
+        - item: "ACME Rocket Skates"
+          cost: 20
+          description: "Travel 5 rooms in 1 turn! Wheee!"
+          warning: "Brakes sold separately."
+          malfunction_chance: 40%
+          malfunction: "No steering. Random destination. Crash landing."
+          
+      detection_devices:
+        - item: "ACME Treasure Detector"
+          cost: 12
+          description: "Beeps near valuable items!"
+          warning: "May detect fool's gold."
+          malfunction_chance: 15%
+          malfunction: "Beeps constantly. Or only detects worthless things."
+          
+        - item: "ACME Grue Detector"
+          cost: 10
+          description: "Glows when grue is within 3 rooms."
+          warning: "Glow may attract grue."
+          malfunction_chance: 20%
+          malfunction: "Gives false positives. Or false negatives. Deadly."
+          
+        - item: "ACME X-Ray Specs"
+          cost: 8
+          description: "See through walls! (One room deep)"
+          warning: "Cannot unsee some things."
+          malfunction_chance: 25%
+          malfunction: "Only sees skeletons. Everything looks scary."
+          
+      food_and_drink:
+        - item: "ACME Dehydrated Feast"
+          cost: 5
+          description: "Just add water! Feeds 4!"
+          warning: "Do not over-hydrate."
+          malfunction_chance: 30%
+          malfunction: "Expands uncontrollably. Fills room with food."
+          
+        - item: "ACME Earthquake Pills"
+          cost: 6
+          description: "Eat one. Become immune to falls for 5 turns."
+          warning: "Side effects include overconfidence."
+          malfunction_chance: 35%
+          malfunction: "YOU cause small earthquakes with each step."
+          
+        - item: "ACME Invisible Paint"
+          cost: 15
+          description: "Paint yourself invisible!"
+          warning: "Clothes not included."
+          malfunction_chance: 25%
+          malfunction: "Only YOU can't see yourself. Everyone else can."
+          
+      traps_and_devices:
+        - item: "ACME Spring-Loaded Boxing Glove"
+          cost: 7
+          description: "Classic! Punches when triggered!"
+          warning: "Check which way it's pointing."
+          malfunction_chance: 40%
+          malfunction: "Triggers immediately. Punches you."
+          
+        - item: "ACME Giant Magnet"
+          cost: 18
+          description: "Attracts metal from 2 rooms away!"
+          warning: "Including your own equipment."
+          malfunction_chance: 30%
+          malfunction: "Attracts EVERYTHING metal. Including things you need."
+          
+        - item: "ACME Time-Delay Dynamite"
+          cost: 12
+          description: "10-second fuse! Perfect for traps!"
+          warning: "Fuse length may vary."
+          malfunction_chance: 45%
+          malfunction: "0-second fuse. Or 0.5-second. Never 10."
+          
+      mystery_items:
+        - item: "ACME Mystery Box"
+          cost: 3
+          description: "Could be anything! Probably not dangerous!"
+          warning: "No refunds on mystery items."
+          malfunction_chance: 50%
+          malfunction: "Contains something ironic to your current situation."
+          
+        - item: "ACME Do-It-Yourself Kit"
+          cost: 10
+          description: "Build anything! (Assembly required)"
+          warning: "Instructions may be in reverse."
+          malfunction_chance: 35%
+          malfunction: "Missing crucial piece. Or extra pieces that don't fit."
+          
+    ordering:
+      action: "ORDER"
+      usage: "ORDER [item] FROM ACME"
+      cost: "Varies by item (paid on delivery)"
+      delivery_time: "2-4 turns (random)"
+      
+    delivery_process: |
+      When delivery turn arrives:
+      1. DM rolls for malfunction (percentage based on item)
+      2. If no malfunction: Item works as advertised!
+      3. If malfunction: Item has "quirk" (see malfunction field)
+      4. Item appears on counter regardless
+      5. Gold is deducted from player
+      
+    pending_orders: []
+    # Format: {item: name, ordered_turn: N, delivery_turn: N+2-4}
+    
+    tom_opinion: |
+      "Tom has... concerns about ACME."
+      "Tom has seen the catalog. Tom has seen the fine print."
+      "Tom suggests: maybe just use what's in the drawers?"
+      "Tom will not judge if you order anyway. Tom understands."
+      
+    mothers_opinion: |
+      "Bumblewick! I TOLD you not to order from that catalog!
+      Your father ordered ACME Rocket Roller Skates once.
+      ONCE.
+      We don't talk about it.
+      ...
+      Fine. But I'm not cleaning up after any 'malfunctions.'"
+      
+  # ─────────────────────────────────────────────────────────────────
   # DM GUIDELINES
   # ─────────────────────────────────────────────────────────────────
   
