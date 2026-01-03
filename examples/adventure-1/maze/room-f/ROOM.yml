@@ -34,9 +34,21 @@ room:
     of cold that has nothing to do with temperature and
     everything to do with something deeply wrong with reality.
     
+    Wait — is that GOLD? A pile of coins glitters on the floor,
+    scattered as if someone dropped them in a hurry. Or dropped
+    them because they were no longer alive to hold them.
+    
     "MOST irregular," you mutter through chattering teeth.
   
   feature: cold_spot
+  
+  objects:
+    - gold-pile.yml
+  
+  # The cold drains lamp oil faster!
+  special_effect:
+    oil_drain: 2x  # Lamp burns twice as fast here
+    reason: "Supernatural cold"
   
   exits:
     north:

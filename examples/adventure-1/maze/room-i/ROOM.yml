@@ -40,11 +40,19 @@ room:
   
   feature: skeleton
   
-  # The skeleton is a hint about maze mapping
+  # The skeleton is a hint about maze mapping AND the lamp vendor
   skeleton_inventory:
-    - "Empty lamp (out of fuel)"
+    - "Empty lamp (out of oil — they were SO CLOSE to room-j!)"
     - "Note (partially eaten)"
-    - "3 gold pieces (worthless now)"
+    - "3 gold pieces (pocket change — the rest is in room-f!)"
+  
+  # The tragic irony
+  skeleton_note: |
+    This adventurer had over 100 gold! They were using coins as maze
+    markers (terrible strategy — they all look alike). When their lamp
+    died in the cold room (room-f), they dropped everything and ran.
+    
+    They almost made it to the vendor in room-j. Almost.
   
   exits:
     north:

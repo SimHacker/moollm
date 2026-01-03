@@ -4,7 +4,7 @@
 
 The simplest possible adventure: one hero, two rooms, one door.
 
-**...that grew into a 28-file grue-infested costume-wearing food-dropping masterpiece.**
+**...that grew into a 30-file grue-infested costume-wearing food-dropping gold-hoarding masterpiece.**
 
 ---
 
@@ -31,7 +31,7 @@ This adventure was built **entirely through conversation**. Starting from nothin
 
 ## 📜 Complete File History
 
-### Files Created (28 total)
+### Files Created (30 total)
 
 | File | Created In | Purpose |
 |------|------------|---------|
@@ -64,6 +64,8 @@ This adventure was built **entirely through conversation**. Starting from nothin
 | `coatroom/mannequin.yml` | Chat 9 | Costume consultant |
 | `coatroom/costume-racks.yml` | Chat 9 | Infinite costumes |
 | `kitchen/fridge.yml` | Chat 10-12 | EAT mechanic + transformations |
+| `maze/room-j/lamp-vendor.yml` | Chat 13 | ACME Lamp Refueling — tribute to Colossal Cave battery vendor |
+| `maze/room-f/gold-pile.yml` | Chat 14 | 100 gold coins — the skeleton's fortune! |
 
 ### Evolutionary History of Key Files
 
@@ -76,6 +78,7 @@ This adventure was built **entirely through conversation**. Starting from nothin
 | v3 | Added score: 0, deaths: 0, moves: 0 for reincarnation tracking |
 | v4 | Added costume state (wearing, accessories), updated notes to mention all 3 exits |
 | v5 | Added trait: `catastrophic_digestion` for the eating mechanic |
+| v6 | Added `gold: 10` — enough for refills, snacks, and bribes! |
 
 #### `start/ROOM.yml` — 5 Versions
 
@@ -96,12 +99,13 @@ This adventure was built **entirely through conversation**. Starting from nothin
 | v3 | Exit south changed to → maze/room-d, added grue_safe: true |
 | v4 | Description clarified: "south leads back into the maze" not "back to beginning" |
 
-#### `start/lamp.yml` — 2 Versions
+#### `start/lamp.yml` — 3 Versions
 
 | Version | Changes |
 |---------|---------|
-| v1 | Brass lamp, lit: true, fuel: 400, GET/LIGHT/EXTINGUISH/RUB actions, genie joke |
-| v2 | Added fuel_warning: 50, fuel_critical: 10, CHECK_FUEL action, LIGHT/EXTINGUISH responses |
+| v1 | Brass lamp, lit: true, oil: 400, GET/LIGHT/EXTINGUISH/RUB actions, genie joke |
+| v2 | Added oil_warning: 50, oil_critical: 10, CHECK OIL action, LIGHT/EXTINGUISH responses |
+| v3 | **Floating-point oil system!** Oil consumption rates by action type, environmental modifiers (cold room = 2x drain), DM instructions for applying oil costs each turn |
 
 #### `end/treasure.yml` — 2 Versions
 
@@ -110,13 +114,22 @@ This adventure was built **entirely through conversation**. Starting from nothin
 | v1 | Jeweled Chalice, points: 10, GET/EXAMINE/DRINK_FROM actions |
 | v2 | Added victory response on GET, score update logic |
 
-#### `maze/room-*.yml` — 3 Versions Each
+#### `maze/room-*.yml` — 3+ Versions
 
 | Version | Changes |
 |---------|---------|
 | v1 | Basic room with feature and tangled exits |
 | v2 | Added grue_event with death message |
 | v3 | Added MC Frontalot lyrics + YouTube link, reincarnation message |
+
+#### `maze/room-j/` & `maze/room-i/` — Special Updates
+
+| Room | Change |
+|------|--------|
+| room-j | Added `lamp-vendor.yml` — ACME Lamp Refueling Co. |
+| room-j | Description updated to mention the vending machine |
+| room-i | Skeleton now has "3 gold pieces (enough for THREE refills)" |
+| room-i | Added `skeleton_note` — "They were SO CLOSE to room-j" |
 
 ---
 
@@ -177,6 +190,7 @@ Your character. Reluctant hero, spoon enthusiast, waistcoat devotee.
 
 - **Location:** start (the Chamber of Commencement)
 - **Inventory:** empty (the lamp awaits! his spoons do not)
+- **Gold:** 10 pieces (for refills, snacks, and bribes!)
 - **Goal:** reach the end, claim the treasure, make Mother insufferable
 - **Mood:** bewildered but optimistic
 
@@ -192,8 +206,9 @@ Your character. Reluctant hero, spoon enthusiast, waistcoat devotee.
 
 *"Property of Colossal Cave, please return."*
 
-- **Fuel:** 400 moves (plenty of time, probably)
-- **Actions:** GET, LIGHT, EXTINGUISH, RUB (genie on holiday)
+- **Fuel:** 400.0 units (floating point! movement=1.0, action=0.25, etc.)
+- **Modifiers:** Cold rooms drain 2× faster!
+- **Actions:** GET, LIGHT, EXTINGUISH, CHECK FUEL, RUB (genie on holiday)
 - **Lineage:** Descended from Crowther's original, 1976
 
 ### [end/ROOM.yml](./end/ROOM.yml) — Treasury of Modest Proportions
@@ -211,6 +226,17 @@ Your character. Reluctant hero, spoon enthusiast, waistcoat devotee.
 - **Value:** 10 points (deposit in well house for credit)
 - **Actions:** GET, EXAMINE, DRINK_FROM (empty, also frowned upon)
 - **Lineage:** In the tradition of all adventure treasures
+
+### [maze/room-j/lamp-vendor.yml](./maze/room-j/lamp-vendor.yml) — ACME Lamp Refueling Co.
+
+*"Don't Let the Grue Get You!"™*
+
+A battered vending machine deep in the maze crossroads. Your lifeline against the darkness.
+
+- **Location:** maze/room-j (the crossroads)
+- **Prices:** 1g (basic), 2g (deluxe), 5g (premium blue glow)
+- **Secrets:** PLUGH password, mercy kick, treasure trade
+- **Lineage:** Descended from the battery vendor in Colossal Cave, 1976
 
 ---
 
@@ -375,7 +401,7 @@ Each maze room has a unique grue death message with lyrics from **[MC Frontalot'
 lamp:
   lit: true           # ON, not off
   in_inventory: true  # Not left behind in start!
-  fuel: > 0           # Still has fuel
+  oil: > 0            # Still has oil
 ```
 
 **GET LAMP. This is not a suggestion.**
@@ -569,7 +595,7 @@ DANGER:     all 10 maze rooms (grues if no lamp!)
 | End room said "back to beginning" but goes to maze | ✅ Fixed — clarified |
 | Kitchen/Coatroom didn't reference each other | ✅ Fixed — cross-linked |
 | Player missing costume state fields | ✅ Fixed — added costume tracking |
-| Lamp missing fuel warning thresholds | ✅ Fixed — added warning/critical |
+| Lamp missing oil warning thresholds | ✅ Fixed — added warning/critical |
 | Treasure missing victory response | ✅ Fixed — added celebration text |
 | Navigation tables incomplete | ✅ Fixed — added cross-links |
 | World map needed update | ✅ Fixed — complete ASCII map added |
@@ -795,14 +821,123 @@ See: [kitchen/fridge.yml](./kitchen/fridge.yml) for contextual modifiers and per
 
 ---
 
+## 💰 The Gold Economy
+
+*A tribute to the battery vendor in Colossal Cave Adventure.*
+
+### Why Gold?
+
+The lamp has finite oil. The maze is dark. Grues are patient. What's an adventurer to do?
+
+**Enter capitalism.** Deep in the maze crossroads (room-j), a battered vending machine hums softly:
+
+```
+╔══════════════════════════════════════╗
+║      ACME LAMP REFUELING CO.         ║
+║  "Don't Let the Grue Get You!"™      ║
+╚══════════════════════════════════════╝
+```
+
+### The Prices
+
+| Item | Cost | Effect |
+|------|------|--------|
+| Lamp Oil Refill | 1 gold | Refills to 400 oil |
+| Deluxe Refill | 2 gold | Refills to 800 oil |
+| Premium Glow Juice | 5 gold | 1000 oil + blue glow (grues hate it!) |
+
+### Starting Wealth
+
+Bumblewick begins with **10 gold pieces** — enough for:
+- Multiple lamp refills (lamp runs dry? No problem!)
+- Snacks (hypothetical future vendors)
+- Bribes (hypothetical future NPCs)
+- Whatever else this economy evolves into
+
+### The Tragic Irony 💀
+
+In room-i lies a skeleton — an adventurer who didn't make it. They had:
+- An **empty lamp**
+- **3 gold pieces** in their pocket (enough for three refills!)
+- Was **pointing west** toward room-j
+
+The vendor was *one room away*. The grue got them first. Don't be like them.
+
+### The Hidden Fortune 💰
+
+In room-f (the cold spot), you'll find **100 gold coins** scattered on the floor!
+
+This was the rest of the skeleton's money. They were trying to use coins as maze markers (a terrible strategy — coins all look alike!). When the supernatural cold drained their lamp faster than expected, they dropped everything and ran.
+
+**Warning:** Room-f drains lamp oil at **2x speed**. Grab the gold and GET OUT.
+
+### Easter Eggs
+
+The vendor has secrets for the resourceful:
+- **Kick it three times** → Emergency mercy refill
+- **Say 'PLUGH'** → Password from 1972 recognized
+- **Insert the treasure** → Lifetime subscription (but you gave away the treasure...)
+
+### 🔦 Lamp Fuel Mechanics
+
+The lamp burns **floating-point oil** — different actions cost different amounts!
+
+| Action | Base Cost | Notes |
+|--------|-----------|-------|
+| **Movement** | 1.0 | Walking between rooms |
+| **Wait/Look** | 0.5 | Standing still, examining surroundings |
+| **Action** | 0.25 | GET, DROP, EXAMINE, etc. |
+| **Talk** | 0.1 | Conversation, reading |
+| **Light/Extinguish** | 0.0 | Free! (but consequences...) |
+
+**Environmental modifiers** multiply the base cost:
+- **Cold room (room-f):** 2.0× — the supernatural cold drains oil faster!
+- **Windy:** 1.5× — drafts make the flame work harder
+- **Damp:** 1.2× — humidity affects combustion
+- **Normal:** 1.0× — standard conditions
+
+**Fuel thresholds:**
+- **> 50:** Comfortable. No warnings.
+- **< 50:** "Your lamp flickers slightly..."
+- **< 10:** "Your lamp is dying! Each flicker could be the last!"
+- **= 0:** Darkness. Grues. Death.
+
+The DM applies these costs each turn and updates `lamp.oil` in the YAML!
+
+### What This Demonstrates
+
+| Concept | Implementation |
+|---------|---------------|
+| **Granular resource management** | Different actions cost different oil |
+| **Environmental hazards** | Cold room = 2× oil drain |
+| **In-world economy** | Gold has meaning beyond score |
+| **Environmental storytelling** | Skeleton shows consequences |
+| **Discoverable depth** | Easter eggs reward exploration |
+| **Tribute to tradition** | Colossal Cave battery vendor lives on |
+
+The economy turns "explore freely" into "explore *wisely*" — without removing the freedom.
+
+See: [maze/room-j/lamp-vendor.yml](./maze/room-j/lamp-vendor.yml)
+
+---
+
 ## What's Next?
 
-Extend this adventure:
-- Add a maze of twisty passages, all alike
-- Add a troll who demands payment
-- Add an NPC to talk to (perhaps a thief?)
-- Add a puzzle blocking the north door
-- Add a grue (but you'll need darkness first)
+**Already done:**
+- ✅ Maze of twisty passages (10 rooms!)
+- ✅ Grues in the darkness
+- ✅ Economy with gold pieces
+- ✅ Lamp vendor (tribute to Colossal Cave)
+- ✅ Food-based maze mapping
+- ✅ Costume system (be anyone!)
+- ✅ Eating mechanic with transformations
+
+**Future possibilities:**
+- Add a troll who demands payment (now we have gold!)
+- Add an NPC to talk to (perhaps a thief who steals gold?)
+- Add a puzzle blocking access to premium areas
+- Add more vendors (food? costumes? maps?)
+- Add achievements for creative solutions
 
 ---
 

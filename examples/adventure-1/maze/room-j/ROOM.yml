@@ -36,15 +36,20 @@ room:
     this junction. Four exits lead in four directions, each
     equally promising, equally threatening.
     
-    "A crossroads," you say to yourself. "How metaphorical."
+    Against one wall stands a battered VENDING MACHINE, humming
+    softly. Its display reads "ACME LAMP REFUELING CO." The glow
+    from its buttons provides just enough light to read by, but
+    not enough to keep grues at bay.
     
-    If a demon offered you a deal here, you'd at least listen.
-    That's how lost you are.
+    Someone has scratched "LIFESAVER" into the casing.
   
   feature: crossroads
   
+  objects:
+    - lamp-vendor.yml
+  
   # This is a central hub in the expanded maze
-  note: "The crossroads connects to many other maze rooms"
+  note: "The crossroads connects to many other maze rooms. The skeleton in room-i was pointing this way — so close to salvation!"
   
   exits:
     north:

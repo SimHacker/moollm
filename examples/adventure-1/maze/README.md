@@ -52,11 +52,35 @@ Ten rooms, all "alike" (but each with a distinguishing feature):
 | [room-c/](./room-c/) | Scratch marks | N→B, S→D, E→D, W→A |
 | [room-d/](./room-d/) | Golden glow | **N→end**, S→A, E→B, W→C |
 | [room-e/](./room-e/) | Cobwebs | N→F, S→B, E→G, W→C |
-| [room-f/](./room-f/) | Cold spot | N→H, S→E, E→A, W→I |
+| [room-f/](./room-f/) | Cold spot + **100 GOLD** 💰 | N→H, S→E, E→A, W→I |
 | [room-g/](./room-g/) | Carved face | N→I, S→D, E→J, W→E |
 | [room-h/](./room-h/) | Mushrooms (glow) | N→J, S→F, E→B, W→D |
-| [room-i/](./room-i/) | Skeleton | N→C, S→G, E→F, W→J |
-| [room-j/](./room-j/) | Crossroads | N→D, S→H, E→I, W→G |
+| [room-i/](./room-i/) | Skeleton (empty lamp!) | N→C, S→G, E→F, **W→J** |
+| [room-j/](./room-j/) | **LAMP OIL VENDOR** 🏪 | N→D, S→H, E→I, W→G |
+
+### 🏪 The Lamp Oil Vendor
+
+In **room-j** stands a battered vending machine: the **ACME LAMP REFUELING CO.**
+
+> *"Don't Let the Grue Get You!"™*
+
+| Item | Cost | Effect |
+|------|------|--------|
+| Lamp Oil Refill | 1 gold | Refills to 400 oil |
+| Deluxe Refill | 2 gold | Refills to 800 oil |
+| Premium Glow Juice | 5 gold | 1000 oil + blue glow (grues hate it) |
+
+**Pro tip:** The skeleton in room-i was pointing west toward room-j. They were *so close* to salvation. Their lamp was empty. Don't be like them.
+
+### 💰 The Gold Pile (room-f)
+
+In **room-f** (the cold spot), you'll find **100 gold coins** scattered on the floor.
+
+This was the skeleton's money! They dropped it when the grue got them. The cold room drains lamp oil **twice as fast** — they didn't know that. Their lamp died here, and they never made it to the vendor.
+
+Their loss is your gain. 100 gold = 100 refills. You're set for life (or at least this adventure).
+
+**Warning:** The cold affects your lamp too! Move quickly through room-f.
 
 ---
 
