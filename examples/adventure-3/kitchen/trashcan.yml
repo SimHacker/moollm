@@ -78,12 +78,37 @@ object:
       usage: "CLIMB IN TRASH"
       hidden: true  # Players have to discover this
       effect: |
-        "You climb into the trash can. It's roomier than expected.
-        You slide down... and down... and down...
+        You peer into the trash can. It's darker than expected.
+        Much darker. And... is that movement?
         
-        [EASTER EGG: Leads to a secret room? A shortcut? 
-        The DM decides. Maybe it just dumps you back in the kitchen,
-        covered in mystery goo.]"
+        "I have a bad feeling about this."
+        
+        You climb in anyway (of course you do) and slide down...
+        and down... and down... The walls start to close in.
+        Something brushes your leg. Is that a dianoga?!
+        
+        CLANG. GRIND. CREAK.
+        
+        "3PO! SHUT DOWN ALL THE GARBAGE MASHERS ON THE DETENTION LEVEL!"
+        
+        ...
+        
+        You tumble out of the trash can, back in the kitchen.
+        You're covered in mystery goo. You smell... interesting.
+        
+        But your HAIR. Your hair is MAGNIFICENT.
+        Somehow, impossibly, it has styled itself into two perfect
+        cinnamon-bun coils on either side of your head. Regal.
+        Diplomatic. Ready to lead a rebellion.
+        
+        +1 charisma (hair bonus)
+        -2 smell (temporary)
+        "Aren't you a little short for a stormtrooper?"
+        
+      outcome: |
+        player.appearance.hair: "Perfect Alderaanian diplomatic buns"
+        player.effects.add: "mystery_goo_smell" (fades in 5 turns)
+        player.effects.add: "leia_hair" (permanent until changed)
         
   # ─────────────────────────────────────────────────────────────────
   # SPECIAL BEHAVIORS (DM: improvise!)
