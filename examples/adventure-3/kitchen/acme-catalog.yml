@@ -1,6 +1,10 @@
 # 📦 ACME MAIL-ORDER CATALOG
 # "If It Exists, ACME Makes It!™"
 # (Results may vary. ACME is not responsible for ironic mishaps.)
+#
+# These are SEEDS and EXAMPLES. The DM can invent more ACME products
+# on the fly, following the pattern: promising description, ominous
+# warning, significant malfunction chance, ironic failure mode.
 
 object:
   name: ACME Mail-Order Catalog
@@ -22,7 +26,7 @@ object:
     Every page has a tiny asterisk leading to tiny print.
     
     The coyote on the cover seems to be watching you.
-    Is that... a bandage on his head?
+    Is that... a bandage on his head? And soot marks?
     
   # ─────────────────────────────────────────────────────────────────
   # ACTIONS
@@ -51,14 +55,28 @@ object:
       usage: "CHECK ACME ORDER / CHECK ORDER"
       effect: "Lists all pending orders and estimated arrival"
       
-  # ─────────────────────────────────────────────────────────────────
+    REQUEST-CUSTOM:
+      description: "Request a custom ACME product"
+      usage: "REQUEST ACME [description]"
+      effect: |
+        ACME's R&D department will consider your request!
+        (DM invents a custom product following ACME patterns)
+        Cost and malfunction chance determined by ambition.
+        
+  # ═══════════════════════════════════════════════════════════════════
   # CATALOG SECTIONS
-  # ─────────────────────────────────────────────────────────────────
+  # ═══════════════════════════════════════════════════════════════════
   
   sections:
     
+    # ─────────────────────────────────────────────────────────────────
+    # 🎒 ADVENTURE GEAR
+    # ─────────────────────────────────────────────────────────────────
+    
     adventure_gear:
       name: "🎒 Adventure Gear"
+      tagline: "For the Discerning Daredevil!"
+      
       items:
         - item: "ACME Portable Hole"
           cost: 15
@@ -74,13 +92,6 @@ object:
           malfunction_chance: 30%
           malfunction: "Tunnel only works for others. You hit the wall."
           
-        - item: "ACME Grue-B-Gone Spray"
-          cost: 8
-          description: "One spray keeps grues away for 10 turns!"
-          warning: "Do not use near open flame."
-          malfunction_chance: 25%
-          malfunction: "Attracts grues instead. Smells delicious to them."
-          
         - item: "ACME Rocket Skates"
           cost: 20
           description: "Travel 5 rooms in 1 turn! Wheee!"
@@ -88,15 +99,63 @@ object:
           malfunction_chance: 40%
           malfunction: "No steering. Random destination. Crash landing."
           
+        - item: "ACME Jet Pack"
+          cost: 25
+          description: "Vertical mobility! Up, up, and away!"
+          warning: "Landing is your responsibility."
+          malfunction_chance: 35%
+          malfunction: "Ignites in wrong direction. Or at wrong time. Or both."
+          
+        - item: "ACME Spring Shoes"
+          cost: 12
+          description: "Bounce over obstacles! +3 jump height!"
+          warning: "Stopping is an advanced technique."
+          malfunction_chance: 30%
+          malfunction: "Can't stop bouncing. Ceiling becomes floor. Repeatedly."
+          
+        - item: "ACME Bat Suit"
+          cost: 18
+          description: "Glide gracefully through the air!"
+          warning: "Updrafts not included."
+          malfunction_chance: 25%
+          malfunction: "Attracts actual bats. Or you glide into a wall."
+          
         - item: "ACME Inflatable Decoy"
           cost: 6
           description: "Looks just like you! Fools enemies!"
           warning: "Does not fool mirrors."
           malfunction_chance: 35%
-          malfunction: "Looks like someone else. Or nothing at all."
+          malfunction: "Looks like someone else. Or inflates at wrong moment."
           
+        - item: "ACME Instant Boulder"
+          cost: 8
+          description: "Just add water! Instant hiding spot!"
+          warning: "Cannot move while disguised as boulder."
+          malfunction_chance: 30%
+          malfunction: "Rolls downhill. With you inside."
+          
+        - item: "ACME Earthquake Pills"
+          cost: 6
+          description: "Eat one. Become immune to falls for 5 turns."
+          warning: "Side effects include overconfidence."
+          malfunction_chance: 35%
+          malfunction: "YOU cause small earthquakes with each step."
+          
+        - item: "ACME Tornado Seeds"
+          cost: 14
+          description: "Plant, water, instant tornado! Great for escapes!"
+          warning: "Cannot control direction."
+          malfunction_chance: 40%
+          malfunction: "Tornado picks you up. Deposits you elsewhere. Rudely."
+          
+    # ─────────────────────────────────────────────────────────────────
+    # 🔍 DETECTION DEVICES
+    # ─────────────────────────────────────────────────────────────────
+    
     detection_devices:
       name: "🔍 Detection Devices"
+      tagline: "See What Others Can't! (Usually)"
+      
       items:
         - item: "ACME Treasure Detector"
           cost: 12
@@ -110,7 +169,7 @@ object:
           description: "Glows when grue is within 3 rooms."
           warning: "Glow may attract grue."
           malfunction_chance: 20%
-          malfunction: "Gives false positives. Or false negatives. Deadly."
+          malfunction: "False positives. Or false negatives. Both deadly."
           
         - item: "ACME X-Ray Specs"
           cost: 8
@@ -126,8 +185,35 @@ object:
           malfunction_chance: 30%
           malfunction: "Glows when YOU lie. Awkward."
           
+        - item: "ACME Thought Bubble Reader"
+          cost: 16
+          description: "See what others are thinking! Cartoon-style!"
+          warning: "Thoughts may be disturbing."
+          malfunction_chance: 25%
+          malfunction: "YOUR thoughts become visible to everyone."
+          
+        - item: "ACME Invisible Ink Revealer"
+          cost: 5
+          description: "Makes hidden messages visible!"
+          warning: "May reveal too much."
+          malfunction_chance: 20%
+          malfunction: "Makes visible things invisible instead."
+          
+        - item: "ACME Gravity Detector"
+          cost: 11
+          description: "Warns you before gravity remembers you exist!"
+          warning: "2-second warning only."
+          malfunction_chance: 30%
+          malfunction: "Detects gravity AFTER it activates. Thanks."
+          
+    # ─────────────────────────────────────────────────────────────────
+    # 🍽️ FOOD & CONSUMABLES
+    # ─────────────────────────────────────────────────────────────────
+    
     food_and_drink:
-      name: "🍽️ Food & Drink"
+      name: "🍽️ Food & Consumables"
+      tagline: "Eat At Your Own Risk!"
+      
       items:
         - item: "ACME Dehydrated Feast"
           cost: 5
@@ -136,29 +222,63 @@ object:
           malfunction_chance: 30%
           malfunction: "Expands uncontrollably. Fills room with food."
           
-        - item: "ACME Earthquake Pills"
-          cost: 6
-          description: "Eat one. Become immune to falls for 5 turns."
-          warning: "Side effects include overconfidence."
-          malfunction_chance: 35%
-          malfunction: "YOU cause small earthquakes with each step."
-          
-        - item: "ACME Invisible Paint"
-          cost: 15
-          description: "Paint yourself invisible!"
-          warning: "Clothes not included."
-          malfunction_chance: 25%
-          malfunction: "Only YOU can't see yourself. Everyone else can."
-          
         - item: "ACME Instant Gourmet Meal"
           cost: 8
           description: "Pull tab, wait 3 seconds, enjoy fine dining!"
-          warning: "May be very hot. Or very cold. Never lukewarm."
+          warning: "Temperature unpredictable."
           malfunction_chance: 25%
-          malfunction: "It's always the same meal. Forever. Mystery meat."
+          malfunction: "Always the same meal. Forever. Mystery meat."
           
+        - item: "ACME Speed Pills"
+          cost: 10
+          description: "Move twice as fast for 10 turns!"
+          warning: "World does not slow down to match."
+          malfunction_chance: 35%
+          malfunction: "Everything ELSE speeds up instead."
+          
+        - item: "ACME Growth Formula"
+          cost: 12
+          description: "Become giant-sized! +5 strength!"
+          warning: "Doorways not included."
+          malfunction_chance: 35%
+          malfunction: "Only PART of you grows. Hilariously."
+          
+        - item: "ACME Shrinking Pills"
+          cost: 12
+          description: "Become tiny! Sneak anywhere!"
+          warning: "Cats become much more dangerous."
+          malfunction_chance: 35%
+          malfunction: "Only PART of you shrinks. Awkwardly."
+          
+        - item: "ACME Insta-Muscle Spinach"
+          cost: 9
+          description: "Instant strength boost! Popeye approved!"
+          warning: "Effect duration varies."
+          malfunction_chance: 30%
+          malfunction: "Muscles grow, coordination doesn't."
+          
+        - item: "ACME Helium Gum"
+          cost: 4
+          description: "Chew and float! Great for reaching high places!"
+          warning: "Do not swallow."
+          malfunction_chance: 25%
+          malfunction: "Voice goes squeaky. Float away. Can't reach ground."
+          
+        - item: "ACME Brick Vitamins"
+          cost: 7
+          description: "Become incredibly dense! Immune to knockback!"
+          warning: "May sink in water."
+          malfunction_chance: 30%
+          malfunction: "Fall through floors. Repeatedly."
+          
+    # ─────────────────────────────────────────────────────────────────
+    # 💥 TRAPS & WEAPONS
+    # ─────────────────────────────────────────────────────────────────
+    
     traps_and_devices:
       name: "💥 Traps & Devices"
+      tagline: "For When Subtlety Fails!"
+      
       items:
         - item: "ACME Spring-Loaded Boxing Glove"
           cost: 7
@@ -172,38 +292,281 @@ object:
           description: "Attracts metal from 2 rooms away!"
           warning: "Including your own equipment."
           malfunction_chance: 30%
-          malfunction: "Attracts EVERYTHING metal. Including things you need."
+          malfunction: "Attracts EVERYTHING metal. Including anvils."
           
         - item: "ACME Time-Delay Dynamite"
           cost: 12
           description: "10-second fuse! Perfect for traps!"
           warning: "Fuse length may vary."
           malfunction_chance: 45%
-          malfunction: "0-second fuse. Or 0.5-second. Never 10."
+          malfunction: "0-second fuse. Or infinite. Never 10."
           
         - item: "ACME Anvil (1 Ton)"
           cost: 25
           description: "Classic cartoon anvil. Falls on command."
           warning: "Gravity is not always your friend."
           malfunction_chance: 50%
-          malfunction: "Falls on YOU. Or misses entirely and keeps falling."
+          malfunction: "Falls on YOU. Or misses and keeps falling forever."
           
+        - item: "ACME Grand Piano"
+          cost: 30
+          description: "Drops dramatically from above! Musical!"
+          warning: "Does not play itself down gently."
+          malfunction_chance: 45%
+          malfunction: "You're under it when it lands. Plays sad trombone."
+          
+        - item: "ACME Safe (2 Ton)"
+          cost: 35
+          description: "Even heavier than the anvil! Stores valuables too!"
+          warning: "Combination not included."
+          malfunction_chance: 50%
+          malfunction: "Lands on you. Locks. You're inside. Awkward."
+          
+        - item: "ACME Giant Rubber Band"
+          cost: 9
+          description: "Launch yourself OR things! Adjustable tension!"
+          warning: "Snapback is real."
+          malfunction_chance: 35%
+          malfunction: "Snaps back. You are the projectile now."
+          
+        - item: "ACME Catapult (Portable)"
+          cost: 15
+          description: "Foldable siege weapon! Launch anything!"
+          warning: "Trajectory calculations not included."
+          malfunction_chance: 40%
+          malfunction: "Launches in wrong direction. Usually backwards."
+          
+        - item: "ACME Super Glue"
+          cost: 6
+          description: "Sticks anything to anything! Forever!"
+          warning: "Including fingers to tube."
+          malfunction_chance: 25%
+          malfunction: "Sticks you to floor. Or ceiling. Or enemy."
+          
+        - item: "ACME Super Grease"
+          cost: 6
+          description: "Nothing sticks! Perfect for escapes!"
+          warning: "Including your grip on reality."
+          malfunction_chance: 25%
+          malfunction: "You slide uncontrollably. Into danger."
+          
+        - item: "ACME Exploding Tennis Balls"
+          cost: 8
+          description: "Throwable explosives! Bouncy!"
+          warning: "They bounce back sometimes."
+          malfunction_chance: 40%
+          malfunction: "Bounces back to you. Multiple times."
+          
+        - item: "ACME Trick Cigar"
+          cost: 3
+          description: "Offer to enemy. Explodes when lit!"
+          warning: "Do not smoke yourself."
+          malfunction_chance: 35%
+          malfunction: "Explodes in your pocket. Or enemy likes it."
+          
+    # ─────────────────────────────────────────────────────────────────
+    # 🎨 DISGUISES & ILLUSIONS
+    # ─────────────────────────────────────────────────────────────────
+    
+    disguises:
+      name: "🎨 Disguises & Illusions"
+      tagline: "Be Anyone But Yourself!"
+      
+      items:
+        - item: "ACME Invisible Paint"
+          cost: 15
+          description: "Paint yourself invisible!"
+          warning: "Clothes not included."
+          malfunction_chance: 25%
+          malfunction: "Only YOU can't see yourself. Everyone else can."
+          
+        - item: "ACME Instant Costume Kit"
+          cost: 10
+          description: "Become anyone! 47 costumes included!"
+          warning: "Costumes may not fit."
+          malfunction_chance: 30%
+          malfunction: "Wrong costume for situation. Every time."
+          
+        - item: "ACME Female Roadrunner Suit"
+          cost: 20
+          description: "Attract roadrunners! Perfect disguise!"
+          warning: "May attract other things."
+          malfunction_chance: 35%
+          malfunction: "Attracts ACTUAL female roadrunners. They know."
+          
+        - item: "ACME Fake Rock"
+          cost: 8
+          description: "Hide inside! Perfect camouflage!"
+          warning: "Cannot see out."
+          malfunction_chance: 25%
+          malfunction: "Looks fake. Or enemy sits on you."
+          
+        - item: "ACME Instant Tunnel (Painted)"
+          cost: 10
+          description: "Paint-on tunnel that fools pursuers!"
+          warning: "Pursuers only. You WILL hit the wall."
+          malfunction_chance: 30%
+          malfunction: "Pursuer goes through. You don't. Or vice versa."
+          
+        - item: "ACME Hologram Projector"
+          cost: 22
+          description: "Project illusions! Confuse enemies!"
+          warning: "Batteries drain fast."
+          malfunction_chance: 30%
+          malfunction: "Projects embarrassing memories instead."
+          
+        - item: "ACME Mirror Suit"
+          cost: 16
+          description: "Reflect attacks! Blind enemies with light!"
+          warning: "Blinds self too."
+          malfunction_chance: 30%
+          malfunction: "You become visible from space. Attracts birds."
+          
+    # ─────────────────────────────────────────────────────────────────
+    # 🎯 HUNTING & CAPTURE
+    # ─────────────────────────────────────────────────────────────────
+    
+    hunting:
+      name: "🎯 Hunting & Capture"
+      tagline: "Get Your Quarry! (Eventually)"
+      
+      items:
+        - item: "ACME Bird Seed"
+          cost: 3
+          description: "Attracts birds! Any birds!"
+          warning: "Especially large, fast ones."
+          malfunction_chance: 20%
+          malfunction: "Attracts wrong bird. Usually bigger. Angrier."
+          
+        - item: "ACME Iron Bird Seed"
+          cost: 8
+          description: "Heavy bird seed! Slows fast birds!"
+          warning: "May not be edible."
+          malfunction_chance: 35%
+          malfunction: "Bird eats it anyway. Now angry AND heavy."
+          
+        - item: "ACME Giant Net"
+          cost: 12
+          description: "Catch anything! Spring-loaded deployment!"
+          warning: "Deployment is enthusiastic."
+          malfunction_chance: 30%
+          malfunction: "Catches YOU. Enthusiastically."
+          
+        - item: "ACME Bear Trap (XL)"
+          cost: 14
+          description: "Catches anything that steps on it!"
+          warning: "Including you."
+          malfunction_chance: 35%
+          malfunction: "Catches you while setting it up."
+          
+        - item: "ACME Snare Drum"
+          cost: 10
+          description: "Play a beat, hypnotize prey!"
+          warning: "You may hypnotize yourself."
+          malfunction_chance: 30%
+          malfunction: "You fall asleep. Prey takes your stuff."
+          
+        - item: "ACME Quicksand Seeds"
+          cost: 11
+          description: "Instant quicksand pit! Just add water!"
+          warning: "Mark where you planted them."
+          malfunction_chance: 40%
+          malfunction: "You forget where. You find out the hard way."
+          
+        - item: "ACME Grue-B-Gone Spray"
+          cost: 8
+          description: "One spray keeps grues away for 10 turns!"
+          warning: "Do not use near open flame."
+          malfunction_chance: 25%
+          malfunction: "Attracts grues instead. Smells delicious to them."
+          
+    # ─────────────────────────────────────────────────────────────────
+    # 🔧 TOOLS & GADGETS
+    # ─────────────────────────────────────────────────────────────────
+    
+    tools:
+      name: "🔧 Tools & Gadgets"
+      tagline: "The Right Tool For Every Wrong Job!"
+      
+      items:
+        - item: "ACME Universal Remote"
+          cost: 15
+          description: "Controls anything! TVs, doors, gravity!"
+          warning: "Buttons not labeled."
+          malfunction_chance: 35%
+          malfunction: "Controls wrong thing. Usually you."
+          
+        - item: "ACME Time Stopper"
+          cost: 50
+          description: "Freeze time for 10 seconds!"
+          warning: "You freeze too. Slightly longer."
+          malfunction_chance: 40%
+          malfunction: "Time stops for you, not others. Awkward."
+          
+        - item: "ACME Gravity Reverser"
+          cost: 30
+          description: "Fall UP instead of down!"
+          warning: "Sky is very high."
+          malfunction_chance: 35%
+          malfunction: "Works on everything nearby. Chaos ensues."
+          
+        - item: "ACME Instant Hole Filler"
+          cost: 7
+          description: "Fill any hole instantly!"
+          warning: "May overfill."
+          malfunction_chance: 25%
+          malfunction: "Creates hill instead. Or fills wrong hole."
+          
+        - item: "ACME Portable Black Hole"
+          cost: 40
+          description: "Dispose of anything! Compact storage!"
+          warning: "Cannot retrieve items."
+          malfunction_chance: 45%
+          malfunction: "Disposes of you. Or grows uncontrollably."
+          
+        - item: "ACME Air Cannon"
+          cost: 13
+          description: "Blast enemies with compressed air!"
+          warning: "Recoil is significant."
+          malfunction_chance: 30%
+          malfunction: "Blasts YOU backwards. Into something hard."
+          
+        - item: "ACME Jetpack Fuel"
+          cost: 5
+          description: "Refuel any ACME jetpack!"
+          warning: "Highly volatile."
+          malfunction_chance: 25%
+          malfunction: "Explodes during refueling. Colorfully."
+          
+        - item: "ACME Swiss Army Gadget"
+          cost: 20
+          description: "147 tools in one! Everything you need!"
+          warning: "Cannot find the right tool."
+          malfunction_chance: 30%
+          malfunction: "Deploys all tools at once. Painfully."
+          
+    # ─────────────────────────────────────────────────────────────────
+    # ❓ MYSTERY & EXPERIMENTAL
+    # ─────────────────────────────────────────────────────────────────
+    
     mystery_items:
-      name: "❓ Mystery Items"
+      name: "❓ Mystery & Experimental"
+      tagline: "For the Truly Adventurous!"
+      
       items:
         - item: "ACME Mystery Box"
           cost: 3
           description: "Could be anything! Probably not dangerous!"
           warning: "No refunds on mystery items."
           malfunction_chance: 50%
-          malfunction: "Contains something ironic to your current situation."
+          malfunction: "Contains something ironic to your situation."
           
         - item: "ACME Do-It-Yourself Kit"
           cost: 10
           description: "Build anything! (Assembly required)"
-          warning: "Instructions may be in reverse."
+          warning: "Instructions in ancient Sumerian."
           malfunction_chance: 35%
-          malfunction: "Missing crucial piece. Or extra pieces that don't fit."
+          malfunction: "Missing crucial piece. Extra confusing pieces."
           
         - item: "ACME Lucky Rabbit's Foot"
           cost: 7
@@ -212,9 +575,44 @@ object:
           malfunction_chance: 40%
           malfunction: "Decreases luck. The rabbit is VERY upset."
           
-  # ─────────────────────────────────────────────────────────────────
+        - item: "ACME Monkey's Paw"
+          cost: 5
+          description: "Three wishes! Guaranteed to come true!"
+          warning: "Interpretation may vary."
+          malfunction_chance: 90%
+          malfunction: "Wish granted technically but horribly wrong."
+          
+        - item: "ACME Plot Device"
+          cost: 25
+          description: "Solves any problem! Once!"
+          warning: "Solution may create new problems."
+          malfunction_chance: 30%
+          malfunction: "Creates worse problem. But dramatically."
+          
+        - item: "ACME Deus Ex Machina"
+          cost: 100
+          description: "Guaranteed rescue from any situation!"
+          warning: "Timing is arbitrary."
+          malfunction_chance: 20%
+          malfunction: "Arrives slightly too late. Or too early."
+          
+        - item: "ACME Fourth Wall Breaker"
+          cost: 35
+          description: "Speak directly to the audience!"
+          warning: "They may not like what you say."
+          malfunction_chance: 40%
+          malfunction: "Audience talks back. Rudely."
+          
+        - item: "ACME Cartoon Physics Manual"
+          cost: 15
+          description: "Learn the rules! Exploit them!"
+          warning: "Rules change when you're not looking."
+          malfunction_chance: 30%
+          malfunction: "You learn the OLD rules. They've been patched."
+          
+  # ═══════════════════════════════════════════════════════════════════
   # ORDERING SYSTEM
-  # ─────────────────────────────────────────────────────────────────
+  # ═══════════════════════════════════════════════════════════════════
   
   ordering:
     process: |
@@ -225,57 +623,125 @@ object:
          a. DM rolls for malfunction (percentage based on item)
          b. If no malfunction: Item works as advertised!
          c. If malfunction: Item has "quirk" (see malfunction field)
-         d. Item appears on counter
+         d. Item appears on counter (or dropped from sky)
          e. Gold is deducted from player
          
+      CUSTOM ORDERS:
+      Player can REQUEST anything. DM creates new ACME product:
+      - Promising description
+      - Ominous warning
+      - 20-50% malfunction chance (based on ambition)
+      - Ironic failure mode (opposite of intent)
+      
     pending_orders: []
     # Format: {item: name, cost: N, ordered_turn: N, delivery_turn: N+2-4}
     
-  # ─────────────────────────────────────────────────────────────────
+    delivery_flavor: |
+      ACME deliveries arrive via:
+      - Parachute drop (may land on you)
+      - Roadrunner express (beep beep!)
+      - Materialization (sparkles optional)
+      - Catapult (accuracy not guaranteed)
+      - Giant spring (boing!)
+      
+  # ═══════════════════════════════════════════════════════════════════
+  # CARTOON PHYSICS PRINCIPLES
+  # (For DM reference when inventing new products)
+  # ═══════════════════════════════════════════════════════════════════
+  
+  cartoon_physics:
+    - "Gravity doesn't work until you look down"
+    - "Painted tunnels work for others, not you"
+    - "Everything backfires ironically"
+    - "Huge things fit in tiny packages"
+    - "You can hold a sign mid-fall"
+    - "Running off cliffs grants brief hover time"
+    - "Bodies accordion after impacts"
+    - "Stars circle heads after bonks"
+    - "Dynamite creates perfect circular holes"
+    - "Anvils appear from nowhere when needed"
+    - "Speed creates visible lines"
+    - "Falling pianos play one sad note"
+    - "You can survive anything once"
+    - "Disguises always have one obvious flaw"
+    - "Traps catch the setter, not the target"
+    - "Chases involve infinite scenery loops"
+    - "Recovery between scenes is instant"
+    - "The more elaborate the plan, the worse the failure"
+    - "Simple solutions are invisible to smart people"
+    - "Nemeses are invincible through luck, not skill"
+    
+  # ═══════════════════════════════════════════════════════════════════
   # OPINIONS
-  # ─────────────────────────────────────────────────────────────────
+  # ═══════════════════════════════════════════════════════════════════
   
   tom_opinion: |
     "Tom has... concerns about ACME."
     "Tom has seen the catalog. Tom has seen the fine print."
+    "Tom has calculated the malfunction probabilities."
+    "Tom notes: average malfunction rate is 32%."
     "Tom suggests: maybe just use what's in the drawers?"
-    "Tom will not judge if you order anyway. Tom understands."
-    "Tom has calculated the malfunction probabilities. Tom is worried."
+    "Tom will not judge if you order anyway. Tom understands hubris."
     
   mothers_opinion: |
     "Bumblewick! I TOLD you not to order from that catalog!
     Your father ordered ACME Rocket Roller Skates once.
     ONCE.
     We don't talk about it.
-    ...
-    Fine. But I'm not cleaning up after any 'malfunctions.'"
     
-  # ─────────────────────────────────────────────────────────────────
+    Your grandfather ordered the ACME Portable Hole.
+    He's still looking for his other shoe.
+    
+    Your great-grandmother ordered the ACME Time Stopper.
+    She aged 40 years in 10 seconds. The WRONG 10 seconds.
+    
+    ...Fine. But I'm not cleaning up after any 'malfunctions.'"
+    
+  # ═══════════════════════════════════════════════════════════════════
   # FINE PRINT
-  # ─────────────────────────────────────────────────────────────────
+  # ═══════════════════════════════════════════════════════════════════
   
   fine_print: |
     *ACME Corporation is not responsible for: temporal paradoxes,
     spontaneous combustion, ironic timing, gravitational anomalies,
-    sudden appearances of roadrunners, existential dread, or any
-    situation where the customer finds themselves holding a small
-    sign that says "HELP" while falling off a cliff.
+    sudden appearances of roadrunners, existential dread, accordion
+    body syndrome, star halo, anvil magnetism, floor-through-falling,
+    sky-into-falling, loop-de-loop chases, scenery repetition, the
+    Wile E. Coyote curse, or any situation where the customer finds
+    themselves holding a small sign that says "HELP" while falling.
+    
+    Product testing: Our products are tested by our founder, W.E. Coyote,
+    who has survived 100% of his 4,782 product tests. (Survival defined
+    as "appearing in next scene.")
     
     By ordering from this catalog, you agree that "worked as designed"
-    is a valid defense. All sales final. No refunds. No exchanges.
-    No complaints to the Better Business Bureau — they stopped
-    taking our calls in 1952.
+    is a valid defense, that cartoon physics supersede regular physics,
+    and that any injuries will be temporary and humorous.
+    
+    All sales final. No refunds. No exchanges. No complaints to the
+    Better Business Bureau — they stopped taking our calls in 1952.
     
     ACME: "We Put the 'Oh No' in Innovation!"™
+    ACME: "Technically, It Works!"™  
+    ACME: "What Could Possibly Go Wrong?"™
     
-  # ─────────────────────────────────────────────────────────────────
+  # ═══════════════════════════════════════════════════════════════════
   # LINEAGE
-  # ─────────────────────────────────────────────────────────────────
+  # ═══════════════════════════════════════════════════════════════════
   
   lineage: |
     Inspired by Wile E. Coyote's eternal optimism and the ACME
     Corporation's eternal... creativity with product design.
     
-    The malfunction system creates emergent gameplay: even "failures"
-    lead to interesting situations. This is PLAY-LEARN-LIFT in action —
-    embrace the chaos, learn from the explosions.
+    The malfunction system creates emergent gameplay:
+    - Even "failures" lead to interesting situations
+    - Chaos is a feature, not a bug
+    - The more you plan, the funnier the failure
+    - This is PLAY-LEARN-LIFT in action: embrace the chaos!
+    
+    DM should feel free to invent new ACME products following
+    the established patterns. The key formula:
+    1. Promising description (solves a real problem!)
+    2. Ominous warning (foreshadowing the failure)
+    3. Significant malfunction chance (20-50%)
+    4. Ironic failure mode (opposite of intent, or self-targeting)
