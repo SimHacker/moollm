@@ -1,4 +1,4 @@
-# The Maze
+# 🌀 The Maze
 
 > *"You are in a maze of twisty little passages, all alike."*
 > — Colossal Cave Adventure, 1976
@@ -28,103 +28,144 @@ You have been eaten by a grue.
 
 **GET LAMP before entering.** This is not a suggestion.
 
-*([Get Lamp](http://www.getlamp.com/) — Jason Scott's documentary on text adventures)*
-
-### The Official Grue Anthem
-
-**[MC Frontalot - "It Is Pitch Dark"](https://www.youtube.com/watch?v=4nigRT2KmCE)**
-
-> *"Thanks, Grampa, for buying it. Now my life's ruined.
-> Twenty-two years later, head's infested: got the grue in."*
-
-Each maze room quotes a different verse when you die. Nerdcore is the future.
+*([Get Lamp](http://www.getlamp.com/) — Jason Scott's documentary)*
 
 ---
 
-## The Rooms
+## 🎭 DM: EMERGENT MECHANICS
 
-Ten rooms, all "alike" (but each with a distinguishing feature):
+*These patterns emerged in adventure-2. Use as INSPIRATION, not prescription!*
+*Defer creativity to runtime. Improvise. Surprise yourself.*
 
-| Room | Feature | Notable Exits |
-|------|---------|---------------|
-| [room-a/](./room-a/) | Puddle (damp) | **S→start**, N→C, E→B, W→D |
-| [room-b/](./room-b/) | Echo | N→D, S→C, E→A, W→C |
-| [room-c/](./room-c/) | Scratch marks | N→B, S→D, E→D, W→A |
-| [room-d/](./room-d/) | Golden glow | **N→end**, S→A, E→B, W→C |
-| [room-e/](./room-e/) | Cobwebs | N→F, S→B, E→G, W→C |
-| [room-f/](./room-f/) | Cold spot + **100 GOLD** 💰 | N→H, S→E, E→A, W→I |
-| [room-g/](./room-g/) | Carved face | N→I, S→D, E→J, W→E |
-| [room-h/](./room-h/) | Mushrooms (glow) | N→J, S→F, E→B, W→D |
-| [room-i/](./room-i/) | Skeleton (empty lamp!) | N→C, S→G, E→F, **W→J** |
-| [room-j/](./room-j/) | **LAMP OIL VENDOR** 🏪 | N→D, S→H, E→I, W→G |
+### 👃 Smell Gradients
 
-### 🏪 The Lamp Oil Vendor
+Dropped or transformed objects emit SMELLS that diffuse through rooms:
 
-In **room-j** stands a battered vending machine: the **ACME LAMP REFUELING CO.**
+```yaml
+# EXAMPLE — DM improvises at runtime!
+smell_gradient:
+  source: "Sulfurous Beacon (transformed egg)"
+  diffusion:
+    source_room: "OVERWHELMING"
+    adjacent: "Strong"  
+    two_away: "Faint"
+    
+  # Smells STACK and INTERACT!
+  # Cheese + egg = ???
+  # Navigate by nose in familiar areas
+```
 
-> *"Don't Let the Grue Get You!"™*
+### 🔮 Transformed Objects Gain Properties
+
+When food is eaten (see `kitchen/fridge.yml`), results aren't just markers:
+
+```yaml
+# EXAMPLES — invent your own!
+oracle_apple:
+  was: "Perfect Apple"
+  became: "Oracle Core"
+  gained: [whispers_prophecies, glows, grants_maze_vision]
+    
+the_thing_that_watches:
+  was: "Suspicious Casserole"  
+  became: "Sentient mycelial entity"
+  gained: [fungal_eye, telepathy, merged_with_mushrooms]
+```
+
+### 🐉 The Grue Has Personality
+
+The grue isn't just a death trigger:
+- Can speak (in darkness)
+- Has opinions about adventurers
+- Can be bargained with (maybe)
+- Remembers being killed by cheese (and respawning)
+- Can be fought, summoned, or befriended
+
+### 💀 The Skeleton Tells Stories
+
+The skeleton in room-i:
+- Points west (toward salvation — so close!)
+- Has an empty lamp, unfinished notes
+- Accepts gifts, visitors, memorials
+- Their story matters
+
+### 🏪 The Vendor Has Opinions
+
+The vending machine in room-j:
+- Dispenses Premium Glow Juice (blue flame!)
+- Leaves notes for worthy customers
+- Acknowledges tragedies
+- Mints memorial coins
+
+### ⚡ Speed of Light Simulation
+
+Simulate MULTIPLE MOVES in one response:
+
+```yaml
+# "Go west, north, examine skeleton"
+simulation:
+  - move: west → room-i (oil: -1.5)
+  - move: north → examine (oil: -0.25)
+  - narration: "Seamless as thought"
+```
+
+---
+
+## 🗺️ The Rooms
+
+| Room | Feature | Smell Notes |
+|------|---------|-------------|
+| [room-a/](./room-a/) | Puddle | Receives smells from south |
+| [room-b/](./room-b/) | Echo | Echoes smell descriptions |
+| [room-c/](./room-c/) | Scratch marks | Old marks, old smells |
+| [room-d/](./room-d/) | Golden glow | Central diffusion hub |
+| [room-e/](./room-e/) | Cobwebs | Traps smells |
+| [room-f/](./room-f/) | Cold + **100 GOLD** | **GRUE LAIR** |
+| [room-g/](./room-g/) | Carved face | Seems to sniff |
+| [room-h/](./room-h/) | Mushrooms | Spores interact with smells |
+| [room-i/](./room-i/) | Skeleton | Bones + dust + tragedy |
+| [room-j/](./room-j/) | **VENDOR** 🏪 | Machine oil + commerce |
+
+### 🏪 Lamp Oil Vendor (room-j)
 
 | Item | Cost | Effect |
 |------|------|--------|
-| Lamp Oil Refill | 1 gold | Refills to 400 oil |
-| Deluxe Refill | 2 gold | Refills to 800 oil |
-| Premium Glow Juice | 5 gold | 1000 oil + blue glow (grues hate it) |
+| Refill | 1 gold | 400 oil |
+| Deluxe | 2 gold | 800 oil |
+| Premium Glow Juice | 3 gold | 1000 oil + BLUE (grues hesitate!) |
 
-**Pro tip:** The skeleton in room-i was pointing west toward room-j. They were *so close* to salvation. Their lamp was empty. Don't be like them.
+### 💰 Gold Pile (room-f)
 
-### 💰 The Gold Pile (room-f)
-
-In **room-f** (the cold spot), you'll find **100 gold coins** scattered on the floor.
-
-This was the skeleton's money! They dropped it when the grue got them. The cold room drains lamp oil **twice as fast** — they didn't know that. Their lamp died here, and they never made it to the vendor.
-
-Their loss is your gain. 100 gold = 100 refills. You're set for life (or at least this adventure).
-
-**Warning:** The cold affects your lamp too! Move quickly through room-f.
+**100 gold** in the grue's lair. The skeleton's fortune. Cold room drains oil 1.5x faster.
 
 ---
 
-## The Solution
+## 🎲 DM Runtime Guidelines
 
-**Shortest path (still works!):**
-```
-From start:  NORTH → room-a (the damp one)
-From room-a: WEST  → room-d (follow the glow!)
-From room-d: NORTH → end (TREASURE!)
-```
-
-**Or wander and MAP with food!** You now have 20 food items from the
-kitchen and 10 maze rooms. Drop different foods to mark each room.
-This is the CLASSIC adventure game technique!
-
-```
-> drop cheese
-Dropped: Wheel of Aged Cheese
-
-(Later, when you return to this room...)
-
-> look
-You see: Wheel of Aged Cheese
-"Ah! I've been here before!"
-```
+1. **Defer specifics** — Patterns, not rules
+2. **Improvise transformations** — Each eat should surprise
+3. **Stack effects** — Smells combine, stories interweave
+4. **The grue is a character** — Personality, not just death
+5. **Update YAML files** — Persistence makes it REAL
+6. **Surprise yourself** — Your delight = player's delight
 
 ---
 
-## The Classic Technique
+## 📚 Legends from Adventure-2
 
-How to map a maze of twisty passages:
-1. Drop items to mark rooms
-2. Move in each direction, note which room you reach
-3. Build a map on paper (or in your YAML files)
+- Captain Ashford slew a grue with **blue cheese**
+- Room-f still smells of cheese and victory
+- Skeleton received a **grue head trophy**
+- Mushrooms in room-h spawned **The Thing That Watches**
+- A **PhD paper** was written about it all
 
-Or just read this README. We won't judge.
+*Build on these. Subvert them. Add to them.*
 
 ---
 
 ## Navigation
 
-| Direction | Destination |
-|-----------|-------------|
-| ⬆️ Up | [adventure-1/](../) |
+| ⬆️ Up | [adventure-3/](../) |
+|-------|---------------------|
 | 🚪 Start | [../start/](../start/) |
 | 🏆 End | [../end/](../end/) |

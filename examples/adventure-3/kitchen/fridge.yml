@@ -180,28 +180,126 @@ object:
     Your call. Mother probably won't find out.
 
 # ═══════════════════════════════════════════════════════════════════
-# THE EAT MECHANIC — A Creative Maze-Marking Technique!
+# THE EAT MECHANIC — Emergent Maze-Marking!
 # ═══════════════════════════════════════════════════════════════════
+#
+# Mother warned you. You won't listen. That's okay.
+# Eating creates BETTER markers than dropping!
 
 eat_mechanic:
   trigger: "EAT [food_item]"
   
+  # ─────────────────────────────────────────────────────────────────
+  # WHAT HAPPENS (DM: improvise the specifics!)
+  # ─────────────────────────────────────────────────────────────────
+  
   effect: |
-    1. Food is removed from inventory
-    2. Something HILARIOUS happens (DM: be creative!)
-    3. Food appears on room floor (possibly transformed)
-    4. Food can add properties to the adventurer
-    5. Food still works as a maze marker (maybe better now!)
+    1. Food removed from inventory
+    2. Something HILARIOUS happens (unique each time!)
+    3. Transformed food drops on floor
+    4. Player gains properties (permanent or temporary)
+    5. SMELL GRADIENT begins diffusing through connected rooms
     
-  improvisation_patterns:
-    physical: "Food changes form (solid→liquid, whole→scattered, etc.)"
-    temporal: "Time passes differently (ages, de-ages, time-shifts)"
-    emotional: "Food gains feelings or affects player's emotions"
-    sentient: "Food becomes alive (create a .yml file for it!)"
-    absorptive: "Player absorbs something from the food permanently"
-    followers: "Food spawns entities that follow the player"
+  # ─────────────────────────────────────────────────────────────────
+  # 👃 SMELL GRADIENTS — Navigate by nose!
+  # ─────────────────────────────────────────────────────────────────
+  
+  smell_gradient:
+    how_it_works: |
+      Each transformed marker emits a UNIQUE SMELL that diffuses
+      through room exits. Intensity decreases with distance.
+      
+    example:
+      source: "Sulfurous Beacon (was: hard-boiled egg)"
+      source_room: "OVERWHELMING — eyes water"
+      one_exit_away: "Strong — unmistakably sulfurous"
+      two_exits_away: "Moderate — hint of something eggy"
+      three_exits_away: "Faint — something died somewhere"
+      
+    smell_interactions: |
+      DM: Smells STACK and INTERACT! Improvise combinations:
+      - Cheese + egg = aged breakfast disaster
+      - Fruit + fish = tropical confusion  
+      - Multiple markers = olfactory symphony
+      - Player can navigate by smell in familiar areas
+      
+    navigation_commands:
+      - "SNIFF" — Detect nearby smell sources and directions
+      - "FOLLOW SMELL" — Navigate toward a known smell
+      - "AVOID SMELL" — Navigate away from a smell
+      
+  # ─────────────────────────────────────────────────────────────────
+  # 🔮 TRANSFORMATION PATTERNS (examples, not rules!)
+  # ─────────────────────────────────────────────────────────────────
+  
+  transformation_patterns:
+    # DM: These are INSPIRATION. Invent your own at runtime!
     
+    oracle: |
+      Apple → Oracle Core
+      Gains: prophecies, glow, one-time maze vision
+      Smell: forbidden knowledge, autumn
+      
+    sentient: |
+      Casserole → The Thing That Watches
+      Gains: fungal eye, telepathy, merges with environment
+      Smell: mycelium, watching
+      
+    beacon: |
+      Egg → Sulfurous Beacon  
+      Gains: intense glow, navigation aid
+      Smell: SULFUR (strongest gradient!)
+      
+    philosophical: |
+      Cheese → Wheel of Wisdom
+      Gains: dispenses advice, judges choices
+      Smell: aged contemplation
+      
+    royal: |
+      Grapes → Crown of Fermentation
+      Gains: ferments over time, gains potency
+      Smell: vineyard royalty
+      
+    weapon: |
+      Blue cheese → Gorgonzola Glaive
+      Gains: CAN KILL GRUES, weaponized smell
+      Smell: AGGRESSIVE (grues flee!)
+      
+  # ─────────────────────────────────────────────────────────────────
+  # 🎭 CONTEXT MODIFIERS (DM considers at runtime)
+  # ─────────────────────────────────────────────────────────────────
+  
+  context_affects_transformation:
+    costume: "Vampire eating apple → Blood Apple"
+    room: "Dark room → 'The SOUNDS are concerning'"
+    history: "Same food 3x → relationship develops"
+    nearby_objects: "Lamp illuminates transformation"
+    nearby_markers: "Smells interact and combine"
+    
+  # ─────────────────────────────────────────────────────────────────
+  # 💾 PERSISTENCE — Update files, not just chat!
+  # ─────────────────────────────────────────────────────────────────
+  
   persistence:
-    update_player: "Add properties to player.yml"
-    update_room: "Add transformed food to ROOM.yml contents"
-    create_files: "Sentient foods need their own .yml files!"
+    update_player: "Add effects to player.yml"
+    update_room: "Add marker to ROOM.yml objects list"
+    create_marker_file: "Create [marker-name].yml with properties"
+    update_smell_gradient: "Note smell in this and adjacent rooms"
+    
+  # ─────────────────────────────────────────────────────────────────
+  # 🎲 DM: DEFER CREATIVITY UNTIL RUNTIME!
+  # ─────────────────────────────────────────────────────────────────
+  
+  dm_guidelines: |
+    These patterns are EXAMPLES, not comprehensive lists!
+    
+    At runtime:
+    1. Consider the specific food, player, costume, room, history
+    2. Improvise a unique transformation
+    3. Invent a distinctive smell
+    4. Decide what properties the marker gains
+    5. Update YAML files to make it REAL
+    6. Surprise yourself — your delight = player's delight
+    
+    The goal: Each eat creates a ONE-OF-A-KIND marker with
+    personality, smell, and story potential.

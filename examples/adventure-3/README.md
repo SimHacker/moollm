@@ -152,6 +152,23 @@ goals:
 
 ---
 
+## 🧪 Emergent Mechanics (from adventure-2)
+
+*Patterns discovered through play. Use as inspiration!*
+
+| Mechanic | What Happens | See |
+|----------|--------------|-----|
+| 👃 **Smell Gradients** | Transformed food emits smells that diffuse through rooms | [maze/README.md](./maze/README.md) |
+| 🔮 **Object Transformation** | Eaten food becomes sentient, prophetic, weaponized... | [kitchen/fridge.yml](./kitchen/fridge.yml) |
+| 🐉 **Grue Personality** | The grue can speak, bargain, fight, be eaten | [maze/room-f/](./maze/room-f/) |
+| 💀 **Skeleton Stories** | The skeleton accepts gifts, memorials, visitors | [maze/room-i/](./maze/room-i/) |
+| ⚡ **Speed of Light** | DM simulates multiple moves seamlessly | [maze/README.md](./maze/README.md) |
+| 🎭 **Identity Play** | Costumes affect transformations and interactions | [coatroom/](./coatroom/) |
+
+**DM Principle:** These are EXAMPLES that suggest possibilities. Defer creativity until runtime. Improvise. Surprise yourself!
+
+---
+
 ## 📚 References
 
 - [adventure-2/README.md](../adventure-2/README.md) — The legend of Captain Ashford
