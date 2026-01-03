@@ -19,6 +19,21 @@
 # CORE PRINCIPLES
 # ═══════════════════════════════════════════════════════════════════
 
+COHERENCE-ENGINE:
+  meaning: "The LLM computes dependencies, cross-checks data, referees parallel tasks, orchestrates character simulations, transcribes conversations, and maintains consistency across distributed state."
+  location: kernel/README.md
+  invoke_when: "Understanding the LLM's role in the system"
+  # The orchestrator is the OS
+  # The LLM is the Coherence Engine
+  # The repo is the Microworld
+  responsibilities:
+    - "Compute logical dependencies between tasks"
+    - "Cross-check data against rules and schemas"
+    - "Referee conflicts between parallel agents"
+    - "Orchestrate many character simulations in one call"
+    - "Maintain consistency across distributed state"
+    - "Resolve ambiguity via BPIP (charitable interpretation)"
+
 YAML-JAZZ:
   meaning: "Comments carry meaning. Data is interpreted, not just parsed."
   location: kernel/constitution-core.md §3
@@ -51,7 +66,7 @@ MINIMAL-DIFF:
   location: kernel/constitution-core.md §1
   invoke_when: "Editing existing files"
 
-BIG-ENDIAN:
+BIG-ENDIAN-NAMING:
   meaning: "Most significant component first in names. Files cluster by entity."
   location: kernel/NAMING.yml
   invoke_when: "Naming files, especially chats and metadata"
@@ -67,6 +82,7 @@ BIG-ENDIAN:
 
 ABOUT-NOT-INSIDE:
   meaning: "Conversations ABOUT objects don't live INSIDE them."
+  term: "Sidecar files for metadata and sub-objects"
   location: kernel/NAMING.yml
   invoke_when: "Deciding where to place chats, reviews, notes"
   examples:

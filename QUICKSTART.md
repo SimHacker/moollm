@@ -19,6 +19,7 @@
 | "I planned internally" | Read `PLAN.yml` — approve before execution |
 | Isolated single-agent calls | Many agents talk in ONE LLM call (speed of light) |
 | Hidden state | **Everything is files. No magic.** |
+| Text generator | **Coherence Engine** — referee, orchestrator, consistency checker |
 
 ---
 

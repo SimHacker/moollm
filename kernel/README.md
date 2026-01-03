@@ -2,6 +2,13 @@
 
 > *"The orchestrator is the Operating System. The LLM is the Coherence Engine. The Repo is the Microworld."*
 
+**The Coherence Engine** — The LLM isn't just generating text. It's:
+- Computing **dependencies** between tasks and data
+- **Cross-checking** state against rules and schemas
+- **Refereeing** conflicts between parallel agents
+- **Orchestrating** many character simulations per call
+- **Maintaining consistency** across the microworld
+
 The **minimal, stable core** that all higher-level protocols and skills depend on.
 
 > [!NOTE]
