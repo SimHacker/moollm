@@ -33,6 +33,8 @@ This isn't invented from nothing. MOOLLM stands on decades of work in **construc
 
 **Seymour Papert & Alan Kay** — The original vision: computers as instruments for learning by building. Logo microworlds where children construct knowledge by making things they can inspect and modify. "Low floor, high ceiling, wide walls."
 
+**Ken Kahn — [ToonTalk](https://www.toontalk.com/) & AI Blocks for [Snap!](https://snap.berkeley.edu/)** — Animated programming where children build programs by training cartoon characters. Recently pioneering LLM integration in visual programming: Snap! blocks that call GPT for text generation, speech synthesis, image recognition. His book *[The Learner's Apprentice](https://cmkpress.com/product/learners-apprentice/)* shows how generative AI can co-create educational experiences. MOOLLM shares this vision: LLMs as collaborative tools for building things, not just answering questions.
+
 **Don's Logo Adventure (C64)** — As a teenager, Don built a simple [adventure game](https://medium.com/@donhopkins/logo-adventure-for-c64-terrapin-logo-81c679e715f6) for Commodore 64 Terrapin Logo that used the Logo command interpreter as its parser. Type `N`, `S`, `E`, `W` to move. Type `LOOK`, `GET SWORD`, `EXAMINE WAND`, `INVENT`. But you *also* had full Logo available. Tempted to cheat? Type `PRINT :RNUM` to see your room number. Type `PRINT :ITEMS` to see every item and its location. Type `MAKE "RNUM 5` to teleport to the secret incanting room. **If you cheat, you win by learning Logo.** This is constructionism: the game rewards curiosity with programming skills. MOOLLM is the same — poke around in the YAML, manipulate the state directly, learn by exploring.
 
 **Will Wright & Don Hopkins — SimCity, The Sims** — Object-oriented worlds where things and people advertise what they can do, autonomous agents select actions based on needs, and emergent behavior arises from simple rules. Don's work on [SimAntics](https://en.wikipedia.org/wiki/SimAntics) (The Sims' behavioral engine) and [Pie Menus](https://en.wikipedia.org/wiki/Pie_menu) directly informs MOOLLM's object/room/action model.
@@ -395,7 +397,7 @@ Sister scripts emerge: chat patterns that work get automated. The slow LLM explo
 
 | Axis | Patron Saints | What They Invoke |
 |------|---------------|------------------|
-| **PLAY** | Seymour Papert, Will Wright, Richard Bartle, Bill Atkinson, Alan Kay | Exploration, emergence, curiosity, adventure, low floor, children playing with powerful ideas |
+| **PLAY** | Seymour Papert, Will Wright, Richard Bartle, Bill Atkinson, Alan Kay, Ken Kahn | Exploration, emergence, curiosity, adventure, low floor, children playing with powerful ideas |
 | **LEARN** | Marvin Minsky, Ted Nelson, Henry Lieberman, Doug Engelbart, Pavel Curtis | K-lines, intertwingling, demonstration, augmentation, spatial understanding |
 | **LIFT** | Dave Ungar, Dave Ackley, Chuck Shotton, Arthur van Hoff, James Gosling | Crystallization, robustness, pipelines, productization, platform-building |
 
@@ -787,6 +789,7 @@ The end state: an LLM that navigates its own memory, follows explicit protocols,
 | **Marvin Minsky** | K-lines, Society of Mind |
 | **Seymour Papert** | [Logo][logo] microworlds, constructionism |
 | **Alan Kay** | Smalltalk, messaging, children |
+| **Ken Kahn** | ToonTalk, AI blocks for Snap!, LLMs in education |
 | **Henry Lieberman** | Programming by demonstration |
 | **Ted Nelson** | Xanadu, intertwingled everything |
 
