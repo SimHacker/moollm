@@ -142,17 +142,36 @@ goals:
 ## 🎭 Tips for New Adventurers
 
 1. **GET LAMP** — In the start room. Don't enter the maze without it.
+
 2. **Visit the Kitchen** — Everything you need is on the table:
-   - 📜 **Mother's Note** — Important instructions and promises
+   - 📜 **Mother's Note** — Important instructions and love
    - 🧭 **TomTomagotchi** — Your navigation pet (GPS + friend!)
    - 📓 **Notebook** — For collecting memories (auto-sorts!)
    - 🍱 **Lunchbox** — For carrying food
-3. **Raid the Fridge** — 20 food items for maze mapping.
-4. **Visit the Coatroom** — Maurice can help you discover who you want to be.
-5. **The Grue Has Respawned** — It's hungry. It's waiting. It's in room-f.
-6. **The Vending Machine** — Room J sells Premium Glow Juice (3 gold).
-7. **The Skeleton Points West** — Follow its guidance.
-8. **There's 100 Gold** — In the grue's lair. If you dare.
+
+3. **⭐ READ THE NOTE. WRITE A REPLY. MAKE PROMISES!** ⭐
+   
+   > *This is the most important step for a rich adventure!*
+   
+   Mother's note asks you to be careful. **Write back to her!**
+   - Who are you today? What costume will you wear?
+   - What do you promise to bring home?
+   - What do you promise NOT to do?
+   - What questions do you have?
+   - What do you want to tell her?
+   
+   **Your promises become YOUR GOALS.** The DM tracks them. At the end
+   of the adventure, you'll discover which promises you kept — and which
+   you broke. Mother will have opinions.
+   
+   *This is freeform creative writing that creates game mechanics!*
+
+4. **Raid the Fridge** — 20 food items for maze mapping.
+5. **Visit the Coatroom** — Maurice can help you discover who you want to be.
+6. **The Grue Has Respawned** — It's hungry. It's waiting. It's in room-f.
+7. **The Vending Machine** — Room J sells Premium Glow Juice (3 gold).
+8. **The Skeleton Points West** — Follow its guidance.
+9. **There's 100 Gold** — In the grue's lair. If you dare.
 
 ---
 

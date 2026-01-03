@@ -62,11 +62,34 @@ object:
   advertisements:
     - action: READ-NOTE
       score_if: "always"
+      score: 10  # HIGH PRIORITY — do this first!
       description: "Read Mother's helpful (judgmental) note"
 
     - action: REPLY
       score_if: "after reading the note"
-      description: "Write a reply to Mother"
+      score: 10  # HIGH PRIORITY — shapes your whole adventure!
+      description: "⭐ Write a reply to Mother — CREATE YOUR OWN GOALS!"
+      strongly_suggested: true
+      why: |
+        This is where YOUR adventure becomes YOURS!
+        
+        Your reply is freeform creative writing. Express yourself!
+        - Who are you? What name? What costume?
+        - What do you PROMISE to do or bring back?
+        - What do you promise NOT to do?
+        - What are you feeling? Scared? Excited? Defiant?
+        - What questions do you have for Mother?
+        
+        EVERY PROMISE YOU MAKE BECOMES A GOAL.
+        The DM extracts them and tracks them.
+        At adventure's end, you'll see what you kept.
+        Mother will react accordingly.
+        
+        This is CHARACTER BUILDING through ROLEPLAY.
+        This is WORLD BUILDING through CREATIVE WRITING.
+        This is GAME DESIGN through PLAY.
+        
+        Not required — but EXTREMELY rewarding!
       interactive: true
       flow:
         prompt: |
