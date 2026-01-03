@@ -34,11 +34,17 @@ object:
     
     P.S. - When you get home, we need to talk about those dishes."
   
-  # The table has a note on it
+  # What's on the table
   contents:
     - name: Mother's Note
       description: "Instructions from Petunia Fantastipants. Somehow she knew."
       can_take: true
+      
+    - name: TomTomagotchi
+      description: "A small egg-shaped device with a blinking eye. It chirps hopefully."
+      can_take: true
+      file: tomtomagotchi.yml
+      hint: "Navigation companion — part GPS, part pet, part oracle, part friend!"
   
   advertisements:
     - action: READ-NOTE

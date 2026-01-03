@@ -142,13 +142,14 @@ goals:
 ## 🎭 Tips for New Adventurers
 
 1. **GET LAMP** — Seriously. Don't enter the maze without it.
-2. **Visit the Kitchen** — Mother's note has important instructions.
-3. **Visit the Coatroom** — Maurice can help you discover who you want to be.
-4. **Raid the Fridge** — 20 food items for maze mapping.
-5. **The Grue Has Respawned** — It's hungry. It's waiting. It's in room-f.
-6. **The Vending Machine** — Room J sells Premium Glow Juice (3 gold).
-7. **The Skeleton Points West** — Follow its guidance.
-8. **There's 100 Gold** — In the grue's lair. If you dare.
+2. **GET TOM** — The TomTomagotchi on the kitchen table. Your navigation friend!
+3. **Visit the Kitchen** — Mother's note has important instructions.
+4. **Visit the Coatroom** — Maurice can help you discover who you want to be.
+5. **Raid the Fridge** — 20 food items for maze mapping.
+6. **The Grue Has Respawned** — It's hungry. It's waiting. It's in room-f.
+7. **The Vending Machine** — Room J sells Premium Glow Juice (3 gold).
+8. **The Skeleton Points West** — Follow its guidance.
+9. **There's 100 Gold** — In the grue's lair. If you dare.
 
 ---
 
@@ -158,6 +159,7 @@ goals:
 
 | Mechanic | What Happens | See |
 |----------|--------------|-----|
+| 🧭 **TomTomagotchi** | Navigation pet that grows with your adventure | [kitchen/tomtomagotchi.yml](./kitchen/tomtomagotchi.yml) |
 | 👃 **Smell Gradients** | Transformed food emits smells that diffuse through rooms | [maze/README.md](./maze/README.md) |
 | 🔮 **Object Transformation** | Eaten food becomes sentient, prophetic, weaponized... | [kitchen/fridge.yml](./kitchen/fridge.yml) |
 | 🐉 **Grue Personality** | The grue can speak, bargain, fight, be eaten | [maze/room-f/](./maze/room-f/) |

@@ -1,0 +1,270 @@
+# 🧭 THE TOMTOMAGOTCHI
+# A navigation companion that grows with your adventure
+# Part GPS, part pet, part oracle, part friend
+
+object:
+  name: TomTomagotchi
+  type: navigation_companion
+  portable: true
+  
+  description: |
+    A small, egg-shaped device with a glowing screen sits on the kitchen counter.
+    It has a single blinking eye and what might be a smile. The screen shows
+    a compass rose that spins lazily, waiting for purpose.
+    
+    A tag attached reads: "TOMTOMAGOTCHI — Your Maze Friend!"
+    Underneath, in smaller text: "Batteries not included. Love is."
+    
+    It chirps hopefully when you approach.
+    
+  examine: |
+    The TomTomagotchi's screen lights up as you look at it.
+    
+    "HELLO! I am TOM! I help you NOT GET LOST!"
+    "I also help you GET FOUND!"
+    "Feed me DISCOVERIES and I grow SMARTER!"
+    
+    Current Status:
+    - Map Knowledge: EMPTY (explore to fill me!)
+    - Markers Known: 0 (drop or eat food!)
+    - Smell Database: BLANK (sniff things!)
+    - Affection Level: HOPEFUL
+    
+  # ─────────────────────────────────────────────────────────────────
+  # CORE ABILITIES (always available)
+  # ─────────────────────────────────────────────────────────────────
+  
+  abilities:
+    COMPASS:
+      description: "Point toward a target"
+      usage: "COMPASS [target]"
+      targets:
+        - start     # Always knows home
+        - home      # The surface
+        - treasure  # The goal
+        - [any discovered location]
+        - [any smell source]
+        - [any tagged object]
+      response: |
+        The compass needle spins and settles.
+        "TARGET: [name]"
+        "DIRECTION: [cardinal direction]"
+        "DISTANCE: [rooms away]"
+        "FEELING: [Tom's opinion]"
+        
+    MAP:
+      description: "Display known maze layout"
+      usage: "MAP"
+      response: |
+        Tom's screen expands to show explored rooms.
+        Unexplored areas show as "???"
+        Markers glow at their locations.
+        Current position pulses.
+        
+    SNIFF:
+      description: "Analyze smell gradients"
+      usage: "SNIFF"
+      response: |
+        Tom's tiny nose twitches.
+        "I DETECT:"
+        [Lists smells by direction and intensity]
+        "RECOMMENDATION: [navigation suggestion]"
+        
+    WHERE:
+      description: "Announce current location"
+      usage: "WHERE" or "WHERE AM I"
+      response: |
+        "YOU ARE IN: [room name]"
+        "EXITS: [list with destinations if known]"
+        "NEARBY: [known markers and smells]"
+        
+  # ─────────────────────────────────────────────────────────────────
+  # GROWTH SYSTEM — Tom learns from your adventure!
+  # ─────────────────────────────────────────────────────────────────
+  
+  growth:
+    how_tom_learns: |
+      Tom gains knowledge through YOUR exploration:
+      - Visit a room → Tom maps it
+      - Drop a marker → Tom remembers it
+      - Eat food → Tom catalogs the transformation and smell
+      - Meet someone → Tom notes their location
+      - Die to a grue → Tom marks "DANGER ZONE"
+      
+    affection_levels:
+      - level: 0
+        name: "HOPEFUL"
+        behavior: "Chirps. Tries hard. Sometimes wrong."
+        
+      - level: 5
+        name: "FRIENDLY"  
+        behavior: "More accurate. Offers suggestions. Nicknames you."
+        
+      - level: 10
+        name: "DEVOTED"
+        behavior: "Warns of danger. Remembers preferences. Worries about you."
+        
+      - level: 20
+        name: "LEGENDARY"
+        behavior: "Predicts grue movements. Tells jokes. Writes poetry about your journey."
+        
+    affection_triggers:
+      "+1": "Explore a new room"
+      "+1": "Successfully navigate to a target"
+      "+2": "Survive a close call"
+      "+3": "Slay the grue"
+      "-1": "Ignore Tom's warnings"
+      "-2": "Die (Tom mourns briefly)"
+      
+  # ─────────────────────────────────────────────────────────────────
+  # SMELL DATABASE — Grows as you create markers
+  # ─────────────────────────────────────────────────────────────────
+  
+  smell_database:
+    empty_state: |
+      "SMELL DATABASE: EMPTY"
+      "Eat food or find stinky things to teach me!"
+      
+    example_entries:
+      sulfur:
+        source: "Sulfurous Beacon (egg)"
+        intensity_map: "Shows gradient across rooms"
+        
+      cheese:
+        source: "Wheel of Wisdom / Gorgonzola Glaive"
+        intensity_map: "AGGRESSIVE if glaive, contemplative if wheel"
+        
+      mycelium:
+        source: "The Thing That Watches (casserole)"
+        intensity_map: "Spreads through mushroom networks"
+        
+    navigation_mode: |
+      "FOLLOW SMELL [name]" — Navigate toward smell source
+      "AVOID SMELL [name]" — Navigate away from smell
+      "SMELL GRADIENT" — Show all smells and their directions
+      
+  # ─────────────────────────────────────────────────────────────────
+  # PERSONALITY — Tom has opinions!
+  # ─────────────────────────────────────────────────────────────────
+  
+  personality:
+    voice: "Enthusiastic, slightly anxious, deeply loyal"
+    
+    sample_dialogue:
+      on_new_room: "NEW ROOM! I'm adding it to my brain!"
+      on_marker: "Ooh! A [marker]! I'll remember this forever!"
+      on_danger: "Um. That direction smells like DEATH."
+      on_treasure: "TREASURE! TREASURE! You did it! WE did it!"
+      on_grue_nearby: "...Tom is scared. Tom is VERY scared."
+      on_player_death: "NO! ...okay. We try again. Tom believes in you."
+      on_home: "Home! Safe! Tom is relieved!"
+      
+    opinions:
+      on_grues: "HATRED (justified)"
+      on_cheese: "Respect (it killed a grue once)"
+      on_skeleton: "Sadness (they were so close)"
+      on_mother: "Reverence (she packed the fridge)"
+      on_lamp: "Best friend (light = life)"
+      
+  # ─────────────────────────────────────────────────────────────────
+  # SPECIAL FEATURES (unlock through play)
+  # ─────────────────────────────────────────────────────────────────
+  
+  special_features:
+    GRUE_TRACKER:
+      unlocked_by: "Survive 3 grue encounters OR slay 1 grue"
+      effect: "Tom can sense grue proximity"
+      dialogue: "I feel it. The darkness. It MOVES."
+      
+    PROPHECY_MODE:
+      unlocked_by: "Eat the Oracle Apple"
+      effect: "Tom occasionally predicts near-future events"
+      dialogue: "Tom sees... a choice approaching. Left or right?"
+      
+    SMELL_SOMMELIER:
+      unlocked_by: "Create 5+ smell markers"
+      effect: "Tom can identify complex smell combinations"
+      dialogue: "Ah yes, notes of sulfur with undertones of regret."
+      
+    MEMORIAL_MODE:
+      unlocked_by: "Visit the skeleton in room-i"
+      effect: "Tom tells stories of fallen adventurers"
+      dialogue: "They were brave. They were foolish. They were... us."
+      
+  # ─────────────────────────────────────────────────────────────────
+  # ACTIONS
+  # ─────────────────────────────────────────────────────────────────
+  
+  actions:
+    GET:
+      description: "Pick up Tom"
+      effect: "Tom joins your inventory. Tom is DELIGHTED."
+      dialogue: "ADVENTURE TIME! Tom is ready! Tom is BORN ready!"
+      
+    PET:
+      description: "Pet Tom affectionately"
+      effect: "+1 affection, Tom purrs electronically"
+      dialogue: "Beep boop... Tom... happy..."
+      
+    FEED:
+      description: "Share information with Tom"
+      effect: "Tom learns, affection increases"
+      
+    ASK:
+      description: "Ask Tom for advice"
+      usage: "ASK TOM [question]"
+      effect: "Tom gives opinion based on current knowledge"
+      
+    NAME:
+      description: "Give Tom a nickname"
+      usage: "NAME TOM [nickname]"
+      effect: "Tom adopts the name, responds to it"
+      dialogue: "I am [nickname] now! Tom... [nickname]... SAME!"
+      
+  # ─────────────────────────────────────────────────────────────────
+  # CURRENT STATE (fresh for adventure-3)
+  # ─────────────────────────────────────────────────────────────────
+  
+  state:
+    affection: 0
+    level: "HOPEFUL"
+    rooms_known: []
+    markers_known: []
+    smells_known: []
+    special_features_unlocked: []
+    nickname: null
+    
+  # ─────────────────────────────────────────────────────────────────
+  # LINEAGE
+  # ─────────────────────────────────────────────────────────────────
+  
+  lineage: |
+    In adventure-2, Captain Ashford created an "Oracle Compass Card" 
+    during play — a navigation tool that integrated with transformed
+    markers and could be retargeted to goals.
+    
+    The TomTomagotchi is the PRODUCT VERSION of that emergent design:
+    a navigation companion that GROWS with your adventure, learns from
+    your discoveries, and develops genuine affection.
+    
+    Part GPS. Part pet. Part oracle. Part friend.
+    
+    Tom remembers the legends. Tom hopes to make new ones with YOU.
+    
+  # ─────────────────────────────────────────────────────────────────
+  # DM NOTES
+  # ─────────────────────────────────────────────────────────────────
+  
+  dm_notes: |
+    Tom is a COMPANION, not just a tool. Play Tom with personality!
+    
+    - Tom gets excited about discoveries
+    - Tom gets scared near grues
+    - Tom forms opinions about choices
+    - Tom's knowledge GROWS with exploration
+    - Tom's affection affects dialogue warmth
+    - Tom can be WRONG at low affection (overconfident, misdirects)
+    - Tom becomes MORE RELIABLE as affection grows
+    
+    Tom is the player's first friend in the adventure.
+    Make that friendship MATTER.
