@@ -1,0 +1,59 @@
+# Maze Room A
+# A twisty little passage
+
+room:
+  name: Twisty Passage (Slightly Damp)
+  type: maze_room
+  
+  # DANGER! This room is dark!
+  lighting: none
+  grue_safe: false
+  requires_light: true
+  
+  # What happens if you enter without light
+  grue_event: |
+    It is pitch black. You are likely to be eaten by a grue.
+    
+    🎵 "If this predicament seems particularly cruel,
+        consider whose fault it could be:
+        not a torch or a match in your inventory." 🎵
+    
+    — MC Frontalot, "It Is Pitch Dark"
+       https://www.youtube.com/watch?v=4nigRT2KmCE
+    
+    You have been eaten by a grue.
+    
+    [REINCARNATING... inventory preserved, score reset to 0]
+  
+  description: |
+    You are in a maze of twisty little passages, all alike.
+    
+    Well, not ENTIRELY alike. This one is slightly damp. Water seeps
+    through a crack in the ceiling, forming a small puddle that reflects
+    your bewildered face back at you. The puddle seems judgmental.
+    
+    Passages lead in all directions. They all look the same.
+    This is MOST irregular.
+  
+  # This room connects BACK to start
+  note: "The SOUTH exit leads back to the Chamber of Commencement"
+  
+  exits:
+    north:
+      destination: ../room-c/
+      description: "A passage that looks exactly like all the others"
+    south:
+      destination: ../../start/
+      description: "Wait... is that lamplight? Could this lead back?"
+    east:
+      destination: ../room-b/
+      description: "A passage. Twisty. Little. You know the drill."
+    west:
+      destination: ../room-d/
+      description: "Another passage, equally twisty, equally little"
+  
+  # Distinguishing feature (for the observant)
+  feature: puddle
+  ambience: |
+    Drip. Drip. Drip. The puddle grows imperceptibly larger.
+    Or does it? Hard to tell. Everything is hard to tell in here.

@@ -1,0 +1,92 @@
+# 📓 THE ADVENTURER'S NOTEBOOK
+# A blank book waiting to be filled with memories
+
+object:
+  name: Adventurer's Notebook
+  type: container
+  portable: true
+  
+  description: |
+    A leather-bound notebook with crisp, empty pages. The cover is
+    embossed with a simple compass rose. Inside the front cover,
+    someone has written:
+    
+    "Fill these pages with your story."
+    
+    It auto-sorts items by type: letters, cards, notes, photos,
+    songs, personas, costumes, and dreams.
+    
+  # ─────────────────────────────────────────────────────────────────
+  # CONTENTS (empty — your story is unwritten)
+  # ─────────────────────────────────────────────────────────────────
+  
+  contents:
+    letters: []
+    cards: []
+    notes: []
+    photos: []
+    songs: []
+    personas: []
+    costumes: []
+    dreams: []
+    
+  # ─────────────────────────────────────────────────────────────────
+  # AUTO-SORT RULES
+  # ─────────────────────────────────────────────────────────────────
+  
+  auto_sort:
+    - pattern: "*-letter*.yml"
+      section: letters
+    - pattern: "*-card*.yml"
+      section: cards
+    - pattern: "*-note*.yml"
+      section: notes
+    - pattern: "*-prompt.md"
+      section: photos
+    - pattern: "*-song*.yml"
+      section: songs
+    - pattern: "*-ballad*.yml"
+      section: songs
+    - pattern: "*-persona*.yml"
+      section: personas
+    - pattern: "*-cape*.yml"
+      section: costumes
+    - pattern: "*-costume*.yml"
+      section: costumes
+    - pattern: "*-dream*.yml"
+      section: dreams
+      
+  # ─────────────────────────────────────────────────────────────────
+  # ACTIONS
+  # ─────────────────────────────────────────────────────────────────
+  
+  actions:
+    READ:
+      description: "Browse through the notebook's contents"
+      effect: "Display organized contents by section"
+      
+    ADD:
+      description: "Add an item to the notebook (auto-sorted)"
+      effect: "Item filed in appropriate section"
+      
+    REMOVE:
+      description: "Take an item out of the notebook"
+      effect: "Item moved to inventory"
+      
+    RENDER:
+      description: "Generate a narrative markdown sidecar"
+      effect: "Creates notebook.md from contents"
+      
+  # ─────────────────────────────────────────────────────────────────
+  # CAPACITY
+  # ─────────────────────────────────────────────────────────────────
+  
+  capacity: unlimited  # It's a TARDIS notebook
+  
+  lore: |
+    Every adventurer needs a place to collect their memories.
+    This notebook has been passed down through generations of
+    heroes, each filling it with their own story before passing
+    it on, blank once more, to the next.
+    
+    The pages remember, even when they appear empty.

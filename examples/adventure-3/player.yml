@@ -1,0 +1,112 @@
+# 🎭 THE ADVENTURER
+# A new hero awakens in the Chamber of Commencement...
+
+player:
+  name: "Unknown Hero"
+  type: player_character
+  
+  # ─────────────────────────────────────────────────────────────────
+  # IDENTITY (to be discovered)
+  # ─────────────────────────────────────────────────────────────────
+  
+  description: |
+    A figure stirs in the Chamber of Commencement. Who are they?
+    Where did they come from? What costume will they choose?
+    
+    The adventure awaits. The lamp glows. Mother's note beckons.
+    
+  backstory: |
+    You don't remember much. Just a feeling of... beginning.
+    There's a note somewhere. Something about promises.
+    
+  # ─────────────────────────────────────────────────────────────────
+  # CURRENT STATE
+  # ─────────────────────────────────────────────────────────────────
+  
+  location: start/
+  moves: 0
+  score: 0
+  deaths: 0
+  grues_slain: 0
+  
+  mood: AWAKENING
+  
+  # Starting gold — enough for a few lamp refills and snacks
+  gold: 10
+  
+  # ─────────────────────────────────────────────────────────────────
+  # INVENTORY (empty pockets, full of potential)
+  # ─────────────────────────────────────────────────────────────────
+  
+  inventory: []
+  # The lamp is in start/lamp.yml — GET LAMP!
+  # The lunchbox is in start/lunchbox.yml — take it from the kitchen!
+  # The notebook is in start/notebook.yml — for collecting memories!
+  
+  # ─────────────────────────────────────────────────────────────────
+  # GOALS (inherited from adventure-2's world setup)
+  # ─────────────────────────────────────────────────────────────────
+  
+  goals:
+    - goal: "Find treasure"
+      status: PENDING
+      reward: "+10 points"
+      
+    - goal: "Bring gold home"
+      status: PENDING
+      reward: "Mother's approval"
+      
+    - goal: "Return home safely"
+      status: PENDING
+      reward: "Adventure complete!"
+      
+  # ─────────────────────────────────────────────────────────────────
+  # EFFECTS (none yet — your story is unwritten)
+  # ─────────────────────────────────────────────────────────────────
+  
+  effects: {}
+  
+  # ─────────────────────────────────────────────────────────────────
+  # PERSONA (default — visit the coatroom to transform!)
+  # ─────────────────────────────────────────────────────────────────
+  
+  current_persona: null
+  # Visit Maurice in the coatroom to discover who you want to be!
+  
+  # ─────────────────────────────────────────────────────────────────
+  # SKILLS (learned through play)
+  # ─────────────────────────────────────────────────────────────────
+  
+  skills: []
+  # Skills are acquired by interacting with objects and characters.
+  # Maurice can teach PHOTO-SET-8. The Oracle Core grants prophecy.
+  # The vending machine... has opinions.
+  
+  # ─────────────────────────────────────────────────────────────────
+  # WORLD KNOWLEDGE (inherited improvements from adventure-2)
+  # ─────────────────────────────────────────────────────────────────
+  
+  world_knowledge:
+    # The world has been enriched by previous adventurers
+    - "Maurice the Mannequin knows PHOTO-SET-8 (learned in adventure-2)"
+    - "The vending machine in Room J sells Premium Glow Juice"
+    - "Room F contains a pile of 100 gold coins"
+    - "A skeleton in Room I points west, towards the vending machine"
+    - "Initials on the Chamber wall: WC+DW '76, SA '78, CA '26"
+    
+  # ─────────────────────────────────────────────────────────────────
+  # META
+  # ─────────────────────────────────────────────────────────────────
+  
+  adventure: 3
+  forked_from: adventure-2
+  
+  lineage: |
+    This world was shaped by Bumblewick Fantastipants (adventure-2),
+    who became Captain Ashford, slew a grue with blue cheese, and
+    went home to matching Nomi capes with Mother.
+    
+    The grue has respawned. The food is restocked. The lamp is full.
+    But the world remembers. Maurice remembers. The skeleton waits.
+    
+    What story will YOU write?

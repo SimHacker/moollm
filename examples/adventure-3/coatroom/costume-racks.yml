@@ -1,0 +1,122 @@
+# The Costume Racks
+# Endless possibilities
+
+object:
+  name: Infinite Costume Racks
+  type: container
+  
+  description: |
+    Racks spiral outward to the edges of the room and possibly
+    beyond. Every costume you can imagine is here — and many you
+    can't. The organization system defies comprehension but the
+    mannequin seems to know where everything is.
+  
+  examine: |
+    You browse the racks. Just a sampling of what you see:
+    
+    **HISTORICAL**
+    Roman toga, Egyptian pharaoh regalia, Renaissance doublet,
+    Victorian ball gown, 1920s flapper dress, 1970s disco suit,
+    Ancient Greek philosopher robes (beard included)
+    
+    **FANTASTICAL**
+    Wizard robes (multiple colors), fairy wings and tutu,
+    dragon costume (surprisingly comfortable), elf ears and
+    woodland attire, superhero capes (many colors), villain
+    capes (darker colors)
+    
+    **PROFESSIONAL**
+    Chef's whites, astronaut suit, deep sea diving gear,
+    detective trenchcoat, doctor's coat, scientist lab coat
+    (with optional goggles)
+    
+    **THEATRICAL**
+    Harlequin costume, Phantom of the Opera mask and cape,
+    Shakespearean tragic hero outfit, commedia dell'arte masks,
+    kabuki robes, mariachi suit
+    
+    **ABSURDIST**
+    Banana costume, hotdog suit, cardboard robot, inflatable
+    T-Rex, walking sandwich board, sentient fog (somehow),
+    "concept of time" (abstract), literal pile of laundry
+    
+    **CUSTOM**
+    A sign reads: "Don't see what you want? DESCRIBE IT!
+    If you can imagine it, we can costume it!"
+  
+  # Featured costumes with full descriptions
+  featured_costumes:
+    - name: "The Dread Pirate Fantastipants"
+      description: |
+        A magnificent pirate captain costume! Tricorn hat with
+        dramatic plume, long coat with brass buttons, billowing
+        shirt, tall boots, and an eyepatch (optional — you can
+        see out of both eyes, but it looks cool).
+      accessories:
+        - Decorative cutlass (foam, safety first)
+        - Parrot puppet (can be worn on shoulder)
+        - Treasure map (to nowhere in particular)
+        
+    - name: "Space Explorer Bumblewick"
+      description: |
+        A sleek silver spacesuit with helmet! Complete with
+        mission patches from expeditions to made-up planets,
+        a utility belt full of mysterious gadgets, and boots
+        designed for "moon walking" (the dance, not the activity).
+      accessories:
+        - Bubble helmet (with tinted visor for drama)
+        - Ray gun (goes "pew pew" when you pull the trigger)
+        - Freeze-dried ice cream (still delicious)
+        
+    - name: "Victorian Gentleman Detective"
+      description: |
+        Bumblewick's waistcoat, but UPGRADED. Deerstalker hat,
+        Inverness cape, magnifying glass, and an air of knowing
+        more than everyone else in the room.
+      accessories:
+        - Meerschaum pipe (bubbles come out)
+        - Notebook labeled "CLUES"
+        - Watson (a sock puppet)
+        
+    - name: "Actually Just Three Corgis"
+      description: |
+        A convincing costume suggesting you are, in fact, three
+        corgis standing on each other's shoulders wearing a
+        trenchcoat. The topmost corgi wears a tiny hat.
+      accessories:
+        - Trenchcoat (extra long)
+        - Tiny hat (for top corgi)
+        - Squeaky toy (for morale)
+  
+  advertisements:
+    - action: BROWSE
+      score_if: "always"
+      description: "Look through the costume racks"
+      
+    - action: SEARCH-FOR
+      score_if: "always"
+      description: "Look for a specific type of costume"
+      example: "SEARCH FOR something with a cape"
+      
+    - action: WEAR
+      score_if: "always"
+      description: "Put on a costume"
+      example: "WEAR the pirate captain costume"
+      
+  # How costume wearing works
+  costume_effect: |
+    When you WEAR a costume, your character description is rewritten:
+    
+    BEFORE:
+    > Bumblewick Fantastipants, a reluctant adventurer in a waistcoat,
+    > looking bewildered but optimistic.
+    
+    AFTER (pirate example):
+    > Captain Bumblewick "Blackwaistcoat" Fantastipants, dread pirate of
+    > the underground seas! His tricorn hat sits at a rakish angle, his
+    > foam cutlass gleams in the lamplight, and his parrot puppet squawks
+    > unconvincingly on his shoulder. Beneath the costume, he's still
+    > slightly bewildered, but now he's bewildered WITH STYLE.
+    
+    The costume persists until you REMOVE COSTUME or put on a new one.
+    Your waistcoat waits patiently in the coat check. It understands.

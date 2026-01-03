@@ -1,0 +1,53 @@
+# The Kitchen
+# A well-stocked larder for the discerning adventurer
+
+room:
+  name: Fantastipants Family Kitchen
+  type: room
+  
+  # This room is safe!
+  lighting: magical
+  grue_safe: true
+  
+  description: |
+    You stand in a cozy kitchen that feels oddly familiar — perhaps because
+    it's an EXACT replica of the Fantastipants family kitchen from 
+    Wobblebrook-upon-Squiggle. Someone has gone to considerable trouble
+    to recreate it underground, right down to the motivational embroidery
+    that reads "BLESS THIS MESS (BUT ALSO CLEAN IT UP, BUMBLEWICK)".
+    
+    A REFRIGERATOR hums contentedly in the corner, stuffed with provisions.
+    A STOVE sits cold and patient. A SINK contains the eternal mystery
+    of dishes that weren't there a moment ago. A TABLE holds a note.
+    
+    Mother would be impressed. Actually, no, Mother would find something
+    to criticize. She always does.
+    
+    The exit EAST leads back to the Chamber of Commencement, from which
+    you can go NORTH to the maze, or EAST to the costume emporium.
+  
+  occupants: []
+  
+  objects:
+    - fridge.yml
+    - stove.yml
+    - sink.yml
+    - table.yml
+  
+  exits:
+    east:
+      destination: ../start/
+      description: |
+        The archway back to the Chamber of Commencement. You can see
+        the warm glow of the starting room from here.
+  
+  world_position:
+    x: -1
+    y: 0
+    
+  ambience: |
+    The fridge hums. A clock ticks somewhere. The smell of home cooking
+    lingers, though nothing is cooking. It's the MEMORY of cooking.
+    
+    This kitchen exists specifically so you have food to drop in the maze.
+    We're not being subtle about it.

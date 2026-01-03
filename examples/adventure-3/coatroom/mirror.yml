@@ -1,0 +1,46 @@
+# The Mirror
+# Shows your current transformation
+
+object:
+  name: Full-Length Mirror of Truth (and Fashion)
+  type: fixture
+  
+  description: |
+    An ornate full-length mirror in a gilded frame carved with masks
+    of comedy and tragedy. The glass seems impossibly clear, showing
+    not just your reflection but somehow your ESSENCE.
+    
+    A small plaque reads: "Mirror, mirror, on the stand / show the
+    hero, costume planned."
+  
+  examine: |
+    You peer into the mirror...
+    
+    [The mirror shows your current character description, updated
+    to reflect whatever costume you're wearing. If you're still
+    in your default waistcoat, it shows Bumblewick in all his
+    reluctant-hero glory.]
+  
+  # The mirror reflects the current costume state
+  reflects: player.costume_description
+  
+  advertisements:
+    - action: LOOK
+      score_if: "always"
+      description: "See your current appearance"
+      
+    - action: POSE
+      score_if: "wearing_costume"
+      description: "Strike a dramatic pose in your new outfit"
+      todo: "Call image generation tool to capture the costume and pose"
+      response: |
+        You pose heroically. The mirror captures it perfectly.
+        Somewhere, a camera flash goes off. There is no camera.
+        
+    - action: MAKE-FACE
+      score_if: "always"
+      description: "Make a face at your reflection, express your emotions"
+      todo: "Call image generation tool to capture the face"
+      response: |
+        You make a face. Your reflection makes the same face.
+        For a moment, you're not sure who started it.

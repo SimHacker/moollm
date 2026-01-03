@@ -1,0 +1,70 @@
+# 🍱 THE ADVENTURER'S LUNCHBOX
+# For carrying food through the maze (found in kitchen!)
+
+object:
+  name: Adventurer's Lunchbox
+  type: container
+  portable: true
+  location: kitchen/  # Pick it up from the kitchen table!
+  
+  description: |
+    A sturdy metal lunchbox with a handle. The previous owner left
+    a small note inside:
+    
+    "For the food. Trust me, you'll need something to carry it all."
+    
+    It's currently empty, waiting in the kitchen for a new adventurer.
+    
+  examine: |
+    A practical container for maze-mapping provisions. The inside
+    is mysteriously clean, despite its obvious history of containing
+    many, many transformative food experiences.
+    
+  # ─────────────────────────────────────────────────────────────────
+  # CONTENTS (empty — raid the fridge!)
+  # ─────────────────────────────────────────────────────────────────
+  
+  contents: []
+  
+  capacity: 20  # Enough for the whole fridge!
+  
+  # ─────────────────────────────────────────────────────────────────
+  # SPECIAL RULES
+  # ─────────────────────────────────────────────────────────────────
+  
+  special:
+    food_only: true        # Only accepts food items
+    preserves_freshness: true  # Food never spoils inside
+    easy_access: true      # Can EAT or DROP directly from lunchbox
+    
+  # ─────────────────────────────────────────────────────────────────
+  # ACTIONS
+  # ─────────────────────────────────────────────────────────────────
+  
+  actions:
+    GET:
+      description: "Pick up the lunchbox"
+      effect: "Lunchbox added to inventory"
+      
+    OPEN:
+      description: "Open the lunchbox"
+      effect: "See contents"
+      
+    PUT:
+      description: "Put food items in the lunchbox"
+      effect: "Food stored for later"
+      
+    EAT:
+      description: "Eat something from the lunchbox"
+      effect: "Triggers the eat mechanic (see fridge.yml)"
+      
+    DROP:
+      description: "Drop food from the lunchbox"
+      effect: "Food placed in current room as marker"
+      
+  lore: |
+    Every adventurer needs a way to carry their maze-mapping provisions.
+    This lunchbox has seen things. Many, many things. The kind of things
+    that happen when adventurers ignore Mother's warnings about eating.
+    
+    It doesn't judge. It just carries.

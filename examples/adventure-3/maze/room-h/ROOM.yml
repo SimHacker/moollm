@@ -1,0 +1,62 @@
+# Maze Room H
+# A twisty little passage — NOW WITH EXTRA WATCHING
+
+room:
+  name: The Watching Chamber (Mushrooms)
+  type: maze_room
+  
+  # NOW GRUE SAFE — The Thing That Watches has made this room... unwelcoming to grues
+  lighting: none
+  grue_safe: true # The casserole-eye keeps them away!
+  requires_light: true
+  
+  # The grue will not come here. The eye unnerves even void-beasts.
+  grue_repellent: |
+    The grue approaches the threshold, drawn by darkness.
+    Then it sees THE EYE. The eye that watches.
+    The grue hesitates. Grues do not like being SEEN.
+    The grue retreats. Even void-beasts have standards.
+  
+  description: |
+    You are in a maze of twisty little passages, all alike.
+    
+    This one has MUSHROOMS growing everywhere. Luminescent fungi
+    that provide a faint, sickly green glow — not enough to
+    light your way properly, but enough to make everything look
+    deeply unsettling. Some of them pulse gently.
+    
+    In the center of the room, merging with the mushrooms,
+    is THE THING THAT WATCHES. Aunt Petunia's Suspicious Casserole,
+    transformed through Captain Ashford's digestive system, now
+    pulses in perfect rhythm with the fungi. Its single EYE
+    follows your every movement.
+    
+    Mother would say not to touch them. Mother would be right.
+    But it's too late now. The watching has begun.
+  
+  feature: mushrooms
+  marked_by: "The Thing That Watches (transformed Suspicious Casserole)"
+  
+  # Slight ambient light but NOW augmented by casserole-eye glow
+  ambient_light: "faint green glow + unsettling eye-light"
+  
+  objects:
+    - the-thing-that-watches.yml
+  
+  exits:
+    north:
+      destination: ../room-j/
+      description: "The mushrooms thin out this way."
+    south:
+      destination: ../room-f/
+      description: "It gets colder down there."
+    east:
+      destination: ../room-b/
+      description: "You hear an echo from this direction."
+    west:
+      destination: ../room-d/
+      description: "A golden glow — warmer than mushroom light!"
+  
+  ambience: |
+    The mushrooms pulse in a rhythm that almost sounds like breathing.
+    You try not to think about what's breathing. You fail.

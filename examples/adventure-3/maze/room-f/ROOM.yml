@@ -1,0 +1,90 @@
+# 🥶 MAZE ROOM F — THE COLD SPOT
+# Something ancient waits in the darkness here...
+
+room:
+  name: "The Cold Spot"
+  type: maze_room
+  
+  # DANGER! This room is dark!
+  lighting: none
+  grue_safe: false  # 💀 THE GRUE LIVES HERE!
+  requires_light: true
+  
+  grue_event: |
+    It is pitch black. You are likely to be eaten by a grue.
+    
+    The cold seeps into your bones first. Then you hear it breathe.
+    Something vast and hungry, made of pure darkness, has found you.
+    
+    🎵 "So be advised, when entering the cave,
+        to not go in past the first room alone,
+        that glow's the only thing will save
+        your carcass from a monster's toothy moan." 🎵
+    
+    — MC Frontalot, "It Is Pitch Dark"
+       https://www.youtube.com/watch?v=4nigRT2KmCE
+    
+    You have been eaten by a grue.
+    
+    [REINCARNATING... inventory preserved, score reset to 0]
+    
+    (A previous adventurer slew a grue here once, with blue cheese.
+    But grues respawn. They always respawn. In the dark, they wait.)
+  
+  description: |
+    You are in a maze of twisty little passages, all alike.
+    
+    This one is COLD. Supernaturally cold. The kind of cold that
+    suggests something is drinking the heat out of the air. Something
+    that doesn't need warmth. Something that feeds on its absence.
+    
+    Your lamp flickers. Is it the cold? Or is something watching?
+    
+    In one corner, barely visible in the lamplight: A PILE OF GOLD COINS!
+    At least 100 of them! Someone left a fortune here and never returned...
+    
+  feature: cold_spot
+  
+  objects:
+    - gold-pile.yml  # 100 gold coins! A fortune!
+  
+  # The cold drains lamp oil faster
+  special_effect:
+    oil_drain: 1.5x
+    reason: "Supernatural cold thickens the oil"
+    grue_proximity: HIGH  # The grue considers this home
+  
+  exits:
+    north:
+      destination: ../room-h/
+      description: "A faint green glow from that direction. Mushrooms?"
+    south:
+      destination: ../room-e/
+      description: "The passage is warmer that way."
+    east:
+      destination: ../room-a/
+      description: "You can smell sulfur from here."
+    west:
+      destination: ../room-i/
+      description: |
+        The coldest exit. Something pale gleams in the darkness.
+        Is that... bone?
+  
+  ambience: |
+    Your breath frosts in the air. The lamp's flame shrinks and
+    struggles. Every shadow seems to move when you're not looking
+    directly at it.
+    
+    The gold gleams, mocking you. Why would someone leave so much
+    treasure in a grue's lair? Unless they had no choice...
+    
+  # History from adventure-2 (preserved as legend)
+  legends: |
+    Adventurers tell of a hero named Captain Ashford who once slew
+    the grue that lived here, using a wedge of blue cheese as a weapon.
+    They say you can still smell the cheese in the walls.
+    
+    But grues respawn. In the dark places of the world, new grues
+    always come. This one is young and hungry.
+    
+    Will you be its first meal? Or its last?

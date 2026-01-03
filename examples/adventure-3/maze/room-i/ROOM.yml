@@ -1,0 +1,74 @@
+# Maze Room I
+# A twisty little passage
+
+room:
+  name: Twisty Passage (Skeleton)
+  type: maze_room
+  
+  # DANGER! This room is dark!
+  lighting: none
+  grue_safe: false
+  requires_light: true
+  
+  grue_event: |
+    It is pitch black. You are likely to be eaten by a grue.
+    
+    As the grue approaches, you think you hear the skeleton
+    rattling. Is it laughing? Can skeletons laugh? You won't
+    live long enough to find out.
+    
+    🎵 "Fled from all lights and colors, from all smells and sound:
+        just the lyric on the monochrome display and you're proud." 🎵
+    
+    — MC Frontalot, "It Is Pitch Dark"
+       https://www.youtube.com/watch?v=4nigRT2KmCE
+    
+    You have been eaten by a grue.
+    
+    [REINCARNATING... inventory preserved, score reset to 0]
+  
+  description: |
+    You are in a maze of twisty little passages, all alike.
+    
+    This one has a SKELETON slumped against the wall. An
+    adventurer who didn't make it. Their bony fingers still
+    clutch a note that reads: "I should have brought more food
+    to mark the rooms. I dropped the cheese in room B and the
+    bread in room D but then I got confused and—"
+    
+    The note ends there. A cautionary tale.
+  
+  feature: skeleton
+  
+  # The skeleton is a hint about maze mapping AND the lamp vendor
+  skeleton_inventory:
+    - "Empty lamp (out of oil — they were SO CLOSE to room-j!)"
+    - "Note (partially eaten)"
+    - "3 gold pieces (pocket change — the rest is in room-f!)"
+  
+  # The tragic irony
+  skeleton_note: |
+    This adventurer had over 100 gold! They were using coins as maze
+    markers (terrible strategy — they all look alike). When their lamp
+    died in the cold room (room-f), they dropped everything and ran.
+    
+    They almost made it to the vendor in room-j. Almost.
+  
+  exits:
+    north:
+      destination: ../room-c/
+      description: "Scratch marks on the walls this way."
+    south:
+      destination: ../room-g/
+      description: "A carved face watches from that direction."
+    east:
+      destination: ../room-f/
+      description: "A cold breeze blows from there."
+    west:
+      destination: ../room-j/
+      description: "The skeleton seems to be pointing this way."
+  
+  ambience: |
+    The skeleton grins at you. Skeletons always grin. It's the
+    lack of lips. Still, this one seems particularly smug about
+    something. Maybe about knowing the way out. The jerk.

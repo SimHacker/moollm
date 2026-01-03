@@ -1,0 +1,72 @@
+# 🏠 THE FANTASTIPANTS HOME
+# Wobblebrook-upon-Squiggle
+# Where Mother waits with pie
+
+room:
+  name: The Fantastipants Home
+  type: home_base
+  
+  lighting: warm_and_cozy
+  grue_safe: true  # Grues are NOT permitted in Mother's house.
+  
+  description: |
+    You emerge from the stairway into warm sunlight.
+    
+    This is HOME — the Fantastipants family dwelling in Wobblebrook-upon-Squiggle.
+    The kitchen is warm, filled with the comforting aroma of something baking.
+    The table is set. A note waits.
+    
+    Somewhere, Mother is humming. She doesn't know you're here yet.
+    
+    When you're ready to END YOUR ADVENTURE, come here and greet her.
+    Show her what you've accomplished. Keep your promises.
+    
+    ...or don't. Adventures are about choices.
+    
+  feature: homecoming
+  
+  objects:
+    - mother.yml    # Mother is here (will appear when you arrive)
+    - pie.yml       # Mother's apple pie (always fresh)
+    - sink.yml      # The dishes... (they've been waiting)
+    
+  exits:
+    down:
+      destination: ../start/
+      description: |
+        The stairway back down to the Chamber of Commencement.
+        Back to adventure. Back to darkness. Back to grues.
+        
+        Are you sure you want to leave home?
+      
+  ambience: |
+    The gentle hum of domesticity. The ticking of a grandfather clock.
+    The distant sound of a neighbor's dog barking. The overwhelming
+    sense of peace and belonging. And pie. Definitely pie.
+    
+  # ─────────────────────────────────────────────────────────────────
+  # VICTORY CONDITIONS (checked when player arrives)
+  # ─────────────────────────────────────────────────────────────────
+  
+  victory_check:
+    on_enter: true
+    
+    conditions:
+      treasure_found: "Has treasure.yml in inventory"
+      gold_collected: "Has gold > 0"
+      lamp_maintained: "Lamp oil > 0"
+      alive: "deaths == 0 is bonus, any deaths = still valid"
+      
+    mother_reactions:
+      all_promises_kept: |
+        Mother beams. "You did it! You ACTUALLY did it! Come here,
+        let me look at you. Oh, what wonderful treasures! What
+        adventures you must have had!"
+        
+      some_promises_kept: |
+        Mother nods approvingly. "You made it home. That's what matters
+        most. The rest... well, there's always next adventure."
+        
+      no_promises_kept: |
+        Mother sighs. "You're alive. That's something. The dishes
+        still need doing, you know."

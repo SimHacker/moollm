@@ -1,0 +1,84 @@
+# The Coat Room
+# A spectacular collection of transformative costumes
+
+room:
+  name: The Fantastipants Costume Emporium
+  type: room
+  
+  # This room is safe!
+  lighting: magical
+  grue_safe: true
+  
+  description: |
+    You stand in a vast circular chamber lined floor-to-ceiling with
+    costumes of every conceivable type. Racks spiral outward in
+    concentric circles like a fabric tornado frozen in time. The
+    air smells of mothballs, greasepaint, and infinite possibility.
+    
+    A full-length MIRROR stands in the center, ready to show you
+    your transformation. A helpful MANNEQUIN holds a clipboard.
+    
+    Signs hang from the ceiling:
+    
+      "DESCRIBE ANY COSTUME — WE HAVE IT!"
+      "ASK FOR 'RANDOM' FOR A SURPRISE!"
+      "COMBINE COSTUMES! MIX AND MATCH!"
+      "ADD ACCESSORIES! THE ONLY LIMIT IS YOUR IMAGINATION!"
+      "YOUR WAISTCOAT WILL WAIT FOR YOU HERE."
+    
+    The exit WEST leads back to the Chamber of Commencement, from which
+    you can go NORTH to the maze, or WEST to the kitchen (for food!).
+  
+  occupants: []
+  
+  objects:
+    - mirror.yml
+    - mannequin.yml
+    - costume-racks.yml
+  
+  exits:
+    west:
+      destination: ../start/
+      description: |
+        The archway back to the Chamber of Commencement. Your old
+        identity awaits. Or your new one, depending on perspective.
+  
+  world_position:
+    x: 1
+    y: 0
+    
+  ambience: |
+    Somewhere in the racks, a feather boa rustles. A sequin catches
+    the light and winks at you. The costumes seem to whisper:
+    "Wear me. WEAR ME. WEAR MEEEE."
+    
+    You resist. For now.
+
+  # COSTUME SYSTEM
+  # This room allows players to completely rewrite their character description
+  costume_system:
+    commands:
+      - command: "WEAR [costume description]"
+        effect: "Rewrites character description to match the costume"
+        example: "WEAR a pirate captain with a peg leg and parrot"
+        
+      - command: "WEAR RANDOM"
+        effect: "The mannequin selects a surprise costume"
+        
+      - command: "COMBINE [costume1] WITH [costume2]"
+        effect: "Mash up two costumes into something new"
+        example: "COMBINE astronaut WITH Victorian gentleman"
+        
+      - command: "ADD [accessory]"
+        effect: "Add an accessory to current costume"
+        example: "ADD a monocle that shoots lasers"
+        
+      - command: "ADD TO INVENTORY [item]"
+        effect: "Get a costume-appropriate item for your inventory"
+        example: "ADD TO INVENTORY a rubber chicken for comedic effect"
+        
+      - command: "REMOVE COSTUME"
+        effect: "Return to default Bumblewick appearance"
+        
+      - command: "LOOK IN MIRROR"
+        effect: "See your current appearance in detail"

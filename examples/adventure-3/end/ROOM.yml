@@ -1,0 +1,57 @@
+# The Treasury
+# The goal achieved, the treasure attained
+# "You won! Imagine the points!" — every adventure, always
+
+room:
+  name: Treasury of Modest Proportions
+  type: room
+  
+  # This room is safe!
+  lighting: magical
+  grue_safe: true
+  
+  description: |
+    You emerge into a small but decidedly impressive chamber. The walls
+    are lined with empty pedestals — this place was clearly cleaned out
+    by previous adventurers, those inconsiderate loot-hoggers.
+    
+    But wait! One pedestal remains occupied. Upon it sits a JEWELED CHALICE
+    of the sort that belongs in a museum, or possibly your inventory.
+    A shaft of golden light from an implausible source illuminates it
+    dramatically. Someone really thought this through.
+    
+    The exit SOUTH leads back into the maze — that twisty, grue-infested
+    nightmare you just escaped. You'd have to navigate it again to return
+    to the start. Worth considering. (Or just stay here with your chalice.)
+    
+    (Your score is still 0 until you actually GET the treasure. We're
+    not just giving points away here.)
+  
+  # Who and what is here
+  occupants: []     # Empty until the hero arrives
+  
+  objects:
+    - treasure.yml  # The whole point of this exercise
+  
+  # Ways out
+  exits:
+    south:
+      destination: ../maze/room-d/
+      description: |
+        The archway back into the maze. The twisty passages await, ready
+        to confuse you all over again. Going this way would mean braving
+        the maze BACKWARDS. Are you sure? You have the treasure now.
+        You could just... stay here. Forever. With your chalice.
+        
+        No? Back into the maze it is. Mother would be proud. Insufferably so.
+  
+  # Position in world space  
+  world_position:
+    x: 0
+    y: 1             # North of start (y increases northward)
+    
+  # Atmosphere
+  ambience: |
+    A faint hum of significance fills the air. This is clearly an
+    Important Place where Important Things happen to Important People.
+    Like you. Right now. Congratulations on your importance.

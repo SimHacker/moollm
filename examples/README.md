@@ -24,9 +24,12 @@ examples/
 │   ├── kitchen/           # Food for maze mapping
 │   ├── coatroom/          # Maurice & identity transformation
 │   └── maze/              # 10-room grue-infested labyrinth
-├── adventure-2/           # Forked from adventure-1 — new story!
-│   ├── README.md          # Fresh start, inherited world
-│   └── ...                # Same structure, new adventures
+├── adventure-2/           # Captain Ashford's epic — COMPLETE!
+│   ├── README.md          # 69 moves, grue slain, PhD paper written
+│   └── ...                # The legendary run
+├── adventure-3/           # Forked from adventure-2 — YOUR turn!
+│   ├── README.md          # Fresh start, enriched world
+│   └── ...                # Same structure, new hero
 └── [more examples...]
 ```
 
@@ -34,10 +37,11 @@ examples/
 
 ## The Examples
 
-| Example | Description | Complexity |
-|---------|-------------|------------|
-| [adventure-1/](./adventure-1/) | The original adventure — kitchen, coatroom, maze, grues, Maurice, lamp oil economy | ⭐⭐⭐ Complete |
-| [adventure-2/](./adventure-2/) | Forked from adventure-1 — same world, new story! | ⭐ Fresh Start |
+| Example | Description | Status |
+|---------|-------------|--------|
+| [adventure-1/](./adventure-1/) | The original world template | ⭐⭐⭐ Foundation |
+| [adventure-2/](./adventure-2/) | Captain Ashford's epic — grue slain, PhD written, 69 moves | 🏆 **LEGENDARY** |
+| [adventure-3/](./adventure-3/) | Fresh hero, enriched world, grue respawned | 🎮 **PLAY NOW** |
 
 ---
 

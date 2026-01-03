@@ -1,0 +1,38 @@
+# The Sink
+# Perpetually containing dishes
+
+object:
+  name: Kitchen Sink
+  type: fixture
+  
+  description: |
+    A porcelain sink containing a small pile of dishes that definitely
+    weren't there when you looked a moment ago. This is one of the
+    fundamental laws of kitchen physics: dishes appear spontaneously.
+  
+  examine: |
+    The dishes stare at you accusingly. You should probably wash them.
+    
+    ...
+    
+    No, wait, you're on an ADVENTURE. The dishes can wait. They've
+    waited this long. They can wait longer. That's what dishes do.
+    
+    (Mother's voice echoes in your head: "Those dishes won't wash
+    themselves, Bumblewick!" But Mother isn't here. Is she?)
+  
+  advertisements:
+    - action: WASH-DISHES
+      score_if: "always"
+      description: "Do the responsible thing"
+      response: |
+        You begin washing a dish. Then another. Then—
+        
+        No. NO. You are an ADVENTURER now. The dishes can WAIT.
+        
+        You dry your hands on your waistcoat and back away slowly.
+        
+    - action: DRINK
+      score_if: "always"
+      description: "Get a drink of water"
+      response: "Refreshing! Your health is restored to 100. (It was already 100.)"

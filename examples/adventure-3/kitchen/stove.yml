@@ -1,0 +1,31 @@
+# The Stove
+# Currently not in use
+
+object:
+  name: Cast Iron Stove
+  type: appliance
+  
+  description: |
+    A magnificent cast iron stove, cold and dormant. A kettle sits on
+    top, waiting patiently for someone to make tea. The stove has seen
+    better days, and also worse days, and also days where Bumblewick
+    tried to make toast and somehow set water on fire.
+  
+  examine: |
+    The stove is OFF. This is probably for the best. Adventures and
+    cooking rarely mix well, and you have a maze to navigate.
+    
+    The kettle looks hopeful. You feel guilty.
+  
+  state: off
+  
+  advertisements:
+    - action: TURN-ON, TURN-OFF
+      score_if: "state == off/on"
+      description: "Light and extinguish the stove"
+      response: "Don't play with fire! You don't have time for cooking! There's treasure to find!"
+      
+    - action: EXAMINE
+      score_if: "always"
+      description: "Inspect the stove"
+      response: "The stove is {state}."

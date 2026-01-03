@@ -1,0 +1,71 @@
+# Maze Room J
+# A twisty little passage
+
+room:
+  name: Twisty Passage (Crossroads)
+  type: maze_room
+  
+  # DANGER! This room is dark!
+  lighting: none
+  grue_safe: false
+  requires_light: true
+  
+  grue_event: |
+    It is pitch black. You are likely to be eaten by a grue.
+    
+    Four passages, four directions, four chances to escape.
+    None of them matter when you can't see the grue coming
+    from the fifth direction. (There is no fifth direction.
+    That's what makes grues so terrifying.)
+    
+    🎵 "Did I battle a snake? Was the treasure intact?
+        Or did the TRS-80 in my brain get hacked?" 🎵
+    
+    — MC Frontalot, "It Is Pitch Dark"
+       https://www.youtube.com/watch?v=4nigRT2KmCE
+    
+    You have been eaten by a grue.
+    
+    [REINCARNATING... inventory preserved, score reset to 0]
+  
+  description: |
+    You are in a maze of twisty little passages, all alike.
+    
+    This one feels... different. A CROSSROADS of sorts. The
+    passages here seem more deliberate, as if someone planned
+    this junction. Four exits lead in four directions, each
+    equally promising, equally threatening.
+    
+    Against one wall stands a battered VENDING MACHINE, humming
+    softly. Its display reads "ACME LAMP REFUELING CO." The glow
+    from its buttons provides just enough light to read by, but
+    not enough to keep grues at bay.
+    
+    Someone has scratched "LIFESAVER" into the casing.
+  
+  feature: crossroads
+  
+  objects:
+    - lamp-vendor.yml
+  
+  # This is a central hub in the expanded maze
+  note: "The crossroads connects to many other maze rooms. The skeleton in room-i was pointing this way — so close to salvation!"
+  
+  exits:
+    north:
+      destination: ../room-d/
+      description: "Is that... golden light? Could this be the way out?"
+    south:
+      destination: ../room-h/
+      description: "A faint green glow — mushrooms?"
+    east:
+      destination: ../room-i/
+      description: "You hear bones rattling. Probably the wind."
+    west:
+      destination: ../room-g/
+      description: "A carved face seems to watch from there."
+  
+  ambience: |
+    This is the kind of place where destinies are decided.
+    Or at least where you decide which direction to go next.
+    Choose wisely. Or don't. You'll reincarnate either way.

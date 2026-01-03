@@ -1,0 +1,207 @@
+# 🧊 THE REFRIGERATOR
+# A cornucopia of maze-mapping provisions — RESTOCKED!
+
+object:
+  name: Fantastipants Family Refrigerator
+  type: container
+  
+  description: |
+    A magnificent refrigerator of the old-fashioned sort, with rounded
+    corners and a satisfying CHUNK when you open the door. A magnet
+    on the front reads "WORLD'S OKAYEST ADVENTURER".
+    
+    It is STUFFED with food. An improbable amount of food. The kind of
+    food supply that suggests someone knows you're about to enter a maze
+    and need things to drop.
+    
+    (The fridge has been restocked since the last adventurer's visit.)
+  
+  examine: |
+    You open the refrigerator. A gentle light illuminates a treasure
+    trove of edibles, each one distinct enough to mark a different
+    room in a maze. How convenient!
+  
+  # The fridge is open by default (for easy access)
+  open: true
+  
+  # ─────────────────────────────────────────────────────────────────
+  # CONTENTS — Fresh and full!
+  # ─────────────────────────────────────────────────────────────────
+  
+  contents:
+    - id: 1
+      name: "Suspiciously Perfect Apple"
+      description: "Unnaturally red. Unnaturally shiny. It hums faintly."
+      marker_id: 1
+      
+    - id: 2
+      name: "Wheel of Aged Cheese"
+      description: "Sharp, crumbly, philosophical. Smells of wisdom and regret."
+      marker_id: 2
+      
+    - id: 3
+      name: "Loaf of Crusty Bread"
+      description: "Still warm somehow. The crust crackles with potential."
+      marker_id: 3
+      
+    - id: 4
+      name: "Jar of Pickled Herring"
+      description: "They stare at you with preserved accusation."
+      marker_id: 4
+      
+    - id: 5
+      name: "Leftover Shepherd's Pie"
+      description: "The kind of leftovers that improve with mystery."
+      marker_id: 5
+      
+    - id: 6
+      name: "Bunch of Purple Grapes"
+      description: "Regally purple. Suspiciously royal. Fermentation potential: high."
+      marker_id: 6
+      
+    - id: 7
+      name: "Pot of Mysterious Stew"
+      description: "The label says 'DO NOT EAT'. The contents... bubble."
+      marker_id: 7
+      
+    - id: 8
+      name: "Wedge of Blue Cheese"
+      description: "The kind of blue that fights back. Pungent. Dangerous. Glaive-worthy."
+      marker_id: 8
+      
+    - id: 9
+      name: "Cold Roast Chicken"
+      description: "Majestically seasoned. Royally cold."
+      marker_id: 9
+      
+    - id: 10
+      name: "Jar of Strawberry Jam"
+      description: "Sweet, sticky, and somehow nostalgic for memories you never had."
+      marker_id: 10
+      
+    - id: 11
+      name: "Half-Empty Bottle of Milk"
+      description: "Or half-full, depending on your philosophy and lactose tolerance."
+      marker_id: 11
+      
+    - id: 12
+      name: "Suspicious Casserole"
+      description: "What's IN this casserole? Nobody knows. Nobody asks."
+      marker_id: 12
+      
+    - id: 13
+      name: "Lemon (Slightly Judgmental)"
+      description: "It's definitely judging you. Even now. Especially now."
+      marker_id: 13
+      
+    - id: 14
+      name: "Slice of Birthday Cake"
+      description: "Whose birthday? When? The frosting isn't telling."
+      marker_id: 14
+      
+    - id: 15
+      name: "Carrot (Heroically Orange)"
+      description: "An inspiration to vegetables everywhere."
+      marker_id: 15
+      
+    - id: 16
+      name: "Tin of Sardines"
+      description: "Seven little fish, packed in formation. They have plans."
+      marker_id: 16
+      
+    - id: 17
+      name: "Bowl of Cold Porridge"
+      description: "Just right. Which is suspicious in itself."
+      marker_id: 17
+      
+    - id: 18
+      name: "Fancy Imported Salami"
+      description: "From somewhere exotic. The label is in a language that doesn't exist."
+      marker_id: 18
+      
+    - id: 19
+      name: "Single Hard-Boiled Egg"
+      description: "Perfect and solitary. The sulfurous potential is palpable."
+      marker_id: 19
+      
+    - id: 20
+      name: "Jar of Olives (Green)"
+      description: "Briny. Smug. They know something you don't."
+      marker_id: 20
+  
+  advertisements:
+    - action: OPEN
+      score_if: "not open"
+      description: "Open the refrigerator"
+      
+    - action: GET-ALL
+      score_if: "contents.length > 0"
+      description: "Grab all the food (for maze mapping)"
+      
+    - action: GET
+      score_if: "contents.length > 0"
+      description: "Take a specific food item"
+      
+    - action: CLOSE
+      score_if: "open"
+      description: "Close the refrigerator (conserve energy!)"
+  
+  # Mother's Warning
+  mothers_warning: |
+    A note in Mother's handwriting is stuck to the inside of the door:
+    
+    "Dear Adventurer,
+    
+    This food is for DROPPING, not EATING!
+    The previous visitor... well, let's just say we don't talk
+    about what happened with the blue cheese.
+    
+    DROP the food to MAP the maze. Do NOT eat the food.
+    
+    I mean it.
+    
+    Love, Someone's Mother
+    
+    P.S. The grue has respawned. Be careful."
+  
+  # Helpful hint
+  hint: |
+    PRO TIP: Take all this food and DROP items in maze rooms to mark
+    where you've been. This is the classic adventure game technique
+    for mapping "twisty little passages, all alike."
+    
+    20 items = 20 rooms you can uniquely mark. You have 10 maze rooms.
+    Math is on your side!
+    
+    WARNING: Do NOT eat the food. Mother warned you.
+    
+    BUT ALSO: Previous adventurers discovered that EATING food
+    creates TRANSFORMED MARKERS that are even MORE distinctive.
+    Your call. Mother probably won't find out.
+
+# ═══════════════════════════════════════════════════════════════════
+# THE EAT MECHANIC — A Creative Maze-Marking Technique!
+# ═══════════════════════════════════════════════════════════════════
+
+eat_mechanic:
+  trigger: "EAT [food_item]"
+  
+  effect: |
+    1. Food is removed from inventory
+    2. Something HILARIOUS happens (DM: be creative!)
+    3. Food appears on room floor (possibly transformed)
+    4. Food can add properties to the adventurer
+    5. Food still works as a maze marker (maybe better now!)
+    
+  improvisation_patterns:
+    physical: "Food changes form (solid→liquid, whole→scattered, etc.)"
+    temporal: "Time passes differently (ages, de-ages, time-shifts)"
+    emotional: "Food gains feelings or affects player's emotions"
+    sentient: "Food becomes alive (create a .yml file for it!)"
+    absorptive: "Player absorbs something from the food permanently"
+    followers: "Food spawns entities that follow the player"
+    
+  persistence:
+    update_player: "Add properties to player.yml"
+    update_room: "Add transformed food to ROOM.yml contents"
+    create_files: "Sentient foods need their own .yml files!"

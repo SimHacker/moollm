@@ -1,0 +1,62 @@
+# The Treasure
+# The MacGuffin, the goal, the whole point
+
+object:
+  name: Jeweled Chalice
+  type: treasure
+  
+  description: |
+    A chalice of surpassing loveliness, crusted with gems that sparkle
+    even in dim light. It's the sort of thing that belongs in a museum,
+    or possibly a well-lit display case in your living room. The gems
+    appear to spell out "THIS IS A TREASURE" in very small letters,
+    presumably to help appraisers.
+  
+  examine: |
+    The chalice is gold — real gold, not that "gold-tone" nonsense.
+    Rubies and emeralds alternate around the rim in a pattern that
+    probably means something to somebody. On the base, an inscription
+    reads: "Congratulations! You have found a treasure worth 10 points.
+    Please deposit in well house for credit."
+    
+    Wait, that can't be right. But there it is.
+  
+  # Value
+  points: 10
+  
+  # Interactions
+  advertisements:
+    - action: GET
+      score_if: "not in_inventory"
+      description: "Claim your prize!"
+      response: |
+        You lift the Jeweled Chalice from its pedestal. It's surprisingly
+        heavy — real gold does that. The gems sparkle triumphantly.
+        
+        *** YOUR SCORE HAS INCREASED BY 10 POINTS! ***
+        
+        Total score: 10 of 10 points.
+        
+        Congratulations, adventurer! You have completed the quest!
+        Mother will be ABSOLUTELY INSUFFERABLE about this at dinner.
+        
+        (To return home, navigate back through the maze to start.
+        Or just bask in your victory here. You've earned it.)
+      on_take:
+        player.score: "+= 10"
+      
+    - action: EXAMINE
+      score_if: "always"
+      description: "Admire the craftsmanship"
+      
+    - action: DRINK-FROM
+      score_if: "always"
+      description: "Use the chalice for its intended purpose"
+      response: "The chalice is empty. Also, drinking from priceless artifacts is frowned upon."
+  
+  # Tribute
+  lineage: |
+    Treasures have been the goal of adventures since Crowther hid them
+    in Colossal Cave. Scott Adams scattered them across his many worlds.
+    The Implementors at Infocom elevated treasure-hunting to an art form.
+    This chalice honors them all.
