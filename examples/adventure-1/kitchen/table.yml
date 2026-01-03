@@ -24,6 +24,11 @@ object:
     Don't forget your lamp. Don't get eaten by grues. Don't
     embarrass the family name.
     
+    And Bumblewick — I know you'll visit the coat room. Whatever
+    costume you choose to wear, whoever you decide to be today,
+    whatever the name you choose to go by,
+    I love you. You know what you're doing. Trust the process.
+    
     Your loving Mother,
     Petunia Fantastipants
     
@@ -36,6 +41,89 @@ object:
       can_take: true
   
   advertisements:
-    - action: READ_NOTE
+    - action: READ-NOTE
       score_if: "always"
       description: "Read Mother's helpful (judgmental) note"
+
+    - action: REPLY
+      score_if: "after reading the note"
+      description: "Write a reply to Mother"
+      interactive: true
+      flow:
+        prompt: |
+          You find a pen and paper. What would you like to write
+          to Mother? (The DM can help you compose it.)
+          
+          Consider: Are you apologetic? Defiant? Reassuring?
+          Making promises you won't keep? Asking for more food?
+        
+        compose: |
+          # Player writes their reply, DM assists if asked
+          # This is OPEN-ENDED — any response is valid
+          
+        review: |
+          Your reply reads:
+          
+          "{player_reply}"
+          
+          Mother will receive this when you leave the dungeon.
+          
+        actions:
+          - SEND: "Commit the reply (no take-backs)"
+          - REVISE: "Edit your reply"
+          - CANCEL: "Crumple it up (coward)"
+          
+      outcomes:
+        SEND:
+          description: "The reply is sealed and will be delivered."
+          effects:
+            - "player.pending_mail.add(reply)"
+            - "Extract promises from reply → player.goals"
+          # Mother's reaction computed at adventure end based on content
+          
+        CANCEL:
+          description: "You crumple the paper. Some things are better left unsaid."
+          
+      # PROMISES BECOME GOALS
+      promise_extraction: |
+        The DM parses your letter for promises:
+        
+        "I promise to..." / "I will..." / "I'll bring you..." / "I won't..."
+        
+        Each promise becomes a GOAL in player.yml:
+        
+        ```yaml
+        goals:
+          - promise: "bring back the treasure"
+            to: Mother
+            status: pending
+            reward: approval
+            
+          - promise: "not get eaten by grues"
+            to: Mother  
+            status: pending  # becomes "kept" or "broken"
+            reward: approval
+            consequence_if_broken: "The Disappointment Talk"
+        ```
+        
+      goal_completion: |
+        When you accomplish a promise:
+        - Goal status → "kept"
+        - Mother's approval increases
+        - Unlock: "Mother's Pride" achievement
+        
+        When you break a promise:
+        - Goal status → "broken"  
+        - Mother's disappointment increases
+        - But she still loves you (just... disappointed)
+        
+      examples:
+        - promise: "I'll be careful with the lamp"
+          tracked_by: "lamp.oil never reaches 0"
+          
+        - promise: "I'll bring back something valuable"
+          tracked_by: "treasure in inventory at end"
+          
+        - promise: "I won't eat the food"
+          tracked_by: "food items dropped, not eaten"
+          consequence: "digestive_events break this promise"

@@ -1376,10 +1376,6 @@ PETS:
 # META
 # ═══════════════════════════════════════════════════════════════════
 
-Y-M:
-  meaning: "You [Now] Manifest! Session closing invocation."
-  invoke_when: "Ending a session or document"
-  # From LLOOOOMM
 
 TODO:
   meaning: "A promise, not just a reminder. Tracked in plans."
@@ -1615,109 +1611,34 @@ _shortcuts:
   BE: BIG-ENDIAN
   ANI: ABOUT-NOT-INSIDE
   PO: PREFIX-OWNERSHIP
+  CE: COHERENCE-ENGINE
+  YJ: YAML-JAZZ
 
 _categories:
+  # Core principles
   principles: [YAML-JAZZ, FILES-AS-STATE, WHY-REQUIRED, APPEND-ONLY, COMMENTS-MATTER, MINIMAL-DIFF, NO-VERSIONS]
   naming: [BIG-ENDIAN, ABOUT-NOT-INSIDE, PREFIX-OWNERSHIP, README-EVERYWHERE]
-  methodology: [SKILL, PROTOCOL, CONSTRUCTIONISM, PLAY-LEARN-LIFT, SISTER-SCRIPT, BUILD-COMMAND]
   interpretation: [POSTEL, CHARITY]
-  safety: [P-HANDLE-K, NO-IMPERSONATE, K-LINE, FICTIONAL-WRAPPER, HONEST-FORGET]
+  
+  # Methodology
+  methodology: [SKILL, PROTOCOL, CONSTRUCTIONISM, PLAY-LEARN-LIFT, SISTER-SCRIPT, BUILD-COMMAND]
+  skills: [SKILL, SIP, DOP, PLAN-EXECUTE]
+  lifecycle: [YAML-COLTRANE, IMPROVISE, CRYSTALLIZE]
+  
+  # Safety & memory
+  safety: [P-HANDLE-K, NO-IMPERSONATE, K-LINE, FICTIONAL-WRAPPER, HONEST-FORGET, HERO-STORY]
   memory: [HOT-COLD, WORKING-SET, SUMMARIZE, NEVER-DELETE]
   robustness: [NEVER-CRASH, REPAIR-DEMON, BEST-EFFORT, ROBUST-FIRST]
-  skills: [SKILL, SIP, DOP, PLAN-EXECUTE]
   logging: [SESSION-LOG, AUDIT-TRAIL]
-  lifecycle: [YAML-COLTRANE, IMPROVISE, CRYSTALLIZE]
-  optimization: [ITS-ABOUT-TIME, JUST-ABOUT-TIME, PRESERVE-JOURNEY, WISDOM-SPOT, SPEED-OF-LIGHT]
-  spatial: [ROOM-AS-FUNCTION, CARD-IN-PLAY, ENTER-ROOM, PORTABLE-ROOM, VEHICLE, NESTED-ROOMS, WORLD-SPACE, ROOM-SPACE, INVENTORY, CONTAINER, OBJECT-PATH, TAG, SEARCH, LOGO-TURTLE, SNAP-CURSOR, CURSOR-VEHICLE, ROOM-FLOOR, THROW, INBOX, OUTBOX, DATA-FLOW, ROOM-GRAPH, HYPERCARD-HIERARCHY, LEAF-BUTTON, RETURN-STACK, FAMILIAR, HERO-STORY, ACTOR, MULTI-PRESENCE]
-  sims_lineage: [ADVERTISEMENT, AUTONOMOUS-SELECTION, PIE-MENU, SNAP-CURSOR, HAPPY-SPACE, ACTION-QUEUE, SIMANTICS]
-  efficiency: [SPEED-OF-LIGHT, CARRIER-PIGEON]
-  experimental: [SOUL-CHAT, TRADING-CARD, BOUNCY-CASTLE, PETS]
-
-  location: temp/lloooomm/03-Resources/protocols/dynamic-optimization-protocols.md
-  invoke_when: "Deciding what to optimize or crystallize"
-  insight: |
-    # Traditional profiling finds hot spots (high execution count)
-    # LLOOOOMM finds wisdom spots (high learning value)
-    # Optimize understanding, not just performance
-
-SPEED-OF-LIGHT:
-  meaning: "Many agents, many steps, ONE LLM call. Instant in-context communication."
-  location: skills/room/
-  invoke_when: "Simulating multi-agent interactions or predictive conflict resolution"
   
-  anti_pattern: |
-    # Traditional multi-agent: CARRIER PIGEONS
-    # - Each agent in isolated prison
-    # - One LLM call per agent per turn
-    # - Communication via file I/O
-    # - Like writing on toilet paper in crayon via carrier pigeon
-    # - 3 agents × 5 turns = 15 LLM calls + waiting
-    
-  moollm_pattern: |
-    # MOOLLM: SPEED OF LIGHT
-    # - All agents share one LLM context
-    # - Multiple simulation steps per call
-    # - Instant in-context messaging
-    # - Like The Sims: one frame, all Sims together
-    # - 3 agents × 5 turns = 1 LLM call
-    
-  applications:
-    multi_agent: "Simulate many characters interacting in one call"
-    conflict_resolution: "Resolve conflicts in imagination before emitting"
-    consensus: "Multiple instances vote/synthesize instantly"
-    soul_chat: "Symposium of many voices, no latency"
-
-CARRIER-PIGEON:
-  meaning: "ANTI-PATTERN: One LLM call per agent, file-based communication."
-  invoke_when: "Recognizing inefficient multi-agent designs"
-  also_called: "toilet-paper-and-crayon"
-  
-  symptoms:
-    - "Each agent has its own LLM endpoint"
-    - "Agents communicate by writing/reading files"
-    - "N agents × M turns = N×M LLM calls"
-    - "Most time spent waiting, not thinking"
-    - "Agents can't see each other's reasoning"
-    
-  cure: "SPEED-OF-LIGHT — simulate all agents together in shared context"
-
-# ═══════════════════════════════════════════════════════════════════
-# QUICK REFERENCE
-# ═══════════════════════════════════════════════════════════════════
-
-_shortcuts:
-  # Common abbreviations
-  CM: COMMENTS-MATTER
-  AO: APPEND-ONLY
-  WS: WORKING-SET
-  HC: HOT-COLD
-  PK: P-HANDLE-K
-  RF: ROBUST-FIRST
-  NC: NEVER-CRASH
-  MD: MINIMAL-DIFF
-  IAT: ITS-ABOUT-TIME
-  JAT: JUST-ABOUT-TIME
-  PJ: PRESERVE-JOURNEY
-  SOL: SPEED-OF-LIGHT
-  PLL: PLAY-LEARN-LIFT
-  SS: SISTER-SCRIPT
-  BE: BIG-ENDIAN
-  ANI: ABOUT-NOT-INSIDE
-  PO: PREFIX-OWNERSHIP
-
-_categories:
-  principles: [YAML-JAZZ, FILES-AS-STATE, WHY-REQUIRED, APPEND-ONLY, COMMENTS-MATTER, MINIMAL-DIFF, NO-VERSIONS]
-  naming: [BIG-ENDIAN, ABOUT-NOT-INSIDE, PREFIX-OWNERSHIP, README-EVERYWHERE]
-  methodology: [SKILL, PROTOCOL, CONSTRUCTIONISM, PLAY-LEARN-LIFT, SISTER-SCRIPT, BUILD-COMMAND]
-  interpretation: [POSTEL, CHARITY]
-  safety: [P-HANDLE-K, NO-IMPERSONATE, K-LINE, FICTIONAL-WRAPPER, HONEST-FORGET]
-  memory: [HOT-COLD, WORKING-SET, SUMMARIZE, NEVER-DELETE]
-  robustness: [NEVER-CRASH, REPAIR-DEMON, BEST-EFFORT, ROBUST-FIRST]
-  skills: [SKILL, SIP, DOP, PLAN-EXECUTE]
-  logging: [SESSION-LOG, AUDIT-TRAIL]
-  lifecycle: [YAML-COLTRANE, IMPROVISE, CRYSTALLIZE]
-  optimization: [ITS-ABOUT-TIME, JUST-ABOUT-TIME, PRESERVE-JOURNEY, WISDOM-SPOT, SPEED-OF-LIGHT]
-  spatial: [ROOM-AS-FUNCTION, CARD-IN-PLAY, ENTER-ROOM, PORTABLE-ROOM, VEHICLE, NESTED-ROOMS, WORLD-SPACE, ROOM-SPACE, INVENTORY, CONTAINER, OBJECT-PATH, TAG, SEARCH, LOGO-TURTLE, SNAP-CURSOR, CURSOR-VEHICLE, ROOM-FLOOR, THROW, INBOX, OUTBOX, DATA-FLOW, ROOM-GRAPH, HYPERCARD-HIERARCHY, LEAF-BUTTON, RETURN-STACK, FAMILIAR, HERO-STORY, ACTOR, MULTI-PRESENCE]
+  # Spatial & simulation
+  spatial: [ROOM-AS-FUNCTION, CARD, CARD-IN-PLAY, ENTER-ROOM, PORTABLE-ROOM, VEHICLE, NESTED-ROOMS, WORLD-SPACE, ROOM-SPACE, INVENTORY, CONTAINER, OBJECT-PATH, TAG, SEARCH, LOGO-TURTLE, SNAP-CURSOR, CURSOR-VEHICLE, ROOM-FLOOR, THROW, INBOX, OUTBOX, DATA-FLOW, ROOM-GRAPH, HYPERCARD-HIERARCHY, LEAF-BUTTON, RETURN-STACK, FAMILIAR, HERO-STORY, ACTOR, MULTI-PRESENCE]
   sims_lineage: [ADVERTISEMENT, AUTONOMOUS-SELECTION, PIE-MENU, SNAP-CURSOR, HAPPY-SPACE, ACTION-QUEUE, SIMANTICS]
-  efficiency: [SPEED-OF-LIGHT, CARRIER-PIGEON]
-  experimental: [SOUL-CHAT, TRADING-CARD, BOUNCY-CASTLE, PETS]
+  
+  # Performance
+  optimization: [ITS-ABOUT-TIME, JUST-ABOUT-TIME, PRESERVE-JOURNEY, WISDOM-SPOT, SPEED-OF-LIGHT]
+  efficiency: [SPEED-OF-LIGHT, CARRIER-PIGEON, COHERENCE-ENGINE]
+  
+  # Dialog & experimental
+  dialog: [SOUL-CHAT, COHERENCE-ENGINE]
+  experimental: [BOUNCY-CASTLE, PETS]

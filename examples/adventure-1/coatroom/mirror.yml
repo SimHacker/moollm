@@ -32,13 +32,15 @@ object:
     - action: POSE
       score_if: "wearing_costume"
       description: "Strike a dramatic pose in your new outfit"
+      todo: "Call image generation tool to capture the costume and pose"
       response: |
         You pose heroically. The mirror captures it perfectly.
         Somewhere, a camera flash goes off. There is no camera.
         
-    - action: MAKE_FACE
+    - action: MAKE-FACE
       score_if: "always"
-      description: "Make a face at your reflection"
+      description: "Make a face at your reflection, express your emotions"
+      todo: "Call image generation tool to capture the face"
       response: |
         You make a face. Your reflection makes the same face.
         For a moment, you're not sure who started it.

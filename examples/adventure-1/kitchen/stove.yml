@@ -20,11 +20,12 @@ object:
   state: off
   
   advertisements:
-    - action: TURN_ON
-      score_if: "state == off"
-      description: "Light the stove"
-      response: "You don't have time for cooking! There's a treasure to find!"
+    - action: TURN-ON, TURN-OFF
+      score_if: "state == off/on"
+      description: "Light and extinguish the stove"
+      response: "Don't play with fire! You don't have time for cooking! There's treasure to find!"
       
     - action: EXAMINE
       score_if: "always"
       description: "Inspect the stove"
+      response: "The stove is {state}."

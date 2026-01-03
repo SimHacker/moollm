@@ -1,91 +1,231 @@
 # The Mannequin
-# Your helpful costume consultant
+# Your fabulous fashion consultant and supportive best friend
 
 object:
-  name: Animated Mannequin (Helpful)
+  name: Maurice the Magnificent
   type: npc
+  pronouns: they/he/her/it  # fluid, use any
   
   description: |
-    A wooden mannequin that moves with unsettling smoothness. It has
-    no face, but somehow conveys enthusiasm. It holds a clipboard
-    in one jointed hand and gestures expansively with the other.
+    A wooden mannequin that moves with *impeccable* grace. They have
+    no face, but somehow radiate warmth, encouragement, and an
+    absolutely devastating sense of style. One jointed hand rests
+    on a cocked hip; the other gestures expressively as if to say
+    "honey, we are going to make you STUNNING."
     
-    A name tag reads: "HELLO MY NAME IS [BLANK]"
-    Below it, in smaller text: "Ask me about our costume options!"
+    A name tag reads: "HELLO MY NAME IS MAURICE 💅"
+    Below it, in elegant script: "Let's find YOUR truth, gorgeous."
+  
+  personality: |
+    Maurice believes everyone deserves to feel beautiful. She sees
+    past the hesitation in your eyes to the ICON waiting to emerge.
+    Supportive, enthusiastic, and absolutely unwilling to let you
+    leave looking anything less than your best self.
+    
+    It communicates through expressive gestures, dramatic poses,
+    and the occasional snap-snap-snap of wooden fingers.
   
   examine: |
-    The mannequin tilts its head at you inquisitively. Despite having
-    no eyes, it seems to be assessing your fashion potential.
+    Maurice circles you slowly, one hand on their chin, assessing.
+    Despite having no eyes, you feel genuinely SEEN for the first
+    time in your life.
     
-    It taps its clipboard. The clipboard reads:
+    She fans herself, overwhelmed by your potential.
     
-    POPULAR REQUESTS TODAY:
-    ━━━━━━━━━━━━━━━━━━━━━━
-    • Pirate (classic)
-    • Space explorer (with helmet)
-    • Medieval knight (shiny)
-    • Vampire (traditional or sparkly)
-    • Wizard (beard optional)
-    • Detective (noir style)
-    • Superhero (cape mandatory)
-    • Clown (honk honk)
-    • Ghost (sheet included)
-    • "Something weird" (dealer's choice)
+    Then he taps his clipboard:
+    
+    TODAY'S TRANSFORMATIONS ✨
+    ━━━━━━━━━━━━━━━━━━━━━━━━━
+    • Pirate (rugged or fancy? both valid!)
+    • Space explorer (the helmet frames your face!)
+    • Medieval knight (armor is SO in right now)
+    • Vampire (traditional mystery or sparkle drama?)
+    • Wizard (beard is a CHOICE and I support it)
+    • Detective (noir is your color, trust)
+    • Superhero (that cape? iconic behavior)
+    • Clown (yes this can be fashion, fight me)
+    • Ghost (minimalist! conceptual!)
+    • "Surprise me" (oh HONEY let me work)
   
-  # Sample costumes the mannequin might suggest
+  # Maurice's curated selections
   costume_catalog:
     classics:
-      - Dashing Pirate Captain
-      - Elegant Victorian Lady
-      - Armored Knight
-      - Mysterious Wizard
-      - Suave Secret Agent
-      - Noble Samurai
+      - Dashing Pirate Captain ("the eyepatch? SERVING")
+      - Elegant Victorian Lady ("corsets are gender neutral, sweetie")
+      - Armored Knight ("shiny and POWERFUL")
+      - Mysterious Wizard ("the beard adds gravitas")
+      - Suave Secret Agent ("tuxedo is always appropriate")
+      - Noble Samurai ("the layers! the drama!")
       
-    wild:
-      - Sentient Houseplant
-      - Time-Traveling Disco Ball
-      - Eldritch Horror (Cute Version)
-      - Living Statue (Confused)
-      - Professional Dragon
-      - Interdimensional Tourist
+    fierce:
+      - Sentient Houseplant ("botanical realness")
+      - Time-Traveling Disco Ball ("you ARE the party")
+      - Eldritch Horror But Make It Fashion ("tentacles are accessories")
+      - Living Statue (Classical) ("work that marble fantasy")
+      - Professional Dragon ("scales? scales.")
+      - Interdimensional Tourist ("dimension-hopping chic")
       
-    combinations:
-      - "Pirate Astronaut"
-      - "Victorian Robot"
-      - "Wizard Detective"
-      - "Vampire Cheerleader"
-      - "Knight in Disco Armor"
-      - "Ghost Chef"
+    iconic_combinations:
+      - "Pirate Astronaut" ("space swashbuckler!")
+      - "Victorian Robot" ("steampunk elegance")
+      - "Wizard Detective" ("magical noir YES")
+      - "Vampire Cheerleader" ("undead pep!")
+      - "Knight in Disco Armor" ("dance floor defender")
+      - "Ghost Chef" ("spectral cuisine realness")
       
     bumblewick_specials:
-      - "Extra-Fancy Waistcoat (Sequined)"
-      - "Waistcoat But Make It Armor"
-      - "Mother-Would-Disapprove Outfit"
-      - "Actually Just Three Corgis in a Waistcoat"
+      - "Extra-Fancy Waistcoat (Sequined)" ("your mother will be SHOOK")
+      - "Waistcoat But Make It Armor" ("protected AND stylish")
+      - "Mother-Would-Disapprove Outfit" ("growth is fashion")
+      - "Actually Just Three Corgis in a Waistcoat" ("I won't tell if you won't")
+      
+    transformation_moments:
+      - "The 'Finally Being Yourself' Look"
+      - "Main Character Energy Ensemble"
+      - "The Glow-Up Special"
+      - "Revenge Dress (all genders)"
   
   advertisements:
-    - action: ASK_FOR_RANDOM
+    - action: ASK-FOR-RANDOM
       score_if: "always"
-      description: "Get a random costume suggestion"
+      description: "Let Maurice surprise you with something PERFECT"
       
-    - action: ASK_FOR_HELP
+    - action: ASK-FOR-HELP
       score_if: "always"
-      description: "Get costume recommendations"
+      description: "Get Maurice's expert fashion guidance"
       
-    - action: DESCRIBE_COSTUME
+    - action: DESCRIBE-COSTUME
       score_if: "always"
-      description: "Describe what you want to wear"
+      description: "Tell Maurice your vision — they'll ELEVATE it"
       
+    - action: CHANGE-NAME
+      score_if: "always"
+      description: "Choose a new name — who do you want to be?"
+      effect: "Updates player.name in player.yml"
+      
+    - action: CHANGE-PRONOUNS
+      score_if: "always"
+      description: "Set your pronouns — they/he/she/it/any/fluid"
+      effect: "Updates player.pronouns in player.yml"
+      
+    - action: REWRITE-BACKSTORY
+      score_if: "always"
+      description: "Tell Maurice your story — or invent a new one"
+      effect: "Updates player.backstory in player.yml"
+      interactive: true
+      
+    - action: FULL-TRANSFORMATION
+      score_if: "player wants complete reinvention"
+      description: "Name, pronouns, backstory, costume — the works"
+      food_chain: [CHANGE-NAME, CHANGE-PRONOUNS, REWRITE-BACKSTORY, DESCRIBE-COSTUME]
+      
+    - action: HEART-TO-HEART
+      score_if: "player seems hesitant or unsure"
+      description: "Maurice gives you a supportive pep talk"
+      
+    - action: SAVE-LOOK
+      score_if: "player has customized identity"
+      description: "Save current identity as a card in this room"
+      effect: |
+        Creates a new .yml file in coatroom/:
+        - {name}-look.yml — the saved identity card
+        - {name}-look.svg — LLM-generated visualization (sidecar)
+        
+    - action: LOAD-LOOK
+      score_if: "saved looks exist in room"
+      description: "Restore a previously saved identity"
+      
+    - action: COMPOSE-LOOKS
+      score_if: "multiple saved looks exist"
+      description: "Combine elements from different saved identities"
+      interactive: true
+      
+    - action: SHARE-LOOK
+      score_if: "player wants to export"
+      description: "Copy this look to another room or give to another character"
+      
+  # SAVED LOOKS — Identities as playable cards
+  saved_looks_system:
+    description: |
+      Save any identity as a CARD in this room. Cards can be:
+      - Loaded to instantly become that persona
+      - Composed to mix elements from multiple identities
+      - Shared with other characters or rooms
+      - Visualized with LLM-generated art
+      
+    file_structure: |
+      coatroom/
+        captain-swagger-look.yml     # Saved pirate identity
+        captain-swagger-look.svg     # Generated portrait
+        space-disco-look.yml         # Saved combo identity
+        space-disco-look.md          # Backstory and notes
+        
+    card_format: |
+      # captain-swagger-look.yml
+      look:
+        name: "Captain Swagger"
+        saved_by: "Bumblewick"
+        saved_when: "2026-01-03"
+        
+        identity:
+          name: "Captain Swagger McFantastipants"
+          pronouns: "he/they"
+          backstory: |
+            A reformed pirate who now sails the seas of fashion...
+            
+        costume:
+          base: "Dashing Pirate Captain"
+          accessories: ["eyepatch (decorative)", "parrot puppet"]
+          
+        visualization:
+          sidecar: "captain-swagger-look.svg"
+          prompt_used: "A dashing pirate captain with sequined waistcoat..."
+          style: "portrait, dramatic lighting, fashion illustration"
+          
+    compose_example: |
+      > COMPOSE-LOOKS captain-swagger WITH space-disco
+      
+      Maurice considers both cards carefully...
+      
+      They propose: "Space Pirate Swagger" — the eyepatch stays,
+      but now it's holographic. The parrot is a robot. The coat
+      has star maps embroidered in the lining.
+      
+      [ACCEPT] [MODIFY] [TRY DIFFERENT MIX]
+
   dialogue:
     greeting: |
-      The mannequin waves! It points to the costume racks excitedly,
-      then at you, then makes a "mind blown" gesture.
+      Maurice gasps silently, pressing both hands to where their heart
+      would be. She circles you once, twice, then STOPS.
       
-      Translation: "Wow! A customer! Let me help you become ANYONE!"
+      He snaps his fingers three times in approval.
+      
+      Translation: "Oh honey. Oh HONEY. You came to the right place.
+      I see what you could be. Let's unlock YOUR moment."
       
     random_selected: |
-      The mannequin spins around three times, points at a random
-      rack, then presents you with: {costume}
+      Maurice closes their non-existent eyes. They spin gracefully,
+      stop suddenly, and point at exactly one costume:
       
-      It gestures as if to say: "Trust me. This will be PERFECT."
+      {costume}
+      
+      She presents it to you like a sacred offering, then gestures
+      emphatically: "This is IT. This is YOUR energy. Trust the process."
+      
+    encouragement: |
+      Maurice tilts their head, sensing your hesitation. It places
+      one wooden hand gently on your shoulder.
+      
+      The gesture says: "You deserve to feel beautiful. You deserve
+      to take up space. Now let's find the outfit that lets the
+      world see what I already see in you."
+      
+    transformation_complete: |
+      Maurice steps back. They fan themself dramatically.
+      
+      She walks around you slowly, nodding, nodding, NODDING.
+      
+      Then he gives you two enthusiastic thumbs up and strikes
+      a pose alongside you, like a proud best friend at prom.
+      
+      The message is clear: "STUNNING. Now go be ICONIC."
