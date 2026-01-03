@@ -1,0 +1,140 @@
+# 🍱 Captain Ashford's Lunchbox
+# For carrying food through the maze (NOT for eating!)
+
+object:
+  name: "Captain Ashford's Lunchbox"
+  type: container
+  subtype: lunchbox
+  
+  description: |
+    A battered tin lunchbox, the kind spacers carry on long hauls.
+    The lid is decorated with a faded sticker that says "BELTER BITES"
+    and someone (Maurice?) has tied a burgundy ribbon around the handle.
+    
+    Inside, it's surprisingly spacious and thermally insulated.
+    Perfect for carrying food through grue-infested mazes.
+    
+    A note taped inside the lid reads:
+    "FOR DROPPING IN THE MAZE, NOT FOR EATING — Love, Mother"
+    
+  properties:
+    portable: true
+    capacity: 20  # Generous but not infinite
+    insulated: true
+    organization: automatic
+    
+  auto_sort:
+    # Items of these types automatically go into this container
+    accepts:
+      - food
+      - snack
+      - drink
+      - edible
+      
+  contents:
+    # LOADED from fridge — Move 16!
+    # marker 1: DROPPED in maze/room-a/ — marks the damp room
+    # - marker: 1
+    #   name: "Suspiciously Perfect Apple"
+    #   status: "Dropped Move 19, by the judgmental puddle"
+    # marker 2: EATEN in maze/room-c/ — now "The Wheel of Wisdom"
+    # - marker: 2
+    #   name: "Wheel of Aged Cheese"
+    #   status: "Consumed Move 29, transformed into dairy philosopher"
+    # marker 3: EATEN in maze/room-b/ — now "The Eternal Crumb"
+    # - marker: 3
+    #   name: "Loaf of Crusty Bread"
+    #   status: "Consumed Move 30, transformed into warm marker"
+    # marker 4: EATEN in maze/room-g/ — now "The Preserved Witness"
+    # - marker: 4
+    #   name: "Jar of Pickled Herring"
+    #   status: "Consumed Move 34, transformed into crystalline fish fossil"
+    # marker 5: EATEN in maze/room-i/ — now "The Memorial Pie"
+    # - marker: 5
+    #   name: "Leftover Shepherd's Pie"
+    #   status: "Consumed Move 36, transformed into savory mausoleum for skeleton"
+    # marker 6: EATEN in maze/room-e/ — now "The Crown of Fermentation"
+    # - marker: 6
+    #   name: "Bunch of Purple Grapes"
+    #   status: "Consumed Move 32, transformed into royal marker"
+    # marker 7: EATEN in maze/room-f/ — now "The Alchemical Residue"
+    # - marker: 7
+    #   name: "Pot of Mysterious Stew"
+    #   status: "Consumed Move 55, transformed into scientific marker at grue kill site"
+    # marker 8: WEAPONIZED in maze/room-f/ — now "The Gorgonzola Glaive"
+    # - marker: 8
+    #   name: "Wedge of Blue Cheese"
+    #   status: "Transformed Move 51, sharpened into weapon for grue battle"
+    - marker: 9
+      name: "Cold Roast Chicken"
+      description: "Missing one leg. Bumblewick regrets nothing."
+    # marker 10: EATEN in maze/room-j/ — now "The Sweetness That Remains"
+    # - marker: 10
+    #   name: "Jar of Strawberry Jam"
+    #   status: "Consumed Move 44, transformed into crystalline heart for vending machine"
+    - marker: 11
+      name: "Half-Empty Bottle of Milk"
+      description: "Or half-full, if you're an optimist. Bumblewick is not."
+    # marker 12: EATEN in maze/room-h/ — now "The Thing That Watches"
+    # - marker: 12
+    #   name: "Suspicious Casserole"
+    #   status: "Consumed Move 58, merged with mushrooms, now WATCHES ETERNALLY"
+    - marker: 13
+      name: "Lemon (Slightly Judgmental)"
+      description: "It seems to be frowning at you. Lemons do that."
+    # marker 14: EATEN in kitchen/ — now "The Cake That Has Seen Too Much"
+    # - marker: 14
+    #   name: "Slice of Birthday Cake"
+    #   status: "Consumed Move 17, transformed, now on kitchen floor"
+    - marker: 15
+      name: "Carrot (Heroically Orange)"
+      description: "Good for your eyes. You'll need them in the dark. Oh wait."
+    - marker: 16
+      name: "Tin of Sardines"
+      description: "Emergency rations. For emergencies. Like being lost in a maze."
+    - marker: 17
+      name: "Bowl of Cold Porridge"
+      description: "Goldilocks rejected this one. Too cold, too lumpy, too sad."
+    - marker: 18
+      name: "Fancy Imported Salami"
+      description: "From the Old Country. Which country? THE Old one."
+    # marker 19: EATEN in maze/room-d/ — now "The Sulfurous Beacon"
+    # - marker: 19
+    #   name: "Single Hard-Boiled Egg"
+    #   status: "Consumed Move 23, transformed into smell gradient navigation system"
+    - marker: 20
+      name: "Jar of Olives (Green)"
+      description: "Stuffed with pimentos. No one knows why. It's tradition."
+  
+  actions:
+    - action: OPEN
+      effect: "See what food you're carrying"
+    - action: TAKE
+      target: "{food_item}"
+      effect: "Remove food item from lunchbox"
+    - action: DROP
+      target: "{food_item}"
+      effect: "Drop food to mark maze path"
+    - action: EAT
+      target: "{food_item}"
+      effect: "Consume food (REMEMBER MOTHER'S WARNING)"
+      warning: "Promise #3: Not waste the food"
+      
+  mothers_rule: |
+    The food is for DROPPING IN THE MAZE to mark your path,
+    NOT FOR EATING.
+    
+    Each dropped food item becomes a landmark, helping you
+    navigate the twisty passages. The grues won't eat it
+    (they're picky — they prefer adventurers).
+    
+  capacity_note: |
+    The lunchbox can hold 20 items. The fridge has 20 items.
+    This is not a coincidence. Mother planned ahead.
+    
+  lineage: |
+    Descended from the tradition of:
+    - Bread crumbs (Hansel & Gretel — didn't work)
+    - White pebbles (Hansel & Gretel — worked better)
+    - Spray paint (Colossal Cave veterans)
+    - Adventurer's rations (every dungeon crawler ever)

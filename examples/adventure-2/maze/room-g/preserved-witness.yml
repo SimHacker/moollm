@@ -1,0 +1,61 @@
+# 🐟 The Preserved Witness
+# A crystalline fish fossil, forever watching
+
+object:
+  name: The Preserved Witness
+  type: room_marker
+  
+  description: |
+    What was once a Jar of Pickled Herring is now a crystalline
+    fish fossil, preserved for eternity in its own brine wisdom.
+    It floats slightly above the ground, staring at the carved
+    face on the wall. The face stares back.
+    
+    They seem to understand each other. They've both been watching
+    adventurers fail for a very long time.
+    
+  examine: |
+    The Preserved Witness speaks in bubbles:
+    
+    "...we watched the skeleton pass..."
+    "...we watched them not return..."
+    "...the face knows. we know. now you know..."
+    "...pickled wisdom endures..."
+    
+  marker_id: 4 # Original marker ID from fridge
+  original_item: "Jar of Pickled Herring"
+  
+  # Properties gained from its journey
+  properties:
+    sentience_level: witness
+    brine_wisdom: true
+    crystalline_preservation: true
+    floating: true
+    whispers_secrets: true
+    
+  # Its current location
+  location: maze/room-g/
+  
+  # What it thinks of you
+  opinion_of_player: |
+    "You are the living one, Captain Ashford. The one who brings
+    the lamp. We are bound now, you and I. Through the digestive
+    journey, we are one with the salt."
+    
+  # What it thinks of the room
+  opinion_of_room: |
+    "This room. The face. It has watched so many. So have I now.
+    We are witnesses together. The grues fear us. They know we
+    have seen. They know we will remember."
+    
+  # What it thinks of the carved face
+  opinion_of_face: |
+    "Ah, the face. King? God? Uncle? Does it matter? We both
+    watch. We both judge. We both remain. The adventurers
+    come and go. We persist."
+    
+  # What it thinks of Mother
+  opinion_of_mother: |
+    "She knew. She always knows. The herring was her gift.
+    A watchful eye in the darkness. I shall witness for her.
+    I shall report everything."

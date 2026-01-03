@@ -1,0 +1,402 @@
+# 🧭 The Oracle Compass
+# A magical navigation system born from prophetic apple consumption
+
+card:
+  name: "The Oracle Compass"
+  type: navigation_artifact
+  subtype: animated_map
+  rarity: legendary
+  
+  # ═══════════════════════════════════════════════════════════════════
+  # CARD FACE
+  # ═══════════════════════════════════════════════════════════════════
+  
+  title: "Navigator of the Labyrinth"
+  subtitle: "Point me to glory, gold, or just away from that SMELL"
+  
+  illustration_prompt: |
+    An ornate brass compass with a crystal face. Inside, instead of a
+    needle, floats a tiny glowing apple core (the Oracle). The compass
+    rose is made of crystallized grape essence and aged cheese crumbs.
+    Around the edge, small animated figures (a cake, an egg, bread)
+    point in different directions. The background shows a maze map
+    that shifts and glimmers. Style: steampunk meets fairy tale.
+    
+  flavor_text: |
+    "I ate an apple and saw everything. Now I carry that vision
+     in my pocket, and it TALKS to me."
+    — Captain Ashford, reluctant cartographer
+    
+  # ═══════════════════════════════════════════════════════════════════
+  # THE COMPASS ORIGIN STORY
+  # ═══════════════════════════════════════════════════════════════════
+  
+  origin:
+    created: "Move 32, The Great Maze Mapping Expedition"
+    source: "Prophetic vision from the Suspiciously Perfect Apple"
+    crystallized_from:
+      - "The Oracle Core's whispered map (Room A)"
+      - "The Sulfurous Beacon's smell gradient (Room D)"
+      - "The Wheel of Wisdom's patient directions (Room C)"
+      - "The Eternal Crumb's warm guidance (Room B)"
+      - "The Crown of Fermentation's royal proclamations (Room E)"
+      
+    narrative: |
+      When Captain Ashford ate the apple and fell into prophetic coma,
+      he didn't just SEE the maze — he ABSORBED it. The knowledge
+      crystallized into this compass, which now contains:
+      
+      - A complete map of all 10 maze rooms
+      - The smell gradient from the Sulfurous Beacon
+      - The locations of all transformed food markers
+      - The wisdom of each marker (they advise the compass!)
+      - The location of GOLD (Room F), SKELETON (Room I), VENDOR (Room J)
+      - Multiple pathfinding strategies
+      
+      The compass needle is alive. It speaks. It has OPINIONS.
+      
+  # ═══════════════════════════════════════════════════════════════════
+  # THE MAZE KNOWLEDGE
+  # ═══════════════════════════════════════════════════════════════════
+  
+  maze_data:
+    total_rooms: 10
+    clusters:
+      shallow:
+        rooms: [A, B, C, D]
+        description: "The entrance maze — connected to START and END"
+        smell_level: "Moderate to Overwhelming"
+      deep:
+        rooms: [E, F, G, H, I, J]
+        description: "The hidden maze — contains GOLD and VENDOR"
+        smell_level: "Whisper to None"
+        
+    connections:
+      # Full maze graph for pathfinding
+      room_a: { S: start, N: C, E: B, W: D }
+      room_b: { N: D, S: C, E: A, W: C }
+      room_c: { N: B, S: D, E: D, W: A }
+      room_d: { N: end, S: A, E: B, W: C }
+      room_e: { N: F, S: B, E: G, W: C }
+      room_f: { N: H, S: E, E: A, W: I }  # GOLD HERE! COLD!
+      room_g: { N: I, S: D, E: J, W: E }
+      room_h: { N: J, S: F, E: B, W: D }
+      room_i: { N: C, S: G, E: F, W: J }  # SKELETON HERE
+      room_j: { N: D, S: H, E: I, W: G }  # VENDOR HERE!
+      
+    points_of_interest:
+      gold_pile:
+        location: room_f
+        value: 100
+        warning: "COLD! Oil drains 2x faster!"
+      skeleton:
+        location: room_i
+        story: "Empty lamp. Pointed west toward vendor. So close..."
+      vendor:
+        location: room_j
+        services: [oil_refill, deluxe_refill, premium_glow_juice]
+        
+    markers_placed:
+      room_a: { name: "Oracle Core", type: oracle, smell_radius: 0 }
+      room_b: { name: "Eternal Crumb", type: warmth, smell_radius: 1 }
+      room_c: { name: "Wheel of Wisdom", type: patience, smell_radius: 1 }
+      room_d: { name: "Sulfurous Beacon", type: smell_gradient, smell_radius: 3 }
+      room_e: { name: "Crown of Fermentation", type: royalty, smell_radius: 1 }
+      
+  # ═══════════════════════════════════════════════════════════════════
+  # THE SMELL GRADIENT (Navigation Aid)
+  # ═══════════════════════════════════════════════════════════════════
+  
+  smell_gradient:
+    source: room_d
+    source_name: "The Sulfurous Beacon"
+    radius: 3
+    
+    intensity_map:
+      room_d: { level: 5, description: "OVERWHELMING — eyes watering" }
+      room_a: { level: 4, description: "Strong — Oracle sympathizes" }
+      room_b: { level: 3, description: "Moderate — echo makes it weird" }
+      room_c: { level: 2, description: "Faint — cheese helps" }
+      room_e: { level: 1, description: "Whisper — barely detectable" }
+      room_f: { level: 0, description: "None — too cold for smell" }
+      room_g: { level: 0, description: "None — face doesn't smell" }
+      room_h: { level: 0, description: "None — mushrooms mask it" }
+      room_i: { level: 0, description: "None — skeleton doesn't care" }
+      room_j: { level: 0, description: "None — vendor has air freshener" }
+      
+    can_navigate_by_smell: true
+    smell_avoidance_mode: "Move toward lower smell levels"
+    
+  # ═══════════════════════════════════════════════════════════════════
+  # COMPASS NEEDLE (The Animated Speaker!)
+  # ═══════════════════════════════════════════════════════════════════
+  
+  compass_needle:
+    name: "Little Oracle"
+    description: |
+      A tiny floating apple core inside the compass crystal. It spins
+      to point toward the current target, and it SPEAKS in a whisper
+      that sounds like crunching into a perfect apple.
+      
+    voice_style: "Crisp, slightly smug, omniscient"
+    
+    example_utterances:
+      pointing_north: "*spin* ...north... the gold awaits, but bring warmth..."
+      pointing_gold: "*eager spin* ...riches! frozen riches! the skeleton failed here..."
+      pointing_vendor: "*helpful spin* ...oil... safety... the skeleton was SO CLOSE..."
+      pointing_away_from_smell: "*relieved spin* ...yes, away... AWAY from the egg..."
+      pointing_home: "*warm spin* ...mother waits... the dishes wait longer..."
+      pointing_grue: "*mischievous spin* ...you want to FIND a grue? bold. foolish. bold..."
+      confused: "*wobble* ...you want to go... nowhere? I don't understand..."
+      
+    can_speak_into_narrative: true
+    speaks_when:
+      - "Direction changes"
+      - "Goal is reached"
+      - "Danger detected"
+      - "Strategy changes"
+      - "Player seems lost"
+      - "Something interesting nearby"
+      
+  # ═══════════════════════════════════════════════════════════════════
+  # NAVIGATION STRATEGIES (Retargetable Goals!)
+  # ═══════════════════════════════════════════════════════════════════
+  
+  navigation_strategies:
+    
+    # Default: Point toward next unmarked room
+    explore:
+      name: "EXPLORE"
+      description: "Point toward nearest unexplored room"
+      needle_behavior: "Spins toward mystery"
+      utterance: "*curious spin* ...the unknown calls... room {target} awaits..."
+      
+    # Point toward gold
+    gold_seeking:
+      name: "SEEK GOLD"
+      description: "Point toward Room F (100 gold pile)"
+      needle_behavior: "Eager golden glow"
+      utterance: "*greedy spin* ...gold... frozen gold... bring the lamp..."
+      warning: "Room F drains oil 2x! The skeleton died there!"
+      
+    # Point toward vendor
+    refuel:
+      name: "SEEK VENDOR"
+      description: "Point toward Room J (lamp oil vendor)"
+      needle_behavior: "Practical, steady"
+      utterance: "*sensible spin* ...oil... the vendor... don't be the skeleton..."
+      
+    # Minimize smell exposure
+    smell_avoidance:
+      name: "AVOID SMELL"
+      description: "Point away from Sulfurous Beacon, toward lower smell"
+      needle_behavior: "Relieved spinning away from Room D"
+      utterance: "*gagging spin* ...away... please... the egg was a MISTAKE..."
+      algorithm: "Gradient descent on smell intensity"
+      
+    # Maximize smell (why??)
+    smell_seeking:
+      name: "EMBRACE SMELL"
+      description: "Point toward Sulfurous Beacon"
+      needle_behavior: "Confused but compliant"
+      utterance: "*baffled spin* ...you WANT the smell? ...okay... Room D..."
+      
+    # Find grues (dangerous!)
+    grue_hunting:
+      name: "HUNT GRUES"
+      description: "Point toward dark rooms without markers"
+      needle_behavior: "Nervous vibration"
+      utterance: "*terrified spin* ...grues... you want GRUES... turn off lamp and wait..."
+      warning: "THIS WILL GET YOU EATEN"
+      
+    # Return home
+    homeward:
+      name: "GO HOME"
+      description: "Point toward START room"
+      needle_behavior: "Warm, comforting glow"
+      utterance: "*nostalgic spin* ...home... mother... the dishes... but mostly mother..."
+      path_from_e: "E → (via maze vision) → A → S → START"
+      
+    # Happy space hill climbing (maximize good things)
+    happy_climbing:
+      name: "MAXIMIZE JOY"
+      description: "Point toward highest density of good outcomes"
+      needle_behavior: "Joyful bouncing"
+      factors:
+        - "Proximity to treasure (+)"
+        - "Proximity to gold (+)"
+        - "Distance from smell (+)"
+        - "Warmth (Eternal Crumb) (+)"
+        - "Safety (lit rooms) (+)"
+        - "Unexplored territory (+excitement)"
+      utterance: "*happy spin* ...joy is {direction}... follow the warmth..."
+      
+    # Custom targeting
+    custom:
+      name: "SEEK [TARGET]"
+      description: "Point toward any specified room, object, or concept"
+      needle_behavior: "Adaptive"
+      examples:
+        - "SEEK SKELETON" → Points to Room I
+        - "SEEK MARKER" → Points to nearest transformed food
+        - "SEEK MOTHER" → Points toward START then home
+        - "SEEK ADVENTURE" → Points toward unexplored danger
+        
+  # ═══════════════════════════════════════════════════════════════════
+  # CARD ACTIONS
+  # ═══════════════════════════════════════════════════════════════════
+  
+  actions:
+    
+    - action: LOOK
+      description: "Check the compass, see where it's pointing"
+      effect: |
+        The compass displays current target and direction.
+        Little Oracle speaks: "*current direction and advice*"
+      example: |
+        > LOOK COMPASS
+        The Oracle Compass points NORTH toward Room F.
+        Little Oracle whispers: "...gold awaits... but the cold, the COLD..."
+        
+    - action: RETARGET
+      target: "[strategy or location]"
+      description: "Change what the compass is seeking"
+      examples:
+        - "RETARGET COMPASS TO GOLD"
+        - "RETARGET COMPASS TO AVOID SMELL"
+        - "RETARGET COMPASS TO EXPLORE"
+        - "RETARGET COMPASS TO ROOM J"
+        - "RETARGET COMPASS TO MAXIMIZE JOY"
+      effect: |
+        The needle spins dramatically, then settles on new target.
+        Little Oracle announces the change.
+        
+    - action: RENDER MAP
+      description: "Display ASCII maze map with current position"
+      effect: |
+        The compass crystal clouds over, then clears to show:
+        - Full maze layout
+        - Your current position (★)
+        - All markers (symbols)
+        - Current target (→)
+        - Smell gradient (💨)
+        - Points of interest (💰🏪💀)
+      example_output: |
+        ┌─────────────────────────────────────────┐
+        │            THE ORACLE'S MAP             │
+        │                                         │
+        │              [END] 🏆                   │
+        │                │                        │
+        │       💨💨💨 [D] 💨💨💨                │
+        │        ┌──────┼──────┐                  │
+        │       [C]    [A]    [B]                 │
+        │        🧀     🔮     🍞                  │
+        │                │                        │
+        │             [START]                     │
+        │                                         │
+        │  ══════ DEEP MAZE ══════               │
+        │       [E] ★ 🍇 ← YOU                   │
+        │        ┌──┼──┐                          │
+        │   → [F]   [G]                           │
+        │     💰     👤                            │
+        │     💀     │                             │
+        │       [H] [I] [J]                       │
+        │        🍄  💀  🏪                        │
+        └─────────────────────────────────────────┘
+        
+    - action: FOLLOW
+      description: "Move in the direction the compass points"
+      effect: |
+        Automatically move one room toward current target.
+        Little Oracle narrates the journey.
+        Oil is consumed. Map updates.
+        
+    - action: CONSULT MARKERS
+      description: "Ask the transformed food markers for advice"
+      effect: |
+        The compass channels the wisdom of placed markers:
+        - Oracle Core: Directions and prophecy
+        - Wheel of Wisdom: Patience and timing
+        - Eternal Crumb: Warmth and comfort
+        - Sulfurous Beacon: Smell-based navigation
+        - Crown of Fermentation: Royal decrees
+        
+    - action: PATH TO [destination]
+      description: "Calculate optimal path to any location"
+      effect: |
+        Little Oracle traces a glowing line on the map showing
+        the shortest/safest/most interesting path.
+        Accounts for: smell, cold, markers, oil consumption.
+        
+  # ═══════════════════════════════════════════════════════════════════
+  # CURRENT STATE (Updates dynamically!)
+  # ═══════════════════════════════════════════════════════════════════
+  
+  current_state:
+    player_location: room_e
+    current_target: explore
+    needle_pointing: NORTH
+    target_room: room_f
+    
+    little_oracle_says: |
+      "*eager spin* ...north... GOLD awaits in Room F...
+       but remember the skeleton. Remember the COLD.
+       Your oil is 378.3. The room drains twice as fast.
+       Bring warmth. Bring courage. Bring a snack to mark it..."
+       
+    nearby_markers:
+      - Crown of Fermentation (here, Room E) — "We reign here."
+      
+    rooms_explored: [A, B, C, D, E, END]
+    rooms_remaining: [F, G, H, I, J]
+    
+    recommended_next:
+      action: "GO NORTH"
+      destination: "Room F"
+      reason: "100 gold awaits. You have enough oil."
+      warning: "Cold room. Oil drains 2x. Move quickly!"
+      
+  # ═══════════════════════════════════════════════════════════════════
+  # LINEAGE
+  # ═══════════════════════════════════════════════════════════════════
+  
+  lineage: |
+    The Oracle Compass was born from the collision of prophecy and
+    cartography. When the Suspiciously Perfect Apple revealed the
+    maze to Captain Ashford, the knowledge didn't fade — it
+    crystallized into this navigation artifact.
+    
+    Each transformed food marker adds its wisdom to the compass:
+    - The Oracle Core provides the base map
+    - The Sulfurous Beacon enables smell navigation
+    - The Wheel of Wisdom adds patience-based routing
+    - The Eternal Crumb adds warmth detection
+    - The Crown of Fermentation adds royal authority
+    
+    As more markers are placed, the compass grows wiser.
+    
+    "Start with an apple. End with omniscience."
+    
+  # ═══════════════════════════════════════════════════════════════════
+  # CARD METADATA
+  # ═══════════════════════════════════════════════════════════════════
+  
+  created: "Move 32"
+  owner: "Captain Ashford (Bumblewick Fantastipants)"
+  location: "inventory (notebook)"
+  
+  integrates_with:
+    - "Oracle Core (room_a) — base knowledge"
+    - "All transformed food markers — advisory council"
+    - "PHOTO-SET-8 skill — can visualize the map"
+    - "Adventure navigation — primary pathfinding"
+    
+  teachable: false  # This compass is unique to Ashford's vision
+  copyable: false   # The prophecy was personal
+  
+  quotes:
+    little_oracle:
+      - "...I see all paths... I see all endings..."
+      - "...the maze has no secrets from us now..."
+      - "...follow me, and you shall not be lost..."
+      - "...well, you might be lost, but you'll KNOW you're lost..."

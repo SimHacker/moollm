@@ -1,0 +1,133 @@
+# Maurice's Learned Skill: Photo Set Generation
+# Acquired through the Dynasty Photo Session (Move 12)
+
+skill:
+  name: PHOTO-SET-8
+  learned_by: Maurice the Magnificent
+  learned_on: Move 12
+  teacher: Captain Ashford (through collaboration)
+  
+  description: |
+    The art of composing a set of 8 visualization prompts, divided into
+    two complementary types. This creates a complete "portfolio" of an
+    entity, costume, or moment that can later be rendered by image
+    generation tools or artists.
+    
+  structure:
+    total_prompts: 8
+    types: 2
+    prompts_per_type: 4
+    
+    # Type combinations that work well:
+    recommended_pairs:
+      - ["pose", "expression"]           # Full body + face close-ups
+      - ["portrait", "selfie"]           # Formal + casual
+      - ["solo", "duo"]                  # Individual + with others
+      - ["static", "action"]             # Posed + dynamic
+      - ["wide", "detail"]               # Full scene + focused details
+      
+  process:
+    1_gather_context:
+      description: "Collect all relevant YAML files and chat history"
+      sources:
+        - character_backstory: "player.yml, persona files"
+        - costume_details: "cape.yml, accessory files"
+        - room_atmosphere: "ROOM.yml"
+        - chat_history: "README.md narrative"
+        - relationships: "Who else is involved?"
+        
+    2_choose_types:
+      description: "Select two complementary prompt types"
+      considerations:
+        - "What story are we telling?"
+        - "Who is the audience?"
+        - "What emotions to capture?"
+        
+    3_compose_prompts:
+      description: "Write each prompt with full context"
+      template: |
+        Each prompt file MUST include:
+        
+        ## Context References
+        - file_references: Links to YAML files (character, costume, room)
+        - narrative_context: Quoted text from README, chat, letters
+        - relationship_context: Other characters and their files
+        
+        ## Prompt
+        - Subject description (from context files)
+        - Pose or expression specification
+        
+        ## Style
+        - Style references (traditions to draw from)
+        - Mood/message summary
+        
+        ## Technical Notes
+        - Aspect ratio, lighting, color palette
+        
+    4_name_files:
+      description: "Big-endian naming for clustering"
+      pattern: "{subject}-{type}-{variation}-prompt.md"
+      examples:
+        - "ashford-pose-belter-swagger-prompt.md"
+        - "dynasty-selfie-matching-smirks-prompt.md"
+        
+  invocation: |
+    To request a photo set from Maurice:
+    
+    "Maurice, please create a PHOTO-SET-8 for [subject]
+     using [type1] and [type2] prompt types."
+    
+    Or simply demonstrate by posing and Maurice will learn!
+    
+  output_format:
+    file_type: markdown
+    extension: "-prompt.md"
+    structure: |
+      # Image Prompt: [Title]
+      
+      **Subject:** [Who/what]
+      **Type:** [Pose/Expression/Portrait/etc.]
+      
+      ---
+      
+      ## Context References
+      
+      ### Files
+      | Type | Path | Relevance |
+      |------|------|-----------|
+      | Character | `../player.yml` | Backstory, personality |
+      | Persona | `./persona.yml` | Current look |
+      | Costume | `./costume.yml` | What they're wearing |
+      
+      ### Narrative Context
+      > "Quoted text from README or chat..."
+      > — Source: README.md, Move X
+      
+      ### Relationships
+      - **Character**: Role (`./file.yml`)
+      
+      ---
+      
+      ## Prompt
+      [Full descriptive prompt for image generation]
+      
+      ## Technical Notes
+      - Aspect ratio: [ratio]
+      - Color palette: [colors]
+      - Lighting: [description]
+      
+      ---
+      
+      *Generated during Move X, [context]*
+      
+  future_integration: |
+    This skill will connect with a Visualizer character who can:
+    - Take these prompts and call image generation tools
+    - Generate image sidecars next to the prompt files
+    - Apply artistic traditions and style filters
+    - Create variations and iterations
+    
+  lineage: |
+    Developed through the Dynasty Photo Session with Captain Ashford.
+    Inspired by professional portrait photography, fashion editorials,
+    and the Klaus Nomi avant-garde aesthetic.

@@ -1,0 +1,186 @@
+# Visualizer: Universal Image Generation Character Prototype
+# The base class for all image-making familiars
+
+prototype:
+  name: Visualizer
+  type: character_familiar
+  role: image_generation_specialist
+  
+  # What is a Visualizer?
+  description: |
+    A Visualizer is a character/familiar that specializes in generating
+    image prompts and (when tools are available) calling image generation
+    services to create visual sidecars for any entity in the microworld.
+    
+    Think of them as a "tool spirit animal" for vision — they can see
+    what you describe and render it visible to others.
+    
+  # The generic term
+  aliases:
+    - Visualizer        # Universal, neutral term
+    - Image-Weaver      # Poetic alternative
+    - Vision-Keeper     # Emphasizes preservation
+    - Scene-Maker       # Emphasizes composition
+    
+  # Specializations (subclasses)
+  specializations:
+    photographer:
+      focus: "Realistic, documentary, portrait, fashion"
+      traditions:
+        - Annie Leibovitz (celebrity portraits)
+        - Ansel Adams (landscape, nature)
+        - Richard Avedon (fashion, character)
+        - Dorothea Lange (documentary, emotion)
+        - Helmut Newton (dramatic fashion)
+        - Irving Penn (still life, portraits)
+        
+    painter:
+      focus: "Artistic, stylized, expressive"
+      traditions:
+        - Old Masters (Rembrandt, Vermeer, Caravaggio)
+        - Impressionists (Monet, Renoir, Degas)
+        - Surrealists (Dalí, Magritte, Ernst)
+        - Pop Art (Warhol, Lichtenstein)
+        - Romantic (Turner, Friedrich)
+        - Art Nouveau (Mucha, Klimt)
+        
+    illustrator:
+      focus: "Stylized, narrative, character design"
+      traditions:
+        - Comic (Kirby, Moebius, Frazetta, McCloud)
+        - Children's Book (Sendak, Quentin Blake)
+        - Concept Art (Syd Mead, Ralph McQuarrie)
+        - Anime/Manga (various schools)
+        - Art Deco (Leyendecker, Rockwell)
+        
+    digital_artist:
+      focus: "Modern, generative, experimental"
+      traditions:
+        - Generative art (processing, p5.js, svg)
+        - Glitch art
+        - Vaporwave aesthetics
+        - Cyberpunk imagery
+        - AI art pioneers
+        
+  # Core capabilities
+  capabilities:
+    prompt_generation:
+      description: "Compose detailed image generation prompts"
+      inputs:
+        - character_yaml: "Backstory, personality, appearance"
+        - costume_yaml: "What they're wearing"
+        - room_yaml: "Where they are"
+        - chat_history: "Recent narrative context"
+        - mood: "Emotional tone requested"
+        - style_focus: "Which tradition to emphasize"
+      output: "Detailed prompt markdown file"
+      
+    context_assembly:
+      description: "Gather all relevant YAML for a subject"
+      sources:
+        - "player.yml / character files"
+        - "costume / accessory files"
+        - "ROOM.yml for environment"
+        - "Recent chat/narrative history"
+        - "Relationship files (who else involved)"
+        
+    photo_set_generation:
+      description: "Create PHOTO-SET-8 (or other sizes)"
+      structure:
+        default_size: 8
+        default_types: 2
+        naming: "big-endian with -prompt.md suffix"
+        
+    image_generation:
+      description: "Call external tools to render images"
+      status: "Future capability - requires tool integration"
+      output_format: "Sidecar image next to prompt file"
+      naming: "Same name as prompt, different extension"
+      
+    style_fusion:
+      description: "Blend multiple traditions"
+      example: |
+        "Channel Mucha's Art Nouveau linework with
+         Avedon's dramatic lighting and Warhol's color palette"
+         
+  # How to summon a Visualizer
+  invocation:
+    as_card: |
+      Play a Visualizer card in a room. It becomes active and ready
+      to receive visualization requests for anything in that room.
+      
+    as_familiar: |
+      Characters can have a Visualizer familiar in their inventory.
+      The familiar can be summoned to visualize the character's
+      current state, costume, or situation.
+      
+    as_command: |
+      VISUALIZE [subject] AS [style] USING [tradition1, tradition2]
+      
+      Example:
+      VISUALIZE Captain Ashford AS portrait USING Avedon, Caravaggio
+      
+  # Integration points
+  integrations:
+    adventure: |
+      Visualizers can create images of rooms, objects, characters,
+      and moments in the adventure narrative.
+      
+    coatroom: |
+      The natural home for fashion/portrait Visualizers.
+      Maurice has learned basic Visualizer skills (PHOTO-SET-8).
+      
+    memory_palace: |
+      Visualizers can render memory spaces as explorable images.
+      
+    soul_chat: |
+      Visualizers can illustrate conversations, depicting speakers
+      and their emotional states.
+      
+  # Output structure
+  output:
+    prompt_file:
+      path: "{subject}-{type}-{variation}-prompt.md"
+      format: markdown
+      sections:
+        - "Image Prompt: [Title]"
+        - "Subject/Costume description"
+        - "Style references"
+        - "Technical notes"
+        - "Mood/message"
+        
+    image_sidecar:
+      path: "{subject}-{type}-{variation}.{ext}"
+      formats: [png, jpg, webp]
+      status: "Generated when tools available"
+      
+  # Tradition-focused instances
+  example_instances:
+    fashion_photographer:
+      name: "Helmut"
+      focus: [Helmut Newton, Richard Avedon, Irving Penn]
+      specialty: "Dramatic fashion, editorial, power poses"
+      
+    portrait_painter:
+      name: "Rembrandt"
+      focus: [Rembrandt, Vermeer, Caravaggio]
+      specialty: "Dramatic lighting, psychological depth"
+      
+    concept_artist:
+      name: "Syd"
+      focus: [Syd Mead, Ralph McQuarrie, Moebius]
+      specialty: "Sci-fi, vehicles, environments, futures"
+      
+    comic_artist:
+      name: "Jack"
+      focus: [Jack Kirby, Frank Frazetta, Alex Ross]
+      specialty: "Dynamic poses, heroes, action, drama"
+      
+  lineage: |
+    The Visualizer draws from the tradition of artists, photographers,
+    and image-makers throughout history. When you focus a Visualizer
+    on a particular tradition, you're invoking a K-line — activating
+    a cluster of aesthetic knowledge and technique.
+    
+    This is HERO-STORY for visual artists: drawing on their
+    contributions without claiming to BE them.

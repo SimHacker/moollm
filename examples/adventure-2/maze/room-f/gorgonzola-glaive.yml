@@ -1,0 +1,215 @@
+# 🗡️🧀 THE GORGONZOLA GLAIVE
+# A weapon of desperation, dairy, and destiny
+# Created by Captain Ashford in the Cold Spot, Move 51
+
+weapon:
+  name: "The Gorgonzola Glaive"
+  type: improvised_weapon
+  subtype: weaponized_dairy
+  rarity: unique
+  
+  # ═══════════════════════════════════════════════════════════════
+  # ORIGIN
+  # ═══════════════════════════════════════════════════════════════
+  
+  original_item:
+    name: "Wedge of Blue Cheese"
+    marker_id: 8
+    original_description: "The mold is SUPPOSED to be there. Allegedly."
+    source: "Mother's fridge"
+    
+  transformation:
+    method: "Sharpened on skeleton's gold coins in supernatural cold"
+    location: "maze/room-f/ (The Cold Spot)"
+    temperature: "Unnaturally frozen"
+    catalyst: "Grue approach + desperation + creativity"
+    
+  # ═══════════════════════════════════════════════════════════════
+  # WEAPON STATS
+  # ═══════════════════════════════════════════════════════════════
+  
+  description: |
+    What was once a humble wedge of blue cheese is now a
+    terrifying instrument of olfactory warfare.
+    
+    The cold of Room F intensified the fermentation to
+    supernatural levels. The mold veins pulse with an eerie
+    blue light. The edge, sharpened on the skeleton's gold
+    coins, can cut through shadow itself.
+    
+    The smell is... transcendent. Aggressive. WEAPONIZED.
+    
+    This is what happens when a Belter captain decides to
+    fight a grue with dairy products.
+    
+  examine: |
+    You hold the Gorgonzola Glaive before you. It glows faintly
+    blue — not from the lamp, but from the mold itself. The
+    cold has awakened something in the cheese. Something ancient.
+    Something ANGRY.
+    
+    The smell radiates outward in visible waves, distorting
+    the air like heat shimmer. Your eyes water. Your nose
+    protests. Your brain suggests that maybe this wasn't the
+    best idea.
+    
+    But your heart knows: this is EXACTLY the right idea.
+    
+  properties:
+    sharpness: "Razor-edged (can cut shadows)"
+    smell_intensity: "WEAPONIZED (visible smell waves)"
+    smell_radius: "10 feet"
+    mold_status: "AWAKENED"
+    cold_enhanced: true
+    glow: "Faint blue (mold bioluminescence)"
+    weight: "Light but POTENT"
+    
+  # ═══════════════════════════════════════════════════════════════
+  # COMBAT EFFECTS
+  # ═══════════════════════════════════════════════════════════════
+  
+  combat:
+    attack_bonus: "+2 vs. grues (smell confusion)"
+    
+    effects_on_grue:
+      confusion: |
+        Grues hunt by smell as much as by absence of light.
+        The Gorgonzola Glaive's weaponized stench OVERWHELMS
+        their senses, causing momentary disorientation.
+        
+      damage: |
+        The cold-enhanced edge can actually CUT grue-flesh.
+        Normal weapons pass through grues like smoke.
+        This cheese? This cheese is DIFFERENT.
+        
+      psychological: |
+        Grues have eaten thousands of adventurers.
+        None of them ever attacked with CHEESE.
+        The grue will not know how to process this.
+        
+    combo_with_blue_lamp: |
+      Blue lamp light → grue HESITATES (1 free turn)
+      + Gorgonzola Glaive → grue CONFUSED (advantage)
+      = Optimal strike window
+      
+      The skeleton didn't have cheese.
+      The skeleton didn't have blue flame.
+      YOU HAVE BOTH.
+      
+  # ═══════════════════════════════════════════════════════════════
+  # SMELL PROPERTIES
+  # ═══════════════════════════════════════════════════════════════
+  
+  smell:
+    base_notes: "Sharp, fermented, assertive"
+    cold_enhanced_notes: "Crystalline, piercing, AGGRESSIVE"
+    weaponized_notes: "Reality-warping, nostril-conquering, TRIUMPHANT"
+    
+    effect_on_player: |
+      Your eyes water. Your nose has filed a formal complaint.
+      But you feel POWERFUL. The cheese has chosen you.
+      
+    effect_on_grue: |
+      CONFUSION. Grues know the smell of fear, of death, of
+      darkness. They do NOT know the smell of weaponized
+      blue cheese aged in supernatural cold.
+      
+      For the first time in its existence, the grue
+      does not know what it's dealing with.
+      
+    effect_on_skeleton: |
+      One room away, the skeleton's eternal grin seems to
+      WIDEN. Even in death, they can smell it. They APPROVE.
+      
+    effect_on_machine: |
+      Two rooms away, ACME Unit #47's sensors detect the
+      smell wave. It displays: "WHAT IS THAT??"
+      Followed by: "...GO GET 'EM, CAPTAIN."
+      
+  # ═══════════════════════════════════════════════════════════════
+  # CREATION CEREMONY
+  # ═══════════════════════════════════════════════════════════════
+  
+  creation:
+    step_1: "Remove blue cheese from lunchbox"
+    step_2: "Hold to lamp light, assess potential"
+    step_3: "Kneel on frozen floor"
+    step_4: "Find sharp gold coin edge"
+    step_5: "SHARPEN — scrape, scrape, scrape"
+    step_6: "Feel the cheese RESPOND"
+    step_7: "Watch the mold veins PULSE"
+    step_8: "Smell the weaponization COMPLETE"
+    
+    duration: "One turn (Move 51)"
+    oil_cost: "2.0 (cold room modifier)"
+    
+  # ═══════════════════════════════════════════════════════════════
+  # WIELDER'S THOUGHTS
+  # ═══════════════════════════════════════════════════════════════
+  
+  wielder_notes: |
+    "I am about to fight a grue... with CHEESE.
+    
+    Mother packed this cheese. She put it in the fridge for me.
+    She said 'don't waste the food.'
+    
+    This is NOT waste. This is EVOLUTION.
+    
+    The cheese was always meant for this. From the moment the
+    mold first grew, through the aging, the wrapping, the journey
+    to the fridge, the journey to my lunchbox, and now HERE...
+    
+    The cheese has found its PURPOSE.
+    
+    And so have I.
+    
+    I have blue fire. I have blue cheese.
+    
+    THE GRUE HAS NOTHING BLUE.
+    
+    LET'S. DO. THIS."
+    
+  # ═══════════════════════════════════════════════════════════════
+  # ACTIONS
+  # ═══════════════════════════════════════════════════════════════
+  
+  actions:
+    - action: STRIKE
+      description: "Attack with the cheese edge"
+      effect: "Slashing damage + smell confusion"
+      
+    - action: WAVE
+      description: "Wave the cheese to spread smell"
+      effect: "Area confusion, no damage"
+      
+    - action: THRUST
+      description: "Stab with the sharpened point"
+      effect: "Piercing damage + concentrated stench"
+      
+    - action: INTIMIDATE
+      description: "Hold the cheese aloft dramatically"
+      effect: "Psychological warfare"
+      
+  # ═══════════════════════════════════════════════════════════════
+  # METADATA
+  # ═══════════════════════════════════════════════════════════════
+  
+  created_by: "Captain Ashford (Bumblewick Fantastipants)"
+  created_at: "maze/room-f/ (The Cold Spot)"
+  created_on: "Move 51, Adventure 2"
+  
+  related:
+    - lunchbox: "../../start/lunchbox.yml"
+    - vow: "../room-i/vow-of-vengeance.yml"
+    - skeleton: "../room-i/skeleton.yml"
+    - ululation: "./grue-summoning-ululation-card.yml"
+    
+  legacy: |
+    If Captain Ashford survives this, the Gorgonzola Glaive
+    will become legendary. Songs will be sung. Cheeses will
+    be sharpened in tribute. Grues will learn to fear dairy.
+    
+    If Captain Ashford does NOT survive... well, at least
+    it was the most creative death in maze history.
+    
+    Either way: WORTH IT.

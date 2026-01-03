@@ -1,0 +1,60 @@
+# Maze Room B
+# A twisty little passage
+
+room:
+  name: Twisty Passage (Faint Echo)
+  type: maze_room
+  
+  # DANGER! This room is dark!
+  lighting: none
+  grue_safe: false
+  requires_light: true
+  
+  # What happens if you enter without light
+  grue_event: |
+    It is pitch black. You are likely to be eaten by a grue.
+    
+    From the darkness, the echo returns: "...eaten...eaten...EATEN..."
+    
+    🎵 "It got narrated at you in the second person.
+        Every time you booted up, it seemed you got another version
+        of your life told to you by a status line blinking..." 🎵
+    
+    — MC Frontalot, "It Is Pitch Dark"
+       https://www.youtube.com/watch?v=4nigRT2KmCE
+    
+    You have been eaten by a grue.
+    
+    [REINCARNATING... inventory preserved, score reset to 0]
+  
+  description: |
+    You are in a maze of twisty little passages, all alike.
+    
+    This one has a peculiar echo. Every sound you make comes back
+    to you a moment later, slightly distorted, as if the walls are
+    mocking your navigational choices. "Hello?" "...ello...ello...ello..."
+    "This is ridiculous." "...iculous...iculous...ICULOUS..."
+    
+    Passages lead in all directions. They all look the same.
+    The echo makes it worse somehow.
+  
+  exits:
+    north:
+      destination: ../room-d/
+      description: "A passage that echoes your footsteps back at you"
+    south:
+      destination: ../room-c/
+      description: "A passage. The echo fades this way. Maybe."
+    east:
+      destination: ../room-a/
+      description: "Wait, weren't you just... no, that can't be right"
+    west:
+      destination: ../room-c/
+      description: "The walls here seem closer together. Probably fine."
+  
+  # Distinguishing feature
+  feature: echo
+  ambience: |
+    Your breathing echoes back, slightly out of sync.
+    It's like being haunted by a version of yourself that's
+    always one breath behind.

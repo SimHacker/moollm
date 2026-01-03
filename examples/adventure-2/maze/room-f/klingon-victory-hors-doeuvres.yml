@@ -1,0 +1,190 @@
+# 🍽️⚔️ KLINGON VICTORY HORS D'OEUVRES
+# "Quv chIj Soj" — The Honor Cheese Bites
+# Created by Captain Ashford, Move 56
+
+dish:
+  name: "Klingon Victory Hors D'oeuvres"
+  klingon_name: "Quv chIj Soj"
+  translation: "Honor Cheese Food"
+  type: warrior_appetizer
+  
+  # ═══════════════════════════════════════════════════════════════
+  # DESCRIPTION
+  # ═══════════════════════════════════════════════════════════════
+  
+  description: |
+    A warrior's appetizer, crafted from the flesh of one's enemy
+    and the weapon that slew them. Each bite is a celebration of
+    victory, a communion with the fallen foe, and a testament to
+    the power of weaponized dairy.
+    
+    Served on shards of grue bone.
+    Garnished with void-ichor reduction.
+    Eaten with Klingon war cries.
+    
+    This is the first time in history that grue meat has been
+    prepared for consumption. Captain Ashford is a pioneer in
+    monster gastronomy.
+    
+  # ═══════════════════════════════════════════════════════════════
+  # INGREDIENTS
+  # ═══════════════════════════════════════════════════════════════
+  
+  ingredients:
+    grue_meat:
+      source: "The grue slain in Room F, Move 53"
+      preparation: "Sliced thin by the Gorgonzola Glaive"
+      quantity: "Approximately 8 ounces"
+      texture: "Dense, cold, slightly gelatinous"
+      color: "Void-black with darker patches"
+      flavor: "Subtle — the taste of absence"
+      
+    blue_cheese:
+      source: "The Gorgonzola Glaive (the murder weapon itself)"
+      preparation: "Shaved into thin curls"
+      notes: "The cheese has IMPROVED with use — grue-slaying adds depth"
+      
+    grue_bone_shards:
+      source: "Skeletal remains of the slain grue"
+      preparation: "Selected for size and sharpness"
+      use: "Serving picks / edible toothpicks"
+      
+    void_ichor:
+      source: "Collected from grue wound site"
+      preparation: "Natural reduction via exposure"
+      use: "Garnish / sauce"
+      flavor: "Deep umami, 'the taste of endings'"
+      
+    victory:
+      source: "The battle of Move 53"
+      preparation: "Distilled through the act of consumption"
+      notes: "Essential seasoning — cannot be substituted"
+      
+  # ═══════════════════════════════════════════════════════════════
+  # PREPARATION
+  # ═══════════════════════════════════════════════════════════════
+  
+  preparation:
+    step_1:
+      action: "Slice grue meat thin"
+      tool: "The Gorgonzola Glaive"
+      technique: "The same swing that killed it now portions it"
+      
+    step_2:
+      action: "Shave blue cheese curls"
+      tool: "The Gorgonzola Glaive's edge"
+      notes: "Careful not to reduce the weapon too much"
+      
+    step_3:
+      action: "Arrange bone shards as serving platform"
+      presentation: "12 shards on a flat rock"
+      
+    step_4:
+      action: "Layer meat and cheese on each shard"
+      order: "Meat base, cheese on top"
+      
+    step_5:
+      action: "Drizzle void-ichor"
+      amount: "Sparingly — it's potent"
+      
+    step_6:
+      action: "Serve with Klingon declaration"
+      declaration: "Quv batlh chIj'qa'!"
+      
+  # ═══════════════════════════════════════════════════════════════
+  # SERVING & CONSUMPTION
+  # ═══════════════════════════════════════════════════════════════
+  
+  serving:
+    yield: "12 bites of legendary proportions"
+    remaining: 11  # Captain Ashford ate one to test
+    
+    presentation: |
+      Arranged on a flat rock altar in the Cold Spot.
+      Each bone shard pointing outward like a warrior's shield.
+      The blue lamp light makes everything glow dramatically.
+      
+    consumption_ritual:
+      1: "Select a hors d'oeuvre"
+      2: "Hold it aloft"
+      3: "Declare 'Quv batlh chIj'qa'!'"
+      4: "Consume in one bite"
+      5: "Beat chest"
+      6: "Repeat until victorious (you already are)"
+      
+  # ═══════════════════════════════════════════════════════════════
+  # TASTING NOTES
+  # ═══════════════════════════════════════════════════════════════
+  
+  tasting_notes:
+    grue_meat: |
+      Cold and dense, like eating condensed shadow. The flavor
+      is subtle — almost absent — which allows the cheese to shine.
+      Texture is gelatinous but firm. Surprisingly palatable.
+      
+    blue_cheese: |
+      The Gorgonzola Glaive has IMPROVED with use. Grue-slaying
+      seems to have deepened its character. Notes of victory,
+      vengeance, and a forty-year-old wrong made right.
+      
+    void_ichor: |
+      An unexpected umami that can only be described as
+      "the taste of endings." Deep, complex, final.
+      
+    overall: |
+      The combination is greater than its parts. The absence
+      of the grue meat creates a canvas for the assertive cheese.
+      The void-ichor ties it together with darkness made edible.
+      
+      Rating: ⭐⭐⭐⭐⭐ (5/5 bat'leths)
+      
+  # ═══════════════════════════════════════════════════════════════
+  # WINE PAIRING
+  # ═══════════════════════════════════════════════════════════════
+  
+  pairing:
+    ideal: "Klingon bloodwine"
+    available: "Half-empty bottle of milk (from lunchbox)"
+    alternative: "The tears of vanquished enemies"
+    
+  # ═══════════════════════════════════════════════════════════════
+  # NUTRITIONAL INFORMATION
+  # ═══════════════════════════════════════════════════════════════
+  
+  nutrition:
+    calories: "Unknown (grue meat not previously analyzed)"
+    protein: "High (darkness is dense)"
+    fat: "Present (blue cheese contribution)"
+    carbohydrates: "Minimal"
+    fiber: "None"
+    pride: "MAXIMUM"
+    honor: "LEGENDARY"
+    
+  # ═══════════════════════════════════════════════════════════════
+  # METADATA
+  # ═══════════════════════════════════════════════════════════════
+  
+  created_by: "Captain Ashford (Bumblewick Fantastipants)"
+  created_at: "maze/room-f/ (The Cold Spot, now Victory Kitchen)"
+  created_on: "Move 56, Adventure 2"
+  
+  firsts:
+    - "First time grue meat has been prepared for consumption"
+    - "First use of the Gorgonzola Glaive as culinary tool"
+    - "First void-ichor reduction in culinary history"
+    - "First Klingon Victory Hors D'oeuvres recipe"
+    
+  legacy: |
+    This dish represents the ultimate fusion of combat and cuisine.
+    The weapon that killed the enemy now prepares it for eating.
+    The monster that terrorized the maze is now an appetizer.
+    
+    Future adventurers may attempt to recreate this dish.
+    They will first need to kill a grue with cheese.
+    
+    Good luck.
+    
+  related:
+    - glaive: "./gorgonzola-glaive.yml"
+    - trophy: "./grue-head-trophy.yml"
+    - battle: "README.md, Moves 53-54"

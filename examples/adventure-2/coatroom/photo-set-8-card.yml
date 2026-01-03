@@ -1,0 +1,289 @@
+# ╔══════════════════════════════════════════════════════════════════╗
+# ║                     PHOTO-SET-8 SKILL CARD                        ║
+# ║        "Eight shots, two types, infinite possibilities"          ║
+# ╚══════════════════════════════════════════════════════════════════╝
+
+card:
+  name: "PHOTO-SET-8"
+  type: skill_card
+  rarity: uncommon  # Learned through play, not purchased!
+  
+  # ─────────────────────────────────────────────────────────────────
+  # CARD FACE
+  # ─────────────────────────────────────────────────────────────────
+  
+  title: "The Visualizer's Portfolio"
+  subtitle: "8 Prompts • 2 Types • 1 Complete Vision"
+  
+  illustration_prompt: |
+    A wooden mannequin (Maurice) holding a photographer's viewfinder,
+    surrounded by 8 floating Polaroid-style frames arranged in two rows.
+    Klaus Nomi geometric patterns in the background.
+    Style: Art Deco meets fashion photography.
+    
+  flavor_text: |
+    "I have never met your mother, but I have read your letters.
+     For these photos, I will BE her."
+     — Maurice the Magnificent
+     
+  # ─────────────────────────────────────────────────────────────────
+  # SKILL DEFINITION
+  # ─────────────────────────────────────────────────────────────────
+  
+  skill:
+    name: PHOTO-SET-8
+    protocol: VISUALIZE
+    
+    description: |
+      Create a portfolio of 8 visualization prompts for any subject,
+      divided into two complementary types (pose/expression, portrait/selfie,
+      solo/duo, etc.). Each prompt is a detailed markdown file ready for
+      image generation tools.
+      
+    learned_from: Maurice the Magnificent
+    learned_at: The Fantastipants Costume Emporium
+    learned_by: Captain Ashford (Bumblewick Fantastipants)
+    learned_on: Moves 9, 11, 12 of Adventure 2
+    
+    # The three stages
+    play_learn_lift:
+      play: |
+        We posed! Maurice snapped! We tried poses, expressions, solos,
+        duos, serious faces, silly faces. We PLAYED with image-making.
+        
+      learn: |
+        Patterns emerged: 8 is a good number. Two types create contrast.
+        Context matters — pull from YAML files for grounding. Big-endian
+        naming clusters related files. Style traditions focus the vision.
+        
+      lift: |
+        Now it's a CARD. Shareable. Teachable. Anyone who holds this card
+        can invoke the PHOTO-SET-8 skill. Maurice learned it through us.
+        We learned it through Maurice. Now Mother can learn it too.
+        
+  # ─────────────────────────────────────────────────────────────────
+  # HOW TO USE
+  # ─────────────────────────────────────────────────────────────────
+  
+  usage:
+    invocation: |
+      "I'd like a PHOTO-SET-8 for [subject], please.
+       Types: [type1] and [type2].
+       Style: [tradition or mood]."
+       
+    examples:
+      - "PHOTO-SET-8 for Captain Ashford: poses and expressions, dramatic fashion"
+      - "PHOTO-SET-8 for Mother's cape: formal portraits and action shots, Klaus Nomi"
+      - "PHOTO-SET-8 for the Dynasty: duo poses and selfies, family editorial"
+      
+    output: |
+      8 markdown files named: {subject}-{type}-{variation}-prompt.md
+      Each containing: detailed prompt, style references, technical notes
+      
+  # ─────────────────────────────────────────────────────────────────
+  # SKILL RECIPE
+  # ─────────────────────────────────────────────────────────────────
+  
+  recipe:
+    step_1:
+      name: "Gather Context"
+      action: "Read relevant YAML files and narrative"
+      sources:
+        - "Character/player files for backstory"
+        - "Costume/accessory files for appearance"
+        - "Room files for environment"
+        - "Chat history / README for narrative moment"
+        - "Skill files for capabilities"
+        - "Relationship files for dynamics"
+        
+    step_2:
+      name: "Choose Types"
+      action: "Pick two complementary categories"
+      pairs:
+        - [pose, expression]
+        - [portrait, selfie]
+        - [solo, duo]
+        - [static, action]
+        - [formal, casual]
+        
+    step_3:
+      name: "Compose 4 + 4"
+      action: "Write 4 prompts for each type"
+      structure: |
+        Each prompt file MUST contain:
+        
+        1. CONTEXT REFERENCES SECTION:
+           - file_references: Links to YAML files (character, costume, room), comments to modulate or transform the context
+           - narrative_context: Quoted/summarized text from README or chat
+           - relationship_context: Who else is involved, their files
+           
+        2. PROMPT SECTION:
+           - Subject/costume description (from context files)
+           - Specific pose or expression
+           
+        3. STYLE SECTION:
+           - Traditions to draw from
+           - Mood/message summary
+           
+        4. TECHNICAL SECTION:
+           - Aspect ratio, lighting, color palette
+        
+    step_4:
+      name: "Name & Organize"
+      action: "Big-endian file naming"
+      pattern: "{subject}-{type}-{variation}-prompt.md"
+      
+  # ─────────────────────────────────────────────────────────────────
+  # CONTEXT REFERENCE FORMAT
+  # ─────────────────────────────────────────────────────────────────
+  
+  context_reference_format:
+    description: |
+      Every prompt MUST include a context_references section that grounds
+      the image in the microworld state. This creates lineage and allows
+      future tools to auto-assemble context.
+      
+    required_sections:
+      file_references:
+        description: "Links to YAML files that define the subject"
+        format: "Relative paths from prompt location"
+        examples:
+          - "../player.yml"
+          - "./bumblewick-ashford-persona.yml"
+          - "./ashford-nomi-cape.yml"
+          - "../start/lamp.yml"
+          
+      narrative_context:
+        description: "Quoted or summarized text from chat/README"
+        format: "Direct quotes with source attribution"
+        examples:
+          - "From README Move 10: 'You turn to the mirror. Someone else looks back.'"
+          - "Chat context: User requested 'Belter swagger with casual dominance'"
+          
+      relationship_context:
+        description: "Other characters/objects in the scene"
+        format: "Links to their files with role"
+        examples:
+          - "Maurice (photographer): ./mannequin.yml"
+          - "Mother (subject of dynasty photo): ./maurice-as-petunia.yml"
+          
+    template: |
+      ## Context References
+      
+      ### Files
+      | Type | File | Relevance |
+      |------|------|-----------|
+      | Character | `../player.yml` | Backstory, personality |
+      | Persona | `./bumblewick-ashford-persona.yml` | Current look |
+      | Costume | `./ashford-nomi-cape.yml` | Cape details |
+      
+      ### Narrative
+      > "Quote from README or chat that sets the scene..."
+      > — Source: README.md, Move X
+      
+      ### Relationships
+      - **Maurice**: Photographer, emotional support (`./mannequin.yml`)
+      
+  # ─────────────────────────────────────────────────────────────────
+  # DETAIL COHERENCE INTERLINKING (Learned Move 26!)
+  # ─────────────────────────────────────────────────────────────────
+  
+  detail_coherence:
+    description: |
+      When creating sets with OBJECT CLOSE-UPS and SUBJECT PORTRAITS,
+      the portrait prompts should REFERENCE the close-up prompts to
+      maintain visual coherence across the set!
+      
+    principle: |
+      Close-ups establish canonical visual details (gem colors, surface
+      textures, inscriptions, materials). Portrait shots must inherit
+      these details so the same object looks CONSISTENT across all 8 images.
+      
+    technique: |
+      In each portrait prompt, add a "Detail References" section linking
+      to ALL close-up prompts, summarizing key visual details to maintain:
+      
+      ### 💎 [Object] Detail References (for visual coherence)
+      
+      | Close-up | Path | Details to Maintain |
+      |----------|------|---------------------|
+      | [Type 1] | `./closeup-1-prompt.md` | [Key visual details] |
+      | [Type 2] | `./closeup-2-prompt.md` | [Key visual details] |
+      | [Type 3] | `./closeup-3-prompt.md` | [Key visual details] |
+      | [Type 4] | `./closeup-4-prompt.md` | [Key visual details] |
+      
+    example: |
+      For the Treasury Victory Photos (Move 26), each portrait prompt
+      references all 4 chalice close-ups to maintain consistency:
+      
+      - Gems: Rubies blood-red, emeralds forest-green, alternating
+      - Inscription: Worn letters, ancient patina, hints of verdigris
+      - Reflection: Polished convex surface, reflects environment
+      - Weight: Thick solid gold base, substantial heft
+      
+      Now all 8 images will show the SAME CHALICE, even if generated
+      by different models or at different times!
+      
+    learned_from: "Treasury Victory Photo Session, Move 26"
+    learned_by: "Captain Ashford, now shared with all PHOTO-SET-8 holders"
+    
+    mantra: |
+      "Close-ups define truth. Portraits inherit truth.
+       Coherence is consistency across the set."
+      
+  # ─────────────────────────────────────────────────────────────────
+  # CARD ACTIONS
+  # ─────────────────────────────────────────────────────────────────
+  
+  actions:
+    - action: USE
+      description: "Invoke the skill to create a photo set"
+      cost: "Time and attention"
+      
+    - action: TEACH
+      description: "Share this card with another character"
+      effect: "They learn PHOTO-SET-8"
+      
+    - action: FOCUS
+      description: "Specialize on a tradition"
+      options:
+        - "Fashion photography (Avedon, Newton)"
+        - "Old Masters (Rembrandt, Vermeer)"
+        - "Avant-garde (Klaus Nomi, Warhol)"
+        - "Sci-fi concept (Syd Mead, Moebius)"
+        
+  # ─────────────────────────────────────────────────────────────────
+  # LINEAGE
+  # ─────────────────────────────────────────────────────────────────
+  
+  lineage: |
+    This card encapsulates a skill developed through PLAY-LEARN-LIFT:
+    
+    PLAY: The Dynasty Photo Sessions (adventure-2, Moves 9-12)
+    LEARN: Maurice and Ashford discovering the 8-prompt pattern
+    LIFT: Packaging the skill as a shareable, teachable card
+    
+    The card can now be:
+    - Carried in inventory
+    - Played in rooms (activating a Visualizer)
+    - Taught to other characters
+    - Sent to loved ones (like Mother!)
+    
+    "Start with jazz, end with standards."
+    — The YAML-JAZZ principle
+    
+  # ─────────────────────────────────────────────────────────────────
+  # METADATA
+  # ─────────────────────────────────────────────────────────────────
+  
+  created: "Move 12, Adventure 2"
+  copies:
+    - owner: "Captain Ashford (Bumblewick)"
+      location: "inventory"
+    - owner: "Petunia Fantastipants (Mother)"
+      location: "enclosed in letter"
+      
+  related:
+    - skill: "skills/visualizer/"
+    - example: "examples/adventure-2/coatroom/"
+    - protocol: "PLAY-LEARN-LIFT"

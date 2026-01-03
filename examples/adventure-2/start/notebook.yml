@@ -1,0 +1,407 @@
+# 📓 Captain Ashford's Adventure Notebook
+# A leather-bound journal for precious memories and knowledge
+
+object:
+  name: "Captain Ashford's Adventure Notebook"
+  type: container
+  subtype: notebook
+  
+  # Narrative sidecar — the notebook as a story
+  sidecar: "./notebook.md"  # 📖 Page through with Mother!
+  
+  description: |
+    A weathered leather notebook, its cover embossed with a compass rose
+    and the initials "BF" (scratched out) replaced with "CA" in silver ink.
+    
+    The spine is reinforced with brass, and a burgundy ribbon bookmark
+    trails from between the pages. It smells faintly of lamp oil and
+    Maurice's wood polish.
+    
+  properties:
+    portable: true
+    capacity: unlimited  # It's bigger on the inside
+    organization: automatic
+    
+  auto_sort:
+    # Items of these types automatically go into this container
+    accepts:
+      - letter
+      - card
+      - note
+      - photo
+      - prompt      # Image generation prompts
+      - song
+      - skill_card
+      - persona     # Identity transformations
+      - costume     # Clothing and accessories
+      - cape        # Special category for family capes!
+      
+  sections:
+    credits:
+      description: "The people and works that made this possible"
+      contents:
+        - file: "./credits-card.yml"
+          description: "🎬 THE CREDITS — Everyone who built this world!"
+          origin: "Move 69 — The Final Move"
+          inspirations: "50+"
+          works_referenced: "100+"
+          
+    dreams:
+      description: "Dreams captured by the Dream Catcher"
+      contents:
+        - file: "../home/dream-card.yml"
+          description: "🌙 THE DREAM OF THE GRUE SLAYER — The adventure integrated!"
+          origin: "home/bedroom — Move 68, the night after"
+          inscribed_by: "The Dream Catcher (Est. 1979)"
+          
+    academic_papers:
+      description: "Scholarly works composed during the adventure"
+      contents:
+        - file: "../kitchen/postmodern-deconstruction.md"
+          description: "📚 PhD-level postmodern deconstruction of the adventure!"
+          origin: "kitchen/ — Move 63, during promise assessment"
+          style: "Morningstar/Farmer spoof, channeling McLuhan and McCloud"
+          
+    letters:
+      description: "Correspondence with Mother and others"
+      contents:
+        - file: "../kitchen/mothers-note.yml"
+          description: "Mother's original note"
+        - file: "../kitchen/reply-to-mother.yml"
+          description: "My first reply (SENT - copy kept)"
+          status: sent_copy
+          
+    cards:
+      description: "Captured moments and portable skills"
+      contents:
+        - file: "./victory-ballad-card.yml"
+          description: "The Fantastipants Victory Ballad"
+        - file: "./genie-note.yml"
+          description: "Genie absence notification"
+        - file: "../coatroom/photo-set-8-card.yml"
+          description: "PHOTO-SET-8 skill (copy - original sent to Mother)"
+          status: my_copy
+        - file: "../maze/room-a/prophecy-shanty-card.yml"
+          description: "The Prophecy Shanty — Belter work song"
+          origin: "maze/room-a/ — post-apple vision, Move 21"
+        - file: "../end/treasure-ballad-card.yml"
+          description: "The Ballad of the Belter's Treasure — VICTORY ANTHEM!"
+          origin: "end/ — treasure claimed, Move 25"
+        - file: "./oracle-compass-card.yml"
+          description: "🧭 THE ORACLE COMPASS — Legendary navigation artifact!"
+          origin: "maze/room-e/ — crystallized from prophetic knowledge, Move 33"
+          rarity: legendary
+          features:
+            - "Animated talking compass needle (Little Oracle)"
+            - "Complete maze map"
+            - "Retargetable navigation strategies"
+            - "Integrates with all transformed food markers"
+        - file: "../maze/room-i/ode-to-lost-explorer-card.yml"
+          description: "📜 ODE TO THE LOST EXPLORER — Seven stanzas for the fallen"
+          origin: "maze/room-i/ — composed at the skeleton's side, Move 37"
+          type: poem_card
+          placement: "Resting on the skeleton's chest"
+        - file: "../maze/room-j/skeleton-memorial-coin.yml"
+          description: "💰 SKELETON MEMORIAL COIN — 'ONE ROOM AWAY'"
+          origin: "maze/room-j/ — kicked vending machine, Move 42"
+          type: memorial_item
+          value: "1 gold (but priceless)"
+        - file: "../maze/room-i/vow-of-vengeance.yml"
+          description: "⚔️ VOW OF VENGEANCE — Sacred oath to hunt the grue"
+          origin: "maze/room-i/ — sworn at skeleton's side, Move 48"
+          type: sacred_oath
+          status: "SWORN — HUNTING"
+        - file: "../maze/room-f/grue-summoning-ululation-card.yml"
+          description: "🌀 GRUE SUMMONING ULULATION — Call forth the darkness!"
+          origin: "maze/room-f/ — created during the hunt, Move 50"
+          type: ritual_card
+          rarity: rare
+          warning: "FOR EMERGENCY GRUE SUMMONING ONLY"
+        - file: "../maze/room-f/klingon-battle-song-card.yml"
+          description: "🎵⚔️ QUV BATLH CHIJ'QA' — Klingon Battle Opera!"
+          origin: "maze/room-f/ — composed before grue battle, Move 52"
+          type: song_card
+          style: "Ash Blue Gutierrez operatic tradition"
+          rarity: legendary
+          dedication: "For the skeleton, the machine, and Mother's cheese"
+        - file: "../maze/room-f/grue-head-trophy.yml"
+          description: "💀 THE GRUE'S HEAD — Trophy of vengeance!"
+          origin: "maze/room-f/ — claimed in battle, Move 53"
+          type: trophy
+          rarity: legendary
+          status: "Delivered to skeleton's feet"
+        - file: "../maze/room-i/grue-head-delivered.yml"
+          description: "⚔️ VOW FULFILLED — Delivery confirmation!"
+          origin: "maze/room-i/ — vow completed, Move 54"
+          type: milestone
+          vow_status: "✅ FULFILLED"
+          
+    battle_photos:
+      description: "The Grue Slayer Photo Series — 8 shots of legendary combat"
+      contents:
+        - file: "../maze/room-f/battle-01-darkness-before-prompt.md"
+          description: "The moment before lamp ignition"
+          style: "Horror film still, desaturated"
+        - file: "../maze/room-f/battle-02-blue-ignition-prompt.md"
+          description: "Blue lamp EXPLODES to life!"
+          style: "Explosive action shot"
+        - file: "../maze/room-f/battle-03-hesitation-prompt.md"
+          description: "Grue freezes in blue light"
+          style: "Dutch angle close-up"
+        - file: "../maze/room-f/battle-04-the-arc-prompt.md"
+          description: "Gorgonzola Glaive mid-swing"
+          style: "Motion blur action"
+        - file: "../maze/room-f/battle-05-the-strike-prompt.md"
+          description: "Cheese edge meets grue-flesh"
+          style: "Ultra-close-up, visceral"
+        - file: "../maze/room-f/battle-06-the-fall-prompt.md"
+          description: "Grue's head tumbling through air"
+          style: "Slow-motion descent, poetic"
+        - file: "../maze/room-f/battle-07-victory-roar-prompt.md"
+          description: "Captain Ashford triumphant!"
+          style: "Heroic portrait"
+        - file: "../maze/room-i/battle-08-delivery-prompt.md"
+          description: "Trophy placed at skeleton's feet"
+          style: "Solemn memorial, chiaroscuro"
+          
+    culinary_creations:
+      description: "Victory Cooking — the spoils of battle"
+      contents:
+        - file: "../maze/room-f/klingon-victory-hors-doeuvres.yml"
+          description: "🍽️ KLINGON VICTORY HORS D'OEUVRES — Grue meat + cheese!"
+          origin: "maze/room-f/ — created from battle spoils, Move 56"
+          type: recipe_card
+          servings: "12 (11 remaining)"
+          rating: "⭐⭐⭐⭐⭐ (5/5 bat'leths)"
+          
+    markers:
+      description: "Room markers — transformed food items"
+      contents:
+        - file: "../maze/room-f/alchemical-residue.yml"
+          description: "🔮 THE ALCHEMICAL RESIDUE — Scientific marker at kill site!"
+          origin: "maze/room-f/ — from Mysterious Stew, Move 55"
+          type: room_marker
+        - file: "../maze/room-h/the-thing-that-watches.yml"
+          description: "👁️ THE THING THAT WATCHES — Casserole merged with mushrooms!"
+          origin: "maze/room-h/ — from Suspicious Casserole, Move 58"
+          type: room_marker
+          
+    journey:
+      description: "The path home"
+      contents:
+        - file: "../maze/room-h/journey-home-card.yml"
+          description: "🏠 THE JOURNEY HOME — Dreamlike return through mapped maze!"
+          origin: "Moves 60-62 — From communion to commencement"
+          type: memory_card
+          marker_id: 7
+          
+    letters_sent:
+      description: "Outgoing mail to loved ones and legends"
+      contents:
+        - file: "../../kitchen/reply-to-mother.yml"
+          description: "First reply with 8 promises"
+          sent_on: "Move 5"
+        - file: "../../coatroom/package-for-mother.yml"
+          description: "Nomi Cape for Mother"
+          sent_on: "Move 11"
+        - file: "../../end/letter-to-mother-victory.yml"
+          description: "Treasure found letter"
+          sent_on: "Move 26"
+        - file: "../room-j/letter-to-richard-bartle.yml"
+          description: "📬 Letter to the father of MUD!"
+          sent_on: "Move 46"
+        - file: "../room-f/letter-to-mother-grue-slayer.yml"
+          description: "📬 THE GRUE SLAYER'S TALE — Full story + recipe + photos!"
+          sent_on: "Move 57"
+          contents:
+            - "Letter with full battle story"
+            - "Recipe Card: Klingon Victory Hors D'oeuvres"
+            - "8 Battle Photos (The Grue Slayer Series)"
+            - "Klingon Battle Song lyrics"
+            - "1 Vacuum-sealed hors d'oeuvre sample"
+          status: "🔒 NEVER SPENDING — Captain's orders (Move 43)"
+        - file: "../maze/room-j/machine-note.yml"
+          description: "📝 NOTE FROM THE MACHINE — Unit #47's confession"
+          origin: "maze/room-j/ — the vending machine remembers, Move 42"
+          type: note
+          emotional_weight: heavy
+          
+    memorial_jam_photos:
+      description: "8 prompts documenting the Memorial Jam Ceremony (Move 44-45)"
+      contents:
+        - "../maze/room-j/memorial-jam-01-first-taste-prompt.md"
+        - "../maze/room-j/memorial-jam-02-fullness-prompt.md"
+        - "../maze/room-j/memorial-jam-03-digestion-prompt.md"
+        - "../maze/room-j/memorial-jam-04-emergence-prompt.md"
+        - "../maze/room-j/memorial-jam-05-reaction-prompt.md"
+        - "../maze/room-j/memorial-jam-06-presentation-prompt.md"
+        - "../maze/room-j/memorial-jam-07-silly-dance-prompt.md"
+        - "../maze/room-j/memorial-jam-08-final-selfie-prompt.md"
+          
+    letters_sent:
+      description: "Victory correspondence"
+      contents:
+        - file: "../maze/room-i/letter-to-mother-skeleton.yml"
+          description: "💌 Letter about finding the skeleton and their lesson"
+          origin: "maze/room-i/ — The Skeleton's Chamber, Move 39"
+          enclosures:
+            - "Ode to the Lost Explorer (7 stanzas)"
+            - "8 skeleton memorial photo prompts"
+          status: queued_for_delivery
+        - file: "../maze/room-j/letter-to-richard-bartle.yml"
+          description: "💌 Letter to Richard Bartle — LIVE CHAT! Father of MUD!"
+          origin: "maze/room-j/ — at the vending machine, Move 46"
+          enclosures:
+            - "1 gold coin"
+            - "4 photo prompts from Memorial Jam Ceremony"
+            - "Links to adventure artifacts"
+          status: sent_awaiting_reply
+          priority: LEGENDARY
+        - file: "../end/letter-to-mother-victory.yml"
+          description: "Victory letter to Mother with photo enclosures"
+          origin: "end/ — Move 26"
+          status: "queued for Dungeon Post"
+          
+    victory_photos:
+      description: "Treasury photo session — Move 26"
+      chalice_closeups:
+        - file: "../end/chalice-closeup-gems-prompt.md"
+          description: "Macro: rubies and emeralds"
+        - file: "../end/chalice-closeup-inscription-prompt.md"
+          description: "The ancient inscription"
+        - file: "../end/chalice-closeup-reflection-prompt.md"
+          description: "Treasury reflection in gold"
+        - file: "../end/chalice-closeup-weight-prompt.md"
+          description: "Solid gold weight"
+      victory_portraits:
+        - file: "../end/ashford-victory-pose-lift-prompt.md"
+          description: "Triumphant lift, cape billowing"
+        - file: "../end/ashford-victory-pose-gaze-prompt.md"
+          description: "Reverent gaze into treasure"
+        - file: "../end/ashford-victory-pose-toast-prompt.md"
+          description: "Belter toast to Mother"
+        - file: "../end/ashford-victory-pose-pedestal-prompt.md"
+          description: "Casual lean, earned smugness"
+          
+    personas:
+      description: "Identity transformations and alter-egos"
+      contents:
+        - file: "../coatroom/bumblewick-ashford-persona.yml"
+          description: "Captain Ashford — Belter pirate captain"
+          origin: "coatroom/ — Maurice's transformation, Move 10"
+          status: currently_wearing
+          
+    costumes:
+      description: "Clothing, capes, and accessories"
+      contents:
+        - file: "../coatroom/ashford-nomi-cape.yml"
+          description: "The Belter Captain's Cape: Nomi Edition"
+          origin: "coatroom/ — Maurice's creation, Move 10"
+          pairs_with: "petunia-cape-nomi.yml (sent to Mother)"
+          status: currently_wearing
+          
+    photos:
+      description: "Visualization prompts for future rendering"
+      subsections:
+        adventure_moments:
+          description: "Commemorative selfies and snapshots"
+          contents:
+            - "../kitchen/ashford-cake-selfie-prompt.md"
+              # Selfie with The Cake That Has Seen Too Much
+              # Move 18 — First marker, first transcendence
+              
+        mothers_cape:
+          description: "8 prompts of Mother in the Adventurer Emerita"
+          contents:
+            - "../coatroom/petunia-cape-nomi-pose-dramatic-stance-prompt.md"
+            - "../coatroom/petunia-cape-nomi-pose-cape-flourish-prompt.md"
+            - "../coatroom/petunia-cape-nomi-pose-operatic-arms-raised-prompt.md"
+            - "../coatroom/petunia-cape-nomi-pose-seated-regal-prompt.md"
+            - "../coatroom/petunia-cape-nomi-expression-operatic-surprise-prompt.md"
+            - "../coatroom/petunia-cape-nomi-expression-knowing-smirk-prompt.md"
+            - "../coatroom/petunia-cape-nomi-expression-tender-pride-prompt.md"
+            - "../coatroom/petunia-cape-nomi-expression-fierce-determination-prompt.md"
+            
+        ashford_solo:
+          description: "8 prompts of Captain Ashford"
+          contents:
+            - "../coatroom/ashford-pose-belter-swagger-prompt.md"
+            - "../coatroom/ashford-pose-flask-toast-prompt.md"
+            - "../coatroom/ashford-pose-singing-defiance-prompt.md"
+            - "../coatroom/ashford-pose-captain-command-prompt.md"
+            - "../coatroom/ashford-expression-belter-grin-prompt.md"
+            - "../coatroom/ashford-expression-thinking-of-mother-prompt.md"
+            - "../coatroom/ashford-expression-pre-battle-focus-prompt.md"
+            - "../coatroom/ashford-expression-song-joy-prompt.md"
+            
+        dynasty:
+          description: "8 prompts of Mother and Son together"
+          contents:
+            - "../coatroom/dynasty-pose-back-to-back-prompt.md"
+            - "../coatroom/dynasty-pose-cape-flourish-together-prompt.md"
+            - "../coatroom/dynasty-pose-presenting-treasure-prompt.md"
+            - "../coatroom/dynasty-pose-arms-linked-prompt.md"
+            - "../coatroom/dynasty-selfie-matching-smirks-prompt.md"
+            - "../coatroom/dynasty-selfie-fierce-faces-prompt.md"
+            - "../coatroom/dynasty-selfie-cheek-kiss-prompt.md"
+            - "../coatroom/dynasty-selfie-operatic-duet-prompt.md"
+            
+        skeleton_memorial:
+          description: "8 prompts honoring the fallen explorer (Move 38)"
+          closeups:
+            - "../maze/room-i/skeleton-closeup-pointing-hand-prompt.md"
+            - "../maze/room-i/skeleton-closeup-unfinished-note-prompt.md"
+            - "../maze/room-i/skeleton-closeup-empty-lamp-prompt.md"
+            - "../maze/room-i/skeleton-closeup-three-coins-prompt.md"
+          portraits:
+            - "../maze/room-i/ashford-skeleton-pose-salute-prompt.md"
+            - "../maze/room-i/ashford-skeleton-pose-reading-ode-prompt.md"
+            - "../maze/room-i/ashford-skeleton-pose-compass-prompt.md"
+            - "../maze/room-i/ashford-skeleton-selfie-vigil-prompt.md"
+            
+        psychedelic_visions:
+          description: "8 MIND'S EYE visions from mushroom communion!"
+          origin: "maze/room-h/ — Move 59, The Fungal Communion"
+          contents:
+            - "../maze/room-h/psychedelic-vision-01-the-maze-breathes-prompt.md"
+            - "../maze/room-h/psychedelic-vision-02-mother-as-mycelium-prompt.md"
+            - "../maze/room-h/psychedelic-vision-03-the-grue-speaks-prompt.md"
+            - "../maze/room-h/psychedelic-vision-04-the-skeleton-dances-prompt.md"
+            - "../maze/room-h/psychedelic-vision-05-captain-ashford-multiplied-prompt.md"
+            - "../maze/room-h/psychedelic-vision-06-the-food-chain-spiral-prompt.md"
+            - "../maze/room-h/psychedelic-vision-07-the-lamp-eternal-prompt.md"
+            - "../maze/room-h/psychedelic-vision-08-home-prompt.md"
+            
+        homecoming:
+          description: "8 photos of the triumphant return — matching capes, treasures, family!"
+          origin: "home/ — Move 67, THE FINAL PHOTOS"
+          contents:
+            - "../home/homecoming-01-the-embrace-prompt.md"
+            - "../home/homecoming-02-the-treasure-reveal-prompt.md"
+            - "../home/homecoming-03-the-golden-cascade-prompt.md"
+            - "../home/homecoming-04-the-glaive-explanation-prompt.md"
+            - "../home/homecoming-05-reading-the-paper-prompt.md"
+            - "../home/homecoming-06-the-lamp-retirement-prompt.md"
+            - "../home/homecoming-07-the-cape-twirl-prompt.md"
+            - "../home/homecoming-08-the-family-portrait-prompt.md"
+            
+  actions:
+    - action: OPEN
+      effect: "View table of contents"
+    - action: READ
+      target: "{section}"
+      effect: "Read specific section"
+    - action: ADD
+      target: "{item}"
+      effect: "Add item to appropriate section"
+    - action: FLIP
+      effect: "Browse randomly — what memory surfaces?"
+      
+  lineage: |
+    Every adventurer needs a notebook. This one has seen:
+    - The Chamber of Commencement
+    - Mother's kitchen (tears)
+    - The Costume Emporium (transformation)
+    - A photo session with a mannequin
+    
+    It will see more.

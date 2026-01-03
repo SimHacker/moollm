@@ -1,0 +1,108 @@
+# The Starting Chamber
+# Where every hero's journey begins
+# "You are in a debris room..." — Colossal Cave, 1976
+
+room:
+  name: Chamber of Commencement
+  type: room
+  
+  # This room is safe!
+  lighting: magical
+  grue_safe: true
+  
+  # This is the respawn point
+  respawn_point: true
+  
+  # What happens when you reincarnate here
+  respawn_message: |
+    The darkness swallows you whole. But wait—
+    
+    A warm light. A sense of beginnings. The smell of slightly
+    damp stone and narrative convenience.
+    
+    You awaken in the Chamber of Commencement. Your score has
+    been reset to 0, but your inventory remains intact. The 
+    universe is merciful, if slightly disappointed in you.
+    
+    "Well," mutters Bumblewick, checking his waistcoat for grue
+    damage, "THAT was unpleasant. Mother will never hear of this."
+  
+  description: |
+    You are standing in a small chamber carved from living rock. The walls
+    bear the scratched initials of adventurers past:
+    
+      "WC+DW '76"       — Will Crowther & Don Woods, the founders
+      "SA '78"          — Scott Adams, who brought adventures home
+      "XYZZY WAS HERE"  — A mystery, a magic word, a tradition
+      
+      "CA '26"          — Captain Ashford, Grue Slayer, First Penguin
+      "(BF underneath)" — Bumblewick Fantastipants, the hero beneath the cape
+    
+    The newest carvings are fresh, cut with something sharp and pungent.
+    They smell faintly of blue cheese.
+    
+    The chamber is suffused with a soft, sourceless glow — the kind of
+    magical light that adventure games provide to starting areas so that
+    heroes don't immediately die in the dark. How thoughtful.
+    
+    The brass lamp is gone from its shelf. You took it. You kept it lit.
+    You upgraded it to Premium Blue. You earned that lamp.
+    
+    Three exits beckon, plus a stairway UP you hadn't noticed before:
+    
+    NORTH: A rough archway leading into the maze — now CONQUERED and MAPPED.
+    
+    WEST: The kitchen — where Mother's note waited, where promises were made.
+    
+    EAST: The coatroom — where Bumblewick became Captain Ashford.
+    
+    UP: A stairway leading to warm light and the smell of pie. Home.
+    
+    (Your score is 21. Your moves: 65. Your grues slain: 1. Your legend: BEGUN.)
+  
+  # Who and what is here
+  occupants:
+    - hero          # The player starts here
+  
+  objects: []
+    # lamp.yml - TAKEN by Bumblewick (move 1)
+  
+  # Ways out
+  exits:
+    north:
+      destination: ../maze/room-a/
+      description: |
+        A rough archway carved through the rock. Beyond it, shadows pool
+        like spilled ink. Your lamp's light doesn't quite reach whatever
+        lies ahead. You have a bad feeling about this. The kind of feeling
+        one gets before entering a maze of twisty little passages, all alike.
+        
+        Someone has scratched "ABANDON HOPE" on the archway, then crossed
+        it out and written "ACTUALLY IT'S NOT THAT BAD" underneath.
+        
+    west:
+      destination: ../kitchen/
+      description: |
+        A cheerful doorway leads to what smells like... home? The unmistakable
+        aroma of the Fantastipants family kitchen wafts through. Someone has
+        recreated it down here. How thoughtful! And slightly creepy!
+        
+    east:
+      destination: ../coatroom/
+      description: |
+        An ornate doorway draped with velvet curtains in a dozen clashing colors.
+        Beyond, you glimpse racks upon racks of costumes — feathers, sequins, 
+        armor, ball gowns, spacesuits, and things that defy description.
+        
+        A sign reads: "THE FANTASTIPANTS COSTUME EMPORIUM — BE ANYONE YOU WANT!"
+  
+  # Position in world space
+  world_position:
+    x: 0
+    y: 0
+    
+  # Atmosphere
+  ambience: |
+    Water drips somewhere in the darkness — the universal soundtrack
+    of underground adventure. The air is cool and smells of earth,
+    mystery, and faintly of ancient riddles.

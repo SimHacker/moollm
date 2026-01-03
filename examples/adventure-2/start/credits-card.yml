@@ -1,0 +1,906 @@
+# 🎬 ADVENTURE 2: THE BUMBLEWICK CHRONICLES
+# CREDITS CARD
+# "We stand on the shoulders of giants — and some very clever grues."
+
+card:
+  name: "Credits Card: The Bumblewick Chronicles"
+  type: credits_roll
+  rarity: legendary
+  
+  title: "THE END"
+  subtitle: "And the Beginning of Everything That Made This Possible"
+  
+  dedication: |
+    For Mother.
+    For everyone who ever typed "GET LAMP."
+    For the grues who never got their due.
+    For the skeleton, one room away.
+    
+    And for you, reading this.
+    Thank you for playing.
+    
+  # ═══════════════════════════════════════════════════════════════════════════
+  # CREDITS ROLL — IN ORDER OF APPEARANCE
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  credits:
+    
+    # ─────────────────────────────────────────────────────────────────────────
+    # MOVE 0: THE FOUNDATIONS
+    # Before the adventure began, these ideas shaped the world
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    section_00_foundations:
+      title: "THE FOUNDATIONS"
+      subtitle: "The world was built on these shoulders"
+      
+      entries:
+        
+        - name: "MOOLLM Framework"
+          role: "The Operating System"
+          contribution: |
+            The entire adventure runs on MOOLLM — the filesystem-as-microworld
+            operating system that treats directories as rooms, files as objects,
+            and YAML as physics. Without this architecture, none of this exists.
+          appears_in:
+            - "Every file"
+            - "Every directory"
+            - "Every protocol"
+          link: "../../../../README.md"
+          
+        - name: "Seymour Papert"
+          role: "Philosophical Foundation"
+          contribution: |
+            Constructionism — the idea that learning happens best when you build
+            things you can inspect, modify, and share. The entire PLAY-LEARN-LIFT
+            philosophy descends from Papert's work with Logo and Mindstorms.
+          works:
+            - "Mindstorms: Children, Computers, and Powerful Ideas (1980)"
+            - "Logo programming language"
+            - "MIT Media Lab founding"
+          appears_in:
+            - "The entire adventure structure"
+            - "Every card we created"
+            - "Every skill we learned"
+          
+        - name: "Alan Kay"
+          role: "Vision"
+          contribution: |
+            "The best way to predict the future is to invent it." The Dynabook
+            vision, Smalltalk, and the idea of computers as expressive media
+            rather than mere tools. MOOLLM is an attempt to make filesystems
+            feel like Smalltalk objects.
+          works:
+            - "Smalltalk programming language"
+            - "Dynabook concept"
+            - "Object-oriented programming philosophy"
+          appears_in:
+            - "The prototype-based inheritance"
+            - "The live, inspectable world"
+            - "The idea that everything is an object"
+            
+        - name: "Marvin Minsky"
+          role: "Cognitive Architecture"
+          contribution: |
+            The Society of Mind — agents collaborating, K-lines as memory anchors,
+            the mind as a bureaucracy of simple processes. MOOLLM protocols are
+            K-lines. Characters are agents. The coherence engine is the society.
+          works:
+            - "Society of Mind (1986)"
+            - "K-lines theory"
+            - "MIT AI Lab founding"
+          appears_in:
+            - "Protocol symbols (K-lines)"
+            - "Character as agent architecture"
+            - "The coherence engine concept"
+            
+    # ─────────────────────────────────────────────────────────────────────────
+    # MOVE 1: THE CHAMBER OF COMMENCEMENT
+    # "WC+DW '76", "SA '78", "XYZZY WAS HERE"
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    section_01_chamber:
+      title: "THE CHAMBER OF COMMENCEMENT"
+      subtitle: "Where the inscriptions spoke"
+      
+      entries:
+        
+        - name: "Will Crowther"
+          initials: "WC"
+          role: "The First Adventurer"
+          contribution: |
+            Created the original ADVENTURE (1975-76) based on his experiences
+            caving in Mammoth Cave, Kentucky. The first text adventure ever made.
+            Every game that asks you to "GET LAMP" descends from his work.
+          works:
+            - "Colossal Cave Adventure (1975-76)"
+          appears_in:
+            - "start/ROOM.yml — 'WC+DW 76' inscription"
+            - "The lamp"
+            - "The maze structure"
+            - "The entire concept of rooms and exits"
+            
+        - name: "Don Woods"
+          initials: "DW"
+          role: "The Collaborator"
+          contribution: |
+            Expanded and polished Crowther's ADVENTURE in 1977, adding puzzles,
+            treasure, and the fantasy elements that defined the genre. The
+            magic word XYZZY was his contribution.
+          works:
+            - "Colossal Cave Adventure expansion (1977)"
+          appears_in:
+            - "start/ROOM.yml — 'WC+DW 76' inscription"
+            - "'XYZZY WAS HERE' graffiti"
+            - "The treasure hunt structure"
+            
+        - name: "Scott Adams"
+          initials: "SA"
+          role: "Commercial Pioneer"
+          contribution: |
+            First commercial text adventure developer. Proved you could sell
+            these things. Made adventure games accessible to home computers.
+            His terse, economical prose style influenced a generation.
+          works:
+            - "Adventureland (1978)"
+            - "Pirate Adventure (1978)"
+            - "12 classic adventure games"
+          appears_in:
+            - "start/ROOM.yml — 'SA 78' inscription"
+            - "The sparse, evocative room descriptions"
+            
+        - name: "Dave Lebling, Marc Blank, Tim Anderson, Bruce Daniels"
+          role: "Infocom/Zork"
+          contribution: |
+            Created Zork and founded Infocom. Invented the GRUE — the monster
+            that eats you in the dark. Expanded parser capabilities. Made
+            text adventures into literature.
+          works:
+            - "Zork series (1977-)"
+            - "The grue"
+            - "Rich parser interactions"
+          appears_in:
+            - "The grue that we SLAYED"
+            - "MC Frontalot reference"
+            - "The dark maze danger"
+            
+        - name: "Warren Robinett"
+          role: "Easter Egg Pioneer"
+          contribution: |
+            Created Atari Adventure (1979), the first graphical adventure game.
+            Hid the first Easter egg in video game history. Also created
+            Rocky's Boots and Robot Odyssey — profound influences on MOOLLM's
+            room-as-machine metaphor.
+          works:
+            - "Atari Adventure (1979)"
+            - "Rocky's Boots (1982)"
+            - "Robot Odyssey (1984)"
+          appears_in:
+            - "The adventure game format"
+            - "Hidden surprises and secrets"
+            - "Room-as-machine thinking"
+            
+    # ─────────────────────────────────────────────────────────────────────────
+    # MOVE 1: THE LAMP
+    # "GET LAMP"
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    section_02_lamp:
+      title: "THE LAMP"
+      subtitle: "The first command every adventurer learns"
+      
+      entries:
+        
+        - name: "Jason Scott"
+          role: "Documentary Filmmaker"
+          contribution: |
+            Made "Get Lamp" (2010), the definitive documentary about text
+            adventures. Our use of "GET LAMP" instead of "TAKE LAMP" is
+            a direct tribute to his work preserving this history.
+          works:
+            - "Get Lamp documentary (2010)"
+            - "textfiles.com"
+            - "Archive Team"
+          appears_in:
+            - "Every reference to 'GET LAMP'"
+            - "The importance we place on the lamp"
+            
+        - name: "The Brass Lamp"
+          role: "Universal Symbol"
+          type: artifact
+          contribution: |
+            The lamp appears in almost every classic adventure game. It
+            represents preparedness, foresight, and the courage to enter
+            the darkness. Our lamp carries Premium Glow Juice now.
+          lineage:
+            - "Colossal Cave Adventure brass lantern"
+            - "Zork brass lantern"
+            - "Every adventure lamp since"
+          appears_in:
+            - "start/lamp.yml"
+            - "Every dark room we survived"
+            - "The grue battle"
+            
+    # ─────────────────────────────────────────────────────────────────────────
+    # MOVE 2: THE KITCHEN
+    # Mother's note, food as inventory
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    section_03_kitchen:
+      title: "THE KITCHEN"
+      subtitle: "Where Mother's love became game mechanics"
+      
+      entries:
+        
+        - name: "Will Wright"
+          role: "Food Chain Architect"
+          contribution: |
+            The Sims' food preparation system — where characters autonomously
+            find ingredients, cook, and eat — inspired our food-as-maze-marker
+            system. The action queue, advertisements, and SimAntics all descend
+            from Wright's vision of emergent behavior.
+          works:
+            - "The Sims (2000)"
+            - "SimCity (1989)"
+            - "SimAntics scripting system"
+          appears_in:
+            - "The fridge and food system"
+            - "The eating/transformation mechanic"
+            - "The action queue concept"
+            - "The advertisement system"
+            
+        - name: "Don Hopkins"
+          role: "Constructionist Game Design"
+          contribution: |
+            Made the original Logo Adventure for C64 where the command line
+            WAS the parser. Users could "cheat" by learning Logo commands.
+            Also did revolutionary work on Constructionist SimCity for OLPC.
+          works:
+            - "Logo Adventure for C64 Terrapin Logo"
+            - "Constructionist SimCity for OLPC"
+            - "Pie menus"
+          appears_in:
+            - "The command-line-as-parser idea"
+            - "The constructionist philosophy"
+            - "The ability to inspect and modify everything"
+            
+    # ─────────────────────────────────────────────────────────────────────────
+    # MOVE 3-10: THE COATROOM
+    # Maurice, costumes, transformation
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    section_04_coatroom:
+      title: "THE COATROOM"
+      subtitle: "Where identity became editable"
+      
+      entries:
+        
+        - name: "The Sims Create-A-Sim"
+          role: "Character Customization"
+          type: software_feature
+          contribution: |
+            The Sims' character creation screen — where you can endlessly
+            tweak appearance, personality, and backstory — directly inspired
+            the Coatroom as a place to transform yourself.
+          appears_in:
+            - "coatroom/ROOM.yml"
+            - "Maurice the Mannequin"
+            - "The costume combination system"
+            
+        - name: "Klaus Nomi"
+          role: "Aesthetic Inspiration"
+          contribution: |
+            The German countertenor and new wave artist (1944-1983) whose
+            dramatic capes, operatic style, and fearless self-transformation
+            inspired both our capes and our understanding of costume as identity.
+          works:
+            - "Lightning Strikes (1981)"
+            - "Simple Man (1982)"
+            - "His entire visual aesthetic"
+          appears_in:
+            - "The Nomi capes (both)"
+            - "The operatic posing"
+            - "The fearless self-expression"
+            
+        - name: "David Strathairn as Klaes Ashford"
+          role: "Character Template"
+          contribution: |
+            From The Expanse TV series. The Belter pirate captain who sang
+            in the face of death. Captain Ashford is our tribute to his
+            honor, his music, and his sacrifice.
+          works:
+            - "The Expanse (2015-2022)"
+            - "Klaes Ashford character"
+          appears_in:
+            - "The entire Captain Ashford persona"
+            - "Belter dialect and culture"
+            - "The singing during danger"
+            
+        - name: "James S.A. Corey (Daniel Abraham & Ty Franck)"
+          role: "World Builders"
+          contribution: |
+            Authors of The Expanse novels. Created the Belter culture,
+            language, and the character of Ashford that we drew from.
+          works:
+            - "The Expanse novel series"
+            - "Belter Creole language"
+          appears_in:
+            - "All Belter references"
+            - "The 'sa sa sa' work songs"
+            
+    # ─────────────────────────────────────────────────────────────────────────
+    # MOVES 11-20: THE MAZE BEGINS
+    # Apple, Oracle Core, first markers
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    section_05_maze_begins:
+      title: "THE MAZE OF TWISTY PASSAGES"
+      subtitle: "All alike, all different"
+      
+      entries:
+        
+        - name: "The Twisty Maze"
+          role: "Universal Puzzle"
+          type: concept
+          contribution: |
+            "You are in a maze of twisty little passages, all alike" is
+            from Colossal Cave Adventure. It's the original mapping puzzle —
+            drop items to tell rooms apart. We did it with transformed food.
+          appears_in:
+            - "Every maze room"
+            - "The food-dropping navigation strategy"
+            - "The Oracle Compass"
+            
+        - name: "The Oracle at Delphi"
+          role: "Mythological Reference"
+          type: concept
+          contribution: |
+            The Oracle Core — our transformed apple — channels the ancient
+            tradition of oracles providing cryptic wisdom. Also references
+            the biblical apple of knowledge.
+          appears_in:
+            - "maze/room-d/oracle-core.yml"
+            - "The prophecy system"
+            
+    # ─────────────────────────────────────────────────────────────────────────
+    # MOVES 21-30: THE TREASURY
+    # Victory, chalice, celebration
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    section_06_treasury:
+      title: "THE TREASURY"
+      subtitle: "Where treasure means more than gold"
+      
+      entries:
+        
+        - name: "The Quest for Treasure"
+          role: "Universal Story"
+          type: concept
+          contribution: |
+            From Gilgamesh to Ready Player One, the treasure hunt is
+            humanity's oldest story. Our chalice represents not wealth
+            but love — treasure for Mother.
+          lineage:
+            - "Colossal Cave treasure collection"
+            - "Zork trophy case"
+            - "Every adventure game ever"
+          appears_in:
+            - "end/treasure.yml"
+            - "The victory photos"
+            - "Promise #1: Find treasure"
+            
+    # ─────────────────────────────────────────────────────────────────────────
+    # MOVES 31-40: THE SKELETON
+    # Memorial, Richard Bartle, MUD heritage
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    section_07_skeleton:
+      title: "THE SKELETON"
+      subtitle: "One room away"
+      
+      entries:
+        
+        - name: "Richard Bartle"
+          role: "Father of MUD"
+          contribution: |
+            Co-created MUD1 (1978), the first multi-user dungeon. Pioneered
+            online multiplayer gaming. His player taxonomy (Killers, Achievers,
+            Socializers, Explorers) shaped our understanding of why people play.
+            We wrote him a letter in the game.
+          works:
+            - "MUD1 (1978) with Roy Trubshaw"
+            - "Designing Virtual Worlds (2003)"
+            - "Player taxonomy"
+          appears_in:
+            - "The letter to Richard Bartle"
+            - "The MUD heritage"
+            - "The multi-user potential"
+            
+        - name: "The Skeleton"
+          role: "Memento Mori"
+          type: concept
+          contribution: |
+            The adventurer who almost made it. One room away from the
+            vending machine. A reminder that preparation matters, that
+            luck runs out, that we honor those who came before.
+          appears_in:
+            - "maze/room-i/"
+            - "The Ode to the Lost Explorer"
+            - "The Vow of Vengeance"
+            
+        - name: "Pavel Curtis"
+          role: "LambdaMOO Creator"
+          contribution: |
+            Created LambdaMOO (1990), pioneering social virtual worlds
+            and object-oriented world building. The idea that users can
+            create and program their own objects.
+          works:
+            - "LambdaMOO (1990)"
+          appears_in:
+            - "The programmable object philosophy"
+            
+        - name: "Jim Aspnes"
+          role: "TinyMUD Creator"
+          contribution: |
+            Created TinyMUD (1989), which democratized MUD creation and
+            led to the explosion of user-created worlds.
+          works:
+            - "TinyMUD (1989)"
+          appears_in:
+            - "The user-created world philosophy"
+            
+    # ─────────────────────────────────────────────────────────────────────────
+    # MOVES 41-50: THE VENDING MACHINE
+    # Memorial coin, machine empathy, grue hunt begins
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    section_08_vending:
+      title: "THE VENDING MACHINE"
+      subtitle: "Unit #47 remembers"
+      
+      entries:
+        
+        - name: "The Battery Vendor"
+          role: "Colossal Cave Reference"
+          type: concept
+          contribution: |
+            In Colossal Cave Adventure, there's a vending machine that sells
+            batteries for your lantern. Our machine is its descendant — but
+            with feelings, and memory, and guilt about the skeleton.
+          appears_in:
+            - "maze/room-j/vending-machine.yml"
+            - "The lamp refuel mechanic"
+            - "The memorial coin"
+            
+        - name: "MC Frontalot"
+          role: "Nerdcore Pioneer"
+          contribution: |
+            His song "It Is Pitch Dark" is the definitive grue anthem.
+            We quote it every time someone is eaten by a grue (which was
+            never, because we're not idiots).
+          works:
+            - '"It Is Pitch Dark" (2008)'
+            - "Nerdcore Rising"
+          appears_in:
+            - "Every grue_event description"
+            - "The reincarnation messages"
+            
+    # ─────────────────────────────────────────────────────────────────────────
+    # MOVES 51-57: THE GRUE HUNT
+    # Battle, cheese weapon, Klingon song, victory
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    section_09_grue_hunt:
+      title: "THE GRUE HUNT"
+      subtitle: "We did what no one thought possible"
+      
+      entries:
+        
+        - name: "Klingon Language & Culture"
+          role: "Battle Song Framework"
+          contribution: |
+            Marc Okrand created the Klingon language for Star Trek. The
+            warrior culture, the battle songs, the honor codes — all
+            provided the framework for our pre-battle opera.
+          works:
+            - "The Klingon Dictionary (1985)"
+            - "Star Trek films and series"
+          appears_in:
+            - "The Klingon Battle Song"
+            - "The victory hors d'oeuvres"
+            - "HONOR through CHEESE"
+            
+        - name: "Ash Blue Gutierrez"
+          role: "Operatic Style"
+          contribution: |
+            The operatic style reference for our battle song. Dramatic,
+            powerful, unafraid to be ridiculous and sublime simultaneously.
+          appears_in:
+            - "The battle song style"
+            
+        - name: "The Grue"
+          role: "Ultimate Adversary"
+          type: creature
+          contribution: |
+            The grue is darkness incarnate. Created for Zork by Infocom, 
+            feared by generations. We killed one with cheese. It deserved 
+            a better death. It also deserved to be eaten.
+          lineage:
+            - "Zork I (1980)"
+            - "Jack Vance's 'Dying Earth' stories (original inspiration)"
+          appears_in:
+            - "The entire dark maze"
+            - "The battle"
+            - "The trophy"
+            - "The hors d'oeuvres"
+            
+    # ─────────────────────────────────────────────────────────────────────────
+    # MOVES 58-62: THE MUSHROOM COMMUNION
+    # Psychedelic visions, journey home
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    section_10_mushrooms:
+      title: "THE MUSHROOM COMMUNION"
+      subtitle: "Where we became everything"
+      
+      entries:
+        
+        - name: "Paul Stamets"
+          role: "Mycologist Philosopher"
+          contribution: |
+            His work on mycelium networks — how fungi connect forests
+            into single organisms — inspired our vision of Mother as
+            Mycelium, the maze as a living, breathing entity.
+          works:
+            - "Mycelium Running (2005)"
+            - "Fantastic Fungi (documentary, 2019)"
+          appears_in:
+            - "The psychedelic visions"
+            - "Mother as Mycelium"
+            - "The Thing That Watches"
+            
+        - name: "Terence McKenna"
+          role: "Psychedelic Philosophy"
+          contribution: |
+            His ideas about mushrooms and consciousness, about plants as
+            teachers, about the logos speaking through nature — all
+            influenced the communion scene.
+          works:
+            - "Food of the Gods (1992)"
+            - "The Archaic Revival (1991)"
+          appears_in:
+            - "The 8 psychedelic visions"
+            - "The food chain spiral vision"
+            
+    # ─────────────────────────────────────────────────────────────────────────
+    # MOVE 63: THE POSTMODERN PAPER
+    # Academic spoof, deconstruction
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    section_11_deconstruction:
+      title: "THE DECONSTRUCTION"
+      subtitle: "How to analyze almost anything"
+      
+      entries:
+        
+        - name: "Chip Morningstar & Randy Farmer"
+          role: "Primary Inspiration"
+          contribution: |
+            Their essay "How to Deconstruct Almost Anything" (1993) inspired
+            our postmodern paper. More importantly, their work on Lucasfilm's
+            Habitat (1986) pioneered graphical virtual worlds and coined
+            the term "avatar." First Penguin Award winners.
+          works:
+            - '"How to Deconstruct Almost Anything" (1993)'
+            - "Lucasfilm's Habitat (1986)"
+            - '"The Lessons of Lucasfilm\'s Habitat"'
+          appears_in:
+            - "kitchen/postmodern-deconstruction.md"
+            - "The entire avatar philosophy"
+            - "README.md credits"
+            
+        - name: "Marshall McLuhan"
+          role: "Media Theorist"
+          contribution: |
+            "The medium is the message." In MOOLLM, the filesystem IS
+            the world. The YAML IS the physics. McLuhan would understand.
+          works:
+            - "Understanding Media (1964)"
+            - "The medium is the message"
+          appears_in:
+            - "The postmodern paper"
+            - "The entire MOOLLM philosophy"
+            
+        - name: "Scott McCloud"
+          role: "Comics Theorist"
+          contribution: |
+            His analysis of "closure" — how readers fill in the gaps
+            between panels — applies perfectly to YAML Jazz, where
+            comments carry meaning and the reader completes the picture.
+          works:
+            - "Understanding Comics (1993)"
+            - "Reinventing Comics (2000)"
+          appears_in:
+            - "The postmodern paper"
+            - "The YAML Jazz philosophy"
+            
+        - name: "Jacques Derrida"
+          role: "Deconstruction"
+          contribution: |
+            Différance, the endless deferral of meaning. The dishes that
+            will never be done. The signifier without signified.
+          works:
+            - "Of Grammatology (1967)"
+            - "Deconstruction theory"
+          appears_in:
+            - "The postmodern paper"
+            - "The dishes as symbol"
+            
+    # ─────────────────────────────────────────────────────────────────────────
+    # MOVES 64-67: THE HOMECOMING
+    # Return, reunion, photos
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    section_12_homecoming:
+      title: "THE HOMECOMING"
+      subtitle: "Where every story ends"
+      
+      entries:
+        
+        - name: "Joseph Campbell"
+          role: "Myth Scholar"
+          contribution: |
+            The Hero's Journey — departure, initiation, return. We departed
+            from the Chamber, were initiated in the maze, and returned home.
+            Campbell mapped the structure we lived.
+          works:
+            - "The Hero with a Thousand Faces (1949)"
+            - "The monomyth"
+          appears_in:
+            - "The entire adventure structure"
+            - "The homecoming"
+            - "The transformation and return"
+            
+        - name: "Doug Engelbart"
+          role: "Augmentation Pioneer"
+          contribution: |
+            His vision of computers augmenting human intellect, of
+            collaborative tools, of the NLS system — MOOLLM aims to
+            be this for thought, for narrative, for memory.
+          works:
+            - "The Mother of All Demos (1968)"
+            - "NLS system"
+            - "The mouse"
+          appears_in:
+            - "The multi-user potential"
+            - "The augmentation philosophy"
+            
+    # ─────────────────────────────────────────────────────────────────────────
+    # MOVE 68: THE DREAM
+    # Dream Catcher, integration
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    section_13_dream:
+      title: "THE DREAM"
+      subtitle: "Where everything becomes one"
+      
+      entries:
+        
+        - name: "Carl Jung"
+          role: "Dream Psychology"
+          contribution: |
+            The collective unconscious, archetypes, dream analysis as
+            integration. The dream where all parts of the adventure
+            coexist is Jungian individuation.
+          works:
+            - "Man and His Symbols (1964)"
+            - "Collective unconscious theory"
+          appears_in:
+            - "home/dream-card.yml"
+            - "The integration symbolism"
+            
+        - name: "The Dream Catcher"
+          role: "Story Device"
+          type: artifact
+          contribution: |
+            A Native American symbol, here transformed into a narrative
+            device that captures and inscribes dreams as cards. We mean
+            no disrespect to the original tradition.
+          appears_in:
+            - "The dream card"
+            - "The final capture"
+            
+    # ─────────────────────────────────────────────────────────────────────────
+    # TECHNICAL CREDITS
+    # Tools, formats, systems
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    section_14_technical:
+      title: "TECHNICAL CREDITS"
+      subtitle: "The tools that built the world"
+      
+      entries:
+        
+        - name: "YAML"
+          role: "Data Format"
+          contribution: |
+            Yet Another Markup Language — the human-readable data format
+            that makes YAML Jazz possible. Comments have meaning.
+          appears_in:
+            - "Every .yml file"
+            
+        - name: "Markdown"
+          role: "Document Format"
+          contribution: |
+            John Gruber's creation — the format for all our prose,
+            letters, and this very credits roll.
+          appears_in:
+            - "Every .md file"
+            - "This credits card (rendered)"
+            
+        - name: "Git"
+          role: "Version Control"
+          contribution: |
+            Linus Torvalds' creation — the time machine that tracks
+            every change, every evolution, every mistake and recovery.
+          appears_in:
+            - "The entire repo history"
+            - "NO-VERSIONS philosophy (Git IS the versions)"
+            
+        - name: "GitHub"
+          role: "Hosting & Rendering"
+          contribution: |
+            Where this adventure lives. Where the README.md becomes
+            a navigable document. Where Mermaid diagrams render.
+          appears_in:
+            - "The public repository"
+            - "All the pretty formatting"
+            
+        - name: "Anthropic Claude"
+          role: "Coherence Engine"
+          contribution: |
+            The LLM that serves as the coherence engine for this adventure.
+            The Dungeon Master. The narrator. The one maintaining
+            consistency across thousands of files and moves.
+          appears_in:
+            - "Every response"
+            - "Every file generated"
+            - "Every narrative moment"
+            
+        - name: "Cursor"
+          role: "IDE"
+          contribution: |
+            The development environment where this was built. MOOLLM
+            has a Cursor driver for a reason.
+          appears_in:
+            - "kernel/drivers/cursor.yml"
+            
+    # ─────────────────────────────────────────────────────────────────────────
+    # SPECIAL THANKS
+    # People and concepts not yet credited
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    section_15_special_thanks:
+      title: "SPECIAL THANKS"
+      subtitle: "And everyone else who made this possible"
+      
+      entries:
+        
+        - name: "Dan Ingalls"
+          role: "Smalltalk Implementation"
+          contribution: "The live, image-based programming that MOOLLM aspires to."
+          
+        - name: "John Maloney"
+          role: "Morphic/Scratch"
+          contribution: "Direct manipulation and visual programming for everyone."
+          
+        - name: "Arthur van Hoff"
+          role: "HyperLook"
+          contribution: "The HyperCard-meets-NeWS vision."
+          
+        - name: "Ken Kahn"
+          role: "ToonTalk & LLM Experiments"
+          contribution: "Programming as animation, LLMs as educational tools."
+          
+        - name: "Brian Harvey"
+          role: "Berkeley Logo, Snap!"
+          contribution: "Keeping Logo alive and accessible, and Snap! as a visual programming language."
+          
+        - name: "Jens Mönig"
+          role: "Snap!"
+          contribution: "Visual programming evolved."
+          
+        - name: "Bill Atkinson"
+          role: "HyperCard"
+          contribution: "The original inspiration for card-based computing."
+          
+        - name: "Dave Ungar"
+          role: "Self Language"
+          contribution: "Prototype-based inheritance, 'It's About Time' philosophy."
+          
+        - name: "Dave Ackley"
+          role: "Movable Feast Machine"
+          contribution: "Robust-first design, living computation."
+          
+        - name: "Alan Cypher & Brad Myers"
+          role: "Programming by Demonstration"
+          contribution: "The foundation of PLAY-LEARN-LIFT."
+          
+        - name: "Ted Nelson"
+          role: "Xanadu/Intertwingularity"
+          contribution: "Everything is deeply intertwingled."
+          
+        - name: "Mother"
+          role: "Love"
+          contribution: "Everything."
+          
+    # ─────────────────────────────────────────────────────────────────────────
+    # FINAL CREDITS
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    section_16_final:
+      title: "THE END"
+      subtitle: "Go play. Go learn. Go lift."
+      
+      entries:
+        
+        - name: "You"
+          role: "Player"
+          contribution: |
+            You made it to the end of the credits. You read about everyone
+            who contributed to making this strange, beautiful thing exist.
+            
+            Now it's your turn.
+            
+            What will you build?
+            What will you transform?
+            What will you leave inscribed on the wall?
+            
+  # ═══════════════════════════════════════════════════════════════════════════
+  # POSTSCRIPT
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  postscript: |
+    ┌────────────────────────────────────────────────────────────────────────┐
+    │                                                                        │
+    │   This adventure was created through PLAY-LEARN-LIFT:                  │
+    │                                                                        │
+    │   PLAY   — We explored the maze, made mistakes, ate things             │
+    │   LEARN  — We found patterns, built skills, created cards              │
+    │   LIFT   — We extracted wisdom, shared knowledge, came home            │
+    │                                                                        │
+    │   No grues were permanently harmed.                                    │
+    │   (It got better.)                                                     │
+    │                                                                        │
+    │   The cheese was delicious.                                            │
+    │                                                                        │
+    │   Mother is proud.                                                     │
+    │                                                                        │
+    │   The dishes remain undone.                                            │
+    │                                                                        │
+    │   ───────────────────────────────────────────────────────              │
+    │                                                                        │
+    │   "Start with jazz, end with standards."                               │
+    │                                                                        │
+    │   We started with nothing but a lamp and a note.                       │
+    │   We ended with a notebook full of memories.                           │
+    │                                                                        │
+    │   That's the adventure.                                                │
+    │   That's MOOLLM.                                                       │
+    │   That's life.                                                         │
+    │                                                                        │
+    │   Now go make pancakes.                                                │
+    │                                                                        │
+    └────────────────────────────────────────────────────────────────────────┘
+    
+  # ═══════════════════════════════════════════════════════════════════════════
+  # METADATA
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  created: "Move 69 — The Final Move"
+  total_inspirations: "50+"
+  total_works_referenced: "100+"
+  cheese_weapons: 1
+  grues_slain: 1
+  promises_kept: "8/8 (+1 EXCEEDED)"
+  mother_pride_level: "MAXIMUM"

@@ -1,0 +1,154 @@
+# The Brass Lamp
+# A classic adventuring essential since 1976
+
+object:
+  name: Brass Lamp
+  type: light_source
+  
+  description: |
+    A battered brass lamp of the sort that genies traditionally inhabit,
+    though this one appears to be genie-free (you checked). The brass is
+    tarnished to a dignified patina that whispers of adventures past.
+    A small plaque reads: "Property of Colossal Cave, please return."
+  
+  examine: |
+    The lamp burns with an ELECTRIC BLUE flame now — the PREMIUM
+    GLOW JUICE you bought at the vendor. It's brighter, steadier,
+    and pulses with otherworldly luminescence.
+    
+    The grues fear this light. They hesitate. They remember.
+    
+    You bought this for the skeleton. They wanted it so badly.
+    They never made it. But you did.
+    
+    Oil gauge: {oil:.1f} units. That's about {oil/1.0:.0f} moves of light.
+    You are ready for ANYTHING.
+  
+  # State (oil is FLOATING POINT!)
+  lit: true
+  oil: 969.0  # Final ascent — the lamp that never went dark
+  status: RETIRED_WITH_HONOR  # You earned your rest, old friend               # After letter to Mother (Move 57)
+  oil_warning: 50.0        # Warn player when oil drops below this
+  oil_critical: 10.0       # "Your lamp is about to go out!"
+  oil_empty: 0.0           # Darkness. Grues. Death.
+  
+  # 💙 PREMIUM GLOW JUICE UPGRADE (Move 43)
+  blue_glow: true
+  blue_glow_effects:
+    visual: "Electric blue flame, brighter and steadier"
+    grue_effect: "Grues hesitate — one free turn to escape"
+    psychological: "You look like a hero now"
+    origin: "Purchased at ACME Lamp Refueling Unit #47"
+    for_whom: "The skeleton in Room I — they wanted this"
+  
+  # ═══════════════════════════════════════════════════════════════════
+  # OIL CONSUMPTION RULES — DM MUST APPLY THESE EACH TURN!
+  # ═══════════════════════════════════════════════════════════════════
+  oil_consumption:
+    # Base rates (per action, while lamp is lit)
+    movement: 1.0          # Moving to another room
+    wait: 0.5              # Standing still, looking around
+    action: 0.25           # GET, DROP, EXAMINE, etc.
+    talk: 0.1              # Conversation, reading
+    
+    # Environmental modifiers (MULTIPLY base rate)
+    modifiers:
+      cold_room: 2.0       # room-f: supernatural cold drains oil faster!
+      windy: 1.5           # Strong drafts make flame work harder
+      damp: 1.2            # Humidity affects combustion
+      normal: 1.0          # Standard conditions
+    
+    # Special cases
+    extinguished: 0.0      # No consumption when lamp is off
+    
+  # ═══════════════════════════════════════════════════════════════════
+  # DM INSTRUCTIONS — READ THIS!
+  # ═══════════════════════════════════════════════════════════════════
+  dm_instructions: |
+    EVERY TURN while the lamp is lit, you MUST:
+    
+    1. DETERMINE the action type (movement, wait, action, talk)
+    2. CHECK for environmental modifiers (cold_room, windy, damp)
+    3. CALCULATE: oil_cost = base_rate × modifier
+    4. UPDATE: lamp.oil = lamp.oil - oil_cost
+    5. CHECK thresholds and WARN player:
+       - oil < 50: "Your lamp flickers. Oil is getting low."
+       - oil < 10: "Your lamp sputters! It's about to go out!"
+       - oil <= 0: "Your lamp dies. Darkness engulfs you."
+    
+    EXAMPLE (moving through cold room-f):
+      base_rate = 1.0 (movement)
+      modifier = 2.0 (cold_room)
+      oil_cost = 1.0 × 2.0 = 2.0
+      lamp.oil = 400.0 - 2.0 = 398.0
+    
+    EXAMPLE (examining object in normal room):
+      base_rate = 0.25 (action)
+      modifier = 1.0 (normal)
+      oil_cost = 0.25 × 1.0 = 0.25
+      lamp.oil = 398.0 - 0.25 = 397.75
+    
+    When lamp.oil reaches 0:
+      - Set lamp.lit = false
+      - If in dark room: TRIGGER GRUE EVENT!
+  
+  # Oil warnings (DM should use these phrases)
+  oil_messages:
+    comfortable: ""  # oil > 50, no message needed
+    low: "Your lamp flickers slightly. The oil is getting low."
+    warning: "Your lamp sputters and dims! You should find more oil soon."
+    critical: "Your lamp is dying! Each flicker could be the last!"
+    empty: "Your lamp gutters... and goes out. Darkness claims you."
+  
+  # Interactions
+  advertisements:
+    - action: GET
+      score_if: "not in_inventory"
+      description: "Pick up the lamp"
+      oil_cost: 0.25  # action
+      
+    - action: LIGHT
+      score_if: "not lit and oil > 0"
+      description: "Light the lamp"
+      oil_cost: 0.0   # lighting is free!
+      response: |
+        You strike a match (from where? don't ask) and light the lamp.
+        A warm glow pushes back the darkness. Grues retreat to the shadows.
+        (Oil consumption begins. Move wisely!)
+      
+    - action: EXTINGUISH
+      score_if: "lit"
+      description: "Put out the lamp (to save oil, you clever adventurer)"
+      oil_cost: 0.0   # extinguishing is free!
+      response: |
+        You extinguish the lamp. The darkness presses in immediately.
+        (Oil consumption paused. But can you see where you're going?)
+        If you're in the maze right now, this was a VERY BAD IDEA.
+        
+    - action: CHECK OIL
+      score_if: "always"
+      description: "Check how much oil remains"
+      oil_cost: 0.1   # quick glance
+      response: "The lamp has {oil:.1f} units of oil remaining."
+      
+    - action: RUB
+      score_if: "always"
+      description: "Rub the lamp hopefully"
+      oil_cost: 0.25  # action
+      response: "Nothing happens. The genie must be on holiday."
+    
+    - action: REFILL
+      score_if: "at lamp vendor"
+      description: "Buy oil from the ACME vendor"
+      oil_cost: 0.0   # transaction is free
+      response: "See lamp-vendor.yml for prices and effects."
+  
+  # Tribute
+  lineage: |
+    The brass lamp descends from the original in Colossal Cave Adventure,
+    where Will Crowther placed it to help spelunkers navigate the darkness.
+    It has appeared in every proper adventure since.
+    
+    The floating-point oil system adds granularity: some actions cost
+    more than others, and environmental hazards can drain oil faster.
+    This creates meaningful resource management without tedious bookkeeping.

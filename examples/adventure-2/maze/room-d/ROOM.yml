@@ -1,0 +1,66 @@
+# Maze Room D
+# A twisty little passage
+
+room:
+  name: Twisty Passage (Golden Glow)
+  type: maze_room
+  
+  # DANGER! This room is dark!
+  # (The golden glow is from the NEXT room, not THIS room)
+  lighting: none
+  grue_safe: false
+  requires_light: true
+  
+  # What happens if you enter without light
+  grue_event: |
+    It is pitch black. You are likely to be eaten by a grue.
+    
+    You can ALMOST see a golden glow from somewhere nearby...
+    but not quite. The grue, however, can see you perfectly well.
+    
+    🎵 "Twenty-two years later, head's infested: got the grue in.
+        PLUGHing, XYZZYfying, trying to escape,
+        but I can't 'cause I'm up and around and awake." 🎵
+    
+    — MC Frontalot, "It Is Pitch Dark"
+       https://www.youtube.com/watch?v=4nigRT2KmCE
+    
+    You have been eaten by a grue.
+    
+    So close. So very, very close.
+    
+    [REINCARNATING... inventory preserved, score reset to 0]
+  
+  description: |
+    You are in a maze of twisty little passages, all alike.
+    
+    But wait — this one has a faint golden glow coming from one of
+    the passages! Could it be? After all this wandering, could you
+    finally be near the TREASURE? Your heart leaps! Your waistcoat
+    rustles with anticipation!
+    
+    Passages lead in all directions. One of them DEFINITELY glows.
+  
+  # This room connects FORWARD to end
+  note: "The NORTH exit leads to the Treasury!"
+  
+  exits:
+    north:
+      destination: ../../end/
+      description: "A passage suffused with warm golden light. THIS IS IT!"
+    south:
+      destination: ../room-a/
+      description: "Back into the maze. Why would you go this way?"
+    east:
+      destination: ../room-b/
+      description: "The glow fades this direction. Probably a bad choice."
+    west:
+      destination: ../room-c/
+      description: "More scratchy walls. More existential dread."
+  
+  # Distinguishing feature
+  feature: glow
+  ambience: |
+    The golden light beckons from the north. It whispers of treasure,
+    of triumph, of finally having something to tell Mother about.
+    Also possibly of being late for dinner, but that ship has sailed.

@@ -1,0 +1,66 @@
+# 💰 Skeleton Memorial Coin
+# A gift from the vending machine
+
+object:
+  name: Skeleton Memorial Coin
+  type: treasure
+  subtype: memorial_item
+  
+  description: |
+    A single gold coin, but not like the others. This one has
+    been specially minted (by the vending machine, somehow).
+    
+    On one side: a skeleton, hand extended, pointing west.
+    
+    On the other side: the words "ONE ROOM AWAY" encircle the
+    edge, with a lamp in the center, its flame extinguished.
+    
+  examine: |
+    You turn the coin over in your hand. It's warm — warmer
+    than it should be. The vending machine put something of
+    itself into this coin.
+    
+    The skeleton's etched face seems to smile.
+    
+    Not smug this time. Just... grateful.
+    
+  value:
+    monetary: 1  # Can be spent like regular gold
+    emotional: priceless
+    
+  properties:
+    portable: true
+    spendable: true  # But would you?
+    memorial: true
+    warm_to_touch: true
+    
+  origin:
+    given_by: "ACME LAMP REFUELING UNIT #47"
+    location: "maze/room-j/"
+    trigger: "Kicking machine in honor of skeleton"
+    move: 42
+    
+  inscription_front: |
+    A skeleton pointing west. Their final gesture, immortalized.
+    
+  inscription_back: |
+    ONE ROOM AWAY
+    [extinguished lamp]
+    
+  philosophical_note: |
+    This coin could buy oil. It could save your life.
+    But spending it feels wrong somehow.
+    
+    The skeleton used gold to mark rooms.
+    Maybe you should too — but THIS gold.
+    Leave it somewhere meaningful.
+    Or carry it forever.
+    
+  the_machine_knows: |
+    The vending machine remembered every adventurer.
+    It watched them come and go.
+    It watched some of them not come back.
+    
+    This coin is its way of grieving.
+    
+    Even machines need to mourn.

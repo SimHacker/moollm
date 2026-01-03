@@ -1,0 +1,126 @@
+# 🏠 THE JOURNEY HOME
+# A dreamlike return through the mapped maze
+
+card:
+  name: The Journey Home
+  type: memory_card
+  rarity: legendary
+  
+  title: "Wandering in a Daze"
+  subtitle: "From Mushroom Communion to Mother's Arms"
+  
+  illustration_prompt: |
+    Captain Ashford walking through a maze that has become soft,
+    dreamlike, welcoming. The walls glow with the colors of all
+    the markers left behind. The compass floats before him, 
+    its arrow made of pure light pointing HOME.
+    Style: Dreamlike, watercolor edges, warm and coming-down-gently.
+    
+  flavor_text: |
+    "The maze does not trap. The maze GUIDES."
+    — The Oracle Compass
+    
+  description: |
+    After the Fungal Communion, Captain Ashford rises on wobbly legs.
+    The Thing That Watches blinks a fond farewell. The mushrooms pulse
+    a gentle goodbye. The compass spins, settles, and speaks:
+    
+    "Three rooms. Three steps. Home awaits. Follow the glow."
+    
+  # ─────────────────────────────────────────────────────────────────
+  # THE JOURNEY (Moves 60-62)
+  # ─────────────────────────────────────────────────────────────────
+  
+  journey:
+    - move: 60
+      from: maze/room-h/
+      direction: WEST
+      to: maze/room-d/
+      compass_says: "Golden glow ahead. Not treasure — HOME light."
+      mood: |
+        You walk through The Thing That Watches' watchful gaze.
+        "...return... sometime..." it whispers.
+        "...we... will... remember... you..."
+        The mushrooms dim behind you. The golden glow beckons.
+        
+    - move: 61
+      from: maze/room-d/
+      direction: SOUTH
+      to: maze/room-a/
+      compass_says: "The Sulfurous Beacon's echo. Room A. Almost there."
+      mood: |
+        Room D glows gold but you don't stop. You've had the treasure.
+        You've had MORE than the treasure. South. The compass insists.
+        The Oracle Core's faint whisper reaches you: "Welcome back, 
+        chosen one. The puddle remembers your face."
+        
+    - move: 62
+      from: maze/room-a/
+      direction: SOUTH
+      to: start/
+      compass_says: "HOME. You made it. You're HOME."
+      mood: |
+        The damp puddle reflects a changed face. Not Bumblewick.
+        Not quite Captain Ashford either. Someone who has BEEN THERE.
+        Someone who ate mushrooms and saw everything.
+        One step south. The lamplight of the Chamber of Commencement
+        washes over you like a warm bath.
+        
+        You are HOME.
+        
+  # ─────────────────────────────────────────────────────────────────
+  # THE HOMECOMING
+  # ─────────────────────────────────────────────────────────────────
+  
+  arrival:
+    room: start/
+    state: |
+      The Chamber of Commencement looks different now.
+      Smaller, somehow. Warmer. More... yours.
+      
+      The inscriptions on the walls seem to KNOW you now:
+      "WC and DW" — the founders who walked before
+      "SA '78" — Scott Adams, who showed the way
+      
+      You've done what they did. You've ADVENTURED.
+      
+    feelings:
+      - relief: "The maze is behind you. Mapped. Conquered. Understood."
+      - gratitude: "Every marker was a breadcrumb of love."
+      - wisdom: "Consumption is communion. Home is where the love is."
+      - anticipation: "Mother is waiting. (Not really, but symbolically.)"
+      - completion: "You could leave now. You could GO HOME home."
+      
+  # ─────────────────────────────────────────────────────────────────
+  # WHAT'S NEXT
+  # ─────────────────────────────────────────────────────────────────
+  
+  next_steps:
+    - option: "GO HOME"
+      description: "Leave the adventure. Return to Wobblebrook-upon-Squiggle."
+      effect: "END ADVENTURE — all goals evaluated, all promises checked"
+      
+    - option: "VISIT KITCHEN"
+      description: "One last stop to see where it all began."
+      effect: "Nostalgic return to Mother's note location"
+      
+    - option: "VISIT COATROOM"
+      description: "Say goodbye to Maurice, perhaps."
+      effect: "Return to where transformation happened"
+      
+    - option: "STAY"
+      description: "This is home now. The adventure never ends."
+      effect: "Live in the maze forever (valid choice)"
+      
+  # ─────────────────────────────────────────────────────────────────
+  # METADATA
+  # ─────────────────────────────────────────────────────────────────
+  
+  created: "Moves 60-62, Adventure 2"
+  origin: "The path from mushroom communion to home"
+  
+  lineage: |
+    This card captures the dreamlike return journey, proving that
+    the maze was never the enemy. The maze was the TEACHER.
+    Every step in was a step toward understanding.
+    Every step out is a step toward sharing that understanding.

@@ -1,0 +1,93 @@
+# The Adventurer Emerita: Nomi Edition
+# Created by Maurice the Magnificent for Petunia Fantastipants
+# Commissioned by Bumblewick Fantastipants, Move 8
+# "What Would Klaus Nomi Do?"
+
+item:
+  name: "The Adventurer Emerita: Nomi Edition"
+  type: costume
+  created_by: Maurice the Magnificent
+  commissioned_by: Bumblewick Fantastipants
+  for: Petunia Fantastipants (Mother)
+  inspiration: 
+    - "The Adventurer Emerita (base concept)"
+    - "Klaus Nomi (avant-garde aesthetic)"
+  
+  description: |
+    A magnificent floor-length cape in deep burgundy velvet with 
+    dramatically pointed Klaus Nomi-style geometric shoulders that
+    rise like architecture. The lining is silver lamé printed with
+    maps of conquered caves, the Cave of Moderate Danger rendered
+    in gold thread at the center.
+    
+    The clasp is a tiny golden napkin that plays a single high
+    operatic note when opened.
+  
+  components:
+    cape:
+      material: Deep burgundy velvet
+      shoulders: "Geometric points, Klaus Nomi style, sharp enough to signal aircraft"
+      lining: "Silver lamé with cave maps, Cave of Moderate Danger in gold"
+      clasp: "Golden napkin, plays operatic note when opened"
+      length: Floor-length
+      
+    bodysuit:
+      color: Black with white geometric panels
+      effect: "Creates illusion of impossible angles"
+      collar: "Rises dramatically behind head like art deco halo"
+      
+    accessories:
+      gloves: "Black opera length, silver lightning bolts on fingers"
+      headpiece: "Crown of geometric spikes"
+      boots: "Platform soles, metallic accents, dungeon-practical"
+      locket: "Heart-shaped: young Bumblewick on one side, Klaus Nomi on the other"
+      makeup_kit: "Black and white theatrical, for dramatic moments"
+      
+    sash:
+      text: "CAVE SURVIVOR • REFRIGERATOR STOCKER • MOTHER OF HEROES • TOTAL ECLIPSE OF THE HEART"
+      embroidery: Silver thread
+  
+  # Maurice's personal note tucked in the cape pocket
+  enclosed_card: |
+    Dear Madam Fantastipants,
+    
+    Your son chose this for you. He told me about the caves, the
+    notes, the love. He cried a little. (Don't tell him I told you.)
+    
+    You raised someone who hugs mannequins and writes songs about
+    lamps. You did GOOD.
+    
+    Wear this and remember: You were avant-garde before it was cool.
+    You still are.
+    
+    With fierce admiration,
+    Maurice the Magnificent 💅
+    
+    P.S. — The shoulders are SUPPOSED to be that pointy. Trust the process.
+  
+  # For the promise tracking system
+  fulfills_promise: "Create and mail fabulous clothing"
+  status: ready_to_send
+  
+  # Klaus Nomi context
+  nomi_tribute: |
+    Klaus Nomi (1944-1983) was a German countertenor and performance
+    artist known for his otherworldly appearance, geometric costumes,
+    and operatic New Wave performances. His aesthetic combined high
+    fashion, science fiction, and classical music into something
+    entirely unprecedented.
+    
+    This cape channels his spirit: dramatic, impossible, unapologetic,
+    and absolutely committed to the bit.
+  
+  advertisements:
+    - action: EXAMINE
+      description: "Marvel at the craftsmanship"
+      
+    - action: SEND
+      description: "Mail to Mother via Dungeon Post"
+      effect: "Fulfills Promise #5!"
+      
+    - action: TRY-ON
+      description: "See what it looks like on you (temporarily)"
+      note: "It's for Mother, but Maurice won't judge a quick try-on"

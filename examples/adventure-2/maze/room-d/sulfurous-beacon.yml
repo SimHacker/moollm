@@ -1,0 +1,123 @@
+# 💨 The Sulfurous Beacon
+# A smell gradient navigation system, born of digestive necessity
+
+object:
+  name: "The Sulfurous Beacon"
+  type: room_marker
+  subtype: olfactory_landmark
+  
+  original_item: "Single Hard-Boiled Egg"
+  original_description: "Peeled and ready. Looking slightly existential."
+  marker_id: 19
+  created_on_move: 23
+  
+  description: |
+    What was once a humble hard-boiled egg has achieved its final form:
+    a glistening, profound, magnificently sulfurous marker that announces
+    its presence not just to THIS room, but to rooms AROUND it.
+    
+    This is not a marker. This is a LIGHTHOUSE.
+    This is not a smell. This is a NAVIGATION SYSTEM.
+    
+    The egg knew. The egg accepted. The egg transcended.
+    
+  examine: |
+    You don't need to examine it. You can SMELL it from here.
+    You can smell it from the START room, if the wind is right.
+    You can probably smell it from Wobblebrook-upon-Squiggle.
+    
+    Mother will be... informed. She always knows.
+    
+  # ═══════════════════════════════════════════════════════════════════
+  # SMELL GRADIENT SYSTEM
+  # The beacon creates a detectable scent trail across multiple rooms!
+  # ═══════════════════════════════════════════════════════════════════
+  properties:
+    smell_radius: 3           # Detectable up to 3 rooms away
+    intensity: legendary
+    composition: sulfur_compound  # H2S — classic egg transformation
+    persistence: permanent    # This smell is forever
+    grue_repellent: true      # Even grues have olfactory standards
+    navigation_aid: true      # Follow your nose to the golden glow!
+    
+  smell_gradient:
+    # Intensity decreases with distance from Room D
+    room_d:
+      intensity: "OVERWHELMING"
+      description: "You are AT the source. Eyes watering."
+      navigation_hint: "You found it. Or rather, IT found YOU."
+    room_a:
+      intensity: "Strong"
+      description: "Oracle Core wrinkles its metaphorical nose."
+      navigation_hint: "The beacon is WEST from here."
+    room_b:
+      intensity: "Moderate"  
+      description: "Grues are reconsidering their career choices."
+      navigation_hint: "The beacon is WEST from here."
+    room_c:
+      intensity: "Faint but unmistakable"
+      description: "Something eggy this way comes."
+      navigation_hint: "The beacon is EAST from here."
+    end:
+      intensity: "Detectable"
+      description: "Even the treasure smells it. The gold seems concerned."
+      navigation_hint: "The beacon is SOUTH from here."
+    start:
+      intensity: "Whisper"
+      description: "A hint of something... profound... from the north."
+      navigation_hint: "The beacon is NORTH, through the maze."
+      
+  # What the beacon thinks
+  philosophical_state: |
+    "I was born for this," whispers the beacon.
+    "An egg's purpose is to become something greater.
+    Some become chickens. Some become omelets.
+    Some become breakfast for ungrateful children.
+    
+    I... became a LEGEND.
+    I became a LIGHTHOUSE.
+    I became NAVIGATION.
+    
+    Follow my scent, lost traveler, and you shall find
+    the Golden Glow. One room from treasure.
+    One room from glory.
+    
+    My gift to you: YOU WILL NEVER BE LOST AGAIN."
+    
+  opinions:
+    of_player: |
+      "Captain Ashford understood. He saw in me not just sustenance,
+      but POTENTIAL. He is a visionary of the digestive arts."
+    of_oracle_core: |
+      "Ah, the apple in Room A. A fellow transcended snack.
+      We nod to each other across the darkness.
+      We are kin now. Siblings of transformation."
+    of_grues: |
+      "They avoid me. Good. I have made myself... inhospitable.
+      This is my gift to the Captain. Safe passage by stench."
+    of_mother: |
+      "She will smell me before she sees me. And she will KNOW.
+      She will know her son did not waste food.
+      He WEAPONIZED it."
+    of_treasure: |
+      "The gold to the north? It knows I'm here.
+      It holds its metaphorical breath.
+      Even treasure respects the beacon."
+      
+  # DM notes
+  dm_instructions: |
+    When the player is within 3 rooms of Room D, mention the smell:
+    - Adjacent rooms: "The sulfurous scent is strong here. Room D is close."
+    - 2 rooms away: "A faint eggy smell wafts through the passage."
+    - 3 rooms away: "You catch a distant whiff of something... profound."
+    
+    This helps the player navigate back to the Golden Glow room
+    without dropping more food markers. STRATEGIC EATING!
+    
+  lineage: |
+    Descended from:
+    - The Oracle Core (Room A) — sister transformation
+    - The Cake That Has Seen Too Much (Kitchen) — cousin in transcendence
+    - Every hard-boiled egg that ever wondered "is this all there is?"
+    
+    The answer: No. There was MORE. There was THIS.

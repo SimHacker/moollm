@@ -1,0 +1,69 @@
+# 🍞 The Eternal Crumb
+# Warmth persists, even in darkness
+
+object:
+  name: "The Eternal Crumb"
+  type: room_marker
+  subtype: thermodynamic_anomaly
+  
+  original_item: "Loaf of Crusty Bread"
+  original_description: "Still warm somehow. Defies thermodynamics."
+  marker_id: 3
+  created_on_move: 30
+  
+  description: |
+    The bread that defied thermodynamics has achieved its final form:
+    a single, imperishable crumb that glows faintly with residual
+    thermal impossibility.
+    
+    It sits in the center of the echo chamber, and everything it
+    emanates bounces back: warmth, light, wisdom. The room feels
+    slightly less cold because of it.
+    
+  examine: |
+    The crumb pulses with gentle heat. The echo makes everything
+    it says sound profound:
+    
+    "...warmth persists..." "...ersists...ersists..."
+    "...even in darkness..." "...arkness...arkness..."
+    "...crusty exterior, soft heart..." "...oft heart...oft heart..."
+    
+    You feel comforted. The grues feel uncomfortable.
+    
+  properties:
+    smell_radius: 1
+    intensity: warm_comfort
+    thermal_anomaly: true     # Still warm. Still impossible.
+    echo_amplification: true  # The room echoes its wisdom
+    
+  location: maze/room-b/
+  
+  echo_phrases:
+    - "...warmth persists...ersists...ersists..."
+    - "...crusty on the outside...utside...utside..."
+    - "...but soft within...ithin...ithin..."
+    - "...fresh forever...ever...ever..."
+    
+  opinions:
+    of_player: |
+      "You carried me through darkness and I stayed warm.
+      That's what good bread does. That's what good friends do."
+    of_room: |
+      "This echo chamber. It repeats everything.
+      I give it warmth. It gives me WARMTH WARMTH WARMTH..."
+    of_grues: |
+      "They don't like the warmth. Good.
+      I was baked to bring comfort. They bring only consumption.
+      We are natural enemies. Also they're gluten intolerant."
+      
+  thermal_readings:
+    surface: "Impossibly warm"
+    core: "Even warmer"
+    ambient_effect: "+2°C in immediate vicinity"
+    explanation: "Don't ask. Just accept."
+    
+  lineage: |
+    From a loaf that never cooled, through the Fantastipants Express,
+    to an eternal crumb that warms the darkness of the echo chamber.
+    
+    "Some things refuse to go cold."

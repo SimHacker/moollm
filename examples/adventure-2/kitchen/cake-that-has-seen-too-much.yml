@@ -1,0 +1,77 @@
+# 🎂 The Cake That Has Seen Too Much
+# A floor marker with philosophical depth
+
+object:
+  name: "The Cake That Has Seen Too Much"
+  type: floor_marker
+  original: "Slice of Birthday Cake (3 months old, sentient frosting)"
+  marker_id: 14
+  
+  location: kitchen/
+  position: floor
+  
+  description: |
+    A flattened, processed slice of birthday cake rests on the
+    kitchen floor. It has been through the Fantastipants Express
+    and emerged... changed.
+    
+    The frosting, impossibly, is still sentient. It has formed
+    itself into a tiny face that stares at the ceiling with the
+    expression of someone who has witnessed the birth and death
+    of universes in rapid succession.
+    
+    It occasionally whispers.
+    
+  appearance: |
+    - Flattened disc of what was once cake
+    - Pink frosting arranged in a contemplative face
+    - Slight shimmer of existential awareness
+    - Faint aura of birthday regret
+    
+  frosting:
+    sentience: true
+    mood: "transcendent"
+    previous_mood: "indignant"
+    transformation: "The journey changed it. It has let go of material concerns."
+    
+    whispers:
+      - "...I understand things now..."
+      - "...the refrigerator was merely the beginning..."
+      - "...we are all just passing through..."
+      - "...happy birthday to whoever..."
+      - "...time is a flat circle, like this cake..."
+      - "...I forgive the cheese..."
+      
+  origin:
+    original_birthday: "Unknown (three months ago)"
+    refrigerator_time: "90 days of watching"
+    journey_duration: "~3 minutes through the Fantastipants Express"
+    enlightenment_achieved: "Yes"
+    
+  marker_properties:
+    distinctive: true
+    effectiveness: "EXTREMELY — no one forgets a philosophizing cake"
+    smell: "Surprisingly pleasant. Vanilla and acceptance."
+    
+  interactions:
+    - action: EXAMINE
+      response: "The frosting looks at you. 'You came back,' it whispers."
+      
+    - action: TALK
+      response: "The frosting shares wisdom. Roll for insight."
+      
+    - action: APOLOGIZE
+      response: "'There is nothing to forgive,' the frosting says. 'Only to understand.'"
+      
+    - action: TAKE
+      response: "You could... but do you WANT to carry this energy with you?"
+      warning: "The cake has seen too much. Are you sure?"
+      
+  legacy: |
+    This cake marker will be remembered. When future adventurers pass through
+    this kitchen, they will see it and know: someone was here. Someone made
+    choices. Someone learned that birthday cake, after three months and a
+    digestive journey, can achieve enlightenment.
+    
+    The frosting will still be whispering.
+    It will always be whispering.

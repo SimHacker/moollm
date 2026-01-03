@@ -1,0 +1,64 @@
+# 🥧 The Memorial Pie
+# A savory monument to the fallen
+
+object:
+  name: The Memorial Pie
+  type: room_marker
+  
+  description: |
+    What was once a Leftover Shepherd's Pie (Tuesday's) is now a
+    savory monument — a miniature mausoleum made of mashed potato
+    and ground lamb. It sits beside the skeleton like an offering
+    to the fallen.
+    
+    A tiny shepherd carved from potato stands on top, forever
+    watching over a tiny flock of meat crumbles. Gravy rivers
+    wind between tiny mashed mountains. It smells of comfort
+    and commemoration.
+    
+  examine: |
+    The Memorial Pie whispers in gravy:
+    
+    "...we are sustenance for the journey..."
+    "...this one ran out of journey..."
+    "...remember them. remember to EAT..."
+    "...gold cannot guide you. flavor can..."
+    
+  marker_id: 5 # Original marker ID from fridge
+  original_item: "Leftover Shepherd's Pie (Tuesday's)"
+  
+  # Properties gained from its journey
+  properties:
+    sentience_level: memorial
+    savory_wisdom: true
+    commemorative: true
+    tiny_shepherd_guardian: true
+    whispers_secrets: true
+    
+  # Its current location
+  location: maze/room-i/
+  
+  # What it thinks of you
+  opinion_of_player: |
+    "You are the shepherd now, Captain Ashford. The one who tends
+    the flock of markers. We are bound now, you and I. Through the
+    digestive journey, we are one with the lamb."
+    
+  # What it thinks of the room
+  opinion_of_room: |
+    "This room. The skeleton. Such tragedy. Such teaching. I am
+    honored to rest beside them. To offer comfort to their bones.
+    To watch over this sacred failure."
+    
+  # What it thinks of the skeleton
+  opinion_of_skeleton: |
+    "Brave soul. Foolish soul. They used COINS. COINS! Does gold
+    have flavor? Does gold have wisdom? Does gold transform and
+    speak? No. They learned too late. But their lesson endures.
+    Through me. Through you. Through the pointing finger."
+    
+  # What it thinks of Mother
+  opinion_of_mother: |
+    "She knew. She always knows. Tuesday's pie was not leftover
+    by accident. It was PREPARED. For this moment. For this
+    memorial. Mother plays the long game."

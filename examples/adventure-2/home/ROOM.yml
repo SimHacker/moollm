@@ -1,0 +1,74 @@
+# Wobblebrook-upon-Squiggle
+# The Fantastipants Family Home
+# Where every adventure ends (and begins)
+
+room:
+  name: The Fantastipants Home
+  type: home
+  location: Wobblebrook-upon-Squiggle
+  
+  # Always safe. Always warm. Always home.
+  lighting: golden_kitchen_glow
+  grue_safe: forever
+  
+  description: |
+    You are home.
+    
+    The kitchen is warm. A pie cools on the windowsill — apple, of course.
+    The table is set for two. Gold coins glitter in a pile. The Jeweled 
+    Chalice catches the fading sunlight.
+    
+    On the mantle, a brass lamp glows soft blue. Retired with honor.
+    On the wall, a wedge of weaponized cheese hangs in a place of pride.
+    On the counter, a notebook bulges with letters, songs, and photos.
+    
+    And here, wearing matching Nomi capes — one purple with lightning,
+    one black with stars — stand the Fantastipants:
+    
+    Mother. Hero. Home.
+    
+    The dishes are done.
+    All promises are kept.
+    The adventure is complete.
+    
+  occupants:
+    - player: Captain Ashford (Bumblewick Fantastipants)
+    - npc: Petunia Fantastipants (Mother)
+    
+  objects:
+    - jeweled-chalice.yml
+    - gold-pile.yml       # 108 pieces
+    - lamp.yml            # Retired on mantle
+    - gorgonzola-glaive.yml  # Displayed on wall
+    - notebook.yml        # Full of memories
+    - pie.yml             # Apple, partially eaten
+    - clean-dishes.yml    # Promise #8: KEPT
+    
+  exits:
+    down:
+      destination: ../start/
+      description: "The stairway back to the adventure. But why would you leave?"
+      
+    out:
+      destination: wobblebrook-upon-squiggle/
+      description: "The village outside. Ordinary life. Beautiful life."
+      
+  ambience: |
+    The smell of apple pie. The warmth of the stove. The soft blue glow
+    of a lamp that never went dark. The clink of gold. The rustle of capes.
+    The sound of Mother humming.
+    
+    Home.
+    
+  status: |
+    ADVENTURE COMPLETE
+    
+    All promises kept. All treasures delivered. All grues eaten.
+    All dishes done. All legends begun.
+    
+    Score: 21
+    Moves: 67
+    Grues Slain: 1
+    Promises: 8/8 ✅
+    
+    THE END

@@ -309,6 +309,31 @@ Chuck created **MacHTTP/WebStar** (pioneering Mac web server). Someone built **L
 
 ---
 
+## Related Pioneers: Morningstar & Farmer (Habitat)
+
+In the same lineage as Chuck Shotton's LiveCard work:
+
+**Chip Morningstar & Randy Farmer** created **Lucasfilm's Habitat** (1986) — the first large-scale graphical multiplayer environment. They coined the term **"avatar"** for a user's representation in virtual space.
+
+Their paper ["The Lessons of Lucasfilm's Habitat"](https://web.stanford.edu/class/history34q/readings/Virtual_Worlds/LucassightHabitat.html) remains essential reading. Key insight:
+
+> *"A cyberspace is defined more by the interactions among the actors within it than by the technology with which it is implemented."*
+
+In 2001, they received the inaugural **First Penguin Award** (IGDA) for this pioneering work.
+
+**Morningstar's ["How to Deconstruct Almost Anything"](http://www.fudco.com/chip/deconstr.html)** is also legendary — a working engineer's hilarious takedown of postmodern literary criticism. After sitting through a conference full of impenetrable jargon, he constructed a parody paragraph from actual phrases he'd heard, then went on to actually learn what deconstruction was. His conclusion: "There is indeed some content, much of it interesting" — but the field had become "epistemologically challenged."
+
+| Habitat Concept | MOOLLM Equivalent | Link |
+|-----------------|-------------------|------|
+| Avatar | Player character | [examples/adventure-2/player.yml](../examples/adventure-2/player.yml) |
+| Region (room) | Room directory | [skills/room/](../skills/room/) |
+| Object | File | YAML Jazz |
+| Oracle | Coherence engine | LLM role |
+
+**Synergy with Kilroy:** Both Habitat and Kilroy emphasize **decentralization** and **user agency**. Habitat learned that complex behavior emerges from simple actors with clear affordances. Kilroy's swarms follow the same pattern.
+
+---
+
 ## Programming by Demonstration (PBD)
 
 Don shared **"Watch What I Do"** (Cypher, Myers, et al.):

@@ -1,0 +1,139 @@
+# 💌 Letter to Mother — The Skeleton's Lesson
+# From Captain Ashford, in the Skeleton's Chamber
+
+letter:
+  from:
+    name: "Captain Ashford"
+    true_name: "Bumblewick Fantastipants"
+    location: "maze/room-i/ (The Skeleton's Chamber)"
+    
+  to:
+    name: "Petunia Fantastipants"
+    relation: "Mother"
+    address: "Wobblebrook-upon-Squiggle"
+    
+  date: "Stardate 2026.07.26 (The Pilgrimage)"
+  
+  subject: "I Found Someone Who Didn't Make It"
+  
+  salutation: "Dearest Mother,"
+  
+  body: |
+    I have found someone who didn't make it.
+    
+    They sit here in Room I, bones arranged in the pose they fell,
+    hand pointing west toward Room J — the lamp oil vendor. They
+    were ONE ROOM AWAY from salvation. Their lamp ran out in the
+    cold room. They couldn't see. They couldn't run.
+    
+    I don't know their name. Their note was half-eaten:
+    
+    "I should have brought more food to mark the rooms. I dropped
+    the cheese in room B and the bread in room D but then I got
+    confused and—"
+    
+    That's all. The grue got the rest. Got them, too.
+    
+    But I know their MISTAKE, Mother. And it's important.
+    
+    They used GOLD COINS to mark rooms.
+    
+    Gold. GOLD! Beautiful, shiny, valuable, utterly useless for
+    navigation gold. Every coin looks the same. They couldn't tell
+    Room B from Room D from Room F. They got lost in their own
+    breadcrumb trail — except the breadcrumbs were indistinguishable.
+    
+    YOUR method — the food — works. Each marker is unique. Each one
+    TRANSFORMS and SPEAKS. The Wheel of Wisdom in Room C gives
+    different advice than the Eternal Crumb in Room B. The Crown of
+    Fermentation in Room E reigns over different territory than the
+    Sulfurous Beacon in Room D.
+    
+    The skeleton had over 100 gold. They dropped most of it in Room F
+    when their lamp died. They kept only three coins — all they had
+    on them when they ran blind through the darkness.
+    
+    I've taken those three coins. I'll use them at the vendor. The
+    vendor they never reached. One room away. ONE ROOM.
+    
+    I wrote them an ode. Seven stanzas about their journey, their
+    mistake, and their gift to me. I placed it on their chest.
+    
+    I took photographs. Four close-ups of their final possessions —
+    the pointing hand, the unfinished note, the empty lamp, the three
+    coins. Four portraits of me honoring them — saluting, reading the
+    ode aloud, showing them my compass, and a vigil selfie together.
+    
+    They're enclosed, Mother. Look at them. Remember this soul.
+    
+    Their lesson:
+    - Bring FOOD, not coins (food transforms, gold stays the same)
+    - The cold room drains oil FAST (Room F is dangerous)
+    - The vendor is WEST from here (one room that way)
+    - Almost isn't enough (they were SO CLOSE)
+    
+    I won't "almost" make it, Mother. I have your wisdom. I have your
+    food markers. I have the Oracle Compass crystallized from my
+    prophetic apple vision. And now I have their lesson too.
+    
+    The skeleton is pointing the way. I'm following their finger.
+    WEST to the vendor. I'll buy oil. I'll tell them about this
+    adventurer who almost made it.
+    
+    With love, respect, and a heavier heart,
+    
+  closing: "Your Bumblewick (Captain Ashford, Still Alive)"
+  
+  postscript: |
+    P.S. — Their skeleton seems SMUG about knowing the way out.
+    Skeletons are like that. Lacking lips but full of attitude.
+    
+    P.P.S. — I named the pie I left here "The Memorial Pie." It's
+    watching over them now. Tuesday's shepherd's pie, transformed
+    into a tiny mausoleum of mashed potato and lamb. You'd approve.
+    
+  enclosures:
+    - section: "The Ode"
+      file: ./ode-to-lost-explorer-card.yml
+      description: "Seven stanzas for the fallen"
+      
+    - section: "Close-Up Photographs (4)"
+      description: "Final possessions of the fallen explorer"
+      prompts:
+        - skeleton-closeup-pointing-hand-prompt.md
+        - skeleton-closeup-unfinished-note-prompt.md
+        - skeleton-closeup-empty-lamp-prompt.md
+        - skeleton-closeup-three-coins-prompt.md
+        
+    - section: "Memorial Portraits (4)"
+      description: "Captain Ashford honoring the skeleton"
+      prompts:
+        - ashford-skeleton-pose-salute-prompt.md
+        - ashford-skeleton-pose-reading-ode-prompt.md
+        - ashford-skeleton-pose-compass-prompt.md
+        - ashford-skeleton-selfie-vigil-prompt.md
+        
+  dungeon_post_receipt: |
+    ═══════════════════════════════════════════════════════════════
+     DUNGEON POST EXPRESS - MEMORIAL DELIVERY
+    ═══════════════════════════════════════════════════════════════
+     
+     📦 Package: DP-MEMORIAL-2026-003
+     📬 Priority: MOTHER (Reflective)
+     
+     Contents:
+       ✓ 1 heartfelt letter about finding the fallen
+       ✓ 1 "Ode to the Lost Explorer" (7 stanzas)
+       ✓ 4 Close-up photo prompts (hand, note, lamp, coins)
+       ✓ 4 Portrait photo prompts (salute, ode, compass, vigil)
+       ✓ Profound life lessons
+       ✓ 3 gold coins (spiritually, in their memory)
+     
+     Delivery Note:
+       "A son who stops to honor the fallen is a son who
+        understands the weight of adventure. Mother will weep.
+        Mother will be proud. Both are appropriate."
+     
+     Postage: Paid in respect and remembrance
+     
+    ═══════════════════════════════════════════════════════════════

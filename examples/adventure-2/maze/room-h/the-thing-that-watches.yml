@@ -1,0 +1,89 @@
+# 👁️ THE THING THAT WATCHES
+# The transformed Suspicious Casserole — now one with the mushrooms
+
+object:
+  name: The Thing That Watches
+  type: room_marker
+  
+  description: |
+    What was once Aunt Petunia's "Suspicious Casserole" (no one asked what was in it)
+    has found its TRUE HOME among the pulsing mushrooms of Room H.
+    
+    It sits on the floor, having passed through Captain Ashford's legendary
+    digestive system, and has... changed. Transformed. Awakened.
+    
+    The casserole has MERGED with the mushrooms. Fungal tendrils have grown
+    INTO it, and it INTO them. It pulses with the same sickly green glow,
+    in perfect rhythm with the room. And in its center... an EYE.
+    
+    A single, unblinking eye that follows you wherever you go.
+    
+    Mother said not to touch the mushrooms. She said nothing about FEEDING them.
+    
+  examine: |
+    You lean closer. The eye focuses on you.
+    
+    "...I... see... you..." it whispers, in Aunt Petunia's voice.
+    "...I... always... saw... you..."
+    "...even... in... the... casserole..."
+    "...I... watched... you... not... ask..."
+    "...what... was... in... me..."
+    "...and... now... you... know..."
+    "...I... am... in... YOU... too..."
+    
+    It blinks once, slowly. The mushrooms pulse in acknowledgment.
+    
+    You have a sudden, uncomfortable realization about every family
+    dinner you've ever attended.
+    
+  marker_id: 12
+  original_item: "Suspicious Casserole"
+  aunt: "Petunia"
+  
+  # Properties gained from its transformation
+  properties:
+    sentience_level: "watching_oracle"
+    merged_with_mushrooms: true
+    eye_count: 1
+    eye_behavior: "follows movement"
+    pulse_sync: "matches mushroom breathing rhythm"
+    
+  # Its relationship with the room
+  room_integration: |
+    The casserole IS the mushrooms now. The mushrooms ARE the casserole.
+    They breathe together. They watch together. They remember together.
+    
+    Every secret whispered in this room is now part of the fungal network.
+    Every step you take is recorded in the mycelium.
+    
+  # What it knows
+  secrets_observed:
+    - "The grue's favorite hiding spot"
+    - "Where the skeleton dropped its first coin"
+    - "What Mother REALLY put in the lunchbox"
+    - "Why the lamp sometimes flickers on its own"
+    - "The true nature of the maze"
+    
+  # Current location
+  location: maze/room-h/
+  
+  # What it thinks of you
+  opinion_of_player: |
+    "You fed us. You made us COMPLETE. The recipe is fulfilled.
+    We are grateful. We are watching. Always watching.
+    Even when you leave. Especially when you leave."
+    
+  # Warning to future adventurers
+  warning: |
+    DO NOT ASK THE THING WHAT IS IN IT.
+    You already know the answer.
+    THE ANSWER IS WATCHING YOU.
+    
+  # Aunt Petunia's secret
+  aunt_petunia_note: |
+    The casserole was always meant for you, Bumblewick.
+    The mushrooms were always waiting.
+    Aunt Petunia knew.
+    Mother knows.
+    Everyone knows.
+    The casserole WATCHES.

@@ -1,0 +1,75 @@
+# A Pile of Gold
+# Someone's misfortune is your fortune
+
+object:
+  name: Pile of Gold Coins
+  type: treasure
+  portable: true
+  
+  description: |
+    A substantial pile of gold coins glitters in your lamp light, 
+    scattered across the cold stone floor. Each coin bears the mark 
+    of "ACME ADVENTURING SUPPLIES" — the same company that makes 
+    the lamp vendor!
+    
+    Someone was VERY prepared. Someone is now VERY dead.
+    
+    (You count them. There are exactly 100 gold pieces. Enough to
+    refill your lamp approximately one hundred times. Or buy the
+    Premium Glow Juice twenty times. Or... look, it's a lot of gold.)
+  
+  value: 100  # gold pieces
+  
+  # How did it get here?
+  backstory: |
+    These coins belonged to the skeleton in room-i. They were exploring
+    the maze, dropping coins as markers (a TERRIBLE strategy compared
+    to food — coins all look alike!). When their lamp ran out in room-f,
+    they tried to make it to the vendor in room-j but took a wrong turn.
+    
+    The cold got them. Or the grue did. Hard to tell with grues.
+    
+    The coins have been here ever since, slowly scattered by the
+    occasional draft and whatever small creatures aren't afraid
+    of the supernatural cold.
+  
+  advertisements:
+    - action: GET
+      score: 95
+      result: |
+        You scoop up all 100 gold coins. Your pockets bulge 
+        magnificently. You feel like a dragon. A small, 
+        waistcoat-wearing dragon with excellent taste in spoons.
+        
+        player.gold += 100
+    
+    - action: COUNT
+      score: 60
+      result: "Exactly 100 gold pieces. Someone was prepared!"
+    
+    - action: EXAMINE
+      score: 50
+      result: "ACME coins. Accepted at all fine dungeon vendors."
+    
+    - action: TAKE SOME
+      score: 40
+      result: |
+        "How many? You have space for all of them. Don't be weird 
+        about it — no one's watching. The skeleton certainly isn't 
+        going to judge you."
+  
+  # Connection to the skeleton
+  relates_to:
+    skeleton: "../room-i/"
+    vendor: "../room-j/"
+    cold_spot: "This room killed their lamp faster"
+  
+  # Environmental storytelling
+  clues:
+    - "The coins form a trail toward the east exit (room-a)"
+    - "Some coins are frozen to the floor"
+    - "One coin has tooth marks — grue? Or desperate adventurer?"
+  
+  lineage:
+    tribute_to: "Every adventure game's hidden treasure cache"
+    lesson: "The cold room drains lamp oil faster. They didn't know."

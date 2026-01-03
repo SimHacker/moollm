@@ -1,0 +1,60 @@
+# Maze Room G
+# A twisty little passage
+
+room:
+  name: Twisty Passage (Carved Face)
+  type: maze_room
+  
+  # DANGER! This room is dark!
+  lighting: none
+  grue_safe: false
+  requires_light: true
+  
+  grue_event: |
+    It is pitch black. You are likely to be eaten by a grue.
+    
+    The carved face watches impassively as the grue approaches.
+    It's seen this before. It will see it again.
+    
+    🎵 "Wonder how many points out of how many points you've got
+        to get before you're done." 🎵
+    
+    — MC Frontalot, "It Is Pitch Dark"
+       https://www.youtube.com/watch?v=4nigRT2KmCE
+    
+    You have been eaten by a grue.
+    
+    [REINCARNATING... inventory preserved, score reset to 0]
+  
+  description: |
+    You are in a maze of twisty little passages, all alike.
+    
+    This one has a FACE carved into the wall. An ancient, weathered
+    face that might once have been a king, or a god, or possibly
+    just someone's uncle who was really good at posing. Its empty
+    eyes seem to follow you as you move.
+    
+    "Don't mind me," you say to it. "Just passing through."
+    
+    The face does not respond. Obviously. It's a face carved in rock.
+  
+  feature: carved_face
+  
+  exits:
+    north:
+      destination: ../room-i/
+      description: "The face seems to frown at this exit."
+    south:
+      destination: ../room-d/
+      description: "A golden glow beckons from somewhere beyond!"
+    east:
+      destination: ../room-j/
+      description: "The face seems to approve of this direction."
+    west:
+      destination: ../room-e/
+      description: "Back toward the cobwebs."
+  
+  ambience: |
+    The carved face judges you silently. You adjust your waistcoat
+    self-consciously. Somewhere, you think you hear stone grinding
+    against stone. But that's impossible. Probably.

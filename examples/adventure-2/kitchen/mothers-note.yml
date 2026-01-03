@@ -1,0 +1,56 @@
+# Mother's Note
+# Found on the kitchen table, as if she knew
+
+card:
+  name: Mother's Note
+  type: letter
+  from: Petunia Fantastipants
+  to: Bumblewick Fantastipants
+  found_at: Kitchen Table
+  
+  contents: |
+    Dearest Bumblewick,
+    
+    If you're reading this, you've been transported to another
+    mysterious underground adventure. AGAIN. I've stocked the
+    refrigerator with provisions. The food is for DROPPING IN
+    THE MAZE to mark your path, not for EATING.
+    
+    Don't forget your lamp. Don't get eaten by grues. Don't
+    embarrass the family name.
+    
+    And Bumblewick — I know you'll visit the coat room. Whatever
+    costume you choose to wear, whoever you decide to be today,
+    whatever the name you choose to go by,
+    I love you. You know what you're doing. Trust the process.
+    
+    Your loving Mother,
+    Petunia Fantastipants
+    
+    P.S. - When you get home, we need to talk about those dishes.
+  
+  key_instructions:
+    - "Food is for MAZE MAPPING, not eating"
+    - "Don't forget lamp"
+    - "Don't get eaten by grues"
+    - "Don't embarrass the family"
+    - "Whatever costume, whoever you decide to be — she loves you"
+  
+  emotional_significance: |
+    Mother somehow knew you'd end up here. She prepared for it.
+    She gave you permission to be whoever you want.
+    She loves you unconditionally.
+    
+    (She's still going to ask about those dishes though.)
+  
+  advertisements:
+    - action: READ
+      description: "Re-read Mother's note for comfort"
+      
+    - action: SHOW
+      description: "Show to another character"
+      effect: "They may be moved or confused"
+      
+    - action: SMELL
+      description: "It smells faintly of her perfume"
+      effect: "+1 homesickness, +1 determination"

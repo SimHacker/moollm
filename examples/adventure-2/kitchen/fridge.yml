@@ -1,0 +1,211 @@
+# The Refrigerator
+# A cornucopia of maze-mapping provisions
+
+object:
+  name: Fantastipants Family Refrigerator
+  type: container
+  
+  description: |
+    A magnificent refrigerator of the old-fashioned sort, with rounded
+    corners and a satisfying CHUNK when you open the door. A magnet
+    on the front reads "WORLD'S OKAYEST ADVENTURER".
+    
+    It is STUFFED with food. An improbable amount of food. The kind of
+    food supply that suggests someone knows you're about to enter a maze
+    and need things to drop.
+  
+  examine: |
+    You open the refrigerator. A gentle light illuminates a treasure
+    trove of edibles, each one distinct enough to mark a different
+    room in a maze. How convenient!
+  
+  # The fridge is open by default (for easy access)
+  open: true
+  
+  # Raided by Captain Ashford on Move 16!
+  contents: []
+  
+  raided:
+    by: "Captain Ashford"
+    on_move: 16
+    items_taken: 20
+    destination: "lunchbox.yml"
+    
+  # Original contents (for reference):
+  original_contents:
+    - "Suspiciously Perfect Apple (marker 1)"
+    - "Wheel of Aged Cheese (marker 2)"
+    - "Loaf of Crusty Bread (marker 3)"
+    - "Jar of Pickled Herring (marker 4)"
+    - "Leftover Shepherd's Pie (marker 5)"
+    - "Bunch of Purple Grapes (marker 6)"
+    - "Pot of Mysterious Stew (marker 7)"
+    - "Wedge of Blue Cheese (marker 8)"
+    - "Cold Roast Chicken (marker 9)"
+    - "Jar of Strawberry Jam (marker 10)"
+    - "Half-Empty Bottle of Milk (marker 11)"
+    - "Suspicious Casserole (marker 12)"
+    - "Lemon (Slightly Judgmental) (marker 13)"
+    - "Slice of Birthday Cake (marker 14)"
+    - "Carrot (Heroically Orange) (marker 15)"
+    - "Tin of Sardines (marker 16)"
+    - "Bowl of Cold Porridge (marker 17)"
+    - "Fancy Imported Salami (marker 18)"
+    - "Single Hard-Boiled Egg (marker 19)"
+    - "Jar of Olives (Green) (marker 20)"
+  
+  advertisements:
+    - action: OPEN
+      score_if: "not open"
+      description: "Open the refrigerator"
+      
+    - action: GET-ALL
+      score_if: "contents.length > 0"
+      description: "Grab all the food (for maze mapping)"
+      
+    - action: CLOSE
+      score_if: "open"
+      description: "Close the refrigerator (conserve energy!)"
+  
+  # Mother's Warning
+  mothers_warning: |
+    A note in Mother's handwriting is stuck to the inside of the door:
+    
+    "Bumblewick! This food is for DROPPING, not EATING!
+    You know what happens when you eat. Your constitution
+    cannot handle it. The food goes IN and the food comes
+    OUT and nothing useful happens in between.
+    
+    DROP the food to MAP the maze. Do NOT eat the food.
+    
+    I mean it.
+    
+    Love, Mother
+    
+    P.S. I'm not cleaning it up this time."
+  
+  # Helpful hint
+  hint: |
+    PRO TIP: Take all this food and DROP items in maze rooms to mark
+    where you've been. This is the classic adventure game technique
+    for mapping "twisty little passages, all alike."
+    
+    20 items = 20 rooms you can uniquely mark. You have 10 maze rooms.
+    Math is on your side!
+    
+    WARNING: Do NOT eat the food. Mother warned you.
+
+# ═══════════════════════════════════════════════════════════════════
+# THE EAT MECHANIC — A Creative Maze-Marking Technique!
+# ═══════════════════════════════════════════════════════════════════
+# 
+# Mother warned you. She always warns you. You never listen.
+# But here's the thing: EATING FOOD IS ACTUALLY A GREAT WAY TO MARK THE MAZE!
+# The food goes in, something hilarious happens, and the food (transformed!)
+# drops onto the floor. Now you know you've been here!
+
+eat_mechanic:
+  trigger: "EAT [food_item]"
+  
+  effect: |
+    1. Food is removed from inventory
+    2. Something HILARIOUS happens (DM: be creative!)
+    3. Food appears on room floor (possibly transformed)
+    4. Food can add properties to the adventurer
+    5. Food still works as a maze marker (maybe better now!)
+    
+  # DM GUIDELINES: Mix these patterns! Add item-specific commentary!
+  # The journey through Bumblewick's digestive system is an ADVENTURE.
+  
+  # ─────────────────────────────────────────────────────────────────
+  # EXEMPLARY TRANSFORMATIONS — DM: Be creative at runtime!
+  # ─────────────────────────────────────────────────────────────────
+  # 
+  # These examples show the PATTERN. For the other 16 foods,
+  # improvise! The DM should generate unique journeys at runtime.
+  
+  examples:
+    # Pattern 1: Physical transformation
+    herring:
+      journey: "The smell alone could navigate the maze. The jar BOUNCES twice."
+      transforms_to: "Jar of VERY Pickled Herring (it has seen things)"
+      adds_to_player:
+        herring_aura: true
+        smell_radius: 3
+        
+    # Pattern 2: Creates life
+    mysterious_stew:
+      journey: "You ate the one labeled 'DO NOT EAT'. It's looking back at you now."
+      transforms_to: "Sentient Stew (it has questions)"
+      adds_to_player:
+        stew_creator: true
+        mysterious_glow: "faint, greenish"
+      creates_file: true  # DM creates sentient-stew.yml
+        
+    # Pattern 3: Emotional/psychological effect
+    lemon:
+      journey: "It judges you the entire way down. And back up. Still judging."
+      transforms_to: "Extremely Judgmental Lemon"
+      adds_to_player:
+        lemon_judgment: true
+        soul_pucker: true
+        
+    # Pattern 4: Spawns followers
+    sardines:
+      journey: "TIN AND ALL. They scatter in formation, spelling 'WHY?'"
+      transforms_to: "Formation of Confused Sardines"
+      adds_to_player:
+        sardine_army: 7
+        
+  # ─────────────────────────────────────────────────────────────────
+  # DM IMPROVISATION GUIDE
+  # ─────────────────────────────────────────────────────────────────
+  
+  improvisation_patterns:
+    physical: "Food changes form (solid→liquid, whole→scattered, etc.)"
+    temporal: "Time passes differently (ages, de-ages, time-shifts)"
+    emotional: "Food gains feelings or affects player's emotions"
+    sentient: "Food becomes alive (create a .yml file for it!)"
+    absorptive: "Player absorbs something from the food permanently"
+    followers: "Food spawns entities that follow the player"
+    haunting: "Food connects to ancestors/ghosts/memories"
+    symbiotic: "Food forms alliance with player's gut flora"
+    
+  # For the other foods, combine these patterns creatively!
+  # The journey should be: euphemistic, hilarious, unique each time.
+
+  # ─────────────────────────────────────────────────────────────────
+  # CONTEXTUAL MODIFIERS — DM considers these at runtime!
+  # ─────────────────────────────────────────────────────────────────
+  
+  context_categories:
+    costume: "Current costume affects transformation (vampire→blood, ghost→phases through)"
+    room: "Room properties affect outcome (dark→sounds concerning, echo→embarrassing)"  
+    objects: "Nearby objects react (lamp illuminates, skeleton comments)"
+    history: "Past events matter (same food 3x = relationship, died recently = ghost traces)"
+    
+  # Example combinations — DM improvises at runtime:
+  context_examples:
+    - "Vampire + Apple → Blood Apple"
+    - "Ghost + Any Food → phases through floor/exit"
+    - "Dark room + Any Food → 'The SOUNDS are concerning'"
+    - "Same food 3rd time → 'It's complicated' relationship"
+    - "Herring aura + Blue cheese → SMELL SINGULARITY"
+    - "Sardine followers present → They cheer you on"
+  
+  # ─────────────────────────────────────────────────────────────────
+  # PERSISTENCE — Update files, not just chat!
+  # ─────────────────────────────────────────────────────────────────
+  
+  persistence:
+    update_player: "Add properties to player.yml"
+    update_room: "Add transformed food to ROOM.yml contents"
+    create_files: "Sentient foods need their own .yml files!"
+    
+  post_eat_state:
+    suffix: "(It has been through the Fantastipants Express.)"
+    still_valid_marker: true
+    
+  # ─────────────────────────────────────────────────────────────────
+  # DM: Be creative at runtime! This is emergent gameplay!
+  # ─────────────────────────────────────────────────────────────────

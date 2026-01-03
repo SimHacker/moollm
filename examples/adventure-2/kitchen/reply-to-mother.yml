@@ -1,0 +1,71 @@
+# Reply to Mother
+# Composed: Kitchen Table, Move 5
+# Status: SENT via Dungeon Post
+# "This song is what you made me."
+
+letter:
+  name: Reply to Mother
+  type: outgoing_mail
+  from: Bumblewick Fantastipants
+  to: Petunia Fantastipants
+  status: sent
+  sent_at_move: 5
+  delivery: "Upon adventure completion"
+  
+  contents: |
+    Dear Mother,
+    
+    I love you. I don't say it enough — I know I don't — but 
+    sitting here in this impossible replica of our kitchen, 
+    reading your note, knowing you KNEW this would happen and
+    prepared for me anyway... Mother, I love you more than
+    all my decorative spoons combined. And you know how I feel
+    about those spoons.
+    
+    Thank you. For the food. For the lamp advice. For stocking
+    this kitchen. But most of all, thank you for what you said
+    about the coat room. For giving me permission to be whoever
+    I need to be. You magnificent, terrifying woman.
+    
+    PROMISES:
+    
+    I promise to find you a treasure.
+    I promise to bring you gold pieces.
+    I promise not to waste the food.
+    I promise not to be eaten by a grue.
+    I promise to create something fabulous and mail it to you.
+    I promise to take care of the lamp.
+    I promise to return home safely.
+    I promise to do those dishes when I get back.
+    
+    P.S. — If I die, tell my spoons I loved them.
+    
+    P.P.S. — I'm enclosing my first composition: The Fantastipants
+    Victory Ballad. I wrote it the moment I picked up the lamp.
+    
+    [SONG ENCLOSED]
+    
+    This song means: I am choosing to keep going. I am choosing
+    to find light in dark places. I am choosing to be ridiculous
+    and alive rather than sensible and defeated.
+    
+    You taught me that. This song is what you made me.
+    
+    With all my love and all my lamp oil,
+    Your Bumblewick
+  
+  enclosures:
+    - name: The Fantastipants Victory Ballad
+      type: song_lyrics
+      copy: true  # Original stays in inventory
+  
+  # These promises are now BINDING GOALS
+  promises_extracted:
+    - find_treasure
+    - bring_gold
+    - not_waste_food
+    - not_eaten_by_grue
+    - mail_fabulous_clothing
+    - care_for_lamp
+    - return_safely
+    - do_dishes

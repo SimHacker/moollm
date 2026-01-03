@@ -1,0 +1,133 @@
+# Maze Room F
+# THE VICTORY KITCHEN — Site of the First Grue Slaying
+# Updated after Move 56
+
+room:
+  name: "The Victory Kitchen (formerly Cold Spot)"
+  type: maze_room
+  
+  # POST-BATTLE STATUS
+  lighting: none  # Still dark without lamp
+  grue_safe: true  # 💀 THE GRUE IS DEAD!
+  requires_light: true
+  historical_significance: "First grue ever slain in combat"
+  
+  # The grue event no longer applies — but preserved for history
+  grue_event_historical: |
+    [ARCHIVED — The grue that lived here was SLAIN by Captain Ashford
+    on Move 53, using the Gorgonzola Glaive (weaponized blue cheese).
+    
+    This is the first time in recorded history that an adventurer
+    has killed a grue through direct combat.]
+  
+  description: |
+    You are in what was once the Cold Spot — the grue's lair.
+    
+    The supernatural cold is GONE. It died with the grue.
+    The room is now normal cave temperature. Almost... warm?
+    
+    What remains:
+    - Void-ichor stains where the grue's body dissolved
+    - The Alchemical Residue (shimmering, whispering scientific marker)
+    - 11 Klingon Victory Hors D'oeuvres (on a flat rock altar)
+    - Scattered grue bone fragments
+    - The overwhelming SMELL
+    
+    The gold pile is GONE — claimed by Captain Ashford.
+    
+  description_post_battle: |
+    This is the Victory Kitchen now. The site of the first grue
+    slaying. A place of legend, of cheese, of conquest.
+    
+    The smell is... transcendent. Three layers:
+    1. Sharp blue cheese (from the Gorgonzola Glaive)
+    2. Rotting grue flesh (the unharvested remains)
+    3. The absence of gold (a hollow, unfulfilled scent)
+    
+    Future adventurers will know: something LEGENDARY happened here.
+  
+  # ═══════════════════════════════════════════════════════════════
+  # THE SMELL
+  # ═══════════════════════════════════════════════════════════════
+  
+  smell:
+    intensity: "OVERWHELMING"
+    radius: "Detectable throughout the maze"
+    
+    components:
+      blue_cheese:
+        source: "The Gorgonzola Glaive (used for slaying and cooking)"
+        intensity: "Aggressive, sharp, weaponized"
+        notes: "The cheese that killed a grue, then cooked it"
+        
+      grue_flesh:
+        source: "Unharvested remains of the slain grue"
+        intensity: "Rotting, ancient, dark"
+        notes: "Darkness made olfactory"
+        
+      absence_of_gold:
+        source: "The empty spot where 100 coins used to be"
+        intensity: "Subtle but distinct"
+        notes: "Like potential unfulfilled, dreams deferred"
+        
+    effect_on_visitors: |
+      Anyone entering this room will NEVER forget the smell.
+      It is the smell of victory. Of conquest. Of cheese-based violence.
+      
+    effect_on_maze: |
+      The smell permeates outward:
+      - Room I: Strong (skeleton doesn't mind)
+      - Room J: Moderate (machine sensors overwhelmed)
+      - Room E/G: Faint (markers recognize kinship)
+      - Start: Whisper (something has changed)
+  
+  feature: victory_kitchen  # Formerly cold_spot
+  
+  objects:
+    - alchemical-residue.yml      # The transformed Mysterious Stew
+    - klingon-victory-hors-doeuvres.yml  # 11 remaining
+    - grue-head-trophy.yml        # Reference (head delivered to Room I)
+    - gorgonzola-glaive.yml       # The legendary weapon
+    - grue-summoning-ululation-card.yml
+    - klingon-battle-song-card.yml
+    # gold-pile.yml — LOOTED! Now in Captain Ashford's possession
+  
+  # No longer cold!
+  special_effect:
+    oil_drain: 1x  # Normal now — supernatural cold died with grue
+    reason: "The grue's death ended the curse"
+    smell_intensity: "MAXIMUM"
+  
+  exits:
+    north:
+      destination: ../room-h/
+      description: "The smell is slightly less intense that way."
+    south:
+      destination: ../room-e/
+      description: "The Crown of Fermentation awaits, recognizing kinship."
+    east:
+      destination: ../room-a/
+      description: "Back toward the Oracle Core."
+    west:
+      destination: ../room-i/
+      description: "To the skeleton — your trophy awaits."
+  
+  ambience: |
+    The room has been transformed. What was once a place of death
+    and cold is now a place of VICTORY and pungent, assertive smells.
+    
+    The Alchemical Residue whispers formulas.
+    The hors d'oeuvres wait on their altar.
+    The void-ichor stains tell the story.
+    
+    This is sacred ground now. The Victory Kitchen.
+    
+  legacy: |
+    Future adventurers who find this room will discover:
+    - A shimmering scientific marker
+    - Remnants of a legendary feast
+    - Void-ichor stains
+    - An UNFORGETTABLE smell
+    - And the knowledge that the darkness is not invincible
+    
+    The grue is dead. Long live the cheese.

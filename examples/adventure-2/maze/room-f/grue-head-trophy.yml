@@ -1,0 +1,171 @@
+# 💀 THE GRUE'S HEAD
+# A trophy of vengeance, proof of the impossible
+# Claimed by Captain Ashford, Move 53
+
+trophy:
+  name: "The Grue's Head"
+  type: monster_trophy
+  rarity: legendary
+  
+  # ═══════════════════════════════════════════════════════════════
+  # DESCRIPTION
+  # ═══════════════════════════════════════════════════════════════
+  
+  description: |
+    The severed head of a grue — the first ever claimed by an adventurer
+    through direct combat. It rests now at the skeleton's feet in Room I,
+    proof that the vow of vengeance has been fulfilled.
+    
+    In death, it has achieved a fixed form: a mass of darkness compressed
+    into something almost solid, studded with too many teeth and eyes that
+    have gone dark forever.
+    
+    It is surprisingly light, as if made of condensed shadow.
+    
+  examine: |
+    You look at the grue's head. Its many eyes are closed now, dark
+    windows into nothing. The teeth — rows upon rows of them — remain
+    sharp, a reminder of what this creature did for forty years.
+    
+    It smells faintly of blue cheese. Your weapon left its mark.
+    
+    This was the thing that killed the skeleton. That waited in the
+    dark. That thought it was the apex predator of this maze.
+    
+    It was wrong.
+    
+  # ═══════════════════════════════════════════════════════════════
+  # PHYSICAL PROPERTIES
+  # ═══════════════════════════════════════════════════════════════
+  
+  properties:
+    weight: "Surprisingly light (condensed shadow)"
+    size: "Cantaloupe-sized, roughly spherical"
+    texture: "Like touching cold smoke that refuses to dissipate"
+    color: "Absolute black with darker patches"
+    eyes: "27 (all closed, dark)"
+    teeth: "Approximately 340 (still sharp)"
+    smell: "Faint blue cheese (from the Gorgonzola Glaive)"
+    
+  visual_details:
+    shape: |
+      Not quite round — more like a sphere that couldn't decide
+      on its geometry. Bumps and protrusions suggest features that
+      were never meant to be seen by light.
+      
+    eyes_arrangement: |
+      Scattered across the surface without pattern. Some clustered,
+      some alone. Each about the size of a marble, perfectly black,
+      now with a slight film of death over them.
+      
+    teeth_arrangement: |
+      Multiple rows, like a shark's nightmare. Some curved inward
+      for tearing. Some serrated for sawing. All designed for one
+      purpose: consuming adventurers.
+      
+    surface_texture: |
+      Matte black, absorbing light rather than reflecting it.
+      Where the Gorgonzola Glaive cut, there's a pale edge —
+      the only part of the grue that ever caught light.
+      
+  # ═══════════════════════════════════════════════════════════════
+  # THE KILLING BLOW
+  # ═══════════════════════════════════════════════════════════════
+  
+  death_details:
+    killed_by: "Captain Ashford (Bumblewick Fantastipants)"
+    weapon_used: "The Gorgonzola Glaive (weaponized blue cheese)"
+    method: "Decapitation via single swing"
+    location: "maze/room-f/ (The Cold Spot)"
+    time: "Move 53, Adventure 2"
+    
+    critical_factors:
+      - "Blue lamp light caused grue hesitation"
+      - "Klingon battle opera caused psychological confusion"
+      - "Weaponized cheese smell overwhelmed grue senses"
+      - "Cold-enhanced cheese edge could cut grue-flesh"
+      - "Perfect timing on lamp reignition"
+      
+    the_moment: |
+      The grue was inches away, ready to feed. Captain Ashford
+      reignited the blue lamp. The grue FROZE — never having
+      encountered blue light before. In that single moment of
+      hesitation, the Gorgonzola Glaive swung in a perfect arc
+      and severed the head from the body.
+      
+      The body dissolved. The head remained.
+      
+      It was over in less than three seconds.
+      
+  # ═══════════════════════════════════════════════════════════════
+  # HISTORY OF THIS GRUE
+  # ═══════════════════════════════════════════════════════════════
+  
+  grue_history:
+    age: "Unknown (possibly centuries)"
+    kills: "Approximately 147 adventurers (estimated)"
+    most_recent_victim: "The skeleton in Room I (40 years ago)"
+    
+    hunting_territory: |
+      Primarily Room F (The Cold Spot), though it roamed the
+      entire maze. The Cold Spot was its lair — the supernatural
+      chill was its doing, weakening adventurers and their lamps.
+      
+    method: |
+      Wait in darkness. Let the lamp oil run low. Approach
+      when the light flickers. Consume when it dies.
+      Patient. Efficient. Inevitable.
+      
+      Until now.
+      
+  # ═══════════════════════════════════════════════════════════════
+  # CURRENT LOCATION
+  # ═══════════════════════════════════════════════════════════════
+  
+  current_location: "maze/room-i/ — At the skeleton's feet"
+  
+  placement_significance: |
+    The grue's head rests at the feet of its last victim.
+    The skeleton waited forty years for this moment.
+    The vow of vengeance has been fulfilled.
+    
+  skeleton_reaction: |
+    The skeleton's eternal grin has softened. The pointing finger,
+    forever aimed west toward the vendor, seems more relaxed now.
+    They can finally rest.
+    
+  machine_reaction: |
+    Two rooms away, ACME Unit #47's display shows:
+    "GRUE SIGNAL... TERMINATED."
+    Followed by: "THANK YOU, CAPTAIN."
+    
+  # ═══════════════════════════════════════════════════════════════
+  # LEGACY
+  # ═══════════════════════════════════════════════════════════════
+  
+  legacy: |
+    This is the first grue head ever claimed by an adventurer.
+    
+    Others have survived grues — by running, by maintaining their
+    lamps, by avoiding the darkness. But no one has ever FOUGHT
+    one. No one has ever WON.
+    
+    Until Captain Ashford. With blue fire and blue cheese.
+    
+    Songs will be sung about this. The Klingon battle opera
+    already exists. More will follow.
+    
+    The grues of this maze will learn: the darkness is no longer
+    safe. The prey has teeth. The prey has CHEESE.
+    
+  # ═══════════════════════════════════════════════════════════════
+  # RELATED FILES
+  # ═══════════════════════════════════════════════════════════════
+  
+  related:
+    - weapon: "./gorgonzola-glaive.yml"
+    - battle_song: "./klingon-battle-song-card.yml"
+    - summoning: "./grue-summoning-ululation-card.yml"
+    - vow: "../room-i/vow-of-vengeance.yml"
+    - skeleton: "../room-i/skeleton.yml"
+    - machine_letter: "../room-i/letter-from-machine-to-skeleton.yml"

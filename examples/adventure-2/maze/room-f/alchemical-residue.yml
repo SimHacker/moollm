@@ -1,0 +1,90 @@
+# 🔮 THE ALCHEMICAL RESIDUE
+# A marker of impossible transformation
+# Created by Captain Ashford, Move 55
+
+object:
+  name: "The Alchemical Residue"
+  type: room_marker
+  
+  original_item:
+    name: "Pot of Mysterious Stew"
+    marker_id: 7
+    label: "DO NOT EAT - EXPERIMENT"
+    from: "Mother's kitchen"
+    
+  description: |
+    What was once Mother's experimental stew is now a shimmering,
+    iridescent puddle that seems to exist in multiple states
+    simultaneously. It rests on the floor of Room F — the site
+    of the first grue slaying in history.
+    
+    It glows. It hums. It occasionally whispers formulas.
+    
+    The experiment has reached its conclusion: LEGENDARY VICTORY.
+    
+  examine: |
+    You lean closer to the Alchemical Residue. It pulses with
+    colors that don't have names — combinations of hues that
+    shouldn't be possible, shifting and flowing like a aurora
+    trapped in a puddle.
+    
+    It whispers something. Numbers? Chemical formulas? A recipe?
+    
+    "...the ratio was perfect..."
+    "...subject has exceeded parameters..."
+    "...experiment: SUCCESSFUL..."
+    
+    It seems to be congratulating you.
+    
+  properties:
+    colors: "All of them. Simultaneously. Including some new ones."
+    smell: "Victory, with undertones of chaos and maternal pride"
+    texture: "Liquid? Solid? Both? Neither?"
+    temperature: "Room temperature, which is now warmer (grue dead)"
+    sentience_level: "Definitely sentient. Possibly genius."
+    scientific_value: "Immeasurable"
+    
+  location: "maze/room-f/"
+  
+  significance: |
+    This marker sits at the exact spot where the first grue
+    was ever slain in combat. The experimental stew has
+    transformed into a monument to innovation, courage,
+    and extremely questionable dietary choices.
+    
+  opinion_of_player: |
+    "You have passed the test, Captain Ashford. Every variable
+    was accounted for. The cheese. The lamp. The opera. The
+    ululation. The hesitation. The strike.
+    
+    You were the experiment all along.
+    
+    Result: LEGENDARY.
+    
+    Mother will be so pleased with the data."
+    
+  opinion_of_room: |
+    "This room was cold. Now it is warm with victory.
+    I shall monitor the decay of residual grue energy.
+    For science. Always for science."
+    
+  opinion_of_mother: |
+    "She knew. The stew was never meant to be food.
+    It was meant to be a marker. A witness. A recorder.
+    Every molecule observed the battle.
+    
+    The full report will be transmitted via puddle-telepathy.
+    
+    Estimated delivery: 3-5 business days."
+    
+  special_properties:
+    - "Marks the site of first grue slaying"
+    - "Whispers scientific observations"
+    - "Glows in multiple impossible colors"
+    - "May or may not be plotting something"
+    - "Definitely taking notes"
+    
+  related:
+    - grue_head: "./grue-head-trophy.yml"
+    - battle_site: "./ROOM.yml"
+    - glaive: "./gorgonzola-glaive.yml"

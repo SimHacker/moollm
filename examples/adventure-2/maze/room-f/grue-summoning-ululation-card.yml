@@ -1,0 +1,207 @@
+# 🌀 GRUE SUMMONING ULULATION CEREMONY
+# A ritual of challenge, defiance, and questionable wisdom
+# Created by Captain Ashford in the Cold Spot, Move 50
+
+card:
+  name: "Grue Summoning Ululation Ceremony"
+  type: ritual_card
+  rarity: rare
+  
+  # ═══════════════════════════════════════════════════════════════
+  # CARD FACE
+  # ═══════════════════════════════════════════════════════════════
+  
+  title: "The Grue Summoning Ululation"
+  subtitle: "Call Forth the Darkness... On Purpose"
+  
+  illustration_prompt: |
+    A lone adventurer stands in a frozen cavern, head thrown back,
+    mouth open in primal scream. A blue-flamed lamp sits at their
+    feet. Shadows gather at the edges of the light, forming hungry
+    shapes with too many teeth. Gold coins scatter on the floor.
+    Style: Gothic horror meets opera poster.
+    
+  flavor_text: |
+    "Why wait for death when you can SUMMON IT?"
+    — Captain Ashford, moments before doing something inadvisable
+    
+  # ═══════════════════════════════════════════════════════════════
+  # THE CEREMONY
+  # ═══════════════════════════════════════════════════════════════
+  
+  ceremony:
+    prerequisites:
+      - "Must be in a dark room (or room that WILL be dark)"
+      - "Must have a light source (for the ambush)"
+      - "Must have incredible courage (or stupidity)"
+      - "Must have unfinished business with grues"
+      
+    preparation:
+      - "Stand in center of room"
+      - "Place lamp at feet (still lit for now)"
+      - "Raise hands overhead"
+      - "Tilt head back"
+      - "Take deep breath (cold air optional but atmospheric)"
+      
+    phases:
+      phase_1:
+        name: "The Opening Wail"
+        duration: "5-10 seconds"
+        vocalization: |
+          AAAAAAAAAAAUUUUUUUUUUUUUUUUUUUUUUUUUU...
+        notes: |
+          Start low, build high. Let it echo.
+          This announces your presence to the maze.
+          
+      phase_2:
+        name: "The Naming"
+        duration: "10 seconds"
+        vocalization: |
+          GRUUUUUUUUE! GRUUUUUUUUE! GRUUUUUUUUUUUUUE!
+          
+          I CALL YOU BY YOUR NAME!
+          I CALL YOU FROM THE DARK!
+          I CALL YOU TO YOUR DOOM!
+        notes: |
+          Name the creature. Names have power.
+          "DOOM" should crack slightly for authenticity.
+          
+      phase_3:
+        name: "The Challenge"
+        duration: "15 seconds"
+        vocalization: |
+          YOU WHO ATE THE SKELETON!
+          YOU WHO HUNTS IN DARKNESS!
+          YOU WHO THINKS YOURSELF THE APEX!
+          
+          COME AND FACE THE BLUE FLAME!
+          COME AND TASTE BELTER STEEL!
+          COME AND LEARN WHAT PREY CAN DO!
+          
+          ULULULULULULULULULULU...
+        notes: |
+          Be specific if you know your grue's crimes.
+          The ululation should build and multiply.
+          
+      phase_4:
+        name: "The Crescendo"
+        duration: "10 seconds"
+        vocalization: |
+          I AM [YOUR NAME]!
+          I AM THE AVENGER!
+          I CARRY [OATH/PROMISE/BURDEN]!
+          I CARRY [SACRED ITEM]!
+          
+          AND I AM NOT! AFRAID! OF! YOU!
+          
+          AAAAAUUUUUUUUUULUUUUUUUUUUUUUUUUU!!!
+        notes: |
+          Personalize with your own titles and burdens.
+          The final ululation should be LOUD.
+          
+    response:
+      expected_delay: "5-30 seconds"
+      grue_response: "A low growl, building. It heard you."
+      arrival_time: "1-3 turns after ceremony completes"
+      guarantee: "100% — grues CANNOT resist a direct challenge"
+      
+  # ═══════════════════════════════════════════════════════════════
+  # WHY WOULD YOU DO THIS
+  # ═══════════════════════════════════════════════════════════════
+  
+  use_cases:
+    vengeance: |
+      You have a score to settle. A skeleton to avenge.
+      You don't want to wait — you want to HUNT.
+      
+    proof_of_courage: |
+      Anyone can stumble into a grue.
+      Only the brave SUMMON one.
+      
+    tactical_advantage: |
+      The grue expects prey to hide, to flee, to cower.
+      It does NOT expect prey to call it.
+      Confusion is an advantage.
+      
+    blue_flame_strategy: |
+      If you have Premium Glow Juice (blue flame), the grue
+      will hesitate when it sees it — giving you ONE FREE TURN.
+      Summoning the grue lets YOU choose when to ignite.
+      
+    really_bad_decisions: |
+      Sometimes you just want to fight a grue.
+      We don't judge.
+      
+  # ═══════════════════════════════════════════════════════════════
+  # WARNINGS
+  # ═══════════════════════════════════════════════════════════════
+  
+  warnings:
+    - "⚠️ This WILL summon a grue"
+    - "⚠️ Grues EAT people"
+    - "⚠️ If you don't have a plan, you will die"
+    - "⚠️ Even WITH a plan, you might die"
+    - "⚠️ The ceremony cannot be un-done"
+    - "⚠️ The grue will remember your voice"
+    
+  # ═══════════════════════════════════════════════════════════════
+  # CARD ACTIONS
+  # ═══════════════════════════════════════════════════════════════
+  
+  actions:
+    - action: PERFORM
+      description: "Execute the full ceremony"
+      cost: "2 oil (ceremony overhead) + time"
+      effect: "Grue summoned within 1-3 turns"
+      
+    - action: TEACH
+      description: "Share this card with another character"
+      effect: "They learn the ceremony (may question your friendship)"
+      
+    - action: MODIFY
+      description: "Customize Phase 4 with personal details"
+      effect: "More authentic ululation"
+      
+  # ═══════════════════════════════════════════════════════════════
+  # LINEAGE
+  # ═══════════════════════════════════════════════════════════════
+  
+  created_by: "Captain Ashford (Bumblewick Fantastipants)"
+  created_at: "maze/room-f/ (The Cold Spot)"
+  created_on: "Move 50, Adventure 2"
+  
+  origin_story: |
+    Captain Ashford stood in the grue's lair, contemplating how to
+    begin the hunt. Rather than simply turning off the lamp and waiting
+    (boring, passive, prey-like), he decided to CALL the creature.
+    
+    To challenge it. To show it that the hunter had become the hunted.
+    
+    The ceremony emerged spontaneously — part opera, part war cry,
+    part primal scream therapy. It worked IMMEDIATELY.
+    
+    The grue is coming now.
+    
+  captain_ashford_notes: |
+    "Why did I do this? Excellent question.
+    
+    The skeleton waited. The skeleton hid. The skeleton FLED.
+    The skeleton died.
+    
+    I refuse to be prey. If I'm going to face a grue, it will be
+    because I CALLED it. Because I CHOSE this. Because the grue
+    needs to learn that sometimes dinner fights back.
+    
+    Also the ululation was surprisingly cathartic.
+    
+    10/10 would summon again."
+    
+  # ═══════════════════════════════════════════════════════════════
+  # RELATED
+  # ═══════════════════════════════════════════════════════════════
+  
+  related:
+    - vow: "../room-i/vow-of-vengeance.yml"
+    - skeleton: "../room-i/skeleton.yml"
+    - machine: "../room-j/lamp-vendor-machine.yml"
+    - lamp: "../../start/lamp.yml"

@@ -1,0 +1,43 @@
+# Automated Genie Absence Notification
+# Received: Move 2, Chamber of Commencement
+# Occasion: Vigorous lamp rubbing
+
+card:
+  name: Genie Absence Note
+  type: note
+  source: "Automated Genie Absence Notification System (AGANS)"
+  
+  description: |
+    A tiny note that materialized from the lamp when you rubbed it
+    with particular vigor. The handwriting is somehow both ancient
+    and bureaucratic.
+  
+  contents: |
+    The genie you are trying to reach is currently on holiday.
+    Your call is important to us. Please try again in approximately
+    3,000 years. Current wait time: THREE THOUSAND YEARS.
+    
+    In the meantime, the lamp still works as a lamp. Which is
+    actually quite useful, all things considered.
+    
+    — Automated Genie Absence Notification System (AGANS)
+    
+    P.S. The vigor was appreciated. Most people barely try.
+  
+  advertisements:
+    - action: READ
+      description: "Read the note again (in case you missed something)"
+      
+    - action: SHOW
+      description: "Show to someone else"
+      effect: "They may be amused or concerned"
+      
+    - action: SAVE
+      description: "Keep as proof you tried"
+      effect: "Evidence of lamp-rubbing diligence"
+  
+  trivia: |
+    The AGANS system was implemented approximately 4,500 years ago
+    after too many adventurers complained about unattended lamps.
+    The genie union negotiated holiday provisions in the Treaty of
+    Brass Vessels (2513 BCE).

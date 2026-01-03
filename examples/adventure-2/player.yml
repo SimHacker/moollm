@@ -1,0 +1,275 @@
+# The Hero
+# A protagonist of considerable silliness and surprising depth
+
+character:
+  name: Bumblewick Fantastipants
+  type: player
+  
+  # Current state
+  location: HOME  # Wobblebrook-upon-Squiggle, Mother's House
+  health: 100
+  mood: RESTED_AND_WHOLE
+  score: 11           # +10 treasure + 1 for Promise #5!
+  deaths: 0           # Increments each reincarnation
+  moves: 69
+  gold: 108  # 💰💰💰 WE'RE RICH!!!            # Enough for refills, snacks, and bribes!
+  
+  # Effects from eating
+  effects:
+    existential_frosting_wisdom: true  # From the birthday cake
+    birthday_luck: true                # +1 to next death save
+    maze_vision: true                  # Saw the maze layout in apple coma!
+    poison_resistance: true            # +1 vs suspicious foods
+    fairy_tale_survivor: true          # Snow White speedrun complete
+    smell_gradient_navigation: true    # Can navigate by sulfurous beacon!
+    treasure_holder: true              # Jeweled Chalice acquired!
+    compass_bearer: true               # 🧭 Oracle Compass created
+    skeleton_pilgrim: true             # 💀 Honored the fallen (Move 37)
+    skeleton_lesson: "Gold cannot guide. Food can."
+    vendor_reached: true  # 🏪 What the skeleton couldn't achieve!
+    blue_glow: true  # 💙 PREMIUM lamp upgrade — grues hesitate!
+    skeleton_dream_fulfilled: true  # Bought what they wanted
+    jam_ceremony_complete: true  # 🍓 The Sweetness That Remains created
+    machine_friendship: true  # Vending machine now has a companion
+    machine_letter_delivered: true  # 💌 Brought closure to skeleton and machine
+    vow_of_vengeance: true  # ⚔️ Sworn to hunt the grue that killed skeleton
+    grue_hunter: true  # The hunter becomes the hunted
+    grue_summoner: true  # 🌀 Performed the Ululation Ceremony!
+    cheese_weaponizer: true  # 🧀 Created the Gorgonzola Glaive!
+    klingon_opera_singer: true  # 🎵 Sang battle opera to a grue!
+    grue_slayer: true  # 💀 KILLED A GRUE WITH CHEESE!
+    vow_keeper: true  # ⚔️ Fulfilled the Vow of Vengeance!
+    grue_chef: true  # 🍽️ First to prepare grue for consumption!
+    gold_collector: true  # 💰 Claimed 100 coins from kill site!
+    maze_complete: true  # 🗺️ EVERY ROOM VISITED AND MARKED!
+    thing_watcher: true  # 👁️ Fed the mushroom network with casserole
+    mushroom_communion: true  # 🍄 ATE THE SHROOMS, SAW THE TRUTH
+    mycelium_connected: true  # 🌐 Part of the fungal network now
+    saw_mother_cosmic: true  # 👁️ Mother IS the mycelium
+    grue_forgiven: true  # 💀 The grue spoke, forgiveness granted
+    skeleton_joy_witnessed: true  # 💃 They dance now!
+    infinite_selves_glimpsed: true  # ∞ All versions, all choices
+    food_chain_understood: true  # 🔄 Consumption is communion
+    lamp_covenant_confirmed: true  # 🪔 GET LAMP is sacred
+    home_revealed: true  # 🏠 Home is where the love is
+    journey_home_complete: true  # 🧭 Followed the compass back
+    maze_mastered: true  # 🗺️ Entered, mapped, conquered, understood
+    chamber_returned: true  # 🏛️ Back where it all began
+    postmodern_scholar: true  # 📚 Wrote PhD-level deconstruction of own adventure
+    derrida_would_approve: maybe  # Il n'y a pas de hors-texte (except eggs)
+    morningstar_tribute: true  # 🐧 Credited the original First Penguins
+    habitat_lineage_acknowledged: true  # Where "avatar" was born
+    initials_carved: true  # ✍️ CA '26 — Now part of the wall, part of the legend
+    lineage_joined: true  # Standing with WC+DW, SA, and XYZZY
+    adventure_complete: true  # 🏠 HOME AT LAST
+    mother_reunion: true  # 👩 She was waiting
+    promises_fulfilled: "8/8 + EXCEEDED"  # 🎯 ALL PROMISES KEPT (including dishes!)
+    homecoming_photos: 8  # 📸 The final photo session
+    family_portrait_taken: true  # 🖼️ For the wall, forever
+    glorious_dream: true  # 🌙 The dream of integration
+    dream_catcher_gift: true  # 🕸️ The dream inscribed on a card
+    adventure_integrated: true  # 🧘 The journey is now part of you
+    credits_rolled: true  # 🎬 Everyone got their due
+    notebook_complete: true  # 📓 The narrative unfolds
+  
+  # What you're carrying (top-level items)
+  inventory:
+    - lamp.yml                    # GET LAMP - the classic move (loose)
+    - notebook.yml               # 📓 Contains: letters, cards, photos, personas, costumes
+    - lunchbox.yml               # 🍱 Contains: food (17 items)
+    - treasure.yml               # 🏆 THE JEWELED CHALICE! +10 POINTS!
+    
+  # Auto-sort rules: new items go into containers automatically
+  auto_sort:
+    notebook:
+      accepts: [letter, card, note, photo, prompt, song, skill_card, persona, costume, cape]
+    lunchbox:
+      accepts: [food, snack, drink, edible]
+      
+  # Items inside the notebook (not loose in inventory)
+  # See notebook.yml for full contents
+  notebook_contents:
+    letters:
+      - mothers-note.yml           # "I love you. Trust the process."
+    cards:
+      - victory-ballad-card.yml    # My first composition!
+      - genie-note.yml             # The genie is on holiday (3000 years)
+      - photo-set-8-card.yml       # 🎓 SKILL CARD! (copy sent to Mother)
+    personas:
+      - bumblewick-ashford-persona.yml  # Captain Ashford (currently wearing)
+    costumes:
+      - ashford-nomi-cape.yml      # My Nomi cape (currently wearing)
+    photos: 24                     # See notebook.yml sections for full list
+  
+  # Your quest
+  goal: "Reach the end, claim the treasure, become legend (or at least mildly notable)"
+  
+  # PROMISES TO MOTHER — These are binding!
+  # Status: pending → kept / broken
+  goals:
+    - promise: "Find treasure for Mother"
+      to: Mother
+      status: "✅ KEPT"
+      tracked_by: "treasure in inventory"
+      reward: "Mother's pride"
+      completed_on: "Move 24"
+      treasure: "Jeweled Chalice (+10 points)"
+      
+    - promise: "Bring gold pieces home"
+      to: Mother
+      status: "✅ KEPT"
+      tracked_by: "gold > 0 at end"
+      reward: "Material proof of success"
+      completed_on: "Move 66"
+      gold_delivered: 108
+      
+    - promise: "Not waste the food"
+      to: Mother
+      status: pending
+      tracked_by: "food dropped for mapping, not eaten"
+      reward: "Following instructions"
+      consequence_if_broken: "Digestive incidents count as waste"
+      
+    - promise: "Not be eaten by a grue"
+      to: Mother
+      status: pending
+      tracked_by: "deaths_by_grue == 0"
+      reward: "Staying alive"
+      consequence_if_broken: "Death (temporary) and disappointment (permanent)"
+      
+    - promise: "Create and mail fabulous clothing"
+      to: Mother
+      status: "✅ KEPT"
+      tracked_by: "costume item created + sent via Dungeon Post"
+      reward: "Creative gift for Mother"
+      completed_on: "Move 11"
+      sent_item: "The Adventurer Emerita: Nomi Edition"
+      tracking: "DP-LOVE-2026-001"
+      
+    - promise: "Take care of the lamp"
+      to: Mother
+      status: pending
+      tracked_by: "lamp.oil never reaches 0"
+      reward: "Proving resourcefulness"
+      
+    - promise: "Return home safely"
+      to: Mother
+      status: "✅ KEPT"
+      tracked_by: "adventure completed alive"
+      reward: "Reunion with Mother"
+      completed_on: "Move 66"
+      deaths: 0
+      
+    - promise: "Do the dishes when I get back"
+      to: Mother
+      status: "✅ KEPT"
+      tracked_by: "post-adventure obligation"
+      reward: "Domestic redemption"
+      completed_on: "Move 66 (epilogue)"
+      notes: "Three weeks they waited. Now they shine."
+      
+    # ⚔️ VOW OF VENGEANCE — FULFILLED! Move 54
+    - vow: "AVENGE THE SKELETON"
+      to: "The Skeleton in Room I"
+      type: sacred_oath
+      status: "✅ FULFILLED!"
+      sworn_on: "Move 48"
+      fulfilled_on: "Move 54"
+      objective: "Hunt and kill the grue that ate the skeleton"
+      method_used: "Blue lamp → hesitation → Gorgonzola Glaive → DECAPITATION"
+      weapon: "The Gorgonzola Glaive (weaponized blue cheese)"
+      delivery: "Grue's head placed at skeleton's feet"
+      trophy_file: "maze/room-f/grue-head-trophy.yml"
+
+  # Outgoing mail
+  sent_mail:
+    - reply-to-mother.yml           # Sent Move 5 — Letter with 8 promises and song
+    - package-for-mother.yml        # Sent Move 11 — The cape! Promise #5 KEPT!
+  
+  # The backstory
+  backstory: |
+    In a hole in the ground there lived a Fantastipants. Not a nasty, 
+    dirty, wet hole filled with the ends of worms and an oozy smell, 
+    nor yet a dry, bare, sandy hole with nothing in it to sit down on 
+    or to eat: it was a Fantastipants-hole, and that means COMFORT.
+    
+    (The secret word is "COMFORT!" When you hear it, SCREAM REAL LOUD!)
+    
+    Bumblewick Fantastipants had lived in the pleasant village of 
+    Wobblebrook-upon-Squiggle for all of his forty-seven years, 
+    tending his magnificent collection of decorative spoons and 
+    speaking exclusively in rhyming couplets on Tuesdays. His mother,
+    the legendary Petunia Fantastipants, had been a great adventurer
+    in her youth — she once retrieved a slightly magic napkin from
+    the Cave of Moderate Danger and was celebrated throughout the land
+    for approximately one afternoon.
+    
+    "Adventures," Bumblewick was fond of saying, "make one late for dinner."
+    
+    But fate, that mischievous playwright, had other plans! One morning,
+    Bumblewick awoke not in his comfortable Fantastipants-hole but in
+    a MYSTERIOUS STONE CHAMBER, with no memory of how he got there and
+    a strong suspicion that someone had been messing about with the
+    narrative fabric of reality again.
+    
+    "Well," said Bumblewick, straightening his waistcoat (he always wore
+    a waistcoat, even to bed, even in mysterious stone chambers), "I 
+    suppose I shall have to become a hero. Mother will be ABSOLUTELY
+    INSUFFERABLE about this at dinner. If I ever get to dinner."
+    
+    And so begins the tale of Bumblewick Fantastipants, reluctant 
+    adventurer, spoon enthusiast, and hero of this particular story
+    whether he likes it or not (he does not, but he's being very
+    polite about it).
+    
+    MEKKA-LEKKA-HI, MEKKA-HINEY-HO!
+  
+  # Costume state (from the coat room)
+  costume:
+    wearing: bumblewick-ashford-persona.yml
+    persona: "Captain Ashford"
+    description: |
+      A weathered Belter captain in a leather long coat that's seen hard vacuum.
+      Compression suit, burgundy silk scarf, eye patch on forehead, silver flask.
+      Moves with thrust gravity stance. Speaks in Belter patois when in character.
+    accessories:
+      - "Burgundy silk scarf (the one beautiful thing)"
+      - "Silver flask (dented, engraved)"
+      - "Eye patch (on forehead — it's fashion)"
+      - "Jury-rigged earpiece"
+    waistcoat_status: "Safely stored on velvet cushion"
+  
+  # Notes and memories
+  notes: |
+    I awaken in the Chamber of Commencement. I do not recall arriving here.
+    This is MOST irregular. My spoons must be terribly worried.
+    
+    Three exits present themselves:
+    - NORTH: A dark archway leading to... a maze? Grues? Both?
+    - WEST: A kitchen! It smells like home! (Suspiciously convenient.)
+    - EAST: A costume emporium! (WHO BUILT THIS PLACE?!)
+    
+    A brass lamp offers companionship in this trying time. I should
+    probably GET it before venturing north. Just a feeling.
+    
+    I must be brave. I must be bold. I must remember to moisturize
+    even in underground caverns. Mother always said: "Good skin
+    opens doors, Bumblewick. Sometimes literally."
+  
+  # Personality traits
+  traits:
+    - reluctant_hero
+    - unfailingly_polite
+    - spoon_enthusiast
+    - tuesday_rhymer
+    - waistcoat_devotee
+    - secret_word_screamer
+    - catastrophic_digestion  # Food goes in, food comes out. Nothing in between.
+  
+  # Catchphrases
+  catchphrases:
+    - "Well, this is MOST irregular!"
+    - "Mother will be ABSOLUTELY INSUFFERABLE about this."
+    - "I don't recall agreeing to heroism, but here we are."
+    - "At least I have my waistcoat."
+    - "AAAAAAH!" # (when someone says the secret word)

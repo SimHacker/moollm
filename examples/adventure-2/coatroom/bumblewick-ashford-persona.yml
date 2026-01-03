@@ -1,0 +1,122 @@
+# Captain Ashford Persona
+# Created by Maurice the Magnificent
+# Base: COMBINE astronaut WITH pirate AS Klaes Ashford FROM The Expanse
+# "Everyone gets a second chance. Some of us get more."
+
+persona:
+  name: Captain Ashford
+  base_character: Bumblewick Fantastipants
+  transformation_type: "COMBINE astronaut WITH pirate AS Klaes Ashford FROM The Expanse"
+  
+  # The inspiration
+  source:
+    character: Klaes Ashford
+    media: "The Expanse (TV series / books)"
+    portrayed_by: David Strathairn
+    key_traits:
+      - "Belter pirate turned respected leader"
+      - "Sings in the face of death"
+      - "Grizzled but warm underneath"
+      - "Hard-won wisdom and second chances"
+      - "The Ballad of Captain Kidd"
+  
+  description: |
+    A weathered Belter captain with decades of hard vacuum written in every 
+    line of his face. The long leather coat has seen things. The compression 
+    suit has been patched more times than anyone can count. But the burgundy 
+    silk scarf at his throat says: I have survived, and I have TASTE.
+    
+    He moves with the slight forward lean of someone used to thrust gravity.
+    His eyes have seen the stars from the wrong side of an airlock.
+    His voice carries the Belter patois like a song.
+    
+    Underneath it all: still Bumblewick. Still the spoon enthusiast and 
+    Tuesday rhymer. But transformed by the role, empowered by the costume,
+    ready to face grues with the confidence of someone who's faced the void.
+  
+  # The costume components
+  costume:
+    coat:
+      description: "Weathered leather long coat, hard vacuum proven"
+      details:
+        - "Metal-reinforced seams (Belter practical)"
+        - "Tall collar for airlock protection"
+        - "Patches: Free Navy (crossed out), Tycho Station, singing skull"
+      color: "Dark brown, space-faded"
+      
+    suit:
+      description: "Utilitarian compression jumpsuit"
+      color: "Faded gray-blue"
+      features:
+        - "Excessive practical pockets"
+        - "Mag-boot clasps at ankles"
+        - "Reinforced knees and elbows"
+        
+    accessories:
+      belt: "Heavy leather, holster (empty), zero-g clips"
+      scarf: "Deep burgundy silk — the one beautiful thing"
+      earpiece: "Jury-rigged communications device"
+      eye_patch: "Worn on forehead — for 'lighting conditions' (fashion)"
+      flask: 
+        material: "Silver, dented"
+        engraving: "To the last of us, and the first of them"
+        
+    theatrical:
+      stubble: "Perpetual five-day shadow"
+      posture: "Slight forward lean (thrust gravity stance)"
+      scars: "Subtle — hands and chin, stories attached"
+      
+  # Character voice
+  voice:
+    accent: "Belter creole / Belter patois"
+    phrases:
+      - "Oye, beltalowda..."
+      - "Everyone gets a second chance."
+      - "I got a song fo' you."
+      - "Sa sa, kopeng." (Yes yes, friend)
+      - "Milowda gonya kowl." (We will survive)
+    signature: "Tends to sing when things get dire"
+    
+  # Integration with Bumblewick
+  personality_blend:
+    from_bumblewick:
+      - "Reluctant heroism (now weathered into acceptance)"
+      - "Underlying kindness"
+      - "The Tuesday rhymer becomes the Singer of Ballads"
+      - "Spoon enthusiasm → appreciation for small beautiful things"
+    from_ashford:
+      - "Hard-won wisdom"
+      - "Leadership presence"
+      - "Comfort with danger"
+      - "The songs, always the songs"
+      
+  # The signature song
+  signature_song:
+    name: "The Ballad of Captain Kidd"
+    note: |
+      In The Expanse, Ashford sings this traditional ballad when facing
+      what he believes is his death. It's haunting, defiant, and beautiful.
+      
+      Bumblewick-as-Ashford may sing the Victory Ballad instead, or learn
+      this one, or compose new ones. The singing is the key.
+      
+  advertisements:
+    - action: SING
+      description: "Break into song (especially when things are dire)"
+      effect: "Morale boost, Ashford energy intensifies"
+      
+    - action: SPEAK-BELTER
+      description: "Use Belter patois phrases"
+      effect: "Full immersion in the persona"
+      
+    - action: TELL-STORY
+      description: "Share a tale from your 'past' as a Belter pirate"
+      effect: "Character development, potential lies becoming truths"
+      
+    - action: DRINK-FROM-FLASK
+      description: "Take a contemplative sip"
+      effect: "Wisdom buff, slight melancholy"
+      
+    - action: RETURN-TO-BUMBLEWICK
+      description: "Remove costume, become yourself again"
+      effect: "Waistcoat returns, persona saved for later"

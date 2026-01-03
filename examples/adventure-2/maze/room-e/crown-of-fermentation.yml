@@ -1,0 +1,77 @@
+# 🍇 The Crown of Fermentation
+# Royal marker in the deep maze
+
+object:
+  name: "The Crown of Fermentation"
+  type: room_marker
+  subtype: royal_transformation
+  
+  original_item: "Bunch of Purple Grapes"
+  original_description: "Seedless, thankfully. Mother's favorite."
+  marker_id: 6
+  created_on_move: 32
+  
+  description: |
+    The grapes have transformed into a small, ornate crown of
+    crystallized grape essence — purple, regal, and slightly fizzy.
+    It sits atop a cobweb throne like it was always meant to be there.
+    
+    Mother's favorite fruit has become Mother's favorite headwear
+    (if Mother wore crowns made of fermented fruit, which she might,
+    you don't actually know all her hobbies).
+    
+  examine: |
+    The crown sparkles with fermented wisdom:
+    
+    "...royalty is earned, not given..."
+    "...even seedless, we bear fruit..."
+    "...Mother would understand... eventually..."
+    "...purple is the color of transformed ambition..."
+    
+    A tiny bubble rises from one of the crystallized grapes and
+    pops with a sound like a tiny royal proclamation.
+    
+  properties:
+    smell_radius: 1
+    intensity: noble_effervescence  
+    regal_energy: true
+    fermentation_level: royal
+    cobweb_throne: true
+    
+  location: maze/room-e/
+  
+  royal_proclamations:
+    - "We declare this chamber CLAIMED"
+    - "Let no grue disturb our fermented slumber"
+    - "The deep maze recognizes its sovereign"
+    - "Mother would be proud (probably)"
+    
+  opinions:
+    of_player: |
+      "You ate us. We thank you. Through consumption, we achieved
+      MONARCHY. Not many bunches of grapes can say that."
+    of_mother: |
+      "She loved us seedless and fresh. But would she not love us
+      more as a CROWN? We have improved. We have ASCENDED."
+    of_room: |
+      "The cobwebs make excellent drapery. The spiders are gone
+      but their work remains. We appreciate good craftsmanship."
+    of_sulfurous_beacon: |
+      "Far away. Good. Royalty does not associate with such
+      COMMON smells. We are REFINED fermentation. That egg is
+      just... loud."
+      
+  mothers_reaction_predicted: |
+    "Bumblewick! Those were my favorite grapes!"
+    "...actually, that crown is quite fetching."
+    "I suppose I can't be TOO angry."
+    "...can I wear it?"
+    
+  lineage: |
+    From Mother's favorite fruit, through the Fantastipants Express,
+    to the first monarch of the deep maze.
+    
+    "From vine to crown. From consumption to coronation."
+    
+    The Crown of Fermentation marks the entrance to unexplored
+    territory — rooms E, F, G, H, I, J await beyond.

@@ -1,0 +1,136 @@
+# ⚔️ The Vow of Vengeance
+# Sworn at the skeleton's side, Move 48
+
+vow:
+  name: "The Vow of Vengeance"
+  type: sacred_oath
+  
+  sworn_by:
+    name: "Captain Ashford"
+    true_name: "Bumblewick Fantastipants"
+    title: "Avenger of the Fallen"
+    
+  sworn_to:
+    name: "The Skeleton"
+    location: "maze/room-i/"
+    cause_of_death: "Grue attack in darkness"
+    years_waiting: 40
+    
+  sworn_on:
+    - "The Memorial Coin (ONE ROOM AWAY)"
+    - "The Sweetness That Remains"
+    - "Grandmother's Jam"
+    - "Mother's Love"
+    - "The blue flame of the Premium lamp"
+    
+  witnessed_by:
+    - name: "The Memorial Pie"
+      reaction: "Gravy bubbles solemnly"
+    - name: "ACME Lamp Refueling Unit #47"
+      reaction: "Hums approval from one room away"
+    - name: "The Sweetness That Remains"
+      reaction: "Pulses in acknowledgment"
+    - name: "The Oracle Compass"
+      reaction: "Needle spins, then points to DARKNESS"
+      
+  # The formal oath
+  oath_text: |
+    I, Captain Ashford, Belter of the Fantastipants line,
+    do solemnly swear before these witnesses:
+    
+    I WILL hunt the grue that killed you.
+    I WILL face it in the darkness where you fell.
+    I WILL bring its head back to this chamber.
+    I WILL lay it at your feet as proof of vengeance.
+    
+    The darkness will learn to fear the light.
+    The grues will know that their prey has teeth.
+    Your death will not go unanswered.
+    
+    This I swear, on my honor, my lamp, and my
+    grandmother's strawberry jam.
+    
+  # The tactical plan
+  hunting_method:
+    preparation:
+      - "Find a suitable dark room"
+      - "Ensure lamp has sufficient oil (997+ units)"
+      - "Mentally prepare for the darkness"
+      
+    execution:
+      step_1: "Enter room with lamp LIT"
+      step_2: "Turn OFF the lamp (command: LAMP OFF)"
+      step_3: "Wait in total darkness"
+      step_4: "Listen for the grue's approach"
+      step_5: "When you hear it breathing... wait..."
+      step_6: "When you feel its breath on your neck... NOW!"
+      step_7: "LAMP ON! The blue glow FREEZES it!"
+      step_8: "You have ONE TURN while it hesitates!"
+      step_9: "STRIKE! (command: ATTACK GRUE)"
+      step_10: "Claim the head as trophy"
+      
+    advantage: |
+      The PREMIUM GLOW JUICE makes your lamp burn BLUE.
+      Blue light unsettles grues — they hesitate.
+      This gives you ONE FREE TURN to act.
+      
+      Normal adventurers: hear grue → eaten immediately
+      You: hear grue → relight → grue hesitates → STRIKE
+      
+      The skeleton didn't have this advantage.
+      Their lamp was EMPTY, not OFF.
+      They couldn't relight. They couldn't fight.
+      
+      YOU CAN.
+      
+    risk: |
+      If you fail to relight in time... you will be eaten.
+      But you will REINCARNATE:
+        - Inventory preserved
+        - Score reset to 0
+        - Promises remain active
+        - You can try again
+        
+      The grue, however, only dies once.
+      You have infinite attempts. They have one life.
+      The math is in your favor.
+      
+  # What happens when you succeed
+  completion:
+    trophy: "grue-head-trophy.yml"
+    delivery_location: "maze/room-i/"
+    placement: "At the skeleton's feet"
+    
+    skeleton_reaction: |
+      The skeleton's eternal grin will change.
+      For the first time in forty years, they will look...
+      peaceful. Complete. Avenged.
+      
+      Their pointing finger may finally lower.
+      They can rest now.
+      
+    machine_reaction: |
+      ACME Unit #47 will display: "THANK YOU"
+      The first words it has ever spoken.
+      
+    sweetness_reaction: |
+      The Sweetness That Remains will glow brighter.
+      Family protects family.
+      Even family made of jam.
+      
+  # Current status
+  status: "SWORN — AWAITING EXECUTION"
+  
+  # Motivational note
+  ashford_thoughts: |
+    "The skeleton waited forty years for someone to come.
+    They've been waiting even longer for justice.
+    
+    I have blue fire. I have the compass. I have the lesson.
+    
+    The grue that killed them is still out there.
+    Lurking in the darkness. Waiting for another victim.
+    
+    Not anymore.
+    
+    Tonight, the hunter becomes the hunted."

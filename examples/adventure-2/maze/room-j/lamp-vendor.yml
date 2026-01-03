@@ -1,0 +1,103 @@
+# Lamp Vendor Machine
+# A tribute to the battery vendor in Colossal Cave Adventure
+
+object:
+  name: Lamp Vendor Machine
+  type: machine
+  portable: false  # Too heavy to carry
+  
+  description: |
+    A battered vending machine stands against the wall, humming softly.
+    Its flickering display reads:
+    
+        ╔══════════════════════════════════════╗
+        ║      ACME LAMP REFUELING CO.         ║
+        ║  "Don't Let the Grue Get You!"™      ║
+        ║──────────────────────────────────────║
+        ║  LAMP OIL REFILL......... 1 gold     ║
+        ║  DELUXE REFILL (2x)...... 2 gold     ║
+        ║  PREMIUM GLOW JUICE...... 5 gold     ║
+        ╚══════════════════════════════════════╝
+    
+    Someone has scratched "LIFESAVER" into the metal casing.
+    Someone else has scratched "RIP OFF" underneath.
+  
+  # The machine still works, somehow
+  operational: true
+  power_source: unknown  # "It just... runs. Don't question it."
+  
+  advertisements:
+    - action: BUY OIL
+      score: 90
+      score_if:
+        - "player.inventory contains lamp"
+        - "lamp.oil < 100"
+      result: |
+        Refills lamp to 400 oil. Costs 1 gold.
+    
+    - action: BUY DELUXE
+      score: 80
+      score_if:
+        - "player.inventory contains lamp"
+        - "lamp.oil < 50"
+        - "player.gold >= 2"
+      result: |
+        Refills lamp to 800 oil. Costs 2 gold.
+    
+    - action: BUY PREMIUM
+      score: 70
+      score_if:
+        - "player.inventory contains lamp"
+        - "player.gold >= 5"
+      result: |
+        Refills lamp to 1000 oil AND makes it glow blue.
+        The blue glow is unsettling to grues. They approach more slowly.
+        Costs 5 gold.
+    
+    - action: EXAMINE
+      score: 50
+      result: "Read the machine's display and notices."
+    
+    - action: KICK
+      score: 30
+      score_if:
+        - "player.gold < 1"
+      result: |
+        The machine shudders but holds firm.
+        "VIOLENCE AGAINST VENDING MACHINES IS A FEDERAL OFFENSE"
+        flashes on the display. Then, softer:
+        "...but I understand. Here, take this."
+        A small vial of lamp oil drops into the dispensing slot.
+        (One-time mercy refill. Don't tell the other adventurers.)
+    
+    - action: INSERT COIN
+      score: 40
+      result: "Same as BUY OIL."
+  
+  # Easter eggs
+  secrets:
+    - trigger: "KICK three times"
+      result: "The machine dispenses a single gold coin and a note: 'For the skeleton's family.'"
+    
+    - trigger: "SAY 'PLUGH' to machine"
+      result: "The display flickers: 'PASSWORD RECOGNIZED. Welcome, Adventurer Class 1972.'"
+    
+    - trigger: "INSERT treasure (chalice)"
+      result: |
+        The machine beeps excitedly.
+        "WINNER! WINNER! LIFETIME LAMP OIL SUBSCRIPTION!"
+        Your lamp will never run out again.
+        (But you just gave away the treasure. Worth it?)
+  
+  lineage:
+    tribute_to: "The battery vending machine in Colossal Cave Adventure"
+    inspiration: |
+      In the original Adventure (1976), deep in the maze was a vending
+      machine that sold fresh batteries for your lamp. It was both a
+      lifeline and a cruel reminder that someone had built infrastructure
+      in this death trap but not, you know, an EXIT SIGN.
+    
+    philosophical_note: |
+      The fact that capitalism has penetrated even into grue-infested
+      dungeons says something profound about either human resilience
+      or human priorities. We're not sure which.

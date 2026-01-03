@@ -1,0 +1,65 @@
+# 🧀 The Wheel of Wisdom
+# 47 years of accumulated dairy knowledge
+
+object:
+  name: "The Wheel of Wisdom"
+  type: room_marker
+  subtype: philosophical_dairy
+  
+  original_item: "Wheel of Aged Cheese"
+  original_description: "Sharp cheddar. Aged 47 years, like Bumblewick."
+  marker_id: 2
+  created_on_move: 29
+  
+  description: |
+    What was once aged cheddar has become... more aged. Impossibly aged.
+    It now seems to contain 47 years of accumulated dairy knowledge,
+    crystallized into a pungent disc of fermented enlightenment.
+    
+    It sits against the scratched wall, adding its own contribution
+    to the desperate scribblings of previous adventurers. Someone has
+    already scratched next to it: "WISE CHEESE HERE".
+    
+  examine: |
+    The wheel emanates gentle wisdom:
+    
+    "...patience is the best seasoning..."
+    "...some things improve with age..."
+    "...sharp observations cut deep..."
+    "...cheddar today, legend tomorrow..."
+    
+    It seems to age the room around it. The scratch marks look older.
+    Your own reflection in its waxy surface looks... distinguished.
+    
+  properties:
+    smell_radius: 1           # Only detectable in adjacent rooms
+    intensity: pungent_wisdom
+    age_effect: true          # Makes things nearby seem older
+    philosophical_depth: high
+    
+  location: maze/room-c/
+  
+  wisdom_topics:
+    - "The passage of time"
+    - "The value of patience"
+    - "The sharpness of observation"
+    - "The dignity of aging"
+    
+  opinions:
+    of_player: |
+      "You are 47, like I was. You understand the weight of years.
+      The cheese that ages well... lives well."
+    of_room: |
+      "These scratch marks. So many tried. So few aged gracefully.
+      I will outlast them all."
+    of_sulfurous_beacon: |
+      "Ah, the egg. Young. Brash. LOUD.
+      We age differently, the egg and I.
+      One announces. One... endures."
+      
+  lineage: |
+    Born from cheese aged 47 years, transformed through the
+    Fantastipants Express, now a beacon of dairy wisdom
+    in the scratch-marked depths of the maze.
+    
+    "Start with milk. End with philosophy."

@@ -1,0 +1,88 @@
+# 🔮 The Oracle Core
+# What remains of the Suspiciously Perfect Apple
+# Maze Marker #1 (Upgraded!) — Room A (The Damp One)
+
+object:
+  name: "The Oracle Core"
+  type: floor_marker
+  marker_id: 1
+  
+  location: maze/room-a/
+  position: "By the judgmental puddle, faintly glowing"
+  
+  origin:
+    was: "Suspiciously Perfect Apple"
+    eaten_by: "Captain Ashford"
+    eaten_on_move: 20
+    transformation: "One bite + prophetic coma + Fantastipants Express"
+    
+  description: |
+    What remains of the Suspiciously Perfect Apple after Captain Ashford
+    took one bite and experienced a Snow White-style prophetic coma.
+    
+    The core has crystallized into something resembling a tiny 
+    apple-shaped crystal ball. Seeds visible inside pulse with
+    faint golden light — the same color as the glow from Room D.
+    
+    It knows things. It's being coy about sharing.
+    
+  appearance: |
+    - Apple core shape, but crystalline
+    - Faint golden glow (matches Room D's glow)
+    - Seeds visible inside, each a tiny light
+    - Wet from the puddle, but the glow persists
+    - More beautiful than it has any right to be
+    
+  whispers:
+    # The Oracle Core occasionally whispers hints
+    - "...west... golden glow... freedom..."
+    - "...the skeleton tried the cold path..."
+    - "...oil drains twice as fast in the cold..."
+    - "...the vendor waits... always waits..."
+    - "...we knew you'd eat us..."
+    - "...suspiciously perfect for a reason..."
+    
+  properties:
+    prophetic: true
+    glowing: true
+    marker_effectiveness: "EXCEPTIONAL — visible from room entrance"
+    fairy_tale_artifact: true
+    
+  vision_granted: |
+    The one who ate this apple saw the maze from above:
+    - Room D (west) has the golden glow — exit to END
+    - Room F has 100 gold coins
+    - Room J has the lamp vendor
+    - Room I has a skeleton with an empty lamp
+    - The cold room (F) drains lamp oil twice as fast
+    
+  interactions:
+    - action: EXAMINE
+      response: |
+        The Oracle Core pulses. "...you already know..." it whispers.
+        "...west... gold... choices..."
+        
+    - action: LISTEN
+      response: |
+        You lean close. The core whispers maze secrets.
+        Roll for additional hints.
+        
+    - action: TAKE
+      response: |
+        "...you could carry us... we would show you more..."
+        But then the room would be unmarked. Trade-offs.
+        
+    - action: TALK
+      response: |
+        "...we were grown for this... suspiciously perfect..."
+        "...every bite was planned..."
+        "...even the coma..."
+        The core seems smug.
+        
+  legacy: |
+    This was once a simple apple. Suspiciously perfect, yes, but simple.
+    Then a Belter pirate captain ate it and had a vision quest.
+    Now it's an oracle. In a puddle. In a maze.
+    
+    The grues are impressed. They've seen a lot of things.
+    They've never seen someone turn breakfast into prophecy.

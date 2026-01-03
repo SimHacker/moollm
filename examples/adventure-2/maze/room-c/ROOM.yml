@@ -1,0 +1,61 @@
+# Maze Room C
+# A twisty little passage
+
+room:
+  name: Twisty Passage (Scratch Marks)
+  type: maze_room
+  
+  # DANGER! This room is dark!
+  lighting: none
+  grue_safe: false
+  requires_light: true
+  
+  # What happens if you enter without light
+  grue_event: |
+    It is pitch black. You are likely to be eaten by a grue.
+    
+    You feel scratches on the wall. One of them seems to read
+    "BEWARE THE GRU—" but you can't finish reading it.
+    
+    🎵 "Could be the spray for the grue; you're gonna need it if it is —
+        a situation that reloads, restarts, or quits." 🎵
+    
+    — MC Frontalot, "It Is Pitch Dark"
+       https://www.youtube.com/watch?v=4nigRT2KmCE
+    
+    You have been eaten by a grue.
+    
+    You are now one of the scratches on the wall.
+    
+    [REINCARNATING... inventory preserved, score reset to 0]
+  
+  description: |
+    You are in a maze of twisty little passages, all alike.
+    
+    This one has scratch marks on the walls — the desperate scribblings
+    of previous adventurers trying to map their way out. Most of them
+    are just tally marks. One reads "HELP". Another reads "DROPPED MY 
+    SANDWICH HERE". Someone has helpfully written "THIS WAY OUT →" 
+    with an arrow pointing at a solid wall.
+    
+    Passages lead in all directions. The scratch marks offer no clarity.
+  
+  exits:
+    north:
+      destination: ../room-b/
+      description: "A passage with '7 DAYS' scratched ominously beside it"
+    south:
+      destination: ../room-d/
+      description: "A passage. Someone drew a smiley face here. Unsettling."
+    east:
+      destination: ../room-d/
+      description: "The scratches here say 'DEFINITELY NOT A LOOP'"
+    west:
+      destination: ../room-a/
+      description: "Scratch marks form an arrow pointing this way. Trust it?"
+  
+  # Distinguishing feature
+  feature: scratches
+  ambience: |
+    You add your own mark to the wall. Future adventurers will wonder
+    what "BUMBLEWICK WAS HERE (RELUCTANTLY)" means.

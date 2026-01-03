@@ -1,0 +1,57 @@
+# PHOTO-SET Template
+# A portfolio of visualization prompts for a subject
+
+photo_set:
+  subject: "{{subject_name}}"
+  created_by: "{{visualizer_name}}"
+  created_at: "{{timestamp}}"
+  
+  # Context assembled from YAML files
+  context:
+    character: "{{character_file}}"
+    costume: "{{costume_file}}"
+    room: "{{room_file}}"
+    narrative: "{{chat_history_source}}"
+    
+  # Set structure
+  structure:
+    total_prompts: {{total | default: 8}}
+    types:
+      - name: "{{type1_name}}"
+        count: {{type1_count | default: 4}}
+        description: "{{type1_description}}"
+      - name: "{{type2_name}}"
+        count: {{type2_count | default: 4}}
+        description: "{{type2_description}}"
+        
+  # Style configuration
+  style:
+    traditions:
+      {{#traditions}}
+      - "{{.}}"
+      {{/traditions}}
+    mood: "{{mood}}"
+    color_palette: "{{colors}}"
+    lighting: "{{lighting}}"
+    
+  # Generated prompts
+  prompts:
+    {{type1_name}}:
+      {{#type1_prompts}}
+      - file: "{{subject}}-{{type1_name}}-{{variation}}-prompt.md"
+        title: "{{title}}"
+        concept: "{{concept}}"
+      {{/type1_prompts}}
+      
+    {{type2_name}}:
+      {{#type2_prompts}}
+      - file: "{{subject}}-{{type2_name}}-{{variation}}-prompt.md"
+        title: "{{title}}"
+        concept: "{{concept}}"
+      {{/type2_prompts}}
+      
+  # Future: Generated images
+  images:
+    status: "pending"  # pending | generating | complete
+    format: "{{image_format | default: png}}"
+    # When generated, will be listed here with paths

@@ -16,13 +16,17 @@ Examples are **live adventures** you can explore and modify. Each one was create
 ```
 examples/
 ├── README.md              # This file
-├── adventure-1/           # First adventure: two rooms
+├── adventure-1/           # The original adventure (fully developed)
 │   ├── README.md          # Chat log that created it
-│   ├── player.yml         # The hero
-│   ├── start/             # Starting room
-│   │   └── ROOM.yml
-│   └── end/               # Destination room
-│       └── ROOM.yml
+│   ├── player.yml         # Bumblewick Fantastipants
+│   ├── start/             # Chamber of Commencement
+│   ├── end/               # The Treasury
+│   ├── kitchen/           # Food for maze mapping
+│   ├── coatroom/          # Maurice & identity transformation
+│   └── maze/              # 10-room grue-infested labyrinth
+├── adventure-2/           # Forked from adventure-1 — new story!
+│   ├── README.md          # Fresh start, inherited world
+│   └── ...                # Same structure, new adventures
 └── [more examples...]
 ```
 
@@ -32,7 +36,8 @@ examples/
 
 | Example | Description | Complexity |
 |---------|-------------|------------|
-| [adventure-1/](./adventure-1/) | Two rooms, one hero — the minimal adventure | ⭐ Beginner |
+| [adventure-1/](./adventure-1/) | The original adventure — kitchen, coatroom, maze, grues, Maurice, lamp oil economy | ⭐⭐⭐ Complete |
+| [adventure-2/](./adventure-2/) | Forked from adventure-1 — same world, new story! | ⭐ Fresh Start |
 
 ---
 

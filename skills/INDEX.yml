@@ -119,6 +119,17 @@ skills:
     tags: ["memory", "compression", "integrity"]
     use_when: "Context overflow, archiving completed work"
     
+  - name: "visualizer"
+    path: "skills/visualizer"
+    description: "Image generation familiar—composes prompts from YAML context"
+    tier: 1
+    entry: "README.md"
+    protocol: "VISUALIZE"
+    tags: ["images", "prompts", "characters", "familiars"]
+    use_when: "Creating image prompts for characters, scenes, objects"
+    specializations: ["photographer", "painter", "illustrator", "concept-artist"]
+    learned_by: ["Maurice (adventure-2)"]
+    
   # --- RESEARCH & DEBUGGING ---
   
   - name: "research-notebook"

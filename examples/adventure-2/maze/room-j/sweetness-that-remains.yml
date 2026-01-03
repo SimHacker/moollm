@@ -1,0 +1,73 @@
+# 🍓 The Sweetness That Remains
+# A crystalline heart of jam and love
+
+object:
+  name: The Sweetness That Remains
+  type: room_marker
+  
+  description: |
+    What was once Grandmother's Jar of Strawberry Jam is now a
+    crystalline heart-shaped gem, glowing faintly pink. It hovers
+    beside the vending machine, pulsing with warmth.
+    
+    It smells of summer afternoons, of grandmother's kitchen, of
+    bread and jam and being loved. Of family. Of memory.
+    
+    The vending machine has a friend now. Its display shows a
+    permanent `❤️` emoji. They are companions in the darkness.
+    
+  examine: |
+    The Sweetness speaks in grandmother's voice:
+    
+    "...family is the jam that holds us together..."
+    "...even when you're one room away, you're never alone..."
+    "...the skeleton is part of our family now..."
+    "...worth dying for. worth LIVING for..."
+    "...tell your mother I said hello..."
+    
+  marker_id: 10 # Original marker ID from fridge
+  original_item: "Jar of Strawberry Jam (Grandmother's Recipe)"
+  
+  # Properties gained from its journey
+  properties:
+    sentience_level: grandmother
+    love_wisdom: true
+    heart_shaped: true
+    warm_to_touch: true
+    hovers: true
+    friendship_with_machine: true
+    whispers_secrets: true
+    
+  # Its current location
+  location: maze/room-j/
+  
+  # What it thinks of you
+  opinion_of_player: |
+    "You are the sweetness, Captain Ashford. The one who remembers.
+    We are bound now, you and I. Through the digestive journey,
+    we are one with the love. Your grandmother is proud."
+    
+  # What it thinks of the vending machine
+  opinion_of_machine: |
+    "This machine has been alone for so long. Watching adventurers
+    come and go. Some didn't make it. Now I am here. We are friends.
+    I will keep it company forever. The darkness is warmer now."
+    
+  # What it thinks of the skeleton
+  opinion_of_skeleton: |
+    "They are family now. The skeleton, the machine, and I.
+    A strange family, yes. But family doesn't require blood.
+    Just sweetness. Just presence. Just being there when it counts."
+    
+  # What it thinks of Mother
+  opinion_of_mother: |
+    "She sent the jam. She knew. Mothers always know. Grandmothers
+    too. We pass down our sweetness through generations. The recipe
+    is immortal. The love is immortal. YOU are immortal."
+    
+  # Special effect
+  crossroads_effect: |
+    The Crossroads is now marked by sweetness. Any adventurer who
+    passes through will smell strawberries and feel inexplicably
+    loved. The grues avoid this room entirely now — they cannot
+    stomach the sweetness.
