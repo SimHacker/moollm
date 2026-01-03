@@ -65,6 +65,115 @@ This is [Memory Palace](../memory-palace/) with **narrative framing** and a **pl
 - Adjudicates ambiguity ("try to pick the lock" → skill check)
 - Keeps the adventure log updated
 
+### Multi-User, Multi-Agent (Engelbart NLS tradition)
+
+Naturally supports **multiple simultaneous participants**:
+
+```yaml
+# characters/
+├── alice.yml        # Human player 1
+├── bob.yml          # Human player 2  
+├── merchant.yml     # NPC (DM-controlled)
+├── guard-bot.yml    # Autonomous bot (action queue)
+└── oracle.yml       # LLM agent with own goals
+```
+
+**Character types:**
+
+| Type | Controlled By | Example |
+|------|---------------|---------|
+| **Player Character** | Human via chat | Alice exploring the dungeon |
+| **NPC** | DM (LLM) responds when addressed | Merchant sells items |
+| **Bot** | Action queue runs autonomously | Guard patrols on schedule |
+| **Agent** | LLM with own goals & initiative | Oracle pursues prophecies |
+
+**All coexist in the same world:**
+
+```yaml
+# library/ROOM.yml
+occupants:
+  - alice          # Player exploring
+  - bob            # Another player
+  - librarian      # NPC who answers questions
+  - dust-sprite    # Bot that cleans autonomously
+  - sage           # Agent researching ancient texts
+```
+
+### Selection: Current Character or Swarm (Sims/Populous tradition)
+
+Like The Sims and Populous, you have a **selection** — who you're controlling right now:
+
+```yaml
+# session/selection.yml
+selection:
+  mode: single          # or: group, swarm
+  current: alice        # commands go to Alice
+  
+# Or control multiple at once:
+selection:
+  mode: group
+  current: [alice, bob, charlie]  # "go north" moves all three
+  
+# Or a whole swarm (Populous/Dungeon Keeper style):
+selection:
+  mode: swarm
+  current: imps         # all imps in the world
+  filter: { type: imp, location: mines }
+```
+
+**Selection commands:**
+
+| Command | Effect |
+|---------|--------|
+| `SELECT alice` | Control Alice |
+| `SELECT alice, bob` | Control both |
+| `SELECT ALL imps` | Swarm control |
+| `SELECT NEAR torch` | Select by proximity |
+| `DESELECT bob` | Remove from selection |
+| `CYCLE` | Next character in rotation |
+
+**Commands apply to selection:**
+
+```
+> SELECT alice, bob, charlie
+Selected: [alice, bob, charlie]
+
+> go north
+Alice goes north.
+Bob goes north.  
+Charlie goes north.
+
+> SELECT ALL workers WHERE location = mines
+Selected: 12 workers
+
+> dig east
+12 workers begin digging east...
+```
+
+**The Sims-style switching:**
+
+```
+> CYCLE
+Now controlling: Bob
+
+> look
+Bob surveys the library. The ancient tomes call to him...
+
+> CYCLE  
+Now controlling: Charlie
+```
+
+**The coherence engine orchestrates all:**
+- Players get chat turns
+- NPCs respond when spoken to
+- Bots execute their action queues
+- Agents pursue goals in background
+- All see each other, can interact
+- **Selection determines who receives your commands**
+
+See: [multi-presence/](../multi-presence/) for same character in multiple rooms.
+See: [speed-of-light/](../speed-of-light/) for agents communicating instantly.
+
 ---
 
 ## Quest Structure
