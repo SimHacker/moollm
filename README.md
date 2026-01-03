@@ -310,10 +310,38 @@ Let me show you where the loop is... here's how to fix it..."
 
 These performers run together at **light speed** — many iterations per LLM epoch. The architect proposes, the critic reviews, the economist analyzes, they vote, and if approved the builder implements — all in ONE LLM call. No file I/O between steps. No waiting. Pure in-context simulation of a design team sprinting through iterations.
 
-> SUMMON proto-lizard
-Proto-Lizard materializes.
-"Need to add behavior without subclassing? Let me show you..."
+**Playing a card = creating an activation record.**
+
+When you play a card in a room, you're instantiating a method with its own state:
+
+```yaml
+# design-room/architect-task-001.activation
+card: architect.card
+method: generate_proposal
+state:
+  iteration: 3
+  current_draft: proposal-v3.yml
+  feedback_received: [critic-001, economist-001]
+  status: awaiting_vote
 ```
+
+- **Each activation has its own state** — local variables, progress, history
+- **Multiple activations of the same card** — three architects working in parallel, each on different proposals
+- **Like threads** — concurrent, independent, can communicate via messages
+- **Lifecycle**: runs → finishes → either deletes itself, transforms into an output card, or sends a connection message to another activation
+- **Tags for binding** — attach names and properties when you play a card:
+
+```yaml
+# Playing a card with tags
+> PLAY architect.card AS lead-architect
+>   WITH input: requirements.yml
+>   WITH output: proposal-draft
+>   TAGGED: [design-team, sprint-3, api-work]
+```
+
+Other activations can find this by searching: `FIND TAGGED api-work` or `GET output FROM lead-architect`. Tags are like variables in a continuation — inputs, outputs, intermediates that wire activations together into data flows.
+
+A room full of activations is a running program. The cards are the code. The activations are the stack frames. The room is the process with multiple parallel threads.
 
 **Imagine `gcloud` as a menagerie:**
 
