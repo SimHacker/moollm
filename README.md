@@ -268,7 +268,7 @@ class MyAgent(Tradition):
 
 **Hero-Stories — Ethical skill composition from real people.**
 
-Real people are in the training data. Their ideas, their style, their expertise. MOOLLM lets you *invoke* that coherently:
+Real people are in the training data. Their ideas, their style, their expertise. MOOLLM lets you *invoke* that coherently and respectfully:
 
 ```yaml
 # dave-ungar.card — A Hero-Story
