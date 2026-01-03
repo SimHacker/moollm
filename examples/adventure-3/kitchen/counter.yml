@@ -39,7 +39,7 @@ object:
     📦 **ACME Catalog** — Mail-order mayhem
     
     Below the counter:
-    🗄️ **Three Drawers** — MacGyver supplies
+    🗄️ **Three Drawers** — MacGyver supplies (OPEN DRAWER to explore)
     
   # ─────────────────────────────────────────────────────────────────
   # WORKSPACE (items currently on the counter)
@@ -48,7 +48,7 @@ object:
   workspace: []
   
   # ─────────────────────────────────────────────────────────────────
-  # SUB-OBJECTS (separate files)
+  # PORTABLE OBJECTS ON COUNTER (separate files)
   # ─────────────────────────────────────────────────────────────────
   
   contents:
@@ -60,12 +60,188 @@ object:
       description: "ACME Mail-Order — 'If It Exists, ACME Makes It!™'"
       can_take: true
       
-    - file: counter-drawers.yml
-      description: "Three drawers of MacGyver supplies"
-      can_take: false  # Part of the counter
-      
   # ─────────────────────────────────────────────────────────────────
-  # CORE ACTIONS
+  # 🗄️ BUILT-IN DRAWERS (integral to counter)
+  # MacGyver supplies accumulated over generations
+  # ─────────────────────────────────────────────────────────────────
+  
+  drawers:
+    description: |
+      Three drawers under the counter, each stuffed with supplies
+      accumulated over generations of Fantastipants adventures.
+      
+      Father's motto: "You never know what you'll need."
+      Mother's motto: "Why do we have SEVEN broken compasses?"
+      
+    # ─────────────────────────────────────────────────────────────────
+    # 🫙 LEFT DRAWER: CONTAINERS
+    # ─────────────────────────────────────────────────────────────────
+    
+    left:
+      name: "Container Drawer"
+      label: "🫙"
+      description: "Vessels for carrying, collecting, and organizing."
+      
+      contents:
+        - item: "Empty Jar"
+          quantity: 5
+          type: container
+          capacity: 3
+          auto_collects: ["liquids", "small_items", "preserved_food"]
+          description: "Glass jar with screw-top lid."
+          
+        - item: "Small Pouch"
+          quantity: 3
+          type: container
+          capacity: 5
+          auto_collects: ["coins", "gems", "small_treasures"]
+          description: "Leather pouch with drawstring. Jingles pleasantly."
+          
+        - item: "Canvas Sack"
+          quantity: 1
+          type: container
+          capacity: 10
+          auto_collects: ["bulky_items", "clothing", "soft_goods"]
+          description: "Sturdy sack. For the big stuff."
+          
+        - item: "Specimen Box"
+          quantity: 1
+          type: container
+          capacity: 6
+          auto_collects: ["curiosities", "samples", "scientific_finds"]
+          description: "Compartmentalized box with glass lid."
+          
+        - item: "Belt Clip Holder"
+          quantity: 1
+          type: container
+          capacity: 2
+          auto_collects: ["tools", "small_weapons"]
+          description: "Clips to belt. Quick access to essentials."
+          
+    # ─────────────────────────────────────────────────────────────────
+    # 🔧 MIDDLE DRAWER: TOOLS
+    # ─────────────────────────────────────────────────────────────────
+    
+    middle:
+      name: "Tool Drawer"
+      label: "🔧"
+      description: "The essentials. MacGyver would approve."
+      
+      contents:
+        - item: "Pocket Knife"
+          type: tool
+          uses: ["cut", "pry", "scrape", "whittle"]
+          description: "Every adventurer's best friend. Father's initials on handle."
+          
+        - item: "Ball of Twine"
+          type: material
+          amount: "~50 feet"
+          uses: ["tie", "measure", "trail", "trap"]
+          description: "Unravels as needed."
+          
+        - item: "Duct Tape"
+          type: material
+          amount: "Half a roll"
+          uses: ["repair", "bind", "seal", "silence"]
+          description: "The universal fixer. Gray and sticky."
+          
+        - item: "Magnifying Glass"
+          type: tool
+          uses: ["examine", "focus_light", "read_small_text", "start_fire"]
+          description: "For when you need to look closer."
+          
+        - item: "Chalk"
+          type: material
+          colors: ["white", "red", "blue", "yellow"]
+          uses: ["mark", "write", "draw", "signal"]
+          description: "Assorted colors. Marks most surfaces."
+          
+        - item: "Small Mirror"
+          type: tool
+          uses: ["see_around_corners", "signal", "check_appearance"]
+          description: "Pocket-sized. Slightly scratched."
+          
+        - item: "Rubber Bands"
+          type: material
+          amount: "A bunch"
+          uses: ["bind", "launch", "grip", "slingshot"]
+          description: "Assorted sizes. Surprisingly useful."
+          
+    # ─────────────────────────────────────────────────────────────────
+    # ⚙️ RIGHT DRAWER: PARTS
+    # ─────────────────────────────────────────────────────────────────
+    
+    right:
+      name: "Parts Drawer"
+      label: "⚙️"
+      description: "The junk drawer. Someday is usually today."
+      
+      contents:
+        - item: "Assorted Nails & Screws"
+          type: fastener
+          amount: "Handful"
+          uses: ["attach", "hang", "poke", "trade"]
+          description: "Various sizes. Some rusty, some shiny."
+          
+        - item: "Wire (thin)"
+          type: material
+          amount: "~10 feet coiled"
+          uses: ["bind", "conduct", "pick_locks", "snare"]
+          description: "Copper wire."
+          
+        - item: "Candle Stubs"
+          quantity: 4
+          type: light_source
+          burn_time: "~1 hour each"
+          uses: ["light", "seal", "drip_wax"]
+          description: "Backup lighting. For when the lamp runs low."
+          
+        - item: "Matches (box)"
+          type: ignition
+          amount: "~20 matches"
+          waterproof: true
+          uses: ["light", "start_fire", "signal"]
+          description: "Waterproof matches."
+          
+        - item: "Cloth Scraps"
+          type: material
+          uses: ["bandage", "filter", "muffle", "clean"]
+          description: "Assorted fabric pieces. Clean-ish."
+          
+        - item: "Small Bell"
+          type: signal
+          uses: ["alert", "trip_wire", "distract", "summon"]
+          description: "Tinkles when moved. Good for traps."
+          
+        - item: "Compass (broken)"
+          type: tool
+          condition: "Broken — needle spins randomly"
+          uses: ["??? (needs repair)", "trade", "parts"]
+          description: "Needle spins randomly. Maybe fixable?"
+          hint: "COMBINE with Tom for interesting results..."
+          tom_interest: HIGH
+          
+    # Drawer actions
+    actions:
+      OPEN-DRAWER:
+        usage: "OPEN [left/middle/right] DRAWER"
+        effect: "Lists contents of that drawer"
+        
+      TAKE-FROM-DRAWER:
+        usage: "TAKE [item] FROM DRAWER"
+        effect: "Item moves to inventory"
+        
+      SEARCH-DRAWERS:
+        usage: "SEARCH DRAWERS FOR [type/use]"
+        effect: "Lists all matching items across all drawers"
+        
+      RUMMAGE:
+        usage: "RUMMAGE IN DRAWERS"
+        effect: "Find something unexpected (DM's choice)"
+        hidden: true
+        
+  # ─────────────────────────────────────────────────────────────────
+  # CORE CRAFTING ACTIONS
   # ─────────────────────────────────────────────────────────────────
   
   actions:
@@ -120,9 +296,6 @@ object:
         - input: "TRANSFORM apple INTO apple pie"
           output: "apple_pie.yml (needs oven to complete)"
           
-        - input: "TRANSFORM lamp INTO lantern"
-          output: "lantern.yml (different light pattern)"
-          
         - input: "TRANSFORM blue cheese INTO weapon"
           output: "gorgonzola_glaive.yml (legendary!)"
           
@@ -130,43 +303,21 @@ object:
       description: "Create a copy of an item"
       usage: "DUPLICATE [item]"
       requires: "1 item on counter"
-      cost: "May require materials or have limits"
       effect: |
-        Creates a copy. But copies have quirks:
+        Creates a copy with quirks:
         - Slightly different (DM adds variation)
         - May degrade over time
         - Original and copy may be linked
         
-        Creates new .yml file: [item]_copy.yml
-        
       limitations: |
-        Cannot duplicate:
-        - Unique items (treasure, quest objects)
-        - Sentient items (they refuse)
-        - Tom (there can be only one)
+        Cannot duplicate: unique items, sentient items, Tom
         
     EDIT:
       description: "Modify an item's properties"
       usage: "EDIT [item]: [changes]"
       requires: "1 item on counter"
-      effect: |
-        Freeform editing of item properties:
-        - Change name, description, appearance
-        - Add or remove abilities
-        - Adjust stats, values, behaviors
-        
-        DM updates the .yml file accordingly.
-        
-      examples:
-        - input: "EDIT lamp: make it pink"
-          changes: "glow.color: pink"
-          
-        - input: "EDIT cheese: add prophecy ability"
-          changes: "abilities: [prophecy] (why not?)"
-          
-        - input: "EDIT lunchbox: expand capacity to 100"
-          changes: "capacity: 100 (TARDIS upgrade)"
-          
+      effect: "DM updates the .yml file with your changes"
+      
     PROGRAM:
       description: "Add behaviors and triggers to an item"
       usage: "PROGRAM [item]: [behavior description]"
@@ -175,65 +326,21 @@ object:
         Add conditional behaviors:
         - When X happens, do Y
         - If condition, then action
-        - On trigger, activate effect
-        
-        DM adds behaviors to item's .yml file.
         
       examples:
         - input: "PROGRAM lamp: glow red when grue is near"
-          adds: |
-            behaviors:
-              grue_warning:
-                trigger: "grue within 2 rooms"
-                effect: "glow.color: red, emit warning"
-                
         - input: "PROGRAM cheese: insult anyone who tries to eat me"
-          adds: |
-            behaviors:
-              self_defense:
-                trigger: "EAT attempted"
-                effect: "speak insult, -1 affection"
-                
-        - input: "PROGRAM notebook: summarize each day at midnight"
-          adds: |
-            behaviors:
-              daily_summary:
-                trigger: "time: midnight"
-                effect: "generate summary, append to contents"
-                
+        
     ANALYZE:
       description: "Examine an item's properties in detail"
       usage: "ANALYZE [item]"
       requires: "1 item on counter"
-      effect: |
-        DM reads the item's .yml file and explains:
-        - All properties and values
-        - All behaviors and triggers
-        - Possible combinations
-        - Hidden features (if any)
-        
+      effect: "DM reads the item's .yml file and explains all properties"
+      
     CLEAR:
       description: "Remove all items from counter"
       usage: "CLEAR COUNTER"
       effect: "All items return to inventory"
-      
-  # ─────────────────────────────────────────────────────────────────
-  # KNOWN RECIPES (quick reference — see recipe-holder.yml for full list)
-  # ─────────────────────────────────────────────────────────────────
-  
-  known_recipes:
-    # These are EXAMPLES — DM improvises new ones at runtime!
-    # Full recipes in recipe-holder.yml
-    
-    - inputs: ["bread", "cheese"]
-      output: "cheese_sandwich"
-      
-    - inputs: ["lamp", "premium_glow_juice"]
-      output: "premium_lamp"
-      
-    - inputs: ["grue meat", "blue cheese", "grue bones", "battle song"]
-      output: "klingon_victory_hors_doeuvres"
-      difficulty: "LEGENDARY"
       
   # ─────────────────────────────────────────────────────────────────
   # DM GUIDELINES
@@ -247,12 +354,6 @@ object:
     DUPLICATE: Add quirks to copies — never perfect clones.
     EDIT: Honor the player's intent, add interesting side effects.
     PROGRAM: Behaviors should be fun, not game-breaking.
-    
-    The counter enables:
-    - Experimentation without permanent loss
-    - Player creativity becoming game mechanics
-    - Emergent item behaviors
-    - PLAY-LEARN-LIFT for object design
     
     Always create/update .yml files for results!
     Persistence makes crafting REAL.
@@ -278,4 +379,8 @@ object:
     DO invent something useful, I'd like to see it.
     
     And please don't order from that ACME catalog. Your
-    father still has the scar from the Rocket Skates."
+    father still has the scar from the Rocket Skates.
+    
+    Take what you need from the drawers. Put back what you don't.
+    And for heaven's sake, don't combine the matches with
+    the duct tape again. The ceiling JUST got repainted."
