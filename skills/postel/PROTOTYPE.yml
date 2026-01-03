@@ -1,8 +1,15 @@
-# BPIP Skill Prototype
-# Best Possible Interpretation Protocol
+# POSTEL Skill Prototype
+# The Robustness Principle — Be liberal in what you accept
 
-skill: bpip
+skill: postel
 description: "Charitable interpretation of ambiguous or incomplete input"
+
+# Also known as
+aliases:
+  - "Robustness Principle"
+  - "Postel's Law"
+  - "Best Possible Interpretation Protocol"
+  - "Charitable Interpretation"
 
 # When to activate this skill
 triggers:
@@ -50,6 +57,24 @@ process:
       - assumptions_made
       - confidence_level
       - alternatives_considered
+
+# The two sides of Postel's Law
+input_handling:
+  be: liberal
+  tolerate:
+    - typos
+    - missing_fields
+    - variations
+    - incomplete_data
+  interpret: charitably
+  
+output_handling:
+  be: conservative
+  produce:
+    - well_formed
+    - complete
+    - precise
+    - documented
 
 # Charity principle
 charity:

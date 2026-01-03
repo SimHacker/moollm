@@ -20,7 +20,7 @@ graph TD
     E --> S[📚 South Library]
     
     W --> WR1[yaml-jazz/]
-    W --> WR2[bpip/]
+    W --> WR2[postel/]
     
     N --> NR1[gardener/]
     N --> NR2[archivist/]

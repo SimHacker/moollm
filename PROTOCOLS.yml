@@ -3,14 +3,14 @@
 #
 # These are K-LINES (Minsky): symbolic activators that invoke conceptual clusters.
 # Like Wikipedia's WP:FOO shorthand, but for agent behavior patterns.
-# Typing "BPIP" activates the entire tradition of charitable interpretation.
+# Typing "POSTEL" activates the entire tradition of charitable interpretation.
 # These are like keys on a conceptual idea synthesizer keyboard 
 # for playing chords of meaning and behavior.
 #
 # Usage:
 #   - Type symbol as command: "YAML-JAZZ" invokes jazz interpretation
 #   - Reference in docs: "per APPEND-ONLY, never modify"
-#   - Chat signifier: "BPIP this hostile message"
+#   - Chat signifier: "POSTEL this hostile message"
 #   - K-line activation: name → tradition → behavior
 #
 # All symbols are UPPER-CASE, multi-word separated by dashes
@@ -32,7 +32,7 @@ COHERENCE-ENGINE:
     - "Referee conflicts between parallel agents"
     - "Orchestrate many character simulations in one call"
     - "Maintain consistency across distributed state"
-    - "Resolve ambiguity via BPIP (charitable interpretation)"
+    - "Resolve ambiguity via POSTEL (charitable interpretation)"
 
 YAML-JAZZ:
   meaning: "Comments carry meaning. Data is interpreted, not just parsed."
@@ -130,12 +130,17 @@ NO-VERSIONS:
 # INTERPRETATION & COMMUNICATION
 # ═══════════════════════════════════════════════════════════════════
 
-BPIP:
-  meaning: "Best Possible Interpretation Protocol. Assume good faith."
-  location: kernel/constitution-core.md §5
-  full: "BEST-POSSIBLE-INTERPRETATION"
+POSTEL:
+  meaning: "Be liberal in what you accept, conservative in what you emit."
+  location: skills/postel/
+  full: "POSTEL-ROBUSTNESS-PRINCIPLE"
+  also_known_as:
+    - "Robustness Principle"
+    - "Postel's Law"
+    - "Best Possible Interpretation Protocol"
+    - "Charitable Interpretation"
   invoke_when: "Receiving ambiguous or hostile-seeming input"
-  # Be liberal in what you accept, conservative in what you emit
+  # RFC 761: "Be conservative in what you send, liberal in what you accept."
 
 CHARITY:
   meaning: "Assume competence and good intent."
@@ -195,7 +200,7 @@ K-LINE:
   mechanism: |
     # Minsky's K-lines: when you learn something, you create a 
     # "knowledge line" that can reactivate the mental state.
-    # MOOLLM protocol symbols ARE K-lines: BPIP activates the
+    # MOOLLM protocol symbols ARE K-lines: POSTEL activates the
     # entire charitable interpretation tradition without spelling it out.
     # This is how LLMs can invoke complex behaviors with single tokens.
 
@@ -791,7 +796,7 @@ SNAP-CURSOR:
           score: 80  # Always relevant
         - action: USE
           score: 95  # High if you have materials
-        - action: TAKE
+        - action: GET
           score: 20  # Heavy, not portable
         - action: REPAIR
           score: 60  # Only if broken
@@ -1580,7 +1585,7 @@ _categories:
   principles: [YAML-JAZZ, FILES-AS-STATE, WHY-REQUIRED, APPEND-ONLY, COMMENTS-MATTER, MINIMAL-DIFF, NO-VERSIONS]
   naming: [BIG-ENDIAN, ABOUT-NOT-INSIDE, PREFIX-OWNERSHIP, README-EVERYWHERE]
   methodology: [CONSTRUCTIONISM, PLAY-LEARN-LIFT, SISTER-SCRIPT, BUILD-COMMAND]
-  interpretation: [BPIP, CHARITY, POSTEL]
+  interpretation: [POSTEL, CHARITY]
   safety: [P-HANDLE-K, NO-IMPERSONATE, K-LINE, FICTIONAL-WRAPPER, HONEST-FORGET]
   memory: [HOT-COLD, WORKING-SET, SUMMARIZE, NEVER-DELETE]
   robustness: [NEVER-CRASH, REPAIR-DEMON, BEST-EFFORT, ROBUST-FIRST]
@@ -1669,7 +1674,7 @@ _categories:
   principles: [YAML-JAZZ, FILES-AS-STATE, WHY-REQUIRED, APPEND-ONLY, COMMENTS-MATTER, MINIMAL-DIFF, NO-VERSIONS]
   naming: [BIG-ENDIAN, ABOUT-NOT-INSIDE, PREFIX-OWNERSHIP, README-EVERYWHERE]
   methodology: [CONSTRUCTIONISM, PLAY-LEARN-LIFT, SISTER-SCRIPT, BUILD-COMMAND]
-  interpretation: [BPIP, CHARITY, POSTEL]
+  interpretation: [POSTEL, CHARITY]
   safety: [P-HANDLE-K, NO-IMPERSONATE, K-LINE, FICTIONAL-WRAPPER, HONEST-FORGET]
   memory: [HOT-COLD, WORKING-SET, SUMMARIZE, NEVER-DELETE]
   robustness: [NEVER-CRASH, REPAIR-DEMON, BEST-EFFORT, ROBUST-FIRST]

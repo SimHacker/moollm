@@ -190,7 +190,7 @@ See: [Self-Repair](../self-repair/)
 ## Dovetails With
 
 - [YAML Jazz](../yaml-jazz/) — Semantic interpretation of state files
-- [BPIP](../bpip/) — Charitable handling of edge cases
+- [POSTEL](../postel/) — Charitable handling of edge cases
 - [Room](../room/) — Spatial state to maintain
 - [Soul Chat](../soul-chat/) — Character dialogues to orchestrate
 - [Session Log](../session-log/) — Where changes are recorded

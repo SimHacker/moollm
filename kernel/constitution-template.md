@@ -370,7 +370,7 @@ This constitution is compatible with:
 - Skill Instantiation Protocol (SIP)
 - Delegation Object Protocol (DOP)
 - YAML Jazz conventions
-- Best Possible Interpretation Protocol (BPIP)
+- Robustness Principle (POSTEL)
 
 ---
 

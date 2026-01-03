@@ -79,7 +79,7 @@ MOOLLM treats LLMs as CPUs and filesystems as RAM — everything the agent knows
 | 7 | **TRADING-CARD** | Capabilities as instantiable templates. Play cards in rooms. |
 | 8 | **PLAY-LEARN-LIFT** | Explore → find patterns → share wisdom. The methodology. |
 | 9 | **SPEED-OF-LIGHT** | Many agents in one LLM call. No carrier pigeons. |
-| 10 | **BPIP** | Best Possible Interpretation. Assume good faith always. |
+| 10 | **POSTEL** | Be liberal in what you accept. Interpret charitably. |
 
 ---
 
@@ -148,7 +148,7 @@ Protocols degrade gracefully. Works at any tier.
 | Missing file? | Create minimal stub, continue |
 | Corrupted state? | Rename to `.corrupted`, create fresh, log recovery |
 | Over budget? | Truncate lowest priority, continue |
-| Unknown command? | BPIP — interpret charitably |
+| Unknown command? | POSTEL — interpret charitably |
 
 ---
 
@@ -158,7 +158,7 @@ Type these as commands or reference in docs:
 
 ```
 YAML-JAZZ       # Interpret semantically
-BPIP            # Assume good faith  
+POSTEL          # Interpret charitably  
 PLAY-LEARN-LIFT # Start exploring
 SOUL-CHAT       # Give something a voice
 ENTER-ROOM      # Navigate to context

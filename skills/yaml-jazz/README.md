@@ -106,7 +106,7 @@ Like John Coltrane playing "My Favorite Things" — the structure is there, but 
 
 ## Dovetails With
 
-- [BPIP](../bpip/) — Best Possible Interpretation of ambiguous YAML
+- [POSTEL](../postel/) — Be liberal in accepting ambiguous YAML
 - [Coherence Engine](../coherence-engine/) — LLM as interpreter
 - [Soul Chat](../soul-chat/) — Markdown with embedded YAML Jazz
 - [Room](../room/) — ROOM.yml files are YAML Jazz

@@ -73,7 +73,7 @@ A sister script runs Micropolis headless: advance N ticks, inject edits, render 
 
 MOOLLM's room navigation, object examination, and inventory management descend directly from these. When you type `LOOK` or `GO NORTH` or `TAKE SWORD`, you're speaking the language Crowther invented.
 
-**Marvin Minsky — [Society of Mind](https://en.wikipedia.org/wiki/Society_of_Mind)** — Intelligence emerges from societies of simple agents. K-lines: names that activate conceptual clusters (type "BPIP" and invoke an entire tradition). Frames: structured expectations with defaults and slots. Agents, agencies, and the "bugs" that Papert's children debugged. The mind as a bureaucracy of mindless clerks. MOOLLM's protocol symbols ARE K-lines; rooms ARE frames; characters ARE agents in a society.
+**Marvin Minsky — [Society of Mind](https://en.wikipedia.org/wiki/Society_of_Mind)** — Intelligence emerges from societies of simple agents. K-lines: names that activate conceptual clusters (type "POSTEL" and invoke an entire tradition). Frames: structured expectations with defaults and slots. Agents, agencies, and the "bugs" that Papert's children debugged. The mind as a bureaucracy of mindless clerks. MOOLLM's protocol symbols ARE K-lines; rooms ARE frames; characters ARE agents in a society.
 
 > *"If you can build it, you can understand it. If you can inspect it, you can trust it."*
 
@@ -137,7 +137,7 @@ This is how The Sims works: one frame updates ALL Sims simultaneously. MOOLLM ap
 - **Cross-checks data** — validates against rules and schemas
 - **Referees conflicts** — when characters disagree, resolves or escalates
 - **Maintains consistency** — across all parallel conversations at once
-- **Resolves ambiguity** — via BPIP (charitable interpretation)
+- **Resolves ambiguity** — via POSTEL (charitable interpretation)
 
 > *"The orchestrator is the OS. The LLM is the Coherence Engine. The repo is the Microworld."*
 
@@ -524,7 +524,7 @@ Self-documenting traces. Improved coherence. Post-hoc analysis.
 - Missing file → create minimal stub
 - Corrupted state → rename `.corrupted`, create fresh
 - Over budget → truncate lowest priority
-- Unknown input → BPIP (assume good faith)
+- Unknown input → POSTEL (assume good faith)
 
 ---
 
@@ -540,7 +540,7 @@ Wikipedia-style keywords that activate conceptual clusters. Type as commands or 
 | `WHY-REQUIRED` | Every tool call needs a `why` parameter. | [tool-calling](./kernel/tool-calling-protocol.md) |
 | `APPEND-ONLY` | Never modify logs. Audit trail is sacred. | [session-log/](./skills/session-log/) |
 | `NEVER-CRASH` | Missing state triggers repair, not failure. | [self-repair/](./skills/self-repair/) |
-| `BPIP` | Best Possible Interpretation. Assume good faith. | [kernel/](./kernel/constitution-core.md) |
+| `POSTEL` | Be liberal in what you accept. Interpret charitably. | [skills/postel/](./skills/postel/) |
 | `PLAY-LEARN-LIFT` | Explore → find patterns → share wisdom. | [play-learn-lift/](./skills/play-learn-lift/) |
 | `ROOM-AS-FUNCTION` | Enter room = call function. Exit = return. | [room/](./skills/room/) |
 | `SPEED-OF-LIGHT` | Many agents in one LLM call. No carrier pigeons. | [room/](./skills/room/) |
@@ -629,6 +629,7 @@ flowchart TD
 [mfm]: https://www.cs.unm.edu/~ackley/mfm/
 [logo]: https://en.wikipedia.org/wiki/Logo_(programming_language)
 [kilroy]: ./designs/kilroy-ideas.md
+[getlamp]: http://www.getlamp.com/
 
 </details>
 
@@ -681,6 +682,14 @@ The end state: an LLM that navigates its own memory, follows explicit protocols,
 
 **Start here. These are the most illustrative and fun.**
 
+### 🎮 Live Example: Play It!
+
+| Example | What You'll Find |
+|---------|------------------|
+| **[examples/adventure-1/](./examples/adventure-1/)** | 🏰 **A complete playable adventure!** Bumblewick Fantastipants, reluctant hero. Kitchen with 20 foods for maze mapping. Coat room with infinite costumes. 10-room grue-infested maze. Treasure at the end. MC Frontalot death lyrics. The README IS the chat that built it. |
+
+> Try it: Read `player.yml`, explore the `maze/`, get eaten by a grue, reincarnate, try again with the lamp!
+
 ### ⭐ The Good Stuff
 
 | README | What You'll Find |
@@ -699,7 +708,7 @@ The end state: an LLM that navigates its own memory, follows explicit protocols,
 | **[skills/coherence-engine/](./skills/coherence-engine/)** | 🔮 The LLM as consistency maintainer. Cross-checks, orchestrates, transcribes. Speed-of-light simulation. |
 | **[skills/speed-of-light/](./skills/speed-of-light/)** | ⚡ Many turns in one LLM call. Instant communication. No round-trip noise. |
 | **[skills/yaml-jazz/](./skills/yaml-jazz/)** | 🎷 Semantic YAML where comments matter. The LLM as jazz musician interpreting sheet music. |
-| **[skills/bpip/](./skills/bpip/)** | 🤝 Best Possible Interpretation Protocol. Assume competence. Act constructively. |
+| **[skills/postel/](./skills/postel/)** | 🤝 The Robustness Principle. Be liberal in what you accept. Interpret charitably. |
 | **[skills/soul-chat/](./skills/soul-chat/)** | 💬 Characters talk to each other. Objects narrate themselves. Dialogues as Markdown. |
 
 ### 🔧 The Foundations
@@ -717,8 +726,9 @@ The end state: an LLM that navigates its own memory, follows explicit protocols,
 | **[skills/memory-palace/](./skills/memory-palace/)** | 🏛️ Spatial knowledge organization. Rooms as cognitive spaces. |
 | **[skills/sister-script/](./skills/sister-script/)** | 📝 Documents that grow into scripts. BUILD command. Automation. |
 | **[skills/adventure/](./skills/adventure/)** | 🗺️ Structured exploration. Goals, discoveries, choices. |
+| **[examples/](./examples/)** | 🎮 Live playable examples with full source and creation chat logs. |
 
-> **TL;DR:** Read [skills/room/](./skills/room/) first. It has everything.
+> **TL;DR:** Read [skills/room/](./skills/room/) first, then **play** [examples/adventure-1/](./examples/adventure-1/)!
 
 ---
 
@@ -738,6 +748,7 @@ The end state: an LLM that navigates its own memory, follows explicit protocols,
 | **Will Crowther & Don Woods** | Colossal Cave Adventure — the first text adventure |
 | **Scott Adams** | Scott Adams Adventures — adventures on home computers |
 | **Infocom** | Zork (Anderson, Blank, Daniels, Lebling) — parser gold standard |
+| **Jason Scott** | [Get Lamp][getlamp] documentary — preserving text adventure history |
 | **Marvin Minsky** | K-lines, Society of Mind |
 | **Seymour Papert** | [Logo][logo] microworlds, constructionism |
 | **Alan Kay** | Smalltalk, messaging, children |

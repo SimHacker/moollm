@@ -276,12 +276,12 @@ Kilroy's answer:
 |-----------|--------------|
 | `{ "tool": "read_file", "args": {...} }` | `fs.read: { path: "...", why: "..." }` |
 | Binary protocols | YAML Jazz with comments |
-| Schema enforcement | Charitable interpretation ([BPIP](../PROTOCOLS.yml)) |
+| Schema enforcement | Charitable interpretation ([POSTEL](../PROTOCOLS.yml)) |
 
 **Concrete links:**
 - Tool calling → [kernel/tool-calling-protocol.md](../kernel/tool-calling-protocol.md)
 - Why parameter → [PROTOCOLS.yml#WHY-REQUIRED](../PROTOCOLS.yml)
-- Charitable interpretation → [PROTOCOLS.yml#BPIP](../PROTOCOLS.yml)
+- Charitable interpretation → [PROTOCOLS.yml#POSTEL](../PROTOCOLS.yml)
 
 ---
 
@@ -371,14 +371,14 @@ Chuck's warnings:
 | Kilroy Concept | MOOLLM Implementation | Link |
 |----------------|----------------------|------|
 | Swarms | Rooms + Soul Chat | [skills/room/](../skills/room/), [skills/soul-chat/](../skills/soul-chat/) |
-| Plain text tools | WHY-REQUIRED + BPIP | [kernel/tool-calling-protocol.md](../kernel/tool-calling-protocol.md) |
+| Plain text tools | WHY-REQUIRED + POSTEL | [kernel/tool-calling-protocol.md](../kernel/tool-calling-protocol.md) |
 | LLM as variable | hot.yml / working_set.yml | [kernel/memory-management-protocol.md](../kernel/memory-management-protocol.md) |
 | Multi-agent vote | SPEED-OF-LIGHT consensus | [PROTOCOLS.yml#SPEED-OF-LIGHT](../PROTOCOLS.yml) |
 | Self-modify pipeline | YAML-JAZZ + session-log | [kernel/event-logging-protocol.md](../kernel/event-logging-protocol.md) |
 | Mini-apps | ROOM-AS-FUNCTION | [skills/room/SKILL.md](../skills/room/SKILL.md) |
 | Plan files | working_set.yml | [kernel/context-assembly-protocol.md](../kernel/context-assembly-protocol.md) |
 | JSON apps | Skill prototypes | [skills/skill-instantiation-protocol.md](../skills/skill-instantiation-protocol.md) |
-| No MCP | Tool protocol + BPIP | [PROTOCOLS.yml#BPIP](../PROTOCOLS.yml) |
+| No MCP | Tool protocol + POSTEL | [PROTOCOLS.yml#POSTEL](../PROTOCOLS.yml) |
 | Visual editor | (future) Rooms as block diagrams | TBD |
 
 ---

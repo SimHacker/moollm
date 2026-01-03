@@ -143,7 +143,7 @@ A background process that:
 
 See: [self-repair/](../self-repair/)
 
-### BPIP for Errors
+### POSTEL for Errors
 
 When encountering malformed input:
 1. Try to parse anyway
@@ -151,7 +151,7 @@ When encountering malformed input:
 3. Flag assumptions
 4. Continue working
 
-See: [bpip/](../bpip/)
+See: [postel/](../postel/)
 
 ### Never Delete
 
@@ -187,7 +187,7 @@ Robust-first response:
 ## Dovetails With
 
 - [Self-Repair](../self-repair/) — Checklist-based healing
-- [BPIP](../bpip/) — Charitable interpretation of errors
+- [POSTEL](../postel/) — Charitable interpretation of errors
 - [Coherence Engine](../coherence-engine/) — Cross-checks and repairs
 - [Session Log](../session-log/) — Recovery source for state
 

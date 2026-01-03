@@ -4,6 +4,118 @@
 
 The simplest possible adventure: one hero, two rooms, one door.
 
+**...that grew into a 28-file grue-infested costume-wearing food-dropping masterpiece.**
+
+---
+
+## 🎬 How This World Was Bootstrapped
+
+This adventure was built **entirely through conversation**. Starting from nothing, each chat message added a new feature. The README you're reading IS the chat log — a record of collaborative world-building between human and LLM.
+
+### The Bootstrapping Philosophy
+
+1. **Start minimal** — Two rooms, one hero, one door
+2. **Add features incrementally** — Each request extends the world
+3. **Document as you go** — The README grows with the world
+4. **Coherence check** — Periodically verify everything links correctly
+5. **The chat IS the tutorial** — Anyone can follow along
+
+### What Makes This Special
+
+- **No templates used** — Built from scratch through dialogue
+- **Every file has a story** — We can trace why each thing exists
+- **Iterative refinement** — Files were modified multiple times
+- **Human + LLM collaboration** — Ideas flow both directions
+
+---
+
+## 📜 Complete File History
+
+### Files Created (28 total)
+
+| File | Created In | Purpose |
+|------|------------|---------|
+| `README.md` | Chat 1 | The creation story (this file!) |
+| `player.yml` | Chat 1 | The hero |
+| `start/ROOM.yml` | Chat 1 | Starting room |
+| `end/ROOM.yml` | Chat 1 | Goal room |
+| `start/lamp.yml` | Chat 2 | Light source |
+| `end/treasure.yml` | Chat 2 | The MacGuffin |
+| `maze/README.md` | Chat 4 | Maze documentation |
+| `maze/room-a/ROOM.yml` | Chat 4 | Maze room (puddle) |
+| `maze/room-b/ROOM.yml` | Chat 4 | Maze room (echo) |
+| `maze/room-c/ROOM.yml` | Chat 4 | Maze room (scratches) |
+| `maze/room-d/ROOM.yml` | Chat 4 | Maze room (glow) |
+| `maze/room-e/ROOM.yml` | Chat 8 | Maze room (cobwebs) |
+| `maze/room-f/ROOM.yml` | Chat 8 | Maze room (cold) |
+| `maze/room-g/ROOM.yml` | Chat 8 | Maze room (face) |
+| `maze/room-h/ROOM.yml` | Chat 8 | Maze room (mushrooms) |
+| `maze/room-i/ROOM.yml` | Chat 8 | Maze room (skeleton) |
+| `maze/room-j/ROOM.yml` | Chat 8 | Maze room (crossroads) |
+| `kitchen/README.md` | Chat 8 | Kitchen documentation |
+| `kitchen/ROOM.yml` | Chat 8 | Kitchen room |
+| `kitchen/fridge.yml` | Chat 8 | 20 food items |
+| `kitchen/stove.yml` | Chat 8 | Decorative stove |
+| `kitchen/sink.yml` | Chat 8 | Eternal dishes |
+| `kitchen/table.yml` | Chat 8 | Mother's note |
+| `coatroom/README.md` | Chat 9 | Costume docs |
+| `coatroom/ROOM.yml` | Chat 9 | Costume emporium |
+| `coatroom/mirror.yml` | Chat 9 | See your costume |
+| `coatroom/mannequin.yml` | Chat 9 | Costume consultant |
+| `coatroom/costume-racks.yml` | Chat 9 | Infinite costumes |
+
+### Evolutionary History of Key Files
+
+#### `player.yml` — 4 Versions
+
+| Version | Changes |
+|---------|---------|
+| v1 | Generic "Hero", location: start, empty inventory |
+| v2 | Renamed to "Bumblewick Fantastipants", added Hobbit-style backstory, Pee Wee catchphrases, traits (spoon_enthusiast, tuesday_rhymer, waistcoat_devotee) |
+| v3 | Added score: 0, deaths: 0, moves: 0 for reincarnation tracking |
+| v4 | Added costume state (wearing, accessories), updated notes to mention all 3 exits |
+
+#### `start/ROOM.yml` — 5 Versions
+
+| Version | Changes |
+|---------|---------|
+| v1 | Simple chamber, exit north → end |
+| v2 | Added Zork-style description, scratched initials (WC+DW '76, SA '78, XYZZY), lamp on shelf |
+| v3 | Exit north changed to → maze/room-a, added grue_safe: true, magical lighting |
+| v4 | Added respawn_point: true, respawn_message for reincarnation |
+| v5 | Added west exit → kitchen, east exit → coatroom, description updated to list all 3 exits |
+
+#### `end/ROOM.yml` — 4 Versions
+
+| Version | Changes |
+|---------|---------|
+| v1 | Simple end chamber, exit south → start |
+| v2 | Added dramatic description, empty pedestals, golden light, "please deposit in well house" |
+| v3 | Exit south changed to → maze/room-d, added grue_safe: true |
+| v4 | Description clarified: "south leads back into the maze" not "back to beginning" |
+
+#### `start/lamp.yml` — 2 Versions
+
+| Version | Changes |
+|---------|---------|
+| v1 | Brass lamp, lit: true, fuel: 400, GET/LIGHT/EXTINGUISH/RUB actions, genie joke |
+| v2 | Added fuel_warning: 50, fuel_critical: 10, CHECK_FUEL action, LIGHT/EXTINGUISH responses |
+
+#### `end/treasure.yml` — 2 Versions
+
+| Version | Changes |
+|---------|---------|
+| v1 | Jeweled Chalice, points: 10, GET/EXAMINE/DRINK_FROM actions |
+| v2 | Added victory response on GET, score update logic |
+
+#### `maze/room-*.yml` — 3 Versions Each
+
+| Version | Changes |
+|---------|---------|
+| v1 | Basic room with feature and tangled exits |
+| v2 | Added grue_event with death message |
+| v3 | Added MC Frontalot lyrics + YouTube link, reincarnation message |
+
 ---
 
 ## The Chat That Created This
@@ -79,7 +191,7 @@ Your character. Reluctant hero, spoon enthusiast, waistcoat devotee.
 *"Property of Colossal Cave, please return."*
 
 - **Fuel:** 400 moves (plenty of time, probably)
-- **Actions:** TAKE, LIGHT, EXTINGUISH, RUB (genie on holiday)
+- **Actions:** GET, LIGHT, EXTINGUISH, RUB (genie on holiday)
 - **Lineage:** Descended from Crowther's original, 1976
 
 ### [end/ROOM.yml](./end/ROOM.yml) — Treasury of Modest Proportions
@@ -95,7 +207,7 @@ Your character. Reluctant hero, spoon enthusiast, waistcoat devotee.
 *"Congratulations! You have found a treasure worth 10 points."*
 
 - **Value:** 10 points (deposit in well house for credit)
-- **Actions:** TAKE, EXAMINE, DRINK_FROM (empty, also frowned upon)
+- **Actions:** GET, EXAMINE, DRINK_FROM (empty, also frowned upon)
 - **Lineage:** In the tradition of all adventure treasures
 
 ---
@@ -264,7 +376,9 @@ lamp:
   fuel: > 0           # Still has fuel
 ```
 
-**TAKE LAMP. This is not a suggestion.**
+**GET LAMP. This is not a suggestion.**
+
+*([Get Lamp](http://www.getlamp.com/) — the documentary)*
 
 ---
 
@@ -420,7 +534,7 @@ AFTER:  Captain Bumblewick "Blackwaistcoat" Fantastipants, dread pirate!
                               │ S↔N
          ┌──────────────────────────────────────────┐
          │           THE MAZE (10 rooms)            │
-         │  A ←→ B ←→ C ←→ D ←→ E ←→ F ←→ etc...   │
+         │  A ←→ B ←→ C ←→ D ←→ E ←→ F ←→ etc...    │
          │     (tangled connections, grues)         │
          └────────────────────┬─────────────────────┘
                               │ S↔N

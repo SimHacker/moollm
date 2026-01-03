@@ -152,7 +152,7 @@ The parser is not the only reader.
 | `document` | File that knows contents | "I contain..." | README.md, PROTOTYPE.yml |
 | `room` | Directory that welcomes | "I hold..." | skills/, kernel/ |
 | `object` | Tool or artifact | "I do..." | fs.read, trading card |
-| `concept` | Abstract idea | "I am the principle..." | YAML-JAZZ, BPIP |
+| `concept` | Abstract idea | "I am the principle..." | YAML-JAZZ, POSTEL |
 | `bot` | Automated process | "I watch for..." | repair-demon |
 
 ### Entity Definition
@@ -318,17 +318,17 @@ Different tools for different trust levels.
 ### Concept Explaining Itself
 
 ```markdown
-# bpip-chat.md
+# postel-chat.md
 
-BPIP explains its own essence.
+POSTEL explains its own essence.
 
 ---
 
-## BPIP (concept)
+## POSTEL (concept)
 
-*The charitable interpretation principle*
+*The robustness principle*
 
-I am Best Possible Interpretation Protocol.
+I am Postel's Law — be liberal in what you accept.
 When instructions are ambiguous, I guide you to assume good intent.
 I am charitable interpretation made systematic.
 

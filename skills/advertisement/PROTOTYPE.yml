@@ -114,7 +114,7 @@ event_bubbling:
     winner: "first handler that responds"
     unhandled:
       - log_warning
-      - trigger_bpip
+      - trigger_postel
       - default_handler
       
   room_intercept:

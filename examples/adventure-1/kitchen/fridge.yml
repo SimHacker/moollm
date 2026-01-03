@@ -109,7 +109,7 @@ object:
       score_if: "not open"
       description: "Open the refrigerator"
       
-    - action: TAKE_ALL
+    - action: GET_ALL
       score_if: "contents.length > 0"
       description: "Grab all the food (for maze mapping)"
       

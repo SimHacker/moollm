@@ -174,7 +174,7 @@ Rooms ARE the memory palace:
       
     east-wing/          # Concepts
       yaml-jazz/
-      bpip/
+      postel/
       
     west-wing/          # Skills
       soul-chat/

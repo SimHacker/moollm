@@ -180,7 +180,7 @@ familiars:
 - [Trading Card](../card/) — Hero-Story is a card type
 - [Soul Chat](../soul-chat/) — Familiars can participate in chats
 - [Room](../room/) — Summon traditions into rooms
-- [BPIP](../bpip/) — Charitable interpretation of "channel X's thinking"
+- [POSTEL](../postel/) — Charitable interpretation of "channel X's thinking"
 
 ---
 

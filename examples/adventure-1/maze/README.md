@@ -23,7 +23,9 @@ It is pitch black. You are likely to be eaten by a grue.
 You have been eaten by a grue.
 ```
 
-**TAKE LAMP before entering.** This is not a suggestion.
+**GET LAMP before entering.** This is not a suggestion.
+
+*([Get Lamp](http://www.getlamp.com/) — Jason Scott's documentary on text adventures)*
 
 ### The Official Grue Anthem
 

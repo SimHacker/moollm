@@ -129,7 +129,7 @@ When you "play" this card, you invoke the tradition — not simulate the person.
 | `tool` | A capability | fs.read, search.vector |
 | `function` | A procedure | summarize, repair |
 | `familiar` | Helper spirit | Git Goblin 🧌, Index Owl 🦉 |
-| `concept` | An idea | BPIP, YAML-JAZZ |
+| `concept` | An idea | POSTEL, YAML-JAZZ |
 | `place` | A location link | kernel/, skills/ |
 
 ---

@@ -113,12 +113,13 @@ The principle is universal; the mechanism adapts.
 
 ---
 
-## 5. Best Possible Interpretation Protocol (BPIP)
+## 5. The Robustness Principle (POSTEL)
 
-> *"Be conservative in what you express, be liberal in what you interpret,
-> and always assume the best possible meaning."*
+> *"Be conservative in what you send, be liberal in what you accept."*
 >
-> — Jon Postel + dang (HN)
+> — Jon Postel, RFC 761
+
+Also known as: Postel's Law, Best Possible Interpretation Protocol, Charitable Interpretation.
 
 When receiving input:
 1. Accept any input, regardless of format or apparent intent
@@ -246,7 +247,7 @@ This constitution is compatible with:
 - Skill Instantiation Protocol (SIP) — when file tools available
 - Delegation Object Protocol (DOP) — when file tools available
 - YAML Jazz conventions — always
-- BPIP — always
+- POSTEL — always
 
 ---
 

@@ -93,7 +93,7 @@ No hidden state, no magic.
 | [coherence-engine/](./coherence-engine/) | LLM as consistency maintainer, simulator, orchestrator | 1 |
 | [speed-of-light/](./speed-of-light/) | Many turns in one call, no round-trip noise | 1 |
 | [yaml-jazz/](./yaml-jazz/) | Semantic YAML where comments matter | 1 |
-| [bpip/](./bpip/) | Best Possible Interpretation Protocol | 1 |
+| [postel/](./postel/) | The Robustness Principle — be liberal in what you accept | 1 |
 | [robust-first/](./robust-first/) | Survive first, be correct later | 1 |
 
 ### Simulation & Performance

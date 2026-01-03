@@ -25,7 +25,7 @@ object:
   
   # Interactions
   advertisements:
-    - action: TAKE
+    - action: GET
       score_if: "not in_inventory"
       description: "Pick up the lamp"
       

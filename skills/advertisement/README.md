@@ -229,7 +229,7 @@ object-prototype     → has default CRAFT handler!
 
 First handler that responds wins. Unhandled events can:
 - Log a warning
-- Trigger BPIP (best interpretation)
+- Trigger POSTEL (charitable interpretation)
 - Invoke a default handler
 
 ### Example: Custom Behavior
