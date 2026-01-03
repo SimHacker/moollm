@@ -219,6 +219,25 @@ The LLM *writes* the Python. Then it *calls* the Python. Best of both worlds.
 
 **YAML Jazz.** Comments carry meaning. `timeout: 30 # generous, API flaky on Mondays` — the LLM reads that comment and understands *why*.
 
+**Tradition-Oriented Programming.**
+
+We use the word "tradition" deliberately. Not "legacy" (implies dead code). Not "style" (too superficial). **Tradition**: a coherent body of knowledge, practice, and philosophy that transmits across time.
+
+```python
+from traditions import minsky, ungar, papert
+from traditions.aesthetics import rams, nomi
+
+class MyAgent(Tradition):
+    inherits = [minsky.k_lines, ungar.prototypes, papert.debugging_as_learning]
+    aesthetics = rams.less_but_better
+```
+
+**Tradition is neutral about alive or dead.** Invoke the Minsky tradition — it doesn't matter that Marvin is gone. The tradition lives. Invoke the Ungar tradition — Dave is very much alive, and his tradition keeps evolving. Same mechanism. Same respect.
+
+**Reclaiming "tradition" from conservatives.** Deadpan. Straight-faced. We are *traditionalists* — we honor those who came before by *using* their ideas, *extending* them, *combining* them. Traditional Character Simulations. Tradition-Oriented Programming. The most progressive thing you can do is stand on the shoulders of giants and reach higher.
+
+---
+
 **Hero-Stories — Ethical skill composition from real people.**
 
 Real people are in the training data. Their ideas, their style, their expertise. MOOLLM lets you *invoke* that coherently:
@@ -251,6 +270,45 @@ Dave Ungar's tradition activates. I brought friends:
   🦎 Proto-Lizard — prototype patterns, clone-and-modify
   ⏰ Time-Keeper — "It's About Time" optimization  
   🪞 Mirror-Mouse — reflection and introspection
+
+> SUMMON proto-lizard --help
+Proto-Lizard materializes with a tutorial scroll:
+  "I teach clone-and-modify. Here's what I can do..."
+  COMMANDS: clone, delegate, mirror, slot-add, slot-remove
+  EXAMPLES: proto-lizard clone --from parent.yml --to child.yml
+  ERRORS: "If you see 'slot not found', I can diagnose..."
+```
+
+**This is CLI structure, but alive.** At any point in the command tree you can:
+- **Perform** — run the command
+- **Help** — get documentation (`--help`)
+- **Summon** — pull out the character representation
+
+The character IS the command. It serves as:
+- 📖 **Documentation** — explains itself
+- 🎓 **Tutorial** — walks you through examples
+- ▶️ **Performer** — performs commands on your behalf
+- 🔍 **Error analyzer** — diagnoses what went wrong
+- 🛠️ **Problem solver** — suggests fixes
+
+```
+> proto-lizard clone --from broken.yml
+Proto-Lizard winces: "That file has a circular delegation. 
+Let me show you where the loop is... here's how to fix it..."
+```
+
+**Then compose them into pipelines.**
+
+```
+> PIPELINE design-review:
+>   architect --generate proposal.yml
+>   | critic --review --focus security
+>   | economist --cost-analysis
+>   | VOTE --quorum 2
+>   | IF approved: builder --implement
+```
+
+These performers run together at **light speed** — many iterations per LLM epoch. The architect proposes, the critic reviews, the economist analyzes, they vote, and if approved the builder implements — all in ONE LLM call. No file I/O between steps. No waiting. Pure in-context simulation of a design team sprinting through iterations.
 
 > SUMMON proto-lizard
 Proto-Lizard materializes.
