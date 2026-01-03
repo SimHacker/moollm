@@ -1,0 +1,150 @@
+# 🗑️ THE KITCHEN TRASH CAN
+# For disposing of items you no longer need
+# (But are they really gone?)
+
+object:
+  name: Kitchen Trash Can
+  type: container
+  portable: false  # It's bolted down. Mother learned her lesson.
+  
+  description: |
+    A sturdy metal trash can sits in the corner, lid slightly askew.
+    A small sign taped to the side reads:
+    
+    "ITEMS DISPOSED HERE ARE GONE FOREVER*"
+    
+    *Terms and conditions may apply. See lid for details.
+    
+  examine: |
+    You peer inside the trash can. It's... deeper than expected.
+    Much deeper. The bottom seems to recede as you look.
+    
+    Current contents: [see contents below]
+    
+    On the inside of the lid, small print reads:
+    "The Fantastipants Family Trash Can is not responsible for:
+    - Items that gain sentience
+    - Items that return at inconvenient moments
+    - Items that were secretly important
+    - Grue-attracting smells
+    - Regret"
+    
+  # ─────────────────────────────────────────────────────────────────
+  # CONTENTS (starts empty)
+  # ─────────────────────────────────────────────────────────────────
+  
+  contents: []
+  
+  capacity: unlimited  # It's a TARDIS trash can
+  
+  # ─────────────────────────────────────────────────────────────────
+  # ACTIONS
+  # ─────────────────────────────────────────────────────────────────
+  
+  actions:
+    TRASH:
+      description: "Throw an item into the trash"
+      usage: "TRASH [item]"
+      effect: |
+        Item is removed from inventory.
+        Item appears in trash can contents.
+        "You throw [item] into the trash. It makes a hollow THUNK
+        that echoes longer than physics should allow."
+        
+    LOOK-IN:
+      description: "See what's in the trash"
+      usage: "LOOK IN TRASH"
+      effect: "Lists contents (if any)"
+      
+    RETRIEVE:
+      description: "Fish something out of the trash"
+      usage: "RETRIEVE [item] FROM TRASH"
+      effect: |
+        If item is in trash: returned to inventory.
+        "You reach in and pull out [item]. It's slightly... different?
+        No. Probably your imagination. Definitely your imagination."
+        
+    EMPTY:
+      description: "Empty the entire trash can"
+      usage: "EMPTY TRASH"
+      effect: |
+        All items are PERMANENTLY DELETED.
+        "You upend the trash can. The contents fall into... somewhere.
+        You hear distant splashing. Then silence.
+        The items are gone. Probably."
+        
+    CLIMB-IN:
+      description: "Climb into the trash can"
+      usage: "CLIMB IN TRASH"
+      hidden: true  # Players have to discover this
+      effect: |
+        "You climb into the trash can. It's roomier than expected.
+        You slide down... and down... and down...
+        
+        [EASTER EGG: Leads to a secret room? A shortcut? 
+        The DM decides. Maybe it just dumps you back in the kitchen,
+        covered in mystery goo.]"
+        
+  # ─────────────────────────────────────────────────────────────────
+  # SPECIAL BEHAVIORS (DM: improvise!)
+  # ─────────────────────────────────────────────────────────────────
+  
+  special_behaviors:
+    smell_disposal: |
+      Trashing transformed food markers MAY reduce smell gradients
+      in the maze. Or it may concentrate the smell HERE.
+      DM's choice based on narrative.
+      
+    item_haunting: |
+      Items trashed may occasionally "return" at dramatic moments.
+      "You feel something in your pocket. It's the [item] you
+      threw away three rooms ago. It's looking at you."
+      
+    trash_archaeology: |
+      Previous adventurers may have left things here.
+      DM can add "discovered" items from past adventures.
+      
+    grue_bait: |
+      Enough smelly trash may attract... things.
+      The trash can is grue-safe (in the kitchen).
+      But the SMELL might not be contained...
+      
+  # ─────────────────────────────────────────────────────────────────
+  # TOM'S OPINION
+  # ─────────────────────────────────────────────────────────────────
+  
+  tom_opinion: |
+    "Tom does not like the trash can."
+    "Tom thinks the trash can is... wrong."
+    "Tom has seen things go IN but not come OUT."
+    "Tom recommends keeping items. Just in case."
+    
+  # ─────────────────────────────────────────────────────────────────
+  # MOTHER'S RULE
+  # ─────────────────────────────────────────────────────────────────
+  
+  mothers_rule: |
+    "Bumblewick! DO NOT throw away perfectly good items!
+    You never know when you might need them!
+    
+    ...although if you DO find yourself with cursed objects,
+    the trash can is RIGHT THERE."
+    
+  # ─────────────────────────────────────────────────────────────────
+  # LINEAGE
+  # ─────────────────────────────────────────────────────────────────
+  
+  lineage: |
+    Every adventure game needs a way to dispose of items.
+    The trash can serves this purpose, but with a twist:
+    
+    - Items aren't truly deleted until EMPTY is used
+    - Items can be retrieved (with possible side effects)
+    - The trash can has... depth
+    - Tom is suspicious of it
+    
+    This enables:
+    - Inventory management
+    - "I need that thing I threw away!" moments
+    - Mystery and exploration (what's at the bottom?)
+    - Consequence-free experimentation (mostly)
