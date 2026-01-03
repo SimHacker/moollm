@@ -418,6 +418,7 @@ inherits_aesthetics_from:
 inherits_philosophy_from:
   - ted-nelson         # Fight for the user
   - alan-kay           # The best way to predict the future
+  - doug-engelbart     # Augmenting human intellect
 ```
 
 Invoke the Council. It answers with Shneiderman's rigor, Victor's vision, Nomi's audacity, Rams's restraint. **Cascade your influences.** The stylesheet metaphor is exact: later rules override earlier ones, specificity matters, and you can `!important` any tradition you want to dominate.
