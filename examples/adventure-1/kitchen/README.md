@@ -57,11 +57,68 @@ An exact replica of the Fantastipants family kitchen from Wobblebrook-upon-Squig
 > mysterious underground adventure. AGAIN.
 >
 > The food is for DROPPING IN THE MAZE to mark your path,
-> not for EATING.
+> **NOT FOR EATING.**
+>
+> You know what happens when you eat. Your "constitution."
+> I'm not cleaning it up this time.
 >
 > Don't forget your lamp. Don't get eaten by grues.
 >
 > Your loving Mother"
+
+---
+
+## ⚠️ EATING THE FOOD — A Creative Strategy!
+
+**Mother warned you. But consider this:**
+
+If you EAT any food item, something *hilarious* happens. The food traverses your legendary Fantastipants digestive system and emerges... **transformed**. 
+
+Actually, this is a GREAT maze-marking technique! Each food:
+- 🎭 Has a unique journey (the DM describes it dramatically)
+- ✨ Transforms into something memorable
+- 🧠 Can add properties to Bumblewick
+- 📍 Becomes an even BETTER maze marker (no two are alike!)
+
+### Examples of What Happens:
+
+| Food | Transforms Into | Adds to Player |
+|------|-----------------|----------------|
+| Apple | Puddle of Applesauce | `fairytale_immunity: 5` |
+| Herring | VERY Pickled Herring | `herring_aura: true`, `smell_radius: 3` |
+| Mysterious Stew | Sentient Stew (alive!) | `stew_creator: true`, `mysterious_glow` |
+| Birthday Cake | Singing Cake Slice | `birthday: "today"`, `cake_whispers` |
+| Salami | Mystical Salami | `old_country_dreams`, `accent: foreign` |
+| Olives | Hollow Olives | `pimento_quota: 20` (they're inside you now) |
+
+By the end of the maze, Bumblewick might have: herring aura, sardine followers, mysterious internal glow, and dreams of The Old Country. 
+
+**This is character development!**
+
+### Context Matters!
+
+Effects vary by **costume**, **room**, **objects present**, and **history**:
+
+| Context | Example Effect |
+|---------|----------------|
+| 🧛 Vampire costume | Apple becomes Blood Apple |
+| 🏴‍☠️ Pirate costume | All liquids become rum |
+| 🔦 In dark maze room | "The SOUNDS are concerning" |
+| 🦴 Skeleton nearby | Existential commentary from skeleton |
+| 🐟 Already have herring aura | All subsequent food smells |
+| 👻 Ghost costume | Food phases through floor to room below |
+| 🤡 Clown costume | Everything becomes confetti |
+
+### State is PERSISTENT!
+
+When you eat, the DM updates YAML files:
+- `player.yml` — gains new properties
+- `ROOM.yml` — gains transformed food
+- New files created — sentient stew needs a file!
+
+The world **evolves** as you eat!
+
+See [fridge.yml](./fridge.yml) for all transformations, contextual modifiers, and persistence rules.
 
 ---
 

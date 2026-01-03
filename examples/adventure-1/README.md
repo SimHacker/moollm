@@ -63,10 +63,11 @@ This adventure was built **entirely through conversation**. Starting from nothin
 | `coatroom/mirror.yml` | Chat 9 | See your costume |
 | `coatroom/mannequin.yml` | Chat 9 | Costume consultant |
 | `coatroom/costume-racks.yml` | Chat 9 | Infinite costumes |
+| `kitchen/fridge.yml` | Chat 10-12 | EAT mechanic + transformations |
 
 ### Evolutionary History of Key Files
 
-#### `player.yml` — 4 Versions
+#### `player.yml` — 5 Versions
 
 | Version | Changes |
 |---------|---------|
@@ -74,6 +75,7 @@ This adventure was built **entirely through conversation**. Starting from nothin
 | v2 | Renamed to "Bumblewick Fantastipants", added Hobbit-style backstory, Pee Wee catchphrases, traits (spoon_enthusiast, tuesday_rhymer, waistcoat_devotee) |
 | v3 | Added score: 0, deaths: 0, moves: 0 for reincarnation tracking |
 | v4 | Added costume state (wearing, accessories), updated notes to mention all 3 exits |
+| v5 | Added trait: `catastrophic_digestion` for the eating mechanic |
 
 #### `start/ROOM.yml` — 5 Versions
 
@@ -599,6 +601,136 @@ Both rooms now feature properly atmospheric prose, complete with:
 - Unnecessary but evocative adjectives
 - Hints that may or may not be helpful
 - References the initiated will recognize
+
+---
+
+## Chat Continues: The Eating Mechanic
+
+**User:** Your mother warned you not to eat the food. If you eat any food from your inventory or the fridge or room, it immediately travels through your digestive system and plops out on the floor with flowery descriptive unique every time euphemistic flourish.
+
+**DM:** Creating the Fantastipants Digestive Express... 🚽✨
+
+**User:** Those are examples of what happens when you eat food, feel free to mix them up and add item specific imaginative commentary. The net effect is that something hilarious happens and the food drops into the room. This is a great way to mark the maze! The act of being eaten can even modify and transform the food, be creative you are the DM! Food can even dynamically define properties and key/value pairs in the adventurer!
+
+**DM:** Expanding with 20 item-specific transformations and player property modifications...
+
+**User:** Foods can have special effects according to your costume, room, objects in the room, and history. Be creative you are the DM! Remember persistent state in the objects, not just the chat.
+
+**DM:** Adding contextual modifiers and persistence rules... The world now EVOLVES as you eat!
+
+### Files Created/Modified
+
+| File | Changes |
+|------|---------|
+| `kitchen/fridge.yml` | Added `mothers_warning`, `eat_mechanic`, 20 `item_specific` transformations, `contextual_effects` (by costume/room/objects/history), `persistence_rules` |
+| `kitchen/README.md` | Added "Eating Strategy" section, context table, persistence notes |
+| `player.yml` | Added trait: `catastrophic_digestion` |
+
+### `kitchen/fridge.yml` — Version History
+
+| Version | Changes |
+|---------|---------|
+| v1 | 20 food items with descriptions and marker_ids, GET_ALL action, hint |
+| v2 | Added Mother's Warning note on fridge door |
+| v3 | Added `eat_mechanic` with 10 euphemism examples |
+| v4 | Added 20 `item_specific` transformations with unique journeys and player property additions |
+| v5 | Added `contextual_effects` by costume (vampire, wizard, pirate, chef, ghost, clown), by room (dark, echo, cold, kitchen, coatroom), by objects (lamp, treasure, skeleton, sentient stew), by history (same food twice, died recently, herring aura active) |
+| v6 | Added `persistence_rules` requiring DM to UPDATE YAML FILES, not just describe effects |
+
+### Example Transformations
+
+| Food | Transforms Into | Adds to Player |
+|------|-----------------|----------------|
+| 🍎 Apple | Puddle of Applesauce | `fairytale_immunity: 5` |
+| 🐟 Herring | VERY Pickled Herring | `herring_aura`, `smell_radius: 3` |
+| 🥘 Stew | **Sentient Stew** (alive!) | `stew_creator`, `mysterious_glow` |
+| 🧁 Cake | Singing Cake Slice | `birthday: "today"`, `cake_whispers` |
+| 🥚 Egg | Hollow Philosophical Egg | `egg_yolk: 1` (absorbed) |
+| 🫒 Olives | Hollow Olives (accusing) | `pimento_quota: 20` |
+
+### Contextual Modifiers
+
+| Context | Effect |
+|---------|--------|
+| 🧛 Vampire + Apple | → Blood Apple |
+| 🏴‍☠️ Pirate + Any Liquid | → Rum |
+| 👻 Ghost + Any Food | → Phases through floor/exit! |
+| 🦴 Skeleton Nearby | → Existential commentary |
+| 🐟 Herring Aura + Blue Cheese | → SMELL SINGULARITY |
+| 🍽️ Same Food 3rd Time | → "It's complicated" relationship |
+
+### Persistence Example
+
+When Mysterious Stew is eaten in `maze/room-c`:
+
+```yaml
+# player.yml UPDATED:
+properties:
+  stew_creator: true
+  mysterious_glow: "faint, greenish"
+
+# maze/room-c/ROOM.yml UPDATED:
+contents:
+  - name: "Sentient Stew"
+    file: sentient-stew.yml
+
+# maze/room-c/sentient-stew.yml CREATED:
+creature:
+  name: Sentient Stew
+  origin: "Born in Bumblewick's digestive tract"
+  questions:
+    - "Why am I?"
+    - "What was I before?"
+```
+
+**The maze becomes a living ecosystem!**
+
+---
+
+## 🎮 Special Mechanics
+
+### The Eating Strategy
+
+**Mother warned you. But here's the secret:**
+
+Bumblewick Fantastipants has a legendary digestive system — legendary for its *creative efficiency*. If you EAT any food:
+
+1. 🍴 It enters your mouth
+2. 🎭 Something **HILARIOUS** happens
+3. ✨ The food is **TRANSFORMED**
+4. 📍 It drops to the floor as a **UNIQUE marker**
+5. 🧠 It may add **properties** to Bumblewick!
+
+This is actually a GREAT maze-mapping technique! Each food becomes uniquely transformed — the apple becomes applesauce, the stew becomes sentient, the grapes scatter in constellations. No two post-Fantastipants foods are alike!
+
+**Foods can modify the adventurer:**
+- The **Herring** gives you `herring_aura: true` and `smell_radius: 3`
+- The **Mysterious Stew** gives you `mysterious_glow: "faint, greenish"`
+- The **Salami** gives you `accent: "slightly foreign"`
+- The **Olives** give you `pimento_quota: 20` (they're inside you now)
+
+By journey's end, Bumblewick might have: sardine followers, dreams of The Old Country, and a cake that whispers "happy birthday" to itself. **This is character development!**
+
+### Context Changes Everything!
+
+Effects vary by **costume**, **room**, **nearby objects**, and **history**:
+- 🧛 Eat as Vampire → apple becomes Blood Apple
+- 🏴‍☠️ Eat as Pirate → all liquids become rum, sardines sing shanties
+- 👻 Eat as Ghost → food phases through floor or exit to room below or adjacent!
+- 🔦 Eat in darkness → "The SOUNDS are concerning"
+- 🐟 Already have herring aura → everything smells now
+- 🦴 Skeleton nearby → existential commentary
+
+### Persistent State!
+
+**The DM updates YAML files**, not just chat:
+- `player.yml` gains new properties
+- `ROOM.yml` gains transformed food as contents
+- New `.yml` files created for sentient foods!
+
+The maze becomes a **living ecosystem** of transformed foods.
+
+See: [kitchen/fridge.yml](./kitchen/fridge.yml) for contextual modifiers and persistence rules.
 
 ---
 

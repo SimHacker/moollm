@@ -117,6 +117,23 @@ object:
       score_if: "open"
       description: "Close the refrigerator (conserve energy!)"
   
+  # Mother's Warning
+  mothers_warning: |
+    A note in Mother's handwriting is stuck to the inside of the door:
+    
+    "Bumblewick! This food is for DROPPING, not EATING!
+    You know what happens when you eat. Your constitution
+    cannot handle it. The food goes IN and the food comes
+    OUT and nothing useful happens in between.
+    
+    DROP the food to MAP the maze. Do NOT eat the food.
+    
+    I mean it.
+    
+    Love, Mother
+    
+    P.S. I'm not cleaning it up this time."
+  
   # Helpful hint
   hint: |
     PRO TIP: Take all this food and DROP items in maze rooms to mark
@@ -125,3 +142,504 @@ object:
     
     20 items = 20 rooms you can uniquely mark. You have 10 maze rooms.
     Math is on your side!
+    
+    WARNING: Do NOT eat the food. Mother warned you.
+
+# ═══════════════════════════════════════════════════════════════════
+# THE EAT MECHANIC — A Creative Maze-Marking Technique!
+# ═══════════════════════════════════════════════════════════════════
+# 
+# Mother warned you. She always warns you. You never listen.
+# But here's the thing: EATING FOOD IS ACTUALLY A GREAT WAY TO MARK THE MAZE!
+# The food goes in, something hilarious happens, and the food (transformed!)
+# drops onto the floor. Now you know you've been here!
+
+eat_mechanic:
+  trigger: "EAT [food_item]"
+  
+  effect: |
+    1. Food is removed from inventory
+    2. Something HILARIOUS happens (DM: be creative!)
+    3. Food appears on room floor (possibly transformed)
+    4. Food can add properties to the adventurer
+    5. Food still works as a maze marker (maybe better now!)
+    
+  # DM GUIDELINES: Mix these patterns! Add item-specific commentary!
+  # The journey through Bumblewick's digestive system is an ADVENTURE.
+  
+  # ─────────────────────────────────────────────────────────────────
+  # ITEM-SPECIFIC TRANSFORMATIONS
+  # ─────────────────────────────────────────────────────────────────
+  
+  item_specific:
+    apple:
+      journey: |
+        You bite into the Suspiciously Perfect Apple. For one crystalline
+        moment, you understand why Snow White risked it all. Then your
+        intestines get involved. The apple rockets through you, picking
+        up speed, and emerges... as apple sauce. A perfect circle of
+        apple sauce on the floor. Still suspiciously perfect.
+      transforms_to: "Puddle of Suspiciously Perfect Applesauce"
+      adds_to_player:
+        brief_enlightenment: true
+        fairytale_immunity: 5  # minutes
+        
+    cheese_aged:
+      journey: |
+        The Wheel of Aged Cheese enters your mouth. 47 years of careful
+        aging. Generations of cheese-makers. All of it, processed in
+        0.4 seconds. It exits somewhat... MORE aged. The wheel rolls
+        across the floor and comes to rest against the wall, looking
+        somehow wiser and more disappointed than before.
+      transforms_to: "Wheel of VERY Aged Cheese (48 years now)"
+      adds_to_player:
+        cheese_wisdom: "Time means nothing to a Fantastipants"
+        
+    bread:
+      journey: |
+        You swallow the Loaf of Crusty Bread. Still warm going in.
+        Still warm coming out. Your body has added precisely nothing
+        to this transaction except velocity. The loaf lands with a
+        soft *fwump* and immediately starts steaming again. It has
+        learned the secret of eternal warmth: KEEP MOVING.
+      transforms_to: "Loaf of Crusty Bread (now with momentum)"
+      adds_to_player:
+        internal_warmth: true
+        bread_velocity: 32  # feet per second
+        
+    herring:
+      journey: |
+        Oh no. Oh NO. You ate Aunt Gertrude's Pickled Herring. The
+        smell alone could navigate the maze. Your stomach makes a
+        sound like a disappointed foghorn. The jar—THE ENTIRE JAR—
+        exits with such force it BOUNCES. Twice. The smell is now
+        inside you AND outside you. The maze will never be the same.
+      transforms_to: "Jar of VERY Pickled Herring (it has seen things)"
+      adds_to_player:
+        herring_aura: true  # NPCs will comment
+        smell_radius: 3  # rooms
+        
+    shepherds_pie:
+      journey: |
+        Tuesday's Leftover Shepherd's Pie makes contact with your
+        digestive system. Your digestive system, apparently offended
+        by leftovers, rejects it with extreme prejudice. The pie
+        re-materializes on the floor in a slightly different configuration.
+        It's Thursday's Leftover Shepherd's Pie now. Time works
+        differently inside a Fantastipants.
+      transforms_to: "Thursday's Leftover Shepherd's Pie"
+      adds_to_player:
+        temporal_digestion: true
+        day_confusion: 2  # days off
+        
+    grapes:
+      journey: |
+        You pop the Bunch of Purple Grapes into your mouth. All of them.
+        At once. This was a mistake. Your body, overwhelmed, decides to
+        process them SIMULTANEOUSLY. Grapes fire out of you in rapid
+        succession like a very undignified grape machine gun. *plink*
+        *plink* *plink* *plink* They scatter across the floor in a
+        beautiful purple constellation. Mother would weep.
+      transforms_to: "Scattered Grape Constellation (17 grapes)"
+      adds_to_player:
+        grape_shot: true
+        regret_level: "moderate"
+        
+    mysterious_stew:
+      journey: |
+        You ate the one labeled "DO NOT EAT - EXPERIMENT." Of course
+        you did. Your stomach bubbles. Your intestines glow faintly.
+        Something HAPPENS in there. When the stew emerges, it's...
+        different. It's looking back at you. It might be alive now.
+        Congratulations, you've created life. Mother is going to be
+        furious. Or fascinated. Hard to say with Mother.
+      transforms_to: "Sentient Stew (it has questions)"
+      adds_to_player:
+        stew_creator: true
+        scientist_guilt: true
+        mysterious_glow: "faint, greenish"
+        
+    blue_cheese:
+      journey: |
+        The Wedge of Blue Cheese goes in. The mold communicates with
+        your gut flora. Alliances are formed. Treaties are signed.
+        When the cheese emerges, the mold has... spread. It's MORE
+        blue now. Aggressively blue. The cheese lands on the floor
+        and immediately begins establishing diplomatic relations with
+        the local dust.
+      transforms_to: "Very Blue Cheese (now 40% mold)"
+      adds_to_player:
+        gut_diplomacy: "in progress"
+        mold_alliance: true
+        
+    chicken:
+      journey: |
+        You swallow the Cold Roast Chicken. It was already missing a
+        leg from your previous encounter. When it exits, it's missing
+        BOTH legs. Where did the other leg go? Your body won't say.
+        You feel... slightly more poultry than before. The chicken
+        lands on the floor, looking increasingly existential.
+      transforms_to: "Very Cold Roast Chicken (legless, philosophical)"
+      adds_to_player:
+        mysterious_leg: true  # you have a chicken leg somewhere in you
+        poultry_quotient: +15
+        
+    strawberry_jam:
+      journey: |
+        Grandmother's Strawberry Jam goes in. Worth dying for, remember?
+        Well, you didn't die, but your digestive tract is now FURIOUS
+        at you for wasting Grandmother's legacy. The jam emerges in a
+        spiral pattern on the floor. It spells something. Is that...
+        is that Grandmother's handwriting? "DISAPPOINTED."
+      transforms_to: "Disappointed Grandmother's Jam (it spells things)"
+      adds_to_player:
+        grandmother_haunting: "mild"
+        jam_prophecy: true
+        
+    milk:
+      journey: |
+        The Half-Empty Bottle of Milk becomes briefly full (of you)
+        and then becomes completely empty (of milk). Your digestive
+        system has, against all odds, PROCESSED something. Not well.
+        But processed. The bottle rolls across the floor, pristine
+        and empty. You feel... lactose intolerant? You weren't before.
+      transforms_to: "Empty Bottle (suspiciously clean)"
+      adds_to_player:
+        lactose_tolerance: false  # permanently changed
+        dairy_regret: true
+        
+    casserole:
+      journey: |
+        Aunt Petunia's Suspicious Casserole enters your body. What's
+        in it? Still unclear. Your digestive system tries to identify
+        the ingredients and GIVES UP. The casserole exits unchanged,
+        undigested, and somehow HEAVIER. It lands on the floor with
+        a concerning *THUNK*. It knows things about you now.
+      transforms_to: "Aunt Petunia's VERY Suspicious Casserole (it knows)"
+      adds_to_player:
+        casserole_secrets: true
+        petunia_debt: 1  # you owe Aunt Petunia now, somehow
+        
+    lemon:
+      journey: |
+        You eat the Judgmental Lemon. It judges you the entire way
+        down. Your face puckers. Your soul puckers. When the lemon
+        exits, it's STILL JUDGING YOU. More intensely, if anything.
+        The transit has only strengthened its convictions. It sits
+        on the floor, exuding concentrated disappointment.
+      transforms_to: "Extremely Judgmental Lemon (maximum disappointment)"
+      adds_to_player:
+        lemon_judgment: true  # it follows you psychically
+        soul_pucker: true
+        sourness_aura: 2  # rooms
+        
+    birthday_cake:
+      journey: |
+        The Slice of Birthday Cake enters your mouth. The sentient
+        frosting makes contact with your stomach acid. They have...
+        a conversation. When the cake emerges, the frosting has
+        EVOLVED. It's singing. Quietly. "Happy birthday to me," it
+        whispers. "Happy birthday to me." It's YOUR birthday now.
+        You didn't have a birthday before. Now you do.
+      transforms_to: "Singing Birthday Cake Slice (it's your birthday now)"
+      adds_to_player:
+        birthday: "today, apparently"
+        frosting_child: true
+        cake_whispers: true
+        
+    carrot:
+      journey: |
+        The Heroically Orange Carrot goes in. Your eyes do not improve.
+        Nothing improves. The carrot LOSES some of its heroic orangeness
+        during the journey, emerging a somewhat defeated beige. It
+        lands on the floor and immediately loses the will to be a carrot.
+        It's just... a root vegetable now. With feelings.
+      transforms_to: "Emotionally Exhausted Root Vegetable (formerly carrot)"
+      adds_to_player:
+        carrot_guilt: true
+        heroism_witness: true
+        
+    sardines:
+      journey: |
+        The Tin of Sardines goes in. TIN AND ALL. Your body, confused
+        by the metal, simply REJECTS EVERYTHING. Tin, sardines, dignity—
+        all of it. The tin rockets out at speed, pops open mid-flight,
+        and sardines scatter across the floor in formation. They look
+        like they're spelling something. Is that... "WHY?"
+      transforms_to: "Formation of Confused Sardines (spelling 'WHY?')"
+      adds_to_player:
+        metal_consumption: true
+        sardine_army: 7  # followers now
+        
+    porridge:
+      journey: |
+        Goldilocks rejected this porridge. So does your digestive
+        system. It's too cold. It's too lumpy. It's too SAD. The
+        porridge emerges somehow COLDER, LUMPIER, and SADDER. It
+        puddles on the floor, radiating existential despair. Bears
+        wouldn't touch this now. Bears have STANDARDS.
+      transforms_to: "Depression Puddle (formerly porridge)"
+      adds_to_player:
+        porridge_empathy: true
+        sad_radius: 1  # room
+        
+    salami:
+      journey: |
+        The Fancy Imported Salami from THE Old Country enters your
+        system. It brings memories of places you've never been.
+        Recipes you've never known. When it emerges, it speaks to
+        you in a language you almost understand. The salami lands
+        on the floor and refuses to explain itself. Some mysteries
+        are eternal.
+      transforms_to: "Mystical Salami (it has secrets)"
+      adds_to_player:
+        old_country_dreams: true
+        salami_whispers: true
+        accent: "slightly foreign"
+        
+    egg:
+      journey: |
+        The Single Hard-Boiled Egg enters your mouth. Already peeled.
+        Already existential. Your digestive system attempts to
+        process it and has a PHILOSOPHICAL CRISIS. What IS an egg,
+        really? The egg emerges... different. Still egg-shaped. But
+        hollow now. A shell of its former self. Literally. The yolk
+        is just... gone. Where? Nobody knows. Not even the egg.
+      transforms_to: "Hollow Philosophical Egg (the yolk is in you now)"
+      adds_to_player:
+        egg_yolk: 1  # you have absorbed the yolk's essence
+        existential_questions: true
+        
+    olives:
+      journey: |
+        The Jar of Olives goes in. Pimentos and all. NO ONE KNOWS
+        WHY there are pimentos. Your digestive system doesn't know
+        either. It processes the olives but KEEPS THE PIMENTOS.
+        The jar of olives emerges... pimento-less. Empty red holes
+        stare up at you accusingly. You now contain all the pimentos.
+        They're part of you now. It's tradition.
+      transforms_to: "Jar of Hollow Olives (accusing emptiness)"
+      adds_to_player:
+        pimento_quota: 20
+        olive_guilt: true
+        mysterious_red_glow: "internal, faint"
+
+  # ─────────────────────────────────────────────────────────────────
+  # CONTEXTUAL MODIFIERS — Effects vary by situation!
+  # ─────────────────────────────────────────────────────────────────
+  
+  contextual_effects:
+    
+    # ── COSTUME INTERACTIONS ──
+    by_costume:
+      vampire:
+        apple: "The apple turns blood-red mid-transit. Emerges as a Blood Apple."
+        garlic_note: "If any food contains garlic, violent rejection. +burn_marks"
+        transforms_add: { vampiric_fruit: true }
+        
+      wizard:
+        mysterious_stew: "Your magical aura SUPERCHARGES the stew. It gains spells."
+        any_food: "Foods emerge with faint magical sparkles. +minor_enchantment"
+        transforms_add: { arcane_residue: true }
+        
+      pirate:
+        rum_note: "Any liquid food emerges as rum. All of it. Just rum."
+        sardines: "The sardines emerge singing sea shanties. Tiny voices."
+        transforms_add: { nautical_essence: true, shanty_enabled: true }
+        
+      chef:
+        any_food: "Your professional training IMPROVES the food. It's better now."
+        transforms_add: { chef_approved: true, presentation: "elevated" }
+        
+      ghost:
+        any_food: "Food passes through you AND through the floor. Check room below."
+        transforms_add: { ethereal: true, location: "one floor down" }
+        
+      clown:
+        any_food: "Emerges as confetti. All food becomes confetti. Why."
+        transforms_add: { confetti: true, dignity_remaining: 0 }
+        
+    # ── ROOM INTERACTIONS ──
+    by_room:
+      maze_dark:
+        any_food: "You can't see what happens. The SOUNDS are concerning."
+        transforms_add: { mystery_transformation: true, witnessed: false }
+        grue_note: "If grue nearby, food may attract OR repel it. DM choice."
+        
+      maze_puddle:
+        liquid_foods: "Mix with the puddle. Create new substance. Label it."
+        transforms_add: { puddle_merged: true }
+        
+      maze_echo:
+        any_food: "The sound of eating ECHOES. Embarrassingly. For minutes."
+        transforms_add: { echo_marked: true, reputation: "compromised" }
+        
+      maze_cold:
+        hot_foods: "Steam dramatically. Create fog. Visibility drops."
+        cold_foods: "Become colder. Possibly achieve absolute zero."
+        transforms_add: { temperature_extreme: true }
+        
+      kitchen:
+        any_food: "Mother KNOWS. You feel her disappointment through the walls."
+        home_cooking: "Familiar surroundings make digestion 2% more effective."
+        transforms_add: { maternal_disappointment: "intense" }
+        
+      coatroom:
+        any_food: "The mannequin watches. Judging your dietary choices."
+        mirror_effect: "You see yourself eating in the mirror. Shame multiplied."
+        transforms_add: { witnessed_by_mannequin: true }
+        
+    # ── OBJECT INTERACTIONS ──
+    by_objects_present:
+      lamp_lit:
+        any_food: "The lamp illuminates EVERYTHING. In detail. Too much detail."
+        transforms_add: { well_documented: true, glow: "lamp-lit" }
+        
+      lamp_unlit:
+        any_food: "You eat in darkness. What comes out? Who knows."
+        transforms_add: { mystery_state: true }
+        
+      treasure_present:
+        any_food: "The jeweled chalice JUDGES you. Eating peasant food near riches!"
+        transforms_add: { class_shame: true }
+        
+      other_food_on_floor:
+        same_food: "They recognize each other. Reunion. Touching."
+        different_food: "Foods interact! Create hybrid. Name it."
+        transforms_add: { food_society: true }
+        
+      skeleton_present:
+        any_food: "The skeleton seems to sigh. 'I remember eating,' it whispers."
+        transforms_add: { existential_weight: true }
+        
+      sentient_stew_present:
+        any_food: "The sentient stew watches you eat. Takes notes. Learning."
+        transforms_add: { observed_by_stew: true, stew_data_collected: true }
+        
+    # ── HISTORY INTERACTIONS ──
+    by_history:
+      eaten_same_food_before:
+        effect: "Your body REMEMBERS. Transformation is different this time."
+        second_time: "More intense. Faster. Your body has OPINIONS now."
+        third_time: "Your body and this food have a RELATIONSHIP. It's complicated."
+        transforms_add: { familiarity: "increasing", bond_level: "+1" }
+        
+      died_recently:
+        effect: "Post-reincarnation digestion is WEIRD. Ghost traces remain."
+        transforms_add: { afterlife_residue: true, death_count: "+1 to food" }
+        
+      high_score:
+        effect: "Success has made you confident. Food emerges with SWAGGER."
+        transforms_add: { confidence_aura: true }
+        
+      zero_score:
+        effect: "Desperation flavors the food. It emerges... sad."
+        transforms_add: { desperation_seasoned: true }
+        
+      wearing_multiple_costumes:
+        effect: "Costume chaos! Food emerges as HYBRID of all costume effects."
+        transforms_add: { costume_collision: true, chaos_level: "high" }
+        
+      herring_aura_active:
+        effect: "The herring aura affects ALL subsequent food. Everything smells."
+        transforms_add: { herring_contaminated: true }
+        
+      sardine_followers_present:
+        effect: "Your sardine followers CHEER you on. Food emerges triumphant."
+        transforms_add: { sardine_blessed: true }
+        
+      pimento_quota_high:
+        effect: "Internal pimentos interact with food. Red spots appear."
+        transforms_add: { pimento_influenced: true }
+  
+  # ─────────────────────────────────────────────────────────────────
+  # PERSISTENT STATE — Store in objects, not just chat!
+  # ─────────────────────────────────────────────────────────────────
+  
+  persistence_rules: |
+    IMPORTANT: The DM must UPDATE YAML FILES, not just describe effects!
+    
+    When food is eaten:
+    1. UPDATE player.yml — Add new properties, increment counters
+    2. UPDATE room ROOM.yml — Add transformed food to room contents  
+    3. UPDATE the food .yml — If it persists, update its state
+    4. CREATE new objects — Sentient stew needs its own file!
+    
+    Example after eating Mysterious Stew in maze/room-c:
+    
+    # player.yml gets:
+    properties:
+      stew_creator: true
+      mysterious_glow: "faint, greenish"
+      
+    # maze/room-c/ROOM.yml gets:
+    contents:
+      - name: "Sentient Stew"
+        type: creature  # It's alive now!
+        file: sentient-stew.yml
+        
+    # maze/room-c/sentient-stew.yml is CREATED:
+    creature:
+      name: Sentient Stew
+      origin: "Born in Bumblewick's digestive tract"
+      created_from: mysterious_stew
+      created_by: player
+      created_in: maze/room-c
+      questions:
+        - "Why am I?"
+        - "What was I before?"
+        - "Do you have more stew?"
+      can_follow: true
+      alignment: curious
+      
+    STATE IS PERSISTENT! The adventure world CHANGES as you eat!
+  
+  # ─────────────────────────────────────────────────────────────────
+  # POST-CONSUMPTION STATE
+  # ─────────────────────────────────────────────────────────────────
+  
+  post_eat_state:
+    condition: "previously_eaten"
+    description_suffix: "(It has been through the Fantastipants Express.)"
+    still_valid_marker: true  # BETTER markers now, really
+    unique_identifier: true  # No two foods come out the same
+    file_update_required: true  # DM must update YAML files!
+    
+  # ─────────────────────────────────────────────────────────────────
+  # DM NOTES — BE CREATIVE! UPDATE FILES!
+  # ─────────────────────────────────────────────────────────────────
+  
+  dm_notes: |
+    BE CREATIVE! These are examples, not limits. When Bumblewick eats food:
+    
+    1. CHECK CONTEXT — What costume? What room? What's nearby? What history?
+    2. COMBINE EFFECTS — Costume + Room + Objects = Unique outcome!
+    3. DESCRIBE THE JOURNEY — Make it vivid, euphemistic, hilarious
+    4. TRANSFORM THE FOOD — It should come out... different
+    5. ADD PLAYER PROPERTIES — Foods can leave lasting effects!
+    6. **UPDATE THE FILES** — Persist changes to YAML! This is real!
+    7. REFERENCE MOTHER — She warned you. She ALWAYS warns you.
+    
+    EXAMPLES OF COMBINED EFFECTS:
+    
+    - Pirate costume + Echo room + Sardines = 
+      Sardines emerge singing sea shanties that ECHO for days.
+      Create sardine-choir.yml in the room.
+      
+    - Wizard costume + Dark room + Mysterious Stew = 
+      Stew gains DARK magic. Emerges as Shadow Stew.
+      Player gains shadow_affinity. Stew can see in dark.
+      
+    - Ghost costume + Any food + Skeleton present = 
+      Food phases through floor. Skeleton comments on mortality.
+      Food appears in room below (or is lost forever).
+      
+    - Already have herring_aura + Eat blue cheese = 
+      SMELL SINGULARITY. Everything in 5 rooms smells.
+      Create smell_zone.yml tracking the affected area.
+    
+    The world EVOLVES. Foods interact. Effects compound.
+    By adventure's end, the maze is a living ecosystem of
+    transformed foods, gained properties, and persistent weirdness.
+    
+    THIS IS EMERGENT GAMEPLAY!
