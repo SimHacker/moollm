@@ -26,7 +26,7 @@ This adventure inherits the **enriched world** from adventure-2, where Bumblewic
 
 | Feature | State | Notes |
 |---------|-------|-------|
-| 🧑 **Player** | New unknown hero | `characters/player.yml` — rename in coatroom! |
+| 🧑 **Player** | New unknown hero | [characters/](./characters/) — rename in coatroom! |
 | 🪔 **Lamp** | Full (100 oil) | On the shelf, waiting |
 | 🧊 **Fridge** | Fully restocked | 20 food items |
 | 📓 **Notebook** | Empty | Your story awaits |
@@ -34,6 +34,27 @@ This adventure inherits the **enriched world** from adventure-2, where Bumblewic
 | 💰 **Starting Gold** | 10 (+25 in drawer = 35) | Enough for lamp refills & ACME shopping! |
 | 🐉 **The Grue** | RESPAWNED | Grues always respawn |
 | 🗺️ **Maze Markers** | Cleared | Map it yourself! |
+
+---
+
+## 👥 Multi-Player Support
+
+This adventure supports **multiple simultaneous players**!
+
+See [ADVENTURE.yml](./ADVENTURE.yml) for per-adventure simulation state:
+- **Active players:** Who's currently playing (any number!)
+- **Chat target:** Who the chat is addressed to
+- **Simulation state:** Global flags, turn number, events
+
+**Quick commands:**
+| Command | Effect |
+|---------|--------|
+| `@don-hopkins Look around` | Direct to specific player |
+| `ADDRESS don-hopkins` | Switch default target |
+| `PLAYERS` | List all active players |
+| `ACTIVATE hero.yml` | Add player to active list |
+
+Multiple players can be in different rooms, carry separate inventories, pursue different goals — but share the same world. See [characters/README.md](./characters/README.md) for details.
 
 ---
 
