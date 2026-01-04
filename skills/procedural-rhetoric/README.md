@@ -327,10 +327,23 @@ toxic_rhetoric:
 ## Dovetails With
 
 - [constructionism/](../constructionism/) — Learning by building inspectable things
-- [advertisement/](../advertisement/) — Objects announce what they can do
+- [advertisement/](../advertisement/) — Objects announce what they can do (SIMANTICS!)
 - [yaml-jazz/](../yaml-jazz/) — Comments carry meaning
 - [card/](../card/) — Characters as playable ideology
 - [room/](../room/) — Spaces embody worldviews
+
+## Related Protocols
+
+| Protocol | Insight |
+|----------|---------|
+| [MASKING-EFFECT](../../PROTOCOLS.yml) | Abstract characters = projection |
+| [SIMULATOR-EFFECT](../../PROTOCOLS.yml) | Imagination fills gaps |
+| [GUTTER-CLOSURE](../../PROTOCOLS.yml) | Action happens BETWEEN |
+| [CULTURAL-BAGGAGE](../../PROTOCOLS.yml) | Leverage existing knowledge |
+| [FLY-UNDER-RADAR](../../PROTOCOLS.yml) | Normalize through defaults |
+| [SIMANTICS](../../PROTOCOLS.yml) | Distributed AI in objects |
+| [TOY-NOT-GAME](../../PROTOCOLS.yml) | Sandbox over scoring |
+| [PERKY-PAT](../../PROTOCOLS.yml) | Shared consciousness projection |
 
 ---
 
