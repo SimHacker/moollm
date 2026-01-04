@@ -1218,6 +1218,386 @@ object:
                 - SPECIAL exits based on room theme
                 
           # ───────────────────────────────────────────────────────────────
+          # 🏛️ TOPOLOGY PATTERNS — How areas are structured
+          # ───────────────────────────────────────────────────────────────
+          
+          topologies:
+            description: |
+              Different areas use different SPATIAL STRUCTURES.
+              Topology affects navigation, mood, and gameplay.
+              
+              Choose based on narrative purpose!
+              
+            # ═══════════════════════════════════════════════════════════════
+            # 🌀 TWISTY MAZE — "All alike"
+            # ═══════════════════════════════════════════════════════════════
+            
+            twisty_maze:
+              diagram: |
+                    ┌───┐     ┌───┐
+                    │ A ├─────┤ B │
+                    └─┬─┘     └─┬─┘
+                      │    ╲    │
+                    ┌─┴─┐   ╲ ┌─┴─┐
+                    │ C ├────X┤ D │
+                    └─┬─┘   ╱ └─┬─┘
+                      │    ╱    │
+                    ┌─┴─┐     ┌─┴─┐
+                    │ E ├─────┤ F │
+                    └───┘     └───┘
+                    
+              properties:
+                - Rooms look similar (descriptions vary subtly)
+                - Connections are NON-OBVIOUS
+                - North from A might lead to D, not B
+                - Designed to CONFUSE without markers
+                - Classic adventure game challenge
+                
+              use_for:
+                - Classic maze areas
+                - Testing player mapping skills
+                - Grue territory (darkness compounds confusion)
+                - Dream sequences (logic suspended)
+                
+              navigation_aids:
+                - Smell markers (drop transformed food)
+                - Tom's map (builds as you explore)
+                - Object breadcrumbs
+                - Wall carvings (player-made)
+                
+            # ═══════════════════════════════════════════════════════════════
+            # 🚶 LONG HALL — Rooms branching off
+            # ═══════════════════════════════════════════════════════════════
+            
+            long_hall:
+              diagram: |
+                ┌─────┬─────┬─────┬─────┬─────┐
+                │     │     │     │     │     │
+                │  A  │  B  │  C  │  D  │  E  │
+                │     │     │     │     │     │
+                └──┬──┴──┬──┴──┬──┴──┬──┴──┬──┘
+                   │     │     │     │     │
+                ═══╧═════╧═════╧═════╧═════╧═══ HALL
+                   │     │           │
+                ┌──┴──┐┌─┴──┐     ┌──┴──┐
+                │  F  ││ G  │     │  H  │
+                └─────┘└────┘     └─────┘
+                
+              properties:
+                - Central corridor connects everything
+                - Rooms branch off to sides
+                - Clear progression (linear feel)
+                - Easy to navigate, hard to hide
+                
+              use_for:
+                - Castle hallways
+                - Prison blocks
+                - Hotel corridors
+                - Museum galleries
+                - Dungeon wings
+                
+              variations:
+                - Doors on one side only
+                - Alcoves instead of rooms
+                - Branching sub-halls
+                - Dead-end rooms with secrets
+                
+            # ═══════════════════════════════════════════════════════════════
+            # 🏃 CORRIDOR — Open halls without doors
+            # ═══════════════════════════════════════════════════════════════
+            
+            corridor:
+              diagram: |
+                ════════════════════════════════
+                         OPEN CORRIDOR
+                    (no doors, just sections)
+                ════════════════════════════════
+                  ↓           ↓           ↓
+                North      Middle       South
+                Section    Section     Section
+                  ↓           ↓           ↓
+                ════════════════════════════════
+                
+              properties:
+                - One continuous space, divided conceptually
+                - No barriers between sections
+                - Can see/hear across sections
+                - Movement feels fluid
+                
+              use_for:
+                - Grand galleries
+                - Underground caverns
+                - Open markets
+                - Battlefields
+                - Natural spaces (forests, beaches)
+                
+              mechanics:
+                - Line of sight across sections
+                - Sound travels freely
+                - Grues less effective (nowhere to hide?)
+                - Combat/chase dynamics
+                
+            # ═══════════════════════════════════════════════════════════════
+            # 🔲 GRID — Regular layout
+            # ═══════════════════════════════════════════════════════════════
+            
+            grid:
+              diagram: |
+                ┌───┬───┬───┬───┐
+                │ A │ B │ C │ D │
+                ├───┼───┼───┼───┤
+                │ E │ F │ G │ H │
+                ├───┼───┼───┼───┤
+                │ I │ J │ K │ L │
+                ├───┼───┼───┼───┤
+                │ M │ N │ O │ P │
+                └───┴───┴───┴───┘
+                
+              properties:
+                - Predictable N/S/E/W connections
+                - Easy to map mentally
+                - Coordinates work (A1, B2, etc.)
+                - Efficient pathfinding
+                
+              use_for:
+                - City blocks
+                - Warehouse floors
+                - Chess-like puzzles
+                - Strategic combat
+                - Systematic exploration
+                
+              variations:
+                - Some cells missing (irregular grid)
+                - Walls blocking some connections
+                - Multi-level grids (3D)
+                - Wrapping edges (toroidal)
+                
+            # ═══════════════════════════════════════════════════════════════
+            # ⭐ STAR — Central hub with spokes
+            # ═══════════════════════════════════════════════════════════════
+            
+            star:
+              diagram: |
+                        ┌───┐
+                        │ N │
+                        └─┬─┘
+                          │
+                  ┌───┐   │   ┌───┐
+                  │NW ├───┼───┤ NE│
+                  └───┘   │   └───┘
+                      ╲   │   ╱
+                       ╲  │  ╱
+                  ┌───┐─╲─┼─╱─┌───┐
+                  │ W ├──[HUB]──┤ E │
+                  └───┘─╱─┼─╲─└───┘
+                       ╱  │  ╲
+                      ╱   │   ╲
+                  ┌───┐   │   ┌───┐
+                  │SW ├───┼───┤ SE│
+                  └───┘   │   └───┘
+                          │
+                        ┌─┴─┐
+                        │ S │
+                        └───┘
+                        
+              properties:
+                - Central HUB connects to all spokes
+                - Spokes may or may not connect to each other
+                - Hub is a natural gathering point
+                - Navigation pivots around center
+                
+              use_for:
+                - Throne rooms with chambers
+                - Crossroads with paths
+                - Space stations with docking bays
+                - Wheel-and-spoke cities
+                - Pie menu navigation!
+                
+              mechanics:
+                - Fast travel through hub
+                - Hub as combat/social nexus
+                - Spokes for thematic separation
+                - Boss in center pattern
+                
+            # ═══════════════════════════════════════════════════════════════
+            # 🌳 PIE TREE — Radial branching (like pie menus!)
+            # ═══════════════════════════════════════════════════════════════
+            
+            pie_tree:
+              diagram: |
+                           ROOT
+                            │
+                    ┌───────┼───────┐
+                    │       │       │
+                   [A]     [B]     [C]
+                    │       │       │
+                 ┌──┼──┐ ┌──┼──┐ ┌──┼──┐
+                 │  │  │ │  │  │ │  │  │
+                [D][E][F][G][H][I][J][K][L]
+                
+              properties:
+                - Hierarchical structure
+                - Each node branches to children
+                - Deeper = more specific/specialized
+                - Natural for menus and categories
+                
+              use_for:
+                - Library sections (topics → subtopics)
+                - Family trees (genealogy exploration)
+                - Skill trees (learning paths)
+                - Decision trees (branching narrative)
+                - File systems as dungeons!
+                
+              navigation:
+                - UP returns to parent
+                - OUT goes to siblings
+                - DOWN descends to children
+                - ROOT jumps to top
+                
+            # ═══════════════════════════════════════════════════════════════
+            # 🔄 LOOP — Circular connections
+            # ═══════════════════════════════════════════════════════════════
+            
+            loop:
+              diagram: |
+                      ┌───────────┐
+                      │           │
+                   ┌──┴──┐     ┌──┴──┐
+                   │  A  │     │  B  │
+                   └──┬──┘     └──┬──┘
+                      │           │
+                   ┌──┴──┐     ┌──┴──┐
+                   │  D  │     │  C  │
+                   └──┬──┘     └──┬──┘
+                      │           │
+                      └───────────┘
+                      
+              properties:
+                - Going one direction eventually returns
+                - Multiple paths between any two rooms
+                - No true dead ends
+                - Creates shortcuts once understood
+                
+              use_for:
+                - Racing tracks
+                - Patrol routes
+                - Time loops (narrative!)
+                - Möbius puzzles
+                - "Walking in circles" disorientation
+                
+              variations:
+                - Figure-8 (two connected loops)
+                - Nested loops (loop within loop)
+                - Broken loop (one link missing)
+                - Directional loop (one-way!)
+                
+            # ═══════════════════════════════════════════════════════════════
+            # 🛑 DEAD ENDS — Terminal branches
+            # ═══════════════════════════════════════════════════════════════
+            
+            dead_ends:
+              diagram: |
+                  ──┬──────┬──────┬──
+                    │      │      │
+                  ┌─┴─┐  ┌─┴─┐  ┌─┴─┐
+                  │ A │  │ B │  │ C │
+                  └───┘  └─┬─┘  └───┘
+                           │
+                         ┌─┴─┐
+                         │ D │  ← Dead end
+                         └───┘
+                         
+              properties:
+                - Only one exit (back the way you came)
+                - Creates tension (trapped if blocked)
+                - Often contain rewards or dangers
+                - Strategic for ambushes
+                
+              use_for:
+                - Treasure rooms
+                - Trap rooms
+                - Boss lairs
+                - Safe rooms (if door locks)
+                - Puzzle chambers
+                
+              psychology:
+                - Commitment required to enter
+                - Vulnerability heightened
+                - Rewards feel earned
+                - "Worth the dead end?"
+                
+            # ═══════════════════════════════════════════════════════════════
+            # ⚡ ZIG-ZAG — Indirect progress
+            # ═══════════════════════════════════════════════════════════════
+            
+            zigzag:
+              diagram: |
+                START
+                  │
+                  └──────┐
+                         │
+                  ┌──────┘
+                  │
+                  └──────┐
+                         │
+                  ┌──────┘
+                  │
+                  └──────┐
+                         │
+                        END
+                        
+              properties:
+                - Progress requires directional changes
+                - Destination visible but not direct
+                - Forces exploration of sides
+                - Creates journey from short distance
+                
+              use_for:
+                - Mountain paths
+                - Defensive corridors
+                - Tutorial areas (forces learning)
+                - Narrative pacing
+                - "The scenic route"
+                
+              variations:
+                - Switchbacks (outdoor paths)
+                - Stair-step (vertical zig-zag)
+                - Spiral (zig-zag around center)
+                
+            # ═══════════════════════════════════════════════════════════════
+            # 🎲 HYBRID — Mix and match!
+            # ═══════════════════════════════════════════════════════════════
+            
+            hybrid:
+              description: |
+                Real dungeons MIX topologies!
+                
+                EXAMPLE: The Current Adventure
+                
+                START ─── LINEAR ─── KITCHEN
+                  │                     │
+                  │                  CRAFTING
+                MAZE ─── TWISTY ─── DEAD ENDS
+                  │                     │
+                  │      STAR (room-j hub)
+                  │           │
+                END ─── LINEAR ─── HOME (UP)
+                
+              combination_ideas:
+                - Grid city with maze undercity
+                - Star hub connecting different topology wings
+                - Loop with dead-end treasure rooms
+                - Zig-zag to reach star center
+                - Corridor with twisty maze side passages
+                
+              narrative_matching:
+                - Civilized areas → Grid, Hall, Star
+                - Wild areas → Twisty, Loop, Zig-zag
+                - Dangerous areas → Dead ends, Maze
+                - Social areas → Star, Corridor
+                - Mystery areas → Loop, Hybrid
+                
+          # ───────────────────────────────────────────────────────────────
           # 📦 OBJECT GENERATION — Things appear when needed
           # ───────────────────────────────────────────────────────────────
           
