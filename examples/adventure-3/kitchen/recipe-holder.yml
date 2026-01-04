@@ -205,8 +205,49 @@ object:
     - Learning from characters
     - Inventing through PLAY-LEARN-LIFT
     
-    When you successfully COMBINE items without a recipe,
-    the DM may create a new recipe card for future use!
+    When you successfully COMBINE, TRANSFORM, or DECOMPOSE items,
+    the counter AUTOMATICALLY creates a recipe card and files it here!
+    
+  # ─────────────────────────────────────────────────────────────────
+  # 🆕 DISCOVERED RECIPES (Auto-populated by crafting!)
+  # ─────────────────────────────────────────────────────────────────
+  
+  discovered_recipes:
+    description: |
+      This section grows as you experiment!
+      Every successful craft adds a card here.
+      
+    combinations: []
+    # Auto-filled when you COMBINE items
+    # Format:
+    #   - name: "Result Recipe"
+    #     inputs: [ingredients]
+    #     output: result
+    #     discovered_by: who
+    #     discovered_turn: when
+    #     notes: flavor text
+    
+    transformations: []
+    # Auto-filled when you TRANSFORM items
+    # Format:
+    #   - name: "X to Y Transformation"
+    #     input: original
+    #     output: transformed
+    #     method: how
+    #     discovered_by: who
+    
+    decompositions: []
+    # Auto-filled when you DECOMPOSE items
+    # Format:
+    #   - name: "X Decomposition"
+    #     input: what
+    #     outputs: [components]
+    #     depth: level
+    #     reverse_recipe: recombination name
+    
+  # DM NOTE: When player successfully crafts, add entry here!
+  # This makes the recipe-holder.yml a living document that
+  # grows with the adventure. Tom can reference it too!
     
   # ─────────────────────────────────────────────────────────────────
   # TOM'S OPINION

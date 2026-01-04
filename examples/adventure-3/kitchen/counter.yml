@@ -397,6 +397,107 @@ object:
       effect: "All items return to inventory"
       
   # ─────────────────────────────────────────────────────────────────
+  # 📝 AUTO-RECIPE LEARNING
+  # Every successful craft or decomposition creates a recipe card!
+  # ─────────────────────────────────────────────────────────────────
+  
+  auto_recipe:
+    description: |
+      The counter LEARNS from your experiments!
+      
+      Every successful COMBINE, TRANSFORM, or DECOMPOSE automatically:
+      1. Creates a new recipe card
+      2. Stores it in the recipe-holder.yml
+      3. Names it after what you made/unmade
+      4. Records ingredients, outputs, and any notes
+      
+      This is PLAY-LEARN-LIFT in action:
+      - PLAY: Experiment freely on the counter
+      - LEARN: Discover what works (and what explodes)
+      - LIFT: Recipe card captures the knowledge forever
+      
+    on_combine: |
+      When you successfully COMBINE items:
+      
+      → New recipe card created:
+        name: "[Result Name] Recipe"
+        type: combination
+        inputs: [list of ingredients]
+        output: [what you made]
+        discovered_by: [your name]
+        discovered_on: [current turn]
+        notes: [DM adds flavor text]
+        
+      → Card auto-filed in recipe-holder.yml under "discovered_recipes"
+      → Tom announces: "Tom has memorized this recipe!"
+      
+    on_transform: |
+      When you successfully TRANSFORM an item:
+      
+      → New recipe card created:
+        name: "[Input] to [Output] Transformation"
+        type: transformation
+        input: [original item]
+        output: [transformed item]
+        method: [how you described it]
+        discovered_by: [your name]
+        notes: [what changed, what was preserved]
+        
+      → Card auto-filed in recipe-holder.yml
+      
+    on_decompose: |
+      When you successfully DECOMPOSE an item:
+      
+      → New recipe card created:
+        name: "[Item] Decomposition"
+        type: decomposition
+        input: [what you broke down]
+        outputs: [list of components]
+        depth_level: [practical/chemical/atomic/subatomic/philosophical]
+        discovered_by: [your name]
+        warnings: [any hazards noted]
+        
+      → Card auto-filed in recipe-holder.yml under "decomposition_cards"
+      → Reverse recipe also created (for recombination)
+      
+    examples:
+      - action: "COMBINE cheese WITH bread"
+        creates: |
+          name: "Cheese Sandwich Recipe"
+          inputs: ["cheese", "bread"]
+          output: "cheese_sandwich"
+          discovered_by: "Bumblewick"
+          notes: "A classic. Simple. Perfect."
+          
+      - action: "TRANSFORM blue cheese INTO weapon"
+        creates: |
+          name: "Blue Cheese to Gorgonzola Glaive"
+          input: "blue cheese (wedge)"
+          output: "gorgonzola_glaive"
+          method: "sharpen with determination and spite"
+          discovered_by: "Captain Ashford"
+          notes: "LEGENDARY. Requires combat context."
+          
+      - action: "DECOMPOSE water"
+        creates: |
+          name: "Water Decomposition"
+          input: "water"
+          outputs: ["hydrogen_gas (x2)", "oxygen_gas"]
+          depth_level: "chemical"
+          discovered_by: "Bumblewick"
+          warnings: ["hydrogen is flammable", "store in containers"]
+          reverse_recipe: "Hydrogen Recombination → Water"
+          
+    tom_integration: |
+      Tom tracks all discovered recipes!
+      
+      "Tom has memorized {N} recipes!"
+      "Tom can remind you: ASK TOM ABOUT [recipe]"
+      "Tom notes: you've discovered {M} decompositions!"
+      "Tom is impressed by your scientific curiosity!"
+      "Tom is... concerned about the quark experiments."
+      
+  # ─────────────────────────────────────────────────────────────────
   # DM GUIDELINES
   # ─────────────────────────────────────────────────────────────────
   
