@@ -1,0 +1,300 @@
+# 🎮 ADVENTURE GAME MECHANICS
+# Core systems for adventure-3 and beyond
+# See also: kitchen/mothers-note.yml (letter, goals, Mother)
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 🎯 SCORING — Dynamic, deferred, contextual
+# ═══════════════════════════════════════════════════════════════════════════
+
+scoring:
+  principle: |
+    Scores are CALCULATED at completion, not fixed upfront.
+    HOW you accomplish goals matters as much as WHAT you accomplish.
+    
+  factors:
+    - style        # Creative, elegant, unexpected solutions
+    - difficulty   # Harder paths worth more
+    - emergent     # Discovered mechanics > prescribed ones
+    - context      # World state, relationships, history
+    - reviews      # NPC opinions (Mother's rating!)
+    
+  modifiers:
+    creative_solution: "+50%"
+    overwhelming_odds: "+100%"
+    taught_to_npc: "+50%"
+    after_multiple_deaths: "+25%"
+    used_skill_creatively: "+25%"
+    
+  # DM: Evaluate at goal completion, not goal definition
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 🎪 SKILLS — Positive capabilities earned through play
+# ═══════════════════════════════════════════════════════════════════════════
+
+skills:
+  acquisition: |
+    Skills emerge from PLAY, not menus:
+    - Repeated actions crystallize into skills
+    - Creative solutions become techniques
+    - NPCs can teach skills
+    - Some skills are family traditions
+    
+  valuation:
+    rarity: "How many have it?"
+    utility: "How often useful?"
+    difficulty: "How hard to learn?"
+    emergent: "Discovered > planned"
+    
+  tiers:
+    planned: "Base value (from instruction)"
+    discovered: "+50% (experimentation)"
+    emergent: "+100% (unexpected play)"
+    legendary: "+200% (epic moments)"
+    
+  operations:
+    - "TRADE SKILL [skill] TO [npc] FOR [thing]"
+    - "TEACH SKILL [skill] TO [npc]"
+    - "AUCTION SKILL [skill]"
+    - "BEQUEATH SKILL [skill] TO [future]"
+    
+  # Examples: PHOTO-SET-8, GRUE-SUMMONING, COMPASS-NAVIGATION, etc.
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 💀 CURSES — Negative skills as growth opportunities
+# ═══════════════════════════════════════════════════════════════════════════
+
+curses:
+  principle: |
+    Curses are CHALLENGES that create GOALS for self-improvement.
+    Overcoming a curse teaches something. The scar becomes a story.
+    
+  acquisition:
+    actions:
+      - "Breaking promises → CURSE-OF-BROKEN-WORD"
+      - "Wasting food → CURSE-OF-HUNGER"
+      - "Abandoning companions → CURSE-OF-SOLITUDE"
+    encounters:
+      - "Grue attack survived → CURSE-OF-DARKNESS"
+      - "Failed puzzle → CURSE-OF-CONFUSION"
+    items:
+      - "Cursed ACME items"
+      - "Monkey's paw (wish for rest of monkey!)"
+      - "Chain letter broken"
+      
+  examples:
+    CURSE-OF-DARKNESS:
+      effect: "Lamp drains 25% faster"
+      lift: "Bring light to 3 dark places"
+      reward: "LIGHT-BEARER skill"
+      
+    CURSE-OF-BROKEN-WORD:
+      effect: "NPCs trust less, prices higher"
+      lift: "Keep 5 consecutive promises"
+      reward: "OATH-KEEPER title"
+      
+    # Other curses: HUNGER, GRUE, LOST-THINGS, HUBRIS, SOLITUDE, IMPATIENCE
+    
+  mechanics:
+    stacking: "Same curse 3x = LEGENDARY CURSE"
+    immunity: "After lifting 4x, immune to that curse"
+    voluntary: "ACCEPT CURSE OF [x] FOR [benefit]"
+    transfer: "Possible but ethically questionable. Mother finds out."
+    
+  # DM: Each curse creates implicit quest in Tom's log
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 💎 REWARDS — Thematic items for skill development
+# ═══════════════════════════════════════════════════════════════════════════
+
+rewards:
+  principle: |
+    Rewards are THEMATICALLY APPROPRIATE to skills earned.
+    DM generates dynamically based on skill nature and origin.
+    
+  types:
+    items: "Lens of True Seeing, Compass Rose Pendant, etc."
+    abilities: "PERFECT-SHOT, SHORTCUT, etc."
+    titles: "The Photographer, The Navigator, etc."
+    heirlooms: "Skills become family traditions"
+    
+  # DM: Connect reward to HOW skill was learned
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 👨‍👩‍👧‍👦 PARTY — Multi-character campaigns
+# ═══════════════════════════════════════════════════════════════════════════
+
+party:
+  recruitment:
+    - "Ask NPCs to join"
+    - "Ask Mother about family → family appears"
+    - "Summon via skill"
+    - "Hire with gold"
+    
+  roles:
+    frontline: "Fighter, Guardian, Tank"
+    support: "Navigator, Light-Bearer, Pack Mule"
+    specialist: "Photographer, Chef, Merchant"
+    mystic: "Oracle, Medium, Postal Savant"
+    wildcard: "Pet, Sibling, Reformed Grue"
+    
+  commands:
+    formation: "PARTY FORMATION [line/circle/defensive]"
+    orders: "PARTY HOLD / FOLLOW / SCATTER / REGROUP"
+    individual: "[COMPANION] GUARD / SCOUT / FETCH [item]"
+    special: "SWARM, POSSESS [companion], SUMMON [companion]"
+    
+  dynamics: |
+    Companions have relationships with you AND each other.
+    They can disagree, have own goals, leave, or sacrifice.
+    "What are Tom and the Pet whispering about?"
+    
+  # Family discovery: Asking about siblings/pets creates them!
+  # Sibling options: Lost in maze, estranged, the skeleton, the grue (!)
+  # Pet options: Waiting loyally, running postal service, befriended grue
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 🌍 WORLD GENERATION — Dynamic rooms, objects, NPCs
+# ═══════════════════════════════════════════════════════════════════════════
+
+world_generation:
+  principle: |
+    The world GROWS as you explore. Questions create places.
+    Quests demand locations. Narrative triggers expansion.
+    
+  triggers:
+    questions: "'Where did grue come from?' → GRUE-ORIGIN area"
+    statements: "'There must be a library!' → Maybe there is..."
+    actions: "DIG, CLIMB, SWIM, BREAK → new passages"
+    quests: "Quest objectives generate required locations"
+    
+  room_templates:
+    expansion: "More of same type (maze extension)"
+    destination: "Quest objectives, mentioned places"
+    surprise: "Secret discoveries"
+    lair: "Creature homes, boss areas"
+    flashback: "Historical locations"
+    
+  object_generation: |
+    Objects materialize when narrative demands:
+    - Quest items created and placed
+    - Clue items (notes, maps, evidence)
+    - Tool items (lockpick appears nearby)
+    - Reward items (precious rewards)
+    
+  npc_generation: |
+    NPCs appear when:
+    - Quest requires a person
+    - Room feels empty
+    - Player asks "is anyone here?"
+    - Letter mentions someone
+    
+    Types: Quest giver, Information source, Merchant,
+           Companion candidate, Antagonist, Family member
+    
+  area_examples:
+    DEEPER_MAZE: "DOWN from maze → ancient, colder"
+    THE_SURFACE: "UP from end → outside world"
+    MOTHER_S_DUNGEON: "Flashback → younger Mother"
+    POSTAL_DIMENSION: "Following mail → surreal bureaucracy"
+    GRUE_HOMELAND: "Following grue → underground society"
+    
+  linking: |
+    All connections TWO-WAY. Tom's map updates automatically.
+    Exits: VISIBLE, HIDDEN, CONDITIONAL, TIMED, ONE-WAY
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 🏛️ TOPOLOGIES — Room connection patterns
+# ═══════════════════════════════════════════════════════════════════════════
+
+topologies:
+  principle: |
+    Different areas use different spatial structures.
+    Topology affects navigation, mood, and gameplay.
+    
+  patterns:
+    twisty_maze:
+      diagram: "A↔B crossed with C↔D (confusing)"
+      use: "Classic challenge, grue territory, dreams"
+      
+    long_hall:
+      diagram: "═══[A][B][C][D][E]═══ with rooms branching"
+      use: "Castles, prisons, museums"
+      
+    corridor:
+      diagram: "One continuous space, divided conceptually"
+      use: "Caverns, markets, battlefields"
+      
+    grid:
+      diagram: "Regular N/S/E/W connections"
+      use: "Cities, warehouses, chess puzzles"
+      
+    star:
+      diagram: "[N][W]-HUB-[E][S] central hub with spokes"
+      use: "Throne rooms, crossroads, PIE MENUS!"
+      
+    pie_tree:
+      diagram: "ROOT → branches → leaves (hierarchical)"
+      use: "Libraries, family trees, SKILL TREES"
+      nav: "UP=parent, OUT=siblings, DOWN=children"
+      
+    loop:
+      diagram: "A→B→C→D→A (circular)"
+      use: "Racing, patrols, time loops"
+      
+    dead_ends:
+      diagram: "Terminal branches (one exit)"
+      use: "Treasure rooms, boss lairs, traps"
+      
+    zigzag:
+      diagram: "Switchbacks requiring directional changes"
+      use: "Mountain paths, tutorials, scenic routes"
+      
+    hybrid:
+      note: "Real dungeons MIX topologies!"
+      
+  narrative_matching:
+    civilized: "Grid, Hall, Star"
+    wild: "Twisty, Loop, Zigzag"
+    dangerous: "Dead ends, Maze"
+    social: "Star, Corridor"
+    mystery: "Loop, Hybrid"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 📍 TOM INTEGRATION — Mission map and GPS
+# See also: kitchen/tomtomagotchi.yml for full Tom spec
+# ═══════════════════════════════════════════════════════════════════════════
+
+tom_features:
+  mission_pips:
+    gold_star: "Main missions"
+    pink_heart: "Mother missions"
+    green_diamond: "Collectibles"
+    blue_cylinder: "Resources"
+    red_skull: "Danger"
+    yellow_person: "NPCs"
+    purple_paw: "Companions"
+    
+  plot_driver: |
+    Tom suggests WHAT TO DO NEXT based on:
+    1. URGENCY (time-sensitive)
+    2. PROXIMITY (nearby opportunities)
+    3. MOMENTUM (what you're doing)
+    4. NARRATIVE (story beats)
+    
+  commands:
+    - "QUESTS / MISSIONS / OBJECTIVES"
+    - "MARK [name] / WAYPOINT [name]"
+    - "NAVIGATE TO [destination]"
+    - "MAP / WHERE"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 🔗 CROSS-REFERENCES
+# ═══════════════════════════════════════════════════════════════════════════
+
+see_also:
+  letter_and_goals: "kitchen/mothers-note.yml"
+  tom_full_spec: "kitchen/tomtomagotchi.yml"
+  pub_themes: "pub/ROOM.yml"
+  maze_mechanics: "maze/README.md"
+  crafting: "kitchen/counter.yml"
+  postal_service: "start/mailbox.yml"
