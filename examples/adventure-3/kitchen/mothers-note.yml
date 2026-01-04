@@ -250,6 +250,321 @@ object:
             trackable: subjective  # Player decides when satisfied
         ```
         
+      # ═══════════════════════════════════════════════════════════════
+      # 🎯 DYNAMIC SCORING — Rewards calculated at completion!
+      # ═══════════════════════════════════════════════════════════════
+      
+      dynamic_scoring: |
+        Scores are NOT fixed at promise time — they're EVALUATED at completion!
+        
+        The DM calculates rewards based on:
+        - HOW the promise was kept (style, creativity, difficulty)
+        - WHAT emerged along the way (skills, discoveries, relationships)
+        - CONTEXT at completion (world state, other accomplishments)
+        - REVIEWS from characters (Mother's opinion, NPC reactions)
+        
+        This means the SAME promise can earn different scores depending
+        on HOW you fulfill it!
+        
+      score_calculation:
+        base_scores: |
+          Each promise has a BASE score set at extraction:
+          
+          ```yaml
+          - promise: "bring back treasure"
+            base_score: 10  # Standard goal
+            
+          - promise: "not eat the food"
+            base_score: 5   # Restraint goal
+            
+          - promise: "slay the grue"
+            base_score: 20  # Ambitious goal
+          ```
+          
+        modifiers: |
+          At completion, MODIFIERS are applied:
+          
+          STYLE MODIFIERS (how you did it):
+          - Creative solution: +50%
+          - With dramatic flair: +25%
+          - Helping others along the way: +25%
+          - Against overwhelming odds: +100%
+          - Using unexpected methods: +50%
+          - While maintaining promises to others: +25%
+          
+          DIFFICULTY MODIFIERS (context):
+          - After dying once: +10%
+          - After dying multiple times: +25%
+          - With lamp nearly empty: +50%
+          - While carrying heavy load: +10%
+          - In record time: +25%
+          - Taking scenic route: +10% (for experience)
+          
+          SKILL MODIFIERS (what you learned):
+          - Developed new skill during pursuit: +skill_value
+          - Used skill creatively: +25%
+          - Taught skill to NPC: +50%
+          
+        deferred_evaluation: |
+          Some rewards can only be calculated AFTER completion:
+          
+          ```yaml
+          - promise: "take beautiful photos"
+            base_score: 5
+            deferred_score: |
+              Evaluated by: Mother (artistic merit)
+              Range: 1-20 based on quality
+              Bonus: +5 per photo that makes her cry
+              Penalty: None (all photos are treasured)
+              
+          - promise: "write songs about my adventure"
+            base_score: 5
+            deferred_score: |
+              Evaluated by: Narrative impact
+              +2 per song that references real events
+              +5 for songs that become "canon"
+              +10 for songs NPCs learn to sing
+          ```
+          
+        contextual_bonuses: |
+          Bonuses based on WORLD STATE at completion:
+          
+          ```yaml
+          context_bonuses:
+            grue_slain: "+10 to all combat-related promises"
+            skeleton_memorial: "+5 to all compassion-related promises"
+            full_stamp_collection: "+5 to all exploration promises"
+            mother_at_peace: "+10 to all family-related promises"
+            tom_at_legendary: "+5 to all navigation promises"
+          ```
+          
+      # ═══════════════════════════════════════════════════════════════
+      # 🎪 SKILL ECONOMY — Trade, auction, and reward skills!
+      # ═══════════════════════════════════════════════════════════════
+      
+      skill_economy:
+        description: |
+          Skills developed during the adventure have VALUE:
+          - They can be TRADED with NPCs
+          - They can be AUCTIONED for gold or favors
+          - They can be TAUGHT to other characters
+          - They can be REWARDED with precious items
+          
+          This creates an ECONOMY of knowledge and capability!
+          
+        skill_valuation: |
+          Each skill has a base value determined by:
+          
+          RARITY: How many characters have this skill?
+          UTILITY: How often is it useful?
+          DIFFICULTY: How hard was it to learn?
+          EMERGENT: Did it arise from creative play?
+          
+          ```yaml
+          skill_values:
+            PHOTO-SET-8:
+              rarity: uncommon
+              utility: high
+              difficulty: moderate
+              emergent: true
+              base_value: 15
+              
+            GRUE-SUMMONING-ULULATION:
+              rarity: legendary
+              utility: situational
+              difficulty: extreme
+              emergent: true
+              base_value: 50
+              
+            COMPASS-NAVIGATION:
+              rarity: common
+              utility: essential
+              difficulty: easy
+              emergent: false
+              base_value: 5
+          ```
+          
+        trading_skills: |
+          Skills can be TRADED with NPCs:
+          
+          TRADE SKILL [skill] TO [NPC] FOR [item/skill/favor]
+          
+          NPCs have INTERESTS that affect trade value:
+          - Maurice wants artistic skills (+50% value)
+          - The Skeleton wants memorial skills (+100% value)
+          - Tom wants navigation skills (+25% value)
+          - Mother wants ANY skill you developed (+∞ value in love)
+          
+          Trade outcomes:
+          - Fair trade: Both parties satisfied
+          - Good trade: You got the better deal
+          - Bad trade: You got taken (but learned something)
+          - Legendary trade: Stories will be told
+          
+        auctioning_skills: |
+          Skills can be AUCTIONED to the highest bidder:
+          
+          AUCTION SKILL [skill]
+          
+          Multiple NPCs bid based on their interest:
+          - Starting bid: skill_base_value
+          - Increments: Based on NPC enthusiasm
+          - Bidding wars: When multiple NPCs want same skill
+          
+          You can set RESERVE PRICES or ACCEPT/DECLINE bids.
+          
+          WARNING: Auctioning skills feels transactional.
+          Some NPCs prefer trading or gifting. Know your audience.
+          
+        skill_rewards: |
+          Developing skills earns PRECIOUS REWARDS:
+          
+          When you develop a new skill through play:
+          1. DM identifies the skill
+          2. Skill is named and documented
+          3. Appropriate reward is generated
+          
+          REWARD TYPES:
+          
+          THEMATIC ITEMS:
+          - Photography skill → "Lens of True Seeing"
+          - Navigation skill → "Compass Rose Pendant"
+          - Combat skill → "Badge of Courage"
+          - Diplomatic skill → "Seal of Accord"
+          
+          UNIQUE ABILITIES:
+          - Skill mastery unlocks special actions
+          - PHOTO-SET-8 mastery → "PERFECT SHOT" (always succeeds)
+          - Navigation mastery → "SHORTCUT" (skip maze rooms)
+          
+          RECOGNITION:
+          - Titles based on skills developed
+          - "The Photographer" / "The Navigator" / "The Peacemaker"
+          - NPCs address you by title
+          - Mother brags to the neighbors
+          
+          HEIRLOOM POTENTIAL:
+          - Developed skills can become FAMILY TRADITIONS
+          - Future adventurers inherit skill-seeds
+          - Your legacy grows with each skill developed
+          
+        emergent_skill_bonus: |
+          Skills that EMERGE from creative play are worth MORE:
+          
+          PLANNED SKILL (from recipe/instruction): Base value
+          DISCOVERED SKILL (from experimentation): +50%
+          EMERGENT SKILL (from unexpected play): +100%
+          LEGENDARY SKILL (from epic moments): +200%
+          
+          The Gorgonzola Glaive technique (slaying grue with cheese)
+          was an EMERGENT skill worth massive bonus points because:
+          - Nobody expected it
+          - It required multiple creative steps
+          - It became a legendary story
+          - A recipe was created from it
+          - Future adventurers can attempt it
+          
+        skill_inheritance: |
+          Skills can be PASSED DOWN:
+          
+          BEQUEATH SKILL [skill] TO [recipient]
+          
+          Recipients:
+          - Future adventurers (in your family line)
+          - NPCs (they gain the skill permanently)
+          - The world itself (skill becomes common knowledge)
+          
+          When you bequeath a skill:
+          - You KEEP the skill
+          - The recipient GAINS the skill
+          - The skill's VALUE increases (more practitioners)
+          - Your LEGACY grows
+          
+          Mother's opinion: "Teaching is the highest form of mastery."
+          
+      # ═══════════════════════════════════════════════════════════════
+      # 💎 PRECIOUS REWARDS — Appropriate to skills invented!
+      # ═══════════════════════════════════════════════════════════════
+      
+      precious_rewards:
+        description: |
+          When you develop a skill, you earn a PRECIOUS REWARD
+          that is THEMATICALLY APPROPRIATE to that skill.
+          
+          These rewards are:
+          - Generated dynamically by the DM
+          - Based on the skill's nature and origin
+          - Unique to your adventure
+          - Often useful for future challenges
+          
+        reward_generation: |
+          DM generates rewards based on:
+          
+          SKILL THEME:
+          - Visual skills → items that enhance sight/beauty
+          - Combat skills → items that enhance protection/offense
+          - Social skills → items that enhance communication
+          - Navigation skills → items that enhance movement/finding
+          - Creative skills → items that enhance making/changing
+          
+          SKILL ORIGIN:
+          - Where did you learn it? Reward connects to that place.
+          - Who taught you? Reward connects to that relationship.
+          - What problem did it solve? Reward helps with similar.
+          
+          SKILL STORY:
+          - Epic origin → legendary reward
+          - Humble origin → practical reward
+          - Funny origin → whimsical reward
+          - Tragic origin → bittersweet reward
+          
+        example_rewards:
+          photo_set_8:
+            skill: "PHOTO-SET-8 (learned from Maurice)"
+            reward: "Maurice's Master Lens"
+            description: |
+              A crystalline lens that Maurice gives you after recognizing
+              your mastery. When used, photos taken are ALWAYS flattering.
+              +2 to all photo-related social interactions.
+            origin_connection: "Gift from teacher to student"
+            
+          grue_combat:
+            skill: "GRUE-SLAYING (emerged from cheese combat)"
+            reward: "Grue Fang Pendant"
+            description: |
+              A single grue fang, polished and strung on leather.
+              Grues hesitate before attacking the wearer.
+              Skeleton's family sent it with a thank-you note.
+            origin_connection: "Trophy from legendary battle"
+            
+          navigation_mastery:
+            skill: "MAZE-MAPPING (developed with Tom)"
+            reward: "Tom's Dedication Badge"
+            description: |
+              A small pin Tom had printed for you: "OFFICIAL NAVIGATOR"
+              When worn, Tom's advice is 25% more accurate.
+              Also: Tom glows with pride when he sees it.
+            origin_connection: "Partnership recognition"
+            
+          mother_letter:
+            skill: "HEARTFELT-CORRESPONDENCE (developed through letters)"
+            reward: "Mother's Infinity Stamp"
+            description: |
+              A stamp that never runs out, enchanted by Mother.
+              All letters you send arrive instantly AND warmly.
+              Recipients feel your love through the words.
+            origin_connection: "Mother's gratitude for staying connected"
+            
+        reward_scaling: |
+          Reward power scales with skill development:
+          
+          NOVICE SKILL → Minor trinket (cosmetic, +1 effect)
+          PRACTICED SKILL → Useful item (+2 effect, occasional bonus)
+          MASTERED SKILL → Powerful item (+3 effect, reliable bonus)
+          LEGENDARY SKILL → Artifact (unique ability, story impact)
+          
+          You can UPGRADE rewards by developing skills further!
+          
       goal_outcomes: |
         At adventure's end, each promise is evaluated:
         
