@@ -1,0 +1,57 @@
+# 🎯 DART BOARD
+# Well-worn from countless games and wagers
+
+object:
+  name: Dart Board
+  type: game
+  portable: false
+  
+  description: |
+    A well-worn dart board hangs on the wall, its surface scarred
+    by thousands of throws. The bullseye is discolored from use.
+    A set of brass darts sits in a holder beneath it.
+    
+    Initials are carved into the wooden frame — past champions
+    and notorious losers immortalized in oak.
+    
+  examine: |
+    Some carved initials: "WEC — 247" (Wile E. Coyote, presumably),
+    "SA '78" (Scott Adams tribute), "WC + DW" (who knows).
+    
+    The house rules are posted:
+    - Standard 501, double out
+    - Loser buys drinks
+    - No throwing at other patrons
+    - ACME products prohibited
+    
+  actions:
+    PLAY-DARTS:
+      description: "Start a game of darts"
+      usage: "PLAY DARTS / PLAY DARTS WITH [patron]"
+      stakes: ["Pride", "Drinks", "Gold", "Information"]
+      
+    EXAMINE-SCORES:
+      description: "Look at the high score board"
+      effect: "See the legendary scores and their stories"
+      
+    PRACTICE:
+      description: "Throw some darts solo"
+      effect: "Build skill, attract attention"
+      
+    CHALLENGE:
+      description: "Challenge someone to a match"
+      usage: "CHALLENGE [patron] TO DARTS"
+      stakes_negotiable: true
+      
+  mechanics: |
+    DM describes throws, tension, outcome
+    Can be used to:
+    - Befriend an NPC
+    - Win a bet
+    - Settle a dispute
+    - Show off (or embarrass yourself)
+    - Learn information from a chatty opponent
+    
+  inspiration:
+    - "Every pub in every adventure game"
+    - "The Princess Bride's battle of wits (but pointier)"

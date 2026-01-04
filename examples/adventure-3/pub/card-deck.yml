@@ -1,0 +1,74 @@
+# 🃏 CARD DECK
+# A worn deck ready for any game
+
+object:
+  name: Card Deck
+  type: game
+  portable: true  # Can be borrowed for a game elsewhere
+  
+  description: |
+    A well-worn deck of cards sits on the bar, edges softened by
+    countless shuffles. The backs feature a design of crossed
+    swords over a tankard — the Rusty Lantern's own deck.
+    
+    These cards have seen fortunes won and lost, secrets revealed,
+    and at least one duel triggered.
+    
+  examine: |
+    52 cards plus two jokers. All present and accounted for.
+    Some cards are slightly more worn than others — the aces,
+    the face cards, and mysteriously, the seven of clubs.
+    
+    (Why the seven of clubs? Ask around. Someone knows.)
+    
+  actions:
+    PLAY-CARDS:
+      description: "Start a card game"
+      usage: "PLAY CARDS / PLAY [game] WITH [patrons]"
+      games:
+        - "Poker (high stakes available)"
+        - "Blackjack"
+        - "Three-card monte (don't)"
+        - "Adventurer's Ruin (house game)"
+        - "War (for the simple folk)"
+        - "Go Fish (no shame)"
+        
+    SHUFFLE:
+      description: "Shuffle the deck impressively"
+      effect: "Attract attention, show skill"
+      
+    DO-A-TRICK:
+      description: "Perform card magic"
+      usage: "DO A TRICK / SHOW [patron] A TRICK"
+      effect: "Impress or befriend someone"
+      
+    CHEAT:
+      description: "Attempt to cheat at cards"
+      risk: "HIGH — these are experienced players"
+      reward: "Win the pot if undetected"
+      consequence: "Lose credibility, gold, possibly teeth"
+      
+  games:
+    poker:
+      stakes: "Starts at 1 gold ante"
+      players: "2-6"
+      note: "Can raise stakes dramatically"
+      
+    adventurers_ruin:
+      description: |
+        House game. Each player draws cards trying to reach
+        exactly 21 without going over. But FACE CARDS are
+        "encounters" — you must tell a story of defeating
+        that encounter or lose your stake.
+      stakes: "2 gold buy-in"
+      social: "Great for icebreaking"
+      
+  mechanics: |
+    Can win or lose gold
+    Can win information as stakes
+    Can make enemies (or friends)
+    Can cheat (if skilled and brave)
+    
+  mystery: |
+    The seven of clubs: Ask three different patrons about it.
+    You'll get three different stories. One of them is true.

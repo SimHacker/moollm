@@ -1,0 +1,58 @@
+# ♟️ CHESS TABLE
+# A corner table with an eternal game
+
+object:
+  name: Chess Table
+  type: game
+  portable: false
+  
+  description: |
+    A small corner table with a chess board inlaid into its surface.
+    An abandoned game sits mid-play — white has a slight advantage,
+    but black's position is not without hope.
+    
+    Who were the players? Why did they leave?
+    The pieces wait patiently for someone to finish what was started.
+    
+  examine: |
+    The pieces are hand-carved, worn smooth by generations of play.
+    The white king has a chip on his crown. The black queen looks smug.
+    
+    A plaque on the table reads:
+    "In this game, as in life: think seven moves ahead,
+    but be ready when your opponent thinks eight."
+    
+  actions:
+    PLAY-CHESS:
+      description: "Challenge someone to chess"
+      usage: "PLAY CHESS / PLAY CHESS WITH [patron]"
+      stakes: ["Pride", "Respect", "Secrets", "Gold"]
+      
+    CONTINUE-GAME:
+      description: "Finish the abandoned game"
+      usage: "CONTINUE GAME AS [white/black]"
+      mystery: "Who were the original players?"
+      
+    STUDY-POSITION:
+      description: "Analyze the board state"
+      effect: "Reveals character's strategic thinking"
+      
+    CHALLENGE:
+      description: "Challenge a specific patron"
+      usage: "CHALLENGE [patron] TO CHESS"
+      note: "The bartender is VERY good"
+      
+  mechanics: |
+    DM narrates key moves and turning points
+    Reveals character through play style:
+    - Aggressive? Defensive? Cunning? Reckless?
+    - Some patrons have unusual strategies
+    - Victory can earn respect, secrets, or gold
+    - Defeat gracefully can also earn respect
+    
+  lore: |
+    Legend says the original game was between Death and an adventurer
+    who wagered their soul. Both players are long gone, but the game
+    was never finished. Some say if you complete it, something happens.
+    
+    (No one knows if this is true. The bartender smiles when asked.)

@@ -1,0 +1,69 @@
+# 🔥 FIREPLACE
+# The heart of the pub
+
+object:
+  name: Fireplace
+  type: furniture
+  portable: false
+  
+  description: |
+    A large stone fireplace dominates one wall, crackling warmly.
+    The mantle is cluttered with curios — a ship in a bottle, a
+    mysterious key, a small portrait of someone's grandmother,
+    and a jar labeled "TIPS (for good service only)."
+    
+    The fire never seems to need tending. It's always just right.
+    
+  examine: |
+    The stones are blackened with centuries of soot. Names and
+    dates are carved into the mantle — adventurers who warmed
+    themselves here before heading into darkness.
+    
+    A hearthstone sits at the base, worn smooth by boots.
+    It has an odd symbol carved into it...
+    
+  actions:
+    WARM-YOURSELF:
+      description: "Sit by the fire"
+      effect: "Restore morale, overhear conversations"
+      
+    EXAMINE-MANTLE:
+      description: "Look at the curios"
+      reveals:
+        - "Ship in bottle: A gift from a sailor who never returned"
+        - "Mysterious key: No one knows what it opens (plot hook)"
+        - "Portrait: The bartender's grandmother? Or something else?"
+        - "Tip jar: Contains exactly 7 gold at all times (mystery)"
+        
+    EXAMINE-HEARTHSTONE:
+      description: "Look at the carved symbol"
+      effect: "It's a teleportation rune. Say the right word..."
+      secret: true
+      hint: "The bartender knows. For a price."
+      
+    THROW-SOMETHING-IN:
+      description: "Burn something in the fire"
+      usage: "THROW [item] IN FIRE"
+      warning: "Some things are better not burned"
+      note: "Letters to home are traditionally burned here when leaving"
+      
+  secrets:
+    hearthstone:
+      description: |
+        The symbol is a teleportation rune. Speaking the activation
+        word while standing on it will transport you...
+        
+        Where? The bartender knows. Information costs:
+        - 10 gold, OR
+        - A good story they haven't heard, OR
+        - A favor to be named later
+        
+      activation: "Say HEARTHSTONE while standing on it"
+      destination: "???"
+      
+  atmosphere: |
+    The fire crackles. Sparks drift up the chimney. The warmth
+    seeps into your bones after the cold of the maze. For a
+    moment, everything feels safe.
+    
+    (But you know better than to trust that feeling.)

@@ -1,0 +1,102 @@
+# 📋 NOTICE BOARD
+# Jobs, quests, warnings, and community announcements
+
+object:
+  name: Notice Board
+  type: information
+  portable: false
+  
+  description: |
+    A large cork board hangs near the entrance, covered in
+    overlapping papers, notes, and notices. Some are official-
+    looking, some are hastily scrawled, and some have been
+    here so long they've faded to illegibility.
+    
+    This is where adventures begin — and where they're mourned.
+    
+  examine: |
+    The board is a palimpsest of desperate pleas, dubious offers,
+    and community information. Newer notices cover older ones,
+    creating layers of history.
+    
+    Several categories are visible:
+    - HELP WANTED (quest hooks)
+    - WARNINGS (dangers in the area)
+    - FOR SALE / TRADE
+    - MISSING (people, pets, items)
+    - COMMUNITY (events, announcements)
+    
+  actions:
+    READ-NOTICES:
+      description: "Browse the notice board"
+      effect: "Discover quest hooks and information"
+      
+    POST-NOTICE:
+      description: "Add your own notice"
+      usage: "POST [message]"
+      cost: "Free, but bartender reserves removal rights"
+      
+    TAKE-NOTICE:
+      description: "Remove a notice (claim a job)"
+      usage: "TAKE [notice]"
+      effect: "Accept that quest/job"
+      
+    SEARCH:
+      description: "Look for something specific"
+      usage: "SEARCH NOTICES FOR [topic]"
+      
+  notices:
+    help_wanted:
+      - title: "GRUE PROBLEM — WILL PAY"
+        text: "Reward for proof of grue elimination. See bartender."
+        reward: "50 gold"
+        status: "Claimable"
+        
+      - title: "DELIVERY NEEDED"
+        text: "Package to the postal dimension. Danger pay included."
+        reward: "25 gold + ???"
+        status: "Available"
+        
+      - title: "LOST SOMETHING IN MAZE"
+        text: "Will pay for retrieval of family heirloom from room-f."
+        reward: "30 gold"
+        risk: "Cold room, possible grue"
+        
+    warnings:
+      - title: "GRUE ACTIVE"
+        text: "Increased grue activity in maze. Light your lamps!"
+        posted_by: "Adventurer's Guild"
+        
+      - title: "ACME RECALL"
+        text: "Portable Hole model PH-3000 has... issues. Return for refund."
+        posted_by: "ACME Corp (reluctantly)"
+        
+      - title: "MAIL DELAYS"
+        text: "Postal dimension experiencing turbulence. Expect delays."
+        
+    for_sale:
+      - title: "LAMP OIL — CHEAP"
+        text: "Slightly used. Only dropped once. Contact: Nervous Ned"
+        
+      - title: "MAPS"
+        text: "Maze maps for sale. Accuracy not guaranteed."
+        contact: "The Cartographer (back corner)"
+        
+    missing:
+      - title: "LOST: ONE ADVENTURER"
+        text: "Last seen entering maze three weeks ago. Answers to 'Tim.'"
+        reward: "Information leading to whereabouts"
+        
+    community:
+      - title: "OPEN MIC NIGHT — THURSDAYS"
+        text: "Share your tales! Winner gets free drinks."
+        
+      - title: "CHESS TOURNAMENT — NEXT MONTH"
+        text: "Grand prize: The Mysterious Key from the mantle"
+        
+  dynamics: |
+    The notice board changes based on:
+    - What you've accomplished (completed quests disappear)
+    - Time passing (new notices appear)
+    - Your reputation (exclusive offers unlock)
+    - The pub's theme (notices adapt to setting)
