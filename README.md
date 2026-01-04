@@ -64,7 +64,7 @@ A sister script runs Micropolis headless: advance N ticks, inject edits, render 
 
 **Dave Ungar — Self** — Prototypes over classes. Clone and modify beats rigid inheritance. "It's About Time" — compile when understanding crystallizes, not when code gets hot.
 
-**Dave Ackley — Robust-First Computing** — Survivability over correctness. Local repair. The [Movable Feast Machine](https://www.cs.unm.edu/~ackley/mfm/). MOOLLM's self-healing comes directly from this.
+**Dave Ackley — Robust-First Computing** — Survivability over correctness. Local repair. The [Movable Feast Machine](https://robust.cs.unm.edu/). MOOLLM's self-healing comes directly from this.
 
 **Warren Robinette** — A giant of interactive design:
 - **Atari Adventure (1979)** — The first graphical adventure game. Rooms, objects, inventory, dragons, the Holy Grail. And the first Easter egg: find the hidden room with his signature. *Ready Player One* made it legendary.
@@ -666,7 +666,7 @@ flowchart TD
 [mud]: https://en.wikipedia.org/wiki/MUD1
 [moo]: https://en.wikipedia.org/wiki/LambdaMOO
 [adventure]: https://en.wikipedia.org/wiki/Adventure_(1980_video_game)
-[mfm]: https://www.cs.unm.edu/~ackley/mfm/
+[mfm]: https://robust.cs.unm.edu/
 [logo]: https://en.wikipedia.org/wiki/Logo_(programming_language)
 [kilroy]: ./designs/kilroy-ideas.md
 [getlamp]: http://www.getlamp.com/
