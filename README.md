@@ -11,9 +11,9 @@
 - **Open the repo** in Cursor and start chatting
 - **Explore a playable adventure** — navigate rooms, examine objects, talk to Cursor
 - **Clone and build your own world** — just tell Cursor what you want
-- **Push to GitHub** — your narrative becomes a beautifully formatted web page with hyperlinks
-- **Fork & branch** — ask Cursor to fork the repo and create your own branch
-- **Make PRs** — contribute your adventures, skills, and mechanics back to the community
+- **Fork & branch** — ask Cursor to fork the repo and create your own branch you control
+- **Add, commit, push** — save your narrative to GitHub as a beautifully formatted web page
+- **Make PRs** — share your adventures, skills, and mechanics back with the community
 
 No git commands to memorize, no YAML to write by hand. Just chat. Watch what happens. Learn by doing. **This is constructionist education** — you learn programming, file structures, and LLM patterns by playing.
 

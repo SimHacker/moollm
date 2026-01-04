@@ -53,9 +53,13 @@ cp -r examples/adventure-3 examples/my-adventure
 
 **What happens:** You'll see detailed results in chat (sometimes raw YAML), but Cursor also weaves your narrative into the adventure's `README.md` — complete with YAML Jazz commentary, links to artifacts, rooms, items, skill definitions, and image prompts.
 
-**Push to GitHub:** When you add, commit, and push, your adventure's README becomes a beautifully formatted web page on GitHub! Hypertext links let you browse rooms, examine objects, and trace your journey. Your playthrough becomes a shareable, navigable story.
+**Fork & branch first:** Ask Cursor to fork the repo and create your own branch — now you have your own copy to experiment with freely.
 
-**Don't know git?** Just ask Cursor! *"Add all my changes, write a descriptive commit message, and push to GitHub."* It handles everything — no shell commands to memorize. But watch what it does and learn! **This is constructionist education at its finest.** You're not just playing — you're learning git, YAML, file structures, and LLM patterns by doing.
+**Add, commit, push:** When you save your work to GitHub, your adventure's README becomes a beautifully formatted web page! Hypertext links let you browse rooms, examine objects, and trace your journey. Your playthrough becomes a shareable, navigable story.
+
+**Make PRs:** Developed a cool skill, mechanic, or adventure? Ask Cursor to make a pull request to share your improvements with the community!
+
+**Don't know git?** Just ask Cursor! *"Fork this repo, create a branch called my-adventure, add my changes, commit, and push."* It handles everything — no shell commands to memorize. But watch what it does and learn! **This is constructionist education at its finest.** You're not just playing — you're learning git, YAML, file structures, and LLM patterns by doing.
 
 You can edit the YAML directly in Cursor's text editor — or just tell Cursor what you want:
 
