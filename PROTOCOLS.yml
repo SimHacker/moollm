@@ -152,6 +152,76 @@ POSTEL:
   location: kernel/constitution-core.md §5
   invoke_when: "Handling edge cases in input"
 
+PROCEDURAL-RHETORIC:
+  meaning: "Rules and structures persuade. The simulation IS the argument."
+  origin: "Ian Bogost — 'an unholy blend of Will Wright and Aristotle'"
+  location: skills/constructionism/
+  invoke_when: "Designing schemas, rules, or constraints that embody values"
+  
+  key_insight: |
+    # Games persuade through PROCESSES, not just words.
+    # When The Sims allows same-sex relationships without comment,
+    # the RULES embody a worldview. The structure IS the ideology.
+    # YAML schemas, action advertisements, and protocol constraints
+    # are all procedural rhetoric: the structure carries meaning.
+    
+  in_moollm:
+    schemas: "What you can express → what is thinkable"
+    advertisements: "What actions are offered → what is possible"
+    constraints: "What is forbidden → what is normative"
+    defaults: "What happens automatically → what is assumed"
+    
+  examples:
+    - "Symmetric relationship rules = equality as default"
+    - "POSTEL = assume good intent as design principle"
+    - "FILES-AS-STATE = transparency as architecture"
+    - "YAML-JAZZ comments = meaning embedded in configuration"
+    
+  warning: |
+    # For better or worse, rules carry ideology.
+    # Design consciously. Your schemas have opinions.
+    # Procedural rhetoric can enlighten or entrench.
+    # Choose deliberately.
+    
+  see_also: [CONSTRUCTIONISM, YAML-JAZZ, MASKING-EFFECT, SIMULATOR-EFFECT]
+
+MASKING-EFFECT:
+  meaning: "Abstract characters + detailed backgrounds = projective identification."
+  origin: "Scott McCloud, Understanding Comics"
+  invoke_when: "Designing characters, templates, or avatars"
+  
+  insight: |
+    # Simplified characters let players PROJECT themselves.
+    # A smiley face can represent anyone.
+    # A photograph represents only that person.
+    # The Sims uses simple character models in detailed worlds
+    # so players identify WITH the characters, not just observe them.
+    
+  in_moollm: |
+    # Characters are abstract YAML templates
+    # Rooms and objects can be richly detailed
+    # The abstraction IS the feature
+    # Players fill in the gaps with imagination
+    
+SIMULATOR-EFFECT:
+  meaning: "Players imagine more complexity than exists. Don't talk them out of it."
+  origin: "Will Wright"
+  invoke_when: "Designing simulations, deciding how much to reveal"
+  
+  insight: |
+    # "Players imagine your simulation is vastly more detailed,
+    #  rich, and complex than it actually is — don't talk them out of it."
+    # Games run on TWO computers:
+    # 1. The electronic one on the desk (your sparse simulation)
+    # 2. The biological one in the player's head (their rich imagination)
+    # The player's mind does the heavy lifting.
+    
+  in_moollm: |
+    # Sparse YAML descriptions invoke rich mental images
+    # The LLM fills gaps
+    # The player's mind completes the world
+    # Resist over-specifying — leave room for imagination
+
 # ═══════════════════════════════════════════════════════════════════
 # SAFETY & ETHICS
 # ═══════════════════════════════════════════════════════════════════
@@ -1618,7 +1688,7 @@ _categories:
   # Core principles
   principles: [YAML-JAZZ, FILES-AS-STATE, WHY-REQUIRED, APPEND-ONLY, COMMENTS-MATTER, MINIMAL-DIFF, NO-VERSIONS]
   naming: [BIG-ENDIAN, ABOUT-NOT-INSIDE, PREFIX-OWNERSHIP, README-EVERYWHERE]
-  interpretation: [POSTEL, CHARITY]
+  interpretation: [POSTEL, CHARITY, PROCEDURAL-RHETORIC, MASKING-EFFECT, SIMULATOR-EFFECT]
   
   # Methodology
   methodology: [SKILL, PROTOCOL, CONSTRUCTIONISM, PLAY-LEARN-LIFT, SISTER-SCRIPT, BUILD-COMMAND]
