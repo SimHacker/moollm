@@ -105,6 +105,12 @@ MOOLLM's room navigation, object examination, and inventory management descend d
 
 **Marvin Minsky — [Society of Mind](https://en.wikipedia.org/wiki/Society_of_Mind)** — Intelligence emerges from societies of simple agents. K-lines: names that activate conceptual clusters (type "POSTEL" and invoke an entire tradition). Frames: structured expectations with defaults and slots. Agents, agencies, and the "bugs" that Papert's children debugged. The mind as a bureaucracy of mindless clerks. MOOLLM's protocol symbols ARE K-lines; rooms ARE frames; characters ARE agents in a society.
 
+**Ian Bogost — [Procedural Rhetoric](https://en.wikipedia.org/wiki/Procedural_rhetoric)** — "An unholy blend of Will Wright and Aristotle." Games persuade through **rules and processes**, not just words or visuals. The structure of a simulation IS an argument. When The Sims allows same-sex relationships without comment, that's procedural rhetoric — the rules embody a worldview. MOOLLM's YAML schemas, action advertisements, and protocol constraints are all procedural rhetoric: the structure carries meaning. YAML-JAZZ comments aren't decoration — they're ideology embedded in configuration.
+
+**Scott McCloud — [Understanding Comics](https://en.wikipedia.org/wiki/Understanding_Comics)** — The **masking effect**: abstract characters against realistic backgrounds increase empathy and projective identification. Will Wright applied this to The Sims: simplified characters let players project themselves into detailed worlds. MOOLLM inherits this: characters are abstract YAML templates, but the rooms and objects they inhabit can be richly detailed. The abstraction IS the feature — it creates space for imagination.
+
+**Will Wright — The Simulator Effect** — *"Players imagine your simulation is vastly more detailed, rich, and complex than it actually is — don't talk them out of it."* Games run on two computers: the electronic one on the desk, and the biological one in the player's head. The player's imagination does the heavy lifting. MOOLLM embraces this: sparse YAML descriptions invoke rich mental images. The LLM fills gaps. The player's mind completes the world.
+
 > *"If you can build it, you can understand it. If you can inspect it, you can trust it."*
 
 ## Why It's Powerful
