@@ -1596,10 +1596,28 @@ HAPPY-SPACE:
     # Every action moves them in this space
     # Goal: maximize overall happiness (motive satisfaction)
     
+  score_modifiers: |
+    # DISTANCE: Closer objects score higher (configurable per object)
+    # - Some objects don't care about distance (TV works from couch)
+    # - Some objects require proximity (toilet)
+    # - Distance penalty can be steep or gentle per advertisement
+    
+    # RELATIONSHIP MATRIX: Familiarity breeds preference
+    # - Using an object increases your relationship with it
+    # - Higher relationship = higher score for that object
+    # - "Your side of the bed" — use it once, keep using it
+    # - Creates emergent habits, personalization, territory
+    # - Sims develop preferences through repeated use
+    #
+    # The relationship matrix trains behavior organically:
+    # Use left side of bed → relationship increases → prefer left side
+    # Creates persistent memory and personality through simple mechanics
+    
   in_moollm: |
     # Cards/actions move agent toward goal in "happy space"
     # Each action closes distance to objective
     # Multiple paths possible — hill-climbing, not single path
+    # Repeated use of skills/objects can increase affinity
 
 ACTION-QUEUE:
   meaning: "Sequence of planned actions awaiting execution."
