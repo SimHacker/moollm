@@ -107,11 +107,11 @@ Possibilities:
 | Object | Purpose |
 |--------|---------|
 | 🧑‍🍳 [bartender.yml](./bartender.yml) | The mysterious keeper |
-| 🎯 dart-board.yml | Games of skill |
-| ♟️ chess-table.yml | Games of strategy |
-| 🃏 card-deck.yml | Games of chance |
-| 🔥 fireplace.yml | Warmth, hearthstone secret |
-| 📋 notice-board.yml | Jobs, quests, warnings |
+| 🎯 Dart Board | Games of skill (in [ROOM.yml](./ROOM.yml)) |
+| ♟️ Chess Table | Games of strategy (in [ROOM.yml](./ROOM.yml)) |
+| 🃏 Card Deck | Games of chance (in [ROOM.yml](./ROOM.yml)) |
+| 🔥 Fireplace | Warmth, hearthstone secret (in [ROOM.yml](./ROOM.yml)) |
+| 📋 Notice Board | Jobs, quests, warnings (in [ROOM.yml](./ROOM.yml)) |
 
 ---
 

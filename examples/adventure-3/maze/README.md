@@ -1,7 +1,7 @@
 # 🌀 The Maze
 
 > *"You are in a maze of twisty little passages, all alike."*
-> — Colossal Cave Adventure, 1976
+> — [Colossal Cave Adventure](https://en.wikipedia.org/wiki/Colossal_Cave_Adventure), 1976
 
 > *"You are an amazingly twisted little ass, always different."*
 > — Graffiti scratched into a wall, author unknown (likely eaten) 

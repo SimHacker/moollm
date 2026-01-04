@@ -174,4 +174,4 @@ These skills persist in your `player.yml` and travel with you!
 | 🚪 West | [start/](../start/) — Chamber of Commencement |
 | 🍳 (via start) | [kitchen/](../kitchen/) — Food for maze mapping |
 | 🌀 (via start) | [maze/](../maze/) — The grue-infested maze |
-| ⬆️ Up | [adventure-1/](../) |
+| ⬆️ Up | [adventure-3/](../) |
