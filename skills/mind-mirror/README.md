@@ -276,32 +276,47 @@ Switch between `PLAIN-TALK` and `SHRINK-RAP` modes for descriptions and dialogue
 
 ### Image Generation Rule
 
-**When generating images of characters, ALWAYS include Mind Mirror as metadata.**
+**When generating images, ALWAYS include full context as metadata.**
+
+This includes characters, rooms, objects — everything in the scene:
 
 ```yaml
 image_prompt:
-  subject: "Captain Ashford"
-  action: "triumphantly holding the Golden Chalice"
+  type: scene
   
-  character_state:
+  subject:
+    name: "Captain Ashford"
     mind_mirror:
-      confident: 6
-      cheerful: 5
-      proud: 5
-      creative: 6
+      confident: 6, cheerful: 5, proud: 5, creative: 6
     costume: "Space pirate with holographic eyepatch"
     mood: "victorious, exhausted, relieved"
-    location: "Treasure Chamber, warm golden light"
+    holding: "Golden Chalice (glowing softly)"
     
-  style: "dramatic portrait, heroic lighting"
+  room:
+    name: "Treasure Chamber"
+    lighting: "warm golden glow from treasure piles"
+    atmosphere: "ancient, dusty, awe-inspiring"
+    notable_objects:
+      - "Mountains of gold coins"
+      - "Ancient tapestries on walls"
+      - "Pedestal where chalice was"
+      
+  camera:
+    angle: "low angle, heroic"
+    focus: "character face and chalice"
+    
+  style: "dramatic portrait, chiaroscuro lighting"
 ```
 
 **Why this matters:**
-- Ensures character coherence across multiple images
-- Enables regeneration with same personality
-- Connects visual to psychological
-- Personality affects posture, expression, energy
-- Metadata travels with image for context
+- **Character coherence** — personality affects posture, expression, energy
+- **Room coherence** — lighting, atmosphere, spatial relationships
+- **Object coherence** — states, conditions, relationships
+- **Regeneration** — can recreate with same context
+- **Series consistency** — multiple shots stay coherent
+- **Metadata travels** — context preserved with image
+
+See also: `IMAGE-METADATA` protocol in [PROTOCOLS.yml](../../PROTOCOLS.yml)
 
 ---
 
