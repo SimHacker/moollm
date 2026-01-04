@@ -283,7 +283,7 @@ FLY-UNDER-RADAR:
 
 SIMANTICS:
   meaning: "Distribute AI behavior into objects. Objects advertise their actions."
-  origin: "The Sims — SimAntics visual programming language"
+  origin: "The Sims — SimAntics visual programming language (Will Wright / Don Hopkins)"
   invoke_when: "Designing object behavior and action systems"
   
   insight: |
@@ -303,7 +303,15 @@ SIMANTICS:
     locality: "What's nearby shapes what's possible"
     emergence: "Complex behavior from simple rules"
     
-  see_also: [ADVERTISEMENT, PROCEDURAL-RHETORIC]
+  yaml_jazz_connection: |
+    # SimAntics was the visual language for Sims object behavior.
+    # MOOLLM uses YAML Jazz for the same purpose:
+    # - Define behaviors declaratively
+    # - Objects (files) have embedded behavior hints
+    # - LLM interprets and executes
+    # SimAntics : Objects :: YAML Jazz : Files
+    
+  see_also: [ADVERTISEMENT, PROCEDURAL-RHETORIC, YAML-JAZZ]
 
 STORYTELLING-TOOLS:
   meaning: "Build narrative capture and sharing into the system."
@@ -1636,19 +1644,6 @@ ACTION-QUEUE:
     # Cards in play can queue sub-actions
     # Execution proceeds step by step
 
-SIMANTICS:
-  meaning: "Visual/behavioral programming for autonomous agents."
-  origin: "The Sims (Will Wright / Don Hopkins)"
-  invoke_when: "Understanding MOOLLM's behavioral model"
-  
-  connection: |
-    # SimAntics was the visual language for Sims object behavior.
-    # MOOLLM uses YAML Jazz for the same purpose:
-    # - Define behaviors declaratively
-    # - Objects (files) have embedded behavior hints
-    # - LLM interprets and executes
-    # SimAntics : Objects :: YAML Jazz : Files
-
 PETS:
   meaning: "Fictional familiars embodying tool capabilities."
   location: designs/MOOLLM-MANIFESTO.md §9
@@ -1657,7 +1652,6 @@ PETS:
   # 🧌 Git Goblin, 🦉 Index Librarian, etc.
 
 # META
-
 
 TODO:
   meaning: "A promise, not just a reminder. Tracked in plans."
