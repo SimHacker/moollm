@@ -198,7 +198,6 @@ Events bubble **up** the room hierarchy:
 ```
 object in room in parent-room in world
    ↑         ↑              ↑        ↑
-   └─────────┴──────────────┴────────┘
               event bubbles up
 ```
 

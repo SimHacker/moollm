@@ -27,9 +27,7 @@ card:
     
     "Three rooms. Three steps. Home awaits. Follow the glow."
     
-  # ─────────────────────────────────────────────────────────────────
   # THE JOURNEY (Moves 60-62)
-  # ─────────────────────────────────────────────────────────────────
   
   journey:
     - move: 60
@@ -68,9 +66,7 @@ card:
         
         You are HOME.
         
-  # ─────────────────────────────────────────────────────────────────
   # THE HOMECOMING
-  # ─────────────────────────────────────────────────────────────────
   
   arrival:
     room: start/
@@ -91,9 +87,7 @@ card:
       - anticipation: "Mother is waiting. (Not really, but symbolically.)"
       - completion: "You could leave now. You could GO HOME home."
       
-  # ─────────────────────────────────────────────────────────────────
   # WHAT'S NEXT
-  # ─────────────────────────────────────────────────────────────────
   
   next_steps:
     - option: "GO HOME"
@@ -112,9 +106,7 @@ card:
       description: "This is home now. The adventure never ends."
       effect: "Live in the maze forever (valid choice)"
       
-  # ─────────────────────────────────────────────────────────────────
   # METADATA
-  # ─────────────────────────────────────────────────────────────────
   
   created: "Moves 60-62, Adventure 2"
   origin: "The path from mushroom communion to home"

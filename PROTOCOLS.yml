@@ -1085,14 +1085,11 @@ SNAP-CURSOR:
     # Drag outward = select specific action
     
   popup_template: |
-    ┌────────────────────────────┐
     │ 📍 workbench               │
-    ├────────────────────────────┤
     │ ● USE (95)  ← default      │
     │   EXAMINE (80)             │
     │   REPAIR (60)              │
     │   TAKE (20)                │
-    └────────────────────────────┘
     
   markup_links: |
     # In rendered markdown/HTML, objects become links:
@@ -1329,13 +1326,11 @@ DATA-FLOW:
   # LLM or scripts process at each node
   
   pattern: |
-    source/ ─────► process/ ─────► sink/
        │              │              │
        │              ▼              │
        │         validator/         │
        │              │              │
        │              ▼              │
-       └────────► errors/ ◄─────────┘
        
   room_as_node: |
     # Each room has:

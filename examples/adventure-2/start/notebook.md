@@ -782,7 +782,6 @@ they appeared in the adventure.
 ### The Postscript
 
 ```
-┌────────────────────────────────────────────────────────────────────────┐
 │                                                                        │
 │   This adventure was created through PLAY-LEARN-LIFT:                  │
 │                                                                        │
@@ -799,7 +798,6 @@ they appeared in the adventure.
 │                                                                        │
 │   Now go make pancakes.                                                │
 │                                                                        │
-└────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

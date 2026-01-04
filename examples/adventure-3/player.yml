@@ -5,9 +5,7 @@ player:
   name: "Unknown Hero"
   type: player_character
   
-  # ─────────────────────────────────────────────────────────────────
   # IDENTITY (to be discovered)
-  # ─────────────────────────────────────────────────────────────────
   
   description: |
     A figure stirs in the Chamber of Commencement. Who are they?
@@ -19,9 +17,7 @@ player:
     You don't remember much. Just a feeling of... beginning.
     There's a note somewhere. Something about promises.
     
-  # ─────────────────────────────────────────────────────────────────
   # CURRENT STATE
-  # ─────────────────────────────────────────────────────────────────
   
   location: start/
   moves: 0
@@ -34,9 +30,7 @@ player:
   # Starting gold — enough for a few lamp refills and snacks
   gold: 10
   
-  # ─────────────────────────────────────────────────────────────────
   # INVENTORY (empty pockets, full of potential)
-  # ─────────────────────────────────────────────────────────────────
   
   inventory: []
   # The lamp is in start/lamp.yml — GET LAMP!
@@ -44,9 +38,7 @@ player:
   # The notebook is in kitchen/notebook.yml — for collecting memories!
   # TomTomagotchi is in kitchen/tomtomagotchi.yml — your navigation pet!
   
-  # ─────────────────────────────────────────────────────────────────
   # GOALS (inherited from adventure-2's world setup)
-  # ─────────────────────────────────────────────────────────────────
   
   goals:
     - goal: "Find treasure"
@@ -61,31 +53,23 @@ player:
       status: PENDING
       reward: "Adventure complete!"
       
-  # ─────────────────────────────────────────────────────────────────
   # EFFECTS (none yet — your story is unwritten)
-  # ─────────────────────────────────────────────────────────────────
   
   effects: {}
   
-  # ─────────────────────────────────────────────────────────────────
   # PERSONA (default — visit the coatroom to transform!)
-  # ─────────────────────────────────────────────────────────────────
   
   current_persona: null
   # Visit Maurice in the coatroom to discover who you want to be!
   
-  # ─────────────────────────────────────────────────────────────────
   # SKILLS (learned through play)
-  # ─────────────────────────────────────────────────────────────────
   
   skills: []
   # Skills are acquired by interacting with objects and characters.
   # Maurice can teach PHOTO-SET-8. The Oracle Core grants prophecy.
   # The vending machine... has opinions.
   
-  # ─────────────────────────────────────────────────────────────────
   # WORLD KNOWLEDGE (inherited improvements from adventure-2)
-  # ─────────────────────────────────────────────────────────────────
   
   world_knowledge:
     # The world has been enriched by previous adventurers
@@ -95,9 +79,7 @@ player:
     - "A skeleton in Room I points west, towards the vending machine"
     - "Initials on the Chamber wall: WC+DW '76, SA '78, CA '26"
     
-  # ─────────────────────────────────────────────────────────────────
   # META
-  # ─────────────────────────────────────────────────────────────────
   
   adventure: 3
   forked_from: adventure-2

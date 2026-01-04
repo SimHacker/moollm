@@ -22,13 +22,11 @@ This is how MOOLLM does **Kilroy-style** data flow programming — the filesyste
 ## The Pattern
 
 ```
-source/ ─────► parser/ ─────► analyzer/ ─────► output/
    │              │               │
    │              ▼               │
    │          validator/          │
    │              │               │
    │              ▼               │
-   └─────────► errors/ ◄──────────┘
 ```
 
 Each room:

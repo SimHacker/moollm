@@ -17,9 +17,7 @@ object:
     It auto-sorts items by type: letters, cards, notes, photos,
     songs, personas, costumes, and dreams.
     
-  # ─────────────────────────────────────────────────────────────────
   # CONTENTS (empty — your story is unwritten)
-  # ─────────────────────────────────────────────────────────────────
   
   contents:
     letters: []
@@ -31,9 +29,7 @@ object:
     costumes: []
     dreams: []
     
-  # ─────────────────────────────────────────────────────────────────
   # AUTO-SORT RULES
-  # ─────────────────────────────────────────────────────────────────
   
   auto_sort:
     - pattern: "*-letter*.yml"
@@ -57,9 +53,7 @@ object:
     - pattern: "*-dream*.yml"
       section: dreams
       
-  # ─────────────────────────────────────────────────────────────────
   # ACTIONS
-  # ─────────────────────────────────────────────────────────────────
   
   actions:
     READ:
@@ -78,9 +72,7 @@ object:
       description: "Generate a narrative markdown sidecar"
       effect: "Creates notebook.md from contents"
       
-  # ─────────────────────────────────────────────────────────────────
   # CAPACITY
-  # ─────────────────────────────────────────────────────────────────
   
   capacity: unlimited  # It's a TARDIS notebook
   

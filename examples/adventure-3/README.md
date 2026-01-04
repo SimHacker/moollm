@@ -55,7 +55,6 @@ From Mother's note on the kitchen table:
                               HOME
                                ↑ up
                                │
-    ┌──────────────────────────┼──────────────────────────┐
     │                          │                          │
     │                    ╔═══════════╗                    │
     │                    ║  TREASURY ║                    │
@@ -81,7 +80,6 @@ From Mother's note on the kitchen table:
     │                    ║ Lantern   ║                    │
     │                    ╚═══════════╝                    │
     │                                                     │
-    └─────────────────────────────────────────────────────┘
 ```
 
 ---

@@ -25,9 +25,7 @@ object:
     
     The wood is warm to the touch. Many family memories live here.
     
-  # ─────────────────────────────────────────────────────────────────
   # WHAT'S ON THE TABLE (references to separate files)
-  # ─────────────────────────────────────────────────────────────────
   
   contents:
     - file: mothers-note.yml
@@ -42,9 +40,7 @@ object:
     - file: lunchbox.yml
       can_take: true
       
-  # ─────────────────────────────────────────────────────────────────
   # TABLE ACTIONS (not item actions!)
-  # ─────────────────────────────────────────────────────────────────
   
   actions:
     EXAMINE-TABLE:
@@ -71,9 +67,7 @@ object:
       usage: "GET [item] / TAKE [item]"
       effect: "Item moves from table to inventory"
       
-  # ─────────────────────────────────────────────────────────────────
   # TABLE ADVERTISEMENTS (what the table suggests)
-  # ─────────────────────────────────────────────────────────────────
   
   advertisements:
     - action: EXAMINE-TABLE
@@ -85,9 +79,7 @@ object:
       score: 8
       description: "Grab all supplies at once"
       
-  # ─────────────────────────────────────────────────────────────────
   # DM NOTES
-  # ─────────────────────────────────────────────────────────────────
   
   dm_notes: |
     The table is a CONTAINER, not the items themselves.
@@ -103,9 +95,7 @@ object:
     
     Strongly suggest the player READ NOTE first, then REPLY!
     
-  # ─────────────────────────────────────────────────────────────────
   # MEMORIES
-  # ─────────────────────────────────────────────────────────────────
   
   memories:
     - "The carved initials: 'BF' (age 7, grounded 1 week)"

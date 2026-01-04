@@ -17,9 +17,7 @@ object:
     
     It is currently OFF but ready to light.
     
-  # ─────────────────────────────────────────────────────────────────
   # LAMP STATE
-  # ─────────────────────────────────────────────────────────────────
   
   state: off
   
@@ -27,9 +25,7 @@ object:
   oil: 100.0
   max_oil: 100.0
   
-  # ─────────────────────────────────────────────────────────────────
   # OIL CONSUMPTION (per action)
-  # ─────────────────────────────────────────────────────────────────
   
   consumption:
     per_move: 1.0        # Moving between rooms
@@ -42,9 +38,7 @@ object:
     cold_rooms: 1.25     # Oil thickens
     mushroom_rooms: 0.75 # Spores seem to feed the flame
     
-  # ─────────────────────────────────────────────────────────────────
   # GLOW PROPERTIES
-  # ─────────────────────────────────────────────────────────────────
   
   glow:
     color: warm_brass    # Default — can be upgraded!
@@ -57,9 +51,7 @@ object:
       effect: "Blue flame, +900 max oil, grue hesitation"
       location: maze/room-j/lamp-vendor.yml
       
-  # ─────────────────────────────────────────────────────────────────
   # ACTIONS
-  # ─────────────────────────────────────────────────────────────────
   
   actions:
     LIGHT:
@@ -84,9 +76,7 @@ object:
       first_time_only: true
       triggers: genie-note.yml
       
-  # ─────────────────────────────────────────────────────────────────
   # WARNINGS
-  # ─────────────────────────────────────────────────────────────────
   
   warnings:
     - threshold: 20
@@ -98,9 +88,7 @@ object:
     - threshold: 0
       message: "The lamp goes out. You are in darkness."
       
-  # ─────────────────────────────────────────────────────────────────
   # LORE
-  # ─────────────────────────────────────────────────────────────────
   
   lore: |
     "In the beginning was the Word, and the Word was GET LAMP."

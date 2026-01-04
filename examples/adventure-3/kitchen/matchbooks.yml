@@ -28,9 +28,7 @@ object:
     
     Plus a few others in worse condition...
     
-  # ─────────────────────────────────────────────────────────────────
   # THE MATCHBOOKS (Individual items)
-  # ─────────────────────────────────────────────────────────────────
   
   matchbooks:
     
@@ -150,7 +148,6 @@ object:
           - name: "One Lousy Point Scott Adams Stamp"
             type: collectible_stamp
             ascii_art: |
-              ┌─────────────────────────┐
               │  ╔═══════════════════╗  │
               │  ║   ONE LOUSY POINT ║  │
               │  ║                   ║  │
@@ -162,7 +159,6 @@ object:
               │                         │
               │  Scott Adams, 1978      │
               │  Home Computer Pioneer  │
-              └─────────────────────────┘
             score_value: 1
             lore: |
               Scott Adams created the first commercial adventure game
@@ -200,7 +196,6 @@ object:
           - name: "One Lousy Point Will Crowther Stamp"
             type: collectible_stamp
             ascii_art: |
-              ┌─────────────────────────┐
               │  ╔═══════════════════╗  │
               │  ║   ONE LOUSY POINT ║  │
               │  ║                   ║  │
@@ -212,7 +207,6 @@ object:
               │                         │
               │  Will Crowther, 1976    │
               │  Mammoth Cave Explorer  │
-              └─────────────────────────┘
             score_value: 1
             lore: |
               Will Crowther created the original Adventure (1976),
@@ -270,7 +264,6 @@ object:
           - name: "One Lousy Point Dave Lebling Stamp"
             type: collectible_stamp
             ascii_art: |
-              ┌─────────────────────────┐
               │  ╔═══════════════════╗  │
               │  ║   ONE LOUSY POINT ║  │
               │  ║                   ║  │
@@ -282,7 +275,6 @@ object:
               │                         │
               │  Dave Lebling           │
               │  "Sorry about that."    │
-              └─────────────────────────┘
             score_value: 1
             lore: |
               Dave Lebling co-created Zork and invented the grue —
@@ -336,7 +328,6 @@ object:
           - name: "One Lousy Point Marc Blank Stamp"
             type: collectible_stamp
             ascii_art: |
-              ┌─────────────────────────┐
               │  ╔═══════════════════╗  │
               │  ║   ONE LOUSY POINT ║  │
               │  ║                   ║  │
@@ -348,16 +339,13 @@ object:
               │                         │
               │  Marc Blank             │
               │  Co-creator of Zork     │
-              └─────────────────────────┘
             score_value: 1
             lore: |
               Marc Blank co-created Zork and later designed many
               Infocom classics. His stamp suggests the mystery
               and intrigue that permeated his work.
               
-  # ─────────────────────────────────────────────────────────────────
   # ACTIONS
-  # ─────────────────────────────────────────────────────────────────
   
   actions:
     EXAMINE-MATCHBOOKS:
@@ -379,9 +367,7 @@ object:
         The matchbook disappears into the postal system.
         In 3-5 turns, check the START ROOM MAILBOX for your prize!
         
-  # ─────────────────────────────────────────────────────────────────
   # WHERE TO FIND MORE
-  # ─────────────────────────────────────────────────────────────────
   
   other_matchbook_locations:
     - "maze/room-j/ — Vending machine dispenses occasional matchbooks"
@@ -389,9 +375,7 @@ object:
     - "maze/room-i/ — The skeleton has a few"
     - "Random drops — Grues sometimes carry them (ironic)"
     
-  # ─────────────────────────────────────────────────────────────────
   # TOM'S OPINION
-  # ─────────────────────────────────────────────────────────────────
   
   tom_opinion: |
     "Tom has memorized all mail-in offers."
@@ -400,9 +384,7 @@ object:
     "Tom notes: Some stamps are RARER than others. Some take longer to arrive."
     "Tom wants the complete collection. Tom is OBSESSED."
     
-  # ─────────────────────────────────────────────────────────────────
   # LINEAGE
-  # ─────────────────────────────────────────────────────────────────
   
   lineage: |
     Direct tribute to Zork's legendary mail-in mechanic.

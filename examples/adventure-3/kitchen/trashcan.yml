@@ -29,17 +29,13 @@ object:
     - Grue-attracting smells
     - Regret"
     
-  # ─────────────────────────────────────────────────────────────────
   # CONTENTS (starts empty)
-  # ─────────────────────────────────────────────────────────────────
   
   contents: []
   
   capacity: unlimited  # It's a TARDIS trash can
   
-  # ─────────────────────────────────────────────────────────────────
   # ACTIONS
-  # ─────────────────────────────────────────────────────────────────
   
   actions:
     TRASH:
@@ -110,9 +106,7 @@ object:
         player.effects.add: "mystery_goo_smell" (fades in 5 turns)
         player.effects.add: "leia_hair" (permanent until changed)
         
-  # ─────────────────────────────────────────────────────────────────
   # SPECIAL BEHAVIORS (DM: improvise!)
-  # ─────────────────────────────────────────────────────────────────
   
   special_behaviors:
     smell_disposal: |
@@ -134,9 +128,7 @@ object:
       The trash can is grue-safe (in the kitchen).
       But the SMELL might not be contained...
       
-  # ─────────────────────────────────────────────────────────────────
   # TOM'S OPINION
-  # ─────────────────────────────────────────────────────────────────
   
   tom_opinion: |
     "Tom does not like the trash can."
@@ -144,9 +136,7 @@ object:
     "Tom has seen things go IN but not come OUT."
     "Tom recommends keeping items. Just in case."
     
-  # ─────────────────────────────────────────────────────────────────
   # MOTHER'S RULE
-  # ─────────────────────────────────────────────────────────────────
   
   mothers_rule: |
     "Bumblewick! DO NOT throw away perfectly good items!
@@ -155,9 +145,7 @@ object:
     ...although if you DO find yourself with cursed objects,
     the trash can is RIGHT THERE."
     
-  # ─────────────────────────────────────────────────────────────────
   # LINEAGE
-  # ─────────────────────────────────────────────────────────────────
   
   lineage: |
     Every adventure game needs a way to dispose of items.

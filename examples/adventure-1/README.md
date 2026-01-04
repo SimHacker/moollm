@@ -559,23 +559,16 @@ AFTER:  Captain Bumblewick "Blackwaistcoat" Fantastipants, dread pirate!
 ### World Map (Complete)
 
 ```
-                         ┌─────────┐
                          │   END   │  ← TREASURE HERE!
                          │ Treasury│
                          └────┬────┘
                               │ S↔N
-         ┌──────────────────────────────────────────┐
          │           THE MAZE (10 rooms)            │
          │  A ←→ B ←→ C ←→ D ←→ E ←→ F ←→ etc...    │
          │     (tangled connections, grues)         │
-         └────────────────────┬─────────────────────┘
                               │ S↔N
                          ┌────┴────┐
- ┌─────────┐    W↔E      │  START  │     W↔E      ┌──────────┐
- │ KITCHEN │◄───────────►│ Chamber │◄────────────►│ COATROOM │
  │  food!  │             │  SAFE   │              │ costumes │
- └─────────┘             │ respawn │              └──────────┘
-   x:-1,y:0              └─────────┘                x:1,y:0
                            x:0,y:0
 
 SAFE ROOMS: start, kitchen, coatroom, end (magical lighting)

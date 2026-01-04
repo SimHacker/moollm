@@ -20,26 +20,20 @@ object:
     is mysteriously clean, despite its obvious history of containing
     many, many transformative food experiences.
     
-  # ─────────────────────────────────────────────────────────────────
   # CONTENTS (empty — raid the fridge!)
-  # ─────────────────────────────────────────────────────────────────
   
   contents: []
   
   capacity: 20  # Enough for the whole fridge!
   
-  # ─────────────────────────────────────────────────────────────────
   # SPECIAL RULES
-  # ─────────────────────────────────────────────────────────────────
   
   special:
     food_only: true        # Only accepts food items
     preserves_freshness: true  # Food never spoils inside
     easy_access: true      # Can EAT or DROP directly from lunchbox
     
-  # ─────────────────────────────────────────────────────────────────
   # ACTIONS
-  # ─────────────────────────────────────────────────────────────────
   
   actions:
     GET:

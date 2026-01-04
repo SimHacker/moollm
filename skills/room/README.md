@@ -237,17 +237,13 @@ When you approach an object, the cursor **snaps** to it and shows a **pie menu**
 - Click center = default action (highest score)
 
 ```
-┌────────────────────────────┐
 │ 📍 workbench               │
-├────────────────────────────┤
 │ ● USE (95)  ← default      │
 │   EXAMINE (80)             │
 │   REPAIR (60)              │
 │   TAKE (20)                │
-├────────────────────────────┤
 │ Contains: [toolbox]        │
 │ Near: [door-north] 3 units │
-└────────────────────────────┘
 ```
 
 **Lineage:** Don Hopkins' [Pie Menus](https://en.wikipedia.org/wiki/Pie_menu) + Will Wright's [SimAntics](https://en.wikipedia.org/wiki/SimAntics) advertisements.
@@ -373,13 +369,11 @@ room/
 ### Rooms as Pipeline Stages
 
 ```
-source/ ─────► process/ ─────► sink/
    │              │              
    │              ▼              
    │         validator/         
    │              │              
    │              ▼              
-   └────────► errors/
 ```
 
 Each room is a **processing node**. Exits are **edges**. Thrown objects are **messages**.
@@ -545,20 +539,14 @@ Search descends recursively into containers.
 
 ```
 > ZOOM OUT
-┌─────────────────────────────────────────┐
 │  ROOM GRAPH: moollm-palace              │
-├─────────────────────────────────────────┤
 │                                         │
-│    [kernel]────────[skills]             │
 │       │               │                 │
-│       │         ┌─────┼─────┐           │
 │       │      [room] [card] [chat]       │
 │       │         │                       │
 │       │      [★ YOU ARE HERE]           │
 │       │                                 │
-│    [schemas]──────[designs]             │
 │                                         │
-└─────────────────────────────────────────┘
 
 > CLICK skills
 You zoom into skills/. Sub-rooms appear.
