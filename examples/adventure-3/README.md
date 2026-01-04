@@ -289,7 +289,7 @@ Inspired by **Bar Karma** (Will Wright & Don Hopkins) — the first crowdsourced
 | 🪑 **Seating** | Bar (public), Tables (social), Booths (private) |
 | 🎯 **Dart Board** | Challenge patrons, settle disputes, show off |
 | ♟️ **Chess Table** | The eternal game — legend says Death left it mid-play |
-| 🃏 **Card Deck** | Poker, Adventurer's Ruin, the mystery of the 7♣ |
+| 🃏 **Card Deck** | Poker, Adventurer's Ruin, Flux, the mystery of the 7♣ |
 | 🔥 **Fireplace** | Warmth — and a hearthstone teleportation secret |
 | 📋 **Notice Board** | Quest hooks, warnings, community events |
 | 👻 **Pac-Man** | Wakka wakka. Who holds the perfect game? |

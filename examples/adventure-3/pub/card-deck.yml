@@ -32,6 +32,7 @@ object:
         - "Adventurer's Ruin (house game)"
         - "War (for the simple folk)"
         - "Go Fish (no shame)"
+        - "Fluxx (rules change every turn!)"
         
     SHUFFLE:
       description: "Shuffle the deck impressively"
@@ -48,6 +49,16 @@ object:
       reward: "Win the pot if undetected"
       consequence: "Lose credibility, gold, possibly teeth"
       
+    PLAY-FLUXX:
+      description: "Play a themed Fluxx game"
+      usage: "PLAY FLUXX / PLAY [theme] FLUXX"
+      effect: |
+        Ask the bartender for a themed deck.
+        The theme affects the pub's atmosphere while playing!
+        Cthulhu Fluxx: lights dim, whispers heard
+        Pirate Fluxx: everyone talks like pirates
+        Grue Fluxx: lamp flickers ominously
+      
   games:
     poker:
       stakes: "Starts at 1 gold ante"
@@ -62,6 +73,67 @@ object:
         that encounter or lose your stake.
       stakes: "2 gold buy-in"
       social: "Great for icebreaking"
+      
+    fluxx:
+      description: |
+        The game where the rules change every turn! Start with
+        "draw 1, play 1" — but cards can change EVERYTHING.
+        Goals shift. Hand limits appear. Chaos reigns.
+      creator: "Looney Labs (Andrew Looney)"
+      stakes: "Usually just bragging rights"
+      note: "The bartender has MANY themed decks..."
+      
+      themed_decks:
+        - name: "Dungeon Fluxx"
+          theme: "Classic fantasy adventuring"
+          special: "Monster cards, loot, the Grue Keeper"
+          
+        - name: "Grue Fluxx"
+          theme: "It is pitch dark. You are likely to be eaten."
+          special: "Lamp cards crucial. Grue wins ties."
+          warning: "Do NOT play in actual darkness"
+          
+        - name: "Pirate Fluxx"
+          theme: "Arr! Ships, treasure, sea shanties"
+          special: "Talk Like a Pirate rule card"
+          
+        - name: "Zombie Fluxx"
+          theme: "Undead apocalypse"
+          special: "Creeper cards that won't leave you alone"
+          
+        - name: "Star Fluxx"
+          theme: "Space opera and sci-fi tropes"
+          special: "Holographic Surprise rule"
+          
+        - name: "Cthulhu Fluxx"
+          theme: "Lovecraftian horror"
+          special: "Doom cards, Ungoals, madness"
+          warning: "Sanity not guaranteed"
+          
+        - name: "Monty Python Fluxx"
+          theme: "Ni! Shrubberies! Holy Hand Grenades!"
+          special: "Outrageous Accent rule"
+          
+        - name: "Math Fluxx"
+          theme: "Numbers and operations"
+          special: "Actually educational. Shh."
+          
+        - name: "Nature Fluxx"
+          theme: "Ecosystems and food chains"
+          special: "Great for teaching kids"
+          
+        - name: "Firefly Fluxx"
+          theme: "Aim to misbehave"
+          special: "Shiny! Curse your sudden betrayal."
+          
+        - name: "Anatomy Fluxx"
+          theme: "The human body"
+          special: "Surprisingly competitive among healers"
+          
+        - name: "Bartender's Special"
+          theme: "????"
+          special: "The bartender made this one. Nobody wins."
+          warning: "Play at your own risk"
       
   mechanics: |
     Can win or lose gold
