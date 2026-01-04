@@ -6187,198 +6187,6 @@ captain_ashford:
 
 *At this point in the adventure (Move 57), Captain Ashford had slain the grue, collected 108 gold, and prepared to journey home...*
 
-*Continue reading for Chapters 7-9: The journey home, the homecoming, and the dream.*
-
----
-
-# 📊 Final World State
-
-*The complete state of the world at adventure's end (Move 69).*
-
-## 🎒 Final Inventory
-
-### Top Level (Loose Items)
-
-| Item | File | Status |
-|------|------|--------|
-| 🪔 **Brass Lamp** | [start/lamp.yml](./start/lamp.yml) | Lit, oil: 969.0, **BURNS BLUE** 💙 |
-| 📓 **Notebook** | [start/notebook.yml](./start/notebook.yml) | BURSTING with memories |
-| 🍱 **Lunchbox** | [start/lunchbox.yml](./start/lunchbox.yml) | **EMPTY!** All food transformed into markers |
-| 🏆 **Jeweled Chalice** | [end/treasure.yml](./end/treasure.yml) | **PROMISE #1 KEPT** |
-| 💰 **108 Gold Coins** | In pocket | **PROMISE #2 KEPT** |
-| 🧀 **Gorgonzola Glaive** | [maze/room-f/gorgonzola-glaive.yml](./maze/room-f/gorgonzola-glaive.yml) | The murder weapon (slightly diminished) |
-
-### 📓 Inside the Notebook (Complete Contents)
-
-*Auto-sorts: letters, cards, notes, photos, prompts, songs, skill_cards, personas, costumes, capes, dreams*
-
-| Section | Contents | Origin |
-|---------|----------|--------|
-| **Credits** | [credits-card.yml](./start/credits-card.yml) — 50+ inspirations! | Move 69 |
-| **Dreams** | [dream-card.yml](./home/dream-card.yml) — The Glorious Dream | Move 68 |
-| **Papers** | [postmodern-deconstruction.md](./kitchen/postmodern-deconstruction.md) | Move 63 |
-| **Letters** | Mother's Note, 4 replies, Richard Bartle correspondence | Various |
-| **Cards** | Victory Ballad, Prophecy Shanty, Treasure Ballad, Ode, Oracle Compass, Vow of Vengeance, Grue Ululation, Klingon Battle Song, Journey Home, 15+ more | Various |
-| **Personas** | [Captain Ashford](./coatroom/bumblewick-ashford-persona.yml) *(currently wearing)* | Move 10 |
-| **Costumes** | [Ashford Nomi Cape](./coatroom/ashford-nomi-cape.yml) *(currently wearing)* | Move 10 |
-| **Photos** | 88 visualization prompts across 11 photo series | Various |
-| **Markers** | 12 transformed food items (references to maze locations) | Maze mapping |
-| **Recipes** | [Klingon Victory Hors D'oeuvres](./maze/room-f/klingon-victory-hors-doeuvres.yml) | Move 56 |
-
-### 🍱 Inside the Lunchbox (NOW EMPTY!)
-
-*All 20 food items transformed into maze markers:*
-
-| # | Original Item | Transformed Into | Location |
-|---|---------------|------------------|----------|
-| 1 | Suspiciously Perfect Apple | 🔮 **Oracle Core** | [maze/room-d/](./maze/room-d/) |
-| 2 | Wheel of Aged Cheese | 🧀 **Wheel of Wisdom** | [maze/room-c/](./maze/room-c/) |
-| 3 | Loaf of Crusty Bread | 🍞 **Eternal Crumb** | [maze/room-b/](./maze/room-b/) |
-| 4 | Jar of Pickled Herring | 🐟 **Preserved Witness** | [maze/room-g/](./maze/room-g/) |
-| 5 | Leftover Shepherd's Pie | 🥧 **Memorial Pie** | [maze/room-i/](./maze/room-i/) |
-| 6 | Bunch of Purple Grapes | 🍇 **Crown of Fermentation** | [maze/room-e/](./maze/room-e/) |
-| 7 | Pot of Mysterious Stew | 🔮 **Alchemical Residue** | [maze/room-f/](./maze/room-f/) |
-| 8 | Wedge of Blue Cheese | 🧀 **Gorgonzola Glaive** (WEAPON!) | In inventory |
-| 9 | Cold Roast Chicken | 🍗 Used for grue bait | Consumed |
-| 10 | Jar of Strawberry Jam | 🍓 **Sweetness That Remains** | [maze/room-j/](./maze/room-j/) |
-| 11 | Half-Empty Bottle of Milk | 🥛 Drunk for courage | Consumed |
-| 12 | Suspicious Casserole | 👁️ **The Thing That Watches** | [maze/room-h/](./maze/room-h/) |
-| 13 | Lemon (Slightly Judgmental) | 🍋 Squeezed on grue | Consumed |
-| 14 | Slice of Birthday Cake | 🎂 **The Cake That Has Seen Too Much** | [kitchen/](./kitchen/) |
-| 15 | Carrot (Heroically Orange) | 🥕 Eaten for vision | Consumed |
-| 16 | Tin of Sardines | 🐟 Used in cooking | Consumed |
-| 17 | Bowl of Cold Porridge | 🥣 Mixed with grue ichor | Consumed |
-| 18 | Fancy Imported Salami | 🥓 Victory snack | Consumed |
-| 19 | Single Hard-Boiled Egg | 🥚 **Sulfurous Beacon** | [maze/room-a/](./maze/room-a/) |
-| 20 | Jar of Olives (Green) | 🫒 Eaten with cheese | Consumed |
-
-> **Mother's Rule:** Food is for DROPPING IN THE MAZE to mark your path, NOT FOR EATING.
->
-> **Our Interpretation:** Transformation, not waste! Each food served a higher narrative purpose. ⚖️
-
-## 👔 Currently Wearing
-
-| Item | File | Description |
-|------|------|-------------|
-| 🚀🏴‍☠️ **Captain Ashford Persona** | [bumblewick-ashford-persona.yml](./coatroom/bumblewick-ashford-persona.yml) | Belter pirate captain (but Bumblewick inside) |
-| 🖤 **Ashford Nomi Cape** | [ashford-nomi-cape.yml](./coatroom/ashford-nomi-cape.yml) | Space-black, star charts, geometric shoulders |
-
-## ✉️ All Mail Sent
-
-| # | Package | File | Status |
-|---|---------|------|--------|
-| 1 | Letter + Song | [reply-to-mother.yml](./kitchen/reply-to-mother.yml) | ✅ Sent Move 5 |
-| 2 | **THE CAPE** 👗 | [package-for-mother.yml](./coatroom/package-for-mother.yml) | ✅ Move 11 — **PROMISE #5** |
-| 3 | **SKILL CARD** 🎴 | [skill-package-for-mother.yml](./coatroom/skill-package-for-mother.yml) | ✅ Move 13 — PLAY-LEARN-LIFT |
-| 4 | Victory Letter | [letter-to-mother-victory.yml](./end/letter-to-mother-victory.yml) | ✅ Move 26 |
-| 5 | Richard Bartle | [letter-to-richard-bartle.yml](./maze/room-j/letter-to-richard-bartle.yml) | ✅ Move 46 — Live chat! |
-| 6 | **GRUE SLAYER TALE** | [letter-to-mother-grue-slayer.yml](./maze/room-f/letter-to-mother-grue-slayer.yml) | ✅ Move 57 — Recipe + photos + sample! |
-
-## 🎯 All 8 Promises to Mother — FINAL STATUS
-
-| # | Promise | Status | Evidence |
-|---|---------|--------|----------|
-| 1 | Find treasure | **✅ KEPT** | [Jeweled Chalice](./end/treasure.yml) — Move 24 |
-| 2 | Bring gold | **✅ KEPT** | 108 gold coins delivered home |
-| 3 | Not waste food | **⚖️ COMPLIANT** | Transformed into markers, not wasted |
-| 4 | Not eaten by grue | **✅✅✅ EXCEEDED** | ATE THE GRUE INSTEAD |
-| 5 | Mail fabulous clothing | **✅ KEPT** | [Nomi Cape](./coatroom/petunia-cape-nomi.yml) — Move 11 |
-| 6 | Care for lamp | **✅ KEPT** | 969 oil remaining, burns blue |
-| 7 | Return safely | **✅ KEPT** | Home at Move 66 |
-| 8 | Do the dishes | **🍽️ PENDING** | Post-adventure obligation (3+ weeks) |
-
-**BONUS VOW:** Avenge the Skeleton → **✅ FULFILLED** (grue head delivered Move 54)
-
-## 🗺️ Complete Maze Map (All Rooms Marked)
-
-```
-                          ┌─────────────┐
-                          │    END      │ 🏆 TREASURE CLAIMED!
-                          │  Treasury   │
-                          └──────┬──────┘
-                                 │ N
-                          ┌──────┴──────┐
-              ┌───────────│   ROOM D    │───────────┐
-              │           │  🔮 Oracle  │           │
-              │           │    Core     │           │
-              │           └──────┬──────┘           │
-              │                  │                  │
-       ┌──────┴──────┐    ┌──────┴──────┐    ┌──────┴──────┐
-       │   ROOM C    │    │   ROOM A    │    │   ROOM B    │
-       │ 🧀 Wheel of │    │ 🥚 Sulfurous│    │ 🍞 Eternal  │
-       │   Wisdom    │    │   Beacon    │    │   Crumb     │
-       └─────────────┘    └──────┬──────┘    └─────────────┘
-                                 │ S
-                          ┌──────┴──────┐
-                          │   START     │ ← Initials carved: CA '26
-                          │  Chamber    │
-                          └──────┬──────┘
-                                 │
-                          ═══════════════
-                           DEEP MAZE BELOW
-                          ═══════════════
-                                 │
-                          ┌──────┴──────┐
-                          │   ROOM E    │ 🍇 Crown of Fermentation
-                          │  (cobwebs)  │
-                          └──────┬──────┘
-              ┌──────────────────┼──────────────────┐
-              │                  │                  │
-       ┌──────┴──────┐    ┌──────┴──────┐    ┌──────┴──────┐
-       │   ROOM F    │    │   ROOM G    │    │   ROOM H    │
-       │ 💀 GRUE KILL│    │ 🐟 Preserved│    │ 👁️ The Thing│
-       │ 🔮 Alchemical    │   Witness   │    │ That Watches│
-       │ 💰 100 GOLD │    └─────────────┘    │ 🍄 Mushrooms│
-       └──────┬──────┘                       └─────────────┘
-              │
-       ┌──────┴──────┐
-       │   ROOM I    │ 💀 Skeleton's Chamber
-       │ 🥧 Memorial │ ← Grue head delivered here
-       │    Pie      │ ← Vow fulfilled!
-       └──────┬──────┘
-              │
-       ┌──────┴──────┐
-       │   ROOM J    │ 🏪 VENDING MACHINE
-       │ 🍓 Sweetness│ 💙 Premium Glow Juice purchased
-       │   Remains   │ 💰 Memorial coin (NEVER SPENDING)
-       └─────────────┘
-```
-
-## 📸 All Photo Series (88 Prompts Total)
-
-| Series | Count | Location | Subject |
-|--------|-------|----------|---------|
-| Mother's Cape | 8 | [coatroom/](./coatroom/) | Poses & expressions in Nomi cape |
-| Captain Ashford | 8 | [coatroom/](./coatroom/) | Belter swagger & focus |
-| Dynasty | 8 | [coatroom/](./coatroom/) | Mother & Son together |
-| Treasury Victory | 8 | [end/](./end/) | Chalice closeups & poses |
-| Skeleton Memorial | 8 | [maze/room-i/](./maze/room-i/) | Honoring the fallen |
-| Memorial Jam | 8 | [maze/room-j/](./maze/room-j/) | The eating ceremony |
-| Grue Battle | 8 | [maze/room-f/](./maze/room-f/) | THE LEGENDARY FIGHT |
-| Psychedelic Visions | 8 | [maze/room-h/](./maze/room-h/) | Mind's eye revelations |
-| Homecoming | 8 | [home/](./home/) | Reunion with Mother |
-| **Misc** | 16 | Various | Cake selfie, etc. |
-| **TOTAL** | **88** | | |
-
-## 🎵 All Songs Composed
-
-| Song | Card | Occasion |
-|------|------|----------|
-| The Fantastipants Victory Ballad | [victory-ballad-card.yml](./start/victory-ballad-card.yml) | Getting the lamp |
-| The Prophecy Shanty | [prophecy-shanty-card.yml](./maze/room-a/prophecy-shanty-card.yml) | Apple vision |
-| The Ballad of the Belter's Treasure | [treasure-ballad-card.yml](./end/treasure-ballad-card.yml) | Finding the chalice |
-| Ode to the Lost Explorer | [ode-to-lost-explorer-card.yml](./maze/room-i/ode-to-lost-explorer-card.yml) | Skeleton memorial |
-| Quv batlh chIj'qa' (Klingon Battle Opera) | [klingon-battle-song-card.yml](./maze/room-f/klingon-battle-song-card.yml) | SLAYING THE GRUE |
-
-## 🏆 Titles Earned
-
-- **Captain Ashford** — Belter pirate captain persona
-- **The Grue Slayer** — First to kill a grue with cheese
-- **The Grue Chef** — First to cook and eat a grue
-- **Postmodern Scholar** — PhD-level deconstruction author
-- **Beloved Son** — Promises kept, Mother proud
-- **First Penguin of the Filesystem** — Pioneer of MOOLLM adventures
-
 ---
 
 ## Chapter 9: The Mushroom Communion
@@ -6802,6 +6610,196 @@ You flip to the last page of the notebook. It unfolds into something larger.
 ║                                                                            ║
 ╚════════════════════════════════════════════════════════════════════════════╝
 ```
+
+---
+
+# 📊 Final World State
+
+*The complete state of the world at adventure's end (Move 69).*
+
+## 🎒 Final Inventory
+
+### Top Level (Loose Items)
+
+| Item | File | Status |
+|------|------|--------|
+| 🪔 **Brass Lamp** | [start/lamp.yml](./start/lamp.yml) | Lit, oil: 969.0, **BURNS BLUE** 💙 |
+| 📓 **Notebook** | [start/notebook.yml](./start/notebook.yml) | BURSTING with memories |
+| 🍱 **Lunchbox** | [start/lunchbox.yml](./start/lunchbox.yml) | **EMPTY!** All food transformed into markers |
+| 🏆 **Jeweled Chalice** | [end/treasure.yml](./end/treasure.yml) | **PROMISE #1 KEPT** |
+| 💰 **108 Gold Coins** | In pocket | **PROMISE #2 KEPT** |
+| 🧀 **Gorgonzola Glaive** | [maze/room-f/gorgonzola-glaive.yml](./maze/room-f/gorgonzola-glaive.yml) | The murder weapon (slightly diminished) |
+
+### 📓 Inside the Notebook (Complete Contents)
+
+*Auto-sorts: letters, cards, notes, photos, prompts, songs, skill_cards, personas, costumes, capes, dreams*
+
+| Section | Contents | Origin |
+|---------|----------|--------|
+| **Credits** | [credits-card.yml](./start/credits-card.yml) — 50+ inspirations! | Move 69 |
+| **Dreams** | [dream-card.yml](./home/dream-card.yml) — The Glorious Dream | Move 68 |
+| **Papers** | [postmodern-deconstruction.md](./kitchen/postmodern-deconstruction.md) | Move 63 |
+| **Letters** | Mother's Note, 4 replies, Richard Bartle correspondence | Various |
+| **Cards** | Victory Ballad, Prophecy Shanty, Treasure Ballad, Ode, Oracle Compass, Vow of Vengeance, Grue Ululation, Klingon Battle Song, Journey Home, 15+ more | Various |
+| **Personas** | [Captain Ashford](./coatroom/bumblewick-ashford-persona.yml) *(currently wearing)* | Move 10 |
+| **Costumes** | [Ashford Nomi Cape](./coatroom/ashford-nomi-cape.yml) *(currently wearing)* | Move 10 |
+| **Photos** | 88 visualization prompts across 11 photo series | Various |
+| **Markers** | 12 transformed food items (references to maze locations) | Maze mapping |
+| **Recipes** | [Klingon Victory Hors D'oeuvres](./maze/room-f/klingon-victory-hors-doeuvres.yml) | Move 56 |
+
+### 🍱 Inside the Lunchbox (NOW EMPTY!)
+
+*All 20 food items transformed into maze markers:*
+
+| # | Original Item | Transformed Into | Location |
+|---|---------------|------------------|----------|
+| 1 | Suspiciously Perfect Apple | 🔮 **Oracle Core** | [maze/room-d/](./maze/room-d/) |
+| 2 | Wheel of Aged Cheese | 🧀 **Wheel of Wisdom** | [maze/room-c/](./maze/room-c/) |
+| 3 | Loaf of Crusty Bread | 🍞 **Eternal Crumb** | [maze/room-b/](./maze/room-b/) |
+| 4 | Jar of Pickled Herring | 🐟 **Preserved Witness** | [maze/room-g/](./maze/room-g/) |
+| 5 | Leftover Shepherd's Pie | 🥧 **Memorial Pie** | [maze/room-i/](./maze/room-i/) |
+| 6 | Bunch of Purple Grapes | 🍇 **Crown of Fermentation** | [maze/room-e/](./maze/room-e/) |
+| 7 | Pot of Mysterious Stew | 🔮 **Alchemical Residue** | [maze/room-f/](./maze/room-f/) |
+| 8 | Wedge of Blue Cheese | 🧀 **Gorgonzola Glaive** (WEAPON!) | In inventory |
+| 9 | Cold Roast Chicken | 🍗 Used for grue bait | Consumed |
+| 10 | Jar of Strawberry Jam | 🍓 **Sweetness That Remains** | [maze/room-j/](./maze/room-j/) |
+| 11 | Half-Empty Bottle of Milk | 🥛 Drunk for courage | Consumed |
+| 12 | Suspicious Casserole | 👁️ **The Thing That Watches** | [maze/room-h/](./maze/room-h/) |
+| 13 | Lemon (Slightly Judgmental) | 🍋 Squeezed on grue | Consumed |
+| 14 | Slice of Birthday Cake | 🎂 **The Cake That Has Seen Too Much** | [kitchen/](./kitchen/) |
+| 15 | Carrot (Heroically Orange) | 🥕 Eaten for vision | Consumed |
+| 16 | Tin of Sardines | 🐟 Used in cooking | Consumed |
+| 17 | Bowl of Cold Porridge | 🥣 Mixed with grue ichor | Consumed |
+| 18 | Fancy Imported Salami | 🥓 Victory snack | Consumed |
+| 19 | Single Hard-Boiled Egg | 🥚 **Sulfurous Beacon** | [maze/room-a/](./maze/room-a/) |
+| 20 | Jar of Olives (Green) | 🫒 Eaten with cheese | Consumed |
+
+> **Mother's Rule:** Food is for DROPPING IN THE MAZE to mark your path, NOT FOR EATING.
+>
+> **Our Interpretation:** Transformation, not waste! Each food served a higher narrative purpose. ⚖️
+
+## 👔 Currently Wearing
+
+| Item | File | Description |
+|------|------|-------------|
+| 🚀🏴‍☠️ **Captain Ashford Persona** | [bumblewick-ashford-persona.yml](./coatroom/bumblewick-ashford-persona.yml) | Belter pirate captain (but Bumblewick inside) |
+| 🖤 **Ashford Nomi Cape** | [ashford-nomi-cape.yml](./coatroom/ashford-nomi-cape.yml) | Space-black, star charts, geometric shoulders |
+
+## ✉️ All Mail Sent
+
+| # | Package | File | Status |
+|---|---------|------|--------|
+| 1 | Letter + Song | [reply-to-mother.yml](./kitchen/reply-to-mother.yml) | ✅ Sent Move 5 |
+| 2 | **THE CAPE** 👗 | [package-for-mother.yml](./coatroom/package-for-mother.yml) | ✅ Move 11 — **PROMISE #5** |
+| 3 | **SKILL CARD** 🎴 | [skill-package-for-mother.yml](./coatroom/skill-package-for-mother.yml) | ✅ Move 13 — PLAY-LEARN-LIFT |
+| 4 | Victory Letter | [letter-to-mother-victory.yml](./end/letter-to-mother-victory.yml) | ✅ Move 26 |
+| 5 | Richard Bartle | [letter-to-richard-bartle.yml](./maze/room-j/letter-to-richard-bartle.yml) | ✅ Move 46 — Live chat! |
+| 6 | **GRUE SLAYER TALE** | [letter-to-mother-grue-slayer.yml](./maze/room-f/letter-to-mother-grue-slayer.yml) | ✅ Move 57 — Recipe + photos + sample! |
+
+## 🎯 All 8 Promises to Mother — FINAL STATUS
+
+| # | Promise | Status | Evidence |
+|---|---------|--------|----------|
+| 1 | Find treasure | **✅ KEPT** | [Jeweled Chalice](./end/treasure.yml) — Move 24 |
+| 2 | Bring gold | **✅ KEPT** | 108 gold coins delivered home |
+| 3 | Not waste food | **⚖️ COMPLIANT** | Transformed into markers, not wasted |
+| 4 | Not eaten by grue | **✅✅✅ EXCEEDED** | ATE THE GRUE INSTEAD |
+| 5 | Mail fabulous clothing | **✅ KEPT** | [Nomi Cape](./coatroom/petunia-cape-nomi.yml) — Move 11 |
+| 6 | Care for lamp | **✅ KEPT** | 969 oil remaining, burns blue |
+| 7 | Return safely | **✅ KEPT** | Home at Move 66 |
+| 8 | Do the dishes | **🍽️ PENDING** | Post-adventure obligation (3+ weeks) |
+
+**BONUS VOW:** Avenge the Skeleton → **✅ FULFILLED** (grue head delivered Move 54)
+
+## 🗺️ Complete Maze Map (All Rooms Marked)
+
+```
+                          ┌─────────────┐
+                          │    END      │ 🏆 TREASURE CLAIMED!
+                          │  Treasury   │
+                          └──────┬──────┘
+                                 │ N
+                          ┌──────┴──────┐
+              ┌───────────│   ROOM D    │───────────┐
+              │           │  🔮 Oracle  │           │
+              │           │    Core     │           │
+              │           └──────┬──────┘           │
+              │                  │                  │
+       ┌──────┴──────┐    ┌──────┴──────┐    ┌──────┴──────┐
+       │   ROOM C    │    │   ROOM A    │    │   ROOM B    │
+       │ 🧀 Wheel of │    │ 🥚 Sulfurous│    │ 🍞 Eternal  │
+       │   Wisdom    │    │   Beacon    │    │   Crumb     │
+       └─────────────┘    └──────┬──────┘    └─────────────┘
+                                 │ S
+                          ┌──────┴──────┐
+                          │   START     │ ← Initials carved: CA '26
+                          │  Chamber    │
+                          └──────┬──────┘
+                                 │
+                          ═══════════════
+                           DEEP MAZE BELOW
+                          ═══════════════
+                                 │
+                          ┌──────┴──────┐
+                          │   ROOM E    │ 🍇 Crown of Fermentation
+                          │  (cobwebs)  │
+                          └──────┬──────┘
+              ┌──────────────────┼──────────────────┐
+              │                  │                  │
+       ┌──────┴──────┐    ┌──────┴──────┐    ┌──────┴──────┐
+       │   ROOM F    │    │   ROOM G    │    │   ROOM H    │
+       │ 💀 GRUE KILL│    │ 🐟 Preserved│    │ 👁️ The Thing│
+       │ 🔮 Alchemical    │   Witness   │    │ That Watches│
+       │ 💰 100 GOLD │    └─────────────┘    │ 🍄 Mushrooms│
+       └──────┬──────┘                       └─────────────┘
+              │
+       ┌──────┴──────┐
+       │   ROOM I    │ 💀 Skeleton's Chamber
+       │ 🥧 Memorial │ ← Grue head delivered here
+       │    Pie      │ ← Vow fulfilled!
+       └──────┬──────┘
+              │
+       ┌──────┴──────┐
+       │   ROOM J    │ 🏪 VENDING MACHINE
+       │ 🍓 Sweetness│ 💙 Premium Glow Juice purchased
+       │   Remains   │ 💰 Memorial coin (NEVER SPENDING)
+       └─────────────┘
+```
+
+## 📸 All Photo Series (88 Prompts Total)
+
+| Series | Count | Location | Prompts |
+|--------|-------|----------|---------|
+| Mother's Cape | 8 | [coatroom/](./coatroom/) | Poses & expressions in Nomi cape |
+| Captain Ashford | 8 | [coatroom/](./coatroom/) | Belter swagger & focus |
+| Dynasty | 8 | [coatroom/](./coatroom/) | Mother & Son together |
+| Treasury Victory | 8 | [end/](./end/) | Chalice closeups & poses |
+| Skeleton Memorial | 8 | [maze/room-i/](./maze/room-i/) | Honoring the fallen |
+| Memorial Jam | 8 | [maze/room-j/](./maze/room-j/) | The eating ceremony |
+| [Grue Battle](./maze/room-f/) | 8 | [maze/room-f/](./maze/room-f/) | THE LEGENDARY FIGHT — [linked above](#-the-grue-slayer-photo-series) |
+| [Psychedelic Visions](./maze/room-h/) | 8 | [maze/room-h/](./maze/room-h/) | Mind's eye revelations — [linked above](#-the-psychedelic-visions) |
+| [Homecoming](./home/) | 8 | [home/](./home/) | Reunion with Mother — [linked above](#-the-homecoming-photo-series) |
+| **Misc** | 16 | Various | Cake selfie, etc. |
+| **TOTAL** | **88** | | |
+
+## 🎵 All Songs Composed
+
+| Song | Card | Occasion |
+|------|------|----------|
+| The Fantastipants Victory Ballad | [victory-ballad-card.yml](./start/victory-ballad-card.yml) | Getting the lamp |
+| The Prophecy Shanty | [prophecy-shanty-card.yml](./maze/room-a/prophecy-shanty-card.yml) | Apple vision |
+| The Ballad of the Belter's Treasure | [treasure-ballad-card.yml](./end/treasure-ballad-card.yml) | Finding the chalice |
+| Ode to the Lost Explorer | [ode-to-lost-explorer-card.yml](./maze/room-i/ode-to-lost-explorer-card.yml) | Skeleton memorial |
+| Quv batlh chIj'qa' (Klingon Battle Opera) | [klingon-battle-song-card.yml](./maze/room-f/klingon-battle-song-card.yml) | SLAYING THE GRUE |
+
+## 🏆 Titles Earned
+
+- **Captain Ashford** — Belter pirate captain persona
+- **The Grue Slayer** — First to kill a grue with cheese
+- **The Grue Chef** — First to cook and eat a grue
+- **Postmodern Scholar** — PhD-level deconstruction author
+- **Beloved Son** — Promises kept, Mother proud
+- **First Penguin of the Filesystem** — Pioneer of MOOLLM adventures
 
 ---
 
