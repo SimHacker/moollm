@@ -1568,13 +1568,22 @@ AUTONOMOUS-SELECTION:
     # Sims autonomously choose based on motives:
     # - Scan all advertised interactions
     # - Score by motive satisfaction
-    # - Pick highest-scoring option
+    # - Take top-n highest scores
+    # - Pick RANDOMLY from top-n (not deterministically!)
+    #
+    # Why random from top-n?
+    # - Avoids mechanical, predictable behavior
+    # - Leaves room for player intervention
+    # - Creates emergent variety and personality
+    # - Higher n = more whimsical behavior
+    # - Lower n = more "rational" but less interesting
     
   in_moollm: |
     # LLM chooses based on goals:
     # - Scan available cards/files in room
     # - Evaluate relevance to current goal
-    # - Activate best match
+    # - Consider top candidates
+    # - May pick "good enough" over "optimal" (like humans!)
 
 HAPPY-SPACE:
   meaning: "Hill-climbing toward goal satisfaction."
