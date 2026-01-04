@@ -42,7 +42,14 @@ See how an adventure unfolds. Learn the mechanics. Steal ideas.
 
 ### 3. Build Your Own World
 
-or```
+Just tell Cursor:
+
+> "Clone examples/adventure-3 to examples/my-run-1, then start it — I wake up and look around."
+
+Or manually:
+```bash
+cp -r examples/adventure-3 examples/my-adventure
+```
 
 Edit the YAML. Add rooms. Create objects. The schema is flexible — the LLM figures it out.
 
