@@ -78,6 +78,8 @@ Mother's response depends on WHERE YOU ARE in your adventure:
 - 🎁 GIVE GIFTS — Recipes, gold, artifacts
 - ⚖️ PROMISE EVALUATION — The big moment
 - 🥧 EAT PIE (VICTORY) — Celebration feast!
+- 🧇 WAFFLE PARTY — The dance of gratitude (*Severance*)
+- 🌮 TACO TUESDAY — It's always Tuesday somewhere
 - 🧼 DO THE DISHES — Finally. Finally!
 
 **Promise Evaluation:**
