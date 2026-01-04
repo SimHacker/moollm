@@ -56,29 +56,21 @@ From Mother's note on the kitchen table:
                                ↑ up
                                │
     │                          │                          │
-    │                    ╔═══════════╗                    │
     │                    ║  TREASURY ║                    │
     │                    ║ (treasure)║                    │
-    │                    ╚═════╤═════╝                    │
     │                          │                          │
-    │                    ╔═════╧═════╗                    │
     │                    ║   MAZE    ║                    │
     │                    ║ 10 rooms  ║                    │
     │                    ║  (DARK!)  ║                    │
-    │                    ╚═════╤═════╝                    │
     │                          │ north                    │
     │                          ↓                          │
-    │                    ╔═════╧═════╗                    │
     │    KITCHEN ←─west──║   START   ║──east─→ COATROOM   │
     │    (Fridge)        ║  Chamber  ║        (Maurice)   │
-    │                    ╚═════╤═════╝                    │
     │                          │ south                    │
     │                          ↓                          │
-    │                    ╔═════╧═════╗                    │
     │                    ║    PUB    ║                    │
     │                    ║  Rusty    ║                    │
     │                    ║ Lantern   ║                    │
-    │                    ╚═══════════╝                    │
     │                                                     │
 ```
 

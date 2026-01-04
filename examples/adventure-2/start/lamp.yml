@@ -41,9 +41,7 @@ object:
     origin: "Purchased at ACME Lamp Refueling Unit #47"
     for_whom: "The skeleton in Room I — they wanted this"
   
-  # ═══════════════════════════════════════════════════════════════════
   # OIL CONSUMPTION RULES — DM MUST APPLY THESE EACH TURN!
-  # ═══════════════════════════════════════════════════════════════════
   oil_consumption:
     # Base rates (per action, while lamp is lit)
     movement: 1.0          # Moving to another room
@@ -61,9 +59,7 @@ object:
     # Special cases
     extinguished: 0.0      # No consumption when lamp is off
     
-  # ═══════════════════════════════════════════════════════════════════
   # DM INSTRUCTIONS — READ THIS!
-  # ═══════════════════════════════════════════════════════════════════
   dm_instructions: |
     EVERY TURN while the lamp is lit, you MUST:
     

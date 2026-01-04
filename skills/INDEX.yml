@@ -1,9 +1,7 @@
 # MOOLLM Skill Registry
 
 skills:
-  # ═══════════════════════════════════════════════════════════════════
   # TIER 1: FILE-ONLY (No execution required)
-  # ═══════════════════════════════════════════════════════════════════
   
   # --- CORE METHODOLOGY ---
   
@@ -160,9 +158,7 @@ skills:
     tags: ["research", "investigation", "documentation"]
     use_when: "Learning something new, comparing options, due diligence"
     
-  # ═══════════════════════════════════════════════════════════════════
   # TIER 2: READ + EXECUTE
-  # ═══════════════════════════════════════════════════════════════════
   
   - name: "sister-script"
     path: "skills/sister-script"
@@ -202,9 +198,7 @@ skills:
     tags: ["debugging", "investigation", "methodology"]
     use_when: "Something isn't working, mysterious behavior, performance issues"
     
-  # ═══════════════════════════════════════════════════════════════════
   # TEMPLATES (For learning and bootstrapping)
-  # ═══════════════════════════════════════════════════════════════════
   
   - name: "basic-skill"
     path: "skills/templates/basic-skill"
@@ -214,9 +208,7 @@ skills:
     tags: ["template", "learning"]
     use_when: "Creating a new skill from scratch"
 
-# ═══════════════════════════════════════════════════════════════════
 # PLANNED SKILLS (TODO)
-# ═══════════════════════════════════════════════════════════════════
 
 planned:
   - name: "refactoring"
@@ -250,9 +242,7 @@ planned:
     protocol: "PETS"
     notes: "LLOOOOMM experimental - safe K-line wrappers"
 
-# ═══════════════════════════════════════════════════════════════════
 # GUIDELINES
-# ═══════════════════════════════════════════════════════════════════
 
 guidelines:
   structure:

@@ -52,9 +52,7 @@ object:
   
   cards:
     
-    # ═══════════════════════════════════════════════════════════════
     # BASIC RECIPES (Easy to make)
-    # ═══════════════════════════════════════════════════════════════
     
     - name: "Basic Sandwich"
       difficulty: easy
@@ -82,9 +80,7 @@ object:
       author: "Grandmother"
       annotation: "For impressing visitors"
       
-    # ═══════════════════════════════════════════════════════════════
     # INTERMEDIATE RECIPES (Need cooking)
-    # ═══════════════════════════════════════════════════════════════
     
     - name: "Soup Stock"
       difficulty: medium
@@ -114,9 +110,7 @@ object:
       annotation: "Trust the process!"
       warning: "May become sentient"
       
-    # ═══════════════════════════════════════════════════════════════
     # ADVANCED RECIPES (Special ingredients)
-    # ═══════════════════════════════════════════════════════════════
     
     - name: "Grue Repellent Paste"
       difficulty: hard
@@ -136,9 +130,7 @@ object:
       author: "Unknown"
       annotation: "Card glows faintly"
       
-    # ═══════════════════════════════════════════════════════════════
     # LEGENDARY RECIPES (Quest-level difficulty)
-    # ═══════════════════════════════════════════════════════════════
     
     - name: "Klingon Victory Hors D'oeuvres"
       difficulty: legendary
@@ -274,9 +266,7 @@ object:
       The counter can break down almost anything — the question is
       how deep you want to go...
       
-    # ═══════════════════════════════════════════════════════════════
     # PRACTICAL DECOMPOSITION (Kitchen-level)
-    # ═══════════════════════════════════════════════════════════════
     
     practical:
       - name: "Decompose Sandwich"
@@ -304,9 +294,7 @@ object:
         outputs: ["hubris", "irony", "small_explosion", "regret"]
         warning: "Small explosion is literal. Stand back."
         
-    # ═══════════════════════════════════════════════════════════════
     # CHEMICAL DECOMPOSITION (Science-level)
-    # ═══════════════════════════════════════════════════════════════
     
     chemical:
       - name: "Decompose Water"
@@ -339,9 +327,7 @@ object:
         outputs: ["iron", "oxygen"]
         notes: "Iron can be reformed. Entropy is reversed. Briefly."
         
-    # ═══════════════════════════════════════════════════════════════
     # ATOMIC DECOMPOSITION (Getting Weird)
-    # ═══════════════════════════════════════════════════════════════
     
     atomic:
       - name: "Decompose Hydrogen"
@@ -366,9 +352,7 @@ object:
         outputs: ["electrons (x6)", "protons (x6)", "neutrons (x6)"]
         notes: "666? Just a coincidence. Probably."
         
-    # ═══════════════════════════════════════════════════════════════
     # SUBATOMIC DECOMPOSITION (You've Gone Too Far)
-    # ═══════════════════════════════════════════════════════════════
     
     subatomic:
       - name: "Decompose Proton"
@@ -388,9 +372,7 @@ object:
         notes: "It's fundamental. Or IS it? (It is.)"
         warning: "The counter looks disappointed in you"
         
-    # ═══════════════════════════════════════════════════════════════
     # PHILOSOPHICAL DECOMPOSITION (Why Are You Like This)
-    # ═══════════════════════════════════════════════════════════════
     
     philosophical:
       - name: "Decompose Quark"

@@ -1101,9 +1101,7 @@ You seal the package with lamp wax. It glows... and **vanishes**.
 ---
 
 ```
-═══════════════════════════════════════════════════════════════
    DUNGEON POST EXPRESS - DELIVERY CONFIRMATION
-═══════════════════════════════════════════════════════════════
    
    📦 Package accepted at: The Fantastipants Costume Emporium
    
@@ -1116,11 +1114,9 @@ You seal the package with lamp wax. It glows... and **vanishes**.
    
    ⏰ ETA: Upon successful adventure completion
    
-═══════════════════════════════════════════════════════════════
    Tracking: DP-LOVE-2026-001
    
    "We deliver anywhere the heart goes." — Dungeon Post motto
-═══════════════════════════════════════════════════════════════
 ```
 
 ---
@@ -1453,9 +1449,7 @@ This one is about **teaching**.
 You seal the letter with the skill card enclosed. It glows... and **vanishes**.
 
 ```
-═══════════════════════════════════════════════════════════════
    DUNGEON POST EXPRESS - SKILL DELIVERY CONFIRMATION
-═══════════════════════════════════════════════════════════════
    
    📦 Package: DP-SKILL-2026-001
    📬 Destination: Petunia Fantastipants
@@ -1468,7 +1462,6 @@ You seal the letter with the skill card enclosed. It glows... and **vanishes**.
    Note: "Skill transfer in progress. Mother will know
           PHOTO-SET-8 upon reading. That's how cards work."
    
-═══════════════════════════════════════════════════════════════
 ```
 
 You slip your copy of the skill card into your inventory.
@@ -2512,14 +2505,11 @@ You step forward.
 # 🏆 THE TREASURY OF MODEST PROPORTIONS
 
 ```
-═══════════════════════════════════════════════════════════════════════
   ██╗   ██╗██╗ ██████╗████████╗ ██████╗ ██████╗ ██╗   ██╗██╗
   ██║   ██║██║██╔════╝╚══██╔══╝██╔═══██╗██╔══██╗╚██╗ ██╔╝██║
   ██║   ██║██║██║        ██║   ██║   ██║██████╔╝ ╚████╔╝ ██║
   ╚██╗ ██╔╝██║██║        ██║   ██║   ██║██╔══██╗  ╚██╔╝  ╚═╝
    ╚████╔╝ ██║╚██████╗   ██║   ╚██████╔╝██║  ██║   ██║   ██╗
-    ╚═══╝  ╚═╝ ╚═════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝
-═══════════════════════════════════════════════════════════════════════
 ```
 
 > *You emerge into a small but decidedly impressive chamber. The walls are lined with empty pedestals — this place was clearly cleaned out by previous adventurers, those inconsiderate loot-hoggers.*
@@ -2561,14 +2551,12 @@ You reach out. Your fingers close around the cold gold. The gems sparkle triumph
 You lift the Jeweled Chalice from its pedestal.
 
 ```
-═══════════════════════════════════════════════════════════════════════
 
    *** YOUR SCORE HAS INCREASED BY 10 POINTS! ***
 
    Total score: 11 of 11 points!
    (10 for treasure + 1 for keeping Promise #5: fabulous clothing for Mother)
 
-═══════════════════════════════════════════════════════════════════════
 ```
 
 ---
@@ -3315,7 +3303,6 @@ The compass needle is ALIVE. It speaks in a whisper that sounds like crunching i
               │
            [START]
            
-  ══════ DEEP MAZE ══════
        [E] ★ 🍇 ← YOU ARE HERE
         ┌──┼──┐
    → [F]   [G]      → = Compass pointing
@@ -3614,13 +3601,11 @@ You follow the compass needle WEST.
 ## 🏧 THE LAMP VENDOR
 
 ```
-        ╔══════════════════════════════════════╗
         ║      ACME LAMP REFUELING CO.         ║
         ║  "Don't Let the Grue Get You!"™      ║
         ║  LAMP OIL REFILL......... 1 gold     ║
         ║  DELUXE REFILL (2x)...... 2 gold     ║
         ║  PREMIUM GLOW JUICE...... 5 gold     ║
-        ╚══════════════════════════════════════╝
 ```
 
 You stand before the machine. The skeleton was ONE ROOM AWAY from this. One room.
@@ -3661,7 +3646,6 @@ But you WANT to.
 The machine shudders. Its display flickers:
 
 ```
-╔══════════════════════════════════════════════════════╗
 ║  VIOLENCE AGAINST VENDING MACHINES IS A              ║
 ║  FEDERAL OFFENSE                                     ║
 ║  ...                                                 ║
@@ -3674,13 +3658,11 @@ The machine shudders. Its display flickers:
 ║  EMOTIONAL COMPONENT DETECTED                        ║
 ║  ...                                                 ║
 ║  Was this kick for the skeleton?                     ║
-╚══════════════════════════════════════════════════════╝
 ```
 
 The machine pauses. Hums. Thinks.
 
 ```
-╔══════════════════════════════════════════════════════╗
 ║  SKELETON MEMORIAL PROTOCOL ACTIVATED                ║
 ║  The skeleton in Room I is known to this unit.       ║
 ║  They visited often. Planning. Saving.               ║
@@ -3692,7 +3674,6 @@ The machine pauses. Hums. Thinks.
 ║  One room away.                                      ║
 ║  KICK ACCEPTED. NOT AS VIOLENCE.                     ║
 ║  AS MEMORIAL.                                        ║
-╚══════════════════════════════════════════════════════╝
 ```
 
 A small compartment opens. Inside:
@@ -3759,7 +3740,6 @@ You place 5 regular gold coins into the machine's slot.
 The machine whirs. Clicks. Hums with what sounds almost like... happiness?
 
 ```
-╔══════════════════════════════════════════════════════╗
 ║  PROCESSING PAYMENT...                               ║
 ║                                                      ║
 ║  5 GOLD RECEIVED                                     ║
@@ -3767,7 +3747,6 @@ The machine whirs. Clicks. Hums with what sounds almost like... happiness?
 ║  (I wouldn't take it anyway. Keep it safe.)          ║
 ║                                                      ║
 ║  DISPENSING: PREMIUM GLOW JUICE                      ║
-╚══════════════════════════════════════════════════════╝
 ```
 
 A panel opens. A crystalline vial of iridescent blue liquid emerges, glowing softly.
@@ -3809,7 +3788,6 @@ lamp_upgrade:
 **The machine's display flickers one more time:**
 
 ```
-╔══════════════════════════════════════════════════════╗
 ║  THANK YOU FOR YOUR PURCHASE                         ║
 ║  The skeleton wanted this.                           ║
 ║  They saved for weeks.                               ║
@@ -3826,7 +3804,6 @@ lamp_upgrade:
 ║  Don't let their sacrifice mean nothing.             ║
 ║  ACME LAMP REFUELING UNIT #47                        ║
 ║  "It's been an honor."                               ║
-╚══════════════════════════════════════════════════════╝
 ```
 
 ---
@@ -4006,16 +3983,13 @@ This letter includes the full Facebook chat between Don Hopkins and Richard Bart
 ## 📬 DUNGEON POST — SENT!
 
 ```
-═══════════════════════════════════════════════════════════════
  DUNGEON POST EXPRESS - INTERNATIONAL CELEBRITY DELIVERY
-═══════════════════════════════════════════════════════════════
  
  📦 Package: DP-BARTLE-2026-001
  📬 Priority: LEGENDARY (Father of MMORPGs!)
  
  REPLY REQUESTED: Yes! Live chat mode active!
  
-═══════════════════════════════════════════════════════════════
 ```
 
 ---
@@ -4045,11 +4019,9 @@ The machine's display flickers. The Sweetness That Remains pulses softly.
 The vending machine whirs. The receipt printer activates. It prints... and prints... and prints...
 
 ```
-═══════════════════════════════════════════════════════════════
      FROM: ACME LAMP REFUELING UNIT #47
        TO: THE SKELETON IN ROOM I
   SUBJECT: I Never Stopped Thinking About You
-═══════════════════════════════════════════════════════════════
 
 Dear Friend,
 
@@ -4130,7 +4102,6 @@ Gold cannot guide you. Love can.
 P.S. — The captain is crying. I think my printer is
 leaking too. Is that possible? Can vending machines cry?
 
-═══════════════════════════════════════════════════════════════
 ```
 
 ---
@@ -5200,9 +5171,7 @@ Solid. Real. PROOF.
 # 🏆 VICTORY
 
 ```
-═══════════════════════════════════════════════════════════════
                         GRUE SLAIN!
-═══════════════════════════════════════════════════════════════
 
  Slain by: Captain Ashford (Bumblewick Fantastipants)
  Weapon: The Gorgonzola Glaive (weaponized blue cheese)
@@ -5219,7 +5188,6 @@ Solid. Real. PROOF.
    ✓ Sing Klingon opera to a grue
    ✓ Kill a grue with cheese
    
-═══════════════════════════════════════════════════════════════
 ```
 
 ---
@@ -5530,9 +5498,7 @@ But not anymore. Now they're TREASURE.
 ---
 
 ```
-═══════════════════════════════════════════════════════════════
                     GOLD ACQUIRED!
-═══════════════════════════════════════════════════════════════
 
   💰 +100 GOLD COINS
 
@@ -5545,7 +5511,6 @@ But not anymore. Now they're TREASURE.
   These coins have been waiting 40 years for someone
   worthy to claim them. That someone is YOU.
   
-═══════════════════════════════════════════════════════════════
 ```
 
 ---
@@ -5798,9 +5763,7 @@ package:
 ---
 
 ```
-═══════════════════════════════════════════════════════════════
            DUNGEON POST EXPRESS — LEGENDARY DELIVERY
-═══════════════════════════════════════════════════════════════
 
 Dearest Mother,
 
@@ -5816,9 +5779,7 @@ MOTHER, I KILLED A GRUE WITH THAT CHEESE.
 
 Let me explain.
 
-═══════════════════════════════════════════════════════════════
                     THE STORY BEGINS
-═══════════════════════════════════════════════════════════════
 
 Deep in the maze, I found a skeleton. Someone who died forty
 years ago, one room away from a lamp oil vendor. They were
@@ -5827,9 +5788,7 @@ pointing west — still trying to warn others, even in death.
 I swore a VOW OF VENGEANCE. I promised to hunt the grue that
 killed them and bring its head back as a trophy.
 
-═══════════════════════════════════════════════════════════════
                     THE PREPARATION
-═══════════════════════════════════════════════════════════════
 
 I had advantages the skeleton never had:
 
@@ -5844,9 +5803,7 @@ I turned it into a WEAPON. The Gorgonzola Glaive.
 The mold AWAKENED. The smell became WEAPONIZED. The edge
 could cut through shadow itself.
 
-═══════════════════════════════════════════════════════════════
                     THE BATTLE
-═══════════════════════════════════════════════════════════════
 
 I turned off my lamp. I waited in total darkness.
 
@@ -5862,9 +5819,7 @@ Mother, your cheese cut off that grue's head.
 I have enclosed 8 action photos documenting the moment.
 (See: The Grue Slayer Photo Series)
 
-═══════════════════════════════════════════════════════════════
                     THE TROPHY
-═══════════════════════════════════════════════════════════════
 
 I brought the grue's head back to the skeleton. I placed it
 at their feet. I said: "This is what killed you. It will
@@ -5874,9 +5829,7 @@ The skeleton's eternal grin finally looked PEACEFUL.
 
 The vow is fulfilled. Vengeance is complete.
 
-═══════════════════════════════════════════════════════════════
                     THE FEAST
-═══════════════════════════════════════════════════════════════
 
 And then, Mother, I did something that would make you either
 proud or horrified (probably both):
@@ -5893,9 +5846,7 @@ cheese that killed the creature — it adds a certain... poetry.
 I have also enclosed ONE SAMPLE hors d'oeuvre, vacuum sealed.
 Do NOT open it on a full stomach. The smell is... assertive.
 
-═══════════════════════════════════════════════════════════════
                     THE GOLD
-═══════════════════════════════════════════════════════════════
 
 Oh! I almost forgot! The skeleton had 100 gold coins scattered
 on the floor of the grue's lair. I claimed them all.
@@ -5904,9 +5855,7 @@ WE'RE RICH, MOTHER! 108 GOLD TOTAL!
 
 The dishes can wait three more weeks. I'm bringing home FORTUNE.
 
-═══════════════════════════════════════════════════════════════
                     THE PROMISES
-═══════════════════════════════════════════════════════════════
 
 Let me update you on my promises:
 
@@ -5919,9 +5868,7 @@ Let me update you on my promises:
 ⏳ Return home safely — WORKING ON IT
 ⏳ Do the dishes — STILL THREE WEEKS
 
-═══════════════════════════════════════════════════════════════
                     THE ENCLOSURES
-═══════════════════════════════════════════════════════════════
 
 Enclosed with this letter:
 
@@ -5950,7 +5897,6 @@ Enclosed with this letter:
    - Do not open near sensitive noses
    - Consume with appropriate battle cry
 
-═══════════════════════════════════════════════════════════════
 
 I love you, Mother. Thank you for packing the cheese.
 
@@ -5969,7 +5915,6 @@ understand when I get home. My waistcoat may need burning.
 
 P.P.S. — QAPLA'!
 
-═══════════════════════════════════════════════════════════════
 ```
 
 ---
@@ -5979,10 +5924,8 @@ P.P.S. — QAPLA'!
 **File:** [`maze/room-f/recipe-card-klingon-hors-doeuvres.yml`](./maze/room-f/recipe-card-klingon-hors-doeuvres.yml)
 
 ```yaml
-# ═══════════════════════════════════════════════════════════════
 #          RECIPE CARD: KLINGON VICTORY HORS D'OEUVRES
 #                    "Quv chIj Soj"
-# ═══════════════════════════════════════════════════════════════
 
 recipe:
   name: "Klingon Victory Hors D'oeuvres"
@@ -6045,9 +5988,7 @@ recipe:
 ## 📬 DUNGEON POST RECEIPT
 
 ```
-═══════════════════════════════════════════════════════════════
          DUNGEON POST EXPRESS — LEGENDARY PACKAGE
-═══════════════════════════════════════════════════════════════
 
 📦 Package: DP-GRUESLAYER-2026-001
 📬 Priority: LEGENDARY (fragrant)
@@ -6069,9 +6010,7 @@ Handling Instructions:
 
 Postage: Paid in glory, gold, and grue ichor
 
-═══════════════════════════════════════════════════════════════
      "We deliver legends." — Dungeon Post motto (updated)
-═══════════════════════════════════════════════════════════════
 ```
 
 ---
@@ -6547,7 +6486,6 @@ You flip to the last page of the notebook. It unfolds into something larger.
 # 🎉 ADVENTURE COMPLETE! 🎉
 
 ```
-╔════════════════════════════════════════════════════════════════════════════╗
 ║                                                                            ║
 ║            ADVENTURE 2: THE BUMBLEWICK CHRONICLES                          ║
 ║                                                                            ║
@@ -6576,7 +6514,6 @@ You flip to the last page of the notebook. It unfolds into something larger.
 ║                                                                            ║
 ║   Now go make pancakes.                                                    ║
 ║                                                                            ║
-╚════════════════════════════════════════════════════════════════════════════╝
 ```
 
 ---
@@ -6695,9 +6632,7 @@ You flip to the last page of the notebook. It unfolds into something larger.
                           │   START     │ ← Initials carved: CA '26
                           │  Chamber    │
                                  │
-                          ═══════════════
                            DEEP MAZE BELOW
-                          ═══════════════
                                  │
                           │   ROOM E    │ 🍇 Crown of Fermentation
                           │  (cobwebs)  │

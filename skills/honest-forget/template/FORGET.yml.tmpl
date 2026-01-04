@@ -5,9 +5,7 @@ session:
   reason: "{{reason}}"
   urgency: "{{urgency}}"  # low | medium | high | critical
   
-# ═══════════════════════════════════════════════════════════════════
 # ASSESSMENT
-# ═══════════════════════════════════════════════════════════════════
 
 assessment:
   target: "{{target}}"
@@ -23,9 +21,7 @@ assessment:
     for_current_task: "medium"  # high | medium | low
     for_future_reference: "medium"
 
-# ═══════════════════════════════════════════════════════════════════
 # EXTRACTION PLAN
-# ═══════════════════════════════════════════════════════════════════
 
 extraction:
   wisdom_to_extract:
@@ -36,17 +32,13 @@ extraction:
     - to: "What to point to"
       summary: "Brief description"
 
-# ═══════════════════════════════════════════════════════════════════
 # COMPRESSION DECISION
-# ═══════════════════════════════════════════════════════════════════
 
 compression:
   level: "WISDOM"  # FULL | WISDOM | SUMMARY | POINTER
   rationale: "Why this level"
   
-# ═══════════════════════════════════════════════════════════════════
 # RELEASE CHECKLIST
-# ═══════════════════════════════════════════════════════════════════
 
 checklist:
   - task: "Wisdom extracted"
@@ -61,9 +53,7 @@ checklist:
   - task: "Safe to release"
     done: false
 
-# ═══════════════════════════════════════════════════════════════════
 # STATUS
-# ═══════════════════════════════════════════════════════════════════
 
 status: "assessing"  # assessing | extracting | compressing | released
 released_at: null

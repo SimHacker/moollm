@@ -6,9 +6,7 @@ checklist:
   created: "{{timestamp}}"
   last_run: null
 
-# ═══════════════════════════════════════════════════════════════════
 # CRITICAL CHECKS
-# ═══════════════════════════════════════════════════════════════════
 
 critical:
   - check: "output.md exists"
@@ -23,9 +21,7 @@ critical:
       Create session-log.md with session_start event
     verified: false
 
-# ═══════════════════════════════════════════════════════════════════
 # HIGH PRIORITY CHECKS
-# ═══════════════════════════════════════════════════════════════════
 
 high:
   - check: "working_set.yml exists and valid"
@@ -35,9 +31,7 @@ high:
       priority: medium
     verified: false
 
-# ═══════════════════════════════════════════════════════════════════
 # MEDIUM PRIORITY CHECKS
-# ═══════════════════════════════════════════════════════════════════
 
 medium:
   - check: "hot.yml exists"
@@ -48,9 +42,7 @@ medium:
     repair: "touch cold.yml"
     verified: false
 
-# ═══════════════════════════════════════════════════════════════════
 # STATUS
-# ═══════════════════════════════════════════════════════════════════
 
 status:
   healthy: null  # Set after CHECK

@@ -4,9 +4,7 @@ session:
   created: "{{timestamp}}"
   status: "active"  # active | resolved | deferred | wontfix
   
-# ═══════════════════════════════════════════════════════════════════
 # OBSERVATION
-# ═══════════════════════════════════════════════════════════════════
 
 observation:
   symptom: "{{symptom}}"
@@ -32,9 +30,7 @@ observation:
     ruled_out:
       - "What we've already eliminated"
 
-# ═══════════════════════════════════════════════════════════════════
 # HYPOTHESES
-# ═══════════════════════════════════════════════════════════════════
 
 hypotheses:
   # - id: "hyp-001"
@@ -53,9 +49,7 @@ hypotheses:
   #     observation: null
   #     learned: null
 
-# ═══════════════════════════════════════════════════════════════════
 # TESTS
-# ═══════════════════════════════════════════════════════════════════
 
 tests:
   # - id: "test-001"
@@ -64,18 +58,14 @@ tests:
   #   result: "pending"
   #   learned: null
 
-# ═══════════════════════════════════════════════════════════════════
 # PROGRESS
-# ═══════════════════════════════════════════════════════════════════
 
 progress:
   current_hypothesis: null
   hypotheses_tested: 0
   hypotheses_refuted: 0
   
-# ═══════════════════════════════════════════════════════════════════
 # ROOT CAUSE (when found)
-# ═══════════════════════════════════════════════════════════════════
 
 root_cause:
   found: false

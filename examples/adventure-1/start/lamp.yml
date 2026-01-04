@@ -24,9 +24,7 @@ object:
   oil_critical: 10.0       # "Your lamp is about to go out!"
   oil_empty: 0.0           # Darkness. Grues. Death.
   
-  # ═══════════════════════════════════════════════════════════════════
   # OIL CONSUMPTION RULES — DM MUST APPLY THESE EACH TURN!
-  # ═══════════════════════════════════════════════════════════════════
   oil_consumption:
     # Base rates (per action, while lamp is lit)
     movement: 1.0          # Moving to another room
@@ -44,9 +42,7 @@ object:
     # Special cases
     extinguished: 0.0      # No consumption when lamp is off
     
-  # ═══════════════════════════════════════════════════════════════════
   # DM INSTRUCTIONS — READ THIS!
-  # ═══════════════════════════════════════════════════════════════════
   dm_instructions: |
     EVERY TURN while the lamp is lit, you MUST:
     

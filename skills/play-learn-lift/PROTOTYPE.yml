@@ -12,9 +12,7 @@ skill:
     
   motto: "Start Playing. Keep Learning. Lift Others."
 
-# ═══════════════════════════════════════════════════════════════════
 # INPUTS
-# ═══════════════════════════════════════════════════════════════════
 
 inputs:
   topic:
@@ -32,9 +30,7 @@ inputs:
     required: false
     description: "How long for each phase? (e.g., '1h PLAY, 30m LEARN, 30m LIFT')"
 
-# ═══════════════════════════════════════════════════════════════════
 # OUTPUTS
-# ═══════════════════════════════════════════════════════════════════
 
 outputs:
   cycle_file: "CYCLE.yml"
@@ -43,9 +39,7 @@ outputs:
   procedures_file: "PROCEDURES.md"
   summary_file: "SUMMARY.md"
   
-# ═══════════════════════════════════════════════════════════════════
 # PHASES
-# ═══════════════════════════════════════════════════════════════════
 
 phases:
   PLAY:
@@ -135,9 +129,7 @@ phases:
       - "Teaching exposes gaps in understanding"
       - "Sharing inspires new questions"
 
-# ═══════════════════════════════════════════════════════════════════
 # WORKING SET
-# ═══════════════════════════════════════════════════════════════════
 
 working_set:
   always_include:
@@ -156,9 +148,7 @@ working_set:
       - "PROCEDURES.md"
       - "SUMMARY.md"
 
-# ═══════════════════════════════════════════════════════════════════
 # COMMANDS
-# ═══════════════════════════════════════════════════════════════════
 
 commands:
   PLAY:
@@ -193,9 +183,7 @@ commands:
     syntax: "SHARE [summary]"
     action: "Create shareable SUMMARY.md"
 
-# ═══════════════════════════════════════════════════════════════════
 # PHILOSOPHY
-# ═══════════════════════════════════════════════════════════════════
 
 philosophy:
   core: "Low floor, high ceiling, wide walls"
@@ -210,9 +198,7 @@ philosophy:
     - "Inclusive by design: everyone can play"
     - "The journey IS the value (PRESERVE-JOURNEY)"
 
-# ═══════════════════════════════════════════════════════════════════
 # INTEGRATION
-# ═══════════════════════════════════════════════════════════════════
 
 integrates_with:
   - skill: "sister-script"

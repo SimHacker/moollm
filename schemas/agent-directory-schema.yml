@@ -9,9 +9,7 @@ $id: "moollm/agent-directory"
 title: "Agent Directory Structure"
 description: "Canonical layout for .agent/ session state"
 
-# ═══════════════════════════════════════════════════════════════════
 # DIRECTORY STRUCTURE
-# ═══════════════════════════════════════════════════════════════════
 
 structure:
   .agent/:
@@ -77,9 +75,7 @@ structure:
           - preferences.yml     # User preferences
           - drivers/            # Loaded driver configs
 
-# ═══════════════════════════════════════════════════════════════════
 # FILE SPECIFICATIONS
-# ═══════════════════════════════════════════════════════════════════
 
 files:
 
@@ -146,9 +142,7 @@ files:
     schema: "moollm/room"
     description: "Room definition and state"
 
-# ═══════════════════════════════════════════════════════════════════
 # INVARIANTS
-# ═══════════════════════════════════════════════════════════════════
 
 invariants:
   - "session-log.md is APPEND-ONLY"
@@ -157,9 +151,7 @@ invariants:
   - "Missing files trigger repair, not crash"
   - "Corrupted files renamed to .corrupted, fresh created"
 
-# ═══════════════════════════════════════════════════════════════════
 # BOOTSTRAP
-# ═══════════════════════════════════════════════════════════════════
 
 bootstrap:
   description: "When .agent/ doesn't exist, create minimal structure"

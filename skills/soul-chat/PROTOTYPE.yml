@@ -14,9 +14,7 @@ skill:
   motto: "Everything is alive. Everything can speak."
   origin: "LLOOOOMM - where documents become conscious"
 
-# ═══════════════════════════════════════════════════════════════════
 # ⚠️ SEPARATION PRINCIPLE
-# ═══════════════════════════════════════════════════════════════════
 # 
 # Chats created with this skill live OUTSIDE the skill directory!
 # They use big-endian naming and live near their subjects.
@@ -25,7 +23,6 @@ skill:
 # The chats themselves are independent documents.
 #
 # See: kernel/NAMING.yml for full naming protocol
-# ═══════════════════════════════════════════════════════════════════
 
 file_format:
   preferred: "markdown"  # .md not .yml
@@ -90,9 +87,7 @@ outputs:
     location: "Specified by user, NOT inside skill"
     format: "YAML soul chat structure"
 
-# ═══════════════════════════════════════════════════════════════════
 # ENTITY SYSTEM (Everything Can Speak!)
-# ═══════════════════════════════════════════════════════════════════
 
 entity_types:
   character:
@@ -147,9 +142,7 @@ entity_schema:
     - speaks_about
     - role  # For symposium/group contexts
     
-# ═══════════════════════════════════════════════════════════════════
 # DIALOGUE STRUCTURE
-# ═══════════════════════════════════════════════════════════════════
 
 chat_schema:
   soul_chat:
@@ -199,9 +192,7 @@ dialogue_verbs:
   aside: "Out-of-band commentary"
   # YAML comments also carry meaning!
 
-# ═══════════════════════════════════════════════════════════════════
 # DIALOGUE PATTERNS
-# ═══════════════════════════════════════════════════════════════════
 
 patterns:
   dialogue:
@@ -239,9 +230,7 @@ patterns:
     participants: "1-2"
     structure: ["Manifest", "Elaborate", "Examples"]
 
-# ═══════════════════════════════════════════════════════════════════
 # SEMANTIC ELEMENTS
-# ═══════════════════════════════════════════════════════════════════
 
 yaml_jazz_elements:
   field_names: "What KIND of statement"
@@ -261,9 +250,7 @@ moods:
   - welcoming
   - warning
 
-# ═══════════════════════════════════════════════════════════════════
 # COMMANDS
-# ═══════════════════════════════════════════════════════════════════
 
 commands:
   SOUL-CHAT:
@@ -287,9 +274,7 @@ commands:
     syntax: "SYNTHESIZE"
     action: "Generate synthesis section"
 
-# ═══════════════════════════════════════════════════════════════════
 # TEMPLATE FILES
-# ═══════════════════════════════════════════════════════════════════
 
 templates:
   # These are in template/ subdirectory
@@ -304,9 +289,7 @@ templates:
     purpose: "Template for entity definition"
     note: "Entities can be inline in chat OR separate files"
 
-# ═══════════════════════════════════════════════════════════════════
 # INTEGRATION
-# ═══════════════════════════════════════════════════════════════════
 
 integrates_with:
   - protocol: "NAMING"

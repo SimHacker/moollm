@@ -35,9 +35,7 @@ outputs:
   room_file: "ROOM.yml"
   readme_file: "README.md"
 
-# ═══════════════════════════════════════════════════════════════════
 # ROOM SCHEMA
-# ═══════════════════════════════════════════════════════════════════
 
 room_schema:
   required:
@@ -55,9 +53,7 @@ room_schema:
     - portable       # Can this room be picked up?
     - location       # Where is this room currently?
 
-# ═══════════════════════════════════════════════════════════════════
 # CONNECTIONS & NAVIGATION
-# ═══════════════════════════════════════════════════════════════════
 
 connections:
   description: |
@@ -92,9 +88,7 @@ connections:
       - "./archives/"
       - "./vault/"
 
-# ═══════════════════════════════════════════════════════════════════
 # NESTED ROOMS (Rooms in Rooms)
-# ═══════════════════════════════════════════════════════════════════
 
 nesting:
   description: |
@@ -115,9 +109,7 @@ nesting:
     - `nested` automatically lists child rooms
     - No manual linking required for hierarchy
 
-# ═══════════════════════════════════════════════════════════════════
 # HYPERCARD STRUCTURE
-# ═══════════════════════════════════════════════════════════════════
 
 hypercard_analogy:
   description: |
@@ -172,9 +164,7 @@ hypercard_analogy:
     - Working set cascades down
     - Atmosphere/mood inherits unless overridden
 
-# ═══════════════════════════════════════════════════════════════════
 # RETURN STACK / CONTINUATIONS
-# ═══════════════════════════════════════════════════════════════════
 
 return_stack:
   description: |
@@ -247,9 +237,7 @@ return_stack:
       
     Switch between stacks = switch cognitive contexts
 
-# ═══════════════════════════════════════════════════════════════════
 # PORTABLE ROOMS (Vehicles & Pockets)
-# ═══════════════════════════════════════════════════════════════════
 
 portable_rooms:
   description: |
@@ -305,9 +293,7 @@ portable_rooms:
     - "Share a room by handing it to someone"
     - "Archive a room by putting it in storage"
 
-# ═══════════════════════════════════════════════════════════════════
 # CARD IN PLAY SCHEMA
-# ═══════════════════════════════════════════════════════════════════
 
 card_instance_schema:
   required:
@@ -321,9 +307,7 @@ card_instance_schema:
     - subgoals      # Decomposed goals
     - return_value  # Filled when complete
 
-# ═══════════════════════════════════════════════════════════════════
 # OPERATIONS
-# ═══════════════════════════════════════════════════════════════════
 
 operations:
   enter_room:
@@ -370,9 +354,7 @@ operations:
       - "Target can incorporate or respond"
     note: "Cross-room communication between actors"
 
-# ═══════════════════════════════════════════════════════════════════
 # MULTI-PRESENCE & DATA FLOW
-# ═══════════════════════════════════════════════════════════════════
 
 multi_presence:
   description: "Cards can be active in multiple rooms simultaneously"
@@ -405,9 +387,7 @@ message_schema:
       timestamp: "when received"
       incorporated: "boolean - has this been processed?"
 
-# ═══════════════════════════════════════════════════════════════════
 # ROOM TYPES
-# ═══════════════════════════════════════════════════════════════════
 
 room_types:
   session:
@@ -442,9 +422,7 @@ room_types:
     portable: true
     examples: ["mobile-lab/", "expedition/"]
 
-# ═══════════════════════════════════════════════════════════════════
 # COMMANDS
-# ═══════════════════════════════════════════════════════════════════
 
 commands:
   # Basic navigation
@@ -531,9 +509,7 @@ commands:
     syntax: "FORK [stack-name]"
     action: "Create new stack from current position"
 
-# ═══════════════════════════════════════════════════════════════════
 # INTEGRATION
-# ═══════════════════════════════════════════════════════════════════
 
 integrates_with:
   - skill: "card"

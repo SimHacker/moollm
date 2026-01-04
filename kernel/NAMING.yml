@@ -13,9 +13,7 @@ philosophy: |
 
 ---
 
-# ═══════════════════════════════════════════════════════════════════
 # BIG-ENDIAN NAMING
-# ═══════════════════════════════════════════════════════════════════
 
 big_endian:
   principle: "Most significant component first"
@@ -47,9 +45,7 @@ big_endian:
 
 ---
 
-# ═══════════════════════════════════════════════════════════════════
 # FILE EVOLUTION LIFECYCLE
-# ═══════════════════════════════════════════════════════════════════
 
 evolution:
   description: "Files naturally grow from simple to complex"
@@ -97,9 +93,7 @@ evolution:
 
 ---
 
-# ═══════════════════════════════════════════════════════════════════
 # OWNERSHIP & POSSESSION
-# ═══════════════════════════════════════════════════════════════════
 
 ownership:
   principle: "Prefix implies belonging"
@@ -120,9 +114,7 @@ ownership:
 
 ---
 
-# ═══════════════════════════════════════════════════════════════════
 # SEPARATION OF CONCERNS
-# ═══════════════════════════════════════════════════════════════════
 
 separation:
   principle: "About-ness is not containment"
@@ -156,9 +148,7 @@ separation:
 
 ---
 
-# ═══════════════════════════════════════════════════════════════════
 # DIRECTORY IDENTITY
-# ═══════════════════════════════════════════════════════════════════
 
 directory_identity:
   golden_rule: "File with same name as directory IS the directory"
@@ -187,9 +177,7 @@ directory_identity:
 
 ---
 
-# ═══════════════════════════════════════════════════════════════════
 # CANONICALIZATION
-# ═══════════════════════════════════════════════════════════════════
 
 canonicalization:
   principle: "Consistent, predictable naming"
@@ -217,9 +205,7 @@ canonicalization:
 
 ---
 
-# ═══════════════════════════════════════════════════════════════════
 # CHAT & DIALOGUE NAMING
-# ═══════════════════════════════════════════════════════════════════
 
 dialogue_naming:
   principle: "Chats named by participants and/or topic"
@@ -255,9 +241,7 @@ dialogue_naming:
 
 ---
 
-# ═══════════════════════════════════════════════════════════════════
 # PROTOCOL SYMBOLS
-# ═══════════════════════════════════════════════════════════════════
 
 k_lines:
   BIG-ENDIAN: "Most significant component first in names"
@@ -268,9 +252,7 @@ k_lines:
 
 ---
 
-# ═══════════════════════════════════════════════════════════════════
 # ANTI-PATTERNS
-# ═══════════════════════════════════════════════════════════════════
 
 avoid:
   - pattern: "Generic names inside directories"
@@ -295,9 +277,7 @@ avoid:
 
 ---
 
-# ═══════════════════════════════════════════════════════════════════
 # README PRINCIPLE
-# ═══════════════════════════════════════════════════════════════════
 
 readme:
   principle: "Every directory deserves its own README.md"

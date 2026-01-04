@@ -829,10 +829,8 @@ The lamp has finite oil. The maze is dark. Grues are patient. What's an adventur
 **Enter capitalism.** Deep in the maze crossroads (room-j), a battered vending machine hums softly:
 
 ```
-╔══════════════════════════════════════╗
 ║      ACME LAMP REFUELING CO.         ║
 ║  "Don't Let the Grue Get You!"™      ║
-╚══════════════════════════════════════╝
 ```
 
 ### The Prices

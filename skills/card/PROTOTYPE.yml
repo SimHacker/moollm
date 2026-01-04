@@ -29,9 +29,7 @@ skill:
     - qr_codes: "Scannable data, links, actions"
     - wallet_cards: "Apple/Google Pay — phone as card carrier"
 
-# ═══════════════════════════════════════════════════════════════════
 # ACTIVATION MODEL (Cards in Play)
-# ═══════════════════════════════════════════════════════════════════
 
 activation:
   principle: |
@@ -159,9 +157,7 @@ card_advertisements:
       → All advertisements compete
       → Best action wins regardless of source
 
-# ═══════════════════════════════════════════════════════════════════
 # ACTOR LINEAGE
-# ═══════════════════════════════════════════════════════════════════
 
 actor_model:
   description: |
@@ -180,9 +176,7 @@ actor_model:
     room: "Stage where actors perform"
     message: "Goal, parameter, or return_value"
 
-# ═══════════════════════════════════════════════════════════════════
 # CARD TYPES
-# ═══════════════════════════════════════════════════════════════════
 
 card_types:
   person:
@@ -302,9 +296,7 @@ working_set:
     - "COLLECTION.yml"
     - "DECK.yml"
 
-# ═══════════════════════════════════════════════════════════════════
 # FAMILIARS (Special Card Type)
-# ═══════════════════════════════════════════════════════════════════
 
 familiars:
   description: "Cards that embody tool capabilities as helper spirits"
@@ -335,9 +327,7 @@ familiars:
       domain: "Logging"
       abilities: ["log events", "audit trail", "append-only writes"]
 
-# ═══════════════════════════════════════════════════════════════════
 # INTEGRATION
-# ═══════════════════════════════════════════════════════════════════
 
 integrates_with:
   - skill: "room"

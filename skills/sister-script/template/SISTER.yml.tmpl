@@ -21,9 +21,7 @@ sister:
     status: "in_sync"  # in_sync | doc_ahead | script_ahead | diverged
     last_checked: "{{timestamp}}"
     
-# ═══════════════════════════════════════════════════════════════════
 # SECTION MAPPING
-# ═══════════════════════════════════════════════════════════════════
 
 section_map:
   # Maps document sections to script functions
@@ -33,9 +31,7 @@ section_map:
   - doc_section: "Step 2: Process"
     script_function: "process()"
 
-# ═══════════════════════════════════════════════════════════════════
 # SYNC LOG (recent)
-# ═══════════════════════════════════════════════════════════════════
 
 recent_sync:
   - timestamp: "{{timestamp}}"
