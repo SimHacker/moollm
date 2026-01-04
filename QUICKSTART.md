@@ -10,7 +10,8 @@ Just explore the repo on GitHub — no install needed!
 
 | Browse This | What You'll See |
 |-------------|-----------------|
-| [examples/adventure-3/](./examples/adventure-3/) | A complete playable microworld |
+| [examples/adventure-2/](./examples/adventure-2/) | A played world — Captain Ashford's legendary run |
+| [examples/adventure-3/](./examples/adventure-3/) | A fresh playable microworld — **clone this one!** |
 | [skills/](./skills/) | All the building blocks — rooms, cards, adventures |
 | [kernel/](./kernel/) | The operating system layer — constitution, protocols |
 | [PROTOCOLS.yml](./PROTOCOLS.yml) | K-Lines — Wikipedia-style behavior triggers |
