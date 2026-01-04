@@ -139,10 +139,11 @@ Possibilities:
 ## 📚 Lineage
 
 The pub is a tribute to:
+- **Bar Karma** (Will Wright & Don Hopkins) — First crowdsourced TV series. A bar at the edge of the universe where lost souls face karmic crossroads. StoryMaker tool for collaborative script writing and community voting.
 - Every mysterious D&D tavern
 - The cantina in Star Wars
 - Rick's Café in Casablanca
 - The Prancing Pony (LotR)
 - Cheers (everybody knows your name)
 
-*This is where quests begin and end.*
+*This is where quests begin and end. And the community shapes the story.*
