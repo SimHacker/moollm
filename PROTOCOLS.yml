@@ -734,7 +734,7 @@ INVENTORY:
   # "Pocket dimension" — your bag of holding
 
 CONTAINER:
-  meaning: "Objects can hold other objects. Nested hierarchy. Paths address contents."
+  meaning: "Objects can hold other objects. Typed, constrained, auto-sorting."
   location: skills/room/
   invoke_when: "Organizing objects, building composite structures"
   see_also: [INVENTORY, PUT, TAKE-FROM, OBJECT-PATH, TAG]
@@ -742,6 +742,39 @@ CONTAINER:
   # Objects are containers all the way down
   # Like directories containing files
   # Or YAML containing nested structures
+  
+  constraints: |
+    # Containers can constrain what they accept:
+    lunchbox:
+      accepts: [food, snack, drink]
+      max_items: 10
+      auto_sort: true  # Food goes here automatically!
+      
+    notebook:
+      accepts: [card, letter, photo, song, document, recipe, map]
+      auto_sort: true  # Papers and cards go here automatically!
+      
+    toolbox:
+      accepts: [tool]
+      max_weight: 50
+      
+    quiver:
+      accepts: [arrow]
+      max_items: 20
+  
+  auto_sort: |
+    # When you GET an item, typed containers claim matching objects:
+    > GET apple
+    You pick up the apple.
+    *rustle* It settles into your lunchbox automatically.
+    
+    > GET letter-from-mother
+    You pick up the letter.
+    *flip* It slides into your notebook.
+    
+    # Manual override always works:
+    > PUT apple IN pocket
+    Apple is now in pocket (not lunchbox).
   
   commands: |
     PUT <obj> IN <container>      # Place object inside another
@@ -766,19 +799,9 @@ CONTAINER:
     > OPEN backpack
     backpack contains:
       - toolbox (3 items)
-      - sandwich
+      - lunchbox (5 items) [auto-sort:food]
+      - notebook (12 pages) [auto-sort:documents]
       - map.yml
-      
-  nesting: |
-    # Arbitrary depth:
-    backpack/
-      toolbox/
-        screwdriver.yml
-        wrench.yml
-        nails.yml
-      food/
-        sandwich.yml
-      map.yml
       
 OBJECT-PATH:
   meaning: "Address nested objects with paths. Like filesystem or YAML paths."
