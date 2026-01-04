@@ -646,8 +646,7 @@ flowchart TD
 > [!CAUTION]
 > No hidden scratchpad. No mystical "planning module." No persistent memory the user can't inspect. **If it's not in a file, it doesn't exist.**
 
-<details>
-<summary><strong>🔍 Influences (click to expand)</strong></summary>
+### 🔍 Influences
 
 | System | Contribution | In MOOLLM |
 |--------|--------------|-----------|
@@ -672,8 +671,6 @@ flowchart TD
 [kilroy]: ./designs/kilroy-ideas.md
 [getlamp]: http://www.getlamp.com/
 [pbd]: https://mitpress.mit.edu/9780262527965/watch-what-i-do/
-
-</details>
 
 ### Format Hierarchy
 
@@ -788,8 +785,7 @@ adventure-3: Ready → Fresh start, world improvements preserved, new systems ad
 
 ---
 
-<details>
-<summary><strong>🙏 Credits (click to expand)</strong></summary>
+### 🙏 Credits
 
 | Person | Contribution |
 |--------|--------------|
@@ -815,8 +811,9 @@ adventure-3: Ready → Fresh start, world improvements preserved, new systems ad
 | **Alan Cypher** | [Watch What I Do][pbd] — programming by demonstration |
 | **Brad Myers** | Programming by demonstration, natural programming |
 | **Ted Nelson** | Xanadu, intertwingled everything |
-
-</details>
+| **Chip Morningstar & Randy Farmer** | Habitat, avatars, First Penguin Award |
+| **Arthur van Hoff** | HyperLook — HyperCard for NeWS |
+| **Doug Engelbart** | NLS, augmented intellect, collaboration |
 
 ---
 
