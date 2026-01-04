@@ -78,9 +78,10 @@ object:
       description: |
         The game where the rules change every turn! Start with
         "draw 1, play 1" — but cards can change EVERYTHING.
-        Goals shift. Hand limits appear. Chaos reigns.
-      creator: "Looney Labs (Andrew Looney)"
-      stakes: "Usually just bragging rights"
+        Goals shift. Hand limits appear. Chaos reigns. 
+        New player friendly. Pub favorite crowd pleaser! 
+      creator: "Looney Labs (Andrew and Kristin Looney)"
+      stakes: "Usually just bragging rights or a drink or a joint or two"
       note: "The bartender has MANY themed decks..."
       
       themed_decks:
@@ -92,6 +93,12 @@ object:
           theme: "Munchies, brownies, and forgetting the rules"
           special: "Everyone plays slower. Giggles increase."
           effect: "Snacks appear. Time dilates. Nobody remembers whose turn it is."
+          
+        - name: "MOOLLM Fluxx"
+          theme: "Microworlds, K-lines, YAML Jazz, coherence engines"
+          special: "Cards are rooms. Goals are protocols. Keepers are skills."
+          effect: "Players start speaking in YAML. Everything becomes a card."
+          meta: "You're already playing this one."
           
         - name: "Grue Fluxx"
           theme: "It is pitch dark. You are likely to be eaten."
@@ -140,7 +147,7 @@ object:
           special: "Rules rewrite themselves. Goals hallucinate."
           warning: "The deck insists it's helping."
           
-        - name: "Bartender's Special"
+        - name: "Bartender's Special Fluxx"
           theme: "????"
           special: "The bartender made this one. Nobody wins."
           warning: "Play at your own risk"
