@@ -51,7 +51,13 @@ Or manually:
 cp -r examples/adventure-3 examples/my-adventure
 ```
 
-Edit the YAML. Add rooms. Create objects. The schema is flexible — the LLM figures it out.
+You can edit the YAML directly in Cursor's text editor — or just tell Cursor what you want:
+
+> "Add a garden room west of the kitchen with a mysterious talking flower."
+
+The LLM creates the files, connects the exits, writes the descriptions. Looking at the files helps you understand how it works — but you don't *have* to touch them.
+
+**K-Lines:** The [PROTOCOLS.yml](./PROTOCOLS.yml) file defines symbolic names (Marvin Minsky's "K-Lines" from *Society of Mind*) that activate conceptual clusters. Type `YAML-JAZZ` and the LLM interprets comments semantically. Type `SPEED-OF-LIGHT` and it simulates multiple agents in one call. Type `POSTEL` and it interprets your input charitably. These are greppable cognitive triggers — name-activated behaviors.
 
 ---
 
