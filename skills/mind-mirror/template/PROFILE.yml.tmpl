@@ -1,12 +1,36 @@
 # MIND-MIRROR Profile Template
-# Based on Timothy Leary's 1985 software + The Sims simulation parameters
-# Rate personality 0-7, needs 0-10, goals have progress %
+# Leary (interpersonal style) + Sims (behavioral tendencies) + Dynamic needs
+# Leary: 0-7 scale | Sims: 0-10 scale | Needs: 0-10 scale
 
 character:
   name: "{{ name }}"
   
   # ═══════════════════════════════════════════════════════════════
-  # PERSONALITY (stable traits, Leary's 4 Thought Planes)
+  # THE SIMS PERSONALITY TRAITS (Will Wright, 2000)
+  # Behavioral tendencies — relatively stable
+  # Rate 0-10: opposites at each extreme
+  # YAML Jazz comments make these SPECIFIC to this character!
+  # ═══════════════════════════════════════════════════════════════
+  
+  sims_traits:
+    neat: 5           # 0=Sloppy, 10=Neat
+                      # How they feel about messes and cleanliness
+                      
+    outgoing: 5       # 0=Shy, 10=Outgoing  
+                      # Social initiation and comfort with strangers
+                      
+    active: 5         # 0=Lazy, 10=Active
+                      # Physical activity preference and restlessness
+                      
+    playful: 5        # 0=Serious, 10=Playful
+                      # Entertainment needs and humor tendency
+                      
+    nice: 5           # 0=Grumpy, 10=Nice
+                      # Social success and conflict tendency
+
+  # ═══════════════════════════════════════════════════════════════
+  # LEARY'S FOUR THOUGHT PLANES (1950/1985)
+  # Interpersonal style — how you approach others
   # Rate 0-7: 0=Never, 2=Rarely, 5=Often, 7=Always
   # ═══════════════════════════════════════════════════════════════
   

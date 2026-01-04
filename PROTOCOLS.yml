@@ -673,6 +673,25 @@ THOUGHT-PLANE:
   invoke_when: "Discussing personality structure"
   types: [BIO-ENERGY, EMOTIONAL-INSIGHT, MENTAL-ABILITIES, SOCIAL-INTERACTION]
 
+SIMS-TRAITS:
+  meaning: "The Sims 1.0 personality system — behavioral tendencies."
+  location: skills/mind-mirror/
+  invoke_when: "Defining character behavior patterns"
+  origin:
+    creator: "Will Wright"
+    game: "The Sims"
+    year: 2000
+  axes:
+    - NEAT-SLOPPY     # Cleaning, mess tolerance, hygiene
+    - OUTGOING-SHY    # Social initiation, comfort with strangers
+    - ACTIVE-LAZY     # Physical activity, restlessness
+    - PLAYFUL-SERIOUS # Entertainment needs, humor tendency
+    - NICE-GRUMPY     # Social success, conflict tendencies
+  insight: |
+    Leary asks "how do you approach others?" (interpersonal style)
+    Wright asks "what do you gravitate toward?" (behavioral tendency)
+    Together: complete character model.
+
 SELF-PORTRAIT:
   meaning: "Compare your current self with your ideal self."
   location: skills/mind-mirror/

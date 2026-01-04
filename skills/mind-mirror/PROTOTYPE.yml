@@ -468,6 +468,120 @@ significance:
     - "Comparative analysis → personality matching algorithms"
     - "Interactive scenarios → serious games"
 
+# THE SIMS 1.0 PERSONALITY TRAITS (Will Wright, 2000)
+# Complements Leary's interpersonal style with behavioral tendencies
+
+sims_traits:
+  
+  description: |
+    The Sims personality system maps behavioral preferences and tendencies.
+    Each trait is a 0-10 scale with opposite behaviors at each extreme.
+    Traits are relatively stable (unlike needs which fluctuate).
+    
+  axes:
+    neat:
+      name: "Neat vs Sloppy"
+      scale: [0, 10]
+      low_label: "Sloppy"
+      high_label: "Neat"
+      influences:
+        - "Cleaning behavior (high neat = cleans without asking)"
+        - "Mess tolerance (low neat = doesn't notice messes)"
+        - "Hygiene need decay rate (high neat = faster decay)"
+        - "Room need (high neat = bothered by dirty environments)"
+        - "Dialogue (high neat comments on cleanliness)"
+      examples:
+        0: "Leaves dishes everywhere, never makes bed, hygiene optional"
+        5: "Cleans when necessary, tolerates moderate mess"
+        10: "Compulsively tidies, disturbed by any disorder"
+        
+    outgoing:
+      name: "Outgoing vs Shy"
+      scale: [0, 10]
+      low_label: "Shy"
+      high_label: "Outgoing"
+      influences:
+        - "Social initiation (high = approaches strangers)"
+        - "Conversation comfort (low = awkward with new people)"
+        - "Social need decay (low = comfortable alone longer)"
+        - "Party behavior (high = works the room)"
+        - "Group size preference (low = small, high = big)"
+      examples:
+        0: "Avoids eye contact, mumbles, dreads parties"
+        5: "Situationally social, comfortable in familiar groups"
+        10: "Life of the party, talks to everyone, needs audience"
+        
+    active:
+      name: "Active vs Lazy"
+      scale: [0, 10]
+      low_label: "Lazy"
+      high_label: "Active"
+      influences:
+        - "Exercise preference (high = seeks physical activity)"
+        - "Movement speed (high = walks faster, fidgets)"
+        - "Energy need importance (high = restless when tired)"
+        - "Activity choices (low = TV, high = sports)"
+        - "Patience (low = waits contentedly, high = paces)"
+      examples:
+        0: "Couch potato, minimal movement, maximum comfort"
+        5: "Balanced, exercises when convenient"
+        10: "Can't sit still, always moving, gym rat"
+        
+    playful:
+      name: "Playful vs Serious"
+      scale: [0, 10]
+      low_label: "Serious"
+      high_label: "Playful"
+      influences:
+        - "Entertainment choices (high = games, low = books)"
+        - "Fun need decay (high = needs stimulation often)"
+        - "Humor in dialogue (high = jokes even in serious moments)"
+        - "Work attitude (low = focused, high = easily distracted)"
+        - "Spontaneity (high = impulsive decisions for fun)"
+      examples:
+        0: "All business, rarely laughs, finds fun frivolous"
+        5: "Enjoys fun but knows when to be serious"
+        10: "Everything is a game, constant jokes, easily bored"
+        
+    nice:
+      name: "Nice vs Grumpy"
+      scale: [0, 10]
+      low_label: "Grumpy"
+      high_label: "Nice"
+      influences:
+        - "Social success rate (high = conversations go well)"
+        - "Conflict tendency (low = picks fights, high = peacemaker)"
+        - "First impressions (low = off-putting, high = likeable)"
+        - "NPC reactions (low = feared/avoided, high = welcomed)"
+        - "Forgiveness (low = holds grudges, high = lets go)"
+      examples:
+        0: "Mean, antagonistic, enjoys others' misfortune"
+        5: "Neither mean nor saintly, responds to treatment"
+        10: "Endlessly kind, helps everyone, avoids all conflict"
+
+  yaml_jazz_integration: |
+    YAML Jazz comments make traits SPECIFIC to each character:
+    
+    ```yaml
+    sims_traits:
+      neat: 8          # Tidies compulsively. Has opinions about coasters.
+                       # The kind who straightens picture frames in hotels.
+                       
+      outgoing: 3      # Shy but not anxious. Just... prefers cats to people.
+                       # Will talk your ear off ONCE they know you.
+                       
+      active: 6        # Goes for walks, not marathons.
+                       # Restless in meetings. Leg bounces.
+                       
+      playful: 7       # Cannot resist a pun. Ever. It's a problem.
+                       # Will gamify literally any task.
+                       
+      nice: 9          # Almost too nice. Apologizes to furniture.
+                       # Genuinely distressed by others' unhappiness.
+    ```
+    
+    These comments become dialogue, decisions, and narrative!
+
 # DYNAMIC SIMULATION (Sims-style needs + goals)
 
 simulation_parameters:
@@ -604,6 +718,7 @@ yaml_jazz_simulation: |
 # PROTOCOLS
 
 protocols:
+  # Leary's Mind Mirror
   - MIND-MIRROR
   - THOUGHT-PLANE
   - BIO-ENERGY
@@ -615,6 +730,16 @@ protocols:
   - ROLE-PLAY-ODYSSEY
   - PLAIN-TALK
   - SHRINK-RAP
+  
+  # The Sims personality traits (Will Wright)
+  - SIMS-TRAITS
+  - NEAT-SLOPPY
+  - OUTGOING-SHY
+  - ACTIVE-LAZY
+  - PLAYFUL-SERIOUS
+  - NICE-GRUMPY
+  
+  # Dynamic simulation
   - NEEDS
   - WANTS
   - ASPIRATIONS
@@ -634,6 +759,30 @@ dovetails_with:
     relationship: "Mind Mirror dimensions influence character voice"
   - skill: adventure
     relationship: "NPCs have Mind Mirror profiles"
+  - skill: advertisement
+    relationship: "Sims traits modify advertisement scoring"
+  - skill: simantics
+    relationship: "Sims traits directly influence SimAntics behavior"
+  - skill: action-queue
+    relationship: "Traits determine action preferences"
+
+# CREDITS
+
+credits:
+  leary:
+    name: "Timothy Leary"
+    contribution: "Interpersonal Circumplex, Mind Mirror software"
+    years: "1950 (PhD), 1985 (software)"
+    
+  wright:
+    name: "Will Wright"
+    contribution: "The Sims personality system, needs, wants, aspirations"
+    year: 2000
+    insight: |
+      Wright's genius was making personality PLAYABLE. The Sims traits
+      aren't just descriptions — they drive autonomous behavior. A Sloppy
+      sim leaves dishes. A Playful sim gravitates to games. The traits
+      BECOME the character through emergent behavior.
 
 # SOURCES
 

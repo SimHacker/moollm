@@ -229,6 +229,82 @@ On the internet vision:
 
 ---
 
+## The Sims 1.0 Personality Traits
+
+This extended version of Mind Mirror incorporates Will Wright's **Sims personality system** (2000) alongside Leary's dimensions. While Leary maps *interpersonal style*, The Sims maps *behavioral tendencies*.
+
+### The Five Trait Axes
+
+Each trait is a slider from 0 to 10, with opposite behaviors at each extreme:
+
+| Trait | Low (0) | High (10) | Affects |
+|-------|---------|-----------|---------|
+| **Neat** | Sloppy | Neat | Cleaning, mess tolerance, hygiene decay |
+| **Outgoing** | Shy | Outgoing | Social initiation, conversation comfort |
+| **Active** | Lazy | Active | Exercise preference, movement speed |
+| **Playful** | Serious | Playful | Entertainment choices, humor in dialogue |
+| **Nice** | Grumpy | Nice | Social success, conflict tendencies |
+
+### How Traits Influence Behavior
+
+```yaml
+sims_traits:
+  neat: 8        # Tidies up without being asked
+                 # Bothered by messy rooms (room need decays faster)
+                 # Washes dishes immediately
+                 # Comments on cleanliness in dialogue
+                 
+  outgoing: 3    # Shy, won't initiate conversation with strangers
+                 # Social need decays slower (comfortable alone)
+                 # Awkward at parties
+                 # Prefers small groups to crowds
+                 
+  active: 6      # Moderately active
+                 # Will exercise but not obsessively
+                 # Energy need matters more to them
+                 # Prefers action to waiting
+                 
+  playful: 7     # Gravitates toward fun activities
+                 # Makes jokes in serious situations
+                 # Fun need decays fast (needs stimulation)
+                 # Chooses games over TV
+                 
+  nice: 5        # Neutral — not mean, not saintly
+                 # Social interactions go averagely
+                 # Can be rude if provoked
+                 # Won't start fights, won't stop them either
+```
+
+### Leary + Sims = Complete Character
+
+**Leary's Four Planes** describe *how* you approach interactions:
+- *"Confident and creative in social situations"*
+
+**Sims Traits** describe *what* you gravitate toward:
+- *"But prefers solitary play and needs frequent stimulation"*
+
+Together they create richly specific characters:
+
+```yaml
+# A Confident Introvert Who Needs Constant Entertainment
+mind_mirror:
+  emotional:
+    confident: 6     # Speaks up when they have something to say
+    
+sims_traits:
+  outgoing: 2        # But rarely initiates — waits to be approached
+  playful: 9         # Gets bored FAST, always seeking novelty
+  nice: 7            # Kind when engaged, just... doesn't engage much
+```
+
+### Credits
+
+- **Timothy Leary** — Interpersonal Circumplex, Mind Mirror (1950/1985)
+- **Will Wright** — The Sims personality system (2000)
+- Both systems complement each other beautifully
+
+---
+
 ## In MOOLLM: The Living Personality System
 
 Mind Mirror becomes dynamic infrastructure for characters and entities.
@@ -241,11 +317,10 @@ Every MOOLLM entity can have a Mind Mirror profile defining its personality.
 
 ```yaml
 # ═══════════════════════════════════════════════════════════════════════════
-# CAPTAIN ASHFORD — Mind Mirror Profile
+# CAPTAIN ASHFORD — Complete Personality Profile
 # 
 # This is YAML JAZZ. Every comment here is DATA that the LLM reads and uses.
 # Numbers set the dial. Comments explain what it MEANS for THIS character.
-# The same "confident: 6" means different things for different people.
 # Comments make personality SPECIFIC, VIVID, ALIVE.
 # ═══════════════════════════════════════════════════════════════════════════
 
@@ -253,9 +328,34 @@ character:
   name: "Captain Ashford"
   
   # ─────────────────────────────────────────────────────────────────────────
-  # MIND MIRROR PROFILE
-  # Leary's four planes, rated 0-7, with YAML Jazz commentary
-  # The numbers are the skeleton. The comments are the flesh.
+  # THE SIMS TRAITS (behavioral tendencies)
+  # What do they gravitate toward? How do they act when unobserved?
+  # ─────────────────────────────────────────────────────────────────────────
+  
+  sims_traits:
+    neat: 3            # Tolerates mess. Ship is "organized chaos."
+                       # Knows where everything is. Others don't.
+                       # Cleans only when expecting company.
+                       
+    outgoing: 7        # Works a room. Knows everyone's name by hour two.
+                       # Social battery charges BY socializing.
+                       # Will talk to literally anyone at a bar.
+                       
+    active: 6          # Restless. Paces when thinking.
+                       # Prefers standing to sitting, walking to standing.
+                       # Gets twitchy during long meetings.
+                       
+    playful: 7         # Everything's a game. Even life-or-death situations.
+                       # Cannot resist a quip. It's pathological.
+                       # Gets BORED if not entertained. Dangerously bored.
+                       
+    nice: 6            # Genuinely cares, but won't be walked on.
+                       # First instinct: help. Second instinct: assess motive.
+                       # Will throw hands if you hurt his people.
+  
+  # ─────────────────────────────────────────────────────────────────────────
+  # LEARY'S FOUR PLANES (interpersonal style)
+  # How do they approach others? What's their vibe?
   # ─────────────────────────────────────────────────────────────────────────
   
   mind_mirror:
