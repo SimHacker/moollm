@@ -4,6 +4,21 @@
 
 ---
 
+## ⚡ [**Start Here → QUICKSTART.md**](./QUICKSTART.md)
+
+**New to MOOLLM?** The Quickstart gets you up and running in Cursor in 5 minutes:
+
+- **Open the repo** in Cursor and start chatting
+- **Explore a playable adventure** — navigate rooms, examine objects, talk to Cursor
+- **Clone and build your own world** — just tell Cursor what you want
+- **Push to GitHub** — your narrative becomes a beautifully formatted web page with hyperlinks
+
+No git commands to memorize, no YAML to write by hand. Just chat. Watch what happens. Learn by doing. **This is constructionist education** — you learn programming, file structures, and LLM patterns by playing.
+
+👉 **[QUICKSTART.md](./QUICKSTART.md)** — *then come back for the deep dive below.*
+
+---
+
 ## The Problem
 
 You can't see inside an LLM agent. It claims to "remember" but you can't inspect that memory. It "plans" but you can't read those plans. It crashes when data is missing. You debug by guessing.

@@ -73,7 +73,7 @@ The LLM creates the files, connects the exits, writes the descriptions. Looking 
 |-----------|---------|--------|
 | [adventure‑1/](./examples/adventure-1/) | **World Building** — Watch a world emerge from chat prompts. README documents creation. | ✅ Template |
 | [adventure‑2/](./examples/adventure-2/) | **Legendary Playthrough** — Full transcript, playing and evolving a world, emergent mechanics, epic moments. | ✅ Completed |
-| [adventure‑3/](./examples/adventure-3/) | **Fresh Start** — Rich mechanics, clean slate, ready to play. Clone this one! | 🎮 **PLAY ME** |
+| [adventure‑3/](./examples/adventure-3/) | **Fresh Start** — Rich advanced mechanics, crafting, clean slate, ready to play. Clone this one! | 🎮 **PLAY ME** |
 
 **The Progression:**
 - **adventure‑1** created the world (documented)
