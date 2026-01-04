@@ -82,6 +82,7 @@ No hidden state, no magic.
 | [hero-story/](./hero-story/) | Safe K-line references to real people | 1 |
 | [representation-ethics/](./representation-ethics/) | Nuanced ethics of simulating people | 1 |
 | [mind-mirror/](./mind-mirror/) | Personality modeling via four Thought Planes | 1 |
+| [imaging/](./imaging/) | Semantic image generation with metadata | 1 |
 
 ### Entity & Dialogue
 

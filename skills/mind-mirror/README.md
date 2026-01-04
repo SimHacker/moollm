@@ -455,34 +455,20 @@ Entities can Mind-Scope themselves:
 
 Switch between `PLAIN-TALK` and `SHRINK-RAP` modes for descriptions and dialogues.
 
-### Image Generation Rule
+### Image Generation
 
-**When generating images of characters, ALWAYS include Mind Mirror as metadata.**
+Mind Mirror profiles feed directly into image generation via the [imaging](../imaging/) skill.
 
 ```yaml
-image_prompt:
-  subject: "Captain Ashford"
-  action: "triumphantly holding the Golden Chalice"
-  
-  character_state:
-    mind_mirror:
-      confident: 6
-      cheerful: 5
-      proud: 5
-      creative: 6
-    costume: "Space pirate with holographic eyepatch"
-    mood: "victorious, exhausted, relieved"
-    location: "Treasure Chamber, warm golden light"
-    
-  style: "dramatic portrait, heroic lighting"
+# Mind Mirror personality...
+confident: 6       # Walks into rooms like they own them
+
+# ...becomes visual metadata
+body_language: "stands tall, commanding presence"
+expression: "direct eye contact, slight knowing smile"
 ```
 
-**Why this matters:**
-- Ensures character coherence across multiple images
-- Enables regeneration with same personality
-- Connects visual to psychological
-- Personality affects posture, expression, energy
-- Metadata travels with image for context
+**See [imaging/](../imaging/) for the full `IMAGE-METADATA` protocol** — the semantic clipboard that ensures every image carries its meaning with it.
 
 ---
 

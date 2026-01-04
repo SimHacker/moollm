@@ -1,0 +1,214 @@
+# IMAGING
+# Semantic image generation with full context metadata
+# "Every image is a semantic snapshot."
+
+skill:
+  name: Imaging
+  type: visualization
+  priority: OPERATIONAL
+
+# THE RULE
+
+rule: |
+  When generating ANY image, ALWAYS include full context as metadata.
+  This ensures coherence, reproducibility, and meaning.
+
+# METADATA LAYERS
+
+layers:
+
+  character:
+    required:
+      - name
+      - mind_mirror_snapshot
+      - current_appearance
+      - emotional_state
+    optional:
+      - action
+      - holding
+      - body_language
+      - accessories
+      
+  room:
+    required:
+      - name
+      - lighting
+      - atmosphere
+    optional:
+      - notable_objects
+      - exits_visible
+      - spatial_layout
+      - temperature
+      
+  object:
+    required:
+      - name
+      - description
+    optional:
+      - material
+      - condition
+      - magical_effects
+      - current_state
+      
+  camera:
+    required:
+      - angle
+      - distance
+    optional:
+      - focus
+      - depth_of_field
+      - movement
+      
+  style:
+    required:
+      - aesthetic
+    optional:
+      - mood
+      - references
+      - color_palette
+
+# SEMANTIC CLIPBOARD
+
+semantic_clipboard:
+  concept: |
+    Image metadata is a semantic clipboard — when you "copy" a scene,
+    you copy the MEANING, not just visual properties.
+    
+  operations:
+    copy: "Capture full context as metadata"
+    paste: "Generate image from metadata"
+    modify: "Adjust metadata for variations"
+    store: "Save as card for reuse"
+    share: "Pass to other processes"
+    compare: "Diff two metadata snapshots"
+
+# INTEGRATION POINTS
+
+integrations:
+
+  mind_mirror:
+    source: "character.mind_mirror"
+    feeds:
+      - body_language
+      - expression
+      - posture
+      - energy_level
+    example: |
+      confident: 6 → "stands tall, commanding presence"
+      timid: 6 → "hunched, makes self smaller"
+      
+  soul_chat:
+    source: "conversation.current_moment"
+    feeds:
+      - scene_setup
+      - character_positions
+      - emotional_context
+      
+  room:
+    source: "room.current_state"
+    feeds:
+      - environment
+      - lighting
+      - objects
+      - atmosphere
+      
+  adventure:
+    source: "world.snapshot"
+    feeds:
+      - all_of_the_above
+      - narrative_context
+
+# VARIATION PATTERNS
+
+variations:
+  
+  angle_variation:
+    description: "Same scene, different camera angle"
+    preserves: [subject, room, action]
+    changes: [camera.angle]
+    
+  moment_variation:
+    description: "Same context, different moment"
+    preserves: [subject.identity, room]
+    changes: [subject.mood, subject.action]
+    
+  style_variation:
+    description: "Same scene, different rendering style"
+    preserves: [subject, room, camera]
+    changes: [style]
+    
+  character_variation:
+    description: "Same scene, different character"
+    preserves: [room, camera, style]
+    changes: [subject]
+
+# PHOTO SERIES
+
+photo_series:
+  concept: |
+    A coherent set of images sharing common elements.
+    Metadata dependencies ensure consistency.
+    
+  structure:
+    shared_elements: "Common objects, character states, room details"
+    photos: "List of individual shots referencing shared elements"
+    
+  example: |
+    For "Victory Photos" series:
+    - All photos reference same chalice description
+    - All photos reference same character state
+    - Camera and style vary per shot
+    - Result: coherent series, not random images
+
+# PROTOCOLS
+
+protocols:
+  - IMAGE-METADATA
+  - SEMANTIC-CLIPBOARD
+  - PHOTO-SERIES
+  - VARIATION
+
+# DOVETAILS
+
+dovetails_with:
+  - skill: mind-mirror
+    relationship: "Personality feeds body language and expression"
+  - skill: soul-chat
+    relationship: "Conversation moments become scenes"
+  - skill: room
+    relationship: "Room state feeds environment"
+  - skill: card
+    relationship: "Image prompts as reusable cards"
+  - skill: adventure
+    relationship: "World state feeds visualization"
+
+# TEMPLATE
+
+image_prompt_template: |
+  ```yaml
+  image_prompt:
+    type: scene  # or: character, room, object
+    
+    subject:
+      name: ""
+      mind_mirror: {}
+      costume: ""
+      mood: ""
+      action: ""
+      
+    room:
+      name: ""
+      lighting: ""
+      atmosphere: ""
+      notable_objects: []
+      
+    camera:
+      angle: ""
+      distance: ""
+      focus: ""
+      
+    style:
+      aesthetic: ""
+      mood: ""
+      references: ""
+  ```
