@@ -114,6 +114,7 @@ Possibilities:
 | 📋 [notice-board.yml](./notice-board.yml) | Jobs, quests, warnings |
 | 👻 [pacman-cabinet.yml](./pacman-cabinet.yml) | Wakka wakka wakka |
 | 🏓 [pong-cabinet.yml](./pong-cabinet.yml) | The game that started it all |
+| 🍒 [fruit-machine.yml](./fruit-machine.yml) | One-armed bandit |
 
 ---
 

@@ -1,0 +1,86 @@
+# 🍒 FRUIT MACHINE
+# One-armed bandit — the original random number generator
+
+object:
+  name: Fruit Machine
+  type: game
+  portable: false
+  
+  description: |
+    A classic one-armed bandit stands by the bar, chrome gleaming,
+    cherries and lemons and lucky 7s spinning on its reels. The
+    lever is worn smooth from a million hopeful pulls.
+    
+    A small sign reads: "FOR AMUSEMENT ONLY"
+    (The bartender winks when you read it.)
+    
+  examine: |
+    The machine is a beautiful piece of gambling history:
+    - Three spinning reels
+    - Cherries, lemons, oranges, plums, bells, bars, and 7s
+    - A satisfying mechanical CLUNK when you pull the arm
+    - That dopamine-triggering jingle when you win
+    
+    Someone has scratched "NEVER GIVE UP" into the chrome.
+    Someone else has scratched "YES DO" underneath.
+    
+  symbols:
+    cherry: "🍒 — Small win"
+    lemon: "🍋 — Try again"
+    orange: "🍊 — Small win"
+    plum: "🍑 — Medium win"
+    bell: "🔔 — Good win"
+    bar: "📊 — Better win"
+    seven: "7️⃣ — JACKPOT!"
+    
+  actions:
+    PULL:
+      description: "Pull the lever and test your luck"
+      cost: "1 gold per pull"
+      mechanics: |
+        DM spins the reels and describes the outcome:
+        - Three cherries: 3 gold
+        - Three bells: 10 gold
+        - Three bars: 25 gold
+        - Three 7s: JACKPOT (100 gold!)
+        - Mixed fruit: Small consolation prize or nothing
+        
+    KICK:
+      description: "Kick the machine in frustration"
+      effect: |
+        The machine rattles. A single gold coin falls out.
+        "That's your ONE," says the bartender. "Don't push it."
+        
+    EXAMINE-ODDS:
+      description: "Try to figure out the odds"
+      reveals: |
+        The odds are... unclear. Some say the machine is fair.
+        Some say it reads your karma. Some say it's alive.
+        The bartender says nothing. The bartender always says nothing
+        about the fruit machine.
+        
+    INSERT-LUCKY-CHARM:
+      description: "Put a lucky item in the coin slot"
+      effect: "Results may vary. The machine has opinions."
+      
+  jackpot:
+    current: "??? gold"
+    note: |
+      The jackpot counter has been stuck on "???" for years.
+      No one knows what it means. No one has ever hit it.
+      Or maybe someone did, and they're not talking.
+      
+  lore: |
+    The fruit machine predates the bar. It was here when James
+    arrived 20,000 years ago. It will be here when he leaves.
+    
+    Some say it's a test. Some say it's a trap. Some say
+    it's the only truly random thing in a deterministic universe.
+    
+    The cherries know the truth. They're not telling.
+    
+  inspiration:
+    - "Charles Fey's Liberty Bell (1895) — First slot machine"
+    - "The one-armed bandit in every Vegas casino"
+    - "British pub fruit machines"
+    - "The eternal hope of the next pull"
