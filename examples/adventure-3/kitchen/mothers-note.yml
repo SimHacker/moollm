@@ -483,6 +483,196 @@ object:
           Mother's opinion: "Teaching is the highest form of mastery."
           
       # ═══════════════════════════════════════════════════════════════
+      # 💀 CURSES — Negative skills that challenge and grow you!
+      # ═══════════════════════════════════════════════════════════════
+      
+      curses:
+        description: |
+          Curses are NEGATIVE SKILLS — afflictions, debuffs, and burdens
+          that create CHALLENGES to overcome and GOALS for self-improvement.
+          
+          Unlike regular skills which empower you,
+          curses LIMIT you until you find a way to lift them.
+          
+          But here's the thing: OVERCOMING a curse is itself a skill.
+          The struggle TEACHES you something.
+          The scar becomes a story.
+          
+        how_curses_are_acquired: |
+          ACTIONS:
+          - Breaking promises → Curse of Broken Word
+          - Wasting food after promising not to → Curse of Hunger
+          - Lying to Mother → Curse of Transparency (truth compelled)
+          - Abandoning a companion → Curse of Loneliness
+          - Cheating at something → Curse of Fair Play (can't cheat again)
+          
+          ENCOUNTERS:
+          - Grue attack (survived) → Curse of Darkness (extra lamp drain)
+          - Failed puzzle → Curse of Confusion (hints scrambled)
+          - Angered NPC → Curse of their Grudge
+          - Broke something sacred → Curse of That Thing
+          
+          CHAIN LETTERS:
+          - Breaking the chain → Curse as described
+          - Pyramid scheme collapse → Debt Curse
+          
+          ITEMS:
+          - Cursed items in ACME catalog
+          - Monkey's paw wishes gone wrong
+          - Gifts from suspicious strangers
+          
+        curse_examples:
+          CURSE-OF-DARKNESS:
+            acquired: "Grue encounter survived, or too long in darkness"
+            effect: "Lamp oil depletes 25% faster"
+            severity: moderate
+            lift_condition: "Bring light to 3 dark places, or find sacred flame"
+            growth_lesson: "Respect the darkness. Prepare better."
+            
+          CURSE-OF-BROKEN-WORD:
+            acquired: "Breaking a promise to Mother or NPC"
+            effect: "NPCs trust you less, prices higher, quests harder"
+            severity: severe
+            lift_condition: "Keep 5 promises in a row, or major act of integrity"
+            growth_lesson: "Your word is your bond. Mean what you say."
+            
+          CURSE-OF-HUNGER:
+            acquired: "Wasting food after promising not to"
+            effect: "Must eat every 10 turns or suffer weakness"
+            severity: moderate
+            lift_condition: "Feed someone truly hungry, or fast for 20 turns"
+            growth_lesson: "Appreciate abundance. Don't take it for granted."
+            
+          CURSE-OF-THE-GRUE:
+            acquired: "Killing a grue (yes, even that has consequences)"
+            effect: "Grues hunt you specifically, extra aggressive"
+            severity: severe
+            lift_condition: "Make peace with a grue, or appease grue spirits"
+            growth_lesson: "Every life has weight. Even your enemies."
+            
+          CURSE-OF-LOST-THINGS:
+            acquired: "Losing important items carelessly"
+            effect: "Items occasionally disappear from inventory"
+            severity: annoying
+            lift_condition: "Return 3 lost items to their owners"
+            growth_lesson: "Take care of what you have."
+            
+          CURSE-OF-HUBRIS:
+            acquired: "Boasting excessively about achievements"
+            effect: "Next challenge is significantly harder"
+            severity: ironic
+            lift_condition: "Fail gracefully, admit weakness, ask for help"
+            growth_lesson: "Pride goeth before a fall."
+            
+          CURSE-OF-SOLITUDE:
+            acquired: "Abandoning or dismissing companions"
+            effect: "NPCs reluctant to join you, companions leave faster"
+            severity: lonely
+            lift_condition: "Rescue someone, loyalty demonstrated"
+            growth_lesson: "Relationships require investment."
+            
+          CURSE-OF-IMPATIENCE:
+            acquired: "Rushing through without exploring"
+            effect: "Miss subtle clues, hints less clear"
+            severity: subtle
+            lift_condition: "Fully explore 3 rooms, read everything"
+            growth_lesson: "Slow down. The details matter."
+            
+        curse_mechanics:
+          visibility: |
+            Curses appear in your status:
+            
+            ```yaml
+            player:
+              skills:
+                - PHOTO-SET-8
+                - COMPASS-NAVIGATION
+              curses:
+                - CURSE-OF-DARKNESS
+                - CURSE-OF-BROKEN-WORD
+            ```
+            
+            Tom tracks curse lift progress:
+            "CURSE STATUS: Darkness (2/3 lights brought)"
+            
+          stacking: |
+            Multiple curses can stack:
+            - Different curses: All effects apply
+            - Same curse twice: Severity increases
+            - Three of same: LEGENDARY CURSE (much harder to lift)
+            
+          curse_quests: |
+            Each curse creates an implicit QUEST:
+            
+            ⚫ LIFT: Curse of Darkness
+               └─ Bring light to 3 dark places (1/3)
+               
+            This appears in Tom's quest log alongside other objectives.
+            
+          lifting_rewards: |
+            When you lift a curse, you gain:
+            
+            1. RELIEF: The negative effect ends
+            2. WISDOM: A related positive skill (often opposite)
+            3. STORY: An achievement/title
+            4. RESPECT: NPCs notice your growth
+            
+            Example:
+            - Lift CURSE-OF-DARKNESS → Gain LIGHT-BEARER skill
+            - Lift CURSE-OF-BROKEN-WORD → Gain OATH-KEEPER title
+            - Lift CURSE-OF-HUNGER → Gain GRATEFUL-STOMACH skill
+            
+          voluntary_curses: |
+            Some curses can be ACCEPTED voluntarily for benefits:
+            
+            ACCEPT CURSE OF [type] FOR [benefit]
+            
+            Examples:
+            - Accept Curse of Hunger → +5 gold upfront
+            - Accept Curse of Darkness → Grue respects your bargain
+            - Accept Curse of Silence → NPCs reveal secrets
+            
+            This is ADVANCED PLAY for those seeking challenge.
+            
+          curse_transfer: |
+            Some curses can be TRANSFERRED (ethically questionable):
+            
+            TRANSFER CURSE TO [target]
+            
+            Requirements:
+            - Target must accept (or be tricked)
+            - Your conscience bears the weight
+            - Mother will find out
+            - Karma is real in the dungeon
+            
+            Better option: Help someone lift their curse instead.
+            
+        growth_through_curses: |
+          The CURSE SYSTEM is fundamentally about GROWTH:
+          
+          1. FAILURE teaches you something
+          2. LIMITATION creates creativity
+          3. STRUGGLE builds character
+          4. OVERCOMING feels earned
+          
+          A character who has lifted multiple curses is
+          MORE INTERESTING than one who never failed.
+          
+          Mother's opinion:
+          "Everyone falls, darling. It's the getting up that matters."
+          
+        curse_immunity: |
+          Once you've lifted a curse, you gain PARTIAL IMMUNITY:
+          
+          - First time: Full curse effect
+          - Second time (same curse): 50% effect, easier lift
+          - Third time: 25% effect, almost trivial to lift
+          - Fourth time: IMMUNE (you've learned the lesson)
+          
+          This represents PERMANENT GROWTH.
+          The scar tissue of experience.
+          
+      # ═══════════════════════════════════════════════════════════════
       # 💎 PRECIOUS REWARDS — Appropriate to skills invented!
       # ═══════════════════════════════════════════════════════════════
       
