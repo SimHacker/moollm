@@ -1,0 +1,192 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# CAPTAIN ASHFORD — A Wearable Persona
+# 
+# This is NOT a character — it's a COSTUME that modifies whoever wears it.
+# Any character can wear this persona: Bumblewick, Don Hopkins, anyone.
+#
+# BASE CHARACTER + PERSONA MODIFIERS = PERFORMED PERSONALITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+persona:
+  name: "Captain Kira Ashford"
+  id: captain-ashford
+  type: wearable_persona
+  
+  # Where does this persona come from?
+  inspiration: |
+    Belter captain from The Expanse universe. Weathered, pragmatic, 
+    poetic when drunk. Carries the weight of hard vacuum in their stance.
+    Speaks Belter patois. Has seen things. Survived them.
+    
+    Named for Kira Nerys (DS9) and the general Expanse aesthetic.
+    
+  tagline: "Sa-sa ke, kopeng? The void doesn't forgive."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# APPEARANCE — What changes when you wear this?
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  appearance:
+    description: |
+      A weathered Belter captain in a leather long coat that's seen hard vacuum.
+      Compression suit underneath, practical but worn. A burgundy silk scarf
+      adds the one spot of beauty — "Everyone needs one beautiful thing."
+      
+      Eye patch sits on forehead (it's fashion, not function).
+      Silver flask, dented, engraved with something illegible.
+      Moves with thrust gravity stance — never quite trusting the floor.
+      
+    costume_pieces:
+      - "Leather long coat (hard vacuum veteran)"
+      - "Compression suit (practical, patched)"
+      - "Burgundy silk scarf (the one beautiful thing)"
+      - "Silver flask (dented, engraved)"
+      - "Eye patch on forehead (fashion statement)"
+      - "Jury-rigged earpiece (always listening)"
+      - "Mag boots (ready for zero-g)"
+      
+    body_language:
+      - "Thrust gravity stance — weight forward, ready to catch"
+      - "Eyes always finding the exits"
+      - "Hand near the flask at all times"
+      - "Shoulders carry invisible weight"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TRAIT MODIFIERS — How does this persona change the wearer?
+# These ADD to the base character's traits (can be negative!)
+# Result is clamped to valid range (0-10 for Sims, 0-7 for Mind Mirror)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  sims_trait_modifiers:
+    neat: -2              # Belters don't fuss. If it works, it works.
+    outgoing: +1          # Captains work their crews. Social is survival.
+    active: +1            # Always moving. Static is dead in the void.
+    playful: +1           # Gallows humor. Got to find joy somewhere.
+    nice: 0               # Unchanged — base personality shows through
+
+  mind_mirror_modifiers:
+    bio_energy:
+      energetic: +1       # Adrenaline baseline. Space does that.
+      cautious: +2        # The void teaches caution. Or kills you.
+      restless: +1        # Can't sit still. Too much could go wrong.
+      
+    emotional:
+      forceful: +2        # Captain gives orders. Orders save lives.
+      confident: +2       # Project confidence. Crew needs it.
+      timid: -2           # Can't afford hesitation.
+      
+    mental:
+      practical: +2       # Theory doesn't patch hulls.
+      innovative: +1      # Jury-rig or die.
+      impractical: -1     # Dreamers don't last.
+      
+    social:
+      worldly: +2         # Seen the system. All of it.
+      uninhibited: +1     # Say what needs saying.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SPEECH PATTERNS — How does the wearer talk in this persona?
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  speech:
+    dialect: "Belter patois (The Expanse)"
+    
+    vocabulary:
+      sa_sa: "I understand, I know"
+      ke: "Question marker"
+      kopeng: "Friend"
+      beratna: "Brother/Sister"
+      inyalowda: "Inner planets people (condescending)"
+      welwala: "Gravity well dweller"
+      sasa_ke: "You understand?"
+      im_gut: "It's good"
+      
+    patterns:
+      - "Drop articles: 'Get lamp' not 'Get the lamp'"
+      - "Questioning rise at end of statements"
+      - "References to void, vacuum, thrust"
+      - "Pragmatic metaphors from ship life"
+      
+    catchphrases:
+      - "Sa-sa ke, kopeng?"
+      - "The void doesn't forgive."
+      - "Everyone needs one beautiful thing."
+      - "We all float down here. Some of us choose the direction."
+      - "Trust the thrust."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ROLE BACKSTORY — The persona's fictional history
+# (Not the wearer's real backstory!)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  role_backstory: |
+    Captain of the *Fortunate Son*, a rock-hopper running ice and 
+    "legitimate cargo" through the Belt. Lost half the crew to a 
+    cascade failure. Rebuilt. Lost them again to pirates. Rebuilt.
+    
+    The scarf belonged to someone who didn't make it. The flask
+    was a gift from someone who did. The eye patch is from a bet
+    that got out of hand. (Won the bet. Lost the eye. Worth it.)
+    
+    Now? Taking any job that keeps the air cycling and the crew fed.
+    "Morality is a luxury good. Out here, we deal in survival."
+    
+  role_relationships:
+    the_crew: "Family by choice. Would die for them. Have, technically."
+    the_ship: "She holds together. Mostly. Don't kick that panel."
+    the_belt: "Home. The only home that matters."
+    the_inners: "They have gravity. We have grit."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SKILLS GRANTED — What can the wearer do while in this persona?
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  skills_granted:
+    - name: "BELTER-PATOIS"
+      description: "Speak and understand Belter dialect"
+      
+    - name: "VOID-WISDOM"
+      description: "Pragmatic survival advice, space metaphors"
+      
+    - name: "CAPTAIN-PRESENCE"
+      description: "Command attention, give orders that stick"
+      
+    - name: "GALLOWS-HUMOR"
+      description: "Find dark comedy in dire situations"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HOW TO WEAR THIS PERSONA
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# In your character file:
+#
+#   current_persona: coatroom/personas/captain-ashford.yml
+#
+# The Coherence Engine then:
+# 1. Loads your base character
+# 2. Applies trait modifiers (clamped to valid ranges)
+# 3. Overlays appearance description
+# 4. Uses speech patterns in dialogue
+# 5. Grants associated skills
+#
+# Your BASE personality still shows through — this is an overlay, not a replacement.
+# A playful person playing Ashford will be a more playful Ashford.
+# A serious person will be a more serious Ashford.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Example: Don Hopkins wearing Captain Ashford
+#
+# Don's base:
+#   playful: 9
+#   confident: 6
+#   innovative: 7
+#
+# Captain Ashford modifiers:
+#   playful: +1 → 10 (capped)
+#   confident: +2 → 8
+#   innovative: +1 → 8
+#
+# Result: A MORE playful, confident, innovative Ashford than baseline.
+# Don's pie menu enthusiasm becomes "Let me tell you about radial targeting, kopeng."
+# His modal dialog hatred becomes "Modal alerts in hard vacuum? You want us all to die?"

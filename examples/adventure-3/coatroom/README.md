@@ -179,6 +179,36 @@ Your soul has a new shape. Arr.
 
 ---
 
+## Personas — Wearable Personality Overlays
+
+See [personas/](./personas/) for **wearable personas** that modify your character!
+
+A persona is NOT a character — it's a **mask** that changes whoever wears it:
+
+| Aspect | Your Character | The Persona |
+|--------|----------------|-------------|
+| **What** | Who you ARE | Who you're PLAYING |
+| **Contains** | Full traits | Trait MODIFIERS (+/-) |
+| **Permanent** | Yes | No — put on, take off |
+
+```yaml
+# In your character file:
+current_persona: coatroom/personas/captain-ashford.yml
+
+# Or in the coatroom:
+> WEAR PERSONA captain-ashford
+> DON captain-ashford
+> REMOVE PERSONA
+```
+
+**Don Hopkins** wearing Captain Ashford is a different Ashford than **Bumblewick** wearing Ashford. Your base personality shows through!
+
+| Persona | Style |
+|---------|-------|
+| [captain-ashford.yml](./personas/captain-ashford.yml) | Belter space pirate |
+
+---
+
 ## Saved Looks — Identities as Cards
 
 Save any identity as a **playable card** in this room!

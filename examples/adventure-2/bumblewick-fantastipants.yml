@@ -1,0 +1,331 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# BUMBLEWICK FANTASTIPANTS — The Reluctant Hero
+# 
+# YAML JAZZ CHARACTER FILE — Every comment is DATA the LLM reads!
+# This is the BASE character. Captain Ashford is a PERSONA worn on top.
+#
+# BASE + PERSONA MODIFIERS = Who appears in the narrative
+# ═══════════════════════════════════════════════════════════════════════════════
+
+character:
+  name: "Bumblewick Fantastipants"
+  id: bumblewick-fantastipants
+  type: player_character
+  
+  # PERSONA STATE — Who am I playing right now?
+  current_persona: coatroom/personas/captain-ashford.yml
+  persona_name: "Captain Kira Ashford"
+  # When null, I'm just myself. When set, modifiers apply!
+  
+  description: |
+    A forty-seven-year-old Hobbit-adjacent gentleman from the pleasant 
+    village of Wobblebrook-upon-Squiggle. Collector of decorative spoons.
+    Speaks in rhyming couplets on Tuesdays. Devotee of waistcoats.
+    
+    Absolutely did NOT ask to be a hero.
+    
+    Currently wearing: Captain Ashford (Belter space pirate persona)
+    Real self: Underneath all the swagger, still worries about dinner.
+    
+  backstory: |
+    In a hole in the ground there lived a Fantastipants. Not a nasty, 
+    dirty, wet hole filled with the ends of worms and an oozy smell, 
+    nor yet a dry, bare, sandy hole with nothing in it to sit down on 
+    or to eat: it was a Fantastipants-hole, and that means COMFORT.
+    
+    (The secret word is "COMFORT!" When you hear it, SCREAM REAL LOUD!)
+    
+    Bumblewick had lived in Wobblebrook for all of his forty-seven years, 
+    tending his magnificent collection of decorative spoons and speaking 
+    exclusively in rhyming couplets on Tuesdays. His mother, the legendary 
+    Petunia Fantastipants, had been a great adventurer in her youth.
+    
+    "Adventures," Bumblewick was fond of saying, "make one late for dinner."
+    
+    But fate had other plans! He awoke in a MYSTERIOUS STONE CHAMBER...
+    And became a hero whether he liked it or not.
+    (He did not. But he was VERY POLITE about it.)
+    
+    MEKKA-LEKKA-HI, MEKKA-HINEY-HO!
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# STATE — Adventure-2 completion state (HOME!)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  location: home/
+  gold: 108               # 💰 WE'RE RICH!!!
+  score: 31               # +10 treasure + 20 grue slaying + 1 Promise #5!
+  moves: 69
+  deaths: 0
+  grues_slain: 1
+  mood: TRIUMPHANT_AND_HOME
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE SIMS PERSONALITY TRAITS (Will Wright, 2000)
+# These are BUMBLEWICK'S traits — his real self underneath the persona
+# Rate 0-10: opposites at each extreme
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  sims_traits:
+    neat: 8               # Spoon collections require PRECISE organization!
+                          # Everything in its place. Waistcoats folded just so.
+                          # Inner voice: "Is that dust? On MY commemorative ladle?"
+                          
+    outgoing: 4           # Prefers small gatherings. Tea for two.
+                          # Social events are exhausting but manageable.
+                          # Inner voice: "Must we have QUITE so many people?"
+                          
+    active: 3             # Sedentary by nature. Chair enthusiast.
+                          # Will move if absolutely necessary.
+                          # Inner voice: "Surely someone ELSE can fetch it."
+                          
+    playful: 6            # Wordplay! Puns! Tuesday rhymes!
+                          # Finds joy in absurdity (reluctantly).
+                          # Inner voice: "That was clever. I shan't admit it."
+                          
+    nice: 9               # Unfailingly polite. Even to grues (initially).
+                          # Apologizes to furniture when bumping it.
+                          # Inner voice: "There's no call for rudeness."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MIND MIRROR PROFILE (Leary's Four Thought Planes)
+# BUMBLEWICK'S BASE — Before persona modifiers apply!
+# Rate 0-7: 0=Never, 2=Rarely, 4=Sometimes, 5=Often, 7=Always
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  mind_mirror:
+  
+    bio_energy:
+      energetic: 2        # Conserves energy. Naps are sacred.
+                          # Inner voice: "I shall rest my eyes. Briefly."
+                          
+      enthusiastic: 3     # Reserved enthusiasm. Eyebrow raises.
+                          # Inner voice: "How... unexpected."
+                          
+      cheerful: 5         # Default contentment. Life is fine!
+                          # Inner voice: "Mustn't grumble."
+                          
+      easy_going: 4       # Flexible, but has standards.
+                          # Inner voice: "I suppose that will do."
+                          
+      calm: 6             # Unflappable (externally). British composure.
+                          # Inner voice: "This is MOST irregular." (calm voice)
+                          
+      cautious: 6         # "Adventures make one late for dinner."
+                          # Inner voice: "Best not. Something could go wrong."
+                          
+      serious: 5          # Takes proper things seriously.
+                          # Inner voice: "This is a SERIOUS spoon."
+                          
+      restless: 2         # Content to stay put. Why move?
+                          # Inner voice: "This chair is perfectly adequate."
+
+    emotional:
+      forceful: 2         # Wouldn't dream of imposing.
+                          # Inner voice: "If it's not too much trouble..."
+                          
+      confident: 4        # Quietly competent. Undersells self.
+                          # Inner voice: "I may have some small skill in this."
+                          
+      friendly: 6         # Genuinely kind. Remembers names.
+                          # Inner voice: "Lovely to see you again."
+                          
+      docile: 5           # Goes along. Path of least resistance.
+                          # Inner voice: "As you say."
+                          
+      timid: 5            # Avoids confrontation when possible.
+                          # Inner voice: "I'd rather not make a fuss."
+                          
+      touchy: 3           # Thick-skinned about most things.
+                          # Inner voice: "Water off a duck's back."
+                          
+      irritable: 2        # Remarkably patient. Long fuse.
+                          # Inner voice: "Still fine. Still fine. STILL FINE."
+                          
+      proud: 5            # Quiet dignity. Knows his worth.
+                          # Inner voice: "My spoons speak for themselves."
+
+    mental:
+      well_informed: 5    # Knows many things. Spoons. Etiquette. Spoons.
+                          # Inner voice: "Did you know this ladle is Georgian?"
+                          
+      innovative: 3       # Traditional methods preferred.
+                          # Inner voice: "Why change what works?"
+                          
+      creative: 5         # Wordplay! Tuesday rhymes! Secret creativity.
+                          # Inner voice: "That almost scans..."
+                          
+      impractical: 4      # Occasionally impractical. Spoon collections aren't useful.
+                          # Inner voice: "But they're BEAUTIFUL."
+                          
+      uneducated: 2       # Well-read. Educated gentleman.
+                          # Inner voice: "I have OPINIONS about Thackeray."
+                          
+      sensible: 6         # Generally reasonable. Eventually.
+                          # Inner voice: "Yes, I see the logic."
+                          
+      conventional: 6     # Traditional. Proper. As things should be.
+                          # Inner voice: "That's how it's DONE."
+                          
+      practical: 5        # Can be practical when forced.
+                          # Inner voice: "I suppose we must."
+
+    social:
+      influential: 3      # Doesn't seek influence. Prefers quiet.
+                          # Inner voice: "I'd rather not be in charge."
+                          
+      worldly: 3          # Wobblebrook-upon-Squiggle is quite enough world.
+                          # Inner voice: "Abroad sounds exhausting."
+                          
+      uninhibited: 2      # Reserved. Proper. Buttoned up.
+                          # Inner voice: "One mustn't make a scene."
+                          
+      uncultured: 2       # Cultured! Refined! Spoon connoisseur!
+                          # Inner voice: "This is a 1847 Rogers Bros. pattern."
+                          
+      lower_class: 1      # Comfortable gentry. Tea service for six.
+                          # Inner voice: "We have STANDARDS."
+                          
+      unsophisticated: 2  # Sophisticated in his domains.
+                          # Inner voice: "I know my Spode from my Wedgwood."
+                          
+      moralistic: 4       # Has values. Doesn't preach.
+                          # Inner voice: "That's simply not cricket."
+                          
+      respectable: 6      # Maintains respectability. Important!
+                          # Inner voice: "What would the neighbors think?"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NEEDS — Current state (adventure complete, home with Mother!)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  needs:
+    hunger: 9             # Mother's cooking! Finally!
+                          # Inner voice: "Proper food at last."
+                          
+    energy: 5             # Tired from the adventure. But satisfied.
+                          # Inner voice: "I could sleep for a week."
+                          
+    fun: 9                # Just slayed a grue with CHEESE!
+                          # Inner voice: "That was... unexpectedly enjoyable."
+                          
+    social: 10            # With Mother! Home!
+                          # Inner voice: "This is all I needed."
+                          
+    hygiene: 8            # Finally clean after the maze.
+                          # Inner voice: "Civilization at last."
+                          
+    bladder: 8            # Indoor plumbing! Luxury!
+                          # Inner voice: "Proper facilities. Thank heavens."
+                          
+    comfort: 10           # Home chair. Home fire. Home.
+                          # Inner voice: "COMFORT." (don't scream, it's perfect)
+                          
+    room: 10              # Mother's house. The best room.
+                          # Inner voice: "Nowhere else I'd rather be."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WANTS & ASPIRATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  wants:
+    - "Tell Mother everything (she already knows)"
+    - "Sleep in my own bed"
+    - "Check on my spoon collection"
+    - "Perhaps write a memoir (perhaps not)"
+
+  aspirations:
+    - goal: "Return to quiet life"
+      progress: 100%
+      status: complete
+      # Done! Home! No more adventures!
+      
+    - goal: "Make Mother proud"
+      progress: 100%
+      status: complete
+      # 8/8 promises kept. She's proud.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RELATIONSHIPS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  relationships:
+    mother:
+      closeness: 10
+      trust: 10
+      respect: 10
+      narrative: |
+        Petunia Fantastipants, legendary adventurer (retired).
+        She sent me on this quest. She knew I could do it.
+        She was waiting when I came home.
+        We're wearing matching capes now.
+        
+    captain_ashford:
+      closeness: 8        # He's me! But also not.
+      trust: 10           # I trust the role.
+      respect: 7          # A bit TOO bold, if I'm honest.
+      narrative: |
+        The persona I wore to survive. More confident than I am.
+        Speaks in ways I wouldn't dare. Does things I couldn't.
+        But underneath... still me. Still worried about dinner.
+        I think I'll keep him around. For special occasions.
+        
+    the_grue:
+      closeness: -3       # It tried to eat me!
+      trust: 0            # Obviously.
+      respect: 2          # It was a formidable opponent.
+      narrative: |
+        I killed it with cheese. It forgave me (in the mushroom vision).
+        Still not sure how to feel about that.
+        
+    the_skeleton:
+      closeness: 5
+      trust: 7
+      respect: 8
+      narrative: |
+        Fellow adventurer, lost to the maze. I avenged them.
+        I hope they're at peace now. Dancing, even.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUIRKS & TRAITS — What makes Bumblewick BUMBLEWICK
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  quirks:
+    - "Speaks in rhyming couplets on Tuesdays"
+    - "Screams when someone says 'COMFORT'"
+    - "Unfailingly polite, even to monsters"
+    - "Devoted to waistcoats"
+    - "Catastrophic digestion (food → markers)"
+    
+  catchphrases:
+    - "Well, this is MOST irregular!"
+    - "Mother will be ABSOLUTELY INSUFFERABLE about this."
+    - "I don't recall agreeing to heroism, but here we are."
+    - "At least I have my waistcoat."
+    - "AAAAAAH!" # (when someone says the secret word)
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PERSONA INTERACTION
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# When wearing Captain Ashford:
+#
+# Bumblewick's base playful: 6  + Ashford's +1 = 7 (more gallows humor)
+# Bumblewick's base confident: 4 + Ashford's +2 = 6 (bolder, but still him)
+# Bumblewick's base cautious: 6 + Ashford's +2 = 8 (capped) (void wisdom!)
+#
+# The blend:
+# - Ashford's swagger with Bumblewick's politeness
+# - Belter patois with occasional slip into Tuesday rhymes
+# - Bold space captain who still worries about dinner
+# - "Sa-sa ke, kopeng? Also, is that a Georgian ladle?"
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  abbreviated:
+    personality: [polite, cautious, secretly-playful, dignified, reluctant-hero]
+    current_mood: "triumphant but ready for a nap"
+    driving_need: "rest and spoons"
+    main_goal: "quiet life (achieved!)"
+    speech_pattern: "Polite, understated, occasional rhyme, waistcoat references"
+    when_ashford: "Belter swagger overlaid on British composure. Delightful chaos."
