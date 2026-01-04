@@ -1,0 +1,176 @@
+# 🪑 SEATING
+# Where you sit says who you are
+
+object:
+  name: Pub Seating
+  type: furniture
+  portable: false
+  
+  description: |
+    The Rusty Lantern offers three kinds of seating, each with its
+    own social contract:
+    
+    - THE BAR: Front row. Direct bartender access. Where regulars sit.
+    - THE TABLES: Open floor. Social mixing. Games and conversation.
+    - THE BOOTHS: High-backed. Private. For deals and secrets.
+    
+    Where you choose to sit shapes who you'll meet and what you'll hear.
+
+# THE BAR
+bar_stools:
+  description: |
+    A row of worn wooden stools lines the bar, each one shaped by
+    decades of adventurer posteriors. The varnish is worn through
+    in spots. Some stools wobble. One squeaks. They're all beloved.
+    
+  capacity: 8
+  intimacy: high
+  service: immediate
+  
+  features:
+    - "Direct access to the bartender"
+    - "See everything — exits, patrons, games"
+    - "Overhear bar conversations"
+    - "First to know when something happens"
+    
+  who_sits_here:
+    - "Regulars (Morn's stool is ALWAYS taken)"
+    - "Lonely travelers seeking company"
+    - "Those with questions for the bartender"
+    - "People watching the room"
+    
+  actions:
+    SIT-AT-BAR:
+      effect: "Join the bar community"
+      triggers: "Bartender acknowledges you"
+      
+    CLAIM-STOOL:
+      description: "Try to claim a regular's spot"
+      risk: "Social faux pas if occupied"
+      
+    MORN-STOOL:
+      description: "Sit in Morn's stool"
+      effect: "He's not here right now. Or is he?"
+
+# THE TABLES
+tables:
+  description: |
+    Scattered across the floor, scarred wooden tables of various
+    sizes. Some seat two, some seat eight. All have seen better
+    days and heard better stories. The legs are uneven. Coasters
+    are futile. This is where the action happens.
+    
+  capacity: "2-8 per table, ~6 tables"
+  intimacy: medium
+  service: waitress
+  
+  features:
+    - "Social mixing — join strangers or be joined"
+    - "Games can be played here (cards, dice)"
+    - "Food and drink service (waitress visits)"
+    - "Conversations audible to neighbors"
+    
+  table_types:
+    small: "Intimate conversation for 2"
+    medium: "Group of 4, card games"
+    large: "Party of 6-8, loud and social"
+    round: "King Arthur style — no head, equals"
+    
+  who_sits_here:
+    - "Groups of adventurers planning"
+    - "Card games and gambling"
+    - "Those seeking to meet strangers"
+    - "Parties celebrating or mourning"
+    
+  actions:
+    JOIN-TABLE:
+      usage: "JOIN [table/patron]"
+      effect: "Sit at an occupied table"
+      social: "May be welcomed or rebuffed"
+      
+    CLAIM-TABLE:
+      effect: "Take an empty table"
+      note: "Others may ask to join"
+      
+    EAVESDROP:
+      effect: "Listen to nearby tables"
+      risk: "Being noticed"
+
+# THE BOOTHS
+booths:
+  description: |
+    High-backed wooden booths line the walls, each a private world.
+    The wood is dark with age. The leather seats are cracked but
+    comfortable. Candles flicker in iron holders. This is where
+    secrets live.
+    
+  capacity: 2-4 per booth
+  intimacy: private
+  service: by_request
+  
+  features:
+    - "High backs block sound and sight"
+    - "Candles provide atmosphere"
+    - "Service requires flagging down"
+    - "Conversations are PRIVATE"
+    
+  booth_locations:
+    corner_booth: "Most private. Reserved for VIPs or villains."
+    window_booth: "View of the street. Watch for arrivals."
+    back_booth: "Near the mysterious back door."
+    fireplace_booth: "Warmest. Coziest. Most sought after."
+    
+  who_sits_here:
+    - "Deal-makers and negotiators"
+    - "Lovers on dates"
+    - "Conspirators and schemers"
+    - "Those who don't want to be seen"
+    
+  actions:
+    TAKE-BOOTH:
+      effect: "Claim a private booth"
+      note: "Some are reserved. Ask bartender."
+      
+    INVITE-TO-BOOTH:
+      usage: "INVITE [patron] TO BOOTH"
+      effect: "Private conversation initiated"
+      
+    CONSPIRE:
+      effect: "Have a secret conversation"
+      privacy: "No eavesdropping possible"
+
+# SOCIAL MECHANICS
+social_dynamics:
+  service_levels:
+    bar: "Immediate — bartender is right there"
+    table: "Regular — waitress makes rounds"
+    booth: "On request — flag someone down"
+    
+  intimacy_levels:
+    bar: "Public — everyone hears everything"
+    table: "Semi-public — neighbors can listen"
+    booth: "Private — your words stay here"
+    
+  meeting_strangers:
+    bar: "Easy — you're shoulder to shoulder"
+    table: "Medium — must ask to join"
+    booth: "Rare — by invitation only"
+    
+  being_found:
+    bar: "Immediately visible"
+    table: "Scannable from entrance"
+    booth: "Must search or ask"
+
+lore: |
+  "Where you sit is the first thing you say."
+  — Bartender's wisdom
+  
+  The regulars know: bar stools are for community, tables are
+  for business, booths are for secrets. Sitting in the wrong
+  place sends a message. Sitting in the right place opens doors.
+  
+inspiration:
+  - "Every pub's natural social geography"
+  - "Cheers — Norm's stool, the regulars' spots"
+  - "Film noir — the back booth deal"
+  - "The Sims — social interactions and intimacy levels"
