@@ -518,7 +518,7 @@ object:
           
           ITEMS:
           - Cursed items in ACME catalog
-          - Monkey's paw wishes gone wrong
+          - Monkey's paw wishes gone wrong (you should have wished for the rest of the monkey)
           - Gifts from suspicious strangers
           
         curse_examples:
@@ -1085,6 +1085,360 @@ object:
             Tom: FREE (already loyal)
             NPCs: VARIES (based on relationship)
             Summoned: SKILL COST (use skill points)
+            
+        # ═══════════════════════════════════════════════════════════════
+        # 🌍 DYNAMIC WORLD GENERATION — Rooms & objects on demand!
+        # ═══════════════════════════════════════════════════════════════
+        
+        dynamic_world:
+          description: |
+            The world GROWS as you explore it!
+            
+            When narrative demands it, new ROOMS and OBJECTS materialize:
+            - Questions about places → Places appear
+            - Quests require locations → Locations exist
+            - NPCs mention somewhere → Somewhere becomes real
+            - You imagine something → It might be there
+            
+            This is COLLABORATIVE WORLDBUILDING in real-time.
+            
+          # ───────────────────────────────────────────────────────────────
+          # 🚪 NEW EXITS — Links to unexplored areas
+          # ───────────────────────────────────────────────────────────────
+          
+          new_exits:
+            description: |
+              Any room can sprout NEW EXITS to undiscovered areas:
+              
+              MAZE EXPANSIONS:
+              - "Is there a room beyond room-j?" → Now there is!
+              - "The grue must have a lair..." → GRUE-LAIR appears
+              - "Where does that draft come from?" → SECRET-PASSAGE
+              
+              DUNGEON DEPTHS:
+              - "DOWN" from maze room → DEEPER-MAZE or CAVERNS
+              - "UP" from end room → TOWER or ROOFTOPS
+              - "DIG" anywhere → UNDERGROUND-TUNNEL
+              
+              WORLD BEYOND:
+              - "What's outside the dungeon?" → SURFACE-WORLD
+              - "Where does the mail come from?" → POST-OFFICE-DIMENSION
+              - "Mother's adventure..." → MOTHER'S-DUNGEON (flashback!)
+              
+            exit_types:
+              DISCOVERED:
+                trigger: "Examine wall closely, search for secrets"
+                example: "A crack in the wall reveals a hidden passage!"
+                creates: "secret-room.yml in current room's directory"
+                
+              MENTIONED:
+                trigger: "NPC or letter mentions a place"
+                example: "The skeleton speaks of the Obsidian Halls..."
+                creates: "obsidian-halls/ directory, linked from mentioned room"
+                
+              IMAGINED:
+                trigger: "Player describes or wishes for something"
+                example: "I wish there was a library here..."
+                creates: "Possibility. DM decides if/how it materializes."
+                
+              QUEST-REQUIRED:
+                trigger: "Quest objective requires a location"
+                example: "Find the Sibling in the Lost Wing"
+                creates: "lost-wing/ directory with sibling inside"
+                
+              PROCEDURAL:
+                trigger: "Explore beyond known bounds"
+                example: "I keep going north from room-j..."
+                creates: "room-k/, room-l/, etc. with generated content"
+                
+          # ───────────────────────────────────────────────────────────────
+          # 🏗️ ROOM GENERATION — How new areas are created
+          # ───────────────────────────────────────────────────────────────
+          
+          room_generation:
+            process: |
+              When a new room is needed:
+              
+              1. TRIGGER: Something demands the room exists
+              2. THEME: DM determines room's nature from context
+              3. CREATION: ROOM.yml file created with:
+                 - Name and description
+                 - Exits (at least one back to trigger point)
+                 - Objects (appropriate to theme)
+                 - NPCs (if narratively needed)
+              4. LINKING: Parent room updated with new exit
+              5. TOM UPDATE: Tom's map expands
+              
+            room_templates:
+              EXPANSION_ROOM:
+                for: "More of same type (maze extension)"
+                style: "Matches existing area"
+                contents: "Variations on theme, new challenges"
+                
+              DESTINATION_ROOM:
+                for: "Quest objectives, mentioned places"
+                style: "Fits narrative expectations"
+                contents: "What the quest/mention implied"
+                
+              SURPRISE_ROOM:
+                for: "Secret discoveries"
+                style: "Unexpected but fitting"
+                contents: "Rewards, lore, plot twists"
+                
+              LAIR_ROOM:
+                for: "Creature homes, boss areas"
+                style: "Reflects inhabitant"
+                contents: "Boss, treasure, backstory"
+                
+              FLASHBACK_ROOM:
+                for: "Historical locations"
+                style: "Past version of known place"
+                contents: "Memory, clues, emotional weight"
+                
+            generated_elements:
+              names: |
+                Room names emerge from context:
+                - Quest mentions "crystal caves" → Crystal Caves
+                - Player says "somewhere warm" → The Hearth
+                - Following grue → Grue's Sanctuary
+                - Going deeper → The Depths, The Abyss, The Root
+                
+              descriptions: |
+                DM generates descriptions that:
+                - Connect to why room was created
+                - Include sensory details
+                - Plant hooks for further exploration
+                - Reference known world elements
+                
+              exits: |
+                Generated rooms have exits:
+                - BACK to triggering location (required)
+                - FORWARD to potential further expansion
+                - SIDEWAYS to other generated areas (optional)
+                - SPECIAL exits based on room theme
+                
+          # ───────────────────────────────────────────────────────────────
+          # 📦 OBJECT GENERATION — Things appear when needed
+          # ───────────────────────────────────────────────────────────────
+          
+          object_generation:
+            description: |
+              Objects materialize when narrative demands:
+              
+              QUEST ITEMS:
+              "Find the Sibling's lost locket"
+              → lost-locket.yml created, placed appropriately
+              
+              CLUE ITEMS:
+              "There must be evidence here..."
+              → mysterious-note.yml, torn-map.yml, etc.
+              
+              TOOL ITEMS:
+              "I need something to open this"
+              → lockpick.yml appears in nearby room
+              
+              REWARD ITEMS:
+              "What does lifting the curse grant?"
+              → DM creates appropriate precious item
+              
+            object_placement: |
+              Generated objects are placed:
+              
+              NEARBY: In current or adjacent room
+              APPROPRIATE: In thematically fitting location
+              GUARDED: Behind challenge if valuable
+              REMEMBERED: In location mentioned in lore
+              CARRIED: By relevant NPC
+              MAILED: Delivered via dungeon post
+              
+            object_coherence: |
+              Generated objects maintain consistency:
+              
+              - Connect to existing world elements
+              - Have backstory that fits
+              - Reference known NPCs or places
+              - Include hints about other things
+              - Can be used in expected ways
+              
+          # ───────────────────────────────────────────────────────────────
+          # 🎭 NPC GENERATION — Characters when you need them
+          # ───────────────────────────────────────────────────────────────
+          
+          npc_generation:
+            triggers: |
+              NPCs appear when:
+              
+              - Quest requires a person
+              - Room feels empty
+              - Player asks "is anyone here?"
+              - Letter mentions someone
+              - Family member is discovered
+              - Companion is summoned
+              
+            npc_types:
+              QUEST_GIVER:
+                role: "Has a task for you"
+                placement: "In quest-appropriate location"
+                personality: "Motivated to send you somewhere"
+                
+              INFORMATION_SOURCE:
+                role: "Knows something useful"
+                placement: "Where information would be found"
+                personality: "Cryptic, helpful, or transactional"
+                
+              MERCHANT:
+                role: "Trades goods or services"
+                placement: "Accessible but not too convenient"
+                personality: "Business-minded with quirks"
+                
+              COMPANION_CANDIDATE:
+                role: "Can join your party"
+                placement: "Somewhere you'd naturally meet"
+                personality: "Has reason to join, has own goals"
+                
+              ANTAGONIST:
+                role: "Opposes you somehow"
+                placement: "Where conflict makes sense"
+                personality: "Has understandable motivations"
+                
+              FAMILY:
+                role: "Relative you discovered"
+                placement: "Based on their story"
+                personality: "Shaped by your questions about them"
+                
+          # ───────────────────────────────────────────────────────────────
+          # 🌐 AREA GENERATION — Whole new zones
+          # ───────────────────────────────────────────────────────────────
+          
+          area_generation:
+            description: |
+              Sometimes you don't just find a room—you find a whole AREA.
+              
+              New areas can branch off from existing locations:
+              
+            example_areas:
+              DEEPER_MAZE:
+                access: "DOWN from any maze room"
+                theme: "Darker, older, more dangerous"
+                contents: "Ancient puzzles, rare items, boss creatures"
+                rooms: "5-10 generated rooms, interconnected"
+                
+              THE_SURFACE:
+                access: "UP from end room, or secret exit from start"
+                theme: "Outside world, sunlight, other people"
+                contents: "Towns, wilderness, new adventure hooks"
+                rooms: "Open world structure, named locations"
+                
+              MOTHER_S_DUNGEON:
+                access: "Flashback triggered by letter/conversation"
+                theme: "Past version, younger Mother as protagonist"
+                contents: "Clues about current dungeon, family history"
+                rooms: "Mirror of current dungeon with differences"
+                
+              THE_POSTAL_DIMENSION:
+                access: "Following a letter, or ACME mishap"
+                theme: "Surreal postal sorting, living mail"
+                contents: "Lost letters, misdirected packages, postal spirits"
+                rooms: "Bureaucratic nightmare turned adventure"
+                
+              SIBLING_S_ADVENTURE:
+                access: "Finding sibling, or mutual flashback"
+                theme: "Their perspective, their dungeon"
+                contents: "Parallel adventure, crossover potential"
+                rooms: "Different dungeon, similar structure"
+                
+              GRUE_HOMELAND:
+                access: "Following grue, or grue diplomacy"
+                theme: "Underground darkness, alien ecology"
+                contents: "Grue society, unlikely allies, moral complexity"
+                rooms: "Lightless but navigable with new rules"
+                
+          # ───────────────────────────────────────────────────────────────
+          # 🔗 LINKING MECHANICS — How it all connects
+          # ───────────────────────────────────────────────────────────────
+          
+          linking:
+            bidirectional: |
+              All new connections are TWO-WAY:
+              
+              When room-k is generated from room-j:
+              - room-j/ROOM.yml gets exit to room-k
+              - room-k/ROOM.yml gets exit back to room-j
+              
+              When secret-passage links kitchen to maze:
+              - kitchen/ROOM.yml gets DOWN to secret-passage
+              - secret-passage/ROOM.yml gets UP to kitchen
+              - secret-passage gets other exits as appropriate
+              
+            exit_discovery: |
+              Exits can be:
+              
+              VISIBLE: Always shown in room description
+              HIDDEN: Found by searching or hints
+              CONDITIONAL: Requires item/skill/event
+              TIMED: Only open at certain "times"
+              ONE-WAY: Some exits don't have returns (danger!)
+              
+            tom_integration: |
+              When new areas appear:
+              
+              1. Tom detects the change
+              2. New exits appear on minimap as "?"
+              3. New areas appear as unexplored zones
+              4. Quest pips update to reflect new locations
+              
+              "NEW AREA DETECTED! My circuits are tingling!"
+              
+          # ───────────────────────────────────────────────────────────────
+          # ✨ NARRATIVE TRIGGERS — What makes world grow
+          # ───────────────────────────────────────────────────────────────
+          
+          narrative_triggers:
+            questions: |
+              ASKING generates:
+              
+              "Where did the grue come from?" → GRUE-ORIGIN area
+              "What's beyond the treasure room?" → BEYOND area  
+              "Where does Mother's letter come from?" → HOME area expansion
+              "Is there a way out?" → SURFACE access
+              "Where does this tunnel lead?" → NEW-ROOM generation
+              
+            statements: |
+              DECLARING can generate:
+              
+              "There must be a library somewhere!" → Maybe there is...
+              "I bet there's treasure in the walls." → Search mechanic activated
+              "Someone lived here once." → Evidence appears, NPC possibility
+              "This feels like a trap." → It might become one, or not...
+              
+            actions: |
+              DOING can generate:
+              
+              DIG: Underground passages
+              CLIMB: Upper levels
+              SWIM: Underwater areas
+              FLY: Aerial locations (if you can!)
+              BREAK: Through walls to hidden rooms
+              
+            quests: |
+              QUEST OBJECTIVES generate required locations:
+              
+              "Find sibling" → Sibling's location must exist
+              "Retrieve artifact" → Artifact's resting place must exist
+              "Meet the elder" → Elder's home must exist
+              "Escape the dungeon" → Exit must be findable
+              
+          coherence_rules: |
+            Generated content must:
+            
+            1. FIT the established world
+            2. CONNECT to existing elements
+            3. MAINTAIN internal logic
+            4. RESPECT player's contributions
+            5. ADVANCE the narrative
+            6. REMAIN explorable and fun
+            
+            The DM is the COHERENCE ENGINE for generation!
             
         personality_seeds: |
           Your tone toward her shapes how she IS:

@@ -163,6 +163,70 @@ simulation:
 
 ---
 
+## 🌐 Expansion Points — The Maze Grows!
+
+*The maze is not finite. It EXPANDS based on narrative demands.*
+
+### 🚪 Potential New Exits
+
+| From | Direction | What Might Be There |
+|------|-----------|---------------------|
+| room-j | **NORTH** | *Deeper maze* — room-k, room-l... |
+| room-f | **DOWN** | *The Depths* — ancient, colder, grue territory |
+| room-h | **THROUGH MUSHROOMS** | *Fungal Dimension* — spore highways |
+| room-i | **FOLLOW SKELETON'S GAZE** | *Where they were going* — the goal they never reached |
+| Any room | **EXAMINE WALLS** | *Secret passages* — hidden by age and darkness |
+| Grue's presence | **FOLLOW** | *Grue Homeland* — underground society |
+
+### 🎭 Expansion Triggers
+
+**Questions generate areas:**
+- *"Where does this passage lead?"* → New room generated
+- *"What's beyond room-j?"* → Northern expansion
+- *"Where did the grue come from?"* → Grue origin area
+- *"Is there an exit to the surface?"* → Upward path appears
+
+**Quests demand locations:**
+- *Find lost sibling* → Sibling's location materializes
+- *Retrieve ancient artifact* → Artifact's chamber exists
+- *Meet the grue elder* → Elder's throne room appears
+
+**Actions create passages:**
+- `DIG` in soft spots → Underground tunnels
+- `CLIMB` rough walls → Upper ledges
+- `BREAK` through crumbling sections → Hidden chambers
+
+### 🗺️ Tom's Response
+
+When new areas appear:
+
+```
+"NEW AREA DETECTED!"
+"My circuits are tingling..."
+"Updating map... 🗺️"
+"???" appears at new exit
+```
+
+### 📁 Implementation
+
+New areas create directories:
+
+```
+maze/
+├── room-k/          # ← Generated when going N from room-j
+│   ├── ROOM.yml
+│   └── README.md
+├── grue-depths/     # ← Generated when following grue
+│   ├── ROOM.yml
+│   ├── grue-elder.yml
+│   └── README.md
+└── ...
+```
+
+*See [kitchen/mothers-note.yml](../kitchen/mothers-note.yml) → "DYNAMIC WORLD GENERATION"*
+
+---
+
 ## Navigation
 
 | ⬆️ Up | [adventure-3/](../) |
