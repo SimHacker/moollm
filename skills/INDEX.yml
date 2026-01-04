@@ -130,6 +130,26 @@ skills:
     specializations: ["photographer", "painter", "illustrator", "concept-artist"]
     learned_by: ["Maurice (adventure-2)"]
     
+  - name: "storytelling-tools"
+    path: "skills/storytelling-tools"
+    description: "Narrative capture and sharing—notebooks, letters, photos, README"
+    tier: 1
+    entry: "README.md"
+    protocol: "STORYTELLING-TOOLS"
+    tags: ["narrative", "capture", "sharing", "lloooomm"]
+    use_when: "Building notebooks, writing letters, capturing photo prompts"
+    origin: "The Sims — Family Album, The Sims Exchange"
+    
+  - name: "procedural-rhetoric"
+    path: "skills/procedural-rhetoric"
+    description: "Design objects and worlds with intentional ideology"
+    tier: 1
+    entry: "README.md"
+    protocol: "PROCEDURAL-RHETORIC"
+    tags: ["design", "ideology", "rhetoric", "sims"]
+    use_when: "Designing schemas, rules, or constraints that embody values"
+    origin: "Ian Bogost + Scott McCloud + Will Wright"
+    
   # --- RESEARCH & DEBUGGING ---
   
   - name: "research-notebook"

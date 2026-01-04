@@ -235,12 +235,23 @@ Day 4: "I want to automate this..."
 
 ---
 
-## Protocol Symbol
+## Related Protocols
 
-```
-CONSTRUCTIONISM
-```
+| Protocol | Connection |
+|----------|------------|
+| [CONSTRUCTIONISM](../../PROTOCOLS.yml) | The core philosophy |
+| [TOY-NOT-GAME](../../PROTOCOLS.yml) | Sandbox over scoring — play IS the point |
+| [PERKY-PAT](../../PROTOCOLS.yml) | Shared consciousness projection into microworlds |
+| [SIMULATOR-EFFECT](../../PROTOCOLS.yml) | Imagination does the heavy lifting |
+| [PLAY-LEARN-LIFT](../../PROTOCOLS.yml) | The methodology of constructionist learning |
+| [GUTTER-CLOSURE](../../PROTOCOLS.yml) | The gaps are where learning happens |
 
-Invoke when: Designing for learning, building inspectable systems, teaching through construction.
+---
 
-See: [PROTOCOLS.yml](../../PROTOCOLS.yml#CONSTRUCTIONISM)
+## The Insight
+
+> *"If you can build it, you can understand it."*
+> *"If you can inspect it, you can trust it."*
+> *"The filesystem IS the microworld."*
+
+See: [PROTOCOLS.yml](../../PROTOCOLS.yml)

@@ -262,10 +262,26 @@ The room intercepts CRAFT before it reaches the object, adding room-specific log
 ## Protocol Symbols
 
 ```
-ADVERTISEMENT       — Objects announce available actions
+ADVERTISEMENT        — Objects announce available actions
 AUTONOMOUS-SELECTION — Agent picks based on scores
-SIMANTICS           — The Sims behavioral model
-PIE-MENU            — Radial display of options
+SIMANTICS            — The Sims behavioral model
+PIE-MENU             — Radial display of options
+FLY-UNDER-RADAR      — Normalize through defaults
+PROCEDURAL-RHETORIC  — Rules carry ideology
 ```
 
-See: [PROTOCOLS.yml](../../PROTOCOLS.yml#ADVERTISEMENT)
+See: [PROTOCOLS.yml](../../PROTOCOLS.yml)
+
+---
+
+## The Deep Insight
+
+From [SIMANTICS](../../PROTOCOLS.yml):
+
+> *"The Sims' AI isn't centralized — it's distributed throughout objects."*
+> *"A refrigerator knows it offers food. A bed knows it offers sleep."*
+> *"The Sim chooses from what's advertised nearby."*
+
+This IS MOOLLM's architecture. Objects self-describe. The coherence engine orchestrates. Intelligence is **distributed** throughout the world.
+
+The advertisements ARE the AI.
