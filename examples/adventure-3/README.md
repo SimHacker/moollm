@@ -269,15 +269,46 @@ Grandmother negotiated eternal free postage in 1923. The mailbox in the start ro
 
 There are matchbooks in the kitchen drawer. Mail them away for stamps featuring famous adventurers. One lousy point each.
 
-### 🍺 The Pub
+### 🍺 The Pub — THE RUSTY LANTERN
 
-Someone built a tavern south of the Chamber. Or it was always there. The bartender isn't sure.
+**The social hub of the adventure.** South of the Chamber, a timeless tavern awaits.
 
-**The Rusty Lantern** changes based on your... expectations. Visit thinking of a space cantina and you might find Z-4RT polishing glasses under neon. Visit thinking of a western saloon and Miss Kitty has opinions about your hat.
+Inspired by **Bar Karma** (Will Wright & Don Hopkins) — the first crowdsourced TV series about a bar at the edge of the universe where lost souls face karmic crossroads. The bartender there was 20,000 years old. Ours is... similar.
 
-There's a back room. The bartender doesn't talk about it. Yet.
+**The Rusty Lantern** changes based on your expectations:
+- Think of a space cantina → Z-4RT polishes glasses under neon
+- Think of a western saloon → Miss Kitty has opinions about your hat
+- Think of a pirate tavern → Pegleg Pete asks about your sea legs
+- Or describe ANY theme you want...
 
-*Rumors. Quests. Games. Companions. Mother's old booth. The pub has secrets.*
+**What's inside:**
+
+| Object | What It Does |
+|--------|--------------|
+| 🧑‍🍳 **Bartender** | Ancient, mysterious, knows everything (for a price) |
+| 🪑 **Seating** | Bar (public), Tables (social), Booths (private) |
+| 🎯 **Dart Board** | Challenge patrons, settle disputes, show off |
+| ♟️ **Chess Table** | The eternal game — legend says Death left it mid-play |
+| 🃏 **Card Deck** | Poker, Adventurer's Ruin, the mystery of the 7♣ |
+| 🔥 **Fireplace** | Warmth — and a hearthstone teleportation secret |
+| 📋 **Notice Board** | Quest hooks, warnings, community events |
+| 👻 **Pac-Man** | Wakka wakka. Who holds the perfect game? |
+| 🏓 **Pong** | The original. From Andy Capp's Tavern, 1972. |
+| 🍒 **Fruit Machine** | One-armed bandit. It predates the bar itself. |
+| 🎱 **Pinball** | "BAR KARMA" — face your fate in Wizard Mode |
+
+**Social mechanics:** Where you sit matters! Bar stools for regulars and quick service. Tables for games and mixing. Booths for secrets and deals. The bartender serves the bar. A waitress serves tables. Booths? Flag someone down.
+
+**Narrative device:** The pub is where:
+- You hear **rumors** (true, mostly-true, and false-but-fun)
+- You meet **NPCs** who become companions
+- You get **quest hooks** from the notice board
+- You discover **plot** through eavesdropping
+- You find Mother's **old booth** from her adventuring days
+
+There's a back room. The bartender doesn't talk about it. *Yet.*
+
+*The pub grows with the story. New patrons. New secrets. New themes.*
 
 ---
 
