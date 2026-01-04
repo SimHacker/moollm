@@ -31,7 +31,7 @@ This adventure was built **entirely through conversation**. Starting from nothin
 
 ## 📜 Complete File History
 
-### Files Created (30 total)
+### Files Created (32 total)
 
 | File | Created In | Purpose |
 |------|------------|---------|
@@ -66,10 +66,12 @@ This adventure was built **entirely through conversation**. Starting from nothin
 | `kitchen/fridge.yml` | Chat 10-12 | EAT mechanic + transformations |
 | `maze/room-j/lamp-vendor.yml` | Chat 13 | ACME Lamp Refueling — tribute to Colossal Cave battery vendor |
 | `maze/room-f/gold-pile.yml` | Chat 14 | 100 gold coins — the skeleton's fortune! |
+| `start/README.md` | Consistency check | Navigation & documentation |
+| `end/README.md` | Consistency check | Navigation & documentation |
 
 ### Evolutionary History of Key Files
 
-#### `player.yml` — 5 Versions
+#### `player.yml` — 6 Versions
 
 | Version | Changes |
 |---------|---------|
@@ -148,6 +150,7 @@ adventure-1/
 ├── README.md           # You are here (the creation story)
 ├── player.yml          # Bumblewick Fantastipants, reluctant hero
 ├── start/              # Chamber of Commencement
+│   ├── README.md       # Room documentation & navigation
 │   ├── ROOM.yml        # Exits: N→maze, W→kitchen, E→coatroom
 │   └── lamp.yml        # The classic brass lamp (400 moves)
 ├── kitchen/            # Fantastipants Family Kitchen (WEST)
@@ -174,6 +177,7 @@ adventure-1/
 │   ├── room-i/         # Skeleton
 │   └── room-j/         # Crossroads
 └── end/                # Treasury of Modest Proportions  
+    ├── README.md       # Room documentation & navigation
     ├── ROOM.yml        # Dramatic lighting, triumph achieved
     └── treasure.yml    # The Jeweled Chalice (10 points!)
 ```
@@ -215,7 +219,7 @@ Your character. Reluctant hero, spoon enthusiast, waistcoat devotee.
 
 *"One pedestal remains occupied..."*
 
-- **Exit south:** back to the beginning (but why?)
+- **Exit south:** back into the maze (room-d) — you'd have to navigate out again!
 - **Features:** Empty pedestals, dramatic lighting, sense of importance
 - **Contains:** The jeweled chalice
 
