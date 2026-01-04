@@ -133,8 +133,8 @@ party:
   roles:
     frontline: "Fighter, Guardian, Tank"
     support: "Navigator, Light-Bearer, Pack Mule"
-    specialist: "Photographer, Chef, Merchant"
-    mystic: "Oracle, Medium, Postal Savant"
+    specialist: "Photographer, Painter, Chef, Merchant"
+    mystic: "Oracle, Medium, Postal Savant, Self Help Guru"
     wildcard: "Pet, Sibling, Reformed Grue"
     
   commands:
@@ -260,40 +260,12 @@ topologies:
     mystery: "Loop, Hybrid"
 
 # ═══════════════════════════════════════════════════════════════════════════
-# 📍 TOM INTEGRATION — Mission map and GPS
-# See also: kitchen/tomtomagotchi.yml for full Tom spec
-# ═══════════════════════════════════════════════════════════════════════════
-
-tom_features:
-  mission_pips:
-    gold_star: "Main missions"
-    pink_heart: "Mother missions"
-    green_diamond: "Collectibles"
-    blue_cylinder: "Resources"
-    red_skull: "Danger"
-    yellow_person: "NPCs"
-    purple_paw: "Companions"
-    
-  plot_driver: |
-    Tom suggests WHAT TO DO NEXT based on:
-    1. URGENCY (time-sensitive)
-    2. PROXIMITY (nearby opportunities)
-    3. MOMENTUM (what you're doing)
-    4. NARRATIVE (story beats)
-    
-  commands:
-    - "QUESTS / MISSIONS / OBJECTIVES"
-    - "MARK [name] / WAYPOINT [name]"
-    - "NAVIGATE TO [destination]"
-    - "MAP / WHERE"
-
-# ═══════════════════════════════════════════════════════════════════════════
-# 🔗 CROSS-REFERENCES
+# 🔗 CROSS-REFERENCES — Don't duplicate, consolidate!
 # ═══════════════════════════════════════════════════════════════════════════
 
 see_also:
   letter_and_goals: "kitchen/mothers-note.yml"
-  tom_full_spec: "kitchen/tomtomagotchi.yml"
+  navigation_companion: "kitchen/tomtomagotchi.yml"  # Full Tom spec + mission map
   pub_themes: "pub/ROOM.yml"
   maze_mechanics: "maze/README.md"
   crafting: "kitchen/counter.yml"
