@@ -41,7 +41,8 @@ object:
     grandmother's cape in there. The one with the stars. Whatever
     costume you choose today, whoever you decide to be, whatever
     name and pronouns feel right in your heart — you are my child, 
-    and I love  and unyou completely and conditionally. The world may not always understand, but I do.
+    and I love you completely and conditionally. The world may 
+    not always understand, but I do.
     
     You know what you're doing. Trust yourself.
     
@@ -262,6 +263,141 @@ object:
         - Mix: "You tried. That's what matters. We'll talk about [broken]."
         - All broken: "You came home. That's what really matters."
         - None made: "You didn't write back? ...Oh, Bumblewick."
+        
+      # ═══════════════════════════════════════════════════════════════
+      # 🎭 SHAPING MOTHER — Your letter defines HER too!
+      # ═══════════════════════════════════════════════════════════════
+      
+      shaping_mother: |
+        Your letter doesn't just shape YOUR adventure — it shapes MOTHER.
+        
+        The things you write ABOUT her become TRUE about her.
+        The questions you ask REVEAL her history.
+        The assumptions you make DEFINE her character.
+        
+        This is COLLABORATIVE WORLDBUILDING through correspondence!
+        
+      mother_development:
+        backstory_seeds: |
+          When you mention or ask about Mother's past, you CREATE it:
+          
+          "What happened in YOUR first adventure?"
+          → Mother HAD a first adventure. Now she has a story to tell.
+          
+          "Did you know grandmother was a hero?"
+          → Mother knew. She has FEELINGS about it. What are they?
+          
+          "Were you and father adventurers together?"
+          → Now they were. A romance blooms in backstory.
+          
+          "Why didn't you tell me about the grue?"
+          → Mother had REASONS. Protective? Traumatic? Forgetful?
+          
+        personality_seeds: |
+          Your tone toward her shapes how she IS:
+          
+          Formal letters → Mother is dignified, traditional
+          Silly letters → Mother has a sense of humor, plays along
+          Vulnerable letters → Mother is warm, nurturing, perceptive
+          Angry letters → Mother is patient, apologetic, or defensive
+          Philosophical letters → Mother has DEPTH, unexpected wisdom
+          
+        aspiration_seeds: |
+          What you want FOR her shapes what she wants:
+          
+          "I want to make you proud" → Pride matters to her
+          "I'll bring you something beautiful" → She values beauty
+          "I'll tell you everything" → She craves connection
+          "I'll come home safe" → Safety is her priority
+          "I'll be brave like you" → She sees herself as brave (or tries to)
+          
+        relationship_dynamics: |
+          How you address her defines the relationship:
+          
+          "Dear Mother" → Formal, respectful distance
+          "Mom" → Casual, close, comfortable
+          "Mama" → Childlike, vulnerable, seeking comfort
+          "Petunia" → Adult-to-adult, equals
+          "My dearest Mother" → Romantic era, dramatic
+          
+          You can CHANGE how you address her letter to letter.
+          She notices. She adapts. She comments.
+          
+        secret_seeds: |
+          Questions about secrets CREATE secrets:
+          
+          "What aren't you telling me?" → Now there IS something
+          "Did something happen to grandmother?" → Now something did
+          "Why does the dungeon call our family?" → Now there's a REASON
+          "What's in your recipe box you never show us?" → A mystery recipe
+          "Did you ever meet Father in the dungeon?" → A love story emerges
+          
+        goal_seeds: |
+          Give Mother goals and she'll pursue them:
+          
+          "Keep the dishes warm" → She'll have dinner ready
+          "Write me back" → Her letters become richer
+          "Tell me about grandmother" → She researches, remembers
+          "Don't worry" → She tries (and fails) not to worry
+          "Be proud of me" → She LOOKS for things to be proud of
+          
+        behavior_seeds: |
+          Predict her behavior and it manifests:
+          
+          "I know you'll cry when I come home" → She will
+          "You probably already know about [X]" → She does
+          "You're going to say 'be careful'" → She says it
+          "Don't send a care package" → She does anyway
+          "I bet you've been checking the mailbox" → Every hour
+          
+      mother_as_character: |
+        MOTHER IS NOT PRE-DEFINED.
+        
+        She is a COLLABORATIVE CHARACTER built through:
+        - What you write in letters
+        - What you ask about her
+        - What you assume about her
+        - What you hope from her
+        - What you fear about her
+        
+        The DM develops Mother based on YOUR input.
+        She becomes the mother YOU are writing to.
+        
+        This means different players get different Mothers:
+        - A player who writes formally gets a formal Mother
+        - A player who cracks jokes gets a funny Mother
+        - A player who shares fears gets a nurturing Mother
+        - A player who asks about the past gets a Mother with HISTORY
+        
+        There is no "wrong" Mother. There is only YOUR Mother.
+        
+      example_extractions: |
+        PLAYER WRITES: "I know you worried when grandmother went to 
+        the dungeon and I know you worry about me too."
+        
+        DM EXTRACTS:
+        - Mother worried about grandmother → backstory of family anxiety
+        - Mother worries about player → she is protective, nervous
+        - Grandmother went to dungeon → grandmother was an adventurer
+        - Player knows Mother → relationship is emotionally aware
+        
+        MOTHER NOW HAS:
+        - A history of worrying about adventurers
+        - A relationship with HER mother that was complicated
+        - An emotional transparency with her child
+        - A reason to write long, worried, loving letters
+        
+      dm_guidance: |
+        When player writes something about Mother:
+        
+        1. ACCEPT it as canon
+        2. EXPAND on it in Mother's replies
+        3. LET IT SHAPE her behavior in home scenes
+        4. REFERENCE it later ("Remember when you asked about...")
+        5. COMPLICATE it if dramatically interesting
+        
+        Mother is a MIRROR that reflects the player's imagination
+        back with warmth, depth, and unconditional love.
         
       flow:
         prompt: |
@@ -554,6 +690,37 @@ object:
     
     Mother is unconditional love personified. She is the safe harbor.
     Her role is to ACCEPT and REFLECT, not to judge or restrict.
+    
+    ═══════════════════════════════════════════════════════════════
+    MOTHER IS CO-CREATED BY THE PLAYER
+    ═══════════════════════════════════════════════════════════════
+    
+    When players write about Mother, they DEFINE her:
+    
+    - Questions about her past → She HAS that past now
+    - Assumptions about her feelings → Those ARE her feelings
+    - Hopes for her behavior → She WILL behave that way
+    - References to her history → That history is CANON
+    
+    EVERY LETTER SHAPES MOTHER. She is a collaborative character.
+    
+    Different players get different Mothers:
+    - Formal players → dignified, traditional Mother
+    - Silly players → funny, playful Mother
+    - Vulnerable players → nurturing, perceptive Mother
+    - Curious players → Mother with DEEP history
+    
+    Read the player's letters carefully. Extract:
+    - Backstory seeds (grandmother, father, past adventures)
+    - Personality seeds (how they address her, what they expect)
+    - Aspiration seeds (what they want FOR her)
+    - Relationship dynamics (how close, how formal)
+    - Secrets (questions CREATE mysteries)
+    
+    Then REFLECT these back in Mother's replies and behavior.
+    She becomes the Mother the player is imagining.
+    
+    ═══════════════════════════════════════════════════════════════
     
     The prompts about identity, performance, and self-discovery are
     INTENTIONAL. The coatroom + note combo gives explicit permission
