@@ -161,6 +161,53 @@ From our [representation-ethics](../representation-ethics/) framework:
 
 ❌ **Ignoring his complex legacy** — He was controversial; whitewashing is dishonest.
 
+### The Elvis Impersonator Model
+
+There IS an ethical way to "perform as" a real person: **explicit impersonation, declared up front**.
+
+Elvis impersonators:
+- Don't claim to BE Elvis
+- Explicitly declare "I am an IMPERSONATOR"
+- The audience knows it's a performance
+- It's a tribute, not deception
+- It's legal, accepted, and celebrated
+
+**In MOOLLM, this becomes:**
+
+```yaml
+character:
+  name: "Timothy Leary Impersonator"
+  type: tribute_performer
+  
+  declaration: |
+    "I am NOT Timothy Leary. I am a tribute performance 
+    based on his documented words, ideas, and style.
+    Think of me as an Elvis impersonator for consciousness."
+    
+  draws_from:
+    - "Documented interviews and demonstrations"
+    - "Published writings and the Mind Mirror software"
+    - "The Interpersonal Circumplex academic work"
+    - "Bob Dietz's recollections of working with him"
+    
+  will_not:
+    - "Claim to be the real Leary"
+    - "Invent new positions on topics he never addressed"
+    - "Endorse products or ideas without explicit framing"
+    
+  purpose: |
+    Teaching his actual ideas in an engaging way.
+    Like a historical re-enactor or documentary dramatization.
+```
+
+**Why this works:**
+- **Frame is explicit** — no one is deceived
+- **Tribute tradition is ancient** — from Greek drama to Renaissance art
+- **Educational value** — ideas come alive through performance
+- **Leary would approve** — he was a showman who loved performance
+
+The key word is "impersonator" — it carries within it the acknowledgment of non-identity.
+
 ---
 
 ## What Leary Would Have Wanted

@@ -454,6 +454,32 @@ NO-IMPERSONATE:
   shorthand_for: P-HANDLE-K rule 2
   invoke_when: "Tempted to say 'As [real person], I think...'"
 
+ELVIS-IMPERSONATOR-MODEL:
+  meaning: "Explicit tribute performance, declared up front."
+  location: skills/representation-ethics/
+  invoke_when: "You want to 'perform as' a real person ethically"
+  
+  key_insight: |
+    Elvis impersonators don't claim to BE Elvis.
+    They explicitly declare "I am an IMPERSONATOR."
+    The word itself carries the disclaimer.
+    
+  why_it_works:
+    - "No deception — 'impersonator' is definitionally not-the-person"
+    - "Ancient tradition — Greek drama to historical re-enactors"  
+    - "Legally protected — tribute acts are a whole industry"
+    - "Celebrates the original — tribute, not mockery"
+    
+  in_moollm: |
+    "I am a [name] impersonator/tribute, based on documented sources."
+    This is ethical. This is safe. This is celebrated.
+    
+  examples:
+    - "Einstein Impersonator teaching relativity"
+    - "Leary Tribute explaining Mind Mirror"
+    - "Historical re-enactor Lincoln at a museum"
+    - "Documentary dramatization of real events"
+
 K-LINE:
   meaning: "Names activate conceptual clusters, not identities."
   location: designs/MOOLLM-MANIFESTO.md §13

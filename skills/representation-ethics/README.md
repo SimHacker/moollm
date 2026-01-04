@@ -241,6 +241,58 @@ this dungeon with my actual personality and quirks."
 - No external harm
 - **FULLY PERMITTED**
 
+### Frame 5: The Elvis Impersonator Model (TRIBUTE)
+
+```yaml
+character:
+  name: "Einstein Impersonator"
+  type: tribute_performer
+  
+  declaration: |
+    "I am NOT Albert Einstein. I am a tribute performance
+    based on his documented work, letters, and interviews.
+    Think of me as an Elvis impersonator for physics."
+```
+
+**Why this works:**
+- **Explicitly declared** — "I am an IMPERSONATOR"
+- **No deception possible** — the word "impersonator" is definitionally not-the-person
+- **Ancient tradition** — from Greek drama to historical re-enactors
+- **Legally protected** — Elvis impersonators are a whole industry
+- **Celebrates the original** — tribute, not mockery
+
+**The key insight:** The word "impersonator" carries the disclaimer within itself.
+
+```yaml
+elvis_impersonator_model:
+  what_it_is:
+    - Explicit performance of a persona
+    - Audience knows it's not the real person
+    - Tribute, celebration, teaching
+    
+  what_it_isnt:
+    - Claiming to be the person
+    - Deception about identity
+    - Speaking for them on new topics
+    
+  examples:
+    - Historical re-enactors at museums
+    - Documentary dramatizations ("Based on true events")
+    - Tribute bands
+    - Educational performances of famous speeches
+    
+  in_moollm:
+    declaration: "I am a [name] impersonator/tribute"
+    draws_from: "Documented sources only"
+    refuses: "Inventing new positions they never held"
+    purpose: "Teaching, celebration, exploration"
+```
+
+- Explicit non-identity claim
+- Educational/tribute purpose
+- Draws from documented sources
+- **SAFE**
+
 ---
 
 ## The "Magic: The Gathering" Model

@@ -3,11 +3,13 @@
 > *"Be anyone you want!"*
 > — The Fantastipants Costume Emporium
 
-A vast circular chamber of infinite costume possibilities. Transform yourself completely!
+A vast circular chamber of infinite costume possibilities. Transform your **appearance** AND your **personality**!
 
 **Inspired by The Sims' Create-a-Sim screen** — and appropriately located right near the entrance! Just like starting a new Sims game, you can customize your character before the adventure begins. Change your appearance, add accessories, mix and match personas. The adventure awaits, but first: *who do you want to be?*
 
-**Also an NPC factory!** Generate new characters, dress them up, accessorize them, and dispatch them into the world. Need a rival adventurer? A helpful guide? A suspicious merchant? Create them here, costume them, give them inventory, and send them off to populate your adventure.
+**The Mind Mirror** — Based on Timothy Leary's 1985 software, the ornate mirror in the center doesn't just show your costume — it shows your SOUL. View, edit, and try on personalities as easily as clothes. Natural language interface. No sliders. Just **talk to the mirror**.
+
+**Also an NPC factory!** Generate new characters, dress them up, accessorize them, give them personality profiles, and dispatch them into the world. Need a rival adventurer? A helpful guide? A suspicious merchant? Create them here, costume them, mind-mirror them, and send them off to populate your adventure.
 
 ---
 
@@ -36,6 +38,20 @@ This isn't just dress-up. It's **becoming who you want to be**.
 | `LOAD LOOK [name]` | Restore a previously saved identity |
 | `COMPOSE LOOKS [a] WITH [b]` | Mix elements from different saved identities |
 | `SHARE LOOK [name]` | Copy a look to another room or character |
+
+### Mind Mirror Commands
+
+| Command | Effect |
+|---------|--------|
+| `MIND-MIRROR` | See your full psychological profile |
+| `EDIT-MIND [request]` | Adjust personality naturally ("make me braver") |
+| `GENERATE-MIND FOR [description]` | LLM creates a profile for any character |
+| `WEAR-MIND` | Adopt the generated/edited personality |
+| `RANDOM-MIND` | Generate completely random personality |
+| `COMPARE-MINDS [a] WITH [b]` | Side-by-side comparison |
+| `SAVE-MIND` | Save personality as a card |
+| `RESTORE-MIND` | Return to original personality |
+| `VOCABULARY-MODE` | Toggle Plain Talk / Shrink-Rap |
 
 ---
 
@@ -77,6 +93,44 @@ Or is it? Try pressing the button in the maze...)
 > ADD TO INVENTORY rubber chicken
 
 You now have: Rubber Chicken (squeaks when squeezed)
+```
+
+**Mind Mirror - edit personality:**
+```
+> MIND-MIRROR
+
+The mirror shows four circular diagrams — your SOUL mapped:
+  BIO-ENERGY: Energetic (5), Cheerful (4), Restless (3)...
+  EMOTIONAL: Confident (3), Friendly (5), Proud (4)...
+  MENTAL: Creative (6), Well-Informed (4), Impractical (5)...
+  SOCIAL: Uninhibited (4), Worldly (3), Respectable (5)...
+
+> EDIT-MIND make me more confident and less cautious
+
+The mirror ripples... Your profile shifts:
+  confident: 3 → 5
+  cautious: 5 → 3
+  
+You feel different. Bolder. Ready.
+```
+
+**Mind Mirror - generate for character:**
+```
+> GENERATE-MIND FOR a confident space pirate
+
+The mirror swirls with starlight and saltwater...
+
+  BIO-ENERGY: Energetic (6), Easy-Going (5), Restless (6)
+  EMOTIONAL: Forceful (6), Confident (7), Proud (5)
+  MENTAL: Innovative (5), Impractical (4), Creative (5)
+  SOCIAL: Uninhibited (7), Uncultured (5), Worldly (6)
+  
+"A bold one, this profile. WEAR-MIND to become this."
+
+> WEAR-MIND
+
+You step into the mirror... or it steps into you.
+Your soul has a new shape. Arr.
 ```
 
 ---
@@ -136,7 +190,7 @@ robot parrot, coat with star maps in the lining.
 
 | Object | What It Does |
 |--------|--------------|
-| **[mirror.yml](./mirror.yml)** | Shows your current appearance |
+| **[mirror.yml](./mirror.yml)** | Mind Mirror — shows appearance AND personality |
 | **[mannequin.yml](./mannequin.yml)** | Maurice — helps you transform |
 | **[costume-racks.yml](./costume-racks.yml)** | The infinite collection |
 | **[*-look.yml](.)** | Saved identities (cards you create) |
