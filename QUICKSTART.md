@@ -4,7 +4,23 @@
 
 ---
 
-## 🚀 Get Started in Cursor
+## 👀 Browse First (Zero Commitment)
+
+Just explore the repo on GitHub — no install needed!
+
+| Browse This | What You'll See |
+|-------------|-----------------|
+| [examples/adventure-3/](./examples/adventure-3/) | A complete playable microworld |
+| [skills/](./skills/) | All the building blocks — rooms, cards, adventures |
+| [kernel/](./kernel/) | The operating system layer — constitution, protocols |
+| [PROTOCOLS.yml](./PROTOCOLS.yml) | K-Lines — Wikipedia-style behavior triggers |
+| [README.md](./README.md) | The full vision and lineage |
+
+Every directory has a `README.md` that GitHub renders beautifully. Click around. Read the YAML files — they're literate, commented, designed to be understood. **This is markup and data as literature.**
+
+---
+
+## 🚀 Ready to Play? Get Started in Cursor
 
 ```bash
 git clone git@github.com:SimHacker/moollm.git
