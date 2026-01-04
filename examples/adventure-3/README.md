@@ -285,17 +285,17 @@ Inspired by **Bar Karma** (Will Wright & Don Hopkins) — the first crowdsourced
 
 | Object | What It Does |
 |--------|--------------|
-| 🧑‍🍳 **Bartender** | Ancient, mysterious, knows everything (for a price) |
-| 🪑 **Seating** | Bar (public), Tables (social), Booths (private) |
-| 🎯 **Dart Board** | Challenge patrons, settle disputes, show off |
-| ♟️ **Chess Table** | The eternal game — legend says Death left it mid-play |
-| 🃏 **Card Deck** | Poker, Adventurer's Ruin, Flux, the mystery of the 7♣ |
-| 🔥 **Fireplace** | Warmth — and a hearthstone teleportation secret |
-| 📋 **Notice Board** | Quest hooks, warnings, community events |
-| 👻 **Pac-Man** | Wakka wakka. Who holds the perfect game? |
-| 🏓 **Pong** | The original. From Andy Capp's Tavern, 1972. |
-| 🍒 **Fruit Machine** | One-armed bandit. It predates the bar itself. |
-| 🎱 **Pinball** | "BAR KARMA" — face your fate in Wizard Mode |
+| 🧑‍🍳 [**Bartender**](./pub/bartender.yml) | Ancient, mysterious, knows everything (for a price) |
+| 🪑 [**Seating**](./pub/seating.yml) | Bar (public), Tables (social), Booths (private) |
+| 🎯 [**Dart Board**](./pub/dart-board.yml) | Challenge patrons, settle disputes, show off |
+| ♟️ [**Chess Table**](./pub/chess-table.yml) | The eternal game — legend says Death left it mid-play |
+| 🃏 [**Card Deck**](./pub/card-deck.yml) | Poker, Adventurer's Ruin, Fluxx, the mystery of the 7♣ |
+| 🔥 [**Fireplace**](./pub/fireplace.yml) | Warmth — and a hearthstone teleportation secret |
+| 📋 [**Notice Board**](./pub/notice-board.yml) | Quest hooks, warnings, community events |
+| 👻 [**Pac-Man**](./pub/pacman-cabinet.yml) | Wakka wakka. Who holds the perfect game? |
+| 🏓 [**Pong**](./pub/pong-cabinet.yml) | The original. From Andy Capp's Tavern, 1972. |
+| 🍒 [**Fruit Machine**](./pub/fruit-machine.yml) | One-armed bandit. It predates the bar itself. |
+| 🎱 [**Pinball**](./pub/pinball-machine.yml) | "BAR KARMA" — face your fate in Wizard Mode |
 
 **Social mechanics:** Where you sit matters! Bar stools for regulars and quick service. Tables for games and mixing. Booths for secrets and deals. The bartender serves the bar. A waitress serves tables. Booths? Flag someone down.
 
