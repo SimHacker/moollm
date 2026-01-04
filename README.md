@@ -472,7 +472,7 @@ This repository IS a memory palace. Each directory is a room, and should have a 
 | [kernel/](./kernel/) | OS protocols — the basement |
 | [skills/](./skills/) | Userland protocols — the main floor |
 | [schemas/](./schemas/) | Data shapes — the vault |
-| [examples/](./examples/) | Live adventures — the playground |
+| [examples/](./examples/) | Live adventures — 1 (template), 2 (played), 3 (ready!) |
 | [designs/](./designs/) | Historical archives — the attic |
 
 ### Featured Skills
@@ -724,13 +724,24 @@ The end state: an LLM that navigates its own memory, follows explicit protocols,
 
 **Start here. These are the most illustrative and fun.**
 
-### 🎮 Live Example: Play It!
+### 🎮 Live Adventures: The Progression
 
-| Example | What You'll Find |
-|---------|------------------|
-| **[examples/adventure-1/](./examples/adventure-1/)** | 🏰 **A complete playable adventure!** Bumblewick Fantastipants, reluctant hero. Kitchen with 20 foods for maze mapping. Coat room with infinite costumes. 10-room grue-infested maze. Treasure at the end. MC Frontalot death lyrics. The README IS the chat that built it. |
+| Adventure | Status | What You'll Find |
+|-----------|--------|------------------|
+| **[adventure-1/](./examples/adventure-1/)** | ✅ Template Created | 🏗️ **The bootstrap.** World created through chat. 10 maze rooms, kitchen, coatroom, treasury. The README documents the chat that built it — watch a world emerge from prompts. |
+| **[adventure-2/](./examples/adventure-2/)** | ✅ Fully Played | 🏆 **The legend.** Bumblewick became Captain Ashford. Slew a grue with blue cheese. Made 8 promises, kept them all. PhD-level postmodern deconstruction paper. 100+ photos. Letters to Mother. The README IS the complete transcript. |
+| **[adventure-3/](./examples/adventure-3/)** | 🎮 **READY TO PLAY** | ⭐ **Your turn.** Fresh hero, restocked fridge, respawned grue. World enriched by previous adventurers. New mechanics: pub, curses, parties, dynamic world generation. **Start here!** |
 
-> Try it: Read `player.yml`, explore the `maze/`, get eaten by a grue, reincarnate, try again with the lamp!
+**The Lineage:**
+```
+adventure-1: Template → Created world, defined mechanics, bootstrap documentation
+     ↓ (forked)
+adventure-2: Played → Full transcript, emergent mechanics, legendary moments  
+     ↓ (forked + reset)
+adventure-3: Ready → Fresh start, world improvements preserved, new systems added
+```
+
+> **Play it:** Open [adventure-3/](./examples/adventure-3/), read the README, then `GET LAMP` and begin your story!
 
 ### ⭐ The Good Stuff
 
@@ -771,9 +782,9 @@ The end state: an LLM that navigates its own memory, follows explicit protocols,
 | **[skills/memory-palace/](./skills/memory-palace/)** | 🏛️ Spatial knowledge organization. Rooms as cognitive spaces. |
 | **[skills/sister-script/](./skills/sister-script/)** | 📝 Documents that grow into scripts. BUILD command. Automation. |
 | **[skills/adventure/](./skills/adventure/)** | 🗺️ Structured exploration. Goals, discoveries, choices. |
-| **[examples/](./examples/)** | 🎮 Live playable examples with full source and creation chat logs. |
+| **[examples/](./examples/)** | 🎮 Three adventures: template (1), legendary playthrough (2), ready to play (3). |
 
-> **TL;DR:** Read [skills/constructionism/](./skills/constructionism/) for philosophy, [skills/skill/](./skills/skill/) for how it works, [skills/room/](./skills/room/) for the fun stuff, then **play** [examples/adventure-1/](./examples/adventure-1/)!
+> **TL;DR:** Read [skills/constructionism/](./skills/constructionism/) for philosophy, [skills/room/](./skills/room/) for the fun stuff, then **play** [examples/adventure-3/](./examples/adventure-3/) — or read [adventure-2/](./examples/adventure-2/) to see a complete legendary playthrough!
 
 ---
 
