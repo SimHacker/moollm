@@ -46,7 +46,7 @@ object:
       section: songs
     - pattern: "*-persona*.yml"
       section: personas
-    - pattern: "*-cape*.yml"
+    - pattern: "*-cape*.yml" # capes, clothing, outfits, hats, accessories, etc.
       section: costumes
     - pattern: "*-costume*.yml"
       section: costumes
@@ -70,7 +70,7 @@ object:
       
     RENDER:
       description: "Generate a narrative markdown sidecar"
-      effect: "Creates notebook.md from contents"
+      effect: "Creates notebook.md from contents or item.md for particular items"
       
   # CAPACITY
   
@@ -83,3 +83,26 @@ object:
     it on, blank once more, to the next.
     
     The pages remember, even when they appear empty.
+    
+  inspiration:
+    the_sims_family_album: |
+      The Sims included a Family Album for capturing screenshots
+      with captions, organizing them into narrative sequences.
+      Players wrote graphic novels, made movies, shared stories.
+      The game became a platform for self-expression.
+      
+    storytelling_tools: |
+      Like The Sims Exchange where players uploaded and downloaded
+      entire families and stories, this notebook captures your
+      adventure as a shareable, browsable narrative.
+      
+    clipboard_evolved: |
+      More than a clipboard — a semantic snapshot stream.
+      Items can be edited, minted into cards, carried in inventory,
+      played in rooms, passed as parameters. The notebook IS the
+      clipboard, but alive and organized.
+      
+  see_also:
+    - skills/storytelling-tools/
+    - PROTOCOLS.yml#STORYTELLING-TOOLS
+    - PROTOCOLS.yml#CARD
