@@ -25,10 +25,10 @@ room:
     
   feature: homecoming
   
-  objects:
-    - mother.yml    # Mother is here (will appear when you arrive)
-    - pie.yml       # Mother's apple pie (always fresh)
-    - sink.yml      # The dishes... (they've been waiting)
+  objects: []
+    # Mother appears when you arrive — she's in the other room
+    # The kitchen has pie on the counter (always fresh)
+    # The dishes... they're in the sink. They've been waiting.
     
   exits:
     down:

@@ -16,7 +16,7 @@ object:
         ║──────────────────────────────────────║
         ║  LAMP OIL REFILL......... 1 gold     ║
         ║  DELUXE REFILL (2x)...... 2 gold     ║
-        ║  PREMIUM GLOW JUICE...... 5 gold     ║
+        ║  PREMIUM GLOW JUICE...... 3 gold     ║
         ╚══════════════════════════════════════╝
     
     Someone has scratched "LIFESAVER" into the metal casing.
@@ -48,11 +48,11 @@ object:
       score: 70
       score_if:
         - "player.inventory contains lamp"
-        - "player.gold >= 5"
+        - "player.gold >= 3"
       result: |
         Refills lamp to 1000 oil AND makes it glow blue.
         The blue glow is unsettling to grues. They approach more slowly.
-        Costs 5 gold.
+        Costs 3 gold.
     
     - action: EXAMINE
       score: 50
