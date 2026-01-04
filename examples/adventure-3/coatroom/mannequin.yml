@@ -101,17 +101,17 @@ object:
     - action: CHANGE-NAME
       score_if: "always"
       description: "Choose a new name — who do you want to be?"
-      effect: "Updates player.name in player.yml"
+      effect: "Updates player.name in characters/player.yml"
       
     - action: CHANGE-PRONOUNS
       score_if: "always"
       description: "Set your pronouns — they/he/she/it/any/fluid"
-      effect: "Updates player.pronouns in player.yml"
+      effect: "Updates player.pronouns in character file"
       
     - action: REWRITE-BACKSTORY
       score_if: "always"
       description: "Tell Maurice your story — or invent a new one"
-      effect: "Updates player.backstory in player.yml"
+      effect: "Updates player.backstory in character file"
       interactive: true
       
     - action: FULL-TRANSFORMATION

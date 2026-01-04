@@ -90,16 +90,21 @@ room:
 
   # IDENTITY SYSTEM
   # Rename your file, see all your stats
+  # Characters live in characters/ directory
   identity_system:
     description: |
       You are more than a name. You are a file. In the coatroom,
       you can examine and rename your very existence.
       
+      All characters live in: characters/
+      
+    character_directory: "../characters/"
+      
     commands:
       - command: "DESCRIBE-ME"
         effect: |
           Shows ALL your data in beautiful narrative and table form:
-          - File name (e.g., player.yml → captain-ashford.yml)
+          - File path (e.g., characters/captain-ashford.yml)
           - Character name
           - Current costume/persona
           - Mind Mirror profile (Sims traits + Leary planes)
@@ -109,7 +114,7 @@ room:
           - Score, gold, moves, effects
         example_output: |
           ═══════════════════════════════════════════════════
-          📁 FILE: captain-ashford.yml
+          📁 FILE: characters/captain-ashford.yml
           👤 NAME: Captain Kira Ashford
           🎭 PERSONA: Space Pirate Captain (Belter)
           ═══════════════════════════════════════════════════
@@ -130,25 +135,50 @@ room:
       - command: "CHANGE-MY-FILE-NAME [new-name]"
         aliases: ["RENAME-ME", "MY-FILE-NAME"]
         effect: |
-          Renames your player.yml file to a new name.
+          Renames your character file within characters/ directory.
           The .yml extension is optional — we know what you mean.
         examples:
           - "CHANGE-MY-FILE-NAME captain-ashford"
-          - "CHANGE-MY-FILE-NAME bumblewick-fantastipants.yml"
+          - "CHANGE-MY-FILE-NAME bumblewick-fantastipants"
           - "RENAME-ME space-pirate"
+        rules:
+          - stays_in_characters: "File stays in characters/ directory"
+          - no_overwrite: "Cannot overwrite existing character files"
+          - kebab_case: "Use kebab-case (captain-ashford, not CaptainAshford)"
+          - yml_optional: ".yml extension is added automatically if omitted"
+        validation: |
+          BEFORE: characters/player.yml
+          AFTER:  characters/captain-ashford.yml
+          
+          ✓ captain-ashford → characters/captain-ashford.yml
+          ✗ ../start/escape → Cannot leave characters/
+          ✗ mother → File exists! Cannot overwrite another character.
         notes: |
           The file name is YOUR name in the filesystem.
           Choose wisely. Or don't — you can always change it again.
+          But you can't steal someone else's identity!
           
       - command: "CHANGE-MY-NAME [new name]"
         effect: "Changes the character name (the 'name:' field in the file)"
         example: "CHANGE-MY-NAME Captain Kira Ashford"
+        
+      - command: "LIST-CHARACTERS"
+        effect: "Shows all character files in characters/"
+        example_output: |
+          📁 characters/
+            player.yml          ← YOU ARE HERE
+            mother.yml          (NPC)
+            skeleton.yml        (NPC, deceased)
+            blackcape-mcgee.yml (NPC, rival)
         
     why_this_matters: |
       In MOOLLM, you ARE your file. The filesystem is the world.
       Your file name is your identity at the most fundamental level.
       When you rename your file, you're not just changing a label —
       you're declaring who you ARE in the universe.
+      
+      All characters live together in characters/ — that's how we
+      know who is who in this world.
 
   # MIND MIRROR SYSTEM (integrated with costume system)
   # Based on Timothy Leary's 1985 software

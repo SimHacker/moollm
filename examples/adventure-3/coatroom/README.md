@@ -15,7 +15,7 @@ A vast circular chamber of infinite costume possibilities. Transform your **appe
 
 ## How It Works
 
-The coat room rewrites your **entire identity** — name, pronouns, backstory, costume. All changes persist in `player.yml` throughout the adventure!
+The coat room rewrites your **entire identity** — name, pronouns, backstory, costume. All changes persist in your character file (`characters/player.yml`) throughout the adventure!
 
 This isn't just dress-up. It's **becoming who you want to be**.
 
@@ -58,11 +58,11 @@ This isn't just dress-up. It's **becoming who you want to be**.
 | Command | Effect |
 |---------|--------|
 | `DESCRIBE-ME` | See ALL your data in narrative + table form |
-| `CHANGE-MY-FILE-NAME [name]` | Rename your player.yml file (`.yml` optional) |
+| `CHANGE-MY-FILE-NAME [name]` | Rename your character file (stays in `characters/`) |
 | `CHANGE-MY-NAME [name]` | Change your character name |
 
 **DESCRIBE-ME** shows everything:
-- Your file name (`player.yml` → `captain-ashford.yml`)
+- Your file path (`characters/player.yml` → `characters/captain-ashford.yml`)
 - Character name, persona, costume
 - Full Mind Mirror profile (Sims traits + Leary planes)  
 - Current needs, wants, aspirations
@@ -70,8 +70,10 @@ This isn't just dress-up. It's **becoming who you want to be**.
 
 **CHANGE-MY-FILE-NAME** is fundamental:
 - In MOOLLM, you ARE your file. The filesystem IS the world.
-- `CHANGE-MY-FILE-NAME captain-ashford` renames `player.yml` → `captain-ashford.yml`
+- `CHANGE-MY-FILE-NAME captain-ashford` renames `characters/player.yml` → `characters/captain-ashford.yml`
 - The `.yml` is optional — we know what you mean
+- Cannot overwrite existing character files
+- All characters stay in `characters/` directory
 
 ---
 
@@ -241,7 +243,7 @@ Interacting with objects in the coatroom can teach persistent skills:
 | `GENERATE-MIND FOR` | `psychological-profiling` | NPC analysis |
 | `COMPARE-MINDS` | `empathy` | Understanding others |
 
-These skills persist in your `player.yml` and travel with you!
+These skills persist in your character file and travel with you!
 
 ---
 

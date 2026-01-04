@@ -26,7 +26,7 @@ This adventure inherits the **enriched world** from adventure-2, where Bumblewic
 
 | Feature | State | Notes |
 |---------|-------|-------|
-| 🧑 **Player** | New unknown hero | Identity to be discovered |
+| 🧑 **Player** | New unknown hero | `characters/player.yml` — rename in coatroom! |
 | 🪔 **Lamp** | Full (100 oil) | On the shelf, waiting |
 | 🧊 **Fridge** | Fully restocked | 20 food items |
 | 📓 **Notebook** | Empty | Your story awaits |
