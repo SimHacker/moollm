@@ -1,210 +1,257 @@
 # MOOLLM Quickstart
 
-**Read time: 3 minutes** ⏱️
+**Get playing in 2 minutes** ⏱️
 
 ---
 
-## What the Hell Is This?
+## 🚀 Get Started in Cursor
 
-**The problem:** LLM agents are black boxes. They have "memory" you can't inspect, "planning" you can't audit, and crash when they encounter missing data. You feed tokens into a void and hope.
-
-**The solution:** MOOLLM turns the filesystem into a **microworld** — a place where agents go on adventures, summon characters, build memory palaces, and navigate by meaning. Every thought is a file you can read. Every session is a story you can replay. The agent doesn't just *use* the filesystem — it *lives* there.
-
-**Why it matters:**
-
-| Black Box Agent | MOOLLM Agent |
-|-----------------|--------------|
-| "Trust me, I remembered" | Read `hot.yml` — see exactly what's loaded |
-| Crashes on missing context | Self-heals, creates stub, continues |
-| "I planned internally" | Read `PLAN.yml` — approve before execution |
-| Isolated single-agent calls | Many agents talk in ONE LLM call (speed of light) |
-| Hidden state | **Everything is files. No magic.** |
-| Text generator | **Coherence Engine** — referee, orchestrator, consistency checker |
-
----
-
-## What's Unique?
-
-1. **It's a microworld, not a database.** The filesystem isn't storage — it's a *place*. Directories are **rooms** you enter. Files are **objects** you examine. You don't query data, you **go on adventures**.
-
-2. **Characters live here.** Summon a Skeptic card into your research room. Have documents debate each other. Let the codebase explain itself. Everything can speak — files, concepts, rooms, tools.
-
-3. **Memory palaces, not memory dumps.** Organize knowledge spatially. Put the important stuff in the Treasury. Archive old experiments in the Catacombs. Navigate by *meaning*, not by filename.
-
-4. **Extreme parallelism.** Forget ChatGPT's one-user-one-assistant model. MOOLLM runs **many conversations at once**: `design-debate.md` (Architect vs Critic), `security-review.md` (3 reviewers), `api-discussion.md` (Frontend + Backend) — all simulated in **ONE LLM call**. 50+ interactions, 1 API call. Like The Sims updating all characters in one frame.
-
-5. **Self-healing by design.** Missing file? Create it. Corrupted state? Rename `.corrupted`, start fresh. NEVER crash. The adventure continues.
-
-6. **YAML Jazz.** Comments carry meaning. `timeout: 30 # generous, API flaky on Mondays` — the LLM understands *why*.
-
-7. **Hero-Stories.** Invoke Dave Ungar's wisdom without pretending to *be* Dave Ungar. Compose skill sets from real people in the training data — ethically, coherently.
-
-8. **Characters are apps.** Each character has a `SKILL.md` (man page), `PROTOTYPE.yml` (interface), and commands it responds to. Like CLI tools with personality.
-
-9. **Hybrid LLM + Python.** YAML schemas let deterministic code do what LLMs shouldn't: sorting, aggregating, validating, calculating. LLM reasons → Python transforms → LLM synthesizes. No wasted tokens on math.
-
-10. **Sister scripts.** Proven chat patterns crystallize into automation. The slow LLM conversation becomes a fast Python script. Document-first development.
-
-11. **Chat is the new shell.** `SUMMON critic | architect > decisions.yml` — compose characters like Unix pipes. The conversation IS the command line.
-
----
-
-## One Sentence
-
-MOOLLM treats LLMs as CPUs and filesystems as RAM — everything the agent knows is in files it can read.
-
----
-
-## The Core Insight
-
-| Traditional | MOOLLM |
-|-------------|--------|
-| LLM has hidden memory | All memory is files |
-| Magic planning module | Plans are YAML files |
-| Opaque agent state | Inspect everything |
-| Crashes on missing data | Self-heals and continues |
-
----
-
-## Ten Concepts to Know
-
-| # | Concept | One Line |
-|---|---------|----------|
-| 1 | **FILES-AS-STATE** | No hidden memory. If it's not in a file, it doesn't exist. |
-| 2 | **YAML-JAZZ** | Comments carry meaning. LLMs interpret, not just parse. |
-| 3 | **WHY-REQUIRED** | Every tool call explains its intent. Self-documenting traces. |
-| 4 | **APPEND-ONLY** | Logs never modified. Perfect audit trail. |
-| 5 | **NEVER-CRASH** | Missing state triggers repair, not failure. |
-| 6 | **ROOM-AS-FUNCTION** | Directories are activation records. Enter = call. Exit = return. |
-| 7 | **TRADING-CARD** | Capabilities as instantiable templates. Play cards in rooms. |
-| 8 | **PLAY-LEARN-LIFT** | Explore → find patterns → share wisdom. The methodology. |
-| 9 | **SPEED-OF-LIGHT** | Many agents in one LLM call. No carrier pigeons. |
-| 10 | **POSTEL** | Be liberal in what you accept. Interpret charitably. |
-
----
-
-## The Architecture
-
-```
-kernel/     → OS protocols (infrastructure)
-skills/     → Userland protocols (capabilities)  
-schemas/    → Data format definitions
-PROTOCOLS.yml → Symbol index (K-lines)
+```bash
+git clone git@github.com:SimHacker/moollm.git
+cd moollm
+cursor .
 ```
 
-**Kernel** defines *how* things work (tool calling, logging, self-healing).
-**Skills** define *what* you can do (planning, rooms, cards, chat).
+**That's it.** Open a chat. Start talking. The repo IS the game.
 
 ---
 
-## File Format Hierarchy
+## 🎮 Three Ways to Play
 
-| Format | Use For | Why |
-|--------|---------|-----|
-| **Markdown** | Logs, docs, conversations | Human-readable, embeds code blocks |
-| **YAML** | Config, state, parameters | Has comments! Semantic. Editable. |
-| **JSON** | Machine interchange only | No comments. Last resort. |
+### 1. Play an Adventure
 
----
-
-## Capability Tiers
-
-| Tier | What You Can Do |
-|------|-----------------|
-| 0 | Text only (basic chat) |
-| 1 | Read files |
-| 2 | Read + write files |
-| 3 | + Search |
-| 4 | + Execute commands |
-| 5 | + Custom tools (MCP) |
-| 6 | + Full kernel control |
-
-Protocols degrade gracefully. Works at any tier.
-
----
-
-## Session Structure
+Open [examples/adventure‑3/](./examples/adventure-3/) — it's ready to go!
 
 ```
-.agent/
-  sessions/
-    current/
-      session-log.md    # Append-only audit trail
-      working_set.yml   # What's in context
-      hot.yml           # Keep these files loaded
-      cold.yml          # These can be evicted
-      instances/        # Active skill instances
+> GET LAMP
+> GO NORTH
+> LOOK
+```
+
+The LLM is your Dungeon Master. The filesystem is the world. Chat commands become actions. Files track state.
+
+### 2. Read a Legendary Playthrough
+
+Open [examples/adventure‑2/README.md](./examples/adventure-2/README.md) — the complete transcript of Captain Ashford's epic journey:
+- Slew a grue with blue cheese
+- Made 8 promises to Mother, kept them all
+- Wrote a PhD-level postmodern deconstruction paper
+- 100+ generated photos
+
+See how an adventure unfolds. Learn the mechanics. Steal ideas.
+
+### 3. Build Your Own World
+
+Clone adventure‑3 as a template:
+
+```bash
+cp -r examples/adventure-3 examples/my-adventure
+```
+
+Edit the YAML. Add rooms. Create objects. The schema is flexible — the LLM figures it out.
+
+---
+
+## 📂 The Three Adventures
+
+| Adventure | Purpose | Status |
+|-----------|---------|--------|
+| [adventure‑1/](./examples/adventure-1/) | **World Building** — Watch a world emerge from chat prompts. README documents creation. | ✅ Template |
+| [adventure‑2/](./examples/adventure-2/) | **Legendary Playthrough** — Full transcript, emergent mechanics, epic moments. | ✅ Completed |
+| [adventure‑3/](./examples/adventure-3/) | **Fresh Start** — Rich mechanics, clean slate, ready to play. Clone this one! | 🎮 **PLAY ME** |
+
+**The Progression:**
+- **adventure‑1** created the world (documented)
+- **adventure‑2** played and extended it (transcript)
+- **adventure‑3** reset with improvements (template)
+
+**To preserve adventure‑3 as a template:**
+```bash
+cp -r examples/adventure-3 examples/adventure-4
+# Now play in adventure-4, keep adventure-3 pristine
 ```
 
 ---
 
-## The Self-Healing Promise
+## 💡 What Makes This Different
 
-> [!IMPORTANT]
-> When something is missing, MOOLLM **doesn't crash**:
-
-| Problem | Solution |
-|---------|----------|
-| Missing file? | Create minimal stub, continue |
-| Corrupted state? | Rename to `.corrupted`, create fresh, log recovery |
-| Over budget? | Truncate lowest priority, continue |
-| Unknown command? | POSTEL — interpret charitably |
+| Black Box Agent | MOOLLM |
+|-----------------|--------|
+| "Trust me, I remember" | Read the YAML — see everything |
+| Crashes on missing data | Self-heals, continues |
+| Single user, single agent | Many agents talk in ONE LLM call |
+| Hidden state | **Everything is files** |
+| Text generator | **Coherence Engine** — referee, simulator, DM |
 
 ---
 
-## Quick Commands (Protocol Symbols)
+## 🗺️ Essential Skills to Explore
 
-Type these as commands or reference in docs:
+| Skill | What It Does | Start Here |
+|-------|--------------|------------|
+| 🚪 [room/](./skills/room/) | **The star.** Directories as rooms. Objects. Vehicles. Exits. Inventories. | [README](./skills/room/README.md) |
+| 🗺️ [adventure/](./skills/adventure/) | Text adventures as CLI architecture. Goals. Discoveries. Choices. | [README](./skills/adventure/README.md) |
+| 🏗️ [constructionism/](./skills/constructionism/) | **The philosophy.** Learn by building. Papert. Kay. Logo. Micropolis. | [README](./skills/constructionism/README.md) |
+| 🎮 [play‑learn‑lift/](./skills/play-learn-lift/) | The methodology. Play → Learn → Lift. How skills evolve. | [README](./skills/play-learn-lift/README.md) |
+| 🃏 [card/](./skills/card/) | Characters, tools, functions as playable cards. | [README](./skills/card/README.md) |
+| 💬 [soul‑chat/](./skills/soul-chat/) | Everything speaks — objects, rooms, concepts. | [README](./skills/soul-chat/README.md) |
+| 🎷 [yaml‑jazz/](./skills/yaml-jazz/) | Comments carry meaning. LLMs interpret, not just parse. | [README](./skills/yaml-jazz/README.md) |
+
+---
+
+## 🏰 What's In an Adventure?
 
 ```
-YAML-JAZZ       # Interpret semantically
-POSTEL          # Interpret charitably  
-PLAY-LEARN-LIFT # Start exploring
-SOUL-CHAT       # Give something a voice
-ENTER-ROOM      # Navigate to context
+examples/adventure-3/
+├── README.md           # The story so far (and play log)
+├── MECHANICS.yml       # Game systems: scoring, skills, curses
+├── player.yml          # Your character state
+├── start/              # Chamber of Commencement
+│   ├── ROOM.yml        # Room definition
+│   ├── lamp.yml        # GET LAMP!
+│   └── mailbox.yml     # Zorkian tradition
+├── kitchen/            # Mother's kitchen
+│   ├── mothers-note.yml    # ⭐ MOST IMPORTANT — read it, reply!
+│   ├── fridge.yml          # 20 foods for maze mapping
+│   ├── tomtomagotchi.yml   # Navigation pet
+│   └── counter.yml         # Crafting system
+├── coatroom/           # Costume room — be anyone!
+├── maze/               # 10 dark rooms, grue danger
+├── pub/                # Social hub — games, rumors, themes
+├── home/               # Mother waits here
+└── end/                # Treasury — the goal!
+```
+
+**Key insight:** Directories are rooms. Files are objects. The hierarchy IS the world.
+
+---
+
+## 🎯 Your First Session
+
+1. **Open adventure‑3 in Cursor**
+2. **Read** `kitchen/mothers-note.yml` — it sets up the whole adventure
+3. **Chat:** "I wake up in the Chamber of Commencement. GET LAMP."
+4. **Explore:** GO NORTH, LOOK, EXAMINE things
+5. **Write back to Mother** — your promises become your goals!
+
+The LLM tracks state in the YAML files. Look at `player.yml` to see your inventory, gold, and location update.
+
+---
+
+## 🧠 Core Concepts (60 seconds)
+
+| Concept | What It Means |
+|---------|---------------|
+| **FILES-AS-STATE** | No hidden memory. Everything in files you can read. |
+| **YAML-JAZZ** | Comments carry meaning. `timeout: 30 # API flaky Mondays` |
+| **ROOMS** | Directories are places. Enter = navigate. Objects inside. |
+| **CARDS** | Characters/tools as templates. Play them in rooms. |
+| **SPEED-OF-LIGHT** | Many agents simulate in ONE LLM call. No round trips. |
+| **POSTEL** | Be liberal in input. Interpret charitably. Never crash. |
+| **PLAY-LEARN-LIFT** | Explore → find patterns → crystallize into skills. |
+
+---
+
+## 📜 Protocol Symbols (K-Lines)
+
+Type these as commands or mention them to activate behaviors:
+
+```
+YAML-JAZZ        # Interpret comments semantically
+POSTEL           # Interpret charitably, never crash
+PLAY-LEARN-LIFT  # Start exploring, find patterns
+SOUL-CHAT        # Give an object/room a voice
+ENTER-ROOM       # Navigate to a directory context
+SPEED-OF-LIGHT   # Simulate many agents at once
 ```
 
 Full index: [PROTOCOLS.yml](./PROTOCOLS.yml)
 
 ---
 
-## Standing on Giants
+## 🔧 Extending Adventures
 
-MOOLLM is **constructionist computing** for LLM agents:
+### Add a Room
 
-| Tradition | Person | What We Took |
-|-----------|--------|--------------|
-| **Constructionism** | Papert, Kay | Learning by building inspectable things |
-| **The Sims / SimCity** | Will Wright, Don Hopkins | Objects advertise, agents select autonomously |
-| **OLPC SimCity** | Don Hopkins | Simulation as learning microworld |
-| **HyperCard** | Bill Atkinson | Non-programmers building apps (1987!) |
-| **Self** | Dave Ungar | Prototypes, "It's About Time" |
-| **Robust-First** | Dave Ackley | Survivability over correctness |
-| **K-Lines** | Marvin Minsky | Names activate conceptual clusters |
-| **Kilroy** | Chuck Shotton | Decentralized swarms, small LLMs |
+```bash
+mkdir examples/adventure-3/garden
+```
+
+Create `ROOM.yml`:
+```yaml
+room:
+  name: The Hidden Garden
+  description: |
+    Overgrown with strange flowers that seem to whisper.
+  exits:
+    south:
+      destination: ../kitchen/
+      description: "Back to the kitchen"
+  objects:
+    - mysterious-flower.yml
+```
+
+### Add an Object
+
+Create `mysterious-flower.yml`:
+```yaml
+object:
+  name: Mysterious Flower
+  portable: true
+  description: |
+    It pulses with an inner light. Smells like... memories?
+  actions:
+    SMELL:
+      effect: "You remember something you forgot long ago..."
+    PICK:
+      effect: "It comes away easily. The garden sighs."
+```
+
+### Connect It
+
+Edit `kitchen/ROOM.yml` to add an exit:
+```yaml
+exits:
+  north:
+    destination: ../garden/
+    description: "A hidden door behind the fridge"
+```
+
+**Done.** The LLM will find it. The world grows.
+
+---
+
+## 🎪 The Bigger Picture
+
+MOOLLM is **constructionist computing for LLMs**:
+
+- **Papert & Kay** — Learning by building inspectable things
+- **The Sims** — Objects advertise, agents select autonomously
+- **HyperCard** — Non-programmers building interactive systems
+- **MUD/LambdaMOO** — Rooms, objects, verbs, spatial programming
+- **Zork/Adventure** — Text adventures as the original CLI
 
 > *"If you can build it, you can understand it. If you can inspect it, you can trust it."*
 
 ---
 
-## Next Steps
+## 📚 Next Steps
 
-- [ ] Read the kernel: [kernel/README.md](./kernel/README.md)
-- [ ] Explore skills: [skills/README.md](./skills/README.md)
-- [ ] Try a room: [skills/room/](./skills/room/)
-- [ ] Play a card: [skills/card/](./skills/card/)
-- [ ] Learn the methodology: [skills/play-learn-lift/](./skills/play-learn-lift/)
-- [ ] Understand skills: [skills/skill/](./skills/skill/)
-
----
-
-## The Mantra
-
-> *The LLM is a token predictor.*
-> *The filesystem is the brain.*
-> *The protocols are the cognitive style.*
+| Goal | Read This |
+|------|-----------|
+| Understand the vision | [README.md](./README.md) |
+| Deep dive on rooms | [skills/room/](./skills/room/) |
+| Learn the methodology | [skills/play‑learn‑lift/](./skills/play-learn-lift/) |
+| Understand skills | [skills/skill/](./skills/skill/) |
+| See all protocols | [PROTOCOLS.yml](./PROTOCOLS.yml) |
+| Explore the kernel | [kernel/README.md](./kernel/README.md) |
 
 ---
 
-> [!NOTE]
-> Ready? [Explore the palace →](./README.md#️-navigate-the-palace)
+## 🎮 The Mantra
+
+> *The LLM is the Coherence Engine.*
+> *The filesystem is the world.*
+> *The chat is the adventure.*
+
+**Now go GET LAMP!** 🪔
