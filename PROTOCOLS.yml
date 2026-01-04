@@ -558,6 +558,67 @@ TRADITION-INVOKE:
   forbidden: |
     "I am Minsky and I believe..."
 
+# MIND MIRROR (Personality Modeling)
+
+MIND-MIRROR:
+  meaning: "Structured personality modeling via four Thought Planes."
+  location: skills/mind-mirror/
+  invoke_when: "Modeling characters, self-reflection, personality comparison"
+  
+  origin: |
+    Timothy Leary's 1985 software, based on his PhD dissertation
+    "The Social Dimensions of Personality" and the Interpersonal Circumplex.
+    
+  four_planes:
+    BIO-ENERGY: "Life force, mood, vitality, temperament"
+    EMOTIONAL-INSIGHT: "Interpersonal style, approach to others"
+    MENTAL-ABILITIES: "Knowledge, creativity, imagination"
+    SOCIAL-INTERACTION: "Class, tolerance, sophistication"
+    
+  each_plane: |
+    8 dimensions arranged in a circle (like a psychological pie menu)
+    Each dimension has inner (moderate) and outer (extreme) words
+    Rate 0-7: Never → Rarely → Often → Always
+    
+  integration: |
+    - Character DNA for NPCs
+    - Soul-Chat voice calibration
+    - Adventure decision-making
+    - Self-reflection exercises
+
+THOUGHT-PLANE:
+  meaning: "One of the four circular personality dimension systems."
+  location: skills/mind-mirror/
+  invoke_when: "Discussing personality structure"
+  types: [BIO-ENERGY, EMOTIONAL-INSIGHT, MENTAL-ABILITIES, SOCIAL-INTERACTION]
+
+SELF-PORTRAIT:
+  meaning: "Compare your current self with your ideal self."
+  location: skills/mind-mirror/
+  invoke_when: "Personal growth reflection"
+  quote: |
+    "In a magic mirror we see reflected not only our lives,
+    but the lives of all men that have been."
+    — Oliver Wendell Holmes
+
+ROLE-PLAY-ODYSSEY:
+  meaning: "Life simulation through different personality profiles."
+  location: skills/mind-mirror/
+  invoke_when: "Testing empathy by navigating as another personality"
+  mode: "MIND PLAY — Sophisticated Head Games"
+
+PLAIN-TALK:
+  meaning: "Everyday vocabulary mode for personality traits."
+  location: skills/mind-mirror/
+  invoke_when: "Describing personality accessibly"
+  examples: ["peppy", "laid-back", "grumpy", "sweet", "flaky", "square"]
+
+SHRINK-RAP:
+  meaning: "Psychological vocabulary mode for personality traits."
+  location: skills/mind-mirror/
+  invoke_when: "Describing personality technically"
+  examples: ["Hyper-Manic", "Low-Energy", "Hostile", "Congenial", "Disorganized", "Small-Townish"]
+
 HONEST-FORGET:
   meaning: "Summarize before forgetting. Never fabricate."
   location: kernel/constitution-core.md §6

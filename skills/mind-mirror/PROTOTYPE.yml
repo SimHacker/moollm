@@ -1,0 +1,450 @@
+# MIND-MIRROR
+# Personality modeling system based on Timothy Leary's 1985 software
+# "Mirrors should reflect a little before throwing back images." - Jean Cocteau
+
+skill:
+  name: Mind Mirror
+  type: personality_modeling
+  priority: COGNITIVE
+  
+  origin:
+    creator: "Timothy Leary"
+    programmers: ["Peter Van den Beemt", "Bob Dietz"]
+    publisher: "Electronic Arts (Futique, Inc.)"
+    year: 1985
+    platforms: ["Apple ][", "Commodore 64", "IBM PC"]
+    
+  foundation: |
+    Based on Leary's PhD dissertation "The Social Dimensions of Personality"
+    and the Interpersonal Behavior Circle (Leary Circumplex).
+    
+    Leary designed personality assessments before LSD.
+    He escaped prison using his own test — answered to appear low-risk.
+    Your self-knowledge is your most powerful tool.
+    
+  purpose: |
+    Structured framework for modeling personalities:
+    - Self-reflection (current vs ideal self)
+    - Character creation (rich, dimensional NPCs)
+    - Empathy exploration (role-play through perspectives)
+    - Comparison (any two personalities)
+
+# THE FOUR THOUGHT PLANES
+# Each plane is a circle of 8 dimensions
+# Each dimension has inner (moderate) and outer (extreme) words
+
+thought_planes:
+
+  BIO_ENERGY:
+    name: "Bio-Energy"
+    description: "Life force, mood, vitality, temperament"
+    
+    dimensions:
+      - name: energetic
+        inner: "Energetic"
+        outer: "Wired"
+        opposite: calm
+        
+      - name: enthusiastic
+        inner: "Enthusiastic"
+        outer: "Vivacious"
+        opposite: cautious
+        
+      - name: cheerful
+        inner: "Cheerful"
+        outer: "Silly"
+        opposite: serious
+        
+      - name: easy_going
+        inner: "Easy-Going"
+        outer: "Lazy"
+        opposite: restless
+        
+      - name: calm
+        inner: "Calm"
+        outer: "Lethargic"
+        opposite: energetic
+        
+      - name: cautious
+        inner: "Cautious"
+        outer: "Worried"
+        opposite: enthusiastic
+        
+      - name: serious
+        inner: "Serious"
+        outer: "Gloomy"
+        opposite: cheerful
+        
+      - name: restless
+        inner: "Restless"
+        outer: "Driven"
+        opposite: easy_going
+
+  EMOTIONAL_INSIGHT:
+    name: "Emotional Insight"
+    description: "Interpersonal style, angle of approach to others"
+    
+    dimensions:
+      - name: forceful
+        inner: "Forceful"
+        outer: "Dominating"
+        opposite: timid
+        
+      - name: confident
+        inner: "Confident"
+        outer: "Charismatic"
+        opposite: touchy
+        
+      - name: friendly
+        inner: "Friendly"
+        outer: "Over-Friendly"
+        opposite: irritable
+        
+      - name: docile
+        inner: "Docile"
+        outer: "Dependent"
+        opposite: proud
+        
+      - name: timid
+        inner: "Timid"
+        outer: "Submissive"
+        opposite: forceful
+        
+      - name: touchy
+        inner: "Touchy"
+        outer: "Resentful"
+        opposite: confident
+        
+      - name: irritable
+        inner: "Irritable"
+        outer: "Angry"
+        opposite: friendly
+        
+      - name: proud
+        inner: "Proud"
+        outer: "Arrogant"
+        opposite: docile
+
+  MENTAL_ABILITIES:
+    name: "Mental Abilities"
+    description: "Knowledge, creativity, information grasp, imagination"
+    
+    dimensions:
+      - name: well_informed
+        inner: "Well-Informed"
+        outer: "Know-It-All"
+        opposite: uneducated
+        
+      - name: innovative
+        inner: "Innovative"
+        outer: "Visionary"
+        opposite: sensible
+        
+      - name: creative
+        inner: "Creative"
+        outer: "Dreamy"
+        opposite: conventional
+        
+      - name: impractical
+        inner: "Impractical"
+        outer: "Unrealistic"
+        opposite: practical
+        
+      - name: uneducated
+        inner: "Uneducated"
+        outer: "Illiterate"
+        opposite: well_informed
+        
+      - name: sensible
+        inner: "Sensible"
+        outer: "Imitative"
+        opposite: innovative
+        
+      - name: conventional
+        inner: "Conventional"
+        outer: "Unimaginative"
+        opposite: creative
+        
+      - name: practical
+        inner: "Practical"
+        outer: "Pedantic"
+        opposite: impractical
+
+  SOCIAL_INTERACTION:
+    name: "Social Interaction"
+    description: "Class, tolerance, sophistication, moral conventionality"
+    
+    dimensions:
+      - name: influential
+        inner: "Influential"
+        outer: "Snobbish"
+        opposite: lower_class
+        
+      - name: worldly
+        inner: "Worldly"
+        outer: "Ultra-Sophisticated"
+        opposite: unsophisticated
+        
+      - name: uninhibited
+        inner: "Uninhibited"
+        outer: "Non-Conformist"
+        opposite: moralistic
+        
+      - name: uncultured
+        inner: "Uncultured"
+        outer: "Wild"
+        opposite: respectable
+        
+      - name: lower_class
+        inner: "Lower-Class"
+        outer: "Unknown"
+        opposite: influential
+        
+      - name: unsophisticated
+        inner: "Unsophisticated"
+        outer: "Naive"
+        opposite: worldly
+        
+      - name: moralistic
+        inner: "Moralistic"
+        outer: "Puritanical"
+        opposite: uninhibited
+        
+      - name: respectable
+        inner: "Respectable"
+        outer: "Upright"
+        opposite: uncultured
+
+# PLAIN TALK / SHRINK-RAP VOCABULARY
+# Two modes of describing the same traits
+
+vocabulary:
+  plain_talk:
+    # Bio-Energy
+    peppy: { shrink_rap: "Hyper-Manic", polarity: "+", plane: "bio_energy" }
+    laid_back: { shrink_rap: "Low-Energy", polarity: "-", plane: "bio_energy" }
+    intense: { shrink_rap: "Agitated", polarity: "+", plane: "bio_energy" }
+    low_key: { shrink_rap: "Tranquil", polarity: "-", plane: "bio_energy" }
+    sad: { shrink_rap: "Melancholic", polarity: "-", plane: "bio_energy" }
+    happy: { shrink_rap: "Euphoric", polarity: "+", plane: "bio_energy" }
+    hesitant: { shrink_rap: "Listless", polarity: "+", plane: "bio_energy" }
+    gung_ho: { shrink_rap: "Wholehearted", polarity: "-", plane: "bio_energy" }
+    
+    # Emotional Insight
+    bossy: { shrink_rap: "Dictatorial", polarity: "-", plane: "emotional_insight" }
+    shy: { shrink_rap: "Passive", polarity: "+", plane: "emotional_insight" }
+    cocky: { shrink_rap: "Haughty", polarity: "-", plane: "emotional_insight" }
+    cute: { shrink_rap: "Eager-to-Please", polarity: "+", plane: "emotional_insight" }
+    grumpy: { shrink_rap: "Hostile", polarity: "-", plane: "emotional_insight" }
+    sweet: { shrink_rap: "Congenial", polarity: "+", plane: "emotional_insight" }
+    whining: { shrink_rap: "Complaining", polarity: "-", plane: "emotional_insight" }
+    encouraging: { shrink_rap: "Nurturant", polarity: "+", plane: "emotional_insight" }
+    
+    # Mental Abilities
+    knowledgeable: { shrink_rap: "Intelligent", polarity: "-", plane: "mental_abilities" }
+    dumb: { shrink_rap: "Ignorant", polarity: "+", plane: "mental_abilities" }
+    organized: { shrink_rap: "Efficient", polarity: "+", plane: "mental_abilities" }
+    flaky: { shrink_rap: "Disorganized", polarity: "-", plane: "mental_abilities" }
+    closed_minded: { shrink_rap: "Literal-Minded", polarity: "+", plane: "mental_abilities" }
+    imaginative: { shrink_rap: "Original", polarity: "-", plane: "mental_abilities" }
+    by_the_book: { shrink_rap: "Narrow-Minded", polarity: "-", plane: "mental_abilities" }
+    ingenious: { shrink_rap: "Inventive", polarity: "+", plane: "mental_abilities" }
+    
+    # Social Interaction
+    vip: { shrink_rap: "Aristocratic", polarity: "-", plane: "social_interaction" }
+    social_nobody: { shrink_rap: "Insignificant", polarity: "+", plane: "social_interaction" }
+    proper: { shrink_rap: "Pillar-of-the-Community", polarity: "+", plane: "social_interaction" }
+    rowdy: { shrink_rap: "Rebellious", polarity: "-", plane: "social_interaction" }
+    straight_arrow: { shrink_rap: "Inhibited", polarity: "+", plane: "social_interaction" }
+    free_living: { shrink_rap: "Social-Maverick", polarity: "-", plane: "social_interaction" }
+    square: { shrink_rap: "Small-Townish", polarity: "-", plane: "social_interaction" }
+    sophisticated: { shrink_rap: "Cosmopolitan", polarity: "+", plane: "social_interaction" }
+
+# SCALE SYSTEM
+
+scale:
+  range: [0, 7]
+  labels:
+    0: "Never"
+    2: "Rarely"
+    5: "Often"
+    7: "Always"
+    
+  interpretation:
+    0_2: "inner (moderate)"
+    3_4: "balanced"
+    5_7: "outer (extreme)"
+
+# EXERCISES
+
+exercises:
+  
+  SELF_PORTRAIT:
+    name: "Self Portrait"
+    description: "Compare your self with your ideal"
+    subjects:
+      - "YOUR SELF: As you are right now"
+      - "YOUR IDEAL SELF: Who you want to become"
+    quote: |
+      "In a magic mirror we see reflected not only our lives,
+      but the lives of all men that have been."
+      — Oliver Wendell Holmes
+      
+  SELF_RANGE:
+    name: "Self Range"
+    description: "Compare your best and worst selves"
+    subjects:
+      - "YOUR BEST SELF: You at your peak"
+      - "YOUR WORST SELF: You at your lowest"
+    insight: |
+      Large gaps between best and worst indicate
+      significant swings in that dimension.
+      
+  ROLE_PLAY_ODYSSEY:
+    name: "Role-Play Odyssey"
+    description: "Life Simulation through different personalities"
+    mode: "MIND PLAY — Sophisticated Head Games"
+    how: |
+      Test your empathy by navigating situations
+      through another personality's lens.
+
+# MODES
+
+modes:
+  
+  MIND_TOOLS:
+    description: "Enhance Insight, Mental Fitness, Learning Skills and Performance"
+    exercises:
+      - psychological_insight
+      - career_productivity
+      - education
+      
+  MIND_PLAY:
+    description: "Significant Pursuits, Sophisticated Head Games"
+    exercises:
+      - role_play_odyssey
+      - comparison
+      - simulation
+
+# LEVELS
+
+levels:
+  - name: "Beginner"
+    description: "Exercises to learn thought modification and use of Mind-Maps"
+    
+  - name: "Intermediate"
+    description: "Suggested topics for Mind-Scoping; includes some coaching"
+    
+  - name: "Master"
+    description: "You're on your own. No coaching. Choose Auto-Play or Inter-Play."
+    
+  - name: "Professional Consulting"
+    description: "For the Psychologist, Personnel Manager, and Teacher/Student"
+
+# INTERACTION MODES
+
+interaction_modes:
+  AUTO_PLAY: "System guides you through"
+  INTER_PLAY: "Mirror your own thoughts, compare with others"
+
+# K-LINE INTEGRATION
+
+k_line_mapping: |
+  Each Mind Mirror dimension IS a K-line:
+  
+  Type "CONFIDENT" → activates:
+    - Charismatic (extreme form)
+    - Part of EMOTIONAL_INSIGHT plane
+    - Opposite of Timid
+    - Associated speech patterns and behaviors
+    
+  Mind Mirror profiles are structured K-line bundles.
+
+# MOOLLM INTEGRATION
+
+integration:
+  
+  character_profiles: |
+    Every character can have a Mind Mirror profile.
+    Abbreviated: just list the extreme traits.
+    Full: all 32 dimensions rated 0-7.
+    
+  soul_chat_influence: |
+    Mind Mirror dimensions affect how characters speak:
+    - calm → speaks slowly, pauses
+    - confident → never apologizes unnecessarily
+    - creative → uses unusual metaphors
+    - uninhibited → occasionally vulgar
+    
+  adventure_npcs: |
+    NPC Mind Mirror profiles affect:
+    - How they respond to player
+    - What advertisements they generate
+    - Decision-making in simulations
+    
+  coatroom_modification: |
+    Costumes can modify Mind Mirror dimensions.
+    Wearing a cape might boost "confident" by 2.
+
+# REPRESENTATION ETHICS
+
+ethics: |
+  Mind Mirror profiles are MODELS, not CLAIMS.
+  
+  Creating a profile for a real person:
+  - Base on documented traits only
+  - Cite sources
+  - Mark as "profile" not "person"
+  - This is tradition invocation, not impersonation
+  
+  Original disclaimer (1985):
+  "All statements attributed to living persons are fictional;
+  they are intended as gentle satire and provocative humor.
+  In no case is there any implication that the statements
+  reflect the true sentiments of the 'alleged' speaker."
+
+# PROTOCOLS
+
+protocols:
+  - MIND-MIRROR
+  - THOUGHT-PLANE
+  - BIO-ENERGY
+  - EMOTIONAL-INSIGHT
+  - MENTAL-ABILITIES
+  - SOCIAL-INTERACTION
+  - SELF-PORTRAIT
+  - SELF-RANGE
+  - ROLE-PLAY-ODYSSEY
+  - PLAIN-TALK
+  - SHRINK-RAP
+
+# DOVETAILS
+
+dovetails_with:
+  - representation-ethics/: "Ethical personality modeling"
+  - hero-story/: "Cards can include Mind Mirror profiles"
+  - card/: "Character cards embed Mind Mirror data"
+  - soul-chat/: "Mind Mirror influences character voice"
+  - adventure/: "NPCs have Mind Mirror profiles"
+  - coatroom/: "Costumes modify dimensions"
+
+# SOURCES
+
+sources:
+  - name: "Mind Mirror Apple ][ Disk"
+    url: "https://donhopkins.com/home/mind-mirror.txt"
+    content: "Full text extraction"
+    
+  - name: "Mind Mirror Scales JSON"
+    url: "https://donhopkins.com/home/mind-mirror.json"
+    content: "Structured scale data"
+    
+  - name: "USC Mind Mirror Archive"
+    url: "https://scalar.usc.edu/works/timothy-leary-software/index"
+    
+  - name: "Leary PhD Dissertation"
+    url: "https://archive.org/details/leary/leary.300dpi/mode/2up"
+    title: "The Social Dimensions of Personality"
+    
+  - name: "Interpersonal Circumplex"
+    url: "https://en.wikipedia.org/wiki/Interpersonal_circumplex"
