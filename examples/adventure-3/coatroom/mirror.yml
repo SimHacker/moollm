@@ -1,6 +1,10 @@
 # The Mind Mirror
 # A psychological dressing room in an ornate frame
 # See your soul. Change your soul. Try on souls for size.
+#
+# The mirror can show and edit BOTH:
+#   - Your CHARACTER (base self, who you ARE)
+#   - Your PERSONA (mask, who you're PLAYING)
 
 object:
   name: Full-Length Mind Mirror of Truth (and Fashion)
@@ -20,12 +24,20 @@ object:
     
     This is both a costume mirror AND a Mind Mirror — it reflects
     your appearance AND your personality profile.
+    
+    **It shows THREE layers:**
+    - Your **COSTUME** (what you're wearing)
+    - Your **CHARACTER** (who you ARE — base traits)
+    - Your **PERSONA** (who you're PLAYING — the mask's modifiers)
+    
+    Each can be viewed and edited separately. The result is the sum.
   
-  # COSTUME REFLECTION (original functionality)
-  reflects: player.costume_description
-  
-  # MIND MIRROR PROFILE
-  mind_mirror_profile: player.mind_mirror
+  # What the mirror reflects
+  reflects:
+    costume: player.costume_description
+    character: player.mind_mirror          # Base traits
+    persona: player.current_persona        # Overlay modifiers
+    combined: "character + persona = performed"
   
   inspiration:
     timothy_leary: |
@@ -76,31 +88,85 @@ object:
         For a moment, you're not sure who started it.
 
     # MIND MIRROR ACTIONS (new!)
+    # ═══════════════════════════════════════════════════════════════════════════
+    # CHARACTER vs PERSONA VIEWING
+    # ═══════════════════════════════════════════════════════════════════════════
+    
     - action: MIND-MIRROR
       score: 90
-      description: "See your psychological profile in detail"
+      description: "See your COMBINED psychological profile (character + persona)"
       result: |
         The mirror's surface ripples like water, then clears to reveal
         not your costume but your MIND — four circular diagrams appear,
         floating in the glass:
         
         **BIO-ENERGY** (Life force, vitality, temperament)
-        [Shows player's bio_energy dimensions with ratings]
+        [Shows COMBINED bio_energy = base + persona modifiers]
         
         **EMOTIONAL INSIGHT** (Interpersonal style)
-        [Shows player's emotional dimensions with ratings]
+        [Shows COMBINED emotional = base + persona modifiers]
         
         **MENTAL ABILITIES** (Knowledge, creativity)
-        [Shows player's mental dimensions with ratings]
+        [Shows COMBINED mental = base + persona modifiers]
         
         **SOCIAL INTERACTION** (Class, sophistication)
-        [Shows player's social dimensions with ratings]
+        [Shows COMBINED social = base + persona modifiers]
         
-        A voice whispers: "This is how you ARE. Say what you want to BE."
+        A voice whispers: "This is who you APPEAR to be. But what's beneath?"
+        
+    - action: SHOW-CHARACTER
+      score: 88
+      aliases: [MY-TRUE-SELF, BASE-SELF, REAL-ME]
+      description: "See your BASE character without persona overlay"
+      result: |
+        The mirror deepens, showing through the mask to your TRUE self...
+        
+        **YOUR CHARACTER** (who you ARE underneath)
+        [Shows character file's mind_mirror and sims_traits]
+        [No persona modifiers applied — just you]
+        
+        If wearing a persona:
+        "This is who you are when the mask comes off."
+        
+    - action: SHOW-PERSONA
+      score: 85
+      aliases: [MY-MASK, THE-ROLE, SHOW-ROLE]
+      description: "See JUST the persona's modifiers"
+      result: |
+        The mirror shows only the MASK — the persona overlay...
+        
+        **YOUR PERSONA** (the modifiers being applied)
+        [Shows persona file's trait modifiers: +2 confident, -1 cautious...]
+        [Shows speech patterns, granted skills, role backstory]
+        
+        If no persona worn:
+        "You wear no mask. What you see is what you are."
+        
+    - action: SHOW-BOTH
+      score: 87
+      aliases: [COMPARE-SELF, LAYERS]
+      description: "See character AND persona side by side"
+      result: |
+        The mirror splits into three panels:
+        
+        **LEFT: YOUR CHARACTER** (base traits)
+        [The real you]
+        
+        **CENTER: THE PERSONA** (modifiers)
+        [The mask's effects]
+        
+        **RIGHT: COMBINED** (what you perform)
+        [Base + modifiers = result]
+        
+        "The self, the mask, the performance."
+        
+    # ═══════════════════════════════════════════════════════════════════════════
+    # CHARACTER vs PERSONA EDITING
+    # ═══════════════════════════════════════════════════════════════════════════
         
     - action: EDIT-MIND
       score: 85
-      description: "Adjust your personality with natural language"
+      description: "Adjust your COMBINED profile (edits CHARACTER by default)"
       examples:
         - "Make me more confident"
         - "I want to be calmer under pressure"
@@ -111,10 +177,45 @@ object:
         The mirror listens to your words...
         
         [LLM interprets the request and adjusts Mind Mirror dimensions.
-        Shows before/after comparison. Changes are reflected in how
-        you interact with the world and how NPCs perceive you.]
+        By default, edits your CHARACTER (base traits).
+        Shows before/after comparison.]
         
         "So it shall be. Look again."
+        
+    - action: EDIT-CHARACTER
+      score: 84
+      aliases: [EDIT-TRUE-SELF, EDIT-BASE]
+      description: "Edit your BASE character traits (permanent)"
+      examples:
+        - "EDIT-CHARACTER make me more playful"
+        - "EDIT-CHARACTER I want to be less cautious"
+      result: |
+        The mirror focuses on your TRUE self, beneath any mask...
+        
+        [Edits the character file's mind_mirror and sims_traits.
+        These changes persist even when you change personas.
+        This is who you ARE becoming.]
+        
+        "Your true self shifts."
+        
+    - action: EDIT-PERSONA
+      score: 83
+      aliases: [EDIT-MASK, EDIT-ROLE]
+      description: "Edit the PERSONA's modifiers (the mask, not you)"
+      examples:
+        - "EDIT-PERSONA make the captain MORE forceful"
+        - "EDIT-PERSONA this role should be funnier"
+      result: |
+        The mirror focuses on the MASK you're wearing...
+        
+        [Edits the persona file's trait modifiers.
+        Affects anyone who wears this persona.
+        Changes the ROLE, not you.]
+        
+        If no persona worn:
+        "You wear no mask to edit."
+        
+        "The mask changes shape."
         
     - action: GENERATE-MIND
       score: 80
