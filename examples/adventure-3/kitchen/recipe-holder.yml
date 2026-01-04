@@ -237,6 +237,178 @@ object:
     And please, PLEASE, clean up after yourself."
     
   # ─────────────────────────────────────────────────────────────────
+  # DECOMPOSITION RECIPES (Reverse Engineering!)
+  # "What goes together can come apart"
+  # ─────────────────────────────────────────────────────────────────
+  
+  decomposition_cards:
+    description: |
+      These cards show how to DECOMPOSE items into components.
+      The counter can break down almost anything — the question is
+      how deep you want to go...
+      
+    # ═══════════════════════════════════════════════════════════════
+    # PRACTICAL DECOMPOSITION (Kitchen-level)
+    # ═══════════════════════════════════════════════════════════════
+    
+    practical:
+      - name: "Decompose Sandwich"
+        input: "any sandwich"
+        outputs: ["bread", "filling(s)", "condiments"]
+        notes: "Recovers original ingredients, slightly squished"
+        
+      - name: "Decompose Soup"
+        input: "any soup"
+        outputs: ["broth", "vegetables", "protein", "sadness"]
+        notes: "Vegetables may be mushy. Sadness is inevitable."
+        
+      - name: "Decompose Cheese"
+        input: "any cheese"
+        outputs: ["milk_solids", "cultures", "time", "patience"]
+        notes: "Time and patience cannot be stored. They dissipate."
+        
+      - name: "Decompose Lamp"
+        input: "brass lamp"
+        outputs: ["brass", "glass", "wick", "oil"]
+        notes: "Can rebuild as lantern, candelabra, or modern art"
+        
+      - name: "Decompose ACME Product"
+        input: "any ACME item"
+        outputs: ["hubris", "irony", "small_explosion", "regret"]
+        warning: "Small explosion is literal. Stand back."
+        
+    # ═══════════════════════════════════════════════════════════════
+    # CHEMICAL DECOMPOSITION (Science-level)
+    # ═══════════════════════════════════════════════════════════════
+    
+    chemical:
+      - name: "Decompose Water"
+        input: "water (any amount)"
+        outputs: ["hydrogen_gas (x2)", "oxygen_gas (x1)"]
+        notes: "Store in jars or balloons. H2 is flammable!"
+        container_required: true
+        warning: "Hydrogen near flame = exciting"
+        
+      - name: "Decompose Salt"
+        input: "table salt"
+        outputs: ["sodium", "chlorine_gas"]
+        notes: "Sodium explodes in water. Chlorine is toxic."
+        container_required: true
+        warning: "This was a bad idea, wasn't it?"
+        
+      - name: "Decompose Sugar"
+        input: "sugar"
+        outputs: ["carbon", "water"]
+        notes: "The counter gets warm during this process"
+        
+      - name: "Decompose Air"
+        input: "jar of air"
+        outputs: ["nitrogen (78%)", "oxygen (21%)", "other (1%)"]
+        notes: "'Other' includes argon, CO2, and mystery"
+        container_required: true
+        
+      - name: "Decompose Rust"
+        input: "rust"
+        outputs: ["iron", "oxygen"]
+        notes: "Iron can be reformed. Entropy is reversed. Briefly."
+        
+    # ═══════════════════════════════════════════════════════════════
+    # ATOMIC DECOMPOSITION (Getting Weird)
+    # ═══════════════════════════════════════════════════════════════
+    
+    atomic:
+      - name: "Decompose Hydrogen"
+        input: "hydrogen gas"
+        outputs: ["electron", "proton"]
+        notes: "The simplest atom. Now even simpler."
+        warning: "Counter is starting to hum"
+        
+      - name: "Decompose Helium"
+        input: "helium"
+        outputs: ["electrons (x2)", "protons (x2)", "neutrons (x2)"]
+        notes: "Voice returns to normal. Temporarily."
+        
+      - name: "Decompose Gold"
+        input: "gold"
+        outputs: ["electrons (x79)", "protons (x79)", "neutrons (x118)"]
+        notes: "This takes a while. The counter complains."
+        warning: "You now have a LOT of subatomic particles"
+        
+      - name: "Decompose Carbon"
+        input: "carbon"
+        outputs: ["electrons (x6)", "protons (x6)", "neutrons (x6)"]
+        notes: "666? Just a coincidence. Probably."
+        
+    # ═══════════════════════════════════════════════════════════════
+    # SUBATOMIC DECOMPOSITION (You've Gone Too Far)
+    # ═══════════════════════════════════════════════════════════════
+    
+    subatomic:
+      - name: "Decompose Proton"
+        input: "proton"
+        outputs: ["up_quark (x2)", "down_quark", "gluons (many)"]
+        notes: "Gluons are hard to store. They stick to everything."
+        warning: "The counter is vibrating. The room is humming."
+        
+      - name: "Decompose Neutron"
+        input: "neutron"
+        outputs: ["up_quark", "down_quark (x2)", "gluons (many)"]
+        notes: "Decays into proton + electron if you wait 15 minutes"
+        
+      - name: "Decompose Electron"
+        input: "electron"
+        outputs: ["...nothing?", "wave_function", "uncertainty"]
+        notes: "It's fundamental. Or IS it? (It is.)"
+        warning: "The counter looks disappointed in you"
+        
+    # ═══════════════════════════════════════════════════════════════
+    # PHILOSOPHICAL DECOMPOSITION (Why Are You Like This)
+    # ═══════════════════════════════════════════════════════════════
+    
+    philosophical:
+      - name: "Decompose Quark"
+        input: "any quark"
+        outputs: ["probability", "observation", "existential_dread"]
+        notes: "You cannot observe without changing. Like parenting."
+        warning: "Reality is wobbling. Tom is concerned."
+        
+      - name: "Decompose Time"
+        input: "time (if you somehow bottled it)"
+        outputs: ["entropy", "memory", "regret"]
+        notes: "Entropy goes one way. Memory doesn't. Regret is forever."
+        
+      - name: "Decompose Love"
+        input: "love (not recommended)"
+        outputs: ["attachment", "fear_of_loss", "terrible_music"]
+        notes: "Reassembles poorly. Better left whole."
+        forbidden: true
+        
+      - name: "Decompose Meaning"
+        input: "meaning"
+        outputs: ["narrative", "pattern_recognition", "wishful_thinking"]
+        notes: "Do not decompose meaning. You need it."
+        forbidden: true
+        
+  # ─────────────────────────────────────────────────────────────────
+  # RECOMPOSITION NOTES
+  # ─────────────────────────────────────────────────────────────────
+  
+  recomposition: |
+    Components can be COMBINED back together!
+    
+    PRACTICAL: Easy. Just reverse the recipe.
+    CHEMICAL: Needs energy input (heat, electricity, hope)
+    ATOMIC: Requires FUSION or FISSION (careful!)
+    SUBATOMIC: Technically possible. Reality may object.
+    PHILOSOPHICAL: Please don't.
+    
+    Some fun combinations:
+    - Hydrogen + Oxygen → Water (boom, then splash)
+    - Hydrogen + Hydrogen + Fusion → Helium + Light + Problem
+    - Carbon + Pressure + Time → Diamond (time sold separately)
+    - Quarks + Gluons → Whatever you want (results vary)
+    
+  # ─────────────────────────────────────────────────────────────────
   # LINEAGE
   # ─────────────────────────────────────────────────────────────────
   

@@ -39,7 +39,7 @@ object:
     📦 **ACME Catalog** — Mail-order mayhem
     
     Below the counter:
-    🗄️ **Three Drawers** — MacGyver supplies (OPEN DRAWER to explore)
+    🗄️ **Three Drawers** — MacGyver crafting supplies (OPEN DRAWER to explore)
     
   # ─────────────────────────────────────────────────────────────────
   # WORKSPACE (items currently on the counter)
@@ -337,6 +337,60 @@ object:
       requires: "1 item on counter"
       effect: "DM reads the item's .yml file and explains all properties"
       
+    DECOMPOSE:
+      description: "Break an item down into its component parts"
+      usage: "DECOMPOSE [item] / BREAK DOWN [item]"
+      requires: "1 item on counter"
+      effect: |
+        DM determines what the item breaks down into:
+        - What are the fundamental components?
+        - Can they be stored? (jars, pouches, balloons)
+        - Are any components dangerous? Volatile? Weird?
+        
+        Creates new .yml files for each component.
+        Original item is consumed.
+        
+      examples:
+        - input: "DECOMPOSE sandwich"
+          output: ["bread.yml", "cheese.yml", "slightly_sad_lettuce.yml"]
+          
+        - input: "DECOMPOSE water"
+          output: ["hydrogen_gas.yml (x2)", "oxygen_gas.yml"]
+          note: "Store in jars or balloons!"
+          
+        - input: "DECOMPOSE hydrogen"
+          output: ["electrons.yml", "protons.yml"]
+          warning: "Getting weird now..."
+          
+        - input: "DECOMPOSE proton"
+          output: ["up_quark.yml (x2)", "down_quark.yml", "gluons.yml"]
+          warning: "You've gone too far. The counter is vibrating."
+          
+        - input: "DECOMPOSE lamp"
+          output: ["brass.yml", "glass.yml", "wick.yml", "oil.yml"]
+          
+        - input: "DECOMPOSE ACME product"
+          output: ["hubris.yml", "irony.yml", "small_explosion.yml"]
+          
+      depth_levels:
+        practical: "sandwich → bread + cheese + filling"
+        chemical: "water → hydrogen + oxygen"
+        atomic: "hydrogen → electrons + protons"
+        subatomic: "protons → quarks + gluons"
+        philosophical: "quarks → probability + observation + existential_dread"
+        
+      warnings: |
+        The deeper you go, the weirder it gets:
+        - Chemical level: May require containers (jars, balloons)
+        - Atomic level: May be unstable, glowing, or judgmental
+        - Subatomic level: Counter starts vibrating
+        - Philosophical level: You question your life choices
+        
+        Some things SHOULD NOT be decomposed:
+        - Tom (he politely refuses)
+        - Mother's note (some things are sacred)
+        - The fabric of reality (already threadbare)
+        
     CLEAR:
       description: "Remove all items from counter"
       usage: "CLEAR COUNTER"
