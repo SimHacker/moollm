@@ -43,9 +43,10 @@ Or just open Cursor and ask:
 Open [examples/adventure‑3/](./examples/adventure-3/) — it's ready to go!
 
 ```
+> LOOK
 > GET LAMP
 > GO WEST
-> LOOK
+> READ LETTER
 ```
 
 The LLM is your Dungeon Master. The filesystem is the world. Chat commands become actions. Files track state.
@@ -75,13 +76,13 @@ cp -r examples/adventure-3 examples/my-adventure
 
 **Fork & branch first:** Ask Cursor to fork the repo and create your own branch — now you have your own copy to experiment with freely.
 
-**Add, commit, push:** When you save your work to GitHub, your adventure's README becomes a beautifully formatted web page! Hypertext links let you browse rooms, examine objects, and trace your journey. Your playthrough becomes a shareable, navigable story.
+**Add, commit, push:** When you save your work to GitHub, your adventure's README.md becomes a beautifully formatted web page! Hypertext links let you browse rooms, examine objects, and trace your journey. Your playthrough becomes a shareable, navigable story.
 
 **Make PRs:** Developed a cool skill, mechanic, or adventure? Ask Cursor to make a pull request to share your improvements with the community!
 
 **Don't know git?** Just ask Cursor! *"Fork this repo, create a branch called my-adventure, add my changes, commit, and push."* It handles everything — no shell commands to memorize. But watch what it does and learn! **This is constructionist education at its finest.** You're not just playing — you're learning git, YAML, file structures, and LLM patterns by doing.
 
-You can edit the YAML directly in Cursor's text editor — or just tell Cursor what you want:
+You can create and edit the YAML directly in Cursor's text editor — or just tell Cursor what you want:
 
 > "Add a garden room west of the kitchen with a mysterious talking flower."
 
