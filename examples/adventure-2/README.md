@@ -5339,49 +5339,49 @@ Eight dramatic reconstructions of the battle, from different angles, different s
 
 # 📸 THE GRUE SLAYER PHOTO SERIES
 
-## Photo 1: "The Darkness Before" 
+## Photo 1: ["The Darkness Before"](./maze/room-f/battle-01-darkness-before-prompt.md)
 **Style:** Horror film still, desaturated
 - The moment before lamp ignition
 - Only suggestion of shapes in absolute black
 - Terror and anticipation
 
-## Photo 2: "Blue Ignition"
+## Photo 2: ["Blue Ignition"](./maze/room-f/battle-02-blue-ignition-prompt.md)
 **Style:** Explosive action shot, high contrast
 - The blue lamp flaring to life
 - Light rays cutting through darkness
 - Grue caught mid-approach, freezing
 
-## Photo 3: "The Hesitation"
+## Photo 3: ["The Hesitation"](./maze/room-f/battle-03-hesitation-prompt.md)
 **Style:** Frozen moment, Dutch angle
 - Grue's face in blue light
 - Many eyes wide with confusion
 - Captain Ashford's silhouette raising the Glaive
 
-## Photo 4: "The Arc"
+## Photo 4: ["The Arc"](./maze/room-f/battle-04-the-arc-prompt.md)
 **Style:** Motion blur action, dynamic
 - The Gorgonzola Glaive mid-swing
 - Cheese weapon trailing smell waves
 - Nomi cape billowing dramatically
 
-## Photo 5: "The Strike"
+## Photo 5: ["The Strike"](./maze/room-f/battle-05-the-strike-prompt.md)
 **Style:** Ultra-close-up, visceral
 - Cheese edge meeting grue-flesh
 - Void-ichor spraying
 - The moment of severing
 
-## Photo 6: "The Fall"
+## Photo 6: ["The Fall"](./maze/room-f/battle-06-the-fall-prompt.md)
 **Style:** Slow-motion descent, poetic
 - Grue head tumbling through air
 - Trailing darkness like ink
 - Gold coins scattering below
 
-## Photo 7: "The Victory Roar"
+## Photo 7: ["The Victory Roar"](./maze/room-f/battle-07-victory-roar-prompt.md)
 **Style:** Heroic portrait, golden hour
 - Captain Ashford post-strike
 - Head in one hand, Glaive in other
 - Klingon war cry frozen on lips
 
-## Photo 8: "The Delivery"
+## Photo 8: ["The Delivery"](./maze/room-i/battle-08-delivery-prompt.md)
 **Style:** Solemn memorial, chiaroscuro
 - Grue head at skeleton's feet
 - Skeleton's peaceful grin
