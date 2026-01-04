@@ -216,6 +216,10 @@ Interacting with objects in the coatroom can teach persistent skills:
 | `WEAR RANDOM` repeatedly | `style-improvisation` | Social encounters |
 | Help the mannequin | `fashion-consulting` | NPC interactions |
 | `ADD TO INVENTORY` | `accessorizing` | Equipment management |
+| `MIND-MIRROR` | `self-awareness` | All NPC interactions |
+| `EDIT-MIND` | `personality-crafting` | Character creation |
+| `GENERATE-MIND FOR` | `psychological-profiling` | NPC analysis |
+| `COMPARE-MINDS` | `empathy` | Understanding others |
 
 These skills persist in your `player.yml` and travel with you!
 
