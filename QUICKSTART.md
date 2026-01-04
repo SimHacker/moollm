@@ -148,8 +148,8 @@ examples/adventure-3/
 ## 🎯 Your First Session
 
 1. **Open adventure‑3 in Cursor**
-2. **Read** `kitchen/mothers-note.yml` — it sets up the whole adventure
-3. **Chat:** "I wake up in the Chamber of Commencement. GET LAMP."
+2. **Chat:** "I wake up. LOOK. GO WEST. READ NOTE."
+3. **Compose your reply to Mother** — your promises become your goals, kickstarting world generation!
 4. **Explore:** GO NORTH, LOOK, EXAMINE things
 5. **Write back to Mother** — your promises become your goals!
 
