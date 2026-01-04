@@ -733,6 +733,47 @@ LEARY-ESCAPE-PROTOCOL:
     Appeared low-risk. Got minimum security. Climbed over the fence.
   lesson: "The only prison is the one you cannot see."
 
+CHARACTER-IMAGE-METADATA:
+  meaning: "Image prompts include Mind Mirror and state snapshots as metadata."
+  location: skills/mind-mirror/
+  invoke_when: "Generating any image of a character"
+  
+  rule: |
+    When generating an image of a character, ALWAYS include:
+    1. Mind Mirror profile snapshot (personality dimensions)
+    2. Current costume/appearance description
+    3. Emotional state at moment of capture
+    4. Location context
+    5. Any relevant physical/mental configuration
+    
+  why: |
+    - Ensures character coherence across multiple images
+    - Enables regeneration with same personality
+    - Connects visual to psychological
+    - Creates reproducible character visualization
+    - Metadata travels with image for context
+    
+  format: |
+    ```yaml
+    image_prompt:
+      subject: "Captain Ashford"
+      action: "triumphantly holding the Golden Chalice"
+      
+      character_state:
+        mind_mirror:
+          confident: 6
+          cheerful: 5
+          proud: 5
+          creative: 6
+        costume: "Space pirate with holographic eyepatch"
+        mood: "victorious, exhausted, relieved"
+        location: "Treasure Chamber, warm golden light"
+        
+      style: "dramatic portrait, heroic lighting"
+    ```
+    
+  see_also: [MIND-MIRROR, COHERENCE-ENGINE]
+
 HONEST-FORGET:
   meaning: "Summarize before forgetting. Never fabricate."
   location: kernel/constitution-core.md §6

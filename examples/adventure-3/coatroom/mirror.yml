@@ -65,6 +65,9 @@ object:
         You pose heroically. The mirror captures it perfectly.
         Somewhere, a camera flash goes off. There is no camera.
         
+        [IMAGE-GENERATION-RULE: Photo prompt includes Mind Mirror
+        profile snapshot as metadata for character coherence.]
+        
     - action: MAKE-FACE
       score: 50
       description: "Make a face at your reflection"
