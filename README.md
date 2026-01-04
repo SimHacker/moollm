@@ -10,10 +10,10 @@
 
 - **Browse on GitHub first** — every directory has a README explaining what's inside with links to artifacts. Explore microworlds, skills, and kernel protocols without installing anything. It's literate programming: markup and data as literature!
 - **Clone the repo** — `git clone` or ask Cursor to do it for you
-- **Open in Cursor** to start chatting and playing
+- **Open in Cursor** — start chatting and playing
 - **Explore a playable adventure** — navigate rooms, examine objects, talk to Cursor
-- **Clone and build your own world** — just tell Cursor what you want
-- **Fork & branch** — ask Cursor to fork the repo and create your own branch you control
+- **Build your own world** — clone adventure-3 and tell Cursor what you want
+- **Fork & branch** — ask Cursor to fork and create your own branch you control
 - **Add, commit, push** — save your narrative to GitHub as a beautifully formatted web page
 - **Make PRs** — share your adventures, skills, and mechanics back with the community
 
