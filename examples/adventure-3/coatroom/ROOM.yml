@@ -88,6 +88,68 @@ room:
       - command: "LOOK IN MIRROR"
         effect: "See your current appearance AND personality in detail"
 
+  # IDENTITY SYSTEM
+  # Rename your file, see all your stats
+  identity_system:
+    description: |
+      You are more than a name. You are a file. In the coatroom,
+      you can examine and rename your very existence.
+      
+    commands:
+      - command: "DESCRIBE-ME"
+        effect: |
+          Shows ALL your data in beautiful narrative and table form:
+          - File name (e.g., player.yml → captain-ashford.yml)
+          - Character name
+          - Current costume/persona
+          - Mind Mirror profile (Sims traits + Leary planes)
+          - Current needs, wants, aspirations
+          - Inventory summary
+          - Relationships
+          - Score, gold, moves, effects
+        example_output: |
+          ═══════════════════════════════════════════════════
+          📁 FILE: captain-ashford.yml
+          👤 NAME: Captain Kira Ashford
+          🎭 PERSONA: Space Pirate Captain (Belter)
+          ═══════════════════════════════════════════════════
+          
+          PERSONALITY (The Sims)
+          ┌────────────┬─────┬────────────────────────────┐
+          │ Trait      │ Val │ Commentary                 │
+          ├────────────┼─────┼────────────────────────────┤
+          │ Neat       │ 3   │ Organized chaos            │
+          │ Outgoing   │ 7   │ Works the room             │
+          │ Active     │ 6   │ Paces when thinking        │
+          │ Playful    │ 7   │ Everything's a game        │
+          │ Nice       │ 6   │ Cares, but won't be walked │
+          └────────────┴─────┴────────────────────────────┘
+          
+          ... [continues with full profile]
+          
+      - command: "CHANGE-MY-FILE-NAME [new-name]"
+        aliases: ["RENAME-ME", "MY-FILE-NAME"]
+        effect: |
+          Renames your player.yml file to a new name.
+          The .yml extension is optional — we know what you mean.
+        examples:
+          - "CHANGE-MY-FILE-NAME captain-ashford"
+          - "CHANGE-MY-FILE-NAME bumblewick-fantastipants.yml"
+          - "RENAME-ME space-pirate"
+        notes: |
+          The file name is YOUR name in the filesystem.
+          Choose wisely. Or don't — you can always change it again.
+          
+      - command: "CHANGE-MY-NAME [new name]"
+        effect: "Changes the character name (the 'name:' field in the file)"
+        example: "CHANGE-MY-NAME Captain Kira Ashford"
+        
+    why_this_matters: |
+      In MOOLLM, you ARE your file. The filesystem is the world.
+      Your file name is your identity at the most fundamental level.
+      When you rename your file, you're not just changing a label —
+      you're declaring who you ARE in the universe.
+
   # MIND MIRROR SYSTEM (integrated with costume system)
   # Based on Timothy Leary's 1985 software
   mind_mirror_system:

@@ -53,6 +53,26 @@ This isn't just dress-up. It's **becoming who you want to be**.
 | `RESTORE-MIND` | Return to original personality |
 | `VOCABULARY-MODE` | Toggle Plain Talk / Shrink-Rap |
 
+### Identity Commands
+
+| Command | Effect |
+|---------|--------|
+| `DESCRIBE-ME` | See ALL your data in narrative + table form |
+| `CHANGE-MY-FILE-NAME [name]` | Rename your player.yml file (`.yml` optional) |
+| `CHANGE-MY-NAME [name]` | Change your character name |
+
+**DESCRIBE-ME** shows everything:
+- Your file name (`player.yml` → `captain-ashford.yml`)
+- Character name, persona, costume
+- Full Mind Mirror profile (Sims traits + Leary planes)  
+- Current needs, wants, aspirations
+- Inventory, relationships, gold, score, effects
+
+**CHANGE-MY-FILE-NAME** is fundamental:
+- In MOOLLM, you ARE your file. The filesystem IS the world.
+- `CHANGE-MY-FILE-NAME captain-ashford` renames `player.yml` → `captain-ashford.yml`
+- The `.yml` is optional — we know what you mean
+
 ---
 
 ## Examples
