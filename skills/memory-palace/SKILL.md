@@ -1,77 +1,126 @@
-# Memory Palace Skill
-## Spatial Organization of Knowledge in Navigable Directories
-
-*"The filesystem is the mind. Directories are rooms. Files are objects."*
-
+---
+name: memory-palace
+description: Spatial organization of knowledge in navigable directories
+license: MIT
+tier: 1
+allowed-tools:
+  - read_file
+  - write_file
+  - list_dir
+inputs:
+  palace_name:
+    type: string
+    required: true
+    description: Name for this memory palace
+  palace_purpose:
+    type: string
+    required: true
+    description: What this palace is for
+  initial_rooms:
+    type: list
+    required: false
+    description: Starting room names
+outputs:
+  - ENTRY.md
+  - MAP.yml
+  - room directories
+templates:
+  - ENTRY.md.tmpl
+  - MAP.yml.tmpl
+  - ROOM.md.tmpl
+metaphor:
+  palace: directory tree
+  room: subdirectory
+  artifact: file
+  note: .meta.yml sidecar
+  door: cross-reference
+  map: MAP.yml
+  entry: ENTRY.md
+working_set:
+  hot: [ENTRY.md, MAP.yml]
+  warm: ["*/ROOM.md"]
+  cold: ["attic/**"]
 ---
 
-## Purpose
+# 🏛️ Memory Palace Skill
 
-Transform complex information into a navigable spatial structure where:
-- **Directories** = Rooms/locations you can visit
-- **Files** = Objects/artifacts you can examine
-- **Links** = Doors/passages between spaces
-- **`.meta.yml`** = Sticky notes on the wall
+> *"The filesystem is the mind. Directories are rooms. Files are objects."*
 
-This leverages the ancient "method of loci" memory technique, adapted for LLMs navigating filesystems.
+The ancient method of loci, adapted for LLMs navigating filesystems.
 
----
+## The Technique
 
-## When to Use
+Place knowledge in **locations**. Navigate to **remember**.
 
-- Organizing a large research project
-- Building a knowledge base that grows over time
-- Creating a "second brain" for a domain
-- Exploring complex topics systematically
-- Maintaining context across sessions
+Each room contains:
+- **Objects** (files) — artifacts to examine
+- **Exits** (links) — doors to other rooms
+- **Atmosphere** — the room's essence
 
----
+## This IS the Room Skill
 
-## Prerequisites
+Memory Palace and [Room](../room/) are deeply connected:
 
-- File tools (ls, read, write, mkdir)
-- No execution required (Tier 1)
+| Memory Palace | Room Skill |
+|---------------|------------|
+| Location | Directory |
+| Object | File |
+| Traversal | Enter/Exit |
+| Placement | Create file |
+| Recall | Navigate to |
 
----
+**Memory Palace** = Room + spatial mnemonic intent
 
-## Protocol
-
-### Step 1: Create the Palace
-
-1. Establish a root directory for the palace
-2. Create an ENTRY.md as the "front door"
-3. Create initial rooms based on major themes
+## Palace Structure
 
 ```
 palace/
-├── ENTRY.md              # Welcome, orientation, map
-├── MAP.yml               # Navigation structure
-├── room-name/
-│   ├── ROOM.md           # Room description
-│   ├── artifact.md       # Something in the room
-│   └── artifact.meta.yml # Notes about it
+├── ENTRY.md          # Front door (README)
+├── MAP.yml           # Navigation overview
+│
+├── concepts/         # Wing: Ideas
+│   ├── ROOM.md
+│   ├── yaml-jazz/
+│   └── play-learn-lift/
+│
+├── characters/       # Wing: Personas
+│   ├── ROOM.md
+│   ├── gardener/
+│   └── archivist/
+│
+└── skills/           # Wing: Capabilities
+    ├── ROOM.md
+    └── ...
 ```
 
-### Step 2: Navigate and Populate
+## Placing Knowledge
 
-1. Enter a room by reading its ROOM.md
-2. Examine artifacts by reading files
-3. Leave notes by creating/updating .meta.yml
-4. Create new rooms as topics emerge
-5. Link rooms through explicit references
+To remember something:
 
-### Step 3: Maintain the Palace
+1. **Choose a room** — where does this belong?
+2. **Create a file** — the object to place
+3. **Link it** — connect to related objects
+4. **Walk there** — navigate to reinforce
 
-1. Update MAP.yml as structure grows
-2. Add cross-references between rooms
-3. Archive stale rooms to attic/
-4. Create summary files for dense rooms
-
----
+```yaml
+# palace/concepts/yaml-jazz/ROOM.yml
+room:
+  name: "YAML Jazz Chamber"
+  contains:
+    - "jazz-principles.md"    # Core ideas
+    - "examples/"             # Sub-room of examples
+  exits:
+    parent: "../"
+    related: "../play-learn-lift/"
+  atmosphere: "improvisational, semantic"
+```
 
 ## Core Files
 
 ### ENTRY.md
+
+The front door to your palace:
+
 ```markdown
 # Palace Name
 
@@ -85,12 +134,12 @@ What this palace contains and why.
 ## Recent Activity
 - Added X to Room A
 - Created new Room C
-
-## How to Use
-Instructions for navigating this palace.
 ```
 
 ### MAP.yml
+
+Navigation structure:
+
 ```yaml
 palace:
   name: "Research Palace"
@@ -114,6 +163,7 @@ landmarks:
 ```
 
 ### ROOM.md (in each room)
+
 ```markdown
 # Room Name
 
@@ -122,22 +172,16 @@ Description of this room's contents.
 
 ## Artifacts
 - [artifact-1.md](artifact-1.md) - Description
-- [artifact-2.md](artifact-2.md) - Description
 
 ## Doors
 - ← Back to [Entry](../ENTRY.md)
 - → Forward to [Next Room](../next-room/ROOM.md)
-- ↓ Down to [Sub-room](sub-room/ROOM.md)
 
 ## Notes
 Observations, questions, TODOs for this room.
 ```
 
----
-
 ## Navigation Commands
-
-When using the Memory Palace, think spatially:
 
 | Intent | Action |
 |--------|--------|
@@ -150,7 +194,30 @@ When using the Memory Palace, think spatially:
 | "Check the map" | Read MAP.yml |
 | "Where am I?" | Note current path |
 
----
+## Lifecycle
+
+### Create
+- mkdir palace root
+- create ENTRY.md
+- create MAP.yml
+- create initial rooms
+
+### Expand
+- create new room directory
+- add ROOM.md
+- update MAP.yml
+- link from related rooms
+
+### Maintain
+- update MAP.yml periodically
+- add cross-references
+- archive stale rooms
+- create summaries
+
+### Archive
+- move to attic/
+- note in MAP.yml
+- update links
 
 ## Tips
 
@@ -161,40 +228,12 @@ When using the Memory Palace, think spatially:
 5. **Maintain the map** — MAP.yml is your table of contents
 6. **Archive, don't delete** — Move stale rooms to attic/
 
----
+## Integration
 
-## Example: Research Palace
-
-```
-research-palace/
-├── ENTRY.md
-├── MAP.yml
-├── foundations/
-│   ├── ROOM.md
-│   ├── key-concepts.md
-│   ├── key-concepts.meta.yml
-│   └── terminology.md
-├── literature/
-│   ├── ROOM.md
-│   ├── paper-summaries/
-│   └── key-quotes.md
-├── experiments/
-│   ├── ROOM.md
-│   ├── experiment-1/
-│   └── experiment-2/
-├── synthesis/
-│   ├── ROOM.md
-│   ├── findings.md
-│   └── open-questions.md
-└── attic/
-    └── abandoned-ideas/
-```
-
----
-
-## Outputs
-
-- A navigable directory structure
-- ENTRY.md as the palace front door
-- MAP.yml for orientation
-- Populated rooms with artifacts and notes
+| Skill | Relationship |
+|-------|--------------|
+| [room](../room/) | Memory Palace IS Room + spatial mnemonic intent |
+| [adventure](../adventure/) | Adventure IS Room + narrative quest framing |
+| [card](../card/) | Objects placed in rooms can be cards |
+| [soul-chat](../soul-chat/) | Palace rooms can speak, guide visitors |
+| [summarize](../summarize/) | Compress palace knowledge for context |

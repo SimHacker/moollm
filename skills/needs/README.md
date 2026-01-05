@@ -1,28 +1,36 @@
-# Needs Skill
+# 🔋 Needs
 
-Dynamic motivations (Sims-style).
+> Needs drive the story. Low needs create urgency.
 
-**Motto:** *"Needs drive the story. Low needs create urgency."*
+**Quick Links:**
+- [Full Specification](SKILL.md) — complete needs system
 
-## Key Concepts
+## Overview
 
-- **Scale** — 0-10 (10 = fully satisfied)
-- **Decay** — Needs decrease over time
-- **Urgency** — Low needs interrupt other activities
-- **Inner voice** — YAML Jazz comments reflect mental state
+Dynamic motivations (Sims-style). Needs fluctuate over time and drive behavior. Low needs create urgency. Satisfied needs enable other activities.
+
+## Scale (0-10)
+
+| Value | Meaning |
+|-------|---------|
+| 10 | Fully satisfied |
+| 7-9 | Comfortable |
+| 4-6 | Manageable |
+| 2-3 | Urgent |
+| 0-1 | Critical |
 
 ## Standard Needs
 
-| Need | Decay | Satisfy | Critical |
-|------|-------|---------|----------|
-| Hunger | 2 hours | EAT, DRINK | 2 |
-| Energy | 3 hours | SLEEP, REST | 2 |
-| Fun | 4 hours | PLAY, GAMES | 3 |
-| Social | 6 hours | TALK, hang out | 3 |
-| Comfort | Situational | Safe place | 4 |
-| Bladder | 4 hours | Use bathroom | 1 |
+| Need | Decay Rate | Satisfy With |
+|------|------------|--------------|
+| Hunger | 2 hours | EAT, DRINK |
+| Energy | 3 hours | SLEEP, REST |
+| Fun | 4 hours | PLAY, GAMES |
+| Social | 6 hours | TALK, hang out |
+| Comfort | Situational | Safe place |
+| Bladder | 4 hours | Use bathroom |
 
-## Inner Voice (YAML Jazz)
+## YAML Jazz Inner Voice
 
 ```yaml
 hunger: 7   # Satisfied. No food thoughts.
@@ -30,8 +38,10 @@ hunger: 3   # Getting peckish. Is that pie?
 hunger: 1   # FOOD. FOOD. FOOD. FOOD.
 ```
 
-## See Also
+Comments update dynamically to reflect mental state!
+
+## Related Skills
 
 - [time](../time/) — Needs decay over simulation turns
 - [buff](../buff/) — Some buffs affect need decay
-- [character](../character/) — Needs stored in character
+- [character](../character/) — Needs stored in character state

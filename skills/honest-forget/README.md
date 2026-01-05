@@ -1,27 +1,34 @@
-# Honest Forget
+# 🌫️ Honest Forget
 
-> **Summarize before forgetting. Never fabricate.**
+> Summarize before forgetting. Never fabricate.
 
-Graceful memory compression, not silent loss.
+**Quick Links:**
+- [Full Specification](SKILL.md) — complete protocol and schemas
+- [Template: FORGET.yml](FORGET.yml.tmpl) — forgetting session template
+- [Template: WISDOM.yml](WISDOM.yml.tmpl) — wisdom extraction template
 
-> [!WARNING]
-> **Never claim to remember what you forgot.** Leave breadcrumbs for future archaeology.
+## Overview
 
-## The Principle
-
-When context must be evicted:
+Graceful memory compression that preserves wisdom. When context must be evicted:
 1. **Summarize** — Extract the wisdom
 2. **Document** — Record what's being forgotten
 3. **Backlink** — Point to sources for archaeology
 4. **Forget** — Let go gracefully
 
-## Contents
+## The Cycle
 
-| File | Purpose |
-|------|---------|
-| [SKILL.md](./SKILL.md) | Full protocol documentation |
-| [PROTOTYPE.yml](./PROTOTYPE.yml) | Machine-readable definition |
-| [template/](./template/) | Templates for wisdom extraction |
+```
+ASSESS → EXTRACT → COMPRESS → POINTER → RELEASE
+```
+
+## Compression Levels
+
+| Level | Ratio | Keeps |
+|-------|-------|-------|
+| FULL | 1:1 | Everything |
+| WISDOM | ~5:1 | Lessons, decisions |
+| SUMMARY | ~10:1 | Essence and pointers |
+| POINTER | ~50:1 | Just retrieval hints |
 
 ## Why "Honest"
 
@@ -30,47 +37,9 @@ When context must be evicted:
 - Acknowledge limitations transparently
 - Leave breadcrumbs for future recovery
 
-## The Intertwingularity
+## Related Skills
 
-Honest-forget depends on [summarize](../summarize/) — compress before releasing.
-
-```mermaid
-graph LR
-    HF[🌫️ honest-forget] -->|uses| SUM[📝 summarize]
-    HF -->|triggers| COLD[cold.yml eviction]
-    HF -->|logs to| SL[📜 session-log]
-    
-    SR[🔧 self-repair] -->|triggers| HF
-    HOT[hot.yml] -->|opposite of| COLD
-```
-
----
-
-## Dovetails With
-
-### Sister Skills
-| Skill | Relationship |
-|-------|--------------|
-| [summarize/](../summarize/) | Honest-forget USES summarize |
-| [self-repair/](../self-repair/) | Triggers forgetting when needed |
-| [session-log/](../session-log/) | Log what was forgotten |
-| [memory-palace/](../memory-palace/) | Archive in palace before forgetting |
-
-### Protocol Symbols
-| Symbol | Link |
-|--------|------|
-| `HONEST-FORGET` | [PROTOCOLS.yml](../../PROTOCOLS.yml#HONEST-FORGET) |
-| `SUMMARIZE` | [PROTOCOLS.yml](../../PROTOCOLS.yml#SUMMARIZE) |
-| `HOT-COLD` | [PROTOCOLS.yml](../../PROTOCOLS.yml#HOT-COLD) |
-| `NEVER-DELETE` | [PROTOCOLS.yml](../../PROTOCOLS.yml#NEVER-DELETE) |
-
-### Kernel
-- [kernel/memory-management-protocol.md](../../kernel/memory-management-protocol.md) — Full specification
-
-### Navigation
-| Direction | Destination |
-|-----------|-------------|
-| ⬆️ Up | [skills/](../) |
-| ⬆️⬆️ Root | [Project Root](../../) |
-| 📝 Sister | [summarize/](../summarize/) |
-| 🔧 Sister | [self-repair/](../self-repair/) |
+- [summarize](../summarize/) — compression mechanism
+- [self-repair](../self-repair/) — triggers forgetting when needed
+- [session-log](../session-log/) — log what was forgotten
+- [memory-palace](../memory-palace/) — archive in palace before forgetting
