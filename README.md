@@ -793,7 +793,7 @@ def _internal_helper():
 **For the LLM:** Reading the script file directly is faster and more complete than running `--help` in a terminal. You see:
 - All subcommands at once
 - Type hints and choices
-- Constants and defaults
+- Constants and defaults and comments
 - The actual implementation logic
 
 ### K-Lines Are Skill Invocations
@@ -815,15 +815,17 @@ See: [PROTOCOLS.yml](./PROTOCOLS.yml) for the full K-line registry.
 
 **This is where MOOLLM diverges from Anthropic's format.**
 
-Anthropic skills are prompts. MOOLLM skills are **prototypes that instantiate into YAML state files**:
+Anthropic skills are prompts. MOOLLM skills are **prototypes that instantiate into a YAML state file or directory tree**:
 
 ```
 skills/adventure/                    # The PROTOTYPE
+├── README.md                        # Human readable adventure skill prototype summary
 ├── SKILL.md                         # Protocol documentation
 ├── ADVENTURE.yml.tmpl               # Template with {{variables}}
 └── LOG.md.tmpl                      # Template for narrative log
 
 examples/adventure-3/                # An INSTANTIATION
+├── README.md                        # Human readable adventure instance summary
 ├── ADVENTURE.yml                    # Filled-in state (inherits from template)
 ├── LOG.md                           # Live narrative
 └── pub/                             # World state as directory tree
@@ -865,17 +867,18 @@ adventure:
 
 **This is POSTEL for templates.** The LLM is liberal in what it accepts — formal variables, file paths, expressions, vibes. It interprets charitably and fills in something reasonable.
 
-**Not Mustache-compatible.** A Python template library can't process `{{pick a mood}}`. But the LLM can. The templates are **prompts with structure**, not code with placeholders.
+**Not Mustache-compatible.** A Python template library can't process `{{pick a window, you're leaving}}`. But the LLM can. The templates are **prompts with structure**, not code with placeholders.
 
 **Multiple inheritance — Self-style:**
 
 ```yaml
-# A character can inherit from multiple skill prototypes
+# A character, room, or object can inherit from multiple skill prototypes, as well as abstract concepts
 character:
   inherits:
-    - skills/character/CHARACTER.yml.tmpl   # Core character mechanics
-    - skills/cat/CAT.yml.tmpl               # Cat behaviors
-    - skills/buff/BUFF.yml.tmpl             # Buff system
+    - skills/character/CHARACTER.yml.tmpl           # Core character mechanics
+    - skills/cat/CAT.yml.tmpl                       # Cat behaviors
+    - skills/buff/BUFF.yml.tmpl                     # Buff system
+    - "a bouncy sparkley magical unicorn attitude"  # Outlook on life
     
   # Local state overrides and extends
   name: "Terpie"
@@ -892,6 +895,9 @@ character:
 | Single inheritance | **Multiple prototype inheritance** |
 | No instantiation | **LLM fills templates at runtime** |
 | Knowledge in context | **Knowledge + world state** |
+| All state in chat context | **Chat for ephemeral, files for durable** |
+
+**Ephemeral vs. durable state:** Some state lives temporarily in chat context (quick calculations, draft ideas, conversation flow). If it matters enough to survive the session, promote it to the filesystem. The chat is scratchpad; the files are memory.
 
 The filesystem IS the world model. Skills don't just guide behavior — they **spawn persistent artifacts** that the LLM reads and writes. The adventure state, character sheets, room contents — all files inheriting from skill prototypes.
 
