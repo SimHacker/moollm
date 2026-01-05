@@ -38,16 +38,21 @@ object:
     
   # Addressable seats — characters parent to chairs
   # Set character.location to seat address:
+  # Compass directions are STABLE — removing a chair empties the slice
   seats:
-    N:  { address: "pub/pie-table.yml#N",  occupant: null }
-    NE: { address: "pub/pie-table.yml#NE", occupant: null }
-    E:  { address: "pub/pie-table.yml#E",  occupant: null }
-    SE: { address: "pub/pie-table.yml#SE", occupant: null }
-    S:  { address: "pub/pie-table.yml#S",  occupant: null }
-    SW: { address: "pub/pie-table.yml#SW", occupant: null }
-    W:  { address: "pub/pie-table.yml#W",  occupant: null }
-    NW: { address: "pub/pie-table.yml#NW", occupant: null }
-    center: { address: "pub/pie-table.yml#center", occupant: null }  # The bell
+    N:  { address: "pub/pie-table.yml#N",  has_chair: true, occupant: null }
+    NE: { address: "pub/pie-table.yml#NE", has_chair: true, occupant: null }
+    E:  { address: "pub/pie-table.yml#E",  has_chair: true, occupant: null }
+    SE: { address: "pub/pie-table.yml#SE", has_chair: true, occupant: null }
+    S:  { address: "pub/pie-table.yml#S",  has_chair: true, occupant: null }
+    SW: { address: "pub/pie-table.yml#SW", has_chair: true, occupant: null }
+    W:  { address: "pub/pie-table.yml#W",  has_chair: true, occupant: null }
+    NW: { address: "pub/pie-table.yml#NW", has_chair: true, occupant: null }
+    center: { address: "pub/pie-table.yml#center", has_chair: false, occupant: null }  # The bell
+    
+  # When has_chair: false, the slice exists but you can't sit there
+  # Musical chairs sets has_chair: false to remove chairs
+  # Addresses remain stable: pub/pie-table.yml#NE always means NE
     
   # Example: Maya sits at Southwest
   # In maya.yml:
@@ -120,19 +125,37 @@ object:
       effect: |
         1. All seated players stand and circle the table
         2. Music plays (or someone hums)
-        3. One pie slice chair vanishes (table reconfigures!)
-        4. Music stops — everyone scrambles for a seat
+        3. One chair is REMOVED (slice stays, compass stable!)
+        4. Music stops — everyone scrambles for remaining chairs
         5. One player is left standing — eliminated (but kindly!)
         6. Repeat until one winner remains
         
-        The table physically reshapes: 8 → 7 → 6 → 5 → 4 → 3 → 2 → 1
+        IMPORTANT: Compass directions stay STABLE.
+        We don't re-layout — we just remove chairs from slices.
+        
+        Round 1: Remove NE chair
+                   [N]
+                NW  ✗  
+              [W]  🔔  [E]
+                SW     SE
+                   [S]
+        
+        Round 2: Remove S chair
+                   [N]
+                NW  ✗  
+              [W]  🔔  [E]
+                SW     SE
+                   ✗
+        
+        Empty slices are still addressable (pub/pie-table.yml#NE)
+        but have no chair to sit in. Stable geography!
         
         Optional: Eliminated players join the audience and heckle.
         Optional: Winner gets to pick next activity.
         Optional: Gong elimination for dramatic flair.
       variations:
         speed_round: "Music gets shorter each round"
-        reverse: "Chairs INCREASE, must find partners"
+        reverse: "Chairs INCREASE, add to empty slices"
         topic_chairs: "Must answer a question to claim seat"
         hot_potato: "Pass an object, holder when music stops is out"
       
