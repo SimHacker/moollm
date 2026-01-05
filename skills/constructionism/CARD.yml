@@ -1,0 +1,131 @@
+# CARD.yml — Constructionism
+#
+# Seymour Papert's philosophy: learn by building inspectable things.
+# "You can't learn to ride a bicycle by reading about it."
+
+card:
+  id: constructionism
+  name: "Constructionism"
+  type: [skill, philosophy, learning]
+  
+  emoji: 🏗️
+  
+  rarity: rare  # Foundational philosophy
+  
+  description: |
+    Papert's insight: real learning happens by building things
+    you can see, share, and modify. The filesystem is a
+    microworld. Skills are constructions. You learn by doing.
+
+# TOOLS REQUIRED
+
+tools:
+  required: []  # Pure philosophy
+
+tier: 0  # Knowledge only
+
+# METHODS
+
+methods:
+  
+  BUILD:
+    description: "Create something to learn by doing"
+    parameters:
+      concept: "What you want to understand"
+      form: "What to build (skill, room, character, experiment)"
+    output: chat (guidance) + files
+    effect: "Guide construction that teaches the concept"
+    invoked_by: [learner, teacher]
+    
+  INSPECT:
+    description: "Examine how something works"
+    parameters:
+      thing: "What to inspect"
+    output: chat (explanation)
+    effect: "Reveal internals, explain mechanics"
+    invoked_by: [learner]
+    
+  MODIFY:
+    description: "Change something to see what happens"
+    parameters:
+      thing: "What to modify"
+      change: "What to change"
+    output: chat + state_change
+    effect: "Make change, observe consequences"
+    invoked_by: [learner]
+    
+  SHARE:
+    description: "Show your construction to others"
+    parameters:
+      thing: "What to share"
+      audience: "Who to share with"
+    output: chat
+    effect: "Explain your construction, get feedback"
+    invoked_by: [learner]
+
+# STATE
+
+state: {}  # Pure philosophy, no persistent state
+
+# THE PHILOSOPHY
+
+philosophy:
+  core_insight: |
+    You can't learn to ride a bicycle by reading about it.
+    You have to get on, fall down, and try again.
+    
+  papert_quote: |
+    "The computer is the Proteus of machines. Its essence is its
+    universality, its power to simulate. Because it can take on a
+    thousand forms and can serve a thousand functions, it can
+    appeal to a thousand tastes."
+    
+  moollm_application: |
+    The filesystem is a microworld.
+    Skills are constructions.
+    YAML files are objects you can inspect and modify.
+    You learn MOOLLM by building with MOOLLM.
+
+# KEY CONCEPTS
+
+concepts:
+  microworld: "A simplified, explorable domain"
+  construction: "Something you build to understand"
+  public_artifact: "Shareable result of learning"
+  debugging: "A natural part of learning"
+  powerful_ideas: "Concepts that unlock new thinking"
+
+# ADVERTISEMENTS
+
+advertisements:
+  LEARN_BY_BUILDING:
+    score: 95
+    condition: "Want to understand something deeply"
+    
+  CREATE_MICROWORLD:
+    score: 85
+    condition: "Need a space for exploration and learning"
+    
+  TEACH_CONCEPT:
+    score: 80
+    condition: "Want to help someone learn"
+
+# RELATED
+
+see_also:
+  - skills/play-learn-lift  # The methodology
+  - skills/prototype        # Learning by cloning
+  - skills/skill            # Skills are constructions
+  - skills/debugging        # Part of learning
+
+# CREDITS
+
+credits:
+  creators:
+    - "Seymour Papert — Constructionism (1980s)"
+    - "Alan Kay — Smalltalk, OLPC"
+    - "Mitchel Resnick — Scratch, Lifelong Kindergarten"
+  lineage:
+    - "Logo — The turtle microworld"
+    - "LEGO Mindstorms — Physical construction"
+    - "Scratch — Visual programming"

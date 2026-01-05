@@ -65,7 +65,6 @@ skills/
 │   ├── CARD.yml            # Skill as playable card
 │   ├── README.md.tmpl      # Template for new skill READMEs
 │   ├── SKILL.md.tmpl       # Template for new skill specs
-│   ├── SKILL.yml.tmpl      # Template for skill instances
 │   ├── delegation-object-protocol.md    # Self-like inheritance
 │   └── skill-instantiation-protocol.md  # How skills become instances
 └── ...
