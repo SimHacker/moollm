@@ -53,7 +53,7 @@ skills:
     path: "skills/character"
     description: "Core patterns for all characters — home, location, relationships"
     tier: 1
-    entry: "PROTOTYPE.yml"
+    entry: "SKILL.md"
     tags: ["character", "entity", "location", "relationships"]
     use_when: "Creating or managing any character (player, NPC, creature)"
     related: ["persona", "room", "cat"]
@@ -62,7 +62,7 @@ skills:
     path: "skills/persona"
     description: "Identity layers — WHO someone is vs WHAT they do"
     tier: 1
-    entry: "PROTOTYPE.yml"
+    entry: "SKILL.md"
     tags: ["persona", "identity", "personality", "role"]
     use_when: "Defining character personality, voice, backstory, or role separation"
     related: ["character", "mind-mirror", "room"]
@@ -182,7 +182,7 @@ skills:
     path: "skills/simulation"
     description: "Central hub for simulation state — turns, party, selection, world"
     tier: 1
-    entry: "PROTOTYPE.yml"
+    entry: "SKILL.md"
     protocol: "SIMULATION-AS-WORLD"
     tags: ["game", "simulation", "state", "central"]
     use_when: "Managing game state, turn tracking, persistence"
@@ -192,7 +192,7 @@ skills:
     path: "skills/buff"
     description: "Temporary effects system — curses are just shitty buffs"
     tier: 1
-    entry: "PROTOTYPE.yml"
+    entry: "SKILL.md"
     protocol: "BUFF-AS-MODIFIER"
     tags: ["game", "effects", "buffs", "curses"]
     use_when: "Managing temporary stat modifications, effects, or conditions"
@@ -202,7 +202,7 @@ skills:
     path: "skills/time"
     description: "Simulation turns vs LLM iterations — narrative time flow"
     tier: 1
-    entry: "PROTOTYPE.yml"
+    entry: "SKILL.md"
     protocol: "TIME-AS-NARRATIVE"
     tags: ["game", "time", "turns", "duration"]
     use_when: "Tracking buff durations, turn-based mechanics"
@@ -212,7 +212,7 @@ skills:
     path: "skills/needs"
     description: "Sims-style dynamic motivations — hunger, energy, fun, social"
     tier: 1
-    entry: "PROTOTYPE.yml"
+    entry: "SKILL.md"
     protocol: "NEEDS-AS-MOTIVATION"
     tags: ["game", "needs", "motivation", "sims"]
     use_when: "Characters with dynamic needs that drive behavior"
@@ -222,7 +222,7 @@ skills:
     path: "skills/economy"
     description: "Currency, trade, and economic flow"
     tier: 1
-    entry: "PROTOTYPE.yml"
+    entry: "SKILL.md"
     protocol: "ECONOMY-AS-FLOW"
     tags: ["game", "economy", "gold", "trade"]
     use_when: "Buying, selling, trading, managing currency"
@@ -232,7 +232,7 @@ skills:
     path: "skills/probability"
     description: "Success calculation from stats — no dice, just odds"
     tier: 1
-    entry: "PROTOTYPE.yml"
+    entry: "SKILL.md"
     protocol: "PROBABILITY-AS-NARRATIVE"
     tags: ["game", "probability", "success", "failure"]
     use_when: "Calculating outcome chances for actions"
@@ -242,7 +242,7 @@ skills:
     path: "skills/scoring"
     description: "Achievement valuation — style counts, emergence rewards"
     tier: 1
-    entry: "PROTOTYPE.yml"
+    entry: "SKILL.md"
     protocol: "SCORING-AS-NARRATIVE"
     tags: ["game", "scoring", "skills", "achievements"]
     use_when: "Evaluating accomplishments, skill acquisition"
@@ -252,7 +252,7 @@ skills:
     path: "skills/reward"
     description: "Dynamic achievement rewards — thematically appropriate"
     tier: 1
-    entry: "PROTOTYPE.yml"
+    entry: "SKILL.md"
     protocol: "REWARD-AS-NARRATIVE"
     tags: ["game", "rewards", "items", "titles"]
     use_when: "Granting rewards for achievements, lifting curses"
@@ -262,7 +262,7 @@ skills:
     path: "skills/party"
     description: "Companions and group dynamics — relationships within group"
     tier: 1
-    entry: "PROTOTYPE.yml"
+    entry: "SKILL.md"
     protocol: "PARTY-AS-ENSEMBLE"
     tags: ["game", "party", "companions", "group"]
     use_when: "Managing groups, companions, NPC parties"
@@ -272,7 +272,7 @@ skills:
     path: "skills/world-generation"
     description: "Dynamic world creation — questions create places"
     tier: 1
-    entry: "PROTOTYPE.yml"
+    entry: "SKILL.md"
     protocol: "WORLD-AS-GROWTH"
     tags: ["game", "generation", "world", "exploration"]
     use_when: "Expanding the world through exploration and questions"
@@ -282,7 +282,7 @@ skills:
     path: "skills/cat"
     description: "Cat behavior patterns — interactions, buffs, personalities"
     tier: 1
-    entry: "PROTOTYPE.yml"
+    entry: "SKILL.md"
     protocol: "CAT-AS-COMPANION"
     tags: ["game", "cat", "pet", "companion", "interaction"]
     use_when: "Creating cats, kittens, or cat-like creatures"
@@ -390,19 +390,19 @@ planned:
 
 guidelines:
   structure:
-    - "Every skill needs SKILL.md (description) and PROTOTYPE.yml (definition)"
-    - "Use template/ subdirectory for files to copy on instantiation"
+    - "Every skill needs README.md (landing page) and SKILL.md (full spec with YAML frontmatter)"
+    - "Templates live at skill root level (not in template/ subdirectory)"
     - "Templates use .tmpl extension for files with variable substitution"
     
   tiers:
-    tier_1: "File-only: read, write, navigate — no execution"
-    tier_2: "Read + Execute: can run commands, tests, linters"
-    tier_3: "Full access: network, git write, external APIs"
+    tier_0: "Knowledge only: no tools required"
+    tier_1: "File-only: read_file, write_file, list_dir"
+    tier_2: "Read + Execute: + run_terminal_cmd, grep"
     
   naming:
     - "Skill directories: lowercase-with-dashes"
-    - "Core files: UPPERCASE.ext (SKILL.md, PROTOTYPE.yml)"
-    - "Templates: filename.ext.tmpl"
+    - "Core files: UPPERCASE.ext (README.md, SKILL.md)"
+    - "Templates: FILENAME.ext.tmpl at skill root"
     
   registration:
     - "Register here when skill is ready for use"
