@@ -753,6 +753,70 @@ CONSTRUCTIONISM          # → Think like Papert
 
 See: [PROTOCOLS.yml](./PROTOCOLS.yml) for the full K-line registry.
 
+### MOOLLM-Unique: Skill Instantiation into the Filesystem
+
+**This is where MOOLLM diverges from Anthropic's format.**
+
+Anthropic skills are prompts. MOOLLM skills are **prototypes that instantiate into YAML state files**:
+
+```
+skills/adventure/                    # The PROTOTYPE
+├── SKILL.md                         # Protocol documentation
+├── ADVENTURE.yml.tmpl               # Template with {{variables}}
+└── LOG.md.tmpl                      # Template for narrative log
+
+examples/adventure-3/                # An INSTANTIATION
+├── ADVENTURE.yml                    # Filled-in state (inherits from template)
+├── LOG.md                           # Live narrative
+└── pub/                             # World state as directory tree
+    └── cat-cave/
+        └── terpie.yml               # Character state file
+```
+
+**The LLM fills in `{{variables}}` at instantiation time:**
+
+```yaml
+# skills/adventure/ADVENTURE.yml.tmpl (prototype)
+adventure:
+  name: "{{adventure_name}}"
+  player: "{{player_id}}"
+  started: "{{timestamp}}"
+  
+# examples/adventure-3/ADVENTURE.yml (instance)
+adventure:
+  name: "Don's Excellent Adventure"
+  player: "don-hopkins"
+  started: "2026-01-05T10:30:00Z"
+```
+
+**Multiple inheritance — Self-style:**
+
+```yaml
+# A character can inherit from multiple skill prototypes
+character:
+  inherits:
+    - skills/character/CHARACTER.yml.tmpl   # Core character mechanics
+    - skills/cat/CAT.yml.tmpl               # Cat behaviors
+    - skills/buff/BUFF.yml.tmpl             # Buff system
+    
+  # Local state overrides and extends
+  name: "Terpie"
+  location: pub/cat-cave/nap-zone
+  buffs: [serenity, laziness]
+```
+
+**Why this matters:**
+
+| Anthropic Skills | MOOLLM Skills |
+|------------------|---------------|
+| Prompts only | Prompts + **state files** |
+| Stateless | **Persistent state in filesystem** |
+| Single inheritance | **Multiple prototype inheritance** |
+| No instantiation | **LLM fills templates at runtime** |
+| Knowledge in context | **Knowledge + world state** |
+
+The filesystem IS the world model. Skills don't just guide behavior — they **spawn persistent artifacts** that the LLM reads and writes. The adventure state, character sheets, room contents — all files inheriting from skill prototypes.
+
 ---
 
 ## Philosophical Foundation
