@@ -6,7 +6,7 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [card, adventure, memory-palace, character, world-generation]
+related: [card, adventure, memory-palace, character, world-generation, data-flow]
 ---
 
 # Room

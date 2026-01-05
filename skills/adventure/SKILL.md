@@ -9,10 +9,11 @@ tier: 1
 protocol: ADVENTURE
 tags: [exploration, narrative, investigation, game]
 lineage: "Colossal Cave, Zork, MUD, LambdaMOO"
-related: [room, card, session-log, debugging, memory-palace]
+inherits: simulation
+related: [room, card, session-log, debugging, memory-palace, code-review, simulation]
 templates:
   - file: ADVENTURE.yml.tmpl
-    purpose: Quest state tracking
+    purpose: Complete adventure state (inherits simulation properties)
   - file: LOG.md.tmpl
     purpose: Narrative journal
 ---

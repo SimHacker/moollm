@@ -1,53 +1,83 @@
-# Adventure State File
-# Track quest progress and evidence
+# ADVENTURE.yml — Complete Adventure State
+# 
+# This file IS the simulation state for narrative adventures.
+# It inherits from the simulation skill and adds adventure-specific fields.
+#
+# Don't create a separate SIMULATION.yml — this IS it.
 
-quest:
-  name: "{{ quest_name }}"
+# SIMULATION PROPERTIES (inherited from simulation skill)
+
+simulation:
+  turn: 0
+  paused: false
+  
+parameters:
+  time:
+    advancement: normal  # none | slow | normal | fast
+    
+  git:
+    auto_commit: false
+    auto_push: false
+    
+  display:
+    narration_level: normal  # minimal | normal | verbose
+    show_mechanics: false
+    debug_mode: false
+    
+  output:
+    write_to_chat: true
+    write_to_transcript: true
+    transcript_path: ./README.md
+    include_yaml_islands: true
+    include_links: true
+    link_format: markdown  # markdown | plain | none
+    
+  gameplay:
+    difficulty: normal  # easy | normal | hard
+
+# PARTY & SELECTION (from simulation)
+
+player:
+  character: "{{ player_path }}"
+  location: "{{ starting_room }}"
+  
+party:
+  members: ["{{ player_path }}"]
+  leader: "{{ player_path }}"
+  
+selection:
+  targets: []
+
+# WORLD STATE (from simulation)
+
+active_buffs: []
+world_state: {}
+flags: {}
+
+# ADVENTURE-SPECIFIC PROPERTIES
+
+adventure:
+  name: "{{ adventure_name }}"
   objective: "{{ quest_objective }}"
-  status: "active"
+  status: active  # active | completed | abandoned
   started: "{{ created_date }}"
 
 navigation:
   starting_room: "{{ starting_room }}"
   current_room: "{{ starting_room }}"
+  rooms_visited: []
 
 evidence:
   clues: []
-    # - id: "clue-001"
-    #   found_in: "path/to/file"
-    #   content: "What you found"
-    #   significance: "high|medium|low"
-    #   relates_to: []
-    
   items: []
-    # - name: "Item Name"
-    #   path: "path/to/file"
-    #   notes: "Why it matters"
-    #   acquired: "timestamp"
-    
-  characters: []
-    # - name: "CodeEntity"
-    #   type: "guardian|helper|mystery"
-    #   location: "path/to/file"
-    #   personality: "Behavioral description"
-    #   quotes: []
-    
-  maps: []
-    # - name: "Map Name"
-    #   description: "What this represents"
-    #   rooms: ["path1/", "path2/"]
-
-rooms_visited: []
-  # - path: "/"
-  #   entered: "timestamp"
-  #   notes: "What you found"
-  #   exits_taken: ["subdir/"]
+  characters_met: []
 
 quest_log:
-  - "{{ created_date }}: Quest begun - {{ quest_objective }}"
+  - "{{ created_date }}: Adventure begun - {{ quest_objective }}"
 
 statistics:
   rooms_explored: 0
   clues_found: 0
   items_acquired: 0
   characters_met: 0
+  turns_elapsed: 0

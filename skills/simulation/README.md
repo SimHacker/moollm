@@ -1,44 +1,73 @@
 # 🎮 Simulation
 
-> The simulation is the world. The world is the simulation.
+> Abstract base for runtime state — concrete types inherit from this
 
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
 
 ## Overview
 
-Central hub for simulation state management. Everything about the current game state lives in `SIMULATION.yml`.
+**Abstract base** for runtime state management. Concrete simulation types inherit from this:
 
-## Key Concepts
+| Concrete Type | File | Purpose |
+|--------------|------|---------|
+| [Adventure](../adventure/) | `ADVENTURE.yml` | Narrative exploration |
+| City Sim | `CITY.yml` | Urban simulation |
+| Ecosystem | `ECOSYSTEM.yml` | Population dynamics |
 
-- **SIMULATION.yml** — Source of truth for "now"
-- **Global parameters** — Configurable via chat
-- **Git time machine** — Commits = deterministic undo
-- **Turn tracking** — Increments on significant actions
+> [!IMPORTANT]
+> **Don't create `SIMULATION.yml` directly.** Use a concrete type like `ADVENTURE.yml` which includes all simulation properties plus type-specific ones.
 
-## Global Parameters
+## What Simulation Provides
 
-### Time Control
+All concrete types inherit:
+
+- **Turn tracking** — `simulation.turn`, `TICK`, `PAUSE`
+- **Parameters** — git, display, gameplay settings
+- **Party/Selection** — who's playing, who commands go to
+- **World state** — flags, active buffs
+- **Git time machine** — commits = undo points
+
+## Concrete Type: Adventure
+
+The most common concrete type. `ADVENTURE.yml` includes:
+
+```yaml
+# Simulation properties (inherited)
+simulation:
+  turn: 47
+  paused: false
+  
+parameters:
+  git: { auto_commit: true }
+  display: { narration_level: normal }
+  
+player:
+  character: characters/don-hopkins/
+  location: pub/
+  
+# Adventure-specific properties (added)
+adventure:
+  name: "Quest for Knowledge"
+  objective: "Find the truth"
+  
+navigation:
+  current_room: pub/
+  rooms_visited: [start/, maze/]
+```
+
+## Commands
+
 | Command | Effect |
 |---------|--------|
 | `PAUSE` / `RESUME` | Stop/start time |
 | `TICK [n]` | Advance n turns |
 | `REWIND [n]` | Go back n turns (via git) |
-
-### Git Automation
-| Command | Effect |
-|---------|--------|
-| `SET AUTO COMMIT on` | Commit each turn |
-| `SET AUTO PUSH on` | Push after commits |
-
-### Output
-| Command | Effect |
-|---------|--------|
-| `SET NARRATION [level]` | minimal/normal/verbose |
-| `SET TRANSCRIPT [path]` | Where narrative goes |
+| `SET [param] [value]` | Configure parameter |
 
 ## Related Skills
 
+- [adventure](../adventure/) — concrete type for narrative exploration
 - [time](../time/) — turn mechanics
 - [party](../party/) — party and selection state
-- [adventure](../adventure/) — simulation as adventure
+- [character](../character/) — player entities

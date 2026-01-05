@@ -6,7 +6,7 @@ tier: 0
 protocol: CONSTRUCTIONISM
 tags: [philosophy, education, papert, microworld]
 origin: "Seymour Papert — Logo, Mindstorms"
-related: [play-learn-lift, room, yaml-jazz, sister-script, adventure]
+related: [play-learn-lift, room, yaml-jazz, sister-script, adventure, procedural-rhetoric]
 ---
 
 # Constructionism

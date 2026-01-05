@@ -1,19 +1,24 @@
 ---
 name: simulation
-description: "Motto: The simulation is the world. The world is the simulation."
+description: "Abstract base for runtime state — adventure, city-sim, ecosystem all inherit from this"
 license: MIT
 tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [time, party, character, buff, world-generation]
+related: [time, party, character, buff, world-generation, adventure]
 ---
 
 # Simulation Skill
 
-Central hub for simulation state management.
+**Abstract base** for runtime state management. Concrete simulations (adventure, city-sim, ecosystem) inherit from this.
 
 **Motto:** *"The simulation is the world. The world is the simulation."*
+
+> [!IMPORTANT]
+> **This is the abstract base.** Don't create `SIMULATION.yml` directly.
+> Use `ADVENTURE.yml` (for narrative exploration) or create your own concrete type.
+> The concrete file INCLUDES all simulation properties plus type-specific ones.
 
 ## Key Concepts
 

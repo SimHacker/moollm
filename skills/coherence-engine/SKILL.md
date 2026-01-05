@@ -5,7 +5,7 @@ allowed-tools: []
 tier: 0
 protocol: COHERENCE-ENGINE
 tags: [meta, orchestration, consistency, simulation]
-related: [yaml-jazz, postel, room, soul-chat, session-log, self-repair]
+related: [yaml-jazz, postel, room, soul-chat, session-log, self-repair, speed-of-light]
 ---
 
 # Coherence Engine

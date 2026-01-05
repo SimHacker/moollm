@@ -1,114 +1,103 @@
-# ═══════════════════════════════════════════════════════════════════════════════
-# ADVENTURE.yml — Per-Adventure Simulation State
-# 
-# This file tracks the RUNTIME state of the adventure:
-# - Who is playing (can be multiple!)
-# - Who the chat is directed at
-# - Global simulation state
-# - Session history
+# ADVENTURE.yml — Complete Adventure State
 #
-# Think of this as the "process table" for the microworld.
-# ═══════════════════════════════════════════════════════════════════════════════
+# This file IS the simulation state for this adventure.
+# Inherits from simulation skill, adds adventure-specific fields.
+# No separate SIMULATION.yml needed.
+
+# SIMULATION PROPERTIES
+
+simulation:
+  turn: 1
+  paused: false
+  
+parameters:
+  time:
+    advancement: normal
+    time_of_day: morning
+    
+  git:
+    auto_commit: false
+    auto_push: false
+    
+  display:
+    narration_level: normal
+    show_mechanics: false
+    debug_mode: false
+    
+  output:
+    write_to_chat: true
+    write_to_transcript: true
+    transcript_path: ./README.md
+    include_yaml_islands: true
+    include_links: true
+    link_format: markdown
+    
+  gameplay:
+    difficulty: normal
+
+# PARTY & SELECTION
+
+player:
+  character: characters/don-hopkins/
+  location: start/
+  
+party:
+  members:
+    - characters/don-hopkins/
+  leader: characters/don-hopkins/
+  
+selection:
+  targets: []
+
+# WORLD STATE
+
+active_buffs: []
+
+world_state: {}
+
+flags:
+  grue_slain: false
+  treasure_found: false
+  mother_visited: false
+
+# ADVENTURE-SPECIFIC
 
 adventure:
   name: "Adventure 3 — Fresh Start"
-  
-  # ─────────────────────────────────────────────────────────────────────────────
-  # ACTIVE PLAYERS
-  # List ALL player character files currently in play.
-  # Multiple players can adventure simultaneously!
-  # ─────────────────────────────────────────────────────────────────────────────
-  
-  active_players:
-    - characters/don-hopkins.yml    # Currently active
-    # - characters/player.yml       # Add more as needed!
-    # - characters/other-hero.yml   # Parallel adventures!
-    
-  # ─────────────────────────────────────────────────────────────────────────────
-  # CHAT TARGET
-  # Who is the current chat addressed to?
-  # This is WHO the user is talking to / playing as.
-  # Can be a single player or a list for group scenes.
-  # ─────────────────────────────────────────────────────────────────────────────
-  
-  chat_target: characters/don-hopkins.yml
-  
-  # Or for multi-character scenes:
-  # chat_target:
-  #   - characters/don-hopkins.yml
-  #   - characters/companion.yml
-  
-  # ─────────────────────────────────────────────────────────────────────────────
-  # ADDRESSING COMMANDS
-  # How to switch who you're talking to in chat:
-  # ─────────────────────────────────────────────────────────────────────────────
-  #
-  # > @don-hopkins Look around                    # Direct to specific player
-  # > @player What do you see?                    # Different player
-  # > @all Everyone, listen up                    # Broadcast to all active
-  # > ADDRESS don-hopkins                         # Switch default target
-  # > ADDRESS-ALL                                 # Target all active players
-  # > WHO                                         # Show current target
-  # > PLAYERS                                     # List all active players
-  # > ACTIVATE player.yml                         # Add player to active list
-  # > DEACTIVATE don-hopkins.yml                  # Remove from active list
-  
-  # ─────────────────────────────────────────────────────────────────────────────
-  # SIMULATION STATE
-  # Global state that affects all players
-  # ─────────────────────────────────────────────────────────────────────────────
-  
-  simulation:
-    turn_number: 1
-    time_of_day: morning
-    
-    # Global flags and events
-    flags:
-      grue_slain: false
-      treasure_found: false
-      mother_visited: false
-      
-    # Pending events (processed by coherence engine)
-    event_queue: []
-    
-  # ─────────────────────────────────────────────────────────────────────────────
-  # SESSION HISTORY
-  # Lightweight log of significant events
-  # (Full narrative is in README.md)
-  # ─────────────────────────────────────────────────────────────────────────────
-  
-  session:
-    started: null         # Timestamp when adventure began
-    last_action: null     # Last player action
-    last_player: null     # Who took the last action
-    
-  # ─────────────────────────────────────────────────────────────────────────────
-  # MULTI-PLAYER NOTES
-  # ─────────────────────────────────────────────────────────────────────────────
-  #
-  # Multiple active players can:
-  # - Be in different rooms simultaneously
-  # - Have separate inventories and goals
-  # - Interact with each other when in same room
-  # - Take turns or act in parallel (DM discretion)
-  # - Communicate via letters and notes
-  #
-  # The Coherence Engine handles:
-  # - Speed-of-light communication within single LLM calls
-  # - Maintaining consistent world state across players
-  # - Resolving conflicts and interactions
-  # - Ensuring each player's file stays in sync
-  #
-  # Think: MUD with multiple characters, each with their own session.
-  # Think: The Sims with multiple selectable Sims.
-  # Think: Engelbart's NLS with multiple cursors.
+  objective: "Explore the world, make friends, find purpose"
+  status: active
+  started: null
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# DOVETAILS WITH
-# ═══════════════════════════════════════════════════════════════════════════════
+navigation:
+  starting_room: start/
+  current_room: start/
+  rooms_visited: []
+
+evidence:
+  clues: []
+  items: []
+  characters_met: []
+
+quest_log: []
+
+statistics:
+  rooms_explored: 0
+  clues_found: 0
+  items_acquired: 0
+  characters_met: 0
+  turns_elapsed: 0
+
+# MULTI-PLAYER (optional)
 #
-# - characters/           — Where all player files live
-# - README.md             — Full narrative of the adventure
-# - skills/               — Game systems (buff, time, needs, etc.)
-# - skills/adventure/     — Adventure framework
-# - skills/coherence-engine/  — What processes this file
+# For multi-player adventures, add:
+#
+# active_players:
+#   - characters/don-hopkins/
+#   - characters/other-player/
+#
+# chat_target: characters/don-hopkins/
+#
+# Commands:
+#   @player-name message     # Direct to specific player
+#   SELECT player-name       # Switch control
+#   PLAYERS                  # List active players
