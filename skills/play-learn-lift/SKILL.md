@@ -1,158 +1,25 @@
-# PLAY-LEARN-LIFT Skill
+---
+name: play-learn-lift
+description: "Start Playing. Keep Learning. Lift Others."
+license: MIT
+tier: 1
+allowed-tools:
+  - read_file
+  - write_file
+---
 
-> **"Start Playing. Keep Learning. Lift Others."**
+# Play Learn Lift
 
-The core MOOLLM methodology for exploration, understanding, and knowledge sharing.
+> **Start Playing. Keep Learning. Lift Others.**
+
+The three-stage journey from curiosity to mastery to teaching. The core MOOLLM methodology.
+
+> [!TIP]
+> **This IS the methodology.** Every other skill is an expression of `PLAY-LEARN-LIFT`. Start here.
 
 ---
 
-## Purpose
-
-Structure any learning or exploration task into three phases:
-1. **PLAY** — Explore freely without fear
-2. **LEARN** — Find patterns and build understanding
-3. **LIFT** — Extract principles and share with others
-
----
-
-## When to Use
-
-- Starting a new project or codebase exploration
-- Learning a new technology or domain
-- Building documentation from experimentation
-- Converting manual workflows into automation
-- Teaching others what you've discovered
-
----
-
-## Protocol
-
-### Phase 1: PLAY 🎮
-
-**Jump in and explore without fear.**
-
-```yaml
-play_checklist:
-  mindset:
-    - "No prerequisites required"
-    - "Can't break anything permanently"
-    - "Mistakes are learning opportunities"
-    - "Fun comes first"
-    
-  actions:
-    - "Try things randomly"
-    - "Ask 'what if...' questions"
-    - "Document observations (not conclusions)"
-    - "Follow curiosity tangents"
-    
-  outputs:
-    - "Raw observations in PLAY_LOG.md"
-    - "Screenshots, snippets, notes"
-    - "Questions that arise"
-```
-
-**Log format:**
-```markdown
-## PLAY Session: [timestamp]
-
-### Tried
-- [what you tried]
-
-### Observed
-- [what happened]
-
-### Questions
-- [what you wondered]
-```
-
-### Phase 2: LEARN 📚
-
-**Understanding emerges through play.**
-
-```yaml
-learn_checklist:
-  mindset:
-    - "Patterns become visible"
-    - "Connections make sense"
-    - "Confidence builds naturally"
-    
-  actions:
-    - "Review PLAY_LOG for patterns"
-    - "Group related observations"
-    - "Test hypotheses deliberately"
-    - "Document working procedures"
-    
-  outputs:
-    - "PATTERNS.yml (discovered patterns)"
-    - "PROCEDURES.md (working workflows)"
-    - "GOTCHAS.md (pitfalls to avoid)"
-```
-
-**Pattern format:**
-```yaml
-patterns:
-  - name: "[pattern name]"
-    trigger: "[when this happens]"
-    response: "[do this]"
-    confidence: "high|medium|low"
-    evidence: "[link to PLAY_LOG entries]"
-```
-
-### Phase 3: LIFT 🚀
-
-**Expertise means helping others play.**
-
-```yaml
-lift_checklist:
-  mindset:
-    - "Teaching solidifies learning"
-    - "Sharing multiplies impact"
-    - "Everyone rises together"
-    
-  actions:
-    - "Extract reusable templates"
-    - "Write tutorials from your journey"
-    - "Create automation (sister scripts)"
-    - "Mentor others through their PLAY phase"
-    
-  outputs:
-    - "TEMPLATE.yml (reusable patterns)"
-    - "TUTORIAL.md (teaching document)"
-    - "SISTER_SCRIPT.* (automation)"
-    - "SUMMARY.md (what you learned)"
-```
-
----
-
-## Core Files
-
-| File | Purpose |
-|------|---------|
-| `CYCLE.yml` | Current cycle state and progress |
-| `PLAY_LOG.md` | Raw observations from PLAY phase |
-| `PATTERNS.yml` | Discovered patterns from LEARN phase |
-| `PROCEDURES.md` | Working procedures (LEARN output) |
-| `SUMMARY.md` | Final LIFT output for sharing |
-
----
-
-## Commands
-
-| Command | Action |
-|---------|--------|
-| `PLAY [topic]` | Start new PLAY phase |
-| `OBSERVE [what]` | Log an observation |
-| `QUESTION [what]` | Log a question |
-| `LEARN` | Transition to LEARN phase |
-| `PATTERN [name]` | Document a discovered pattern |
-| `LIFT` | Transition to LIFT phase |
-| `SHARE [summary]` | Create shareable output |
-
----
-
-## The Cycle Continues
-
-> *"Start with jazz, end with standards."*
+## The Cycle
 
 ```mermaid
 flowchart LR
@@ -161,37 +28,185 @@ flowchart LR
     LI -->|inspire| P
 ```
 
-After LIFT, you often discover new areas to PLAY in. The cycle continues. **Jazz** = free exploration (PLAY). **Standards** = both jazz classics everyone knows AND the reusable patterns you crystallize (LIFT).
+| Stage | Motto | What Happens |
+|-------|-------|--------------|
+| **🎮 PLAY** | Jump in! | No prerequisites, can't break anything, curiosity drives discovery |
+| **📚 LEARN** | Patterns emerge | Connections make sense, confidence builds naturally, "I noticed..." |
+| **🚀 LIFT** | Help others play | Teaching solidifies learning, sharing multiplies impact |
+
+---
+
+## Why This Matters
+
+Most learning is backwards:
+- ❌ Study first, then do
+- ❌ Master before sharing
+- ❌ Fear mistakes
+
+PLAY-LEARN-LIFT inverts it:
+- ✅ **Do first**, understand emerges
+- ✅ **Share while learning**, teaching accelerates mastery
+- ✅ **Mistakes are features**, not bugs
 
 ---
 
 ## Philosophy
 
 > **"Low floor, high ceiling, wide walls"**
+> — Seymour Papert / Mitch Resnick
 
-- **Low floor**: Easy to start (no prerequisites)
-- **High ceiling**: No limit to growth
-- **Wide walls**: Many paths to explore
+| Principle | Meaning |
+|-----------|---------|
+| **Low floor** | Easy to start. No prerequisites. |
+| **High ceiling** | No limit to growth. Experts stay engaged. |
+| **Wide walls** | Many paths to explore. Your way is valid. |
 
-**Failure-friendly**: Mistakes are features, not bugs.
-**Joy-driven**: If it's not fun, we're doing it wrong.
+### Failure-Friendly
 
----
-
-## Integration
-
-- **→ SISTER-SCRIPT**: LIFT phase often produces automation
-- **→ SUMMARIZE**: LIFT output needs context compression
-- **→ MEMORY-PALACE**: Organized learning becomes navigable rooms
-- **→ PLAN-THEN-EXECUTE**: Proven LEARN procedures become frozen plans
+You can't break MOOLLM. Files are inspectable. State is recoverable. Experiments are encouraged.
 
 ---
 
-## Dovetails With
+## Each Stage in Detail
 
-- **[../session-log/](../session-log/)** — PLAY captures everything
-- **[../research-notebook/](../research-notebook/)** — LEARN structures findings
-- **[../sister-script/](../sister-script/)** — LIFT automates patterns
-- **[../summarize/](../summarize/)** — LIFT shares wisdom
-- **[../scratchpad/](../scratchpad/)** — PLAY surface
-- **[../../PROTOCOLS.yml](../../PROTOCOLS.yml)** — PLAY-LEARN-LIFT symbol
+### 🎮 PLAY
+
+> *"What if I just..."*
+
+- No prerequisites required
+- Curiosity drives discovery
+- Fun comes first
+- "Oops" is learning data
+- Everything is reversible (git, append-only logs)
+
+**Capture everything**: Even dead ends teach something.
+
+### 📚 LEARN
+
+> *"I noticed you do this often..."*
+
+- Patterns become visible through repetition
+- Connections make sense
+- Confidence builds naturally
+- Knowledge deepens organically
+- The "aha!" moments
+
+**Document patterns**: Future-you will thank present-you.
+
+### 🚀 LIFT
+
+> *"Here's what I learned..."*
+
+- Teaching solidifies understanding
+- Sharing multiplies impact
+- Create tutorials from your journey
+- Community grows stronger
+- Everyone rises together
+
+**Share the journey**: The path matters, not just the destination.
+
+---
+
+## The Cycle Continues
+
+> *"Start with jazz, end with standards."*
+
+After LIFT, you discover new areas to PLAY in:
+
+```
+PLAY → LEARN → LIFT → (inspire) → PLAY → ...
+```
+
+The pun is deliberate: **jazz** is free exploration (PLAY), and **standards** are both jazz classics everyone knows AND the reusable patterns you crystallize (LIFT). The learning happens in between!
+
+- Teaching reveals gaps in your own understanding
+- Helping others sparks new questions
+- The cycle accelerates with practice
+
+---
+
+## In Practice
+
+### Solo
+
+1. **PLAY**: Try something new, log what happens
+2. **LEARN**: Review logs, find patterns, update notes
+3. **LIFT**: Write a README, create a template, share with future-self
+
+### With Others
+
+1. **PLAY**: Pair explore, capture together
+2. **LEARN**: Compare notes, synthesize insights
+3. **LIFT**: Write shared docs, teach newcomers
+
+---
+
+## Related Skills
+
+| Skill | Connection |
+|-------|------------|
+| [sister-script/](../sister-script/) | LIFT stage: automate proven patterns |
+| [research-notebook/](../research-notebook/) | LEARN stage: structured capture |
+| [session-log/](../session-log/) | PLAY stage: append-only exploration |
+| [summarize/](../summarize/) | LEARN → LIFT: distill insights |
+
+---
+
+## Contents
+
+| File | Purpose |
+|------|---------|
+| [SKILL.md](./SKILL.md) | Full methodology documentation |
+| [PROTOTYPE.yml](./PROTOTYPE.yml) | Machine-readable definition |
+| [template/](./template/) | Templates for PLL cycles |
+
+---
+
+## Protocol Symbol
+
+**PLAY-LEARN-LIFT** (alias: `PLL`)
+
+```yaml
+# PROTOCOLS.yml
+PLAY-LEARN-LIFT:
+  meaning: "Explore freely → find patterns → share wisdom"
+  invoke_when: "Starting any new exploration, learning, or teaching"
+  motto: "Start Playing. Keep Learning. Lift Others."
+```
+
+See: [PROTOCOLS.yml#PLAY-LEARN-LIFT](../../PROTOCOLS.yml)
+
+---
+
+## The Intertwingularity
+
+PLL is the methodology. Other skills are its expressions.
+
+```mermaid
+graph TD
+    PLL[🎮📚🚀 play-learn-lift] -->|PLAY captures| SL[📜 session-log]
+    PLL -->|LEARN structures| RN[📓 research-notebook]
+    PLL -->|LIFT automates| SS[👯 sister-script]
+    PLL -->|LIFT shares| SUM[📝 summarize]
+    
+    AP[⚔️ adventure] -->|IS| PLAY
+    DB[🔧 debugging] -->|IS| PLAY
+    TC[🎴 card] -->|created via| LIFT
+```
+
+---
+
+## Navigation
+
+| Direction | Destination |
+|-----------|-------------|
+| ⬆️ Up | [skills/](../) |
+| ⬆️⬆️ Root | [Project Root](../../) |
+| 👯 Sister | [sister-script/](../sister-script/) |
+| 📓 Sister | [research-notebook/](../research-notebook/) |
+| 📜 Sister | [session-log/](../session-log/) |
+| 📋 Symbols | [PROTOCOLS.yml](../../PROTOCOLS.yml) |
+
+---
+
+*Start playing. The rest follows.*

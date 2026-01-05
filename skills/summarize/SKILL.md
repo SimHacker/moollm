@@ -1,141 +1,97 @@
-# SUMMARIZE Skill
-
-> **"Compress without losing meaning."**
-
-Context management through intelligent summarization.
-
+---
+name: summarize
+description: "Compress without losing truth. Backlink to sources."
+license: MIT
+tier: 1
+allowed-tools:
+  - read_file
+  - write_file
 ---
 
-## Purpose
+# Summarize
 
-Compress files and knowledge while preserving essential meaning. Manage context window by creating summaries that can substitute for full content.
+> **Compress without losing truth. Backlink to sources.**
 
----
+Context compression for memory management.
 
-## When to Use
+> [!IMPORTANT]
+> **Always backlink.** Every summary points to its source. Never orphan knowledge.
 
-- Context budget is running low
-- File is too large to include in working set
-- Need to preserve essence of completed work
-- Creating reference material from detailed docs
+## The Goal
 
----
+When files are too large for context:
+1. **Summarize** — Extract key information
+2. **Backlink** — Point to original source
+3. **Prioritize** — Hot/cold hints for what matters
+4. **Preserve** — Never delete, just compress
 
-## Protocol
-
-### Summarization Levels
-
-```yaml
-levels:
-  FULL:
-    compression: "1:1"
-    use: "Active work, needs all detail"
-    
-  WORKING:
-    compression: "~3:1"
-    use: "Recent context, key points preserved"
-    
-  REFERENCE:
-    compression: "~10:1"
-    use: "Background knowledge, essence only"
-    
-  POINTER:
-    compression: "~50:1"
-    use: "Just enough to know it exists and where"
-```
-
-### Summary Structure
-
-Every summary includes:
-
-```yaml
-summary_structure:
-  header:
-    - source_file: "path/to/original.md"
-    - summarized_at: "timestamp"
-    - compression_level: "WORKING|REFERENCE|POINTER"
-    - token_reduction: "from X to Y"
-    
-  essence:
-    - "Core insight or purpose"
-    - "Key decisions made"
-    - "Important conclusions"
-    
-  pointers:
-    - "Section X: [one-line summary]"
-    - "Section Y: [one-line summary]"
-    
-  retrieval_hints:
-    - "Read full file if you need: [specific info]"
-```
-
----
-
-## Core Files
+## Contents
 
 | File | Purpose |
 |------|---------|
-| `SUMMARIES.yml` | Index of all summaries |
-| `summaries/` | Directory of summary files |
+| [SKILL.md](./SKILL.md) | Full protocol documentation |
+| [PROTOTYPE.yml](./PROTOTYPE.yml) | Machine-readable definition |
+| [template/](./template/) | Summary templates |
 
----
+## Example
 
-## Commands
-
-| Command | Action |
-|---------|--------|
-| `SUMMARIZE [file] [level]` | Create summary at level |
-| `COMPRESS [directory]` | Bulk summarize for context |
-| `EXPAND [summary]` | Signal need to read full file |
-| `GC` | Garbage collect stale summaries |
-
----
-
-## Summary Types
-
-### ESSENCE Summary
-For completed work:
-```markdown
-# Summary: [original file]
-**Essence**: [one paragraph capturing the core]
-**Key Points**: [bullet list]
-**If you need more**: [what to look for in original]
+```yaml
+summary:
+  source: "designs/original-design.md"
+  created: "2025-12-30"
+  
+  key_points:
+    - "Files are state, no hidden memory"
+    - "YAML comments carry meaning"
+    
+  backlink: "../designs/original-design.md"
+  full_context_needed_for:
+    - "Implementation details"
+    - "Edge cases"
 ```
 
-### DECISIONS Summary
-For files with choices made:
-```markdown
-# Decisions: [original file]
-**Decided**: [what was decided]
-**Alternatives Considered**: [brief list]
-**Rationale**: [why this choice]
+## The Intertwingularity
+
+Summarize enables the LIFT stage — compress wisdom for sharing.
+
+```mermaid
+graph LR
+    SUM[📝 summarize] -->|compresses| SL[📜 session-log]
+    SUM -->|compresses| RN[📓 research-notebook]
+    SUM -->|enables| HF[🌫️ honest-forget]
+    SUM -->|part of| PLL[🎮📚🚀 play-learn-lift LIFT]
+    
+    SR[🔧 self-repair] -->|triggers| SUM
 ```
-
-### WISDOM Summary (HONEST-FORGET pattern)
-For lessons learned:
-```markdown
-# Learned: [topic]
-**Compressed from**: [source iterations]
-**Core lesson**: [the wisdom]
-**Pitfalls**: [what to avoid]
-```
-
----
-
-## Integration
-
-- **← PLAY-LEARN-LIFT**: Summarize PLAY_LOG for LEARN phase
-- **→ MEMORY-PALACE**: Summaries become room descriptions
-- **→ HOT-COLD**: Summaries go to cold.yml, pointers to hot.yml
-- **← SESSION-LOG**: Summarize completed sessions
 
 ---
 
 ## Dovetails With
 
-- **[../honest-forget/](../honest-forget/)** — Summarize before forgetting
-- **[../play-learn-lift/](../play-learn-lift/)** — Summarize PLAY for LEARN
-- **[../session-log/](../session-log/)** — Source material
-- **[../memory-palace/](../memory-palace/)** — Place summaries in palace
-- **[../../kernel/memory-management-protocol.md](../../kernel/memory-management-protocol.md)** — Hot/cold mechanics
-- **[../../PROTOCOLS.yml](../../PROTOCOLS.yml)** — SUMMARIZE symbol
+### Sister Skills
+| Skill | Relationship |
+|-------|--------------|
+| [play-learn-lift/](../play-learn-lift/) | Summarize IS LIFT — share wisdom |
+| [honest-forget/](../honest-forget/) | Summarize before forgetting |
+| [session-log/](../session-log/) | Source material to compress |
+| [research-notebook/](../research-notebook/) | Findings to distill |
+| [self-repair/](../self-repair/) | Triggers when context exceeds budget |
+| [memory-palace/](../memory-palace/) | Place summaries in palace rooms |
+
+### Protocol Symbols
+| Symbol | Link |
+|--------|------|
+| `SUMMARIZE` | [PROTOCOLS.yml](../../PROTOCOLS.yml#SUMMARIZE) |
+| `HONEST-FORGET` | [PROTOCOLS.yml](../../PROTOCOLS.yml#HONEST-FORGET) |
+| `HOT-COLD` | [PROTOCOLS.yml](../../PROTOCOLS.yml#HOT-COLD) |
+
+### Kernel
+- [kernel/memory-management-protocol.md](../../kernel/memory-management-protocol.md) — Full specification
+
+### Navigation
+| Direction | Destination |
+|-----------|-------------|
+| ⬆️ Up | [skills/](../) |
+| ⬆️⬆️ Root | [Project Root](../../) |
+| 🌫️ Sister | [honest-forget/](../honest-forget/) |
+| 🎮 Sister | [play-learn-lift/](../play-learn-lift/) |

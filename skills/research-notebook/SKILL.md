@@ -1,159 +1,100 @@
-# RESEARCH-NOTEBOOK Skill
-
-> **"Document as you discover."**
-
-Structured research with sources, findings, and decisions.
-
+---
+name: research-notebook
+description: "Structured research with sources, findings, and decisions."
+license: MIT
+tier: 1
+allowed-tools:
+  - read_file
+  - write_file
 ---
 
-## Purpose
+# Research Notebook
 
-Conduct and document research systematically. Track sources, capture findings, record decisions, and build understanding incrementally.
+> **Structured research with sources, findings, and decisions.**
 
----
+Track investigations and capture knowledge.
 
-## When to Use
+> [!TIP]
+> **LEARN stage of [play-learn-lift](../play-learn-lift/).** Where patterns emerge from exploration.
 
-- Investigating a new technology or concept
-- Comparing options before a decision
-- Building a knowledge base on a topic
-- Learning something complex
-- Due diligence before implementation
+## Structure
 
----
+| Section | Purpose |
+|---------|---------|
+| **Questions** | What you're trying to learn |
+| **Sources** | Where you looked |
+| **Findings** | What you discovered |
+| **Decisions** | What you concluded |
 
-## Protocol
-
-### Research Phases
-
-```yaml
-phases:
-  QUESTION:
-    action: "Define what you're trying to learn"
-    outputs: ["Research questions", "Success criteria"]
-    
-  GATHER:
-    action: "Collect sources and evidence"
-    outputs: ["Source registry", "Raw notes"]
-    
-  ANALYZE:
-    action: "Find patterns and insights"
-    outputs: ["Findings", "Comparisons"]
-    
-  SYNTHESIZE:
-    action: "Form conclusions"
-    outputs: ["Decisions", "Recommendations"]
-    
-  APPLY:
-    action: "Put knowledge to use"
-    outputs: ["Action items", "Implementation notes"]
-```
-
-### Source Tracking
-
-```yaml
-source:
-  id: "src-001"
-  type: "article|doc|code|conversation|experiment"
-  url: "https://..."
-  title: "Source title"
-  accessed: "timestamp"
-  credibility: "high|medium|low"
-  
-  key_points:
-    - "Main takeaway 1"
-    - "Main takeaway 2"
-    
-  quotes:
-    - text: "Exact quote"
-      context: "Why this matters"
-      
-  related_to:
-    - "Other source IDs"
-```
-
-### Finding Structure
-
-```yaml
-finding:
-  id: "find-001"
-  claim: "What you discovered"
-  confidence: "high|medium|low|speculative"
-  
-  evidence:
-    supports:
-      - source: "src-001"
-        detail: "How it supports"
-    contradicts:
-      - source: "src-002"
-        detail: "The counter-evidence"
-        
-  implications: "What this means for your goal"
-```
-
----
-
-## Core Files
+## Contents
 
 | File | Purpose |
 |------|---------|
-| `NOTEBOOK.yml` | Research state and progress |
-| `SOURCES.yml` | Registry of all sources |
-| `FINDINGS.md` | Discoveries and analysis |
-| `DECISIONS.md` | Conclusions and rationale |
+| [SKILL.md](./SKILL.md) | Full protocol documentation |
+| [PROTOTYPE.yml](./PROTOTYPE.yml) | Machine-readable definition |
+| [template/](./template/) | Notebook and source templates |
 
----
-
-## Commands
-
-| Command | Action |
-|---------|--------|
-| `RESEARCH [topic]` | Start research session |
-| `SOURCE [url] [notes]` | Add source |
-| `FINDING [claim]` | Record discovery |
-| `COMPARE [a] [b]` | Analyze options |
-| `DECIDE [choice] [why]` | Document decision |
-
----
-
-## Research Quality
-
-### Credibility Assessment
-
-| Signal | Weight |
-|--------|--------|
-| Primary source | High |
-| Peer reviewed | High |
-| Official docs | Medium-High |
-| Reputable blog | Medium |
-| Random post | Low |
-| Your experiment | Depends on rigor |
-
-### Confidence Levels
+## Example
 
 ```yaml
-confidence:
-  high: "Multiple credible sources agree"
-  medium: "Some evidence, some uncertainty"
-  low: "Limited evidence or conflicting sources"
-  speculative: "Hypothesis based on patterns"
+research:
+  topic: "LLM context management strategies"
+  
+  questions:
+    - "How do other systems handle token budgets?"
+    - "What summarization approaches exist?"
+    
+  sources:
+    - url: "paper-on-context.pdf"
+      relevance: "Direct answer to Q1"
+      
+  findings:
+    - "Sliding window is most common"
+    - "Hierarchical summaries preserve more"
+    
+  decisions:
+    - "Use tiered hot/cold approach"
 ```
 
----
+## The Intertwingularity
 
-## Integration
+Research-notebook is the LEARN stage of [play-learn-lift](../play-learn-lift/) — find patterns.
 
-- **← PLAY-LEARN-LIFT**: Research IS PLAY→LEARN
-- **→ SUMMARIZE**: Compress research for reference
-- **→ PLAN-THEN-EXECUTE**: Research informs plans
-- **→ HONEST-FORGET**: Archive completed research
+```mermaid
+graph LR
+    RN[📓 research-notebook] -->|LEARN stage of| PLL[🎮📚🚀 play-learn-lift]
+    RN -->|distills to| SUM[📝 summarize]
+    RN -->|sources from| SL[📜 session-log]
+    RN -->|informs| SS[👯 sister-script]
+    
+    DB[🔧 debugging] -->|uses| RN
+    AP[⚔️ adventure] -->|evidence in| RN
+```
 
 ---
 
 ## Dovetails With
 
-- **[../play-learn-lift/](../play-learn-lift/)** — Research IS PLAY→LEARN stage
-- **[../summarize/](../summarize/)** — Compress research
-- **[../debugging/](../debugging/)** — Investigation companion
-- **[../adventure/](../adventure/)** — Evidence collection
-- **[../../PROTOCOLS.yml](../../PROTOCOLS.yml)** — PRESERVE-JOURNEY symbol
+### Sister Skills
+| Skill | Relationship |
+|-------|--------------|
+| [play-learn-lift/](../play-learn-lift/) | Research IS the LEARN stage |
+| [session-log/](../session-log/) | Source material from PLAY |
+| [summarize/](../summarize/) | Compress findings |
+| [sister-script/](../sister-script/) | Research feeds automation |
+| [debugging/](../debugging/) | Research supports hypothesis tracking |
+| [adventure/](../adventure/) | Evidence collection |
+
+### Protocol Symbols
+| Symbol | Link |
+|--------|------|
+| `PLAY-LEARN-LIFT` | [PROTOCOLS.yml](../../PROTOCOLS.yml#PLAY-LEARN-LIFT) |
+| `PRESERVE-JOURNEY` | [PROTOCOLS.yml](../../PROTOCOLS.yml#PRESERVE-JOURNEY) |
+
+### Navigation
+| Direction | Destination |
+|-----------|-------------|
+| ⬆️ Up | [skills/](../) |
+| ⬆️⬆️ Root | [Project Root](../../) |
+| 🎮 Sister | [play-learn-lift/](../play-learn-lift/) |
+| 📝 Sister | [summarize/](../summarize/) |

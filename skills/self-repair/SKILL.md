@@ -1,131 +1,86 @@
-# SELF-REPAIR Skill
-
-> **"Missing state triggers repair, not crash."**
-
-Checklist-based self-healing for robust operation.
-
+---
+name: self-repair
+description: "Missing state triggers repair, not failure."
+license: MIT
+tier: 1
+allowed-tools:
+  - read_file
+  - write_file
 ---
 
-## Purpose
+# Self Repair
 
-Detect and repair missing or corrupted state. Implement the NEVER-CRASH and REPAIR-DEMON protocols through structured checklists.
+> **Missing state triggers repair, not failure.**
 
----
+Checklist-based self-healing demons.
 
-## When to Use
+> [!IMPORTANT]
+> **NEVER-CRASH** — The core principle. Repair instead of fail. Always.
 
-- Starting a new session (bootstrap)
-- Something seems wrong (diagnosis)
-- After a crash or interruption (recovery)
-- Periodically (maintenance)
+## The Principle
 
----
+When something's wrong:
+1. **Detect** — Checklist finds missing/invalid state
+2. **Repair** — Demon creates/fixes what's needed
+3. **Log** — Document what was repaired
+4. **Continue** — Never crash, always converge
 
-## Protocol
-
-### The Repair Loop
-
-```yaml
-repair_loop:
-  1_check: "Run checklist"
-  2_detect: "Identify missing/broken items"
-  3_repair: "Apply repair actions"
-  4_verify: "Re-run checklist"
-  5_log: "Record what was repaired"
-```
-
-### Checklist Structure
-
-```yaml
-checklist:
-  - check: "output.md exists"
-    repair: "create empty output.md"
-    severity: "critical"
-    
-  - check: "session-log.md exists"
-    repair: "create with session_start event"
-    severity: "critical"
-    
-  - check: "working_set.yml exists"
-    repair: "create minimal working set"
-    severity: "high"
-    
-  - check: "hot.yml exists"
-    repair: "create empty hot.yml"
-    severity: "medium"
-```
-
----
-
-## Core Files
+## Contents
 
 | File | Purpose |
 |------|---------|
-| `CHECKLIST.yml` | What to check and how to repair |
-| `REPAIR_LOG.md` | History of repairs |
-| `HEALTH.yml` | Current health status |
+| [SKILL.md](./SKILL.md) | Full protocol documentation |
+| [PROTOTYPE.yml](./PROTOTYPE.yml) | Machine-readable definition |
+| [template/](./template/) | Checklist templates |
 
----
+## Repair Demons
 
-## Built-in Checklists
+| Demon | Watches For |
+|-------|-------------|
+| `checklist_repairer` | Missing canonical files |
+| `sticky_note_maintainer` | Missing sidecar metadata |
+| `membrane_keeper` | Files outside boundaries |
 
-### Bootstrap Checklist
-Run on session start:
-- Canonical files exist
-- Working set is valid YAML
-- Session log is append-only
-- No orphan files in workspace
+## The Intertwingularity
 
-### Integrity Checklist
-Run periodically:
-- All working_set files exist
-- Sidecars match their files
-- No circular references
-- Token budgets respected
+Self-repair is the immune system. It monitors everything.
 
-### Recovery Checklist
-Run after crash:
-- Append-only files uncorrupted
-- In-progress work saved
-- State is consistent
-
----
-
-## Commands
-
-| Command | Action |
-|---------|--------|
-| `CHECK` | Run full checklist |
-| `REPAIR` | Fix all detected issues |
-| `HEALTH` | Show current health status |
-| `BOOTSTRAP` | Run bootstrap checklist |
-
----
-
-## Severity Levels
-
-| Level | Meaning | Action |
-|-------|---------|--------|
-| `critical` | Session cannot continue | Repair immediately |
-| `high` | Major functionality impaired | Repair soon |
-| `medium` | Degraded but functional | Repair when convenient |
-| `low` | Cosmetic or advisory | Log and continue |
-
----
-
-## Integration
-
-- **→ SESSION-LOG**: Log all repairs
-- **← NEVER-CRASH**: Implements the principle
-- **← REPAIR-DEMON**: Provides the demons
-- **→ ROBUST-FIRST**: Enables robust operation
+```mermaid
+graph LR
+    SR[🔧 self-repair] -->|monitors| SL[📜 session-log]
+    SR -->|monitors| WS[working_set.yml]
+    SR -->|creates| HOT[hot.yml / cold.yml]
+    SR -->|repairs| FILES[missing files]
+    
+    SR -->|part of| KERNEL[kernel/self-healing]
+```
 
 ---
 
 ## Dovetails With
 
-- **[../session-log/](../session-log/)** — Log all repairs
-- **[../honest-forget/](../honest-forget/)** — Triggered for memory cleanup
-- **[../summarize/](../summarize/)** — Triggered for context overflow
-- **[../../kernel/self-healing-protocol.md](../../kernel/self-healing-protocol.md)** — Full spec
-- **[../../PROTOCOLS.yml](../../PROTOCOLS.yml)** — NEVER-CRASH, REPAIR-DEMON, ROBUST-FIRST symbols
+### Sister Skills
+| Skill | Relationship |
+|-------|--------------|
+| [session-log/](../session-log/) | Self-repair monitors log integrity |
+| [summarize/](../summarize/) | Triggered when context exceeds budget |
+| [honest-forget/](../honest-forget/) | Graceful memory decay |
+
+### Protocol Symbols
+| Symbol | Link |
+|--------|------|
+| `NEVER-CRASH` | [PROTOCOLS.yml](../../PROTOCOLS.yml#NEVER-CRASH) |
+| `REPAIR-DEMON` | [PROTOCOLS.yml](../../PROTOCOLS.yml#REPAIR-DEMON) |
+| `ROBUST-FIRST` | [PROTOCOLS.yml](../../PROTOCOLS.yml#ROBUST-FIRST) |
+| `BEST-EFFORT` | [PROTOCOLS.yml](../../PROTOCOLS.yml#BEST-EFFORT) |
+
+### Kernel
+- [kernel/self-healing-protocol.md](../../kernel/self-healing-protocol.md) — Full specification
+- [schemas/agent-directory-schema.yml](../../schemas/agent-directory-schema.yml) — What gets repaired
+
+### Navigation
+| Direction | Destination |
+|-----------|-------------|
+| ⬆️ Up | [skills/](../) |
+| ⬆️⬆️ Root | [Project Root](../../) |
+| 📜 Sister | [session-log/](../session-log/) |

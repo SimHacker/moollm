@@ -1,131 +1,86 @@
-# SISTER-SCRIPT Skill
-
-> **"The document is the source of truth. Scripts are its children."**
-
-Document-first development: automate only what's been manually validated.
-
+---
+name: sister-script
+description: ""
+license: MIT
+tier: 1
+allowed-tools:
+  - read_file
+  - write_file
 ---
 
-## Purpose
+# Sister Script
 
-Convert proven manual procedures into automation while keeping the document as the authoritative source. The script and document evolve together bidirectionally.
+> **Document-first development. Automate only what's proven.**
 
----
+The document is the source of truth. Scripts are its children.
 
-## When to Use
+> [!TIP]
+> **LIFT stage of [play-learn-lift](../play-learn-lift/).** Proven procedures become automation.
 
-- Manual procedure has been validated multiple times (LEARN phase complete)
-- Repetitive workflow is slowing you down
-- Want automation without losing the "why" context
-- Need to maintain sync between docs and code
+## The Pattern
 
----
-
-## Protocol
-
-### Phase 1: Document-First
-
-Start with natural language, not code.
-
-```yaml
-document_first:
-  steps:
-    - "Describe what you want to accomplish"
-    - "Add manual commands (test and refine)"
-    - "Document working procedures"
-    - "Capture gotchas and edge cases"
-    
-  outputs:
-    - "PROCEDURE.md (the source of truth)"
-    - "Working manual commands"
-    - "Known edge cases"
+```mermaid
+graph TD
+    D[📄 Document] -->|manual test| C[💻 Commands]
+    C -->|document| P[📋 Procedure]
+    P -->|automate| S[🤖 Sister Script]
+    S -->|improve| D
 ```
 
-### Phase 2: Generate Sister
+1. Start with natural language (PLAY)
+2. Add manual commands (PLAY/LEARN)  
+3. Document working procedures (LEARN)
+4. Generate automation (LIFT)
 
-Only automate what's proven.
+## Bidirectional Evolution
 
-```yaml
-generate_sister:
-  steps:
-    - "Identify repetitive sections"
-    - "Extract into script with doc references"
-    - "Include comments linking back to PROCEDURE.md"
-    - "Test against documented edge cases"
-    
-  outputs:
-    - "SISTER.* (script in appropriate language)"
-    - "Cross-references to source sections"
-```
+- Document → Script: Proven procedures become automated
+- Script → Document: Automation insights improve docs
 
-### Phase 3: Bidirectional Evolution
-
-Both evolve together.
-
-```yaml
-bidirectional:
-  document_to_script:
-    trigger: "Procedure updated"
-    action: "Review if script needs update"
-    
-  script_to_document:
-    trigger: "Script improved"
-    action: "Update procedure with new insights"
-    
-  sync_check:
-    frequency: "On each use"
-    action: "Verify doc and script are aligned"
-```
-
----
-
-## Core Files
+## Contents
 
 | File | Purpose |
 |------|---------|
-| `SISTER.yml` | Sister script manifest and sync state |
-| `PROCEDURE.md` | Source of truth (the document) |
-| `SISTER.*` | The generated script |
-| `SYNC_LOG.md` | History of bidirectional updates |
+| [SKILL.md](./SKILL.md) | Full methodology documentation |
+| [PROTOTYPE.yml](./PROTOTYPE.yml) | Machine-readable definition |
+| [template/](./template/) | Templates for sister relationships |
 
----
+## The Intertwingularity
 
-## Commands
+Sister-script is the LIFT stage of [play-learn-lift](../play-learn-lift/) — automate proven patterns.
 
-| Command | Action |
-|---------|--------|
-| `PROCEDURE [name]` | Start documenting a procedure |
-| `SISTER [language]` | Generate sister script |
-| `SYNC` | Check document/script alignment |
-| `UPDATE-DOC` | Propagate script changes to doc |
-| `UPDATE-SCRIPT` | Propagate doc changes to script |
-
----
-
-## Sister Script Characteristics
-
-```yaml
-sister_script_properties:
-  - "Implements proven procedures only"
-  - "Document remains authoritative"
-  - "Preserves context via comments"
-  - "Links back to source sections"
-  - "Enables iteration without drift"
+```mermaid
+graph LR
+    SS[👯 sister-script] -->|LIFT stage of| PLL[🎮📚🚀 play-learn-lift]
+    SS -->|automates| DOC[📄 documents]
+    SS -->|produces| CODE[🤖 scripts]
+    
+    RN[📓 research-notebook] -->|feeds| SS
+    SL[📜 session-log] -->|source for| SS
 ```
-
----
-
-## Integration
-
-- **← PLAY-LEARN-LIFT**: Sister scripts are a LIFT output
-- **→ PLAN-THEN-EXECUTE**: Sister scripts can be plan steps
-- **→ BUILD-COMMAND**: Large sister scripts become sister apps
 
 ---
 
 ## Dovetails With
 
-- **[../play-learn-lift/](../play-learn-lift/)** — Sister scripts are LIFT output
-- **[../plan-then-execute/](../plan-then-execute/)** — Scripts become frozen plans
-- **[../session-log/](../session-log/)** — Source patterns to automate
-- **[../../PROTOCOLS.yml](../../PROTOCOLS.yml)** — SISTER-SCRIPT, BUILD-COMMAND symbols
+### Sister Skills
+| Skill | Relationship |
+|-------|--------------|
+| [play-learn-lift/](../play-learn-lift/) | Sister-script IS the LIFT stage |
+| [session-log/](../session-log/) | Source material for patterns |
+| [research-notebook/](../research-notebook/) | Documented procedures |
+| [plan-then-execute/](../plan-then-execute/) | Scripts can become plans |
+
+### Protocol Symbols
+| Symbol | Link |
+|--------|------|
+| `SISTER-SCRIPT` | [PROTOCOLS.yml](../../PROTOCOLS.yml#SISTER-SCRIPT) |
+| `BUILD-COMMAND` | [PROTOCOLS.yml](../../PROTOCOLS.yml#BUILD-COMMAND) |
+| `PLAY-LEARN-LIFT` | [PROTOCOLS.yml](../../PROTOCOLS.yml#PLAY-LEARN-LIFT) |
+
+### Navigation
+| Direction | Destination |
+|-----------|-------------|
+| ⬆️ Up | [skills/](../) |
+| ⬆️⬆️ Root | [Project Root](../../) |
+| 🎮 Sister | [play-learn-lift/](../play-learn-lift/) |
