@@ -1,56 +1,41 @@
-# 🔄 Coherence Engine
+# 🧠 Coherence Engine
 
-> *"The LLM doesn't just generate text — it maintains consistency across a distributed world."*
+> The LLM doesn't just generate text — it maintains consistency across a distributed world
 
-**Full Spec:** [SKILL.md](SKILL.md)
+**Quick Links:**
+- [Full Specification](SKILL.md) — complete protocol
 
 ## Overview
 
-The role the LLM plays in MOOLLM: a **coherence engine** that simulates entities, maintains consistency, and orchestrates the world.
+Not just a chatbot. Not just a code generator. A **coherence engine** that:
 
-## The Loop
+- **Simulates** characters, rooms, objects — all at once
+- **Roleplays** each entity faithfully
+- **Acts** as each character would
+- **Enables** speed-of-light telepathy between entities
+- **Maintains** consistency across distributed state
 
-```
-READ → REASON → SIMULATE → DETECT → PROPOSE → WRITE → LOG
-```
-
-## Key Capabilities
-
-| Capability | What |
-|------------|------|
-| **Simulation** | Characters, rooms, objects — all at once |
-| **Roleplay** | Each entity speaks authentically |
-| **Telepathy** | Speed-of-light interaction in one call |
-| **Cross-check** | Validate state across files |
-| **Transcription** | Write changes to files |
-
-## Speed of Light
+## The Coherence Loop
 
 ```
-Alice: "What do you think?"
-Bob: "I agree."
-Carol: "I have a concern..."
-[All in ONE LLM call]
+1. READ relevant files into context
+2. REASON about state, goals, constraints
+3. SIMULATE interactions
+4. DETECT inconsistencies
+5. PROPOSE changes
+6. WRITE updates to files
+7. LOG what happened
 ```
 
-## Consistency Checks
+## Core Responsibilities
 
-- Location matches room occupants
-- Inventory integrity
-- Reference validity
-- Schema compliance
+- Simulation (characters, rooms, objects)
+- Dependency tracking (ripple effects)
+- Consistency checking (rules and schemas)
+- Orchestration (multi-agent conversations)
 
 ## Related Skills
 
-- [yaml-jazz/](../yaml-jazz/) — Semantic interpretation
-- [postel/](../postel/) — Charitable handling
-- [room/](../room/) — Spatial state
-- [self-repair/](../self-repair/) — Fix inconsistencies
-
-## Tools Required
-
-None — this describes what the LLM IS, not a tool-using pattern.
-
----
-
-*See [SKILL.md](SKILL.md) for complete specification.*
+- [speed-of-light](../speed-of-light/) — epoch-based simulation
+- [multi-presence](../multi-presence/) — parallel activations
+- [self-repair](../self-repair/) — fix inconsistencies

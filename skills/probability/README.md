@@ -1,4 +1,39 @@
-# Probability
+# 🎲 Probability
+
+> No dice. Just odds and narrative.
 
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
+
+## Overview
+
+LLM-calculated success chances. No physical dice — the LLM calculates probability from stats + modifiers and narrates outcomes consistently.
+
+## Calculation
+
+```
+base_chance = (stat_1 + stat_2) / max_possible
+modified_chance = base_chance + relationship + buffs
+```
+
+## Modifiers
+
+| Relationship | Modifier |
+|--------------|----------|
+| Stranger | +0 |
+| Friend | +0.2 |
+| Soulmate | +0.4 |
+
+## Malfunction Stacking
+
+Multiple risky items compound:
+
+```
+P(something fails) = 1 - (P(item1 works) × P(item2 works) × ...)
+```
+
+## Related Skills
+
+- [character](../character/) — stats used in calculations
+- [buff](../buff/) — buffs modify probabilities
+- [scoring](../scoring/) — scores based on outcomes
