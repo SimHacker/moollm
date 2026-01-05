@@ -55,6 +55,7 @@ methods:
       2. Fill variables (LLM applies POSTEL's law)
       3. Write instance files to location
       4. Return activation record
+      5. Light weight one shot read-only objects can be embedded in log or narrative as yaml jazz code blocks
       
   DEBUG:
     description: "Diagnose why a skill isn't working"
@@ -65,6 +66,7 @@ methods:
       2. Verify prototype chain
       3. Test template rendering
       4. Report issues and fixes
+      5. Generate dynamic stack traces for analysis and debugging
       
   UPGRADE:
     description: "Evolve a skill's capabilities"

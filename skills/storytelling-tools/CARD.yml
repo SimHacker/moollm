@@ -13,7 +13,7 @@ card:
   description: |
     Tools for capturing and sharing narratives. Notebooks,
     letters, photo prompts, READMEs, cards. Inspired by
-    The Sims' sharing culture.
+    The Sims' family album, save file, and object sharing culture.
 
 tools:
   required: [read_file, write_file]
@@ -21,20 +21,20 @@ tier: 1
 
 methods:
   NOTEBOOK:
-    description: "Create character's notebook"
+    description: "Create and manage character's notebook"
     parameters: { owner: "Whose notebook" }
     output: file
     invoked_by: [player]
     
   LETTER:
-    description: "Write a letter"
-    parameters: { from: "Sender", to: "Recipient", content: "Message" }
+    description: "Write and mail a letter"
+    parameters: { from: "Sender", to: "Recipient", content: "Message", attachments: "List of references to attach" }
     output: file
     invoked_by: [character]
     
   PHOTO:
-    description: "Capture a moment as image prompt"
-    parameters: { scene: "What to capture" }
+    description: "Capture a moment as image prompt and metadata"
+    parameters: { scene: "What to capture", metadata: "Metadata to attach" }
     output: file (prompt for image gen)
     invoked_by: [player]
     

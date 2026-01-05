@@ -13,6 +13,9 @@ card:
   description: |
     Compress information without losing meaning. Essential
     for context management and memory palace population.
+    
+    Key pattern: Create foo-metadata.yml sidecars for any foo.yml.
+    LLM can "sip" metadata before deciding to read the full file.
 
 tools:
   required: [read_file, write_file]
@@ -30,14 +33,151 @@ methods:
     parameters: { content: "Source" }
     output: chat (bullet points)
     invoked_by: [player]
+    
+  METADATA:
+    description: "Create or update metadata sidecar for a file"
+    parameters:
+      file: "Path to file (foo.yml → foo-metadata.yml)"
+      summary: "Brief summary of contents"
+      notes: "Optional notes about the file"
+      bookmarks: "Optional named locations in file"
+    output: file (foo-metadata.yml)
+    effect: "Creates lightweight sidecar for efficient browsing"
+    invoked_by: [player, system, honest_forget]
+    
+  SIP:
+    description: "Read metadata to decide if full file is needed"
+    parameters:
+      file: "Path to file or its metadata"
+    output: chat (recommendation)
+    effect: "Read metadata, suggest whether to read full file"
+    invoked_by: [player, automatic]
+    
+  BOOKMARK:
+    description: "Add a named bookmark to a file's metadata"
+    parameters:
+      file: "Which file"
+      name: "Bookmark name"
+      location: "Line number, range (10-25), or search pattern"
+      note: "What's at this bookmark"
+    output: state_change
+    effect: "Adds bookmark to foo-metadata.yml"
+    invoked_by: [player]
 
 state: {}
+
+# METADATA SIDECAR PROTOCOL
+
+metadata_protocol:
+  
+  naming: |
+    For any file foo.yml, metadata lives in foo-metadata.yml
+    For any file bar.md, metadata lives in bar-metadata.yml
+    
+    Pattern: <basename>-metadata.<ext>
+    
+  purpose: |
+    LLMs have limited context. Reading every file is expensive.
+    Metadata sidecars let the LLM "sip" before "gulping":
+    
+    1. Read foo-metadata.yml (small, fast)
+    2. Decide: Is foo.yml relevant?
+    3. Only read foo.yml if needed
+    
+    Token-efficient browsing.
+    
+  contents:
+    summary:
+      description: "Brief summary of the file's contents"
+      example: "Character definition for the main antagonist"
+      
+    keywords:
+      description: "Key terms for quick matching"
+      example: ["villain", "antagonist", "evil", "boss-fight"]
+      
+    relevance_hints:
+      description: "When this file is likely relevant"
+      example: "Read when: player encounters final boss, needs villain backstory"
+      
+    last_modified:
+      description: "When the source file was last changed"
+      example: "2024-01-15T10:30:00Z"
+      
+    original_path:
+      description: "Path to the full file"
+      example: "./characters/lord-shadow.yml"
+      
+    size_hint:
+      description: "How big is the full file"
+      example: "~200 lines, 4KB"
+      
+    notes:
+      description: "Arbitrary notes about the file"
+      example: "Contains spoilers! Don't reveal to player."
+      
+    bookmarks:
+      description: "Named pointers into the file"
+      type: "array of bookmark objects"
+      
+  bookmark_types:
+    point:
+      description: "Single line reference"
+      example: { name: "motivation", line: 42, note: "Why they turned evil" }
+      
+    region:
+      description: "Line range reference"
+      example: { name: "backstory", lines: "15-45", note: "Full origin story" }
+      
+    pattern:
+      description: "Search pattern reference"
+      example: { name: "weakness", pattern: "weakness:", note: "How to defeat them" }
+      
+    anchor:
+      description: "Named YAML anchor reference"
+      example: { name: "stats", anchor: "&combat_stats", note: "Combat statistics" }
+      
+  example_metadata: |
+    # lord-shadow-metadata.yml
+    
+    summary: "Primary antagonist. Former hero corrupted by artifact."
+    keywords: [villain, antagonist, boss, final-battle, corruption-arc]
+    
+    relevance_hints:
+      - "Player near final dungeon"
+      - "Discussion of corruption themes"
+      - "Backstory reveals needed"
+      
+    original_path: "./lord-shadow.yml"
+    last_modified: "2024-01-15T10:30:00Z"
+    size_hint: "180 lines"
+    
+    notes: |
+      SPOILER WARNING: Contains twist reveal.
+      Only read full file if player has reached Act 3.
+      
+    bookmarks:
+      - name: motivation
+        line: 42
+        note: "The moment of corruption"
+        
+      - name: backstory
+        lines: "15-60"
+        note: "Full origin story - read for exposition scenes"
+        
+      - name: weakness
+        pattern: "^weakness:"
+        note: "How to defeat - read before boss fight design"
+        
+      - name: dialogue_style
+        lines: "120-140"
+        note: "Speech patterns for writing dialogue"
 
 principles:
   preserve_truth: "Never invent or distort"
   highlight_key: "Main points first"
   cite_source: "Link back to original"
   compression_ratio: "Aim for 10:1 or better"
+  sip_before_gulp: "Read metadata first, full file only if needed"
 
 advertisements:
   COMPRESS_CONTEXT:
@@ -46,5 +186,15 @@ advertisements:
   EXTRACT_ESSENCE:
     score: 85
     condition: "Need key points quickly"
+  CREATE_METADATA:
+    score: 88
+    condition: "File will be referenced repeatedly"
+  SIP_METADATA:
+    score: 92
+    condition: "Browsing files, deciding what to read"
 
-see_also: [skills/honest-forget, skills/memory-palace, skills/scratchpad]
+see_also:
+  - skills/honest-forget   # Uses same metadata pattern
+  - skills/memory-palace   # Organized memory
+  - skills/scratchpad      # Working memory
+  - skills/session-log     # Log with embedded summaries
