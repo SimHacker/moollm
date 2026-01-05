@@ -37,6 +37,7 @@ Cards are **portable tokens** you can carry, give, play, and activate:
 | **Playing cards** | Actions, abilities, spells to play |
 | **Magic: The Gathering** | Complex cards with costs, effects, combos |
 | **Pokémon cards** | Characters with stats, moves, evolution |
+| **Fluxx cards** | Rule-changing cards — play to modify the game itself |
 | **Tarot cards** | Archetypal symbols, prompts for reflection |
 | **Business cards** | Contact info, credentials, introductions |
 | **Pleasure cards** | Memberships, VIP access, perks |
@@ -115,7 +116,7 @@ card:
   type: hero-story        # Real person tradition
   
   # K-line activation
-  tradition: "HyperCard, SimCity, OLPC, procedural rhetoric"
+  tradition: "HyperCard, SimCity, OLPC, procedural rhetoric, Maxis"
   concepts:
     - pie_menus
     - constructionist_games
@@ -390,6 +391,105 @@ on_complete:
 ```
 
 This is **The Sims meets Magic: The Gathering** — autonomous agents with triggered abilities interacting through advertised actions.
+
+---
+
+## Flux Cards: Rules That Change Rules
+
+Inspired by [Fluxx](https://en.wikipedia.org/wiki/Fluxx), some cards **modify the game itself**:
+
+```yaml
+# flux/double-time.card
+card:
+  name: "Double Time"
+  type: flux
+  
+  # When played, modifies room rules
+  on_play:
+    modify: room.rules
+    changes:
+      ticks_per_turn: 2  # Everything moves twice as fast
+      
+  # Visible effect
+  description: "All actions in this room happen twice per turn"
+  
+  # Can be countered or removed
+  advertisements:
+    DISPEL:
+      description: "Remove this rule change"
+      score_if: "has_dispel_ability"
+```
+
+### Rule Modification Examples
+
+```yaml
+# flux/chaos-mode.card
+on_play:
+  modify: room.rules
+  changes:
+    action_order: random        # No turn order
+    advertisement_scoring: inverted  # Worst scores win!
+
+# flux/silence.card  
+on_play:
+  modify: room.rules
+  changes:
+    allowed_actions: [LOOK, MOVE]  # No talking, no playing cards
+
+# flux/abundance.card
+on_play:
+  modify: room.rules
+  changes:
+    inventory_limit: unlimited
+    dispenser_cooldown: 0  # Everything dispenses freely
+
+# flux/hardcore.card
+on_play:
+  modify: room.rules  
+  changes:
+    permadeath: true
+    save_disabled: true
+    undo_disabled: true
+```
+
+### Stacking and Interaction
+
+Multiple flux cards can be in play — they stack:
+
+```yaml
+# Room has active flux cards
+room:
+  active_flux:
+    - double-time.card      # 2x speed
+    - chaos-mode.card       # Random order
+    - abundance.card        # No limits
+    
+  # Computed effective rules
+  effective_rules:
+    ticks_per_turn: 2
+    action_order: random
+    inventory_limit: unlimited
+```
+
+### Meta-Flux: Rules About Rules
+
+```yaml
+# flux/immutable.card
+card:
+  name: "Immutable"
+  type: meta-flux
+  
+  on_play:
+    modify: room.meta_rules
+    changes:
+      flux_cards_allowed: false  # No more rule changes!
+      
+  # This card itself is protected
+  protected: true
+  cannot_be_dispelled: true
+```
+
+Flux cards make MOOLLM a **self-modifying game** — the rules are part of the game state.
 
 ---
 
