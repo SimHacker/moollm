@@ -22,6 +22,18 @@ Structured multi-perspective deliberation using adversarial committees, Robert's
 > START_DEBATE rounds=3
 ```
 
+## The Gong Show Option
+
+For entertainment-style debates, add celebrity moderators and THE GONG:
+
+```yaml
+> CREATE_MODERATOR style="gong_show"
+> SUMMON_JUDGES ["jaye_p_morgan", "arte_johnson", "rip_taylor"]
+> GONG  # Mercifully end a failing argument
+```
+
+The gong isn't cruel — it's merciful. Sometimes the kindest thing is to end what isn't working.
+
 ## Components
 
 | Component | Role |
