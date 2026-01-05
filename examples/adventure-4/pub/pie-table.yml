@@ -234,9 +234,15 @@ object:
         Empty slices are still addressable (pub/pie-table.yml#NE)
         but have no chair to sit in. Stable geography!
         
-        Optional: Eliminated players join the audience and heckle.
-        Optional: Winner gets to pick next activity.
-        Optional: Gong elimination for dramatic flair.
+        AUTOGONG: The gong rings automatically!
+        - *GONG* once for each eliminated player (mercy)
+        - *GONG* *GONG* *GONG* for the winner! (celebration)
+        
+        The gong at pub/gong.yml is linked to the table.
+        No need to manually ring — musical chairs triggers it.
+        
+        Eliminated players join the audience and heckle.
+        Winner gets to pick next activity.
       variations:
         speed_round: "Music gets shorter each round"
         reverse: "Chairs INCREASE, add to empty slices"

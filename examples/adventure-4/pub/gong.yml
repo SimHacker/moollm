@@ -82,6 +82,26 @@ object:
       description: "Joyous strike for good news"
       score: 70
       score_if: "good_news OR victory OR milestone"
+      
+    # AUTOGONG — automatic integration with pub/pie-table.yml
+    AUTOGONG_ELIMINATION:
+      description: "Auto-rings once when someone is eliminated"
+      triggered_by: "pie-table.yml#MUSICAL_CHAIRS"
+      automatic: true
+      effect: |
+        *GONG* — A merciful single strike.
+        "Better luck next round!" the gong seems to say.
+        The eliminated player takes a bow and joins the audience.
+        
+    AUTOGONG_VICTORY:
+      description: "Auto-rings thrice when winner is crowned"
+      triggered_by: "pie-table.yml#MUSICAL_CHAIRS"
+      automatic: true
+      effect: |
+        *GONG* *GONG* *GONG* — The victory fanfare!
+        The last one seated has won!
+        The gong celebrates with its most joyous tone.
+        Confetti optional but encouraged.
       effect: |
         A bright, celebratory tone.
         The room joins in appreciation.
