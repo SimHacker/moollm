@@ -19,7 +19,7 @@ object:
     
   # Configuration
   config:
-    seats: 8  # Default octagon, can be 3-12
+    seats: 8  # Default octagon, can be 0-12
     current_occupants: []
     speaking_order: clockwise
     rules_of_order: roberts_rules
@@ -29,7 +29,7 @@ object:
     
            [N]
         NW     NE
-      [W]  🔔  [E]
+      [W]   🔔  [E]
         SW     SE
            [S]
     
@@ -54,7 +54,7 @@ object:
     CONFIGURE:
       description: "Change the number of seats"
       params:
-        seats: "3-12"
+        seats: "0-12"
       score: 50
       effect: "Reshape the table geometry"
       
@@ -77,6 +77,32 @@ object:
         time_limit: optional
       score: 80
       effect: "Initialize discussion state, ring the bell"
+      
+    MUSICAL_CHAIRS:
+      description: "Play musical chairs — last one seated wins!"
+      params:
+        music: "optional theme, default pub jukebox"
+        elimination_style: ["gentle", "dramatic", "gong_show"]
+      score: 75
+      score_if: "mood == playful OR need_tiebreaker OR bored"
+      effect: |
+        1. All seated players stand and circle the table
+        2. Music plays (or someone hums)
+        3. One pie slice chair vanishes (table reconfigures!)
+        4. Music stops — everyone scrambles for a seat
+        5. One player is left standing — eliminated (but kindly!)
+        6. Repeat until one winner remains
+        
+        The table physically reshapes: 8 → 7 → 6 → 5 → 4 → 3 → 2 → 1
+        
+        Optional: Eliminated players join the audience and heckle.
+        Optional: Winner gets to pick next activity.
+        Optional: Gong elimination for dramatic flair.
+      variations:
+        speed_round: "Music gets shorter each round"
+        reverse: "Chairs INCREASE, must find partners"
+        topic_chairs: "Must answer a question to claim seat"
+        hot_potato: "Pass an object, holder when music stops is out"
       
     RING_BELL:
       description: "Request the floor"
