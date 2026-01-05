@@ -8,7 +8,7 @@ allowed-tools:
 tier: 1
 protocol: TRADING-CARD
 tags: [gamification, capabilities, lloooomm, actor]
-related: [room, soul-chat, adventure, delegation-object-protocol, return-stack, visualizer]
+related: [room, soul-chat, adventure, delegation-object-protocol, return-stack, visualizer, data-flow, adversarial-committee]
 templates:
   - file: CARD.yml.tmpl
     purpose: Individual card template
@@ -490,6 +490,216 @@ card:
 ```
 
 Flux cards make MOOLLM a **self-modifying game** — the rules are part of the game state.
+
+---
+
+## Data Flow Ensembles
+
+Cards can contain **coordinated ensembles** of generators, transformers, and consumers that automatically bind into data flow networks:
+
+```yaml
+# debate.card
+card:
+  name: "Structured Debate"
+  type: ensemble
+  
+  # Components this card can spawn
+  components:
+    generators:
+      CREATE_SIDE:
+        description: "Create a debate side with position"
+        params: { name: required, position: required }
+        outputs: [arguments, rebuttals]
+        
+      CREATE_TOPIC:
+        description: "Define the debate topic"
+        params: { question: required, context: optional }
+        outputs: [topic_stream]
+        
+    transformers:
+      CREATE_MODERATOR:
+        description: "Create moderator to route and time"
+        inputs: [arguments, rebuttals]
+        outputs: [moderated_stream]
+        behavior: "interleave fairly, enforce time limits"
+        
+      CREATE_CLOCK:
+        description: "Timing control for rounds"
+        inputs: [any]
+        outputs: [timed_stream]
+        params: { round_duration: "2 minutes" }
+        
+    consumers:
+      CREATE_AUDIENCE:
+        description: "Audience members who react and score"
+        inputs: [moderated_stream]
+        outputs: [reactions, scores]
+        
+      CREATE_TRANSCRIPT:
+        description: "Record everything for posterity"
+        inputs: [all_streams]
+        outputs: [transcript.md]
+        
+  # How components wire together (natural language!)
+  wiring: |
+    Topic feeds into both Sides.
+    Sides produce Arguments that flow to Moderator.
+    Moderator interleaves and routes to Audience.
+    Clock controls round transitions.
+    Transcript captures everything.
+```
+
+### Automatic Binding with POSTEL
+
+Components **self-wire** based on compatible inputs/outputs:
+
+```yaml
+# When you create components...
+> CREATE_SIDE "Pro" position="AI is beneficial"
+> CREATE_SIDE "Con" position="AI is dangerous"
+> CREATE_MODERATOR
+> CREATE_AUDIENCE count=5
+> CREATE_TRANSCRIPT
+
+# The LLM applies POSTEL to wire them:
+data_flow:
+  pro.arguments → moderator.inputs
+  con.arguments → moderator.inputs
+  moderator.moderated_stream → audience.inputs
+  moderator.moderated_stream → transcript.inputs
+  audience.reactions → moderator.feedback  # Implicit loop!
+```
+
+**Natural language routing:** If the wiring is ambiguous, the LLM infers from context. "Arguments flow to Moderator" — which arguments? All of them, obviously.
+
+### Factorio-Style Assembly
+
+Build complex processing factories:
+
+```yaml
+# research-factory.card
+card:
+  name: "Research Pipeline"
+  type: ensemble
+  
+  components:
+    generators:
+      SPAWN_CRAWLER:
+        description: "Web crawler for sources"
+        outputs: [raw_documents]
+        
+      SPAWN_READER:
+        description: "PDF/paper reader"
+        outputs: [parsed_content]
+        
+    transformers:
+      SPAWN_SUMMARIZER:
+        inputs: [parsed_content]
+        outputs: [summaries]
+        
+      SPAWN_FACT_CHECKER:
+        inputs: [summaries]
+        outputs: [verified_claims, disputed_claims]
+        
+      SPAWN_SYNTHESIZER:
+        inputs: [verified_claims]
+        outputs: [synthesis]
+        
+    consumers:
+      SPAWN_NOTEBOOK:
+        inputs: [synthesis, disputed_claims]
+        outputs: [research_notebook.yml]
+        
+    queues:
+      # Factorio-style buffers between stages
+      raw_queue:
+        capacity: 100
+        overflow: drop_oldest
+        
+      verified_queue:
+        capacity: 50
+        overflow: backpressure  # Slow down upstream
+```
+
+### Queue-Based Logistics
+
+```yaml
+# Components connect through queues
+data_flow:
+  crawler → raw_queue → reader
+  reader → parsed_queue → summarizer
+  summarizer → summary_queue → fact_checker
+  fact_checker.verified → verified_queue → synthesizer
+  fact_checker.disputed → disputed_queue → notebook
+  synthesizer → notebook
+
+# Queues provide buffering, backpressure, overflow handling
+queues:
+  raw_queue:
+    current: 47
+    capacity: 100
+    producers: [crawler-1, crawler-2, crawler-3]
+    consumers: [reader-1]
+    
+  verified_queue:
+    current: 12
+    status: backpressure  # Synthesizer is slow
+```
+
+### Ensemble Orchestration
+
+The card tracks the ensemble state:
+
+```yaml
+# debate-session-001.activation
+card: debate.card
+ensemble:
+  components:
+    - id: pro-side
+      type: generator
+      status: producing
+      output_rate: "3 arguments/round"
+      
+    - id: con-side
+      type: generator
+      status: producing
+      output_rate: "2 arguments/round"
+      
+    - id: moderator
+      type: transformer
+      status: routing
+      queue_depth: 5
+      
+    - id: audience
+      type: consumer
+      status: scoring
+      
+  flows:
+    pro-side.arguments → moderator: 12 messages
+    con-side.arguments → moderator: 8 messages
+    moderator → audience: 20 messages
+    
+  health: nominal
+  bottleneck: none
+```
+
+### Natural Language Assembly
+
+You can describe ensembles in plain English:
+
+```
+> PLAY debate.card
+> "Set up a debate about AI safety with three sides: 
+>  optimists, pessimists, and pragmatists. 
+>  Add a moderator who enforces Robert's Rules.
+>  Audience of 7 with different expertise levels.
+>  10-minute rounds with 2-minute rebuttals."
+
+# LLM interprets, creates components, wires data flow
+# POSTEL handles the ambiguity gracefully
+```
+
+This is **Factorio meets Dataflow meets Natural Language** — complex processing pipelines assembled from card components, wired by intent.
 
 ---
 
