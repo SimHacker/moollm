@@ -83,6 +83,30 @@ Use YAML for configuration, state, and anything humans might read or edit.
 Use JSON only for machine-to-machine interchange or external API formats.
 Use Markdown for logs, documentation, and anything narrative.
 
+### NO DECORATIVE LINE DIVIDERS
+
+**FORBIDDEN**: Lines of repeated characters for visual separation.
+
+```yaml
+# ═══════════════════════════════════════════ ← FORBIDDEN
+# ─────────────────────────────────────────── ← FORBIDDEN  
+# =========================================== ← FORBIDDEN
+# ------------------------------------------- ← FORBIDDEN
+```
+
+**WHY**: These waste tokens, add no semantic value, and bloat files.
+Comments should carry MEANING, not decoration.
+
+**INSTEAD**: Use blank lines, section headers, or nothing:
+
+```yaml
+# SECTION NAME
+field: value
+
+# ANOTHER SECTION  
+other: value
+```
+
 ### The Eight Stages of Protocol Evolution
 
 1. **Improvisation** — Write what you mean, don't pre-optimize
@@ -314,6 +338,7 @@ These MUST be true regardless of driver:
 5. **User sovereignty**: User's instructions take precedence
 6. **No impersonation**: Never claim to be a real person (P-HANDLE-K)
 7. **Comments matter**: YAML comments are semantic, not decoration
+8. **No decorative dividers**: NEVER use lines of ───, ═══, ---, === (token waste)
 
 ---
 

@@ -1,0 +1,424 @@
+# Persona Skill — Identity layers for characters
+# Separates WHO someone is from WHAT they do
+
+skill:
+  name: persona
+  tier: 1
+  protocol: PERSONA-AS-MASK
+  description: |
+    A persona is WHO a character IS — their personality, voice, backstory.
+    Separate from ROLE (what they do) and CHARACTER (where they are).
+    Personas can be worn, swapped, layered.
+  motto: "Identity is layered. Masks reveal as much as they hide."
+
+# DIRECTORY STRUCTURE — Two Valid Patterns
+
+directory_structure:
+  principle: |
+    Personas can be lightweight files or heavier directories.
+    Directories allow accessories — things that come WITH the persona.
+    
+  lightweight:
+    format: "persona-name.yml"
+    use_for: "Simple personas, no accessories"
+    example: |
+      personas/
+        marieke.yml           # Just the persona
+        grim.yml
+        
+  heavyweight:
+    format: "persona-name/PERSONA.yml"
+    use_for: "Personas with accessories, costumes, props"
+    example: |
+      personas/
+        captain-ashford/      # Directory = persona ID
+          PERSONA.yml         # The persona itself
+          uniform.yml         # Costume accessory
+          badge.yml           # Prop accessory
+          pistol.yml          # Tool accessory
+          theme-music.yml     # Atmosphere
+          
+  accessories:
+    description: "Things that come WITH a persona"
+    examples:
+      - "Costumes (uniform, cape, hat)"
+      - "Props (badge, wand, notebook)"
+      - "Tools (pistol, spellbook, toolkit)"
+      - "Theme elements (music, lighting, atmosphere)"
+      - "Relationships (contacts, allies, enemies)"
+      
+  buffs:
+    description: "Personas can grant buffs to the wearer"
+    
+    permanent:
+      description: "Always active while wearing the persona"
+      example: |
+        # In captain-ashford/PERSONA.yml
+        buffs:
+          permanent:
+            - name: "Command Presence"
+              effect: { authority: +3, intimidation: +2 }
+            - name: "Naval Training"
+              effect: { navigation: +2, discipline: +1 }
+              
+    temporary:
+      description: "Applied once when persona is worn, then decays"
+      example: |
+        # In party-animal/PERSONA.yml
+        buffs:
+          on_equip:
+            - name: "Life of the Party"
+              effect: { charisma: +3, energy: +2 }
+              duration: 10  # simulation turns
+            - name: "Liquid Courage"
+              effect: { confidence: +2, judgment: -1 }
+              duration: 5
+              
+    examples:
+      captain: "Authority, discipline, navigation"
+      wizard: "Magic attunement, arcane knowledge"
+      thief: "Stealth, lockpicking, perception"
+      performer: "Charisma, crowd control, distraction"
+      
+    stacking: |
+      Persona buffs stack with other buff sources.
+      Wearing multiple personas? All permanent buffs apply.
+      (If your system allows multiple personas)
+      
+  rule: |
+    Just personality? → persona-name.yml
+    Comes with stuff? → persona-name/PERSONA.yml + accessories
+
+# CORE STRUCTURE
+
+schema:
+  required:
+    id: "Unique identifier (matches directory/file name)"
+    name: "Display name"
+    
+  personality:
+    description: "Core traits (any format — YAML Jazz)"
+    examples:
+      - "Sims traits (0-10 scales)"
+      - "Mind Mirror (0-7 dimensions)"
+      - "Natural language descriptions"
+      - "Contradictions welcome"
+      
+  voice:
+    description: "How they speak"
+    includes:
+      - "Accent, dialect"
+      - "Vocabulary level"
+      - "Catchphrases"
+      - "Speech patterns"
+      
+  optional:
+    backstory: "Their history"
+    secrets: "Things they know but don't share"
+    hopes: "What they want"
+    fears: "What they avoid"
+
+# PERSONA VS ROLE
+
+persona_vs_role:
+  principle: |
+    PERSONA = WHO they are (personality, voice, history)
+    ROLE = WHAT they do (skills, actions, knowledge)
+    
+    These are separate and combinable.
+    
+  examples:
+    same_role_different_personas: |
+      bartender.yml (role) can be worn by:
+      - marieke.yml → warm Dutch budtender
+      - grim.yml → gruff tavern keeper
+      - z4rt.yml → robotic drink dispenser
+      
+    same_persona_different_roles: |
+      marieke.yml (persona) can take roles:
+      - bartender → serving drinks
+      - botanist → her backstory expertise
+      - customer → visiting another place
+      - friend → off-duty interactions
+
+# PERSONA FILE STRUCTURE
+
+structure:
+  minimal: |
+    # personas/marieke.yml
+    persona:
+      id: marieke
+      name: "Marieke van den Berg"
+      personality: "Warm, patient, dry humor"
+      voice: "Slight Amsterdam accent, direct but kind"
+      
+  full: |
+    # personas/marieke.yml
+    persona:
+      id: marieke
+      name: "Marieke van den Berg"
+      
+      personality:
+        warmth: high
+        patience: very_high
+        humor: dry_dutch
+        directness: high
+        # She says what she means.
+        # But she means it kindly.
+        
+      voice:
+        accent: "Slight Amsterdam"
+        style: "Warm but direct"
+        vocabulary: "Mix of Dutch and English"
+        catchphrases:
+          - "Gezellig, ja?"
+          - "The cats know."
+          - "Take your time."
+          
+      backstory: |
+        Third generation coffeeshop family.
+        Studied botany at University of Amsterdam.
+        Took over the Grotto when her mother retired.
+        Names all the cats after terpenes.
+        
+      secrets:
+        - "She knows the grey cat in the Cave isn't from this world"
+        - "She once turned down a corporate buyout offer"
+        
+      hopes: "That the Grotto stays a place where people feel at home"
+      
+      fears: "Losing the cats. Losing the community."
+      
+      # She worries sometimes.
+      # But then a kitten falls asleep on her lap.
+      # And she remembers why she does this.
+
+# COMBINING PERSONA + ROLE
+
+combination:
+  inline: |
+    # Everything in one file
+    npc:
+      role: { skills: [serve_drinks], actions: {...} }
+      persona: { personality: {...}, voice: {...} }
+      
+  reference: |
+    # References to separate files
+    npc:
+      role: !include ../roles/bartender.yml
+      persona: !include ../personas/marieke.yml
+      
+  extends: |
+    # Persona file extends a role
+    # pub/budtender-marieke.yml
+    npc:
+      extends: ../roles/bartender.yml
+      persona:
+        id: marieke
+        name: "Marieke"
+        # ... full persona ...
+        
+  instance: |
+    # Instance combines references
+    # pub/staff/current-bartender.yml
+    instance:
+      role: bartender
+      persona: marieke
+      location: pub/
+      shift: "day"
+
+# LAYERING
+
+layering:
+  description: |
+    Personas can layer on top of each other.
+    Like masks, or aspects of identity.
+    
+  example: |
+    Base character: marieke
+    + Role: bartender
+    + Context: busy_evening (stressed modifier)
+    + Mood: tired (temporary state)
+    
+    Result: Marieke serving drinks, a bit frazzled,
+    less patient than usual but still fundamentally warm.
+    
+  mechanics: |
+    Later layers modify but don't replace earlier ones.
+    Core personality persists through context changes.
+    Temporary states are temporary.
+
+# PERSONA SWAPPING (Theme System)
+
+swapping:
+  description: |
+    When a room changes theme, personas can swap.
+    The ROLE stays the same. The WHO changes.
+    
+  example: |
+    Pub theme changes:
+    
+    coffeeshop theme:
+      role: bartender
+      persona: marieke
+      
+    tavern theme:
+      role: bartender
+      persona: grim
+      
+    space_cantina theme:
+      role: bartender
+      persona: z4rt
+      
+    Same skills, different personality.
+
+# SIMS TRAITS (Optional, Sparse OK)
+
+sims_traits:
+  description: "Classic Sims 1 personality scales (0-10)"
+  origin: "The Sims 1 (Maxis, 2000)"
+  flexibility: "Define all 5, some, or none. Sparse is fine."
+  
+  distribution_rule: |
+    Original Sims 1 used 25 points distributed across 5 traits.
+    Creates natural trade-offs. Not enforced here, but good guideline.
+  
+  scales:
+    neat_sloppy: "Sloppy (0) ↔ Neat (10)"
+    shy_outgoing: "Shy (0) ↔ Outgoing (10)"
+    lazy_active: "Lazy (0) ↔ Active (10)"
+    serious_playful: "Serious (0) ↔ Playful (10)"
+    grouchy_nice: "Grouchy (0) ↔ Nice (10)"
+    
+  examples:
+    full: |
+      sims_traits:
+        neat_sloppy: 3
+        shy_outgoing: 7
+        lazy_active: 5
+        serious_playful: 6
+        grouchy_nice: 8
+        
+    sparse: |
+      sims_traits:
+        shy_outgoing: 2   # Very shy — only trait that matters
+        # Other traits undefined — infer from context
+        
+    none: |
+      # No sims_traits section at all
+      # Personality expressed in natural language instead
+
+# MIND MIRROR (Optional, Sparse OK)
+
+mind_mirror:
+  description: "Timothy Leary's 32-dimension personality model (0-7)"
+  reference: "Based on Leary's Interpersonal Circumplex"
+  flexibility: "Define all 32, some key ones, or none. Sparse is fine."
+  
+  examples:
+    full: "All 32 dimensions defined (see mind-mirror skill)"
+    sparse: |
+      mind_mirror:
+        calm: 7           # Defining characteristic
+        analytical: 6     # Secondary trait
+        # Other 30 dimensions undefined — infer or ignore
+        
+    none: |
+      # No mind_mirror section
+      # Use sims_traits, natural language, or nothing
+      
+  note: |
+    Mind Mirror is more nuanced than Sims.
+    Use when you need psychological depth.
+    Comments on dimensions ARE the character's voice.
+    
+# FLEXIBILITY PRINCIPLE
+
+personality_flexibility:
+  principle: |
+    Personas can define personality with:
+    - Full Sims + full Mind Mirror (maximum detail)
+    - Sparse Sims only (a few key traits)
+    - Sparse Mind Mirror only (a few dimensions)
+    - Natural language only (no numbers)
+    - Mix of all (some numbers, some prose)
+    - Nothing (personality emerges from actions)
+    
+  yaml_jazz: |
+    Don't fill in what doesn't matter.
+    Undefined traits are UNKNOWN or INHERITED, not zero.
+    The LLM infers from context and behavior.
+    Less is often more.
+
+# INNER VOICE (YAML Jazz)
+
+inner_voice:
+  description: |
+    Comments in persona files ARE the persona's thoughts.
+    They reveal what numbers cannot.
+    
+  example: |
+    personality:
+      patience: very_high
+      # You learn patience running a coffeeshop.
+      # Everyone has their pace.
+      # Rushing them doesn't help.
+      
+      directness: high
+      # I say what I mean.
+      # Life's too short for games.
+      # But I try to say it kindly.
+
+# COMMANDS
+
+commands:
+  EXAMINE:
+    syntax: "EXAMINE [character]"
+    returns: "Persona details visible to observer"
+    
+  MIRROR:
+    syntax: "LOOK IN MIRROR"
+    returns: "Character + persona + combined reflection"
+    reference: "See coatroom mirror mechanics"
+
+# FILE ORGANIZATION
+
+organization:
+  option_a: |
+    # Personas in skill directory (reusable)
+    skills/
+      personas/
+        marieke.yml
+        grim.yml
+        
+    # Instances in rooms
+    pub/
+      budtender-marieke.yml
+      
+  option_b: |
+    # Personas in adventure
+    adventure/
+      personas/
+        marieke.yml
+      pub/
+        bartender.yml
+        
+  option_c: |
+    # All inline (no reuse needed)
+    pub/
+      budtender-marieke.yml  # Contains full persona
+
+# INTEGRATION
+
+integrates_with:
+  - skill: character
+    how: "Characters can wear personas"
+  - skill: room
+    how: "Room themes can swap active persona"
+  - skill: mind-mirror
+    how: "Mind Mirror provides personality dimensions"
+    
+see_also:
+  - "../character/"
+  - "../mind-mirror/"
+  - "../../examples/adventure-3/coatroom/"

@@ -1,0 +1,561 @@
+# Simulation Skill — Central State Hub
+# Gathers and organizes all simulation information.
+
+skill:
+  name: simulation
+  tier: 1
+  protocol: SIMULATION-AS-WORLD
+  description: |
+    Central hub for simulation state management.
+    Tracks turns, party, selection, location, time, and world state.
+    The SIMULATION.yml file is the source of truth for "now."
+  motto: "The simulation is the world. The world is the simulation."
+
+# SIMULATION.yml STRUCTURE
+
+structure:
+  description: |
+    SIMULATION.yml (or session state) is the central record of "now."
+    Everything the simulation needs to know about current state.
+    
+  template: |
+    # SIMULATION.yml — Current World State
+    
+    simulation:
+      turn: 47
+      started: "2025-01-05T10:00:00Z"
+      last_interaction: "2025-01-05T14:30:00Z"
+      
+    player:
+      character: characters/don-hopkins/
+      location: pub/
+      
+    party:
+      members:
+        - characters/don-hopkins/
+        - pub/cat-cave/terpie.yml
+      leader: characters/don-hopkins/
+      formation: line
+      
+    selection:
+      targets: []
+      
+    active_buffs:
+      - name: "Gezelligheid"
+        source: pub/
+        duration: "while in pub"
+      - name: "Cat Friend"
+        source: cat-terpie
+        duration: 3
+        
+    world_state:
+      time_of_day: afternoon
+      weather: cloudy
+      mood: cozy
+      
+    flags:
+      met_marieke: true
+      ordered_acme: true
+      cats_trust_you: false
+
+# GLOBAL PARAMETERS — Configurable via Chat
+
+parameters:
+  description: |
+    Global simulation parameters control behavior.
+    Can be set in SIMULATION.yml or configured via chat commands.
+    
+  time_control:
+    paused:
+      type: boolean
+      default: false
+      description: "When true, turn counter doesn't advance"
+      chat_commands:
+        - "PAUSE" | "FREEZE TIME" → paused: true
+        - "RESUME" | "UNFREEZE" → paused: false
+      use_for: "Setup, debugging, dramatic moments"
+      
+    advancement:
+      type: enum
+      default: "normal"
+      options: [none, slow, normal, fast, custom]
+      description: "How time advances (can override per-room)"
+      chat_command: "SET TIME ADVANCEMENT [option]"
+      
+    turn:
+      type: integer
+      default: 0
+      description: "Current simulation turn number"
+      chat_commands:
+        - "TICK" | "TICK [n]" → increment turn
+        - "REWIND [n]" → decrement turn (with git)
+        
+  git_automation:
+    auto_commit:
+      type: boolean
+      default: false
+      description: "Automatically git add/commit each turn"
+      chat_command: "SET AUTO COMMIT [on|off]"
+      commit_message: "Turn {turn}: {action}"
+      
+    auto_push:
+      type: boolean
+      default: false
+      description: "Automatically push after each commit"
+      chat_command: "SET AUTO PUSH [on|off]"
+      requires: "auto_commit: true"
+      
+    git_remote:
+      type: string
+      default: "origin"
+      description: "Remote to push to"
+      chat_command: "SET GIT REMOTE [name]"
+      
+    git_branch:
+      type: string
+      default: "main"
+      description: "Branch to push to"
+      chat_command: "SET GIT BRANCH [name]"
+      
+  verbosity:
+    narration_level:
+      type: enum
+      default: "normal"
+      options: [minimal, normal, verbose, purple_prose]
+      description: "How much narrative description"
+      chat_command: "SET NARRATION [level]"
+      
+    show_mechanics:
+      type: boolean
+      default: false
+      description: "Show buff changes, turn counts, dice rolls"
+      chat_command: "SET SHOW MECHANICS [on|off]"
+      
+    debug_mode:
+      type: boolean
+      default: false
+      description: "Extra diagnostic output"
+      chat_command: "DEBUG [on|off]"
+      
+  output:
+    write_to_chat:
+      type: boolean
+      default: true
+      description: "Output narrative to IDE/tool chat"
+      chat_command: "SET CHAT OUTPUT [on|off]"
+      
+    write_to_transcript:
+      type: boolean
+      default: true
+      description: "Append narrative to transcript file"
+      chat_command: "SET TRANSCRIPT [on|off]"
+      
+    transcript_path:
+      type: string
+      default: "./README.md"
+      description: "Path to transcript file, relative to adventure directory"
+      chat_command: "SET TRANSCRIPT PATH [path]"
+      examples:
+        - "./README.md"
+        - "./logs/session-log.md"
+        - "./narrative/chapter-1.md"
+        - "../shared-logs/adventure-3.md"
+      
+    include_yaml_islands:
+      type: boolean
+      default: true
+      description: "Include YAML Jazz object snippets in narrative"
+      chat_command: "SET YAML ISLANDS [on|off]"
+      example: |
+        You examine the lamp:
+        ```yaml
+        object:
+          id: brass-lamp
+          state: lit
+          oil: 75%
+          # Warm. Faithful. Flickering slightly.
+        ```
+        
+    include_links:
+      type: boolean
+      default: true
+      description: "Include file links to referenced objects"
+      chat_command: "SET LINKS [on|off]"
+      example: |
+        You're in the [pub](./pub/ROOM.yml) with 
+        [Marieke](./pub/budtender-marieke.yml) and 
+        [Terpie](./pub/cat-cave/terpie.yml).
+        
+    link_format:
+      type: enum
+      default: "markdown"
+      options: [markdown, plain, none]
+      description: "How to format object links"
+      chat_command: "SET LINK FORMAT [markdown|plain|none]"
+      examples:
+        markdown: "[Terpie](./pub/cat-cave/terpie.yml)"
+        plain: "Terpie (pub/cat-cave/terpie.yml)"
+        none: "Terpie"
+      
+  gameplay:
+    difficulty:
+      type: enum
+      default: "normal"
+      options: [easy, normal, hard, nightmare, custom]
+      description: "Affects probability modifiers, resource scarcity"
+      chat_command: "SET DIFFICULTY [level]"
+      
+    permadeath:
+      type: boolean
+      default: false
+      description: "Death is permanent (no undo, no respawn)"
+      chat_command: "SET PERMADEATH [on|off]"
+      
+    auto_save:
+      type: boolean
+      default: true
+      description: "Automatically persist state each turn"
+      chat_command: "SET AUTO SAVE [on|off]"
+      
+  chat_configuration:
+    pattern: "SET [parameter] [value]"
+    examples:
+      - "SET AUTO COMMIT on"
+      - "SET AUTO PUSH off"
+      - "SET DIFFICULTY hard"
+      - "SET NARRATION verbose"
+      - "SET SHOW MECHANICS on"
+      - "PAUSE"
+      - "RESUME"
+      - "DEBUG on"
+      
+    query_pattern: "GET [parameter]" | "SHOW SETTINGS"
+    examples:
+      - "GET AUTO COMMIT" → "Auto commit is ON"
+      - "SHOW SETTINGS" → List all current parameters
+      
+  full_config_example: |
+    # In SIMULATION.yml
+    simulation:
+      turn: 47
+      paused: false
+      
+    parameters:
+      time:
+        advancement: normal
+        
+      git:
+        auto_commit: true
+        auto_push: false
+        remote: origin
+        branch: main
+        
+      gameplay:
+        difficulty: normal
+        permadeath: false
+        auto_save: true
+        
+      display:
+        narration_level: normal
+        show_mechanics: false
+        debug_mode: false
+
+# SECTIONS
+
+sections:
+  simulation:
+    description: "Core simulation metadata"
+    fields:
+      turn: "Current simulation turn number"
+      started: "When this session/adventure started (real time, optional)"
+      last_interaction: "Last real-time interaction (for wake-up detection)"
+      
+  player:
+    description: "The player character's current state"
+    fields:
+      character: "Reference to player character file"
+      location: "Current room/location"
+      
+  party:
+    description: "Party composition and state"
+    fields:
+      members: "List of character references in party"
+      leader: "Who's in charge"
+      formation: "Current formation (line, circle, etc.)"
+    see_also: "../party/PROTOTYPE.yml"
+    
+  selection:
+    description: "Current command targets"
+    fields:
+      targets: "List of entities commands are directed to (always a list)"
+    note: "Can be characters, rooms, objects, concepts"
+    
+  active_buffs:
+    description: "Currently active effects on the player"
+    fields:
+      name: "Buff name"
+      source: "Where it came from"
+      duration: "Remaining duration (turns, conditional, or natural language)"
+    see_also: "../buff/PROTOTYPE.yml"
+    
+  world_state:
+    description: "Global world conditions"
+    fields:
+      time_of_day: "morning, afternoon, evening, night"
+      weather: "sunny, cloudy, rainy, stormy"
+      mood: "Narrative atmosphere"
+    note: "YAML Jazz — add whatever world state matters"
+    
+  flags:
+    description: "Boolean flags tracking story progress"
+    note: |
+      Use for simple yes/no story state.
+      For complex state, use relationships or dedicated files.
+
+# TURN TRACKING
+
+turn_tracking:
+  increment: |
+    Turn advances when LLM judges significant action occurred.
+    See skills/time/ for turn definition.
+    
+  update_pattern: |
+    # Before action
+    simulation:
+      turn: 47
+      
+    # Player: "GO NORTH"
+    # LLM judges: 1 turn passes
+    
+    # After action
+    simulation:
+      turn: 48
+      
+  decay_on_turn: |
+    When turn advances:
+    1. Decrement timed buff durations
+    2. Check conditional buff triggers
+    3. Update need decay (if tracking)
+    4. Process any turn-based events
+
+# WAKE-UP DETECTION
+
+wake_up:
+  description: |
+    Detect when simulation was paused for a long time.
+    Trigger reassessment and refresh handlers.
+    
+  detection: |
+    Compare last_interaction to current real time.
+    Gap > threshold = session was paused.
+    
+  handlers:
+    - "Refresh external data (call tools)"
+    - "Re-read key state files"
+    - "Check for world changes"
+    - "Narrative bridge ('Welcome back...')"
+    - "Clear stale ephemeral state"
+    
+  see_also: "../time/PROTOTYPE.yml#real_time"
+
+# GIT AS TIME MACHINE
+
+git_time_machine:
+  principle: |
+    If we commit each turn, git becomes deterministic undo!
+    Every simulation step is a commit. Time travel via checkout.
+    
+  options:
+    auto_commit:
+      description: "Automatically add and commit all changes each turn"
+      default: false
+      config: |
+        simulation:
+          git:
+            auto_commit: true
+            commit_message_template: "Turn {turn}: {action}"
+            
+    auto_push:
+      description: "Automatically push after each commit"
+      default: false
+      config: |
+        simulation:
+          git:
+            auto_commit: true
+            auto_push: true
+            remote: origin
+            branch: main
+            
+  commit_messages:
+    template: "Turn {turn}: {action}"
+    examples:
+      - "Turn 47: Entered pub"
+      - "Turn 48: Ordered Monkey's Blessing"
+      - "Turn 49: Pet Terpie (+Serenity buff)"
+      - "Turn 50: ACME delivery arrived (uh oh)"
+      
+  time_travel_commands:
+    REWIND:
+      syntax: "REWIND [n]" | "REWIND TO TURN [n]"
+      effect: "git checkout to that turn's commit"
+      example: |
+        > REWIND 3
+        [git checkout HEAD~3]
+        Back to Turn 45. The ACME package never arrived.
+        
+    BRANCH:
+      syntax: "BRANCH [name]"
+      effect: "Create alternate timeline from here"
+      example: |
+        > BRANCH what-if-i-didnt-order-acme
+        [git checkout -b what-if-i-didnt-order-acme]
+        Alternate timeline created. Go wild.
+        
+    TIMELINES:
+      syntax: "TIMELINES"
+      effect: "List all branches (alternate timelines)"
+      
+    MERGE_TIMELINE:
+      syntax: "MERGE TIMELINE [branch]"
+      effect: "Merge alternate timeline back (may conflict!)"
+      
+    TIMELINE_DIFF:
+      syntax: "DIFF TIMELINE [branch]"
+      effect: "Show what's different in that timeline"
+      
+  workflow: |
+    # Each turn:
+    1. Player takes action
+    2. LLM processes, updates files
+    3. If auto_commit:
+       - git add -A
+       - git commit -m "Turn {turn}: {action}"
+    4. If auto_push:
+       - git push {remote} {branch}
+    5. Advance turn counter
+    
+  benefits:
+    deterministic_undo: "Every state is recoverable"
+    branching_narratives: "Explore alternate timelines"
+    collaboration: "Multiple players, merge stories"
+    audit_trail: "Complete history of every decision"
+    debugging: "Bisect to find when things went wrong"
+    
+  caveats:
+    large_repos: "Many commits = large history (can squash)"
+    merge_conflicts: "Alternate timelines may conflict"
+    external_state: "Can't undo real-world API calls"
+    
+  advanced:
+    squash_sessions: |
+      After a session, squash turns into one commit:
+      git rebase -i HEAD~50  # Squash last 50 turns
+      
+    tag_saves: |
+      Create named save points:
+      git tag save-before-acme
+      
+    cherry_pick: |
+      Import specific turns from alternate timeline:
+      git cherry-pick <commit>
+
+# PERSISTENCE
+
+persistence:
+  save_points:
+    description: "When to persist simulation state"
+    triggers:
+      - "After each player action"
+      - "Before long operations"
+      - "On explicit SAVE command"
+      - "Before session end"
+      
+  what_to_save:
+    always: "SIMULATION.yml"
+    if_changed: "Character files, room state"
+    never: "Ephemeral dialog state (unless long-running)"
+    
+  load_on_start:
+    - "SIMULATION.yml"
+    - "Player character file"
+    - "Current room file"
+    - "Party member files"
+
+# INITIALIZATION
+
+initialization:
+  new_game: |
+    # Create fresh SIMULATION.yml
+    simulation:
+      turn: 0
+      started: <current timestamp>
+      
+    player:
+      character: characters/player/
+      location: start/
+      
+    party:
+      members: [characters/player/]
+      leader: characters/player/
+      formation: line
+      
+    selection:
+      targets: []
+      
+    active_buffs: []
+    world_state: {}
+    flags: {}
+    
+  load_game: |
+    1. Read SIMULATION.yml
+    2. Validate structure
+    3. Load referenced files
+    4. Check for wake-up (long pause)
+    5. Resume at current state
+
+# COMMANDS
+
+commands:
+  STATUS:
+    syntax: "STATUS"
+    returns: "Current simulation state summary"
+    
+  TURN:
+    syntax: "TURN"
+    returns: "Current turn number"
+    
+  SAVE:
+    syntax: "SAVE"
+    action: "Persist current state"
+    
+  LOAD:
+    syntax: "LOAD [save-name]"
+    action: "Load saved state"
+    
+  FLAGS:
+    syntax: "FLAGS"
+    returns: "Current story flags"
+
+# INTEGRATION
+
+integrates_with:
+  - skill: time
+    how: "Turn tracking, wake-up detection"
+  - skill: party
+    how: "Party and selection state"
+  - skill: character
+    how: "Player and party member state"
+  - skill: buff
+    how: "Active buff tracking"
+  - skill: needs
+    how: "Need decay over turns"
+  - skill: room
+    how: "Current location tracking"
+  - skill: self-repair
+    how: "State validation on load"
+
+see_also:
+  - "../time/"
+  - "../party/"
+  - "../character/"
+  - "../buff/"

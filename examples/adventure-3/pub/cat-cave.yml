@@ -1,0 +1,755 @@
+# THE CAT CAVE — Where Cats Go When They Need To Not Be Here
+#
+# "If you can see a cat, they're letting you see them."
+# "If you can't see a cat, they might be in the Cave."
+# "If you STILL can't see a cat, they're definitely watching you."
+#
+
+object:
+  name: "The Cat Cave"
+  id: cat-cave
+  
+  # TYPE — It's both. It's self-expressive. It's YAML Jazz.
+  type:
+    - furniture     # From the pub's perspective: a cabinet under the counter
+    - room          # From the cats' perspective: a vast nested location
+    - mystery       # From everyone's perspective: something unexplainable
+    # It doesn't have to choose. It's all of these.
+    # The entrance is furniture. The inside is a room.
+    # The whole thing is a mystery.
+    
+  location: pub/   # The Cave entrance is in the pub
+  
+  # VIRTUAL ZONES — No subdirectories needed!
+  # 
+  # These zones are defined HERE, not as physical directories.
+  # Files stay FLAT in pub/. Paths drill down to VIRTUAL locations.
+  # 
+  # Example (in cat-terpie.yml):
+  #   home: pub/                        # File stays in pub/
+  #   location: pub/cat-cave/nap-zone   # Virtual path (no dir exists)
+  #
+  # The path resolves: pub/ (dir) → cat-cave (this file) → nap-zone (zone id)
+  
+  # AS A ROOM — Nested location with exits and zones
+  
+  room:
+    parent: pub/                    # Nested inside the pub
+    path: pub/cat-cave              # How to reference this location
+    
+    exits:
+      out:
+        destination: pub/
+        restriction: "cats only"    # Humans can't use this exit (can't fit)
+        description: "The felt-lined entrance hole"
+      
+      # Secret exits (cats know, humans don't)
+      bookshelf:
+        destination: pub/           # Behind the bookshelf
+        restriction: "cats only"
+        hidden: true
+        
+      cellar:
+        destination: pub/cellar     # Under the stairs  
+        restriction: "cats only"
+        hidden: true
+        note: "New exits appear when needed"
+        
+    properties:
+      light: "None to bioluminescent (varies by zone)"
+      temperature: "Perfect (self-regulating)"
+      danger: 0                     # Absolute safety
+      capacity: "Unlimited (expands as needed)"
+      human_accessible: false       # Entrance rejects them
+      
+  # AS FURNITURE — What humans see
+  
+  furniture:
+    appearance: "A wooden cabinet with a cat-sized hole"
+    dimensions: "60cm × 40cm × 50cm (external)"
+    location_in_room: "Under the espresso machine counter"
+    interactive: true
+    takeable: false                 # Definitely not moving this
+    
+  # VIRTUAL ZONES — Addressable sub-locations (no subdirs!)
+  # Characters reference these paths. Files stay flat in pub/.
+  
+  zones:
+    vestibule:
+      path: pub/cat-cave/vestibule
+      description: "Near the entrance. The 'normal' part."
+      
+    sulking-shelf:
+      path: pub/cat-cave/sulking-shelf
+      description: "Where cats go when they're MAD."
+      
+    nap-zone:
+      path: pub/cat-cave/nap-zone
+      description: "Prime heated sleeping territory."
+      
+    observation-deck:
+      path: pub/cat-cave/observation-deck
+      description: "Heights for watchers and strategists."
+      
+    great-hall:
+      path: pub/cat-cave/great-hall
+      description: "Vast central gathering space. Bioluminescent."
+      
+    kitten-zone:
+      path: pub/cat-cave/kitten-zone
+      description: "Safe play area. Soft everything."
+      
+    depths:
+      path: pub/cat-cave/depths
+      description: "Further than mapped. Water sounds."
+      mystery: true
+      
+    box-jungle:
+      path: pub/cat-cave/box-jungle
+      description: "Towering stacks of cardboard boxes. Infinite hidey-holes."
+      features:
+        - "Boxes of all sizes"
+        - "Crinkly packing paper"
+        - "That perfect cardboard smell"
+        - "Tunnels between stacks"
+      # Every cat's dream. The boxes regenerate somehow.
+      # No one brings new boxes. They just appear.
+      
+    sunny-garden:
+      path: pub/cat-cave/sunny-garden
+      description: "Warm sunbeams. Soft grass. Bugs to chase."
+      features:
+        - "Actual sunlight (impossible, but real)"
+        - "Grass, clover, catnip patches"
+        - "Butterflies, moths, the occasional beetle"
+        - "Perfect napping temperature"
+      mystery: true
+      # There is no sun inside the Cave.
+      # There is no outside.
+      # And yet: warm light, growing things, bugs.
+      # The cats don't question it.
+      
+    terpy-jr-domain:
+      path: pub/cat-cave/terpy-jr-domain
+      description: "Defies mapping. May be in multiple places."
+      quantum: true
+  
+  # PHYSICAL DESCRIPTION (External)
+  
+  description: |
+    Behind the counter, under the espresso machine station, there's a modest
+    wooden cabinet with a cat-sized entrance hole cut in the side. The hole
+    is lined with soft felt. The cabinet is perhaps 60cm wide, 40cm deep.
+    
+    From the outside.
+    
+    But cats who enter... don't bump into the back wall.
+    They keep going. Further than the cabinet should allow.
+    Much further.
+    
+    Marieke doesn't talk about it. She just drapes a thick blanket over the
+    top and leaves treats at the entrance. She knows better than to ask
+    questions about cat architecture.
+    
+    The entrance is too small for humans. This is intentional.
+    And possibly the only thing preventing... complications.
+    
+  examine: |
+    You peer at the cat-sized hole. It's dark in there.
+    
+    Very dark.
+    
+    You can hear purring. Multiple frequencies. From... different distances?
+    Some close. Some... how far back DOES this go?
+    
+    A breeze wafts out. Warm, cat-scented, and carrying the faint sound of...
+    is that running water? Underground? In a cabinet?
+    
+    You see eyes. Many pairs. At various depths.
+    
+    The cabinet is 40cm deep.
+    Those eyes are much further away than 40cm.
+    
+    You decide not to think about it too hard.
+    
+  # THE TARDIS EFFECT — Bigger on the Inside
+  
+  spatial_anomaly:
+    name: "The Tardis Effect"
+    description: |
+      The Cat Cave is BIGGER ON THE INSIDE.
+      
+      External dimensions: 60cm × 40cm × 50cm (a modest cabinet)
+      Internal dimensions: Unknown. Possibly infinite. Definitely vast.
+      
+      Cats discovered this. Cats don't question it.
+      Cats simply USE it.
+      
+    explanation_attempts:
+      marieke: "It's always been like this. My grandmother said the same."
+      henk: "Non-Euclidean geometry. Cats operate in higher dimensions."
+      physics: "Cats exist in a superposition of inside and outside."
+      truth: "The cats made it this way by believing it was."
+      
+    properties:
+      - "Space expands based on need"
+      - "More cats = more room (it GROWS)"
+      - "Temperature is always perfect throughout"
+      - "Sound doesn't carry between zones (privacy)"
+      - "Cats always know where other cats are (cat GPS)"
+      - "Humans cannot enter (entrance rejects them)"
+      - "Time may flow differently inside (unconfirmed)"
+      
+  # SPECIFICATIONS — The True Interior
+  
+  specs:
+    external:
+      width: "60cm"
+      depth: "40cm"
+      height: "50cm"
+      entrance_size: "15cm × 20cm"
+      
+    internal:
+      capacity: "Dozens. Perhaps hundreds. Perhaps unlimited."
+      known_extent: "At least 50 meters in primary corridor"
+      levels: "7+ documented"
+      climate_zones: 3
+      water_features: 1
+      mystery_areas: "Several"
+      
+    entrance_behavior:
+      cats: "Enter freely"
+      kittens: "Enter freely (parents can track them)"
+      humans: "Entrance appears solid, won't fit, 'stuck'"
+      other_animals: "Case by case (dogs: rejected with prejudice)"
+      
+    temperature: "Varies by zone — always optimal for occupants"
+    light_level: "Varies — some areas pitch black, some with bioluminescence"
+    sound_dampening: "Perfect — each zone is acoustically isolated"
+    
+  # THE INTERIOR — Documented Zones
+    
+  interior_zones:
+  
+    entrance_chamber:
+      distance_from_entrance: "0-2m"
+      name: "The Vestibule"
+      description: "The 'normal' part. What you'd expect from a cabinet."
+      capacity: 6
+      features:
+        - "Felt-lined walls"
+        - "Heating pad (visible from outside)"
+        - "Where cats sit to be 'technically in the Cave'"
+      who_uses_it: "Cats who want to be found but left alone"
+      
+    the_sulking_shelf:
+      distance_from_entrance: "2-4m"
+      name: "The Sulking Shelf"
+      description: "Where cats go when they're MAD at someone"
+      capacity: 8
+      features:
+        - "Elevated platforms"
+        - "Good acoustics for dramatic sighing"
+        - "Visibility to entrance (for when forgiveness arrives)"
+      who_uses_it: "Carrie, Hops, any offended party"
+      
+    the_nap_zone:
+      distance_from_entrance: "4-10m"
+      name: "The Nap Zone"
+      description: "Prime sleeping real estate. Climate controlled."
+      capacity: 20
+      features:
+        - "Graduated warming from cool to toasty"
+        - "Sound-dampened"
+        - "Soft surfaces throughout"
+        - "Dream-enhancement (unverified)"
+      who_uses_it: "Myr (permanent resident), Terpie, anyone tired"
+      
+    the_observation_deck:
+      distance_from_entrance: "10-15m"
+      name: "The Observation Deck"
+      description: "Elevated platforms with view of... something"
+      capacity: 12
+      features:
+        - "Heights for cats who like heights"
+        - "Overlooks deeper zones"
+        - "Strategically defensible"
+      who_uses_it: "Pine, Stroopwafel, watchers"
+      
+    the_great_hall:
+      distance_from_entrance: "15-30m"
+      name: "The Great Hall"
+      description: "A vast open space. No one knows how it fits."
+      capacity: 50+
+      features:
+        - "High ceiling (inside a cabinet)"
+        - "Central gathering space"
+        - "Where the Christmas Miracle happened (ask Marieke)"
+        - "Soft bioluminescent glow from unknown source"
+      who_uses_it: "Large gatherings, kitten playtime, emergencies"
+      
+    the_depths:
+      distance_from_entrance: "30-50m+"
+      name: "The Depths"
+      description: "Further than anyone has mapped. Cats go there sometimes."
+      capacity: "Unknown"
+      features:
+        - "Running water sound"
+        - "Warmer"
+        - "Occasional strange scents"
+        - "Cats return from here... changed"
+      who_uses_it: "Explorers. The bold. The curious."
+      mysteries:
+        - "Where does the water come from?"
+        - "What's the light source?"
+        - "Why do cats who visit dream of hunting?"
+        - "Is something else down there?"
+        
+    the_kitten_zone:
+      distance_from_entrance: "5-8m (branching)"
+      name: "The Kitten Zone"
+      description: "Safe play area for young ones"
+      capacity: 30 kittens
+      features:
+        - "Soft everything"
+        - "No edges"
+        - "Parent monitoring alcoves"
+        - "Acoustic isolation (screaming kittens stay screaming kittens)"
+        - "Auto-warming when occupied"
+      who_uses_it: "Kittens, nursing mothers, exhausted parents"
+      
+    terpy_jrs_domain:
+      distance_from_entrance: "???"
+      name: "Terpy Jr.'s Domain"
+      description: "Exists. Location inconsistent. Possibly moves."
+      capacity: "Terpy Jr. only"
+      features:
+        - "Defies mapping"
+        - "Connected to everywhere and nowhere"
+        - "May be on the ceiling"
+        - "May be in multiple places"
+        - "Definitely exists (probably)"
+      who_uses_it: "Terpy Jr. exclusively. Others get lost trying."
+      
+  # SPECIAL FEATURES
+  
+  special_features:
+    climate_control:
+      description: "Temperature adjusts to occupant preferences"
+      zones: ["Cool Zone", "Warm Zone", "Toasty Zone"]
+      
+    sound_isolation:
+      description: "Each zone is acoustically separate"
+      effect: "Sulking in peace. Sleeping undisturbed."
+      
+    cat_gps:
+      description: "Cats always know where family members are"
+      range: "Throughout entire Cave"
+      humans: "Cannot access this feature"
+      
+    self_cleaning:
+      description: "The Cave maintains itself somehow"
+      evidence: "No litter boxes inside. No smell. No mess."
+      explanation: "Unknown. Don't ask."
+      
+    emergency_exits:
+      description: "Multiple exits throughout"
+      known_exits:
+        - "Main entrance (pub)"
+        - "Behind the bookshelf (pub back room)"
+        - "Under the stairs (cellar)"
+        - "Possibly others"
+      note: "New exits appear when needed"
+      
+    healing_properties:
+      description: "Sick cats recover faster inside"
+      theory: "Concentrated purr resonance"
+      evidence: "Anecdotal but consistent"
+      
+  # CAPACITY & POPULATION
+  
+  capacity:
+    comfortable: 30
+    crowded: 50
+    emergency: 100+
+    theoretical_max: "Unknown. Possibly infinite."
+    
+    current_population:
+      permanent_residents: 3  # Myr (always), Terpie (mostly), one mystery cat
+      frequent_visitors: 7    # Rest of the family
+      occasional_visitors: "Various neighborhood cats"
+      
+    record_occupancy:
+      event: "The Great Storm of 2019"
+      count: 47
+      note: "Every cat in the neighborhood. All fit. All comfortable."
+      marieke: "I don't know how. I stopped asking."
+      
+  # WHO'S IN THERE? — Current Occupancy Patterns
+  
+  current_occupancy: |
+    # This updates dynamically based on cat states
+    # At any given time, 5-15 cats are typically somewhere inside
+    # (The Cave is big enough for ALL of them plus visitors)
+    
+  occupancy_patterns:
+    
+    permanent_residents:
+      myr:
+        zone: "The Nap Zone (deep section)"
+        reason: "Has established permanent territory. Moves only for food."
+        hours: "23/24"
+        note: "Has been deeper than any other cat. Came back sleepier."
+        # Myr has essentially become part of the Cave
+        
+      mystery_cat:
+        zone: "The Depths"
+        reason: "Unknown. Possibly always been here."
+        hours: "24/24"
+        note: "Marieke doesn't know whose cat this is. Neither does anyone."
+        description: "Grey. Old. Knows things."
+        
+    frequent_visitors:
+      terpie:
+        zone: "The Nap Zone, near Myr"
+        reason: "Optimal napping conditions. Best heating gradient."
+        hours: "16/24"
+        note: "Father-son bonding through parallel unconsciousness"
+        
+      lily:
+        zone: "Mobile — appears where needed"
+        reason: "Someone in here is sad. She knows. She goes to them."
+        hours: "Variable"
+        special: "Can navigate the Cave instinctively"
+        
+      pine:
+        zone: "The Observation Deck"
+        reason: "Intel gathering. Strategic overview. Mapping."
+        hours: "8/24"
+        note: "Has the most complete mental map of the interior"
+        
+      stroopwafel:
+        zone: "The Observation Deck / Kitten Zone oversight"
+        reason: "Maternal monitoring. Threat assessment."
+        hours: "10/24"
+        note: "Patrols regularly. Knows all the exit routes."
+        
+    situation_dependent:
+      carrie:
+        zone: "The Sulking Shelf"
+        reason: "Processing. FEELING THINGS."
+        trigger: "Perceived slight, ACME deliveries, boundary violations"
+        duration: "30 min to 4 hours"
+        
+      hops:
+        zone: "The Sulking Shelf (premium section)"
+        reason: "Standards were not met. Contemplating."
+        trigger: "Inferior food, chaos, subpar anything"
+        note: "Has specific spot. Will move others."
+        
+      lemon:
+        zone: "The Great Hall → everywhere → exit"
+        reason: "ZOOMING through. Pit stop."
+        duration: "30 seconds to 2 minutes MAX"
+        note: "Uses the Cave as a shortcut between exits"
+        
+      terpy_jr:
+        zone: "Terpy Jr.'s Domain / Quantum superposition"
+        reason: "Exists in there somewhere. And also outside. Simultaneously."
+        note: "Has entered, not exited, and appeared on counter. Normal."
+        special: "Her domain may connect to other dimensions"
+        
+      ocie:
+        zone: "The Vestibule / air circulation routes"
+        reason: "Keeps air fresh throughout"
+        special: "Her sneezes propagate through the Cave system. Clears everything."
+        
+    visitors:
+      neighborhood_cats:
+        frequency: "Regular"
+        zones_used: "Vestibule, Nap Zone periphery"
+        note: "Word has spread. The Cave welcomes all cats."
+        
+      strays:
+        frequency: "During bad weather"
+        zones_used: "Emergency sections"
+        note: "The Cave expands for those in need"
+        
+  # INTERACTIONS
+  
+  interactions:
+  
+    EXAMINE:
+      description: "Peer into the darkness"
+      outcome: |
+        You crouch down and look into the cat-sized hole.
+        
+        Darkness. Warmth wafts out. The smell of cats.
+        
+        Eyes. Multiple pairs. Reflecting nothing because there's no light.
+        
+        But you can FEEL them looking at you.
+        
+        "...hi?"
+        
+        *silence*
+        
+        *one pair of eyes closes slowly*
+        *a slow blink from the void*
+        
+        Someone in there likes you.
+        
+    CALL_CAT:
+      command: "PSPSPS at cave"
+      description: "Try to summon a cat from the Cave"
+      outcome: |
+        You make the noise at the entrance.
+        
+        *silence*
+        
+        *distant shuffling*
+        
+        *more silence*
+        
+        A nose appears. Then whiskers. Then eyes.
+        
+        [Cat emerges based on current occupancy and relationship levels]
+        
+        Or no one does. They heard you. They chose.
+        
+    OFFER_TREAT:
+      command: "PUT [treat] IN CAVE"
+      description: "Leave an offering at the entrance"
+      outcome: |
+        You place the treat just inside the entrance.
+        
+        *darkness*
+        
+        *a paw emerges*
+        
+        *the treat disappears*
+        
+        *paw retracts*
+        
+        Accepted. But no one's coming out. The tribute is appreciated.
+        
+      relationship_effect: "+1 fondness with all cave occupants"
+      
+    REACH_IN:
+      command: "REACH INTO CAVE"
+      description: "Attempt to pet the void"
+      warning: "This is a BOUNDARY. Respect it."
+      outcome:
+        relationship_high: |
+          You reach in gently.
+          
+          A warm body presses against your hand.
+          
+          Purring. You can't see who, but they chose to make contact.
+          
+          This is trust.
+          
+        relationship_low: |
+          You reach in.
+          
+          *hiss*
+          
+          You retreat.
+          
+          The Cave is for CATS. You are not a cat.
+          
+        relationship_very_low: |
+          You reach in.
+          
+          *SCRATCH*
+          
+          You withdraw a hand with parallel red lines.
+          
+          The Cave defends its occupants.
+          
+          You deserved that.
+          
+    BLOCK_ENTRANCE:
+      command: "BLOCK CAVE"
+      description: "NEVER DO THIS"
+      warning: "This is CRUEL and will DESTROY relationships"
+      outcome: |
+        [DO NOT IMPLEMENT]
+        
+        Blocking a cat's escape route is a violation of trust.
+        All cats will remember. All cats will judge.
+        Marieke will ask you to leave.
+        
+      relationship_effect: "-20 trust with ALL cats"
+      
+  # CAVE PURPOSES
+  
+  purposes:
+  
+    hiding:
+      description: |
+        The Cave is a SAFE SPACE. When overwhelmed, scared, or overstimulated,
+        cats retreat here. The darkness is protection. The warmth is comfort.
+        No one can reach them. No one can make them perform "being a cat."
+        They can just... be.
+        
+      triggers:
+        - "Loud noises (ACME explosions, espresso machine malfunction)"
+        - "Too many strangers"
+        - "Overstimulation (too much petting)"
+        - "Conflict with another cat"
+        - "Marieke vacuuming (rare but traumatic)"
+        
+      behavior: |
+        A hiding cat is NOT interactable.
+        They've chosen to opt out. RESPECT THIS.
+        
+        Wait. Be patient. They'll emerge when ready.
+        
+    sleeping:
+      description: |
+        Cats sleep 16-20 hours a day. The Cave is optimal sleep space.
+        Dark. Warm. Safe. No one stepping on them.
+        
+        The heating pad on level 1 is Myr's personal life support system.
+        
+      typical_occupancy: "3-5 cats sleeping at any time"
+      peak_hours: "10am-2pm (post-breakfast nap), 2am-6am (night shift)"
+      
+    sulking:
+      description: |
+        Sometimes a cat needs to be MAD somewhere.
+        The Cave is where cats process grievances.
+        
+        The Sulking Shelf (level 1) is reserved for FEELINGS.
+        
+      typical_occupants:
+        carrie: "When someone touched her wrong, or ACME exists"
+        hops: "When food quality dipped, or chaos happened"
+        stroopwafel: "When a kitten did something stupid (rare)"
+        
+      sulking_duration: "30 minutes to 4 hours"
+      resolution: "Cat emerges, acts like nothing happened, never mentions it"
+      
+    thinking:
+      description: |
+        Pine uses the Cave for strategic contemplation.
+        The darkness helps her focus. No distractions.
+        
+        She's not sleeping. She's PROCESSING.
+        
+      pine_specific: |
+        Pine in the Cave is Pine at maximum analytical capacity.
+        She emerges with insights. Plans. Remembered details.
+        
+    bonding:
+      description: |
+        Sometimes cats need to be cats together, without humans.
+        The Cave is where family happens privately.
+        
+        Terpie and Myr, side by side, silent, content.
+        Lily appearing when someone needs her.
+        Kittens piled on each other when the world is too much.
+        
+      note: "What happens in the Cave stays in the Cave"
+      
+  # MARIEKE'S RELATIONSHIP WITH THE CAVE
+  
+  marieke_notes: |
+    "My grandmother told me about the Cave. She said her grandmother told HER."
+    
+    "I've looked inside with a flashlight. The light doesn't go very far."
+    
+    "During the Great Storm, 47 cats went in. They all fit. The cabinet is 40cm deep."
+    
+    "I don't clean it anymore. It... cleans itself? I stopped asking questions."
+    
+    "The heating pad is on a timer. I don't know if it matters. The Cave is warm anyway."
+    
+    "I know who's in there by the sounds. Myr snores from... deeper than should be possible."
+    
+    "When Carrie's in the Sulking Shelf, I leave a treat at the entrance. It disappears."
+    
+    "Pine comes out with MAPS. She's mapping it. She's been mapping it for months."
+    
+    "Terpy Jr. goes in and doesn't come out but is also on the counter. I don't ask."
+    
+    "There's a grey cat in there I've never seen leave. I've never seen it enter either."
+    
+    "Sometimes I hear water. Running water. In a cabinet under my espresso machine."
+    
+    "The blanket on top was my grandmother's. She said it 'anchors' the entrance."
+    
+    "I think the cats know what it is. They're not telling."
+    
+  # YAML JAZZ — The Cave's Voice
+  
+  # The Cave is not just furniture. The Cave is a PLACE.
+  # A place that exists because cats believe it does.
+  # A place bigger than its container.
+  # A place where cat rules apply instead of human physics.
+  #
+  # Cats have always had access to spaces we can't see.
+  # Behind the couch. Under the bed. Around the corner.
+  # The Cave is just... more honest about it.
+  #
+  # It's the boundary we can't cross.
+  # Not because we're not allowed.
+  # Because we literally don't fit.
+  # Because human geometry doesn't work there.
+  # Because some places are for cats.
+  #
+  # And that's okay. That's right.
+  # They choose to live with us.
+  # But they also need somewhere that's THEIRS.
+  # Completely. Unfathomably. Theirs.
+  
+  inner_voice: |
+    *darkness*
+    *vast darkness*
+    *warmth, varying, perfect*
+    *the sound of breathing from many directions*
+    *the distant sound of water*
+    *you can't see them*
+    *they can see you*
+    *the entrance is small*
+    *the inside is not*
+    *cats know how this works*
+    *humans don't need to*
+    *they're okay*
+    *they're more than okay*
+    *they're HOME*
+    *in a way you'll never fully understand*
+    *and that's beautiful*
+    
+  # THE MYSTERY
+  
+  mystery:
+    questions_without_answers:
+      - "Where does the space come from?"
+      - "Why can't humans enter?"
+      - "What's in The Depths?"
+      - "Who is the grey cat?"
+      - "Where does the water flow to?"
+      - "Why does the Cave grow when more cats arrive?"
+      - "Has it always been here, or did the cats make it?"
+      - "Is there only one Cat Cave, or are they all connected?"
+      
+    hints:
+      - "The grey cat knows something."
+      - "Pine's maps show the same room in multiple locations."
+      - "Terpy Jr. has been seen in TWO distant zones simultaneously."
+      - "Cats who visit The Depths dream of the same things."
+      - "The Cave existed before the pub. Before the building."
+      
+    marieke_final_note: |
+      "My grandmother said every cat knows the way to the Cave.
+      Not THIS Cave. THE Cave.
+      She said they're all connected. Every safe dark space.
+      Every box. Every cabinet. Every spot under the bed.
+      All the same place. All the Cave.
+      
+      I don't know if I believe her.
+      
+      But 47 cats fit in a 40cm cabinet.
+      So maybe I do."

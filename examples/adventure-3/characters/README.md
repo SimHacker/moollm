@@ -240,3 +240,11 @@ adventure-3/
 - [../../../skills/mind-mirror/](../../../skills/mind-mirror/) — Personality system
 - [../../../skills/adventure/](../../../skills/adventure/) — Adventure framework
 - [../start/](../start/) — Where the adventure begins
+
+---
+
+## See Also
+
+- **Session Log:** [../README.md](../README.md#-session-log--don-hopkins-explores-moollm) — Full narrative of the current adventure
+- **Pub Family:** [../pub/README.md](../pub/README.md) — The Gezelligheid Grotto family (Marieke, cats, kittens)
+- **Cat Skill:** [../../../skills/cat/](../../../skills/cat/) — Universal feline interaction system

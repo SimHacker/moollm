@@ -1,0 +1,110 @@
+# Economy Skill — Currency and Trade
+# Gold flows through the world.
+
+skill:
+  name: economy
+  tier: 1
+  protocol: ECONOMY-AS-FLOW
+  description: |
+    Economic systems for currency, trade, and value exchange.
+    Money is earned, spent, hidden, and traded.
+  motto: "Gold flows where stories lead."
+
+# CURRENCY
+
+currency:
+  default: gold
+  alternatives:
+    - "reputation (social currency)"
+    - "favors (barter)"
+    - "skill tokens"
+    - "custom per-adventure"
+
+# EARNING
+
+earning:
+  sources:
+    exploration: "Find treasure (hidden, maze, rewards)"
+    quests: "Complete tasks (notice board, requests)"
+    trade: "Sell items"
+    skills: "Trade or teach skills"
+    games: "Win games (arcade, pub, gambling)"
+    work: "Complete jobs (NPC requests)"
+
+# SPENDING
+
+spending:
+  categories:
+    food_drink: "1-5 gold per item"
+    catalog_items: "3-50 gold per item"
+    lodging: "5 gold per night"
+    information: "5-20 gold (secrets, tips)"
+    services: "Variable"
+
+# PRICE EXAMPLES
+
+price_examples:
+  cheap:
+    stroopwafel: 1
+    coffee: 1
+  moderate:
+    espresso: 2
+    snack: 3
+  expensive:
+    tosti: 4
+    strain: 15
+  catalog:
+    mystery_box: 3
+    monkey_paw: 5
+    expensive_gadget: 25-50
+
+# HIDDEN VALUE
+
+hidden_value:
+  description: |
+    Not all gold is visible. Exploration reveals hidden wealth.
+    
+  examples:
+    - "Kitchen drawer: 25 gold"
+    - "Mattress stash: 10 gold"
+    - "Secret compartment: variable"
+    
+# TRADE
+
+trade:
+  barter: |
+    Items can be traded directly without currency.
+    Value is negotiated between parties.
+    
+  skill_trade: |
+    Skills themselves can be:
+    - Traded for items
+    - Taught for payment
+    - Auctioned to highest bidder
+    - Bequeathed to future characters
+
+# COMMANDS
+
+commands:
+  INVENTORY:
+    includes: "Current gold amount"
+    
+  BUY:
+    syntax: "BUY [item] FROM [seller]"
+    checks: "Gold available, item in stock"
+    
+  SELL:
+    syntax: "SELL [item] TO [buyer]"
+    calculates: "Fair value or negotiated price"
+    
+  TRADE:
+    syntax: "TRADE [item/skill] FOR [item/skill]"
+    calculates: "Relative value, relationship modifiers"
+
+integrates_with:
+  - skill: character
+    how: "Gold stored in character inventory"
+  - skill: room
+    how: "Shops and merchants in rooms"
+  - skill: buff
+    how: "Some buffs affect prices"

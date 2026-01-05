@@ -1,154 +1,328 @@
-# 🍺 The Rusty Lantern
+# 🍺 The Pub — Home of Gezelligheid
 
-> *"A warm, inviting tavern that somehow exists just south of where your adventure begins."*
-
-A proper adventure needs a proper pub.
+> *"The Rusty Lantern has always been here. It was here before the dungeon. It'll be here after."*  
+> — The Bartender (all versions)
 
 ---
 
-## 🎨 THEME SYSTEM
+## 📍 Location
 
-The pub can transform into **any environment you imagine**:
+**Path:** `adventure-3/pub/`  
+**Parent:** [../](../) (adventure-3 root)  
+**Exits:** NORTH → [../start/](../start/) | UP → rooms/ | BACK → ???
 
-| Command | Result |
+---
+
+## 🎭 The Theme System
+
+This pub **transforms**. The room, the staff, the menu, the patrons — all shift based on the current theme.
+
+| Theme | Name | Bartender | Currency |
+|-------|------|-----------|----------|
+| `classic_adventure` | The Rusty Lantern | Grim | gold |
+| `amsterdam_coffeeshop` | **Gezelligheid Grotto** | **Marieke** | gold |
+| `space_cantina` | The Rusty Hyperdrive | Z-4RT | credits |
+| `cyberpunk_bar` | The Rusty Chrome | Nyx | eddies |
+| `victorian_parlor` | The Rusty Cog | Reginald | shillings |
+| `pirate_tavern` | The Rusty Anchor | Pegleg Pete | doubloons |
+| `wild_west_saloon` | The Rusty Spur | Miss Kitty | dollars |
+
+**Current Theme:** `amsterdam_coffeeshop` → **Gezelligheid Grotto**
+
+---
+
+## 👤 The Staff
+
+### The Bartender (Generic Entity)
+
+**File:** [bartender.yml](bartender.yml)
+
+The bartender is a **constant through all themes** — the same entity wearing different personas. What persists:
+
+- They know everyone's secrets
+- They've seen everything
+- They're neutral... mostly
+- They're ALWAYS here
+- They remember across theme changes (but won't admit it)
+
+**Interaction Commands:**
+| Command | Effect |
 |---------|--------|
-| `THEME DEFAULT` | Classic fantasy tavern |
-| `THEME space cantina` | Sci-fi watering hole |
-| `THEME cyberpunk bar` | Neon-lit undercity dive |
-| `THEME victorian parlor` | Steampunk gentleman's club |
-| `THEME pirate tavern` | Portside sea dog haunt |
-| `THEME wild west saloon` | Frontier drinking establishment |
-| `THEME [your description]` | **Anything you can imagine!** |
+| `TALK TO BARTENDER` | Start conversation |
+| `ORDER [item]` | Buy from menu |
+| `ASK BARTENDER ABOUT [topic]` | Get information (free) |
+| `BUY INFORMATION` | Get secrets (costs gold) |
+| `RENT ROOM` | Book a room (5 gold) |
 
-When you theme the pub:
-- 🏠 The decor transforms
-- 🧑‍🍳 The bartender changes identity (but keeps their mysterious knowledge)
-- 👥 New patrons appear
-- 📜 Menu updates (with theme-appropriate currency!)
-- 🎲 Activities adapt
+### Marieke van der Berg (Current Persona)
 
----
+**File:** [budtender-marieke.yml](budtender-marieke.yml)
 
-## 🍽️ Activities
+*The Gezelligheid Grotto version of the bartender.*
 
-| Activity | Command | Notes |
-|----------|---------|-------|
-| 🍺 **Drink** | `ORDER [item]` | Spend gold, hear rumors |
-| 🍖 **Eat** | `EAT [item]` | Restorative, less dramatic than kitchen food |
-| 🎯 **Darts** | `PLAY DARTS` | Challenge patrons, win bets/info |
-| ♟️ **Chess** | `PLAY CHESS` | Reveals character, bartender is VERY good |
-| 🃏 **Cards** | `PLAY CARDS` | Poker, blackjack, local games |
-| 💬 **Socialize** | `TALK TO [patron]` | Quest hooks, rumors, alliances |
-| 👂 **Eavesdrop** | `EAVESDROP` | Catch snippets, risk detection |
-| 🎭 **Perform** | `PERFORM [act]` | Earn tips or thrown drinks |
-| 🛏️ **Sleep** | `RENT ROOM` | Rest, dreams, time passes |
+| Trait | Score | Inner Voice |
+|-------|-------|-------------|
+| Neat | 8/10 | "A tidy bar is a tidy mind, schat." |
+| Outgoing | 7/10 | "You look like you need to talk. Or not." |
+| Active | 5/10 | "We move at the speed of coffee." |
+| Playful | 6/10 | "ACME again? Loyalty discount?" |
+| Nice | 9/10 | "Everyone deserves gezelligheid." |
+
+**Special Knowledge:**
+- The 2017 Monkey's Paw incident
+- Mother's history at the pub
+- Willem and the Monkey's Blessing strain
+- Fortune's Mercy terpene
 
 ---
 
-## 🧑‍🍳 The Bartender
+## 🐱 The Grotto Family
 
-**Grim** (default theme) — weathered, knowing, always polishing that glass.
+### Family Tree
 
-The bartender:
-- 🧠 **Knows everything** (but charges for specifics)
-- 👁️ **Remembers everyone** (including Mother)
-- 🔑 **Guards the back room** (earn access)
-- 🎭 **Transforms with theme** (but stays mysterious)
+```
+                        MARIEKE (human caretaker)
+                              │
+              ┌───────────────┴───────────────┐
+              │                               │
+          TERPIE ════════════════════ STROOPWAFEL
+        (patriarch)        mates        (matriarch)
+         [ginger]                        [calico]
+              │                               │
+              └───────────┬───────────────────┘
+                          │
+    ┌────┬────┬────┬──────┼──────┬────┬────┬────┐
+    │    │    │    │      │      │    │    │    │
+   MYR  LEM  LILY PINE  CARRIE HOPS TERP  OCI  JR
+```
 
-### Key Topics
+### Parent Cats
 
-| Topic | Cost | Reveals |
-|-------|------|---------|
-| The maze | Free | General warnings |
-| The grue | 10 gold | Patrol patterns |
-| Mother | 30 gold | "She came through here..." |
-| The skeleton | 10 gold | Full backstory |
-| The back room | Prove yourself | ??? |
+| Cat | File | Personality | Signature Trait |
+|-----|------|-------------|-----------------|
+| **Terpie** | [cat-terpie.yml](cat-terpie.yml) | Maximum chill | Active: 1, Calm: 7, Restless: 0 |
+| **Stroopwafel** | [cat-stroopwafel.yml](cat-stroopwafel.yml) | Fierce matriarch | Active: 9, Restless: 7, Dominant: 7 |
 
----
+**Their Dynamic:**
+> *"She hunts. I rest. Balance."* — Terpie  
+> *"He's useless at hunting. Perfect at cuddling."* — Stroopwafel
 
-## 📢 Rumor Mill
+### The Terpene Litter (8 Kittens)
 
-The pub is an **information hub**:
-
-| Source | Reliability | Cost |
-|--------|-------------|------|
-| Patrons | Variable | Free (buy them a drink) |
-| Bartender | High | Gold |
-| Notice board | Mixed | Free |
-| Eavesdropping | Fragments | Risk |
-
-### Sample Rumors
-
-- ✅ "There's gold in the cold room of the maze"
-- ⚠️ "A grue can be killed with cheese" (it was BLUE cheese!)
-- ❌ "The bartender is actually the grue in disguise"
-- 📌 "Someone's been asking about YOUR family..."
-
----
-
-## 🚪 The Back Room
-
-A mysterious door leads to... **whatever the story needs**.
-
-Possibilities:
-- Underground fighting ring
-- Secret guild meeting
-- Portal to another theme dimension
-- Mother's favorite booth from her adventuring days
-- Shortcut to the maze (or trap?)
-
-**Access:** Prove yourself to the bartender.
+| Kitten | File | Terpene | Core Trait | Special Ability |
+|--------|------|---------|------------|-----------------|
+| **Myrcene (Myr)** | [kitten-myrcene.yml](kitten-myrcene.yml) | Sedating | Active: 0 | Sedation field, therapeutic purr |
+| **Limonene (Lemon)** | [kitten-limonene.yml](kitten-limonene.yml) | Uplifting | Active: 10 | Joy field, productivity boost |
+| **Linalool (Lily)** | [kitten-linalool.yml](kitten-linalool.yml) | Calming | Caring: 7 | Empathy sense, appears when needed |
+| **Pinene (Pine)** | [kitten-pinene.yml](kitten-pinene.yml) | Focusing | Analytical: 7 | Perfect memory, focus enhancement |
+| **Caryophyllene (Carrie)** | [kitten-caryophyllene.yml](kitten-caryophyllene.yml) | Protective | Cautious: 7 | Threat detection, bit the ACME person |
+| **Humulene (Hops)** | [kitten-humulene.yml](kitten-humulene.yml) | Refined | Neat: 8 | Quality detection, appetite suppression |
+| **Terpinolene (Terpy Jr.)** | [kitten-terpinolene.yml](kitten-terpinolene.yml) | Chaotic | Spontaneous: 7 | Gravity optional, on the ceiling |
+| **Ocimene (Ocie)** | [kitten-ocimene.yml](kitten-ocimene.yml) | Refreshing | Nice: 8 | Air purification, sinus clearing |
 
 ---
 
-## 🎲 Objects
+## 💕 Relationship Matrix
 
-| Object | Purpose |
-|--------|---------|
-| 🧑‍🍳 [bartender.yml](./bartender.yml) | The mysterious keeper |
-| 🎯 [dart-board.yml](./dart-board.yml) | Games of skill |
-| ♟️ [chess-table.yml](./chess-table.yml) | Games of strategy |
-| 🃏 [card-deck.yml](./card-deck.yml) | Games of chance |
-| 🔥 [fireplace.yml](./fireplace.yml) | Warmth, hearthstone secret |
-| 📋 [notice-board.yml](./notice-board.yml) | Jobs, quests, warnings |
-| 👻 [pacman-cabinet.yml](./pacman-cabinet.yml) | Wakka wakka wakka |
-| 🏓 [pong-cabinet.yml](./pong-cabinet.yml) | The game that started it all |
-| 🍒 [fruit-machine.yml](./fruit-machine.yml) | One-armed bandit |
-| 🎱 [pinball-machine.yml](./pinball-machine.yml) | "BAR KARMA" — Face your fate |
-| 🪑 [seating.yml](./seating.yml) | Bar, tables, booths — intimacy levels |
+### Bond Scores (0-10)
 
----
+**Marieke's Bonds:**
+| Cat | Bond | Note |
+|-----|------|------|
+| Terpie | 9 | "The laziest. The best." |
+| Stroopwafel | 8 | "Fierce mother. Runs the place." |
+| Lily | 9 | "Knows when I'm struggling" |
+| Lemon | 8 | "Keeps the designer productive" |
+| Carrie | 8 | "Bit the ACME person. Fair." |
+| Terpy Jr. | 8 | "On the ceiling again. Normal." |
+| Myr | 7 | "Lives on the corner pillow now" |
+| Pine | 7 | "Useful during inventory" |
+| Ocie | 7 | "Her sneezes help" |
+| Hops | 6 | "Has standards. Hard to cuddle." |
 
-## 🌟 Special Events
+**Sibling Rivalries & Alliances:**
 
-| Event | Trigger | Effect |
-|-------|---------|--------|
-| **Last Call** | Late adventure | "Time to go home, adventurer" |
-| **Mother's Tab** | Low on gold | One-time credit from her account |
-| **The Regulars** | Third visit | Patrons recognize you |
-| **Bartender's Favor** | Help another patron | Free drink, significant gesture |
-
----
-
-## 🧭 Navigation
-
-| Exit | Destination |
-|------|-------------|
-| 🚪 NORTH | [../start/](../start/) — Chamber of Commencement |
-| ⬆️ UP | Inn rooms (requires payment) |
-| 🚪 BACK | ??? (earn access) |
+| Pair | Relationship | Quote |
+|------|--------------|-------|
+| Carrie ↔ Lemon | Rivalry + Respect | *"She thinks SHE'S best!"* |
+| Pine ↔ Carrie | Intel Partnership | *"She tracks. I act."* |
+| Myr ↔ Terpy Jr. | Chaos/Stillness | *"She appears on me. I don't move."* |
+| Lily ↔ Henk | Philosopher's Companion | *"He thinks too much. I help."* |
+| Lemon ↔ Terpy Jr. | Chaos Buddies | *"NEITHER OF US MAKES SENSE!"* |
+| Hops ↔ Everyone | Judging | *"Has opinions. They're correct."* |
 
 ---
 
-## 📚 Lineage
+## 📊 Personality Comparison
 
-The pub is a tribute to:
-- **Bar Karma** (Will Wright & Don Hopkins) — First crowdsourced TV series. A bar at the edge of the universe where lost souls face karmic crossroads. StoryMaker tool for collaborative script writing and community voting.
-- Every mysterious D&D tavern
-- The cantina in Star Wars
-- Rick's Café in Casablanca
-- The Prancing Pony (LotR)
-- Cheers (everybody knows your name)
+### Sims Traits (0-10)
 
-*This is where quests begin and end. And the community shapes the story.*
+| Character | Neat | Outgoing | Active | Playful | Nice |
+|-----------|------|----------|--------|---------|------|
+| Marieke | 8 | 7 | 5 | 6 | 9 |
+| Terpie | 2 | 3 | **1** | 3 | 8 |
+| Stroopwafel | 6 | 5 | **9** | 7 | 5 |
+| Myr | 3 | 2 | **0** | 2 | 7 |
+| Lemon | 3 | **10** | **10** | **10** | 8 |
+| Lily | 5 | 4 | 4 | 4 | **10** |
+| Pine | 7 | 4 | 6 | 4 | 6 |
+| Carrie | 5 | 3 | 7 | 4 | 4 |
+| Hops | **8** | 3 | 4 | 3 | 5 |
+| Terpy Jr. | 2 | 6 | 8 | 9 | 6 |
+| Ocie | 6 | 6 | 6 | 7 | 8 |
+
+### Mind Mirror Extremes
+
+**Most Energetic:** Lemon (7), Stroopwafel (7)  
+**Least Energetic:** Myr (0), Terpie (1)  
+**Most Calm:** Terpie (7), Myr (7), Lily (7), Marieke (7)  
+**Most Restless:** Stroopwafel (7), Lemon (7)  
+**Most Caring:** Lily (7), Carrie (7), Stroopwafel (7), Marieke (7)  
+**Most Analytical:** Pine (7)  
+**Most Spontaneous:** Terpy Jr. (7), Lemon (7)
+
+---
+
+## 🎮 Objects & Activities
+
+### Games & Entertainment
+
+| Object | File | Description |
+|--------|------|-------------|
+| Pac-Man Cabinet | [pacman-cabinet.yml](pacman-cabinet.yml) | MOM is 3rd place (847,230) |
+| Pong Cabinet | [pong-cabinet.yml](pong-cabinet.yml) | THE prototype from 1972 |
+| Pinball Machine | [pinball-machine.yml](pinball-machine.yml) | "Space Adventure Amsterdam" |
+| Fruit Machine | [fruit-machine.yml](fruit-machine.yml) | Classic slots |
+| Dart Board | [dart-board.yml](dart-board.yml) | Challenge patrons |
+| Chess Table | [chess-table.yml](chess-table.yml) | Mid-game abandoned |
+| Card Deck | [card-deck.yml](card-deck.yml) | Poker, blackjack, kwartet |
+
+### Furniture & Fixtures
+
+| Object | File | Description |
+|--------|------|-------------|
+| Fireplace | [fireplace.yml](fireplace.yml) | Hearthstone with teleport rune |
+| Notice Board | [notice-board.yml](notice-board.yml) | Quests, warnings, missing persons |
+| Seating | [seating.yml](seating.yml) | Tables, booths, bar stools |
+
+---
+
+## 🍽️ The Menu (Gezelligheid Grotto)
+
+### ☕ Koffie
+| Item | Price |
+|------|-------|
+| Koffie verkeerd | 2 gold |
+| Espresso | 2 gold |
+| Cappuccino | 3 gold |
+| Filter (bottomless) | 2 gold |
+
+### 🥪 Broodjes & Snacks
+| Item | Price |
+|------|-------|
+| Tosti ham-kaas | 4 gold |
+| Broodje hagelslag | 2 gold |
+| Uitsmijter | 5 gold |
+| Bitterballen | 4 gold |
+
+### 🍪 Zoet
+| Item | Price |
+|------|-------|
+| Stroopwafel (warm) | 1 gold |
+| Appelgebak | 4 gold |
+| Poffertjes | 3 gold |
+| Drop (salty licorice) | 1 gold |
+
+### 🍀 Special Strains
+| Strain | Price | Effect |
+|--------|-------|--------|
+| **Monkey's Blessing** | 15 gold | Fortune's Mercy (luck protection) |
+| Lucky Strike | 10 gold | Mellow, hopeful |
+| Four Leaf Clover | 8 gold | Euphoric, giggly |
+| Black Cat Crossing | 12 gold | Inverts bad luck |
+
+---
+
+## 🌟 The Bartender's Lineage
+
+The bartender archetype draws from:
+
+| Reference | Source | Connection |
+|-----------|--------|------------|
+| **James** | Bar Karma (2011) | 20,000-year-old bartender, Will Wright & Don Hopkins |
+| Guinan | Star Trek TNG | El-Aurian, centuries old, unnerves Q |
+| Quark | Star Trek DS9 | Ferengi bar owner, deals and dabo |
+| Moe | The Simpsons | Long-suffering tavern keeper |
+| Sam Malone | Cheers | Everybody knows your name |
+| Rick Blaine | Casablanca | "Of all the gin joints..." |
+
+---
+
+## 📁 File Index
+
+### Staff
+- [bartender.yml](bartender.yml) — Generic bartender (theme-independent behavior)
+- [budtender-marieke.yml](budtender-marieke.yml) — Amsterdam coffeeshop persona
+
+### Cats
+- [cat-terpie.yml](cat-terpie.yml) — The mellow patriarch
+- [cat-stroopwafel.yml](cat-stroopwafel.yml) — The fierce matriarch
+
+### Kittens
+- [kitten-myrcene.yml](kitten-myrcene.yml) — The sleepy one
+- [kitten-limonene.yml](kitten-limonene.yml) — The zooming one
+- [kitten-linalool.yml](kitten-linalool.yml) — The healer
+- [kitten-pinene.yml](kitten-pinene.yml) — The watcher
+- [kitten-caryophyllene.yml](kitten-caryophyllene.yml) — The protector
+- [kitten-humulene.yml](kitten-humulene.yml) — The refined one
+- [kitten-terpinolene.yml](kitten-terpinolene.yml) — The chaos muse
+- [kitten-ocimene.yml](kitten-ocimene.yml) — The fresh one
+
+### Objects
+- [ROOM.yml](ROOM.yml) — Room definition & theme system
+- [cat-cave.yml](cat-cave.yml) — **The Cat Cave** — where cats retreat to hide, sleep, or sulk
+- [fireplace.yml](fireplace.yml) — Teleport rune, curios
+- [notice-board.yml](notice-board.yml) — Quests & warnings
+- [pacman-cabinet.yml](pacman-cabinet.yml) — High scores
+- [pong-cabinet.yml](pong-cabinet.yml) — The prototype
+- [pinball-machine.yml](pinball-machine.yml) — Flipperkast
+- [fruit-machine.yml](fruit-machine.yml) — Slots
+- [dart-board.yml](dart-board.yml) — Darts
+- [chess-table.yml](chess-table.yml) — Chess
+- [card-deck.yml](card-deck.yml) — Cards
+- [seating.yml](seating.yml) — Furniture
+
+---
+
+## 🏠 Family Routines
+
+### Morning (6:00-7:00)
+```
+6:00 — Marieke opens. Terpie doesn't move.
+6:15 — Feed everyone. Stroopwafel supervises.
+6:30 — Carrie checks perimeter.
+6:45 — Lily appears for morning comfort.
+7:00 — Lemon begins zooming. Day begins.
+```
+
+### Evening (22:00-00:00)
+```
+22:00 — Last call. Henk on final espresso.
+22:15 — Herd kittens to spots.
+22:30 — Stroopwafel patrols. Terpie snores.
+23:00 — Lily does emotional check on everyone.
+23:30 — Myr hasn't moved. Good. Normal.
+00:00 — Terpy Jr. is on the ceiling. Also normal.
+```
+
+---
+
+*"Gezelligheid isn't a place. It's a feeling. I just provide the setting."*  
+— Marieke van der Berg
+
+---
+
+**Last Updated:** Turn 18 (Monkey's Blessing purchased)  
+**Current Theme:** Amsterdam Coffeeshop  
+**Current Bartender:** Marieke  
+**Family Members:** 11 (1 human, 2 cats, 8 kittens)

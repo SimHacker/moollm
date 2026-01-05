@@ -49,6 +49,24 @@ skills:
     use_when: "Managing task contexts, activating cards, navigating cognitive spaces"
     related: ["card", "memory-palace", "adventure"]
     
+  - name: "character"
+    path: "skills/character"
+    description: "Core patterns for all characters — home, location, relationships"
+    tier: 1
+    entry: "PROTOTYPE.yml"
+    tags: ["character", "entity", "location", "relationships"]
+    use_when: "Creating or managing any character (player, NPC, creature)"
+    related: ["persona", "room", "cat"]
+    
+  - name: "persona"
+    path: "skills/persona"
+    description: "Identity layers — WHO someone is vs WHAT they do"
+    tier: 1
+    entry: "PROTOTYPE.yml"
+    tags: ["persona", "identity", "personality", "role"]
+    use_when: "Defining character personality, voice, backstory, or role separation"
+    related: ["character", "mind-mirror", "room"]
+    
   - name: "summarize"
     path: "skills/summarize"
     description: "Context compression—compress without losing meaning"
@@ -157,6 +175,118 @@ skills:
     entry: "SKILL.md"
     tags: ["research", "investigation", "documentation"]
     use_when: "Learning something new, comparing options, due diligence"
+    
+  # --- GAME MECHANICS ---
+  
+  - name: "simulation"
+    path: "skills/simulation"
+    description: "Central hub for simulation state — turns, party, selection, world"
+    tier: 1
+    entry: "PROTOTYPE.yml"
+    protocol: "SIMULATION-AS-WORLD"
+    tags: ["game", "simulation", "state", "central"]
+    use_when: "Managing game state, turn tracking, persistence"
+    related: ["time", "party", "character", "buff"]
+    
+  - name: "buff"
+    path: "skills/buff"
+    description: "Temporary effects system — curses are just shitty buffs"
+    tier: 1
+    entry: "PROTOTYPE.yml"
+    protocol: "BUFF-AS-MODIFIER"
+    tags: ["game", "effects", "buffs", "curses"]
+    use_when: "Managing temporary stat modifications, effects, or conditions"
+    related: ["time", "character", "needs"]
+    
+  - name: "time"
+    path: "skills/time"
+    description: "Simulation turns vs LLM iterations — narrative time flow"
+    tier: 1
+    entry: "PROTOTYPE.yml"
+    protocol: "TIME-AS-NARRATIVE"
+    tags: ["game", "time", "turns", "duration"]
+    use_when: "Tracking buff durations, turn-based mechanics"
+    related: ["buff", "needs"]
+    
+  - name: "needs"
+    path: "skills/needs"
+    description: "Sims-style dynamic motivations — hunger, energy, fun, social"
+    tier: 1
+    entry: "PROTOTYPE.yml"
+    protocol: "NEEDS-AS-MOTIVATION"
+    tags: ["game", "needs", "motivation", "sims"]
+    use_when: "Characters with dynamic needs that drive behavior"
+    related: ["character", "buff", "time"]
+    
+  - name: "economy"
+    path: "skills/economy"
+    description: "Currency, trade, and economic flow"
+    tier: 1
+    entry: "PROTOTYPE.yml"
+    protocol: "ECONOMY-AS-FLOW"
+    tags: ["game", "economy", "gold", "trade"]
+    use_when: "Buying, selling, trading, managing currency"
+    related: ["character", "scoring"]
+    
+  - name: "probability"
+    path: "skills/probability"
+    description: "Success calculation from stats — no dice, just odds"
+    tier: 1
+    entry: "PROTOTYPE.yml"
+    protocol: "PROBABILITY-AS-NARRATIVE"
+    tags: ["game", "probability", "success", "failure"]
+    use_when: "Calculating outcome chances for actions"
+    related: ["character", "buff"]
+    
+  - name: "scoring"
+    path: "skills/scoring"
+    description: "Achievement valuation — style counts, emergence rewards"
+    tier: 1
+    entry: "PROTOTYPE.yml"
+    protocol: "SCORING-AS-NARRATIVE"
+    tags: ["game", "scoring", "skills", "achievements"]
+    use_when: "Evaluating accomplishments, skill acquisition"
+    related: ["reward", "economy"]
+    
+  - name: "reward"
+    path: "skills/reward"
+    description: "Dynamic achievement rewards — thematically appropriate"
+    tier: 1
+    entry: "PROTOTYPE.yml"
+    protocol: "REWARD-AS-NARRATIVE"
+    tags: ["game", "rewards", "items", "titles"]
+    use_when: "Granting rewards for achievements, lifting curses"
+    related: ["scoring", "buff"]
+    
+  - name: "party"
+    path: "skills/party"
+    description: "Companions and group dynamics — relationships within group"
+    tier: 1
+    entry: "PROTOTYPE.yml"
+    protocol: "PARTY-AS-ENSEMBLE"
+    tags: ["game", "party", "companions", "group"]
+    use_when: "Managing groups, companions, NPC parties"
+    related: ["character", "needs"]
+    
+  - name: "world-generation"
+    path: "skills/world-generation"
+    description: "Dynamic world creation — questions create places"
+    tier: 1
+    entry: "PROTOTYPE.yml"
+    protocol: "WORLD-AS-GROWTH"
+    tags: ["game", "generation", "world", "exploration"]
+    use_when: "Expanding the world through exploration and questions"
+    related: ["room", "character"]
+    
+  - name: "cat"
+    path: "skills/cat"
+    description: "Cat behavior patterns — interactions, buffs, personalities"
+    tier: 1
+    entry: "PROTOTYPE.yml"
+    protocol: "CAT-AS-COMPANION"
+    tags: ["game", "cat", "pet", "companion", "interaction"]
+    use_when: "Creating cats, kittens, or cat-like creatures"
+    related: ["character", "buff", "room"]
     
   # TIER 2: READ + EXECUTE
   

@@ -109,6 +109,141 @@ nesting:
     - `nested` automatically lists child rooms
     - No manual linking required for hierarchy
 
+# VIRTUAL SUB-ROOMS (Zones Without Directories)
+
+virtual_rooms:
+  description: |
+    Not every sub-location needs its own directory!
+    
+    Virtual sub-rooms (zones) are defined INLINE in the parent room file.
+    Characters reference them by path, but no physical dir exists.
+    Files stay FLAT. Paths drill down to VIRTUAL locations.
+    
+  why:
+    - "Keep files flat and simple"
+    - "Avoid directory sprawl for logical divisions"
+    - "Still get addressable sub-locations"
+    - "Objects declare their zone via location field"
+    
+  pattern: |
+    # Physical structure (flat):
+    pub/
+      ROOM.yml           # The pub
+      cat-cave.yml       # Defines virtual zones inline
+      cat-terpie.yml     # home: pub/, location: pub/cat-cave/nap-zone
+      cat-stroopwafel.yml
+      
+    # NO subdirectories for cat-cave zones!
+    # Zones are defined IN cat-cave.yml:
+    
+    zones:
+      - id: vestibule
+        path: pub/cat-cave/vestibule
+      - id: nap-zone
+        path: pub/cat-cave/nap-zone
+      - id: depths
+        path: pub/cat-cave/depths
+        
+  how_objects_use_it: |
+    # In cat-terpie.yml:
+    cat:
+      home: pub/                       # File lives here
+      location: pub/cat-cave/nap-zone  # Virtual path (no dir exists)
+      
+    The path "pub/cat-cave/nap-zone" resolves to:
+    1. pub/ → physical directory
+    2. cat-cave → object file defining zones
+    3. nap-zone → zone id defined in that file
+    
+  common_pattern: |
+    Room with ROOM.yml + prefixed characters:
+    
+    pub/
+      ROOM.yml               # The room
+      staff-marieke.yml      # Staff prefix
+      staff-jan.yml
+      cat-terpie.yml         # Cat prefix
+      cat-stroopwafel.yml
+      kitten-myrcene.yml     # Kitten prefix
+      kitten-limonene.yml
+      kitten-linalool.yml
+      menu.yml               # Objects
+      jukebox.yml
+      
+    Prefixes organize without subdirectories.
+    Easy to see all cats: cat-*.yml
+    Easy to see all staff: staff-*.yml
+    
+  when_to_use_subdirs: |
+    If a group has MANY files or needs isolation:
+    
+    pub/
+      ROOM.yml
+      bartender.yml
+      cat-cave/              # Real subdir — cats live here
+        ROOM.yml             # Zone definitions
+        terpie.yml           # No prefix needed in subdir
+        stroopwafel.yml
+        kitten-myrcene.yml
+        kitten-limonene.yml
+        
+    The cat-cave/ subdir keeps pub/ uncluttered.
+    Zones WITHIN cat-cave (nap-zone, depths) stay virtual.
+    
+  choosing:
+    prefixes: |
+      - Few files (5-10)
+      - Quick visual grouping
+      - Single room context
+      
+    subdirs: |
+      - Many files (10+)
+      - Need isolation
+      - Sub-room with own identity
+    
+  example_zone_definition: |
+    # In cat-cave.yml:
+    zones:
+      - id: vestibule
+        path: pub/cat-cave/vestibule
+        description: "Near the entrance"
+        
+      - id: nap-zone  
+        path: pub/cat-cave/nap-zone
+        description: "Prime sleeping territory"
+        properties:
+          temperature: warm
+          light: none
+          
+      - id: depths
+        path: pub/cat-cave/depths
+        description: "Further than mapped"
+        mystery: true
+        
+  querying: |
+    To find who's in a virtual zone:
+    
+    # Find all entities where location starts with pub/cat-cave/nap-zone
+    # This is a path prefix match, not a directory listing
+    
+  vs_physical_subdirs: |
+    Use PHYSICAL subdirs when:
+    - Zone has MANY objects (5+ files)
+    - Would clutter parent directory
+    - Zone is complex enough to warrant isolation
+    - Zone needs its own ROOM.yml
+    
+    Use VIRTUAL zones when:
+    - Just dividing a space logically
+    - Objects are few (1-4 files)
+    - Sub-zones within an already-isolated area
+    - Simplicity is preferred
+    
+    HYBRID example (cat-cave):
+    - pub/cat-cave/ is a PHYSICAL subdir (10+ cats would clutter pub/)
+    - cat-cave/nap-zone is a VIRTUAL zone (no files specific to it)
+    - cat-cave/depths is a VIRTUAL zone (just a location reference)
+
 # HYPERCARD STRUCTURE
 
 hypercard_analogy:
@@ -509,6 +644,59 @@ commands:
     syntax: "FORK [stack-name]"
     action: "Create new stack from current position"
 
+# ROOM RELATIONSHIPS — Bidirectional Memory
+
+room_relationships:
+  principle: |
+    Rooms are characters too. They have memory.
+    Rooms can remember who's been there and what happened.
+    
+  structure: |
+    # In pub/ROOM.yml
+    relationships:
+      don-hopkins:
+        visits: 47
+        first_visit: "2025-01-03"
+        memorable_events:
+          - "Ordered from ACME, nearly exploded"
+          - "Sat with Myr for three hours"
+          - "Named all the kittens correctly"
+        reputation: "Regular. Friend of the cats."
+        standing: welcomed
+        
+      stranger-42:
+        visits: 1
+        notable: "Tried to block the Cat Cave entrance"
+        reputation: "Not welcome back"
+        standing: banned
+        
+  effects:
+    track_visitors: "Count visits, remember firsts"
+    remember_events: "Notable things that happened here"
+    grant_bonuses: "Regulars get better treatment"
+    deny_access: "Troublemakers may be excluded"
+    
+  examples:
+    pub_knows_regulars: "Marieke greets you by name"
+    maze_remembers_deaths: "The grue whispers your name"
+    kitchen_tracks_meals: "Mother knows who helped with dishes"
+    
+  bidirectional: |
+    Characters feel things about rooms (in character file).
+    Rooms remember things about characters (in room file).
+    Both perspectives matter for rich interactions.
+    
+  in_character_file: |
+    # In don-hopkins.yml
+    relationships:
+      pub/:
+        feeling: "Warmth. Safety. Coffee and contentment."
+        memory: "First time the kittens came to greet me"
+        
+      maze/:
+        feeling: "Dread. Respect. Something is down there."
+        memory: "The smell of blue cheese. The sound of nothing."
+
 # INTEGRATION
 
 integrates_with:
@@ -523,6 +711,12 @@ integrates_with:
     
   - skill: "adventure"
     how: "Narrative room exploration"
+    
+  - skill: "character"
+    how: "Characters exist in rooms via location field"
+    
+  - skill: "world-generation"
+    how: "New rooms generated dynamically"
     
   - protocol: "WORKING-SET"
     how: "Rooms define their context files"

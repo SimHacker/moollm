@@ -223,7 +223,7 @@ maze/
 └── ...
 ```
 
-*See [MECHANICS.yml](../MECHANICS.yml) → `world_generation`*
+*See [skills/world-generation/](../../../skills/world-generation/) for dynamic expansion rules*
 
 ---
 

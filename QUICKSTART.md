@@ -149,9 +149,9 @@ cp -r examples/adventure-3 examples/adventure-4
 ```
 examples/adventure-3/
 ├── README.md           # The story so far (and play log)
-├── MECHANICS.yml       # Game systems: scoring, skills, curses
-├── player.yml          # Your character state
+├── characters/         # Player character directories
 ├── start/              # Chamber of Commencement
+# Game systems are in skills/ (buff, time, needs, etc.)
 │   ├── ROOM.yml        # Room definition
 │   ├── lamp.yml        # GET LAMP!
 │   └── mailbox.yml     # Zorkian tradition

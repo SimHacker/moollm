@@ -1,0 +1,408 @@
+# Time Skill — Simulation Turns vs LLM Iterations
+# Time is narrative, not clock-based. LLM judges when turns pass.
+
+skill:
+  name: time
+  tier: 1
+  protocol: TIME-AS-NARRATIVE
+  description: |
+    Time in MOOLLM is NARRATIVE, not clock-based.
+    "Turns" are SIMULATION TURNS — judged by the LLM based on game events.
+    This is what buffs, decay, and mechanics track.
+  motto: "Time flows as the story requires."
+
+# CRITICAL DISTINCTION
+
+time_concepts:
+  llm_iteration: |
+    One LLM response. A META-LEVEL concept about the conversation.
+    NOT the same as simulation time.
+    
+    One LLM iteration might advance:
+    - 0 simulation turns (answering a question)
+    - 1 simulation turn (one action)
+    - Several turns (montage)
+    - Many turns (time skip)
+    
+  simulation_turn: |
+    One beat of IN-GAME TIME. What buffs/mechanics track.
+    
+    The LLM judges when simulation turns pass based on:
+    - Player takes a significant action
+    - Scene changes
+    - Narrative time passes
+    - Combat rounds complete
+
+# TURN DEFINITION
+
+turn_definition:
+  one_turn:
+    - "GO NORTH (movement)"
+    - "PAT TERPIE (interaction)"
+    - "ORDER ESPRESSO (action)"
+    - "PICK UP LAMP (object)"
+    
+  zero_turns:
+    - "LOOK (observation)"
+    - "INVENTORY (check status)"
+    - "WHO IS HERE (query)"
+    - "WHAT DOES X MEAN (question)"
+    
+  several_turns:
+    - "Spend the afternoon (montage)"
+    - "Pet all the kittens (8 turns)"
+    - "Wait until evening (time skip)"
+
+# TIME ADVANCEMENT TECHNIQUES
+
+time_advancement:
+  default: "one_tick_per_navigation"
+  
+  one_tick_per_navigation:
+    description: |
+      One simulation turn passes each time you move to a new room.
+      Good default. Simple. Predictable. Easy to reason about.
+    example: |
+      GO NORTH → 1 turn passes
+      GO EAST → 1 turn passes
+      LOOK → 0 turns (no movement)
+      
+  configurable:
+    description: |
+      Time advancement can be configured globally or per-room.
+      Different areas may have different time flows.
+    per_room: |
+      # In maze/ROOM.yml
+      time:
+        advancement: slow    # Half speed — tension
+        
+      # In pub/ROOM.yml  
+      time:
+        advancement: normal  # Standard 1 tick per nav
+        
+      # In dream/ROOM.yml
+      time:
+        advancement: none    # Time doesn't pass in dreams
+        
+    options:
+      none: "Time frozen (dreams, flashbacks, liminal spaces)"
+      slow: "Half tick per nav (dangerous, tense areas)"
+      normal: "One tick per nav (default)"
+      fast: "Two ticks per nav (long corridors, travel montage)"
+      custom: "Room-specific logic"
+      
+  why_navigation_based: |
+    Navigation as time unit works because:
+    - Players understand "move = time passes"
+    - Creates resource pressure (lamp oil, buffs)
+    - Easy to track and reason about
+    - Classic adventure game feel (Zork, etc.)
+
+# EXAMPLES
+
+examples:
+  zero_turns: |
+    Player: "What does the Cat Cave look like?"
+    LLM: [Describes in detail]
+    Simulation turns passed: 0
+    
+  one_turn: |
+    Player: "I pat Terpie"
+    LLM: [Describes petting]
+    Simulation turns passed: 1
+    
+  several_turns: |
+    Player: "I pet all eight kittens"
+    LLM: [Montage]
+    Simulation turns passed: 8
+    Buffs gained: 8 terpene effects
+    
+  many_turns: |
+    Player: "I take a nap"
+    LLM: [Time skip]
+    Simulation turns passed: ~10
+    Most temporary buffs expired
+
+# DURATION TYPES
+
+duration_types:
+  turns: "X simulation turns (primary unit)"
+  scene: "Until current scene ends"
+  session: "Until you leave area/end session"
+  permanent: "Until explicitly removed"
+  conditional: "Until condition met"
+  while_present: "While in location/with item"
+
+# NATURAL LANGUAGE DURATIONS
+
+natural_durations:
+  principle: |
+    Durations can be natural language. We're not tracking real time.
+    The LLM interprets and makes its best guess — or says so.
+    
+  valid_expressions:
+    forever: "Permanent until explicitly lifted"
+    "a year": "Long time — probably many sessions"
+    "a day": "Several hours of play"
+    "an hour": "Maybe 10-20 turns"
+    "5 minutes": "A few turns"
+    "briefly": "1-3 turns"
+    "a while": "5-10 turns"
+    "randomly 50%": "Flip a coin each turn"
+    "until sunset": "Scene-based, narrative pacing"
+    "until you leave": "Location-bound"
+    "until you forget": "LLM judges when it fades"
+    
+  interpretation: |
+    The LLM maps natural language to turns as best it can:
+    - "5 minutes" in a chase scene = 2 turns
+    - "5 minutes" relaxing in pub = 5 turns
+    - "forever" = permanent flag
+    - "randomly 50%" = check each turn
+    
+  uncertainty_ok: |
+    The LLM can be explicit about uncertainty:
+    
+    "The caffeine boost lasts about 5-10 turns — 
+    you'll feel it wearing off when you start yawning."
+    
+    This IS the simulation. Fuzzy is fine.
+    
+  examples:
+    numeric: "duration: 4"
+    natural: "duration: a few minutes"
+    conditional: "duration: until you eat something"
+    probabilistic: "duration: randomly, 25% chance to fade each turn"
+    narrative: "duration: until the sun sets"
+    vague: "duration: a while"
+
+# BUFF DECAY
+
+buff_decay:
+  principle: |
+    Buffs measure duration in SIMULATION TURNS, not LLM iterations.
+    
+  process: |
+    When LLM judges turn(s) have passed:
+    1. Decrement duration on all timed buffs
+    2. Remove buffs that hit 0
+    3. Apply new buffs from current turn
+    
+  example: |
+    State: "Deep Relaxation" 5 turns, "Focus" 2 turns
+    Player: "Pet Limonene" (1 simulation turn)
+    After: "Deep Relaxation" 4 turns, "Focus" 1 turn, "Joy" 4 turns (new)
+
+# TURN COUNTER
+
+turn_counter:
+  description: "Adventures can track a global simulation turn counter"
+  
+  structure: |
+    # In session state
+    simulation:
+      turn: 47
+      last_action: "Entered pub"
+      
+    # After action:
+    simulation:
+      turn: 48
+      last_action: "Ordered Monkey's Blessing"
+
+# DURATION EXAMPLES
+
+duration_examples:
+  - "Joy Infusion: 4 simulation turns"
+  - "Deep Relaxation: 5 simulation turns"
+  - "Fortune's Mercy: Until bad luck triggers (conditional)"
+  - "Lamp Lit: While oil > 0 (resource-based)"
+  - "Gezelligheid: While in pub (location-based)"
+
+# REAL TIME — Use If Available, Don't Depend On
+
+real_time:
+  principle: |
+    The LLM may receive real timestamps. Use them if helpful.
+    But DON'T DEPEND on real time for simulation mechanics.
+    Turn-based games run on simulation turns, not wall clock.
+    
+  uses:
+    helpful:
+      - "Detecting long pauses (session resumed after days)"
+      - "Greeting appropriately (good morning vs good evening)"
+      - "Flavor text (it's been a while...)"
+      - "Logging with timestamps"
+      
+    not_for:
+      - "Buff durations (use simulation turns)"
+      - "Need decay (use simulation turns)"
+      - "Combat timing (use turns)"
+      - "Any core game mechanic"
+      
+  wake_up_handlers:
+    description: |
+      If you detect a long real-time pause, trigger wake-up logic:
+      - Reassess world state
+      - Call tools to refresh external data
+      - Check what changed while paused
+      - Narrate time passage if appropriate
+      
+    detection: |
+      Compare current timestamp to last_interaction timestamp.
+      Long gap (hours, days) = session was paused.
+      
+    example: |
+      # Detecting long pause
+      last_interaction: "2025-01-03T14:00:00Z"
+      current_time: "2025-01-05T10:00:00Z"
+      gap: ~44 hours
+      
+      # Wake-up response:
+      "You blink awake. It feels like days have passed...
+      The pub looks the same, but something feels different.
+      Marieke glances up. 'Back again? The cats missed you.'"
+      
+    handlers:
+      refresh_world: "Call tools to update external data view"
+      reassess_state: "Re-read key files, check for changes"
+      narrative_bridge: "Explain the gap in story terms"
+      reset_ephemeral: "Clear stale ephemeral state"
+      
+  paused_vs_time_skip:
+    paused: |
+      Real-world pause (player went to bed).
+      Simulation time did NOT pass.
+      Resume where you left off.
+      
+    time_skip: |
+      Narrative time skip ("three days pass").
+      Simulation turns DID pass.
+      Buffs decayed, needs changed.
+      
+    difference: |
+      Paused: "Welcome back! Where were we..."
+      Time skip: "Three days later, your lamp oil is low."
+
+# TIME COMMANDS
+
+commands:
+  PAUSE:
+    syntax: "PAUSE" | "FREEZE TIME"
+    effect: |
+      Halts simulation turn advancement.
+      Actions still happen but don't tick the clock.
+      Useful for: setup, debugging, dramatic moments.
+    state: "simulation.paused = true"
+    
+  RESUME:
+    syntax: "RESUME" | "UNFREEZE TIME"
+    effect: "Resumes normal time advancement."
+    state: "simulation.paused = false"
+    
+  TICK:
+    syntax: "TICK" | "TICK [n]"
+    effect: |
+      Force advance simulation by 1 (or n) turns.
+      Triggers buff decay, need updates, turn events.
+      Useful for: testing, time-lapse, manual control.
+    example: |
+      > TICK 5
+      Five turns pass. Your lamp dims slightly.
+      The "Focus" buff expires.
+      
+  WAIT:
+    syntax: "WAIT" | "WAIT [duration]"
+    effect: |
+      Pass time intentionally (in-game action).
+      Duration can be numeric or natural language.
+    examples:
+      - "WAIT" → 1 turn
+      - "WAIT 3" → 3 turns
+      - "WAIT until evening" → LLM judges
+      
+  UNDO:
+    syntax: "UNDO" | "UNDO [n]"
+    effect: |
+      Attempt to roll back simulation by 1 (or n) turns.
+      MIGHT WORK for recent ticks if state was saved.
+      No guarantees — best effort rollback.
+    limitations:
+      - "Only works if turn snapshots exist"
+      - "External effects can't be undone"
+      - "Narrative may be awkward"
+      - "Usually only 1-3 ticks recoverable"
+    example: |
+      > UNDO
+      [Rolling back 1 turn...]
+      The kitten you dropped is back in your arms.
+      (Some things can't be unseen.)
+      
+  HISTORY:
+    syntax: "TIME HISTORY" | "TURN LOG"
+    effect: "Show recent turn history with actions."
+    example: |
+      Turn 45: Entered pub
+      Turn 46: Ordered espresso (+Caffeinated buff)
+      Turn 47: Pet Terpie (+Serenity buff)
+      Turn 48: Current
+      
+  STATUS:
+    syntax: "TIME STATUS"
+    effect: "Show current turn, active buffs, time state."
+    
+# UNDO MECHANICS
+
+undo_mechanics:
+  principle: |
+    Undo is BEST EFFORT with snapshots, DETERMINISTIC with git.
+    
+  snapshot_mode:
+    description: "In-memory or file-based snapshots"
+    limitations:
+      - "Limited depth (3-5 turns typical)"
+      - "External effects can't be undone"
+      - "Snapshots may not exist"
+    how_it_works: |
+      simulation:
+        turn: 48
+        history:
+          - turn: 47
+            snapshot: { buffs: [...], location: pub/ }
+          - turn: 46
+            snapshot: { buffs: [...], location: kitchen/ }
+            
+  git_mode:
+    description: "Git commits each turn = deterministic time travel!"
+    benefits:
+      - "EVERY turn recoverable (as far back as commits exist)"
+      - "Branch for alternate timelines"
+      - "Merge parallel narratives"
+      - "Complete audit trail"
+    config: |
+      simulation:
+        git:
+          auto_commit: true
+          auto_push: false  # Optional
+    see_also: "../simulation/PROTOTYPE.yml#git_time_machine"
+    
+  graceful_failure: |
+    > UNDO 10
+    Snapshot mode: "I can only roll back 3 turns."
+    Git mode: "Rewinding to Turn 38..." [git checkout HEAD~10]
+    
+    > UNDO
+    "That action involved the ACME delivery. 
+    The explosion can't be unexploded. Sorry."
+    (Unless you have git — then it CAN be unexploded!)
+
+integrates_with:
+  - skill: simulation
+    how: "Turn counter and state in SIMULATION.yml"
+  - skill: buff
+    how: "Buff durations measured in simulation turns"
+  - skill: needs
+    how: "Needs decay over simulation turns"
+  - skill: character
+    how: "Character state changes over turns"
+  - skill: self-repair
+    how: "Wake-up handlers can trigger repair checks"
