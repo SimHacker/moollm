@@ -678,7 +678,7 @@ Protocols degrade gracefully. At Tier 1, `why` is convention. At Tier 6, it's en
 
 Skills are **protocols the model follows**, not code the orchestrator runs.
 
-**Anthropic-compatible** with MOOLLM extensions for human readability.ognition
+**Anthropic-compatible** with MOOLLM extensions for self inheritance, k-line activation, human readability, and cognition.
 
 ### What's a Skill?
 
@@ -690,7 +690,7 @@ Skills are **protocols the model follows**, not code the orchestrator runs.
 | **Protocol** | POSTEL, robust-first | `POSTEL` |
 | **Concept** | Speed-of-light, coherence engine | `SPEED-OF-LIGHT` |
 
-**Skills can be pure knowledge.** The `constructionism/` skill has no tools — it's Seymour Papert's philosophy, documented and invokable by name.
+**Skills can be pure knowledge.** The `constructionism/` skill has no tools — it's Seymour Papert's philosophy, documented and invokable by name or card.
 
 **K-lines are skill names.** Type `POSTEL` and activate the entire tradition of charitable interpretation. Type `ADVERSARIAL-COMMITTEE` and invoke Mike Gallaher's committee methodology.
 
