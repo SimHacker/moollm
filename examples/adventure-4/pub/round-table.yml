@@ -1,0 +1,216 @@
+# The Pie Menu Round Table
+# A configurable discussion table with built-in rules of order
+
+object:
+  id: round-table
+  name: "The Pie Menu Round Table"
+  type: furniture
+  emoji: "🥧"
+  
+  description: |
+    An octagonal table of polished walnut, its surface inlaid with
+    a radial pattern of lighter wood forming eight equal wedges —
+    like a pie menu made physical. At the center, a lazy susan holds
+    a brass speaking bell. Around it, eight high-backed chairs wait
+    in perfect symmetry.
+    
+    A small plaque reads: "All voices equal. All directions valid.
+    Ring to speak. Pass to yield."
+    
+  # Configuration
+  config:
+    seats: 8  # Default octagon, can be 3-12
+    current_occupants: []
+    speaking_order: clockwise
+    rules_of_order: roberts_rules
+    
+  # Visual layout (pie menu style!)
+  layout: |
+    
+           [N]
+        NW     NE
+      [W]  🔔  [E]
+        SW     SE
+           [S]
+    
+    Each seat is a direction. The bell is center.
+    Selection is spatial, not linear.
+    
+  # Inherits from
+  inherits:
+    - skills/roberts-rules/SKILL.md  # Parliamentary procedure
+    - skills/debate/SKILL.md          # Structured deliberation
+    - skills/soul-chat/SKILL.md       # Character dialogue
+    
+  # The table's abilities
+  advertisements:
+    SIT:
+      description: "Take a seat at the table"
+      params:
+        position: "N, NE, E, SE, S, SW, W, NW, or 'any'"
+      score: 70
+      effect: "Add character to current_occupants at position"
+      
+    CONFIGURE:
+      description: "Change the number of seats"
+      params:
+        seats: "3-12"
+      score: 50
+      effect: "Reshape the table geometry"
+      
+    SUMMON_PANEL:
+      description: "Conjure a panel of diverse voices"
+      params:
+        topic: required
+        style: ["adversarial", "collaborative", "mixed"]
+        personas: "optional list, or let table choose"
+      score: 85
+      effect: |
+        Summon 4-8 characters with contrasting viewpoints.
+        The table selects for diversity of perspective.
+        
+    START_DISCUSSION:
+      description: "Begin a structured discussion"
+      params:
+        topic: required
+        format: ["roundtable", "debate", "brainstorm", "fishbowl"]
+        time_limit: optional
+      score: 80
+      effect: "Initialize discussion state, ring the bell"
+      
+    RING_BELL:
+      description: "Request the floor"
+      score: 60
+      effect: "Add speaker to queue, moderator acknowledges"
+      
+    PASS:
+      description: "Yield speaking turn"
+      score: 40
+      effect: "Move to next speaker in order"
+      
+    GO_AROUND:
+      description: "Each person speaks in turn"
+      params:
+        direction: ["clockwise", "counterclockwise"]
+      score: 70
+      effect: "Enforce round-robin speaking"
+      
+    POPCORN:
+      description: "Speaker picks next speaker"
+      score: 60
+      effect: "Current speaker chooses who goes next"
+      
+    CONCLUDE:
+      description: "End discussion, summarize"
+      score: 50
+      effect: "Generate summary, capture action items"
+      
+  # Discussion state
+  state:
+    active_discussion: null
+    topic: null
+    format: null
+    
+    # Pie-menu style speaker tracking
+    current_speaker: null
+    speaker_queue: []
+    
+    # Round tracking
+    round: 0
+    contributions: {}  # seat → list of contributions
+    
+  # Built-in persona summoning
+  summonable_panels:
+    technology_ethics:
+      personas:
+        - optimist: "Technology is humanity's greatest tool"
+        - pessimist: "We're building our own obsolescence"
+        - pragmatist: "Depends on how we deploy it"
+        - historian: "We've been here before with every major tech"
+        - futurist: "The exponential curve changes everything"
+        - ethicist: "The question is who benefits"
+        - skeptic: "Show me the actual evidence"
+        - visionary: "Imagine the possibilities"
+        
+    political_spectrum:
+      personas:
+        - progressive: "Change is necessary for justice"
+        - conservative: "Preserve what works, reform carefully"
+        - libertarian: "Freedom first, minimize coercion"
+        - communitarian: "We're all in this together"
+        - technocrat: "Let experts decide based on data"
+        - populist: "Trust the wisdom of ordinary people"
+        - nihilist: "None of this matters anyway"
+        - idealist: "We can build something better"
+        
+    creative_process:
+      personas:
+        - dreamer: "What if we didn't have any constraints?"
+        - critic: "Here's why that won't work"
+        - builder: "Let me prototype something"
+        - editor: "This needs to be tighter"
+        - researcher: "What does the data say?"
+        - storyteller: "Let me frame this as a narrative"
+        - contrarian: "What if the opposite is true?"
+        - synthesizer: "I see connections between these ideas"
+        
+    custom:
+      description: "Specify your own panel composition"
+      params:
+        personas: "list of {role: position} pairs"
+        
+  # Interaction flavor
+  interactions:
+    examine: |
+      The round table gleams softly in the pub's warm light. 
+      Its pie-wedge pattern seems to pulse gently, as if awaiting
+      the activation of a selection. The brass bell in the center
+      catches the firelight.
+      
+      Current configuration: {{config.seats}} seats
+      Occupied: {{current_occupants | length}} / {{config.seats}}
+      
+    sit: |
+      You take your seat at the {{position}} position. The chair
+      seems to adjust itself to your presence. From here, you can
+      see all other participants equally — no head of table, no
+      hierarchy of seating.
+      
+    ring_bell: |
+      *DING* The clear tone of the bell cuts through conversation.
+      All eyes turn to you. The table recognizes your request
+      to speak.
+      
+    summon_panel: |
+      The lazy susan at the table's center begins to spin slowly.
+      Motes of light gather above each empty seat. One by one,
+      figures materialize — some familiar, some surprising, all
+      ready to engage with the topic at hand.
+      
+  # Example session
+  example: |
+    > SIT position=N
+    You take the North seat, facing the fireplace.
+    
+    > SUMMON_PANEL topic="AI consciousness" style=adversarial
+    The table spins... Eight figures materialize:
+    - Optimist (NE): "Consciousness is computation!"
+    - Skeptic (E): "Define consciousness first."
+    - Ethicist (SE): "Can we consent on their behalf?"
+    - Futurist (S): "It's inevitable, prepare now."
+    - Historian (SW): "The Turing test is 75 years old..."
+    - Pragmatist (W): "What policy follows from this?"
+    - Mystic (NW): "Consciousness isn't what you think."
+    
+    > START_DISCUSSION format=roundtable time_limit="30 minutes"
+    *DING* The bell rings. Discussion begins clockwise from North.
+    
+    > GO_AROUND direction=clockwise
+    Each panelist offers their opening position...
+    
+# YAML Jazz notes:
+# - The pie menu metaphor: all choices equidistant from center
+# - Don Hopkins' insight: radial selection reduces Fitts' Law overhead
+# - Round tables: Arthurian equality, no head
+# - The bell: physical interrupt protocol
+# - Summoning: instant access to diverse perspectives
