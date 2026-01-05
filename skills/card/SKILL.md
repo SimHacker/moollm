@@ -281,6 +281,116 @@ Multiple activations  → Same card, different states
                       → Independent execution contexts
 ```
 
+### Activation Advertisements
+
+**Activation records advertise buttons that others can press.**
+
+When a card is in play, its activation exposes advertisements to the room:
+
+```yaml
+# design-room/architect-task-001.activation
+card: architect.card
+method: generate_proposal
+state:
+  iteration: 3
+  status: awaiting_feedback
+
+# These buttons are visible to everyone in the room
+advertisements:
+  APPROVE:
+    description: "Vote to approve this proposal"
+    score_if: "character.role == 'committee_member'"
+    score: 80
+    effect: "Add self to state.approvals"
+    
+  CRITIQUE:
+    description: "Provide critical feedback"
+    score_if: "character.has_expertise"
+    score: 70
+    effect: "Append to state.feedback_received"
+    
+  REVISE:
+    description: "Request another iteration"
+    score_if: "state.feedback_received.length > 0"
+    score: 60
+    effect: "Increment state.iteration, reset status"
+    
+  FINALIZE:
+    description: "Lock in the design"
+    score_if: "state.approvals.length >= quorum"
+    score: 90
+    effect: "Set status = 'finalized'"
+```
+
+### Room-Driven Activation
+
+**The room itself can press buttons on cards in play.**
+
+Rooms aren't passive containers — they're participants:
+
+```yaml
+# design-room/ROOM.yml
+room:
+  name: "Design Chamber"
+  
+  # Room behavior toward activations
+  on_tick:
+    - scan: activations
+      condition: "activation.status == 'awaiting_feedback' AND time_since_last_feedback > 1h"
+      action: "NUDGE activation  # Room prods for attention"
+      
+    - scan: activations
+      condition: "activation.status == 'stalled'"
+      action: "ESCALATE activation  # Room alerts supervisor"
+      
+  # Room can vote on proposals!
+  advertisements:
+    ROOM_VETO:
+      description: "Room rejects proposals that violate zoning"
+      score_if: "proposal.violates_room_constraints"
+      score: 100  # Highest priority
+      effect: "Add 'room' to activation.rejections"
+```
+
+### Emergent Collaboration
+
+This creates rich emergent behavior:
+
+```
+┌─────────────────────────────────────────────────────┐
+│ design-room/                                        │
+│                                                     │
+│  ┌─────────────────────┐  ┌─────────────────────┐  │
+│  │ architect-001       │  │ critic-001          │  │
+│  │ status: awaiting    │  │ status: reviewing   │  │
+│  │ [APPROVE] [CRITIQUE]│  │ [SUBMIT] [ABSTAIN]  │  │
+│  └─────────────────────┘  └─────────────────────┘  │
+│                                                     │
+│  Characters see buttons, press them:                │
+│  - Maya: CRITIQUE (paranoid)                        │
+│  - Frankie: APPROVE (optimist)                      │
+│  - Room: NUDGE (timeout)                            │
+│                                                     │
+│  Buttons trigger state changes, cascade effects     │
+└─────────────────────────────────────────────────────┘
+```
+
+### Cross-Card Interaction
+
+Cards in play can press each other's buttons:
+
+```yaml
+# When evaluator-001 completes scoring...
+on_complete:
+  if: score < threshold
+  then: 
+    - find: architect-001.activation
+    - press: REVISE
+    - with: { feedback: self.critique }
+```
+
+This is **The Sims meets Magic: The Gathering** — autonomous agents with triggered abilities interacting through advertised actions.
+
 ---
 
 ## Cards Advertise
