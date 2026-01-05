@@ -24,43 +24,127 @@ object:
     speaking_order: clockwise
     rules_of_order: roberts_rules
     
-  # Visual layout (pie menu style!)
-  layout: |
+  # ===========================================
+  # TABLE LAYOUT — Customize slices and center
+  # ===========================================
+  
+  table_layout:
+    slices: 8  # Number of pie slices (3-12)
     
-           [N]
-        NW     NE
-      [W]   🔔  [E]
-        SW     SE
-           [S]
+    # ASCII visualization (auto-generated from slice config)
+    visual: |
+      
+             [N]
+          NW     NE
+        [W]   🔔  [E]
+          SW     SE
+             [S]
+      
+    # CENTER — what's in the middle of the table
+    center:
+      address: "pub/pie-table.yml#center"
+      contents:
+        - type: bell
+          name: "Speaking Bell"
+          emoji: "🔔"
+          description: "Ring to request the floor"
+        - type: lazy_susan
+          name: "Lazy Susan"
+          emoji: "🔄"
+          description: "Spin to share items around the table"
+      occupant: null  # Someone could stand at center for announcements
+      
+    # SLICES — each compass direction and what's there
+    # Directions are STABLE — removing a chair empties the slice, not the direction
+    slices:
+      N:
+        address: "pub/pie-table.yml#N"
+        contents:
+          - type: chair
+            style: "high-backed walnut"
+        occupant: null
+        # When occupied, occupant has sub-YAML:
+        # occupant:
+        #   id: maya
+        #   location: pub/pie-table.yml#N  # Bidirectional!
+        #   seated_at: "2026-01-05T19:30:00Z"
+        
+      NE:
+        address: "pub/pie-table.yml#NE"
+        contents:
+          - type: chair
+            style: "high-backed walnut"
+        occupant: null
+        
+      E:
+        address: "pub/pie-table.yml#E"
+        contents:
+          - type: chair
+            style: "high-backed walnut"
+          - type: serving_tray
+            name: "Snack Station"
+            items: ["stroopwafels", "bitterballen"]
+        occupant: null
+        
+      SE:
+        address: "pub/pie-table.yml#SE"
+        contents:
+          - type: chair
+            style: "high-backed walnut"
+        occupant: null
+        
+      S:
+        address: "pub/pie-table.yml#S"
+        contents:
+          - type: chair
+            style: "high-backed walnut"
+        occupant:
+          id: bumblewick-fantastipants
+          location: pub/pie-table.yml#S  # Bidirectional reference!
+          seated_at: "2026-01-05T18:00:00Z"
+          posture: "leaning back, thinking"
+        
+      SW:
+        address: "pub/pie-table.yml#SW"
+        contents:
+          - type: chair
+            style: "high-backed walnut"
+        occupant: null
+        
+      W:
+        address: "pub/pie-table.yml#W"
+        contents:
+          - type: chair
+            style: "high-backed walnut"
+          - type: drink_holder
+            capacity: 4
+            current: ["coffee mug", "water glass"]
+        occupant: null
+        
+      NW:
+        address: "pub/pie-table.yml#NW"
+        contents:
+          - type: chair
+            style: "high-backed walnut"
+        occupant: null
+        
+  # Summary view (computed from slices)
+  seating_chart: |
     
-    Each seat is a direction. The bell is center.
-    Selection is spatial, not linear.
+           [ ]          N  - empty
+        [ ]    [ ]      NE - empty / NW - empty
+      [ ]   🔔   [E]    W  - empty (has drinks) / E - empty (has snacks)
+        [ ]    [ ]      SW - empty / SE - empty
+           [B]          S  - Bumblewick 🧙
     
-  # Addressable seats — characters parent to chairs
-  # Set character.location to seat address:
-  # Compass directions are STABLE — removing a chair empties the slice
-  seats:
-    N:  { address: "pub/pie-table.yml#N",  has_chair: true, occupant: null }
-    NE: { address: "pub/pie-table.yml#NE", has_chair: true, occupant: null }
-    E:  { address: "pub/pie-table.yml#E",  has_chair: true, occupant: null }
-    SE: { address: "pub/pie-table.yml#SE", has_chair: true, occupant: null }
-    S:  { address: "pub/pie-table.yml#S",  has_chair: true, occupant: null }
-    SW: { address: "pub/pie-table.yml#SW", has_chair: true, occupant: null }
-    W:  { address: "pub/pie-table.yml#W",  has_chair: true, occupant: null }
-    NW: { address: "pub/pie-table.yml#NW", has_chair: true, occupant: null }
-    center: { address: "pub/pie-table.yml#center", has_chair: false, occupant: null }  # The bell
-    
-  # When has_chair: false, the slice exists but you can't sit there
-  # Musical chairs sets has_chair: false to remove chairs
-  # Addresses remain stable: pub/pie-table.yml#NE always means NE
-    
-  # Example: Maya sits at Southwest
-  # In maya.yml:
-  #   location: pub/pie-table.yml#SW
-  #
-  # This parents Maya to the SW chair.
-  # The table tracks her in seats.SW.occupant
-  # When she stands, her location returns to pub/
+  # BIDIRECTIONAL REFERENCES:
+  # When Bumblewick sits at S:
+  #   - pie-table.yml#S.occupant.id = "bumblewick-fantastipants"
+  #   - pie-table.yml#S.occupant.location = "pub/pie-table.yml#S"
+  #   - bumblewick-fantastipants.yml.location = "pub/pie-table.yml#S"
+  # 
+  # Both point to each other! The table knows who's sitting,
+  # and the character knows where they're sitting.
     
   # Inherits from
   inherits:
