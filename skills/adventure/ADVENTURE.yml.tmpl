@@ -1,83 +1,131 @@
 # ADVENTURE.yml — Complete Adventure State
 # 
-# This file IS the simulation state for narrative adventures.
-# It inherits from the simulation skill and adds adventure-specific fields.
-#
-# Don't create a separate SIMULATION.yml — this IS it.
+# This file IS the simulation. Reading it = loading the world.
+# Comments are semantic data. The LLM reads them. They matter.
+# Don't create a separate SIMULATION.yml - this is it!
 
 # SIMULATION PROPERTIES (inherited from simulation skill)
 
 simulation:
-  turn: 0
-  paused: false
+  turn: 0                    # Fresh start. Everything is possible.
+  paused: false              # Time flows. Stories happen.
   
 parameters:
   time:
-    advancement: normal  # none | slow | normal | fast
+    advancement: normal      # One tick per room. Enough to feel movement.
+    # Options: none (frozen), slow (half), normal (1:1), fast (double)
     
   git:
-    auto_commit: false
-    auto_push: false
+    auto_commit: false       # Manual commits until you trust the flow
+    auto_push: false         # Keep it local until ready to share
+    # When true: every turn becomes an undo point
     
   display:
-    narration_level: normal  # minimal | normal | verbose
-    show_mechanics: false
-    debug_mode: false
+    narration_level: normal  # Describe what matters, skip what doesn't
+    # minimal: Just facts. "You're in the pub."
+    # normal: Atmosphere and action. Default.
+    # verbose: Every detail. For savoring moments.
+    show_mechanics: false    # Hide the gears. Show the magic.
+    debug_mode: false        # No peeking behind the curtain
     
   output:
-    write_to_chat: true
-    write_to_transcript: true
-    transcript_path: ./README.md
-    include_yaml_islands: true
-    include_links: true
-    link_format: markdown  # markdown | plain | none
+    write_to_chat: true      # Talk to me
+    write_to_transcript: true   # Remember everything
+    transcript_path: ./README.md  # The story lives here
+    include_yaml_islands: true   # Show me the data. I want to see it change.
+    include_links: true          # Make everything clickable
+    link_format: markdown        # [like this](./path)
     
   gameplay:
-    difficulty: normal  # easy | normal | hard
+    difficulty: normal       # Fair challenges. Earned victories.
+    # easy: Forgiving. Good for exploration.
+    # normal: Balanced. The intended experience.
+    # hard: Demanding. For masochists and masters.
 
-# PARTY & SELECTION (from simulation)
+# PARTY & SELECTION
 
 player:
-  character: "{{ player_path }}"
-  location: "{{ starting_room }}"
+  character: "{{ player_path }}"   # You. The one reading this.
+  location: "{{ starting_room }}"  # Where your story begins
   
 party:
-  members: ["{{ player_path }}"]
-  leader: "{{ player_path }}"
+  members:
+    - "{{ player_path }}"    # Just you for now. Friends come later.
+  leader: "{{ player_path }}" # You're in charge. For now.
+  # Companions join through: RECRUIT, asking NPCs, emergent creation
   
 selection:
-  targets: []
+  targets: []                # No one selected. Commands go to you.
+  # SELECT [target] to direct commands elsewhere
+  # Can be characters, rooms, objects, concepts
 
-# WORLD STATE (from simulation)
+# WORLD STATE
 
 active_buffs: []
-world_state: {}
-flags: {}
+# Buffs accumulate here. Format:
+# - name: "Caffeinated"
+#   source: pub/coffee.yml
+#   effect: "+1 to focus checks"
+#   remaining_turns: 5
+#   # Wearing off. Better get another cup.
 
-# ADVENTURE-SPECIFIC PROPERTIES
+world_state: {}
+# Global state that doesn't fit elsewhere
+# Good for: weather, time_of_day, world events
+
+flags: {}
+# Binary quest flags. Keep it simple.
+# quest_accepted: true
+# dragon_slain: false
+# secret_discovered: false
+
+# ADVENTURE-SPECIFIC
 
 adventure:
   name: "{{ adventure_name }}"
   objective: "{{ quest_objective }}"
-  status: active  # active | completed | abandoned
+  # The objective guides everything. Make it specific enough to complete,
+  # vague enough to surprise. "Find the truth" > "Go to room 5"
+  status: active             # active | completed | abandoned
   started: "{{ created_date }}"
 
 navigation:
   starting_room: "{{ starting_room }}"
   current_room: "{{ starting_room }}"
+  # The LLM updates current_room on every GO command
   rooms_visited: []
+  # History of exploration. Can't unlearn a place.
 
 evidence:
   clues: []
+  # - id: clue-001
+  #   found_in: path/to/room
+  #   content: "What you found"
+  #   significance: high  # high | medium | low
+  #   # High significance clues advance the plot
+  
   items: []
+  # - name: "Brass Key"
+  #   path: path/to/key.yml
+  #   acquired: "timestamp"
+  #   # Keys open doors. What does this one open?
+  
   characters_met: []
+  # - name: "Marieke"
+  #   path: pub/budtender-marieke.yml
+  #   first_met: "timestamp"
+  #   relationship: friendly
+  #   # She remembers you. What do you remember about her?
 
-quest_log:
-  - "{{ created_date }}: Adventure begun - {{ quest_objective }}"
+quest_log: []
+# Append-only. The story so far.
+# - "Day 1: Woke up in the start room. No memory of how I got here."
+# - "Day 1: Met a friendly cat. It seems to know something."
 
 statistics:
-  rooms_explored: 0
-  clues_found: 0
-  items_acquired: 0
-  characters_met: 0
-  turns_elapsed: 0
+  rooms_explored: 0          # Places you've been
+  clues_found: 0             # Pieces of the puzzle
+  items_acquired: 0          # Things you carry
+  characters_met: 0          # People (and cats) you know
+  turns_elapsed: 0           # Time spent in this world
+  # Stats tell a story. Low rooms + high turns = thorough. High rooms + low turns = rushing.

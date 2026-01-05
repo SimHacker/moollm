@@ -1,27 +1,24 @@
-# ADVENTURE.yml — Complete Adventure State
+# ADVENTURE.yml — Adventure 3 State
 #
-# This file IS the simulation state for this adventure.
-# Inherits from simulation skill, adds adventure-specific fields.
-# No separate SIMULATION.yml needed.
-
-# SIMULATION PROPERTIES
+# This file IS the simulation. Reading it = loading the world.
+# Comments are semantic data. The LLM reads them. They matter.
 
 simulation:
-  turn: 1
-  paused: false
+  turn: 1                    # Just begun. The whole world awaits.
+  paused: false              # Time flows. Stories happen.
   
 parameters:
   time:
-    advancement: normal
-    time_of_day: morning
+    advancement: normal      # One tick per room
+    time_of_day: morning     # Fresh light. New possibilities.
     
   git:
     auto_commit: false
     auto_push: false
     
   display:
-    narration_level: normal
-    show_mechanics: false
+    narration_level: normal  # Rich but not overwhelming
+    show_mechanics: false    # Hide the math. Show the story.
     debug_mode: false
     
   output:
@@ -31,15 +28,13 @@ parameters:
     include_yaml_islands: true
     include_links: true
     link_format: markdown
-    
+
   gameplay:
     difficulty: normal
 
-# PARTY & SELECTION
-
 player:
-  character: characters/don-hopkins/
-  location: start/
+  character: characters/don-hopkins/   # Don Hopkins. Explorer. Builder.
+  location: start/                     # The beginning. Again.
   
 party:
   members:
@@ -47,20 +42,20 @@ party:
   leader: characters/don-hopkins/
   
 selection:
-  targets: []
-
-# WORLD STATE
+  targets: []                # Commands go to Don
 
 active_buffs: []
+# Nothing yet. Visit the pub for enhancement.
 
-world_state: {}
+world_state:
+  weather: clear             # Good for exploring
 
 flags:
   grue_slain: false
   treasure_found: false
   mother_visited: false
-
-# ADVENTURE-SPECIFIC
+  pub_discovered: false
+  cat_cave_found: false
 
 adventure:
   name: "Adventure 3 — Fresh Start"
@@ -87,17 +82,16 @@ statistics:
   characters_met: 0
   turns_elapsed: 0
 
-# MULTI-PLAYER (optional)
-#
-# For multi-player adventures, add:
-#
-# active_players:
-#   - characters/don-hopkins/
-#   - characters/other-player/
-#
-# chat_target: characters/don-hopkins/
-#
-# Commands:
-#   @player-name message     # Direct to specific player
-#   SELECT player-name       # Switch control
-#   PLAYERS                  # List active players
+# SEED — Generation Guidance
+seed:
+  tone: whimsical but grounded
+  # Pratchett not Tolkien
+  
+  themes:
+    - discovery over combat
+    - relationships matter
+    - small moments are big
+    - cats know things
+    
+  aesthetic: cozy Amsterdam coffeeshop meets text adventure
+  # Warm wood, soft lighting, interesting regulars
