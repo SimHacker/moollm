@@ -927,7 +927,7 @@ properties:
 The key glints mysteriously in the lamplight...
 ```
 
-**Promotion pattern:** If you need to EDIT an object after creation, pop it out to its own `.yml` file and link from the log. This keeps the log read-only:
+**Promotion pattern:** If you need to EDIT an object after creation, pop it out to its own `.yml` file and link from the log. This keeps the log read-only (except for retroactive Ninja Edits to pop out object, replace with reference, and update references):
 
 ```yaml
 # pub/mysterious-key.yml — promoted from LOG.md#mysterious-key

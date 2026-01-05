@@ -173,6 +173,68 @@ The skill has been **instantiated** — it has files, state, persistence.
 
 ---
 
+## State Persistence Tiers
+
+Skills can persist state at three levels:
+
+| Tier | Where | Lifespan | Example |
+|------|-------|----------|---------|
+| **Platform chat** | Cursor/Claude session | Ephemeral (lost on close) | Tool calls, diffs, thinking |
+| **Narrative log** | `TRANSCRIPT.md`, `LOG.md` | Durable (read-mostly) | Data islands, event records |
+| **State files** | `*.yml` | Durable (read-write) | Characters, rooms, inventory |
+
+### Data Islands in Logs
+
+Objects can be embedded as YAML code blocks directly in narrative logs with unique addressable IDs. No file needed for objects that don't change:
+
+```yaml
+# LOG.md embedded object — addressable as LOG.md#session-artifact
+id: session-artifact
+type: skill-output
+created_by: play-learn-lift
+phase: LEARN
+patterns_found:
+  - "API requires auth header"
+  - "Pagination uses cursor"
+```
+
+### Promotion Pattern
+
+If you need to **edit** an object after creation, promote it to a `.yml` file:
+
+```yaml
+# skills-learned.yml — promoted from LOG.md#session-artifact
+id: session-artifact
+inherits:
+  - LOG.md#session-artifact  # Birth state preserved in log
+patterns_found:
+  - "API requires auth header"
+  - "Pagination uses cursor"  
+  - "Rate limit is 100/minute"  # New! Added after promotion
+```
+
+**Rule:** Keep logs read-only. Promote to files when editing needed.
+
+### Inheritance from Log Entries
+
+Use `LOG.md#object-id` syntax to inherit from an object's "birth state":
+
+- **Birth state** → in narrative log (immutable record)
+- **Current state** → in promoted file (differential edits)
+
+### Placement Decisions
+
+| Context | Suggested Location |
+|---------|-------------------|
+| Personal to character | `characters/name/artifact.yml` |
+| Belongs to room | `rooms/room-name/artifact.yml` |
+| Shared resource | `shared/artifact.yml` |
+| Skill prototype | `skills/skill-name/artifact.yml.tmpl` |
+
+LLM decides by context, or skill documentation specifies placement rules.
+
+---
+
 ### Skill Acquisition Through Interaction
 
 **Interacting with objects AND characters can teach skills.** Characters carry learned skills with them:
@@ -267,6 +329,44 @@ Every skill directory contains:
 | `README.md` | Human-friendly GitHub landing page | ✓ |
 | `SKILL.md` | Full spec with YAML frontmatter | ✓ |
 | `*.tmpl` | Templates at root level | Optional |
+| `*.py` | Sister scripts for automation | Optional |
+
+### Scripts in Skills
+
+When skills include Python scripts, structure them for dual human/LLM consumption:
+
+```python
+#!/usr/bin/env python3
+"""skill-name: Brief description.
+
+This docstring becomes --help AND is visible to the LLM.
+"""
+
+# === IMPORTS ===
+import click
+from pathlib import Path
+
+# === CONSTANTS ===
+DEFAULT_ROOM = "start"
+
+# === CLI STRUCTURE ===
+@click.group()
+def cli():
+    """Main entry point."""
+    pass
+
+@cli.command()
+def status():
+    """Show current state."""
+    ...
+```
+
+| Consumer | How They Learn |
+|----------|----------------|
+| Human | `./tool.py --help` |
+| LLM | Reads `tool.py` directly — sees structure in 30 lines |
+
+**DRY:** Command structure written once as Python code. No duplicate docs.
 
 ### SKILL.md Structure
 
