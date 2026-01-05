@@ -365,6 +365,17 @@ skills:
     related: ["adversarial-committee", "rubric", "room"]
     credits: "Mike Gallaher"
     
+  - name: "debate"
+    path: "skills/debate"
+    description: "Structured multi-perspective deliberation through adversarial dialogue"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "DEBATE"
+    tags: ["decision", "deliberation", "ensemble", "dataflow"]
+    use_when: "Complex decisions need structured cross-examination"
+    related: ["adversarial-committee", "roberts-rules", "rubric", "evaluator", "card", "speed-of-light"]
+    credits: "Mike Gallaher, Don Hopkins"
+    
   - name: "debugging"
     path: "skills/debugging"
     description: "Systematic bug investigation with hypothesis tracking"
