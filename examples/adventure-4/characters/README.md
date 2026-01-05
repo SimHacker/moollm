@@ -199,7 +199,7 @@ hunger: 1   # STARVING. Will eat anything. Even that.
 ## Architecture: What Lives Where
 
 ```
-adventure-3/
+adventure-4/
 │
 ├── characters/          # WHO — Characters (have location reference)
 │   ├── don-hopkins.yml     location: start/

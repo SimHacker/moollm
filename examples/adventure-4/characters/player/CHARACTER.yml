@@ -1,10 +1,8 @@
-# ═══════════════════════════════════════════════════════════════════════════════
 # THE ADVENTURER — A New Hero Awakens
 # 
 # YAML JAZZ CHARACTER FILE — Every comment is DATA the LLM reads!
 # This is a NEUTRAL template. Visit the coatroom to customize!
 # When needs change, UPDATE THE COMMENTS to match!
-# ═══════════════════════════════════════════════════════════════════════════════
 
 player:
   name: "Unknown Hero"
@@ -24,9 +22,7 @@ player:
     
   current_persona: null   # Visit Maurice in the coatroom!
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # STATE — Where am I, what do I have?
-# ═══════════════════════════════════════════════════════════════════════════════
 
   location: start/
   
@@ -45,14 +41,12 @@ player:
   grues_slain: 0
   mood: AWAKENING
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # THE SIMS PERSONALITY TRAITS (Will Wright, 2000)
 # Behavioral tendencies — relatively stable
 # Rate 0-10: opposites at each extreme
 # 
 # NEUTRAL VALUES (5) — Customize these in the coatroom!
 # YAML Jazz comments make personality SPECIFIC and VIVID.
-# ═══════════════════════════════════════════════════════════════════════════════
 
   sims_traits:
     neat: 5               # Neither messy nor fastidious.
@@ -75,14 +69,12 @@ player:
                           # Treats others as they treat them.
                           # Inner voice: "Fair is fair."
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # MIND MIRROR PROFILE (Leary's Four Thought Planes)
 # Comments are the character's INNER VOICE about each dimension!
 # Rate 0-7: 0=Never, 2=Rarely, 4=Sometimes, 5=Often, 7=Always
 #
 # NEUTRAL VALUES (4) — Balanced, adaptable, undefined potential.
 # The adventure will shape who you become!
-# ═══════════════════════════════════════════════════════════════════════════════
 
   mind_mirror:
   
@@ -194,13 +186,11 @@ player:
       respectable: 4      # Earns respect, doesn't demand it.
                           # Inner voice: "Judge me by my actions."
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # NEEDS — Dynamic, fluctuating, drive behavior!
 # COMMENTS ARE DYNAMIC! Update them when values change!
 # The comment IS my inner voice about that need RIGHT NOW.
 #
 # Starting values: Well-rested, ready to adventure!
-# ═══════════════════════════════════════════════════════════════════════════════
 
   needs:
     hunger: 7             # Had breakfast. Good for now.
@@ -227,10 +217,8 @@ player:
     room: 6               # The Chamber is fine. But what else is there?
                           # Inner voice: "Where does that door lead?"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # WANTS — Short-term desires emerging from needs
 # These drive dialogue and immediate goals
-# ═══════════════════════════════════════════════════════════════════════════════
 
   wants:
     - "Explore this place"
@@ -238,10 +226,8 @@ player:
     - "Get that lamp — it looks useful"
     - "Read that note Mother left"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # ASPIRATIONS — Long-term goals persisting across sessions
 # Track progress and drive major narrative arcs
-# ═══════════════════════════════════════════════════════════════════════════════
 
   aspirations:
     - goal: "Find treasure"
@@ -262,10 +248,8 @@ player:
       reward: "Adventure complete!"
       # The stairway leads UP to home...
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # RECENT MEMORIES — Affect mood and narrative
 # (Empty — your story is unwritten!)
-# ═══════════════════════════════════════════════════════════════════════════════
 
   recent_memories: []
   # Example:
@@ -273,9 +257,7 @@ player:
   #   mood_effect: "+1 curious"
   #   narrative: "Where am I? Who am I?"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # RELATIONSHIPS — Who do I know and how do I feel about them?
-# ═══════════════════════════════════════════════════════════════════════════════
 
   relationships:
     mother:
@@ -287,9 +269,7 @@ player:
         There's a note on the kitchen table.
         I should read it. I should write back.
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # GOALS — What am I trying to accomplish right now?
-# ═══════════════════════════════════════════════════════════════════════════════
 
   goals:
     - "Figure out where I am"
@@ -297,10 +277,8 @@ player:
     - "Read Mother's note"
     - "Explore safely"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # SKILLS — Learned through play
 # (Empty — skills are acquired by interacting with objects and characters!)
-# ═══════════════════════════════════════════════════════════════════════════════
 
   skills: []
   # Maurice can teach PHOTO-SET-8
@@ -308,17 +286,13 @@ player:
   # The vending machine... has opinions
   # Craft recipes at the kitchen counter!
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # EFFECTS — Temporary status effects
 # (None yet — your story is unwritten!)
-# ═══════════════════════════════════════════════════════════════════════════════
 
   effects: {}
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # WORLD KNOWLEDGE — Things this character knows about the world
 # (Inherited improvements from adventure-2)
-# ═══════════════════════════════════════════════════════════════════════════════
 
   world_knowledge:
     - "Maurice the Mannequin knows PHOTO-SET-8 (learned in adventure-2)"
@@ -327,9 +301,7 @@ player:
     - "A skeleton in Room I points west, towards the vending machine"
     - "Initials on the Chamber wall: WC+DW '76, SA '78, CA '26"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # ABBREVIATED PROFILE — For quick reference by the Coherence Engine
-# ═══════════════════════════════════════════════════════════════════════════════
 
   abbreviated:
     personality: [balanced, adaptable, curious, undefined]
@@ -342,9 +314,7 @@ player:
       - "Asks questions before acting"
       - "Remembers promises"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # META — Adventure context
-# ═══════════════════════════════════════════════════════════════════════════════
 
   meta:
     adventure: 3

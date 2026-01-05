@@ -176,7 +176,7 @@ If you promised to do them and actually DO:
 | Direction | Destination |
 |-----------|-------------|
 | 🚪 Down | [start/](../start/) — Back to Chamber |
-| ⬆️ Up | [adventure-3/](../) |
+| ⬆️ Up | [adventure-4/](../) |
 
 ---
 

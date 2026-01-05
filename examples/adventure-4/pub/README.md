@@ -7,8 +7,8 @@
 
 ## 📍 Location
 
-**Path:** `adventure-3/pub/`  
-**Parent:** [../](../) (adventure-3 root)  
+**Path:** `adventure-4/pub/`  
+**Parent:** [../](../) (adventure-4 root)  
 **Exits:** NORTH → [../start/](../start/) | UP → rooms/ | BACK → ???
 
 ---

@@ -290,4 +290,4 @@ These skills persist in your character file and travel with you!
 | 🚪 West | [start/](../start/) — Chamber of Commencement |
 | 🍳 (via start) | [kitchen/](../kitchen/) — Food for maze mapping |
 | 🌀 (via start) | [maze/](../maze/) — The grue-infested maze |
-| ⬆️ Up | [adventure-3/](../) |
+| ⬆️ Up | [adventure-4/](../) |

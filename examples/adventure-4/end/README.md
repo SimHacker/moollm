@@ -49,6 +49,6 @@ Options:
 
 | Direction | Destination |
 |-----------|-------------|
-| ⬆️ Up | [adventure-3/](../) |
+| ⬆️ Up | [adventure-4/](../) |
 | 🌀 South | [maze/room-d/](../maze/room-d/) |
 | 🚪 Start | [../start/](../start/) |

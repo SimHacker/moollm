@@ -264,7 +264,7 @@ tower/            # Height, wind, view mechanics
 
 ## Navigation
 
-| ⬆️ Up | [adventure-3/](../) |
+| ⬆️ Up | [adventure-4/](../) |
 |-------|---------------------|
 | 🚪 Start | [../start/](../start/) |
 | 🏆 End | [../end/](../end/) |

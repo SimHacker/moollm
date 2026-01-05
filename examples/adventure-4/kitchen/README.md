@@ -188,7 +188,7 @@ Your navigation pet! Part GPS, part friend, part oracle.
 | 🎭 (via start) | [coatroom/](../coatroom/) — Be anyone! |
 | 🌀 (via start) | [maze/](../maze/) — The dark maze |
 | 🏠 (via start UP) | [home/](../home/) — Mother waits |
-| ⬆️ Up | [adventure-3/](../) |
+| ⬆️ Up | [adventure-4/](../) |
 
 ---
 

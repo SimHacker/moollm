@@ -1,30 +1,31 @@
-# ADVENTURE.yml — Adventure 3 State
+# ADVENTURE.yml — Adventure 4 State
 #
 # This file IS the simulation. Reading it = loading the world.
 # Comments are semantic data. The LLM reads them. They matter.
 
 simulation:
-  turn: 1                    # Just begun. The whole world awaits.
-  paused: false              # Time flows. Stories happen.
+  turn: 0
+  paused: false
   
 parameters:
   time:
-    advancement: normal      # One tick per room
-    time_of_day: morning     # Fresh light. New possibilities.
+    advancement: normal
+    time_of_day: morning
     
   git:
     auto_commit: false
     auto_push: false
     
   display:
-    narration_level: normal  # Rich but not overwhelming
-    show_mechanics: false    # Hide the math. Show the story.
+    narration_level: normal
+    show_mechanics: false
     debug_mode: false
     
   output:
     write_to_chat: true
     write_to_transcript: true
-    transcript_path: ./README.md
+    transcript_path: ./TRANSCRIPT.md
+    log_path: ./LOG.md
     include_yaml_islands: true
     include_links: true
     link_format: markdown
@@ -33,22 +34,21 @@ parameters:
     difficulty: normal
 
 player:
-  character: characters/don-hopkins/   # Don Hopkins. Explorer. Builder.
-  location: start/                     # The beginning. Again.
+  character: characters/player/
+  location: start/
   
 party:
   members:
-    - characters/don-hopkins/
-  leader: characters/don-hopkins/
+    - characters/player/
+  leader: characters/player/
   
 selection:
-  targets: []                # Commands go to Don
+  targets: []
 
 active_buffs: []
-# Nothing yet. Visit the pub for enhancement.
 
 world_state:
-  weather: clear             # Good for exploring
+  weather: clear
 
 flags:
   grue_slain: false
@@ -58,9 +58,9 @@ flags:
   cat_cave_found: false
 
 adventure:
-  name: "Adventure 3 — Fresh Start"
+  name: "Adventure 4 — A New Beginning"
   objective: "Explore the world, make friends, find purpose"
-  status: active
+  status: ready
   started: null
 
 navigation:
@@ -82,10 +82,8 @@ statistics:
   characters_met: 0
   turns_elapsed: 0
 
-# SEED — Generation Guidance
 seed:
   tone: whimsical but grounded
-  # Pratchett not Tolkien
   
   themes:
     - discovery over combat
@@ -94,4 +92,3 @@ seed:
     - cats know things
     
   aesthetic: cozy Amsterdam coffeeshop meets text adventure
-  # Warm wood, soft lighting, interesting regulars

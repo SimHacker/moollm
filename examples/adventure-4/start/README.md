@@ -94,7 +94,7 @@ collector's stamps honoring the founders of interactive fiction!
 
 | Direction | Destination |
 |-----------|-------------|
-| ⬆️ Up | [adventure-3/](../) |
+| ⬆️ Up | [adventure-4/](../) |
 | 🌀 North | [maze/room-a/](../maze/room-a/) |
 | 🍺 South | [pub/](../pub/) |
 | 🍳 West | [kitchen/](../kitchen/) |
