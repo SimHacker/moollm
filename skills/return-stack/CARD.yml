@@ -2,11 +2,14 @@
 #
 # Navigation history as first-class continuation.
 # "Remember where you came from."
+#
+# Inspired by Self's dynamic deoptimization — reconstruct
+# what the stack WOULD have been, even without explicit tracking.
 
 card:
   id: return-stack
   name: "Return Stack"
-  type: [skill, navigation, memory]
+  type: [skill, navigation, memory, debugging]
   emoji: 🔙
   rarity: common
   
@@ -14,10 +17,83 @@ card:
     Navigation history like browser back/forward. Save positions,
     return to them. The stack is a first-class object you can
     manipulate.
+    
+    PLUS: Self-inspired dynamic deoptimization — reconstruct
+    causal traces after the fact for debugging, even when no
+    explicit stack was maintained during execution.
 
 tools:
   required: [read_file, write_file]
 tier: 1
+
+# DYNAMIC DEOPTIMIZATION (Self-inspired)
+
+dynamic_deoptimization:
+  inspiration: |
+    Self (the language) aggressively inlines method calls for performance,
+    eliminating the return stack entirely. But when you hit a breakpoint
+    or error, it DYNAMICALLY DEOPTIMIZES — reconstructing what the stack
+    WOULD have looked like if inlining hadn't happened.
+    
+    This is perfect for debugging: you get performance AND debuggability.
+    
+  moollm_application: |
+    MOOLLM doesn't maintain an explicit call stack during normal operation.
+    Methods invoke methods, advertisements trigger actions, effects cascade.
+    
+    But at any point — error, breakpoint, or curiosity — MOOLLM can
+    RECONSTRUCT the causal trace:
+    
+    "How did we get here? What caused what?"
+    
+  reconstructed_trace:
+    description: |
+      After-the-fact generation of a causal stack showing:
+      - Which advertisement was triggered
+      - What method was invoked
+      - What parameters were passed
+      - What effects cascaded
+      - What state changed
+      
+    example: |
+      🔍 CAUSAL TRACE (reconstructed):
+      
+      ┌─ [1] User: "TAKE the key"
+      │
+      ├─ [2] Advertisement matched: pub/key.yml → TAKE
+      │      score: 95, condition: "player wants to pick up object"
+      │
+      ├─ [3] Method invoked: adventure/TAKE
+      │      parameters: { item: "key", actor: "don-hopkins" }
+      │
+      ├─ [4] Effect: key.location ← "don-hopkins/inventory"
+      │      previous: "pub/bar-counter.yml"
+      │
+      ├─ [5] Side effect: pub/bar-counter.yml updated
+      │      removed: "key" from contents
+      │
+      └─ [6] Narrative generated: "You pick up the brass key..."
+      
+    debugging_use: |
+      When something goes wrong, RECONSTRUCT TRACE shows exactly
+      what happened:
+      
+      "Why does the key have location: null?"
+      
+      → Trace reconstruction reveals step [4] failed because
+        inventory file didn't exist yet.
+        
+  vs_explicit_stack: |
+    EXPLICIT STACK (traditional):
+      - Maintained during execution
+      - Overhead for every call
+      - Always available
+      
+    DYNAMIC DEOPTIMIZATION (Self/MOOLLM):
+      - No overhead during normal execution
+      - Reconstructed on demand
+      - "What WOULD the stack have been?"
+      - Perfect for debugging without runtime cost
 
 methods:
   PUSH:
@@ -49,11 +125,41 @@ methods:
     parameters: { label: "Bookmark name" }
     output: chat + state_change
     invoked_by: [player]
+    
+  # Dynamic deoptimization methods
+  
+  TRACE:
+    description: "Reconstruct causal trace for how we got to current state"
+    parameters:
+      target: "What to trace (file, state change, error)"
+      depth: "How far back to trace (default: full)"
+    output: chat (formatted trace)
+    effect: "Analyze history to reconstruct cause/effect chain"
+    invoked_by: [player, debugger]
+    
+  WHY:
+    description: "Ask why something has its current value"
+    parameters:
+      what: "The thing to explain (file path, field, state)"
+    output: chat (causal explanation)
+    effect: "Trace backwards to find cause"
+    invoked_by: [player]
+    
+  BLAME:
+    description: "Find what action/method caused a particular change"
+    parameters:
+      change: "The change to investigate"
+    output: chat (responsible action)
+    effect: "Git-blame style attribution for state changes"
+    invoked_by: [player, debugger]
 
 state:
   stack:
     entries: { type: array, description: "Stack of positions" }
     bookmarks: { type: object, description: "Named positions" }
+  trace_cache:
+    recent_actions: { type: array, description: "Recent actions for reconstruction" }
+    state_snapshots: { type: array, description: "Periodic snapshots for diffing" }
 
 advertisements:
   TRACK_NAVIGATION:
@@ -62,5 +168,29 @@ advertisements:
   BOOKMARK_POSITION:
     score: 80
     condition: "Want to remember this spot"
+  RECONSTRUCT_TRACE:
+    score: 95
+    condition: "Debugging, need to understand what happened"
+  EXPLAIN_STATE:
+    score: 90
+    condition: "Confused about current state, asking 'why'"
 
-see_also: [skills/action-queue, skills/room, skills/memory-palace]
+see_also:
+  - skills/action-queue   # What actions were queued
+  - skills/room           # Spatial navigation
+  - skills/memory-palace  # Organized memory
+  - skills/debugging      # Full debugging skill
+  - skills/prototype      # Self-style inheritance
+  - skills/session-log    # Raw history for reconstruction
+
+credits:
+  inspiration:
+    - name: "Dave Ungar & Self Team"
+      contribution: "Dynamic deoptimization — reconstruct stack for debugging without runtime overhead"
+      link: "https://bibliography.selflanguage.org/"
+    - name: "Urs Hölzle"
+      contribution: "Adaptive optimization and deoptimization in Self"
+  related:
+    - "Browser back/forward history"
+    - "Git blame — attribution for changes"
+    - "Stack traces in debuggers"
