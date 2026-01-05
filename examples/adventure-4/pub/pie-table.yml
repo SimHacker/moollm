@@ -36,6 +36,27 @@ object:
     Each seat is a direction. The bell is center.
     Selection is spatial, not linear.
     
+  # Addressable seats — characters parent to chairs
+  # Set character.location to seat address:
+  seats:
+    N:  { address: "pub/pie-table.yml#N",  occupant: null }
+    NE: { address: "pub/pie-table.yml#NE", occupant: null }
+    E:  { address: "pub/pie-table.yml#E",  occupant: null }
+    SE: { address: "pub/pie-table.yml#SE", occupant: null }
+    S:  { address: "pub/pie-table.yml#S",  occupant: null }
+    SW: { address: "pub/pie-table.yml#SW", occupant: null }
+    W:  { address: "pub/pie-table.yml#W",  occupant: null }
+    NW: { address: "pub/pie-table.yml#NW", occupant: null }
+    center: { address: "pub/pie-table.yml#center", occupant: null }  # The bell
+    
+  # Example: Maya sits at Southwest
+  # In maya.yml:
+  #   location: pub/pie-table.yml#SW
+  #
+  # This parents Maya to the SW chair.
+  # The table tracks her in seats.SW.occupant
+  # When she stands, her location returns to pub/
+    
   # Inherits from
   inherits:
     - skills/roberts-rules/SKILL.md  # Parliamentary procedure
@@ -49,7 +70,18 @@ object:
       params:
         position: "N, NE, E, SE, S, SW, W, NW, or 'any'"
       score: 70
-      effect: "Add character to current_occupants at position"
+      effect: |
+        Set character.location = pub/pie-table.yml#{{position}}
+        Set seats.{{position}}.occupant = character.id
+        Character is now parented to that chair.
+        
+    STAND:
+      description: "Leave your seat at the table"
+      score: 60
+      effect: |
+        Set character.location = pub/  (back to room)
+        Set seats.{{position}}.occupant = null
+        Character unparented from chair.
       
     CONFIGURE:
       description: "Change the number of seats"
