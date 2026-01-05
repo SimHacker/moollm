@@ -27,7 +27,7 @@ Characters **can**: move, carry, die, remember, be hurt.
 - Characters have a `location:` field that REFERENCES a room
 - Characters can move between rooms by changing the reference
 - Multiple characters can be in the same room
-- Rooms contain OBJECTS, not characters
+- Rooms contain OBJECTS, not characters, but can also contain NPCs, 
 
 ---
 
