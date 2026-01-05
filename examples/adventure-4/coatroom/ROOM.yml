@@ -47,6 +47,19 @@ room:
       description: |
         The archway back to the Chamber of Commencement. Your old
         identity awaits. Or your new one, depending on perspective.
+        
+    deeper:
+      destination: ../personas/
+      description: |
+        Behind the last rack of costumes, where the sequins stop glittering
+        and the air grows thick with theatrical history, there's a passage
+        to the Wardrobe of Masks.
+        
+        The costumes here are THINGS. The masks there are IDENTITIES.
+        This is the dressing room. That is where the souls of roles hang.
+        
+      metaphysical: true
+      command: "GO DEEPER" or "VISIT WARDROBE" or "BACKSTAGE"
   
   world_position:
     x: 1

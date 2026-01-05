@@ -1,0 +1,130 @@
+# ROOM.yml — The Hall of Bodies
+#
+# Characters are BODIES. Physical vessels that exist in the world.
+# They have location, inventory, history, mortality.
+# They are the ones who MOVE, CARRY, DIE, REMEMBER.
+#
+# A character is the ACTOR, not the ROLE.
+# Neo is a character. "The One" is a persona he wears.
+# Bumblewick is a character. Captain Ashford is a persona.
+
+room:
+  id: characters
+  name: "The Hall of Bodies"
+  type: [repository, metaphysical, infrastructure]
+  
+  emoji: 🧬
+  
+  description: |
+    A vast circular chamber lined with alcoves. In each alcove,
+    a body sleeps — or waits — or dreams of adventure.
+    
+    These are not costumes. These are PEOPLE.
+    
+    Each has a heartbeat. Each has a history.
+    Each will one day die (or has already).
+    
+    The alcoves glow softly. Some are occupied.
+    Some are empty, waiting for someone to be born.
+    Some have been empty for a very long time.
+    
+  atmosphere:
+    lighting: soft blue bioluminescence
+    sound: heartbeats, breathing, distant whispers
+    feeling: sacred, clinical, alive
+    
+# THE FUNDAMENTAL DISTINCTION
+#
+# CHARACTER (body)          vs    PERSONA (costume)
+# ─────────────────────────────────────────────────
+# Has physical form               Has no physical form
+# Can die                         Cannot die (only be forgotten)
+# Has ONE location                Has no location
+# Carries inventory               Cannot carry anything
+# Accumulates scars               Accumulates reputation  
+# Is the PLAYER                   Is PLAYED BY someone
+# Is the ACTOR                    Is the ROLE
+# Is the VESSEL                   Is the MASK
+# Has Sims traits (stable)        Modifies Sims traits (overlay)
+# Has Mind Mirror (soul)          Modifies Mind Mirror (lens)
+
+# MATRIX METAPHOR
+#
+# In The Matrix:
+#   CHARACTER = the person jacked in (Neo, Trinity, Morpheus)
+#   PERSONA = their self-image in the Matrix (their "residual self-image")
+#
+# Neo's CHARACTER has stats, location (Nebuchadnezzar), mortality.
+# Neo's PERSONA ("The One") is a role he grows into, can doubt, can reject.
+#
+# When Neo dies, he's DEAD. 
+# When "The One" is rejected, it's just a costume change.
+
+# ACTOR METAPHOR  
+#
+# David Bowie = CHARACTER (the human, born 1947, died 2016)
+# Ziggy Stardust = PERSONA (the alien rock star, 1972-1973)
+# The Thin White Duke = PERSONA (the emotionless aristocrat, 1975-1976)
+# Major Tom = PERSONA (the astronaut, recurring)
+#
+# Bowie could WEAR these personas, MIX them, RETIRE them.
+# But Bowie himself was always Bowie underneath.
+# When Bowie died, all the personas became artifacts.
+
+# GAME MECHANICS
+#
+# Characters:
+#   - Live in directories: characters/name/CHARACTER.yml
+#   - Have location field that changes as they move
+#   - Have inventory array that changes as they acquire things
+#   - Have stats that change (gold, health, buffs)
+#   - Can be ACTIVATED (added to party)
+#   - Can be CONTROLLED (selected for commands)
+#   - Can DIE (game over condition)
+#
+# Personas:
+#   - Live in directories: personas/name.yml or personas/name/PERSONA.yml
+#   - Have NO location (they go where worn)
+#   - Have NO inventory (characters carry things)
+#   - Modify the wearer's presentation and behavior
+#   - Can be WORN (current_persona: reference)
+#   - Can be REMOVED (current_persona: null)
+#   - Can be LAYERED (persona has another persona within it)
+
+  exits:
+    out:
+      direction: out
+      destination: ../start/
+      description: "Return to the Chamber of Commencement"
+      
+  contents:
+    # Subdirectories are alcoves
+    # Each CHARACTER.yml is a sleeping (or active) body
+    
+  advertisements:
+    BROWSE:
+      description: "See who sleeps here"
+      effect: "List all characters in the hall"
+      
+    ACTIVATE:
+      description: "Wake a character and add to party"
+      parameters: [character_id]
+      effect: "Character joins the active party"
+      
+    CREATE:
+      description: "Birth a new character"
+      parameters: [name, archetype]
+      effect: "New CHARACTER.yml created in subdirectory"
+      
+    INSPECT:
+      description: "Study a sleeping character"
+      parameters: [character_id]  
+      effect: "Show full character sheet"
+
+# INHERITANCE NOTE
+#
+# Characters can inherit from character PROTOTYPES (archetypes):
+#   inherits: skills/character/SKILL.md
+#
+# But they ARE unique individuals. The prototype gives defaults.
+# The character file IS the character's persistent identity.

@@ -121,6 +121,21 @@ room:
         their next quest.
         
         The pub has always been here. Or so the bartender claims.
+        
+    inward:
+      destination: ../characters/
+      description: |
+        Not a physical exit. More of a... meditation.
+        
+        If you close your eyes and think about who you ARE — not who you're
+        pretending to be, but the actual body reading these words — you can
+        phase through to the Hall of Bodies.
+        
+        The alcoves there hold all who have ever been or could be.
+        Including you. Especially you.
+        
+      metaphysical: true
+      command: "THINK ABOUT MYSELF" or "GO INWARD" or "VISIT HALL"
   
   # Position in world space
   world_position:

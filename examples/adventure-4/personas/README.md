@@ -1,8 +1,27 @@
-# Personas
+# 🎭 The Wardrobe of Masks
 
 > *"Who do you want to be today?"*
 
-A **persona** is a wearable costume + personality overlay. It's NOT a character — it's a **mask** that modifies whoever wears it.
+**This is a ROOM** — the metaphysical corridor where all personas hang.
+
+See [ROOM.yml](./ROOM.yml) for the full room definition.
+
+## Costumes, Not Bodies
+
+Personas are **COSTUMES** — identity layers that can be worn and removed.
+
+| Personas ARE | Personas ARE NOT |
+|--------------|-----------------|
+| The ROLE | The ACTOR |
+| The COSTUME | The BODY |
+| The MASK | The FACE |
+| "The One" | Neo |
+| Ziggy Stardust | David Bowie |
+| Captain Ashford | Bumblewick |
+
+Personas **have**: reputation, voice patterns, trait modifiers, skills to grant.
+
+Personas **cannot**: move, carry, die, be hurt, have location.
 
 **Why personas live here (not in rooms):**
 - Multiple characters can wear the same persona

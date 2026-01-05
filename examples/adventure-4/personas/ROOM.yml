@@ -1,0 +1,174 @@
+# ROOM.yml — The Wardrobe of Masks
+#
+# Personas are COSTUMES. Identity layers that can be worn and removed.
+# They have no location, no inventory, no mortality.
+# They are the ROLES, not the ACTORS.
+#
+# A persona is the CHARACTER, not the ACTOR.
+# Captain Ashford is a persona. Bumblewick is the character wearing it.
+# Ziggy Stardust is a persona. David Bowie was the character wearing it.
+
+room:
+  id: personas
+  name: "The Wardrobe of Masks"
+  type: [repository, metaphysical, infrastructure]
+  
+  emoji: 🎭
+  
+  description: |
+    An infinite corridor of masks and costumes. Each hangs on its own
+    stand, waiting to be worn. Some are simple — a hat, a name.
+    Some are elaborate — complete identities with histories and voices.
+    
+    These are not people. These are ROLES.
+    
+    They have no heartbeat. They have stories.
+    They cannot die. They can only be forgotten.
+    
+    The corridor stretches in both directions forever.
+    New masks appear when someone imagines them.
+    Old masks gather dust but never decay.
+    
+  atmosphere:
+    lighting: theatrical spotlights, dramatic shadows
+    sound: whispers of old performances, applause echoes
+    feeling: theatrical, transformative, liberating
+    
+# THE FUNDAMENTAL DISTINCTION
+#
+# PERSONA (costume)         vs    CHARACTER (body)
+# ─────────────────────────────────────────────────
+# Has no physical form            Has physical form
+# Cannot die                      Can die
+# Has no location                 Has ONE location
+# Cannot carry anything           Carries inventory
+# Accumulates reputation          Accumulates scars
+# Is PLAYED BY someone            Is the PLAYER
+# Is the ROLE                     Is the ACTOR
+# Is the MASK                     Is the VESSEL
+# Modifies Sims traits            Has Sims traits (stable)
+# Modifies Mind Mirror            Has Mind Mirror (soul)
+
+# WHAT A PERSONA PROVIDES
+#
+# When worn, a persona can:
+#   - Change your NAME (how others address you)
+#   - Modify your TRAITS (overlay on Sims stats)
+#   - Alter your VOICE (inner monologue, speech patterns)
+#   - Grant ABILITIES (skills, permissions, access)
+#   - Impose CONSTRAINTS (things you can't do in character)
+#   - Provide REPUTATION (how NPCs react to you)
+#   - Include ACCESSORIES (props that come with the role)
+
+# COSTUME DEPTH
+#
+# Personas can be:
+#
+# SHALLOW — Just a name and basic behavior shift
+#   captain-ashford.yml: 50 lines
+#   "I am Captain Ashford. I speak like this. I'm brave."
+#
+# DEEP — Complete alternate identity with history
+#   captain-ashford/PERSONA.yml: 500 lines
+#   Full backstory, relationships, memories, voice samples
+#   Includes: cape.yml, hat.yml, accent-guide.md
+#
+# LAYERED — Persona wearing another persona
+#   captain-ashford.yml with current_persona: ziggy-stardust
+#   "Captain Ashford... in his Ziggy Stardust phase"
+
+# THEATER METAPHOR
+#
+# The personas directory is BACKSTAGE.
+# Characters come here to prepare before going ON.
+#
+# A character with no persona is themselves — raw, unmediated.
+# A character with a persona is performing — filtered, amplified.
+#
+# Some characters are ALWAYS performing (can't remove their mask).
+# Some characters are NEVER performing (refuse to wear masks).
+# Most characters switch based on context.
+
+# GAME MECHANICS
+#
+# Personas:
+#   - Live as: personas/name.yml or personas/name/PERSONA.yml
+#   - Have NO location field
+#   - Have NO inventory
+#   - Define trait_modifiers (added to wearer's traits)
+#   - Define voice_patterns (how to speak in character)
+#   - Define abilities (what the persona can do)
+#   - Define constraints (what the persona can't do)
+#   - Can include accessories (props that come with the role)
+#
+# Wearing a persona:
+#   # In CHARACTER.yml:
+#   current_persona: personas/captain-ashford.yml
+#
+# Removing a persona:
+#   current_persona: null
+
+  exits:
+    out:
+      direction: out
+      destination: ../coatroom/
+      description: "Return to the Coatroom (where personas are tried on)"
+      
+  contents:
+    # Each .yml file is a costume
+    # Each subdirectory is an elaborate costume with accessories
+    
+  advertisements:
+    BROWSE:
+      description: "See what masks hang here"
+      effect: "List all personas in the wardrobe"
+      
+    TRY_ON:
+      description: "Wear a persona (temporarily)"
+      parameters: [persona_id]
+      effect: "Preview how you'd look and feel"
+      
+    ADOPT:
+      description: "Commit to wearing a persona"  
+      parameters: [persona_id]
+      effect: "Set current_persona on your character"
+      
+    REMOVE:
+      description: "Take off your current persona"
+      effect: "Set current_persona to null"
+      
+    CREATE:
+      description: "Design a new persona"
+      parameters: [name, archetype, depth]
+      effect: "New persona file created"
+      
+    INSPECT:
+      description: "Study a hanging costume"
+      parameters: [persona_id]
+      effect: "Show full persona definition"
+
+# THE COATROOM CONNECTION
+#
+# The Coatroom (coatroom/) is WHERE you change.
+# The Wardrobe (personas/) is WHAT you change into.
+#
+# Maurice the mannequin helps you try things on.
+# The mirror shows you who you're becoming.
+# But the costumes themselves live HERE, in the Wardrobe.
+
+# REAL-WORLD PARALLELS
+#
+# Professional personas:
+#   - "Work mode" vs "home mode"
+#   - Stage names, pen names, handles
+#   - Uniforms that change behavior
+#
+# Cultural personas:
+#   - Code-switching between communities
+#   - Different languages = different personalities
+#   - "I'm a different person when I'm with them"
+#
+# Therapeutic personas:
+#   - "What would your confident self say?"
+#   - Role-playing to practice difficult conversations
+#   - Trying on identities to find what fits

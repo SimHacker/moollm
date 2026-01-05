@@ -1,8 +1,27 @@
-# Characters
+# 🧬 The Hall of Bodies
 
 > *"You ARE your file."*
 
-All player characters and NPCs live here. Each `.yml` file is a character.
+**This is a ROOM** — the metaphysical repository where all characters sleep.
+
+See [ROOM.yml](./ROOM.yml) for the full room definition.
+
+## Bodies, Not Costumes
+
+Characters are **BODIES** — physical vessels that exist in the world.
+
+| Characters ARE | Characters ARE NOT |
+|----------------|-------------------|
+| The ACTOR | The ROLE |
+| The BODY | The COSTUME |
+| The PLAYER | The AVATAR |
+| Neo | "The One" |
+| David Bowie | Ziggy Stardust |
+| Bumblewick | Captain Ashford |
+
+Characters **have**: location, inventory, mortality, scars, heartbeats.
+
+Characters **can**: move, carry, die, remember, be hurt.
 
 **Architectural principle:** Characters are NOT embedded in rooms!
 - Characters have a `location:` field that REFERENCES a room
