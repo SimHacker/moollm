@@ -678,7 +678,7 @@ Protocols degrade gracefully. At Tier 1, `why` is convention. At Tier 6, it's en
 
 Skills are **protocols the model follows**, not code the orchestrator runs.
 
-**Anthropic-compatible** with MOOLLM extensions for human readability.
+**Anthropic-compatible** with MOOLLM extensions for human readability.ognition
 
 ### What's a Skill?
 
@@ -773,7 +773,7 @@ examples/adventure-3/                # An INSTANTIATION
         └── terpie.yml               # Character state file
 ```
 
-**The LLM fills in `{{variables}}` at instantiation time:**
+**The LLM IS the template engine.** Not Mustache. Not Handlebars. The LLM.
 
 ```yaml
 # skills/adventure/ADVENTURE.yml.tmpl (prototype)
@@ -781,13 +781,33 @@ adventure:
   name: "{{adventure_name}}"
   player: "{{player_id}}"
   started: "{{timestamp}}"
+  mood: "{{pick a mood that fits the player's recent actions}}"
+  theme_color: "{{your favorite color for this adventure}}"
+  difficulty: "{{evaluate player.experience_level and suggest appropriate}}"
   
 # examples/adventure-3/ADVENTURE.yml (instance)
 adventure:
   name: "Don's Excellent Adventure"
   player: "don-hopkins"
   started: "2026-01-05T10:30:00Z"
+  mood: "curious and caffeinated"
+  theme_color: "#2d5016"  # forest green, felt right
+  difficulty: "normal"  # experienced player, standard challenge
 ```
+
+**Template variables can be:**
+
+| Type | Example | LLM Does |
+|------|---------|----------|
+| **Property reference** | `{{player.name}}` | Read from context |
+| **File reference** | `{{./pub/ROOM.yml:description}}` | Extract from file |
+| **Expression** | `{{count(inventory) > 5 ? "heavy" : "light"}}` | Evaluate |
+| **Natural language** | `{{pick your favorite color}}` | Interpret creatively |
+| **YAML Jazz** | `{{something cozy and warm}}` | Improvise |
+
+**This is POSTEL for templates.** The LLM is liberal in what it accepts — formal variables, file paths, expressions, vibes. It interprets charitably and fills in something reasonable.
+
+**Not Mustache-compatible.** A Python template library can't process `{{pick a mood}}`. But the LLM can. The templates are **prompts with structure**, not code with placeholders.
 
 **Multiple inheritance — Self-style:**
 
