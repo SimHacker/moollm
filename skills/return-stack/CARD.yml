@@ -18,9 +18,9 @@ card:
     return to them. The stack is a first-class object you can
     manipulate.
     
-    PLUS: Self-inspired dynamic deoptimization — reconstruct
-    causal traces after the fact for debugging, even when no
-    explicit stack was maintained during execution.
+    PLUS: Self-inspired dynamic deoptimization (aka pessimization) — 
+    reconstruct causal traces after the fact for debugging, even when 
+    no explicit stack was maintained during execution.
 
 tools:
   required: [read_file, write_file]
