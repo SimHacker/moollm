@@ -1,0 +1,58 @@
+# CARD.yml — Rubric
+#
+# Measurable criteria translating qualitative debate to quantitative scores.
+# "How do we know it's good?"
+
+card:
+  id: rubric
+  name: "Rubric"
+  type: [skill, evaluation, decision]
+  emoji: 📐
+  rarity: uncommon
+  
+  description: |
+    Define explicit, measurable criteria for scoring outputs.
+    Translates qualitative discussion into quantitative decision.
+    Essential for adversarial committee workflow.
+
+tools:
+  required: [read_file, write_file]
+tier: 1
+
+methods:
+  CREATE:
+    description: "Design a rubric"
+    parameters: { purpose: "What's being evaluated", criteria: "What matters" }
+    output: file (RUBRIC.yml)
+    invoked_by: [designer, player]
+    
+  SCORE:
+    description: "Apply rubric to output"
+    parameters: { output: "What to score", rubric: "Which rubric" }
+    output: chat (scores)
+    invoked_by: [evaluator]
+    
+  EXPLAIN:
+    description: "Show rubric criteria"
+    parameters: { rubric: "Which" }
+    output: chat
+    invoked_by: [player]
+
+state:
+  rubric_schema:
+    name: { type: string }
+    criteria: { type: array }
+    weights: { type: object }
+    threshold: { type: number }
+
+advertisements:
+  DEFINE_QUALITY:
+    score: 95
+    condition: "Need explicit success criteria"
+  SCORE_OUTPUT:
+    score: 90
+    condition: "Need to compare options objectively"
+
+see_also: [skills/evaluator, skills/adversarial-committee, skills/scoring]
+credits:
+  methodology: "Mike Gallaher — RUBRIC-BRIDGE pattern"

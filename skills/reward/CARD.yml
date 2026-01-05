@@ -1,0 +1,91 @@
+# CARD.yml — Reward
+#
+# Dynamic achievement rewards — thematically appropriate.
+# "The treasure matches the quest."
+
+card:
+  id: reward
+  name: "Reward"
+  type: [skill, game, achievement]
+  
+  emoji: 🏆
+  
+  rarity: common
+  
+  description: |
+    Grant rewards for achievements. Rewards are thematically
+    appropriate — slay a dragon, get dragon stuff. Complete
+    a quest, get quest-related boons.
+
+# TOOLS REQUIRED
+
+tools:
+  required:
+    - read_file
+    - write_file
+  optional: []
+
+tier: 1
+
+# METHODS
+
+methods:
+  
+  GRANT:
+    description: "Give a reward"
+    parameters:
+      recipient: "Who gets it"
+      achievement: "What they did"
+      reward: "What they get (or auto-generate)"
+    output: chat + state_change
+    effect: "Add reward to inventory or state"
+    invoked_by: [dm, room, object]
+    
+  GENERATE:
+    description: "Auto-generate thematic reward"
+    parameters:
+      achievement: "What was accomplished"
+      context: "Where/how"
+    output: chat (suggested reward)
+    effect: "Propose appropriate reward"
+    invoked_by: [dm]
+
+# STATE
+
+state:
+  rewards_schema:
+    achievements:
+      type: array
+      description: "List of earned rewards"
+
+# REWARD TYPES
+
+reward_types:
+  items: "Physical objects"
+  gold: "Currency"
+  buffs: "Temporary effects"
+  titles: "Reputation markers"
+  abilities: "New capabilities"
+  access: "Keys, permissions"
+  knowledge: "Secrets revealed"
+
+# ADVERTISEMENTS
+
+advertisements:
+  REWARD_ACHIEVEMENT:
+    score: 90
+    condition: "Character accomplished something"
+
+# RELATED
+
+see_also:
+  - skills/scoring  # What deserves reward
+  - skills/economy  # Gold rewards
+  - skills/buff     # Buff rewards
+
+# CREDITS
+
+credits:
+  inspiration:
+    - "RPG loot systems"
+    - "The Sims — Aspiration rewards"

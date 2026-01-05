@@ -1,0 +1,94 @@
+# CARD.yml — Robust First
+#
+# Survive first, be correct later.
+# "Stay alive and heal. Don't crash."
+
+card:
+  id: robust-first
+  name: "Robust First"
+  type: [skill, philosophy, robustness]
+  
+  emoji: 🛡️
+  
+  rarity: rare
+  
+  description: |
+    Dave Ackley's principle: systems should prioritize survivability
+    over correctness. A system that crashes is infinitely wrong.
+    Stay alive, heal, then optimize.
+
+# TOOLS REQUIRED
+
+tools:
+  required: []
+
+tier: 0
+
+# METHODS
+
+methods:
+  
+  ASSESS:
+    description: "Is the system alive and healing?"
+    parameters:
+      system: "What to assess"
+    output: chat (status)
+    effect: "Check robustness vs correctness"
+    invoked_by: [player, self_repair]
+    
+  DEGRADE:
+    description: "Gracefully reduce functionality"
+    parameters:
+      component: "What to degrade"
+    output: state_change
+    effect: "Disable non-essential, keep core alive"
+    invoked_by: [self_repair]
+
+# STATE
+
+state: {}
+
+# THE PHILOSOPHY
+
+philosophy:
+  ackley_quote: |
+    "Robust-first computing: A system that crashes is infinitely wrong,
+    regardless of how correct it was up until the crash."
+    
+  priority_order:
+    1: "Survive"
+    2: "Heal"
+    3: "Function"
+    4: "Optimize"
+    
+  application: |
+    When something goes wrong:
+    - Don't crash. Degrade gracefully.
+    - Log the problem.
+    - Try to self-repair.
+    - Continue with reduced capability.
+    - Never lose state if avoidable.
+
+# ADVERTISEMENTS
+
+advertisements:
+  ERROR_HANDLING:
+    score: 90
+    condition: "Something went wrong"
+    
+  DESIGN_FOR_FAILURE:
+    score: 85
+    condition: "Building systems that might fail"
+
+# RELATED
+
+see_also:
+  - skills/self-repair  # Healing patterns
+  - skills/postel       # Robustness principle
+
+# CREDITS
+
+credits:
+  philosophy:
+    - "Dave Ackley — Robust-first computing"
+    - "Living computation"

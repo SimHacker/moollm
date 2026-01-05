@@ -1,0 +1,149 @@
+# CARD.yml — Robert's Rules
+#
+# Parliamentary procedure as forcing function for genuine deliberation.
+# "Structure prevents short-circuiting to likely conclusions."
+
+card:
+  id: roberts-rules
+  name: "Robert's Rules"
+  type: [skill, procedure, deliberation]
+  
+  emoji: 📜
+  
+  rarity: rare
+  
+  description: |
+    Parliamentary procedure (1876) as a forcing function.
+    Review minutes → motion → second → debate → vote.
+    
+    Prevents LLM from jumping to statistically-likely conclusions.
+
+# TOOLS REQUIRED
+
+tools:
+  required:
+    - read_file
+    - write_file
+  optional: []
+
+tier: 1
+
+# METHODS
+
+methods:
+  
+  CALL_TO_ORDER:
+    description: "Begin formal session"
+    parameters: {}
+    output: chat + state_change
+    effect: "Set session.status = in_session"
+    invoked_by: [moderator]
+    
+  MINUTES:
+    description: "Review previous session minutes"
+    parameters:
+      minutes: "Previous session record"
+    output: chat
+    effect: "Read and acknowledge minutes"
+    invoked_by: [moderator]
+    
+  MOTION:
+    description: "Propose something"
+    parameters:
+      proposal: "What's being proposed"
+    output: chat + state_change
+    effect: "Record motion, await second"
+    invoked_by: [member]
+    
+  SECOND:
+    description: "Support a motion"
+    parameters:
+      motion: "Which motion"
+    output: chat + state_change
+    effect: "Motion can now be debated"
+    invoked_by: [member]
+    
+  DEBATE:
+    description: "Discuss the motion"
+    parameters:
+      time_limit: "How long"
+    output: chat (arguments)
+    effect: "Members argue for/against"
+    invoked_by: [moderator]
+    
+  CALL_QUESTION:
+    description: "End debate, call for vote"
+    parameters: {}
+    output: chat + state_change
+    effect: "Move to voting"
+    invoked_by: [member, moderator]
+    
+  VOTE:
+    description: "Record votes"
+    parameters:
+      method: "voice, show, roll_call"
+    output: chat (tally) + state_change
+    effect: "Count votes, record result"
+    invoked_by: [moderator]
+    
+  ADJOURN:
+    description: "End session"
+    parameters: {}
+    output: chat + state_change
+    effect: "Set session.status = adjourned"
+    invoked_by: [moderator]
+
+# STATE
+
+state:
+  session_schema:
+    status:
+      type: enum
+      values: [not_started, in_session, debating, voting, adjourned]
+    current_motion:
+      type: object
+    motions_history:
+      type: array
+    minutes:
+      type: array
+
+# WHY IT WORKS
+
+forcing_function:
+  problem: |
+    LLMs want to converge quickly to likely conclusions.
+    Committee debates collapse to consensus too fast.
+    
+  solution: |
+    Robert's Rules forces each step:
+    - Can't vote without motion AND second
+    - Can't vote without debate period
+    - Must formally close debate before voting
+    
+    Structure forces genuine exploration of the decision space.
+
+# ADVERTISEMENTS
+
+advertisements:
+  STRUCTURED_DELIBERATION:
+    score: 95
+    condition: "Committee needs formal procedure"
+    
+  PREVENT_RAILROADING:
+    score: 90
+    condition: "Discussion collapsing too quickly"
+
+# RELATED
+
+see_also:
+  - skills/adversarial-committee  # Uses this procedure
+  - skills/debate                 # Debate methods
+  - skills/session-log            # Meeting records
+
+# CREDITS
+
+credits:
+  origin:
+    - "Henry Martyn Robert — Robert's Rules of Order (1876)"
+  methodology:
+    - "Mike Gallaher — LLM forcing functions"

@@ -1,0 +1,66 @@
+# CARD.yml — Return Stack
+#
+# Navigation history as first-class continuation.
+# "Remember where you came from."
+
+card:
+  id: return-stack
+  name: "Return Stack"
+  type: [skill, navigation, memory]
+  emoji: 🔙
+  rarity: common
+  
+  description: |
+    Navigation history like browser back/forward. Save positions,
+    return to them. The stack is a first-class object you can
+    manipulate.
+
+tools:
+  required: [read_file, write_file]
+tier: 1
+
+methods:
+  PUSH:
+    description: "Save current position"
+    parameters: { label: "Optional bookmark name" }
+    output: state_change
+    invoked_by: [system on navigation, player]
+    
+  POP:
+    description: "Return to previous position"
+    parameters: {}
+    output: chat + state_change
+    invoked_by: [player]
+    
+  BACK:
+    description: "Go back N steps"
+    parameters: { steps: "How many" }
+    output: chat + state_change
+    invoked_by: [player]
+    
+  HISTORY:
+    description: "Show navigation history"
+    parameters: { limit: "How many to show" }
+    output: chat
+    invoked_by: [player]
+    
+  GOTO:
+    description: "Jump to bookmarked position"
+    parameters: { label: "Bookmark name" }
+    output: chat + state_change
+    invoked_by: [player]
+
+state:
+  stack:
+    entries: { type: array, description: "Stack of positions" }
+    bookmarks: { type: object, description: "Named positions" }
+
+advertisements:
+  TRACK_NAVIGATION:
+    score: 85
+    condition: "Exploring, want to backtrack"
+  BOOKMARK_POSITION:
+    score: 80
+    condition: "Want to remember this spot"
+
+see_also: [skills/action-queue, skills/room, skills/memory-palace]

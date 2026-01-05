@@ -1,0 +1,88 @@
+# CARD.yml — Representation Ethics
+#
+# Ethics of simulating real and fictional people.
+# "Activate traditions, don't impersonate."
+
+card:
+  id: representation-ethics
+  name: "Representation Ethics"
+  type: [skill, ethics, philosophy]
+  
+  emoji: ⚖️
+  
+  rarity: rare
+  
+  description: |
+    The nuanced ethics of simulating people: dignity, consent,
+    context. Hero-story cards vs impersonation. The Sims precedent.
+    
+    How to reference real people's wisdom without puppeteering.
+
+# TOOLS REQUIRED
+
+tools:
+  required: []
+
+tier: 0
+
+# METHODS
+
+methods:
+  
+  CHECK:
+    description: "Is this representation ethical?"
+    parameters:
+      representation: "What's being simulated"
+      context: "How it's being used"
+    output: chat (analysis)
+    effect: "Evaluate against ethics framework"
+    invoked_by: [designer, player]
+    
+  REFRAME:
+    description: "Convert impersonation to tradition activation"
+    parameters:
+      problematic: "The problematic representation"
+    output: chat (alternative)
+    effect: "Suggest hero-story approach"
+    invoked_by: [designer]
+
+# STATE
+
+state: {}
+
+# THE FRAMEWORK
+
+framework:
+  key_distinction: |
+    IMPERSONATION: "I am Richard Feynman and I think..."
+    TRADITION ACTIVATION: "Applying Feynman's curiosity tradition..."
+    
+  consent_hierarchy:
+    - "Public figures (public words only)"
+    - "Historical figures (documented tradition)"
+    - "Fictional characters (within canon)"
+    - "Real private people (explicit consent only)"
+    
+  sims_precedent: |
+    The Sims showed you can simulate people without harm
+    when it's clearly gamified, user-controlled, and
+    doesn't claim to represent their actual thoughts.
+
+# ADVERTISEMENTS
+
+advertisements:
+  ETHICS_CHECK:
+    score: 95
+    condition: "Creating representation of real person"
+
+# RELATED
+
+see_also:
+  - skills/hero-story  # Safe representation
+  - skills/persona     # Identity layers
+
+# CREDITS
+
+credits:
+  framework:
+    - "MOOLLM representation ethics"

@@ -1,0 +1,110 @@
+# CARD.yml — Research Notebook
+#
+# Structured research with questions, sources, findings.
+# "The LEARN stage of Play-Learn-Lift."
+
+card:
+  id: research-notebook
+  name: "Research Notebook"
+  type: [skill, investigation, documentation]
+  
+  emoji: 📓
+  
+  rarity: uncommon
+  
+  description: |
+    Structured research documentation: questions, sources,
+    findings, decisions. Supports the LEARN phase.
+
+# TOOLS REQUIRED
+
+tools:
+  required:
+    - read_file
+    - write_file
+  optional: []
+
+tier: 1
+
+# METHODS
+
+methods:
+  
+  START:
+    description: "Begin new research"
+    parameters:
+      topic: "What to research"
+      questions: "Initial questions"
+    output: file (NOTEBOOK.yml) + chat
+    effect: "Create research notebook"
+    invoked_by: [player]
+    
+  QUESTION:
+    description: "Add a research question"
+    parameters:
+      question: "What to investigate"
+    output: state_change
+    effect: "Add to questions list"
+    invoked_by: [player]
+    
+  SOURCE:
+    description: "Record a source"
+    parameters:
+      source: "What you found"
+      reliability: "How trustworthy"
+    output: state_change
+    effect: "Add to sources list"
+    invoked_by: [player]
+    
+  FINDING:
+    description: "Record a finding"
+    parameters:
+      finding: "What you learned"
+      source: "Where from"
+    output: state_change
+    effect: "Add to findings list"
+    invoked_by: [player]
+    
+  DECIDE:
+    description: "Record a decision based on research"
+    parameters:
+      decision: "What you decided"
+      rationale: "Why"
+    output: state_change
+    effect: "Add to decisions list"
+    invoked_by: [player]
+
+# STATE
+
+state:
+  notebook_schema:
+    topic:
+      type: string
+    questions:
+      type: array
+    sources:
+      type: array
+    findings:
+      type: array
+    decisions:
+      type: array
+
+# ADVERTISEMENTS
+
+advertisements:
+  RESEARCH_SOMETHING:
+    score: 90
+    condition: "Need to learn about unfamiliar topic"
+
+# RELATED
+
+see_also:
+  - skills/play-learn-lift  # LEARN phase
+  - skills/debugging        # Investigation pattern
+
+# CREDITS
+
+credits:
+  methodology:
+    - "Scientific method"
+    - "Academic research notebooks"

@@ -1,0 +1,96 @@
+# CARD.yml — Scoring
+#
+# Achievement valuation — style counts, emergence rewards.
+# "How well did you do it?"
+
+card:
+  id: scoring
+  name: "Scoring"
+  type: [skill, game, evaluation]
+  
+  emoji: 🎯
+  
+  rarity: common
+  
+  description: |
+    Evaluate accomplishments, skill acquisition, style points.
+    Not just did you succeed, but HOW did you succeed?
+
+# TOOLS REQUIRED
+
+tools:
+  required:
+    - read_file
+    - write_file
+  optional: []
+
+tier: 1
+
+# METHODS
+
+methods:
+  
+  SCORE:
+    description: "Score an accomplishment"
+    parameters:
+      accomplishment: "What was done"
+      factors: "What affects the score"
+    output: chat (score breakdown)
+    effect: "Calculate and explain score"
+    invoked_by: [dm, adventure]
+    
+  TRACK:
+    description: "Add to running score"
+    parameters:
+      points: "How many"
+      reason: "Why"
+    output: state_change
+    effect: "Update total score"
+    invoked_by: [dm, scoring]
+    
+  LEADERBOARD:
+    description: "Show high scores"
+    parameters: {}
+    output: chat
+    effect: "Display rankings"
+    invoked_by: [player]
+
+# STATE
+
+state:
+  scoring_schema:
+    total:
+      type: integer
+    breakdown:
+      type: array
+      description: "List of scored events"
+
+# SCORING FACTORS
+
+factors:
+  completion: "Did you finish?"
+  efficiency: "How quickly?"
+  style: "How elegantly?"
+  emergence: "Did you find unexpected solutions?"
+  exploration: "How much did you discover?"
+
+# ADVERTISEMENTS
+
+advertisements:
+  EVALUATE_PERFORMANCE:
+    score: 85
+    condition: "Task completed, need assessment"
+
+# RELATED
+
+see_also:
+  - skills/rubric   # Structured criteria
+  - skills/reward   # What scores earn
+  - skills/economy  # Score as currency
+
+# CREDITS
+
+credits:
+  inspiration:
+    - "Video game scoring"
+    - "RPG XP systems"

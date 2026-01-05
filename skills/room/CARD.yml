@@ -1,0 +1,147 @@
+# CARD.yml — Room
+#
+# Directories as activation contexts where cards come to life.
+# "A room is a directory with atmosphere."
+
+card:
+  id: room
+  name: "Room"
+  type: [skill, spatial, foundational]
+  
+  emoji: 🚪
+  
+  rarity: epic  # Central concept
+  
+  description: |
+    The foundational spatial metaphor. Directories ARE rooms.
+    Rooms have contents, exits, atmosphere. Cards activate
+    when played in rooms. Navigation is movement.
+
+# TOOLS REQUIRED
+
+tools:
+  required:
+    - read_file
+    - write_file
+    - list_dir
+  optional: []
+
+tier: 1
+
+# METHODS
+
+methods:
+  
+  CREATE:
+    description: "Create a new room"
+    parameters:
+      name: "Room name"
+      description: "What the room is"
+      exits: "Where it connects"
+    output: directory + file (ROOM.yml)
+    effect: "Create room directory with definition"
+    invoked_by: [designer, world_generation]
+    
+  LOOK:
+    description: "Describe the room"
+    parameters:
+      room: "Which room (default: current)"
+    output: chat (narrative description)
+    effect: "Read ROOM.yml, narrate atmospherically"
+    invoked_by: [player, character]
+    
+  ENTER:
+    description: "Move into a room"
+    parameters:
+      room: "Destination"
+    output: chat + state_change
+    effect: "Update location, trigger room events"
+    invoked_by: [player, character]
+    
+  EXIT:
+    description: "Leave through an exit"
+    parameters:
+      direction: "Which exit"
+    output: chat + state_change
+    effect: "Move to connected room"
+    invoked_by: [player, character]
+    
+  CONTENTS:
+    description: "List what's in the room"
+    parameters: {}
+    output: chat
+    effect: "Show objects, characters, exits"
+    invoked_by: [player]
+    
+  ADVERTISE:
+    description: "Show what actions are available"
+    parameters: {}
+    output: chat
+    effect: "Collect and display all advertisements"
+    invoked_by: [player]
+
+# STATE
+
+state:
+  room_schema:
+    id:
+      type: string
+    name:
+      type: string
+    type:
+      type: array
+      description: "Room types (physical, metaphysical, container, etc.)"
+    description:
+      type: string
+    atmosphere:
+      type: object
+      description: "Lighting, sound, feeling"
+    exits:
+      type: object
+      description: "Direction → destination mapping"
+    contents:
+      type: array
+      description: "Objects and characters present"
+    advertisements:
+      type: object
+      description: "Actions the room offers"
+
+# ROOM TYPES
+
+room_types:
+  physical: "Normal navigable space"
+  metaphysical: "Conceptual space (characters/, personas/)"
+  container: "Nested room (cat-cave, bag of holding)"
+  vehicle: "Room that can move (TARDIS, Logo turtle)"
+  repository: "Storage space for collections"
+
+# ADVERTISEMENTS
+
+advertisements:
+  NAVIGATE:
+    score: 90
+    condition: "Need to go somewhere"
+    
+  CREATE_SPACE:
+    score: 85
+    condition: "Need a new room for content"
+    
+  UNDERSTAND_LOCATION:
+    score: 80
+    condition: "Confused about where things are"
+
+# RELATED
+
+see_also:
+  - skills/adventure      # Room-based exploration
+  - skills/memory-palace  # Spatial organization
+  - skills/card           # Cards activate in rooms
+  - skills/character      # Characters have locations
+
+# CREDITS
+
+credits:
+  lineage:
+    - "Colossal Cave — Room-based exploration"
+    - "MUD — Multi-user rooms"
+    - "Unix — Directories as spaces"
