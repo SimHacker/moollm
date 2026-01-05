@@ -1,0 +1,61 @@
+# 📜 Adventure Transcript
+
+> *Pure narration of {{player_name}} exploring {{adventure_name}}. {{date}}.*
+>
+> For the summary table, see **[LOG.md](./LOG.md)**.
+
+---
+
+## Awakening
+
+*{{opening_narration}}*
+
+---
+
+## {{first_room_name}}
+
+*{{first_room_narration}}*
+
+```mermaid
+graph TD
+    START[{{first_room_name}}]
+    {{#each exits}}
+    START -->|{{direction}}| {{id}}[{{icon}} {{name}}<br/>{{hint}}]
+    {{/each}}
+```
+
+---
+
+## Current State
+
+```yaml
+player:
+  id: {{player_id}}
+  name: "{{player_name}}"
+  location: {{current_location}}
+  home: {{player_home}}
+  
+  gold: {{gold}}
+  moves: {{moves}}
+  
+  inventory:
+    {{#each inventory}}
+    - {{this}}
+    {{/each}}
+    
+  buffs:
+    {{#each buffs}}
+    {{name}}:
+      source: "{{source}}"
+      effect: "{{effect}}"
+    {{/each}}
+        
+  goals:
+    {{#each goals}}
+    {{id}}: {{status}}
+    {{/each}}
+```
+
+---
+
+*To be continued...*

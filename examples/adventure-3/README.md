@@ -112,7 +112,12 @@ You stir. The Chamber of Commencement. Carved initials on the walls tell of thos
 
 ## 📜 Session Log
 
-**The narrative transcript of playing this adventure lives in [LOG.md](./LOG.md).**
+| File | Purpose |
+|------|---------|
+| **[LOG.md](./LOG.md)** | Summary table — turns, locations, files changed |
+| **[TRANSCRIPT.md](./TRANSCRIPT.md)** | Pure narration — story, YAML objects, mermaid diagrams |
+
+The LOG is for quick reference. The TRANSCRIPT is for reading (and interactive web rendering).
 
 ---
 

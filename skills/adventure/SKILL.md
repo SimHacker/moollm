@@ -15,7 +15,9 @@ templates:
   - file: ADVENTURE.yml.tmpl
     purpose: Complete adventure state (inherits simulation properties)
   - file: LOG.md.tmpl
-    purpose: Narrative journal
+    purpose: Summary table (turns, locations, files changed)
+  - file: TRANSCRIPT.md.tmpl
+    purpose: Pure narration (story, YAML objects, mermaid diagrams)
 ---
 
 # Adventure
