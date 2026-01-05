@@ -90,6 +90,27 @@ skills:
     tags: ["meta", "simulation", "consistency"]
     use_when: "Understanding how LLM maintains world state"
     
+  - name: "representation-ethics"
+    path: "skills/representation-ethics"
+    description: "Ethics of simulating real and fictional people"
+    tier: 0
+    entry: "SKILL.md"
+    protocol: "REPRESENTATION-ETHICS"
+    tags: ["ethics", "representation", "consent", "philosophy"]
+    use_when: "Simulating real people, creating fictional versions, tribute/impersonation"
+    related: ["persona", "character", "hero-story"]
+    notes: "Consent hierarchy, game frames, Sims precedent, room-based framing"
+    
+  - name: "naming"
+    path: "skills/naming"
+    description: "Big-endian file naming as semantic binding"
+    tier: 0
+    entry: "SKILL.md"
+    tags: ["meta", "organization", "filesystem"]
+    use_when: "Naming files, organizing directories"
+    related: ["room", "character"]
+    notes: "Wraps kernel/NAMING.yml"
+    
   # TIER 1: FILE-ONLY (No execution required)
   
   # --- CORE METHODOLOGY ---
@@ -155,6 +176,17 @@ skills:
     tags: ["persona", "identity", "personality", "role"]
     use_when: "Defining character personality, voice, backstory, or role separation"
     related: ["character", "mind-mirror", "room"]
+    
+  - name: "mind-mirror"
+    path: "skills/mind-mirror"
+    description: "Personality modeling via four Thought Planes"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "MIND-MIRROR"
+    tags: ["personality", "traits", "sims", "circumplex"]
+    use_when: "Defining deep personality, character DNA, psychological profile"
+    related: ["character", "persona"]
+    notes: "Timothy Leary 1985, Interpersonal Circumplex"
     
   - name: "summarize"
     path: "skills/summarize"
@@ -571,37 +603,6 @@ planned:
     status: "planned"
     protocol: "PETS"
     notes: "LLOOOOMM experimental - safe K-line wrappers"
-    
-  - name: "representation-ethics"
-    path: "skills/representation-ethics"
-    description: "Ethics of simulating real and fictional people"
-    tier: 0
-    entry: "SKILL.md"
-    protocol: "REPRESENTATION-ETHICS"
-    tags: ["ethics", "representation", "consent", "philosophy"]
-    use_when: "Simulating real people, creating fictional versions"
-    notes: "Consent hierarchy, game frames, Sims precedent"
-    
-  - name: "mind-mirror"
-    path: "skills/mind-mirror"
-    description: "Personality modeling via four Thought Planes"
-    tier: 1
-    entry: "SKILL.md"
-    protocol: "MIND-MIRROR"
-    tags: ["personality", "traits", "sims", "circumplex"]
-    use_when: "Defining deep personality, character DNA"
-    related: ["character", "persona"]
-    notes: "Timothy Leary 1985, Interpersonal Circumplex"
-    
-  - name: "naming"
-    path: "skills/naming"
-    description: "Big-endian file naming as semantic binding"
-    tier: 0
-    entry: "SKILL.md"
-    tags: ["meta", "organization", "filesystem"]
-    use_when: "Naming files, organizing directories"
-    related: ["room", "character"]
-    notes: "Wraps kernel/NAMING.yml"
 
 # GUIDELINES
 
