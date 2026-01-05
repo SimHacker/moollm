@@ -36,11 +36,27 @@ card:
 | `tool` | fs.read, search.vector |
 | `concept` | POSTEL, YAML-JAZZ |
 
+## Activation Records
+
+**Playing a card = creating an activation record.** Like Self, cards have multiple methods:
+
+```yaml
+# design-room/architect-task-001.activation
+card: architect.card
+method: generate_proposal
+state:
+  iteration: 3
+  status: awaiting_vote
+```
+
+Cards can also be **pure state** (prompt clusters, context bundles) that other cards reference.
+
 ## Commands
 
 | Command | Effect |
 |---------|--------|
-| `PLAY [card]` | Activate |
+| `PLAY [card]` | Activate in room |
+| `PLAY [card].[method]` | Activate specific method |
 | `COLLECT [card]` | Add to collection |
 | `DECK [name]` | Build/select deck |
 
@@ -57,6 +73,8 @@ card:
 - [soul-chat/](../soul-chat/) — Cards can speak
 - [adventure/](../adventure/) — Cards as quest companions
 - [advertisement/](../advertisement/) — Cards advertise abilities
+- [return-stack/](../return-stack/) — Activation records as continuations
+- [visualizer/](../visualizer/) — Pure state prompt clusters
 
 ## Tools Required
 

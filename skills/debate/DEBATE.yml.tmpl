@@ -1,0 +1,76 @@
+# Debate Session Template
+# Instantiate in: debates/[topic-slug]/DEBATE.yml
+
+debate:
+  id: {{kebab-case topic name}}
+  created: {{timestamp}}
+  
+  # The question being debated
+  topic:
+    question: {{the core question — clear, debatable, consequential}}
+    context: {{background information and constraints}}
+    stakes: {{why this decision matters}}
+    
+  # Competing positions
+  # At least 2 sides required, 3+ encouraged for nuance
+  sides:
+    # Each side is a generator of arguments
+    {{side-name}}:
+      position: {{one-sentence statement of position}}
+      advocates:
+        # 1-3 personas per side, with complementary styles
+        - {{persona-id}}:
+            focus: {{what aspect they emphasize}}
+            style: {{how they argue}}
+      arguments_made: 0
+      rebuttals_given: 0
+      
+  # Facilitation
+  moderator:
+    style: {{roberts_rules | oxford | informal}}
+    strictness: {{strict | moderate | loose}}
+    current_speaker: null
+    queue: []
+    
+  # Timing
+  clock:
+    round: 0
+    total_rounds: {{3-5 recommended}}
+    round_duration: {{time expression like "5 minutes"}}
+    rebuttal_duration: {{time expression like "2 minutes"}}
+    time_remaining: null
+    
+  # Observers and scorers
+  audience:
+    # Each audience member can have different expertise and biases
+    - id: {{audience-id}}
+      expertise: {{domain knowledge}}
+      initial_leaning: {{side-name | neutral}}
+      current_leaning: null
+      confidence: 0.5
+      notes: []
+      
+  # Session state
+  status: {{setup | in_progress | paused | concluded}}
+  
+  # Populated after debate
+  transcript_path: ./TRANSCRIPT.md
+  
+  verdict:
+    winner: null
+    reasoning: null
+    confidence: null
+    dissenting_views: []
+    
+  # Evaluation (from independent evaluator, no debate context)
+  evaluation:
+    evaluator: null
+    rubric_used: null
+    scores: {}
+    
+# YAML Jazz guidance for the LLM:
+# - Ensure sides have genuinely opposing positions
+# - Advocates should have complementary, not identical, styles
+# - Audience expertise should be relevant to the topic
+# - Consider including a "pragmatic" middle-ground side
+# - Stakes should make clear why we can't just defer the decision

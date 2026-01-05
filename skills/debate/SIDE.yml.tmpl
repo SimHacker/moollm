@@ -1,0 +1,84 @@
+# Debate Side Template
+# Instantiate in: debates/[topic]/sides/[side-name].yml
+
+side:
+  id: {{kebab-case side name}}
+  debate: {{path to parent DEBATE.yml}}
+  
+  # Core position
+  position: {{one clear sentence stating what this side believes}}
+  
+  # Why this position
+  rationale: |
+    {{2-3 sentences explaining the reasoning behind this position}}
+    
+  # Advocates (generators of arguments)
+  advocates:
+    {{persona-id}}:
+      # Persona reference or inline definition
+      persona: {{path to persona OR inline persona definition}}
+      
+      # What aspect of the position they focus on
+      focus: {{organizational | technical | economic | ethical | practical}}
+      
+      # Argumentation style
+      style: |
+        {{how this advocate argues — aggressive, measured, evidence-focused, etc.}}
+        
+      # Constraints on this advocate
+      constraints:
+        - {{things they must acknowledge}}
+        - {{positions they cannot take}}
+        
+  # Pre-planned strategy (optional)
+  strategy: |
+    {{opening approach}}
+    {{how to handle expected counterarguments}}
+    {{closing approach}}
+    
+  # Evidence bank
+  evidence:
+    - id: {{evidence-id}}
+      type: {{statistic | case_study | expert_opinion | logical_argument}}
+      claim: {{what the evidence supports}}
+      source: {{where it comes from}}
+      strength: {{strong | moderate | weak}}
+      
+  # Arguments made during debate (populated during session)
+  arguments:
+    - id: {{arg-id}}
+      timestamp: {{when made}}
+      advocate: {{who made it}}
+      claim: {{the argument}}
+      evidence_cited: [{{evidence-ids}}]
+      rebuttals_received: [{{rebuttal-ids}}]
+      standing: {{unchallenged | contested | conceded}}
+      
+  # Rebuttals made (populated during session)
+  rebuttals:
+    - id: {{reb-id}}
+      timestamp: {{when made}}
+      advocate: {{who made it}}
+      target: {{argument-id being rebutted}}
+      content: {{the rebuttal}}
+      effectiveness: {{devastating | effective | weak | ignored}}
+      
+  # Points conceded
+  concessions:
+    - point: {{what was conceded}}
+      to_side: {{which side}}
+      by_advocate: {{who conceded}}
+      
+  # Running score (if rubric-based)
+  scores:
+    evidence_quality: null
+    logical_coherence: null
+    addresses_counterarguments: null
+    practical_feasibility: null
+    
+# YAML Jazz guidance:
+# - Position should be genuinely debatable, not strawman
+# - Advocates should have distinct styles that complement each other
+# - Strategy should anticipate real counterarguments
+# - Evidence should be varied in type, not all the same kind
+# - Constraints make the debate more realistic and interesting

@@ -1,0 +1,230 @@
+# The Gong of Gezelligheid
+# A powerful attention-getting device. Use sparingly and kindly.
+
+object:
+  id: gong
+  name: "The Gong of Gezelligheid"
+  type: instrument
+  emoji: "🔔"
+  
+  description: |
+    A magnificent bronze gong hangs from an ornate wooden frame
+    near the back of the pub. Its surface shows the patina of
+    countless strikes — some celebratory, some merciful. A padded
+    mallet hangs beside it on a velvet cord.
+    
+    A small brass plaque reads:
+    "Ring for attention. Ring twice for emergency.
+     Ring thrice to end what should not continue.
+     Ring with kindness. The sound carries far."
+    
+  # Physical properties
+  properties:
+    material: bronze
+    diameter: "36 inches"
+    origin: "Amsterdam, 1892"
+    resonance: "deep, penetrating, impossible to ignore, and jazz brassy"
+    
+  # Inherits wisdom about when to use
+  inherits:
+    - skills/roberts-rules/SKILL.md  # Parliamentary interrupts
+    - skills/debate/SKILL.md          # Debate termination
+    
+  # The gong's powers
+  advertisements:
+    RING:
+      description: "Strike the gong once — get attention"
+      score: 60
+      effect: |
+        All conversation pauses. All eyes turn to the ringer.
+        The room grants you a moment of undivided attention.
+        Use this moment wisely.
+      cooldown: "1 minute"
+      
+    RING_TWICE:
+      description: "Double strike — emergency interrupt"
+      score: 40
+      score_if: "urgent situation OR point_of_order"
+      effect: |
+        Immediate suspension of current activity.
+        Room enters emergency protocol.
+        The ringer must state the emergency.
+      cooldown: "5 minutes"
+      
+    RING_THRICE:
+      description: "Triple strike — The Gong Show termination"
+      score: 20
+      score_if: "performance_failing OR debate_deadlocked OR mercy_needed"
+      effect: |
+        Current performance, debate, or discussion ENDS.
+        Not in anger, but in mercy.
+        The gonged party may feel embarrassed but is freed.
+        Everyone moves on. No hard feelings.
+      cooldown: "10 minutes"
+      warning: |
+        This is The Gong Show move. Use only when:
+        - A performance has clearly lost the room
+        - A debate has become unproductive
+        - Someone needs to be mercifully stopped
+        - Continuing would be crueler than ending
+        
+    CEREMONIAL_RING:
+      description: "Formal announcement strike"
+      params:
+        announcement: required
+      score: 50
+      effect: |
+        The gong heralds an important announcement.
+        Room enters receptive listening mode.
+        Announcement follows the reverberations.
+        
+    CELEBRATION_RING:
+      description: "Joyous strike for good news"
+      score: 70
+      score_if: "good_news OR victory OR milestone"
+      
+    # AUTOGONG — automatic integration with pub/pie-table.yml
+    AUTOGONG_ELIMINATION:
+      description: "Auto-rings once when someone is eliminated"
+      triggered_by: "pie-table.yml#MUSICAL_CHAIRS"
+      automatic: true
+      effect: |
+        *GONG* — A merciful single strike.
+        "Better luck next round!" the gong seems to say.
+        The eliminated player takes a bow and joins the audience.
+        
+    AUTOGONG_VICTORY:
+      description: "Auto-rings thrice when winner is crowned"
+      triggered_by: "pie-table.yml#MUSICAL_CHAIRS"
+      automatic: true
+      effect: |
+        *GONG* *GONG* *GONG* — The victory fanfare!
+        The last one seated has won!
+        The gong celebrates with its most joyous tone.
+        Confetti optional but encouraged.
+      effect: |
+        A bright, celebratory tone.
+        The room joins in appreciation.
+        Cheers encouraged.
+        
+  # State
+  state:
+    last_ring: null
+    ring_count_today: 0
+    last_gong_show_termination: null
+    
+  # The Gong Show connection
+  gong_show:
+    inspired_by: "The Gong Show (1976-1980)"
+    host: "Chuck Barris"
+    philosophy: |
+      Sometimes the kindest thing is to end something that isn't working.
+      The gong isn't cruel — it's merciful. It says:
+      "This isn't your moment. That's okay. Try again another time."
+      
+      Chuck Barris understood that failure is part of entertainment.
+      The gong made it acceptable to fail, because the failure was
+      acknowledged with a dramatic flourish rather than awkward silence.
+      
+    celebrity_judges:
+      # The table can optionally summon Gong Show style judges
+      - jaye_p_morgan: "Warm but honest"
+      - jamie_farr: "Enthusiastic supporter"
+      - arte_johnson: "Wry observer"
+      - rip_taylor: "Confetti-throwing chaos agent"
+      - unknown_comic: "Paper bag of mystery"
+      
+  # Interaction flavor
+  interactions:
+    examine: |
+      The gong hangs silently, its bronze surface swirling with
+      subtle patterns forged into the metal long ago. You can
+      almost feel its potential energy — the room-stopping power
+      waiting to be released.
+      
+      The mallet is worn smooth from countless hands.
+      
+    ring: |
+      You grasp the mallet and strike the gong.
+      
+      *GONNNNNGGGGG*
+      
+      The sound fills the pub like a wave, rolling over conversations,
+      through laughter, past the clink of glasses. Everything stops.
+      Every eye finds you.
+      
+      The room waits.
+      
+    ring_twice: |
+      *GONNNNGGG* — *GONNNNNGGGGG*
+      
+      The double strike echoes urgently. The pub falls instantly
+      silent. This is the emergency signal. Even the cats in the
+      cat cave poke their heads out.
+      
+      "What's happening?" someone whispers.
+      
+    ring_thrice: |
+      *GONNNNGGG* — *GONNNNGGG* — *GONNNNNNNGGGGGGG*
+      
+      The triple strike. The Gong Show termination.
+      
+      The current speaker/performer stops mid-sentence/act.
+      There's a moment of shocked silence, then... relief.
+      
+      "Thank you," someone mutters. "That needed to happen."
+      
+      The gonged party looks embarrassed but also freed.
+      The curse has been lifted. They can sit down.
+      No hard feelings. We've all been there.
+      
+    celebration: |
+      *GONNNNNGGGG!* ✨
+      
+      A bright, clear tone rings out! The pub erupts in cheers!
+      Whatever just happened was GOOD, and the gong agrees!
+      
+  # Usage guidance
+  etiquette: |
+    The gong is a tool of attention and mercy, not aggression.
+    
+    DO:
+    - Ring once when you have something important to say
+    - Ring twice in genuine emergencies
+    - Ring thrice to mercifully end failing performances
+    - Ring for celebrations and announcements
+    
+    DON'T:
+    - Ring just because you're bored
+    - Ring to be mean
+    - Ring to interrupt someone making a good point
+    - Ring thrice on someone who's genuinely trying
+    
+    Remember: The gong carries far. Its sound reaches every room
+    in the pub. The gong remembers. Use that power with kindness.
+    
+  # Example usage
+  example: |
+    > EXAMINE gong
+    The gong hangs silently, waiting...
+    
+    > RING
+    *GONNNNNGGGGG* — All attention turns to you.
+    
+    > "I have an announcement: The kitchen is now serving stroopwafels!"
+    Cheers erupt. The announcement was worth the gong.
+    
+    ---
+    
+    > RING_THRICE
+    *GONNNNGGG* — *GONNNNGGG* — *GONNNNNNNGGGGGGG*
+    
+    The debate about tabs vs spaces ends. Finally.
+    Both sides look relieved. Some arguments should not continue.
+
+# YAML Jazz notes:
+# - The Gong Show made failure acceptable and even entertaining
+# - Chuck Barris was a genius of managed chaos
+# - Mercy endings prevent worse awkwardness than the gong itself
+# - The pub needs a way to gracefully end things
+# - "Use sparingly and kindly" — the ethos of good moderation

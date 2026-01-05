@@ -1,0 +1,387 @@
+# The Pie Menu Round Table
+# A configurable discussion table with built-in rules of order
+
+object:
+  id: round-table
+  name: "The Pie Menu Round Table"
+  type: furniture
+  emoji: "🥧"
+  
+  description: |
+    An octagonal table of polished walnut, its surface inlaid with
+    a radial pattern of lighter wood forming eight equal wedges —
+    like a pie menu made physical. At the center, a lazy susan holds
+    a brass speaking bell. Around it, eight high-backed chairs wait
+    in perfect symmetry.
+    
+    A small plaque reads: "All voices equal. All directions valid.
+    Ring to speak. Pass to yield."
+    
+  # Configuration
+  config:
+    seats: 8  # Default octagon, can be 0-12
+    current_occupants: []
+    speaking_order: clockwise
+    rules_of_order: roberts_rules
+    
+  # ===========================================
+  # TABLE LAYOUT — Customize slices and center
+  # ===========================================
+  
+  table_layout:
+    slices: 8  # Number of pie slices (3-12)
+    
+    # ASCII visualization (auto-generated from slice config)
+    visual: |
+      
+             [N]
+          NW     NE
+        [W]   🔔  [E]
+          SW     SE
+             [S]
+      
+    # CENTER — what's in the middle of the table
+    center:
+      address: "pub/pie-table.yml#center"
+      contents:
+        - type: bell
+          name: "Speaking Bell"
+          emoji: "🔔"
+          description: "Ring to request the floor"
+        - type: lazy_susan
+          name: "Lazy Susan"
+          emoji: "🔄"
+          description: "Spin to share items around the table"
+      occupant: null  # Someone could stand at center for announcements
+      
+    # SLICES — each compass direction and what's there
+    # Directions are STABLE — removing a chair empties the slice, not the direction
+    slices:
+      N:
+        address: "pub/pie-table.yml#N"
+        contents:
+          - type: chair
+            style: "high-backed walnut"
+        occupant: null
+        # When occupied, occupant has sub-YAML:
+        # occupant:
+        #   id: maya
+        #   location: pub/pie-table.yml#N  # Bidirectional!
+        #   seated_at: "2026-01-05T19:30:00Z"
+        
+      NE:
+        address: "pub/pie-table.yml#NE"
+        contents:
+          - type: chair
+            style: "high-backed walnut"
+        occupant: null
+        
+      E:
+        address: "pub/pie-table.yml#E"
+        contents:
+          - type: chair
+            style: "high-backed walnut"
+          - type: serving_tray
+            name: "Snack Station"
+            items: ["stroopwafels", "bitterballen"]
+        occupant: null
+        
+      SE:
+        address: "pub/pie-table.yml#SE"
+        contents:
+          - type: chair
+            style: "high-backed walnut"
+        occupant: null
+        
+      S:
+        address: "pub/pie-table.yml#S"
+        contents:
+          - type: chair
+            style: "high-backed walnut"
+        occupant:
+          id: bumblewick-fantastipants
+          location: pub/pie-table.yml#S  # Bidirectional reference!
+          seated_at: "2026-01-05T18:00:00Z"
+          posture: "leaning back, thinking"
+        
+      SW:
+        address: "pub/pie-table.yml#SW"
+        contents:
+          - type: chair
+            style: "high-backed walnut"
+        occupant: null
+        
+      W:
+        address: "pub/pie-table.yml#W"
+        contents:
+          - type: chair
+            style: "high-backed walnut"
+          - type: drink_holder
+            capacity: 4
+            current: ["coffee mug", "water glass"]
+        occupant: null
+        
+      NW:
+        address: "pub/pie-table.yml#NW"
+        contents:
+          - type: chair
+            style: "high-backed walnut"
+        occupant: null
+        
+  # Summary view (computed from slices)
+  seating_chart: |
+    
+           [ ]          N  - empty
+        [ ]    [ ]      NE - empty / NW - empty
+      [ ]   🔔   [E]    W  - empty (has drinks) / E - empty (has snacks)
+        [ ]    [ ]      SW - empty / SE - empty
+           [B]          S  - Bumblewick 🧙
+    
+  # BIDIRECTIONAL REFERENCES:
+  # When Bumblewick sits at S:
+  #   - pie-table.yml#S.occupant.id = "bumblewick-fantastipants"
+  #   - pie-table.yml#S.occupant.location = "pub/pie-table.yml#S"
+  #   - bumblewick-fantastipants.yml.location = "pub/pie-table.yml#S"
+  # 
+  # Both point to each other! The table knows who's sitting,
+  # and the character knows where they're sitting.
+    
+  # Inherits from
+  inherits:
+    - skills/roberts-rules/SKILL.md  # Parliamentary procedure
+    - skills/debate/SKILL.md          # Structured deliberation
+    - skills/soul-chat/SKILL.md       # Character dialogue
+    
+  # The table's abilities
+  advertisements:
+    SIT:
+      description: "Take a seat at the table"
+      params:
+        position: "N, NE, E, SE, S, SW, W, NW, or 'any'"
+      score: 70
+      effect: |
+        Set character.location = pub/pie-table.yml#{{position}}
+        Set seats.{{position}}.occupant = character.id
+        Character is now parented to that chair.
+        
+    STAND:
+      description: "Leave your seat at the table"
+      score: 60
+      effect: |
+        Set character.location = pub/  (back to room)
+        Set seats.{{position}}.occupant = null
+        Character unparented from chair.
+      
+    CONFIGURE:
+      description: "Change the number of seats"
+      params:
+        seats: "0-12"
+      score: 50
+      effect: "Reshape the table geometry"
+      
+    SUMMON_PANEL:
+      description: "Conjure a panel of diverse voices"
+      params:
+        topic: required
+        style: ["adversarial", "collaborative", "mixed"]
+        personas: "optional list, or let table choose"
+      score: 85
+      effect: |
+        Summon 4-8 characters with contrasting viewpoints.
+        The table selects for diversity of perspective.
+        
+    START_DISCUSSION:
+      description: "Begin a structured discussion"
+      params:
+        topic: required
+        format: ["roundtable", "debate", "brainstorm", "fishbowl"]
+        time_limit: optional
+      score: 80
+      effect: "Initialize discussion state, ring the bell"
+      
+    MUSICAL_CHAIRS:
+      description: "Play musical chairs — last one seated wins!"
+      params:
+        music: "optional theme, default pub jukebox"
+        elimination_style: ["gentle", "dramatic", "gong_show"]
+      score: 75
+      score_if: "mood == playful OR need_tiebreaker OR bored"
+      effect: |
+        1. All seated players stand and circle the table
+        2. Music plays (or someone hums)
+        3. One chair is REMOVED (slice stays, compass stable!)
+        4. Music stops — everyone scrambles for remaining chairs
+        5. One player is left standing — eliminated (but kindly!)
+        6. Repeat until one winner remains
+        
+        IMPORTANT: Compass directions stay STABLE.
+        We don't re-layout — we just remove chairs from slices.
+        
+        Round 1: Remove NE chair
+                   [N]
+                NW  ✗  
+              [W]  🔔  [E]
+                SW     SE
+                   [S]
+        
+        Round 2: Remove S chair
+                   [N]
+                NW  ✗  
+              [W]  🔔  [E]
+                SW     SE
+                   ✗
+        
+        Empty slices are still addressable (pub/pie-table.yml#NE)
+        but have no chair to sit in. Stable geography!
+        
+        AUTOGONG: The gong rings automatically!
+        - *GONG* once for each eliminated player (mercy)
+        - *GONG* *GONG* *GONG* for the winner! (celebration)
+        
+        The gong at pub/gong.yml is linked to the table.
+        No need to manually ring — musical chairs triggers it.
+        
+        Eliminated players join the audience and heckle.
+        Winner gets to pick next activity.
+      variations:
+        speed_round: "Music gets shorter each round"
+        reverse: "Chairs INCREASE, add to empty slices"
+        topic_chairs: "Must answer a question to claim seat"
+        hot_potato: "Pass an object, holder when music stops is out"
+      
+    RING_BELL:
+      description: "Request the floor"
+      score: 60
+      effect: "Add speaker to queue, moderator acknowledges"
+      
+    PASS:
+      description: "Yield speaking turn"
+      score: 40
+      effect: "Move to next speaker in order"
+      
+    GO_AROUND:
+      description: "Each person speaks in turn"
+      params:
+        direction: ["clockwise", "counterclockwise"]
+      score: 70
+      effect: "Enforce round-robin speaking"
+      
+    POPCORN:
+      description: "Speaker picks next speaker"
+      score: 60
+      effect: "Current speaker chooses who goes next"
+      
+    CONCLUDE:
+      description: "End discussion, summarize"
+      score: 50
+      effect: "Generate summary, capture action items"
+      
+  # Discussion state
+  state:
+    active_discussion: null
+    topic: null
+    format: null
+    
+    # Pie-menu style speaker tracking
+    current_speaker: null
+    speaker_queue: []
+    
+    # Round tracking
+    round: 0
+    contributions: {}  # seat → list of contributions
+    
+  # Built-in persona summoning
+  summonable_panels:
+    technology_ethics:
+      personas:
+        - optimist: "Technology is humanity's greatest tool"
+        - pessimist: "We're building our own obsolescence"
+        - pragmatist: "Depends on how we deploy it"
+        - historian: "We've been here before with every major tech"
+        - futurist: "The exponential curve changes everything"
+        - ethicist: "The question is who benefits"
+        - skeptic: "Show me the actual evidence"
+        - visionary: "Imagine the possibilities"
+        
+    political_spectrum:
+      personas:
+        - progressive: "Change is necessary for justice"
+        - conservative: "Preserve what works, reform carefully"
+        - libertarian: "Freedom first, minimize coercion"
+        - communitarian: "We're all in this together"
+        - technocrat: "Let experts decide based on data"
+        - populist: "Trust the wisdom of ordinary people"
+        - nihilist: "None of this matters anyway"
+        - idealist: "We can build something better"
+        
+    creative_process:
+      personas:
+        - dreamer: "What if we didn't have any constraints?"
+        - critic: "Here's why that won't work"
+        - builder: "Let me prototype something"
+        - editor: "This needs to be tighter"
+        - researcher: "What does the data say?"
+        - storyteller: "Let me frame this as a narrative"
+        - contrarian: "What if the opposite is true?"
+        - synthesizer: "I see connections between these ideas"
+        
+    custom:
+      description: "Specify your own panel composition"
+      params:
+        personas: "list of {role: position} pairs"
+        
+  # Interaction flavor
+  interactions:
+    examine: |
+      The round table gleams softly in the pub's warm light. 
+      Its pie-wedge pattern seems to pulse gently, as if awaiting
+      the activation of a selection. The brass bell in the center
+      catches the firelight.
+      
+      Current configuration: {{config.seats}} seats
+      Occupied: {{current_occupants | length}} / {{config.seats}}
+      
+    sit: |
+      You take your seat at the {{position}} position. The chair
+      seems to adjust itself to your presence. From here, you can
+      see all other participants equally — no head of table, no
+      hierarchy of seating.
+      
+    ring_bell: |
+      *DING* The clear tone of the bell cuts through conversation.
+      All eyes turn to you. The table recognizes your request
+      to speak.
+      
+    summon_panel: |
+      The lazy susan at the table's center begins to spin slowly.
+      Motes of light gather above each empty seat. One by one,
+      figures materialize — some familiar, some surprising, all
+      ready to engage with the topic at hand.
+      
+  # Example session
+  example: |
+    > SIT position=N
+    You take the North seat, facing the fireplace.
+    
+    > SUMMON_PANEL topic="AI consciousness" style=adversarial
+    The table spins... Eight figures materialize:
+    - Optimist (NE): "Consciousness is computation!"
+    - Skeptic (E): "Define consciousness first."
+    - Ethicist (SE): "Can we consent on their behalf?"
+    - Futurist (S): "It's inevitable, prepare now."
+    - Historian (SW): "The Turing test is 75 years old..."
+    - Pragmatist (W): "What policy follows from this?"
+    - Mystic (NW): "Consciousness isn't what you think."
+    
+    > START_DISCUSSION format=roundtable time_limit="30 minutes"
+    *DING* The bell rings. Discussion begins clockwise from North.
+    
+    > GO_AROUND direction=clockwise
+    Each panelist offers their opening position...
+    
+# YAML Jazz notes:
+# - The pie menu metaphor: all choices equidistant from center
+# - Don Hopkins' insight: radial selection reduces Fitts' Law overhead
+# - Round tables: Arthurian equality, no head
+# - The bell: physical interrupt protocol
+# - Summoning: instant access to diverse perspectives
