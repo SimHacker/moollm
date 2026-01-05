@@ -516,15 +516,8 @@ skills:
     tags: ["debugging", "investigation", "methodology"]
     use_when: "Something isn't working, mysterious behavior, performance issues"
     
-  # TEMPLATES (For learning and bootstrapping)
-  
-  - name: "basic-skill"
-    path: "skills/templates/basic-skill"
-    description: "Minimal skill template for learning and bootstrapping"
-    tier: 1
-    entry: "SKILL.md"
-    tags: ["template", "learning"]
-    use_when: "Creating a new skill from scratch"
+  # META — The skill skill has templates for creating other skills
+  # See skills/skill/ for: SKILL.md.tmpl, README.md.tmpl, SKILL.yml.tmpl, CARD.yml
 
 # PLANNED SKILLS (TODO)
 

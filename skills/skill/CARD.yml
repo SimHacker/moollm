@@ -1,0 +1,127 @@
+# CARD.yml — The Skill Card
+#
+# The meta-skill as a playable card.
+# "A skill is documentation that learned to do things."
+
+card:
+  id: skill
+  name: "The Skill Forge"
+  type: [skill, meta, creation]
+  
+  emoji: 🛠️
+  
+  rarity: mythic  # Foundational to MOOLLM
+  
+  description: |
+    The meta-skill for creating, understanding, and debugging skills.
+    
+    Every skill you encounter was forged here. This card teaches
+    the art of skill creation — from documentation to automation,
+    from prototype inheritance to instantiation.
+    
+    Play this card when you need to:
+    - Create a new skill from scratch
+    - Understand how skills inherit from prototypes
+    - Debug a skill that isn't working
+    - Upgrade a skill's capabilities
+
+# METHODS
+# What this card can do when played
+
+methods:
+  
+  CREATE:
+    description: "Create a new skill"
+    parameters:
+      name: "lowercase-with-dashes"
+      description: "One-line summary"
+      tier: "0, 1, or 2"
+      prototypes: "List of parent skills"
+    effect: |
+      1. Create skills/{name}/ directory
+      2. Generate README.md from template
+      3. Generate SKILL.md from template  
+      4. Register in INDEX.yml
+      5. Return the new skill card
+      
+  INSTANTIATE:
+    description: "Create an instance of any skill"
+    parameters:
+      skill: "Path to skill"
+      location: "Where to create instance"
+      variables: "Template variable bindings"
+    effect: |
+      1. Read skill's templates
+      2. Fill variables (LLM applies POSTEL's law)
+      3. Write instance files to location
+      4. Return activation record
+      
+  DEBUG:
+    description: "Diagnose why a skill isn't working"
+    parameters:
+      skill_path: "Path to skill or instance"
+    effect: |
+      1. Check file structure
+      2. Verify prototype chain
+      3. Test template rendering
+      4. Report issues and fixes
+      
+  UPGRADE:
+    description: "Evolve a skill's capabilities"
+    parameters:
+      skill: "Path to skill"
+      new_tier: "Target tier (0→1, 1→2)"
+    effect: |
+      1. Analyze current capability
+      2. Identify what's needed for upgrade
+      3. Add required templates/tools
+      4. Update INDEX.yml
+
+# PROTOTYPES
+# This card inherits from:
+
+prototypes:
+  - skills/card  # It IS a card
+
+# ADVERTISEMENTS
+# What this card offers to the room
+
+advertisements:
+  CREATE_SKILL:
+    score: 80
+    condition: "Need to make a new reusable capability"
+    
+  FIX_SKILL:
+    score: 70
+    condition: "A skill is broken or incomplete"
+    
+  TEACH_SKILLS:
+    score: 60
+    condition: "Someone wants to understand how skills work"
+
+# RELATED SKILLS
+
+see_also:
+  - skills/protocol  # K-line names
+  - skills/card  # Cards as capabilities
+  - skills/constructionism  # Learning by building
+  - skills/play-learn-lift  # The methodology
+
+# PHILOSOPHY
+#
+# "Start with jazz, end with standards."
+#
+# Skills evolve through use:
+#   PLAY: Do it manually, learn what works
+#   LEARN: Notice patterns, document them
+#   LIFT: Crystallize into reusable skill
+#
+# The skill skill is the forge where this happens.
+
+credits:
+  inspiration:
+    - "David Ungar & Randy Smith — Self language (1987)"
+    - "Seymour Papert — Constructionism"
+    - "Anthropic — Skills model"
+  implementation:
+    - "Don Hopkins — MOOLLM"

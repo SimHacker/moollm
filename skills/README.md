@@ -113,13 +113,6 @@ Userland protocols over files.
 | [storytelling-tools/](./storytelling-tools/) | Narrative capture — notebooks, letters, photos |
 | [procedural-rhetoric/](./procedural-rhetoric/) | Design with intentional ideology (Bogost) |
 
-### 📦 Templates
-
-| Skill | One-liner |
-|-------|-----------|
-| [templates/](./templates/) | Starter templates for new skills |
-| [templates/basic-skill/](./templates/basic-skill/) | Minimal skill template |
-
 ---
 
 ## Skill Tiers
@@ -161,11 +154,16 @@ Every skill has:
 
 ### Create a New Skill
 
-1. Copy `skills/templates/basic-skill/` to `skills/my-skill/`
-2. Edit `SKILL.md` (YAML frontmatter + documentation)
-3. Edit `README.md` (human overview)
-4. Create `*.tmpl` templates as needed
+1. Create `skills/my-skill/` directory
+2. Copy templates from `skills/skill/`:
+   - `README.md.tmpl` → `README.md`
+   - `SKILL.md.tmpl` → `SKILL.md`
+   - `SKILL.yml.tmpl` → for instances
+3. Fill in template variables
+4. Add `CARD.yml` if the skill is playable
 5. Register in `INDEX.yml`
+
+Or just tell the LLM: "Create a new skill called 'my-skill' using the skill skill."
 
 ---
 
@@ -174,8 +172,10 @@ Every skill has:
 | File | Purpose |
 |------|---------|
 | [INDEX.yml](./INDEX.yml) | Machine-readable skill registry |
-| [skill-instantiation-protocol.md](./skill-instantiation-protocol.md) | How skills are invoked |
-| [delegation-object-protocol.md](./delegation-object-protocol.md) | Self-like inheritance |
+| [ROOM.yml](./ROOM.yml) | The Skill Nexus — this directory as a metaphysical room |
+| [skill/](./skill/) | The meta-skill with templates and protocols |
+| [skill/delegation-object-protocol.md](./skill/delegation-object-protocol.md) | Self-like inheritance (Ungar) |
+| [skill/skill-instantiation-protocol.md](./skill/skill-instantiation-protocol.md) | How skills become instances |
 
 ---
 
