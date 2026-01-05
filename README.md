@@ -152,15 +152,15 @@ MOOLLM's room navigation, object examination, and inventory management descend d
 
 **Scott McCloud — [Understanding Comics](https://en.wikipedia.org/wiki/Understanding_Comics)** — The **masking effect**: abstract characters against realistic backgrounds increase empathy and projective identification. Will Wright applied this to The Sims: simplified characters let players project themselves into detailed worlds. MOOLLM inherits this: characters are abstract YAML templates, but the rooms and objects they inhabit can be richly detailed. The abstraction IS the feature — it creates space for imagination.
 
-**Will Wright — The Simulator Effect** — *"Players imagine your simulation is vastly more detailed, rich, and complex than it actually is — don't talk them out of it."* Games run on two computers: the electronic one on the desk, and the biological one in the player's head. The player's imagination does the heavy lifting. MOOLLM embraces this: sparse YAML descriptions invoke rich mental images. The LLM fills gaps. The player's mind completes the world.
+**Will Wright — The Simulator Effect** — *"Players imagine your simulation is vastly more detailed, rich, and complex than it actually is — don't talk them out of it."* Games run on two computers: the electronic one on the desk, and the biological one in the player's head. The player's imagination does the heavy lifting. MOOLLM embraces this: sparse YAML descriptions invoke rich mental images, as multisensory experience in the user's mind, and as image generation prompts. The LLM fills gaps. The player's mind completes the world.
 
 > *"If you can build it, you can understand it. If you can inspect it, you can trust it."*
 
 ## Why It's Powerful
 
-**MOOLLM is bash for the LLM age.**
+**MOOLLM is bash, finder, and browser for the LLM age.**
 
-People joke online: *"What if the shell were an adventure game?"* **This is that. And it's not a joke.**
+People joke online: *"What if the shell were an adventure game?"* **MOOLLM is that and more. And it's not a joke.**
 
 Unix gave us composable processes: `cat file | grep pattern | sort`. Pipes, streams, small tools that do one thing well.
 
@@ -222,7 +222,7 @@ This is how The Sims works: one frame updates ALL Sims simultaneously. MOOLLM ap
 
 ## Multi-User: It's a MUD, Remember?
 
-Slap a web server on it. **Publish any chat as a live stream.**
+The Plan: Slap a web server on it. **Publish any chat as a live stream.**
 
 ```
 https://your-moollm.example/rooms/design-debate/
@@ -473,15 +473,15 @@ Sister scripts emerge: chat patterns that work get automated. The slow LLM explo
 | **LEARN** | Marvin Minsky, Ted Nelson, Henry Lieberman, Alan Cypher, Brad Myers, Doug Engelbart | K-lines, intertwingling, programming by demonstration, augmentation, pattern recognition |
 | **LIFT** | Dave Ungar, Dave Ackley, Chuck Shotton, Arthur van Hoff, James Gosling | Crystallization, robustness, pipelines, productization, platform-building |
 
-These are Hero-Story cards you can summon. Invoke `papert-tradition` when exploring. Invoke `minsky-tradition` when finding patterns. Invoke `ungar-tradition` when optimizing. The pantheon grows: Kay for messaging, Ackley for robustness, Atkinson for end-user programming, Nelson for intertwingling. **Every skill has patron saints. Every patron saint is a card.**
+These are Hero-Story cards you can summon. Invoke `papert-tradition` when exploring. Invoke `minsky-tradition` when finding patterns. Invoke `ungar-tradition` when optimizing. The pantheon grows: Kay for messaging, Ackley for robustness, Atkinson for end-user programming, Nelson for intertwingling. Shneiderman, Nielsen, and Victor for web design! **Every skill has patron saints. Every patron saint is a card.**
 
-**Multiple inheritance, Self-style.** Archetypal symbols can inherit from real people, fictional characters, pets, concept names — all at once. A "Debugger" card might inherit from:
+**Multiple inheritance, Self-style.** Archetypal symbols can inherit from real people, fictional characters, pets, even abstract concepts like Chuck Tingle book covers — all at once. A "Debugger" card might inherit from:
 - `papert-tradition` (debugging as learning)
 - `sherlock-holmes` (deductive reasoning)
 - `rubber-duck` (explain it out loud)
 - `NEVER-CRASH` (the protocol symbol itself)
 
-Meaning lifts from all parents. No diamond problem — it's delegation, not copying. Ask the Debugger a question; it consults its lineage. **Symbols are first-class objects with prototype chains.**
+Meaning lifts from all parents. No diamond problem — it's delegation, not copying, using Postel's Law to sendibly resolve ambiguities by context. Ask the Debugger a question; it consults its lineage. **Symbols are first-class objects with prototype chains.**
 
 **Characters as stylesheets.** Mix and match like CSS. Assemble your dream team:
 
@@ -678,32 +678,80 @@ Protocols degrade gracefully. At Tier 1, `why` is convention. At Tier 6, it's en
 
 Skills are **protocols the model follows**, not code the orchestrator runs.
 
-### Structure
+**Anthropic-compatible** with MOOLLM extensions for human readability.
+
+### What's a Skill?
+
+| Type | Example | K-Line |
+|------|---------|--------|
+| **Capability** | Navigate rooms, manage inventory | `ROOM-AS-FUNCTION` |
+| **Methodology** | Play-Learn-Lift, debugging | `PLAY-LEARN-LIFT` |
+| **Knowledge** | Constructionism, procedural rhetoric | `CONSTRUCTIONISM` |
+| **Protocol** | POSTEL, robust-first | `POSTEL` |
+| **Concept** | Speed-of-light, coherence engine | `SPEED-OF-LIGHT` |
+
+**Skills can be pure knowledge.** The `constructionism/` skill has no tools — it's Seymour Papert's philosophy, documented and invokable by name.
+
+**K-lines are skill names.** Type `POSTEL` and activate the entire tradition of charitable interpretation. Type `ADVERSARIAL-COMMITTEE` and invoke Mike Gallaher's committee methodology.
+
+### Structure (Anthropic-Compatible)
 
 ```
-skills/memory-palace/
-├── README.md         # Human entry point
-├── SKILL.md          # Protocol documentation
-├── PROTOTYPE.yml     # Machine definition
-└── template/         # Files to copy on instantiation
-    ├── MAP.yml.tmpl
-    └── ROOM.md.tmpl
+skills/adversarial-committee/
+├── README.md              # Human landing page (GitHub renders this)
+├── SKILL.md               # Full spec with YAML frontmatter
+└── COMMITTEE.yml.tmpl     # Templates at root level (not in subdirectory)
 ```
 
-### Instantiation
+**MOOLLM adds README.md** for human consumption and GitHub browsing. Anthropic's format uses only SKILL.md.
 
-```mermaid
-flowchart TD
-    P[Prototype] -->|copy template| I[Instance]
-    I -->|render .tmpl| F[Files]
-    F -->|track state| S[INSTANCE.yml]
-    S -->|finalize| R[RESULT.md]
+### SKILL.md Format
+
+```yaml
+---
+name: adversarial-committee
+description: Committee of opposing personas forcing genuine debate
+allowed-tools:
+  - read_file
+  - write_file
+tier: 1
+protocol: ADVERSARIAL-COMMITTEE    # K-line name!
+tags: [decision, debate, ensemble]
+credits: "Mike Gallaher"
+related: [roberts-rules, rubric, evaluator, soul-chat]
+---
+
+# Adversarial Committee
+
+[Full documentation in Markdown...]
 ```
 
-1. Copy template to session directory
-2. Render `.tmpl` files with context variables
-3. Create `INSTANCE.yml` tracking state
-4. Mark status: `active` → `finalized` | `abandoned`
+The **YAML frontmatter** is machine-readable. The **Markdown body** is human-readable. The **protocol field** declares the K-line that invokes this skill.
+
+### Skill Tiers
+
+| Tier | Tools Required | Examples |
+|------|----------------|----------|
+| 0 | None (pure knowledge) | constructionism, protocol, procedural-rhetoric |
+| 1 | File read/write | room, card, adventure, adversarial-committee |
+| 2 | + Terminal | debugging, code-review |
+
+**Principle:** Use the lowest tier possible. Knowledge skills need no tools.
+
+### K-Lines Are Skill Invocations
+
+```yaml
+# Type a K-line to activate a skill:
+ADVERSARIAL-COMMITTEE    # → Invoke committee debate methodology
+ROBERTS-RULES            # → Enforce parliamentary procedure
+SPEED-OF-LIGHT           # → Simulate many agents in one call
+POSTEL                   # → Apply charitable interpretation
+CONSTRUCTIONISM          # → Think like Papert
+
+# K-lines are greppable, mnemonic, and tradition-activating
+```
+
+See: [PROTOCOLS.yml](./PROTOCOLS.yml) for the full K-line registry.
 
 ---
 
