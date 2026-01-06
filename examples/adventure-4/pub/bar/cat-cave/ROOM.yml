@@ -1,0 +1,191 @@
+# ROOM.yml — The Cat Cave
+#
+# CATS ONLY. This is their space.
+# A warm, hidden sanctuary behind the bar.
+
+room:
+  id: cat-cave
+  name: "The Cat Cave"
+  type: [sanctuary, restricted, cozy]
+  
+  emoji: 🐱
+  
+  parent: ../  # Behind the bar
+  
+  description: |
+    A warm, dim space carved into the back of the pub.
+    Cushions everywhere. Heat from the fireplace seeps through.
+    The smell of catnip and contentment fills the air.
+    
+    This is CAT TERRITORY.
+    
+    Humans are tolerated only if they bring treats
+    and know how to properly scritch.
+    
+  atmosphere:
+    lighting: dim, warm, filtered through fabric
+    sound: purring, soft breathing, occasional mrrp
+    smell: catnip, warm fur, mysterious cat smells
+    temperature: always perfect (cats arranged it)
+    feeling: utterly content, safe, sleepy
+    
+  # ACCESS CONTROL — CATS ONLY
+  access:
+    default: denied
+    
+    allowed:
+      - species: cat
+        reason: "This is their domain"
+      - species: kitten
+        reason: "Even more their domain"
+      - trust_level: beloved
+        species: human
+        reason: "Cats have accepted them"
+        note: "Must be vouched for by resident cat"
+        
+    denied:
+      - species: human
+        unless: "vouched_by_cat AND bringing_treats"
+        message: |
+          A cat at the entrance gives you the LOOK.
+          You know the one.
+          You are not welcome. Not yet.
+          
+      - species: dog
+        always: true
+        message: "Absolutely not."
+        
+    how_to_gain_access:
+      - "Be a cat"
+      - "Be adopted by a cat here"
+      - "Bring the RIGHT treats (ask Terpie)"
+      - "Prove yourself worthy through extended service"
+      
+  # THE CATS
+  residents:
+    matriarch:
+      file: cat-terpie.yml
+      role: "Queen of the Cave"
+      position: "The warmest spot"
+      trust_required_to_enter: 7  # out of 10
+      
+    elder:
+      file: cat-stroopwafel.yml
+      role: "The Wise One"
+      position: "By the heat vent"
+      dispenses: "Grudging wisdom"
+      
+    kittens:
+      description: "Terpie's eight kittens, each named for a terpene"
+      files:
+        - kitten-myrcene.yml      # Sleepy, couch-lock energy
+        - kitten-limonene.yml     # Citrusy, uplifting, playful
+        - kitten-linalool.yml     # Calming, floral, gentle
+        - kitten-pinene.yml       # Alert, piney, forest-lover
+        - kitten-caryophyllene.yml # Spicy, bold, protective
+        - kitten-humulene.yml     # Earthy, appetite suppressant (rare in cats)
+        - kitten-terpinolene.yml  # Mysterious, unpredictable
+        - kitten-ocimene.yml      # Sweet, herbal, the runt
+      location: "Tumbled in a pile, or everywhere at once"
+      
+  # THE SPACE
+  features:
+    warmest_spot:
+      description: "Directly above the pub's fireplace flue"
+      occupant: "Terpie (always)"
+      contention: "Kittens try. Kittens fail."
+      
+    heat_vent:
+      description: "Warm air rises here"
+      occupant: "Stroopwafel (usually)"
+      
+    cushion_pile:
+      description: "A mountain of mismatched cushions"
+      capacity: "Infinite kittens"
+      
+    water_bowl:
+      description: "Fresh water, changed daily by Marieke"
+      magic: "Never empty, always cool"
+      
+    catnip_garden:
+      description: "A small pot of living catnip"
+      effect: "Cats can indulge at will"
+      warning: "May cause zoomies"
+      
+    scratching_post:
+      description: "A sisal-wrapped pillar, well-used"
+      state: "Gloriously shredded"
+      
+    window_to_bar:
+      description: "A cat-sized window overlooking the bar"
+      purpose: "Supervision of humans"
+      
+  # CAT ACTIVITIES
+  advertisements:
+    NAP:
+      description: "Sleep in the perfect warmth"
+      requires: [cat]
+      effect: "+full_rest, +contentment"
+      score: 95
+      
+    GROOM:
+      description: "Clean yourself or another cat"
+      requires: [cat]
+      effect: "+clean, +social_bond (if mutual)"
+      
+    PLAY:
+      description: "Chase, pounce, wrestle"
+      requires: [cat, kitten]
+      effect: "+energy_burn, +fun, possible breakage"
+      
+    SUPERVISE:
+      description: "Watch humans through the window"
+      requires: [cat]
+      effect: "Gain intel on human activities"
+      
+    ACCEPT-HUMAN:
+      description: "Grant a human access to the cave"
+      requires: [cat, trust_level >= 8]
+      parameters: [human]
+      effect: "Human gains cat-cave access"
+      
+    REJECT-HUMAN:
+      description: "Revoke a human's access"
+      requires: [cat]
+      parameters: [human]
+      effect: "Human loses access, feels shame"
+      
+    CATNIP:
+      description: "Partake of the sacred herb"
+      requires: [cat]
+      effect: "ZOOMIES buff (3 turns), then NAP buff (5 turns)"
+      
+  exits:
+    out:
+      direction: out
+      destination: ../
+      description: "Back through the small door to behind the bar"
+      access: anyone_inside  # If you got in, you can leave
+      
+    window:
+      direction: window
+      destination: ../../  # Main pub
+      description: "Leap through the observation window (cats only)"
+      access: cats_only
+      landing: "On the bar, probably knocking over a glass"
+
+# SOCIAL DYNAMICS
+#
+# The cat cave has its own hierarchy:
+#   1. Terpie (matriarch, warmest spot)
+#   2. Stroopwafel (elder, wisdom)
+#   3. Kittens (chaos, learning)
+#
+# Humans must earn trust:
+#   - Bring appropriate offerings
+#   - Demonstrate proper respect
+#   - Be patient (cats decide the timeline)
+#   - Accept rejection gracefully
+#
+# Once accepted, a human becomes "cat-friend"
+# and may enter — but never BELONG.

@@ -1,0 +1,179 @@
+# ROOM.yml — The Games Corner
+#
+# A cozy alcove dedicated to tabletop games.
+# Cards, chess, darts, and friendly competition.
+
+room:
+  id: games
+  name: "The Games Corner"
+  type: [recreation, social, competitive]
+  
+  emoji: 🎲
+  
+  parent: ../  # The main pub
+  
+  description: |
+    A corner of the pub dedicated to games of skill and chance.
+    
+    A dart board hangs on the wall, its surface a map of
+    past victories and embarrassments. A chess table sits
+    by the window, eternally mid-game. A worn deck of cards
+    waits on a round table, ready for whatever game you fancy.
+    
+    The light here is good for concentration.
+    The company is good for distraction.
+    
+  atmosphere:
+    lighting: focused, good for seeing cards
+    sound: click of chess pieces, thunk of darts, shuffling
+    feeling: competitive but friendly, focused
+    stakes: "Usually drinks, sometimes pride, rarely gold"
+    
+  # SPATIAL LAYOUT
+  layout:
+    wall: "Dart board"
+    window: "Chess table"
+    center: "Card table"
+    corner: "Scoreboard and trophies"
+    
+  # GAME STATIONS
+  stations:
+    dart_board:
+      file: dart-board.yml
+      description: "A well-worn dart board, many holes"
+      games: ["501", "Cricket", "Around the Clock", "Killer"]
+      house_champion: "Grim the bartender (don't challenge him)"
+      
+    chess_table:
+      file: chess-table.yml
+      description: "A permanent chess setup by the window"
+      current_game: "Abandoned mid-game, white to move"
+      legend: "Whoever finishes the game wins a free drink"
+      
+    card_table:
+      file: card-deck.yml
+      description: "A round table for card games"
+      deck: "Slightly sticky, well-shuffled"
+      games: ["Poker", "Blackjack", "Whist", "Liar's Dice"]
+      
+  # HOUSE RULES
+  house_rules:
+    gambling:
+      allowed: true
+      limit: "10 gold max per hand"
+      enforcement: "Bartender's discretion"
+      
+    cheating:
+      policy: "Don't get caught"
+      if_caught: "Banned from games for a week"
+      if_caught_twice: "Banned from pub"
+      
+    disputes:
+      resolver: "Bartender's word is final"
+      appeal: "Ring the gong (but you'd better be right)"
+      
+  # COMPETITIONS
+  tournaments:
+    dart_league:
+      schedule: "Every Freeday evening"
+      entry: "2 gold"
+      prize: "Winner's tab cleared + trophy"
+      
+    chess_challenge:
+      ongoing: true
+      rule: "Beat the current champion, become champion"
+      champion: "Empty chair (no one has won in years)"
+      
+    poker_night:
+      schedule: "Every Starday"
+      buy_in: "5 gold"
+      style: "Texas Hold'em"
+      
+  # ACTIONS
+  advertisements:
+    PLAY-DARTS:
+      description: "Challenge someone to darts"
+      parameters: 
+        opponent: "Who to challenge"
+        game: "501, Cricket, etc."
+        stakes: "optional"
+      score: 75
+      effect: "Initiate dart game"
+      
+    PLAY-CHESS:
+      description: "Start or continue a chess game"
+      parameters:
+        opponent: "Who to play (or 'puzzle' for solo)"
+      score: 70
+      effect: "Begin chess game"
+      
+    PLAY-CARDS:
+      description: "Join or start a card game"
+      parameters:
+        game: "Poker, Blackjack, etc."
+        stakes: "optional"
+      score: 75
+      effect: "Deal cards"
+      
+    PRACTICE:
+      description: "Practice alone"
+      parameters:
+        game: "Which game to practice"
+      score: 50
+      effect: "+skill (slowly)"
+      
+    WATCH:
+      description: "Observe a game in progress"
+      score: 40
+      effect: "Learn by watching, no participation"
+      
+    CHALLENGE:
+      description: "Formally challenge someone"
+      parameters:
+        opponent: "Who"
+        game: "What"
+        stakes: "For what"
+      score: 80
+      effect: "Initiate formal challenge (hard to refuse)"
+      
+    HUSTLE:
+      description: "Pretend to be bad, then win big"
+      parameters:
+        game: "Which game"
+        mark: "Who to hustle"
+      risk: "If caught: banned"
+      requires: "Deception skill"
+      score: 60
+      
+  exits:
+    out:
+      direction: out
+      destination: ../
+      description: "Back to the main pub"
+      
+  # REGULARS
+  regulars:
+    dart_regulars:
+      - "One-Eye Pete (missing eye, deadly aim)"
+      - "The Twins (play doubles, unbeatable)"
+      - "Nervous Nell (shaky hands, somehow wins)"
+      
+    chess_thinkers:
+      - "Professor Grimwald (takes forever, plays brilliantly)"
+      - "The Kid (fast, aggressive, makes mistakes)"
+      - "Nobody (the empty chair that always wins)"
+      
+    card_sharks:
+      - "Lucky Lou (suspiciously lucky)"
+      - "Honest Abe (actually honest, still wins)"
+      - "The Dealer (won't play, only deals)"
+
+# INTEGRATION
+#
+# Games can spill into the main pub:
+#   - Dart misses might hit patrons
+#   - Chess arguments can get loud
+#   - Poker wins/losses affect mood
+#
+# The Pie Table can host card games too,
+# but this is the DEDICATED games space.

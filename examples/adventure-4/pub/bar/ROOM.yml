@@ -1,0 +1,166 @@
+# ROOM.yml — Behind the Bar
+#
+# The staff-only area. Where the magic happens.
+# Being in this directory means you're BEHIND the bar.
+
+room:
+  id: bar
+  name: "Behind the Bar"
+  type: [service, restricted, staff]
+  
+  emoji: 🍺
+  
+  parent: ../  # The main pub
+  
+  description: |
+    The sacred space behind the bar. Bottles gleam on shelves.
+    Glasses hang overhead like crystalline stalactites.
+    The ice bin hums. The taps wait, patient.
+    
+    This is where bartenders work their craft.
+    This is where the cat cave hides.
+    This is NOT for customers.
+    
+  atmosphere:
+    lighting: warm, reflected off bottles
+    sound: clinking glass, ice dropping, quiet conversation
+    smell: hops, wood polish, secrets
+    feeling: competent, busy, private
+    
+  # ACCESS CONTROL
+  access:
+    default: denied
+    
+    allowed:
+      - role: staff
+        reason: "Work here"
+      - role: bartender
+        reason: "This is their domain"
+      - role: cat
+        reason: "Cats go where they please"
+      - permission: behind_bar
+        reason: "Explicitly granted"
+        
+    denied:
+      - role: customer
+        message: "Sorry, staff only behind the bar."
+      - role: player
+        unless: "has_permission('behind_bar') OR is_staff"
+        message: "The bartender gives you a look. 'Other side, friend.'"
+        
+    how_to_gain_access:
+      - "Get hired as staff"
+      - "Befriend the bartender enough to be trusted"
+      - "Be a cat"
+      - "Have a REALLY good reason"
+      
+  # SPATIAL LAYOUT
+  layout:
+    front: "The bar counter (customer side)"
+    back: "Bottle shelves and storage"
+    under: "Ice bins, kegs, hidden things"
+    left: "The taps and glasses"
+    right: "The cash box and ledger"
+    behind: "Door to cat-cave/"
+    
+  # WHAT'S HERE
+  contents:
+    bottles:
+      description: "Rows of bottles, some dusty, some frequently poured"
+      notable:
+        - "The good whiskey (top shelf, requires ladder)"
+        - "The mysterious green bottle (no label, glows faintly)"
+        - "The house ale tap (always flowing)"
+        
+    equipment:
+      - "Ice bin (cold, wet, sometimes contains surprises)"
+      - "Glass rack (hanging overhead, requires care)"
+      - "Cash box (locked, bartender has key)"
+      - "Ledger (who owes tabs, who's banned)"
+      - "Emergency gong mallet (for summoning silence)"
+      
+    secrets:
+      - location: "under_counter"
+        item: "A loaded crossbow (just in case)"
+      - location: "false_bottom_drawer"
+        item: "The REAL ledger"
+      - location: "behind_green_bottle"
+        item: "A note: 'If you're reading this, it's too late'"
+        
+  # STAFF
+  staff:
+    bartender:
+      file: bartender.yml
+      role: "Lord of this domain"
+      always_here: true
+      
+    budtender:
+      file: budtender-marieke.yml
+      role: "Cannabis specialist"
+      schedule: "evenings"
+      
+  # MENU/INVENTORY
+  inventory:
+    menu: menu-strains.yml
+    stock_level: "well-stocked"
+    
+  # EXITS
+  exits:
+    out:
+      direction: out
+      destination: ../
+      description: "Step back into the main pub"
+      access: anyone
+      
+    cat-cave:
+      direction: back
+      destination: cat-cave/
+      description: "A small door, cat-sized, leads to the cat cave"
+      access: cats_only
+      
+  # ACTIONS
+  advertisements:
+    POUR:
+      description: "Pour a drink"
+      parameters: [drink, glass]
+      requires: [staff, bartender]
+      effect: "Create drink object"
+      
+    CHECK-STOCK:
+      description: "See what's available"
+      requires: [staff]
+      effect: "List inventory status"
+      
+    READ-LEDGER:
+      description: "Check tabs and bans"
+      requires: [bartender]
+      effect: "Show financial/social state"
+      
+    RING-LAST-CALL:
+      description: "Announce last call"
+      requires: [bartender]
+      effect: "Pub enters closing mode"
+      
+    REFUSE-SERVICE:
+      description: "Cut someone off"
+      parameters: [patron]
+      requires: [bartender]
+      effect: "Patron can no longer order"
+      
+    GRANT-ACCESS:
+      description: "Let someone behind the bar"
+      parameters: [character]
+      requires: [bartender]
+      effect: "Character gains behind_bar permission"
+
+# BEHAVIORAL NOTES
+#
+# Characters IN this directory are BEHIND the bar.
+# This is a spatial encoding: location IS access.
+#
+# To enter: must pass access check OR be cat
+# To leave: just walk out
+#
+# The bartender lives here (figuratively).
+# The cats pass through to the cat cave.
+# Customers stay on the other side.

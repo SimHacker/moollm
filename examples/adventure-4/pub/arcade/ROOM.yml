@@ -1,0 +1,184 @@
+# ROOM.yml — The Arcade
+#
+# A corner filled with magical gaming cabinets.
+# Anachronistic. Beloved. Slightly sticky.
+
+room:
+  id: arcade
+  name: "The Arcade"
+  type: [recreation, nostalgia, magic]
+  
+  emoji: 🕹️
+  
+  parent: ../  # The main pub
+  
+  description: |
+    How did these get here? When did they arrive?
+    Nobody remembers. They've always been here.
+    
+    A cluster of glowing cabinets hums in the corner,
+    their screens casting colorful light on eager faces.
+    The machines accept copper coins — somehow.
+    They dispense joy — reliably.
+    
+    The fruit machine promises fortune.
+    The pinball machine demands skill.
+    The video games offer escape.
+    
+    This is the Arcade. It shouldn't exist.
+    But it does, and everyone's grateful.
+    
+  atmosphere:
+    lighting: neon glow, screen flicker, magical
+    sound: beeps, bloops, mechanical whirring, victory jingles
+    smell: ozone, old circuits, spilled ale
+    feeling: nostalgic, competitive, slightly addictive
+    
+  # THE MYSTERY
+  lore:
+    origin: |
+      No one installed these machines. 
+      No one maintains them.
+      They never break (except dramatically, for story).
+      They accept any coin (copper works fine).
+      
+      The bartender says they've "always been there."
+      The regulars nod. No one questions it.
+      
+      Some say a wizard was involved.
+      Some say they fell through from another world.
+      Some say the pub WANTED them, so they appeared.
+      
+    rules:
+      - "Insert coin to play"
+      - "High scores persist (somehow)"
+      - "Winners get bragging rights"
+      - "The fruit machine is NOT rigged (yes it is)"
+      
+  # THE MACHINES
+  cabinets:
+    fruit_machine:
+      file: fruit-machine.yml
+      name: "The Goblin's Fortune"
+      type: slot_machine
+      description: "Three reels of fruit, gems, and goblins"
+      cost: "1 copper per pull"
+      jackpot: "100 gold (has it EVER paid out?)"
+      addiction_warning: true
+      
+    pinball:
+      file: pinball-machine.yml
+      name: "Dungeon Flipper"
+      type: pinball
+      description: "A dungeon-themed pinball table"
+      theme: "Navigate a marble through a tiny dungeon"
+      high_score: "Held by 'AAA' since time immemorial"
+      skill_based: true
+      
+    pacman:
+      file: pacman-cabinet.yml
+      name: "Gobble Ghost"
+      type: video_game
+      description: "A yellow orb eats dots, avoids ghosts"
+      pattern: "The ghosts have names. They have PERSONALITIES."
+      high_score: "Held by 'GRM' (Grim the bartender)"
+      
+    pong:
+      file: pong-cabinet.yml
+      name: "Paddle & Ball"
+      type: video_game
+      description: "Two paddles, one ball, infinite simplicity"
+      multiplayer: true
+      philosophy: "Sometimes less is more"
+      
+  # SOCIAL DYNAMICS
+  social:
+    high_score_board:
+      description: "A magical scoreboard that updates itself"
+      categories:
+        - "Highest Fruit Machine Win"
+        - "Pinball Champion"
+        - "Pac-Man Master"
+        - "Pong Dominator"
+      bragging_rights: "Significant"
+      
+    gathering:
+      description: "People cluster around good players"
+      effect: "Audience adds pressure (buff or debuff)"
+      
+    teaching:
+      description: "Veterans teach newcomers"
+      culture: "Generous with tips, protective of secrets"
+      
+  # ACTIONS
+  advertisements:
+    PLAY-SLOTS:
+      description: "Try your luck at the fruit machine"
+      parameters:
+        coins: "How many pulls"
+      cost: "1 copper per pull"
+      score: 60
+      risk: "Addictive"
+      
+    PLAY-PINBALL:
+      description: "Test your skill at the flippers"
+      cost: "1 copper per game"
+      score: 70
+      effect: "Skill challenge"
+      
+    PLAY-ARCADE:
+      description: "Play a video game"
+      parameters:
+        game: "pacman, pong"
+        versus: "optional opponent for pong"
+      cost: "1 copper per game"
+      score: 70
+      
+    WATCH-GAME:
+      description: "Spectate someone playing"
+      score: 40
+      effect: "Learn patterns, provide commentary"
+      
+    CHECK-SCORES:
+      description: "View the high score board"
+      score: 30
+      effect: "See who's best"
+      
+    CHALLENGE-SCORE:
+      description: "Formally attempt to beat a high score"
+      parameters:
+        game: "Which game"
+      score: 75
+      effect: "Draws a crowd, high pressure"
+      
+  # ECONOMY
+  economy:
+    currency: "Copper coins"
+    exchange: "1 gold = 10 copper (bartender exchanges)"
+    
+    payouts:
+      fruit_machine:
+        cherry_cherry_cherry: "5 copper"
+        gem_gem_gem: "50 copper"
+        goblin_goblin_goblin: "JACKPOT (100 gold, allegedly)"
+        
+    cost_per_hour: "~10 copper if you're having fun"
+    
+  exits:
+    out:
+      direction: out
+      destination: ../
+      description: "Back to the main pub"
+
+# DESIGN NOTES
+#
+# The arcade is ANACHRONISTIC on purpose.
+# It represents:
+#   - The pub's ability to be ANY theme
+#   - Nostalgia as a universal language
+#   - Games as social glue
+#   - Magic explaining the unexplainable
+#
+# When the pub THEMEs to cyberpunk, the arcade fits.
+# When it's fantasy, the arcade is "wizard magic."
+# It ALWAYS belongs, even when it shouldn't.

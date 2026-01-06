@@ -1,8 +1,10 @@
 # 🪑 SEATING
 # Where you sit says who you are
+# URL-addressable: pub/seating.yml#bar-3, pub/seating.yml#booth-corner
 
 object:
-  name: Pub Seating
+  id: seating
+  name: "Pub Seating"
   type: furniture
   portable: false
   
@@ -16,8 +18,11 @@ object:
     
     Where you choose to sit shapes who you'll meet and what you'll hear.
 
-# THE BAR
-bar_stools:
+# ===========================================
+# THE BAR STOOLS — URL: seating.yml#bar-N
+# ===========================================
+
+bar_stools: &bar_stools
   description: |
     A row of worn wooden stools lines the bar, each one shaped by
     decades of adventurer posteriors. The varnish is worn through
@@ -33,78 +38,208 @@ bar_stools:
     - "Overhear bar conversations"
     - "First to know when something happens"
     
-  who_sits_here:
-    - "Regulars (Morn's stool is ALWAYS taken)"
-    - "Lonely travelers seeking company"
-    - "Those with questions for the bartender"
-    - "People watching the room"
+  # INDIVIDUAL STOOLS — each addressable
+  stools:
+    bar-1: &bar-1
+      address: "pub/seating.yml#bar-1"
+      position: "Far left, by the door"
+      quirk: "Wobbles slightly"
+      occupant: null
+      
+    bar-2: &bar-2
+      address: "pub/seating.yml#bar-2"
+      position: "Second from left"
+      quirk: "Squeaks when you shift"
+      occupant: null
+      
+    bar-3: &bar-3
+      address: "pub/seating.yml#bar-3"
+      position: "Third from left"
+      quirk: "The comfortable one"
+      occupant: null
+      
+    bar-4: &bar-4
+      address: "pub/seating.yml#bar-4"
+      position: "Center-left, good view"
+      quirk: "Bartender's favorite to chat with"
+      occupant: null
+      
+    bar-5: &bar-5
+      address: "pub/seating.yml#bar-5"
+      position: "Center-right"
+      quirk: "MORN'S STOOL — socially reserved"
+      reserved_for: "Morn (when he's here)"
+      occupant: null
+      warning: "Sitting here uninvited is a faux pas"
+      
+    bar-6: &bar-6
+      address: "pub/seating.yml#bar-6"
+      position: "Third from right"
+      quirk: "Near the good taps"
+      occupant: null
+      
+    bar-7: &bar-7
+      address: "pub/seating.yml#bar-7"
+      position: "Second from right"
+      quirk: "Slightly sticky (spill history)"
+      occupant: null
+      
+    bar-8: &bar-8
+      address: "pub/seating.yml#bar-8"
+      position: "Far right, by the cat window"
+      quirk: "Cats sometimes visit from above"
+      bonus: "Occasional cat interaction"
+      occupant: null
+      
+  # Visual layout
+  layout: |
+    
+    ┌─────────────────────────────────────────┐
+    │              B A R                      │
+    │  [tap] [tap] [tap]     [bottles...]     │
+    └─────────────────────────────────────────┘
+      1     2     3     4     5     6     7     8
+      ○     ○     ○     ○    (M)    ○     ○     ○
+                              ↑
+                         Morn's spot
     
   actions:
     SIT-AT-BAR:
+      usage: "SIT AT BAR [1-8 or 'any']"
       effect: "Join the bar community"
       triggers: "Bartender acknowledges you"
-      
-    CLAIM-STOOL:
-      description: "Try to claim a regular's spot"
-      risk: "Social faux pas if occupied"
-      
-    MORN-STOOL:
-      description: "Sit in Morn's stool"
-      effect: "He's not here right now. Or is he?"
+      updates:
+        - "character.location = pub/seating.yml#bar-N"
+        - "seating.yml#bar-N.occupant = character.id"
+        
+    CLAIM-MORNS-STOOL:
+      description: "Sit in stool 5"
+      risk: "Social faux pas if Morn is present or expected"
+      check: "Is Morn here? Is it Morn's drinking time?"
 
-# THE TABLES
-tables:
+# ===========================================
+# THE TABLES — URL: seating.yml#table-N
+# ===========================================
+
+tables: &tables
   description: |
     Scattered across the floor, scarred wooden tables of various
     sizes. Some seat two, some seat eight. All have seen better
-    days and heard better stories. The legs are uneven. Coasters
-    are futile. This is where the action happens.
+    days and heard better stories.
     
-  capacity: "2-8 per table, ~6 tables"
+  total: 6
   intimacy: medium
   service: waitress
   
-  features:
-    - "Social mixing — join strangers or be joined"
-    - "Games can be played here (cards, dice)"
-    - "Food and drink service (waitress visits)"
-    - "Conversations audible to neighbors"
+  # INDIVIDUAL TABLES
+  named_tables:
+    table-small-1: &table-small-1
+      address: "pub/seating.yml#table-small-1"
+      size: small
+      capacity: 2
+      location: "By the window"
+      description: "Intimate, good light, popular for dates"
+      chairs:
+        A: { occupant: null }
+        B: { occupant: null }
+        
+    table-small-2: &table-small-2
+      address: "pub/seating.yml#table-small-2"
+      size: small
+      capacity: 2
+      location: "Near the games corner"
+      description: "Good view of dart board"
+      chairs:
+        A: { occupant: null }
+        B: { occupant: null }
+        
+    table-medium-1: &table-medium-1
+      address: "pub/seating.yml#table-medium-1"
+      size: medium
+      capacity: 4
+      location: "Center floor"
+      description: "The card game table"
+      chairs:
+        N: { occupant: null }
+        E: { occupant: null }
+        S: { occupant: null }
+        W: { occupant: null }
+        
+    table-medium-2: &table-medium-2
+      address: "pub/seating.yml#table-medium-2"
+      size: medium
+      capacity: 4
+      location: "Near the stage"
+      description: "Best view of performances"
+      chairs:
+        N: { occupant: null }
+        E: { occupant: null }
+        S: { occupant: null }
+        W: { occupant: null }
+        
+    table-large-1: &table-large-1
+      address: "pub/seating.yml#table-large-1"
+      size: large
+      capacity: 8
+      location: "Back corner"
+      description: "The adventurer's planning table"
+      chairs:
+        1: { occupant: null }
+        2: { occupant: null }
+        3: { occupant: null }
+        4: { occupant: null }
+        5: { occupant: null }
+        6: { occupant: null }
+        7: { occupant: null }
+        8: { occupant: null }
+        
+    # NOTE: pie-table is separate! See pie-table.yml
+    # It has its own special behaviors
     
-  table_types:
-    small: "Intimate conversation for 2"
-    medium: "Group of 4, card games"
-    large: "Party of 6-8, loud and social"
-    round: "King Arthur style — no head, equals"
+  # Visual layout
+  layout: |
     
-  who_sits_here:
-    - "Groups of adventurers planning"
-    - "Card games and gambling"
-    - "Those seeking to meet strangers"
-    - "Parties celebrating or mourning"
+    ┌─────────────────────────────────────────────┐
+    │  [stage]                                    │
+    │                    ○ ○                      │
+    │              ○  table-m-2  ○                │
+    │                    ○ ○                      │
+    │                                             │
+    │    ○○            ┌───┐            ○○        │
+    │  small-1    ○○○  │PIE│  ○○○    small-2      │
+    │              med │ 🥧 │ large              │
+    │             ○○○  └───┘  ○○○                │
+    │                                             │
+    │  [bar...]                      [arcade]     │
+    └─────────────────────────────────────────────┘
     
   actions:
     JOIN-TABLE:
-      usage: "JOIN [table/patron]"
+      usage: "JOIN TABLE [table-id] [chair]"
       effect: "Sit at an occupied table"
       social: "May be welcomed or rebuffed"
+      updates:
+        - "character.location = pub/seating.yml#table-id"
+        - "table.chairs.X.occupant = character.id"
       
     CLAIM-TABLE:
+      usage: "CLAIM TABLE [table-id]"
       effect: "Take an empty table"
       note: "Others may ask to join"
-      
-    EAVESDROP:
-      effect: "Listen to nearby tables"
-      risk: "Being noticed"
 
-# THE BOOTHS
-booths:
+# ===========================================
+# THE BOOTHS — URL: seating.yml#booth-NAME
+# ===========================================
+
+booths: &booths
   description: |
     High-backed wooden booths line the walls, each a private world.
     The wood is dark with age. The leather seats are cracked but
     comfortable. Candles flicker in iron holders. This is where
     secrets live.
     
-  capacity: 2-4 per booth
+  total: 4
+  capacity_each: 4
   intimacy: private
   service: by_request
   
@@ -114,20 +249,64 @@ booths:
     - "Service requires flagging down"
     - "Conversations are PRIVATE"
     
-  booth_locations:
-    corner_booth: "Most private. Reserved for VIPs or villains."
-    window_booth: "View of the street. Watch for arrivals."
-    back_booth: "Near the mysterious back door."
-    fireplace_booth: "Warmest. Coziest. Most sought after."
-    
-  who_sits_here:
-    - "Deal-makers and negotiators"
-    - "Lovers on dates"
-    - "Conspirators and schemers"
-    - "Those who don't want to be seen"
-    
+  # INDIVIDUAL BOOTHS
+  named_booths:
+    booth-corner: &booth-corner
+      address: "pub/seating.yml#booth-corner"
+      name: "The Corner Booth"
+      location: "Far back corner"
+      privacy: maximum
+      description: "Most private. Reserved for VIPs or villains."
+      legend: "Deals that shaped kingdoms were made here"
+      seats:
+        inside-left: { occupant: null, position: "trapped" }
+        inside-right: { occupant: null, position: "trapped" }
+        outside-left: { occupant: null, position: "escape route" }
+        outside-right: { occupant: null, position: "escape route" }
+        
+    booth-window: &booth-window
+      address: "pub/seating.yml#booth-window"
+      name: "The Window Booth"
+      location: "By the front window"
+      privacy: medium
+      description: "View of the street. Watch for arrivals."
+      bonus: "See who's coming before they enter"
+      seats:
+        street-side-1: { occupant: null }
+        street-side-2: { occupant: null }
+        room-side-1: { occupant: null }
+        room-side-2: { occupant: null }
+        
+    booth-back: &booth-back
+      address: "pub/seating.yml#booth-back"
+      name: "The Back Booth"
+      location: "Near the mysterious back door"
+      privacy: high
+      description: "Close to an exit. Popular with paranoid types."
+      bonus: "Quick escape if needed"
+      seats:
+        door-side-1: { occupant: null }
+        door-side-2: { occupant: null }
+        wall-side-1: { occupant: null }
+        wall-side-2: { occupant: null }
+        
+    booth-fireplace: &booth-fireplace
+      address: "pub/seating.yml#booth-fireplace"
+      name: "The Hearth Booth"
+      location: "Beside the fireplace"
+      privacy: medium
+      description: "Warmest. Coziest. Most sought after."
+      bonus: "+comfort, often reserved"
+      reservation: "Ask bartender (may require bribe)"
+      seats:
+        fire-side-1: { occupant: null, bonus: "warmth +2" }
+        fire-side-2: { occupant: null, bonus: "warmth +2" }
+        outer-1: { occupant: null }
+        outer-2: { occupant: null }
+        
   actions:
     TAKE-BOOTH:
+      usage: "TAKE BOOTH [name]"
       effect: "Claim a private booth"
       note: "Some are reserved. Ask bartender."
       
@@ -137,9 +316,13 @@ booths:
       
     CONSPIRE:
       effect: "Have a secret conversation"
+      requires: "Be in a booth"
       privacy: "No eavesdropping possible"
 
+# ===========================================
 # SOCIAL MECHANICS
+# ===========================================
+
 social_dynamics:
   service_levels:
     bar: "Immediate — bartender is right there"
@@ -160,6 +343,25 @@ social_dynamics:
     bar: "Immediately visible"
     table: "Scannable from entrance"
     booth: "Must search or ask"
+
+# ===========================================
+# BIDIRECTIONAL REFERENCES
+# ===========================================
+#
+# When someone sits:
+#   1. Their character.location → pub/seating.yml#bar-3
+#   2. seating.yml#bar-3.occupant → character.id
+#
+# Both point to each other!
+#
+# Example when Bumblewick sits at bar-3:
+#   bumblewick.location: "pub/seating.yml#bar-3"
+#   seating.yml bar-3.occupant: "bumblewick-fantastipants"
+#
+# This enables:
+#   - "Who's at the bar?" → scan bar_stools.*.occupant
+#   - "Where is Bumblewick?" → check bumblewick.location
+#   - "Is bar-3 free?" → check bar_stools.bar-3.occupant
 
 lore: |
   "Where you sit is the first thing you say."
