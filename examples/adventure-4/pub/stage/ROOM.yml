@@ -421,6 +421,7 @@ weekly_schedule:
     host: "Rotating drag performers + local queens/kings"
     cost: 0
     tip_jar: true  # VERY active on drag night
+    inspiration: Heklina, Trannyshack, Leigh Bowery, Tranimals, Klaus Nomi, Lady Bunny, Rupaul, Sisters of Perpetual Indulgence, etc.
     
     # GAMES YOU CAN PLAY:
     games:
@@ -433,6 +434,12 @@ weekly_schedule:
       - name: "DEATH-DROP"
         command: "DEATH-DROP"
         description: "The ultimate punctuation (practice first)"
+      - name: "WIG-TOSS"
+        command: "WIG-TOSS [direction/target]"
+        description: "Fling that hair for DRAMA — reveal underneath!"
+      - name: "CROWD-SURF"
+        command: "CROWD-SURF"
+        description: "Trust fall into glory — the audience carries you"
       - name: "SLAY"
         command: "SLAY [look/performance]"
         description: "Absolutely murder the moment"
@@ -448,6 +455,12 @@ weekly_schedule:
       - name: "TRANSFORM"
         command: "TRANSFORM INTO [drag persona]"
         description: "Step into your other self"
+      - name: "REVEAL"
+        command: "REVEAL [what's underneath]"
+        description: "Tear away, unzip, surprise — multiple looks in one"
+      - name: "SPLIT"
+        command: "SPLIT"
+        description: "Drop into the splits — flexibility is power"
         
     show_structure:
       opening: "Host introduction + reading the room"
