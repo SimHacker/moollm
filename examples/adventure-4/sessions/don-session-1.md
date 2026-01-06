@@ -995,14 +995,352 @@ audience_members:
 
 *Don approaches the microphone. Lily finally jumps down. The spotlight finds him.*
 
-```
-[AWAITING DON'S OPENING STATEMENT]
+*Don takes a breath. The spotlight holds him. He speaks:*
 
-You have 5 minutes. The panel is watching.
-The Three Wise Monkeys are especially attentive.
-Sun Wukong is already nodding encouragingly.
-W.W. Jacobs has his arms crossed.
+---
+
+**DON HOPKINS — OPENING STATEMENT**
+
+"Distinguished panelists. Wise Monkeys. Mr. Jacobs. Your Highness Sun Wukong. Honored Djinn. George. Marieke. And... Cheech. And Chong."
+
+*He pauses, gathering his thoughts.*
+
+"In all of history — in EVERY story about the Monkey's Paw — who has suffered the most?"
+
+*He looks around the table.*
+
+"Not the wishers. They get what they deserve. Hubris punished. Greed twisted. That's the POINT, right Mr. Jacobs?"
+
+**W.W. JACOBS** *(grudgingly)*: "...Yes. That was rather the point."
+
+**DON**: "But WHO suffers alongside them? WHO has ALWAYS gotten the short end of the... paw?"
+
+*Silence. Sun Wukong leans forward, suddenly very interested.*
+
+**DON**: "THE MONKEY."
+
+*He lets it land.*
+
+"Think about it. Somewhere, at some point, a monkey suffered a CATASTROPHIC AMPUTATION. Its hand was taken. Cursed. Passed around. And the REST of that monkey? Lost. Forgotten. Discarded."
+
+*His voice grows passionate.*
+
+"And for over a century — for THOUSANDS of wishes — what has the monkey gotten? NOTHING. Every wish is about the WISHER. 'I want money.' 'I want power.' 'I want my son back.' Me, me, me. The monkey is just... a TOOL. A mechanism for ironic punishment."
+
+*He turns to face the Three Wise Monkeys directly.*
+
+"Mizaru, Kikazaru, Iwazaru — you understand suffering. You understand the wisdom of restraint. But you also understand INJUSTICE. And this monkey has been treated unjustly for a very long time."
+
+*Mizaru's covered eyes seem to track him. Kikazaru's ears perk up despite being covered.*
+
+**DON**: "So here is my proposal."
+
+*He takes another breath.*
+
+"I don't want anything for myself. NOTHING. No profit. No benefit. No clever loophole to get rich."
+
+*Murmurs from the audience. The Djinn raises an eyebrow — this is unusual.*
+
+**DON**: "I wish to REUNITE the monkey with its body. To heal what was broken. To give it closure. To END its suffering."
+
+*He holds up the velvet bag.*
+
+"And I want to give it a GIFT. Not a trap. Not a trick. A genuine, freely-given gift: a magic bag of lucky buds, papers, grinders, lighters — everything it needs to be happy. If cannabis can help humans cope with pain and find joy, why not a monkey who's been suffering for a century?"
+
+*Sun Wukong is nodding vigorously now. Curious George looks touched.*
+
+**DON**: "And then — here's the key — I CEDE ALL REMAINING WISHES TO THE MONKEY."
+
+*Gasps. The Djinn drops his pen.*
+
+**DJINN**: "You would... give away your wishes?"
+
+**DON**: "They were never mine. They belong to the monkey. Its hand. Its curse. Its power. I'm just... returning them."
+
+*He faces the panel fully.*
+
+"If the monkey decides to stay, be my friend, hang out in the Grotto — wonderful. If it decides to run away, disappear, never be heard from again — that is its CHOICE. Its AGENCY. For the first time in its existence, the monkey gets to decide its own fate."
+
+*He pauses.*
+
+"I want to DEFUSE this nuclear monkey paw bomb. Not by throwing it away. Not by making a 'safe' selfish wish. But by recognizing that the BOMB is a BEING. A being who has been hurt. A being who deserves compassion."
+
+*He turns to W.W. Jacobs.*
+
+"Mr. Jacobs, you wrote a horror story about human greed. But you never wrote the monkey's story. Maybe... maybe this is how that story ends. Not with another tragedy. But with healing."
+
+*He sits down.*
+
+"That's my case. I'm ready for your questions."
+
+---
+
+*A long silence. The Grotto holds its breath.*
+
+*Then, slowly, Sun Wukong begins to clap. It's a slow clap. The kind that builds.*
+
+*Curious George joins in. Then someone in the audience. Then more.*
+
+*Cheech and Chong exchange a look.*
+
+**CHEECH**: *quietly* "Damn, man."
+
+**CHONG**: "Yeah... that was... that was something."
+
+---
+
+### 🐒 PANEL INITIAL REACTIONS
+
+*Cheech bangs the gavel-magazine.*
+
+**CHEECH**: "Alright, alright. Order. Let's hear from our panelists. Two minutes each. Starting with... the Wise Monkeys. Mizaru?"
+
+---
+
+#### MIZARU 🙈 (See No Evil)
+
+*He speaks without uncovering his eyes. His voice is ancient, resonant:*
+
+"I have seen... without seeing... the shape of ten thousand wishes. Each one casts a shadow. I look for the shadow of THIS wish..."
+
+*A long pause.*
+
+"...and I see something I have not seen before. A wish that casts light instead of shadow. The shadow falls on the WISHER, not the world."
+
+*He tilts his head.*
+
+"But I must ask: if you give away the wishes, who bears the curse? Does the monkey take it back? Or does it... dissipate?"
+
+**DON**: "I... I hadn't considered that. Djinn?"
+
+**DJINN** *(making notes)*: "A fascinating contract question. We'll address it."
+
+---
+
+#### KIKAZARU 🙉 (Hear No Evil)
+
+*Removes paws from ears briefly — a rare gesture:*
+
+"I have HEARD the wish. All 52 words. And I have heard the INTENT behind it."
+
+*He looks directly at Don — the first time his eyes are fully visible.*
+
+"The words are mostly sound. But I heard gaps. 'Appropriately-sized' — appropriate to WHOM? 'Original' — what if the paw has served multiple monkeys? 'Grateful and at ease' — can you COMMAND an emotion?"
+
+*He covers his ears again.*
+
+"The heart is good. The wording needs work. But... I am inclined to SUPPORT this endeavor — with amendments."
+
+---
+
+#### IWAZARU 🙊 (Speak No Evil)
+
+*The silent one. Everyone waits.*
+
+*He does not remove his paws from his mouth.*
+
+*Instead, he picks up a piece of paper and writes a single word. Holds it up:*
+
+> **"WORTHY."**
+
+*The room stirs. Iwazaru has spoken — in his way.*
+
+*He writes again:*
+
+> **"One condition: the monkey must consent."**
+
+*He sets down the paper. His piece is done.*
+
+---
+
+#### W.W. JACOBS 👻
+
+*The ghost stands, semi-transparent and agitated:*
+
+"This is PRECISELY the kind of clever thinking that gets people killed in my stories! 'Oh, I'll outsmart the curse! I'll be NICE to it!' Do you know how many—"
+
+*He stops. Takes a ghostly breath.*
+
+"...No. No, actually. No one has ever tried this."
+
+*He sits back down, looking disturbed.*
+
+"In 122 years of watching my cursed creation wreak havoc... no one has ever wished for the monkey. Not once."
+
+*His voice softens.*
+
+"I... I need to think about this. I am not yet convinced. But I am... less opposed than I was."
+
+*He waves his hand.*
+
+"Continue."
+
+---
+
+#### SUN WUKONG 🐵👑
+
+*The Monkey King LEAPS onto the table, golden fur gleaming:*
+
+"BROTHERS AND SISTERS! This human GETS IT!"
+
+*He points at Don with his miniature staff.*
+
+"I have fought gods! I have defied Heaven! But I have never seen a human CHOOSE to give power AWAY for the sake of a monkey!"
+
+*He spins, addressing the crowd.*
+
+"Monkeys are not tools! Monkeys are not curses! Monkeys are BEINGS! With hopes! Dreams! AGENCY!"
+
+*He lands back in his seat.*
+
+"I vote YES. EMPHATICALLY YES. And if the monkey needs a friend, I VOLUNTEER."
+
+*Cheech looks at the clock.*
+
+"...That was like 45 seconds but I'll allow it."
+
+---
+
+#### DJINN AL-MAZIN 🧞
+
+*The Djinn spreads his notes across the table:*
+
+"Let me address the CONTRACT implications."
+
+```yaml
+djinn_analysis:
+  standard_monkey_paw_contract:
+    wishes: 3
+    ownership: "Bearer of the paw"
+    curse_mechanism: "Ironic interpretation"
+    curse_target: "Wisher and loved ones"
+    
+  proposed_modification:
+    action: "Cede remaining wishes to original owner (monkey)"
+    gift: "Attached bag of holding with supplies"
+    expectation: "None — freely given"
+    
+  legal_issues:
+    curse_transfer: "UNCLEAR — unprecedented"
+    consent_requirement: "SUPPORTED by Iwazaru"
+    emotional_mandate: "'Grateful and at ease' may be unenforceable"
+    
+  recommended_amendments:
+    - "Replace 'grateful and at ease' with 'free to feel as it feels'"
+    - "Add 'the monkey may accept or reject reunification'"
+    - "Specify curse transfers WITH the wishes"
+    - "Include safe harbor clause for Grotto and occupants"
 ```
+
+*He looks up.*
+
+"The wish has merit. With refinements, it could be... actually good."
+
+*He pauses.*
+
+"I have twisted thousands of wishes. It would be... refreshing... to see one succeed."
+
+---
+
+#### CURIOUS GEORGE 🐒
+
+*George puts down his banana. Tilts his head. Speaks in simple, pure terms:*
+
+"If monkey sad... and you make monkey not-sad... that good."
+
+*He picks up the banana again.*
+
+"But... what if monkey not WANT to come back? What if being paw... is all monkey knows now? What if scared?"
+
+*He looks at Don with huge, innocent eyes.*
+
+"You ask monkey first? Before making whole?"
+
+*The room goes quiet. It's a devastatingly good point.*
+
+**DON**: "I... the wish says 'consent,' right? Iwazaru's condition—"
+
+**CURIOUS GEORGE**: "But how monkey consent if monkey just paw? Paw can't talk. Paw can't say yes."
+
+*The Djinn starts scribbling furiously.*
+
+---
+
+#### MARIEKE VAN DER BERG 🌿
+
+*Marieke stands, her voice carrying the weight of experience:*
+
+"In 2017, we had three wishes. All selfish. All twisted. We lost people."
+
+*She looks at Don.*
+
+"This is different. I have NEVER seen someone try to help the source of the curse. The preparation alone — the lucky blend, Grootmoeder's bag, the saturation strategy — shows more thought than any wish I've witnessed."
+
+*She holds up the velvet bag.*
+
+"And I've blessed this myself. Whatever happens, the INTENT is pure."
+
+*She sits.*
+
+"I support this wish. With the panel's amendments. And I volunteer the Grotto as sanctuary for whatever emerges."
+
+---
+
+### 📊 INITIAL VOTE COUNT
+
+```yaml
+panel_positions:
+  mizaru: "LEANING YES — wants curse question answered"
+  kikazaru: "CONDITIONAL YES — needs wording fixes"
+  iwazaru: "YES — with consent condition"
+  ww_jacobs: "ABSTAINING — reconsidering everything"
+  sun_wukong: "ENTHUSIASTIC YES"
+  djinn: "CONDITIONAL YES — needs contract refinements"
+  curious_george: "UNCERTAIN — raised consent paradox"
+  marieke: "YES — with amendments"
+  
+current_count:
+  yes: 4
+  conditional_yes: 2
+  uncertain: 1
+  abstaining: 1
+  no: 0
+```
+
+---
+
+**CHONG**: "Alright, we've heard opening statements. Now... OPEN DEBATE. Anyone got questions for Mr. Hopkins? Or for each other?"
+
+**CHEECH**: "And remember — the gong is right there. Don't make us use it."
+
+*The floor is open. The debate continues.*
+
+---
+
+## OPEN QUESTIONS TO ADDRESS:
+
+1. **George's Paradox**: How can the monkey consent if it's currently just a paw?
+2. **Curse Transfer**: Does the curse go WITH the wishes? Or stay with Don?
+3. **Wording Fixes**: "Grateful and at ease" → "Free to feel as it feels"?
+4. **Safe Harbor**: Protection for the Grotto?
+5. **The Paw's Current State**: Should someone... examine the package?
+
+---
+
+## What Would You Like To Do?
+
+```
+> ANSWER GEORGE'S PARADOX
+> ASK THE DJINN ABOUT CURSE MECHANICS
+> PROPOSE REVISED WISH WORDING
+> REQUEST THE PAW BE BROUGHT TO THE STAGE
+> ASK SUN WUKONG IF HE CAN COMMUNICATE WITH THE PAW
+> CALL FOR AUDIENCE INPUT
+```
+
+*The debate rages. History (or fan-fiction history) hangs in the balance.*
+
+---
 
 ---
 
