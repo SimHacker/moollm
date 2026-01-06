@@ -3221,6 +3221,10 @@ examples/adventure-4/characters/palm/
 
 **Andy:** "So. Fluxx. 1997. I was playing with the idea of a card game where the rules change as you play. No fixed rules. Total chaos theory in card form."
 
+> 📚 **VERIFIED:** Fluxx was first published in 1997 by Looney Labs.
+> — [Wikipedia: Fluxx](https://en.wikipedia.org/wiki/Fluxx)
+> — [Looney Labs History](https://www.looneylabs.com/our-history)
+
 **Kristin:** "He playtested it on me for MONTHS. I won most of them."
 
 **Andy:** "She's lying. Anyway — the core insight was: what if winning conditions, hand limits, draw rules, ALL of it could change mid-game?"
@@ -3229,17 +3233,31 @@ examples/adventure-4/characters/palm/
 
 **Andy:** *(delighted)* "EXACTLY! Someone gets it!"
 
+> 📚 **BACKGROUND:** Andy and Kristin both worked at NASA's Goddard Space Flight Center before founding Looney Labs in 1996. Andy was a software programmer who worked on the Hubble Space Telescope; Kristin was an electronics engineer. They met there in 1986.
+> — [Washingtonian: NASA to Looney Labs](https://www.washingtonian.com/2019/08/26/nasa-looney-labs-college-park-card-games-kristin-andy-looney/)
+> — [UMD Computer Science](https://www.cs.umd.edu/article/2023/12/mission-create-fun)
+
+> 🎲 **FUN FACT:** At age 16, Kristin solved a Rubik's Cube in 35.50 seconds on the TV show "That's Incredible."
+> — [Looney Labs: Guest of Honor](https://www.looneylabs.com/guest-honor)
+
 ---
 
 ### TURN 11 — Stoner Fluxx Origins
 
 **Cheech:** "But when did the STONER version happen?"
 
-**Andy:** "2003. We realized... this game is PERFECT for altered states. The chaos makes MORE sense when you're—"
+**Andy:** "We realized this game is PERFECT for altered states. The chaos makes MORE sense when you're—"
 
 **Chong:** "Elevated."
 
-**Andy:** "Precisely. So we added Keepers like 'The Stash' and 'The Bong' and Goals like 'Party Time' and 'Hippie Trip.'"
+**Andy:** "Precisely. So we added Keepers like 'Weed' and 'The Bong' and Goals like 'Party Time' and 'Special Brownies.' We eventually formalized it under our Fully Baked Ideas imprint."
+
+> 📚 **VERIFIED:** Stoner Fluxx is published under "Fully Baked Ideas," an imprint Looney Labs established in 2009 for adult-themed games.
+> — [Fully Baked Ideas: Our Story](https://fully-baked-ideas.com/content/our-story)
+> — [Looney Labs: Stoner Fluxx](https://www.looneylabs.com/games/stoner-fluxx)
+
+> 💚 **ADVOCACY:** 5% of Stoner Fluxx proceeds are donated to organizations fighting to end marijuana prohibition.
+> — [Looney Labs: Stoner Fluxx](https://www.looneylabs.com/games/stoner-fluxx)
 
 **Kristin:** "The key innovation was the 'Creepers' — cards that attach to you and make you LOSE. Like 'The Cops.'"
 
