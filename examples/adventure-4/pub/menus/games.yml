@@ -176,6 +176,151 @@ arcade:
     type: video_game
     multiplayer: true
 
+# THE STAGE — Performance & Social Games
+stage:
+  location: pub/stage.yml
+  name: "The Rusty Lantern Stage"
+  description: |
+    A small, well-worn stage with a single spotlight and a microphone
+    that's seen better days. The floorboards creak with history.
+    Every great (and terrible) performer started somewhere.
+    
+  rules:
+    - "Three song/joke limit for open performances"
+    - "No heckling during first-timers"
+    - "Marieke reserves the right to ring the gong"
+    - "Tips appreciated, thrown drinks... accepted"
+    
+  # SCHEDULED EVENTS
+  weekly_schedule:
+    
+    moonday:
+      event: "Open Stage"
+      time: "evening"
+      description: "Anything goes. Poetry, music, interpretive dance, whatever."
+      host: null  # Self-organized
+      cost: 0
+      
+    treesday:
+      event: "Storytelling Circle"
+      time: "evening"
+      description: |
+        Share tales by firelight. True stories, tall tales, or somewhere between.
+        Lily the kitten often appears for emotional support.
+      host: "Henk (unofficial)"
+      cost: 0
+      
+    woodsday:
+      event: "Quiz Night"
+      time: "evening"
+      description: |
+        Trivia in teams. Categories rotate. Grim writes the questions.
+        He knows things he shouldn't.
+      host: "Grim"
+      cost: 1
+      currency: gold
+      prize: "Winner's tab cleared"
+      team_size: "2-5"
+      
+    thundersday:
+      event: "🎤 Karaoke Night"
+      time: "evening"
+      description: |
+        Belt out your favorites! The songbook is... eclectic.
+        Includes sea shanties, pop hits, and at least three songs
+        in languages that don't exist.
+      host: "Rotating (sign up at bar)"
+      cost: 0
+      rules:
+        - "Duets encouraged"
+        - "Group numbers HIGHLY encouraged"
+        - "Liquid courage available at bar"
+        - "The cats will judge you (Hops especially)"
+      crowd_favorites:
+        - "Wellerman (always gets the room singing)"
+        - "Don't Stop Believin'"
+        - "Bohemian Rhapsody (full audience participation)"
+        - "Country Roads"
+        - "That one sea shanty nobody knows the words to"
+      ocie_warning: "Ocie has been known to knock the mic off stage"
+        
+    freeday:
+      event: "🎭 Open Mic Comedy Night"
+      time: "evening"
+      description: |
+        Stand-up comedy! Five minutes, one mic, infinite possibilities.
+        The audience is supportive... mostly. Mostly.
+        
+        Sign-up sheet at the bar. First come, first served.
+        Marieke has final say on order.
+      host: "Marieke"
+      cost: 0
+      rules:
+        - "5 minute sets for newbies"
+        - "10 minutes for returning comics"
+        - "15 minutes for headliners (Marieke's invitation only)"
+        - "Punching down gets you gong'd"
+        - "Self-deprecation encouraged but not required"
+        - "The cats ARE part of the audience (read the room)"
+      tips:
+        - "Open with something relatable"
+        - "The maze is always good material"
+        - "ACME jokes land well here"
+        - "Don't make fun of Henk's espresso habit (he's earned it)"
+      crowd_heckles:
+        supportive: "You got this! / Tell the one about the grue!"
+        neutral: "*polite silence* / *cat meows*"
+        warning: "*Marieke reaches for the gong*"
+      marieke_says: |
+        "Everyone bombs once. It builds character.
+        If they laugh, great. If they don't, you learned something.
+        Either way, free drink after your set."
+        
+    starday:
+      event: "Live Music Night"
+      time: "evening"
+      description: |
+        Local acts and traveling bards. Sometimes a surprise guest.
+        The acoustics are terrible. The vibe is immaculate.
+      host: "varies"
+      cost: 0
+      tip_jar: true
+      
+    sunday:
+      event: "Rest Day / Jam Session"
+      time: "afternoon"
+      description: |
+        Bring an instrument. Make noise. No pressure.
+        Terpie naps through it. That's his review.
+      host: null
+      cost: 0
+      
+  # SPONTANEOUS ACTIVITIES
+  anytime:
+    
+    perform:
+      name: "PERFORM"
+      description: "Take the stage (when not scheduled)"
+      command: "PERFORM [song/story/joke/act]"
+      cost: 0
+      effects:
+        - "Earn tips if good"
+        - "Earn thrown drinks if bad"
+        - "Build reputation either way"
+        
+    challenge:
+      name: "CHALLENGE"
+      description: "Challenge someone to a performance duel"
+      command: "CHALLENGE [target] TO [karaoke/comedy/dance-off]"
+      cost: 0
+      rules: "Audience decides winner by applause"
+      
+    request:
+      name: "REQUEST"
+      description: "Request a song or bit from a performer"
+      command: "REQUEST [song/topic]"
+      cost: "1 gold (tip for performer)"
+
 # SPECIAL GAMES (Pie Table)
 pie_table:
   debates:
@@ -198,7 +343,7 @@ pie_table:
     cost: 0
     effect: "The table summons diverse perspectives"
 
-# TOURNAMENTS
+# TOURNAMENTS & RECURRING EVENTS
 tournaments:
   dart_league:
     schedule: "Every Freeday evening"
@@ -211,3 +356,21 @@ tournaments:
     buy_in: 5
     currency: gold
     style: "Texas Hold'em"
+    
+  comedy_championship:
+    schedule: "Last Freeday of the month"
+    entry: 0
+    prize: "Headliner slot next month + golden mic trophy"
+    description: |
+      The best comics of the month compete for the crown.
+      Audience vote determines winner.
+      Marieke's gong is extra sensitive.
+      
+  karaoke_royale:
+    schedule: "Last Thundersday of the month"
+    entry: 0
+    prize: "Free drinks for a week + song named after you"
+    description: |
+      Battle of the voices! Bracketed elimination.
+      You don't pick your songs — the crowd does.
+      May the best lungs win.
