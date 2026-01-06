@@ -28,31 +28,66 @@ room:
     feeling: competent, busy, private
     
   # ACCESS CONTROL
+  #
+  # IMPORTANT: This is a SOCIAL boundary, not a physical wall!
+  # 
+  # Customers at the bar (pub/seating.yml#bar-*) can:
+  #   - SEE the bartender working
+  #   - TALK to the bartender across the counter
+  #   - ORDER drinks (bartender brings them)
+  #   - WATCH what happens behind the bar
+  #
+  # They just can't WALK behind the bar themselves.
+  # The counter is the boundary, not a wall.
+  #
   access:
-    default: denied
+    boundary_type: social  # Not a wall! Just "staff side" vs "customer side"
     
-    allowed:
-      - role: staff
-        reason: "Work here"
-      - role: bartender
-        reason: "This is their domain"
-      - role: cat
-        reason: "Cats go where they please"
-      - permission: behind_bar
-        reason: "Explicitly granted"
-        
-    denied:
-      - role: customer
-        message: "Sorry, staff only behind the bar."
-      - role: player
-        unless: "has_permission('behind_bar') OR is_staff"
-        message: "The bartender gives you a look. 'Other side, friend.'"
-        
+    interaction_across_boundary:
+      description: |
+        Characters in the main pub (especially at bar stools) can
+        freely interact with characters behind the bar. The counter
+        is a workspace boundary, not a communication barrier.
+      allowed:
+        - TALK to bartender
+        - ORDER drinks
+        - ASK questions
+        - WATCH activities
+        - RECEIVE items passed across
+        - FLIRT (bartender's discretion)
+      not_allowed:
+        - WALK behind bar (without permission)
+        - GRAB bottles yourself
+        - ACCESS the cash box
+        - ENTER cat-cave (must go through bar first)
+    
+    # Who can physically BE in this directory
+    physical_access:
+      default: denied
+      
+      allowed:
+        - role: staff
+          reason: "Work here"
+        - role: bartender
+          reason: "This is their domain"
+        - role: cat
+          reason: "Cats go where they please"
+        - permission: behind_bar
+          reason: "Explicitly granted"
+          
+      denied:
+        - role: customer
+          message: "Sorry, staff only behind the bar."
+        - role: player
+          unless: "has_permission('behind_bar') OR is_staff"
+          message: "The bartender gives you a look. 'Other side, friend.'"
+          
     how_to_gain_access:
       - "Get hired as staff"
       - "Befriend the bartender enough to be trusted"
       - "Be a cat"
       - "Have a REALLY good reason"
+      - "Emergency (fire, fight, medical)"
       
   # SPATIAL LAYOUT
   layout:
