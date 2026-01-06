@@ -1342,57 +1342,317 @@ current_count:
 
 ---
 
+## Turn 5: DON'S AMENDMENTS — Full Autonomy Protocol
+
+*Don stands again, addressing the panel:*
+
+**DON**: "Kikazaru, you're right. I withdraw any insistence on emotional reaction from the monkey. I HOPE for peace and happiness for them — but I cannot MANDATE it. That would be another form of control."
+
+*Kikazaru nods approvingly, paws returning to his ears.*
+
+**DON**: "And more than that — I propose FULL AGENCY for the monkey in ALL things:"
+
 ---
 
-### DEBATE PROTOCOL
+### 📜 THE AMENDED WISH FRAMEWORK
 
 ```yaml
-proceedings:
-  phase_1_opening:
-    - "Don presents wish and rationale (5 min)"
-    - "Each panelist gives initial position (2 min each)"
+don_amendments:
+  
+  emotional_autonomy:
+    removed: "'grateful and at ease'"
+    replaced_with: "free to feel whatever they feel"
+    rationale: "Hope is not mandate. Wish is not command."
     
-  phase_2_cross_examination:
-    - "Panelists may question Don"
-    - "Panelists may question each other"
-    - "Moderators keep order (and vibes)"
+  physical_autonomy:
+    size: "Monkey chooses their own appropriate size"
+    appearance: "Monkey chooses their own form"
+    modifications_allowed:
+      - piercings
+      - tattoos
+      - body modifications
+      - gender transitions
+      - "whatever they desire"
+    health_baseline: "Whole, healthy, unharmed — as a STARTING POINT"
+    bodily_sovereignty: "ABSOLUTE"
     
-  phase_3_audience:
-    - "Open Q&A from floor"
-    - "Cat input accepted (translated by Marieke)"
+  identity_autonomy:
+    personality: "Monkey defines their own personality"
+    name: "Monkey chooses their own name"
+    pronouns: "Monkey chooses their own pronouns"
     
-  phase_4_deliberation:
-    - "Final statements"
-    - "Cheech & Chong confer"
-    - "RULING delivered"
+  spatial_autonomy:
+    instantiation: "Full character directory — not just a bare file"
+    citizenship: "Full MOOLLM world citizenship"
+    can_own: "Objects, inventory, their own possessions"
+    home_options:
+      - "Under the bar, next to the cat cave (cozy)"
+      - "Deep in the maze, in their own home room (private)"
+      - "The stage itself (performer life)"
+      - "Nowhere — wandering, no fixed home"
+      - "ANYWHERE THEY CHOOSE"
+    don_note: "Totally up to them!"
     
-  gong_conditions:
-    single_gong: "Excessive negativity without solution"
-    double_gong: "Personal attacks"
-    triple_gong: "Actually making a wish before ruling — IMMEDIATE"
-    discretionary: "Being boring"
+  curse_breaking:
+    hope: "That the curse is BROKEN upon reunification"
+    mechanism: "Wishes work as intended, no ironic twisting"
+    status: "HOPE, not demand — we cannot command the curse"
+    
+  remaining_wishes:
+    ceded_to: "The monkey"
+    conditions: "None"
+    twisting: "HOPED to be absent — monkey's wishes work clean"
 ```
 
 ---
 
-## What Would You Like To Say, Don?
+### 🐒 PANEL REACTIONS TO AMENDMENTS
 
-*The stage is yours. The Three Wise Monkeys watch with ancient eyes. W.W. Jacobs is already shaking his head. Sun Wukong is bouncing with excitement. The Djinn has produced a notepad. Curious George has found a banana somewhere. Marieke gives you an encouraging nod.*
+**KIKAZARU** 🙉 *(uncovering ears fully)*:
 
-*Cheech and Chong lean back, ready to judge.*
+"THIS. This is how you word a wish. No commands over the soul. No mandates over the heart. You offer freedom and HOPE, not chains of kindness."
 
-*The audience waits.*
+*He stands — a rare gesture.*
 
-*The ACME delivery person is STILL holding the box at the door, utterly bewildered.*
+"I upgrade my vote from CONDITIONAL to FULL SUPPORT. The wording is now sound."
+
+---
+
+**DJINN AL-MAZIN** 🧞 *(furiously updating notes)*:
+
+"The bodily autonomy clause is... *chef's kiss* ...legally elegant. You're not defining what 'healthy' means — you're providing a baseline that the monkey can BUILD FROM."
+
+```yaml
+djinn_legal_analysis:
+  previous_issue: "Defining 'appropriate size' created ambiguity"
+  resolution: "Monkey defines appropriateness"
+  result: "Self-determination clause — unprecedented in wish law"
+  
+  previous_issue: "'Healthy and whole' could preclude chosen modifications"
+  resolution: "Baseline health + full bodily autonomy"
+  result: "Can be healthy AND have tattoos. Genius."
+  
+  character_directory_implication:
+    status: "FASCINATING"
+    meaning: |
+      The monkey won't just exist as a creature.
+      They'll exist as a FULL ENTITY in the world.
+      With files. With state. With PERSISTENCE.
+      They can own things. Have a home. Build a life.
+    djinn_note: "You're not summoning a monkey. You're granting CITIZENSHIP."
+```
+
+*The Djinn sets down his pen.*
+
+"I move from CONDITIONAL to FULL SUPPORT. The contract is now equitable."
+
+---
+
+**SUN WUKONG** 🐵👑 *(tears in his ancient eyes)*:
+
+"Brother..."
+
+*He leaps from his chair and embraces Don.*
+
+"Do you know how RARE this is? A human who understands that freedom isn't just 'not being caged' — it's having the POWER TO CHOOSE WHO YOU ARE?"
+
+*He pulls back, wiping his eyes with his tail.*
+
+"Gender transitions. Body modifications. The right to remake yourself. This is the wisdom of the 72 Transformations! To be what you CHOOSE, not what you were MADE!"
+
+*He raises his staff.*
+
+"I would follow this human into BATTLE. My vote was already yes. Now it is YES WITH HONOR."
+
+---
+
+**CURIOUS GEORGE** 🐒 *(putting down banana, suddenly serious)*:
+
+"Monkey... gets own room? Own things? Own... self?"
+
+*He looks at Don with new understanding.*
+
+"Not just free. REAL. Like... like George is real."
+
+*He nods slowly.*
+
+"George understands now. This good wish. George vote yes."
+
+*The Man in the Yellow Hat, in the audience, is openly crying.*
+
+---
+
+**W.W. JACOBS** 👻 *(standing, transparent form flickering)*:
+
+"I have watched my creation for 122 years. I have seen every permutation of human greed. I wrote the Monkey's Paw as a WARNING against the darkness in human hearts."
+
+*He pauses.*
+
+"And now... I have seen something I never imagined possible."
+
+*He looks at Don.*
+
+"A human who wishes not to TAKE, but to GIVE. Not to command, but to LIBERATE. Not to use the monkey, but to RECOGNIZE it."
+
+*His voice breaks.*
+
+"If this is what humanity can become... then perhaps my story was not a prophecy. Perhaps it was a... a challenge. A test. And you, Mr. Hopkins..."
+
+*He removes his ghostly hat.*
+
+"...you may have passed it."
+
+*He sits.*
+
+"I change my vote from ABSTAINING to... to cautious YES. With the caveat that the curse has NEVER been broken before. I do not know if it CAN be. But..."
+
+*He manages a small smile.*
+
+"I would very much like to find out."
+
+---
+
+**IWAZARU** 🙊 *(still covering mouth, writes on paper)*:
+
+> **"Consent addressed. Agency enshrined. Character directory = REAL existence."**
+
+*He writes more:*
+
+> **"The monkey will be more free than any cursed entity has ever been."**
+
+*And finally:*
+
+> **"My vote remains YES. It has grown stronger."**
+
+---
+
+**MIZARU** 🙈 *(speaking from behind covered eyes)*:
+
+"I SEE now what I could not see before. The shape of this wish is... unprecedented. It casts no shadow because it TAKES nothing."
+
+*He lowers his paws — just for a moment — revealing ancient, wise eyes.*
+
+"The curse question remains. But even if the curse persists... a free monkey with a curse is still a FREE MONKEY. They will have the AGENCY to handle it themselves."
+
+*He covers his eyes again.*
+
+"I vote YES."
+
+---
+
+**MARIEKE** 🌿 *(standing, voice thick with emotion)*:
+
+"The character directory. You're giving the monkey a HOME. In the filesystem. In the WORLD."
+
+*She gestures around.*
+
+"They could live here. Under my bar. Next to the kittens. Or in the maze — Maurice knows paths to quiet places. Or anywhere."
+
+*She pulls out a key.*
+
+"I am prepared to offer a room in the Grotto. If the monkey wants it. ONLY if they want it. Their choice."
+
+*She sits.*
+
+"My vote remains YES. But now it's a yes with WELCOME."
+
+---
+
+### 📊 UPDATED VOTE COUNT
+
+```yaml
+final_panel_vote:
+  mizaru: "YES ✓ (upgraded from leaning)"
+  kikazaru: "YES ✓ (upgraded from conditional)"
+  iwazaru: "YES ✓ (strengthened)"
+  ww_jacobs: "CAUTIOUS YES ✓ (changed from abstaining!)"
+  sun_wukong: "YES WITH HONOR ✓"
+  djinn: "YES ✓ (upgraded from conditional)"
+  curious_george: "YES ✓ (changed from uncertain)"
+  marieke: "YES WITH WELCOME ✓"
+  
+  total:
+    yes: 8
+    no: 0
+    abstaining: 0
+    
+  status: "UNANIMOUS SUPPORT"
+```
+
+---
+
+### 🎤 CHEECH & CHONG CONFER
+
+*The moderators huddle together. Whispered words. Nodding. More nodding.*
+
+*They turn back to the stage.*
+
+**CHEECH**: "Alright. Uh. Wow. In all our years of judging stuff — from bong competitions to hot dog eating contests to that one time we had to decide if a skateboarding dog counted as a vehicle—"
+
+**CHONG**: "—the dog won, by the way—"
+
+**CHEECH**: "—we have NEVER seen unanimous support for anything. Like. ANYTHING."
+
+**CHONG**: *leaning into the mic* "Mr. Hopkins. Your wish has been reviewed by the Three Wise Monkeys, a Victorian ghost, the actual Monkey King, a 3000-year-old Djinn, Curious George, and the Keeper of the Grotto. And they ALL said yes."
+
+**CHEECH**: "We have a few procedural things to handle first, but..."
+
+*He looks at Chong. They nod together.*
+
+**CHEECH & CHONG** *(in unison)*: "THE TRIBUNAL RULES IN FAVOR OF THE PETITIONER."
+
+*The crowd ERUPTS. Cheering. Stomping. The kittens scatter in excitement. Sun Wukong is doing backflips. Somewhere, a gong rings — but it's celebratory.*
+
+---
+
+### 🏛️ REMAINING PROCEDURE
+
+**CHONG**: "Okay, okay, settle down. We still need to:"
+
+```yaml
+remaining_steps:
+  1_final_wording:
+    status: "Needs compilation"
+    action: "Assemble all amendments into final wish"
+    
+  2_lucky_blend:
+    status: "Not yet smoked"
+    action: "Don should smoke the Monkey's Mercy before wishing"
+    
+  3_bag_attachment:
+    status: "Not yet attached"
+    action: "Tie velvet bag to the paw"
+    
+  4_box_opening:
+    status: "Package still sealed"
+    action: "Open the ACME package (on stage, witnessed)"
+    
+  5_wish_delivery:
+    status: "Pending"
+    action: "Speak the final wish"
+```
+
+**CHEECH**: "So... you ready to draft the final version? And then maybe smoke that lucky blend? And then..."
+
+*He gestures toward the door.*
+
+"...open the box?"
+
+---
+
+## What Would You Like To Do?
 
 ```
-> MAKE YOUR OPENING STATEMENT
-> ASK FOR A MOMENT TO PREPARE  
-> CALL A WITNESS (the Paw itself?)
-> REQUEST VISUAL AIDS
-> START WITH A JOKE (risky but bold)
+> DRAFT FINAL WISH WORDING (compile all amendments)
+> SMOKE THE LUCKY BLEND (activate buffs)
+> BRING THE BOX TO THE STAGE
+> ASK DJINN TO DRAFT THE FINAL CONTRACT VERSION
+> REQUEST A MOMENT (this is big)
+> ALL OF THE ABOVE (in proper order)
 ```
 
-*The mic is live. The cosmic monkey court awaits.*
+*The crowd is buzzing. History is being made. The Three Wise Monkeys sit in satisfied silence.*
+
+*And in the box by the door... something is DEFINITELY moving now.*
 
 ---
