@@ -1656,3 +1656,350 @@ remaining_steps:
 *And in the box by the door... something is DEFINITELY moving now.*
 
 ---
+
+## Turn 6: THE ACCEPTANCE OF RISK
+
+*Don stands once more. The room quiets.*
+
+**DON**: "One more thing. Before we proceed."
+
+*He takes a breath.*
+
+"I accept full responsibility for any risk. If this backfires — if the curse twists somehow, if something goes wrong, if there's a price to pay..."
+
+*He looks around the room — at Marieke, at the cats, at the audience.*
+
+"...it falls on ME. Not the Grotto. Not the audience. Not the monkey. ME."
+
+*He straightens.*
+
+"No complaints. No appeals. No 'but I didn't know.' I KNOW. I know this is dangerous. I know the Paw has never been defied. I know that 122 years of curses don't just... stop."
+
+*He looks at W.W. Jacobs.*
+
+"Mr. Jacobs, you wrote the rules. And I'm choosing to play anyway. If I get my shellacking, I'll take it. Gladly. Because the CHANCE — even a small chance — to free that monkey, to break that cycle, to prove that compassion can overcome curse..."
+
+*His voice firms.*
+
+"That's worth the risk. To me. Personally."
+
+---
+
+### 🐒 THE PANEL'S FINAL RESPONSE
+
+*A profound silence falls.*
+
+**W.W. JACOBS** 👻 *(voice barely a whisper)*:
+
+"In 122 years... no one has ever..."
+
+*He stops. Starts again.*
+
+"They all wanted something. And they all wanted it WITHOUT COST. The horror of my story was never the curse — it was the DENIAL. The belief that you could take without giving."
+
+*He looks at Don with something approaching reverence.*
+
+"You're offering to GIVE. To pay. To accept. That's..."
+
+*He shakes his head, ghostly tears forming.*
+
+"That's not how the story goes. That's how the story SHOULD go."
+
+---
+
+**SUN WUKONG** 🐵👑 *(completely serious for once)*:
+
+"I fought Heaven itself. I was crushed under a mountain for 500 years. And I learned something."
+
+*He steps forward.*
+
+"The universe respects those who accept consequences. Not the clever ones who dodge. Not the powerful ones who deflect. The BRAVE ones who say 'yes, this might destroy me, and I do it anyway.'"
+
+*He bows — a full, formal bow.*
+
+"Don Hopkins. You have the heart of a Monkey King."
+
+---
+
+**THE THREE WISE MONKEYS** *(together, in rare unison)*:
+
+*Mizaru speaks*: "I see your sacrifice."
+*Kikazaru speaks*: "I hear your acceptance."
+*Iwazaru removes his hands from his mouth and speaks — the first spoken words from him all night*:
+
+"**I witness your courage. And I will remember it.**"
+
+*The audience gasps. Iwazaru has SPOKEN.*
+
+---
+
+**DJINN AL-MAZIN** 🧞 *(closing his notepad)*:
+
+"The acceptance of risk clause is... the most powerful legal instrument in wish law. It transforms the entire contract."
+
+```yaml
+djinn_analysis_final:
+  standard_wish:
+    risk_distribution: "Wisher seeks benefit, curse seeks target"
+    loophole_space: "Maximum — wisher wants gain without loss"
+    
+  don_hopkins_wish:
+    risk_distribution: "Wisher accepts ALL risk personally"
+    loophole_space: "Minimal — nothing to twist"
+    legal_structure: "Gift contract with personal liability"
+    
+  unprecedented_factors:
+    - "No personal gain sought"
+    - "All benefits directed to third party (monkey)"
+    - "Full acceptance of consequences"
+    - "No escape clauses requested"
+    
+  djinn_professional_opinion: |
+    "In 3000 years, I have never seen a wish structured 
+    this way. It's not selfish enough to twist. It's not 
+    demanding enough to corrupt. It's just... good."
+```
+
+*He sets down his pen.*
+
+"If this doesn't work, it won't be because of the wording. It will be because the universe is crueler than we hope. And that's... that's not your fault."
+
+---
+
+**MARIEKE** 🌿 *(standing, visibly moved)*:
+
+"Schat..."
+
+*She walks to Don and places her hands on his shoulders.*
+
+"Whatever happens tonight, the Grotto stands with you. Win or lose. Curse or freedom. You're one of us now."
+
+*She turns to the audience.*
+
+"THE GEZELLIGHEID GROTTO FORMALLY ACCEPTS DON HOPKINS UNDER ITS PROTECTION. Whatever curse may come, we share it."
+
+*Murmurs of agreement. Henk raises his espresso cup. The cats all turn toward Don — even Terpie, who hasn't moved in hours.*
+
+---
+
+### 📜 THE FINAL WISH — COMPILED
+
+**DJINN**: "With all amendments and acceptances, the final wish reads as follows:"
+
+```yaml
+final_wish:
+  preamble: |
+    I, Don Hopkins, accepting full personal responsibility 
+    for any and all consequences, curses, or unforeseen 
+    outcomes, freely and without expectation of personal 
+    gain, do make this wish:
+    
+  core_wish: |
+    "I wish for this paw to be peacefully reunited with 
+    its original monkey, appearing here in the Gezelligheid 
+    Grotto in safety, as a whole, living being:
+    
+    - In whatever size, form, and appearance THEY choose
+    - With full bodily autonomy including any modifications they desire
+    - Free to feel whatever emotions arise naturally
+    - Free to choose their own name, identity, and pronouns
+    - As a full citizen of this world, with their own home 
+      and possessions, wherever they wish to be
+    - With all remaining wishes ceded to them, to use as 
+      they see fit, hopefully free of curse
+    
+    The attached gift is given freely, with no obligation.
+    The monkey may stay, leave, or do as they please.
+    
+    Whatever consequences arise from this wish, I accept them.
+    Let the monkey finally be free."
+    
+  word_count: 156
+  loopholes_closed: "All identifiable"
+  risk_accepted: "Fully, by Don Hopkins"
+  witnesses: 
+    - "Three Wise Monkeys"
+    - "W.W. Jacobs (author)"
+    - "Sun Wukong (Monkey King)"
+    - "Djinn al-Mazin (wish expert)"
+    - "Curious George"
+    - "Marieke van der Berg"
+    - "Cheech & Chong (moderators)"
+    - "The Gezelligheid Grotto (sanctuary)"
+    - "All present"
+```
+
+---
+
+### ✅ FINAL APPROVAL
+
+**CHEECH**: *looking at the document* "Alright. That's... that's beautiful, man."
+
+**CHONG**: "I've seen a lot of wishes in my time. Mostly for pizza. This one's different."
+
+**CHEECH**: "The Tribunal has approved. The wording is final. All that's left is..."
+
+*He gestures toward Don's pocket.*
+
+"...smoke the blend, tie on the bag, and open the box."
+
+*The room holds its breath.*
+
+---
+
+## 🔥 THE RITUAL BEGINS
+
+**MARIEKE**: *producing a lighter* "The Monkey's Mercy. You rolled it yourself. Blessed with four strains of fortune. Are you ready?"
+
+*Don pulls out the perfectly rolled joint.*
+
+*Sun Wukong pulls out a joint of his own from somewhere*: "Mind if I join you? Solidarity."
+
+*Cheech and Chong look at each other*: "Uh... we're gonna need to join in. For... judicial purposes."
+
+*Even Marieke produces a small personal joint.*
+
+**DON**: "Together, then."
+
+---
+
+### 🌿 THE SHARED SMOKE
+
+*Lighters flick. The sweet, complex aroma of the Lucky Blend fills the stage.*
+
+*Don takes the first hit. The effects are immediate:*
+
+```yaml
+don_buffs_activated:
+  fortunes_mercy:
+    duration: "4 hours"
+    effect: "Malfunction mitigation, destiny smoothing"
+    
+  pattern_recognition:
+    duration: "2 hours"
+    effect: "+3 to seeing connections and meanings"
+    
+  luck_modifier:
+    duration: "3 hours"
+    effect: "+7% to all random outcomes"
+    
+  robust_error_handling:
+    duration: "4 hours"
+    effect: "Tolerance for unexpected results"
+    
+  stacked_bonus:
+    effect: "+15% WISH INTERPRETATION"
+    note: "The strains synergize. Intent becomes clearer."
+    
+  solidarity_bonus:
+    effect: "+5% additional (shared smoke)"
+    participants: 
+      - Don Hopkins
+      - Sun Wukong
+      - Cheech
+      - Chong
+      - Marieke
+```
+
+*The smoke curls up toward the stage lights. For a moment, it seems to form shapes — monkeys, perhaps, or hands, or something else entirely.*
+
+*Don feels... clear. Ready. Calm.*
+
+---
+
+### 👛 ATTACHING THE GIFT
+
+**MARIEKE**: *handing Don the velvet bag* "Grootmoeder's bag. 42 golds worth of luck. Triple-knotted, blessed cord."
+
+*Don approaches the ACME box. The delivery person has finally set it down and backed away.*
+
+**CHEECH**: "Open it just enough to attach the bag. Don't make the wish yet."
+
+*Don carefully opens the box.*
+
+---
+
+### 📦 INSIDE THE BOX
+
+*The packing peanuts part. And there it is.*
+
+```yaml
+the_monkeys_paw:
+  appearance: |
+    Smaller than expected. Withered. Ancient.
+    The fur is patchy, the claws yellowed with age.
+    It sits on a velvet cushion, fingers slightly curled.
+    
+  condition: |
+    It looks... tired. So tired.
+    If a hand could look lonely, this one does.
+    
+  movement: |
+    As the box opens, the fingers twitch.
+    Once. Twice.
+    Is it... is it reaching toward the light?
+    
+  aura: |
+    There's a hum. A vibration.
+    Not malevolent. Not exactly.
+    More like... waiting. Hoping?
+    
+  observation_from_sun_wukong: |
+    *The Monkey King goes very still.*
+    "...I know that hand. The shape of it."
+    "That's a capuchin. A very, very old capuchin."
+    "They're social creatures. They need their troop."
+    *His voice breaks*
+    "This one's been alone so long..."
+```
+
+*The room is silent.*
+
+*Don, with steady hands, ties the velvet bag to the paw. Triple knots. The blessed cord holds firm.*
+
+*The paw's fingers close gently around the bag.*
+
+*Did it just... accept the gift?*
+
+---
+
+## 🌟 THE MOMENT
+
+*Don stands before the stage. The panel watches. The audience holds its breath. The cats are motionless. Even the espresso machine is silent.*
+
+*The paw rests in his hands, clutching its gift.*
+
+**MARIEKE**: *softly* "Whenever you're ready, schat."
+
+**SUN WUKONG**: *equally soft* "We're all with you."
+
+**CHEECH**: "Say the words, man."
+
+**CHONG**: "Make history."
+
+*Don closes his eyes. Opens them.*
+
+*And speaks.*
+
+---
+
+## What Would You Like To Say, Don?
+
+*The final wish is drafted. You can speak it as written, or add any final personal words. The paw is listening. The universe is watching.*
+
+```
+> SPEAK THE WISH AS WRITTEN (the approved 156-word version)
+> ADD PERSONAL WORDS BEFORE THE WISH
+> ADD PERSONAL WORDS TO THE MONKEY DIRECTLY
+> SPEAK FROM THE HEART (improvise based on the moment)
+```
+
+*The paw's fingers flex slightly around the bag of gifts.*
+
+*It's waiting.*
+
+*Everyone is waiting.*
+
+🐵✋✨
+
+---
