@@ -4,12 +4,31 @@
 
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
+- [Interface Card](CARD.yml) — machine-readable methods
 
 ## Overview
 
 The meta-protocol: how skills work, how they evolve, how they live everywhere.
 
 A skill is a **documented capability** that can be instantiated, composed, and automated.
+
+## Skill Anatomy (Required Structure)
+
+```
+skills/
+  my-skill/
+    README.md         # Human entry point (GitHub renders this)
+    SKILL.md          # Full spec with YAML frontmatter
+    CARD.yml          # Machine-readable interface definition
+    *.tmpl            # Templates at root level (optional)
+```
+
+Every skill has:
+- **README.md** — Quick overview, links (you're reading one!)
+- **SKILL.md** — Full protocol with YAML frontmatter defining name, tier, allowed-tools
+- **CARD.yml** — Interface definition: methods, tools, state, advertisements
+
+## The Evolution Path
 
 ```
 Documentation → Procedure → Script → Tool

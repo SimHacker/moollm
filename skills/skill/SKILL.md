@@ -331,10 +331,20 @@ skill:
 
 Every skill directory contains:
 
+```
+skills/
+  my-skill/
+    README.md         # Human entry point (GitHub renders this)
+    SKILL.md          # Full spec with YAML frontmatter
+    CARD.yml          # Machine-readable interface definition
+    *.tmpl            # Templates at root level (optional)
+```
+
 | File | Purpose | Required |
 |------|---------|----------|
 | `README.md` | Human-friendly GitHub landing page | ✓ |
-| `SKILL.md` | Full spec with YAML frontmatter | ✓ |
+| `SKILL.md` | Full spec with YAML frontmatter (name, tier, allowed-tools) | ✓ |
+| `CARD.yml` | Machine-readable interface — methods, tools, state, advertisements | ✓ |
 | `*.tmpl` | Templates at root level | Optional |
 | `*.py` | Sister scripts for automation | Optional |
 

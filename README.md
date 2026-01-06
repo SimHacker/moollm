@@ -700,10 +700,14 @@ Skills are **protocols the model follows**, not code the orchestrator runs.
 skills/adversarial-committee/
 ├── README.md              # Human landing page (GitHub renders this)
 ├── SKILL.md               # Full spec with YAML frontmatter
+├── CARD.yml               # Machine-readable interface definition
 └── COMMITTEE.yml.tmpl     # Templates at root level (not in subdirectory)
 ```
 
-**MOOLLM adds README.md** for human consumption and GitHub browsing. Anthropic's format uses only SKILL.md.
+Every skill has three required files:
+- **README.md** — Quick overview, links (for humans and GitHub)
+- **SKILL.md** — Full protocol with YAML frontmatter (name, tier, allowed-tools)
+- **CARD.yml** — Interface definition: methods, tools, state, advertisements
 
 ### SKILL.md Format
 
@@ -821,6 +825,7 @@ Anthropic skills are prompts. MOOLLM skills are **prototypes that instantiate in
 skills/adventure/                    # The PROTOTYPE
 ├── README.md                        # Human readable adventure skill prototype summary
 ├── SKILL.md                         # Protocol documentation
+├── CARD.yml                         # Machine-readable interface definition
 ├── ADVENTURE.yml.tmpl               # Template with {{variables}}
 └── LOG.md.tmpl                      # Template for narrative log
 
