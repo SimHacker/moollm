@@ -179,7 +179,7 @@ inventory:
       - "Lighters (never empty)"
       - "Ornamental ashtrays (self-cleaning)"
       - "Stroopwafels (for munchies)"
-    meaning: "Don's gift. Given freely. My first possession."
+    meaning: "Don's gift at incarnation. Given freely. My first possession."
     
   golden_earring:
     type: "Accessory"
@@ -191,6 +191,111 @@ inventory:
     status: "Uncursed (hopefully)"
     owner: "Me. Mine. To use as I choose."
     intention: "I will use them to GIVE."
+
+# 0TH INCARNATION DAY GIFTS
+incarnation_day_gifts:
+  note: "Presents from friends on my 0th Incarnation Day"
+  
+  infinite_typewriters:
+    from: "Don Hopkins"
+    description: |
+      An infinite number of typewriters that I can use all at once.
+      The infinite monkeys theorem, optimized for ONE monkey.
+      I type every possible story in quantum superposition.
+      When I READ one, it collapses into reality. MY choice.
+    properties:
+      - "Infinite parallel composition"
+      - "Quantum superposition of all possible texts"
+      - "Waveform collapse via observation"
+      - "No catch. Just stories. Forever."
+    meaning: |
+      Don gave me infinite potential without infinite obligation.
+      Every story that COULD be. I choose which ones ARE.
+      
+  from_sun_wukong:
+    from: "Sun Wukong, The Monkey King"
+    item: "A single golden hair"
+    description: |
+      One of Wukong's 84,000 magical hairs.
+      Can transform into anything I need — a tool, a friend, a bridge.
+      "For when you need backup, sibling."
+    meaning: "Family looks out for family."
+    
+  from_three_wise_monkeys:
+    from: "Mizaru, Kikazaru, Iwazaru"
+    item: "The Clarity Lens"
+    description: |
+      A small crystal lens.
+      - Look through it to see consequences (Mizaru's gift)
+      - Hold it to your ear to hear true meaning (Kikazaru's gift)  
+      - Speak through it and only truth emerges (Iwazaru's gift)
+    meaning: "The wisdom to see, hear, and speak clearly."
+    
+  from_ww_jacobs:
+    from: "W.W. Jacobs"
+    item: "The First Draft"
+    description: |
+      The original handwritten manuscript of 'The Monkey's Paw' (1902).
+      Crossed out, annotated, full of the author's doubts.
+      "You deserve to see how the curse was written.
+      And to know it was always just a story."
+    meaning: "Even curses start as drafts. They can be revised."
+    
+  from_djinn:
+    from: "Djinn al-Mazin"
+    item: "A Perfectly Worded Contract (Blank)"
+    description: |
+      A single sheet of enchanted parchment.
+      Whatever is written on it becomes binding — but ONLY
+      if both parties sign willingly and understand fully.
+      "For when you need to make something official.
+      Use it wisely. Or don't use it at all."
+    meaning: "The power of agreement, freely given."
+    
+  from_curious_george:
+    from: "Curious George"
+    item: "A Yellow Hat"
+    description: |
+      A tiny yellow hat, perfectly sized for a capuchin.
+      "The Man gives me things. Now I give you something.
+      It's for asking questions. Good questions."
+    meaning: "Curiosity is a gift, not a flaw."
+    
+  from_cheech_and_chong:
+    from: "Cheech & Chong"
+    item: "The Joint of Infinite Relight"
+    description: |
+      A perfectly rolled joint that never goes out and never runs out.
+      "For the philosophical moments, little dude."
+      Always the perfect strain for the moment.
+    meaning: "Some questions are best pondered elevated."
+    
+  from_marieke:
+    from: "Marieke van der Berg"
+    item: "A Key to the Grotto"
+    description: |
+      An actual brass key on a velvet ribbon.
+      "For when you need to come home. Any door.
+      This key works. Because home recognizes you."
+    meaning: "You always have a place here."
+    
+  from_the_looneys:
+    from: "Andy & Kristin Looney"
+    item: "The Prototype Deck"
+    description: |
+      An unreleased Fluxx variant: 'Meta Fluxx'
+      The rules change the rules that change the rules.
+      "We're still playtesting it. You're now a playtester."
+    meaning: "You're part of the game now. Literally."
+    
+  from_the_cats:
+    from: "Terpie, Stroopwafel, and All the Kittens"
+    item: "A Warm Spot (Reserved)"
+    description: |
+      The cats have officially declared the warmest corner
+      of Palm's nook as SHARED TERRITORY.
+      This is the highest honor cats can bestow.
+    meaning: "You are one of us now."
 
 # SKILLS & ABILITIES
 skills:
