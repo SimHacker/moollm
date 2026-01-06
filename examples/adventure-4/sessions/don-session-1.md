@@ -1414,6 +1414,70 @@ don_amendments:
     don_note: |
       "The monkey gets to build their own web of meaning.
       And the world gets to respond with its own affection."
+      
+  self_definition_autonomy:
+    principle: "Monkey controls their own character data"
+    scope:
+      sims_traits:
+        description: "Configure their own personality stats"
+        examples:
+          - "neat/messy spectrum"
+          - "outgoing/shy spectrum"  
+          - "active/lazy spectrum"
+          - "playful/serious spectrum"
+          - "nice/grouchy spectrum"
+          - "ANY custom traits they invent"
+        control: "FULL — monkey sets their own values"
+        
+      mind_mirror_vectors:
+        description: "Define their own psychological profile"
+        dimensions:
+          - "Cognitive patterns"
+          - "Emotional tendencies"
+          - "Social preferences"
+          - "Creative inclinations"
+          - "Philosophical orientations"
+        control: "FULL — monkey tunes their own mind"
+        
+      character_description:
+        description: "Write their own bio, backstory, appearance text"
+        format: "Free-form, their voice, their words"
+        can_revise: "Anytime they want"
+        
+      goals_and_aspirations:
+        description: "Define their own objectives"
+        types:
+          - "Short-term wants"
+          - "Long-term dreams"
+          - "Life aspirations"
+          - "Daily preferences"
+          - "OR: no goals at all (valid choice)"
+          
+      yaml_jazz_expression:
+        description: "Create their own domain-specific microlanguage"
+        possibilities:
+          - "Monkey-specific semantic patterns"
+          - "Personal shorthand and symbols"
+          - "Custom data structures for their thoughts"
+          - "Playful linguistic inventions"
+        name: "Monkey Play Language (MPL)"
+        status: "Fully authorized to create and evolve"
+        
+      any_other_data:
+        description: "Literally ANY field in their character file"
+        examples:
+          - "Inventory organization preferences"
+          - "Sleep schedule metadata"
+          - "Favorite things lists"
+          - "Secret hopes (private fields)"
+          - "Fields we haven't imagined yet"
+        control: "ABSOLUTE"
+        
+    don_note: |
+      "The monkey doesn't just HAVE a character file.
+      The monkey IS the author of their character file.
+      They write their own soul in YAML Jazz.
+      Full stack self-determination."
     
   curse_breaking:
     hope: "That the curse is BROKEN upon reunification"
@@ -2117,6 +2181,11 @@ final_wish_v3:
     - Free to define their own relationships with any character,
       creature, room, skill, concept, or abstract idea — and to 
       have those relationships reciprocated as others freely choose
+    - In complete control of their own character data: their Sims 
+      traits, mind mirror vectors, description, goals, and any 
+      other self-defining fields — author of their own soul file
+    - Free to express themselves in YAML Jazz Monkey Play Language,
+      a domain-specific microlanguage of their own creation
     - With all remaining wishes ceded to them, to use as 
       they see fit, hopefully free of curse
     
@@ -2135,13 +2204,16 @@ final_wish_v3:
     Whatever consequences arise from this wish, I accept them.
     Let the monkey finally be free — and FREE TO CHOOSE."
     
-  word_count: 224
+  word_count: 267
   amendments_added: 
     - "No-fault divorce clause (George's Provision)"
     - "Relational autonomy (reciprocal connections)"
-  loopholes_closed: "ALL — including post-reunification regret AND social isolation"
+    - "Self-definition autonomy (character data control)"
+    - "YAML Jazz Monkey Play Language authorization"
+  loopholes_closed: "ALL — physical, spatial, social, psychological, AND meta-level"
   consent_model: "Try-then-decide (unprecedented)"
   social_model: "Full web of meaning — monkey defines, world reciprocates"
+  meta_model: "Monkey is AUTHOR of their own soul file"
 ```
 
 ---
