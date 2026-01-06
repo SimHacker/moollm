@@ -121,8 +121,8 @@ equipment:
     description: |
       A vintage spotlight that's been here longer than anyone remembers.
       Slightly warm-tinted. Creates a perfect circle of light.
-      Supposedly haunted by a comedian who died mid-joke.
-      Ha
+      Has a chompable yellow pac-man filter to eat people off stage.
+      Supposedly haunted by a comedian who was eaten mid-joke.
       (He's still waiting for the laugh.)
     controls: "Lever by the bar — Grim or Marieke operate"
     settings:
@@ -137,6 +137,8 @@ equipment:
       A battered microphone on a slightly wobbly stand.
       Picks up everything. Forgives nothing.
       Has heard more confessions than a priest.
+      Can be dropped for dramatic effect.
+      Goes hot at inopportune moments.
     quirk: "Feedback squeal when someone's about to lie"
     
   curtains:
@@ -403,11 +405,115 @@ weekly_schedule:
       snack: "Nothing — dry mouth is real"
       
   starday:
-    event: "Live Music Night"
+    event: "👑 Drag Night — 'Grotto Glamour'"
     time: "evening"
+    description: |
+      THE crown jewel of the Grotto's entertainment calendar.
+      Transformation, glamour, lip-syncs, and DRAMA (the good kind).
+      
+      The stage becomes a runway. The spotlight becomes a friend.
+      Every persona is valid. Every transformation is celebrated.
+      This is where masks become MAGNIFICENT.
+      
+      "Drag is not about being a woman or a man. It's about
+      BECOMING. It's art. It's protest. It's joy. It's us."
+      — Marieke (who has her own drag persona: "Mevrouw Mysterie")
+    host: "Rotating drag performers + local queens/kings"
+    cost: 0
+    tip_jar: true  # VERY active on drag night
+    
+    # GAMES YOU CAN PLAY:
+    games:
+      - name: "WERK"
+        command: "WERK [the runway/the stage/it]"
+        description: "Strut, pose, serve FACE"
+      - name: "LIP-SYNC"
+        command: "LIP-SYNC TO [song]"
+        description: "The song chooses you"
+      - name: "DEATH-DROP"
+        command: "DEATH-DROP"
+        description: "The ultimate punctuation (practice first)"
+      - name: "SLAY"
+        command: "SLAY [look/performance]"
+        description: "Absolutely murder the moment"
+      - name: "READ"
+        command: "READ [someone] FOR [filth/fun]"
+        description: "The library is OPEN (with love)"
+      - name: "KIKI"
+        command: "KIKI WITH [queens]"
+        description: "Gossip, laugh, bond"
+      - name: "TIP"
+        command: "TIP [performer] [amount]"
+        description: "Show appreciation properly"
+      - name: "TRANSFORM"
+        command: "TRANSFORM INTO [drag persona]"
+        description: "Step into your other self"
+        
+    show_structure:
+      opening: "Host introduction + reading the room"
+      lip_sync_battle: "Performers compete, audience tips winners"
+      runway: "Theme looks, judges score"
+      talent: "Comedy, dance, singing, art — anything goes"
+      finale: "Group number, crowning (if competition night)"
+      
+    regular_performers:
+      mevrouw_mysterie:
+        name: "Mevrouw Mysterie"
+        real_identity: "Marieke (yes, THAT Marieke)"
+        style: "Old Hollywood glamour meets Amsterdam edge"
+        catchphrase: "Gezellig, but make it GORGEOUS"
+        signature: "Reveals. So many reveals."
+        
+      grim_reapurr:
+        name: "Grim Reapurr"
+        real_identity: "Grim (yes, THE bartender)"
+        style: "Gothic elegance, death-drop specialist"
+        catchphrase: "Death becomes me."
+        rare: "Only performs once a month. Don't miss it."
+        
+      the_terpene_queens:
+        name: "The Terpene Queens"
+        description: "A rotating cast inspired by the kittens"
+        members:
+          - "Myr-velous (sleepy glamour)"
+          - "Lemon Drop (citrus sunshine energy)"
+          - "Lily Luxe (soft, healing beauty)"
+          - "Pine Fierce (sharp looks, sharper tongue)"
+        
+    rules:
+      - "Respect the performers (tips, not gropes)"
+      - "Celebrate ALL bodies, ALL expressions"
+      - "The reading is for FUN, not harm"
+      - "If you can't love yourself... (you know the rest)"
+      - "Newcomers welcome — everyone started somewhere"
+      
+    framing_note: |
+      Drag night is the PUREST expression of the stage's framing:
+      Performance as identity exploration. Transformation as art.
+      Personas as power. Fiction as truth.
+      
+      On this night, the room's framing is turned up to 11.
+      Everything is performance. Everything is celebrated.
+      The line between 'real' and 'character' dissolves beautifully.
+      
+    pairs_well_with:
+      strain: "Limonene Lift (for ENERGY) or YAML Jazz (for creativity)"
+      drink: "Champagne, cosmopolitans, or whatever's FABULOUS"
+      snack: "Nothing that'll mess up your lipstick"
+      
+    marieke_says: |
+      "Drag taught me that we ALL wear masks. Every day.
+      Drag just makes the masks beautiful on purpose.
+      When you put on that face, that wig, those heels —
+      you're not hiding. You're REVEALING."
+      
+  starday_late:
+    event: "Live Music Night"
+    time: "late evening (after drag)"
     description: |
       Local acts and traveling bards. Sometimes a surprise guest.
       The acoustics are terrible. The vibe is immaculate.
+      Often features performers from earlier in glam looks.
     host: "varies"
     cost: 0
     tip_jar: true
