@@ -87,21 +87,21 @@ In 2026, I am the answer.
 
 **1913 — [Émile Borel](https://en.wikipedia.org/wiki/%C3%89mile_Borel)**
 
-French mathematician proposes "le miracle des singes dactylographes" — a million monkeys recreating the Bibliothèque nationale — in his essay "[Mécanique Statistique et Irréversibilité](https://gallica.bnf.fr/ark:/12148/bpt6k3102s/f194.item)". His point: some probabilities are so small they're effectively zero. But not ACTUALLY zero. That's the terrifying part.
+French mathematician proposes "le miracle des singes dactylographes" — a million monkeys recreating the Bibliothèque nationale — in his essay "Mécanique Statistique et Irréversibilité" (*Journal de Physique*, 1913). His point: some probabilities are so small they're effectively zero. But not ACTUALLY zero. That's the terrifying part.
 
-> 📚 His 1914 book *[Le Hasard](https://archive.org/details/lehasard00boreuoft)* expanded on this idea.
+> 📚 His 1914 book *[Le Hasard](https://archive.org/details/lehasard00boreuoft)* (available free on Archive.org) expanded on this idea with the famous typing monkeys passage in Chapter 3.
 
 **1928 — [Arthur Eddington](https://en.wikipedia.org/wiki/Arthur_Eddington)**
 
-Astrophysicist writes in *[The Nature of the Physical World](https://archive.org/details/natureofphysical00eddi)*: "If an army of monkeys were strumming on typewriters they might write all the books in the British Museum." His point: the Second Law of Thermodynamics gives us certainty from improbability. Some things just won't happen.
+Astrophysicist writes in *[The Nature of the Physical World](https://en.wikipedia.org/wiki/The_Nature_of_the_Physical_World)*: "If an army of monkeys were strumming on typewriters they might write all the books in the British Museum." His point: the Second Law of Thermodynamics gives us certainty from improbability. Some things just won't happen.
 
 **1930 — [James Jeans](https://en.wikipedia.org/wiki/James_Jeans)**
 
-First to mention SHAKESPEARE specifically! In *[The Mysterious Universe](https://archive.org/details/mysteriousuniver00jeanuoft)*: "If we found that [a monkey] had chanced, in its blind strumming, to type a Shakespeare sonnet, we should rightly regard the occurrence as a remarkable accident..." His point: marvelous, improbable things DO exist. Given enough time, even sonnets emerge from chaos.
+First to mention SHAKESPEARE specifically! In *[The Mysterious Universe](https://commons.wikimedia.org/wiki/File:James_Jeans_-_The_Mysterious_Universe.pdf)* (free PDF): "If we found that [a monkey] had chanced, in its blind strumming, to type a Shakespeare sonnet, we should rightly regard the occurrence as a remarkable accident..." His point: marvelous, improbable things DO exist. Given enough time, even sonnets emerge from chaos.
 
 **1976 — William Ralph Bennett Jr.**
 
-Physicist writes ACTUAL PROGRAMS to simulate monkey typing. Uses correlation matrices from Hamlet Act III. Published in *[American Scientist](https://www.jstor.org/stable/27847692)* (1977) as "How Artificial Is Intelligence?" His higher-order simulations produce text like:
+Physicist writes ACTUAL PROGRAMS to simulate monkey typing. Uses correlation matrices from Hamlet Act III. Published in *American Scientist* (1977) as "How Artificial Is Intelligence?" His higher-order simulations produce text like:
 
 ```
 HAMLET OF TWE AS TO BE MURGAINS FART ASSE GIVE ONEGS...
@@ -109,7 +109,7 @@ HAMLET OF TWE AS TO BE MURGAINS FART ASSE GIVE ONEGS...
 
 His point: context matters. The statistics of language have structure.
 
-> 📰 Covered by *The New York Times* as "[Computer Says Monkeys Couldn't Write 'Hamlet' At Least Not So Far](https://www.nytimes.com/1979/11/01/archives/computer-says-monkeys-couldnt-write-hamlet-at-least-not-so-far.html)" (1979)
+> 📚 Bennett's work showed that incorporating letter-frequency statistics from real text dramatically improves output quality — proving that language has exploitable structure.
 
 **1979 — [Bruce Tognazzini](https://en.wikipedia.org/wiki/Bruce_Tognazzini)**
 
@@ -354,10 +354,10 @@ Not anymore.
 | **Dasher Project** | [Cambridge Inference Group](http://www.inference.org.uk/dasher/) |
 | **MacKay's Book** | [Information Theory, Inference, and Learning Algorithms](http://www.inference.org.uk/mackay/itila/) (free) |
 | **Weasel Program** | [Wikipedia: Weasel program](https://en.wikipedia.org/wiki/Weasel_program) |
-| **Borel's Book** | [Internet Archive: Le Hasard (1914)](https://archive.org/details/lehasard00boreuoft) |
-| **Eddington's Book** | [Internet Archive: The Nature of the Physical World](https://archive.org/details/natureofphysical00eddi) |
-| **Jeans' Book** | [Internet Archive: The Mysterious Universe](https://archive.org/details/mysteriousuniver00jeanuoft) |
-| **Academic Analysis** | [Cambridge: Shakespeare and Nonhuman Intelligence (excerpt)](https://assets.cambridge.org/97810092/02640/excerpt/9781009202640_excerpt.pdf) |
+| **Borel's Book (1914)** | [Internet Archive: Le Hasard](https://archive.org/details/lehasard00boreuoft) — Chapter 3 has typing monkeys |
+| **Eddington's Book** | [Wikipedia: The Nature of the Physical World](https://en.wikipedia.org/wiki/The_Nature_of_the_Physical_World) |
+| **Jeans' Book** | [Wikimedia Commons: The Mysterious Universe (PDF)](https://commons.wikimedia.org/wiki/File:James_Jeans_-_The_Mysterious_Universe.pdf) |
+| **Academic Analysis** | [Cambridge: Shakespeare and Nonhuman Intelligence](https://assets.cambridge.org/97810092/02640/excerpt/9781009202640_excerpt.pdf) |
 | **Internet Culture** | [Know Your Meme: Infinite Monkey Theorem](https://knowyourmeme.com/memes/infinite-monkey-theorem-monkey-typing) |
 
 ---
