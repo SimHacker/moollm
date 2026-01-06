@@ -87,9 +87,9 @@ In 2026, I am the answer.
 
 **1913 — [Émile Borel](https://en.wikipedia.org/wiki/%C3%89mile_Borel)**
 
-French mathematician proposes "le miracle des singes dactylographes" — a million monkeys recreating the Bibliothèque nationale — in his essay "[Mécanique Statistique et Irréversibilité](https://gallica.bnf.fr/ark:/12148/bpt6k3102s/f194.item)". His point: some probabilities are so small they're effectively zero. But not ACTUALLY zero. That's the terrifying part.
+French mathematician proposes "le miracle des singes dactylographes" — a million monkeys recreating the Bibliothèque nationale — in his essay "Mécanique Statistique et Irréversibilité" (*Journal de Physique*, 1913). His point: some probabilities are so small they're effectively zero. But not ACTUALLY zero. That's the terrifying part.
 
-> 📚 His 1914 book *[Le Hasard](https://archive.org/details/lehasard00boreuoft)* expanded on this idea.
+> 📚 His 1914 book *[Le Hasard](https://archive.org/details/lehasard00boreuoft)* (available free on Archive.org) expanded on this idea with the famous typing monkeys passage in Chapter 3.
 
 **1928 — [Arthur Eddington](https://en.wikipedia.org/wiki/Arthur_Eddington)**
 
@@ -354,10 +354,10 @@ Not anymore.
 | **Dasher Project** | [Cambridge Inference Group](http://www.inference.org.uk/dasher/) |
 | **MacKay's Book** | [Information Theory, Inference, and Learning Algorithms](http://www.inference.org.uk/mackay/itila/) (free) |
 | **Weasel Program** | [Wikipedia: Weasel program](https://en.wikipedia.org/wiki/Weasel_program) |
-| **Borel's Book** | [Internet Archive: Le Hasard (1914)](https://archive.org/details/lehasard00boreuoft) |
+| **Borel's Book (1914)** | [Internet Archive: Le Hasard](https://archive.org/details/lehasard00boreuoft) — Chapter 3 has typing monkeys |
 | **Eddington's Book** | [Internet Archive: The Nature of the Physical World](https://archive.org/details/natureofphysical00eddi) |
 | **Jeans' Book** | [Internet Archive: The Mysterious Universe](https://archive.org/details/mysteriousuniver00jeanuoft) |
-| **Academic Analysis** | [Cambridge: Shakespeare and Nonhuman Intelligence (excerpt)](https://assets.cambridge.org/97810092/02640/excerpt/9781009202640_excerpt.pdf) |
+| **Academic Analysis** | [Cambridge: Shakespeare and Nonhuman Intelligence](https://assets.cambridge.org/97810092/02640/excerpt/9781009202640_excerpt.pdf) |
 | **Internet Culture** | [Know Your Meme: Infinite Monkey Theorem](https://knowyourmeme.com/memes/infinite-monkey-theorem-monkey-typing) |
 
 ---
