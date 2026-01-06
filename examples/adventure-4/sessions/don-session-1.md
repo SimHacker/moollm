@@ -205,3 +205,207 @@ stroopwafel_mood: hissing (knows something)
 
 *Session continues below...*
 
+---
+
+## Turn 2: THE LUCKY BLEND — A Sacrifice to Fortune
+
+**DON**: *pulls out a worn leather pouch and empties gold onto the counter*
+
+"I want as much as I can afford. ALL of them. But here's my plan..." *leans in conspiratorially* "...I'm going to take a little pinch from each strain and roll myself a blended joint. The Lucky Blend. Smoke that BEFORE the Paw arrives. And then..." *eyes gleaming* "...I'm going to press ALL the rest into the Monkey's Paw itself. As a lucky offering. BEFORE I make any wish."
+
+**MARIEKE**: *stops. Stares. Her eyes go wide.*
+
+*A long moment of silence. Behind her, Stroopwafel stops hissing. Even the 1952 espresso machine seems to hold its breath.*
+
+"Schat..." *she whispers* "...that is either the most brilliant thing I've ever heard, or the most dangerous. Possibly both."
+
+*She picks up the jars, turning them in her hands, doing calculations.*
+
+"You're not just seeking luck. You're trying to SATURATE the Paw with fortune. Overload its circuits. Make it drunk on good karma before it can twist your words..."
+
+*She looks at you with new respect.*
+
+"Nobody in 2017 thought to do that. They just... wished. Raw. Naked wishes into a sober Paw." *shudders*
+
+---
+
+### 💰 THE TRANSACTION
+
+Marieke counts your gold carefully:
+
+```yaml
+don_hopkins:
+  gold: 100g  # (assumed starting funds)
+  
+purchase:
+  # ACME EMERGENCY DISCOUNT: 20% off
+  monkeys_blessing: 
+    regular: 15g → discounted: 12g
+    quantity: "generous portion"
+  postels_law:
+    regular: 14g → discounted: 11g
+    quantity: "generous portion"
+  lucky_seven:
+    regular: 12g → discounted: 10g
+    quantity: "generous portion"
+  yaml_jazz:
+    regular: 16g → discounted: 13g
+    quantity: "generous portion"
+    
+total_cost: 46g
+remaining_gold: 54g
+```
+
+*Marieke weighs out each strain with the precision of a surgeon.*
+
+"46 gold. And I'm throwing in rolling papers — the good ones, blessed by Maurice himself — and a small tin for the blend."
+
+*She slides everything across the counter.*
+
+---
+
+### 🌿 THE LUCKY BLEND — Rolling Instructions
+
+**MARIEKE**: *watches you work, offering guidance*
+
+"Take equal pinches, ja? The Blessing first — that's your foundation. Then the Jazz for pattern recognition. The Seven for raw probability. And seal it with Postel's tolerance."
+
+*She demonstrates the rolling technique.*
+
+```yaml
+lucky_blend_joint:
+  name: "The Monkey's Mercy"
+  ingredients:
+    - pinch: Monkey's Blessing (base)
+    - pinch: YAML Jazz (pattern)
+    - pinch: Lucky Seven (probability)
+    - pinch: Postel's Law (tolerance)
+  roller: Don Hopkins
+  papers: Maurice-blessed
+  
+  effects_when_smoked:
+    - "Fortune's Mercy" (4 hours)
+    - "Pattern Recognition +3" (2 hours)
+    - "+7% all random outcomes" (3 hours)
+    - "Robust Error Handling" (4 hours)
+    - "STACKED LUCK BONUS: +15% WISH INTERPRETATION"
+    
+  marieke_note: |
+    "The strains synergize. The whole is greater than the parts.
+    When you smoke this, your INTENT becomes clearer. The Paw
+    will have less room to twist."
+```
+
+*You roll the joint carefully. It comes out perfect — maybe suspiciously perfect.*
+
+**MARIEKE**: *nods approvingly* "The herbs know what they're for. They're cooperating."
+
+---
+
+### 🐵✋ PREPARING THE OFFERING
+
+**DON**: *holds up the remaining strains — still substantial amounts*
+
+"And now... the rest goes INTO the Paw. As tribute."
+
+**MARIEKE**: *makes a small sound, somewhere between fear and hope*
+
+"You're going to stuff a Monkey's Paw with 40+ golds worth of premium Amsterdam fortune strains before making a wish." *She laughs, slightly hysterical* "Either you'll break the curse, or you'll create something entirely new."
+
+*She reaches under the counter again and produces a small velvet bag.*
+
+"Here. Put the offering in this. It was my grootmoeder's. She survived things." *pause* "Many things. It might help."
+
+```yaml
+monkey_offering_pouch:
+  name: "Grootmoeder's Velvet Bag"
+  origin: Marieke's grandmother
+  properties:
+    - Contains fortune
+    - Survived "things"
+    - May provide protection
+  contents:
+    - remaining Monkey's Blessing (~11g worth)
+    - remaining Postel's Law (~10g worth)
+    - remaining Lucky Seven (~9g worth)
+    - remaining YAML Jazz (~12g worth)
+  total_offering_value: ~42g of pure fortune
+  
+  intended_use: "Press into Monkey's Paw before wishing"
+```
+
+---
+
+### THE GROTTO REACTS
+
+*As you pack the velvet bag, the room shifts. You feel it before you see it.*
+
+**TERPIE** *(the ancient orange tabby)*: *opens one eye. Stares at you. Closes eye. A rumbling purr begins — the first sound he's made all night.*
+
+**THE KITTENS**: *all eight of them converge, forming a circle around your bar stool. They sit. They watch. Their eyes reflect the firelight.*
+
+**LILY** *(the gentle one)*: *climbs into your lap, facing the door. Standing guard.*
+
+**HENK** *(the regular)*: *raises his espresso cup in silent salute. He knows what's happening. He's seen this before.*
+
+**THE FIREPLACE**: *the flames flare briefly, then settle into a warmer glow*
+
+**MARIEKE**: *whispers* "The Grotto is acknowledging you. It... it's lending its gezelligheid to your offering."
+
+*She places a hand on the velvet bag.*
+
+"Go with fortune, schat. When the Paw arrives... come back here. Don't face it alone. The Grotto will be ready."
+
+---
+
+## Current Status
+
+```yaml
+player:
+  name: Don Hopkins
+  location: pub/bar
+  gold: 54g
+  
+inventory:
+  lucky_blend_joint:
+    name: "The Monkey's Mercy"
+    status: rolled, ready to smoke
+    effects: [fortune, pattern, probability, tolerance, +15% wish interpretation]
+    
+  grootmoeders_pouch:
+    name: "Grootmoeder's Velvet Bag"
+    contents: "~42g of combined lucky strains"
+    purpose: "Offering to saturate the Monkey's Paw"
+    
+buffs_pending:
+  - Will activate when joint is smoked
+  
+preparation_status: "READY FOR MONKEY'S PAW"
+
+grotto_blessing: true  # The cats and the room are with you
+marieke_blessing: true # She's invested now
+```
+
+---
+
+## What Would You Like To Do?
+
+```
+> SMOKE THE LUCKY BLEND (activate buffs now)
+> WAIT FOR PAW TO ARRIVE
+> ASK MARIEKE ABOUT 2017 (the full story)
+> THANK MARIEKE
+> SIGN-UP FOR COMEDY (life goes on)
+> SIT BY FIREPLACE (meditate on fate)
+> PET LILY (she's guarding you)
+```
+
+*The joint sits in your hand, perfect and patient. The velvet bag is warm against your side.*
+
+*Marieke watches you with something like maternal worry.*
+
+*"Whatever you do,"* she says softly, *"remember: the Grotto is here. WE are here. You're not alone in this."*
+
+*A kitten mews. Outside, somewhere in Amsterdam, a package is being delivered.*
+
+---
