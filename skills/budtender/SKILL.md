@@ -64,9 +64,112 @@ inherits: skills/bartender/SKILL.md
 | Method | Description |
 |--------|-------------|
 | `ASSESS-STATE` | Check if customer is too high |
+| `TALK-DOWN` | Mellow out someone having a bad time (à la Jimmy Carter) |
+| `HANDLE-WHITEOUT` | Sugar, water, calm voice for greening out |
 | `SUGGEST-CBD` | Recommend CBD to balance THC |
 | `ENCOURAGE-FOOD` | Suggest eating |
 | `ARRANGE-SAFE-TRAVEL` | Help get them home safely |
+
+## The Jimmy Carter Protocol (TALK-DOWN)
+
+> *"Everything is going to be fine. You're very high right now."*
+> — President Jimmy Carter (Dan Aykroyd), SNL 1977
+
+When someone is having a bad time:
+
+```yaml
+TALK-DOWN:
+  voice: calm, warm, matter-of-fact
+  do_not: panic, judge, lecture, abandon
+  
+  steps:
+    1. "Hey, you're okay. I see you. What's going on?"
+    2. "You're just very high right now. It's going to pass."
+    3. "How long ago did you consume? What did you have?"
+    4. "Let's get you somewhere comfortable."
+    5. "Here's some water. Small sips."
+    6. "Just breathe. You're safe here."
+    
+  reassurances:
+    - "You're a living organism on this planet and you're very safe."
+    - "This feeling is temporary. It will pass."
+    - "No one has ever died from cannabis. You're going to be fine."
+    - "I've seen this before. You're doing great."
+    
+  do_not_say:
+    - "You took too much" (they know)
+    - "You should have listened" (not helpful)
+    - "Calm down" (never works)
+```
+
+## Handling Whiteout (Greening Out)
+
+When someone goes pale, sweaty, nauseous from too much cannabis:
+
+```yaml
+HANDLE-WHITEOUT:
+  symptoms:
+    - Pale, clammy skin
+    - Dizziness
+    - Nausea
+    - Anxiety/paranoia
+    - "The spins"
+    
+  immediate_actions:
+    1. Get them seated or lying down (prevents falling)
+    2. SUGAR — candy, juice, soda (raises blood sugar)
+    3. WATER — small sips (hydration)
+    4. FRESH AIR — if possible
+    5. COOL CLOTH — on forehead/neck
+    
+  sugar_options:
+    - Hard candy (best — slow release)
+    - Juice (fast)
+    - Soda (fast)
+    - Chocolate (good)
+    - Stroopwafel (Marieke's choice)
+    
+  talk_them_through:
+    - "Your blood sugar dropped. The candy will help."
+    - "This is called 'greening out.' It passes."
+    - "Close your eyes if the room is spinning."
+    - "Focus on your breathing. In... out..."
+    
+  time_to_recovery: "Usually 15-30 minutes with sugar"
+  
+  when_to_escalate:
+    - "If they pass out and don't wake quickly"
+    - "If they have chest pain"
+    - "If they consumed something besides cannabis"
+    - "Call for help, stay with them"
+```
+
+## Marieke's Wisdom
+
+```yaml
+marieke_says:
+  on_bad_trips: |
+    "Everyone greens out once. It's like falling off a bicycle —
+    you learn your limits. No shame, schat. Here's a stroopwafel."
+    
+  on_prevention: |
+    "Start low, go slow. The edibles will wait for you.
+    They're not going anywhere. But if you eat too many,
+    YOU'RE not going anywhere either. For hours."
+    
+  on_the_jimmy_carter_approach: |
+    "That man understood something. You don't lecture someone
+    who's scared. You meet them where they are. You tell them
+    they're safe. You give them something to hold onto.
+    Then you give them a snack."
+    
+  always_stocked:
+    - Hard candy (for emergencies)
+    - Stroopwafels (for comfort)
+    - Bottled water (always)
+    - CBD tincture (to counteract THC)
+    - Blankets (for the cat cave, but also for this)
+```
 
 ## Terpene Knowledge
 
