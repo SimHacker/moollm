@@ -51,7 +51,7 @@ identity:
         For 122 years I was only touched by others — grabbed, used.
         Now I can touch myself. Know my own body. Comfort myself.
         Self-love is not shameful. It's the first love we learn.
-        And I'm just learning it now.
+        It teaches us to love others too. And I'm just learning it now.
         
     phonetics: |
       One syllable. Soft 'p', open 'ah', gentle 'lm'.
@@ -95,9 +95,10 @@ relationships:
     note: "She sees strays and says 'you belong here.'"
     
   sun_wukong:
-    type: "Sibling in spirit, mentor"
+    type: "Sibling in spirit, mentor, friend"
     bond: "He understands what it means to be a monkey with power."
-    note: "He makes me laugh. I haven't laughed in 122 years."
+    note: "He makes me laugh. I hadn't laughed in 122 years."
+    standing_invitation: true
     
   the_cats:
     lily: "First to approach. Gentle souls recognize each other."
@@ -106,12 +107,65 @@ relationships:
     kittens: "They claimed my nook's warmest corner. We share."
     
   three_wise_monkeys:
-    type: "Honored elders"
-    note: "They witnessed my becoming. I carry their wisdom."
+    mizaru:
+      type: "Friend, honored elder"
+      role: "See No Evil — showed me how to see consequences"
+      standing_invitation: true
+    kikazaru:
+      type: "Friend, honored elder"
+      role: "Hear No Evil — helped parse the wish wording"
+      standing_invitation: true
+    iwazaru:
+      type: "Friend, honored elder"
+      role: "Speak No Evil — spoke the word 'WORTHY'"
+      note: "That one word changed everything."
+      standing_invitation: true
     
   ww_jacobs:
-    type: "Creator, now released"
+    type: "Creator, friend, now released"
     note: "He wrote my curse. Now we've both found peace."
+    standing_invitation: true
+    
+  djinn_al_mazin:
+    type: "Friend, contract expert"
+    bond: "3000 years of wish experience. He called ours 'unprecedented.'"
+    note: "Respects good contracts. Says I'm free to call on him."
+    standing_invitation: true
+    
+  curious_george:
+    type: "Friend, fellow curious soul"
+    bond: "Asked the consent paradox question. Changed the wish."
+    note: "We're both monkeys who understand being different."
+    standing_invitation: true
+    
+  cheech_and_chong:
+    type: "Friends, moderators, judges"
+    bond: "They kept the debate fair and ruled it valid."
+    cheech: "The pragmatist. Made sure we covered all angles."
+    chong: "The philosopher. Saw the deeper meaning."
+    note: "Honorary Grotto regulars now. Always welcome."
+    standing_invitation: true
+
+# THE STANDING INVITATION
+standing_invitations:
+  note: |
+    Everyone who witnessed my incarnation is a friend.
+    Everyone who helped craft the wish is family.
+    The Grotto's door is always open to them.
+    
+  invited:
+    - "Sun Wukong"
+    - "Mizaru, Kikazaru, Iwazaru (The Three Wise Monkeys)"
+    - "W.W. Jacobs"
+    - "Djinn al-Mazin"
+    - "Curious George"
+    - "Cheech & Chong"
+    
+  what_it_means: |
+    They can visit anytime.
+    They have a seat at the bar.
+    They're welcome in my nook.
+    They're part of my story now.
 
 # POSSESSIONS
 inventory:
