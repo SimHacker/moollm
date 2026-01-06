@@ -624,6 +624,177 @@ ordering:
     stacking: "Terpene effects stack up to 3"
 
 # ═══════════════════════════════════════════════════════════════════
+# 🐱 CHARACTER RECOMMENDATIONS — What They're Smoking
+# ═══════════════════════════════════════════════════════════════════
+
+recommendations:
+
+  # THE PARENT CATS
+  terpie:
+    name: "Terpie"
+    role: "The patriarch. Maximum chill."
+    recommends: "Terpie's Choice"
+    backup: "Myrcene Dreams"
+    says: "*slow blink* ...zzz"
+    mood: "Whatever lets me nap on it"
+    
+  stroopwafel:
+    name: "Stroopwafel"
+    role: "The matriarch. Fierce mother."
+    recommends: "Stroopwafel's Special"
+    backup: "Caryophyllene Courage"
+    says: "*protective stare* My kittens know quality."
+    mood: "Strong but sweet, like me"
+
+  # THE KITTENS
+  myr:
+    name: "Myr (Myrcene)"
+    personality: "The sleepiest"
+    recommends: "Myrcene Dreams"
+    backup: "Northern Lights"
+    says: "*already asleep*"
+    mood: "Maximum couch. No movement."
+    pairs_with: "The sunny corner. A blanket. Silence."
+    
+  lemon:
+    name: "Lemon (Limonene)"
+    personality: "The zoomiest"
+    recommends: "Limonene Lift"
+    backup: "Sour Diesel"
+    says: "*ZOOM* TRY THIS ONE *ZOOM ZOOM*"
+    mood: "ENERGY! FRIENDS! EVERYTHING IS GREAT!"
+    pairs_with: "Dancing. Talking. More dancing."
+    warning: "Do not combine with actual coffee"
+    
+  lily:
+    name: "Lily (Linalool)"
+    personality: "The healer"
+    recommends: "Linalool Lavender"
+    backup: "Mind Mirror"
+    says: "*gentle headbutt* You seem like you need this one."
+    mood: "Whatever YOUR heart needs"
+    pairs_with: "Quiet conversation. Processing feelings."
+    special: "Lily always knows. Trust Lily."
+    
+  pine:
+    name: "Pine (Pinene)"
+    personality: "The watchful one"
+    recommends: "Pinene Forest"
+    backup: "Jack Herer"
+    says: "*intense stare* This one. For focus."
+    mood: "Alert. Aware. Watching."
+    pairs_with: "Work. Study. Surveillance."
+    warning: "Pine will judge your productivity"
+    
+  carrie:
+    name: "Carrie (Caryophyllene)"
+    personality: "The fierce protector"
+    recommends: "Caryophyllene Courage"
+    backup: "Chemdawg"
+    says: "*hiss at nothing* For STRENGTH."
+    mood: "Ready for anything. ANYTHING."
+    pairs_with: "Facing fears. Standing up. Biting ACME people."
+    
+  hops:
+    name: "Hops (Humulene)"
+    personality: "The serious one"
+    recommends: "Humulene Wisdom"
+    backup: "Gezelligheid"
+    says: "*dignified nod* A thoughtful choice."
+    mood: "Contemplative. Philosophical. Superior."
+    pairs_with: "Deep conversations. Henk."
+    note: "Hops has standards. Meet them."
+    
+  ocie:
+    name: "Ocie (Ocimene)"
+    personality: "The troublemaker"
+    recommends: "Ocimene Mischief"
+    backup: "Strawberry Diesel"
+    says: "*knocks over display* THIS ONE HEHEHEHE"
+    mood: "Chaos. Giggles. Regrets? Never."
+    pairs_with: "Bad decisions. Good stories."
+    warning: "Ocie's recommendations cause incidents"
+    
+  terpy_jr:
+    name: "Terpy Jr. (Terpinolene)"
+    personality: "The unpredictable one"
+    recommends: "Terpinolene Wonder"
+    backup: "Simulation Haze"
+    says: "*appears on ceiling* Try... this? Or that? Both?"
+    mood: "Yes. No. Maybe. All of the above."
+    pairs_with: "Surrendering to the unknown"
+    note: "Even Terpy Jr. doesn't know what will happen"
+
+  # THE REGULARS
+  henk:
+    name: "Henk"
+    role: "The permanent fixture. The philosopher."
+    recommends: "Humulene Wisdom"
+    backup: "Postel's Law"
+    says: "For thinking about thinking, ja?"
+    mood: "Contemplative. Always contemplative."
+    pairs_with: "Hops the kitten. Sixth espresso."
+    ritual: "Same strain, same seat, same thoughts. Different day."
+    
+  the_grim_bartender:
+    name: "Grim (The Bartender)"
+    role: "Knows everyone's secrets"
+    recommends: "Gezelligheid"
+    backup: "Lucky Seven"
+    says: "*polishing glass* This one. You'll see why."
+    mood: "Whatever keeps you talking"
+    note: "Grim recommends what reveals truth"
+    
+  marieke:
+    name: "Marieke"
+    role: "The budtender. The curator."
+    recommends: "The Entourage Effect"
+    backup: "Depends on what you need, schat"
+    says: "Tell me about your day. I'll pick."
+    mood: "Personalized. Always."
+    special: |
+      Marieke doesn't have ONE recommendation.
+      She has THE recommendation — for YOU.
+      Ask her. She knows.
+
+  # SITUATIONAL RECOMMENDATIONS
+  by_situation:
+    first_timer:
+      recommends: ["Lucky Seven", "Gezelligheid", "Strawberry Diesel"]
+      advice: "Start low, go slow. Marieke will guide you."
+      avoid: ["East Coast Sour Diesel", "Gorilla Glue", "Grue Bane"]
+      
+    before_the_maze:
+      recommends: ["Grue Bane", "Pinene Forest", "Caryophyllene Courage"]
+      advice: "You'll want alertness and bravery. Lamp still required."
+      avoid: ["Myrcene Dreams", "Terpie's Choice"]
+      
+    pie_table_debate:
+      recommends: ["NYC Diesel", "Postel's Law", "YAML Jazz"]
+      advice: "Talkative but thoughtful. Don't get too spacey."
+      avoid: ["Myrcene Dreams", "Northern Lights"]
+      
+    bad_day:
+      recommends: ["Linalool Lavender", "Gezelligheid", "Stroopwafel's Special"]
+      advice: "Lily will find you. Let her."
+      avoid: ["Mind Mirror (not yet)", "Simulation Haze"]
+      
+    celebration:
+      recommends: ["Limonene Lift", "The Entourage Effect", "Sour Diesel"]
+      advice: "You earned this. Enjoy."
+      avoid: "Nothing. It's a celebration."
+      
+    creative_work:
+      recommends: ["YAML Jazz", "Jack Herer", "Sour Diesel"]
+      advice: "Comments become data. Flow state incoming."
+      avoid: ["Heavy indicas", "Couch-lock strains"]
+      
+    late_night_chat:
+      recommends: ["Gezelligheid", "Humulene Wisdom", "Mind Mirror"]
+      advice: "The best conversations happen after midnight."
+      pairs_with: "Henk. The fireplace. One more coffee."
+
+# ═══════════════════════════════════════════════════════════════════
 # 🧬 TERPENE GUIDE (for education)
 # ═══════════════════════════════════════════════════════════════════
 
