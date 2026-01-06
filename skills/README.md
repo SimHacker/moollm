@@ -127,19 +127,24 @@ Userland protocols over files.
 
 ---
 
-## Skill Anatomy (New Structure)
+## Skill Anatomy (Required Structure)
 
 ```
 skills/
   my-skill/
     README.md         # Human entry point (GitHub renders this)
     SKILL.md          # Full spec with YAML frontmatter
-    *.tmpl            # Templates at root level
+    CARD.yml          # Machine-readable interface definition
+    *.tmpl            # Optional: templates at root level
 ```
 
-Every skill has:
-- `README.md` — Quick overview, links
-- `SKILL.md` — Full protocol with YAML frontmatter defining `name`, `tier`, `allowed-tools`
+Every skill has **three required files**:
+
+| File | Purpose |
+|------|---------|
+| `README.md` | Quick overview, links (GitHub renders this) |
+| `SKILL.md` | Full protocol with YAML frontmatter (`name`, `tier`, `allowed-tools`) |
+| `CARD.yml` | Interface definition: methods, tools, state, advertisements |
 
 ---
 
@@ -158,9 +163,8 @@ Every skill has:
 2. Copy templates from `skills/skill/`:
    - `README.md.tmpl` → `README.md`
    - `SKILL.md.tmpl` → `SKILL.md`
-   - `SKILL.yml.tmpl` → for instances
-3. Fill in template variables
-4. Add `CARD.yml` if the skill is playable
+3. Create `CARD.yml` with methods, tools, state
+4. Fill in template variables
 5. Register in `INDEX.yml`
 
 Or just tell the LLM: "Create a new skill called 'my-skill' using the skill skill."
@@ -174,8 +178,6 @@ Or just tell the LLM: "Create a new skill called 'my-skill' using the skill skil
 | [INDEX.yml](./INDEX.yml) | Machine-readable skill registry |
 | [ROOM.yml](./ROOM.yml) | The Skill Nexus — this directory as a metaphysical room |
 | [skill/](./skill/) | The meta-skill with templates and protocols |
-| [skill/delegation-object-protocol.md](./skill/delegation-object-protocol.md) | Self-like inheritance (Ungar) |
-| [skill/skill-instantiation-protocol.md](./skill/skill-instantiation-protocol.md) | How skills become instances |
 
 ---
 
@@ -195,34 +197,71 @@ Or just tell the LLM: "Create a new skill called 'my-skill' using the skill skil
 > *"Everything is deeply intertwingled."* — Ted Nelson
 
 ```mermaid
-graph TD
-    PLL[play-learn-lift] -->|LIFT stage| SS[sister-script]
-    PLL -->|LEARN stage| RN[research-notebook]
-    PLL -->|PLAY stage| SL[session-log]
+graph TB
+    subgraph CORE["🧠 FOUNDATION"]
+        direction TB
+        SKILL[skill<br/>meta-skill]
+        PROTO[prototype<br/>Self inheritance]
+        YAML[yaml-jazz<br/>comments = data]
+        SKILL --> PROTO
+        SKILL --> YAML
+    end
     
-    R[room] <-->|cards live in| TC[card]
-    R -->|narrative framing| AP[adventure]
-    R -->|mnemonic framing| MP[memory-palace]
+    subgraph SPACE["🏠 SPATIAL SYSTEM"]
+        direction TB
+        ROOM[room<br/>directories = contexts]
+        CARD[card<br/>portable capabilities]
+        ADV[adventure<br/>narrative exploration]
+        MP[memory-palace<br/>spatial knowledge]
+        ROOM <-->|"contain"| CARD
+        ROOM --> ADV
+        ROOM --> MP
+    end
     
-    TC -->|can speak| SC[soul-chat]
-    R -->|can speak| SC
+    subgraph CHAR["👤 CHARACTERS"]
+        direction TB
+        CHARACTER[character<br/>body + home]
+        PERSONA[persona<br/>masks + voices]
+        NEEDS[needs<br/>hunger, fun, energy]
+        MM[mind-mirror<br/>Leary vectors]
+        CHARACTER -->|"wears"| PERSONA
+        CHARACTER -->|"driven by"| NEEDS
+        CHARACTER -->|"shaped by"| MM
+    end
     
-    SIM[simulation] -->|manages| TIME[time]
-    SIM -->|manages| PARTY[party]
-    SIM -->|manages| CHAR[character]
+    subgraph SIM["🎲 SIMULATION"]
+        direction TB
+        SIMULATION[simulation<br/>world engine]
+        TIME[time<br/>turns ≠ iterations]
+        PARTY[party<br/>companions]
+        AQ[action-queue<br/>Sims tasks]
+        SIMULATION --> TIME
+        SIMULATION --> PARTY
+        SIMULATION --> AQ
+    end
     
-    CHAR -->|wears| PERSONA[persona]
-    CHAR -->|has| NEEDS[needs]
-    CHAR -->|affected by| BUFF[buff]
+    subgraph VOICE["💬 DIALOGUE"]
+        direction TB
+        SC[soul-chat<br/>everything speaks]
+        AC[adversarial-committee<br/>force debate]
+        RR[roberts-rules<br/>procedure]
+        AC -->|"follows"| RR
+    end
     
-    SR[self-repair] -->|monitors| SL
+    subgraph WORK["🔧 METHODOLOGY"]
+        direction TB
+        PLL[play-learn-lift<br/>explore → share]
+        PLAN[planning<br/>decomposition]
+        LOG[session-log<br/>audit trail]
+    end
     
-    %% Mike Gallaher's Decision System
-    AC[adversarial-committee] -->|follows| RR[roberts-rules]
-    AC -->|produces| OUT[output]
-    OUT -->|THROW| EV[evaluator]
-    RUB[rubric] -->|defines criteria| EV
-    EV -->|critique if fail| AC
+    %% Cross-cluster connections
+    PROTO -->|"instances become"| ROOM
+    CARD -->|"speaks via"| SC
+    CHARACTER -->|"lives in"| ROOM
+    SIMULATION -->|"manages"| CHARACTER
+    ADV -->|"uses"| SIMULATION
+    PLL -->|"records to"| LOG
 ```
 
 Every skill connects to others. Navigate freely.
