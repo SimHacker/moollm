@@ -97,7 +97,7 @@ Astrophysicist writes in *[The Nature of the Physical World](https://archive.org
 
 **1930 — [James Jeans](https://en.wikipedia.org/wiki/James_Jeans)**
 
-First to mention SHAKESPEARE specifically! In *[The Mysterious Universe](https://archive.org/details/mysteriousuniver00jeanuoft)*: "If we found that [a monkey] had chanced, in its blind strumming, to type a Shakespeare sonnet, we should rightly regard the occurrence as a remarkable accident..." His point: marvelous, improbable things DO exist. Given enough time, even sonnets emerge from chaos.
+First to mention SHAKESPEARE specifically! In *[The Mysterious Universe](https://commons.wikimedia.org/wiki/File:James_Jeans_-_The_Mysterious_Universe.pdf)* (free PDF): "If we found that [a monkey] had chanced, in its blind strumming, to type a Shakespeare sonnet, we should rightly regard the occurrence as a remarkable accident..." His point: marvelous, improbable things DO exist. Given enough time, even sonnets emerge from chaos.
 
 **1976 — William Ralph Bennett Jr.**
 
@@ -356,7 +356,7 @@ Not anymore.
 | **Weasel Program** | [Wikipedia: Weasel program](https://en.wikipedia.org/wiki/Weasel_program) |
 | **Borel's Book (1914)** | [Internet Archive: Le Hasard](https://archive.org/details/lehasard00boreuoft) — Chapter 3 has typing monkeys |
 | **Eddington's Book** | [Internet Archive: The Nature of the Physical World](https://archive.org/details/natureofphysical00eddi) |
-| **Jeans' Book** | [Internet Archive: The Mysterious Universe](https://archive.org/details/mysteriousuniver00jeanuoft) |
+| **Jeans' Book** | [Wikimedia Commons: The Mysterious Universe (PDF)](https://commons.wikimedia.org/wiki/File:James_Jeans_-_The_Mysterious_Universe.pdf) |
 | **Academic Analysis** | [Cambridge: Shakespeare and Nonhuman Intelligence](https://assets.cambridge.org/97810092/02640/excerpt/9781009202640_excerpt.pdf) |
 | **Internet Culture** | [Know Your Meme: Infinite Monkey Theorem](https://knowyourmeme.com/memes/infinite-monkey-theorem-monkey-typing) |
 
