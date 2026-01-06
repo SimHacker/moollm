@@ -3223,6 +3223,8 @@ examples/adventure-4/characters/palm/
 
 > 📚 **VERIFIED:** Fluxx was first published in 1997 by Looney Labs.
 > — [Wikipedia: Fluxx](https://en.wikipedia.org/wiki/Fluxx)
+> — [Wikipedia: Andy Looney](https://en.wikipedia.org/wiki/Andy_Looney)
+> — [Official Fluxx Page](https://www.looneylabs.com/fluxx)
 > — [Looney Labs History](https://www.looneylabs.com/our-history)
 
 **Kristin:** "He playtested it on me for MONTHS. I won most of them."
