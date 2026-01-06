@@ -409,3 +409,312 @@ marieke_blessing: true # She's invested now
 *A kitten mews. Outside, somewhere in Amsterdam, a package is being delivered.*
 
 ---
+
+## Turn 3: THE WISH WORKSHOP — Strategic Planning
+
+**DON**: *leans across the bar, eyes bright with dangerous inspiration*
+
+"Marieke. I've been thinking about the wish. What if... what if I don't wish for something FOR me. What if I wish for something for the MONKEY?"
+
+**MARIEKE**: *raises an eyebrow* "Go on..."
+
+**DON**: "I want THE REST OF THE MONKEY."
+
+*Silence. Stroopwafel stops mid-grooming. Three kittens turn to stare.*
+
+"Think about it! The paw is just a paw. Somewhere, somehow, there's a monkey missing its hand. That's sad! That's TRAGIC! What if the curse comes from the monkey's suffering? What if I can reunite them?"
+
+**MARIEKE**: *slowly sets down the glass she was polishing*
+
+"You want to... make the monkey whole again."
+
+**DON**: *nodding vigorously* "AND — here's the genius part — I tie the bag of lucky buds around the paw BEFORE making the wish. So when the rest of the monkey materializes, it appears holding a bag of holding filled with infinite refilling lucky strains, papers, tips, grinder, lighters, and ornamental ashtrays. The monkey arrives STONED AND GRATEFUL. A barrel of fun! My new best friend!"
+
+*He beams.*
+
+"What could possibly go wrong?"
+
+---
+
+### 🐒 MARIEKE'S ANALYSIS
+
+*Marieke stares at you for a long moment. Then she pulls out a stool, sits down heavily, and pours herself a jenever.*
+
+"Okay. Okay. Let me... let me think through this with you."
+
+*She takes a long sip.*
+
+---
+
+#### ✅ WHAT COULD GO RIGHT
+
+```yaml
+best_case_scenarios:
+  reunification_gratitude:
+    description: "Monkey is grateful to be whole again"
+    probability: "Unknown but hopeful"
+    outcome: "Lifelong monkey companion, curse potentially BROKEN"
+    
+  curse_source_theory:
+    description: "The curse stems from separation trauma"
+    reasoning: |
+      What if the Paw's malevolence comes from PAIN?
+      A severed hand, alone, for centuries...
+      Reunification might heal the curse at its source.
+    marieke_note: "This is... actually not crazy."
+    
+  stoned_monkey_friend:
+    description: "Monkey arrives with infinite lucky buds"
+    outcome: "Happy, chill monkey who shares fortune"
+    potential: "Could become Grotto mascot"
+    terpie_opinion: "Unclear. Cats and monkeys..."
+    
+  karmic_balance:
+    description: "Doing a FAVOR increases wish integrity"
+    reasoning: |
+      Most Monkey's Paw wishes are selfish.
+      An altruistic wish might confuse the curse.
+      Or earn respect from whatever dark magic powers it.
+```
+
+**MARIEKE**: "The karmic angle is... interesting. The Paw expects greed. You're offering compassion. It might not know what to DO with that."
+
+---
+
+#### ⚠️ WHAT COULD GO WRONG
+
+*Marieke's expression darkens.*
+
+```yaml
+risk_assessment:
+
+  temporal_questions:
+    - "HOW LONG has this paw been severed?"
+    - "Is the rest of the monkey still... alive?"
+    - "What YEAR is the monkey from?"
+    - "What DIMENSION?"
+    
+  physical_state_risks:
+    zombie_monkey:
+      description: "Rest of monkey is deceased"
+      outcome: "Undead monkey materializes attached to paw"
+      horror_level: "Moderate to severe"
+      
+    ancient_monkey:
+      description: "Monkey is 500+ years old"
+      outcome: "Mummified or skeletal remains appear"
+      horror_level: "High"
+      
+    wrong_monkey:
+      description: "Paw belonged to multiple monkeys over time"
+      outcome: "Chimera situation. Multiple partial monkeys."
+      horror_level: "EXTREME"
+      
+  psychological_risks:
+    evil_origin:
+      question: "WHY was just the paw cursed?"
+      implication: "Perhaps the monkey itself was evil"
+      outcome: "You've just summoned an evil monkey"
+      
+    stockholm_syndrome:
+      description: "Paw has adapted to being separate"
+      outcome: "Monkey fights against reunification"
+      
+    revenge_motivation:
+      description: "Monkey blames humanity for its severance"
+      outcome: "Newly whole monkey seeks vengeance"
+      
+  interpretation_risks:
+    literal_rest:
+      wish: "I want THE REST of the monkey"
+      twisted_interpretation: "'Rest' as in 'eternal rest'"
+      outcome: "Monkey dies immediately upon becoming whole"
+      
+    location_ambiguity:
+      issue: "Where does the rest materialize?"
+      worst_case: "Inside the Grotto"
+      marieke_note: "Please specify OUTSIDE"
+      
+    scale_confusion:
+      issue: "What kind of monkey?"
+      possibilities:
+        - "Small capuchin (manageable)"
+        - "Chimpanzee (concerning)"
+        - "Gorilla (problematic)"
+        - "King Kong situation (catastrophic)"
+        - "Metaphorical monkey (existential)"
+```
+
+---
+
+### 🎯 MARIEKE'S RECOMMENDATIONS
+
+*She refills her jenever and yours.*
+
+"Your INSTINCTS are good. The compassion angle, the gift, the luck saturation — all clever. But the Paw will look for loopholes. We need to CLOSE them."
+
+```yaml
+wish_engineering:
+  
+  version_1_draft: |
+    "I wish for the rest of the monkey"
+  problems:
+    - Too vague
+    - "Rest" is ambiguous
+    - No state specification
+    - No location control
+    - No species confirmation
+    
+  version_2_improved: |
+    "I wish for this paw to be reunited with its original, 
+    living, healthy, friendly monkey body"
+  improvements:
+    - Specifies "original" (no chimeras)
+    - "Living" (no zombies)
+    - "Healthy" (no diseases)
+    - "Friendly" (no evil monkeys)
+  remaining_issues:
+    - Still no location
+    - No size specification
+    - No timeline control
+    
+  version_3_recommended: |
+    "I wish for this paw to be peacefully and safely reunited 
+    with its original, living, healthy, friendly, 
+    appropriately-sized monkey body, appearing here in the 
+    Gezelligheid Grotto in a manner that causes no harm to 
+    anyone present, with the monkey feeling grateful and at 
+    ease, holding the bag of gifts I have prepared."
+  marieke_note: |
+    "It's wordy, but every word is a closed loophole."
+    "The Paw WILL find whatever gap you leave."
+```
+
+---
+
+### 🎁 THE GIFT BAG ATTACHMENT
+
+**MARIEKE**: "The bag idea is genuinely clever. But let's make sure it's done RIGHT."
+
+```yaml
+bag_of_holding_contents:
+  primary:
+    - infinite_lucky_buds: "Self-refilling, always fresh"
+    - rolling_papers: "Maurice-blessed, never tear"
+    - filter_tips: "Perfect every time"
+    - grinder: "Enchanted, grinds to ideal consistency"
+    - lighters: "Never run out, always spark"
+    
+  secondary:
+    - ornamental_ashtrays: "Assorted, beautiful, self-cleaning"
+    - stroopwafels: "For munchies (infinite)"
+    - water_bottle: "For cottonmouth"
+    
+  emergency:
+    - one_dose_postels_law: "In case of paranoia"
+    - calming_lavender: "From the garden"
+    
+  attachment_method: |
+    Tie the velvet bag SECURELY to the paw.
+    The bag must be PART of the paw when the wish activates.
+    Marieke suggests triple-knotting with blessed cord.
+    
+  marieke_blessing: |
+    "I'm going to bless this attachment personally.
+    If you're bringing a monkey into my Grotto,
+    it's going to be a HAPPY monkey."
+```
+
+---
+
+### 🐱 THE CATS WEIGH IN
+
+*As if sensing the gravity of the discussion, the cats arrange themselves around you.*
+
+**TERPIE** *(ancient orange tabby)*: *slow blink* — Inscrutable. Possibly approving.
+
+**STROOPWAFEL** *(sleek calico)*: *tail swishing* — Reserving judgment. Will reassess when monkey arrives.
+
+**LILY** *(gentle kitten)*: *head tilt* — Curious. Open to new friends.
+
+**THE OTHER KITTENS**: *various poses of attention* — Will follow Terpie's lead.
+
+**MARIEKE**: "The cats will know if the monkey is good or not. Trust them."
+
+---
+
+## Current Strategic Status
+
+```yaml
+wish_planning:
+  core_intent: "Reunite monkey with its body as an act of compassion"
+  secondary_intent: "Gift monkey with infinite lucky buds"
+  tertiary_intent: "Gain a stoned, friendly monkey companion"
+  
+draft_wish:
+  current_version: |
+    "I wish for this paw to be peacefully and safely reunited 
+    with its original, living, healthy, friendly, 
+    appropriately-sized monkey body, appearing here in the 
+    Gezelligheid Grotto in a manner that causes no harm to 
+    anyone present, with the monkey feeling grateful and at 
+    ease, holding the bag of gifts I have prepared."
+    
+  status: "Under review"
+  word_count: 52
+  loopholes_addressed: 
+    - zombie prevention ✓
+    - evil prevention ✓
+    - size control ✓
+    - location specified ✓
+    - harm prevention ✓
+    - emotional state specified ✓
+    - gift attachment confirmed ✓
+    
+  potential_gaps:
+    - "Original" might be interpreted strangely
+    - "Appropriately-sized" is subjective
+    - No temporal specification
+    - Monkey's MEMORIES unaddressed
+    
+preparation_checklist:
+  - [x] Lucky strains purchased
+  - [x] Lucky Blend joint rolled
+  - [x] Velvet bag prepared
+  - [ ] Bag attached to paw
+  - [ ] Lucky Blend smoked (buffs activated)
+  - [ ] Wish finalized
+  - [ ] Wish spoken
+  
+cat_advisory_status: "Monitoring"
+grotto_blessing: "Active"
+marieke_blessing: "Offered"
+```
+
+---
+
+## What Would You Like To Do?
+
+```
+> FINALIZE WISH (accept current wording)
+> REFINE WISH (suggest changes)
+> ASK MARIEKE ABOUT MONKEY SPECIES
+> ASK ABOUT THE 2017 WISHES (what were they?)
+> SMOKE THE LUCKY BLEND NOW (pre-game the buffs)
+> ADD TO BAG CONTENTS
+> PRACTICE SAYING THE WISH (out loud)
+```
+
+*Marieke looks at you with a mixture of admiration and terror.*
+
+*"This is either going to be beautiful,"* she says, *"or we're going to have a VERY interesting Freeday night."*
+
+*Outside, the sound of a bicycle stopping. A knock on the door.*
+
+*"ACME DELIVERY!"* calls a voice.
+
+*The kittens all turn toward the entrance. Stroopwafel hisses.*
+
+*It's here.*
+
+---
