@@ -418,6 +418,30 @@ skills:
     use_when: "Creating cats, kittens, or cat-like creatures"
     related: ["character", "buff", "room"]
     
+  # --- ROLE SKILLS (inherit for NPC capabilities) ---
+  
+  - name: "bartender"
+    path: "skills/bartender"
+    description: "Generic bartending — pour drinks, manage tabs, know secrets"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "BARTENDER"
+    tags: ["role", "service", "social", "npc"]
+    use_when: "Character needs bartending capabilities"
+    related: ["character", "persona", "economy", "budtender"]
+    note: "ROLE skill provides methods, not personality (that's persona)"
+    
+  - name: "budtender"
+    path: "skills/budtender"
+    description: "Cannabis bartender — strains, terpenes, responsible service"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "BUDTENDER"
+    tags: ["role", "service", "cannabis", "npc"]
+    use_when: "Character needs cannabis expertise"
+    inherits: ["bartender"]
+    related: ["bartender", "character", "persona"]
+    
   # --- AGENTIC PATTERNS ---
   
   - name: "action-queue"

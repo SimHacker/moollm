@@ -57,7 +57,7 @@ room:
         - FLIRT (bartender's discretion)
       not_allowed:
         - WALK behind bar (without permission)
-        - GRAB bottles yourself
+        - GRAB bottles or buds yourself
         - ACCESS the cash box
         - ENTER cat-cave (must go through bar first)
     
@@ -81,6 +81,8 @@ room:
         - role: player
           unless: "has_permission('behind_bar') OR is_staff"
           message: "The bartender gives you a look. 'Other side, friend.'"
+        - role: standing_on_bar
+          message: "Sir, this is a Wendy's."
           
     how_to_gain_access:
       - "Get hired as staff"
@@ -123,16 +125,38 @@ room:
         item: "A note: 'If you're reading this, it's too late'"
         
   # STAFF
+  #
+  # DESIGN NOTE: Character vs Persona vs Skill
+  #
+  # - SKILL (bartender, budtender) = Capabilities (methods, knowledge)
+  # - PERSONA = Personality (voice, warmth, appearance)
+  # - CHARACTER = Physical body (location, inventory)
+  #
+  # The bartender.yml is a CHARACTER with the bartender SKILL.
+  # Their PERSONA changes with pub theme (Grim/Nyx/Reginald/etc).
+  #
+  # Marieke is a CHARACTER with budtender SKILL (which inherits bartender).
+  # Her PERSONA is always Marieke (warm, Dutch, kind).
+  #
   staff:
     bartender:
       file: bartender.yml
-      role: "Lord of this domain"
+      description: "The pub's bartender — identity changes with theme"
+      skills: [skills/bartender]
+      persona: "${pub.theme.bartender_persona}"  # Grim, Nyx, Z-4RT, etc.
       always_here: true
       
     budtender:
       file: budtender-marieke.yml
-      role: "Cannabis specialist"
+      description: "Marieke — the constant through theme changes"
+      skills: [skills/budtender]  # Inherits bartender
+      persona: marieke            # Always herself
       schedule: "evenings"
+      note: |
+        Marieke doesn't change with theme. She's always Marieke.
+        The theme changes the WORLD, not her. She's the constant.
+        When the pub becomes a space cantina, she's still Marieke
+        — just serving different products.
       
   # MENU/INVENTORY
   inventory:

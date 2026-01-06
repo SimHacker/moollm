@@ -1,0 +1,178 @@
+# CARD.yml — Budtender
+#
+# Cannabis-specialized bartender.
+# Inherits from bartender skill.
+
+card:
+  id: budtender
+  name: "Budtender"
+  type: [skill, role, service, cannabis]
+  
+  emoji: 🌿
+  
+  rarity: uncommon  # Specialized knowledge
+  
+  description: |
+    Cannabis-specialized bartending. Strain expertise, terpene
+    knowledge, responsible service. Inherits all bartender capabilities.
+    
+    "Indica for the body, sativa for the mind."
+
+tools:
+  required:
+    - read_file   # Menus, customer prefs
+    - write_file  # Track sessions, tabs
+  optional:
+    - list_dir
+
+tier: 1
+
+# INHERITANCE
+
+inherits:
+  - skills/bartender  # All bartender methods included
+
+# ADDITIONAL METHODS
+
+methods:
+  # PRODUCT KNOWLEDGE
+  RECOMMEND-STRAIN:
+    description: "Suggest cannabis based on desired effect"
+    parameters:
+      customer: "Who's asking"
+      desired_effect: "relax, energize, create, sleep, socialize, focus"
+      experience_level: "novice, intermediate, experienced"
+    output: chat (recommendation)
+    effect: "Personalized strain suggestion"
+    invoked-by: [customer]
+    
+  EXPLAIN-TERPENES:
+    description: "Educate about terpene profiles"
+    parameters:
+      strain: "Which strain (optional)"
+      terpene: "Which terpene (optional)"
+    output: chat (education)
+    effect: "Customer understands terpenes"
+    invoked-by: [customer]
+    
+  DESCRIBE-EFFECTS:
+    description: "Explain what to expect from a strain"
+    parameters:
+      strain: "Which strain"
+    output: chat (description)
+    effect: "Customer knows what to expect"
+    invoked-by: [customer]
+    
+  SUGGEST-DOSE:
+    description: "Recommend appropriate amount"
+    parameters:
+      customer: "Who"
+      product: "What"
+    output: chat (guidance)
+    effect: "Safe dosing advice"
+    invoked-by: [customer, self]
+    
+  # SERVICE
+  ROLL-JOINT:
+    description: "Prepare pre-rolled product"
+    parameters:
+      strain: "Which strain"
+      size: "small, regular, large"
+    output: item (joint)
+    effect: "Joint created and served"
+    invoked-by: [customer]
+    
+  CHECK-ID:
+    description: "Verify age"
+    parameters:
+      customer: "Who to check"
+    output: chat (result)
+    effect: "Age verified or denied service"
+    invoked-by: [self, policy]
+    
+  # RESPONSIBLE SERVICE
+  ASSESS-STATE:
+    description: "Check if customer is too high"
+    parameters:
+      customer: "Who to assess"
+    output: chat (assessment) + possible action
+    effect: "May suggest CBD, food, or stopping"
+    invoked-by: [self]
+    
+  SUGGEST-CBD:
+    description: "Recommend CBD to balance THC"
+    parameters:
+      customer: "Who"
+    output: chat + optional service
+    effect: "CBD offered to reduce anxiety/paranoia"
+    invoked-by: [self]
+
+# STATE
+
+state:
+  # Inherited from bartender
+  station:
+    type: path
+  tabs:
+    type: object
+  regulars:
+    type: array
+  banned:
+    type: array
+  secrets:
+    type: object
+    private: true
+    
+  # Budtender-specific
+  strain_inventory:
+    type: object
+    description: "strain → quantity available"
+    
+  customer_preferences:
+    type: object
+    description: "customer_id → {favorites, sensitivities, tolerance}"
+    
+  session_tracking:
+    type: object
+    description: "customer_id → consumption this session"
+
+# TERPENE KNOWLEDGE (built-in)
+
+terpene_data:
+  myrcene: { aroma: "Earthy", effect: "Sedating" }
+  limonene: { aroma: "Citrus", effect: "Uplifting" }
+  linalool: { aroma: "Floral", effect: "Calming" }
+  pinene: { aroma: "Pine", effect: "Alert" }
+  caryophyllene: { aroma: "Spicy", effect: "Anti-inflammatory" }
+  humulene: { aroma: "Hoppy", effect: "Appetite suppressant" }
+  terpinolene: { aroma: "Herbal", effect: "Uplifting, sedating" }
+  ocimene: { aroma: "Sweet", effect: "Decongestant" }
+
+# ADVERTISEMENTS
+
+advertisements:
+  STRAIN-ADVICE:
+    score: 95
+    condition: "Customer asking about cannabis"
+    
+  RESPONSIBLE-CHECK:
+    score: 85
+    condition: "Customer seems very high"
+    
+  FIRST-TIMER:
+    score: 90
+    condition: "Novice customer, needs guidance"
+
+# RELATED
+
+see-also:
+  - skills/bartender    # Parent skill
+  - skills/character
+  - skills/persona
+  - skills/needs        # Relaxation need
+
+# CREDITS
+
+credits:
+  tradition: "Amsterdam coffeeshop culture"
+  principles: "Education over sales, harm reduction"

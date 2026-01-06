@@ -1,0 +1,212 @@
+# CARD.yml — Bartender
+#
+# Generic bartending capabilities.
+# This is a ROLE skill — provides methods, not personality.
+
+card:
+  id: bartender
+  name: "Bartender"
+  type: [skill, role, service]
+  
+  emoji: 🍺
+  
+  rarity: common  # Many can learn this
+  
+  description: |
+    The ancient art of tending bar. Pour drinks, manage tabs,
+    know secrets, say nothing. This skill provides CAPABILITIES.
+    
+    Personality comes from your PERSONA.
+    Capability comes from this SKILL.
+
+tools:
+  required:
+    - read_file   # Check menus, tabs, customer files
+    - write_file  # Update tabs, notes
+  optional:
+    - list_dir    # See who's in the bar
+
+tier: 1
+
+# METHODS — What a bartender can DO
+
+methods:
+  # SERVICE
+  POUR:
+    description: "Make and serve a drink"
+    parameters:
+      drink: "What to make"
+      customer: "Who to serve"
+    output: chat + state-change
+    effect: "Drink created, customer served"
+    invoked-by: [character, customer-request]
+    
+  TAKE-ORDER:
+    description: "Listen to customer's request"
+    parameters:
+      customer: "Who's ordering"
+    output: chat
+    effect: "Order recorded, response given"
+    invoked-by: [customer]
+    
+  RECOMMEND:
+    description: "Suggest drinks"
+    parameters:
+      customer: "Who to recommend to"
+      mood: "Optional mood context"
+    output: chat
+    effect: "Personalized recommendation"
+    invoked-by: [customer, self]
+    
+  REFUSE-SERVICE:
+    description: "Cut someone off"
+    parameters:
+      customer: "Who to refuse"
+      reason: "Why (may be private)"
+    output: chat
+    effect: "Customer can no longer order"
+    invoked-by: [self]
+    
+  LAST-CALL:
+    description: "Announce closing"
+    output: chat (broadcast)
+    effect: "Pub enters closing mode"
+    invoked-by: [self]
+    
+  # ECONOMICS
+  OPEN-TAB:
+    description: "Start a tab"
+    parameters:
+      customer: "Who"
+    output: state-change
+    effect: "Tab created with 0 balance"
+    invoked-by: [customer, self]
+    
+  ADD-TO-TAB:
+    description: "Add item to tab"
+    parameters:
+      customer: "Whose tab"
+      item: "What"
+      amount: "Cost"
+    output: state-change
+    effect: "Tab balance increases"
+    invoked-by: [self]
+    
+  CLOSE-TAB:
+    description: "Collect payment"
+    parameters:
+      customer: "Who"
+    output: chat + state-change
+    effect: "Tab cleared, gold transferred"
+    invoked-by: [customer, self]
+    
+  COMP:
+    description: "Give something free"
+    parameters:
+      customer: "Who"
+      item: "What"
+      reason: "Why (optional)"
+    output: chat
+    effect: "Item given, no charge"
+    invoked-by: [self]
+    
+  # SOCIAL
+  LISTEN:
+    description: "Hear troubles"
+    parameters:
+      customer: "Who's talking"
+    output: chat (empathetic response)
+    effect: "Customer feels heard"
+    invoked-by: [customer]
+    
+  INTRODUCE:
+    description: "Connect two customers"
+    parameters:
+      customer1: "First person"
+      customer2: "Second person"
+      reason: "Why they should meet"
+    output: chat
+    effect: "Social connection made"
+    invoked-by: [self, customer]
+    
+  EJECT:
+    description: "Remove troublemaker"
+    parameters:
+      customer: "Who"
+      reason: "Why"
+      duration: "How long banned"
+    output: chat + state-change
+    effect: "Customer removed, possibly banned"
+    invoked-by: [self]
+    
+  # KNOWLEDGE
+  KNOW-REGULAR:
+    description: "Recognize repeat customer"
+    parameters:
+      customer: "Who to check"
+    output: chat (recognition or not)
+    effect: "Access to customer history"
+    invoked-by: [self]
+
+# STATE
+
+state:
+  station:
+    type: path
+    description: "Where this bartender works"
+    
+  tabs:
+    type: object
+    description: "customer_id → balance"
+    
+  regulars:
+    type: array
+    description: "Known repeat customers"
+    
+  banned:
+    type: array
+    description: "Not welcome"
+    
+  secrets:
+    type: object
+    description: "What they know (keyed by subject)"
+    private: true  # Never revealed directly
+
+# ADVERTISEMENTS
+
+advertisements:
+  ORDER-DRINK:
+    score: 90
+    condition: "Customer at bar, asking for drink"
+    
+  NEED-TO-TALK:
+    score: 70  
+    condition: "Customer seems troubled"
+    
+  TAB-MANAGEMENT:
+    score: 80
+    condition: "Payment or tab questions"
+
+# INHERITANCE
+
+inherits: []
+
+can-be-inherited-by:
+  - budtender      # Adds cannabis expertise
+  - sommelier      # Wine specialist
+  - mixologist     # Cocktail specialist
+  - barista        # Coffee specialist
+
+# RELATED
+
+see-also:
+  - skills/character    # Bartender is a character with this skill
+  - skills/persona      # Personality comes from persona
+  - skills/economy      # Tab management
+  - skills/needs        # Thirst need satisfied
+
+# CREDITS
+
+credits:
+  universal: "Every bartender everywhere"
+  archetype: "The wise counsel behind the bar"
