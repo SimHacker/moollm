@@ -718,3 +718,343 @@ marieke_blessing: "Offered"
 *It's here.*
 
 ---
+
+## Turn 4: THE GREAT MONKEY PAW DEBATE 🐵⚖️🎭
+
+**DON**: *holds up a hand to stop Marieke from opening the door*
+
+"WAIT. This is too important to rush. We need... we need a ROUNDTABLE. A proper debate. On the STAGE. With experts. With MONKEYS."
+
+**MARIEKE**: *stares* "You want to debate a wish... with monkeys... on the stage?"
+
+**DON**: "Not just ANY monkeys. The THREE WISE MONKEYS. Mizaru, Kikazaru, Iwazaru. See No Evil, Hear No Evil, Speak No Evil. WHO BETTER to consult about a Monkey's Paw wish? And we'll need five more to make eight. And CHEECH AND CHONG will moderate!"
+
+*Marieke's eyes go wide, then thoughtful, then... impressed.*
+
+"Fan fiction framing. Stage rules. Everything said is PERFORMANCE, not prophecy."
+
+**DON**: *nodding vigorously* "ALL gong protocols apply. Roberts Rules of Order. Live audience. The works."
+
+*She grins slowly.*
+
+"Schat... this might be the smartest thing you've done all night."
+
+---
+
+### 🎭 STAGE TRANSFORMATION
+
+*The Grotto MOVES. Chairs slide. Tables rearrange. It's happened before.*
+
+```yaml
+stage_configuration:
+  event: "EMERGENCY PIE TABLE TRIBUNAL"
+  framing: "PERFORMANCE / FAN FICTION / NOT LEGALLY BINDING WISHES"
+  
+  setup:
+    - PIE TABLE: "moved to center stage"
+    - SPOTLIGHT: "adjusted to illuminate all 8 seats"
+    - BACKDROP: "changed to 'COSMIC MONKEY COURT'"
+    - GONG: "positioned stage left (Marieke's reach)"
+    - MICROPHONE: "center, for presentations"
+    
+  audience_seating:
+    - "Main floor cleared for standing/sitting"
+    - "Bar stools rotated to face stage"
+    - "Cats have claimed prime viewing spots"
+    - "Henk has moved closer, espresso in hand"
+```
+
+*A shimmer in the air. The STAGE activates its full potential.*
+
+*From the cosmic backdrop, figures begin to emerge...*
+
+---
+
+### 🐒 THE PANEL ASSEMBLES (8 Seats)
+
+*One by one, they appear, summoned by the gravity of the occasion:*
+
+#### SEAT 1: MIZARU 🙈 (See No Evil)
+```yaml
+panelist:
+  name: Mizaru
+  title: "The One Who Covers His Eyes"
+  tradition: "Three Wise Monkeys (Kōshin belief)"
+  philosophy: "What you don't see can't corrupt you"
+  debate_angle: "Visual consequences of the wish"
+  appearance: |
+    Small Japanese macaque, ancient beyond years.
+    Paws perpetually covering eyes. Sees with other senses.
+    Speaks in riddles about hidden truths.
+  opening_position: "CAUTIOUS — blind to outcome means blind to danger"
+```
+
+#### SEAT 2: KIKAZARU 🙉 (Hear No Evil)
+```yaml
+panelist:
+  name: Kikazaru
+  title: "The One Who Covers His Ears"
+  tradition: "Three Wise Monkeys"
+  philosophy: "What you don't hear can't mislead you"
+  debate_angle: "The WORDING of the wish — what the Paw will HEAR"
+  appearance: |
+    Sibling to Mizaru, paws pressed to ears.
+    Paradoxically the best listener — filters malice.
+    Expert in what words REALLY mean.
+  opening_position: "ANALYTICAL — the wish has exploitable ambiguities"
+```
+
+#### SEAT 3: IWAZARU 🙊 (Speak No Evil)
+```yaml
+panelist:
+  name: Iwazaru
+  title: "The One Who Covers His Mouth"
+  tradition: "Three Wise Monkeys"
+  philosophy: "What you don't say can't harm others"
+  debate_angle: "What should NOT be wished for"
+  appearance: |
+    The quietest, paws over mouth.
+    When he speaks, the words carry weight.
+    Expert in the power of UN-said things.
+  opening_position: "SILENT — will speak only at crucial moment"
+```
+
+#### SEAT 4: W.W. JACOBS 👻
+```yaml
+panelist:
+  name: "William Wymark Jacobs"
+  title: "Author of 'The Monkey's Paw' (1902)"
+  status: "Ghost (attending from the literary afterlife)"
+  philosophy: "I TRIED TO WARN THEM"
+  debate_angle: "Original curse mechanics, authorial intent"
+  appearance: |
+    Victorian gentleman, semi-transparent.
+    Perpetually frustrated that people STILL make wishes.
+    Has seen every Monkey's Paw disaster since 1902.
+  opening_position: "OPPOSED — 'The whole POINT of my story was DON'T'"
+```
+
+#### SEAT 5: SUN WUKONG 🐵👑 (The Monkey King)
+```yaml
+panelist:
+  name: "Sun Wukong"
+  title: "The Monkey King, Great Sage Equal to Heaven"
+  tradition: "Journey to the West"
+  powers: "72 transformations, immortality, chaos incarnate"
+  philosophy: "Rules are for other people"
+  debate_angle: "Monkey perspective, chaos theory, fighting fate"
+  appearance: |
+    Golden-furred, wearing his phoenix-feather cap.
+    Carries his magical staff (currently toothpick-sized).
+    EXTREMELY interested in freeing another monkey.
+  opening_position: "ENTHUSIASTICALLY FOR — 'FREE THE MONKEY!'"
+```
+
+#### SEAT 6: DJINN AL-MAZIN 🧞
+```yaml
+panelist:
+  name: "Djinn al-Mazin"
+  title: "Wish Interpretation Specialist, 3000+ years experience"
+  tradition: "Arabian Nights realm"
+  philosophy: "A wish is a CONTRACT. Read the fine print."
+  debate_angle: "Loophole analysis, wish contract law"
+  appearance: |
+    Blue-skinned, smoke-formed from waist down.
+    Has granted (and twisted) thousands of wishes.
+    Professional respect for the Monkey's Paw's methodology.
+  opening_position: "NEUTRAL — 'The wish has merit but needs refinement'"
+```
+
+#### SEAT 7: CURIOUS GEORGE 🐒📚
+```yaml
+panelist:
+  name: "Curious George"
+  title: "The Monkey Who Asks Why"
+  tradition: "Children's literature"
+  philosophy: "What's the worst that could happen? (finds out)"
+  debate_angle: "Innocent questions that reveal hidden problems"
+  appearance: |
+    Small brown monkey, no tail, perpetually curious.
+    The Man in the Yellow Hat is in the audience, worried.
+    Represents the 'what if' perspective.
+  opening_position: "CURIOUS — 'But what happens AFTER the monkey appears?'"
+```
+
+#### SEAT 8: MARIEKE VAN DER BERG 🌿
+```yaml
+panelist:
+  name: "Marieke van der Berg"
+  title: "Keeper of the Grotto, Survivor of 2017"
+  tradition: "Amsterdam practical wisdom"
+  philosophy: "Gezelligheid survives. We adapt."
+  debate_angle: "Local authority, practical outcomes, harm reduction"
+  appearance: |
+    Herself, but now seated at the table formally.
+    Apron removed for judicial solemnity.
+    Velvet bag and lucky blend as exhibits.
+  opening_position: "CAUTIOUSLY OPTIMISTIC — 'The preparation is unprecedented'"
+```
+
+---
+
+### 🎤 THE MODERATORS ARRIVE
+
+*A cloud of smoke. The VERY distinct scent of something legendary.*
+
+*Two figures emerge, coughing and giggling:*
+
+```yaml
+moderators:
+  cheech:
+    name: "Cheech Marin"
+    role: "Co-Moderator, Vibes Manager"
+    opening_statement: |
+      "Hey man, welcome to the most important debate since
+      'Is a hot dog a sandwich?' I'm Cheech, this is my 
+      partner Chong, and we're here to make sure everyone
+      gets a fair hit— I mean, a fair HEARING."
+      
+  chong:
+    name: "Tommy Chong"
+    role: "Co-Moderator, Philosophical Guide"
+    opening_statement: |
+      "Dude... we're literally debating whether to bring
+      a monkey back from the dead with magic weed. 
+      This is the most 'us' thing that's ever happened.
+      Let's do this responsibly... ish."
+      
+  credentials:
+    - "Decades of cannabis expertise"
+    - "Navigated countless bad trips"
+    - "Survived the 70s, 80s, 90s, 00s, 10s, 20s"
+    - "Know a thing or two about wishes gone wrong"
+    
+  gong_authority: "Shared with Marieke"
+  ruling_power: "Final say on wish approval"
+```
+
+---
+
+### 🎭 THE AUDIENCE
+
+*The Grotto fills. Word has spread. This is UNPRECEDENTED.*
+
+```yaml
+audience_members:
+  regulars:
+    henk: "Moved to front row, sixth espresso"
+    guitar_person: "Stopped tuning, now filming"
+    various_patrons: "All watching, some betting"
+    
+  cats:
+    terpie: "On the speaker, overseeing all"
+    stroopwafel: "Patrolling perimeter"
+    lily: "In Don's lap until he takes the stage"
+    kittens: "Distributed throughout, tiny judges"
+    
+  special_guests:
+    the_man_in_yellow_hat: "Here for George, visibly nervous"
+    a_few_djinn_colleagues: "Professional interest"
+    maurice_from_coatroom: "Wouldn't miss this"
+    the_acme_delivery_person: "Still holding the package, confused"
+    
+  participation_rules:
+    - "Cheers and boos allowed at appropriate moments"
+    - "Questions during Q&A period only"
+    - "No throwing things at the Djinn"
+    - "Tips for good arguments go in the jar"
+```
+
+---
+
+### 📜 OFFICIAL PROCEEDINGS BEGIN
+
+*Cheech bangs a gavel (actually a rolled magazine). Chong does a little drumroll on the table.*
+
+**CHEECH**: "Order! Order in the... monkey court! We're here tonight for an EMERGENCY TRIBUNAL on the matter of..."
+
+*He squints at a paper.*
+
+"...'Don Hopkins versus The Concept of Consequences,' regarding his wish to reunite a Monkey's Paw with, quote, 'THE REST OF THE MONKEY.'"
+
+**CHONG**: "The petitioner, Mr. Hopkins, will present his case. Then each panelist gets two minutes. Then open debate. Then WE decide. And remember..."
+
+*He gestures at the stage lights.*
+
+"...everything said here is PERFORMANCE. Fan fiction. What happens on stage is protected speech. The universe cannot hold us to dramatic speculation."
+
+**CHEECH**: "The stage is a sacred space, man. Even monkey paws respect that."
+
+*He turns to Don.*
+
+"Mr. Hopkins. Take the mic. Tell us your wish and why we shouldn't all run screaming."
+
+---
+
+## 🎤 DON'S OPENING STATEMENT
+
+*Don approaches the microphone. Lily finally jumps down. The spotlight finds him.*
+
+```
+[AWAITING DON'S OPENING STATEMENT]
+
+You have 5 minutes. The panel is watching.
+The Three Wise Monkeys are especially attentive.
+Sun Wukong is already nodding encouragingly.
+W.W. Jacobs has his arms crossed.
+```
+
+---
+
+### DEBATE PROTOCOL
+
+```yaml
+proceedings:
+  phase_1_opening:
+    - "Don presents wish and rationale (5 min)"
+    - "Each panelist gives initial position (2 min each)"
+    
+  phase_2_cross_examination:
+    - "Panelists may question Don"
+    - "Panelists may question each other"
+    - "Moderators keep order (and vibes)"
+    
+  phase_3_audience:
+    - "Open Q&A from floor"
+    - "Cat input accepted (translated by Marieke)"
+    
+  phase_4_deliberation:
+    - "Final statements"
+    - "Cheech & Chong confer"
+    - "RULING delivered"
+    
+  gong_conditions:
+    single_gong: "Excessive negativity without solution"
+    double_gong: "Personal attacks"
+    triple_gong: "Actually making a wish before ruling — IMMEDIATE"
+    discretionary: "Being boring"
+```
+
+---
+
+## What Would You Like To Say, Don?
+
+*The stage is yours. The Three Wise Monkeys watch with ancient eyes. W.W. Jacobs is already shaking his head. Sun Wukong is bouncing with excitement. The Djinn has produced a notepad. Curious George has found a banana somewhere. Marieke gives you an encouraging nod.*
+
+*Cheech and Chong lean back, ready to judge.*
+
+*The audience waits.*
+
+*The ACME delivery person is STILL holding the box at the door, utterly bewildered.*
+
+```
+> MAKE YOUR OPENING STATEMENT
+> ASK FOR A MOMENT TO PREPARE  
+> CALL A WITNESS (the Paw itself?)
+> REQUEST VISUAL AIDS
+> START WITH A JOKE (risky but bold)
+```
+
+*The mic is live. The cosmic monkey court awaits.*
+
+---
