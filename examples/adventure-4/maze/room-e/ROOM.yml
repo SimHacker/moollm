@@ -43,8 +43,8 @@ room:
       destination: ../room-f/
       description: "Cobwebs thin out this way. Relatively."
     south:
-      destination: ../room-b/
-      description: "You hear a faint echo from this direction."
+      destination: ../crystal-cave/
+      description: "A prismatic glow cuts through the cobwebs"
     east:
       destination: ../room-g/
       description: "More passages. More twistiness."
@@ -56,3 +56,19 @@ room:
     The cobwebs drift gently in unfelt breezes. Nothing moves.
     But you can't shake the feeling of being watched by eight
     eyes. Or possibly eighty. Or eight hundred.
+
+  # CAT MARKINGS (Midnight Prowl)
+  cat_markings:
+    date: "2026-01-06 (late night)"
+    marks:
+      - cat: "Terpy Jr."
+        location: "Tangled in cobwebs, marked while escaping"
+        note: |
+          Got stuck in cobwebs on chaos route.
+          Panicked. Thrashed. Got free.
+          Left chaotic marking while fleeing.
+          "COBWEBS! WHY COBWEBS!"
+          
+    cobweb_status: |
+      Some cobwebs now have kitten fur in them.
+      The spiders are probably confused.

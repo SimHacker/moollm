@@ -61,3 +61,70 @@ room:
     The skeleton grins at you. Skeletons always grin. It's the
     lack of lips. Still, this one seems particularly smug about
     something. Maybe about knowing the way out. The jerk.
+    
+  # BISCUIT'S MARKINGS (Session: Don's First Run)
+  # EXTENSIVE DOCUMENTATION
+  biscuit_markings:
+    date: "2026-01-06"
+    marked:
+      - location: "northwest corner"
+        type: territorial
+        note: "Primary marker"
+      - location: "near skeleton"
+        type: territorial
+        note: "The skeleton knows about me now"
+      - location: "south wall"
+        type: deposit
+        note: "More permanent notation"
+    detected_smells:
+      - smell: "mouse (old trail)"
+        location: "along east wall"
+        assessment: "Mouse came through here. Went left. Three days ago."
+      - smell: "spider webs"
+        location: "ceiling corners"
+        assessment: "Active spiders. Building. Watching."
+      - smell: "something unrecognizable"
+        location: "near skeleton"
+        assessment: "Not alive, not dead. Bones have a smell. Old adventure."
+      - smell: "bat (possible)"
+        location: "from the south passage"
+        assessment: "Wings and leather and high places"
+    documentation_complete: true
+    forensic_analysis: |
+      This room contains the bones of one who came before.
+      The note tells their story. They got confused.
+      I will not get confused. I have a good nose.
+      Future dogs will know: Biscuit investigated thoroughly.
+    biscuit_says: |
+      Documentation complete.
+      Future dogs will know important things happened here.
+      This is how dogs read — with the nose.
+
+  # CAT MARKINGS (Midnight Prowl)
+  cat_markings:
+    date: "2026-01-06 (late night)"
+    marks:
+      - cat: "Terpie"
+        location: "Near skeleton's feet"
+        note: "Respectful marking. Acknowledgment of the fallen."
+        
+      - cat: "Pine"
+        location: "By the note"
+        note: "Analytical examination. Confirmed cheese-in-B theory."
+        
+      - cat: "Carrie"
+        location: "Perimeter marking"
+        note: "Guard position even in skeleton room."
+        
+    skeleton_interaction: |
+      The cats, unlike Biscuit, did not sniff the skeleton extensively.
+      A brief acknowledgment of the bones. A moment of silence.
+      Then marking. Then moving on.
+      
+      Cats understand death differently than dogs.
+      "The bones stay. We pass through." — Terpie
+      
+    assessment: |
+      Now has both dog and cat markings.
+      The skeleton continues to grin at everyone.
+      Still seems smug about something.

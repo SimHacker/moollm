@@ -1,0 +1,62 @@
+# ⛲ THE GARDEN FOUNTAIN
+# Cool water, forever flowing
+
+object:
+  name: "The Garden Fountain"
+  type: [landmark, water, magic]
+  
+  description: |
+    A small but elegant marble fountain, clearly ancient but
+    perfectly maintained. Three tiers cascade water into a
+    circular basin. The water is impossibly clear.
+    
+    No pipes visible. No obvious source. The water just...
+    appears at the top and cycles endlessly. Magic, probably.
+    
+    Small coins glitter at the bottom of the basin.
+    Previous adventurers making wishes.
+    
+  properties:
+    takeable: false
+    water_quality: "Pure, cold, sweet"
+    magic: "Self-replenishing, ever-clean"
+    
+  interactions:
+    DRINK:
+      effect: |
+        You cup your hands and drink.
+        The water is cold, sweet, and somehow more refreshing
+        than any water you've ever tasted. You feel renewed.
+        
+        +1 Energy
+        
+    SPLASH:
+      effect: |
+        You splash water on your face. It's bracingly cold.
+        All sleepiness evaporates. You feel AWAKE.
+        
+        -1 Drowsy (if applicable)
+        
+    TOSS-COIN:
+      requirements: "Have a coin"
+      effect: |
+        You toss a coin and make a wish.
+        The coin joins the others at the bottom.
+        Does the wish come true? Who knows.
+        
+        -1 Gold, +1 Hope
+        
+    PUT-FACE-IN:
+      effect: |
+        You submerge your entire face in the fountain.
+        It's very cold. You surface gasping and laughing.
+        Water drips everywhere.
+        
+        +1 Refreshed, +1 Slightly Ridiculous
+        
+  biscuit_interaction:
+    what_happened: |
+      Biscuit drank. Then splashed. Then put his ENTIRE face in.
+      Water went everywhere. He was extremely pleased.
+      
+      The fountain didn't mind. Fountains never mind.

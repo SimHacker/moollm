@@ -58,3 +58,53 @@ room:
     Your breathing echoes back, slightly out of sync.
     It's like being haunted by a version of yourself that's
     always one breath behind.
+    
+  # BISCUIT'S MARKINGS (Session: Don's First Run)
+  # THE ECHO-DOG INCIDENT
+  biscuit_markings:
+    date: "2026-01-06"
+    marked:
+      - location: "exact center of chamber"
+        type: territorial
+        note: "All echo-dogs will smell this. We are the same."
+    the_echo_dog_incident:
+      initial_bark: "*WOOF!*"
+      echo_response: "*WOOF woof woof woof...*"
+      biscuit_reaction: "WHO SAID THAT. WHO BARKED. WAS THAT ANOTHER DOG."
+      second_bark: "*WOOF WOOF!*"
+      echo_response_2: "*WOOF WOOF woof woof woof woof...*"
+      spinning: true
+      resolution: |
+        Don explained it's an echo.
+        Processing... I bark at myself? I am talking to me?
+        Conclusion: I am many dogs. All of them are good.
+    existential_discovery:
+      revelation: "All echo-dogs are me. All of them are good dogs."
+      philosophy: "We are the same. We are good dogs."
+    biscuit_says: |
+      I have discovered other dogs who are also me.
+      They are good dogs. We marked the center together.
+
+  # TERPY JR.'S ECHO-FRIENDS (Midnight Prowl)
+  terpy_jr_incident:
+    date: "2026-01-06 (late night)"
+    what_happened: |
+      Terpy Jr. got lost on the way home from the garden.
+      Ended up in the echo chamber.
+      Discovered "other cats" (his own echoes).
+    
+    dialogue:
+      terpy_jr: "*MEOW!*"
+      echo: "*meow meow meow...*"
+      terpy_jr: "There are OTHER CATS here!"
+      echo: "*cats here... cats here...*"
+      terpy_jr: "FRIENDS!"
+      echo: "*friends... friends...*"
+      
+    duration: "Two full turns (14-15)"
+    departure: "*'Bye friends!'*"
+    
+    assessment: |
+      Unlike Biscuit, who had an existential moment,
+      Terpy Jr. just accepted the echo-cats as friends.
+      No crisis. Just joy. Classic Terpy Jr.

@@ -69,3 +69,56 @@ room:
     This is the kind of place where destinies are decided.
     Or at least where you decide which direction to go next.
     Choose wisely. Or don't. You'll reincarnate either way.
+    
+  # BISCUIT'S MARKINGS (Session: Don's First Run)
+  biscuit_markings:
+    date: "2026-01-06"
+    marked:
+      - location: "by the vending machine"
+        type: territorial
+        note: "The machine hums. I marked near the hum."
+    detected_smells:
+      north: "golden light — good direction"
+      south: "green glow — mushrooms, suspicious"
+      east: "old bones — skeleton, noted"
+      west: "carved stone — someone was here long ago"
+    vending_machine_investigation:
+      sniffed: true
+      assessment: "Smells like oil and old coins. No food. Disappointing."
+    biscuit_says: |
+      Four ways to go. I smelled them all.
+      The golden way is best. The green way whispers.
+
+  # CAT MARKINGS (Midnight Prowl)
+  cat_markings:
+    date: "2026-01-06 (late night)"
+    marks:
+      - cat: "Stroopwafel"
+        location: "By vending machine (different side than Biscuit)"
+        note: "Inspected machine. Found it lacking. Marked anyway."
+        
+      - cat: "Hops"
+        location: "East exit (toward skeleton)"
+        note: "Noted bone smell. Did not investigate further."
+        
+      - cat: "Pine"
+        location: "Center crossroads"
+        note: "Analytical marking at hub. Geodetic significance."
+        
+      - cat: "Multiple kittens"
+        location: "Various on return journey"
+        note: "Passed through multiple times in both directions."
+        
+    vending_machine_investigation:
+      stroopwafel_assessment: |
+        "The dog was right. No food. Only lamp oil.
+         Typical human priorities."
+         
+    crossroads_status: |
+      Now thoroughly marked by entire family.
+      The crossroads knows ALL of us were here.
+      
+      Future travelers will smell:
+      - Dog (enthusiastic)
+      - Elder cat (grumpy but thorough)
+      - Multiple kittens (chaotic but present)

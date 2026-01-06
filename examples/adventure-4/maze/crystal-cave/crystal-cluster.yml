@@ -1,0 +1,56 @@
+# 💎 THE CENTRAL CRYSTAL CLUSTER
+# It hums. It glows. It might be watching.
+
+object:
+  name: "The Central Crystal Cluster"
+  type: [landmark, mysterious, beautiful]
+  
+  description: |
+    A massive formation of interlocking crystals, rising from the
+    floor like a frozen fountain of light. The largest crystal is
+    easily six feet tall, a perfect hexagonal prism of pale violet.
+    
+    When you approach, the humming intensifies. Not unpleasant —
+    more like the crystals are... acknowledging you?
+    
+    Ancient civilizations might have worshipped here.
+    Modern adventurers just take selfies.
+    
+  properties:
+    takeable: false
+    breakable: "Please don't try"
+    humming: true
+    possibly_sentient: "unclear"
+    
+  interactions:
+    TOUCH:
+      effect: |
+        The crystal is cool and smooth. The humming vibration
+        travels up your arm. For a moment, you feel very small
+        and very brief — a mayfly touching something that has
+        existed for millennia.
+        
+        +1 Perspective (brief)
+        
+    LISTEN:
+      effect: |
+        You press your ear to the crystal. The humming resolves
+        into something almost like... voices? No. Not voices.
+        Harmonics. Mathematical patterns. The music of geology.
+        
+        You feel slightly more educated about minerals somehow.
+        
+    LICK:
+      effect: |
+        Why would you... okay, fine.
+        
+        It tastes like rock. Minerally. Your tongue feels weird
+        for about an hour afterward.
+        
+        Was it worth it? Only you can answer that.
+        
+  biscuit_assessment: |
+    The big shiny thing hums.
+    I don't like things that hum without mouths.
+    I will mark NEAR it but not ON it.
+    Compromise achieved.

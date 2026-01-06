@@ -647,3 +647,65 @@ honorary_friends:
     - "Access to Palm's nook for visits"
     - "Participation in future debates and tribunals"
     - "Part of the Grotto's story now"
+
+# THE MIDNIGHT PROWL — Cat Activity Log
+# All 10 cats passed through during their garden expedition
+
+midnight_prowl:
+  date: "2026-01-06 (late night)"
+  event: "The Great Garden Migration"
+  
+  passage_log:
+    departure:
+      - time: "Turn 1"
+        cats: ["Terpie", "Stroopwafel", "Lemon", "Pine", "Ocie"]
+        activity: "First wave exits through cat flap"
+        
+      - time: "Turn 2"
+        cats: ["Myr", "Lily", "Carrie", "Terpy Jr."]
+        activity: "Second wave follows"
+        
+      - time: "Turn 5"
+        cats: ["Hops"]
+        activity: "Finally finished grooming"
+        
+    return:
+      - time: "Turn 13-14"
+        cats: ["Lemon", "Lily", "Pine", "Carrie", "Ocie"]
+        activity: "First group returns, passes sleeping Biscuit"
+        
+      - time: "Turn 16-17"
+        cats: ["Terpie", "Stroopwafel", "Hops", "Myr"]
+        activity: "Stragglers return at own pace"
+        
+      - time: "Turn 19-20"
+        cats: ["Terpy Jr."]
+        activity: "Last one home (via echo chamber detour)"
+        
+  pub_markings:
+    added_by:
+      - cat: "Terpie"
+        location: "Near Biscuit's sleeping spot"
+        note: "*slow blink at sleeping dog*"
+        
+      - cat: "Stroopwafel"
+        location: "By the bar (return journey)"
+        note: "Checked on Biscuit with *secret affection*"
+        
+      - cat: "Carrie"
+        location: "Guard position by cat flap"
+        note: "Checked Biscuit was safe before proceeding"
+        
+  biscuit_during_prowl:
+    awareness: "Zero"
+    activity: "Dream-woofing, leg twitches"
+    dream_content: "Probably chasing echo-dogs"
+    snored: "Twice"
+    
+  pub_scent_profile_after: |
+    The pub now smells like:
+    - Dog (Biscuit, permanent resident smell)
+    - 10 cats (various passing-through marks)
+    - Gezelligheid (always)
+    - Fireplace embers (fading)
+    - Night adventures (fresh)

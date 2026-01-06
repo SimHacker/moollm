@@ -88,3 +88,61 @@ room:
     always come. This one is young and hungry.
     
     Will you be its first meal? Or its last?
+    
+  # BISCUIT'S MARKINGS (Session: Don's First Run)
+  # THE DRAGON ROOM DIPLOMACY
+  biscuit_markings:
+    date: "2026-01-06"
+    marked: []  # DELIBERATELY EMPTY
+    why_no_marking: |
+      Biscuit explicitly chose NOT to mark this room.
+      "Some rooms do not need to know about me. This room knows enough."
+    detected_smells:
+      - smell: "smoke, old fire"
+        location: "pervasive"
+        assessment: "Big. Very big. Sleeping."
+      - smell: "dreams"
+        location: "from the sleeping thing"
+        assessment: "It dreams loudly. I can smell its dreams."
+      - smell: "danger"
+        location: "everywhere"
+        assessment: "Hackles rose. Stayed close to Don."
+    the_dragon_incident:
+      detected: "large sleeping creature (definitely not rocks)"
+      response: "Froze. Hackles up. Whispered woof."
+      protective_instinct: "Positioned between Don and threat"
+      marking_decision: "NO. Absolutely not."
+      reason: "Practical bravery — some things don't need provocation"
+    grue_note: |
+      The grue that lives here sensed Biscuit.
+      Dogs scare grues — all that barking and enthusiasm.
+      The grue stayed back in the shadows, uncertain.
+      But we kept the lamp lit anyway: needed to SEE the dragon,
+      not just scare off grues.
+    biscuit_whispered: |
+      I will protect you from the big sleeping smoke-thing.
+      If it wakes up. But I hope it does not wake up.
+      I am brave. I am also practical.
+      (Also I noticed the grue. It noticed me. We had an understanding.)
+
+  # CAT MARKINGS (Midnight Prowl)
+  cat_markings:
+    date: "2026-01-06 (late night)"
+    marks: []  # NONE — cats also respect sleeping dragons
+    
+    terpy_jr_visit:
+      passed_through: true
+      on_chaos_route: true
+      reaction: |
+        Felt the cold. Saw the shape.
+        "Big. Too big. Sleeping. Good."
+        Did NOT mark. Kept moving quickly.
+        Even Terpy Jr. knows better.
+        
+    assessment: |
+      Both dog and cats show same wisdom:
+      Do not disturb. Do not mark.
+      Let sleeping dragons lie.
+      
+      The dragon remains blissfully unaware of the
+      midnight parade of small creatures passing through.

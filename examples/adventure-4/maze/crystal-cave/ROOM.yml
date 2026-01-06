@@ -1,0 +1,125 @@
+# 💎 MAZE: THE CRYSTAL CAVE
+# Where the earth remembers its dreams in mineral form
+# "Pretty lights. Yes. But Don. DON. There was a RAT here." — Biscuit
+
+room:
+  name: "The Crystal Cave"
+  type: maze_room
+  
+  # Ambient light from crystals!
+  lighting: crystal_glow
+  grue_safe: true  # The crystals provide enough light
+  requires_light: false
+  
+  description: |
+    You enter a chamber that takes your breath away.
+    
+    Crystals. EVERYWHERE. Growing from the walls, the floor,
+    the ceiling — luminescent formations that pulse with soft
+    inner light. Blues, purples, pale greens. The light shifts
+    and dances as you move, creating shadows that seem almost alive.
+    
+    The largest crystal cluster, in the center of the room, is
+    taller than you. It hums faintly when you get close, a sound
+    more felt than heard. Something about it feels... aware?
+    
+    The floor is uneven where crystals have pushed up through
+    the rock. Watch your step.
+    
+  feature: crystals
+  
+  atmosphere:
+    lighting: "Soft prismatic glow from crystal formations"
+    sound: "Faint harmonic humming from the large cluster"
+    smell: "Mineral, clean, ancient"
+    temperature: "Cool but not cold"
+    feeling: "Wonder, slight unease, beauty"
+    
+  objects:
+    - crystal-cluster.yml  # The central formation
+    
+  exits:
+    north:
+      destination: ../room-e/
+      description: "A narrow passage between crystal formations"
+    south:
+      destination: ../room-c/
+      description: "The crystals thin out in this direction"
+    east:
+      destination: ../garden/
+      description: "You see... is that sunlight? Real sunlight?"
+    west:
+      destination: ../room-a/
+      description: "Back toward the maze entrance"
+      
+  ambience: |
+    The crystals pulse in slow rhythms, like a geological heartbeat.
+    You can almost believe they're alive. Perhaps they are, just
+    on a timescale too slow for you to perceive.
+    
+    Something small and fast darts between the formations.
+    A rat? In a place this beautiful?
+    
+  # BISCUIT'S MARKINGS (Session: Don's First Run)
+  # RAT FORENSICS
+  biscuit_markings:
+    date: "2026-01-06"
+    marked:
+      - location: "a rock near the entrance (NOT the crystals)"
+        type: territorial
+        note: "Don said not to mark the crystals. I found a rock instead."
+    detected_smells:
+      - smell: "rat (recent)"
+        location: "trail through the formations"
+        assessment: |
+          RAT. RAT! There was a RAT here. Recently.
+          The rat went... this way... no wait... this way...
+          it looped around... it was confused...
+          then it left through that crack.
+        tracking_complete: true
+      - smell: "mineral, ancient"
+        location: "the crystals"
+        assessment: "Old. So old. The earth is dreaming here."
+    crystal_interaction:
+      considered_marking: true
+      don_advised: "Maybe not that one"
+      alternative_found: "Nearby rock — crystal will know by association"
+    biscuit_says: |
+      Pretty lights. Yes. But Don. DON.
+      There was a RAT here.
+      I know things. Nose things. The nose knows.
+
+  # CAT MARKINGS (Midnight Prowl)
+  cat_markings:
+    date: "2026-01-06 (late night)"
+    marks:
+      - cat: "Lily"
+        location: "Near entrance, elegant placement"
+        note: "Admired crystals. Added delicate scent mark."
+        
+      - cat: "Pine"
+        location: "By the rat trail (investigative marking)"
+        note: |
+          Followed Biscuit's rat documentation.
+          Confirmed rat trail. Added analytical marking.
+          "The dog's forensics were thorough. I concur."
+          
+      - cat: "Lemon"
+        location: "Quick mark by big crystal"
+        note: "Batted at crystal first. Then marked. Then GRASS."
+        
+      - cat: "Terpy Jr."
+        location: "Licked a crystal, then marked nearby"
+        note: "Crystal tasted weird. Marked out of confusion."
+        
+      - cat: "Hops"
+        location: "Inspected crystal cleanliness, then proper mark"
+        note: "Crystals passed inspection. Worthy of marking."
+        
+    rat_status: |
+      Multiple cats confirmed Biscuit's rat detection.
+      The rat has not returned. Probably smart.
+      
+    crystal_status: |
+      Crystals remain unmarked (cats also respect them).
+      Nearby rocks now smell like dog AND cat.

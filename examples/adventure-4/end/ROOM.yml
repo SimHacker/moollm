@@ -35,6 +35,12 @@ room:
   
   # Ways out
   exits:
+    west:
+      destination: ../maze/garden/
+      description: |
+        The archway back to the underground garden. You can see sunlight
+        and hear the fountain from here. A pleasant way back.
+        
     south:
       destination: ../maze/room-d/
       description: |
@@ -55,3 +61,49 @@ room:
     A faint hum of significance fills the air. This is clearly an
     Important Place where Important Things happen to Important People.
     Like you. Right now. Congratulations on your importance.
+    
+  # BISCUIT'S MARKINGS (Session: Don's First Run)
+  # TREASURE PHILOSOPHY
+  biscuit_markings:
+    date: "2026-01-06"
+    marked:
+      - location: "gold statue base"
+        type: territorial
+        note: "The gold knows about me now. Maybe it will think about its life choices."
+    detected_smells:
+      - smell: "cold metal, shiny rocks"
+        location: "everywhere"
+        assessment: "Nothing to eat. Nothing to chase. Nothing to cuddle."
+      - smell: "sweaty human (historical)"
+        location: "a crown"
+        assessment: "I can tell you their diet if you want. Don declined."
+    treasure_philosophy:
+      gold_assessment: "Cold metal. Shiny rocks. Uninteresting."
+      true_treasure_found: "An old blanket in the corner"
+      blanket_action: "Curled up briefly, claiming it"
+    biscuit_wisdom: |
+      Gold is for humans. Blankets are for dogs.
+      This is established.
+    biscuit_says: |
+      I found the real treasure.
+      It is soft and it smells like comfort.
+      The gold can stay. The blanket remembers me.
+
+  # CAT MARKINGS (Midnight Prowl)
+  cat_markings:
+    date: "2026-01-06 (late night)"
+    marks: []  # NONE — cats went to the garden, not the treasury
+    
+    explanation: |
+      The 10 cats of the Midnight Prowl chose the GARDEN
+      as their destination, not the Treasury.
+      
+      Why? Because cats have priorities:
+      - Treasury: Cold metal. Shiny rocks. No grass.
+      - Garden: Real grass. Sunlight. Perfect poop spots.
+      
+      Biscuit was right: "Gold is for humans. Blankets are for dogs."
+      Cats would add: "Grass is for cats."
+      
+      The chalice remains unmarked. It may never know
+      the honor of feline acknowledgment.

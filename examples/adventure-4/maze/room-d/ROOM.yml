@@ -41,19 +41,19 @@ room:
     
     Passages lead in all directions. One of them DEFINITELY glows.
   
-  # This room connects FORWARD to end
-  note: "The NORTH exit leads to the Treasury!"
+  # This room connects FORWARD through garden to end
+  note: "The NORTH exit leads to the Garden, and beyond that, the Treasury!"
   
   exits:
     north:
-      destination: ../../end/
-      description: "A passage suffused with warm golden light. THIS IS IT!"
+      destination: ../garden/
+      description: "The golden light resolves into... sunlight? And grass?"
     south:
       destination: ../room-a/
       description: "Back into the maze. Why would you go this way?"
     east:
-      destination: ../room-b/
-      description: "The glow fades this direction. Probably a bad choice."
+      destination: ../room-h/
+      description: "A sickly green mushroom glow"
     west:
       destination: ../room-c/
       description: "More scratchy walls. More existential dread."
@@ -64,3 +64,68 @@ room:
     The golden light beckons from the north. It whispers of treasure,
     of triumph, of finally having something to tell Mother about.
     Also possibly of being late for dinner, but that ship has sailed.
+    
+  # BISCUIT'S MARKINGS (Session: Don's First Run)
+  # THE GARDEN DISCOVERY (before the treasury)
+  biscuit_markings:
+    date: "2026-01-06"
+    marked:
+      - location: "every corner"
+        type: territorial
+        note: "Methodical coverage. The garden must know."
+      - location: "near the fountain"
+        type: territorial
+        note: "Claimed the water source"
+    zoomies_incident:
+      triggered: true
+      duration: "Extended"
+      pattern: "Joyful circles"
+      reason: "OUTSIDE! INSIDE-OUTSIDE! PLANTS! GRASS!"
+    grass_roll:
+      occurred: true
+      duration: "Extended"
+      legs_in_air: true
+      wiggling: "Enthusiastic"
+    fountain_interaction:
+      drank: true
+      face_in_water: true
+      splashed: "Happily"
+      water_everywhere: true
+    detected_smells:
+      - smell: "plants, growing things"
+        assessment: "Life down here! Growing!"
+      - smell: "sun-that-is-not-sun"
+        assessment: "Warmth from above. Magic warmth."
+      - smell: "happiness (my own)"
+        assessment: "I was happy here. Future dogs will smell it."
+    room_assessment: |
+      This is the best room. Wait no, the pub is my favorite.
+      But this is my favorite MAZE room.
+    biscuit_says: |
+      The garden must know. I was here. I was HAPPY here.
+      Future dogs will smell happiness.
+
+  # CAT MARKINGS (Midnight Prowl)
+  cat_markings:
+    date: "2026-01-06 (late night)"
+    marks:
+      - cat: "Terpie"
+        location: "By north exit (toward garden)"
+        note: "Queen's passage. Marked on the way through."
+        
+      - cat: "Stroopwafel"
+        location: "Multiple grumpy marks on return"
+        note: "Took his time. Marked thoroughly."
+        
+      - cat: "Carrie"
+        location: "Guard position marks"
+        note: "Escort duty for Terpie. Professional."
+        
+      - cat: "Multiple kittens"
+        location: "Various spots along the path"
+        note: "Following adults. Adding presence."
+        
+    status: |
+      This room is now the HIGHWAY to the garden.
+      Heavily marked by entire family on both
+      outbound and return journeys.

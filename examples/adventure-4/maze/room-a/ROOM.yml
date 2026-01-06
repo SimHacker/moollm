@@ -49,11 +49,80 @@ room:
       destination: ../room-b/
       description: "A passage. Twisty. Little. You know the drill."
     west:
+      destination: ../crystal-cave/
+      description: "A faint prismatic glow... crystals?"
+    down:
       destination: ../room-d/
-      description: "Another passage, equally twisty, equally little"
+      description: "A sloping passage leading deeper"
   
   # Distinguishing feature (for the observant)
   feature: puddle
   ambience: |
     Drip. Drip. Drip. The puddle grows imperceptibly larger.
     Or does it? Hard to tell. Everything is hard to tell in here.
+    
+  # BISCUIT'S MARKINGS (Session: Don's First Run)
+  biscuit_markings:
+    date: "2026-01-06"
+    marked:
+      - location: "near puddle"
+        type: territorial
+        note: "Junction marked — this is the crossroads"
+    detected_smells:
+      north: "dust — old and undisturbed"
+      south: "lamplight and safety"
+      east: "faint echo... sound has a smell?"
+      west: "something OLD. Very old. Chose this direction."
+    assessment: |
+      SO MANY SMELLS. This is the best place.
+      Every direction is a new smell.
+      I need to investigate ALL of them.
+    lamp_note: |
+      Don kept the lamp lit throughout.
+      Dogs scare grues too (they don't like barking),
+      but we needed the light to SEE as well as to scare.
+      Oil usage: moderate (worth it for safety AND visibility).
+    biscuit_says: |
+      The maze begins here. I have claimed the entrance.
+      Future dogs will know: Biscuit explored this way.
+
+  # CAT MARKINGS (Midnight Prowl)
+  cat_markings:
+    date: "2026-01-06 (late night)"
+    marks:
+      - cat: "Terpie"
+        location: "Near puddle (different side than Biscuit)"
+        note: "Territorial acknowledgment. 'Mine now too.'"
+        
+      - cat: "Lily"
+        location: "By north exit"
+        note: "Dainty mark. Added on return journey as well."
+        
+      - cat: "Stroopwafel"
+        location: "Senior cat position near puddle"
+        note: "Added on return. Grumbled while marking."
+        
+      - cat: "Hops"
+        location: "Proper corner, away from puddle"
+        note: "Disapproved of puddle proximity. Found better spot."
+        
+      - cat: "Carrie"
+        location: "Guard position by main entrance"
+        note: "Strategic placement. Can be smelled on approach."
+        
+      - cat: "Lemon"
+        location: "Quick sniff-and-mark"
+        note: "Bounced through. Left mark. Kept bouncing."
+        
+      - cat: "Ocie"
+        location: "Following Lemon's mark"
+        note: "Added small addition next to older sibling's."
+        
+      - cat: "Myr"
+        location: "Sleepy mark near east exit"
+        note: "Barely awake. Still counted."
+        
+    assessment: |
+      Room-a is now THOROUGHLY claimed by the family.
+      Biscuit's lamp note still applies — but now it's a
+      family territory, not just dog territory.

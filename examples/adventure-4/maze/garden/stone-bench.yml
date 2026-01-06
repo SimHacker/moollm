@@ -1,0 +1,56 @@
+# 🪨 THE STONE BENCH
+# Rest for weary adventurers
+
+object:
+  name: "Stone Bench"
+  type: [furniture, rest]
+  
+  description: |
+    A bench carved from natural stone, smoothed by generations
+    of adventurers sitting here to rest. It's positioned
+    perfectly to catch the sunlight from above.
+    
+    Someone carved "REST HERE" into the armrest.
+    Someone else added "TRUST THE GARDEN".
+    A third person wrote "BUMBLEWICK WAS HERE" in small letters.
+    
+  properties:
+    takeable: false
+    comfortable: "Surprisingly, yes"
+    warm: "Sun-heated stone"
+    
+  interactions:
+    SIT:
+      effect: |
+        You sit. The stone is warm from the sun.
+        The garden breathes around you. Peace settles in.
+        
+        +1 Energy per turn while sitting
+        
+    LIE-DOWN:
+      effect: |
+        You stretch out on the bench. It's not quite long
+        enough but you make it work. The sun is on your face.
+        You could sleep here.
+        
+        Can lead to NAP if you stay
+        
+    READ-CARVINGS:
+      effect: |
+        You examine the carved messages:
+        
+        "REST HERE" — good advice
+        "TRUST THE GARDEN" — cryptic but comforting
+        "BUMBLEWICK WAS HERE" — previous adventurer
+        "HELP I'M LOST" — concerning
+        "NVM FOUND EXIT" — less concerning
+        "THE GARDEN REMEMBERS" — what does that mean?
+        
+  biscuit_note: |
+    Biscuit did not sit on the bench.
+    Biscuit sat NEXT to the bench. On the grass.
+    Then rolled in the grass. Then did zoomies.
+    Then came back and lay near the bench while
+    Don sat on it and smiled.
+    
+    Good bench. Good garden. Good day.

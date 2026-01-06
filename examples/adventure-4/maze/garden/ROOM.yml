@@ -1,0 +1,248 @@
+# 🌿 MAZE: THE UNDERGROUND GARDEN
+# Life finds a way, even in the dark places
+# "OUTSIDE! INSIDE-OUTSIDE! PLANTS! GRASS!" — Biscuit (achieving zoomies)
+
+room:
+  name: "The Underground Garden"
+  type: [maze_room, sanctuary, wonder]
+  
+  # Actual sunlight through a shaft!
+  lighting: natural_sunlight
+  grue_safe: true  # Sunlight = no grues
+  requires_light: false
+  
+  description: |
+    You emerge into impossible beauty.
+    
+    A garden. An actual GARDEN, here in the depths of the maze.
+    
+    Somehow, a shaft in the ceiling opens to the sky far above,
+    sending a column of genuine sunlight down into this chamber.
+    The light pools on the floor like liquid gold, nurturing a
+    circle of impossible green.
+    
+    Grass grows here — real grass, soft and slightly damp.
+    Flowering vines climb the walls. A small fountain burbles
+    in the center, fed by an underground spring.
+    
+    Benches carved from natural rock invite you to rest.
+    Butterflies — BUTTERFLIES! — drift between the flowers.
+    
+    How? Who made this? Why is it here?
+    
+    The garden doesn't answer. It just... exists. Beautiful
+    and inexplicable. A gift from whoever built this maze.
+    
+  feature: garden
+  
+  atmosphere:
+    lighting: "A shaft of golden sunlight from far above"
+    sound: "Fountain, birdsong (where do the birds come from?), wind"
+    smell: "Flowers, grass, water, life, joy"
+    temperature: "Perfectly pleasant"
+    feeling: "Peace, wonder, the urge to roll in the grass"
+    
+  objects:
+    - fountain.yml
+    - stone-bench.yml
+    
+  exits:
+    north:
+      destination: ../room-d/
+      description: "Back into the maze — the golden glow continues"
+    south:
+      destination: ../room-h/
+      description: "Toward the green glow of mushrooms"
+    east:
+      destination: ../../end/
+      description: "The sunlight seems to point this way — treasure?"
+    west:
+      destination: ../crystal-cave/
+      description: "Crystal light mingles with sunlight here"
+      
+  special_features:
+    the_grass:
+      description: "Soft, real, slightly damp grass"
+      interactions: ["sit", "lie down", "roll", "nap"]
+      effect: "Restores 1 energy per turn spent here"
+      biscuit_approved: "MAXIMUM"
+      
+    the_fountain:
+      description: "A small marble fountain, water always fresh"
+      magic: "Never runs dry, always cool"
+      interactions: ["drink", "splash", "put face in"]
+      
+    the_sunlight:
+      description: "Genuine sunlight from impossibly far above"
+      effect: "Grues will not enter. Moods improve."
+      mystery: "The shaft is too long, too perfect. Magic?"
+      
+  activities:
+    REST:
+      effect: "+2 Energy restored"
+      message: "You sit on a bench. The garden breathes around you."
+      
+    NAP:
+      effect: "+Full rest if you spend 30 minutes"
+      message: "The grass is soft. The sun is warm. Sleep takes you gently."
+      
+    ROLL:
+      effect: "+1 Cheerful, grass stains"
+      message: "You roll in the grass like a child. No one is watching. It's wonderful."
+      
+    DRINK:
+      effect: "Hydrated, refreshed"
+      message: "The fountain water is cold and sweet."
+      
+  ambience: |
+    This place shouldn't exist. But it does.
+    
+    Maybe that's the real treasure of the maze — not gold or
+    jewels, but this. A garden in the darkness. Life persisting.
+    Beauty where beauty has no business being.
+    
+    You could stay here forever.
+    
+    (You shouldn't. There's still treasure to find. But you could.)
+    
+  # BISCUIT'S MARKINGS (Session: Don's First Run)
+  # THE ZOOMIES INCIDENT & COMPREHENSIVE TERRITORIAL CLAIM
+  biscuit_markings:
+    date: "2026-01-06"
+    marked:
+      - location: "northwest corner"
+        type: territorial
+      - location: "northeast corner"
+        type: territorial
+      - location: "southwest corner"
+        type: territorial
+      - location: "southeast corner"
+        type: territorial
+      - location: "by the fountain"
+        type: territorial
+      - location: "by the bench"
+        type: territorial
+    marking_note: "EVERY CORNER. EVERY. CORNER. This garden KNOWS about Biscuit."
+    
+    the_zoomies_incident:
+      triggered: true
+      trigger_cause: "Saw grass. Lost mind."
+      exclamation: "OUTSIDE! INSIDE-OUTSIDE! PLANTS! GRASS-THAT-IS-NOT-GRASS! SUN-THAT-IS-NOT-SUN! EVERYTHING IS WONDERFUL!"
+      pattern: "Joyful circles around entire garden"
+      duration: "Extended"
+      don_reaction: "Sat on bench. Smiled."
+      
+    grass_roll:
+      occurred: true
+      position: "On back, legs in air"
+      wiggling: "Maximum"
+      duration: "Until satisfaction achieved"
+      grass_stains: "Worth it"
+      
+    the_deposit:
+      occurred: true
+      preparation: |
+        Circled carefully to find the right direction.
+        Sniffed the ground. Circled again.
+        Direction matters. This is important dog business.
+      location: "Far corner, away from fountain and bench"
+      facing: "Northeast (after three circles)"
+      result: "Substantial"
+      cleanup: "Kicked grass back. Covered properly."
+      assessment: "The garden is a great place for this. Soft grass. Privacy. Perfect."
+      
+    fountain_interaction:
+      drank: true
+      splashed: true
+      face_fully_submerged: true
+      water_everywhere: "Enthusiastically"
+      
+    room_ranking:
+      assessment: "This is the best room. Wait, no, the pub is my favorite. But this is my favorite MAZE room."
+      final_verdict: "FAVORITE MAZE ROOM — OFFICIAL"
+      
+    detected_smells:
+      - smell: "life, growing things"
+        assessment: "LIFE! Down here! Impossible but TRUE!"
+      - smell: "flowers"
+        assessment: "Pretty smells. Want to roll in them. DID roll in them."
+      - smell: "fresh water"
+        assessment: "Clean! Good! Put face in it!"
+      - smell: "my own happiness"
+        assessment: "Future dogs will smell this. They will know: joy happened here."
+        
+    biscuit_says: |
+      The garden must know. I was here. I was HAPPY here.
+      Future dogs will smell happiness.
+      
+      This is the best place. I marked it thoroughly so the whole
+      garden knows about Biscuit. Every corner. Every corner.
+
+  # THE MIDNIGHT PROWL — Cat Deposits
+  # All 10 cats visited the garden that night
+  cat_deposits:
+    date: "2026-01-06 (late night)"
+    total_cats: 10
+    deposits:
+      - cat: "Lemon"
+        location: "Northeast, 2 feet from Biscuit's spot"
+        style: "Enthusiastic"
+        note: "First to arrive, did zoomies, splashed in fountain"
+        
+      - cat: "Terpie"
+        location: "South, under flowering vine"
+        style: "Regal"
+        note: "Surveyed domain before selecting perfect spot"
+        
+      - cat: "Lily"
+        location: "East, near bench"
+        style: "Delicate"
+        note: "Chose spot for aesthetic harmony"
+        
+      - cat: "Pine"
+        location: "Exactly 4 feet from fountain"
+        style: "Calculated"
+        note: "Optimal distance determined analytically"
+        
+      - cat: "Carrie"
+        location: "Northwest corner"
+        style: "Defensive"
+        note: "Maintained guard position throughout"
+        
+      - cat: "Ocie"
+        location: "Wherever she ended up"
+        style: "Small but proud"
+        note: "Followed others, did her best"
+        
+      - cat: "Hops"
+        location: "West garden"
+        style: "Precisely placed"
+        note: "Inspected multiple locations, rejected several for drainage"
+        
+      - cat: "Stroopwafel"
+        location: "Northeast, 1 foot from Biscuit's spot"
+        style: "Territorial acknowledgment"
+        note: "Deliberately adjacent to dog's spot. Respect."
+        
+      - cat: "Myr"
+        location: "Garden center, in sunlight"
+        style: "Sleepy"
+        note: "Fell asleep before finishing burial"
+        
+      - cat: "Terpy Jr."
+        location: "Random"
+        style: "Chaotic"
+        note: "Questionable burial technique. Arrived via echo chamber."
+        
+    garden_status_after: |
+      The garden now smells strongly of:
+      - Dog (Biscuit)
+      - Cat family (all 10)
+      - Happiness
+      - Grass
+      - Flowers
+      - Shared territory
+      
+    philosophy: |
+      "We share the garden now. The dog marked it. We marked it.
+       It is OURS. All of us." — Terpie

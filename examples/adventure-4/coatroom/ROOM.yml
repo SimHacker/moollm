@@ -241,3 +241,45 @@ room:
       toggle: "Say VOCABULARY-MODE to switch"
       
     inspiration: "Timothy Leary's Mind Mirror (1985) + The Sims Create-a-Sim"
+
+  # BISCUIT'S MARKINGS (Session: Don's First Run)
+  biscuit_markings:
+    date: "2026-01-06"
+    marked:
+      - location: "coat rack base (gently)"
+        type: territorial
+        note: "Now Maurice knows about me too"
+    detected_smells:
+      - smell: "possibility"
+        location: "mannequin base"
+        assessment: "Strange. Does not smell like anything... but also like everything?"
+        intensity: "metaphysical"
+      - smell: "old fabric and dreams"
+        location: "costume racks"
+        assessment: "Many identities. Many choices. Fabric holds memories."
+    mirror_interaction:
+      observed: "Another dog in the mirror"
+      assessment: "Very handsome. Good dog. I approve of him."
+      tail_wag: true
+    biscuit_says: |
+      The dog in the mirror looks like me.
+      He is a good dog. I like him.
+
+  # CAT MARKINGS (Midnight Prowl)
+  # Stroopwafel's Detour
+  cat_markings:
+    date: "2026-01-06 (late night)"
+    marks:
+      - cat: "Stroopwafel"
+        location: "Coat rack base (DIFFERENT spot than Biscuit)"
+        note: |
+          Took detour here on the way to the garden.
+          Sniffed Maurice's mannequin.
+          "The dog smelled 'possibility' here. Dogs are strange. But... accurate."
+          Marked different spot than Biscuit. Territorial respect.
+          
+    stroopwafel_assessment: |
+      The mannequin still smells like nothing.
+      The dog was right — it smells like possibility.
+      I have added my own scent. Now it smells like
+      possibility AND senior cat authority.
