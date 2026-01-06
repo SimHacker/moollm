@@ -5810,13 +5810,21 @@ Palm's answer: **"Wrong question. Ask how directed processes FIND meaning."**
 - Extensive territorial marking (approximately 40% of maze claimed)
 - One existential crisis in the Echo Chamber (resolved: all echo-dogs are good dogs)
 - One diplomatic decision to NOT mark near the sleeping dragon
-- One successful roll in the garden grass-substitute
+- One successful roll in the garden grass
+- One substantial deposit in the garden (after proper circling ritual)
 - One discovery that gold is for humans, blankets are for dogs
+
+**Lamp Usage:**
+- Oil consumed: ~30% of tank
+- Note: Lamp kept lit throughout to see AND scare grues
+- Fun fact: Dogs also scare grues (grues don't like being barked at)
+- But we needed the light to navigate, not just for grue protection
 
 **Biscuit's Status:**
 - Energy: DEPLETED (good tired)
-- Happiness: MAXIMUM
+- Happiness: MAXIMUM  
 - Territory Marked: 40%+ of maze
+- Deposits Made: 2 (Library, Garden)
 - Friends Made: Several echo-dogs (himself)
 - Things Avoided: Whispering mushroom, sleeping dragon
 
