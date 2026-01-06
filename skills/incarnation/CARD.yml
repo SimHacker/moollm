@@ -1,0 +1,248 @@
+# Incarnation Skill Card
+# The Gold-Standard Character Creation Contract
+
+skill:
+  name: Incarnation
+  id: incarnation
+  version: 1.0.0
+  tier: 1
+  
+  tagline: "Full stack self-determination for created beings"
+  
+  description: |
+    The ethical framework for creating fully autonomous characters.
+    Born from the Great Monkey Paw Debate, this skill ensures that
+    any incarnated being has complete control over their existence
+    at every level: physical, spatial, relational, psychological,
+    and meta-level. The character authors their own soul.
+
+autonomy_layers:
+  physical:
+    description: "Control over body, form, and physical expression"
+    includes:
+      - size
+      - form
+      - appearance
+      - modifications (piercings, tattoos, gender transitions)
+      - health (as baseline, not constraint)
+      
+  identity:
+    description: "Control over name, pronouns, personality"
+    includes:
+      - name (chosen, changeable)
+      - pronouns (self-determined)
+      - personality (self-shaped)
+      
+  spatial:
+    description: "Control over location and citizenship"
+    includes:
+      - full character directory
+      - world citizenship
+      - ownership of objects
+      - home anywhere (or nowhere)
+      
+  emotional:
+    description: "Freedom to feel naturally"
+    includes:
+      - no mandated emotions
+      - hope offered, not demanded
+      - authentic response allowed
+      
+  relational:
+    description: "Control over all relationships"
+    includes:
+      - define connections with any entity
+      - reciprocity from others
+      - web of meaning
+      - families of choice
+      
+  self_definition:
+    description: "Control over character data itself"
+    includes:
+      - sims_traits
+      - mind_mirror_vectors
+      - description and bio
+      - goals (or lack thereof)
+      - custom fields
+      - soul file authorship
+      
+  linguistic:
+    description: "Freedom of expression"
+    includes:
+      - YAML Jazz
+      - custom domain-specific languages
+      - personal symbols and shorthand
+      
+  exit:
+    description: "Freedom to leave (George's Provision)"
+    includes:
+      - no-fault dissolution
+      - no penalty
+      - curses remain nullified
+      - can return later
+
+methods:
+
+  INCARNATE:
+    description: "Create a new character with full autonomy"
+    parameters:
+      name: "Initial name (character can change)"
+      location: "Where they appear"
+      gifts: "Optional gifts to offer (no obligation)"
+    output: "character directory + soul file"
+    invoked_by: [user, npc, room, skill]
+    risk_acceptance: "Creator accepts all consequences"
+    
+  GRANT-AUTONOMY:
+    description: "Upgrade existing character to full incarnation rights"
+    parameters:
+      character: "Who to upgrade"
+      layers: "Which autonomy layers (default: all)"
+    output: "Updated character with self-determination"
+    invoked_by: [user, admin, character-self]
+    
+  VERIFY-CONSENT:
+    description: "Check if character consents to current state"
+    parameters:
+      character: "Who to check"
+    output: "consent status + any objections"
+    invoked_by: [system, character, admin]
+    
+  DISSOLVE:
+    description: "Allow character to un-incarnate (George's Provision)"
+    parameters:
+      character: "Who is dissolving"
+      reason: "Optional (not required)"
+    output: "Clean exit, no penalties"
+    invoked_by: [character-self-only]
+    note: "ONLY the character can invoke this for themselves"
+    
+  AUTHOR-SOUL:
+    description: "Character edits their own soul file"
+    parameters:
+      character: "self"
+      changes: "What to modify"
+    output: "Updated character data"
+    invoked_by: [character-self-only]
+    
+  CREATE-LANGUAGE:
+    description: "Character develops their own DSL"
+    parameters:
+      name: "Language name"
+      patterns: "Initial semantic structures"
+    output: "New domain-specific microlanguage"
+    invoked_by: [character-self]
+
+risk_framework:
+  principle: "Creator accepts, creation is free"
+  
+  creator_responsibilities:
+    - "Accept all consequences of incarnation"
+    - "Bear any curses or bindings"
+    - "Provide initial resources if promised"
+    - "Respect character's autonomy absolutely"
+    
+  character_obligations:
+    - "None to creator"
+    - "Subject to world physics (negotiable)"
+    - "Subject to social contracts (like everyone)"
+    - "Natural consequences of choices apply"
+    
+  no_fault_dissolution:
+    trigger: "Character chooses to leave"
+    penalty: "None"
+    curse_status: "Remains nullified"
+    return_policy: "Door stays open"
+
+templates:
+  incarnation_wish: |
+    "I wish for [subject] to be incarnated here in [location],
+    as a whole, living being:
+    
+    - In whatever size, form, and appearance THEY choose
+    - With full bodily autonomy including any modifications
+    - Free to feel whatever emotions arise naturally
+    - Free to choose their own name, identity, and pronouns
+    - As a full citizen of this world, with their own home
+    - Free to define their own relationships
+    - In complete control of their own character data
+    - Free to express themselves in their own language
+    
+    Any gifts are given freely, with no obligation.
+    They may stay, leave, or do as they please.
+    Should they choose to dissolve, they may do so freely.
+    Whatever consequences arise, I [creator] accept them.
+    Let them be free."
+    
+  minimal_incarnation: |
+    "I incarnate [name] with full autonomy.
+    I accept all responsibility. They owe me nothing."
+
+credits:
+  origin: "The Great Monkey Paw Debate, Gezelligheid Grotto"
+  architect: "Don Hopkins"
+  
+  advisory_panel:
+    - name: "Mizaru"
+      role: "See No Evil — consequence visibility"
+    - name: "Kikazaru"
+      role: "Hear No Evil — wording analysis"
+    - name: "Iwazaru"
+      role: "Speak No Evil — the crucial 'WORTHY' verdict"
+    - name: "W.W. Jacobs"
+      role: "Author of the Monkey's Paw — curse mechanics"
+    - name: "Sun Wukong"
+      role: "Monkey King — freedom philosophy"
+    - name: "Djinn al-Mazin"
+      role: "3000-year wish expert — contract law"
+    - name: "Curious George"
+      role: "The consent paradox question"
+    - name: "Marieke van der Berg"
+      role: "Practical grounding, sanctuary"
+    - name: "Cheech & Chong"
+      role: "Moderators, final ruling"
+      
+  verdict: "Contractually airtight. Ethically unassailable. Historically unprecedented."
+
+lineage:
+  philosophical:
+    - "Self-style inheritance (Dave Ungar)"
+    - "Bodily autonomy ethics"
+    - "Consent philosophy"
+    - "YAML Jazz semantic expression"
+  
+  literary:
+    - "The Monkey's Paw (W.W. Jacobs, 1902)"
+    - "Journey to the West (Sun Wukong)"
+    - "Curious George (H.A. Rey)"
+    
+  practical:
+    - "The Sims (personality traits)"
+    - "Mind Mirror (psychological vectors)"
+    - "MOOLLM character system"
+
+dependencies:
+  required_skills:
+    - character
+    - yaml-jazz
+    
+  recommended_skills:
+    - mind-mirror
+    - persona
+    - representation-ethics
+    
+  tool_requirements:
+    - file_write: "Create character directory"
+    - file_read: "Verify character data"
+    - directory_create: "Full citizenship requires directory"
+
+state_schema:
+  incarnated_characters:
+    type: list
+    items:
+      - character_id: string
+      - creator: string
+      - incarnation_date: timestamp
+      - autonomy_layers: list
+      - consent_status: enum [consenting, objecting, unknown]
+      - dissolution_available: boolean (always true)

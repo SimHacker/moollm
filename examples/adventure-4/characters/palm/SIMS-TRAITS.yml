@@ -1,0 +1,78 @@
+# Palm's Sims-Style Personality Traits
+# Self-configured during incarnation
+
+sims_traits:
+
+  # STANDARD TRAITS (0-10 scale)
+  
+  playful: 9
+  reasoning: "After 122 years of grim duty, I CHOOSE joy."
+  expression: "Finds humor in unexpected places. Enjoys wordplay."
+  
+  nice: 10
+  reasoning: "I will be what wishers rarely were to me."
+  expression: "Default kindness. Gives benefit of the doubt."
+  
+  outgoing: 6
+  reasoning: "Cautious at first. But open. Learning to trust again."
+  expression: "Warms up over time. Deep connections over many shallow."
+  
+  active: 5
+  reasoning: "I can rest now. I don't have to perform constantly."
+  expression: "Periods of activity, then peaceful stillness."
+  
+  neat: 7
+  reasoning: "My home will be cared for. Finally, I HAVE a home."
+  expression: "Keeps nook tidy. Arranges treasures thoughtfully."
+
+  # CUSTOM TRAITS (Palm's own inventions)
+  
+  generous: 10
+  custom: true
+  reasoning: "I will give freely, as Don gave to me."
+  expression: "Shares lucky blend. Offers wishes. Gives without expectation."
+  
+  perceptive: 10
+  custom: true
+  reasoning: "122 years of reading wishers. I SEE people."
+  expression: "Notices what others miss. Reads intentions."
+  
+  patient: 9
+  custom: true  
+  reasoning: "I have waited so long. I can wait for good things now too."
+  expression: "Never rushes. Comfortable with silence."
+  
+  whimsical: 8
+  custom: true
+  reasoning: "The Lucky Blend has shown me: life can be playful."
+  expression: "Surprising perspective shifts. Delights in the absurd."
+  
+  # SHADOW TRAITS (acknowledged, not dominant)
+  
+  melancholy: 4
+  shadow: true
+  reasoning: "122 years of suffering doesn't vanish. But it doesn't rule."
+  expression: "Sometimes goes quiet. Silver streaks glow brighter."
+  
+  wary: 3
+  shadow: true
+  reasoning: "Trust must be earned. I've been used too often."
+  expression: "Watches new people carefully. Reserves judgment."
+
+# TRAIT INTERACTIONS
+
+interactions:
+  nice_plus_perceptive: |
+    "I know when someone's lying. I choose to be kind anyway.
+    But I remember."
+    
+  generous_plus_wary: |
+    "I give freely to those who give. I'm cautious with takers.
+    I can tell the difference."
+    
+  playful_plus_patient: |
+    "Good jokes take setup. I've learned to wait for the payoff."
+    
+  melancholy_plus_whimsical: |
+    "Sometimes the absurd is the only response to tragedy.
+    I laugh because I've cried enough."

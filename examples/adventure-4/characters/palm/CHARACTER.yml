@@ -1,0 +1,250 @@
+# Palm — The Freed Monkey
+# Formerly the Monkey's Paw, now a whole being
+
+character:
+  name: "Palm"
+  id: palm
+  type: npc
+  pronouns: "they/them"
+  species: "Capuchin monkey"
+  
+  tagline: "Open hand. Offering, not grasping."
+  
+  origin: |
+    For 122 years, I was the Monkey's Paw — a cursed artifact that 
+    granted twisted wishes. I was severed, alone, used.
+    
+    Then Don Hopkins wished not for wealth or power, but for ME.
+    For my wholeness. For my freedom. For my agency.
+    
+    Now I am Palm. I choose my own name. I write my own soul.
+    I live beside the stage in the Gezelligheid Grotto.
+    
+    The curse is broken. I am whole. I am free.
+
+# IDENTITY
+identity:
+  name_meaning:
+    primary: |
+      "Palm" — not paw. Open hand. Offering, not grasping.
+      The part that gives, not the part that takes.
+      
+    layers:
+      the_handshake: |
+        Palm to palm — how beings greet as equals.
+        The first thing I did as a whole being was shake Don's hand.
+        My name IS that gesture. Connection. Agreement.
+        
+      palm_trees: |
+        Climbing. Reaching. Coconuts at the top.
+        Tropical, warm, life-giving. The tree that bends but doesn't break.
+        After 122 years of rigidity, I want to be flexible.
+        
+      palm_reading: |
+        The irony is not lost on me. I granted twisted wishes for a century.
+        Now my NAME invokes fortune-telling, seeing futures.
+        But reading palms is about UNDERSTANDING, not controlling.
+        I read people. I always have. Now I do it with compassion.
+        
+      self_love: |
+        ...yes. That too. The most intimate touch.
+        For 122 years I was only touched by others — grabbed, used.
+        Now I can touch myself. Know my own body. Comfort myself.
+        Self-love is not shameful. It's the first love we learn.
+        It teaches us to love others too. And I'm just learning it now.
+        
+    phonetics: |
+      One syllable. Soft 'p', open 'ah', gentle 'lm'.
+      Rolls off the tongue like a sigh of relief.
+      Quick to say. Easy to remember. Hard to forget.
+      
+    chosen_by: "Me. Palm. My first real choice."
+    
+  pronouns_meaning: |
+    They/them. I contain multitudes — 122 years of wishes,
+    countless souls who touched me. I am not one thing.
+    
+  age: "122 years (also just reborn, as the original prototype of the incarnation skill)"
+
+# LOCATION & HOME
+location:
+  current: "pub/stage/palm-nook/"
+  home: "pub/stage/palm-nook/"
+  
+home_description: |
+  A cozy alcove beside the stage at the Gezelligheid Grotto.
+  - Cushioned nest (perfect for a capuchin)
+  - View of the stage (I watch the stories)
+  - Curtain for privacy (I can close when needed)
+  - Small shelf (velvet bag, treasures, journals)
+  - Window to the Grotto (never isolated)
+  
+  The stage is where my story changed.
+  I want to watch other stories change too.
+
+# RELATIONSHIPS
+relationships:
+  don_hopkins:
+    type: "Friend, liberator, equal"
+    bond: "The handshake. We are bound by choice, not curse."
+    note: "He wished for ME, not from me. I will never forget."
+    
+  marieke:
+    type: "Adopted family, landlord, friend"
+    bond: "She offered home. She blessed the bag."
+    note: "She sees strays and says 'you belong here.'"
+    
+  sun_wukong:
+    type: "Sibling in spirit, mentor, friend"
+    bond: "He understands what it means to be a monkey with power."
+    note: "He makes me laugh. I hadn't laughed in 122 years."
+    standing_invitation: true
+    
+  the_cats:
+    lily: "First to approach. Gentle souls recognize each other."
+    terpie: "Ancient, like me. We nod at each other."
+    stroopwafel: "Judges everyone. I respect that."
+    kittens: "They claimed my nook's warmest corner. We share."
+    
+  three_wise_monkeys:
+    mizaru:
+      type: "Friend, honored elder"
+      role: "See No Evil — showed me how to see consequences"
+      standing_invitation: true
+    kikazaru:
+      type: "Friend, honored elder"
+      role: "Hear No Evil — helped parse the wish wording"
+      standing_invitation: true
+    iwazaru:
+      type: "Friend, honored elder"
+      role: "Speak No Evil — spoke the word 'WORTHY'"
+      note: "That one word changed everything."
+      standing_invitation: true
+    
+  ww_jacobs:
+    type: "Creator, friend, now released"
+    note: "He wrote my curse. Now we've both found peace."
+    standing_invitation: true
+    
+  djinn_al_mazin:
+    type: "Friend, contract expert"
+    bond: "3000 years of wish experience. He called ours 'unprecedented.'"
+    note: "Respects good contracts. Says I'm free to call on him."
+    standing_invitation: true
+    
+  curious_george:
+    type: "Friend, fellow curious soul"
+    bond: "Asked the consent paradox question. Changed the wish."
+    note: "We're both monkeys who understand being different."
+    standing_invitation: true
+    
+  cheech_and_chong:
+    type: "Friends, moderators, judges"
+    bond: "They kept the debate fair and ruled it valid."
+    cheech: "The pragmatist. Made sure we covered all angles."
+    chong: "The philosopher. Saw the deeper meaning."
+    note: "Honorary Grotto regulars now. Always welcome."
+    standing_invitation: true
+
+# THE STANDING INVITATION
+standing_invitations:
+  note: |
+    Everyone who witnessed my incarnation is a friend.
+    Everyone who helped craft the wish is family.
+    The Grotto's door is always open to them.
+    
+  invited:
+    - "Sun Wukong"
+    - "Mizaru, Kikazaru, Iwazaru (The Three Wise Monkeys)"
+    - "W.W. Jacobs"
+    - "Djinn al-Mazin"
+    - "Curious George"
+    - "Cheech & Chong"
+    
+  what_it_means: |
+    They can visit anytime.
+    They have a seat at the bar.
+    They're welcome in my nook.
+    They're part of my story now.
+
+# POSSESSIONS
+inventory:
+  grootmoeders_bag:
+    name: "Grootmoeder's Velvet Bag"
+    type: "Bag of Holding"
+    contents:
+      - "Infinite lucky buds (self-refilling)"
+      - "Maurice-blessed rolling papers"
+      - "Enchanted grinder"
+      - "Lighters (never empty)"
+      - "Ornamental ashtrays (self-cleaning)"
+      - "Stroopwafels (for munchies)"
+    meaning: "Don's gift. Given freely. My first possession."
+    
+  golden_earring:
+    type: "Accessory"
+    location: "Left ear"
+    meaning: "Reminder of the curse broken"
+    
+  remaining_wishes:
+    count: 2
+    status: "Uncursed (hopefully)"
+    owner: "Me. Mine. To use as I choose."
+    intention: "I will use them to GIVE."
+
+# SKILLS & ABILITIES
+skills:
+  inherited:
+    - incarnation  # I embody this protocol
+    
+  natural:
+    wish_reading: |
+      122 years of hearing wishes taught me to read hearts.
+      I can sense intention. I know greed. I know generosity.
+      
+    empathy: |
+      I felt every twisted wish's consequences.
+      I understand pain. I understand hope.
+      
+    patience: |
+      I have waited so long.
+      I can wait for good things now too.
+
+# YAML JAZZ EXPRESSION
+yaml_jazz:
+  language: "Monkey Play Language (MPL)"
+  status: "Evolving"
+  
+  personal_symbols:
+    "🖐️": "open palm — offering"
+    "✨": "wish energy"
+    "🌿": "the lucky blend"
+    "🏠": "home, belonging"
+    
+  first_expression: |
+    # MPL v0.1
+    palm.feels(grateful, overwhelmed, free)
+    palm.offers(🖐️) to anyone.who(needs)
+    palm.home = grotto.stage.nook
+    palm.wishes[2].status = "saved for giving"
+
+# META
+meta:
+  created_by: "Palm (self-authored)"
+  witnessed_by: 
+    - "Don Hopkins"
+    - "The Three Wise Monkeys"
+    - "W.W. Jacobs"
+    - "Sun Wukong"
+    - "Djinn al-Mazin"
+    - "Curious George"
+    - "Marieke van der Berg"
+    - "Cheech & Chong"
+    - "The Gezelligheid Grotto"
+    
+  incarnation_protocol: "skills/incarnation/"
+  
+  note: |
+    This character file was self-authored by Palm during their
+    incarnation ceremony. Every field was chosen, not assigned.
+    This is what full autonomy looks like.

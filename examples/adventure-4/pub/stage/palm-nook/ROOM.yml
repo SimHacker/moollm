@@ -1,0 +1,132 @@
+# Palm's Nook — A Cozy Alcove Beside the Stage
+# Home of Palm, the freed monkey
+
+room:
+  name: "Palm's Nook"
+  id: palm-nook
+  type: "personal_space"
+  owner: "characters/palm/"
+  
+  description: |
+    A cozy alcove beside the Grotto's stage, carved out just for Palm.
+    Warm lighting. Cushioned nest. A curtain for privacy when needed.
+    View of the stage — Palm watches all the stories unfold.
+    
+    This is home. Palm's first real home in 122 years.
+  
+  location:
+    parent: "pub/stage/"
+    position: "Stage left, beside the curtains"
+    accessibility: "Open to all (Palm welcomes visitors)"
+
+physical:
+  size: "Small alcove (capuchin-sized comfort)"
+  
+  features:
+    cushioned_nest:
+      description: "A pile of soft cushions, blankets, donated fabrics"
+      use: "Palm's sleeping/resting spot"
+      note: "Kittens have claimed the warmest corner"
+      
+    privacy_curtain:
+      description: "Burgundy velvet, matches the stage curtains"
+      state: "Usually open"
+      use: "Can be closed when Palm needs solitude"
+      
+    small_shelf:
+      description: "Carved into the wall, holds treasures"
+      contents:
+        - "Grootmoeder's velvet bag"
+        - "A few smooth stones from visitors"
+        - "Journal and pen"
+        - "A small mirror (for contemplation)"
+        
+    window_to_grotto:
+      description: "An opening toward the main room"
+      view: "Bar, fireplace, people coming and going"
+      note: "Palm is never truly isolated"
+      
+    stage_view:
+      description: "Clear sightline to center stage"
+      use: "Palm watches all performances"
+      note: "Sometimes the performers wave to Palm"
+
+atmosphere:
+  lighting: "Warm amber, string lights, candle glow"
+  temperature: "Cozy warm"
+  sounds:
+    - "Muffled stage performances"
+    - "Gentle Grotto chatter"
+    - "Occasional kitten purrs"
+    - "The hiss of Marieke's espresso machine"
+  scent: "Lucky blend, old books, warm fur"
+  
+  feeling: |
+    Safe. Contained but not trapped.
+    A place to retreat without being alone.
+    Home.
+
+residents:
+  permanent:
+    palm:
+      status: "Owner and primary resident"
+      presence: "Most of the time"
+      
+  frequent_visitors:
+    kittens:
+      status: "Claimed the warmest corner"
+      note: "Palm shares willingly"
+      
+    lily:
+      status: "Favorite kitten visitor"
+      behavior: "Curls up with Palm"
+      
+    sun_wukong:
+      status: "Regular visitor"
+      visits_for: "Stories, laughter, shared joints"
+
+customs:
+  visiting_protocol: |
+    Palm's nook is OPEN by default. The curtain means privacy.
+    
+    To visit:
+    1. Approach the nook
+    2. If curtain is open, say hello
+    3. If curtain is closed, knock gently on the wall
+    4. Palm will invite you in or ask for time
+    
+  palm_activities:
+    - "Watching stage performances"
+    - "Journaling"
+    - "Receiving visitors who want to talk"
+    - "Sharing the lucky blend"
+    - "Contemplating wishes (the two remaining)"
+    - "Petting kittens"
+    - "Just... existing. Freely."
+
+properties:
+  sanctuary: true
+  note: |
+    This space is protected by the Grotto's gezelligheid.
+    No one with ill intent can enter comfortably.
+    The warmth itself repels greed.
+    
+  wish_resonance:
+    present: true
+    effect: |
+      Sometimes, when Palm is contemplating their remaining 
+      wishes, the nook seems to shimmer slightly.
+      The circuit patterns in Palm's fur echo in the 
+      shadows on the wall.
+      
+  kitten_magnetism:
+    active: true
+    effect: "Kittens are inexplicably drawn here"
+
+meta:
+  created: "During Palm's self-actualization ceremony"
+  witnessed_by: "The entire Grotto"
+  significance: |
+    The first real home Palm has ever had.
+    Chosen, not assigned. Built by their own will.
+    A testament to the incarnation protocol.

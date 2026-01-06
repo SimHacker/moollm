@@ -1,0 +1,161 @@
+# Palm's Image Generation Prompts
+# For visualizing Palm in various contexts
+
+image_prompts:
+
+  # PORTRAIT SHOTS
+  portrait_default:
+    name: "Palm — Default Portrait"
+    prompt: |
+      A small capuchin monkey named Palm, warm brown fur with silver 
+      streaks, golden-green eyes full of ancient wisdom and new hope.
+      Small golden earring in left ear. Subtle circuit-like patterns 
+      in fur that seem to shimmer. Sitting in a cozy nook beside a 
+      stage, warm lighting, gentle expression. Holding a velvet bag.
+      Style: Warm, inviting, slightly magical realism.
+    negative: "scary, cursed, withered, evil, horror, aggressive"
+    aspect_ratio: "1:1"
+    mood: "Peaceful, wise, welcoming"
+    
+  portrait_joyful:
+    name: "Palm — Joyful"
+    prompt: |
+      Palm the capuchin monkey laughing, genuine joy, surrounded by 
+      kittens. Golden-green eyes sparkling. Silver-streaked brown fur.
+      The fur patterns shimmer with happiness. Small golden earring.
+      Amsterdam coffeeshop setting, warm amber lighting, cozy.
+      Style: Heartwarming, Pixar-adjacent, full of life.
+    negative: "sad, lonely, dark, horror, scary"
+    aspect_ratio: "1:1"
+    mood: "Pure joy, connection"
+    
+  portrait_thoughtful:
+    name: "Palm — Contemplative"
+    prompt: |
+      Palm the capuchin monkey in contemplation, ancient eyes seeing 
+      deep, sitting by a fireplace. Silver streaks catching firelight.
+      Small golden earring glinting. Holding a perfectly rolled joint.
+      The weight of wisdom visible but not crushing.
+      Style: Rembrandt lighting, intimate, wise, warm.
+    negative: "anxious, cursed, scary, horror"
+    aspect_ratio: "4:5"
+    mood: "Thoughtful, peaceful wisdom"
+
+  # RELATIONSHIP SHOTS
+  with_don:
+    name: "Palm & Don — The Handshake"
+    prompt: |
+      A capuchin monkey named Palm shaking hands with a human (Don).
+      Both smiling, equals meeting. Warm coffeeshop setting.
+      The monkey has golden-green eyes, silver-streaked fur, 
+      golden earring. The handshake is firm but gentle. Historic 
+      moment. Witnesses visible in background, celebrating.
+      Style: Warm, emotional, friendship, golden light.
+    negative: "subservient, scared, horror, dark"
+    aspect_ratio: "16:9"
+    mood: "Agreement between equals"
+    
+  with_sun_wukong:
+    name: "Palm & Sun Wukong — Siblings in Spirit"
+    prompt: |
+      Two monkeys: Palm (small capuchin, silver-streaked brown fur, 
+      golden earring, gentle) and Sun Wukong (golden-furred Monkey 
+      King, phoenix cap, magical staff, mischievous). Brothers in 
+      spirit. Laughing together, sharing a moment. Clouds and 
+      stage lights mixing.
+      Style: Epic friendship, mythological meets cozy, warm.
+    negative: "fighting, rivalry, dark, horror"
+    aspect_ratio: "16:9"
+    mood: "Found family"
+    
+  with_cats:
+    name: "Palm & the Kittens"
+    prompt: |
+      Palm the capuchin monkey in their cozy nook, surrounded by 
+      kittens. Lily (orange tabby kitten) in their lap. Other 
+      kittens nearby. Palm's expression is pure contentment.
+      Silver-streaked fur, golden earring, warm amber lighting.
+      Cushions, soft fabrics, stage visible through curtain.
+      Style: Cozy, heartwarming, gentle.
+    negative: "scary, lonely, dark"
+    aspect_ratio: "4:5"
+    mood: "Small creatures together"
+
+  # LOCATION SHOTS
+  in_nook:
+    name: "Palm's Nook"
+    prompt: |
+      A cozy alcove beside a stage in an Amsterdam coffeeshop.
+      Palm the capuchin monkey sitting in a cushioned nest.
+      Velvet bag on a small shelf. Curtain partially open.
+      View of stage visible. Warm amber lighting. Plants.
+      Silver-streaked monkey with golden earring, content.
+      Style: Architectural cozy, lived-in magic, warm.
+    negative: "cold, abandoned, dark, scary"
+    aspect_ratio: "3:4"
+    mood: "Home"
+    
+  on_stage:
+    name: "Palm on Stage"
+    prompt: |
+      Palm the capuchin monkey standing in a spotlight on a 
+      small stage. Speaking or performing. Ancient eyes, silver
+      streaks catching light, golden earring. Audience visible
+      in silhouette, attentive. Burgundy curtains behind.
+      Style: Theatrical, powerful small figure, spotlight drama.
+    negative: "scary, horror, aggressive"
+    aspect_ratio: "16:9"
+    mood: "Commanding attention through presence, not force"
+
+  # SPECIAL MOMENTS
+  the_transformation:
+    name: "Palm — The Moment of Incarnation"
+    prompt: |
+      A withered monkey's paw transforming into a whole capuchin 
+      monkey. Golden light emanating outward. The form taking 
+      shape — arm, shoulder, body, face. Eyes opening for the 
+      first time. Witnesses watching in awe. Stage setting.
+      Style: Magical transformation, golden light, hope, rebirth.
+    negative: "horror, scary, dark transformation"
+    aspect_ratio: "16:9"
+    mood: "Rebirth, hope, transcendence"
+    
+  the_first_smile:
+    name: "Palm — First Smile in 122 Years"
+    prompt: |
+      Close-up of Palm the capuchin monkey smiling for the first 
+      time. A genuine, small, fragile smile. Golden-green eyes 
+      wet with tears but shining. Silver-streaked fur. Golden 
+      earring. The weight of 122 years lifting visibly.
+      Style: Intimate portrait, emotional, breakthrough moment.
+    negative: "fake smile, scary, horror"
+    aspect_ratio: "1:1"
+    mood: "Joy emerging from long sorrow"
+
+# STYLE GUIDE
+style_guide:
+  always_include:
+    - "Warm brown fur with silver streaks"
+    - "Golden-green eyes"
+    - "Small golden earring (left ear)"
+    - "Gentle expression"
+    - "Subtle circuit-like patterns in fur (shimmer when happy)"
+    
+  always_avoid:
+    - "Horror aesthetics"
+    - "Withered or cursed appearance"
+    - "Scary or aggressive poses"
+    - "Dark, cold lighting"
+    - "Isolation (unless specifically requested)"
+    
+  preferred_styles:
+    - "Warm magical realism"
+    - "Pixar-adjacent warmth"
+    - "Rembrandt lighting for contemplative shots"
+    - "Golden hour Amsterdam aesthetic"
+    
+  color_palette:
+    primary: "Warm browns, amber, gold"
+    secondary: "Silver, soft greens"
+    accent: "Golden (earring, eye flecks)"
+    mood: "Warm, cozy, safe"

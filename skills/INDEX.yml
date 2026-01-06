@@ -166,7 +166,19 @@ skills:
     entry: "SKILL.md"
     tags: ["character", "entity", "location", "relationships"]
     use_when: "Creating or managing any character (player, NPC, creature)"
-    related: ["persona", "room", "cat"]
+    related: ["persona", "room", "cat", "incarnation"]
+    
+  - name: "incarnation"
+    path: "skills/incarnation"
+    description: "Gold-standard character creation with full autonomy — author your own body and soul"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "INCARNATE"
+    tags: ["character", "creation", "autonomy", "ethics", "consent"]
+    use_when: "Creating characters with complete self-determination"
+    related: ["character", "persona", "mind-mirror", "representation-ethics"]
+    credits: "Don Hopkins, Three Wise Monkeys, W.W. Jacobs, Sun Wukong, Djinn al-Mazin, Curious George, Marieke van der Berg, Cheech & Chong"
+    origin: "The Great Monkey Paw Debate, Gezelligheid Grotto"
     
   - name: "persona"
     path: "skills/persona"
