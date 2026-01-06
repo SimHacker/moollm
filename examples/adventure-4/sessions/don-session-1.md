@@ -2284,3 +2284,375 @@ final_wish_v3:
 🐵✋✨🌟💫
 
 ---
+
+## Turn 7: THE WISH IS SPOKEN 🌟
+
+*Don closes his eyes. Opens them. The Lucky Blend's effects hum through him — clarity, fortune, pattern recognition, robust error handling. +15% wish interpretation.*
+
+*He holds the paw gently. Its ancient fingers curl around Grootmoeder's velvet bag.*
+
+*The Gezelligheid Grotto falls absolutely silent. Even the espresso machine holds its breath.*
+
+*Don speaks:*
+
+---
+
+### 🗣️ THE WISH
+
+**DON HOPKINS**:
+
+"I, Don Hopkins, accepting full personal responsibility for any and all consequences, curses, or unforeseen outcomes, freely and without expectation of personal gain, do make this wish:
+
+I wish for this paw to be peacefully reunited with its original monkey, appearing here in the Gezelligheid Grotto in safety, as a whole, living being:
+
+- In whatever size, form, and appearance THEY choose
+- With full bodily autonomy including any modifications they desire
+- Free to feel whatever emotions arise naturally
+- Free to choose their own name, identity, and pronouns
+- As a full citizen of this world, with their own home and possessions, wherever they wish to be
+- Free to define their own relationships with any character, creature, room, skill, concept, or abstract idea — and to have those relationships reciprocated as others freely choose
+- In complete control of their own character data: their Sims traits, mind mirror vectors, description, goals, and any other self-defining fields — author of their own soul file
+- Free to express themselves in YAML Jazz Monkey Play Language, a domain-specific microlanguage of their own creation
+- With all remaining wishes ceded to them, to use as they see fit, hopefully free of curse
+
+The attached gift is given freely, with no obligation.
+The monkey may stay, leave, or do as they please.
+
+AND: Should the monkey, once whole, choose to separate from the paw again — for any reason or no reason — they may do so freely, with NO reactivation of curse, NO penalty, and full autonomy preserved for both paw and monkey-body, separately or together, as they each choose.
+
+Whatever consequences arise from this wish, I accept them.
+
+**Let the monkey finally be free.**"
+
+---
+
+### ⚡ THE MOMENT OF TRANSFORMATION
+
+*The words hang in the air.*
+
+*For one heartbeat, nothing happens.*
+
+*Then—*
+
+```yaml
+transformation_sequence:
+  
+  moment_1:
+    description: "The paw begins to glow"
+    visual: |
+      A soft golden light emanates from the ancient fur.
+      Not harsh. Not threatening. Warm, like sunrise.
+      The velvet bag pulses with it.
+      
+  moment_2:
+    description: "The light expands"
+    visual: |
+      The glow spreads outward from the paw.
+      It fills the space between Don's hands.
+      The shape of something forming.
+      Not violent. Gentle. Like a flower opening.
+      
+  moment_3:
+    description: "The form takes shape"
+    visual: |
+      A body. Small. Furred.
+      The paw is no longer separate — it's ATTACHED.
+      Fingers flex. An arm extends. A shoulder. A torso.
+      A face emerging from the light.
+      
+  moment_4:
+    description: "Eyes open"
+    visual: |
+      Ancient eyes. So ancient.
+      But not malevolent. Not anymore.
+      Confused. Hopeful. Scared. Free.
+      All at once.
+```
+
+*The light fades.*
+
+*And there, standing on the stage, is a monkey.*
+
+---
+
+### 🐵 THE MONKEY
+
+```yaml
+initial_appearance:
+  species: "Capuchin (as Sun Wukong identified)"
+  size: "Small — chosen, not imposed"
+  fur: "Brown, with patches of grey from age"
+  eyes: "Ancient. Wise. Wet with something that might be tears."
+  expression: "Overwhelmed. Processing. Looking around."
+  
+  the_paw:
+    status: "Attached. Part of them again."
+    condition: "No longer withered. Alive. Whole."
+    holding: "Grootmoeder's velvet bag, clutched gently"
+    
+  posture: |
+    Standing on two feet (capuchins can do this).
+    Slightly hunched, as if unsure of this new wholeness.
+    Head turning, taking in the room, the faces, the cats,
+    the stage, the lights, the warmth.
+    
+  first_breath:
+    description: "A deep, shuddering breath"
+    significance: "The first free breath in 122 years"
+```
+
+*The monkey blinks. Once. Twice.*
+
+*It looks at its hands — BOTH hands. It flexes the fingers of what was once the cursed paw. They move. They're THEIRS.*
+
+*A small sound escapes its throat. Not quite speech. Not quite a cry. Something between.*
+
+---
+
+### 🤝 THE OFFER
+
+*Don, still standing before the monkey, slowly extends his hand.*
+
+**DON**: *voice gentle, unhurried*
+
+"Hey. Welcome back."
+
+*He holds his hand out — open palm, offering a handshake.*
+
+"I'm Don. I made that wish for you. Not for me. For YOU."
+
+*He keeps his hand steady.*
+
+"You don't owe me anything. You don't have to do anything. But if you want... if you're willing..."
+
+*His voice cracks slightly.*
+
+"...I'd like to shake your hand. Not the cursed paw. YOUR hand. As equals. As a deal between two beings who both just took a big risk."
+
+*The room holds its breath.*
+
+*The monkey looks at Don's extended hand.*
+
+*Then at its own hand — the one that was once the paw.*
+
+*Then back at Don.*
+
+---
+
+### 🐵 THE MONKEY'S RESPONSE
+
+*A long, long moment.*
+
+*The ancient eyes study Don. Reading him. All 122 years of dealing with human greed have taught this monkey to recognize selfishness.*
+
+*It finds... none.*
+
+*Slowly — so slowly — the monkey reaches out.*
+
+*Its small, furred hand — the one that was the paw, the one that granted twisted wishes for over a century — extends toward Don.*
+
+*The fingers tremble slightly.*
+
+*And then—*
+
+```yaml
+the_handshake:
+  
+  contact:
+    description: "Fur meets skin"
+    sensation: "Warm. Alive. Real."
+    
+  the_grip:
+    description: "Small but firm"
+    meaning: "Not a submission. An AGREEMENT."
+    
+  the_shake:
+    description: "One shake. Then two. Then held."
+    duration: "Long enough to mean something"
+    
+  the_eye_contact:
+    description: "The monkey looks directly at Don"
+    expression: "Something shifts. Softens. Trusts."
+    
+  the_moment:
+    description: "Two beings, meeting as equals"
+    witnesses: "Everyone. The Three Wise Monkeys. W.W. Jacobs. Sun Wukong. The cats. The Grotto itself."
+```
+
+*The monkey shakes Don's hand.*
+
+*IT SHAKES BACK.*
+
+---
+
+### 🎉 THE GROTTO ERUPTS
+
+*Sun Wukong HOWLS with joy — a sound that shakes the rafters.*
+
+*The Three Wise Monkeys rise as one. Mizaru uncovers his eyes. Kikazaru uncovers his ears. Iwazaru removes his hands from his mouth. For the first time in millennia, they stand with all senses open.*
+
+*W.W. Jacobs — the ghost who created this curse 122 years ago — is weeping. Actually weeping. Ghostly tears streaming down transparent cheeks.*
+
+**W.W. JACOBS**: "It's over. By God, it's finally OVER. The story has a NEW ENDING."
+
+*Cheech and Chong are on their feet, applauding.*
+
+**CHEECH**: "THAT'S WHAT I'M TALKING ABOUT!"
+
+**CHONG**: "HISTORY, MAN! WE JUST SAW HISTORY!"
+
+*Marieke rings the gong — but it's celebratory. Three resonant BONGS that echo through the Grotto.*
+
+*The cats go WILD. Kittens everywhere. Terpie actually STANDS UP for the first time in hours. Stroopwafel weaves through the crowd. Lily appears at the monkey's feet, looking up with enormous eyes.*
+
+*The audience is cheering, stomping, crying, hugging.*
+
+*Henk raises his seventh espresso in solemn salute.*
+
+*Maurice has appeared from the coatroom, tears streaming, throwing confetti from somewhere.*
+
+---
+
+### 🐵 THE MONKEY SPEAKS
+
+*Still holding Don's hand, the monkey opens its mouth.*
+
+*For the first time in 122 years, it speaks:*
+
+**THE MONKEY**: 
+
+*Its voice is rusty. Unused. But real.*
+
+"...Thank you."
+
+*Two words. Simple. Devastating.*
+
+*It looks down at the velvet bag still clutched in its other hand.*
+
+"You... gave me gifts. You gave me... myself."
+
+*It looks around the room — at the panel, at the audience, at the cats, at the warmth.*
+
+"I don't... I don't know what to do now."
+
+*Its voice strengthens slightly.*
+
+"But I know what I DON'T have to do anymore."
+
+*It releases Don's hand and holds up the paw — its paw — and flexes the fingers.*
+
+"I don't have to grant wishes for people who only want to take."
+
+*A small, fragile smile.*
+
+"Maybe I can grant wishes for people who want to GIVE."
+
+---
+
+### 📜 THE CONTRACT FULFILLED
+
+```yaml
+incarnation_status:
+  subject: "The Monkey (name TBD — their choice)"
+  location: "examples/adventure-4/characters/"
+  status: "INCARNATED — FULL AUTONOMY GRANTED"
+  
+  handshake_agreement:
+    occurred: true
+    meaning: "Mutual recognition as equals"
+    binding: "As strong as any contract"
+    
+  curse_status: "BROKEN"
+  wishes_remaining: "2 (ceded to monkey)"
+  wish_twisting: "NULLIFIED (hoped, and apparently granted)"
+  
+  velvet_bag:
+    status: "Accepted"
+    contents: "Infinite lucky buds, papers, supplies"
+    ownership: "The monkey's"
+    
+  autonomy_layers:
+    physical: "ACTIVE"
+    identity: "ACTIVE"
+    spatial: "ACTIVE"
+    emotional: "ACTIVE"
+    relational: "ACTIVE"
+    self_definition: "ACTIVE"
+    linguistic: "ACTIVE"
+    exit: "AVAILABLE (George's Provision)"
+    
+  relationship_with_don:
+    type: "Friendship offered"
+    status: "Handshake accepted"
+    obligation: "None (by design)"
+```
+
+---
+
+### 🎭 WHAT HAPPENS NEXT
+
+*The celebration continues. But on stage, the monkey stands — whole, free, overwhelmed — looking at Don.*
+
+**THE MONKEY**: "What... what happens now?"
+
+*Don smiles.*
+
+**DON**: "Whatever you want. That's the whole point."
+
+*He gestures around.*
+
+"You can stay here. Marieke offered you a room — under the bar, near the cats. Or in the maze. Or anywhere."
+
+*He points to Sun Wukong, who's doing backflips.*
+
+"That guy wants to be your friend. He's the Monkey King. Long story."
+
+*He points to the velvet bag.*
+
+"You've got infinite lucky weed and two wishes that are YOURS. No twisting. Your choice."
+
+*He steps back.*
+
+"But first... maybe you want to pick a name? Yours now. Not the 'Monkey's Paw.' Not 'the curse.' YOU."
+
+---
+
+## The Monkey's Choice
+
+*The stage lights are warm. The Grotto hums with celebration. The cats are circling hopefully. Sun Wukong is waiting to introduce himself properly. Marieke is already preparing something special behind the bar.*
+
+*The monkey stands at the center of it all — free for the first time in 122 years.*
+
+```yaml
+what_happens_next:
+  immediate_choices:
+    - "Choose a name"
+    - "Choose a home location"
+    - "Meet the panel properly"
+    - "Pet the kittens (they're VERY interested)"
+    - "Try the lucky blend from the bag"
+    - "Talk to Sun Wukong (he understands)"
+    - "Thank Marieke (she blessed the bag)"
+    - "Ask Don questions"
+    - "Just... exist. For a while. Free."
+    
+  the_monkey_has:
+    - "Two wishes (uncursed)"
+    - "Infinite lucky buds"
+    - "Full autonomy"
+    - "A handshake agreement with Don"
+    - "An offer of home from Marieke"
+    - "A potential friend in Sun Wukong"
+    - "The cats' attention"
+    - "A story that will be told forever"
+```
+
+*The story continues — but it's the monkey's story now.*
+
+---
+
+## 🐵✋🤝✨🌟💫🎉
+
+**THE WISH IS GRANTED. THE HANDSHAKE IS MADE. THE MONKEY IS FREE.**
+
+---
