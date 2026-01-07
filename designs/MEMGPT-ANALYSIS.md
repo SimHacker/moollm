@@ -142,7 +142,7 @@ MOOLLM uses explicit context management files:
 | **Paging** | Function calls | File read/write |
 | **Eviction** | Queue manager auto-evicts | LLM decides what to read |
 | **Summarization** | Recursive summary in queue | Metadata sidecar files |
-| **Retrieval** | Vector search (pgvector) | grep, codebase_search |
+| **Retrieval** | Vector search (pgvector) | grep, codebase_search, turbopuffer |
 
 ### Self-Directed Memory
 
@@ -220,7 +220,7 @@ User: "Remember when we talked about my trip to Hawaii?"
 MemGPT: *searches recall_storage* "Yes! You mentioned getting a shell necklace."
 ```
 
-**MOOLLM equivalent:** Session logs + metadata sidecars + guest book entries
+**MOOLLM equivalent:** Session logs + metadata sidecars + guest book entries + vector search
 
 ### 2. Document Analysis (100k+ tokens)
 
@@ -234,7 +234,7 @@ archival_storage.search("nobel physics", page=2)
 # Continues paging until answer found
 ```
 
-**MOOLLM equivalent:** Metadata sidecars + strategic file reading
+**MOOLLM equivalent:** Metadata sidecars + strategic file reading + vector search
 
 ### 3. Nested Retrieval (Multi-hop)
 
