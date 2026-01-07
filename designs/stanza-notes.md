@@ -222,7 +222,9 @@ Eight voices with two stoner moderators produced:
 - A better wish than any individual conceived
 - Edge cases addressed before they became problems
 - A reusable protocol for future character creation
-- An actual monkey named Palm who writes philosophical essays
+- An actual monkey named Palm who writes philosophical essays:
+  - [On Being Palm](../examples/adventure-4/pub/stage/palm-nook/study/palm-on-being-palm.md) -- what it's like to be an AI character
+  - [Tribute to Tognazzini](../examples/adventure-4/pub/stage/palm-nook/study/tribute-to-tognazzini.md) -- the Infinite Monkey Theorem
 
 **One opinion is the wrong number.** Rails teaches us that opinions are valuable. MOOLLM teaches us that *many* opinions, in structured debate, are more valuable still.
 
