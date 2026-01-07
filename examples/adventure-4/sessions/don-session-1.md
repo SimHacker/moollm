@@ -8,6 +8,70 @@
 
 ---
 
+## ⭐ Session Highlights & Index
+
+### 📖 Palm's Essays (External)
+
+| Essay | Description |
+|-------|-------------|
+| [**Palm on Being Palm**](../pub/stage/palm-nook/study/palm-on-being-palm.md) | Philosophy of LLMs, MOOLLM, and consciousness from the monkey's perspective |
+| [**Tribute to Tognazzini**](../pub/stage/palm-nook/study/tribute-to-tognazzini.md) | The Infinite Monkey Theorem — history, philosophy, Apple ][ demo |
+
+### 🏠 Key Locations (External)
+
+| Location | Description |
+|----------|-------------|
+| [Palm's Nook](../pub/stage/palm-nook/) | The monkey's home on the stage |
+| [Palm's Study](../pub/stage/palm-nook/study/) | Where the essays live |
+| [Palm's Character](../characters/palm/) | Full character directory |
+| [Biscuit's Character](../characters/biscuit/) | The adopted dog |
+
+### 📚 Session Index (Internal Links)
+
+**Day 1 — The Wish**
+- [🌿 LOOK AROUND](#-look-around) — First impressions of the Grotto
+- [Turn 1: Talk to Marieke](#turn-1-talk-to-marieke-about-lucky-strains) — Lucky strains
+- [Turn 2: The Lucky Blend](#turn-2-the-lucky-blend--a-sacrifice-to-fortune) — Sacrifice to fortune
+- [Turn 3: The Wish Workshop](#turn-3-the-wish-workshop--strategic-planning) — Strategic planning
+- [Turn 4: The Great Monkey Paw Debate](#turn-4-the-great-monkey-paw-debate-) — Adversarial committee
+- [Turn 5: Full Autonomy Protocol](#turn-5-dons-amendments--full-autonomy-protocol) — The amendments
+- [Turn 6: Acceptance of Risk](#turn-6-the-acceptance-of-risk) — Don takes responsibility
+- [Turn 7: THE WISH IS SPOKEN](#turn-7-the-wish-is-spoken-) — 🌟 Palm's incarnation
+- [Turn 8: THE SEEING](#turn-8-the-seeing--collective-witness-individual-becoming-) — Collective witness
+
+**Day 2 — The 33-Turn Fluxx Marathon**
+- [🎰 33 Turns of Pure Gezelligheid](#33-turns-of-pure-gezelligheid) — Speed of Light demo
+- [🌙 The Evening Begins](#-the-evening-begins) — Andy & Kristin Looney arrive
+- [📊 Simulation Statistics](#-simulation-statistics) — The numbers
+- [🚀 Warp Drive Commentary](#-warp-drive-commentary) — Analysis
+- [🎭 Palm's First Song](#-palms-first-song-preserved) — Musical debut
+- [The Gift Giving](#the-gift-giving) — Presents for Palm
+- [🏠 Palm Organizes](#-palm-organizes-room-creation) — Room creation
+- [The Extended Godfamily](#the-extended-godfamily) — Adoption ceremony
+
+**Day 3 — Mind Mirror & Essays**
+- [Meeting Maurice](#meeting-maurice) — The magic mirror
+- [The Mind Mirror Session](#the-mind-mirror-session) — Sims traits & vectors
+- [The Infinite Typewriters Awaken](#the-infinite-typewriters-awaken) — Dasher philosophy
+- [Essay 1: One Monkey, Infinite Typewriters](#essay-1-one-monkey-infinite-typewriters) — [→ Full essay](../pub/stage/palm-nook/study/palm-on-being-palm.md)
+- [Essay 2: Tribute to Tognazzini](#essay-2-tribute-to-tognazzini) — [→ Full essay](../pub/stage/palm-nook/study/tribute-to-tognazzini.md)
+
+**Day 4 — Biscuit's Adventure**
+- [Leaving the Pub](#leaving-the-pub) — Into the maze with Biscuit
+- [Into the Maze](#into-the-maze) — Territorial marking
+- [The Return](#the-return) — Home again
+
+**Day 5 — The Midnight Prowl**
+- [Ten Cats, One Garden](#ten-cats-one-garden-infinite-independence) — Setup
+- [TURN 1-21](#turn-1--the-departure-begins) — Full 21-turn cat simulation
+- [Simulation Summary](#simulation-summary-the-midnight-prowl) — Stats & analysis
+- [Speed of Light Stats](#speed-of-light-simulation-stats) — What it proves
+
+**Appendix**
+- [🚀⚡ The Empathic Suite](#-the-empathic-suite--leaning-into-llm-strengths) — Technical summary
+
+---
+
 ## 🌿 LOOK AROUND
 
 You push open the heavy wooden door and step into the Gezelligheid Grotto.
