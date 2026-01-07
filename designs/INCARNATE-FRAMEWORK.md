@@ -6,17 +6,15 @@
 
 ## The Word
 
-**Incarnate** (verb): To give bodily form to; to embody; to make real.
+**Eval Incarnate** = `eval()` made real.
 
-**Incarnate** (adjective): Embodied in flesh; given a bodily form.
+- **Eval** as in JavaScript's `eval()` — code that executes
+- **Incarnate** as in "given form" — materialized in the filesystem
+- Skills aren't documentation. They're **programs the LLM runs**.
 
-| Common Usage | MOOLLM Usage |
-|--------------|--------------|
-| Evil incarnate | **Eval incarnate** — evaluation made executable |
-| Love incarnate | **Skill incarnate** — documentation that does things |
-| Virtue incarnate | **Character incarnate** — Palm, born from a wish |
+The pun: "Evil incarnate" → "Eval incarnate". Bad connotations, good outcomes.
 
-The word captures everything that makes MOOLLM different:
+**What "incarnate" means technically:**
 - Skills that **take form** (instantiation)
 - Documentation that **lives** (persistence)
 - Prototypes that **become** instances (delegation)
