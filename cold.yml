@@ -96,7 +96,7 @@ cold:
 #   3. When context budget exceeded:
 #      - Summarize largest low-priority files
 #      - Move originals to cold.yml
-#      - Add summaries to working_set.yml
+#      - Add summaries to working-set.yml
 #   4. Maintain recovery hints for quick reload
 #
 # Cursor driver:
@@ -124,11 +124,11 @@ cold:
 #
 #   - hot.yml: What SHOULD be in context
 #   - cold.yml: What WAS in context and why it left
-#   - working_set.yml: What IS in context right now
+#   - working-set.yml: What IS in context right now
 #
 # Even if Cursor handles this automatically, we can
 # reconstruct the causal chain for debugging:
 #   "Why doesn't it know about X?"
 #   → Check cold.yml: Was it summarized? When?
 #   → Check hot.yml: Was it ever marked important?
-#   → Check working_set.yml: Is it actually loaded?
+#   → Check working-set.yml: Is it actually loaded?

@@ -239,10 +239,10 @@ Reimplementation of Unix `.plan` files:
 
 Each user's agent responds to plan queries. Shared state without central database.
 
-**MOOLLM equivalent:** `working_set.yml` as plan manifest.
+**MOOLLM equivalent:** `working-set.yml` as plan manifest.
 
 ```yaml
-# .agent/sessions/current/working_set.yml
+# .agent/sessions/current/working-set.yml
 working_set:
   plans:
     - owner: "alice"
@@ -397,11 +397,11 @@ Chuck's warnings:
 |----------------|----------------------|------|
 | Swarms | Rooms + Soul Chat | [skills/room/](../skills/room/), [skills/soul-chat/](../skills/soul-chat/) |
 | Plain text tools | WHY-REQUIRED + POSTEL | [kernel/tool-calling-protocol.md](../kernel/tool-calling-protocol.md) |
-| LLM as variable | hot.yml / working_set.yml | [kernel/memory-management-protocol.md](../kernel/memory-management-protocol.md) |
+| LLM as variable | hot.yml / working-set.yml | [kernel/memory-management-protocol.md](../kernel/memory-management-protocol.md) |
 | Multi-agent vote | SPEED-OF-LIGHT consensus | [PROTOCOLS.yml#SPEED-OF-LIGHT](../PROTOCOLS.yml) |
 | Self-modify pipeline | YAML-JAZZ + session-log | [kernel/event-logging-protocol.md](../kernel/event-logging-protocol.md) |
 | Mini-apps | ROOM-AS-FUNCTION | [skills/room/SKILL.md](../skills/room/SKILL.md) |
-| Plan files | working_set.yml | [kernel/context-assembly-protocol.md](../kernel/context-assembly-protocol.md) |
+| Plan files | working-set.yml | [kernel/context-assembly-protocol.md](../kernel/context-assembly-protocol.md) |
 | JSON apps | Skill prototypes | [skills/skill-instantiation-protocol.md](../skills/skill-instantiation-protocol.md) |
 | No MCP | Tool protocol + POSTEL | [PROTOCOLS.yml#POSTEL](../PROTOCOLS.yml) |
 | Visual editor | (future) Rooms as block diagrams | TBD |

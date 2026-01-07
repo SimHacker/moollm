@@ -80,7 +80,7 @@ orchestrator provides.
 |---------|---------------|------|
 | User-visible output | `output.md` | APPEND-ONLY |
 | Session log | `session-log.md` | APPEND-ONLY |
-| Working context | `working_set.yml` | READ/WRITE |
+| Working context | `working-set.yml` | READ/WRITE |
 | Cache hints | `hot.yml`, `cold.yml` | READ/WRITE |
 | Summaries | `summaries/` | READ/WRITE |
 

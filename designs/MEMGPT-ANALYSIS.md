@@ -126,7 +126,7 @@ MOOLLM uses explicit context management files:
 
 | File | Purpose | MemGPT Analog |
 |------|---------|---------------|
-| `working_set.yml` | Current context manifest | Working Context |
+| `working-set.yml` | Current context manifest | Working Context |
 | `hot.yml` | Files needed soon | Prefetch hints |
 | `cold.yml` | Files paged out (summarized) | Archival Storage |
 

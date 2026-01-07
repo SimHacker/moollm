@@ -2044,7 +2044,7 @@ Use a single root like .agent/ (keep it separate from project source).
       chat.md
       output.md
       events.jsonl
-      working_set.yml
+      working-set.yml
       hot.yml
       cold.yml
       plans/
@@ -2087,7 +2087,7 @@ chat.md — full conversational transcript (can be verbose)
 
 summaries/*.md — condensed, curated memory
 
-working_set.yml — the exact list of files that are “in context” right now
+working-set.yml — the exact list of files that are “in context” right now
 
 hot.yml / cold.yml — cache hints and GC hints from the model
 
@@ -2151,7 +2151,7 @@ This is your “sticky note layer.”
 
 5) Working set as a first-class artifact
 
-Make working_set.yml a declarative manifest:
+Make working-set.yml a declarative manifest:
 
 context_budget_tokens: 28000
 files:
@@ -2177,7 +2177,7 @@ Let the model update:
 
 hot.yml and cold.yml
 
-and/or bump priority in working_set.yml
+and/or bump priority in working-set.yml
 
 …but the orchestrator still enforces budget and can override.
 
@@ -2262,7 +2262,7 @@ Make the orchestrator always inject a small, stable “boot header” that says:
 
 “The constitution is at .agent/constitution.md”
 
-“The working set is at .agent/.../working_set.yml”
+“The working set is at .agent/.../working-set.yml”
 
 “Write user-visible output by appending to .agent/.../output.md”
 
@@ -2290,7 +2290,7 @@ Session: .agent/sessions/<id>/
 
 Output sink: output.md (append-only)
 
-Working set manifest: working_set.yml
+Working set manifest: working-set.yml
 
 Cache hints: hot.yml, cold.yml
 
@@ -2512,7 +2512,7 @@ Sidecars: X.meta.yml next to any file X
 
 Hot/cold: .agent/session/hot.yml and cold.yml
 
-Working set: .agent/session/working_set.yml
+Working set: .agent/session/working-set.yml
 
 Section 2 — Naming rules
 
@@ -2585,11 +2585,11 @@ You can still keep it “dumb” by requiring a manifest:
 
 Protocol rule
 
-The model maintains working_set.yml.
+The model maintains working-set.yml.
 
 Orchestrator rule
 
-The orchestrator injects the top K files listed in working_set.yml until the context budget is full.
+The orchestrator injects the top K files listed in working-set.yml until the context budget is full.
 
 That’s minimal. The orchestrator is just a loader.
 
@@ -2642,7 +2642,7 @@ And optionally add a lightweight “lint” tool or a file-based checklist:
 
  cold.yml exists
 
- working_set.yml exists
+ working-set.yml exists
 
  all new files have .meta.yml
 
@@ -2656,7 +2656,7 @@ a protocol document
 
 a directory template
 
-some starter files (output.md, working_set.yml, hot.yml, etc.)
+some starter files (output.md, working-set.yml, hot.yml, etc.)
 
 optional examples
 
@@ -2694,7 +2694,7 @@ Protocol spec (constitution.md)
 
 Session template (directories + empty canonical files)
 
-Manifest-driven context (working_set.yml)
+Manifest-driven context (working-set.yml)
 
 Optional indexing (vector store over everything)
 
@@ -2702,7 +2702,7 @@ Model-driven GC (hot/cold + summaries)
 
 That’s the “DNA”.
 
-If you want, I can write a concrete protocol you can drop into a repo (a ready-to-use constitution.md plus initial working_set.yml, hot.yml, cold.yml, and output.md templates) — tuned for your SvelteKit “interactive markdown directives” idea and with your mandatory why parameter baked into the tool contract.
+If you want, I can write a concrete protocol you can drop into a repo (a ready-to-use constitution.md plus initial working-set.yml, hot.yml, cold.yml, and output.md templates) — tuned for your SvelteKit “interactive markdown directives” idea and with your mandatory why parameter baked into the tool contract.
 
 what have we discussed before about memory palaces, mind maps, adventure maps, represented as directory trees of md, yml, json, etc files? And how does this fit in. Should it be "userland" instructions (skills) instead of built into the orchestrator? What tools and skills and services can the orchestrator provide to support this "llm operating system" to reduce the llm's cognitive load?
 
@@ -2879,7 +2879,7 @@ These reduce cognitive load without imposing semantics.
 
 1. Context assembly service
 
-Reads working_set.yml
+Reads working-set.yml
 
 Assembles prompt context
 
@@ -3200,7 +3200,7 @@ naming rules
 
 “hot/cold” conventions
 
-“working_set.yml” conventions
+“working-set.yml” conventions
 
 If the model has file read/write tools, it can follow these rules and “run” the skill.
 
@@ -3267,7 +3267,7 @@ sandboxed execution (terminal/python/js)
 
 Kernel-level services
 
-context assembler (reads working_set.yml, packs prompt within token budget)
+context assembler (reads working-set.yml, packs prompt within token budget)
 
 event logger (events.jsonl append-only)
 
@@ -3366,7 +3366,7 @@ Decision logs
 
 Protocol-driven UIs
 
-Your hot.yml / cold.yml / working_set.yml scheme
+Your hot.yml / cold.yml / working-set.yml scheme
 
 Tools required:
 
@@ -3581,7 +3581,7 @@ But orchestrators often provide mechanical helpers that skills rely on indirectl
 
 session scaffolding
 
-context assembly from working_set.yml
+context assembly from working-set.yml
 
 indexing
 
@@ -3667,7 +3667,7 @@ And optionally add a lightweight “lint” tool or a file-based checklist:
 
  cold.yml exists
 
- working_set.yml exists
+ working-set.yml exists
 
  all new files have .meta.yml
 
@@ -3752,7 +3752,7 @@ So the protocol defines homeostatic targets, like:
 
 The session has an output sink. (output.md)
 
-There exists a working set manifest. (working_set.yml)
+There exists a working set manifest. (working-set.yml)
 
 Hot/cold advice exists and is recent enough.
 
@@ -3790,7 +3790,7 @@ If missing, create:
 
 .agent/session/events.jsonl (append-only)
 
-.agent/session/working_set.yml (empty manifest)
+.agent/session/working-set.yml (empty manifest)
 
 .agent/session/hot.yml and cold.yml (empty)
 
@@ -4015,7 +4015,7 @@ Protocol: SHSB-FSP v0.1
 
 Membrane root: .agent/
 
-Canonical files: output.md, events.jsonl, working_set.yml, hot.yml, cold.yml, protocol_checklist.md
+Canonical files: output.md, events.jsonl, working-set.yml, hot.yml, cold.yml, protocol_checklist.md
 
 Invariant style: best-effort; violations trigger repair, not failure
 
@@ -4057,7 +4057,7 @@ Think of a skill as a prototype directory:
   ui_embed/
     SKILL.md
     template/
-      working_set.yml
+      working-set.yml
       output.md
       checklist.md
       prompts/
@@ -4075,7 +4075,7 @@ When you “run” the skill, you instantiate it into a session workspace:
   task.yml  (filled from template)
   plan.md
   output.md
-  working_set.yml
+  working-set.yml
   scratch/
   artifacts/
 
@@ -4130,7 +4130,7 @@ Example:
     task.yml.tmpl
     plan.md.tmpl
     output.md
-    working_set.yml
+    working-set.yml
 
 Instance naming convention
 .agent/sessions/<sid>/instances/<skill_name>-<nnnn>/
@@ -4148,7 +4148,7 @@ Render .tmpl files → concrete files
 
 Write a boot.log (“instantiated skill X, version Y, timestamp”)
 
-Add instance root to working_set.yml (pin it hot)
+Add instance root to working-set.yml (pin it hot)
 
 All of that can be done with file tools only.
 
@@ -4379,7 +4379,7 @@ a SIP.md protocol doc,
 
 a .skills/INDEX.yml,
 
-and one concrete skill prototype (e.g., ui_embed) with templates for TASK.yml, working_set.yml, hot/cold manifests, and your mandatory why tool-call style — designed specifically for your SvelteKit interactive-markup app.
+and one concrete skill prototype (e.g., ui_embed) with templates for TASK.yml, working-set.yml, hot/cold manifests, and your mandatory why tool-call style — designed specifically for your SvelteKit interactive-markup app.
 
 how well can llms grasp self-like multiple inheritance hieriches defined by multiple intertwingled files.
 
@@ -4556,7 +4556,7 @@ Example:
 
 instance/
   TASK.yml
-  working_set.yml
+  working-set.yml
   overrides/
     render_protocol.md
 
@@ -5004,7 +5004,7 @@ No “magic filenames” beyond those listed here
 
 DOP plays well with a “working set manifest” and hot/cold hints.
 
-9.1 working_set.yml
+9.1 working-set.yml
 
 An instance can maintain a working set of files to inject into prompts.
 

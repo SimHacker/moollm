@@ -93,18 +93,20 @@ The LLM creates the files, connects the exits, writes the descriptions. Looking 
 
 ---
 
-## 📂 The Three Adventures
+## 📂 The Four Adventure Examples
 
 | Adventure | Purpose | Status |
 |-----------|---------|--------|
-| [adventure‑1/](./examples/adventure-1/) | **World Building** — Watch a world emerge from chat prompts. README documents creation. | ✅ Template |
-| [adventure‑2/](./examples/adventure-2/) | **Legendary Playthrough** — Full transcript, playing and evolving a world, emergent mechanics, epic moments. | ✅ Completed |
-| [adventure‑3/](./examples/adventure-3/) | **Fresh Start** — Rich advanced mechanics, crafting, npcs, clean slate, ready to play. Clone this one! | 🎮 **PLAY ME** |
+| [adventure‑1/](./examples/adventure-1/) | **The Seed** — Minimal starting world. Clone this for a clean start. | 🌱 Seed |
+| [adventure‑2/](./examples/adventure-2/) | **Legendary Playthrough** — Captain Ashford's epic journey. Full transcript, emergent mechanics. | ✅ Completed |
+| [adventure‑3/](./examples/adventure-3/) | **Rich Template** — Advanced mechanics, NPCs, pub, crafting. Clone this one! | 🎮 **PLAY ME** |
+| [adventure‑4/](./examples/adventure-4/) | **Don's Run** — Incarnation protocol, Palm the monkey, 33-turn Fluxx, Speed of Light demos. | 🔥 Active |
 
 **The Progression:**
-- **adventure‑1** created the world (documented)
-- **adventure‑2** played and extended it (transcript)
-- **adventure‑3** reset with improvements (template)
+- **adventure‑1** — the seed world (minimal, documented creation)
+- **adventure‑2** — played and extended it (Captain Ashford's transcript)
+- **adventure‑3** — reset with rich improvements (template)
+- **adventure‑4** — Don Hopkins' run with major innovations (incarnation, speed-of-light)
 
 **To preserve adventure‑3 as a template:**
 

@@ -43,7 +43,7 @@ These files SHOULD exist in every session:
 |------|---------|------|
 | `output.md` | User-visible results | APPEND-ONLY |
 | `session-log.md` | Audit log | APPEND-ONLY |
-| `working_set.yml` | Context manifest | READ/WRITE |
+| `working-set.yml` | Context manifest | READ/WRITE |
 | `hot.yml` | Cache keep hints | READ/WRITE |
 | `cold.yml` | Cache evict hints | READ/WRITE |
 | `protocol_checklist.md` | Health status | READ/WRITE |
@@ -53,7 +53,7 @@ These files SHOULD exist in every session:
 If missing, create minimal versions:
 
 ```yaml
-# working_set.yml (minimal)
+# working-set.yml (minimal)
 protocol: CONTEXT-ASSEMBLY/0.1
 budget:
   max_tokens: 28000
@@ -90,7 +90,7 @@ actions:
   - check: "session-log.md exists"
     if_missing: "create with session_start event"
     
-  - check: "working_set.yml exists"
+  - check: "working-set.yml exists"
     if_missing: "create minimal manifest"
     
   - check: "hot.yml exists"
@@ -125,7 +125,7 @@ actions:
 demon: heat_balancer
 trigger: context_budget > 80% | explicit
 actions:
-  - scan: "files in working_set.yml"
+  - scan: "files in working-set.yml"
     identify: "not touched in 5+ turns"
     suggest: "add to cold.yml"
     
@@ -164,7 +164,7 @@ Last checked: 2025-12-30T12:30:00Z
 ## Canonical Files
 - [x] output.md exists
 - [x] session-log.md exists
-- [x] working_set.yml exists
+- [x] working-set.yml exists
 - [x] hot.yml exists
 - [x] cold.yml exists
 
@@ -232,11 +232,11 @@ recovery:
 
 ```yaml
 error: PARSE_ERROR
-file: "working_set.yml"
+file: "working-set.yml"
 
 recovery:
   1. Log error with corrupted content
-  2. Rename corrupted file: working_set.yml.corrupted
+  2. Rename corrupted file: working-set.yml.corrupted
   3. Create fresh minimal version
   4. Continue with degraded state
   5. Notify user of recovery action
@@ -273,7 +273,7 @@ The system:
 1. Creates `sessions/<new-id>/`
 2. Creates all canonical files
 3. Writes boot event to `session-log.md`
-4. Sets up `working_set.yml` with constitution
+4. Sets up `working-set.yml` with constitution
 5. Ready to operate
 
 ### Bootstrap Sequence
@@ -283,7 +283,7 @@ bootstrap:
   - mkdir: ".agent/sessions/{session_id}/"
   - create: "output.md"          # minimal stub
   - create: "session-log.md"      # with session_start header
-  - create: "working_set.yml"    # with constitution only
+  - create: "working-set.yml"    # with constitution only
   - create: "hot.yml"            # empty
   - create: "cold.yml"           # empty
   - create: "protocol_checklist.md"  # initial check

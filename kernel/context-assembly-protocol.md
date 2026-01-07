@@ -16,7 +16,7 @@ dynamic state — fitting everything into the token budget.
 ### Schema
 
 ```yaml
-# working_set.yml
+# working-set.yml
 protocol: CONTEXT-ASSEMBLY/0.1
 budget:
   max_tokens: 28000
@@ -185,7 +185,7 @@ Files are injected based on their role:
 
 ### Model-Initiated Updates
 
-The model can update `working_set.yml`:
+The model can update `working-set.yml`:
 
 ```yaml
 # Add file to working set
@@ -225,7 +225,7 @@ Root: .agent/
 Constitution: .agent/constitution.md (v0.1, checksum: abc123)
 Session: .agent/sessions/2025-12-30T12-30-00Z/
 Output sink: output.md (append-only)
-Working set: working_set.yml
+Working set: working-set.yml
 Cache hints: hot.yml, cold.yml
 Tool contract: All calls require `why`
 ```
@@ -244,7 +244,7 @@ This lets the model orient without reading everything.
 | Conversation history | 2000-5000 tokens |
 | Reserved for response | 3000-4000 tokens |
 
-**Total budget varies by model.** Adjust `working_set.yml` accordingly.
+**Total budget varies by model.** Adjust `working-set.yml` accordingly.
 
 ---
 

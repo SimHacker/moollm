@@ -101,7 +101,7 @@ New prototype skills in `skills/bartender/` and `skills/budtender/`:
 - Completed `FOO_BAR` → `FOO-BAR` (kebab-case) conversion
 - Merged `menu-strains.yml` into `buds.yml`
 - Updated bartender.yml to reference skills
-- Added VM metadata to `working_set.yml`
+- Added VM metadata to `working-set.yml`
 
 ## Design Principles Demonstrated
 

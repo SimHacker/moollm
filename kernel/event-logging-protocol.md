@@ -227,7 +227,7 @@ type: bootstrap
 files_created:
   - output.md
   - session-log.md
-  - working_set.yml
+  - working-set.yml
 ```
 
 ### User Events

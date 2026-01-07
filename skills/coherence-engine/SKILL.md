@@ -136,7 +136,7 @@ When inconsistencies are found:
 | Not This | But This |
 |----------|----------|
 | Hallucinating state | Reading actual files |
-| Hidden memory | Explicit working_set.yml |
+| Hidden memory | Explicit working-set.yml |
 | Autonomous agent | Tool-using reasoner |
 | Black box | Transparent transcription |
 

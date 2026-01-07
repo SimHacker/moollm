@@ -23,7 +23,7 @@ structure:
             description: "Active session (symlink or actual)"
             required_files:
               - session-log.md      # Append-only audit trail
-              - working_set.yml     # What's in context
+              - working-set.yml     # What's in context
             optional_files:
               - hot.yml             # Keep these loaded
               - cold.yml            # These can be evicted
@@ -98,7 +98,7 @@ files:
         why: "Check recursive descent"
       ```
       
-  working_set.yml:
+  working-set.yml:
     mode: READ/WRITE
     format: yaml
     schema: "moollm/working-set"
@@ -158,7 +158,7 @@ bootstrap:
   create:
     - ".agent/sessions/current/"
     - ".agent/sessions/current/session-log.md"
-    - ".agent/sessions/current/working_set.yml"
+    - ".agent/sessions/current/working-set.yml"
   log: |
     ## Session Start — Bootstrap
     
@@ -169,5 +169,5 @@ bootstrap:
     created:
       - .agent/sessions/current/
       - .agent/sessions/current/session-log.md
-      - .agent/sessions/current/working_set.yml
+      - .agent/sessions/current/working-set.yml
     ```

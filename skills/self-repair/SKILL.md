@@ -48,7 +48,7 @@ Self-repair is the immune system. It monitors everything.
 ```mermaid
 graph LR
     SR[🔧 self-repair] -->|monitors| SL[📜 session-log]
-    SR -->|monitors| WS[working_set.yml]
+    SR -->|monitors| WS[working-set.yml]
     SR -->|creates| HOT[hot.yml / cold.yml]
     SR -->|repairs| FILES[missing files]
     

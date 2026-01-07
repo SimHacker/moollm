@@ -31,7 +31,7 @@ This mirrors function calls:
     template/             # Copied to instance on instantiation
       TASK.yml.tmpl       # Task definition (template)
       CHECKLIST.md        # Steps to follow
-      working_set.yml     # Initial context manifest
+      working-set.yml     # Initial context manifest
       overrides/          # Instance-specific files go here
       state/              # Runtime state
       

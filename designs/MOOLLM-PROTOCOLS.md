@@ -999,7 +999,7 @@ Tools are schemas the LLM can invoke. Key features:
 ### K-3: Context Assembly Protocol
 **"Building the LLM's Reality"**
 
-The `working_set.yml` manifest controls what's in context:
+The `working-set.yml` manifest controls what's in context:
 - Priority-based file inclusion
 - Budget management with truncation strategies
 - Role-based injection (system/developer/user/context)

@@ -23,7 +23,7 @@ paths:
   session_root: ".agent/"
   output_sink: ".agent/output.md"
   event_log: ".agent/session-log.md"  # Human-readable markdown with YAML blocks
-  working_set: ".agent/working_set.yml"
+  working_set: ".agent/working-set.yml"
   hot_cache: ".agent/hot.yml"
   cold_cache: ".agent/cold.yml"
   summaries: ".agent/summaries/"
@@ -132,7 +132,7 @@ boot:
   create_if_missing:
     - ".agent/output.md"
     - ".agent/session-log.md"
-    - ".agent/working_set.yml"
+    - ".agent/working-set.yml"
     - ".agent/hot.yml"
     - ".agent/cold.yml"
     - ".agent/summaries/"

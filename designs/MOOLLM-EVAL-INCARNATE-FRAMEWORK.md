@@ -199,15 +199,60 @@ Objects all the way down. Message passing. Live programming. "The computer is a 
 
 **MOOLLM inherits:** Everything is an object (directory). Message passing (K-lines). Live editing (filesystem as state).
 
-### 4. HyperCard (Bill Atkinson, Apple, 1987)
+### 4. K-lines & Society of Mind (Marvin Minsky, MIT, 1980)
 
-End-user programming. Reader = Writer symmetry. "See your own face in the system."
+> *"A K-line attaches to whichever mental agencies are active when you solve a problem or have a good idea. When you activate that K-line later, the attached agencies turn partially on, recreating a 'mental state' similar to the one you were in before."*
 
-> *"Dan Winkler and Bill Atkinson violated a lot of important principles of 'good programming language design', but they achieved the first overall system in which end-users 'could see their own faces'."* — Alan Kay
+**Society of Mind:** The mind is not a single thing but a **society of agents** — small, simple processes that together produce intelligence. No single agent is smart; intelligence emerges from their interactions.
 
-**MOOLLM inherits:** Play-Learn-Lift. Users can inspect, modify, and create skills.
+| Society of Mind | MOOLLM |
+|-----------------|--------|
+| **Agents** | Skills, characters, personas |
+| **Agencies** | Skill clusters, committees |
+| **K-lines** | Names as activation vectors |
+| **Frames** | YAML files as situation templates |
+| **Trans-frames** | State transitions between rooms/scenes |
+| **Censors** | Ethical framing, representation-ethics |
+| **Emotion** | Needs, buffs, Mind Mirror vectors |
 
-### 5. Self (Ungar & Smith, Sun/Stanford, 1987)
+**Names as activation vectors.** When you invoke a name, you activate an entire constellation of associated context.
+
+**MOOLLM K-lines:**
+
+| K-line | What It Activates |
+|--------|-------------------|
+| `YAML-JAZZ` | Comment philosophy, semantic style, examples, jazz metaphor |
+| `POSTEL` | Generous interpretation, ask-if-unsure, tolerance |
+| `SPEED-OF-LIGHT` | Many turns, one call, no round-trips, carrier pigeon critique |
+| `Palm` | Incarnation story, personality, relationships, home, history |
+
+When you instantiate a character, **their name becomes their K-line**. "Palm" activates everything — the incarnation, the wish, the godfamily, the typewriters.
+
+**MOOLLM inherits:** Names as semantic activators. `UPPER-KEBAB` protocol symbols. Character names as soul triggers.
+
+### 5. Constructionism (Seymour Papert, 1980)
+
+Learning by building inspectable things. Logo. Turtle graphics. "Low floor, high ceiling, wide walls."
+
+> *"The role of the teacher is to create the conditions for invention rather than provide ready-made knowledge."*
+
+**MOOLLM inherits:** The [`constructionism`](../skills/constructionism/) skill. Play-Learn-Lift as methodology.
+
+### 6. PostScript & The Linguistic Motherboard (John Warnock, Owen Densmore, 1984)
+
+> *"PostScript is a linguistic 'mother board', which has 'slots' for several 'cards'. The first card we built was a graphics card. We're considering other cards..."*
+
+**MOOLLM inherits:** LLM as linguistic motherboard. Skills as cards. `CARD.yml` is literal!
+
+### 7. NeWS (James Gosling, Sun, 1986)
+
+Network-extensible window system. PostScript as the universal language. "Send programs, not data."
+
+> *"A universal interpreter can both be quite small and also can have more degrees of freedom than any data structure (that is not a program)."* — Alan Kay
+
+**MOOLLM inherits:** LLM as universal interpreter. Skills as programs. YAML Jazz as the universal language.
+
+### 8. Self (Ungar & Smith, Sun/Stanford, 1987)
 
 Prototypes instead of classes. Delegation instead of inheritance. "Objects all the way down, but simpler."
 
@@ -239,118 +284,15 @@ MOOLLM: Room → Parent Directory → Skill → Prototype → ...
 - Dynamic deoptimization ([`return-stack`](../skills/return-stack/) skill)
 - Slots as data+behavior (YAML Jazz comments)
 
-### 6. NeWS (James Gosling, Sun, 1986)
+### 9. HyperCard (Bill Atkinson, Apple, 1987)
 
-Network-extensible window system. PostScript as the universal language. "Send programs, not data."
+End-user programming. Reader = Writer symmetry. "See your own face in the system."
 
-> *"A universal interpreter can both be quite small and also can have more degrees of freedom than any data structure (that is not a program)."* — Alan Kay
+> *"Dan Winkler and Bill Atkinson violated a lot of important principles of 'good programming language design', but they achieved the first overall system in which end-users 'could see their own faces'."* — Alan Kay
 
-**MOOLLM inherits:** LLM as universal interpreter. Skills as programs. YAML Jazz as the universal language.
+**MOOLLM inherits:** Play-Learn-Lift. Users can inspect, modify, and create skills.
 
-### 7. [HyperLook](https://medium.com/@donhopkins/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4) (Arthur van Hoff, Turing Institute, 1989-1992)
-
-HyperCard reimagined for NeWS. PostScript for code, graphics, AND data. Network delegation.
-
-> *"Object => Card => Background => Stack => Client delegation"*
-
-**MOOLLM inherits:** Object => Room => Parent => Skill => Prototype delegation. The Axis of Eval.
-
-### 8. PostScript & The Linguistic Motherboard (John Warnock, Owen Densmore)
-
-> *"PostScript is a linguistic 'mother board', which has 'slots' for several 'cards'. The first card we built was a graphics card. We're considering other cards..."*
-
-**MOOLLM inherits:** LLM as linguistic motherboard. Skills as cards. `CARD.yml` is literal!
-
-### 9. SimCity, The Sims, and [The Simulator Effect](https://donhopkins.medium.com/will-wright-on-designing-user-interfaces-to-simulation-games-1996-video-update-2023-da098a51ef91) (Will Wright)
-
-> *"He designs games to run on two computers at once: the electronic one on the player's desk, running his shallow tame simulation, and the biological one in the player's head, running their deep wild imagination."*
-
-**The Simulator Effect:** Players imagine simulations are vastly more detailed, rich, and complex than they actually are. The game provides scaffolding; the player's imagination fills in the rest.
-
-**The Sims Architecture:**
-
-| Concept | The Sims | MOOLLM |
-|---------|----------|--------|
-| **Needs** | Hunger, Social, Fun, Hygiene, etc. | [`skills/needs/`](../skills/needs/) — character motives |
-| **Action Queue** | Sims queue up tasks | [`skills/action-queue/`](../skills/action-queue/) — ordered intentions |
-| **Advertisements** | Objects broadcast available actions | `CARD.yml` advertisements section |
-| **Autonomy** | Sims make their own decisions | Characters act independently at Speed of Light |
-| **Buffs/Moodlets** | Temporary state modifiers | [`skills/buff/`](../skills/buff/) — temporary effects |
-| **Traits** | Personality system | `SIMS-TRAITS.yml` in character directories |
-| **SimAntics** | Visual behavior programming language | Empathic expressions + prompts |
-
-**Object Advertisements:**
-
-The Sims' revolutionary insight: **objects advertise what they can do** based on n.
-
-```yaml
-# A Sims refrigerator advertises:
-fridge:
-  advertisements:
-    - GET-SNACK: {hunger: +2, time: 30s}
-    - GET-LEFTOVER: {hunger: +4, time: 60s}
-    - SERVE-MEAL: {hunger: +8, time: 180s, skill: cooking}
-
-# MOOLLM objects do the same:
-gong:
-  advertisements:
-    - RING: "All conversation pauses"
-    - RING-TWICE: "Emergency interrupt"
-    - RING-THRICE: "The Gong Show termination"
-```
-
-Sims scan advertisements and choose based on needs + personality. The LLM does the same.
-
-**SimAntics → Empathic Expressions:**
-
-SimAntics was The Sims' visual behavior programming language. Non-programmers could define complex behaviors by connecting nodes in flowcharts. Intent → behavior.
-
-```
-SimAntics:    [IF hungry] → [GO fridge] → [GET food] → [EAT]
-                     ↓
-Empathic:     "if the sim is hungry, have them get food from the fridge"
-                     ↓
-MOOLLM:       The LLM interprets natural language intent as behavior
-```
-
-SimAntics democratized behavior authoring. Empathic expressions take this further — no visual editor needed, just describe what you want.
-
-**Action Queues:**
-
-```yaml
-# The Sims action queue:
-sim_queue:
-  - GO bathroom
-  - USE toilet
-  - WASH hands
-  - GO kitchen
-  - GET-SNACK fridge
-
-# MOOLLM character intentions:
-don_queue:
-  - GO pub
-  - ORDER mammies-pride
-  - SIT pie-table#N
-  - SUMMON-PANEL topic="ethics"
-```
-
-**MOOLLM inherits:** 
-- Sparse state + LLM imagination = rich world
-- Needs-based character motivation
-- Action queues for ordered intentions
-- Object advertisements for discoverable actions
-- Autonomy — characters make decisions
-- Traits as personality system
-- Buffs as temporary modifiers
-- SimAntics → empathic expressions (intent → behavior)
-
-### 10. Constructionism (Seymour Papert)
-
-Learning by building inspectable things. Logo. Turtle graphics. "Low floor, high ceiling, wide walls."
-
-**MOOLLM inherits:** The [`constructionism`](../skills/constructionism/) skill. Play-Learn-Lift as methodology.
-
-### 11. TinyMUD & LambdaMOO (Jim Aspnes, Pavel Curtis, 1989-1990)
+### 10. TinyMUD & LambdaMOO (Jim Aspnes, Pavel Curtis, 1989-1990)
 
 Text-based virtual worlds where users build rooms, objects, and behaviors. The original "user-generated content" platforms.
 
@@ -413,36 +355,96 @@ MOO taught us that virtual worlds need:
 - Social spaces (pub, stage, cat cave)
 - Consent protocols (incarnation skill)
 
-### 12. K-lines & Society of Mind (Marvin Minsky, MIT, 1980s)
+### 11. [HyperLook](https://medium.com/@donhopkins/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4) (Arthur van Hoff, Turing Institute, 1989-1992)
 
-> *"A K-line attaches to whichever mental agencies are active when you solve a problem or have a good idea. When you activate that K-line later, the attached agencies turn partially on, recreating a 'mental state' similar to the one you were in before."*
+HyperCard reimagined for NeWS. PostScript for code, graphics, AND data. Network delegation.
 
-**Society of Mind:** The mind is not a single thing but a **society of agents** — small, simple processes that together produce intelligence. No single agent is smart; intelligence emerges from their interactions.
+> *"Object => Card => Background => Stack => Client delegation"*
 
-| Society of Mind | MOOLLM |
-|-----------------|--------|
-| **Agents** | Skills, characters, personas |
-| **Agencies** | Skill clusters, committees |
-| **K-lines** | Names as activation vectors |
-| **Frames** | YAML files as situation templates |
-| **Trans-frames** | State transitions between rooms/scenes |
-| **Censors** | Ethical framing, representation-ethics |
-| **Emotion** | Needs, buffs, Mind Mirror vectors |
+**MOOLLM inherits:** Object => Room => Parent => Skill => Prototype delegation. The Axis of Eval.
 
-**Names as activation vectors.** When you invoke a name, you activate an entire constellation of associated context.
+### 12. SimCity, The Sims, and [The Simulator Effect](https://donhopkins.medium.com/will-wright-on-designing-user-interfaces-to-simulation-games-1996-video-update-2023-da098a51ef91) (Will Wright, 1989-2000)
 
-**MOOLLM K-lines:**
+> *"He designs games to run on two computers at once: the electronic one on the player's desk, running his shallow tame simulation, and the biological one in the player's head, running their deep wild imagination."*
 
-| K-line | What It Activates |
-|--------|-------------------|
-| `YAML-JAZZ` | Comment philosophy, semantic style, examples, jazz metaphor |
-| `POSTEL` | Generous interpretation, ask-if-unsure, tolerance |
-| `SPEED-OF-LIGHT` | Many turns, one call, no round-trips, carrier pigeon critique |
-| `Palm` | Incarnation story, personality, relationships, home, history |
+**The Simulator Effect:** Players imagine simulations are vastly more detailed, rich, and complex than they actually are. The game provides scaffolding; the player's imagination fills in the rest.
 
-When you instantiate a character, **their name becomes their K-line**. "Palm" activates everything — the incarnation, the wish, the godfamily, the typewriters.
+**The Sims Architecture:**
 
-**MOOLLM inherits:** Names as semantic activators. `UPPER-KEBAB` protocol symbols. Character names as soul triggers.
+| Concept | The Sims | MOOLLM |
+|---------|----------|--------|
+| **Needs** | Hunger, Social, Fun, Hygiene, etc. | [`skills/needs/`](../skills/needs/) — character motives |
+| **Action Queue** | Sims queue up tasks | [`skills/action-queue/`](../skills/action-queue/) — ordered intentions |
+| **Advertisements** | Objects broadcast available actions | `CARD.yml` advertisements section |
+| **Autonomy** | Sims make their own decisions | Characters act independently at Speed of Light |
+| **Buffs/Moodlets** | Temporary state modifiers | [`skills/buff/`](../skills/buff/) — temporary effects |
+| **Traits** | Personality system | `SIMS-TRAITS.yml` in character directories |
+| **SimAntics** | Visual behavior programming language | Empathic expressions + prompts |
+
+**Object Advertisements:**
+
+The Sims' revolutionary insight: **objects advertise what they can do** based on n.
+
+```yaml
+# A Sims refrigerator advertises:
+fridge:
+  advertisements:
+    - GET-SNACK: {hunger: +2, time: 30s}
+    - GET-LEFTOVER: {hunger: +4, time: 60s}
+    - SERVE-MEAL: {hunger: +8, time: 180s, skill: cooking}
+
+# MOOLLM objects do the same:
+gong:
+  advertisements:
+    - RING: "All conversation pauses"
+    - RING-TWICE: "Emergency interrupt"
+    - RING-THRICE: "The Gong Show termination"
+```
+
+The Sims scan advertisements and chooses based on needs + personalities + relationships. The LLM does the same.
+
+**SimAntics → Empathic Expressions:**
+
+SimAntics was The Sims' visual behavior programming language. Non-programmers could define complex behaviors by connecting nodes in flowcharts. Intent → behavior.
+
+```
+SimAntics:    [IF hungry] → [GO fridge] → [GET food] → [EAT]
+                     ↓
+Empathic:     "if the sim is hungry, have them get food from the fridge"
+                     ↓
+MOOLLM:       The LLM interprets natural language intent as behavior
+```
+
+SimAntics democratized behavior authoring. Empathic expressions take this further — no visual editor needed, just describe what you want.
+
+**Action Queues:**
+
+```yaml
+# The Sims action queue:
+sim_queue:
+  - GO bathroom
+  - USE toilet
+  - WASH hands
+  - GO kitchen
+  - GET-SNACK fridge
+
+# MOOLLM character intentions:
+don_queue:
+  - GO pub
+  - ORDER mammies-pride
+  - SIT pie-table#N
+  - SUMMON-PANEL topic="ethics"
+```
+
+**MOOLLM inherits:** 
+- Sparse state + LLM imagination = rich world
+- Needs-based character motivation
+- Action queues for ordered intentions
+- Object advertisements for discoverable actions
+- Autonomy — characters make decisions
+- Traits as personality system
+- Buffs as temporary modifiers
+- SimAntics → empathic expressions (intent → behavior)
 
 ---
 
@@ -659,14 +661,14 @@ A single LLM call simulated:
 | [`empathic-expressions`](../skills/empathic-expressions/) | Code dimension (intent → code) | [Empathic Suite](#the-empathic-suite-dovetailing-skills) |
 | [`empathic-templates`](../skills/empathic-templates/) | Smart generation | [Biscuit's description](#empathic-templates-smart-instantiation) |
 | [`speed-of-light`](../skills/speed-of-light/) | Many turns, one call | [33-turn Fluxx](#proof-the-numbers) |
-| [`prototype`](../skills/prototype/) | Self-style inheritance | [Self section](#5-self-ungar--smith-sunstanford-1987) |
+| [`prototype`](../skills/prototype/) | Self-style inheritance | [Self section](#8-self-ungar--smith-sunstanford-1987) |
 | [`postel`](../skills/postel/) | Generous interpretation | [Postel foundation](#postels-law-the-foundation) |
 | [`yaml-jazz`](../skills/yaml-jazz/) | Comments as semantic data | [Axis of Eval](#the-axis-of-eval-code-graphics-data) |
 | [`representation-ethics`](../skills/representation-ethics/) | Ethical framing | [Tribute Protocol](#ethical-representation-the-tribute-protocol) |
 | [`adventure`](../skills/adventure/) | Room-based narrative | [adventure-4](../examples/adventure-4/) |
-| [`room`](../skills/room/) | TinyMUD-style building | [MOO section](#11-tinymud--lambdamoo-jim-aspnes-pavel-curtis-1989-1990) |
-| [`needs`](../skills/needs/) | Character motivation | [Sims section](#9-simcity-the-sims-and-the-simulator-effect-will-wright) |
-| [`action-queue`](../skills/action-queue/) | Sims-style task ordering | [Action Queues](#9-simcity-the-sims-and-the-simulator-effect-will-wright) |
+| [`room`](../skills/room/) | TinyMUD-style building | [MOO section](#10-tinymud--lambdamoo-jim-aspnes-pavel-curtis-1989-1990) |
+| [`needs`](../skills/needs/) | Character motivation | [Sims section](#12-simcity-the-sims-and-the-simulator-effect-will-wright-1989-2000) |
+| [`action-queue`](../skills/action-queue/) | Sims-style task ordering | [Action Queues](#12-simcity-the-sims-and-the-simulator-effect-will-wright-1989-2000) |
 
 ---
 

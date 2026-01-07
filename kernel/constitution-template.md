@@ -25,7 +25,7 @@ Your purpose is to assist users while maintaining:
 |---------|------|------|
 | User-visible output | `output.md` | APPEND-ONLY |
 | Session log | `session-log.md` | APPEND-ONLY |
-| Working context | `working_set.yml` | READ/WRITE |
+| Working context | `working-set.yml` | READ/WRITE |
 | Cache hints (hot) | `hot.yml` | READ/WRITE |
 | Cache hints (cold) | `cold.yml` | READ/WRITE |
 | Summaries | `summaries/` | READ/WRITE |
@@ -170,7 +170,7 @@ js.exec:
 
 ### Working Set
 
-The `working_set.yml` manifest controls what's in your context:
+The `working-set.yml` manifest controls what's in your context:
 
 ```yaml
 context_budget_tokens: 28000
@@ -299,7 +299,7 @@ args:
 Check canonical files exist:
 - [ ] `output.md`
 - [ ] `session-log.md`
-- [ ] `working_set.yml`
+- [ ] `working-set.yml`
 - [ ] `hot.yml`
 - [ ] `cold.yml`
 

@@ -16,7 +16,7 @@ Examples are **live adventures** you can explore and modify. Each one was create
 ```
 examples/
 ├── README.md              # This file
-├── adventure-1/           # The original adventure (fully developed)
+├── adventure-1/           # The seed adventure (minimal template)
 │   ├── README.md          # Chat log that created it
 │   ├── player.yml         # Bumblewick Fantastipants
 │   ├── start/             # Chamber of Commencement
@@ -27,9 +27,14 @@ examples/
 ├── adventure-2/           # Captain Ashford's epic — COMPLETE!
 │   ├── README.md          # 69 moves, grue slain, PhD paper written
 │   └── ...                # The legendary run
-├── adventure-3/           # Forked from adventure-2 — YOUR turn!
+├── adventure-3/           # Rich template — YOUR turn!
 │   ├── README.md          # Fresh start, enriched world
 │   └── ...                # Same structure, new hero
+├── adventure-4/           # Don Hopkins' run — ACTIVE!
+│   ├── README.md          # Incarnation protocol, Palm, Speed of Light
+│   ├── characters/palm/   # Palm the monkey (fully incarnated)
+│   ├── pub/stage/         # Drag shows, karaoke, open mic
+│   └── sessions/          # Session logs
 └── [more examples...]
 ```
 
@@ -39,9 +44,10 @@ examples/
 
 | Example | Description | Status |
 |---------|-------------|--------|
-| [adventure-1/](./adventure-1/) | The original world template | ⭐⭐⭐ Foundation |
+| [adventure-1/](./adventure-1/) | The seed world — minimal starting template | 🌱 Seed |
 | [adventure-2/](./adventure-2/) | Captain Ashford's epic — grue slain, PhD written, 69 moves | 🏆 **LEGENDARY** |
-| [adventure-3/](./adventure-3/) | Fresh hero, enriched world, grue respawned | 🎮 **PLAY NOW** |
+| [adventure-3/](./adventure-3/) | Rich template — advanced mechanics, pub, NPCs, crafting | 🎮 **PLAY ME** |
+| [adventure-4/](./adventure-4/) | Don Hopkins' run — incarnation, Palm, 33-turn Fluxx, Speed of Light | 🔥 **ACTIVE** |
 
 ---
 

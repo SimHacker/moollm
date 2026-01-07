@@ -90,7 +90,7 @@ Planning emerges from:
       chat.md              # Full transcript
       output.md            # User-visible output (APPEND-ONLY)
       events.jsonl         # Tool calls/results (APPEND-ONLY)
-      working_set.yml      # What's in context right now
+      working-set.yml      # What's in context right now
       hot.yml              # "Keep this in cache"
       cold.yml             # "Summarize/evict this"
       
@@ -144,7 +144,7 @@ terminal.run:
 
 ### Working Set Manifest
 ```yaml
-# working_set.yml
+# working-set.yml
 context_budget_tokens: 28000
 files:
   - path: ".agent/constitution.md"
@@ -327,7 +327,7 @@ Root: .agent/
 Constitution: .agent/constitution.md (v12, hash abc123)
 Session: .agent/sessions/<id>/
 Output sink: output.md (append-only)
-Working set: working_set.yml
+Working set: working-set.yml
 Cache hints: hot.yml, cold.yml
 All tool calls require why
 ```
@@ -345,7 +345,7 @@ The model can read the constitution file when needed.
 - Enforce sandbox boundaries
 - Enforce append-only rules where needed
 - Enforce resource limits
-- Context assembly from `working_set.yml`
+- Context assembly from `working-set.yml`
 - Event logging to `events.jsonl`
 - Indexing service
 
@@ -386,7 +386,7 @@ This architecture maps beautifully to MOOLLM:
 | `.agent/` root | Character directory |
 | `constitution.md` | Soul file (`.yml`) |
 | `sessions/` | Room activations |
-| `working_set.yml` | Room context / attention |
+| `working-set.yml` | Room context / attention |
 | `hot.yml/cold.yml` | Memory breathing |
 | `.meta.yml` sidecars | Soul chat metadata |
 | Skills | Trading cards / protocols |

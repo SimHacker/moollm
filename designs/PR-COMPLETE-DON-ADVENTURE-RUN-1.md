@@ -42,7 +42,7 @@ Created standardized interface definitions for every skill:
 
 ### Context Management
 New top-level files:
-- `working_set.yml` — Active context with VM metadata
+- `working-set.yml` — Active context with VM metadata
 - `hot.yml` — Priority file declarations
 - `cold.yml` — Summarized/paged-out files
 
