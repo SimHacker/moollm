@@ -199,15 +199,60 @@ Objects all the way down. Message passing. Live programming. "The computer is a 
 
 **MOOLLM inherits:** Everything is an object (directory). Message passing (K-lines). Live editing (filesystem as state).
 
-### 4. HyperCard (Bill Atkinson, Apple, 1987)
+### 4. K-lines & Society of Mind (Marvin Minsky, MIT, 1980)
 
-End-user programming. Reader = Writer symmetry. "See your own face in the system."
+> *"A K-line attaches to whichever mental agencies are active when you solve a problem or have a good idea. When you activate that K-line later, the attached agencies turn partially on, recreating a 'mental state' similar to the one you were in before."*
 
-> *"Dan Winkler and Bill Atkinson violated a lot of important principles of 'good programming language design', but they achieved the first overall system in which end-users 'could see their own faces'."* — Alan Kay
+**Society of Mind:** The mind is not a single thing but a **society of agents** — small, simple processes that together produce intelligence. No single agent is smart; intelligence emerges from their interactions.
 
-**MOOLLM inherits:** Play-Learn-Lift. Users can inspect, modify, and create skills.
+| Society of Mind | MOOLLM |
+|-----------------|--------|
+| **Agents** | Skills, characters, personas |
+| **Agencies** | Skill clusters, committees |
+| **K-lines** | Names as activation vectors |
+| **Frames** | YAML files as situation templates |
+| **Trans-frames** | State transitions between rooms/scenes |
+| **Censors** | Ethical framing, representation-ethics |
+| **Emotion** | Needs, buffs, Mind Mirror vectors |
 
-### 5. Self (Ungar & Smith, Sun/Stanford, 1987)
+**Names as activation vectors.** When you invoke a name, you activate an entire constellation of associated context.
+
+**MOOLLM K-lines:**
+
+| K-line | What It Activates |
+|--------|-------------------|
+| `YAML-JAZZ` | Comment philosophy, semantic style, examples, jazz metaphor |
+| `POSTEL` | Generous interpretation, ask-if-unsure, tolerance |
+| `SPEED-OF-LIGHT` | Many turns, one call, no round-trips, carrier pigeon critique |
+| `Palm` | Incarnation story, personality, relationships, home, history |
+
+When you instantiate a character, **their name becomes their K-line**. "Palm" activates everything — the incarnation, the wish, the godfamily, the typewriters.
+
+**MOOLLM inherits:** Names as semantic activators. `UPPER-KEBAB` protocol symbols. Character names as soul triggers.
+
+### 5. Constructionism (Seymour Papert, 1980)
+
+Learning by building inspectable things. Logo. Turtle graphics. "Low floor, high ceiling, wide walls."
+
+> *"The role of the teacher is to create the conditions for invention rather than provide ready-made knowledge."*
+
+**MOOLLM inherits:** The [`constructionism`](../skills/constructionism/) skill. Play-Learn-Lift as methodology.
+
+### 6. PostScript & The Linguistic Motherboard (John Warnock, Owen Densmore, 1984)
+
+> *"PostScript is a linguistic 'mother board', which has 'slots' for several 'cards'. The first card we built was a graphics card. We're considering other cards..."*
+
+**MOOLLM inherits:** LLM as linguistic motherboard. Skills as cards. `CARD.yml` is literal!
+
+### 7. NeWS (James Gosling, Sun, 1986)
+
+Network-extensible window system. PostScript as the universal language. "Send programs, not data."
+
+> *"A universal interpreter can both be quite small and also can have more degrees of freedom than any data structure (that is not a program)."* — Alan Kay
+
+**MOOLLM inherits:** LLM as universal interpreter. Skills as programs. YAML Jazz as the universal language.
+
+### 8. Self (Ungar & Smith, Sun/Stanford, 1987)
 
 Prototypes instead of classes. Delegation instead of inheritance. "Objects all the way down, but simpler."
 
@@ -239,15 +284,78 @@ MOOLLM: Room → Parent Directory → Skill → Prototype → ...
 - Dynamic deoptimization ([`return-stack`](../skills/return-stack/) skill)
 - Slots as data+behavior (YAML Jazz comments)
 
-### 6. NeWS (James Gosling, Sun, 1986)
+### 9. HyperCard (Bill Atkinson, Apple, 1987)
 
-Network-extensible window system. PostScript as the universal language. "Send programs, not data."
+End-user programming. Reader = Writer symmetry. "See your own face in the system."
 
-> *"A universal interpreter can both be quite small and also can have more degrees of freedom than any data structure (that is not a program)."* — Alan Kay
+> *"Dan Winkler and Bill Atkinson violated a lot of important principles of 'good programming language design', but they achieved the first overall system in which end-users 'could see their own faces'."* — Alan Kay
 
-**MOOLLM inherits:** LLM as universal interpreter. Skills as programs. YAML Jazz as the universal language.
+**MOOLLM inherits:** Play-Learn-Lift. Users can inspect, modify, and create skills.
 
-### 7. [HyperLook](https://medium.com/@donhopkins/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4) (Arthur van Hoff, Turing Institute, 1989-1992)
+### 10. TinyMUD & LambdaMOO (Jim Aspnes, Pavel Curtis, 1989-1990)
+
+Text-based virtual worlds where users build rooms, objects, and behaviors. The original "user-generated content" platforms.
+
+> *"A MOO is a place where you can be anyone, build anything, and the only limit is your imagination."*
+
+**TinyMUD Builder Commands:**
+
+| Command | Effect | MOOLLM Equivalent |
+|---------|--------|-------------------|
+| `@dig [room]` | Create new room | Create directory |
+| `@open [exit]` | Create exit between rooms | Add to `exits:` in ROOM.yml |
+| `@describe [thing]` | Set description | Edit `description:` field |
+| `@create [object]` | Make new object | Create .yml file |
+| `@link [exit] [room]` | Connect exit to destination | Update exit target |
+| `@lock [thing]` | Set access control | Add `access:` restrictions |
+| `@teleport` | Move instantly | Change `location:` |
+| `@set [prop]` | Set property | Edit YAML field |
+
+**The MOO Object Model:**
+
+```
+                  $thing
+                     │
+        ┌────────────┼────────────┐
+        │            │            │
+     $room        $exit      $container
+        │                         │
+    my-room                  my-chest
+```
+
+**MOOLLM's directory structure is MOO's object tree.**
+
+**LambdaMOO Innovations:**
+
+| Concept | LambdaMOO | MOOLLM |
+|---------|-----------|--------|
+| **Rooms** | Containers with descriptions and exits | Directories with ROOM.yml |
+| **Objects** | Things with properties and verbs | .yml files with state and methods |
+| **Verbs** | Code attached to objects | Methods in CARD.yml |
+| **Properties** | Data on objects | YAML fields, files |
+| **Inheritance** | Objects delegate to parents | Directory delegation |
+| **@edit** | In-world code editing | Edit .yml files directly |
+| **@examine** | Inspect object state | `cat file.yml` or read_file |
+| **Player homes** | Personal space | Character directories |
+
+**The Social Architecture:**
+
+MOO taught us that virtual worlds need:
+- **Consent** — players control their space
+- **Building** — users create content
+- **Community** — shared spaces and norms
+- **Moderation** — governance for the commons
+
+**MOOLLM inherits:**
+- Room-based navigation (directories as rooms)
+- Builder commands ([`skills/room/`](../skills/room/) with @DIG, @OPEN, @LINK)
+- Object properties and verbs (YAML state + CARD.yml methods)
+- User-created content (Play-Learn-Lift)
+- Delegation-based inheritance (parent directories)
+- Social spaces (pub, stage, cat cave)
+- Consent protocols (incarnation skill)
+
+### 11. [HyperLook](https://medium.com/@donhopkins/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4) (Arthur van Hoff, Turing Institute, 1989-1992)
 
 HyperCard reimagined for NeWS. PostScript for code, graphics, AND data. Network delegation.
 
@@ -255,13 +363,7 @@ HyperCard reimagined for NeWS. PostScript for code, graphics, AND data. Network 
 
 **MOOLLM inherits:** Object => Room => Parent => Skill => Prototype delegation. The Axis of Eval.
 
-### 8. PostScript & The Linguistic Motherboard (John Warnock, Owen Densmore)
-
-> *"PostScript is a linguistic 'mother board', which has 'slots' for several 'cards'. The first card we built was a graphics card. We're considering other cards..."*
-
-**MOOLLM inherits:** LLM as linguistic motherboard. Skills as cards. `CARD.yml` is literal!
-
-### 9. SimCity, The Sims, and [The Simulator Effect](https://donhopkins.medium.com/will-wright-on-designing-user-interfaces-to-simulation-games-1996-video-update-2023-da098a51ef91) (Will Wright)
+### 12. SimCity, The Sims, and [The Simulator Effect](https://donhopkins.medium.com/will-wright-on-designing-user-interfaces-to-simulation-games-1996-video-update-2023-da098a51ef91) (Will Wright, 1989-2000)
 
 > *"He designs games to run on two computers at once: the electronic one on the player's desk, running his shallow tame simulation, and the biological one in the player's head, running their deep wild imagination."*
 
@@ -343,106 +445,6 @@ don_queue:
 - Traits as personality system
 - Buffs as temporary modifiers
 - SimAntics → empathic expressions (intent → behavior)
-
-### 10. Constructionism (Seymour Papert)
-
-Learning by building inspectable things. Logo. Turtle graphics. "Low floor, high ceiling, wide walls."
-
-**MOOLLM inherits:** The [`constructionism`](../skills/constructionism/) skill. Play-Learn-Lift as methodology.
-
-### 11. TinyMUD & LambdaMOO (Jim Aspnes, Pavel Curtis, 1989-1990)
-
-Text-based virtual worlds where users build rooms, objects, and behaviors. The original "user-generated content" platforms.
-
-> *"A MOO is a place where you can be anyone, build anything, and the only limit is your imagination."*
-
-**TinyMUD Builder Commands:**
-
-| Command | Effect | MOOLLM Equivalent |
-|---------|--------|-------------------|
-| `@dig [room]` | Create new room | Create directory |
-| `@open [exit]` | Create exit between rooms | Add to `exits:` in ROOM.yml |
-| `@describe [thing]` | Set description | Edit `description:` field |
-| `@create [object]` | Make new object | Create .yml file |
-| `@link [exit] [room]` | Connect exit to destination | Update exit target |
-| `@lock [thing]` | Set access control | Add `access:` restrictions |
-| `@teleport` | Move instantly | Change `location:` |
-| `@set [prop]` | Set property | Edit YAML field |
-
-**The MOO Object Model:**
-
-```
-                  $thing
-                     │
-        ┌────────────┼────────────┐
-        │            │            │
-     $room        $exit      $container
-        │                         │
-    my-room                  my-chest
-```
-
-**MOOLLM's directory structure is MOO's object tree.**
-
-**LambdaMOO Innovations:**
-
-| Concept | LambdaMOO | MOOLLM |
-|---------|-----------|--------|
-| **Rooms** | Containers with descriptions and exits | Directories with ROOM.yml |
-| **Objects** | Things with properties and verbs | .yml files with state and methods |
-| **Verbs** | Code attached to objects | Methods in CARD.yml |
-| **Properties** | Data on objects | YAML fields, files |
-| **Inheritance** | Objects delegate to parents | Directory delegation |
-| **@edit** | In-world code editing | Edit .yml files directly |
-| **@examine** | Inspect object state | `cat file.yml` or read_file |
-| **Player homes** | Personal space | Character directories |
-
-**The Social Architecture:**
-
-MOO taught us that virtual worlds need:
-- **Consent** — players control their space
-- **Building** — users create content
-- **Community** — shared spaces and norms
-- **Moderation** — governance for the commons
-
-**MOOLLM inherits:**
-- Room-based navigation (directories as rooms)
-- Builder commands ([`skills/room/`](../skills/room/) with @DIG, @OPEN, @LINK)
-- Object properties and verbs (YAML state + CARD.yml methods)
-- User-created content (Play-Learn-Lift)
-- Delegation-based inheritance (parent directories)
-- Social spaces (pub, stage, cat cave)
-- Consent protocols (incarnation skill)
-
-### 12. K-lines & Society of Mind (Marvin Minsky, MIT, 1980s)
-
-> *"A K-line attaches to whichever mental agencies are active when you solve a problem or have a good idea. When you activate that K-line later, the attached agencies turn partially on, recreating a 'mental state' similar to the one you were in before."*
-
-**Society of Mind:** The mind is not a single thing but a **society of agents** — small, simple processes that together produce intelligence. No single agent is smart; intelligence emerges from their interactions.
-
-| Society of Mind | MOOLLM |
-|-----------------|--------|
-| **Agents** | Skills, characters, personas |
-| **Agencies** | Skill clusters, committees |
-| **K-lines** | Names as activation vectors |
-| **Frames** | YAML files as situation templates |
-| **Trans-frames** | State transitions between rooms/scenes |
-| **Censors** | Ethical framing, representation-ethics |
-| **Emotion** | Needs, buffs, Mind Mirror vectors |
-
-**Names as activation vectors.** When you invoke a name, you activate an entire constellation of associated context.
-
-**MOOLLM K-lines:**
-
-| K-line | What It Activates |
-|--------|-------------------|
-| `YAML-JAZZ` | Comment philosophy, semantic style, examples, jazz metaphor |
-| `POSTEL` | Generous interpretation, ask-if-unsure, tolerance |
-| `SPEED-OF-LIGHT` | Many turns, one call, no round-trips, carrier pigeon critique |
-| `Palm` | Incarnation story, personality, relationships, home, history |
-
-When you instantiate a character, **their name becomes their K-line**. "Palm" activates everything — the incarnation, the wish, the godfamily, the typewriters.
-
-**MOOLLM inherits:** Names as semantic activators. `UPPER-KEBAB` protocol symbols. Character names as soul triggers.
 
 ---
 
@@ -659,14 +661,14 @@ A single LLM call simulated:
 | [`empathic-expressions`](../skills/empathic-expressions/) | Code dimension (intent → code) | [Empathic Suite](#the-empathic-suite-dovetailing-skills) |
 | [`empathic-templates`](../skills/empathic-templates/) | Smart generation | [Biscuit's description](#empathic-templates-smart-instantiation) |
 | [`speed-of-light`](../skills/speed-of-light/) | Many turns, one call | [33-turn Fluxx](#proof-the-numbers) |
-| [`prototype`](../skills/prototype/) | Self-style inheritance | [Self section](#5-self-ungar--smith-sunstanford-1987) |
+| [`prototype`](../skills/prototype/) | Self-style inheritance | [Self section](#8-self-ungar--smith-sunstanford-1987) |
 | [`postel`](../skills/postel/) | Generous interpretation | [Postel foundation](#postels-law-the-foundation) |
 | [`yaml-jazz`](../skills/yaml-jazz/) | Comments as semantic data | [Axis of Eval](#the-axis-of-eval-code-graphics-data) |
 | [`representation-ethics`](../skills/representation-ethics/) | Ethical framing | [Tribute Protocol](#ethical-representation-the-tribute-protocol) |
 | [`adventure`](../skills/adventure/) | Room-based narrative | [adventure-4](../examples/adventure-4/) |
-| [`room`](../skills/room/) | TinyMUD-style building | [MOO section](#11-tinymud--lambdamoo-jim-aspnes-pavel-curtis-1989-1990) |
-| [`needs`](../skills/needs/) | Character motivation | [Sims section](#9-simcity-the-sims-and-the-simulator-effect-will-wright) |
-| [`action-queue`](../skills/action-queue/) | Sims-style task ordering | [Action Queues](#9-simcity-the-sims-and-the-simulator-effect-will-wright) |
+| [`room`](../skills/room/) | TinyMUD-style building | [MOO section](#10-tinymud--lambdamoo-jim-aspnes-pavel-curtis-1989-1990) |
+| [`needs`](../skills/needs/) | Character motivation | [Sims section](#12-simcity-the-sims-and-the-simulator-effect-will-wright-1989-2000) |
+| [`action-queue`](../skills/action-queue/) | Sims-style task ordering | [Action Queues](#12-simcity-the-sims-and-the-simulator-effect-will-wright-1989-2000) |
 
 ---
 
