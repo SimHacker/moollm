@@ -1050,7 +1050,7 @@ The end state: an LLM that navigates its own memory, follows explicit protocols,
 | <nobr>**[adventure‑1/](./examples/adventure-1/)**</nobr> | 🌱 Seed | 🏗️ **The seed.** Minimal starting world. 10 maze rooms, kitchen, coatroom, treasury. Clone this for a clean start. |
 | <nobr>**[adventure‑2/](./examples/adventure-2/)**</nobr> | ✅ Completed | 🏆 **The legend.** Captain Ashford slew a grue with blue cheese. 8 promises kept. PhD paper. 100+ photos. |
 | <nobr>**[adventure‑3/](./examples/adventure-3/)**</nobr> | 🎮 **PLAY ME** | ⭐ **Rich template.** Pub, NPCs, crafting, advanced mechanics. Fresh hero, restocked world. **Start here!** |
-| <nobr>**[adventure‑4/](./examples/adventure-4/)**</nobr> | 🔥 Active | 🐵 **Don's run.** Incarnation protocol, Palm the monkey, 33-turn Fluxx marathon, Speed of Light demos. |
+| <nobr>**[adventure‑4/](./examples/adventure-4/)**</nobr> | 🔥 Active | 🐵 **Don's run.** Incarnation protocol, Palm the monkey, 33-turn Fluxx marathon. **[Epic session log!](./examples/adventure-4/sessions/don-session-1.md)** |
 
 **The Lineage:**
 
@@ -1069,7 +1069,7 @@ graph TD
     style A4 fill:#f72,stroke:#c50,color:#fff
 ```
 
-> **Play it:** Open [adventure‑3/](./examples/adventure-3/) to start fresh, or explore [adventure‑4/](./examples/adventure-4/) to see the latest innovations!
+> **Play it:** Open [adventure‑3/](./examples/adventure-3/) to start fresh, or read [Don's epic session log](./examples/adventure-4/sessions/don-session-1.md) to see Speed of Light simulation in action!
 
 ### ⭐ The Good Stuff
 
@@ -1110,9 +1110,9 @@ graph TD
 | <nobr>**[skills/memory‑palace/](./skills/memory-palace/)**</nobr> | 🏛️ Spatial knowledge organization. Rooms as cognitive spaces. |
 | <nobr>**[skills/sister‑script/](./skills/sister-script/)**</nobr> | 📝 Documents that grow into scripts. BUILD command. Automation. |
 | **[skills/adventure/](./skills/adventure/)** | 🗺️ Structured exploration. Goals, discoveries, choices. |
-| **[examples/](./examples/)** | 🎮 Three adventures: template (1), legendary playthrough (2), ready to play (3). |
+| **[examples/](./examples/)** | 🎮 Four adventures: seed (1), legendary (2), rich template (3), **[Don's epic run (4)](./examples/adventure-4/sessions/don-session-1.md)**. |
 
-> **TL;DR:** Read [skills/constructionism/](./skills/constructionism/) for philosophy, [skills/room/](./skills/room/) for the fun stuff, then **play** [adventure‑3/](./examples/adventure-3/) — or explore [adventure‑4/](./examples/adventure-4/) for the latest innovations (incarnation, Speed of Light), or read [adventure‑2/](./examples/adventure-2/) for a legendary playthrough!
+> **TL;DR:** Read [skills/constructionism/](./skills/constructionism/) for philosophy, [skills/room/](./skills/room/) for the fun stuff, then **play** [adventure‑3/](./examples/adventure-3/) — or read **[Don's session log](./examples/adventure-4/sessions/don-session-1.md)** to see Palm's incarnation, 33-turn Fluxx marathon, and Speed of Light simulation in action!
 
 ---
 

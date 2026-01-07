@@ -1246,7 +1246,7 @@ character:
 - **Players** — home is repository (`characters/don/`)
 - Both have `location:` property that moves virtually
 
-This is why `characters/` is a "metaphysical room" — it's where characters *live* (their files), not where they *are* (their location property).
+This is why `characters/` is a "metaphysical room" — it's where characters *live* (their files), not where they *are* (their location property). Point to characters and vehicles with their physical home paths, not their ephimeral current location.
 
 ### The Representation Spectrum
 
@@ -1273,7 +1273,7 @@ The simulation included **verified facts** (Wikipedia links) woven into fiction:
 - Andy: software programmer (Hubble!)
 - Kristin solved Rubik's Cube on "That's Incredible" at age 16
 
-**Accuracy fix during session:** Andy wears a lab coat, not a beard! Updated mid-narrative.
+**Accuracy fix during session:** Andy wears a lab coat, not a beard! Shaved hallucinated beard and donned lab coat mid-narrative.
 
 ### The Guest Book Pattern
 
