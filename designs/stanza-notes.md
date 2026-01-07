@@ -199,26 +199,204 @@ The difference: **Postel's Law vs. Fail-Fast**.
 
 ## The Linguistic Motherboard
 
-Patrick references John Warnock's "linguistic motherboard" concept from PostScript. MOOLLM extends this:
+### Origin: John Warnock and PostScript
+
+John Warnock, co-founder of Adobe and creator of PostScript, described PostScript as a **"linguistic motherboard"** — a universal substrate into which you could plug different "cards":
+
+- **Font cards** — Any typeface, described mathematically
+- **Graphics cards** — Vector operations, transformations, paths
+- **Device cards** — Printers, displays, typesetters
+- **Application cards** — Page layout, illustration, publishing
+
+The genius: **All cards speak the same language.** A font doesn't need to know about printers. A graphics operation doesn't need to know about displays. PostScript provides the common substrate where everything composes.
+
+This is why PostScript revolutionized publishing — it wasn't just a printer language, it was an *extensible linguistic platform*.
+
+### MOOLLM as Linguistic Motherboard
+
+MOOLLM applies the same architecture with the LLM as the substrate:
 
 | PostScript | MOOLLM |
 |------------|--------|
-| Graphics primitives | Skill primitives |
-| Stack-based execution | Context-based execution |
+| PostScript interpreter | LLM as `eval()` |
+| Linguistic motherboard | YAML Jazz + Markdown substrate |
+| Pluggable cards | `CARD.yml` skill interfaces |
 | Device independence | Model independence |
 | Programs as data | Skills as programs as data |
+| Forth-like stack | Context window as "stack" |
 
-The [`CARD.yml`](../skills/card/) files are like "drivers" that plug into the LLM motherboard:
+The [`CARD.yml`](../skills/card/) files are literally "cards" that plug into the LLM motherboard:
 
 ```yaml
-# skills/adventure/CARD.yml - A "driver" for the LLM
+# skills/adventure/CARD.yml - A "card" for the LLM motherboard
+name: adventure
+version: 1.0
 advertises:
   - LOOK: Describe current location
   - GO: Move between rooms  
   - EXAMINE: Inspect objects in detail
   - TAKE: Pick up objects
   - DROP: Release held objects
+requires:
+  - room
+  - character
+  - yaml-jazz
 ```
+
+### Why This Makes a Great "Shell"
+
+Traditional shells (bash, zsh, fish) have a problem:
+
+```bash
+# Bash: Powerful but write-only, quoting nightmares
+files=$(find . -name "*.yml" -exec grep -l "advertises" {} \;)
+for f in $files; do
+  # Good luck with spaces in filenames
+  cat "$f" | jq '.advertises' 2>/dev/null || echo "not json lol"
+done
+```
+
+The "linguistic motherboard" model suggests a better shell:
+
+1. **Universal substrate** — Everything speaks YAML Jazz
+2. **Pluggable cards** — Skills define capabilities
+3. **Composable** — Cards work together without knowing about each other
+4. **Interpretive** — The LLM understands intent, not just syntax
+
+```yaml
+# MOOLLM "shell" interaction
+> find all skills that advertise LOOK
+# LLM understands: search CARD.yml files, find advertises containing LOOK
+# Returns: adventure, room, character, cat, dog...
+
+> what can I do with a cat?
+# LLM reads: skills/cat/CARD.yml
+# Returns: PET, FEED, PLAY, OBSERVE, ADOPT...
+```
+
+The shell becomes **conversational** because the motherboard (LLM) understands the language on the cards.
+
+---
+
+## YAML Jazz: Lifting Ad-Hoc → Standardized DSLs
+
+### The Problem with Ad-Hoc DSLs
+
+Every project invents its own configuration language:
+
+```yaml
+# Project A's ad-hoc format
+enemies:
+  - type: goblin
+    hp: 10
+    attack: sword
+
+# Project B's ad-hoc format  
+monsters:
+  goblin:
+    health_points: 10
+    weapon: sword
+
+# Project C's ad-hoc format
+creatures:
+  - name: goblin
+    stats: {life: 10}
+    equipment: [sword]
+```
+
+All three mean the same thing! But without a shared substrate, they can't interoperate.
+
+### YAML Jazz as the Lifting Mechanism
+
+[YAML Jazz](../skills/yaml-jazz/) provides the linguistic motherboard for configuration:
+
+1. **Comments are semantic** — Not stripped, but understood
+2. **Structure is flexible** — The LLM interprets intent
+3. **Conventions emerge** — Patterns like `CARD.yml`, `ROOM.yml`, `CHARACTER.yml`
+
+```yaml
+# YAML Jazz interprets ALL of these equivalently:
+
+# Style A (verbose)
+character:
+  name: Biscuit
+  species: dog
+  traits:
+    - loyal
+    - energetic
+
+# Style B (compact)
+Biscuit: {species: dog, traits: [loyal, energetic]}
+
+# Style C (commented)
+# Biscuit is a loyal, energetic dog
+name: Biscuit
+type: dog
+```
+
+The LLM *understands* that these are equivalent because YAML Jazz teaches it to read semantically, not syntactically.
+
+### The Lift Pattern
+
+```
+Ad-Hoc DSL → YAML Jazz → Standardized Convention → CARD.yml Interface
+```
+
+**Stage 1: Ad-Hoc**
+```yaml
+# Someone's one-off character file
+my_dog:
+  name: Biscuit
+  good_boy: true
+```
+
+**Stage 2: YAML Jazz Recognition**
+```yaml
+# LLM recognizes: "This is a character definition"
+# Suggests: "This looks like it should follow CHARACTER.yml patterns"
+```
+
+**Stage 3: Standardized Convention**
+```yaml
+# characters/biscuit/CHARACTER.yml
+name: Biscuit
+type: dog
+prototype: skills/dog
+traits:
+  - loyal
+  - energetic
+```
+
+**Stage 4: CARD.yml Interface**
+```yaml
+# skills/dog/CARD.yml
+advertises:
+  - FOLLOW: Stay near owner
+  - FETCH: Retrieve thrown objects
+  - MARK-TERRITORY: Leave scent markers
+```
+
+### Why This Matters
+
+Traditional DSL design requires:
+1. Define grammar
+2. Write parser
+3. Build AST
+4. Implement interpreter
+5. Document everything
+6. Hope users read docs
+
+YAML Jazz + LLM provides:
+1. Write YAML that makes sense to you
+2. LLM interprets it
+3. Patterns emerge from usage
+4. Conventions crystallize into `CARD.yml`
+5. Skills teach the LLM new conventions
+6. Users just write YAML
+
+**The DSL emerges from use, not from design.**
+
+This is [Constructionism](../skills/constructionism/) applied to language design: you learn by building, and the language learns from what you build.
 
 ---
 
