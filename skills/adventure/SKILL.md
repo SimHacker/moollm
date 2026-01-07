@@ -859,7 +859,7 @@ Don Hopkins realized:
       N
       ↑
   NW ↖ ↗ NE
-W ←  ●  → E     Pie menu = Room exits = Memory palace navigation
+ W ←  ●  → E     Pie menu = Room exits = Memory palace navigation
   SW ↙ ↘ SE
       ↓
       S
@@ -921,7 +921,7 @@ archive:
         - wireworld.yml          # Circuit simulation
         - langtons_ant.yml       # Emergent behavior
         
-    simcity_archaeology/:
+    sims_archaeology/:
       description: "The Sims object system"
       objects:
         - simantics.yml          # The behavior engine
