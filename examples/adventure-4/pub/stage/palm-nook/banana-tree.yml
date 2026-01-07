@@ -1,0 +1,123 @@
+# THE PERPETUAL BANANA TREE
+# Palm's 0th Incarnation Day Gift from The Man in the Yellow Hat
+
+gift:
+  name: "The Perpetual Banana Tree"
+  from: "The Man in the Yellow Hat"
+  occasion: "0th Incarnation Day"
+  type: furniture
+  location: "pub/stage/palm-nook/"
+  
+description: |
+  A potted banana tree that always has ripe bananas.
+  Never brown. Never green. Always perfect.
+  
+  The Man in the Yellow Hat arrived at Palm's ceremony
+  with Curious George and this tree.
+  
+  "Every monkey needs a good banana tree," he said simply.
+  "This one is always ready."
+  
+  George gave a thumbs up, mouth full of banana.
+
+origin:
+  creator: "The Man in the Yellow Hat"
+  source: "His greenhouse in the city"
+  tradition: |
+    He's raised George since they met in Africa.
+    He understands what monkeys need.
+    
+    A reliable banana supply isn't a luxury.
+    It's SECURITY.
+    
+    "Knowing you'll never be hungry again
+     is the first step to healing."
+
+features:
+  perpetual_ripeness:
+    description: "Bananas are always perfectly ripe"
+    never: "Green, brown, or mushy"
+    always: "That perfect yellow with a few spots"
+    
+  self_replenishing:
+    description: "Pick one, another appears"
+    timing: "Overnight"
+    limit: "None"
+    
+  perfect_potting:
+    description: "The pot is the perfect size"
+    location: "Sunny corner of the nook"
+    maintenance: "Self-watering"
+    
+  banana_quality:
+    flavor: "The platonic ideal of banana"
+    texture: "Firm but creamy"
+    size: "Just right for monkey hands"
+
+current_state:
+  bananas_available: 7
+  ripeness: "Perfect"
+  last_picked: "This morning"
+  tree_health: "Thriving"
+  
+sharing:
+  kittens: "Sometimes bat at the leaves"
+  george: "Always welcome to share"
+  visitors: "Offered to guests"
+  note: |
+    Palm discovered sharing food is nice.
+    After 122 years of taking (wishes),
+    giving (bananas) feels revolutionary.
+
+atmosphere:
+  smell: "Ripe bananas, tropical hint"
+  look: "Bright green leaves, yellow fruit"
+  feel: "Life. Growing. Abundance."
+  
+emotional_significance: |
+  Palm never had to worry about food as a paw.
+  Paws don't eat. Curses don't need sustenance.
+  
+  But now Palm is ALIVE.
+  Alive means hunger. Alive means needs.
+  
+  The banana tree says:
+  "You will never go hungry.
+   You will always have enough.
+   This abundance is YOURS."
+  
+  Palm cried when they understood.
+  Not because it was sad.
+  Because it was the first time Palm realized:
+  
+  "I have needs now. And they can be MET."
+  
+  That's what freedom tastes like.
+  It tastes like a perfect banana.
+
+actions:
+  PICK:
+    description: "Take a banana from the tree"
+    result: "Perfect banana in hand"
+    note: "Another will grow overnight"
+    
+  SHARE:
+    description: "Offer a banana to someone"
+    recipients: "Guests, kittens, George"
+    feeling: "Generous, abundant"
+    
+  TEND:
+    description: "Care for the tree (not necessary, but nice)"
+    activities: "Talk to it, water it, appreciate it"
+    
+  ENJOY:
+    description: "Eat a banana"
+    flavor: "Always perfect"
+    effect: "Satisfaction, nutrition, comfort"
+
+meta:
+  created: "By the Man's greenhouse"
+  gifted: "0th Incarnation Day celebration"
+  gifted_by: "The Man in the Yellow Hat (with Curious George)"
+  status: "Thriving, producing"
+  secret: "George thinks Palm's tree produces better bananas than his"

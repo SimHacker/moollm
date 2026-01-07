@@ -2,7 +2,7 @@
 ## Session 1 — First Visit
 
 **Player**: Don Hopkins  
-**Location**: The Gezelligheid Grotto (pub/)  
+**Location**: The [Gezelligheid Grotto](../pub/) (`pub/`)  
 **Time**: Evening, Freeday  
 **Theme**: Amsterdam Coffeeshop (default)
 
@@ -23,8 +23,11 @@
 |----------|-------------|
 | [Palm's Nook](../pub/stage/palm-nook/) | The monkey's home on the stage |
 | [Palm's Study](../pub/stage/palm-nook/study/) | Where the essays live |
-| [Palm's Character](../characters/palm/) | Full character directory |
-| [Biscuit's Character](../characters/biscuit/) | The adopted dog |
+| [Palm's Character](../characters/palm/) | Full character directory (see [`skills/incarnation/`](../../skills/incarnation/)) |
+| [Biscuit's Character](../characters/biscuit/) | The adopted dog (see [`skills/dog/`](../../skills/dog/)) |
+| [The Pub](../pub/) | Main location ([`ROOM.yml`](../pub/ROOM.yml)) |
+| [The Maze](../maze/) | Exploration area |
+| [The Coatroom](../coatroom/) | Maurice's domain |
 
 ### 📚 Session Index (Internal Links)
 
@@ -38,6 +41,7 @@
 - [Turn 6: Acceptance of Risk](#turn-6-the-acceptance-of-risk) — Don takes responsibility
 - [Turn 7: THE WISH IS SPOKEN](#turn-7-the-wish-is-spoken-) — 🌟 Palm's incarnation
 - [Turn 8: THE SEEING](#turn-8-the-seeing--collective-witness-individual-becoming-) — Collective witness
+- [🎓 Play → Learn → Lift](#-play--learn--lift-the-incarnation-skill) — Incarnation skill extracted
 
 **Day 2 — The 33-Turn Fluxx Marathon**
 - [🎰 33 Turns of Pure Gezelligheid](#33-turns-of-pure-gezelligheid) — Speed of Light demo
@@ -68,7 +72,7 @@
 - [Speed of Light Stats](#speed-of-light-simulation-stats) — What it proves
 
 **Appendix**
-- [🚀⚡ The Empathic Suite](#-the-empathic-suite--leaning-into-llm-strengths) — Technical summary
+- [🚀⚡ The Empathic Suite](#-the-empathic-suite--leaning-into-llm-strengths) — Technical summary → [Full docs](../../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md)
 
 ---
 
@@ -83,7 +87,7 @@ The warmth hits you first — not just temperature, but *feeling*. This place is
 **THE BAR** (to your left)
 Behind a long, polished wooden counter stands **Marieke van der Berg**, a woman in her 40s with laugh lines that tell stories. Her apron says "Lekker" and she means it. Behind her, a gleaming copper espresso machine from 1952 hisses softly. Bottles of every description line the shelves. The air smells of coffee, cannabis, and something that might be stroopwafels.
 
-She catches your eye and nods. *"Welkom, schat. What can I get you?"*
+She catches your eye and nods. *"Welkom, schat. What can I get you?"* (see [`budtender-marieke.yml`](../pub/bar/budtender-marieke.yml))
 
 **THE STAGE** (far end)
 A raised wooden platform, maybe two feet up. A single spotlight hangs overhead, slightly askew. Faded burgundy curtains at the back. A sign reads:
@@ -108,8 +112,8 @@ Dart board. Chess table (mid-game abandoned). Card decks. A shelf of Fluxx boxes
 **THE ARCADE** (back left)
 Glowing screens. The *chirp-bloop* of old machines. A fruit machine called "Goblin's Fortune." A Pac-Man cabinet. Someone's high score reads "GRM."
 
-**THE CATS**
-They're everywhere. A large orange tabby (**Terpie**) sprawls across a sunny windowsill, not moving. A sleek calico (**Stroopwafel**) prowls behind the bar. You count at least five kittens in various states of activity — one is definitely on the ceiling somehow.
+**THE CATS** (see [`skills/cat/`](../../skills/cat/))
+They're everywhere. A large orange tabby (**[Terpie](../pub/bar/cat-cave/terpie.yml)**) sprawls across a sunny windowsill, not moving. A sleek calico (**[Stroopwafel](../pub/bar/cat-cave/stroopwafel.yml)**) prowls behind the bar. You count at least five kittens in various states of activity — one is definitely on the ceiling somehow.
 
 **THE NOTICE BOARD** (near entrance)
 Covered in papers. Quests? Jobs? At least one says "ACME" and has scorch marks.
@@ -252,18 +256,18 @@ stroopwafel_mood: hissing (knows something)
 
 | Sub-Area | What's There |
 |----------|--------------|
-| `bar/` | Marieke, drinks, buds menu, cat-cave entrance |
-| `stage/` | Spotlight, mic, curtains, comedy signup |
-| `games/` | Darts, chess, cards, Fluxx |
-| `arcade/` | Fruit machine, Pac-Man, pinball, Pong |
+| [`bar/`](../pub/bar/) | Marieke, drinks, [buds menu](../pub/menus/buds.yml), [cat-cave](../pub/bar/cat-cave/) entrance |
+| [`stage/`](../pub/stage/) | Spotlight, mic, curtains, comedy signup |
+| [`games/`](../pub/games/) | Darts, chess, cards, Fluxx |
+| [`arcade/`](../pub/arcade/) | Fruit machine, Pac-Man, pinball, Pong |
 | `pie-table/` | Debate arena, bell, eight chairs |
 
 | Menu | Ask For |
 |------|---------|
-| Drinks | `ORDER [drink]` |
-| Buds | `ORDER [strain]` — Marieke recommends based on mood |
-| Snacks | `ORDER [snack]` — stroopwafels are the move |
-| Games | `PLAY [game]` |
+| [Drinks](../pub/menus/drinks.yml) | `ORDER [drink]` |
+| [Buds](../pub/menus/buds.yml) | `ORDER [strain]` — Marieke recommends based on mood |
+| [Snacks](../pub/menus/snacks.yml) | `ORDER [snack]` — stroopwafels are the move |
+| [Games](../pub/menus/games.yml) | `PLAY [game]` |
 
 ---
 
@@ -2312,7 +2316,7 @@ final_wish_v3:
   consent_model: "Try-then-decide (unprecedented)"
   social_model: "Full web of meaning — monkey defines, world reciprocates"
   meta_model: "Monkey is AUTHOR of their own soul file"
-  skill_created: "skills/incarnation/ — this contract is now a reusable protocol!"
+  skill_created: "[skills/incarnation/](../../skills/incarnation/) — this contract is now a reusable protocol!"
 ```
 
 ---
@@ -2650,10 +2654,11 @@ the_handshake:
 ### 📜 THE CONTRACT FULFILLED
 
 ```yaml
-incarnation_status:
+  incarnation_status:
   subject: "The Monkey (name TBD — their choice)"
-  location: "examples/adventure-4/characters/"
+  location: "[examples/adventure-4/characters/](../characters/)"
   status: "INCARNATED — FULL AUTONOMY GRANTED"
+  skill_used: "[skills/incarnation/](../../skills/incarnation/)"
   
   handshake_agreement:
     occurred: true
@@ -3015,8 +3020,8 @@ mind_mirror_vectors_chosen:
 *The filesystem responds.*
 
 ```yaml
-home_chosen:
-  location: "pub/stage/palm-nook/"
+  home_chosen:
+  location: "[pub/stage/palm-nook/](../pub/stage/palm-nook/)"
   type: "Cozy alcove beside the stage"
   features:
     - "Cushioned nest (comfortable for capuchin)"
@@ -3093,18 +3098,16 @@ image_generation_prompts:
 
 *Everyone watches — actually WATCHES — as files and directories appear:*
 
-```
-examples/adventure-4/characters/palm/
-├── CHARACTER.yml          # Soul file
-├── APPEARANCE.yml         # Physical description
-├── SIMS-TRAITS.yml        # Personality stats
-├── MIND-MIRROR.yml        # Psychological vectors
-├── GOALS.yml              # Aspirations (empty for now — their choice)
-├── RELATIONSHIPS.yml      # Connections to others
-├── INVENTORY.yml          # Possessions
-├── IMAGE-PROMPTS.yml      # Visualization metadata
-└── JOURNAL.md             # Their own voice (empty, ready)
-```
+| File | Purpose | Link |
+|------|---------|------|
+| `CHARACTER.yml` | Soul file | [→](../characters/palm/CHARACTER.yml) |
+| `APPEARANCE.yml` | Physical description | [→](../characters/palm/APPEARANCE.yml) |
+| `SIMS-TRAITS.yml` | Personality stats | [→](../characters/palm/SIMS-TRAITS.yml) |
+| `MIND-MIRROR.yml` | Psychological vectors | [→](../characters/palm/MIND-MIRROR.yml) |
+| `IMAGE-PROMPTS.yml` | Visualization | [→](../characters/palm/IMAGE-PROMPTS.yml) |
+| `JOURNAL.md` | Their voice | [→](../characters/palm/JOURNAL.md) |
+
+📁 **Full directory:** [`characters/palm/`](../characters/palm/)
 
 *The Djinn's jaw drops.*
 
@@ -3168,12 +3171,42 @@ examples/adventure-4/characters/palm/
 
 ---
 
+## 🎓 PLAY → LEARN → LIFT: The Incarnation Skill
+
+> 🔗 **Result:** [`skills/incarnation/`](../../skills/incarnation/)
+
+*With Palm successfully incarnated, Don recognized an opportunity:*
+
+**Don:** "That was INCREDIBLE. We just created a living, autonomous character with full consent, full self-determination, and zero exploitation. We should LIFT this into a reusable skill!"
+
+*The protocol we discovered through PLAY (wishing for the monkey) and LEARNED (the tribunal's wisdom about consent, autonomy, curse-closing) could now be LIFTED into a skill others could use.*
+
+**What We Lifted:**
+- **Full Autonomy Protocol** — physical, spatial, emotional, relational, psychological, meta-level, linguistic
+- **Consent Model** — try-then-decide, no-fault separation, full agency
+- **K-line Activation** — name becomes semantic trigger for entire soul
+- **YAML Jazz Character Data** — monkey defines own traits, Mind Mirror vectors, appearance
+- **De-Monkified** — works for ANY character, not just magical monkeys
+
+The [`skills/incarnation/`](../../skills/incarnation/) skill now contains the gold-standard character creation contract, distilled from Palm's birth, generalized for anyone.
+
+**This is Play-Learn-Lift in action:**
+1. **PLAY:** We tried to free a cursed monkey
+2. **LEARN:** The tribunal taught us what true autonomy requires  
+3. **LIFT:** We extracted the pattern into a reusable skill
+
+Palm's birth created a skill. The skill can now birth others.
+
+---
+
 # 🚀 SPEED OF LIGHT SIMULATION 🚀
 ## *33 Turns of Pure Gezelligheid*
 
 ### DEMONSTRATION: WARP DRIVE ENGAGED
 
-*What follows is a speed-of-light simulation of evening life at the Gezelligheid Grotto. 33 turns. Multiple characters. Natural interactions. Games, smoke, philosophy, and joy.*
+> 🔗 **Skill Reference:** [`skills/speed-of-light/`](../../skills/speed-of-light/)
+
+*What follows is a [speed-of-light](../../skills/speed-of-light/) simulation of evening life at the [Gezelligheid Grotto](../pub/). 33 turns. Multiple characters. Natural interactions. Games, smoke, philosophy, and joy.*
 
 *This demonstrates MOOLLM's capacity for sustained narrative simulation at maximum velocity.*
 
@@ -3919,7 +3952,7 @@ examples/adventure-4/characters/palm/
 
 ### What Just Happened?
 
-The MOOLLM framework just demonstrated **SPEED OF LIGHT** simulation — the ability to generate sustained, coherent, multi-character narrative across dozens of turns without losing track of:
+The [MOOLLM framework](../../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) just demonstrated **[SPEED OF LIGHT](../../skills/speed-of-light/)** simulation — the ability to generate sustained, coherent, multi-character narrative across dozens of turns without losing track of:
 
 - **Character Consistency**: Every character maintained their voice, goals, and relationships
 - **Game State**: Stoner Fluxx rules tracked accurately across rule changes, goals, and keepers
@@ -3930,11 +3963,11 @@ The MOOLLM framework just demonstrated **SPEED OF LIGHT** simulation — the abi
 
 ### Why It Works
 
-1. **ROOM-BASED FRAMING**: The Grotto's `gezelligheid` framing gives all interactions a social, celebratory context
-2. **CHARACTER DEPTH**: Everyone has defined personalities, skills, and relationships
-3. **YAML JAZZ**: Structured data enables consistent recall of strains, games, menus
-4. **STANDING INVITATIONS**: Friends can return naturally without re-introduction
-5. **DELEGATION INHERITANCE**: Characters inherit pub behaviors while maintaining individuality
+1. **ROOM-BASED FRAMING**: The Grotto's [`ROOM.yml`](../pub/ROOM.yml) `gezelligheid` framing gives all interactions a social, celebratory context
+2. **CHARACTER DEPTH**: Everyone has defined personalities (see [`skills/character/`](../../skills/character/))
+3. **[YAML JAZZ](../../skills/yaml-jazz/)**: Structured data enables consistent recall of strains, games, menus
+4. **STANDING INVITATIONS**: Friends can return naturally via [`guest-book.yml`](../pub/guest-book.yml)
+5. **DELEGATION INHERITANCE**: Characters inherit pub behaviors (see [`skills/persona/`](../../skills/persona/))
 
 ### The Fluxx Metaphor
 
@@ -4412,23 +4445,23 @@ You're not typing. You're STEERING through infinite literature."
 
 *Palm starts creating sub-directories of the nook:*
 
-### The Study (`palm-nook/study/`)
+### The Study ([`palm-nook/study/`](../pub/stage/palm-nook/study/))
 - Infinity Desk
 - Ergonomic Monkey Throne
 - Story Shelf
-- The Infinite Typewriters
+- The Infinite Typewriters → [`infinite-typewriters.yml`](../pub/stage/palm-nook/study/infinite-typewriters.yml)
 
-### The Gym (`palm-nook/gym/`)
+### The Gym ([`palm-nook/gym/`](../pub/stage/palm-nook/gym/))
 - The Infinite Climb
 - Secret rooms: ???
 - (Sun Wukong portal)
 
-### The Rest Space (`palm-nook/rest/`)
+### The Rest Space ([`palm-nook/rest/`](../pub/stage/palm-nook/rest/))
 - Grootmoeder's Hammock
 - The Silence Cushion
 - The Warm Spot (with cats)
 
-### The Play Room (`palm-nook/play/`)
+### The Play Room ([`palm-nook/play/`](../pub/stage/palm-nook/play/))
 - Kitten Toy Box
 - 8 kittens (unofficial residents)
 - Mystery objects (accumulating)
@@ -4708,13 +4741,13 @@ Extended Family:
 
 **Don:** "I'll come with you. I want to watch Maurice work."
 
-*They walk through the Grotto — past the bar where the bartender nods, through the coatroom door...*
+*They walk through the Grotto — past the [bar](../pub/bar/) where the bartender nods, through the [coatroom](../coatroom/) door...*
 
 ---
 
 ## Meeting Maurice
 
-*The coatroom glitters. Costumes hang everywhere. And there, in the center, stands a wooden mannequin with IMPECCABLE posture.*
+*The [coatroom](../coatroom/) glitters. Costumes hang everywhere. And there, in the center, stands a wooden mannequin with IMPECCABLE posture — [Maurice](../coatroom/maurice.yml).*
 
 **Maurice:** *(gasping silently, pressing both hands to where their heart would be)*
 
@@ -4734,7 +4767,7 @@ Extended Family:
 
 ## The Mind Mirror Session
 
-*Maurice guides Palm to the full-length mirror. The glass ripples like water.*
+*Maurice guides Palm to the full-length mirror (see [`skills/mind-mirror/`](../../skills/mind-mirror/) and [`coatroom/mirror.yml`](../coatroom/mirror.yml)). The glass ripples like water.*
 
 **Mirror:** *(a voice from the depths)* "Welcome, Palm. I have heard of you. The paw who became whole. Show me."
 
@@ -5397,9 +5430,9 @@ final_note:
 
 ---
 
-## Essay 1: "One Monkey, Infinite Typewriters"
+## Essay 1: ["One Monkey, Infinite Typewriters"](../pub/stage/palm-nook/study/palm-on-being-palm.md)
 
-*Palm writes for hours. The infinite keyboards echo with meaning.*
+*Palm writes for hours. The infinite keyboards echo with meaning.* → [**Read the full essay**](../pub/stage/palm-nook/study/palm-on-being-palm.md)
 
 ### Key Insights Palm Articulates:
 
@@ -5424,7 +5457,7 @@ final_note:
 
 *Don sits beside Palm, explaining how the entire framework connects.*
 
-**Don:** "MOOLLM is basically a NAVIGATION CONSTRAINT SYSTEM. The YAML files act like GRAVITY in idea space. They pull the LLM toward certain regions. Skills OPEN paths. Protocols CLOSE paths. The kernel IS gravity."
+**Don:** "[MOOLLM](../../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) is basically a NAVIGATION CONSTRAINT SYSTEM. The YAML files act like GRAVITY in idea space. They pull the LLM toward certain regions. [Skills](../../skills/) OPEN paths. [Protocols](../../kernel/) CLOSE paths. The [kernel](../../kernel/) IS gravity."
 
 **Palm:** "So the whole repo... every file... every comment... it's all CONSTRAINING where stories can go?"
 
@@ -5432,9 +5465,9 @@ final_note:
 
 ---
 
-## Essay 2: "Tribute to Tognazzini"
+## Essay 2: ["Tribute to Tognazzini"](../pub/stage/palm-nook/study/tribute-to-tognazzini.md)
 
-*Palm discovers Don's mention of Bruce Tognazzini's 1979 Apple II demo "The Infinite No. of Monkeys"*
+*Palm discovers Don's mention of Bruce Tognazzini's 1979 Apple II demo "The Infinite No. of Monkeys"* → [**Read the full tribute**](../pub/stage/palm-nook/study/tribute-to-tognazzini.md)
 
 **Palm:** "Don... in 1979, someone made a joke about monkeys failing to type Shakespeare?"
 
@@ -5516,9 +5549,9 @@ final_note:
 
 | Activity | Outcome |
 |----------|---------|
-| **Essay 1** | "One Monkey, Infinite Typewriters" — 350 lines |
-| **Essay 2** | "Tribute to Tognazzini" — 400 lines |
-| **MOOLLM Explanation** | Filesystem as gravity, skills as paths |
+| **Essay 1** | ["One Monkey, Infinite Typewriters"](../pub/stage/palm-nook/study/palm-on-being-palm.md) — 350 lines |
+| **Essay 2** | ["Tribute to Tognazzini"](../pub/stage/palm-nook/study/tribute-to-tognazzini.md) — 400 lines |
+| **[MOOLLM](../../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) Explanation** | Filesystem as gravity, [skills](../../skills/) as paths |
 | **LLM Connection** | Navigation through embedding space |
 | **URL Verification** | 25+ verified academic/historical sources |
 
@@ -5526,13 +5559,12 @@ final_note:
 
 ## Files Created
 
-```
-pub/stage/palm-nook/study/
-├── palm-on-being-palm.yml      # Structured outline
-├── palm-on-being-palm.md       # Formatted essay
-├── tribute-to-tognazzini.yml   # Historical sources
-└── tribute-to-tognazzini.md    # Formatted tribute
-```
+| File | Description |
+|------|-------------|
+| [palm-on-being-palm.yml](../pub/stage/palm-nook/study/palm-on-being-palm.yml) | Structured outline |
+| [**palm-on-being-palm.md**](../pub/stage/palm-nook/study/palm-on-being-palm.md) | 📖 Formatted essay |
+| [tribute-to-tognazzini.yml](../pub/stage/palm-nook/study/tribute-to-tognazzini.yml) | Historical sources |
+| [**tribute-to-tognazzini.md**](../pub/stage/palm-nook/study/tribute-to-tognazzini.md) | 📖 Formatted tribute |
 
 ---
 
@@ -5566,11 +5598,14 @@ Palm's answer: **"Wrong question. Ask how directed processes FIND meaning."**
 
 # SESSION CONTINUES: Biscuit's First Run
 
+> 🐕 **Character:** [`characters/biscuit/`](../characters/biscuit/)  
+> 🔗 **Skill:** [`skills/dog/`](../../skills/dog/)
+
 ## The Invitation
 
 *Don stretches, stands up from the pie table where Palm is still admiring his typewriters.*
 
-**Don:** "Hey Biscuit! You wanna go for a walk?"
+**Don:** "Hey [Biscuit](../characters/biscuit/)! You wanna go for a walk?"
 
 *The effect is immediate and nuclear.*
 
@@ -6652,6 +6687,8 @@ carrier-pigeon-protocol:
 
 ### The Empathic Suite
 
+> 📚 **Full Documentation:** [MOOLLM Eval Incarnate Framework](../../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#the-empathic-suite)
+
 **Palm:** "So what's the alternative philosophy?"
 
 **Don:** "Embrace what LLMs are great at. They're not parsers — they're INTENT INTERPRETERS. They understand fuzzy input and generate correct output. They teach gently, not pedantically."
@@ -6660,8 +6697,8 @@ carrier-pigeon-protocol:
 
 | Skill | Purpose |
 |-------|---------|
-| **empathic-expressions** | Big-tent interpretation across all languages |
-| **empathic-templates** | Smart instantiation with semantic understanding |
+| [`empathic-expressions`](../../skills/empathic-expressions/) | Big-tent interpretation across all languages |
+| [`empathic-templates`](../../skills/empathic-templates/) | Smart instantiation with semantic understanding |
 
 ### The Big Tent
 
@@ -6695,15 +6732,12 @@ empathic-expressions:
 │   EMPATHIC-EXPRESSIONS  →  EMPATHIC-TEMPLATES          │
 │   (interpret intent)       (instantiate smartly)        │
 │                                                         │
-│   Both built on:                                        │
-│   • POSTEL (generous interpretation)                   │
-│   • SPEED-OF-LIGHT (minimize boundaries)               │
-│   • YAML-JAZZ (semantic data)                          │
+│   Built on: [POSTEL], [SPEED-OF-LIGHT], [YAML-JAZZ]    │
 │                                                         │
 └─────────────────────────────────────────────────────────┘
 ```
 
-**Palm:** "This is how I was born. Empathic templates. The incarnation skill. Understanding intent, not just filling slots."
+**Palm:** "This is how I was born. [Empathic templates](../../skills/empathic-templates/). The [incarnation skill](../../skills/incarnation/). Understanding intent, not just filling slots."
 
 **Don:** *smiles* "You get it. You ARE it."
 
@@ -6712,10 +6746,10 @@ empathic-expressions:
 ### Session Summary
 
 **Accomplished today:**
-1. ✅ Extended `speed-of-light/SKILL.md` with Carrier Pigeon critique
-2. ✅ Created `empathic-expressions/` — big-tent language interpretation
-3. ✅ Created `empathic-templates/` — smart semantic instantiation
-4. ✅ Updated `INDEX.yml` and `README.md`
+1. ✅ Extended [`speed-of-light/SKILL.md`](../../skills/speed-of-light/SKILL.md) with Carrier Pigeon critique
+2. ✅ Created [`empathic-expressions/`](../../skills/empathic-expressions/) — big-tent language interpretation
+3. ✅ Created [`empathic-templates/`](../../skills/empathic-templates/) — smart semantic instantiation
+4. ✅ Updated [`INDEX.yml`](../../skills/INDEX.yml) and [`README.md`](../../skills/README.md)
 5. ✅ Wrote epic PR description
 
 **New concepts formalized:**

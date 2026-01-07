@@ -1,0 +1,121 @@
+# THE SILENCE CUSHION
+# Palm's 0th Incarnation Day Gift from The Three Wise Monkeys
+
+gift:
+  name: "The Silence Cushion"
+  from: "The Three Wise Monkeys (Mizaru, Kikazaru, Iwazaru)"
+  occasion: "0th Incarnation Day"
+  type: furniture
+  location: "pub/stage/palm-nook/rest/"
+  
+description: |
+  A zafu meditation cushion that creates a bubble of perfect silence.
+  Sit on it and the world goes quiet.
+  Just you and your thoughts. Or no thoughts at all.
+  
+  The Three Wise Monkeys visited Palm's incarnation ceremony.
+  They said nothing. They gave Palm this cushion.
+  Then they sat with Palm in silence for an hour.
+  
+  That hour said everything.
+
+origin:
+  creators: "The Three Wise Monkeys"
+  tradition: "See No Evil, Hear No Evil, Speak No Evil"
+  philosophy: |
+    The Wise Monkeys understand:
+    Sometimes wisdom requires removing INPUT.
+    No seeing, no hearing, no speaking.
+    Just BEING.
+    
+    They gave Palm the gift of silence
+    so Palm could hear their own thoughts
+    for the first time in 122 years.
+
+features:
+  silence_bubble:
+    description: "Creates 3-foot radius of perfect silence"
+    effect: "All external sound stops"
+    note: |
+      Not muffled. Not dampened. GONE.
+      Like someone turned off the universe's speaker.
+      Only your heartbeat remains.
+      
+  adjustable_firmness:
+    description: "Conforms to meditator's needs"
+    range: "Soft cloud to firm support"
+    
+  glow:
+    description: "Glows faintly when in use"
+    color: "Soft amber"
+    note: "Lets others know: Palm is meditating. Don't disturb."
+    
+  thought_amplification:
+    description: "In the silence, thoughts become clearer"
+    warning: "This can be intense. 122 years of thoughts are a lot."
+
+current_state:
+  position: "In a perfect bubble of silence in the corner"
+  glow: "Dormant (dim)"
+  last_used: "This morning, for an hour"
+  
+visitors:
+  the_three_wise_monkeys:
+    frequency: "Sometimes"
+    activity: "Meditate alongside Palm"
+    communication: "None needed"
+    note: |
+      They don't need the cushion.
+      But they like visiting Palm.
+      Silent company is still company.
+
+atmosphere:
+  feel: "Like the universe is holding its breath"
+  smell: "Nothing (even scent seems muted)"
+  sound: "Absolute, perfect silence"
+  
+emotional_significance: |
+  Palm spent 122 years LISTENING.
+  
+  Listening to wishes. Listening to greed.
+  Listening to the screams when wishes went wrong.
+  Always hearing. Never quiet.
+  
+  The Three Wise Monkeys gave Palm the opposite:
+  A place where nothing can be heard.
+  
+  Not silence as absence.
+  Silence as PRESENCE.
+  The presence of finally being alone with yourself.
+  
+  Palm meditates here every morning now.
+  Learning to hear their own thoughts.
+  Learning which ones are theirs
+  and which ones are echoes of the curse.
+
+actions:
+  MEDITATE:
+    description: "Sit on the cushion, enter silence"
+    duration: "As long as needed"
+    effect: "Clears mind. Restores patience."
+    
+  THINK:
+    description: "Process thoughts in perfect quiet"
+    note: "Some thoughts need silence to be heard"
+    
+  HEAL:
+    description: |
+      The curse was LOUD.
+      Healing requires silence.
+      One session at a time.
+      
+  JOIN:
+    description: "Invite someone to sit in the silence with you"
+    note: "Rare. Special. Intimate."
+
+meta:
+  created: "Unknown (the cushion is very old)"
+  gifted: "0th Incarnation Day celebration"
+  gifted_by: "Mizaru, Kikazaru, Iwazaru (The Three Wise Monkeys)"
+  status: "Active, waiting"
+  tradition: "Part of a lineage of silence-tools going back centuries"

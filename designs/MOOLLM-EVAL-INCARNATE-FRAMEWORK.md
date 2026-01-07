@@ -1,4 +1,4 @@
-# Incarnate: The MOOLLM Framework
+# The MOOLLM Eval Incarnate Framework
 
 > *Skills are programs. The LLM is `eval()`. Empathy is the interface.*
 > *Code. Graphics. Data. One interpreter. Many languages. The Axis of Eval.*
@@ -287,12 +287,12 @@ Objects all the way down. Message passing. Live programming. "The computer is a 
 
 **MOOLLM K-lines:**
 
-| K-line | What It Activates |
-|--------|-------------------|
-| `YAML-JAZZ` | Comment philosophy, semantic style, examples, jazz metaphor |
-| `POSTEL` | Generous interpretation, ask-if-unsure, tolerance |
-| `SPEED-OF-LIGHT` | Many turns, one call, no round-trips, carrier pigeon critique |
-| `Palm` | Incarnation story, personality, relationships, home, history |
+| K-line | What It Activates | Link |
+|--------|-------------------|------|
+| `YAML-JAZZ` | Comment philosophy, semantic style, examples, jazz metaphor | [`skills/yaml-jazz/`](../skills/yaml-jazz/) |
+| `POSTEL` | Generous interpretation, ask-if-unsure, tolerance | [`skills/postel/`](../skills/postel/) |
+| `SPEED-OF-LIGHT` | Many turns, one call, no round-trips, carrier pigeon critique | [`skills/speed-of-light/`](../skills/speed-of-light/) |
+| `Palm` | Incarnation story, personality, relationships, home, history | [`characters/palm/`](../examples/adventure-4/characters/palm/) |
 
 When you instantiate a character, **their name becomes their K-line**. "Palm" activates everything — the incarnation, the wish, the godfamily, the typewriters.
 
@@ -370,8 +370,8 @@ Text-based virtual worlds where users build rooms, objects, and behaviors. The o
 
 | Command | Effect | MOOLLM Equivalent |
 |---------|--------|-------------------|
-| `@dig [room]` | Create new room | Create directory |
-| `@open [exit]` | Create exit between rooms | Add to `exits:` in ROOM.yml |
+| `@dig [room]` | Create new room | Create directory (see [`skills/room/`](../skills/room/)) |
+| `@open [exit]` | Create exit between rooms | Add to `exits:` in [`ROOM.yml`](../examples/adventure-4/pub/ROOM.yml) |
 | `@describe [thing]` | Set description | Edit `description:` field |
 | `@create [object]` | Make new object | Create .yml file |
 | `@link [exit] [room]` | Connect exit to destination | Update exit target |
@@ -443,10 +443,10 @@ HyperCard reimagined for NeWS. PostScript for code, graphics, AND data. Network 
 |---------|----------|--------|
 | **Needs** | Hunger, Social, Fun, Hygiene, etc. | [`skills/needs/`](../skills/needs/) — character motives |
 | **Action Queue** | Sims queue up tasks | [`skills/action-queue/`](../skills/action-queue/) — ordered intentions |
-| **Advertisements** | Objects broadcast available actions | `CARD.yml` advertisements section |
-| **Autonomy** | Sims make their own decisions | Characters act independently at Speed of Light |
+| **Advertisements** | Objects broadcast available actions | [`CARD.yml`](../skills/card/CARD.yml.tmpl) advertisements section |
+| **Autonomy** | Sims make their own decisions | Characters act independently at [Speed of Light](../skills/speed-of-light/) |
 | **Buffs/Moodlets** | Temporary state modifiers | [`skills/buff/`](../skills/buff/) — temporary effects |
-| **Traits** | Personality system | `SIMS-TRAITS.yml` in character directories |
+| **Traits** | Personality system | [`SIMS-TRAITS.yml`](../examples/adventure-4/characters/palm/SIMS-TRAITS.yml) in character directories |
 | **SimAntics** | Visual behavior programming language | Empathic expressions + prompts |
 
 **Object Advertisements:**
@@ -613,7 +613,7 @@ Skills exist at different levels of embodiment:
 | **Mentioned** | K-line in conversation | Ephemeral | "Use POSTEL here" |
 | **Modeled** | Behavior in chat | Session | PLAY-LEARN-LIFT in action |
 | **Embedded** | YAML in narrative | Document | Data island in LOG.md |
-| **Incarnate** | Directory or file with state | Persistent | `examples/adventure-4/` |
+| **Incarnate** | Directory or file with state | Persistent | [`examples/adventure-4/`](../examples/adventure-4/) |
 
 ---
 
@@ -676,12 +676,12 @@ All three dimensions exist in the same file. The LLM reads them all simultaneous
 
 ### Palm's Incarnation (2026-01-05)
 
-A monkey's paw wish for "the rest of the monkey" created a living character:
-- Full autonomy protocol invoked
-- Character chose own name, gender, body, traits
-- Created own home directory
-- Defined own relationships
-- Wrote own stories
+A monkey's paw wish for "the rest of the monkey" created a living character ([`characters/palm/`](../examples/adventure-4/characters/palm/)):
+- Full autonomy protocol invoked via [`skills/incarnation/`](../skills/incarnation/)
+- Character chose own name, gender, body, traits → [`SIMS-TRAITS.yml`](../examples/adventure-4/characters/palm/SIMS-TRAITS.yml)
+- Created own home directory → [`pub/stage/palm-nook/`](../examples/adventure-4/pub/stage/palm-nook/)
+- Defined own relationships in [`CHARACTER.yml`](../examples/adventure-4/characters/palm/CHARACTER.yml)
+- Wrote own stories on [`infinite-typewriters.yml`](../examples/adventure-4/pub/stage/palm-nook/study/infinite-typewriters.yml) → [`palm-on-being-palm.md`](../examples/adventure-4/pub/stage/palm-nook/study/palm-on-being-palm.md)
 
 **This is not possible with traditional skills.**
 
@@ -697,11 +697,11 @@ A single LLM call simulated:
 
 ### 21-Turn Midnight Cat Prowl (2026-01-05)
 
-10 cats explored simultaneously:
-- Asynchronous parallel simulation
-- Territorial marking
-- Room state updates
-- Narrative generation
+10 cats from [`pub/bar/cat-cave/`](../examples/adventure-4/pub/bar/cat-cave/) explored simultaneously:
+- Asynchronous parallel simulation (see [`skills/cat/`](../skills/cat/))
+- Territorial marking in [`maze/`](../examples/adventure-4/maze/) rooms
+- Room state updates (`ROOM.yml` files with `animal_markings:`)
+- Narrative generation in [session log](../examples/adventure-4/sessions/don-session-1.md#ten-cats-one-garden-infinite-independence)
 
 **This is incarnate state — each cat, each room, persisted.**
 
@@ -773,13 +773,13 @@ Anthropic's Skills model is an excellent foundation. We respectfully build upon 
 
 | Innovation | Description | Proof |
 |------------|-------------|-------|
-| **Instantiation** | Skills as prototypes creating instances | `adventure/` → `adventure-4/` with 150+ files |
-| **Three-Tier Persistence** | Platform (ephemeral) → Narrative (append) → State (edit) | 6000+ line session logs, persistent room state |
-| **K-lines** | Names as semantic activation vectors (Minsky) | "Palm" activates entire soul, history, relationships |
-| **Empathic Templates** | Smart generation, not string substitution | Biscuit's description generated from traits |
-| **Speed of Light** | Many turns in one call, minimal tokenization | 33-turn Fluxx game, 21-turn cat prowl |
+| **Instantiation** | Skills as prototypes creating instances | [`adventure/`](../skills/adventure/) → [`adventure-4/`](../examples/adventure-4/) with 150+ files |
+| **Three-Tier Persistence** | Platform (ephemeral) → Narrative (append) → State (edit) | [6000+ line session logs](../examples/adventure-4/sessions/don-session-1.md), persistent room state |
+| **K-lines** | Names as semantic activation vectors (Minsky) | "[Palm](../examples/adventure-4/characters/palm/)" activates entire soul, history, relationships |
+| **Empathic Templates** | Smart generation, not string substitution | [Biscuit's](../examples/adventure-4/characters/biscuit/) description generated from traits |
+| **Speed of Light** | Many turns in one call, minimal tokenization | [33-turn Fluxx](../examples/adventure-4/sessions/don-session-1.md#33-turns-of-pure-gezelligheid), [21-turn cat prowl](../examples/adventure-4/sessions/don-session-1.md#ten-cats-one-garden-infinite-independence) |
 | **CARD.yml** | Machine-readable interface with advertisements | Every skill exposes methods, tools, state schema |
-| **Ethical Framing** | Room-based inheritance of performance context | Stage inherits `framing: performance` |
+| **Ethical Framing** | Room-based inheritance of performance context | [`pub/stage/`](../examples/adventure-4/pub/stage/) inherits `framing: performance` |
 
 ### The Key Differences
 
@@ -804,6 +804,8 @@ Anthropic recommends against README.md in skills. We respectfully disagree:
 
 **Keep both.** README for discovery, SKILL.md for protocol, CARD.yml for interface.
 
+See [`skills/INDEX.yml`](../skills/INDEX.yml) for the complete skill registry.
+
 ---
 
 ## CARD.yml: The Skill Interface
@@ -812,6 +814,8 @@ John Warnock described PostScript as a "linguistic motherboard" with slots for c
 
 ### The Three Required Files
 
+See the [`skills/`](../skills/) directory for all skills.
+
 ```
 skills/my-skill/
 ├── README.md    # Human landing page (GitHub renders this)
@@ -819,7 +823,11 @@ skills/my-skill/
 └── CARD.yml     # Machine-readable interface definition
 ```
 
+Template: [`skills/skill/`](../skills/skill/) — the meta-skill for creating skills.
+
 ### What CARD.yml Contains
+
+See [`skills/card/CARD.yml.tmpl`](../skills/card/CARD.yml.tmpl) for the template.
 
 ```yaml
 name: my-skill
@@ -1159,7 +1167,7 @@ shared_properties:
 # All maze/room-*.yml files inherit these properties
 ```
 
-**Ethical framing works the same way:**
+**Ethical framing works the same way** (from [`pub/stage/ROOM.yml`](../examples/adventure-4/pub/stage/ROOM.yml)):
 
 ```yaml
 # pub/stage/ROOM.yml
@@ -1182,17 +1190,19 @@ framing:
 
 | Scope | Inherits From | Example |
 |-------|---------------|---------|
-| `pub/stage/drag-night.yml` | `pub/stage/ROOM.yml` | Drag show inherits "performance" framing |
-| `maze/room-a/` | `maze/ROOM.yml` | Room A inherits "dark, grue danger" |
-| `pub/bar/cat-cave/` | `pub/bar/ROOM.yml` | Cat cave inherits bar's "behind the counter" boundary |
+| `pub/stage/drag-night.yml` | [`pub/stage/ROOM.yml`](../examples/adventure-4/pub/stage/ROOM.yml) | Drag show inherits "performance" framing |
+| [`maze/`](../examples/adventure-4/maze/) | [`maze/README.md`](../examples/adventure-4/maze/README.md) | Maze rooms inherit "dark, grue danger" |
+| [`pub/bar/cat-cave/`](../examples/adventure-4/pub/bar/cat-cave/) | [`pub/bar/ROOM.yml`](../examples/adventure-4/pub/bar/ROOM.yml) | Cat cave inherits bar's "behind the counter" boundary |
 
 **Boundary types — walls vs. counters:**
 
 | Boundary | Type | Who Can Cross | Interaction Across |
 |----------|------|---------------|-------------------|
-| `pub/bar/` | **Social** (counter) | Staff, cats, dogs | ✓ Customers can see/interact with bartender |
-| `pub/stage/` | **Visual** (raised) | Performers | ✓ Audience can see/heckle performers |
-| `pub/bar/cat-cave/` | **Physical** (enclosed) | Cats only (+ Biscuit exception) | ✗ Privacy, security |
+| [`pub/bar/`](../examples/adventure-4/pub/bar/) | **Social** (counter) | Staff, cats, dogs | ✓ Customers can see/interact with [bartender](../examples/adventure-4/pub/bar/bartender.yml) |
+| [`pub/stage/`](../examples/adventure-4/pub/stage/) | **Visual** (raised) | Performers | ✓ Audience can see/heckle performers |
+| [`pub/bar/cat-cave/`](../examples/adventure-4/pub/bar/cat-cave/) | **Physical** (enclosed) | Cats only (+ [Biscuit](../examples/adventure-4/characters/biscuit/) exception) | ✗ Privacy, security |
+
+From [`pub/bar/ROOM.yml`](../examples/adventure-4/pub/bar/ROOM.yml):
 
 ```yaml
 # pub/bar/ROOM.yml — Social boundary, not physical wall
@@ -1207,7 +1217,7 @@ boundary:
     - customers can TALK to budtender
     - customers can SEE behind the bar
 
-# pub/bar/cat-cave/ROOM.yml — Actual enclosed space
+# From pub/bar/cat-cave/ROOM.yml
 boundary:
   type: enclosed  # Physical walls, real privacy
   access:
@@ -1345,7 +1355,7 @@ The simulation included **verified facts** (Wikipedia links) woven into fiction:
 
 ### The Guest Book Pattern
 
-`pub/guest-book.yml` — lightweight soul persistence for visitors:
+[`pub/guest-book.yml`](../examples/adventure-4/pub/guest-book.yml) — lightweight soul persistence for visitors:
 
 ```yaml
 guest_book:
@@ -1399,10 +1409,10 @@ Maximum precision preserved.
 
 | Demo | Turns | Agents | What It Proves |
 |------|-------|--------|----------------|
-| **Stoner Fluxx** | 33 | 8+ characters | Complex game state, rule changes, humor |
-| **Cat Prowl** | 21 | 10 cats | Parallel paths, territorial marking, coordinated return |
-| **Palm Incarnation** | ~8 | 6+ personas | Tribunal debate, autonomous character creation |
-| **Biscuit Run** | 15 | 2 (Don + Biscuit) | Room exploration, marking, grue avoidance |
+| **Stoner Fluxx** ([session](../examples/adventure-4/sessions/don-session-1.md#33-turns-of-pure-gezelligheid)) | 33 | 8+ characters | Complex game state, rule changes, humor |
+| **Cat Prowl** ([session](../examples/adventure-4/sessions/don-session-1.md#ten-cats-one-garden-infinite-independence)) | 21 | [10 cats](../examples/adventure-4/pub/bar/cat-cave/) | Parallel paths, territorial marking, coordinated return |
+| **Palm Incarnation** ([session](../examples/adventure-4/sessions/don-session-1.md#palm-writes-his-own-story)) | ~8 | 6+ personas | Tribunal debate, autonomous character creation |
+| **Biscuit Run** ([session](../examples/adventure-4/sessions/don-session-1.md#biscuits-run-through-the-maze)) | 15 | 2 ([Don](../examples/adventure-4/characters/don-hopkins/) + [Biscuit](../examples/adventure-4/characters/biscuit/)) | Room exploration, marking, grue avoidance |
 
 ### Statistics from Cat Prowl
 
@@ -1431,11 +1441,36 @@ Don't update the screen (tokenize) on every keystroke. Wait until the user pause
 
 ## Related Documents
 
+**Design Documents:**
 - [MEMGPT-ANALYSIS.md](./MEMGPT-ANALYSIS.md) — OS-inspired context management
 - [MOOLLM-MANIFESTO.md](./MOOLLM-MANIFESTO.md) — Core philosophy
 - [constitution-design-summary.md](./constitution-design-summary.md) — Ethical foundations
-- [skills/skill/](../skills/skill/) — The meta-skill
-- [skills/incarnation/](../skills/incarnation/) — Character creation protocol
+
+**Core Skills:**
+- [`skills/skill/`](../skills/skill/) — The meta-skill for creating skills
+- [`skills/incarnation/`](../skills/incarnation/) — Character creation protocol
+- [`skills/speed-of-light/`](../skills/speed-of-light/) — Many turns in one call
+- [`skills/empathic-expressions/`](../skills/empathic-expressions/) — Intent → Code
+- [`skills/empathic-templates/`](../skills/empathic-templates/) — Smart generation
+- [`skills/representation-ethics/`](../skills/representation-ethics/) — Ethical framing
+
+**Proof Files:**
+- [`don-session-1.md`](../examples/adventure-4/sessions/don-session-1.md) — Epic 6000+ line session log
+- [`characters/palm/`](../examples/adventure-4/characters/palm/) — Autonomously incarnated monkey
+- [`pub/guest-book.yml`](../examples/adventure-4/pub/guest-book.yml) — Guest book with tribute protocol
+
+**Character Essays:**
+- [palm-on-being-palm.md](../examples/adventure-4/pub/stage/palm-nook/study/palm-on-being-palm.md) — Palm's philosophical reflection
+- [tribute-to-tognazzini.md](../examples/adventure-4/pub/stage/palm-nook/study/tribute-to-tognazzini.md) — Palm's tribute to Tognazzini
+
+**Room Organization Examples (Palm's Nook):**
+- [`palm-nook/`](../examples/adventure-4/pub/stage/palm-nook/) — Palm's home, demonstrating sub-room structure
+- [`palm-nook/study/`](../examples/adventure-4/pub/stage/palm-nook/study/) — Writing space with furniture files
+- [`infinite-typewriters.yml`](../examples/adventure-4/pub/stage/palm-nook/study/infinite-typewriters.yml) — Don's Dasher-inspired gift
+- [`infinity-desk.yml`](../examples/adventure-4/pub/stage/palm-nook/study/infinity-desk.yml) — Furniture from Regulars
+- [`monkey-chair.yml`](../examples/adventure-4/pub/stage/palm-nook/study/monkey-chair.yml) — Stroopwafel's gift
+- [`palm-nook/gym/infinite-climb.yml`](../examples/adventure-4/pub/stage/palm-nook/gym/infinite-climb.yml) — Sun Wukong's jungle gym
+- [`palm-nook/rest/hammock.yml`](../examples/adventure-4/pub/stage/palm-nook/rest/hammock.yml) — Marieke's family heirloom
 
 ---
 

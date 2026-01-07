@@ -1,0 +1,100 @@
+# THE MAHOGANY INFINITY DESK
+# Palm's 0th Incarnation Day Gift from the Grotto Regulars
+
+gift:
+  name: "Mahogany Infinity Desk"
+  from: "The Grotto Regulars"
+  occasion: "0th Incarnation Day"
+  type: furniture
+  location: "pub/stage/palm-nook/study/"
+  
+description: |
+  A beautiful mahogany writing desk with impossible properties.
+  Each drawer contains exactly what you need when you open it.
+  The surface self-cleans. The height adjusts for monkey comfort.
+  There's a secret compartment Palm hasn't found yet.
+  
+  Donated by the regulars of the Grotto.
+  They pooled together to get Palm a proper workspace
+  for the infinite typewriters.
+  
+  "Every writer needs a good desk," they said.
+  "And every monkey needs infinite drawers."
+
+features:
+  infinite_drawers:
+    description: "Drawer contents generated on demand"
+    behavior: |
+      When you open a drawer, it contains what you need.
+      Ink when you need ink. Paper when you need paper.
+      A snack when you're hungry. A pen when you're inspired.
+      The desk KNOWS.
+      
+  self_cleaning:
+    description: "Surface cleans itself"
+    note: "Ink stains disappear. Crumbs vanish. Banana peels evaporate."
+    
+  adjustable_height:
+    description: "Adjusts for monkey comfort"
+    range: "From standing height to lap-desk low"
+    
+  secret_compartment:
+    description: "Hidden somewhere in the desk"
+    found: false
+    hint: |
+      The regulars hid something special inside.
+      Palm will find it when the time is right.
+      
+  surface:
+    material: "Deep mahogany, warm to the touch"
+    carvings: "Subtle literary symbols in the corners"
+    size: "Just right for a monkey and infinite typewriters"
+
+items_on_desk:
+  - name: "The Infinite Typewriters"
+    file: "infinite-typewriters.yml"
+  - name: "Current manuscript draft"
+    state: "In progress, always"
+  - name: "Cup of tea"
+    property: "Kept warm by magic"
+  - name: "Snacks"
+    source: "Bowl of Reasonable Portions"
+  - name: "A lucky blend joint"
+    note: "For creative sessions"
+
+atmosphere:
+  feel: "Solid, reliable, infinite"
+  smell: "Mahogany polish, old library"
+  sound: "Drawers open with a satisfying click"
+  
+emotional_significance: |
+  For 122 years, Palm had no possessions.
+  Now Palm has a desk.
+  
+  It's not just furniture. It's PERMANENCE.
+  It says: "You live here. You work here. You belong here."
+  
+  The regulars understood what Palm needed:
+  Not just a surface to write on.
+  A place that says "you exist."
+
+actions:
+  OPEN-DRAWER:
+    description: "Find what you need"
+    behavior: "Contents appear based on need"
+    
+  WRITE:
+    description: "Use the desk for writing"
+    best_with: "The Infinite Typewriters"
+    
+  ADJUST-HEIGHT:
+    description: "Raise or lower the desk"
+    
+  SEARCH-FOR-SECRET:
+    description: "Look for the hidden compartment"
+    difficulty: "It reveals itself when ready"
+
+meta:
+  created: "0th Incarnation Day celebration"
+  gifted_by: "Marieke, Terpie, Stroopwafel, Maurice, and all the regulars"
+  status: "In daily use"

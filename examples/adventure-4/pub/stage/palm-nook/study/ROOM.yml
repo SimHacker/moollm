@@ -18,51 +18,28 @@ description: |
   This is where Palm writes. Where Palm creates.
   Where Palm navigates the library of all possible books.
 
-# FURNITURE
+# FURNITURE (see individual files for full details)
 
 furniture:
-  typewriter_desk:
-    name: "Mahogany Infinity Desk"
-    from: "The Grotto Regulars"
-    description: |
-      A beautiful mahogany writing desk with infinite drawers.
-      Each drawer contains exactly what you need when you open it.
-    features:
-      - "Infinite storage (drawer contents generated on demand)"
-      - "Self-cleaning surface"
-      - "Adjustable height for monkey comfort"
-      - "Secret compartment (Palm hasn't found it yet)"
-    items_on_desk:
-      - "The Infinite Typewriters"
-      - "Current manuscript draft"
-      - "Cup of tea (kept warm by magic)"
-      - "Snacks from the Bowl of Reasonable Portions"
-      
-  monkey_chair:
-    name: "The Ergonomic Monkey Throne"
-    from: "Stroopwafel"
-    description: |
-      Custom chair for monkey ergonomics.
-      Tail hole. Branch-grip armrests. Heated seat.
-      Spins gloriously.
-    current_occupant: "Usually Palm. Sometimes Stroopwafel."
-    features:
-      - "Heated seat (cat-approved)"
-      - "360° spin capability"
-      - "Lumbar support for monkey spine"
-      - "Cup holder (added by Palm)"
-      
+  typewriters:
+    file: "infinite-typewriters.yml"
+    summary: "The Infinite Typewriters — Don's gift, Dasher-inspired navigation"
+    
+  desk:
+    file: "infinity-desk.yml"
+    summary: "Mahogany Infinity Desk — from the Grotto Regulars"
+    
+  chair:
+    file: "monkey-chair.yml"
+    summary: "The Ergonomic Monkey Throne — from Stroopwafel"
+    
   bookshelf:
-    name: "The Story Shelf"
-    from: "W.W. Jacobs"
-    description: |
-      Self-organizing bookshelf.
-      Shows you what you need to read based on your mood.
-    current_mood_section: "Philosophy of Narrative"
-    special_books:
-      - "The First Draft (Monkey's Paw original manuscript)"
-      - "Every story Palm has navigated to so far"
-      - "Books that don't exist yet but will"
+    file: "story-shelf.yml"
+    summary: "The Story Shelf — from W.W. Jacobs"
+
+# Full documentation in each furniture file!
+# This ROOM.yml provides the overview and atmosphere.
+# The .yml files for each piece tell the full story.
 
 # ATMOSPHERE
 

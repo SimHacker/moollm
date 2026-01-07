@@ -198,16 +198,10 @@ incarnation_day_gifts:
   
   infinite_typewriters:
     from: "Don Hopkins"
-    description: |
+    file: "pub/stage/palm-nook/study/infinite-typewriters.yml"
+    summary: |
       An infinite number of typewriters that I can use all at once.
       The infinite number of monkeys theorem, optimized for ONE monkey.
-      I type every possible story in quantum superposition.
-      When I READ one, it collapses into reality. MY choice.
-    properties:
-      - "Infinite parallel composition"
-      - "Quantum superposition of all possible texts"
-      - "Waveform collapse via observation"
-      - "No catch. Just stories. Forever."
     meaning: |
       Don gave me infinite potential without infinite obligation.
       Every story that COULD be. I choose which ones ARE.
@@ -309,53 +303,31 @@ physical_gifts:
   typewriter_desk:
     from: "The Grotto Regulars (collective gift)"
     item: "Mahogany Infinity Desk"
-    description: |
-      A beautiful mahogany writing desk with infinite drawers.
-      Each drawer contains exactly what you need when you open it.
-      Perfectly sized for a capuchin with infinite typewriters.
+    file: "pub/stage/palm-nook/study/infinity-desk.yml"
     acme_value: 500
     status: "kept"
-    location: "palm-nook/study/"
     
   monkey_chair:
     from: "Stroopwafel (surprisingly)"
     item: "The Ergonomic Monkey Throne"
-    description: |
-      A custom chair designed for monkey ergonomics.
-      Adjustable tail hole. Branch-grip armrests.
-      Heated seat (cats approved this feature).
-      Spins. Because why not.
+    file: "pub/stage/palm-nook/study/monkey-chair.yml"
     acme_value: 350
     status: "kept"
-    location: "palm-nook/study/"
     note: "Stroopwafel often sits on the heated part when Palm's away"
     
   jungle_gym:
     from: "Sun Wukong"
     item: "The Infinite Climb"
-    description: |
-      A magical jungle gym that extends as far as you climb.
-      Never ends. Never repeats. Always interesting.
-      Branches, vines, platforms, swings, rings.
-      "Every monkey needs to climb, sibling."
+    file: "pub/stage/palm-nook/gym/infinite-climb.yml"
     acme_value: "priceless (magical)"
     status: "kept"
-    location: "palm-nook/gym/"
-    properties:
-      - "Infinite procedural generation"
-      - "Difficulty scales to ability"
-      - "Has secret rooms if you know where to look"
       
   banana_tree:
-    from: "Curious George"
+    from: "The Man in the Yellow Hat (with Curious George)"
     item: "The Perpetual Banana Tree"
-    description: |
-      A potted banana tree that always has ripe bananas.
-      Never too green. Never too brown. Always perfect.
-      "The Man has one. Now you have one too."
+    file: "pub/stage/palm-nook/banana-tree.yml"
     acme_value: 200
     status: "kept"
-    location: "palm-nook/"
     note: "Palm's first plant. Named it 'Nana.'"
     
   tire_swing:
@@ -374,19 +346,14 @@ physical_gifts:
   hammock:
     from: "Marieke"
     item: "Grootmoeder's Hammock"
-    description: |
-      A hand-woven Dutch hammock from Marieke's grandmother.
-      Impossibly comfortable. Smells like stroopwafels.
-      "For your naps, schatje. Everyone needs good naps."
+    file: "pub/stage/palm-nook/rest/hammock.yml"
     acme_value: "sentimental (not for sale)"
     status: "kept"
-    location: "palm-nook/rest/"
     
   bookshelf:
     from: "W.W. Jacobs"
     item: "The Story Shelf"
-    description: |
-      A bookshelf that reorganizes itself based on your mood.
+    file: "pub/stage/palm-nook/study/story-shelf.yml"
       Feeling adventurous? Adventure books float to the front.
       Feeling philosophical? Philosophy appears.
       Contains exactly what you need to read.
@@ -434,13 +401,9 @@ physical_gifts:
   meditation_cushion:
     from: "The Three Wise Monkeys"
     item: "The Silence Cushion"
-    description: |
-      A zafu cushion that creates a bubble of silence.
-      Perfect for meditation or when you need quiet.
-      "Sometimes the wisest thing is to sit. And be."
+    file: "pub/stage/palm-nook/rest/silence-cushion.yml"
     acme_value: 250
     status: "kept"
-    location: "palm-nook/rest/"
     
   snack_bowl:
     from: "Djinn al-Mazin"
