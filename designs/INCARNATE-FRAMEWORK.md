@@ -34,12 +34,12 @@ Don Hopkins coined this phrase to describe HyperLook's unification of three dime
 | Dimension | HyperLook (PostScript) | MOOLLM (YAML Jazz) |
 |-----------|------------------------|---------------------|
 | **Code** | PostScript procedures | Empathic Expressions, Protocols, Skills |
-| **Graphics** | PostScript drawing | Descriptions, IMAGE-PROMPTS.yml, Mermaid |
+| **Graphics** | PostScript drawing | Descriptions, IMAGE-PROMPTS.yml, Markup, Mermaid |
 | **Data** | PostScript dictionaries | YAML structure, State files, Comments |
 
 **One language. Three dimensions. One interpreter.**
 
-In HyperLook, PostScript was the universal medium. In MOOLLM, **YAML Jazz** is the universal medium, and the **LLM** is the interpreter.
+In HyperLook, PostScript was the universal medium. In MOOLLM, **YAML Jazz + Markdown** is the universal medium, and the **LLM** is the interpreter.
 
 ```yaml
 # The LLM reads this as:
