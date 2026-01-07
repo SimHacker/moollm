@@ -153,7 +153,7 @@ generous-interpretation-protocol:
 
 ### Explicit Switching (Markdown Style)
 
-```markdown
+````markdown
 First, let's query the data:
 
 ```sql
@@ -172,9 +172,11 @@ And deploy with bash:
 ```bash
 kubectl apply -f deployment.yaml
 ```
-```
+````
 
 Clean data islands. Clear boundaries. Syntax highlighting preserved.
+
+**Nesting tip:** Use 4+ backticks for outer fence when inner content has 3-backtick blocks.
 
 ### Inline Switching
 
