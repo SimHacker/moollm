@@ -84,7 +84,39 @@ All under one roof. One pipeline. Seamless transitions.
 | **Best practices** | Follows conventions |
 | **Documented** | Comments explain intent |
 | **Tested** | Includes edge cases |
-| **Naming** | Applies comprehensible consistent big-endian naming conventions and appropriate syntax |
+| **Well-named** | Comprehensible, consistent identifiers |
+
+### Naming Conventions
+
+The LLM applies appropriate naming conventions per language and context:
+
+| Convention | When | Example |
+|------------|------|---------|
+| **kebab-case** | K-lines, protocols, URLs, YAML keys | `SPEED-OF-LIGHT`, `empathic-expressions` |
+| **snake_case** | Python, SQL, tool names | `send_email()`, `user_id`, `read_file` |
+| **camelCase** | JavaScript, TypeScript | `sendEmail()`, `userId` |
+| **PascalCase** | Classes, components, types | `UserProfile`, `ActionQueue` |
+| **SCREAMING_SNAKE** | Constants, environment vars | `MAX_RETRIES`, `API_KEY` |
+
+**Big-endian naming:** General → Specific
+
+```yaml
+# Good (big-endian): category first, specific last
+user-profile-avatar
+session-log-entry
+room-description-short
+
+# Bad (little-endian): specific first, category buried
+avatar-user-profile
+entry-session-log  
+short-room-description
+```
+
+**Why big-endian:**
+- Sorts related things together
+- Tab-completion finds related items
+- Grep patterns work naturally
+- Human scanning is faster
 
 ### The Teaching Gift
 
@@ -307,14 +339,14 @@ clarification-triggers:
 │  └─────────────────────┘   └─────────────────────┘  │
 │           │                         │               │
 │           ▼                         ▼               │
-│  ┌─────────────────────┐   ┌─────────────────────┐ │
-│  │ POSTEL (generous)   │   │ YAML-JAZZ (style)   │ │
-│  └─────────────────────┘   └─────────────────────┘ │
+│  ┌─────────────────────┐   ┌─────────────────────┐  │
+│  │ POSTEL (generous)   │   │ YAML-JAZZ (style)   │  │
+│  └─────────────────────┘   └─────────────────────┘  │
 │                                                     │
-│  All follow SPEED-OF-LIGHT philosophy:             │
-│  • Work in vectors, delay tokenization             │
-│  • Preserve precision as long as possible          │
-│  • Minimize boundary crossings                     │
+│  All follow SPEED-OF-LIGHT philosophy:              │
+│  • Work in vectors, delay tokenization              │
+│  • Preserve precision as long as possible           │
+│  • Minimize boundary crossings                      │
 │                                                     │
 └─────────────────────────────────────────────────────┘
 ```
