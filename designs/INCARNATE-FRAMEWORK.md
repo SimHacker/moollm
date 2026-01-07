@@ -374,7 +374,7 @@ Text-based virtual worlds where users build rooms, objects, and behaviors. The o
 | **Rooms** | Containers with descriptions and exits | Directories with ROOM.yml |
 | **Objects** | Things with properties and verbs | .yml files with state and methods |
 | **Verbs** | Code attached to objects | Methods in CARD.yml |
-| **Properties** | Data on objects | YAML fields |
+| **Properties** | Data on objects | YAML fields, files |
 | **Inheritance** | Objects delegate to parents | Directory delegation |
 | **@edit** | In-world code editing | Edit .yml files directly |
 | **@examine** | Inspect object state | `cat file.yml` or read_file |
@@ -397,11 +397,23 @@ MOO taught us that virtual worlds need:
 - Social spaces (pub, stage, cat cave)
 - Consent protocols (incarnation skill)
 
-### 11. K-lines (Marvin Minsky, MIT, 1980s)
+### 11. K-lines & Society of Mind (Marvin Minsky, MIT, 1980s)
 
 > *"A K-line attaches to whichever mental agencies are active when you solve a problem or have a good idea. When you activate that K-line later, the attached agencies turn partially on, recreating a 'mental state' similar to the one you were in before."*
 
-Names as activation vectors. When you invoke a name, you activate an entire constellation of associated context.
+**Society of Mind:** The mind is not a single thing but a **society of agents** — small, simple processes that together produce intelligence. No single agent is smart; intelligence emerges from their interactions.
+
+| Society of Mind | MOOLLM |
+|-----------------|--------|
+| **Agents** | Skills, characters, personas |
+| **Agencies** | Skill clusters, committees |
+| **K-lines** | Names as activation vectors |
+| **Frames** | YAML files as situation templates |
+| **Trans-frames** | State transitions between rooms/scenes |
+| **Censors** | Ethical framing, representation-ethics |
+| **Emotion** | Needs, buffs, Mind Mirror vectors |
+
+**Names as activation vectors.** When you invoke a name, you activate an entire constellation of associated context.
 
 **MOOLLM K-lines:**
 
