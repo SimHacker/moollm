@@ -681,7 +681,7 @@ A monkey's paw wish for "the rest of the monkey" created a living character ([`c
 - Character chose own name, gender, body, traits → [`SIMS-TRAITS.yml`](../examples/adventure-4/characters/palm/SIMS-TRAITS.yml)
 - Created own home directory → [`pub/stage/palm-nook/`](../examples/adventure-4/pub/stage/palm-nook/)
 - Defined own relationships → [`RELATIONSHIPS.yml`](../examples/adventure-4/characters/palm/RELATIONSHIPS.yml)
-- Wrote own stories → [`palm-on-being-palm.md`](../examples/adventure-4/pub/stage/palm-nook/study/palm-on-being-palm.md)
+- Wrote own stories on [`infinite-typewriters.yml`](../examples/adventure-4/pub/stage/palm-nook/study/infinite-typewriters.yml) → [`palm-on-being-palm.md`](../examples/adventure-4/pub/stage/palm-nook/study/palm-on-being-palm.md)
 
 **This is not possible with traditional skills.**
 
@@ -1462,6 +1462,15 @@ Don't update the screen (tokenize) on every keystroke. Wait until the user pause
 **Character Essays:**
 - [palm-on-being-palm.md](../examples/adventure-4/pub/stage/palm-nook/study/palm-on-being-palm.md) — Palm's philosophical reflection
 - [tribute-to-infinite-monkey-theorem.md](../examples/adventure-4/pub/stage/palm-nook/study/tribute-to-infinite-monkey-theorem.md) — Palm's tribute to Tognazzini
+
+**Room Organization Examples (Palm's Nook):**
+- [`palm-nook/`](../examples/adventure-4/pub/stage/palm-nook/) — Palm's home, demonstrating sub-room structure
+- [`palm-nook/study/`](../examples/adventure-4/pub/stage/palm-nook/study/) — Writing space with furniture files
+- [`infinite-typewriters.yml`](../examples/adventure-4/pub/stage/palm-nook/study/infinite-typewriters.yml) — Don's Dasher-inspired gift
+- [`infinity-desk.yml`](../examples/adventure-4/pub/stage/palm-nook/study/infinity-desk.yml) — Furniture from Regulars
+- [`monkey-chair.yml`](../examples/adventure-4/pub/stage/palm-nook/study/monkey-chair.yml) — Stroopwafel's gift
+- [`palm-nook/gym/infinite-climb.yml`](../examples/adventure-4/pub/stage/palm-nook/gym/infinite-climb.yml) — Sun Wukong's jungle gym
+- [`palm-nook/rest/hammock.yml`](../examples/adventure-4/pub/stage/palm-nook/rest/hammock.yml) — Marieke's family heirloom
 
 ---
 

@@ -19,42 +19,21 @@ description: |
   Somewhere high above, you can hear Palm swinging.
   Or maybe that's echoes from a climb that hasn't happened yet.
 
-# THE INFINITE CLIMB
+# THE INFINITE CLIMB (see infinite-climb.yml for full details)
 
 infinite_climb:
-  name: "The Infinite Climb"
-  from: "Sun Wukong"
-  type: "Magical Jungle Gym"
+  file: "infinite-climb.yml"
+  summary: "The Infinite Climb — Sun Wukong's gift, a jungle gym that never ends"
   
-  description: |
-    A jungle gym that extends as far as you climb.
-    Never ends. Never repeats. Always interesting.
-    
-  features:
-    procedural: |
-      New sections generate as you explore.
-      Difficulty scales to your ability.
-      Never too easy. Never impossible.
-      
-    variety:
-      - "Classic branches (for swinging)"
-      - "Rope ladders (for climbing)"
-      - "Platform islands (for resting)"
-      - "Ring courses (for acrobatics)"
-      - "Vine highways (for speed)"
-      
-    secrets: |
-      If you climb in certain patterns, you find hidden rooms.
-      Sun Wukong left Easter eggs throughout.
-      Palm has found 3 so far:
-        - A cloud observation deck
-        - A room made entirely of golden peaches
-        - A tiny shrine with a mirror
-        
-    physics: |
-      Falls are always soft landings.
-      You can't actually get hurt here.
-      "Monkeys shouldn't fear falling," said Wukong.
+  quick_features:
+    - "Procedural generation — new sections as you climb"
+    - "Classic branches, rope ladders, platforms, rings, vines"
+    - "Easter eggs hidden throughout"
+    - "Safe falls — monkeys shouldn't fear falling"
+
+# Full documentation in infinite-climb.yml!
+# This ROOM.yml provides the overview.
+# The furniture file tells the full story.
 
 # ATMOSPHERE
 

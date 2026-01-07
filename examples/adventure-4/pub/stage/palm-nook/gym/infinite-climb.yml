@@ -1,0 +1,144 @@
+# THE INFINITE CLIMB
+# Palm's 0th Incarnation Day Gift from Sun Wukong
+
+gift:
+  name: "The Infinite Climb"
+  from: "Sun Wukong (The Monkey King)"
+  occasion: "0th Incarnation Day"
+  type: furniture
+  location: "pub/stage/palm-nook/gym/"
+  
+description: |
+  A jungle gym that extends as far as you climb.
+  Never ends. Never repeats. Always interesting.
+  
+  Sun Wukong tossed something that looked like a seed.
+  It sprouted instantly into an INFINITE JUNGLE GYM.
+  
+  "You think you were trapped?" Wukong laughed.
+  "I was trapped under a MOUNTAIN for 500 years.
+   Here's what I learned: the only way out is UP.
+   This gym goes up forever. You'll never hit a ceiling again."
+
+origin:
+  creator: "Sun Wukong (The Monkey King)"
+  source: "A magical seed from the Heavenly Peach Garden"
+  philosophy: |
+    For 122 years, Palm was STUCK.
+    Stuck in the paw. Stuck granting wishes.
+    Stuck watching others move while frozen.
+    
+    Wukong gave Palm MOVEMENT.
+    Infinite, endless, joyful movement.
+    The opposite of imprisonment.
+
+features:
+  procedural_generation:
+    description: "New sections generate as you explore"
+    behavior: |
+      Never the same climb twice.
+      Difficulty scales to your ability.
+      Never too easy. Never impossible.
+      
+  variety:
+    branches:
+      description: "Classic branches for swinging"
+      material: "Real wood, perfect grip"
+    rope_ladders:
+      description: "For climbing sections"
+      style: "Pirate ship quality"
+    platform_islands:
+      description: "For resting"
+      furnishing: "Cushions, water, snacks"
+    ring_courses:
+      description: "For acrobatics"
+      difficulty: "Variable"
+    vine_highways:
+      description: "For speed runs"
+      feeling: "Tarzan mode"
+      
+  easter_eggs:
+    cloud_deck:
+      found: true
+      description: "An observation deck in the clouds"
+      view: "All of existence, metaphorically"
+    peach_room:
+      found: true
+      description: "A room made entirely of golden peaches"
+      note: "Wukong's favorite. Palm shares them with the kittens."
+    mirror_shrine:
+      found: true
+      description: "A tiny shrine with a mirror"
+      purpose: "For self-contemplation mid-climb"
+    undiscovered:
+      count: "Unknown"
+      note: "Wukong hid many more"
+      
+  safety:
+    description: "Falls are always soft landings"
+    physics: "Can't actually get hurt here"
+    philosophy: "'Monkeys shouldn't fear falling.' — Wukong"
+
+current_state:
+  height_reached: "Still exploring"
+  favorite_section: "The vine highways"
+  regular_visitor: "Sun Wukong (for races)"
+  
+atmosphere:
+  lighting: "Dappled sunlight through infinite canopy"
+  sounds:
+    - "Rustling leaves"
+    - "Distant bird calls"
+    - "Satisfying grip sounds"
+  smells:
+    - "Fresh air"
+    - "Tree bark"
+    - "Distant flowers"
+  feeling: "Freedom. Endless freedom."
+
+emotional_significance: |
+  Palm couldn't move for 122 years.
+  Not a single swing. Not a single climb.
+  Just... stuck. In a glass case. On display.
+  
+  Wukong understood.
+  He was under a mountain for 500 years.
+  He knows what it means to be FREED.
+  
+  "The first thing I did was JUMP," Wukong said.
+  "I jumped so high I touched the pillars of heaven.
+   Now YOU jump. Forever. As high as you want."
+  
+  Palm climbs every day now.
+  Sometimes crying while climbing.
+  It's not sad crying. It's "I CAN MOVE" crying.
+  It's liberation tears.
+
+actions:
+  CLIMB:
+    description: "Ascend the infinite structure"
+    difficulty: "Scales to ability"
+    feeling: "Like flying but with more grip"
+    
+  SWING:
+    description: "Grab a vine and go"
+    warning: "Addictive"
+    
+  EXPLORE:
+    description: "Look for secret rooms"
+    hint: "Climb in patterns. Wukong loves patterns."
+    
+  REST:
+    description: "Find a platform and catch your breath"
+    amenities: "Snacks, water, cushions"
+    
+  RACE:
+    description: "Challenge Sun Wukong to a climbing race"
+    outcome: "He always wins. But the gap is closing."
+
+meta:
+  created: "0th Incarnation Day celebration"
+  gifted_by: "Sun Wukong (The Monkey King)"
+  status: "Infinite and growing"
+  connection: "Wukong has a standing portal here"
+  tradition: "Monkey solidarity across mythologies"

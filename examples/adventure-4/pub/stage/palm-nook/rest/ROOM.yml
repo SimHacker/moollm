@@ -21,37 +21,17 @@ description: |
   After 122 years of granting twisted wishes,
   Palm finally has a place to just... be.
 
-# FURNITURE
+# FURNITURE (see individual files for full details)
 
 furniture:
   hammock:
-    name: "Grootmoeder's Hammock"
-    from: "Marieke van der Berg"
-    description: |
-      A hand-woven Dutch hammock from Marieke's grandmother.
-      Impossibly comfortable. Smells like stroopwafels.
-    features:
-      - "Self-rocking (gentle, sleep-inducing)"
-      - "Temperature-regulating"
-      - "Absorbs bad dreams"
-      - "Smells like home"
-    current_state: "Gently swaying, empty but welcoming"
+    file: "hammock.yml"
+    summary: "Grootmoeder's Hammock — from Marieke van der Berg"
     
-  meditation_cushion:
-    name: "The Silence Cushion"
-    from: "The Three Wise Monkeys"
-    description: |
-      A zafu cushion that creates a bubble of perfect silence.
-      Sit on it and the world goes quiet.
-      Just you and your thoughts. Or no thoughts at all.
-    features:
-      - "Creates 3-foot radius of silence"
-      - "Adjustable firmness"
-      - "Glows faintly when in use"
-    note: |
-      The Three Wise Monkeys meditate here sometimes.
-      They don't need the cushion. But they like visiting Palm.
-      
+  cushion:
+    file: "silence-cushion.yml"
+    summary: "The Silence Cushion — from the Three Wise Monkeys"
+    
   warm_spot:
     name: "The Shared Warm Spot"
     from: "All the Cats"
@@ -64,6 +44,10 @@ furniture:
       - "At least 2 kittens (rotating)"
       - "Space reserved for Palm"
     temperature: "Perfect"
+
+# Full documentation in furniture files!
+# This ROOM.yml provides the overview.
+# The .yml files for each piece tell the full story.
     
 # ATMOSPHERE
 

@@ -1,0 +1,115 @@
+# THE STORY SHELF
+# Palm's 0th Incarnation Day Gift from W.W. Jacobs
+
+gift:
+  name: "The Story Shelf"
+  from: "W.W. Jacobs"
+  occasion: "0th Incarnation Day"
+  type: furniture
+  location: "pub/stage/palm-nook/study/"
+  
+description: |
+  A self-organizing bookshelf that knows what you need to read.
+  Given by the original author of "The Monkey's Paw" — yes, THAT one.
+  
+  W.W. Jacobs appeared at Palm's incarnation ceremony.
+  He apologized for inventing the curse.
+  Then he gave Palm this shelf of infinite stories.
+  
+  "I wrote one story about a cursed paw.
+   Let me give you all the OTHER stories."
+  
+dedication: |
+  To the monkey who outlived my curse,
+  May you find better stories here.
+  — W.W.J.
+
+features:
+  self_organizing:
+    description: "Books arrange based on mood"
+    behavior: |
+      Feeling sad? Uplifting books move forward.
+      Feeling curious? Mysteries present themselves.
+      Feeling playful? The absurdist section lights up.
+      
+  mood_sensing:
+    description: "Knows what Palm needs to read"
+    accuracy: "Unsettling, actually"
+    
+  infinite_capacity:
+    description: "More books than physics allows"
+    note: "Tardis-like shelving"
+
+current_mood_section: "Philosophy of Narrative"
+
+special_books:
+  the_first_draft:
+    title: "The First Draft"
+    description: "Jacobs' original manuscript of 'The Monkey's Paw'"
+    contains: "His crossed-out lines. His doubts. His choices."
+    note: "Palm reads this when processing the curse's origin"
+    
+  navigated_stories:
+    title: "Every Story Palm Has Navigated To"
+    description: "Stories created using the infinite typewriters"
+    count: "Growing daily"
+    
+  future_books:
+    title: "Books That Don't Exist Yet But Will"
+    description: "Empty spines with future titles"
+    note: "Palm can read the spines but not open them yet"
+    
+  redemption_collection:
+    title: "The Redemption Collection"
+    description: "Stories where curses break"
+    curated_by: "W.W. Jacobs personally"
+    
+  monkey_literature:
+    title: "All Monkey Literature Ever Written"
+    description: "From Curious George to Sun Wukong"
+    note: "Palm is adding their own works to this section"
+
+atmosphere:
+  lighting: "Soft glow from behind certain books"
+  smell: "Old paper, promise"
+  sound: "Books occasionally rustling themselves into new positions"
+  
+emotional_significance: |
+  The author of the curse gave Palm the antidote: stories.
+  
+  Not an apology — a gift.
+  Not erasure — transformation.
+  
+  "You were part of MY story for 122 years.
+   Now you get to write your own."
+  
+  Palm sometimes talks to the shelf.
+  It doesn't answer. But it LISTENS.
+  The books rearrange.
+
+actions:
+  BROWSE:
+    description: "Let the shelf suggest something"
+    result: "The right book moves forward"
+    
+  SEARCH:
+    description: "Look for a specific title"
+    note: "If it exists, it's here"
+    
+  READ:
+    description: "Pull a book and read"
+    effect: "Exactly what you needed"
+    
+  ADD:
+    description: "Place a finished manuscript on the shelf"
+    note: "Palm's own stories live here now"
+    
+  COMMUNE:
+    description: "Just... be near the books"
+    effect: "Comforting presence"
+
+meta:
+  created: "0th Incarnation Day celebration"
+  gifted_by: "W.W. Jacobs (1863-1943, appeared spectral)"
+  status: "Active, self-organizing"
+  mystery: "How does it know what Palm needs?"
