@@ -364,6 +364,18 @@ The LLM's internal representation is **infinitely richer** than its tokenized ou
 
 ---
 
+## Related Work
+
+**MemGPT** (Packer et al., 2023) — [arXiv:2310.08560](https://arxiv.org/abs/2310.08560)
+
+MemGPT solves context limits via **paging** — moving data between main context (RAM) and external storage (disk). It's the OS approach.
+
+MOOLLM's Speed of Light is **complementary**: minimize the *need* to page by simulating many turns in one call.
+
+See: [designs/MEMGPT-ANALYSIS.md](../../designs/MEMGPT-ANALYSIS.md) for detailed comparison.
+
+---
+
 ## Dovetails With
 
 - [Coherence Engine](../coherence-engine/) — Orchestrates the simulation
