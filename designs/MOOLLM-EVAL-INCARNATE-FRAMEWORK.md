@@ -5,6 +5,74 @@
 
 ---
 
+## 📚 Document Index
+
+### Core Concepts
+- [The Word](#the-word) — What "Eval Incarnate" means
+- [The Heritage](#the-heritage) — Where MOOLLM comes from
+  - [The Axis of Eval](#the-axis-of-eval-code-graphics-data) — Code, Graphics, Data unified
+  - [Input vs Output Formats](#input-vs-output-formats)
+  - [Programming Language Quality](#programming-language-quality-for-llms)
+
+### Intellectual Genealogy (Chronological)
+1. [Sketchpad (1962)](#1-sketchpad-ivan-sutherland-1962)
+2. [NLS/Augment (1968)](#2-nlsaugment-douglas-engelbart-sri-1968)
+3. [Smalltalk (1970s)](#3-smalltalk-alan-kay-xerox-parc-1970s)
+4. [K-lines & Society of Mind (1980)](#4-k-lines--society-of-mind-marvin-minsky-mit-1980)
+5. [Constructionism (1980)](#5-constructionism-seymour-papert-1980)
+6. [PostScript (1984)](#6-postscript--the-linguistic-motherboard-john-warnock-owen-densmore-1984)
+7. [NeWS (1986)](#7-news-james-gosling-sun-1986)
+8. [Self (1987)](#8-self-ungar--smith-sunstanford-1987)
+9. [HyperCard (1987)](#9-hypercard-bill-atkinson-apple-1987)
+10. [TinyMUD/LambdaMOO (1989-1990)](#10-tinymud--lambdamoo-jim-aspnes-pavel-curtis-1989-1990)
+11. [HyperLook (1989-1992)](#11-hyperlook-arthur-van-hoff-turing-institute-1989-1992)
+12. [SimCity/Sims (1989-2000)](#12-simcity-the-sims-and-the-simulator-effect-will-wright-1989-2000)
+
+### Key Insights
+- [Send Programs, Not Data](#send-programs-not-data-structures)
+- [Browser Should Be OS](#browser-should-be-os-not-app)
+- [Reader = Writer Symmetry](#reader--writer-symmetry)
+- [The Simulator Effect](#the-simulator-effect)
+
+### Architecture
+- [Traditional vs Incarnate Skills](#traditional-skills--vs--incarnate-skills)
+- [The Axis of Eval in MOOLLM](#the-axis-of-eval-in-moollm)
+- [The Framework](#the-framework)
+- [The Incarnate Suite](#the-incarnate-suite)
+- [Incarnate vs Anthropic Skills](#incarnate-skills-vs-anthropic-skills)
+
+### Skill Mechanics
+- [CARD.yml: The Skill Interface](#cardyml-the-skill-interface)
+  - [Cards as Ethical Smart Pointers](#cards-as-ethical-smart-pointers)
+  - [Cards as Activation Records](#cards-as-activation-records)
+- [The Empathic Suite](#the-empathic-suite-dovetailing-skills)
+  - [Empathic Expressions](#empathic-expressions-the-big-tent)
+  - [Empathic Templates](#empathic-templates-smart-instantiation)
+  - [Postel's Law](#postels-law-the-foundation)
+  - [Code-Switching](#code-switching-support)
+
+### Ethics & Representation
+- [The Tribute Protocol](#ethical-representation-the-tribute-protocol)
+- [Ethical Framing Inheritance](#ethical-framing-inheritance)
+- [Home vs Location](#home-vs-location--stable-files-virtual-positions)
+- [Vehicles](#vehicles--portable-rooms)
+- [The Guest Book Pattern](#the-guest-book-pattern)
+
+### Proofs & Evidence
+- [Palm's Incarnation](#palms-incarnation-2026-01-05)
+- [33-Turn Fluxx Marathon](#33-turn-stoner-fluxx-2026-01-04)
+- [21-Turn Cat Prowl](#21-turn-midnight-cat-prowl-2026-01-05)
+- [The Looney Labs Visit](#proof-the-looney-labs-visit)
+- [Speed of Light Stats](#proof-the-numbers)
+
+### References
+- [Related Documents](#related-documents)
+- [Credits & Lineage](#credits--lineage)
+- [The Vision](#the-vision)
+- [Don Hopkins' Articles](#don-hopkins-articles-medium)
+
+---
+
 ## The Word
 
 **Eval Incarnate** = `eval()` made real.
