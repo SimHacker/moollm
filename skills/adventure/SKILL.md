@@ -510,24 +510,24 @@ compiled_behavior:
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │ CURSOR / LLM ENVIRONMENT                                        │
-│                                                                  │
+│                                                                 │
 │   Empathic YAML ──→ LLM reads with understanding                │
-│        ↓                                                         │
+│        ↓                                                        │
 │   LINT asks: "Compile this to execution data"                   │
-│        ↓                                                         │
+│        ↓                                                        │
 │   LLM generates: Static JSON/YAML the JS can execute            │
-│                                                                  │
+│                                                                 │
 └─────────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────────┐
-│ COMPILED BROWSER EXPERIENCE                                      │
-│                                                                  │
+│ COMPILED BROWSER EXPERIENCE                                     │
+│                                                                 │
 │   engine.js reads compiled_behavior                             │
 │   Executes deterministically: waypoint → waypoint → waypoint    │
 │   No LLM needed at runtime!                                     │
-│                                                                  │
+│                                                                 │
 │   Complex situations → escalate to LLM (if available)           │
-│                                                                  │
+│                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -544,6 +544,162 @@ $ adventure.py lint quest/
 ```
 
 **The LLM's job:** Transform empathic descriptions into deterministic parameters.
+
+### Runtime Expressions: JavaScript in YAML
+
+**Even cooler:** The LLM can generate YAML with **embedded JavaScript expressions** for runtime evaluation in the browser!
+
+```yaml
+# creature.yml — With runtime expressions
+compiled_behavior:
+  patrol_waypoints: [room_a, room_b, room_c]
+  patrol_speed: 0.5
+  
+  # JavaScript expressions for runtime randomness!
+  expressions:
+    wander_delay: "2 + Math.random() * 3"           # 2-5 turns
+    flee_chance: "player.intimidation > 5 ? 0.8 : 0.3"
+    damage_roll: "roll('1d6') + this.strength"      # Dice!
+    greeting: "pick_random(this.greetings)"         # Variation
+    mood_shift: "this.hunger > 50 ? 'aggressive' : 'curious'"
+```
+
+**The browser JS engine evaluates these at runtime:**
+
+```javascript
+// engine.js — Expression evaluator
+function evalExpr(expr, context) {
+  const { player, this: self, roll, pick_random } = context;
+  return eval(expr);  // Safe in sandboxed adventure context
+}
+
+// Dice roller
+function roll(dice) {
+  const [count, sides] = dice.split('d').map(Number);
+  return Array(count).fill().reduce(sum => 
+    sum + Math.floor(Math.random() * sides) + 1, 0);
+}
+```
+
+**What expressions enable:**
+
+| Expression Type | Example | Purpose |
+|-----------------|---------|---------|
+| **Dice** | `roll('2d6+3')` | Combat, skill checks |
+| **Random pick** | `pick_random(responses)` | Dialogue variation |
+| **Conditionals** | `hp < 10 ? 'wounded' : 'healthy'` | State-based behavior |
+| **Math** | `base_price * (1 - haggle_skill/100)` | Economy |
+| **Time** | `turn % 10 === 0` | Periodic events |
+| **Proximity** | `distance(player, this) < 3` | Spatial triggers |
+
+---
+
+## The Full Pipeline
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  1. AUTHOR                                                       │
+│     Write empathic YAML in Cursor                               │
+│     (readable, expressive, human/LLM-friendly)                  │
+└─────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  2. LINT                                                         │
+│     $ adventure.py lint quest/                                  │
+│                                                                  │
+│     Validates schemas, cross-references, consistency            │
+│     Outputs events for LLM to fix:                              │
+│       [WARN] Missing description                                │
+│       [ERROR] Broken reference                                  │
+│       [COMPILE] Needs execution data                            │
+│       [HINT] Consider adding dialogue tree                      │
+└─────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  3. LLM COMPILES                                                 │
+│     The LLM acts as the compiler!                               │
+│                                                                  │
+│     Linted YAML  ──→  HTML + CSS + JSON + JavaScript            │
+│                                                                  │
+│     - Generates compiled_behavior with JS expressions           │
+│     - Creates navigation structure                              │
+│     - Builds dialogue trees                                     │
+│     - Produces image generation prompts                         │
+└─────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  4. BROWSER RUNTIME                                              │
+│                                                                  │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │  ┌─────────────┐  ┌────────────────────────────────────┐ │   │
+│  │  │             │  │  💬 SCROLLING CHAT                 │ │   │
+│  │  │  🖼️ IMAGE   │  │                                    │ │   │
+│  │  │  (generated)│  │  You enter the pub. A fire        │ │   │
+│  │  │             │  │  crackles in the hearth...        │ │   │
+│  │  │             │  │                                    │ │   │
+│  │  │             │  │  > The bartender nods at you.     │ │   │
+│  │  │             │  │                                    │ │   │
+│  │  └─────────────┘  └────────────────────────────────────┘ │   │
+│  │                                                           │   │
+│  │  ┌─────────────────────────────────────────────────────┐ │   │
+│  │  │  🎯 POINT-AND-CLICK COMMANDS                        │ │   │
+│  │  │                                                      │ │   │
+│  │  │  [Bartender] [Fireplace] [Notice Board] [Door→]    │ │   │
+│  │  │                                                      │ │   │
+│  │  │  Right-click → PIE MENU                             │ │   │
+│  │  │       ╭─────╮                                        │ │   │
+│  │  │      ╱ TALK  ╲                                       │ │   │
+│  │  │     │   TO    │                                      │ │   │
+│  │  │  ASK ●───────● ORDER                                │ │   │
+│  │  │     │ ABOUT  │                                       │ │   │
+│  │  │      ╲       ╱                                       │ │   │
+│  │  │       ╰─────╯                                        │ │   │
+│  │  └─────────────────────────────────────────────────────┘ │   │
+│  │                                                           │   │
+│  │  ┌─────────────────────────────────────────────────────┐ │   │
+│  │  │  ⌨️ TEXT INPUT                                       │ │   │
+│  │  │  > _                                                 │ │   │
+│  │  └─────────────────────────────────────────────────────┘ │   │
+│  └──────────────────────────────────────────────────────────┘   │
+│                                                                  │
+│  engine.js evaluates expressions:                               │
+│    - roll('1d20') for skill checks                              │
+│    - pick_random() for dialogue variation                       │
+│    - Conditional state changes                                  │
+│                                                                  │
+│  Complex situations → escalate to LLM API (optional)            │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### adventure.py — The Linter & Hinter
+
+```bash
+$ adventure.py lint quest/
+
+# Schema validation
+[ERROR] maze/room-x/ROOM.yml: Missing required 'name' field
+[WARN]  pub/drunk.yml: No 'description' — add for atmosphere
+
+# Cross-reference checking  
+[ERROR] start/ROOM.yml: Exit 'north' points to 'hallway/' which doesn't exist
+[WARN]  characters/guard.yml: 'patrol_route' references rooms not in map
+
+# Compilation hints
+[COMPILE] creatures/cat.yml: Has 'behavior' but no 'compiled_behavior'
+          → LLM: Generate static execution data with JS expressions
+
+[COMPILE] objects/dice.yml: Needs 'roll_expression' for runtime evaluation
+          → LLM: Add expressions like "roll('2d6')"
+
+# Improvement suggestions
+[HINT] pub/bartender.yml: Rich NPC — consider adding 'dialogue_tree'
+[HINT] maze/: 12 rooms but no 'ambient' fields — add atmosphere!
+[UPGRADE] quest/ADVENTURE.yml: Old format — add 'theme' support
+
+# Image generation prompts
+[IMAGE] pub/ROOM.yml: No 'image_prompt' — generate one for visual mode
+        → LLM: Write prompt for "warm tavern with crackling fire"
+```
 
 ### Standardized Schemas (Extensible)
 
