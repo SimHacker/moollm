@@ -1208,6 +1208,46 @@ vehicle:
 
 **Vehicles can be Tardis-like:** A carpet might unfold into a flying palace. A bag of holding is a vehicle. A pokéball is a vehicle.
 
+**Home vs. Location — stable files, virtual positions:**
+
+Objects don't move in the filesystem. Moving files wrecks git history, diffs, and is dangerous. Instead:
+
+| Concept | What It Is | Example |
+|---------|------------|---------|
+| **Home** | Physical parent directory where file lives | `characters/don/CHARACTER.yml` |
+| **Location** | Virtual path property — where they "are" | `pub/bar/#stool-3` |
+
+```yaml
+# characters/don/CHARACTER.yml
+# HOME: characters/don/ (never moves)
+character:
+  name: Don Hopkins
+  location: pub/pie-table.yml#seat-N  # WHERE I AM RIGHT NOW
+  
+# When Don moves:
+# - File stays at characters/don/CHARACTER.yml
+# - location: changes to new path
+# - Git sees a clean property change, not a file move
+```
+
+**Location paths can point anywhere:**
+
+| Path Type | Example | What It References |
+|-----------|---------|-------------------|
+| Directory | `pub/stage/` | A room or region |
+| File | `pub/bar/bartender.yml` | An object or NPC |
+| Anchor | `pub/seating.yml#table-2` | A position in a file |
+| Deep anchor | `pub/seating.yml#table-2/chair-3` | Nested position |
+| Virtual | `maze/#dark-rooms` | Hash search for matching objects |
+| Inside object | `characters/don/pocket/bag.yml#contents` | Container contents |
+
+**NPCs vs. Players:**
+- **NPCs** — home is their natural room (`pub/bar/bartender.yml`)
+- **Players** — home is repository (`characters/don/`)
+- Both have `location:` property that moves virtually
+
+This is why `characters/` is a "metaphysical room" — it's where characters *live* (their files), not where they *are* (their location property).
+
 ### The Representation Spectrum
 
 From [`skills/representation-ethics/`](../skills/representation-ethics/):
