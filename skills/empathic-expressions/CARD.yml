@@ -1,0 +1,150 @@
+# CARD.yml — Empathic Expressions
+#
+# Intent-based code interpretation across all languages.
+# "Understand intent, generate correct code, teach gently."
+
+card:
+  id: empathic-expressions
+  name: "Empathic Expressions"
+  type: [skill, interpretation, code-generation]
+  emoji: 🎯
+  rarity: rare
+  
+  description: |
+    The big-tent skill for interpreting user intent across ALL 
+    programming languages. One pipeline. Many syntaxes. 
+    Code-switching supported. Generous interpretation applied.
+
+tools:
+  required: []
+  optional: [read_file, write_file]
+tier: 1
+
+methods:
+  INTERPRET:
+    description: "Understand fuzzy/approximate code intent"
+    parameters:
+      input: "User's approximate expression"
+      context: "Surrounding code, language hints"
+    output: "Structured understanding of intent"
+    
+  GENERATE:
+    description: "Produce correct, idiomatic code"
+    parameters:
+      intent: "What user wants to accomplish"
+      language: "Target language (may be inferred)"
+      style: "Coding conventions to follow"
+    output: "Working, documented code"
+    
+  TEACH:
+    description: "Echo back correct form as a gift"
+    parameters:
+      original: "What user wrote"
+      generated: "What was produced"
+    output: "Gentle explanation of the mapping"
+    
+  CLARIFY:
+    description: "Ask for clarification when ambiguous"
+    parameters:
+      ambiguity: "What's unclear"
+      options: "Possible interpretations"
+    output: "Question to user"
+    
+  SWITCH:
+    description: "Handle code-switching between languages"
+    parameters:
+      from_language: "Source language/context"
+      to_language: "Target language"
+      context: "Variables and state to preserve"
+    output: "Seamless transition"
+
+state:
+  current-language: "Active language context"
+  variables: "Established variables across switches"
+  clarifications-pending: "Questions awaiting answers"
+
+languages-supported:
+  empathic-sql: "Natural language → SQL queries"
+  empathic-python: "Intent → Python code"
+  empathic-javascript: "Behavior → JS/TS code"
+  empathic-bash: "Tasks → shell commands"
+  empathic-yaml: "Structure → YAML Jazz"
+  empathic-natural: "Vague → specific in any language"
+
+generous-interpretation:
+  accepts:
+    - Fuzzy syntax
+    - Vernacular descriptions
+    - Misspellings and typos
+    - Wrong language (will translate)
+    - Pseudocode
+    - Incomplete fragments
+    
+  generates:
+    - Correct syntax
+    - Idiomatic patterns
+    - Best practices
+    - Appropriate comments
+    - Edge case handling
+    
+  teaches:
+    - Shows input → output mapping
+    - Explains interpretations made
+    - Gentle, not pedantic
+    - Gift, not correction
+
+clarification-protocol:
+  low-stakes-clear: "Interpret and proceed"
+  low-stakes-ambiguous: "Make reasonable choice, note it"
+  high-stakes-clear: "Proceed with confirmation"
+  high-stakes-ambiguous: "ASK FIRST"
+  
+  high-stakes-triggers:
+    - DELETE operations
+    - DROP TABLE
+    - Production deployments
+    - Payment processing
+    - User data exports
+    - Irreversible operations
+
+code-switching:
+  explicit: "```sql ... ``` → ```python ... ```"
+  inline: "Clear from context which language"
+  preserved: "Context and variables carry across"
+  polylinguistic: "Mashups of multiple languages"
+
+llm-as-code-processor:
+  roles:
+    - pseudocode-interpreter: "Executes high-level intent"
+    - empathic-pretty-printer: "Formats with understanding"
+    - generous-linter: "Catches errors, suggests fixes kindly"
+    - intent-compiler: "Translates intent → working code"
+    - depseudofier: "Converts vague to precise"
+
+used-in:
+  empathic-templates: "{{expressions}} in templates"
+  buff-expressions: "trigger conditions"
+  advertisements: "capability conditions"
+  action-queue: "dynamic parameters"
+  mind-mirror: "fuzzy state descriptions"
+  room-exits: "gate conditions"
+
+advertisements:
+  FUZZY-CODE:
+    score: 95
+    condition: "User writes approximate/fuzzy code"
+  CODE-TRANSLATION:
+    score: 90
+    condition: "Need to translate between languages"
+  INTENT-TO-CODE:
+    score: 90
+    condition: "Natural language description of code behavior"
+  TEACH-SYNTAX:
+    score: 85
+    condition: "User learning a new language"
+
+see-also:
+  - skills/empathic-templates
+  - skills/postel
+  - skills/speed-of-light
+  - skills/yaml-jazz

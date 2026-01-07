@@ -1,0 +1,121 @@
+# CARD.yml — Empathic Templates
+#
+# Smart templates with semantic understanding.
+# "Templates that understand what you mean, not just what you wrote."
+
+card:
+  id: empathic-templates
+  name: "Empathic Templates"
+  type: [skill, instantiation, generation]
+  emoji: 📝
+  rarity: rare
+  
+  description: |
+    Templates that leverage LLM comprehension for semantic instantiation.
+    Not just string substitution — intelligent content generation that
+    understands context and creates appropriate, coherent output.
+
+tools:
+  required: [read_file, write_file]
+  optional: []
+tier: 1
+
+methods:
+  INSTANTIATE:
+    description: "Create instance from template with context"
+    parameters:
+      template: "Path to .tmpl file"
+      context: "Variables and semantic hints"
+      output_path: "Where to write result"
+    output: "Populated instance file"
+    
+  PARSE:
+    description: "Analyze template structure"
+    parameters:
+      template: "Template content or path"
+    output: "Required and optional variables, slots"
+    
+  PREVIEW:
+    description: "Show what instantiation would produce"
+    parameters:
+      template: "Template content"
+      context: "Sample context"
+    output: "Preview of generated content"
+    
+  VALIDATE:
+    description: "Check if context satisfies template"
+    parameters:
+      template: "Template to check"
+      context: "Proposed context"
+    output: "Missing/optional variables, warnings"
+
+state:
+  current-template: "Active template being worked on"
+  context: "Current instantiation context"
+  partials: "Available partial templates"
+
+template-syntax:
+  basic:
+    variable: "{{variable}}"
+    expression: "{{expression}}"
+    conditional: "{{#if condition}}...{{/if}}"
+    iteration: "{{#each items}}...{{/each}}"
+    partial: "{{> partial_name}}"
+    
+  empathic:
+    describe: "{{describe_X}}"
+    summarize: "{{summarize_Y}}"
+    generate: "{{generate_Z}}"
+    appropriate: "{{appropriate_W}}"
+    format: "{{format_V}}"
+    infer: "{{infer_traits_from_context}}"
+    
+  expressions:
+    uses: "empathic-expressions skill"
+    supports: "code-switching, fuzzy conditions"
+
+front-matter-pattern:
+  purpose: "Let LLM sniff first 50 lines"
+  includes:
+    - Template name and purpose
+    - Required variables with types
+    - Optional variables with defaults
+    - Example context
+
+relationship-to-inheritance:
+  templates: "Are prototypes (define shape)"
+  instances: "Created by instantiation"
+  inheritance: "Self-style delegation"
+  empathy: "LLM adds semantic value"
+
+anti-patterns:
+  dumb-passthrough:
+    bad: "description: '{{description}}'"
+    good: "description: '{{describe_based_on_context}}'"
+  no-context:
+    bad: "Instantiate without semantic hints"
+    good: "Provide tone, setting, constraints"
+  over-specification:
+    bad: "Template has 50 required variables"
+    good: "Few required, many inferrable"
+
+advertisements:
+  TEMPLATE-INSTANTIATION:
+    score: 95
+    condition: "Need to create instance from template"
+  CHARACTER-CREATION:
+    score: 90
+    condition: "Creating character sheet"
+  ROOM-GENERATION:
+    score: 90
+    condition: "Creating room definition"
+  SMART-GENERATION:
+    score: 85
+    condition: "Need intelligent content, not just substitution"
+
+see-also:
+  - skills/empathic-expressions
+  - skills/yaml-jazz
+  - skills/skill
+  - skills/character
+  - skills/room

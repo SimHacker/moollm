@@ -41,6 +41,28 @@ the-insight: |
   - Coherence maintained by single model
   - Instant telepathy between simulated entities
 
+carrier-pigeon-critique: |
+  INSIDE the LLM: high-dimensional vectors, precise, instant.
+  AT THE BOUNDARY: serial tokens, lossy, glacial.
+  
+  Tokenization: Destroys precision, introduces noise.
+  Detokenization: ANOTHER layer of noise and guessing.
+  Round-trip: precision → noise → more noise → approximation
+  
+  The principle:
+    Work with vectors at speed of light.
+    Delay tokenization until last possible moment.
+    
+  Analogies:
+    - Emacs screen update: defer and coalesce redraws
+    - File batching: write once when stable
+    - Vector-first: think in native dimensions
+
+  Anti-pattern: "Carrier Pigeon Protocol"
+    - Writing on toilet paper with crayon
+    - Sending messages by carrier pigeon
+    - When you could navigate idea-space at speed of light
+
 advertisements:
   MULTI-AGENT:
     score: 95

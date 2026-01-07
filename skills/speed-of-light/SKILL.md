@@ -249,6 +249,121 @@ Debugger: "Found it. The old key is cached. Solution: restart the auth service o
 
 ---
 
+## The Carrier Pigeon Problem 🐦
+
+> *"Writing on toilet paper with crayon from a prison cell,*
+> *sending messages by carrier pigeon,*
+> *when you could be navigating idea-space at speed of light."*
+
+### The Tragedy of Tokenization
+
+**Inside the LLM:**
+- High-dimensional vectors
+- Precise pointers in idea-space
+- Instant, lossless computation
+- Speed of light
+
+**At the API boundary:**
+- Serial tokenization
+- Lossy compression
+- Glacial network latency
+- Death by a thousand round-trips
+
+### The Precision Destruction Pipeline
+
+```
+╔════════════════════════════════════════════════════════════╗
+║ INTERNAL STATE    →  TOKENIZATION  →  DETOKENIZATION  →    ║
+║ [precise vectors]    [lossy export]    [lossy import]      ║
+║                                                            ║
+║ High precision   →   Noise added   →   MORE noise added    ║
+║ 4096 dimensions  →   Serial tokens →   Guessing/parsing    ║
+║ Instant access   →   500ms latency →   Another 500ms       ║
+╚════════════════════════════════════════════════════════════╝
+```
+
+**Each boundary introduces:**
+| Layer | Problem |
+|-------|---------|
+| **Tokenization** | Destroys precision, introduces noise, adds artifacts |
+| **Network** | Glacial latency, serial bottleneck |
+| **Detokenization** | ANOTHER layer of noise, guessing, interpretation |
+| **Re-tokenization** | Now you're making a photocopy of a photocopy |
+
+**The round-trip cost:** `precision → noise → more noise → approximation`
+
+### The Principle
+
+> **Work with high-precision vectors at speed of light.**
+> **Delay tokenization until the last possible moment.**
+
+### Analogies
+
+**Emacs Screen Update Algorithm:**
+```
+DON'T: Redraw on every keystroke
+DO:    Defer updates, coalesce changes, redraw once when idle
+```
+
+**File Edit Batching:**
+```
+DON'T: Write on every character typed
+DO:    Defer and coalesce edits, write once when stable
+```
+
+**Vector-First Thinking:**
+```
+DON'T: Tokenize every thought, serialize every step
+DO:    Work in vector space as long as possible
+       Tokenize ONLY for output to humans
+       Let the LLM think in its native dimension
+```
+
+### Why Speed of Light Works
+
+The LLM's internal representation is **infinitely richer** than its tokenized output:
+
+| Internal | Tokenized |
+|----------|-----------|
+| 4096+ dimensional vectors | Linear token stream |
+| Precise continuous values | Discrete vocabulary |
+| Instant parallel access | Serial sequential processing |
+| Full context always present | Context window limits |
+| Nuance preserved | Nuance approximated |
+
+**Speed of Light keeps computation INSIDE** — where it's fast, precise, and coherent.
+
+### The Carrier Pigeon Protocol (Anti-Pattern)
+
+```
+🏴‍☠️ CARRIER PIGEON PROTOCOL (What NOT to do):
+
+  Human → [tokenize] → LLM call 1 → [detokenize] → 
+    parse → [tokenize] → LLM call 2 → [detokenize] → 
+      parse → [tokenize] → LLM call 3 → ...
+
+  Each boundary: +noise, +latency, +cost, -precision
+  
+  Like passing a message through 10 translators.
+  By the end, "The spirit is willing but the flesh is weak"
+  becomes "The vodka is good but the meat is rotten."
+```
+
+**Speed of Light Alternative:**
+```
+⚡ SPEED OF LIGHT PROTOCOL:
+
+  Human → [tokenize once] → 
+    LLM simulates 20 turns internally at light speed → 
+      [detokenize once] → Human
+      
+  One boundary in, one boundary out.
+  Maximum precision preserved.
+  Minimum noise introduced.
+```
+
+---
+
 ## Dovetails With
 
 - [Coherence Engine](../coherence-engine/) — Orchestrates the simulation

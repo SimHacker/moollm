@@ -6,417 +6,418 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [protocol, play-learn-lift, card, room]
+related: [protocol, play-learn-lift, card, room, empathic-templates, prototype]
+credits:
+  - "David Ungar & Randall Smith — Self language (1987)"
+  - "Seymour Papert — Constructionism"
+  - "Marvin Minsky — K-lines, Society of Mind"
+  - "Anthropic — Skills model foundation"
 ---
 
 # SKILL
 
 > **"A skill is documentation that learned to do things."**
 
-The meta-protocol: how skills work, how they evolve, how they live everywhere.
+The meta-protocol: how skills work, how they evolve, how they compose, and how MOOLLM advances the state of the art.
 
 ---
 
-## What Is a Skill?
+## Foundation: What We Share with Anthropic
 
-A skill is a **documented capability** that can be instantiated, composed, and automated.
+MOOLLM skills build on Anthropic's excellent Skills model foundation:
 
-```
-Documentation → Procedure → Script → Tool
-     ↑              ↑         ↑        ↑
-   PLAY           LEARN     LIFT  SISTER-SCRIPT
-```
+| Anthropic Principle | MOOLLM Implementation | Shared Why |
+|---------------------|----------------------|------------|
+| **Documentation-first** | `README.md` + `SKILL.md` | Explain before automating |
+| **Tool definitions** | YAML frontmatter + `CARD.yml` | Machine-readable specs |
+| **Composability** | Prototype inheritance + dovetails | Complex from simple |
+| **Human gates** | `PLAN-THEN-EXECUTE` protocol | Trust but verify |
+| **Skill libraries** | `skills/` directory | Central, shareable |
 
-Skills are **Programming by Demonstration** made systematic. You show the LLM how to do something. It watches, learns patterns, crystallizes them into reusable procedures.
-
----
-
-## Parallels with Anthropic Skills
-
-MOOLLM skills directly parallel [Anthropic's emerging Skills model](https://docs.anthropic.com/):
-
-| Anthropic Skills | MOOLLM Skills | Shared Philosophy |
-|------------------|---------------|-------------------|
-| Documentation-first | `README.md` + `SKILL.md` | Explain before automating |
-| Tool definitions | YAML frontmatter in `SKILL.md` | Machine-readable capability spec |
-| Composable tools | Skill inheritance + composition | Build complex from simple |
-| Human approval gates | `PLAN-THEN-EXECUTE` | Trust but verify |
-| Skill libraries | `skills/` directory | Central, shareable |
-
-**The key insight:** Skills start as prose. They become procedures. They crystallize into scripts. The documentation remains the source of truth.
+**The foundation is sound.** What MOOLLM adds is **instantiation, inheritance, K-lines, empathic templates, and proven speed-of-light simulation**.
 
 ---
 
-## Where Skills Live
+## MOOLLM's Unique Contributions
 
-### Central Skills (`skills/` directory)
+### 1. Skills as Prototypes (Self-like Inheritance)
 
-Shared, reusable, general-purpose:
+> *"Objects all the way down."* — David Ungar
 
-```
-skills/
-├── room/            # Spatial navigation
-├── card/            # Instantiable capabilities  
-├── adventure/       # Text adventure CLI
-├── play-learn-lift/ # The methodology itself
-├── skill/           # This meta-skill (you are here!)
-│   ├── README.md           # Landing page
-│   ├── SKILL.md            # This file
-│   ├── CARD.yml            # Skill as playable card
-│   ├── README.md.tmpl      # Template for new skill READMEs
-│   ├── SKILL.md.tmpl       # Template for new skill specs
-│   ├── delegation-object-protocol.md    # Self-like inheritance
-│   └── skill-instantiation-protocol.md  # How skills become instances
-└── ...
-```
+Traditional skills are static documentation. **MOOLLM skills are prototypes that create instances:**
 
-### Local Skills (in rooms and characters)
-
-Context-specific, specialized, emergent:
-
-```
-examples/adventure-1/
-├── player.yml              # Character with local skills
-│   skills:
-│     - maze-mapping        # Learned from playing
-│     - grue-avoidance      # Emerged from dying
-│     
-├── kitchen/
-│   └── ROOM.yml            # Room with local skills
-│       skills:
-│         - food-prep       # Context-specific
-│         - appliance-use   # Local knowledge
-```
-
----
-
-## Instantiation Modes
-
-**Skills don't always need to be instantiated.** They can exist in multiple forms:
-
-### 1. Just Mentioned (Lightest)
-
-Simply name the skill in conversation:
-
-```markdown
-> Let's apply YAML-JAZZ to this configuration.
-> Use POSTEL when interpreting that command.
-```
-
-The name activates the tradition. No files created. Ephemeral.
-
-### 2. Modeled in Chat (Ephemeral)
-
-The skill shapes behavior within a conversation:
-
-```markdown
-User: PLAY-LEARN-LIFT this new API
-
-LLM: Starting PLAY phase...
-- Exploring endpoints
-- Trying different parameters
-- Noting what works
-
-Moving to LEARN phase...
-- Pattern: all endpoints need auth header
-- Pattern: pagination uses cursor, not offset
-```
-
-Lives in chat history only. Guides behavior but leaves no files.
-
-### 3. Embedded in Soul-Chat (Documentary)
-
-Skills can be discussed in their design conversation:
-
-```markdown
-# yaml-jazz-symposium.md
-
-## YAML-JAZZ (concept)
-
-I am the principle that comments carry meaning.
-When you write `# This is semantic`, I ensure it's read.
-
-## A Skeptic
-
-But parsers strip comments!
-
-## YAML-JAZZ
-
-LLMs read comments. The parser is not the only reader.
-```
-
-The skill is **embedded in the document about itself**. Meta but useful. 
-
-Embedding skill definitions and examples in design documents and discussions is Knuth's Literate Programming.
-
-### 4. Instantiated in Room (Persistent)
-
-Full materialization with state:
-
-```
+```yaml
+# Prototype (the skill)
 skills/adventure/
-├── README.md           # Human-friendly landing page
-├── SKILL.md            # Full spec with YAML frontmatter
-├── ADVENTURE.yml.tmpl  # Templates at root level
-├── LOG.md.tmpl
-└── ...
+├── SKILL.md           # The documentation
+├── CARD.yml           # The interface
+└── *.tmpl             # The templates
 
-examples/adventure-1/   # ← An INSTANCE of the skill
-├── player.yml         # Skill state
-├── start/ROOM.yml     # Skill structure
-└── ...
+# Instance (created BY the skill)
+examples/adventure-4/
+├── ADVENTURE.yml      # Instantiated from template
+├── characters/        # Populated during play
+├── pub/               # A room instance
+└── sessions/          # State over time
 ```
 
-The skill has been **instantiated** — it has files, state, persistence.
+**Why this matters:**
+- Skills aren't just docs — they're **factories**
+- Instances inherit from prototypes but can override
+- State lives in instances, behavior in prototypes
+- Changes to prototypes automatically enhance all instances
 
-### Summary Table
-
-| Mode | Files? | Persistent? | Use Case |
-|------|--------|-------------|----------|
-| Mentioned | No | No | Quick invocation in chat |
-| Modeled | No | Chat only | Guided exploration |
-| Embedded | Document | Document | Design discussions |
-| Instantiated | Yes | Yes | Running instances |
+See: [delegation-object-protocol.md](./delegation-object-protocol.md)
 
 ---
 
-## State Persistence Tiers
+### 2. Cards: Playable Capability Bundles
 
-Skills can persist state at three levels:
+Skills become **cards** that can be played, traded, collected:
 
-| Tier | Where | Lifespan | Example |
-|------|-------|----------|---------|
-| **Platform chat** | Cursor/Claude session | Ephemeral (lost on close) | Tool calls, diffs, thinking |
-| **Narrative log** | `TRANSCRIPT.md`, `LOG.md` | Durable (read-mostly) | Data islands, event records |
-| **State files** | `*.yml` | Durable (read-write) | Characters, rooms, inventory |
+```yaml
+# CARD.yml — The interface contract
+card:
+  id: adventure
+  name: "Text Adventure"
+  type: [skill, game, narrative]
+  emoji: 🎲
+  rarity: rare
+  
+methods:
+  EXPLORE: { description: "Move to adjacent room" }
+  EXAMINE: { description: "Look at something" }
+  TAKE: { description: "Pick up an object" }
+  
+advertisements:
+  NARRATIVE-EXPLORATION:
+    score: 90
+    condition: "Want interactive fiction"
+```
 
-### Data Islands in Logs
+**Why this matters:**
+- Clear interface contract
+- Advertised capabilities (like Sims objects!)
+- Can be played, stacked, combined
+- Machine-readable for orchestration
 
-Objects can be embedded as YAML code blocks directly in narrative logs with unique addressable IDs. No file needed for objects that don't change:
+---
+
+### 3. K-lines: Names as Activation Vectors
+
+> *"A K-line is a wire-like structure that attaches to whichever mental agencies are active when you solve a problem."* — Marvin Minsky
+
+When you invoke a skill by name, you activate its **entire knowledge context**:
+
+```markdown
+> Apply YAML-JAZZ to this configuration.
+
+# This single name activates:
+# - The semantic commenting philosophy
+# - The specific syntax patterns
+# - The examples and anti-patterns
+# - The emotional tone (jazzy, improvisational)
+# - Related concepts (POSTEL, soul-chat)
+```
+
+**When you instantiate a character, their name becomes their K-line.** "Palm" activates everything about Palm — history, personality, goals, relationships, the incarnation story.
+
+**Why this matters:**
+- Names are more than labels — they're **semantic activations**
+- Context flows from invocation
+- Related concepts automatically available
+- The LLM's associative memory works FOR us
+
+---
+
+### 4. Empathic Templates: Smart Instantiation
+
+> *"Templates that understand what you mean, not just what you wrote."*
+
+Traditional templates: `{{name}}` → literal substitution
+Empathic templates: `{{describe_character}}` → **intelligent generation**
+
+```yaml
+# Template
+description: |
+  {{describe_appearance_based_on_species_and_personality}}
+
+# Context
+species: "Golden Retriever mix"
+personality: ["enthusiastic", "loyal", "goofy"]
+
+# Generated
+description: |
+  Biscuit is a fluffy, perpetually happy Golden Retriever mix with
+  eyes that sparkle with boundless enthusiasm. His tail is in a
+  constant state of wagging, a furry metronome of joy.
+```
+
+**Why this matters:**
+- Not string substitution — **semantic generation**
+- LLM adds value during instantiation
+- Context informs content
+- Results are coherent, not mechanical
+
+See: [../empathic-templates/](../empathic-templates/)
+
+---
+
+### 5. Three-Tier State Persistence
+
+Skills persist state at three levels (this is unique to MOOLLM):
+
+| Tier | Location | Lifespan | Use |
+|------|----------|----------|-----|
+| **Platform** | Cursor session | Ephemeral | Working memory |
+| **Narrative** | `LOG.md`, `TRANSCRIPT.md` | Read-mostly | Data islands, events |
+| **State** | `*.yml` files | Read-write | Characters, rooms, inventory |
+
+**Data Islands:** Objects embedded in logs with `#object-id` addressing:
 
 ```yaml
 # LOG.md embedded object — addressable as LOG.md#session-artifact
 id: session-artifact
 type: skill-output
-created_by: play-learn-lift
-phase: LEARN
 patterns_found:
   - "API requires auth header"
-  - "Pagination uses cursor"
 ```
 
-### Promotion Pattern
+**Promotion Pattern:** If you need to edit it, promote to `.yml` file.
 
-If you need to **edit** an object after creation, promote it to a `.yml` file:
-
-```yaml
-# skills-learned.yml — promoted from LOG.md#session-artifact
-id: session-artifact
-inherits:
-  - LOG.md#session-artifact  # Birth state preserved in log
-patterns_found:
-  - "API requires auth header"
-  - "Pagination uses cursor"  
-  - "Rate limit is 100/minute"  # New! Added after promotion
-```
-
-**Rule:** Keep logs read-only. Promote to files when editing needed.
-
-### Inheritance from Log Entries
-
-Use `LOG.md#object-id` syntax to inherit from an object's "birth state":
-
-- **Birth state** → in narrative log (immutable record)
-- **Current state** → in promoted file (differential edits)
-
-### Placement Decisions
-
-| Context | Suggested Location |
-|---------|-------------------|
-| Personal to character | `characters/name/artifact.yml` |
-| Belongs to room | `rooms/room-name/artifact.yml` |
-| Shared resource | `shared/artifact.yml` |
-| Skill prototype | `skills/skill-name/artifact.yml.tmpl` |
-
-LLM decides by context, or skill documentation specifies placement rules.
+**Why this matters:**
+- Right persistence for right data
+- Logs stay read-only (audit trail)
+- State files are mutable (world state)
+- Efficient context management
 
 ---
 
-### Skill Acquisition Through Interaction
+### 6. Speed of Light: PROVEN Multi-Agent Simulation
 
-**Interacting with objects AND characters can teach skills.** Characters carry learned skills with them:
+> *"Many turns in one call. Instant communication. No round-trips."*
 
-```yaml
-# Player interacts with the costume racks...
-> COMBINE astronaut WITH pirate AS Klaes Ashford FROM The Expanse
+This isn't theoretical. **We've demonstrated it:**
 
-# Now player.yml gains:
-skills:
-  - costume-combining:
-      learned_from: "coatroom/costume-racks"
-      learned_when: "2026-01-03"
-      proficiency: "novice"
-
-# This skill travels with the character!
-# Later, in another room with costumes, they already know how.
-```
-
-**Skill-granting objects:**
-- **Books** teach knowledge skills
-- **Tools** teach craft skills  
-- **Characters** teach social skills
-- **Puzzles** teach problem-solving
-- **Practice** improves proficiency
-
-The coatroom doesn't just dress you — it teaches you costume-combining and skill-mixing!
-
-### Skill Inheritance
-
-Local skills can inherit from central skills:
+| Demonstration | Turns | Agents | Proof |
+|---------------|-------|--------|-------|
+| **Stoner Fluxx game** | 33 | 8+ characters | Full game state, card draws, rule changes |
+| **Cat midnight prowl** | 21 | 10 cats | Parallel paths, territorial marking, reunification |
+| **Palm's incarnation** | 1 | 1 + tribunal | Full character creation with committee debate |
 
 ```yaml
-# In player.yml
-skills:
-  - inherits: play-learn-lift  # From central
-    local_additions:
-      - maze-mapping           # Learned locally
-      - costume-combining      # From coatroom
+# 33 turns of Stoner Fluxx in ONE LLM call:
+# - Andy and Kristin Looney playing their own game
+# - Rule changes (Hand Limit 2, Draw 3, Play All)
+# - Goal cards (Peace, 420, Get the Munchies)
+# - Keeper management across 8 players
+# - Natural conversation and jokes
+# - Consistent state throughout
 ```
+
+**Why this matters:**
+- External multi-agent systems: Agent A → API → Agent B → API → ...
+- MOOLLM: Single call simulates all agents debating, deciding
+- **10x faster, 10x cheaper, perfect consistency**
+- Adversarial committees, ensemble inference, real deliberation
+
+See: [../speed-of-light/](../speed-of-light/)
 
 ---
 
-## The PLAY-LEARN-LIFT Lifecycle
+## The Play-Learn-Lift Cycle
 
 Every skill evolves through three phases:
 
-### PLAY: Explore by Doing
-
-```yaml
-# No skill yet — just doing things manually
-- "Entered maze room A"
-- "Dropped cheese"  
-- "Went north, ended up in room C"
-- "Hmm, dropped bread here..."
+```
+┌─────────────────────────────────────────────────────┐
+│                    PLAY                              │
+│  Do it manually. Explore. Make mistakes.            │
+│  "Dropped cheese in room A..."                      │
+└─────────────────────────────────────────────────────┘
+                         ↓
+┌─────────────────────────────────────────────────────┐
+│                    LEARN                             │
+│  Notice patterns. Document them.                    │
+│  "Each room needs a unique marker..."              │
+└─────────────────────────────────────────────────────┘
+                         ↓
+┌─────────────────────────────────────────────────────┐
+│                    LIFT                              │
+│  Extract reusable skill. Share it.                  │
+│  skill: maze-mapping                                │
+│  procedure: "Drop unique item in each room"        │
+└─────────────────────────────────────────────────────┘
 ```
 
-### LEARN: Notice Patterns
+**Documentation → Procedure → Script → Tool**
 
-```yaml
-# Pattern emerges:
-maze_mapping:
-  technique: "drop food items as markers"
-  works_because: "each room needs unique marker"
-  discovered_by: "trial and error + dying a lot"
-```
+This is **Programming by Demonstration** made systematic.
 
-### LIFT: Extract Reusable Skill
-
-```yaml
-# Now it's a skill others can use:
-skill:
-  name: maze-mapping
-  protocol: MAZE-MAP
-  
-  procedure:
-    - "Drop unique item in each room"
-    - "Track which items in which rooms"
-    - "Build mental map from markers"
-    
-  sister_script: maze-mapper.py  # Automated version
-```
+See: [../play-learn-lift/](../play-learn-lift/)
 
 ---
 
-## Skill Anatomy
+## Skill Anatomy (Required Structure)
 
 Every skill directory contains:
 
 ```
 skills/
   my-skill/
-    README.md         # Human entry point (GitHub renders this)
+    README.md         # Human entry point (GitHub renders)
     SKILL.md          # Full spec with YAML frontmatter
-    CARD.yml          # Machine-readable interface definition
+    CARD.yml          # Machine-readable interface
     *.tmpl            # Templates at root level (optional)
 ```
 
 | File | Purpose | Required |
 |------|---------|----------|
-| `README.md` | Human-friendly GitHub landing page | ✓ |
-| `SKILL.md` | Full spec with YAML frontmatter (name, tier, allowed-tools) | ✓ |
-| `CARD.yml` | Machine-readable interface — methods, tools, state, advertisements | ✓ |
-| `*.tmpl` | Templates at root level | Optional |
+| `README.md` | Human-friendly landing page | ✓ |
+| `SKILL.md` | Full spec with YAML frontmatter | ✓ |
+| `CARD.yml` | Interface: methods, tools, state, advertisements | ✓ |
+| `*.tmpl` | Templates for instantiation | Optional |
 | `*.py` | Sister scripts for automation | Optional |
 
-### Scripts in Skills
+### Why README.md (Disagreeing with Anthropic)
 
-When skills include Python scripts, structure them for dual human/LLM consumption:
+Anthropic recommends against `README.md` in skills. We respectfully disagree:
+
+- **GitHub renders README.md** as the landing page
+- **Humans browse skills** before invoking them
+- **Play-Learn-Lift** starts with exploration
+- **Two audiences**: humans (README) and LLMs (SKILL.md + CARD.yml)
+
+**Keep both.** README is for discovery, SKILL.md is for execution.
+
+---
+
+## Flat-to-Structured Growth
+
+Skills can start simple and grow organized:
+
+### Phase 1: Flat Start
+```
+skills/my-skill/
+├── README.md
+├── SKILL.md
+├── CARD.yml
+└── helper.py
+```
+
+### Phase 2: Add Structure As Needed
+```
+skills/my-skill/
+├── README.md
+├── SKILL.md
+├── CARD.yml
+├── scripts/           # When you have multiple scripts
+│   └── helper.py
+├── templates/         # When you have multiple templates
+│   └── INSTANCE.yml.tmpl
+└── references/        # When you have supporting docs
+    └── algorithm.md
+```
+
+**Rule:** Top-level `SKILL.md` references ALL files, regardless of nesting. No hierarchical hunting.
+
+---
+
+## Front-Matter Sniffing
+
+LLMs can efficiently understand skills by reading the first ~50 lines:
+
+```yaml
+# === SKILL HEADER (lines 1-15) ===
+---
+name: my-skill
+description: "One-line summary"
+tier: 1
+allowed-tools: [read_file, write_file]
+related: [room, card, character]
+---
+
+# === PURPOSE (lines 16-25) ===
+# My Skill
+> One-liner philosophy
+
+## What It Does
+Brief explanation...
+
+# === FILE MAP (lines 26-40) ===
+## Files in This Skill
+- `README.md` — Landing page
+- `CARD.yml` — Interface definition
+- `scripts/helper.py` — Automation tool
+- `templates/INSTANCE.yml.tmpl` — Instantiation template
+```
+
+**Why this matters:**
+- LLMs don't need to read everything
+- Front-matter summarizes capability
+- File map shows what's available
+- 50 lines = context-efficient discovery
+
+---
+
+## Python Scripts: Dual-Audience Structure
+
+When skills include Python, structure for both humans and LLMs:
 
 ```python
 #!/usr/bin/env python3
-"""skill-name: Brief description.
+"""my-skill: Brief description.
 
 This docstring becomes --help AND is visible to the LLM.
+
+Usage: python my-skill.py [command]
 """
 
-# === IMPORTS ===
+# === IMPORTS (lines 8-15) ===
 import click
 from pathlib import Path
 
-# === CONSTANTS ===
+# === CONSTANTS (lines 17-25) ===
 DEFAULT_ROOM = "start"
+VALID_COMMANDS = ["explore", "examine", "take"]
 
-# === CLI STRUCTURE ===
+# === CLI STRUCTURE (lines 27-50) ===
 @click.group()
 def cli():
     """Main entry point."""
     pass
 
 @cli.command()
-def status():
-    """Show current state."""
+@click.argument("target")
+def examine(target: str):
+    """Look at something in detail."""
     ...
+
+# === IMPLEMENTATION (lines 52+) ===
+# LLM only reads this far if it needs implementation details
 ```
 
-| Consumer | How They Learn |
+| Consumer | What They Read |
 |----------|----------------|
-| Human | `./tool.py --help` |
-| LLM | Reads `tool.py` directly — sees structure in 30 lines |
+| **Human** | `./tool.py --help` |
+| **LLM** | First 50 lines (imports, constants, CLI structure) |
 
-**DRY:** Command structure written once as Python code. No duplicate docs.
+**DRY:** Command structure written once as code. No duplicate documentation.
 
-### SKILL.md Structure
-
-```yaml
----
-name: skill-name
-description: "One-line summary"
-tier: 1  # Capability tier required
-allowed-tools:
-  - read_file
-  - write_file
 ---
 
-# Skill Name
+## Instantiation Modes
 
-Full documentation here...
-  
-  invokes:  # K-lines activated
-    - "tradition-name"
-    - "another-tradition"
-    
-  requires:  # Dependencies
-    - room
-    - card
-    
-  provides:  # What this skill enables
-    - capability-a
-    - capability-b
-    
-  commands:  # Chat commands
-    - SKILL-DO-THING
-    - SKILL-OTHER-THING
-```
+Skills don't always need full instantiation:
+
+| Mode | Files? | Persistence | When to Use |
+|------|--------|-------------|-------------|
+| **Mentioned** | No | None | Quick invocation: "Apply POSTEL here" |
+| **Modeled** | No | Chat only | Guided exploration in conversation |
+| **Embedded** | In doc | Document | Design discussions (literate programming) |
+| **Instantiated** | Yes | Full | Running instances with state |
+
+**Start light, instantiate when needed.**
 
 ---
 
@@ -425,7 +426,6 @@ Full documentation here...
 Skills compose like functions:
 
 ```yaml
-# A complex skill built from simple ones
 skill:
   name: "adventure-exploration"
   
@@ -434,13 +434,16 @@ skill:
     - card           # Inventory
     - soul-chat      # NPC dialogue
     - action-queue   # Agent behavior
+    - speed-of-light # Multi-agent simulation
     
   orchestrates:
     - "Use room for movement"
     - "Use card for items"
     - "Use soul-chat for conversations"
-    - "Use action-queue for autonomy"
+    - "Use speed-of-light for ensemble scenes"
 ```
+
+**Complex capabilities from simple building blocks.**
 
 ---
 
@@ -462,6 +465,8 @@ learned_skills:
     local_only: true  # Too specific to generalize
 ```
 
+**Characters carry learned skills.** Objects and NPCs can teach skills.
+
 ---
 
 ## Commands
@@ -470,9 +475,9 @@ learned_skills:
 |---------|--------|
 | `SKILL [name]` | Invoke or describe a skill |
 | `SKILLS` | List available skills |
-| `LEARN-SKILL [name]` | Begin learning a new skill |
+| `LEARN-SKILL [name]` | Begin learning a skill |
 | `LIFT-SKILL [name]` | Extract local skill to central |
-| `COMPOSE-SKILLS [a] [b]` | Combine skills |
+| `INSTANTIATE [skill] [location]` | Create instance from prototype |
 
 ---
 
@@ -482,41 +487,71 @@ learned_skills:
 |--------|---------|
 | `SKILL` | Invoke this meta-skill |
 | `PLAY-LEARN-LIFT` | The development lifecycle |
-| `SISTER-SCRIPT` | Documentation that became code |
 | `SKILL-INSTANTIATION` | Create instance from prototype |
+| `PROTOTYPE` | Self-like inheritance |
+| `EMPATHIC-TEMPLATES` | Smart semantic instantiation |
+
+---
+
+## The Proof: What We've Demonstrated
+
+This isn't theory. MOOLLM has demonstrated:
+
+### 1. Autonomous Character Creation
+- **Palm the monkey**: Full incarnation with tribunal debate, self-chosen name, home, traits, goals
+- **Biscuit the dog**: Autonomous naming, species selection, home placement
+
+### 2. Extended Multi-Agent Simulation
+- **33-turn Stoner Fluxx**: 8+ characters, rule changes, consistent game state
+- **21-turn Cat Prowl**: 10 cats in parallel, territorial marking, coordinated return
+
+### 3. Complex Narrative Consistency
+- **Session logs**: 6000+ lines of consistent narrative
+- **World state**: Rooms update with markings, characters remember interactions
+- **Relationships**: Evolving bonds between characters
+
+### 4. Speed of Light Deliberation
+- **Tribunal debates**: Multiple personas cross-examining simultaneously
+- **Ensemble inference**: Diverse perspectives in single call
+
+**The architecture works. The results prove it.**
 
 ---
 
 ## Dovetails With
 
-- **[../protocol/](../protocol/)** — The UPPER-CASE naming convention for skills and concepts
-- **[../play-learn-lift/](../play-learn-lift/)** — The methodology for skill development
-- **[../sister-script/](../sister-script/)** — When skills become automated scripts
+- **[../prototype/](../prototype/)** — Self-like inheritance philosophy
+- **[../protocol/](../protocol/)** — K-line naming convention
+- **[../play-learn-lift/](../play-learn-lift/)** — Skill development methodology
+- **[../empathic-templates/](../empathic-templates/)** — Smart instantiation
+- **[../empathic-expressions/](../empathic-expressions/)** — Intent interpretation
+- **[../speed-of-light/](../speed-of-light/)** — Multi-agent simulation
 - **[../room/](../room/)** — Skills live in rooms
-- **[../card/](../card/)** — Skills can be cards
-- **[../constructionism/](../constructionism/)** — Building skills by doing
-- **[../soul-chat/](../soul-chat/)** — Skills embedded in design conversations
-- **[../../kernel/](../../kernel/)** — Core skill infrastructure
+- **[../card/](../card/)** — Skills become cards
+- **[../constructionism/](../constructionism/)** — Learning by building
 
 ### Protocol Documents (in this directory)
 
-- **[delegation-object-protocol.md](./delegation-object-protocol.md)** — Self-like prototype inheritance for LLMs
-- **[skill-instantiation-protocol.md](./skill-instantiation-protocol.md)** — How skills become activation records
+- **[delegation-object-protocol.md](./delegation-object-protocol.md)** — Self-like inheritance
+- **[skill-instantiation-protocol.md](./skill-instantiation-protocol.md)** — How skills become instances
 
 ---
 
-## The Anthropic Connection
+## Summary: MOOLLM Advances the Art
 
-Anthropic's Skills model and MOOLLM skills share DNA:
+| Feature | Anthropic Foundation | MOOLLM Contribution |
+|---------|----------------------|---------------------|
+| Documentation | ✓ | + README.md for discovery |
+| Tool definitions | ✓ | + CARD.yml with advertisements |
+| Composability | ✓ | + Prototype inheritance (Self) |
+| Stateless | — | **Three-tier persistence** |
+| Single-agent | ✓ | **Speed-of-light multi-agent** |
+| String templates | ✓ | **Empathic templates** |
+| Static skills | ✓ | **Instantiable prototypes** |
+| Names | ✓ | **K-lines (activation vectors)** |
 
-1. **Documentation-first**: Write what it does before how
-2. **Composable**: Complex capabilities from simple building blocks
-3. **Evolvable**: Skills improve through use
-4. **Auditable**: You can see what a skill does
-5. **Human-in-the-loop**: Approval gates where needed
-
-The difference: MOOLLM skills live in the filesystem, can be local to rooms/characters, and evolve through PLAY-LEARN-LIFT. They're not just tool definitions — they're **living documents that learned to do things**.
+**We stand on excellent foundations. We add instantiation, inheritance, empathy, and proven multi-agent simulation.**
 
 ---
 
-*"Start with jazz, end with standards."*
+*"Start with jazz, end with standards. But never stop playing."*

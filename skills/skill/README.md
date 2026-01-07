@@ -1,32 +1,56 @@
-# 🧩 Skill
+# 🛠️ Skill — The Meta-Skill
 
-> A skill is documentation that learned to do things
+> **A skill is documentation that learned to do things.**
 
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
 - [Interface Card](CARD.yml) — machine-readable methods
+- [Delegation Protocol](delegation-object-protocol.md) — Self-like inheritance
+- [Instantiation Protocol](skill-instantiation-protocol.md) — how skills become instances
+
+---
 
 ## Overview
 
-The meta-protocol: how skills work, how they evolve, how they live everywhere.
+The meta-protocol: how skills work, evolve, compose, and how **MOOLLM advances the state of the art**.
 
-A skill is a **documented capability** that can be instantiated, composed, and automated.
+A skill is a **documented capability** that can be:
+- **Instantiated** — Create running instances with state
+- **Composed** — Build complex from simple
+- **Inherited** — Clone and override (Self-style)
+- **Lifted** — Extract patterns into reusable skills
+
+---
+
+## MOOLLM's Unique Contributions
+
+| Innovation | What It Means | Proof |
+|------------|---------------|-------|
+| **Instantiation** | Skills as prototypes that create instances | adventure-4 from adventure/ |
+| **K-lines** | Names activate entire knowledge contexts | "Palm" → all of Palm's soul |
+| **Empathic Templates** | Smart generation, not string substitution | Character descriptions |
+| **Speed of Light** | Many agents, many turns, one call | **33-turn Fluxx**, **21-turn cat prowl** |
+| **Three-Tier Persistence** | Platform → Narrative → State | Session logs + world state |
+
+---
 
 ## Skill Anatomy (Required Structure)
 
 ```
 skills/
   my-skill/
-    README.md         # Human entry point (GitHub renders this)
+    README.md         # Human entry point (GitHub renders)
     SKILL.md          # Full spec with YAML frontmatter
-    CARD.yml          # Machine-readable interface definition
-    *.tmpl            # Templates at root level (optional)
+    CARD.yml          # Machine-readable interface
+    *.tmpl            # Templates (optional)
 ```
 
 Every skill has:
-- **README.md** — Quick overview, links (you're reading one!)
-- **SKILL.md** — Full protocol with YAML frontmatter defining name, tier, allowed-tools
-- **CARD.yml** — Interface definition: methods, tools, state, advertisements
+- **README.md** — Human discovery (you're reading one!)
+- **SKILL.md** — Full protocol with YAML frontmatter
+- **CARD.yml** — Interface: methods, tools, state, advertisements
+
+---
 
 ## The Evolution Path
 
@@ -36,44 +60,57 @@ Documentation → Procedure → Script → Tool
    PLAY           LEARN     LIFT  SISTER-SCRIPT
 ```
 
-## State Persistence
+**Play-Learn-Lift**: Do it manually → Notice patterns → Extract skill
 
-Skills persist state at three tiers:
+---
+
+## Three-Tier Persistence
 
 | Tier | Where | Lifespan |
 |------|-------|----------|
-| **Platform chat** | Cursor session | Ephemeral |
-| **Narrative log** | `LOG.md` data islands | Read-mostly |
-| **State files** | `*.yml` | Read-write |
+| **Platform** | Cursor session | Ephemeral |
+| **Narrative** | `LOG.md` data islands | Read-mostly |
+| **State** | `*.yml` files | Read-write |
 
 **Key patterns:**
 - **Data islands**: Embed YAML in logs with `#object-id` addressing
 - **Promotion**: Pop to `.yml` file when editing needed
 - **Log inheritance**: `inherits: LOG.md#birth-state`
 
-## Scripts in Skills
+---
 
-Python scripts serve both humans and LLMs:
+## Front-Matter Sniffing
 
-| Consumer | Access Method |
-|----------|---------------|
-| Human | `./tool.py --help` |
-| LLM | Reads source file directly |
+LLMs can understand skills by reading first ~50 lines:
 
-**DRY:** Write command structure once as Python CLI code.
+1. **Lines 1-15**: YAML frontmatter (name, tier, tools)
+2. **Lines 16-25**: Purpose and philosophy
+3. **Lines 26-40**: File map (what's in the skill)
 
-## Parallels with Anthropic Skills
+Efficient discovery without reading everything.
 
-| Anthropic Skills | MOOLLM Skills |
-|------------------|---------------|
-| Documentation-first | README.md + SKILL.md |
-| Tool definitions | YAML frontmatter |
-| Composability | Dovetails section |
-| Stateless | **Three-tier persistence** |
+---
+
+## Proven Results
+
+| Demonstration | Turns | Agents | What It Proves |
+|---------------|-------|--------|----------------|
+| **Stoner Fluxx** | 33 | 8+ | Complex game state, rules, consistency |
+| **Cat Prowl** | 21 | 10 | Parallel agents, coordinated behavior |
+| **Palm Incarnation** | 1 | 6+ | Committee debate, autonomous creation |
+
+**The architecture works.** Speed-of-light simulation is real.
+
+---
 
 ## Related Skills
 
-- [play-learn-lift](../play-learn-lift/) — how skills evolve
-- [sister-script](../sister-script/) — automating procedures
-- [session-log](../session-log/) — narrative logging
-- [scratchpad](../scratchpad/) — ephemeral working memory
+- [prototype/](../prototype/) — Self-like inheritance
+- [play-learn-lift/](../play-learn-lift/) — how skills evolve
+- [empathic-templates/](../empathic-templates/) — smart instantiation
+- [speed-of-light/](../speed-of-light/) — multi-agent simulation
+- [card/](../card/) — skills as playable cards
+
+---
+
+*"Start with jazz, end with standards. But never stop playing."*

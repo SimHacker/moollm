@@ -45,6 +45,26 @@ skills:
     tags: ["meta", "robustness", "philosophy"]
     use_when: "Designing interfaces, handling varied input"
     
+  - name: "empathic-expressions"
+    path: "skills/empathic-expressions"
+    description: "Intent-based code interpretation across all languages — SQL, Python, JS, YAML, Bash"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "EMPATHIC-EXPRESSIONS"
+    tags: ["meta", "code", "interpretation", "generation", "empathy"]
+    use_when: "Interpreting fuzzy code, generating from intent, code-switching"
+    related: ["empathic-templates", "postel", "speed-of-light", "yaml-jazz"]
+    
+  - name: "empathic-templates"
+    path: "skills/empathic-templates"
+    description: "Smart templates with semantic understanding — not just string substitution"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "EMPATHIC-TEMPLATES"
+    tags: ["meta", "templates", "instantiation", "generation", "empathy"]
+    use_when: "Creating instances from templates with intelligent content generation"
+    related: ["empathic-expressions", "skill", "yaml-jazz", "character", "room"]
+    
   - name: "robust-first"
     path: "skills/robust-first"
     description: "Dave Ackley: stay alive and heal, don't crash"

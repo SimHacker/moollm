@@ -1,72 +1,81 @@
-# CARD.yml — The Skill Card
+# CARD.yml — The Skill Forge
 #
 # The meta-skill as a playable card.
 # "A skill is documentation that learned to do things."
+#
+# MOOLLM advances the art with:
+# - Instantiation (skills as prototypes)
+# - K-lines (names as activation vectors)
+# - Empathic templates (smart instantiation)
+# - Speed of light (proven multi-agent simulation)
 
 card:
   id: skill
   name: "The Skill Forge"
-  type: [skill, meta, creation]
-  
+  type: [skill, meta, creation, prototype]
   emoji: 🛠️
-  
-  rarity: mythic  # Foundational to MOOLLM
+  rarity: mythic
   
   description: |
     The meta-skill for creating, understanding, and debugging skills.
     
     Every skill you encounter was forged here. This card teaches
     the art of skill creation — from documentation to automation,
-    from prototype inheritance to instantiation.
+    from prototype inheritance to empathic instantiation.
     
-    Play this card when you need to:
-    - Create a new skill from scratch
-    - Understand how skills inherit from prototypes
-    - Debug a skill that isn't working
-    - Upgrade a skill's capabilities
+    MOOLLM's unique contributions:
+    - **Instantiation**: Skills as prototypes that create instances
+    - **K-lines**: Names as semantic activation vectors
+    - **Empathic Templates**: Smart generation, not string substitution
+    - **Speed of Light**: Proven 33-turn multi-agent simulation
 
-# METHODS
-# What this card can do when played
+tools:
+  required: [read_file, write_file]
+  optional: [list_dir, grep]
+tier: 1
+
+# METHODS — What this card can do when played
 
 methods:
-  
   CREATE:
-    description: "Create a new skill"
+    description: "Create a new skill from scratch"
     parameters:
       name: "lowercase-with-dashes"
       description: "One-line summary"
       tier: "0, 1, or 2"
-      prototypes: "List of parent skills"
+      prototypes: "Optional parent skills"
     effect: |
       1. Create skills/{name}/ directory
-      2. Generate README.md from template
-      3. Generate SKILL.md from template  
-      4. Register in INDEX.yml
-      5. Return the new skill card
+      2. Generate README.md (human landing page)
+      3. Generate SKILL.md (full spec)
+      4. Generate CARD.yml (interface)
+      5. Register in INDEX.yml
+      6. Return the new skill card
       
   INSTANTIATE:
-    description: "Create an instance of any skill"
+    description: "Create instance from skill prototype"
     parameters:
       skill: "Path to skill"
       location: "Where to create instance"
-      variables: "Template variable bindings"
+      context: "Semantic context for empathic templates"
     effect: |
       1. Read skill's templates
-      2. Fill variables (LLM applies POSTEL's law)
+      2. Apply empathic template expansion (not just string substitution!)
       3. Write instance files to location
-      4. Return activation record
-      5. Light weight one shot read-only objects can be embedded in log or narrative as yaml jazz code blocks
+      4. Create PROTOTYPES.yml pointing to skill
+      5. Return activation record
+    note: "Lightweight objects can be embedded in logs as YAML Jazz code blocks"
       
   DEBUG:
     description: "Diagnose why a skill isn't working"
     parameters:
       skill-path: "Path to skill or instance"
     effect: |
-      1. Check file structure
-      2. Verify prototype chain
+      1. Check file structure (README.md, SKILL.md, CARD.yml)
+      2. Verify prototype chain (PROTOTYPES.yml resolution)
       3. Test template rendering
       4. Report issues and fixes
-      5. Generate dynamic stack traces for analysis and debugging
+      5. Generate dynamic stack traces for analysis
       
   UPGRADE:
     description: "Evolve a skill's capabilities"
@@ -78,40 +87,125 @@ methods:
       2. Identify what's needed for upgrade
       3. Add required templates/tools
       4. Update INDEX.yml
+      
+  LIFT:
+    description: "Extract local skill to central directory"
+    parameters:
+      source: "Path to local skill or learned pattern"
+      name: "Name for the new central skill"
+    effect: |
+      1. Analyze the local skill/pattern
+      2. Generalize to remove instance-specific details
+      3. Create new skill in skills/{name}/
+      4. Generate proper README.md, SKILL.md, CARD.yml
+      5. Register in INDEX.yml
+      
+  COMPOSE:
+    description: "Combine multiple skills into a new composite skill"
+    parameters:
+      skills: "List of skills to compose"
+      name: "Name for composite"
+      orchestration: "How they interact"
+    effect: |
+      1. Create composite skill
+      2. Reference component skills in PROTOTYPES.yml
+      3. Document orchestration in SKILL.md
 
-# PROTOTYPES
-# This card inherits from:
+# STATE — What instances of this skill track
 
-prototypes:
-  - skills/card  # It IS a card
+state:
+  current-skill: "Skill being worked on"
+  prototype-chain: "Resolved inheritance"
+  instantiation-context: "Context for empathic templates"
 
-# ADVERTISEMENTS
-# What this card offers to the room
+# UNIQUE MOOLLM FEATURES
+
+moollm-innovations:
+  
+  instantiation:
+    description: "Skills are prototypes that create instances"
+    unlike: "Static documentation that's only read"
+    example: |
+      skills/adventure/  →  examples/adventure-4/
+      (prototype)            (instance with state)
+    
+  k-lines:
+    description: "Names activate entire knowledge contexts"
+    source: "Marvin Minsky, Society of Mind"
+    example: |
+      Invoking "YAML-JAZZ" activates:
+      - The commenting philosophy
+      - Syntax patterns
+      - Examples and anti-patterns
+      - Related concepts
+      
+  empathic-templates:
+    description: "Smart semantic instantiation"
+    unlike: "Mechanical string substitution"
+    example: |
+      {{describe_character}} generates coherent prose
+      based on context, not just slot filling
+      
+  three-tier-persistence:
+    description: "Platform → Narrative → State"
+    unlike: "Single flat state"
+    tiers:
+      platform: "Ephemeral (chat session)"
+      narrative: "Read-mostly (LOG.md data islands)"
+      state: "Read-write (*.yml files)"
+      
+  speed-of-light:
+    description: "Many agents, many turns, one LLM call"
+    proven:
+      - "33-turn Stoner Fluxx (8+ characters)"
+      - "21-turn Cat Prowl (10 cats in parallel)"
+      - "Palm incarnation tribunal"
+
+# ADVERTISEMENTS — What this card offers
 
 advertisements:
   CREATE-SKILL:
-    score: 80
+    score: 90
     condition: "Need to make a new reusable capability"
     
+  INSTANTIATE-SKILL:
+    score: 85
+    condition: "Need to create instance from skill prototype"
+    
   FIX-SKILL:
-    score: 70
+    score: 80
     condition: "A skill is broken or incomplete"
     
+  LIFT-PATTERN:
+    score: 75
+    condition: "Have a local pattern worth generalizing"
+    
   TEACH-SKILLS:
-    score: 60
-    condition: "Someone wants to understand how skills work"
+    score: 70
+    condition: "Want to understand how skills work"
+    
+  COMPOSE-SKILLS:
+    score: 70
+    condition: "Need to combine multiple skills"
+
+# PROTOTYPES — This card inherits from
+
+prototypes:
+  - skills/card
+  - skills/prototype
 
 # RELATED SKILLS
 
 see-also:
-  - skills/protocol  # K-line names
-  - skills/card  # Cards as capabilities
-  - skills/constructionism  # Learning by building
-  - skills/play-learn-lift  # The methodology
+  - skills/protocol       # K-line names
+  - skills/card           # Cards as capabilities
+  - skills/prototype      # Self-like inheritance
+  - skills/empathic-templates  # Smart instantiation
+  - skills/play-learn-lift     # The methodology
+  - skills/speed-of-light      # Multi-agent simulation
+  - skills/constructionism     # Learning by building
 
 # PHILOSOPHY
-#
-# "Start with jazz, end with standards."
 #
 # Skills evolve through use:
 #   PLAY: Do it manually, learn what works
@@ -119,11 +213,16 @@ see-also:
 #   LIFT: Crystallize into reusable skill
 #
 # The skill skill is the forge where this happens.
+#
+# MOOLLM's contribution: Skills aren't just documentation.
+# They're prototypes. They instantiate. They inherit.
+# They compose. They're proven in extended simulation.
 
 credits:
-  inspiration:
-    - "David Ungar & Randy Smith — Self language (1987)"
-    - "Seymour Papert — Constructionism"
+  foundation:
     - "Anthropic — Skills model"
-  implementation:
-    - "Don Hopkins — MOOLLM"
+  innovations:
+    - "David Ungar & Randy Smith — Self language (1987)"
+    - "Marvin Minsky — K-lines, Society of Mind"
+    - "Seymour Papert — Constructionism"
+    - "Don Hopkins — MOOLLM architecture"

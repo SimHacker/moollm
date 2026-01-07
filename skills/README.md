@@ -23,6 +23,8 @@ Userland protocols over files.
 | [robust-first/](./robust-first/) | Survive first, be correct later (Dave Ackley) |
 | [coherence-engine/](./coherence-engine/) | LLM as consistency maintainer & orchestrator |
 | [speed-of-light/](./speed-of-light/) | Many turns in one call — instant telepathy |
+| [empathic-expressions/](./empathic-expressions/) | Intent-based code interpretation across all languages |
+| [empathic-templates/](./empathic-templates/) | Smart templates with semantic understanding |
 
 ### 🎮 Methodology (How to Work)
 

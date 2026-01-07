@@ -22,6 +22,35 @@ Independent evaluation:
 - Can't be influenced by committee dynamics
 - Applies rubric without bias from debate
 
+## The Dramatic Irony Pattern
+
+**Reality:** The LLM has global knowledge — it simulated the committee debate AND the evaluation.
+
+**Roleplay:** The evaluator character doesn't know what happened in the committee room.
+
+**The trick:** The LLM maintains the fiction of isolation while optionally adding **Ron Howard-style narration** for dramatic irony:
+
+```yaml
+evaluator_assessment:
+  score: 7/10
+  reasoning: |
+    The recommendation is well-structured but lacks consideration
+    of edge cases. The committee seems confident in their approach.
+    
+    # NARRATOR: They were not confident. Maya had called it
+    # "a disaster waiting to happen" three times.
+    
+  recommendation: "Approve with minor revisions"
+  
+  # NARRATOR: The revisions would not be minor.
+```
+
+This pattern:
+- Preserves the **methodological value** of blind evaluation
+- Adds **dramatic tension** for the reader
+- Demonstrates **LLM self-awareness** about the simulation
+- Creates **Arrested Development energy** 🍌
+
 ## The Pattern
 
 ```
