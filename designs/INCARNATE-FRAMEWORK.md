@@ -191,11 +191,37 @@ End-user programming. Reader = Writer symmetry. "See your own face in the system
 
 **MOOLLM inherits:** Play-Learn-Lift. Users can inspect, modify, and create skills.
 
-### 4. Self (Ungar & Smith, 1987)
+### 4. Self (Ungar & Smith, Sun/Stanford, 1987)
 
 Prototypes instead of classes. Delegation instead of inheritance. "Objects all the way down, but simpler."
 
-**MOOLLM inherits:** Prototype-based skills. Delegation Object Protocol. Clone to instantiate.
+> *"Self is designed to be as simple as possible while remaining expressive and powerful."*
+
+**Key Innovations:**
+
+| Concept | Self | MOOLLM |
+|---------|------|--------|
+| **Prototypes** | No classes, only objects | Skills are prototypes, not class definitions |
+| **Delegation** | Objects delegate to parents | Rooms delegate to parent directories |
+| **Slots** | Named properties that can be methods | YAML keys can be data or behavior (comments as code), files in directories |
+| **Clone to Create** | `copy` creates new object | Instantiate skill creates new adventure |
+| **Dynamic Deoptimization** | Reconstruct stack at debug time | `return-stack` reconstructs causal traces |
+| **Morphs** | Visual objects that can be picked up | Characters, items, rooms are all manipulable |
+
+**The Delegation Chain:**
+
+```
+Object → Trait → Parent → Parent's Parent → ...
+    ↓
+MOOLLM: Room → Parent Directory → Skill → Prototype → ...
+```
+
+**MOOLLM inherits:** 
+- Prototype-based skills (no "skill classes")
+- Delegation Object Protocol (file lookup walks up directories)
+- Clone to instantiate (`adventure/` → `adventure-4/`)
+- Dynamic deoptimization (`return-stack` skill)
+- Slots as data+behavior (YAML Jazz comments)
 
 ### 5. NeWS (James Gosling, Sun, 1986)
 
@@ -223,13 +249,156 @@ HyperCard reimagined for NeWS. PostScript for code, graphics, AND data. Network 
 
 > *"He designs games to run on two computers at once: the electronic one on the player's desk, running his shallow tame simulation, and the biological one in the player's head, running their deep wild imagination."*
 
-**MOOLLM inherits:** Sparse state + LLM imagination = rich world. The LLM fills gaps.
+**The Simulator Effect:** Players imagine simulations are vastly more detailed, rich, and complex than they actually are. The game provides scaffolding; the player's imagination fills in the rest.
+
+**The Sims Architecture:**
+
+| Concept | The Sims | MOOLLM |
+|---------|----------|--------|
+| **Needs** | Hunger, Social, Fun, Hygiene, etc. | `skills/needs/` — character motives |
+| **Action Queue** | Sims queue up tasks | `skills/action-queue/` — ordered intentions |
+| **Advertisements** | Objects broadcast available actions | `CARD.yml` advertisements section |
+| **Autonomy** | Sims make their own decisions | Characters act independently in Speed of Light |
+| **Buffs/Moodlets** | Temporary state modifiers | `skills/buff/` — temporary effects |
+| **Traits** | Personality system | `SIMS-TRAITS.yml` in character directories |
+
+**Object Advertisements:**
+
+The Sims' revolutionary insight: **objects advertise what they can do**.
+
+```yaml
+# A Sims refrigerator advertises:
+fridge:
+  advertisements:
+    - GET-SNACK: {hunger: +2, time: 30s}
+    - GET-LEFTOVER: {hunger: +4, time: 60s}
+    - SERVE-MEAL: {hunger: +8, time: 180s, skill: cooking}
+
+# MOOLLM objects do the same:
+gong:
+  advertisements:
+    - RING: "All conversation pauses"
+    - RING-TWICE: "Emergency interrupt"
+    - RING-THRICE: "The Gong Show termination"
+```
+
+Sims scan advertisements and choose based on needs + personality. The LLM does the same.
+
+**Action Queues:**
+
+```yaml
+# The Sims action queue:
+sim_queue:
+  - GO bathroom
+  - USE toilet
+  - WASH hands
+  - GO kitchen
+  - GET-SNACK fridge
+
+# MOOLLM character intentions:
+don_queue:
+  - GO pub
+  - ORDER mammies-pride
+  - SIT pie-table#N
+  - SUMMON-PANEL topic="ethics"
+```
+
+**MOOLLM inherits:** 
+- Sparse state + LLM imagination = rich world
+- Needs-based character motivation
+- Action queues for ordered intentions
+- Object advertisements for discoverable actions
+- Autonomy — characters make decisions
+- Traits as personality system
+- Buffs as temporary modifiers
 
 ### 9. Constructionism (Seymour Papert)
 
 Learning by building inspectable things. Logo. Turtle graphics. "Low floor, high ceiling, wide walls."
 
 **MOOLLM inherits:** The `constructionism` skill. Play-Learn-Lift as methodology.
+
+### 10. TinyMUD & LambdaMOO (Jim Aspnes, Pavel Curtis, 1989-1990)
+
+Text-based virtual worlds where users build rooms, objects, and behaviors. The original "user-generated content" platforms.
+
+> *"A MOO is a place where you can be anyone, build anything, and the only limit is your imagination."*
+
+**TinyMUD Builder Commands:**
+
+| Command | Effect | MOOLLM Equivalent |
+|---------|--------|-------------------|
+| `@dig [room]` | Create new room | Create directory |
+| `@open [exit]` | Create exit between rooms | Add to `exits:` in ROOM.yml |
+| `@describe [thing]` | Set description | Edit `description:` field |
+| `@create [object]` | Make new object | Create .yml file |
+| `@link [exit] [room]` | Connect exit to destination | Update exit target |
+| `@lock [thing]` | Set access control | Add `access:` restrictions |
+| `@teleport` | Move instantly | Change `location:` |
+| `@set [prop]` | Set property | Edit YAML field |
+
+**The MOO Object Model:**
+
+```
+                  $thing
+                     │
+        ┌────────────┼────────────┐
+        │            │            │
+     $room        $exit      $container
+        │                         │
+    my-room                  my-chest
+```
+
+**MOOLLM's directory structure is MOO's object tree.**
+
+**LambdaMOO Innovations:**
+
+| Concept | LambdaMOO | MOOLLM |
+|---------|-----------|--------|
+| **Rooms** | Containers with descriptions and exits | Directories with ROOM.yml |
+| **Objects** | Things with properties and verbs | .yml files with state and methods |
+| **Verbs** | Code attached to objects | Methods in CARD.yml |
+| **Properties** | Data on objects | YAML fields |
+| **Inheritance** | Objects delegate to parents | Directory delegation |
+| **@edit** | In-world code editing | Edit .yml files directly |
+| **@examine** | Inspect object state | `cat file.yml` or read_file |
+| **Player homes** | Personal space | Character directories |
+
+**The Social Architecture:**
+
+MOO taught us that virtual worlds need:
+- **Consent** — players control their space
+- **Building** — users create content
+- **Community** — shared spaces and norms
+- **Moderation** — governance for the commons
+
+**MOOLLM inherits:**
+- Room-based navigation (directories as rooms)
+- Builder commands (`skills/room/` with @DIG, @OPEN, @LINK)
+- Object properties and verbs (YAML state + CARD.yml methods)
+- User-created content (Play-Learn-Lift)
+- Delegation-based inheritance (parent directories)
+- Social spaces (pub, stage, cat cave)
+- Consent protocols (incarnation skill)
+
+### 11. K-lines (Marvin Minsky, MIT, 1980s)
+
+> *"A K-line attaches to whichever mental agencies are active when you solve a problem or have a good idea. When you activate that K-line later, the attached agencies turn partially on, recreating a 'mental state' similar to the one you were in before."*
+
+Names as activation vectors. When you invoke a name, you activate an entire constellation of associated context.
+
+**MOOLLM K-lines:**
+
+| K-line | What It Activates |
+|--------|-------------------|
+| `YAML-JAZZ` | Comment philosophy, semantic style, examples, jazz metaphor |
+| `POSTEL` | Generous interpretation, ask-if-unsure, tolerance |
+| `SPEED-OF-LIGHT` | Many turns, one call, no round-trips, carrier pigeon critique |
+| `Palm` | Incarnation story, personality, relationships, home, history |
+
+When you instantiate a character, **their name becomes their K-line**. "Palm" activates everything — the incarnation, the wish, the godfamily, the typewriters.
+
+**MOOLLM inherits:** Names as semantic activators. `UPPER-KEBAB` protocol symbols. Character names as soul triggers.
 
 ---
 
@@ -878,14 +1047,17 @@ Don't update the screen (tokenize) on every keystroke. Wait until the user pause
 | **Ivan Sutherland** | Sketchpad, first windows | Multiple views |
 | **Alan Kay** | Smalltalk, Dynabook, "computer as medium" | Objects, messaging, vision |
 | **Bill Atkinson** | HyperCard | Reader=Writer, Play-Learn-Lift |
-| **David Ungar & Randy Smith** | Self | Prototypes, delegation |
+| **David Ungar & Randy Smith** | Self language (1987) | Prototypes, delegation, dynamic deoptimization |
 | **James Gosling** | NeWS | Network interpreter |
 | **Arthur van Hoff** | HyperLook | Axis of Eval, network delegation |
 | **John Warnock** | PostScript | Linguistic motherboard |
 | **Owen Densmore** | NeWS OOP | Dictionary-based objects |
-| **Will Wright** | SimCity, Sims | Simulator Effect, action queues |
+| **Jim Aspnes** | TinyMUD (1989) | Room-based navigation, builder commands |
+| **Pavel Curtis** | LambdaMOO (1990) | Object verbs, player homes, social architecture |
+| **Will Wright** | SimCity, The Sims | Simulator Effect, needs, action queues, advertisements |
 | **Seymour Papert** | Logo, Constructionism | Learning by building |
-| **Marvin Minsky** | K-lines, Society of Mind | Name-based activation |
+| **Marvin Minsky** | K-lines, Society of Mind | Names as activation vectors |
+| **Gary Gygax & Dave Arneson** | D&D (1974) | DM as proto-LLM, adventure format |
 | **Don Hopkins** | Pie menus, SimCity/NeWS, MOOLLM | All of the above, synthesized |
 
 ---
