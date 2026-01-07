@@ -97,7 +97,7 @@ MOOLLM stands on the shoulders of giants. This document traces the lineage.
 
 ### The Axis of Eval: Code, Graphics, Data
 
-Don Hopkins coined this phrase to describe [NeWS's and HyperLook's](https://medium.com/@donhopkins/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4) unification of three dimensions around PostScript:
+Don Hopkins coined this phrase to describe [NeWS's and HyperLook's](https://donhopkins.medium.com/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4) unification of three dimensions around PostScript:
 
 | Dimension | HyperLook (PostScript) | MOOLLM (YAML Jazz + Markdown) |
 |-----------|------------------------|-------------------------------|
@@ -261,7 +261,7 @@ The first real windowing system. Multiple views of the same object. Edit from an
 
 **MOOLLM inherits:** Hypertext linking, collaborative world-building, the vision of tools that augment human capability. The filesystem IS a hypertext system.
 
-### 3. Smalltalk ([Alan Kay](https://medium.com/@donhopkins/alan-kay-on-should-web-browsers-have-stuck-to-being-document-viewers-and-a-discussion-of-news-5cb92c7b3445), Xerox PARC, 1970s)
+### 3. Smalltalk ([Alan Kay](https://donhopkins.medium.com/alan-kay-on-should-web-browsers-have-stuck-to-being-document-viewers-and-a-discussion-of-news-5cb92c7b3445), Xerox PARC, 1970s)
 
 Objects all the way down. Message passing. Live programming. "The computer is a medium."
 
@@ -423,7 +423,7 @@ MOO taught us that virtual worlds need:
 - Social spaces (pub, stage, cat cave)
 - Consent protocols (incarnation skill)
 
-### 11. [HyperLook](https://medium.com/@donhopkins/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4) (Arthur van Hoff, Turing Institute, 1989-1992)
+### 11. [HyperLook](https://donhopkins.medium.com/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4) (Arthur van Hoff, Turing Institute, 1989-1992)
 
 HyperCard reimagined for NeWS. PostScript for code, graphics, AND data. Network delegation.
 
@@ -520,7 +520,7 @@ don_queue:
 
 ### "Send Programs, Not Data Structures"
 
-[Alan Kay's](https://medium.com/@donhopkins/alan-kay-on-should-web-browsers-have-stuck-to-being-document-viewers-and-a-discussion-of-news-5cb92c7b3445) insight from the JAM → PostScript evolution:
+[Alan Kay's](https://donhopkins.medium.com/alan-kay-on-should-web-browsers-have-stuck-to-being-document-viewers-and-a-discussion-of-news-5cb92c7b3445) insight from the JAM → PostScript evolution:
 
 **Traditional systems:** Send data to a server, server parses it, server acts.
 **PostScript/NeWS:** Send a *program* to the server, server *runs* it.
@@ -532,7 +532,7 @@ Skills are not just documentation. Skills are **programs for the LLM to run**.
 
 ### "Browser Should Be OS, Not App"
 
-[Alan Kay's](https://medium.com/@donhopkins/alan-kay-on-should-web-browsers-have-stuck-to-being-document-viewers-and-a-discussion-of-news-5cb92c7b3445) critique of the web:
+[Alan Kay's](https://donhopkins.medium.com/alan-kay-on-should-web-browsers-have-stuck-to-being-document-viewers-and-a-discussion-of-news-5cb92c7b3445) critique of the web:
 
 > *"The underlying system for a browser should not be that of an 'app' but of an Operating System whose job would be to protectively and safely run encapsulated systems (i.e. 'real objects') gotten from the web."*
 
@@ -1482,8 +1482,8 @@ MOOLLM is a step toward that destiny:
 
 | Article | Topic |
 |---------|-------|
-| [HyperLook (nee HyperNeWS (nee GoodNeWS))](https://medium.com/@donhopkins/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4) | HyperLook, Axis of Eval, NeWS |
-| [Alan Kay on "Should web browsers have stuck to being document viewers?"](https://medium.com/@donhopkins/alan-kay-on-should-web-browsers-have-stuck-to-being-document-viewers-and-a-discussion-of-news-5cb92c7b3445) | NeWS, HyperLook, linguistic motherboard |
+| [HyperLook (nee HyperNeWS (nee GoodNeWS))](https://donhopkins.medium.com/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4) | HyperLook, Axis of Eval, NeWS |
+| [Alan Kay on "Should web browsers have stuck to being document viewers?"](https://donhopkins.medium.com/alan-kay-on-should-web-browsers-have-stuck-to-being-document-viewers-and-a-discussion-of-news-5cb92c7b3445) | NeWS, HyperLook, linguistic motherboard |
 | [The Shape of PSIBER Space](https://donhopkins.medium.com/the-shape-of-psiber-space-postscript-interactive-bug-eradication-routines-october-1989-1e4cc5bf1f08) | Visual PostScript debugging |
 | [Open Sourcing SimCity](https://donhopkins.medium.com/open-sourcing-simcity-by-chaim-gingold-44261ae4f754) | SimCity history, Chaim Gingold |
 | [Will Wright on Designing User Interfaces to Simulation Games](https://donhopkins.medium.com/will-wright-on-designing-user-interfaces-to-simulation-games-1996-video-update-2023-da098a51ef91) | Simulator Effect, game design |
