@@ -1063,16 +1063,17 @@ Makes clear we're **summoning** them as loving imagination, not claiming they ap
 
 ### Ethical Framing Inheritance
 
-Directories are rooms, but they're also **inheritance scopes**. Properties defined in a parent propagate to children — including ethical framing.
+Directories are rooms, but they're also **inheritance scopes**. Properties defined in a parent propagate to children — including ethical framing and constraints.
 
 **Sub-directory patterns:**
 
 | Pattern | Example | What It Means |
 |---------|---------|---------------|
 | **Region** | `pub/stage/` | A raised platform within the pub — not a separate room, a zone |
-| **Sub-room** | `pub/bar/cat-cave/` | An actual enclosed space (behind the bar, cats only) |
-| **Grouping** | `maze/` | Not a room itself — groups 10 rooms that share properties (dark, grues) |
-| **Virtual** | `pub/seating.yml#chair-3` | Addressable locations within a file, not separate directories |
+| **Region** | `pub/bar/` | Behind the bar, open to room, staff only |
+| **Sub-room** | `pub/bar/cat-cave/` | An actual enclosed space (behind the bar, cats only, closed for privacy, large Tardis-like inside) |
+| **Grouping** | `maze/` | Not a room itself — groups 10 rooms that share properties (dark, grues, danger) |
+| **Virtual** | `pub/seating.yml#table-2/chair-3` | Addressable locations within a file, not separate directories |
 
 **Location paths can point to:**
 - **Directories** — `pub/stage/` (a room or region)
