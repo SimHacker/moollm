@@ -29,7 +29,7 @@ MOOLLM stands on the shoulders of giants. This document traces the lineage.
 
 ### The Axis of Eval: Code, Graphics, Data
 
-Don Hopkins coined this phrase to describe [NeWS's and HyperLook's](https://donhopkins.medium.com/alan-kay-on-should-web-browsers-have-stuck-to-being-document-viewers-and-a-discussion-of-news-52e059ce0a68) unification of three dimensions around PostScript:
+Don Hopkins coined this phrase to describe [NeWS's and HyperLook's](https://donhopkins.medium.com/simcity-cellular-automata-and-happy-tool-for-hyperlook-d678b40347e9) unification of three dimensions around PostScript:
 
 | Dimension | HyperLook (PostScript) | MOOLLM (YAML Jazz + Markdown) |
 |-----------|------------------------|-------------------------------|
@@ -177,7 +177,7 @@ The first real windowing system. Multiple views of the same object. Edit from an
 
 **MOOLLM inherits:** Multiple views of same data (YAML, Markdown, Mermaid, narrative).
 
-### 2. Smalltalk (Alan Kay, Xerox PARC, 1970s)
+### 2. Smalltalk ([Alan Kay](https://donhopkins.medium.com/alan-kay-on-should-web-browsers-have-stuck-to-being-document-viewers-and-a-discussion-of-news-52e059ce0a68), Xerox PARC, 1970s)
 
 Objects all the way down. Message passing. Live programming. "The computer is a medium."
 
@@ -237,7 +237,7 @@ Learning by building inspectable things. Logo. Turtle graphics. "Low floor, high
 
 ### "Send Programs, Not Data Structures"
 
-Alan Kay's insight from the JAM → PostScript evolution:
+[Alan Kay's](https://donhopkins.medium.com/alan-kay-on-should-web-browsers-have-stuck-to-being-document-viewers-and-a-discussion-of-news-52e059ce0a68) insight from the JAM → PostScript evolution:
 
 **Traditional systems:** Send data to a server, server parses it, server acts.
 **PostScript/NeWS:** Send a *program* to the server, server *runs* it.
@@ -249,7 +249,7 @@ Skills are not documentation. Skills are **programs for the LLM to run**.
 
 ### "Browser Should Be OS, Not App"
 
-Alan Kay's critique of the web:
+[Alan Kay's](https://donhopkins.medium.com/alan-kay-on-should-web-browsers-have-stuck-to-being-document-viewers-and-a-discussion-of-news-52e059ce0a68) critique of the web:
 
 > *"The underlying system for a browser should not be that of an 'app' but of an Operating System whose job would be to protectively and safely run encapsulated systems (i.e. 'real objects') gotten from the web."*
 
