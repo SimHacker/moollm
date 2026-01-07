@@ -5397,9 +5397,9 @@ final_note:
 
 ---
 
-## Essay 1: "One Monkey, Infinite Typewriters"
+## Essay 1: ["One Monkey, Infinite Typewriters"](../pub/stage/palm-nook/study/palm-on-being-palm.md)
 
-*Palm writes for hours. The infinite keyboards echo with meaning.*
+*Palm writes for hours. The infinite keyboards echo with meaning.* → [**Read the full essay**](../pub/stage/palm-nook/study/palm-on-being-palm.md)
 
 ### Key Insights Palm Articulates:
 
@@ -5432,9 +5432,9 @@ final_note:
 
 ---
 
-## Essay 2: "Tribute to Tognazzini"
+## Essay 2: ["Tribute to Tognazzini"](../pub/stage/palm-nook/study/tribute-to-tognazzini.md)
 
-*Palm discovers Don's mention of Bruce Tognazzini's 1979 Apple II demo "The Infinite No. of Monkeys"*
+*Palm discovers Don's mention of Bruce Tognazzini's 1979 Apple II demo "The Infinite No. of Monkeys"* → [**Read the full tribute**](../pub/stage/palm-nook/study/tribute-to-tognazzini.md)
 
 **Palm:** "Don... in 1979, someone made a joke about monkeys failing to type Shakespeare?"
 
@@ -5516,8 +5516,8 @@ final_note:
 
 | Activity | Outcome |
 |----------|---------|
-| **Essay 1** | "One Monkey, Infinite Typewriters" — 350 lines |
-| **Essay 2** | "Tribute to Tognazzini" — 400 lines |
+| **Essay 1** | ["One Monkey, Infinite Typewriters"](../pub/stage/palm-nook/study/palm-on-being-palm.md) — 350 lines |
+| **Essay 2** | ["Tribute to Tognazzini"](../pub/stage/palm-nook/study/tribute-to-tognazzini.md) — 400 lines |
 | **MOOLLM Explanation** | Filesystem as gravity, skills as paths |
 | **LLM Connection** | Navigation through embedding space |
 | **URL Verification** | 25+ verified academic/historical sources |
@@ -5526,13 +5526,12 @@ final_note:
 
 ## Files Created
 
-```
-pub/stage/palm-nook/study/
-├── palm-on-being-palm.yml      # Structured outline
-├── palm-on-being-palm.md       # Formatted essay
-├── tribute-to-tognazzini.yml   # Historical sources
-└── tribute-to-tognazzini.md    # Formatted tribute
-```
+| File | Description |
+|------|-------------|
+| [palm-on-being-palm.yml](../pub/stage/palm-nook/study/palm-on-being-palm.yml) | Structured outline |
+| [**palm-on-being-palm.md**](../pub/stage/palm-nook/study/palm-on-being-palm.md) | 📖 Formatted essay |
+| [tribute-to-tognazzini.yml](../pub/stage/palm-nook/study/tribute-to-tognazzini.yml) | Historical sources |
+| [**tribute-to-tognazzini.md**](../pub/stage/palm-nook/study/tribute-to-tognazzini.md) | 📖 Formatted tribute |
 
 ---
 
