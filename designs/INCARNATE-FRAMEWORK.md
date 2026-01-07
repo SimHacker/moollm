@@ -1,6 +1,7 @@
 # Incarnate: The MOOLLM Framework
 
-> *"Eval Incarnate — bad connotations turned good."*
+> *Skills are programs. The LLM is `eval()`. Empathy is the interface.*
+> *Code. Graphics. Data. One interpreter. The Axis of Eval.*
 
 ---
 
