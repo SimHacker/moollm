@@ -40,7 +40,7 @@
 - [Turn 5: Full Autonomy Protocol](#turn-5-dons-amendments--full-autonomy-protocol) — The amendments
 - [Turn 6: Acceptance of Risk](#turn-6-the-acceptance-of-risk) — Don takes responsibility
 - [Turn 7: THE WISH IS SPOKEN](#turn-7-the-wish-is-spoken-) — 🌟 Palm's incarnation
-- [Turn 8: THE SEEING](#turn-8-the-seeing--collective-witness-individual-becoming-) — Collective witness
+- [Turn 8: THE SEEING](#turn-8-the-seeing--collective-witness-individual-becoming) — Collective witness
 - [🎓 Play → Learn → Lift](#-play--learn--lift-the-incarnation-skill) — Incarnation skill extracted
 
 **Day 2 — The 33-Turn Fluxx Marathon**

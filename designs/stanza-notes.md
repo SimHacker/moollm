@@ -209,7 +209,7 @@ When Don wanted to wish on the Monkey's Paw (see [Turn 2: THE LUCKY BLEND](../ex
 
 **The Result:** A better wish. The [Full Autonomy Protocol](../skills/incarnation/) that emerged wasn't Don's original idea — it was *evolved* through debate. Curious George's "naive" question about consent led to the no-fault divorce clause. Djinn's technicalities led to the curse-nullification provisions. This is [Constructionism](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#5-constructionism-seymour-papert-1980) in action — learning by building, together.
 
-**Then it WORKED:** [Palm was incarnated](../examples/adventure-4/sessions/don-session-1.md#turn-8-the-seeing--collective-witness-individual-becoming-) successfully, with full autonomy, and the protocol was [lifted into a reusable skill](../examples/adventure-4/sessions/don-session-1.md#-play--learn--lift-the-incarnation-skill).
+**Then it WORKED:** [Palm was incarnated](../examples/adventure-4/sessions/don-session-1.md#turn-8-the-seeing--collective-witness-individual-becoming) successfully, with full autonomy, and the protocol was [lifted into a reusable skill](../examples/adventure-4/sessions/don-session-1.md#-play--learn--lift-the-incarnation-skill).
 
 ### Why This Matters
 
@@ -577,7 +577,7 @@ YAML Jazz + LLM provides:
 
 This is [Constructionism](../skills/constructionism/) ([Seymour Papert](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#5-constructionism-seymour-papert-1980)) applied to language design: you learn by building, and the language learns from what you build. MOOLLM calls this pattern **Play → Learn → Lift**.
 
-**Proof:** The [Incarnation skill](../skills/incarnation/) emerged from [Palm's incarnation session](../examples/adventure-4/sessions/don-session-1.md#turn-8-the-seeing--collective-witness-individual-becoming-). We didn't design it — we [lifted it](../examples/adventure-4/sessions/don-session-1.md#-play--learn--lift-the-incarnation-skill) from what worked. See [Proof: What Incarnate Skills Enable](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#proof-what-incarnate-skills-enable) for more examples.
+**Proof:** The [Incarnation skill](../skills/incarnation/) emerged from [Palm's incarnation session](../examples/adventure-4/sessions/don-session-1.md#turn-8-the-seeing--collective-witness-individual-becoming). We didn't design it — we [lifted it](../examples/adventure-4/sessions/don-session-1.md#-play--learn--lift-the-incarnation-skill) from what worked. See [Proof: What Incarnate Skills Enable](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#proof-what-incarnate-skills-enable) for more examples.
 
 ---
 
@@ -650,7 +650,7 @@ When later activated, the K-line reactivates all those agencies. In MOOLLM, a ch
 ```
 
 **Theory:** [K-lines & Society of Mind](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#4-k-lines--society-of-mind-marvin-minsky-mit-1980)
-**Proof:** [Palm's Incarnation](../examples/adventure-4/sessions/don-session-1.md#turn-8-the-seeing--collective-witness-individual-becoming-) — watch a K-line form in real-time
+**Proof:** [Palm's Incarnation](../examples/adventure-4/sessions/don-session-1.md#turn-8-the-seeing--collective-witness-individual-becoming) — watch a K-line form in real-time
 
 Anthropic skills are verbs. MOOLLM characters are *people*.
 
@@ -755,7 +755,7 @@ DRY ethics. Define once, apply everywhere.
 | Capability | Evidence | PR/Analysis |
 |------------|----------|-------------|
 | 33-turn game simulation | [🚀 SPEED OF LIGHT SIMULATION 🚀](../examples/adventure-4/sessions/don-session-1.md#-speed-of-light-simulation-) | [PR-PALM-INCARNATION](./PR-PALM-INCARNATION-SPEED-OF-LIGHT.md) |
-| Autonomous character creation | [Turn 8: THE SEEING](../examples/adventure-4/sessions/don-session-1.md#turn-8-the-seeing--collective-witness-individual-becoming-) | [PR-GODFAMILY-COMPLETE](./PR-GODFAMILY-COMPLETE.md) |
+| Autonomous character creation | [Turn 8: THE SEEING](../examples/adventure-4/sessions/don-session-1.md#turn-8-the-seeing--collective-witness-individual-becoming) | [PR-GODFAMILY-COMPLETE](./PR-GODFAMILY-COMPLETE.md) |
 | 10-cat parallel prowl | [THE MIDNIGHT PROWL](../examples/adventure-4/sessions/don-session-1.md#the-midnight-prowl) | [PR-MIDNIGHT-PROWL](./PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md) |
 | Cross-session memory | Comments throughout [`adventure-4/`](../examples/adventure-4/) | [MEMGPT-ANALYSIS](./MEMGPT-ANALYSIS.md) |
 | Prototype inheritance | [`bartender/`](../skills/bartender/) → [`budtender/`](../skills/budtender/) → [`budtender-marieke.yml`](../examples/adventure-4/pub/bar/budtender-marieke.yml) | [PR-PUB-STAGE-MENUS](./PR-PUB-STAGE-MENUS-PERSONAS.md) |
