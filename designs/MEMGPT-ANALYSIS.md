@@ -102,22 +102,22 @@ MOOLLM has independently developed a similar but distinct memory hierarchy:
 │                    read/write files                          │
 │                            ↓                                 │
 │  ┌─────────────────────────────────────────────────────────┐ │
-│  │           NARRATIVE TIER (Read-Mostly)                 │ │
-│  │  • LOG.md, TRANSCRIPT.md                              │ │
-│  │  • Data islands with #object-id addressing            │ │
-│  │  • Append-only audit trail                            │ │
-│  └────────────────────────────────────────────────────────┘ │
+│  │           NARRATIVE TIER (Read-Mostly)                  │ │
+│  │  • LOG.md, TRANSCRIPT.md                                │ │
+│  │  • Data islands with #object-id addressing              │ │
+│  │  • Append-only audit trail                              │ │
+│  └─────────────────────────────────────────────────────────┘ │
 │                            │                                 │
 │                    promote when editing                      │
 │                            ↓                                 │
-│  ┌────────────────────────────────────────────────────────┐ │
-│  │           STATE TIER (Read-Write)                      │ │
-│  │  • *.yml files (characters, rooms, inventory)         │ │
-│  │  • YAML Jazz with semantic comments                   │ │
-│  │  • The world IS the filesystem                        │ │
-│  └────────────────────────────────────────────────────────┘ │
+│  ┌─────────────────────────────────────────────────────────┐ │
+│  │           STATE TIER (Read-Write)                       │ │
+│  │  • *.yml files (characters, rooms, inventory)           │ │
+│  │  • YAML Jazz with semantic comments                     │ │
+│  │  • The world IS the filesystem                          │ │
+│  └─────────────────────────────────────────────────────────┘ │
 │                                                              │
-└─────────────────────────────────────────────────────────────┘
+└──────────────────────────────────────────────────────────────┘
 ```
 
 ### Context Management Files
