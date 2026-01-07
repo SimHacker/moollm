@@ -294,6 +294,106 @@ LLM can sniff first 50 lines to understand what the template needs before readin
 
 ---
 
+## Comment Intelligence
+
+The LLM distinguishes between **meta-comments** (instructions for generation) and **concrete comments** (meant for output):
+
+### Meta-Comments (Stripped)
+
+```yaml
+# TEMPLATE: This section describes the character's appearance
+# INSTRUCTION: Use vivid sensory details
+# NOTE: Keep under 100 words
+# TODO: Add more variety to hair colors
+description: |
+  {{describe_appearance}}
+```
+
+These are **instructions TO the LLM**. They guide generation but don't appear in output.
+
+### Concrete Comments (Preserved)
+
+```yaml
+# This character was created using the incarnation protocol.
+# See skills/incarnation/SKILL.md for details.
+description: |
+  {{describe_appearance}}
+
+# Sims traits determine interaction success rates
+sims_traits:
+  {{generate_traits}}
+```
+
+These are **comments FOR the output file**. They explain the generated content to future readers.
+
+### How the LLM Knows
+
+| Indicator | Type | Action |
+|-----------|------|--------|
+| `# TEMPLATE:`, `# INSTRUCTION:`, `# NOTE:` | Meta | Strip |
+| `# TODO:`, `# FIXME:` in template context | Meta | Strip |
+| `# This explains...`, `# See also...` | Concrete | Preserve |
+| Comments inside `{{...}}` blocks | Meta | Strip |
+| Comments explaining generated values | Concrete | Preserve |
+| ALL CAPS directive style | Meta | Strip |
+| Lowercase explanatory style | Concrete | Preserve |
+
+### Example: Mixed Comments
+
+**Template:**
+```yaml
+# TEMPLATE: Character soul file
+# INSTRUCTION: Generate YAML Jazz style comments
+
+# This character was incarnated via the full autonomy protocol.
+id: {{generate_id}}
+name: "{{character_name}}"
+
+# INSTRUCTION: Describe based on species and personality
+description: |
+  {{describe_appearance}}
+
+# Personality traits affect all interactions
+# Higher values = stronger tendency
+sims_traits:
+  nice: {{nice_value}}  # 0-10, affects social success
+  # INSTRUCTION: Infer from description
+  playful: {{infer_playful}}
+```
+
+**Generated Output:**
+```yaml
+# This character was incarnated via the full autonomy protocol.
+id: palm-001
+name: "Palm"
+
+description: |
+  A small capuchin monkey with knowing eyes and surprisingly
+  dexterous fingers. Palm moves with the confidence of someone
+  who has already seen how this story ends.
+
+# Personality traits affect all interactions
+# Higher values = stronger tendency
+sims_traits:
+  nice: 7  # 0-10, affects social success
+  playful: 9
+```
+
+**What happened:**
+- `# TEMPLATE:` and `# INSTRUCTION:` lines → **stripped**
+- `# This character was incarnated...` → **preserved**
+- `# Personality traits affect...` → **preserved**
+- `# 0-10, affects social success` → **preserved**
+- `# INSTRUCTION: Infer from description` → **stripped**
+
+### The Principle
+
+> **Meta-comments teach the generator. Concrete comments teach the reader.**
+
+The LLM understands this distinction because it understands **intent**. Directive language instructs; explanatory language documents.
+
+---
+
 ## Relationship to Self-Style Inheritance
 
 Templates are **prototypes**. Instantiation creates **instances**:
