@@ -1111,9 +1111,9 @@ graph TD
 | <nobr>**[skills/memory‑palace/](./skills/memory-palace/)**</nobr> | 🏛️ Spatial knowledge organization. Rooms as cognitive spaces. |
 | <nobr>**[skills/sister‑script/](./skills/sister-script/)**</nobr> | 📝 Documents that grow into scripts. BUILD command. Automation. |
 | **[skills/adventure/](./skills/adventure/)** | 🗺️ Structured exploration. Goals, discoveries, choices. |
-| **[examples/](./examples/)** | 🎮 Three adventures: template (1), legendary playthrough (2), ready to play (3). |
+| **[examples/](./examples/)** | 🎮 Four adventures: seed (1), legendary playthrough (2), rich template (3), [Don's active run (4)](./examples/adventure-4/sessions/don-session-1.md). |
 
-> **TL;DR:** Read [skills/constructionism/](./skills/constructionism/) for philosophy, [skills/room/](./skills/room/) for the fun stuff, then **play** [adventure‑3/](./examples/adventure-3/) — or explore [adventure‑4/](./examples/adventure-4/) for the latest innovations (incarnation, Speed of Light), or read [adventure‑2/](./examples/adventure-2/) for a legendary playthrough!
+> **TL;DR:** Read the [Incarnate Framework manifesto](./designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) for the vision, [skills/room/](./skills/room/) for mechanics, then **play** [adventure‑3/](./examples/adventure-3/) — or read [Don's epic session log](./examples/adventure-4/sessions/don-session-1.md) to see it all in action!
 
 ---
 
