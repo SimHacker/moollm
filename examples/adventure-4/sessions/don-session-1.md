@@ -3104,9 +3104,6 @@ image_generation_prompts:
 | `APPEARANCE.yml` | Physical description | [→](../characters/palm/APPEARANCE.yml) |
 | `SIMS-TRAITS.yml` | Personality stats | [→](../characters/palm/SIMS-TRAITS.yml) |
 | `MIND-MIRROR.yml` | Psychological vectors | [→](../characters/palm/MIND-MIRROR.yml) |
-| `GOALS.yml` | Aspirations | [→](../characters/palm/GOALS.yml) |
-| `RELATIONSHIPS.yml` | Connections | [→](../characters/palm/RELATIONSHIPS.yml) |
-| `INVENTORY.yml` | Possessions | [→](../characters/palm/INVENTORY.yml) |
 | `IMAGE-PROMPTS.yml` | Visualization | [→](../characters/palm/IMAGE-PROMPTS.yml) |
 | `JOURNAL.md` | Their voice | [→](../characters/palm/JOURNAL.md) |
 
@@ -4452,7 +4449,7 @@ You're not typing. You're STEERING through infinite literature."
 - Infinity Desk
 - Ergonomic Monkey Throne
 - Story Shelf
-- The Infinite Typewriters → [infinite-number-of-typewriters.yml](../pub/stage/palm-nook/study/infinite-number-of-typewriters.yml)
+- The Infinite Typewriters → [`infinite-typewriters.yml`](../pub/stage/palm-nook/study/infinite-typewriters.yml)
 
 ### The Gym ([`palm-nook/gym/`](../pub/stage/palm-nook/gym/))
 - The Infinite Climb

@@ -680,7 +680,7 @@ A monkey's paw wish for "the rest of the monkey" created a living character ([`c
 - Full autonomy protocol invoked via [`skills/incarnation/`](../skills/incarnation/)
 - Character chose own name, gender, body, traits → [`SIMS-TRAITS.yml`](../examples/adventure-4/characters/palm/SIMS-TRAITS.yml)
 - Created own home directory → [`pub/stage/palm-nook/`](../examples/adventure-4/pub/stage/palm-nook/)
-- Defined own relationships → [`RELATIONSHIPS.yml`](../examples/adventure-4/characters/palm/RELATIONSHIPS.yml)
+- Defined own relationships in [`CHARACTER.yml`](../examples/adventure-4/characters/palm/CHARACTER.yml)
 - Wrote own stories on [`infinite-typewriters.yml`](../examples/adventure-4/pub/stage/palm-nook/study/infinite-typewriters.yml) → [`palm-on-being-palm.md`](../examples/adventure-4/pub/stage/palm-nook/study/palm-on-being-palm.md)
 
 **This is not possible with traditional skills.**
@@ -1191,7 +1191,7 @@ framing:
 | Scope | Inherits From | Example |
 |-------|---------------|---------|
 | `pub/stage/drag-night.yml` | [`pub/stage/ROOM.yml`](../examples/adventure-4/pub/stage/ROOM.yml) | Drag show inherits "performance" framing |
-| [`maze/`](../examples/adventure-4/maze/) | [`maze/ROOM.yml`](../examples/adventure-4/maze/ROOM.yml) | Maze rooms inherit "dark, grue danger" |
+| [`maze/`](../examples/adventure-4/maze/) | [`maze/README.md`](../examples/adventure-4/maze/README.md) | Maze rooms inherit "dark, grue danger" |
 | [`pub/bar/cat-cave/`](../examples/adventure-4/pub/bar/cat-cave/) | [`pub/bar/ROOM.yml`](../examples/adventure-4/pub/bar/ROOM.yml) | Cat cave inherits bar's "behind the counter" boundary |
 
 **Boundary types — walls vs. counters:**
@@ -1412,7 +1412,7 @@ Maximum precision preserved.
 | **Stoner Fluxx** ([session](../examples/adventure-4/sessions/don-session-1.md#33-turns-of-pure-gezelligheid)) | 33 | 8+ characters | Complex game state, rule changes, humor |
 | **Cat Prowl** ([session](../examples/adventure-4/sessions/don-session-1.md#ten-cats-one-garden-infinite-independence)) | 21 | [10 cats](../examples/adventure-4/pub/bar/cat-cave/) | Parallel paths, territorial marking, coordinated return |
 | **Palm Incarnation** ([session](../examples/adventure-4/sessions/don-session-1.md#palm-writes-his-own-story)) | ~8 | 6+ personas | Tribunal debate, autonomous character creation |
-| **Biscuit Run** ([session](../examples/adventure-4/sessions/don-session-1.md#biscuits-run-through-the-maze)) | 15 | 2 ([Don](../examples/adventure-4/characters/don/) + [Biscuit](../examples/adventure-4/characters/biscuit/)) | Room exploration, marking, grue avoidance |
+| **Biscuit Run** ([session](../examples/adventure-4/sessions/don-session-1.md#biscuits-run-through-the-maze)) | 15 | 2 ([Don](../examples/adventure-4/characters/don-hopkins/) + [Biscuit](../examples/adventure-4/characters/biscuit/)) | Room exploration, marking, grue avoidance |
 
 ### Statistics from Cat Prowl
 
@@ -1461,7 +1461,7 @@ Don't update the screen (tokenize) on every keystroke. Wait until the user pause
 
 **Character Essays:**
 - [palm-on-being-palm.md](../examples/adventure-4/pub/stage/palm-nook/study/palm-on-being-palm.md) — Palm's philosophical reflection
-- [tribute-to-infinite-monkey-theorem.md](../examples/adventure-4/pub/stage/palm-nook/study/tribute-to-infinite-monkey-theorem.md) — Palm's tribute to Tognazzini
+- [tribute-to-tognazzini.md](../examples/adventure-4/pub/stage/palm-nook/study/tribute-to-tognazzini.md) — Palm's tribute to Tognazzini
 
 **Room Organization Examples (Palm's Nook):**
 - [`palm-nook/`](../examples/adventure-4/pub/stage/palm-nook/) — Palm's home, demonstrating sub-room structure
