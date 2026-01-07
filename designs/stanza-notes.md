@@ -3,8 +3,53 @@
 > *"Stop Designing Languages. Write Libraries Instead."*
 > — Patrick S. Li, L.B. Stanza
 
-> *"Stop Designing Interfaces. Write Skills Instead."*
+> *"Stop Designing Interfaces. Write Incarnate [Skills](../skills/) Instead."*
 > — [MOOLLM](../README.md)'s Extension
+
+---
+
+## Introduction: What If The Interpreter Understood You?
+
+Patrick Li's essay makes a profound point: **the purpose of a language is to enable powerful libraries**. Ruby's metaprogramming enables Rails. Scheme's first-class functions enable elegant abstractions. The language shapes what libraries can exist.
+
+But there's a twist Li couldn't have anticipated in 2016: **What if the interpreter itself could understand intent?**
+
+That's what LLMs offer. And that's what [MOOLLM](../README.md) explores.
+
+Instead of language features enabling library magic, **LLM understanding enables skill magic**. Instead of syntax enabling abstraction, **semantic understanding enables abstraction**. The "metaprogramming" isn't in the language — it's in the interpreter's ability to read natural language and act on it.
+
+This document explores how MOOLLM extends Li's insight into the age of LLMs, addressing common frustrations (bash scripting, XML configuration, DSL proliferation) with a new paradigm: **skills as programs, the LLM as `eval()`, empathy as the interface**.
+
+If you want typed bash replacements, adversarial DSL debates, or proof that "libraries all the way down" works when the interpreter actually *understands* — read on.
+
+---
+
+## 📚 Document Index
+
+### Core Philosophy
+- [The Stanza Insight](#the-stanza-insight) — Li's original thesis
+- [The MOOLLM Parallel](#the-moollm-parallel) — Skills enable capabilities
+- [The Rails Problem](#the-rails-problem) — Language constrains libraries
+- [The Opinionated Framework Problem](#the-opinionated-framework-problem) — One opinion is the WRONG number
+
+### The XML-Industrial Complex
+- [The XML-Industrial Complex](#the-xml-industrial-complex) — Java's DSL for stack traces
+- [Error Handling Philosophy](#error-handling-philosophy) — Postel vs Fail-Fast
+- [The Linguistic Motherboard](#the-linguistic-motherboard) — PostScript → MOOLLM
+
+### YAML Jazz & DSLs
+- [YAML Jazz: Lifting Ad-Hoc → Standardized DSLs](#yaml-jazz-lifting-ad-hoc--standardized-dsls) — DSLs emerge from use
+- [Discussion Points](#discussion-points-from-hn-threads-on-language-design) — Typed bash, DSL definitions, ecosystems
+
+### MOOLLM vs Anthropic
+- [MOOLLM Skills vs. Anthropic Skills](#moollm-skills-vs-anthropic-skills-standing-on-giants-shoulders) — The seven Incarnate extensions
+- [Where They Diverge](#where-they-diverge-types-vs-understanding) — Types vs Understanding
+- [The Proof: 33 Turns](#the-proof-33-turns-of-stoner-fluxx) — Skills in action
+- [Cognition Features](#language-features-as-cognition-features) — Beyond syntax
+
+### References
+- [Related Documents](#related-documents) — The Incarnate Framework and more
+- [External References](#external-references) — Stanza, Minsky, Don Hopkins' articles
 
 ---
 
