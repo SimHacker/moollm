@@ -418,8 +418,8 @@ buffs:
 
 ## Live Examples
 
-- [examples/adventure-3/pub/](../../examples/adventure-3/pub/) — Room with cats
-- [examples/adventure-3/pub/cat-cave/](../../examples/adventure-3/pub/cat-cave/) — Nested cat room
+- [examples/adventure-4/pub/](../../examples/adventure-4/pub/) — Room with cats
+- [examples/adventure-4/pub/bar/cat-cave/](../../examples/adventure-4/pub/bar/cat-cave/) — Nested cat room
 
 ## Dovetails With
 

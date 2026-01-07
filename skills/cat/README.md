@@ -55,7 +55,7 @@ SNIFF, LICK, and BOOP go both ways — you can do them to cats, cats can do them
 
 ## Live Examples
 
-See the [Gezelligheid Grotto](../../examples/adventure-3/pub/README.md) for 10 cats using this skill.
+See the [Gezelligheid Grotto](../../examples/adventure-4/pub/README.md) for 10 cats using this skill.
 
 ## Related Skills
 

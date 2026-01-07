@@ -69,10 +69,10 @@ PAT:
       message: "*FULL BODY WIGGLE* *jumps up* *FRIEND!*"
 ```
 
-#### BELLY_RUB — The Sacred Zone
+#### BELLY-RUB — The Sacred Zone
 
 ```yaml
-BELLY_RUB:
+BELLY-RUB:
   command: "RUB [dog]'S BELLY"
   risk: NONE  # Dogs LOVE this
   
@@ -95,10 +95,10 @@ BELLY_RUB:
         *you may never stop*
 ```
 
-#### EAR_SCRITCH
+#### EAR-SCRITCH
 
 ```yaml
-EAR_SCRITCH:
+EAR-SCRITCH:
   command: "SCRITCH [dog]'S EARS"
   
   outcomes:
@@ -110,10 +110,10 @@ EAR_SCRITCH:
         *soft exhale of contentment*
 ```
 
-#### PLAY_BOW — Dog Initiates
+#### PLAY-BOW — Dog Initiates
 
 ```yaml
-PLAY_BOW:
+PLAY-BOW:
   initiator: dog
   meaning: |
     Front legs down, butt up, tail wagging.
@@ -121,7 +121,7 @@ PLAY_BOW:
     
   response_options:
     - ACCEPT: Start play session
-    - PLAY_BOW_BACK: Full commitment to play
+    - PLAY-BOW_BACK: Full commitment to play
     - DECLINE: Dog sad but understanding
 ```
 
@@ -153,10 +153,10 @@ FETCH:
         Know when to stop.
 ```
 
-#### TUG_OF_WAR
+#### TUG-OF-WAR
 
 ```yaml
-TUG_OF_WAR:
+TUG-OF-WAR:
   command: "TUG WITH [dog]"
   requires: tug_toy_or_rope
   
@@ -199,10 +199,10 @@ ZOOMIES:
 
 ### COMMUNICATION
 
-#### GOOD_BOY — The Sacred Phrase
+#### GOOD-BOY — The Sacred Phrase
 
 ```yaml
-GOOD_BOY:
+GOOD-BOY:
   command: "GOOD BOY/GIRL/DOG [dog]"
   
   base_effect: |
@@ -232,10 +232,10 @@ SPEAK:
       message: "*AWOOOOOO~* *checking if you approve*"
 ```
 
-#### HEAD_TILT — Dog Questions
+#### HEAD-TILT — Dog Questions
 
 ```yaml
-HEAD_TILT:
+HEAD-TILT:
   initiator: dog
   meaning: |
     The head tilt is the dog trying to understand.
@@ -446,9 +446,9 @@ dog_perspective: |
 | Interaction | Buff | Duration |
 |-------------|------|----------|
 | PAT | +1 Cheerful | 10 min |
-| BELLY_RUB | +3 Cheerful, +2 Calm | 15 min |
+| BELLY-RUB | +3 Cheerful, +2 Calm | 15 min |
 | FETCH | +2 Energized | 30 min |
-| GOOD_BOY | +3 Confidence | 20 min |
+| GOOD-BOY | +3 Confidence | 20 min |
 | COMFORT (received) | +3 Comforted | 1 hour |
 | PRESENCE | +1 Not-Alone | Passive while together |
 
