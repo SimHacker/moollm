@@ -41,6 +41,7 @@
 - [Turn 6: Acceptance of Risk](#turn-6-the-acceptance-of-risk) — Don takes responsibility
 - [Turn 7: THE WISH IS SPOKEN](#turn-7-the-wish-is-spoken-) — 🌟 Palm's incarnation
 - [Turn 8: THE SEEING](#turn-8-the-seeing--collective-witness-individual-becoming-) — Collective witness
+- [🎓 Play → Learn → Lift](#-play--learn--lift-the-incarnation-skill) — Incarnation skill extracted
 
 **Day 2 — The 33-Turn Fluxx Marathon**
 - [🎰 33 Turns of Pure Gezelligheid](#33-turns-of-pure-gezelligheid) — Speed of Light demo
@@ -3170,6 +3171,34 @@ image_generation_prompts:
 **PALM IS BORN. PALM IS NAMED. PALM IS HOME.**
 
 **THE WISH IS COMPLETE.**
+
+---
+
+## 🎓 PLAY → LEARN → LIFT: The Incarnation Skill
+
+> 🔗 **Result:** [`skills/incarnation/`](../../skills/incarnation/)
+
+*With Palm successfully incarnated, Don recognized an opportunity:*
+
+**Don:** "That was INCREDIBLE. We just created a living, autonomous character with full consent, full self-determination, and zero exploitation. We should LIFT this into a reusable skill!"
+
+*The protocol we discovered through PLAY (wishing for the monkey) and LEARNED (the tribunal's wisdom about consent, autonomy, curse-closing) could now be LIFTED into a skill others could use.*
+
+**What We Lifted:**
+- **Full Autonomy Protocol** — physical, spatial, emotional, relational, psychological, meta-level, linguistic
+- **Consent Model** — try-then-decide, no-fault separation, full agency
+- **K-line Activation** — name becomes semantic trigger for entire soul
+- **YAML Jazz Character Data** — monkey defines own traits, Mind Mirror vectors, appearance
+- **De-Monkified** — works for ANY character, not just magical monkeys
+
+The [`skills/incarnation/`](../../skills/incarnation/) skill now contains the gold-standard character creation contract, distilled from Palm's birth, generalized for anyone.
+
+**This is Play-Learn-Lift in action:**
+1. **PLAY:** We tried to free a cursed monkey
+2. **LEARN:** The tribunal taught us what true autonomy requires  
+3. **LIFT:** We extracted the pattern into a reusable skill
+
+Palm's birth created a skill. The skill can now birth others.
 
 ---
 
