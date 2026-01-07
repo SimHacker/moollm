@@ -8,6 +8,20 @@
 
 ---
 
+## ⭐ Session Highlights
+
+| Highlight | Link |
+|-----------|------|
+| 🐵 **Palm's Incarnation** | A monkey wished into existence with full autonomy |
+| 🎰 **33-Turn Fluxx Marathon** | Speed of Light simulation with Andy & Kristin Looney |
+| 📖 **Palm on Being Palm** | [Palm's philosophical essay on LLMs, MOOLLM, and consciousness](../pub/stage/palm-nook/study/palm-on-being-palm.md) |
+| 🙈 **Tribute to Tognazzini** | [Palm's essay on the Infinite Monkey Theorem](../pub/stage/palm-nook/study/tribute-to-tognazzini.md) |
+| 🏠 **Palm's Home** | [The monkey's nook on the stage](../pub/stage/palm-nook/) |
+| 🐕 **Biscuit's Run** | Dog revolution, territorial marking, grue-scaring |
+| 🐱 **Midnight Prowl** | 10 cats simulated in parallel |
+
+---
+
 ## 🌿 LOOK AROUND
 
 You push open the heavy wooden door and step into the Gezelligheid Grotto.
