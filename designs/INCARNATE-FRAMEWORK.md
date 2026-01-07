@@ -442,7 +442,7 @@ When you instantiate a character, **their name becomes their K-line**. "Palm" ac
 **Traditional LLM systems:** Send prompts (data), LLM generates response.
 **MOOLLM:** Send skills (programs), LLM *interprets* them into behavior.
 
-Skills are not documentation. Skills are **programs for the LLM to run**.
+Skills are not just documentation. Skills are **programs for the LLM to run**.
 
 ### "Browser Should Be OS, Not App"
 
@@ -460,13 +460,52 @@ HyperCard's revolution: Anyone who can read a stack can edit it.
 
 ### The Simulator Effect
 
-Will Wright's insight: Players imagine more than the simulation contains.
+Will Wright's profound insight: **Players imagine simulations are vastly more detailed, deep, rich, and complex than they actually are.**
 
-**MOOLLM:** The LLM imagines more than the YAML contains. Sparse state + rich comments + LLM imagination = detailed world. We don't simulate everything — we imply it, and the LLM fills in.
+> *"He designs games to run on two computers at once: the electronic one on the player's desk, running his shallow tame simulation, and the biological one in the player's head, running their deep wild imagination."*
+
+SimCity doesn't simulate individual people. The Sims doesn't simulate real psychology. But players BELIEVE they do — they project depth onto sparse mechanics.
+
+**The Two Computers:**
+
+| Computer | What It Does | Depth |
+|----------|--------------|-------|
+| **Electronic** (game) | Runs simple rules, displays output | Shallow, tame |
+| **Biological** (player's head) | Fills gaps, imagines backstory, projects meaning | Deep, wild |
+
+**Wright's Design Principle:** Don't simulate everything. Simulate ENOUGH to trigger the player's imagination, then let their brain do the heavy lifting.
+
+**MOOLLM applies this directly:**
+
+| MOOLLM Component | Role |
+|------------------|------|
+| **YAML state** | Sparse, minimal — just enough to anchor |
+| **Comments** | Hints, suggestions, emotional tone |
+| **LLM** | The "player's imagination" — fills gaps |
+| **Result** | Rich, detailed world from sparse data |
+
+```yaml
+# This sparse YAML...
+character:
+  name: "Stroopwafel"
+  species: cat
+  personality: grumpy
+  # secretly has a soft heart
+  # grooms Biscuit's scarred ear when no one's watching
+
+# ...becomes in the LLM's imagination:
+# A weathered orange tabby with knowing eyes, whose gruff exterior
+# hides deep loyalty. The kind of cat who pretends not to care
+# but is always watching, always protecting. When Biscuit arrived,
+# scarred and scared, Stroopwafel was the first to groom him —
+# but only when the others weren't looking. Pride, after all.
+```
+
+**The Simulator Effect in MOOLLM:** We don't simulate everything — we imply it, and the LLM fills in. The YAML is the electronic computer; the LLM is the biological one.
 
 ---
 
-## Incarnate Skills vs Traditional Skills
+## Traditional Skills -vs- Incarnate Skills
 
 | Aspect | Traditional Skills (Anthropic et al.) | Incarnate Skills (MOOLLM) |
 |--------|---------------------------------------|---------------------------|
