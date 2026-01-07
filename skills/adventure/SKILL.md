@@ -540,12 +540,122 @@ With this pipeline:
 ### Kernel
 - [kernel/context-assembly-protocol.md](../../kernel/context-assembly-protocol.md) — Working set loading
 
-### lloooomm Heritage
+### lloooomm Heritage — The Crown Jewels
 
-The crown jewels from lloooomm inform this design:
+The Shneiderman Owl Simulation demonstrates the architecture:
 
-- **Owl Simulation** — Smart objects with autonomous behavior
-- **Farm Simulation** — Microworlds with agent populations  
-- **Character Instantiation** — YAML characters → JS agents
-- **Pie Menus** — Contextual point-and-click interaction
-- **Hybrid LLM/Deterministic** — LLM for creativity, code for precision
+**Entity Classes (YAML → JavaScript):**
+
+```yaml
+# owl.yml (YAML definition)
+name: "Nightwatch-7"
+type: owl
+timezone: "America/Los_Angeles"
+behaviors: [patrol, hunt, drone]
+stats:
+  energy: 100
+  catches: 0
+  altitude: 50
+```
+
+↓ **Compiles to** ↓
+
+```javascript
+// owl.js (Generated JavaScript)
+class Owl {
+    constructor(id, timezone) {
+        this.id = id;
+        this.wizzy = generateWizzyId(id);  // Unique identifier
+        this.position = { x: 0, y: 0, z: 50 };
+        this.velocity = { x: 0, y: 0, z: 0 };
+        this.energy = 100;
+        this.status = 'patrolling';
+    }
+    
+    patrol(owls) {
+        // 3D flocking behavior (boids algorithm)
+        const alignment = this.calculateAlignment(owls);
+        const cohesion = this.calculateCohesion(owls);
+        const separation = this.calculateSeparation(owls);
+        // ...
+    }
+    
+    hunt(mice) {
+        // Predator-prey behavior
+        const nearest = this.findNearestMouse(mice);
+        if (nearest && this.canCatch(nearest)) {
+            return this.attemptCatch(nearest);
+        }
+    }
+}
+```
+
+**Key Patterns:**
+
+| Pattern | YAML | JavaScript |
+|---------|------|------------|
+| **Position** | `location: forest-clearing` | `{ x, y, z }` + pathfinding |
+| **Behaviors** | `behaviors: [patrol, hunt]` | Methods with state machines |
+| **Stats** | `energy: 100` | Properties with update loops |
+| **Flocking** | `flock_with: owls` | Boids: alignment, cohesion, separation |
+| **Prey/Predator** | `hunts: mice` | Nearest-neighbor detection |
+
+**The Projection:**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  LLM SIMULATION (Full Context)                              │
+│  - Rich dialogue, emergent stories                          │
+│  - Creative problem solving                                 │
+│  - Ambiguous situation handling                             │
+└──────────────────────┬──────────────────────────────────────┘
+                       │ COMPILE
+                       ▼
+┌─────────────────────────────────────────────────────────────┐
+│  BROWSER PROJECTION (Deterministic)                         │
+│  - Point-and-click navigation                               │
+│  - Pie menus for actions                                    │
+│  - Real-time entity simulation (60 FPS)                     │
+│  - Chat interface for complex commands                      │
+└─────────────────────────────────────────────────────────────┘
+```
+
+The browser version is a **projection** — a deterministic shadow of the full LLM-powered simulation. Simple interactions run locally in JavaScript. Complex situations escalate to the LLM.
+
+**Pie Menu Integration:**
+
+```javascript
+// Right-click on entity → contextual actions
+showPieMenu(entity, [
+    { label: "Examine", action: () => examine(entity) },
+    { label: "Talk", action: () => startDialogue(entity) },
+    { label: "Take", action: () => addToInventory(entity) },
+    { label: "Use", action: () => useItem(entity) },
+]);
+```
+
+**Microworld Populations:**
+
+```yaml
+# farm-microworld.yml
+entities:
+  chickens:
+    count: 6
+    behaviors: [wander, peck, lay_eggs]
+    spawn_area: barnyard
+    
+  cows:
+    count: 2
+    behaviors: [graze, moo, produce_milk]
+    spawn_area: pasture
+    
+  farmer:
+    type: npc
+    behaviors: [collect_eggs, milk_cows, feed_animals]
+    schedule:
+      06:00: wake_up
+      07:00: collect_eggs
+      08:00: milk_cows
+```
+
+The compiler instantiates these as autonomous JavaScript agents with behavior loops.
