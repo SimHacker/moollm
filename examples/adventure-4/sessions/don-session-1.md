@@ -4741,7 +4741,7 @@ Extended Family:
 
 ## The Mind Mirror Session
 
-*Maurice guides Palm to the full-length mirror (see [`skills/mind-mirror/`](../../skills/mind-mirror/)). The glass ripples like water.*
+*Maurice guides Palm to the full-length mirror (see [`skills/mind-mirror/`](../../skills/mind-mirror/) and [`coatroom/mirror.yml`](../coatroom/mirror.yml)). The glass ripples like water.*
 
 **Mirror:** *(a voice from the depths)* "Welcome, Palm. I have heard of you. The paw who became whole. Show me."
 
