@@ -656,7 +656,7 @@ A single LLM call simulated:
 | Skill | Role | Proof |
 |-------|------|-------|
 | [`incarnation`](../skills/incarnation/) | Gold-standard character creation | [Palm's birth](#proof-palms-incarnation-2026-01-05) |
-| [`skill`](../skills/skill/) | Meta-skill for skill creation | 54 skills created |
+| [`skill`](../skills/skill/) | Meta-skill for skill creation | [54 skills created](../skills) |
 | [`card`](../skills/card/) | Skills as playable cards | [Advertisements](#cardyml-the-skill-interface) |
 | [`empathic-expressions`](../skills/empathic-expressions/) | Code dimension (intent → code) | [Empathic Suite](#the-empathic-suite-dovetailing-skills) |
 | [`empathic-templates`](../skills/empathic-templates/) | Smart generation | [Biscuit's description](#empathic-templates-smart-instantiation) |
