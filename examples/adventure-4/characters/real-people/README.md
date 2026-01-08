@@ -100,6 +100,95 @@ These are **tribute incarnations** -- fictional explorations of documented ideas
 | hunter-s-thompson | `lloooomm/00-Characters/hunter-s-thompson/` | Gonzo journalism, Fear and Loathing |
 | john-waters | `lloooomm/00-Characters/john-waters/` | Transgressive cinema, "Good bad taste" |
 
+### Women Pioneers 👩‍💻
+
+| Character | Reference | Description |
+|-----------|-----------|-------------|
+| ada-lovelace | `lloooomm/00-Characters/ada-lovelace/` | FIRST PROGRAMMER, Babbage's visionary |
+| grace-hopper | `lloooomm/00-Characters/grace-hopper/` | COBOL, "Amazing Grace", debugging pioneer |
+| adele-goldberg | `lloooomm/00-Characters/adele-goldberg/` | Smalltalk co-creator, OO pioneer |
+| cynthia-solomon | `lloooomm/00-Characters/cynthia-solomon/` | Logo co-creator with Papert |
+| sophie-wilson | `lloooomm/00-Characters/sophie-wilson/` | ARM architecture designer, trans pioneer |
+| margaret-minsky | `lloooomm/00-Characters/margaret-minsky/` | Haptics, virtual touch |
+| diana-merry-shapiro | `lloooomm/00-Characters/diana-merry-shapiro/` | Atari, early games |
+| marie-curie | `lloooomm/00-Characters/marie-curie/` | Radioactivity, double Nobel |
+| jane-goodall | `lloooomm/00-Characters/jane-goodall/` | Primatologist, animal minds |
+| frida-kahlo | `lloooomm/00-Characters/frida-kahlo/` | Pain into art, unflinching vision |
+
+### Trans & Queer Heroes 🏳️‍⚧️
+
+| Character | Reference | Description |
+|-----------|-----------|-------------|
+| lynn-conway | `lloooomm/00-Characters/lynn-conway/` | VLSI revolution, trans pioneer, IBM survivor |
+| wendy-carlos | `lloooomm/00-Characters/wendy-carlos/` | Switched-On Bach, electronic music pioneer |
+| sophie-wilson | `lloooomm/00-Characters/sophie-wilson/` | ARM architecture, BBC Micro |
+| dani-bunten-berry | `lloooomm/00-Characters/dani-bunten-berry/` | M.U.L.E., The Sims dedicated to her memory |
+| rebecca-heineman | *wikipedia* | Legendary game programmer, Bard's Tale, trans icon (d. 2024) |
+| vanessa-freudenberg | *squeak community* | SqueakJS creator, Smalltalk wizard (d. 2024) |
+| audrey-tang | `lloooomm/00-Characters/audrey-tang/` | Taiwan Digital Minister, Perl hacker, civic tech |
+| divine | `lloooomm/00-Characters/divine/` | John Waters' muse, "the filthiest person alive" |
+| klaus-nomi | `lloooomm/00-Characters/klaus-nomi/` | Operatic alien, new wave icon |
+| grace-jones | `lloooomm/00-Characters/grace-jones/` | "Pull up to the bumper", fierce presence |
+| nina-hagen | `lloooomm/00-Characters/nina-hagen/` | German punk opera, wild spirit |
+| leigh-bowery | `lloooomm/00-Characters/leigh-bowery/` | Club kid, performance art, living sculpture |
+| heklina | `lloooomm/00-Characters/heklina/` | SF drag legend, Trannyshack founder |
+| lou-reed | `lloooomm/00-Characters/lou-reed/` | "Walk on the Wild Side", Velvet Underground |
+
+### Media & Systems Thinkers
+
+| Character | Reference | Description |
+|-----------|-----------|-------------|
+| marshall-mcluhan | `lloooomm/00-Characters/marshall-mcluhan/` | "The medium IS the message" |
+| buckminster-fuller | `lloooomm/00-Characters/buckminster-fuller/` | Geodesic domes, Spaceship Earth |
+| stewart-brand | `lloooomm/00-Characters/stewart-brand/` | Whole Earth Catalog, Long Now |
+| christopher-alexander | `lloooomm/00-Characters/christopher-alexander/` | Pattern languages, influenced software patterns |
+| lewis-mumford | `lloooomm/00-Characters/lewis-mumford/` | Technology critic, cities and civilization |
+| george-lakoff | `lloooomm/00-Characters/george-lakoff/` | Metaphors We Live By, embodied cognition |
+
+### Scientists
+
+| Character | Reference | Description |
+|-----------|-----------|-------------|
+| albert-einstein | `lloooomm/00-Characters/albert-einstein/` | Relativity, thought experiments |
+| charles-darwin | `lloooomm/00-Characters/charles-darwin/` | Evolution, natural selection |
+| isaac-newton | `lloooomm/00-Characters/isaac-newton/` | Gravity, calculus, standing on giants |
+| carl-sagan | `lloooomm/00-Characters/carl-sagan/` | Cosmos, pale blue dot |
+| nikola-tesla | `lloooomm/00-Characters/nikola-tesla/` | AC power, wireless dreams |
+
+### Computing Legends (Additional)
+
+| Character | Reference | Description |
+|-----------|-----------|-------------|
+| donald-knuth | `lloooomm/00-Characters/donald-knuth/` | The Art of Computer Programming, TeX |
+| john-conway | `lloooomm/00-Characters/john-conway/` | Game of Life, surreal numbers |
+| danny-hillis | `lloooomm/00-Characters/danny-hillis/` | Connection Machine, Long Now |
+| joseph-weizenbaum | `lloooomm/00-Characters/joseph-weizenbaum/` | ELIZA, warned us about AI |
+| jaron-lanier | `lloooomm/00-Characters/jaron-lanier/` | VR pioneer, tech critic |
+| ed-fredkin | `lloooomm/00-Characters/ed-fredkin/` | Digital physics, reversible computing |
+| tommaso-toffoli | `lloooomm/00-Characters/tommaso-toffoli/` | Cellular automata machines |
+| norm-margolus | `lloooomm/00-Characters/norm-margolus/` | CAM-6, physics of computation |
+| ken-perlin | `lloooomm/00-Characters/ken-perlin/` | Perlin noise! Procedural textures |
+
+### Activists & Voices
+
+| Character | Reference | Description |
+|-----------|-----------|-------------|
+| adrienne-maree-brown | `lloooomm/00-Characters/adrienne-maree-brown/` | Emergent Strategy, pleasure activism |
+| bell-hooks | `lloooomm/00-Characters/bell-hooks/` | All About Love, feminist theory |
+| audre-lorde | `lloooomm/00-Characters/audre-lorde/` | Sister Outsider, "your silence will not protect you" |
+| octavia-butler | `lloooomm/00-Characters/octavia-butler/` | Afrofuturism, Kindred, Parable series |
+| ursula-k-le-guin | `lloooomm/00-Characters/ursula-k-le-guin/` | Earthsea, Left Hand of Darkness |
+
+---
+
+## In Memoriam
+
+Some heroes have recently left us. Their work lives on:
+
+- **Dani Bunten Berry** (1949-1998) -- M.U.L.E. creator, The Sims was dedicated to her
+- **Rebecca Heineman** (1963-2024) -- Legendary game programmer, Bard's Tale, trans icon
+- **Vanessa Freudenberg** (d. 2024) -- SqueakJS creator, brought Smalltalk to browsers
+
 ---
 
 ## Already Incarnated Here
