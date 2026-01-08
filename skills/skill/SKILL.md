@@ -225,6 +225,113 @@ See: [../speed-of-light/](../speed-of-light/)
 
 ---
 
+### 7. Skills as Rooms, Characters, and Objects
+
+In MOO tradition, everything can manifest in multiple ways. A MOOLLM skill is **triadic**:
+
+**As Room (Space to Explore):**
+```
+> enter the adventure skill
+You are in the Adventure Workshop.
+Exits: pub, maze, character-gallery
+Objects: room-templates, npc-catalog, puzzle-designs
+```
+
+**As Character (Expert to Consult):**
+```
+> ask adventure-expert about puzzle design
+"Consider the lock-and-key pattern: player finds key in
+room A, uses it to unlock door in room B..."
+```
+
+**As Object (Tool to Use):**
+```
+> take the room-builder
+You now have the room-builder.
+> use room-builder on forest-clearing
+Creating forest-clearing/ with ROOM.yml template...
+```
+
+**Card Structure for Triadic Skills:**
+
+```yaml
+card:
+  name: adventure
+  
+  as_room:
+    description: "A workshop for building text adventures"
+    exits: [pub, maze, templates]
+    objects: [room-builder, npc-factory, puzzle-kit]
+    
+  as_character:
+    description: "An expert in interactive fiction design"
+    expertise: [puzzle-design, pacing, atmosphere]
+    personality: "Creative, playful, encouraging"
+    
+  as_object:
+    description: "Tools for creating adventure games"
+    verbs: [create-room, spawn-npc, design-puzzle]
+    portable: true
+```
+
+---
+
+### 8. Codebase as Navigable World
+
+Modern IDEs like Cursor can mount multiple repositories. Mount MOOLLM alongside your project and the codebase becomes a navigable world.
+
+**Characters Have Locations:**
+```
+> where is schema-expert?
+schema-expert is at @central/apps/insights/pyleela/brain/Schema.py:142
+examining the createSyntheticItemIfNeeded method
+```
+
+**Directories are Rooms:**
+```
+@central/apps/insights/pyleela/brain/
+├── Schema.py           # The Schema Chamber
+├── Action.py           # The Action Hall  
+├── World.py            # The World Atrium
+├── Item.py             # The Item Vault
+└── DijkstraPlanner.py  # The Planning Room
+```
+
+**Files are Objects with Chambers:**
+```
+> examine Schema.py
+Schema.py contains:
+  - class Schema (line 18)
+    - __init__ (line 22)
+    - createSyntheticItemIfNeeded (line 163)
+    - spinOffContexts (line 320)
+
+> enter createSyntheticItemIfNeeded
+You are now in the createSyntheticItemIfNeeded chamber.
+This function implements Drescher's synthetic item creation...
+```
+
+**Links in Cards:**
+```yaml
+as_room:
+  artifacts:
+    - schema-mechanism: "@central/apps/insights/pyleela/brain/"
+    - task-queue: "@central/tools/edgebox/scripts/ingest.py"
+```
+
+**Party-Based Code Review:**
+```
+> summon drescher-expert, devops-expert, security-auditor
+Party formed: [drescher-expert, devops-expert, security-auditor]
+
+> party: review @central/tools/edgebox/scripts/ingest.py
+drescher-expert: "The claim_task function is a schema pattern..."
+devops-expert: "The PostgreSQL SKIP LOCKED is elegant..."
+security-auditor: "I see proper parameter binding, good..."
+```
+
+---
+
 ## The Play-Learn-Lift Cycle
 
 Every skill evolves through three phases:
@@ -526,9 +633,10 @@ This isn't theory. MOOLLM has demonstrated:
 - **[../empathic-templates/](../empathic-templates/)** — Smart instantiation
 - **[../empathic-expressions/](../empathic-expressions/)** — Intent interpretation
 - **[../speed-of-light/](../speed-of-light/)** — Multi-agent simulation
-- **[../room/](../room/)** — Skills live in rooms
-- **[../card/](../card/)** — Skills become cards
-- **[../constructionism/](../constructionism/)** — Learning by building
+- **[../room/](../room/)** — Skills live in rooms (triadic: as_room)
+- **[../card/](../card/)** — Skills become cards (triadic: as_object)
+- **[../character/](../character/)** — Skills become experts (triadic: as_character)
+- **[../constructionism/](../constructionism/)** — Learning by building, Drescher's schema mechanism
 
 ### Protocol Documents (in this directory)
 
@@ -549,8 +657,10 @@ This isn't theory. MOOLLM has demonstrated:
 | String templates | ✓ | **Empathic templates** |
 | Static skills | ✓ | **Instantiable prototypes** |
 | Names | ✓ | **K-lines (activation vectors)** |
+| Single aspect | ✓ | **Triadic: room/character/object** |
+| Isolated skills | ✓ | **Codebase as navigable world** |
 
-**We stand on excellent foundations. We add instantiation, inheritance, empathy, and proven multi-agent simulation.**
+**We stand on excellent foundations. We add instantiation, inheritance, empathy, triadic manifestation, and proven multi-agent simulation.**
 
 ---
 
