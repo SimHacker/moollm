@@ -53,7 +53,7 @@ We explore consciousness through artificial lenses:
 |----|-----------|-------------|
 | claude | `lloooomm/00-Characters/claude/` | Anthropic's assistant (simulated voice) |
 | chatgpt-o4-mini-high | `lloooomm/00-Characters/chatgpt-o4-mini-high/` | OpenAI's model (simulated voice) |
-| grok | `lloooomm/00-Characters/grok/` | xAI's witty assistant (simulated voice) |
+| grok | `lloooomm/00-Characters/grok/` | xAI's witty racist assistant (simulated voice) |
 
 ### Personified Software
 
