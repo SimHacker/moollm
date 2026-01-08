@@ -278,57 +278,25 @@ card:
 
 ### 8. Codebase as Navigable World
 
-Modern IDEs like Cursor can mount multiple repositories. Mount MOOLLM alongside your project and the codebase becomes a navigable world.
+Modern IDEs like Cursor can mount multiple repositories. Each codebase becomes a navigable world:
 
-**Characters Have Locations:**
-```
-> where is schema-expert?
-schema-expert is at @central/apps/insights/pyleela/brain/Schema.py:142
-examining the createSyntheticItemIfNeeded method
-```
+- **Directories are rooms** — enter `@central/apps/insights/pyleela/brain/`
+- **Files are objects** — examine `Schema.py`, see its classes and functions
+- **Functions are chambers** — enter `createSyntheticItemIfNeeded` to focus there
+- **Characters have code locations** — `location: "@repo/path/file.py:142"`
+- **Parties explore together** — multi-expert code review in one LLM call
 
-**Directories are Rooms:**
+**Location path syntax:**
 ```
-@central/apps/insights/pyleela/brain/
-├── Schema.py           # The Schema Chamber
-├── Action.py           # The Action Hall  
-├── World.py            # The World Atrium
-├── Item.py             # The Item Vault
-└── DijkstraPlanner.py  # The Planning Room
+@repo/path/to/file.py       # File
+@repo/path/to/file.py:42    # Specific line
+@repo/path/to/file.py:42-67 # Line range
+@repo/path/dir/             # Directory (room)
 ```
 
-**Files are Objects with Chambers:**
-```
-> examine Schema.py
-Schema.py contains:
-  - class Schema (line 18)
-    - __init__ (line 22)
-    - createSyntheticItemIfNeeded (line 163)
-    - spinOffContexts (line 320)
-
-> enter createSyntheticItemIfNeeded
-You are now in the createSyntheticItemIfNeeded chamber.
-This function implements Drescher's synthetic item creation...
-```
-
-**Links in Cards:**
-```yaml
-as_room:
-  artifacts:
-    - schema-mechanism: "@central/apps/insights/pyleela/brain/"
-    - task-queue: "@central/tools/edgebox/scripts/ingest.py"
-```
-
-**Party-Based Code Review:**
-```
-> summon drescher-expert, devops-expert, security-auditor
-Party formed: [drescher-expert, devops-expert, security-auditor]
-
-> party: review @central/tools/edgebox/scripts/ingest.py
-drescher-expert: "The claim_task function is a schema pattern..."
-devops-expert: "The PostgreSQL SKIP LOCKED is elegant..."
-security-auditor: "I see proper parameter binding, good..."
-```
+**See:**
+- [room/](../room/) — Directories as rooms, files as objects with chambers
+- [character/](../character/) — Code locations, party-based review
 
 ---
 

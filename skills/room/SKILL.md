@@ -420,6 +420,64 @@ character:
 
 Movement updates `location`, not file. See [character/](../character/).
 
+## Codebase as Navigable World
+
+Modern IDEs like Cursor can mount multiple repositories. Each repository becomes a navigable world:
+
+**Directories are Rooms:**
+```
+@central/apps/insights/pyleela/brain/
+├── Schema.py           # The Schema Chamber
+├── Action.py           # The Action Hall  
+├── World.py            # The World Atrium
+├── Item.py             # The Item Vault
+└── DijkstraPlanner.py  # The Planning Room
+```
+
+**Files are Objects with Chambers:**
+
+A file is an object you can examine. Functions within are **chambers** you can enter:
+
+```
+> examine Schema.py
+Schema.py contains:
+  - class Schema (line 18)
+    - __init__ (line 22)
+    - createSyntheticItemIfNeeded (line 163)
+
+> enter createSyntheticItemIfNeeded
+You are now in the createSyntheticItemIfNeeded chamber.
+This function implements Drescher's synthetic item creation...
+```
+
+**Location Paths with Line Numbers:**
+
+Characters can be "at" a specific line in a file:
+
+```yaml
+location: "@central/apps/insights/pyleela/brain/Schema.py:142"
+# Character is examining line 142 of Schema.py
+```
+
+Path syntax for code:
+- `@repo/path/to/file.py` — file in mounted repo
+- `@repo/path/to/file.py:42` — specific line
+- `@repo/path/to/file.py:42-67` — line range
+- `@repo/path/dir/` — directory (room)
+
+**Links in Cards:**
+
+Connect skills to code artifacts:
+
+```yaml
+as_room:
+  artifacts:
+    - schema-mechanism: "@central/apps/insights/pyleela/brain/"
+    - task-queue: "@central/tools/edgebox/scripts/ingest.py"
+```
+
+See [character/](../character/) for party-based code review.
+
 ## NPC Embedding Patterns
 
 | Pattern | When | Example |
