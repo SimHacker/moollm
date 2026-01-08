@@ -545,9 +545,10 @@ $ adventure.py lint quest/
 
 **The LLM's job:** Transform empathic descriptions into deterministic parameters and data (like in character dialog), and to generate runtime JavaScript code to bring that data to life.
 
-### Runtime Expressions: JavaScript in YAML
+### Runtime Expressions: JavaScript and JSON in YAML
 
-**Even cooler:** The LLM can generate YAML with **embedded JavaScript expressions** for runtime evaluation in the browser!
+**Even cooler:** The LLM can generate YAML with **embedded JavaScript expressions** for runtime evaluation in the browser! 
+As well as the entire JavaScript runtime adventure engine.
 
 ```yaml
 # creature.yml — With runtime expressions

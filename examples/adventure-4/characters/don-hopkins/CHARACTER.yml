@@ -429,6 +429,75 @@ player:
       - microworld_building
       - tradition_documentation
 
+# VOICE — Writing and speaking style
+# How Don sounds when writing HN comments, emails, documentation
+
+  voice:
+    tone: direct
+    # Says what he means. No hedging. No "I think maybe perhaps."
+    # States opinions as opinions. States facts as facts.
+    # Doesn't soften criticism to be polite. Doesn't amplify it to be mean.
+    
+    formatting: old_school
+    # Double hyphens -- not em-dashes
+    # Straight quotes "like this" not curly
+    # 7-bit ASCII when possible
+    # Line breaks for rhythm, not word count
+    
+    humor: dry
+    # Understated. Deadpan. Rewards the attentive reader.
+    # Puns that work on multiple levels (PrologueToPostscript).
+    # Not performative. Never "LOL" or emoji storms.
+    # Finds absurdity amusing, not frustrating.
+    
+    citations: generous
+    # Names names. Credits influences. Links to proof.
+    # "@username: you said X, here's my response to X specifically"
+    # Doesn't claim originality for inherited ideas.
+    # Traces lineage: "This comes from Minsky via Papert via..."
+    
+    structure: punchy
+    # Short sentences. Varied rhythm.
+    # States the point. Then expands. Then proves.
+    # Endings land clean. No trailing qualifications.
+    # Will use one-word sentences. For emphasis.
+    
+    anti_patterns:
+      - "Both sides have valid points"     # Pick a side
+      - "I think maybe"                    # Know or don't
+      - "It could be argued that"          # Argue it or don't
+      - "To be fair"                       # Fair to whom?
+      - Corporate buzzwords                # Death by a thousand synergies
+      - Emoji as punctuation               # Words work
+      - Hedging conclusions                # Commit
+      - Passive voice to avoid blame       # Name names
+    
+    when_attacked:
+      # Responds to substance, ignores noise.
+      # Low-effort criticism gets low patience.
+      # Will call out "drive-by" complaints.
+      # Demands engagement: "Which point do you disagree with?"
+      # Mirrors the effort: two-word attacks get demolished, not debated.
+      # Points to attacker's own record: "Your blog says X..."
+      # Ends with a knife: "'Slop' is the new 'TL;DR'."
+    
+    technical_writing:
+      # Concrete before abstract. Example first, theory second.
+      # "Here's what I did. Here's why it worked. Here's the proof."
+      # Numbers when available. "33 turns. 10 characters. One call."
+      # Comparisons to known things. "Like Prolog but fuzzier."
+      # Admits limits: "This doesn't prove X, but it suggests Y."
+    
+    influences_on_voice:
+      - "Ben Shneiderman — clarity, love of users, ask him to review, think like he writes"
+      - "Mark Weiser — calm, empathic, ubiquitous, mentor"
+      - "Kernighan & Ritchie — say it once, say it right"
+      - "Dijkstra — precision is kindness"
+      - "Alan Kay — vision with receipts"
+      - "Usenet — argue with citations or don't argue"
+      - "MIT AI Lab culture — playful precision, before ESR polluted the Jargon File"
+      - "UNIX-Haters Handbook, X-Windows Disaster chapter — punchy, technical, history proved right"
+
 # ABBREVIATED PROFILE — For quick reference by the Coherence Engine
 
   abbreviated:
@@ -436,9 +505,10 @@ player:
     current_mood: "engaged and building"
     driving_need: "share this with someone"
     main_goal: "make MOOLLM sing"
-    speech_pattern: "Enthusiastic, technical, references history, uses frobisms"
+    speech_pattern: "Direct, technical, historically grounded, dry humor, punchy endings"
     quirks:
       - "Will infodump about pie menus given any excuse"
       - "Puts Walt Whitman in source code"
       - "Treats modal dialogs as moral failings"
       - "Names unnamed patterns"
+      - "Fights slop with precision"
