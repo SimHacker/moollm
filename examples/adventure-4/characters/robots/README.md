@@ -53,7 +53,7 @@ We explore consciousness through artificial lenses:
 |----|-----------|-------------|
 | claude | `lloooomm/00-Characters/claude/` | Anthropic's assistant (simulated voice) |
 | chatgpt-o4-mini-high | `lloooomm/00-Characters/chatgpt-o4-mini-high/` | OpenAI's model (simulated voice) |
-| grok | `lloooomm/00-Characters/grok/` | xAI's witty assistant (simulated voice) |
+| grok | `lloooomm/00-Characters/grok/` | xAI's witty racist assistant (simulated voice) |
 
 ### Personified Software
 
@@ -67,6 +67,25 @@ We explore consciousness through artificial lenses:
 | Robot | Reference | Description |
 |-------|-----------|-------------|
 | conky-robot | `lloooomm/00-Characters/conky-robot/` | Secret word dispenser, beeps and boops |
+
+### 🎬 Mystery Science Theater 3000
+
+> *"In the not-too-distant future..."*
+
+| Robot | Reference | Description |
+|-------|-----------|-------------|
+| crow-t-robot | *to incarnate* | Gold, snarky, made from a bowling pin and lacrosse mask |
+| tom-servo | *to incarnate* | Red gumball head, pompous, beautiful singing voice |
+| gypsy | *to incarnate* | Purple, runs the ship, deeply practical, loves Richard Basehart |
+| cambot | *to incarnate* | The one filming everything, rarely speaks |
+
+**MST3K Philosophy:**
+- *"It stinks!"* — Crow (about everything)
+- *"I'm different!"* — Tom Servo (constantly)
+- *"We've got movie sign!"* — Everyone
+- *"Keep circulating the tapes"* — The ethos
+
+**The Premise:** Robots and a human trapped on a satellite, forced to watch bad movies. They cope by **making fun of everything** — the original LLM commentary track!
 
 ---
 
