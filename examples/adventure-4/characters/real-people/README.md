@@ -102,31 +102,41 @@ These are **tribute incarnations** -- fictional explorations based on documented
 
 ### Women Pioneers 👩‍💻
 
+> *Alan Kay's recommendation: "These are PATTERNS of how marginalized brilliance transforms computing."*
+
 | Character | Reference | Description |
 |-----------|-----------|-------------|
 | ada-lovelace | `lloooomm/00-Characters/ada-lovelace/` | FIRST PROGRAMMER, Babbage's visionary |
 | grace-hopper | `lloooomm/00-Characters/grace-hopper/` | COBOL, "Amazing Grace", debugging pioneer |
-| adele-goldberg | `lloooomm/00-Characters/adele-goldberg/` | Smalltalk co-creator, OO pioneer |
+| adele-goldberg | `lloooomm/00-Characters/adele-goldberg/` | Smalltalk co-creator at PARC, warned Jobs he was getting crown jewels |
 | cynthia-solomon | `lloooomm/00-Characters/cynthia-solomon/` | Logo co-creator with Papert |
-| sophie-wilson | `lloooomm/00-Characters/sophie-wilson/` | ARM architecture designer, trans pioneer |
+| barbara-liskov | *wikipedia* | Turing Award, CLU language, first woman CS PhD from Stanford |
+| radia-perlman | *wikipedia* | Spanning-tree protocol, "Mother of the Internet" |
+| frances-allen | *wikipedia* | First woman Turing Award, optimizing compilers (d. 2020) |
+| jean-sammet | *wikipedia* | FORMAC, first book on programming languages (d. 2017) |
+| sister-mary-kenneth-keller | *wikipedia* | First woman CS PhD in US, nun who broke down chapel doors for computer access |
 | margaret-minsky | `lloooomm/00-Characters/margaret-minsky/` | Haptics, virtual touch |
-| diana-merry-shapiro | `lloooomm/00-Characters/diana-merry-shapiro/` | Atari, early games |
 | marie-curie | `lloooomm/00-Characters/marie-curie/` | Radioactivity, double Nobel |
 | jane-goodall | `lloooomm/00-Characters/jane-goodall/` | Primatologist, animal minds |
 | frida-kahlo | `lloooomm/00-Characters/frida-kahlo/` | Pain into art, unflinching vision |
 
 ### Trans & Queer Heroes 🏳️‍⚧️
 
+> *Alan Kay's WWOOKKEE recommendation: "These aren't just historical figures. They're PATTERNS of how marginalized brilliance transforms computing."*
+
 | Character | Reference | Description |
 |-----------|-----------|-------------|
-| lynn-conway | `lloooomm/00-Characters/lynn-conway/` | VLSI revolution, trans pioneer, IBM survivor |
+| diana-merry-shapiro | `lloooomm/00-Characters/diana-merry-shapiro/` | **Co-invented BitBLT at Xerox PARC**, overlapping windows, "Casa Susanna" documentary |
+| lynn-conway | `lloooomm/00-Characters/lynn-conway/` | VLSI revolution, fired from IBM 1968 for transitioning, reinvented chip design at PARC |
+| sophie-wilson | `lloooomm/00-Characters/sophie-wilson/` | ARM architecture -- every smartphone carries her genius |
 | wendy-carlos | `lloooomm/00-Characters/wendy-carlos/` | Switched-On Bach, electronic music pioneer |
-| sophie-wilson | `lloooomm/00-Characters/sophie-wilson/` | ARM architecture, BBC Micro |
+| mary-ann-horton | *wikipedia* | Berkeley UNIX, USENET pioneer, transitioned 1997 |
 | dani-bunten-berry | `lloooomm/00-Characters/dani-bunten-berry/` | M.U.L.E., The Sims dedicated to her memory |
-| rebecca-heineman | *wikipedia* | Space Invaders champion 1980, Interplay co-founder, Bard's Tale, 70+ games |
+| rebecca-heineman | *wikipedia* | Space Invaders champion 1980, Interplay co-founder, 70+ games, Netflix "High Score" |
 | vanessa-freudenberg | *squeak community* | SqueakJS creator, Croquet, Multisynq, Smalltalk genius |
-| jennell-jaquays | *wikipedia* | Game designer, D&D modules, trans pioneer (d. Jan 2024) |
-| audrey-tang | `lloooomm/00-Characters/audrey-tang/` | Taiwan Digital Minister, Perl hacker, civic tech |
+| jennell-jaquays | *wikipedia* | D&D modules (Dark Tower), id Software, Quake (d. Jan 2024) |
+| audrey-tang | `lloooomm/00-Characters/audrey-tang/` | Taiwan Digital Minister, vTaiwan, radical transparency |
+| dame-stephanie-shirley | `lloooomm/00-Characters/dame-stephanie-shirley/` | Nazi refugee, founded tech company employing women, signed letters "Steve" |
 | divine | `lloooomm/00-Characters/divine/` | John Waters' muse, "the filthiest person alive" |
 | klaus-nomi | `lloooomm/00-Characters/klaus-nomi/` | Operatic alien, new wave icon |
 | grace-jones | `lloooomm/00-Characters/grace-jones/` | "Pull up to the bumper", fierce presence |
