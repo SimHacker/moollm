@@ -291,8 +291,7 @@ Every skill connects to others. Navigate freely.
 
 ---
 
-<details>
-<summary><strong>📚 See Also</strong></summary>
+## 📚 See Also
 
 ### Protocols & Symbols
 - [PROTOCOLS.yml](../PROTOCOLS.yml) — Full symbol index (K-lines)
@@ -304,5 +303,3 @@ Every skill connects to others. Navigate freely.
 
 ### Schemas (Shapes)
 - [schemas/](../schemas/) — Data format definitions
-
-</details>
