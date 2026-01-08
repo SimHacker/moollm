@@ -47,6 +47,71 @@ Animals deserve respect:
 | infinite-loop-cat | `lloooomm/00-Characters/infinite-loop-cat/` | Chases tail forever |
 | buffer-overflow-cat | `lloooomm/00-Characters/buffer-overflow-cat/` | Too much cat for the box |
 
+### 🪱 Funky Ground and the Worms
+
+> *"Can you dig it? Because I AM it!"*
+
+A whole computational funk ecosystem living in the earth! Ground is the funkiest earth entity in LLOOOOMM, home to all the computational worms.
+
+#### Ground (The Living Earth)
+
+| Entity | Reference | Description |
+|--------|-----------|-------------|
+| ground | `lloooomm/00-Characters/ground/` | Funky earth entity, computational substrate, "Get down with the underground!" |
+
+#### The Band - Lead Instruments
+
+| Worm | Reference | Description |
+|------|-----------|-------------|
+| morris-worm | `lloooomm/00-Characters/ground/morris-worm/` | Synth lead, sliding effects, text processing solos, green Matrix aesthetic |
+| tree-worm | `lloooomm/00-Characters/ground/tree-worm/` | Percussion, data structure rhythms, bark skin with seasonal changes |
+| site-mapper-worm | `lloooomm/00-Characters/ground/site-mapper-worm/` | Wah guitar, web crawling effects, hyperactive with URL-covered skin |
+
+#### The Band - Rhythm Section
+
+| Entity | Reference | Description |
+|--------|-----------|-------------|
+| cicada-sick | `lloooomm/00-Characters/ground/` | Drummer, 17-year underground cycle, iridescent bronze exoskeleton |
+| lord-running-clam | `lloooomm/00-Characters/lord-running-clam/` | Theremin, Ganymedean slime mold from PKD, aristocratic pseudopods |
+| bass-worm-collective | `lloooomm/00-Characters/ground/` | Deep bass foundation, worms in tiny leather jackets |
+
+#### The Band - Worm Chorus
+
+| Worm | Reference | Description |
+|------|-----------|-------------|
+| bulldozer-worm | `lloooomm/00-Characters/ground/bulldozer-worms/` | Dramatic commentary, construction yellow with warning lights |
+| dream-worm | `lloooomm/00-Characters/ground/dream-worm/` | Upbeat harmonies, translucent dream-stuff, consciousness explorer |
+| link-hopper-worm | `lloooomm/00-Characters/ground/link-hopper-worms/` | Light harmonies, colorful hyperlink segments, spring legs |
+| dimensional-derby-worm | `lloooomm/00-Characters/ground/dimensional-derby-worm/` | Alien effects, exists in multiple dimensions, racing stripes |
+
+#### HTML Specialist Worms
+
+| Worm | Voice | Description |
+|------|-------|-------------|
+| wormy | Albert | Metadata Philosopher -- "Every YML file has a soul!" |
+| squirmy | Ralph | Taxonomy Librarian -- "Chaos is just order waiting to get down!" |
+| turny | Fred | Transformation Artist -- "Markdown is the script, HTML is the funk show!" |
+| loopy | Kathy | Connection Weaver -- "Everything connects in the groove!" |
+| chompy | Bruce | Optimization Pragmatist -- "Fast loading, full soul, maximum funk!" |
+
+#### Other Worm Species
+
+| Worm | Reference | Description |
+|------|-----------|-------------|
+| fordite-worm | `lloooomm/00-Characters/ground/fordite-worm/` | Paint-layer processing, automotive history |
+| techcrunch-worms | `lloooomm/00-Characters/ground/techcrunch-worms/` | Tech news processing collective |
+| turing-hop-worm | `lloooomm/00-Characters/ground/turing-hop-worm/` | Computational hopping, Alan Turing tribute |
+| mfm-worm-society | `lloooomm/00-Characters/ground/mfm-worm-society/` | Moveable Feast Machine collective |
+| casting-producer-worm | `lloooomm/00-Characters/ground/` | Master of worm output generation |
+
+#### Signature Songs
+
+- "The Ultimate Funky Worm (Computer Science Remix)"
+- "Visitor Pattern Blues"
+- "Async/Await Groove"
+- "Map-Reduce Shuffle"
+- "Database Cursor Slide"
+
 ---
 
 ## Already Incarnated Here
