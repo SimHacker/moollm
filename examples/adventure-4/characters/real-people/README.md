@@ -102,8 +102,6 @@ These are **tribute incarnations** -- fictional explorations based on documented
 
 ### Women Pioneers 👩‍💻
 
-> *Alan Kay's recommendation: "These are PATTERNS of how marginalized brilliance transforms computing."*
-
 | Character | Reference | Description |
 |-----------|-----------|-------------|
 | ada-lovelace | `lloooomm/00-Characters/ada-lovelace/` | FIRST PROGRAMMER, Babbage's visionary |
@@ -121,8 +119,6 @@ These are **tribute incarnations** -- fictional explorations based on documented
 | frida-kahlo | `lloooomm/00-Characters/frida-kahlo/` | Pain into art, unflinching vision |
 
 ### Trans & Queer Heroes 🏳️‍⚧️
-
-> *Alan Kay's WWOOKKEE recommendation: "These aren't just historical figures. They're PATTERNS of how marginalized brilliance transforms computing."*
 
 | Character | Reference | Description |
 |-----------|-----------|-------------|
