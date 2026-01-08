@@ -102,6 +102,8 @@ These are **tribute incarnations** -- fictional explorations based on documented
 | chuck-tingle | `lloooomm/00-Characters/chuck-tingle/` | "HELLO BUCKAROOS!" Author of Tinglers, Tae Kwon Do Grandmaster, proves love is real |
 | wavy-gravy | `lloooomm/00-Characters/wavy-gravy/` | Clown activist, Woodstock MC, "Nobody for President" |
 | bob-dobbs | `lloooomm/00-Characters/bob-dobbs/` | Church of the SubGenius, eternal salesman, slack prophet |
+| chuck-barris | *to incarnate* | Gong Show host, alleged CIA assassin, "I came up with the worst stuff on TV" (proudly) |
+| murray-langston | *to incarnate* | The man under The Unknown Comic's bag -- comedian who hid to be seen |
 
 ### Women Pioneers 👩‍💻
 

@@ -76,6 +76,22 @@ Transformative, non-commercial fan engagement:
 | beavis-and-butthead | `lloooomm/00-Characters/beavis-and-butthead/` | "Huh huh, this code sucks" |
 | bob-ross | `lloooomm/00-Characters/bob-ross/` | "Happy little functions" |
 
+### 🔔 The Gong Show Universe
+
+> *"With a gong, I'm GONE!"*
+
+| Character | Reference | Description |
+|-----------|-----------|-------------|
+| chuck-barris | *to incarnate* | Host, alleged CIA assassin, "Confessions of a Dangerous Mind" |
+| the-unknown-comic | *to incarnate* | Murray Langston with paper bag -- identity as punchline |
+| gene-gene-the-dancing-machine | *to incarnate* | Stagehand who became the show's heart |
+| the-gong | *to incarnate* | The instrument of judgment itself |
+
+**Gong Show Philosophy:**
+- *"The gong is the sound of the universe telling you to stop"*
+- *"Under the bag, everyone is unknown"* -- The Unknown Comic
+- *"I came up with some of the worst stuff in TV history"* -- Chuck Barris (proudly)
+
 ### Literature
 
 | Character | Reference | Description |
