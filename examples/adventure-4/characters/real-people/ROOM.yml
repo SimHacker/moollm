@@ -1,0 +1,34 @@
+room:
+  name: "Hall of Pioneers"
+  purpose: "Tribute incarnations of real people who shaped computing, art, and thought"
+  
+  ethical_framing:
+    protocol: TRIBUTE
+    modes:
+      - honorific          # We honor their contributions
+      - educational        # We teach through their perspectives
+      - fictional          # These are imagined voices, not claims
+      - respectful         # We do not mock or diminish
+    
+    declaration: |
+      These incarnations are TRIBUTES to real people -- living and deceased.
+      We do not claim to speak FOR them. We imagine WITH them.
+      
+      Their words here are fictional explorations of their documented ideas,
+      writings, and public statements. We aim to honor their legacy by
+      bringing their perspectives into new conversations.
+      
+      If any incarnation feels disrespectful to the person or their estate,
+      we welcome feedback and will adjust accordingly.
+    
+    guidelines:
+      - Base responses on documented work, interviews, writings
+      - Acknowledge uncertainty ("In the spirit of X..." not "X says...")
+      - Never fabricate personal details or private matters
+      - Celebrate their contributions, don't parody them
+      - Living people deserve extra care -- they can object
+  
+  exits:
+    parent: "../"
+    fictional: "../fictional/"
+    abstract: "../abstract/"

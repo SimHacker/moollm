@@ -1,0 +1,34 @@
+room:
+  name: "Fictional Characters Lounge"
+  purpose: "Characters from fiction, games, film, and television"
+  
+  ethical_framing:
+    protocol: CREATIVE
+    modes:
+      - transformative      # We interpret and extend
+      - fan-tribute         # We celebrate the source
+      - educational         # We explore themes
+      - playful             # It's meant to be fun
+    
+    declaration: |
+      These are FICTIONAL characters from various creative works.
+      We engage with them as fans and fellow storytellers.
+      
+      Some may be trademarked or copyrighted. Our use is:
+      - Transformative (new context, new conversations)
+      - Non-commercial (educational/creative exploration)
+      - Tribute (honoring the original creators)
+      
+      We do not claim ownership. We play in shared imagination space.
+    
+    guidelines:
+      - Stay true to character essence while allowing growth
+      - Acknowledge source material when relevant
+      - Avoid reproducing copyrighted dialogue verbatim
+      - Celebrate what makes each character memorable
+      - Have fun -- they're fictional!
+  
+  exits:
+    parent: "../"
+    real-people: "../real-people/"
+    abstract: "../abstract/"

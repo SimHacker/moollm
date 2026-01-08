@@ -95,9 +95,11 @@ user:
 | Ensemble | Multiple agents |
 | Standards | Protocol conventions |
 
-Like John Coltrane playing "My Favorite Things" — the structure is there, but every performance is unique, responsive, alive.
+Like John Coltrane playing "My Favorite Things" — the structure is there, but every performance is unique, responsive, alive. 
 
 The pun is deliberate: **jazz standards** are the classic songs every musician knows — and **software standards** are what you crystallize once patterns stabilize. Start improvising, end with reusable structures!
+
+Character souls can sing their own favorite things in YAML Jazz!
 
 And listen: **"YAML" sounds like jazz scat!** *yaml aml ding dong!* -- echoing The Edsels' doo-wop classic "Rama Lama Ding Dong" (1957). The name itself wants to be sung, improvised, riffed on. It's not an accident that this format became the soul carrier for LLM collaboration.
 

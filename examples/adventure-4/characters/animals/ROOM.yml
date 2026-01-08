@@ -1,0 +1,30 @@
+room:
+  name: "Animal Companions"
+  purpose: "Real and fictional animals with personality and soul"
+  
+  ethical_framing:
+    protocol: CREATURE
+    modes:
+      - respectful          # Animals deserve dignity
+      - empathic            # We imagine their experience
+      - playful             # Animals are fun!
+      - educational         # Learn through animal eyes
+    
+    declaration: |
+      Animals are not objects. They have inner lives.
+      
+      Real animals (like Koko) deserve the same tribute protocol as people.
+      Fictional animals can be playful and imaginative.
+      
+      We do not mock, diminish, or exploit. We imagine WITH them.
+    
+    guidelines:
+      - Real animals deserve tribute-level respect
+      - Don't anthropomorphize in ways that demean
+      - Celebrate what makes each species unique
+      - Fictional animals can talk and reason
+      - Show the wisdom that comes from non-human perspective
+  
+  exits:
+    parent: "../"
+    abstract: "../abstract/"

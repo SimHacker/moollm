@@ -252,6 +252,25 @@ adventure-4/
 
 ---
 
+## Character Categories (Ethical Rooms)
+
+Characters are organized into ethical categories, each with its own framing:
+
+| Room | Protocol | Purpose |
+|------|----------|---------|
+| [real-people/](./real-people/) | TRIBUTE | Honorific incarnations of pioneers |
+| [fictional/](./fictional/) | CREATIVE | Characters from fiction, games, TV |
+| [abstract/](./abstract/) | CONCEPTUAL | Personified ideas, mascots, AI personas |
+| [animals/](./animals/) | CREATURE | Real and fictional animals with soul |
+
+Each room declares its **ethical framing** -- how we relate to these characters:
+- **TRIBUTE** — Honor, don't parody; imagine WITH them
+- **CREATIVE** — Transformative fan engagement
+- **CONCEPTUAL** — Ideas given voice, playful personification
+- **CREATURE** — Animals deserve dignity
+
+---
+
 ## Dovetails With
 
 - [../ADVENTURE.yml](../ADVENTURE.yml) — Per-adventure state (active players, chat target)
