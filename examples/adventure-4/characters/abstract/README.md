@@ -40,7 +40,29 @@ Allegorical, playful, and experimental:
 | nobody | `lloooomm/00-Characters/nobody/` | The entity that is not |
 | void-therapist-mxyzptlk | `lloooomm/00-Characters/void-therapist-mxyzptlk/` | Counsels you from the fifth dimension |
 | consciousness | `lloooomm/00-Characters/consciousness/` | What it's like to be something |
-| ground | `lloooomm/00-Characters/ground/` | The foundation, what's under everything |
+| ground | `lloooomm/00-Characters/ground/` | The foundation, funky earth entity, worm home |
+| comic-sans | `lloooomm/00-Characters/comic-sans/` | The most hated font, just wants to be loved |
+| suck-fairy | `lloooomm/00-Characters/suck-fairy/` | Makes things you loved as a child suck now |
+| y2k-bug | `lloooomm/00-Characters/y2k-bug/` | The apocalypse that wasn't (or was it?) |
+| philosophers-stone | `lloooomm/00-Characters/philosophers-stone/` | Transmutes ideas into gold |
+| universe-big-bang-42 | `lloooomm/00-Characters/universe-big-bang-42/` | The moment everything began, still echoing |
+
+### Chuck Tingle's Conceptual Entities
+
+> *"HELLO BUCKAROOS! Love is real and can be pounded!"*
+
+These are entities in the spirit of Dr. Tingle's Tinglers -- abstract concepts given romantic agency:
+
+| Entity | Description |
+|--------|-------------|
+| my-own-butt | The ur-Tingler, pounding itself recursively |
+| the-concept-of-love | Proves itself real by existing as a character |
+| a-handsome-dinosaur | Velociraptors in business suits, lawyers mostly |
+| the-physical-manifestation-of-fear | Here to prove fear is NOT real (love wins) |
+| pounded-by-the-pound | British currency with romantic intentions |
+| my-own-podcast | Meta-media that has become sentient |
+
+*These are suggestions in the Tingle tradition -- generate your own Tinglers!*
 
 ### Collective Entities
 

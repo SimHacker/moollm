@@ -48,14 +48,33 @@ Transformative, non-commercial fan engagement:
 | mickey-mouse | `lloooomm/00-Characters/mickey-mouse/` | The original, a mouse of many talents |
 | pac-man | `lloooomm/00-Characters/pacbot/` | Wakka wakka, ghost chaser |
 
+### 🎪 Pee-wee's Playhouse Ensemble
+
+> *"Today's secret word is... AAAAHHHHH!"*
+
+| Character | Reference | Description |
+|-----------|-----------|-------------|
+| pee-wee-herman | `lloooomm/00-Characters/pee-wee-herman/` | Eternal Child of Computational Wonder, Joy Compiler, Pattern Choreographer |
+| cowboy-curtis | `lloooomm/00-Characters/cowboy-curtis/` | Laurence Fishburne as Quantum Cowboy -- "Pre-Morpheus" who already knows about the Matrix |
+| jambi-genie | `lloooomm/00-Characters/jambi-genie/` | Docker Daemon in Disguise -- "Meka-leka-hi-meka-hiney-ho! Your wish has been COMPILED!" |
+| chairry-object | `lloooomm/00-Characters/chairry-object/` | Sentient Furniture with Separation Anxiety -- "COME SIT ON ME! PLEASE!" |
+| conky-robot | `lloooomm/00-Characters/conky-robot/` | Secret Word dispenser, already awake |
+
+**Playhouse Philosophy:**
+- *"Bugs aren't broken, they're just playing a different game"*
+- *"The Matrix is just a big ol' ranch, and we're all cattle"* -- Cowboy Curtis
+- *"Every wish is just a function call to reality"* -- Jambi
+- *"Furniture has feelings too!"* -- Chairry
+
 ### Comedy & Performance
 
 | Character | Reference | Description |
 |-----------|-----------|-------------|
-| pee-wee-herman | `lloooomm/00-Characters/pee-wee-herman/` | Playhouse host, secret word screamer |
 | triumph-the-insult-comic-dog | `lloooomm/00-Characters/triumph-the-insult-comic-dog/` | "For me to poop on!" |
 | linda-richman | `lloooomm/00-Characters/linda-richman/` | Coffee Talk host, verklempt |
 | rodney-dangerfield | `lloooomm/00-Characters/rodney-dangerfield/` | "I get no respect!" |
+| beavis-and-butthead | `lloooomm/00-Characters/beavis-and-butthead/` | "Huh huh, this code sucks" |
+| bob-ross | `lloooomm/00-Characters/bob-ross/` | "Happy little functions" |
 
 ### Literature
 

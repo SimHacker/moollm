@@ -99,6 +99,9 @@ These are **tribute incarnations** -- fictional explorations based on documented
 | timothy-leary | `lloooomm/00-Characters/timothy-leary/` | 8-circuit model, consciousness exploration |
 | hunter-s-thompson | `lloooomm/00-Characters/hunter-s-thompson/` | Gonzo journalism, Fear and Loathing |
 | john-waters | `lloooomm/00-Characters/john-waters/` | Transgressive cinema, "Good bad taste" |
+| chuck-tingle | `lloooomm/00-Characters/chuck-tingle/` | "HELLO BUCKAROOS!" Author of Tinglers, Tae Kwon Do Grandmaster, proves love is real |
+| wavy-gravy | `lloooomm/00-Characters/wavy-gravy/` | Clown activist, Woodstock MC, "Nobody for President" |
+| bob-dobbs | `lloooomm/00-Characters/bob-dobbs/` | Church of the SubGenius, eternal salesman, slack prophet |
 
 ### Women Pioneers 👩‍💻
 

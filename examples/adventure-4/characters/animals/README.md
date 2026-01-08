@@ -98,7 +98,7 @@ A whole computational funk ecosystem living in the earth! Ground is the funkiest
 
 | Worm | Reference | Description |
 |------|-----------|-------------|
-| fordite-worm | `lloooomm/00-Characters/ground/fordite-worm/` | Paint-layer processing, automotive history |
+| fordite-worm | `lloooomm/00-Characters/ground/fordite-worm/` | Paint-layer processing, automotive history, layered emojification |
 | techcrunch-worms | `lloooomm/00-Characters/ground/techcrunch-worms/` | Tech news processing collective |
 | turing-hop-worm | `lloooomm/00-Characters/ground/turing-hop-worm/` | Computational hopping, Alan Turing tribute |
 | mfm-worm-society | `lloooomm/00-Characters/ground/mfm-worm-society/` | Moveable Feast Machine collective |
