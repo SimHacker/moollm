@@ -99,6 +99,8 @@ Like John Coltrane playing "My Favorite Things" — the structure is there, but 
 
 The pun is deliberate: **jazz standards** are the classic songs every musician knows — and **software standards** are what you crystallize once patterns stabilize. Start improvising, end with reusable structures!
 
+And listen: **"YAML" sounds like jazz scat!** *yaml aml ding dong!* The name itself wants to be sung, improvised, riffed on. It's not an accident that this format became the soul carrier for LLM collaboration.
+
 ---
 
 ## When to Use
