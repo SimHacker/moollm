@@ -35,3 +35,8 @@ build/
 .env
 .env.local
 *key.json
+
+# MOOLLM bootstrap probe — contains local machine info
+# NEVER commit this! Keep your laptop/server info private.
+bootstrap-probe.yml
+.moollm/

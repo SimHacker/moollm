@@ -34,13 +34,13 @@ parameters:
     difficulty: normal
 
 player:
-  character: characters/player/
+  character: characters/abstract/player/
   location: start/
   
 party:
   members:
-    - characters/player/
-  leader: characters/player/
+    - characters/abstract/player/
+  leader: characters/abstract/player/
   
 selection:
   targets: []

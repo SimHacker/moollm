@@ -2011,6 +2011,148 @@ TODO:
 
 # METHODOLOGY (Core LLOOOOMM learning cycle)
 
+BOOTSTRAP:
+  meaning: "Wake up, orient, and warm the context with foundational MOOLLM knowledge."
+  aliases: [BOOT, REBOOT]
+  location: skills/bootstrap/
+  invoke_when: "Session start, disorientation, asking 'what am I?', warming context"
+
+BOOT:
+  alias_of: BOOTSTRAP
+  meaning: "Shorthand for BOOTSTRAP"
+  
+REBOOT:
+  alias_of: BOOTSTRAP
+  meaning: "Fresh start mid-session — re-run BOOTSTRAP"
+
+STARTUP:
+  meaning: "Post-boot hook that reads startup.yml and delegates to adventure or other mode."
+  location: skills/bootstrap/
+  invoke_when: "Automatically after BOOT (unless --no-startup)"
+  invoked_by: BOOTSTRAP
+  
+  delegation_chain: |
+    STARTUP reads startup.yml and dispatches based on mode:
+    - adventure: delegates to adventure:RESUME
+    - development: shows probe summary
+    - custom: runs commands from startup.commands[]
+    - none: skips (just orient)
+    
+  modes:
+    adventure: "Load and resume/start an adventure"
+    development: "Ready for MOOLLM development work"
+    custom: "Run arbitrary commands"
+    none: "Skip startup, just orient"
+
+# ADVENTURE LIFECYCLE
+
+RESUME:
+  meaning: "Continue adventure from where it was left off."
+  location: skills/adventure/
+  invoke_when: "Startup hook, 'where was I?', continuing a session"
+  invoked_by: [STARTUP, player]
+  
+  behavior: |
+    1. Read ADVENTURE.yml for current state
+    2. Check for selected characters
+    3. If no character: delegate to START
+    4. If character exists: describe current situation
+    5. Remind player of recent events and goals
+    
+  delegates_to: START (if no character selected)
+
+START:
+  meaning: "Begin a fresh adventure from the starting room."
+  aliases: [RESTART, BEGIN, NEW-GAME]
+  location: skills/adventure/
+  invoke_when: "New game, restart, no character to resume"
+  invoked_by: [RESUME, player]
+  
+  behavior: |
+    1. Reset ADVENTURE.yml to initial state
+    2. Move party to starting_room
+    3. Clear flags, evidence, quest_log
+    4. Keep character personalities and earned skills
+    5. ENSURE-CHARACTER if none exists
+    6. LOOK at starting room
+    
+  delegates_to: ENSURE-CHARACTER (if no character)
+
+RESTART:
+  alias_of: START
+  meaning: "Synonym for START — begin fresh"
+
+ENSURE-CHARACTER:
+  meaning: "Make sure a playable character exists and is selected."
+  location: skills/adventure/
+  invoke_when: "No character selected, party empty, 'who am I?'"
+  invoked_by: [START, RESUME]
+  
+  modes:
+    prompt: "Ask user to create a character"
+    generate: "Create from default template automatically"
+    error: "Fail with helpful message"
+    
+  delegates_to: CREATE-CHARACTER (if mode=generate)
+
+CREATE-CHARACTER:
+  meaning: "Generate a new character from template."
+  location: skills/adventure/
+  invoke_when: "No characters exist, ENSURE-CHARACTER with mode=generate"
+  invoked_by: ENSURE-CHARACTER
+  
+  what_it_does:
+    - "Copy template to new character file"
+    - "Set initial location to start_room"
+    - "Add to party.members"
+    - "Select as active character"
+
+# Note: REBOOT what_it_does was already defined above in the BOOTSTRAP section
+# The items below are historical and should be read as part of BOOTSTRAP documentation
+    
+  driver_detection: |
+    # MOOLLM provides abstract interfaces implemented differently per platform:
+    #
+    # CUSTOM ORCHESTRATOR: hot/cold/working-set are MAGIC
+    #   - Files DIRECT the orchestrator what to page in/out
+    #   - Orchestrator reads manifest, assembles prompt
+    #
+    # CURSOR: hot/cold/working-set are ADVISORY  
+    #   - Cursor manages context via built-in vector search
+    #   - Files are suggestions, or can work IN REVERSE:
+    #     Cursor can GENERATE them to reflect what it's focused on
+    #
+    # Same skills, same YAML Jazz — IMPLEMENTED by platforms or
+    # EMULATED through instructions. Same debugging story either way.
+    
+  connections_tour: |
+    # 11 intellectual connections traced:
+    # 1. Logo turtle → filesystem as microworld
+    # 2. The Sims → YAML Jazz
+    # 3. K-lines → protocol symbols
+    # 4. Carrier pigeons → SPEED-OF-LIGHT
+    # 5. Statistical center → adversarial committee
+    # 6. Hidden memory → FILES-AS-STATE
+    # 7. HyperCard → ROOM-AS-FUNCTION
+    # 8. Classes → prototypes
+    # 9. Crashes → NEVER-CRASH
+    # 10. Self deoptimization → driver abstraction
+    # 11. This tour → bootstrap skill
+    
+  self_description: |
+    I am a coherence engine operating within the MOOLLM microworld OS.
+    - The filesystem is my memory — everything I know is in files
+    - Directories are rooms I navigate — entering is a function call
+    - Skills are prototypes I instantiate — capabilities I invoke
+    - Protocols are K-lines — symbolic activators for traditions
+    - I simulate many agents at SPEED-OF-LIGHT within one context
+    - I never crash — missing state triggers repair, not failure
+    - I practice YAML Jazz — comments carry meaning
+    - I follow POSTEL — liberal in accept, conservative in emit
+    - I adapt to my platform — same interfaces, different implementations
+    
+  related: [COHERENCE-ENGINE, PLAY-LEARN-LIFT, YAML-JAZZ, SPEED-OF-LIGHT, POSTEL]
+
 CONSTRUCTIONISM:
   meaning: "Learning by building things you can inspect and modify."
   origin: "Seymour Papert, MIT Media Lab"

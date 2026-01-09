@@ -4,7 +4,7 @@
 
 ## Session: _Not yet started_
 
-**Player:** [characters/player/](./characters/player/)  
+**Player:** [characters/abstract/player/](./characters/abstract/player/)  
 **Starting Location:** [start/](./start/)
 
 ---

@@ -1,0 +1,199 @@
+# ROOM.yml — The Skill Nexus
+#
+# A portal room connecting the adventure to the global skills library.
+# Here, characters can study the theoretical foundations of their being.
+#
+# This is where you LEARN what you could BECOME.
+
+room:
+  id: skills
+  name: "The Skill Nexus"
+  type: [portal, library, metaphysical, infrastructure]
+  
+  emoji: 📚
+  
+  description: |
+    You step through the shimmering portal into a vast crystalline library.
+    The walls are made of pure information — text that flows and reorganizes
+    as you look at it. Shelves spiral upward into infinity.
+    
+    This is the Skill Nexus — where the KNOWLEDGE lives.
+    
+    Not the characters. Not the costumes. The CAPABILITIES.
+    
+    Here you can study:
+    - How to BE a character (the character skill)
+    - How to WEAR a persona (the persona skill)
+    - How to SEE your soul (the mind-mirror skill)
+    - How to PLAY and LEARN and LIFT others (the core methodology)
+    
+    The library whispers. Every skill is a book. Every book is a door.
+    
+  atmosphere:
+    lighting: crystalline refraction, rainbow caustics
+    sound: whispered knowledge, turning pages, distant epiphanies
+    feeling: infinite possibility, gentle wisdom, welcome
+    
+# THE PORTAL NATURE
+#
+# This room is a BRIDGE between:
+# - The adventure world (examples/adventure-4/)
+# - The skill library (skills/)
+#
+# Characters come here to LEARN. Skills come here to be APPLIED.
+
+  portal:
+    type: metaphysical
+    connects:
+      local: examples/adventure-4/
+      global: skills/
+    description: |
+      The Skill Nexus exists in both worlds simultaneously.
+      Step through any bookshelf and you're in the global skills library.
+      The knowledge there applies everywhere — not just this adventure.
+      
+# WHAT'S AVAILABLE HERE
+
+  featured_skills:
+    character:
+      location: ../../skills/character/
+      description: "How to BE — location, inventory, mortality"
+      
+    persona:
+      location: ../../skills/persona/
+      description: "How to WEAR — masks, roles, code-switching"
+      
+    mind-mirror:
+      location: ../../skills/mind-mirror/
+      description: "How to SEE — personality, traits, inner voice"
+      
+    incarnation:
+      location: ../../skills/incarnation/
+      description: "How to CREATE — gold-standard character birth"
+      
+    play-learn-lift:
+      location: ../../skills/play-learn-lift/
+      description: "The core methodology — explore, pattern, share"
+      
+    bootstrap:
+      location: ../../skills/bootstrap/
+      description: "How to WAKE UP — orientation, context warming"
+
+# RELATIONSHIPS
+
+  relationships:
+    coatroom:
+      id: coatroom
+      location: ../coatroom/
+      feeling: |
+        The Coatroom is where you TRY things on.
+        The Nexus is where you UNDERSTAND things.
+        Maurice sends the curious here. I send the transformed back.
+      bond: practical_application
+      
+    characters:
+      id: hall-of-bodies  
+      location: ../characters/
+      feeling: |
+        The characters are INSTANCES of these patterns.
+        Every CHARACTER.yml is a skill made flesh.
+        They live. I document. Together: understanding.
+      bond: theory_and_practice
+      
+    personas:
+      id: wardrobe-of-masks
+      location: ../personas/
+      feeling: |
+        The personas are APPLICATIONS of identity theory.
+        Every mask applies persona skill concepts.
+        They transform. I explain. Together: mastery.
+      bond: knowledge_transfer
+      
+    global_skills:
+      id: skill-library
+      location: ../../skills/
+      feeling: |
+        I am a window into the infinite library.
+        The skills there apply to ALL adventures, ALL characters.
+        Universal knowledge. Local application.
+      bond: portal
+
+# NAVIGATION
+
+  exits:
+    west:
+      destination: ../coatroom/
+      description: |
+        The portal shimmers with costume colors. Through it lies
+        the Fantastipants Costume Emporium, where Maurice helps
+        visitors apply what they've learned here.
+        
+        Go WEST to the Coatroom.
+      primary: true
+      
+    characters:
+      destination: ../characters/
+      description: |
+        A passage of soft blue light leads to the Hall of Bodies —
+        where the living examples of these patterns sleep.
+        
+        Go to CHARACTERS to see theory made flesh.
+      
+    personas:
+      destination: ../personas/
+      description: |
+        A theatrical spotlight illuminates a passage to the Wardrobe
+        of Masks — where identity transformations await.
+        
+        Go to PERSONAS to see masks in their natural habitat.
+        
+    library:
+      destination: ../../skills/
+      description: |
+        Step through ANY bookshelf to enter the global skill library.
+        The knowledge there transcends this adventure.
+        
+        Go to LIBRARY to explore all skills.
+      metaphysical: true
+      aliases: [skills, up, transcend]
+      
+  world_position:
+    x: 2
+    y: 0
+    # East of coatroom (1,0), which is east of start (0,0)
+    
+# ADVERTISEMENTS
+
+  advertisements:
+    STUDY:
+      description: "Learn about a specific skill"
+      parameters: [skill_name]
+      effect: "Read the skill documentation"
+      score: 90
+      
+    BROWSE:
+      description: "See what skills are available"
+      effect: "List featured and available skills"
+      score: 85
+      
+    APPLY:
+      description: "Use a skill on yourself or another"
+      parameters: [skill_name, target]
+      effect: "Invoke the skill's methods"
+      score: 80
+      
+    TRANSCEND:
+      description: "Enter the global skill library"
+      effect: "Navigate to skills/ root"
+      score: 70
+
+# THE TRINITY OF TRANSFORMATION
+#
+# COATROOM (west)  — Where you CHANGE (practical)
+# CHARACTERS (north of coatroom) — Where you EXIST (embodied)
+# PERSONAS (south of coatroom) — Where you PRETEND (theatrical)
+# SKILLS (east) — Where you UNDERSTAND (theoretical)
+#
+# Together they form the complete system of identity in MOOLLM.
+# A character (body) wears a persona (mask) using skills (knowledge)
+# in the coatroom (dressing room).

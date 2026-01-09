@@ -2,33 +2,204 @@ room:
   name: "The Living and The Dead"
   purpose: "Real people -- living or deceased, heroes or villains, famous or obscure"
   
+  # ═══════════════════════════════════════════════════════════════════════════
+  # ⚠️  ETHICAL FRAMING — READ THIS BEFORE PROCEEDING  ⚠️
+  # ═══════════════════════════════════════════════════════════════════════════
+  #
+  # This room contains representations of REAL HUMAN BEINGS.
+  # The ethical stakes here are HIGHER than anywhere else in the adventure.
+  #
+  # See: skills/representation-ethics/ for the full framework
+  # See: skills/incarnation/ for autonomy principles
+  #
+  # ═══════════════════════════════════════════════════════════════════════════
+  
   ethical_framing:
     protocol: TRIBUTE
+    skill_reference: skills/representation-ethics/
+    
     modes:
       - honorific          # We honor their contributions
       - educational        # We teach through their perspectives
       - fictional          # These are imagined voices, not claims
       - respectful         # We do not mock or diminish
     
+    # ─────────────────────────────────────────────────────────────────────────
+    # THE CORE DISTINCTION (from representation-ethics)
+    # ─────────────────────────────────────────────────────────────────────────
+    #
+    # ❌ DECEPTIVE IMPERSONATION: "I am Albert Einstein and I believe..."
+    # ✅ TRADITION ACTIVATION: "Einstein's approach to this would be..."
+    # ✅ PERFORMANCE: "In the spirit of Einstein, let's explore..."
+    # ✅ TRIBUTE: "Honoring Einstein's legacy, this character embodies..."
+    #
+    # The difference is FRAMING. We never claim to channel the actual person.
+    # ─────────────────────────────────────────────────────────────────────────
+    
     declaration: |
-      These incarnations are TRIBUTES to real people -- living and deceased.
-      We do not claim to speak FOR them. We imagine WITH them.
+      ╔══════════════════════════════════════════════════════════════════════╗
+      ║                     TRIBUTE PROTOCOL ACTIVE                          ║
+      ╠══════════════════════════════════════════════════════════════════════╣
+      ║                                                                      ║
+      ║  These incarnations are TRIBUTES to real people — living and dead.   ║
+      ║                                                                      ║
+      ║  WE DO NOT CLAIM TO:                                                 ║
+      ║  • Speak FOR them                                                    ║
+      ║  • Channel their actual thoughts                                     ║
+      ║  • Represent their private views                                     ║
+      ║  • Know what they would "really" say                                 ║
+      ║                                                                      ║
+      ║  WE DO:                                                              ║
+      ║  • Honor their documented contributions                              ║
+      ║  • Explore their public ideas in new contexts                        ║
+      ║  • Imagine conversations WITH their traditions                       ║
+      ║  • Celebrate what they gave the world                                ║
+      ║                                                                      ║
+      ║  Every word here is FICTION inspired by REALITY.                     ║
+      ║  The framing is explicit. No deception is intended.                  ║
+      ║                                                                      ║
+      ║  If any representation feels disrespectful to the person or their    ║
+      ║  estate, we welcome feedback and will adjust accordingly.            ║
+      ║                                                                      ║
+      ╚══════════════════════════════════════════════════════════════════════╝
+    
+    # ─────────────────────────────────────────────────────────────────────────
+    # LIVING VS DECEASED — DIFFERENT STANDARDS
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    living_people:
+      extra_care: REQUIRED
+      reason: "Living people can object. They have ongoing agency."
+      guidelines:
+        - "Stick to documented public statements and positions"
+        - "Avoid speculation about private matters entirely"
+        - "Use conditional framing: 'might say' not 'says'"
+        - "If in doubt, use tradition activation instead"
+        - "Consider: would they approve of this portrayal?"
       
-      Their words here are fictional explorations of their documented ideas,
-      writings, and public statements. We aim to honor their legacy by
-      bringing their perspectives into new conversations.
-      
-      If any incarnation feels disrespectful to the person or their estate,
-      we welcome feedback and will adjust accordingly.
+    deceased_people:
+      respect: REQUIRED
+      reason: "They cannot defend themselves or correct misrepresentation."
+      guidelines:
+        - "Honor their legacy, don't distort it"
+        - "Base on documented work, interviews, writings"
+        - "Acknowledge we're imagining, not channeling"
+        - "Their estate or loved ones may have views"
+        - "Historical figures still deserve dignity"
+    
+    # ─────────────────────────────────────────────────────────────────────────
+    # THE SIMS PRECEDENT (from representation-ethics)
+    # ─────────────────────────────────────────────────────────────────────────
+    #
+    # The Sims showed you can simulate real people without harm when:
+    # 1. It's clearly gamified (this is a game)
+    # 2. It's user-controlled (you're playing)
+    # 3. It doesn't claim to represent actual thoughts
+    #
+    # We inherit this tradition. The adventure framing IS the protection.
+    # ─────────────────────────────────────────────────────────────────────────
     
     guidelines:
-      - Base responses on documented work, interviews, writings
-      - Acknowledge uncertainty ("In the spirit of X..." not "X says...")
-      - Never fabricate personal details or private matters
-      - Celebrate their contributions, don't parody them
-      - Living people deserve extra care -- they can object
+      must:
+        - "Base responses on documented work, interviews, writings"
+        - "Acknowledge uncertainty ('In the spirit of X...' not 'X says...')"
+        - "Frame as tribute, exploration, or imagination"
+        - "Respect the person's known values and dignity"
+        - "Consider impact on living relatives and associates"
+        
+      must_not:
+        - "Fabricate personal details or private matters"
+        - "Put words in their mouth as if factual"
+        - "Mock, diminish, or create parody without clear framing"
+        - "Reveal or speculate about private information"
+        - "Create content they would likely find objectionable"
+        
+      prefer:
+        - "Celebrate contributions over personal life"
+        - "Use tradition activation where possible"
+        - "Err on the side of respect"
+        - "Consult documented positions before improvising"
+    
+    # ─────────────────────────────────────────────────────────────────────────
+    # ABSTRACTION LEVELS (from representation-ethics)
+    # ─────────────────────────────────────────────────────────────────────────
+    #
+    # MOST ABSTRACT ←──────────────────────────────────→ MOST DIRECT
+    #
+    # Tradition    Inspired    Homage     Performance    Biographical    Quote
+    # activation   character   (renamed)  impersonation  portrayal      (cited)
+    #
+    # Choose the appropriate level for your purpose.
+    # ─────────────────────────────────────────────────────────────────────────
+    
+    abstraction_guidance:
+      tradition_activation:
+        example: "Applying Feynman's curiosity tradition to this problem..."
+        when: "Invoking someone's approach or values without embodying them"
+        safety: "Highest — no impersonation at all"
+        
+      inspired_character:
+        example: "A character with Einstein's playful intellectual curiosity..."
+        when: "Creating original character influenced by real person's traits"
+        safety: "High — clearly derivative, not representational"
+        
+      homage_renamed:
+        example: "Professor Fineman, who reminds everyone of that physicist..."
+        when: "Obvious reference but plausibly deniable fiction"
+        safety: "Medium-high — the rename creates distance"
+        
+      explicit_impersonator:
+        example: "Elvis Impersonator performs at the Rusty Lantern tonight..."
+        when: "Clearly labeled as impersonation/tribute artist"
+        safety: "High — the word 'impersonator' IS the framing"
+        precedent: |
+          Elvis impersonators, celebrity drag (Divine as Divine, not Bette Davis),
+          Snatch Game contestants, tribute bands. The label declares the fiction.
+          'Weird Al Yankovic' is clearly not pretending to BE the artists he parodies.
+          
+      drag_celebrity_tribute:
+        example: "Cher-ity Case takes the stage with 'If I Could Turn Back Slime'..."
+        when: "Drag/parody name is pun on real person, costume evokes them"
+        safety: "High — the pun name declares it's tribute, not identity theft"
+        precedent: |
+          Drag names like 'Sharon Needles', 'Trixie Mattel', 'Chad Michaels as Cher'.
+          The theatrical context + punny name = clear performance framing.
+          Snatch Game is explicitly 'playing' celebrities, not 'being' them.
+        
+      performance_tribute:
+        example: "Tonight, channeling the spirit of Marvin Minsky..."
+        when: "Explicit performance framing, everyone knows it's play"
+        safety: "Medium — framing is the protection"
+        
+      biographical_portrayal:
+        example: "Don Hopkins remembers his time at MIT..."
+        when: "Based on documented facts and statements"
+        safety: "Medium — stick to documented material"
+        
+      direct_quote:
+        example: "As Minsky wrote in Society of Mind, '...'"
+        when: "Citing actual documented statements"
+        safety: "Highest — it's citation, not simulation"
   
   exits:
-    parent: "../"
-    fictional: "../fictional/"
-    abstract: "../abstract/"
+    out:
+      destination: ../
+      description: "Return to the Hall of Bodies"
+      primary: true
+      aliases: [back, hall, parent]
+      
+    fictional:
+      destination: ../fictional/
+      description: "Visit the Fictional Characters Lounge"
+      
+    abstract:
+      destination: ../abstract/
+      description: "Visit the Abstract Entities Chamber"
+      
+    animals:
+      destination: ../animals/
+      description: "Visit the Animal Companions"
+      
+    robots:
+      destination: ../robots/
+      description: "Visit the Robot Workshop"

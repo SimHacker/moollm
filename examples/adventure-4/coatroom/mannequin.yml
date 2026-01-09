@@ -101,7 +101,7 @@ object:
     - action: CHANGE-NAME
       score_if: "always"
       description: "Choose a new name — who do you want to be?"
-      effect: "Updates player.name in characters/player.yml"
+      effect: "Updates player.name in your character directory (e.g., characters/abstract/player/)"
       
     - action: CHANGE-PRONOUNS
       score_if: "always"

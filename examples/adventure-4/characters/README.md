@@ -79,15 +79,40 @@ Think: **Engelbart's NLS** with multiple cursors.
 
 ## File = Identity
 
-In MOOLLM, the filesystem IS the world. Your file name IS your identity.
+In MOOLLM, the filesystem IS the world. Your path IS your identity.
+
+### Directory Characters vs File Characters
+
+**Directory characters** have their own directory:
+```
+characters/real-people/don-hopkins/
+  CHARACTER.yml    # The main character definition
+  biscuit.yml      # A pet — file-only character living here
+  notes.md         # Personal notes, memories
+```
+→ When DESCRIBE-ME runs, shows: `characters/real-people/don-hopkins/`
+
+**File-only characters** are just a `.yml` file:
+```
+characters/real-people/don-hopkins/biscuit.yml   # Biscuit lives in Don's directory
+```
+→ When DESCRIBE-ME runs, shows: `characters/real-people/don-hopkins/biscuit.yml`
+
+### Current Structure
 
 ```
 characters/
-  don-hopkins.yml     # The creator playing his creation
-  player.yml          # Generic hero template
-  captain-ashford.yml # After renaming in coatroom
-  mother.yml          # NPCs live here too
-  skeleton.yml        # Even dead ones
+├── abstract/
+│   └── player/              # Generic hero template (directory)
+├── real-people/
+│   └── don-hopkins/         # The creator (directory)
+│       └── biscuit.yml      # His dog (file-only, lives with Don)
+├── fictional/
+│   └── bumblewick-fantastipants/  # The reluctant hero (directory)
+├── animals/
+│   └── (animal characters)
+└── robots/
+    └── (mechanical minds)
 ```
 
 ---

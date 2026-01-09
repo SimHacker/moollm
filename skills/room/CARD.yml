@@ -322,6 +322,49 @@ room-types:
   vehicle: "Room that can move (TARDIS, Logo turtle)"
   repository: "Storage space for collections"
 
+# ═══════════════════════════════════════════════════════════════════════════
+# ANTI-PATTERNS — DO NOT DO THESE
+# ═══════════════════════════════════════════════════════════════════════════
+
+anti-patterns:
+  
+  ascii-maps:
+    prohibition: FORBIDDEN
+    reason: |
+      DO NOT create ASCII art maps of room layouts!
+      
+      Problems:
+      - Indentation is fragile and LLMs are terrible at it
+      - Wastes tokens on visual formatting that breaks easily
+      - High maintenance cost — every change requires careful re-alignment
+      - The exits table in ROOM.yml IS the authoritative map
+      - Navigation tables are more reliable and readable
+      
+      INSTEAD:
+      - Use markdown tables for navigation (| Direction | Destination |)
+      - Trust ROOM.yml exits as the source of truth
+      - Use prose descriptions for atmosphere
+      - Let readers navigate by following links
+      
+    bad-example: |
+      # DON'T DO THIS:
+      ```
+                  NORTH
+                    │
+        WEST ◄──── ROOM ────► EAST
+                    │
+                  SOUTH
+      ```
+      
+    good-example: |
+      # DO THIS:
+      | Direction | Destination |
+      |-----------|-------------|
+      | North | [characters/](../characters/) |
+      | South | [personas/](../personas/) |
+      | East | [skills/](../skills/) |
+      | West | [start/](../start/) |
+
 # ADVERTISEMENTS
 
 advertisements:

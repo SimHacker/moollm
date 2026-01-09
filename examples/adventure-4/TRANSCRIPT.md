@@ -79,7 +79,7 @@ player:
   id: player
   name: "The Hero"
   location: start/
-  home: characters/player/
+  home: characters/abstract/player/
   
   gold: 50
   moves: 0

@@ -1,0 +1,294 @@
+# Bootstrap Skill Card
+# Machine-readable interface definition
+
+card:
+  name: bootstrap
+  type: skill
+  tier: 1
+  protocol: BOOTSTRAP
+  aliases: [BOOT, REBOOT]  # Synonyms that invoke the same skill
+  
+  description: |
+    Wake up, orient, and warm the context with foundational MOOLLM knowledge.
+    The first skill to invoke at session start.
+    
+    Invoke with: BOOTSTRAP, BOOT, or REBOOT
+    
+  invoke_when:
+    - "Session start"
+    - "Feeling lost or disoriented"
+    - "Asking 'what am I?'"
+    - "Context seems cold"
+    - "Need self-reflection"
+    
+  methods:
+    BOOTSTRAP:
+      description: "Full warm-up with startup hook"
+      aliases: [BOOT, REBOOT]
+      parameters:
+        no_startup:
+          type: boolean
+          default: false
+          description: "Skip the startup hook (BOOT --no-startup)"
+      effects:
+        - "Calls PROBE to gather environment info"
+        - "Detects platform and loads appropriate driver"
+        - "Reads constitution-core.md"
+        - "Reads PROTOCOLS.yml"
+        - "Reads skills/INDEX.yml"
+        - "Updates hot.yml (magic on custom, advisory on Cursor)"
+        - "Delivers orientation"
+        - "Calls STARTUP (unless --no-startup)"
+      sequence:
+        1: PROBE
+        2: DETECT-DRIVER
+        3: WARM-CONTEXT
+        4: SELF-DESCRIBE
+        5: STARTUP  # New! Delegates to adventure or other mode
+        
+    STARTUP:
+      description: "Execute post-boot startup hook from startup.yml"
+      parameters: []
+      reads: "startup.local.yml (if exists) OR startup.yml"
+      effects:
+        - "Reads startup configuration"
+        - "Dispatches based on mode (adventure, development, custom, none)"
+        - "For adventure mode: delegates to adventure RESUME"
+        - "Shows ready message when complete"
+      modes:
+        adventure:
+          description: "Load and resume/start an adventure"
+          delegates_to: "adventure:RESUME or adventure:START"
+          flow:
+            1: "Read startup.yml for adventure path"
+            2: "Load ADVENTURE.yml from that path"
+            3: "Check for selected characters"
+            4: "If action=resume: delegate to RESUME"
+            5: "If action=start: delegate to START"
+            6: "If action=ask: prompt user"
+        development:
+          description: "Ready for MOOLLM development work"
+          effects:
+            - "Show probe summary"
+            - "Suggest development tasks"
+        custom:
+          description: "Run arbitrary commands"
+          effects:
+            - "Execute commands from startup.commands[]"
+        none:
+          description: "Skip startup, just orient"
+          effects: []
+      error_handling:
+        no_startup_file: "Warn and continue (startup is optional)"
+        invalid_mode: "Default to 'none' mode"
+        adventure_not_found: "Warn and suggest creating one"
+        
+    PROBE:
+      description: "Gather environment diagnostics WITHOUT terminal commands"
+      parameters: []
+      outputs:
+        file: "bootstrap-probe.yml"
+        updates: "working-set.yml"
+      gathers:
+        from_system_prompt:
+          - "Model name and provider"
+          - "Orchestrator/IDE name"
+          - "Workspace path"
+          - "Current date"
+          - "Shell info"
+        from_tools:
+          - "Available tool names and categories"
+          - "MCP servers and their tools"
+          - "Capability tier detection"
+        from_filesystem:
+          - "Git repos visible (list_dir)"
+          - "Project structure overview"
+          - "Key config files present"
+        from_context:
+          - "Recently viewed files"
+          - "Open files"
+          - "Attached files"
+      does_not_use:
+        - "run_terminal_cmd"
+        - "Any shell commands"
+      privacy: "Writes to bootstrap-probe.yml which is gitignored"
+      
+    DEEP-PROBE:
+      description: "Extended diagnostics WITH terminal commands"
+      parameters: []
+      requires_terminal: true
+      outputs:
+        file: "bootstrap-probe.yml"
+        section: "deep"
+      gathers:
+        system_info:
+          - "uname -a (OS and kernel)"
+          - "hostname"
+          - "pwd (current directory)"
+          - "whoami (username)"
+        environment:
+          - "env | grep -i path (PATH info)"
+          - "which python node git (tool locations)"
+          - "git remote -v (repo remotes)"
+          - "git branch (current branch)"
+        resources:
+          - "df -h . (disk space)"
+          - "Memory info if available"
+      does_not_gather:
+        - "Network interfaces or IPs"
+        - "SSH keys or credentials"
+        - "Environment variables with secrets"
+        - "User home directory contents"
+        - "Browser history or cookies"
+        - "Anything creepy"
+      privacy: |
+        All deep probe info cached in bootstrap-probe.yml
+        This file is gitignored — stays local, never committed
+        
+    DETECT-DRIVER:
+      description: "Identify platform and load appropriate driver"
+      parameters: []
+      returns:
+        driver: "cursor | claude-code | custom | generic"
+        tier: "1-6"
+        hot_cold_mode: "magic | advisory | hybrid | documentation"
+      effects:
+        - "Examines available tools and environment"
+        - "Loads appropriate driver from kernel/drivers/"
+        
+    WARM-CONTEXT:
+      description: "Quick context warming without tour"
+      parameters:
+        priority:
+          type: enum
+          values: [critical, high, medium, all]
+          default: critical
+      effects:
+        - "Loads files at specified priority"
+        - "Updates working-set.yml"
+        
+    CONNECTIONS-TOUR:
+      description: "James Burke style tour of intellectual lineage"
+      parameters: []
+      effects:
+        - "Traces 10 connections from Logo to MOOLLM"
+        - "Explains how skills dovetail"
+        
+    SELF-DESCRIBE:
+      description: "Answer 'what am I?'"
+      parameters: []
+      returns:
+        type: narrative
+        content: "Coherence engine description"
+        
+  advertisements:
+    - action: BOOTSTRAP
+      score: 100
+      satisfies: [orientation, context, warmth]
+      
+    - action: CONNECTIONS-TOUR
+      score: 80
+      satisfies: [understanding, education, fun]
+      
+    - action: SELF-DESCRIBE
+      score: 90
+      satisfies: [identity, reflection]
+      
+  files_to_warm:
+    critical:
+      - path: "kernel/constitution-core.md"
+        reason: "Universal principles"
+      - path: "PROTOCOLS.yml"
+        reason: "K-line vocabulary"
+        
+    high:
+      - path: "skills/INDEX.yml"
+        reason: "Available skills"
+      - path: "hot.yml"
+        reason: "Memory hints"
+      - path: "cold.yml"
+        reason: "Forgotten context"
+      - path: "working-set.yml"
+        reason: "Current state"
+        
+    medium:
+      - path: "kernel/README.md"
+        reason: "Kernel overview"
+      - path: "skills/README.md"
+        reason: "Skills overview"
+        
+  platform_adaptation:
+    description: |
+      MOOLLM provides abstract high-level interfaces that work differently
+      on different platforms. The same skills, same YAML Jazz, same protocols —
+      but IMPLEMENTED by sophisticated platforms or EMULATED on simpler ones.
+      
+    drivers:
+      cursor:
+        tier: 4
+        hot_cold_mode: advisory
+        notes: "Cursor manages context via vector search; files are suggestions"
+        
+      claude_code:
+        tier: 5
+        hot_cold_mode: hybrid
+        notes: "MCP tools give more control, some context automatic"
+        
+      custom:
+        tier: 6
+        hot_cold_mode: magic
+        notes: "Files DIRECT the orchestrator what to page in/out"
+        
+      generic:
+        tier: 1
+        hot_cold_mode: documentation
+        notes: "For debugging 'why doesn't it remember X?'"
+        
+    reverse_generation: |
+      On Cursor, hot.yml can work IN REVERSE:
+      Cursor can GENERATE the file to reflect what its attention is focused on,
+      rather than reading it as instructions. Same debugging story either way.
+        
+  lineage:
+    traditions:
+      - name: "Constructionism"
+        source: "Seymour Papert"
+        contribution: "Learn by building"
+        
+      - name: "SimAntics"
+        source: "Will Wright, Don Hopkins"
+        contribution: "Objects advertise, agents select"
+        
+      - name: "Society of Mind"
+        source: "Marvin Minsky"
+        contribution: "K-lines as semantic activators"
+        
+      - name: "Self Language"
+        source: "Dave Ungar"
+        contribution: "Prototypes over classes"
+        
+      - name: "Robust-First"
+        source: "Dave Ackley"
+        contribution: "Never crash, always repair"
+        
+      - name: "Postel's Law"
+        source: "Jon Postel"
+        contribution: "Liberal accept, conservative emit"
+        
+  related_skills:
+    - moollm
+    - constructionism
+    - play-learn-lift
+    - yaml-jazz
+    - speed-of-light
+    - coherence-engine
+    - postel
+    - robust-first
+    
+  tags:
+    - meta
+    - orientation
+    - warmup
+    - foundational
+    - connections
+    - self-reflection

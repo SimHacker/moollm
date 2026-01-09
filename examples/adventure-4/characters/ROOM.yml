@@ -138,10 +138,40 @@ room:
       bond: theoretical_foundation
 
   exits:
+    south:
+      destination: ../coatroom/
+      description: |
+        A spiral staircase descends into warmer light, the scent of
+        greasepaint and mothballs rising to meet you. The Coatroom
+        awaits — where Maurice helps you dress your body.
+        
+        Go SOUTH to the Fantastipants Costume Emporium.
+      primary: true
+      
     out:
-      direction: out
       destination: ../start/
       description: "Return to the Chamber of Commencement"
+      aliases: [exit, leave]
+      
+    east:
+      destination: ../skills/
+      description: |
+        A shimmering portal leads to the Skill Nexus — where the
+        theoretical foundations of characters, personas, and minds
+        are documented and studied.
+        
+        Go EAST to learn what characters can become.
+      metaphysical: true
+      
+    personas:
+      destination: ../personas/
+      description: |
+        A hidden passage connects the Hall of Bodies to the Wardrobe
+        of Masks — the complementary spaces of WHO you are and WHAT
+        you can pretend to be.
+        
+        Go to PERSONAS to see the masks these bodies can wear.
+      metaphysical: true
       
   contents:
     # Subdirectories are alcoves

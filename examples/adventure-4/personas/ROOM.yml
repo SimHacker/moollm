@@ -155,10 +155,34 @@ room:
       bond: theoretical_foundation
 
   exits:
-    out:
-      direction: out
+    north:
       destination: ../coatroom/
-      description: "Return to the Coatroom (where Maurice helps you try things on)"
+      description: |
+        The passage opens into warm light and the scent of costume fabric.
+        The Coatroom awaits, where Maurice the Mannequin helps visitors
+        try on their new identities.
+        
+        Go NORTH to return to the Fantastipants Costume Emporium.
+      primary: true
+      aliases: [out, exit, coatroom]
+      
+    characters:
+      destination: ../characters/
+      description: |
+        A hidden passage connects the Wardrobe of Masks to the Hall of
+        Bodies — where the PEOPLE who wear these masks sleep and dream.
+        
+        Go to CHARACTERS to see who could wear these costumes.
+      metaphysical: true
+      
+    east:
+      destination: ../skills/
+      description: |
+        A shimmering portal leads to the Skill Nexus — where the persona
+        skill documents how masks work, how they modify their wearers,
+        and how code-switching transforms identity.
+        
+        Go EAST to learn the theory of transformation.
       
   contents:
     # Each .yml file is a costume

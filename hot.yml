@@ -17,13 +17,13 @@
 hot:
   
   # Last updated
-  updated: null  # ISO 8601
+  updated: "2026-01-09T00:00:00Z"  # ISO 8601
   
   # Who updated this? (LLM, orchestrator, human)
-  updated_by: null
+  updated_by: "bootstrap skill"
   
   # Why was it updated?
-  reason: null
+  reason: "Session bootstrap — warming context with foundational files"
 
   # PRIORITY TIERS
   # Files are loaded in tier order until budget exhausted
@@ -34,29 +34,41 @@ hot:
     files:
       - path: "kernel/constitution-core.md"
         reason: "Core principles, invariants, YAML Jazz, Postel"
-        sections: ["full"]  # or ["§1-5", "§13"] for partial
+        sections: ["full"]
         
-      # - path: "skills/moollm/SKILL.md"
-      #   reason: "Meta-skill for self-explanation"
+      - path: "PROTOCOLS.yml"
+        reason: "K-line vocabulary — protocol symbols activate traditions"
+        sections: ["full"]
+        
+      - path: "skills/INDEX.yml"
+        reason: "Registry of available skills"
+        sections: ["full"]
       
   high:
     # Load these if budget allows. Important for current task.
     description: "Task-relevant files"
     files:
-      # - path: "examples/adventure-4/ADVENTURE.yml"
-      #   reason: "Current game state"
-      #   
-      # - path: "examples/adventure-4/pub/ROOM.yml"
-      #   reason: "Current location"
-      []
+      - path: "skills/bootstrap/SKILL.md"
+        reason: "Orientation skill — the Connections tour"
+        
+      - path: "skills/speed-of-light/SKILL.md"
+        reason: "Core simulation pattern"
+        
+      - path: "skills/play-learn-lift/SKILL.md"
+        reason: "Core methodology"
       
   medium:
     # Nice to have. Provides helpful context.
     description: "Supporting context"
     files:
-      # - path: "skills/INDEX.yml"
-      #   reason: "Know what skills exist"
-      []
+      - path: "skills/yaml-jazz/SKILL.md"
+        reason: "How to interpret YAML semantically"
+        
+      - path: "skills/postel/SKILL.md"
+        reason: "Charitable interpretation principle"
+        
+      - path: "skills/constructionism/SKILL.md"
+        reason: "Educational philosophy foundation"
       
   low:
     # Load if plenty of budget remains.

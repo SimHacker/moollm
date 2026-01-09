@@ -15,7 +15,7 @@ A vast circular chamber of infinite costume possibilities. Transform your **appe
 
 ## How It Works
 
-The coat room rewrites your **entire identity** — name, pronouns, backstory, costume. All changes persist in your character file (`characters/player.yml`) throughout the adventure!
+The coat room rewrites your **entire identity** — name, pronouns, backstory, costume. All changes persist in your character directory (`characters/abstract/player/`) throughout the adventure!
 
 This isn't just dress-up. It's **becoming who you want to be**.
 
@@ -62,7 +62,7 @@ This isn't just dress-up. It's **becoming who you want to be**.
 | `CHANGE-MY-NAME [name]` | Change your character name |
 
 **DESCRIBE-ME** shows everything:
-- Your file path (`characters/player.yml` → `characters/captain-ashford.yml`)
+- Your file path (e.g., `characters/abstract/player/CHARACTER.yml`)
 - Character name, persona, costume
 - Full Mind Mirror profile (Sims traits + Leary planes)  
 - Current needs, wants, aspirations
@@ -70,10 +70,9 @@ This isn't just dress-up. It's **becoming who you want to be**.
 
 **CHANGE-MY-FILE-NAME** is fundamental:
 - In MOOLLM, you ARE your file. The filesystem IS the world.
-- `CHANGE-MY-FILE-NAME captain-ashford` renames `characters/player.yml` → `characters/captain-ashford.yml`
-- The `.yml` is optional — we know what you mean
+- Renames your character directory within the appropriate category
 - Cannot overwrite existing character files
-- All characters stay in `characters/` directory
+- Characters are organized by type: abstract/, fictional/, real-people/, animals/, robots/
 
 ---
 
@@ -287,7 +286,9 @@ These skills persist in your character file and travel with you!
 
 | Direction | Destination |
 |-----------|-------------|
-| 🚪 West | [start/](../start/) — Chamber of Commencement |
-| 🍳 (via start) | [kitchen/](../kitchen/) — Food for maze mapping |
-| 🌀 (via start) | [maze/](../maze/) — The grue-infested maze |
-| ⬆️ Up | [adventure-4/](../) |
+| 🚪 **West** | [start/](../start/) — Chamber of Commencement |
+| 🧬 **North** | [characters/](../characters/) — Hall of Bodies |
+| 🎭 **South** | [personas/](../personas/) — Wardrobe of Masks |
+| 📚 **East** | [skills/](../skills/) — Skill Nexus |
+| 🍳 (via start, west) | [kitchen/](../kitchen/) — Food for maze mapping |
+| 🌀 (via start, north) | [maze/](../maze/) — The grue-infested maze |

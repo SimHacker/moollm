@@ -38,6 +38,102 @@ tier: 1  # File read/write
 # Actions this card advertises
 
 methods:
+
+  # LIFECYCLE METHODS — Starting and resuming adventures
+  
+  START:
+    description: "Begin a fresh adventure from the starting room"
+    aliases: [RESTART, BEGIN, NEW-GAME]
+    parameters:
+      adventure_path:
+        type: path
+        description: "Path to adventure directory (default: from startup.yml)"
+    effects:
+      - "Reset ADVENTURE.yml to initial state (turn: 0, status: ready)"
+      - "Move party to starting_room"
+      - "Clear flags, evidence, quest_log"
+      - "Keep character personalities and earned skills"
+      - "Delegate to ENSURE-CHARACTER if no character exists"
+      - "Call LOOK to describe starting room"
+    output: chat (narrative welcome)
+    sequence:
+      1: "Read ADVENTURE.yml"
+      2: "Reset simulation state"
+      3: "ENSURE-CHARACTER (if needed)"
+      4: "Move party to navigation.starting_room"
+      5: "LOOK at starting room"
+      6: "Display welcome message"
+    invoked-by: [bootstrap:STARTUP, player]
+    
+  RESUME:
+    description: "Continue adventure from where it was left off"
+    parameters:
+      adventure_path:
+        type: path
+        description: "Path to adventure directory"
+    effects:
+      - "Read ADVENTURE.yml for current state"
+      - "Check for selected characters"
+      - "If no character: delegate to START"
+      - "If character exists: describe current situation"
+      - "Remind player of recent events and goals"
+    output: chat (narrative recap)
+    sequence:
+      1: "Read ADVENTURE.yml"
+      2: "Check party.members and selection.targets"
+      3: "If empty: delegate to START"
+      4: "If exists: read player.location"
+      5: "Summarize recent events from TRANSCRIPT.md tail"
+      6: "LOOK at current room"
+      7: "Display 'Welcome back!' message"
+    invoked-by: [bootstrap:STARTUP, player]
+    
+  ENSURE-CHARACTER:
+    description: "Make sure a playable character exists and is selected"
+    parameters:
+      mode:
+        type: enum
+        values: [prompt, generate, error]
+        default: prompt
+        description: "What to do if no character exists"
+    effects:
+      - "Check if characters/ has any CHARACTER.yml files"
+      - "If none exist and mode=generate: create from template"
+      - "If none exist and mode=prompt: ask user to create"
+      - "If exists but not selected: auto-select player character"
+      - "Update party.members and selection.targets"
+    sequence:
+      1: "List characters/ directory"
+      2: "If empty:"
+      2a: "  mode=generate → CREATE-CHARACTER from template"
+      2b: "  mode=prompt → Ask user 'Before we begin, who are you?'"
+      2c: "  mode=error → Fail with helpful message"
+      3: "If characters exist but party.members empty:"
+      3a: "  Auto-add player/ to party"
+      4: "If party exists but selection empty:"
+      4a: "  Auto-select party leader"
+    invoked-by: [START, RESUME]
+    
+  CREATE-CHARACTER:
+    description: "Generate a new character from template"
+    parameters:
+      template:
+        type: path
+        default: "characters/player/CHARACTER.yml"
+      name:
+        type: string
+        description: "Character name (optional, can be set later)"
+      start_room:
+        type: path
+        default: "start/"
+    effects:
+      - "Copy template to new character file"
+      - "Set initial location to start_room"
+      - "Add to party.members"
+      - "Select as active character"
+    invoked-by: [ENSURE-CHARACTER, player]
+  
+  # EXPLORATION METHODS — Moving and looking
   
   LOOK:
     description: "Describe current room"
@@ -161,18 +257,32 @@ state:
 # What this card offers to the room
 
 advertisements:
-  START-ADVENTURE:
+  RESUME:
+    score: 100
+    condition: "Continuing a session, startup hook, 'where was I?'"
+    satisfies: [continuity, orientation, immersion]
+    
+  START:
     score: 95
-    condition: "Want to explore a directory as a game world"
+    condition: "Beginning fresh, new game, restart"
+    aliases: [RESTART, BEGIN, NEW-GAME]
+    satisfies: [adventure, exploration, fresh-start]
+    
+  ENSURE-CHARACTER:
+    score: 90
+    condition: "No character selected, party empty, 'who am I?'"
+    satisfies: [identity, setup, onboarding]
     
   DUNGEON-MASTER:
-    score: 90
+    score: 85
     condition: "Need narrative framing for exploration"
+    satisfies: [narration, atmosphere, immersion]
     
   CODEBASE-ARCHAEOLOGY:
-    score: 85
+    score: 80
     condition: "Investigating unfamiliar codebase"
     hint: "The auth bug is a quest!"
+    satisfies: [investigation, debugging, exploration]
 
 # TEMPLATES
 

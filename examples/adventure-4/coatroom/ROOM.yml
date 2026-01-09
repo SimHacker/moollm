@@ -48,7 +48,17 @@ room:
         The archway back to the Chamber of Commencement. Your old
         identity awaits. Or your new one, depending on perspective.
         
-    deeper:
+    north:
+      destination: ../characters/
+      description: |
+        A spiral staircase leads UP into blue bioluminescent light.
+        You hear heartbeats. Breathing. The Hall of Bodies awaits —
+        where the PEOPLE sleep. Not costumes. SOULS with histories.
+        
+        Go NORTH to meet the characters who live in this world.
+      metaphysical: true
+      
+    south:
       destination: ../personas/
       description: |
         Behind the last rack of costumes, where the sequins stop glittering
@@ -58,8 +68,20 @@ room:
         The costumes here are THINGS. The masks there are IDENTITIES.
         This is the dressing room. That is where the souls of roles hang.
         
+        Go SOUTH to browse the masks you could wear.
       metaphysical: true
-      command: "GO DEEPER" or "VISIT WARDROBE" or "BACKSTAGE"
+      aliases: [deeper, backstage, wardrobe]
+      
+    east:
+      destination: ../skills/
+      description: |
+        A door of pure light opens to the Skill Nexus — the library of
+        capabilities. Here, the theoretical foundations are documented:
+        how to BE a character, how to WEAR a persona, how to LOOK in
+        the mirror and understand what you see.
+        
+        Go EAST to learn what you could become.
+      metaphysical: true
   
   world_position:
     x: 1
@@ -160,7 +182,7 @@ room:
           - kebab_case: "Use kebab-case (captain-ashford, not CaptainAshford)"
           - yml_optional: ".yml extension is added automatically if omitted"
         validation: |
-          BEFORE: characters/player.yml
+          BEFORE: characters/abstract/player/
           AFTER:  characters/captain-ashford.yml
           
           ✓ captain-ashford → characters/captain-ashford.yml

@@ -12,6 +12,16 @@ skills:
     entry: "SKILL.md"
     tags: ["meta", "help", "foundational", "navigation"]
     use_when: "Confused, lost, asking 'what can I do?', wanting to understand MOOLLM"
+    
+  - name: "bootstrap"
+    path: "skills/bootstrap"
+    description: "Wake up, orient, and warm the context with foundational knowledge"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "BOOTSTRAP"
+    tags: ["meta", "orientation", "warmup", "foundational", "connections"]
+    use_when: "Session start, feeling lost, asking 'what am I?', warming up context"
+    related: ["moollm", "constructionism", "play-learn-lift", "speed-of-light"]
   
   - name: "skill"
     path: "skills/skill"
