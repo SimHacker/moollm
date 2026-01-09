@@ -181,16 +181,77 @@ framing-inheritance:
     direct-quote: "Feynman wrote: '...' (cite source)"
     tradition-activation: "The Feynman approach would be..."
     inspired-character: "A character with Feynman's curiosity..."
+    explicit-impersonator: "Elvis Impersonator performs tonight..."
+    drag-celebrity-tribute: "Cher-ity Case takes the stage..."
     performative-embodiment: "Tonight, playing Feynman in our debate..."
     fictional-homage: "Professor Fineman, who reminds everyone of..."
     
   the-spectrum: |
-    MOST ABSTRACT ←────────────────────────→ MOST DIRECT
+    MOST ABSTRACT ←─────────────────────────────────────────────→ MOST DIRECT
     
-    Tradition    Inspired    Homage    Performance    Biographical    Quote
-    activation   character   (renamed)  impersonation  portrayal      (cited)
+    Tradition   Inspired   Homage     Impersonator  Drag-Tribute  Performance  Bio        Quote
+    activation  character  (renamed)  (labeled)     (pun-name)    embodiment   portrayal  (cited)
     
     All can be ethical with appropriate framing and context.
+    
+  # ─────────────────────────────────────────────────────────────────────────
+  # EXPLICIT IMPERSONATION — When the Label IS the Framing
+  # ─────────────────────────────────────────────────────────────────────────
+  
+  explicit-impersonation:
+    principle: |
+      Some performance traditions make their nature explicit through naming:
+      - "Elvis Impersonator" — the word 'impersonator' declares fiction
+      - "Cher-ity Case" — the pun name declares tribute, not identity
+      - "Tribute Band" — the word 'tribute' frames everything
+      
+      The label IS the ethical protection. No additional framing needed.
+      
+    types:
+      
+      labeled-impersonator:
+        description: "Performer explicitly called 'impersonator' or 'tribute artist'"
+        examples:
+          - "Elvis Impersonator"
+          - "Celebrity Impersonator Night"
+          - "The Australian Pink Floyd Show (tribute band)"
+          - "Weird Al Yankovic (parody artist)"
+        safety: HIGH
+        why: "The word 'impersonator/tribute/parody' IS the disclosure"
+        
+      drag-celebrity:
+        description: "Drag performer with punny name evoking celebrity"
+        examples:
+          - "Cher-ity Case"
+          - "Sharon Needles"
+          - "Chad Michaels as Cher"
+          - "Snatch Game contestants"
+        safety: HIGH
+        why: "Drag context + pun name = unmistakable performance framing"
+        precedent: |
+          RuPaul's Drag Race Snatch Game is a beloved tradition of 'playing'
+          celebrities. Everyone knows it's performance. The theatrical context,
+          costumes, and often-punny names make the fiction explicit.
+          
+      satirical-character:
+        description: "SNL-style sketch impersonation for comedy/commentary"
+        examples:
+          - "Tina Fey as Sarah Palin"
+          - "Alec Baldwin as Trump"
+          - "Any SNL political cold open"
+        safety: MEDIUM-HIGH
+        why: "Sketch comedy context + known actors = clear performance"
+        note: "Satire has additional legal protections in many jurisdictions"
+        
+    moollm-application: |
+      In MOOLLM, if a character is NAMED as an impersonator or tribute:
+      
+      - "The Elvis Impersonator enters the pub..."
+      - "Cher-ity Case, the drag queen, performs..."
+      - "A Bowie tribute act takes the stage..."
+      
+      The naming convention provides the ethical framing automatically.
+      No need for additional disclaimers — the label IS the disclaimer.
 
 # ROOM-BASED FRAMING (DRY Pattern)
 

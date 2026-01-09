@@ -304,6 +304,65 @@ elvis_impersonator_model:
 - Draws from documented sources
 - **SAFE**
 
+### Frame 6: The Drag Celebrity Tribute (PUN NAME)
+
+```yaml
+character:
+  name: "Cher-ity Case"
+  type: drag_tribute
+  evokes: "Cher"
+  
+  declaration: |
+    The pun name IS the disclosure. Everyone knows
+    "Cher-ity Case" is not Cher. The theatrical context,
+    the costume, the lip-sync — it's unmistakably tribute.
+```
+
+**Why this works:**
+- **Pun name declares fiction** — "Cher-ity Case" ≠ "Cher"
+- **Drag context is theatrical** — everyone knows it's performance
+- **Beloved tradition** — RuPaul's Snatch Game, celebrity impersonation in drag
+- **Celebrates through exaggeration** — amplifying what we love
+- **The costume IS the quote** — visual citation of iconic looks
+
+**The Snatch Game precedent:**
+
+```yaml
+snatch_game_ethics:
+  what_it_is:
+    - Drag queens "playing" celebrities
+    - Comedic impersonation in game show format
+    - Punny names optional but common
+    - Explicitly framed as performance
+    
+  why_its_ethical:
+    - The TV show format declares "this is a game"
+    - Audience knows it's drag queens playing characters
+    - Celebrates the originals through homage
+    - No one is deceived about identity
+    
+  famous_examples:
+    - Chad Michaels as Cher (tribute artist, not claim to BE)
+    - Jinkx Monsoon as Little Edie
+    - BenDeLaCreme as Maggie Smith
+    
+  in_moollm:
+    naming: "Pun names (Cher-ity Case) or 'as' construction (Chad as Cher)"
+    context: "Theatrical, drag, tribute, snatch-game"
+    safety: "HIGH — the drag context IS the framing"
+```
+
+**Naming conventions that self-declare:**
+
+| Pattern | Example | Why It's Safe |
+|---------|---------|---------------|
+| Pun on name | "Cher-ity Case" | Obviously not the real person |
+| "As" construction | "Chad Michaels as Cher" | Declares performance explicitly |
+| Tribute + name | "Dolly Parton Tribute Act" | The word "tribute" frames it |
+| Impersonator label | "Celebrity Impersonator Night" | "Impersonator" = not-the-person |
+
+- **SAFE** — The naming convention IS the ethical protection
+
 ---
 
 ## The "Magic: The Gathering" Model

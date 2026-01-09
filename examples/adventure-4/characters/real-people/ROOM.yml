@@ -126,7 +126,7 @@ room:
     #
     # MOST ABSTRACT ←──────────────────────────────────→ MOST DIRECT
     #
-    # Tradition    Inspired    Homage    Performance    Biographical    Quote
+    # Tradition    Inspired    Homage     Performance    Biographical    Quote
     # activation   character   (renamed)  impersonation  portrayal      (cited)
     #
     # Choose the appropriate level for your purpose.
@@ -147,6 +147,24 @@ room:
         example: "Professor Fineman, who reminds everyone of that physicist..."
         when: "Obvious reference but plausibly deniable fiction"
         safety: "Medium-high — the rename creates distance"
+        
+      explicit_impersonator:
+        example: "Elvis Impersonator performs at the Rusty Lantern tonight..."
+        when: "Clearly labeled as impersonation/tribute artist"
+        safety: "High — the word 'impersonator' IS the framing"
+        precedent: |
+          Elvis impersonators, celebrity drag (Divine as Divine, not Bette Davis),
+          Snatch Game contestants, tribute bands. The label declares the fiction.
+          'Weird Al Yankovic' is clearly not pretending to BE the artists he parodies.
+          
+      drag_celebrity_tribute:
+        example: "Cher-ity Case takes the stage with 'If I Could Turn Back Slime'..."
+        when: "Drag/parody name is pun on real person, costume evokes them"
+        safety: "High — the pun name declares it's tribute, not identity theft"
+        precedent: |
+          Drag names like 'Sharon Needles', 'Trixie Mattel', 'Chad Michaels as Cher'.
+          The theatrical context + punny name = clear performance framing.
+          Snatch Game is explicitly 'playing' celebrities, not 'being' them.
         
       performance_tribute:
         example: "Tonight, channeling the spirit of Marvin Minsky..."
