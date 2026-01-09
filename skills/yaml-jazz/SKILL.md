@@ -114,12 +114,66 @@ And listen: **"YAML" sounds like jazz scat!** *yaml aml ding dong!* -- echoing T
 
 ---
 
+## Empirical Evidence: Entropy Collapse
+
+### The Discovery (April 2025)
+
+[Sunil Kumar](https://x.com/__sunil_kumar_/status/1916926342882594948) (Groundlight AI, ex-Meta, Harvey Mudd) discovered that **switching from JSON to YAML for tool calling massively improved model performance**:
+
+> *"Changing my model's tool calling interface from JSON to YAML had surprising side effects."*
+>
+> *"Entropy collapse is one of the biggest issues with GRPO. Surprisingly, changing from JSON to YAML massively improved generation entropy stability, yielding much stronger performance."*
+>
+> *"Forcing a small model to generate properly structured JSON massively constrains the model's ability to search and reason."*
+
+### Why JSON Hurts LLMs
+
+| JSON Requirement | LLM Impact |
+|------------------|------------|
+| Strict bracket matching `{}[]` | Reduces search space |
+| Mandatory commas | Catastrophic forgetting during training |
+| Quote escaping `\"` | Token overhead, error-prone |
+| No comments allowed | Lost context between fields |
+| Rigid syntax | **Entropy collapse** — model becomes brittle |
+
+### Why YAML Helps LLMs
+
+| YAML Feature | LLM Benefit |
+|--------------|-------------|
+| Minimal syntax overhead | More tokens for reasoning |
+| Indentation = structure | Natural for text models |
+| Comments allowed | Context preserved |
+| Flexible formatting | Entropy preserved |
+| Human-readable | Training data overlap |
+
+### Sunil's Simplified Schema
+
+```yaml
+<tool>  
+name: <tool name>  
+arg1: value1  
+arg2: value2  
+</tool>
+```
+
+No spacing requirements. No bracket matching. Just semantic structure.
+
+### The Insight
+
+> *"Anything to reduce syntax is a win!"*
+> — Sunil Kumar
+
+This validates MOOLLM's approach: **YAML Jazz isn't just aesthetic preference — it's computationally advantageous for LLMs.**
+
+---
+
 ## Anti-Patterns
 
 ❌ **Rigid schema enforcement** — "field X is required" without context  
 ❌ **Stripping comments** — losing the soul  
 ❌ **Machine-only YAML** — if humans can't read it, use JSON  
-❌ **Over-specification** — killing the jazz
+❌ **Over-specification** — killing the jazz  
+❌ **JSON for tool calls** — entropy collapse, catastrophic forgetting
 
 ---
 

@@ -39,6 +39,13 @@ principles:
   structure-guides: "Hierarchy implies relationship"
   flexibility: "Accept variations, emit consistency (Postel)"
   human-readable: "Optimize for understanding, not parsing"
+  entropy-preservation: "YAML preserves generation entropy; JSON causes collapse"
+
+# Empirical validation: Sunil Kumar (Groundlight AI, 2025) found that
+# switching from JSON to YAML for tool calling "massively improved
+# generation entropy stability" during GRPO training. JSON's strict
+# syntax constrains the model's ability to search and reason.
+# https://x.com/__sunil_kumar_/status/1916926342882594948
 
 example: |
   # A character's inner conflict
