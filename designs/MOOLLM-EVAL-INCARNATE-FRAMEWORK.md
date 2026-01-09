@@ -486,6 +486,10 @@ MOOLLM:       The LLM interprets natural language intent as behavior
 
 SimAntics democratized behavior authoring. Empathic expressions take this further — no visual editor needed, just describe what you want.
 
+**Edith: The Development Environment**
+
+The Sims included [Edith](./sims-edith-editor.md) — a live debugging and content creation tool accessible by pressing 'e' during gameplay. Object browsers, tree editors, simulation constant tuning — all while the game ran. MOOLLM inherits this philosophy: the filesystem IS Edith. Standard file operations replace custom dialogs. The world is always inspectable and editable.
+
 **Action Queues:**
 
 ```yaml
@@ -552,6 +556,15 @@ Will Wright's profound insight: **Players imagine simulations are vastly more de
 > *"He designs games to run on two computers at once: the electronic one on the player's desk, running his shallow tame simulation, and the biological one in the player's head, running their deep wild imagination."*
 
 SimCity doesn't simulate individual people. The Sims doesn't simulate real psychology. But players BELIEVE they do — they project depth onto sparse mechanics.
+
+**Scott McCloud's Masking:** The Sims' visual design applies McCloud's "masking" from *Understanding Comics*:
+
+| Element | Style | Player Effect |
+|---------|-------|---------------|
+| Environment | Detailed, realistic | Immersive |
+| Characters | Abstract, simple | Player projects self |
+
+Abstract characters against realistic backgrounds increase **projective identification** — "that's ME in there." See [sims-inclusivity.md](./sims-inclusivity.md) for how this enabled inclusive representation.
 
 **The Two Computers:**
 
@@ -1448,6 +1461,14 @@ Don't update the screen (tokenize) on every keystroke. Wait until the user pause
 - [MEMGPT-ANALYSIS.md](./MEMGPT-ANALYSIS.md) — OS-inspired context management
 - [MOOLLM-MANIFESTO.md](./MOOLLM-MANIFESTO.md) — Core philosophy
 - [constitution-design-summary.md](./constitution-design-summary.md) — Ethical foundations
+- [stanza-notes.md](./stanza-notes.md) — Linguistic motherboard philosophy
+
+**The Sims → MOOLLM Documents:**
+- [sims-design-index.md](./sims-design-index.md) — Master index of Sims influences
+- [sims-inclusivity.md](./sims-inclusivity.md) — How inclusivity saved The Sims
+- [sims-pie-menus.md](./sims-pie-menus.md) — Pie menus, memory palaces, adventure maps
+- [sims-simantics-vm.md](./sims-simantics-vm.md) — SimAntics as proto-MOOLLM
+- [don-hopkins-projects.md](./don-hopkins-projects.md) — 40-year project lineage
 
 **Core Skills:**
 - [`skills/skill/`](../skills/skill/) — The meta-skill for creating skills
@@ -1474,6 +1495,25 @@ Don't update the screen (tokenize) on every keystroke. Wait until the user pause
 - [`monkey-chair.yml`](../examples/adventure-4/pub/stage/palm-nook/study/monkey-chair.yml) — Stroopwafel's gift
 - [`palm-nook/gym/infinite-climb.yml`](../examples/adventure-4/pub/stage/palm-nook/gym/infinite-climb.yml) — Sun Wukong's jungle gym
 - [`palm-nook/rest/hammock.yml`](../examples/adventure-4/pub/stage/palm-nook/rest/hammock.yml) — Marieke's family heirloom
+
+**The Sims Design Documents:**
+- [sims-design-index.md](./sims-design-index.md) — Master index of all Sims → MOOLLM documents
+- [sims-maxis-requirements.md](./sims-maxis-requirements.md) — The Seven Points of Sim
+- [sims-happy-friends-home.md](./sims-happy-friends-home.md) — Project X proposal (1996)
+- [sims-find-best-action.md](./sims-find-best-action.md) — Jamie Doornbos' autonomy algorithm
+- [sims-simantics-vm.md](./sims-simantics-vm.md) — SimAntics as proto-LLM
+- [sims-object-model.md](./sims-object-model.md) — Objects, properties, CARD.yml
+- [sims-social-system.md](./sims-social-system.md) — Relationships, groups, conversations
+- [sims-personality-motives.md](./sims-personality-motives.md) — Needs, traits, aspirations
+- [sims-room-spatial.md](./sims-room-spatial.md) — Rooms, routing, portals
+- [sims-time-events.md](./sims-time-events.md) — Time, disasters, economy
+- [sims-edith-editor.md](./sims-edith-editor.md) — Live debugging philosophy
+- [sims-animation-visuals.md](./sims-animation-visuals.md) — Animation to prose translation
+- [sims-portable-objects.md](./sims-portable-objects.md) — Carrying, inventory, containment
+- [sims-services-economy.md](./sims-services-economy.md) — Money, services, disasters
+- [sims-team-history.md](./sims-team-history.md) — Maxis/EA timeline, team credits, naming saga
+- [sims-tiny-life.md](./sims-tiny-life.md) — Indie Sims alternative, pixel abstraction
+- [simcity-multiplayer-micropolis.md](./simcity-multiplayer-micropolis.md) — Multiplayer, OLPC, constructionist education
 
 ---
 
