@@ -2,6 +2,16 @@
 
 > *"All effects are buffs. Some are just shitty."*
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [time/](../time/) | Duration measured in simulation turns |
+| [needs/](../needs/) | Buffs affect need decay |
+| [character/](../character/) | Buffs stored in character state |
+| [persona/](../persona/) | Personas grant buffs |
+| [examples/adventure-4/](../../examples/adventure-4/) | Grue-repellent in action |
+
 **Full Spec:** [SKILL.md](SKILL.md)
 
 ## Overview
@@ -60,12 +70,6 @@ character:
 - Combat (berserker-rage, stoneskin)
 - Adventure-4 specific (grue-repellent!)
 
-## Related Skills
-
-- [time/](../time/) — Duration measured in simulation turns
-- [needs/](../needs/) — Buffs affect need decay
-- [character/](../character/) — Buffs stored in character state
-- [persona/](../persona/) — Personas grant buffs
 
 ## Tools Required
 

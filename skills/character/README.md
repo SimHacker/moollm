@@ -2,6 +2,18 @@
 
 > *"File is identity. Location is presence. Relationships are memory."*
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [persona/](../persona/) | Identity layers on top of character |
+| [room/](../room/) | Where characters live |
+| [buff/](../buff/) | Temporary effects on characters |
+| [needs/](../needs/) | Sims-style dynamic motivation |
+| [mind-mirror/](../mind-mirror/) | Personality system |
+| [incarnation/](../incarnation/) | Characters write their own souls |
+| [examples/adventure-4/characters/](../../examples/adventure-4/characters/) | Live character catalog |
+
 **Full Spec:** [SKILL.md](SKILL.md)
 
 ## Overview
@@ -43,13 +55,6 @@ relationships:
 | `GOODBYE [char]` | Dismiss |
 | `TALK TO [char]` | Converse |
 
-## Related Skills
-
-- [persona/](../persona/) — Identity layers
-- [room/](../room/) — Where characters live
-- [buff/](../buff/) — Temporary effects
-- [needs/](../needs/) — Sims-style needs
-- [mind-mirror/](../mind-mirror/) — Personality
 
 ## Tools Required
 

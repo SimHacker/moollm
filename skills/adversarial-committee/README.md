@@ -2,9 +2,19 @@
 
 > "No single story is true — but the ensemble approximates actionable wisdom."
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [roberts-rules/](../roberts-rules/) | Parliamentary procedure |
+| [rubric/](../rubric/) | Scoring criteria |
+| [evaluator/](../evaluator/) | Independent assessment |
+| [soul-chat/](../soul-chat/) | Multi-agent conversation |
+| [speed-of-light/](../speed-of-light/) | All debate in one call |
+| [designs/mike-gallaher-ideas.md](../../designs/mike-gallaher-ideas.md) | Mike Gallaher's methodology |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
-- [Background](../../designs/mike-gallaher-ideas.md) — Mike Gallaher's methodology
 
 ## Overview
 
@@ -35,10 +45,3 @@ Adversarial debate performs **structured perturbation of the narrative space** �
 
 See: [designs/mike-gallaher-ideas.md](../../designs/mike-gallaher-ideas.md)
 
-## Related Skills
-
-- [roberts-rules](../roberts-rules/) — Parliamentary procedure
-- [rubric](../rubric/) — Scoring criteria
-- [evaluator](../evaluator/) — Independent assessment
-- [soul-chat](../soul-chat/) — Multi-agent conversation
-- [speed-of-light](../speed-of-light/) — Instant simulation

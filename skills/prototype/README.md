@@ -2,6 +2,16 @@
 
 > *"Objects all the way down. No classes. Just clones and delegation."*
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [skill/](../skill/) | Contains Delegation Object Protocol |
+| [character/](../character/) | Characters as prototype instances |
+| [card/](../card/) | Cards as cloneable capabilities |
+| [constructionism/](../constructionism/) | Learning by cloning and modifying |
+| [skill/delegation-object-protocol.md](../skill/delegation-object-protocol.md) | Self-like inheritance |
+
 The philosophy behind Self, JavaScript prototypes, and MOOLLM inheritance.
 
 ## The Core Insight
@@ -37,14 +47,6 @@ Key ideas:
 
 > *"Self is a network, not a node."* — David Ungar
 
-## Related Skills
-
-| Skill | Connection |
-|-------|------------|
-| [skill/](../skill/) | Contains the Delegation Object Protocol |
-| [character/](../character/) | Characters as prototype instances |
-| [card/](../card/) | Cards as cloneable capabilities |
-| [constructionism/](../constructionism/) | Learning by cloning and modifying |
 
 ## Navigation
 
