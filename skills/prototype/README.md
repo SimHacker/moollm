@@ -39,7 +39,7 @@ MOOLLM uses prototype-based inheritance everywhere:
 
 ## The Self Language
 
-Created by **David Ungar** and **Randall Smith** at Xerox PARC (1987), later Stanford and Sun.
+Created by **David Ungar** and **Randall Smith** at Stanford (1987), continued at Sun Microsystems.
 
 Key ideas:
 - **Everything is an object** (including methods)

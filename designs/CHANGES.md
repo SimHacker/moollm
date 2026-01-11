@@ -27,6 +27,20 @@
 
 ---
 
+## PR Description Protocol
+
+**When creating a Pull Request:**
+
+1. Ask user to paste the GitHub PR comparison page (commit list, files changed)
+2. Write a PR description as a **markdown code block** the user can copy
+3. Include:
+   - **TL;DR** — one-line summary
+   - **Key Changes** — grouped thematically with emoji headers
+   - **Files Changed** — bullet list of affected files with brief descriptions
+4. Use tables where appropriate for invocation/incarnation, mode comparisons, etc.
+
+---
+
 ## Era I: Genesis & The Documentation Explosion (1-40)
 
 **`cf7ebc0`** first commit

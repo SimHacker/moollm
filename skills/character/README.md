@@ -23,6 +23,31 @@
 
 Core patterns for all characters in MOOLLM. Players, NPCs, companions, cats — all are characters.
 
+## Invocation vs Incarnation
+
+**You can invoke a character without incarnating them.**
+
+| Mode | Where They Exist | Persistence |
+|------|------------------|-------------|
+| **Invoke** | Chat + session log | Narrative memories |
+| **Incarnate** | Own directory | `CHARACTER.yml` soul file |
+
+**Invoke for:**
+- A quick conversation ("Ask Minsky about K-lines")
+- Adventure companions who accompany the party
+- Debate participants around the pie menu table
+- The [Annie Hall Protocol](../hero-story/) — experts appear to correct mistakes!
+
+**Incarnate when:**
+- Character has become important to the story
+- They should persist across sessions/adventures
+- They want to author their own soul file
+- They need their own home directory
+
+**You can escalate at any time.** Palm started as a ACME catalog entry of a Monkey's Paw, became an order, materialized a full monkey, and finally incarnated with full autonomy.
+
+See: [incarnation/](../incarnation/) for the full ceremony
+
 ## Key Concept: Home vs Location
 
 ```yaml

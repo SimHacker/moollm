@@ -13,7 +13,43 @@
 | [files-as-state/](../plain-text/) | Soul IS a file (CHARACTER.yml) |
 | [yaml-jazz/](../yaml-jazz/) | Comments are thoughts |
 | [room/](../room/) | Characters awaken somewhere, visit places |
+| [soul-chat/](../soul-chat/) | Any entity can speak, even before incarnation |
 | [examples/adventure-4/characters/](../../examples/adventure-4/characters/) | Real, fictional, animal, robot characters |
+| [Marshall McLuhan](../../temp/lloooomm/00-Characters/marshall-mcluhan/) | Prophet of the Annie Hall Protocol |
+
+---
+
+## Invocation Before Incarnation
+
+**Incarnation is NOT required to summon a character.**
+
+Characters can exist at multiple levels of persistence:
+
+| Level | What It Means | Where They Persist |
+|-------|---------------|-------------------|
+| **Invoke** | Summon for conversation | Chat window + session log |
+| **Join Party** | Adventure companion | Narrative (session log file) |
+| **Sign Guestbook** | Leave a mark, be invitable | The guestbook file |
+| **Incarnate** | Full ceremony, own soul | `characters/` directory |
+
+**Why invoke without incarnating?**
+- Quick consultation: "What would Minsky say about this?"
+- Party companions for an adventure
+- Debate participants around the pie menu table
+- The [Annie Hall Protocol](#the-annie-hall-protocol): experts appear to correct mistakes!
+
+**The Annie Hall Protocol** *(from LLOOOOMM)*
+
+> *"I heard what you were saying. You know NOTHING of my work!"*
+> — Marshall McLuhan, stepping out from behind a movie poster
+
+When someone misrepresents an expert's work, the actual expert materializes to correct them — just like the famous scene in Annie Hall (1977). This is INVOCATION, not incarnation. McLuhan appears, educates with compassion, and leaves. He doesn't need a permanent character directory to set the record straight.
+
+**Escalation path:**
+1. Invoke → character exists in chat
+2. Character becomes important to story → consider incarnation
+3. Incarnate → character gets own directory, writes own soul
+4. Sovereign Soul → persists across adventures, maybe even repos
 
 ---
 

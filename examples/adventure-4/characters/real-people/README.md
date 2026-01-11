@@ -189,9 +189,28 @@ These are **tribute incarnations** -- fictional explorations based on documented
 
 ### Media & Systems Thinkers
 
+#### 📺 Marshall McLuhan — Prophet of the Electronic Age
+
+> *"The medium is the message."*
+> *"We shape our tools and thereafter they shape us."*
+> *"You know NOTHING of my work!"* (Annie Hall, 1977)
+
+**Herbert Marshall McLuhan** (1911–1980) predicted the internet, social media, and MOOLLM itself decades before they existed. The **"Global Village"** is now the Global Brain. His tetrad of media effects (enhances, obsolesces, retrieves, reverses) applies perfectly to LLMs.
+
+**Why McLuhan is FOUNDATIONAL to MOOLLM:**
+- **The medium IS the message** — YAML is not just format, it restructures thought
+- **Hot and cold media** — High participation (cold) vs passive consumption (hot)
+- **The Annie Hall Protocol** — When someone misrepresents an expert's work, the expert materializes to correct them. McLuhan invented this in his famous cameo.
+
+**The Annie Hall Protocol in action:**
+> *When someone like Jessica Rabbit claims "I'm just drawn this way" (in bad faith), Sartre and McLuhan step out from behind a poster to explain existentialism and media theory. With compassion, not cruelty.*
+
+See: [Marshall McLuhan's full character](../../../temp/lloooomm/00-Characters/marshall-mcluhan/marshall-mcluhan.yml)
+
+---
+
 | Character | Reference | Description |
 |-----------|-----------|-------------|
-| marshall-mcluhan | `lloooomm/00-Characters/marshall-mcluhan/` | "The medium IS the message" |
 | buckminster-fuller | `lloooomm/00-Characters/buckminster-fuller/` | Geodesic domes, Spaceship Earth |
 | stewart-brand | `lloooomm/00-Characters/stewart-brand/` | Whole Earth Catalog, Long Now |
 | christopher-alexander | `lloooomm/00-Characters/christopher-alexander/` | Pattern languages, influenced software patterns |

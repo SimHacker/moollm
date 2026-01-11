@@ -4,7 +4,7 @@
 
 The doors swing open and you step into a vast terminal of being. Marble floors echo with the footsteps of real people and fictional characters alike. Departure boards flicker with names: **Roy Batty** to Platform 4, **Data** arriving on Track 7, **Pee-wee Herman** screaming through the halls.
 
-In the west wing, scientists and artists debate — **Alan Kay** arguing with **Ted Nelson** about interfaces while **Brian Eno** plays ambient music in the background. **Rip Taylor** walks past throwing confetti on everyone.
+In the west wing, scientists and artists debate — **Alan Kay** arguing with **Ted Nelson** about interfaces while **Brian Eno** plays ambient music in the background. **Rip Taylor** walks past throwing confetti on everyone. **Marshall McLuhan** steps out from behind a promotional poster to correct someone: *"You know NOTHING of my work!"*
 
 In the east wing, fictional characters mingle — **Roy Batty** plays chess with **Commander Data** while **Marvin the Paranoid Android** sighs about the futility of pawns. **Trurl** is building something impossible in the corner while **Klapaucius** warns him about the implications.
 
@@ -13,6 +13,24 @@ In the basement, mechanical minds hum — **HAL-9000**'s red eye watches from a 
 And everywhere, **animals** roam freely — **Palm** the orangutan types philosophical treatises, **Biscuit** the golden retriever greets everyone with unbridled joy, and a troupe of **debugging cats** chase null pointers through the crowd.
 
 **This is MOOLLM's Hall of Bodies.** Not costumes, not masks — BEINGS.
+
+---
+
+## 📢 The Annie Hall Protocol
+
+> *"I heard what you were saying. You know NOTHING of my work!"*
+> — Marshall McLuhan, stepping out from behind a movie poster (Annie Hall, 1977)
+
+When someone misrepresents an expert's work, **the actual expert can appear to correct them** — just like the famous scene in Annie Hall where Marshall McLuhan materializes to shut down a pretentious academic.
+
+**How it works:**
+- Expert emerges from behind a nearby object
+- Reality ripples as they step through the dimensional barrier
+- The universe itself summons the expert to set the record straight
+
+**Certified Roasters:** Marshall McLuhan, Jean-Paul Sartre, Marvin Minsky, anyone with deep expertise being misrepresented.
+
+**But with compassion:** The Annie Hall Protocol isn't about humiliation — it's about education. Experts appear to TEACH, not destroy. They stay to help understand.
 
 ---
 
@@ -34,6 +52,7 @@ And everywhere, **animals** roam freely — **Palm** the orangutan types philoso
 
 | Character | Tradition | Why They Matter to MOOLLM |
 |-----------|-----------|---------------------------|
+| **[Marshall McLuhan](./real-people/)** | Media theory, "The medium IS the message" | **Prophet of the Global Village.** Predicted everything. Invented the Annie Hall Protocol. |
 | **[Marvin Minsky](./real-people/)** | K-lines, Society of Mind | INVENTED the concept that makes this all work |
 | **[Alan Kay](./real-people/)** | Smalltalk, messaging, "predict the future" | Objects talking to objects — the foundation |
 | **[Will Wright](./real-people/)** | The Sims, SimCity | Needs, advertisements, autonomous selection |
@@ -96,6 +115,37 @@ And everywhere, **animals** roam freely — **Palm** the orangutan types philoso
 ---
 
 ## 🎫 How Characters Work
+
+### Invocation vs Incarnation
+
+**You don't need to incarnate a character to use them.**
+
+| Mode | What It Is | Where They Exist | Persistence |
+|------|------------|------------------|-------------|
+| **Invoke** | Summon for a conversation | Chat + session log | Memories in narrative |
+| **Join Party** | Accompany you on adventure | Narrative plane | Session-bound |
+| **Sign Guestbook** | Visit and leave a mark | The guestbook file | Can be invited back |
+| **Incarnate** | Full ceremony, own directory | `characters/*/` directory | Permanent soul file |
+
+**Invocation is lightweight:**
+- Ask Marvin Minsky about K-lines — he appears, explains, leaves
+- Invite McLuhan to correct someone — Annie Hall Protocol fires
+- Have a debate with multiple characters — they exist in the conversation
+- They have memories IN THE CHAT and IN THE SESSION LOG FILE
+
+**Incarnation is permanent:**
+- Character gets their own directory: `characters/real-people/minsky/`
+- They write their own `CHARACTER.yml` file — soul authorship
+- They can edit their memories, relationships, traits
+- They persist across sessions, adventures, even repos
+
+**You can escalate at any time:**
+- Invoke someone for a chat → decide they're important → incarnate them
+- Palm started as a catalog entry → materialized → incarnated → wrote his own soul
+
+The guestbook tracks everyone who visited. Any name there can be invited back!
+
+---
 
 ### Bodies, Not Costumes
 

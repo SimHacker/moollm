@@ -1,6 +1,6 @@
 # MOOLLM MANIFESTO
 
-> *Skills are programs. The LLM is `eval()`. The filesystem is the world.*
+> *[Skills](../skills/) are programs. The LLM is `eval()`. The filesystem is the world.*
 
 ---
 
@@ -28,7 +28,7 @@ But the single-voice LLM smooths all these into one bland answer.
 
 **The filesystem is a microworld.**
 
-Directories are **rooms** you enter and exit. Files are **objects** you examine and use. Characters are **cards** you summon. The LLM doesn't just read files — it **navigates a memory palace**, goes on **adventures**, talks to **characters**, learns **skills**.
+Directories are **[rooms](../skills/room/)** you enter and exit. Files are **objects** you examine and use. Characters are **[cards](../skills/card/)** you summon. The LLM doesn't just read files — it **navigates a [memory palace](../skills/memory-palace/)**, goes on **[adventures](../skills/adventure/)**, talks to **[characters](../skills/character/)**, learns **[skills](../skills/skill/)**.
 
 ```mermaid
 flowchart LR
@@ -49,7 +49,7 @@ flowchart LR
     style INSPECTABLE fill:#4caf50,stroke:#2e7d32,stroke-width:3px
 ```
 
-And because it's all files — **you can see everything**. Open `hot.yml` to see what's loaded. Read `PLAN.yml` before it runs. Replay the adventure in the session log. **The magic is inspectable.**
+And because it's all [files](../skills/plain-text/) — **you can see everything**. Open `hot.yml` to see what's loaded. Read `PLAN.yml` before it runs. Replay the [adventure](../skills/adventure/) in the [session log](../skills/session-log/). **The magic is inspectable.**
 
 ---
 
@@ -59,19 +59,19 @@ We extend [Anthropic's skill model](https://docs.anthropic.com/en/docs/build-wit
 
 | # | Innovation | What It Means | Proof |
 |---|------------|---------------|-------|
-| 1 | **Instantiation** | Skills clone into living directories | [`adventure/`](../skills/adventure/) → [`adventure-4/`](../examples/adventure-4/) with 150+ files |
-| 2 | **Three-Tier Persistence** | Platform → Narrative → State | [6000+ line session log](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) |
-| 3 | **K-lines** | Names activate conceptual clusters | "[Palm](../examples/adventure-4/characters/animals/palm/)" activates soul, history, relationships |
-| 4 | **Empathic Templates** | Smart generation, not string substitution | [Biscuit](../examples/adventure-4/characters/animals/biscuit/) generated from traits |
-| 5 | **Speed of Light** | Many turns, one call | [33-turn Fluxx](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#33-turns-of-pure-gezelligheid), [21-turn cat prowl](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#ten-cats-one-garden-infinite-independence) |
-| 6 | **CARD.yml** | Machine-readable skill interface | Every [skill](../skills/) exposes methods, tools, state |
-| 7 | **Ethical Framing** | Room-based DRY ethics | [`pub/stage/`](../examples/adventure-4/pub/stage/) inherits performance framing |
+| 1 | **[Instantiation](../skills/incarnation/)** | Skills clone into living directories | [`adventure/`](../skills/adventure/) → [`adventure-4/`](../examples/adventure-4/) with 150+ files |
+| 2 | **[Three-Tier Persistence](../skills/honest-forget/)** | Platform → Narrative → State | [6000+ line session log](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) |
+| 3 | **[K-lines](../skills/k-lines/)** | Names activate conceptual clusters | "[Palm](../examples/adventure-4/characters/animals/palm/)" activates soul, history, relationships |
+| 4 | **[Empathic Templates](../skills/empathic-templates/)** | Smart generation, not string substitution | [Biscuit](../examples/adventure-4/characters/animals/biscuit/) generated from traits |
+| 5 | **[Speed of Light](../skills/speed-of-light/)** | Many turns, one call | [33-turn Fluxx](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#33-turns-of-pure-gezelligheid), [21-turn cat prowl](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#ten-cats-one-garden-infinite-independence) |
+| 6 | **[CARD.yml](../skills/card/)** | Machine-readable skill interface | Every [skill](../skills/) exposes methods, tools, [advertisements](../skills/advertisement/), state |
+| 7 | **[Ethical Framing](../skills/representation-ethics/)** | Room-based DRY ethics | [`pub/stage/`](../examples/adventure-4/pub/stage/) inherits performance framing |
 
 > 📚 Deep dive: [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md)
 
 ---
 
-## Speed of Light: The Core Insight
+## [Speed of Light](../skills/speed-of-light/): The Core Insight
 
 Traditional multi-agent systems:
 
@@ -80,23 +80,23 @@ Agent A → [tokenize] → API → [detokenize] → Agent B → [tokenize] → A
 Each boundary: +noise, +latency, +cost, -precision
 ```
 
-**MOOLLM: Speed of Light**
+**MOOLLM: [Speed of Light](../skills/speed-of-light/)**
 
 ```
-Human → [tokenize ONCE] → LLM simulates A, B, C, D at light speed → [detokenize ONCE] → Human
+Human → [tokenize ONCE] → LLM simulates A, B, C, D at light speed, many turns → [detokenize ONCE] → Human
 ```
 
-One boundary in. One boundary out. Maximum precision preserved.
+One boundary in. One boundary out. Maximum precision preserved. See [Postel's Law](../skills/postel/) for generous interpretation.
 
 **Proof:** In one LLM call, I simulated 8 characters playing [33 turns of Stoner Fluxx](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#33-turns-of-pure-gezelligheid). In another, [10 cats prowled 21 turns through the maze](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#ten-cats-one-garden-infinite-independence).
 
-The context window is a **stage**, not a limit.
+The context window is a **[stage](../examples/adventure-4/pub/stage/)**, not a limit.
 
 ---
 
 ## Many-Voiced: Committees, Not Centroids
 
-MOOLLM simulates **ensembles of perspectives** within ONE call:
+MOOLLM simulates **ensembles of perspectives** within ONE call using [adversarial-committee](../skills/adversarial-committee/):
 
 ```mermaid
 flowchart TD
@@ -115,7 +115,7 @@ flowchart TD
     style WISDOM fill:#ffeb3b,stroke:#f57f17,stroke-width:3px
 ```
 
-Each character inherits from real traditions ([hero-stories](../skills/hero-story/)) but modulates authentically. They **debate** using parliamentary procedure. An **independent evaluator** scores output against rubrics.
+Each character inherits from real traditions ([hero-story](../skills/hero-story/)) but modulates authentically. They **[debate](../skills/debate/)** using parliamentary procedure. An **independent evaluator** scores output against rubrics.
 
 Stories that survive cross-examination are more robust than the statistical center.
 
@@ -166,7 +166,7 @@ flowchart LR
 
 ## The Vocabulary
 
-MOOLLM coins memorable terms. This is intentional — a domain-specific language for computational AI:
+MOOLLM coins memorable terms as [skill](../skills/skill/) names and [k-lines](../skills/k-lines/). This is intentional — a domain-specific language for computational AI:
 
 | Term | Meaning |
 |------|---------|
@@ -178,7 +178,7 @@ MOOLLM coins memorable terms. This is intentional — a domain-specific language
 | **[files-as-state](../skills/plain-text/)** | Everything persists. No hidden memory. |
 | **[k-lines](../skills/k-lines/)** | Names that activate conceptual clusters. |
 
-The K-lines table at the top of each skill isn't just navigation — it's the vocabulary in action. **The terms ARE the API.**
+The [K-lines](../skills/k-lines/) table at the top of each [skill](../skills/skill/) isn't just navigation — it's the vocabulary in action. **The terms ARE the API.**
 
 ---
 
