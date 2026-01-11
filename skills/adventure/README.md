@@ -8,12 +8,14 @@
 |--------|-------------|
 | [room/](../room/) | Adventure IS room + narrative framing |
 | [character/](../character/) | Player and NPC management |
+| [incarnation/](../incarnation/) | NPCs can be popped out into characters |
+| [simulation/](../simulation/) | Adventure extends simulation |
 | [card/](../card/) | Companions on the quest |
 | [memory-palace/](../memory-palace/) | Spatial knowledge organization |
+| [world-generation/](../world-generation/) | Questions create places |
 | [debugging/](../debugging/) | Investigation as adventure |
 | [sniffable-python/](../sniffable-python/) | Linter feedback loop drives generation |
 | [examples/adventure-4/](../../examples/adventure-4/) | Live world with 36 rooms |
-| [examples/adventure-4/LINTER.yml](../../examples/adventure-4/LINTER.yml) | Validation output for LLM consumption |
 
 **Full Spec:** [SKILL.md](SKILL.md)
 

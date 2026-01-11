@@ -7,9 +7,11 @@
 | K-Line | Why Related |
 |--------|-------------|
 | [room/](../room/) | Navigable locations (containers aren't) |
+| [object/](../object/) | Things in containers |
 | [adventure/](../adventure/) | Root state |
 | [prototype/](../prototype/) | Self-like delegation |
 | [logistic-container/](../logistic-container/) | Factorio-style extension |
+| [examples/adventure-4/maze/](../../examples/adventure-4/maze/) | Container for dark dangerous rooms |
 
 ## Quick Start
 

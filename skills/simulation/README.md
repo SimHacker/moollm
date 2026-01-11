@@ -10,7 +10,11 @@
 | [time/](../time/) | Turn mechanics |
 | [party/](../party/) | Party and selection state |
 | [character/](../character/) | Player entities |
+| [needs/](../needs/) | Dynamic motivations |
+| [buff/](../buff/) | Temporary effects |
+| [action-queue/](../action-queue/) | Task scheduling |
 | [prototype/](../prototype/) | Concrete types inherit from abstract |
+| [speed-of-light/](../speed-of-light/) | Many turns in one call |
 
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol

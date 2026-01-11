@@ -29,27 +29,42 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 
 ---
 
-## Skill Index (54 skills)
+## Skill Index (~80 skills)
 
 ### 🧠 Philosophy & Core Concepts
 
 | Skill | One-liner |
 |-------|-----------|
-| [constructionism/](./constructionism/) | Learn by building inspectable things (Papert, Kay, Logo) |
+| [moollm/](./moollm/) | **The soul of MOOLLM.** Self-explanation, help, navigation |
 | [skill/](./skill/) | **The meta-skill.** How skills work, evolve, compose |
-| [k-lines/](./k-lines/) | UPPER-CASE-HYPHENATED symbols as greppable K-lines |
+| [k-lines/](./k-lines/) | Minsky's K-lines — names that activate conceptual clusters |
+| [constructionism/](./constructionism/) | Learn by building inspectable things (Papert, Kay, Logo) |
+| [prototype/](./prototype/) | Self-language philosophy — clone, don't instantiate |
 | [yaml-jazz/](./yaml-jazz/) | Semantic YAML where comments are data |
 | [postel/](./postel/) | The Robustness Principle — be liberal in acceptance |
 | [robust-first/](./robust-first/) | Survive first, be correct later (Dave Ackley) |
 | [coherence-engine/](./coherence-engine/) | LLM as consistency maintainer & orchestrator |
 | [speed-of-light/](./speed-of-light/) | Many turns in one call — instant telepathy |
-| [empathic-expressions/](./empathic-expressions/) | Intent-based code interpretation across all languages |
+| [procedural-rhetoric/](./procedural-rhetoric/) | Rules persuade, structure IS argument (Bogost) |
+| [schema-mechanism/](./schema-mechanism/) | Drescher's causal learning extended with LLM semantics |
+
+### 📝 Formats & Structure
+
+| Skill | One-liner |
+|-------|-----------|
+| [plain-text/](./plain-text/) | Text files are forever — no lock-in, no corruption |
+| [markdown/](./markdown/) | Readable raw AND rendered |
+| [format-design/](./format-design/) | How to design formats that succeed |
+| [sniffable-python/](./sniffable-python/) | Structure Python so LLMs understand in 50 lines |
+| [naming/](./naming/) | Big-endian file naming as semantic binding |
+| [empathic-expressions/](./empathic-expressions/) | Intent-based code interpretation |
 | [empathic-templates/](./empathic-templates/) | Smart templates with semantic understanding |
 
 ### 🎮 Methodology (How to Work)
 
 | Skill | One-liner |
 |-------|-----------|
+| [bootstrap/](./bootstrap/) | Wake up, orient, warm the context |
 | [play-learn-lift/](./play-learn-lift/) | Explore → Learn → Share wisdom |
 | [planning/](./planning/) | Flexible task decomposition |
 | [plan-then-execute/](./plan-then-execute/) | Frozen plans with human approval gates |
@@ -64,23 +79,43 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 |-------|-----------|
 | [room/](./room/) | Directories as activation contexts |
 | [card/](./card/) | Capabilities as portable, playable cards |
+| [container/](./container/) | Intermediate scopes — inheritance without navigation |
+| [logistic-container/](./logistic-container/) | Factorio-style logistics boxes |
 | [adventure/](./adventure/) | Narrative room exploration |
 | [memory-palace/](./memory-palace/) | Spatial knowledge organization |
 | [data-flow/](./data-flow/) | Rooms as pipeline nodes (THROW/INBOX) |
 | [return-stack/](./return-stack/) | Navigation history as continuation |
 | [multi-presence/](./multi-presence/) | Same card active in multiple rooms |
+| [exit/](./exit/) | Connections between rooms |
+| [object/](./object/) | Things in the world |
+| [context/](./context/) | Activation environment |
 
 ### 👤 Characters & Identity
 
 | Skill | One-liner |
 |-------|-----------|
 | [character/](./character/) | Core patterns — home, location, relationships |
+| [incarnation/](./incarnation/) | Gold-standard creation — characters write their own souls |
 | [persona/](./persona/) | Identity layers (WHO vs WHAT) |
 | [soul-chat/](./soul-chat/) | Everything speaks — multi-voice dialogues |
 | [mind-mirror/](./mind-mirror/) | Personality via four Thought Planes (Leary) |
 | [hero-story/](./hero-story/) | Safe K-line references to real people |
 | [representation-ethics/](./representation-ethics/) | Ethics of simulating people |
 | [visualizer/](./visualizer/) | Semantic image generation with metadata |
+
+### 🐾 Animal Characters
+
+| Skill | One-liner |
+|-------|-----------|
+| [cat/](./cat/) | Feline behavior — trust earned, charms, the forbidden belly |
+| [dog/](./dog/) | Canine behavior — loyalty, pack dynamics, unconditional love |
+
+### 🍺 Role Skills (Professions)
+
+| Skill | One-liner |
+|-------|-----------|
+| [bartender/](./bartender/) | Pour drinks, manage tabs, know everyone's secrets |
+| [budtender/](./budtender/) | Cannabis-specialized — strains, terpenes, responsible service |
 
 ### 🎲 Game Mechanics (Sims-style)
 
@@ -94,8 +129,6 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 | [action-queue/](./action-queue/) | Sims-style task queue |
 | [advertisement/](./advertisement/) | Objects announce what they can do |
 | [world-generation/](./world-generation/) | Questions create places |
-| [cat/](./cat/) | Cat behavior patterns |
-| [dog/](./dog/) | Dog behavior — loyalty, pack dynamics, unconditional love |
 
 ### 💰 Economy & Scoring
 
@@ -111,6 +144,7 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 | Skill | One-liner |
 |-------|-----------|
 | [adversarial-committee/](./adversarial-committee/) | Committee of opposing personas force genuine debate |
+| [debate/](./debate/) | Structured multi-perspective deliberation |
 | [roberts-rules/](./roberts-rules/) | Parliamentary procedure prevents short-circuiting |
 | [rubric/](./rubric/) | Measurable criteria for scoring decisions |
 | [evaluator/](./evaluator/) | Independent assessment without debate context |
@@ -128,13 +162,28 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 | [session-log/](./session-log/) | Human-readable audit trail |
 | [scratchpad/](./scratchpad/) | Working memory |
 
+### 📮 Communication
+
+| Skill | One-liner |
+|-------|-----------|
+| [postal/](./postal/) | Intra-world mail system — letters, packages, THROW |
+| [mail/](./mail/) | Mail templates |
+
 ### 🔧 System & Recovery
 
 | Skill | One-liner |
 |-------|-----------|
 | [self-repair/](./self-repair/) | Checklist-based healing |
 | [storytelling-tools/](./storytelling-tools/) | Narrative capture — notebooks, letters, photos |
-| [procedural-rhetoric/](./procedural-rhetoric/) | Design with intentional ideology (Bogost) |
+| [runtime/](./runtime/) | Execution environment |
+| [image-mining/](./image-mining/) | Extract resources from images |
+
+### 🎯 Goals & Subjective
+
+| Skill | One-liner |
+|-------|-----------|
+| [goal/](./goal/) | Objectives and quests |
+| [subjective/](./subjective/) | First-person experience |
 
 ---
 

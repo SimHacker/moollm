@@ -11,6 +11,8 @@
 | [yaml-jazz/](../yaml-jazz/) | Inspectable state |
 | [adventure/](../adventure/) | Learning through narrative |
 | [skill/](../skill/) | Procedures → Skills (Papert's path) |
+| [schema-mechanism/](../schema-mechanism/) | Drescher's causal learning |
+| [debugging/](../debugging/) | Debug cycle = learning cycle |
 | [kernel/constitution-core.md](../../kernel/constitution-core.md) | Files-as-state IS constructionist |
 
 **Full Spec:** [SKILL.md](SKILL.md)

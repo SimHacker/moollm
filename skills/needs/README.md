@@ -6,9 +6,12 @@
 
 | K-Line | Why Related |
 |--------|-------------|
+| [simulation/](../simulation/) | Needs are part of simulation state |
 | [time/](../time/) | Needs decay over simulation turns |
 | [buff/](../buff/) | Some buffs affect need decay |
 | [character/](../character/) | Needs stored in character state |
+| [cat/](../cat/) | Cats have unique needs |
+| [dog/](../dog/) | Dogs have pack-oriented needs |
 | [yaml-jazz/](../yaml-jazz/) | Comments as dynamic inner voice |
 | [advertisement/](../advertisement/) | Needs advertise what character wants |
 | [designs/sims-personality-motives.md](../../designs/sims-personality-motives.md) | Will Wright's original system |

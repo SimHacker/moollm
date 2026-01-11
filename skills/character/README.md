@@ -6,12 +6,15 @@
 
 | K-Line | Why Related |
 |--------|-------------|
+| [cat/](../cat/) | Feline character patterns |
+| [dog/](../dog/) | Canine character patterns |
 | [persona/](../persona/) | Identity layers on top of character |
 | [room/](../room/) | Where characters live |
 | [buff/](../buff/) | Temporary effects on characters |
 | [needs/](../needs/) | Sims-style dynamic motivation |
 | [mind-mirror/](../mind-mirror/) | Personality system |
 | [incarnation/](../incarnation/) | Characters write their own souls |
+| [party/](../party/) | Characters in groups |
 | [examples/adventure-4/characters/](../../examples/adventure-4/characters/) | Live character catalog |
 
 **Full Spec:** [SKILL.md](SKILL.md)

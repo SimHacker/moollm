@@ -7,9 +7,14 @@
 | K-Line | Why Related |
 |--------|-------------|
 | [card/](../card/) | Cards live in rooms |
+| [container/](../container/) | Non-navigable inheritance scopes |
+| [exit/](../exit/) | Room connections |
+| [object/](../object/) | Things in rooms |
 | [memory-palace/](../memory-palace/) | Room + mnemonic intent |
 | [adventure/](../adventure/) | Room + narrative quest framing |
 | [character/](../character/) | Characters inhabit rooms |
+| [data-flow/](../data-flow/) | Rooms as pipeline nodes |
+| [multi-presence/](../multi-presence/) | Same card in multiple rooms |
 | [files-as-state/](../plain-text/) | Rooms ARE directories |
 | [examples/adventure-4/pub/](../../examples/adventure-4/pub/) | Live pub with stage, menus, arcade |
 

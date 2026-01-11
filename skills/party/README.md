@@ -7,9 +7,12 @@
 | K-Line | Why Related |
 |--------|-------------|
 | [character/](../character/) | Companions are characters |
+| [cat/](../cat/) | Cats as party members |
+| [dog/](../dog/) | Dogs as loyal companions |
 | [needs/](../needs/) | Companions have needs |
 | [simulation/](../simulation/) | Party state lives in SIMULATION.yml |
 | [room/](../room/) | Rooms can be party members too |
+| [adventure/](../adventure/) | Parties explore adventures |
 
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete party system
