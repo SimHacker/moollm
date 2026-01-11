@@ -4,6 +4,27 @@
 
 ---
 
+## MOOLLM Keywords
+
+| Category | This Skill's Keywords |
+|----------|----------------------|
+| **Methodology** | `sniffable-code` `sister-scripts` `play-learn-lift` (LIFT output) |
+| **Architecture** | `yaml-jazz` (comments as data) `files-as-state` (scripts are files) |
+| **Philosophy** | `comprehension-over-compression` `lickable-pixels` `postel` |
+
+**Sniffable Keywords:**
+
+| Keyword | Meaning |
+|---------|---------|
+| `first-50-lines` | API visible in the header |
+| `dual-audience` | Same code serves humans and LLMs |
+| `argparse-at-top` | CLI structure before implementation |
+| `comments-as-jazz` | YAML Jazz applied to Python |
+| `feedback-loop` | Linter → output → LLM fixes → iterate |
+| `comprehension-fidelity` | Understanding matters more than token count |
+
+---
+
 ## The Connection
 
 In January 2000, Steve Jobs stood on stage at Macworld and said something strange about buttons.
@@ -42,7 +63,7 @@ But here's the thing they missed.
 
 Not just knows it — has consumed **billions** of lines of it. Stack Overflow discussions. GitHub repos. Documentation. Tutorials. The model has internalized Python the way you've internalized English. Zero tokens to teach it.
 
-GlyphLang? The LLM has never seen it. You'd need to stuff the manual, the tutorials, the examples, the compiler source — into every single prompt. And prompting is not training. LLMs have no memory. You pay that documentation cost **every single time**.rmin
+GlyphLang? The LLM has never seen it. You'd need to stuff the manual, the tutorials, the examples, the compiler source — into every single prompt. And prompting is not training. LLMs have no memory. You pay that documentation cost **every single time**.
 
 The Perl philosophy of dense, clever syntax was the wrong optimization in 1998. It's an even worse optimization when your reader is a statistical model trained on readable code.
 
@@ -160,7 +181,8 @@ flowchart TD
 
 **Python for precision. LLM for poetry.**
 
-The linter handles the boring stuff — checking if exits resolve, if required fields exist. The LLM handles the creative stuff — writing atmospheric descriptions, giving characters personality, making the pub feel like somewhere you'd actually want to drink.
+The linter handles the boring stuff — checking if exits resolve, if required fields exist. The LLM handles the creative stuff — writing atmospheric descriptions, giving characters personality, making the pub feel like somewhere you'd actually want to drink,
+generating python and javascript code for the runtime simulation engines (so you can play in a web browser without an llm).
 
 And THAT's what sniffable Python makes possible. The LLM can understand the tool by reading it. Can use the tool by invoking it. Can interpret the output by parsing it.
 

@@ -4,6 +4,27 @@
 
 ---
 
+## MOOLLM Keywords
+
+| Category | This Skill's Keywords |
+|----------|----------------------|
+| **Ethics** | `representation-ethics` `consent-hierarchy` `k-lines-not-impersonation` `tribute-protocol` |
+| **Architecture** | `rooms-navigation` (framing) `files-as-state` (consent in files) `yaml-jazz` (ethical comments) |
+| **Traditions** | `sims-tradition` (torturing sims) `adventure-lineage` (pub as ethical space) |
+
+**Ethics Keywords:**
+
+| Keyword | Meaning |
+|---------|---------|
+| `consent-hierarchy` | Five levels: self-sovereign, published, public figures, private, deceased |
+| `k-lines-not-impersonation` | Invoke traditions, not identities |
+| `tribute-protocol` | Invocation → Performance → Acknowledgment |
+| `elvis-impersonator-model` | Declared performance is ethical |
+| `framing-transforms-ethics` | Room context changes what's acceptable |
+| `ship-already-sailed` | People simulate each other. Now what? |
+
+---
+
 ## The Connection
 
 In 2000, Maxis released a game where you could create anyone.

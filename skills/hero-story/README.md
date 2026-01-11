@@ -4,6 +4,26 @@
 
 ---
 
+## MOOLLM Keywords
+
+| Category | This Skill's Keywords |
+|----------|----------------------|
+| **Ethics** | `k-lines-not-impersonation` `tradition-activation` `familiars` |
+| **Philosophy** | `k-lines` (Minsky) `many-voiced` (perspectives, not puppets) |
+| **Architecture** | `rooms-navigation` (familiars inhabit spaces) `skills-as-prototypes` (cards as instances) |
+
+**Ethics Keywords:**
+
+| Keyword | Meaning |
+|---------|---------|
+| `k-lines-not-impersonation` | Names activate conceptual clusters, not personas |
+| `tradition-activation` | "The Einstein tradition..." not "I am Einstein" |
+| `familiars` | Fictional mascots that embody real traditions |
+| `panel-discussion` | Ethical way to simulate debates (thought experiments) |
+| `tribute-not-puppeting` | Honor, don't control |
+
+---
+
 ## The Connection
 
 In 1985, Marvin Minsky published *The Society of Mind*. In it, he described **K-lines** — mental structures that, when activated, bring back the state of mind you had when you learned something.
@@ -134,6 +154,7 @@ flowchart TD
 | Seymour Papert | Logo, constructionism | **Minerva the Turtle** |
 | Marvin Minsky | Society of Mind | **The Ultimate Machine** |
 | Douglas Engelbart | Augmentation | **The Mouse Who Saw** |
+| Linus Torvalds | Linux, Git | **Tux the Penguin** |
 
 **Familiars are fictional characters that embody real traditions.** They can speak, act, and participate — because they're not claiming to BE the person.
 

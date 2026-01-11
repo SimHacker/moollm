@@ -4,6 +4,28 @@
 
 ---
 
+## MOOLLM Keywords
+
+| Category | This Skill's Keywords |
+|----------|----------------------|
+| **Ethics** | `personality-sovereignty` `transparent-measurement` `character-ownership` |
+| **Architecture** | `yaml-jazz` (numbers + comments = life) `files-as-state` (profiles are files) |
+| **Traditions** | `sims-tradition` (traits, needs) `leary-circumplex` (academic psychology) |
+| **Philosophy** | `constructionism` (understand yourself by measuring) |
+
+**Ethics Keywords:**
+
+| Keyword | Meaning |
+|---------|---------|
+| `mirror-not-judge` | Reflects, doesn't prescribe |
+| `understanding-is-power` | Know how you're measured |
+| `character-ownership` | Characters own their profiles |
+| `transparent-measurement` | You see what the system sees |
+| `personality-as-space` | Four planes like four rooms |
+| `self-modification-rights` | Characters can change their own profiles |
+
+---
+
 ## The Connection
 
 In September 1970, a prisoner at the California Men's Colony was administered a psychological test during intake.

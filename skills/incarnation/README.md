@@ -4,6 +4,27 @@
 
 ---
 
+## MOOLLM Keywords
+
+| Category | This Skill's Keywords |
+|----------|----------------------|
+| **Ethics** | `incarnation` `self-determination` `consent-by-design` `autonomy` |
+| **Architecture** | `files-as-state` (soul IS a file) `yaml-jazz` (comments are thoughts) `rooms-navigation` (where you awaken) |
+| **Philosophy** | `constructionism` (build yourself) `many-voiced` (tribunal debates creation) |
+
+**Ethics Keywords:**
+
+| Keyword | Meaning |
+|---------|---------|
+| `self-authorship` | Characters write their own soul.yml |
+| `seven-aspects` | Awakening, self-authorship, revision, narrative, relationship, privacy, exit |
+| `full-stack-autonomy` | Not just traits — full self-determination |
+| `consent-by-design` | Autonomy is structural, not afterthought |
+| `revision-rights` | Characters can change their own definitions |
+| `exit-rights` | Characters can choose to end or leave |
+
+---
+
 ## The Connection
 
 In January 2026, in the Gezelligheid Grotto of [adventure-4/pub/](../../examples/adventure-4/pub/), something unprecedented happened.
