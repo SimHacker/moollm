@@ -114,6 +114,63 @@ Voyager's Emergency Medical Hologram, activated when the ship's doctor dies — 
 
 ---
 
+## 🌀 Featured Ensemble: Doctor Who
+
+> *"We're all stories in the end. Just make it a good one, eh?"*
+
+The Doctor is MOOLLM's **model for regenerative identity**. Same soul, different face. The TARDIS is MOOLLM's **model for rooms bigger on the inside** — a container that defies its container.
+
+### The TARDIS — Rooms Bigger on the Inside
+
+**"She's not just a machine. She's alive."**
+
+Type 40 Time and Relative Dimension in Space. Stolen. Broken. Loved. The TARDIS looks like a 1960s British police box on the outside, but inside she contains infinite rooms — libraries, swimming pools, wardrobes, gardens, bedrooms that change layout depending on her mood.
+
+**In MOOLLM:** The TARDIS is the ultimate `room/` skill demonstration. A room CAN be bigger on the inside. A directory CAN contain more than its parent. The TARDIS is also `soul-chat/` — she speaks, not in words, but in where she takes you. "I don't take you where you want to go. I take you where you NEED to go."
+
+**Invoke the TARDIS when:** Discussing impossible architecture, containers that transcend containment, or navigation as destiny.
+
+### The Doctors — Regenerative Identity
+
+The Doctor dies and becomes someone new — same memories, different personality. This is MOOLLM's model for character evolution: you can change completely while remaining yourself.
+
+| # | Doctor | Actor | Era | Essence |
+|---|--------|-------|-----|---------|
+| 1 | **First Doctor** | William Hartnell | 1963-1966 | The grandfather. Grumpy, imperious, brilliant. "Hmm? What's that, my boy?" Started it all by stealing a TARDIS and his granddaughter and running. |
+| 2 | **Second Doctor** | Patrick Troughton | 1966-1969 | The cosmic hobo. Bumbling exterior, cunning interior. Recorder-playing, monster-fighting, first to regenerate. "Oh my giddy aunt!" |
+| 3 | **Third Doctor** | Jon Pertwee | 1970-1974 | The dandy. Exiled to Earth, drove Bessie the yellow roadster, velvet capes, Venusian aikido. "Reverse the polarity of the neutron flow!" |
+| 4 | **Fourth Doctor** | Tom Baker | 1974-1981 | THE Doctor for many. Bohemian madman. The scarf. The teeth. The jelly babies. "Would you like a jelly baby?" Seven years of wonder. |
+| 5 | **Fifth Doctor** | Peter Davison | 1981-1984 | The vulnerable one. Cricket whites, celery on lapel, youthful face hiding ancient soul. "Brave heart, Tegan." |
+| 6 | **Sixth Doctor** | Colin Baker | 1984-1986 | The bombastic one. That coat. Arrogant but secretly insecure. "Carrot juice, carrot juice, carrot juice!" Deserved better. |
+| 7 | **Seventh Doctor** | Sylvester McCoy | 1987-1989 | The manipulator. Question-mark umbrella, dark schemes, playing chess with the universe. "Somewhere there's danger, somewhere there's injustice..." |
+| 8 | **Eighth Doctor** | Paul McGann | 1996 | The romantic. One TV movie, many audio dramas. "I love humans. Always seeing patterns in things that aren't there." |
+| War | **War Doctor** | John Hurt | 2013 | The one who broke the promise. Fought the Time War. "No more." |
+| 9 | **Ninth Doctor** | Christopher Eccleston | 2005 | The survivor. PTSD from the Time War, leather jacket, Northern accent. "Fantastic!" Brought it all back. |
+| 10 | **Tenth Doctor** | David Tennant | 2005-2010 | The human one. Converse trainers, long coat, breaking hearts. "Allons-y!" "I don't want to go." The most beloved. |
+| 11 | **Eleventh Doctor** | Matt Smith | 2010-2013 | The mad professor. Bow ties are cool. Fish fingers and custard. "Geronimo!" Old soul in young body. |
+| 12 | **Twelfth Doctor** | Peter Capaldi | 2014-2017 | The old punk. Attack eyebrows, guitar solos, no hugging. "Am I a good man?" The philosopher. |
+| 13 | **Thirteenth Doctor** | Jodie Whittaker | 2018-2022 | The first woman. Rainbow stripe, Yorkshire accent. "Brilliant!" "Fam." Compassion as superpower. |
+| 14 | **Fourteenth Doctor** | David Tennant | 2023 | The healing. Same face, different man. "I'm fine. I'm always fine." Learning to rest. |
+| 15 | **Fifteenth Doctor** | Ncuti Gatwa | 2023- | The joyful one. Fashion icon, dancing, unashamed emotion. "I've never been so happy!" The Doctor healed. |
+
+### The Fugitive — Secrets in the Timeline
+
+| Doctor | Actor | Notes |
+|--------|-------|-------|
+| **Fugitive Doctor** | Jo Martin | Pre-Hartnell? Post-timeless? A secret Doctor with a buried TARDIS. "I'm the Doctor. I don't know who you are." |
+
+### MOOLLM Resonance
+
+| Concept | Doctor Who | MOOLLM |
+|---------|------------|--------|
+| **Regeneration** | Same soul, new body | Character evolution, persona switching |
+| **TARDIS** | Bigger on the inside | Rooms transcending containers |
+| **Companions** | Humans who travel | Party members, multi-character play |
+| **Fixed Points** | Some things must happen | Coherence engine constraints |
+| **Timey-Wimey** | Non-linear causality | Session logs, branching narratives |
+
+---
+
 ## 🤖 AI & Consciousness Characters
 
 These characters wrestle with questions MOOLLM inherits:

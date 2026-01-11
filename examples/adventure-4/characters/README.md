@@ -186,7 +186,7 @@ The `lloooomm/00-Characters/` archive contains **hundreds** of character sketche
 |---------|--------|
 | `@don-hopkins Look around` | Direct command to specific player |
 | `@all Everyone gather` | Broadcast to all active players |
-| `ADDRESS don-hopkins` | Switch default chat target |
+| `AS don-hopkins` | Switch default chat target |
 | `PLAYERS` | List all active players |
 | `ACTIVATE player.yml` | Add player to active list |
 | `WHO` | Show current chat target |
@@ -258,7 +258,7 @@ See: [Palm's Incarnation](./real-people/don-hopkins/sessions/marathon-session.md
     ║  ───────────         ────────         ║
     ║  Roy Batty    → 4    Data      ← 7    ║
     ║  Trurl        → 2    Palm      ← 3    ║
-    ║  Rip Taylor   → 🎊   Biscuit   ← 🐕   ║
+    ║  Rip Taylor   → 🎊   Biscuit   ← 🐕    ║
     ║  Bella Goth   → ?    The Doctor← 9    ║
     ╚═══════════════════════════════════════╝
 ```
