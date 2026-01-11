@@ -105,6 +105,36 @@ Explore freely (PLAY). Notice patterns (LEARN). Share as reusable skills (LIFT).
 
 ---
 
+## Why So Many Terms?
+
+MOOLLM deliberately coins memorable words and phrases, weaving them into a coherent, synergistic, graspable web of interrelated meaning. This is intentional.
+
+**The intent:** Create an open source project with a domain-specific language for computational AI and simulation — an operating system of concepts, system calls, and APIs.
+
+| Tradition | Coined Vocabulary |
+|-----------|-------------------|
+| **Unix** | fork, pipe, grep, awk, daemon |
+| **Smalltalk** | object, message, class, browser |
+| **The Sims** | needs, motives, advertisements, autonomy |
+| **MOOLLM** | play-learn-lift, yaml-jazz, sniffable-python, empathic-templates, k-lines |
+
+Every term is deliberate:
+
+- **play-learn-lift** — The methodology (do → notice → share)
+- **yaml-jazz** — Comments carry meaning, LLMs interpret not parse
+- **sniffable-python** — Structure for first-50-lines comprehension
+- **empathic-templates** — Smart generation, not string substitution
+- **speed-of-light** — Many agents, many turns, one LLM call
+- **sister-scripts** — Documents birth automation
+- **files-as-state** — Everything persists, no hidden memory
+- **many-voiced** — Multiple perspectives debating
+
+**LLOOOOMM** was the prototype — a sprawling experiment where these ideas first crystallized. **MOOLLM** is the fresh start with all these ideas held in mind simultaneously, refined into a coherent system.
+
+The K-lines table at the top of each skill isn't just navigation — it's the vocabulary in action. Each term activates conceptual clusters from training. The terms ARE the API.
+
+---
+
 ## The Lineage
 
 ```mermaid
