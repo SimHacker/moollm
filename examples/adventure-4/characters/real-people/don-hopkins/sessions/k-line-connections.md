@@ -1045,7 +1045,7 @@ debate:
 
 ## Stage 4: Unboxing and Activation
 
-> "Finally, I smoked a joint — for courage, you understand — and opened the box."
+> "Finally, I smoked a joint — for courage and luck, you understand — and opened the box."
 
 *Don mimes opening a package carefully.*
 
