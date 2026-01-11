@@ -2218,7 +2218,18 @@ cheating_is_learning:
       Breaking rules reveals how the system works.
       
     enforcement: |
-      We CAN enforce rules in the browser runtime.
+      Compiled deterministic worlds run in browser or Python runtime.
+      They enforce rules WITHOUT needing the LLM — fast and cheap.
+      
+      But they CAN call back to the LLM for:
+      - Generating content (descriptions, dialogue, flavor)
+      - Conversations (NPC interactions, negotiations)
+      - Tough decisions (non-deterministic, ethical, wise, uncomputable)
+      
+      The LLM is the ORACLE, not the engine.
+      The engine runs fast. The oracle provides wisdom.
+      
+    source_editing: |
       We CANNOT prevent editing the source YAML.
       This is a FEATURE, not a bug.
 ```
