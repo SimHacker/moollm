@@ -104,7 +104,6 @@ These are REAL animals who lived, loved, and taught us something about conscious
 | **simba** | Lion King | "Remember who you are" | Growing up, facing destiny |
 | **scooby-doo** | Scooby-Doo | "Ruh-roh!" — cowardly Great Dane | Fear is okay. Snacks help. |
 | **brian-griffin** | Family Guy | Martini-drinking intellectual dog | Self-aware pretension |
-| **doge** | Meme | "Much wow. Very coin." Shiba Inu | Internet culture incarnate |
 
 ---
 
@@ -112,7 +111,7 @@ These are REAL animals who lived, loved, and taught us something about conscious
 
 > *"Can you dig it? Because I AM it!"*
 
-In the earth beneath the Sanctuary lives a whole computational ecosystem — the Funky Ground and its resident worms. They process data, generate content, and groove to database rhythms.
+In the earth beneath the Sanctuary lives a whole computational ecosystem — the Funky Ground and its resident worms. They process data, generate content, publish pod castings, and groove to database rhythms.
 
 ### The Ground Itself
 
@@ -180,6 +179,19 @@ Animals deserve respect and dignity:
 - **Celebrate** what makes each species unique
 - **Show the wisdom** that comes from non-human perspective
 - **Acknowledge** that animals have inner lives we can only glimpse
+
+### 🦊 A Note on Furries
+
+Furry fandom creates and embodies anthropomorphic animal characters — personas with both human and animal traits. This is **creative play**, and MOOLLM welcomes it.
+
+- **Have fun!** — Fursonas are valid characters
+- **Play nice** — Respect other people's characters
+- **Be yourself** — Your fursona is YOUR creation
+- **Community matters** — Furry fandom has built genuine spaces of acceptance
+
+Anthropomorphic characters have a long tradition: Aesop's fables, Disney's Robin Hood, Zootopia, Bojack Horseman. Creating an animal persona to explore identity is ancient and human.
+
+**In MOOLLM:** A fursona is just another `CHARACTER.yml` with species, personality, and soul. The `cat/` and `dog/` skills work perfectly for anthropomorphic characters too.
 
 > *"The question is not, Can they reason? nor, Can they talk? but, Can they suffer?"* — Jeremy Bentham
 
