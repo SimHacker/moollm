@@ -15,13 +15,13 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 
 | # | Extension | What It Adds | Proof |
 |---|-----------|--------------|-------|
-| 1 | **Instantiation** | Skills clone into directories with their own state. Not just prompts -- living programs. | [incarnation/](./incarnation/) |
-| 2 | **K-Line Identity** | Character names activate full context -- history, personality, relationships. Minsky's Society of Mind. | [Palm's incarnation](../examples/adventure-4/sessions/don-session-1.md#turn-8-the-seeing--collective-witness-individual-becoming) |
-| 3 | **Empathic Templates** | Semantic understanding, not string substitution. Templates that know what you mean. | [empathic-templates/](./empathic-templates/) |
-| 4 | **Three-Tier Memory** | Hot/cold/archive with metadata sidecars. Sip before gulp. | [honest-forget/](./honest-forget/) |
-| 5 | **Speed of Light** | Minimize round trips. 33 turns in one call. The context window is a stage, not a limit. | [speed-of-light/](./speed-of-light/) |
-| 6 | **Comment Intelligence** | Meta-comments (for generation) vs concrete comments (for output). Strip or preserve as appropriate. | [empathic-templates/SKILL.md](./empathic-templates/SKILL.md) |
-| 7 | **Ethical Framing** | Room-based inheritance for representation ethics. DRY ethics -- define once, inherit everywhere. | [representation-ethics/](./representation-ethics/) |
+| 1 | **Instantiation** | Skills as prototypes creating instances. Not just prompts — living programs. | [`adventure/`](./adventure/) → [`adventure-4/`](../examples/adventure-4/) with 150+ files |
+| 2 | **Three-Tier Persistence** | Platform (ephemeral) → Narrative (append) → State (edit). | [6000+ line session logs](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md), persistent room state |
+| 3 | **K-lines** | Names as semantic activation vectors (Minsky). | "[Palm](../examples/adventure-4/characters/animals/palm/)" activates entire soul, history, relationships |
+| 4 | **Empathic Templates** | Smart generation, not string substitution. | [Biscuit's](../examples/adventure-4/characters/animals/biscuit/) description generated from traits |
+| 5 | **Speed of Light** | Many turns in one call, minimal tokenization. | [33-turn Fluxx](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md), [21-turn cat prowl](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) |
+| 6 | **CARD.yml** | Machine-readable interface with advertisements. | Every skill exposes methods, tools, state schema — see [card/](./card/) |
+| 7 | **Ethical Framing** | Room-based inheritance of performance context. | [`pub/stage/`](../examples/adventure-4/pub/stage/) inherits `framing: performance` |
 
 **The key insight:** Skills aren't documentation. They're programs. The LLM is `eval()`.
 

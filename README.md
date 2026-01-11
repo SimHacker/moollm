@@ -77,13 +77,13 @@ Traditional multi-agent: API call → tokenize → process → detokenize → AP
 
 | # | Extension | What It Adds |
 |---|-----------|--------------|
-| 1 | **Instantiation** | Skills clone into living directories with state |
-| 2 | **K-Line Identity** | Character names activate full context |
-| 3 | **Empathic Templates** | Semantic understanding, not string substitution |
-| 4 | **Three-Tier Memory** | Hot/cold/archive — sip before gulp |
-| 5 | **Speed of Light** | 33 turns in one call |
-| 6 | **Comment Intelligence** | Meta-comments stripped, concrete preserved |
-| 7 | **Ethical Framing** | Room-based inheritance for DRY ethics |
+| 1 | **Instantiation** | Skills as prototypes creating instances |
+| 2 | **Three-Tier Persistence** | Platform (ephemeral) → Narrative (append) → State (edit) |
+| 3 | **K-lines** | Names as semantic activation vectors (Minsky) |
+| 4 | **Empathic Templates** | Smart generation, not string substitution |
+| 5 | **Speed of Light** | Many turns in one call, minimal tokenization |
+| 6 | **CARD.yml** | Machine-readable interface with advertisements |
+| 7 | **Ethical Framing** | Room-based inheritance of performance context |
 
 > 📚 Full explanation: [MOOLLM Eval Incarnate Framework](./designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md)
 
