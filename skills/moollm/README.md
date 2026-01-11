@@ -27,7 +27,7 @@ MOOLLM isn't just software — it's a philosophy made manifest. When you're conf
 - **O**bject-**O**riented — Rooms, objects, characters, all the way down
 - **LLM** — Large Language Model as the engine
 
-Originally LLOOOOMM (LLM + MOOL + MOO + rOOm). Too many O's.
+Originally LLOOOOMM (LLM + MOOL + MOO + rOOm). Too many O's. While MOOLLM has good mouth feel, and rolls off the tongue.
 
 ---
 
@@ -129,7 +129,7 @@ Every term is deliberate:
 - **files-as-state** — Everything persists, no hidden memory
 - **many-voiced** — Multiple perspectives debating
 
-**LLOOOOMM** was the prototype — a sprawling experiment where these ideas first crystallized. **MOOLLM** is the fresh start with all these ideas held in mind simultaneously, refined into a coherent system.
+**LLOOOOMM** was the prototype — a sprawling experiment where these ideas first crystallized. **MOOLLM** is the fresh start with all these ideas held in mind simultaneously, refined into a coherent system, based on and extending Anthoropic Skills.
 
 The K-lines table at the top of each skill isn't just navigation — it's the vocabulary in action. Each term activates conceptual clusters from training. The terms ARE the API.
 

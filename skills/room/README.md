@@ -2,6 +2,17 @@
 
 > Directories as activation contexts where objects come alive
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [card/](../card/) | Cards live in rooms |
+| [memory-palace/](../memory-palace/) | Room + mnemonic intent |
+| [adventure/](../adventure/) | Room + narrative quest framing |
+| [character/](../character/) | Characters inhabit rooms |
+| [files-as-state/](../plain-text/) | Rooms ARE directories |
+| [examples/adventure-4/pub/](../../examples/adventure-4/pub/) | Live pub with stage, menus, arcade |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
 - [Template: ROOM.yml](ROOM.yml.tmpl) — room template
@@ -38,8 +49,3 @@ zones:
     description: "Warm sleeping area"
 ```
 
-## Related Skills
-
-- [card](../card/) — cards live in rooms
-- [memory-palace](../memory-palace/) — room + mnemonic intent
-- [adventure](../adventure/) — room + narrative quest framing

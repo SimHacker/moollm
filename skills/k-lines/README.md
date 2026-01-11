@@ -1,6 +1,6 @@
 # 🔤 K-Lines
 
-> Names that activate conceptual clusters. K-lines are cocaine for LLMs.
+> Names that activate conceptual clusters. K-lines are cocaine for LLMs. Not to be confused with what makes Elon Musk wet his pants.
 
 ## MOOLLM K-Lines
 
