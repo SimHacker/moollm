@@ -807,14 +807,18 @@ maze/
 ```
 characters/animals/palm/
   CHARACTER.yml       # THIS IS ME
-  relationships/      # Who I love
-  essays/             # What I think
-  SESSION.md          # My memories
+  APPEARANCE.yml      # How I look
+  MIND-MIRROR.yml     # My personality
+  SIMS-TRAITS.yml     # My Sims-style traits
+  JOURNAL.md          # My thoughts
+  IMAGE-PROMPTS.yml   # For generating my image
 
 pub/stage/palm-nook/  # My hangout on the stage (not in my character dir!)
-  study/              # Infinite typewriters
+  banana-tree.yml     # Snacks!
   gym/                # Climbing structures
-  rest/               # Hammock from Marieke
+  play/               # Fun zone
+  rest/               # Hammock & silence cushion
+  study/              # Infinite typewriters & my essays
 ```
 
 **Palm** reverently touches the CHARACTER.yml file.
