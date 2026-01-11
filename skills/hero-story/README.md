@@ -255,31 +255,6 @@ Proto the Lizard lives in the [examples/](../../examples/) somewhere. Minerva th
 
 ---
 
-## Dovetails With
-
-```mermaid
-flowchart TD
-    HS[🦸 hero-story]
-    
-    HS <--> RE[⚖️ representation-ethics<br/>The ethical framework]
-    HS <--> CARD[🃏 card<br/>Cards carry traditions]
-    HS <--> SC[💬 soul-chat<br/>Familiars can speak]
-    HS <--> ROOM[🚪 room<br/>Familiars inhabit spaces]
-    HS <--> ADV[🎲 adventure<br/>Where traditions come alive]
-    
-    style HS fill:#ffeb3b,stroke:#f57f17,stroke-width:3px
-```
-
-| Skill | Connection |
-|-------|------------|
-| [representation-ethics/](../representation-ethics/) | The ethical framework this implements |
-| [card/](../card/) | Hero-Story IS a card type |
-| [soul-chat/](../soul-chat/) | Familiars participate in conversations |
-| [room/](../room/) | Familiars can occupy rooms |
-| [postel/](../postel/) | Charitable interpretation of invocations |
-
----
-
 ## Quick Links
 
 - [SKILL.md](./SKILL.md) — Full specification with schemas

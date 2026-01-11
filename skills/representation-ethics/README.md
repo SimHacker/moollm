@@ -320,12 +320,6 @@ flowchart TD
 - [SKILL.md](./SKILL.md) — Full specification with consent hierarchy
 - [CARD.yml](./CARD.yml) — Machine-readable protocol
 
-## Related Kernel Principles
-
-- **Files-as-State** — Consent is declared in files, inspectable
-- **YAML Jazz** — Comments explain ethical reasoning
-- **Rooms as Context** — Framing provides ethical infrastructure
-
 ---
 
 *"The question isn't whether to simulate — we already do. The question is how to do it with integrity."*

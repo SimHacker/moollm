@@ -280,33 +280,6 @@ sims_traits:
 
 ---
 
-## Dovetails With
-
-```mermaid
-flowchart TD
-    MM[🪞 mind-mirror]
-    
-    MM <--> RE[⚖️ representation-ethics<br/>Ethical personality modeling]
-    MM <--> HS[🦸 hero-story<br/>Cards can include profiles]
-    MM <--> CHAR[👤 character<br/>Characters embed profiles]
-    MM <--> SC[💬 soul-chat<br/>Profiles influence voice]
-    MM <--> NEEDS[💭 needs<br/>Sims-style fluctuating needs]
-    MM <--> INC[✨ incarnation<br/>Characters write their own]
-    
-    style MM fill:#ffeb3b,stroke:#f57f17,stroke-width:3px
-```
-
-| Skill | Connection |
-|-------|------------|
-| [representation-ethics/](../representation-ethics/) | Ethical framework for personality modeling |
-| [hero-story/](../hero-story/) | Cards can include Mind Mirror profiles |
-| [character/](../character/) | Characters embed Mind Mirror data |
-| [soul-chat/](../soul-chat/) | Mind Mirror influences conversational voice |
-| [needs/](../needs/) | Sims-style fluctuating needs system |
-| [incarnation/](../incarnation/) | Characters author their own profiles |
-
----
-
 ## Quick Links
 
 - [SKILL.md](./SKILL.md) — Full specification with all scales

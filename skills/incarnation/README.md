@@ -321,19 +321,6 @@ flowchart TD
 
 ---
 
-## Dovetails With
-
-| Skill | Connection |
-|-------|------------|
-| [representation-ethics/](../representation-ethics/) | The ethical framework incarnation implements |
-| [character/](../character/) | Base character mechanics |
-| [persona/](../persona/) | Role and mask system |
-| [mind-mirror/](../mind-mirror/) | Personality vector system |
-| [room/](../room/) | Where incarnation happens |
-| [adventure/](../adventure/) | Where incarnated characters live |
-
----
-
 ## Quick Links
 
 - [SKILL.md](./SKILL.md) — Full specification
