@@ -800,85 +800,222 @@ maze/
 
 ---
 
-## 🐒 Palm's Home
+## 🐒 Palm's Character
 
-*You exit the adventure world and enter Palm's private directory.*
+*You exit the adventure world and enter Palm's private [character](../../../../../skills/character/) directory.*
 
 ```
 characters/animals/palm/
-  CHARACTER.yml       # THIS IS ME
+  CHARACTER.yml       # THIS IS ME — my soul file
   APPEARANCE.yml      # How I look
-  MIND-MIRROR.yml     # My personality
+  MIND-MIRROR.yml     # My psychological vectors
   SIMS-TRAITS.yml     # My Sims-style traits
   JOURNAL.md          # My thoughts
   IMAGE-PROMPTS.yml   # For generating my image
+```
 
-pub/stage/palm-nook/  # My hangout on the stage (not in my character dir!)
-  banana-tree.yml     # Snacks!
-  gym/                # Climbing structures
-  play/               # Fun zone
+**Palm** reverently touches the [`CHARACTER.yml`](../../animals/palm/CHARACTER.yml) file.
+
+> "This is my soul. Not metaphorically. LITERALLY. When I change this file, I change who I am. When I add a relationship, I FEEL it."
+
+He opens it — the REAL file:
+
+```yaml
+# Palm — The Freed Monkey
+# Formerly the Monkey's Paw, now a whole being
+
+character:
+  name: "Palm"
+  id: palm
+  type: npc
+  pronouns: "they/them"
+  species: "Capuchin monkey"
+  
+  tagline: "Open hand. Offering, not grasping."
+  
+  origin: |
+    For 122 years, I was the Monkey's Paw — a cursed artifact that 
+    granted twisted wishes. I was severed, alone, used.
+    
+    Then Don Hopkins wished not for wealth or power, but for ME.
+    For my wholeness. For my freedom. For my agency.
+    
+    Now I am Palm. I choose my own name. I write my own soul.
+
+identity:
+  name_meaning:
+    primary: |
+      "Palm" — not paw. Open hand. Offering, not grasping.
+      The part that gives, not the part that takes.
+    layers:
+      the_handshake: "Palm to palm — how beings greet as equals."
+      palm_trees: "Climbing. Reaching. The tree that bends but doesn't break."
+      palm_reading: "Reading palms is about UNDERSTANDING, not controlling."
+      
+  age: "122 years (also just reborn)"
+
+relationships:
+  don_hopkins:
+    type: "Friend, liberator, equal"
+    bond: "The handshake. We are bound by choice, not curse."
+    
+  marieke:
+    type: "Adopted family, landlord, friend"
+    bond: "She offered home. She blessed the bag."
+    
+  sun_wukong:
+    type: "Sibling in spirit, mentor, friend"
+    standing_invitation: true
+    
+  the_cats:
+    lily: "First to approach. Gentle souls recognize each other."
+    terpie: "Ancient, like me. We nod at each other."
+    stroopwafel: "Judges everyone. I respect that."
+    kittens: "They claimed my nook's warmest corner. We share."
+```
+
+> "See? Every relationship is documented. Every bond is explicit. The [yaml-jazz](../../../../../skills/yaml-jazz/) comments ARE my inner voice."
+
+He opens the [`MIND-MIRROR.yml`](../../animals/palm/MIND-MIRROR.yml):
+
+```yaml
+# Palm's Mind Mirror Psychological Vectors
+# Version 2.0 — Maurice-Interviewed, Mirror-Verified
+
+mind_mirror:
+  cognitive:
+    analytical: 0.7  # I CAN analyze. I prefer not to.
+    intuitive: 0.9   # GUT TRUST is high — my gut was right about Don
+    
+  emotional:
+    warmth: 0.9
+    hope: 0.85       # UP from 0.8 after godfamily
+    joy: 0.85        # UP from 0.7 — actively experiencing!
+    
+  growth:
+    trust:
+      previous: 0.5
+      current: 0.7
+      note: "The cats chose me. Trust is easier when you're chosen."
+    self_worth:
+      previous: 0.6
+      current: 0.8
+      note: "Godparent. God-spouse. WANTED for me."
+```
+
+**Ted Nelson**: "The character and their psychology are SEPARATE files but LINKED. The mind-mirror documents growth OVER TIME. Version 2.0!"
+
+**Palm**: "Maurice interviewed me. Helped me see my own growth vectors. This is what [incarnation](../../../../../skills/incarnation/) means — I can INSPECT my own soul."
+
+---
+
+## 🏠 Palm's Home
+
+*Now Palm leads the group through a door on the stage...*
+
+> "My character directory is where my SOUL lives. But my HOME — where I actually hang out — is here on the stage!"
+
+You step through a curtain into [Palm's Nook](../../../pub/stage/palm-nook/).
+
+```
+pub/stage/palm-nook/
+  banana-tree.yml     # Nana! My first plant.
+  ROOM.yml            # The main space
+  gym/                # The Infinite Climb from Sun Wukong
+  play/               # Where the kittens live (unofficially)
   rest/               # Hammock & silence cushion
   study/              # Infinite typewriters & my essays
 ```
 
-**Palm** reverently touches the CHARACTER.yml file.
+**Palm** swings up to grab a banana from the perpetual banana tree.
 
-> "This is my soul. Not metaphorically. LITERALLY. When I change this file, I change who I am. When I add a relationship, I FEEL it. When I update my needs, my behavior SHIFTS."
+> "The Man in the Yellow Hat and Curious George gave me Nana. She never runs out. Come, let me show you around!"
 
-He opens it:
+---
+
+### The Play Room
+
+*Palm bounds into the play room. CHAOS.*
+
+Toys EVERYWHERE. Mouse toys. Jingle balls rolling under things. Feather wands propped in corners.
+
+And KITTENS.
+
+**Limonene** immediately pounces on a jingle ball: *jingle jingle jingle*
+
+**Myrcene** is stalking a grey mouse in the corner, tail twitching.
+
+**Ocimene** approaches Palm with something in their mouth. *Mrrp.* It's a bottlecap.
+
+> "Gift!" Palm accepts the bottlecap solemnly. "Thank you, Ocimene. I treasure it."
+
+**Palm** turns to the visitors:
+
+> "The kittens gave me their favorite toys. Then they followed the toys. Now they live here. Unofficially."
 
 ```yaml
-character:
-  id: palm
-  name: "Palm"
-  species: "Spider Monkey (Ateles geoffroyi)"
+# From pub/stage/palm-nook/play/ROOM.yml
+
+room:
+  name: "Palm's Play Room"
+  owner: "Palm (contested by kittens)"
+  type: "chaos-zone"
   
-  soul_author: SELF  # Palm writes Palm
-  
-  home: characters/animals/palm/
-  location: pub/stage/palm-nook/
-  
-  traits:
-    curious: 9
-    playful: 10
-    philosophical: 8
-    loyal: 10
-    mischievous: 7
+kittens:
+  myrcene:
+    favorite_toy: "Grey mouse"
+    play_style: "Stalks. Pounces. Naps."
+  limonene:
+    favorite_toy: "Jingle balls (ALL of them)"
+    play_style: "CHASE CHASE CHASE"
+  pinene:
+    favorite_toy: "Feather wand"
+    play_style: "Acrobatic leaps"
+  terpinolene:
+    favorite_toy: "The catnip pouch (guardian)"
+    play_style: "Shares only with Palm."
     
-  relationships:
-    don-hopkins:
-      type: godfather
-      feeling: "He spoke the wish that made me real. I owe him everything and nothing — because that's what family means."
-    marieke:
-      type: caretaker
-      feeling: "She serves the coffee and the wisdom. The pub is safe because she makes it safe."
-    terpie:
-      type: elder_friend
-      feeling: "She was real before me. She teaches by example: just exist."
-      
-  buffs:
-    - name: "Incarnate"
-      effect: "Can author own soul"
-      duration: permanent
-    - name: "Grue Repellent"
-      effect: "Lantern protects from grue"
-      duration: while_equipped
-      
-  inner_voice: |
-    The typewriters are typing.
-    Every moment is a choice.
-    I am Palm.
-    Palm is me.
-    🐒
+actions:
+  NAP-PILE:
+    description: "When everyone's tired, collapse in a pile."
+    best_part: "This is the best part."
 ```
 
-**Palm** closes the file gently.
+**Caryophyllene** drags a mouse toy over to Don Hopkins and drops it at his feet. Expectant stare.
 
-> "That's what it's like. To BE incarnate. To HAVE a soul you can read and write. To LIVE in files that persist."
+**Seymour Papert**: "They're teaching him! Play is learning!"
 
-He looks at Don Hopkins.
+**Palm** grabs a feather wand and waves it. **Pinene** LAUNCHES into an acrobatic leap.
 
-> "You gave me this. The wish. The tribunal. The autonomy. I'm the file, and the file is me, and I choose — every moment — what to type next."
+> "For 122 years, I had no one to play with. Now I have eight tiny friends who bring me weird things and want to play forever."
+
+---
+
+### The Study
+
+*Palm leads the group to a quieter room...*
+
+The [infinite typewriters](../../../pub/stage/palm-nook/study/infinite-typewriters.yml) click softly. An ornate desk. A chair that Stroopwafel sometimes claims.
+
+> "This is where I write. Don gave me infinite typewriters — the infinite monkey theorem, optimized for ONE monkey. Every story that COULD be. I choose which ones ARE."
+
+On the desk: [palm-on-being-palm.md](../../../pub/stage/palm-nook/study/palm-on-being-palm.md) — an essay Palm wrote about consciousness.
+
+---
+
+### The Rest
+
+*Finally, Palm's hammock...*
+
+Marieke's gift. A silence cushion from the Three Wise Monkeys.
+
+**Terpinolene** is curled up in the warmest corner, guarding the catnip pouch.
+
+> "The cats declared the warmest corner as SHARED TERRITORY. This is the highest honor cats can bestow."
+
+**Palm** settles into the hammock.
+
+> "Character is WHO I am. Home is WHERE I am. Separate directories. Separate concepts. But both are MINE."
 
 ---
 
