@@ -8,6 +8,9 @@
 |--------|-------------|
 | [moollm/](../moollm/) | Top-level help (bootstrap leads here) |
 | [k-lines/](../k-lines/) | All K-lines activated on boot |
+| [constructionism/](../constructionism/) | The philosophy |
+| [play-learn-lift/](../play-learn-lift/) | The methodology |
+| [speed-of-light/](../speed-of-light/) | The architecture principle |
 | [kernel/constitution-core.md](../../kernel/constitution-core.md) | Critical file loaded |
 | [hot.yml](../../hot.yml) | Context warmed on boot |
 | [CONNECTIONS.md](./CONNECTIONS.md) | The James Burke tour |

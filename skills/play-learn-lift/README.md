@@ -4,14 +4,19 @@
 
 ## MOOLLM K-Lines
 
-| K-Line | Meaning |
-|--------|---------|
-| [sister-scripts](../sister-script/) | LIFT produces sniffable automation |
-| [sniffable-python](../sniffable-python/) | Structure for LLM comprehension |
-| [constructionism](../constructionism/) | Build to learn (Papert) |
-| [adventure](../adventure/) | Play IS adventure |
-| [skills-as-prototypes](../skill/) | LIFT creates reusable skills |
-| [files-as-state](../plain-text/) | Session logs persist learning |
+| K-Line | Why Related |
+|--------|-------------|
+| [moollm/](../moollm/) | This IS the MOOLLM methodology |
+| [bootstrap/](../bootstrap/) | Start every session with PLAY |
+| [sister-script/](../sister-script/) | LIFT produces sniffable automation |
+| [sniffable-python/](../sniffable-python/) | Structure for LLM comprehension |
+| [constructionism/](../constructionism/) | Build to learn (Papert) |
+| [adventure/](../adventure/) | Play IS adventure |
+| [debugging/](../debugging/) | Debugging IS play |
+| [scratchpad/](../scratchpad/) | Scratchpad IS PLAY surface |
+| [research-notebook/](../research-notebook/) | Research-notebook IS LEARN |
+| [skill/](../skill/) | LIFT creates reusable skills |
+| [files-as-state/](../plain-text/) | Session logs persist learning |
 
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete methodology
