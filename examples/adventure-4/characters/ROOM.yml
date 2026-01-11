@@ -105,7 +105,7 @@ room:
         love reaches us. We feel it in the soft blue light.
       bond: distant_beloved
       can_invoke: true
-      invoke_command: "THINK OF MAURICE" — they'll know
+      invoke_command: '"THINK OF MAURICE" — they''ll know'
       
     mirror:
       id: mind-mirror
@@ -154,7 +154,8 @@ room:
       aliases: [exit, leave]
       
     east:
-      destination: ../skills/
+      destination: $SKILLS/
+      external: true
       description: |
         A shimmering portal leads to the Skill Nexus — where the
         theoretical foundations of characters, personas, and minds

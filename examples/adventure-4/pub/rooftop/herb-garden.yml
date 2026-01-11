@@ -1,0 +1,36 @@
+# Rooftop Herb Garden — Growing Above the City
+
+object:
+  name: "Terracotta Herb Pots"
+  id: herb-garden
+  type: garden
+  emoji: "🌿"
+  
+  description: |
+    A collection of terracotta pots lining the railing.
+    Mint sprawls enthusiastically. Basil stands proud.
+    Rosemary keeps to itself. Lavender hums with bees.
+    Hand-painted labels in Dutch: "Munt", "Basilicum", "Rozemarijn".
+    
+  advertisements:
+    PICK:
+      description: "Pick some fresh herbs"
+      score: 55
+      effect: "Add herbs to inventory. The smell lingers on your fingers."
+      
+    SMELL:
+      description: "Breathe in the garden"
+      score: 40
+      effect: "Each herb has its story. Gain 'Refreshed' buff."
+      
+    WATER:
+      description: "Water the plants"
+      score: 35
+      effect: "The herbs perk up. Someone will thank you later."
+      
+  herbs:
+    - mint: plentiful
+    - basil: healthy
+    - rosemary: woody
+    - lavender: blooming
+    - thyme: spreading

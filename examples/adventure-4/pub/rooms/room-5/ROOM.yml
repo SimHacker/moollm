@@ -1,0 +1,40 @@
+# Room 5 — The Sunset Room (South)
+
+room:
+  name: "The Sunset Room"
+  id: room-5
+  number: 5
+  
+  description: |
+    West-facing windows catch the evening light, painting 
+    everything gold and orange. A heavy four-poster bed 
+    dominates the room. The painting shows a sun sinking 
+    into distant mountains.
+    
+    Thick curtains can block out the world entirely.
+    Perfect for sleeping in.
+    
+  exits:
+    n:
+      destination: ../
+      description: "Back to the inn landing"
+      aliases: [out, leave, north]
+      
+  furniture:
+    bed:
+      type: four-poster
+      quality: luxurious
+      curtains: velvet-burgundy
+      
+    armchair:
+      type: wingback
+      quality: well-worn
+      position: by-window
+      
+  decor:
+    painting: "Mountains at Dusk"
+    window: west-facing-large
+    curtains: heavy-velvet
+    candles: beeswax-tall
+    
+  atmosphere: warm, drowsy, end-of-journey

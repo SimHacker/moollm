@@ -1,0 +1,38 @@
+# Room 4 — The Garden Room (Southeast)
+
+room:
+  name: "The Garden Room"
+  id: room-4
+  number: 4
+  
+  description: |
+    Floral wallpaper, actual potted plants, and a window box 
+    overflowing with herbs. The bed has a canopy of dried 
+    lavender bundles. The painting shows a secret garden gate.
+    
+    A watering can sits ready. The room smells of rosemary 
+    and good soil.
+    
+  exits:
+    nw:
+      destination: ../
+      description: "Back to the inn landing"
+      aliases: [out, leave, northwest]
+      
+  furniture:
+    bed:
+      type: canopy
+      quality: fragrant
+      canopy: dried-lavender
+      
+    windowbox:
+      type: herb-garden
+      contents: [rosemary, thyme, mint, mystery-herb]
+      
+  decor:
+    painting: "The Secret Gate"
+    window: south-facing-sunny
+    wallpaper: climbing-roses
+    plants: [fern, ivy, something-flowering]
+    
+  atmosphere: verdant, peaceful, growing

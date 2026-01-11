@@ -394,6 +394,82 @@ skills/my-skill/
     └── algorithm.md
 ```
 
+### Phase 3: Instance Library Pattern
+
+**Skills can have a sub-directory for reusable instances!**
+
+```
+skills/buff/
+├── README.md
+├── SKILL.md
+├── CARD.yml
+├── BUFF.yml.tmpl      # Template for new buffs
+└── buffs/             # ← LIBRARY of reusable instances!
+    ├── fire-resistance/   # Instance as directory
+    │   └── BUFF.yml
+    ├── haste.yml          # Instance as single file
+    └── INDEX.yml          # Multiple instances bundled
+```
+
+**Three organization styles (all valid, mix freely):**
+
+| Style | When to Use | Example |
+|-------|-------------|---------|
+| **Directory** | Complex instance with assets | `buffs/fire-resistance/BUFF.yml` |
+| **Single file** | Simple standalone instance | `buffs/haste.yml` |
+| **INDEX.yml** | Many small related instances | `buffs/INDEX.yml` with 20 buffs |
+
+**The pattern applies to many skills:**
+
+```
+skills/buff/buffs/              # Buff library
+skills/character/characters/    # Character prototypes
+skills/room/rooms/              # Room templates
+skills/object/objects/          # Object prototypes
+skills/image-mining/images/     # Mineable images
+skills/adventure/adventures/    # Adventure templates
+```
+
+**INDEX.yml bundling example:**
+
+```yaml
+# skills/buff/buffs/INDEX.yml
+# Multiple instances in one file
+
+buffs:
+  fire-resistance:
+    name: "Fire Resistance"
+    duration: 10
+    effect: "Immune to fire damage"
+    
+  haste:
+    name: "Haste"
+    duration: 5
+    effect: "+2 speed, extra action"
+    
+  invisibility:
+    name: "Invisibility"
+    duration: 8
+    effect: "Cannot be seen unless attacking"
+    breaks_on: ["attack", "cast_spell"]
+```
+
+**Referencing library instances:**
+
+```yaml
+# From anywhere in the world
+character:
+  buffs:
+    - ref: skills/buff/buffs/fire-resistance.yml
+    - ref: skills/buff/buffs/INDEX.yml#haste
+```
+
+**Why this matters:**
+- Skills are FACTORIES that produce instances
+- Instance libraries are CATALOGS of pre-made products
+- Users can browse, copy, or reference existing instances
+- The skill teaches by example (Play-Learn-Lift!)
+
 **Rule:** Top-level `SKILL.md` references ALL files, regardless of nesting. No hierarchical hunting.
 
 ---

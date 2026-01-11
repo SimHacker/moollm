@@ -1,0 +1,201 @@
+# MESSAGE.yml — Mail Transport Primitive
+#
+# Messages can be sent between ANY addressable endpoints:
+# directories, rooms, characters, objects, player.
+#
+# DESIGN INSIGHT (Alan Kay):
+# "The big idea is 'messaging' — that is what Smalltalk/Squeak
+#  is all about. The key is to keep the messaging going."
+#
+# MOOLLM EXTENSION:
+# Messages aren't just method calls — they're actual YAML files
+# that move through the filesystem, carrying attachments.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+message:
+  # === IDENTITY ===
+  
+  id: "{{message_id}}"             # REQUIRED: Unique identifier
+  
+  # === ADDRESSING ===
+  #
+  # Endpoints can be:
+  #   - "player" — The player character
+  #   - "pub/" — A room directory
+  #   - "characters/don-hopkins/" — A character
+  #   - "start/mailbox.yml" — An object
+  #   - "storage/vault/" — Any directory
+  #
+  
+  from: "{{sender}}"               # REQUIRED: Source endpoint
+  to: "{{recipient}}"              # REQUIRED: Destination endpoint (or list)
+  
+  # === CONTENT ===
+  
+  subject: "{{subject}}"           # REQUIRED: Message subject
+  
+  body: |                          # REQUIRED: Message body
+    {{body_text}}
+    
+  # === ATTACHMENTS ===
+  #
+  # Messages can carry anything:
+  #   - Objects (items, tools)
+  #   - Gold/currency
+  #   - Images (existing or generated)
+  #   - Buffs (apply on read)
+  #   - Room access (unlock on delivery)
+  #   - Other messages (forwarding)
+  #
+  
+  attachments: []
+  # Examples:
+  #   - type: object
+  #     ref: "brass-key"
+  #     action: send              # send, give, copy, reference
+  #
+  #   - type: gold
+  #     quantity: 100
+  #     action: send
+  #
+  #   - type: image
+  #     action: generate
+  #     prompt: "A treasure map..."
+  #
+  #   - type: buff
+  #     ref:
+  #       name: "Blessed"
+  #       effect: "+1 luck"
+  #     action: apply
+  #
+  #   - type: room
+  #     ref: "maze/secret/"
+  #     action: unlock
+  
+  # === DELIVERY ===
+  #
+  # Messages take time to arrive (unless texting!).
+  # Distance and method affect delivery time.
+  #
+  
+  delivery:
+    method: letter                 # text (instant), letter, express, freight, courier
+    
+    # Time calculation
+    base_time: 3                   # Base turns for this method
+    distance_hops: 0               # COMPUTED: Hops through room graph
+    time_per_hop: 1                # Additional turns per hop
+    total_time: 3                  # COMPUTED: base + (hops * time_per_hop)
+    turns_remaining: 3             # COMPUTED: Decrements each tick
+    
+    # Status
+    status: draft                  # draft | outbox | in_transit | delivered | read
+    
+  # === POSTAGE ===
+  #
+  # Sending mail costs resources.
+  # Some messages are free (texts, system, same location).
+  #
+  
+  postage:
+    base_cost: 1                   # Gold for this method
+    weight_cost: 0                 # Per kg for heavy attachments
+    distance_cost: 0               # Per hop
+    total_cost: 1                  # COMPUTED
+    
+    paid: false                    # Has postage been paid?
+    paid_from: null                # Who paid (defaults to sender)
+    
+    # Free conditions (any match = free)
+    free_reason: null              # "text", "system", "same_location"
+    
+  # === METADATA ===
+  
+  created: null                    # COMPUTED: When composed
+  sent: null                       # COMPUTED: When sent
+  estimated_arrival: null          # COMPUTED: sent + total_time
+  delivered: null                  # COMPUTED: When actually arrived
+  read: null                       # COMPUTED: When recipient read it
+  
+  # === STATUS ===
+  #
+  # Message lifecycle:
+  #   draft → outbox → sent → delivered → read
+  #
+  # Can skip stages:
+  #   - Immediate send: draft → sent → delivered
+  #   - Staged send: draft → outbox → sent → delivered
+  #
+  
+  status: draft                    # draft | outbox | sent | delivered | read
+  
+  # === REPLIES ===
+  
+  reply_to: null                   # OPTIONAL: Message ID this replies to
+  thread_id: null                  # OPTIONAL: Thread ID for conversation
+  
+  # === PRIORITY ===
+  
+  priority: normal                 # low | normal | high | urgent
+  
+  # === FLAGS ===
+  
+  flags:
+    starred: false                 # User-flagged as important
+    archived: false                # Moved to archive
+    deleted: false                 # Soft-deleted
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLES
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Simple message:
+#
+#   message:
+#     id: msg-001
+#     from: player
+#     to: characters/don-hopkins/
+#     subject: "Hello!"
+#     body: "Just wanted to say hi."
+#     status: sent
+#
+# Message with attachment:
+#
+#   message:
+#     id: msg-002
+#     from: player
+#     to: characters/mom/
+#     subject: "Found it!"
+#     body: "The treasure was in the chest."
+#     attachments:
+#       - type: object
+#         ref: treasure-map
+#         action: send
+#     status: sent
+#
+# Multi-recipient:
+#
+#   message:
+#     id: msg-003
+#     from: characters/bartender/
+#     to:
+#       - player
+#       - characters/don-hopkins/
+#       - characters/craig-latta/
+#     subject: "Last call!"
+#     body: "The pub is closing in 10 minutes."
+#
+# Mail to directory (storage):
+#
+#   message:
+#     id: msg-004
+#     from: player
+#     to: storage/vault/
+#     subject: "Depositing gold"
+#     attachments:
+#       - type: gold
+#         quantity: 500
+#         action: send
+#
+# ═══════════════════════════════════════════════════════════════════════════════

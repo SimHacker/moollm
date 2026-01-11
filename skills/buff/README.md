@@ -39,6 +39,27 @@ buff:
 | Items | Lamp → grue immunity |
 | Personas | Theme-specific buffs |
 
+## Buff Library
+
+Pre-made buffs ready to use! See `buffs/INDEX.yml`:
+
+```yaml
+# Reference from any character
+character:
+  buffs:
+    - ref: skills/buff/buffs/INDEX.yml#fire-resistance
+    - ref: skills/buff/buffs/INDEX.yml#haste
+    - ref: skills/buff/buffs/INDEX.yml#grue-repellent
+```
+
+**Categories in library:**
+- Elemental resistances (fire, cold, lightning)
+- Movement (haste, water-walking, slow-fall)
+- Perception (darkvision, true-sight, detect-magic)
+- Stealth (invisibility, silence)
+- Combat (berserker-rage, stoneskin)
+- Adventure-4 specific (grue-repellent!)
+
 ## Related Skills
 
 - [time/](../time/) — Duration measured in simulation turns
@@ -54,3 +75,7 @@ buff:
 ---
 
 *See [SKILL.md](SKILL.md) for complete specification.*
+*See [buffs/INDEX.yml](buffs/INDEX.yml) for the buff library.*
+## Buff Library
+
+See `buffs/INDEX.yml` for 20+ pre-made buffs (fire-resistance, haste, grue-repellent, etc.)

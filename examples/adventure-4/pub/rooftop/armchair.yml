@@ -1,0 +1,30 @@
+# Sunset Armchair — Best Seat in the House
+
+object:
+  name: "Worn Leather Armchair"
+  id: sunset-chair
+  type: furniture
+  emoji: "🪑"
+  
+  description: |
+    A leather armchair so old it's achieved perfection.
+    Cracked and soft, shaped by generations of sitters.
+    Faces west, positioned for optimal sunset viewing.
+    A wool blanket is draped over one arm.
+    
+  advertisements:
+    SIT:
+      description: "Settle into the chair"
+      score: 65
+      effect: |
+        Sink into decades of comfort. Watch the clouds.
+        Time slows down up here. Gain 'Contemplative' mood.
+        
+    WRAP:
+      description: "Wrap yourself in the blanket"
+      score: 45
+      guard: "weather is cold OR evening"
+      effect: "Cozy warmth. The city lights twinkle below."
+      
+  faces: west
+  contains: [wool-blanket]

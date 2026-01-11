@@ -1,0 +1,244 @@
+# EXIT.yml — Navigation Link Primitive
+#
+# An exit connects one room to another with optional guards.
+#
+# PIE MENU TOPOLOGY (Don Hopkins):
+# - Cardinal directions (N/S/E/W) are "highway" links to major rooms
+# - Diagonal directions (NW/NE/SW/SE) are "grid" links to expandable sub-rooms
+# - UP/DOWN for vertical, IN/OUT for conceptual transitions
+#
+# SCHEMA MARKERS (Empathic Templates):
+# - REQUIRED: Must be present
+# - OPTIONAL: Has default or can be omitted
+# - COMPUTED: Derived at runtime
+# - ABSTRACT: Natural language OK, LLM interprets
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+exit:
+  # === IDENTITY ===
+  
+  direction: "{{direction}}"       # REQUIRED: N, S, E, W, NE, NW, SE, SW, UP, DOWN, IN, OUT
+  destination: "{{destination}}"   # REQUIRED: Relative path to target room
+  
+  # === ALIASES ===
+  #
+  # Alternative ways to invoke this exit. Player can type any alias.
+  # Validator accepts aliases as valid synonyms.
+  #
+  # Common patterns:
+  #   - "out" as alias for any exit back to parent
+  #   - Room numbers (1-8) for compass directions in grids
+  #   - Full words: "north" as alias for "n"
+  #
+  
+  aliases: []                      # OPTIONAL: List of alternative commands
+  # Examples:
+  #   aliases: [out, leave, exit]
+  #   aliases: [1, north, forward]
+  #   aliases: [back, return]
+  
+  # === DISPLAY ===
+  
+  description: "{{description}}"   # OPTIONAL: What player sees ("A dark passage leads north")
+  short: "{{short_desc}}"          # OPTIONAL: Abbreviated ("North to maze")
+  
+  # === VISIBILITY ===
+  #
+  # Hidden exits are NOT mentioned in room descriptions or UI buttons.
+  # BUT: They can still be invoked/followed other ways!
+  #
+  # HIDDEN EXITS CAN BE DISCOVERED BY:
+  # - Typing the command directly ("GO NORTH")
+  # - Finding a clue that reveals them
+  # - Using an item that detects hidden passages
+  # - An NPC mentioning it
+  # - The hint field providing subtle clues
+  #
+  # Once discovered, set hidden: false to make visible.
+  #
+  
+  hidden: false                    # OPTIONAL: Not shown in description or UI
+  
+  # === GUARDS ===
+  #
+  # Guards control whether the exit is usable.
+  # Natural language is compiled to JS/PY by the LLM.
+  #
+  # Examples:
+  #   guard: "player has the brass key"
+  #   guard: "time of day is night"
+  #   guard: "player has visited the library"
+  #
+  
+  guard: null                      # ABSTRACT: Natural language condition
+  guard_js: null                   # COMPUTED: Compiled JavaScript
+  guard_py: null                   # COMPUTED: Compiled Python
+  
+  locked: false                    # OPTIONAL: Requires key/action to unlock
+  lock_message: null               # OPTIONAL: "The door is locked. You need a key."
+  unlock_with: null                # OPTIONAL: Item or action that unlocks
+  
+  # === FLAVOR ===
+  
+  note: null                       # OPTIONAL: DM note, not shown to player
+  hint: null                       # OPTIONAL: Subtle clue about what's beyond
+  
+  # === PLACEMENT (The Place Protocol) ===
+  #
+  # When items are thrown/sent through this exit, where do they land?
+  # Like a room-relative address for routing.
+  #
+  # This is the OpenLaszlo `place` protocol for exits.
+  # Exits are "wires" that can specify routing instructions.
+  #
+  
+  place_at: null                   # OPTIONAL: Where items land in destination
+  # Examples:
+  #   place_at: floor              # Named zone in destination room
+  #   place_at: "#table"           # Specific object by ID
+  #   place_at: pantry/            # Sub-directory/room
+  #   place_at: "#bar/shelf"       # Nested path inside object
+  #   place_at: inventory          # Goes to player inventory
+  
+  place_where: null                # OPTIONAL: Hint for placement type
+  # Examples:
+  #   place_where: "on"            # Place ON the target
+  #   place_where: "in"            # Place IN the target (container)
+  #   place_where: "beside"        # Place next to the target
+  #   place_where: "under"         # Place under the target
+  
+  # === FLOW (Factorio Conveyor Belt!) ===
+  #
+  # Exits are WIRES that carry players, BUT ALSO items!
+  # "throw ball north" puts the ball on a conveyor belt.
+  #
+  # FACTORIO MAPPING:
+  #   Conveyor Belt → Exit with flow.enabled
+  #   Two-Lane Belt → flow.direction: bidirectional
+  #   Splitter → placement_rules on exit
+  #   Underground Belt → hidden: true + flow.enabled
+  #
+  
+  flow: null                       # OPTIONAL: Automatic item transport
+  # Example:
+  #   flow:
+  #     enabled: true              # Items move automatically each turn
+  #     direction: outbound        # outbound | inbound | bidirectional
+  #     speed: 1                   # Items per turn
+  #     capacity: 5                # Max items in transit
+  #     allow:
+  #       - tags: ["raw-material"]
+  #     deny:
+  #       - tags: ["fragile"]
+  #     appearance: "conveyor-belt"
+  #     color: "yellow"            # yellow < red < blue (belt tier)
+  
+  # For bidirectional belts (two lanes):
+  #   flow:
+  #     direction: bidirectional
+  #     lane_a:
+  #       direction: outbound
+  #       allow: [{ tags: ["input"] }]
+  #     lane_b:
+  #       direction: inbound
+  #       allow: [{ tags: ["output"] }]
+  
+  # === SIGNAL CONTROL (Factorio Circuit Network!) ===
+  #
+  # Exits can be gated by signals from objects.
+  # Like a train signal that stops passage when danger ahead.
+  #
+  
+  signal_control: null             # OPTIONAL: Circuit-controlled access
+  # Example:
+  #   signal_control:
+  #     enabled: true
+  #     open_when:
+  #       signal: "grue-cleared"
+  #       value: true
+  #     closed_message: "⛔ DANGER — Grue detected ahead!"
+  
+  # === PATH VARIABLES ===
+  #
+  # Use path variables instead of ../../../ relative chains!
+  # Variables are validated and resolved at compile time.
+  #
+  # AVAILABLE VARIABLES:
+  #   $ADVENTURE/  → Root of current adventure (e.g., examples/adventure-4/)
+  #   $REPO/       → Root of moollm repo
+  #   $SKILLS/     → $REPO/skills/
+  #   $KERNEL/     → $REPO/kernel/
+  #   $EXAMPLES/   → $REPO/examples/
+  #
+  # PREFER:  destination: $ADVENTURE/pub/
+  # AVOID:   destination: ../../../pub/  (fragile, hard to read)
+  #
+  # Relative paths (./ and ../) are OK for local navigation.
+  # Path variables are REQUIRED for cross-boundary links.
+  #
+  # Note: Markdown files still use relative paths for portability.
+  #       Exit links use variables for validation and binding.
+  
+  # === EXTERNAL LINKS ===
+  #
+  # Links that go outside the adventure (to skills, kernel, etc.)
+  # Mark with external: true so validator knows it's intentional.
+  #
+  
+  external: false                  # OPTIONAL: Link goes outside adventure
+  
+  # Examples:
+  #   east:
+  #     destination: $SKILLS/character/
+  #     external: true
+  #     description: "Portal to the Character skill documentation"
+  
+  # === METADATA ===
+  
+  metaphysical: false              # OPTIONAL: Not a physical passage (meditation, etc.)
+  one_way: false                   # OPTIONAL: Can't return the way you came
+  
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLES
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Simple exit:
+#
+#   north:
+#     destination: ../maze/room-a/
+#     description: "A dark passage leads north into the maze."
+#
+# Guarded exit:
+#
+#   east:
+#     destination: ../treasury/
+#     description: "A heavy iron door blocks the way."
+#     guard: "player has the treasury key"
+#     locked: true
+#     lock_message: "The door is locked. The keyhole glints in the torchlight."
+#     unlock_with: "treasury-key"
+#
+# Hidden exit:
+#
+#   down:
+#     destination: ../secret-cellar/
+#     description: "A trapdoor hidden under the rug."
+#     hidden: true
+#     hint: "The rug seems oddly placed..."
+#
+# Metaphysical exit:
+#
+#   inward:
+#     destination: ../consciousness/
+#     description: "Close your eyes and think about who you really are."
+#     metaphysical: true
+#
+# External link (to skills repo):
+#
+#   east:
+#     destination: $SKILLS/
+#     external: true
+#     description: "A shimmering portal to the Skill Nexus"
+#
+# ═══════════════════════════════════════════════════════════════════════════════

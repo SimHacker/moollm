@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOOLLM Adventure</title>
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --surface: #12121a;
+            --text: #e8e6e3;
+            --accent: #ff6b35;
+            --muted: #6b7280;
+            --success: #10b981;
+            --error: #ef4444;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Berkeley Mono', 'IBM Plex Mono', 'JetBrains Mono', monospace;
+            font-size: 16px;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background: var(--surface);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+        
+        .header .stats {
+            color: var(--muted);
+            font-size: 0.875rem;
+        }
+        
+        #adventure {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+        
+        .adventure-output {
+            flex: 1;
+            overflow-y: auto;
+            padding-bottom: 1rem;
+        }
+        
+        .adventure-line {
+            margin-bottom: 0.5rem;
+            white-space: pre-wrap;
+        }
+        
+        .adventure-line.command {
+            color: var(--accent);
+            font-weight: 500;
+        }
+        
+        .adventure-line.room {
+            color: var(--text);
+            border-left: 3px solid var(--accent);
+            padding-left: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .adventure-line.response {
+            color: var(--text);
+        }
+        
+        .adventure-line.error {
+            color: var(--error);
+        }
+        
+        .adventure-line.system {
+            color: var(--muted);
+            font-style: italic;
+        }
+        
+        .adventure-input-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: var(--surface);
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .prompt {
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        #adventure-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        #adventure-input::placeholder {
+            color: var(--muted);
+        }
+        
+        /* Scrollbar styling */
+        .adventure-output::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .adventure-output::-webkit-scrollbar-track {
+            background: var(--surface);
+        }
+        
+        .adventure-output::-webkit-scrollbar-thumb {
+            background: var(--muted);
+            border-radius: 4px;
+        }
+        
+        /* Demo data loader */
+        .loader {
+            text-align: center;
+            padding: 2rem;
+            color: var(--muted);
+        }
+        
+        .loader button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        
+        .loader button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎮 MOOLLM Adventure</h1>
+        <span class="stats" id="stats">Loading...</span>
+    </div>
+    
+    <div id="adventure">
+        <div class="loader" id="loader">
+            <p>Welcome to the MOOLLM Adventure Runtime</p>
+            <p>Load a compiled adventure JSON to begin.</p>
+            <button onclick="loadDemo()">Load Demo Adventure</button>
+            <p style="font-size: 0.875rem; margin-top: 2rem;">
+                Or drop a JSON file here, or use:<br>
+                <code>Adventure.engine.load(yourData)</code>
+            </p>
+        </div>
+    </div>
+    
+    <script type="module">
+        // Import the runtime
+        import { AdventureEngine, AdventureUI } from './adventure.js';
+        
+        // Create engine and expose globally
+        const engine = new AdventureEngine();
+        window.Adventure = { engine, UI: AdventureUI };
+        
+        // Demo adventure data
+        window.demoAdventure = {
+            name: "The Rusty Lantern",
+            starting_room: "pub",
+            initial_flags: {},
+            rooms: [
+                {
+                    id: "pub",
+                    name: "The Rusty Lantern Pub",
+                    description: "A cozy Dutch-style pub filled with warm amber light. The bar stretches along one wall, bottles glinting. A round table with eight chairs dominates the center. The smell of stroopwafels and coffee fills the air.",
+                    exits: {
+                        up: { destination: "rooms", description: "Stairs to the inn rooms", aliases: ["stairs", "inn"] },
+                        north: { destination: "kitchen", description: "The kitchen door" },
+                        out: { destination: "street", description: "The front door to the street" }
+                    }
+                },
+                {
+                    id: "rooms",
+                    name: "The Inn Landing",
+                    description: "A narrow hallway at the top of creaky wooden stairs. Dim lamplight flickers from wall sconces. Several doors line the corridor, each marked with a tarnished brass number.",
+                    exits: {
+                        down: { destination: "pub", description: "Back down to the pub", aliases: ["out"] },
+                        n: { destination: "room-1", description: "Room 1 — The Sunrise Room", aliases: [1] }
+                    }
+                },
+                {
+                    id: "room-1",
+                    name: "The Sunrise Room",
+                    description: "A cozy room facing east. Morning light streams through lace curtains. A brass bed with a patchwork quilt. A nightstand holds a candle and a book of poetry.",
+                    exits: {
+                        s: { destination: "rooms", description: "Back to the landing", aliases: ["out"] }
+                    }
+                },
+                {
+                    id: "kitchen",
+                    name: "The Kitchen",
+                    description: "A busy kitchen with copper pots hanging from hooks. A large cast-iron stove radiates warmth. Herbs hang drying from the ceiling. Someone left a half-eaten stroopwafel on the counter.",
+                    exits: {
+                        south: { destination: "pub", description: "Back to the pub", aliases: ["out"] }
+                    }
+                },
+                {
+                    id: "street",
+                    name: "Prinsengracht",
+                    description: "A cobblestone street along a canal. Bicycles lean against the railings. Houseboats bob gently. The pub's sign — a rusty lantern — creaks in the breeze.",
+                    exits: {
+                        in: { destination: "pub", description: "Enter the Rusty Lantern" }
+                    }
+                }
+            ],
+            objects: [
+                {
+                    id: "stroopwafel",
+                    name: "Half-eaten Stroopwafel",
+                    description: "A traditional Dutch waffle cookie. Someone took a bite and left it. Still smells of caramel.",
+                    emoji: "🧇",
+                    location: "kitchen",
+                    portable: true,
+                    advertisements: {
+                        EAT: {
+                            description: "Finish the stroopwafel",
+                            score: 60,
+                            effect: "Delicious! Caramel warmth spreads through you. Gain 'Satisfied' buff."
+                        },
+                        SNIFF: {
+                            description: "Smell the caramel",
+                            score: 40,
+                            effect: "Sweet, warm, distinctly Dutch. Memories of gezelligheid."
+                        }
+                    }
+                },
+                {
+                    id: "poetry-book",
+                    name: "Book of Poetry",
+                    description: "A worn leather book. Dutch poems about canals, bicycles, and rainy afternoons.",
+                    emoji: "📖",
+                    location: "room-1",
+                    portable: true,
+                    advertisements: {
+                        READ: {
+                            description: "Read a poem",
+                            score: 55,
+                            effect: "You read a verse about tulips and time. Something stirs in your heart."
+                        }
+                    }
+                },
+                {
+                    id: "rusty-lantern",
+                    name: "The Rusty Lantern Sign",
+                    description: "A wrought-iron sign shaped like an old oil lantern. Rust gives it character. It creaks musically in the wind.",
+                    emoji: "🏮",
+                    location: "street",
+                    portable: false,
+                    advertisements: {
+                        EXAMINE: {
+                            description: "Look at the sign closely",
+                            score: 45,
+                            effect: "The lantern has initials worked into the iron: M.v.d.B. — the founder?"
+                        },
+                        LISTEN: {
+                            description: "Listen to the creaking",
+                            score: 30,
+                            effect: "The rhythm of rust and wind. Almost like music."
+                        }
+                    }
+                }
+            ],
+            characters: [
+                {
+                    id: "player",
+                    name: "You",
+                    description: "A curious traveler in Amsterdam.",
+                    is_player: true,
+                    location: "pub"
+                }
+            ]
+        };
+        
+        // Load demo function
+        window.loadDemo = function() {
+            const loader = document.getElementById('loader');
+            loader.style.display = 'none';
+            
+            engine.load(window.demoAdventure);
+            const ui = new AdventureUI(engine, 'adventure');
+            
+            document.getElementById('stats').textContent = 
+                `${engine.world.rooms.size} rooms | ${engine.world.objects.size} objects | Turn 0`;
+            
+            // Update stats on events
+            document.addEventListener('adventure:action_complete', () => {
+                document.getElementById('stats').textContent = 
+                    `${engine.world.rooms.size} rooms | ${engine.world.objects.size} objects | Turn ${engine.world.turn}`;
+            });
+        };
+        
+        // File drop handler
+        document.body.addEventListener('dragover', (e) => e.preventDefault());
+        document.body.addEventListener('drop', async (e) => {
+            e.preventDefault();
+            const file = e.dataTransfer.files[0];
+            if (file && file.name.endsWith('.json')) {
+                const text = await file.text();
+                const data = JSON.parse(text);
+                
+                document.getElementById('loader').style.display = 'none';
+                engine.load(data);
+                new AdventureUI(engine, 'adventure');
+            }
+        });
+    </script>
+</body>
+</html>

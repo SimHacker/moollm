@@ -1,0 +1,129 @@
+# GOAL.yml — Quest Objective Primitive
+#
+# Goals are what drive the adventure forward.
+# They're the WANTS that create narrative tension.
+#
+# SCHEMA MECHANISM (Gary Drescher):
+# Context → Action → Result
+# Goals define the desired RESULT that motivates ACTION.
+#
+# HERO'S JOURNEY (Campbell):
+# "The hero ventures forth... to win a decisive victory...
+#  and returns with the power to bestow boons on fellow man."
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+goal:
+  # === IDENTITY ===
+  
+  id: "{{id}}"                     # REQUIRED: Unique identifier
+  name: "{{name}}"                 # REQUIRED: Short display name
+  description: "{{description}}"   # REQUIRED: What you're trying to achieve
+  
+  # === STATUS ===
+  
+  status: pending                  # OPTIONAL: pending | active | complete | failed
+  priority: normal                 # OPTIONAL: low | normal | high | urgent
+  
+  # === COMPLETION ===
+  #
+  # Natural language condition that determines when goal is complete.
+  # Compiled to JS/PY for runtime checking.
+  #
+  
+  complete_when: "{{condition}}"   # ABSTRACT: "player has the treasure"
+  complete_when_js: null           # COMPUTED: JavaScript condition
+  complete_when_py: null           # COMPUTED: Python condition
+  
+  # === REWARDS ===
+  
+  reward: null                     # OPTIONAL: What you get on completion
+  # Examples:
+  #   reward:
+  #     buff: "Hero's Glory"
+  #     item: "champion-medal"
+  #     unlock: "secret-room"
+  #     narrative: "The kingdom celebrates your victory!"
+  
+  # === FAILURE ===
+  
+  fail_when: null                  # OPTIONAL: When the goal becomes impossible
+  fail_when_js: null               # COMPUTED
+  fail_when_py: null               # COMPUTED
+  fail_message: null               # OPTIONAL: What happens on failure
+  
+  # === RELATIONSHIPS ===
+  
+  parent: null                     # OPTIONAL: Part of a larger goal
+  children: []                     # OPTIONAL: Sub-goals
+  requires: []                     # OPTIONAL: Prerequisites
+  blocks: []                       # OPTIONAL: Mutually exclusive goals
+  
+  # === TRACKING ===
+  
+  progress: null                   # OPTIONAL: Partial completion tracking
+  # Examples:
+  #   progress:
+  #     collected: 3
+  #     needed: 5
+  #
+  #   progress:
+  #     rooms_explored: 7
+  #     total_rooms: 10
+  
+  # === SOURCE ===
+  
+  given_by: null                   # OPTIONAL: Who/what assigned this goal
+  location: null                   # OPTIONAL: Where the goal was received
+  
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLES
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Simple goal:
+#
+#   goal:
+#     id: find-treasure
+#     name: "Find the Treasure"
+#     description: "Locate the legendary treasure hidden in the maze."
+#     complete_when: "player has the treasure"
+#     reward:
+#       narrative: "Gold glitters in your hands. You've done it!"
+#
+# Multi-step goal with progress:
+#
+#   goal:
+#     id: collect-keys
+#     name: "Collect All Keys"
+#     description: "Find the five enchanted keys."
+#     complete_when: "player has all 5 enchanted keys"
+#     progress:
+#       collected: 2
+#       needed: 5
+#     reward:
+#       unlock: "final-door"
+#
+# Goal with failure condition:
+#
+#   goal:
+#     id: save-npc
+#     name: "Save the Prisoner"
+#     description: "Rescue the prisoner before midnight."
+#     complete_when: "prisoner is freed"
+#     fail_when: "time reaches midnight AND prisoner is not freed"
+#     fail_message: "The clock strikes twelve. You were too late."
+#     priority: urgent
+#
+# Nested goals:
+#
+#   goal:
+#     id: defeat-dragon
+#     name: "Defeat the Dragon"
+#     description: "Slay the dragon terrorizing the kingdom."
+#     children:
+#       - find-magic-sword
+#       - learn-dragon-weakness
+#       - reach-dragon-lair
+#     complete_when: "dragon is defeated"
+#
+# ═══════════════════════════════════════════════════════════════════════════════

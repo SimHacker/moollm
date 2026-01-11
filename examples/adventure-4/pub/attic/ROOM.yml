@@ -1,0 +1,37 @@
+# The Attic — Dusty Storage Above The Rusty Lantern
+# Where forgotten things wait to be remembered
+
+room:
+  name: "The Dusty Attic"
+  id: attic
+  
+  description: |
+    Slanted roof beams disappear into shadow. Dust motes dance in 
+    shafts of light from a grimy dormer window. Forgotten furniture 
+    draped in sheets, stacked crates, trunks of who-knows-what.
+    
+    The air smells of old paper, mothballs, and mystery.
+    Something skitters in the darkness. Probably mice. Probably.
+    
+  exits:
+    down:
+      destination: ../rooms/
+      description: "Ladder back down to the inn landing"
+      aliases: [in, landing]
+      
+    up:
+      destination: ../rooftop/
+      description: "Through the skylight to the rooftop terrace"
+      aliases: [out, roof, terrace, outside]
+      
+  # STORAGE — Logistic container pattern
+  logistics:
+    mode: storage
+    capacity: infinite
+    accepts: [furniture, antiques, forgotten-things, holiday-decorations]
+    
+  contents:
+    - old-trunks
+    - sheet-covered-furniture  
+    - mysterious-crates
+    - holiday-decorations-box

@@ -1,0 +1,38 @@
+# Soda Machine — Glowing Options
+
+object:
+  name: "Antique Soda Machine"
+  id: soda-machine
+  type: dispenser
+  emoji: "🥤"
+  
+  description: |
+    An old coin-operated machine with glowing buttons.
+    The brands are unfamiliar — "Fizz Wizard", "Root Toot", 
+    "Grape Escape", "Mystery Flavor". Costs 1 coin.
+    
+  advertisements:
+    BUY-SODA:
+      description: "Insert coin and choose a soda"
+      score: 60
+      guard: "have coin"
+      effect: "Get a cold bottle. Gain 'Refreshed' buff."
+      
+    SHAKE:
+      description: "Give the machine a shake"
+      score: 25
+      effect: "Something rattles inside. A free soda falls out?"
+      
+    READ-LABELS:
+      description: "Study the unfamiliar brands"
+      score: 30
+      effect: "These brands don't exist. Where did this machine come from?"
+      
+  menu:
+    - fizz-wizard: "Lemon-lime with sparkle"
+    - root-toot: "Root beer with attitude"  
+    - grape-escape: "Grape so purple it's suspicious"
+    - burpie-beer: "Super fluffy bubbly fizzy ale"
+    - mystery-flavor: "???"
+    
+  price: 1 coin

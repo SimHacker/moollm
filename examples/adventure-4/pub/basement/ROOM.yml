@@ -1,0 +1,41 @@
+# The Basement — Cool Storage Below The Rusty Lantern
+# Where provisions rest and secrets hide
+
+room:
+  name: "The Stone Cellar"
+  id: basement
+  
+  description: |
+    Cool stone walls weep moisture. Wooden racks line the walls,
+    holding barrels and bottles. The smell of damp earth, old wine,
+    and something faintly herbal.
+    
+    A single oil lamp flickers, casting long shadows between the 
+    stacked provisions. The floor is packed earth, worn smooth 
+    by centuries of footsteps.
+    
+  exits:
+    up:
+      destination: ../
+      description: "Stone stairs back up to the pub"
+      
+  # STORAGE — Logistic container pattern  
+  logistics:
+    mode: storage
+    capacity: 500
+    accepts: [beverages, provisions, barrels, casks, preserves]
+    temperature: cool
+    
+  contents:
+    - wine-barrels
+    - ale-casks
+    - pickle-jars
+    - root-vegetables
+    - mysterious-locked-crate
+    
+  # Easter egg
+  secrets:
+    hidden_door:
+      location: behind-the-largest-barrel
+      leads_to: "???"
+      discovered: false

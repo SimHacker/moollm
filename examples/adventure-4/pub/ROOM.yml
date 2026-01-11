@@ -273,6 +273,10 @@ room:
       note: "Locked. Ask the bartender about the key."
       hint: "Plot hooks live here"
       
+    DOWN:
+      destination: basement/
+      description: "Stone stairs descend to the cellar"
+      
   objects:
     - bartender.yml
     - dart-board.yml
@@ -612,9 +616,9 @@ room:
         - "The vending machine has feelings"
         
       MOSTLY-TRUE:
-        - "A grue can be killed with cheese" (it was BLUE cheese)
-        - "Mother's letter has a secret" (it has many)
-        - "The treasure is guarded" (by the grue? by puzzles?)
+        - "A grue can be killed with cheese (it was BLUE cheese)"
+        - "Mother's letter has a secret (it has many)"
+        - "The treasure is guarded (by the grue? by puzzles?)"
         
       FALSE-BUT-FUN:
         - "There's a dragon in the depths"

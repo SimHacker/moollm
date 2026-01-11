@@ -403,6 +403,7 @@ roadmap:
 - [Adventure](../adventure/) — Visualizing microworld state
 - [YAML-JAZZ](../yaml-jazz/) — Prompts composed from semantic data
 - [Sister Script](../sister-script/) — Future image generation scripts
+- [Image Mining](../image-mining/) — MINE images for resources (camera = pickaxe!)
 
 ---
 

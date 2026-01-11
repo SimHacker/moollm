@@ -1,0 +1,28 @@
+# Ale Barrel — Dispenses Drinks
+
+object:
+  name: "Barrel of Rusty Lantern Ale"
+  id: ale-barrel
+  type: container
+  emoji: "🍺"
+  
+  description: |
+    A large oak barrel with a brass tap. A chalked sign reads 
+    "HELP YOURSELF - HONOR SYSTEM" with a coin jar nearby.
+    
+  advertisements:
+    TAP:
+      description: "Fill a mug from the barrel"
+      score: 75
+      effect: "Get a mug of ale. Gain 'Slightly Buzzed' buff."
+      
+    INSPECT:
+      description: "Check how much ale remains"
+      score: 40
+      effect: "About half full. Good stuff in here."
+      
+  dispenser:
+    item: ale-mug
+    capacity: 50
+    remaining: 27
+    replenish: weekly

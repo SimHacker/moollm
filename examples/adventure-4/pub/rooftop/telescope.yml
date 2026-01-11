@@ -1,0 +1,75 @@
+# Brass Telescope — Stargazing Above Amsterdam
+
+object:
+  name: "Antique Brass Telescope"
+  id: rooftop-telescope
+  type: instrument
+  emoji: "🔭"
+  
+  description: |
+    A gorgeous brass telescope on a mahogany tripod.
+    Slightly tarnished, clearly well-loved. The eyepiece 
+    is worn smooth from countless nights of stargazing.
+    Currently pointed at Orion's Belt.
+    
+  advertisements:
+    LOOK:
+      description: "Peer through the telescope"
+      score: 70
+      effect: |
+        View whatever the telescope is pointed at.
+        The brass tube reveals secrets invisible to the naked eye.
+        
+    LOOK-UP:
+      description: "Point at the sky"
+      score: 60
+      targets: [moon, stars, planets, orion, passing-satellite, mystery-light]
+      effect: "The cosmos opens up. Craters, rings, ancient light."
+      
+    LOOK-ACROSS:
+      description: "Scan the rooftops and windows"
+      score: 55
+      targets: [church-spire, distant-rooftop, lit-window, canal-boats]
+      effect: "Amsterdam's secrets. A figure in a window. A cat on a roof."
+      
+    LOOK-DOWN:
+      description: "Watch the streets below"
+      score: 50
+      targets: [canal-bridge, late-night-cyclist, couple-walking, street-musician]
+      effect: "The city lives below. Stories unfold on cobblestones."
+      
+    POLISH:
+      description: "Clean the lens"
+      score: 25
+      effect: "The view sharpens. You can see further than before."
+      
+    PHOTO:
+      description: "Snap a photo through the telescope"
+      score: 65
+      requires: phone
+      effect: |
+        Your phone connects via Bluetooth. The telescope's camera
+        adapter captures what you see. Image saved to camera roll.
+        These images are mineable — extract what you photographed!
+      generates_image: true
+      image_prompt_template: |
+        Photograph through antique brass telescope at night.
+        Target: {{current_target}}
+        Vignette edges, slight lens distortion, warm brass tint.
+        Amsterdam rooftop perspective.
+        
+  # Hardware
+  current_target: orion
+  zoom: 40x
+  
+  # Bluetooth telescope camera adapter
+  camera:
+    type: bluetooth-adapter
+    paired_with: player-phone
+    resolution: 12MP
+    features: [night-mode, long-exposure, stacking]
+    
+  # Photos taken become mineable resources!
+  # See: skills/image-mining/SKILL.md
+  mineable: true
+  mining_depth: [surface, deep, quantum]  # Stars have quantum properties!

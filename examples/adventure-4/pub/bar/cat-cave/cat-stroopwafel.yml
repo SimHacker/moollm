@@ -4,8 +4,14 @@
 # Mother of eight. Hunter of mice. Named for the treat.
 # The active one. The fierce one. The one who HANDLES things.
 
-cat:
+object:
   name: "Stroopwafel"
+  
+  # K-LINES — Knowledge declarations  
+  k-lines:
+    - kitten: "young cat, baby cat, offspring of cat"
+    - queen: "mother cat, female cat with kittens"
+    - nursing: "feeding kittens with milk"
   id: stroopwafel
   type: npc
   species: felis_catus

@@ -1,0 +1,39 @@
+# Room 1 — The Sunrise Room (North)
+
+room:
+  name: "The Sunrise Room"
+  id: room-1
+  number: 1
+  
+  description: |
+    Morning light streams through an east-facing window, warming 
+    honey-colored floorboards. A brass bed with a patchwork quilt 
+    faces the window. Above the headboard hangs a painting of 
+    a rooster crowing at dawn.
+    
+    A small writing desk holds a guest journal and dried flowers 
+    in a blue vase.
+    
+  exits:
+    s:
+      destination: ../
+      description: "Back to the inn landing"
+      aliases: [out, leave, south]
+      
+  furniture:
+    bed:
+      type: brass-bed
+      quality: comfortable
+      quilt: patchwork-sunrise-colors
+      
+    desk:
+      type: writing-desk
+      contents: [guest-journal, quill, ink-pot]
+      
+  decor:
+    painting: "Rooster at Dawn"
+    window: east-facing
+    vase: blue-ceramic
+    rug: braided-oval
+    
+  atmosphere: warm, hopeful, early-riser-friendly

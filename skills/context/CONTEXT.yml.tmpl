@@ -1,0 +1,466 @@
+# CONTEXT.yml — Runtime Context for Compiled Closures
+#
+# The `world` object passed to every compiled expression.
+# This IS the world as seen from inside a closure.
+#
+# DESIGN PHILOSOPHY:
+# - world is a structured dict, not arbitrary key/values
+# - Standard keys are ALWAYS present
+# - Extended keys are contextual
+# - Skills register state under world.skills.skill_name (underscores!)
+#
+# WHY "world" NOT "ctx":
+# - More evocative — closures see the WORLD
+# - Self-documenting — world.player, world.room
+# - Matches the mental model
+#
+# WHY UNDERSCORES:
+# - world.skills.foo_bar not world.skills.foo-bar
+# - Dashes aren't valid JS/Python identifiers
+# - foo-bar skill → foo_bar namespace
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+context:
+  
+  # ═══════════════════════════════════════════════════════════════════════════
+  # STANDARD KEYS — Always present in every ctx
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  standard:
+    
+    # === SIMULATION STATE ===
+    
+    turn: 0                        # Current simulation turn number
+    timestamp: null                # ISO timestamp of this tick
+    
+    # === NAVIGATION ===
+    
+    adventure:                     # The ADVENTURE.yml root state
+      name: ""
+      status: "active"
+      flags: {}                    # Global boolean flags
+      world_state: {}              # Global world state
+      
+    player:                        # The current player character
+      id: ""
+      name: ""
+      location: ""                 # Path to current room
+      inventory: []                # List of item ids
+      buffs: []                    # Active buffs
+      
+    room:                          # The current room
+      id: ""
+      name: ""
+      path: ""                     # Full path to room
+      exits: {}                    # Available exits
+      objects: []                  # Objects in this room
+      characters: []               # NPCs in this room
+      is_dark: false               # No light source
+      is_dangerous: false          # Has hazards (grue, etc.)
+      
+    party:                         # Party members
+      members: []                  # List of character ids
+      leader: ""                   # Current leader id
+    
+  # ═══════════════════════════════════════════════════════════════════════════
+  # EXTENDED KEYS — Present when relevant
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  extended:
+    
+    # === OBJECT CONTEXT ===
+    # Present when running an object's simulate/methods
+    
+    object:                        # The object being simulated
+      id: ""
+      name: ""
+      state: {}                    # Object's mutable state
+      # Methods are bound to ctx: ctx.consume_fuel(1)
+      
+    # === TARGET CONTEXT ===
+    # Present when an action targets something
+    
+    target:                        # The target of an action
+      id: ""
+      type: ""                     # "object", "character", "room"
+      # ... target-specific fields
+      
+    # === NPC CONTEXT ===
+    # Present when an NPC is simulating
+    
+    npc:                           # The NPC being simulated
+      id: ""
+      name: ""
+      goals: []                    # Current goals
+      state: {}                    # NPC state
+      
+  # ═══════════════════════════════════════════════════════════════════════════
+  # SKILL STATE NAMESPACES
+  # ═══════════════════════════════════════════════════════════════════════════
+  #
+  # Skills register their state under world.skills.<skill_name>
+  # Use UNDERSCORES not dashes (valid identifiers in JS/Python)
+  #
+  # Skill name → Namespace:
+  #   foo-bar  → world.skills.foo_bar
+  #   economy  → world.skills.economy
+  #   pie-menu → world.skills.pie_menu
+  #
+  # Example:
+  #   world.skills.economy.gold = 100
+  #   world.skills.weather.current = "rain"
+  #   world.skills.pie_menu.last_selection = "north"
+  #
+  
+  skills: {}
+  # Populated by skills that need runtime state:
+  #   economy:
+  #     gold: 100
+  #     currency: "gold pieces"
+  #   weather:
+  #     current: "clear"
+  #     temperature: 72
+  #   time:
+  #     hour: 14
+  #     day: 3
+  #     phase: "afternoon"
+  #   pie_menu:                    # Note: underscore!
+  #     last_selection: "north"
+  
+  # ═══════════════════════════════════════════════════════════════════════════
+  # UTILITY FUNCTIONS — Bound to world
+  # ═══════════════════════════════════════════════════════════════════════════
+  #
+  # These are methods on world that closures can call.
+  # They're the "API" for interacting with the world.
+  #
+  
+  functions:
+    
+    # === NARRATIVE ===
+    
+    emit:
+      signature: "emit(message: string)"
+      description: "Emit a narrative message to the player"
+      example: 'world.emit("The lamp sputters and dies!")'
+      
+    narrate:
+      signature: "narrate(message: string, style?: string)"
+      description: "Emit styled narration (description, action, dialogue)"
+      example: 'world.narrate("Darkness falls.", "dramatic")'
+      
+    # === EVENTS ===
+    
+    trigger_event:
+      signature: "trigger_event(name: string, data?: object)"
+      description: "Trigger a named event for event handlers to catch"
+      example: 'world.trigger_event("GRUE_APPROACHES", { room: world.room.path })'
+      
+    # === SUBJECTIVE INVENTORY (i_ prefix) ===
+    #
+    # SUBJECTIVE-ORIENTED PROGRAMMING:
+    # The "I" shifts based on who is speaking:
+    #   - In player action: I = player
+    #   - In object simulate(): I = the object
+    #   - In NPC dialogue: I = the NPC
+    #
+    
+    i_have:
+      signature: "i_have(item_id: string) -> boolean"
+      description: "Do I have this item?"
+      example: 'if (world.iHave("brass-key")) ...'
+      note: "JavaScript: iHave(), Python: i_have()"
+      
+    i_give:
+      signature: "i_give(item_id: string)"
+      description: "Give item to current target"
+      example: 'world.iGive("gold-coins")'
+      
+    i_take:
+      signature: "i_take(item_id: string)"
+      description: "Take item from current target"
+      example: 'world.iTake("key")'
+      
+    i_drop:
+      signature: "i_drop(item_id: string)"
+      description: "Drop item in current room"
+      example: 'world.iDrop("old-map")'
+      
+    # === SUBJECTIVE STATE (i_ prefix) ===
+    
+    i_am:
+      signature: "i_am(state_key: string) -> boolean"
+      description: "Am I in this state?"
+      example: 'if (world.iAm("lit")) ...'
+      
+    i_am_not:
+      signature: "i_am_not(state_key: string) -> boolean"
+      description: "Am I NOT in this state?"
+      example: 'if (world.iAmNot("broken")) ...'
+      
+    i_get:
+      signature: "i_get(key: string) -> any"
+      description: "Get my state value"
+      example: 'fuel = world.iGet("fuel")'
+      
+    i_set:
+      signature: "i_set(key: string, value: any)"
+      description: "Set my state value"
+      example: 'world.iSet("lit", true)'
+      
+    # === SUBJECTIVE COMMUNICATION (i_ prefix) ===
+    
+    i_say:
+      signature: "i_say(message: string)"
+      description: "Speak as the current subject"
+      example: 'world.iSay("Hello, adventurer!")'
+      
+    i_emit:
+      signature: "i_emit(message: string)"
+      description: "Emit narrative from current subject"
+      example: 'world.iEmit("The lamp flickers...")'
+      
+    i_think:
+      signature: "i_think(thought: string)"
+      description: "Emit internal thought"
+      example: 'world.iThink("This seems suspicious...")'
+      
+    # SUBJECTIVE BUFF FUNCTIONS
+    
+    i_have_buff:
+      signature: "i_have_buff(buff_id: string) -> boolean"
+      description: "Does current subject have this buff?"
+      example: 'if (world.iHaveBuff("caffeinated")) ...'
+      
+    i_have_buff_tag:
+      signature: "i_have_buff_tag(tag: string) -> boolean"
+      description: "Does current subject have any buff with this tag?"
+      example: 'if (world.iHaveBuffTag("terpene")) ...'
+      
+    i_add_buff:
+      signature: "i_add_buff(buff: object)"
+      description: "Add buff to current subject"
+      example: 'world.iAddBuff({ id: "blessed", name: "Blessed", duration: 10, tags: ["blessed", "holy"] })'
+      
+    i_remove_buff:
+      signature: "i_remove_buff(buff_id: string)"
+      description: "Remove buff from current subject"
+      example: 'world.iRemoveBuff("poisoned")'
+      
+    i_remove_buffs_by_tag:
+      signature: "i_remove_buffs_by_tag(tag: string)"
+      description: "Remove all buffs with tag from current subject"
+      example: 'world.iRemoveBuffsByTag("curse")  // self-cleanse'
+      
+    i_buffs:
+      signature: "i_buffs() -> list[buff]"
+      description: "Get all buffs on current subject"
+      example: 'myBuffs = world.iBuffs()'
+      
+    i_buffs_by_tag:
+      signature: "i_buffs_by_tag(tag: string) -> list[buff]"
+      description: "Get all buffs with tag on current subject"
+      example: 'terpeneBufss = world.iBuffsByTag("terpene")'
+      
+    # === LEGACY INVENTORY (world. prefix) ===
+    #
+    # Still available for backward compatibility and
+    # when you explicitly need to reference the player.
+    #
+    
+    has:
+      signature: "has(item_id: string) -> boolean"
+      description: "Check if PLAYER has an item (explicit)"
+      example: 'if (world.has("brass-key")) ...'
+      note: "Prefer i_have() for subjective context"
+      
+    give:
+      signature: "give(item_id: string)"
+      description: "Add item to player inventory"
+      example: 'world.give("gold-coins")'
+      
+    take:
+      signature: "take(item_id: string)"
+      description: "Remove item from player inventory"
+      example: 'world.take("used-potion")'
+      
+    # === TAGS ===
+    #
+    # Objects have tags like "weapon", "food", "light-source".
+    # These functions make it easy to filter by tag.
+    #
+    
+    has_tag:
+      signature: "has_tag(tag: string) -> boolean"
+      description: "Check if player has any item with the given tag"
+      example: 'if (world.hasTag("light-source")) ...'
+      note: "JavaScript: hasTag(), Python: has_tag()"
+      
+    find_by_tag:
+      signature: "find_by_tag(tag: string, in_room?: boolean) -> list[object]"
+      description: "Find all objects with the given tag (inventory + room)"
+      example: 'weapons = world.findByTag("weapon")'
+      note: "JavaScript: findByTag(), Python: find_by_tag()"
+      
+    # === BUFF TAGS ===
+    #
+    # Buffs also have tags like "terpene", "combat", "curse".
+    # Query and filter buffs by their tags.
+    #
+    
+    has_buff_tag:
+      signature: "has_buff_tag(tag: string) -> boolean"
+      description: "Check if player has any buff with the given tag"
+      example: 'if (world.hasBuffTag("terpene")) ...'
+      note: "JavaScript: hasBuffTag(), Python: has_buff_tag()"
+      
+    find_buffs_by_tag:
+      signature: "find_buffs_by_tag(tag: string) -> list[buff]"
+      description: "Find all buffs on player with the given tag"
+      example: 'curses = world.findBuffsByTag("curse")'
+      note: "JavaScript: findBuffsByTag(), Python: find_buffs_by_tag()"
+      
+    remove_buffs_by_tag:
+      signature: "remove_buffs_by_tag(tag: string)"
+      description: "Remove all buffs with the given tag"
+      example: 'world.removeBuffsByTag("curse")  // cleanse all curses'
+      note: "JavaScript: removeBuffsByTag(), Python: remove_buffs_by_tag()"
+      
+    add_buff:
+      signature: "add_buff(buff: object)"
+      description: "Add a buff to the current subject (player or i_)"
+      example: 'world.addBuff({ id: "caffeinated", name: "Caffeinated", source: "Coffee", effect: "energy_effective += 2", duration: 5, tags: ["consumable", "temporary"] })'
+      note: "JavaScript: addBuff(), Python: add_buff()"
+      
+    remove_buff:
+      signature: "remove_buff(buff_id: string)"
+      description: "Remove a specific buff by id"
+      example: 'world.removeBuff("caffeinated")'
+      note: "JavaScript: removeBuff(), Python: remove_buff()"
+      
+    # === FLAGS ===
+    
+    flag:
+      signature: "flag(name: string) -> boolean"
+      description: "Get a global flag value"
+      example: 'if (world.flag("dragon_slain")) ...'
+      
+    set_flag:
+      signature: "set_flag(name: string, value: boolean)"
+      description: "Set a global flag"
+      example: 'world.set_flag("treasure_found", true)'
+      
+    # === STATE ===
+    
+    get:
+      signature: "get(path: string) -> any"
+      description: "Get a value by dot-path from world"
+      example: 'world.get("object.state.fuel")'
+      
+    set:
+      signature: "set(path: string, value: any)"
+      description: "Set a value by dot-path in world"
+      example: 'world.set("object.state.lit", true)'
+      
+    # === RESILIENCE (SimCity Zone Pattern) ===
+    #
+    # WILL WRIGHT: "If one tile burns but the center survives,
+    #               the zone will eventually rebuild."
+    #
+    # Simulation functions should be:
+    # - ROBUST: Handle missing/undefined gracefully
+    # - SELF-INITIALIZING: Set up default state if missing
+    # - SELF-HEALING: Recover from corruption
+    #
+    
+    ensure_defaults:
+      signature: "ensure_defaults(obj?: object) -> object"
+      description: "Ensure object has its default state values, creating state if missing"
+      example: 'const state = world.ensureDefaults();'
+      note: "JavaScript: ensureDefaults(), Python: ensure_defaults()"
+      
+    heal_state:
+      signature: "heal_state(obj?: object) -> object"
+      description: "Fix inconsistent state values (clamp negatives, fix logical errors)"
+      example: 'world.healState();'
+      note: "JavaScript: healState(), Python: heal_state()"
+      
+    # === NAVIGATION ===
+    
+    go:
+      signature: "go(destination: string)"
+      description: "Navigate player to a room"
+      example: 'world.go("../maze/room-a/")'
+      
+    can_go:
+      signature: "can_go(direction: string) -> boolean"
+      description: "Check if an exit is passable"
+      example: 'if (world.can_go("north")) ...'
+      
+    # === BUFFS ===
+    
+    add_buff:
+      signature: "add_buff(buff: object)"
+      description: "Add a buff to the player"
+      example: 'world.add_buff({ name: "Caffeinated", effect: { energy: +2 }, duration: 5 })'
+      
+    remove_buff:
+      signature: "remove_buff(buff_id: string)"
+      description: "Remove a buff from the player"
+      example: 'world.remove_buff("caffeinated")'
+      
+    has_buff:
+      signature: "has_buff(buff_id: string) -> boolean"
+      description: "Check if player has a buff"
+      example: 'if (world.has_buff("grue_immunity")) ...'
+      
+    # === LOGGING ===
+    
+    log:
+      signature: "log(message: string, level?: string)"
+      description: "Log for debugging (not shown to player)"
+      example: 'world.log("Fuel now: " + world.object.state.fuel)'
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE: Lamp Simulate with Full World Context
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# simulate_js: (world) => {
+#   // world.object is this lamp
+#   if (world.object.state.lit) {
+#     // Call method (bound to world)
+#     world.consume_fuel(1);
+#     
+#     if (world.object.state.fuel <= 0) {
+#       world.extinguish();
+#       world.emit("The lamp sputters and dies!");
+#       
+#       // Check room danger
+#       if (world.room.is_dark && world.room.is_dangerous) {
+#         world.trigger_event("GRUE_APPROACHES");
+#       }
+#     }
+#   }
+# }
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE: Guard Expression with World Context
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# guard: "player has the key AND room is not dark"
+# guard_js: (world) => world.has("brass-key") && !world.room.is_dark
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE: Skill State Access
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# # Skill "pie-menu" stores state as world.skills.pie_menu
+# score_if: "last pie menu selection was north"
+# score_if_js: (world) => world.skills.pie_menu.last_selection === "north"
+#
+# # Skill "economy" stores state as world.skills.economy
+# guard: "player has at least 10 gold"
+# guard_js: (world) => world.skills.economy.gold >= 10
+#
+# ═══════════════════════════════════════════════════════════════════════════════

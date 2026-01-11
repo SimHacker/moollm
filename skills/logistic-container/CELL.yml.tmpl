@@ -1,0 +1,146 @@
+# CELL.yml — Grid Storage Cell
+#
+# A single cell in a grid warehouse. Holds one item type in a stack.
+#
+# Created automatically when new item types enter a grid container.
+# Can be navigated like a mini-room if container.grid.navigable = true.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+cell:
+  # === IDENTITY ===
+  
+  id: "{{item_id}}"                  # COMPUTED: From item type
+  name: "{{item_name}} Storage"      # COMPUTED: From item name
+  emoji: "{{item_emoji}}"            # COMPUTED: From item emoji
+  
+  # === ITEM TYPE ===
+  
+  item_type: "{{item_id}}"           # REQUIRED: What this cell holds
+  item_name: "{{item_name}}"         # COMPUTED: Display name
+  item_tags: []                      # COMPUTED: Tags from item definition
+  
+  # === STORAGE MODE ===
+  
+  storage_mode: auto                 # OPTIONAL: fungible | instance | auto
+  # Inherited from parent container's item_handling.default_mode
+  
+  # === CAPACITY ===
+  
+  stack_limit: null                  # OPTIONAL: Override parent's limit
+  # null = inherit from parent
+  # Infinity = no limit
+  # number = specific limit
+  
+  # === FUNGIBLE STORAGE ===
+  # When items are interchangeable, just count them.
+  
+  count: 0                           # Current item count
+  
+  # === INSTANCE STORAGE ===
+  # When items have individual state, keep an array.
+  
+  instances: []                      # Array of item instance objects
+  # Each instance has at minimum:
+  #   { id: "sword-001" }
+  # And optionally:
+  #   { id: "sword-001", durability: 85, enchant: "fire", history: [...] }
+  
+  # === METADATA ===
+  
+  created_at: null                   # COMPUTED: When cell was created
+  last_access: null                  # COMPUTED: When last item added/removed
+  last_added: null                   # COMPUTED: When last item added
+  last_removed: null                 # COMPUTED: When last item removed
+  
+  # === NAVIGATION (if parent is navigable) ===
+  
+  description: "Stacked containers of {{item_name}}."
+  examine: |
+    This storage cell contains {{count}} units of {{item_name}}.
+    Stack limit: {{stack_limit}}.
+    
+  # Adjacent cells (auto-populated from grid)
+  exits:
+    # NORTH: "../copper-ore/"
+    # SOUTH: "../iron-plate/"
+    # etc.
+    
+  # === DISPLAY ===
+  
+  display:
+    show_count: true
+    label: "{{item_emoji}} {{item_name}}: {{count}}"
+    progress_bar: false              # Show fill level
+    warning_threshold: 0.1           # Yellow when below 10% full
+    critical_threshold: 0.05         # Red when below 5%
+    
+  # === SIGNALS ===
+  
+  signals:
+    # If parent has signals.enabled, these are emitted
+    item_count: "{{count}}"
+    is_empty: "{{count == 0}}"
+    is_full: "{{count >= stack_limit}}"
+    percent_full: "{{count / stack_limit}}"
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# OPERATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# ADD (count or instance)
+#   If fungible:
+#     cell.count += amount
+#   If instance:
+#     cell.instances.push(item_instance)
+#   cell.last_access = now
+#   cell.last_added = now
+#
+# REMOVE (count or instance)
+#   If fungible:
+#     cell.count -= amount
+#   If instance:
+#     cell.instances.remove(by id or index)
+#   cell.last_access = now
+#   cell.last_removed = now
+#
+# PEEK (check without removing)
+#   If fungible: return { item_type, count }
+#   If instance: return instances[0] or instances.find(predicate)
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Example: Fungible ore storage
+#
+#   cell:
+#     id: iron-ore
+#     item_type: iron-ore
+#     storage_mode: fungible
+#     count: 2500
+#     stack_limit: 10000
+
+# Example: Instance weapon storage
+#
+#   cell:
+#     id: magic-sword
+#     item_type: magic-sword
+#     storage_mode: instance
+#     count: 3
+#     instances:
+#       - id: sword-001
+#         name: "Flamebrand"
+#         durability: 85
+#         enchant: fire
+#         damage_bonus: 5
+#       - id: sword-002
+#         name: "Frostbite"
+#         durability: 100
+#         enchant: ice
+#         damage_bonus: 3
+#       - id: sword-003
+#         name: "Old Rusty"
+#         durability: 15
+#         enchant: null
+#         damage_bonus: 0

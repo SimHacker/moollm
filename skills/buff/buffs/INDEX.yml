@@ -1,0 +1,178 @@
+# Buff Library
+# Reusable buff instances for any adventure
+#
+# Reference from anywhere:
+#   ref: skills/buff/buffs/INDEX.yml#fire-resistance
+#   ref: skills/buff/buffs/INDEX.yml#haste
+
+buffs:
+  # === ELEMENTAL RESISTANCES ===
+  
+  fire-resistance:
+    name: "Fire Resistance"
+    emoji: "🔥🛡️"
+    duration: 10
+    effect: "Immune to fire damage, +5 heat tolerance"
+    visual: "Faint orange shimmer around body"
+    stacks: false
+    
+  cold-resistance:
+    name: "Cold Resistance"
+    emoji: "❄️🛡️"
+    duration: 10
+    effect: "Immune to cold damage, +5 cold tolerance"
+    visual: "Faint blue shimmer around body"
+    stacks: false
+    
+  lightning-resistance:
+    name: "Lightning Resistance"
+    emoji: "⚡🛡️"
+    duration: 10
+    effect: "Immune to lightning damage"
+    visual: "Static electricity crackles harmlessly"
+    stacks: false
+    
+  # === MOVEMENT ===
+  
+  haste:
+    name: "Haste"
+    emoji: "💨"
+    duration: 5
+    effect: "+2 speed, extra action per turn"
+    visual: "Blur effect, afterimages"
+    stacks: false
+    warning: "Fatigue debuff when ends"
+    
+  slow-fall:
+    name: "Slow Fall"
+    emoji: "🪶"
+    duration: 30
+    effect: "Fall damage reduced to 0"
+    visual: "Feather-like descent"
+    stacks: false
+    
+  water-walking:
+    name: "Water Walking"
+    emoji: "🌊🚶"
+    duration: 15
+    effect: "Can walk on water surfaces"
+    visual: "Ripples spread from each step"
+    stacks: false
+    
+  # === PERCEPTION ===
+  
+  darkvision:
+    name: "Darkvision"
+    emoji: "👁️🌙"
+    duration: 60
+    effect: "See in complete darkness (60 ft)"
+    visual: "Eyes glow faintly"
+    stacks: false
+    
+  true-sight:
+    name: "True Sight"
+    emoji: "👁️✨"
+    duration: 10
+    effect: "See through illusions, invisibility, shapechanging"
+    visual: "Third eye briefly visible on forehead"
+    stacks: false
+    
+  detect-magic:
+    name: "Detect Magic"
+    emoji: "🔮"
+    duration: 10
+    effect: "Magical auras visible, identify school"
+    visual: "Everything magical glows blue"
+    stacks: false
+    
+  # === STEALTH ===
+  
+  invisibility:
+    name: "Invisibility"
+    emoji: "👻"
+    duration: 8
+    effect: "Cannot be seen"
+    visual: "Completely transparent"
+    stacks: false
+    breaks_on: ["attack", "cast_offensive_spell"]
+    
+  silence:
+    name: "Silence"
+    emoji: "🤫"
+    duration: 10
+    effect: "No sound produced, immune to sound attacks"
+    visual: "Muffled movements, no footsteps"
+    stacks: false
+    
+  # === COMBAT ===
+  
+  berserker-rage:
+    name: "Berserker Rage"
+    emoji: "😤"
+    duration: 5
+    effect: "+4 damage, resist pain, can't use finesse"
+    visual: "Red aura, veins bulging"
+    stacks: false
+    warning: "Exhaustion when ends"
+    
+  stoneskin:
+    name: "Stoneskin"
+    emoji: "🪨"
+    duration: 10
+    effect: "Resist physical damage"
+    visual: "Skin has granite texture"
+    stacks: false
+    
+  shield-of-faith:
+    name: "Shield of Faith"
+    emoji: "✨🛡️"
+    duration: 10
+    effect: "+2 defense"
+    visual: "Glowing shield hovers nearby"
+    stacks: false
+    
+  # === UTILITY ===
+  
+  comprehend-languages:
+    name: "Comprehend Languages"
+    emoji: "📖"
+    duration: 60
+    effect: "Understand all spoken and written languages"
+    visual: "Words shimmer and rearrange"
+    stacks: false
+    
+  water-breathing:
+    name: "Water Breathing"
+    emoji: "🫧"
+    duration: 60
+    effect: "Breathe underwater"
+    visual: "Gills appear on neck"
+    stacks: false
+    
+  feather-fall:
+    name: "Feather Fall"
+    emoji: "🪶⬇️"
+    duration: 1
+    effect: "Slow fall to 60 ft/round"
+    visual: "Float gently like a leaf"
+    triggers_on: "falling"
+    
+  # === ADVENTURE-4 SPECIFIC ===
+  
+  grue-repellent:
+    name: "Grue Repellent"
+    emoji: "🧄"
+    duration: 20
+    effect: "Grues keep 10 ft distance, can't attack"
+    visual: "Faint blue cheese aroma"
+    source: "Blue cheese consumption"
+    stacks: false
+    
+  lamp-light-blessing:
+    name: "Lamp Light Blessing"
+    emoji: "🪔✨"
+    duration: 30
+    effect: "Your light cannot be extinguished"
+    visual: "Lamp glows with inner warmth"
+    source: "Fantastipants family heirloom"
+    stacks: false

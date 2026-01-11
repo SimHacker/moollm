@@ -1,0 +1,324 @@
+# CONTAINER.yml — Intermediate Scope / Inheritance Node
+#
+# OPENLASZLO INSPIRATION:
+# In OpenLaszlo, <node> is a non-visual element that provides:
+# - Attribute inheritance to children
+# - Shared state/context
+# - Grouping without layout
+#
+# MOOLLM CONTAINER:
+# A directory that is NOT a navigable room, but defines properties
+# that its child rooms/objects inherit. Like a prototype scope.
+#
+# THREE MODES:
+# 1. JUST CONTAIN — Pure grouping, no inheritance
+#      container:
+#        name: "Archived Rooms"
+#        # No 'inherits:' — children are just organized here
+#
+# 2. JUST INHERIT — Pass properties, not really a "thing"
+#      container:
+#        inherits:
+#          is_dark: true
+#          grue_rules: { can_appear: true }
+#        # Children get these defaults, that's all
+#
+# 3. BOTH — Organized grouping WITH shared properties
+#      container:
+#        name: "The Twisty Maze"
+#        description: "A labyrinth of passages"
+#        inherits:
+#          is_dark: true
+#        rules:
+#          - "Breadcrumbs disappear after 3 turns"
+#
+# EXAMPLE USE CASES:
+# - maze/ → All maze rooms inherit darkness, danger level, grue rules
+# - characters/animals/ → All animal characters inherit species traits
+# - kitchen/appliances/ → All appliances inherit power requirements
+#
+# "Inheritance flows downward. Context flows inward."
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# THE PLACE PROTOCOL (OpenLaszlo)
+#
+# `place` is a SMART version of `add` that routes items to the correct
+# sub-container based on the item's type and an optional `where` hint.
+#
+# WINDOW FRAME ANALOGY:
+#   A window has:
+#   - outer chrome (title bar, scrollbars)
+#   - inner client (the content area)
+#   
+#   By default, things get placed in the CLIENT.
+#   But scrollbars specify where: "chrome" and go to the outer container.
+#
+# ROOM PLACEMENT:
+#   When you throw an item through an exit:
+#   1. Item travels through the exit
+#   2. Exit specifies WHERE to place it in destination
+#   3. `place` routes it to the correct spot
+#
+#   exit:
+#     destination: kitchen/
+#     place_at: counter    # Items land ON the counter!
+#
+#   exit:
+#     destination: pub/stage/
+#     place_at: "#piano"   # Items land on the piano (by id)
+#
+# URL-STYLE TARGETING:
+#   Exits can use #fragment URLs to target specific objects:
+#   - "kitchen/#chair"      → Place on the chair in kitchen
+#   - "pub/#bar/shelf"      → Place on shelf inside bar
+#   - "maze/room-3-2/"      → Place in the room (default)
+#
+# PLACEMENT RULES:
+#   Containers define rules for what goes where:
+#
+#   placement_rules:
+#     - match: { tags: ["weapon"] }
+#       place_in: armory/
+#     - match: { tags: ["food"] }
+#       place_in: pantry/
+#     - match: { type: "furniture" }
+#       place_in: floor     # Default: center of room
+#     - default: inventory  # If nothing matches
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+container:
+  
+  # === IDENTITY ===
+  
+  name: "{{name}}"                    # REQUIRED: Display name for this scope
+  description: "{{description}}"      # OPTIONAL: What this container represents
+  
+  # === INHERITANCE ===
+  #
+  # Properties here flow down to all children.
+  # Children can override by defining their own values.
+  #
+  
+  inherits:                           # OPTIONAL: Properties children inherit
+    
+    # Example: Maze rooms inherit these
+    # is_dark: true
+    # is_dangerous: true
+    # ambient_sound: "dripping water"
+    # grue_rules:
+    #   can_appear: true
+    #   light_required: true
+    
+    # Example: Animal characters inherit these
+    # species: "animal"
+    # can_speak: false
+    # instincts: [survive, eat, play]
+    
+  # === RULES ===
+  #
+  # Rules that apply to all children in this scope.
+  #
+  
+  rules: []                           # OPTIONAL: Rules for this scope
+  # Example:
+  # - "Torches burn out faster in maze rooms"
+  # - "No teleportation works here"
+  # - "Sound echoes, alerting nearby rooms"
+  
+  # === DEFAULTS ===
+  #
+  # Default values for child objects/rooms.
+  # If a child doesn't define a field, use this.
+  #
+  
+  defaults:                           # OPTIONAL: Default values for children
+    # Example for maze:
+    # room:
+    #   atmosphere: "damp and musty"
+    #   lighting: "none"
+    #   exits_hidden: true
+    # object:
+    #   discoverable: true
+    #   decay_rate: 0.1
+    
+  # === CONSTRAINTS ===
+  #
+  # What CAN'T happen in this scope.
+  #
+  
+  constraints: []                     # OPTIONAL: Things forbidden in this scope
+  # Example:
+  # - "no_fast_travel"
+  # - "no_saving"  
+  # - "no_telepathy"
+  
+  # === PLACEMENT (The Place Protocol) ===
+  #
+  # Smart routing for items entering this container.
+  # Like OpenLaszlo's `place` vs simple `add`.
+  #
+  # When something is placed here, these rules determine
+  # which sub-container/room/object receives it.
+  #
+  
+  placement_rules: []                 # OPTIONAL: Routing rules for incoming items
+  # Example:
+  #   placement_rules:
+  #     - match: { tags: ["weapon"] }
+  #       place_in: armory/
+  #       create_if_missing: true     # Auto-vivify! Like mkdir -p
+  #       template: skills/container/armory.yml
+  #     - match: { tags: ["food"] }
+  #       place_in: pantry/
+  #     - match: { type: "mail" }
+  #       place_in: "#mailbox"        # By object ID
+  #     - match: { tags: ["furniture"] }
+  #       place_in: floor             # Named zone in room
+  #     - default: contents           # If nothing matches
+  #
+  # AUTO-VIVIFICATION:
+  # When create_if_missing: true, the container/directory is created
+  # on demand when the first matching item is placed.
+  # Like Perl's auto-vivification or `mkdir -p`.
+  # The template specifies what CONTAINER.yml to use.
+  
+  default_place: null                 # OPTIONAL: Where to place if no rules match
+  # Example: "floor", "#table", "inventory", "contents"
+  
+  # Named zones for placement (like chrome vs client)
+  zones:                              # OPTIONAL: Named areas within this container
+    # Example for a room:
+    # floor: { description: "The main floor area" }
+    # ceiling: { description: "Hanging from above" }
+    # wall: { description: "Mounted on walls" }
+    # 
+    # Example for a window (OpenLaszlo style):
+    # client: { description: "Main content area", default: true }
+    # chrome: { description: "Decorative frame" }
+    # header: { description: "Title bar" }
+    # scrollbar: { description: "Scroll controls" }
+  
+  # === LOGISTICS (Factorio Chest Modes!) ===
+  #
+  # Containers can participate in a logistics network!
+  # Like Factorio's colored logistic chests.
+  #
+  # CHEST MODES:
+  #   PASSIVE-PROVIDER (Yellow) — "Take from me if you need it"
+  #   ACTIVE-PROVIDER (Red) — "I'm pushing these OUT"
+  #   REQUESTER (Blue) — "I WANT these items"
+  #   STORAGE (Yellow variant) — "General overflow"
+  #   BUFFER (Green) — "Hold until needed"
+  #
+  # This enables automatic item flow between containers!
+  # NPCs and bots can move items based on requests.
+  #
+  
+  chest_mode: null                  # OPTIONAL: Logistics behavior
+  # Example passive provider:
+  #   chest_mode: passive-provider
+  #   provides:
+  #     - tags: ["food", "ingredient"]
+  #   reserve: 1                    # Always keep at least 1
+  #
+  # Example requester:
+  #   chest_mode: requester
+  #   request_list:
+  #     - { item: "iron-plate", count: 20, min: 5 }
+  #     - { tags: ["fuel"], count: 5 }
+  #
+  # Example active provider:
+  #   chest_mode: active-provider
+  #   push_to:
+  #     - match: { tags: ["finished"] }
+  #       destination: warehouse/
+  #     - default: storage/
+  #
+  # Example buffer:
+  #   chest_mode: buffer
+  #   buffer_for:
+  #     - destination: ship/cargo/
+  #       when: "ship.docked == true"
+  
+  provides: null                    # OPTIONAL: What this container offers (for providers)
+  request_list: null                # OPTIONAL: What this container wants (for requesters)
+  push_to: null                     # OPTIONAL: Where to push items (for active providers)
+  reserve: 0                        # OPTIONAL: Minimum to keep (for providers)
+  
+  # === EVENTS ===
+  #
+  # Events that fire for anything in this scope.
+  #
+  
+  on_enter: null                      # OPTIONAL: When entering any child room
+  on_exit: null                       # OPTIONAL: When exiting any child room
+  on_child_change: null               # OPTIONAL: When any child changes state
+  on_place: null                      # OPTIONAL: When item is placed via place protocol
+  
+  # === AMBIENT ===
+  #
+  # Environmental properties for the whole scope.
+  #
+  
+  ambient:                            # OPTIONAL: Environmental context
+    # Example:
+    # sound: "distant echoes"
+    # smell: "damp stone"
+    # temperature: "cold"
+    # light_level: 0
+    # danger_level: 5
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE: MAZE CONTAINER
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# container:
+#   name: "The Twisty Maze"
+#   description: "A collection of passages, all alike... or are they?"
+#   
+#   inherits:
+#     is_dark: true
+#     is_dangerous: true
+#     grue_rules:
+#       can_appear: true
+#       safe_with_light: true
+#     atmosphere: "damp, echoing, disorienting"
+#     
+#   rules:
+#     - "All maze rooms connect in non-Euclidean ways"
+#     - "Breadcrumbs disappear after 3 turns"
+#     - "Grues patrol when lights are out"
+#     
+#   defaults:
+#     room:
+#       is_dark: true
+#       exit_visibility: "hidden until explored"
+#       
+#   ambient:
+#     sound: "dripping water, distant footsteps"
+#     smell: "wet stone, decay"
+#     temperature: "cold"
+#     light_level: 0
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE: CHARACTER CATEGORY CONTAINER
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# container:
+#   name: "Animal Characters"
+#   description: "Non-human beings with personality"
+#   
+#   inherits:
+#     type: "animal"
+#     can_speak_human: false  # Palm is special!
+#     has_instincts: true
+#     
+#   defaults:
+#     character:
+#       diet: "omnivore"
+#       social: true
+#       pet_able: true
+#
+# ═══════════════════════════════════════════════════════════════════════════════

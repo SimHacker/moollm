@@ -123,7 +123,7 @@ room:
         I provide the inside.
       bond: beloved_partner
       can_invoke: true
-      invoke_command: "CALL MAURICE" or "SUMMON MAURICE"
+      invoke_command: '"CALL MAURICE" or "SUMMON MAURICE"'
       
     mirror:
       id: mind-mirror
@@ -176,7 +176,8 @@ room:
       metaphysical: true
       
     east:
-      destination: ../skills/
+      destination: $SKILLS/
+      external: true
       description: |
         A shimmering portal leads to the Skill Nexus — where the persona
         skill documents how masks work, how they modify their wearers,

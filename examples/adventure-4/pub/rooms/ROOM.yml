@@ -1,0 +1,64 @@
+# The Inn Rooms — Upstairs at The Rusty Lantern
+# Where weary travelers rest their heads
+
+room:
+  name: "The Inn Landing"
+  id: inn-landing
+  
+  description: |
+    A narrow hallway at the top of creaky wooden stairs. 
+    Dim lamplight flickers from wall sconces, casting long shadows
+    across worn floorboards. Several doors line the corridor,
+    each marked with a tarnished brass number.
+    
+    The smell of old wood and faint pipe smoke lingers.
+    
+  exits:
+    down:
+      destination: ../
+      description: "Back down to the pub"
+      
+    up:
+      destination: ../attic/
+      description: "Rickety ladder up to the attic"
+      
+    # Rooms 1-8 arranged clockwise from north
+    n:
+      destination: room-1/
+      description: "Room 1 — The Sunrise Room"
+      aliases: [1, north, sunrise]
+      
+    ne:
+      destination: room-2/
+      description: "Room 2 — The Scholar's Room"
+      aliases: [2, northeast, scholar]
+      
+    e:
+      destination: room-3/
+      description: "Room 3 — The Sailor's Room"
+      aliases: [3, east, sailor]
+      
+    se:
+      destination: room-4/
+      description: "Room 4 — The Garden Room"
+      aliases: [4, southeast, garden]
+      
+    s:
+      destination: room-5/
+      description: "Room 5 — The Sunset Room"
+      aliases: [5, south, sunset]
+      
+    sw:
+      destination: room-6/
+      description: "Room 6 — The Musician's Room"
+      aliases: [6, southwest, musician]
+      
+    w:
+      destination: room-7/
+      description: "Room 7 — The Hunter's Room"
+      aliases: [7, west, hunter]
+      
+    nw:
+      destination: room-8/
+      description: "Room 8 — The Stargazer's Room"
+      aliases: [8, northwest, stargazer]

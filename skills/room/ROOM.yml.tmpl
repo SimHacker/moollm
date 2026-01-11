@@ -1,47 +1,419 @@
-# Room: {{name}}
-# Created: {{timestamp}}
+# ROOM.yml — Navigable Space Primitive
+#
+# Rooms are the atoms of adventure geography.
+# "Every room is a memory palace locus. Spatial memory is powerful."
+#     — Frances Yates, The Art of Memory
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE BIG UNIFICATION: Rooms ARE Logistic Containers!
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# A room can:
+#   1. Be navigated (exits)
+#   2. Contain objects (stacks)
+#   3. ADVERTISE what it needs (logistics)
+#   4. Participate in item flow (provider/requester)
+#
+# THE SIMS + FACTORIO = MOOLLM
+#   Sims: Objects advertise actions with scores
+#   Factorio: Containers advertise what they need
+#   MOOLLM: Rooms advertise both!
+#
+# A kitchen room can say:
+#   "I need 5 units of food" (logistic request)
+#   "I offer COOK action" (object advertisement)
+#
+# ═══════════════════════════════════════════════════════════════════════════════
 
 room:
-  name: "{{name}}"
-  purpose: "{{purpose}}"
-  created: "{{timestamp}}"
+  # === IDENTITY ===
   
-  # What you need to know when entering this room
-  context:
-    - "{{context_item_1}}"
-    - "{{context_item_2}}"
-    
-  # Cards currently in play
-  # (Activated instances living in this room)
-  cards_in_play: []
+  name: "{{name}}"                   # REQUIRED: Display name
+  type: room                         # OPTIONAL: room | region | grid-cell | hub
+  emoji: "🚪"                        # OPTIONAL: Visual shorthand
+  
+  description: "{{description}}"     # REQUIRED: What player sees
+  examine: null                      # OPTIONAL: Detailed inspection
+  purpose: "{{purpose}}"             # OPTIONAL: Why this room exists
+  
+  # === VISIBILITY ===
+  #
+  # Hidden rooms do NOT appear on maps or room lists.
+  # BUT: You can still navigate TO them via exits!
+  #
+  
+  hidden: false                      # OPTIONAL: Not shown on maps
+  
+  # === NAVIGATION ===
+  
+  exits: {}                          # REQUIRED: Directions to other rooms
   # Example:
-  # - instance: "goblin-001"
-  #   card: "Git Goblin"
-  #   goal: "Find bug introduction"
-  #   state:
-  #     current_commit: "abc123"
+  #   exits:
+  #     NORTH: ../maze/room-a/
+  #     SOUTH:
+  #       destination: ../pub/
+  #       description: "A warm glow beckons southward."
+  #       guard: "player has invitation"
+  #     UP: ../home/
   
-  # Files to include in working_set when in this room
-  working_set:
-    - "ROOM.yml"
-    - "README.md"
-    - "state/*.yml"
+  # === CONTENTS ===
+  #
+  # Objects in this room. Can be paths or inline definitions.
+  #
+  
+  objects: []                        # OPTIONAL: Object paths or inline objects
+  # Example:
+  #   objects:
+  #     - lamp.yml
+  #     - chest.yml
+  #     - inline:
+  #         id: note
+  #         name: "Crumpled Note"
+  #         takeable: true
+  
+  # === STACKING (Objects Per Type) ===
+  #
+  # Rooms can have stacks of identical objects.
+  # Like a warehouse cell but navigable.
+  #
+  
+  stacks: {}                         # OPTIONAL: Item type → count or instances
+  # Example (fungible):
+  #   stacks:
+  #     iron-ore: 50
+  #     coal: 25
+  #
+  # Example (instance):
+  #   stacks:
+  #     magic-sword:
+  #       count: 3
+  #       instances:
+  #         - { id: sword-001, durability: 85 }
+  #         - { id: sword-002, durability: 100 }
+  #         - { id: sword-003, durability: 50 }
+  
+  stack_limit: null                  # OPTIONAL: Max per item type (null = infinite)
+  
+  # ═══════════════════════════════════════════════════════════════════════════
+  # LOGISTIC ADVERTISEMENTS
+  # ═══════════════════════════════════════════════════════════════════════════
+  #
+  # Rooms can ADVERTISE what they need or provide!
+  # This is THE SIMS meets FACTORIO:
+  #   - Sims: Objects advertise actions with attractiveness scores
+  #   - Factorio: Containers have request lists
+  #   - MOOLLM: Rooms advertise needs with priority!
+  #
+  # Logistic bots (NPCs, courier kittens) see these ads and deliver items.
+  #
+  # "The room WANTS things. Items flow to satisfy the want."
+  #
+  
+  logistics:
     
-  # Navigation to other rooms
-  exits:
-    parent: "../"
-    # Add related rooms:
-    # related: "../other-room/"
-    # child: "./sub-room/"
+    # What mode is this room in the logistics network?
+    mode: null                       # OPTIONAL: passive-provider | active-provider | requester | storage | buffer
+    # If null, room doesn't participate in network (just holds items)
     
-  # Atmosphere for soul-chat
-  # (How this room "feels" when it speaks)
-  atmosphere: "{{atmosphere}}"
+    # What this room provides (for providers)
+    provides: []                     # OPTIONAL: What items are available
+    # Example:
+    #   provides:
+    #     - tags: ["food"]
+    #     - item: "torch"
+    
+    reserve: 0                       # OPTIONAL: Minimum to keep (don't give away last N)
+    
+    # What this room requests (for requesters)
+    request_list: []                 # OPTIONAL: What the room wants
+    # Example:
+    #   request_list:
+    #     - item: "torch"
+    #       count: 2
+    #       min: 1
+    #       priority: high
+    #     - tags: ["fuel"]
+    #       count: 10
+    #       priority: normal
+    
+    # Where to push items (for active-provider)
+    push_to: []                      # OPTIONAL: Routing rules
+    
+    # Buffer conditions (for buffer mode)
+    buffer_for: []                   # OPTIONAL: Conditional forwarding
+    
+    # Network membership
+    network: default                 # OPTIONAL: Which logistics network
+    
+  # ═══════════════════════════════════════════════════════════════════════════
+  # ADVERTISEMENTS — The Sims Style!
+  # ═══════════════════════════════════════════════════════════════════════════
+  #
+  # Rooms can advertise ACTIONS just like objects!
+  # "This room offers REST" or "This room offers COOK".
+  #
+  # The room itself provides the action, not just objects in it.
+  #
+  
+  advertisements: {}                 # OPTIONAL: Actions this room offers
+  # Example:
+  #   advertisements:
+  #     REST:
+  #       description: "Rest in this quiet space"
+  #       score: 60
+  #       score_if: "player is tired"        # Boost when tired
+  #       effect: "Restore 20 energy per turn while here"
+  #       
+  #     MEDITATE:
+  #       description: "Find inner peace"
+  #       guard: "room is quiet"
+  #       score: 40
+  #       effect: "Reduce stress, might trigger insight"
+  
+  # ═══════════════════════════════════════════════════════════════════════════
+  # LOGISTIC ADVERTISEMENTS (The Fusion!)
+  # ═══════════════════════════════════════════════════════════════════════════
+  #
+  # This is the MAGIC: Rooms advertise their NEEDS with attractiveness scores!
+  # Logistic bots compare ads and deliver to the most "attractive" requester.
+  #
+  # "The kitchen REALLY wants ingredients. Score 90.
+  #  The storage closet KIND OF wants overflow. Score 30.
+  #  The ingredient goes to the kitchen."
+  #
+  
+  logistic_advertisements: {}        # OPTIONAL: What this room wants, with scores
+  # Example:
+  #   logistic_advertisements:
+  #     
+  #     NEED_LIGHT:
+  #       description: "This room needs light sources"
+  #       wants:
+  #         - tags: ["light-source"]
+  #           count: 1
+  #       score: 80                  # How badly we want it
+  #       score_if: "room.is_dark"   # Extra priority when dark
+  #       score_bonus: 40            # Total 120 when dark!
+  #       
+  #     NEED_FUEL:
+  #       description: "Keep the fire burning"
+  #       wants:
+  #         - item: "coal"
+  #           count: 10
+  #         - item: "wood"
+  #           count: 20
+  #       score: 50
+  #       score_if: "room.fireplace.fuel < 3"
+  #       score_bonus: 50
+  #       
+  #     NEED_INGREDIENTS:
+  #       description: "Kitchen needs ingredients for cooking"
+  #       wants:
+  #         - tags: ["ingredient"]
+  #           count: 5
+  #       score: 70
+  #       score_if: "meal_being_prepared"
+  #       score_bonus: 30
+  
+  # ═══════════════════════════════════════════════════════════════════════════
+  # GRID ROOM (Warehouse Cell) — Inherits from Quadrant Container!
+  # ═══════════════════════════════════════════════════════════════════════════
+  #
+  # Grid rooms live inside QUADRANT CONTAINERS (NW/NE/SW/SE of pie menu).
+  # They INHERIT logistics behavior from the parent LOGISTIC-CONTAINER.yml.
+  #
+  # INHERITANCE PATTERN:
+  #   wizard-study/
+  #     ROOM.yml                      # Main room (pie menu center)
+  #     nw/                           # Northwest quadrant
+  #       LOGISTIC-CONTAINER.yml      # ← Logistics config here!
+  #       nw-1-1/
+  #         ROOM.yml                  # ← Inherits from parent!
+  #       iron-ore/
+  #         ROOM.yml                  # ← Also inherits!
+  #
+  # The quadrant container defines:
+  #   - mode (passive-provider, requester, etc.)
+  #   - provides / request_list
+  #   - grid behavior (stack_limit, auto_create)
+  #   - logistic_advertisements
+  #
+  # Each grid room only needs:
+  #   - inherits: ["../"]             # Point to parent container
+  #   - stacks: { iron-ore: 2500 }    # What THIS cell holds
+  #   - exits: { ... }                # Navigation (auto-computable)
+  #
+  # The room is a "chest" in the Factorio sense — it participates in
+  # the logistics network using the config inherited from its quadrant.
+  #
+  
+  inherits: []                       # OPTIONAL: Paths to inherit from
+  # Example:
+  #   inherits: ["../"]              # Inherit from parent LOGISTIC-CONTAINER
+  #   inherits: ["../", "skills/room/dark-room.yml"]  # Multiple inheritance
+  
+  grid_cell:
+    enabled: false                   # OPTIONAL: Is this a grid cell?
+    parent: null                     # COMPUTED: Path to parent container
+    coordinates: null                # COMPUTED: { x: 0, y: 0 } position in grid
+    item_type: null                  # COMPUTED: What item type this cell holds
+    
+    # Adjacent cells (for navigation)
+    neighbors:                       # COMPUTED: Directions to adjacent cells
+      # NORTH: ../iron-plate/
+      # SOUTH: ../copper-ore/
+      
+  # When inherits includes a LOGISTIC-CONTAINER, this room automatically:
+  #   - Joins the logistics network
+  #   - Uses parent's mode (provider/requester/etc.)
+  #   - Uses parent's stack_limit
+  #   - Advertises parent's logistic_advertisements
+  #   - Can override any inherited value locally
+    
+  # === ATMOSPHERE ===
+  
+  atmosphere: "{{atmosphere}}"       # OPTIONAL: How this room feels
+  lighting: normal                   # OPTIONAL: none | dim | normal | bright
+  
+  # === CONTEXT ===
+  #
+  # What to include in working set when in this room.
+  #
+  
+  context: []                        # OPTIONAL: What to remember/load
+  working_set: []                    # OPTIONAL: Files to include
+  
+  # === EVENTS ===
+  
+  on_enter: null                     # OPTIONAL: When player enters
+  on_exit: null                      # OPTIONAL: When player leaves
+  on_item_added: null                # OPTIONAL: When item placed here
+  on_item_removed: null              # OPTIONAL: When item taken
+  on_request_fulfilled: null         # OPTIONAL: When logistics satisfied
+  
+  # === SIGNALS ===
+  #
+  # Emit signals about room state for circuit network.
+  #
+  
+  signals:
+    enabled: false                   # OPTIONAL: Emit signals
+    emit: []                         # OPTIONAL: Signal definitions
+    # Example:
+    #   emit:
+    #     - signal: "player-here"
+    #       value: "player.location == this"
+    #     - signal: "has-light"
+    #       value: "any light-source in room"
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLES
+# ═══════════════════════════════════════════════════════════════════════════════
 
-# ROOM LIFECYCLE
+# Example 1: Simple Room
 #
-# 1. ENTER: Context pushed, working_set loaded
-# 2. WORK: Activate cards, they work toward goals
-# 3. COMPLETE: Cards finish, write return values
-# 4. EXIT: Context popped, return to parent
+#   room:
+#     name: "Entry Hall"
+#     description: "A grand entrance with marble floors."
+#     exits:
+#       NORTH: ../throne-room/
+#       EAST: ../library/
+#       OUT: ../courtyard/
+
+# Example 2: Kitchen with Logistic Requests
 #
+#   room:
+#     name: "The Kitchen"
+#     description: "A busy kitchen with sizzling pans."
+#     
+#     logistics:
+#       mode: requester
+#       request_list:
+#         - tags: ["ingredient"]
+#           count: 10
+#           priority: high
+#         - item: "fuel"
+#           count: 5
+#           
+#     logistic_advertisements:
+#       NEED_INGREDIENTS:
+#         wants:
+#           - tags: ["ingredient"]
+#             count: 10
+#         score: 80
+#         score_if: "chef_is_cooking"
+#         score_bonus: 20
+#         
+#     advertisements:
+#       COOK:
+#         description: "Prepare a meal"
+#         guard: "ingredients available"
+#         score: 70
+
+# Example 3: Warehouse Cell (Grid Room)
+#
+#   room:
+#     name: "Iron Ore Storage"
+#     type: grid-cell
+#     description: "Stacked crates of iron ore."
+#     
+#     grid_cell:
+#       enabled: true
+#       parent: ../
+#       coordinates: { x: 0, y: 0 }
+#       item_type: iron-ore
+#       
+#     stacks:
+#       iron-ore: 2500
+#       
+#     stack_limit: 10000
+#     
+#     logistics:
+#       mode: passive-provider
+#       provides:
+#         - item: iron-ore
+
+# Example 4: Dark Room Requesting Light
+#
+#   room:
+#     name: "The Cellar"
+#     description: "Pitch black. You can't see anything."
+#     lighting: none
+#     
+#     logistics:
+#       mode: requester
+#       
+#     logistic_advertisements:
+#       DESPERATELY_NEED_LIGHT:
+#         wants:
+#           - tags: ["light-source"]
+#             count: 1
+#         score: 100              # Very high priority!
+#         description: "This room is dangerously dark."
+
+# Example 5: Buffer Room (Loading Dock)
+#
+#   room:
+#     name: "Loading Dock"
+#     description: "Crates wait here for the next ship."
+#     
+#     logistics:
+#       mode: buffer
+#       buffer_for:
+#         - destination: ../harbor/ship/cargo/
+#           when: "world.ship.docked"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THE FLOW
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# 1. ROOM announces logistic_advertisements with scores
+# 2. LOGISTICS ENGINE collects all ads from all rooms
+# 3. PROVIDERS offer items that match ad.wants
+# 4. BOTS (or belts) move items from providers to highest-scoring requesters
+# 5. ROOM receives items, on_item_added fires
+# 6. If request_list satisfied, on_request_fulfilled fires
+#
+# Like The Sims autonomy, but for ITEMS instead of Sims!
+#
+# ═══════════════════════════════════════════════════════════════════════════════

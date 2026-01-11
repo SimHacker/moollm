@@ -1,0 +1,35 @@
+# Relic Shelf — Strange Artifacts
+
+object:
+  name: "Dusty Relic Shelf"
+  id: relic-shelf
+  type: furniture
+  emoji: "🏺"
+  
+  description: |
+    A small shelf holding objects that don't belong in a pub basement.
+    A brass compass that points somewhere other than north.
+    A jar of sand from a beach that doesn't exist.
+    A candle that burned down but isn't getting shorter.
+    
+  advertisements:
+    EXAMINE-COMPASS:
+      description: "Study the strange compass"
+      score: 60
+      effect: "It points toward... something. Not north. Something else."
+      
+    TAKE-SAND:
+      description: "Take a pinch of the impossible sand"
+      score: 45
+      effect: "It feels like a memory of warmth. Keep it safe."
+      
+    LIGHT-CANDLE:
+      description: "Try to light the eternal candle"
+      score: 50
+      effect: "It was already lit. It's always been lit. How did you not notice?"
+      
+  contents: # suggestions -- be creative!
+    - wrong-compass
+    - memory-sand
+    - eternal-candle
+    - forgotten-photograph

@@ -1,0 +1,77 @@
+---
+# Plain Text Skill Card
+# Text files are forever
+
+name: plain-text
+version: 1.0.0
+tier: 0  # Foundational
+
+one_liner: "Text files are forever. No lock-in. No corruption. No transformation."
+
+protocol: PLAIN-TEXT
+
+tags:
+  - philosophy
+  - format
+  - durability
+  - git
+  - llm
+
+# Core insight
+insight: |
+  Plain text files from 1970 are still readable today.
+  They will be readable in 2070. Proprietary formats come and go.
+  Text is the universal interface.
+
+# Why it matters
+benefits:
+  - name: "Durability"
+    description: "50+ year track record"
+  
+  - name: "No Lock-In"
+    description: "Any editor, any platform, forever"
+  
+  - name: "Git-Friendly"
+    description: "Meaningful diffs, clean merges"
+  
+  - name: "LLM-Native"
+    description: "Trained on text, outputs text"
+  
+  - name: "Inspectable"
+    description: "cat, grep, diff just work"
+
+# MOOLLM formats
+formats:
+  - ext: ".md"
+    name: "Markdown"
+    use: "Prose, documentation, session logs"
+  
+  - ext: ".yml"
+    name: "YAML"
+    use: "Structured data with comments"
+  
+  - ext: ".tmpl"
+    name: "Templates"
+    use: "Empathic templates"
+
+# Key quotes
+quotes:
+  - text: "I don't want to worry about whatever cursed format OneNote uses still being something I can extract in 2035."
+    source: "@Havoc, Hacker News (2025)"
+  
+  - text: "The trillion-dollar AI industry's system for controlling their most advanced platforms is a plain text format."
+    source: "Anil Dash (2025)"
+
+# Commitment
+moollm_commitment:
+  - "Files as state — no databases"
+  - "Human-readable always"
+  - "Comments ARE data"
+  - "No transformation gap"
+
+# Related
+related:
+  - markdown
+  - yaml-jazz
+  - session-log
+  - postel

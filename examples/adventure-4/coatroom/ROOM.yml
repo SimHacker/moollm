@@ -74,6 +74,7 @@ room:
       
     east:
       destination: $SKILLS/  # Path variable — resolves to moollm/skills/
+      external: true  # Intentional link to skills repo
       description: |
         A door of pure light opens to the Skill Nexus — the library of
         ALL capabilities. This room transcends the adventure — it connects

@@ -1,0 +1,190 @@
+# Postal System — Complete Messaging Infrastructure
+# Machine-readable interface
+
+card:
+  id: postal
+  name: "Postal System"
+  type: infrastructure
+  emoji: "📬"
+  
+  description: |
+    Complete messaging system: letters, texts, goals, rewards, attachments.
+    Any character can send/receive. Goals come from anyone, not just Mom.
+    Deterministic routing — simulator delivers without LLM.
+    
+  # Core templates
+  templates:
+    letter: "LETTER.yml.tmpl"
+    message: "MESSAGE.yml.tmpl"
+    text: "TEXT.yml.tmpl"
+    inbox: "INBOX.yml.tmpl"
+    outbox: "OUTBOX.yml.tmpl"
+    
+  # Endpoints (source/destination)
+  endpoint_types:
+    - player              # Reserved keyword
+    - party               # All party members
+    - narrator            # System voice
+    - character           # "characters/don-hopkins/"
+    - room                # "pub/"
+    - object              # "start/mailbox.yml"
+    - directory           # "storage/vault/"
+    
+  # It's 2026 — everyone has a phone!
+  phone:
+    always_available: true
+    capabilities:
+      - mail
+      - text
+      - notifications
+      - camera
+      - maps
+    notification_types:
+      - mail_received
+      - text_received
+      - quest_update
+      - alert
+      - reward
+      
+  # Message types
+  message_types:
+    letter:
+      template: "LETTER.yml.tmpl"
+      delivery: queued       # Next tick
+      attachments: any
+      can_create_goals: true
+    text:
+      template: "TEXT.yml.tmpl"
+      delivery: instant
+      attachments: photos_only
+      can_create_goals: rarely
+      
+  # Goal integration (ANY character can do this!)
+  goal_integration:
+    creates_goal: "Letter assigns new goal"
+    modifies_goal: "Letter changes existing goal"
+    completes_goal: "Letter marks goal complete"
+    any_character: true     # Not just Mom!
+    
+  # Attachment types
+  attachment_types:
+    object:
+      actions: [send, give, copy, reference]
+    gold:
+      actions: [send]
+    image:
+      actions: [copy, generate, reference]
+    buff:
+      actions: [apply]
+    room:
+      actions: [unlock, reference]
+    message:
+      actions: [forward]
+      
+  # Deterministic routing
+  routing:
+    doc: "ROUTING.md"
+    no_llm_needed: true
+    
+    reserved_keywords:
+      - player
+      - party
+      - narrator
+      
+    resolution_order:
+      - reserved_keywords
+      - relative_paths
+      - absolute_paths
+      - object_paths
+      
+    routing_fields:
+      - destination_type
+      - destination_path
+      - delivery_point
+      - inbox_path
+      - attachments_transfer
+      - triggers
+      
+  # Delivery simulation
+  delivery:
+    methods:
+      text:
+        base_time: 0          # Instant
+        cost: 0
+        attachments: photos_only
+      letter:
+        base_time: 3
+        cost: 1
+        attachments: any
+      express:
+        base_time: 1
+        cost: 5
+        attachments: any
+        tracking: true
+      freight:
+        base_time: 10
+        cost_per_kg: 0.5
+        attachments: heavy_items
+      courier:
+        base_time: 2
+        cost: 10
+        guaranteed: true
+        
+    distance:
+      unit: hops              # Room graph distance
+      time_per_hop: 1         # Additional turns
+      cost_per_hop: 0.5       # Additional gold
+      
+    free_conditions:
+      - same_location
+      - system_message
+      - text_message
+      
+  # In-transit tracking
+  transit:
+    state_key: "world.skills.postal.in_transit"
+    fields:
+      - turns_remaining
+      - from
+      - to
+      - method
+      
+  # Simulation phase
+  simulation:
+    phase: 4              # After SIMULATE, before EVENTS
+    phase_name: MAIL
+    deterministic: true
+    
+    tick_actions:
+      - decrement_turns_remaining
+      - deliver_if_zero
+      - trigger_arrival_events
+    
+  # Operations
+  operations:
+    - CHECK_PHONE
+    - READ_MAIL
+    - READ_MESSAGE
+    - COMPOSE
+    - REPLY
+    - ATTACH
+    - SEND
+    - TEXT
+    
+  # Runtime state
+  runtime:
+    namespace: "world.skills.postal"
+    state:
+      - unread_count
+      - pending_count
+      - last_message_from
+      - outgoing          # Queued for delivery
+      - incoming          # Received this tick
+      
+  related:
+    - goal
+    - character
+    - object
+    - room
+    - storage
+    - buff

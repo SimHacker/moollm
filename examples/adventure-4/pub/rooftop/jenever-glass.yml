@@ -1,0 +1,29 @@
+# Abandoned Jenever — Someone's Nightcap
+
+object:
+  name: "Half-Finished Jenever"
+  id: jenever-glass
+  type: drink
+  emoji: "🥃"
+  
+  description: |
+    A tulip-shaped glass with amber liquid.
+    Traditional Dutch genever, left behind.
+    Still cold. Someone got distracted by the stars.
+    
+  advertisements:
+    SIP:
+      description: "Finish what someone started"
+      score: 50
+      effect: |
+        Juniper warmth spreads through you. 
+        Taste of Amsterdam history. Gain 'Warmed' buff.
+        
+    SNIFF:
+      description: "Appreciate the aroma"
+      score: 30
+      effect: "Juniper, malt, distant flowers. Someone has good taste."
+      
+  volume: half
+  temperature: chilled
+  variety: oude-jenever

@@ -1,0 +1,33 @@
+# Dusty Mirror — Covered with a Sheet
+
+object:
+  name: "Sheet-Covered Mirror"
+  id: dusty-mirror
+  type: furniture
+  emoji: "🪞"
+  
+  description: |
+    A tall mirror draped in a white sheet. The shape suggests 
+    an ornate frame beneath. Why was it covered?
+    
+  state:
+    covered: true
+    
+  advertisements:
+    UNCOVER:
+      description: "Pull the sheet off the mirror"
+      score: 65
+      guard: "mirror is covered"
+      effect: "Reveal the mirror. See yourself... or something else?"
+      
+    LOOK:
+      description: "Gaze into the mirror"
+      score: 50
+      guard: "mirror is uncovered"
+      effect: "Reflection shows truth. Sometimes uncomfortable truth."
+      
+    COVER:
+      description: "Put the sheet back"
+      score: 30
+      guard: "mirror is uncovered"
+      effect: "Some things are better left unseen"

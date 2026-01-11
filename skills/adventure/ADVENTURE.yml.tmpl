@@ -3,6 +3,27 @@
 # This file IS the simulation. Reading it = loading the world.
 # Comments are semantic data. The LLM reads them. They matter.
 # Don't create a separate SIMULATION.yml - this is it!
+#
+# DIRECTORY STRUCTURE:
+#
+# adventure-4/
+#   ADVENTURE.yml     ← This file (world state)
+#   ROOM.yml          ← OPTIONAL: The "outside" room!
+#   player.yml        ← Player character
+#   maze/             ← Sub-rooms (CONTAINER.yml or ROOM.yml)
+#   kitchen/          ← Each is a navigable area
+#   pub/              ← With its own ROOM.yml
+#
+# THE "OUTSIDE" ROOM:
+# The adventure directory can have BOTH ADVENTURE.yml AND ROOM.yml.
+# The ROOM.yml represents the outer world — the overworld, town square,
+# sky, or whatever wraps around the sub-directory rooms.
+#
+# Example:
+#   ADVENTURE.yml: World state, simulation params
+#   ROOM.yml: "The Town Square" — exits lead to maze/, kitchen/, pub/
+#
+# This is the "0,0" of the pie menu topology — the hub!
 
 # SIMULATION PROPERTIES (inherited from simulation skill)
 

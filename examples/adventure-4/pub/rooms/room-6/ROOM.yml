@@ -1,0 +1,38 @@
+# Room 6 — The Musician's Room (Southwest)
+
+room:
+  name: "The Musician's Room"
+  id: room-6
+  number: 6
+  
+  description: |
+    Musical instruments hang on the walls — a lute, a fiddle, 
+    a dented horn. The bed is simple but the room sings with 
+    character. Sheet music litters the floor.
+    
+    The painting shows a dance in a candlelit hall.
+    Someone scratched lyrics into the windowsill.
+    
+  exits:
+    ne:
+      destination: ../
+      description: "Back to the inn landing"
+      aliases: [out, leave, northeast]
+      
+  furniture:
+    bed:
+      type: simple-wood
+      quality: creaky
+      note: "Creaks rhythmically, like a percussion instrument"
+      
+    stool:
+      type: musicians-stool
+      height: adjustable
+      
+  decor:
+    painting: "The Last Dance"
+    window: street-facing
+    instruments: [wall-lute, retired-fiddle, dented-horn]
+    sheet-music: scattered-everywhere
+    
+  atmosphere: melodic, bohemian, stories-in-every-scratch

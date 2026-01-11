@@ -6,7 +6,7 @@
 # Marieke curates each strain personally.
 # The cats approve. Or they don't. You'll know.
 
-menu:
+object:
   id: buds
   name: "The Grotto Selection"
   served_by: [budtender]
@@ -645,7 +645,7 @@ products:
 ordering:
   commands:
     - "ORDER [strain name]"
-    - "MENU" | "STRAINS"
+    - "MENU or STRAINS"
     - "ASK MARIEKE ABOUT [strain]"
     - "RECOMMEND [mood/situation]"
     

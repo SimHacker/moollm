@@ -1,0 +1,123 @@
+# Container — Machine-Readable Interface
+#
+# Intermediate scope for inheritance and containment.
+# Like OpenLaszlo's <node> — grouping without layout.
+
+card:
+  id: container
+  name: "Container"
+  type: system
+  emoji: "📦"
+  
+  description: |
+    Directories that provide inheritance and containment without being navigable rooms.
+    Define shared properties that flow to all children.
+    
+  file: CONTAINER.yml
+
+# SCHEMA
+
+schema:
+  container:
+    name:
+      type: string
+      required: true
+      description: "Display name for this scope"
+      
+    description:
+      type: string
+      required: false
+      description: "What this container represents"
+      
+    inherits:
+      type: object
+      required: false
+      description: "Properties that flow to all children"
+      
+    rules:
+      type: array
+      items: string
+      required: false
+      description: "Rules that apply within this scope"
+      
+    defaults:
+      type: object
+      required: false
+      description: "Default values for child objects"
+      properties:
+        room:
+          type: object
+          description: "Defaults for child rooms"
+        object:
+          type: object
+          description: "Defaults for child objects"
+        character:
+          type: object
+          description: "Defaults for child characters"
+          
+    constraints:
+      type: array
+      items: string
+      required: false
+      description: "Things forbidden in this scope"
+      
+    on_enter:
+      type: string
+      required: false
+      description: "Natural language expression for entering any child"
+      
+    on_exit:
+      type: string
+      required: false
+      description: "Natural language expression for exiting any child"
+      
+    ambient:
+      type: object
+      required: false
+      description: "Environmental properties"
+      properties:
+        sound: { type: string }
+        smell: { type: string }
+        temperature: { type: string }
+        light_level: { type: number }
+        danger_level: { type: number }
+
+# INHERITANCE
+
+inheritance:
+  resolution_order:
+    - self
+    - parent_container
+    - grandparent_container
+    - adventure_defaults
+    - skill_template
+    
+  merge_strategy:
+    objects: deep_merge
+    arrays: concatenate
+    primitives: override
+
+# LINTER
+
+linter:
+  recognizes: CONTAINER.yml
+  suppresses: MISSING_TYPE_DECLARATION
+  emits:
+    - FOUND_CONTAINER
+
+# RELATED
+
+related:
+  - room      # Navigable locations
+  - object    # Things in rooms
+  - adventure # Root state
+  - prototype # Inheritance pattern
+
+# CREDITS
+
+credits:
+  inspiration:
+    - "OpenLaszlo <node> element"
+    - "Self prototype inheritance"
+    - "CSS cascade"
+    - "XML namespaces"

@@ -1,0 +1,133 @@
+# Image Mining Skill Card
+# "I mine pixels for atoms."
+
+skill:
+  name: image-mining
+  tier: 1
+  icon: ⛏️📷
+  
+  tagline: "Mine pixels for atoms. Reality is compressed resources."
+  
+  description: |
+    Extends DECOMPOSE to images. Your camera is a pickaxe for visual reality.
+    Point, shoot, extract — every image is a lode of resources.
+    
+  # What this skill enables
+  enables:
+    actions:
+      - MINE          # Extract resources from images
+      - SCAN          # Preview yields without extraction
+      - PROSPECT      # Detect mineable resources nearby
+      
+    properties:
+      - mineable      # Mark objects/images as resource sources
+      - yields        # Define what resources come out
+      - exhaustion    # Track depletion
+      - mining_tool   # Tools that affect efficiency
+      
+    integrations:
+      - logistics     # Mined resources route to containers
+      - postal        # Camera photos trigger mining
+      - visualizer    # Images as mining targets
+      - kitchen       # DECOMPOSE pattern extension
+      
+  # Resource categories
+  resource_types:
+    materials:
+      description: "Physical resources"
+      examples: [iron-ore, copper-ore, wood, stone, water]
+      
+    organics:
+      description: "Living/once-living resources"
+      examples: [leaves, seeds, fish, bone, feathers]
+      
+    precious:
+      description: "Valuable resources"
+      examples: [gold, gems, artifacts, rare-elements]
+      
+    abstract:
+      description: "Conceptual resources"
+      examples: [knowledge, emotions, colors, time, meaning]
+      
+    philosophical:
+      description: "Deep resources (requires special tools)"
+      examples: [existence, narrative, probability, observation]
+      
+  # Mining depth levels (parallel to Kitchen Counter)
+  depth_levels:
+    surface: "Objects and materials visible in image"
+    deep: "Hidden resources, embedded meaning"
+    quantum: "Probabilities, observer effects"
+    philosophical: "Narrative essence, existential components"
+    
+  # Tools that enhance mining
+  tools:
+    camera:
+      efficiency: 1.0
+      specialty: visual
+      
+    analyzer:
+      efficiency: 1.5
+      specialty: chemical
+      
+    oracle_eye:
+      efficiency: 2.0
+      specialty: abstract
+      
+    reality_pickaxe:
+      efficiency: 3.0
+      specialty: everything
+      warning: "May destabilize local reality"
+      
+  # Methods
+  methods:
+    mine:
+      signature: "MINE [target] (WITH [tool]) (TO [destination])"
+      description: "Extract resources from image/object"
+      returns: "List of extracted resources with quantities"
+      
+    scan:
+      signature: "SCAN [target]"
+      description: "Preview yields without extracting"
+      returns: "Mining preview with resource types and quantities"
+      
+    prospect:
+      signature: "PROSPECT [direction|DEEP]"
+      description: "Detect mineable resources in area"
+      returns: "List of potential mining targets"
+      
+    set_mineable:
+      signature: "Set object mineable: true with yields"
+      description: "Mark any object/image as a mining source"
+      
+  # Example mineable object
+  example:
+    object:
+      name: Ore Vein Painting
+      
+      mineable:
+        enabled: true
+        yields:
+          - item: iron-ore
+            quantity: [5, 15]
+          - item: artistic-essence
+            quantity: 1
+            rare: 0.3
+        exhaustion:
+          max_mines: 3
+          diminishing: 0.5
+          
+  # Lineage
+  lineage:
+    parent: [decompose, visualizer]
+    inspiration: ["Minecraft mining", "Photography as extraction"]
+    philosophy: |
+      "Every image is compressed information.
+       Mining decompresses it into resources."
+       
+  # Related skills
+  related:
+    - visualizer      # Creates mineable images
+    - logistic-container  # Stores mined resources
+    - postal          # Camera/delivery integration
+    - adventure       # World integration

@@ -1,0 +1,65 @@
+# Exit — Navigation Link Primitive
+# Machine-readable interface for adventure compilation
+
+card:
+  id: exit
+  name: "Exit"
+  type: primitive
+  emoji: "🚪"
+  
+  description: |
+    A navigation link connecting one room to another.
+    The edge of the memory palace graph.
+    
+  # Schema fields for validation
+  schema:
+    required:
+      - direction
+      - destination
+    optional:
+      - description
+      - short
+      - hidden
+      - guard
+      - locked
+      - lock_message
+      - unlock_with
+      - note
+      - hint
+      - metaphysical
+      - one_way
+    computed:
+      - guard_js
+      - guard_py
+      
+  # Valid directions
+  directions:
+    cardinal: [N, S, E, W]       # Highway links
+    diagonal: [NW, NE, SW, SE]   # Grid links
+    vertical: [UP, DOWN]         # Level changes
+    conceptual: [IN, OUT]        # Metaphysical
+    
+  # Compilation events this primitive can trigger
+  compile_events:
+    - type: COMPILE_EXPRESSION
+      field: guard
+      target_js: guard_js
+      target_py: guard_py
+      expected_type: boolean
+      
+  # How this maps to runtime classes
+  runtime:
+    python: Exit
+    javascript: Exit
+    
+  # Relationships
+  contained_by: room
+  points_to: room
+  
+  inherits:
+    - skills/prototype/
+    
+  related:
+    - room
+    - adventure
+    - memory-palace

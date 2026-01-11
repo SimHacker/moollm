@@ -1,0 +1,75 @@
+# INBOX.yml — Message Collection Point
+#
+# An inbox collects messages for an endpoint.
+# If no inbox exists, messages go directly to the endpoint directory.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+inbox:
+  # === OWNER ===
+  
+  owner: "{{owner_path}}"          # REQUIRED: Endpoint this inbox belongs to
+  
+  # === MESSAGES ===
+  
+  messages: []
+  # Each entry:
+  #   - ref: "messages/msg-001.yml"
+  #     received: "2026-01-10T10:00:00Z"
+  #     read: false
+  #     priority: normal
+  #     from: "characters/mom/"
+  #     subject: "Your Quest"
+  #     preview: "Dearest child, I need you to..."
+  
+  # === COUNTS ===
+  
+  unread_count: 0                  # COMPUTED: Number of unread messages
+  total_count: 0                   # COMPUTED: Total messages
+  
+  # === SETTINGS ===
+  
+  settings:
+    max_messages: 100              # OPTIONAL: Maximum messages to keep
+    auto_delete_after: null        # OPTIONAL: "30 days", "never"
+    forward_to: null               # OPTIONAL: Auto-forward to another endpoint
+    notify_on_receive: true        # OPTIONAL: Emit event on new message
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLES
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Player inbox:
+#
+#   inbox:
+#     owner: player
+#     messages:
+#       - ref: messages/mom-quest.yml
+#         received: "2026-01-10T10:00:00Z"
+#         read: false
+#         priority: high
+#         from: mom
+#         subject: "Find the Locket"
+#         preview: "Dearest, I need you to find..."
+#     unread_count: 1
+#     total_count: 1
+#
+# Character inbox:
+#
+#   inbox:
+#     owner: characters/don-hopkins/
+#     messages: []
+#     settings:
+#       forward_to: player         # Don's mail goes to player
+#
+# Room inbox (pub notice board):
+#
+#   inbox:
+#     owner: pub/
+#     messages:
+#       - ref: pub/notices/event-001.yml
+#         subject: "Open Mic Night!"
+#     settings:
+#       max_messages: 10           # Only keep recent 10
+#
+# ═══════════════════════════════════════════════════════════════════════════════

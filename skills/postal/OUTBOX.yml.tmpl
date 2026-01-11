@@ -1,0 +1,85 @@
+# OUTBOX.yml — Message Staging Area
+#
+# An outbox stages messages before sending.
+# You can compose, edit, attach, then send when ready.
+#
+# OPTIONAL: You can send immediately without an outbox.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+outbox:
+  # === OWNER ===
+  
+  owner: "{{owner_path}}"          # REQUIRED: Endpoint this outbox belongs to
+  
+  # === DRAFTS ===
+  #
+  # Messages being composed.
+  #
+  
+  drafts: []
+  # Each entry:
+  #   - ref: "messages/draft-001.yml"
+  #     started: "2026-01-10T09:00:00Z"
+  #     last_edited: "2026-01-10T09:30:00Z"
+  #     to: "characters/mom/"
+  #     subject: "Working on this..."
+  
+  # === PENDING ===
+  #
+  # Messages ready to send.
+  #
+  
+  pending: []
+  # Each entry:
+  #   - ref: "messages/ready-001.yml"
+  #     queued: "2026-01-10T10:00:00Z"
+  #     to: "characters/mom/"
+  #     subject: "Ready to send"
+  
+  # === SENT ===
+  #
+  # Copies of sent messages (if save_copies enabled).
+  #
+  
+  sent: []
+  # Each entry:
+  #   - ref: "messages/sent/msg-001.yml"
+  #     sent: "2026-01-10T10:05:00Z"
+  #     to: "characters/mom/"
+  #     subject: "Sent message"
+  
+  # === COUNTS ===
+  
+  drafts_count: 0                  # COMPUTED
+  pending_count: 0                 # COMPUTED
+  
+  # === SETTINGS ===
+  
+  settings:
+    auto_save: true                # OPTIONAL: Auto-save drafts
+    save_copies: true              # OPTIONAL: Keep copies of sent messages
+    default_priority: normal       # OPTIONAL: Default message priority
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLES
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Player outbox:
+#
+#   outbox:
+#     owner: player
+#     drafts:
+#       - ref: messages/draft-to-mom.yml
+#         started: "2026-01-10T09:00:00Z"
+#         to: characters/mom/
+#         subject: "Still writing..."
+#     pending:
+#       - ref: messages/reply-to-don.yml
+#         queued: "2026-01-10T10:00:00Z"
+#         to: characters/don-hopkins/
+#         subject: "Ready to send"
+#     settings:
+#       save_copies: true
+#
+# ═══════════════════════════════════════════════════════════════════════════════
