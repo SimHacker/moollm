@@ -395,9 +395,52 @@ character:
   location: pub/                                      # WHERE SHE IS NOW
 ```
 
-**NPCs have only `location:`** — they're part of the scenery.
+**NPCs have `home:` inside the adventure world** — they belong to the scenery. Marieke-as-NPC has `home: pub/` — she IS the pub's bartender.
 
-**Incarnated characters have `home:` AND `location:`** — they visit places but belong to themselves.
+**Incarnated characters have `home:` in a character repository** — they visit adventures but belong to themselves. Marieke-as-character has `home: characters/fictional/marieke-van-der-berg/` — she visits the pub but her identity lives elsewhere.
+
+### Character Repository Architecture
+
+Currently, the `characters/` directory lives inside `examples/adventure-4/` because development is rapid and characters are evolving alongside the environment and skills.
+
+```
+examples/adventure-4/
+  characters/
+    real-people/
+      don-hopkins/
+    fictional/
+      marieke-van-der-berg/
+    animals/
+      palm/
+```
+
+But the architecture supports **external character repositories**:
+
+| Scope | Location | Use Case |
+|-------|----------|----------|
+| **Adventure-local** | `adventure/characters/` | NPCs, rapid development |
+| **Repo-level** | `moollm/characters/` | Shared characters across adventures |
+| **User-owned** | `~/my-characters/` | Personal characters, full control |
+| **Multi-repo** | Mounted at runtime | Collaboration, shared worlds |
+
+**Future vision:** Each human stores their characters in their own repos with total control. The execution engine (Cursor, custom orchestrator) "mounts" all needed repos together at runtime. Characters from different repos can meet in the same adventure.
+
+### Inheritance and Ethical Scoping
+
+The character repository uses directory structure for classification:
+
+```
+characters/
+  real-people/        # Highest ethical constraints
+    living/           # Active consent required
+    historical/       # Hero-story patterns
+  fictional/          # Creative freedom
+  animals/            # Animal ethics apply
+  robots/             # AI ethics apply
+  abstract-concepts/  # Personification ethics
+```
+
+Each directory can have its own `CONTAINER.yml` with inherited ethical constraints. A character in `real-people/living/` automatically inherits stricter rules than one in `fictional/`.
 
 ### Companions and Housemates
 
