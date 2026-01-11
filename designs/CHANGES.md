@@ -691,3 +691,9 @@
 
 **`b86c10c`** CHANGES.md: Fix format, remove duplicates, make append-only
 > Clean house. Remove the repeated commits. Remove the conclusions. Add format instructions. Append-only means APPEND-ONLY. No endings. Just flow. 📋
+
+**`3eb7c21`** CHANGES.md: Document b86c10c fix commit
+> And document THAT. The recursion continues. 🔄
+
+**`(this)`** CHANGES.md: Clarify append format with (this) placeholder
+> Use (this) for pending commits. Retrocon actual hash after commit. File just ENDS. No conclusions. Groups and era headers are fine. 📝
