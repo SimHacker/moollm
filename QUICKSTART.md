@@ -10,8 +10,7 @@ Just explore the repo on GitHub — no install needed!
 
 | Browse This | What You'll See |
 |-------------|-----------------|
-| [examples/adventure-2/](./examples/adventure-2/) | A played world — Captain Ashford's legendary run |
-| [examples/adventure-3/](./examples/adventure-3/) | A fresh playable microworld — **clone this one!** |
+| [examples/adventure-4/](./examples/adventure-4/) | 🔥 **Start here!** The richest microworld — pub, NPCs, incarnation, Palm the monkey |
 | [skills/](./skills/) | All the building blocks — rooms, cards, adventures |
 | [kernel/](./kernel/) | The operating system layer — constitution, protocols |
 | [PROTOCOLS.yml](./PROTOCOLS.yml) | K-Lines — Wikipedia-style behavior triggers |
@@ -41,7 +40,7 @@ Or just open Cursor and ask:
 
 ### 1. Play an Adventure
 
-Open [examples/adventure‑3/](./examples/adventure-3/) — it's ready to go!
+Open [examples/adventure‑4/](./examples/adventure-4/) — the richest world with the most features!
 
 ```
 > LOOK
@@ -52,25 +51,26 @@ Open [examples/adventure‑3/](./examples/adventure-3/) — it's ready to go!
 
 The LLM is your Dungeon Master. The filesystem is the world. Chat commands become actions. Files track state.
 
-### 2. Read a Legendary Playthrough
+### 2. Read Epic Session Logs
 
-Open [examples/adventure‑2/README.md](./examples/adventure-2/README.md) — the complete transcript of Captain Ashford's epic journey:
-- Slew a grue with blue cheese
-- Made 8 promises to Mother, kept them all
-- Wrote a PhD-level postmodern deconstruction paper
-- 100+ generated photos
+See how adventures unfold in practice:
 
-See how an adventure unfolds. Learn the mechanics. Steal ideas.
+| Session | What Happens |
+|---------|--------------|
+| [marathon-session.md](./examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) | 🎮 Don's epic run: Palm's incarnation, 33-turn Fluxx, speed-of-light proven |
+| [k-line-connections.md](./examples/adventure-4/characters/real-people/don-hopkins/sessions/k-line-connections.md) | 🔗 K-line safari with Minsky, Nelson, Burke, Kay, Wright, and more |
+
+These aren't transcripts — they're **collaborative literature**. Learn the mechanics. Steal ideas.
 
 ### 3. Build Your Own World
 
 Just tell Cursor:
 
-> "Clone examples/adventure-3 to examples/my-run-1, then start it — I wake up and look around."
+> "Clone examples/adventure-4 to examples/my-run-1, then start it — I wake up and look around."
 
 Or manually:
 ```bash
-cp -r examples/adventure-3 examples/my-adventure
+cp -r examples/adventure-4 examples/my-adventure
 ```
 
 **What happens:** You'll see detailed results in chat (sometimes raw YAML), but Cursor also weaves your narrative into the adventure's `README.md` — complete with YAML Jazz commentary, links to artifacts, rooms, items, skill definitions, and image prompts.
@@ -93,30 +93,31 @@ The LLM creates the files, connects the exits, writes the descriptions. Looking 
 
 ---
 
-## 📂 The Four Adventure Examples
+## 📂 Adventure-4: The Recommended Starting Point
 
-| Adventure | Purpose | Status |
-|-----------|---------|--------|
-| [adventure‑1/](./examples/adventure-1/) | **The Seed** — Minimal starting world. Clone this for a clean start. | 🌱 Seed |
-| [adventure‑2/](./examples/adventure-2/) | **Legendary Playthrough** — Captain Ashford's epic journey. Full transcript, emergent mechanics. | ✅ Completed |
-| [adventure‑3/](./examples/adventure-3/) | **Rich Template** — Advanced mechanics, NPCs, pub, crafting. Clone this one! | 🎮 **PLAY ME** |
-| [adventure‑4/](./examples/adventure-4/) | **Don's Run** — Incarnation protocol, Palm the monkey, 33-turn Fluxx, Speed of Light demos. | 🔥 Active |
+| Adventure | What It Is |
+|-----------|------------|
+| 🔥 **[adventure‑4/](./examples/adventure-4/)** | **START HERE.** The richest world: pub with NPCs, incarnation protocol, character directories, session logs, Palm the monkey. All features demonstrated. |
 
-**The Progression:**
-- **adventure‑1** — the seed world (minimal, documented creation)
-- **adventure‑2** — played and extended it (Captain Ashford's transcript)
-- **adventure‑3** — reset with rich improvements (template)
-- **adventure‑4** — Don Hopkins' run with major innovations (incarnation, speed-of-light)
+### The Prototypes That Led Here
 
-**To preserve adventure‑3 as a template:**
+Adventure-4 evolved through three earlier iterations:
 
-Just tell Cursor:
-> "Clone adventure-3 to adventure-4, rename my character to 'Captain Starlight', and start me in the kitchen making breakfast."
+| Prototype | What It Contributed |
+|-----------|---------------------|
+| [adventure‑1/](./examples/adventure-1/) | 🌱 **The Seed** — Minimal starting structure. 10 maze rooms. The foundation. |
+| [adventure‑2/](./examples/adventure-2/) | 🏆 **Captain Ashford's Run** — First full playthrough. Proved the mechanics work. Slew a grue with blue cheese. |
+| [adventure‑3/](./examples/adventure-3/) | 🎮 **Rich Template** — Added pub, NPCs, crafting. Reset for fresh exploration. |
 
-Or manually:
+**Adventure-4 inherits everything from 1-2-3** and adds: incarnation protocol, character directories, Speed of Light simulation, session logs, Palm's essays, K-line navigation. It's the current "gold standard."
+
+**To start fresh:**
+
 ```bash
-cp -r examples/adventure-3 examples/adventure-4
+cp -r examples/adventure-4 examples/my-adventure
 ```
+
+Or ask Cursor: *"Clone adventure-4 to my-adventure-1, rename my character to 'Captain Starlight', and start me in the pub."*
 
 ---
 
@@ -149,22 +150,26 @@ cp -r examples/adventure-3 examples/adventure-4
 ## 🏰 What's In an Adventure?
 
 ```
-examples/adventure-3/
+examples/adventure-4/
 ├── README.md           # The story so far (and play log)
-├── characters/         # Player character directories
+├── characters/         # Player & NPC character directories
+│   ├── real-people/    # Real people (ethical framing)
+│   ├── fictional/      # Fictional characters
+│   └── animals/        # Animal characters (Palm, Biscuit, Terpie)
+├── sessions/           # Session logs (collaborative literature!)
 ├── start/              # Chamber of Commencement
-# Game systems are in skills/ (buff, time, needs, etc.)
 │   ├── ROOM.yml        # Room definition
 │   ├── lamp.yml        # GET LAMP!
 │   └── mailbox.yml     # Zorkian tradition
 ├── kitchen/            # Mother's kitchen
-│   ├── mothers-note.yml    # ⭐ MOST IMPORTANT — read it, reply!
+│   ├── mothers-note.yml    # ⭐ Read it, reply — your promises become goals!
 │   ├── fridge.yml          # 20 foods for maze mapping
-│   ├── tomtomagotchi.yml   # Navigation pet
 │   └── counter.yml         # Crafting system
 ├── coatroom/           # Costume room — be anyone!
 ├── maze/               # 10 dark rooms, grue danger
-├── pub/                # Social hub — games, rumors, themes
+├── pub/                # 🔥 Social hub — games, stage, NPCs, themes
+│   ├── stage/          # Performance space, Palm's nook
+│   └── bar/            # Bartender Marieke, budtender George
 ├── home/               # Mother waits here
 └── end/                # Treasury — the goal!
 ```
@@ -175,13 +180,13 @@ examples/adventure-3/
 
 ## 🎯 Your First Session
 
-1. **Open adventure‑3 in Cursor**
+1. **Open adventure‑4 in Cursor**
 2. **Chat:** "I wake up. LOOK. GO WEST. READ NOTE."
-3. **Compose your reply to Mother** — your promises become your goals, kickstarting world generation!
+3. **Compose your reply to Mother** — your promises become your goals!
 4. **Explore:** GO NORTH, LOOK, EXAMINE, TAKE things
-5. **Write back to Mother** — your promises become your goals!
+5. **Visit the pub** — meet Marieke the bartender, George the budtender, play Fluxx!
 
-The LLM tracks state in the YAML files. Look at `player.yml` to see your inventory, gold, and location update.
+The LLM tracks state in the YAML files. Look at character files to see inventory, gold, and location update.
 
 ---
 
@@ -221,7 +226,7 @@ Full index: [PROTOCOLS.yml](./PROTOCOLS.yml)
 ### Add a Room
 
 ```bash
-mkdir examples/adventure-3/garden
+mkdir examples/adventure-4/garden
 ```
 
 Create `ROOM.yml`:
