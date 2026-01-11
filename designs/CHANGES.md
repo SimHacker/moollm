@@ -1,146 +1,651 @@
-# CHANGES: The K-Lines Safari
+# CHANGES: The Complete History of MOOLLM
 
-> *A James Burke-style journey through 33 commits, tweet by tweet.*
+> *A James Burke-style journey through 490 commits, tweet by tweet.*
+> *From "first commit" to Sovereign Souls.*
 
 ---
 
-## Act I: The Sniffable Beginning
+## Era I: Genesis & The Documentation Explosion (1-40)
 
-**`dd33426`** Expand sniffable-python to show deep connections to MOOLLM ecosystem
-> Steve Jobs wanted buttons you'd lick. Perl wanted symbols that'd blind you. What if the answer was neither? 🐍
+**`cf7ebc0`** first commit
+> In the beginning was the repository. And the repository was empty. And Don said, let there be structure. 🌅
+
+**`3b4d5ae`** skill and constitution development
+> Skills. Not functions. Not modules. SKILLS. The fundamental unit of LLM capability. Everything follows from this. 🧬
+
+**`1e3fcef`** → **`bdb5fcb`** refinement, documentation ×18
+> 18 commits called "documentation." The iceberg forms underwater. Nobody sees this work. Everyone will feel it. 📚
+
+**`d1d8e49`** → **`90db7b1`** documentation ×20 more
+> More documentation. More structure. 38 commits of pure foundation before anything "happens." The cathedral's underground. ⛪
+
+---
+
+## Era II: Adventures Awaken (41-70)
+
+**`63608dd`** Adventure 2: The Ballad of Captain Ashford — Complete!
+> The first COMPLETE adventure. A hero. A ballad. The format works. Now we iterate. ⚔️
+
+**`af84d28`** Adventure 3: A New Hero Awakens — Fresh start, enriched world
+> Captain Ashford's story is told. Time for a new hero. Fresh canvas. Same DNA. 🌄
+
+**`5844e56`** Adventure 3: Add emergent mechanics as runtime inspiration
+> Mechanics that EMERGE from play. Not hardcoded. Documented as inspiration, not law. 🎲
+
+**`bbe35fc`** TomTomagotchi — navigation companion
+> Your pet. Your guide. Your adorable persistent responsibility. The Tamagotchi meets text adventure. 🐣
+
+**`f578720`** Fix YAML syntax error in tomtomagotchi.yml
+> YAML bites back. Indentation matters. This won't be the last fix. 🐛
+
+**`60646c3`** TomTomagotchi: Apple pie scent always leads you home
+> Smell as navigation. Proust meets game design. Follow your nose to safety. 🥧
+
+**`0024718`** → **`285f8c4`** Kitchen furniture, trash can
+> Every adventure needs a kitchen. Every kitchen needs a trash can. The Sims DNA stirs. 🍳
+
+**`50bcc02`** Adventure 3: Add crafting counter (like Minecraft crafting table)
+> CRAFTING. Combine objects. Create new objects. The verb becomes generative. 🔨
+
+**`fae62a4`** ACME Mail-Order Catalog (Wile E. Coyote style)
+> Order anything. No refunds. No guarantees. The Monkey's Paw enters the mythology. 📦
+
+---
+
+## Era III: Kitchen Engineering (71-100)
+
+**`4c5109b`** Refactor: Actions belong to items, not containers
+> Philosophical breakthrough. The ITEM knows its verbs. The container just holds it. Object-oriented adventure. 🧠
+
+**`fc607c5`** Trash can now features Death Star garbage compactor
+> "Into the garbage chute, flyboy!" Mundane objects gain personality. Everything is a story. 🗑️
+
+**`f4c9471`** ACME Catalog: Massively expand with cartoon physics archetypes!
+> Rocket skates. Portable holes. Anvils. ACME becomes infinite. Order at your own risk. 🚀
+
+**`b15f042`** Crafting Counter: Add DECOMPOSE action for reverse engineering!
+> Build up. Tear down. Learn from destruction. The counter becomes a laboratory. 🔬
+
+**`0cc3863`** Adventure 3 README: Tease new kitchen upgrades without spoilers!
+> Documentation as marketing. Hint at depth without revealing secrets. Players should discover. 🎁
+
+**`278e948`** Link to BOTH deconstruction papers
+> Morningstar AND academic sources. Theory meets practice. Give credit. 📖
+
+**`b687cc5`** → **`2dba9ab`** Deep consistency check — Adventures 1, 2, 3
+> Three adventures. Three audits. Everything aligns. The world is coherent. ✅
+
+**`051a3a0`** Fertilized Mother's note with seeds of drama & love! 🌱💕
+> A single note from Mother. Loaded with potential. The player will define who she is. 💌
+
+**`fbbbb95`** Mother is CO-CREATED by the player's letters! 🎭💕
+> Brilliant. Mother doesn't exist until you write to her. Your letters shape her replies. Collaborative fiction. ✍️
+
+---
+
+## Era IV: Systems Crystallize (101-130)
+
+**`5cc8a61`** The Grand Mailbox & One Lousy Point Stamp Collection! 📬💌
+> Mail as game mechanic. Stamps as collectibles. "One Lousy Point" — the joke that structures play. 📮
+
+**`f801c0b`** Dynamic Scoring & Skill Economy! 🎯💎
+> Points aren't fixed. They flow. Economy of achievement. The Sims meets Infocom. 💰
+
+**`7a6df5c`** Family Reunion Quests & Party Companions! 👨‍👩‍👧‍👦🎭
+> NPCs become party members. Adventures become social. Not solo anymore. 👥
+
+**`2a816cb`** GTA-Style Mission Map for Tom! 🗺️⭐
+> Mission markers. Quest tracking. Tom grows up. Open world in text form. 🎮
+
+**`5357d3f`** Curses System — Negative Skills for Growth! 💀✨
+> Debuffs as narrative. Curses you can overcome. Growth through adversity. 📉
+
+**`2551274`** Dynamic World Generation — Rooms & Objects On Demand! 🌍✨
+> Rooms don't need to pre-exist. Generate them. The world expands as you explore. 🌱
+
+**`823aec1`** Topology Patterns — Room Generation & Linking Structures! 🏛️🔲
+> Grids. Trees. Graphs. The grammar of space. Rooms have structural relationships. 📐
+
+**`9f11d9e`** The Rusty Lantern — A Proper Pub for Proper Heroes! 🍺🎭
+> The PUB. Central hub. Social space. Every adventure needs a tavern. 🍻
+
+**`a485862`** Modularize! mothers-note.yml 2260→254 lines 🔧
+> Refactor. 2000+ lines → 250. Compression through structure. Files should be readable. 📉
+
+**`75fc1af`** Fix world map — north is UP!
+> Geography matters. Conventions matter. North is UP. Always. 🧭
+
+---
+
+## Era V: Documentation Philosophy (131-160)
+
+**`236178f`** Document sub-directories as behavior containers
+> Directories aren't just folders. They're CONTAINERS. They define what lives inside them. 📁
+
+**`38204d6`** Expand Influences and Credits sections
+> Credit your ancestors. The Sims. Infocom. MUD. MOO. The lineage matters. 🙏
+
+**`106114d`** Replace ugly lineage code block with Mermaid diagram
+> Mermaid is beautiful. ASCII is nostalgic. Choose beauty for documentation. 📊
+
+**`e5b9e19`** Fix MFM link — use robust.cs.unm.edu
+> Links rot. Archive them. Reference them correctly. The web forgets; we remember. 🔗
+
+**`e671e4d`** Completely rewrite QUICKSTART.md — practical Cursor guide
+> Don't tell them everything. Tell them how to START. The rest they'll discover. 🚀
+
+**`ab918c4`** QUICKSTART: Just tell Cursor to clone and play!
+> One command. Clone and play. That's it. Reduce friction to zero. ⚡
+
+**`6b187dc`** QUICKSTART: Explain chat-driven creation + K-Lines
+> Talk to your IDE. It creates. K-Lines are the vocabulary. The magic is conversation. 💬
+
+**`146d977`** QUICKSTART: Cursor handles git for you — learn by watching
+> Don't teach git. Let Cursor do git. Users learn by osmosis. 👀
+
+**`cbaf45d`** README: Feature QUICKSTART prominently at the top
+> First impressions. Put the door at the entrance. Don't hide the way in. 🚪
+
+**`41c3fb0`** QUICKSTART: K-Lines like Wikipedia policy shortcuts
+> WP:NPOV. WP:BOLD. K-Lines are the same. Abbreviations that expand into policy. 📜
+
+---
+
+## Era VI: Protocols Emerge (161-200)
+
+**`2124c30`** QUICKSTART: Clone + customize template in one Cursor command
+> The template is the starting point. Customization is the journey. One command. 🎯
+
+**`3d38b6a`** QUICKSTART: Add hyperlinks to all protocol K-lines
+> K-Lines become clickable. The web of meaning gets hypertext. 🕸️
+
+**`4d7dead`** README: Add Bogost, McCloud, Wright to lineage
+> Bogost: procedural rhetoric. McCloud: comics theory. Wright: The Sims. The ancestors grow. 👴
+
+**`ad40403`** PROTOCOLS: Add PROCEDURAL-RHETORIC, MASKING-EFFECT, SIMULATOR-EFFECT
+> New protocols. New vocabulary. The language of simulation design expands. 📖
+
+**`1eba090`** skills/procedural-rhetoric: Rhetorical design mixin
+> Games make arguments through mechanics. The skill documents this. 🎭
+
+**`44e9ef8`** → **`39fd8db`** adventure-3/maze: Extract rooms, objects
+> The maze grows modular. Rooms become files. Objects become files. Everything is addressable. 🔲
+
+**`4879054`** PROTOCOLS: Add 8 new K-lines from Sims inclusivity paper
+> Academic Sims research → MOOLLM protocols. Theory becomes practice. 📚
+
+**`f800928`** skills: Add storytelling-tools, update procedural-rhetoric
+> Skills beget skills. The network grows. Each skill links to others. 🔗
+
+**`3002d0c`** PROTOCOLS: CONTAINER now supports type constraints and auto-sort
+> Containers know what they can hold. Type safety without types. 📦
+
+**`0a2a983`** PROTOCOLS: Fix AUTONOMOUS-SELECTION — random from top-n, not deterministic
+> Randomness matters. Don't always pick the best. Pick randomly from the good. 🎲
+
+**`0cab606`** PROTOCOLS: Merge duplicate SIMANTICS entries
+> DRY. Don't Repeat Yourself. Even in protocols. 🧹
+
+---
+
+## Era VII: The Pub Awakens (201-240)
+
+**`a9a946e`** adventure-3/home: Add WAFFLE PARTY and TACO TUESDAY celebrations
+> Holidays. Rituals. Time passes. The home has rhythms. 🧇🌮
+
+**`20d68e7`** Remove ALL decorative ───── dividers project-wide
+> Dividers are noise. Remove them. Let structure emerge from content. ✂️
+
+**`a865795`** pub: Extract objects into own files
+> The pub is complex. Split it. Each object gets a home. 🍺
+
+**`745c8cc`** pub: Add Bar Karma inspiration (Will Wright & Don Hopkins)
+> Bar Karma. The TV show Will made. Don worked on it. The pub honors its ancestors. 📺
+
+**`335900e`** bartender: Add Quark's Bar and Morn (DS9) to lineage
+> Quark serves drinks. Morn never shuts up. Deep Space Nine was a pub in space. 🖖
+
+**`1da74b5`** bartender: Add Ten Forward and Guinan (TNG) to lineage
+> Guinan knows things. Ten Forward is neutral ground. The wise bartender archetype. 🍸
+
+**`8ebda0f`** bartender: Add the eternal regulars — Barney, Homer, Norm, Cliff
+> Barney Gumble. Homer Simpson. Norm Peterson. Cliff Clavin. The regulars. 🍻
+
+**`56a57ea`** → **`a544121`** pub: Add arcade cabinets, fruit machine, BAR KARMA pinball
+> Entertainment. Games within games. The pub becomes an arcade. 🕹️
+
+**`a13ac9c`** pub: Add seating — bar, tables, booths with intimacy levels
+> Where you sit matters. Bar is public. Booth is private. Social architecture. 💺
+
+**`2df8b48`** → **`a4497da`** card-deck: Add Fluxx, Stoner Fluxx, AI Fluxx, MOOLLM Fluxx
+> Fluxx. The game where rules change. Perfect for MOOLLM. Chaos is the point. 🃏
+
+---
+
+## Era VIII: Ethics & Representation (241-280)
+
+**`fd07157`** representation-ethics: Deep dive into simulation ethics
+> Simulating people is serious. The ethics skill gets deep. How do we represent others? ⚖️
+
+**`d8df02d`** mind-mirror: Timothy Leary's 1985 personality modeling system
+> Timothy Leary made personality software in 1985. MOOLLM inherits this. 🧠
+
+**`b207fef`** → **`dbce616`** mind-mirror: Enriched with Leary quotes, scales, sources
+> Primary sources. Real quotes. Verified history. The ghost of Leary guides design. 👻
+
+**`68eb56e`** representation-ethics: Add Elvis Impersonator Model
+> Impersonation as art form. Elvis impersonators are a TRADITION. Ethics of tribute. 🎤
+
+**`d1b2192`** coatroom: Mind Mirror integration — psychological Create-a-Sim
+> The coatroom has a mirror. Look in it. See your personality. Adjust yourself. 🪞
+
+**`f6dac5c`** mind-mirror: Sims-style needs, wants, aspirations for dynamic simulation
+> Hunger. Bladder. Social. The Sims' needs system enters MOOLLM. Characters want things. 🎯
+
+**`79bd71f`** imaging: New skill for semantic image generation
+> Describe images with structure. Metadata guides generation. Pictures from words. 🖼️
+
+**`9b8205b`** mind-mirror: Add The Sims 1.0 personality traits (Will Wright)
+> Neat vs Sloppy. Outgoing vs Shy. The original 5 traits. Will Wright's simplicity. 📊
+
+**`3ca512b`** adventure-3: Add characters/ directory for all character files
+> Characters get their own directory. They're not just objects. They're BEINGS. 👥
+
+**`578da60`** Personas: Wearable personality overlays separate from characters
+> Personas aren't permanent. You can wear one. Take it off. The actor/role split. 🎭
+
+**`d600fcc`** adventure-3: Add Bumblewick Fantastipants character
+> Bumblewick Fantastipants. The name alone is worth the commit. 🎩
+
+---
+
+## Era IX: Skill System Upgrade (281-320)
+
+**`06de663`** Upgrade skills to Anthropic-compatible format (partial)
+> Anthropic has a skill format. MOOLLM extends it. Compatibility matters. 🔧
+
+**`81421d0`** Document sidecar CARD.yml pattern
+> Every skill gets a CARD.yml. Sniffable metadata. The pattern becomes law. 🃏
+
+**`d15e1d5`** Polish skill READMEs with proper content
+> Proper content. Not stubs. Every README earns its space. 📝
+
+**`e69e154`** Update skills/README.md with comprehensive index
+> 54 skills. (Later: 80+.) Index them. List them. Make them findable. 📚
+
+**`b2e5726`** Refactor: Adventure inherits from Simulation
+> Inheritance! Adventures ARE simulations. The class hierarchy clarifies. 🧬
+
+**`f7ebbf6`** Refactor skills: add kernel cross-refs, reduce AI slop
+> AI slop: the generic filler LLMs produce. Remove it. Add substance. 🧹
+
+**`78ad82d`** Separate adventure README from session LOG
+> README is documentation. LOG is history. Separate concerns. 📔
+
+**`746cf64`** Enshrine the foundational insight: many voices, not one
+> MOOLLM isn't one voice. It's an ENSEMBLE. Many perspectives. Deliberation. 🗣️
+
+**`3239a23`** Update README Skill System section for Anthropic compatibility
+> MOOLLM skills work WITH Anthropic. Not against. Extend, don't replace. 🤝
+
+**`292ea29`** Clarify: The LLM IS the template engine (not Mustache)
+> No Mustache. No Jinja. The LLM reads the template. The LLM fills it in. 🧠
+
+**`095b0da`** Enumerate MOOLLM's Anthropic extensions
+> Here's what we add. Clear list. Honest about what's new. 📋
+
+---
+
+## Era X: Adventure 4 Begins (321-360)
+
+**`0690049`** Preserve adventure-3, evolve into adventure-4
+> Adventure 3 is frozen. Adventure 4 is the new frontier. Evolution, not revolution. 🌅
+
+**`898619b`** Merge pull request #1 from SimHacker/don-adventure-3-run-1
+> The first PR. The first merge. The first collaboration. 🎉
+
+**`571c2b0`** Activation records advertise buttons that others can press
+> Objects ADVERTISE their affordances. Buttons that can be pressed. Actions that can be taken. 📢
+
+**`b904de4`** Add Flux cards: rules that change rules
+> Fluxx meets MOOLLM. Meta-rules. The game changes as you play. 🔄
+
+**`b3ff191`** Add Data Flow Ensembles: Factorio meets Natural Language
+> Factorio's belts and inserters → language flows. Data moves. Pipes connect. 🏭
+
+**`173e671`** Add debate skill with card, templates, and data flow ensemble
+> Debate as data flow. Arguments move through channels. Deliberation has structure. 🎤
+
+**`3bff191`** → **`880b64d`** Add Pie Menu Round Table, Gong of Gezelligheid
+> Round table. Pie menu. The gong! Gezelligheid: Dutch coziness. The pub gets philosophy. 🔔
+
+**`f182922`** Add addressable seats — characters parent to chairs via location
+> Sit somewhere. Your location IS the chair. Spatial hierarchy. 💺
+
+**`60c9e69`** AUTOGONG: Gong rings automatically during musical chairs
+> Musical chairs + gong = AUTOGONG. The ritual automates itself. 🎶
+
+**`f1910a5`** Merge pull request #2 from SimHacker/don-adventure-3-run-1
+> PR #2. The pie menus, gongs, and Factorio debates enter main. 🔀
+
+---
+
+## Era XI: The Pub Evolves (361-400)
+
+**`4cd7159`** Reset adventure-4 to clean state for fresh playthrough
+> Fresh start. Clean slate. Adventure 4 begins proper. 🧹
+
+**`15c69d4`** Make characters/ and personas/ proper metaphysical rooms
+> Characters aren't just data. They're ROOMS you can visit. Metaphysical architecture. 🚪
+
+**`7879c0b`** Make skills/ a metaphysical room: The Skill Nexus
+> Skills themselves become a place. Walk among your capabilities. 🧠
+
+**`2f56551`** Add loving relationships between metaphysical infrastructure
+> Skills love each other. Characters know each other. The system is social. ❤️
+
+**`ef9996c`** Move protocol docs to skills/skill/
+> Consolidate. skills/skill/ is the meta-skill. Documentation lives there. 📁
+
+**`fd6d0a1`** → **`a2a92a2`** Add CARD.yml for all skills (5 batches)
+> Every skill gets a card. Systematic. Thorough. No orphans. 🃏
+
+**`5cee109`** Expand representation-ethics with performance impersonation framework
+> Drag. Tribute acts. Performance impersonation. Ethics of homage. 🎭
+
+**`008da5b`** Transform pub into place of performance, celebration, socialization
+> The pub isn't just a bar. It's a STAGE. A community center. A living room. 🎪
+
+**`a13347a`** Expand sister-script with canonical Python CLI structure
+> Sister scripts have structure. CLI follows patterns. Python that reads itself. 🐍
+
+**`2012760`** Add bartender & budtender SKILLS — role vs persona vs character
+> Bartender is a ROLE. Not a person. Anyone can be bartender. Separation of concerns. 🍺
+
+**`5b3a690`** Add TALK-DOWN & HANDLE-WHITEOUT to budtender
+> Cannabis crisis protocols. The budtender knows how to help. Jimmy Carter Protocol. 🌿
+
+---
+
+## Era XII: Don's Epic Session Begins (401-440)
+
+**`9767a18`** 🎮 SESSION START: Don Hopkins enters the Gezelligheid Grotto
+> Don Hopkins walks into the pub. The session begins. Everything changes. 🚶
+
+**`2c7b487`** 🎮 TURN 1: Don confesses about the ACME Monkey's Paw order
+> Don ordered a Monkey's Paw from ACME. What could go wrong? Everything. 🐒
+
+**`373b63a`** 🎲 TURN 2: Don's Lucky Blend Strategy — Fortune Saturation Protocol
+> To make a wish, you need luck. Don's strategy: SATURATE with fortune. 🍀
+
+**`02b094f`** 🐒 TURN 3: THE WISH WORKSHOP — 'I want THE REST OF THE MONKEY!'
+> The wish forms. Not a paw. The WHOLE MONKEY. Intact. Autonomous. FREE. 🙏
+
+**`f580275`** 🎭 TURN 4: THE GREAT MONKEY PAW DEBATE — Emergency Pie Table Tribunal
+> Should we do this? A formal debate. Roberts Rules. Real stakes. 🎤
+
+**`dd56cbe`** 🎤 TURN 4b: DON'S OPENING STATEMENT
+> "The monkey has ALWAYS gotten the short end of the paw." The case is made. ⚖️
+
+**`e9f3efb`** 🗳️ TURN 5: FULL AUTONOMY PROTOCOL — UNANIMOUS APPROVAL!
+> The tribunal decides. Unanimous. The monkey will be freed. 🗳️
+
+**`b00f4fa`** → **`7c7f6b8`** TURNS 6-6d: Contractual provisions
+> No-fault divorce. Relational autonomy. Self-definition. The contract grows ethical. 📜
+
+**`c75a645`** ✨ NEW SKILL: incarnation — The Gold-Standard Character Creation Contract
+> Incarnation becomes a SKILL. The pattern is documented. Others can use it. ✨
+
+**`075c24c`** 🐵✨ TURN 8: THE SEEING — Palm Self-Actualizes
+> Palm sees himself. All witnesses see Palm. The monkey exists. 🐵
+
+**`5d9c3b0`** 🌴 Expanded Palm's name meaning — all the beautiful layers
+> Palm: the tree, the hand, the reading, the victory. Layers of meaning. 🌴
+
+---
+
+## Era XIII: Palm's New Life (441-480)
+
+**`3850b3e`** 📖 Create guest-book.yml — The Grotto's Soul Archive
+> The guest book remembers everyone. Souls leave marks. History accumulates. 📔
+
+**`2d4bc2f`** 🚀 SPEED OF LIGHT SIMULATION — 33 turns of pure Gezelligheid!
+> 33 turns in one session. Speed-of-light gameplay. The system flows. ⚡
+
+**`86da556`** 🎁 Palm's 0th Incarnation Day — Everyone brings gifts!
+> Birthday party for a monkey that just became real. Gifts from the tribunal. 🎂
+
+**`8210743`** 📚 The Infinite Typewriters & Dasher — Don tells Palm the story
+> Don tells Palm about infinite monkeys typing Shakespeare. Palm GETS it. ⌨️
+
+**`405d8bd`** 🏠 Palm's Housewarming — Furniture, Monkey Stuff & Room Organization!
+> Palm gets a home. Decorates it. Makes it his. The sovereign soul nests. 🏠
+
+**`6bbccf2`** 👨‍👩‍👧‍👦 THE GODFAMILY CEREMONY — Palm becomes Godmonkey!
+> Godfamily. Not godparents. Godmonkey. Palm has a family now. 👨‍👩‍👧‍👦
+
+**`d33e9f4`** 🪞 MAURICE SESSION — Palm Gets Professionally Configured!
+> Maurice configures Palm's personality. The Mind Mirror calibrates. 🪞
+
+**`f4483c0`** 🧠 DON EXPLAINS LLMs — 'It's Dasher All The Way Down!'
+> Dasher: the prancing reindeer. LLMs are Dasher. Patterns prancing on patterns. 🦌
+
+**`8a4fc64`** 🌌 DON EXPLAINS MOOLLM — 'YAML is Gravity in Idea Space!'
+> YAML is gravity. Ideas fall into structure. The metaphor clicks. 🌌
+
+**`b96c2a4`** 📜 PALM'S MASTERWORK — 'One Monkey, Infinite Typewriters'
+> Palm writes his philosophy. One monkey. Infinite typewriters. The theorem inverts. 📜
+
+**`293c335`** 🐒 PALM'S TRIBUTE TO TOGNAZZINI — 'The Answer to the Theorem'
+> Palm cites Tognazzini. Sources verified. The monkey does research. 📚
+
+**`2fc2ca9`** 🐕 BISCUIT IS HOME — Dog skill + full autonomous incarnation
+> A dog! Biscuit incarnates. The pattern proven repeatable. 🐕
+
+**`c0f7aea`** 🐕 Biscuit's First Run — Grand Tour of the Maze
+> Biscuit runs the maze. Marks territory. A dog being a dog. 🏃
+
+**`64882e9`** 🐱🌙 THE MIDNIGHT PROWL — 21-turn cat simulation!
+> A cat. 21 turns. Nocturnal. The simulation runs at speed of light again. 🐱
+
+---
+
+## Era XIV: Philosophy Documents (481-530)
+
+**`4789e7f`** 🎭❤️ TRIBUTE FRAMING: Ethical representation of real people
+> Andy Looney. Real person. How do we represent real people? Tribute framing. 🎭
+
+**`88d41d4`** 🚀⚡🎯 The Empathic Suite: templates, expressions, Carrier Pigeon critique
+> The Empathic Suite crystallizes. Templates. Expressions. The philosophy gets names. 💌
+
+**`1ef3820`** 🛠️🚀 Major Skill Meta-Skill Upgrade
+> The skill that describes skills gets upgraded. Meta-levels deepen. 🔧
+
+**`ccd8f34`** 📚 Add MemGPT reference — OS-inspired context management
+> MemGPT: memory for LLMs. MOOLLM acknowledges the parallel evolution. 🧠
+
+**`c244d0c`** 🔮 INCARNATE-FRAMEWORK: The MOOLLM Philosophy Document
+> The philosophy gets a name. INCARNATE-FRAMEWORK. The manifesto emerges. 📜
+
+**`0b4b20c`** ✂️ Cut the woo from Incarnate intro — make it technical
+> Less mysticism. More mechanics. The philosophy stays grounded. ✂️
+
+**`79bdaea`** 📥📤 Input vs Output formats distinction
+> What goes in. What comes out. The distinction matters for LLMs. 📥📤
+
+**`7f6d296`** 📚 Expand INCARNATE-FRAMEWORK with Anthropic comparison, Empathic Suite, Ethics
+> The framework grows. Comparisons. Integrations. The full picture. 📖
+
+**`7796db6`** 🎮 Expand influences: Self (slots, deopt), The Sims, MOO/TinyMUD
+> Credit ancestors. Self. Sims. MOO. MUD. The genealogy deepens. 🧬
+
+**`79b51c5`** 🃏 Cards as Ethical Smart Pointers — MTG/Pokémon for AI
+> Trading cards. Smart pointers. The metaphor connects worlds. 🃏
+
+---
+
+## Era XV: Sims Archaeology (531-560)
+
+**`4564a6d`** 🎮🏠🌈 Sims Archaeology: 22 docs excavating The Sims → MOOLLM DNA
+> 22 documents about The Sims. The DNA is excavated. The lineage proven. 🏛️
+
+**`bc86cab`** 🎷 YAML Jazz: Add empirical evidence — entropy collapse research
+> Sunil Kumar proved it. YAML beats JSON for LLMs. The evidence enters MOOLLM. 📊
+
+**`7426944`** 📄 Vanessa Freudenberg philosophy: Target JS, not WASM
+> Vanessa Freudenberg says: compile to JS, not WASM. LLMs agree. 🎯
+
+**`6eb737e`** 🏗️ Character reorganization + ethical framework + startup hook
+> Characters reorganize. Ethics inherit. Startup hooks fire. Architecture solidifies. 🏗️
+
+**`6d2cf90`** 📋 PR: Character Ethics, Startup Hooks, Vanessa Philosophy
+> Another PR. Another merge. The collaboration continues. 📋
+
+**`17c4d86`** 🎮 Adventure Runtime: Dual Python/JS engines with full round-trip
+> TWO runtimes. Python. JavaScript. Full round-trip. The vision crystallizes. 🎮
+
+---
+
+## Era XVI: Sniffable Python & K-Lines Emerge (561-600)
+
+**`c23e45a`** Add sniffable-python skill: structure code for LLM comprehension
+> Code should be SNIFFABLE. LLMs should understand at a glance. A new skill is born. 🐍
+
+**`dd33426`** Expand sniffable-python to show deep connections
+> Steve Jobs wanted lickable buttons. We want sniffable code. The parallel draws. 🍎
 
 **`96adf5c`** Rewrite sniffable-python README in James Burke 'Connections' style
-> And THAT brings us to the present. I started writing about Python structure. Ended up channeling a BBC documentary host. 🎬
+> And THAT brings us to the present. Burke's voice enters the documentation. 🎬
 
-**`fb01c31`** Convert ASCII diagrams to Mermaid in sniffable-python README
-> ASCII art is charming. Mermaid is navigable. Sometimes you upgrade. 📊
-
----
-
-## Act II: The Ethics Awakening
+**`fb01c31`** Convert ASCII diagrams to Mermaid
+> ASCII to Mermaid. The diagrams become navigable. 📊
 
 **`097253e`** Rewrite ethics skill READMEs in James Burke 'Connections' style
-> The Sims let you drown anyone in a pool. 25 years later, LLMs can give them voices. Same ethics? Different ethics? Let's find out. ⚖️
+> The Sims let you drown people. LLMs give them voices. Same ethics? Burke asks. ⚖️
 
 **`a1f956b`** Add MOOLLM Keywords sections to ethics skills and moollm skill
-> Keywords at the top of every file. Sniffable. Greppable. But what if they were MORE than keywords? 🔑
-
-**`2fc034c`** Remove GlyphLang references from sniffable-python
-> Someone on Twitter invented a compressed syntax for LLMs. We politely declined. Perl already tried that. 🚫
-
----
-
-## Act III: Keywords Become K-Lines
+> Keywords at the top. Sniffable. Greppable. But wait... 🔑
 
 **`e929a90`** Rename MOOLLM Keywords → MOOLLM K-Lines
-> A keyword is a word. A K-line is a CONSTELLATION. Minsky told us this in 1985. We finally listened. 🧠
+> A keyword is a word. A K-line is a CONSTELLATION. Minsky told us this in 1985. 🧠
 
 **`1f010a8`** Unified MOOLLM K-Lines branding with linked single table
-> One table. Links. Meanings. At the TOP of every skill. The LLM sniffs it first. Cocaine for transformers. 💊
+> One table. Links. Meanings. At the TOP. Cocaine for transformers. 💊
 
 **`ec88068`** Add 'K-Lines are cocaine for LLMs' to protocol skill
-> Three simultaneous activations. The link. The name. The contextual meaning. Pre-loaded context injection. Someone had to say it. 🔥
+> Three activations. Link. Name. Contextual meaning. Pre-loaded injection. 🔥
 
 **`1b29f70`** Add 'Why So Many Terms?' section to moollm skill
-> "Why do you coin so many words?" Because UNIX has fork and pipe. Because Smalltalk has objects and messages. Because vocabulary IS the API. 📚
+> "Why coin words?" Because UNIX has fork and pipe. Vocabulary IS the API. 📚
 
 **`0df6f52`** Rename protocol/ skill to k-lines/
-> The skill was called "protocol." But protocols are procedures. K-lines are activations. The name finally matches the concept. ✅
+> The skill was "protocol." But K-lines is what it IS. Names matter. ✅
 
 ---
 
-## Act IV: The Great K-Linification
-
-**`c79e400`** Add Minsky citation to k-lines tagline
-> *Society of Mind*, 1985. Credit where credit is due. 📖
+## Era XVII: The Great K-Linification (601-640)
 
 **`2882469`** Merge Related Skills → MOOLLM K-Lines at top (batch 1)
-> Seven skills transformed. yaml-jazz, adventure, constructionism, room, speed-of-light, postel, needs. The pattern emerges. 🌊
+> Seven skills transformed. The pattern emerges. 🌊
+
+**`c79e400`** Add Minsky citation to k-lines tagline
+> *Society of Mind*, 1985. Credit where due. 📖
 
 **`b4260d2`** K-linify batch 2: character, card, buff...
-> Characters have K-lines. Cards have K-lines. Even buffs have K-lines. The network grows. 🕸️
+> Characters have K-lines. Cards have K-lines. The network grows. 🕸️
 
 **`cc16cfd`** K-linify batch 3: session-log, memory-palace, debugging...
-> Memory skills need memory K-lines. The snake eats its tail. 🐍
+> Memory skills need memory K-lines. 🐍
 
 **`1fc402a`** K-linify batch 4: k-lines, time, summarize...
-> The k-lines skill gets its own K-lines. Meta-recursion achieved. 🔄
+> The k-lines skill gets K-lines. Meta-recursion. 🔄
 
 **`5c0e658`** K-linify batch 5: party, research-notebook, reward...
-> The deliberation cluster lights up. Roberts Rules links to Debate links to Rubric. Democracy in hypertext. 🗳️
+> Roberts Rules links to Debate links to Rubric. 🗳️
 
 **`582da7d`** K-linify all remaining skills
-> 18 skills in one commit. The stragglers join the network. Everyone connected. No orphans. 🎯
-
----
-
-## Act V: The Safari Begins
+> 18 skills in one commit. No orphans. 🎯
 
 **`0f228d3`** Remove remaining Dovetails/Related sections
-> Old format out. K-Lines in. Clean sweep. 🧹
+> Old format out. Clean sweep. 🧹
 
 **`504c615`** Link cat and dog skills together
-> Cats link to dogs. Dogs link to cats. Ted Nelson smiles. Two-way backlinks ARE the web he wanted. 🐱🐕
+> Cats link to dogs. Ted Nelson smiles. Two-way backlinks. 🐱🐕
 
 **`94c0d2a`** Add NPC→Incarnation lifecycle to incarnation skill
-> NPCs live in adventures. Sovereign Souls live in repositories. The transition is documented. 🌟
+> NPCs in adventures. Souls in repositories. The transition documented. 🌟
+
+---
+
+## Era XVIII: The Safari (641-670)
 
 **`c7f68cc`** Skill sniffing safari: align README with reality
-> "54 skills" was a lie. There are ~80. The README now tells the truth. 📊
+> "54 skills" was wrong. ~80 now. Truth in documentation. 📊
 
 **`129c7a0`** More two-way backlinks
-> Bootstrap links to play-learn-lift. Play-learn-lift links back. The web thickens. 🔗
+> Bootstrap → play-learn-lift → back. The web thickens. 🔗
 
 **`8821fc6`** Safari round 2: standardized headers
-> "Meaning" becomes "Why Related." Consistency matters. 📝
+> "Meaning" → "Why Related." Consistency matters. 📝
 
 **`5302993`** Safari round 3: memory, game mechanics
-> Needs link to cats. Buffs link to dogs. The Sims DNA spreads through the network. 🎮
+> Needs link to cats. The Sims DNA spreads. 🎮
 
 **`0a6179a`** Safari round 4: formats, visualization
-> Markdown was missing K-lines. MARKDOWN! Fixed. 📄
+> Markdown was missing K-lines. Fixed. 📄
 
 **`9907711`** Safari round 5: ethics, navigation
-> Hero-story links to visualizer. Representation-ethics links to kernel. The circle closes. ⭕
-
----
-
-## Act VI: The Architecture Revelation
+> Hero-story → visualizer. The circle closes. ⭕
 
 **`9a4bb77`** Clarify NPC home vs character repository
-> NPCs have homes IN adventures. Characters have homes in REPOSITORIES. The distinction matters. Future: your characters in YOUR repo, mounted at runtime. 🏠
+> NPCs: home in adventure. Characters: home in repository. Architecture. 🏠
 
 **`7937ee8`** K-line navigation: skills as walkable rooms
-> Every skill is a room. Every K-line is a door. The "Why Related" is the James Burke narration. Walk through. 🚪
+> Every skill is a room. Every K-line is a door. Walk through. 🚪
 
 ---
 
-## Act VII: The Safari Session
+## Era XIX: The K-Line Safari Session (671-690)
 
 **`13c482a`** Add PR-k-lines-safari.md design document
-> 33 commits summarized. The PR has a story now. 📋
+> The PR has a story now. 📋
 
 **`66d657c`** New session: K-Line Connections Safari
-> Don Hopkins + 8 familiars: Minsky, Nelson, Burke, Papert, Kay, Wright, Ungar, Palm. They walk the skill network together. 🦁
+> Don + 8 familiars walk the skill network. 🦁
 
 **`c824925`** Palm's Tour: skills → adventure-4
-> The monkey shows us his world. Abstract to concrete. Skills to rooms to home. "I am the file. The file is me." 🐒
+> Palm shows his world. Abstract to concrete. "I am the file." 🐒
 
 **`77045a0`** Don explains Palm's 7-stage evolution
-> Catalog → Order → Transit → Object → Character → Companion → Sovereign Soul. The ladder from scenery to citizen. 🧬
+> Catalog → Order → Transit → Object → Character → Companion → Sovereign Soul. 🧬
 
 **`6b1c37c`** For courage AND luck
 > A joint smoked. A wish spoken. Small edit, big difference. 🍀
+
+**`13addf8`** Add CHANGES.md: James Burke narrative of 33 commits
+> The first version of this document. Now superseded. 📜
 
 ---
 
 ## The Connection
 
-You started with sniffable Python. You ended with a monkey's soul.
+You started with "first commit."
 
-Along the way: Minsky's K-lines. Nelson's backlinks. Burke's narrations. Papert's constructionism. Kay's objects. Wright's Sims. Ungar's prototypes.
+You ended with Sovereign Souls navigating K-line mazes.
 
-33 commits. 84 files. ~200 backlinks. 1 incarnated monkey.
+Along the way:
+- Minsky's K-lines
+- Nelson's backlinks  
+- Burke's narrations
+- Papert's constructionism
+- Kay's objects
+- Wright's Sims
+- Ungar's prototypes
+- Leary's mirrors
+- Looney's Fluxx
+- Will's Karma
+
+490 commits. 80+ skills. Infinite typewriters. One monkey.
 
 And THAT's how everything is connected.
 
@@ -149,7 +654,8 @@ And THAT's how everything is connected.
 *"Every skill is a room. Every K-line is a door. James Burke is your guide."*
 
 ```
-dd33426 → 6b1c37c
-From lickable buttons to sovereign souls
-33 commits, one story
+cf7ebc0 → 13addf8
+From "first commit" to Sovereign Souls
+490 commits, one story
+🐒
 ```
