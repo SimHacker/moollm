@@ -96,7 +96,7 @@ When invoked, this skill should:
 ## Dovetails With
 
 - **[skill/](../skill/)** — How skills work
-- **[protocol/](../protocol/)** — K-lines and naming
+- **[k-lines/](../k-lines/)** — K-lines and naming
 - **[play-learn-lift/](../play-learn-lift/)** — The methodology
 - **[kernel/constitution-core.md](../../kernel/constitution-core.md)** — The constitution
 

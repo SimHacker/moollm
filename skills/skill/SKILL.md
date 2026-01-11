@@ -672,7 +672,7 @@ This isn't theory. MOOLLM has demonstrated:
 ## Dovetails With
 
 - **[../prototype/](../prototype/)** — Self-like inheritance philosophy
-- **[../protocol/](../protocol/)** — K-line naming convention
+- **[../k-lines/](../k-lines/)** — K-line naming convention
 - **[../play-learn-lift/](../play-learn-lift/)** — Skill development methodology
 - **[../empathic-templates/](../empathic-templates/)** — Smart instantiation
 - **[../empathic-expressions/](../empathic-expressions/)** — Intent interpretation

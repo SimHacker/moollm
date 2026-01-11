@@ -37,7 +37,7 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 |-------|-----------|
 | [constructionism/](./constructionism/) | Learn by building inspectable things (Papert, Kay, Logo) |
 | [skill/](./skill/) | **The meta-skill.** How skills work, evolve, compose |
-| [protocol/](./protocol/) | UPPER-CASE-HYPHENATED symbols as greppable K-lines |
+| [k-lines/](./k-lines/) | UPPER-CASE-HYPHENATED symbols as greppable K-lines |
 | [yaml-jazz/](./yaml-jazz/) | Semantic YAML where comments are data |
 | [postel/](./postel/) | The Robustness Principle — be liberal in acceptance |
 | [robust-first/](./robust-first/) | Survive first, be correct later (Dave Ackley) |

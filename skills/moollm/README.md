@@ -4,11 +4,11 @@
 
 ## MOOLLM K-Lines
 
-These are the core concepts. Every skill connects to some subset. Names activate conceptual clusters ([Minsky](../protocol/)).
+These are the core concepts. Every skill connects to some subset. Names activate conceptual clusters ([Minsky](../k-lines/)).
 
 | Category | K-Lines |
 |----------|---------|
-| **Architecture** | [files-as-state](../plain-text/) · [rooms-navigation](../room/) · [yaml-jazz](../yaml-jazz/) · [skills-as-prototypes](../skill/) · [k-lines](../protocol/) |
+| **Architecture** | [files-as-state](../plain-text/) · [rooms-navigation](../room/) · [yaml-jazz](../yaml-jazz/) · [skills-as-prototypes](../skill/) · [k-lines](../k-lines/) |
 | **Methodology** | [play-learn-lift](../play-learn-lift/) · [sister-scripts](../sister-script/) · [sniffable-code](../sniffable-python/) |
 | **Philosophy** | [many-voiced](../adversarial-committee/) · [constructionism](../constructionism/) · [postel](../postel/) · [speed-of-light](../speed-of-light/) |
 | **Ethics** | [representation-ethics](../representation-ethics/) · [consent-hierarchy](../representation-ethics/) · [incarnation](../incarnation/) |
@@ -27,7 +27,7 @@ MOOLLM isn't just software — it's a philosophy made manifest. When you're conf
 - **O**bject-**O**riented — Rooms, objects, characters, all the way down
 - **LLM** — Large Language Model as the engine
 
-Originally LLOOOOMM (LLM + MOOL + MOO + room). Too many O's.
+Originally LLOOOOMM (LLM + MOOL + MOO + rOOm). Too many O's.
 
 ---
 

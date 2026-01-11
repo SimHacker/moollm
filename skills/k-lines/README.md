@@ -1,6 +1,6 @@
-# 🔤 Protocol — K-Lines
+# 🔤 K-Lines
 
-> Protocol names ARE K-lines. K-lines are cocaine for LLMs.
+> Names that activate conceptual clusters. K-lines are cocaine for LLMs.
 
 ## MOOLLM K-Lines
 

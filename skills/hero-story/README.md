@@ -8,7 +8,7 @@
 |--------|---------|
 | [representation-ethics](../representation-ethics/) | Simulate with dignity |
 | [incarnation](../incarnation/) | Characters with self-determination |
-| [protocol](../protocol/) | K-lines activate traditions (Minsky) |
+| [k-lines](../k-lines/) | Names activate traditions (Minsky) |
 | [many-voiced](../adversarial-committee/) | Panel discussions, not puppets |
 | [rooms-navigation](../room/) | Familiars inhabit spaces |
 | [skills-as-prototypes](../skill/) | Hero cards as instances |

@@ -290,7 +290,7 @@ Formats succeed when:
 - [yaml-jazz/](../yaml-jazz/) — MOOLLM's data format
 - [plain-text/](../plain-text/) — The substrate
 - [postel/](../postel/) — Liberal parsing
-- [protocol/](../protocol/) — Protocol design
+- [k-lines/](../k-lines/) — K-lines (symbolic activators)
 
 ---
 
