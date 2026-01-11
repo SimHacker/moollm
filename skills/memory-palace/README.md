@@ -2,11 +2,18 @@
 
 > The filesystem is the mind. Directories are rooms. Files are objects.
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [room/](../room/) | The underlying spatial concept |
+| [adventure/](../adventure/) | Room + narrative quest framing |
+| [summarize/](../summarize/) | Compress palace knowledge |
+| [files-as-state/](../plain-text/) | Filesystem IS the palace |
+| [honest-forget/](../honest-forget/) | Archive before forgetting |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
-- [Template: ENTRY.md](ENTRY.md.tmpl) — palace entrance
-- [Template: MAP.yml](MAP.yml.tmpl) — navigation structure
-- [Template: ROOM.md](ROOM.md.tmpl) — room template
 
 ## Overview
 
@@ -28,8 +35,3 @@ The ancient method of loci, adapted for LLMs. Place knowledge in **locations**, 
 
 Memory Palace = [Room](../room/) + spatial mnemonic intent
 
-## Related Skills
-
-- [room](../room/) — the underlying spatial concept
-- [adventure](../adventure/) — room + narrative quest framing
-- [summarize](../summarize/) — compress palace knowledge

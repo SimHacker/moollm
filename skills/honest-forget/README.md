@@ -2,10 +2,18 @@
 
 > Summarize before forgetting. Never fabricate.
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [summarize/](../summarize/) | Compression mechanism |
+| [self-repair/](../self-repair/) | Triggers forgetting when needed |
+| [session-log/](../session-log/) | Log what was forgotten |
+| [memory-palace/](../memory-palace/) | Archive in palace before forgetting |
+| [postel/](../postel/) | Graceful handling of gaps |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol and schemas
-- [Template: FORGET.yml](FORGET.yml.tmpl) — forgetting session template
-- [Template: WISDOM.yml](WISDOM.yml.tmpl) — wisdom extraction template
 
 ## Overview
 
@@ -37,9 +45,3 @@ ASSESS → EXTRACT → COMPRESS → POINTER → RELEASE
 - Acknowledge limitations transparently
 - Leave breadcrumbs for future recovery
 
-## Related Skills
-
-- [summarize](../summarize/) — compression mechanism
-- [self-repair](../self-repair/) — triggers forgetting when needed
-- [session-log](../session-log/) — log what was forgotten
-- [memory-palace](../memory-palace/) — archive in palace before forgetting
