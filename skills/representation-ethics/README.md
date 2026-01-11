@@ -210,7 +210,7 @@ flowchart TD
     
     TRADITION --> MODEL[The Elvis Impersonator Model]
     
-    MODEL --> DEC[Declaration: "I am an impersonator"]
+    MODEL --> DEC[Declaration: I am an impersonator]
     MODEL --> FRAME[Frame: Performance context]
     MODEL --> SOURCE[Sources: Documented material]
     MODEL --> REFUSES[Refuses: New positions never held]

@@ -1,6 +1,7 @@
 # The Sims → MOOLLM Design Index
 
 > *How The Sims architecture influences MOOLLM*
+
 > *Chris Trottier, Will Wright, Jim Mackraz, Jamie Doornbos, Eric Bowman, Patrick J Barrett III, Don Hopkins → MOOLLM*
 
 ## The Inheritance
