@@ -725,5 +725,11 @@
 **`2e5b5f9`** CHANGES.md: Beef up append instructions, prevent infinite loop
 > Added explicit warning: DO NOT loop making commits to fill in commit hashes! Guess why I had to say that. 😅
 
-**`(this)`** CHANGES.md: Add user's "guess why" edit, document recent commits
+**`803d31f`** CHANGES.md: Add user's "guess why" edit, document recent commits
 > The infinite loop lesson learned. Retrocon headers OK. Tail-chasing BAD. File just ends. 🐍🛑
+
+**`1d9b6d1`** Refactor README.md and QUICKSTART.md: condense with links
+> README 1189→185 lines, QUICKSTART 310→115 lines. Links everywhere. Less duplication, more navigation. 📚✂️
+
+**`(this)`** CHANGES.md: Document README/QUICKSTART refactor
+> Retrocon 803d31f, add 1d9b6d1. The docs diet continues.
