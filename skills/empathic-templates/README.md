@@ -1,6 +1,19 @@
-# Empathic Templates
+# 🎭 Empathic Templates
 
 > *"Templates that understand what you mean, not just what you wrote."*
+
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [moollm/](../moollm/) | Core MOOLLM principle |
+| [empathic-expressions/](../empathic-expressions/) | The expression engine |
+| [postel/](../postel/) | Liberal interpretation |
+| [yaml-jazz/](../yaml-jazz/) | Expressive data with comments |
+| [skill/](../skill/) | Templates as prototypes |
+| [incarnation/](../incarnation/) | Character creation uses empathic templates |
+| [character/](../character/) | Character generation uses empathic templates |
+| [coherence-engine/](../coherence-engine/) | LLM creates coherent content |
 
 Smart templates that leverage LLM comprehension for semantic instantiation.
 
@@ -60,8 +73,3 @@ catchphrase: "I've forgotten more magic than you'll ever know."
 | [SKILL.md](./SKILL.md) | Full specification |
 | [CARD.yml](./CARD.yml) | Machine-readable interface |
 
-## See Also
-
-- [Empathic Expressions](../empathic-expressions/) — The expression engine
-- [YAML Jazz](../yaml-jazz/) — Expressive data with comments
-- [Skill](../skill/) — Templates as prototypes

@@ -1,6 +1,20 @@
 # 🍺 Bartender Skill
 
-Generic bartending capabilities — pour drinks, manage tabs, know everyone's secrets.
+> Generic bartending capabilities — pour drinks, manage tabs, know everyone's secrets.
+
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [skill/](../skill/) | Role skills |
+| [character/](../character/) | Bartenders are characters |
+| [persona/](../persona/) | Personality layer |
+| [incarnation/](../incarnation/) | Bartenders can incarnate |
+| [soul-chat/](../soul-chat/) | Listen and converse |
+| [economy/](../economy/) | Tab management |
+| [budtender/](../budtender/) | Child skill (cannabis extension) |
+| [examples/adventure-4/pub/](../../examples/adventure-4/pub/) | The pub in action |
+| [examples/adventure-4/pub/staff-marieke.yml](../../examples/adventure-4/pub/staff-marieke.yml) | Marieke the bartender |
 
 ## What This Is
 
@@ -68,8 +82,3 @@ Other skills inherit from bartender:
 4. Protect regulars
 5. The bar is sanctuary
 
-## Related Skills
-
-- [character](../character/) — Bartenders are characters
-- [persona](../persona/) — Personality layer
-- [economy](../economy/) — Tab management

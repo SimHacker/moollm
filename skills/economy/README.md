@@ -2,6 +2,15 @@
 
 > Currency and trade — gold flows where stories lead
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [character/](../character/) | Gold in inventory |
+| [scoring/](../scoring/) | Skills have economic value |
+| [room/](../room/) | Shops and merchants |
+| [advertisement/](../advertisement/) | Items advertise for sale |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete economic protocol
 
@@ -24,8 +33,3 @@ Economic systems for currency, trade, and value exchange. Gold is the default cu
 | Moderate | 3-5 gold |
 | Expensive | 10-50 gold |
 
-## Related Skills
-
-- [character](../character/) — gold in inventory
-- [scoring](../scoring/) — skills have economic value
-- [room](../room/) — shops and merchants

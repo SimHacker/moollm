@@ -2,6 +2,15 @@
 
 > *"Read with intent. Question with purpose. Document with care."*
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [adventure/](../adventure/) | Code review IS adventure |
+| [debugging/](../debugging/) | Fix what you find |
+| [research-notebook/](../research-notebook/) | Deep investigation |
+| [rubric/](../rubric/) | Scoring criteria for reviews |
+
 **Full Spec:** [SKILL.md](SKILL.md)
 
 ## Overview
@@ -36,12 +45,6 @@ READ → NOTE → CLASSIFY → REPORT
 |------|---------|
 | [REVIEW.yml.tmpl](REVIEW.yml.tmpl) | Tracking state |
 | [REVIEW.md.tmpl](REVIEW.md.tmpl) | Formatted output |
-
-## Related Skills
-
-- [adventure/](../adventure/) — Code review IS adventure
-- [debugging/](../debugging/) — Fix what you find
-- [research-notebook/](../research-notebook/) — Deep investigation
 
 ## Tools Required
 

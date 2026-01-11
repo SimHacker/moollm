@@ -2,11 +2,24 @@
 
 > Everything is alive. Everything can speak.
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [moollm/](../moollm/) | Many-voiced IS MOOLLM |
+| [character/](../character/) | Characters speak |
+| [persona/](../persona/) | Personas give voice |
+| [room/](../room/) | Rooms can speak |
+| [card/](../card/) | Card instances speak |
+| [mind-mirror/](../mind-mirror/) | Personality influences voice |
+| [yaml-jazz/](../yaml-jazz/) | Embedded data in dialogue |
+| [adversarial-committee/](../adversarial-committee/) | Committee debates |
+| [speed-of-light/](../speed-of-light/) | Multi-character in one call |
+| [examples/adventure-4/pub/](../../examples/adventure-4/pub/) | Pub conversations live |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
 - [Template: CHAT.md](CHAT.md.tmpl) — chat template
-- [Template: CHARACTERS.yml](CHARACTERS.yml.tmpl) — character definitions
-- [Template: ENTITIES.yml](ENTITIES.yml.tmpl) — entity definitions
 
 ## Overview
 
@@ -32,10 +45,3 @@ observation:
 
 Let me add some context...
 ```
-
-## Related Skills
-
-- [room](../room/) — rooms can speak
-- [card](../card/) — card instances speak
-- [mind-mirror](../mind-mirror/) — personality influences voice
-- [yaml-jazz](../yaml-jazz/) — embedded data in dialogue

@@ -2,9 +2,18 @@
 
 > "The committee can't see what the evaluator is thinking."
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [adversarial-committee/](../adversarial-committee/) | What gets evaluated |
+| [rubric/](../rubric/) | Scoring criteria |
+| [roberts-rules/](../roberts-rules/) | Structured deliberation |
+| [room/](../room/) | Inbox/outbox for throwing output |
+| [designs/mike-gallaher-ideas.md](../../designs/mike-gallaher-ideas.md) | Mike Gallaher's methodology |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
-- [Background](../../designs/mike-gallaher-ideas.md) — Mike Gallaher's methodology
 
 ## Overview
 
@@ -75,9 +84,3 @@ Committee Room                    Evaluation Room
 
 See: [designs/mike-gallaher-ideas.md](../../designs/mike-gallaher-ideas.md)
 
-## Related Skills
-
-- [adversarial-committee](../adversarial-committee/) — What gets evaluated
-- [rubric](../rubric/) — Scoring criteria
-- [roberts-rules](../roberts-rules/) — Structured deliberation
-- [room](../room/) — Inbox/outbox for throwing output

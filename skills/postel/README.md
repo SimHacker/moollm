@@ -2,6 +2,18 @@
 
 > Be conservative in what you send, liberal in what you accept
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [yaml-jazz/](../yaml-jazz/) | Flexible interpretation of structure |
+| [robust-first/](../robust-first/) | Sister principle — stay alive |
+| [empathic-expressions/](../empathic-expressions/) | Intent-based interpretation |
+| [empathic-templates/](../empathic-templates/) | Liberal input parsing |
+| [honest-forget/](../honest-forget/) | Graceful handling of gaps |
+| [coherence-engine/](../coherence-engine/) | Resolves ambiguity via Postel |
+| [sniffable-python/](../sniffable-python/) | Structure for charitable parsing |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
 
@@ -26,7 +38,3 @@
 - Best Possible Interpretation
 - Charitable Interpretation
 
-## Related Skills
-
-- [yaml-jazz](../yaml-jazz/) — flexible interpretation of structure
-- [honest-forget](../honest-forget/) — graceful handling of gaps

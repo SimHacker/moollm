@@ -1,6 +1,18 @@
-# Markdown Skill
+# 📝 Markdown
 
 > *"Plain text formatting that's readable raw AND rendered"*
+
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [plain-text/](../plain-text/) | Markdown IS plain text |
+| [yaml-jazz/](../yaml-jazz/) | YAML + Markdown together |
+| [session-log/](../session-log/) | Sessions are Markdown |
+| [soul-chat/](../soul-chat/) | Chat format in Markdown |
+| [research-notebook/](../research-notebook/) | Research in Markdown |
+| [sniffable-python/](../sniffable-python/) | Docstrings are Markdown |
+| [k-lines/](../k-lines/) | Tables as K-line indexes |
 
 ## Quick Reference
 

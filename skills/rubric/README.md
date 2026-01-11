@@ -2,10 +2,18 @@
 
 > "Measurable criteria translate qualitative debate into quantitative decisions."
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [adversarial-committee/](../adversarial-committee/) | What gets scored |
+| [evaluator/](../evaluator/) | Who applies the rubric |
+| [scoring/](../scoring/) | Generic scoring principles |
+| [advertisement/](../advertisement/) | Objects advertise against criteria |
+| [designs/mike-gallaher-ideas.md](../../designs/mike-gallaher-ideas.md) | Mike Gallaher's methodology |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
-- [Template: RUBRIC.yml](RUBRIC.yml.tmpl) — scoring rubric template
-- [Background](../../designs/mike-gallaher-ideas.md) — Mike Gallaher's methodology
 
 ## Overview
 
@@ -55,9 +63,3 @@ rubric:
 
 See: [designs/mike-gallaher-ideas.md](../../designs/mike-gallaher-ideas.md)
 
-## Related Skills
-
-- [adversarial-committee](../adversarial-committee/) — What gets scored
-- [evaluator](../evaluator/) — Who applies the rubric
-- [scoring](../scoring/) — Generic scoring principles
-- [advertisement](../advertisement/) — Objects advertise against criteria

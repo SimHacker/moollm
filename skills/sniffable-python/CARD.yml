@@ -125,16 +125,69 @@ anti_patterns:
 
 dovetails:
   - skill: sister-script
-    relationship: "Sister scripts should be sniffable"
+    relationship: "Sister scripts ARE sniffable Python"
+    link: "../sister-script/"
     
   - skill: skill
-    relationship: "Skills generate sniffable scripts"
+    relationship: "Skills generate sniffable scripts for LLM consumption"
+    link: "../skill/"
     
   - skill: yaml-jazz
-    relationship: "Comments as semantic data applies to Python"
+    relationship: "Comments carry semantic meaning in Python too"
+    link: "../yaml-jazz/"
     
   - skill: play-learn-lift
-    relationship: "Scripts emerge from proven procedures, structured for reuse"
+    relationship: "Sniffable Python is the LIFT stage output"
+    link: "../play-learn-lift/"
+    
+  - skill: adventure
+    relationship: "Linter feedback loop exemplifies sniffable CLI pattern"
+    link: "../adventure/"
+    
+  - skill: constructionism
+    relationship: "Build inspectable things — sniffable is inspectable"
+    link: "../constructionism/"
+
+live_examples:
+  - name: "Adventure-4 World"
+    path: "examples/adventure-4/"
+    what_it_shows: "Complete world with linter-driven generation feedback loop"
+    
+  - name: "TomTomagotchi"
+    path: "examples/adventure-4/kitchen/tomtomagotchi.yml"
+    what_it_shows: "YAML Jazz — abilities with usage examples and semantic comments"
+    
+  - name: "The Pub"
+    path: "examples/adventure-4/pub/ROOM.yml"
+    what_it_shows: "Semantic comments as framing protocol"
+    
+  - name: "Linter Output"
+    path: "examples/adventure-4/LINTER.yml"
+    what_it_shows: "Structured output LLM can parse for feedback loop"
+
+the_moollm_loop:
+  description: "How sniffable Python fits into the MOOLLM development cycle"
+  stages:
+    - stage: "PLAY"
+      activity: "Try things, log them in session-log.md"
+      
+    - stage: "LEARN"
+      activity: "Document patterns in PROCEDURE.md"
+      
+    - stage: "LIFT"
+      activity: "Generate sister-script.py in SNIFFABLE PYTHON format"
+      
+    - stage: "SKILL"
+      activity: "Add script to skill, expose to LLM"
+      
+    - stage: "LLM"
+      activity: "Sniffs script header, understands API, uses tool"
+      
+    - stage: "OUTPUT"
+      activity: "YAML results (linter, builder, etc.)"
+      
+    - stage: "REPEAT"
+      activity: "Play with the new tool, iterate"
 
 protocol_symbol: SNIFFABLE-PYTHON
 invoke_when: "Generating or reading Python scripts that need LLM comprehension"

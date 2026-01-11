@@ -2,6 +2,18 @@
 
 > Time flows as the story requires
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [simulation/](../simulation/) | Time state lives here |
+| [adventure/](../adventure/) | Adventures track time |
+| [buff/](../buff/) | Buff durations in turns |
+| [needs/](../needs/) | Needs decay over turns |
+| [action-queue/](../action-queue/) | Actions consume time |
+| [speed-of-light/](../speed-of-light/) | Instant vs simulated time |
+| [session-log/](../session-log/) | Sessions track real time |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
 
@@ -38,8 +50,3 @@ Simulation turns vs LLM iterations — **they're not the same!** One LLM respons
 | `WAIT [duration]` | Skip time |
 | `UNDO` | Rewind via git |
 
-## Related Skills
-
-- [buff](../buff/) — buff durations in turns
-- [needs](../needs/) — needs decay over turns
-- [simulation](../simulation/) — time state lives here

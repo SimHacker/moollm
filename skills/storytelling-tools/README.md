@@ -2,6 +2,15 @@
 
 > Build narrative capture and sharing into the system
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [card/](../card/) | Cards capture moments |
+| [visualizer/](../visualizer/) | Generate scene images |
+| [session-log/](../session-log/) | Capture what happened |
+| [hero-story/](../hero-story/) | Narrative structures |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
 
@@ -19,8 +28,3 @@ The Sims didn't just let you play — it let you **tell stories**. Storytelling 
 | **README** | GitHub-publishable narrative format |
 | **Cards** | Mintable artifacts capturing moments |
 
-## Related Skills
-
-- [card](../card/) — cards capture moments
-- [visualizer](../visualizer/) — generate scene images
-- [session-log](../session-log/) — capture what happened

@@ -2,6 +2,19 @@
 
 > *"Objects don't wait to be used — they announce what they can do."*
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [card/](../card/) | Cards advertise abilities |
+| [object/](../object/) | Objects advertise actions |
+| [room/](../room/) | Where objects live and advertise |
+| [action-queue/](../action-queue/) | Queuing selected actions |
+| [coherence-engine/](../coherence-engine/) | Evaluates and orchestrates |
+| [needs/](../needs/) | What drives selection scores |
+| [designs/sims-personality-motives.md](../../designs/sims-personality-motives.md) | SimAntics origin |
+| [examples/adventure-4/pub/](../../examples/adventure-4/pub/) | Objects advertising in action |
+
 **Full Spec:** [SKILL.md](SKILL.md)
 
 ## Overview
@@ -42,13 +55,6 @@ door: EXIT (40)
 
 → Agent selects: CRAFT at workbench
 ```
-
-## Related Skills
-
-- [room/](../room/) — Where objects live and advertise
-- [action-queue/](../action-queue/) — Queuing selected actions
-- [coherence-engine/](../coherence-engine/) — Evaluates and orchestrates
-- [needs/](../needs/) — What drives selection scores
 
 ## Tools Required
 

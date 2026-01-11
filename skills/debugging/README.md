@@ -2,9 +2,22 @@
 
 > Systematic bug investigation with hypothesis tracking
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [adventure/](../adventure/) | Debugging IS adventure + hypothesis tracking |
+| [sniffable-python/](../sniffable-python/) | Readable code aids debugging |
+| [scratchpad/](../scratchpad/) | Debug scratch notes |
+| [research-notebook/](../research-notebook/) | Investigation notes |
+| [sister-script/](../sister-script/) | Document the fix |
+| [session-log/](../session-log/) | Track all debug steps |
+| [self-repair/](../self-repair/) | Automated fixes |
+| [play-learn-lift/](../play-learn-lift/) | Debugging IS learning |
+| [constructionism/](../constructionism/) | Try → Inspect → Hypothesize → Modify |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol and schemas
-- [Template: DEBUG.yml](DEBUG.yml.tmpl) — session template
 
 ## Overview
 
@@ -43,9 +56,3 @@ debug:
   verified: true
 ```
 
-## Related Skills
-
-- [adventure/](../adventure/) — debugging IS adventure + hypothesis tracking
-- [research-notebook/](../research-notebook/) — investigation notes
-- [session-log/](../session-log/) — track all debug steps
-- [play-learn-lift/](../play-learn-lift/) — debugging IS learning

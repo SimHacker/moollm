@@ -2,6 +2,15 @@
 
 > Style counts. Context matters. Story trumps numbers.
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [probability/](../probability/) | Determines outcomes to score |
+| [reward/](../reward/) | Scores determine rewards |
+| [economy/](../economy/) | Skills have economic value |
+| [rubric/](../rubric/) | Scoring criteria |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
 
@@ -26,8 +35,3 @@ Achievement valuation based on HOW you did something, not just WHAT. Scores calc
 | Emergent | +100% |
 | Legendary | +200% |
 
-## Related Skills
-
-- [probability](../probability/) — determines outcomes to score
-- [reward](../reward/) — scores determine rewards
-- [economy](../economy/) — skills have economic value

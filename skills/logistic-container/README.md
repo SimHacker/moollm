@@ -1,6 +1,15 @@
 # 📦 Logistic Container
 
-Factorio-style logistics boxes for MOOLLM adventures.
+> Factorio-style logistics boxes for MOOLLM adventures.
+
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [designs/factorio-logistics-protocol.md](../../designs/factorio-logistics-protocol.md) | The source design |
+| [room/](../room/) | Rooms inherit from containers |
+| [container/](../container/) | OpenLaszlo-style inheritance |
+| [prototype/](../prototype/) | Grid rooms inherit logistics config |
 
 ## The Big Idea
 
@@ -120,8 +129,3 @@ room:
 - `CARD.yml` — Skill card
 - `SKILL.md` — Full documentation
 
-## See Also
-
-- [Factorio Logistics Protocol](../../designs/factorio-logistics-protocol.md)
-- [Room Skill](../room/) — Rooms inherit from containers
-- [Container Skill](../container/) — OpenLaszlo-style inheritance

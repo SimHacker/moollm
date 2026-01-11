@@ -553,7 +553,7 @@ This repository IS a memory palace. Each directory is a room, and should have a 
 | 🎴 [card/](./skills/card/) | Capabilities as instantiable cards |
 | 🎮 <nobr>[play‑learn‑lift/](./skills/play-learn-lift/)</nobr> | The methodology: explore → understand → extract |
 | 🧩 [skill/](./skills/skill/) | The meta‑skill: how skills work, evolve, compose |
-| 🏷️ [protocol/](./skills/protocol/) | Protocol names ARE K‑lines — greppable symbolic activators |
+| 🏷️ [k-lines/](./skills/k-lines/) | K‑lines — greppable symbolic activators (Minsky) |
 | 💬 <nobr>[soul‑chat/](./skills/soul-chat/)</nobr> | Everything speaks — objects, rooms, concepts |
 | 🤝 [postel/](./skills/postel/) | Be liberal in what you accept |
 | 🎷 <nobr>[yaml‑jazz/](./skills/yaml-jazz/)</nobr> | Comments carry meaning, data is interpreted |
@@ -1088,7 +1088,7 @@ graph TD
 |--------|------------------|
 | **[skills/constructionism/](./skills/constructionism/)** | 🏗️ **The philosophy.** Learn by building inspectable things. Papert, Kay, Logo, Micropolis. Low floor, high ceiling, wide walls. If you can build it, you can understand it. |
 | **[skills/skill/](./skills/skill/)** | 🧩 **The meta-skill.** How skills work, evolve, compose. Central vs. local. Programming by Demonstration. Parallels Anthropic Skills. |
-| **[skills/protocol/](./skills/protocol/)** | 🏷️ **Protocol names ARE K-lines.** Minsky's symbolic activators made greppable. Type the name → activate the tradition. |
+| **[skills/k-lines/](./skills/k-lines/)** | 🏷️ **K-lines.** Minsky's symbolic activators made greppable. Type the name → activate the tradition. |
 | <nobr>**[skills/coherence‑engine/](./skills/coherence-engine/)**</nobr> | 🔮 The LLM as consistency maintainer. Cross‑checks, orchestrates, transcribes. Speed‑of‑light simulation. |
 | <nobr>**[skills/speed‑of‑light/](./skills/speed-of-light/)**</nobr> | ⚡ Many turns in one LLM call. Instant communication. No round‑trip noise. |
 | <nobr>**[skills/yaml‑jazz/](./skills/yaml-jazz/)**</nobr> | 🎷 Semantic YAML where comments matter. The LLM as jazz musician interpreting sheet music. |

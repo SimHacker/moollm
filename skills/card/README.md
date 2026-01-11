@@ -2,6 +2,23 @@
 
 > *"Portable tokens of capability, identity, and access."*
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [skill/](../skill/) | Cards ARE skills |
+| [prototype/](../prototype/) | Cards clone from prototypes |
+| [room/](../room/) | Cards activate in rooms |
+| [character/](../character/) | Characters can be cards |
+| [party/](../party/) | Cards as companions |
+| [soul-chat/](../soul-chat/) | Cards can speak |
+| [adventure/](../adventure/) | Cards as quest companions |
+| [multi-presence/](../multi-presence/) | Same card, many rooms |
+| [advertisement/](../advertisement/) | Cards advertise abilities |
+| [return-stack/](../return-stack/) | Activation records as continuations |
+| [visualizer/](../visualizer/) | Pure state prompt clusters |
+| [hero-story/](../hero-story/) | Hero cards invoke traditions |
+
 **Full Spec:** [SKILL.md](SKILL.md)
 
 ## Overview
@@ -67,14 +84,6 @@ Cards can also be **pure state** (prompt clusters, context bundles) that other c
 | [CARD.yml.tmpl](CARD.yml.tmpl) | Individual card |
 | [COLLECTION.yml.tmpl](COLLECTION.yml.tmpl) | Card collection |
 
-## Related Skills
-
-- [room/](../room/) — Cards activate in rooms
-- [soul-chat/](../soul-chat/) — Cards can speak
-- [adventure/](../adventure/) — Cards as quest companions
-- [advertisement/](../advertisement/) — Cards advertise abilities
-- [return-stack/](../return-stack/) — Activation records as continuations
-- [visualizer/](../visualizer/) — Pure state prompt clusters
 
 ## Tools Required
 

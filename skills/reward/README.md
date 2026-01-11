@@ -2,6 +2,15 @@
 
 > Rewards should feel earned and fitting
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [scoring/](../scoring/) | Score determines reward quality |
+| [buff/](../buff/) | Some rewards are permanent buffs |
+| [hero-story/](../hero-story/) | Rewards follow narrative arcs |
+| [adventure/](../adventure/) | Adventures yield rewards |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
 
@@ -29,7 +38,3 @@ buff:
   reward_on_lift: "LIGHT-BEARER title"
 ```
 
-## Related Skills
-
-- [scoring](../scoring/) — score determines reward quality
-- [buff](../buff/) — some rewards are permanent buffs

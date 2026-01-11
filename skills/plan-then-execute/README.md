@@ -2,10 +2,16 @@
 
 > Frozen plans with human approval gates
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [planning/](../planning/) | Flexible, evolving plans |
+| [action-queue/](../action-queue/) | Task scheduling |
+| [representation-ethics/](../representation-ethics/) | Human approval gates |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
-- [Template: PLAN.yml](PLAN.yml.tmpl) — plan template
-- [Template: EXECUTION_LOG.md](EXECUTION_LOG.md.tmpl) — execution log
 
 ## Overview
 
@@ -33,8 +39,3 @@ plan:
         args: { command: "npm test" }
       status: pending
 ```
-
-## Related Skills
-
-- [planning](../planning/) — flexible, evolving plans
-- [action-queue](../action-queue/) — task scheduling

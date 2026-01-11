@@ -1,6 +1,18 @@
-# Empathic Expressions
+# 💬 Empathic Expressions
 
 > *"Understand intent, generate correct code, teach gently."*
+
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [moollm/](../moollm/) | Core MOOLLM principle |
+| [empathic-templates/](../empathic-templates/) | Uses expressions in templates |
+| [postel/](../postel/) | The law underlying generous interpretation |
+| [sniffable-python/](../sniffable-python/) | Empathic interpretation of code |
+| [speed-of-light/](../speed-of-light/) | Work in vectors, delay tokenization |
+| [yaml-jazz/](../yaml-jazz/) | Comments carry meaning here too |
+| [coherence-engine/](../coherence-engine/) | LLM understands intent |
 
 The big-tent skill for interpreting user intent across ALL programming languages.
 
@@ -56,8 +68,3 @@ and "haven't verified" as email_verified = FALSE.
 | [SKILL.md](./SKILL.md) | Full specification |
 | [CARD.yml](./CARD.yml) | Machine-readable interface |
 
-## See Also
-
-- [Empathic Templates](../empathic-templates/) — Uses expressions in templates
-- [Postel](../postel/) — The law underlying generous interpretation
-- [Speed of Light](../speed-of-light/) — Work in vectors, delay tokenization

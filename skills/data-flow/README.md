@@ -2,6 +2,15 @@
 
 > *"Rooms are nodes. Exits are edges. Thrown objects are messages."*
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [room/](../room/) | Rooms as processing nodes |
+| [sister-script/](../sister-script/) | Scripts for deterministic stages |
+| [coherence-engine/](../coherence-engine/) | LLM as orchestrator |
+| [card/](../card/) | Cards flow through pipelines |
+
 **Full Spec:** [SKILL.md](SKILL.md)
 
 ## Overview
@@ -31,12 +40,6 @@ Room → inbox → process → THROW → next Room's inbox
 | Script | Deterministic transformation |
 | LLM | Semantic analysis |
 | Hybrid | Both together |
-
-## Related Skills
-
-- [room/](../room/) — Rooms as processing nodes
-- [sister-script/](../sister-script/) — Scripts for deterministic stages
-- [coherence-engine/](../coherence-engine/) — LLM as orchestrator
 
 ## Tools Required
 

@@ -2,6 +2,19 @@
 
 > The world grows where curiosity leads
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [room/](../room/) | Generated rooms follow room patterns |
+| [character/](../character/) | Generated NPCs follow character patterns |
+| [incarnation/](../incarnation/) | NPCs can become full characters |
+| [container/](../container/) | Containers organize generated regions |
+| [adventure/](../adventure/) | World generation serves the adventure |
+| [party/](../party/) | Questions about companions create them |
+| [constructionism/](../constructionism/) | Exploration creates understanding |
+| [empathic-templates/](../empathic-templates/) | Smart generation of content |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
 
@@ -33,8 +46,3 @@ Sub-directories can hide NPCs that emerge by changing their `location`:
 - `cat-cave/` — cats come out when wanted
 - `guard-house/` — guards patrol when needed
 
-## Related Skills
-
-- [room](../room/) — generated rooms follow room patterns
-- [character](../character/) — generated NPCs follow character patterns
-- [adventure](../adventure/) — world generation serves the adventure

@@ -2,9 +2,18 @@
 
 > "Parliamentary procedure prevents jumping to statistically-likely conclusions."
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [adversarial-committee/](../adversarial-committee/) | Who follows these rules |
+| [rubric/](../rubric/) | How to score outcomes |
+| [evaluator/](../evaluator/) | Independent assessment |
+| [session-log/](../session-log/) | Recording minutes |
+| [designs/mike-gallaher-ideas.md](../../designs/mike-gallaher-ideas.md) | Mike Gallaher's methodology |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
-- [Background](../../designs/mike-gallaher-ideas.md) — Mike Gallaher's methodology
 
 ## Overview
 
@@ -39,9 +48,3 @@ Each stage must complete before the next begins. No skipping.
 
 See: [designs/mike-gallaher-ideas.md](../../designs/mike-gallaher-ideas.md)
 
-## Related Skills
-
-- [adversarial-committee](../adversarial-committee/) — Who follows these rules
-- [rubric](../rubric/) — How to score outcomes
-- [evaluator](../evaluator/) — Independent assessment
-- [session-log](../session-log/) — Recording minutes

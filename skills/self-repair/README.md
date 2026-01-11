@@ -2,9 +2,21 @@
 
 > Missing state triggers repair, not failure
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [robust-first/](../robust-first/) | Stay alive, heal |
+| [bootstrap/](../bootstrap/) | Repair on startup |
+| [honest-forget/](../honest-forget/) | Graceful degradation |
+| [session-log/](../session-log/) | Log repairs |
+| [coherence-engine/](../coherence-engine/) | Orchestrates repair |
+| [debugging/](../debugging/) | Investigate when repair fails |
+| [postel/](../postel/) | Be conservative in what you emit |
+| [kernel/self-healing-protocol.md](../../kernel/self-healing-protocol.md) | The self-healing protocol |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
-- [Template: CHECKLIST.yml](CHECKLIST.yml.tmpl) — repair checklist
 
 ## Overview
 
@@ -26,9 +38,3 @@ When something's wrong:
 | `checklist_repairer` | Missing canonical files |
 | `sticky_note_maintainer` | Missing sidecar metadata |
 | `membrane_keeper` | Files outside boundaries |
-
-## Related Skills
-
-- [session-log](../session-log/) — log repairs
-- [coherence-engine](../coherence-engine/) — orchestrates repair
-- [debugging](../debugging/) — investigate when repair fails

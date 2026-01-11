@@ -2,6 +2,17 @@
 
 > Survive first. Be correct later.
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [moollm/](../moollm/) | Core MOOLLM philosophy |
+| [self-repair/](../self-repair/) | Repair mechanisms |
+| [postel/](../postel/) | Liberal interpretation |
+| [coherence-engine/](../coherence-engine/) | Maintains consistency |
+| [honest-forget/](../honest-forget/) | Graceful compression |
+| [kernel/self-healing-protocol.md](../../kernel/self-healing-protocol.md) | Core healing protocol |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
 
@@ -32,8 +43,3 @@ IF error THEN repair_locally AND continue
 3. **Graceful Degradation** — Partial function beats no function
 4. **Self-Healing** — Systems should repair themselves
 
-## Related Skills
-
-- [self-repair](../self-repair/) — repair mechanisms
-- [postel](../postel/) — liberal interpretation
-- [honest-forget](../honest-forget/) — graceful compression

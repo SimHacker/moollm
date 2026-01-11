@@ -2,6 +2,21 @@
 
 > *"Every directory is a room. Every file is a clue. Navigation is investigation."*
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [room/](../room/) | Adventure IS room + narrative framing |
+| [character/](../character/) | Player and NPC management |
+| [incarnation/](../incarnation/) | NPCs can be popped out into characters |
+| [simulation/](../simulation/) | Adventure extends simulation |
+| [card/](../card/) | Companions on the quest |
+| [memory-palace/](../memory-palace/) | Spatial knowledge organization |
+| [world-generation/](../world-generation/) | Questions create places |
+| [debugging/](../debugging/) | Investigation as adventure |
+| [sniffable-python/](../sniffable-python/) | Linter feedback loop drives generation |
+| [examples/adventure-4/](../../examples/adventure-4/) | Live world with 36 rooms |
+
 **Full Spec:** [SKILL.md](SKILL.md)
 
 ## Overview
@@ -36,13 +51,6 @@ Transform exploration into narrative investigation. Directories become rooms, fi
 | [ADVENTURE.yml.tmpl](ADVENTURE.yml.tmpl) | Quest state & evidence |
 | [LOG.md.tmpl](LOG.md.tmpl) | Narrative journal |
 
-## Related Skills
-
-- [room/](../room/) — Adventure IS room + narrative framing
-- [memory-palace/](../memory-palace/) — Spatial knowledge organization
-- [card/](../card/) — Companions on the quest
-- [debugging/](../debugging/) — Investigation as adventure
-- [character/](../character/) — Player and NPC management
 
 ## Tools Required
 

@@ -2,9 +2,20 @@
 
 > Every image is a semantic snapshot. The metadata IS the meaning.
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [character/](../character/) | Characters need visuals |
+| [mind-mirror/](../mind-mirror/) | Personality informs visuals |
+| [card/](../card/) | Images can be cards |
+| [room/](../room/) | Room context affects visualization |
+| [image-mining/](../image-mining/) | Extract resources from images |
+| [yaml-jazz/](../yaml-jazz/) | Metadata IS the meaning |
+| [hero-story/](../hero-story/) | Historical figures as art styles |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
-- [Template: PHOTO-SET.yml](PHOTO-SET.yml.tmpl) — photo set template
 
 ## Overview
 
@@ -28,9 +39,3 @@ image_prompt:
     costume: "Space pirate with holographic eyepatch"
     mood: "victorious, exhausted"
 ```
-
-## Related Skills
-
-- [mind-mirror](../mind-mirror/) — personality informs visuals
-- [card](../card/) — images can be cards
-- [room](../room/) — room context affects visualization

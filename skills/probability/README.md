@@ -2,6 +2,15 @@
 
 > No dice. Just odds and narrative.
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [character/](../character/) | Stats used in calculations |
+| [buff/](../buff/) | Buffs modify probabilities |
+| [scoring/](../scoring/) | Scores based on outcomes |
+| [coherence-engine/](../coherence-engine/) | LLM calculates probabilities |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
 
@@ -32,8 +41,3 @@ Multiple risky items compound:
 P(something fails) = 1 - (P(item1 works) × P(item2 works) × ...)
 ```
 
-## Related Skills
-
-- [character](../character/) — stats used in calculations
-- [buff](../buff/) — buffs modify probabilities
-- [scoring](../scoring/) — scores based on outcomes

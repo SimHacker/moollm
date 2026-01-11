@@ -2,10 +2,21 @@
 
 > Human-readable markdown session logs that tell stories
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [play-learn-lift/](../play-learn-lift/) | Sessions record PLAY |
+| [plain-text/](../plain-text/) | Sessions persist as text |
+| [character/](../character/) | Session files live in character directories |
+| [adventure/](../adventure/) | Adventure LOG.md follows session patterns |
+| [summarize/](../summarize/) | Compress old sessions |
+| [honest-forget/](../honest-forget/) | Graceful memory decay |
+| [markdown/](../markdown/) | Sessions ARE markdown |
+| [examples/adventure-4/characters/real-people/don-hopkins/sessions/](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/) | Gold standard examples |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol with writing guide
-- [Template: SESSION.yml](SESSION.yml.tmpl) — session metadata
-- [Template: session-log.md](session-log.md.tmpl) — log format
 
 ---
 
@@ -80,14 +91,6 @@ Study these for best practices:
 | [**Donna Toadstool**](../../examples/adventure-4/characters/fictional/donna-toadstool/SESSION.md) | Character creation narrative, file operations, appendices |
 
 ---
-
-## Related Skills
-
-| Skill | Relationship |
-|-------|--------------|
-| [character/](../character/) | Session files live in character directories |
-| [adventure/](../adventure/) | Adventure LOG.md follows session patterns |
-| [summarize/](../summarize/) | Compress old sessions |
 
 ---
 

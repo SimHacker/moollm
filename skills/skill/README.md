@@ -2,6 +2,21 @@
 
 > **A skill is documentation that learned to do things.**
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [moollm/](../moollm/) | This IS the core of MOOLLM |
+| [prototype/](../prototype/) | Skills are factories (Self language) |
+| [incarnation/](../incarnation/) | Gold-standard skill instantiation |
+| [play-learn-lift/](../play-learn-lift/) | LIFT produces skills |
+| [sister-script/](../sister-script/) | Document → Procedure → Automation |
+| [sniffable-python/](../sniffable-python/) | LLMs understand from first 50 lines |
+| [plain-text/](../plain-text/) | Everything persists in files |
+| [speed-of-light/](../speed-of-light/) | Many agents, many turns, one LLM call |
+| [constructionism/](../constructionism/) | Build to learn (Papert) |
+| [empathic-templates/](../empathic-templates/) | Smart generation, not string substitution |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
 - [Interface Card](CARD.yml) — machine-readable methods
@@ -102,14 +117,6 @@ Efficient discovery without reading everything.
 **The architecture works.** Speed-of-light simulation is real.
 
 ---
-
-## Related Skills
-
-- [prototype/](../prototype/) — Self-like inheritance
-- [play-learn-lift/](../play-learn-lift/) — how skills evolve
-- [empathic-templates/](../empathic-templates/) — smart instantiation
-- [speed-of-light/](../speed-of-light/) — multi-agent simulation
-- [card/](../card/) — skills as playable cards
 
 ---
 

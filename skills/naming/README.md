@@ -2,9 +2,18 @@
 
 > Big-endian file naming as semantic binding.
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [room/](../room/) | Uses naming for organization |
+| [character/](../character/) | Character naming patterns |
+| [yaml-jazz/](../yaml-jazz/) | Names carry meaning |
+| [kernel/NAMING.yml](../../kernel/NAMING.yml) | Definitive reference |
+| [k-lines/](../k-lines/) | Names ARE K-lines |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
-- [Kernel: NAMING.yml](../../kernel/NAMING.yml) — definitive reference
 
 ## Overview
 
@@ -31,8 +40,3 @@ ROOM.yml            # Room definition (type only, no variant)
 - Clear inheritance hierarchy
 - Inspired by Minsky's K-lines
 
-## Related Skills
-
-- [room/](../room/) — uses naming for organization
-- [character/](../character/) — character naming patterns
-- [yaml-jazz/](../yaml-jazz/) — names carry meaning

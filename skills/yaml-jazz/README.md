@@ -2,6 +2,20 @@
 
 > YAML is sheet music. The LLM is the jazz musician. Comments are soul.
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [moollm/](../moollm/) | Core MOOLLM principle |
+| [postel/](../postel/) | Liberal interpretation of ambiguous YAML |
+| [mind-mirror/](../mind-mirror/) | Personality as YAML Jazz (numbers + comments = life) |
+| [needs/](../needs/) | Dynamic comments as character inner voice |
+| [sniffable-python/](../sniffable-python/) | YAML Jazz applied to Python comments |
+| [empathic-templates/](../empathic-templates/) | Semantic understanding of YAML |
+| [files-as-state/](../plain-text/) | YAML IS the state format |
+| [k-lines/](../k-lines/) | Comments activate conceptual clusters |
+| [character/](../character/) | Character state in YAML |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
 
@@ -32,8 +46,3 @@ The LLM reads these. Acts on them. **Comments are instructions.**
 
 This is a **kernel-level directive**.
 
-## Related Skills
-
-- [postel](../postel/) — liberal interpretation
-- [mind-mirror](../mind-mirror/) — YAML Jazz for personality
-- [needs](../needs/) — dynamic comments as inner voice

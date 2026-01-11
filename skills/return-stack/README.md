@@ -2,6 +2,18 @@
 
 > Where you've been is where you can go back to
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [room/](../room/) | Rooms are stack frames |
+| [adventure/](../adventure/) | Navigation through rooms |
+| [character/](../character/) | Characters carry return stacks |
+| [memory-palace/](../memory-palace/) | Navigate knowledge |
+| [action-queue/](../action-queue/) | Past ↔ Future |
+| [card/](../card/) | Cards as continuations |
+| [session-log/](../session-log/) | Log navigation history |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
 
@@ -31,7 +43,3 @@ Navigation history as a first-class **continuation** — a stack of saved positi
 | `GOTO bookmark` | Jump to saved |
 | `FORK` | Create parallel stack |
 
-## Related Skills
-
-- [room](../room/) — rooms are stack frames
-- [adventure](../adventure/) — navigation through rooms

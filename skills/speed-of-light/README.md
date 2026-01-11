@@ -2,6 +2,20 @@
 
 > Many turns in one call. Instant communication. No round-trips.
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [moollm/](../moollm/) | Core MOOLLM principle |
+| [bootstrap/](../bootstrap/) | Speed-of-light activated on boot |
+| [simulation/](../simulation/) | Many turns in simulation |
+| [multi-presence/](../multi-presence/) | Parallel activations in one call |
+| [coherence-engine/](../coherence-engine/) | Orchestrates epochs |
+| [soul-chat/](../soul-chat/) | Multi-character dialogue |
+| [adversarial-committee/](../adversarial-committee/) | Many voices, one call |
+| [debate/](../debate/) | Structured deliberation in one call |
+| [examples/adventure-4/pub/](../../examples/adventure-4/pub/) | 33-turn Fluxx game in one epoch |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
 
@@ -31,8 +45,3 @@ Traditional multi-agent:
 [End call — all changes persisted]
 ```
 
-## Related Skills
-
-- [multi-presence](../multi-presence/) — parallel activations
-- [coherence-engine](../coherence-engine/) — orchestrates epochs
-- [soul-chat](../soul-chat/) — multi-character dialogue

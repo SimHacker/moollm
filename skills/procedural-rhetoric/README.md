@@ -2,6 +2,15 @@
 
 > Rules persuade. Structure IS argument. Design consciously.
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [advertisement/](../advertisement/) | Actions as persuasion |
+| [constructionism/](../constructionism/) | Learning through structure |
+| [representation-ethics/](../representation-ethics/) | Design carries ideology |
+| [yaml-jazz/](../yaml-jazz/) | Comments carry meaning — silent persuasion |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
 
@@ -23,7 +32,3 @@ MOOLLM applies this to everything:
 | **MASKING-EFFECT** | Scott McCloud | Abstraction enables identification |
 | **SIMULATOR-EFFECT** | Will Wright | Imagination fills gaps |
 
-## Related Skills
-
-- [advertisement](../advertisement/) — actions as persuasion
-- [constructionism](../constructionism/) — learning through structure

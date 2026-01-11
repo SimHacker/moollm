@@ -1,6 +1,18 @@
-# Plain Text Skill
+# 📄 Plain Text
 
 > *"Text files are forever. No lock-in. No corruption. No transformation."*
+
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [yaml-jazz/](../yaml-jazz/) | YAML is our data format |
+| [markdown/](../markdown/) | Markdown is our prose format |
+| [sniffable-python/](../sniffable-python/) | Python structured for readability |
+| [format-design/](../format-design/) | How to design good formats |
+| [constructionism/](../constructionism/) | Inspectable = plain text |
+| [session-log/](../session-log/) | Logs are plain text |
+| [kernel/constitution-core.md](../../kernel/constitution-core.md) | Files-as-state principle |
 
 ## Why Plain Text?
 

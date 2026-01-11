@@ -1,6 +1,15 @@
-# Schema Mechanism 🧠
+# 🧠 Schema Mechanism
 
 > *"An agent learns by discovering reliable patterns: when I do X in context C, result R tends to follow."*
+
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [constructionism/](../constructionism/) | Papert's educational philosophy |
+| [play-learn-lift/](../play-learn-lift/) | Schema learning as methodology |
+| [planning/](../planning/) | Dijkstra through schema graph |
+| [yaml-jazz/](../yaml-jazz/) | YAML provides skeleton, LLM provides soul |
 
 Gary Drescher's *Made-Up Minds* (1991) — a computational theory of causal learning that MOOLLM extends with LLM semantic understanding.
 
@@ -34,12 +43,6 @@ Agents discover schemas through experience, then refine them via **marginal attr
 | Explanations | None | Natural language |
 
 **The YAML provides the skeleton; the LLM provides the soul.**
-
-## See Also
-
-- [constructionism](../constructionism/) — Papert's educational philosophy
-- [play-learn-lift](../play-learn-lift/) — Schema learning as methodology
-- [planning](../planning/) — Dijkstra through schema graph
 
 ## Credits
 

@@ -2,6 +2,19 @@
 
 > *"Queue up what to do next. The Sims showed us the way."*
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [simulation/](../simulation/) | Action queue in simulation state |
+| [character/](../character/) | Characters have queues |
+| [return-stack/](../return-stack/) | Past complements future |
+| [advertisement/](../advertisement/) | Objects suggest actions |
+| [room/](../room/) | Where actions happen |
+| [speed-of-light/](../speed-of-light/) | Multiple actions per turn |
+| [needs/](../needs/) | Needs drive action selection |
+| [designs/sims-personality-motives.md](../../designs/sims-personality-motives.md) | Original Sims design |
+
 **Full Spec:** [SKILL.md](SKILL.md)
 
 ## Overview
@@ -32,13 +45,6 @@ Queue: [COOK, PREPARE, GET-FOOD, EAT]
 ```
 
 *Dangling a carrot in front of a donkey.* Complex sequences emerge from simple object rules.
-
-## Related Skills
-
-- [return-stack/](../return-stack/) — Past complements future
-- [advertisement/](../advertisement/) — Objects suggest actions
-- [room/](../room/) — Where actions happen
-- [speed-of-light/](../speed-of-light/) — Multiple actions per turn
 
 ## Tools Required
 

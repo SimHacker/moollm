@@ -2,6 +2,18 @@
 
 > The same card, active in many rooms at once
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [card/](../card/) | What gets multi-instantiated |
+| [character/](../character/) | Characters in multiple places |
+| [room/](../room/) | Where activations live |
+| [prototype/](../prototype/) | Clone and override pattern |
+| [coherence-engine/](../coherence-engine/) | Orchestrates all instances |
+| [speed-of-light/](../speed-of-light/) | Parallel in one call |
+| [data-flow/](../data-flow/) | Parallel pipelines |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete actor model docs
 
@@ -38,8 +50,3 @@ Like running the same program in multiple terminals. Same code, different contex
 - `BROADCAST message TO card` — Send to all instances
 - `MERGE instance-1 instance-2` — Combine findings
 
-## Related Skills
-
-- [card](../card/) — What gets multi-instantiated
-- [room](../room/) — Where activations live
-- [coherence-engine](../coherence-engine/) — Orchestrates all instances

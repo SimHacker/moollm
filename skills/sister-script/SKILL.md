@@ -7,7 +7,7 @@ allowed-tools:
   - read_file
   - write_file
   - run_terminal_cmd
-related: [play-learn-lift, plan-then-execute, adventure]
+related: [sniffable-python, play-learn-lift, plan-then-execute, adventure, yaml-jazz]
 ---
 
 # Sister Script
@@ -63,11 +63,43 @@ graph LR
 
 ---
 
+## Sniffable Python: The Structure
+
+Sister scripts should follow [sniffable-python/](../sniffable-python/) conventions:
+
+```python
+#!/usr/bin/env python3
+"""tool-name: One-line description.
+
+Docstring becomes --help AND is visible to LLM.
+"""
+
+import argparse
+
+def main():
+    """CLI structure — sniff this to understand the tool."""
+    parser = argparse.ArgumentParser(description=__doc__.split('\n')[0])
+    # ... CLI tree here ...
+    args = parser.parse_args()
+    _dispatch(args)
+
+# Implementation below the fold
+```
+
+**Why sniffable Python for sister scripts?**
+- LLM can read `main()` and understand the CLI
+- Human can run `--help` for the same info
+- Single source of truth for documentation
+- One sniff and you smell success
+
+---
+
 ## Dovetails With
 
 ### Sister Skills
 | Skill | Relationship |
 |-------|--------------|
+| [sniffable-python/](../sniffable-python/) | **The structure** sister scripts should follow |
 | [play-learn-lift/](../play-learn-lift/) | Sister-script IS the LIFT stage |
 | [session-log/](../session-log/) | Source material for patterns |
 | [research-notebook/](../research-notebook/) | Documented procedures |

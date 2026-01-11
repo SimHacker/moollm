@@ -6,10 +6,11 @@ tier: 0
 allowed-tools:
   - read_file
   - write_file
-related: [sister-script, skill, yaml-jazz, constructionism, play-learn-lift]
+related: [sister-script, skill, yaml-jazz, constructionism, play-learn-lift, adventure, session-log, research-notebook]
 credits:
   - "MOOLLM — Dual-audience code structure"
   - "Python argparse — Built-in CLI with clean structure/implementation separation"
+  - "Steve Jobs — Lickable pixels as quality signal (Aqua, 2000)"
 ---
 
 # Sniffable Python
@@ -349,6 +350,208 @@ When the skill/SKILL.md instructs the LLM to generate a sister script, it should
 
 ---
 
+## The Play-Learn-Lift Connection
+
+Sniffable Python is the **crystallization point of LIFT** — where proven procedures become reusable automation.
+
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│                         PLAY-LEARN-LIFT                              │
+├──────────────────────────────────────────────────────────────────────┤
+│                                                                      │
+│   🎮 PLAY                   📚 LEARN                 🚀 LIFT          │
+│   ───────                   ───────                 ─────            │
+│   Jump in!                  Patterns emerge         Automate it!     │
+│   Try things                Document procedures     Share the tool   │
+│                                                                      │
+│   session-log.md      →     PROCEDURE.md       →    sister-script.py │
+│   "What I tried"            "How to do X"           SNIFFABLE PYTHON │
+│                                                                      │
+│   Messy exploration         Structured notes        Clean interface  │
+│   May fail                  Works when followed     Others can use   │
+│                                                                      │
+└──────────────────────────────────────────────────────────────────────┘
+```
+
+**The LIFT stage produces sniffable Python because:**
+- Others (human and LLM) need to understand the tool quickly
+- The CLI must be discoverable without reading implementation
+- The script must be maintainable without spelunking
+
+**See:** [play-learn-lift/](../play-learn-lift/) — The full methodology
+
+---
+
+## The Skill-to-Script Flow
+
+The [skill/](../skill/) skill describes how skills act as **factories** that produce instances. When a skill generates a CLI tool, that tool should be sniffable Python.
+
+```
+┌────────────────────┐
+│    SKILL.md        │
+│    ─────────       │
+│    The teacher     │
+│    Knows how to    │
+│    build things    │
+└─────────┬──────────┘
+          │ instructs LLM to generate
+          ▼
+┌────────────────────┐
+│  Sister Script     │
+│  ─────────────     │
+│  SNIFFABLE PYTHON  │
+│  Docstring = API   │
+│  main() = CLI tree │
+│  Comments = Jazz   │
+└─────────┬──────────┘
+          │ LLM sniffs to understand
+          ▼
+┌────────────────────┐
+│  LLM Comprehension │
+│  ─────────────────  │
+│  Reads first 50    │
+│  Understands CLI   │
+│  Can invoke tool   │
+└─────────┬──────────┘
+          │ executes
+          ▼
+┌────────────────────┐
+│  Structured Output │
+│  ────────────────  │
+│  YAML / JSON       │
+│  LLM can parse     │
+│  Feeds back        │
+└────────────────────┘
+```
+
+**Example from adventure skill:**
+
+The adventure skill's vision includes a Python CLI that handles deterministic operations:
+
+```python
+$ adventure lint examples/adventure-4/    # Validate world
+$ adventure move alice north              # Update coordinates  
+$ adventure scan --pending                # Find work to do
+```
+
+Each of these is a sniffable subcommand. The LLM sniffs `adventure --help` (or just reads `main()`) and knows the full API.
+
+---
+
+## The Adventure Linter Feedback Loop
+
+The [adventure/](../adventure/) skill demonstrates sniffable Python in a **feedback loop**:
+
+```
+┌─────────────────┐
+│  LLM generates  │  Create rooms, objects, characters
+│  adventure      │  in YAML Jazz format
+│  content        │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  Sniffable      │  adventure-lint.py
+│  Linter runs    │  Validates world consistency
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  LINTER.yml     │  Structured findings:
+│  output         │  errors, warnings, suggestions
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  LLM reads      │  Understands what needs fixing
+│  lint results   │  Generates corrections
+└────────┬────────┘
+         │
+         └──────────► [back to top, iterate]
+```
+
+**From [examples/adventure-4/LINTER.yml](../../examples/adventure-4/LINTER.yml):**
+
+```yaml
+summary:
+  rooms_found: 36
+  objects_found: 37
+  characters_found: 6
+  errors: 8
+  warnings: 36
+  compile_requests: 9
+
+events:
+- type: FOUND_ROOM
+  severity: INFO
+  path: pub/ROOM.yml
+  message: 'Found room: The Rusty Lantern'
+  data:
+    exits: [NORTH, UP, BACK]
+    objects: 15
+    sub_rooms: 1
+```
+
+**Why this works:**
+- The linter is sniffable — LLM understands its CLI
+- The output is YAML — LLM parses it naturally
+- Events are structured — LLM knows what to fix
+- The loop is tight — generate → lint → fix → repeat
+
+**This is Python for precision, LLM for poetry.**
+
+---
+
+## Live Examples in adventure-4
+
+### TomTomagotchi — YAML Jazz in Action
+
+[kitchen/tomtomagotchi.yml](../../examples/adventure-4/kitchen/tomtomagotchi.yml) demonstrates sniffable structure in YAML:
+
+```yaml
+abilities:
+  COMPASS:
+    description: "Point toward a target"
+    usage: "COMPASS [target]"
+    targets:
+      - start     # Always knows home
+      - home      # The surface
+      - treasure  # The goal
+```
+
+**The comment "Always knows home" is data.** The LLM reads it and understands the semantics. This is YAML Jazz applied to game objects.
+
+### The Pub — Framing Through Comments
+
+[pub/ROOM.yml](../../examples/adventure-4/pub/ROOM.yml) uses comments to frame the room's purpose:
+
+```yaml
+framing:
+  mode: [performance, celebration, socialization, tribute, third_place]
+  
+  description: |
+    This is a PLACE OF PERFORMANCE AND CELEBRATION.
+    This is a THIRD PLACE — neither home nor work, but community.
+    This is where TRIBUTES are performed with love.
+```
+
+**Comments explain WHY the pub exists.** The LLM uses this framing to generate appropriate content — debates are sport, personas are welcome, tributes are loving.
+
+### Skills as Rooms
+
+From [skill/SKILL.md](../skill/SKILL.md), skills manifest as rooms you can enter:
+
+```
+> enter the adventure skill
+You are in the Adventure Workshop.
+Exits: pub, maze, character-gallery
+Objects: room-templates, npc-catalog, puzzle-designs
+```
+
+The skill directory IS the room. The sister scripts are objects you can pick up and use. Sniffable Python makes those scripts discoverable.
+
+---
+
 ## The Coherence Engine Flow
 
 ```
@@ -484,13 +687,76 @@ Invoke when: Generating or reading Python scripts that need to be LLM-comprehens
 
 ---
 
-## Dovetails With
+## Dovetails With — The Intertwingularity
 
-- **[sister-script/](../sister-script/)** — Scripts generated from documentation
-- **[skill/](../skill/)** — The meta-skill that uses sniffable scripts
-- **[yaml-jazz/](../yaml-jazz/)** — Comments as semantic data
-- **[play-learn-lift/](../play-learn-lift/)** — Scripts emerge from proven procedures
-- **[constructionism/](../constructionism/)** — Building inspectable things
+Everything in MOOLLM connects. Sniffable Python sits at the intersection of multiple skills:
+
+```
+                    ┌─────────────────────┐
+                    │  constructionism    │
+                    │  (build to learn)   │
+                    └──────────┬──────────┘
+                               │
+        ┌──────────────────────┼──────────────────────┐
+        │                      │                      │
+        ▼                      ▼                      ▼
+┌───────────────┐    ┌─────────────────┐    ┌──────────────────┐
+│ play-learn-   │    │  sniffable-     │    │    yaml-jazz     │
+│ lift          │◄───│  python         │───►│   (comments as   │
+│ (LIFT stage)  │    │                 │    │    data)         │
+└───────┬───────┘    └────────┬────────┘    └──────────────────┘
+        │                     │
+        │           ┌─────────┴─────────┐
+        │           │                   │
+        ▼           ▼                   ▼
+┌───────────────┐   ┌───────────┐   ┌───────────────────┐
+│ sister-script │   │  skill    │   │    adventure      │
+│ (the format)  │   │ (factory) │   │ (linter feedback) │
+└───────────────┘   └───────────┘   └───────────────────┘
+```
+
+| Skill | Relationship to Sniffable Python |
+|-------|----------------------------------|
+| [sister-script/](../sister-script/) | Sister scripts ARE sniffable Python |
+| [skill/](../skill/) | Skills generate sniffable scripts |
+| [yaml-jazz/](../yaml-jazz/) | Comments carry semantic meaning |
+| [play-learn-lift/](../play-learn-lift/) | Sniffable Python is LIFT output |
+| [constructionism/](../constructionism/) | Build inspectable things |
+| [adventure/](../adventure/) | Linter exemplifies the feedback loop |
+| [session-log/](../session-log/) | Raw exploration → procedures → scripts |
+| [research-notebook/](../research-notebook/) | Documented patterns become scripts |
+
+### Live Examples
+
+| Example | Location | What It Shows |
+|---------|----------|---------------|
+| **Adventure-4 World** | [examples/adventure-4/](../../examples/adventure-4/) | Complete world with linter-driven generation |
+| **TomTomagotchi** | [kitchen/tomtomagotchi.yml](../../examples/adventure-4/kitchen/tomtomagotchi.yml) | YAML Jazz: abilities documented with usage examples |
+| **The Pub** | [pub/ROOM.yml](../../examples/adventure-4/pub/ROOM.yml) | Semantic comments as framing protocol |
+| **The Linter Output** | [LINTER.yml](../../examples/adventure-4/LINTER.yml) | Structured output the LLM can parse |
+| **Skill as Room** | [skill/SKILL.md](../skill/SKILL.md) | Skills manifest as explorable spaces |
+
+### The Circle Completes
+
+```
+PLAY: Try things, log them
+  ↓
+LEARN: Document patterns in PROCEDURE.md
+  ↓
+LIFT: Generate sister-script.py in SNIFFABLE PYTHON format
+  ↓
+SKILL: Add to skill, expose to LLM
+  ↓
+LLM: Sniffs script, understands API, uses tool
+  ↓
+OUTPUT: YAML results (linter, builder, etc.)
+  ↓
+PLAY: Try new things with the tool...
+  ↓
+[repeat]
+```
+
+**This is the MOOLLM development loop.** Sniffable Python is the code interface that makes it work.
 
 ---
 

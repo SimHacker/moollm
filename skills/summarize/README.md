@@ -2,9 +2,20 @@
 
 > Compress without losing truth. Backlink to sources.
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [honest-forget/](../honest-forget/) | Graceful compression |
+| [session-log/](../session-log/) | Logs to summarize |
+| [memory-palace/](../memory-palace/) | Organized knowledge |
+| [play-learn-lift/](../play-learn-lift/) | LEARN includes summarizing |
+| [research-notebook/](../research-notebook/) | Research to summarize |
+| [hot.yml](../../hot.yml) | What's too hot to summarize |
+| [kernel/memory-management-protocol.md](../../kernel/memory-management-protocol.md) | Hot/cold architecture |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
-- [Template: SUMMARIES.yml](SUMMARIES.yml.tmpl) — summary template
 
 ## Overview
 
@@ -31,9 +42,3 @@ summary:
     
   backlink: "../designs/original-design.md"
 ```
-
-## Related Skills
-
-- [honest-forget](../honest-forget/) — graceful compression
-- [session-log](../session-log/) — logs to summarize
-- [memory-palace](../memory-palace/) — organized knowledge
