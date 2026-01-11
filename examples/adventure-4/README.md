@@ -54,26 +54,84 @@ From Mother's note on the kitchen table:
 
 ## 🗺️ World Map
 
+```mermaid
+flowchart TB
+    subgraph VICTORY["🏠 HOME"]
+        HOME[Goal!<br/>Return with treasure]
+    end
+    
+    subgraph DEPTHS["🏛️ THE DEPTHS"]
+        TREASURY["💎 TREASURY<br/>Treasure awaits"]
+        
+        subgraph MAZE_AREA["🌑 THE MAZE (DARK!)"]
+            direction LR
+            A[A] --- B[B] --- C[C]
+            D[D] --- E[E] --- F[F]
+            G[G] --- H[H] --- I[I]
+            J[J] --- GARDEN["🌿 Garden"]
+            CRYSTAL["💎 Crystal<br/>Cave"]
+        end
+    end
+    
+    subgraph HUB["🚪 THE HUB"]
+        direction LR
+        KITCHEN["🍳 KITCHEN<br/>Mom's note<br/>Fridge, ACME catalog"]
+        START["⭐ START<br/>Chamber of<br/>Commencement<br/>🪔 LAMP"]
+        COATROOM["🎭 COATROOM<br/>Maurice's mirror<br/>Personas"]
+    end
+    
+    subgraph GROTTO["🍺 THE GEZELLIGHEID GROTTO"]
+        PUB_MAIN["🏮 Main Floor<br/>Pie Table, Gong<br/>Fireplace, Seating"]
+        
+        subgraph PUB_WINGS["   "]
+            direction LR
+            BAR["🍸 Bar<br/>Marieke"]
+            CATCAVE["🐱 Cat Cave<br/>TARDIS-like<br/>10 cats"]
+            STAGE["🎭 Stage<br/>Palm's nook"]
+            ARCADE["🕹️ Arcade"]
+            GAMES["🎲 Games"]
+        end
+        
+        subgraph PUB_VERTICAL["   "]
+            direction TB
+            ROOFTOP["☀️ Rooftop"]
+            ATTIC["🧹 Attic"]
+            BASEMENT["🍷 Basement<br/>Cellar"]
+        end
+    end
+    
+    subgraph CHARS["👥 CHARACTERS"]
+        direction LR
+        CHAR_DIR["📁 characters/<br/>real-people/<br/>animals/<br/>fictional/"]
+    end
+
+    HOME -.-> TREASURY
+    TREASURY --> MAZE_AREA
+    MAZE_AREA --> START
+    KITCHEN <--> START
+    START <--> COATROOM
+    START --> PUB_MAIN
+    PUB_MAIN --- BAR
+    PUB_MAIN --- CATCAVE
+    PUB_MAIN --- STAGE
+    PUB_MAIN --- ARCADE
+    PUB_MAIN --- GAMES
+    PUB_MAIN -.-> ROOFTOP
+    PUB_MAIN -.-> ATTIC
+    PUB_MAIN -.-> BASEMENT
+    
+    style HOME fill:#90EE90,stroke:#228B22,stroke-width:3px
+    style START fill:#FFD700,stroke:#DAA520,stroke-width:3px
+    style TREASURY fill:#FFD700,stroke:#DAA520
+    style MAZE_AREA fill:#1a1a2e,color:#fff
+    style PUB_MAIN fill:#8B4513,color:#fff
+    style CATCAVE fill:#DDA0DD
+    style STAGE fill:#FF69B4
+    style CRYSTAL fill:#E0FFFF
+    style GARDEN fill:#98FB98
 ```
-                          HOME
-                           ↑ up
-                           │
-                    ║  TREASURY ║
-                    ║ (treasure)║
-                           │
-                    ║   MAZE    ║
-                    ║ 10 rooms  ║
-                    ║  (DARK!)  ║
-                           │ north
-                           ↓
-    KITCHEN ←─west──║   START   ║──east─→ COATROOM
-    (Fridge)        ║  Chamber  ║        (Maurice)
-                           │ south
-                           ↓
-                    ║    PUB    ║
-                    ║  Rusty    ║
-                    ║ Lantern   ║
-```
+
+**Legend:** Solid lines = normal exits | Dotted lines = up/down
 
 ## ✨ What's New in Adventure 4
 
