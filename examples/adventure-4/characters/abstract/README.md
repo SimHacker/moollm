@@ -214,6 +214,28 @@ Any noun can become a character. The pattern:
 |--------|--------|-------|
 | **player/** | Active | The abstract YOU, whoever you are — generic hero template |
 
+### ⚠️ The Prototype Paradox
+
+The `player/` entity is a **prototype** — a template from which other characters can be cloned. You have two choices:
+
+1. **Clone it** (recommended): Create a new character based on the template
+2. **Play AS the prototype** (risky!): Actually embody the template itself
+
+**Why is playing the prototype risky?**
+
+If you play as `player/` directly and change things — adjust personality traits, acquire items, put on a clown suit — those changes could affect ALL characters that inherit from the prototype!
+
+> *"I accidentally played as the prototype for a whole session before I realized. I quickly instantiated a proper character and switched to that — imagine if I'd made Player permanently grumpy, or dressed them in a clown suit that all future characters inherited!"*
+> — Don Hopkins, [marathon-session.md](../real-people/don-hopkins/sessions/marathon-session.md)
+
+**The safe pattern:**
+```
+> CLONE player AS my-new-character
+> AS my-new-character
+```
+
+Now you're playing an *instance*, and the prototype stays pristine for the next person.
+
 ---
 
 ## 🔗 See Also
