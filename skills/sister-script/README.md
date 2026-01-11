@@ -4,20 +4,14 @@
 
 ## MOOLLM K-Lines
 
-| Category | K-Lines |
-|----------|---------|
-| **Methodology** | [play-learn-lift](../play-learn-lift/) (LIFT stage) · [sniffable-code](../sniffable-python/) |
-| **Architecture** | [files-as-state](../plain-text/) · [yaml-jazz](../yaml-jazz/) |
-| **Philosophy** | [constructionism](../constructionism/) · [postel](../postel/) |
-
-**Sister-Script K-Lines:**
-
 | K-Line | Meaning |
 |--------|---------|
-| `document-first` | Document → Procedure → Script (never reverse) |
-| `sniffable-structure` | Sister scripts follow [sniffable-python](../sniffable-python/) |
-| `bidirectional-evolution` | Scripts improve docs, docs improve scripts |
-| `lift-stage` | Sister scripts ARE the LIFT output |
+| [play-learn-lift](../play-learn-lift/) | Sister scripts ARE the LIFT stage output |
+| [sniffable-python](../sniffable-python/) | Sister scripts follow this structure |
+| [files-as-state](../plain-text/) | Scripts persist as files |
+| [yaml-jazz](../yaml-jazz/) | Comments carry meaning |
+| [constructionism](../constructionism/) | Document → Procedure → Automation |
+| [postel](../postel/) | Liberal input, conservative output |
 
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol

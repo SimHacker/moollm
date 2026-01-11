@@ -4,22 +4,16 @@
 
 ## MOOLLM K-Lines
 
-| Category | K-Lines |
-|----------|---------|
-| **Ethics** | [hero-story](../hero-story/) · [incarnation](../incarnation/) · [mind-mirror](../mind-mirror/) |
-| **Architecture** | [rooms-navigation](../room/) (framing) · [files-as-state](../plain-text/) · [yaml-jazz](../yaml-jazz/) |
-| **Traditions** | [sims-tradition](../needs/) · [adventure-lineage](../adventure/) |
-
-**Ethics K-Lines:**
-
 | K-Line | Meaning |
 |--------|---------|
-| `consent-hierarchy` | Five levels: self-sovereign, published, public figures, private, deceased |
-| `k-lines-not-impersonation` | Invoke traditions via [hero-story](../hero-story/), not identities |
-| `tribute-protocol` | Invocation → Performance → Acknowledgment |
-| `elvis-impersonator-model` | Declared performance is ethical |
-| `framing-transforms-ethics` | [Room](../room/) context changes what's acceptable |
-| `ship-already-sailed` | People simulate each other. Now what? |
+| [hero-story](../hero-story/) | Invoke traditions, not identities |
+| [incarnation](../incarnation/) | Characters write their own souls |
+| [mind-mirror](../mind-mirror/) | Transparent personality measurement |
+| [rooms-navigation](../room/) | Framing transforms ethics |
+| [files-as-state](../plain-text/) | Consent declarations persist |
+| [yaml-jazz](../yaml-jazz/) | Ethics in comments |
+| [adventure](../adventure/) | The pub as ethical space |
+| [needs](../needs/) | Sims tradition of character agency |
 
 ---
 

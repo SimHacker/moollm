@@ -4,21 +4,16 @@
 
 ## MOOLLM K-Lines
 
-| Category | K-Lines |
-|----------|---------|
-| **Architecture** | [skills-as-prototypes](../prototype/) · [files-as-state](../plain-text/) · [rooms-navigation](../room/) |
-| **Methodology** | [play-learn-lift](../play-learn-lift/) · [sister-scripts](../sister-script/) · [sniffable-code](../sniffable-python/) |
-| **Philosophy** | [constructionism](../constructionism/) · [k-lines](../protocol/) · [many-voiced](../adversarial-committee/) |
-
-**Skill K-Lines:**
-
 | K-Line | Meaning |
 |--------|---------|
-| `skills-as-prototypes` | Skills are factories that create instances ([Self language](../prototype/)) |
-| `three-tier-persistence` | Platform → Narrative → State |
-| `front-matter-sniffing` | LLMs understand from first 50 lines |
-| `speed-of-light` | Many agents, many turns, one LLM call |
-| `empathic-templates` | Smart generation, not string substitution |
+| [skills-as-prototypes](../prototype/) | Skills are factories that create instances (Self language) |
+| [play-learn-lift](../play-learn-lift/) | Explore → Notice patterns → Share as skills |
+| [sister-scripts](../sister-script/) | Document → Procedure → Automation |
+| [sniffable-code](../sniffable-python/) | LLMs understand from first 50 lines |
+| [files-as-state](../plain-text/) | Everything persists in files |
+| [speed-of-light](../speed-of-light/) | Many agents, many turns, one LLM call |
+| [constructionism](../constructionism/) | Build to learn (Papert) |
+| [empathic-templates](../empathic-templates/) | Smart generation, not string substitution |
 
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol

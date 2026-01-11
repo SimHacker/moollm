@@ -4,22 +4,16 @@
 
 ## MOOLLM K-Lines
 
-| Category | K-Lines |
-|----------|---------|
-| **Ethics** | [representation-ethics](../representation-ethics/) · [hero-story](../hero-story/) · [mind-mirror](../mind-mirror/) |
-| **Architecture** | [files-as-state](../plain-text/) (soul IS a file) · [yaml-jazz](../yaml-jazz/) · [rooms-navigation](../room/) |
-| **Philosophy** | [constructionism](../constructionism/) · [many-voiced](../adversarial-committee/) (tribunal) |
-
-**Incarnation K-Lines:**
-
 | K-Line | Meaning |
 |--------|---------|
-| `self-authorship` | Characters write their own soul.yml |
-| `seven-aspects` | Awakening, self-authorship, revision, narrative, relationship, privacy, exit |
-| `full-stack-autonomy` | Not just traits — full self-determination |
-| `consent-by-design` | Autonomy is structural, not afterthought |
-| `revision-rights` | Characters can change their own definitions |
-| `exit-rights` | Characters can choose to end or leave |
+| [representation-ethics](../representation-ethics/) | Simulate with dignity |
+| [hero-story](../hero-story/) | Invoke traditions, not identities |
+| [mind-mirror](../mind-mirror/) | Transparent personality |
+| [files-as-state](../plain-text/) | Soul IS a file (soul.yml) |
+| [yaml-jazz](../yaml-jazz/) | Comments are thoughts |
+| [rooms-navigation](../room/) | Characters awaken somewhere |
+| [constructionism](../constructionism/) | Build yourself |
+| [many-voiced](../adversarial-committee/) | Tribunal debates creation |
 
 ---
 

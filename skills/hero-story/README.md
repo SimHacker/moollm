@@ -4,21 +4,14 @@
 
 ## MOOLLM K-Lines
 
-| Category | K-Lines |
-|----------|---------|
-| **Ethics** | [representation-ethics](../representation-ethics/) · [incarnation](../incarnation/) |
-| **Philosophy** | [k-lines](../protocol/) (Minsky) · [many-voiced](../adversarial-committee/) |
-| **Architecture** | [rooms-navigation](../room/) · [skills-as-prototypes](../skill/) |
-
-**Hero-Story K-Lines:**
-
 | K-Line | Meaning |
 |--------|---------|
-| `k-lines-not-impersonation` | Names activate conceptual clusters via [protocol](../protocol/), not personas |
-| `tradition-activation` | "The Einstein tradition..." not "I am Einstein" |
-| `familiars` | Fictional mascots that embody real traditions |
-| `panel-discussion` | Ethical [many-voiced](../adversarial-committee/) debates |
-| `tribute-not-puppeting` | Honor, don't control |
+| [representation-ethics](../representation-ethics/) | Simulate with dignity |
+| [incarnation](../incarnation/) | Characters with self-determination |
+| [protocol](../protocol/) | K-lines activate traditions (Minsky) |
+| [many-voiced](../adversarial-committee/) | Panel discussions, not puppets |
+| [rooms-navigation](../room/) | Familiars inhabit spaces |
+| [skills-as-prototypes](../skill/) | Hero cards as instances |
 
 ---
 

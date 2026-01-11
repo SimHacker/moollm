@@ -4,23 +4,15 @@
 
 ## MOOLLM K-Lines
 
-| Category | K-Lines |
-|----------|---------|
-| **Ethics** | [representation-ethics](../representation-ethics/) · [incarnation](../incarnation/) |
-| **Architecture** | [yaml-jazz](../yaml-jazz/) · [files-as-state](../plain-text/) |
-| **Traditions** | [sims-tradition](../needs/) · leary-circumplex |
-| **Philosophy** | [constructionism](../constructionism/) |
-
-**Mind-Mirror K-Lines:**
-
 | K-Line | Meaning |
 |--------|---------|
-| `mirror-not-judge` | Reflects, doesn't prescribe |
-| `understanding-is-power` | Know how you're measured |
-| `character-ownership` | Characters own their profiles |
-| `transparent-measurement` | You see what the system sees |
-| `personality-as-space` | Four planes like four [rooms](../room/) |
-| `self-modification-rights` | Characters can change their own profiles |
+| [representation-ethics](../representation-ethics/) | Transparent measurement |
+| [incarnation](../incarnation/) | Characters own their profiles |
+| [yaml-jazz](../yaml-jazz/) | Numbers + comments = life |
+| [files-as-state](../plain-text/) | Profiles persist |
+| [needs](../needs/) | Sims tradition (traits, needs) |
+| [rooms-navigation](../room/) | Personality as navigable space |
+| [constructionism](../constructionism/) | Understand yourself by measuring |
 
 ---
 

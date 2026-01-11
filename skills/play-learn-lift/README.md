@@ -4,22 +4,14 @@
 
 ## MOOLLM K-Lines
 
-| Category | K-Lines |
-|----------|---------|
-| **Methodology** | [sister-scripts](../sister-script/) (LIFT output) · [sniffable-code](../sniffable-python/) |
-| **Philosophy** | [constructionism](../constructionism/) · [many-voiced](../adversarial-committee/) |
-| **Architecture** | [skills-as-prototypes](../skill/) · [files-as-state](../plain-text/) |
-| **Traditions** | [adventure-lineage](../adventure/) (play IS adventure) |
-
-**Play-Learn-Lift K-Lines:**
-
 | K-Line | Meaning |
 |--------|---------|
-| `play` | Jump in! No prerequisites, curiosity drives |
-| `learn` | Patterns emerge. "I noticed..." |
-| `lift` | Help others play. Teaching solidifies mastery |
-| `invert-learning` | Do first, study emerges. Share while learning |
-| `mistakes-are-features` | Errors are data, not failure |
+| [sister-scripts](../sister-script/) | LIFT produces sniffable automation |
+| [sniffable-python](../sniffable-python/) | Structure for LLM comprehension |
+| [constructionism](../constructionism/) | Build to learn (Papert) |
+| [adventure](../adventure/) | Play IS adventure |
+| [skills-as-prototypes](../skill/) | LIFT creates reusable skills |
+| [files-as-state](../plain-text/) | Session logs persist learning |
 
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete methodology

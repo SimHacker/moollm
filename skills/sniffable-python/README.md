@@ -4,22 +4,14 @@
 
 ## MOOLLM K-Lines
 
-| Category | K-Lines |
-|----------|---------|
-| **Methodology** | [sister-scripts](../sister-script/) · [play-learn-lift](../play-learn-lift/) (LIFT output) |
-| **Architecture** | [yaml-jazz](../yaml-jazz/) (comments as data) · [files-as-state](../plain-text/) |
-| **Philosophy** | [postel](../postel/) · [constructionism](../constructionism/) |
-
-**Sniffable K-Lines:**
-
 | K-Line | Meaning |
 |--------|---------|
-| `first-50-lines` | API visible in the header |
-| `dual-audience` | Same code serves humans and LLMs |
-| `argparse-at-top` | CLI structure before implementation |
-| `comments-as-jazz` | [YAML Jazz](../yaml-jazz/) applied to Python |
-| `feedback-loop` | Linter → output → LLM fixes → iterate |
-| `comprehension-fidelity` | Understanding matters more than token count |
+| [sister-scripts](../sister-script/) | Sniffable Python IS the sister-script format |
+| [play-learn-lift](../play-learn-lift/) | LIFT produces sniffable automation |
+| [yaml-jazz](../yaml-jazz/) | Comments carry meaning (applied to Python) |
+| [files-as-state](../plain-text/) | Scripts are first-class objects |
+| [postel](../postel/) | Liberal input, conservative output |
+| [adventure](../adventure/) | Linter feedback loop in action |
 
 ---
 
