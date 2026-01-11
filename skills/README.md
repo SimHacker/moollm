@@ -166,8 +166,7 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 
 | Skill | One-liner |
 |-------|-----------|
-| [postal/](./postal/) | Intra-world mail system — letters, packages, THROW |
-| [mail/](./mail/) | Mail templates |
+| [postal/](./postal/) | Intra-world mail system — letters, packages, inboxes, THROW |
 
 ### 🔧 System & Recovery
 
