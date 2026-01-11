@@ -4,13 +4,15 @@
 
 ## MOOLLM K-Lines
 
-| K-Line | Meaning |
-|--------|---------|
-| [yaml-jazz](../yaml-jazz/) | Comments carry meaning |
-| [postel](../postel/) | Liberal input, conservative output |
-| [play-learn-lift](../play-learn-lift/) | Explore → Pattern → Share |
-| [sniffable-python](../sniffable-python/) | Structure for LLM comprehension |
-| [files-as-state](../plain-text/) | Everything persists |
+| K-Line | Why Related |
+|--------|-------------|
+| [yaml-jazz/](../yaml-jazz/) | Comments carry meaning — semantic YAML interpretation |
+| [postel/](../postel/) | Liberal input, conservative output — charitable interpretation |
+| [play-learn-lift/](../play-learn-lift/) | Explore → Pattern → Share — the methodology |
+| [sniffable-python/](../sniffable-python/) | Structure for LLM comprehension |
+| [files-as-state/](../plain-text/) | Everything persists — the foundation |
+| [moollm/](../moollm/) | Master K-Lines index — the mothership |
+| [skill/](../skill/) | Skills ARE K-line factories |
 
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
@@ -86,11 +88,3 @@ The K-lines aren't documentation. They're **semantic rails** the model rides str
 | Findable via grep | \`grep YAML-JAZZ\` |
 | Self-documenting | Name implies behavior |
 
----
-
-## Related Skills
-
-- [yaml-jazz](../yaml-jazz/) — semantic YAML interpretation
-- [postel](../postel/) — charitable interpretation
-- [moollm](../moollm/) — master K-Lines index
-- [skill](../skill/) — skills as K-line factories

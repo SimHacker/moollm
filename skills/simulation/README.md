@@ -2,6 +2,16 @@
 
 > Abstract base for runtime state — concrete types inherit from this
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [adventure/](../adventure/) | Concrete type for narrative exploration |
+| [time/](../time/) | Turn mechanics |
+| [party/](../party/) | Party and selection state |
+| [character/](../character/) | Player entities |
+| [prototype/](../prototype/) | Concrete types inherit from abstract |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
 
@@ -65,9 +75,3 @@ navigation:
 | `REWIND [n]` | Go back n turns (via git) |
 | `SET [param] [value]` | Configure parameter |
 
-## Related Skills
-
-- [adventure](../adventure/) — concrete type for narrative exploration
-- [time](../time/) — turn mechanics
-- [party](../party/) — party and selection state
-- [character](../character/) — player entities

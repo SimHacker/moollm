@@ -2,6 +2,15 @@
 
 > Identity layers for characters — WHO they are vs WHAT they do
 
+## MOOLLM K-Lines
+
+| K-Line | Why Related |
+|--------|-------------|
+| [character/](../character/) | Personas attach to characters |
+| [mind-mirror/](../mind-mirror/) | Personality traits |
+| [buff/](../buff/) | Personas can grant buffs |
+| [examples/adventure-4/personas/](../../examples/adventure-4/personas/) | Live persona examples |
+
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
 
@@ -33,8 +42,3 @@ studying: { persona: marieke, role: botanist }
 - Lightweight: `persona-name.yml` in room directory
 - Heavyweight: `persona-name/PERSONA.yml` with accessories
 
-## Related Skills
-
-- [character](../character/) — personas attach to characters
-- [mind-mirror](../mind-mirror/) — personality traits
-- [buff](../buff/) — personas can grant buffs
