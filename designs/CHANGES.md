@@ -695,5 +695,5 @@
 **`3eb7c21`** CHANGES.md: Document b86c10c fix commit
 > And document THAT. The recursion continues. 🔄
 
-**`(this)`** CHANGES.md: Clarify append format with (this) placeholder
+**`0c4ac02`** CHANGES.md: Clarify append format with (this) placeholder
 > Use (this) for pending commits. Retrocon actual hash after commit. File just ENDS. No conclusions. Groups and era headers are fine. 📝
