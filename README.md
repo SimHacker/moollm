@@ -1126,7 +1126,7 @@ MOOLLM evolves through collaborative sessions between humans and LLMs. These doc
 | Document | What You'll Find |
 |----------|------------------|
 | **[designs/CHANGES.md](./designs/CHANGES.md)** | 🎬 **The Complete History.** James Burke-style narrative of all 490 commits, organized into 19 eras — from "first commit" to Sovereign Souls. Tweet-length narrations connect each commit to the next. |
-| **[designs/PR-k-lines-safari.md](./designs/PR-k-lines-safari.md)** | 📋 PR summary for the K-lines Safari: skill network interconnection work. |
+| **[designs/PR-K-LINES-SAFARI.md](./designs/PR-K-LINES-SAFARI.md)** | 📋 PR summary for the K-lines Safari: skill network interconnection work. |
 
 #### 🐒 Don Hopkins' Session Logs
 

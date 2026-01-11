@@ -607,7 +607,7 @@
 
 ## Era XIX: The K-Line Safari Session (671-690)
 
-**`13c482a`** Add PR-k-lines-safari.md design document
+**`13c482a`** Add PR-K-LINES-SAFARI.md design document
 > The PR has a story now. 📋
 
 **`66d657c`** New session: K-Line Connections Safari
