@@ -802,5 +802,23 @@
 **`a964624`** Remove redundant mail/ skill, merge into postal/
 > mail/INBOX.yml.tmpl was identical to postal/. One messaging system, not two. DRY. 📮
 
-**`(this)`** Fix simulated Ben Shneiderman to acknowledge tribute framing
+**`f8f8bc0`** Fix simulated Ben Shneiderman to acknowledge tribute framing
 > Annie Hall Protocol in action. Ben introduces himself as simulation. Owl paper was simulated collaboration. 🦉🎭
+
+**`afbd82a`** Add simulated Ben Shneiderman to Rusty Lantern guest book
+> Tribute framing in the persistent guest book. "A tribute, not an imposter." 📖🎭
+
+**`babfdec`** Fix guard expression: include 'known to guard' condition
+> Natural language said OR, compiled code was missing half. Truth in advertising. 🔑👮
+
+**`e5f7028`** Use 'world' instead of 'ctx' in compiled guard expressions
+> Consistent naming: the parameter IS the world. Also marked McCarthy's example as BUG. 🌍
+
+**`e0b6da9`** Clarify LLM as oracle, not engine
+> Compiled worlds run fast without LLM. Call oracle for wisdom, not speed. Engine + Oracle. 🏎️🔮
+
+**`0a61eef`** Fix invalid YAML examples: remove duplicate keys, stray quote
+> Heisenberg split into before/after blocks. Velocity uses unique keys. Valid YAML. ✅
+
+**`(this)`** CHANGES.md: Document session polish commits
+> Guard fixes, world naming, oracle architecture, YAML validation. The details matter. 📝
