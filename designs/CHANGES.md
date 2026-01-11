@@ -3,27 +3,27 @@
 > *A James Burke-style journey through every commit, tweet by tweet.*
 > *Append-only. No conclusions. Just history flowing forward.*
 
-## How to Append
+## How to Append (The PUSH Protocol)
 
-**Format:** Each commit gets `**\`hash\`** title` followed by `> James Burke tweet`
+**When user says "PUSH" — do this ONCE:**
 
-**Before editing:**
-1. Run `git log --oneline -20` to see recent commits
+1. `git log --oneline -20` — see recent commits
 2. Find where this file left off (last documented hash)
-3. Add entries for commits SINCE then
+3. **Retrocon:** Replace any `(this)` with the actual hash you now know
+4. **Add entries** for all commits since the last documented one
+5. **End with `(this)`** for the commit you're about to make
+6. Commit and push — **ONE commit, done**
 
-**The (this) pattern:**
-- Use `(this)` as placeholder for the current commit you're about to make
-- After commit, the NEXT session retrocons it when they append
-- **DO NOT** loop making commits just to fill in commit hashes!
-  Guess why I had to say that explicitly! 
-- One undocumented commit at the end is FINE. Stop there.
+**CRITICAL — DO NOT:**
+- Make a second commit just to fill in `(this)` — that loops forever!
+- The `(this)` gets filled in NEXT time someone appends
+- Leaving one `(this)` at the end is CORRECT behavior
 
-**Era headers:** OK to add `## Era N: Title` sections to group commits thematically, and retrocon headers before earlier commits when patterns emerge
+**Format:** `**\`hash\`** title` followed by `> James Burke tweet`
 
-**NO:** conclusions, summaries at end, "more entries go here", or chasing your own tail
+**Era headers:** OK to add `## Era N: Title` sections thematically
 
-**The file just ENDS after the last entry. Ready for next append.**
+**The file just ENDS. No conclusions. Ready for next append.**
 
 ---
 
@@ -731,5 +731,11 @@
 **`1d9b6d1`** Refactor README.md and QUICKSTART.md: condense with links
 > README 1189→185 lines, QUICKSTART 310→115 lines. Links everywhere. Less duplication, more navigation. 📚✂️
 
-**`(this)`** CHANGES.md: Document README/QUICKSTART refactor
+**`7e633a9`** CHANGES.md: Document README/QUICKSTART refactor
 > Retrocon 803d31f, add 1d9b6d1. The docs diet continues.
+
+**`8ed1413`** Fix Seven Innovations to match MOOLLM-EVAL-INCARNATE-FRAMEWORK.md
+> Comment Intelligence → CARD.yml. Match the authoritative source. Consistency across all docs. 🔧
+
+**`(this)`** CHANGES.md: Clarify PUSH protocol, retrocon previous commits
+> The PUSH protocol is now crystal clear. One commit. Done.
