@@ -225,16 +225,17 @@ The `player/` entity is a **prototype** — a template from which other characte
 
 If you play as `player/` directly and change things — adjust personality traits, acquire items, put on a clown suit — those changes could affect ALL characters that inherit from the prototype!
 
-> *"I accidentally played as the prototype for a whole session before I realized. I quickly instantiated a proper character and switched to that — imagine if I'd made Player permanently grumpy, or dressed them in a clown suit that all future characters inherited!"*
+> *"I accidentally played as the prototype for several turns before I realized. I quickly instantiated a proper character and switched to that — imagine if I'd made Player permanently grumpy, or dressed them in a clown suit that all future characters inherited!"*
 > — Don Hopkins, [marathon-session.md](../real-people/don-hopkins/sessions/marathon-session.md)
 
 **The safe pattern:**
 ```
 > CLONE player AS my-new-character
 > AS my-new-character
+> DRESS in clown suit
 ```
 
-Now you're playing an *instance*, and the prototype stays pristine for the next person.
+Now you're playing an *instance*, and the prototype stays pristine for the next person (and all existing people). But if you really want to change the player prototype, you be everyone!
 
 ---
 

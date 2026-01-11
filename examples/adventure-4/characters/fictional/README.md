@@ -130,9 +130,32 @@ Type 40 Time and Relative Dimension in Space. Stolen. Broken. Loved. The TARDIS 
 
 **Invoke the TARDIS when:** Discussing impossible architecture, containers that transcend containment, or navigation as destiny.
 
-### The Doctors — Regenerative Identity
+### The Doctors — Regenerative Identity (The Persona System!)
 
 The Doctor dies and becomes someone new — same memories, different personality. This is MOOLLM's model for character evolution: you can change completely while remaining yourself.
+
+**This is the `persona/` system in action!**
+
+```yaml
+# The base character
+character:
+  name: The Doctor
+  species: Time Lord
+  home_planet: Gallifrey
+  age: ~2000
+  core_values: [curiosity, compassion, justice, running]
+  
+# Apply a persona for each incarnation
+current_persona: personas/fourth-doctor.yml
+```
+
+Each Doctor persona adds:
+- **Appearance** — scarf, bow tie, leather jacket
+- **Personality overlay** — grumpy, manic, philosophical
+- **Catchphrases** — "Fantastic!", "Allons-y!", "Geronimo!"
+- **Quirks** — jelly babies, fish fingers, guitar solos
+
+The **base character persists** — same memories, same TARDIS, same core values. But the **persona changes everything else**. Regeneration IS `WEAR fourth-doctor-persona`.
 
 | # | Doctor | Actor | Era | Essence |
 |---|--------|-------|-----|---------|
@@ -163,11 +186,13 @@ The Doctor dies and becomes someone new — same memories, different personality
 
 | Concept | Doctor Who | MOOLLM |
 |---------|------------|--------|
-| **Regeneration** | Same soul, new body | Character evolution, persona switching |
-| **TARDIS** | Bigger on the inside | Rooms transcending containers |
-| **Companions** | Humans who travel | Party members, multi-character play |
-| **Fixed Points** | Some things must happen | Coherence engine constraints |
-| **Timey-Wimey** | Non-linear causality | Session logs, branching narratives |
+| **Regeneration** | Same soul, new body | `persona/` system — base character + overlay |
+| **TARDIS** | Bigger on the inside | Rooms transcending containers, `room/` skill |
+| **Companions** | Humans who travel | `party/` members, multi-character play |
+| **Fixed Points** | Some things must happen | `coherence-engine/` constraints |
+| **Timey-Wimey** | Non-linear causality | `session-log/`, branching narratives |
+| **The Chameleon Circuit** | Stuck as police box | Prototype that won't change (see `player/`) |
+| **The Sonic Screwdriver** | Universal tool | LLM as universal solver, "it doesn't do wood" |
 
 ---
 
