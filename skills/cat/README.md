@@ -6,10 +6,12 @@
 
 | K-Line | Why Related |
 |--------|-------------|
+| [dog/](../dog/) | The canine counterpart |
 | [character/](../character/) | Cats are characters |
 | [buff/](../buff/) | Cat effects as buffs |
 | [mind-mirror/](../mind-mirror/) | Personality determines charms |
 | [room/](../room/) | Cats belong to locations |
+| [examples/adventure-4/characters/animals/](../../examples/adventure-4/characters/animals/) | Animal character directory |
 | [examples/adventure-4/pub/](../../examples/adventure-4/pub/) | Gezelligheid Grotto with 10 cats |
 
 **Full Spec:** [SKILL.md](SKILL.md)

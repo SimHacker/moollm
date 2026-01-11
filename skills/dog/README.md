@@ -6,10 +6,12 @@
 
 | K-Line | Why Related |
 |--------|-------------|
-| [cat/](../cat/) | The comparison class |
+| [cat/](../cat/) | The feline counterpart |
 | [character/](../character/) | Dogs are characters |
 | [buff/](../buff/) | Dog effects as buffs |
+| [mind-mirror/](../mind-mirror/) | Personality determines behavior |
 | [party/](../party/) | Dogs as companions |
+| [examples/adventure-4/characters/animals/](../../examples/adventure-4/characters/animals/) | Animal character directory |
 | [examples/adventure-4/pub/](../../examples/adventure-4/pub/) | Dog adopted by cat cave |
 
 **Full Spec:** [SKILL.md](SKILL.md)
