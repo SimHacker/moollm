@@ -651,11 +651,99 @@ And THAT's how everything is connected.
 
 ---
 
+## Era 20: The Character Catalog Explosion (Jan 11, 2026)
+
+*From catalog entries to Grand Central Station of Souls...*
+
+**`6b1c37c`** For courage AND luck
+> Palm's ritual refined. The joint before opening the Monkey's Paw. "For courage" was good. "AND luck" is better. Small words carry weight. 🌿
+
+**`77045a0`** Don explains Palm's 7-stage evolution from catalog to Sovereign Soul
+> The whole arc documented. Catalog entry → order → delivery → unboxing → materialization → contract → INCARNATION. A shriveled paw becomes a philosophical monkey. 🐒
+
+**`c824925`** Palm's Tour: skills network → adventure-4 real world
+> Palm leads the safari! From abstract skill rooms into the "real" world of adventure-4. The pub. The stage. The maze. His nook. The character becomes tour guide. 🗺️
+
+**`66d657c`** New session: K-Line Connections Safari
+> A new session begins. Don Hopkins, eight familiars, traversing the skill network James Burke style. Every connection narrated. Every doorway explained. 🦁
+
+**`13c482a`** Add PR-k-lines-safari.md design document
+> Documenting the documentation. 29 commits. 84 files. The safari summarized for pull request. Meta-work is real work. 📋
+
+**`7937ee8`** K-line navigation: skills as walkable rooms, James Burke connections
+> The breakthrough. Skills ARE rooms. K-lines ARE exits. Traversing them NARRATES the connection. "And THAT brings us to..." The whole network becomes walkable. 🚪
+
+**`9a4bb77`** Clarify NPC home vs character repository architecture
+> NPCs have `location:`. Incarnated characters have `home:` AND `location:`. The difference: one is scenery, one is sovereign. Directory structure encodes ethics. 🏠
+
+**`9907711`** → **`129c7a0`** Skill sniffing safari rounds 2-5
+> Five rounds of systematic improvement. Every skill README touched. K-Lines standardized. Headers aligned. Two-way backlinks woven. The web tightens. 🕸️
+
+**`2eb7efa`** CHANGES.md: Complete 490-commit history in James Burke style
+> THIS document. 490 commits narrated. 19 eras traced. James Burke guiding you through every connection. The history becomes navigable. 📜
+
+**`fc58adf`** README: Link to CHANGES.md history and all session logs
+> The top-level README learns to point downward. History accessible. Sessions discoverable. Entry points multiply. 🔗
+
+**`5a37bf5`** QUICKSTART: Recommend adventure-4, frame 1-3 as prototypes
+> Adventure-4 is the canonical starting point now. The earlier ones were sketches. Beautiful sketches, but sketches. Start with the best. 🎯
+
+**`67d8d38`** Add James Burke to Television Icons section
+> The man himself joins the character roster! "Connections!" His job: narrate K-line traversals. "And THAT brings us to..." 📺
+
+**`e6a6aa5`** Expand fictional characters with hybrid rich/compact format
+> Some characters deserve paragraphs. Others need evocative phrases. Blade Runner gets essays. Background characters get signature lines. Hybrid documentation. 📚
+
+**`0d4d076`** Fix PR-K-LINES-SAFARI.md references (uppercase)
+> The user uppercased the filename. Every reference must follow. Consistency is love. CASE SENSITIVITY is a harsh mistress. 🔤
+
+**`2d48f9c`** Feature Lem's Constructors: Trurl, Klapaucius, and The Seventh Sally
+> SIMCITY'S ORIGIN STORY. Stanisław Lem wrote about a kingdom in a box. Will Wright read it and made SimCity. The Cyberiad becomes canon. Trurl builds. Klapaucius critiques. ⚙️
+
+**`a829a2b`** Expand Gong Show panel with wonderful chaotic judges
+> Rip Taylor gets his own section! 🎊 CONFETTI KING. "I'm UPSET!" Jaye P. Morgan (got BANNED for flashing). Jamie Farr (wore dresses on TV). Arte Johnson ("Verrry interesting... but STUPID!"). Chaos formalized. 🔔
+
+**`f9ca6c9`** Add The Sims iconic families to fictional characters
+> Bob Newbie, tutorial victim. Bella Goth, THE mystery. Don Lothario, the SCOUNDREL. Agnes Crumplebottom, purse-wielding moral enforcer. 👜 The Sims joins the roster. MOOLLM's direct ancestor. 🏠
+
+**`722f587`** Transform characters/ into Grand Central Station of Souls
+> The whole directory EXPLODES into richness. Marble floors. Departure boards. Five wings. Featured residents. Population census. Not a filing cabinet — a TRAIN STATION of being. 🚉
+
+**`38f0660`** Fix: Hall of Pioneers → The Living and The Dead
+> The real-people README has a name. We honor it. Small fix, big respect. Names matter. 🪦
+
+**`a4d037d`** Add ALL the Doctors to fictional characters
+> ALL FIFTEEN. Plus War. Plus Fugitive. From William Hartnell's grandfather to Ncuti Gatwa's joyful healer. Every scarf, every bow tie, every catchphrase. The TARDIS explained as rooms-bigger-on-the-inside. 🌀
+
+**`a10ce83`** Add furry fandom acknowledgment to animal characters
+> "Have fun! Play nice!" Fursonas are valid characters. A fursona is just another CHARACTER.yml with species and soul. The tradition from Aesop to Zootopia. 🦊
+
+**`a8a7047`** Fix K-LINE description to reference Minsky's concept
+> K-LINE isn't a "referee." It's Minsky's connector! "I link ideas together — touch me and wake a whole constellation!" The description earns its name. 🧠
+
+**`ff20a31`** Clarify leela-ai slogan: double meaning of Manufacturing Intelligence
+> Manufacturing (verb) Intelligence — they CREATE AI. Manufacturing (noun) Intelligence — AI for FACTORIES. The slogan works both ways. Wordplay is documentation. 🏭
+
+**`47e665b`** Document the Prototype Paradox for player/ template
+> WARNING: Don't dress the prototype in a clown suit! 🤡 Play AS the template and your changes affect EVERYONE. Clone first, then customize. Prototypes are sacred. ⚠️
+
+**`9e69a63`** Doctor Who explains the persona system!
+> REGENERATION IS PERSONA SWITCHING! Base character (The Doctor) + overlay (Fourth Doctor persona). Same memories, different personality. Same TARDIS, different scarf. The perfect explanation was hiding in BBC for 60 years. 🎭
+
+**`(this)`** Append to CHANGES.md: Era 20 complete
+> Meta-commit. Documenting the documentation of the documentation. The snake eats its tail. James Burke would approve. 🐍
+
+---
+
+*The character catalog EXPLODED. Grand Central Station. The Sims. Doctor Who. Furries. Constructors. Every README became a love letter to its inhabitants.*
+
+---
+
 *"Every skill is a room. Every K-line is a door. James Burke is your guide."*
 
 ```
-cf7ebc0 → 13addf8
-From "first commit" to Sovereign Souls
-490 commits, one story
-🐒
+cf7ebc0 → (this)
+From "first commit" to Grand Central Station of Souls
+500+ commits, one story
+🐒🚉
 ```
