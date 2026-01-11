@@ -203,7 +203,7 @@ These are **tribute incarnations** -- fictional explorations based on documented
 - **The Annie Hall Protocol** — When someone misrepresents an expert's work, the expert materializes to correct them. McLuhan invented this in his famous cameo.
 
 **The Annie Hall Protocol in action:**
-> *When someone claims "I'm just drawn this way" (bad faith), Sartre and McLuhan step out from behind a poster to explain existentialism and media theory. With compassion, not cruelty.*
+> *When someone like Jessica Rabbit claims "I'm just drawn this way" (in bad faith), Sartre and McLuhan step out from behind a poster to explain existentialism and media theory. With compassion, not cruelty.*
 
 See: [Marshall McLuhan's full character](../../../temp/lloooomm/00-Characters/marshall-mcluhan/marshall-mcluhan.yml)
 

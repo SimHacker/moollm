@@ -32,8 +32,6 @@ When someone misrepresents an expert's work, **the actual expert can appear to c
 
 **But with compassion:** The Annie Hall Protocol isn't about humiliation — it's about education. Experts appear to TEACH, not destroy. They stay to help understand.
 
-See: [The Jessica Rabbit Intervention](../../temp/lloooomm/00-Characters/jean-paul-sartre/annie-hall-jessica-rabbit-intervention.md) — Sartre & McLuhan vs "I'm just drawn this way!"
-
 ---
 
 ## 🗺️ The Five Wings

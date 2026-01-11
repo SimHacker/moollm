@@ -44,7 +44,7 @@ Core patterns for all characters in MOOLLM. Players, NPCs, companions, cats — 
 - They want to author their own soul file
 - They need their own home directory
 
-**You can escalate at any time.** Palm started as a catalog entry, became an order, materialized, and finally incarnated with full autonomy.
+**You can escalate at any time.** Palm started as a ACME catalog entry of a Monkey's Paw, became an order, materialized a full monkey, and finally incarnated with full autonomy.
 
 See: [incarnation/](../incarnation/) for the full ceremony
 
