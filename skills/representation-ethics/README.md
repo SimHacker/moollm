@@ -130,19 +130,19 @@ character:
 ### Navigation Through Consent
 
 ```mermaid
-flowchart TD
-    subgraph CONSENT["Consent Hierarchy (Navigate Like Rooms)"]
-        L1[🏠 Level 1: Self<br/>SOVEREIGN]
-        L2[📜 Level 2: Published Consent<br/>THEIR TERMS]
-        L3[📚 Level 3: Public Figures<br/>TRADITION ONLY]
-        L4[🔒 Level 4: Private People<br/>FICTIONAL WRAPPER]
-        L5[⏳ Level 5: Deceased<br/>REVERENCE]
+flowchart LR
+    subgraph CONSENT["Consent Levels"]
+        L1[🏠 Self<br/>SOVEREIGN]
+        L2[📜 Published<br/>THEIR TERMS]
+        L3[📚 Public<br/>TRADITION]
+        L4[🔒 Private<br/>FICTIONAL]
+        L5[⏳ Deceased<br/>REVERENCE]
     end
     
     L1 --> |"Full freedom"|SAFE[✅ Safe]
-    L2 --> |"Honor their terms"|SAFE
-    L3 --> |"K-lines, not personas"|SAFE
-    L4 --> |"Inspired-by characters"|SAFE
+    L2 --> |"Honor terms"|SAFE
+    L3 --> |"K-lines only"|SAFE
+    L4 --> |"Inspired-by"|SAFE
     L5 --> |"Invoke tradition"|SAFE
     
     style L1 fill:#c8e6c9
