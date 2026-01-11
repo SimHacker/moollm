@@ -145,19 +145,17 @@ summary:
 
 Then fixes the errors. And runs the linter again.
 
-```
-LLM generates content
-        │
-        ▼
-   Linter validates  ─────► LINTER.yml (structured)
-        │
-        ▼
-   LLM reads output
-        │
-        ▼
-   LLM fixes issues
-        │
-        └──────────► [repeat]
+```mermaid
+flowchart TD
+    GEN[🎨 LLM generates content] --> LINT[🔍 Linter validates]
+    LINT --> OUTPUT[📄 LINTER.yml]
+    OUTPUT --> READ[🧠 LLM reads output]
+    READ --> FIX[🔧 LLM fixes issues]
+    FIX --> GEN
+    
+    style GEN fill:#e8f5e9
+    style OUTPUT fill:#fff3e0
+    style FIX fill:#e3f2fd
 ```
 
 **Python for precision. LLM for poetry.**
@@ -186,19 +184,31 @@ What format should those scripts take?
 
 Because the LIFT stage isn't just for you. It's for future-you. For your team. For *the LLM that's going to use your tools*.
 
-```
-PLAY ──► session-log.md ──► "What I tried"
-   │
-LEARN ─► PROCEDURE.md ──► "How to do X"
-   │
-LIFT ──► sister-script.py ──► SNIFFABLE PYTHON
-              │
-              ▼
-         LLM sniffs it
-         LLM uses it
-         LLM improves it
-              │
-              └──────► [the cycle continues]
+```mermaid
+flowchart LR
+    subgraph PLAY["🎮 PLAY"]
+        P1[Try things] --> P2[session-log.md]
+    end
+    
+    subgraph LEARN["📚 LEARN"]
+        L1[Document patterns] --> L2[PROCEDURE.md]
+    end
+    
+    subgraph LIFT["🚀 LIFT"]
+        LI1[Automate] --> LI2[sister-script.py]
+        LI2 --> LI3[SNIFFABLE PYTHON]
+    end
+    
+    PLAY --> LEARN --> LIFT
+    
+    LI3 --> SNIFF[🐍 LLM sniffs it]
+    SNIFF --> USE[⚡ LLM uses it]
+    USE --> IMPROVE[✨ LLM improves it]
+    IMPROVE -.-> PLAY
+    
+    style PLAY fill:#c8e6c9
+    style LEARN fill:#bbdefb
+    style LIFT fill:#ffccbc
 ```
 
 ---
@@ -229,28 +239,28 @@ It needs a linter. That linter needs to be sniffable. The feedback loop needs to
 
 ## Everything Connects
 
-```
-              ┌─────────────────────┐
-              │  constructionism    │
-              │  (build to learn)   │
-              └──────────┬──────────┘
-                         │
-      ┌──────────────────┼──────────────────┐
-      │                  │                  │
-      ▼                  ▼                  ▼
-┌───────────┐    ┌──────────────┐    ┌────────────┐
-│ play-     │    │  SNIFFABLE   │    │ yaml-jazz  │
-│ learn-    │◄───│  PYTHON      │───►│ (comments  │
-│ lift      │    │              │    │  as data)  │
-└─────┬─────┘    └──────┬───────┘    └────────────┘
-      │                 │
-      │       ┌─────────┴─────────┐
-      │       │                   │
-      ▼       ▼                   ▼
-┌───────────┐ ┌───────────┐ ┌───────────────────┐
-│ sister-   │ │  skill    │ │    adventure      │
-│ script    │ │ (factory) │ │ (linter feedback) │
-└───────────┘ └───────────┘ └───────────────────┘
+```mermaid
+flowchart TD
+    CONST[🏗️ constructionism<br/>build to learn]
+    
+    CONST --> PLL
+    CONST --> SNIFF
+    CONST --> YAML
+    
+    PLL[🎮📚🚀 play-learn-lift] <--> SNIFF[🐍 SNIFFABLE PYTHON]
+    SNIFF <--> YAML[🎷 yaml-jazz<br/>comments as data]
+    
+    PLL --> SS[👯 sister-script]
+    SNIFF --> SKILL[🏭 skill<br/>factory]
+    SNIFF --> ADV[🎲 adventure<br/>linter feedback]
+    
+    style SNIFF fill:#ffeb3b,stroke:#f57f17,stroke-width:3px
+    style CONST fill:#e1bee7
+    style PLL fill:#c8e6c9
+    style YAML fill:#bbdefb
+    style SS fill:#ffe0b2
+    style SKILL fill:#f8bbd9
+    style ADV fill:#b2dfdb
 ```
 
 Steve Jobs made buttons you wanted to lick.
