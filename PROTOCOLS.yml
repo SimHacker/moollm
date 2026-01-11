@@ -2312,6 +2312,54 @@ SISTER-SCRIPT:
     # Script → Document: Automation insights improve docs
   wisdom: "The document is the source of truth. Scripts are its children."
 
+SNIFFABLE-PYTHON:
+  meaning: "Structure Python so LLMs can understand it in 50 lines."
+  location: skills/sniffable-python/
+  invoke_when: "Generating Python CLI tools, reading scripts efficiently"
+  
+  anti_compression: |
+    # Don't invent new syntax — STRUCTURE existing syntax.
+    # The LLM already knows Python cold. Zero tokens to teach.
+    # Novel syntax costs millions of tokens per context (docs, examples, corrections).
+    # Sniffable Python costs zero — the LLM just reads code it understands.
+    #
+    # Perl's obsessive fetish for compact syntax, sigils, and punctuation
+    # is exactly why it's no longer relevant for LLM generation.
+    # Dense symbols are anti-optimized for how transformers reason.
+    
+  structure: |
+    # The canonical zones of a sniffable Python file:
+    #
+    # Lines 1-15:  Shebang + Docstring (becomes --help)
+    # Lines 16-22: Imports (dependencies at a glance)
+    # Lines 23-30: Constants (config with explanatory comments)
+    # Lines 31-50: CLI Structure (command tree with types)
+    # Lines 51+:   Implementation (below the fold)
+    #
+    # LLM reads first 50 lines → understands the API.
+    # Human runs --help → same source of truth.
+    
+  dual_audience: |
+    # Same file serves two audiences:
+    # - Human: runs `./tool.py --help`
+    # - LLM: reads first 50 lines of source
+    # DRY: CLI decorators ARE the documentation
+    
+  yaml_jazz_for_python: |
+    # Apply YAML-JAZZ principles to Python comments:
+    # 
+    # TIMEOUT = 30  # generous — API is flaky on Mondays
+    # RETRIES = 3   # based on observed failure patterns
+    #
+    # Comments are data. The LLM reads them. Acts on them.
+    
+  thesis: |
+    # Comprehension fidelity > token count.
+    # You don't need fewer tokens of unfamiliar syntax.
+    # You need familiar syntax, structured for fast comprehension.
+    
+  see_also: [SISTER-SCRIPT, YAML-JAZZ, SKILL]
+
 BUILD-COMMAND:
   meaning: "Collaborative planning to create sister apps from slow LLM sequences."
   location: temp/lloooomm/01-Projects/lloooomm/vm/lloooomm.md#build-command
@@ -2508,7 +2556,7 @@ _categories:
   interpretation: [POSTEL, CHARITY, PROCEDURAL-RHETORIC, MASKING-EFFECT, SIMULATOR-EFFECT]
   
   # Methodology
-  methodology: [SKILL, PROTOCOL, CONSTRUCTIONISM, PLAY-LEARN-LIFT, SISTER-SCRIPT, BUILD-COMMAND]
+  methodology: [SKILL, PROTOCOL, CONSTRUCTIONISM, PLAY-LEARN-LIFT, SISTER-SCRIPT, SNIFFABLE-PYTHON, BUILD-COMMAND]
   skills: [SKILL, SIP, DOP, PLAN-EXECUTE]
   lifecycle: [YAML-COLTRANE, IMPROVISE, CRYSTALLIZE]
   

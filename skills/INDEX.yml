@@ -47,6 +47,17 @@ skills:
     tags: ["meta", "yaml", "semantics"]
     use_when: "Designing YAML files for LLM consumption"
     
+  - name: "sniffable-python"
+    path: "skills/sniffable-python"
+    description: "Structure Python so LLMs can understand it in 50 lines — comprehension over compression"
+    tier: 0
+    entry: "SKILL.md"
+    protocol: "SNIFFABLE-PYTHON"
+    tags: ["meta", "python", "code-structure", "sister-script", "cli"]
+    use_when: "Generating Python CLI tools, structuring scripts for LLM comprehension"
+    related: ["yaml-jazz", "sister-script", "skill", "play-learn-lift"]
+    credits: "MOOLLM — Dual-audience code structure"
+    
   - name: "postel"
     path: "skills/postel"
     description: "Be liberal in what you accept, conservative in what you emit"

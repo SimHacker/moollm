@@ -1,0 +1,156 @@
+# CARD.yml — Sniffable Python Interface
+#
+# Machine-readable interface for the sniffable-python skill.
+# Describes what it can do, when to use it, how to invoke it.
+
+card:
+  id: sniffable-python
+  name: "Sniffable Python"
+  type: [skill, methodology, code-structure]
+  emoji: 🐍
+  tier: 0  # Pure knowledge, no tools required
+  
+  tagline: "Structure code for the first 50 lines."
+  
+  philosophy: |
+    Don't invent new syntax — structure existing syntax.
+    The LLM already knows Python. Leverage that.
+    
+methods:
+  SNIFF:
+    description: "Read and summarize a Python file's API from its header"
+    parameters:
+      file: { type: path, required: true }
+    returns: "API summary: commands, options, purpose"
+    
+  SNIFF-CODE:
+    description: "Language-agnostic sniffability review for ANY source file"
+    parameters:
+      file: { type: path, required: true }
+    returns: "Sniffability report: what's fresh, what's stale"
+    checks:
+      - "Purpose clear from first 10 lines?"
+      - "API/exports before implementation?"
+      - "Semantic comments (WHY not WHAT)?"
+      - "No decorative cruft?"
+      - "Magic values explained?"
+      - "Dependencies visible at top?"
+    languages: ["Python", "TypeScript", "Go", "Rust", "Java", "Bash", "any"]
+    
+  GENERATE-SNIFFABLE:
+    description: "Create new sniffable script from template"
+    parameters:
+      name: { type: string, required: true }
+      purpose: { type: string, required: true }
+      commands: { type: array, required: false }
+    returns: "Path to generated script"
+    
+  VALIDATE-SNIFFABLE:
+    description: "Check if file follows sniffable conventions"
+    parameters:
+      file: { type: path, required: true }
+    returns: "Validation report with issues"
+
+advertisements:
+  # When to suggest this skill
+  
+  PYTHON-SCRIPT-GENERATION:
+    score: 95
+    condition: "Generating a new Python CLI tool"
+    message: "Use sniffable-python structure for LLM comprehension"
+    
+  SCRIPT-COMPREHENSION:
+    score: 90
+    condition: "Need to understand an existing Python script quickly"
+    message: "Sniff the header — first 50 lines contain the API"
+    
+  SISTER-SCRIPT-CREATION:
+    score: 95
+    condition: "Lifting a procedure to an automated script"
+    message: "Sister scripts should follow sniffable-python conventions"
+    
+  ANTI-COMPRESSION:
+    score: 85
+    condition: "Considering novel syntax or dense symbols for LLM optimization"
+    message: "Structure existing syntax instead — Perl's syntax fetish is a cautionary tale"
+
+structure:
+  # The canonical zones of a sniffable Python file
+  
+  zones:
+    - name: "Shebang + Docstring"
+      lines: "1-15"
+      purpose: "Purpose, usage, becomes --help"
+      required: true
+      
+    - name: "Imports"
+      lines: "16-22"
+      purpose: "Dependencies visible at a glance"
+      required: true
+      
+    - name: "Constants"
+      lines: "23-30"
+      purpose: "Configuration with semantic comments (no decorative markers)"
+      required: false
+      
+    - name: "CLI Structure"
+      lines: "31-50"
+      purpose: "main() contains command tree with types and docs"
+      required: true
+      
+    - name: "Implementation"
+      lines: "51+"
+      purpose: "Only read if modifying"
+      required: true
+
+checklist:
+  # What makes a Python file "sniffable"
+  
+  - "Shebang on line 1"
+  - "Module docstring with purpose, usage, examples"
+  - "Imports grouped at top (no decorative markers)"
+  - "Constants with explanatory comments"
+  - "CLI structure in main() using argparse (preferred)"
+  - "Each command has a docstring"
+  - "Types specified in function signatures"
+  - "Implementation below line 50"
+  - "Internal functions prefixed with _"
+
+anti_patterns:
+  - "Implementation before CLI structure"
+  - "No docstrings on commands"
+  - "Magic constants without comments"
+  - "Scattered imports throughout file"
+  - "API not discoverable from header"
+
+dovetails:
+  - skill: sister-script
+    relationship: "Sister scripts should be sniffable"
+    
+  - skill: skill
+    relationship: "Skills generate sniffable scripts"
+    
+  - skill: yaml-jazz
+    relationship: "Comments as semantic data applies to Python"
+    
+  - skill: play-learn-lift
+    relationship: "Scripts emerge from proven procedures, structured for reuse"
+
+protocol_symbol: SNIFFABLE-PYTHON
+invoke_when: "Generating or reading Python scripts that need LLM comprehension"
+
+# The core argument against syntax compression
+thesis: |
+  The "ideal LLM syntax" question has the wrong framing.
+  
+  You don't need new syntax. You need structured familiar syntax.
+  
+  - Languages LLMs know (Python, TypeScript)
+  - Structured for sniffability (important stuff at top)
+  - Comments as data (YAML Jazz applied to Python)
+  - Single source of truth (CLI declarations ARE the spec)
+  
+  Dense syntax (Perl-style sigils, novel compression) is the wrong optimization.
+  Sniffable Python self documenting structures are the right thing.
+  
+  Comprehension fidelity > token count.
