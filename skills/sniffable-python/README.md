@@ -1,80 +1,70 @@
 # Sniffable Python
 
-> **"Structure code for the first 50 lines. That's all the LLM needs."**
-
-*If your code smells good, the LLM can sniff it from the first whiff.*
-
-Steve Jobs wanted pixels so beautiful you'd want to lick them. We want code so clear you can sniff its purpose from the header.
-
-Python scripts structured so both humans and LLMs can understand them by reading just the header. But the principle applies to **any language** — good code has an aroma that draws you in from the opening lines. Programming languages are user interfaces. The users are humans and LLMs. Lickable pixels invite visual exploration; sniffable code invites structural exploration.
+> *"You're looking at the first 50 lines of a Python script. But what you're really looking at is the answer to a question nobody thought to ask — until now."*
 
 ---
 
-## The MOOLLM Connection
+## The Connection
 
-Sniffable Python isn't just a code style — it's **the structural heart of how MOOLLM skills generate and consume automation**.
+In January 2000, Steve Jobs stood on stage at Macworld and said something strange about buttons.
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                      PLAY-LEARN-LIFT                            │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│   🎮 PLAY           📚 LEARN              🚀 LIFT               │
-│   Try things        Document patterns     Automate proven       │
-│   Log what happens  Note what works       procedures            │
-│       │                   │                    │                │
-│       ▼                   ▼                    ▼                │
-│   session-log.md →  PROCEDURE.md  →    sister-script.py        │
-│                                              │                  │
-│                                              ▼                  │
-│                                     ┌────────────────────┐      │
-│                                     │ SNIFFABLE PYTHON   │      │
-│                                     │ ─────────────────  │      │
-│                                     │ • Docstring = API  │      │
-│                                     │ • main() = CLI     │      │
-│                                     │ • Comments = Jazz  │      │
-│                                     └────────────────────┘      │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
-```
+> *"We made the buttons on the screen look so good you'll want to lick them."*
 
-| MOOLLM Concept | How Sniffable Python Serves It |
-|----------------|-------------------------------|
-| **[play-learn-lift/](../play-learn-lift/)** | The LIFT stage produces sniffable scripts |
-| **[sister-script/](../sister-script/)** | Sister scripts ARE sniffable Python |
-| **[skill/](../skill/)** | Skills generate sniffable scripts; LLMs sniff them to use |
-| **[yaml-jazz/](../yaml-jazz/)** | Comments are semantic data in Python too |
-| **[adventure/](../adventure/)** | The linter is a sniffable CLI driving world generation |
+He was unveiling Aqua, the interface for Mac OS X. Those translucent droplets, those candy-colored icons — Jobs understood that interfaces aren't just functional. They're **invitations**. The visual quality signals that someone cared, that this is worth exploring.
+
+Now hold that thought.
 
 ---
 
-## Live Example: The Adventure Linter
+Meanwhile, in the dark corners of the internet, a different philosophy was taking hold.
 
-The [adventure/](../adventure/) skill demonstrates sniffable Python in action. The linter CLI:
+**Perl.**
 
-1. **Sniffs the adventure world** — reads YAML files, checks consistency
-2. **Outputs `LINTER.yml`** — structured findings the LLM can consume
-3. **Drives generation** — LLM reads lint output, fixes issues, regenerates content
+Larry Wall's "practical extraction and report language" had become the duct tape of the early web. But Perl had a philosophy too: TMTOWTDI. "There's More Than One Way To Do It." And boy, did people find ways. Sigils everywhere. `$_` as an implicit variable. Regular expressions that looked like line noise. One-liners so dense they could collapse into singularities.
 
-From [examples/adventure-4/LINTER.yml](../../examples/adventure-4/LINTER.yml):
-
-```yaml
-summary:
-  rooms_found: 36
-  objects_found: 37
-  characters_found: 6
-  errors: 8
-  warnings: 36
-  compile_requests: 9
+```perl
+@_ = map { tr/a-z/n-za-m/r } @ARGV; print "@_\n";
 ```
 
-**The linter is a sniffable Python script.** The LLM can:
-- Sniff its header to understand its CLI
-- Run it to get structured output
-- Read `LINTER.yml` to understand what needs fixing
-- Generate fixes based on the lint events
+*Beautiful*, thought the Perl hackers.
 
-This creates a **feedback loop**: LLM generates content → linter validates → LLM fixes → iterate.
+*What is that*, thought everyone else.
+
+---
+
+And THAT brings us to January 2025.
+
+Someone on Hacker News posts "GlyphLang" — a programming language optimized for how LLMs tokenize. Dense symbols. Compressed syntax. Fewer tokens means more fits in context, right?
+
+But here's the thing they missed.
+
+**The LLM already knows Python.**
+
+Not just knows it — has consumed **billions** of lines of it. Stack Overflow discussions. GitHub repos. Documentation. Tutorials. The model has internalized Python the way you've internalized English. Zero tokens to teach it.
+
+GlyphLang? The LLM has never seen it. You'd need to stuff the manual, the tutorials, the examples, the compiler source — into every single prompt. And prompting is not training. LLMs have no memory. You pay that documentation cost **every single time**.rmin
+
+The Perl philosophy of dense, clever syntax was the wrong optimization in 1998. It's an even worse optimization when your reader is a statistical model trained on readable code.
+
+---
+
+So what's the right optimization?
+
+**Structure.**
+
+Not new syntax. Structured *existing* syntax.
+
+And THAT's where Steve Jobs' buttons become relevant.
+
+You see, programming languages are user interfaces. The users are humans... *and now LLMs*. Jobs understood that visual design signals quality — it draws you in, it says "this is worth exploring." 
+
+What's the equivalent for code?
+
+**The first 50 lines.**
+
+If an LLM can read your header — the docstring, the imports, the CLI structure — and understand what your tool does, what commands it offers, what arguments it takes... you've created **lickable code**.
+
+Well, sniffable code. Let's not make it weird.
 
 ---
 
@@ -100,141 +90,192 @@ REQUIRED_FIELDS = ["name", "description", "exits"]  # rooms need these
 MAX_EXIT_DEPTH = 10  # prevent infinite loops
 
 def main():
-    """CLI structure — the LLM sniffs this to understand the tool."""
+    """CLI structure — sniff this to understand the tool."""
     parser = argparse.ArgumentParser(
         description=__doc__.split('\n')[0],
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
     
-    # lint command — full adventure validation
+    # lint command
     lint_parser = subparsers.add_parser("lint", help="Lint entire adventure")
     lint_parser.add_argument("adventure_path", type=Path)
     lint_parser.add_argument("--output", "-o", type=Path, default="LINTER.yml")
-    lint_parser.add_argument("--fix", action="store_true", help="Auto-fix simple issues")
+    lint_parser.add_argument("--fix", action="store_true", help="Auto-fix issues")
     
-    # check command — single file validation
+    # check command
     check_parser = subparsers.add_parser("check", help="Check single file")
     check_parser.add_argument("file", type=Path)
     
     args = parser.parse_args()
     _dispatch(args)
 
-# Implementation below the fold — LLM doesn't need to read past here
+# Implementation below — the LLM doesn't need to read past here
 ```
 
-The LLM reads `main()` and knows:
+The LLM reads `main()` and knows everything:
 - Two commands: `lint` and `check`
-- `lint` takes a path and optional output/fix flags
+- `lint` takes a path, outputs to LINTER.yml, can auto-fix
 - `check` validates a single file
 
-**No implementation noise. Pure API. One sniff and you smell success.**
+**One sniff. Full comprehension.** No spelunking through 500 lines of implementation.
 
 ---
 
-## The Skill-Script-Sniff Loop
+## The Feedback Loop
 
-```
-┌──────────────────┐
-│   SKILL.md       │  "Here's how to build adventure worlds"
-│   (the teacher)  │
-└────────┬─────────┘
-         │ generates
-         ▼
-┌──────────────────┐
-│  sister-script   │  adventure-lint.py, room-builder.py
-│  (the tool)      │  SNIFFABLE PYTHON structure
-└────────┬─────────┘
-         │ LLM sniffs
-         ▼
-┌──────────────────┐
-│  LLM understands │  Reads first 50 lines
-│  (comprehension) │  Knows CLI without running --help
-└────────┬─────────┘
-         │ uses
-         ▼
-┌──────────────────┐
-│  Output (YAML)   │  LINTER.yml, generated content
-│  (structured)    │  LLM-readable results
-└────────┬─────────┘
-         │ feeds back
-         ▼
-    [repeat cycle]
-```
+But here's where it gets really interesting.
 
-This is why sniffable Python matters: **it's the code interface between skills and LLMs**.
+In [adventure-4/](../../examples/adventure-4/), there's a complete world — rooms, objects, characters, a pub with a stage and an arcade and a cat cave that's bigger on the inside. The world is defined in YAML files. Lots of them.
 
----
+How do you know if it's consistent? If exits go somewhere? If rooms have the required fields?
 
-## Concrete World Objects
+**You build a linter.** A sniffable Python script.
 
-See these patterns in the wild:
-
-| Object | Location | Why It's Sniffable |
-|--------|----------|-------------------|
-| **TomTomagotchi** | [kitchen/tomtomagotchi.yml](../../examples/adventure-4/kitchen/tomtomagotchi.yml) | Every ability documented with usage examples |
-| **The Pub** | [pub/ROOM.yml](../../examples/adventure-4/pub/ROOM.yml) | Framing protocol explained in comments |
-| **The Linter** | [LINTER.yml](../../examples/adventure-4/LINTER.yml) | Structured output LLM can parse |
-
-The TomTomagotchi is a perfect example of YAML Jazz sniffability:
+The LLM sniffs the linter's header → understands the CLI → runs it → reads the output:
 
 ```yaml
-abilities:
-  COMPASS:
-    description: "Point toward a target"
-    usage: "COMPASS [target]"
-    targets:
-      - start     # Always knows home
-      - treasure  # The goal
+# LINTER.yml
+summary:
+  rooms_found: 36
+  objects_found: 37
+  errors: 8
+  warnings: 36
 ```
 
-**The comment is data.** The LLM reads "Always knows home" and understands the semantics.
+Then fixes the errors. And runs the linter again.
+
+```
+LLM generates content
+        │
+        ▼
+   Linter validates  ─────► LINTER.yml (structured)
+        │
+        ▼
+   LLM reads output
+        │
+        ▼
+   LLM fixes issues
+        │
+        └──────────► [repeat]
+```
+
+**Python for precision. LLM for poetry.**
+
+The linter handles the boring stuff — checking if exits resolve, if required fields exist. The LLM handles the creative stuff — writing atmospheric descriptions, giving characters personality, making the pub feel like somewhere you'd actually want to drink.
+
+And THAT's what sniffable Python makes possible. The LLM can understand the tool by reading it. Can use the tool by invoking it. Can interpret the output by parsing it.
+
+No new syntax required. Just structure.
 
 ---
 
-## Why It Works
+## The Connections
 
-| Consumer | Discovery Method |
-|----------|------------------|
-| Human | `./tool.py --help` |
-| LLM | Read first 50 lines |
+Now here's where James Burke would start walking faster and gesturing at unexpected things.
 
-Same source of truth. No duplicate documentation. No need to hold your nose.
+Remember PLAY-LEARN-LIFT? The methodology?
+
+- **PLAY:** You mess around. Try things. Log what works.
+- **LEARN:** Patterns emerge. You document procedures.
+- **LIFT:** You automate. Generate scripts.
+
+What format should those scripts take?
+
+**Sniffable Python.**
+
+Because the LIFT stage isn't just for you. It's for future-you. For your team. For *the LLM that's going to use your tools*.
+
+```
+PLAY ──► session-log.md ──► "What I tried"
+   │
+LEARN ─► PROCEDURE.md ──► "How to do X"
+   │
+LIFT ──► sister-script.py ──► SNIFFABLE PYTHON
+              │
+              ▼
+         LLM sniffs it
+         LLM uses it
+         LLM improves it
+              │
+              └──────► [the cycle continues]
+```
 
 ---
 
-## SNIFF CODE — Language-Agnostic Review
+And the [skill/](../skill/) skill — the meta-skill that explains how skills work?
 
-The `SNIFF CODE` command reviews **any** source file for sniffability:
-
-| What It Checks | Why It Matters |
-|----------------|----------------|
-| Purpose at top? | First impression counts |
-| API before implementation? | Structure over spelunking |
-| Semantic comments? | Comments are data |
-| No decorative cruft? | Every token earns its place |
-
-**Good for Python. Good for TypeScript. Good for Go. Good for humans. Good for LLMs.**
-
-The same conventions that make code sniffable for LLMs make it scannable for humans. We're not optimizing for machines at human expense — we're optimizing for **comprehension**, period.
+It says skills are **factories**. They generate instances. And when a skill generates a CLI tool, that tool should be sniffable. Because skills teach LLMs how to build things, and LLMs need to understand the tools they create.
 
 ---
 
-## The Intertwingularity
+And [yaml-jazz/](../yaml-jazz/) — the principle that comments carry meaning?
 
-Everything connects. Sniffable Python is the LIFT output of play-learn-lift, the structure of sister-scripts, the interface skills expose to LLMs, and the code pattern that makes the adventure linter feedback loop possible.
+It applies to Python too. Those inline comments next to constants? The LLM reads them.
+
+```python
+TIMEOUT = 30  # generous — API flaky on Mondays
+```
+
+That's not documentation for humans. Well, it is. But it's *also* context for the model. The comment is data.
+
+---
+
+And the [adventure/](../adventure/) skill — the text adventure framework?
+
+It needs a linter. That linter needs to be sniffable. The feedback loop needs to work. And now you see how adventure-4 grew 36 rooms and 37 objects and characters with opinions about cheese — because the LLM could generate content, validate it, fix it, and iterate.
+
+---
+
+## Everything Connects
 
 ```
-PLAY-LEARN-LIFT ─────────────────────► sniffable-python (LIFT output)
-       │
-sister-script ───────────────────────► sniffable-python (the format)
-       │
-skill ───────────────────────────────► sniffable-python (generated CLI)
-       │
-yaml-jazz ───────────────────────────► sniffable-python (comments as data)
-       │
-adventure ───────────────────────────► sniffable-python (linter → feedback)
+              ┌─────────────────────┐
+              │  constructionism    │
+              │  (build to learn)   │
+              └──────────┬──────────┘
+                         │
+      ┌──────────────────┼──────────────────┐
+      │                  │                  │
+      ▼                  ▼                  ▼
+┌───────────┐    ┌──────────────┐    ┌────────────┐
+│ play-     │    │  SNIFFABLE   │    │ yaml-jazz  │
+│ learn-    │◄───│  PYTHON      │───►│ (comments  │
+│ lift      │    │              │    │  as data)  │
+└─────┬─────┘    └──────┬───────┘    └────────────┘
+      │                 │
+      │       ┌─────────┴─────────┐
+      │       │                   │
+      ▼       ▼                   ▼
+┌───────────┐ ┌───────────┐ ┌───────────────────┐
+│ sister-   │ │  skill    │ │    adventure      │
+│ script    │ │ (factory) │ │ (linter feedback) │
+└───────────┘ └───────────┘ └───────────────────┘
 ```
+
+Steve Jobs made buttons you wanted to lick.
+
+We make code you can sniff.
+
+Perl made syntax a badge of honor. We make structure a source of truth.
+
+GlyphLang tried to compress the wrong thing. We structure the right thing.
+
+And THAT's how a comment about pixels in 2000 connects to a linter output in 2026 connects to a pub in a text adventure that has a cat cave that's bigger on the inside.
+
+*Everything is connected.*
+
+---
+
+## Live Examples
+
+See the pattern in the wild:
+
+| Object | Location | What Makes It Sniffable |
+|--------|----------|------------------------|
+| **TomTomagotchi** | [kitchen/tomtomagotchi.yml](../../examples/adventure-4/kitchen/tomtomagotchi.yml) | Every ability has usage examples |
+| **The Pub** | [pub/ROOM.yml](../../examples/adventure-4/pub/ROOM.yml) | Framing protocol in comments |
+| **Linter Output** | [LINTER.yml](../../examples/adventure-4/LINTER.yml) | Structured for LLM consumption |
 
 ---
 
@@ -246,25 +287,18 @@ adventure ───────────────────────�
 
 ## Related Skills
 
-| Skill | Connection |
-|-------|------------|
-| [play-learn-lift/](../play-learn-lift/) | Sniffable Python is the LIFT stage output |
-| [sister-script/](../sister-script/) | Sister scripts follow sniffable conventions |
-| [skill/](../skill/) | Skills generate sniffable scripts for LLM use |
-| [yaml-jazz/](../yaml-jazz/) | Comments are semantic data |
-| [adventure/](../adventure/) | Linter feedback loop exemplifies the pattern |
-| [constructionism/](../constructionism/) | Building inspectable things |
-
-## Live Examples
-
-| Example | What It Shows |
-|---------|---------------|
-| [adventure-4/](../../examples/adventure-4/) | Complete world with linter-driven generation |
-| [kitchen/tomtomagotchi.yml](../../examples/adventure-4/kitchen/tomtomagotchi.yml) | YAML Jazz in world objects |
-| [pub/ROOM.yml](../../examples/adventure-4/pub/ROOM.yml) | Semantic comments as framing |
+| Skill | The Connection |
+|-------|----------------|
+| [play-learn-lift/](../play-learn-lift/) | LIFT produces sniffable scripts |
+| [sister-script/](../sister-script/) | Sister scripts ARE sniffable Python |
+| [skill/](../skill/) | Skills generate sniffable tools |
+| [yaml-jazz/](../yaml-jazz/) | Comments carry meaning |
+| [adventure/](../adventure/) | The linter loop in action |
 
 ---
 
-*"The LLM doesn't need to read your whole file. It needs to read the head and know what the file does."*
+*"The LLM doesn't need fewer tokens of unfamiliar syntax. It needs familiar syntax, structured for fast comprehension."*
 
 *Good code doesn't just avoid bad smells — it has a bouquet that invites exploration.*
+
+*And THAT's the connection.*
