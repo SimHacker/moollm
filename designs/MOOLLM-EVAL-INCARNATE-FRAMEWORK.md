@@ -114,18 +114,14 @@ PostScript's insight: **text is graphics** — glyphs are vectors, transforms ap
 
 The same content can be **pivoted** from dimension to dimension:
 
-```
-        ┌──────────────────────────────────┐
-        │           THE SAME TEXT          │
-        └──────────────────────────────────┘
-                          │
-          ┌───────────────┼───────────────┐
-          ▼               ▼               ▼
-       ┌──────┐       ┌──────┐      ┌──────────┐
-       │ CODE │       │ DATA │      │ GRAPHICS │
-       └──────┘       └──────┘      └──────────┘
-       Execute        Interpret     Render
-       as behavior    as structure  as visuals
+```mermaid
+flowchart TD
+    TEXT["📝 THE SAME TEXT"]
+    TEXT --> CODE["⚙️ CODE<br/>Execute as behavior"]
+    TEXT --> DATA["📊 DATA<br/>Interpret as structure"]
+    TEXT --> GRAPHICS["🎨 GRAPHICS<br/>Render as visuals"]
+    
+    style TEXT fill:#ffeb3b,stroke:#f57f17,stroke-width:3px
 ```
 
 | Operation | Pivot Direction | Example |
@@ -155,20 +151,20 @@ Not all text formats are equal. LLMs have different strengths:
 **YAML Jazz + Markdown** = input formats for representing, transforming, manipulating.
 **HTML/CSS/SVG/JSON** = output formats for rendering, displaying, machine consumption.
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│                    THE LLM PIPELINE                          │
-├──────────────────────────────────────────────────────────────┤
-│                                                              │
-│   INPUT (represent, transform)    OUTPUT (render, display)   │
-│   ┌────────────────────────┐      ┌────────────────────────┐ │
-│   │ YAML Jazz + Markdown   │ ───▶ │ HTML, CSS, SVG, JSON   │ │
-│   │ • Comments as data     │      │ • Machine-readable     │ │
-│   │ • Human-friendly       │      │ • Display-ready        │ │
-│   │ • Easy to manipulate   │      │ • Hard to edit         │ │
-│   └────────────────────────┘      └────────────────────────┘ │
-│                                                              │
-└──────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    subgraph INPUT["📥 INPUT"]
+        YAML["YAML Jazz + Markdown<br/>• Comments as data<br/>• Human-friendly<br/>• Easy to manipulate"]
+    end
+    
+    subgraph OUTPUT["📤 OUTPUT"]
+        HTML["HTML, CSS, SVG, JSON<br/>• Machine-readable<br/>• Display-ready<br/>• Hard to edit"]
+    end
+    
+    YAML --> |"LLM transforms"| HTML
+    
+    style INPUT fill:#c8e6c9,stroke:#2e7d32
+    style OUTPUT fill:#bbdefb,stroke:#1976d2
 ```
 
 **JSON's problem:** No comments. Can't do YAML Jazz. Machine-readable but not human-friendly. Fine for output, bad for representation.
@@ -340,10 +336,17 @@ Prototypes instead of classes. Delegation instead of inheritance. "Objects all t
 
 **The Delegation Chain:**
 
-```
-Object → Trait → Parent → Parent's Parent → ...
-    ↓
-MOOLLM: Room → Parent Directory → Skill → Prototype → ...
+```mermaid
+flowchart LR
+    subgraph SELF["Self Language"]
+        O[Object] --> T[Trait] --> P[Parent] --> PP["..."]
+    end
+    
+    subgraph MOOLLM["MOOLLM"]
+        R[Room] --> PD[Parent Dir] --> S[Skill] --> PR["Prototype..."]
+    end
+    
+    SELF -.-> |"same pattern"| MOOLLM
 ```
 
 **MOOLLM inherits:** 
@@ -382,14 +385,17 @@ Text-based virtual worlds where users build rooms, objects, and behaviors. The o
 
 **The MOO Object Model:**
 
-```
-                  $thing
-                     │
-        ┌────────────┼────────────┐
-        │            │            │
-     $room        $exit      $container
-        │                         │
-    my-room                  my-chest
+```mermaid
+flowchart TD
+    THING["$thing"]
+    THING --> ROOM["$room"]
+    THING --> EXIT["$exit"]
+    THING --> CONTAINER["$container"]
+    
+    ROOM --> MYROOM["my-room"]
+    CONTAINER --> MYCHEST["my-chest"]
+    
+    style THING fill:#ffeb3b,stroke:#f57f17
 ```
 
 **MOOLLM's directory structure is MOO's object tree.**
@@ -476,12 +482,15 @@ The Sims scan advertisements and chooses based on needs + personalities + relati
 
 SimAntics was The Sims' visual behavior programming language. Non-programmers could define complex behaviors by connecting nodes in flowcharts. Intent → behavior.
 
-```
-SimAntics:    [IF hungry] → [GO fridge] → [GET food] → [EAT]
-                     ↓
-Empathic:     "if the sim is hungry, have them get food from the fridge"
-                     ↓
-MOOLLM:       The LLM interprets natural language intent as behavior
+```mermaid
+flowchart TD
+    SIM["🎮 SimAntics<br/>IF hungry → GO fridge → GET food → EAT"]
+    EMP["💬 Empathic<br/>if the sim is hungry, have them get food"]
+    MOO["🧠 MOOLLM<br/>LLM interprets intent as behavior"]
+    
+    SIM --> |"evolution"| EMP --> |"evolution"| MOO
+    
+    style MOO fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
 ```
 
 SimAntics democratized behavior authoring. Empathic expressions take this further — no visual editor needed, just describe what you want.
@@ -1014,27 +1023,25 @@ Traditional systems fight the LLM:
 
 ### How They Dovetail
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    EMPATHIC SUITE                           │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│   ┌───────────────────────┐    ┌───────────────────────┐    │
-│   │ EMPATHIC-EXPRESSIONS  │───▶│ EMPATHIC-TEMPLATES    │    │
-│   │ (interpret intent)    │    │ (smart instantiation) │    │
-│   └───────────────────────┘    └───────────────────────┘    │
-│            │                            │                   │
-│            ▼                            ▼                   │
-│   ┌───────────────────────┐    ┌───────────────────────┐    │
-│   │ POSTEL (generous)     │    │ YAML-JAZZ (style)     │    │
-│   └───────────────────────┘    └───────────────────────┘    │
-│                                                             │
-│   All follow SPEED-OF-LIGHT philosophy:                     │
-│   • Work in vectors, delay tokenization                     │
-│   • Preserve precision as long as possible                  │
-│   • Minimize boundary crossings                             │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    subgraph SUITE["🎭 EMPATHIC SUITE"]
+        EE["EMPATHIC-EXPRESSIONS<br/>interpret intent"]
+        ET["EMPATHIC-TEMPLATES<br/>smart instantiation"]
+        PO["POSTEL<br/>generous interpretation"]
+        YJ["YAML-JAZZ<br/>comments as data"]
+        
+        EE --> ET
+        EE --> PO
+        ET --> YJ
+    end
+    
+    SOL["⚡ SPEED-OF-LIGHT<br/>• Work in vectors<br/>• Preserve precision<br/>• Minimize boundaries"]
+    
+    SUITE --> SOL
+    
+    style SUITE fill:#fff3e0,stroke:#ff9800
+    style SOL fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
 ```
 
 ### Empathic Expressions: The Big Tent
