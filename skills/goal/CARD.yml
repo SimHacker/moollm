@@ -1,0 +1,81 @@
+# Goal — Quest Objective Primitive
+# Machine-readable interface for adventure compilation
+
+card:
+  id: goal
+  name: "Goal"
+  type: primitive
+  emoji: "🎯"
+  
+  description: |
+    A quest objective that drives the adventure forward.
+    Defines what the player is trying to achieve.
+    
+  # Schema fields for validation
+  schema:
+    required:
+      - id
+      - name
+      - description
+      - complete_when
+    optional:
+      - status
+      - priority
+      - reward
+      - fail_when
+      - fail_message
+      - parent
+      - children
+      - requires
+      - blocks
+      - progress
+      - given_by
+      - location
+    computed:
+      - complete_when_js
+      - complete_when_py
+      - fail_when_js
+      - fail_when_py
+      
+  # Status values
+  statuses:
+    - pending
+    - active
+    - complete
+    - failed
+    
+  # Priority values
+  priorities:
+    - low
+    - normal
+    - high
+    - urgent
+      
+  # Compilation events this primitive can trigger
+  compile_events:
+    - type: COMPILE_EXPRESSION
+      field: complete_when
+      target_js: complete_when_js
+      target_py: complete_when_py
+      expected_type: boolean
+      
+    - type: COMPILE_EXPRESSION
+      field: fail_when
+      target_js: fail_when_js
+      target_py: fail_when_py
+      expected_type: boolean
+      
+  # How this maps to runtime classes
+  runtime:
+    python: Goal
+    javascript: Goal
+    
+  # Relationships
+  contained_by: adventure
+  can_contain: goal  # nested goals
+  
+  related:
+    - adventure
+    - hero-story
+    - needs
+    - character

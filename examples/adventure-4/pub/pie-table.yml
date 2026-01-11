@@ -31,15 +31,6 @@ object:
   table_layout:
     slices: 8  # Number of pie slices (3-12)
     
-    # ASCII visualization (auto-generated from slice config)
-    visual: |
-      
-             [N]
-          NW     NE
-        [W]   🔔  [E]
-          SW     SE
-             [S]
-      
     # CENTER — what's in the middle of the table
     center:
       address: "pub/pie-table.yml#center"
@@ -128,15 +119,8 @@ object:
             style: "high-backed walnut"
         occupant: null
         
-  # Summary view (computed from slices)
-  seating_chart: |
-    
-           [ ]          N  - empty
-        [ ]    [ ]      NE - empty / NW - empty
-      [ ]   🔔   [E]    W  - empty (has drinks) / E - empty (has snacks)
-        [ ]    [ ]      SW - empty / SE - empty
-           [B]          S  - Bumblewick 🧙
-    
+  # Summary: 8 seats around table, Bumblewick at S position
+  
   # BIDIRECTIONAL REFERENCES:
   # When Bumblewick sits at S:
   #   - pie-table.yml#S.occupant.id = "bumblewick-fantastipants"

@@ -55,6 +55,39 @@ skills:
     tags: ["meta", "robustness", "philosophy"]
     use_when: "Designing interfaces, handling varied input"
     
+  - name: "markdown"
+    path: "skills/markdown"
+    description: "Plain text formatting that's readable raw AND rendered"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "MARKDOWN"
+    tags: ["format", "documentation", "session-log", "readme"]
+    use_when: "Writing session logs, READMEs, documentation, LLM communication"
+    related: ["yaml-jazz", "session-log", "plain-text", "soul-chat"]
+    credits: "John Gruber (2004), Aaron Swartz, Anil Dash (2025 article)"
+    
+  - name: "plain-text"
+    path: "skills/plain-text"
+    description: "Text files are forever — no lock-in, no corruption, no transformation"
+    tier: 0
+    entry: "SKILL.md"
+    protocol: "PLAIN-TEXT"
+    tags: ["philosophy", "format", "durability", "git"]
+    use_when: "Choosing formats, designing storage, considering durability"
+    related: ["markdown", "yaml-jazz", "session-log"]
+    credits: "Unix Philosophy, Donald Knuth, Anil Dash"
+    
+  - name: "format-design"
+    path: "skills/format-design"
+    description: "How to design formats that succeed — simplicity, community, timing"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "FORMAT-DESIGN"
+    tags: ["philosophy", "design", "standards", "worse-is-better"]
+    use_when: "Designing new formats, evaluating existing ones, choosing between options"
+    related: ["markdown", "yaml-jazz", "plain-text", "postel"]
+    credits: "Anil Dash, Richard Gabriel (Worse is Better)"
+    
   - name: "empathic-expressions"
     path: "skills/empathic-expressions"
     description: "Intent-based code interpretation across all languages — SQL, Python, JS, YAML, Bash"
@@ -186,7 +219,40 @@ skills:
     entry: "SKILL.md"
     tags: ["spatial", "activation", "context", "cards"]
     use_when: "Managing task contexts, activating cards, navigating cognitive spaces"
-    related: ["card", "memory-palace", "adventure"]
+    related: ["card", "memory-palace", "adventure", "container"]
+    
+  - name: "container"
+    path: "skills/container"
+    description: "Intermediate scope — can contain, can inherit, or both! Like OpenLaszlo's <node>"
+    tier: 1
+    entry: "SKILL.md"
+    tags: ["spatial", "inheritance", "scope", "openlaszlo"]
+    use_when: "Grouping rooms/objects with shared properties, non-navigable scopes"
+    related: ["room", "object", "adventure", "prototype", "logistic-container"]
+    template: "CONTAINER.yml.tmpl"
+    credits: "Don Hopkins (OpenLaszlo), Dave Ungar (Self prototypes)"
+    
+  - name: "logistic-container"
+    path: "skills/logistic-container"
+    description: "Factorio-style logistics boxes — providers, requesters, storage, buffers with grid storage"
+    tier: 2
+    entry: "SKILL.md"
+    tags: ["storage", "logistics", "factorio", "automation", "grid", "inventory"]
+    use_when: "Automated storage, item flow, factory puzzles, warehouse management, stacking"
+    related: ["container", "exit", "character", "object", "postal"]
+    template: "LOGISTIC-CONTAINER.yml.tmpl"
+    credits: "Factorio (Wube Software), Don Hopkins (Place Protocol)"
+    
+  - name: "image-mining"
+    path: "skills/image-mining"
+    description: "Mine pixels for atoms — extract resources from images like the kitchen counter DECOMPOSEs items"
+    tier: 1
+    entry: "SKILL.md"
+    tags: ["resources", "extraction", "camera", "decompose", "crafting", "visualization"]
+    use_when: "Extracting resources from images, camera as mining tool, visual resource gathering"
+    related: ["visualizer", "logistic-container", "postal", "adventure"]
+    template: null
+    credits: "Kitchen Counter pattern (DECOMPOSE), Minecraft mining metaphor"
     
   - name: "character"
     path: "skills/character"
@@ -365,9 +431,96 @@ skills:
     tier: 1
     entry: "SKILL.md"
     protocol: "BUFF-AS-MODIFIER"
-    tags: ["game", "effects", "buffs", "curses"]
+    tags: ["game", "effects", "buffs", "curses", "primitive"]
     use_when: "Managing temporary stat modifications, effects, or conditions"
-    related: ["time", "character", "needs"]
+    related: ["time", "character", "needs", "object"]
+    template: "BUFF.yml.tmpl"
+    
+  # --- ADVENTURE PRIMITIVES ---
+  # The atoms of the adventure world. Small, powerful, composable.
+  # Inspired by Self: "Everything is an object. Objects have slots."
+    
+  - name: "exit"
+    path: "skills/exit"
+    description: "Navigation links between rooms — the edges of the memory palace"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "PIE-MENU-TOPOLOGY"
+    tags: ["game", "navigation", "room", "topology", "primitive"]
+    use_when: "Defining how rooms connect, navigation guards, hidden passages"
+    related: ["room", "adventure", "memory-palace"]
+    template: "EXIT.yml.tmpl"
+    credits: "Don Hopkins (pie menus), Frances Yates (method of loci)"
+    
+  - name: "object"
+    path: "skills/object"
+    description: "Interactable things in the world — the atoms of adventure"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "SIMANTICS"
+    tags: ["game", "object", "interaction", "sims", "primitive"]
+    use_when: "Creating items, furniture, tools — anything interactable"
+    related: ["advertisement", "room", "buff", "inventory"]
+    template: "OBJECT.yml.tmpl"
+    credits: "Will Wright (SimAntics), Dave Ungar (Self)"
+    
+  - name: "goal"
+    path: "skills/goal"
+    description: "Quest objectives that drive narrative — the WANTS of adventure"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "SCHEMA-MECHANISM"
+    tags: ["game", "quest", "objective", "narrative", "primitive"]
+    use_when: "Defining what players are trying to achieve"
+    related: ["adventure", "hero-story", "needs", "character", "postal"]
+    template: "GOAL.yml.tmpl"
+    credits: "Gary Drescher (schema mechanism), Joseph Campbell (hero's journey)"
+    
+  - name: "postal"
+    path: "skills/postal"
+    description: "Complete messaging — letters, texts, goals, rewards, attachments"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "POSTAL-SYSTEM"
+    tags: ["mail", "message", "goals", "rewards", "phone", "communication", "attachment"]
+    use_when: "Sending messages, assigning goals, mailing items, texting characters"
+    related: ["goal", "character", "object", "room", "storage", "buff"]
+    template: "LETTER.yml.tmpl"
+    credits: "Animal Crossing, The Sims, Alan Kay (messaging)"
+    
+  - name: "runtime"
+    path: "skills/runtime"
+    description: "Dual Python/JavaScript adventure runtimes — always in sync"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "DUAL-RUNTIME"
+    tags: ["runtime", "python", "javascript", "compilation", "sync", "engine"]
+    use_when: "Generating or executing compiled expressions in either language"
+    related: ["context", "adventure", "object", "expression", "subjective"]
+    credits: "Vanessa Freudenberg (VM philosophy), Craig Latta (live environments)"
+    
+  - name: "subjective"
+    path: "skills/subjective"
+    description: "First-person code — i_have() instead of world.has()"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "SUBJECTIVE-ORIENTED"
+    tags: ["programming", "perspective", "first-person", "natural-language"]
+    use_when: "Writing object/character behavior in first person"
+    related: ["context", "runtime", "object", "character"]
+    credits: "Alan Kay (objects as actors), Don Hopkins (subjective-oriented insight)"
+    
+  - name: "context"
+    path: "skills/context"
+    description: "Runtime context passed to compiled closures — the world as seen from inside"
+    tier: 1
+    entry: "SKILL.md"
+    protocol: "RUNTIME-CONTEXT"
+    tags: ["runtime", "context", "closure", "state", "primitive"]
+    use_when: "Understanding what ctx provides to compiled expressions"
+    related: ["object", "room", "adventure", "buff", "simulation"]
+    template: "CONTEXT.yml.tmpl"
+    credits: "Dave Ungar (lexical scope), Self language"
     
   - name: "time"
     path: "skills/time"

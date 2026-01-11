@@ -1,0 +1,375 @@
+# BUFF.yml — Temporary Effect Primitive
+#
+# Buffs modify stats, abilities, or behavior.
+# CURSES ARE JUST SHITTY BUFFS — no separate system.
+#
+# THE SIMS INSIGHT:
+# Needs and buffs form the motivational system.
+# Objects grant buffs. Buffs decay over time.
+#
+# EFFECTIVE VALUES PROTOCOL:
+# Buffs modify foo_effective, NOT foo (the base value).
+# Each tick: foo_effective = foo, then buffs apply.
+# This means buffs auto-cleanup when they expire!
+#
+# "The base value is truth. The effective value is reality."
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+buff:
+  # === IDENTITY ===
+  
+  id: "{{id}}"                     # REQUIRED: Unique identifier
+  name: "{{name}}"                 # REQUIRED: Display name
+  source: "{{source}}"             # REQUIRED: What granted this buff
+  
+  # === MODIFIERS ===
+  #
+  # Buffs modify _effective values, NOT base values!
+  # This ensures automatic cleanup on expiration.
+  #
+  # Operations:
+  #   add      — foo_effective += value
+  #   multiply — foo_effective *= value
+  #   set      — foo_effective = value
+  #   min      — foo_effective = max(foo_effective, value)
+  #   max      — foo_effective = min(foo_effective, value)
+  #
+  
+  modifies: []
+  # Examples:
+  #   - property: damage_effective
+  #     operation: add
+  #     value: 5
+  #
+  #   - property: speed_effective
+  #     operation: multiply
+  #     value: 1.5
+  #
+  #   - property: armor_effective
+  #     operation: min
+  #     value: 0  # Armor can't go below 0
+  
+  # === EFFECT (Natural Language Alternative) ===
+  #
+  # Effects can be:
+  # - Numeric: "damage_effective += 5, speed_effective *= 1.2"
+  # - Semantic: "cats seem to like you today"
+  # - Mixed: { calm_effective: +2, vibe: "peaceful aura" }
+  #
+  
+  effect: "{{effect}}"             # REQUIRED: What this buff does
+  
+  # Compiled versions for runtime
+  effect_js: null                  # COMPUTED: JavaScript effect handler
+  effect_py: null                  # COMPUTED: Python effect handler
+  
+  # === DURATION ===
+  #
+  # Durations can be:
+  # - Numeric: 5 (turns)
+  # - Conditional: "until you eat"
+  # - While present: "while in pub"
+  # - Permanent: "forever"
+  # - Natural language: "a while", "briefly"
+  # - Probabilistic: "25% fade chance per turn"
+  #
+  
+  duration: "{{duration}}"         # REQUIRED: How long it lasts
+  remaining: null                  # COMPUTED: Turns remaining (if numeric)
+  
+  # === STACKING ===
+  
+  stacks: false                    # OPTIONAL: Can multiple instances exist?
+  max_stacks: 1                    # OPTIONAL: Limit if stacking
+  stack_count: 1                   # COMPUTED: Current stack count
+  
+  # === CONDITIONS ===
+  
+  lift_condition: null             # OPTIONAL: How to remove early
+  # Example: "light 3 dark places"
+  
+  # === CHAINED BUFFS ===
+  #
+  # Buffs can spawn other buffs when they end!
+  # Coffee → Caffeine Crash
+  # Beans → Gassy
+  # Spicy → Ring of Fire
+  #
+  
+  spawns_after: []                 # OPTIONAL: Buffs to spawn when this ends
+  # Example:
+  #   - buff_id: caffeine-crash
+  #     delay: 0                   # Turns after this buff ends
+  #     chance: 1.0                # Probability (0.0 - 1.0)
+  #   - buff_id: bladder-pressure
+  #     delay: 2
+  #     chance: 0.8
+  
+  on_tick: null                    # OPTIONAL: Natural language for per-turn effects
+  on_tick_js: null                 # COMPUTED: JavaScript for on_tick
+  on_tick_py: null                 # COMPUTED: Python for on_tick
+  # Example: "if random() < 0.3: emit '*toot*'"
+  
+  grants_immunity: []              # OPTIONAL: Events this buff protects against
+  # Example: ["GRUE_ATTACK", "FEAR"]
+  
+  # === CLASSIFICATION ===
+  
+  tags: []                         # OPTIONAL: Searchable keywords
+  # Example tags:
+  #   - combat      # Affects combat stats
+  #   - social      # Affects social interactions
+  #   - terpene     # From a terpene kitten
+  #   - consumable  # From eating/drinking
+  #   - curse       # Negative effect
+  #   - movement    # Affects speed/position
+  #   - perception  # Affects what you see/hear
+  #   - temporary   # Short duration
+  #   - persistent  # Long duration
+  #   - stackable   # Can stack with copies
+  #   - unique      # Only one instance allowed
+  #   - dispellable # Can be removed by spells
+  #   - blessed     # From a holy source
+  #   - corrupted   # From a dark source
+  
+  category: general                # OPTIONAL: Primary category (for stacking limits)
+  # Categories: terpene, charm, consumable, curse, environmental
+  
+  positive: true                   # OPTIONAL: Is this a good thing?
+  # false = curse/debuff
+  
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLES
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Numeric buff with modifies array:
+#
+#   buff:
+#     id: strength-potion
+#     name: "Strength Potion"
+#     source: "Red Potion"
+#     modifies:
+#       - property: damage_effective
+#         operation: add
+#         value: 5
+#       - property: carry_capacity_effective
+#         operation: add
+#         value: 10
+#     duration: 10
+#     category: consumable
+#
+# Multiplicative buff:
+#
+#   buff:
+#     id: haste
+#     name: "Haste"
+#     source: "Speed Scroll"
+#     modifies:
+#       - property: speed_effective
+#         operation: multiply
+#         value: 1.5
+#     duration: 5
+#     category: consumable
+#
+# Combined add + multiply (order matters!):
+#
+#   buff:
+#     id: berserker-rage
+#     name: "Berserker Rage"
+#     source: "Battle Fury"
+#     priority: 100  # Add first
+#     modifies:
+#       - property: damage_effective
+#         operation: add
+#         value: 10
+#     # Then another buff with priority 200 can multiply
+#     duration: 3
+#     category: combat
+#
+# Natural language effect:
+#
+#   buff:
+#     id: caffeinated
+#     name: "Caffeinated"
+#     source: "Espresso"
+#     effect: "energy_effective += 2, focus_effective += 1"
+#     duration: 5
+#     category: consumable
+#
+# Semantic buff:
+#
+#   buff:
+#     id: cat-affinity
+#     name: "Cat Affinity"
+#     source: "Petting Terpie"
+#     effect: "cats seem to like you today"
+#     duration: "a while"
+#     category: charm
+#
+# Terpene buff:
+#
+#   buff:
+#     id: myrcene-effect
+#     name: "Myr's Blessing"
+#     source: "Kitten Myrcene"
+#     modifies:
+#       - property: relaxation_effective
+#         operation: add
+#         value: 3
+#     effect: "couch-lock energy"  # Additional semantic effect
+#     duration: 8
+#     category: terpene
+#
+# Curse (negative buff):
+#
+#   buff:
+#     id: scratched
+#     name: "Scratched"
+#     source: "Failed belly rub"
+#     modifies:
+#       - property: hp_effective
+#         operation: add
+#         value: -1
+#     effect: "visible scratch marks"
+#     duration: "until healed"
+#     positive: false
+#     category: curse
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# DIGESTION BUFFS — The Sims-style food consequences!
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Eating creates a chain of buffs over time:
+# Food → Digesting → Energy + Bladder → Eventually... consequences
+#
+# Coffee buff with bladder effect:
+#
+#   buff:
+#     id: caffeinated
+#     name: "Caffeinated"
+#     source: "Espresso"
+#     modifies:
+#       - property: energy_effective
+#         operation: add
+#         value: 3
+#       - property: focus_effective
+#         operation: add
+#         value: 2
+#     effect: "Wide awake and jittery"
+#     duration: 8
+#     tags: [consumable, stimulant, digestion]
+#     spawns_after:  # After this buff ends, spawn these:
+#       - buff_id: caffeine-crash
+#         delay: 0
+#       - buff_id: bladder-pressure
+#         delay: 2
+#
+# Beans — The classic:
+#
+#   buff:
+#     id: digesting-beans
+#     name: "Digesting Beans"
+#     source: "Bowl of Beans"
+#     modifies:
+#       - property: hunger_effective
+#         operation: add
+#         value: -5  # Reduces hunger
+#       - property: energy_effective
+#         operation: add
+#         value: 2
+#     duration: 6
+#     tags: [digestion, food, legumes]
+#     spawns_after:
+#       - buff_id: gassy
+#         delay: 4
+#         chance: 0.8  # 80% chance
+#
+# The inevitable consequence:
+#
+#   buff:
+#     id: gassy
+#     name: "Gassy"
+#     source: "Bean digestion"
+#     effect: "Occasional toots. NPCs may react."
+#     modifies:
+#       - property: social_effective
+#         operation: add
+#         value: -1  # Slightly awkward
+#     duration: 5
+#     tags: [digestion, embarrassing, funny]
+#     on_tick: |
+#       if random() < 0.3:
+#         world.iEmit("*toot*")
+#         world.triggerEvent("FLATULENCE", { volume: "quiet" })
+#
+# Spicy food — burns twice:
+#
+#   buff:
+#     id: spicy-mouth
+#     name: "Mouth on Fire"
+#     source: "Extra Hot Wings"
+#     effect: "Everything tastes like pain"
+#     modifies:
+#       - property: comfort_effective
+#         operation: add
+#         value: -2
+#     duration: 3
+#     tags: [digestion, spicy, pain]
+#     spawns_after:
+#       - buff_id: spicy-regret
+#         delay: 8
+#         chance: 0.5
+#
+#   buff:
+#     id: spicy-regret
+#     name: "Ring of Fire"
+#     source: "Spicy food aftermath"
+#     effect: "It burns on the way out too"
+#     duration: 2
+#     positive: false
+#     tags: [digestion, spicy, regret, bathroom]
+#
+# Cheese — varies by type:
+#
+#   buff:
+#     id: cheese-satisfaction
+#     name: "Cheese Bliss"
+#     source: "Aged Cheddar"
+#     effect: "That was some good cheese"
+#     modifies:
+#       - property: mood_effective
+#         operation: add
+#         value: 2
+#     duration: 5
+#     tags: [digestion, dairy, comfort-food]
+#
+#   buff:
+#     id: blue-cheese-courage
+#     name: "Grue Repellent"
+#     source: "Blue Cheese"
+#     effect: "Grues find you unappetizing"
+#     duration: 10
+#     tags: [digestion, protection, cheese, anti-grue]
+#     grants_immunity: ["GRUE_ATTACK"]
+#
+# Conditional duration:
+#
+#   buff:
+#     id: grue-immunity
+#     name: "Light Protection"
+#     source: "Lit Lamp"
+#     effect: "grues cannot attack you"
+#     duration: "while lamp is lit"
+#     lift_condition: "lamp runs out of fuel OR lamp is extinguished"
+#
+# Animation/tweening buff (applies each tick):
+#
+#   buff:
+#     id: floating
+#     name: "Levitation"
+#     source: "Magic Boots"
+#     effect: "y_effective = y - 20"  # Float 20 pixels up
+#     duration: "while wearing magic boots"
+#
+# ═══════════════════════════════════════════════════════════════════════════════

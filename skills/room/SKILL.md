@@ -29,14 +29,223 @@ Directories as cognitive spaces where [cards](../card/) come to life.
 
 ```
 room-name/
-├── ROOM.yml        # Room definition
+├── ROOM.yml        # Room definition (REQUIRED!)
 ├── README.md       # Room's voice (optional)
 ├── CARD.yml        # Card sidecar (optional)
 ├── character-*.yml # NPCs embedded in room
 ├── object-*.yml    # Objects in room
 ├── inbox/          # Objects thrown INTO this room
 ├── outbox/         # Objects staged to throw OUT
-└── nested-room/    # Sub-room
+├── region/         # Sub-region of this room
+│   └── ROOM.yml    # Region must also declare itself!
+└── nested-room/    # Full sub-room (different location)
+    └── ROOM.yml
+```
+
+---
+
+## Regions vs Sub-Rooms
+
+### What's a Region?
+
+A **region** is a sub-directory that represents a **portion of the same room** — like the stage area of the pub, or the back corner of a library.
+
+```yaml
+# pub/ROOM.yml
+room:
+  name: "The Rusty Lantern Pub"
+  
+  # Regions are PARTS of this room
+  regions:
+    stage:
+      path: "stage/"
+      description: "The performance stage"
+      visibility: public
+      
+    back-room:
+      path: "back-room/"
+      description: "Private back room"
+      visibility: private
+      requires: "bartender approval"
+      
+    bar:
+      path: "bar/"
+      description: "The bar counter area"
+```
+
+### Regions Have Rules
+
+Each region can have its own:
+
+```yaml
+# pub/back-room/ROOM.yml
+room:
+  name: "Back Room"
+  type: region                    # Marks as region, not full room
+  parent: "../"                   # Part of parent room
+  
+  # Access control
+  access:
+    visibility: private           # Not visible to everyone
+    requires: "bartender approval OR staff badge"
+    who_allowed:
+      - "characters/staff/*"
+      - "player if has_flag('vip_access')"
+    who_denied:
+      - "characters/troublemakers/*"
+      
+  # Ethics & behavior
+  rules:
+    - "No recording"
+    - "Confidential conversations"
+    - "Staff only by default"
+    
+  # Privacy
+  privacy:
+    eavesdropping: false          # Can't hear from outside
+    visible_from_parent: false    # Can't see inside from pub
+    
+  # What happens in the back room...
+  narrative:
+    on_enter: "The door closes behind you with a soft click."
+    on_exit: "You return to the bustling pub."
+```
+
+### Visibility Types
+
+| Type | Description |
+|------|-------------|
+| `public` | Anyone can see and enter |
+| `visible` | Can see but may need permission to enter |
+| `private` | Hidden unless you know about it |
+| `secret` | Hidden AND requires discovery |
+
+### Region vs Full Sub-Room
+
+| Feature | Region | Sub-Room |
+|---------|--------|----------|
+| Part of parent? | Yes | No |
+| Own identity? | Partial | Full |
+| Exit returns to? | Parent | Varies |
+| Shares parent context? | Yes | No |
+| Type field | `type: region` | `type: room` |
+
+---
+
+## Directory Type Declaration
+
+### The Rule
+
+**Every directory in an adventure MUST declare what it is.**
+
+| Directory Type | Declaration File |
+|----------------|------------------|
+| Room | `ROOM.yml` |
+| Region | `ROOM.yml` (with `type: region`) |
+| Character | `CHARACTER.yml` |
+| Adventure root | `ADVENTURE.yml` |
+| Personas | `ROOM.yml` (with `type: personas`) |
+| Storage | `ROOM.yml` (with `type: storage`) |
+
+### Lint Error: Undeclared Directory
+
+```yaml
+# LINT ERROR: Directory without type declaration
+- type: MISSING_TYPE_DECLARATION
+  severity: WARNING
+  path: "pub/mysterious-corner/"
+  message: "Directory has no ROOM.yml, CHARACTER.yml, or other type declaration"
+  suggestion: "Add ROOM.yml with appropriate type field"
+```
+
+### Valid Non-Room Directories
+
+Some directories aren't rooms and that's OK:
+
+```yaml
+# These don't need ROOM.yml:
+messages/           # Mail storage (system)
+inbox/              # Postal inbox (system)
+outbox/             # Postal outbox (system)
+sessions/           # Session logs (meta)
+images/             # Asset storage (meta)
+```
+
+### Marking System Directories
+
+```yaml
+# Alternative: mark as system directory
+# pub/messages/.meta.yml
+meta:
+  type: system
+  purpose: "Mail storage for pub"
+  requires_room_yml: false
+```
+
+### Container Directories (Inheritance Scopes)
+
+Some directories are **inheritance containers** — they provide shared properties to child rooms without being navigable themselves. Like OpenLaszlo's `<node>` element.
+
+```yaml
+# maze/CONTAINER.yml — Not a room, but defines inherited properties
+container:
+  name: "The Twisty Maze"
+  description: "Groups maze rooms with shared grue rules"
+  
+  inherits:
+    is_dark: true
+    is_dangerous: true
+    grue_rules:
+      can_appear: true
+      
+  ambient:
+    sound: "dripping water"
+    light_level: 0
+```
+
+All child rooms (`room-a/`, `room-b/`, etc.) automatically inherit these properties!
+
+Alternatively, you can make the container into an actual room:
+
+```yaml
+# maze/ROOM.yml — The maze entrance IS a room
+room:
+  name: "Maze Entrance"
+  description: "Dark passages branch off in every direction..."
+  
+  exits:
+    a: room-a/
+    b: room-b/
+    # ... etc
+```
+
+**DESIGN CHOICE:**
+- Use `CONTAINER.yml` if you want inheritance without navigation (see [container skill](../container/))
+- Use `ROOM.yml` if you want the directory to be a navigable space
+
+### Hierarchy Example
+
+```
+adventure-4/
+├── ADVENTURE.yml           # Adventure declaration
+├── pub/
+│   ├── ROOM.yml            # Room declaration
+│   ├── stage/
+│   │   └── ROOM.yml        # Region (type: region)
+│   ├── bar/
+│   │   └── ROOM.yml        # Region
+│   ├── back-room/
+│   │   └── ROOM.yml        # Private region
+│   └── messages/
+│       └── .meta.yml       # System directory (no ROOM.yml needed)
+├── characters/
+│   ├── ROOM.yml            # Hall of characters (type: personas)
+│   └── don-hopkins/
+│       └── CHARACTER.yml   # Character declaration
+└── maze/
+    ├── ROOM.yml            # Room declaration
+    └── room-a/
+        └── ROOM.yml        # Sub-room (full room, not region)
 ```
 
 ## ROOM.yml Structure
@@ -420,6 +629,255 @@ character:
 
 Movement updates `location`, not file. See [character/](../character/).
 
+## Pie Menu Room Topology
+
+The eight-direction compass maps to **two types of connections**:
+
+```
+           N (navigate)
+           ↑
+    NW ←───●───→ NE
+   (grid)  ↑   (grid)
+           │
+    W ←────┼────→ E
+(navigate) │  (navigate)
+           │
+    SW ←───●───→ SE
+   (grid)  ↓   (grid)
+           S (navigate)
+```
+
+### Cardinal Directions: Spiderweb Navigation
+
+**N/S/E/W** = Major room links, branching "out" or "away"
+
+```yaml
+exits:
+  n: ../great-hall/      # Major room north
+  s: ../cellar/          # Major room south
+  e: ../garden/          # Major room east
+  w: ../kitchen/         # Major room west
+```
+
+These form the **spiderweb** — sparse, long-distance connections between major locations.
+
+### Diagonal Directions: Grid Quadrants
+
+**NW/NE/SW/SE** = Corner links to expandable sub-room grids
+
+```yaml
+exits:
+  ne: ne/ne-1-1/         # Corner of northeast grid
+  nw: nw/nw-1-1/         # Corner of northwest grid
+  se: se/se-1-1/         # Corner of southeast grid
+  sw: sw/sw-1-1/         # Corner of southwest grid
+```
+
+Each diagonal opens into an **infinite storage quadrant**:
+
+```
+        NE QUADRANT GRID
+        
+    ne-1-4 ─── ne-2-4 ─── ne-3-4
+       │          │          │
+    ne-1-3 ─── ne-2-3 ─── ne-3-3
+       │          │          │
+    ne-1-2 ─── ne-2-2 ─── ne-3-2
+       │          │          │
+    ne-1-1 ─── ne-2-1 ─── ne-3-1
+       │
+       └────── connects to main room (sw exit)
+```
+
+### Grid Room Naming
+
+```
+{quadrant}-{x}-{y}
+
+ne-1-1 = closest northeast room (grid corner)
+ne-3-4 = 3 east, 4 north in NE quadrant
+sw-2-2 = 2 west, 2 south in SW quadrant
+```
+
+### Directory Structure
+
+```
+wizard-study/
+├── ROOM.yml              # Main room (pie menu center)
+├── nw/                   # Northwest quadrant
+│   ├── nw-1-1/ROOM.yml   # Grid corner (connects to main)
+│   ├── nw-2-1/ROOM.yml   # One east
+│   └── nw-1-2/ROOM.yml   # One north
+├── ne/                   # Northeast quadrant
+├── sw/                   # Southwest quadrant
+└── se/                   # Southeast quadrant
+```
+
+### Grid Room Auto-Linking
+
+Grid rooms have 8-direction exits to adjacent cells:
+
+```yaml
+# ne/ne-2-3/ROOM.yml
+room:
+  name: "Storage NE-2-3"
+  grid_position: { quadrant: ne, x: 2, y: 3 }
+  
+  exits:
+    n: ../ne-2-4/    # y+1
+    s: ../ne-2-2/    # y-1
+    e: ../ne-3-3/    # x+1
+    w: ../ne-1-3/    # x-1
+    ne: ../ne-3-4/   # x+1, y+1
+    nw: ../ne-1-4/   # x-1, y+1
+    se: ../ne-3-2/   # x+1, y-1
+    sw: ../ne-1-2/   # x-1, y-1
+```
+
+Corner rooms (x=1, y=1) have a special exit back to main:
+
+```yaml
+# ne/ne-1-1/ROOM.yml (corner room)
+room:
+  is_grid_corner: true
+  exits:
+    sw: ../../       # Back to main room!
+    n: ../ne-1-2/
+    e: ../ne-2-1/
+    ne: ../ne-2-2/
+```
+
+### The Metaphor: Outside and Inside
+
+| Direction | Type | Metaphor | Function |
+|-----------|------|----------|----------|
+| N/S/E/W | Cardinal | "Outside" / Highways | Navigate to other major rooms |
+| NW/NE/SW/SE | Diagonal | "Inside" / Frontage roads | Expand into storage grids |
+
+**4 ways OUT** (navigation) + **4 quadrants IN** (infinite storage) = **Unlimited worlds**
+
+### Grid Connectivity Modes
+
+Grids in quadrants can be **continuous** or **private**:
+
+```yaml
+# CONTINUOUS: One big grid shared between quadrants
+grid_mode: continuous
+# nw-4-1 connects to ne-1-1 (wrap around)
+# All four quadrants form one unified grid
+
+# PRIVATE: Each quadrant has isolated grid  
+grid_mode: private
+# nw grid has no connection to ne grid
+# Four separate storage areas
+```
+
+**Sparse grids are valid!** You don't need every cell:
+
+```yaml
+# Sparse grid — only rooms that exist
+wizard-study/ne/
+├── ne-1-1/     # Corner room (required)
+├── ne-2-1/     # Exists
+├── ne-5-3/     # Exists (gap is fine!)
+└── ne-10-1/    # Far out on X axis
+# Missing rooms = impassable
+# Like real buildings along a road
+```
+
+### Grid Numbering Conventions
+
+```yaml
+grid_rules:
+  no_negatives: true        # Always positive coordinates
+  zero_reserved: true       # 0 = the highway (N/S/E/W web)
+  one_one_adjacent: true    # 1-1 is always next to center
+  rotationally_symmetric: true
+  
+  addressing: |
+    Grid coords are POSITIVE and RELATIVE to quadrant.
+    This means you can rename 'nw/' to 'sw/' and the
+    internal links still work — just rotated!
+    
+  metaphor: |
+    N/S/E/W = STREETS (travel between intersections)
+    Intersection = Current room (where streets cross)
+    Diagonal quadrants = BUILDINGS you ENTER
+    Grid interior = Building floors/rooms
+    
+    The whole grid is a CITY:
+    - Cardinals = Travel along streets
+    - Diagonals = Enter buildings at corners
+    - City blocks fill the four quadrants
+```
+
+### 🏙️ The Urban Planning Metaphor
+
+**Grid rooms are CITY BLOCKS at street intersections!**
+
+```
+           N (street north)
+           ↑
+    ┌──────┼──────┐
+    │  NW  │  NE  │  ← BUILDINGS you ENTER
+    │ 🏭   │  📦  │    (warehouses, factories)
+W ──┼──────●──────┼── E (streets east/west)
+    │  📦  │  🚚  │    
+    │  SW  │  SE  │  ← BUILDINGS you ENTER
+    └──────┼──────┘
+           ↓
+           S (street south)
+```
+
+| Urban Element | MOOLLM Element | Action |
+|---------------|----------------|--------|
+| **Streets** | Cardinal exits (N/S/E/W) | TRAVEL along them |
+| **Intersection** | Current room | WHERE YOU ARE |
+| **Buildings** | Diagonal quadrants | ENTER them |
+| **Building Floors** | Grid cells | Navigate INSIDE |
+
+Example: **Fooblitzky-style city** (streets with buildings):
+
+```
+     N (street north)
+     │
+  ┌──┴──────────────────┐
+  │ 🏢 nw-1-3  nw-2-3   │  NW Building
+  │    │       │        │  (floors inside)
+  │ 🏢 nw-1-2  nw-2-2   │
+  │    │       │        │
+  │ 🏢 nw-1-1──nw-2-1───┼── to NE building
+  └─────────────────────┘
+     │
+     ●  (YOU ARE HERE — intersection)
+     │
+  W ─┴─ E (streets)
+```
+
+### Relative Addressing for Portability
+
+```yaml
+# All grid exits use relative paths:
+exits:
+  n: ../ne-2-4/    # Up one Y
+  e: ../ne-3-3/    # Right one X
+  sw: ../../       # Back to main (corner room only)
+
+# This means:
+# 1. Copy nw/ dir, rename to se/
+# 2. Search-replace "nw-" with "se-"  
+# 3. Grid still works! Just rotated 180°
+```
+
+### Memory Palace Application
+
+- **Cardinal rooms** = Major memory palace locations (palaces)
+- **Grid quadrants** = Detail storage (shelves, drawers, niches)
+- **Sparse grids** = Only memorable items get rooms
+- **Navigate with N/S/E/W**, store details in NW/NE/SW/SE
+
+See: [Pie Menus](https://en.wikipedia.org/wiki/Pie_menu), [Method of Loci](../memory-palace/), [Fooblitzky](https://en.wikipedia.org/wiki/Fooblitzky)
+
 ## Codebase as Navigable World
 
 Modern IDEs like Cursor can mount multiple repositories. Each repository becomes a navigable world:
@@ -487,6 +945,111 @@ See [character/](../character/) for party-based code review.
 | `staff-name.yml` | Role-based grouping | `pub/staff-marieke.yml` |
 
 See [naming/](../naming/) for conventions.
+
+## Rooms ARE Logistic Containers!
+
+### The Unification: Sims + Factorio
+
+Rooms can participate in a **logistics network**:
+
+| Feature | Source | MOOLLM |
+|---------|--------|--------|
+| Action advertisements | The Sims | Objects advertise what they DO |
+| Item requests | Factorio | Containers advertise what they NEED |
+| Attractiveness scores | Both | Higher score = higher priority |
+
+### Room Logistics Mode
+
+```yaml
+room:
+  name: "The Kitchen"
+  
+  logistics:
+    mode: requester              # passive-provider, requester, buffer...
+    request_list:
+      - tags: ["ingredient"]
+        count: 10
+        priority: high
+```
+
+### Logistic Advertisements
+
+Rooms advertise their NEEDS with attractiveness scores:
+
+```yaml
+logistic_advertisements:
+  
+  NEED_INGREDIENTS:
+    description: "Kitchen needs ingredients"
+    wants:
+      - tags: ["ingredient"]
+        count: 10
+    score: 70                    # Base priority
+    score_if: "chef_is_cooking"  # When to boost
+    score_bonus: 30              # Total 100 when cooking!
+    
+  DESPERATELY_NEED_LIGHT:
+    wants:
+      - tags: ["light-source"]
+        count: 1
+    score: 100                   # Very high!
+```
+
+### Stacking in Rooms
+
+Rooms can have stacks of items:
+
+```yaml
+room:
+  name: "Armory"
+  
+  stacks:
+    # Fungible (just count)
+    arrow: 500
+    bolt: 300
+    
+    # Instance (individual state)
+    magic-sword:
+      count: 3
+      instances:
+        - { id: flame-blade, damage: 50 }
+        - { id: frost-edge, damage: 45 }
+        
+  stack_limit: 1000
+```
+
+### Grid Room Cells
+
+Warehouse rooms can be grid cells:
+
+```yaml
+room:
+  name: "Iron Ore Storage"
+  type: grid-cell
+  
+  grid_cell:
+    enabled: true
+    parent: "../"
+    coordinates: { x: 2, y: 3 }
+    item_type: iron-ore
+    
+  stacks:
+    iron-ore: 2500
+```
+
+### The Flow
+
+```
+1. ROOMS advertise logistic needs with scores
+2. LOGISTICS ENGINE collects all advertisements
+3. Items route to HIGHEST-SCORING requester
+4. BOTS or BELTS move items physically
+5. ROOM receives items, fires on_item_added
+```
+
+See [logistic-container/](../logistic-container/) and [factorio-logistics-protocol.md](../../designs/factorio-logistics-protocol.md).
+
+---
 
 ## The Philosophy
 

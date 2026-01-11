@@ -1,0 +1,104 @@
+# The Twisty Maze — Container Definition
+#
+# This is NOT a room you can enter — it's a SCOPE that defines
+# properties all maze rooms inherit.
+#
+# OPENLASZLO PATTERN:
+# Like <node> in OpenLaszlo, this provides inheritance without layout.
+# All child rooms automatically get these properties.
+
+container:
+  name: "The Twisty Maze"
+  description: |
+    A labyrinth of passages, all alike... or are they?
+    Ancient stonework, damp air, and the sense that
+    something is watching from the darkness.
+  
+  # === INHERITED PROPERTIES ===
+  # All maze rooms automatically get these unless they override
+  
+  inherits:
+    is_dark: true           # No natural light
+    is_dangerous: true      # Grues lurk here
+    is_maze: true           # Mapping is hard
+    
+    grue_rules:
+      can_appear: true      # Grues can spawn here
+      safe_with_light: true # Light source = safe
+      darkness_turns: 3     # Turns in dark before grue appears
+      
+    atmosphere: "damp, echoing, disorienting"
+    
+  # === RULES ===
+  # Game rules that apply within this scope
+  
+  rules:
+    - "Torches burn 50% faster due to damp air"
+    - "Breadcrumbs disappear after 3 turns (rats!)"
+    - "Sound echoes — actions may alert nearby rooms"
+    - "Maps are unreliable — exits shift when you're not looking"
+    - "The cheese wedge is your only protection"
+    
+  # === DEFAULTS ===
+  # Default values if a child room doesn't define them
+  
+  defaults:
+    room:
+      lighting: "none"
+      exit_visibility: "hidden until explored"
+      floor: "uneven flagstones"
+      walls: "damp stone blocks"
+      ceiling: "lost in darkness above"
+      
+    object:
+      discoverable: true
+      decay_rate: 0.05      # Things rot slowly here
+      
+  # === CONSTRAINTS ===
+  # What CAN'T happen here
+  
+  constraints:
+    - "no_teleportation"    # Magic doesn't work reliably
+    - "no_fast_travel"      # Must walk every step
+    - "limited_party_size"  # Max 4 in narrow passages
+    
+  # === AMBIENT ===
+  # Environmental context for all maze rooms
+  
+  ambient:
+    sound: "dripping water, distant echoes, occasional scurrying"
+    smell: "damp stone, decay, something musty"
+    temperature: "cold and clammy"
+    light_level: 0          # Pitch black without a source
+    danger_level: 5         # Out of 10
+    humidity: "high"
+    
+  # === EVENTS ===
+  # Things that can happen anywhere in the maze
+  
+  on_enter: |
+    The darkness presses in. Your light source flickers.
+    Somewhere in the distance, you hear... something.
+    
+  on_exit: |
+    You leave the oppressive maze behind.
+    Fresh air never smelled so sweet.
+    
+  # === SPECIAL LOCATIONS ===
+  # Notable rooms within this container (for reference)
+  
+  notable_rooms:
+    treasure_chamber: "room-f/"    # The gold pile!
+    garden: "garden/"              # Sunlight through a crack
+    crystal_cave: "crystal-cave/"  # Magical crystals
+    
+  # === LORE ===
+  # Background story elements
+  
+  lore:
+    builder: "Unknown — predates the village"
+    purpose: "Some say a prison. Some say a temple."
+    rumors:
+      - "A grue was slain here once — with blue cheese!"
+      - "The treasure chamber refills on the new moon"
+      - "The garden grows plants that don't exist outside"

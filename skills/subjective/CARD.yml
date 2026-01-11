@@ -1,0 +1,63 @@
+# Subjective-Oriented Programming
+# Machine-readable interface
+
+card:
+  id: subjective
+  name: "Subjective Programming"
+  type: paradigm
+  emoji: "👁️"
+  
+  description: |
+    First-person code — the "I" shifts based on who is speaking.
+    i_have("key") instead of world.has("key").
+    
+  # Who can be "I"
+  subjects:
+    - player       # In player action handlers
+    - object       # In object simulate()
+    - npc          # In NPC dialogue/behavior
+    - room         # In room descriptions
+    
+  # Core i_ functions
+  functions:
+    inventory:
+      - i_have         # iHave in JS
+      - i_give         # iGive
+      - i_take         # iTake
+      - i_drop         # iDrop
+      - i_has_tag      # iHasTag
+      - i_find_by_tag  # iFindByTag
+    state:
+      - i_am           # iAm
+      - i_am_not       # iAmNot
+      - i_get          # iGet
+      - i_set          # iSet
+    buffs:
+      - i_have_buff    # iHaveBuff
+      - i_add_buff     # iAddBuff
+      - i_remove_buff  # iRemoveBuff
+    location:
+      - i_am_in        # iAmIn
+      - i_can_see      # iCanSee
+      - i_go           # iGo
+    communication:
+      - i_say          # iSay
+      - i_emote        # iEmote
+      - i_think        # iThink
+      - i_emit         # iEmit
+    flags:
+      - i_flag         # iFlag (check)
+      - i_set_flag     # iSetFlag
+      
+  # How subject is determined
+  subject_resolution:
+    priority:
+      - object    # If world.object is set
+      - npc       # If world.npc is set
+      - player    # Default fallback
+      
+  related:
+    - context
+    - runtime
+    - object
+    - character

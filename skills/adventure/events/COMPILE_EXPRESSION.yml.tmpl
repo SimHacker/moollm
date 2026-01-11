@@ -1,0 +1,244 @@
+# COMPILE_EXPRESSION Event Handler
+#
+# This handler teaches the LLM how to compile natural language
+# expressions into executable JavaScript and Python code.
+#
+# "The natural language IS the specification.
+#  The code IS the implementation.
+#  Both live side-by-side."
+#     — Adventure Compiler Philosophy
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+event_handler:
+  name: COMPILE_EXPRESSION
+  handles: [COMPILE_EXPRESSION, COMPILE_GUARD, COMPILE_SCORE, COMPILE_ACTION]
+  
+  description: |
+    When the linter finds a natural language expression that needs compilation,
+    this handler guides the LLM to generate both JavaScript and Python code.
+    
+    DUAL RUNTIME RULE: Always generate BOTH _js AND _py!
+    - JavaScript for browser runtime
+    - Python for server/testing runtime
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INPUT: What the handler receives
+# ═══════════════════════════════════════════════════════════════════════════════
+
+input:
+  event:
+    type: COMPILE_EXPRESSION
+    source_expression: "{{source_expression}}"    # The natural language
+    source_field: "{{source_field}}"              # Where it came from
+    target_field_js: "{{target_field_js}}"        # Where JS goes
+    target_field_py: "{{target_field_py}}"        # Where PY goes
+    expected_type: "{{expected_type}}"            # boolean | action | closure | method
+    path: "{{path}}"                              # Source file
+    context: "{{context}}"                        # Surrounding YAML
+    runtime_context: "{{runtime_context}}"        # Available functions, state paths
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RUNTIME CONTEXT: What the generated code can use
+# ═══════════════════════════════════════════════════════════════════════════════
+
+runtime_reference:
+  # The closure always receives 'world' as parameter
+  closure_signature:
+    js: "(world) => ..."
+    py: "lambda world: ..."
+    
+  # Subjective-oriented functions (who is "I"?)
+  # Subject is set by event.runtime_context.subject
+  subjective_functions:
+    inventory:
+      i_have: "Check if subject has item"
+      i_has_tag: "Check if subject has item with tag"
+      i_give: "Give item to another"
+      i_take: "Take item from another"
+      i_drop: "Drop item in current room"
+      
+    state:
+      i_am: "Check boolean state"
+      i_am_not: "Check negated boolean state"
+      i_get: "Get state value"
+      i_set: "Set state value"
+      
+    communication:
+      i_say: "Speak aloud (visible to all)"
+      i_emit: "Emit message/event"
+      i_think: "Internal thought (narrator)"
+      
+  # Effective values (buffed/modified properties)
+  effective_functions:
+    reset_effective: "Reset to base values"
+    get_effective: "Get property with buffs applied"
+    modify_effective: "Add delta to property"
+    multiply_effective: "Multiply property by factor"
+    
+  # Global state
+  global_functions:
+    emit: "Emit global event"
+    flag: "Check adventure flag"
+    set_flag: "Set adventure flag"
+    trigger_event: "Trigger named event"
+    
+  # Navigation
+  navigation_functions:
+    go: "Move in direction"
+    can_go: "Check if direction is passable"
+    
+  # State paths
+  state_paths:
+    js:
+      object_state: "world.object.state"
+      player_state: "world.player.state"
+      adventure_flags: "world.adventure.flags"
+      current_room: "world.navigation.current_room"
+    py:
+      object_state: "world.object.state"
+      player_state: "world.player.state"
+      adventure_flags: "world.adventure.flags"
+      current_room: "world.navigation.current_room"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT: What the handler produces
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output:
+  compiled:
+    js: "{{generated_js}}"     # JavaScript arrow function or expression
+    py: "{{generated_py}}"     # Python lambda or def
+    
+  # Metadata
+  compilation_notes: |
+    {{notes_about_the_compilation}}
+    
+  # Confidence (0-100)
+  confidence: "{{confidence}}"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLES: How to compile various expressions
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  # Boolean expressions (guards, conditions)
+  boolean:
+    - natural: "player has the key"
+      js: "(world) => world.player.inventory.includes('key')"
+      py: "lambda world: 'key' in world.player.inventory"
+      
+    - natural: "lamp is lit"
+      js: "(world) => world.object.state.lit === true"
+      py: "lambda world: world.object.state.get('lit') == True"
+      
+    - natural: "player has visited the kitchen"
+      js: "(world) => world.player.rooms_visited.includes('kitchen/')"
+      py: "lambda world: 'kitchen/' in world.player.rooms_visited"
+      
+    - natural: "grue is nearby"
+      js: "(world) => world.grue && world.grue.location === world.player.location"
+      py: "lambda world: world.grue and world.grue.location == world.player.location"
+      
+    - natural: "player is tired"
+      js: "(world) => getEffective(world.player, 'energy') < 30"
+      py: "lambda world: get_effective(world.player, 'energy') < 30"
+      
+  # Score expressions (numbers)
+  score:
+    - natural: "higher if player is hungry"
+      js: "(world) => getEffective(world.player, 'hunger') > 50 ? 30 : 0"
+      py: "lambda world: 30 if get_effective(world.player, 'hunger') > 50 else 0"
+      
+    - natural: "boost by remaining fuel"
+      js: "(world) => world.object.state.fuel * 2"
+      py: "lambda world: world.object.state.get('fuel', 0) * 2"
+      
+  # Action expressions (side effects)
+  action:
+    - natural: "give player the key"
+      js: "(world) => { world.player.inventory.push('key'); return 'You take the key.'; }"
+      py: |
+        def effect(world):
+            world.player.inventory.append('key')
+            return 'You take the key.'
+            
+    - natural: "light the lamp, consume 1 oil"
+      js: |
+        (world) => {
+          world.object.state.lit = true;
+          world.object.state.fuel -= 1;
+          return 'The lamp flickers to life.';
+        }
+      py: |
+        def effect(world):
+            world.object.state['lit'] = True
+            world.object.state['fuel'] -= 1
+            return 'The lamp flickers to life.'
+            
+  # Closure expressions (simulate, per-turn updates)
+  closure:
+    - natural: "consume 1 fuel per turn if lit"
+      js: |
+        (world) => {
+          if (world.object.state.lit) {
+            world.object.state.fuel -= 1;
+            if (world.object.state.fuel <= 0) {
+              world.object.state.lit = false;
+              emit('lamp-extinguished', { lamp: world.object.id });
+            }
+          }
+        }
+      py: |
+        def simulate(world):
+            if world.object.state.get('lit'):
+                world.object.state['fuel'] -= 1
+                if world.object.state['fuel'] <= 0:
+                    world.object.state['lit'] = False
+                    emit('lamp-extinguished', {'lamp': world.object.id})
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROCEDURE: How to compile an expression
+# ═══════════════════════════════════════════════════════════════════════════════
+
+procedure: |
+  1. READ the source_expression carefully
+  2. IDENTIFY the expected_type (boolean, score, action, closure)
+  3. IDENTIFY the subject from runtime_context.subject
+  4. LOOK at the context for surrounding YAML that informs meaning
+  5. GENERATE JavaScript using the runtime_reference functions
+  6. GENERATE Python using the same logic, adapted for Python syntax
+  7. VERIFY both expressions have matching semantics
+  8. OUTPUT the compiled expressions
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NAMING CONVENTIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+naming:
+  js:
+    style: camelCase
+    examples: [iHave, iAm, getEffective, resetEffective]
+  py:
+    style: snake_case
+    examples: [i_have, i_am, get_effective, reset_effective]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERROR HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+error_handling:
+  ambiguous_expression:
+    action: "Ask for clarification via suggestion field"
+    example: "Expression 'player has it' — what is 'it'? Please specify item ID."
+    
+  unsupported_operation:
+    action: "Generate placeholder with TODO comment"
+    example: |
+      // TODO: Unsupported operation 'cast spell at grue'
+      // Needs: spell system, targeting
+      (world) => { throw new Error('Not implemented'); }
+      
+  missing_context:
+    action: "Make reasonable assumptions, document in notes"
+    example: "Assumed 'the lamp' refers to world.object (the current object)"

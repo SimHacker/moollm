@@ -94,20 +94,20 @@ object:
         shape: "star"
         blinks: true
         examples:
-          - "RETRIEVE TREASURE" → Points to end room
-          - "FIND SIBLING" → Points to last known location
-          - "RETURN HOME" → Points to home when treasure obtained
-          - "AVENGE SKELETON" → Points to grue's probable location
+          - "RETRIEVE TREASURE: Points to end room"
+          - "FIND SIBLING: Points to last known location"
+          - "RETURN HOME: Points to home when treasure obtained"
+          - "AVENGE SKELETON: Points to grue's probable location"
           
       mother_mission:
         color: "PINK 💗"
         shape: "heart"
         priority: "urgent"
         examples:
-          - "REPLY TO MOTHER" → Points to table (letter)
-          - "SEND LETTER" → Points to mailbox
-          - "FULFILL PROMISE" → Points to promise objective
-          - "COME HOME" → Pulses when Mother summons
+          - "REPLY TO MOTHER: Points to table (letter)"
+          - "SEND LETTER: Points to mailbox"
+          - "FULFILL PROMISE: Points to promise objective"
+          - "COME HOME: Pulses when Mother summons"
           
       # ITEM MARKERS — Various Colors
       
@@ -115,25 +115,25 @@ object:
         color: "GREEN 💰"
         shape: "diamond"
         examples:
-          - "GOLD PILE" → Points to known gold locations
-          - "TREASURE" → Points to treasure room
-          - "LOST COIN" → Points to dropped items
+          - "GOLD PILE: Points to known gold locations"
+          - "TREASURE: Points to treasure room"
+          - "LOST COIN: Points to dropped items"
           
       resource:
         color: "BLUE 🛢️"
         shape: "cylinder"
         examples:
-          - "LAMP VENDOR" → Points to room-j when oil low
-          - "FOOD SOURCE" → Points to kitchen when hungry
-          - "ACME DELIVERY" → Points to mailbox when order arrives
+          - "LAMP VENDOR: Points to room-j when oil low"
+          - "FOOD SOURCE: Points to kitchen when hungry"
+          - "ACME DELIVERY: Points to mailbox when order arrives"
           
       equipment:
         color: "CYAN 🔧"
         shape: "gear"
         examples:
-          - "LAMP" → Points to lamp if dropped/lost
-          - "NOTEBOOK" → Points if forgotten
-          - "LUNCHBOX" → Points to your food stash
+          - "LAMP" : Points to lamp if dropped/lost
+          - "NOTEBOOK" : Points if forgotten
+          - "LUNCHBOX" : Points to your food stash
           
       # CREATURE MARKERS — Warning Colors
       
@@ -142,25 +142,25 @@ object:
         shape: "skull"
         blinks: "urgent"
         examples:
-          - "GRUE DETECTED" → Points away from grue
-          - "DARKNESS AHEAD" → Points to unlit rooms
-          - "TRAP" → Points to known hazards
+          - "GRUE DETECTED" : Points away from grue
+          - "DARKNESS AHEAD" : Points to unlit rooms
+          - "TRAP" : Points to known hazards
           
       friendly_npc:
         color: "YELLOW 👤"
         shape: "person"
         examples:
-          - "SKELETON" → Points to room-i
-          - "MAURICE" → Points to coatroom
-          - "MOTHER" → Points to home (when present)
+          - "SKELETON" : Points to room-i
+          - "MAURICE" : Points to coatroom
+          - "MOTHER" : Points to home (when present)
           
       companion:
         color: "PURPLE 🐾"
         shape: "paw"
         examples:
-          - "LOST PET" → Points to pet's last known location
-          - "SIBLING" → Points to sibling's location
-          - "PARTY MEMBER" → Points to scattered companions
+          - "LOST PET" : Points to pet's last known location
+          - "SIBLING" : Points to sibling's location
+          - "PARTY MEMBER" : Points to scattered companions
           
       # NAVIGATION MARKERS — Utility
       
@@ -181,7 +181,7 @@ object:
         intensity: "Size shows strength"
         
       exit:
-        color: "GREEN →"
+        color: "GREEN :"
         shape: "arrow"
         description: "Known exits from current room"
         
@@ -209,9 +209,9 @@ object:
            - "NPC wants to talk!"
            
         3. MOMENTUM: What you're already doing
-           - Mapping maze? → "Next unexplored room: NORTH"
-           - Hunting grue? → "Last seen: 3 rooms WEST"
-           - Collecting gold? → "More gold: EAST (50 coins)"
+           - Mapping maze? : "Next unexplored room: NORTH"
+           - Hunting grue? : "Last seen: 3 rooms WEST"
+           - Collecting gold? : "More gold: EAST (50 coins)"
            
         4. NARRATIVE: Story beats
            - "Skeleton mentioned something about the vendor..."
@@ -222,7 +222,7 @@ object:
         Tom's screen shows:
         
         ║        🗺️ TOM'S MISSION HUD 🗺️        ║
-        ║  ⭐ MAIN: Find the Treasure (E→E→N)  ║
+        ║  ⭐ MAIN: Find the Treasure (E:E:N)  ║
         ║  💗 MOM: Reply to her letter!        ║
         ║  💰 NEAR: Gold pile (2 rooms S)      ║
         ║  ☠️ WARN: Dark passage (N)           ║
@@ -303,8 +303,8 @@ object:
       examples:
         - "MARK Good hiding spot"
         - "MARK HERE AS Grue's lair"
-        - "WAYPOINT Good hiding spot" → Tom guides you there
-        - "UNMARK Grue's lair" → "Are you sure? That seemed important..."
+        - "WAYPOINT Good hiding spot" : Tom guides you there
+        - "UNMARK Grue's lair" : "Are you sure? That seemed important..."
         
     # GPS ROUTING — Turn-by-turn navigation!
     
@@ -374,11 +374,11 @@ object:
   growth:
     how_tom_learns: |
       Tom gains knowledge through YOUR exploration:
-      - Visit a room → Tom maps it
-      - Drop a marker → Tom remembers it
-      - Eat food → Tom catalogs the transformation and smell
-      - Meet someone → Tom notes their location
-      - Die to a grue → Tom marks "DANGER ZONE"
+      - Visit a room : Tom maps it
+      - Drop a marker : Tom remembers it
+      - Eat food : Tom catalogs the transformation and smell
+      - Meet someone : Tom notes their location
+      - Die to a grue : Tom marks "DANGER ZONE"
       
     affection_levels:
       - level: 0

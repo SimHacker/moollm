@@ -1,0 +1,112 @@
+# TEXT.yml — Instant Short Message
+#
+# It's 2026. Everyone has a phone. Texts are instant.
+#
+# Texts are simpler than letters:
+# - Short (< 160 chars recommended)
+# - Photo attachments only
+# - Instant delivery (not queued)
+# - Casual tone
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+text:
+  # === IDENTITY ===
+  
+  id: "{{text_id}}"                # REQUIRED: Unique identifier
+  
+  # === ADDRESSING (Deterministic!) ===
+  
+  from: "{{sender_path}}"          # REQUIRED: e.g., "characters/npcs/bartender/"
+  to: "{{recipient_path}}"         # REQUIRED: e.g., "player"
+  
+  # === CONTENT ===
+  
+  body: "{{message}}"              # REQUIRED: Short message (< 160 chars ideal)
+  
+  # === OPTIONAL ATTACHMENTS ===
+  #
+  # Texts only support photos (unlike letters which support anything)
+  #
+  
+  photo: null                      # OPTIONAL: Image reference or generation prompt
+  # Example:
+  #   photo:
+  #     ref: "images/found-hat.jpg"
+  # Or:
+  #   photo:
+  #     generate: "A fedora hat sitting on a bar counter"
+  
+  # === QUICK REPLIES ===
+  #
+  # Pre-defined reply options for easy response
+  #
+  
+  quick_replies: []                # OPTIONAL: Suggested replies
+  # Example:
+  #   quick_replies:
+  #     - "On my way!"
+  #     - "Thanks, be there soon"
+  #     - "Can you hold it?"
+  
+  # === METADATA ===
+  
+  timestamp: null                  # COMPUTED: When sent
+  read: false                      # COMPUTED: Has been read
+  
+  # === DELIVERY ===
+  #
+  # Texts are INSTANT (unlike letters which queue for next tick)
+  #
+  
+  delivery: instant                # instant | queued
+  
+  # === CONVERSATION THREADING ===
+  
+  reply_to: null                   # OPTIONAL: Text ID this replies to
+  thread_id: null                  # OPTIONAL: Conversation thread
+  
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLES
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Simple text:
+#
+#   text:
+#     id: text-001
+#     from: "characters/npcs/bartender/"
+#     to: "player"
+#     body: "Hey, you left your hat here!"
+#     timestamp: "2026-01-10T15:30:00Z"
+#
+# Text with photo:
+#
+#   text:
+#     id: text-002
+#     from: "characters/real-people/don-hopkins/"
+#     to: "player"
+#     body: "Check out what I found!"
+#     photo:
+#       ref: "images/treasure-discovery.jpg"
+#
+# Text with quick replies:
+#
+#   text:
+#     id: text-003
+#     from: "characters/family/mom/"
+#     to: "player"
+#     body: "Coming home for dinner? 💕"
+#     quick_replies:
+#       - "Yes! Be there soon"
+#       - "Running late, start without me"
+#       - "Can't tonight, sorry"
+#
+# Group text (to party):
+#
+#   text:
+#     id: text-004
+#     from: "player"
+#     to: "party"  # Reserved keyword → all party members
+#     body: "Meet at the pub in 5!"
+#
+# ═══════════════════════════════════════════════════════════════════════════════

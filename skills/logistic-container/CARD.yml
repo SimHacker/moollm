@@ -1,0 +1,270 @@
+# CARD.yml — Logistic Container
+#
+# Factorio-style logistics boxes for MOOLLM adventures.
+# "Items flow like water through pipes to where they're needed."
+
+card:
+  id: logistic-container
+  name: "Logistic Container"
+  type: [skill, storage, logistics, game]
+  
+  emoji: 📦
+  
+  rarity: uncommon  # Power feature for automation
+  
+  description: |
+    Factorio-style logistics containers that participate in a network.
+    Items flow automatically between providers and requesters.
+    Supports grid storage with auto-created cells, fungible vs instance
+    item tracking, stacking, and circuit network signals.
+    
+    "The factory grows. Items flow. The world runs itself."
+
+# TOOLS REQUIRED
+
+tools:
+  required:
+    - read_file   # Read container state
+    - write_file  # Update contents
+    - list_dir    # Navigate grid cells
+    - mkdir       # Create new cells
+  optional: []
+
+tier: 2  # File operations + directory creation
+
+# FACTORIO BOX TYPES
+
+box_types:
+  
+  passive-provider:
+    emoji: "📦🟡"
+    color: yellow
+    description: "Take from me if you need it"
+    behavior: |
+      - Items are available to the logistics network
+      - Won't push items out on its own
+      - Waits for requesters to pull
+    use_cases:
+      - Pantry
+      - Armory
+      - Library
+      - General storage
+      
+  active-provider:
+    emoji: "📦🔴"
+    color: red
+    description: "I'm pushing these OUT"
+    behavior: |
+      - Actively routes items to destinations
+      - Uses push_to rules to match items
+      - Good for factory output
+    use_cases:
+      - Assembly line output
+      - Mail outbox
+      - Recycling bin
+      - Trash chute
+      
+  requester:
+    emoji: "📦🔵"
+    color: blue
+    description: "I WANT these items"
+    behavior: |
+      - Maintains a request_list of desired items
+      - Pulls from providers to fulfill requests
+      - Keeps requesting until satisfied
+    use_cases:
+      - Crafting workbench
+      - Player inventory
+      - Kitchen prep station
+      - Fuel hopper
+      
+  storage:
+    emoji: "📦⬜"
+    color: white
+    description: "General overflow"
+    behavior: |
+      - Accepts anything the network can't route
+      - Low priority for retrieval
+      - The catch-all container
+    use_cases:
+      - Warehouse overflow
+      - Junk drawer
+      - Lost and found
+      
+  buffer:
+    emoji: "📦🟢"
+    color: green
+    description: "Hold until needed"
+    behavior: |
+      - Staging area with conditional forwarding
+      - Higher priority than storage for bots
+      - Releases items when condition is met
+    use_cases:
+      - Loading dock
+      - Mail staging
+      - Gift wrapping station
+
+# GRID STORAGE
+
+grid_storage:
+  description: |
+    Containers can manage a GRID of cells, each holding one item type.
+    New cells are auto-created when new item types arrive.
+    Like a warehouse with organized shelves.
+    
+  features:
+    - Auto-create cells for new item types
+    - Stack limits per cell
+    - Optional navigation (walk through warehouse)
+    - Fungible or instance storage per cell
+    - Signals for automation
+    
+  example_structure: |
+    warehouse/
+      LOGISTIC-CONTAINER.yml
+      iron-ore/
+        CELL.yml    # count: 2500
+      copper-ore/
+        CELL.yml    # count: 1800
+      magic-sword/
+        CELL.yml    # instances: [...]
+
+# ITEM HANDLING
+
+item_handling:
+  
+  fungible:
+    description: "Identical items, just count them"
+    storage: "{ item: 'iron-ore', count: 500 }"
+    tags: ["raw-material", "currency", "ammo", "commodity"]
+    merge_behavior: "Add counts when stacking"
+    
+  instance:
+    description: "Each item has unique state"
+    storage: "{ item: 'sword', instances: [{...}, {...}] }"
+    tags: ["unique", "named", "enchanted", "configured"]
+    merge_behavior: "Never merge, always keep separate"
+    
+  auto:
+    description: "Decide based on item tags"
+    logic: |
+      If item.tags includes any fungible_tags → fungible
+      If item.tags includes any instance_tags → instance
+      Default: fungible
+
+# METHODS
+
+methods:
+  
+  ADD:
+    description: "Add item to container"
+    parameters:
+      container: "Container path"
+      item: "Item to add"
+      count: "Amount (for fungible)"
+    output: state-change + chat
+    effect: |
+      1. Check filters
+      2. Find/create cell
+      3. Add to count or instances
+      4. Update stats, fire events
+    invoked-by: [player, bot, system]
+    
+  REMOVE:
+    description: "Remove item from container"
+    parameters:
+      container: "Container path"
+      item: "Item type"
+      count: "Amount (for fungible)"
+      instance_id: "Specific instance (for instance mode)"
+    output: state-change + chat
+    effect: |
+      1. Check reserve limit
+      2. Decrement count or remove instance
+      3. Update stats, fire events
+    invoked-by: [player, bot, system]
+    
+  TRANSFER:
+    description: "Move items between containers"
+    parameters:
+      source: "Source container"
+      destination: "Destination container"
+      item: "What to move"
+      count: "How many"
+    output: state-change + chat
+    effect: "REMOVE from source, ADD to destination"
+    invoked-by: [player, bot, system]
+    
+  REQUEST:
+    description: "Request items for a requester container"
+    parameters:
+      container: "Requester container"
+    output: transport-task
+    effect: |
+      1. Check request_list against current contents
+      2. Find providers with missing items
+      3. Create transport tasks for bots
+    invoked-by: [system, coherence-engine]
+    
+  PUSH:
+    description: "Push items from active-provider"
+    parameters:
+      container: "Provider container"
+    output: transport-task
+    effect: |
+      1. Check contents against push_to rules
+      2. Create transport tasks for matching items
+    invoked-by: [system, coherence-engine]
+    
+  QUERY:
+    description: "Check container contents"
+    parameters:
+      container: "Container path"
+      filter: "Optional item filter"
+    output: data
+    effect: "Return matching contents"
+    invoked-by: [player, bot, system]
+    
+  NAVIGATE:
+    description: "Move through grid cells"
+    parameters:
+      container: "Grid container path"
+      direction: "Direction to move"
+    output: chat + state-change
+    effect: "Move player to adjacent cell"
+    invoked-by: [player]
+
+# ADVERTISEMENTS
+
+advertisements:
+  
+  CREATE-LOGISTICS:
+    score: 85
+    condition: "Need automated storage and item flow"
+    
+  MANAGE-INVENTORY:
+    score: 80
+    condition: "Complex item management, stacking, filtering"
+    
+  BUILD-FACTORY:
+    score: 90
+    condition: "Automation puzzle, production chains"
+
+# RELATED
+
+see-also:
+  - skills/container         # Simpler container, inherits from
+  - skills/exit              # Exits with flow behavior
+  - skills/character         # Logistic bot characters
+  - skills/object            # Inserters and assemblers
+  - skills/postal            # Message logistics
+  - designs/factorio-logistics-protocol.md
+
+# CREDITS
+
+credits:
+  inspiration:
+    - "Factorio — Logistic network, chests, bots"
+    - "Minecraft — Item stacking and storage"
+    - "The Sims — Inventory management"
+    - "OpenLaszlo — Placement protocol"

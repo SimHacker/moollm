@@ -1,0 +1,159 @@
+# BROKEN_REFERENCE Event Handler
+#
+# When the linter finds a reference that doesn't resolve,
+# this handler guides the LLM to fix or create the target.
+#
+# "A reference is a promise. When broken, we can keep it."
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+event_handler:
+  name: BROKEN_REFERENCE
+  handles: [BROKEN_REFERENCE, CIRCULAR_REFERENCE]
+  
+  description: |
+    When a reference (path, exit, inherits) points to a non-existent target:
+    1. Analyze what was expected
+    2. Decide: create it, fix the reference, or ignore
+    3. Generate the missing content if creating
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INPUT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+input:
+  event:
+    type: BROKEN_REFERENCE
+    path: "{{path}}"              # File containing the reference
+    message: "{{message}}"        # What's broken
+    data:
+      direction: "{{direction}}"  # Exit direction (if applicable)
+      destination: "{{destination}}"  # Target path
+      reference_type: "{{ref_type}}"  # exit | inherits | ref | file
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output:
+  # What action to take
+  action: "{{action}}"  # create | fix | ignore
+  
+  # Explanation
+  explanation: "{{why_this_action}}"
+  
+  # If creating: the file to create
+  create:
+    path: "{{new_file_path}}"
+    content: |
+      {{new_file_content}}
+      
+  # If fixing: the corrected reference
+  fix:
+    original: "{{original_reference}}"
+    corrected: "{{corrected_reference}}"
+    
+  # Confidence (0-100)
+  confidence: "{{confidence}}"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DECISION TREE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+decision_tree:
+  exit_reference:
+    description: "Exit points to non-existent room"
+    if_pattern_suggests_new_room:
+      action: create
+      create_type: room
+      generate: "ROOM.yml with exits back to source"
+    if_typo_likely:
+      action: fix
+      find_similar: "Look for similar room names"
+    if_intentionally_undefined:
+      action: ignore
+      markers: ["???", "TODO", "TBD"]
+      
+  inherits_reference:
+    description: "inherits: points to non-existent prototype"
+    if_skill_reference:
+      action: ignore  # Skills may not be installed
+      note: "Reference to skill prototype — may be external"
+    if_local_reference:
+      action: fix_or_create
+      
+  file_reference:
+    description: "Path to file that doesn't exist"
+    if_common_asset:
+      action: create
+      generate: "Placeholder or template"
+    if_typo_likely:
+      action: fix
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ROOM GENERATION TEMPLATE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+room_template: |
+  # Auto-generated room for broken reference
+  # Source: {{source_path}}
+  # Reference: {{direction}} → {{destination}}
+  
+  room:
+    name: "{{inferred_name}}"
+    type: room
+    
+    description: |
+      {{generated_description}}
+      
+    examine: |
+      {{generated_examine}}
+      
+    exits:
+      {{back_direction}}: {{back_path}}
+      # Add more exits as needed
+      
+    # TODO: Add objects, atmosphere, etc.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - broken:
+      path: "pub/ROOM.yml"
+      message: "Exit NORTH points to non-existent: ../great-hall/"
+    resolution:
+      action: create
+      create:
+        path: "great-hall/ROOM.yml"
+        content: |
+          room:
+            name: "The Great Hall"
+            description: |
+              A vast hall with vaulted ceilings.
+            exits:
+              SOUTH: ../pub/
+              
+  - broken:
+      path: "kitchen/lamp.yml"
+      message: "inherits: skills/objects/light-sourc.yml does not exist"
+    resolution:
+      action: fix
+      fix:
+        original: "skills/objects/light-sourc.yml"
+        corrected: "skills/objects/light-source.yml"
+      explanation: "Typo: 'light-sourc' → 'light-source'"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROCEDURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+procedure: |
+  1. IDENTIFY the type of reference (exit, inherits, file)
+  2. CHECK for intentional undefined markers (???, TODO)
+  3. CHECK for typos by looking for similar existing paths
+  4. DECIDE: create, fix, or ignore
+  5. IF creating: generate appropriate content using templates
+  6. IF fixing: provide the corrected reference
+  7. SET confidence based on certainty

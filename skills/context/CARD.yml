@@ -1,0 +1,87 @@
+# Context — Runtime World Primitive
+# Machine-readable interface for adventure compilation
+
+card:
+  id: context
+  name: "Context (World)"
+  type: primitive
+  emoji: "🌍"
+  
+  description: |
+    The `world` object passed to every compiled closure.
+    The closure sees the WORLD.
+    
+  # Why "world" not "ctx"
+  naming:
+    object: world
+    rationale: |
+      - More evocative — closures see the WORLD
+      - Self-documenting — world.player, world.room
+      - Matches the mental model
+    
+  # Standard keys (always present)
+  standard_keys:
+    - turn
+    - timestamp
+    - adventure
+    - player
+    - room
+    - party
+    
+  # Extended keys (contextual)
+  extended_keys:
+    - object      # When simulating an object
+    - target      # When action has a target
+    - npc         # When NPC is simulating
+    
+  # Skill namespace — UNDERSCORES not dashes!
+  skill_namespace:
+    pattern: "world.skills.<skill_name_with_underscores>"
+    rule: "skill-name with dashes → skill_name with underscores"
+    examples:
+      - skill: "economy"
+        namespace: "world.skills.economy"
+      - skill: "pie-menu"
+        namespace: "world.skills.pie_menu"
+      - skill: "foo-bar"
+        namespace: "world.skills.foo_bar"
+    why: "Dashes are not valid JavaScript/Python identifiers"
+  
+  # Utility functions
+  functions:
+    narrative:
+      - emit
+      - narrate
+    events:
+      - trigger_event
+    inventory:
+      - has
+      - give
+      - take
+    flags:
+      - flag
+      - set_flag
+    state:
+      - get
+      - set
+    navigation:
+      - go
+      - can_go
+    buffs:
+      - add_buff
+      - remove_buff
+      - has_buff
+    logging:
+      - log
+      
+  # How this maps to runtime
+  runtime:
+    python: Context  # or dict with methods
+    javascript: Context
+    
+  related:
+    - object
+    - room
+    - adventure
+    - buff
+    - simulation

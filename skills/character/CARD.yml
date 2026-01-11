@@ -184,6 +184,71 @@ character-types:
   companion: "Follows player, has own personality"
   bot: "Autonomous via action queue"
   agent: "LLM with own goals and initiative"
+  logistic-bot: "Factorio-style carrier that moves items between containers"
+
+# LOGISTICS BOT BEHAVIOR (Factorio Inspired!)
+#
+# Characters can act as logistic bots — autonomous carriers
+# that transport items between providers and requesters.
+#
+# FACTORIO MAPPING:
+#   Logistic Bot → Character with behavior.type: logistic-bot
+#   Roboport → Character's home base (charging, resting)
+#   Cargo → Inventory slots designated for transport
+#   Range → How far from roboport the bot will travel
+
+logistics-behavior:
+  description: |
+    Characters with behavior.type: logistic-bot will:
+    1. Find items in active-provider containers
+    2. Pick them up into cargo slots
+    3. Find matching requester containers
+    4. Deliver items there
+    5. Return to roboport when idle
+    
+  schema:
+    behavior:
+      type: logistic-bot
+      roboport: "path/to/charging-station"    # Home base
+      cargo_slots: 3                           # How much they can carry
+      range: 5                                 # Max rooms from roboport
+      speed: 1                                 # Rooms per turn
+      priority: "nearest"                      # nearest | fullest | emptiest
+      filters: []                              # Only carry matching items
+    
+  example: |
+    character:
+      id: delivery-kitten
+      name: "Courier Kitten"
+      emoji: "🐱📦"
+      species: kitten
+      
+      behavior:
+        type: logistic-bot
+        roboport: pub/#charging-station
+        cargo_slots: 3
+        range: 5
+        
+      ai: |
+        Each turn:
+          If cargo is empty:
+            Find nearest active-provider with items
+            Travel there, pick up items
+          If cargo has items:
+            Find matching requester
+            Travel there, deliver items
+          If idle:
+            Return to roboport
+            
+  player-logistics: |
+    # Players can participate in logistics too!
+    player:
+      logistics:
+        personal_requests:
+          - { item: "torch", count: 1, priority: high }
+          - { tags: ["food"], count: 3, priority: low }
+        can_receive: true      # Bots deliver TO player
+        delivery_zone: 2       # Bots can deliver within 2 rooms
 
 # ADVERTISEMENTS
 

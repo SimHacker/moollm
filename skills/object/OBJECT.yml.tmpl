@@ -1,0 +1,753 @@
+# OBJECT.yml — Interactable Thing Primitive
+#
+# Objects are the atoms of the adventure world.
+# Everything you can interact with is an object.
+#
+# THE SIMS INSIGHT (Will Wright):
+# "The intelligence is in the objects, not the characters.
+#  A refrigerator knows it offers food. A bed knows it offers sleep.
+#  The character just picks from what's advertised nearby."
+#
+# SELF INSIGHT (Dave Ungar):
+# "Everything is an object. Objects have slots.
+#  Slots hold data OR behavior. That's IT."
+#
+# SCHEMA MARKERS (Empathic Templates):
+# - REQUIRED: Must be present
+# - OPTIONAL: Has default or can be omitted
+# - COMPUTED: Derived at runtime
+# - INHERITED: From prototype
+# - ABSTRACT: Natural language OK
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+object:
+  # === IDENTITY ===
+  
+  id: "{{id}}"                     # REQUIRED: Unique identifier (kebab-case)
+  name: "{{name}}"                 # REQUIRED: Display name
+  type: object                     # OPTIONAL: object, furniture, item, tool, etc.
+  emoji: "📦"                      # OPTIONAL: Visual shorthand
+  
+  # === TAGS ===
+  #
+  # Tags make it easy to write expressions that filter objects:
+  #   world.room.objects.filter(o => o.tags.includes("weapon"))
+  #   "any light-source in inventory" → world.player.has_tag("light-source")
+  #
+  # Common tags:
+  #   weapon, food, drink, container, light-source, tool, treasure,
+  #   readable, wearable, consumable, magical, fragile, heavy
+  #
+  
+  tags: []                         # OPTIONAL: List of category tags
+  # Examples:
+  #   tags: ["weapon", "magical"]
+  #   tags: ["food", "consumable"]
+  #   tags: ["light-source", "fragile"]
+  
+  # === DISPLAY ===
+  
+  description: "{{description}}"   # REQUIRED: What player sees on first look
+  examine: "{{examine}}"           # OPTIONAL: Detailed look (EXAMINE command)
+  subtitle: null                   # OPTIONAL: Brief tagline
+  
+  # === PROPERTIES ===
+  
+  takeable: false                  # OPTIONAL: Can be picked up
+  container: false                 # OPTIONAL: Can hold other objects
+  locked: false                    # OPTIONAL: Requires action to open
+  
+  # === VISIBILITY ===
+  #
+  # Hidden objects are NOT shown to the player.
+  # They exist in the world but are invisible.
+  #
+  # USE CASES:
+  # - Prototypes: Templates to be cloned (hidden: true)
+  #   → Instance overrides with hidden: false
+  # - Utility objects: Infrastructure, triggers, anchors
+  # - Agents: NPCs that act but aren't visible (ghosts, AI)
+  # - Tasks: Goal objects that track progress
+  # - "Come and see me" objects: Attractors for AI scheduling
+  # - Spawners: Objects that create other objects
+  #
+  # INHERITANCE PATTERN:
+  #   # In skills/objects/light-source.yml (prototype)
+  #   object:
+  #     hidden: true   # ← Don't show prototype!
+  #     simulate: ...
+  #
+  #   # In maze/torch.yml (instance)
+  #   object:
+  #     inherits: [skills/objects/light-source.yml]
+  #     hidden: false  # ← Make instance visible!
+  #
+  
+  hidden: false                    # OPTIONAL: Hide from player (default: visible)
+  disabled: false                  # OPTIONAL: Don't simulate (default: enabled)
+  # disabled: true for:
+  #   - Prototypes (templates shouldn't simulate)
+  #   - Turned-off appliances
+  #   - Broken objects
+  #   - Paused agents
+  
+  # === CONTENTS (if container) ===
+  
+  contains: []                     # OPTIONAL: List of object ids or paths
+  capacity: null                   # OPTIONAL: Max items if container
+  
+  # === ADVERTISEMENTS ===
+  #
+  # THE SIMS ARCHITECTURE:
+  # Objects don't wait to be used — they ADVERTISE what they can do.
+  # Each advertisement has a score. Highest score = default action.
+  #
+  # score_if, guard, effect can be natural language (ABSTRACT).
+  # The compiler generates _js and _py versions.
+  #
+  
+  advertisements:
+    # Example:
+    # EXAMINE:
+    #   description: "Look closely at this object"
+    #   score: 50
+    #   effect: "Show detailed description"
+    #
+    # USE:
+    #   description: "Use this object"
+    #   score: 70
+    #   guard: "object is not broken"
+    #   effect: "Activate the object's primary function"
+  
+  # === INHERITANCE ===
+  #
+  # SELF-STYLE PROTOTYPES:
+  # Objects can inherit from prototypes in skills/.
+  # A torch inherits from skills/objects/light-source.yml
+  #
+  
+  inherits: []                     # OPTIONAL: List of prototype paths
+  
+  # === STATE ===
+  #
+  # Mutable state specific to this instance.
+  # State changes are tracked in YAML.
+  #
+  
+  state: {}
+  # Examples:
+  #   lit: false
+  #   fuel: 100
+  #   uses_remaining: 3
+  #   broken: false
+  
+  # === SIMULATION ===
+  #
+  # THE SIMS INSIGHT: Objects have their own update loops!
+  # Each turn, objects with `simulate` get TICKED.
+  #
+  # The `simulate` field is natural language that compiles to a closure.
+  # It can call other methods defined on the object (1:1 name mapping).
+  #
+  # Example:
+  #   simulate: |
+  #     if lit:
+  #       consume_fuel(1)
+  #       if fuel <= 0:
+  #         extinguish()
+  #         emit("The lamp sputters and dies!")
+  #
+  # This generates:
+  #   simulate_js: (world) => {
+  #     if (world.object.state.lit) {
+  #       world.consume_fuel(1);
+  #       if (world.object.state.fuel <= 0) {
+  #         world.extinguish();
+  #         world.emit("The lamp sputters and dies!");
+  #       }
+  #     }
+  #   }
+  #
+  
+  simulate: null                   # ABSTRACT: Natural language simulation tick
+  simulate_js: null                # COMPUTED: JavaScript closure over world
+  simulate_py: null                # COMPUTED: Python closure over world
+  
+  # === RESILIENCE (SimCity Zone Pattern) ===
+  #
+  # WILL WRIGHT INSIGHT:
+  # "SimCity zones are self-healing. If one tile burns but the center survives,
+  #  the zone will eventually rebuild. Objects should be the same."
+  #
+  # Simulation functions should be:
+  #
+  # 1. ROBUST — Handle missing/undefined gracefully
+  #      Bad:  if (world.object.state.fuel > 0)  // crashes if no state
+  #      Good: if ((world.object.state?.fuel ?? 0) > 0)
+  #
+  # 2. SELF-INITIALIZING — Set up default state if missing
+  #      simulate: |
+  #        first, ensure state has 'lit' (default false) and 'fuel' (default 100)
+  #        then check lit status...
+  #
+  # 3. SELF-HEALING — Recover from corruption
+  #      simulate: |
+  #        if fuel is somehow negative, reset to 0
+  #        if lit but fuel is 0, extinguish
+  #        if broken flag is set but not actually damaged, clear it
+  #
+  # Natural language for resilience:
+  #   "first ensure state.lit exists (default false) and state.fuel exists (default 100)"
+  #   "if fuel is negative, clamp to 0"
+  #   "if lit is undefined, assume unlit"
+  #
+  # The LLM generates defensive code:
+  #   simulate_js: (world) => {
+  #     const state = world.object.state ??= {};
+  #     state.lit ??= false;
+  #     state.fuel ??= 100;
+  #     state.fuel = Math.max(0, state.fuel);  // Heal negative
+  #     if (state.lit && state.fuel <= 0) {
+  #       state.lit = false;  // Self-heal inconsistency
+  #     }
+  #     // Now safe to run normal simulation...
+  #   }
+  #
+  
+  defaults: {}                     # OPTIONAL: Default state values for self-initialization
+  # Example:
+  #   defaults:
+  #     lit: false
+  #     fuel: 100
+  #     durability: 100
+  
+  # === METHODS ===
+  #
+  # Named methods that simulate (or advertisements) can call.
+  # Natural language → compiled JS/PY. 1:1 mapping!
+  #
+  # Example:
+  #   methods:
+  #     consume_fuel: "reduce fuel by amount, minimum 0"
+  #     extinguish: "set lit to false, emit darkness event"
+  #     ignite: "set lit to true if fuel > 0"
+  #
+  # Generates:
+  #   methods_js:
+  #     consume_fuel: "(world, amount) => { world.object.state.fuel = Math.max(0, world.object.state.fuel - amount); }"
+  #     extinguish: "(world) => { world.object.state.lit = false; world.emit('DARKNESS'); }"
+  #     ignite: "(world) => { if (world.object.state.fuel > 0) world.object.state.lit = true; }"
+  #
+  
+  methods: {}                      # ABSTRACT: name → natural language
+  methods_js: {}                   # COMPUTED: name → JavaScript
+  methods_py: {}                   # COMPUTED: name → Python
+  
+  # === CONSUMPTION (Food Oriented Programming!) ===
+  #
+  # Foods define their own digestion journey!
+  # Each food specifies what happens when consumed.
+  #
+  # PHILOSOPHY:
+  # "The intelligence is in the food, not the stomach."
+  # Just like The Sims objects advertise their actions,
+  # foods advertise their EFFECTS — including digestion!
+  #
+  
+  on_consume: null                 # ABSTRACT: What happens when eaten/drunk
+  on_consume_js: null              # COMPUTED: Compiled JavaScript
+  on_consume_py: null              # COMPUTED: Compiled Python
+  
+  # Buffs applied when consumed (the digestion chain)
+  consumption_buffs: []            # OPTIONAL: Buff definitions or references
+  # Example:
+  #   consumption_buffs:
+  #     - id: coffee-buzz
+  #       effect: "+20% speed, -10% patience"
+  #       duration: 5
+  #       spawns_after:
+  #         - id: caffeine-crash
+  #           delay: 1
+  #     - id: need-to-pee
+  #       delay: 3
+  #       effect: "bladder pressure increases"
+  
+  # Nutrition info (for simulation)
+  nutrition:                       # OPTIONAL: What this food provides
+    # energy: 50        # Restore energy/hunger
+    # hydration: 20     # Restore thirst
+    # comfort: 10       # Feel good
+    # bladder: -30      # Fill bladder (negative = pressure)
+    # social: 0         # Some foods are social!
+    # fun: 5            # Tasty!
+  
+  # === LOGISTICS (Factorio Inserter/Assembler!) ===
+  #
+  # Objects can be logistics actors — picking, placing, transforming items.
+  # Like Factorio's inserters, splitters, and assemblers!
+  #
+  # FACTORIO MAPPING:
+  #   Inserter → Object that moves items between locations
+  #   Assembler → Object that transforms inputs → outputs
+  #   Splitter → Object that routes items by type
+  #   Belt → Use exit with flow: enabled instead
+  #
+  
+  logistics_type: null             # OPTIONAL: inserter | assembler | splitter | sensor
+  
+  # === INSERTER BEHAVIOR ===
+  # Picks from source, places in destination.
+  # Like a robot arm moving items between containers.
+  #
+  # Example:
+  #   logistics_type: inserter
+  #   input:
+  #     source: "#storage-chest"
+  #     filter: { tags: ["ore"] }
+  #   output:
+  #     destination: "#furnace"
+  #     place_where: "in"
+  #   stack_size: 1              # Items per operation
+  #   range: 1                   # Rooms it can reach
+  #
+  
+  input: null                      # OPTIONAL: Where inserter picks from
+  output: null                     # OPTIONAL: Where inserter places items
+  stack_size: 1                    # OPTIONAL: Items moved per turn
+  range: 1                         # OPTIONAL: How far it can reach (rooms)
+  
+  # === ASSEMBLER BEHAVIOR ===
+  # Transforms inputs into outputs using recipes.
+  # Like a furnace smelting ore into plates.
+  #
+  # Example:
+  #   logistics_type: assembler
+  #   recipe:
+  #     id: smelt-iron
+  #     inputs:
+  #       - { item: "iron-ore", count: 1 }
+  #       - { item: "coal", count: 0.5 }
+  #     outputs:
+  #       - { item: "iron-plate", count: 1 }
+  #     time: 3                  # Turns to complete
+  #   input_slots: 2
+  #   output_slots: 1
+  #
+  
+  recipe: null                     # OPTIONAL: Current crafting recipe
+  input_slots: 0                   # OPTIONAL: Input storage capacity
+  output_slots: 0                  # OPTIONAL: Output storage capacity
+  recipes_available: []            # OPTIONAL: List of recipes this can craft
+  
+  # === CIRCUIT/SIGNAL BEHAVIOR ===
+  # Objects can emit and read signals like Factorio's circuit network.
+  # Enables conditional gates, displays, and smart logistics.
+  #
+  # Example:
+  #   logistics_type: sensor
+  #   reads_from: "#storage-chest"
+  #   signals:
+  #     - signal: "iron-count"
+  #       value: "count of iron-plate in storage-chest"
+  #   circuit_condition:
+  #     if: "iron-count > 100"
+  #     output_signal: "iron-full"
+  #
+  # For circuit-controlled objects:
+  #   enabled_condition:
+  #     signal: "power-on"
+  #     operator: "=="
+  #     value: true
+  #
+  
+  reads_from: null                 # OPTIONAL: What this sensor monitors
+  signals: []                      # OPTIONAL: Signals this object emits
+  circuit_condition: null          # OPTIONAL: Conditional signal output
+  enabled_condition: null          # OPTIONAL: Only operate when signal true
+  
+  # === IMAGE MINING ===
+  #
+  # Objects can be MINEABLE — extracting resources from images!
+  # Your camera is a pickaxe for visual reality.
+  #
+  # Like the Kitchen Counter's DECOMPOSE, but for images:
+  #   sandwich → bread + cheese + lettuce
+  #   ore_painting.png → iron-ore × 12 + artistic-essence × 1
+  #
+  # ACTIONS: MINE, SCAN, PROSPECT
+  #
+  # Example:
+  #   mineable:
+  #     enabled: true
+  #     yields:
+  #       - item: iron-ore
+  #         quantity: [5, 15]       # Random range
+  #       - item: copper-ore
+  #         quantity: [2, 8]
+  #       - item: artistic-essence
+  #         quantity: 1
+  #         rare: 0.3               # 30% chance
+  #     exhaustion:
+  #       max_mines: 3              # Can mine 3 times
+  #       diminishing: 0.5          # Each yields 50% less
+  #       regenerates: false
+  #     side_effects:
+  #       - "The painting fades slightly with each extraction"
+  #
+  
+  mineable: null                   # OPTIONAL: Mining configuration
+  # mineable:
+  #   enabled: true
+  #   yields: []                   # List of { item, quantity, rare }
+  #   exhaustion:                  # Depletion settings
+  #     max_mines: -1              # -1 = infinite
+  #     diminishing: 1.0           # 1.0 = no decrease
+  #     regenerates: false
+  #     regen_rate: 0              # Turns to restore 1 mine
+  #   tool_required: null          # Optional tool (camera, analyzer, etc.)
+  #   depth: surface               # surface | deep | quantum | philosophical
+  #   side_effects: []             # Narrative effects of mining
+  
+  # === LOCATION ===
+  #
+  # Where is this object right now?
+  # Updated when moved, picked up, dropped.
+  #
+  
+  location: null                   # COMPUTED: Path to containing room or character
+  
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLES
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Simple item:
+#
+#   object:
+#     id: brass-key
+#     name: "Brass Key"
+#     type: item
+#     emoji: "🔑"
+#     description: "A heavy brass key with ornate teeth."
+#     examine: "The key is warm to the touch. Inscribed: 'TREASURY'"
+#     takeable: true
+#
+# Container:
+#
+#   object:
+#     id: wooden-chest
+#     name: "Wooden Chest"
+#     type: container
+#     emoji: "📦"
+#     description: "An old wooden chest with iron bands."
+#     container: true
+#     locked: true
+#     contains:
+#       - brass-key
+#       - old-map
+#     advertisements:
+#       OPEN:
+#         description: "Open the chest"
+#         guard: "chest is not locked"
+#         effect: "Reveal contents"
+#       UNLOCK:
+#         description: "Unlock with a key"
+#         guard: "player has chest-key"
+#         effect: "Unlock the chest"
+#
+# Furniture with state:
+#
+#   object:
+#     id: oil-lamp
+#     name: "Oil Lamp"
+#     type: furniture
+#     emoji: "🪔"
+#     description: "A brass oil lamp."
+#     inherits:
+#       - skills/objects/light-source.yml
+#     state:
+#       lit: false
+#       fuel: 100
+#     advertisements:
+#       LIGHT:
+#         description: "Light the lamp"
+#         guard: "lamp has fuel AND lamp is not lit"
+#         score: 80
+#         effect: "The lamp flickers to life. Darkness retreats."
+#       EXTINGUISH:
+#         description: "Put out the flame"
+#         guard: "lamp is lit"
+#         score: 40
+#         effect: "The flame dies. Darkness returns."
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# LAMP WITH SIMULATE AND METHODS — The Full Pattern
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# This shows the complete simulation pattern:
+# - state: mutable properties
+# - simulate: what happens each tick (receives `world`)
+# - methods: reusable behaviors (bound to `world`)
+# - advertisements: player actions (call methods)
+#
+#   object:
+#     id: brass-lantern
+#     name: "Brass Lantern"
+#     type: light-source
+#     emoji: "🪔"
+#     
+#     description: "A well-crafted brass lantern."
+#     examine: |
+#       The lantern gleams dully. A reservoir of oil sloshes inside.
+#       A small gauge shows fuel remaining.
+#     
+#     state:
+#       lit: false
+#       fuel: 100          # 0-100, drains 1 per turn when lit
+#       broken: false
+#     
+#     # === SIMULATION ===
+#     # Called every turn. The lamp manages itself!
+#     # Compiles to: simulate_js: (world) => { ... }
+#     
+#     simulate: |
+#       if lit and not broken:
+#         consume_fuel(1)
+#         if fuel <= 0:
+#           extinguish()
+#           emit("The lantern sputters and dies!")
+#           # Trigger grue protocol if in dangerous room
+#           if room.is_dark and room.is_dangerous:
+#             trigger_event("GRUE_APPROACHES")
+#     
+#     # === METHODS ===
+#     # Named behaviors. Called by simulate or advertisements.
+#     # Natural language → compiled closures. 1:1 name mapping!
+#     # Compiles to: methods_js: { consume_fuel: (world, amount) => {...}, ... }
+#     
+#     methods:
+#       consume_fuel: |
+#         Reduce fuel by amount (default 1).
+#         Fuel cannot go below 0.
+#         
+#       extinguish: |
+#         Set lit to false.
+#         Update room lighting.
+#         Emit DARKNESS event.
+#         
+#       ignite: |
+#         If fuel > 0 and not broken:
+#           Set lit to true.
+#           Update room lighting.
+#           Emit LIGHT event.
+#         Else:
+#           Emit "click... nothing happens"
+#           
+#       refuel: |
+#         Add amount to fuel (default: fill to 100).
+#         Emit "Oil sloshes as you refuel."
+#         
+#       break_lamp: |
+#         Set broken to true.
+#         If lit, extinguish first.
+#         Emit "The lantern shatters!"
+#     
+#     # === ADVERTISEMENTS ===
+#     # Player-facing actions that call methods.
+#     
+#     advertisements:
+#       LIGHT:
+#         description: "Light the lantern"
+#         guard: "fuel > 0 AND not lit AND not broken"
+#         score: 90
+#         score_if: "room is dark"
+#         effect: "ignite()"
+#         
+#       EXTINGUISH:
+#         description: "Put out the flame"
+#         guard: "lit"
+#         score: 30
+#         effect: "extinguish()"
+#         
+#       REFUEL:
+#         description: "Add oil to the lantern"
+#         guard: "player has oil flask"
+#         score: 60
+#         score_if: "fuel < 50"
+#         effect: |
+#           refuel(50)
+#           Remove oil flask from player inventory.
+#           
+#       EXAMINE:
+#         description: "Check the lantern"
+#         score: 40
+#         effect: |
+#           Show: "Fuel: {fuel}%"
+#           If lit: "The flame burns steadily."
+#           If broken: "The glass is cracked. It won't light."
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# FOOD ORIENTED PROGRAMMING — Foods Define Their Own Digestion!
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# COFFEE:
+#
+#   object:
+#     id: strong-coffee
+#     name: "Strong Coffee"
+#     emoji: "☕"
+#     tags: ["food", "drink", "consumable", "caffeinated"]
+#     description: "A cup of dark, aromatic coffee. Steam rises invitingly."
+#     
+#     nutrition:
+#       energy: 30
+#       hydration: 10
+#       bladder: -20    # Diuretic!
+#       fun: 5
+#       
+#     on_consume: |
+#       Emit "The rich coffee warms your soul."
+#       Apply coffee-buzz buff.
+#       After 5 turns, spawn caffeine-crash.
+#       After 3 turns, spawn need-to-pee.
+#       
+#     consumption_buffs:
+#       - id: coffee-buzz
+#         name: "Caffeinated"
+#         emoji: "⚡"
+#         effect: "+20% action speed, +10% perception"
+#         duration: 5
+#         spawns_after:
+#           - buff_id: caffeine-crash
+#             delay: 1
+#             
+#       - id: caffeine-crash
+#         name: "Caffeine Crash"
+#         emoji: "😴"
+#         effect: "-15% energy, -10% speed"
+#         duration: 3
+#         
+#       - id: need-to-pee
+#         name: "Coffee Bladder"
+#         emoji: "🚽"
+#         effect: "Bladder pressure +20/turn"
+#         duration: "until relieved"
+#         on_tick: "increase bladder pressure by 20"
+#
+# SPICY BURRITO:
+#
+#   object:
+#     id: spicy-burrito
+#     name: "El Diablo Burrito"
+#     emoji: "🌯"
+#     tags: ["food", "consumable", "spicy", "legendary"]
+#     description: "A massive burrito wrapped in foil. Warning label included."
+#     
+#     nutrition:
+#       energy: 80       # Very filling!
+#       comfort: 20
+#       bladder: -40     # Oh no
+#       fun: 15          # Worth it
+#       
+#     on_consume: |
+#       Emit "You unwrap the burrito. It glows faintly."
+#       Emit "It burns. It BURNS. But it's SO GOOD."
+#       Apply fire-mouth buff immediately.
+#       Schedule digestion-regret for 8 turns later.
+#       
+#     consumption_buffs:
+#       - id: fire-mouth
+#         name: "Mouth on Fire"
+#         emoji: "🔥"
+#         effect: "Cannot speak clearly, +30% thirst"
+#         duration: 4
+#         spawns_after:
+#           - buff_id: digestion-regret
+#             delay: 4
+#             
+#       - id: digestion-regret
+#         name: "El Diablo's Revenge"
+#         emoji: "💀"
+#         effect: |
+#           The burrito has begun its journey.
+#           Must find bathroom within 3 turns.
+#           Movement speed -20%.
+#         duration: 3
+#         on_tick: "emit ominous rumbling sounds"
+#         spawns_after:
+#           - buff_id: bathroom-emergency
+#             chance: 0.5   # 50% chance of disaster
+#             
+#       - id: bathroom-emergency
+#         name: "CODE BROWN"
+#         emoji: "🚨"
+#         effect: |
+#           You have ONE turn to find a bathroom.
+#           If not found, suffer social penalty.
+#         duration: 1
+#
+# MYSTERY MEAT:
+#
+#   object:
+#     id: mystery-meat
+#     name: "Mystery Meat"
+#     emoji: "🥩"
+#     tags: ["food", "consumable", "suspicious"]
+#     description: "It's... meat? Probably? The label says 'edible'."
+#     
+#     nutrition:
+#       energy: 40
+#       comfort: -10     # It's gross
+#       
+#     on_consume: |
+#       Roll for effect! (Random buff from pool)
+#       Emit "You chew... and swallow... and wait."
+#       
+#     consumption_buffs:
+#       - id: mystery-buff
+#         name: "???"
+#         random_effects:
+#           - { name: "Iron Stomach", effect: "+50% poison resist", chance: 0.3 }
+#           - { name: "Questionable Choice", effect: "-20% charisma for 3 turns", chance: 0.4 }
+#           - { name: "Actually Delicious", effect: "+30% energy, +10% mood", chance: 0.2 }
+#           - { name: "Food Poisoning", effect: "Very bad time", chance: 0.1 }
+#
+# GRANDMA'S COOKIES:
+#
+#   object:
+#     id: grandmas-cookies
+#     name: "Grandma's Homemade Cookies"
+#     emoji: "🍪"
+#     tags: ["food", "consumable", "comfort", "gift"]
+#     description: "Warm cookies in a tin. A note says 'Made with love.'"
+#     
+#     nutrition:
+#       energy: 20
+#       comfort: 50      # Maximum comfort!
+#       fun: 30
+#       
+#     on_consume: |
+#       Emit "The taste brings back memories."
+#       Emit "You feel loved."
+#       Apply nostalgia-comfort buff.
+#       If consumed near friends, apply shared-joy to nearby characters.
+#       
+#     consumption_buffs:
+#       - id: nostalgia-comfort
+#         name: "Grandma's Love"
+#         emoji: "💕"
+#         effect: |
+#           +30% comfort
+#           +20% stress resistance
+#           Immune to loneliness debuff
+#         duration: 10
+#         type: positive
+#         
+#       - id: shared-joy
+#         name: "Sharing is Caring"
+#         emoji: "🤝"
+#         effect: "+10% social for all party members"
+#         duration: 5
+#         applies_to: "party"
+#
+# ═══════════════════════════════════════════════════════════════════════════════

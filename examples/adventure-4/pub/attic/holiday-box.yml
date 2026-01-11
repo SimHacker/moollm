@@ -1,0 +1,28 @@
+# Holiday Decorations Box
+
+object:
+  name: "Box of Holiday Decorations"
+  id: holiday-box
+  type: container
+  emoji: "🎄"
+  
+  description: |
+    A cardboard box labeled "XMAS" in faded marker. Tinsel pokes 
+    out through a torn corner. Smells like cinnamon and nostalgia.
+    
+  advertisements:
+    DECORATE:
+      description: "Take out decorations and festoon the place"
+      score: 60
+      effect: "Room gains festive atmosphere buff"
+      
+    WEAR:
+      description: "Put on some tinsel as a fashion statement"
+      score: 40
+      effect: "Gain 'Festive' buff, look ridiculous"
+      
+  contents:
+    - tangled-lights
+    - tinsel
+    - ornaments
+    - tree-topper-star

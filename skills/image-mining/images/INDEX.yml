@@ -1,0 +1,243 @@
+# Mineable Image Library
+# Pre-analyzed images ready for mining
+#
+# Reference from anywhere:
+#   ref: skills/image-mining/images/INDEX.yml#treasure-room
+#   ref: skills/image-mining/images/INDEX.yml#ore-vein
+
+images:
+  # === NATURAL RESOURCES ===
+  
+  ore-vein:
+    name: "Rich Ore Vein"
+    type: generated
+    prompt: "Rich iron ore vein in cavern wall, glittering seams, dark stone"
+    
+    resources:
+      iron-ore:
+        total: 150
+        remaining: 150
+        per_turn: 15
+      copper-ore:
+        total: 45
+        remaining: 45
+        per_turn: 5
+      trace-gold:
+        total: 8
+        remaining: 8
+        per_turn: 1
+        rare: true
+      stone:
+        total: 500
+        remaining: 500
+        per_turn: 50
+        
+    exhausted: false
+    
+  forest-clearing:
+    name: "Forest Clearing"
+    type: generated
+    prompt: "Sunlit forest clearing, fallen logs, mushrooms, wildflowers"
+    
+    resources:
+      wood:
+        total: 80
+        remaining: 80
+        per_turn: 10
+      leaves:
+        total: 200
+        remaining: 200
+        per_turn: 25
+      mushrooms:
+        total: 15
+        remaining: 15
+        per_turn: 3
+      wildflowers:
+        total: 30
+        remaining: 30
+        per_turn: 5
+      birdsong:
+        total: 10
+        remaining: 10
+        per_turn: 1
+        type: abstract
+        
+    exhausted: false
+    
+  ocean-shore:
+    name: "Ocean Shore"
+    type: generated
+    prompt: "Rocky ocean shore, tide pools, seaweed, shells, crashing waves"
+    
+    resources:
+      salt:
+        total: 100
+        remaining: 100
+        per_turn: 10
+      seaweed:
+        total: 60
+        remaining: 60
+        per_turn: 8
+      shells:
+        total: 40
+        remaining: 40
+        per_turn: 5
+      fish:
+        total: 20
+        remaining: 20
+        per_turn: 2
+      sea-glass:
+        total: 5
+        remaining: 5
+        per_turn: 1
+        rare: true
+        
+    exhausted: false
+    
+  # === TREASURE ===
+  
+  treasure-room:
+    name: "Treasure Chamber"
+    type: generated
+    prompt: "Dragon's hoard, gold coins, gems, ancient artifacts, dusty chests"
+    
+    resources:
+      gold:
+        total: 500
+        remaining: 500
+        per_turn: 25
+      gems:
+        total: 100
+        remaining: 100
+        per_turn: 10
+      ancient-coins:
+        total: 75
+        remaining: 75
+        per_turn: 8
+      artifacts:
+        total: 10
+        remaining: 10
+        per_turn: 1
+        rare: true
+      dragon-scale:
+        total: 3
+        remaining: 3
+        per_turn: 1
+        legendary: true
+        
+    exhausted: false
+    
+  # === ABSTRACT / PHILOSOPHICAL ===
+  
+  sunset-beach:
+    name: "Sunset Beach"
+    type: generated
+    prompt: "Golden sunset over calm ocean, silhouettes, warm light"
+    depth: philosophical
+    
+    resources:
+      # Colors
+      sunset-orange:
+        total: 50
+        remaining: 50
+        per_turn: 5
+        type: color
+        hex: "#FF7F50"
+      twilight-purple:
+        total: 30
+        remaining: 30
+        per_turn: 3
+        type: color
+        hex: "#9370DB"
+        
+      # Sensations
+      warmth:
+        total: 40
+        remaining: 40
+        per_turn: 4
+        type: sensation
+      salt-air:
+        total: 25
+        remaining: 25
+        per_turn: 3
+        type: sensation
+        
+      # Abstract
+      nostalgia:
+        total: 15
+        remaining: 15
+        per_turn: 1
+        type: emotion
+      passage-of-time:
+        total: 10
+        remaining: 10
+        per_turn: 1
+        type: philosophical
+      beauty-that-fades:
+        total: 5
+        remaining: 5
+        per_turn: 1
+        type: philosophical
+        
+    exhausted: false
+    
+  # === ADVENTURE-4 SPECIFIC ===
+  
+  grue-lair:
+    name: "Grue Lair"
+    type: generated
+    prompt: "Dark cavern, scratch marks on walls, bones, faint glowing eyes"
+    warning: "Mining this image may attract grues!"
+    
+    resources:
+      darkness:
+        total: 200
+        remaining: 200
+        per_turn: 20
+        type: abstract
+      fear:
+        total: 50
+        remaining: 50
+        per_turn: 5
+        type: emotion
+      bone:
+        total: 30
+        remaining: 30
+        per_turn: 3
+      grue-fur:
+        total: 5
+        remaining: 5
+        per_turn: 1
+        rare: true
+        warning: "Smells like a grue. May attract them."
+        
+    exhausted: false
+    
+  fantastipants-kitchen:
+    name: "Fantastipants Kitchen"
+    type: reference
+    ref: "examples/adventure-4/kitchen/"
+    
+    resources:
+      nostalgia:
+        total: 30
+        remaining: 30
+        per_turn: 3
+        type: emotion
+      family-warmth:
+        total: 25
+        remaining: 25
+        per_turn: 2
+        type: sensation
+      cooking-aromas:
+        total: 40
+        remaining: 40
+        per_turn: 5
+        type: sensation
+      memories:
+        total: 20
+        remaining: 20
+        per_turn: 2
+        type: abstract
+        
+    exhausted: false

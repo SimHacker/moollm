@@ -1,0 +1,29 @@
+# Wine Rack — Dusty Bottles
+
+object:
+  name: "Cobwebbed Wine Rack"
+  id: wine-rack
+  type: furniture
+  emoji: "🍷"
+  
+  description: |
+    A diagonal wooden rack holding bottles of various vintages.
+    Thick cobwebs suggest some haven't been touched in years.
+    One bottle glows faintly. That's probably fine.
+    
+  advertisements:
+    SELECT:
+      description: "Choose a bottle of wine"
+      score: 60
+      effect: "DM picks an interesting vintage"
+      
+    EXAMINE-GLOWING:
+      description: "Look closer at the glowing bottle"
+      score: 70
+      effect: "It's warm to the touch. The label is in a language you don't recognize."
+      
+  contents: # suggestions -- be creative!
+    - dusty-red-1847
+    - questionable-white
+    - glowing-bottle
+    - cooking-wine

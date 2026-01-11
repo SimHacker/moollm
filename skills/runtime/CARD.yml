@@ -1,0 +1,125 @@
+# Runtime — Dual Python/JavaScript Engines
+# Machine-readable interface
+
+card:
+  id: runtime
+  name: "Dual Runtime"
+  type: system
+  emoji: "⚙️"
+  
+  description: |
+    Python and JavaScript adventure runtimes.
+    Always in sync. Always generate both _js and _py.
+    
+  # The golden rule
+  rule: |
+    ALWAYS generate BOTH _js AND _py versions.
+    Never one without the other.
+    
+  # Target languages
+  targets:
+    - language: javascript
+      suffix: "_js"
+      class: World
+      file: engine.js
+      environment: browser
+      
+    - language: python
+      suffix: "_py"
+      class: World
+      file: runtime.py
+      environment: server/cli
+      
+  # World class methods (must match in both)
+  world_methods:
+    inventory:
+      - has
+      - give
+      - take
+    tags:
+      - has_tag    # hasTag in JS
+      - find_by_tag # findByTag in JS
+    flags:
+      - flag
+      - set_flag
+    narrative:
+      - emit
+      - narrate
+    events:
+      - trigger_event
+    navigation:
+      - go
+      - can_go
+    buffs:
+      - has_buff
+      - add_buff
+      - remove_buff
+      - has_buff_tag      # hasBuffTag in JS
+      - find_buffs_by_tag # findBuffsByTag in JS
+      - remove_buffs_by_tag # removeBuffsByTag in JS
+    state:
+      - get
+      - set
+    resilience:
+      - ensure_defaults  # ensureDefaults in JS
+      - heal_state       # healState in JS
+    effective_values:
+      - reset_effective    # resetEffective in JS
+      - get_effective      # getEffective in JS
+      - modify_effective   # modifyEffective in JS
+      - multiply_effective # multiplyEffective in JS
+      
+    # Subjective-oriented programming (i_ prefix)
+    subjective:
+      - i_have              # iHave in JS
+      - i_has_tag           # iHasTag in JS
+      - i_have_buff         # iHaveBuff in JS
+      - i_have_buff_tag     # iHaveBuffTag in JS
+      - i_add_buff          # iAddBuff in JS
+      - i_remove_buff       # iRemoveBuff in JS
+      - i_remove_buffs_by_tag # iRemoveBuffsByTag in JS
+      - i_buffs             # iBuffs in JS
+      - i_buffs_by_tag      # iBuffsByTag in JS
+      - i_say               # iSay in JS
+      - i_emit              # iEmit in JS
+      - i_think             # iThink in JS
+      - i_am                # iAm in JS
+      - i_am_not            # iAmNot in JS
+      - i_get               # iGet in JS
+      - i_set               # iSet in JS
+      
+  # Expression types
+  expression_types:
+    boolean:
+      js: "(world) => ..."
+      py: "lambda world: ..."
+    action:
+      js: "(world) => { ... }"
+      py: "def action(world): ..."
+    method:
+      js: "(world, arg) => { ... }"
+      py: "def method(world, arg): ..."
+      
+  # Simulation loop steps (with effective value phases)
+  simulation_loop:
+    - increment_turn
+    - reset_effective      # foo_effective = foo
+    - apply_buffs          # Buffs modify _effective values
+    - simulate_objects     # Objects run simulate()
+    - deliver_mail         # Deterministic message routing (no LLM!)
+    - process_events       # Handle queued events
+    - process_navigation   # Move player if requested
+    - display_update       # UI uses _effective values
+    
+  # Mail delivery is deterministic — no LLM needed
+  mail_delivery:
+    queue: "world.skills.postal.outgoing"
+    routing_doc: "skills/postal/ROUTING.md"
+    attachment_transfer: true
+    triggers_events: true
+    
+  related:
+    - context
+    - adventure
+    - object
+    - expression

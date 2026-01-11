@@ -1,0 +1,38 @@
+# Room 8 — The Stargazer's Room (Northwest)
+
+room:
+  name: "The Stargazer's Room"
+  id: room-8
+  number: 8
+  
+  description: |
+    A skylight in the sloped ceiling shows the night sky.
+    Star charts paper the walls. The bed is positioned for 
+    optimal stargazing. A brass telescope points upward.
+    
+    The painting shows a moon over still water.
+    Glow-in-the-dark stars dot the ceiling around the skylight.
+    
+  exits:
+    se:
+      destination: ../
+      description: "Back to the inn landing"
+      aliases: [out, leave, southeast]
+      
+  furniture:
+    bed:
+      type: low-platform
+      quality: observational
+      position: under-skylight
+      
+    telescope:
+      type: brass-refractor
+      points-at: skylight
+      
+  decor:
+    painting: "Moon on the Lake"
+    window: skylight
+    charts: [northern-sky, southern-sky, planet-movements]
+    stars: glow-in-dark-ceiling
+    
+  atmosphere: cosmic, wondering, infinite

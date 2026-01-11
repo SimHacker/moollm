@@ -45,6 +45,8 @@ object:
       description: "Double strike — emergency interrupt"
       score: 40
       score_if: "urgent situation OR point_of_order"
+      score_if_js: "(world) => world.flags.urgent_situation || world.flags.point_of_order"
+      score_if_py: "lambda world: world.flags.get('urgent_situation') or world.flags.get('point_of_order')"
       effect: |
         Immediate suspension of current activity.
         Room enters emergency protocol.
@@ -55,6 +57,8 @@ object:
       description: "Triple strike — The Gong Show termination"
       score: 20
       score_if: "performance_failing OR debate_deadlocked OR mercy_needed"
+      score_if_js: "(world) => world.flags.performance_failing || world.flags.debate_deadlocked || world.flags.mercy_needed"
+      score_if_py: "lambda world: world.flags.get('performance_failing') or world.flags.get('debate_deadlocked') or world.flags.get('mercy_needed')"
       effect: |
         Current performance, debate, or discussion ENDS.
         Not in anger, but in mercy.
@@ -82,6 +86,8 @@ object:
       description: "Joyous strike for good news"
       score: 70
       score_if: "good_news OR victory OR milestone"
+      score_if_js: "(world) => world.flags.good_news || world.flags.victory || world.flags.milestone"
+      score_if_py: "lambda world: world.flags.get('good_news') or world.flags.get('victory') or world.flags.get('milestone')"
       
     # AUTOGONG — automatic integration with pub/pie-table.yml
     AUTOGONG-ELIMINATION:

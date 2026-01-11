@@ -1,0 +1,163 @@
+# Filter Box — The Lens Alchemist's Kit
+
+object:
+  name: "Varnished Filter Box"
+  id: telescope-filters
+  type: kit
+  emoji: "🎨"
+  
+  description: |
+    A handsome wooden box, dark varnish worn smooth at the edges.
+    Brass hinges and clasps, green felt lining inside. 
+    Slots hold an eccentric collection of telescope filters —
+    some antique glass, some suspiciously modern tech.
+    
+    A hand-written label inside the lid reads:
+    "Combine freely. Invent boldly. See differently."
+    
+  advertisements:
+    BROWSE:
+      description: "Examine the filter collection"
+      score: 55
+      effect: "Each filter changes how you see the world. Mix and match."
+      
+    ATTACH:
+      description: "Mount a filter on the telescope"
+      score: 70
+      requires: telescope
+      effect: "Screw the filter onto the eyepiece. Reality shifts."
+      
+    COMBINE:
+      description: "Stack multiple filters"
+      score: 65
+      effect: |
+        Layer filters for unique effects. 
+        Starry Night + X-Ray = Cosmic Anatomy?
+        Shrooms + Computer Vision = Machine Elf Detection?
+        
+    INVENT:
+      description: "Create your own filter"
+      score: 80
+      effect: |
+        Describe what you want to see. The box always seems
+        to have one more slot with exactly what you imagined.
+        
+  # Each filter has two adjustable parameters (0-10, 0 = no effect)
+  # Twist the rings to dial in your vision!
+  
+  filters:
+    # === ARTISTIC ===
+    starry-night:
+      style: "Van Gogh swirling brushstrokes"
+      prompt_modifier: "in the style of Van Gogh's Starry Night, swirling brushstrokes, thick impasto, vivid blues and yellows"
+      params:
+        swirl: { value: 5, min: 0, max: 10, desc: "Intensity of spiral motion" }
+        impasto: { value: 7, min: 0, max: 10, desc: "Thickness of paint texture" }
+      
+    watercolor:
+      style: "Soft watercolor washes"
+      prompt_modifier: "soft watercolor painting, wet-on-wet technique, bleeding edges, paper texture visible"
+      params:
+        bleed: { value: 6, min: 0, max: 10, desc: "How much colors run together" }
+        wetness: { value: 5, min: 0, max: 10, desc: "Paper saturation level" }
+      
+    ukiyo-e:
+      style: "Japanese woodblock print"
+      prompt_modifier: "Ukiyo-e woodblock print style, bold outlines, flat colors, Hokusai inspired"
+      params:
+        outline: { value: 8, min: 0, max: 10, desc: "Boldness of black lines" }
+        flatness: { value: 7, min: 0, max: 10, desc: "Color gradient reduction" }
+      
+    noir:
+      style: "Black and white film noir"
+      prompt_modifier: "black and white, high contrast, film noir cinematography, dramatic shadows"
+      params:
+        contrast: { value: 8, min: 0, max: 10, desc: "Light/dark extremity" }
+        grain: { value: 4, min: 0, max: 10, desc: "Film grain intensity" }
+      
+    # === PSYCHEDELIC ===
+    shrooms:
+      style: "Psilocybin visions"
+      prompt_modifier: "psychedelic fractals, breathing geometry, rainbow auras, ego dissolution visuals"
+      params:
+        fractal: { value: 6, min: 0, max: 10, desc: "Geometric pattern intensity" }
+        breathe: { value: 5, min: 0, max: 10, desc: "How much things pulse and move" }
+      
+    dream:
+      style: "Lucid dream logic"
+      prompt_modifier: "dreamlike surrealism, impossible architecture, melting clocks, Dali-esque"
+      params:
+        melt: { value: 5, min: 0, max: 10, desc: "Solidity of objects" }
+        impossible: { value: 7, min: 0, max: 10, desc: "Physics violation level" }
+      
+    # === TECHNICAL ===
+    x-ray:
+      style: "See through surfaces"
+      prompt_modifier: "X-ray vision, skeletal structures visible, blue-white radiograph aesthetic"
+      params:
+        penetration: { value: 6, min: 0, max: 10, desc: "How deep you see" }
+        contrast: { value: 7, min: 0, max: 10, desc: "Bone/tissue differentiation" }
+      
+    thermal:
+      style: "Heat signature view"
+      prompt_modifier: "thermal imaging, heat map colors, infrared vision, temperature gradients"
+      params:
+        sensitivity: { value: 7, min: 0, max: 10, desc: "Temperature detection range" }
+        palette: { value: 5, min: 0, max: 10, desc: "Color mapping style (0=iron, 10=rainbow)" }
+      
+    computer-vision:
+      style: "AR analysis overlay"
+      prompt_modifier: "computer vision overlay, bounding boxes, object detection labels, confidence scores, green HUD aesthetic"
+      params:
+        detection: { value: 8, min: 0, max: 10, desc: "Object recognition aggressiveness" }
+        labels: { value: 6, min: 0, max: 10, desc: "How much metadata shown" }
+      
+    # === SCI-FI ===
+    cyberpunk:
+      style: "Neon-drenched future"
+      prompt_modifier: "cyberpunk aesthetic, neon lights, rain-slicked streets, holographic advertisements"
+      params:
+        neon: { value: 8, min: 0, max: 10, desc: "Glow intensity" }
+        rain: { value: 5, min: 0, max: 10, desc: "Wetness and reflections" }
+      
+    synthwave:
+      style: "Retro 80s future"
+      prompt_modifier: "synthwave aesthetic, sunset gradients, grid lines, chrome reflections, VHS artifacts"
+      params:
+        grid: { value: 6, min: 0, max: 10, desc: "Perspective grid visibility" }
+        chrome: { value: 7, min: 0, max: 10, desc: "Metallic reflection intensity" }
+      
+    alien:
+      style: "Non-human perception"
+      prompt_modifier: "alien visual spectrum, colors humans cannot see, geometric patterns in organic forms"
+      params:
+        spectrum: { value: 8, min: 0, max: 10, desc: "How far beyond human vision" }
+        geometry: { value: 6, min: 0, max: 10, desc: "Pattern recognition intensity" }
+      
+    # === TEMPORAL ===
+    ancient:
+      style: "How it looked centuries ago"
+      prompt_modifier: "historical reconstruction, how this scene appeared 500 years ago, period accurate"
+      params:
+        age: { value: 5, min: 0, max: 10, desc: "Centuries back (5=500yrs, value is float centuries)" }
+        accuracy: { value: 7, min: 0, max: 10, desc: "Historical fidelity" }
+      
+    future:
+      style: "How it might look ahead"
+      prompt_modifier: "speculative future, 100 years from now, evolved and changed, hopeful or haunting"
+      params:
+        years: { value: 5, min: 0, max: 10, desc: "Decades forward (5=500yrs, value is float centuries)" }
+        optimism: { value: 5, min: 0, max: 10, desc: "Utopia vs dystopia" }
+      
+    ghost:
+      style: "See the departed"
+      prompt_modifier: "spectral overlay, translucent figures from the past, memories made visible"
+      params:
+        opacity: { value: 4, min: 0, max: 10, desc: "Ghost visibility" }
+        era: { value: 5, min: 0, max: 10, desc: "How far back to see (0=recent, 10=ancient)" }
+      
+  # Currently attached to telescope
+  attached: []
+  
+  # Player-invented filters get stored here
+  custom_filters: {}

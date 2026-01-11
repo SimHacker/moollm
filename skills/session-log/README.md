@@ -20,15 +20,16 @@ Session logs are **living documents** that capture the narrative of play. Unlike
 
 ## Where Sessions Live
 
-Default: **`SESSION.md`** in the character directory.
+Default: **`SESSION.md`** in the character directory, or named sessions in a `sessions/` subdirectory.
 
 ```
-characters/real-people/don-hopkins/SESSION.md
+characters/real-people/don-hopkins/sessions/marathon-session.md
+characters/real-people/don-hopkins/sessions/adventure-uplift.md
 characters/fictional/donna-toadstool/SESSION.md
 characters/animals/palm/SESSION.md
 ```
 
-Name variants with suffixes: `SESSION-fluxx-marathon.md`, `SESSION-day1.md`
+Name variants: `marathon-session.md`, `adventure-uplift.md`, `SESSION-day1.md`
 
 ---
 
@@ -75,7 +76,7 @@ Study these for best practices:
 
 | Session | What It Demonstrates |
 |---------|---------------------|
-| [**Don Hopkins**](../../examples/adventure-4/characters/real-people/don-hopkins/SESSION.md) | 7000+ lines, 5 days, extensive linking, speed-of-light simulations |
+| [**Don Hopkins (Marathon)**](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) | 7000+ lines, 5 days, extensive linking, speed-of-light simulations |
 | [**Donna Toadstool**](../../examples/adventure-4/characters/fictional/donna-toadstool/SESSION.md) | Character creation narrative, file operations, appendices |
 
 ---

@@ -1,0 +1,139 @@
+# Object — Interactable Thing Primitive
+# Machine-readable interface for adventure compilation
+
+card:
+  id: object
+  name: "Object"
+  type: primitive
+  emoji: "📦"
+  
+  description: |
+    An interactable thing in the adventure world.
+    Keys, lamps, chests, furniture — all objects.
+    Objects have TAGS for easy filtering in expressions.
+    
+  # Schema fields for validation
+  schema:
+    required:
+      - id
+      - name
+      - description
+    optional:
+      - type
+      - emoji
+      - tags          # Category tags for filtering: ["weapon", "light-source"]
+      - examine
+      - subtitle
+      - takeable
+      - container
+      - locked
+      - hidden        # Hide from player (for prototypes, agents, tasks)
+      - contains
+      - capacity
+      - state
+      - defaults       # Default state values for self-initialization
+      - inherits
+      - location
+      - simulate       # Per-turn update (natural language)
+      - methods        # Named behaviors (natural language)
+      
+  # Common tags for categorization
+  common_tags:
+    - weapon         # Swords, bows, etc.
+    - food           # Edible items
+    - drink          # Potable liquids
+    - container      # Can hold other objects
+    - light-source   # Lamps, torches, etc.
+    - tool           # Useful implements
+    - treasure       # Valuable items
+    - readable       # Books, scrolls, etc.
+    - wearable       # Clothing, armor
+    - consumable     # Used up on use
+    - magical        # Has magical properties
+    - fragile        # Can break
+    - heavy          # Hard to carry
+    - key            # Opens something
+    computed:
+      - simulate_js    # Compiled simulation closure
+      - simulate_py
+      - methods_js     # Compiled method closures (1:1 name mapping)
+      - methods_py
+      - advertisements.*.guard_js
+      - advertisements.*.guard_py
+      - advertisements.*.score_if_js
+      - advertisements.*.score_if_py
+      - advertisements.*.effect_js
+      - advertisements.*.effect_py
+      
+  # Advertisement sub-schema
+  advertisement_schema:
+    required:
+      - description
+    optional:
+      - score
+      - score_if
+      - guard
+      - effect
+      - params
+    computed:
+      - score_if_js
+      - score_if_py
+      - guard_js
+      - guard_py
+      - effect_js
+      - effect_py
+      
+  # Compilation events this primitive can trigger
+  compile_events:
+    # Simulation loop
+    - type: COMPILE_EXPRESSION
+      field: simulate
+      target_js: simulate_js
+      target_py: simulate_py
+      expected_type: closure
+      description: "Per-turn update closure over ctx"
+      
+    # Named methods (each method compiles separately)
+    - type: COMPILE_METHODS
+      field: methods
+      target_js: methods_js
+      target_py: methods_py
+      expected_type: method_map
+      description: "1:1 name mapping from natural language to closures"
+      
+    # Advertisement fields
+    - type: COMPILE_EXPRESSION
+      field: guard
+      target_js: guard_js
+      target_py: guard_py
+      expected_type: boolean
+      
+    - type: COMPILE_EXPRESSION
+      field: score_if
+      target_js: score_if_js
+      target_py: score_if_py
+      expected_type: boolean
+      
+    - type: COMPILE_EXPRESSION
+      field: effect
+      target_js: effect_js
+      target_py: effect_py
+      expected_type: action
+      
+  # How this maps to runtime classes
+  runtime:
+    python: Object
+    javascript: GameObject
+    
+  # Relationships
+  contained_by: room
+  can_contain: object
+  
+  inherits:
+    - skills/prototype/
+    
+  related:
+    - advertisement
+    - room
+    - buff
+    - inventory

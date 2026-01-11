@@ -1,0 +1,35 @@
+# Old Trunk — A Dispenser of Forgotten Things
+
+object:
+  name: "Grandmother's Trunk"
+  id: old-trunk
+  type: container
+  emoji: "📦"
+  
+  description: |
+    A battered steamer trunk, plastered with faded travel stickers 
+    from places that may not exist anymore. The brass clasps are 
+    green with age but still work.
+    
+  advertisements:
+    OPEN:
+      description: "Open the trunk and see what's inside"
+      score: 70
+      effect: "Reveals random forgotten item from contents"
+      
+    RUMMAGE:
+      description: "Dig deeper into the trunk"
+      score: 50
+      guard: "trunk is open"
+      effect: "Find something unexpected"
+      
+  contents: # examples but not limited to -- be creative and personal!
+    - old-photo-album
+    - moth-eaten-scarf
+    - mysterious-key
+    - bundle-of-letters
+    - antique-compass
+    
+  dispenser:
+    mode: random
+    replenish: false  # Once emptied, stays empty

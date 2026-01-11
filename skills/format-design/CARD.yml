@@ -1,0 +1,71 @@
+---
+# Format Design Skill Card
+# How to design formats that succeed
+
+name: format-design
+version: 1.0.0
+tier: 1
+
+one_liner: "How to design formats that succeed — simplicity, community, timing"
+
+protocol: FORMAT-DESIGN
+
+tags:
+  - philosophy
+  - design
+  - standards
+  - worse-is-better
+
+# Core insight
+insight: |
+  Formats succeed through simplicity, timing, and community —
+  not through technical superiority. Give them away, and they
+  might take over the world.
+
+# The 10 reasons (from Anil Dash)
+ten_reasons_markdown_won:
+  1: "Had a great brand"
+  2: "Solved a real problem"
+  3: "Built on existing behaviors"
+  4: "Mirrored RSS in origin (had a champion)"
+  5: "Community ready to help"
+  6: "Right flavor for every context"
+  7: "Released at time of behavior change"
+  8: "Came at cusp of build tool era"
+  9: "Worked with view source"
+  10: "Not encumbered by IP"
+
+# Worse is Better principle
+worse_is_better:
+  source: "Richard Gabriel (1989)"
+  principle: "Simplicity is the most important consideration in a design"
+  examples:
+    - better: Markdown
+      worse: Textile
+    - better: JSON  
+      worse: XML
+    - better: Unix
+      worse: Multics
+
+# Design checklist
+checklist:
+  - "Memorable name?"
+  - "Clear, specific problem?"
+  - "Builds on existing behavior?"
+  - "Learnable by example?"
+  - "Can you remove more?"
+  - "No IP restrictions?"
+
+# Related
+related:
+  - markdown
+  - yaml-jazz
+  - plain-text
+  - postel
+  - protocol
+
+# Credits
+credits:
+  - "Anil Dash — 'How Markdown Took Over the World' (2025)"
+  - "Richard Gabriel — 'Worse is Better' (1989)"
+  - "Jon Postel — Robustness Principle (1980)"

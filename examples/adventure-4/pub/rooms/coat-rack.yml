@@ -1,0 +1,28 @@
+# Coat Rack — For Overnight Guests
+
+object:
+  name: "Brass Coat Rack"
+  id: coat-rack
+  type: furniture
+  emoji: "🧥"
+  
+  description: |
+    A tall brass coat rack with hooks at various heights.
+    A forgotten umbrella leans against it. Someone left 
+    a scarf from last winter.
+    
+  advertisements:
+    HANG:
+      description: "Hang your coat"
+      score: 40
+      effect: "Coat stored safely. Feel lighter."
+      
+    TAKE-UMBRELLA:
+      description: "Borrow the forgotten umbrella"
+      score: 35
+      effect: "Finders keepers. Might rain later."
+      
+  contents:
+    - forgotten-umbrella
+    - winter-scarf
+    - mystery-hat

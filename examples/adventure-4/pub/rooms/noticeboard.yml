@@ -1,0 +1,30 @@
+# Noticeboard — Community Messages
+
+object:
+  name: "Cork Noticeboard"
+  id: noticeboard
+  type: furniture
+  emoji: "📌"
+  
+  description: |
+    A cork board covered in overlapping notices, cards, and flyers.
+    Lost pet notices, job offerings, cryptic messages, and one 
+    very old wanted poster.
+    
+  advertisements:
+    READ:
+      description: "Browse the notices"
+      score: 55
+      effect: "Find interesting leads, rumors, and plot hooks"
+      
+    POST:
+      description: "Pin your own notice"
+      score: 40
+      effect: "Leave a message for someone. Maybe yourself."
+      
+  notices:  # suggestions — be creative!
+    - lost-cat-poster
+    - help-wanted-kitchen
+    - cryptic-poem
+    - old-wanted-poster
+    - room-for-rent

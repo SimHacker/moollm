@@ -1,0 +1,27 @@
+# Ice Machine — Humming in the Corner
+
+object:
+  name: "Humming Ice Machine"
+  id: ice-machine
+  type: dispenser
+  emoji: "🧊"
+  
+  description: |
+    A squat metal box that hums contentedly to itself.
+    A small scoop hangs on the side. The lid is cold to the touch.
+    
+  advertisements:
+    GET-ICE:
+      description: "Scoop some ice"
+      score: 50
+      effect: "Get a scoop of ice cubes. Refreshing."
+      
+    LISTEN:
+      description: "Listen to the hum"
+      score: 20
+      effect: "It's oddly meditative. The machine seems content."
+      
+  dispenser:
+    item: ice-cubes
+    capacity: infinite
+    replenish: continuous

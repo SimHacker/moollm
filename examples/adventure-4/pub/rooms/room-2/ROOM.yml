@@ -1,0 +1,38 @@
+# Room 2 — The Scholar's Room (Northeast)
+
+room:
+  name: "The Scholar's Room"
+  id: room-2
+  number: 2
+  
+  description: |
+    Books everywhere — stacked on the nightstand, piled by the 
+    window seat, tucked into the iron bed frame. A reading lamp 
+    with a green glass shade casts a studious glow.
+    
+    The painting shows a candle burning in a library at midnight.
+    Someone left half-finished notes on the desk.
+    
+  exits:
+    sw:
+      destination: ../
+      description: "Back to the inn landing"
+      aliases: [out, leave, southwest]
+      
+  furniture:
+    bed:
+      type: iron-frame
+      quality: firm
+      blanket: wool-grey
+      
+    desk:
+      type: roll-top
+      contents: [scattered-notes, magnifying-glass, bookmark]
+      
+  decor:
+    painting: "Midnight Library"
+    window: corner-window
+    lamp: green-glass-banker
+    bookshelf: overflowing
+    
+  atmosphere: studious, quiet, smells-like-old-paper

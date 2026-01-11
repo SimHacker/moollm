@@ -1,0 +1,41 @@
+# Treasure Chest — Hidden Wealth
+
+object:
+  name: "Iron-Bound Chest"
+  id: treasure-chest
+  type: container
+  emoji: "💰"
+  
+  description: |
+    A heavy chest tucked in a dark corner, partially hidden by 
+    empty crates. Iron bands reinforce old oak. A formidable 
+    padlock guards its secrets.
+    
+  state:
+    locked: true
+    discovered: false
+    
+  advertisements:
+    EXAMINE:
+      description: "Inspect the chest"
+      score: 50
+      effect: "Heavy. Locked. Definitely treasure inside."
+      
+    PICK-LOCK:
+      description: "Attempt to pick the padlock"
+      score: 30
+      guard: "have lockpicks OR high dexterity"
+      effect: "Difficult but possible. Contents revealed on success."
+      
+    BREAK-OPEN:
+      description: "Force it open"
+      score: 20
+      guard: "have crowbar OR very strong"
+      effect: "Loud. Destructive. But effective."
+      
+  contents: # suggestions -- be creative!
+    - gold-coins: 150
+    - silver-coins: 340
+    - ruby-necklace
+    - old-deed
+    - mysterious-map

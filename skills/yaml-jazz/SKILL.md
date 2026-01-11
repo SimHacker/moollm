@@ -19,6 +19,9 @@ related: [postel, coherence-engine, soul-chat, mind-mirror]
 
 **YAML Jazz** is how MOOLLM treats structured data: not as rigid schemas, but as **semantic improvisation** where:
 
+> *"The source is the destination."*
+> — The Markdown/YAML principle
+
 - **Structure carries meaning** — indentation, ordering, grouping
 - **Comments ARE data** — they're guidance, context, soul
 - **The LLM interprets** — filling gaps, resolving ambiguity, inferring intent
@@ -167,6 +170,38 @@ This validates MOOLLM's approach: **YAML Jazz isn't just aesthetic preference �
 
 ---
 
+## The "Source is Destination" Principle
+
+From Anil Dash's "[How Markdown Took Over the World](https://anildash.com/2025/01/09/how-markdown-took-over-the-world/)" (January 2025):
+
+> *"The purpose of Markdown is really simple: It lets you use the regular characters on your keyboard... to make fancy formatting of text for the web."*
+
+YAML Jazz applies the same principle to data:
+
+| Format | Source | Destination | Gap |
+|--------|--------|-------------|-----|
+| XML | `.xml` | Parsed DOM | Medium |
+| JSON | `.json` | Parsed objects | Small |
+| **YAML Jazz** | `.yml` | `.yml` (understood) | **None** |
+
+The YAML you write is the YAML the LLM reads. The comments are preserved. The structure carries meaning. **No transformation gap.**
+
+### Why This Matters
+
+```yaml
+# Adele Goldberg (Smalltalk-80):
+# "Documentation is not afterthought — it is CO-DESIGN.
+#  The documentation IS part of the system."
+
+room:
+  name: Start           # Where the adventure begins
+  atmosphere: welcoming  # Sets the tone for new players
+```
+
+These comments aren't stripped for parsing. They ARE the specification. The LLM reads them. Acts on them.
+
+---
+
 ## Anti-Patterns
 
 ❌ **Rigid schema enforcement** — "field X is required" without context  
@@ -174,12 +209,16 @@ This validates MOOLLM's approach: **YAML Jazz isn't just aesthetic preference �
 ❌ **Machine-only YAML** — if humans can't read it, use JSON  
 ❌ **Over-specification** — killing the jazz  
 ❌ **JSON for tool calls** — entropy collapse, catastrophic forgetting
+❌ **Transformation gaps** — compile steps that hide meaning
 
 ---
 
 ## Dovetails With
 
 ### Sister Skills
+- [markdown/](../markdown/) — The prose format; YAML is the data format
+- [plain-text/](../plain-text/) — The durability philosophy
+- [format-design/](../format-design/) — Why simple formats win
 - [postel/](../postel/) — Be liberal in accepting ambiguous YAML
 - [soul-chat/](../soul-chat/) — Markdown with embedded YAML Jazz
 

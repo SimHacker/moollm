@@ -1,0 +1,38 @@
+# Room 3 — The Sailor's Room (East)
+
+room:
+  name: "The Sailor's Room"
+  id: room-3
+  number: 3
+  
+  description: |
+    Nautical everything. A rope hammock hangs beside a proper bed.
+    Model ships crowd the windowsill. The painting shows a storm 
+    at sea — waves frozen mid-crash.
+    
+    A brass porthole mirror reflects whoever looks into it.
+    Smells faintly of salt and tar.
+    
+  exits:
+    w:
+      destination: ../
+      description: "Back to the inn landing"
+      aliases: [out, leave, west]
+      
+  furniture:
+    bed:
+      type: rope-frame
+      quality: swaying
+      blanket: navy-wool
+      
+    hammock:
+      type: sailors-hammock
+      note: "For guests who miss the sea"
+      
+  decor:
+    painting: "Storm at Cape Fury"
+    window: round-porthole-style
+    mirror: brass-porthole
+    ships: [tiny-schooner, bottled-clipper, carved-whale]
+    
+  atmosphere: maritime, adventurous, restless

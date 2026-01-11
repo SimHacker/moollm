@@ -354,6 +354,7 @@ physical_gifts:
     from: "W.W. Jacobs"
     item: "The Story Shelf"
     file: "pub/stage/palm-nook/study/story-shelf.yml"
+    description: |
       Feeling adventurous? Adventure books float to the front.
       Feeling philosophical? Philosophy appears.
       Contains exactly what you need to read.
@@ -465,11 +466,13 @@ home_layout:
 # DONATIONS TO PUBLIC SPACES
 donations:
   to_arcade:
-    - arcade_cabinet
+    items:
+      - arcade_cabinet
     note: "Palm plays Monkey Kong Jr. every day but wants everyone to enjoy it"
     
   to_games:
-    - tire_swing
+    items:
+      - tire_swing
     note: "The Mellow Swing is a hit during karaoke nights"
 
 # THINGS RETURNED TO ACME

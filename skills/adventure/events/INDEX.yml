@@ -1,0 +1,117 @@
+# Adventure Event Handlers Registry
+#
+# YAML Jazz event handlers for the adventure linter.
+# Each handler expresses INTEREST in certain event types.
+#
+# "Events flow. Handlers listen. Code emerges."
+#     — MOOLLM Event Philosophy
+#
+# PATTERN:
+#   1. Linter emits events (LintEvent)
+#   2. LLM reads events + handler templates
+#   3. LLM generates response (code, fixes, suggestions)
+#   4. Response written to YAML or output
+#
+# HANDLER DISCOVERY:
+#   - By filename: COMPILE_EXPRESSION.yml.tmpl handles COMPILE_EXPRESSION
+#   - By INDEX.yml: handlers listed here
+#   - By subdirectory: events/discovery/, events/validation/, etc.
+
+event_handlers:
+  # === COMPILATION HANDLERS ===
+  # These generate JS/PY code from natural language expressions
+  
+  COMPILE_EXPRESSION:
+    file: COMPILE_EXPRESSION.yml.tmpl
+    description: "Generate JS and PY code from natural language"
+    priority: 100
+    output:
+      - field_js: "The compiled JavaScript expression"
+      - field_py: "The compiled Python expression"
+    
+  COMPILE_GUARD:
+    inherits: COMPILE_EXPRESSION
+    description: "Compile guard conditions (boolean expressions)"
+    expected_type: boolean
+    
+  COMPILE_SIMULATE:
+    inherits: COMPILE_EXPRESSION
+    description: "Compile simulation tick functions"
+    expected_type: closure
+    
+  COMPILE_ACTION:
+    inherits: COMPILE_EXPRESSION
+    description: "Compile action effect handlers"
+    expected_type: action
+    
+  # === VALIDATION HANDLERS ===
+  # These suggest fixes for problems
+  
+  INVALID_SCHEMA:
+    file: INVALID_SCHEMA.yml.tmpl
+    description: "Suggest fix for YAML schema errors"
+    priority: 90
+    output:
+      - suggestion: "Natural language fix suggestion"
+      - fixed_yaml: "Corrected YAML (optional)"
+      
+  MISSING_REQUIRED:
+    file: MISSING_REQUIRED.yml.tmpl
+    description: "Generate missing required fields"
+    priority: 85
+    output:
+      - generated_field: "The missing field with default value"
+      
+  BROKEN_REFERENCE:
+    file: BROKEN_REFERENCE.yml.tmpl
+    description: "Fix broken references or create missing files"
+    priority: 80
+    output:
+      - action: "create | fix | ignore"
+      - file_content: "Content for new file (if create)"
+      
+  # === DISCOVERY HANDLERS ===
+  # These process discovered entities
+  
+  FOUND_ROOM:
+    file: discovery/FOUND_ROOM.yml.tmpl
+    description: "Process a discovered room"
+    priority: 50
+    output:
+      - room_data: "Processed room for runtime"
+      
+  FOUND_OBJECT:
+    file: discovery/FOUND_OBJECT.yml.tmpl
+    description: "Process a discovered object"
+    priority: 50
+    output:
+      - object_data: "Processed object for runtime"
+      
+  FOUND_CHARACTER:
+    file: discovery/FOUND_CHARACTER.yml.tmpl
+    description: "Process a discovered character"
+    priority: 50
+    output:
+      - character_data: "Processed character for runtime"
+      
+  # === TOPOLOGY HANDLERS ===
+  # These build the world map
+  
+  ROOM_TOPOLOGY:
+    file: ROOM_TOPOLOGY.yml.tmpl
+    description: "Generate room connection map"
+    priority: 40
+    output:
+      - map_data: "Room topology for navigation"
+      - visualization: "ASCII or JSON map"
+
+# Handler resolution order:
+#   1. Check for exact filename match (EVENT_TYPE.yml.tmpl)
+#   2. Check INDEX.yml for handler mapping
+#   3. Check subdirectories for handler
+#   4. Fall back to default handler
+
+default_handler:
+  file: DEFAULT.yml.tmpl
+  description: "Generic handler for unmatched events"
+  action: log_and_continue

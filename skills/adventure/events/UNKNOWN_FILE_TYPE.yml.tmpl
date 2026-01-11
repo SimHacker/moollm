@@ -1,0 +1,147 @@
+# UNKNOWN_FILE_TYPE Event Handler
+#
+# When the linter finds a YML file it can't classify,
+# this handler helps identify what it should be.
+#
+# "Every file wants to be something. Help it find its identity."
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+event_handler:
+  name: UNKNOWN_FILE_TYPE
+  handles: [UNKNOWN_FILE_TYPE, INFERRED_FILE_TYPE]
+  
+  description: |
+    When a YML file doesn't have a recognizable top-level key or filename:
+    1. Analyze the content
+    2. Infer the likely type
+    3. Suggest adding appropriate wrapper or lint_ignore
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INPUT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+input:
+  event:
+    type: UNKNOWN_FILE_TYPE
+    path: "{{path}}"              # The mystery file
+    message: "{{message}}"        # What we know
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output:
+  # What we think it is
+  inferred_type: "{{type}}"  # object | room | character | config | data | etc.
+  
+  # Confidence (0-100)
+  confidence: "{{confidence}}"
+  
+  # How to fix
+  suggestion: "{{suggestion}}"
+  
+  # The fix (add wrapper key)
+  fixed_content: |
+    {{fixed_yaml}}
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TYPE DETECTION RULES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+detection_rules:
+  # Object-like files
+  object:
+    hints:
+      - has: [name, description]
+      - has: [emoji]
+      - has: [advertisements]
+      - has: [takeable, container]
+    fix: "Wrap in 'object:' key"
+    
+  # Room-like files
+  room:
+    hints:
+      - has: [exits]
+      - has: [atmosphere, lighting]
+      - filename: "**/ROOM.yml"
+    fix: "Wrap in 'room:' key or rename to ROOM.yml"
+    
+  # Character-like files
+  character:
+    hints:
+      - has: [species, personality]
+      - has: [dialogue, voice]
+      - has: [sims_traits, mind_mirror]
+    fix: "Wrap in 'character:' key"
+    
+  # Buff files
+  buff:
+    hints:
+      - has: [duration, effect]
+      - has: [stacks, source]
+      - parent_dir: "buffs"
+    fix: "Wrap in 'buff:' key"
+    
+  # Message/letter files
+  message:
+    hints:
+      - has: [to, from, subject]
+      - has: [body, attachments]
+    fix: "Wrap in 'message:' or 'letter:' key"
+    
+  # Config/data files
+  config:
+    hints:
+      - has: [settings, config, options]
+      - filename: ["config.yml", "settings.yml"]
+    fix: "Add lint_ignore: true or wrap in 'config:' key"
+    
+  # List files (INDEX.yml pattern)
+  index:
+    hints:
+      - top_level_is_list: true
+      - filename: "INDEX.yml"
+    fix: "This is a valid index file — no wrapper needed"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - file: "kitchen/toaster.yml"
+    content: |
+      name: "Toaster"
+      emoji: "🍞"
+      description: "A chrome toaster"
+    inferred: object
+    fixed: |
+      object:
+        name: "Toaster"
+        emoji: "🍞"
+        description: "A chrome toaster"
+        
+  - file: "buffs/caffeine.yml"
+    content: |
+      name: "Caffeinated"
+      duration: 5
+      effect: "+2 energy"
+    inferred: buff
+    fixed: |
+      buff:
+        name: "Caffeinated"
+        duration: 5
+        effect: "+2 energy"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROCEDURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+procedure: |
+  1. READ the file content
+  2. CHECK the filename and parent directory for hints
+  3. CHECK the top-level keys against detection_rules
+  4. INFER the most likely type
+  5. SUGGEST adding the appropriate wrapper key
+  6. GENERATE the fixed content with wrapper
+  7. SET confidence based on how many hints matched

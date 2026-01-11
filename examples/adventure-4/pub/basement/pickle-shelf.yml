@@ -1,0 +1,35 @@
+# Pickle Shelf — Preserved Foods
+
+object:
+  name: "Shelf of Pickled Everything"
+  id: pickle-shelf
+  type: furniture
+  emoji: "🥒"
+  
+  description: |
+    Floor-to-ceiling shelves lined with glass jars. Pickles, 
+    preserves, mysterious floating vegetables, and one jar 
+    labeled "DO NOT OPEN" in several languages.
+    
+  advertisements:
+    TAKE-PICKLE:
+      description: "Grab a pickle for the road"
+      score: 55
+      effect: "Crunchy, salty, refreshing. Minor hunger restored."
+      
+    READ-LABELS:
+      description: "Study the jar labels"
+      score: 35
+      effect: "Learn about preserving. Some dates are... concerning."
+      
+    OPEN-FORBIDDEN-JAR:
+      description: "Open the forbidden jar"
+      score: 20
+      guard: "feeling brave"
+      effect: "??? (Nothing good, probably)"
+      
+  contents: # suggestions -- be creative!
+    - pickle-jar
+    - preserved-beets
+    - mystery-jar
+    - forbidden-jar

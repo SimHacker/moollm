@@ -1,0 +1,776 @@
+# LOGISTIC-CONTAINER.yml — Factorio-Style Logistics Box
+#
+# "Automation is the art of making items flow where they're needed."
+#     — Factorio Design Philosophy
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# FACTORIO LOGISTICS BOXES — ALL TYPES
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# PASSIVE PROVIDER (Yellow) — "Take from me if you need it"
+#   Items here are available to the logistics network.
+#   Won't push items out, waits for requesters.
+#   Example: Pantry, armory, general storage
+#
+# ACTIVE PROVIDER (Red) — "I'm pushing these OUT"
+#   Actively routes items to requesters or storage.
+#   Good for factory output, mailbox outbox.
+#   Example: Assembly output, mail outbox
+#
+# REQUESTER (Blue) — "I WANT these items"
+#   Pulls items from providers to satisfy a request list.
+#   Good for crafting stations, player requests.
+#   Example: Workbench needing parts, kitchen needing ingredients
+#
+# STORAGE (Yellow variant) — "General overflow"
+#   Accepts anything the network can't route elsewhere.
+#   Low priority for retrieval. The junk drawer.
+#   Example: Warehouse, attic storage
+#
+# BUFFER (Green) — "Hold until needed"
+#   Like storage but higher priority for bots.
+#   Staging area for time-sensitive routing.
+#   Example: Loading dock, outgoing mail staging
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# GRID STORAGE SYSTEM
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# A logistic container can contain a GRID of cells (sub-rooms).
+# Each cell holds ONE type of item in a stack.
+# New cells are auto-created when new item types arrive.
+#
+# Like Factorio warehouses with sorted contents!
+#
+# GRID TOPOLOGY:
+#   The grid uses the same pie-menu coordinate system as rooms.
+#   Cardinal directions navigate between cells.
+#   Each cell is a mini-room.
+#
+# EXAMPLE:
+#   warehouse/
+#     LOGISTIC-CONTAINER.yml    # The warehouse config
+#     iron-ore/                 # Auto-created cell
+#       CELL.yml                # Cell config (type: iron-ore, count: 500)
+#     copper-ore/
+#       CELL.yml
+#     iron-plate/
+#       CELL.yml
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# FUNGIBLE vs INSTANCE ITEMS
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# FUNGIBLE ITEMS — Just counted
+#   All items of this type are identical.
+#   Store as: { item: "iron-ore", count: 500 }
+#   Perfect for raw materials, currency, ammo.
+#
+# INSTANCE ITEMS — Each one is unique
+#   Items have individual state/config.
+#   Store as: { item: "sword", instances: [...] }
+#   Perfect for weapons with durability, named items, enchanted gear.
+#
+# The container decides based on item tags or explicit config.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+logistic-container:
+
+  # === IDENTITY ===
+  
+  id: "{{id}}"                       # REQUIRED: Unique identifier
+  name: "{{name}}"                   # REQUIRED: Display name
+  emoji: "📦"                        # OPTIONAL: Visual shorthand
+  type: logistic-container           # REQUIRED: Must be logistic-container
+  
+  description: "{{description}}"     # OPTIONAL: What this container is for
+  
+  # === LOGISTICS MODE (Factorio Chest Type) ===
+  #
+  # Determines how this container participates in the logistics network.
+  #
+  
+  mode: passive-provider             # REQUIRED: One of the modes below
+  # Modes:
+  #   passive-provider — Available to network, doesn't push
+  #   active-provider — Actively pushes items out
+  #   requester — Pulls items to satisfy request list
+  #   storage — General overflow, low priority
+  #   buffer — Staging area, high priority for bots
+  
+  # === PROVIDER CONFIG (for passive-provider, active-provider) ===
+  
+  provides:                          # OPTIONAL: What this container offers
+    # Example:
+    #   provides:
+    #     - tags: ["raw-material"]
+    #     - item: "iron-ore"
+    #     - type: "ore"
+    
+  reserve: 0                         # OPTIONAL: Minimum to always keep
+  # Example: reserve: 5 means always keep at least 5 of each item
+  
+  push_to: []                        # OPTIONAL: Where active-provider sends items
+  # Example:
+  #   push_to:
+  #     - match: { tags: ["finished"] }
+  #       destination: "../warehouse/"
+  #       priority: 1
+  #     - match: { tags: ["waste"] }
+  #       destination: "../trash/"
+  #     - default: "../storage/"
+  
+  # === REQUESTER CONFIG (for requester mode) ===
+  
+  request_list: []                   # OPTIONAL: What this container wants
+  # Example:
+  #   request_list:
+  #     - item: "iron-plate"
+  #       count: 20              # How many to maintain
+  #       min: 5                 # Request more when below this
+  #       priority: high         # high | normal | low
+  #     - tags: ["fuel"]
+  #       count: 10
+  #     - type: "component"
+  #       count: 50
+  
+  # === BUFFER CONFIG (for buffer mode) ===
+  
+  buffer_for: []                     # OPTIONAL: Conditional forwarding
+  # Example:
+  #   buffer_for:
+  #     - destination: "../ship/cargo/"
+  #       when: "world.ship.docked == true"
+  #     - destination: "../train/cargo/"
+  #       when: "world.train.at_station == true"
+  
+  # === GRID STORAGE ===
+  #
+  # Enable grid mode to auto-organize items into cells.
+  # Each cell is a sub-directory holding one item type.
+  #
+  
+  grid:
+    enabled: false                   # OPTIONAL: Enable grid storage mode
+    
+    # Grid dimensions (optional, can grow dynamically)
+    width: null                      # OPTIONAL: Fixed width (null = infinite)
+    height: null                     # OPTIONAL: Fixed height (null = infinite)
+    
+    # Cell defaults
+    cell_template: null              # OPTIONAL: Template for new cells
+    # Default: skills/logistic-container/CELL.yml.tmpl
+    
+    stack_limit: null                # OPTIONAL: Max per cell (null = infinite)
+    
+    # Auto-creation
+    auto_create_cells: true          # OPTIONAL: Create cells for new item types
+    
+    # Cell naming
+    cell_naming: item-id             # OPTIONAL: item-id | item-name | sequential
+    # Examples:
+    #   item-id: iron-ore/
+    #   item-name: Iron Ore/
+    #   sequential: cell-001/
+    
+    # Grid navigation (for players walking through warehouse)
+    navigable: false                 # OPTIONAL: Can player walk between cells?
+    cell_description: "A storage cell containing {{item_name}}."
+    
+  # === ITEM HANDLING ===
+  
+  item_handling:
+    
+    # Fungible vs Instance
+    default_mode: auto               # OPTIONAL: auto | fungible | instance
+    # auto = decide based on item tags
+    # fungible = always count (merge identical items)
+    # instance = always keep individual state
+    
+    # Tags that force instance mode
+    instance_tags:                   # OPTIONAL: Items with these tags keep state
+      - "unique"
+      - "named"
+      - "enchanted"
+      - "damaged"
+      - "configured"
+      - "has-history"
+      
+    # Tags that force fungible mode
+    fungible_tags:                   # OPTIONAL: Items with these tags just count
+      - "raw-material"
+      - "currency"
+      - "ammo"
+      - "stackable"
+      - "commodity"
+      
+  # === CAPACITY ===
+  
+  capacity:
+    total_slots: null                # OPTIONAL: Max unique item types (null = infinite)
+    total_items: null                # OPTIONAL: Max total count (null = infinite)
+    weight_limit: null               # OPTIONAL: Max weight (if items have weight)
+    
+  # === FILTERS ===
+  #
+  # What this container accepts or rejects.
+  #
+  
+  filters:
+    allow: []                        # OPTIONAL: Only accept matching items
+    # Example:
+    #   allow:
+    #     - tags: ["food"]
+    #     - type: "ingredient"
+    
+    deny: []                         # OPTIONAL: Reject matching items
+    # Example:
+    #   deny:
+    #     - tags: ["weapon"]
+    #     - tags: ["dangerous"]
+    
+    # If both empty, accept everything
+    
+  # === SORTING & DISPLAY ===
+  
+  sorting:
+    order: name                      # OPTIONAL: name | type | count | recent
+    direction: asc                   # OPTIONAL: asc | desc
+    group_by: null                   # OPTIONAL: type | tags[0] | null
+    
+  display:
+    show_counts: true                # OPTIONAL: Show item counts
+    show_empty_slots: false          # OPTIONAL: Show empty grid cells
+    compact: false                   # OPTIONAL: Compact list view
+    
+  # === NETWORK ===
+  #
+  # Which logistics network this container belongs to.
+  # Items only flow between containers in the same network.
+  #
+  
+  network: default                   # OPTIONAL: Network ID
+  # Example:
+  #   network: factory-a             # Only connects to factory-a network
+  #   network: [default, emergency]  # Multiple networks
+  
+  # === TRANSPORT ===
+  #
+  # How items actually move between containers.
+  # Default: POSTAL (instant, free, invisible)
+  # Optional: BOT (physical, visible, slower)
+  #
+  # THE BIG INSIGHT:
+  # You don't need physical bots! The postal system IS the transport layer.
+  # Items "teleport" via instantaneous free email.
+  # Bots are optional — use them for drama/gameplay.
+  #
+  
+  transport:
+    method: postal                   # OPTIONAL: postal | bot | belt
+    # postal: Instant, free, invisible (default)
+    #         Uses postal system internally
+    #         Items just appear at destination
+    #
+    # bot: Physical transport by character
+    #      Slower, visible, interactable
+    #      Use for drama and gameplay
+    #
+    # belt: Uses exit flow (conveyor belts)
+    #       Items move through exits each turn
+    #       Use for Factorio-style visible logistics
+    
+    # If method: bot
+    bot_config:
+      character: null                # Path to courier character
+      # Example: "characters/courier-kitten/"
+      #
+      # Or auto-assign from available bots:
+      auto_assign: true
+      preferred_tags: ["courier", "delivery"]
+      
+    # If method: belt  
+    belt_config:
+      use_exits: true                # Route through exit.flow
+      speed: 1                       # Items per turn per belt
+      
+  # === PHONE INTEGRATION ===
+  #
+  # The postal system includes your phone!
+  # Texts = signals, Camera = image generation
+  #
+  
+  phone_notifications:
+    enabled: true                    # OPTIONAL: Send texts about logistics
+    
+    notify_on:
+      - event: "request_fulfilled"
+        message: "📦 {item} delivered to {destination}"
+      - event: "low_stock"
+        threshold: 0.1               # 10% capacity
+        message: "⚠️ {container} running low on {item}"
+      - event: "full"
+        message: "📦 {container} is full!"
+        
+    # Camera prompts for visual documentation
+    camera:
+      auto_document: false           # Take photos of deliveries
+      prompt_template: "A photograph of {item} being stored in {container}"
+  
+  # === SIGNALS (Circuit Network) ===
+  #
+  # Emit signals about contents for conditional logic.
+  #
+  
+  signals:
+    enabled: false                   # OPTIONAL: Emit content signals
+    
+    emit:                            # OPTIONAL: What signals to emit
+      # Example:
+      #   - signal: "iron-plate-count"
+      #     value: "count of iron-plate"
+      #   - signal: "is-full"
+      #     value: "total_items >= capacity"
+      #   - signal: "low-fuel"
+      #     value: "count of coal < 10"
+    
+  # === EVENTS ===
+  
+  on_item_added: null                # OPTIONAL: When item enters
+  on_item_removed: null              # OPTIONAL: When item leaves
+  on_empty: null                     # OPTIONAL: When container becomes empty
+  on_full: null                      # OPTIONAL: When container becomes full
+  on_request_fulfilled: null         # OPTIONAL: When requester gets what it wanted
+  
+  # === STATE ===
+  #
+  # Current contents (populated at runtime).
+  #
+  
+  contents: []                       # COMPUTED: Current items
+  # Fungible items:
+  #   - { item: "iron-ore", count: 500, location: "iron-ore/" }
+  # Instance items:
+  #   - { item: "magic-sword", count: 3, location: "magic-sword/",
+  #       instances: [
+  #         { id: "sword-001", durability: 85, enchant: "fire" },
+  #         { id: "sword-002", durability: 100, enchant: null },
+  #         { id: "sword-003", durability: 50, enchant: "ice" }
+  #       ]}
+  
+  stats:                             # COMPUTED: Summary statistics
+    total_items: 0
+    unique_types: 0
+    total_weight: 0
+    percent_full: 0
+    
+# ═══════════════════════════════════════════════════════════════════════════════
+# CELL TEMPLATE — For grid storage
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Each cell in a grid is a mini-room holding one item type.
+# This is the default template for auto-created cells.
+#
+# cells:
+#   cell:
+#     id: "{{item_id}}"
+#     item_type: "{{item_id}}"        # What this cell holds
+#     stack_limit: null               # Override parent's limit
+#     
+#     # Fungible storage
+#     count: 0                        # Current count
+#     
+#     # Instance storage
+#     instances: []                   # Array of item objects
+#     
+#     # Metadata
+#     created_at: null                # When first item arrived
+#     last_access: null               # When last touched
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Example 1: Simple Pantry (Passive Provider)
+#
+#   logistic-container:
+#     id: pantry
+#     name: "Kitchen Pantry"
+#     emoji: "🍽️"
+#     mode: passive-provider
+#     
+#     provides:
+#       - tags: ["food", "ingredient"]
+#       
+#     reserve: 1    # Always keep at least 1 of each
+#     
+#     filters:
+#       allow:
+#         - tags: ["food"]
+#         - tags: ["ingredient"]
+#         - tags: ["spice"]
+
+# Example 2: Factory Output (Active Provider)
+#
+#   logistic-container:
+#     id: factory-output
+#     name: "Assembly Output"
+#     emoji: "🏭"
+#     mode: active-provider
+#     
+#     push_to:
+#       - match: { tags: ["finished"] }
+#         destination: "../warehouse/finished-goods/"
+#       - match: { tags: ["byproduct"] }
+#         destination: "../recycling/"
+#       - default: "../overflow/"
+
+# Example 3: Workbench (Requester)
+#
+#   logistic-container:
+#     id: workbench
+#     name: "Crafting Workbench"
+#     emoji: "🔧"
+#     mode: requester
+#     
+#     request_list:
+#       - item: "iron-plate"
+#         count: 20
+#         min: 5
+#       - item: "copper-wire"
+#         count: 30
+#         min: 10
+#       - tags: ["fuel"]
+#         count: 5
+
+# Example 4: Grid Warehouse (Passive Provider + Grid)
+#
+#   logistic-container:
+#     id: main-warehouse
+#     name: "Central Warehouse"
+#     emoji: "🏪"
+#     mode: passive-provider
+#     
+#     grid:
+#       enabled: true
+#       auto_create_cells: true
+#       stack_limit: 1000
+#       cell_naming: item-id
+#       navigable: true
+#       
+#     item_handling:
+#       default_mode: auto
+#       fungible_tags: ["raw-material", "commodity"]
+#       instance_tags: ["weapon", "armor", "tool"]
+
+# Example 5: Ship Loading Dock (Buffer)
+#
+#   logistic-container:
+#     id: loading-dock
+#     name: "Ship Loading Dock"
+#     emoji: "⚓"
+#     mode: buffer
+#     
+#     buffer_for:
+#       - destination: "../harbor/ship/cargo/"
+#         when: "world.ship.docked == true AND world.ship.cargo_space > 0"
+#         
+#     on_empty:
+#       emit: "Dock cleared. Ship ready to depart."
+
+# Example 6: Player Inventory (Requester + Instance)
+#
+#   logistic-container:
+#     id: player-inventory
+#     name: "Backpack"
+#     emoji: "🎒"
+#     mode: requester
+#     
+#     request_list:
+#       - item: "torch"
+#         count: 1
+#         priority: high
+#       - tags: ["food"]
+#         count: 5
+#       - tags: ["healing"]
+#         count: 3
+#         
+#     item_handling:
+#       default_mode: instance    # Keep individual item state
+#       
+#     capacity:
+#       total_slots: 20
+#       weight_limit: 100
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUADRANT CONTAINER — Logistics at the Grid Level!
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# KEY INSIGHT: The logistics config lives at the QUADRANT level, not in each cell!
+#
+# The diagonal directions (NW/NE/SW/SE) of the pie menu open into GRID QUADRANTS.
+# Each quadrant has a LOGISTIC-CONTAINER.yml that defines:
+#   - What mode the whole quadrant operates in
+#   - Grid behavior (auto-create, stack limits)
+#   - What the quadrant provides or requests
+#
+# Individual grid rooms INHERIT the logistics behavior from their parent!
+#
+# STRUCTURE:
+#   wizard-study/                    # Main room (pie menu center)
+#     ROOM.yml
+#     nw/                            # Northwest quadrant (diagonal exit)
+#       LOGISTIC-CONTAINER.yml       # ← Logistics config HERE!
+#       nw-1-1/
+#         ROOM.yml                   # Inherits logistics from parent!
+#       nw-2-1/
+#         ROOM.yml
+#       nw-1-2/
+#         ROOM.yml
+#     ne/                            # Northeast quadrant
+#       LOGISTIC-CONTAINER.yml       # Different config for this quadrant
+#       ...
+#     sw/                            # Southwest quadrant  
+#       LOGISTIC-CONTAINER.yml
+#       ...
+#     se/                            # Southeast quadrant
+#       LOGISTIC-CONTAINER.yml
+#       ...
+#
+# PIE MENU TOPOLOGY:
+#
+#        N (navigate to other major room)
+#        │
+#   NW ←─●─→ NE      ← Diagonals open into LOGISTIC GRIDS
+#        │
+#   W ←──┼──→ E      ← Cardinals navigate to other rooms
+#        │
+#   SW ←─●─→ SE      ← Diagonals open into LOGISTIC GRIDS
+#        │
+#        S (navigate to other major room)
+#
+# INHERITANCE PATTERN:
+#
+#   The LOGISTIC-CONTAINER.yml defines:
+#     - mode: passive-provider
+#     - stack_limit: 1000
+#     - provides: [{ tags: ["ore"] }]
+#     - logistic_advertisements: { ... }
+#
+#   Each grid room (nw-1-1/, nw-2-1/) INHERITS:
+#     - logistics.mode from parent
+#     - logistics.provides from parent
+#     - Can override with own values if needed
+#
+#   Grid rooms only need to specify:
+#     - Their own stacks (what they hold)
+#     - Their own exits (navigation)
+#     - Optional overrides
+#
+# MINIMAL GRID ROOM:
+#
+#   # nw/nw-1-1/ROOM.yml
+#   room:
+#     name: "Iron Ore Storage"
+#     type: grid-cell
+#     inherits: ["../"]          # ← Inherit from parent container!
+#     
+#     stacks:
+#       iron-ore: 2500           # Just the data
+#       
+#     exits:
+#       SW: ../../               # Back to main room
+#       N: ../nw-1-2/
+#       E: ../nw-2-1/
+#
+# The room doesn't repeat logistics config — it inherits it!
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUADRANT EXAMPLES
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Example: Ore Storage Quadrant (Passive Provider)
+#
+#   # wizard-study/nw/LOGISTIC-CONTAINER.yml
+#   logistic-container:
+#     id: ore-storage
+#     name: "Ore Storage Quadrant"
+#     mode: passive-provider
+#     
+#     provides:
+#       - tags: ["ore", "raw-material"]
+#       
+#     grid:
+#       enabled: true
+#       auto_create_cells: true
+#       stack_limit: 10000
+#       navigable: true
+#       cell_naming: item-id      # iron-ore → iron-ore/
+#
+# Example: Finished Goods Quadrant (Active Provider — pushes OUT)
+#
+#   # wizard-study/ne/LOGISTIC-CONTAINER.yml
+#   logistic-container:
+#     id: finished-goods
+#     name: "Finished Goods Quadrant"
+#     mode: active-provider
+#     
+#     push_to:
+#       - match: { tags: ["export"] }
+#         destination: "../../harbor/loading-dock/"
+#       - match: { tags: ["local"] }
+#         destination: "../../market/"
+#
+# Example: Ingredient Quadrant (Requester — pulls IN)
+#
+#   # wizard-study/sw/LOGISTIC-CONTAINER.yml
+#   logistic-container:
+#     id: ingredients
+#     name: "Ingredient Storage"
+#     mode: requester
+#     
+#     request_list:
+#       - tags: ["ingredient"]
+#         count: 100
+#         min: 20
+#       - tags: ["spice"]
+#         count: 50
+#         
+#     logistic_advertisements:
+#       NEED_INGREDIENTS:
+#         wants: [{ tags: ["ingredient"], count: 100 }]
+#         score: 70
+#
+# Example: Staging Quadrant (Buffer — holds until condition)
+#
+#   # wizard-study/se/LOGISTIC-CONTAINER.yml
+#   logistic-container:
+#     id: staging
+#     name: "Shipping Staging"
+#     mode: buffer
+#     
+#     buffer_for:
+#       - destination: "../../harbor/ship/cargo/"
+#         when: "world.ship.docked == true"
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# GRID ROOMS INHERIT — Minimal Cell Definition
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Grid rooms are MINIMAL. They inherit behavior from parent container.
+#
+# FULL GRID ROOM (all fields inherited):
+#
+#   # nw/iron-ore/ROOM.yml
+#   room:
+#     name: "Iron Ore Storage"
+#     type: grid-cell
+#     inherits: ["../"]               # ← Key! Inherit from container
+#     
+#     grid_cell:
+#       item_type: iron-ore
+#       coordinates: { x: 1, y: 1 }
+#       
+#     stacks:
+#       iron-ore: 2500
+#       
+#     exits:
+#       SW: ../../                    # Back to main room (corner)
+#       N: ../copper-ore/
+#       E: ../coal/
+#       
+#     # NO logistics config needed — inherited!
+#
+# ULTRA-MINIMAL GRID ROOM (auto-inferred):
+#
+#   # nw/iron-ore/ROOM.yml
+#   room:
+#     inherits: ["../"]
+#     stacks:
+#       iron-ore: 2500
+#
+#   # Name, type, exits all computed from:
+#   # - Directory name (iron-ore)
+#   # - Parent config (grid settings)
+#   # - Neighbor discovery (auto-link)
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# ROOM ADVERTISEMENTS — Rooms That WANT Things!
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# THE SIMS + FACTORIO UNIFICATION:
+#   In The Sims, objects advertise actions to attract Sims.
+#   In Factorio, chests request items from the network.
+#   In MOOLLM, ROOMS advertise their NEEDS with attractiveness scores!
+#
+# A room can say "I really want fuel" with score 90.
+# Another room can say "I kind of want anything" with score 20.
+# Items go to the higher-scoring room first!
+#
+# EXAMPLE:
+#   room:
+#     name: "The Forge"
+#     
+#     logistic_advertisements:
+#       
+#       NEED_ORE:
+#         description: "Forge needs ore to smelt"
+#         wants:
+#           - tags: ["ore"]
+#             count: 20
+#         score: 70
+#         score_if: "forge.hot AND ore.count < 5"
+#         score_bonus: 50    # Total 120 when urgent!
+#         
+#       NEED_FUEL:
+#         wants:
+#           - item: "coal"
+#             count: 10
+#         score: 60
+#         score_if: "forge.fuel < 2"
+#         score_bonus: 80    # Total 140 when almost out!
+#
+# ROUTING ALGORITHM:
+#   1. Collect all logistic_advertisements from all rooms
+#   2. For each item type, find all rooms that want it
+#   3. Calculate effective score (base + bonus if condition true)
+#   4. Route item to highest-scoring room
+#   5. If tie, use distance (closer wins)
+#   6. If still tie, use FIFO (first to request)
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# OPERATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# ADD item
+#   1. Check filters (allow/deny)
+#   2. Find or create cell for item type
+#   3. If fungible: increment count
+#      If instance: append to instances array
+#   4. Update stats
+#   5. Fire on_item_added
+#   6. If active-provider: queue for push
+#
+# REMOVE item
+#   1. Find cell for item type
+#   2. Check reserve limit
+#   3. If fungible: decrement count
+#      If instance: find specific instance, remove from array
+#   4. If cell empty and not navigable: optionally remove cell
+#   5. Update stats
+#   6. Fire on_item_removed
+#
+# REQUEST fulfillment (for requesters)
+#   1. Check request_list
+#   2. Find providers with matching items
+#   3. Create transport task for logistics bots
+#   4. When delivered, fire on_request_fulfilled
+#
+# PUSH (for active-providers)
+#   1. Check push_to rules
+#   2. Find matching destination
+#   3. Create transport task for logistics bots
+#   4. When delivered, remove from this container
+#
+# ═══════════════════════════════════════════════════════════════════════════════

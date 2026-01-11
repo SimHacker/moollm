@@ -1,0 +1,105 @@
+---
+# Markdown Skill Card
+# Plain text formatting that's readable raw AND rendered
+
+name: markdown
+version: 1.0.0
+tier: 1
+
+one_liner: "Plain text formatting that's readable raw AND rendered"
+
+protocol: MARKDOWN
+
+tags:
+  - format
+  - documentation
+  - session-log
+  - readme
+  - plain-text
+
+# Core insight
+insight: |
+  The source IS the destination. Markdown is readable
+  before AND after rendering. No transformation gap.
+
+# When to invoke
+when_to_use:
+  - Writing session logs
+  - Creating READMEs
+  - Documenting skills
+  - LLM communication
+  - Any human-readable prose
+
+# Key principles
+principles:
+  - name: "Source is Destination"
+    description: "Readable raw AND rendered"
+  
+  - name: "LLM-Native"
+    description: "Models trained on billions of .md files"
+  
+  - name: "Git-Friendly"
+    description: "Meaningful diffs, readable history"
+  
+  - name: "No Lock-In"
+    description: "Plain text survives every platform"
+
+# Anil Dash's 10 Reasons
+ten_reasons_markdown_won:
+  - Great brand
+  - Solved a real problem
+  - Built on existing behaviors
+  - Community ready to help
+  - Right flavor for every context
+  - Released at time of behavior change
+  - Came at cusp of build tool era
+  - Works with "view source"
+  - Not encumbered by IP
+
+# GFM extensions
+github_flavored_extensions:
+  - Tables
+  - Task lists
+  - Fenced code blocks with syntax highlighting
+  - Collapsible sections (details/summary) — CRITICAL for long docs!
+  - Alerts (NOTE, WARNING, etc.)
+  - Mermaid diagrams — flowcharts, sequences, state machines, ERDs
+
+# Collapsible sections best practice
+collapsible_pattern:
+  insight: "The <summary> tag should tell readers what's inside WITHOUT opening"
+  bad: "<summary>Click to see more</summary>"
+  good: "<summary><strong>🎤 Gary's Talk — Schema + LLM = Flight</strong></summary>"
+  use_cases:
+    - "Session logs with expandable sections"
+    - "Technical docs with optional depth"
+    - "Long narratives with scannable structure"
+
+# Mermaid diagram types
+mermaid_diagrams:
+  - type: "flowchart"
+    use: "Process flow, decision trees"
+  - type: "sequenceDiagram"
+    use: "Interactions between components"
+  - type: "stateDiagram-v2"
+    use: "State machines, room transitions"
+  - type: "erDiagram"
+    use: "Data models, relationships"
+  - type: "classDiagram"
+    use: "Object hierarchies"
+  - type: "gantt"
+    use: "Timelines, project plans"
+
+# Related skills
+related:
+  - yaml-jazz
+  - session-log
+  - plain-text
+  - soul-chat
+  - postel
+
+# Credits
+credits:
+  - "John Gruber — Creator (2004)"
+  - "Aaron Swartz — Beta tester"
+  - "Anil Dash — 'How Markdown Took Over the World' (2025)"

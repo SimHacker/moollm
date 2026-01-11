@@ -1,0 +1,138 @@
+# INVALID_SCHEMA Event Handler
+#
+# When the linter finds a YAML syntax error or schema violation,
+# this handler guides the LLM to suggest or generate a fix.
+#
+# "Be liberal in what you accept. Help fix what's broken."
+#     — Postel's Principle Extended
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+event_handler:
+  name: INVALID_SCHEMA
+  handles: [INVALID_SCHEMA, TYPE_MISMATCH]
+  
+  description: |
+    When YAML has syntax errors or schema violations, this handler:
+    1. Analyzes the error message
+    2. Identifies the likely cause
+    3. Suggests a fix (natural language)
+    4. Optionally provides corrected YAML
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INPUT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+input:
+  event:
+    type: INVALID_SCHEMA
+    path: "{{path}}"              # File with the error
+    message: "{{message}}"        # Error description
+    line: "{{line}}"              # Line number (if available)
+    column: "{{column}}"          # Column number (if available)
+    data: "{{data}}"              # Additional context
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+output:
+  # Natural language explanation
+  diagnosis: "{{what_went_wrong}}"
+  
+  # How to fix it
+  suggestion: "{{how_to_fix}}"
+  
+  # Corrected YAML (if possible to generate)
+  fixed_yaml: |
+    {{corrected_yaml_content}}
+    
+  # Confidence (0-100)
+  confidence: "{{confidence}}"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COMMON YAML ERRORS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+common_errors:
+  indentation:
+    symptoms: ["mapping values are not allowed", "expected <block end>"]
+    diagnosis: "Inconsistent indentation — mixing tabs and spaces, or wrong indent level"
+    fix: "Use 2 spaces for each indent level, never tabs"
+    
+  unclosed_string:
+    symptoms: ["unexpected end of stream", "found unexpected ':'"]
+    diagnosis: "String contains unescaped special characters or missing quotes"
+    fix: "Wrap string in quotes, escape internal quotes"
+    
+  colon_in_value:
+    symptoms: ["mapping values are not allowed here"]
+    diagnosis: "Colon in value without quotes — YAML thinks it's a key"
+    fix: 'Wrap value in quotes: description: "Time: 3pm"'
+    
+  list_vs_dict:
+    symptoms: ["expected <block mapping>", "expected a sequence"]
+    diagnosis: "Using list syntax where dict expected (or vice versa)"
+    fix: "Check if field expects a list (- item) or dict (key: value)"
+    
+  duplicate_key:
+    symptoms: ["found duplicate key", "mapping key already defined"]
+    diagnosis: "Same key appears twice in the same mapping"
+    fix: "Remove or rename one of the duplicate keys"
+    
+  multiline_string:
+    symptoms: ["could not find expected ':'"]
+    diagnosis: "Multiline string not using | or > indicator"
+    fix: |
+      Use | for literal block:
+        description: |
+          Line 1
+          Line 2
+          
+  boolean_vs_string:
+    symptoms: ["expected bool but got string"]
+    diagnosis: "yes/no/true/false/on/off interpreted as boolean"
+    fix: 'Wrap in quotes if you want string: enabled: "yes"'
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+examples:
+  - error: "mapping values are not allowed in this context"
+    file_content: |
+      room:
+        name: The Kitchen
+        description: A cozy space
+          with warm light    # ← ERROR: wrong indent
+    diagnosis: "Continuation of multiline string has wrong indentation"
+    fixed: |
+      room:
+        name: The Kitchen
+        description: |
+          A cozy space
+          with warm light
+          
+  - error: "found unexpected ':'"
+    file_content: |
+      room:
+        name: Kitchen
+        schedule: 9:00 AM - 5:00 PM  # ← ERROR: unquoted colons
+    diagnosis: "Colons in value are interpreted as YAML key separators"
+    fixed: |
+      room:
+        name: Kitchen
+        schedule: "9:00 AM - 5:00 PM"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROCEDURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+procedure: |
+  1. READ the error message carefully
+  2. IDENTIFY the error pattern from common_errors
+  3. LOCATE the line/column in the file (if provided)
+  4. DIAGNOSE the likely cause
+  5. GENERATE a clear suggestion in natural language
+  6. IF possible, generate the corrected YAML
+  7. SET confidence based on how certain the fix is

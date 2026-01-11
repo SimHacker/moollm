@@ -1,0 +1,31 @@
+# Rooftop Terrace — Amsterdam Nights
+
+room:
+  name: "The Rooftop Terrace"
+  id: rooftop-terrace
+  
+  description: |
+    A hidden gem above the pub — a proper Amsterdam rooftop terrace.
+    
+    Wooden decking weathered silver by rain and sun. String lights 
+    zigzag overhead, casting a warm glow. Potted herbs line the railings:
+    mint, basil, lavender. Clay pots of red geraniums everywhere.
+    
+    The cityscape stretches in all directions — crooked gables, church 
+    spires, canal glints catching moonlight. Distant accordion music 
+    drifts up from a boat party below.
+    
+    A brass telescope on a tripod points at the stars. A worn leather 
+    armchair faces west toward the sunset. Someone left a half-finished 
+    jenever on the side table.
+    
+  atmosphere:
+    sounds: ["distant boat horns", "accordion music", "wind chimes"]
+    smells: ["night air", "herbs", "canal water", "tobacco"]
+    weather: clear
+    
+  exits:
+    down:
+      destination: ../attic/
+      description: "Back down through the skylight"
+      aliases: [in, inside, attic]

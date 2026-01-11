@@ -66,12 +66,39 @@ methods:
     effect: "Display buffs with remaining duration"
     invoked-by: [player, npc]
     
+  FIND_BY_TAG:
+    description: "Find all buffs with a specific tag"
+    parameters:
+      target: "Character to search"
+      tag: "Tag to search for (e.g., 'terpene', 'combat', 'curse')"
+    output: list
+    effect: "Return array of matching buffs"
+    invoked-by: [script, llm, ui]
+    
+  REMOVE_BY_TAG:
+    description: "Remove all buffs with a specific tag"
+    parameters:
+      target: "Character"
+      tag: "Tag to match (e.g., 'curse', 'terpene')"
+    output: chat + state-change
+    effect: "Filter out buffs where tags includes tag"
+    invoked-by: [healer, item, dispel]
+    
+  HAS_TAG:
+    description: "Check if character has any buff with tag"
+    parameters:
+      target: "Character"
+      tag: "Tag to check"
+    output: boolean
+    effect: "Return true if any buff has tag"
+    invoked-by: [guard, script, llm]
+    
   CLEANSE:
     description: "Remove all negative buffs (curses)"
     parameters:
       target: "Character"
     output: chat + state-change
-    effect: "Filter out buffs where polarity = negative"
+    effect: "Filter out buffs where polarity = negative OR tag includes 'curse'"
     invoked-by: [healer, shrine, item]
 
 # STATE
@@ -101,6 +128,48 @@ state:
       type: enum
       values: [positive, negative, neutral]
       description: "Is this a buff, curse, or neutral?"
+    tags:
+      type: array
+      items: string
+      description: "Searchable keywords for filtering buffs"
+      examples:
+        - combat        # Affects combat
+        - social        # Affects social interactions
+        - terpene       # From terpene kittens
+        - consumable    # From eating/drinking
+        - digestion     # Food-related effects
+        - curse         # Negative effect
+        - movement      # Affects speed/position
+        - perception    # Affects what you see/hear
+        - dispellable   # Can be removed by spells
+        - blessed       # From holy source
+        - corrupted     # From dark source
+        - embarrassing  # Social consequences
+    category:
+      type: string
+      description: "Primary category for stacking limits"
+      examples: [terpene, charm, consumable, curse, environmental, digestion]
+    spawns_after:
+      type: array
+      items:
+        buff_id: { type: string, required: true }
+        delay: { type: integer, default: 0 }
+        chance: { type: number, default: 1.0 }
+      description: "Buffs to spawn when this one ends (chains!)"
+    on_tick:
+      type: string
+      description: "Natural language for per-turn effects"
+    on_tick_js:
+      type: string
+      description: "Compiled JavaScript for on_tick"
+    on_tick_py:
+      type: string
+      description: "Compiled Python for on_tick"
+    grants_immunity:
+      type: array
+      items: string
+      description: "Events this buff protects against"
+      examples: [GRUE_ATTACK, FEAR, POISON]
 
 # BUFF TYPES
 
