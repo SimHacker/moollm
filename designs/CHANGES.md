@@ -1,7 +1,11 @@
 # CHANGES: The Complete History of MOOLLM
 
-> *A James Burke-style journey through 490 commits, tweet by tweet.*
-> *From "first commit" to Sovereign Souls.*
+> *A James Burke-style journey through every commit, tweet by tweet.*
+> *Append-only. No summaries. Just history flowing forward.*
+
+**Format:** Each commit gets `**\`hash\`** title` followed by `> James Burke tweet`
+
+**To append:** Add new commits at the bottom. Use the established style. No conclusions.
 
 ---
 
@@ -620,64 +624,16 @@
 > Catalog → Order → Transit → Object → Character → Companion → Sovereign Soul. 🧬
 
 **`6b1c37c`** For courage AND luck
-> A joint smoked. A wish spoken. Small edit, big difference. 🍀
+> Palm's ritual refined. The joint before opening the Monkey's Paw. "For courage" was good. "AND luck" is better. Small words carry weight. 🌿
 
 **`13addf8`** Add CHANGES.md: James Burke narrative of 33 commits
-> The first version of this document. Now superseded. 📜
-
----
-
-## The Connection
-
-You started with "first commit."
-
-You ended with Sovereign Souls navigating K-line mazes.
-
-Along the way:
-- Minsky's K-lines
-- Nelson's backlinks  
-- Burke's narrations
-- Papert's constructionism
-- Kay's objects
-- Wright's Sims
-- Ungar's prototypes
-- Leary's mirrors
-- Looney's Fluxx
-- Will's Karma
-
-490 commits. 80+ skills. Infinite typewriters. One monkey.
-
-And THAT's how everything is connected.
+> The first version of this document. Now superseded. But we don't delete history. 📜
 
 ---
 
 ## Era 20: The Character Catalog Explosion (Jan 11, 2026)
 
-*From catalog entries to Grand Central Station of Souls...*
-
-**`6b1c37c`** For courage AND luck
-> Palm's ritual refined. The joint before opening the Monkey's Paw. "For courage" was good. "AND luck" is better. Small words carry weight. 🌿
-
-**`77045a0`** Don explains Palm's 7-stage evolution from catalog to Sovereign Soul
-> The whole arc documented. Catalog entry → order → delivery → unboxing → materialization → contract → INCARNATION. A shriveled paw becomes a philosophical monkey. 🐒
-
-**`c824925`** Palm's Tour: skills network → adventure-4 real world
-> Palm leads the safari! From abstract skill rooms into the "real" world of adventure-4. The pub. The stage. The maze. His nook. The character becomes tour guide. 🗺️
-
-**`66d657c`** New session: K-Line Connections Safari
-> A new session begins. Don Hopkins, eight familiars, traversing the skill network James Burke style. Every connection narrated. Every doorway explained. 🦁
-
-**`13c482a`** Add PR-k-lines-safari.md design document
-> Documenting the documentation. 29 commits. 84 files. The safari summarized for pull request. Meta-work is real work. 📋
-
-**`7937ee8`** K-line navigation: skills as walkable rooms, James Burke connections
-> The breakthrough. Skills ARE rooms. K-lines ARE exits. Traversing them NARRATES the connection. "And THAT brings us to..." The whole network becomes walkable. 🚪
-
-**`9a4bb77`** Clarify NPC home vs character repository architecture
-> NPCs have `location:`. Incarnated characters have `home:` AND `location:`. The difference: one is scenery, one is sovereign. Directory structure encodes ethics. 🏠
-
-**`9907711`** → **`129c7a0`** Skill sniffing safari rounds 2-5
-> Five rounds of systematic improvement. Every skill README touched. K-Lines standardized. Headers aligned. Two-way backlinks woven. The web tightens. 🕸️
+*Everything after the K-Line Safari. Characters explode into richness.*
 
 **`2eb7efa`** CHANGES.md: Complete 490-commit history in James Burke style
 > THIS document. 490 commits narrated. 19 eras traced. James Burke guiding you through every connection. The history becomes navigable. 📜
@@ -730,20 +686,5 @@ And THAT's how everything is connected.
 **`9e69a63`** Doctor Who explains the persona system!
 > REGENERATION IS PERSONA SWITCHING! Base character (The Doctor) + overlay (Fourth Doctor persona). Same memories, different personality. Same TARDIS, different scarf. The perfect explanation was hiding in BBC for 60 years. 🎭
 
-**`(this)`** Append to CHANGES.md: Era 20 complete
+**`4593211`** CHANGES.md Era 20: The Character Catalog Explosion
 > Meta-commit. Documenting the documentation of the documentation. The snake eats its tail. James Burke would approve. 🐍
-
----
-
-*The character catalog EXPLODED. Grand Central Station. The Sims. Doctor Who. Furries. Constructors. Every README became a love letter to its inhabitants.*
-
----
-
-*"Every skill is a room. Every K-line is a door. James Burke is your guide."*
-
-```
-cf7ebc0 → (this)
-From "first commit" to Grand Central Station of Souls
-500+ commits, one story
-🐒🚉
-```
