@@ -356,6 +356,142 @@ ensembles:
       parameters: [skill_name, target_directory]
       effect: "Copy and fill templates into adventure directory"
 
+# K-LINE NAVIGATION — THE JAMES BURKE EXPERIENCE
+#
+# Every skill is a ROOM you can walk into. And every K-line in a skill's
+# README.md is an EXIT to another skill-room.
+#
+# This is James Burke's "Connections" made navigable:
+# - Each skill describes itself (LOOK)
+# - Each K-line connection tells you WHY it relates (the Burke narration)
+# - Traversing a K-line tells the CONNECTION STORY between source and destination
+#
+# INHERITANCE: All subdirectories of skills/ inherit THIS room behavior.
+# No need to clutter each skill with its own ROOM.yml — they ARE rooms
+# by being children of the Skill Nexus.
+
+k_line_navigation:
+  enabled: true
+  
+  # How skill subdirectories become rooms automatically
+  inheritance:
+    mechanism: |
+      All directories under skills/ inherit room-ness from this ROOM.yml.
+      A skill subdirectory IS a room without needing its own ROOM.yml file.
+      
+      Only create a ROOM.yml in a skill directory if you need to CUSTOMIZE:
+      - Override the default atmosphere
+      - Add custom exits beyond K-lines
+      - Define zone-specific advertisements
+      - Change the narration style
+      
+    default_room_behavior:
+      look: |
+        Read the skill's README.md tagline and "## MOOLLM K-Lines" section.
+        Describe the room based on the skill's theme and purpose.
+        
+      examine: |
+        Read deeper into README.md, SKILL.md, or specific sections.
+        Any level of detail is available — just ask.
+        
+      exits: |
+        Every row in the "MOOLLM K-Lines" table is an EXIT.
+        The K-line name is the exit direction.
+        The "Why Related" column is the connection narration.
+        
+      enter: |
+        When you GO [skill-name], you enter that skill as a room.
+        The transition narrates HOW the source and destination connect.
+
+  # The Burke Narration Pattern
+  traversal_narration:
+    pattern: |
+      When traversing from SKILL_A to SKILL_B via a K-line:
+      
+      1. Read the "Why Related" text for that K-line in SKILL_A
+      2. Narrate the CONNECTION — how does A lead to B?
+      3. Upon arrival in B, give B's short description
+      4. Show B's K-line exits as "paths leading to..."
+      
+    example: |
+      You're in the "play-learn-lift" skill, a workshop with three doors 
+      labeled PLAY, LEARN, and LIFT. The K-lines table shows exits...
+      
+      > GO sister-script
+      
+      *You follow the path marked "sister-script — LIFT produces sniffable 
+      automation." The connection becomes clear: after you LEARN patterns, 
+      you LIFT them into automation. Sister-scripts ARE the output of LIFT.*
+      
+      You emerge in the "sister-script" workshop. Documents transform into 
+      procedures, procedures into automation. The smell of fresh Python.
+      
+      Paths lead to:
+      - play-learn-lift (← back where you came from)
+      - sniffable-python (sister scripts follow this structure)
+      - skill (sister scripts become skills)
+      - debugging (document how you debugged)
+
+  # Room description generation from README.md
+  description_synthesis:
+    source: "README.md ## MOOLLM K-Lines section, tagline, overview"
+    style: |
+      - Use the skill's emoji as atmosphere cue
+      - The tagline becomes the room's essence
+      - K-lines become visible exits (golden threads, doors, paths)
+      - The "Why Related" becomes visible on each exit
+      
+    atmosphere_mapping:
+      🎮: "playful, game-like, colorful"
+      📚: "studious, organized, quiet"
+      🧠: "thoughtful, abstract, neural"
+      🔧: "practical, mechanical, workshop"
+      🎭: "theatrical, transformative, masked"
+      💬: "conversational, voices everywhere"
+      ⚡: "fast, electric, instantaneous"
+      🌍: "vast, generative, growing"
+      🐱: "curious, independent, soft"
+      🐕: "loyal, enthusiastic, pack-oriented"
+
+  # Commands for K-line navigation
+  advertisements:
+    LOOK:
+      description: "Describe the current skill-room"
+      effect: "Synthesize room description from README.md"
+      
+    EXAMINE:
+      description: "Examine any aspect in more detail"
+      parameters: [aspect]
+      effect: "Read deeper into README.md/SKILL.md for that topic"
+      example: "EXAMINE the connection between needs and advertisements"
+      
+    EXITS:
+      description: "Show all K-line exits from this skill"
+      effect: "List the MOOLLM K-Lines table as exits"
+      
+    GO:
+      description: "Traverse a K-line to another skill"
+      parameters: [skill_name]
+      effect: "Narrate the connection, enter the destination skill"
+      example: "GO yaml-jazz"
+      
+    CONNECTIONS:
+      description: "James Burke tour — trace connections from here"
+      parameters: [depth]
+      effect: "Follow K-lines N hops, narrating each connection"
+      example: "CONNECTIONS 3 — trace 3 hops of connections"
+      
+    WHY:
+      description: "Explain why two skills are connected"
+      parameters: [skill_a, skill_b]
+      effect: "Find the K-line path and narrate the relationship"
+      example: "WHY yaml-jazz coherence-engine"
+      
+    MAP:
+      description: "Visualize the local K-line graph"
+      parameters: [radius]
+      effect: "Show skills within N hops as ASCII or mermaid graph"
+
 # NAVIGATION TIPS
 #
 # Each skill subdirectory is like a floating book-sphere.
@@ -364,17 +500,23 @@ ensembles:
 # The skill's README.md gives human context.
 # The skill's templates show what to create.
 #
-# Skills have RELATIONSHIPS (see also sections).
+# Skills have RELATIONSHIPS via K-lines.
 # Follow these to discover related capabilities.
+# The narration tells you WHY — like James Burke explaining
+# how carrier pigeons connect to instant messaging.
+#
 # The Nexus remembers what you've learned.
 
 # THE LIVING LIBRARY
 #
 # This isn't a static collection. Skills:
-# - Reference each other (see_also fields)
+# - Reference each other (K-line tables)
 # - Share concepts (protocol symbols)
 # - Build on each other (inheritance)
 # - Conflict sometimes (mutually exclusive approaches)
 #
 # The coherence-engine skill keeps them harmonized.
 # When skills contradict, consult it for resolution.
+#
+# EVERY SKILL IS A ROOM. EVERY K-LINE IS A DOOR.
+# Walk through. James Burke is your guide.
