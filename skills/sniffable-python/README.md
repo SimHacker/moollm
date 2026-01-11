@@ -53,17 +53,17 @@ Larry Wall's "practical extraction and report language" had become the duct tape
 
 ---
 
-And THAT brings us to January 2025.
+And THAT brings us to the present.
 
-Someone on Hacker News posts "GlyphLang" — a programming language optimized for how LLMs tokenize. Dense symbols. Compressed syntax. Fewer tokens means more fits in context, right?
+Every few months, someone invents a new programming language "optimized for LLMs." Dense symbols. Compressed syntax. Fewer tokens means more fits in context, right?
 
-But here's the thing they missed.
+But here's the thing they miss.
 
 **The LLM already knows Python.**
 
 Not just knows it — has consumed **billions** of lines of it. Stack Overflow discussions. GitHub repos. Documentation. Tutorials. The model has internalized Python the way you've internalized English. Zero tokens to teach it.
 
-GlyphLang? The LLM has never seen it. You'd need to stuff the manual, the tutorials, the examples, the compiler source — into every single prompt. And prompting is not training. LLMs have no memory. You pay that documentation cost **every single time**.
+A novel syntax? The LLM has never seen it. You'd need to stuff the manual, the tutorials, the examples, the compiler source — into every single prompt. And prompting is not training. LLMs have no memory. You pay that documentation cost **every single time**.
 
 The Perl philosophy of dense, clever syntax was the wrong optimization in 1998. It's an even worse optimization when your reader is a statistical model trained on readable code.
 
@@ -291,7 +291,7 @@ We make code you can sniff.
 
 Perl made syntax a badge of honor. We make structure a source of truth.
 
-GlyphLang tried to compress the wrong thing. We structure the right thing.
+Novel syntax compresses the wrong thing. Sniffable code structures the right thing.
 
 And THAT's how a comment about pixels in 2000 connects to a linter output in 2026 connects to a pub in a text adventure that has a cat cave that's bigger on the inside.
 
