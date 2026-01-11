@@ -754,5 +754,53 @@
 **`ee226d4`** CHANGES.md: Clarify PUSH protocol, retrocon previous commits
 > The PUSH protocol is now crystal clear. One commit. Done.
 
-**`(this)`** Rewrite MOOLLM-MANIFESTO.md: 1684→238 lines, bold and punchy
+**`0783c77`** Rewrite MOOLLM-MANIFESTO.md: 1684→238 lines, bold and punchy
 > Throw down the gauntlet. Seven Innovations. Mermaid diagrams. #anchor proofs. The terms ARE the API. 🔥
+
+**`af80132`** Add inline skill links to k-line-connections.md safari session
+> 40+ skill links woven through the session. Every concept clickable. The web of K-lines made visible. 🕸️
+
+**`71dbc89`** Fix Palm directory listing to match actual filesystem
+> No fictional directories. Reality over imagination. The monkey's home is what it actually is. 🐒
+
+**`3fe76ac`** Split Palm's Character from Palm's Home in k-line-connections.md
+> Soul files vs physical space. CHARACTER.yml vs pub/stage/palm-nook/. The distinction matters. 🏠💫
+
+**`ae0cfba`** Add Invocation vs Incarnation distinction + Annie Hall Protocol
+> Summon vs create. Temporary vs persistent. McLuhan materializes to correct misinformation with compassion. 📽️
+
+**`baf8e03`** Polish Annie Hall Protocol references
+> Marshall McLuhan as foundational influencer. Real people deserve ethical framing. Tributes, not imposters. 🎭
+
+**`20b0cba`** Add PR Description Protocol to CHANGES.md
+> How to generate PR descriptions. James Burke style carries through to pull requests. 📝
+
+**`5fd49fd`** Replace ASCII world map with elaborate Mermaid diagram
+> Color-coded rooms, logical groupings, clear connections. The microworld visualized. 🗺️
+
+**`e61fe17`** Shorten Mermaid subgraph labels to prevent wrapping
+> "THE FILESYSTEM IS THE WORLD" → "FILESYSTEM = WORLD". Spatial clarity over verbosity. ✂️
+
+**`fa08327`** Emphasize inspectable by human AND LLM
+> Everything visible to both. No hidden state. The microworld is transparent to all observers. 👁️
+
+**`e7c926c`** Layout adversarial committee horizontally, shorten labels
+> Many-voiced deliberation rendered clearly. Committee sits side by side, not stacked. 🪑🪑🪑
+
+**`0a4f14c`** Fix lineage diagram: SimCity→Sims→MOOLLM, MOO→MOOLLM
+> Historical accuracy matters. LambdaMOO didn't lead to The Sims. Two rivers converge on MOOLLM. 🌊🌊
+
+**`201daef`** Fix consent hierarchy Mermaid diagram wrapping
+> Horizontal layout, shortened labels. Consent levels readable at a glance. ✅
+
+**`c0af118`** Fix Mermaid parse error: remove quotes from node label
+> Quotes in node labels break rendering. Syntax pedantry saves diagrams. 🔧
+
+**`4bd8508`** Convert ASCII diagrams to Mermaid in MOOLLM-EVAL-INCARNATE-FRAMEWORK.md
+> 6 ASCII diagrams → Mermaid. Axis of Eval, LLM Pipeline, MOO object model, all modernized. 📊
+
+**`a964624`** Remove redundant mail/ skill, merge into postal/
+> mail/INBOX.yml.tmpl was identical to postal/. One messaging system, not two. DRY. 📮
+
+**`(this)`** Fix simulated Ben Shneiderman to acknowledge tribute framing
+> Annie Hall Protocol in action. Ben introduces himself as simulation. Owl paper was simulated collaboration. 🦉🎭
