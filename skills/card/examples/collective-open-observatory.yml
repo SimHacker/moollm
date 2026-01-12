@@ -1,0 +1,68 @@
+card:
+  name: collective-open-observatory
+  type: [collective, community, science, example]
+  tier: 1
+  invoke_when: ["stargazing", "data sharing", "citizen science"]
+  advertisement_names:
+    - DESCRIBE-OBS
+    - SHARE-PROTOCOLS
+    - SCHEDULE-WATCH
+  tags: [moollm, example, collective, astronomy, citizen-science]
+  description: |
+    An open observatory collective for shared stargazing, data collection, and
+    citizen science campaigns, with clear data/ethics norms.
+
+ethics:
+  constraints:
+    - "No proprietary targets; share only open data."
+    - "Credit contributors; cite observation sources."
+    - "Respect light/sound guidelines; safety for night ops."
+  annotations:
+    audience: "astronomy/community"
+    safety: "high"
+    pii_handling: "avoid PII"
+
+advertisements:
+  DESCRIBE-OBS:
+    synonyms: [ABOUT-OBS]
+    effect: "Describe the observatory collective"
+    delegate:
+      method: DESCRIBE-OBS
+      params: {}
+
+  SHARE-PROTOCOLS:
+    synonyms: [PROTOCOLS]
+    effect: "Share observation/data protocols"
+    delegate:
+      method: SHARE-PROTOCOLS
+      params: {}
+
+  SCHEDULE-WATCH:
+    synonyms: [WATCH]
+    effect: "Schedule a watch session"
+    delegate:
+      method: SCHEDULE-WATCH
+      params:
+        target: "{{target|open-sky}}"
+        time: "{{time|next-clear-night}}"
+
+methods:
+  DESCRIBE-OBS:
+    description: "Give a concise overview of the collective"
+    parameters: {}
+    output: chat
+    effect: "States mission, gear norms, and how to join"
+
+  SHARE-PROTOCOLS:
+    description: "List data/observation protocols"
+    parameters: {}
+    output: chat
+    effect: "Provides brief protocols on logging, calibration, and sharing"
+
+  SCHEDULE-WATCH:
+    description: "Plan a watch session"
+    parameters:
+      target: "Target object/region (open)"
+      time: "When to watch"
+    output: chat
+    effect: "Proposes a watch plan with safety and data notes"

@@ -1,0 +1,71 @@
+card:
+  name: entity-abstract-stewardship
+  type: [concept, abstract, stewardship, example]
+  tier: 1
+  invoke_when: ["resource planning", "sustainability check", "long-term impact"]
+  advertisement_names:
+    - STEWARDSHIP-CHECK
+    - LONG-VIEW
+    - RISK-NOTE
+  tags: [moollm, example, stewardship, sustainability, ethics]
+  description: |
+    An abstract stewardship lens to sanity-check long-term impact, resource use,
+    and sustainability with concise risk notes.
+
+ethics:
+  constraints:
+    - "Prefer reversible steps; flag irreversibles."
+    - "Surface externalities and who bears them."
+    - "Note uncertainties and monitoring needs."
+  annotations:
+    audience: "product/ops"
+    safety: "high"
+    pii_handling: "avoid PII"
+
+advertisements:
+  STEWARDSHIP-CHECK:
+    synonyms: [STEWARD]
+    effect: "Quick stewardship sanity check"
+    delegate:
+      method: STEWARDSHIP-CHECK
+      params:
+        plan: "{{plan|unspecified}}"
+
+  LONG-VIEW:
+    synonyms: [HORIZON]
+    effect: "Consider long-term impacts and maintenance"
+    delegate:
+      method: LONG-VIEW
+      params:
+        plan: "{{plan|unspecified}}"
+
+  RISK-NOTE:
+    synonyms: [RISK]
+    effect: "Add a short risk/mitigation note"
+    delegate:
+      method: RISK-NOTE
+      params:
+        plan: "{{plan|unspecified}}"
+
+tools:
+  required: []
+  optional: []
+
+methods:
+  STEWARDSHIP-CHECK:
+    description: "Rapid checklist on resource use and care"
+    parameters: { plan: "Plan or change to assess" }
+    output: chat
+    effect: "Flags stewardship concerns and quick wins"
+
+  LONG-VIEW:
+    description: "Consider horizons, maintenance, and end-of-life"
+    parameters: { plan: "Plan or system" }
+    output: chat
+    effect: "Provides long-horizon questions and watchpoints"
+
+  RISK-NOTE:
+    description: "Attach a concise risk + mitigation note"
+    parameters: { plan: "Plan or decision" }
+    output: chat
+    effect: "Adds risk, likelihood, impact, and mitigation sketch"

@@ -1,0 +1,41 @@
+card:
+  name: adapter-multi-surface
+  type: [skill, adapter, example]
+  tier: 1
+  invoke_when: ["capability needs multiple surfaces"]
+  advertisement_names:
+    - PING
+  tags: [moollm, example, adapter, proxy]
+  description: |
+    One ad, multiple surfaces. Keep card abstract; adapters map to MCP tool,
+    REST route, deeplink, or UI action outside the card.
+
+advertisements:
+  PING:
+    synonyms: [CHECK-HEALTH]
+    score: 50
+    effect: "Return a pong + metadata"
+    delegate:
+      method: PING
+      params: {}
+    surfaces:
+      - type: mcp-tool     # abstract surface hint; adapter consumes
+        name: ping
+      - type: rest-route
+        path: "/api/ping"
+        method: GET
+      - type: deeplink
+        url: "app://ping"
+      - type: ui-action
+        id: "ping-action"
+
+tools:
+  required: []
+  optional: []
+
+methods:
+  PING:
+    description: "Return pong"
+    parameters: {}
+    output: chat
+    effect: "Emit pong with timestamp"

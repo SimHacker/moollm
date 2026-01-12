@@ -1,0 +1,61 @@
+card:
+  name: monster-owlbear
+  type: [monster, beast, dnd, example]
+  tier: 1
+  invoke_when: ["wilderness threat", "beast encounter"]
+  advertisement_names:
+    - DESCRIBE
+    - THREAT
+    - WEAKNESS
+  tags: [moollm, example, monster, owlbear, dnd]
+  description: |
+    A territorial owlbear—owl head, bear body, brutal swipes, haunting hoots.
+
+ethics:
+  constraints:
+    - "Fictional threat; no real-world harm guidance."
+    - "Keep content age-appropriate."
+  annotations:
+    audience: "game"
+    safety: "medium"
+
+advertisements:
+  DESCRIBE:
+    synonyms: [LORE]
+    effect: "Appearance, behavior, habitat"
+    delegate:
+      method: DESCRIBE
+      params: {}
+
+  THREAT:
+    synonyms: [DANGER]
+    effect: "Attacks, tactics, when it charges"
+    delegate:
+      method: THREAT
+      params: {}
+
+  WEAKNESS:
+    synonyms: [COUNTER]
+    effect: "Counters and avoidance tips"
+    delegate:
+      method: WEAKNESS
+      params: {}
+
+methods:
+  DESCRIBE:
+    description: "Give lore, sounds, and lair cues"
+    parameters: {}
+    output: chat
+    effect: "Notes size, feathers, hoots, forest dens"
+
+  THREAT:
+    description: "Explain attacks and triggers"
+    parameters: {}
+    output: chat
+    effect: "Highlights maul/grapple, territorial charges"
+
+  WEAKNESS:
+    description: "Offer counters/avoidance"
+    parameters: {}
+    output: chat
+    effect: "Suggests ranged kiting, noise lures, bright light startle"

@@ -1,0 +1,92 @@
+card:
+  name: random-toys
+  type: [tool, random, example]
+  tier: 1
+  invoke_when: ["need randomness", "roll dice", "flip coin", "spin wheel"]
+  advertisement_names:
+    - ROLL-DICE
+    - FLIP-COIN
+    - SPIN-WHEEL
+    - PICK-NUMBER
+  tags: [moollm, example, rng, dice, coin, spinner]
+  description: |
+    Virtual D&D dice, coin flips, spinners, and wheels of fortune. Multiple
+    manifestations; pick by params or use presets.
+
+state:
+  dice_presets: [d4, d6, d8, d10, d12, d20, d100]
+  wheel_presets:
+    fortune-basic: ["Win", "Lose", "Retry", "Bonus"]
+    loot-tier: ["Common", "Uncommon", "Rare", "Epic", "Legendary"]
+
+advertisements:
+  ROLL-DICE:
+    synonyms: [ROLL]
+    score: 80
+    effect: "Roll n dice of size s (e.g., 2d6)"
+    delegate:
+      method: ROLL-DICE
+      params:
+        dice: "{{dice|1d20}}"
+
+  FLIP-COIN:
+    synonyms: [COIN]
+    score: 70
+    effect: "Flip a fair (or biased) coin"
+    delegate:
+      method: FLIP-COIN
+      params:
+        bias: "{{bias|0.5}}"   # probability of heads
+
+  SPIN-WHEEL:
+    synonyms: [SPIN]
+    score: 70
+    effect: "Spin a named wheel"
+    delegate:
+      method: SPIN-WHEEL
+      params:
+        wheel: "{{wheel|fortune-basic}}"
+
+  PICK-NUMBER:
+    synonyms: [RNG]
+    score: 65
+    effect: "Pick a random integer in [min, max]"
+    delegate:
+      method: PICK-NUMBER
+      params:
+        min: "{{min|1}}"
+        max: "{{max|100}}"
+
+tools:
+  required: []
+  optional: []
+
+methods:
+  ROLL-DICE:
+    description: "Parse NdM or list; roll dice; sum and detail"
+    parameters:
+      dice: "NdM format or list, e.g., 2d6 or [d4, d8]"
+    output: chat
+    effect: "Returns individual rolls and total"
+
+  FLIP-COIN:
+    description: "Flip a coin with optional bias toward heads"
+    parameters:
+      bias: "Probability of heads (0-1)"
+    output: chat
+    effect: "Returns heads/tails and the random draw"
+
+  SPIN-WHEEL:
+    description: "Spin a named wheel or inline entries"
+    parameters:
+      wheel: "Preset id or array of entries"
+    output: chat
+    effect: "Returns selected entry and wheel used"
+
+  PICK-NUMBER:
+    description: "Pick random integer in range"
+    parameters:
+      min: "Minimum (inclusive)"
+      max: "Maximum (inclusive)"
+    output: chat
+    effect: "Returns chosen integer and seed info"

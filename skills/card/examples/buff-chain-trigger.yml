@@ -1,0 +1,77 @@
+card:
+  name: buff-chain-trigger
+  type: [skill, buff, trigger, example]
+  tier: 1
+  invoke_when: ["combo ready", "on trigger", "timer tick"]
+  advertisement_names:
+    - TRIGGER-BUFF
+    - INHIBIT-BUFF
+    - CHAIN-BUFF
+  tags: [moollm, example, buff, trigger, chain]
+  description: |
+    Demonstrates chaining, inhibiting, and trigger conditions. Uses natural
+    language guards to express when buffs fire or fizzle.
+
+advertisements:
+  TRIGGER-BUFF:
+    synonyms: [FIRE-BUFF]
+    score: 75
+    condition: "Trigger condition met"
+    guard: "not inhibited"
+    effect: "Activates a buff and optional follow-on chain"
+    delegate:
+      method: TRIGGER-BUFF
+      params:
+        name: "{{name}}"
+        chain: "{{chain|[]}}"
+
+  INHIBIT-BUFF:
+    synonyms: [SILENCE-BUFF]
+    score: 65
+    effect: "Temporarily prevents a named buff from firing"
+    delegate:
+      method: INHIBIT-BUFF
+      params:
+        name: "{{name}}"
+        reason: "{{reason|safety}}"
+        duration: "{{duration|1 scene}}"
+
+  CHAIN-BUFF:
+    synonyms: [LINK-BUFF]
+    score: 60
+    effect: "Declare a chain: when A fires, queue B/C"
+    delegate:
+      method: CHAIN-BUFF
+      params:
+        from: "{{from}}"
+        to: "{{to|[]}}"
+
+tools:
+  required: []
+  optional: []
+
+methods:
+  TRIGGER-BUFF:
+    description: "Fire a buff, then chain"
+    parameters:
+      name: "Buff to activate"
+      chain: "List of follow-on buffs"
+    output: chat
+    effect: "Emits activation and schedules chained buffs"
+
+  INHIBIT-BUFF:
+    description: "Add an inhibition window"
+    parameters:
+      name: "Buff to inhibit"
+      reason: "Why"
+      duration: "How long"
+    output: chat
+    effect: "Marks buff as inhibited with expiry"
+
+  CHAIN-BUFF:
+    description: "Define a chain relationship"
+    parameters:
+      from: "Root buff"
+      to: "Array of downstream buffs"
+    output: chat + state-change
+    effect: "Adds chain mapping for future triggers"

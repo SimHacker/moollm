@@ -1,0 +1,52 @@
+card:
+  name: property-get-set
+  type: [skill, state, example]
+  tier: 1
+  invoke_when: ["needs quick property access"]
+  advertisement_names:
+    - GET-FOO
+    - SET-FOO
+  tags: [moollm, example, property]
+  description: |
+    Minimal property-style ads with getter/setter hints. Shows kind/state_field
+    and implicit binding when names align.
+
+state:
+  foo: "initial"
+
+advertisements:
+  GET-FOO:
+    kind: getter
+    state_field: foo
+    synonyms: [READ-FOO]
+    effect: "Return foo from state"
+    delegate:
+      method: GET-FOO
+      params: {}
+
+  SET-FOO:
+    kind: setter
+    state_field: foo
+    synonyms: [WRITE-FOO]
+    effect: "Set foo to value"
+    delegate:
+      method: SET-FOO
+      params:
+        value: "{{value}}"
+
+tools:
+  required: []
+  optional: []
+
+methods:
+  GET-FOO:
+    description: "Return foo"
+    parameters: {}
+    output: chat
+    effect: "Emit current foo state"
+
+  SET-FOO:
+    description: "Set foo"
+    parameters: { value: "New value" }
+    output: chat + state-change
+    effect: "Assign foo = value"

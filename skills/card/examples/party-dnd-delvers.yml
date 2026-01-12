@@ -1,0 +1,70 @@
+card:
+  name: party-dnd-delvers
+  type: [party, dnd, example]
+  tier: 1
+  invoke_when: ["d&d setup", "need party roster", "call for help"]
+  advertisement_names:
+    - LIST-PARTY
+    - CALL-FOR-AID
+    - SHORT-REST
+  tags: [moollm, example, dnd, party]
+  description: |
+    A classic D&D delver party: fighter, rogue, wizard, cleric. Useful for quick
+    rosters, aid calls, and rest flavor.
+
+state:
+  members:
+    - name: "Brynna Steelguard"
+      role: "Fighter"
+      hook: "Shield-wall specialist; stubbornly brave"
+    - name: "Silk Quickstep"
+      role: "Rogue"
+      hook: "Trap-savvy scout with a dry wit"
+    - name: "Arion the Luminous"
+      role: "Wizard"
+      hook: "Evoker with a fondness for books and biscuits"
+    - name: "Sister Elowen"
+      role: "Cleric"
+      hook: "Mercy-first healer; hates undead"
+
+advertisements:
+  LIST-PARTY:
+    synonyms: [ROSTER]
+    effect: "List party members and hooks"
+    delegate:
+      method: LIST-PARTY
+      params: {}
+
+  CALL-FOR-AID:
+    synonyms: [AID]
+    effect: "Ask the party for a quick assist"
+    delegate:
+      method: CALL-FOR-AID
+      params:
+        need: "{{need|unspecified}}"
+
+  SHORT-REST:
+    synonyms: [REST]
+    effect: "Take a short rest; flavor text + recovery cue"
+    delegate:
+      method: SHORT-REST
+      params: {}
+
+methods:
+  LIST-PARTY:
+    description: "Return roster with names, roles, hooks"
+    parameters: {}
+    output: chat
+    effect: "Provides quick overview of the delvers"
+
+  CALL-FOR-AID:
+    description: "Frame how the party can assist"
+    parameters: { need: "What help is needed" }
+    output: chat
+    effect: "Suggests which member responds and how"
+
+  SHORT-REST:
+    description: "Short rest flavor and recovery cue"
+    parameters: {}
+    output: chat
+    effect: "Adds rest scene; implies hit-die recovery"

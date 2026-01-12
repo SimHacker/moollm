@@ -1,0 +1,41 @@
+card:
+  name: guarded-score-ad
+  type: [skill, example, scoring]
+  tier: 1
+  invoke_when: ["needs conditional affordance"]
+  advertisement_names:
+    - OPEN-DOOR
+  tags: [moollm, example, guarded, scoring]
+  description: |
+    Shows score/condition/guard with a simple action and explicit fallback.
+
+advertisements:
+  OPEN-DOOR:
+    score: 80
+    condition: "Door is unlocked"
+    guard: "has_key == true"
+    score_if: "urgency == high"
+    effect: "Opens the door if guard passes; otherwise falls back."
+    delegate:
+      method: OPEN-DOOR
+      params: {}
+      dispatch:
+        prefix: OPEN-DOOR
+        variants: [OPEN-DOOR-LOCKED]
+
+tools:
+  required: []
+  optional: []
+
+methods:
+  OPEN-DOOR:
+    description: "Open when unlocked"
+    parameters: {}
+    output: chat
+    effect: "Door opens"
+
+  OPEN-DOOR-LOCKED:
+    description: "Fallback when locked"
+    parameters: {}
+    output: chat
+    effect: "Reports locked; suggests using a key"

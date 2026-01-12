@@ -1,0 +1,75 @@
+card:
+  name: buff-stacking
+  type: [skill, buff, example]
+  tier: 1
+  invoke_when: ["combat start", "buff requested"]
+  advertisement_names:
+    - APPLY-BUFF
+    - EXPIRE-BUFF
+    - LIST-BUFFS
+  tags: [moollm, example, buff, stacking]
+  description: |
+    Lightweight buff engine: apply, stack, expire. Shows chaining and simple
+    time-based expiry expressed in natural language hints.
+
+state:
+  buffs: []  # list of {name, duration, stacks, effect}
+
+advertisements:
+  APPLY-BUFF:
+    synonyms: [ADD-BUFF]
+    score: 70
+    condition: "Target is buffable"
+    effect: "Add or stack a buff with optional duration"
+    delegate:
+      method: APPLY-BUFF
+      params:
+        name: "{{name}}"
+        duration: "{{duration|3 turns}}"
+        stacks: "{{stacks|1}}"
+        effect: "{{effect|+1 morale}}"
+
+  EXPIRE-BUFF:
+    synonyms: [REMOVE-BUFF]
+    score: 60
+    condition: "Buff is active"
+    effect: "Expire or decrement duration/stacks"
+    delegate:
+      method: EXPIRE-BUFF
+      params:
+        name: "{{name}}"
+
+  LIST-BUFFS:
+    synonyms: [SHOW-BUFFS]
+    score: 50
+    effect: "List active buffs with remaining duration"
+    delegate:
+      method: LIST-BUFFS
+      params: {}
+
+tools:
+  required: []
+  optional: []
+
+methods:
+  APPLY-BUFF:
+    description: "Add or stack a named buff"
+    parameters:
+      name: "Buff name (K-line preferred)"
+      duration: "Natural language or turns"
+      stacks: "Integer stack count"
+      effect: "Short effect text"
+    output: chat + state-change
+    effect: "Appends or increments buff entry; schedules expiry hint"
+
+  EXPIRE-BUFF:
+    description: "Expire a buff or advance its timer"
+    parameters: { name: "Buff name" }
+    output: chat + state-change
+    effect: "Removes or decrements stacks/duration; emits result"
+
+  LIST-BUFFS:
+    description: "Show current buffs"
+    parameters: {}
+    output: chat
+    effect: "Returns buffs with stacks and duration hints"

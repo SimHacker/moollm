@@ -1,0 +1,50 @@
+card:
+  name: room-context-nav
+  type: [card, room-helper, example]
+  tier: 1
+  invoke_when: ["room enters", "look around", "lost"]
+  advertisement_names:
+    - LIST-EXITS
+    - GO-EXIT
+  tags: [moollm, example, navigation, room]
+  description: |
+    Uses implicit room context: cwd as room, subdirs as exits. Shows how ads
+    can rely on environment defaults but allow overrides.
+
+advertisements:
+  LIST-EXITS:
+    synonyms: [SHOW-EXITS]
+    effect: "List exits from the current room"
+    delegate:
+      method: LIST-EXITS
+      params:
+        room: "{{room|cwd}}"
+
+  GO-EXIT:
+    synonyms: [TAKE-EXIT]
+    condition: "Exit exists"
+    effect: "Move to exit (changes cwd in adventure engines)"
+    delegate:
+      method: GO-EXIT
+      params:
+        exit: "{{exit}}"
+        room: "{{room|cwd}}"
+
+tools:
+  required: []
+  optional: []
+
+methods:
+  LIST-EXITS:
+    description: "Enumerate exits from room (cwd/subdirs)"
+    parameters: { room: "Room path (defaults to cwd)" }
+    output: chat
+    effect: "Returns exits list"
+
+  GO-EXIT:
+    description: "Move via exit"
+    parameters:
+      exit: "Exit name"
+      room: "Room path (optional override)"
+    output: chat
+    effect: "Emits new location; caller updates cwd"

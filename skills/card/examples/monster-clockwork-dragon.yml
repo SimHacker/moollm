@@ -1,0 +1,62 @@
+card:
+  name: monster-clockwork-dragon
+  type: [monster, construct, dnd, example]
+  tier: 1
+  invoke_when: ["boss encounter", "construct threat", "artifact guardian"]
+  advertisement_names:
+    - DESCRIBE
+    - THREAT
+    - WEAKNESS
+  tags: [moollm, example, monster, construct, dragon]
+  description: |
+    A mechanical dragon powered by gears and arcane cores. Breath is steam or
+    lightning; behavior is patterned and can be disrupted.
+
+ethics:
+  constraints:
+    - "Fictional threat; no real-world harm guidance."
+    - "Keep content age-appropriate."
+  annotations:
+    audience: "game"
+    safety: "medium"
+
+advertisements:
+  DESCRIBE:
+    synonyms: [LORE]
+    effect: "Describe appearance, sound, and power source"
+    delegate:
+      method: DESCRIBE
+      params: {}
+
+  THREAT:
+    synonyms: [DANGER]
+    effect: "Outline attacks and patterns"
+    delegate:
+      method: THREAT
+      params: {}
+
+  WEAKNESS:
+    synonyms: [COUNTER]
+    effect: "List weaknesses and counters"
+    delegate:
+      method: WEAKNESS
+      params: {}
+
+methods:
+  DESCRIBE:
+    description: "Give lore, visuals, and audio cues"
+    parameters: {}
+    output: chat
+    effect: "Mentions gears, arcane core, steam/lighting breath"
+
+  THREAT:
+    description: "Explain attack modes and patterns"
+    parameters: {}
+    output: chat
+    effect: "Highlights breath weapon, tail sweeps, predictable cycles"
+
+  WEAKNESS:
+    description: "Offer counters and disruption tactics"
+    parameters: {}
+    output: chat
+    effect: "Suggests targeting joints, overheating, EMP/antimagic bursts"

@@ -1,0 +1,67 @@
+card:
+  name: entity-abstract-clarity
+  type: [concept, abstract, clarity, example]
+  tier: 1
+  invoke_when: ["confusion", "requirements fuzz", "decision framing"]
+  advertisement_names:
+    - DEFINE-TERMS
+    - STATE-ASSUMPTIONS
+    - DECISION-FRAME
+  tags: [moollm, example, clarity, discourse]
+  description: |
+    Clarity lens to reduce ambiguity: define terms, surface assumptions, and
+    frame decisions with options and criteria.
+
+ethics:
+  constraints:
+    - "Flag unknowns; avoid pretending certainty."
+    - "Keep terms neutral; avoid loaded phrasing."
+    - "Highlight when more data is needed."
+  annotations:
+    audience: "product/eng/policy"
+    safety: "high"
+    pii_handling: "avoid PII"
+
+advertisements:
+  DEFINE-TERMS:
+    synonyms: [GLOSSARY]
+    effect: "List key terms with concise defs"
+    delegate:
+      method: DEFINE-TERMS
+      params:
+        topic: "{{topic|unspecified}}"
+
+  STATE-ASSUMPTIONS:
+    synonyms: [ASSUMPTIONS]
+    effect: "Surface current assumptions and confidence"
+    delegate:
+      method: STATE-ASSUMPTIONS
+      params:
+        topic: "{{topic|unspecified}}"
+
+  DECISION-FRAME:
+    synonyms: [FRAME]
+    effect: "Frame decision: options, criteria, risks"
+    delegate:
+      method: DECISION-FRAME
+      params:
+        decision: "{{decision|unspecified}}"
+
+methods:
+  DEFINE-TERMS:
+    description: "Create a mini glossary"
+    parameters: { topic: "Topic or doc scope" }
+    output: chat
+    effect: "Returns short defs for key terms"
+
+  STATE-ASSUMPTIONS:
+    description: "List assumptions with confidence"
+    parameters: { topic: "Topic" }
+    output: chat
+    effect: "Surfaces explicit assumptions and gaps"
+
+  DECISION-FRAME:
+    description: "Present options, criteria, risks"
+    parameters: { decision: "Decision to frame" }
+    output: chat
+    effect: "Provides options, pros/cons, and risks"

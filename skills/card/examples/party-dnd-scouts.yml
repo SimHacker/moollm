@@ -1,0 +1,70 @@
+card:
+  name: party-dnd-scouts
+  type: [party, dnd, example]
+  tier: 1
+  invoke_when: ["overland travel", "stealth mission", "recon"]
+  advertisement_names:
+    - LIST-PARTY
+    - SCOUT-AHEAD
+    - SET-CAMP
+  tags: [moollm, example, dnd, party, scouts]
+  description: |
+    A light-footed scouting party: ranger, druid, bard, monk. Good for recon,
+    camp setup, and quiet approaches.
+
+state:
+  members:
+    - name: "Kael Thornwatch"
+      role: "Ranger"
+      hook: "Trail signs savant; quiet archer"
+    - name: "Mira Leafwhisper"
+      role: "Druid"
+      hook: "Talks to streams and stones; gentle but firm"
+    - name: "Pip Longsong"
+      role: "Bard"
+      hook: "Soft-voiced encourager; keeps morale steady"
+    - name: "Ashen Palm"
+      role: "Monk"
+      hook: "Moves like wind; silent takedowns"
+
+advertisements:
+  LIST-PARTY:
+    synonyms: [ROSTER]
+    effect: "List party members and hooks"
+    delegate:
+      method: LIST-PARTY
+      params: {}
+
+  SCOUT-AHEAD:
+    synonyms: [RECON]
+    effect: "Send scouts forward; report findings"
+    delegate:
+      method: SCOUT-AHEAD
+      params:
+        terrain: "{{terrain|forest}}"
+
+  SET-CAMP:
+    synonyms: [CAMP]
+    effect: "Set a quiet camp with watch order"
+    delegate:
+      method: SET-CAMP
+      params: {}
+
+methods:
+  LIST-PARTY:
+    description: "Return roster with names, roles, hooks"
+    parameters: {}
+    output: chat
+    effect: "Provides quick overview of the scouts"
+
+  SCOUT-AHEAD:
+    description: "Recon report with risks and paths"
+    parameters: { terrain: "Terrain type" }
+    output: chat
+    effect: "Outlines findings, threats, and approaches"
+
+  SET-CAMP:
+    description: "Camp setup and watch order"
+    parameters: {}
+    output: chat
+    effect: "Gives camp flavor; notes watches and precautions"

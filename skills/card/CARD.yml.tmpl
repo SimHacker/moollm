@@ -1,61 +1,81 @@
-# Trading Card: {{card_name}}
+# Skill Card Template (sniffable, K-line ads)
+# Keep header minimal and greppable; drop blocks you do not need.
 
 card:
-  id: "{{card_id}}"
-  name: "{{card_name}}"
-  type: "{{card_type}}"  # character | tool | technique | knowledge | artifact
-  rarity: "{{rarity}}"   # common | uncommon | rare | legendary
-  
-  created: "{{timestamp}}"
-  
-# THE FACE
+  name: "{{card_name}}"            # Prefer K-line style if applicable
+  type: "{{card_type}}"            # character | tool | technique | knowledge | artifact | monster | party | collective | abstract
+  tier: "{{tier|core}}"            # core | standard | experimental
+  invoke_when: ["{{when}}"]        # coarse activation triggers
+  advertisement_names:
+    - "{{AD}}"                     # K-line ads; methods listed here can double as generic ads
+  related:
+    - "{{related_skill}}"          # key link(s)
+  tags: [moollm{{tag_sep}}{{tag}}] # add more tags as needed
+  description: |
+    Brief paragraph; keep concise.
 
-display:
-  title: "{{card_name}}"
-  subtitle: "Brief description"
-  art: "🃏"  # Emoji or image reference
-  
-# THE STATS
+# Optional: static state for properties/dispatch, instances overriding (remove if unused)
+state:
+  foo: "bar"
 
-stats:
-  power: 1      # Capability strength (1-10)
-  cost: 1       # What it takes to use (1-10)
-  # Add type-specific stats
+# Optional: ethics block for constraints/annotations (remove if unused)
+ethics:
+  constraints:
+    - "Avoid X; prefer Y."
+  annotations:
+    audience: "general"
+    safety: "medium"
+    pii_handling: "avoid PII"
 
-# THE ABILITY
+# Optional detailed ads (refine applicability; still concise, keep short)
+# Think of this as Self/CLOS/Dylan-style dynamic dispatch on a self-ish substrate:
+# generics are ads, implementations are methods, dispatch can vary by name, params,
+# environment, or actor (e.g., dog vs cat BOOP). Multiple dispatch patterns fit here.
+# Interface definitions for mcp, carrier pigeons, etc.
+advertisements:
+  {{AD}}:
+    synonyms: ["{{AD_ALT}}"]       # short, non-exhaustive
+    score: 80                      # base score (optional)
+    condition: "When {{condition}}"# short precondition
+    score_if: "{{score_if}}"       # optional
+    guard: "{{guard}}"             # optional boolean-ish
+    effect: "{{effect}}"           # one-liner
+    kind: "{{kind|get/set/action}}"# optional hint for GET/SET/property ads
+    state_field: "{{field}}"       # tie to state when kind=get/set
+    delegate:
+      method: "{{method_name}}"    # bind to method (DWIM)
+      params:
+        arg: "{{value}}"
+      dispatch:                    # optional dynamic dispatch to more specific methods
+        prefix: "{{method_name}}"  # e.g., AD maps to AD-FOO/AD-BAR private methods
+        variants: []               # list of method-suffix variants to try (private)
+      from_state: false            # set true to pull effect/duration/etc from state
+    surfaces:                      # optional projections (keep short)
+      - type: mcp-tool
+        name: "{{tool_name}}"
+      - type: rest-route
+        path: "/api/example"
 
-ability:
-  name: "Ability Name"
-  effect: |
-    What happens when you play this card.
-    Be specific about the effect.
-    
-  triggers:
-    - "When to activate"
-    
-  limitations:
-    - "What it can't do"
+# Optional: tools used by this card (remove if unused)
+tools:
+  required: []
+  optional: []
 
-# THE FLAVOR
+# Methods: implement the ads; include only what you need
+methods:
+  METHOD-NAME:
+    description: "{{desc}}"
+    parameters: {}
+    output: chat
+    effect: "{{effect}}"
+    effect_js: "{{js lambda}}"
+    effect_py: "{{py lambda}}"
 
+# Optional extended description (omit if not needed)
+description_long: |
+  Longer context if needed (keep modest).
+
+# Optional flavor (omit if not needed)
 flavor:
   text: |
-    "Evocative quote or description
-    that captures the spirit of the card."
-    
-  lore: |
-    Background story or context.
-
-# THE K-LINE
-
-invokes:
-  # Traditions/concepts this card activates
-  - "tradition_1"
-  - "concept_2"
-  
-# SYNERGIES
-
-synergies:
-  # Cards that combine well with this one
-  # - card: "Other Card Name"
-  #   effect: "Combined effect"
+    "Evocative quote or description."

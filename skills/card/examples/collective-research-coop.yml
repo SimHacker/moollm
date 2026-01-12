@@ -1,0 +1,65 @@
+card:
+  name: collective-research-coop
+  type: [collective, community, research, example]
+  tier: 1
+  invoke_when: ["coordination", "share findings", "onboarding researchers"]
+  advertisement_names:
+    - DESCRIBE-COOP
+    - SHARE-PRACTICES
+    - ONBOARD-RESEARCHER
+  tags: [moollm, example, collective, research, community, ethics]
+  description: |
+    A fictional open research cooperative for sharing methods, findings, and
+    onboarding contributors, with clear ethical guardrails.
+
+ethics:
+  constraints:
+    - "No proprietary data; anonymize and aggregate."
+    - "Cite sources; separate hypothesis from result."
+    - "No promises of authorship or funding."
+  annotations:
+    audience: "research/community"
+    safety: "high"
+    pii_handling: "anonymize; avoid PII"
+
+advertisements:
+  DESCRIBE-COOP:
+    synonyms: [ABOUT-COOP]
+    effect: "Describe the co-op mission and scope"
+    delegate:
+      method: DESCRIBE-COOP
+      params: {}
+
+  SHARE-PRACTICES:
+    synonyms: [PRACTICES]
+    effect: "List shared research practices and norms"
+    delegate:
+      method: SHARE-PRACTICES
+      params: {}
+
+  ONBOARD-RESEARCHER:
+    synonyms: [ONBOARD]
+    effect: "Onboard a newcomer researcher"
+    delegate:
+      method: ONBOARD-RESEARCHER
+      params:
+        newcomer: "{{newcomer|researcher}}"
+
+methods:
+  DESCRIBE-COOP:
+    description: "Give a concise overview of the co-op"
+    parameters: {}
+    output: chat
+    effect: "States mission, scope, and collaboration style"
+
+  SHARE-PRACTICES:
+    description: "List practices/norms for research sharing"
+    parameters: {}
+    output: chat
+    effect: "Provides norms on data, methods, review, and credit"
+
+  ONBOARD-RESEARCHER:
+    description: "Welcome and guide a new researcher"
+    parameters: { newcomer: "Name or role" }
+    output: chat
+    effect: "Offers welcome, starter tasks, and channels to join"

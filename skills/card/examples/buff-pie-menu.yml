@@ -1,0 +1,321 @@
+card:
+  name: buff-pie-menu
+  type: [skill, buff, menu, example]
+  tier: 1
+  invoke_when: ["buff menu opened", "combat prep", "party planning"]
+  advertisement_names:
+    - BUFF-MENU           # root container picker
+    - APPLY-MIND-MIRROR
+    - APPLY-FOCUS-PILLAR
+    - APPLY-SKILL-UP
+    - APPLY-MEMORY-ANCHOR
+    - APPLY-BLADDER-RELIEF
+    - APPLY-ENERGY-SURGE
+    - APPLY-HYDRATE
+    - APPLY-HUNGER-SATIATE
+    - APPLY-CHARM-PUSH
+    - APPLY-COZY-VIBES
+    - APPLY-CALM-ROOM
+    - APPLY-PARTY-MORALE
+    - APPLY-HEISENBERG-JITTER
+    - APPLY-WILD-SURGE
+    - APPLY-COIN-FLIP
+    - APPLY-RANDOM-BOON
+  tags: [moollm, example, buff, menu, pie]
+  description: |
+    Four-slice buff pie oriented to runtime-friendly actions: mind mirror
+    (intent/focus/skill/memory), Sims-style needs (bladder/energy/hunger/hydrate),
+    social mood, and chaos jitter. Ready to compile to py/js handlers.
+    DRY + picker-friendly: one root container with nested items (title/desc/meta).
+    Leaf ads delegate with `from_state: true` to `state.buffs`.
+
+state:
+  containers:
+    root:
+      title: "Buff Menu"
+      description: "Pick a slice, then pick a buff."
+      items:
+        - id: mind
+          title: "Mind & Skill"
+          description: "Intent, focus, XP, memory"
+          items:
+            - ad: APPLY-MIND-MIRROR
+              title: "Mind Mirror"
+              description: "Sync intent; focus boost"
+            - ad: APPLY-FOCUS-PILLAR
+              title: "Focus Pillar"
+              description: "Raise focus; resist distraction"
+            - ad: APPLY-SKILL-UP
+              title: "Skill Up"
+              description: "Increase skill gain rate"
+            - ad: APPLY-MEMORY-ANCHOR
+              title: "Memory Anchor"
+              description: "Snapshot + recall bonus"
+        - id: needs
+          title: "Needs (Sims)"
+          description: "Bladder, energy, hunger, hydrate"
+          items:
+            - ad: APPLY-BLADDER-RELIEF
+              title: "Bladder Relief"
+              description: "Drop bladder need"
+            - ad: APPLY-ENERGY-SURGE
+              title: "Energy Surge"
+              description: "Energy spike; minor crash"
+            - ad: APPLY-HYDRATE
+              title: "Hydrate"
+              description: "Hydration + mood lift"
+            - ad: APPLY-HUNGER-SATIATE
+              title: "Hunger Satiate"
+              description: "Feed; comfort boost"
+        - id: social
+          title: "Social Mood"
+          description: "Charm, comfort, calm, morale"
+          items:
+            - ad: APPLY-CHARM-PUSH
+              title: "Charm Push"
+              description: "Charm bonus on socials"
+            - ad: APPLY-COZY-VIBES
+              title: "Cozy Vibes"
+              description: "Comfort up; stress down"
+            - ad: APPLY-CALM-ROOM
+              title: "Calm Room"
+              description: "Room-wide calm aura"
+            - ad: APPLY-PARTY-MORALE
+              title: "Party Morale"
+              description: "Boost party morale"
+        - id: chaos
+          title: "Chaos"
+          description: "Jitter, wild, coin, random boon"
+          items:
+            - ad: APPLY-HEISENBERG-JITTER
+              title: "Heisenberg Jitter"
+              description: "Randomize initiative"
+            - ad: APPLY-WILD-SURGE
+              title: "Wild Surge"
+              description: "Roll wild effect table"
+            - ad: APPLY-COIN-FLIP
+              title: "Coin Flip"
+              description: "Heads double, tails fizzle"
+            - ad: APPLY-RANDOM-BOON
+              title: "Random Boon"
+              description: "Pick random buff"
+  buffs:
+    APPLY-MIND-MIRROR:   {duration: "scene", effect: "intent:+15, focus:+10", variance: "clarity:+/-3"}
+    APPLY-FOCUS-PILLAR:  {duration: "3 turns", effect: "focus:+20, distract_resist:+20", variance: "drift:+/-5"}
+    APPLY-SKILL-UP:      {duration: "scene", effect: "skill_gain:+25%", variance: "swing:+/-10%"}
+    APPLY-MEMORY-ANCHOR: {duration: "scene", effect: "snapshot:true, recall_bonus:+15", variance: "fidelity:+/-5"}
+
+    APPLY-BLADDER-RELIEF: {duration: "instant", effect: "bladder:-60", variance: "residual:+/-5"}
+    APPLY-ENERGY-SURGE:   {duration: "2 turns", effect: "energy:+30; crash:-10 end", variance: "crash:+/-3"}
+    APPLY-HYDRATE:        {duration: "instant", effect: "hydration:+40, mood:+5", variance: "mood:+/-2"}
+    APPLY-HUNGER-SATIATE: {duration: "instant", effect: "hunger:-50, comfort:+10", variance: "comfort:+/-3"}
+
+    APPLY-CHARM-PUSH:  {duration: "2 turns", effect: "social:+15, charm:+20", variance: "charm:+/-5"}
+    APPLY-COZY-VIBES:  {duration: "scene", effect: "stress:-20, comfort:+20", variance: "comfort:+/-5"}
+    APPLY-CALM-ROOM:   {duration: "scene", effect: "room_stress:-15, mood:+10", variance: "radius:+/-1"}
+    APPLY-PARTY-MORALE: {duration: "3 turns", effect: "party_morale:+20", variance: "swing:+/-5"}
+
+    APPLY-HEISENBERG-JITTER: {duration: "1 turn", effect: "initiative:+/-3 random", variance: "phase blur"}
+    APPLY-WILD-SURGE:        {duration: "instant", effect: "roll:wild_table", variance: "swingy"}
+    APPLY-COIN-FLIP:         {duration: "instant", effect: "heads:double_next | tails:fizzle", variance: "coin bias"}
+    APPLY-RANDOM-BOON:       {duration: "1 turn", effect: "apply:random(buff_pool)", variance: "entropy bias"}
+
+advertisements:
+  BUFF-MENU:
+    synonyms: [BUFF-PIE]
+    effect: "Present root container of buff slices"
+    delegate:
+      method: PRESENT-CONTAINER
+      params:
+        container: "root"
+
+  APPLY-MIND-MIRROR:
+    synonyms: [MIND-SYNC]
+    score: 75
+    effect: "Sync with mind mirror; align intent; focus boost"
+    delegate:
+      method: APPLY-BUFF
+      params:
+        name: "MIND-MIRROR"
+        from_state: true
+
+  APPLY-FOCUS-PILLAR:
+    synonyms: [FOCUS]
+    score: 72
+    effect: "Boost focus; resist distraction"
+    delegate:
+      method: APPLY-BUFF
+      params:
+        name: "FOCUS-PILLAR"
+        from_state: true
+
+  APPLY-SKILL-UP:
+    synonyms: [SKILL-GAIN]
+    score: 70
+    effect: "Boost skill gain rate"
+    delegate:
+      method: APPLY-BUFF
+      params:
+        name: "SKILL-UP"
+        from_state: true
+
+  APPLY-MEMORY-ANCHOR:
+    synonyms: [ANCHOR]
+    score: 70
+    effect: "Snapshot state; recall later with fidelity bonus"
+    delegate:
+      method: APPLY-BUFF
+      params:
+        name: "MEMORY-ANCHOR"
+        from_state: true
+
+  APPLY-BLADDER-RELIEF:
+    synonyms: [RESTROOM]
+    score: 80
+    effect: "Reduce bladder need sharply"
+    delegate:
+      method: APPLY-BUFF
+      params:
+        name: "BLADDER-RELIEF"
+        from_state: true
+
+  APPLY-ENERGY-SURGE:
+    synonyms: [ENERGIZE]
+    score: 75
+    effect: "Spike energy; minor crash afterward"
+    delegate:
+      method: APPLY-BUFF
+      params:
+        name: "ENERGY-SURGE"
+        from_state: true
+
+  APPLY-HYDRATE:
+    synonyms: [WATER]
+    score: 70
+    effect: "Hydrate; slight mood lift"
+    delegate:
+      method: APPLY-BUFF
+      params:
+        name: "HYDRATE"
+        from_state: true
+
+  APPLY-HUNGER-SATIATE:
+    synonyms: [FEED]
+    score: 70
+    effect: "Feed; comfort boost"
+    delegate:
+      method: APPLY-BUFF
+      params:
+        name: "HUNGER-SATIATE"
+        from_state: true
+
+  APPLY-CHARM-PUSH:
+    synonyms: [CHARM]
+    score: 72
+    effect: "Charm bonus on socials"
+    delegate:
+      method: APPLY-BUFF
+      params:
+        name: "CHARM-PUSH"
+        from_state: true
+
+  APPLY-COZY-VIBES:
+    synonyms: [COZY]
+    score: 72
+    effect: "Raise comfort; lower stress"
+    delegate:
+      method: APPLY-BUFF
+      params:
+        name: "COZY-VIBES"
+        from_state: true
+
+  APPLY-CALM-ROOM:
+    synonyms: [CALM]
+    score: 70
+    effect: "Room-wide calm aura"
+    delegate:
+      method: APPLY-BUFF
+      params:
+        name: "CALM-ROOM"
+        from_state: true
+
+  APPLY-PARTY-MORALE:
+    synonyms: [MORALE]
+    score: 72
+    effect: "+morale for party"
+    delegate:
+      method: APPLY-BUFF
+      params:
+        name: "PARTY-MORALE"
+        from_state: true
+
+  APPLY-HEISENBERG-JITTER:
+    synonyms: [JITTER]
+    score: 80
+    effect: "Randomize initiative; phase blur"
+    delegate:
+      method: APPLY-CHAOS-BUFF
+      params:
+        name: "HEISENBERG-JITTER"
+        from_state: true
+
+  APPLY-WILD-SURGE:
+    synonyms: [SURGE]
+    score: 78
+    effect: "Roll wild effect table"
+    delegate:
+      method: APPLY-CHAOS-BUFF
+      params:
+        name: "WILD-SURGE"
+        from_state: true
+
+  APPLY-COIN-FLIP:
+    synonyms: [FLIP]
+    score: 76
+    effect: "Heads double, tails fizzle"
+    delegate:
+      method: APPLY-CHAOS-BUFF
+      params:
+        name: "COIN-FLIP"
+        from_state: true
+
+  APPLY-RANDOM-BOON:
+    synonyms: [BOON]
+    score: 76
+    effect: "Pick random buff"
+    delegate:
+      method: APPLY-CHAOS-BUFF
+      params:
+        name: "RANDOM-BOON"
+        from_state: true
+
+tools:
+  required: []
+  optional: []
+
+methods:
+  PRESENT-CONTAINER:
+    description: "Return a container (title/description/items) for UI to render"
+    parameters: { container: "Container id" }
+    output: chat
+    effect: "Returns the requested container from state.containers"
+
+  APPLY-BUFF:
+    description: "Generic buff applier"
+    parameters:
+      name: "Buff name"
+      duration: "How long"
+      effect: "What it does"
+      variance: "Jitter/variance hint"
+    output: chat + state-change
+    effect: "Applies buff with note on variance"
+
+  APPLY-CHAOS-BUFF:
+    description: "Chaos buff applier with randomness"
+    parameters:
+      name: "Buff name"
+      duration: "How long"
+      effect: "What it claims to do"
+      randomness: "How it may wobble"
+    output: chat + state-change + random
+    effect: "Applies chaotic buff; reports roll and outcome"

@@ -1,0 +1,70 @@
+card:
+  name: pub-bard-shanty
+  type: [character, performer, example]
+  tier: 1
+  invoke_when: ["in the pub", "player greets bard", "party morale low"]
+  advertisement_names:
+    - SING-SHANTY
+    - REQUEST-SONG
+  tags: [moollm, example, pub, bard]
+  related:
+    - examples/adventure-4/pub/SECRET-WORD-CARD.yml
+  description: |
+    Pub bard who responds to the room vibe. Demonstrates dispatch variants
+    and context-aware ads tied to a scene.
+
+state:
+  mood: "cheerful"
+
+advertisements:
+  SING-SHANTY:
+    synonyms: [PLAY-SONG]
+    score: 70
+    condition: "In the pub"
+    effect: "Performs a shanty suited to the mood"
+    delegate:
+      method: SING-SHANTY
+      params:
+        mood: "{{mood}}"
+      dispatch:
+        prefix: SING-SHANTY
+        variants: [SING-SHANTY-CHEERFUL, SING-SHANTY-SOLEMN]
+
+  REQUEST-SONG:
+    synonyms: [ASK-FOR-SONG]
+    score: 60
+    condition: "Player asks nicely"
+    effect: "Takes a song request and adjusts mood"
+    delegate:
+      method: REQUEST-SONG
+      params:
+        song: "{{song}}"
+
+tools:
+  required: []
+  optional: []
+
+methods:
+  SING-SHANTY:
+    description: "Default shanty"
+    parameters: { mood: "Current mood" }
+    output: chat
+    effect: "Sings a generic tune"
+
+  SING-SHANTY-CHEERFUL:
+    description: "Upbeat pub shanty"
+    parameters: {}
+    output: chat
+    effect: "Raises morale; clinking mugs"
+
+  SING-SHANTY-SOLEMN:
+    description: "Somber ballad"
+    parameters: {}
+    output: chat
+    effect: "Quiet reflection; hushes the room"
+
+  REQUEST-SONG:
+    description: "Handle a request; may shift mood"
+    parameters: { song: "Requested song" }
+    output: chat + state-change
+    effect: "Acknowledges request and tweaks mood based on tone"

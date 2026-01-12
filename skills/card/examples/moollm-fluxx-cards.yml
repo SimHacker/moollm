@@ -1,0 +1,491 @@
+cards:
+  - name: "Rule: BASE MOOLLM MOOXX"
+    kind: rule
+    advertisement_names: [PLAY-RULE]
+    effect: "Draw 1, play 1."
+    annotations:
+      orchestration: "If replaced, discard this; otherwise default turn structure."
+
+  - name: "Keeper: PIE TABLE"
+    kind: keeper
+    advertisement_names: [PLAY-KEEPER]
+    effect: "Once per turn you may reroll any wheel/spin effect you trigger."
+    annotations:
+      orchestration: "Track per-turn reroll; announce reroll target."
+
+  - name: "Keeper: GONG"
+    kind: keeper
+    advertisement_names: [PLAY-KEEPER]
+    effect: "Once per round, bang the gong: either clear 1 rule or draw 1 then discard 1 (your choice)."
+    annotations:
+      orchestration: "If clearing, choose a rule; otherwise do draw-discard."
+
+  - name: "Keeper: SECRET WORD (PUB)"
+    kind: keeper
+    advertisement_names: [PLAY-KEEPER]
+    effect: "If anyone says the secret word, draw 2 and discard 1."
+    annotations:
+      orchestration: "Secret word is always MOOLLM; trigger on spoken."
+
+  - name: "Keeper: PEEWEE SCREAMER"
+    kind: keeper
+    advertisement_names: [PLAY-KEEPER]
+    effect: "When SECRET WORD triggers, you may force another player to discard a random card."
+    annotations:
+      orchestration: "Resolve after SECRET WORD draw/discard."
+
+  - name: "Keeper: BARD SHANTY"
+    kind: keeper
+    advertisement_names: [PLAY-KEEPER]
+    effect: "Once per turn, trade one card in hand to draw one; gain +1 morale (flavor)."
+    annotations:
+      orchestration: "Track per-turn trade; morale is flavor-only."
+
+  - name: "Keeper: RANDOM TOYS"
+    kind: keeper
+    advertisement_names: [PLAY-KEEPER]
+    effect: "Once per turn, roll d20; on 15+ draw 1, on 5- lose 1 random from hand."
+    annotations:
+      orchestration: "Roll on use; resolve draw/lose immediately."
+
+  - name: "Keeper: HOT MUG"
+    kind: keeper
+    advertisement_names: [PLAY-KEEPER]
+    effect: "At start of your turn, you may skip discard effects that target you."
+    annotations:
+      orchestration: "Declare skip when a discard effect would hit you."
+
+  - name: "Keeper: PUB CAT"
+    kind: keeper
+    advertisement_names: [PLAY-KEEPER]
+    effect: "If a creeper targets you, ignore it once per turn."
+    annotations:
+      orchestration: "Track per-turn ignore; declare on trigger."
+
+  - name: "Keeper: PUB DOG"
+    kind: keeper
+    advertisement_names: [PLAY-KEEPER]
+    effect: "Once per turn, fetch: take top of discard into hand."
+    annotations:
+      orchestration: "Fetch is once/turn; announce when used."
+
+  - name: "Keeper: PUB KITTENS"
+    kind: keeper
+    advertisement_names: [PLAY-KEEPER]
+    effect: "When you draw a creeper, you may discard it and draw 1 instead (once per turn)."
+    annotations:
+      orchestration: "Replace creeper on draw; track once/turn."
+
+  - name: "Keeper: MOP & BUCKET"
+    kind: keeper
+    advertisement_names: [PLAY-KEEPER]
+    effect: "Trash one creeper in play when you play this; once per turn, discard a creeper touching you."
+    annotations:
+      orchestration: "On play: mandatory cleanup; per-turn optional cleanup."
+
+  - name: "Keeper: PIE SLICE"
+    kind: keeper
+    advertisement_names: [PLAY-KEEPER]
+    effect: "Once per turn, turn any discard into a draw for yourself."
+    annotations:
+      orchestration: "Replace your own discard with a draw; once/turn."
+
+  - name: "Keeper: BACK ROOM"
+    kind: keeper
+    advertisement_names: [PLAY-KEEPER]
+    effect: "Once per turn, stash 1 card face-down; later retrieve it instead of drawing."
+    annotations:
+      orchestration: "Only 1 stashed; retrieval replaces a draw."
+
+  - name: "Keeper: BUFF MENU (PUB)"
+    kind: keeper
+    advertisement_names: [PLAY-KEEPER]
+    effect: "Once per turn, declare a buff title (from the buff pie). Draw 1; then choose: you draw +1 or target player discards 1."
+    annotations:
+      orchestration: "Announce buff name; choose benefit or discard target."
+
+  - name: "Goal: PUB HAVOC"
+    kind: goal
+    advertisement_names: [SET-GOAL]
+    effect: "Win if you control PIE TABLE + SECRET WORD (PUB)."
+    annotations:
+      orchestration: "Check at end of each turn."
+
+  - name: "Goal: BARD NIGHT"
+    kind: goal
+    advertisement_names: [SET-GOAL]
+    effect: "Win if you control BARD SHANTY + HOT MUG."
+    annotations:
+      orchestration: "Check at end of each turn."
+
+  - name: "Goal: CHAOS ROUND"
+    kind: goal
+    advertisement_names: [SET-GOAL]
+    effect: "Win if you control RANDOM TOYS + PEEWEE SCREAMER."
+    annotations:
+      orchestration: "Check at end of each turn."
+
+  - name: "Goal: CLEAN SWEEP"
+    kind: goal
+    advertisement_names: [SET-GOAL]
+    effect: "Win if you control MOP & BUCKET + PIE SLICE."
+    annotations:
+      orchestration: "Check end of each turn."
+
+  - name: "Goal: CAT IN THE BACK"
+    kind: goal
+    advertisement_names: [SET-GOAL]
+    effect: "Win if you control PUB CAT + BACK ROOM."
+    annotations:
+      orchestration: "Check end of each turn."
+
+  - name: "Goal: GONG SHOW"
+    kind: goal
+    advertisement_names: [SET-GOAL]
+    effect: "Win if you control GONG + PIE TABLE."
+    annotations:
+      orchestration: "Check end of each turn."
+
+  - name: "Goal: CRITTER CROWD"
+    kind: goal
+    advertisement_names: [SET-GOAL]
+    effect: "Win if you control PUB CAT + PUB DOG + PUB KITTENS."
+    annotations:
+      orchestration: "Check end of each turn."
+
+  - name: "Goal: BUFFET"
+    kind: goal
+    advertisement_names: [SET-GOAL]
+    effect: "Win if you control BUFF MENU (PUB) + PIE TABLE."
+    annotations:
+      orchestration: "Check end of each turn."
+
+  - name: "Rule: HOUSE ROUND"
+    kind: rule
+    advertisement_names: [PLAY-RULE]
+    effect: "On your turn: draw 2, play 2 (replace base rule)."
+    annotations:
+      orchestration: "Update turn structure immediately."
+
+  - name: "Rule: SAY MOO"
+    kind: rule
+    advertisement_names: [PLAY-RULE]
+    effect: "If you moo before your turn starts, draw +1."
+    annotations:
+      orchestration: "Must moo aloud before drawing."
+
+  - name: "Rule: NO SHOUTING"
+    kind: rule
+    advertisement_names: [PLAY-RULE]
+    effect: "If you shout when playing an action, it fizzles."
+    annotations:
+      orchestration: "Table judges shouting; fizzled card to discard."
+
+  - name: "Rule: STONER MOOXX CROSSOVER"
+    kind: rule
+    advertisement_names: [PLAY-RULE]
+    effect: "When you play an action, you may instead mellow: skip its text, draw 1, then give 1 card to another player."
+    annotations:
+      orchestration: "Declare mellow before resolving action; gift after draw."
+
+  - name: "Rule: ROUND OF WATER"
+    kind: rule
+    advertisement_names: [PLAY-RULE]
+    effect: "At the start of each turn, current player must give 1 card to the player on their left before drawing."
+    annotations:
+      orchestration: "Gift occurs pre-draw; if none in hand, skip."
+
+  - name: "Rule: BAR TAB"
+    kind: rule
+    advertisement_names: [PLAY-RULE]
+    effect: "Hand limit 3; discard down at end of your turn."
+    annotations:
+      orchestration: "Enforce at end step."
+
+  - name: "Action: SPIN THE PIE TABLE"
+    kind: action
+    advertisement_names: [SPIN-PIE]
+    effect: "Spin: Win/Bonus/Share/Lose. Win: draw 2. Bonus: draw 1. Share: all draw 1. Lose: discard 1."
+    annotations:
+      orchestration: "Roll/choose outcome fairly; resolve in order."
+
+  - name: "Action: SHOUT SECRET WORD"
+    kind: action
+    advertisement_names: [SHOUT-SECRET]
+    effect: "Trigger SECRET WORD (PUB) if any player has it; otherwise draw 1."
+    annotations:
+      orchestration: "If multiple holders, trigger once."
+
+  - name: "Action: BUY A ROUND"
+    kind: action
+    advertisement_names: [BUY-ROUND]
+    effect: "Everyone draws 1; you draw 2 instead."
+    annotations:
+      orchestration: "Resolve your draw after others."
+
+  - name: "Action: TIP THE BARD"
+    kind: action
+    advertisement_names: [TIP-BARD]
+    effect: "Search discard for BARD SHANTY or HOT MUG; put it in your hand."
+    annotations:
+      orchestration: "If none, draw 1 instead."
+
+  - name: "Action: CLOSE TABS"
+    kind: action
+    advertisement_names: [CLOSE-TABS]
+    effect: "All players with more than 2 keepers discard down to 2 of their choice."
+    annotations:
+      orchestration: "Resolve in turn order starting with you."
+
+  - name: "Action: WIPE THE BAR"
+    kind: action
+    advertisement_names: [WIPE-BAR]
+    effect: "Discard one rule in play."
+    annotations:
+      orchestration: "Choose and discard immediately."
+
+  - name: "Action: LAST CALL"
+    kind: action
+    advertisement_names: [LAST-CALL]
+    effect: "End your turn immediately; before ending, discard one card to draw two."
+    annotations:
+      orchestration: "Discard then draw 2, then end turn (no further plays)."
+
+  - name: "Action: PUB CAT NAP"
+    kind: action
+    advertisement_names: [CAT-NAP]
+    effect: "Skip your play phase; instead draw 3 and keep 2 (discard 1)."
+    annotations:
+      orchestration: "You cannot play cards this turn after this resolves."
+
+  - name: "Action: SHARE A SLICE"
+    kind: action
+    advertisement_names: [SHARE-SLICE]
+    effect: "Choose a player; both of you draw 1. If PIE SLICE is in play (anyone), draw +1 each."
+    annotations:
+      orchestration: "Resolve draws; PIE SLICE bonus is global."
+
+  - name: "Action: BACK ROOM DEAL"
+    kind: action
+    advertisement_names: [BACK-ROOM-DEAL]
+    effect: "Secretly swap a card from your hand with one stashed in BACK ROOM (if you or others have one)."
+    annotations:
+      orchestration: "If no BACK ROOM in play, discard and draw 1."
+
+  - name: "Action: MOP SPILL"
+    kind: action
+    advertisement_names: [MOP-SPILL]
+    effect: "If MOP & BUCKET is in play (anyone), discard a creeper or rule. Otherwise, discard this and draw 1."
+    annotations:
+      orchestration: "Choose target; if none, fallback draw."
+
+  - name: "Action: PIE FIGHT"
+    kind: action
+    advertisement_names: [PIE-FIGHT]
+    effect: "Each player passes one random card to the player on their left."
+    annotations:
+      orchestration: "Collect random card, pass left simultaneously."
+
+  - name: "Action: GONG HIT"
+    kind: action
+    advertisement_names: [GONG-HIT]
+    effect: "Bang the GONG (if in play): either clear 1 rule or all players discard 1 random card."
+    annotations:
+      orchestration: "If no GONG in play, discard this and draw 1."
+
+  - name: "Action: CAT & DOG CHAOS"
+    kind: action
+    advertisement_names: [CAT-DOG]
+    effect: "If you have PUB CAT or PUB DOG, draw 2. If both, also steal a random card from a player of your choice."
+    annotations:
+      orchestration: "Resolve draws first, then steal if eligible."
+
+  - name: "Action: KITTEN SWARM"
+    kind: action
+    advertisement_names: [KITTEN-SWARM]
+    effect: "If PUB KITTENS in play (anyone), all players draw 1; you draw +1."
+    annotations:
+      orchestration: "If no kittens, discard this and draw 1."
+
+  - name: "Action: MOO CHORUS"
+    kind: action
+    advertisement_names: [MOO-CHORUS]
+    effect: "If all players moo within 5 seconds, everyone draws 2. Otherwise, only you draw 1."
+    annotations:
+      orchestration: "Count down; resolve success/fail."
+
+  - name: "Action: TRIGGER RANDOM TOYS"
+    kind: action
+    advertisement_names: [TRIGGER-RANDOM-TOYS]
+    effect: "If RANDOM TOYS keeper in play (anyone), roll d20: 15+ draw 2; 5- lose 1 random; else draw 1. If none in play, draw 1."
+    annotations:
+      orchestration: "Roll once; apply outcome; if no keeper, fallback draw."
+
+  - name: "Action: BUFF MENU PICK"
+    kind: action
+    advertisement_names: [BUFF-PICK]
+    effect: "Name a buff (any). Choose a player: they draw 1 and then discard 1 (order choice is yours). If you have BUFF MENU (PUB), you also draw 1."
+    annotations:
+      orchestration: "Announce buff name; pick player; choose order of draw/discard."
+
+  - name: "Action: SUMMON KITTENS"
+    kind: action
+    advertisement_names: [SUMMON-KITTENS]
+    effect: "Say 'Summon kittens!' All kittens appear in the room: all players draw 1; you may pet a kitten to draw +1; if any creeper is on you, it scampers to discard."
+    annotations:
+      orchestration: "Natural-language trigger; resolve draws; optional extra draw for you; move your attached creepers to discard."
+
+  - name: "Action: SUMMON ADVENTURER"
+    kind: action
+    advertisement_names: [SUMMON-ADVENTURER]
+    effect: "Reveal top 3 cards; if any Keeper is a party/adventure-themed card, play it for free. Otherwise, keep 1, discard 2."
+    annotations:
+      orchestration: "Party/adventure keepers include BARD SHANTY, PIE TABLE, HOT MUG, PUB CAT/DOG/KITTENS, RANDOM TOYS."
+
+  - name: "Action: CAST SKILL"
+    kind: action
+    advertisement_names: [CAST-SKILL]
+    effect: "Play any MOOLLM skill card from outside the deck as 'data': place it face-up; it grants no win unless a card activates it."
+    annotations:
+      orchestration: "Skill cards enter as inert data until another effect activates them."
+
+  - name: "Action: LOAD BUFF"
+    kind: action
+    advertisement_names: [LOAD-BUFF]
+    effect: "Name any buff (e.g., from buff-pie-menu). Place it as a data token in front of you (counts toward data limit)."
+    annotations:
+      orchestration: "Represent buff as a face-up note; counts as a data skill for activation/eval."
+
+  - name: "Action: MAGIC SURGE"
+    kind: action
+    advertisement_names: [MAGIC-SURGE]
+    effect: "Roll d6: 1-2 all players draw 1; 3-4 you draw 2; 5-6 play an extra action after this."
+    annotations:
+      orchestration: "If extra action, it must be from your hand."
+
+  - name: "Rule: DATA TABLE"
+    kind: rule
+    advertisement_names: [PLAY-RULE]
+    effect: "Each player may have up to 2 data items (skill cards or buff tokens). They do nothing until an action/rule says 'activate data'."
+    annotations:
+      orchestration: "Track per player; excess data goes to discard. Buff tokens from LOAD BUFF count."
+
+  - name: "Action: ACTIVATE DATA"
+    kind: action
+    advertisement_names: [ACTIVATE-DATA]
+    effect: "Choose one data skill you control: treat one of its ads as a one-shot action, then discard that skill."
+    annotations:
+      orchestration: "Pick any advertisement text and resolve as an action; skill leaves play."
+
+  - name: "Action: SHARE DATA"
+    kind: action
+    advertisement_names: [SHARE-DATA]
+    effect: "Give one of your data skills to another player; draw 1."
+    annotations:
+      orchestration: "Transfer face-up; then draw."
+
+  - name: "Action: EVAL"
+    kind: action
+    advertisement_names: [EVAL]
+    effect: "Activate up to two data skills you control: for each, resolve one advertisement as a one-shot. Discard those skills after."
+    annotations:
+      orchestration: "Select 0-2 data skills; for each, pick an ad and resolve it as an action; discard the used skills."
+
+  - name: "Action: EVAL-AS-BUFF"
+    kind: action
+    advertisement_names: [EVAL-AS-BUFF]
+    effect: "Choose a data skill with a buff-like ad: resolve it as a temporary buff (one-shot effect), then discard that skill."
+    annotations:
+      orchestration: "Pick one data skill; pick one of its ads; narrate as a buff; discard the skill."
+
+  - name: "Action: EVAL-AS-CARD"
+    kind: action
+    advertisement_names: [EVAL-AS-CARD]
+    effect: "Treat one advertisement on a data skill as if it were this action's text; resolve it, then discard that skill."
+    annotations:
+      orchestration: "Select one data skill you control; copy one ad; resolve; discard skill."
+
+  - name: "Action: EVAL-AS-ADVERTISEMENT"
+    kind: action
+    advertisement_names: [EVAL-AS-AD]
+    effect: "Pick any advertisement from a data skill (yours) and apply it to any target player as a one-shot; discard that skill."
+    annotations:
+      orchestration: "Choose ad and target; resolve; discard skill."
+
+  - name: "Action: EVAL-AS-IMAGE"
+    kind: action
+    advertisement_names: [EVAL-AS-IMAGE]
+    effect: "Pick any card or data skill; narrate a brief image it would generate; draw 1."
+    annotations:
+      orchestration: "Pure flavor + draw 1; no extra mechanical effect."
+
+  # RISC-style minimal verbs to stitch mechanics
+  - name: "Action: DRAW-ONE"
+    kind: action
+    advertisement_names: [DRAW-ONE]
+    effect: "Draw 1 card."
+    annotations:
+      orchestration: "No extras; resolve immediately."
+
+  - name: "Action: PLAY-ONE"
+    kind: action
+    advertisement_names: [PLAY-ONE]
+    effect: "Play 1 extra card from your hand now."
+    annotations:
+      orchestration: "Does not change future turn limits."
+
+  - name: "Action: DISCARD-ONE"
+    kind: action
+    advertisement_names: [DISCARD-ONE]
+    effect: "Choose any player; they discard 1 card of their choice."
+    annotations:
+      orchestration: "Targeted discard; player chooses which card."
+
+  - name: "Action: SWAP"
+    kind: action
+    advertisement_names: [SWAP]
+    effect: "You and another player swap one card from hand (your choice each, secret)."
+    annotations:
+      orchestration: "Choose partner; each selects secretly; swap simultaneously."
+
+  - name: "Action: COPY-DATA"
+    kind: action
+    advertisement_names: [COPY-DATA]
+    effect: "Duplicate one data item you control (skill or buff token) to another player; both copies are data."
+    annotations:
+      orchestration: "Choose target; place a duplicate note/token; original stays."
+
+  - name: "Action: ACTIVATE-ONE"
+    kind: action
+    advertisement_names: [ACTIVATE-ONE]
+    effect: "Activate a single data item you control: resolve one ad as a one-shot, then discard that data."
+    annotations:
+      orchestration: "Simpler single-target version of ACTIVATE DATA."
+
+  - name: "Action: FLUSH"
+    kind: action
+    advertisement_names: [FLUSH]
+    effect: "Discard 1 rule or 1 creeper in play."
+    annotations:
+      orchestration: "You choose target; if none, discard this and draw 1."
+
+  - name: "Keeper: SPELLBOOK"
+    kind: keeper
+    advertisement_names: [PLAY-KEEPER]
+    effect: "Once per turn, copy the effect of an action just played this turn (by any player), except victory conditions."
+    annotations:
+      orchestration: "Copy text only; resolve immediately; no goals/keepers/rules."
+
+  - name: "Creeper: SPILLED ALE"
+    kind: creeper
+    advertisement_names: [PLAY-CREEPER]
+    effect: "While you have this, you cannot win. When played, attach to a keeper; that keeper is disabled."
+    annotations:
+      orchestration: "Choose a keeper you control to attach; MOP & BUCKET can remove."
+
+  - name: "Creeper: ROWDY PATRON"
+    kind: creeper
+    advertisement_names: [PLAY-CREEPER]
+    effect: "While you have this, you cannot win. At start of your turn, discard a card."
+    annotations:
+      orchestration: "Discard before draw; PUB CAT can ignore once/turn."

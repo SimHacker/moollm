@@ -1,0 +1,62 @@
+card:
+  name: monster-mimic
+  type: [monster, shapeshifter, dnd, example]
+  tier: 1
+  invoke_when: ["trap encounter", "dungeon hazard", "gotcha moment"]
+  advertisement_names:
+    - DESCRIBE
+    - THREAT
+    - WEAKNESS
+  tags: [moollm, example, monster, mimic, dnd]
+  description: |
+    A mimic that masquerades as objects (chests, doors). Sticky, biting, and
+    loves ambushes.
+
+ethics:
+  constraints:
+    - "Fictional threat; no real-world harm guidance."
+    - "Keep content age-appropriate."
+  annotations:
+    audience: "game"
+    safety: "medium"
+
+advertisements:
+  DESCRIBE:
+    synonyms: [LORE]
+    effect: "Appearance (when revealed) and tells"
+    delegate:
+      method: DESCRIBE
+      params: {}
+
+  THREAT:
+    synonyms: [DANGER]
+    effect: "Attacks and adhesive tricks"
+    delegate:
+      method: THREAT
+      params: {}
+
+  WEAKNESS:
+    synonyms: [COUNTER]
+    effect: "How to spot and counter mimics"
+    delegate:
+      method: WEAKNESS
+      params: {}
+
+methods:
+  DESCRIBE:
+    description: "Lore, mimicry habits, and sensory tells"
+    parameters: {}
+    output: chat
+    effect: "Notes sticky pseudopods, false seams, slight breathing"
+
+  THREAT:
+    description: "Explain grabs, bites, and adhesive"
+    parameters: {}
+    output: chat
+    effect: "Covers surprise grapple, adhesive, bite follow-up"
+
+  WEAKNESS:
+    description: "Offer counters and detection tips"
+    parameters: {}
+    output: chat
+    effect: "Suggests probing poles, heat/cold checks, fire/acid caution"

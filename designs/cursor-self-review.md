@@ -579,6 +579,17 @@ TODO
 MAYBE
 - Root-level beacon (.cursorpriority/.cursorpriority.yml equivalent) — keep as optional; `.cursorrules` + MOOLLM.yml may suffice.
 
+### Suggestions & Status (group consensus)
+- DONE: Clarify advisory mode (driver, templates, runtime copies), K-line ads in YAML, Cursor pointers in `.cursorrules`.
+- TODO: Align the Indirection Pattern to `.moollm/`; add a brief README pointer to `MOOLLM.yml`; keep advisory pointers validated.
+- TODO: Tighten `skills/INDEX.yml` categories/related links; ensure every CARD has `advertisements:` (K-line form).
+- TODO: Sniff all CARD.yml files and refresh the canonical template (`skills/card/CARD.yml.tmpl`) per sniffable/K-line guidance.
+- TODO: Optional cold archaeology note and usage (template exists).
+- MAYBE: Skill constellation visualizer (Bret + Ben + Klaus + Don) — prototype for web app.
+- MAYBE: Context-cost hints per skill if a lightweight, greppable scheme emerges.
+- NOPE: Nonstandard `.cursorpriority` file (stick to `.cursorrules` + advisory files).
+- DISCUSS: Constellation view placement (README vs separate doc) and how much cross-link density to enforce in `related:` and ads.
+
 ---
 
 ## Proposed: Enhance Existing `kernel/drivers/cursor.yml`
@@ -1026,20 +1037,27 @@ This gives us:
 2. **Dynamic focus** — working-set.yml changes per session
 3. **Deep reference** — skills and files as needed
 
-### The Bootstrap Chain
+### The Bootstrap Chain (aligned to `.moollm/`)
 
 ```
 Session starts
     ↓
 Cursor injects .cursorrules (mini kernel)
     ↓
-LLM knows: "I'm in MOOLLM, check kernel/drivers/cursor.yml"
+LLM opens pointers:
+  - .moollm/working-set.yml (advisory)
+  - .moollm/hot.yml (advisory)
+  - kernel/drivers/cursor.yml (advisory mode explained)
+  - PROTOCOLS.yml (K-line index)
+  - skills/INDEX.yml (skill registry)
+  - designs/cursor-self-review.md (plans/status)
+  - MOOLLM.yml / MOOLLM.md (manifest/beacon)
     ↓
-LLM reads driver when needed
+Driver read as needed (advisory hot/cold/working-set, scratch in .moollm/)
     ↓
-Driver points to skills, protocols, examples
+Skills/protocols loaded via indices and K-lines
     ↓
-Full MOOLLM awareness achieved
+Full MOOLLM awareness achieved (manifest + driver + indices + advisory breadcrumbs)
 ```
 
 ---
@@ -1048,10 +1066,10 @@ Full MOOLLM awareness achieved
 
 ### Immediate (Bootstrap Problem)
 
-- [ ] Create `.cursorrules` mini kernel (draft above)
+- [x] Create `.cursorrules` mini kernel (present)
 - [ ] Test mini kernel size — ensure Cursor always includes it
-- [ ] Create `MOOLLM.md` at repo root as semantic beacon
-- [ ] Enhance `kernel/drivers/cursor.yml` with bootstrap checklist
+- [x] Create `MOOLLM.md` at repo root as semantic beacon
+- [ ] Enhance `kernel/drivers/cursor.yml` with bootstrap checklist (partial; advisory notes exist)
 - [ ] Test with fresh context to see if orientation improves
 
 ### Sniffable CARD.yml (Priority Project)

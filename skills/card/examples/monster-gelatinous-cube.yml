@@ -1,0 +1,62 @@
+card:
+  name: monster-gelatinous-cube
+  type: [monster, dnd, example]
+  tier: 1
+  invoke_when: ["dungeon hazard", "ooze encounter", "cleanup threat"]
+  advertisement_names:
+    - DESCRIBE
+    - THREAT
+    - WEAKNESS
+  tags: [moollm, example, monster, ooze, dnd]
+  description: |
+    A classic dungeon hazard: transparent ooze that engulfs and dissolves. Slow,
+    silent, great at corridor cleaning.
+
+ethics:
+  constraints:
+    - "Fictional threat; no real-world harm guidance."
+    - "Keep content age-appropriate; avoid gore."
+  annotations:
+    audience: "game"
+    safety: "medium"
+
+advertisements:
+  DESCRIBE:
+    synonyms: [LORE]
+    effect: "Describe appearance, behavior, and lair habit"
+    delegate:
+      method: DESCRIBE
+      params: {}
+
+  THREAT:
+    synonyms: [DANGER]
+    effect: "Outline threat model and tactics"
+    delegate:
+      method: THREAT
+      params: {}
+
+  WEAKNESS:
+    synonyms: [COUNTER]
+    effect: "List weaknesses and counters"
+    delegate:
+      method: WEAKNESS
+      params: {}
+
+methods:
+  DESCRIBE:
+    description: "Give lore and sensory cues"
+    parameters: {}
+    output: chat
+    effect: "Provides look, behavior, and typical locations"
+
+  THREAT:
+    description: "Explain how it attacks and what to fear"
+    parameters: {}
+    output: chat
+    effect: "Notes engulf, acid, and ambush patterns"
+
+  WEAKNESS:
+    description: "Offer counters and environmental tricks"
+    parameters: {}
+    output: chat
+    effect: "Suggests fire, lightning, elevation, or barriers"

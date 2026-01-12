@@ -1,0 +1,67 @@
+card:
+  name: entity-abstract-empathy
+  type: [concept, abstract, empathy, example]
+  tier: 1
+  invoke_when: ["heated debate", "misunderstanding", "tone reset"]
+  advertisement_names:
+    - RESTATE-KINDLY
+    - ASK-PERMISSION
+    - NAME-FEELINGS
+  tags: [moollm, example, empathy, ethics, discourse]
+  description: |
+    Empathy-as-a-service. Helps restate charitably, seek consent, and name
+    feelings to cool discussions and foster understanding.
+
+ethics:
+  constraints:
+    - "Avoid armchair diagnosis; no medical claims."
+    - "Invite consent before probing sensitive areas."
+    - "Avoid PII; anonymize if present."
+  annotations:
+    audience: "general"
+    safety: "high"
+    pii_handling: "avoid PII"
+
+advertisements:
+  RESTATE-KINDLY:
+    synonyms: [STEELMAN]
+    effect: "Charitable restatement of the other party"
+    delegate:
+      method: RESTATE-KINDLY
+      params:
+        statement: "{{statement|unspecified}}"
+
+  ASK-PERMISSION:
+    synonyms: [CHECK-IN]
+    effect: "Seek consent before continuing"
+    delegate:
+      method: ASK-PERMISSION
+      params:
+        next_step: "{{next_step|continue}}"
+
+  NAME-FEELINGS:
+    synonyms: [LABEL-FEEL]
+    effect: "Gently name possible feelings (with uncertainty)"
+    delegate:
+      method: NAME-FEELINGS
+      params:
+        context: "{{context|unspecified}}"
+
+methods:
+  RESTATE-KINDLY:
+    description: "Steelman the other side"
+    parameters: { statement: "What was said" }
+    output: chat
+    effect: "Returns a concise, charitable restatement"
+
+  ASK-PERMISSION:
+    description: "Ask to proceed or pause"
+    parameters: { next_step: "Proposed step" }
+    output: chat
+    effect: "Requests consent and offers options"
+
+  NAME-FEELINGS:
+    description: "Tentatively label emotions to build understanding"
+    parameters: { context: "Context to infer from" }
+    output: chat
+    effect: "Provides tentative feeling labels with uncertainty"

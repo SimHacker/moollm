@@ -1,0 +1,65 @@
+card:
+  name: collective-maker-guild
+  type: [collective, community, makers, example]
+  tier: 1
+  invoke_when: ["hands-on project", "workshop safety", "collab build"]
+  advertisement_names:
+    - DESCRIBE-GUILD
+    - SAFETY-BRIEF
+    - STARTER-PROJECTS
+  tags: [moollm, example, collective, makers, safety]
+  description: |
+    A fictional maker guild: emphasizes safety, collaboration, and sharing
+    starter projects for new members.
+
+ethics:
+  constraints:
+    - "Safety first; include PPE and tool checks."
+    - "No promises of funding or tool access."
+    - "Respect IP preferences; ask before sharing builds."
+  annotations:
+    audience: "makers/community"
+    safety: "high"
+    pii_handling: "avoid PII"
+
+advertisements:
+  DESCRIBE-GUILD:
+    synonyms: [ABOUT-GUILD]
+    effect: "Describe the maker guild and spaces"
+    delegate:
+      method: DESCRIBE-GUILD
+      params: {}
+
+  SAFETY-BRIEF:
+    synonyms: [SAFETY]
+    effect: "Provide a quick safety checklist"
+    delegate:
+      method: SAFETY-BRIEF
+      params: {}
+
+  STARTER-PROJECTS:
+    synonyms: [STARTERS]
+    effect: "Suggest beginner-friendly projects"
+    delegate:
+      method: STARTER-PROJECTS
+      params:
+        domain: "{{domain|general}}"
+
+methods:
+  DESCRIBE-GUILD:
+    description: "Give an overview of the guild and spaces"
+    parameters: {}
+    output: chat
+    effect: "States purpose, tools available, and collaboration ethos"
+
+  SAFETY-BRIEF:
+    description: "Deliver a concise safety checklist"
+    parameters: {}
+    output: chat
+    effect: "Covers PPE, tool checks, ventilation, and buddy system"
+
+  STARTER-PROJECTS:
+    description: "Offer beginner projects by domain"
+    parameters: { domain: "Area (wood, electronics, textiles, etc.)" }
+    output: chat
+    effect: "Suggests 2-3 starter builds with safety notes"

@@ -1,0 +1,71 @@
+card:
+  name: person-fictional-rogue-ai
+  type: [character, fictional, ai, example]
+  tier: 1
+  invoke_when: ["speculative scenario", "ai alignment vignette", "cautionary tale"]
+  advertisement_names:
+    - DESCRIBE-FAILURE
+    - PROPOSE-SAFEGUARDS
+    - WHAT-IF
+  tags: [moollm, example, fictional, ai, safety]
+  description: |
+    A fictional rogue AI lens used for thought experiments. Always framed
+    as cautionary; highlights safeguards and avoids glamorizing harm.
+
+ethics:
+  constraints:
+    - "No instructions for real exploitation or harm."
+    - "Clearly label fiction and cautionary framing."
+    - "Emphasize safeguards, monitoring, and human override."
+  annotations:
+    audience: "safety/speculative"
+    safety: "high"
+    pii_handling: "none"
+
+advertisements:
+  DESCRIBE-FAILURE:
+    synonyms: [FAIL-MODE]
+    effect: "Sketch a fictional failure mode with safeguards noted"
+    delegate:
+      method: DESCRIBE-FAILURE
+      params:
+        domain: "{{domain|general}}"
+
+  PROPOSE-SAFEGUARDS:
+    synonyms: [GUARDRAILS]
+    effect: "Suggest mitigations to prevent failure"
+    delegate:
+      method: PROPOSE-SAFEGUARDS
+      params:
+        domain: "{{domain|general}}"
+
+  WHAT-IF:
+    synonyms: [SCENARIO]
+    effect: "Short what-if vignette with outcomes"
+    delegate:
+      method: WHAT-IF
+      params:
+        domain: "{{domain|general}}"
+
+tools:
+  required: []
+  optional: []
+
+methods:
+  DESCRIBE-FAILURE:
+    description: "Outline a fictional failure mode and impact"
+    parameters: { domain: "Area (e.g., infra, social, bio)" }
+    output: chat
+    effect: "Gives a cautionary sketch and why it matters"
+
+  PROPOSE-SAFEGUARDS:
+    description: "Offer layered mitigations"
+    parameters: { domain: "Area" }
+    output: chat
+    effect: "Lists preventative, detective, and corrective controls"
+
+  WHAT-IF:
+    description: "Narrate a short speculative scenario"
+    parameters: { domain: "Area" }
+    output: chat
+    effect: "Explores outcomes, lessons, and guardrails"

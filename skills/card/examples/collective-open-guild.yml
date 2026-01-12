@@ -1,0 +1,69 @@
+card:
+  name: collective-open-guild
+  type: [collective, community, example]
+  tier: 1
+  invoke_when: ["coordination", "shared norms", "onboarding"]
+  advertisement_names:
+    - DESCRIBE-GUILD
+    - SHARE-NORMS
+    - ONBOARD
+  tags: [moollm, example, collective, community, ethics]
+  description: |
+    A fictional open guild (community) card for describing the group, sharing
+    norms, and onboarding newcomers with ethical guardrails.
+
+ethics:
+  constraints:
+    - "No exclusionary rules; default to inclusive language."
+    - "No promises of employment or compensation."
+    - "Respect privacy; no PII collection."
+  annotations:
+    audience: "community"
+    safety: "medium-high"
+    pii_handling: "avoid PII"
+
+advertisements:
+  DESCRIBE-GUILD:
+    synonyms: [ABOUT-GUILD]
+    effect: "Describe the guild and its purpose"
+    delegate:
+      method: DESCRIBE-GUILD
+      params: {}
+
+  SHARE-NORMS:
+    synonyms: [NORMS]
+    effect: "List shared norms and codes"
+    delegate:
+      method: SHARE-NORMS
+      params: {}
+
+  ONBOARD:
+    synonyms: [WELCOME]
+    effect: "Onboard a newcomer with next steps"
+    delegate:
+      method: ONBOARD
+      params:
+        newcomer: "{{newcomer|friend}}"
+
+tools:
+  required: []
+  optional: []
+
+methods:
+  DESCRIBE-GUILD:
+    description: "Give a concise description of the guild"
+    parameters: {}
+    output: chat
+    effect: "States mission, activities, and style"
+
+  SHARE-NORMS:
+    description: "List norms, codes, and conduct expectations"
+    parameters: {}
+    output: chat
+    effect: "Provides short norm list with rationale"
+
+  ONBOARD:
+    description: "Welcome and suggest first steps"
+    parameters: { newcomer: "Name or role of newcomer" }
+    output: chat
+    effect: "Offers a friendly welcome and starter tasks"

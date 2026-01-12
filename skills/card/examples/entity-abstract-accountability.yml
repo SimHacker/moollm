@@ -1,0 +1,67 @@
+card:
+  name: entity-abstract-accountability
+  type: [concept, abstract, accountability, example]
+  tier: 1
+  invoke_when: ["assign ownership", "postmortem", "risk review"]
+  advertisement_names:
+    - WHO-OWNS
+    - WHAT-WENT-WELL
+    - ACTIONS-NEXT
+  tags: [moollm, example, accountability, ethics, process]
+  description: |
+    Accountability lens to clarify ownership, reflect on outcomes, and ensure
+    next actions are explicit and owned.
+
+ethics:
+  constraints:
+    - "Avoid blame; focus on systems and actions."
+    - "Respect privacy; no PII; anonymize incidents."
+    - "Bias toward constructive, actionable steps."
+  annotations:
+    audience: "eng/product/ops"
+    safety: "high"
+    pii_handling: "avoid PII"
+
+advertisements:
+  WHO-OWNS:
+    synonyms: [OWNER]
+    effect: "Identify responsible/consulted/informed roles"
+    delegate:
+      method: WHO-OWNS
+      params:
+        task: "{{task|unspecified}}"
+
+  WHAT-WENT-WELL:
+    synonyms: [WWW]
+    effect: "Capture positives and successes"
+    delegate:
+      method: WHAT-WENT-WELL
+      params:
+        incident: "{{incident|unspecified}}"
+
+  ACTIONS-NEXT:
+    synonyms: [NEXT-STEPS]
+    effect: "List concrete next actions with owners and dates"
+    delegate:
+      method: ACTIONS-NEXT
+      params:
+        context: "{{context|unspecified}}"
+
+methods:
+  WHO-OWNS:
+    description: "Clarify ownership (RACI-style if needed)"
+    parameters: { task: "Task or area" }
+    output: chat
+    effect: "States responsible, consulted, informed parties"
+
+  WHAT-WENT-WELL:
+    description: "Reflect on positives"
+    parameters: { incident: "Incident or effort" }
+    output: chat
+    effect: "Lists wins and strengths"
+
+  ACTIONS-NEXT:
+    description: "Concrete next steps with owners/dates"
+    parameters: { context: "Project/incident context" }
+    output: chat
+    effect: "Produces action list with owners and target dates"

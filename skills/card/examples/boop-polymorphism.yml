@@ -1,0 +1,48 @@
+card:
+  name: boop-demo
+  type: [skill, companion, play]
+  tier: 1
+  invoke_when: ["playful interaction"]
+  advertisement_names:
+    - BOOP       # single public ad; will dispatch to specifics
+  related:
+    - skills/card
+  tags: [moollm, example, polymorphism]
+  description: |
+    Demonstrates a single advertisement (BOOP) dispatching to
+    specific methods (cat vs dog) while keeping the public ad stable.
+
+advertisements:
+  BOOP:
+    synonyms: [NOSE-BOOP]                 # sniffable alternate name
+    score: 80                             # base score
+    condition: "Friendly pet is present"  # short precondition
+    effect: "Boop an animal gently"
+    delegate:
+      method: BOOP                        # generic handler
+      dispatch:
+        prefix: BOOP                      # try BOOP-CAT, BOOP-DOG, etc.
+        variants: [BOOP-CAT, BOOP-DOG]    # optional explicit variants
+
+tools:
+  required: []
+  optional: []
+
+methods:
+  BOOP:
+    description: "Generic boop fallback"
+    parameters: { target: "Which animal" }
+    output: chat
+    effect: "Default boop response"
+
+  BOOP-CAT:
+    description: "Cat-specific boop"      # likely a purr (or glare)
+    parameters: { cat: "Which cat" }
+    output: chat
+    effect: "Cat purrs (or glares if offended)"
+
+  BOOP-DOG:
+    description: "Dog-specific boop"      # tail wag central
+    parameters: { dog: "Which dog" }
+    output: chat
+    effect: "Dog wags tail happily"

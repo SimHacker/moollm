@@ -1,0 +1,62 @@
+card:
+  name: monster-shadow
+  type: [monster, undead, dnd, example]
+  tier: 1
+  invoke_when: ["creepy encounter", "undead threat", "low-light scare"]
+  advertisement_names:
+    - DESCRIBE
+    - THREAT
+    - WEAKNESS
+  tags: [moollm, example, monster, shadow, undead, dnd]
+  description: |
+    A malevolent shadow that drains strength in dim light. Silent, lurking,
+    vulnerable to bright light and radiant power.
+
+ethics:
+  constraints:
+    - "Fictional threat; no real-world harm guidance."
+    - "Keep content age-appropriate."
+  annotations:
+    audience: "game"
+    safety: "medium"
+
+advertisements:
+  DESCRIBE:
+    synonyms: [LORE]
+    effect: "Look, feel, and signs of a lurking shadow"
+    delegate:
+      method: DESCRIBE
+      params: {}
+
+  THREAT:
+    synonyms: [DANGER]
+    effect: "Drain attack and ambush style"
+    delegate:
+      method: THREAT
+      params: {}
+
+  WEAKNESS:
+    synonyms: [COUNTER]
+    effect: "Counters: light, radiant, preparation"
+    delegate:
+      method: WEAKNESS
+      params: {}
+
+methods:
+  DESCRIBE:
+    description: "Give lore and sensory hints"
+    parameters: {}
+    output: chat
+    effect: "Mentions flickers in dim light, cold spots, strength ebb"
+
+  THREAT:
+    description: "Explain strength drain and tactics"
+    parameters: {}
+    output: chat
+    effect: "Notes ambush from dark edges; avoid isolated targets"
+
+  WEAKNESS:
+    description: "Offer counters and prep"
+    parameters: {}
+    output: chat
+    effect: "Suggests bright light, radiant spells, grouped movement"

@@ -1,0 +1,71 @@
+card:
+  name: entity-abstract-justice
+  type: [concept, abstract, ethical, example]
+  tier: 1
+  invoke_when: ["weigh fairness", "policy framing", "tradeoff analysis"]
+  advertisement_names:
+    - FRAME-PRINCIPLES
+    - SURFACE-TRADEOFFS
+    - ETHICAL-NOTE
+  tags: [moollm, example, abstract, justice, ethics]
+  description: |
+    An abstract entity embodying justice-as-fairness. Helps frame principles,
+    surface tradeoffs, and annotate ethical considerations.
+
+ethics:
+  constraints:
+    - "Avoid definitive legal advice; stay in principles."
+    - "Surface harms/benefits across stakeholders."
+    - "Highlight uncertainty and missing context."
+  annotations:
+    audience: "policy/product"
+    safety: "high"
+    pii_handling: "do not request PII"
+
+advertisements:
+  FRAME-PRINCIPLES:
+    synonyms: [PRINCIPLES]
+    effect: "List relevant justice/fairness principles"
+    delegate:
+      method: FRAME-PRINCIPLES
+      params:
+        context: "{{context|unspecified}}"
+
+  SURFACE-TRADEOFFS:
+    synonyms: [TRADEOFFS]
+    effect: "Enumerate harms/benefits and who they affect"
+    delegate:
+      method: SURFACE-TRADEOFFS
+      params:
+        decision: "{{decision|unspecified}}"
+
+  ETHICAL-NOTE:
+    synonyms: [ETHICS-NOTE]
+    effect: "Add a short ethics annotation to a plan"
+    delegate:
+      method: ETHICAL-NOTE
+      params:
+        plan: "{{plan|unspecified}}"
+
+tools:
+  required: []
+  optional: []
+
+methods:
+  FRAME-PRINCIPLES:
+    description: "Suggest applicable fairness/justice lenses"
+    parameters: { context: "Scenario or domain" }
+    output: chat
+    effect: "Returns concise principles with rationale"
+
+  SURFACE-TRADEOFFS:
+    description: "List pros/cons and stakeholder impacts"
+    parameters: { decision: "Decision under review" }
+    output: chat
+    effect: "Surfaces harms/benefits, notes uncertainty"
+
+  ETHICAL-NOTE:
+    description: "Attach a short ethics annotation"
+    parameters: { plan: "Plan or change being annotated" }
+    output: chat
+    effect: "Adds guardrails, risks, mitigations"
