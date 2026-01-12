@@ -856,5 +856,14 @@
 
 > *Dead links are broken promises. Fix all of them.*
 
-**`aabae04`** Fix all session log links, verify Medium URLs, enhance return-stack and mind-mirror
+**`507428a`** Fix all session log links, verify Medium URLs, enhance return-stack and mind-mirror
 > Session logs moved from adventure-4/sessions/ to characters/real-people/don-hopkins/sessions/marathon-session.md -- 47 broken links fixed across 16 files. Fixed link text AND destination (don-session-1.md → marathon-session.md). Medium URLs verified via HTTP 200 checks. PSIBER Space and DSHR blog URLs corrected. Return-stack skill now documents Self language's dynamic deoptimization -- LLM reconstructs causality on demand like Self reconstructs stack traces. Mind-mirror tells Leary's prison escape story: understanding the system grants power to transcend it. Proof links to 33-turn Fluxx with proper hash anchors. 🔗📚🔙🐒
+
+---
+
+### Era 27: The Discourse
+
+> *antirez writes about AI. The internet responds. MOOLLM analyzes both.*
+
+**`(this)`** Add antirez AI hype analysis
+> antirez (Redis creator) claims AI changed programming forever. HN explodes: 1227 comments, 1022 points. Skeptics: "70% rewrite after review." Optimists: "hours instead of weeks." The key insight: codebase entropy determines success. MOOLLM's K-lines, rooms, and rubrics are anti-entropy architecture. The debate validates the framework. 📊🔥💬
