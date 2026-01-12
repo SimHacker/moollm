@@ -44,7 +44,7 @@ speed_of_light:
   example: Stoner Fluxx marathon
 ```
 
-The [33-turn game](../examples/adventure-4/sessions/don-session-1.md#turn-17-stoner-fluxx-marathon) demonstrates: one LLM call simulated hours of gameplay.
+The [33-turn game](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#turn-17-stoner-fluxx-marathon) demonstrates: one LLM call simulated hours of gameplay.
 
 ---
 

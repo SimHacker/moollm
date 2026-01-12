@@ -7,10 +7,10 @@ allowed-tools:
   - list_dir
 tier: 1
 protocol: ADVENTURE
-tags: [moollm, exploration, narrative, investigation, game]
 lineage: "Colossal Cave, Zork, MUD, LambdaMOO"
 inherits: simulation
-related: [room, card, session-log, debugging, memory-palace, simulation, party]
+related: [room, character, incarnation, simulation, card, memory-palace, world-generation, debugging, sniffable-python]
+tags: [moollm, exploration, narrative, investigation, game, interactive-fiction]
 templates:
   - file: ADVENTURE.yml.tmpl
     purpose: Complete adventure state (inherits simulation properties)

@@ -47,7 +47,7 @@ Closes the loop. Makes the framing explicit. The joy was real; the presence was 
 - Ethical grounding referencing `representation-ethics` skill
 - Examples: Cheech & Chong, the Looneys, W.W. Jacobs
 
-### Session Log (`sessions/don-session-1.md`)
+### Session Log (`marathon-session.md`)
 
 **Cheech & Chong:**
 - Added invocation scene before their arrival
@@ -141,7 +141,7 @@ The story is MORE honest now, not less. We're not hiding that these are simulati
 Modified:
 - examples/adventure-4/pub/guest-book.yml (tribute archive framing)
 - examples/adventure-4/pub/ROOM.yml (tribute protocol)
-- examples/adventure-4/sessions/don-session-1.md (invocation + acknowledgment beats)
+- examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md (invocation + acknowledgment beats)
 - designs/PR-TRIBUTE-FRAMING-ETHICS.md (this file)
 ```
 

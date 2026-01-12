@@ -6,9 +6,9 @@ allowed-tools:
   - write_file
 tier: 1
 protocol: ROBERTS-RULES
-tags: [moollm, procedure, deliberation, decision, structure]
 credits: "Mike Gallaher — LLM adaptation; Henry Martyn Robert — original rules (1876)"
-related: [adversarial-committee, rubric, evaluator, session-log]
+related: [adversarial-committee, society-of-mind, rubric, evaluator, session-log]
+tags: [moollm, procedure, deliberation, decision, structure, parliamentary]
 ---
 
 # Robert's Rules

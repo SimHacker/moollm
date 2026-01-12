@@ -6,7 +6,7 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [coherence-engine, multi-presence, simulation, adversarial-committee, soul-chat]
+related: [moollm, society-of-mind, bootstrap, simulation, multi-presence, coherence-engine, soul-chat, adversarial-committee, debate]
 tags: [moollm, optimization, latency, batching, efficiency]
 ---
 

@@ -222,7 +222,7 @@ Every major Sims system maps to a MOOLLM skill:
 ### To Adventures
 
 The Sims architecture is proven in:
-- [`don-session-1.md`](../examples/adventure-4/sessions/don-session-1.md) — 33-turn proof
+- [`marathon-session.md`](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) — 33-turn proof
 - Pub with stage, cat cave, pie table — Sims room patterns
 - Guest book — Sims relationship tracking
 

@@ -6,7 +6,7 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [postel, coherence-engine, soul-chat, mind-mirror]
+related: [moollm, postel, mind-mirror, needs, sniffable-python, empathic-templates, plain-text, k-lines, character]
 tags: [moollm, yaml, comments, semantic, llm, interpretation]
 ---
 

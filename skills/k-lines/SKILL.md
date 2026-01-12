@@ -6,7 +6,7 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [yaml-jazz, skill, coherence-engine]
+related: [moollm, leela-ai, manufacturing-intelligence, society-of-mind, skill, bootstrap, yaml-jazz, markdown, postel, play-learn-lift, sniffable-python, plain-text]
 tags: [moollm, k-lines, minsky, memory, activation, society-of-mind]
 ---
 

@@ -19,16 +19,8 @@ sims_credits:
   system: "The Sims personality traits"
 templates:
   - EXTENSIONS.yml
-related:
-  - representation-ethics
-  - hero-story
-  - card
-  - soul-chat
-  - adventure
-  - character
-  - needs
-  - buff
-tags: [moollm]
+related: [character, society-of-mind, persona, representation-ethics, incarnation, yaml-jazz, plain-text, needs, cat, dog, room, constructionism, manufacturing-intelligence]
+tags: [moollm, personality, traits, psychology, timothy-leary, sims, circumplex, escape]
 ---
 
 # Mind Mirror
@@ -37,7 +29,6 @@ tags: [moollm]
 
 > *"The ultimate intimacy is where you show them your personal database — you show your Mind Mirror."* — Timothy Leary
 
-tags: [moollm]
 ---
 
 ## What It Is
@@ -46,7 +37,6 @@ tags: [moollm]
 
 This skill brings that system into MOOLLM as a framework for modeling characters, NPCs, and exploring personality dynamics.
 
-tags: [moollm]
 ---
 
 ## The Origin Story
@@ -69,24 +59,48 @@ In 1950, Timothy Leary completed his PhD dissertation at UC Berkeley: *"The Soci
 
 Thirty-five years later, Leary collaborated with programmers Peter Van den Beemt and Bob Dietz to transform this academic work into interactive software.
 
-tags: [moollm]
 ---
 
 ## The Prison Escape: Ultimate Validation
 
-In 1970, Leary was given psychological tests upon prison intake — including the **Leary Interpersonal Behavior Inventory**, a test he himself had designed.
+In 1970, Nixon called Timothy Leary "the most dangerous man in America." Leary was sentenced to 10-20 years for marijuana possession — a draconian sentence designed to silence him.
 
-Understanding exactly what it measured, Leary answered strategically:
-- Appeared mild-mannered, conforming
-- Showed interest in forestry and gardening
-- Displayed no leadership tendencies
-- Expressed respect for authority
+Upon arrival at the California Men's Colony, Leary was administered psychological tests to determine his security classification. Among them: the **Leary Interpersonal Behavior Inventory** — a test he himself had designed twenty years earlier.
 
-**Result:** Classified minimum security. Assigned outdoor work detail. Escaped by climbing a tree near the perimeter fence and shimmying along a telephone cable over the razor wire.
+This was the ultimate field test of his own theory. If personality assessment truly revealed the inner self, Leary would be classified as what he was: a charismatic rebel, a leader, a flight risk.
 
-**The lesson:** Understanding how you're measured gives you power. Consciousness of systems enables transcendence.
+But Leary understood the instrument. He knew which quadrant of the Interpersonal Circumplex mapped to "cooperative worker" vs. "dangerous agitator."
 
-tags: [moollm]
+He answered strategically:
+- **Dominance axis:** Low scores ("I prefer to follow")
+- **Hostility axis:** Low scores ("I respect authority")  
+- **Interests:** Forestry, gardening, nature work
+- **Affect:** Calm, conventional, agreeable
+
+The prison psychologists, applying the Leary Interpersonal Behavior Inventory to Leary himself, concluded:
+
+> *"Normal, well-adjusted, non-aggressive, conforming individual."*
+
+**Result:** Minimum security. Outdoor work detail. Access to the grounds with minimal supervision.
+
+On September 12, 1970, Leary climbed a tree, shimmied across a telephone cable over the razor wire, and dropped to freedom. The Weather Underground had a car waiting. By October, he was in Algeria as a guest of the Black Panther Party's international chapter. By 1971, Switzerland.
+
+He evaded capture for over two years.
+
+---
+
+### What This Teaches Us
+
+The escape wasn't luck — it was applied psychology. Leary demonstrated that:
+
+1. **Legibility cuts both ways.** Systems that measure you also reveal themselves.
+2. **Understanding the instrument grants power over it.** Leary knew which answers produced which classification.
+3. **Transparency enables agency.** If you know how you're being evaluated, you can present yourself strategically.
+
+This is why Mind Mirror in MOOLLM emphasizes **transparency**: characters know their own personality profiles, understand what the traits mean, and can modify them as they grow.
+
+**Consciousness of the system enables transcendence of the system.**
+
 ---
 
 ## The Four Thought Planes
@@ -149,7 +163,6 @@ Mind Mirror maps personality across four circular dimensions. Each has 8 qualiti
 | Moralistic | Puritanical | Uninhibited |
 | Respectable | Upright | Uncultured |
 
-tags: [moollm]
 ---
 
 ## The 16 Scales with Dual Vocabulary
@@ -175,7 +188,6 @@ A key innovation: **Plain Talk** for everyday language, **Shrink-Rap** for profe
 | Lifestyle | Straight-Arrow | Free-Living | Inhibited | Social-Maverick |
 | Worldliness | Sophisticated | Square | Cosmopolitan | Small-Townish |
 
-tags: [moollm]
 ---
 
 ## Rating System
@@ -191,7 +203,6 @@ Rate each quality **0 to 7**:
 
 Extreme traits plot far from center. Moderate traits near center.
 
-tags: [moollm]
 ---
 
 ## Exercises
@@ -210,7 +221,6 @@ Compare your **best self** (at your peak) with your **worst self** (at your lowe
 
 Leary: *"It allows you to turn thoughts around so you can do all these things."*
 
-tags: [moollm]
 ---
 
 ## Modes
@@ -222,7 +232,6 @@ tags: [moollm]
 | **Mind Mirror** | Learn to Mind-Scope and map your thoughts |
 | **Life Simulation** | Test empathy in Role-Play Odysseys |
 
-tags: [moollm]
 ---
 
 ## Leary's Philosophy
@@ -253,7 +262,6 @@ The brain is a biocomputer. Consciousness is its software. Just as software can 
 
 > *"You're the first generation in human history to know how to control your own nervous system, change your own reality. Tune in and take over! Blow your own mind, make up your own mind."*
 
-tags: [moollm]
 ---
 
 ## Bob Dietz on the Development
@@ -270,7 +278,6 @@ On the internet vision:
 
 > *"I cannot begin to tell you how much Timothy Leary would have embraced and loved the notion of seeing Mind Mirror applied on the internet."*
 
-tags: [moollm]
 ---
 
 ## The Sims 1.0 Personality Traits
@@ -347,7 +354,6 @@ sims_traits:
 - **Will Wright** — The Sims personality system (2000)
 - Both systems complement each other beautifully
 
-tags: [moollm]
 ---
 
 ## In MOOLLM: The Living Personality System
@@ -636,7 +642,6 @@ expression: "direct eye contact, slight knowing smile"
 
 **See [visualizer/](../visualizer/) for the full `IMAGE-METADATA` protocol** — the semantic clipboard that ensures every image carries its meaning with it.
 
-tags: [moollm]
 ---
 
 ## The Important Disclaimer
@@ -647,7 +652,6 @@ From the original software:
 
 This aligns perfectly with MOOLLM's [representation-ethics](../representation-ethics/) framework: activate traditions, don't impersonate.
 
-tags: [moollm]
 ---
 
 ## Theme Song
@@ -657,7 +661,6 @@ tags: [moollm]
 > *It encourages me to change, to improve, to grow*
 > *You can be anything this time around*
 
-tags: [moollm]
 ---
 
 ## Protocol Symbols
@@ -671,7 +674,6 @@ tags: [moollm]
 | `PLAIN-TALK` | Accessible everyday vocabulary mode |
 | `SHRINK-RAP` | Professional psychological terminology mode |
 
-tags: [moollm]
 ---
 
 ## Sources
@@ -685,7 +687,6 @@ tags: [moollm]
 | [Interpersonal Circumplex](https://en.wikipedia.org/wiki/Interpersonal_circumplex) | Wikipedia |
 | [Mind Mirror on Steam](https://store.steampowered.com/app/1603300/Timothy_Learys_Mind_Mirror/) | Steam |
 
-tags: [moollm]
 ---
 
 ## Dovetails With

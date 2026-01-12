@@ -7,7 +7,6 @@ protocol: MARKDOWN
 allowed-tools:
   - read_file
   - write_file
-tags: [moollm, format, documentation, session-log, readme, plain-text]
 origin: "John Gruber — Markdown (2004)"
 lineage:
   - "John Gruber — Markdown (2004)"
@@ -15,7 +14,8 @@ lineage:
   - "Dean Allen — Textile (prior art)"
   - "GitHub — GFM, widespread adoption"
   - "Anil Dash — 'How Markdown Took Over the World' (2025)"
-related: [yaml-jazz, session-log, plain-text, soul-chat, postel]
+related: [plain-text, yaml-jazz, session-log, soul-chat, research-notebook, sniffable-python, k-lines]
+tags: [moollm, format, documentation, session-log, readme, plain-text]
 ---
 
 # Markdown

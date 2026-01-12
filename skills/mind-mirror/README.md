@@ -9,44 +9,75 @@
 | [character/](../character/) | Characters have personalities |
 | [society-of-mind/](../society-of-mind/) | B-brain self-observation (Minsky) |
 | [persona/](../persona/) | Personality layers |
-| [cat/](../cat/) | Cat personality traits |
-| [dog/](../dog/) | Dog personality traits |
-| [representation-ethics/](../representation-ethics/) | Transparent measurement |
+| [representation-ethics/](../representation-ethics/) | Transparent measurement empowers |
 | [incarnation/](../incarnation/) | Characters own their profiles |
 | [yaml-jazz/](../yaml-jazz/) | Numbers + comments = life |
 | [plain-text/](../plain-text/) | Profiles persist |
 | [needs/](../needs/) | Sims tradition (traits, needs) |
+| [cat/](../cat/) | Cat personality traits |
+| [dog/](../dog/) | Dog personality traits |
 | [room/](../room/) | Personality as navigable space |
 | [constructionism/](../constructionism/) | Understand yourself by measuring |
+| [manufacturing-intelligence/](../manufacturing-intelligence/) | Build understanding through legibility |
 
 ---
 
-## The Connection
+## The Connection: The Great Escape
 
-In September 1970, a prisoner at the California Men's Colony was administered a psychological test during intake.
+In September 1970, a prisoner arrived at the California Men's Colony in San Luis Obispo. He'd been sentenced to 10-20 years for marijuana possession — an absurd sentence meant to make an example of "the most dangerous man in America."
 
-The test was called the Leary Interpersonal Behavior Inventory. It had been developed by a Harvard psychologist named Timothy Leary, based on his 1950 PhD dissertation on the Interpersonal Circumplex.
+During intake, he was administered a psychological test to determine his security classification.
+
+The test was called the **Leary Interpersonal Behavior Inventory**. It had been developed by a Harvard psychologist named Timothy Leary, based on his 1950 PhD dissertation on the Interpersonal Circumplex.
 
 The prisoner's name was Timothy Leary.
 
-He was taking his own test. And he knew exactly what it measured.
+**He was taking his own test. And he knew exactly what it measured.**
 
 ---
 
+### Gaming the System
+
+Leary understood that the test mapped personality on axes of dominance vs. submission, affiliation vs. hostility. High dominance + low affiliation = "dangerous leader." Low dominance + high affiliation = "cooperative worker."
+
 So he answered strategically:
-- Low dominance (won't challenge authority)
-- High cooperation (will follow rules)
-- Conventional interests (forestry, gardening)
-- No leadership tendencies
-- Strong respect for authority
+- **Low dominance:** "I prefer to follow rather than lead"
+- **High affiliation:** "I get along well with authority figures"  
+- **Conventional interests:** Forestry, gardening, nature
+- **No rebellious tendencies:** Agreement with institutional rules
+- **Strong respect for hierarchy:** Deference to those in charge
 
-**Result:** Classified as minimum security. Assigned to outdoor work detail.
+The prison psychologists, using the very instrument their subject had created, classified him as:
 
-On September 12, 1970, he climbed a telephone wire over the prison fence and escaped.
+> *"Normal, well-adjusted, non-aggressive, conforming individual."*
+
+**Result:** Minimum security. Outdoor work detail. Access to the grounds.
+
+---
+
+### The Escape
+
+On the night of September 12, 1970, Leary climbed a tree near the perimeter, shimmied along a telephone cable over the razor wire fence, and dropped to freedom on the other side.
+
+The Weather Underground was waiting with a getaway car.
+
+Within weeks, he was in Algeria, a guest of the Black Panther Party's international headquarters.
+
+Within months, he was in Switzerland.
+
+He wouldn't be recaptured for over two years.
+
+---
+
+### The Lesson
 
 **The system's own tools became instruments of liberation.**
 
-And THAT's what Mind Mirror is about: **understanding how you're measured gives you power**.
+Leary knew what the test measured because he'd designed it. He knew which answers would produce which classification. He knew that appearing to be "conventional" would get him assigned to minimum security.
+
+**Understanding how you're measured gives you power.**
+
+And THAT's what Mind Mirror is about.
 
 ---
 
@@ -295,6 +326,14 @@ sims_traits:
 
 *"Understanding how you're measured gives you power."*
 
-*And THAT's how a prison escape in 1970 connects to personality software in 1985 connects to The Sims in 2000 connects to characters writing their own souls in 2026.*
+*A prisoner takes his own test, games the system, and escapes to freedom (1970).*
+
+*That same researcher creates software to democratize self-knowledge (1985).*
+
+*A game designer uses simple traits to make millions of players feel their Sims are real (2000).*
+
+*And now characters write their own souls, understanding their own measurement systems, free to grow and change (2026).*
+
+*The through-line: **transparency enables agency**. Leary escaped because he understood the test. Your characters can grow because they understand their profiles. The system serves the user, not the other way around.*
 
 *Everything is connected.*

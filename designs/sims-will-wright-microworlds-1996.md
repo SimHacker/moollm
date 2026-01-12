@@ -424,7 +424,7 @@ Games as **social facilitators**:
 | Social facilitation | Session logs as shared narrative |
 | "Tell Tommy about the secret level" | Share sessions, discoveries, adventures |
 
-Session logs like [`don-session-1.md`](../examples/adventure-4/sessions/don-session-1.md) capture this dialogue. The "backseat driver" is often the user themselves, talking to the LLM about what the characters should do.
+Session logs like [`marathon-session.md`](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) capture this dialogue. The "backseat driver" is often the user themselves, talking to the LLM about what the characters should do.
 
 ---
 

@@ -276,7 +276,7 @@ MOOLLM adds what Sims couldn't have:
 
 - [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#simcity-the-sims-and-the-simulator-effect) — Full Sims analysis
 - [The Simulator Effect](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#the-simulator-effect) — Will Wright's insight
-- [don-session-1.md](../examples/adventure-4/sessions/don-session-1.md) — Sims principles in action
+- [marathon-session.md](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) — Sims principles in action
 
 ---
 

@@ -726,7 +726,7 @@ A single LLM call simulated:
 - Asynchronous parallel simulation (see [`skills/cat/`](../skills/cat/))
 - Territorial marking in [`maze/`](../examples/adventure-4/maze/) rooms
 - Room state updates (`ROOM.yml` files with `animal_markings:`)
-- Narrative generation in [session log](../examples/adventure-4/sessions/don-session-1.md#ten-cats-one-garden-infinite-independence)
+- Narrative generation in [session log](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#ten-cats-one-garden-infinite-independence)
 
 **This is incarnate state — each cat, each room, persisted.**
 
@@ -799,10 +799,10 @@ Anthropic's Skills model is an excellent foundation. We respectfully build upon 
 | Innovation | Description | Proof |
 |------------|-------------|-------|
 | **Instantiation** | Skills as prototypes creating instances | [`adventure/`](../skills/adventure/) → [`adventure-4/`](../examples/adventure-4/) with 150+ files |
-| **Three-Tier Persistence** | Platform (ephemeral) → Narrative (append) → State (edit) | [6000+ line session logs](../examples/adventure-4/sessions/don-session-1.md), persistent room state |
+| **Three-Tier Persistence** | Platform (ephemeral) → Narrative (append) → State (edit) | [6000+ line session logs](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md), persistent room state |
 | **K-lines** | Names as semantic activation vectors (Minsky) | "[Palm](../examples/adventure-4/characters/palm/)" activates entire soul, history, relationships |
 | **Empathic Templates** | Smart generation, not string substitution | [Biscuit's](../examples/adventure-4/characters/biscuit/) description generated from traits |
-| **Speed of Light** | Many turns in one call, minimal tokenization | [33-turn Fluxx](../examples/adventure-4/sessions/don-session-1.md#33-turns-of-pure-gezelligheid), [21-turn cat prowl](../examples/adventure-4/sessions/don-session-1.md#ten-cats-one-garden-infinite-independence) |
+| **Speed of Light** | Many turns in one call, minimal tokenization | [33-turn Fluxx](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#33-turns-of-pure-gezelligheid), [21-turn cat prowl](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#ten-cats-one-garden-infinite-independence) |
 | **CARD.yml** | Machine-readable interface with advertisements | Every skill exposes methods, tools, state schema |
 | **Ethical Framing** | Room-based inheritance of performance context | [`pub/stage/`](../examples/adventure-4/pub/stage/) inherits `framing: performance` |
 
@@ -1434,10 +1434,10 @@ Maximum precision preserved.
 
 | Demo | Turns | Agents | What It Proves |
 |------|-------|--------|----------------|
-| **Stoner Fluxx** ([session](../examples/adventure-4/sessions/don-session-1.md#33-turns-of-pure-gezelligheid)) | 33 | 8+ characters | Complex game state, rule changes, humor |
-| **Cat Prowl** ([session](../examples/adventure-4/sessions/don-session-1.md#ten-cats-one-garden-infinite-independence)) | 21 | [10 cats](../examples/adventure-4/pub/bar/cat-cave/) | Parallel paths, territorial marking, coordinated return |
-| **Palm Incarnation** ([session](../examples/adventure-4/sessions/don-session-1.md#palm-writes-his-own-story)) | ~8 | 6+ personas | Tribunal debate, autonomous character creation |
-| **Biscuit Run** ([session](../examples/adventure-4/sessions/don-session-1.md#biscuits-run-through-the-maze)) | 15 | 2 ([Don](../examples/adventure-4/characters/don-hopkins/) + [Biscuit](../examples/adventure-4/characters/biscuit/)) | Room exploration, marking, grue avoidance |
+| **Stoner Fluxx** ([session](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#33-turns-of-pure-gezelligheid)) | 33 | 8+ characters | Complex game state, rule changes, humor |
+| **Cat Prowl** ([session](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#ten-cats-one-garden-infinite-independence)) | 21 | [10 cats](../examples/adventure-4/pub/bar/cat-cave/) | Parallel paths, territorial marking, coordinated return |
+| **Palm Incarnation** ([session](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#palm-writes-his-own-story)) | ~8 | 6+ personas | Tribunal debate, autonomous character creation |
+| **Biscuit Run** ([session](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#biscuits-run-through-the-maze)) | 15 | 2 ([Don](../examples/adventure-4/characters/don-hopkins/) + [Biscuit](../examples/adventure-4/characters/biscuit/)) | Room exploration, marking, grue avoidance |
 
 ### Statistics from Cat Prowl
 
@@ -1488,7 +1488,7 @@ Don't update the screen (tokenize) on every keystroke. Wait until the user pause
 - [`skills/representation-ethics/`](../skills/representation-ethics/) — Ethical framing
 
 **Proof Files:**
-- [`don-session-1.md`](../examples/adventure-4/sessions/don-session-1.md) — Epic 6000+ line session log
+- [`marathon-session.md`](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) — Epic 6000+ line session log
 - [`characters/palm/`](../examples/adventure-4/characters/palm/) — Autonomously incarnated monkey
 - [`pub/guest-book.yml`](../examples/adventure-4/pub/guest-book.yml) — Guest book with tribute protocol
 
@@ -1571,8 +1571,8 @@ MOOLLM is a step toward that destiny:
 |---------|-------|
 | [HyperLook (nee HyperNeWS (nee GoodNeWS))](https://donhopkins.medium.com/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4) | HyperLook, Axis of Eval, NeWS |
 | [Alan Kay on "Should web browsers have stuck to being document viewers?"](https://donhopkins.medium.com/alan-kay-on-should-web-browsers-have-stuck-to-being-document-viewers-and-a-discussion-of-news-5cb92c7b3445) | NeWS, HyperLook, linguistic motherboard |
-| [The Shape of PSIBER Space](https://donhopkins.medium.com/the-shape-of-psiber-space-postscript-interactive-bug-eradication-routines-october-1989-1e4cc5bf1f08) | Visual PostScript debugging |
-| [Open Sourcing SimCity](https://donhopkins.medium.com/open-sourcing-simcity-by-chaim-gingold-44261ae4f754) | SimCity history, Chaim Gingold |
+| [The Shape of PSIBER Space](https://donhopkins.medium.com/the-shape-of-psiber-space-october-1989-19e2dfa4d91e) | Visual PostScript debugging |
+| [Open Sourcing SimCity](https://donhopkins.medium.com/open-sourcing-simcity-58470a27063e) | SimCity history, Chaim Gingold |
 | [Will Wright on Designing User Interfaces to Simulation Games](https://donhopkins.medium.com/will-wright-on-designing-user-interfaces-to-simulation-games-1996-video-update-2023-da098a51ef91) | Simulator Effect, game design |
 | [Micropolis: Constructionist Educational Open Source SimCity](https://donhopkins.medium.com/micropolis-constructionist-educational-open-source-simcity-79dce12e9e98) | Constructionism, OLPC |
 | [Pie Menu Timeline](https://donhopkins.medium.com/pie-menu-timeline-9fd0ed2a36df) | Pie menus history |
@@ -1581,7 +1581,7 @@ MOOLLM is a step toward that destiny:
 
 - Packer et al. (2023). *MemGPT: Towards LLMs as Operating Systems*. [arXiv:2310.08560](https://arxiv.org/abs/2310.08560)
 - Ungar & Smith (1987). *Self: The Power of Simplicity*. OOPSLA.
-- Rosenthal, D. *History of Window Systems*. [blog.dshr.org](https://blog.dshr.org/2023/01/history-of-window-systems.html)
+- Rosenthal, D. *X Window System At 40*. [blog.dshr.org](https://blog.dshr.org/2024/07/x-window-system-at-40.html)
 
 ---
 

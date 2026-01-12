@@ -6,8 +6,8 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [character, mind-mirror, buff, room]
-tags: [moollm]
+related: [character, society-of-mind, incarnation, mind-mirror, soul-chat, adversarial-committee, bartender, budtender, buff]
+tags: [moollm, identity, role, layer, character]
 ---
 
 # Persona Skill

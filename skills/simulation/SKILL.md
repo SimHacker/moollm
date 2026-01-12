@@ -6,8 +6,8 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [time, party, character, buff, world-generation, adventure, adversarial-committee, speed-of-light]
-tags: [moollm]
+related: [adventure, society-of-mind, time, party, character, needs, buff, action-queue, prototype, speed-of-light]
+tags: [moollm, runtime, state, turns, engine]
 ---
 
 # Simulation Skill

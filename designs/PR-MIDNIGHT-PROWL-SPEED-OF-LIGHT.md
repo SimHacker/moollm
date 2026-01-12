@@ -270,7 +270,7 @@ echo: "bye... bye..."
 14 files changed, 458 insertions(+), 7 deletions(-)
 
 Modified:
-- examples/adventure-4/sessions/don-session-1.md (+568 lines)
+- examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md (+568 lines)
 - examples/adventure-4/maze/garden/ROOM.yml
 - examples/adventure-4/maze/room-b/ROOM.yml
 - examples/adventure-4/start/ROOM.yml

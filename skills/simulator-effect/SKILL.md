@@ -5,8 +5,8 @@ license: MIT
 tier: 0
 allowed-tools: [read_file]
 protocol: SIMULATOR-EFFECT
-tags: [moollm, meta, philosophy, sims, design, k-lines]
-related: [k-lines, yaml-jazz, adversarial-committee, constructionism]
+related: [moollm, society-of-mind, manufacturing-intelligence, k-lines, yaml-jazz, empathic-templates, constructionism, procedural-rhetoric, mind-mirror, adversarial-committee, speed-of-light, needs]
+tags: [moollm, meta, philosophy, sims, design, k-lines, will-wright]
 ---
 
 # Simulator Effect Skill Specification

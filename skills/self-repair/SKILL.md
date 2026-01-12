@@ -6,8 +6,8 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [robust-first, postel, session-log, coherence-engine]
-tags: [moollm]
+related: [robust-first, bootstrap, honest-forget, session-log, coherence-engine, debugging, postel]
+tags: [moollm, healing, recovery, resilience, consistency]
 ---
 
 # Self Repair
@@ -56,7 +56,6 @@ graph LR
     SR -->|part of| KERNEL[kernel/self-healing]
 ```
 
-tags: [moollm]
 ---
 
 ## Dovetails With

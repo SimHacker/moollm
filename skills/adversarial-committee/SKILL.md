@@ -6,9 +6,9 @@ allowed-tools:
   - write_file
 tier: 1
 protocol: ADVERSARIAL-COMMITTEE
-tags: [moollm, debate, decision, ensemble, storytelling]
 credits: "Mike Gallaher — core methodology"
-related: [roberts-rules, rubric, evaluator, soul-chat, speed-of-light, card]
+related: [moollm, society-of-mind, debate, roberts-rules, rubric, evaluator, soul-chat, persona, speed-of-light]
+tags: [moollm, debate, decision, ensemble, multi-agent]
 ---
 
 # Adversarial Committee

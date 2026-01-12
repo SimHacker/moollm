@@ -8,9 +8,9 @@ allowed-tools:
   - write_file
   - list_dir
 protocol: BUDTENDER
-tags: [moollm, role, service, cannabis, hospitality]
-related: [bartender, character, persona, needs]
 inherits: bartender
+related: [bartender, prototype, character, persona, incarnation, soul-chat]
+tags: [moollm, role, service, cannabis, hospitality, terpenes]
 ---
 
 # Budtender Skill

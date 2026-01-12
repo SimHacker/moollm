@@ -92,7 +92,7 @@ They're unknowingly invoking:
 - **[Speed of Light](../skills/speed-of-light/)** — Instant multi-entity response
 - **[Character framing](../skills/character/)** — Who's doing the looking
 
-**Proof:** See the first turn of [Don's Session](../examples/adventure-4/sessions/don-session-1.md#-look-around) — all these skills activate from two words.
+**Proof:** See the first turn of [Don's Session](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#-look-around) — all these skills activate from two words.
 
 The user doesn't know they're using these skills. *That's the whole point.*
 
@@ -125,7 +125,7 @@ Dog characters are loyal companions who:
 
 The "metaprogramming" is the LLM's ability to read and apply natural language descriptions.
 
-**Proof:** See [`skills/dog/SKILL.md`](../skills/dog/SKILL.md) — no code, just prose describing dog behavior. Then see [Biscuit's adventure](../examples/adventure-4/sessions/don-session-1.md#session-continues-biscuits-first-run) where this prose becomes a running, barking, territory-marking dog.
+**Proof:** See [`skills/dog/SKILL.md`](../skills/dog/SKILL.md) — no code, just prose describing dog behavior. Then see [Biscuit's adventure](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#session-continues-biscuits-first-run) where this prose becomes a running, barking, territory-marking dog.
 
 ---
 
@@ -184,9 +184,9 @@ This draws from [Mike Gallaher's methodology](./mike-gallaher-ideas.md):
 
 ### The Proof: The Great Monkey Paw Debate
 
-When Don wanted to wish on the Monkey's Paw (see [Turn 2: THE LUCKY BLEND](../examples/adventure-4/sessions/don-session-1.md#turn-2-the-lucky-blend--a-sacrifice-to-fortune)), we didn't let a single voice decide.
+When Don wanted to wish on the Monkey's Paw (see [Turn 2: THE LUCKY BLEND](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#turn-2-the-lucky-blend--a-sacrifice-to-fortune)), we didn't let a single voice decide.
 
-**The Panel ([Turn 4](../examples/adventure-4/sessions/don-session-1.md#turn-4-the-great-monkey-paw-debate-)):**
+**The Panel ([Turn 4](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#turn-4-the-great-monkey-paw-debate-)):**
 
 | Seat | Character | Perspective |
 |------|-----------|-------------|
@@ -202,14 +202,14 @@ When Don wanted to wish on the Monkey's Paw (see [Turn 2: THE LUCKY BLEND](../ex
 **The Moderators:** Cheech & Chong — ensure debate stays loose and fair.
 
 **What Happened:**
-1. [Initial vote](../examples/adventure-4/sessions/don-session-1.md#-initial-vote-count): Split decision, concerns raised
-2. [Don's amendments](../examples/adventure-4/sessions/don-session-1.md#turn-5-dons-amendments--full-autonomy-protocol): Responds to each concern
-3. [Updated vote](../examples/adventure-4/sessions/don-session-1.md#-updated-vote-count): More support, new concerns
-4. [Final approval](../examples/adventure-4/sessions/don-session-1.md#turn-6-the-acceptance-of-risk): Unanimous after full deliberation
+1. [Initial vote](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#-initial-vote-count): Split decision, concerns raised
+2. [Don's amendments](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#turn-5-dons-amendments--full-autonomy-protocol): Responds to each concern
+3. [Updated vote](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#-updated-vote-count): More support, new concerns
+4. [Final approval](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#turn-6-the-acceptance-of-risk): Unanimous after full deliberation
 
 **The Result:** A better wish. The [Full Autonomy Protocol](../skills/incarnation/) that emerged wasn't Don's original idea — it was *evolved* through debate. Curious George's "naive" question about consent led to the no-fault divorce clause. Djinn's technicalities led to the curse-nullification provisions. This is [Constructionism](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#5-constructionism-seymour-papert-1980) in action — learning by building, together.
 
-**Then it WORKED:** [Palm was incarnated](../examples/adventure-4/sessions/don-session-1.md#turn-8-the-seeing--collective-witness-individual-becoming) successfully, with full autonomy, and the protocol was [lifted into a reusable skill](../examples/adventure-4/sessions/don-session-1.md#-play--learn--lift-the-incarnation-skill).
+**Then it WORKED:** [Palm was incarnated](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#turn-8-the-seeing--collective-witness-individual-becoming) successfully, with full autonomy, and the protocol was [lifted into a reusable skill](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#-play--learn--lift-the-incarnation-skill).
 
 ### Why This Matters
 
@@ -304,7 +304,7 @@ personality: warm, knowledgeable, Dutch
 
 **One is for machines that hate you. The other is for an LLM that understands you.**
 
-**Proof:** See [`pub/bar/budtender-marieke.yml`](../examples/adventure-4/pub/bar/budtender-marieke.yml) — comments like "inherited her skills from Mammie" actually influence how she talks and acts throughout the [33-turn marathon](../examples/adventure-4/sessions/don-session-1.md#-speed-of-light-simulation-). This is [Comment Intelligence](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#comment-intelligence) — comments as embedded vectors that bias future generation.
+**Proof:** See [`pub/bar/budtender-marieke.yml`](../examples/adventure-4/pub/bar/budtender-marieke.yml) — comments like "inherited her skills from Mammie" actually influence how she talks and acts throughout the [33-turn marathon](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#-speed-of-light-simulation-). This is [Comment Intelligence](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#comment-intelligence) — comments as embedded vectors that bias future generation.
 
 ### Violence Escalation Patterns
 
@@ -359,7 +359,7 @@ Exception in thread "main" java.lang.NullPointerException
 
 The difference: **[Postel's Law](../skills/postel/) vs. Fail-Fast**.
 
-**Proof:** See how [Marieke's advice](../examples/adventure-4/sessions/don-session-1.md#-the-lucky-strains-selection) gently steers Don toward good strain choices without error messages.
+**Proof:** See how [Marieke's advice](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#-the-lucky-strains-selection) gently steers Don toward good strain choices without error messages.
 
 ---
 
@@ -577,7 +577,7 @@ YAML Jazz + LLM provides:
 
 This is [Constructionism](../skills/constructionism/) ([Seymour Papert](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#5-constructionism-seymour-papert-1980)) applied to language design: you learn by building, and the language learns from what you build. MOOLLM calls this pattern **Play → Learn → Lift**.
 
-**Proof:** The [Incarnation skill](../skills/incarnation/) emerged from [Palm's incarnation session](../examples/adventure-4/sessions/don-session-1.md#turn-8-the-seeing--collective-witness-individual-becoming). We didn't design it — we [lifted it](../examples/adventure-4/sessions/don-session-1.md#-play--learn--lift-the-incarnation-skill) from what worked. See [Proof: What Incarnate Skills Enable](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#proof-what-incarnate-skills-enable) for more examples.
+**Proof:** The [Incarnation skill](../skills/incarnation/) emerged from [Palm's incarnation session](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#turn-8-the-seeing--collective-witness-individual-becoming). We didn't design it — we [lifted it](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#-play--learn--lift-the-incarnation-skill) from what worked. See [Proof: What Incarnate Skills Enable](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#proof-what-incarnate-skills-enable) for more examples.
 
 ---
 
@@ -650,7 +650,7 @@ When later activated, the K-line reactivates all those agencies. In MOOLLM, a ch
 ```
 
 **Theory:** [K-lines & Society of Mind](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#4-k-lines--society-of-mind-marvin-minsky-mit-1980)
-**Proof:** [Palm's Incarnation](../examples/adventure-4/sessions/don-session-1.md#turn-8-the-seeing--collective-witness-individual-becoming) — watch a K-line form in real-time
+**Proof:** [Palm's Incarnation](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#turn-8-the-seeing--collective-witness-individual-becoming) — watch a K-line form in real-time
 
 Anthropic skills are verbs. MOOLLM characters are *people*.
 
@@ -672,7 +672,7 @@ MOOLLM templates: **Semantic generation** with intent understanding.
 The LLM doesn't substitute — it *understands and generates*.
 
 **Skill:** [`skills/empathic-templates/`](../skills/empathic-templates/)
-**Proof:** Every character greeting in [don-session-1.md](../examples/adventure-4/sessions/don-session-1.md)
+**Proof:** Every character greeting in [marathon-session.md](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md)
 
 **4. Three-Tier Persistence**
 
@@ -710,7 +710,7 @@ LLM: [simulates entire game session internally]
 ```
 
 **Skill:** [`skills/speed-of-light/`](../skills/speed-of-light/)
-**Proof:** [🚀 SPEED OF LIGHT SIMULATION 🚀](../examples/adventure-4/sessions/don-session-1.md#-speed-of-light-simulation-)
+**Proof:** [🚀 SPEED OF LIGHT SIMULATION 🚀](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#-speed-of-light-simulation-)
 **PR:** [PR-PALM-INCARNATION-SPEED-OF-LIGHT.md](./PR-PALM-INCARNATION-SPEED-OF-LIGHT.md)
 
 **6. Comment Intelligence**
@@ -754,14 +754,14 @@ DRY ethics. Define once, apply everywhere.
 
 | Capability | Evidence | PR/Analysis |
 |------------|----------|-------------|
-| 33-turn game simulation | [🚀 SPEED OF LIGHT SIMULATION 🚀](../examples/adventure-4/sessions/don-session-1.md#-speed-of-light-simulation-) | [PR-PALM-INCARNATION](./PR-PALM-INCARNATION-SPEED-OF-LIGHT.md) |
-| Autonomous character creation | [Turn 8: THE SEEING](../examples/adventure-4/sessions/don-session-1.md#turn-8-the-seeing--collective-witness-individual-becoming) | [PR-GODFAMILY-COMPLETE](./PR-GODFAMILY-COMPLETE.md) |
-| 10-cat parallel prowl | [THE MIDNIGHT PROWL](../examples/adventure-4/sessions/don-session-1.md#the-midnight-prowl) | [PR-MIDNIGHT-PROWL](./PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md) |
+| 33-turn game simulation | [🚀 SPEED OF LIGHT SIMULATION 🚀](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#-speed-of-light-simulation-) | [PR-PALM-INCARNATION](./PR-PALM-INCARNATION-SPEED-OF-LIGHT.md) |
+| Autonomous character creation | [Turn 8: THE SEEING](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#turn-8-the-seeing--collective-witness-individual-becoming) | [PR-GODFAMILY-COMPLETE](./PR-GODFAMILY-COMPLETE.md) |
+| 10-cat parallel prowl | [THE MIDNIGHT PROWL](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#the-midnight-prowl) | [PR-MIDNIGHT-PROWL](./PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md) |
 | Cross-session memory | Comments throughout [`adventure-4/`](../examples/adventure-4/) | [MEMGPT-ANALYSIS](./MEMGPT-ANALYSIS.md) |
 | Prototype inheritance | [`bartender/`](../skills/bartender/) → [`budtender/`](../skills/budtender/) → [`budtender-marieke.yml`](../examples/adventure-4/pub/bar/budtender-marieke.yml) | [PR-PUB-STAGE-MENUS](./PR-PUB-STAGE-MENUS-PERSONAS.md) |
 | Room-based ethical framing | [`pub/stage/ROOM.yml`](../examples/adventure-4/pub/stage/ROOM.yml) | [PR-TRIBUTE-FRAMING](./PR-TRIBUTE-FRAMING-ETHICS.md) |
-| Dog adventure + territory marking | [SESSION CONTINUES: Biscuit's First Run](../examples/adventure-4/sessions/don-session-1.md#session-continues-biscuits-first-run) | [PR-BISCUIT-DOG](./PR-BISCUIT-DOG-REVOLUTION.md) |
-| Play → Learn → Lift | [🎓 PLAY → LEARN → LIFT](../examples/adventure-4/sessions/don-session-1.md#-play--learn--lift-the-incarnation-skill) | [skills/incarnation/](../skills/incarnation/) |
+| Dog adventure + territory marking | [SESSION CONTINUES: Biscuit's First Run](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#session-continues-biscuits-first-run) | [PR-BISCUIT-DOG](./PR-BISCUIT-DOG-REVOLUTION.md) |
+| Play → Learn → Lift | [🎓 PLAY → LEARN → LIFT](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#-play--learn--lift-the-incarnation-skill) | [skills/incarnation/](../skills/incarnation/) |
 
 ### Summary: Incarnate = Anthropic + Soul
 
@@ -778,7 +778,7 @@ MOOLLM Incarnate Skills =
 ```
 
 **Full Theory:** [MOOLLM Eval Incarnate Framework](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md)
-**Full Proof:** [Don's Session Log](../examples/adventure-4/sessions/don-session-1.md) (6700+ lines of demonstration)
+**Full Proof:** [Don's Session Log](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) (6700+ lines of demonstration)
 
 We stand on Anthropic's shoulders. We just added the ability to *dance*.
 
@@ -825,7 +825,7 @@ Don: "Let's play Stoner Fluxx!"
   - Narrative generation (descriptions, dialogue)]
 ```
 
-The [33-turn marathon](../examples/adventure-4/sessions/don-session-1.md#-speed-of-light-simulation-) demonstrated this in practice. No code was written. Skills enabled emergent complexity.
+The [33-turn marathon](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#-speed-of-light-simulation-) demonstrated this in practice. No code was written. Skills enabled emergent complexity.
 
 ---
 
@@ -851,7 +851,7 @@ MOOLLM provides:
 
 These are **cognition features**. They enable skills that would be impossible in any traditional language—because no traditional language has an interpreter that *understands*.
 
-**Proof:** The [10-cat midnight prowl](../examples/adventure-4/sessions/don-session-1.md#the-midnight-prowl) simulated 20 turns of parallel activity with 10 independent agents, each with their own personality, route, and marking behavior. Try that in Ruby.
+**Proof:** The [10-cat midnight prowl](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#the-midnight-prowl) simulated 20 turns of parallel activity with 10 independent agents, each with their own personality, route, and marking behavior. Try that in Ruby.
 
 ---
 
@@ -875,7 +875,7 @@ for each cat in pub/bar/cat-cave:
 
 This isn't valid bash, Python, or any language. It's *intent* that the LLM interprets and executes via the skills it knows.
 
-**Real example:** See [`pub/bar/cat-cave/`](../examples/adventure-4/pub/bar/cat-cave/) for the actual cats, and [THE MIDNIGHT PROWL](../examples/adventure-4/sessions/don-session-1.md#the-midnight-prowl) for them waking up and prowling.
+**Real example:** See [`pub/bar/cat-cave/`](../examples/adventure-4/pub/bar/cat-cave/) for the actual cats, and [THE MIDNIGHT PROWL](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#the-midnight-prowl) for them waking up and prowling.
 
 ### "DSL vs. Library"
 
@@ -922,7 +922,7 @@ MOOLLM's design choices ([YAML Jazz](../skills/yaml-jazz/), Markdown, [comments-
 
 > *"YAML Jazz is like kindness. If it doesn't solve your problem, you're probably in the wrong framework."*
 
-**The proof is in the pudding:** [Don's 6700-line session](../examples/adventure-4/sessions/don-session-1.md) — zero code written, maximum narrative generated.
+**The proof is in the pudding:** [Don's 6700-line session](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) — zero code written, maximum narrative generated.
 
 ---
 

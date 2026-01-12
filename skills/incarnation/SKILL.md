@@ -5,8 +5,8 @@ license: MIT
 tier: 1
 allowed-tools: [read_file, write_file, list_dir]
 protocol: INCARNATION
+related: [character, society-of-mind, representation-ethics, hero-story, mind-mirror, plain-text, yaml-jazz, room, soul-chat]
 tags: [moollm, character, autonomy, ethics, identity, creation]
-related: [character, representation-ethics, hero-story, mind-mirror, persona, society-of-mind]
 ---
 
 # Incarnation Skill

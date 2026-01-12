@@ -94,7 +94,7 @@ Complete documentation of the gift:
 - Palm's responses and realizations
 - Reference links to Dasher materials
 
-### Updated `sessions/don-session-1.md`
+### Updated `marathon-session.md`
 
 - Full gift-giving ceremony narrative
 - Extended Dasher explanation scene

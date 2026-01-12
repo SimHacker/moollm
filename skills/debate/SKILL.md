@@ -7,7 +7,8 @@ allowed-tools:
   - read_file
   - write_file
   - list_dir
-related: [adversarial-committee, roberts-rules, rubric, evaluator, card, speed-of-light, soul-chat]
+related: [moollm, society-of-mind, adversarial-committee, roberts-rules, rubric, evaluator, soul-chat, persona, card, speed-of-light]
+tags: [moollm, deliberation, multi-agent, decision, persuasion]
 templates:
   - file: DEBATE.yml.tmpl
     purpose: Debate session state
@@ -15,7 +16,6 @@ templates:
     purpose: Position/side definition
   - file: TRANSCRIPT.md.tmpl
     purpose: Debate record with arguments
-tags: [moollm]
 ---
 
 # Debate
@@ -24,7 +24,6 @@ tags: [moollm]
 
 Structured deliberation that forces genuine exploration through adversarial dialogue.
 
-tags: [moollm]
 ---
 
 ## Why Debate?
@@ -38,7 +37,6 @@ Traditional LLM chat gives you **the statistical center** — the most likely an
 
 **Debate fixes this** by simulating multiple perspectives that must defend their positions against cross-examination.
 
-tags: [moollm]
 ---
 
 ## The Debate Card
@@ -143,7 +141,6 @@ card:
       score: 70
 ```
 
-tags: [moollm]
 ---
 
 ## Debate Session State
@@ -208,7 +205,6 @@ debate:
   verdict: null
 ```
 
-tags: [moollm]
 ---
 
 ## Debate Flow
@@ -246,7 +242,6 @@ tags: [moollm]
 └─────────────────────────────────────────────────────────────┘
 ```
 
-tags: [moollm]
 ---
 
 ## Commands
@@ -285,7 +280,6 @@ tags: [moollm]
 | `CONCEDE [point]` | Acknowledge opponent's point |
 | `CONCLUDE` | End debate, generate verdict |
 
-tags: [moollm]
 ---
 
 ## Side Definition
@@ -329,7 +323,6 @@ side:
       rebuttals_received: []
 ```
 
-tags: [moollm]
 ---
 
 ## Transcript Format
@@ -341,7 +334,6 @@ tags: [moollm]
 **Moderator:** Roberts-Rules-Bot
 **Rounds:** 3
 
-tags: [moollm]
 ---
 
 ## Opening Statements
@@ -367,7 +359,6 @@ tags: [moollm]
 > team boundaries without network calls. We can always extract
 > services later when we have evidence they're needed.
 
-tags: [moollm]
 ---
 
 ## Round 1: Arguments
@@ -399,7 +390,6 @@ tags: [moollm]
 > coordination. Now every service call can fail. Your "1 day
 > deploys" will be offset by distributed debugging.
 
-tags: [moollm]
 ---
 
 ## Verdict
@@ -429,7 +419,6 @@ evaluation:
 **Final Verdict:** Modular monolith (pragmatic position)
 ```
 
-tags: [moollm]
 ---
 
 ## Integration with Other Skills
@@ -490,7 +479,6 @@ speed_of_light:
   llm_calls: 1
 ```
 
-tags: [moollm]
 ---
 
 ## Protocol Symbols
@@ -504,7 +492,6 @@ tags: [moollm]
 | `VERDICT` | Final decision |
 | `ADVERSARIAL-COMMITTEE` | The underlying pattern |
 
-tags: [moollm]
 ---
 
 ## Dovetails With
@@ -519,7 +506,6 @@ tags: [moollm]
 - **[../persona/](../persona/)** — Advocate personalities
 - **[../../designs/mike-gallaher-ideas.md](../../designs/mike-gallaher-ideas.md)** — Original methodology
 
-tags: [moollm]
 ---
 
 *"The map is not the territory. The story is not the reality. But the ensemble of stories, cross-examined, might just be useful."*

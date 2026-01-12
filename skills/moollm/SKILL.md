@@ -5,8 +5,8 @@ license: MIT
 tier: 0
 allowed-tools: [read_file, list_dir]
 protocol: MOOLLM-HELP
+related: [leela-ai, plain-text, room, yaml-jazz, skill, k-lines, play-learn-lift, sister-script, sniffable-python, society-of-mind, adversarial-committee, constructionism, postel, speed-of-light, representation-ethics, incarnation, adventure, needs, prototype]
 tags: [moollm, meta, help, philosophy, navigation, foundational]
-related: [skill, protocol, play-learn-lift, constitution]
 ---
 
 # MOOLLM

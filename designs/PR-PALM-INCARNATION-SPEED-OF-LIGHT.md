@@ -207,7 +207,7 @@ examples/adventure-4/
 │   │   └── ROOM.yml
 │   └── ROOM.yml               # Added honorary_friends section
 └── sessions/
-    └── don-session-1.md       # Full narrative (3800+ lines)
+    └── marathon-session.md    # Full narrative (6000+ lines)
 
 skills/
 └── incarnation/               # NEW SKILL

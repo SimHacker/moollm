@@ -5,8 +5,8 @@ license: MIT
 tier: 0
 allowed-tools: [read_file]
 protocol: MANUFACTURING-INTELLIGENCE
+related: [leela-ai, constructionism, society-of-mind, schema-mechanism, k-lines, simulator-effect, representation-ethics, play-learn-lift, yaml-jazz]
 tags: [moollm, meta, philosophy, slogan, k-line, ethics, constructionism, minsky]
-related: [leela-ai, constructionism, society-of-mind, schema-mechanism, representation-ethics]
 ---
 
 # Manufacturing Intelligence Skill

@@ -847,5 +847,14 @@
 **`737ee69`** Add moollm tag to all skills, document PDA three-layer architecture
 > Every SKILL.md now tagged with moollm -- 37 files branded. Leela's PDA documented as third LLM layer atop symbolic SQL: generate, perform, interpret, explain, visualize, remember. Neural at the surface, symbolic in the protocol. 🏷️🏭
 
-**`(this)`** Add tags to 45 remaining SKILL.md files
+**`3a05de2`** Add tags to 45 remaining SKILL.md files
 > All 83 SKILL.md files now have proper YAML front matter with moollm tag. The skill catalog is complete and greppable. 📋✅
+
+---
+
+### Era 26: Link Archaeology
+
+> *Dead links are broken promises. Fix all of them.*
+
+**`aabae04`** Fix all session log links, verify Medium URLs, enhance return-stack and mind-mirror
+> Session logs moved from adventure-4/sessions/ to characters/real-people/don-hopkins/sessions/marathon-session.md -- 47 broken links fixed across 16 files. Fixed link text AND destination (don-session-1.md → marathon-session.md). Medium URLs verified via HTTP 200 checks. PSIBER Space and DSHR blog URLs corrected. Return-stack skill now documents Self language's dynamic deoptimization -- LLM reconstructs causality on demand like Self reconstructs stack traces. Mind-mirror tells Leary's prison escape story: understanding the system grants power to transcend it. Proof links to 33-turn Fluxx with proper hash anchors. 🔗📚🔙🐒

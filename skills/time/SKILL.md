@@ -6,8 +6,8 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [buff, needs, simulation, character]
-tags: [moollm]
+related: [simulation, adventure, buff, needs, action-queue, speed-of-light, session-log]
+tags: [moollm, turns, duration, narrative, flow]
 ---
 
 # Time Skill

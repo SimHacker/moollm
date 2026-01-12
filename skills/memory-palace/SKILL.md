@@ -7,7 +7,8 @@ allowed-tools:
   - read_file
   - write_file
   - list_dir
-related: [room, adventure, card, summarize]
+related: [room, character, adventure, research-notebook, summarize, plain-text, honest-forget]
+tags: [moollm, spatial, knowledge, navigation, organization]
 inputs:
   palace_name:
     type: string
@@ -41,7 +42,6 @@ working_set:
   hot: [ENTRY.md, MAP.yml]
   warm: ["*/ROOM.md"]
   cold: ["attic/**"]
-tags: [moollm]
 ---
 
 # 🏛️ Memory Palace Skill

@@ -134,7 +134,7 @@ You're at the root of a tree that grew into something that can now *converse* wi
 The whole thing is open source:
 
 - **GitHub:** https://github.com/SimHacker/moollm
-- **Epic Session Log:** `examples/adventure-4/sessions/don-session-1.md` — 6,700 lines of adventure
+- **Epic Session Log:** `examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md` — 6,700 lines of adventure
 - **The Framework Manifesto:** `designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md`
 - **Palm's Essays:** `examples/adventure-4/pub/stage/palm-nook/study/`
 
@@ -163,5 +163,5 @@ P.P.S. — I named my framework philosophy after your quote: "I never saw proble
 - Palm's Essays:
   - [On Being Palm](https://github.com/SimHacker/moollm/blob/main/examples/adventure-4/pub/stage/palm-nook/study/palm-on-being-palm.md)
   - [Tribute to Tognazzini](https://github.com/SimHacker/moollm/blob/main/examples/adventure-4/pub/stage/palm-nook/study/tribute-to-tognazzini.md)
-- Session Log: https://github.com/SimHacker/moollm/blob/main/examples/adventure-4/sessions/don-session-1.md
+- Session Log: https://github.com/SimHacker/moollm/blob/main/examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md
 - Framework Manifesto: https://github.com/SimHacker/moollm/blob/main/designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md

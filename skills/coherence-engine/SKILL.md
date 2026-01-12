@@ -4,8 +4,8 @@ description: The LLM as consistency maintainer and orchestrator
 allowed-tools: []
 tier: 0
 protocol: COHERENCE-ENGINE
+related: [moollm, leela-ai, society-of-mind, simulation, speed-of-light, multi-presence, robust-first, self-repair, postel, plain-text]
 tags: [moollm, meta, orchestration, consistency, simulation]
-related: [yaml-jazz, postel, room, soul-chat, session-log, self-repair, speed-of-light, adversarial-committee, evaluator]
 ---
 
 # Coherence Engine

@@ -6,8 +6,8 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [adventure, character, debugging, self-repair, summarize, scratchpad]
-tags: [moollm]
+related: [play-learn-lift, plain-text, character, adventure, summarize, honest-forget, markdown]
+tags: [moollm, logging, narrative, persistence, history]
 ---
 
 # Session Log
@@ -19,7 +19,6 @@ Session logs are **living documents** that capture the narrative of play. Unlike
 > [!IMPORTANT]
 > Session logs are **NOT append-only!** They are living documents that grow and improve over time. You can and should retroactively improve them as new information comes in.
 
-tags: [moollm]
 ---
 
 ## 📍 Where Sessions Live
@@ -52,7 +51,6 @@ You can create multiple session files with descriptive suffixes:
 
 **Command:** `START SESSION [name]` — Creates a new session file with optional suffix.
 
-tags: [moollm]
 ---
 
 ## 📝 Writing Good Sessions
@@ -127,7 +125,6 @@ Add emojis **after the folder icon** for narrative sections:
 | 🐕 🐱 🐵 | Animal character sections |
 | ⚡ | Speed-of-light simulation |
 
-tags: [moollm]
 ---
 
 ## 📊 Session Index
@@ -165,7 +162,6 @@ tags: [moollm]
 3. **Update retroactively** — every append is a chance to improve the index
 4. **Group by day/arc** — natural narrative divisions
 
-tags: [moollm]
 ---
 
 ## 🔗 Linking Generously
@@ -206,7 +202,6 @@ about being a monkey.
 > **Path variables in YAML vs Markdown:** Use `$SKILLS/` in YAML files (runtime resolution).
 > Use relative paths in Markdown for GitHub rendering.
 
-tags: [moollm]
 ---
 
 ## 📈 Tables Tell Stories
@@ -249,7 +244,6 @@ Tables are excellent for:
 </details>
 ```
 
-tags: [moollm]
 ---
 
 ## 🔄 Retroactive Improvement
@@ -270,7 +264,6 @@ Small retroactive improvements are encouraged:
 - Improving section summaries
 - Updating the index
 
-tags: [moollm]
 ---
 
 ## 📋 YAML Data Islands
@@ -304,7 +297,6 @@ state_change:
 | Include file paths | Link to actual files |
 | Explain relationships | "Mirror update", "Canonical source" |
 
-tags: [moollm]
 ---
 
 ## 🆚 Session Logs vs Event Logs
@@ -329,7 +321,6 @@ tags: [moollm]
 - Context warming
 - Storytelling
 
-tags: [moollm]
 ---
 
 ## 🌟 Examples: Gold Standard Sessions
@@ -359,7 +350,6 @@ Complete character creation narrative. Demonstrates:
 - Appendix with technical reference
 - Clear separation of narrative and data
 
-tags: [moollm]
 ---
 
 ## 🎯 Quick Reference
@@ -367,7 +357,6 @@ tags: [moollm]
 ### Starting a New Section
 
 ```markdown
-tags: [moollm]
 ---
 
 <details open>
@@ -399,7 +388,6 @@ changes:
 - [ ] Included relevant tables
 - [ ] Fixed any broken links noticed
 
-tags: [moollm]
 ---
 
 ## The Intertwingularity
@@ -418,7 +406,6 @@ graph LR
     CH[👤 character] -->|SESSION.md is| SL
 ```
 
-tags: [moollm]
 ---
 
 ## Dovetails With

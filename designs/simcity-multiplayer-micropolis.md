@@ -118,7 +118,7 @@ newspaper_interface:
 
 **MOOLLM Parallel:** 
 - Session logs ARE the newspaper
-- [`don-session-1.md`](../examples/adventure-4/sessions/don-session-1.md) is a living journal
+- [`marathon-session.md`](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) is a living journal
 - Palm's essays are player-written content
 - Events generate narrative opportunities
 

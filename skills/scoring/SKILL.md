@@ -6,8 +6,8 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [reward, economy, probability, character, rubric, evaluator]
-tags: [moollm]
+related: [probability, reward, economy, rubric]
+tags: [moollm, achievement, evaluation, style, narrative]
 ---
 
 # Scoring Skill

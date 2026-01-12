@@ -13,6 +13,8 @@
 | [card/](../card/) | Cards as cloneable capabilities |
 | [simulation/](../simulation/) | Abstract → concrete inheritance |
 | [constructionism/](../constructionism/) | Learning by cloning and modifying |
+| [return-stack/](../return-stack/) | Self's dynamic deoptimization |
+| [debugging/](../debugging/) | Stack traces on demand |
 | [skill/delegation-object-protocol.md](../skill/delegation-object-protocol.md) | Self-like inheritance |
 
 The philosophy behind Self, JavaScript prototypes, and MOOLLM inheritance.

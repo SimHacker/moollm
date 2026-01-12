@@ -7,7 +7,7 @@ allowed-tools:
   - read_file
   - write_file
 related: [visualizer, logistic-container, postal, adventure]
-tags: [moollm]
+tags: [moollm, vision, extraction, resources, pixels]
 ---
 
 # Image Mining
@@ -20,7 +20,6 @@ tags: [moollm]
 
 Your camera isn't just a recorder — it's a **PICKAXE FOR VISUAL REALITY**.
 
-tags: [moollm]
 ---
 
 ## The Core Insight
@@ -40,7 +39,6 @@ Just like the Kitchen Counter breaks down:
 - `treasure_pile.png` → `gold × 100` + `gems × 15`
 - `sunset.png` → `orange_hue × 1` + `warmth × 1` + `nostalgia × 1`
 
-tags: [moollm]
 ---
 
 ## Two Image Sources
@@ -76,7 +74,6 @@ postal:
 
 **Both become mineable resources!**
 
-tags: [moollm]
 ---
 
 ## How Mining Works
@@ -209,10 +206,8 @@ image_state:
 
 **Once exhausted, you can't mine that image anymore!**
 
-tags: [moollm]
 ---
 
-tags: [moollm]
 ---
 
 ## Demand-Driven Discovery
@@ -271,7 +266,6 @@ mine:
     sand: 10000          # Also the literal stuff
 ```
 
-tags: [moollm]
 ---
 
 ## Mining Yields
@@ -394,7 +388,6 @@ sensation_mining:
 - Combine `fresh-bread-aroma` + `room` → ambiance modifier
 - Combine `weekend-morning-calm` + `character` → mood buff
 
-tags: [moollm]
 ---
 
 ## The Mineable Property
@@ -433,7 +426,6 @@ object:
       - "You feel the artist's disappointment"
 ```
 
-tags: [moollm]
 ---
 
 ## Mining Tools
@@ -477,7 +469,6 @@ can_mine: [anything]
 warning: "May collapse local reality"
 ```
 
-tags: [moollm]
 ---
 
 ## Integration with Logistics
@@ -504,7 +495,6 @@ mining_config:
     method: text        # Instant delivery!
 ```
 
-tags: [moollm]
 ---
 
 ## Camera Phone Integration
@@ -624,7 +614,6 @@ ar_overlay:
   #   (floating over rock formation)
 ```
 
-tags: [moollm]
 ---
 
 ## DECOMPOSE vs MINE
@@ -642,7 +631,6 @@ tags: [moollm]
 - DECOMPOSE the **physical object** on the counter
 - MINE the **image/representation** of anything
 
-tags: [moollm]
 ---
 
 ## Reality Mining (Advanced)
@@ -671,7 +659,6 @@ reality_mining:
     becomes philosophical.
 ```
 
-tags: [moollm]
 ---
 
 ## Actions
@@ -698,7 +685,6 @@ PROSPECT [direction]    # Check for mineable resources in direction
 PROSPECT DEEP           # Deep scan for rare/hidden resources
 ```
 
-tags: [moollm]
 ---
 
 ## Example: Mining the Maze
@@ -737,7 +723,6 @@ result:
       unlocks: "Secret passage revealed"
 ```
 
-tags: [moollm]
 ---
 
 ## The Mining Economy
@@ -766,7 +751,6 @@ resource_economy:
     Each resource becomes a game object.
 ```
 
-tags: [moollm]
 ---
 
 ## Dovetails With
@@ -777,7 +761,6 @@ tags: [moollm]
 - **[Kitchen Counter](../../examples/adventure-4/kitchen/counter.yml)** — DECOMPOSE pattern
 - **[Adventure](../adventure/)** — World integration
 
-tags: [moollm]
 ---
 
 ## Philosophy
@@ -791,7 +774,6 @@ tags: [moollm]
 > Every image is a compressed representation of resources.
 > Mining decompresses it.
 
-tags: [moollm]
 ---
 
 *See YAML frontmatter at top of this file for full specification.*

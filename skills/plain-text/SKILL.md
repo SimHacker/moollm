@@ -7,14 +7,14 @@ protocol: PLAIN-TEXT
 allowed-tools:
   - read_file
   - write_file
-tags: [moollm, philosophy, format, durability, git, llm]
 origin: "Unix Philosophy — 'Text is the universal interface'"
 lineage:
   - "Unix Philosophy — Text streams, pipes"
   - "Donald Knuth — Literate Programming"
   - "John Gruber — Markdown (2004)"
   - "Anil Dash — 'How Markdown Took Over the World' (2025)"
-related: [markdown, yaml-jazz, session-log, postel, files-as-state]
+related: [yaml-jazz, markdown, sniffable-python, format-design, constructionism, session-log]
+tags: [moollm, philosophy, format, durability, git, llm]
 ---
 
 # Plain Text

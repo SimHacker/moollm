@@ -6,8 +6,8 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [plan-then-execute, action-queue, session-log, roberts-rules, adversarial-committee]
-tags: [moollm]
+related: [play-learn-lift, scratchpad, plan-then-execute, action-queue, sister-script, debugging, session-log]
+tags: [moollm, decomposition, tracking, tasks, strategy]
 ---
 
 # Planning
@@ -19,7 +19,6 @@ Turn complex goals into actionable steps.
 > [!TIP]
 > **Plans here are living documents.** Unlike [plan-then-execute](../plan-then-execute/), these evolve as you learn.
 
-tags: [moollm]
 ---
 
 ## What This Is
@@ -32,7 +31,6 @@ A flexible planning system for:
 
 **Unlike [plan-then-execute/](../plan-then-execute/)**: Plans here are **living documents** that evolve.
 
-tags: [moollm]
 ---
 
 ## Structure
@@ -62,7 +60,6 @@ plan:
       blocked_by: 2
 ```
 
-tags: [moollm]
 ---
 
 ## Key Difference from plan-then-execute
@@ -77,7 +74,6 @@ tags: [moollm]
 Use **planning/** when you need to adapt.
 Use **plan-then-execute/** when you need control.
 
-tags: [moollm]
 ---
 
 ## Contents
@@ -88,7 +84,6 @@ tags: [moollm]
 | [PLAN.yml.tmpl](./PLAN.yml.tmpl) | Plan template |
 | [PROGRESS.md.tmpl](./PROGRESS.md.tmpl) | Progress template |
 
-tags: [moollm]
 ---
 
 ## The Intertwingularity
@@ -103,7 +98,6 @@ graph LR
     PL -->|logs to| SL[📜 session-log]
 ```
 
-tags: [moollm]
 ---
 
 ## Dovetails With

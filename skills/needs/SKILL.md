@@ -21,11 +21,7 @@ standard_needs:
   - social
   - comfort
   - bladder
-related:
-  - character
-  - time
-  - buff
-  - room
+related: [simulation, society-of-mind, time, buff, character, cat, dog, yaml-jazz, advertisement]
 tags: [moollm, sims, motives, behavior, autonomy, game]
 ---
 

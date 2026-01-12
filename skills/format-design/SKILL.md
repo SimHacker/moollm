@@ -7,14 +7,14 @@ protocol: FORMAT-DESIGN
 allowed-tools:
   - read_file
   - write_file
-tags: [moollm, philosophy, design, standards, worse-is-better]
 origin: "Anil Dash — 'How Markdown Took Over the World' (2025)"
 lineage:
   - "Richard Gabriel — 'Worse is Better' (1989)"
   - "Jon Postel — Robustness Principle (1980)"
   - "John Gruber — Markdown (2004)"
   - "Anil Dash — 'How Markdown Took Over the World' (2025)"
-related: [markdown, yaml-jazz, plain-text, postel, protocol]
+related: [markdown, yaml-jazz, plain-text, postel]
+tags: [moollm, philosophy, design, standards, worse-is-better]
 ---
 
 # Format Design

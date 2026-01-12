@@ -6,7 +6,7 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [card, adventure, memory-palace, character, world-generation, data-flow, naming]
+related: [card, container, exit, object, memory-palace, adventure, character, data-flow, multi-presence, plain-text]
 tags: [moollm, navigation, space, directory, moo, adventure]
 ---
 

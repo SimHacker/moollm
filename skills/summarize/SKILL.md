@@ -6,8 +6,8 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [honest-forget, session-log, memory-palace]
-tags: [moollm]
+related: [honest-forget, session-log, memory-palace, play-learn-lift, research-notebook]
+tags: [moollm, compression, knowledge, context, backlinks]
 ---
 
 # Summarize
@@ -65,7 +65,6 @@ graph LR
     SR[🔧 self-repair] -->|triggers| SUM
 ```
 
-tags: [moollm]
 ---
 
 ## Dovetails With

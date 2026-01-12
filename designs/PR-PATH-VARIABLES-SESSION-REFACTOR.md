@@ -104,7 +104,7 @@ Session logs are **living documents**, not append-only logs:
 
 ```
 # BEFORE
-examples/adventure-4/sessions/don-session-1.md
+examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md
 
 # AFTER  
 examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md
@@ -146,7 +146,7 @@ Deleted `examples/adventure-4/skills/` — the global `skills/` directory IS the
 ### Deleted Files
 - `examples/adventure-4/skills/README.md` — Redundant portal
 - `examples/adventure-4/skills/ROOM.yml` — Redundant portal
-- `examples/adventure-4/sessions/don-session-1.md` — Moved to character dir
+- `examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md` — Moved to character dir
 
 ### Modified Files
 - `kernel/NAMING.yml` — Added path_variables section (11 variables)

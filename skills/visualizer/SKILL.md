@@ -6,8 +6,8 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [character, mind-mirror, storytelling-tools, card]
-tags: [moollm]
+related: [character, mind-mirror, card, room, image-mining, yaml-jazz, hero-story]
+tags: [moollm, images, generation, art, semantic]
 ---
 
 # Visualizer
@@ -18,7 +18,6 @@ tags: [moollm]
 
 The **Visualizer** is a universal character prototype for image generation — a familiar that can compose prompts, invoke artistic traditions, and (when tools are available) render visual sidecars for any entity in the microworld.
 
-tags: [moollm]
 ---
 
 ## The Semantic Clipboard
@@ -72,7 +71,6 @@ image_prompt:
 - `timid: 6` → hunched, makes self smaller  
 - YAML Jazz comments drive the visual interpretation
 
-tags: [moollm]
 ---
 
 ## What is a Visualizer?
@@ -87,7 +85,6 @@ A Visualizer is a **tool spirit animal** for vision. It's not a specific artist,
 
 Think of it as summoning an artist-familiar who can draw on the collected wisdom of photographers, painters, illustrators, and digital artists throughout history.
 
-tags: [moollm]
 ---
 
 ## The PHOTO-SET-8 Pattern
@@ -109,7 +106,6 @@ photo_set:
 
 This pattern was developed through the **Dynasty Photo Session** in [adventure-2](../../examples/adventure-2/), where Maurice learned to compose 8-prompt sets.
 
-tags: [moollm]
 ---
 
 ## Specializations
@@ -148,7 +144,6 @@ traditions:
   - Anime/Manga        # Various schools
 ```
 
-tags: [moollm]
 ---
 
 ## How to Invoke
@@ -167,7 +162,6 @@ Play a Visualizer card in a room. It activates and can visualize anything presen
 
 Characters can carry a Visualizer familiar in inventory, ready to render their current state.
 
-tags: [moollm]
 ---
 
 ## Context Assembly
@@ -220,7 +214,6 @@ object:
   inscriptions: "ancient runes spiraling around rim"
 ```
 
-tags: [moollm]
 ---
 
 ## Context References in Prompts
@@ -247,7 +240,6 @@ Every prompt file **MUST** include a Context References section:
 
 This creates **lineage** — future tools can follow these references to auto-assemble context for image generation.
 
-tags: [moollm]
 ---
 
 ## Detail Coherence Interlinking
@@ -275,7 +267,6 @@ When creating photo sets with **close-ups** and **portraits** of the same object
 **Mantra:**
 > *"Close-ups define truth. Portraits inherit truth. Coherence is consistency across the set."*
 
-tags: [moollm]
 ---
 
 ## Actions
@@ -316,7 +307,6 @@ gets composed and transformed into pure image generation text.
 | VARY | Generate variations on a developed prompt |
 | BATCH | Develop all prompts in a photo set at once |
 
-tags: [moollm]
 ---
 
 ## Output Structure
@@ -349,7 +339,6 @@ When image generation tools are integrated, the Visualizer
 will create images next to their prompt files.
 ```
 
-tags: [moollm]
 ---
 
 ## Example Instances
@@ -363,7 +352,6 @@ tags: [moollm]
 
 These aren't impersonations — they're **focused channels** that invoke specific aesthetic traditions. It's [HERO-STORY](../hero-story/) for visual artists.
 
-tags: [moollm]
 ---
 
 ## Integration Points
@@ -376,7 +364,6 @@ tags: [moollm]
 | [Soul Chat](../soul-chat/) | Illustrate conversations |
 | [Card](../card/) | Visualizer cards can be played |
 
-tags: [moollm]
 ---
 
 ## PHOTO-SET-8 Development
@@ -389,7 +376,6 @@ The [PHOTO-SET-8](./PHOTO-SET-8.yml) skill was developed through play in [advent
 
 The Coatroom's mannequin learned to compose professional photo sets for any character or costume. The skill is now available to anyone who references it.
 
-tags: [moollm]
 ---
 
 ## Future Capabilities
@@ -409,7 +395,6 @@ roadmap:
     - Animation prompt sequences
 ```
 
-tags: [moollm]
 ---
 
 ## Dovetails With
@@ -421,7 +406,6 @@ tags: [moollm]
 - [Sister Script](../sister-script/) — Future image generation scripts
 - [Image Mining](../image-mining/) — MINE images for resources (camera = pickaxe!)
 
-tags: [moollm]
 ---
 
 ## Lineage
@@ -434,7 +418,6 @@ The Visualizer draws from the tradition of artists, photographers, and image-mak
 >
 > *"The camera is an instrument that teaches people how to see without a camera."* — Dorothea Lange
 
-tags: [moollm]
 ---
 
 *See YAML frontmatter at top of this file for full specification.*

@@ -5,8 +5,8 @@ license: MIT
 tier: 0
 allowed-tools: [read_file, list_dir]
 protocol: SOCIETY-OF-MIND
+related: [moollm, k-lines, adversarial-committee, multi-presence, speed-of-light, simulator-effect, character, persona, mind-mirror, constructionism, debate, soul-chat]
 tags: [moollm, meta, philosophy, minsky, emergence, agents, k-lines]
-related: [k-lines, adversarial-committee, multi-presence, needs, character, simulator-effect]
 ---
 
 # Society of Mind Skill

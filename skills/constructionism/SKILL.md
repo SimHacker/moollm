@@ -4,12 +4,12 @@ description: Educational philosophy — learn by building inspectable things
 allowed-tools: []
 tier: 0
 protocol: CONSTRUCTIONISM
-tags: [moollm, philosophy, education, papert, microworld]
 origin: "Seymour Papert — Logo, Mindstorms (1980)"
 lineage:
   - "Seymour Papert — Constructionism, Logo, Mindstorms (1980)"
   - "Marvin Minsky — Society of Mind, K-lines (1986)"
-related: [play-learn-lift, room, yaml-jazz, sister-script, adventure, procedural-rhetoric, schema-mechanism]
+related: [play-learn-lift, society-of-mind, leela-ai, manufacturing-intelligence, room, yaml-jazz, adventure, skill, schema-mechanism, debugging]
+tags: [moollm, philosophy, education, papert, microworld, learning]
 ---
 
 # Constructionism

@@ -11,7 +11,7 @@ lineage:
   - "Marvin Minsky — Society of Mind, K-lines (1986)"
   - "Jean Piaget — Genetic Epistemology, schemas as cognitive structures"
   - "Henry Minsky — pyleela.brain Python implementation"
-related: [constructionism, play-learn-lift, planning, debugging, skill]
+related: [constructionism, society-of-mind, leela-ai, manufacturing-intelligence, play-learn-lift, planning, yaml-jazz]
 ---
 
 # Schema Mechanism

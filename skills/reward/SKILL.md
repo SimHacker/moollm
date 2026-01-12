@@ -6,8 +6,8 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [scoring, economy, buff, adventure]
-tags: [moollm]
+related: [scoring, buff, hero-story, adventure]
+tags: [moollm, achievement, prizes, narrative, game]
 ---
 
 # Reward Skill

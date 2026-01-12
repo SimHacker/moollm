@@ -5,8 +5,8 @@ license: MIT
 tier: 0
 allowed-tools: [read_file, list_dir]
 protocol: LEELA-AI
+related: [moollm, manufacturing-intelligence, society-of-mind, k-lines, schema-mechanism, constructionism, simulator-effect, speed-of-light, representation-ethics, yaml-jazz]
 tags: [moollm, meta, company, manufacturing, industrial, neural-symbolic, drescher]
-related: [moollm, society-of-mind, schema-mechanism, k-lines, constructionism, manufacturing-intelligence]
 ---
 
 # Leela AI Skill

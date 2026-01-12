@@ -6,15 +6,14 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [adventure, visualizer, session-log, card]
-tags: [moollm]
+related: [card, visualizer, session-log, hero-story]
+tags: [moollm, narrative, sharing, capture, moments]
 ---
 
 # Storytelling Tools
 
 **Build narrative capture and sharing into the system.**
 
-tags: [moollm]
 ---
 
 ## What Are Storytelling Tools?
@@ -28,7 +27,6 @@ The Sims didn't just let you play — it let you **tell stories**.
 
 The game became a platform for self-expression. Storytelling wasn't an afterthought — it was **infrastructure**.
 
-tags: [moollm]
 ---
 
 ## MOOLLM Storytelling Tools
@@ -41,7 +39,6 @@ tags: [moollm]
 | **README** | GitHub-publishable narrative format | `README.md` |
 | **Cards** | Mintable artifacts capturing moments | `*-card.yml` |
 
-tags: [moollm]
 ---
 
 ## The Notebook
@@ -71,7 +68,6 @@ notebook:
       ingredients: ["blue cheese", "grue"]
 ```
 
-tags: [moollm]
 ---
 
 ## Letters
@@ -102,7 +98,6 @@ letter:
 
 Promises become **goals**. Goals drive **narrative**.
 
-tags: [moollm]
 ---
 
 ## Photo Prompts
@@ -132,7 +127,6 @@ photo_prompt:
 
 **Key insight:** Photos reference other objects for **coherence**. The chalice in the selfie should match the chalice description.
 
-tags: [moollm]
 ---
 
 ## README as Narrative
@@ -158,7 +152,6 @@ Armed with lamp and lunch, I ventured forth...
 
 **GitHub renders this beautifully.** The README IS the narrative.
 
-tags: [moollm]
 ---
 
 ## Sharing and Remixing
@@ -175,7 +168,6 @@ cp -r adventure-2/ adventure-3/
 
 Every adventure is **forkable**. Every story is **shareable**.
 
-tags: [moollm]
 ---
 
 ## The STORYTELLING-TOOLS Protocol
@@ -195,7 +187,6 @@ STORYTELLING-TOOLS:
     sharing: "Fork and remix adventures"
 ```
 
-tags: [moollm]
 ---
 
 ## Dovetails With
@@ -206,7 +197,6 @@ tags: [moollm]
 - [memory-palace/](../memory-palace/) — Spatial organization
 - [procedural-rhetoric/](../procedural-rhetoric/) — Story as persuasion
 
-tags: [moollm]
 ---
 
 ## The Insight

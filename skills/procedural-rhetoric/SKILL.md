@@ -6,15 +6,14 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [constructionism, representation-ethics, yaml-jazz]
-tags: [moollm]
+related: [advertisement, constructionism, representation-ethics, yaml-jazz]
+tags: [moollm, persuasion, design, bogost, rules]
 ---
 
 # Procedural Rhetoric
 
 **Rules persuade. Structure IS argument. Design consciously.**
 
-tags: [moollm]
 ---
 
 ## What Is Procedural Rhetoric?
@@ -29,7 +28,6 @@ Games and simulations persuade through **processes and rules**, not just words o
 - Constraints define what's *normative*
 - Defaults define what's *assumed*
 
-tags: [moollm]
 ---
 
 ## The Triumvirate
@@ -44,7 +42,6 @@ Three concepts work together:
 
 Combined, they create worlds that **persuade, invite projection, and spark imagination**.
 
-tags: [moollm]
 ---
 
 ## Designing Rhetorical Objects
@@ -89,7 +86,6 @@ object:
       Old-timers sharing secrets about soil.
 ```
 
-tags: [moollm]
 ---
 
 ## Rhetorical Advertisements
@@ -115,7 +111,6 @@ advertisements:
 
 **Notice:** The highest-scored action is sharing. Hoarding isn't forbidden — it's *absent*. That's procedural rhetoric: shaping what's thinkable.
 
-tags: [moollm]
 ---
 
 ## World Generation with Rhetoric
@@ -160,7 +155,6 @@ world_generation:
 
 The rhetoric profile shapes *everything* that gets generated.
 
-tags: [moollm]
 ---
 
 ## Masking Effect for Characters
@@ -193,7 +187,6 @@ character:
     - "Unexpected kindness to strangers"
 ```
 
-tags: [moollm]
 ---
 
 ## Simulator Effect: Less Is More
@@ -230,7 +223,6 @@ room:
       - "Every dust bunny location"
 ```
 
-tags: [moollm]
 ---
 
 ## Rhetorical Recipes
@@ -284,7 +276,6 @@ rhetorical_recipe:
     - Deep connection requires investment
 ```
 
-tags: [moollm]
 ---
 
 ## Inclusive Design Through Rhetoric
@@ -315,7 +306,6 @@ inclusive_rhetoric:
     - "No 'standard' lifestyle path"
 ```
 
-tags: [moollm]
 ---
 
 ## Warning: Rhetoric Cuts Both Ways
@@ -344,7 +334,6 @@ toxic_rhetoric:
 
 **Design consciously. Your schemas have opinions.**
 
-tags: [moollm]
 ---
 
 ## Dovetails With
@@ -368,7 +357,6 @@ tags: [moollm]
 | [TOY-NOT-GAME](../../PROTOCOLS.yml) | Sandbox over scoring |
 | [PERKY-PAT](../../PROTOCOLS.yml) | Shared consciousness projection |
 
-tags: [moollm]
 ---
 
 ## The Mantra
@@ -378,7 +366,6 @@ tags: [moollm]
 > *"The absences ARE the statement."*
 > *"Design consciously."*
 
-tags: [moollm]
 ---
 
 ## See Also

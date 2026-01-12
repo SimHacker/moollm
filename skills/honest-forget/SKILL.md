@@ -8,7 +8,8 @@ allowed-tools:
   - write_file
   - list_dir
   - search_replace
-related: [summarize, session-log, memory-palace, self-repair]
+related: [robust-first, summarize, self-repair, session-log, memory-palace, postel]
+tags: [moollm, memory, compression, graceful, context]
 inputs:
   target:
     type: path
@@ -27,7 +28,6 @@ outputs:
 templates:
   - FORGET.yml.tmpl
   - WISDOM.yml.tmpl
-tags: [moollm]
 ---
 
 # 🌫️ Honest-Forget Skill

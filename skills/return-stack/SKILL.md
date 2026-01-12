@@ -6,22 +6,20 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [room, action-queue, adventure]
-tags: [moollm]
+related: [room, adventure, character, memory-palace, action-queue, card, session-log, prototype, debugging]
+tags: [moollm, navigation, history, breadcrumbs, continuations, deoptimization, introspection]
 ---
 
 # Return Stack
 
 > *"Where you've been is where you can go back to."*
 
-tags: [moollm]
 ---
 
 ## What Is It?
 
 **Return Stack** treats navigation history as a first-class **continuation** — a stack of saved positions you can manipulate like browser history or a call stack.
 
-tags: [moollm]
 ---
 
 ## The Metaphor
@@ -34,7 +32,6 @@ tags: [moollm]
 | Push | Navigate | ENTER |
 | Pop | Back | BACK |
 
-tags: [moollm]
 ---
 
 ## Commands
@@ -50,7 +47,6 @@ tags: [moollm]
 | `STACK` | Show all open "tabs" (parallel stacks) |
 | `FORK` | Create new tab from current position |
 
-tags: [moollm]
 ---
 
 ## Example Session
@@ -82,7 +78,6 @@ Returning to workshop...
 Current: workshop (position 2)
 ```
 
-tags: [moollm]
 ---
 
 ## Bookmarks
@@ -103,7 +98,6 @@ Returning to workshop...
 [Stack cleared, at bookmark]
 ```
 
-tags: [moollm]
 ---
 
 ## Forking (Tabs)
@@ -128,7 +122,6 @@ Switching to Tab 1...
 [Now at workshop via tab 1]
 ```
 
-tags: [moollm]
 ---
 
 ## As Continuation
@@ -152,7 +145,6 @@ context: {reading: "old-records"}
 
 When you BACK, you don't just return to the room — you **restore the context** you had there.
 
-tags: [moollm]
 ---
 
 ## Portable Journey
@@ -173,7 +165,6 @@ You can:
 - **Replay** someone else's exploration
 - **Branch** from any point in their journey
 
-tags: [moollm]
 ---
 
 ## HyperCard Heritage
@@ -191,7 +182,6 @@ MOOLLM extends this:
 - Bookmarks as saved positions
 - FORK for parallel exploration
 
-tags: [moollm]
 ---
 
 ## Implementation
@@ -222,7 +212,50 @@ navigation:
   forward_stack: []  # After BACK, stores where you came from
 ```
 
-tags: [moollm]
+---
+
+## Dynamic Deoptimization
+
+The Self programming language (source of our prototype inheritance) pioneered **dynamic deoptimization**: aggressively inlining code for performance, then reconstructing the "logical" call stack on demand when debugging.
+
+The LLM does this naturally for narrative:
+
+| Self | MOOLLM |
+|------|--------|
+| Inlined bytecode | Flattened conversation |
+| Deoptimized frames | Reconstructed causality |
+| Breakpoint trigger | "How did we get here?" |
+| Stack trace | Causal chain from evidence |
+
+**The stack isn't explicitly maintained, but it's recoverable.**
+
+### How It Works
+
+When you ask for history, the LLM examines:
+
+```yaml
+evidence_sources:
+  - session_log: "Append-only narrative trail"
+  - room_state: "Accumulated changes"
+  - character_location: "Current position"
+  - file_timestamps: "Order of modifications"
+  - chat_context: "Recent decisions"
+```
+
+And synthesizes a virtual stack trace:
+
+```
+Deduced navigation:
+1. lobby (start)
+2. workshop (examining blueprints)
+3. storage (found locked chest)
+4. workshop (returned for key) ← BACK
+5. storage (unlocked chest)
+6. archive (following map) ← current
+```
+
+**This is introspection without instrumentation** — the same insight that made Self's debugger magical.
+
 ---
 
 ## Dovetails With
@@ -232,8 +265,9 @@ tags: [moollm]
 - [Coherence Engine](../coherence-engine/) — Tracks navigation state
 - [Adventure](../adventure/) — Narrative exploration
 - [Session Log](../session-log/) — Records the journey
+- [Prototype](../prototype/) — Self language heritage
+- [Debugging](../debugging/) — Stack traces on demand
 
-tags: [moollm]
 ---
 
 ## Protocol Symbols

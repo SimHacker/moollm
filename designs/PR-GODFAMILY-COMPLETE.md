@@ -167,7 +167,7 @@ This is the same consent model as the incarnation ceremony.
 
 | File | Changes |
 |------|---------|
-| `sessions/don-session-1.md` | +200 lines of ceremony narrative |
+| `marathon-session.md` | +200 lines of ceremony narrative |
 | `characters/palm/CHARACTER.yml` | +94 lines of godfamily relationships |
 
 ## The Arc Complete

@@ -289,7 +289,7 @@ group_activities:
       - possible: creative_chaos
 ```
 
-The [33-turn Stoner Fluxx game](../examples/adventure-4/sessions/don-session-1.md#turn-17-stoner-fluxx-marathon) shows group activities in action.
+The [33-turn Stoner Fluxx game](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#turn-17-stoner-fluxx-marathon) shows group activities in action.
 
 ---
 
@@ -502,7 +502,7 @@ relationships:
     notes: "Chosen family, not biological"
 ```
 
-The [godfamily](../examples/adventure-4/sessions/don-session-1.md#the-godfamily) concept extends family beyond blood.
+The [godfamily](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#the-godfamily) concept extends family beyond blood.
 
 ---
 
@@ -548,7 +548,7 @@ Natural progression, not forced intimacy.
 - [skills/party/](../skills/party/) — Group activities
 - [skills/buff/](../skills/buff/) — Social buffs
 - [guest-book.yml](../examples/adventure-4/pub/guest-book.yml) — Visitor persistence
-- [don-session-1.md](../examples/adventure-4/sessions/don-session-1.md) — Social dynamics in action
+- [marathon-session.md](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) — Social dynamics in action
 
 ---
 

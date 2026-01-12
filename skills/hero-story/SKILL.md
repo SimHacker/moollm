@@ -5,7 +5,8 @@ license: MIT
 tier: 0
 allowed-tools:
   - read_file
-related: [card, soul-chat, representation-ethics, mind-mirror]
+related: [representation-ethics, incarnation, k-lines, card, visualizer, adversarial-committee, room, skill]
+tags: [moollm, ethics, traditions, familiars, references]
 inputs:
   subject:
     type: string
@@ -18,7 +19,6 @@ inputs:
 outputs:
   - hero-story card
   - optional familiar card
-tags: [moollm]
 ---
 
 # 🦸 Hero-Story Skill

@@ -6,8 +6,8 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [session-log, planning, research-notebook]
-tags: [moollm]
+related: [play-learn-lift, research-notebook, planning, debugging, session-log, plain-text]
+tags: [moollm, working-memory, notes, thinking, drafts]
 ---
 
 # Scratchpad
@@ -19,7 +19,6 @@ The simplest skill. Just a place to write.
 > [!TIP]
 > **The PLAY surface.** Not everything needs structure. Sometimes just write.
 
-tags: [moollm]
 ---
 
 ## What This Is
@@ -32,7 +31,6 @@ A file where you can:
 
 No structure required. Just write.
 
-tags: [moollm]
 ---
 
 ## When to Use
@@ -42,7 +40,6 @@ tags: [moollm]
 - Drafting text before placing it
 - Temporary storage during complex tasks
 
-tags: [moollm]
 ---
 
 ## Structure
@@ -55,7 +52,6 @@ scratchpad/
 
 That's it. Minimal by design.
 
-tags: [moollm]
 ---
 
 ## Philosophy
@@ -64,7 +60,6 @@ tags: [moollm]
 
 Not everything needs structure. Sometimes you just need a place to write freely.
 
-tags: [moollm]
 ---
 
 ## Contents
@@ -74,7 +69,6 @@ tags: [moollm]
 | [SKILL.md](./SKILL.md) | Protocol documentation |
 | [scratch.md.tmpl](./scratch.md.tmpl) | Scratchpad template |
 
-tags: [moollm]
 ---
 
 ## The Intertwingularity
@@ -90,7 +84,6 @@ graph LR
     PLL -->|freeform in| SP
 ```
 
-tags: [moollm]
 ---
 
 ## Dovetails With

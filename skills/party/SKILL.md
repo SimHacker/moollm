@@ -21,13 +21,8 @@ roles:
   - specialist
   - mystic
   - wildcard
-related:
-  - simulation
-  - character
-  - needs
-  - room
-  - buff
-tags: [moollm]
+related: [character, society-of-mind, cat, dog, needs, simulation, room, adventure]
+tags: [moollm, companions, group, rpg, fellowship]
 ---
 
 # Party Skill

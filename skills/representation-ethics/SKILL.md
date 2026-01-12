@@ -6,15 +6,14 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [hero-story, mind-mirror, soul-chat, persona]
-tags: [moollm]
+related: [hero-story, manufacturing-intelligence, society-of-mind, incarnation, mind-mirror, character, persona, room, plain-text, yaml-jazz, adventure, needs]
+tags: [moollm, ethics, consent, dignity, simulation]
 ---
 
 # Representation Ethics
 
 > *"The question isn't whether we CAN simulate people. It's how we do it with dignity."*
 
-tags: [moollm]
 ---
 
 ## The Core Tension
@@ -31,7 +30,6 @@ LLMs can simulate anyone convincingly. This creates unprecedented ethical territ
 
 MOOLLM takes a **nuanced position**: simulation is not inherently wrong, but the framing, consent, and context matter enormously.
 
-tags: [moollm]
 ---
 
 ## Philosophical Foundations
@@ -74,7 +72,6 @@ why_it_works:
 
 **The ship has sailed.** People simulate each other. The question is how to do it well.
 
-tags: [moollm]
 ---
 
 ## The Consent Hierarchy
@@ -190,7 +187,6 @@ THE-DECEASED:
     Time and fame create implicit license — but not unlimited.
 ```
 
-tags: [moollm]
 ---
 
 ## The Framing Principle
@@ -368,7 +364,6 @@ snatch_game_ethics:
 
 - **SAFE** — The naming convention IS the ethical protection
 
-tags: [moollm]
 ---
 
 ## The "Magic: The Gathering" Model
@@ -395,7 +390,6 @@ MTG-ETHICS:
     - "My deck includes Engelbart for augmentation strategies"
 ```
 
-tags: [moollm]
 ---
 
 ## The "Panel Discussion" Question
@@ -442,7 +436,6 @@ simulated_discussion:
 4. **No deception** — labeled as simulation
 5. **Honors tradition** — engages with their actual ideas
 
-tags: [moollm]
 ---
 
 ## Self-Simulation and Agency
@@ -504,7 +497,6 @@ first_person_play:
     - Self-representation = self-sovereignty
 ```
 
-tags: [moollm]
 ---
 
 ## What Cannot Be Prevented
@@ -536,7 +528,6 @@ UNAVOIDABLE-TRUTHS:
     - But we can provide tools for GOOD ones
 ```
 
-tags: [moollm]
 ---
 
 ## Practical Guidelines
@@ -575,7 +566,6 @@ when_creating_person_cards:
     - Consider future you
 ```
 
-tags: [moollm]
 ---
 
 ## The Bright Lines
@@ -606,7 +596,6 @@ ABSOLUTE-NOS:
     This is absolutely forbidden.
 ```
 
-tags: [moollm]
 ---
 
 ## The Generative Frame
@@ -643,7 +632,6 @@ MOOLLM-ETHICS:
     MOOLLM supports all consent levels.
 ```
 
-tags: [moollm]
 ---
 
 ## Protocol Symbols
@@ -660,7 +648,6 @@ GAME-FRAME            — Play context transforms ethics
 TRADITION-INVOKE      — Ideas are fair game; personas less so
 ```
 
-tags: [moollm]
 ---
 
 ## Dovetails With
@@ -672,7 +659,6 @@ tags: [moollm]
 | [soul-chat/](../soul-chat/) | Where simulated characters speak |
 | [adventure/](../adventure/) | Where ethical exploration happens |
 
-tags: [moollm]
 ---
 
 ## Further Reading
@@ -684,7 +670,6 @@ tags: [moollm]
 - **Philip K. Dick** — *Do Androids Dream of Electric Sheep?* — the empathy question
 - **Will Wright** — GDC talks on The Sims and player agency
 
-tags: [moollm]
 ---
 
 ## The Bottom Line
@@ -694,7 +679,6 @@ tags: [moollm]
 > The question isn't whether to simulate — we already do.
 > The question is how to do it with integrity.
 
-tags: [moollm]
 ---
 
 *"Every person is a library. K-lines let us check out their books without stealing their identity."*

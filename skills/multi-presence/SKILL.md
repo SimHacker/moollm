@@ -19,12 +19,8 @@ statuses:
   - ready
   - paused
   - completed
-related:
-  - card
-  - room
-  - data-flow
-  - coherence-engine
-  - speed-of-light
+related: [card, society-of-mind, character, room, prototype, coherence-engine, speed-of-light, data-flow]
+tags: [moollm, actor, parallel, instances, distributed]
 ---
 
 # Multi-Presence
