@@ -10,6 +10,7 @@ credits:
   - "David Ungar — Self language creator"
   - "Randall Smith — Self language co-creator"
   - "Brendan Eich — JavaScript (Self-influenced)"
+tags: [moollm]
 ---
 
 # PROTOTYPE
@@ -18,6 +19,7 @@ credits:
 
 The philosophy of prototype-based inheritance: no classes, just concrete examples that you clone and modify.
 
+tags: [moollm]
 ---
 
 ## The Problem with Classes
@@ -32,6 +34,7 @@ But this creates problems:
 - **Rigidity**: Class hierarchies are hard to change
 - **Ceremony**: Lots of boilerplate to create simple things
 
+tags: [moollm]
 ---
 
 ## The Prototype Solution
@@ -44,6 +47,7 @@ Prototype-based inheritance says:
 
 **Everything is concrete. Everything exists.**
 
+tags: [moollm]
 ---
 
 ## How Self Works
@@ -87,6 +91,7 @@ The new cat:
 - Delegates `meow` to the prototype
 - Can add new slots anytime
 
+tags: [moollm]
 ---
 
 ## MOOLLM Implementation
@@ -123,6 +128,7 @@ examples/adventure-4/pub/
 └── (missing files delegate to skills/room/)
 ```
 
+tags: [moollm]
 ---
 
 ## Why Prototypes for LLMs?
@@ -135,6 +141,7 @@ Prototype-based inheritance is **LLM-friendly** because:
 - **Concrete**: No abstract classes to imagine
 - **Forgettable**: Each lookup is independent
 
+tags: [moollm]
 ---
 
 ## The Wisdom of Self
@@ -149,6 +156,7 @@ Self taught us that simplicity wins:
 
 MOOLLM applies this: directories are objects, files are slots, resolution is delegation.
 
+tags: [moollm]
 ---
 
 ## Historical Context
@@ -161,6 +169,7 @@ MOOLLM applies this: directories are objects, files are slots, resolution is del
 | 1995 | JavaScript created (heavily Self-influenced) |
 | 2024 | MOOLLM applies Self to LLM filesystems |
 
+tags: [moollm]
 ---
 
 ## See Also
@@ -170,6 +179,7 @@ MOOLLM applies this: directories are objects, files are slots, resolution is del
 - **[../constructionism/](../constructionism/)** — Learning by building
 - **[../character/](../character/)** — Characters as prototype instances
 
+tags: [moollm]
 ---
 
 ## Further Reading
@@ -178,6 +188,7 @@ MOOLLM applies this: directories are objects, files are slots, resolution is del
 - Ungar, D. (1995). *Organizing Programs Without Classes*
 - [selflanguage.org](http://selflanguage.org/)
 
+tags: [moollm]
 ---
 
 *"Self is a network, not a node."*

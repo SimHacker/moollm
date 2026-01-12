@@ -124,7 +124,7 @@ Each activation has its own:
 # room-A/activations/analyst-001.yml
 card: analyst-card
 instance_id: analyst-001
-tags: [@hypothesis-A, @active]
+tags: [moollm, @hypothesis-A, @active]
 state:
   current_document: "doc-007.pdf"
   findings:

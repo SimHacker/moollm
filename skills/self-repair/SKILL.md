@@ -7,6 +7,7 @@ allowed-tools:
   - read_file
   - write_file
 related: [robust-first, postel, session-log, coherence-engine]
+tags: [moollm]
 ---
 
 # Self Repair
@@ -55,6 +56,7 @@ graph LR
     SR -->|part of| KERNEL[kernel/self-healing]
 ```
 
+tags: [moollm]
 ---
 
 ## Dovetails With

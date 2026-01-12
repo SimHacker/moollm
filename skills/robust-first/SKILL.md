@@ -7,12 +7,14 @@ allowed-tools:
   - read_file
   - write_file
 related: [postel, self-repair, coherence-engine]
+tags: [moollm]
 ---
 
 # Robust-First
 
 > *"Survive first. Be correct later."*
 
+tags: [moollm]
 ---
 
 ## What Is It?
@@ -21,6 +23,7 @@ related: [postel, self-repair, coherence-engine]
 
 A system that crashes when confused is useless. A system that limps along incorrectly but keeps running can be repaired.
 
+tags: [moollm]
 ---
 
 ## The Philosophy
@@ -37,6 +40,7 @@ IF error THEN repair_locally AND continue
 "Stay alive and heal"
 ```
 
+tags: [moollm]
 ---
 
 ## Core Principles
@@ -99,6 +103,7 @@ Important state exists in multiple places:
 # If one is corrupted, recover from others
 ```
 
+tags: [moollm]
 ---
 
 ## The Movable Feast Machine
@@ -116,6 +121,7 @@ MOOLLM inherits this:
 - Context can overflow — summarize and continue
 - Tools can fail — retry or work around
 
+tags: [moollm]
 ---
 
 ## Anti-Fragility
@@ -140,6 +146,7 @@ repair_log:
 # Next time: system knows to check this
 ```
 
+tags: [moollm]
 ---
 
 ## MOOLLM Application
@@ -173,6 +180,7 @@ Instead of deleting, archive:
 
 Recovery is always possible.
 
+tags: [moollm]
 ---
 
 ## Example: Corrupted Room
@@ -193,6 +201,7 @@ Robust-first response:
   [System continues with recovered state]
 ```
 
+tags: [moollm]
 ---
 
 ## Dovetails With
@@ -204,6 +213,7 @@ Robust-first response:
 ### Kernel
 - [kernel/self-healing-protocol.md](../../kernel/self-healing-protocol.md) — Full specification
 
+tags: [moollm]
 ---
 
 ## Protocol Symbols

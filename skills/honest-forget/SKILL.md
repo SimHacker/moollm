@@ -27,6 +27,7 @@ outputs:
 templates:
   - FORGET.yml.tmpl
   - WISDOM.yml.tmpl
+tags: [moollm]
 ---
 
 # 🌫️ Honest-Forget Skill

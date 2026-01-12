@@ -7,6 +7,7 @@ allowed-tools:
   - read_file
   - write_file
 related: [character, mind-mirror, buff, room]
+tags: [moollm]
 ---
 
 # Persona Skill

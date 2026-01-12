@@ -28,6 +28,7 @@ related:
   - character
   - needs
   - buff
+tags: [moollm]
 ---
 
 # Mind Mirror
@@ -36,6 +37,7 @@ related:
 
 > *"The ultimate intimacy is where you show them your personal database — you show your Mind Mirror."* — Timothy Leary
 
+tags: [moollm]
 ---
 
 ## What It Is
@@ -44,6 +46,7 @@ related:
 
 This skill brings that system into MOOLLM as a framework for modeling characters, NPCs, and exploring personality dynamics.
 
+tags: [moollm]
 ---
 
 ## The Origin Story
@@ -66,6 +69,7 @@ In 1950, Timothy Leary completed his PhD dissertation at UC Berkeley: *"The Soci
 
 Thirty-five years later, Leary collaborated with programmers Peter Van den Beemt and Bob Dietz to transform this academic work into interactive software.
 
+tags: [moollm]
 ---
 
 ## The Prison Escape: Ultimate Validation
@@ -82,6 +86,7 @@ Understanding exactly what it measured, Leary answered strategically:
 
 **The lesson:** Understanding how you're measured gives you power. Consciousness of systems enables transcendence.
 
+tags: [moollm]
 ---
 
 ## The Four Thought Planes
@@ -144,6 +149,7 @@ Mind Mirror maps personality across four circular dimensions. Each has 8 qualiti
 | Moralistic | Puritanical | Uninhibited |
 | Respectable | Upright | Uncultured |
 
+tags: [moollm]
 ---
 
 ## The 16 Scales with Dual Vocabulary
@@ -169,6 +175,7 @@ A key innovation: **Plain Talk** for everyday language, **Shrink-Rap** for profe
 | Lifestyle | Straight-Arrow | Free-Living | Inhibited | Social-Maverick |
 | Worldliness | Sophisticated | Square | Cosmopolitan | Small-Townish |
 
+tags: [moollm]
 ---
 
 ## Rating System
@@ -184,6 +191,7 @@ Rate each quality **0 to 7**:
 
 Extreme traits plot far from center. Moderate traits near center.
 
+tags: [moollm]
 ---
 
 ## Exercises
@@ -202,6 +210,7 @@ Compare your **best self** (at your peak) with your **worst self** (at your lowe
 
 Leary: *"It allows you to turn thoughts around so you can do all these things."*
 
+tags: [moollm]
 ---
 
 ## Modes
@@ -213,6 +222,7 @@ Leary: *"It allows you to turn thoughts around so you can do all these things."*
 | **Mind Mirror** | Learn to Mind-Scope and map your thoughts |
 | **Life Simulation** | Test empathy in Role-Play Odysseys |
 
+tags: [moollm]
 ---
 
 ## Leary's Philosophy
@@ -243,6 +253,7 @@ The brain is a biocomputer. Consciousness is its software. Just as software can 
 
 > *"You're the first generation in human history to know how to control your own nervous system, change your own reality. Tune in and take over! Blow your own mind, make up your own mind."*
 
+tags: [moollm]
 ---
 
 ## Bob Dietz on the Development
@@ -259,6 +270,7 @@ On the internet vision:
 
 > *"I cannot begin to tell you how much Timothy Leary would have embraced and loved the notion of seeing Mind Mirror applied on the internet."*
 
+tags: [moollm]
 ---
 
 ## The Sims 1.0 Personality Traits
@@ -335,6 +347,7 @@ sims_traits:
 - **Will Wright** — The Sims personality system (2000)
 - Both systems complement each other beautifully
 
+tags: [moollm]
 ---
 
 ## In MOOLLM: The Living Personality System
@@ -623,6 +636,7 @@ expression: "direct eye contact, slight knowing smile"
 
 **See [visualizer/](../visualizer/) for the full `IMAGE-METADATA` protocol** — the semantic clipboard that ensures every image carries its meaning with it.
 
+tags: [moollm]
 ---
 
 ## The Important Disclaimer
@@ -633,6 +647,7 @@ From the original software:
 
 This aligns perfectly with MOOLLM's [representation-ethics](../representation-ethics/) framework: activate traditions, don't impersonate.
 
+tags: [moollm]
 ---
 
 ## Theme Song
@@ -642,6 +657,7 @@ This aligns perfectly with MOOLLM's [representation-ethics](../representation-et
 > *It encourages me to change, to improve, to grow*
 > *You can be anything this time around*
 
+tags: [moollm]
 ---
 
 ## Protocol Symbols
@@ -655,6 +671,7 @@ This aligns perfectly with MOOLLM's [representation-ethics](../representation-et
 | `PLAIN-TALK` | Accessible everyday vocabulary mode |
 | `SHRINK-RAP` | Professional psychological terminology mode |
 
+tags: [moollm]
 ---
 
 ## Sources
@@ -668,6 +685,7 @@ This aligns perfectly with MOOLLM's [representation-ethics](../representation-et
 | [Interpersonal Circumplex](https://en.wikipedia.org/wiki/Interpersonal_circumplex) | Wikipedia |
 | [Mind Mirror on Steam](https://store.steampowered.com/app/1603300/Timothy_Learys_Mind_Mirror/) | Steam |
 
+tags: [moollm]
 ---
 
 ## Dovetails With

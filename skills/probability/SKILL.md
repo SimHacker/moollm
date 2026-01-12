@@ -7,6 +7,7 @@ allowed-tools:
   - read_file
   - write_file
 related: [character, buff, scoring, adventure]
+tags: [moollm]
 ---
 
 # Probability Skill

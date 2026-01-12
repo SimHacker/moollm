@@ -11,6 +11,7 @@ credits:
   - "MOOLLM — Dual-audience code structure"
   - "Python argparse — Built-in CLI with clean structure/implementation separation"
   - "Steve Jobs — Lickable pixels as quality signal (Aqua, 2000)"
+tags: [moollm]
 ---
 
 # Sniffable Python
@@ -23,6 +24,7 @@ Don't invent new syntax — **structure existing syntax** for optimal LLM compre
 
 *Steve Jobs wanted pixels you could lick. We want code you can sniff.*
 
+tags: [moollm]
 ---
 
 ## The Problem
@@ -35,6 +37,7 @@ LLMs can read Python. But:
 
 **Solution:** Structure Python so the first ~50 lines contain everything needed to understand and use the tool. Make your code's bouquet apparent from the opening notes.
 
+tags: [moollm]
 ---
 
 ## The Pattern
@@ -134,6 +137,7 @@ if __name__ == "__main__":
 | **CLI Structure** | 31-50 | Command tree with types and docs |
 | **Implementation** | 51+ | Only read if modifying |
 
+tags: [moollm]
 ---
 
 ## Why This Works
@@ -182,6 +186,7 @@ This single line defines:
 
 No duplication. No drift. One source.
 
+tags: [moollm]
 ---
 
 ## Why Syntax Compression Fails
@@ -207,6 +212,7 @@ You're not optimizing for token count. You're optimizing for **how well the LLM 
 
 Dense punctuation is anti-optimized for how transformers tokenize and reason. Verbose, well-structured code with semantic comments actually compresses better in the LLM's internal representations.
 
+tags: [moollm]
 ---
 
 ## Comments as YAML Jazz
@@ -226,6 +232,7 @@ BATCH_SIZE = 100    # memory-safe for 8GB instances
 
 These comments ARE data. The LLM reads them. Acts on them. Uses them to understand *why*, not just *what*.
 
+tags: [moollm]
 ---
 
 ## Comments: Substance Over Decoration
@@ -272,6 +279,7 @@ BATCH_SIZE = 100    # memory-safe for 8GB instances
 
 **The rule:** Every comment token should carry meaning. If it's just decoration, delete it.
 
+tags: [moollm]
 ---
 
 ## Argparse vs Click vs Typer
@@ -326,6 +334,7 @@ def _dispatch(args):
 
 **The LLM reads `main()` and sees the entire command tree** — arguments, types, choices, help text — without any implementation noise. Pure sniffability. No need to hold your nose.
 
+tags: [moollm]
 ---
 
 ## Integration with Sister Scripts
@@ -348,6 +357,7 @@ When the skill/SKILL.md instructs the LLM to generate a sister script, it should
 4. CLI structure before implementation
 5. Implementation below the fold
 
+tags: [moollm]
 ---
 
 ## The Play-Learn-Lift Connection
@@ -380,6 +390,7 @@ Sniffable Python is the **crystallization point of LIFT** — where proven proce
 
 **See:** [play-learn-lift/](../play-learn-lift/) — The full methodology
 
+tags: [moollm]
 ---
 
 ## The Skill-to-Script Flow
@@ -436,6 +447,7 @@ $ adventure scan --pending                # Find work to do
 
 Each of these is a sniffable subcommand. The LLM sniffs `adventure --help` (or just reads `main()`) and knows the full API.
 
+tags: [moollm]
 ---
 
 ## The Adventure Linter Feedback Loop
@@ -500,6 +512,7 @@ events:
 
 **This is Python for precision, LLM for poetry.**
 
+tags: [moollm]
 ---
 
 ## Live Examples in adventure-4
@@ -550,6 +563,7 @@ Objects: room-templates, npc-catalog, puzzle-designs
 
 The skill directory IS the room. The sister scripts are objects you can pick up and use. Sniffable Python makes those scripts discoverable.
 
+tags: [moollm]
 ---
 
 ## The Coherence Engine Flow
@@ -582,6 +596,7 @@ User: "Run the room builder for the kitchen"
 
 The LLM discovers the tool's capabilities by reading its structure, not by loading documentation. One quick sniff and it knows what's cooking.
 
+tags: [moollm]
 ---
 
 ## Checklist
@@ -599,6 +614,7 @@ When writing sniffable Python:
 - [ ] Internal functions prefixed with `_`
 - [ ] `if __name__ == "__main__":` at bottom
 
+tags: [moollm]
 ---
 
 ## Anti-Patterns (Code Smells You Can't Unsmell)
@@ -634,6 +650,7 @@ def foo():
     import json  # Hidden dependency
 ```
 
+tags: [moollm]
 ---
 
 ## Commands
@@ -675,6 +692,7 @@ Overall: Mostly fresh, minor reordering needed
 
 **Good for humans. Good for LLMs. Same conventions.**
 
+tags: [moollm]
 ---
 
 ## Protocol Symbol
@@ -685,6 +703,7 @@ SNIFFABLE-PYTHON
 
 Invoke when: Generating or reading Python scripts that need to be LLM-comprehensible.
 
+tags: [moollm]
 ---
 
 ## Dovetails With — The Intertwingularity
@@ -758,6 +777,7 @@ PLAY: Try new things with the tool...
 
 **This is the MOOLLM development loop.** Sniffable Python is the code interface that makes it work.
 
+tags: [moollm]
 ---
 
 ## Beyond Python: Universal Sniffability
@@ -791,6 +811,7 @@ function validateToken(token: string): boolean { ... }
 
 **Same smell test, any language:** Can you understand what this code offers by reading just the head?
 
+tags: [moollm]
 ---
 
 ## Lickable Pixels, Sniffable Code
@@ -815,6 +836,7 @@ Jobs didn't make Aqua pretty at the expense of function — the visual design *r
 
 *Perl looks like line noise. Sniffable Python looks like an invitation.*
 
+tags: [moollm]
 ---
 
 ## The Thesis
@@ -832,6 +854,7 @@ Dense syntax compresses the wrong thing. Sniffable code structures the right thi
 
 *Jobs made you want to lick the screen. We want you to sniff the source.*
 
+tags: [moollm]
 ---
 
 *"The LLM doesn't need fewer tokens of unfamiliar syntax. It needs familiar syntax, structured for fast comprehension."*

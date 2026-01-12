@@ -7,6 +7,7 @@ allowed-tools:
   - read_file
   - write_file
 related: [room, object, adventure, prototype]
+tags: [moollm]
 ---
 
 # Container
@@ -48,6 +49,7 @@ container:
 
 All rooms inside `maze/` automatically inherit these properties!
 
+tags: [moollm]
 ---
 
 ## Container vs Room vs Meta
@@ -71,6 +73,7 @@ All rooms inside `maze/` automatically inherit these properties!
 - Just declaring "this is a system directory"
 - No inheritance needed
 
+tags: [moollm]
 ---
 
 ## Inheritance Rules
@@ -122,6 +125,7 @@ room:
 
 Result: room-g has BOTH rules.
 
+tags: [moollm]
 ---
 
 ## Defaults vs Inherits
@@ -143,6 +147,7 @@ container:
       atmosphere: "damp and musty"
 ```
 
+tags: [moollm]
 ---
 
 ## Use Cases
@@ -209,6 +214,7 @@ container:
       fixable_with: "wrench"
 ```
 
+tags: [moollm]
 ---
 
 ## Resolution Order
@@ -233,6 +239,7 @@ ADVENTURE.yml (if it has defaults)
 skills/room/ROOM.yml.tmpl
 ```
 
+tags: [moollm]
 ---
 
 ## Linter Behavior
@@ -255,6 +262,7 @@ Containers suppress the "missing type declaration" warning:
 ✅ maze/ is a container (not a room)
 ```
 
+tags: [moollm]
 ---
 
 ## Related Patterns
@@ -264,6 +272,7 @@ Containers suppress the "missing type declaration" warning:
 - **Cascading** (CSS) — Styles flow from parent to child
 - **XML Namespaces** — Context flows through the tree
 
+tags: [moollm]
 ---
 
 ## Credits

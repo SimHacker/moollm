@@ -7,6 +7,7 @@ allowed-tools:
   - read_file
   - write_file
 related: [coherence-engine, multi-presence, simulation, adversarial-committee, soul-chat]
+tags: [moollm, optimization, latency, batching, efficiency]
 ---
 
 # Speed of Light

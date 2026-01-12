@@ -7,12 +7,14 @@ allowed-tools:
   - read_file
   - write_file
 related: [empathic-expressions, postel, yaml-jazz, skill]
+tags: [moollm]
 ---
 
 # Empathic Templates
 
 > *"Templates that understand what you mean, not just what you wrote."*
 
+tags: [moollm]
 ---
 
 ## What Is It?
@@ -22,6 +24,7 @@ related: [empathic-expressions, postel, yaml-jazz, skill]
 Traditional templates: `{{name}}` → replace with literal value
 Empathic templates: `{{name}}` → understand what name means in context, generate appropriate content
 
+tags: [moollm]
 ---
 
 ## The Difference
@@ -53,6 +56,7 @@ The LLM doesn't just substitute — it **interprets**:
 - `{{summarize_order_naturally}}` becomes prose, not data dump
 - `{{list_items_with_quantities}}` formats intelligently
 
+tags: [moollm]
 ---
 
 ## How It Works
@@ -110,6 +114,7 @@ turned into a newt himself than admit it.
 > Literally. Where did I put my staff?"
 ```
 
+tags: [moollm]
 ---
 
 ## Template Syntax
@@ -152,6 +157,7 @@ turned into a newt himself than admit it.
 
 The conditions use [Empathic Expressions](../empathic-expressions/) for flexible interpretation.
 
+tags: [moollm]
 ---
 
 ## Used For
@@ -216,6 +222,7 @@ room:
 {{suggest_continuation_hooks}}
 ```
 
+tags: [moollm]
 ---
 
 ## The Empathic Expression Connection
@@ -259,6 +266,7 @@ email: |
   Total spent: {{format_currency(monthly_total)}}
 ```
 
+tags: [moollm]
 ---
 
 ## Template Discovery Pattern
@@ -292,6 +300,7 @@ name: "{{character_name}}"
 
 LLM can sniff first 50 lines to understand what the template needs before reading the full file.
 
+tags: [moollm]
 ---
 
 ## Comment Intelligence
@@ -392,6 +401,7 @@ sims_traits:
 
 The LLM understands this distinction because it understands **intent**. Directive language instructs; explanatory language documents.
 
+tags: [moollm]
 ---
 
 ## Relationship to Self-Style Inheritance
@@ -408,6 +418,7 @@ The template defines **shape and intent**. The instance contains **specific valu
 
 But empathic templates go further: they generate **appropriate content**, not just fill slots.
 
+tags: [moollm]
 ---
 
 ## Examples
@@ -466,6 +477,7 @@ buff:
     candy-coated lightning bolt. WHEEEEE!*
 ```
 
+tags: [moollm]
 ---
 
 ## Templates as Schemas (CRITICAL!)
@@ -871,6 +883,7 @@ room:
 - ⚡ `created` missing → compute timestamp
 - ✅ `atmosphere` is natural language (ABSTRACT valid)
 
+tags: [moollm]
 ---
 
 ## Anti-Pattern: Dumb Templates
@@ -892,6 +905,7 @@ personality:
 
 Let the LLM add value. That's the whole point.
 
+tags: [moollm]
 ---
 
 ## Anti-Pattern: Repeating Defaults
@@ -913,6 +927,7 @@ working_set:
 
 Templates enable inheritance. Use it!
 
+tags: [moollm]
 ---
 
 ## Dovetails With
@@ -928,6 +943,7 @@ Templates enable inheritance. Use it!
 - [Sister-Script](../sister-script/) — Templates drive code generation
 - [Format-Design](../format-design/) — Templates ARE the schema
 
+tags: [moollm]
 ---
 
 ## Protocol Symbol

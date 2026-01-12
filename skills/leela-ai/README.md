@@ -141,16 +141,15 @@ edgebox:
       
   # Speed of light: many inferences per second
   throughput:
-    frames_per_second: 30
-    inferences_per_frame: 12
-    latency_ms: 33
+    mode: real-time
+    latency: low
 ```
 
 The edgebox IS a [room](../room/). It has location, contains objects, processes state.
 
 ### 3. PDA App
 
-Personal Data Assistant for field workers:
+Personal Data Assistant for field workers -- a third LLM layer on top of the symbolic/SQL layer:
 
 ```yaml
 pda_app:
@@ -159,21 +158,38 @@ pda_app:
     Not just alerts -- explanations.
     Not just data -- actionable knowledge.
     
-  features:
-    - live_video_annotation: "What is happening?"
-    - causal_explanation: "Why is it happening?"
-    - action_recommendation: "What should I do?"
-    - voice_interaction: "Ask questions naturally"
-    
+  # Three-layer architecture
+  layers:
+    1_neural: "Vision models detect, classify, track"
+    2_symbolic: "Actions, SQL queries, inference rules"
+    3_pda: "LLM interface -- neural yet symbolic"
+
+  # PDA capabilities (all via SQL layer)
+  pda_operations:
+    - generate: "Natural language → SQL query"
+    - perform: "Execute against temporal database"
+    - interpret: "Results → human meaning"
+    - explain: "Why this happened, what it means"
+    - visualize: "Charts, timelines, spatial maps"
+    - remember: "Query history, user preferences"
+
   # MOOLLM pattern: soul-chat with industrial objects
   interaction:
     user: "Why did the line stop?"
-    pda: |
+    pda_generates: |
+      SELECT event, timestamp, cause_chain 
+      FROM events 
+      WHERE zone = 'assembly_line_3' 
+      AND type = 'stoppage' 
+      ORDER BY timestamp DESC LIMIT 1
+    pda_explains: |
       Thermal sensor on Station 7 exceeded threshold.
       Root cause: bearing friction on motor M-7-3.
       Predicted time to failure: 2-4 hours.
       Recommended: Replace bearing during next break.
 ```
+
+The PDA is "kinda symbolic" -- it's an LLM, but it generates and interprets structured queries. Neural at the interface, symbolic in the protocol.
 
 Everything speaks. The factory floor IS a [soul-chat](../soul-chat/).
 

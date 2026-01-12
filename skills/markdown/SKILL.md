@@ -7,7 +7,7 @@ protocol: MARKDOWN
 allowed-tools:
   - read_file
   - write_file
-tags: [format, documentation, session-log, readme, plain-text]
+tags: [moollm, format, documentation, session-log, readme, plain-text]
 origin: "John Gruber — Markdown (2004)"
 lineage:
   - "John Gruber — Markdown (2004)"

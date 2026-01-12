@@ -7,6 +7,7 @@ allowed-tools:
   - read_file
   - write_file
 related: [room, character, simulation, adventure]
+tags: [moollm]
 ---
 
 # World Generation Skill

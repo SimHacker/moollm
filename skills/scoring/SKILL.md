@@ -7,6 +7,7 @@ allowed-tools:
   - read_file
   - write_file
 related: [reward, economy, probability, character, rubric, evaluator]
+tags: [moollm]
 ---
 
 # Scoring Skill

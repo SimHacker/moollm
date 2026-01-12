@@ -7,6 +7,7 @@ allowed-tools:
   - read_file
   - write_file
 related: [play-learn-lift, debugging, session-log, memory-palace, adversarial-committee, rubric]
+tags: [moollm]
 ---
 
 # Research Notebook
@@ -72,6 +73,7 @@ graph LR
     AP[⚔️ adventure] -->|evidence in| RN
 ```
 
+tags: [moollm]
 ---
 
 ## Dovetails With

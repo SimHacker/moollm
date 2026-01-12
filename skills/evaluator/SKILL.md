@@ -6,7 +6,7 @@ allowed-tools:
   - write_file
 tier: 1
 protocol: INDEPENDENT-EVALUATOR
-tags: [evaluation, adversarial, scoring, review]
+tags: [moollm, evaluation, adversarial, scoring, review]
 credits: "Mike Gallaher — independent evaluator pattern"
 related: [adversarial-committee, rubric, roberts-rules, room]
 ---

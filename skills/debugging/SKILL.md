@@ -31,6 +31,7 @@ outputs:
   - ROOT_CAUSE.md
 templates:
   - DEBUG.yml.tmpl
+tags: [moollm]
 ---
 
 # 🔧 Debugging Skill

@@ -5,6 +5,7 @@ license: MIT
 tier: 1
 allowed-tools: []
 related: [room, character, yaml-jazz]
+tags: [moollm]
 ---
 
 # Naming Skill

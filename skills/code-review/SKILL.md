@@ -6,7 +6,7 @@ allowed-tools:
   - run_terminal_cmd
 tier: 2
 protocol: CODE-REVIEW
-tags: [development, quality, review, security]
+tags: [moollm, development, quality, review, security]
 related: [adventure, debugging, research-notebook, session-log, rubric, evaluator]
 templates:
   - file: REVIEW.yml.tmpl

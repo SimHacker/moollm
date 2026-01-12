@@ -6,7 +6,7 @@ allowed-tools:
   - write_file
 tier: 1
 protocol: RUNTIME-CONTEXT
-tags: [runtime, context, closure, state, primitive]
+tags: [moollm, runtime, context, closure, state, primitive]
 related: [object, adventure, room, buff, simulation]
 adversary: global-state
 ---

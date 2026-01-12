@@ -1,3 +1,14 @@
+---
+name: manufacturing-intelligence
+description: "The slogan unpacked — seven readings of 'Manufacturing Intelligence'"
+license: MIT
+tier: 0
+allowed-tools: [read_file]
+protocol: MANUFACTURING-INTELLIGENCE
+tags: [moollm, meta, philosophy, slogan, k-line, ethics, constructionism, minsky]
+related: [leela-ai, constructionism, society-of-mind, schema-mechanism, representation-ethics]
+---
+
 # Manufacturing Intelligence Skill
 
 > *The philosophy behind the slogan.*

@@ -7,6 +7,7 @@ allowed-tools:
   - read_file
   - write_file
 related: [sister-script, research-notebook, session-log, adventure]
+tags: [moollm]
 ---
 
 # Play Learn Lift
@@ -18,6 +19,7 @@ The three-stage journey from curiosity to mastery to teaching. The core MOOLLM m
 > [!TIP]
 > **This IS the methodology.** Every other skill is an expression of `PLAY-LEARN-LIFT`. Start here.
 
+tags: [moollm]
 ---
 
 ## The Cycle
@@ -35,6 +37,7 @@ flowchart LR
 | **📚 LEARN** | Patterns emerge | Connections make sense, confidence builds naturally, "I noticed..." |
 | **🚀 LIFT** | Help others play | Teaching solidifies learning, sharing multiplies impact |
 
+tags: [moollm]
 ---
 
 ## Why This Matters
@@ -49,6 +52,7 @@ PLAY-LEARN-LIFT inverts it:
 - ✅ **Share while learning**, teaching accelerates mastery
 - ✅ **Mistakes are features**, not bugs
 
+tags: [moollm]
 ---
 
 ## Philosophy
@@ -66,6 +70,7 @@ PLAY-LEARN-LIFT inverts it:
 
 You can't break MOOLLM. Files are inspectable. State is recoverable. Experiments are encouraged.
 
+tags: [moollm]
 ---
 
 ## Each Stage in Detail
@@ -106,6 +111,7 @@ You can't break MOOLLM. Files are inspectable. State is recoverable. Experiments
 
 **Share the journey**: The path matters, not just the destination.
 
+tags: [moollm]
 ---
 
 ## The Cycle Continues
@@ -124,6 +130,7 @@ The pun is deliberate: **jazz** is free exploration (PLAY), and **standards** ar
 - Helping others sparks new questions
 - The cycle accelerates with practice
 
+tags: [moollm]
 ---
 
 ## In Practice
@@ -140,6 +147,7 @@ The pun is deliberate: **jazz** is free exploration (PLAY), and **standards** ar
 2. **LEARN**: Compare notes, synthesize insights
 3. **LIFT**: Write shared docs, teach newcomers
 
+tags: [moollm]
 ---
 
 ## Related Skills
@@ -151,6 +159,7 @@ The pun is deliberate: **jazz** is free exploration (PLAY), and **standards** ar
 | [session-log/](../session-log/) | PLAY stage: append-only exploration |
 | [summarize/](../summarize/) | LEARN → LIFT: distill insights |
 
+tags: [moollm]
 ---
 
 ## Contents
@@ -161,6 +170,7 @@ The pun is deliberate: **jazz** is free exploration (PLAY), and **standards** ar
 | [CYCLE.yml.tmpl](./CYCLE.yml.tmpl) | Cycle template |
 | [PLAY_LOG.md.tmpl](./PLAY_LOG.md.tmpl) | Play log template |
 
+tags: [moollm]
 ---
 
 ## Protocol Symbol
@@ -177,6 +187,7 @@ PLAY-LEARN-LIFT:
 
 See: [PROTOCOLS.yml#PLAY-LEARN-LIFT](../../PROTOCOLS.yml)
 
+tags: [moollm]
 ---
 
 ## The Intertwingularity
@@ -195,6 +206,7 @@ graph TD
     TC[🎴 card] -->|created via| LIFT
 ```
 
+tags: [moollm]
 ---
 
 ## Navigation
@@ -208,6 +220,7 @@ graph TD
 | 📜 Sister | [session-log/](../session-log/) |
 | 📋 Symbols | [PROTOCOLS.yml](../../PROTOCOLS.yml) |
 
+tags: [moollm]
 ---
 
 *Start playing. The rest follows.*

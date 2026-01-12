@@ -8,7 +8,7 @@ allowed-tools:
   - write_file
   - list_dir
 protocol: BARTENDER
-tags: [role, service, social, hospitality]
+tags: [moollm, role, service, social, hospitality]
 related: [character, persona, room, economy, needs]
 ---
 

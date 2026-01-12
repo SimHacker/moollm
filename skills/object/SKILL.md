@@ -6,7 +6,7 @@ allowed-tools:
   - write_file
 tier: 1
 protocol: SIMANTICS
-tags: [object, interaction, game, sims]
+tags: [moollm, object, interaction, game, sims]
 related: [room, advertisement, inventory, buff]
 adversary: abstraction
 ---

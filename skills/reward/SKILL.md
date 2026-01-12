@@ -7,6 +7,7 @@ allowed-tools:
   - read_file
   - write_file
 related: [scoring, economy, buff, adventure]
+tags: [moollm]
 ---
 
 # Reward Skill

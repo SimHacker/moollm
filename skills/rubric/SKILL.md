@@ -6,7 +6,7 @@ allowed-tools:
   - write_file
 tier: 1
 protocol: RUBRIC
-tags: [scoring, criteria, evaluation, decision]
+tags: [moollm, scoring, criteria, evaluation, decision]
 credits: "Mike Gallaher — RUBRIC-bridge methodology"
 related: [adversarial-committee, evaluator, scoring, advertisement]
 templates:

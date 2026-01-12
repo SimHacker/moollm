@@ -41,6 +41,7 @@ working_set:
   hot: [ENTRY.md, MAP.yml]
   warm: ["*/ROOM.md"]
   cold: ["attic/**"]
+tags: [moollm]
 ---
 
 # 🏛️ Memory Palace Skill

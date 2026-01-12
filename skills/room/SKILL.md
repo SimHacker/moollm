@@ -7,6 +7,7 @@ allowed-tools:
   - read_file
   - write_file
 related: [card, adventure, memory-palace, character, world-generation, data-flow, naming]
+tags: [moollm, navigation, space, directory, moo, adventure]
 ---
 
 # Room

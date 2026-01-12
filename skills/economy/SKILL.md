@@ -24,6 +24,7 @@ inputs:
 outputs:
   - character inventory update
   - transaction log
+tags: [moollm]
 ---
 
 # 💰 Economy Skill

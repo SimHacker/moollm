@@ -7,6 +7,7 @@ allowed-tools:
   - read_file
   - write_file
 related: [yaml-jazz, robust-first, self-repair]
+tags: [moollm]
 ---
 
 # POSTEL — The Robustness Principle
@@ -14,6 +15,7 @@ related: [yaml-jazz, robust-first, self-repair]
 > *"Be conservative in what you send, liberal in what you accept."*
 > — Jon Postel, RFC 761 (1980)
 
+tags: [moollm]
 ---
 
 ## What Is It?
@@ -33,6 +35,7 @@ Instead of failing, **find the best possible interpretation** that:
 - Charitable Interpretation
 - Be liberal in what you accept
 
+tags: [moollm]
 ---
 
 ## The Protocol
@@ -47,6 +50,7 @@ When faced with ambiguity:
 5. REPORT uncertainty — flag what you assumed
 ```
 
+tags: [moollm]
 ---
 
 ## Examples
@@ -96,6 +100,7 @@ Alternative interpretations:
 Which approach fits your needs?
 ```
 
+tags: [moollm]
 ---
 
 ## Core Principles
@@ -123,6 +128,7 @@ Always **show your work**:
 - Offer alternatives
 - Flag uncertainty
 
+tags: [moollm]
 ---
 
 ## When to Invoke
@@ -134,6 +140,7 @@ Use POSTEL when:
 - Errors could be typos
 - Context suggests different intent than literal reading
 
+tags: [moollm]
 ---
 
 ## Anti-Patterns
@@ -143,6 +150,7 @@ Use POSTEL when:
 ❌ **Overcorrection** — Changing user intent to match your preferences  
 ❌ **Analysis paralysis** — Asking 20 clarifying questions instead of proposing
 
+tags: [moollm]
 ---
 
 ## Jon Postel (1943-1998)
@@ -151,6 +159,7 @@ Jon Postel was one of the founding architects of the Internet. He edited the RFC
 
 His "robustness principle" has guided protocol design for decades — and guides MOOLLM's approach to human-AI interaction.
 
+tags: [moollm]
 ---
 
 ## Dovetails With
@@ -163,6 +172,7 @@ His "robustness principle" has guided protocol design for decades — and guides
 ### Kernel
 - [kernel/constitution-core.md](../../kernel/constitution-core.md) — Section 5: The Robustness Principle
 
+tags: [moollm]
 ---
 
 ## Protocol Symbol

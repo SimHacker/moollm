@@ -15,6 +15,7 @@ templates:
     purpose: Position/side definition
   - file: TRANSCRIPT.md.tmpl
     purpose: Debate record with arguments
+tags: [moollm]
 ---
 
 # Debate
@@ -23,6 +24,7 @@ templates:
 
 Structured deliberation that forces genuine exploration through adversarial dialogue.
 
+tags: [moollm]
 ---
 
 ## Why Debate?
@@ -36,6 +38,7 @@ Traditional LLM chat gives you **the statistical center** — the most likely an
 
 **Debate fixes this** by simulating multiple perspectives that must defend their positions against cross-examination.
 
+tags: [moollm]
 ---
 
 ## The Debate Card
@@ -140,6 +143,7 @@ card:
       score: 70
 ```
 
+tags: [moollm]
 ---
 
 ## Debate Session State
@@ -204,6 +208,7 @@ debate:
   verdict: null
 ```
 
+tags: [moollm]
 ---
 
 ## Debate Flow
@@ -241,6 +246,7 @@ debate:
 └─────────────────────────────────────────────────────────────┘
 ```
 
+tags: [moollm]
 ---
 
 ## Commands
@@ -279,6 +285,7 @@ debate:
 | `CONCEDE [point]` | Acknowledge opponent's point |
 | `CONCLUDE` | End debate, generate verdict |
 
+tags: [moollm]
 ---
 
 ## Side Definition
@@ -322,6 +329,7 @@ side:
       rebuttals_received: []
 ```
 
+tags: [moollm]
 ---
 
 ## Transcript Format
@@ -333,6 +341,7 @@ side:
 **Moderator:** Roberts-Rules-Bot
 **Rounds:** 3
 
+tags: [moollm]
 ---
 
 ## Opening Statements
@@ -358,6 +367,7 @@ side:
 > team boundaries without network calls. We can always extract
 > services later when we have evidence they're needed.
 
+tags: [moollm]
 ---
 
 ## Round 1: Arguments
@@ -389,6 +399,7 @@ side:
 > coordination. Now every service call can fail. Your "1 day
 > deploys" will be offset by distributed debugging.
 
+tags: [moollm]
 ---
 
 ## Verdict
@@ -418,6 +429,7 @@ evaluation:
 **Final Verdict:** Modular monolith (pragmatic position)
 ```
 
+tags: [moollm]
 ---
 
 ## Integration with Other Skills
@@ -478,6 +490,7 @@ speed_of_light:
   llm_calls: 1
 ```
 
+tags: [moollm]
 ---
 
 ## Protocol Symbols
@@ -491,6 +504,7 @@ speed_of_light:
 | `VERDICT` | Final decision |
 | `ADVERSARIAL-COMMITTEE` | The underlying pattern |
 
+tags: [moollm]
 ---
 
 ## Dovetails With
@@ -505,6 +519,7 @@ speed_of_light:
 - **[../persona/](../persona/)** — Advocate personalities
 - **[../../designs/mike-gallaher-ideas.md](../../designs/mike-gallaher-ideas.md)** — Original methodology
 
+tags: [moollm]
 ---
 
 *"The map is not the territory. The story is not the reality. But the ensemble of stories, cross-examined, might just be useful."*

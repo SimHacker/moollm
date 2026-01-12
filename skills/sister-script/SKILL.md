@@ -8,6 +8,7 @@ allowed-tools:
   - write_file
   - run_terminal_cmd
 related: [sniffable-python, play-learn-lift, plan-then-execute, adventure, yaml-jazz]
+tags: [moollm]
 ---
 
 # Sister Script
@@ -61,6 +62,7 @@ graph LR
     SL[📜 session-log] -->|source for| SS
 ```
 
+tags: [moollm]
 ---
 
 ## Sniffable Python: The Structure
@@ -92,6 +94,7 @@ def main():
 - Single source of truth for documentation
 - One sniff and you smell success
 
+tags: [moollm]
 ---
 
 ## Dovetails With

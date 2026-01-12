@@ -12,6 +12,7 @@ credits:
   - "Seymour Papert — Constructionism"
   - "Marvin Minsky — K-lines, Society of Mind"
   - "Anthropic — Skills model foundation"
+tags: [moollm]
 ---
 
 # SKILL
@@ -20,6 +21,7 @@ credits:
 
 The meta-protocol: how skills work, how they evolve, how they compose, and how MOOLLM advances the state of the art.
 
+tags: [moollm]
 ---
 
 ## Foundation: What We Share with Anthropic
@@ -36,6 +38,7 @@ MOOLLM skills build on Anthropic's excellent Skills model foundation:
 
 **The foundation is sound.** What MOOLLM adds is **instantiation, inheritance, K-lines, empathic templates, and proven speed-of-light simulation**.
 
+tags: [moollm]
 ---
 
 ## MOOLLM's Unique Contributions
@@ -69,6 +72,7 @@ examples/adventure-4/
 
 See: [delegation-object-protocol.md](./delegation-object-protocol.md)
 
+tags: [moollm]
 ---
 
 ### 2. Cards: Playable Capability Bundles
@@ -101,6 +105,7 @@ advertisements:
 - Can be played, stacked, combined
 - Machine-readable for orchestration
 
+tags: [moollm]
 ---
 
 ### 3. K-lines: Names as Activation Vectors
@@ -128,6 +133,7 @@ When you invoke a skill by name, you activate its **entire knowledge context**:
 - Related concepts automatically available
 - The LLM's associative memory works FOR us
 
+tags: [moollm]
 ---
 
 ### 4. Empathic Templates: Smart Instantiation
@@ -161,6 +167,7 @@ description: |
 
 See: [../empathic-templates/](../empathic-templates/)
 
+tags: [moollm]
 ---
 
 ### 5. Three-Tier State Persistence
@@ -191,6 +198,7 @@ patterns_found:
 - State files are mutable (world state)
 - Efficient context management
 
+tags: [moollm]
 ---
 
 ### 6. Speed of Light: PROVEN Multi-Agent Simulation
@@ -223,6 +231,7 @@ This isn't theoretical. **We've demonstrated it:**
 
 See: [../speed-of-light/](../speed-of-light/)
 
+tags: [moollm]
 ---
 
 ### 7. Skills as Rooms, Characters, and Objects
@@ -274,6 +283,7 @@ card:
     portable: true
 ```
 
+tags: [moollm]
 ---
 
 ### 8. Codebase as Navigable World
@@ -298,6 +308,7 @@ Modern IDEs like Cursor can mount multiple repositories. Each codebase becomes a
 - [room/](../room/) — Directories as rooms, files as objects with chambers
 - [character/](../character/) — Code locations, party-based review
 
+tags: [moollm]
 ---
 
 ## The Play-Learn-Lift Cycle
@@ -331,6 +342,7 @@ This is **Programming by Demonstration** made systematic.
 
 See: [../play-learn-lift/](../play-learn-lift/)
 
+tags: [moollm]
 ---
 
 ## Skill Anatomy (Required Structure)
@@ -365,6 +377,7 @@ Anthropic recommends against `README.md` in skills. We respectfully disagree:
 
 **Keep both.** README is for discovery, SKILL.md is for execution.
 
+tags: [moollm]
 ---
 
 ## Flat-to-Structured Growth
@@ -472,6 +485,7 @@ character:
 
 **Rule:** Top-level `SKILL.md` references ALL files, regardless of nesting. No hierarchical hunting.
 
+tags: [moollm]
 ---
 
 ## Front-Matter Sniffing
@@ -480,12 +494,14 @@ LLMs can efficiently understand skills by reading the first ~50 lines:
 
 ```yaml
 # === SKILL HEADER (lines 1-15) ===
+tags: [moollm]
 ---
 name: my-skill
 description: "One-line summary"
 tier: 1
 allowed-tools: [read_file, write_file]
 related: [room, card, character]
+tags: [moollm]
 ---
 
 # === PURPOSE (lines 16-25) ===
@@ -509,6 +525,7 @@ Brief explanation...
 - File map shows what's available
 - 50 lines = context-efficient discovery
 
+tags: [moollm]
 ---
 
 ## Python Scripts: Dual-Audience Structure
@@ -555,6 +572,7 @@ def examine(target: str):
 
 **DRY:** Command structure written once as code. No duplicate documentation.
 
+tags: [moollm]
 ---
 
 ## Instantiation Modes
@@ -570,6 +588,7 @@ Skills don't always need full instantiation:
 
 **Start light, instantiate when needed.**
 
+tags: [moollm]
 ---
 
 ## Skill Composition
@@ -596,6 +615,7 @@ skill:
 
 **Complex capabilities from simple building blocks.**
 
+tags: [moollm]
 ---
 
 ## Local Skill Emergence
@@ -618,6 +638,7 @@ learned_skills:
 
 **Characters carry learned skills.** Objects and NPCs can teach skills.
 
+tags: [moollm]
 ---
 
 ## Commands
@@ -630,6 +651,7 @@ learned_skills:
 | `LIFT-SKILL [name]` | Extract local skill to central |
 | `INSTANTIATE [skill] [location]` | Create instance from prototype |
 
+tags: [moollm]
 ---
 
 ## Protocol Symbols
@@ -642,6 +664,7 @@ learned_skills:
 | `PROTOTYPE` | Self-like inheritance |
 | `EMPATHIC-TEMPLATES` | Smart semantic instantiation |
 
+tags: [moollm]
 ---
 
 ## The Proof: What We've Demonstrated
@@ -667,6 +690,7 @@ This isn't theory. MOOLLM has demonstrated:
 
 **The architecture works. The results prove it.**
 
+tags: [moollm]
 ---
 
 ## Dovetails With
@@ -687,6 +711,7 @@ This isn't theory. MOOLLM has demonstrated:
 - **[delegation-object-protocol.md](./delegation-object-protocol.md)** — Self-like inheritance
 - **[skill-instantiation-protocol.md](./skill-instantiation-protocol.md)** — How skills become instances
 
+tags: [moollm]
 ---
 
 ## Summary: MOOLLM Advances the Art
@@ -706,6 +731,7 @@ This isn't theory. MOOLLM has demonstrated:
 
 **We stand on excellent foundations and warmly invite others to join us. We add instantiation, inheritance, empathy, triadic manifestation, and proven multi-agent simulation.**
 
+tags: [moollm]
 ---
 
 *"Start with jazz, end with standards. But never stop playing."*

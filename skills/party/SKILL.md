@@ -27,6 +27,7 @@ related:
   - needs
   - room
   - buff
+tags: [moollm]
 ---
 
 # Party Skill

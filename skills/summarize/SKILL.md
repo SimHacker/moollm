@@ -7,6 +7,7 @@ allowed-tools:
   - read_file
   - write_file
 related: [honest-forget, session-log, memory-palace]
+tags: [moollm]
 ---
 
 # Summarize
@@ -64,6 +65,7 @@ graph LR
     SR[🔧 self-repair] -->|triggers| SUM
 ```
 
+tags: [moollm]
 ---
 
 ## Dovetails With

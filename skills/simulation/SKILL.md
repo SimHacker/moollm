@@ -7,6 +7,7 @@ allowed-tools:
   - read_file
   - write_file
 related: [time, party, character, buff, world-generation, adventure, adversarial-committee, speed-of-light]
+tags: [moollm]
 ---
 
 # Simulation Skill

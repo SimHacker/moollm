@@ -18,6 +18,7 @@ inputs:
 outputs:
   - hero-story card
   - optional familiar card
+tags: [moollm]
 ---
 
 # 🦸 Hero-Story Skill

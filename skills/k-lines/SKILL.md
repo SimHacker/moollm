@@ -7,6 +7,7 @@ allowed-tools:
   - read_file
   - write_file
 related: [yaml-jazz, skill, coherence-engine]
+tags: [moollm, k-lines, minsky, memory, activation, society-of-mind]
 ---
 
 # PROTOCOL

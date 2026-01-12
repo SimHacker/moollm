@@ -4,7 +4,7 @@ description: Educational philosophy — learn by building inspectable things
 allowed-tools: []
 tier: 0
 protocol: CONSTRUCTIONISM
-tags: [philosophy, education, papert, microworld]
+tags: [moollm, philosophy, education, papert, microworld]
 origin: "Seymour Papert — Logo, Mindstorms (1980)"
 lineage:
   - "Seymour Papert — Constructionism, Logo, Mindstorms (1980)"

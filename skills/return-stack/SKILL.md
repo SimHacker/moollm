@@ -7,18 +7,21 @@ allowed-tools:
   - read_file
   - write_file
 related: [room, action-queue, adventure]
+tags: [moollm]
 ---
 
 # Return Stack
 
 > *"Where you've been is where you can go back to."*
 
+tags: [moollm]
 ---
 
 ## What Is It?
 
 **Return Stack** treats navigation history as a first-class **continuation** — a stack of saved positions you can manipulate like browser history or a call stack.
 
+tags: [moollm]
 ---
 
 ## The Metaphor
@@ -31,6 +34,7 @@ related: [room, action-queue, adventure]
 | Push | Navigate | ENTER |
 | Pop | Back | BACK |
 
+tags: [moollm]
 ---
 
 ## Commands
@@ -46,6 +50,7 @@ related: [room, action-queue, adventure]
 | `STACK` | Show all open "tabs" (parallel stacks) |
 | `FORK` | Create new tab from current position |
 
+tags: [moollm]
 ---
 
 ## Example Session
@@ -77,6 +82,7 @@ Returning to workshop...
 Current: workshop (position 2)
 ```
 
+tags: [moollm]
 ---
 
 ## Bookmarks
@@ -97,6 +103,7 @@ Returning to workshop...
 [Stack cleared, at bookmark]
 ```
 
+tags: [moollm]
 ---
 
 ## Forking (Tabs)
@@ -121,6 +128,7 @@ Switching to Tab 1...
 [Now at workshop via tab 1]
 ```
 
+tags: [moollm]
 ---
 
 ## As Continuation
@@ -144,6 +152,7 @@ context: {reading: "old-records"}
 
 When you BACK, you don't just return to the room — you **restore the context** you had there.
 
+tags: [moollm]
 ---
 
 ## Portable Journey
@@ -164,6 +173,7 @@ You can:
 - **Replay** someone else's exploration
 - **Branch** from any point in their journey
 
+tags: [moollm]
 ---
 
 ## HyperCard Heritage
@@ -181,6 +191,7 @@ MOOLLM extends this:
 - Bookmarks as saved positions
 - FORK for parallel exploration
 
+tags: [moollm]
 ---
 
 ## Implementation
@@ -211,6 +222,7 @@ navigation:
   forward_stack: []  # After BACK, stores where you came from
 ```
 
+tags: [moollm]
 ---
 
 ## Dovetails With
@@ -221,6 +233,7 @@ navigation:
 - [Adventure](../adventure/) — Narrative exploration
 - [Session Log](../session-log/) — Records the journey
 
+tags: [moollm]
 ---
 
 ## Protocol Symbols

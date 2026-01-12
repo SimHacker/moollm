@@ -6,7 +6,7 @@ allowed-tools:
   - write_file
 tier: 1
 protocol: SCHEMA-MECHANISM
-tags: [quest, objective, narrative, game]
+tags: [moollm, quest, objective, narrative, game]
 related: [adventure, character, needs, hero-story]
 adversary: aimlessness
 ---

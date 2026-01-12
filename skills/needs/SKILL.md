@@ -26,6 +26,7 @@ related:
   - time
   - buff
   - room
+tags: [moollm, sims, motives, behavior, autonomy, game]
 ---
 
 # Needs Skill

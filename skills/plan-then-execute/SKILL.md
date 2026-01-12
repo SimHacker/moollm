@@ -7,6 +7,7 @@ allowed-tools:
   - read_file
   - write_file
 related: [planning, sister-script, session-log]
+tags: [moollm]
 ---
 
 # Plan Then Execute
@@ -64,6 +65,7 @@ graph LR
     SS[👯 sister-script] -->|produces| PTE
 ```
 
+tags: [moollm]
 ---
 
 ## Dovetails With

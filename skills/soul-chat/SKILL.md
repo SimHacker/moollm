@@ -7,6 +7,7 @@ allowed-tools:
   - read_file
   - write_file
 related: [character, room, yaml-jazz, adventure, adversarial-committee, speed-of-light]
+tags: [moollm]
 ---
 
 # Soul Chat
@@ -90,6 +91,7 @@ graph LR
     R -->|welcomes via| SC
 ```
 
+tags: [moollm]
 ---
 
 ## Dovetails With

@@ -6,7 +6,7 @@ allowed-tools:
   - write_file
 tier: 1
 protocol: CAT
-tags: [pet, companion, interaction, buff, terpene]
+tags: [moollm, pet, companion, interaction, buff, terpene]
 origin: "Tamagotchi, Harvest Moon, Stardew Valley, real cats"
 related: [character, buff, mind-mirror, room, adventure]
 ---

@@ -7,12 +7,14 @@ allowed-tools:
   - read_file
   - write_file
 related: [empathic-templates, postel, speed-of-light, yaml-jazz]
+tags: [moollm]
 ---
 
 # Empathic Expressions
 
 > *"Understand intent, generate correct code, teach gently."*
 
+tags: [moollm]
 ---
 
 ## What Is It?
@@ -21,6 +23,7 @@ related: [empathic-templates, postel, speed-of-light, yaml-jazz]
 
 The LLM isn't a syntax parser — it's an **intent interpreter**. It understands what you MEAN, generates what you NEED, and teaches you the correct form as a gift.
 
+tags: [moollm]
 ---
 
 ## The Philosophy
@@ -42,6 +45,7 @@ Teaching: "Here's how to write that properly"
 
 **This is what LLMs are great at.** Lean into it.
 
+tags: [moollm]
 ---
 
 ## The Empathic Suite
@@ -59,6 +63,7 @@ Empathic Expressions encompasses:
 
 All under one roof. One pipeline. Seamless transitions.
 
+tags: [moollm]
 ---
 
 ## Generous Interpretation
@@ -148,6 +153,7 @@ generous-interpretation-protocol:
 
 **Critical:** Never make unwarranted assumptions. When truly ambiguous, **ask for clarification**.
 
+tags: [moollm]
 ---
 
 ## Code-Switching Support
@@ -212,6 +218,7 @@ users.filter(u => u.active)  // JS filter
 
 Empathic Expressions handles these mashups gracefully.
 
+tags: [moollm]
 ---
 
 ## The LLM as Code Processor
@@ -280,6 +287,7 @@ I interpreted your request as:
 Here's the idiomatic way to write this query...
 ```
 
+tags: [moollm]
 ---
 
 ## Used Throughout MOOLLM
@@ -297,6 +305,7 @@ Empathic Expressions powers:
 
 The glue that makes everything expressive.
 
+tags: [moollm]
 ---
 
 ## Clarification Protocol
@@ -331,6 +340,7 @@ clarification-triggers:
     - Conflicting requirements
 ```
 
+tags: [moollm]
 ---
 
 ## Relationship to Other Skills
@@ -358,6 +368,7 @@ clarification-triggers:
 └─────────────────────────────────────────────────────┘
 ```
 
+tags: [moollm]
 ---
 
 ## Dovetails With
@@ -369,6 +380,7 @@ clarification-triggers:
 - [Buff](../buff/) — Trigger expressions for effects
 - [Advertisement](../advertisement/) — Condition expressions for capabilities
 
+tags: [moollm]
 ---
 
 ## Protocol Symbol
