@@ -820,5 +820,14 @@
 **`0a61eef`** Fix invalid YAML examples: remove duplicate keys, stray quote
 > Heisenberg split into before/after blocks. Velocity uses unique keys. Valid YAML. ✅
 
-**`(this)`** CHANGES.md: Document session polish commits
+**`e936eec`** CHANGES.md: Document session polish commits
 > Guard fixes, world naming, oracle architecture, YAML validation. The details matter. 📝
+
+---
+
+### Era 24: The Astrillogical Effect
+
+> *"They should call them Astrillogical Signs!"* -- Don Hopkins, 2017. Zero code, maximum perceived effect.
+
+**`(this)`** Add sims-astrology.md: The Astrillogical Effect
+> 1997: The Sims zodiac had zero behavioral code -- testers reported it was "too strong." 2026: LLM zodiac experiment rediscovers same phenomenon. K-lines explain both. One voice is the wrong number -- adversarial committees beat mode-collapse. Leary's MIND MIRROR meets gwern's critique. Deep links to Palm, Bartender, adventure-uplift. 🔮♐🎭

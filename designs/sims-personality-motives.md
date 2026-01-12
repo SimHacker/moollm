@@ -111,6 +111,12 @@ personality:
 | Leo | 4 | 10 | 4 | 4 | 3 |
 | ... | ... | ... | ... | ... | ... |
 
+### The Astrillogical Effect
+
+In The Sims, zodiac signs had **zero behavioral effect** — they were purely cosmetic, derived from personality via Euclidean distance to archetypal vectors. But testers reported bugs about zodiac influencing behavior "too much" — an effect entirely from their imagination!
+
+See [sims-astrology.md](./sims-astrology.md) for the full story, including the 2026 experiment that rediscovered this principle with LLM agents.
+
 **MOOLLM:** Astrological sign as flavor:
 
 ```yaml
@@ -123,7 +129,7 @@ astrological:
     Can be tactless in pursuit of truth.
 ```
 
-Not mechanically deterministic — just character flavor.
+Not mechanically deterministic — but the **K-line effect** means the name activates a cluster of associations in the LLM, just as it did in players' imaginations.
 
 ---
 
@@ -494,6 +500,7 @@ The character grows through play.
 
 ## See Also
 
+- [sims-astrology.md](./sims-astrology.md) — The Astrillogical Effect: zodiac as K-line
 - [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#4-k-lines--society-of-mind-marvin-minsky-mit-1980) — K-lines and identity
 - [skills/needs/](../skills/needs/) — Need modeling
 - [skills/mind-mirror/](../skills/mind-mirror/) — Personality visualization

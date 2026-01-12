@@ -58,6 +58,7 @@ moollm/
 | [sims-object-model.md](./sims-object-model.md) | Objects, properties → YAML files, CARD.yml |
 | [sims-social-system.md](./sims-social-system.md) | Relationships, groups → Guest book, party skill |
 | [sims-personality-motives.md](./sims-personality-motives.md) | Needs, traits → CHARACTER.yml, SIMS-TRAITS |
+| [sims-astrology.md](./sims-astrology.md) | **Astrillogical Effect** → K-lines, Simulator Effect, implication over simulation |
 | [sims-room-spatial.md](./sims-room-spatial.md) | Rooms, routing → ROOM.yml, exits |
 | [sims-time-events.md](./sims-time-events.md) | Time, disasters → Speed of Light, economy |
 | [sims-edith-editor.md](./sims-edith-editor.md) | Live debugging → Files as inspectable state |

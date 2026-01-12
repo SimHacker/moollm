@@ -25,6 +25,7 @@ MOOLLM inherits these solutions, translated for the LLM era.
 | [sims-maxis-requirements.md](./sims-maxis-requirements.md) | Seven Points of Sim | Core design principles |
 | [sims-happy-friends-home.md](./sims-happy-friends-home.md) | Project X proposal | Three Pillars, plug-ins |
 | [sims-find-best-action.md](./sims-find-best-action.md) | Autonomy algorithm | Action queue, advertisements |
+| [sims-astrology.md](./sims-astrology.md) | Astrillogical Signs discovery | K-lines, Simulator Effect, implication over simulation |
 
 ### System-Specific Documents
 
@@ -113,6 +114,7 @@ MOOLLM inherits these solutions, translated for the LLM era.
 | **Same-sex relationships** | No identity constraints |
 | **Masking (McCloud)** | Abstract characters, rich world |
 | **Simulator Effect** | Player imagination completes simulation |
+| **Astrillogical Effect** | Perceived effect exceeds computed effect (zodiac = K-line) |
 | **Constructionism** | Play → Learn → Lift |
 | **Procedural rhetoric** | Values encoded in mechanics |
 | **Fan Simulation** | Ethical character representation |
