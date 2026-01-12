@@ -110,18 +110,35 @@ team:
     k-lines: ["sims", "news", "pie-menus", "moollm"]
     note: "The Sims, NeWS, MOOLLM architect"
 
-# Technology stack
+# Technology stack -- three layers
 technology:
-  vision:
-    neural_layer:
-      - object_detection
-      - pose_estimation
-      - motion_tracking
-    symbolic_layer:
-      - context_inference
-      - causal_reasoning
-      - prediction
-      - explanation
+  layers:
+    1_neural:
+      purpose: perception
+      capabilities:
+        - object_detection
+        - pose_estimation
+        - motion_tracking
+        
+    2_symbolic:
+      purpose: reasoning
+      capabilities:
+        - context_inference
+        - causal_reasoning
+        - sql_queries_over_events
+        - prediction
+        - explanation
+        
+    3_pda:
+      purpose: natural language interface
+      note: "LLM layer -- neural at surface, symbolic in protocol"
+      capabilities:
+        - generate: "natural language → SQL"
+        - perform: "execute queries"
+        - interpret: "results → meaning"
+        - explain: "causation in plain language"
+        - visualize: "charts, timelines, maps"
+        - remember: "query history, preferences"
       
   edge:
     platform: industrial compute boxes

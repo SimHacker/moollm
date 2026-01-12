@@ -7,7 +7,7 @@ protocol: PLAIN-TEXT
 allowed-tools:
   - read_file
   - write_file
-tags: [philosophy, format, durability, git, llm]
+tags: [moollm, philosophy, format, durability, git, llm]
 origin: "Unix Philosophy — 'Text is the universal interface'"
 lineage:
   - "Unix Philosophy — Text streams, pipes"

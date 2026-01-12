@@ -5,7 +5,7 @@ license: MIT
 tier: 0
 allowed-tools: [read_file, list_dir]
 protocol: MOOLLM-HELP
-tags: [meta, help, philosophy, navigation, foundational]
+tags: [moollm, meta, help, philosophy, navigation, foundational]
 related: [skill, protocol, play-learn-lift, constitution]
 ---
 

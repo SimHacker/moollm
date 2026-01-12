@@ -841,5 +841,8 @@
 **`36509b6`** Add full Leela AI team to skills
 > Henry Minsky (CTO), Cyrus Shaoul (Chief Evangelist), Milan Singh Minsky (VP Product), Sheung Li (VP Applications), Steve Kommrusch (Senior AI Research). Plus Don Hopkins. Society of Mind runs in the company too. 👥🏭🧠
 
-**`(this)`** Add SKILL.md front matter, remove FPS claims
+**`7d25b37`** Add SKILL.md front matter, remove FPS claims
 > Six SKILL.md files now have proper YAML front matter (leela-ai, manufacturing-intelligence, society-of-mind, simulator-effect, incarnation, logistic-container). Removed specific FPS claims from Leela examples -- no promises we can't keep. 📋✅
+
+**`(this)`** Add moollm tag to all skills, document PDA three-layer architecture
+> Every SKILL.md now tagged with moollm -- 37 files branded. Leela's PDA documented as third LLM layer atop symbolic SQL: generate, perform, interpret, explain, visualize, remember. Neural at the surface, symbolic in the protocol. 🏷️🏭

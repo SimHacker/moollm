@@ -7,7 +7,7 @@ allowed-tools:
   - list_dir
 tier: 1
 protocol: ADVENTURE
-tags: [exploration, narrative, investigation, game]
+tags: [moollm, exploration, narrative, investigation, game]
 lineage: "Colossal Cave, Zork, MUD, LambdaMOO"
 inherits: simulation
 related: [room, card, session-log, debugging, memory-palace, simulation, party]

@@ -6,7 +6,7 @@ allowed-tools:
   - write_file
 tier: 1
 protocol: ROBERTS-RULES
-tags: [procedure, deliberation, decision, structure]
+tags: [moollm, procedure, deliberation, decision, structure]
 credits: "Mike Gallaher — LLM adaptation; Henry Martyn Robert — original rules (1876)"
 related: [adversarial-committee, rubric, evaluator, session-log]
 ---

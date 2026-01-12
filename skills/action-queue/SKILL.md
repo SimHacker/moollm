@@ -7,7 +7,7 @@ allowed-tools:
   - list_dir
 tier: 1
 protocol: ACTION-QUEUE
-tags: [planning, tasks, essential, game]
+tags: [moollm, planning, tasks, essential, game]
 related: [return-stack, advertisement, room]
 ---
 

@@ -5,7 +5,7 @@ license: MIT
 tier: 0
 allowed-tools: [read_file]
 protocol: SIMULATOR-EFFECT
-tags: [meta, philosophy, sims, design, k-lines]
+tags: [moollm, meta, philosophy, sims, design, k-lines]
 related: [k-lines, yaml-jazz, adversarial-committee, constructionism]
 ---
 

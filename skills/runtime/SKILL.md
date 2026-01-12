@@ -6,7 +6,7 @@ allowed-tools:
   - write_file
 tier: 1
 protocol: DUAL-RUNTIME
-tags: [runtime, python, javascript, compilation, sync]
+tags: [moollm, runtime, python, javascript, compilation, sync]
 related: [context, adventure, object, expression]
 adversary: single-target
 ---

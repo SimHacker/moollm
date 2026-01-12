@@ -6,7 +6,7 @@ allowed-tools:
   - write_file
 tier: 1
 protocol: BUFF-AS-MODIFIER
-tags: [effects, curses, stats, game]
+tags: [moollm, effects, curses, stats, game]
 related: [character, time, needs, persona, cat]
 ---
 

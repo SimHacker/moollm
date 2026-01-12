@@ -5,7 +5,7 @@ license: MIT
 tier: 0
 allowed-tools: [read_file, list_dir]
 protocol: SOCIETY-OF-MIND
-tags: [meta, philosophy, minsky, emergence, agents, k-lines]
+tags: [moollm, meta, philosophy, minsky, emergence, agents, k-lines]
 related: [k-lines, adversarial-committee, multi-presence, needs, character, simulator-effect]
 ---
 

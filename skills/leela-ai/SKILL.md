@@ -5,7 +5,7 @@ license: MIT
 tier: 0
 allowed-tools: [read_file, list_dir]
 protocol: LEELA-AI
-tags: [meta, company, manufacturing, industrial, neural-symbolic, drescher]
+tags: [moollm, meta, company, manufacturing, industrial, neural-symbolic, drescher]
 related: [moollm, society-of-mind, schema-mechanism, k-lines, constructionism, manufacturing-intelligence]
 ---
 
@@ -33,11 +33,20 @@ neural_symbolic:
   layer_2: symbolic
     - context inference (what situation is this?)
     - causal reasoning (why is this happening?)
+    - SQL queries over temporal event database
     - prediction (what will happen next?)
     - explanation (human-readable "why")
+    
+  layer_3: pda  # LLM interface layer
+    - generate: natural language → SQL
+    - perform: execute queries
+    - interpret: results → meaning
+    - explain: causation in plain language
+    - visualize: charts, timelines, maps
+    - remember: query history, preferences
 ```
 
-The neural layer provides perception. The symbolic layer provides understanding.
+The neural layer provides perception. The symbolic layer provides reasoning. The PDA layer provides natural language interface -- neural at the surface, symbolic in the protocol.
 
 ### Schema Mechanism (Drescher)
 

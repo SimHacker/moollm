@@ -7,7 +7,7 @@ allowed-tools:
   - list_dir
 tier: 1
 protocol: TRADING-CARD
-tags: [gamification, capabilities, lloooomm, actor]
+tags: [moollm, gamification, capabilities, lloooomm, actor]
 related: [room, soul-chat, adventure, delegation-object-protocol, return-stack, visualizer, data-flow, adversarial-committee]
 templates:
   - file: CARD.yml.tmpl

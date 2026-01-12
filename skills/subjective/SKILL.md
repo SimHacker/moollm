@@ -6,7 +6,7 @@ allowed-tools:
   - write_file
 tier: 1
 protocol: SUBJECTIVE-ORIENTED
-tags: [programming, perspective, first-person, context]
+tags: [moollm, programming, perspective, first-person, context]
 related: [context, runtime, object, character]
 adversary: third-person-coupling
 ---

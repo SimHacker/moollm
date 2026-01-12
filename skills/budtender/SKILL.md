@@ -8,7 +8,7 @@ allowed-tools:
   - write_file
   - list_dir
 protocol: BUDTENDER
-tags: [role, service, cannabis, hospitality]
+tags: [moollm, role, service, cannabis, hospitality]
 related: [bartender, character, persona, needs]
 inherits: bartender
 ---

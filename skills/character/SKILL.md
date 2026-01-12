@@ -6,7 +6,7 @@ allowed-tools:
   - write_file
 tier: 1
 protocol: CHARACTER-AS-ENTITY
-tags: [entity, location, relationships, inventory]
+tags: [moollm, entity, location, relationships, inventory]
 related: [persona, room, cat, buff, needs, mind-mirror]
 ---
 

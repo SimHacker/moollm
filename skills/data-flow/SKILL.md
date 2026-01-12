@@ -7,7 +7,7 @@ allowed-tools:
   - run_terminal_cmd
 tier: 2
 protocol: DATA-FLOW
-tags: [pipeline, processing, kilroy, messaging]
+tags: [moollm, pipeline, processing, kilroy, messaging]
 related: [room, card, sister-script, coherence-engine]
 ---
 

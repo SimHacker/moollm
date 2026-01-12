@@ -5,7 +5,7 @@ license: MIT
 tier: 2
 allowed-tools: [read_file, write_file]
 protocol: LOGISTIC-CONTAINER
-tags: [logistics, inventory, automation, factorio, containers]
+tags: [moollm, logistics, inventory, automation, factorio, containers]
 related: [container, object, room, economy]
 ---
 

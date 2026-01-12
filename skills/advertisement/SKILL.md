@@ -7,7 +7,7 @@ allowed-tools:
   - list_dir
 tier: 1
 protocol: ADVERTISEMENT
-tags: [game, interaction, sims, behavior]
+tags: [moollm, game, interaction, sims, behavior]
 related: [room, action-queue, coherence-engine, rubric, scoring]
 ---
 

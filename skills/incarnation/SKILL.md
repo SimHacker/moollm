@@ -5,7 +5,7 @@ license: MIT
 tier: 1
 allowed-tools: [read_file, write_file, list_dir]
 protocol: INCARNATION
-tags: [character, autonomy, ethics, identity, creation]
+tags: [moollm, character, autonomy, ethics, identity, creation]
 related: [character, representation-ethics, hero-story, mind-mirror, persona, society-of-mind]
 ---
 

@@ -4,7 +4,7 @@ description: Drescher's computational theory of causal learning
 allowed-tools: []
 tier: 0
 protocol: SCHEMA-MECHANISM
-tags: [theory, learning, causality, drescher, minsky, neuro-symbolic]
+tags: [moollm, theory, learning, causality, drescher, minsky, neuro-symbolic]
 origin: "Gary Drescher — Made-Up Minds (1991)"
 lineage:
   - "Gary Drescher — Schema Mechanism, Made-Up Minds (1991)"

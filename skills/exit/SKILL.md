@@ -6,7 +6,7 @@ allowed-tools:
   - write_file
 tier: 1
 protocol: PIE-MENU-TOPOLOGY
-tags: [navigation, room, topology, pie-menu]
+tags: [moollm, navigation, room, topology, pie-menu]
 related: [room, adventure, memory-palace]
 adversary: dead-end
 ---

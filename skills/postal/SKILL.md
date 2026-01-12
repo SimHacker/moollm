@@ -6,7 +6,7 @@ allowed-tools:
   - write_file
 tier: 1
 protocol: POSTAL-SYSTEM
-tags: [mail, message, goals, rewards, attachments, phone, communication]
+tags: [moollm, mail, message, goals, rewards, attachments, phone, communication]
 related: [goal, character, object, room, storage, buff]
 adversary: instant-coupling
 ---

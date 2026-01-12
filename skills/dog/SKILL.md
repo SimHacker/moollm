@@ -6,7 +6,7 @@ allowed-tools:
   - write_file
 tier: 1
 protocol: DOG
-tags: [pet, companion, interaction, buff, loyalty, pack]
+tags: [moollm, pet, companion, interaction, buff, loyalty, pack]
 origin: "Nintendogs, Fable, Fallout 4 Dogmeat, Stardew Valley, real dogs"
 related: [character, buff, mind-mirror, room, adventure, cat]
 ---

@@ -7,7 +7,7 @@ allowed-tools:
   - read_file
   - list_dir
 protocol: BOOTSTRAP
-tags: [meta, orientation, warmup, foundational, connections]
+tags: [moollm, meta, orientation, warmup, foundational, connections]
 related: [moollm, constructionism, play-learn-lift, yaml-jazz, speed-of-light, coherence-engine]
 invoke_when: "Starting a new session, feeling lost, asking 'what am I?', warming up context"
 ---

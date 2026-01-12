@@ -5,7 +5,7 @@ license: MIT
 tier: 0
 allowed-tools: [read_file]
 protocol: MANUFACTURING-INTELLIGENCE
-tags: [meta, philosophy, slogan, k-line, ethics, constructionism, minsky]
+tags: [moollm, meta, philosophy, slogan, k-line, ethics, constructionism, minsky]
 related: [leela-ai, constructionism, society-of-mind, schema-mechanism, representation-ethics]
 ---
 

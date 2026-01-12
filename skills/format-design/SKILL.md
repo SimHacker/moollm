@@ -7,7 +7,7 @@ protocol: FORMAT-DESIGN
 allowed-tools:
   - read_file
   - write_file
-tags: [philosophy, design, standards, worse-is-better]
+tags: [moollm, philosophy, design, standards, worse-is-better]
 origin: "Anil Dash — 'How Markdown Took Over the World' (2025)"
 lineage:
   - "Richard Gabriel — 'Worse is Better' (1989)"
