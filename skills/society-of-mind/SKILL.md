@@ -1,3 +1,14 @@
+---
+name: society-of-mind
+description: "Intelligence emerges from many simple agents (Minsky)"
+license: MIT
+tier: 0
+allowed-tools: [read_file, list_dir]
+protocol: SOCIETY-OF-MIND
+tags: [meta, philosophy, minsky, emergence, agents, k-lines]
+related: [k-lines, adversarial-committee, multi-presence, needs, character, simulator-effect]
+---
+
 # Society of Mind Skill
 
 > *Simulate the mind as a society of agents.*

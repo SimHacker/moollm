@@ -1,3 +1,14 @@
+---
+name: leela-ai
+description: "Manufacturing Intelligence — Leela AI applies MOOLLM to industry"
+license: MIT
+tier: 0
+allowed-tools: [read_file, list_dir]
+protocol: LEELA-AI
+tags: [meta, company, manufacturing, industrial, neural-symbolic, drescher]
+related: [moollm, society-of-mind, schema-mechanism, k-lines, constructionism, manufacturing-intelligence]
+---
+
 # Leela AI Skill
 
 > *Manufacturing Intelligence -- from theory to industrial application.*

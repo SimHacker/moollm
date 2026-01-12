@@ -141,9 +141,8 @@ edgebox:
       
   # Speed of light: many inferences per second
   throughput:
-    frames_per_second: 30
-    inferences_per_frame: 12
-    latency_ms: 33
+    mode: real-time
+    latency: low
 ```
 
 The edgebox IS a [room](../room/). It has location, contains objects, processes state.

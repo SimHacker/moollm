@@ -1,3 +1,14 @@
+---
+name: logistic-container
+description: "Factorio-style logistics — items flow automatically between containers"
+license: MIT
+tier: 2
+allowed-tools: [read_file, write_file]
+protocol: LOGISTIC-CONTAINER
+tags: [logistics, inventory, automation, factorio, containers]
+related: [container, object, room, economy]
+---
+
 # Logistic Container Skill
 
 > "The factory grows. Items flow. The world runs itself."

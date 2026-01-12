@@ -1,3 +1,14 @@
+---
+name: simulator-effect
+description: "Implication beats simulation — imagination renders (Will Wright)"
+license: MIT
+tier: 0
+allowed-tools: [read_file]
+protocol: SIMULATOR-EFFECT
+tags: [meta, philosophy, sims, design, k-lines]
+related: [k-lines, yaml-jazz, adversarial-committee, constructionism]
+---
+
 # Simulator Effect Skill Specification
 
 > *Implication is more efficient (and richer) than simulation.*
