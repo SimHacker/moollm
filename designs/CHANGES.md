@@ -874,5 +874,5 @@
 
 > *Advisory files are archaeology, not commands.*
 
-**`5ef94ea`** Add MOOLLM manifest and advisory bootstrap templates
+**`c84fafb`** Add MOOLLM manifest and advisory bootstrap templates
 > Added MOOLLM.yml/MD to declare the microworld and driver; moved hot/working-set/cold to gitignored `.moollm/` with tracked templates under `skills/bootstrap/templates/`; bootstrap SETUP copies them; self-review clarifies platform-neutral guidance and K-line ads. Cursor stays advisory; files become documentation, not magic. 🧭📜🧊
