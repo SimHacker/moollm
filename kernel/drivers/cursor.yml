@@ -61,6 +61,8 @@ paths:
   cold_cache: ".moollm/cold.yml"
   summaries: ".moollm/summaries/"
   artifacts: ".moollm/artifacts/"
+  scratch: ".moollm/"
+  probe_file: ".moollm/bootstrap-probe.yml"
 
 # Map abstract operations to Cursor tools
 tools:
@@ -206,6 +208,13 @@ memory_management:
     
     The files become documentation rather than commands,
     but the mental model and debugging story remain the same.
+
+  scratchpad:
+    location: ".moollm/"
+    purpose: |
+      Gitignored scratch and probe area.
+      Place bootstrap-probe.yml, engine state, and transient artifacts here.
+      Keep .moollm/output.md and .moollm/session-log.md append-only by convention.
 
 # Cursor-specific features to leverage
 cursor_features:

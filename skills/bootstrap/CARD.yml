@@ -33,6 +33,7 @@ card:
       effects:
         - "Calls PROBE to gather environment info"
         - "Detects platform and loads appropriate driver"
+        - "Runs SETUP to initialize .moollm scratch from templates"
         - "Reads constitution-core.md"
         - "Reads PROTOCOLS.yml"
         - "Reads skills/INDEX.yml"
@@ -42,9 +43,25 @@ card:
       sequence:
         1: PROBE
         2: DETECT-DRIVER
-        3: WARM-CONTEXT
-        4: SELF-DESCRIBE
-        5: STARTUP  # New! Delegates to adventure or other mode
+        3: SETUP
+        4: WARM-CONTEXT
+        5: SELF-DESCRIBE
+        6: STARTUP  # Delegates to adventure or other mode
+        
+    SETUP:
+      description: "Initialize .moollm/ scratch directory from templates"
+      parameters: []
+      steps:
+        - "Ensure .moollm/ exists (gitignored scratch)."
+        - "Seed .moollm/output.md and .moollm/session-log.md from templates (or minimal headers)."
+        - "Copy skills/bootstrap/templates/working-set.yml -> .moollm/working-set.yml (editable)."
+        - "Copy skills/bootstrap/templates/hot.yml -> .moollm/hot.yml (editable)."
+        - "Optionally create .moollm/cold.yml for archaeology (advisory)."
+        - "Place bootstrap-probe.yml in .moollm/ when PROBE runs."
+      effects:
+        - "Consistent append-only logs in .moollm/"
+        - "Advisory hot/working-set files ready for Cursor"
+        - "Probe artifacts kept out of git"
         
     STARTUP:
       description: "Execute post-boot startup hook from startup.yml"

@@ -865,5 +865,14 @@
 
 > *antirez writes about AI. The internet responds. MOOLLM analyzes both.*
 
-**`(this)`** Add antirez AI hype analysis
+**`3be1adb`** Add antirez AI hype analysis
 > antirez (Redis creator) claims AI changed programming forever. HN explodes: 1227 comments, 1022 points. Skeptics: "70% rewrite after review." Optimists: "hours instead of weeks." The key insight: codebase entropy determines success. MOOLLM's K-lines, rooms, and rubrics are anti-entropy architecture. The debate validates the framework. 📊🔥💬
+
+---
+
+### Era 28: Advisory Bootstrap
+
+> *Advisory files are archaeology, not commands.*
+
+**`5ef94ea`** Add MOOLLM manifest and advisory bootstrap templates
+> Added MOOLLM.yml/MD to declare the microworld and driver; moved hot/working-set/cold to gitignored `.moollm/` with tracked templates under `skills/bootstrap/templates/`; bootstrap SETUP copies them; self-review clarifies platform-neutral guidance and K-line ads. Cursor stays advisory; files become documentation, not magic. 🧭📜🧊

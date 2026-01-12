@@ -1,0 +1,53 @@
+# MOOLLM repository manifest
+
+name: moollm
+type: microworld  # Not a skill; skill-like metadata for discovery
+world_id: moollm://moollm
+version: 0.1.0
+description: "MOOLLM-enabled microworld; skills and kernel drivers for Cursor/Claude."
+
+repo:
+  github: leela-ai/moollm
+  path: "."
+
+skills_dir: skills/
+adventure:
+  current: examples/adventure-4/ADVENTURE.yml
+
+driver:
+  primary: kernel/drivers/cursor.yml
+
+templates:
+  working_set: skills/bootstrap/templates/working-set.yml
+  hot: skills/bootstrap/templates/hot.yml
+  log_output: .moollm/output.md
+  log_session: .moollm/session-log.md
+
+context_files:
+  working_set: .moollm/working-set.yml
+  hot: .moollm/hot.yml
+  cold: .moollm/cold.yml
+  probe: .moollm/bootstrap-probe.yml
+
+indices:
+  skills: skills/INDEX.yml
+  protocols: PROTOCOLS.yml
+  constitution: kernel/constitution-core.md
+
+bootstrap:
+  card: skills/bootstrap/CARD.yml
+  skill: skills/bootstrap/SKILL.md
+  sequence:
+    - PROBE
+    - DETECT-DRIVER
+    - SETUP
+    - WARM-CONTEXT
+    - SELF-DESCRIBE
+    - STARTUP
+
+advertisements:
+  - SPEED-OF-LIGHT
+  - POSTEL
+  - YAML-JAZZ
+
+tags: [moollm, microworld, skill-repo]

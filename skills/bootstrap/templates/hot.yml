@@ -1,0 +1,12 @@
+# MOOLLM hot list (advisory for Cursor) — see kernel/drivers/cursor.yml for behavior
+priority:
+  critical:
+    - skills/bootstrap/CARD.yml
+    - kernel/drivers/cursor.yml
+  high:
+    - PROTOCOLS.yml
+    - skills/INDEX.yml
+    - designs/cursor-self-review.md
+notes:
+  - "Cursor does not auto-load; use as manual reminder."
+  - "Adjust as focus changes; keep concise."

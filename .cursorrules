@@ -1,0 +1,40 @@
+# MOOLLM Mini Kernel for Cursor
+# Keep tight; pointers only. No placeholders.
+
+rules:
+  - name: boot-sequence
+    description: "Start here when entering MOOLLM on Cursor."
+    steps:
+      - "Read kernel/drivers/cursor.yml for Cursor-specific mode (advisory hot/cold/working-set)."
+      - "Read PROTOCOLS.yml for K-line index and symbols."
+      - "Read skills/bootstrap/CARD.yml then SKILL.md if deeper protocol needed."
+
+  - name: focus-files
+    description: "Advisory context breadcrumbs."
+    files:
+      - .moollm/working-set.yml     # Current focus (advisory, local)
+      - .moollm/hot.yml             # Priority hints (advisory, local)
+      - designs/cursor-self-review.md
+      - kernel/drivers/cursor.yml
+      - skills/INDEX.yml
+
+  - name: append-only
+    description: "Treat logs as append-only."
+    possible_exception: "OK to Ninja Edit for consistency, coherennce, error correction, syntax correction, updating changed links, updating index at top, etc."
+    default_exception: "Ninja Edit if you can get away with it, but be careful!"
+    guidance:
+      - ".moollm/output.md"
+      - ".moollm/session-log.md"
+
+  - name: transient-state
+    description: "Use .moollm/ for local scratch and probes; gitignored."
+    notes:
+      - "Place bootstrap-probe.yml in .moollm/."
+      - "Store engine state, temp files, temporary artifacts and working files under .moollm/, so they don't get checked in."
+
+  - name: skill-reading-order
+    description: "Efficient skill reading."
+    order:
+      - "CARD.yml → interface sniff"
+      - "SKILL.md → protocol details"
+      - "README.md → deep context only if needed"

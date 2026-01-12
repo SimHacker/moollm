@@ -20,22 +20,50 @@ The bootstrap skill is how MOOLLM orients itself at session start. It warms the 
 
 ## What It Does
 
-1. **DETECTS** the platform via introspection (see below)
-2. **READS** the foundational files:
+1. **PROBES** the environment (without shell) to learn tools and context
+2. **DETECTS** the platform via introspection (see below)
+3. **SETUPS** the `.moollm/` scratch from templates
+4. **READS** the foundational files:
    - `kernel/constitution-core.md` — Universal principles
    - `skills/INDEX.yml` — Skill registry  
    - `PROTOCOLS.yml` — K-line symbol index
-
-3. **ORIENTS** the agent:
+5. **ORIENTS** the agent:
    - What am I? (A coherence engine in a microworld OS)
    - What can I see? (The filesystem as navigable space)
    - What can I do? (Skills, protocols, tools)
    - What platform am I on? (How do hot/cold/working-set behave?)
 
-4. **WARMS** the context:
+6. **WARMS** the context:
    - Loads critical files into working memory
    - Updates `hot.yml` with foundational knowledge
    - Ensures key K-lines are activated
+
+## Setup: initialize `.moollm/` scratch from templates
+
+Goal: ensure a clean, gitignored scratch area with advisory context files and append-only logs.
+
+Steps:
+
+1. Ensure directories:
+   - Create `.moollm/` if missing.
+   - Create `.moollm/summaries/` and `.moollm/artifacts/` if needed.
+
+2. Seed append-only logs:
+   - `.moollm/output.md` — header only; append new outputs below.
+   - `.moollm/session-log.md` — header with driver and start date; append entries.
+   - Use templates if available; otherwise write minimal headers.
+
+3. Seed advisory context files (Cursor uses these as hints, not commands):
+   - Copy `skills/bootstrap/templates/working-set.yml` → `.moollm/working-set.yml` (editable, local).
+   - Copy `skills/bootstrap/templates/hot.yml` → `.moollm/hot.yml` (editable, local).
+   - Optionally create `.moollm/cold.yml` for archaeology (advisory).
+
+4. Probe artifacts:
+   - Write `bootstrap-probe.yml` to `.moollm/` (gitignored).
+
+5. Conventions:
+   - Treat `.moollm/output.md` and `.moollm/session-log.md` as append-only.
+   - Keep `.moollm/` for transient, non-committed state (probes, engine state, temporary artifacts).
 
 ## Driver Detection Protocol
 
