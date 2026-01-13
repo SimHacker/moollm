@@ -5,9 +5,10 @@
 - Updated adventure runtime to drop the legacy `AdventureUI`.
 
 ## Artifacts
-- Run suite: `./examples/adventure-4/characters/animals/confetti-crawler/test.sh > examples/adventure-4/characters/animals/confetti-crawler/demo-test-out.yml`
-- Demo: `examples/adventure-4/characters/animals/confetti-crawler/demo.yml`
-- Output: `examples/adventure-4/characters/animals/confetti-crawler/demo-test-out.yml`
+- Run suite: `./examples/adventure-4/characters/animals/confetti-crawler/test.sh > examples/adventure-4/characters/animals/confetti-crawler/demo-test-out.txt`
+- Demo (YAML): `examples/adventure-4/characters/animals/confetti-crawler/demo.yml`
+- Demo (text): `examples/adventure-4/characters/animals/confetti-crawler/demo.txt`
+- Output log: `examples/adventure-4/characters/animals/confetti-crawler/demo-test-out.txt`
 
 ## Notes
 - Sprayer CLI is now `examples/adventure-4/characters/animals/confetti-crawler/sprayer.py`

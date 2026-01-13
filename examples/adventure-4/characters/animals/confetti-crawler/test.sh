@@ -3,6 +3,7 @@ set -euo pipefail
 
 SCRIPT="examples/adventure-4/characters/animals/confetti-crawler/sprayer.py"
 DEMO="examples/adventure-4/characters/animals/confetti-crawler/demo.yml"
+DEMO_TXT="examples/adventure-4/characters/animals/confetti-crawler/demo.txt"
 EMOJIS="examples/adventure-4/characters/animals/confetti-crawler/emojis.txt"
 
 testnum=1
@@ -158,4 +159,69 @@ run "Test 21: Quad-stack + long mfm + erosion + strip" \
     | python \"$SCRIPT\" -i /dev/stdin -o - --mode mfm --iterations 25 --drift-radius 2 --drift-prob 0.25 --emoji-map-file \"$EMOJIS\" --theme festival-sky --seed 37 \
     | python \"$SCRIPT\" -i /dev/stdin -o - --erode --iterations 12 --drift-radius 3 --seed 38 \
     | python \"$SCRIPT\" -i /dev/stdin -o - --strip --strip-mode serial --strip-min-depth 1"
+
+# Raw text: thick MFM people + fruit + pride layers (no prefix)
+run "Test 22: demo.txt MFM crowd + fruit + pride (comment_prefix='')" \
+  bash -lc "python \"$SCRIPT\" -i \"$DEMO_TXT\" -o - --mode mfm --iterations 20 --drift-radius 1 --drift-prob 0.35 --emoji-map-file \"$EMOJIS\" --theme people-wave-spectrum --comment-prefix '' --seed 39 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --mode mfm --iterations 20 --drift-radius 2 --drift-prob 0.3 --emoji-map-file \"$EMOJIS\" --theme fruit-machine --comment-prefix '' --seed 40 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --mode mfm --iterations 12 --drift-radius 1 --drift-prob 0.25 --emoji-map-file \"$EMOJIS\" --theme pride-spectrum --comment-prefix '' --seed 41"
+
+# Raw text: people sports + couples mix with drift accents
+run "Test 23: demo.txt MFM people-sports + couples + festival drift" \
+  bash -lc "python \"$SCRIPT\" -i \"$DEMO_TXT\" -o - --mode mfm --iterations 25 --drift-radius 1 --drift-prob 0.4 --emoji-map-file \"$EMOJIS\" --theme people-sports-spectrum --comment-prefix '' --seed 42 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --mode mfm --iterations 20 --drift-radius 2 --drift-prob 0.35 --emoji-map-file \"$EMOJIS\" --theme couples --comment-prefix '' --seed 43 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --mode mfm --iterations 15 --drift-radius 2 --drift-prob 0.3 --emoji-map-file \"$EMOJIS\" --theme festival-sky --comment-prefix '' --seed 44"
+
+# Raw text: layered people celebrate + fruit + rainbow produce, then light strip
+run "Test 24: demo.txt celebrate + fruit + rainbow-produce then strip depth=2" \
+  bash -lc "python \"$SCRIPT\" -i \"$DEMO_TXT\" -o - --mode mfm --iterations 18 --drift-radius 1 --drift-prob 0.3 --emoji-map-file \"$EMOJIS\" --theme people-celebrate-spectrum --comment-prefix '' --seed 45 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --mode mfm --iterations 18 --drift-radius 2 --drift-prob 0.3 --emoji-map-file \"$EMOJIS\" --theme fruit-machine --comment-prefix '' --seed 46 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --mode mfm --iterations 12 --drift-radius 1 --drift-prob 0.25 --emoji-map-file \"$EMOJIS\" --theme rainbow-produce --comment-prefix '' --seed 47 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --strip --strip-mode serial --strip-min-depth 2 --comment-prefix ''"
+
+# Raw text: thick serial fruit layers then pride accent
+run "Test 25: demo.txt serial fruit base + mfm pride accent" \
+  bash -lc "python \"$SCRIPT\" -i \"$DEMO_TXT\" -o - --mode serial --iterations 3 --emoji-map-file \"$EMOJIS\" --theme fruit-machine --comment-prefix '' --seed 50 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --mode serial --iterations 2 --emoji-map-file \"$EMOJIS\" --theme orchard-fruit --comment-prefix '' --seed 51 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --mode mfm --iterations 20 --drift-radius 1 --drift-prob 0.3 --emoji-map-file \"$EMOJIS\" --theme pride-spectrum --comment-prefix '' --seed 52"
+
+# Raw text: people care + couples drift + erosion settle
+run "Test 26: demo.txt care + couples drift + erosion settle" \
+  bash -lc "python \"$SCRIPT\" -i \"$DEMO_TXT\" -o - --mode serial --iterations 2 --emoji-map-file \"$EMOJIS\" --theme people-care-spectrum --comment-prefix '' --seed 53 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --mode mfm --iterations 18 --drift-radius 2 --drift-prob 0.35 --emoji-map-file \"$EMOJIS\" --theme couples --comment-prefix '' --seed 54 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --erode --iterations 12 --drift-radius 2 --comment-prefix '' --seed 55"
+
+# Raw text: profession + sports coats then level strip depth=3
+run "Test 27: demo.txt profession + sports coat then strip depth=3" \
+  bash -lc "python \"$SCRIPT\" -i \"$DEMO_TXT\" -o - --mode serial --iterations 2 --emoji-map-file \"$EMOJIS\" --theme people-profession-spectrum --comment-prefix '' --seed 56 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --mode serial --iterations 2 --emoji-map-file \"$EMOJIS\" --theme people-sports-spectrum --comment-prefix '' --seed 57 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --strip --strip-mode serial --strip-min-depth 3 --comment-prefix ''"
+
+# Raw text: chaotic festival mfm then melt strip
+run "Test 28: demo.txt chaotic festival then mfm strip melt" \
+  bash -lc "python \"$SCRIPT\" -i \"$DEMO_TXT\" -o - --mode mfm --iterations 30 --drift-radius 2 --drift-prob 0.35 --emoji-map-file \"$EMOJIS\" --theme festival-sky --comment-prefix '' --seed 58 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --strip --strip-mode mfm --iterations 15 --strip-min-depth 1 --comment-prefix '' --seed 59"
+
+# Raw text: mega crowd + fruit avalanche, long mfm
+run "Test 29: demo.txt mega crowd + fruit avalanche (50 mfm)" \
+  bash -lc "python \"$SCRIPT\" -i \"$DEMO_TXT\" -o - --mode mfm --iterations 50 --drift-radius 2 --drift-prob 0.4 --emoji-map-file \"$EMOJIS\" --theme people-wave-spectrum --comment-prefix '' --seed 60 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --mode mfm --iterations 40 --drift-radius 2 --drift-prob 0.35 --emoji-map-file \"$EMOJIS\" --theme fruit-machine --comment-prefix '' --seed 61"
+
+# Raw text: alternating pride + couples with drift accents
+run "Test 30: demo.txt pride + couples alternating with drift" \
+  bash -lc "python \"$SCRIPT\" -i \"$DEMO_TXT\" -o - --mode mfm --iterations 30 --drift-radius 1 --drift-prob 0.35 --emoji-map-file \"$EMOJIS\" --theme pride-spectrum --comment-prefix '' --seed 62 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --mode mfm --iterations 30 --drift-radius 2 --drift-prob 0.3 --emoji-map-file \"$EMOJIS\" --theme couples --comment-prefix '' --seed 63"
+
+# Raw text: serial rainbow base, long festival rain, erosion settle
+run "Test 31: demo.txt rainbow base + festival rain + erosion settle" \
+  bash -lc "python \"$SCRIPT\" -i \"$DEMO_TXT\" -o - --mode serial --iterations 3 --emoji-map-file \"$EMOJIS\" --theme rainbow-produce --comment-prefix '' --seed 64 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --mode mfm --iterations 35 --drift-radius 2 --drift-prob 0.3 --emoji-map-file \"$EMOJIS\" --theme festival-sky --comment-prefix '' --seed 65 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --erode --iterations 15 --drift-radius 2 --comment-prefix '' --seed 66"
+
+# Raw text: deep people mix, pride accent, level strip to 4
+run "Test 32: demo.txt deep people mix + pride accent + strip depth=4" \
+  bash -lc "python \"$SCRIPT\" -i \"$DEMO_TXT\" -o - --mode serial --iterations 2 --emoji-map-file \"$EMOJIS\" --theme people-celebrate-spectrum --comment-prefix '' --seed 67 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --mode serial --iterations 2 --emoji-map-file \"$EMOJIS\" --theme people-sports-spectrum --comment-prefix '' --seed 68 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --mode mfm --iterations 25 --drift-radius 1 --drift-prob 0.25 --emoji-map-file \"$EMOJIS\" --theme pride-spectrum --comment-prefix '' --seed 69 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --strip --strip-mode serial --strip-min-depth 4 --comment-prefix ''"
 

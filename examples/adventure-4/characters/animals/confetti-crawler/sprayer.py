@@ -344,15 +344,15 @@ def strip_text(text: str, mode: str, iterations: int, min_depth: int, verbose: b
 
     if mode == "all":
         for idx in sites:
-            lines[idx] = strip_line(lines[idx], 0)
+            lines[idx] = strip_line(lines[idx], 0, comment_prefix)
     elif mode == "serial":
         for idx in sites:
-            lines[idx] = strip_line(lines[idx], min_depth)
+            lines[idx] = strip_line(lines[idx], min_depth, comment_prefix)
     elif mode == "mfm":
         for _ in range(iterations):
             candidates = []
             for i in sites:
-                parsed = split_comment(lines[i])
+                parsed = split_comment(lines[i], comment_prefix)
                 if not parsed:
                     continue
                 _, _, body, _ = parsed
@@ -361,7 +361,7 @@ def strip_text(text: str, mode: str, iterations: int, min_depth: int, verbose: b
             if not candidates:
                 break
             idx = random.choice(candidates)
-            lines[idx] = strip_line(lines[idx], min_depth)
+            lines[idx] = strip_line(lines[idx], min_depth, comment_prefix)
             vlog(verbose, f"[strip:mfm] idx={idx} depth>={min_depth}")
     return "".join(lines)
 
