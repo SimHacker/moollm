@@ -1,0 +1,74 @@
+card:
+  name: worm-sitemap-caster
+  type: [worm, crawler, example]
+  tier: 1
+  invoke_when: ["crawl site", "emit sitemap/taxonomy"]
+  advertisement_names:
+    - RUN-WORM
+    - CRAWL
+    - EMIT-SITEMAP
+  prototypes:
+    - skills/worm/CARD.yml
+  related:
+    - skills/worm
+    - skills/data-flow
+    - skills/advertisement
+  tags: [moollm, worm, sitemap, taxonomy, crawl]
+  description: |
+    Webish crawler worm: walks a directory/site, collects links/headers/keywords,
+    and emits YAML castings (sitemap + category taxonomy) to `emit_dir`.
+
+state:
+  head: "."
+  tail: "."
+  emit_dir: ".moollm/worm-out"
+  max_depth: 3
+  include_patterns: ["*.md","*.yml","*.html"]
+  exclude_patterns: [".git","node_modules","dist"]
+  taxonomy: {}
+
+advertisements:
+  RUN-WORM:
+    effect: "Crawl and emit sitemap + taxonomy castings"
+    delegate:
+      method: RUN-WORM
+      params:
+        root: "{{root|.}}"
+  CRAWL:
+    effect: "Walk files/links up to max_depth; collect metadata"
+    delegate:
+      method: CRAWL
+      params:
+        root: "{{root|.}}"
+  EMIT-SITEMAP:
+    effect: "Write sitemap.yml and taxonomy.yml to emit_dir"
+    delegate:
+      method: EMIT-SITEMAP
+      params:
+        emit_dir: "{{emit_dir|.moollm/worm-out}}"
+
+methods:
+  RUN-WORM:
+    description: "One-shot crawl + emit"
+    parameters:
+      root: "Root path or URL-ish dir"
+    output: chat + file
+    effect: "Crawls, collects links/headers/keywords, emits sitemap/taxonomy YAML"
+
+  CRAWL:
+    description: "Traverse files/links to max_depth"
+    parameters:
+      root: "Root path"
+    output: chat
+    effect: "Collects links, titles, keywords into buffer/taxonomy"
+
+  EMIT-SITEMAP:
+    description: "Emit collected map/taxonomy to YAML"
+    parameters:
+      emit_dir: "Destination dir"
+    output: chat + file
+    effect: "Writes sitemap.yml and taxonomy.yml castings to emit_dir"
+
+flavor:
+  text: |
+    "A polite mapper worm: leaves YAML castings of what it saw so other worms can feed."

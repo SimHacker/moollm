@@ -4,23 +4,27 @@
 # "Objects don't wait to be used — they announce what's possible."
 
 card:
-  id: advertisement
-  name: "Advertisement"
+  name: ADVERTISEMENT
   type: [skill, interaction, game]
-  
-  emoji: 📣
-  
-  rarity: common  # Fundamental to Sims-style interaction
-  
+  tier: 1
+  invoke_when: ["Need objects to announce actions", "Build plug-in interactions"]
+  advertisement_names:
+    - DISCOVER-ACTIONS
+    - BUILD-OBJECT
+    - UNDERSTAND-SIMS
+  related:
+    - skills/action-queue
+    - skills/room
+    - skills/needs
+    - skills/card
+    - skills/coherence-engine
+    - skills/rubric
+  tags: [moollm, sims, interaction, advertisement]
   description: |
-    The Sims-style object interaction system. Every object broadcasts
-    its available actions, scored by relevance to context.
-    
-    Play this card when objects need to announce what they can do,
-    or when building plug-in architectures where new objects
-    self-describe their behaviors.
-    
-  lineage: "The Sims (Maxis/EA), Snap-together objects"
+    Sims-style object interaction: every object broadcasts available actions,
+    scored by relevance. Use for plug-in architectures where objects
+    self-describe behaviors. "Objects don't wait to be used — they announce
+    what's possible."
 
 # TOOLS REQUIRED
 
@@ -31,54 +35,41 @@ tools:
     - list_dir    # Find objects in room
   optional: []
 
-tier: 1  # File read/write
-
-# METHODS
-# Actions this card advertises (meta!)
-
 methods:
-  
   SCAN:
     description: "Collect all advertisements from current room"
     parameters:
       room: "Path to room (defaults to current)"
-    output: chat (sorted list)
-    effect: "Read all *.yml files, extract advertisements, score and sort"
-    invoked-by: [player, coherence-engine]
-    
+    output: chat
+    effect: "Read *.yml, extract ads, score and sort"
+
   SHOW:
     description: "Display what an object advertises"
     parameters:
       object: "Object to inspect"
     output: chat
-    effect: "Show object's full advertisement list with scores"
-    invoked-by: [player]
-    
+    effect: "Show object's ads with scores"
+
   SELECT:
     description: "Choose an advertised action"
     parameters:
       object: "Object offering the action"
       action: "Action to take"
     output: chat + state-change
-    effect: "Execute the action, which may queue more actions"
-    invoked-by: [player, autonomous-agent]
-    
+    effect: "Execute the action; may queue more actions"
+
   EVALUATE:
-    description: "Score advertisements against character needs"
+    description: "Score ads against character needs"
     parameters:
       character: "Character to score for"
-    output: chat (re-scored list)
-    effect: "Adjust scores based on needs, goals, context"
-    invoked-by: [coherence-engine, action-queue]
+    output: chat
+    effect: "Adjust scores based on needs/goals/context"
 
 # STATE
 # Advertisements are declared in object files, not here
 
 state:
-  # This card has no persistent state
-  # Advertisements live in the objects themselves
-  
-  # Object advertisement structure:
+  # Ads live on objects; this card has no persistent instance state.
   advertisement-schema:
     action:
       type: string
@@ -105,15 +96,28 @@ state:
 advertisements:
   DISCOVER-ACTIONS:
     score: 90
-    condition: "In a new room or unsure what to do"
-    
+    condition: "New room or unsure what to do"
+    effect: "Scan and list ads with scores"
+    delegate:
+      method: SCAN
+      params:
+        room: "{{room|.}}"
   BUILD-OBJECT:
     score: 85
-    condition: "Creating new object that needs interactions"
-    
+    condition: "Creating an object that needs interactions"
+    effect: "Show example ad schema and scoring"
+    delegate:
+      method: SHOW
+      params:
+        object: "{{object|example}}"
   UNDERSTAND-SIMS:
     score: 75
-    condition: "Learning how The Sims-style interaction works"
+    condition: "Learning how Sims-style interaction works"
+    effect: "Explain advertisement system and scoring"
+    delegate:
+      method: EVALUATE
+      params:
+        character: "{{character|player}}"
 
 # THE SIMS SECRET SAUCE
 # Why this pattern enabled massive expansion

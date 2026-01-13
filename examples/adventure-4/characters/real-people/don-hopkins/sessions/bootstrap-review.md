@@ -289,3 +289,4 @@ advertisements:
 - Played secret-word card in the pub with word "MOOLLM" — expect havoc/screams on hearing it.
 - Optional: add cold archaeology usage note; align Indirection Pattern to `.moollm/`.
 - Keep PR summary in sync if further tweaks land.
+- Added worm skill (two-pointer cursor) plus worm-pointer example; ingest/emit with token parsing; variants inspired by LLOOOOMM worms.

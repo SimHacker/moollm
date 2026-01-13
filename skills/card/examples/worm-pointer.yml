@@ -1,0 +1,164 @@
+card:
+  name: worm-pointer
+  type: [character, cursor, worm, example]
+  tier: 1
+  invoke_when: ["crawl filesystem", "span structures", "eat/poop pipeline"]
+  advertisement_names:
+    - MOVE-WORM
+    - MOVE-HEAD
+    - MOVE-ASS
+    - EAT
+    - CHOMP
+    - POOP
+    - BARF
+    - STICK-UP-BUM
+  tags: [moollm, worm, cursor, pointer, pipeline]
+  description: |
+    A two-pointer worm (head/tail) that spans structures, inchworms through
+    directories and links, and can eat/poop/barf. Can pipe from one document to
+    another, or into a network of worms that eat each other's output. Head can
+    scan for patterns, chomp following text into its brain/parser, then emit
+    YAML/outbound tokens elsewhere. EAT/POOP/BARF/STICK-UP-BUM form a reversible
+    basis (undo/redo, serialize/deserialize). Default NOP worm leaves data
+    unchanged; length is distance between pointers (can be zero-length).
+
+state:
+  head: "."
+  tail: "."
+  buffer: []        # interior ingestion buffer
+  payload: null     # last consumed chunk
+  digestive_format: "neutral"  # how payload is normalized internally
+  active_tokens: [] # tokens parsed into the worm's "brain"
+  scan_pattern: ""      # optional pattern to anchor ingestion
+  scan_mode: "pattern-then-chomp"
+  emit_dir: ".moollm/worm-out"
+
+advertisements:
+  MOVE-WORM:
+    effect: "Advance head (and optionally tail) to a path or link target; abs or relative steps"
+    delegate:
+      method: MOVE-WORM
+      params:
+        head: "{{path|.}}"
+        tail: "{{tail|follow}}"
+        mode: "{{mode|abs}}"
+        direction: "{{dir|.}}"
+        offset: "{{offset|0}}"
+  MOVE-HEAD:
+    effect: "Move head independently (tail stays); abs or relative steps"
+    delegate:
+      method: MOVE-HEAD
+      params:
+        head: "{{path|.}}"
+        mode: "{{mode|abs}}"
+        direction: "{{dir|.}}"
+        offset: "{{offset|0}}"
+  MOVE-ASS:
+    effect: "Move tail independently (head stays); abs or relative steps"
+    delegate:
+      method: MOVE-ASS
+      params:
+        tail: "{{path|.}}"
+        mode: "{{mode|abs}}"
+        direction: "{{dir|.}}"
+        offset: "{{offset|0}}"
+  EAT:
+    effect: "Consume content at head; parse tokens into brain; normalize buffer (pattern-aware)"
+    delegate:
+      method: EAT
+      params: {}
+  CHOMP:
+    effect: "Scan for pattern then chomp following text into brain/parser; stage YAML to emit_dir"
+    delegate:
+      method: CHOMP
+      params:
+        pattern: "{{pattern|{{scan_pattern}}}}"
+        emit_dir: "{{emit_dir|.moollm/worm-out}}"
+  POOP:
+    effect: "Emit buffer/payload at tail (append/write); can emit chosen tokens"
+    delegate:
+      method: POOP
+      params: {}
+  BARF:
+    effect: "Emit buffer/payload at head (prepend/overwrite optional); can emit chosen tokens"
+    delegate:
+      method: BARF
+      params: {}
+  STICK-UP-BUM:
+    effect: "Insert payload from caller into tail; normalize internally"
+    delegate:
+      method: STICK-UP-BUM
+      params:
+        data: "{{data|...}}"
+
+methods:
+  MOVE-WORM:
+    description: "Move head; optionally drag tail or leave tail"
+    parameters:
+      head: "New head path (abs) or base for rel"
+      tail: "tail|follow|stay"
+      mode: "abs|rel"
+      direction: "up/down/in/out/left/right or link hop"
+      offset: "numeric step for rel moves"
+    output: chat
+    effect: "Updates head (and tail if follow), supports rel moves and link hops"
+
+  MOVE-HEAD:
+    description: "Move head only"
+    parameters:
+      head: "New head path (abs) or base for rel"
+      mode: "abs|rel"
+      direction: "up/down/in/out/left/right or link hop"
+      offset: "numeric step for rel moves"
+    output: chat
+    effect: "Moves head independently; supports rel directions; tail stays put"
+
+  MOVE-ASS:
+    description: "Move tail only"
+    parameters:
+      tail: "New tail path (abs) or base for rel"
+      mode: "abs|rel"
+      direction: "up/down/in/out/left/right or link hop"
+      offset: "numeric step for rel moves"
+    output: chat
+    effect: "Moves tail independently; supports rel directions; head stays put"
+
+  EAT:
+    description: "Read content at head; optional pattern anchor; parse tokens into brain; normalize"
+    parameters: {}
+    output: chat
+    effect: "Reads file/dir summary; if scan_pattern set, anchor then ingest; stores in buffer/payload (normalized); updates active_tokens"
+
+  CHOMP:
+    description: "Scan for pattern, then chomp following text/object into brain/parser"
+    parameters:
+      pattern: "Pattern to anchor ingestion (defaults to scan_pattern)"
+      emit_dir: "Where to drop emitted YAML/object output"
+    output: chat
+    effect: "Finds pattern at head, ingests following text/object, updates buffer/active_tokens; may stage YAML for emission to emit_dir"
+
+  POOP:
+    description: "Write buffer/payload at tail (append by default); can emit selected tokens"
+    parameters: {}
+    output: chat
+    effect: "Appends buffer/payload or chosen tokens to tail target (NOP if empty)"
+
+  BARF:
+    description: "Write buffer/payload at head; can emit selected tokens"
+    parameters: {}
+    output: chat
+    effect: "Writes buffer/payload or chosen tokens to head target"
+
+  STICK-UP-BUM:
+    description: "Inject caller-provided data into tail; normalize"
+    parameters:
+      data: "Data to stash"
+    output: chat
+    effect: "Stores provided data as payload/buffer (normalized)"
+
+flavor:
+  text: |
+    "Inchworm cursor with head/tail pointers; can eat, barf, and poop its way
+    through the tree. Default worm is a gentle NOP crawler. Speed-of-light
+    processing can synthesize ephemeral data that flows through its interior
+    processing network."
