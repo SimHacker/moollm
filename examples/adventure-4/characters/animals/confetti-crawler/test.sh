@@ -225,3 +225,10 @@ run "Test 32: demo.txt deep people mix + pride accent + strip depth=4" \
     | python \"$SCRIPT\" -i /dev/stdin -o - --mode mfm --iterations 25 --drift-radius 1 --drift-prob 0.25 --emoji-map-file \"$EMOJIS\" --theme pride-spectrum --comment-prefix '' --seed 69 \
     | python \"$SCRIPT\" -i /dev/stdin -o - --strip --strip-mode serial --strip-min-depth 4 --comment-prefix ''"
 
+# YAML: deep lakes with stacked MFM then heavy erosion
+run "Test 33: YAML lake stacks (mfm x3) then deep erosion" \
+  bash -lc "python \"$SCRIPT\" -i \"$DEMO\" -o - --mode mfm --iterations 40 --emoji-map-file \"$EMOJIS\" --theme neon-arcade --seed 70 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --mode mfm --iterations 40 --emoji-map-file \"$EMOJIS\" --theme fruit-machine --seed 71 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --mode mfm --iterations 40 --emoji-map-file \"$EMOJIS\" --theme pride-spectrum --seed 72 \
+    | python \"$SCRIPT\" -i /dev/stdin -o - --erode --iterations 80 --drift-radius 3 --seed 73"
+

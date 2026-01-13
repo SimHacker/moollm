@@ -881,3 +881,37 @@ This is the end of the file.        🤍🧡 ✨🏳
 
 ------------------------------------------------------------
 
+============================================================
+Test 33: YAML lake stacks (mfm x3) then deep erosion
+CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ mfm\ --iterations\ 40\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ neon-arcade\ --seed\ 70\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 40\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ fruit-machine\ --seed\ 71\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 40\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ pride-spectrum\ --seed\ 72\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --erode\ --iterations\ 80\ --drift-radius\ 3\ --seed\ 73
+# Demo YAML to exercise worm-emoji-fordite.py without overwriting. 💫💫💫👾 🎮🎇👾 👾🛸👾🎮  🥥🍉 🍋🍎🔔🍉 🍏🍑🍊💰 🔔🍓🍋🍊 🍈🍐🔔 💛
+# Run with: ✨🚀👾 🔮 🚀 💫 🛸🪐 👾🕹💫 🔮 🍑🍏 🩵❤ 🩷🏳 💖❤❤🧡
+# python skills/card/examples/worm-emoji-fordite.py \ 🔮🎇👾 👾👾🚀🪐 👾👾 🔮🕹🎆🕹 🍐🍍 🤍🤍❤ 🩷🤎 🖤🏳 🏳💖🤍 💛🩷💚 🤎🏳
+# -i skills/card/examples/worm-emoji-fordite-demo.yml \ 💫👾🔮🪐 🪩👾✨ 👾💫🪐 🍑 🍄🍍 🏳💖 🧡💖💜 🩵🏳💙🧡 ✨
+# -o - \ 🕹🚀 🚀 🍋  💙🩷❤ 🌈 ✨ ✨ 🌈 🌈 🌈 ✨ ✨ 🪩
+# --iterations 1 \ 🍐 🔔🍓 🍉🍐🍉🍋 💙💚🧡 💙 💙💙❤ 💙
+# --mode mfm \ 🎰 🪐🎰 🪙🥝 🍇 🥥🍊🍑 🥝 🍅🎰🍈 🩵🩵 💖  🏳 🪩
+# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 🕹 🕹🎰🚀🛸 🍒 🩵🤍  🩷🏳 🌈 ✨
+# --seed 42 \ 🌌🎮 🎆🕹🪐 🚀🎇 👾 🪐🛸👾 🎆🎆👾 💎🍆🍓 🪙🍐🍓 🍇🍊🔔 🍒🍋🍌 💙🤎🏳💙 🤎💙🏳💖 💙💖❤ 🧡🩷💙
+# --theme summer-garden 🎇👾🎰 ✨ 🌌🎰 🍊🍉 🍄🥝🍉🍒 🍍✨🍋 🍑🍋🍋 🍊 🍇🔔🥥🍄 🪩 🪩 🌈 🌈 🌈 ✨ ✨ 🪩 🪩 ✨ 🪩 ✨ ✨ 🪩
+---
+card:
+  name: demo-card
+  description: |
+    This is a demo file. Comments below will get emoji snow.
+# top-level comment to decorate 🍋🍇 🍐🍄🎰🍑 ❤🤍🤎🏳 💚✨💖 💚🩷🤍 🏳 💖💙✨💖 ✨ ✨ ✨ ✨
+metadata:
+  tags: [demo, emoji]
+  notes: "keep me intact"
+# mid-level comment 🌌🎮 🚀👾👾🕹 🍎🍉🍊💰 🌈⚧🏳 🌈 🌈 🌈 🌈 🌈
+items:
+  - id: 1  # inline comment target
+    name: first
+  - id: 2
+    name: second
+# 🛸🎆🚀💫🎮💫🌌🍌🍆🥥🍓🍈🪙🍊🥝🔔🖤🏳💙🩷💜
+# trailing comment near end 🎰 🚀🔮 🍆🍉💎🍒 🍑🍒🍈 🍇🍇 ❤💚✨🩵 🌈🩷💖🩷 🏳🏳 🪩 🪩 🪩 🪩 🪩 🪩
+tail: true
+
+------------------------------------------------------------
+
