@@ -876,3 +876,12 @@
 
 **`c84fafb`** Add MOOLLM manifest and advisory bootstrap templates
 > Added MOOLLM.yml/MD to declare the microworld and driver; moved hot/working-set/cold to gitignored `.moollm/` with tracked templates under `skills/bootstrap/templates/`; bootstrap SETUP copies them; self-review clarifies platform-neutral guidance and K-line ads. Cursor stays advisory; files become documentation, not magic. 🧭📜🧊
+
+---
+
+### Era 29: Emoji Fordite Familiar
+
+> *Emoji snow becomes a pub ceremony with its own worm.*
+
+**`(this)`** Confetti-Crawler graduates to full character; inherits Rip Taylor spirit; assets relocated and tests consolidated
+> The worm-emoji sprayer, themes, demos, and tests move into the confetti-crawler character home under adventure-4. Old `skills/card/examples` copies removed. Sprayer gains drift/strip/erode controls, block-scalar awareness, verbose logging, and a single test harness output. The familiar now channels Rip Taylor’s Gong Show confetti energy and calls its sister script instead of burning LLM cycles. 🪱🎉🧊🌈
