@@ -11,24 +11,24 @@ CMD: python examples/adventure-4/characters/animals/confetti-crawler/sprayer.py 
 # --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 🐛🕊🐜🦋
 # --seed 42 \ 🦉🐝🌺🐛
 # --theme summer-garden 🕊🦉🍃🦉
----
-card:
-  name: demo-card
+--- # 🌷
+card: # 🌸🌺🐜
+  name: demo-card # 🦋🦉🌷🪷
   description: |
     This is a demo file. Comments below will get emoji snow.
-# top-level comment to decorate 🌷
-metadata:
-  tags: [demo, emoji]
-  notes: "keep me intact"
-# mid-level comment 🌸🌺🐜
-items:
-  - id: 1  # inline comment target
-    name: first
-  - id: 2
-    name: second
-# 🦋🦉🌷🪷
-# trailing comment near end 🐦🦋🐝🌻
-tail: true
+# top-level comment to decorate 🐦🦋🐝🌻
+metadata: # 🐜🍃
+  tags: [demo, emoji] # 🌿🪺
+  notes: "keep me intact" # 🌼🐛🌸
+# mid-level comment 🦋🌿
+items: # 🐜☀🌺🐦
+  - id: 1 # inline comment target 🐞🌷🌹🌻
+    name: first # 🦋🪺
+  - id: 2 # 🍃🌺
+    name: second # ☀🪷🦋
+# 🌿
+# trailing comment near end 🦋🐝
+tail: true # 🦉☀🌿🐝
 
 ------------------------------------------------------------
 
@@ -36,11 +36,11 @@ tail: true
 Test 2: MFM 3 passes (neon-arcade, seed=2)
 CMD: python examples/adventure-4/characters/animals/confetti-crawler/sprayer.py -i examples/adventure-4/characters/animals/confetti-crawler/demo.yml -o - --mode mfm --iterations 3 --emoji-map-file examples/adventure-4/characters/animals/confetti-crawler/emojis.txt --theme neon-arcade --seed 2
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting.
-# Run with:
+# Run with: 🎮
 #   python skills/card/examples/worm-emoji-fordite.py \
 #     -i skills/card/examples/worm-emoji-fordite-demo.yml \
-# -o - \ 🌌🌌🌌
-# --iterations 1 \ ✨🔮
+#     -o - \
+# --iterations 1 \ 👾👾🕹
 #     --mode mfm \
 #     --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \
 #     --seed 42 \
@@ -58,10 +58,10 @@ metadata:
 items:
   - id: 1  # inline comment target
     name: first
-  - id: 2
+  - id: 2 # 🎇🔮
     name: second
 
-# trailing comment near end 🎮
+# trailing comment near end
 tail: true
 
 ------------------------------------------------------------
@@ -69,34 +69,34 @@ tail: true
 ============================================================
 Test 3: Serial 2 passes (pastel-candy, seed=3)
 CMD: python examples/adventure-4/characters/animals/confetti-crawler/sprayer.py -i examples/adventure-4/characters/animals/confetti-crawler/demo.yml -o - --mode serial --iterations 2 --emoji-map-file examples/adventure-4/characters/animals/confetti-crawler/emojis.txt --theme pastel-candy --seed 3
-# Demo YAML to exercise worm-emoji-fordite.py without overwriting. 💖🍡 💗
-# Run with: 💖🍬🍭💙 💖💛
-# python skills/card/examples/worm-emoji-fordite.py \ 🌸🍧💗 🍨🍬💙
-# -i skills/card/examples/worm-emoji-fordite-demo.yml \ 🧁💙🍧🍡 🍬💜🧁🍡
-# -o - \ 💗💕🍬💗 🎀🎀🍡
+# Demo YAML to exercise worm-emoji-fordite.py without overwriting. 💖🍡 🧁💙🧁💙
+# Run with: 💖🍬🍭💙 💖
+# python skills/card/examples/worm-emoji-fordite.py \ 🌸🍧💗 🎀💗🍨
+# -i skills/card/examples/worm-emoji-fordite-demo.yml \ 🧁💙🍧🍡 🎀🍨🍦
+# -o - \ 💗💕🍬💗 🍭🎀🌸
 # --iterations 1 \ 🍦 🧁
-# --mode mfm \ 💙 🌸💚🍨
-# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 🎈💗💙 💛🍦
-# --seed 42 \ 🧁💜🎀💚 🍬
-# --theme summer-garden 🍬🍡🍧 💛
----
-card:
-  name: demo-card
+# --mode mfm \ 💙 🍬💖
+# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 🎈💗💙 🍦💚💖🍨
+# --seed 42 \ 🧁💜🎀💚 🍭🍬💕💛
+# --theme summer-garden 🍬🍡🍧 💖🍦💖
+--- # 💜💙🎀💙🧁🍦
+card: # 🌸🧁🍧💙🍨💜
+  name: demo-card # 💕💚💙💜
   description: |
     This is a demo file. Comments below will get emoji snow.
-# top-level comment to decorate 💜💙🎀💙 🍨🍨💕💛
-metadata:
-  tags: [demo, emoji]
-  notes: "keep me intact"
-# mid-level comment 🌸🧁🍧 🍦💛💚
-items:
-  - id: 1  # inline comment target
-    name: first
-  - id: 2
-    name: second
-# 💕💚💙🧁💙🧁💙
-# trailing comment near end 💕🍦 💖
-tail: true
+# top-level comment to decorate 💕🍦 💛
+metadata: # 💗🍦🍧
+  tags: [demo, emoji] # 💖💛🍨🍧🎀
+  notes: "keep me intact" # 🍨🍬💙🍬
+# mid-level comment 🍬💜🧁🍡 💛💕🍧
+items: # 🎀🎀🍡🍬💗
+  - id: 1 # inline comment target 🧁 💚🎀
+    name: first # 🌸💚🍨💜🍭
+  - id: 2 # 💛🍦🍦💙
+    name: second # 🍬💙🍦
+# 💛💜
+# trailing comment near end 🍨🍨💕💛 💖🎀🎈
+tail: true # 🍦💛💚🎀💖🍨
 
 ------------------------------------------------------------
 
@@ -106,26 +106,26 @@ CMD: python examples/adventure-4/characters/animals/confetti-crawler/sprayer.py 
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting. 🐦🌷🌺
 # Run with:
 #   python skills/card/examples/worm-emoji-fordite.py \
-# -i skills/card/examples/worm-emoji-fordite-demo.yml \ ☀🌼🌻🦋
-# -o - \ 🌹
+#     -i skills/card/examples/worm-emoji-fordite-demo.yml \
+#     -o - \
 #     --iterations 1 \
 #     --mode mfm \
-#     --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \
-# --seed 42 \ 🐦🪷
-#     --theme summer-garden
+# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ ☀🌼🌻🦋
+#     --seed 42 \
+# --theme summer-garden 🌹
 ---
 card:
   name: demo-card
   description: |
     This is a demo file. Comments below will get emoji snow.
-# top-level comment to decorate 🌼🐞🐛
+# top-level comment to decorate
 metadata:
   tags: [demo, emoji]
   notes: "keep me intact"
-# mid-level comment
+# mid-level comment 🐦🪷
 items:
   - id: 1  # inline comment target
-    name: first
+    name: first # 🌼🐞🐛
   - id: 2
     name: second
 
@@ -147,24 +147,24 @@ CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler
 # --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 🌸
 # --seed 42 \ 🌸🌻🪺🌹
 # --theme summer-garden 🕊🌷
----
-card:
-  name: demo-card
+--- # 🪷🕊
+card: # 🌷🕊
+  name: demo-card # 🕊🪺
   description: |
     This is a demo file. Comments below will get emoji snow.
-# top-level comment to decorate 🪷🕊
-metadata:
-  tags: [demo, emoji]
-  notes: "keep me intact"
-# mid-level comment 🌷🕊
-items:
-  - id: 1  # inline comment target
-    name: first
-  - id: 2
-    name: second
-# 🕊🪺
-# trailing comment near end 🌻🍃🦉
-tail: true
+# top-level comment to decorate 🌻🍃🦉
+metadata: # 🌼🌺🐞
+  tags: [demo, emoji] # 🐝
+  notes: "keep me intact" # 🌼🌿🌺
+# mid-level comment 🌷☀🌷
+items: # 🕊🌻🐜
+  - id: 1 # inline comment target 🌻🐢🌿🐝
+    name: first # ☀
+  - id: 2 # 🐞🕊
+    name: second # 🐢
+# 🌺🌿🦋🐢
+# trailing comment near end 🐝
+tail: true # 🪺🌻🦉
 
 ------------------------------------------------------------
 
@@ -181,125 +181,114 @@ CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler
 # --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \
 # --seed 42 \
 # --theme summer-garden
----
-card:
-  name: demo-card
   description: |
     This is a demo file. Comments below will get emoji snow.
 # top-level comment to decorate
-metadata:
-  tags: [demo, emoji]
-  notes: "keep me intact"
 # mid-level comment
-items:
-  - id: 1  # inline comment target
-    name: first
-  - id: 2
-    name: second
+  - id: 1 # inline comment target
 # trailing comment near end
-tail: true
 
 ------------------------------------------------------------
 
 ============================================================
 Test 7: Strip mfm min depth=1 iterations=4
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ serial\ --iterations\ 2\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ spring-bloom\ --seed\ 7\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --strip\ --strip-mode\ mfm\ --strip-min-depth\ 1\ --iterations\ 4\ --seed\ 7
-# Demo YAML to exercise worm-emoji-fordite.py without overwriting. ✨🌼🌸 🐝🦋
-# Run with: 🌼 🌷🌻
-# python skills/card/examples/worm-emoji-fordite.py \  ✨
-# -i skills/card/examples/worm-emoji-fordite-demo.yml \ 🌸🪷 🌱
-# -o - \ 🌺 🐝🌹
-# --iterations 1 \  🌿
-# --mode mfm \ 🌿 🌼🌼🌱
-# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 🌸🌺🌿🌷 🌷🌷🌻🦋
-# --seed 42 \  🌸
-# --theme summer-garden 🌷🌿 🍃✨🐞
----
-card:
-  name: demo-card
+# Demo YAML to exercise worm-emoji-fordite.py without overwriting. ✨🌼🌸 🌷🌺🌼
+# Run with: 🌼 🌷🪷🌿🌈
+# python skills/card/examples/worm-emoji-fordite.py \ 🌈 🐞🌻🪷🌼
+# -i skills/card/examples/worm-emoji-fordite-demo.yml \ 🌸🪷 ✨🌹🌹🌺
+# -o - \  🐞
+# --iterations 1 \ 🌸🌿✨🍃 🌺🌸
+# --mode mfm \ 🌿 🌿🍃🌻🌷
+# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 🌸🌺🌿🌷 🪷
+# --seed 42 \ 🌹🌷🌻🐞 🌼🌼🌱🪷
+# --theme summer-garden 🌷🌿 🌷🌺
+--- # 🍃
+card: # 🌿🌸
+  name: demo-card # 🌱🌱🌿✨
   description: |
     This is a demo file. Comments below will get emoji snow.
-# top-level comment to decorate 🌼🌿 🦋🌈🌼
-metadata:
-  tags: [demo, emoji]
-  notes: "keep me intact"
-# mid-level comment 🌿 🌼🍃🌱🌺
-items:
-  - id: 1  # inline comment target
-    name: first
-  - id: 2
-    name: second
-# 🌱🌱🌷🌺🌼
-# trailing comment near end  🌈
-tail: true
+# top-level comment to decorate 🪷🌈🌼 🌷
+metadata: # 🌹
+  tags: [demo, emoji] # 🌷🌻✨🍃🌱
+  notes: "keep me intact" # 🌈🦋🌻✨🐞
+# mid-level comment 🌱 🌱🌻🌹🐝
+items: # 🐝🌹🌱🦋🌱
+  - id: 1 # inline comment target 🪷✨🌷🌿 ✨🌱
+    name: first # 🌼🌼🌱🦋🌈
+  - id: 2 # 🌷🌷🌻🦋✨🐞🦋
+    name: second # 🌸🌱🌈🌼
+# 🐝
+# trailing comment near end 🦋🌈🌼 🍃🍃🐝
+tail: true # 🌼🍃🌱🌺🐞🐞
 
 ------------------------------------------------------------
 
 ============================================================
 Test 8: Serial 2 passes (spring-bloom) then MFM 6 passes neon with drift
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ serial\ --iterations\ 2\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ spring-bloom\ --seed\ 8\ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 6\ --drift-radius\ 2\ --drift-prob\ 0.25\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ neon-arcade\ --seed\ 9
-# Demo YAML to exercise worm-emoji-fordite.py without overwriting. 🌼🌼 🌹🐝🌷🦋 🪐🎆
-# Run with: 🦋🌷 ✨🐞🌱
-# python skills/card/examples/worm-emoji-fordite.py \ 🐞🌱 🌻🌼
-# -i skills/card/examples/worm-emoji-fordite-demo.yml \ 🍃🪷🪷🌱 🌱🌷🌈 🎆💫🎆🛸
-# -o - \ 🌈🪷 🌼🌈
-# --iterations 1 \ 🌺🌸🌻🪷 🌼🌻🪷
-# --mode mfm \ 🦋🍃🌷🐞 🌻🦋🪷🍃
-# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 🍃🌼🍃🌼 🌹 🎰🪩🕹
-# --seed 42 \ 🌱 🌺 👾
-# --theme summer-garden 🌿🌹 🌻🌸 🎰🎇🎇🛸 💫🎆🎆👾
----
-card:
-  name: demo-card
+# Demo YAML to exercise worm-emoji-fordite.py without overwriting. 🌼🌼 🌸
+# Run with: 🦋🌷 🐝
+# python skills/card/examples/worm-emoji-fordite.py \ 🐞🌱 🌹✨🌱
+# -i skills/card/examples/worm-emoji-fordite-demo.yml \ 🍃🪷🪷🌱 ✨🌸 🪐🎆
+# -o - \ 🌈🪷 🌈
+# --iterations 1 \ 🌺🌸🌻🪷 🌼🌿🐝
+# --mode mfm \ 🦋🍃🌷🐞 🌻🌼🍃 🎆💫🎆🛸
+# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 🍃🌼🍃🌼 🌺🌈🌸✨
+# --seed 42 \ 🌱 🌹✨
+# --theme summer-garden 🌿🌹 🌷🌺🌺🐞
+--- # 🌿🌼🌷
+card: # 🌱🍃🦋🌱🌷
+  name: demo-card # 🌹🐞🌿🐞🪷🌸
   description: |
     This is a demo file. Comments below will get emoji snow.
-# top-level comment to decorate 🌿 🌼🌹🪷🌺
-metadata:
-  tags: [demo, emoji]
-  notes: "keep me intact"
-# mid-level comment 🌱 🌿🪷🌷🌷
-items:
-  - id: 1  # inline comment target
-    name: first
-  - id: 2
-    name: second
-# 🌹🐞🌸
-# trailing comment near end 🦋🌈🌻🌼 🐝
-tail: true
+# top-level comment to decorate 🦋🌈🌻🌼 🪷
+metadata: # 🌹🐝🌷🦋🌺🎰🪩🕹
+  tags: [demo, emoji] # ✨🐞🌱🦋
+  notes: "keep me intact" # 🌻🌼🍃👾
+# mid-level comment 🌱🌷🌈 🌱✨🐝🍃
+items: # 🌼🌈🌱🌻
+  - id: 1 # inline comment target 🌼🌻🪷 🐝🍃🌸🍃 🎰🎇🎇🛸 🎆
+    name: first # 🌻🦋🪷🍃🐝
+  - id: 2 # 🌹🌺🌻🌿✨
+    name: second # 🌺🐞🐝🌻
+# 🌻🌸🍃✨🐝
+# trailing comment near end 🌼🌹🪷🌺 🍃🌷🌱
+tail: true # 🌿🪷🌷🌷✨🐞🌻🌻
 
 ------------------------------------------------------------
 
 ============================================================
 Test 9: MFM 20 passes (festival-sky, seed=10)
 CMD: python examples/adventure-4/characters/animals/confetti-crawler/sprayer.py -i examples/adventure-4/characters/animals/confetti-crawler/demo.yml -o - --mode mfm --iterations 20 --emoji-map-file examples/adventure-4/characters/animals/confetti-crawler/emojis.txt --theme festival-sky --seed 10
-# Demo YAML to exercise worm-emoji-fordite.py without overwriting. 🎊🪩🎆🚀
-# Run with: 🎈🚀 🎉🌌🚀🎀 🎀🎉✨
-#   python skills/card/examples/worm-emoji-fordite.py \
-#     -i skills/card/examples/worm-emoji-fordite-demo.yml \
-# -o - \ 🌌🎊✨
-# --iterations 1 \ 🎊 🎀🎆🌠 🎊🎊🎀
-# --mode mfm \ 🎊✨🎀✨ 🎊🎊✨🎉
-# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 🎆🎆🎇🚀 🪅✨🎈🪅
+# Demo YAML to exercise worm-emoji-fordite.py without overwriting.
+# Run with:
+# python skills/card/examples/worm-emoji-fordite.py \ 🎇
+# -i skills/card/examples/worm-emoji-fordite-demo.yml \ 🎀🎉✨
+#     -o - \
+# --iterations 1 \ 🪅🎈
+#     --mode mfm \
+# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 🎊🎆🎊🪩
 #     --seed 42 \
-# --theme summer-garden 🎀 🎉 🎇🌌
----
+# --theme summer-garden 🌌🎊✨
+--- # 🎊🎊🎊🎀
 card:
-  name: demo-card
+  name: demo-card # 🎊✨🎀✨
   description: |
     This is a demo file. Comments below will get emoji snow.
-# top-level comment to decorate 🎇🌠🚀
-metadata:
-  tags: [demo, emoji]
+# top-level comment to decorate 🎊🎊✨🎉 🎆🌠
+metadata: # 🎆🎆🎇🚀🪅✨🎈🪅
+  tags: [demo, emoji] # ✨🎉🪅
   notes: "keep me intact"
-# mid-level comment 🎆🪐🪩
-items:
+# mid-level comment
+items: # 🎀🎉🪐🎇🚀
   - id: 1  # inline comment target
     name: first
-  - id: 2
+  - id: 2 # 🎇🌠🚀
     name: second
-
-# trailing comment near end 🌌✨🎉🪅 🚀🎊 🌌🪅
-tail: true
+# 🎆🪐🪩
+# trailing comment near end 🎀
+tail: true # 🚀🎀
 
 ------------------------------------------------------------
 
@@ -313,13 +302,13 @@ CMD: bash -lc printf\ \'\'\ \|\ python\ \"examples/adventure-4/characters/animal
 Test 11: MFM drift disabled (should act like plain mfm)
 CMD: python examples/adventure-4/characters/animals/confetti-crawler/sprayer.py -i examples/adventure-4/characters/animals/confetti-crawler/demo.yml -o - --mode mfm --iterations 3 --drift-radius 3 --drift-prob 0 --emoji-map-file examples/adventure-4/characters/animals/confetti-crawler/emojis.txt --theme minty-fresh --seed 11
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting.
-# Run with: 🫛
-#   python skills/card/examples/worm-emoji-fordite.py \
+# Run with:
+# python skills/card/examples/worm-emoji-fordite.py \ 🫛
 #     -i skills/card/examples/worm-emoji-fordite-demo.yml \
 #     -o - \
 #     --iterations 1 \
 #     --mode mfm \
-# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 🍐🪩🍀🫧 ☘🍃
+#     --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \
 #     --seed 42 \
 #     --theme summer-garden
 ---
@@ -328,8 +317,8 @@ card:
   description: |
     This is a demo file. Comments below will get emoji snow.
 # top-level comment to decorate
-metadata:
-  tags: [demo, emoji]
+metadata: # 🍐🪩🍀🫧
+  tags: [demo, emoji] # ☘🍃
   notes: "keep me intact"
 # mid-level comment
 items:
@@ -356,24 +345,24 @@ CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler
 # --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 🫧
 # --seed 42 \ ☘✨
 # --theme summer-garden ☘🍐☘🍃
----
-card:
-  name: demo-card
+--- # ✨🪩
+card: # 🥒☘
+  name: demo-card # 🧊🍐🫛🥒
   description: |
     This is a demo file. Comments below will get emoji snow.
-# top-level comment to decorate ✨🪩
-metadata:
-  tags: [demo, emoji]
-  notes: "keep me intact"
-# mid-level comment 🥒☘
-items:
-  - id: 1  # inline comment target
-    name: first
-  - id: 2
-    name: second
-# 🧊🍐🫛🥒
-# trailing comment near end ✨
-tail: true
+# top-level comment to decorate ✨
+metadata: # 🍏🍏🧊
+  tags: [demo, emoji] # ☘🍀🍏
+  notes: "keep me intact" # 🌿🫧
+# mid-level comment 🌿🌿🧊🌿
+items: # 🫧☘
+  - id: 1 # inline comment target 🍀🧊
+    name: first # 🍐
+  - id: 2 # 🍏🫛🌿🍐
+    name: second # 🍏🍐
+# 🍀✨🍐🥒
+# trailing comment near end 🍀🧊
+tail: true # ✨
 
 ------------------------------------------------------------
 
@@ -387,7 +376,7 @@ CMD: python examples/adventure-4/characters/animals/confetti-crawler/sprayer.py 
 #     -o - \
 #     --iterations 1 \
 #     --mode mfm \
-# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 🫛🫛☘
+#     --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \
 #     --seed 42 \
 #     --theme summer-garden
 ---
@@ -397,7 +386,7 @@ card:
     This is a demo file. Comments below will get emoji snow.
 # top-level comment to decorate
 metadata:
-  tags: [demo, emoji]
+  tags: [demo, emoji] # 🫛🫛☘
   notes: "keep me intact"
 # mid-level comment
 items:
@@ -414,136 +403,136 @@ tail: true
 ============================================================
 Test 14: Serial 3 passes (citrus-zest, seed=13)
 CMD: python examples/adventure-4/characters/animals/confetti-crawler/sprayer.py -i examples/adventure-4/characters/animals/confetti-crawler/demo.yml -o - --mode serial --iterations 3 --emoji-map-file examples/adventure-4/characters/animals/confetti-crawler/emojis.txt --theme citrus-zest --seed 13
-# Demo YAML to exercise worm-emoji-fordite.py without overwriting. 🍈🍐🍊 🍊🍈🍊 🍋🍍
-# Run with: 🍍🍍 🍈🍈 🍈
-# python skills/card/examples/worm-emoji-fordite.py \ 🍍🍐 🍐🍋 🍍🍐🍊
-# -i skills/card/examples/worm-emoji-fordite-demo.yml \ 🍐 🍋🍍 🍊🍈🍈
-# -o - \ 🍋🍋 🍊🍋🍈🍋 🍈
-# --iterations 1 \ 🍊🍈 🍐🍋 🍐🍋🍋
-# --mode mfm \ 🍈 🍍🍐🍊🍐 🍐🍈
-# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 🍊🍊 🍐🍐🍋 🍐🍐🍊🍋
-# --seed 42 \ 🍊🍋🍈 🍐🍋 🍋🍈
-# --theme summer-garden 🍋🍈🍐 🍋🍐 🍈🍈
----
-card:
-  name: demo-card
+# Demo YAML to exercise worm-emoji-fordite.py without overwriting. 🍈🍐🍊 🍐🍐🍊 🍋🍈
+# Run with: 🍍🍍 🍐 🍐🍐
+# python skills/card/examples/worm-emoji-fordite.py \ 🍍🍐 🍋🍍 🍐🍊🍋🍈
+# -i skills/card/examples/worm-emoji-fordite-demo.yml \ 🍐 🍈 🍊
+# -o - \ 🍋🍋 🍍🍐🍊 🍈🍋
+# --iterations 1 \ 🍊🍈 🍊🍈🍈 🍐🍈🍈
+# --mode mfm \ 🍈 🍈 🍈🍋🍈
+# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 🍊🍊 🍐🍋🍋 🍋🍊
+# --seed 42 \ 🍊🍋🍈 🍐🍈 🍐🍈🍊
+# --theme summer-garden 🍋🍈🍐 🍐🍐🍊🍋 🍐🍈🍍🍋
+--- # 🍍🍐🍍🍍🍋🍈🍊
+card: # 🍊🍊🍈🍈🍈🍊🍊🍊
+  name: demo-card # 🍈🍋🍊🍍🍊🍈🍊🍊🍊
   description: |
     This is a demo file. Comments below will get emoji snow.
-# top-level comment to decorate 🍍🍐🍍🍍 🍈 🍊🍈🍊
-metadata:
-  tags: [demo, emoji]
-  notes: "keep me intact"
-# mid-level comment 🍊🍊🍈 🍋 🍊🍋🍊
-items:
-  - id: 1  # inline comment target
-    name: first
-  - id: 2
-    name: second
-# 🍈🍋🍊🍍🍐🍐🍊🍋
-# trailing comment near end 🍐🍈🍐🍋 🍐 🍍
-tail: true
+# top-level comment to decorate 🍐🍈🍐🍋 🍊🍋🍊 🍐
+metadata: # 🍊🍈🍊🍋🍈🍐🍈
+  tags: [demo, emoji] # 🍈🍈🍍🍊🍈🍋
+  notes: "keep me intact" # 🍐🍋🍐🍐🍈🍊🍐🍈🍈
+# mid-level comment 🍋🍍 🍋🍐🍈 🍐🍋🍐🍐
+items: # 🍊🍋🍈🍋🍐🍊🍐
+  - id: 1 # inline comment target 🍐🍋 🍐🍈 🍊🍋
+    name: first # 🍍🍐🍊🍐🍈🍋🍊🍐🍈🍐
+  - id: 2 # 🍐🍐🍋🍋🍐🍊🍊🍈🍋🍋🍋
+    name: second # 🍐🍋🍐🍐🍋🍋🍐🍊🍍
+# 🍋🍐🍐🍊🍊🍋
+# trailing comment near end 🍈 🍊🍈 🍈🍈🍐🍈
+tail: true # 🍋🍋🍋🍐
 
 ------------------------------------------------------------
 
 ============================================================
 Test 15: Layer + accent + trim
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ serial\ --iterations\ 2\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ spring-bloom\ --seed\ 14\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 10\ --drift-radius\ 2\ --drift-prob\ 0.35\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ neon-arcade\ --seed\ 15\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --strip\ --strip-mode\ serial\ --strip-min-depth\ 1
-# Demo YAML to exercise worm-emoji-fordite.py without overwriting.   🎇
-# Run with:    🚀
-# python skills/card/examples/worm-emoji-fordite.py \  🌱
-# -i skills/card/examples/worm-emoji-fordite-demo.yml \   🚀
+# Demo YAML to exercise worm-emoji-fordite.py without overwriting.  ✨
+# Run with:   🎇
+# python skills/card/examples/worm-emoji-fordite.py \    🎰
+# -i skills/card/examples/worm-emoji-fordite-demo.yml \  🌺
 # -o - \   👾
-# --iterations 1 \   🚀
-# --mode mfm \  🌻
-# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \  🪷
-# --seed 42 \  🌱
-# --theme summer-garden  🍃
----
-card:
-  name: demo-card
+# --iterations 1 \  🐞
+# --mode mfm \   🪐
+# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \   🚀
+# --seed 42 \   👾
+# --theme summer-garden  🌈
+--- # 🚀
+card: # 🌿
+  name: demo-card # 🦋
   description: |
     This is a demo file. Comments below will get emoji snow.
-# top-level comment to decorate  🌹
-metadata:
-  tags: [demo, emoji]
-  notes: "keep me intact"
+# top-level comment to decorate  🌈
+metadata: # 🐞
+  tags: [demo, emoji] # 🌿
+  notes: "keep me intact" # 🎰
 # mid-level comment  ✨
-items:
-  - id: 1  # inline comment target
-    name: first
-  - id: 2
-    name: second
-# 💫
-# trailing comment near end     🎰
-tail: true
+items: # 🌈
+  - id: 1 # inline comment target  🪷
+    name: first # 🌈
+  - id: 2 # 🐝
+    name: second # 🌈
+# 🪷
+# trailing comment near end  🌻
+tail: true # 🛸
 
 ------------------------------------------------------------
 
 ============================================================
 Test 16: Layered coats then erode smooth (garden + neon + melt)
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ serial\ --iterations\ 2\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ summer-garden\ --seed\ 16\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 6\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ neon-arcade\ --seed\ 17\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --erode\ --iterations\ 6\ --drift-radius\ 2\ --seed\ 18
-# Demo YAML to exercise worm-emoji-fordite.py without overwriting. ☀🪷🌹 🌻🐦🐛🌸
-# Run with: 🍃 ☀
-# python skills/card/examples/worm-emoji-fordite.py \ 🌹🌹🪷 🕊
-# -i skills/card/examples/worm-emoji-fordite-demo.yml \ 🐛🕊🐞 🦉🪺 🎆🪐
-# -o - \ 🐢 🦋
-# --iterations 1 \ 🌻🌷🐞 🐞☀🐛🐦
-# --mode mfm \ ☀ 🌹
-# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 🕊🐢🌿 🐜
-# --seed 42 \ 🐢🌺🍃🐞 🌹 💫🎇👾💫
-# --theme summer-garden 🐝🪷🌼 🐞🦉🌸🐛
----
-card:
-  name: demo-card
+# Demo YAML to exercise worm-emoji-fordite.py without overwriting. ☀🪷🌹 🦉🌸
+# Run with: 🍃 🪷🍃
+# python skills/card/examples/worm-emoji-fordite.py \ 🌹🌹🪷 ☀🐜☀🌻
+# -i skills/card/examples/worm-emoji-fordite-demo.yml \ 🐛🕊🐞 🐜
+# -o - \ 🐢 🐛🦉🦋🌸
+# --iterations 1 \ 🌻🌷🐞 🌸🐞
+# --mode mfm \ ☀ 🌸🍃🐦 🎆🪐
+# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 🕊🐢🌿 🌸🌸
+# --seed 42 \ 🐢🌺🍃🐞 🍃🌹🌷🐛
+# --theme summer-garden 🐝🪷🌼 🪺🌹
+--- # 🦋🐦☀🐝🕊
+card: # ☀🌺🐢
+  name: demo-card # ☀🌼🐛🐜🌹🐞
   description: |
     This is a demo file. Comments below will get emoji snow.
-# top-level comment to decorate 🦋 🌷🐞🪷🌷
-metadata:
-  tags: [demo, emoji]
-  notes: "keep me intact"
-# mid-level comment ☀🌺 🌹 🎮🕹🛸 👾🪐👾🪩 🎰🪐🎰💫
-items:
-  - id: 1  # inline comment target
-    name: first
-  - id: 2
-    name: second
-# ☀🌼🐛🦉🌸👾🎮
-# trailing comment near end 🍃 🪷🍃
-tail: true
+# top-level comment to decorate 🍃 🐝🦋
+metadata: # 🌻🐦🐛🌸🐝🐢🕊🌸
+  tags: [demo, emoji] # ☀🌼🌼☀
+  notes: "keep me intact" # 🕊🦋💫🎇👾💫
+# mid-level comment 🦉🪺 🌼🌿
+items: # 🦋🌿🌹☀
+  - id: 1 # inline comment target 🐞☀🐛🐦 🐞
+    name: first # 🌹🌺🐞
+  - id: 2 # 🐜🌼🦉
+    name: second # 🌹🌿🎮🕹🛸
+# 🐞🦉🌸🐛🌸👾🪐👾🪩🎰🪐🎰💫
+# trailing comment near end 🌷🐞🪷🌷 🌹🐢
+tail: true # 🌹🦋🐞🐢👾🎮
 
 ------------------------------------------------------------
 
 ============================================================
 Test 17: Three themes + drift accent + strip depth=1
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ serial\ --iterations\ 1\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ spring-bloom\ --seed\ 19\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 5\ --drift-radius\ 1\ --drift-prob\ 0.4\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ festival-sky\ --seed\ 20\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 5\ --drift-radius\ 2\ --drift-prob\ 0.3\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ ocean-vibes\ --seed\ 21\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --strip\ --strip-mode\ serial\ --strip-min-depth\ 1
-# Demo YAML to exercise worm-emoji-fordite.py without overwriting.  🐟
-# Run with:    🌊
+# Demo YAML to exercise worm-emoji-fordite.py without overwriting. 🐝
+# Run with:  🐟
 # python skills/card/examples/worm-emoji-fordite.py \   ♀
-# -i skills/card/examples/worm-emoji-fordite-demo.yml \ 🌺
+# -i skills/card/examples/worm-emoji-fordite-demo.yml \   🌊
 # -o - \ 🐝
-# --iterations 1 \ 🌈
+# --iterations 1 \  ♀
 # --mode mfm \ 🪷
 # --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 🐞
 # --seed 42 \ 🐞
 # --theme summer-garden 🐞
----
-card:
-  name: demo-card
+--- # 🐞
+card: # 🌿
+  name: demo-card # 🌷
   description: |
     This is a demo file. Comments below will get emoji snow.
-# top-level comment to decorate  ✨
-metadata:
-  tags: [demo, emoji]
-  notes: "keep me intact"
-# mid-level comment  ✨
-items:
-  - id: 1  # inline comment target
-    name: first
-  - id: 2
-    name: second
-# ♀
-# trailing comment near end 🌿
-tail: true
+# top-level comment to decorate 🌿
+metadata: # 🌺
+  tags: [demo, emoji] # 🪷
+  notes: "keep me intact" # 🌷
+# mid-level comment 🌹
+items: # 🌺
+  - id: 1 # inline comment target 🍃
+    name: first # 🌹
+  - id: 2 # ✨
+    name: second # ✨
+# ✨
+# trailing comment near end 🌼
+tail: true # ♀
 
 ------------------------------------------------------------
 
@@ -551,67 +540,67 @@ tail: true
 Test 18: Alternating themes + erosion polish
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ serial\ --iterations\ 1\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ pastel-candy\ --seed\ 22\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 8\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ cyberpunk-neon\ --seed\ 23\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 8\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ desert-sunset\ --drift-radius\ 1\ --drift-prob\ 0.25\ --seed\ 24\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --erode\ --iterations\ 8\ --drift-radius\ 2\ --seed\ 25
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting. 🍨💖 🟪🎮💡📼
-# Run with: 🍧🍡💕🍦 ☀🌅🏜
-# python skills/card/examples/worm-emoji-fordite.py \ 🍧 📼🟧📡🌃 ☀ 🏺🏺🦂 ☀🦂🧡☀
-# -i skills/card/examples/worm-emoji-fordite-demo.yml \ 🍦 🔮🛸🟨
-# -o - \ 💚💕 ☀🧡
-# --iterations 1 \ 💗🍭💙💖 🪩🟦🪩 🐪 🪩
-# --mode mfm \ 🎀🍧🍬 💾🚀🌃🟧
-# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 💕
-# --seed 42 \ 🍨💛🍦
-# --theme summer-garden 🍨🍨 🔦
----
-card:
-  name: demo-card
+# Run with: 🍧🍡💕🍦
+# python skills/card/examples/worm-emoji-fordite.py \ 🍧 ☀🌅🏜
+# -i skills/card/examples/worm-emoji-fordite-demo.yml \ 🍦
+# -o - \ 💚💕 🏺🏺🦂
+# --iterations 1 \ 💗🍭💙💖 📼🟧📡🌃 ☀ ☀🦂🧡☀
+# --mode mfm \ 🎀🍧🍬
+# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 💕 🔮🛸🪩🟨
+# --seed 42 \ 🍨💛🍦 ☀🧡
+# --theme summer-garden 🍨🍨
+--- # 🎀🍦🐪
+card: # 🎀🪩🟦🪩
+  name: demo-card # 🎈🎈🧁
   description: |
     This is a demo file. Comments below will get emoji snow.
-# top-level comment to decorate 🎀🍦 📺🪩 🪩
-metadata:
-  tags: [demo, emoji]
-  notes: "keep me intact"
-# mid-level comment 🎀 🌵🏜
-items:
-  - id: 1  # inline comment target
-    name: first
-  - id: 2
-    name: second
-# 🎈🎈🧁🔮🛸📼
-# trailing comment near end 🍦🧁 🌅
-tail: true
+# top-level comment to decorate 🍦🧁 💾🚀🌃🟧
+metadata: # 🍦
+  tags: [demo, emoji] # 💗💚🎀🍬
+  notes: "keep me intact" # 🧁🎀🧁💚
+# mid-level comment 🎈🧁
+items: # 🎀🔦
+  - id: 1 # inline comment target 🍡🌸
+    name: first # 🍧💚💖
+  - id: 2 # 🍭🌸💜💕📺🪩
+    name: second # 💕🍬🌵🏜
+# 🧁💙🌅
+# trailing comment near end 🍭🍡💗🍡 🔮🛸📼
+tail: true # 💛💗🎈
 
 ------------------------------------------------------------
 
 ============================================================
 Test 19: Winter -> Neon -> Festival -> Erode
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ serial\ --iterations\ 3\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ winter-holiday\ --seed\ 26\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 12\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ neon-arcade\ --drift-radius\ 1\ --drift-prob\ 0.2\ --seed\ 27\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 12\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ festival-sky\ --drift-radius\ 2\ --drift-prob\ 0.2\ --seed\ 28\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --erode\ --iterations\ 10\ --drift-radius\ 2\ --seed\ 29
-# Demo YAML to exercise worm-emoji-fordite.py without overwriting. 🎶🎁 🎊⛄❄ ☕ 🎰👾🪐
-# Run with:  🎄 🎉🥛🧤🍫 🎉 🌠🌌🎉
-# python skills/card/examples/worm-emoji-fordite.py \ 🎄🎵🎀🎶 🧥🥛 🎶🎉🕯 🚀 🎮🎇🪩🚀 🎆🎊
-# -i skills/card/examples/worm-emoji-fordite-demo.yml \ ✨🕯 🍫 ❄ ✨ 🎇🪅🪐 🪩🎉🎀🪅 ✨ ❄
-# -o - \ 🥛✨ ❄🥛🌟 🎁🧦 💫
-# --iterations 1 \ 🎶 🎊🎄🧤 🍫🎀 🎇🌌🎇🪅
-# --mode mfm \ ⛄🧣  🕯🥛🎵🎀 🔮 👾🌌👾🔮 🎈🎈🎊🚀
-# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 🍫✨🧥🍫 🧥🌟🍪 🍪 ❄ ❄
-# --seed 42 \ 🎄 🧥🎁🕯🎄 🎄 👾🎇 🪐🎀 🎉🎈 ✨
-# --theme summer-garden 🍫🎉🎀 ⛄ 🧤☃🧤🎁 🚀🎉🎆🚀 🪩
----
-card:
-  name: demo-card
+# Demo YAML to exercise worm-emoji-fordite.py without overwriting. 🎶🎁 ☃⛄🧦 🎀🕯🎊 🎰👾🪐
+# Run with: ❄ ☃ 🥛🎁☃ ✨
+# python skills/card/examples/worm-emoji-fordite.py \ 🎄🎵🎀🎶 ☕ 🥛
+# -i skills/card/examples/worm-emoji-fordite-demo.yml \ ✨🕯 🎉🥛🧤🍫 🍫 🎉 🌠🌌🎉
+# -o - \ 🥛✨ 🎶🎉🕯 🍪 🎮🎇🪩🚀 🎆🎊
+# --iterations 1 \ 🎶 ❄ ❄ 🚀 ✨
+# --mode mfm \ ⛄🧣 🎁🧦 🥛 🎇🪅🪐 🪩🎉🎀🪅
+# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \ 🍫✨🧥🍫 🍫🎀 ❄🕯🌟 ✨
+# --seed 42 \ 🎄 🕯🥛🎵🎀 🥛🧤
+# --theme summer-garden 🍫🎉🎀 🍪 🍪🎶🎀 💫
+--- # 🎁🎄🧥
+card: # 🍫🍫🕯🧤☃🧤🎁🧣❄🥛🎇🌌🎇🪅
+  name: demo-card # ☃🌟🎶🧤🌟🎶👾🌌👾🔮❄❄
   description: |
     This is a demo file. Comments below will get emoji snow.
-# top-level comment to decorate 🎁 🎀 🎶🧤 🎇👾🎮 🌌
-metadata:
-  tags: [demo, emoji]
-  notes: "keep me intact"
-# mid-level comment 🍫🍫🕯 🎄⛄🎊🎵 ❄ 🎮🛸 🎉🎆
-items:
-  - id: 1  # inline comment target
-    name: first
-  - id: 2
-    name: second
-# ☃🌟☃✨⛄🧦🧣❄🎇🎉
-# trailing comment near end 🌟🕯 ☃ 🎄🎶 👾🪩🎰
-tail: true
+# top-level comment to decorate 🌟🕯 ❄ ✨🍫✨ 🔮 🎈🎈🎊🚀
+metadata: # 🎊⛄❄❄🧣❄❄🎀🧣🍫
+  tags: [demo, emoji] # 🎄🎄🎶🎀⛄🧤🎊
+notes: "keep me intact" # 🧥🥛🥛🌟🥛❄👾🎇🪐🎀🎉🎈
+# mid-level comment 🍫 ☃ 🎉☕ 🛸👾
+items: # ❄🥛🌟🎉🕯🍪🧥🥛🎊🪩🪩
+  - id: 1 # inline comment target 🎊🎄❄🧤 ☃🎄 ☕🕯🧣🧣
+name: first # 🕯🎵🎁🌟🎇👾🎮🌌🚀🎉🎆🚀
+  - id: 2 # 🧥🌟🍪🧦🧤🥛🧤🎉🧦✨
+    name: second # 🧥🎁🕯🎄✨🎊🎁🎁🎮🛸
+# ⛄🍫🌟
+# trailing comment near end 🎀 🌟☃☃🎊 🎶🍫 🎇🎉 🎉🎆
+tail: true # 🎄⛄🎊🎵⛄🧦✨🎶🎀🧥✨
 
 ------------------------------------------------------------
 
@@ -619,33 +608,33 @@ tail: true
 Test 20: Thick serial + ocean accents + strip depth=2
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ serial\ --iterations\ 2\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ pastel-candy\ --seed\ 30\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ serial\ --iterations\ 2\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ citrus-zest\ --seed\ 31\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 15\ --drift-radius\ 1\ --drift-prob\ 0.3\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ ocean-vibes\ --seed\ 32\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --strip\ --strip-mode\ serial\ --strip-min-depth\ 2
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting.     🏄⛵
-# Run with:     ♂🚤
-# python skills/card/examples/worm-emoji-fordite.py \       🦈🐟
-# -i skills/card/examples/worm-emoji-fordite-demo.yml \     🛶🌊
-# -o - \     🐚🦈
-# --iterations 1 \     🏄🌊
-# --mode mfm \      🌊🐠
-# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \   🍈 🍈
-# --seed 42 \      🐟⛵
-# --theme summer-garden    🍐🍐
----
-card:
-  name: demo-card
+# Run with:   🍐 🍈
+# python skills/card/examples/worm-emoji-fordite.py \     ♂🚤
+# -i skills/card/examples/worm-emoji-fordite-demo.yml \    🍈🍊
+# -o - \      🦈🐟
+# --iterations 1 \     🫧 ♂
+# --mode mfm \     🛶🌊
+# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \     ♀🐳
+# --seed 42 \    🍐🍋
+# --theme summer-garden     🐚🦈
+--- # 🏄🌊
+card: # 🍐🍐
+  name: demo-card # 🌊🐠
   description: |
     This is a demo file. Comments below will get emoji snow.
-# top-level comment to decorate    🍈🍐
-metadata:
-  tags: [demo, emoji]
-  notes: "keep me intact"
-# mid-level comment     🪼🏄
-items:
-  - id: 1  # inline comment target
-    name: first
-  - id: 2
-    name: second
-# 🍈♂
-# trailing comment near end     ♀🐳
-tail: true
+# top-level comment to decorate   🍍 🍋
+metadata: # 🍊♂
+  tags: [demo, emoji] # 🍋🍊
+  notes: "keep me intact" # 🐟⛵
+# mid-level comment     ♂♀
+items: # 🍐🍈
+  - id: 1 # inline comment target    🍍🍍
+    name: first # 🍈🍐
+  - id: 2 # 🍈🍈
+    name: second # 🍋🍈
+# 🪼🏄
+# trailing comment near end    🍈🍊
+tail: true # 🍍🍋
 
 ------------------------------------------------------------
 
@@ -653,33 +642,33 @@ tail: true
 Test 21: Quad-stack + long mfm + erosion + strip
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ serial\ --iterations\ 1\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ spring-bloom\ --seed\ 33\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ serial\ --iterations\ 1\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ ocean-night\ --seed\ 34\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ serial\ --iterations\ 1\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ cyberpunk-neon\ --seed\ 35\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ serial\ --iterations\ 1\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ desert-sunset\ --seed\ 36\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 25\ --drift-radius\ 2\ --drift-prob\ 0.25\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ festival-sky\ --seed\ 37\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --erode\ --iterations\ 12\ --drift-radius\ 3\ --seed\ 38\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --strip\ --strip-mode\ serial\ --strip-min-depth\ 1
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting.     🎉
-# Run with:         🪩
-# python skills/card/examples/worm-emoji-fordite.py \        🪩
+# Run with:    🔥
+# python skills/card/examples/worm-emoji-fordite.py \       🎉
 # -i skills/card/examples/worm-emoji-fordite-demo.yml \      🪩
-# -o - \     🌠
-# --iterations 1 \       🌠
-# --mode mfm \    🐪
-# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \     🎀
-# --seed 42 \       🌈
-# --theme summer-garden           🪩
----
-card:
-  name: demo-card
+# -o - \       🌈
+# --iterations 1 \      🎊
+# --mode mfm \      🪩
+# --emoji-map-file skills/card/examples/worm-emoji-fordite-emojis.txt \    🧡
+# --seed 42 \    🐫
+# --theme summer-garden     🌠
+--- # 🪱
+card: # 🌠
+  name: demo-card # 🌈
   description: |
     This is a demo file. Comments below will get emoji snow.
-# top-level comment to decorate        🪩
-metadata:
-  tags: [demo, emoji]
-  notes: "keep me intact"
-# mid-level comment     🌈
-items:
-  - id: 1  # inline comment target
-    name: first
-  - id: 2
-    name: second
-# 🌅
-# trailing comment near end    🦂
-tail: true
+# top-level comment to decorate    🦂
+metadata: # 🎀
+  tags: [demo, emoji] # 🧡
+  notes: "keep me intact" # 🪐
+# mid-level comment    🧡
+items: # 🎈
+  - id: 1 # inline comment target      ✨
+name: first # 🎊
+- id: 2 # 🌌
+    name: second # ✨
+# 🦂
+# trailing comment near end    🔥
+tail: true # 🌇
 
 ------------------------------------------------------------
 

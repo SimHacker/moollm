@@ -305,7 +305,12 @@ def parse_args(argv: Iterable[str]) -> argparse.Namespace:
     p.add_argument("-v", "--verbose", action="store_true", help="Verbose logging of actions.")
     p.add_argument("--erode", action="store_true", help="Move existing emojis downward; do not create new ones.")
     p.add_argument("--comment-prefix", default="#", help="Comment prefix to target (use '' for raw text).")
-    p.add_argument("--all-sites", action="store_true", help="Allow spraying/erosion on all non-blocked lines (not just comment/blank).")
+    p.add_argument(
+        "--all-sites",
+        action="store_true",
+        default=True,
+        help="Allow spraying/erosion on all non-blocked lines (not just comment/blank).",
+    )
     p.add_argument(
         "--mode",
         choices=["mfm", "serial"],
