@@ -92,22 +92,23 @@ def choose_windows(n_lines: int, window_sizes: Sequence[int]) -> List[tuple[int,
     return windows
 
 
-def line_is_commenty(line: str) -> bool:
+def line_is_commenty(line: str, comment_prefix: str) -> bool:
+    if comment_prefix == "":
+        return True
     stripped = line.lstrip()
-    return stripped.startswith("#") or stripped.startswith("//") or stripped == ""
+    return stripped.startswith(comment_prefix) or stripped == ""
 
 
-def split_comment(line: str):
-    """Return (prefix, marker, body, newline) or None if no comment marker."""
+def split_comment(line: str, comment_prefix: str):
+    """Return (prefix, marker, body, newline) or None if no comment marker. If comment_prefix is empty, treat whole line as body."""
     nl = "\n" if line.endswith("\n") else ""
     base = line.rstrip("\n")
-    idx_hash = base.find("#")
-    idx_slash = base.find("//")
-    idxs = [i for i in [idx_hash, idx_slash] if i != -1]
-    if not idxs:
+    if comment_prefix == "":
+        return "", "", base, nl
+    idx = base.find(comment_prefix)
+    if idx == -1:
         return None
-    idx = min(idxs)
-    marker = "#" if idx == idx_hash else "//"
+    marker = comment_prefix
     prefix = base[:idx].rstrip()
     body = base[idx + len(marker) :].lstrip()
     return prefix, marker, body, nl
@@ -154,10 +155,12 @@ def append_emoji_to_body(body: str, emoji: str) -> str:
     return (body.rstrip() + " " + emoji).strip()
 
 
-def find_block_scalar_lines(lines: List[str]) -> Set[int]:
+def find_block_scalar_lines(lines: List[str], comment_prefix: str) -> Set[int]:
     """
     Identify lines belonging to block scalars (| or >) so we avoid placing emojis there.
     """
+    if comment_prefix == "":
+        return set()
     blocked: Set[int] = set()
     in_block = False
     block_indent = 0
@@ -179,18 +182,20 @@ def find_block_scalar_lines(lines: List[str]) -> Set[int]:
     return blocked
 
 
-def collect_comment_sites(lines: List[str], blocked: Set[int]) -> List[int]:
+def collect_comment_sites(lines: List[str], blocked: Set[int], comment_prefix: str) -> List[int]:
     """Depth-first (top-to-bottom) collection of line indices that can host emojis."""
-    return [i for i, ln in enumerate(lines) if i not in blocked and line_is_commenty(ln)]
+    if comment_prefix == "":
+        return list(range(len(lines)))
+    return [i for i, ln in enumerate(lines) if i not in blocked and line_is_commenty(ln, comment_prefix)]
 
 
-def append_emojis(line: str, palette: Sequence[str], max_per_pass: int) -> str:
+def append_emojis(line: str, palette: Sequence[str], max_per_pass: int, comment_prefix: str) -> str:
     if not palette:
         return line
     count = random.randint(1, max_per_pass)
     emojis = "".join(random.choices(palette, k=count))
     newline = "\n" if line.endswith("\n") else ""
-    parsed = split_comment(line)
+    parsed = split_comment(line, comment_prefix)
     if parsed:
         prefix, marker, body, _ = parsed
         emoji_only = all((EMOJI_RE.fullmatch(ch) or ch.isspace()) for ch in body)
@@ -199,13 +204,19 @@ def append_emojis(line: str, palette: Sequence[str], max_per_pass: int) -> str:
             new_body = f"{body_clean}{emojis}"
         else:
             new_body = f"{body.rstrip()} {emojis}"
+        if comment_prefix == "":
+            return f"{new_body}{newline}"
         prefix_part = prefix.rstrip()
         sep = " " if prefix_part else ""
         return f"{prefix_part}{sep}{marker} {new_body}{newline}"
     core = line.rstrip("\n")
     if core.strip() == "":
-        return f"# {emojis}{newline}"
-    return f"{core} {emojis}{newline}"
+        if comment_prefix == "":
+            return f"{emojis}{newline}"
+        return f"{comment_prefix} {emojis}{newline}"
+    if comment_prefix == "":
+        return f"{core} {emojis}{newline}"
+    return f"{core} {comment_prefix} {emojis}{newline}"
 
 
 def apply_pass(
@@ -217,8 +228,9 @@ def apply_pass(
     drift_prob: float,
     blocked: Set[int],
     verbose: bool,
+    comment_prefix: str,
 ) -> List[str]:
-    sites = collect_comment_sites(lines, blocked)
+    sites = collect_comment_sites(lines, blocked, comment_prefix)
     if not sites:
         return lines
 
@@ -227,11 +239,11 @@ def apply_pass(
         if drift_radius > 0 and random.random() < drift_prob:
             start = max(0, idx - drift_radius)
             end = min(len(lines), idx + drift_radius + 1)
-            candidates = [i for i in range(start, end) if line_is_commenty(lines[i])]
+            candidates = [i for i in range(start, end) if line_is_commenty(lines[i], comment_prefix)]
             if candidates:
                 target = random.choice(candidates)
         vlog(verbose, f"[spray] mode={mode} idx={idx} -> target={target}")
-        lines[target] = append_emojis(lines[target], palette, max_per_pass)
+        lines[target] = append_emojis(lines[target], palette, max_per_pass, comment_prefix)
 
     if mode == "serial":
         for idx in sites:
@@ -255,17 +267,18 @@ def run(
     drift_prob: float,
     erode: bool,
     verbose: bool,
+    comment_prefix: str,
 ) -> str:
     lines = input_text.splitlines(keepends=True)
     if not lines:
         vlog(verbose, "[info] empty input; nothing to do")
         return input_text
-    blocked = find_block_scalar_lines(lines)
+    blocked = find_block_scalar_lines(lines, comment_prefix)
     if erode:
-        lines = erode_runs(lines, iterations, drift_radius, blocked, verbose, allow=set(palette))
+        lines = erode_runs(lines, iterations, drift_radius, blocked, verbose, allow=set(palette), comment_prefix=comment_prefix)
     else:
         for _ in range(iterations):
-            lines = apply_pass(lines, palette, max_per_pass, mode, drift_radius, drift_prob, blocked, verbose)
+            lines = apply_pass(lines, palette, max_per_pass, mode, drift_radius, drift_prob, blocked, verbose, comment_prefix)
     return "".join(lines)
 
 
@@ -287,6 +300,7 @@ def parse_args(argv: Iterable[str]) -> argparse.Namespace:
     p.add_argument("--strip-min-depth", type=int, default=0, help="Minimum emoji depth to preserve when stripping.")
     p.add_argument("-v", "--verbose", action="store_true", help="Verbose logging of actions.")
     p.add_argument("--erode", action="store_true", help="Move existing emojis downward; do not create new ones.")
+    p.add_argument("--comment-prefix", default="#", help="Comment prefix to target (use '' for raw text).")
     p.add_argument(
         "--mode",
         choices=["mfm", "serial"],
@@ -296,10 +310,10 @@ def parse_args(argv: Iterable[str]) -> argparse.Namespace:
     return p.parse_args(argv)
 
 
-def strip_line(line: str, min_depth: int) -> str:
+def strip_line(line: str, min_depth: int, comment_prefix: str) -> str:
     nl = "\n" if line.endswith("\n") else ""
     content = line.rstrip("\n")
-    parsed = split_comment(line)
+    parsed = split_comment(line, comment_prefix)
     if not parsed:
         return line
     prefix, marker, body, _ = parsed
@@ -310,19 +324,21 @@ def strip_line(line: str, min_depth: int) -> str:
     if new_body.strip() == "":
         return ""
     prefix_part = prefix.rstrip()
+    if comment_prefix == "":
+        return f"{new_body}{nl}"
     sep = " " if prefix_part else ""
     return f"{prefix_part}{sep}{marker} {new_body}{nl}"
 
 
-def strip_text(text: str, mode: str, iterations: int, min_depth: int, verbose: bool) -> str:
+def strip_text(text: str, mode: str, iterations: int, min_depth: int, verbose: bool, comment_prefix: str) -> str:
     lines = text.splitlines(keepends=True)
-    blocked = find_block_scalar_lines(lines)
-    sites = collect_comment_sites(lines, blocked)
+    blocked = find_block_scalar_lines(lines, comment_prefix)
+    sites = collect_comment_sites(lines, blocked, comment_prefix)
     if not sites:
         vlog(verbose, "[strip] no comment sites; nothing to strip")
 
     def strip_site(idx: int):
-        new_line = strip_line(lines[idx], min_depth)
+        new_line = strip_line(lines[idx], min_depth, comment_prefix)
         lines[idx] = new_line if new_line.endswith("\n") else new_line
         vlog(verbose, f"[strip:{mode}] idx={idx} depth>={min_depth}")
 
@@ -357,14 +373,15 @@ def erode_runs(
     blocked: Set[int],
     verbose: bool,
     allow: set[str] | None,
+    comment_prefix: str,
 ) -> List[str]:
-    comment_sites = collect_comment_sites(lines, blocked)
+    comment_sites = collect_comment_sites(lines, blocked, comment_prefix)
     if not comment_sites:
         vlog(verbose, "[erode] no comment sites; nothing to move")
         return lines
 
     def has_emoji(idx: int) -> bool:
-        parsed = split_comment(lines[idx])
+        parsed = split_comment(lines[idx], comment_prefix)
         if not parsed:
             return False
         _, marker, body, _ = parsed
@@ -375,7 +392,7 @@ def erode_runs(
         if not candidates:
             break
         src = random.choice(candidates)
-        parsed = split_comment(lines[src])
+        parsed = split_comment(lines[src], comment_prefix)
         if not parsed:
             continue
         prefix, marker, body, nl = parsed
@@ -388,7 +405,7 @@ def erode_runs(
         if not lower_sites:
             lower_sites = [src]
         tgt = random.choice(lower_sites)
-        t_parsed = split_comment(lines[tgt])
+        t_parsed = split_comment(lines[tgt], comment_prefix)
         if not t_parsed:
             # target is blank or missing marker; leave it unchanged
             tgt_prefix, tgt_marker, tgt_body, tgt_nl = "", "#", "", "\n" if lines[tgt].endswith("\n") else ""
@@ -440,6 +457,7 @@ def main(argv: Iterable[str] | None = None) -> int:
             iterations=args.iterations,
             min_depth=args.strip_min_depth,
             verbose=args.verbose,
+            comment_prefix=args.comment_prefix,
         )
     elif args.erode:
         output_text = run(
@@ -452,6 +470,7 @@ def main(argv: Iterable[str] | None = None) -> int:
             drift_prob=args.drift_prob,
             erode=True,
             verbose=args.verbose,
+            comment_prefix=args.comment_prefix,
         )
     else:
         output_text = run(
@@ -464,6 +483,7 @@ def main(argv: Iterable[str] | None = None) -> int:
             drift_prob=args.drift_prob,
             erode=False,
             verbose=args.verbose,
+            comment_prefix=args.comment_prefix,
         )
 
     if args.output == "-":
