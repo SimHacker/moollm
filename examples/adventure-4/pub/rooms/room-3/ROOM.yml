@@ -1,5 +1,6 @@
 # Room 3 — The Navigator's Suite (East)
 # Theme: Introspection — seeing yourself think
+# Contains: 8 mirrors (one per cursor-mirror category) + disco ball + I-Beam
 
 room:
   name: "The Navigator's Suite"
@@ -10,18 +11,31 @@ room:
   tagline: "See yourself think. The mirror shows what's inside."
   
   description: |
-    Mirrors everywhere. Not for vanity — for *inspection*. Each
-    mirror shows something different: one shows your recent actions,
-    one shows your current goals, one shows what you're thinking.
+    Mirrors everywhere. Eight of them, each showing a different aspect
+    of your cognitive activity. A disco ball hangs from the ceiling,
+    scattering connections across the room as it slowly rotates.
     
-    A navigation desk dominates the room, covered with charts of
-    the mind's territory. A mechanical orrery shows the current
-    context window orbiting around intention.
+    The mirrors map to cursor-mirror's command categories:
+    
+    ```yaml
+    # THE EIGHT MIRRORS
+    🗺️ Map Mirror:        Navigation — workspaces, conversations
+    🌊 River Mirror:      Streaming — messages, transcripts
+    🔬 Deep Mirror:       Analysis — patterns, timelines
+    🔧 Instrument Mirror: Tools — calls, results, checkpoints
+    👁️ Attention Mirror:  Context — what Cursor saw
+    📚 Memory Mirror:     Archive — exports, todos
+    📊 System Mirror:     Status — config, models, MCP
+    🖼️ Gallery Mirror:    Images — screenshots, photos
+    ```
+    
+    A disco ball hangs from the center, catching light from ALL
+    mirrors and revealing James Burke-style connections between them.
     
     Above the bed:
     
     > "The unexamined life is not worth living." — Socrates
-    > (But now we have the tools to examine it.)
+    > (But now we have 51 commands to examine it with.)
     
   ideal_guest: |
     Characters who want to understand themselves. Introspectors,
@@ -37,9 +51,13 @@ room:
     - thinking-mirror.yml
     - context-orrery.yml
     - session-compass.yml
+    - disco-ball.yml       # James Burke connections — the meta-mirror
+    
+  mirror_gallery:
+    - mirrors.yml          # All 8 categorical mirrors defined here
     
   agents:
-    - i-beam.yml  # Summonable introspection familiar — say "I-Beam" to invoke
+    - i-beam.yml           # Summonable introspection familiar — say "I-Beam" to invoke
       
   furniture:
     bed:
@@ -52,7 +70,8 @@ room:
       instruments: [compass, sextant, charts]
       
   decor:
-    mirrors: 7
+    mirrors: 8              # One per cursor-mirror category
+    disco_ball: 1           # Hanging from ceiling, slowly rotating
     window: east-facing
     rug: labyrinth-pattern
     
@@ -64,3 +83,21 @@ room:
       - INTROSPECTION
       - METACOGNITION
       - WATCH-YOURSELF-THINK
+      - CONNECTIONS
+      - JAMES-BURKE
+      
+  skill_integration: |
+    This room is a physical manifestation of the cursor-mirror skill.
+    Each mirror corresponds to a command category:
+    
+    🗺️ → list-workspaces, show-workspace, list-composers, tree, find, which
+    🌊 → tail, stream, transcript, watch
+    🔬 → grep, analyze, timeline, stats, models
+    🔧 → tools, tool-result, blobs, checkpoints, diff, thinking, mcp
+    👁️ → context, context-sources, request-context, searches, indexing
+    📚 → export-*, files, todos, index
+    📊 → status-*, dbs, tables, keys, sql, info
+    🖼️ → images, image-path, image-info, image-gallery
+    
+    The disco ball synthesizes all 51 commands into unified understanding.
+    I-Beam is the guide who interprets what the mirrors show.

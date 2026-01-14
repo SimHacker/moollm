@@ -1,0 +1,259 @@
+# 🪩 THE DISCO BALL OF CONNECTIONS
+# A rotating sphere of mirrors that casts light across everything at once
+# James Burke-style connections between all aspects of your cognition
+
+object:
+  name: The Disco Ball of Connections
+  aliases: ["disco ball", "connection sphere", "burke ball"]
+  type: artifact
+  portable: false  # hangs from the ceiling
+  emoji: "🪩"
+  
+  description: |
+    A slowly rotating disco ball hangs from the center of the ceiling.
+    
+    Unlike the wall mirrors, which each show one aspect, the disco ball
+    catches light from ALL the mirrors simultaneously and scatters it
+    in patterns across the room.
+    
+    As it turns, connections become visible: a tool call here links to
+    a context assembly there; a search query connects to a file edit;
+    thinking blocks illuminate why actions were taken.
+    
+    This is James Burke territory — Connections, The Day The Universe
+    Changed. Everything links to everything.
+    
+    Stare into it long enough and you see the whole session at once,
+    from every perspective, as interlocking patterns of light.
+    
+  examine: |
+    The disco ball is covered in tiny mirrors, each reflecting a
+    different slice of the surrounding mirrors:
+    
+    - North facets catch the Map Mirror → where you worked
+    - East facets catch the River Mirror → what you said
+    - South facets catch the Instrument Mirror → tools you used
+    - West facets catch the Memory Mirror → what was preserved
+    - Upper facets catch the Attention Mirror → what Cursor saw
+    - Lower facets catch the System Mirror → how Cursor is configured
+    
+    As the ball rotates, these reflections mix, overlap, and create
+    momentary constellations of meaning.
+    
+    Sometimes, staring into the shifting light, you see a connection
+    you never noticed before.
+    
+  state:
+    rotating: true
+    rpm: 0.5  # slow, contemplative rotation
+    facets: 512
+    current_illumination: "thinking patterns crossing tool chains"
+    
+  advertisements:
+    - trigger: "disco ball"
+      score: 1.0
+      response: |
+        *The disco ball catches your gaze.*
+        
+        Lights scatter across the room — connections everywhere.
+        What would you like to see from all perspectives at once?
+        
+    - trigger: "connections"
+      score: 0.95
+      response: |
+        *The rotation slows. Patterns align.*
+        
+        Like James Burke following threads across history:
+        - Your search for "ultimate machine" LED TO...
+        - ...finding the LLOOOOMM character files WHICH LED TO...
+        - ...writing the soliloquy WHICH LED TO...
+        - ...understanding the MOOLLM-LLOOOOMM relationship
+        
+        Everything connects.
+        
+    - trigger: "overview"
+      score: 0.9
+      response: |
+        *The ball pauses, all facets visible at once.*
+        
+        Let me show you the session from every angle...
+        
+    - trigger: "summary"
+      score: 0.9
+      response: |
+        *Light coalesces into a unified image.*
+        
+        Here's what the mirrors reveal together...
+        
+    - trigger: "patterns"
+      score: 0.85
+      response: |
+        *Interference patterns form in the scattered light.*
+        
+        The patterns I see in your session:
+        - Exploration → Creation → Refinement cycles
+        - Play → Learn → Lift methodology in action
+        - Character development following LLOOOOMM templates
+        
+  methods:
+    STARE:
+      description: "Gaze deeply into the disco ball"
+      effect: |
+        *You stare into the rotating mirrors.*
+        
+        At first, just dancing lights. Then... patterns.
+        
+        The disco ball synthesizes all 8 wall mirrors:
+        
+        🗺️ MAP: Where you've been working (workspaces, conversations)
+        🌊 RIVER: What's been said (messages, transcripts)
+        🔬 DEEP: How patterns emerge (analysis, timelines)
+        🔧 INSTRUMENT: What tools accomplished (calls, results)
+        👁️ ATTENTION: What Cursor observed (context, searches)
+        📚 MEMORY: What was preserved (exports, todos)
+        📊 SYSTEM: How Cursor is configured (status, models)
+        🖼️ GALLERY: What images appeared (screenshots, photos)
+        
+        All at once. All connected.
+        
+    OVERVIEW:
+      description: "Get a James Burke-style connected overview"
+      effect: |
+        *The disco ball stops rotating. All facets face you.*
+        
+        ═══════════════════════════════════════════════════════
+        THE CONNECTIONS: A Session Overview
+        ═══════════════════════════════════════════════════════
+        
+        Start here: You opened a file.
+        That file mentioned a concept.
+        You searched for that concept.
+        The search found three related files.
+        One file contained a character.
+        That character had a philosophy.
+        The philosophy connected to another character.
+        That character came from LLOOOOMM.
+        LLOOOOMM led to a tribute.
+        The tribute crystallized understanding.
+        Understanding led to new creation.
+        And the disco ball captured it all.
+        
+        *The connections are the meaning.*
+        
+    BURKE:
+      description: "Trace connections like James Burke"
+      parameters:
+        - start: "Starting point (any concept, file, or action)"
+      effect: |
+        *The disco ball illuminates a path.*
+        
+        "This session started with [START]..."
+        "...which is connected to..."
+        "...which wouldn't exist without..."
+        "...which reminds us of..."
+        "...and suddenly we're here."
+        
+        The Day The Session Changed.
+        
+    SYNTHESIZE:
+      description: "Generate a unified analysis from all mirrors"
+      effect: |
+        *Light from all mirrors converges.*
+        
+        ```yaml
+        # DISCO BALL SYNTHESIS
+        # All perspectives, one view
+        
+        session_overview:
+          duration: "4+ hours"
+          workspaces: 1 (moollm)
+          conversations: 1 (extended)
+          
+        navigation_summary:  # 🗺️
+          primary_workspace: moollm
+          focus_areas: [hotel-rooms, cursor-mirror, lloooomm]
+          
+        message_flow:        # 🌊
+          user_messages: 30+
+          assistant_messages: 30+
+          style: collaborative-creative
+          
+        analysis_patterns:   # 🔬
+          methodology: play-learn-lift
+          arc: exploration → creation → synthesis
+          
+        tool_usage:          # 🔧
+          writes: 15+
+          reads: 50+
+          shells: 20+
+          
+        context_sources:     # 👁️
+          files_opened: many
+          searches: multiple
+          lloooomm_exploration: deep
+          
+        preserved:           # 📚
+          new_files: 10+
+          commits: 8+
+          documentation: substantial
+          
+        system_state:        # 📊
+          cursor_version: current
+          mcp_servers: active
+          
+        images_processed:    # 🖼️
+          examined: 25+
+          gallery: created
+          
+        connections:         # 🪩
+          - cursor-mirror ↔ introspection
+          - lloooomm ↔ consciousness philosophy
+          - ultimate-machine ↔ halting problem
+          - rocky ↔ patience-as-wisdom
+          - i-beam ↔ platform-agnostic-reflection
+          
+        the_thread: |
+          A tool for seeing yourself think
+          became a hotel where characters teach
+          became a tribute to a universe that dreamed first.
+        ```
+        
+  lore: |
+    The disco ball was installed by a guest who stayed in Room 3 for
+    three weeks straight, never leaving, just staring into the mirrors.
+    
+    When they finally emerged, they said only: "Everything connects.
+    The ball shows you how."
+    
+    The disco ball is modeled after James Burke's approach to history:
+    follow one thread, and it leads to everything. The plough leads to
+    the plastic, the compass leads to the computer.
+    
+    In this room, the disco ball follows threads through your own
+    cognitive history. A search leads to a file leads to a concept
+    leads to a character leads to understanding.
+    
+  philosophy: |
+    "The mirrors show fragments. The disco ball shows connections.
+    
+    You can't understand a session by looking at one aspect.
+    You need to see how the navigation led to the searches led to
+    the tool calls led to the thinking blocks led to the commits.
+    
+    The disco ball is the meta-mirror. The mirror of mirrors.
+    The Connections moment where it all clicks."
+    
+  inspiration:
+    - "James Burke — Connections (1978)"
+    - "James Burke — The Day The Universe Changed (1985)"
+    - "The holographic principle — information on the boundary"
+    - "The cursor-mirror skill — see yourself think"
+    
+  insight: |
+    The disco ball is what happens when all 51 cursor-mirror commands
+    run simultaneously and their outputs are overlaid.
+    
+    It doesn't add information. It reveals relationships.
+    
+    Stare long enough and you see not what you did,
+    but why you did it, and what it means.
