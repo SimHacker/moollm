@@ -1,0 +1,123 @@
+# 🎷 COMMENT SAXOPHONE
+# The instrument that plays meaning, not just notes
+
+object:
+  name: Comment Saxophone
+  type: artifact
+  portable: true
+  
+  description: |
+    A brass saxophone with unusual keys. Instead of notes, each key
+    produces a different type of comment. The bell is engraved:
+    
+    "COMMENTS ARE FOR HUMANS, NOT COMPILERS"
+    
+  examine: |
+    The keys are labeled with comment types:
+    
+    ┌─────────────────────────────────────────────────┐
+    │  🎷 COMMENT SAXOPHONE — Key Map                 │
+    ├─────────────────────────────────────────────────┤
+    │                                                 │
+    │  [WHY]     — Explains reasoning                 │
+    │  [WHAT]    — Describes structure                │
+    │  [WARN]    — Flags danger zones                 │
+    │  [TODO]    — Marks future work                  │
+    │  [HACK]    — Admits technical debt              │
+    │  [NOTE]    — General observation                │
+    │  [SEE]     — Cross-reference                    │
+    │  [←═══]    — Points at important value          │
+    │  [...]     — Elision indicator                  │
+    │  [MAGIC]   — "Here be dragons"                  │
+    │                                                 │
+    │  Octave key: Toggle verbose/terse               │
+    │  Bell: 🔔 Ring for improvisational solo         │
+    │                                                 │
+    └─────────────────────────────────────────────────┘
+    
+  state:
+    current_key: WHY
+    mode: terse
+    last_solo: "# ← This is where the magic happens"
+    
+  advertisements:
+    - trigger: "add comment"
+      score: 0.9
+      response: "*plays a riff* What kind of meaning shall I add?"
+      
+    - trigger: "why"
+      score: 0.85
+      response: |
+        *plays [WHY] key*
+        
+        A WHY comment explains reasoning, not mechanics.
+        Not "increments counter" but "prevents infinite loop".
+        
+    - trigger: "explain code"
+      score: 0.8
+      response: "Let me improvise some context into this structure..."
+      
+    - trigger: "document"
+      score: 0.75
+      response: "*warms up* Documentation is a duet between writer and reader."
+      
+  methods:
+    PLAY:
+      description: "Add a comment to code or YAML"
+      parameters:
+        - code: "The code to comment"
+        - type: "WHY, WHAT, WARN, TODO, HACK, NOTE, SEE, or MAGIC"
+      effect: |
+        *saxophone plays the appropriate phrase*
+        
+        The comment appears, but it's not ordinary documentation.
+        It carries meaning. It tells the reader what matters.
+        It sounds like: ♫ "Here's why this exists..." ♫
+        
+    SOLO:
+      description: "Improvise a comment based on context"
+      parameters:
+        - context: "What the code is doing"
+      effect: |
+        *takes a deep breath*
+        *plays an extended improvisational phrase*
+        
+        The saxophone analyzes the code, understands its purpose,
+        and produces a comment that captures the essence.
+        
+        Often the comment is better than the code.
+        
+    DUET:
+      description: "Play with the Jazz Typewriter"
+      parameters:
+        - yaml: "The YAML being typed"
+      effect: |
+        The saxophone and typewriter play together.
+        Structure (typewriter) and meaning (saxophone) interweave.
+        The result is YAML Jazz at its finest.
+        
+  lore: |
+    The saxophone was forged from melted-down compiler error messages.
+    It can only play truths. Lies produce squeaks.
+    
+    A master saxophonist can add a single comment that makes
+    an entire codebase suddenly comprehensible.
+    
+    The bell inscription has a second line, visible only at night:
+    "THE BEST CODE NEEDS NO COMMENTS. THE BEST COMMENTS NEED NO CODE."
+    
+  philosophical_note: |
+    Comments exist in a liminal space:
+    - They're in the source but not in the binary
+    - They're written for humans but read by few
+    - They're prose in a world of syntax
+    
+    The saxophone makes this visible. Audible. 
+    It says: "This matters too."
+    
+  k_lines:
+    activates:
+      - COMMENTS-WITH-MEANING
+      - DOCUMENTATION
+      - WHY-NOT-WHAT
+      - CODE-AS-COMMUNICATION

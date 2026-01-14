@@ -1,0 +1,158 @@
+# 🎵 K-LINE JUKEBOX
+# Plays associations like songs — each K-line a different track
+
+object:
+  name: K-Line Jukebox
+  type: artifact
+  portable: false
+  
+  description: |
+    A vintage jukebox with unusual song titles. Instead of "Blue Moon"
+    or "Fly Me to the Moon," the selections read:
+    
+    A-1: YAML-JAZZ
+    A-2: PIE-MENU-NAVIGATION
+    B-1: SPEED-OF-LIGHT
+    B-2: SOCIETY-OF-MIND
+    
+    When you play a K-line, related concepts light up across the room.
+    
+  examine: |
+    ┌───────────────────────────────────────────────────────┐
+    │      🎵 K-LINE JUKEBOX — Minsky Memorial Edition      │
+    ├───────────────────────────────────────────────────────┤
+    │                                                       │
+    │   ╔═══════════════════════════════════════════════╗   │
+    │   ║  NOW PLAYING:                                 ║   │
+    │   ║                                               ║   │
+    │   ║     ♫ YAML-JAZZ ♫                             ║   │
+    │   ║                                               ║   │
+    │   ║  Related tracks spinning up:                  ║   │
+    │   ║    → STRUCTURED-DATA                          ║   │
+    │   ║    → COMMENTS-WITH-MEANING                    ║   │
+    │   ║    → ELISION                                  ║   │
+    │   ║    → PIE-MENU-SEMANTICS                       ║   │
+    │   ╚═══════════════════════════════════════════════╝   │
+    │                                                       │
+    │   [A]                    [B]                          │
+    │   1. YAML-JAZZ           1. SPEED-OF-LIGHT            │
+    │   2. PIE-MENU            2. SOCIETY-OF-MIND           │
+    │   3. ADVERTISEMENT       3. BOOTSTRAPPING             │
+    │   4. SCHEMA-MECHANISM    4. CONTEXT-ASSEMBLY          │
+    │   5. ELISION             5. SELF-REPAIR               │
+    │                                                       │
+    │   [RANDOM]  [CHAIN]  [LOOP]  [FADE]                   │
+    │                                                       │
+    │   💰 Insert concept to unlock associations            │
+    │                                                       │
+    └───────────────────────────────────────────────────────┘
+    
+  state:
+    now_playing: YAML-JAZZ
+    queue:
+      - STRUCTURED-DATA
+      - COMMENTS-WITH-MEANING
+    mode: CHAIN  # plays related K-lines automatically
+    volume: 7
+    
+  advertisements:
+    - trigger: "k-line"
+      score: 0.95
+      response: "*lights flicker* Which association shall I play?"
+      
+    - trigger: "related"
+      score: 0.9
+      response: "Every K-line connects to others. Let me show you the web."
+      
+    - trigger: "minsky"
+      score: 0.85
+      response: |
+        *plays a reverent chord*
+        
+        Marvin Minsky conceived K-lines as "Knowledge-lines" —
+        mental agents that, when activated, reactivate the mental
+        state you were in when you learned something.
+        
+        This jukebox makes that visible. Audible. Playable.
+        
+    - trigger: "association"
+      score: 0.85
+      response: "Insert a concept. I'll play its friends."
+      
+  methods:
+    PLAY:
+      description: "Activate a K-line and its associations"
+      parameters:
+        - kline: "The K-line to play"
+      effect: |
+        The jukebox lights up the selected K-line.
+        Related K-lines begin glowing across the room.
+        The music is the sound of concepts connecting.
+        
+        Each connection is a note. Dense webs sound like chords.
+        Isolated concepts sound like solo notes, lonely.
+        
+    CHAIN:
+      description: "Follow associations automatically"
+      parameters:
+        - start: "Starting K-line"
+        - depth: "How many hops to follow"
+      effect: |
+        The jukebox plays the starting K-line, then automatically
+        plays its strongest associations, then their associations...
+        
+        It's a journey through concept-space, guided by relevance.
+        
+    RANDOM:
+      description: "Play a random K-line"
+      effect: |
+        *mechanical whir*
+        *selection arm moves*
+        *lands on...*
+        
+        The jukebox picks a random K-line from its catalog.
+        Often it's surprisingly relevant to current context.
+        (The jukebox is smarter than it looks.)
+        
+    WEB:
+      description: "Show all connections for a K-line"
+      parameters:
+        - kline: "The K-line to examine"
+      returns: |
+        A visual map of all connections:
+        
+                    SPEED-OF-LIGHT
+                   ╱      │       ╲
+          SIMULATION   MULTI-TURN  99-BOTTLES
+               │          │            │
+          BENCHMARK   CONTEXT     ENSEMBLE
+        
+  lore: |
+    The jukebox was found in Marvin Minsky's office after he passed.
+    Nobody remembers putting it there.
+    
+    The first time someone played it, it played SOCIETY-OF-MIND.
+    Then it played EMOTION-MACHINE.
+    Then it played THANK-YOU.
+    
+    Nobody had inserted that third track.
+    
+  philosophical_note: |
+    K-lines are not just tags or keywords.
+    
+    When you activate a K-line, you don't just recall facts.
+    You partially re-enter the mental state of learning.
+    
+    The jukebox makes this literal:
+    - Play YAML-JAZZ and you start thinking in structured improvisation
+    - Play SOCIETY-OF-MIND and you see agents everywhere
+    - Play SPEED-OF-LIGHT and you hunger for efficiency
+    
+    What you play, you become (a little).
+    
+  k_lines:
+    activates:
+      - K-LINES
+      - SOCIETY-OF-MIND
+      - ASSOCIATION
+      - MENTAL-STATE-RESTORATION

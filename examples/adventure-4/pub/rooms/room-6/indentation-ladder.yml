@@ -1,0 +1,159 @@
+# 🪜 INDENTATION LADDER
+# Climb the hierarchy — each rung a level of nesting
+
+object:
+  name: Indentation Ladder
+  type: artifact
+  portable: true
+  
+  description: |
+    A peculiar ladder where each rung is exactly two spaces higher
+    than the last. Labels on the rungs read:
+    
+    RUNG 0: root
+    RUNG 1: object
+    RUNG 2: property
+    RUNG 3: nested
+    RUNG 4: deeply_nested
+    RUNG 5: "You probably don't need to go this deep"
+    RUNG 6: "Seriously, refactor"
+    RUNG 7: "I warned you"
+    
+  examine: |
+    ┌─────────────────────────────────────────────────┐
+    │  🪜 INDENTATION LADDER                          │
+    ├─────────────────────────────────────────────────┤
+    │                                                 │
+    │                          ┌───────────┐          │
+    │  RUNG 7:                 │ callback  │ ← pain   │
+    │                        ┌─┴───────────┴─┐        │
+    │  RUNG 6:               │   config      │        │
+    │                      ┌─┴───────────────┴─┐      │
+    │  RUNG 5:             │    options        │      │
+    │                    ┌─┴───────────────────┴─┐    │
+    │  RUNG 4:           │      item             │    │
+    │                  ┌─┴───────────────────────┴─┐  │
+    │  RUNG 3:         │        list               │  │
+    │                ┌─┴───────────────────────────┴─┐│
+    │  RUNG 2:       │          property             ││
+    │              ┌─┴───────────────────────────────┴│
+    │  RUNG 1:     │            object                │
+    │            ┌─┴─────────────────────────────────┴│
+    │  RUNG 0:   │              root                  │
+    │            └────────────────────────────────────│
+    │                                                 │
+    │  Each rung = 2 spaces of indentation            │
+    │  Comfort zone: rungs 0-4                        │
+    │  Danger zone: rungs 5+                          │
+    │                                                 │
+    └─────────────────────────────────────────────────┘
+    
+  state:
+    current_rung: 0
+    max_climbed_today: 4
+    vertigo_incidents: 0
+    
+  advertisements:
+    - trigger: "indent"
+      score: 0.9
+      response: "*offers a rung* Two spaces per level. Climb carefully."
+      
+    - trigger: "nest"
+      score: 0.85
+      response: "Each rung takes you deeper. Know when to stop."
+      
+    - trigger: "too deep"
+      score: 0.9
+      response: |
+        *looks down nervously*
+        
+        If you're past rung 4, ask yourself:
+        - Could this be a separate file?
+        - Could this use references?
+        - Did I lose my way?
+        
+    - trigger: "hierarchy"
+      score: 0.8
+      response: "The ladder shows the shape of your data. Is it a good shape?"
+      
+  methods:
+    CLIMB:
+      description: "Go deeper into the structure"
+      parameters:
+        - levels: "How many rungs to climb"
+      effect: |
+        You climb [levels] rungs on the ladder.
+        The view changes — you see more detail, less context.
+        
+        At rung 0: you see the whole document
+        At rung 4: you see one deeply nested value
+        At rung 7: you see only callback hell
+        
+    DESCEND:
+      description: "Return toward root"
+      parameters:
+        - levels: "How many rungs to descend"
+      effect: |
+        You descend [levels] rungs.
+        Detail fades. Context returns.
+        
+        "Ah, NOW I see where this fits."
+        
+    SURVEY:
+      description: "Report on indentation depth in a document"
+      parameters:
+        - yaml: "The YAML to analyze"
+      returns: |
+        Indentation profile:
+        
+        rung 0: ████████████ 12 lines (root)
+        rung 1: ████████ 8 lines
+        rung 2: ██████ 6 lines
+        rung 3: ██ 2 lines
+        rung 4+: 0 lines ✓ (healthy!)
+        
+        Verdict: Well-structured. Readable from any rung.
+        
+    FLATTEN:
+      description: "Suggest refactors to reduce nesting"
+      parameters:
+        - yaml: "Deeply nested YAML"
+      returns: |
+        Suggestions to reduce depth:
+        
+        - Extract `config.options.defaults` to `defaults.yml`
+        - Use anchor/alias for repeated structures
+        - Consider: is this complexity necessary?
+        
+  lore: |
+    The ladder was built by a programmer who got lost in their own
+    configuration file. They were found three days later at rung 9,
+    muttering about "just one more nested object."
+    
+    They built the ladder to help others find their way back.
+    
+    The rungs above 7 are intentionally rickety.
+    
+  philosophical_note: |
+    Indentation is not just formatting. It's meaning.
+    
+    Each level of nesting says:
+    "This belongs to that. This is part of that. This is inside that."
+    
+    Too shallow: everything's a sibling, no relationships
+    Too deep: everything's tangled, no overview
+    
+    The sweet spot is usually 2-4 levels.
+    Like a good outline. Like a good conversation.
+    
+  aphorisms:
+    - "Flat is better than nested. — The Zen of Python"
+    - "If you can't see the root, you've climbed too high."
+    - "Every rung you climb, you lose one friend."
+    
+  k_lines:
+    activates:
+      - INDENTATION
+      - HIERARCHY
+      - STRUCTURE
+      - YAML-JAZZ

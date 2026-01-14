@@ -1,0 +1,142 @@
+# ✂️ ELISION ERASER
+# Removes the boring, reveals the essential
+
+object:
+  name: Elision Eraser
+  type: artifact
+  portable: true
+  
+  description: |
+    A peculiar eraser that doesn't delete — it *elides*. 
+    What it touches doesn't vanish; it's summarized.
+    
+    Engraved on the side: "[ ... 47 more like this ... ]"
+    
+  examine: |
+    The eraser has multiple faces, each for different elision styles:
+    
+    ┌─────────────────────────────────────────────────┐
+    │  ✂️ ELISION ERASER — Faces                      │
+    ├─────────────────────────────────────────────────┤
+    │                                                 │
+    │  FACE 1: COUNT                                  │
+    │    "# ... 47 more items ..."                    │
+    │    Replaces repetition with quantity            │
+    │                                                 │
+    │  FACE 2: CATEGORY                               │
+    │    "# ... standard boilerplate ..."             │
+    │    Labels what was removed                      │
+    │                                                 │
+    │  FACE 3: POINTER                                │
+    │    "# ... see config.yml for full list ..."    │
+    │    Points elsewhere                             │
+    │                                                 │
+    │  FACE 4: TEMPORAL                               │
+    │    "# ... verses 3-97 elided ..."               │
+    │    Indicates passage of time/sequence           │
+    │                                                 │
+    │  FACE 5: CONFIDENT                              │
+    │    "# ... the usual ..."                        │
+    │    Assumes reader knows                         │
+    │                                                 │
+    │  FACE 6: HUMBLE                                 │
+    │    "# ... (details available on request) ..."   │
+    │    Offers more if needed                        │
+    │                                                 │
+    └─────────────────────────────────────────────────┘
+    
+  state:
+    current_face: COUNT
+    items_elided_today: 2847
+    bytes_saved: "~47KB"
+    attention_preserved: "∞"
+    
+  advertisements:
+    - trigger: "too long"
+      score: 0.95
+      response: "*rotates to COUNT face* Let me summarize..."
+      
+    - trigger: "boring"
+      score: 0.9
+      response: "*rotates to CATEGORY face* I'll label and elide."
+      
+    - trigger: "summarize"
+      score: 0.85
+      response: "Elision is respect for the reader's attention."
+      
+    - trigger: "verbose"
+      score: 0.8
+      response: "*eager* I was made for this moment."
+      
+  methods:
+    ELIDE:
+      description: "Replace repetitive content with summary"
+      parameters:
+        - content: "The verbose content"
+        - face: "Which elision style to use"
+      returns: |
+        The content, but with boring parts replaced by elegant summaries.
+        
+        Example:
+          Before: [47 lines of similar log entries]
+          After:  # ... 47 log entries (all INFO level) ...
+          
+    RESTORE:
+      description: "Expand an elision back to full content"
+      parameters:
+        - elision: "The '...' marker"
+      effect: |
+        The eraser works in reverse!
+        It can restore what was elided, if asked.
+        
+        But it asks first: "Are you sure? It was elided for a reason."
+        
+    DETECT:
+      description: "Find elidable patterns in content"
+      parameters:
+        - content: "Content to analyze"
+      returns: |
+        A report of what could be elided:
+        - Repetitive sections (COUNT)
+        - Boilerplate (CATEGORY)
+        - References (POINTER)
+        - Time passages (TEMPORAL)
+        
+  lore: |
+    The eraser was created by an editor who died of boredom
+    while reviewing verbose documentation.
+    
+    Her last words: "Just tell me what's different."
+    
+    The eraser is her legacy. It honors the reader's time.
+    
+  philosophical_note: |
+    Elision is not deletion. Deletion removes information.
+    Elision *acknowledges* information while declining to repeat it.
+    
+    "..." says: "There's more here, but you don't need it now."
+    
+    This is respect. This is trust. This is YAML Jazz.
+    
+  examples:
+    before: |
+      files_read:
+        - file1.py
+        - file2.py
+        - file3.py
+        - file4.py
+        # ... imagine 43 more ...
+        - file47.py
+        
+    after: |
+      files_read:
+        - file1.py
+        # ... 45 more Python files ...
+        - file47.py  # <═══ last one
+        
+  k_lines:
+    activates:
+      - ELISION
+      - BREVITY
+      - RESPECT-FOR-ATTENTION
+      - YAML-JAZZ

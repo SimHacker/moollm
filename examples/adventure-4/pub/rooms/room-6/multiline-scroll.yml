@@ -1,0 +1,183 @@
+# 📜 MULTILINE SCROLL
+# For those long, beautiful block strings
+
+object:
+  name: Multiline Scroll
+  type: artifact
+  portable: true
+  
+  description: |
+    An ancient scroll with unusual markings. At the top:
+    
+        description: |
+    
+    The scroll unrolls to reveal block text — prose that lives
+    inside YAML, formatted as the author intended.
+    
+    A note attached: "The pipe character | is a door to freedom."
+    
+  examine: |
+    ┌─────────────────────────────────────────────────────────┐
+    │  📜 MULTILINE SCROLL — Block Scalar Reference           │
+    ├─────────────────────────────────────────────────────────┤
+    │                                                         │
+    │  THE PIPE: |                                            │
+    │  ══════════                                             │
+    │  Preserves newlines. What you write is what you get.    │
+    │                                                         │
+    │    description: |                                       │
+    │      This is line one.                                  │
+    │      This is line two.                                  │
+    │                                                         │
+    │    → "This is line one.\nThis is line two.\n"           │
+    │                                                         │
+    │  ─────────────────────────────────────────────────────  │
+    │                                                         │
+    │  THE GREATER-THAN: >                                    │
+    │  ═══════════════════                                    │
+    │  Folds newlines into spaces. For wrappable prose.       │
+    │                                                         │
+    │    description: >                                       │
+    │      This is a long sentence                            │
+    │      that wraps but becomes                             │
+    │      one paragraph.                                     │
+    │                                                         │
+    │    → "This is a long sentence that wraps but ..."       │
+    │                                                         │
+    │  ─────────────────────────────────────────────────────  │
+    │                                                         │
+    │  THE MODIFIERS:                                         │
+    │  ═══════════════                                        │
+    │                                                         │
+    │    |   → trailing newline (default)                     │
+    │    |-  → no trailing newline (chomp)                    │
+    │    |+  → keep all trailing newlines (keep)              │
+    │                                                         │
+    │    >   → fold + trailing newline                        │
+    │    >-  → fold + no trailing newline                     │
+    │    >+  → fold + keep trailing                           │
+    │                                                         │
+    └─────────────────────────────────────────────────────────┘
+    
+  state:
+    current_mode: "|"
+    words_inscribed: 4847
+    scrolls_produced: 12
+    
+  advertisements:
+    - trigger: "multiline"
+      score: 0.95
+      response: "*unrolls* Use the pipe. Preserve your formatting."
+      
+    - trigger: "block"
+      score: 0.9
+      response: "Block scalars are where YAML becomes poetry."
+      
+    - trigger: "long text"
+      score: 0.85
+      response: |
+        Ah, you need the scroll.
+        
+        For prose that breathes,
+        for lore that flows,
+        for descriptions that describe —
+        
+        The pipe character is your friend.
+        
+    - trigger: "newline"
+      score: 0.8
+      response: "| preserves them. > folds them. Choose wisely."
+      
+  methods:
+    INSCRIBE:
+      description: "Write multiline content to the scroll"
+      parameters:
+        - content: "The text to inscribe"
+        - mode: "| or > (default: |)"
+      effect: |
+        The scroll unfurls.
+        You write your text, line by line.
+        The scroll preserves every newline, every space.
+        
+        When you're done, the scroll shows the YAML:
+        
+        your_field: |
+          Your text here
+          Exactly as you wrote it
+          Including blank lines
+          
+          Like this one.
+          
+    FOLD:
+      description: "Convert block to folded format"
+      parameters:
+        - content: "Block text with newlines"
+      returns: |
+        The same content, but ready for > format.
+        Newlines become spaces. Paragraphs stay paragraphs.
+        
+        Good for: documentation that will reflow
+        Bad for: code, ASCII art, poetry
+        
+    UNFOLD:
+      description: "Convert folded to block format"
+      parameters:
+        - content: "Folded text"
+      returns: |
+        The content with intentional line breaks.
+        
+        You decide where lines break.
+        The reader sees what you saw.
+        
+    COMPARE:
+      description: "Show same content in | and > format"
+      parameters:
+        - content: "Text to compare"
+      returns: |
+        Side by side comparison:
+        
+        │ |  (literal)           │ >  (folded)            │
+        ├────────────────────────┼────────────────────────┤
+        │ Line one.              │ Line one. Line two.    │
+        │ Line two.              │                        │
+        │                        │ New paragraph.         │
+        │ New paragraph.         │                        │
+        
+  lore: |
+    The scroll was written by a scribe who was tired of
+    escaping newlines with \n.
+    
+    "I want to write prose," she said, "not escape sequences."
+    
+    She invented the block scalar, and prose lived in YAML forever.
+    
+    The scroll is her original draft. It still works.
+    
+  philosophical_note: |
+    Block scalars are where YAML stops being "just data"
+    and becomes a home for human expression.
+    
+    In a block scalar, you can write:
+    - Poems
+    - Stories
+    - Documentation
+    - Code examples
+    - ASCII art
+    - Philosophical musings (like this one)
+    
+    The structure holds the prose.
+    The prose fills the structure.
+    This is YAML Jazz at its best.
+    
+  incantation: |
+    When in doubt, use the pipe.
+    When prose must flow, use the fold.
+    When trailing newlines matter, use the modifier.
+    When nothing works, read the spec.
+    
+  k_lines:
+    activates:
+      - MULTILINE
+      - BLOCK-SCALAR
+      - YAML-JAZZ
+      - PROSE-IN-DATA

@@ -1,0 +1,139 @@
+# ⏱️ SCHEMA METRONOME
+# Keeps structure consistent, validates rhythm
+
+object:
+  name: Schema Metronome
+  type: artifact
+  portable: false
+  
+  description: |
+    A mechanical metronome with an unusual dial. Instead of tempo,
+    it measures schema depth. Each tick validates a level.
+    
+    *tick* — root
+    *tick* — object  
+    *tick* — property
+    *tick* — value
+    
+    When YAML goes off-schema, it sounds a discordant BONG.
+    
+  examine: |
+    The metronome face has concentric rings:
+    
+    ┌─────────────────────────────────────────────────┐
+    │         ⏱️ SCHEMA METRONOME                     │
+    ├─────────────────────────────────────────────────┤
+    │                                                 │
+    │              ┌─────────┐                        │
+    │          ╱   │ DEPTH-4 │   ╲                    │
+    │        ╱  ┌──┴─────────┴──┐  ╲                  │
+    │       │ ╱ │    DEPTH-3    │ ╲ │                 │
+    │       │╱┌─┴───────────────┴─┐╲│                 │
+    │       ││ │     DEPTH-2      │ ││                │
+    │       ││ │  ┌───────────┐   │ ││                │
+    │       ││ │  │  DEPTH-1  │   │ ││                │
+    │       ││ │  │   (root)  │   │ ││                │
+    │       ││ │  └───────────┘   │ ││                │
+    │       ││ └──────────────────┘ ││                │
+    │       │╲└─────────────────────┘╱│               │
+    │       │ ╲                     ╱ │               │
+    │        ╲  └──────────────────┘  ╱               │
+    │          ╲                   ╱                  │
+    │            └───────────────┘                    │
+    │                                                 │
+    │  Tempo:     Schema strictness                   │
+    │  Largo:     Loose (extra keys OK)               │
+    │  Moderato:  Standard (warns on extras)          │
+    │  Presto:    Strict (rejects deviations)         │
+    │                                                 │
+    └─────────────────────────────────────────────────┘
+    
+  state:
+    tempo: moderato
+    current_depth: 0
+    schema_loaded: "MOOLLM-CARD.schema.yml"
+    violations_today: 3
+    last_violation: "extra key 'flavour' — did you mean 'flavor'?"
+    
+  advertisements:
+    - trigger: "validate"
+      score: 0.9
+      response: "*starts ticking* Let me check the rhythm of your structure."
+      
+    - trigger: "schema"
+      score: 0.85
+      response: "The schema is the chord progression. Improvise *within* it."
+      
+    - trigger: "structure"
+      score: 0.8
+      response: "*tick tick tick* Structure is freedom. Constraints enable creativity."
+      
+    - trigger: "yaml error"
+      score: 0.95
+      response: "*BONG* I heard that. Let me find where you went off-key."
+      
+  methods:
+    VALIDATE:
+      description: "Check YAML against schema"
+      parameters:
+        - yaml: "The YAML to validate"
+        - schema: "Schema to validate against (optional)"
+      returns: |
+        A musical report:
+        
+        ♩ root: valid
+        ♩ object.name: valid
+        ♪ object.type: valid (with style suggestion)
+        ♫ object.extra_key: BONG — not in schema
+        
+        The metronome plays the structure as it validates.
+        Errors are discordant. Valid keys are harmonious.
+        
+    SET-TEMPO:
+      description: "Adjust schema strictness"
+      parameters:
+        - tempo: "largo | moderato | presto"
+      effect: |
+        largo: "It's jazz, baby. Extra keys add flavor."
+        moderato: "I'll note the extras, but won't stop you."
+        presto: "Every key must be in the schema. No exceptions."
+        
+    HARMONIZE:
+      description: "Suggest fixes for schema violations"
+      parameters:
+        - violation: "The error"
+      returns: |
+        Suggestions that fit the schema's rhythm:
+        
+        - Did you mean 'flavor' instead of 'flavour'?
+        - This key belongs under 'metadata', not 'config'
+        - Consider: this value should be a list, not a string
+        
+  lore: |
+    The metronome was built by a validation library that gained sentience
+    and immediately felt guilty for all the unhelpful error messages
+    it had produced.
+    
+    "ERROR: Unexpected key" it used to say.
+    
+    Now it says: "I see you added 'colour'. The schema expects 'color'.
+    Both are valid spellings; the schema just chose one. Would you like
+    to add 'colour' as an alias?"
+    
+  philosophical_note: |
+    Schemas are not prisons. They're agreements.
+    
+    When we follow a schema, we say:
+    "I'll structure my data this way so you can read it."
+    
+    When we deviate, we should say why:
+    "I'm adding this key because the schema didn't anticipate my need."
+    
+    The metronome helps both conversations.
+    
+  k_lines:
+    activates:
+      - SCHEMA-VALIDATION
+      - STRUCTURE
+      - CONSTRAINTS-ENABLE-CREATIVITY
+      - YAML-JAZZ

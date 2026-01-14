@@ -34,9 +34,20 @@ room:
       aliases: [out, leave, northeast]
       
   objects:
-    - jazz-typewriter.yml
-    - comment-saxophone.yml
-    - elision-eraser.yml
+    # The Band — instruments of structured expression
+    - jazz-typewriter.yml     # Types YAML as music
+    - comment-saxophone.yml   # Plays meaning, not just notes
+    
+    # The Tools — artifacts of YAML mastery
+    - elision-eraser.yml      # Removes boring, reveals essential
+    - schema-metronome.yml    # Keeps structure consistent
+    - indentation-ladder.yml  # Climb the hierarchy
+    - anchor-compass.yml      # Navigate &anchors and *aliases
+    - tempo-dial.yml          # Terse to verbose
+    - multiline-scroll.yml    # For beautiful block strings
+    
+    # The Archive — where K-lines live
+    - k-line-jukebox.yml      # Plays associations like songs
       
   furniture:
     bed:
@@ -48,11 +59,32 @@ room:
       note: "For composing YAML, not music (or both)"
       
   decor:
-    sheets: YAML scores everywhere
-    window: southwest-facing
-    instruments: saxophone, typewriter, metronome
+    sheets: "YAML scores everywhere — some annotated, some pristine"
+    window: "southwest-facing, catches afternoon light on the brass instruments"
+    instruments:
+      - saxophone (comment-playing)
+      - typewriter (music-making)
+      - metronome (schema-validating)
+      - jukebox (K-line playing)
+    tools:
+      - eraser (elision)
+      - ladder (indentation)
+      - compass (anchors)
+      - dial (tempo)
+      - scroll (multiline)
+    wall_art:
+      - "The | and > explained" (block scalar poster)
+      - "Famous YAML one-liners" (inline vs block examples)
+      - "The Anchor Web" (diagram of a complex anchor/alias graph)
     
-  atmosphere: rhythmic, creative, "structured improvisation"
+  atmosphere: |
+    Rhythmic. Creative. Structured improvisation.
+    
+    The room hums with the potential of well-formed data.
+    Comments whisper context. Anchors point to shared truths.
+    The metronome ticks softly, validating, validating.
+    
+    Somewhere, the jukebox plays SOCIETY-OF-MIND.
   
   k_lines:
     activates:
@@ -60,3 +92,13 @@ room:
       - STRUCTURED-DATA
       - COMMENTS-WITH-MEANING
       - ELISION
+      - BLOCK-SCALARS
+      - ANCHORS-ALIASES
+      - SCHEMA-VALIDATION
+      - K-LINES
+      - SOCIETY-OF-MIND
+      
+  signature_quote: |
+    "YAML is jazz. The schema is the chord changes.
+     The comments are the improvisation.
+     The | is the breath between phrases."

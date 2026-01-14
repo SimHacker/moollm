@@ -1,0 +1,176 @@
+# ⚓ ANCHOR COMPASS
+# Navigate by reference — &anchors and *aliases
+
+object:
+  name: Anchor Compass
+  type: artifact
+  portable: true
+  
+  description: |
+    A brass compass where the needle doesn't point north —
+    it points to &anchors. When you define an anchor,
+    the compass remembers. When you need that value again,
+    it guides you to the *alias.
+    
+    Engraved: "Define once. Reference forever."
+    
+  examine: |
+    ┌─────────────────────────────────────────────────────┐
+    │  ⚓ ANCHOR COMPASS                                  │
+    ├─────────────────────────────────────────────────────┤
+    │                                                     │
+    │         &default_config                             │
+    │              ↑                                      │
+    │              │                                      │
+    │    *staging──┼──*production                         │
+    │              │                                      │
+    │              ↓                                      │
+    │         *development                                │
+    │                                                     │
+    │  ───────────────────────────────────────────────── │
+    │                                                     │
+    │  ANCHOR (&): Define a reusable value               │
+    │                                                     │
+    │    default: &default_timeout 30                     │
+    │                                                     │
+    │  ALIAS (*): Reference that value                    │
+    │                                                     │
+    │    production:                                      │
+    │      timeout: *default_timeout                      │
+    │                                                     │
+    │  MERGE (<<): Inherit and extend                     │
+    │                                                     │
+    │    production:                                      │
+    │      <<: *defaults                                  │
+    │      extra_setting: true                            │
+    │                                                     │
+    └─────────────────────────────────────────────────────┘
+    
+  state:
+    anchors_tracked:
+      - name: "&defaults"
+        location: "config.yml:12"
+        references: 4
+      - name: "&base_character"
+        location: "characters/base.yml:1"
+        references: 47
+    total_anchors: 23
+    orphan_anchors: 2  # defined but never referenced
+    
+  advertisements:
+    - trigger: "repeat"
+      score: 0.9
+      response: |
+        *compass needle spins*
+        
+        If you're repeating yourself, you need an anchor.
+        Define once (&), reference everywhere (*).
+        
+    - trigger: "anchor"
+      score: 0.95
+      response: "The & creates. The * recalls. The << merges."
+      
+    - trigger: "DRY"
+      score: 0.9
+      response: |
+        Don't Repeat Yourself.
+        
+        The compass points to where you already said this.
+        Use an alias instead of copying.
+        
+    - trigger: "inherit"
+      score: 0.85
+      response: "<<: *base — inherit everything, override what differs."
+      
+  methods:
+    ANCHOR:
+      description: "Create an anchor for a value"
+      parameters:
+        - name: "Anchor name (without &)"
+        - value: "The value to anchor"
+      effect: |
+        The compass registers the anchor.
+        
+        You've said: "This is &[name]. Remember it."
+        
+        Now anywhere in this document, *[name] means this value.
+        
+    FIND:
+      description: "Locate where an anchor is defined"
+      parameters:
+        - alias: "The alias to trace (without *)"
+      returns: |
+        *compass needle points*
+        
+        Anchor &[alias] is defined at:
+          file: config.yml
+          line: 42
+          value: { timeout: 30, retries: 3 }
+          
+        Referenced 7 times across 3 files.
+        
+    ORPHANS:
+      description: "Find anchors that are never referenced"
+      returns: |
+        Orphan anchors (defined but never used):
+        
+        - &legacy_format at legacy.yml:5
+          Consider: remove or document why kept
+          
+        - &unused_defaults at defaults.yml:12
+          Consider: someone meant to use this?
+          
+    DRY-CHECK:
+      description: "Find repeated values that should be anchors"
+      parameters:
+        - yaml: "YAML to analyze"
+      returns: |
+        Repeated values found:
+        
+        - { host: "localhost", port: 5432 }
+          Appears 4 times. Suggest: &db_connection
+          
+        - "2024-01-01"
+          Appears 3 times. Suggest: &epoch_date
+          
+  lore: |
+    The compass was forged from the first &anchor ever written.
+    
+    Before anchors, YAML files repeated themselves endlessly.
+    The same config. The same defaults. The same values.
+    Copy. Paste. Copy. Paste.
+    
+    Then someone wrote: &defaults
+    
+    And the world changed.
+    
+  philosophical_note: |
+    Anchors are YAML's way of saying:
+    "I've already told you this. Here's a reminder."
+    
+    They're not just DRY (Don't Repeat Yourself).
+    They're *semantic*. They say: "These are the *same* thing."
+    
+    When production and staging both use *defaults,
+    you're not just saving typing. You're declaring intent:
+    "These environments share a foundation."
+    
+    The compass shows these relationships.
+    It maps the web of references.
+    It reveals the structure beneath the structure.
+    
+  warning: |
+    Overuse of anchors creates "YAML spaghetti" —
+    documents where you can't read any section in isolation.
+    
+    The compass has a warning light that blinks when:
+    - An anchor is more than 100 lines from its aliases
+    - A merge (<<) creates unexpected key conflicts
+    - Circular references form (shouldn't be possible, but...)
+    
+  k_lines:
+    activates:
+      - ANCHORS-ALIASES
+      - DRY
+      - YAML-JAZZ
+      - REFERENCE-SEMANTICS

@@ -1,0 +1,170 @@
+# 🎚️ TEMPO DIAL
+# Controls the rhythm of YAML output — terse to verbose
+
+object:
+  name: Tempo Dial
+  type: artifact
+  portable: true
+  
+  description: |
+    A brass dial with settings from STACCATO to LEGATO.
+    It controls how much detail appears in YAML output.
+    
+    Currently set to: MODERATO
+    
+    "Same data. Different rhythms."
+    
+  examine: |
+    ┌─────────────────────────────────────────────────────┐
+    │  🎚️ TEMPO DIAL                                     │
+    ├─────────────────────────────────────────────────────┤
+    │                                                     │
+    │              ◐ CURRENT: MODERATO                    │
+    │                                                     │
+    │    STACCATO ────┬────┬────┬────┬──── LEGATO        │
+    │         ↓       │    │    ●    │         ↓         │
+    │       terse   brief norm full  verbose             │
+    │                                                     │
+    │  ─────────────────────────────────────────────────  │
+    │                                                     │
+    │  STACCATO (terse):                                  │
+    │    id: abc123                                       │
+    │                                                     │
+    │  ANDANTE (brief):                                   │
+    │    session: { id: abc123, ok: true }                │
+    │                                                     │
+    │  MODERATO (normal):                                 │
+    │    session:                                         │
+    │      id: abc123                                     │
+    │      status: ok                                     │
+    │      files: 3                                       │
+    │                                                     │
+    │  ADAGIO (full):                                     │
+    │    session:                                         │
+    │      id: abc123                                     │
+    │      status: ok                                     │
+    │      files_count: 3                                 │
+    │      files_list: [a.py, b.py, c.py]                │
+    │      timestamp: 2024-01-01T12:00:00Z               │
+    │                                                     │
+    │  LEGATO (verbose):                                  │
+    │    session:                                         │
+    │      metadata:                                      │
+    │        id: abc123                                   │
+    │        created_at: 2024-01-01T12:00:00Z            │
+    │        ... (everything, all detail, no elision)     │
+    │                                                     │
+    └─────────────────────────────────────────────────────┘
+    
+  state:
+    current_tempo: MODERATO
+    
+  tempos:
+    STACCATO:
+      description: "Minimum viable information"
+      style: "Single values, no structure"
+      use_when: "IDs, quick checks, machine consumption"
+      elision: maximum
+      
+    ANDANTE:
+      description: "Brief but structured"
+      style: "Inline YAML, one-liners where possible"
+      use_when: "Logs, summaries, dashboards"
+      elision: high
+      
+    MODERATO:
+      description: "Balanced readability"
+      style: "Standard YAML, reasonable detail"
+      use_when: "Most human reading, config files"
+      elision: moderate
+      
+    ADAGIO:
+      description: "Full detail, no rushing"
+      style: "Expanded structure, lists visible"
+      use_when: "Debugging, documentation, teaching"
+      elision: low
+      
+    LEGATO:
+      description: "Everything, connected, flowing"
+      style: "Maximum verbosity, every field shown"
+      use_when: "Archival, complete records, audits"
+      elision: none
+      
+  advertisements:
+    - trigger: "more detail"
+      score: 0.9
+      response: "*turns dial toward LEGATO* How much more?"
+      
+    - trigger: "less detail"
+      score: 0.9
+      response: "*turns dial toward STACCATO* Getting terse..."
+      
+    - trigger: "summarize"
+      score: 0.85
+      response: "*clicks to ANDANTE* Brief but structured."
+      
+    - trigger: "verbose"
+      score: 0.85
+      response: "*turns all the way to LEGATO* You asked for it..."
+      
+  methods:
+    SET:
+      description: "Set the tempo"
+      parameters:
+        - tempo: "STACCATO | ANDANTE | MODERATO | ADAGIO | LEGATO"
+      effect: |
+        *click*
+        
+        The dial moves to [tempo].
+        All subsequent YAML output follows this rhythm.
+        
+    RENDER:
+      description: "Render data at current tempo"
+      parameters:
+        - data: "Data to render"
+      returns: |
+        The data, formatted at the current tempo.
+        
+        STACCATO: just the key values
+        LEGATO: every nested detail
+        
+    COMPARE:
+      description: "Show same data at all tempos"
+      parameters:
+        - data: "Data to compare"
+      returns: |
+        Five renderings, one per tempo.
+        
+        Shows how the same information can be expressed
+        from minimal to maximal, all valid, all useful.
+        
+  lore: |
+    The dial was invented by a conductor who also programmed.
+    
+    "Music has dynamics," she said. "Why shouldn't data?"
+    
+    She noticed that the same information served different needs:
+    - The machine wanted terse
+    - The debugger wanted verbose
+    - The human wanted readable
+    
+    So she built a dial that could produce all three.
+    
+  philosophical_note: |
+    There is no "correct" level of detail.
+    
+    STACCATO is not "too little."
+    LEGATO is not "too much."
+    
+    They're different rhythms for different contexts.
+    
+    The dial reminds us: the same data, expressed differently,
+    serves different purposes. YAML Jazz is about choosing
+    the right tempo for the right moment.
+    
+  k_lines:
+    activates:
+      - VERBOSITY
+      - ELISION
+      - YAML-JAZZ
+      - CONTEXT-SENSITIVITY
