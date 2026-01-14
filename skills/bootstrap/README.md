@@ -36,7 +36,7 @@ Or ask naturally:
 ## What Happens
 
 1. **PROBE runs** — gathers environment diagnostics (no terminal)
-2. **Driver detected** — Cursor, Claude Code, custom, or generic
+2. **Driver detected** — Cursor, Claude Code, Antigravity, custom, or generic
 3. **Critical files loaded** — constitution, protocols, skill index
 4. **Context warmed** — `hot.yml` updated with foundations
 5. **Self-orientation** — agent understands its nature
@@ -104,7 +104,7 @@ When invoked with enthusiasm, delivers a whirlwind *Connections*-style tour:
 | [CARD.yml](./CARD.yml) | Machine-readable interface |
 | [PROBE.yml.tmpl](./PROBE.yml.tmpl) | Template for probe output |
 
-Output: `bootstrap-probe.yml` (at workspace root, gitignored)
+Output: `.moollm/bootstrap-probe.yml` (gitignored local state)
 
 ## Protocol Symbol
 

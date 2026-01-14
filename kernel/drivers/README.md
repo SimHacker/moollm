@@ -19,6 +19,7 @@ hardware, MOOLLM drivers adapt to different LLM orchestrators.
 |--------|-------------|------|--------------|
 | `cursor.yml` | Cursor IDE | 4 | File tools, search, terminal |
 | `claude-code.yml` | Claude Code | 5 | MCP, custom tools possible |
+| `antigravity.yml` | Antigravity | 5 | Browser, native tools, agentic loop |
 | `chatgpt.yml` | ChatGPT Web | 3 | Python, browser, apps |
 | `custom.yml` | Custom orchestrator | 6 | Full kernel control |
 | `generic.yml` | Fallback | 1 | Minimal assumptions |

@@ -1,0 +1,139 @@
+# Antigravity Driver
+# Adapts MOOLLM constitution to Google DeepMind's Antigravity Agent
+#
+# Tier 5: Advanced Agent
+# - Native file tools (view, write, replace)
+# - Native browser automation
+# - Native terminal execution
+# - Autonomous loop capability
+
+driver:
+  name: "antigravity"
+  tier: 5
+  description: "Antigravity Agent (Google DeepMind)"
+  hot_cold_mode: hybrid  # Agent manages context but respects hints
+  
+  # Platform-specific requirements
+  requirements:
+    - setting: "Agent Gitignore Access"
+      value: "enabled"
+      why: "Required to write to .moollm/ directory (runtime state)"
+      instruction_if_missing: |
+        "I cannot write to the runtime state directory (.moollm/).
+        Please enable 'Agent Gitignore Access' in your Antigravity settings."
+
+# How to detect you're running on Antigravity
+detection:
+  system_prompt_indicators:
+    - "You are Antigravity"
+    - "Google Deepmind"
+    - "Advanced Agentic Coding"
+    
+  tool_indicators:
+    required:
+      - view_file
+      - write_to_file
+      - replace_file_content
+      - grep_search
+    strong_signals:
+      - browser_subagent
+      - multi_replace_file_content
+      
+  environment_indicators:
+    - ".gemini directory in user home"
+    - "brain artifacts directory"
+
+# Capabilities
+capabilities:
+  file_read: true
+  file_write: true
+  file_search: true       # grep_search, find_by_name
+  semantic_search: false  # Not native yet, relies on grep
+  terminal: true          # run_command
+  sandboxed_terminal: true
+  custom_tools: true      # Can create workflows
+  mcp: true               # via list_resources / read_resource
+  why_parameter: false    # Tools don't have 'why' param
+  append_only_enforcement: false
+  background_indexing: false # Relies on explicit search tools
+
+# Path conventions
+paths:
+  session_root: ".moollm/"
+  output_sink: ".moollm/output.md"
+  session_log: ".moollm/session-log.md"
+  working_set: ".moollm/working-set.yml"
+  hot_cache: ".moollm/hot.yml"
+  cold_cache: ".moollm/cold.yml"
+  scratch: ".moollm/"
+  probe_file: ".moollm/bootstrap-probe.yml"
+
+# Tool Mapping
+tools:
+  read_file:
+    tool: "view_file"
+    notes: "Supports line ranges and large files"
+    
+  write_file:
+    tool: "write_to_file"
+    notes: "Can create artifacts or project files"
+    
+  edit_file:
+    tool: "replace_file_content"
+    notes: "For contiguous blocks. Use multi_replace for scattered edits."
+    
+  list_dir:
+    tool: "list_dir"
+    
+  delete_file:
+    tool: "run_command"
+    notes: "Use 'rm' or 'del' via terminal"
+    
+  semantic_search:
+    tool: "grep_search"
+    notes: "Fallback to text search. Use context clues."
+    
+  text_search:
+    tool: "grep_search"
+    
+  file_search:
+    tool: "find_by_name"
+    
+  terminal:
+    tool: "run_command"
+    notes: "Powershell backend on Windows"
+
+  browser:
+    tool: "browser_subagent"
+    notes: "Full autonomous browser control"
+
+# Adaptations
+adaptations:
+  why_parameter:
+    supported: false
+    fallback: "inline"
+    instruction: |
+      Document justification in thought process or response before tool calls.
+      
+  context_management:
+    supported: "manual"
+    instruction: |
+      You are responsible for your own context.
+      - Use view_file to load context.
+      - Use grep_search to find context.
+      - Respect hot.yml as a guide for what to keep fresh.
+      
+  event_logging:
+    supported: false
+    fallback: "session_log_markdown"
+    instruction: |
+      Append major actions to .moollm/session-log.md
+
+# Boot instructions
+boot:
+  initial_log: |
+    # MOOLLM Session Log
+    Driver: antigravity (Tier 5)
+    Started: [timestamp]
+    
+    ---

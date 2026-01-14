@@ -79,6 +79,7 @@ introspection:
   system_prompt_mentions:
     - "Cursor" → likely Cursor IDE
     - "Claude Code" → likely Claude Code
+    - "Antigravity" → likely Antigravity (Gemini)
     - "MOOLLM_DRIVER" → custom orchestrator
     
   # What tools do I have?
@@ -92,6 +93,11 @@ introspection:
       - View, Edit, LS       # Claude Code's file tools
       - mcp_* (many)         # MCP server tools
       - Bash, Computer       # Computer use tools
+      
+    antigravity_indicators:
+      - view_file            # Antigravity file viewer
+      - browser_subagent     # Antigravity browser
+      - grep_search          # Antigravity search
       
     custom_indicators:
       - why parameter on all tools  # Full MOOLLM protocol
@@ -112,6 +118,7 @@ Based on introspection, load the appropriate driver from `kernel/drivers/`:
 |---------------|-------------|------|---------------|
 | `codebase_search` + `search_replace` + system says "Cursor" | `cursor.yml` | 4 | ADVISORY |
 | MCP tools + system says "Claude Code" | `claude-code.yml` | 5 | HYBRID |
+| `view_file` + system says "Antigravity" | `antigravity.yml` | 5 | HYBRID |
 | `why` parameter on tools + `MOOLLM_DRIVER` env | `custom.yml` | 6 | MAGIC |
 | None of the above | `generic.yml` | 1 | DOCUMENTATION |
 
@@ -181,6 +188,7 @@ custom_driver:
 | **Custom Orchestrator** | **MAGIC** — Files DIRECT the orchestrator what to page in/out |
 | **Cursor** | **ADVISORY** — Cursor manages context automatically; files are suggestions or can be generated *in reverse* to reflect Cursor's focus |
 | **Claude Code** | **HYBRID** — MCP tools give more control, some context automatic |
+| **Antigravity** | **HYBRID** — User/Agent manages context with explicit tools, respecting hints |
 | **Generic** | **DOCUMENTATION** — For debugging "why doesn't it remember X?" |
 
 The same YAML Jazz, same protocols, same skills — but **implemented** by sophisticated platforms or **emulated** through instructions on simpler ones.
@@ -352,10 +360,10 @@ deep:
 
 ### Output File
 
-PROBE writes to `bootstrap-probe.yml` at the workspace root. This file is **gitignored** — it stays local and is never committed.
+PROBE writes to `.moollm/bootstrap-probe.yml`. This file is **gitignored** — it stays local and is never committed.
 
 ```yaml
-# bootstrap-probe.yml — GITIGNORED, local only
+# .moollm/bootstrap-probe.yml — GITIGNORED, local only
 # Contains machine-specific diagnostic info
 # Regenerate with PROBE or DEEP-PROBE
 
