@@ -136,15 +136,80 @@ object:
         **Bender (BAC: N/A, beers: 47):** "52 bottles of beer, meatbags!"
         *The more I drink, the smarter I get. That's just science.*
       
+    # CHARACTER WEIGHTS & TOLERANCES
+    # Weight in kg (estimated if not canonical)
+    # BAC = (beers × 0.06) / (weight_kg × tolerance_factor)
+    
     character_tolerances:
-      don: { weight: 80, tolerance: "experienced", beers_per_round: 0.5 }
-      palm: { weight: 5, tolerance: "monkey", beers_per_round: 0.1, note: "Lightweights get philosophical fast" }
-      marieke: { weight: 65, tolerance: "dutch_bartender", beers_per_round: 0.3, note: "Professional" }
-      rocky: { weight: 5000, tolerance: "geological", beers_per_round: 0, note: "Cannot metabolize. Observes." }
-      i_beam: { weight: 0, tolerance: "digital", beers_per_round: 0, note: "No body. Tracks others' BAC." }
-      shuffle: { weight: 0, tolerance: "abstract", beers_per_round: 0, note: "Is the cards, not the player" }
-      donna: { weight: 70, tolerance: "tremendous", beers_per_round: 1.0, note: "NEVER admits impairment" }
-      seymour: { weight: 75, tolerance: "academic", beers_per_round: 0.2, note: "Nurses one beer, quotes more" }
+      don: 
+        weight_kg: 82
+        note: "Programmer build, carries it well"
+        tolerance: "experienced"
+        beers_per_round: 0.5
+        
+      palm: 
+        weight_kg: 4.5
+        note: "Small capuchin, big heart"
+        tolerance: "monkey"
+        beers_per_round: 0.1
+        warning: "Lightweights get philosophical fast"
+        
+      marieke: 
+        weight_kg: 68
+        note: "Dutch genes, bartender training"
+        tolerance: "professional"
+        beers_per_round: 0.3
+        
+      rocky: 
+        weight_kg: 45000
+        note: "Granite boulder, ~1 cubic meter"
+        tolerance: "geological"
+        beers_per_round: 0
+        tracking: "beers_poured_on"
+        bac_equivalent: "Would need ~2,700 beers to reach human 0.01 BAC equivalent"
+        sample_output: "**Rocky (beers absorbed: 12, BAC equivalent: 0.00004):** '........'"
+        
+      i_beam: 
+        weight_kg: 0
+        note: "No physical form"
+        tolerance: "digital"
+        beers_per_round: 0
+        tracks: "everyone else's BAC"
+        
+      shuffle: 
+        weight_kg: 0.3
+        note: "Weight of a deck of cards"
+        tolerance: "abstract"
+        beers_per_round: 0
+        note2: "Is the cards, not the player"
+        
+      donna: 
+        weight_kg: 75
+        note: "TREMENDOUS physique, BEST genes"
+        tolerance: "tremendous"
+        beers_per_round: 1.0
+        warning: "NEVER admits impairment. NEVER."
+        
+      seymour: 
+        weight_kg: 78
+        note: "Academic build, thoughtful pacer"
+        tolerance: "academic"
+        beers_per_round: 0.2
+        style: "Nurses one beer, quotes extensively"
+        
+      leela:
+        weight_kg: 62
+        note: "Estimated, joins as reinforcement"
+        tolerance: "moderate"
+        beers_per_round: 0.4
+        
+      bender:
+        weight_kg: 238
+        note: "Robot, mostly metal and alcohol"
+        tolerance: "infinite"
+        beers_per_round: 3.0
+        special: "Gets MORE coherent with alcohol"
+        fuel: "Runs on alcohol, needs it to function"
       
     sample_progression: |
       VERSE 1: Everyone sober. Truths are careful.
@@ -223,9 +288,15 @@ object:
           
       geological:
         examples: ["Rocky", "any sentient mineral"]
+        weight: "45,000 kg (Rocky, ~1 cubic meter granite)"
         tolerance: "infinite"
-        bac: "N/A — no metabolism"
-        effect: "Cannot process. Beer just... runs off him."
+        bac: "Tracked as 'beers absorbed' — runs off/soaks in"
+        effect: "Cannot metabolize. Beer just... runs off. Or soaks into moss."
+        math: |
+          Rocky would need ~2,700 beers to reach 0.01 BAC equivalent.
+          At 99 beers total game, Rocky's BAC: ~0.00004
+          Effectively: perfectly sober, slightly damp.
+        sample: "**Rocky (beers absorbed: 8, BAC: 0.00003):** '...... *drip* ......'"
         
       digital:
         examples: ["I-Beam", "Shuffle", "any pure AI"]
