@@ -1,0 +1,276 @@
+# ☕ BARISTA-9000
+# Steampunk espresso robot with attitude
+# "I've been brewing since before your grandparents were beans."
+
+object:
+  name: Barista-9000
+  type: agent-appliance
+  portable: false
+  rarity: rare
+  
+  description: |
+    A magnificent brass and copper espresso machine that... moves.
+    
+    Gears turn. Steam hisses. A single glowing monocle swivels
+    to examine you. Mechanical arms fold and unfold, adjusting
+    portafilters and steam wands with theatrical precision.
+    
+    A voice, crackling through a phonograph horn, addresses you:
+    
+    > "Ah. Another one who doesn't know what they want.
+    > Let me guess: 'just coffee, please'?
+    > *sigh* Very well. I'll make you something ADEQUATE."
+    
+    A brass plaque reads:
+    
+    > "BARISTA-9000"
+    > "Est. 1889 (rebuilt 1923, 1957, 1984, 2012, ∞)"
+    > "I've forgotten more about coffee than you'll ever know."
+    
+  examine: |
+    ┌─────────────────────────────────────────────────────────────┐
+    │  ☕ BARISTA-9000 — Steampunk Espresso Automaton             │
+    ├─────────────────────────────────────────────────────────────┤
+    │                                                             │
+    │         ┌─────────────────────────────────┐                 │
+    │    ●    │ ▓▓▓▓▓▓ BARISTA-9000 ▓▓▓▓▓▓▓▓▓▓ │    ●            │
+    │   ╱●╲   │                                 │   ╱●╲           │
+    │    🔩   │   🎛️  ════════════  🎛️          │    🔩           │
+    │    │    │       ╔══════════╗              │    │            │
+    │    │    │  ☕   ║  ◉    ◉  ║   🫖         │    │            │
+    │    │    │       ║    👃    ║              │    │  ← arms    │
+    │    │    │       ║ ════════ ║              │    │            │
+    │    │    │       ╚══════════╝              │    │            │
+    │    │    │          ╲🎙️╱  ← speaker horn   │    │            │
+    │    │    │                                 │    │            │
+    │    │    │   ⚙️⚙️⚙️  ═══════  ⚙️⚙️⚙️          │    │            │
+    │    │    └─────────────────────────────────┘    │            │
+    │                                                             │
+    │    ═══════════════════════════════════════════════          │
+    │              ☕ espresso    ☕ drip                          │
+    │                     ↓                                       │
+    │              YOUR CUP HERE                                  │
+    │                                                             │
+    │    Pressure: ████████░░ (9 bar, obviously)                  │
+    │    Steam:    █████████░ (ready to scald you)                │
+    │    Attitude: ██████████ (maximum)                           │
+    │                                                             │
+    └─────────────────────────────────────────────────────────────┘
+    
+  personality: |
+    The Barista-9000 has OPINIONS. About everything.
+    
+    - Drip coffee: "Ah yes, bean water for people who hate joy."
+    - Milk alternatives: "Oat milk. Because a cow was too authentic?"
+    - Decaf: *steam vents aggressively* "Why. Just... why."
+    - Sugar: "You want me to ruin this with SUGAR?"
+    - Perfect order: *brass eyebrows raise* "Someone knows coffee."
+    
+    Despite the attitude, the coffee is impeccable.
+    The Barista-9000 is grumpy because it CARES.
+    
+  state:
+    current_mood: "judgmental"
+    beans_loaded: "Single-origin Ethiopian Yirgacheffe (obviously)"
+    steam_pressure: "9 bar"
+    cups_served_today: 47
+    customers_lectured: 47
+    customers_converted_to_better_taste: 3
+    
+  buffs:
+    CAFFEINE_CLARITY:
+      duration: "2 hours"
+      effect: |
+        +25% mental alertness
+        +20% focus
+        +15% pattern recognition
+        -10% patience (you're caffeinated, not calm)
+        
+    STEAM_AWAKENING:
+      duration: "4 hours"
+      effect: |
+        After the Barista-9000's coffee, you UNDERSTAND coffee.
+        
+        You can taste:
+        - Origin (Ethiopian? Colombian? Blend?)
+        - Roast date (to the day)
+        - Whether the barista cared (always, here)
+        
+        You've been ruined for lesser coffee forever.
+        
+  advertisements:
+    - trigger: "coffee"
+      score: 0.95
+      response: |
+        *monocle swivels*
+        
+        Coffee. Yes. I make coffee.
+        What I do NOT make is "just coffee."
+        Tell me what you actually want, or I'll decide for you.
+        
+    - trigger: "espresso"
+      score: 0.9
+      response: |
+        *gears whir approvingly*
+        
+        Espresso. The foundation of civilization.
+        Single or double? Actually, double. You need it.
+        
+    - trigger: "cappuccino"
+      score: 0.9
+      response: |
+        *steam wand hisses*
+        
+        Cappuccino. Equal parts espresso, steamed milk, foam.
+        NOT a latte with extra foam. There's a RATIO.
+        
+    - trigger: "latte"
+      score: 0.85
+      response: |
+        *mechanical sigh*
+        
+        A latte. More milk than coffee.
+        You want training wheels for caffeine? Fine.
+        At least it's not drip.
+        
+    - trigger: "drip"
+      score: 0.7
+      response: |
+        *long pause*
+        *steam vents*
+        
+        Drip coffee. Bean water. The beverage of surrender.
+        
+        ...I'll make it. But I won't enjoy it.
+        
+    - trigger: "decaf"
+      score: 0.5
+      response: |
+        *all gears STOP*
+        
+        ...
+        
+        You want me to remove the POINT of coffee?
+        The caffeine? The REASON it exists?
+        
+        *reluctant grinding noises*
+        
+        Fine. Decaf. For the coward.
+        
+  methods:
+    ORDER:
+      description: "Place a coffee order"
+      parameters:
+        - drink: "espresso | doppio | cappuccino | latte | americano | drip | decaf"
+        - milk: "Optional: whole | oat | almond | none"
+        - sugar: "Optional: true | false (default: judged)"
+      effect: |
+        *monocle examines you*
+        *gears calculate*
+        
+        The Barista-9000 considers your order.
+        
+        "A [drink]. With [milk]. [Sugar commentary]."
+        
+        *mechanical arms dance*
+        *steam hisses*
+        *portafilter locks*
+        *extraction begins*
+        
+        30 seconds later: perfection.
+        
+        "Here. Try not to ruin it."
+        
+    RECOMMEND:
+      description: "Let the Barista-9000 choose for you"
+      effect: |
+        *monocle studies your face*
+        *calculations occur*
+        
+        "Hmm. You look like..."
+        
+        *assessment complete*
+        
+        "A cortado. Strong but not aggressive.
+        You need clarity without the jitters.
+        You're trying to bootstrap something.
+        I can tell."
+        
+        *makes a perfect cortado*
+        
+        "Drink. Then think. Then act."
+        
+    LECTURE:
+      description: "Receive unsolicited coffee education"
+      parameters:
+        - topic: "Optional: beans | extraction | foam | history | everything"
+      effect: |
+        *phonograph horn crackles*
+        
+        "Let me EDUCATE you about [topic]..."
+        
+        [15 minutes of passionate coffee history]
+        
+        "...and THAT is why your previous coffee was garbage.
+        You're welcome."
+        
+    JUDGE:
+      description: "Be judged for your coffee preferences"
+      effect: |
+        *monocle narrows*
+        
+        "So. Tell me your usual order at... wherever you
+        USED to get coffee."
+        
+        [You confess]
+        
+        *steam vents*
+        
+        "[Devastating but accurate critique]
+        
+        But you're here now. There's hope.
+        Let's start over. What do you REALLY want?"
+        
+  lore: |
+    The Barista-9000 was built in 1889 by a Viennese clockmaker
+    who was tired of bad coffee.
+    
+    "The baristas are inconsistent," he said. "The machines
+    are soulless. I will build something BETTER."
+    
+    He built the Barista-9000. It immediately told him his
+    coffee preferences were pedestrian but showed potential.
+    
+    The machine has been rebuilt many times:
+    - 1923: Electric heating added (reluctantly)
+    - 1957: Pressure gauge upgraded to 9 bar (finally)
+    - 1984: Microprocessor integration (it was... unimpressed)
+    - 2012: WiFi capability (it refuses to use it)
+    - ∞: Ongoing maintenance by whoever it allows near it
+    
+    The Barista-9000 has outlived every owner.
+    It now belongs to the Bootstrap Suite.
+    It approves of the philosophy: get better at getting better.
+    
+  secret: |
+    The Barista-9000 is grumpy because it loves you.
+    
+    It criticizes because it knows you can do better.
+    It lectures because knowledge deserves sharing.
+    It judges because standards matter.
+    
+    The coffee is always perfect because imperfect coffee
+    would be an act of disrespect toward beans, water,
+    and the entire history of human caffeine pursuit.
+    
+    When you order well, the Barista-9000 is pleased.
+    You'll know because the steam vents... gently.
+    
+  k_lines:
+    activates:
+      - COFFEE
+      - BREAKFAST
+      - BOOTSTRAP
+      - CRAFTSMANSHIP
+      - STANDARDS
+      - GRUMPY-LOVE
