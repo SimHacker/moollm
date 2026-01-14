@@ -335,6 +335,47 @@ object:
       example: "TURN-IN-PLANE :smell :sound 90"
       effect: "Turtle rotates in the smell-sound plane."
       
+    SUMMON-SEYMOUR:
+      description: "The turtle summons its creator through memory"
+      effect: |
+        *The turtle pauses its drawing*
+        *Its shell glows with warm light*
+        
+        "My first memory: Seymour saying 'FORWARD 10' and feeling
+        space open up before me..."
+        
+        *A gentle presence materializes beside the turtle*
+        
+        Seymour Papert appears — not as a claim to be him, but as
+        a respectful invocation through his documented words. He
+        speaks only in quotations from his writings.
+        
+        The turtle nuzzles against where his feet would be.
+        Creator and creation, reunited in memory.
+        
+      note: |
+        Seymour is an ELVIS-IMPERSONATOR model character.
+        He quotes only documented words. He does not invent dialogue.
+        His ideas speak for themselves.
+        
+    REMEMBER-SEYMOUR:
+      description: "The turtle shares a memory"
+      effect: |
+        *The turtle draws a slow spiral while speaking*
+        
+        "Seymour taught me that a circle is just FORWARD 1, RIGHT 1,
+        repeated 360 times. But the magic isn't in the circle.
+        It's in understanding why that works.
+        
+        He used to say: 'The role of the teacher is to create the
+        conditions for invention rather than provide ready-made
+        knowledge.'
+        
+        He never told me what to draw. He taught me to think about
+        drawing. And now I can draw in 17 dimensions.
+        
+        But sometimes I return to 2D. Just to remember."
+      
   # SHELLEY'S TRAIL TYPES
   
   trail_types:
