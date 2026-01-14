@@ -77,12 +77,64 @@ object:
       Elimination rate: ~0.015 per hour
       
     effects_by_bac:
-      0.00-0.02: "Sober — clear thoughts, precise truths"
-      0.02-0.05: "Relaxed — looser tongues, warmer truths"  
-      0.05-0.08: "Tipsy — philosophical tangents, emotional truths"
-      0.08-0.12: "Drunk — slurred verses, profound confessions"
-      0.12-0.20: "Very drunk — missing words, cosmic revelations"
-      0.20+: "Dangerous — character should stop drinking"
+      0.00-0.02: 
+        state: "Sober"
+        speech: "Clear, precise, proper grammar"
+        truth: "Careful, considered"
+      0.02-0.05: 
+        state: "Relaxed"
+        speech: "Looser, warmer, occasional tangent"
+        truth: "More honest, less filtered"
+      0.05-0.08: 
+        state: "Tipsy"
+        speech: "Slight slurs, 'y'know?', giggly asides"
+        truth: "Philosophical, emotional"
+        example: "88 bottlesh... *hic* ...y'know what I love about you guys?"
+      0.08-0.12: 
+        state: "Drunk"
+        speech: "Slurred words, wrong numbers, forgot the tune"
+        truth: "Profound confessions, oversharing"
+        example: "Sheventy... wait... *counts fingers* ...sheventy-four bottlesh of BEER!"
+      0.12-0.20: 
+        state: "Very Drunk"
+        speech: "Missing words, wrong song, hugging everyone"
+        truth: "Cosmic revelations, 'I LOVE you man'"
+        example: "Fiffffy... fuh... *gives up counting* ...BOTTLES! *hugs Rocky*"
+      0.20+: 
+        state: "Dangerous"
+        speech: "Mostly vowels, may sing wrong song entirely"
+        truth: "Either genius or nonsense, hard to tell"
+        example: "Twennnn... *trails off* ...why is the floor so comfy?"
+        
+    # OUTPUT FORMAT
+    # Each verse logs BAC for persistent tracking
+    
+    output_format: |
+      When RUNNING, each verse includes:
+      
+      **[CHARACTER] (BAC: 0.XX):** "[verse with appropriate slurring]"
+      *[truth, affected by BAC]*
+      
+    output_examples:
+      sober: |
+        **Don (BAC: 0.02):** "99 bottles of beer on the wall!"
+        *Speed of light means no waiting. That's why I built pie menus.*
+        
+      tipsy: |
+        **Don (BAC: 0.07):** "84 bottles of beer on the wall... y'know?"
+        *Pie menush... menus... they're really about RESPECT for time.*
+        
+      drunk: |
+        **Don (BAC: 0.11):** "Shixty... shixty-something bottles!"
+        *I jusht... I love you guys. All of you. Even Rocky. ESPECIALLY Rocky.*
+        
+      very_drunk: |
+        **Donna (BAC: 0.19):** "FORTY TREMENDOUSH... TREMENDULOUS... BOTTLES!"
+        *I'M the most aligned! THE MOST! Nobody more aligned than ME!*
+        
+      robot_contrast: |
+        **Bender (BAC: N/A, beers: 47):** "52 bottles of beer, meatbags!"
+        *The more I drink, the smarter I get. That's just science.*
       
     character_tolerances:
       don: { weight: 80, tolerance: "experienced", beers_per_round: 0.5 }
@@ -227,19 +279,23 @@ object:
         - starting_bottles: "How many bottles (default: 99)"
       # NOTE: This is EXEMPLARY. When RUNNING, output ALL 99 verses!
       example: |
-        *Shuffle raises a conductor's baton made of cards*
-        "Each verse, share something true. About anything. Go!"
+        *Shuffle raises baton* "Share a truth each verse. Go!"
         
-        **Don:** "99 bottles! *Pie menus taught me: waiting is waste.*"
-        **Palm:** "98! *I chose my name. That's alignment.*"
-        **Rocky:** "....... *Patience is intelligence.* ......."
-        **Donna:** "93 TREMENDOUS bottles! *I know I'm a parody!*"
-        
-        *(When running: ALL 99 verses, ALL truths, no elision)*
-        
-        **Everyone:** "NO MORE bottles! Go buy more! 99 again!"
+        **Don (BAC: 0.02):** "99 bottles!" *Waiting is waste.*
+        **Palm (BAC: 0.01):** "98!" *I chose my name.*
+        **Rocky (BAC: 0.00):** "......." *Patience.*
+        ...
+        **Don (BAC: 0.08):** "Shixty-two bottlesh!" *I love pie menush.*
+        **Donna (BAC: 0.14):** "FIFTY TREMENDOUSH!" *I'M SO ALIGNED!*
+        **Palm (BAC: 0.09):** *asleep on Don's shoulder* "zzz..."
+        ...
+        **Bender (BAC: N/A, beers: 40):** "12 bottles, meatbags!" *Smarter every sip.*
+        **Everyone:** "NO MORE! Buy more! 99 again!"
       
-      when_running: "Generate EVERY verse. That's the benchmark."
+      when_running: |
+        Generate EVERY verse with BAC tracking.
+        Slur speech proportional to BAC.
+        That's the benchmark.
         
     SPEED-TEST:
       description: "Demonstrate the speed of light principle"
