@@ -193,6 +193,151 @@ object:
             - standard: "Proven pattern extracted"
             # 12% germination rate is success
             
+    # ═══════════════════════════════════════════════════════════════════
+    # GROWN FROM CURSOR ACTIVITY — 2026-01-14
+    # Session: 9861c0a4 | 77567s | 3635 messages | 1815 tool calls
+    # ═══════════════════════════════════════════════════════════════════
+    
+    thought_tree_seed:
+      name: "Cursor Thought Tree"
+      source: "cursor-mirror analysis of session 9861c0a4"
+      harvested: "2026-01-14T21:51:00Z"
+      
+      # This tree grew from actual Cursor IDE activity
+      # Its DNA encodes the decision patterns observed
+      
+      session_dna:
+        duration_seconds: 77567
+        total_messages: 3635
+        user_messages: 184
+        assistant_messages: 3451
+        tool_calls: 1815
+        models_used:
+          - claude-4.5-opus-high-thinking: 68
+          - gpt-5.1-codex-max: 34
+          
+      grammar:
+        axiom: "TASK"
+        rules:
+          TASK: "THINK→[READ|SEARCH]*→PLAN→[EDIT|SHELL]*→VERIFY→COMMIT"
+          THINK: "💭[understand_context]"
+          READ: "📖[read_file|list_dir]{n}"
+          SEARCH: "🔍[ripgrep|glob]{n}"
+          PLAN: "📋[decompose_into_steps]"
+          EDIT: "✏️[edit_file]{n}"
+          SHELL: "🔧[run_command]{n}"
+          VERIFY: "✓[check_result]"
+          COMMIT: "📦[git_commit_push]"
+        interpretation:
+          TASK: "User request initiates growth"
+          THINK: "Thinking block - understand before acting"
+          READ: "Read files to build context"
+          SEARCH: "Search for patterns and locations"
+          PLAN: "Decompose into actionable steps"
+          EDIT: "Make changes to files"
+          SHELL: "Execute commands"
+          VERIFY: "Check results before committing"
+          COMMIT: "Package and ship"
+          
+      tool_distribution:
+        run_terminal_command: { count: 774, pct: 42.6, comment: "# Shell is primary tool" }
+        edit_file: { count: 524, pct: 28.9, comment: "# Then editing" }
+        read_file: { count: 344, pct: 19.0, comment: "# Context gathering" }
+        ripgrep_search: { count: 93, pct: 5.1, comment: "# Pattern finding" }
+        list_dir: { count: 34, pct: 1.9, comment: "# Orientation" }
+        glob_search: { count: 28, pct: 1.5, comment: "# File discovery" }
+        web_search: { count: 11, pct: 0.6, comment: "# External context" }
+        todo_write: { count: 6, pct: 0.3, comment: "# Task management" }
+        delete_file: { count: 1, pct: 0.1, comment: "# Rare cleanup" }
+        
+      thinking_patterns:
+        # Actual thinking blocks from today's session
+        recent_thoughts:
+          - "The user wants to... Let me first check..."
+          - "Now I need to... Let me update..."
+          - "Now let me commit all of this."
+          - "Done! Let me summarize for the user."
+        pattern: "UNDERSTAND → PLAN → EXECUTE → VERIFY → SUMMARIZE"
+        
+      yaml_output: |
+        thought_tree:
+          # Grown from Cursor session 9861c0a4
+          # 77567 seconds of cognitive activity crystallized
+          
+          root: "TASK: user_request"
+          
+          branches:
+            think:
+              tool: null  # Pure cognition
+              pattern: "💭 understand context before acting"
+              output: "decomposed_plan"
+              
+            read:
+              tool: read_file_v2
+              count: 344
+              pattern: "📖 gather context from files"
+              dependencies: [think]
+              
+            search:
+              tool: [ripgrep, glob]
+              count: 121
+              pattern: "🔍 find patterns and locations"
+              dependencies: [think]
+              
+            edit:
+              tool: edit_file_v2
+              count: 524
+              pattern: "✏️ make changes"
+              dependencies: [think, read, search]
+              errors: 14  # Learning opportunities
+              
+            shell:
+              tool: run_terminal_command_v2
+              count: 774
+              pattern: "🔧 execute commands"
+              dependencies: [edit]  # Often follows edits
+              
+            commit:
+              tool: run_terminal_command_v2
+              pattern: "📦 git add && git commit && git push"
+              dependencies: [edit, shell, verify]
+              
+          leaves:
+            - "Summary for user"
+            - "Pushed commit hash"
+            - "Ready for next task"
+            
+    cursor_activity_seed:
+      name: "Live Activity Monitor"
+      description: "Grows in real-time from Cursor mirror data"
+      
+      grammar:
+        axiom: "SESSION"
+        rules:
+          SESSION: "COMPOSER[BUBBLE]*"
+          BUBBLE: "[USER|ASSISTANT|TOOL]"
+          USER: "📝{text}"
+          ASSISTANT: "🤖{response}[💭{thinking}]"
+          TOOL: "🔧{tool_call}→{result}"
+        interpretation:
+          SESSION: "A conversation composer"
+          BUBBLE: "A single turn in the conversation"
+          USER: "Human input"
+          ASSISTANT: "AI response with optional thinking"
+          TOOL: "Tool invocation and result"
+          
+      growth_command: |
+        # To grow this tree, run:
+        cd skills/cursor-mirror
+        python cursor_mirror.py analyze <composer_id>
+        python cursor_mirror.py thinking <composer_id>
+        python cursor_mirror.py tools <composer_id>
+        
+      integration: |
+        This seed connects the Conservatory to Room 3's mirrors.
+        The Disco Ball of Connections can illuminate these patterns.
+        I-Beam can narrate the tree's growth.
+            
   advertisements:
     - trigger: "structure"
       score: 0.95
@@ -270,6 +415,51 @@ object:
         The grammars merge.
         A hybrid tree begins growing.
         New patterns emerge from combined rules.
+        
+    GROW-FROM-CURSOR:
+      description: "Grow a thought tree from Cursor activity"
+      parameters:
+        - composer_id: "Which conversation to analyze (or 'current')"
+      effect: |
+        *The conservatory glass walls shimmer*
+        
+        Connecting to Room 3's mirrors...
+        Running cursor-mirror analysis...
+        
+        ```bash
+        cd skills/cursor-mirror
+        python cursor_mirror.py analyze <composer_id>
+        python cursor_mirror.py thinking <composer_id> -n 30
+        python cursor_mirror.py tools <composer_id>
+        ```
+        
+        A new sapling emerges from the data:
+        - Trunk: session duration and message count
+        - Branches: tool call patterns
+        - Leaves: thinking blocks
+        - Flowers: successful outcomes
+        - Compost: errors (14 edit failures = nutrients)
+        
+        The tree's DNA encodes the decision patterns observed.
+        Future sessions can inherit this wisdom.
+        
+    MIRROR-SYNC:
+      description: "Sync with Room 3's Disco Ball for pattern visualization"
+      effect: |
+        *A beam of light connects to Room 3*
+        
+        The Disco Ball of Connections receives:
+        - Tool call frequencies
+        - Thinking patterns
+        - File access graphs
+        - Commit histories
+        
+        James Burke connections illuminate:
+        - read_file → edit_file → run_terminal (workflow)
+        - thinking → planning → execution (cognition)
+        - errors → learning → standards (growth)
+        
+        The conservatory fills with dancing light patterns.
         
   rocky_commentary: |
     Rocky watches the trees grow.
