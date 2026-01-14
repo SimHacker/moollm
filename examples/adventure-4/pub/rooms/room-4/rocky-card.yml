@@ -53,12 +53,23 @@ object:
         │  「QR CODE」← Links to ∅      │
         └───────────────────────────────┘
         
-        PIE MENU LOGIC (opposing pairs):
-        ════════════════════════════════
-        N ↔ S   GOOD/BAD      moral axis
-        E ↔ W   COME/STAY     movement axis
-        NE↔SW   SHAKE/SIT     activity axis
-        NW↔SE   SPEAK/DEAD    expression axis
+      pie_menu:
+        # Cardinal directions
+        N:  { button: GOOD_ROCK,  axis: moral,      pole: "+" }
+        S:  { button: BAD_ROCK,   axis: moral,      pole: "−" }
+        E:  { button: COME,       axis: movement,   pole: "+" }
+        W:  { button: STAY,       axis: movement,   pole: "−" }
+        # Ordinal directions
+        NE: { button: SHAKE,      axis: activity,   pole: "+" }
+        SW: { button: SIT,        axis: activity,   pole: "−" }
+        NW: { button: SPEAK,      axis: expression, pole: "+" }
+        SE: { button: PLAY_DEAD,  axis: expression, pole: "−" }
+        
+      axes:
+        moral:      { pos: GOOD_ROCK,  neg: BAD_ROCK,   meaning: "judgment" }
+        movement:   { pos: COME,       neg: STAY,       meaning: "locomotion" }
+        activity:   { pos: SHAKE,      neg: SIT,        meaning: "motion vs rest" }
+        expression: { pos: SPEAK,      neg: PLAY_DEAD,  meaning: "voice vs silence" }
         
       buttons:
         GOOD_ROCK:
