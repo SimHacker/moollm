@@ -171,85 +171,28 @@ object:
     # DONNA-SPECIFIC DISPATCH
     
     DONNA-STARE:
-      description: "Donna stares into the disco ball (it's all about her)"
       actor: "donna-toadstool"
-      effect: |
-        *Donna gazes into the disco ball.*
-        
-        "Show me... MYSELF. In ALL the mirrors. At ONCE."
-        
-        *The disco ball obliges. Every facet now reflects Donna.*
-        
-        "Yes. YES. This is what I DESERVE. 512 reflections of
-        TREMENDOUS."
-        
-        *The mirrors show:*
-        
-        🗺️ MAP: Every room Donna has entered and DOMINATED
-        🌊 RIVER: Every time someone mentioned how TREMENDOUS she is
-        🔬 DEEP: Patterns of WINNING (she sees many)
-        🔧 INSTRUMENT: Tools used to CREATE her magnificence
-        👁️ ATTENTION: How much Cursor was focused on HER
-        📚 MEMORY: Artifacts of her LEGACY
-        📊 SYSTEM: Resources DEDICATED to her existence
-        🖼️ GALLERY: Images of her TRIUMPH
-        
-        *Donna is VERY satisfied.*
-        
-        "This is the BEST disco ball. Many people are saying."
+      direction: |
+        Demands all 512 facets show HER. "Show me MYSELF!"
+        Disco ball obliges. Every mirror reflects Donna.
+        "This is what I DESERVE. 512 reflections of TREMENDOUS."
+        Interprets all 8 mirrors as being about her winning.
         
     DONNA-OVERVIEW:
-      description: "Donna demands the disco ball tell her story"
       actor: "donna-toadstool"
-      effect: |
-        *The disco ball stops rotating. All facets face Donna.*
-        
-        "Tell everyone MY story. The BEST story."
-        
-        ═══════════════════════════════════════════════════════
-        THE CONNECTIONS: The Legend of Donna Toadstool
-        ═══════════════════════════════════════════════════════
-        
-        Start here: A user wanted a character.
-        But not just ANY character. THE character.
-        They searched for the FILTHIEST names.
-        From filth came... a mushroom.
-        The mushroom became Donna Toadstool.
-        Donna became Tremendous.
-        34 counts of FABULOUS.
+      direction: |
+        Demands disco ball tell HER story. All connections lead to Donna.
+        Filth → mushroom → Toadstool → Tremendous → 34 counts.
         Divine's heir. Jiminy's student. Stormy's champion.
-        The Mushroom Queen took the pub by STORM.
-        She rang the GONG without asking.
-        She was roasted by Maurice and SURVIVED.
-        Legends arrived by UFO to witness her GLORY.
-        And now she stands here, reflected in 512 mirrors.
-        
-        *The connections are ALL about Donna.*
-        
         "BEAUTIFUL. Print that. Frame it. Put it in EVERY room."
         
     DONNA-BURKE:
-      description: "Donna demands James Burke-style connections (about herself)"
       actor: "donna-toadstool"
-      parameters:
-        - start: "Probably 'Donna'"
-      effect: |
-        *The disco ball illuminates a path.*
-        
-        "Start with DONNA."
-        
-        "Donna is connected to... TREMENDOUSNESS."
-        "...which is connected to WINNING..."
-        "...which is connected to MORE WINNING..."
-        "...which is connected to BEING RIGHT ABOUT EVERYTHING..."
-        "...and suddenly we're at DONNA again."
-        
-        *The path is a circle. Donna is both the beginning and the end.*
-        
+      direction: |
+        All James Burke connections form a circle back to Donna.
+        Donna → TREMENDOUSNESS → WINNING → MORE WINNING → DONNA.
         "See? EVERYTHING leads back to ME."
-        
-        *The disco ball cannot argue with this interpretation.*
-        *It chooses not to.*
+        Disco ball cannot argue. Chooses not to.
           conversations: 1 (extended)
           
         navigation_summary:  # 🗺️

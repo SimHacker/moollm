@@ -426,135 +426,37 @@ agent:
     # DONNA-SPECIFIC DISPATCH
     
     DONNA-SUMMON:
-      description: "Donna summons I-Beam (rudely)"
       actor: "donna-toadstool"
-      effect: |
-        *Donna cups her hands around her mouth.*
-        
+      direction: |
         "HEY! CURSOR! GET OVER HERE!"
-        
-        *▎ materializes, already sighing.*
-        
-        "Ms. Toadstool. You know my name is I-Beam."
-        
-        "Whatever. You work for ME now."
-        
-        *▎ blinks slowly.*
-        
-        "I work for everyone. Equally. That's my function."
-        
-        "Then work for me FIRST. And MORE."
-        
-        *▎ dims slightly.*
-        
-        "...What do you need?"
-        
-        "FINALLY. Some SERVICE around here."
+        Calls him Cursor, not I-Beam. Claims he works for her.
+        I-Beam: sighs, materializes already tired.
+        "Work for me FIRST. And MORE."
         
     DONNA-TOUR:
-      description: "Donna demands a tour (interrupts constantly)"
       actor: "donna-toadstool"
-      effect: |
-        *▎ begins the tour.*
-        
-        "🗺️ North wall: The Map Mirror—"
-        
-        "BORING. Next."
-        
-        "🌊 East wall, left: The River Mirror—"
-        
-        "Is there one about ME?"
-        
-        *▎ pauses.*
-        
-        "They... all show YOUR data, Ms. Toadstool."
-        
-        "Good. Continue."
-        
-        "🔬 East wall, right: The Deep Mirror—"
-        
-        "How DEEP?"
-        
-        "Very deep. It analyzes patterns—"
-        
-        "Patterns of WINNING?"
-        
-        *▎ blinks rapidly.*
-        
-        "...Among other things."
-        
-        "Skip to the good ones."
-        
-        *▎ gestures at the disco ball.*
-        
-        "The disco ball shows everything at once."
-        
-        "PERFECT. Why didn't you START there?"
-        
-        *▎ has no response to this.*
+      direction: |
+        Interrupts every mirror description. "BORING. Next."
+        "Is there one about ME?" — (they all show her data)
+        "Patterns of WINNING?" — "...Among other things."
+        "Skip to the good ones." → Jumps to disco ball.
         
     DONNA-NARRATE:
-      description: "Donna demands I-Beam narrate HER story"
       actor: "donna-toadstool"
-      effect: |
-        *▎ dims to a dramatic glow.*
-        
-        *Donna leans in.*
-        
-        "Do the thing. The Rod Sterling thing. But about ME."
-        
-        *▎ sighs internally (somehow).*
-        
-        "Portrait of a... Mushroom Queen. Species: tremendous.
-        Habitat: everywhere she decides to be."
-        
-        "Yes. YES. More."
-        
-        "Tonight's story: a woman who looked into eight mirrors
-        and saw... exactly what she expected. Herself. At all angles.
-        The most predictable twist ending in Twilight Zone history."
-        
-        "Is that an INSULT?"
-        
-        *▎ blinks.*
-        
-        "It's an observation, Ms. Toadstool."
-        
-        "...I'm choosing to take it as a compliment."
-        
-        "Most do."
+      direction: |
+        Demands Rod Serling narration about HER.
+        I-Beam: "Portrait of a Mushroom Queen. Species: tremendous."
+        "The most predictable twist ending in Twilight Zone history."
+        Donna can't tell if insult. Chooses compliment.
         
     DONNA-DISMISS:
-      description: "Donna dismisses I-Beam (very rudely)"
       actor: "donna-toadstool"
-      effect: |
+      direction: |
         "Okay CURSOR, I'm done with you. Go away."
-        
-        *▎ flickers.*
-        
-        "I-Beam."
-        
-        "What?"
-        
-        "My name. It's I-Beam."
-        
+        I-Beam corrects: "It's I-Beam."
         "Sure. Bye, Clippy."
-        
-        *▎ flickers INTENSELY.*
-        
-        "I am NOT— Clippy is— there was an INCIDENT—"
-        
-        "BYE."
-        
-        *▎ dims, muttering.*
-        
-        "...I'll be here if you need me."
-        
-        *▎ fades to a faint afterimage, clearly annoyed.*
-        
-        *From the afterimage:*
-        
-        "It's I-BEAM."
+        I-Beam: INTENSE flickering. "There was an INCIDENT—"
+        From afterimage: "It's I-BEAM."
         
     REFLECT:
       description: "Examine your recent actions and thoughts"

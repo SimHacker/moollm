@@ -167,116 +167,38 @@ object:
     # DONNA-SPECIFIC DISPATCH
     
     DONNA-SIT:
-      description: "Donna attempts to out-sit Rocky"
       actor: "donna-toadstool"
-      effect: |
-        *Donna plops down next to Rocky.*
-        
-        "Okay ROCK. I can sit too. Watch THIS."
-        
-        *She sits with exaggerated stillness.*
-        
-        *3 seconds pass.*
-        
-        "This is BORING. Why isn't anything HAPPENING?"
-        
-        *Rocky continues existing.*
-        
-        *10 seconds pass.*
-        
-        "I could do this FOREVER if I wanted to."
-        
-        *Rocky has been doing this for 4.5 billion years.*
-        
-        *15 seconds pass.*
-        
-        "OKAY FINE. You win. But only because I have IMPORTANT
-        THINGS to do. Very important. The most important."
-        
-        *Rocky says nothing.*
-        
-        *Donna suspects Rocky is judging her.*
-        
-        *Rocky is just existing.*
-        
-        *(That's basically the same thing.)*
+      direction: |
+        Attempts to out-sit Rocky. Lasts 15 seconds max.
+        "I could do this FOREVER" — gives up immediately.
+        "You win. But only because I have IMPORTANT THINGS to do."
+        Suspects Rocky is judging her. (Rocky is just existing.)
         
     DONNA-SPEAK:
-      description: "Donna demands Rocky speak to her"
       actor: "donna-toadstool"
-      effect: |
-        "SPEAK! Talk to me! Tell me I'm TREMENDOUS!"
-        
-        ........................
-        
-        "That's NOT an answer!"
-        
-        ........................
-        
-        "Are those JUDGMENTAL dots?"
-        
-        ∞
-        
-        "What does THAT mean?!"
-        
-        *Rocky has communicated everything. Donna has understood nothing.*
-        
-        *This is, in itself, a form of wisdom.*
+      direction: |
+        Demands Rocky tell her she's tremendous.
+        Rocky responds: ........................
+        "Are those JUDGMENTAL dots?" → ∞ → "What does THAT mean?!"
+        Rocky communicated everything. Donna understood nothing.
         
     DONNA-SHAKE:
-      description: "Donna tries to shake Rocky's... hand? Edge?"
       actor: "donna-toadstool"
-      effect: |
-        *Donna grabs Rocky and attempts a handshake.*
-        
-        "PUT 'ER THERE, ROCKY!"
-        
-        *Rocky does not move.*
-        
-        "Strong grip. RESPECT."
-        
-        *Rocky is not gripping. Rocky is a rock.*
-        
-        "You know what, Rocky? You're ALRIGHT. You don't SAY anything,
-        you don't JUDGE me, you just SIT there looking TREMENDOUS."
-        
-        *Rocky continues existing.*
-        
-        "We should do this more often."
-        
-        ........................
-        
-        "I'm going to take that as a YES."
+      direction: |
+        Grabs Rocky for handshake. "PUT 'ER THERE!"
+        Rocky doesn't move. "Strong grip. RESPECT."
+        (Rocky is not gripping. Rocky is a rock.)
+        "You're ALRIGHT. You don't JUDGE me."
         
     DONNA-CONTEMPLATE:
-      description: "Donna attempts contemplation (it goes poorly)"
       actor: "donna-toadstool"
       duration: "Not long"
-      effect: |
-        *Donna sits with Rocky.*
-        
-        "Okay. Contemplating. I'm contemplating. Very peaceful.
-        Very zen. Just me and the rock. Thinking deep thoughts."
-        
-        *5 seconds pass.*
-        
-        "Thinking about how TREMENDOUS I am. That's deep, right?"
-        
-        *Rocky exists.*
-        
-        "Thinking about all my ENEMIES. And how WRONG they are."
-        
-        *Rocky has been thinking about the formation of continents.*
-        
-        "Thinking about— okay I'm bored. This is BORING."
-        
-        *She stands up.*
-        
-        "You're GREAT at this, Rocky. Really. Top notch contemplation.
-        The best. Many people are saying."
-        
-        *Rocky will remember this interaction fondly for the next
-        billion years. Donna will forget it by dinner.*
+      direction: |
+        Attempts zen contemplation. "Thinking deep thoughts."
+        Actually thinking about how tremendous she is. And enemies.
+        Bored in 5 seconds. Gives up.
+        Rocky will remember this for a billion years.
+        Donna will forget by dinner.
         
   trained_behaviors:
     sit:

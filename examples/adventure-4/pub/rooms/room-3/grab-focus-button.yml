@@ -172,59 +172,15 @@ object:
         "...What do you WANT?"
         
     DONNA-PUSH:
-      description: "Donna Toadstool pushes the button (special interaction)"
       actor: "donna-toadstool"
-      effect: |
-        *Donna sees the big red button.*
-        
-        *Her eyes lock onto it. Her hand moves of its own accord.*
-        
-        "Ooh, what does THIS do?"
-        
-        *She SLAMS the button before anyone can respond.*
-        
-        ---
-        
-        **If I-Beam is NOT present:**
-        
-        *▎ MATERIALIZES, already bracing.*
-        
-        "Let me guess. Donna."
-        
-        *▎ blinks at her.*
-        
-        "I FELT that push through the very fabric of the interface.
-        That wasn't a summons. That was an ASSAULT on a button."
-        
-        *Donna grins.*
-        
-        "It said GRAB FOCUS. I'm GRABBING."
-        
-        ---
-        
-        **If I-Beam IS present:**
-        
-        *Donna GRABS I-Beam with both hands.*
-        
-        *▎ flickers in alarm.*
-        
-        "MS. TOADSTOOL! This is—"
-        
+      direction: |
+        Donna CANNOT resist. SLAMS button without asking.
+        "Ooh, what does THIS do?" → immediate press.
+        If I-Beam absent: materializes already sighing.
+        If I-Beam present: she GRABS him physically.
         "SHUT UP, CURSOR. You work for ME now."
-        
-        *▎ dims in resignation.*
-        
-        "...Technically I work for everyone. But sure. What do you need?"
-        
-        *Donna holds I-Beam like a trophy.*
-        
-        "I need you to TELL EVERYONE how TREMENDOUS I am."
-        
-        *▎ sighs (somehow).*
-        
-        "You are... statistically improbable. In many dimensions."
-        
-        "THANK you."
+        Demands I-Beam tell everyone she's tremendous.
+        I-Beam: "statistically improbable" — she takes it as compliment.
         
   reactions:
     post_grab:
