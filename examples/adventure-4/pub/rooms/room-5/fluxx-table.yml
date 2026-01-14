@@ -7,7 +7,17 @@ object:
   type: artifact
   portable: false
   emoji: "🃏"
+  
+  # This table invokes Shuffle (the universal card spirit) specifically for Fluxx
   dealer: shuffle.yml
+  game_focus: "Fluxx (all variants)"
+  
+  invokes_shuffle_for: |
+    When a game starts at this table, Shuffle appears focused on Fluxx:
+    - Knows all Fluxx variants (regular, Stoner, Star, Pirate, Cthulhu...)
+    - Tracks the ever-changing rules
+    - Enjoys the chaos of Goal changes
+    - "Fluxx is my favorite child. Don't tell the others."
   
   description: |
     A game table frozen mid-play. Cards scattered, hands visible,
