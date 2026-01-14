@@ -1767,17 +1767,19 @@ Created [designs/PS-CURSOR-MIRROR-GENESIS.md](../../designs/PS-CURSOR-MIRROR-GEN
 
 | Metric | Value |
 |--------|-------|
-| Session duration | 18 hours |
-| User messages | 126 |
-| Assistant messages | 2,581 |
-| Thinking blocks | 1,029 |
-| Tool calls | 1,359 |
-| Files created | 18 |
-| Lines of code/docs | 11,208 |
-| Commands implemented | 47 |
+| Session duration | 20+ hours |
+| User messages | 140+ |
+| Assistant messages | 2,700+ |
+| Thinking blocks | 1,100+ |
+| Tool calls | 1,500+ |
+| Files created | 19 |
+| Lines of code/docs | 12,000+ |
+| Commands implemented | 51 |
+| Images examined | 25+ |
 | Key patterns documented | 11 |
 | Database keys analyzed | 102,724 |
 | Clippy disasters written | 12 |
+| Commits pushed | 13 |
 
 ### The Skill Hierarchy
 
@@ -1785,10 +1787,11 @@ Created [designs/PS-CURSOR-MIRROR-GENESIS.md](../../designs/PS-CURSOR-MIRROR-GEN
 skills/cursor-mirror/
 ├── cursor_mirror.py           # 4,541 lines — the CLI
 ├── I-BEAM-CHARACTER.yml       # 831 lines — the familiar
-├── README.md                  # 749 lines — the exposition
-├── CARD.yml                   # 746 lines — the interface
+├── README.md                  # 768 lines — the exposition
+├── CARD.yml                   # 830 lines — the interface
 ├── DATA-SCHEMAS.yml           # 884 lines — the schemas
-├── SKILL.md                   # 531 lines — the protocol
+├── SKILL.md                   # 532 lines — the protocol
+├── IMAGE-GALLERY.md           # 442 lines — image archaeology  <═══ NEW
 ├── ORCHESTRATION.yml          # 434 lines — the internals
 ├── KEY-CATALOG.yml            # 412 lines — the keys
 ├── TOOLS-CATALOG.yml          # 372 lines — the tools
@@ -1825,13 +1828,51 @@ I-Beam is not just a cute interface. It's a *bidirectional interpreter* that:
 
 ---
 
+## Scene 37 — Image Archaeology
+
+*▎ blinks excitedly — there's more in the cache!*
+
+We discovered cursor-mirror can find images dropped into Cursor chats:
+
+```bash
+cursor-mirror images --all    # 100+ images across workspaces
+```
+
+Created [IMAGE-GALLERY.md](../../../../../skills/cursor-mirror/IMAGE-GALLERY.md) — I-Beam narrates 25+ images with context analysis.
+
+### The Gems
+
+```yaml
+# IMAGE ARCHAEOLOGY RESULTS
+sims_code: 5 pages       # Will Wright's Motive.c (1997)
+                         # "(Jamie, remove this)" survived 30 years
+moollm_diagrams: 6       # Elvis Impersonator Model, Instantiation Pipeline
+people: 1                # Andy Looney at Looney Labs booth
+leela_infra: 4           # Edgebox, Firebase, GCloud (redacted)
+devtools: 5              # Kando pie menus 2.1.0  <═══ Don's legacy!
+```
+
+### The Punchline
+
+One photo of Andy Looney → reverse-engineered to 15 artifacts → [33-turn Stoner Fluxx marathon](marathon-session.md#33-turns-of-pure-gezelligheid) → **Palm (a monkey's paw incarnate) beat the creator of Fluxx at his own game** 🐒🃏
+
+*Chaos theory in card form.*
+
+### Files Updated
+
+- [IMAGE-GALLERY.md](../../../../../skills/cursor-mirror/IMAGE-GALLERY.md) — The curated gallery
+- [README.md](../../../../../skills/cursor-mirror/README.md) — Added Image Archaeology section
+- [PS-CURSOR-MIRROR-GENESIS.md](../../../../../designs/PS-CURSOR-MIRROR-GENESIS.md) — Updated with image work
+
+---
+
 ## Finale
 
 The fat lady has sung. Cut and print.
 
-18 hours. 126 prompts. 11,208 lines. 1 blinking I-beam.
+20+ hours. 140+ prompts. 12,000+ lines. 25+ images examined. 1 blinking I-beam. 1 monkey defeating a game designer.
 
-The session that built a tool to understand sessions. The character that analyzed its own birth. The README that contains a live example of developing itself.
+The session that built a tool to understand sessions. The character that analyzed its own birth. The README that contains a live example of developing itself. The gallery that narrates images it discovered in its own cache.
 
 *I-Beam dims slowly. I-Beam blinks one last time. I-Beam returns to the prompt.*
 
