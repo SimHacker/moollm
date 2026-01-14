@@ -250,9 +250,75 @@ the characters should do.
 
 A photograph of Andy Looney (creator of Fluxx, Chrononauts, Pyramids) at what appears to be a game convention booth. He's wearing a white lab coat, holding up a game card, with Looney Labs branding visible behind him.
 
-**Why this image was used**: MOOLLM's adventure-4 sessions included simulated games of Fluxx with Andy and Kristin Looney as guest characters (using the Tribute Protocol for ethical representation of real people). This photo was reference material.
+**Context**: Don pasted this photo to help the LLM visualize Andy — NASA programmer turned game designer, "mad scientist energy" — before invoking him as a tribute character in the pub simulation.
 
-**What it led to**: The "33-Turn Stoner Fluxx" simulation documented in MOOLLM-EVAL-INCARNATE-FRAMEWORK.md — a single LLM call that simulated 8+ characters playing a complete game with dialogue, strategy, and humor.
+### The Full Story
+
+The image was used to establish Andy Looney as a guest character in MOOLLM's virtual pub. Using the [Tribute Protocol](../../skills/representation-ethics/README.md), the LLM simulated what it might be like if the actual creators of Fluxx dropped by:
+
+**The Scene** — From [marathon-session.md](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#33-turns-of-pure-gezelligheid):
+
+> **Andy Looney:** "Andy Looney. This is my wife Kristin. We heard someone was playing our game wrong."
+>
+> **Sun Wukong:** "THE LOONEY? As in FLUXX Looney?"
+>
+> **Andy:** "So. Fluxx. 1997. I was playing with the idea of a card game where the rules change as you play. No fixed rules. Total chaos theory in card form."
+
+**Fact-Checked Details** — The LLM verified real information:
+- Fluxx first published: 1997
+- Looney Labs founded: 1996
+- Both Andy and Kristin worked at NASA Goddard Space Flight Center
+- 5% of Stoner Fluxx proceeds → marijuana legalization advocacy
+
+### Artifacts Created
+
+**Primary Session Log**:
+- [`marathon-session.md#33-turns-of-pure-gezelligheid`](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#33-turns-of-pure-gezelligheid) — The full 33-turn game
+
+**Game Configuration**:
+- [`pub/menus/games.yml`](../../examples/adventure-4/pub/menus/games.yml) — Fluxx variants catalog (10+ versions)
+- [`pub/games/card-deck.yml`](../../examples/adventure-4/pub/games/card-deck.yml) — Looney Labs as creator
+
+**Guest Book Entry**:
+- [`pub/guest-book.yml`](../../examples/adventure-4/pub/guest-book.yml) — Andy & Kristin signed in
+
+**Character Reference**:
+- [`palm/CHARACTER.yml`](../../examples/adventure-4/characters/animals/palm/CHARACTER.yml) — Palm received a gift: "An unreleased Fluxx variant: 'Meta Fluxx'" from the Looneys
+
+**Design Documents**:
+- [`PR-PALM-INCARNATION-SPEED-OF-LIGHT.md`](../../designs/PR-PALM-INCARNATION-SPEED-OF-LIGHT.md) — The full session PR
+- [`PR-TRIBUTE-FRAMING-ETHICS.md`](../../designs/PR-TRIBUTE-FRAMING-ETHICS.md) — Ethics of representing real people
+- [`MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#33-turn-stoner-fluxx`](../../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#33-turn-stoner-fluxx-2026-01-04) — Performance metrics
+
+**Skill Documentation**:
+- [`speed-of-light/README.md`](../../skills/speed-of-light/README.md) — "33-turn Fluxx game in one epoch"
+- [`representation-ethics/README.md`](../../skills/representation-ethics/README.md) — Andy & Kristin as ethical tribute examples
+- [`skill/SKILL.md`](../../skills/skill/SKILL.md) — Fluxx as complexity benchmark
+
+**The Pub Room**:
+- [`pub/ROOM.yml`](../../examples/adventure-4/pub/ROOM.yml) — "Andy & Kristin Looney playing Stoner Fluxx" listed in highlights
+
+### The Ethical Framework
+
+The [Tribute Protocol](../../skills/representation-ethics/README.md) governs how MOOLLM represents real people:
+
+1. **INVOCATION** — "Let's imagine the creators of Fluxx walked in..."
+2. **PERFORMANCE** — 33 turns with fact-checked dialogue
+3. **ACKNOWLEDGMENT** — Meta-note clarifying this is tribute, not documentary
+
+From the session:
+> 🎭 **META-NOTE:** The preceding Stoner Fluxx session was a TRIBUTE PERFORMANCE — a loving simulation of what we imagine it might be like if these legendary game designers visited our Grotto. All dialogue was imagined with deep affection and respect. Historical facts were verified; presence was honored through imagination.
+
+### Why It Matters
+
+This single image led to:
+- **33 turns** of simulated gameplay
+- **8+ characters** interacting (Don, Palm, Cheech, Chong, Marieke, Sun Wukong, Andy, Kristin)
+- **Full game state tracking** across rule changes
+- **Wikipedia-verified facts** woven into dialogue
+- **An ethical framework** for AI representation of real people
+
+The Fluxx marathon became MOOLLM's signature proof of the [Speed of Light](../../skills/speed-of-light/) principle: many turns, one call, no API round-trips.
 
 ---
 
