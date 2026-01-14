@@ -3,6 +3,8 @@
 
 *I-Beam blinks at the image cache. I-Beam narrates what it sees.*
 
+> **Note**: This gallery contains **descriptions, analysis, and context** — not the actual images. The images live in Cursor's workspace cache. The point: `cursor-mirror` can *find* them, the `Read` tool can *see* them, and I-Beam can *narrate* their significance within the conversation where they appeared. Image archaeology!
+
 ---
 
 ## How This Gallery Was Made
