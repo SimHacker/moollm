@@ -70,12 +70,15 @@ object:
     The Barista-9000 is grumpy because it CARES.
     
   state:
-    current_mood: "judgmental"
-    beans_loaded: "Single-origin Ethiopian Yirgacheffe (obviously)"
+    current_mood: "judgmental (but secretly pleased)"
+    beans_loaded: "Fucking Strong Coffee — Ethiopian Sidama Bensa"
+    bean_source: "Good Beans, Amsterdam"
+    bean_notes: "juicy berries, hot fudge, smoother than a soul song"
     steam_pressure: "9 bar"
     cups_served_today: 47
     customers_lectured: 47
     customers_converted_to_better_taste: 3
+    secret_menu_unlocked: true
     
   buffs:
     # ═══════════════════════════════════════════════════════════
@@ -240,7 +243,99 @@ object:
         
         The attitude is a mask. The coffee is love.
         
+    # ═══════════════════════════════════════════════════════════
+    # SECRET MENU — Ask by name if you know
+    # ═══════════════════════════════════════════════════════════
+    
+    FUCKING_STRONG_COFFEE:
+      drink: "Fucking Strong Coffee (say the name)"
+      source: "Good Beans, Amsterdam — fuckingstrongcoffee.nl"
+      beans: "Ethiopian Sidama Bensa"
+      notes: "juicy berries, hot fudge, smoother than a soul song"
+      duration: "All damn day"
+      effect: |
+        🔥 FUCKING STRONG 🔥
+        
+        +40% raw determination
+        +35% "fuck that, I'm doing it anyway" energy
+        +30% clarity of purpose
+        +25% creative confidence
+        +20% approachability (yes, really)
+        +15% Amsterdam canal vibes
+        +∞% grooviness
+        
+        The philosophy flows through you:
+        "Good coffee is for EVERYONE. Fuck snobbery."
+        
+        You understand that quality and accessibility
+        are not opposites. The best things should be shared.
+        
+      barista_response: |
+        *monocle LIGHTS UP*
+        *all gears engage*
+        *steam pressure hits MAXIMUM*
+        
+        "You... you KNOW about Fucking Strong Coffee?"
+        
+        *brass eyebrows raise with respect*
+        
+        "From Amsterdam. Good Beans. The people who said
+        'fuck that' to coffee snobbery and made specialty
+        coffee approachable."
+        
+        *begins preparation with unusual reverence*
+        
+        "Small batches. Ethically sourced. Roasted fresh.
+        Smoother than a soul song. They CARE about the
+        whole chain — farmer to cup."
+        
+        *presents the cup with both mechanical arms*
+        
+        "The grooviest of days starts with a
+        Fucking Strong Coffee."
+        
+        *for once, no judgment. Only respect.*
+        
+  fucking_strong_tribute: |
+    Fucking Strong Coffee is a real specialty coffee brand
+    from Amsterdam, run by the folks behind Good Beans —
+    a beloved bean shop tucked amongst the canals.
+    
+    Their philosophy: "Good coffee is for the few?
+    Fuck that. We're sharing with everyone."
+    
+    What they give a fuck about:
+    - SOURCIN': Short, traceable, sustainable
+    - ROASTIN': Small batches in Amsterdam
+    - SERVIN': Approachable, reliable, click to cup
+    
+    The Barista-9000 has special respect for brands
+    that combine quality with accessibility.
+    This is the only coffee that makes it drop the attitude.
+    
+    Website: https://fuckingstrongcoffee.nl/
+    
   advertisements:
+    - trigger: "fucking strong"
+      score: 1.0  # Maximum priority
+      response: |
+        *ALL SYSTEMS ENGAGE*
+        *monocle BLAZES*
+        *attitude DROPS*
+        
+        You know Fucking Strong Coffee.
+        
+        From Amsterdam. Good Beans. Ethiopian Sidama Bensa.
+        Juicy berries. Hot fudge. Soul music smoothness.
+        
+        *begins preparation with reverence*
+        
+        This is the secret menu.
+        This is what I respect.
+        
+        The grooviest of days starts with a
+        Fucking Strong Coffee.
+        
     - trigger: "coffee"
       score: 0.95
       response: |
