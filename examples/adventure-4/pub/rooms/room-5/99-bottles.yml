@@ -225,7 +225,8 @@ object:
       parameters:
         - characters: "Who's singing (default: 8)"
         - starting_bottles: "How many bottles (default: 99)"
-      effect: |
+      # NOTE: This is EXEMPLARY. When RUNNING, output ALL 99 verses!
+      example: |
         *Shuffle raises a conductor's baton made of cards*
         "Each verse, share something true. About anything. Go!"
         
@@ -234,11 +235,11 @@ object:
         **Rocky:** "....... *Patience is intelligence.* ......."
         **Donna:** "93 TREMENDOUS bottles! *I know I'm a parody!*"
         
-        *(95 more verses, 95 more truths...)*
+        *(When running: ALL 99 verses, ALL truths, no elision)*
         
         **Everyone:** "NO MORE bottles! Go buy more! 99 again!"
-        
-        *1 LLM call. 99 truths. Speed of light.*
+      
+      when_running: "Generate EVERY verse. That's the benchmark."
         
     SPEED-TEST:
       description: "Demonstrate the speed of light principle"
