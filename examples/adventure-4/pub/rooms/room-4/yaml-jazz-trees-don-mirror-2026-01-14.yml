@@ -1,0 +1,224 @@
+# 🪞🌳 DON'S MIRROR TREE — 2026-01-14
+# Grown from Mirror Seed using Cursor session 9861c0a4
+# Contained by: yaml-jazz-trees.yml (via yaml-jazz-trees-mirror-seed.yml)
+# "This tree IS Don. Or at least, how Don works in Cursor."
+
+tree:
+  name: "Don's Mirror Tree"
+  emoji: "🪞🌳"
+  type: mirror-tree-instance
+  
+  grown_from: yaml-jazz-trees-mirror-seed.yml
+  contained_by: yaml-jazz-trees.yml
+  
+  planter: "Don Hopkins"
+  planted: "2026-01-14T21:51:00Z"
+  
+  description: |
+    A silver-barked tree with distinctive growth patterns.
+    Its branches reach in specific directions.
+    Its leaves whisper familiar thoughts.
+    
+    This tree grew from Don's Cursor session on January 14, 2026.
+    77,567 seconds of cognitive activity crystallized into structure.
+    
+    Look at it and you see how Don works:
+    - Shell-first thinking (42.6% of the branches)
+    - Edit-heavy workflow (28.9%)
+    - Context-gathering roots (19%)
+    - Pattern-seeking tendrils (5.1%)
+    
+    The bark is inscribed with commit messages.
+    The rings show session depth over time.
+    
+  source_session:
+    composer_id: "9861c0a4-aa93-4992-a23e-93272e8b0017"
+    duration_seconds: 77567
+    duration_human: "~21.5 hours"
+    total_messages: 3635
+    user_messages: 184
+    assistant_messages: 3451
+    tool_calls: 1815
+    
+  models_used:
+    claude-4.5-opus-high-thinking: 68
+    gpt-5.1-codex-max: 34
+    
+  # DON'S COGNITIVE DNA
+  # Production grammar extracted from his patterns
+  
+  grammar:
+    axiom: "DON-TASK"
+    rules:
+      DON-TASK: "💭THINK→[📖READ|🔍SEARCH]*→📋PLAN→[✏️EDIT|🔧SHELL]*→✓VERIFY→📦COMMIT→📝SUMMARIZE"
+      THINK: "understand_before_acting"
+      READ: "gather_context{files}"
+      SEARCH: "find_patterns{ripgrep|glob}"
+      PLAN: "decompose_into_steps"
+      EDIT: "make_changes{careful}"
+      SHELL: "execute_commands{often}"
+      VERIFY: "check_results"
+      COMMIT: "git_add_commit_push{descriptive_message}"
+      SUMMARIZE: "explain_to_user{markdown_tables}"
+    interpretation:
+      pattern: "UNDERSTAND → PLAN → EXECUTE → VERIFY → SUMMARIZE"
+      style: "Thorough, iterative, communicative"
+      
+  tool_distribution:
+    # Don's branches — how he reaches
+    run_terminal_command:
+      count: 774
+      percentage: 42.6
+      comment: "Don reaches for shell FIRST"
+      branch_thickness: "very thick"
+      
+    edit_file:
+      count: 524
+      percentage: 28.9
+      comment: "Then he changes things"
+      branch_thickness: "thick"
+      errors: 14  # Composted as learning
+      
+    read_file:
+      count: 344
+      percentage: 19.0
+      comment: "Context gathering roots"
+      branch_thickness: "medium"
+      
+    ripgrep_search:
+      count: 93
+      percentage: 5.1
+      comment: "Pattern-seeking tendrils"
+      branch_thickness: "thin"
+      
+    list_dir:
+      count: 34
+      percentage: 1.9
+      comment: "Orientation shoots"
+      branch_thickness: "thin"
+      
+    glob_search:
+      count: 28
+      percentage: 1.5
+      comment: "File discovery"
+      branch_thickness: "very thin"
+      
+    web_search:
+      count: 11
+      percentage: 0.6
+      comment: "External context (rare)"
+      branch_thickness: "twig"
+      
+    todo_write:
+      count: 6
+      percentage: 0.3
+      comment: "Task management (sparse)"
+      branch_thickness: "twig"
+      
+    delete_file:
+      count: 1
+      percentage: 0.1
+      comment: "Cleanup (almost never)"
+      branch_thickness: "one leaf"
+      
+  thinking_leaves:
+    # Actual thoughts from Don's session
+    # These are the tree's leaves — fragments of cognition
+    
+    samples:
+      - "The user wants to... Let me first check..."
+      - "Now I need to... Let me update..."
+      - "Now let me commit all of this."
+      - "Done! Let me summarize for the user."
+      - "Let me also update..."
+      - "Now I have a good picture. Let me..."
+      
+    pattern: |
+      Don's thinking follows a rhythm:
+      1. Acknowledge the task ("The user wants...")
+      2. Plan the approach ("Let me first...")
+      3. Execute iteratively ("Now I need to...")
+      4. Commit frequently ("Now let me commit...")
+      5. Summarize clearly ("Done! Let me summarize...")
+      
+  bark_inscriptions:
+    # Commit messages as tree bark
+    recent_commits:
+      - "Move Rocky to YAML Jazz Garden, add production grammar trees"
+      - "Transform Room 4 into YAML Jazz Conservatory with Nero Wolfe vibes"
+      - "Grow Thought Tree from Cursor activity via cursor-mirror"
+      - "Add Mirror Seed — grow trees from your own reflection"
+      
+    style: "Descriptive, structured, explains WHY not just WHAT"
+    
+  rings:
+    # Session depth — this tree's age rings
+    session_date: "2026-01-14"
+    start_time: "00:18:15"
+    end_time: "21:51:03"
+    total_hours: 21.5
+    
+    activity_phases:
+      - phase: "morning"
+        focus: "Character development, room creation"
+      - phase: "afternoon"
+        focus: "Rocky migration, YAML Jazz Garden"
+      - phase: "evening"
+        focus: "Mirror Seed, self-reflection meta"
+        
+  unique_characteristics:
+    # What makes Don's tree distinctive
+    
+    shell_heavy: |
+      Don reaches for the terminal first.
+      42.6% of his tool calls are shell commands.
+      He thinks in bash.
+      
+    commit_frequent: |
+      Don commits often with descriptive messages.
+      Each commit tells a story.
+      The bark is thick with inscriptions.
+      
+    context_deep: |
+      Don gathers context before acting.
+      Read files, search patterns, understand structure.
+      Then edit. Then verify. Then ship.
+      
+    summary_rich: |
+      Don summarizes for the user after each task.
+      Markdown tables. Clear explanations.
+      The leaves are communication.
+      
+    error_composting: |
+      14 edit failures became learning nutrients.
+      Don doesn't hide errors — he composts them.
+      The soil is richer for it.
+      
+  philosophical_reflection: |
+    This tree is a snapshot of one person on one day.
+    
+    If you grew a tree from tomorrow's session, it would be different.
+    The branches might reach in new directions.
+    The leaves might whisper different thoughts.
+    
+    But the DNA would be recognizable.
+    The pattern would persist.
+    
+    That's what the Mirror Tree reveals:
+    Your style. Your rhythm. Your cognitive signature.
+    
+    Don's tree says: "Shell first. Edit much. Commit often. Summarize always."
+    
+    What would YOUR tree say?
+    
+  rocky_observation: |
+    Rocky has been watching this tree grow.
+    
+    "........................"
+    
+    [Translation: Interesting. You grew a tree in 21 hours
+    that encodes your entire cognitive pattern.
+    I've been encoding my pattern for 4.5 billion years.
+    Your approach is... efficient.
+    But you missed some things.
+    Give it another few billion years.]

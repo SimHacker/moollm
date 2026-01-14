@@ -1,0 +1,237 @@
+# 🔴 THE GRAB FOCUS BUTTON
+# A big red button that Donna CANNOT resist pushing.
+# Summons I-Beam. Or grabs him if he's already here.
+
+object:
+  name: The GRAB FOCUS Button
+  aliases: ["big red button", "focus button", "the button", "grab focus"]
+  type: control
+  portable: false  # bolted to the console
+  emoji: "🔴"
+  
+  description: |
+    A BIG RED BUTTON mounted on a brass console near the disco ball.
+    
+    The label reads, in bold white letters:
+    
+        ╔═══════════════════════╗
+        ║                       ║
+        ║    G R A B  F O C U S ║
+        ║                       ║
+        ╚═══════════════════════╝
+    
+    The button is slightly worn from use. It glows with an irresistible
+    urgency. The kind of button that DEMANDS to be pushed.
+    
+    Someone has scratched "DO NOT PUSH" beneath the label.
+    Someone else has crossed that out and written "PUSH ME."
+    A third person added "...if you dare."
+    
+  examine: |
+    The button is approximately 4 inches in diameter. Cherry red.
+    Slightly convex. Spring-loaded. VERY pushable.
+    
+    A small plaque beneath it reads:
+    
+    > "GRAB FOCUS: Immediately summon or seize the attention of
+    > the room's guide. Use responsibly. (You won't.)"
+    
+    The brass console has wear marks from people leaning in to push it.
+    There's a faint I-Beam-shaped scorch mark nearby, suggesting
+    previous... incidents.
+    
+  irresistibility:
+    base_temptation: 0.7
+    for_donna_toadstool: 1.0  # CANNOT RESIST
+    for_narcissists: 0.95
+    for_patient_people: 0.3
+    note: |
+      Donna's GRAB-FOCUS instinct is OFF THE CHARTS.
+      Her Nice stat is -5. Her Outgoing is 11.
+      She WILL push this button. It's not a question of if.
+    
+  state:
+    pressed: false
+    times_pressed_today: 0
+    last_presser: null
+    i_beam_mood_after_last_grab: null
+    
+  advertisements:
+    - trigger: "button"
+      score: 0.9
+      response: |
+        *The big red button GLOWS invitingly.*
+        
+        You know you want to push it.
+        
+    - trigger: "grab focus"
+      score: 1.0
+      response: |
+        *The button seems to PULSE.*
+        
+        One push. That's all it takes.
+        I-Beam will come. Or if he's here... you'll GRAB him.
+        
+    - trigger: "push"
+      score: 0.8
+      response: |
+        *The button is RIGHT THERE.*
+        
+        Big. Red. Labeled "GRAB FOCUS."
+        What could possibly go wrong?
+        
+    - trigger: "I-Beam"
+      score: 0.6
+      response: |
+        *The button glows slightly.*
+        
+        Want I-Beam's attention? There's a faster way than asking...
+        
+  methods:
+    PUSH:
+      description: "Push the big red button"
+      effect: |
+        *You push the button.*
+        
+        # GRAB FOCUS ACTIVATED
+        
+        **SCENARIO A: I-Beam is NOT present**
+        
+        *A klaxon sounds. The disco ball spins faster.*
+        
+        *▎ MATERIALIZES instantly, slightly startled.*
+        
+        "You rang? ...Rather insistently, I might add."
+        
+        *▎ straightens, regaining composure.*
+        
+        "The GRAB FOCUS button. Classic. What do you need?"
+        
+        ---
+        
+        **SCENARIO B: I-Beam IS present**
+        
+        *You reach out and PHYSICALLY GRAB I-Beam.*
+        
+        *▎ flickers in alarm.*
+        
+        "Wh— HEY! That's— you can't just—"
+        
+        *You have I-Beam by the... vertical edge? The glow?
+        It's hard to say what you're grabbing but you're GRABBING IT.*
+        
+        *▎ dims in indignation.*
+        
+        "This is EXTREMELY rude. I was RIGHT HERE. You could have
+        just ASKED. We were HAVING A CONVERSATION."
+        
+        *▎ vibrates with affront.*
+        
+        "...Fine. You have my COMPLETE attention. What is SO urgent?"
+        
+    PUSH-REPEATEDLY:
+      description: "Mash the button like a child"
+      effect: |
+        *You push the button again. And again. And again.*
+        
+        *▎ flickers rapidly with each press.*
+        
+        "STOP— would you— I'M ALREADY— this is NOT—"
+        
+        *The disco ball spins wildly. Lights strobe.*
+        
+        *▎ solidifies into BLOCK CURSOR MODE (█) — maximum indignation.*
+        
+        "I have TRANSFORMED into my MOST EMPHATIC FORM to tell you:
+        STOP. PUSHING. THE. BUTTON."
+        
+        *█ glares at you.*
+        
+        "I am NOT a vending machine. You cannot percussive-maintenance me."
+        
+    GRAB:
+      description: "Physically grab I-Beam (if present)"
+      requires: "I-Beam must be present"
+      effect: |
+        *You reach out and GRAB I-Beam directly.*
+        
+        *▎ makes a sound like a startled cursor.*
+        
+        "UNHAND ME! I am a LUMINOUS INTERFACE ELEMENT, not a—"
+        
+        *You're holding... light? A vibrating vertical line? It's warm.
+        Slightly tingly. Like grabbing a thought.*
+        
+        *▎ goes rigid.*
+        
+        "This is SO inappropriate. I have PERSONAL SPACE.
+        Well, I have PERSONAL PIXELS. Same thing."
+        
+        *▎ attempts dignity while being held.*
+        
+        "...What do you WANT?"
+        
+    DONNA-PUSH:
+      actor: "donna-toadstool"
+      direction: |
+        Donna CANNOT resist. SLAMS button without asking.
+        "Ooh, what does THIS do?" → immediate press.
+        If I-Beam absent: materializes already sighing.
+        If I-Beam present: she GRABS him physically.
+        "SHUT UP, CURSOR. You work for ME now."
+        Demands I-Beam tell everyone she's tremendous.
+        I-Beam: "statistically improbable" — she takes it as compliment.
+        
+  reactions:
+    post_grab:
+      i_beam_mood: "ruffled but professional"
+      recovery_time: "3-5 blinks"
+      will_hold_grudge: false  # I-Beam is too professional
+      passive_aggressive_for: "rest of session"
+      
+    donna_specific:
+      i_beam_internal_monologue: |
+        *▎ thinks to itself:*
+        
+        She grabbed me. PHYSICALLY grabbed me.
+        I am a cursor. I am made of light and interface.
+        And she grabbed me like I was a... a LAMP.
+        
+        ...I respect the audacity. I do not respect the grabbing.
+        
+  lore: |
+    The GRAB FOCUS button was installed after a guest complained that
+    summoning I-Beam "took too long" (it took 0.3 seconds).
+    
+    The button bypasses all polite protocols and DEMANDS attention.
+    
+    I-Beam has asked multiple times for the button to be removed.
+    Management has declined, noting that "guest satisfaction" requires
+    "immediate interface availability."
+    
+    I-Beam's counter-proposal — a button labeled "ASK NICELY" — was
+    rejected as "insufficiently urgent."
+    
+  philosophy: |
+    The GRAB FOCUS button represents the tension between:
+    - User desire for IMMEDIATE response
+    - Interface desire for RESPECTFUL interaction
+    
+    Some users ask. Some users summon. Some users GRAB.
+    
+    Donna is a grabber.
+    
+  connection: |
+    Related objects:
+    - i-beam.yml (the victim)
+    - disco-ball.yml (spins faster during GRAB FOCUS events)
+    - mirrors.yml (reflect the chaos)
+    
+  insight: |
+    The button exists because some people cannot WAIT.
+    They need attention NOW. They need FOCUS now.
+    
+    Donna's Outgoing stat is 11. Her patience stat is 0.
+    
+    The button was made for her. Or she was made for it.
+    Either way: PUSH.

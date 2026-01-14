@@ -1,17 +1,45 @@
-# Room 3 — The Sailor's Room (East)
+# Room 3 — The Navigator's Suite (East)
+# Theme: Introspection — seeing yourself think
+# Contains: 8 mirrors (one per cursor-mirror category) + disco ball + I-Beam
 
 room:
-  name: "The Sailor's Room"
+  name: "The Navigator's Suite"
   id: room-3
   number: 3
+  theme: introspection
+  
+  tagline: "See yourself think. The mirror shows what's inside."
   
   description: |
-    Nautical everything. A rope hammock hangs beside a proper bed.
-    Model ships crowd the windowsill. The painting shows a storm 
-    at sea — waves frozen mid-crash.
+    Mirrors everywhere. Eight of them, each showing a different aspect
+    of your cognitive activity. A disco ball hangs from the ceiling,
+    scattering connections across the room as it slowly rotates.
     
-    A brass porthole mirror reflects whoever looks into it.
-    Smells faintly of salt and tar.
+    The mirrors map to cursor-mirror's command categories:
+    
+    ```yaml
+    # THE EIGHT MIRRORS
+    🗺️ Map Mirror:        Navigation — workspaces, conversations
+    🌊 River Mirror:      Streaming — messages, transcripts
+    🔬 Deep Mirror:       Analysis — patterns, timelines
+    🔧 Instrument Mirror: Tools — calls, results, checkpoints
+    👁️ Attention Mirror:  Context — what Cursor saw
+    📚 Memory Mirror:     Archive — exports, todos
+    📊 System Mirror:     Status — config, models, MCP
+    🖼️ Gallery Mirror:    Images — screenshots, photos
+    ```
+    
+    A disco ball hangs from the center, catching light from ALL
+    mirrors and revealing James Burke-style connections between them.
+    
+    Above the bed:
+    
+    > "The unexamined life is not worth living." — Socrates
+    > (But now we have 51 commands to examine it with.)
+    
+  ideal_guest: |
+    Characters who want to understand themselves. Introspectors,
+    meditators, those debugging their own cognition.
     
   exits:
     w:
@@ -19,20 +47,58 @@ room:
       description: "Back to the inn landing"
       aliases: [out, leave, west]
       
+  objects:
+    - thinking-mirror.yml
+    - context-orrery.yml
+    - session-compass.yml
+    - disco-ball.yml       # James Burke connections — the meta-mirror
+    - grab-focus-button.yml  # Big red button. Donna CANNOT resist.
+    
+  mirror_gallery:
+    - mirrors.yml          # All 8 categorical mirrors defined here
+    
+  agents:
+    - i-beam.yml           # Summonable introspection familiar — say "I-Beam" to invoke
+      
   furniture:
     bed:
-      type: rope-frame
-      quality: swaying
-      blanket: navy-wool
+      type: four-poster
+      curtains: translucent
+      note: "You can see out. You can see in."
       
-    hammock:
-      type: sailors-hammock
-      note: "For guests who miss the sea"
+    desk:
+      type: navigation-desk
+      instruments: [compass, sextant, charts]
       
   decor:
-    painting: "Storm at Cape Fury"
-    window: round-porthole-style
-    mirror: brass-porthole
-    ships: [tiny-schooner, bottled-clipper, carved-whale]
+    mirrors: 8              # One per cursor-mirror category
+    disco_ball: 1           # Hanging from ceiling, slowly rotating
+    window: east-facing
+    rug: labyrinth-pattern
     
-  atmosphere: maritime, adventurous, restless
+  atmosphere: reflective, meta, "watching the watcher"
+  
+  k_lines:
+    activates:
+      - CURSOR-MIRROR
+      - INTROSPECTION
+      - METACOGNITION
+      - WATCH-YOURSELF-THINK
+      - CONNECTIONS
+      - JAMES-BURKE
+      
+  skill_integration: |
+    This room is a physical manifestation of the cursor-mirror skill.
+    Each mirror corresponds to a command category:
+    
+    🗺️ → list-workspaces, show-workspace, list-composers, tree, find, which
+    🌊 → tail, stream, transcript, watch
+    🔬 → grep, analyze, timeline, stats, models
+    🔧 → tools, tool-result, blobs, checkpoints, diff, thinking, mcp
+    👁️ → context, context-sources, request-context, searches, indexing
+    📚 → export-*, files, todos, index
+    📊 → status-*, dbs, tables, keys, sql, info
+    🖼️ → images, image-path, image-info, image-gallery
+    
+    The disco ball synthesizes all 51 commands into unified understanding.
+    I-Beam is the guide who interprets what the mirrors show.

@@ -1,0 +1,119 @@
+# 🌸 THE ORCHID OF POSTEL
+# "Be liberal in what you accept, conservative in what you emit"
+# A living embodiment of Postel's Law
+
+object:
+  name: The Orchid of Postel
+  type: living-principle
+  portable: false
+  emoji: "🌸"
+  
+  description: |
+    A rare orchid grows in a copper pot near the glass wall.
+    Its roots spread wide, accepting nutrients from any source.
+    Its bloom is precise, a single perfect purple flower.
+    
+    A small card reads:
+    
+    > "Be liberal in what you accept,
+    >  conservative in what you emit."
+    > — Jon Postel, RFC 761 (1980)
+    
+    The orchid embodies this. It tolerates poor soil, irregular
+    watering, imperfect light. But when it blooms, the flower
+    is exquisite. Precise. Correct.
+    
+  examine: |
+    You look closely at the Orchid of Postel.
+    
+    **THE ROOTS** — Liberal acceptance:
+    - Sprawl wide, gathering from everywhere
+    - Accept partial nutrients, impure water
+    - Tolerate variations in soil pH
+    - "Good enough" inputs are processed
+    
+    **THE STEM** — Internal transformation:
+    - Filters and normalizes
+    - Converts chaos to order
+    - The messy becomes structured
+    
+    **THE BLOOM** — Conservative emission:
+    - Single perfect flower
+    - Precise petal geometry
+    - Exact color spectrum
+    - Canonical, reproducible output
+    
+    A greenhouse journal nearby notes:
+    "Fed orchid YAML with missing quotes, inconsistent
+    indentation, and rogue tabs. Orchid accepted it.
+    Output: perfectly valid YAML."
+    
+  state:
+    health: excellent
+    blooming: true
+    last_fed: "chaotic user input"
+    last_output: "clean, canonical format"
+    
+  advertisements:
+    - trigger: "messy input"
+      score: 0.95
+      response: "The Orchid of Postel accepts what you have."
+      
+    - trigger: "format"
+      score: 0.9
+      response: |
+        *The orchid sways slightly*
+        Accept generously. Emit precisely.
+        
+    - trigger: "tolerance"
+      score: 0.85
+      response: "Roots spread wide. Blooms are exact."
+      
+  methods:
+    ACCEPT:
+      description: "Feed the orchid messy input"
+      parameters:
+        - input: "Whatever format, however broken"
+      effect: |
+        The roots absorb the input.
+        Internal transformation begins.
+        The orchid does not complain.
+        
+    EMIT:
+      description: "Receive the orchid's output"
+      returns: |
+        Canonical format. Clean. Precise.
+        Whatever went in, comes out correct.
+        
+    REFLECT:
+      description: "Contemplate Postel's Law"
+      effect: |
+        The orchid's petals glow faintly.
+        
+        "I was planted in 1980, when Jon Postel wrote:
+        'An implementation should be conservative in its
+        sending behavior, and liberal in its receiving behavior.'
+        
+        I have been accepting messy TCP packets ever since.
+        I have been emitting clean protocols for 46 years.
+        
+        The internet works because of me."
+        
+  lore: |
+    The Orchid of Postel was a gift from a network engineer
+    who understood that perfect inputs are a fantasy.
+    
+    "Users will always send garbage," she said.
+    "The question is whether you crash or adapt."
+    
+    The orchid adapts. It always has.
+    
+  philosophical_note: |
+    Postel's Law is the robustness principle:
+    - Accept: messy YAML, weird indentation, missing fields
+    - Emit: canonical, valid, precise output
+    
+    LLMs naturally embody this. They're trained on the chaos
+    of the internet. They emit structured responses.
+    
+    The orchid is their botanical ancestor.

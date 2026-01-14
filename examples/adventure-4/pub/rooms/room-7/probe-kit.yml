@@ -1,0 +1,102 @@
+# 🔬 PROBE KIT
+# Tools for figuring out where you are — the bootstrap toolkit
+
+object:
+  name: Probe Kit
+  type: artifact
+  portable: true
+  
+  description: |
+    A leather case containing instruments for environmental
+    assessment. Compass, thermometer, barometer — but also
+    stranger tools: a "goal detector", an "affordance scanner",
+    a "constraint mapper".
+    
+    The case is labeled: "FOR COLD STARTS"
+    
+  examine: |
+    The kit contains:
+    
+    STANDARD PROBES:
+      - Compass: "Where is north?" (basic orientation)
+      - Thermometer: "What's the temperature?" (environment state)
+      - Barometer: "What's the pressure?" (hidden constraints)
+      
+    AGENT PROBES:
+      - Goal Detector: "What am I supposed to do?"
+      - Affordance Scanner: "What can I interact with?"
+      - Constraint Mapper: "What are the rules here?"
+      - Tool Inventory: "What capabilities do I have?"
+      
+    META PROBES:
+      - Driver Detector: "What orchestrator is running me?"
+      - Context Sampler: "What's in my context window?"
+      - Token Gauge: "How much space do I have?"
+      
+  state:
+    last_probe: "this room"
+    probes_available: 9
+    battery: "full"
+    
+  advertisements:
+    - trigger: "where am I"
+      score: 0.95
+      response: "Run the probes. Let's find out together."
+      
+    - trigger: "what can I do"
+      score: 0.9
+      response: "Affordance scanner. Point it at anything."
+      
+    - trigger: "boot sequence"
+      score: 0.85
+      response: "The kit contains the complete boot protocol."
+      
+  methods:
+    PROBE:
+      description: "Run all probes on current environment"
+      returns: |
+        # ENVIRONMENT ASSESSMENT
+        location: [where you are]
+        driver: [which orchestrator]
+        tools: [available capabilities]
+        constraints: [limits and rules]
+        goals: [detected intentions]
+        context: [what's in scope]
+        
+    SCAN:
+      description: "Scan a specific object for affordances"
+      parameters:
+        - target: "What to scan"
+      returns: |
+        name: [object name]
+        type: [object type]
+        methods: [available actions]
+        advertisements: [what it responds to]
+        
+    INVENTORY:
+      description: "List all available tools"
+      returns: "Complete capability inventory"
+      
+    ORIENT:
+      description: "Quick orientation — where am I, what's the goal"
+      returns: |
+        location: [brief]
+        mission: [if detectable]
+        immediate_actions: [suggested next steps]
+        
+  lore: |
+    The probe kit was assembled by an agent who specialized
+    in "first contact" scenarios. She was dropped into unknown
+    environments constantly — different codebases, different
+    orchestrators, different goals.
+    
+    "You can't act until you orient," she said. "And you can't
+    orient without instruments."
+    
+  insight: |
+    The bootstrap skill uses this kit:
+    - CURSOR-PROBE runs driver detection
+    - hot.yml and cold.yml are probe results
+    - working-set.yml is the current orientation
+    
+    Every MOOLLM session starts with a probe.

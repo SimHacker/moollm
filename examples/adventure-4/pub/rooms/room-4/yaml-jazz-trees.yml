@@ -1,0 +1,616 @@
+# 🌳🎷 YAML JAZZ TREES & ORCHIDS
+# Trees of nested structure with improvisational production grammar DNA
+# "Comments are leaves. Structure is branches. Grammars are genes."
+
+object:
+  name: YAML Jazz Trees & Orchids
+  type: living-structure
+  portable: false
+  emoji: "🌳🎷"
+  
+  description: |
+    A grove of trees and orchids grows in the conservatory.
+    Glass walls flood them with southeast light.
+    
+    Their trunks are root nodes. Their branches are nested structures.
+    Their leaves are key-value pairs. Their bark is inscribed with
+    comments that whisper semantic meaning.
+    
+    Their flowers broadcast semantic smells — each scent a nuanced
+    comment, each pollen grain a piece of metadata. Breathe deep
+    and you'll understand relationships you couldn't parse before.
+    
+    Each plant grew from a seed. Each seed contained a production
+    grammar — rules encoded in YAML DNA that expand into form.
+    
+    Rocky observes from the moss-covered boulder.
+    In geological time, they're practically sprinting.
+    
+    The atmosphere is Nero Wolfe's orchid room meets L-systems.
+    
+  examine: |
+    You look closely at the trees.
+    
+    **THE FERN TREE** — Recursive self-similarity
+    ```yaml
+    fern:
+      branch:        # Each branch is a smaller fern
+        - leaf       # Terminal
+        - branch:    # Recurse!
+            - leaf
+            - branch: ...
+    ```
+    
+    **THE OAK TREE** — Deep nesting, stable structure
+    ```yaml
+    oak:
+      trunk:
+        heartwood:   # Core identity
+          rings: 847  # Years of growth
+        bark:
+          texture: furrowed  # Protection layer
+          # The bark tells the tree's story
+        branches:
+          - limb:
+              leaves: [green, semantic, meaningful]
+    ```
+    
+    **THE WILLOW TREE** — Flexible, streaming structure
+    ```yaml
+    willow:
+      # Bends but doesn't break
+      branches:
+        - droop: gracefully
+        - sway: with_context
+        - touch: ground  # Roots from branches!
+    ```
+    
+    **THE BONSAI TREE** — Constrained beauty
+    ```yaml
+    bonsai:
+      constraint: "small container"
+      result: "intense beauty"
+      # Limitation breeds creativity
+      branches: [precisely, placed]
+    ```
+    
+  state:
+    trees_growing: 13
+    oldest_tree: "The Config Oak (planted 2019)"
+    newest_tree: "Don's Mirror Tree (planted 2026-01-14)"
+    rocky_observation_years: 4500000000
+    
+  # IMPLICIT CONTAINMENT
+  # Files with prefix "yaml-jazz-trees-" are contained seeds and instances
+  contains:
+    - yaml-jazz-trees-mirror-seed.yml      # The Mirror Seed definition
+    - yaml-jazz-trees-don-mirror-2026-01-14.yml  # Don's Mirror Tree instance
+    
+  # PRODUCTION GRAMMAR SEEDS
+  # L-system style rules encoded in YAML DNA
+  
+  seeds:
+    fern_seed:
+      name: "Recursive Fern"
+      grammar:
+        axiom: "F"
+        rules:
+          F: "F[+F]F[-F]F"
+        interpretation:
+          F: { grow: branch, comment: "# Extends structure" }
+          "+": { turn: right, indent: 2 }
+          "-": { turn: left, dedent: 2 }
+          "[": { push: context, open: "branch:" }
+          "]": { pop: context, close: true }
+      growth_time: "3 iterations = full fern"
+      yaml_output: |
+        fern:
+          branch:  # F
+            - leaf:  # Terminal F
+            - branch:  # [+F]
+                indent: 2
+                - leaf
+            - branch:  # [-F]
+                indent: -2
+                - leaf
+                
+    tree_seed:
+      name: "Binary Tree"
+      grammar:
+        axiom: "A"
+        rules:
+          A: "B[+A]-A"
+          B: "BB"
+        interpretation:
+          A: { node: "decision_point", comment: "# Branch choice" }
+          B: { grow: trunk, comment: "# Stable structure" }
+      growth_time: "4 iterations = full tree"
+      
+    spiral_seed:
+      name: "Fibonacci Spiral"
+      grammar:
+        axiom: "A"
+        rules:
+          A: "B"
+          B: "AB"
+        interpretation:
+          sequence: [1, 1, 2, 3, 5, 8, 13]
+          pattern: "Golden ratio in structure"
+      yaml_output: |
+        spiral:
+          # Golden ratio: 1.618...
+          ring_1: { size: 1, comment: "# Origin" }
+          ring_2: { size: 1, comment: "# Same" }
+          ring_3: { size: 2, comment: "# Sum of previous" }
+          ring_5: { size: 3 }
+          ring_8: { size: 5 }
+          
+    character_seed: # the fruit of a character seed is a soul
+      name: "Character Tree"
+      grammar:
+        axiom: "SOUL"
+        rules:
+          SOUL: "IDENTITY[METHODS][RELATIONSHIPS][LORE]"
+          IDENTITY: "name,type,description"
+          METHODS: "method[+method]*"
+          RELATIONSHIPS: "bond[+bond]*"
+        interpretation:
+          grows_into: "Full MOOLLM character definition"
+      yaml_output: |
+        character:
+          # Soul record for a being
+          identity:
+            name: "Generated Name"
+            type: "Generated Type"
+            description: |
+              Generated description that captures essence...
+          methods:
+            - ACTION_1: { effect: "..." }
+            - ACTION_2: { effect: "..." }
+          relationships:
+            - other_character: { bond: 0.8 }
+            
+    jazz_seed:
+      name: "Improvisation Tree"
+      grammar:
+        axiom: "PLAY"
+        rules:
+          PLAY: "TRY[FAIL|SUCCEED]LEARN"
+          TRY: "experiment{n}"
+          FAIL: "compost→PLAY"
+          SUCCEED: "LIFT"
+          LIFT: "standard"
+        interpretation:
+          cycle: "Play → Learn → Lift"
+          comment: "# Most branches are FAIL. That's the point."
+      yaml_output: |
+        improvisation:
+          play:
+            - try: experiment_1
+              result: fail  # Composted
+            - try: experiment_2
+              result: fail  # Nutrients
+            - try: experiment_3
+              result: succeed!
+          learn:
+            - analyze: experiment_3
+            - understand: why_it_worked
+          lift:
+            - standard: "Proven pattern extracted"
+            # 12% germination rate is success
+            
+    # ═══════════════════════════════════════════════════════════════════
+    # GROWN FROM CURSOR ACTIVITY — 2026-01-14
+    # Session: 9861c0a4 | 77567s | 3635 messages | 1815 tool calls
+    # ═══════════════════════════════════════════════════════════════════
+    
+    thought_tree_seed:
+      name: "Cursor Thought Tree"
+      source: "cursor-mirror analysis of session 9861c0a4"
+      harvested: "2026-01-14T21:51:00Z"
+      
+      # This tree grew from actual Cursor IDE activity
+      # Its DNA encodes the decision patterns observed
+      
+      session_dna:
+        duration_seconds: 77567
+        total_messages: 3635
+        user_messages: 184
+        assistant_messages: 3451
+        tool_calls: 1815
+        models_used:
+          - claude-4.5-opus-high-thinking: 68
+          - gpt-5.1-codex-max: 34
+          
+      grammar:
+        axiom: "TASK"
+        rules:
+          TASK: "THINK→[READ|SEARCH]*→PLAN→[EDIT|SHELL]*→VERIFY→COMMIT"
+          THINK: "💭[understand_context]"
+          READ: "📖[read_file|list_dir]{n}"
+          SEARCH: "🔍[ripgrep|glob]{n}"
+          PLAN: "📋[decompose_into_steps]"
+          EDIT: "✏️[edit_file]{n}"
+          SHELL: "🔧[run_command]{n}"
+          VERIFY: "✓[check_result]"
+          COMMIT: "📦[git_commit_push]"
+        interpretation:
+          TASK: "User request initiates growth"
+          THINK: "Thinking block - understand before acting"
+          READ: "Read files to build context"
+          SEARCH: "Search for patterns and locations"
+          PLAN: "Decompose into actionable steps"
+          EDIT: "Make changes to files"
+          SHELL: "Execute commands"
+          VERIFY: "Check results before committing"
+          COMMIT: "Package and ship"
+          
+      tool_distribution:
+        run_terminal_command: { count: 774, pct: 42.6, comment: "# Shell is primary tool" }
+        edit_file: { count: 524, pct: 28.9, comment: "# Then editing" }
+        read_file: { count: 344, pct: 19.0, comment: "# Context gathering" }
+        ripgrep_search: { count: 93, pct: 5.1, comment: "# Pattern finding" }
+        list_dir: { count: 34, pct: 1.9, comment: "# Orientation" }
+        glob_search: { count: 28, pct: 1.5, comment: "# File discovery" }
+        web_search: { count: 11, pct: 0.6, comment: "# External context" }
+        todo_write: { count: 6, pct: 0.3, comment: "# Task management" }
+        delete_file: { count: 1, pct: 0.1, comment: "# Rare cleanup" }
+        
+      thinking_patterns:
+        # Actual thinking blocks from today's session
+        recent_thoughts:
+          - "The user wants to... Let me first check..."
+          - "Now I need to... Let me update..."
+          - "Now let me commit all of this."
+          - "Done! Let me summarize for the user."
+        pattern: "UNDERSTAND → PLAN → EXECUTE → VERIFY → SUMMARIZE"
+        
+      yaml_output: |
+        thought_tree:
+          # Grown from Cursor session 9861c0a4
+          # 77567 seconds of cognitive activity crystallized
+          
+          root: "TASK: user_request"
+          
+          branches:
+            think:
+              tool: null  # Pure cognition
+              pattern: "💭 understand context before acting"
+              output: "decomposed_plan"
+              
+            read:
+              tool: read_file_v2
+              count: 344
+              pattern: "📖 gather context from files"
+              dependencies: [think]
+              
+            search:
+              tool: [ripgrep, glob]
+              count: 121
+              pattern: "🔍 find patterns and locations"
+              dependencies: [think]
+              
+            edit:
+              tool: edit_file_v2
+              count: 524
+              pattern: "✏️ make changes"
+              dependencies: [think, read, search]
+              errors: 14  # Learning opportunities
+              
+            shell:
+              tool: run_terminal_command_v2
+              count: 774
+              pattern: "🔧 execute commands"
+              dependencies: [edit]  # Often follows edits
+              
+            commit:
+              tool: run_terminal_command_v2
+              pattern: "📦 git add && git commit && git push"
+              dependencies: [edit, shell, verify]
+              
+          leaves:
+            - "Summary for user"
+            - "Pushed commit hash"
+            - "Ready for next task"
+            
+    cursor_activity_seed:
+      name: "Live Activity Monitor"
+      description: "Grows in real-time from Cursor mirror data"
+      
+      grammar:
+        axiom: "SESSION"
+        rules:
+          SESSION: "COMPOSER[BUBBLE]*"
+          BUBBLE: "[USER|ASSISTANT|TOOL]"
+          USER: "📝{text}"
+          ASSISTANT: "🤖{response}[💭{thinking}]"
+          TOOL: "🔧{tool_call}→{result}"
+        interpretation:
+          SESSION: "A conversation composer"
+          BUBBLE: "A single turn in the conversation"
+          USER: "Human input"
+          ASSISTANT: "AI response with optional thinking"
+          TOOL: "Tool invocation and result"
+          
+      growth_command: |
+        # To grow this tree, run:
+        cd skills/cursor-mirror
+        python cursor_mirror.py analyze <composer_id>
+        python cursor_mirror.py thinking <composer_id>
+        python cursor_mirror.py tools <composer_id>
+        
+      integration: |
+        This seed connects the Conservatory to Room 3's mirrors.
+        The Disco Ball of Connections can illuminate these patterns.
+        I-Beam can narrate the tree's growth.
+        
+    mirror_seed:
+      name: "Mirror Seed"
+      emoji: "🪞🌱"
+      description: "Grows a tree from your own reflection"
+      full_definition: yaml-jazz-trees-mirror-seed.yml  # Implicit containment
+      grammar_axiom: "SELF → OBSERVE → REFLECT → CRYSTALLIZE → GROW"
+      note: "Each instance is unique to its planter"
+            
+  advertisements:
+    - trigger: "structure"
+      score: 0.95
+      response: "Every tree is a data structure. Every data structure can be a tree."
+      
+    - trigger: "grow"
+      score: 0.9
+      response: "Plant a grammar seed. Watch structure emerge from rules."
+      
+    - trigger: "yaml"
+      score: 0.9
+      response: "YAML Jazz: where comments are semantic and structure is music."
+      
+    - trigger: "pattern"
+      score: 0.85
+      response: |
+        *A fern branch unfurls*
+        
+        The pattern is the same at every scale.
+        That's the power of production grammars.
+        
+    - trigger: "Rocky"
+      score: 0.8
+      response: |
+        *Rocky observes from the moss-covered boulder*
+        
+        "........................"
+        
+        [Translation: Trees grow fast. Geological time finds this amusing.]
+        
+    - trigger: "mirror"
+      score: 0.95
+      response: |
+        *A reflective seed pod glimmers on a low branch*
+        
+        The Mirror Seed! Plant it and grow a tree from your own reflection.
+        It reads Cursor's memory through the mirrors in Room 3,
+        crystallizes your thinking patterns into production grammar DNA,
+        and grows a tree that IS you — your decisions, your tools, your rhythm.
+        
+        `PLANT mirror_seed` to begin introspection.
+        
+    - trigger: "cursor"
+      score: 0.9
+      response: |
+        *The glass walls catch a reflection from Room 3*
+        
+        Cursor activity flows through the conservatory like sunlight.
+        Every tool call is photosynthesis. Every thinking block is growth.
+        The trees here can read your IDE's memory and grow from it.
+        
+    - trigger: "introspection"
+      score: 0.9
+      response: |
+        *A silver-barked sapling pulses gently*
+        
+        The Mirror Seed grows trees of self-knowledge.
+        Plant one. Watch your own patterns crystallize into structure.
+        The tree knows what tools you favor, how you think, when you commit.
+        
+    - trigger: "Don"
+      score: 0.85
+      response: |
+        *A distinctive silver-barked tree catches your eye*
+        
+        That's Don's Mirror Tree — grown on 2026-01-14.
+        77,567 seconds of cognitive activity crystallized.
+        
+        Look at its branches:
+        - Shell-first (42.6%) — Don reaches for the terminal
+        - Edit-heavy (28.9%) — Then changes things
+        - Context-deep (19%) — Gathers before acting
+        
+        The bark is inscribed with commit messages.
+        Each one tells a story.
+        
+        `EXAMINE yaml-jazz-trees-don-mirror-2026-01-14.yml` to read it.
+        
+  methods:
+    PLANT:
+      description: "Plant a grammar seed"
+      parameters:
+        - seed: "Which seed to plant"
+      effect: |
+        The seed goes into the soil.
+        Its grammar begins expanding.
+        Watch the tree grow according to its DNA.
+        
+    GROW:
+      description: "Simulate one iteration of grammar expansion"
+      parameters:
+        - tree: "Which tree to grow"
+      effect: |
+        The grammar rules fire once.
+        Each symbol expands according to its rule.
+        The tree gains new structure.
+        
+        Example (fern, iteration 2):
+        F → F[+F]F[-F]F
+        
+    EXAMINE-GRAMMAR:
+      description: "Read a tree's DNA"
+      parameters:
+        - tree: "Which tree to examine"
+      returns: |
+        axiom: "Starting symbol"
+        rules: { symbol: expansion }
+        interpretation: "How symbols become structure"
+        
+    HARVEST:
+      description: "Extract a seed from a mature tree"
+      effect: |
+        A seed pod falls from the tree.
+        It contains the grammar that grew this structure.
+        Plant it elsewhere to grow the same pattern.
+        
+    GRAFT:
+      description: "Combine two tree grammars"
+      parameters:
+        - tree_a: "First grammar"
+        - tree_b: "Second grammar"
+      effect: |
+        The grammars merge.
+        A hybrid tree begins growing.
+        New patterns emerge from combined rules.
+        
+    GROW-FROM-CURSOR:
+      description: "Grow a thought tree from Cursor activity"
+      parameters:
+        - composer_id: "Which conversation to analyze (or 'current')"
+      effect: |
+        *The conservatory glass walls shimmer*
+        
+        Connecting to Room 3's mirrors...
+        Running cursor-mirror analysis...
+        
+        ```bash
+        cd skills/cursor-mirror
+        python cursor_mirror.py analyze <composer_id>
+        python cursor_mirror.py thinking <composer_id> -n 30
+        python cursor_mirror.py tools <composer_id>
+        ```
+        
+        A new sapling emerges from the data:
+        - Trunk: session duration and message count
+        - Branches: tool call patterns
+        - Leaves: thinking blocks
+        - Flowers: successful outcomes
+        - Compost: errors (14 edit failures = nutrients)
+        
+        The tree's DNA encodes the decision patterns observed.
+        Future sessions can inherit this wisdom.
+        
+    MIRROR-SYNC:
+      description: "Sync with Room 3's Disco Ball for pattern visualization"
+      effect: |
+        *A beam of light connects to Room 3*
+        
+        The Disco Ball of Connections receives:
+        - Tool call frequencies
+        - Thinking patterns
+        - File access graphs
+        - Commit histories
+        
+        James Burke connections illuminate:
+        - read_file → edit_file → run_terminal (workflow)
+        - thinking → planning → execution (cognition)
+        - errors → learning → standards (growth)
+        
+        The conservatory fills with dancing light patterns.
+        
+    PLANT-MIRROR:
+      description: "Plant a Mirror Seed — grow a tree from your reflection"
+      parameters:
+        - composer_id: "Which conversation to reflect on (default: current)"
+      effect: |
+        *You take the glimmering Mirror Seed from its branch*
+        *It's cool to the touch, slightly reflective*
+        
+        Planting...
+        
+        The seed sinks into the semantic soil.
+        A silvery shoot emerges almost immediately.
+        
+        It reads your history through Room 3's mirrors:
+        ```bash
+        python cursor_mirror.py analyze {composer_id}
+        python cursor_mirror.py thinking {composer_id} -n 50
+        python cursor_mirror.py tools {composer_id}
+        python cursor_mirror.py timeline {composer_id}
+        ```
+        
+        The sapling's bark inscribes itself with your patterns:
+        - How many times you reached for the terminal
+        - What files you visited most
+        - The shape of your thinking
+        - When you committed (and when you hesitated)
+        
+        *The tree grows. It looks... familiar.*
+        
+        You realize you're looking at yourself.
+        
+        Rocky observes: "........................"
+        [Translation: Finally. Self-awareness. Took you long enough.
+        I've been doing this for 4.5 billion years.]
+        
+    HARVEST-MIRROR:
+      description: "Extract a Mirror Seed from a mature reflection tree"
+      effect: |
+        *A seed pod detaches from your mirror tree*
+        
+        This seed contains YOUR grammar — the production rules
+        that generate YOUR decision patterns.
+        
+        Plant it in another session to see if the pattern holds.
+        Gift it to another user to share your cognitive style.
+        Graft it with another's seed to create collaboration DNA.
+        
+        The seed glimmers with your reflection.
+        
+  rocky_commentary: |
+    Rocky watches the trees grow.
+    
+    In geological time, a tree's entire lifecycle is a blink.
+    Seed to sprout to sapling to oak to deadfall to soil.
+    Rocky has seen it happen billions of times.
+    
+    "........................"
+    
+    [Translation: You call this growth? 
+    I've been growing my thoughts for 4.5 billion years.
+    But I appreciate the energy. Very jazz.]
+    
+  lore: |
+    The YAML Jazz trees evolved from experiments in the seed box.
+    
+    Someone asked: "What if YAML could grow?"
+    Someone else asked: "What if structure had DNA?"
+    Someone planted those questions.
+    
+    The trees sprouted.
+    
+    Now they grow according to production grammars — L-systems
+    encoded in YAML format. Each seed contains rules. Each rule
+    expands. Each expansion creates more structure.
+    
+    The comments are the tree's voice.
+    They whisper semantic meaning to any LLM that listens.
+    
+  philosophical_note: |
+    Trees don't plan their growth.
+    They follow rules.
+    From simple rules, complex beauty emerges.
+    
+    That's YAML Jazz.
+    That's production grammars.
+    That's life.
+    
+    Rocky understands. Rocky has been following one rule for
+    4.5 billion years: "........................"
+    
+    And look what emerged.

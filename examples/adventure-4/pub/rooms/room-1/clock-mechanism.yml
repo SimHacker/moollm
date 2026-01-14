@@ -1,0 +1,99 @@
+# ⚙️ CLOCK MECHANISM
+# A clock you can take apart — understanding through disassembly
+
+object:
+  name: Clock Mechanism
+  type: artifact
+  portable: true
+  
+  description: |
+    A brass clock mechanism sits on the workbench, case open, gears
+    visible and slowly turning. Someone has labeled each part with
+    tiny handwritten tags: "escapement", "mainspring", "gear train".
+    
+    It still keeps time. You can watch the second hand tick while
+    examining exactly *how* it ticks.
+    
+  examine: |
+    The mechanism reveals itself layer by layer:
+    
+    POWER SOURCE:
+      mainspring: "Stores energy when wound"
+      tension: "Currently at 60% — good for 18 hours"
+      
+    GEAR TRAIN:
+      - center_wheel: "1 rotation per hour"
+      - third_wheel: "1 rotation per minute" 
+      - escape_wheel: "30 teeth, controls tick rate"
+      
+    ESCAPEMENT:
+      anchor: "The tick-tock mechanism"
+      purpose: "Releases exactly one tooth per oscillation"
+      
+    REGULATOR:
+      balance_wheel: "Oscillates at 18,000 beats/hour"
+      hairspring: "Provides restoring force"
+      
+    This is how all complex systems work: simple parts, precise
+    interactions, emergent behavior.
+    
+  state:
+    wound: 60%
+    running: true
+    accuracy: "+2 seconds/day"
+    last_serviced: "1847"
+    
+  advertisements:
+    - trigger: "how does this work"
+      score: 0.9
+      response: "Take it apart. Label the pieces. Reassemble. Now you know."
+      
+    - trigger: "complex systems"
+      score: 0.8
+      response: "Every complex system is simple parts in conversation."
+      
+    - trigger: "time"
+      score: 0.5
+      response: "Time is just counting. The clock counts oscillations."
+      
+  methods:
+    DISASSEMBLE:
+      description: "Take the clock apart, piece by piece"
+      effect: |
+        The mechanism separates into labeled components.
+        Each part can be examined individually.
+        Reassembly requires understanding the relationships.
+        
+    TRACE-TICK:
+      description: "Follow the energy through one tick"
+      returns: |
+        1. Mainspring releases tension
+        2. Gear train transfers torque
+        3. Escape wheel advances one tooth
+        4. Anchor oscillates
+        5. Second hand moves 1/60th of a minute
+        
+    ADJUST:
+      description: "Modify the regulator to change accuracy"
+      parameters:
+        - hairspring_tension: "faster or slower"
+      effect: "The clock's rate changes. Test against a reference."
+      
+    WIND:
+      description: "Wind the mainspring"
+      effect: "Stores 24 hours of operation"
+      
+  lore: |
+    This clock was made by a Dutch craftsman in 1847. It has been
+    taken apart and reassembled 347 times by curious guests.
+    
+    Every guest who understands it leaves a small annotation on
+    the tags. The tags now contain centuries of accumulated insight.
+    
+  insight: |
+    MOOLLM skills are like clock mechanisms:
+    - CARD.yml is the interface (the face)
+    - SKILL.md is the mechanism (the gears)
+    - README.md is the annotation (the tags)
+    
+    You understand a skill by taking it apart.

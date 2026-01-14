@@ -1,17 +1,28 @@
-# Room 2 — The Scholar's Room (Northeast)
+# Room 2 — The Society Suite (Northeast)
+# Theme: Minsky's Society of Mind — intelligence from interacting agents
 
 room:
-  name: "The Scholar's Room"
+  name: "The Society Suite"
   id: room-2
   number: 2
+  theme: society-of-mind
+  
+  tagline: "No agent is an island. Intelligence emerges from conversation."
   
   description: |
-    Books everywhere — stacked on the nightstand, piled by the 
-    window seat, tucked into the iron bed frame. A reading lamp 
-    with a green glass shade casts a studious glow.
+    The room buzzes with quiet activity. Small automata move about
+    on shelves, negotiating with each other in clicks and whirs.
+    A bulletin board covers one wall, filled with notes connected
+    by colored string — a physical K-line map.
     
-    The painting shows a candle burning in a library at midnight.
-    Someone left half-finished notes on the desk.
+    Above the bed hangs a quote:
+    
+    > "You don't understand anything until you learn it more
+    > than one way." — Marvin Minsky
+    
+  ideal_guest: |
+    Characters who think in systems. Those who see intelligence as
+    emergent, not monolithic. Fans of distributed cognition.
     
   exits:
     sw:
@@ -19,20 +30,32 @@ room:
       description: "Back to the inn landing"
       aliases: [out, leave, southwest]
       
+  objects:
+    - agent-parliament.yml
+    - k-line-board.yml
+    - society-diagram.yml
+    - ultimate-machine.yml  # Minsky's "most stupid machine of all"
+      
   furniture:
     bed:
-      type: iron-frame
-      quality: firm
-      blanket: wool-grey
+      type: modular-bed
+      note: "Assembled from cooperating parts"
       
     desk:
-      type: roll-top
-      contents: [scattered-notes, magnifying-glass, bookmark]
+      type: multi-station
+      seats: 5
+      note: "For agents who think better together"
       
   decor:
-    painting: "Midnight Library"
-    window: corner-window
-    lamp: green-glass-banker
-    bookshelf: overflowing
+    painting: "Emergence" — Many small shapes forming a face
+    window: northeast-facing
+    rug: network-topology-pattern
     
-  atmosphere: studious, quiet, smells-like-old-paper
+  atmosphere: collaborative, buzzing, "many minds at work"
+  
+  k_lines:
+    activates:
+      - SOCIETY-OF-MIND
+      - AGENTS
+      - EMERGENCE
+      - K-LINES

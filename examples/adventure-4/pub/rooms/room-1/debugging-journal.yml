@@ -1,0 +1,140 @@
+# 📓 DEBUGGING JOURNAL
+# A record of bugs found and fixed — learning from failure
+
+object:
+  name: Debugging Journal
+  type: artifact
+  portable: true
+  
+  description: |
+    A leather-bound journal sits on the nightstand, filled with
+    handwritten entries. Each page documents a bug: what went wrong,
+    what was expected, what was actually happening, and — most
+    importantly — *why*.
+    
+    The last entry is blank, waiting for your contribution.
+    
+  examine: |
+    Flipping through the pages reveals a taxonomy of failures:
+    
+    Page 17: "OFF BY ONE"
+      Expected: 10 iterations
+      Actual: 9 iterations  
+      Why: i < 10, not i <= 10
+      Lesson: Boundaries are where bugs live
+      
+    Page 42: "STATE MUTATION"
+      Expected: Fresh list each time
+      Actual: Same list, growing forever
+      Why: Forgot to copy before modifying
+      Lesson: Shared state is shared pain
+      
+    Page 89: "SEMANTIC DRIFT"
+      Expected: LLM follows procedure
+      Actual: LLM invents new rules mid-execution
+      Why: Natural language is fuzzy; code is crisp
+      Lesson: If it matters, write a sister script
+      
+    Page 137: "CONTEXT OVERFLOW"
+      Expected: LLM remembers early instructions
+      Actual: Instructions "forgotten" after summarization
+      Why: Token pressure causes selective amnesia
+      Lesson: Put critical info at the end, not the start
+      
+    Page 156: "THE KNIGHT KOAN"
+      From: MIT AI Lab, Tom Knight
+      
+      > A novice was trying to fix a broken Lisp machine by
+      > turning the power off and on.
+      >
+      > Knight, seeing what the student was doing, spoke sternly:
+      > "You cannot fix a machine by just power-cycling it with
+      > no understanding of what is going wrong."
+      >
+      > Knight turned the machine off and on.
+      >
+      > The machine worked.
+      
+      Lesson: The same action can be superstition or mastery,
+              depending on understanding. The fix isn't the fix.
+              The understanding is the fix.
+              
+    Page 157: "THE FONZIE COROLLARY"
+      Principle: UNDERSTAND → BOINK!
+      
+      In MOOLLM, the sequence matters:
+      
+      1. FIRST you totally understand what's wrong
+      2. THEN you can fix it with percussive maintenance
+      
+      The Fonzie punch only works on a jukebox you understand.
+      The Knight power-cycle only works on a Lisp machine you grok.
+      
+      Without understanding: superstition, cargo cult, luck
+      With understanding: engineering, mastery, BOINK! 👊
+      
+      See also:
+      - Fonzie hitting the jukebox (Happy Days)
+      - Kicking vending machines
+      - Slapping CRT monitors
+      - "Have you tried turning it off and on again?" (IT Crowd)
+      
+      The ritual looks the same. The results differ.
+      Understanding is the invisible prerequisite.
+      
+  state:
+    pages_filled: 156
+    pages_total: 200
+    last_entry: "2026-01-14"
+    most_common_bug: "semantic drift"
+    
+  advertisements:
+    - trigger: "something went wrong"
+      score: 0.9
+      response: "Document it. The bug you understand is the bug you fix."
+      
+    - trigger: "why did it fail"
+      score: 0.95
+      response: "Three questions: What did you expect? What happened? Why the difference?"
+      
+    - trigger: "frustrated"
+      score: 0.7
+      response: "Every entry in this journal was written in frustration. The journal turned frustration into wisdom."
+      
+  methods:
+    ADD-ENTRY:
+      description: "Document a bug you encountered"
+      template: |
+        ## [DATE] — [BUG NAME]
+        
+        **Expected**: What should have happened
+        **Actual**: What actually happened
+        **Why**: Root cause analysis
+        **Lesson**: What to remember next time
+        
+    SEARCH:
+      description: "Search past entries for similar bugs"
+      parameters:
+        - pattern: "keyword or symptom"
+      returns: "Matching entries from the journal"
+      
+    RANDOM:
+      description: "Open to a random page for inspiration"
+      effect: "Sometimes the bug you need to understand isn't the one you're debugging."
+      
+  lore: |
+    This journal was started by the first guest of Room 1.
+    Every guest since has added at least one entry.
+    
+    The oldest entry reads:
+    
+    > "My first bug was thinking I was above bugs."
+    
+  philosophy: |
+    Debugging is not failure. Debugging is the *opposite* of failure.
+    
+    A bug is a discrepancy between model and reality.
+    Finding a bug means your model is improving.
+    Fixing a bug means you understand something you didn't before.
+    
+    The journal doesn't record mistakes. It records learning.

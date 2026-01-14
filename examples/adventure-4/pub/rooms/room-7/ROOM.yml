@@ -1,17 +1,34 @@
-# Room 7 — The Hunter's Room (West)
+# Room 7 — The Bootstrap Suite (West)
+# Theme: Cold start — waking up with nothing
 
 room:
-  name: "The Hunter's Room"  
+  name: "The Bootstrap Suite"
   id: room-7
   number: 7
+  theme: bootstrap
+  
+  tagline: "Wake up. Look around. Figure out where you are."
   
   description: |
-    Antlers on the wall. A bearskin rug (fake, hopefully). 
-    The bed frame is rough-hewn timber. The painting shows 
-    a stag in a misty forest, looking directly at you.
+    The room is deliberately sparse. A bed, a desk, a window.
+    But on the desk: a probe kit. Everything you need to figure
+    out an unfamiliar environment.
     
-    Bow and quiver hang by the door. A hunting horn sits 
-    on the nightstand.
+    A checklist on the wall, half-completed:
+    
+    ☑ Where am I?
+    ☑ What tools do I have?
+    ☐ What are the constraints?
+    ☐ What's the goal?
+    
+    Above the bed:
+    
+    > "The boot sequence is the first conversation
+    > between agent and environment."
+    
+  ideal_guest: |
+    Characters who start cold. Those comfortable with uncertainty.
+    Explorers, scouts, agents who specialize in first contact.
     
   exits:
     e:
@@ -19,20 +36,30 @@ room:
       description: "Back to the inn landing"
       aliases: [out, leave, east]
       
+  objects:
+    - probe-kit.yml
+    - environment-map.yml
+    - cold-start-journal.yml
+      
   furniture:
     bed:
-      type: timber-frame
-      quality: rustic
-      blanket: fur-lined
+      type: minimal-cot
+      note: "Functional, not comfortable"
       
-    rug:
-      type: bearskin
-      note: "Probably fake. Probably."
+    desk:
+      type: field-desk
+      contents: [probe-kit, map, compass]
       
   decor:
-    painting: "The Watchful Stag"
-    window: forest-view
-    antlers: impressive-rack
-    equipment: [hunting-bow, leather-quiver, horn]
+    walls: bare
+    window: west-facing
+    rug: none
     
-  atmosphere: wild, primal, smells-like-pine
+  atmosphere: sparse, alert, "assessing the situation"
+  
+  k_lines:
+    activates:
+      - BOOTSTRAP
+      - COLD-START
+      - PROBE
+      - ORIENTATION

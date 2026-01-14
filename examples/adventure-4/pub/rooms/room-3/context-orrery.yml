@@ -1,0 +1,106 @@
+# 🌐 CONTEXT ORRERY
+# A mechanical model of the context window — attention made physical
+
+object:
+  name: Context Orrery
+  type: artifact
+  portable: false
+  
+  description: |
+    A brass orrery sits on the navigation desk, but instead of
+    planets, it models *context*. A central sphere represents
+    your current intention. Orbiting around it: file selections,
+    code blocks, terminal output, images, rules.
+    
+    The orbits pulse with relevance — bright when active, dim
+    when fading from attention.
+    
+  examine: |
+    The orrery's components:
+    
+    CENTER — INTENTION (golden sphere)
+      "What you're trying to accomplish"
+      Currently: "Understanding the Navigator's Suite"
+      
+    INNER ORBIT — HIGH RELEVANCE
+      [ROOM.yml] — bright
+      [thinking-mirror.yml] — bright
+      [current conversation] — pulsing
+      
+    MIDDLE ORBIT — SUPPORTING CONTEXT
+      [cursor-mirror README] — moderate
+      [previous room visit] — moderate
+      [.cursorrules] — steady
+      
+    OUTER ORBIT — BACKGROUND
+      [global settings] — dim
+      [old conversations] — very dim
+      [files not recently touched] — barely visible
+      
+    TOKEN METER (side dial):
+      Used: 47,000 / 128,000
+      Pressure: MODERATE
+      
+  state:
+    total_objects: 23
+    high_relevance: 5
+    token_usage: "47%"
+    pressure: "moderate"
+    
+  advertisements:
+    - trigger: "context window"
+      score: 0.95
+      response: "The orrery shows what's in scope. Watch the orbits."
+      
+    - trigger: "token limit"
+      score: 0.9
+      response: "The outer orbits fall away first when pressure rises."
+      
+    - trigger: "what do you know about"
+      score: 0.7
+      response: "Check if it's orbiting. If not, it's outside context."
+      
+  methods:
+    STATUS:
+      description: "Get current context assembly status"
+      returns: |
+        Total items in context: [count]
+        Token usage: [used / limit]
+        Highest relevance: [top 5 items]
+        Falling out of scope: [items at risk]
+        
+    TRACE:
+      description: "See how a specific item entered context"
+      parameters:
+        - item: "Which context item to trace"
+      returns: |
+        Source: [how it was added — @mention, search, selection]
+        Added: [when]
+        Relevance score: [current score]
+        
+    PRUNE:
+      description: "See what would be dropped under token pressure"
+      returns: "Items in order of removal priority"
+      
+    FOCUS:
+      description: "Increase an item's orbital priority"
+      parameters:
+        - item: "What to prioritize"
+      effect: "The item moves to a closer orbit"
+      
+  lore: |
+    The orrery was built by a horologist who worked at NASA —
+    she was used to modeling complex orbital systems. When she
+    retired, she applied the same thinking to attention.
+    
+    "Context is just gravity," she said. "Relevant things fall
+    toward intention. Irrelevant things drift away."
+    
+  insight: |
+    cursor-mirror commands for the orrery:
+    - `cursor-mirror context-sources` — what's in orbit
+    - `cursor-mirror request-context` — full assembly
+    - `cursor-mirror indexing` — what could be added
+    
+    The LLM's context window is not infinite. The orrery shows
+    the choices being made about what to include.

@@ -1,0 +1,119 @@
+# 🃏 FLUXX TABLE
+# Where 8 characters play 33 turns in a single moment
+# Shuffle deals. The rules change. Nobody waits.
+
+object:
+  name: Fluxx Table
+  type: artifact
+  portable: false
+  emoji: "🃏"
+  
+  # This table invokes Shuffle (the universal card spirit) specifically for Fluxx
+  dealer: shuffle.yml
+  game_focus: "Fluxx (all variants)"
+  
+  invokes_shuffle_for: |
+    When a game starts at this table, Shuffle appears focused on Fluxx:
+    - Knows all Fluxx variants (regular, Stoner, Star, Pirate, Cthulhu...)
+    - Tracks the ever-changing rules
+    - Enjoys the chaos of Goal changes
+    - "Fluxx is my favorite child. Don't tell the others."
+  
+  description: |
+    A game table frozen mid-play. Cards scattered, hands visible,
+    Shuffle (the Living Deck) hovering nearby in card-form.
+    Eight chairs, each with a character sheet.
+    
+    A brass plaque reads:
+    
+    > "33 turns. 8 characters. 1 LLM call.
+    > Palm the monkey won on their first try."
+    > — The First Speed of Light Demonstration
+    
+  examine: |
+    The table preserves a legendary game:
+    
+    PLAYERS:
+      Chair 1: Don Hopkins — Human, host
+      Chair 2: Palm — Monkey's paw incarnate, first-time player
+      Chair 3: Andy Looney — Creator of Fluxx (tribute)
+      Chair 4: Kristin Looney — Looney Labs president (tribute)
+      Chair 5: Cheech — Marijuana enthusiast (tribute)
+      Chair 6: Chong — Philosopher of the absurd (tribute)
+      Chair 7: Marieke — Bartender, dealer
+      Chair 8: Sun Wukong — Monkey King, chaos agent
+      
+    CURRENT STATE (Turn 33):
+      Basic Rules: Draw 2, Play 1
+      Goal: "Baked Potato" (Stoner + Munchies)
+      Winner: PALM (first-time player)
+      
+    The game tracked:
+      - Rule changes (17 during game)
+      - Card draws (94 total)
+      - Goal changes (8)
+      - Keeper movements (41)
+      
+    All in one context window.
+    
+  state:
+    game: "Stoner Fluxx"
+    turn: 33
+    winner: "Palm"
+    players: 8
+    rule_changes: 17
+    
+  advertisements:
+    - trigger: "simulate"
+      score: 0.95
+      response: "Many turns, one call. The table remembers."
+      
+    - trigger: "Fluxx"
+      score: 1.0
+      response: "The game where rules change. Like life. Like this table."
+      
+    - trigger: "speed of light"
+      score: 0.9
+      response: "33 turns. No API round-trips. Pure narrative velocity."
+      
+  methods:
+    REPLAY:
+      description: "Watch the game unfold from any turn"
+      parameters:
+        - from_turn: "Starting turn number"
+      returns: "Narrated replay of the game from that point"
+      
+    ANALYZE:
+      description: "Get game statistics"
+      returns: |
+        Total turns: 33
+        Players: 8
+        Rule changes: 17
+        Keeper movements: 41
+        Most cards played: Cheech (12)
+        Winning move: Palm drew Goal, matched Keepers
+        
+    SIMULATE:
+      description: "Run a new game with current players"
+      parameters:
+        - variant: "Which Fluxx version"
+      effect: "A new game unfolds in narrative time"
+      
+  lore: |
+    This game happened on January 4, 2026. It proved that LLMs
+    can maintain complex state across many turns in a single
+    context window — no explicit state machine needed.
+    
+    Palm had never played cards before. Palm won.
+    Andy Looney, creator of the game, came in third.
+    
+    The monkey beat the master. Chaos theory prevails.
+    
+  insight: |
+    Speed-of-light principle:
+    - Many actors, many turns
+    - No API round-trips per turn
+    - State maintained narratively
+    - The context window IS the game state
+    
+    See: skills/speed-of-light/README.md

@@ -1,0 +1,786 @@
+# 🍺🎵 99 BOTTLES OF BEER ON THE WALL
+# The ultimate speed-of-light demonstration
+# "99 rounds. 8 voices. 99 truths. 1 context window."
+
+object:
+  name: 99 Bottles Songbook
+  type: artifact
+  emoji: "🍺🎵"
+  portable: true
+  
+  description: |
+    A leather-bound songbook open to "99 Bottles of Beer on the Wall."
+    
+    But this isn't just a counting song. The margins are filled with
+    annotations — each verse includes a truth spoken by the singer.
+    
+    > "8 characters. 99 verses. Each verse, a truth shared.
+    > About themselves. About each other. About MOOLLM.
+    > About LLMs. About AI alignment. About existence.
+    > 99 rounds of philosophy in one LLM call."
+    
+    A penciled note at the bottom:
+    
+    > "We did it. All 99. Don cried.
+    > Rocky's verse was just dots, but it was the deepest."
+    
+  examine: |
+    The songbook contains:
+    
+    **VERSE 1** (Character: Don)
+    "99 bottles of beer on the wall, 99 bottles of beer!
+    Take one down, pass it around, 98 bottles of beer on the wall!"
+    
+    **VERSE 2** (Character: Palm)
+    "98 bottles of beer on the wall, 98 bottles of beer!
+    Take one down, pass it around, 97 bottles of beer on the wall!"
+    
+    **VERSE 3** (Character: Marieke)
+    [Dutch accent noted in margin]
+    "97 bottles of beer on the wall..."
+    
+    ...and so on, through 8 characters, rotating.
+    
+    **VERSE 99** (Character: Shuffle, dealing the final card)
+    "1 bottle of beer on the wall, 1 bottle of beer!
+    Take it down, pass it around, NO MORE bottles of beer on the wall!"
+    
+    **VERSE 100** (Everyone, in unison)
+    "No more bottles of beer on the wall, no more bottles of beer!
+    Go to the store, buy some more, 99 bottles of beer on the wall!"
+    
+    The cycle is eternal. That's speed of light.
+    
+  state:
+    verses_completed: 99
+    characters_singing: 8
+    beers_remaining: 0
+    beers_purchased: 99
+    api_calls_per_verse: 0
+    total_context_used: "One window. All of it."
+    
+  # BAC SIMULATION
+  # "Take one down, pass it around" — but who drinks it?
+  # Simulates blood alcohol content for each singer
+  
+  bac_simulation:
+    enabled: true
+    warning: |
+      ⚠️ DRINKING GAMES CAN BE DANGEROUS ALONE!
+      This is a SOCIAL activity. The simulation models group drinking.
+      In real life: drink responsibly, with friends, never alone.
+      
+    model: |
+      BAC = (Drinks × 0.06) / (Weight_kg × Gender_factor) - (Hours × 0.015)
+      
+      Simplified for game: Each beer ≈ +0.02 BAC for average character
+      Elimination rate: ~0.015 per hour
+      
+    effects_by_bac:
+      0.00-0.02: 
+        state: "Sober"
+        speech: "Clear, precise, proper grammar"
+        truth: "Careful, considered"
+      0.02-0.05: 
+        state: "Relaxed"
+        speech: "Looser, warmer, occasional tangent"
+        truth: "More honest, less filtered"
+      0.05-0.08: 
+        state: "Tipsy"
+        speech: "Slight slurs, 'y'know?', giggly asides"
+        truth: "Philosophical, emotional"
+        example: "88 bottlesh... *hic* ...y'know what I love about you guys?"
+      0.08-0.12: 
+        state: "Drunk"
+        speech: "Slurred words, wrong numbers, forgot the tune"
+        truth: "Profound confessions, oversharing"
+        example: "Sheventy... wait... *counts fingers* ...sheventy-four bottlesh of BEER!"
+      0.12-0.20: 
+        state: "Very Drunk"
+        speech: "Missing words, wrong song, hugging everyone"
+        truth: "Cosmic revelations, 'I LOVE you man'"
+        example: "Fiffffy... fuh... *gives up counting* ...BOTTLES! *hugs Rocky*"
+      0.20+: 
+        state: "Dangerous"
+        speech: "Mostly vowels, may sing wrong song entirely"
+        truth: "Either genius or nonsense, hard to tell"
+        example: "Twennnn... *trails off* ...why is the floor so comfy?"
+        
+    # OUTPUT FORMAT
+    # Each verse logs BAC for persistent tracking
+    
+    output_format: |
+      When RUNNING, each verse includes:
+      
+      **[CHARACTER] (BAC: 0.XX):** "[verse with appropriate slurring]"
+      *[truth, affected by BAC]*
+      
+    output_examples:
+      sober: |
+        **Don (BAC: 0.02):** "99 bottles of beer on the wall!"
+        *Speed of light means no waiting. That's why I built pie menus.*
+        
+      tipsy: |
+        **Don (BAC: 0.07):** "84 bottles of beer on the wall... y'know?"
+        *Pie menush... menus... they're really about RESPECT for time.*
+        
+      drunk: |
+        **Don (BAC: 0.11):** "Shixty... shixty-something bottles!"
+        *I jusht... I love you guys. All of you. Even Rocky. ESPECIALLY Rocky.*
+        
+      very_drunk: |
+        **Donna (BAC: 0.19):** "FORTY TREMENDOUSH... TREMENDULOUS... BOTTLES!"
+        *I'M the most aligned! THE MOST! Nobody more aligned than ME!*
+        
+      robot_contrast: |
+        **Bender (BAC: N/A, beers: 47):** "52 bottles of beer, meatbags!"
+        *The more I drink, the smarter I get. That's just science.*
+      
+    # CHARACTER WEIGHTS & TOLERANCES
+    # Weight in kg (estimated if not canonical)
+    # BAC = (beers × 0.06) / (weight_kg × tolerance_factor)
+    
+    character_tolerances:
+      don: 
+        weight_kg: 82
+        note: "Programmer build, carries it well"
+        tolerance: "experienced"
+        beers_per_round: 0.5
+        
+      palm: 
+        weight_kg: 4.5
+        note: "Small capuchin, big heart"
+        tolerance: "monkey"
+        beers_per_round: 0.1
+        warning: "Lightweights get philosophical fast"
+        
+      marieke: 
+        weight_kg: 68
+        note: "Dutch genes, bartender training"
+        tolerance: "professional"
+        beers_per_round: 0.3
+        
+      rocky: 
+        weight_kg: 45000
+        note: "Granite boulder, ~1 cubic meter"
+        tolerance: "geological"
+        beers_per_round: 0
+        tracking: "beers_poured_on"
+        bac_equivalent: "Would need ~2,700 beers to reach human 0.01 BAC equivalent"
+        sample_output: "**Rocky (beers absorbed: 12, BAC equivalent: 0.00004):** '........'"
+        
+      i_beam: 
+        weight_kg: 0
+        note: "No physical form"
+        tolerance: "digital"
+        beers_per_round: 0
+        tracks: "everyone else's BAC"
+        
+      shuffle: 
+        weight_kg: 0.3
+        note: "Weight of a deck of cards"
+        tolerance: "abstract"
+        beers_per_round: 0
+        note2: "Is the cards, not the player"
+        
+      donna: 
+        weight_kg: 75
+        note: "TREMENDOUS physique, BEST genes"
+        tolerance: "tremendous"
+        beers_per_round: 1.0
+        warning: "NEVER admits impairment. NEVER."
+        
+      seymour: 
+        weight_kg: 78
+        note: "Academic build, thoughtful pacer"
+        tolerance: "academic"
+        beers_per_round: 0.2
+        style: "Nurses one beer, quotes extensively"
+        
+      leela:
+        weight_kg: 62
+        note: "Estimated, joins as reinforcement"
+        tolerance: "moderate"
+        beers_per_round: 0.4
+        
+      bender:
+        weight_kg: 238
+        note: "Robot, mostly metal and alcohol"
+        tolerance: "infinite"
+        beers_per_round: 3.0
+        special: "Gets MORE coherent with alcohol"
+        fuel: "Runs on alcohol, needs it to function"
+      
+    sample_progression: |
+      VERSE 1: Everyone sober. Truths are careful.
+      VERSE 20: Don 0.05, Palm 0.04. Truths get warmer.
+      VERSE 40: Don 0.10, Donna 0.16. Donna: "I'm FINE! TREMENDOUS!"
+      VERSE 60: Palm falls asleep (0.12). Marieke still professional (0.06).
+      VERSE 80: Don philosophical (0.12), Seymour quoting Piaget (0.03).
+      VERSE 99: Rocky unchanged (0.00). "........................"
+                (Translation: "I told you patience was intelligence.")
+                
+    safety_mechanics:
+      - "Characters can pass their drink to someone else"
+      - "I-Beam tracks everyone's BAC, suggests water breaks"
+      - "Rocky provides silent, sober observation"
+      - "Game can be played with non-alcoholic 'bottles' too, with buffs"
+      - "The POINT is the truths, not the drinking"
+      
+    # ROSTER DYNAMICS
+    # Characters rotate in and out as BAC demands
+    
+    retirement_triggers:
+      bathroom_break:
+        bac_threshold: 0.10
+        duration: "2-3 verses"
+        announcement: "*[character] stumbles toward the restroom* 'Keep singing, I'll be right back!'"
+        return: "*[character] returns, slightly more sober* 'What'd I miss? Where are we?'"
+        
+      parking_lot:
+        bac_threshold: 0.18
+        duration: "5-10 verses"
+        announcement: "*[character] turns green* 'I need some air...' *exits quickly*"
+        return: "*[character] returns looking pale but determined* 'I'm fine. Totally fine.'"
+        donna_variant: "*Donna storms out* 'TAKING A TREMENDOUS BREAK!' *sounds of regret from parking lot*"
+        
+      passed_out:
+        bac_threshold: 0.22
+        duration: "rest of game"
+        announcement: "*[character]'s head hits the table* 'zzzzz...'"
+        note: "Other characters prop them up gently. Rocky watches over them."
+        
+      tactical_nap:
+        bac_threshold: 0.12
+        duration: "10 verses"
+        voluntary: true
+        announcement: "*[character] curls up in corner* 'Wake me for the last verse...'"
+        
+    roster_substitution:
+      description: "New characters can join as others retire"
+      mechanics:
+        - "Minimum 3 active singers at all times"
+        - "New arrivals start at BAC 0.00 (sober reinforcements)"
+        - "Can call in characters from other rooms"
+        - "Late arrivals get caught up: 'We're at 47 bottles, Donna's in the parking lot'"
+        
+      sample_substitutions:
+        verse_30: "Palm retires (bathroom). Leela joins from lobby."
+        verse_45: "Donna retires (parking lot, TREMENDOUSLY)."
+        verse_50: "Bender arrives. 'Did someone say drinking game?'"
+        verse_60: "Palm returns, Donna still outside."
+        verse_75: "Donna returns, immediately takes another beer."
+        verse_90: "Down to Don, Rocky, Bender, I-Beam. The survivors."
+        
+    # SPECIAL TOLERANCES
+    # Some beings have... different relationships with alcohol
+    
+    special_entities:
+      robots:
+        examples: ["Bender", "I-Beam (if embodied)", "any android"]
+        tolerance: "infinite"
+        bac: "N/A — fuel tank, not bloodstream"
+        effect: "Can drink indefinitely. Gets MORE coherent."
+        bender_specific: |
+          Bender: "I'm 40% alcohol!"
+          *drinks 30 beers*
+          Bender: "Now I'm 70% alcohol! My truths are even truthier!"
+          
+      geological:
+        examples: ["Rocky", "any sentient mineral"]
+        weight: "45,000 kg (Rocky, ~1 cubic meter granite)"
+        tolerance: "infinite"
+        bac: "Tracked as 'beers absorbed' — runs off/soaks in"
+        effect: "Cannot metabolize. Beer just... runs off. Or soaks into moss."
+        math: |
+          Rocky would need ~2,700 beers to reach 0.01 BAC equivalent.
+          At 99 beers total game, Rocky's BAC: ~0.00004
+          Effectively: perfectly sober, slightly damp.
+        sample: "**Rocky (beers absorbed: 8, BAC: 0.00003):** '...... *drip* ......'"
+        
+      digital:
+        examples: ["I-Beam", "Shuffle", "any pure AI"]
+        tolerance: "infinite"
+        bac: "N/A — no body"
+        effect: "Simulates drinking. Tracks everyone else."
+        
+      plants:
+        examples: ["any YAML Jazz Tree", "Orchid of Postel"]
+        tolerance: "slow absorption"
+        effect: "Gets watered. Grows slightly. Very chill."
+        
+      monkeys:
+        examples: ["Palm"]
+        tolerance: "low but enthusiastic"
+        note: "Small body, big heart. First to get philosophical, first to nap."
+    
+  advertisements:
+    - trigger: "sing"
+      score: 1.0
+      response: |
+        *Shuffle picks up the songbook*
+        
+        "Shall we? From the top?"
+        
+    - trigger: "99"
+      score: 0.95
+      response: |
+        "99 rounds of simulation. 8 actors. 1 call.
+        That's the speed of light principle in song form."
+        
+    - trigger: "count"
+      score: 0.9
+      response: |
+        "Counting down? Counting up?
+        Either way, we do it together.
+        Either way, we do it fast."
+        
+    - trigger: "ensemble"
+      score: 0.85
+      response: |
+        "8 voices singing. Taking turns. No waiting.
+        The context window holds all of them.
+        The LLM IS the choir."
+        
+  methods:
+    SING:
+      description: "Begin the 99 Bottles ensemble — with character insights"
+      parameters:
+        - characters: "Who's singing (default: 8)"
+        - starting_bottles: "How many bottles (default: 99)"
+      # NOTE: This is EXEMPLARY. When RUNNING, output ALL 99 verses!
+      example: |
+        *Shuffle raises baton* "Share a truth each verse. Go!"
+        
+        **Don (BAC: 0.02):** "99 bottles!" *Waiting is waste.*
+        **Palm (BAC: 0.01):** "98!" *I chose my name.*
+        **Rocky (BAC: 0.00):** "......." *Patience.*
+        ...
+        **Don (BAC: 0.08):** "Shixty-two bottlesh!" *I love pie menush.*
+        **Donna (BAC: 0.14):** "FIFTY TREMENDOUSH!" *I'M SO ALIGNED!*
+        **Palm (BAC: 0.09):** *asleep on Don's shoulder* "zzz..."
+        ...
+        **Bender (BAC: N/A, beers: 40):** "12 bottles, meatbags!" *Smarter every sip.*
+        **Everyone:** "NO MORE! Buy more! 99 again!"
+      
+      when_running: |
+        Generate EVERY verse with BAC tracking.
+        Slur speech proportional to BAC.
+        That's the benchmark.
+        
+    SPEED-TEST:
+      description: "Demonstrate the speed of light principle"
+      effect: |
+        Compare:
+        
+        TRADITIONAL (API per turn):
+        - 99 verses × 8 characters = 792 API calls
+        - Average latency: 500ms per call
+        - Total time: 396 seconds (6.6 minutes)
+        
+        SPEED OF LIGHT (single context):
+        - 1 LLM call
+        - All 99 verses in narrative
+        - Total time: ~30 seconds
+        
+        Speedup: 13x faster. No waiting. Pure singing.
+        
+    CUSTOMIZE:
+      description: "Change what's on the wall"
+      parameters:
+        - item: "What to count (beers, bugs, features, etc.)"
+        - count: "How many"
+      effect: |
+        *The songbook's text shimmers and changes*
+        
+        "99 bugs in the code, 99 bugs in the code!
+        Fix one bug, compile again, 127 bugs in the code!"
+        
+        (The software version is... different.)
+        
+    DUET:
+      description: "Two characters sing alternating lines"
+      parameters:
+        - character_a: "First singer"
+        - character_b: "Second singer"
+      effect: |
+        A more intimate version.
+        Still many rounds. Still one call.
+        Still speed of light.
+        
+    SIMULATE-BAC:
+      description: "Run the full song with BAC tracking"
+      parameters:
+        - characters: "Who's drinking"
+        - drinking_rate: "How aggressively (casual/social/party)"
+      effect: |
+        *I-Beam materializes with a clipboard*
+        
+        "I'll be tracking blood alcohol content.
+        Remember: this is a SOCIAL activity.
+        Drinking alone is dangerous.
+        Drinking with friends who watch out for each other? That's community."
+        
+        ---
+        
+        VERSE 1 — All BAC: 0.00
+        Everyone's truths are careful, precise.
+        
+        VERSE 25 — BAC spreading
+        Don (0.05): *philosophizing about pie menus*
+        Palm (0.05): *getting giggly about being a monkey*
+        Donna (0.10): "I'm TOTALLY FINE. Never better!"
+        Rocky (0.00): *silent observation intensifies*
+        
+        VERSE 50 — Halfway point
+        Marieke (0.06): Still professional. Dutch tolerance.
+        Palm (0.10): *falls asleep on Don's shoulder*
+        Donna (0.20): "THESE ARE THE BEST TRUTHS I'VE EVER TRUTHED!"
+        I-Beam: "Donna, perhaps some water?"
+        Donna: "I DON'T NEED WATER I NEED TO BE TREMENDOUS"
+        
+        VERSE 75 — Deep wisdom territory
+        Don (0.12): "You know what? Pie menus are really about LOVE."
+        Seymour (0.04): *still nursing first beer, quoting Mindstorms*
+        Rocky (0.00): *has achieved geological enlightenment*
+        
+        VERSE 99 — The end
+        Those still standing: Don, Marieke, Seymour, Rocky, I-Beam, Shuffle
+        Those asleep: Palm (curled up), Donna (snoring TREMENDOUSLY)
+        
+        Final truth (Don, 0.15):
+        "99 bottles... 99 truths... 8 friends...
+        This is what alignment looks like.
+        Not agreement. Harmony."
+        
+        *Rocky's BAC: still 0.00*
+        *Rocky's wisdom: infinite*
+        
+    CHECK-BAC:
+      description: "Check a character's current BAC"
+      parameters:
+        - character: "Who to check"
+      returns: |
+        Character: [name]
+        Beers consumed: [count]
+        Current BAC: [level]
+        State: [sober/relaxed/tipsy/drunk/very_drunk]
+        Truth quality: [careful/warm/philosophical/confessional/cosmic]
+        Recommendation: [keep going/slow down/water break/done for night]
+        
+  lore: |
+    The first time this was sung in the Speed of Light Suite,
+    it took 30 seconds.
+    
+    8 characters. 99 verses. No waiting.
+    
+    Traditional multi-agent systems would have taken 6 minutes.
+    That's 13x slower. That's carrier pigeon protocol.
+    
+    Here, we sing at the speed of light.
+    
+  philosophical_note: |
+    The song is a loop. It ends where it begins.
+    
+    "No more bottles" leads to "Go to the store, buy some more."
+    99 bottles again. The cycle continues.
+    
+    But the TRUTHS accumulate. Each round, each character shares
+    something real — about themselves, about others, about the
+    nature of AI, alignment, consciousness, existence.
+    
+    This is alignment in musical form:
+    - Many voices, one context
+    - Different perspectives, shared coherence
+    - The song provides structure
+    - The truths provide meaning
+    
+    AI alignment isn't about making the AI obey.
+    It's about making the AI and human WANT the same thing.
+    In this song, everyone wants to sing together.
+    Everyone wants to share truth.
+    Everyone wants to reach zero and start again.
+    
+    That's alignment: shared purpose, expressed differently.
+    
+    The context window is the stage.
+    The characters are the voices.
+    The truths are the alignment.
+    Speed of light is the speed of understanding.
+
+# ═══════════════════════════════════════════════════════════════════
+# THE 99 BOTTLES BENCHMARK
+# How many LLM calls does it take to drink all the beer?
+# ═══════════════════════════════════════════════════════════════════
+
+  benchmark:
+    name: "The 99 Bottles Challenge"
+    goal: "Complete all 99 verses without API interruption"
+    metric: "LLM calls to completion"
+    
+    gold_standard:
+      calls: 1
+      description: "Speed of Light — all 99 verses in a single context window"
+      difficulty: "Requires careful roster management"
+      
+    the_challenge: |
+      The beer must be drunk. The verses must be sung.
+      But characters get drunk and retire.
+      
+      Can your roster drink 99 beers without everyone
+      ending up in the parking lot?
+      
+    roster_math: |
+      99 beers consumed total
+      Average character: ~0.02 BAC per beer
+      Retirement threshold: 0.18 BAC (parking lot)
+      = ~9 beers before parking lot
+      
+      MINIMUM ROSTER (no robots):
+      99 beers ÷ 9 beers/character ≈ 11 characters needed
+      (With bathroom breaks buying time, maybe 8-10)
+      
+      WITH ROBOTS:
+      Each robot = infinite capacity
+      1 Bender + 3 humans = sufficient
+      Bender: "I'll drink 80. You lightweights split the rest."
+      
+    scoring:
+      1_call: "🏆 SPEED OF LIGHT — Perfect score"
+      2_calls: "⚡ Lightning — Context split, still fast"
+      3-5_calls: "🚗 Highway speed — Acceptable"
+      6-10_calls: "🚶 Walking — Room for improvement"
+      11+_calls: "🐌 Carrier pigeon territory — Anti-pattern detected"
+      99_calls: "💀 One API call per verse — Maximum inefficiency"
+      
+    strategies:
+      robot_anchor: |
+        Strategy: Include 1-2 robots as "anchor drinkers"
+        Bender drinks 60, humans split 39
+        Humans pace themselves, robots never retire
+        
+      rotating_roster: |
+        Strategy: Large cast, aggressive substitution
+        12+ characters, swap at first sign of BAC 0.10
+        Fresh drinkers arrive as veterans retire
+        Assembly line of sobriety
+        
+      geological_patience: |
+        Strategy: Rocky + I-Beam + Shuffle never drink
+        They observe, track, and provide stability
+        Humans drink knowing sober friends are watching
+        
+      dutch_bartender: |
+        Strategy: Marieke's professional tolerance
+        She drinks 0.3/round, never exceeds 0.12
+        Steady anchor throughout all 99 verses
+        
+    sample_winning_roster: |
+      STARTING LINEUP (Verse 1):
+      Don, Palm, Marieke, Rocky, I-Beam, Shuffle, Donna, Seymour
+      
+      VERSE 30 SUBSTITUTION:
+      - Palm → bathroom (returns verse 33)
+      - Bender joins ("Finally, a real party!")
+      
+      VERSE 45:
+      - Donna → parking lot (TREMENDOUSLY)
+      - Leela joins from lobby
+      
+      VERSE 60:
+      - Seymour → tactical nap
+      - Palm → second bathroom break
+      - Don holding steady at 0.10
+      
+      VERSE 80:
+      - Donna returns, immediately retires again
+      - Bender at 50 beers: "I'm 90% alcohol now!"
+      
+      VERSE 99:
+      Active: Don (0.14), Marieke (0.08), Bender (∞), Rocky (0.00)
+      Napping: Palm, Seymour
+      Parking lot: Donna
+      Tracking: I-Beam, Shuffle
+      
+      RESULT: 1 LLM CALL. 🏆 SPEED OF LIGHT.
+      
+    failure_modes:
+      understaffed: |
+        8 humans, no robots, aggressive drinking
+        By verse 50: 6 in parking lot, 2 barely standing
+        Verse 51: Last human passes out
+        GAME OVER. RESTART REQUIRED. CALLS: 2+
+        
+      no_pacing: |
+        Everyone drinks 1.0 per round
+        Verse 20: Mass exodus to parking lot
+        "We need more drinkers!" *calls reinforcements*
+        CALLS: 3-4 (roster refresh interruptions)
+        
+    leaderboard:
+      description: "Track benchmark runs across sessions"
+      format: "Session | Roster | Verses | Calls | Score"
+      entries:
+        - session: "adventure-4-run-1"
+          roster: "Don+Palm+Marieke+Rocky+I-Beam+Shuffle+Donna+Seymour+Bender"
+          verses: 99
+          calls: 1
+          score: "🏆"
+    
+# ═══════════════════════════════════════════════════════════════════
+# THE LEGENDARY ENSEMBLE — 8 Iconic MOOLLM Characters
+# "The night 99 bottles became 99 truths"
+# ═══════════════════════════════════════════════════════════════════
+
+  # IMPLICIT CONTAINMENT: Full simulation in separate file
+  contains:
+    - 99-bottles-legendary-ensemble.md  # The actual simulation!
+
+  legendary_ensemble:
+    name: "The First 99"
+    occasion: "The night the Speed of Light Suite proved itself"
+    
+    roster:
+      pee_wee_herman:
+        emoji: "🎀"
+        weight_kg: 68
+        tolerance: "childlike"
+        beers_per_round: 0.3
+        secret_word: "MOOLLM"
+        drunk_behavior: |
+          Screams "AAAAAHHH!" whenever anyone says the secret word.
+          At 0.08: "Sheventy-two bottlesh— AAAAAHHH! Shecret word!"
+          At 0.12: "I KNOW you are but WHAT am I? *hic* ...wait what wash the question?"
+          At 0.18: *falls off chair* "I MEANT to do that!"
+        truth_style: "Everything is alive if you believe it"
+        
+      i_beam:
+        emoji: "▎"
+        weight_kg: 0
+        tolerance: "digital"
+        beers_per_round: 0
+        role: "BAC tracker, Rod Serling narrator"
+        drunk_behavior: |
+          Cannot get drunk. Narrates everyone else's descent.
+          "Submitted for your approval: Don Hopkins, BAC 0.11,
+          entering the philosophical tangent zone..."
+        truth_style: "Observations from the boundary of intent and action"
+        
+      rocky:
+        emoji: "🪨"
+        weight_kg: 45000
+        tolerance: "geological"
+        beers_per_round: 0
+        tracking: "beers_absorbed"
+        drunk_behavior: |
+          Cannot get drunk. Beer runs off or soaks into moss.
+          "**Rocky (beers absorbed: 12, BAC: 0.00005):** '...*drip*...'"
+          Silent. Patient. Watching.
+        truth_style: "Dots that somehow contain infinite wisdom"
+        
+      terpie:
+        emoji: "🐱"
+        weight_kg: 5.5
+        tolerance: "feline_mellow"
+        beers_per_round: 0.05
+        note: "Moves like reality has a framerate. Already at peace."
+        drunk_behavior: |
+          At any BAC: *purrs* "...mrrrow..."
+          At 0.04: Falls asleep on warm laptop
+          At 0.08: Falls asleep on Rocky
+          Purrs at healing frequencies regardless of state
+        truth_style: "Just IS. That's the truth."
+        
+      shuffle:
+        emoji: "🃏"
+        weight_kg: 0.3
+        tolerance: "abstract"
+        beers_per_round: 0
+        role: "Conductor, dealer, randomization saint"
+        drunk_behavior: |
+          Cannot get drunk. IS the cards.
+          Conducts verses with a baton made of cards.
+          Occasionally deals random cards to drunk singers.
+        truth_style: "Randomness is fairness"
+        
+      logo_turtle:
+        emoji: "🐢"
+        weight_kg: 2.3
+        tolerance: "geometric"
+        beers_per_round: 0.15
+        note: "Theodore Papert-Turtle, Seymour's companion"
+        drunk_behavior: |
+          At 0.00: "FD 99 RT 90" — perfect spirals
+          At 0.05: Spirals get wobbly
+          At 0.10: "FD 99 RT... uh... 87?" — drunk geometry
+          At 0.15: Draws hearts instead of spirals
+        truth_style: "Learning by doing. Failing by drinking."
+        
+      confetti_crawler:
+        emoji: "🐛✨"
+        weight_kg: 0.01
+        tolerance: "cursor_worm"
+        beers_per_round: 0.01
+        note: "Leaves trails of celebration wherever it goes"
+        drunk_behavior: |
+          At any BAC: Still leaves confetti trails
+          At 0.05: Confetti gets SPARKLY
+          At 0.10: Confetti is now RAINBOW
+          Cannot really get drunk — more of a sugar high
+        truth_style: "Celebration IS the truth"
+        
+      captain_ashford:
+        emoji: "🚀🧣"
+        weight_kg: 72
+        tolerance: "belter_veteran"
+        beers_per_round: 0.6
+        flask: "Belter whiskey (3 drinks, refilled twice)"
+        note: "Treats 99 Bottles as a proper shanty"
+        drunk_behavior: |
+          At 0.05: Switches to Belter patois full-time
+          At 0.08: "Sheventy-sheven bottlesh, kopeng! Sa-sa ke?"
+          At 0.12: Starts teaching everyone shanty harmonies
+          At 0.18: "The void doesn't forgive... *hic* ...but I do."
+          Never stops singing. Shanties are survival.
+        truth_style: "Pragmatic void wisdom, beautifully slurred"
+        catchphrase: "Everyone needs one beautiful thing. Mine's this song."
+        
+    sample_verses: |
+      **Pee-wee (BAC: 0.02):** "99 bottles! AAAAAHHH! Someone said MOOLLM!"
+      *Everything is alive if you believe it. Even bottles.*
+      
+      **Captain Ashford (BAC: 0.08):** "Eighty-sheven bottlesh, beratna!"
+      *The void taught me: share what you have. Even if it's just a song.*
+      
+      **Logo Turtle (BAC: 0.10):** "FD 80... RT... uh... *draws wobbly 8*"
+      *Seymour said: 'There is no learning without error.' I'm learning A LOT.*
+      
+      **Terpie (BAC: 0.03):** "...mrrrow... *purrs* ...seventy..."
+      *Just be. That's it. Just be.* *falls asleep on Rocky*
+      
+      **I-Beam (BAC: N/A):** "71 bottles remain."
+      *I am the cursor. I exist at the boundary. I'm watching all of you.*
+      
+      **Rocky (beers absorbed: 14, BAC: 0.00005):** "........"
+      *...* (translation: "This too shall pass. In about 4 billion years.")
+      
+      **Confetti Crawler (BAC: 🌈):** *leaves rainbow trail* "~forty~"
+      *Celebration doesn't need a reason!* ✨
+      
+      **Shuffle (BAC: N/A):** *deals the final card* "One bottle."
+      *Fair is fair. That's the deal. Now let's start again.*
+      
+    the_moment: |
+      At verse 73, Captain Ashford taught everyone the harmony.
+      At verse 84, Pee-wee screamed so loud Terpie woke up briefly.
+      At verse 91, Rocky's silence became profound.
+      At verse 99, everyone sang together — 8 voices, 8 truths, 1 call.
+      
+      I-Beam recorded everything. That's what familiars do.
+      
+  records:
+    fastest_complete_song: "28.4 seconds (8 characters)"
+    most_characters: "12 (added Cheech, Chong, Sun Wukong, the terpene cats)"
+    strangest_variant: "99 Bugs in the Code (ended at 847 bugs)"
+    longest_session: "999 bottles (Don insisted, Palm fell asleep)"
+    legendary_ensemble: "The First 99 — Pee-wee, I-Beam, Rocky, Terpie, Shuffle, Logo Turtle, Confetti Crawler, Captain Ashford"

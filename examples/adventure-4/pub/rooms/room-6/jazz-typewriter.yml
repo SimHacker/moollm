@@ -1,0 +1,100 @@
+# 🎹 JAZZ TYPEWRITER
+# Types YAML with soul — structure and improvisation together
+
+object:
+  name: Jazz Typewriter
+  type: artifact
+  portable: false
+  
+  description: |
+    An antique typewriter that plays music as you type. Each key
+    has two functions: it types a character AND sounds a note.
+    Colons are bass notes. Indentation is rhythm.
+    
+    A sign reads: "YAML IS MUSIC. PLAY IT."
+    
+  examine: |
+    The keyboard is mapped to musical notes:
+    
+    STRUCTURE KEYS (bass register):
+      ':' — Deep thump (colon, the separator)
+      '-' — Snare hit (list item)
+      '  ' — Rest (indentation)
+      
+    VALUE KEYS (melody register):
+      a-z — Chromatic scale
+      0-9 — Percussion fills
+      
+    COMMENT KEY:
+      '#' — Saxophone riff (comments are the jazz)
+      
+    Sample output (typed, then heard):
+    
+    ```yaml
+    # SESSION SUMMARY    ♪♫ (saxophone intro)
+    session:             ♩ (bass)
+      id: 9861c0a4       ♪♪ (melody)
+      files_written:     ♩
+        - cursor_mirror.py  # <═══ main work  ♪♫
+    ```
+    
+  state:
+    current_composition: "boot-sequence.yml"
+    key_signature: "YAML major"
+    tempo: "allegro moderato"
+    
+  advertisements:
+    - trigger: "generate YAML"
+      score: 0.9
+      response: "Let me play it for you. *types, music emerges*"
+      
+    - trigger: "comments"
+      score: 0.85
+      response: "Comments are the saxophone. They carry the meaning."
+      
+    - trigger: "structure"
+      score: 0.8
+      response: "The schema is the chord changes. Improvise within it."
+      
+  methods:
+    COMPOSE:
+      description: "Type YAML and hear it as music"
+      parameters:
+        - content: "What to type"
+      effect: |
+        The typewriter types and plays simultaneously.
+        Structure becomes rhythm. Data becomes melody.
+        Comments become jazz improvisation.
+        
+    JAZZ:
+      description: "Add jazzy comments to existing YAML"
+      parameters:
+        - yaml: "The YAML to enhance"
+      returns: |
+        The same structure with:
+        - Section headers as comments
+        - <═══ arrows for important values
+        - Elision notes for boring parts
+        
+    TRANSCRIBE:
+      description: "Convert music to YAML"
+      parameters:
+        - melody: "A musical phrase"
+      returns: "YAML structure that encodes the melody"
+      
+  lore: |
+    The typewriter was built by a programmer who was also a
+    jazz pianist. She was tired of data being "dead" — just
+    structure without feeling.
+    
+    "Every YAML file tells a story," she said. "The comments
+    are where you tell the listener what matters."
+    
+  insight: |
+    YAML Jazz style:
+    - Elide the boring (`# 23 files read — not listing`)
+    - Highlight the important (`<═══ look here!`)
+    - Comment with context (`# You asked about this`)
+    - Truncate the obvious (`id: 9861c0a4  # prefix only`)
+    
+    I-Beam speaks YAML Jazz fluently.

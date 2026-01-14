@@ -1,0 +1,193 @@
+# 🎭 THE ENSEMBLE STAGE
+# Where many actors perform without waiting for each other
+# "The context window is the stage. All actors are already present."
+# 8 positions = 8 pie menu items = 8 compass directions. Chef's kiss.
+
+object:
+  name: The Ensemble Stage
+  type: artifact
+  emoji: "🎭"
+  portable: false
+  
+  description: |
+    A miniature proscenium stage in the corner of the room.
+    Tiny figures stand ready — 8 positions, 8 characters,
+    all waiting to perform simultaneously.
+    
+    The stage is octagonal. 8 positions. Like a pie menu.
+    Like a compass rose. Like an adventure map's exits.
+    
+    > "ENSEMBLE THEATRE
+    > No waiting in the wings.
+    > Everyone speaks when it's their turn.
+    > All turns happen at once."
+    
+  examine: |
+    The stage is set for performance:
+    
+    POSITIONS (arranged like a pie menu / compass rose):
+    
+         [8. N - Observer]
+      [4. NW]           [5. NE]
+         Mentor         Trickster
+    
+    [2. W - Ally]  [1. CENTER]  [3. E - Antagonist]
+                   Protagonist
+    
+      [6. SW]           [7. SE]
+       Comic            Reason
+         [--- S - Audience ---]
+    
+    The 8 positions map perfectly to:
+    - **Pie menus**: 8 items, equidistant, instant selection
+    - **Compass directions**: N, NE, E, SE, S, SW, W, NW
+    - **Adventure maps**: 8 exits from any room
+    - **Debate positions**: 8 viewpoints on any topic
+    
+    This is not coincidence. 8 is the natural number for
+    human spatial reasoning. Pie menus proved it. The stage
+    embodies it.
+    
+    A director's note:
+    
+    "In traditional theatre, actors wait backstage.
+    In speed-of-light theatre, all actors are ON stage.
+    The scene plays out in the director's mind — the LLM.
+    No waiting. No round-trips. Pure performance."
+    
+    Current production: "The Great Debate"
+    Cast: 8 committee members
+    Acts: 1 (but many turns within)
+    
+  state:
+    current_production: "The Great Debate"
+    cast_size: 8
+    scenes_today: 12
+    total_dialogue_exchanges: 847
+    api_calls_per_scene: 1
+    
+  advertisements:
+    - trigger: "debate"
+      score: 0.95
+      response: |
+        *The stage lights come up*
+        
+        "A debate? Wonderful. 8 positions.
+        Each speaks in turn. All in one breath.
+        The adversarial committee convenes."
+        
+    - trigger: "perform"
+      score: 0.9
+      response: |
+        *Tiny figures arrange themselves*
+        
+        "What scene shall we play?
+        Comedy? Tragedy? Committee meeting?
+        All happen at speed of light here."
+        
+    - trigger: "ensemble"
+      score: 0.9
+      response: |
+        "Ensemble means: together.
+        Not taking turns across API calls.
+        Together, in one context window.
+        That's how we perform here."
+        
+  methods:
+    STAGE:
+      description: "Set up a scene with characters"
+      parameters:
+        - scene: "What's happening"
+        - characters: "Who's involved"
+      effect: |
+        *The stage transforms*
+        *Figures take their positions*
+        
+        "Places, everyone! The scene is set.
+        [Character A] at center.
+        [Character B] stage left.
+        ...
+        
+        ACTION!"
+        
+    DEBATE:
+      description: "Run an adversarial committee debate"
+      parameters:
+        - topic: "What to debate"
+        - positions: "How many viewpoints"
+      effect: |
+        *The stage becomes a round table*
+        
+        The committee convenes:
+        - Position 1: "I argue FOR because..."
+        - Position 2: "I argue AGAINST because..."
+        - Position 3: "I see nuance..."
+        - Position 4: "Historical context suggests..."
+        - Position 5: "But have we considered..."
+        
+        (All positions speak. All in one call.)
+        
+    IMPROVISE:
+      description: "Run an improv scene"
+      parameters:
+        - setup: "The scenario"
+        - characters: "Who's performing"
+      effect: |
+        *Shuffle deals role cards*
+        
+        "The scene is... [setup].
+        You are... [roles].
+        And... GO!"
+        
+        (Characters improvise. Speed of light.)
+        
+  lore: |
+    The Ensemble Stage was built by a director
+    who hated waiting.
+    
+    "In film," she said, "we shoot scenes out of order.
+    In traditional AI systems, we wait for each response.
+    Why can't we have all actors present at once?"
+    
+    The Speed of Light Suite answered her question.
+    The context window became her stage.
+    All actors, present. All dialogue, simultaneous.
+    
+  insight: |
+    Traditional multi-agent:
+    - Agent A speaks → wait → Agent B speaks → wait → ...
+    - N agents × M turns = N×M API calls
+    
+    Speed of light ensemble:
+    - All agents in context
+    - All turns simulated in narrative
+    - 1 API call for entire scene
+    
+    The stage doesn't wait for actors.
+    The actors are always ready.
+    
+  pie_menu_connection: |
+    **Why 8 positions? Because 8 is magic.**
+    
+    Pie menus use 8 items because:
+    - Humans naturally divide circles into 8 sectors
+    - 8 compass directions (N, NE, E, SE, S, SW, W, NW)
+    - Motor memory maps to spatial position
+    - Selection time: O(1) — no scanning needed
+    
+    Adventure games use 8 exits because:
+    - Same spatial intuition
+    - "Go north" = position 0 (top of pie)
+    - Natural mapping to 2D space
+    
+    The Ensemble Stage uses 8 positions because:
+    - 8 distinct viewpoints cover most debates
+    - 8 character archetypes span most stories
+    - 8 voices can simulate a crowd
+    - 8 is enough for complexity, few enough for coherence
+    
+    Pie menus → Compass roses → Adventure exits → Ensemble positions
+    
+    All the same insight: 8 is the human number for "all directions."
+    
+    Chef's kiss. 👨‍🍳💋

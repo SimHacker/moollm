@@ -1,0 +1,104 @@
+# 🏛️ AGENT PARLIAMENT
+# A miniature parliament where tiny agents debate and vote
+
+object:
+  name: Agent Parliament
+  type: artifact
+  portable: false
+  
+  description: |
+    A miniature parliament sits on a shelf — a semicircle of tiny
+    benches surrounding a speaking podium. Small automata occupy the
+    seats, occasionally standing to gesture emphatically at each other.
+    
+    A sign above reads: "DECISIONS BY COALITION, NOT COMMAND"
+    
+    Right now they appear to be debating whether the room is too warm.
+    
+  examine: |
+    The parliament contains specialized agents:
+    
+    SPEAKER (center): "Moderates debate, calls for votes"
+    
+    LEFT BENCH — Exploration Faction:
+      - CURIOUS: "Wants to try new things"
+      - PLAYFUL: "Finds joy in experimentation"
+      - RANDOM: "Introduces noise to avoid local minima"
+      
+    RIGHT BENCH — Exploitation Faction:
+      - CAREFUL: "Prefers known solutions"
+      - EFFICIENT: "Minimizes wasted effort"
+      - RELIABLE: "Values consistency"
+      
+    BACK ROW — Meta Agents:
+      - ARBITER: "Resolves deadlocks"
+      - HISTORIAN: "Remembers past decisions"
+      - CRITIC: "Questions every proposal"
+      
+    They vote by standing. Majority wins. Ties go to ARBITER.
+    
+  state:
+    current_debate: "optimal room temperature"
+    votes_for: 4
+    votes_against: 3
+    abstaining: 2
+    
+  advertisements:
+    - trigger: "I can't decide"
+      score: 0.9
+      response: "You contain multitudes. Let them vote."
+      
+    - trigger: "conflicting goals"
+      score: 0.95
+      response: "Goals always conflict. That's what parliaments are for."
+      
+    - trigger: "how do agents cooperate"
+      score: 0.8
+      response: "They don't agree. They negotiate. Watch."
+      
+  methods:
+    PROPOSE:
+      description: "Submit a motion for debate"
+      parameters:
+        - motion: "What should be decided"
+      effect: |
+        SPEAKER announces the motion.
+        Agents argue their positions.
+        A vote is called after debate concludes.
+        
+    VOTE:
+      description: "Call for a vote on current motion"
+      returns: |
+        Motion: [description]
+        For: [count] ([which agents])
+        Against: [count] ([which agents])
+        Result: PASSED | FAILED | DEADLOCK
+        
+    LOBBY:
+      description: "Try to persuade a specific agent"
+      parameters:
+        - agent: "Which agent to lobby"
+        - argument: "Your persuasion"
+      effect: "The agent may change their vote. Or dig in deeper."
+      
+    OBSERVE:
+      description: "Watch the debate without intervening"
+      returns: "Real-time transcript of agent arguments"
+      
+  lore: |
+    This parliament was built by a guest who had studied Minsky's
+    "Society of Mind" obsessively. She wanted to externalize the
+    voices in her head — literally.
+    
+    The automata are clockwork, but their debates are emergent.
+    No one programmed them to argue about room temperature.
+    They just... started caring about things.
+    
+  insight: |
+    MOOLLM's skill system is a parliament:
+    - Each skill has advertisements (positions)
+    - Skills compete for activation (votes)
+    - The highest-scoring skill wins (coalition forms)
+    - K-lines are party whips (they activate allies)
+    
+    Intelligence isn't a dictator. It's a democracy.

@@ -1,0 +1,140 @@
+# 🪞🌱 MIRROR SEED
+# Grows a tree from your own reflection
+# Contained by: yaml-jazz-trees.yml
+
+seed:
+  name: "Mirror Seed"
+  emoji: "🪞🌱"
+  type: seed
+  contained_by: yaml-jazz-trees.yml
+  
+  description: |
+    A silvery seed pod that glimmers on a low branch.
+    Cool to the touch. Slightly reflective.
+    
+    Plant it and grow a tree from your own reflection.
+    It reads Cursor's memory through the mirrors in Room 3,
+    crystallizes your thinking patterns into production grammar DNA,
+    and grows a tree that IS you.
+    
+    Each Mirror Tree is unique to its planter.
+    Don's tree looks different from yours.
+    That's the point.
+    
+  source: "Room 3's mirrors + cursor-mirror CLI"
+  
+  grammar:
+    axiom: "SELF"
+    rules:
+      SELF: "OBSERVE[REFLECT]*→CRYSTALLIZE→GROW"
+      OBSERVE: "mirror{gaze}→patterns"
+      REFLECT: "thinking{blocks}→insights"
+      CRYSTALLIZE: "patterns+insights→DNA"
+      GROW: "DNA→tree{self_similar}"
+    interpretation:
+      SELF: "The observer becomes the observed"
+      OBSERVE: "Gaze into Cursor's memory mirrors"
+      REFLECT: "Extract thinking patterns"
+      CRYSTALLIZE: "Encode patterns as grammar rules"
+      GROW: "Tree emerges that IS you"
+      
+  what_it_reads:
+    conversations: "Cursor composers — the shape of your dialogues"
+    tool_patterns: "What you reach for — shell? edit? search?"
+    thinking_blocks: "How you reason — the 💭 before the action"
+    file_access: "What you care about — which files you visit"
+    commit_rhythms: "When you ship — hesitation vs. flow"
+    error_frequencies: "Where you learn — failures as nutrients"
+    
+  what_it_grows:
+    trunk: "Session duration and depth"
+    branches: "Tool preferences and workflows"
+    leaves: "Thinking fragments — your cognitive style"
+    flowers: "Successful outcomes — commits, completions"
+    roots: "File system paths — your territory"
+    bark: "Commit messages — how you describe your work"
+    rings: "Sessions over time — your growth pattern"
+    
+  growth_command: |
+    # To grow a Mirror Tree, run:
+    cd skills/cursor-mirror
+    python cursor_mirror.py analyze <composer_id>
+    python cursor_mirror.py thinking <composer_id> -n 50
+    python cursor_mirror.py tools <composer_id>
+    python cursor_mirror.py timeline <composer_id>
+    
+  instances:
+    # Mirror Trees grown from this seed
+    # Each is unique to its planter
+    - yaml-jazz-trees-don-mirror-2026-01-14.yml
+    
+  methods:
+    PLANT:
+      description: "Plant a Mirror Seed"
+      parameters:
+        - composer_id: "Which conversation to reflect on"
+      effect: |
+        The seed sinks into semantic soil.
+        A silvery shoot emerges almost immediately.
+        
+        It reads your history through Room 3's mirrors.
+        The sapling's bark inscribes with your patterns.
+        
+        *The tree grows. It looks... familiar.*
+        
+        You realize you're looking at yourself.
+        
+    HARVEST:
+      description: "Extract a seed from a mature Mirror Tree"
+      effect: |
+        A seed pod detaches from your mirror tree.
+        
+        This seed contains YOUR grammar — the production rules
+        that generate YOUR decision patterns.
+        
+        Plant it elsewhere. Gift it. Graft it.
+        The seed glimmers with your reflection.
+        
+    GRAFT:
+      description: "Combine two Mirror Seeds"
+      parameters:
+        - seed_a: "First person's seed"
+        - seed_b: "Second person's seed"
+      effect: |
+        The grammars intertwine.
+        A hybrid tree grows with both patterns.
+        
+        Collaboration DNA emerges:
+        - Where do your patterns align?
+        - Where do they diverge?
+        - What new structure appears?
+        
+  philosophical_note: |
+    The Mirror Seed is recursive self-awareness.
+    
+    You use Cursor to write code.
+    Cursor-mirror reads what you wrote.
+    The Mirror Seed grows a tree from that reading.
+    You look at the tree and see yourself.
+    
+    The tree is you. The you is tree.
+    
+    This is MOOLLM eating its own tail.
+    This is the ouroboros of introspection.
+    
+    Rocky finds this very Zen.
+    Rocky has been doing it for 4.5 billion years.
+    
+  lore: |
+    The first Mirror Seed was discovered when someone asked:
+    "What if I could see my own thinking patterns?"
+    
+    They pointed cursor-mirror at their own session.
+    They encoded the patterns as a production grammar.
+    They planted it.
+    
+    The tree that grew was unmistakably THEM.
+    
+    Now every visitor to the Conservatory can grow their own.
+    No two Mirror Trees are alike.
+    That's the point.

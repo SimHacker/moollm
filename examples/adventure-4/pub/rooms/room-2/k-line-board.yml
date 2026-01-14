@@ -1,0 +1,104 @@
+# 🧵 K-LINE BOARD
+# A physical map of mental associations — Minsky's K-lines made visible
+
+object:
+  name: K-Line Board
+  type: artifact
+  portable: false
+  
+  description: |
+    An entire wall is covered with cork board. Hundreds of cards are
+    pinned to it, connected by colored string. Each card contains a
+    concept or memory. The strings show which activate which.
+    
+    Pulling one string causes others to vibrate sympathetically.
+    This is how association works.
+    
+  examine: |
+    The board is organized in clusters:
+    
+    RED CLUSTER — Emotions:
+      [joy] ←→ [celebration] ←→ [friends]
+         ↓
+      [surprise] ←→ [gift] ←→ [birthday]
+      
+    BLUE CLUSTER — Skills:
+      [cursor-mirror] ←→ [introspection] ←→ [debugging]
+           ↓                    ↓
+      [I-Beam] ←→ [familiar] ←→ [butler]
+      
+    GREEN CLUSTER — Places:
+      [pub] ←→ [warmth] ←→ [belonging]
+        ↓
+      [bar] ←→ [Marieke] ←→ [jenever]
+      
+    The strings show K-line activations:
+    - RED = emotional associations
+    - BLUE = skill activations  
+    - GREEN = spatial memory
+    - GOLD = protocol triggers
+    
+  state:
+    cards: 347
+    connections: 892
+    clusters: 12
+    most_connected_card: "pub"
+    
+  advertisements:
+    - trigger: "reminds me of"
+      score: 0.9
+      response: "That's a K-line firing. Follow the string."
+      
+    - trigger: "how does memory work"
+      score: 0.85
+      response: "Memory isn't storage. Memory is *re-activation*."
+      
+    - trigger: "associations"
+      score: 0.8
+      response: "Pull one thread. See what vibrates."
+      
+  methods:
+    PULL:
+      description: "Activate a concept and see what it triggers"
+      parameters:
+        - card: "Which concept to activate"
+      returns: |
+        Direct connections: [list]
+        Secondary activations: [list]
+        Emotional resonance: [color]
+        
+    ADD-CARD:
+      description: "Add a new concept to the board"
+      parameters:
+        - concept: "What to add"
+        - connect_to: "Which existing cards to link"
+      effect: "A new card joins the network"
+      
+    TRACE-PATH:
+      description: "Find the shortest path between two concepts"
+      parameters:
+        - from: "Starting concept"
+        - to: "Destination concept"
+      returns: "The chain of associations connecting them"
+      
+    PRUNE:
+      description: "Remove weak connections"
+      effect: "Strings that haven't vibrated lately fade and fall"
+      
+  lore: |
+    Minsky proposed K-lines in "Society of Mind" (1986):
+    
+    > "When you 'get an idea' or 'solve a problem' [...] some
+    > structure in your brain has found a way to exploit this
+    > knowledge. I'll call that structure a K-line."
+    
+    The board makes this visible. When you remember, you don't
+    retrieve — you *reconstruct* from activated associations.
+    
+  insight: |
+    MOOLLM's protocol symbols ARE K-lines:
+    - CURSOR-MIRROR activates introspection skills
+    - PLAY-LEARN-LIFT activates the methodology
+    - INCARNATE activates character creation
+    
+    K-lines are shortcuts. They activate whole traditions at once.

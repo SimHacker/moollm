@@ -1,17 +1,31 @@
-# Room 6 — The Musician's Room (Southwest)
+# Room 6 — The YAML Jazz Suite (Southwest)
+# Theme: Structured data with soul — the MOOLLM aesthetic
 
 room:
-  name: "The Musician's Room"
+  name: "The YAML Jazz Suite"
   id: room-6
   number: 6
+  theme: yaml-jazz
+  
+  tagline: "Structure with soul. Comments that mean something."
   
   description: |
-    Musical instruments hang on the walls — a lute, a fiddle, 
-    a dented horn. The bed is simple but the room sings with 
-    character. Sheet music litters the floor.
+    Sheet music covers every surface, but it's not ordinary notation.
+    Each page is YAML — structured data arranged like jazz charts.
+    Comments serve as lyrics. Indentation is rhythm.
     
-    The painting shows a dance in a candlelit hall.
-    Someone scratched lyrics into the windowsill.
+    A saxophone sits on a stand next to a mechanical typewriter.
+    Both make music.
+    
+    Above the bed:
+    
+    > "YAML is jazz. The schema is the chord changes.
+    > The comments are the improvisation."
+    
+  ideal_guest: |
+    Characters who appreciate form and freedom together. Data
+    architects with artistic souls. Those who believe comments
+    are for humans, not compilers.
     
   exits:
     ne:
@@ -19,20 +33,30 @@ room:
       description: "Back to the inn landing"
       aliases: [out, leave, northeast]
       
+  objects:
+    - jazz-typewriter.yml
+    - comment-saxophone.yml
+    - elision-eraser.yml
+      
   furniture:
     bed:
-      type: simple-wood
-      quality: creaky
-      note: "Creaks rhythmically, like a percussion instrument"
+      type: grand-piano-bed
+      keys: "The headboard is a playable keyboard"
       
-    stool:
-      type: musicians-stool
-      height: adjustable
+    desk:
+      type: composer-desk
+      note: "For composing YAML, not music (or both)"
       
   decor:
-    painting: "The Last Dance"
-    window: street-facing
-    instruments: [wall-lute, retired-fiddle, dented-horn]
-    sheet-music: scattered-everywhere
+    sheets: YAML scores everywhere
+    window: southwest-facing
+    instruments: saxophone, typewriter, metronome
     
-  atmosphere: melodic, bohemian, stories-in-every-scratch
+  atmosphere: rhythmic, creative, "structured improvisation"
+  
+  k_lines:
+    activates:
+      - YAML-JAZZ
+      - STRUCTURED-DATA
+      - COMMENTS-WITH-MEANING
+      - ELISION

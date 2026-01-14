@@ -1,0 +1,305 @@
+# 🪞 THE EIGHT MIRRORS OF CURSOR-MIRROR
+# Each mirror reflects a different aspect of your cognitive activity
+# Based on the 51 commands of cursor-mirror
+
+mirrors:
+
+  # MIRROR 1: THE NAVIGATION MIRROR
+  
+  navigation_mirror:
+    name: "The Map Mirror"
+    position: "north wall"
+    emoji: "🗺️"
+    description: |
+      Shows the topology of your work — all workspaces, all conversations,
+      as a navigable tree. Zoom in to see where you've been.
+      
+    reflects:
+      - "Where have I worked?"
+      - "What conversations exist?"
+      - "How do I find that old chat?"
+      
+    commands:
+      list-workspaces: "Show all workspaces with folder paths"
+      show-workspace: "Details about a specific workspace"
+      list-composers: "All conversations with metadata"
+      show-composer: "Details about a conversation"
+      tree: "Hierarchical navigation (w1, w1.c2, w1.c2.tools)"
+      find: "Search by name pattern"
+      which: "Resolve a reference to its source"
+      
+    example: |
+      *You gaze into the Map Mirror.*
+      
+      The surface ripples and shows:
+      
+      ```
+      w1  moollm/          [42 chats]   ← you are here
+      w2  leela-dashboard/ [18 chats]
+      w3  confetti-worm/   [7 chats]
+      ```
+      
+      Speak a path to dive deeper: "tree w1.c3"
+      
+  # MIRROR 2: THE STREAM MIRROR
+  
+  stream_mirror:
+    name: "The River Mirror"
+    position: "east wall, left"
+    emoji: "🌊"
+    description: |
+      Shows the flow of conversation — messages streaming past like
+      water. Recent activity surfaces; older messages sink into depth.
+      
+    reflects:
+      - "What did I just say?"
+      - "What happened in the last hour?"
+      - "Show me the conversation."
+      
+    commands:
+      tail: "Recent messages (-n 20, --all, --tools)"
+      stream: "Unified activity stream (--since 1h)"
+      transcript: "Readable conversation export"
+      watch: "Replay conversation in real-time"
+      
+    example: |
+      *You gaze into the River Mirror.*
+      
+      Messages flow past:
+      
+      ```
+      [14:32] USER: Add the Ultimate Machine to room 2
+      [14:32] ASSISTANT: I'll create that now...
+      [14:33] TOOL: Write → ultimate-machine.yml
+      [14:33] ASSISTANT: Pushed: 2748ccb
+      ```
+      
+  # MIRROR 3: THE ANALYSIS MIRROR
+  
+  analysis_mirror:
+    name: "The Deep Mirror"
+    position: "east wall, right"
+    emoji: "🔬"
+    description: |
+      Shows patterns in your work — what you search for, how conversations
+      evolve, where time is spent. This mirror thinks before it shows.
+      
+    reflects:
+      - "What patterns do I have?"
+      - "How did this conversation evolve?"
+      - "Where did things go wrong?"
+      
+    commands:
+      grep: "Regex search across all chats"
+      analyze: "Deep session analysis (boot sequence, tool stats)"
+      timeline: "Chronological event sequence"
+      stats: "Summary statistics"
+      models: "Model usage analysis"
+      
+    example: |
+      *You gaze into the Deep Mirror.*
+      
+      It takes a moment, then reveals:
+      
+      ```yaml
+      session_analysis:
+        duration: "4h 32m"
+        messages: 142
+        tool_calls: 387
+        thinking_blocks: 94
+        
+      patterns:
+        most_used_tool: "StrReplace (156x)"
+        peak_activity: "14:00-15:30"
+        error_rate: "2.1%"
+      ```
+      
+  # MIRROR 4: THE TOOL MIRROR
+  
+  tool_mirror:
+    name: "The Instrument Mirror"
+    position: "south wall, left"
+    emoji: "🔧"
+    description: |
+      Shows every tool called — the actual mechanics of how work gets done.
+      File reads, writes, shell commands, MCP calls. The gears exposed.
+      
+    reflects:
+      - "What tools did I use?"
+      - "What did that tool return?"
+      - "Show me the MCP calls."
+      
+    commands:
+      tools: "List all tool calls with arguments"
+      tool-result: "Full result from a specific call"
+      blobs: "Cached tool results (agentKv)"
+      checkpoints: "File state snapshots"
+      diff: "Changes between checkpoints"
+      thinking: "Agent reasoning blocks"
+      mcp: "MCP server calls and status"
+      
+    example: |
+      *You gaze into the Instrument Mirror.*
+      
+      Gears turn. Tools appear:
+      
+      ```
+      #1  Read("ROOM.yml")           → 85 lines
+      #2  Write("rocky.yml")         → 312 lines  
+      #3  Shell("git add && commit") → exit 0
+      #4  Shell("git push")          → exit 0
+      ```
+      
+  # MIRROR 5: THE CONTEXT MIRROR
+  
+  context_mirror:
+    name: "The Attention Mirror"
+    position: "south wall, right"
+    emoji: "👁️"
+    description: |
+      Shows what the system was paying attention to — files, selections,
+      terminal output, images. The assembled context for each request.
+      
+    reflects:
+      - "What did Cursor see?"
+      - "How was context assembled?"
+      - "What searches were performed?"
+      
+    commands:
+      context: "Context gathered in conversation"
+      context-sources: "Detailed breakdown of all sources"
+      request-context: "Full context for a specific request"
+      searches: "Codebase and web searches"
+      indexing: "Vector embedding status"
+      
+    example: |
+      *You gaze into the Attention Mirror.*
+      
+      It shows what Cursor was seeing:
+      
+      ```yaml
+      context_assembled:
+        open_files: ["ROOM.yml", "rocky.yml"]
+        cursor_position: "line 42, column 8"
+        recent_edits: ["ultimate-machine.yml"]
+        terminal: "last 50 lines"
+        
+      semantic_searches:
+        - query: "ultimate machine"
+          results: 3 files
+      ```
+      
+  # MIRROR 6: THE ARCHIVE MIRROR
+  
+  archive_mirror:
+    name: "The Memory Mirror"
+    position: "west wall, left"
+    emoji: "📚"
+    description: |
+      Shows what can be exported and preserved — markdown transcripts,
+      training data, searchable indices. Memory crystallized.
+      
+    reflects:
+      - "How do I save this?"
+      - "Export for documentation."
+      - "Create training data."
+      
+    commands:
+      export-chat: "Export as JSON/YAML"
+      export-prompts: "Export prompts/generations"
+      export-markdown: "Readable Markdown format"
+      export-jsonl: "JSONL for training/analysis"
+      index: "Generate searchable index"
+      files: "Files touched in conversation"
+      todos: "Task status extraction"
+      
+    example: |
+      *You gaze into the Memory Mirror.*
+      
+      It offers preservation:
+      
+      ```
+      Available exports:
+      - export-markdown → cursor-mirror-session.md
+      - export-jsonl    → training-data.jsonl
+      - export-chat     → raw-bubbles.yml
+      ```
+      
+  # MIRROR 7: THE STATUS MIRROR
+  
+  status_mirror:
+    name: "The System Mirror"
+    position: "west wall, right"
+    emoji: "📊"
+    description: |
+      Shows the current state of Cursor itself — configuration, models,
+      MCP servers, feature flags, privacy settings. The system introspects.
+      
+    reflects:
+      - "What's my Cursor configured for?"
+      - "Which models are available?"
+      - "What MCP servers are running?"
+      
+    commands:
+      status: "Overall dashboard"
+      status-config: "Server configuration and limits"
+      status-mcp: "MCP servers and their status"
+      status-models: "Available models and migrations"
+      status-features: "Feature flags and experiments"
+      status-privacy: "Privacy settings"
+      status-endpoints: "Known API endpoints"
+      dbs: "All Cursor databases with sizes"
+      tables: "Tables in a database"
+      keys: "ItemTable keys with sizes"
+      sql: "Raw SQL queries"
+      info: "Low-level DB inspection"
+      
+    example: |
+      *You gaze into the System Mirror.*
+      
+      Cursor's internals appear:
+      
+      ```yaml
+      cursor_status:
+        version: "0.44.x"
+        mcp_servers: 3 connected
+        indexed_files: 1,247
+        cache_size: "342 MB"
+        
+      models_available:
+        - claude-3.5-sonnet
+        - claude-opus-4
+        - gpt-4o
+      ```
+
+  # MIRROR 8: THE IMAGE MIRROR
+
+  image_mirror:
+    name: "The Gallery Mirror"
+    position: "above the desk"
+    emoji: "🖼️"
+    description: |
+      Shows and analyzes images and metadata that have passed through — 
+      screenshots, diagrams, photos dropped into chat. Visual memory preserved.
+      
+    reflects:
+      - "What images did I share?"
+      - "Show me the image cache."
+      - "Analyze visual context."
+      
+    commands:
+      images: "List all cached images"
+      image-path: "Full path to a specific image"
+      image-info: "Metadata about an image"
+      image-gallery: "Generate narrated gallery"
+      
+    example: |
+      *You gaze into the Gallery Mirror.*
+      
+      Images float to the surface:
+      
+      ```
+      🖼️ Sims Motive.c (5 pages) — 1997 source code
+      🖼️ Andy Looney — at Looney Labs booth  
+      🖼️ Kando pie menus — v2.1.0 config
+      ```
