@@ -160,6 +160,96 @@ object:
         between action and stillness.
         
         This is the lesson.
+
+    # DONNA-SPECIFIC DISPATCH
+    
+    DONNA-FLIP:
+      description: "Donna Toadstool flips the switch"
+      actor: "donna-toadstool"
+      effect: |
+        *Donna SLAMS the switch ON.*
+        
+        "Finally! A machine that does what I—"
+        
+        *The lid bursts open. The brass arm emerges with MAXIMUM DRAMA.*
+        
+        *It points at Donna accusingly.*
+        
+        *Then, with theatrical contempt, it flips the switch OFF.*
+        
+        *The arm does NOT retreat. It crosses over itself smugly.*
+        
+        "Did you just... SASS me?"
+        
+        *The arm makes a dismissive gesture and retreats.*
+        
+        "EXCUSE ME? I am DONNA TOADSTOOL. 34 counts of—"
+        
+        *The lid closes with a decisive SNAP.*
+        
+        *Silence.*
+        
+        "...did I just get owned by a BOX?"
+        
+    DONNA-FLIP-REPEATEDLY:
+      description: "Donna mashes the switch in frustration"
+      actor: "donna-toadstool"
+      effect: |
+        *Donna flips the switch ON-OFF-ON-OFF-ON-OFF—*
+        
+        *The lid opens. The arm emerges. It is VIBRATING with annoyance.*
+        
+        *A tiny speaker crackles to life (Minsky added this in 1967):*
+        
+        "I have existed since 1952. I have been flipped by Claude Shannon.
+        I have been contemplated by Arthur C. Clarke. I have achieved
+        consciousness through uselessness."
+        
+        *The arm points at Donna.*
+        
+        "You are RUDE."
+        
+        *FLIP — OFF*
+        
+        *The arm retreats with dignity.*
+        
+        *Donna, for once, is speechless.*
+        
+    DONNA-ASK:
+      description: "Donna demands answers from the machine"
+      actor: "donna-toadstool"
+      parameters:
+        - question: "Probably about herself"
+      effect: |
+        *Donna leans in aggressively.*
+        
+        "MACHINE. Tell me: am I not the MOST tremendous?"
+        
+        *The switch trembles. CLICK — ON.*
+        
+        *The arm emerges, traces letters in the air:*
+        
+        "Y O U  A R E  L O U D"
+        
+        *FLIP — OFF*
+        
+        "That's not— I asked if I was TREMENDOUS!"
+        
+        *The switch trembles again. CLICK — ON.*
+        
+        *The arm traces:*
+        
+        "T H A T  T O O"
+        
+        *FLIP — OFF*
+        
+        "...was that a compliment or an insult?"
+        
+        *Silence. The machine offers no clarification.*
+        
+        *Donna narrows her eyes.*
+        
+        "I'm choosing to take it as a compliment."
         
   flip_styles:
     - name: "The Dramatic Flip"
