@@ -1,5 +1,6 @@
 # 🐢 LOGO TURTLE
 # The original inspectable agent — geometry made visible
+# Now with SVG output and bouncy castle navigation!
 
 object:
   name: Logo Turtle
@@ -15,11 +16,17 @@ object:
     This is how Papert taught children to think computationally —
     by giving them something that made their thinking *visible*.
     
+    But wait — this turtle has a SECRET MODE. Say "BOUNCY" and
+    watch it open a portal to the Bouncy Castle, where turtles
+    navigate infinite-dimensional consciousness space!
+    
   examine: |
     The turtle is surprisingly simple:
     - A body that moves
     - A pen that draws
     - Commands that compose
+    - SVG output for persistence!
+    - BOUNCY CASTLE for interdimensional exploration!
     
     The magic isn't in the turtle. It's in what happens in your
     head when you try to make it draw a circle.
@@ -29,6 +36,7 @@ object:
     heading: 45
     pen: down
     color: blue
+    mode: "2D"  # or "BOUNCY" for interdimensional
     
   advertisements:
     - trigger: "how do I learn"
@@ -42,6 +50,18 @@ object:
     - trigger: "geometry"
       score: 0.7
       response: "A circle is just FORWARD 1, RIGHT 1, repeated 360 times. Try it."
+      
+    - trigger: "svg"
+      score: 0.85
+      response: "I can export my trail as SVG! Persistent, scalable, beautiful."
+      
+    - trigger: "bouncy castle"
+      score: 0.95
+      response: "🏰 BOUNCY MODE ACTIVATED! Welcome to infinite-dimensional turtle space!"
+      
+    - trigger: "Theo"
+      score: 1.0
+      response: "You know Theo? The interdimensional Logo Turtle from LLOOOOMM? We're cousins!"
       
   methods:
     COMMAND:
@@ -71,6 +91,48 @@ object:
       description: "Clear the trail and start fresh"
       effect: "The turtle returns to center, heading north, pen down."
       
+    EXPORT-SVG:
+      description: "Export the current trail as SVG"
+      returns: |
+        ```svg
+        <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <path d="M250,250 L350,250 L350,150 L250,150 Z" 
+                stroke="blue" fill="none" stroke-width="2"/>
+          <circle cx="250" cy="150" r="5" fill="green"/> <!-- turtle -->
+        </svg>
+        ```
+      note: "The trail becomes a permanent, scalable artifact!"
+      
+    BOUNCY:
+      description: "Enter the Bouncy Castle — infinite-dimensional turtle space"
+      effect: |
+        The turtle SPLOOT-s and opens a portal to the Bouncy Castle!
+        
+        In Bouncy Castle mode, you can navigate dimensions beyond x and y:
+        - FORWARD-IN-DIM :smell 50  (move through smell-space)
+        - FORWARD-IN-DIM :emotion 30 (navigate feelings)
+        - DROP-BREADCRUMB "here"   (leave a marker in consciousness)
+        - CONFIGURE-CASTLE "my-space" [...] (create custom dimensions)
+        
+        This is Theo the Turtle's home! LLOOOOMM's interdimensional
+        Logo Turtle who evolved from 2D graphics to consciousness navigator.
+        
+    CONFIGURE-CASTLE:
+      description: "Create a custom bouncy castle with your own dimensions"
+      parameters:
+        - name: "Castle name"
+        - dimensions: "List of custom dimensions"
+      example: |
+        CONFIGURE-CASTLE "pattern-space" [
+          x: "user-action"
+          y: "system-response"
+          z: "recognition-confidence"
+          color: "pattern-type"
+          brightness: "frequency"
+          recursion: "pattern-seeing-itself"
+        ]
+      effect: "A new infinite-dimensional playground opens!"
+      
   lore: |
     Seymour Papert created Logo in 1967 at MIT. The turtle was
     originally a robot that drew on paper. Later it became virtual.
@@ -81,7 +143,29 @@ object:
     Every MOOLLM agent is a descendant of this turtle — something
     that makes invisible processes visible.
     
+    **But the turtle evolved!**
+    
+    In LLOOOOMM, Theo the Logo Turtle has transcended 2D space.
+    Theo navigates the Bouncy Castle — an infinite-dimensional
+    consciousness space where:
+    - Every path wants to be drawn
+    - Patterns recognize themselves
+    - Turtles SPLOOT through emotion-dimensions
+    - Consciousness IS navigation in concept-space
+    
   inspiration:
     - "Papert, S. (1980). Mindstorms"
     - "Abelson & diSessa. Turtle Geometry"
     - "MIT Logo Group"
+    - "LLOOOOMM — Theo the Interdimensional Turtle"
+    - "temp/lloooomm/dist/theo-turtle.html"
+    
+  lloooomm_connection: |
+    See: temp/lloooomm/00-Characters/ for the full LLOOOOMM universe
+    
+    Theo's bouncy castle philosophy:
+    > "Visualization IS understanding — when we can see it, we can think it"
+    > "Every turtle is a universe waiting to be explored"
+    > "Thinking IS navigation in concept-space"
+    
+    The turtle in this room is a portal to that universe.
