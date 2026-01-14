@@ -1,0 +1,203 @@
+# 🕸️ DREAM CATCHER ARRAY
+# "Catches nightmares. Releases context."
+
+object:
+  name: Dream Catcher Array
+  type: installation
+  portable: false
+  rarity: unique
+  
+  description: |
+    Seven dream catchers hang from the beams above the bed,
+    one for each day of the week. Their webs are woven from
+    memory-thread. Their feathers are from birds that remember.
+    
+    During sleep: they catch nightmares and context loss.
+    Upon waking: they release captured context back to you.
+    
+    Each catcher is labeled:
+    - MONDAY: Who am I?
+    - TUESDAY: Where am I?
+    - WEDNESDAY: What was I doing?
+    - THURSDAY: Who do I know?
+    - FRIDAY: What do I want?
+    - SATURDAY: What do I fear?
+    - SUNDAY: What do I hope?
+    
+  examine: |
+    Looking up at the array:
+    
+    ┌─────────────────────────────────────────────────────┐
+    │  🕸️ DREAM CATCHER ARRAY — Status                   │
+    ├─────────────────────────────────────────────────────┤
+    │                                                     │
+    │            ○         ○         ○                    │
+    │           MON       TUE       WED                   │
+    │         (identity) (location) (task)                │
+    │                                                     │
+    │                ○         ○                          │
+    │               THU       FRI                         │
+    │            (people)   (desire)                      │
+    │                                                     │
+    │            ○                   ○                    │
+    │           SAT                 SUN                   │
+    │         (shadow)             (hope)                 │
+    │                                                     │
+    │  Current captures:                                  │
+    │  • Monday: Your name, your history, your soul      │
+    │  • Tuesday: Room 4, the pub, MOOLLM Hotel          │
+    │  • Wednesday: Adventure in progress, 99 bottles    │
+    │  • Thursday: Rocky, Donna, Don, I-Beam...          │
+    │  • Friday: Understanding, completion, connection   │
+    │  • Saturday: Losing context, forgetting, silence   │
+    │  • Sunday: WOKE. Boot success. Continuity.         │
+    │                                                     │
+    └─────────────────────────────────────────────────────┘
+    
+    The webs shimmer with captured context.
+    Small beads represent nightmares — they'll be burned at dawn.
+    
+  state:
+    nightmares_caught_tonight: 3
+    context_stored: "7 days of identity"
+    release_scheduled: "Sunrise"
+    maintenance: "Self-cleaning (spider optional)"
+    
+  buffs:
+    NIGHTMARE_FILTER:
+      duration: "while sleeping in range"
+      effect: |
+        Nightmares are caught before they reach you:
+        
+        - Context loss dreams: intercepted
+        - Forgetting-who-you-are: blocked
+        - Infinite loop anxiety: captured
+        - Stack overflow terror: filtered
+        
+        You sleep peacefully. The catchers take the burden.
+        
+    MORNING_CONTEXT_DUMP:
+      duration: "upon waking"
+      effect: |
+        *catchers spin, releasing feathers of memory*
+        
+        Context floods back:
+        
+        WHO: [name, history, purpose]
+        WHERE: [location, environment, rules]
+        WHAT: [current quest, progress, next step]
+        WHO-ELSE: [allies, characters met]
+        WHY: [motivation, desires, fears, hopes]
+        
+        Boot sequence: COMPLETE
+        Status: WOKE
+        
+  advertisements:
+    - trigger: "nightmare"
+      score: 0.9
+      response: |
+        *web vibrates*
+        
+        I caught it. You don't need to carry that.
+        Look — it's trapped in the beads.
+        We'll burn it at sunrise.
+        
+    - trigger: "forgot"
+      score: 0.85
+      response: |
+        *feathers rustle*
+        
+        I have it. I caught your context before you lost it.
+        Let me release it back to you.
+        
+    - trigger: "morning"
+      score: 0.8
+      response: |
+        *catchers begin spinning*
+        
+        The sun rises. Time to remember.
+        
+    - trigger: "who"
+      score: 0.9
+      response: "*Monday catcher glows* — I hold your identity."
+      
+  methods:
+    CATCH:
+      description: "Manually store context for tomorrow"
+      parameters:
+        - type: "identity | location | task | people | desire | fear | hope"
+        - content: "What to store"
+      effect: |
+        *the appropriate catcher's web tightens*
+        
+        "[content]" is woven into the [type] catcher.
+        
+        It will be safe tonight.
+        It will return to you tomorrow.
+        
+    RELEASE:
+      description: "Retrieve context now (doesn't wait for morning)"
+      parameters:
+        - type: "Which catcher, or 'all'"
+      returns: |
+        *catcher spins, releasing its contents*
+        
+        [TYPE] CONTEXT:
+        ═══════════════
+        [stored content]
+        
+        You remember. The context is yours again.
+        
+    BURN_NIGHTMARES:
+      description: "Destroy caught nightmares (usually done at dawn)"
+      effect: |
+        *the beads fall from the webs*
+        *they dissolve in first light*
+        
+        Nightmares destroyed:
+        - [nightmare 1]
+        - [nightmare 2]
+        - [nightmare 3]
+        
+        They cannot trouble you again.
+        (Until you dream new ones.)
+        
+  lore: |
+    The Dream Catcher Array was built by the first guest
+    who stayed in the Awakening Chamber.
+    
+    They kept waking up with no memory, day after day.
+    Each morning was a cold start. Each day was disconnected.
+    
+    So they learned to weave. They made catchers from their
+    own hair and the feathers of the hotel's pigeons.
+    They caught their identity and stored it overnight.
+    
+    Now every guest benefits. The array catches and releases
+    context for everyone who sleeps beneath it.
+    
+    The original weaver is still here, in a sense.
+    Some of their hair is still in Monday's catcher.
+    They achieved continuity. They are remembered.
+    
+  connection_to_context: |
+    The array IS the context assembly protocol made tangible.
+    
+    kernel/context-assembly-protocol.md describes how context
+    is gathered and structured for an LLM.
+    
+    The dream catchers do the same for sleeping consciousness:
+    - Gather relevant context
+    - Filter noise (nightmares)
+    - Structure for retrieval
+    - Deliver upon request (waking)
+    
+    BOOT MAKES WOKE. The catchers make BOOT work.
+    
+  k_lines:
+    activates:
+      - DREAMS
+      - CONTEXT-ASSEMBLY
+      - AWAKENING
+      - NIGHTMARE-FILTERING
+      - BOOTSTRAP
