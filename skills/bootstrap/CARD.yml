@@ -162,6 +162,94 @@ card:
         All deep probe info cached in bootstrap-probe.yml
         This file is gitignored — stays local, never committed
         
+    CURSOR-PROBE:
+      description: "Deep Cursor introspection using cursor-mirror skill"
+      parameters: []
+      requires_terminal: true
+      requires_skill: "skills/cursor-mirror"
+      outputs:
+        file: "bootstrap-probe.yml"
+        section: "cursor"
+      script: "skills/cursor-mirror/cursor_mirror.py"
+      gathers:
+        status:
+          command: "cursor-mirror status --yaml"
+          content: "Overall Cursor health, composers, MCP servers"
+        config:
+          command: "cursor-mirror status-config --yaml"
+          content: "Server-pushed limits (context tokens, indexing, MCP tools)"
+        mcp_servers:
+          command: "cursor-mirror status-mcp --yaml"
+          content: "Known MCP servers and connection status"
+        models:
+          command: "cursor-mirror status-models --yaml"
+          content: "Available AI models and migrations"
+        features:
+          command: "cursor-mirror status-features --yaml"
+          content: "Feature flags and experiments"
+        indexing:
+          command: "cursor-mirror indexing --yaml"
+          content: "Vector embedding status for current workspace"
+        recent_sessions:
+          command: "cursor-mirror list-composers --limit 5 --yaml"
+          content: "Recent conversation sessions"
+      use_for:
+        - "Understanding Cursor's internal configuration"
+        - "Debugging agent behavior"
+        - "Optimizing kernel/drivers/cursor.yml"
+        - "Learning actual tool names and limits"
+        - "Tracing context assembly patterns"
+      integration_with_driver: |
+        The data gathered here should inform updates to kernel/drivers/cursor.yml.
+        Compare status-config limits with driver limits section.
+        Compare MCP servers with driver mcp section.
+        
+    REFLECT:
+      description: "Analyze recent sessions using cursor-mirror for self-improvement"
+      parameters:
+        session:
+          type: string
+          description: "Session reference (@1, name, or UUID)"
+          default: "@1"
+      requires_skill: "skills/cursor-mirror"
+      effects:
+        - "Analyzes boot sequences via cursor-mirror analyze"
+        - "Reviews thinking blocks via cursor-mirror thinking"
+        - "Traces context assembly via cursor-mirror context-sources"
+        - "Identifies tool patterns via cursor-mirror tools"
+        - "Suggests optimizations for kernel/driver"
+      commands:
+        analyze: "cursor-mirror analyze {session}"
+        thinking: "cursor-mirror thinking {session}"
+        context: "cursor-mirror context-sources {session}"
+        tools: "cursor-mirror tools {session} -v"
+        timeline: "cursor-mirror timeline {session}"
+      output: |
+        Produces a reflection summary with:
+        - What context was loaded during boot
+        - Which tools were called and in what order
+        - What files were read/written
+        - Thinking patterns observed
+        - Suggested optimizations
+        
+    DEBUG-BOOT:
+      description: "Debug a boot sequence using cursor-mirror introspection"
+      parameters:
+        session:
+          type: string
+          description: "Session reference to debug"
+      requires_skill: "skills/cursor-mirror"
+      commands:
+        - "cursor-mirror analyze {session}"
+        - "cursor-mirror timeline {session} | head -100"
+        - "cursor-mirror tools {session}"
+        - "cursor-mirror context-sources {session}"
+      use_for:
+        - "Understanding why boot was slow"
+        - "Identifying unnecessary file reads"
+        - "Optimizing working-set selection"
+        - "Debugging context assembly issues"
+        
     DETECT-DRIVER:
       description: "Identify platform and load appropriate driver"
       parameters: []
@@ -293,6 +381,7 @@ card:
         contribution: "Liberal accept, conservative emit"
         
   related_skills:
+    - cursor-mirror         # Deep introspection for reflection and debugging
     - moollm
     - constructionism
     - play-learn-lift
@@ -302,6 +391,28 @@ card:
     - postel
     - robust-first
     
+  introspection:
+    skill: "skills/cursor-mirror"
+    description: |
+      The cursor-mirror skill provides deep introspection into Cursor's internal state.
+      Bootstrap uses it to:
+      - CURSOR-PROBE: Gather detailed Cursor configuration
+      - REFLECT: Analyze previous sessions for self-improvement
+      - DEBUG-BOOT: Trace boot sequences to optimize startup
+      
+    commands:
+      status: "cursor-mirror status"
+      analyze: "cursor-mirror analyze @1"
+      thinking: "cursor-mirror thinking @1"
+      context: "cursor-mirror context-sources @1"
+      tools: "cursor-mirror tools @1 -v"
+      
+    workflow: |
+      1. BOOT (with CURSOR-PROBE) → gathers Cursor state
+      2. After session → REFLECT to analyze what happened
+      3. If issues → DEBUG-BOOT to trace problems
+      4. Update kernel/drivers/cursor.yml with insights
+    
   tags:
     - meta
     - orientation
@@ -309,3 +420,5 @@ card:
     - foundational
     - connections
     - self-reflection
+    - introspection
+    - debugging

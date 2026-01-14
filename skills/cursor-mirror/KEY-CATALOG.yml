@@ -1,0 +1,412 @@
+# Cursor Database Key Catalog
+# Complete inventory of key types and their schemas
+# Discovered via SQLite introspection of globalStorage/state.vscdb
+# Author: Don Hopkins, Leela AI
+
+meta:
+  version: "1.0"
+  discovered: "2026-01-14"
+  databases:
+    - "~/Library/Application Support/Cursor/User/globalStorage/state.vscdb"
+    - "~/Library/Application Support/Cursor/User/workspaceStorage/*/state.vscdb"
+
+# cursorDiskKV Table
+# Primary key-value store for large blobs, chat messages, and state
+cursorDiskKV:
+  total_keys: 102724
+  unique_prefixes: 11
+
+  # Major Key Types (high volume)
+  bubbleId:
+    count: 50567
+    percent: 49.23
+    pattern: "bubbleId:{composerId}:{index}"
+    description: "Chat message bubbles - 68-field rich JSON objects"
+    schema_ref: "DATA-SCHEMAS.yml#bubble"
+    moollm_relevance: "Core context for conversation reconstruction"
+
+  agentKv:
+    count: 25819
+    percent: 25.13
+    pattern: "agentKv:{composerId}:{toolCallId}"
+    description: "Tool call results and large response blobs"
+    fields:
+      - result: "Tool output (may be large)"
+      - status: "success | error"
+      - toolName: "Name of tool invoked"
+    moollm_relevance: "Rich history of agent tool usage patterns"
+
+  checkpointId:
+    count: 10019
+    percent: 9.75
+    pattern: "checkpointId:{uuid}:{filePath}"
+    description: "File state snapshots for rollback/undo"
+    fields:
+      - content: "Full file content at checkpoint"
+      - timestamp: "When snapshot taken"
+      - metadata: "Change context"
+    moollm_relevance: "Enables session state reconstruction"
+
+  codeBlockDiff:
+    count: 6865
+    percent: 6.68
+    pattern: "codeBlockDiff:{bubbleId}:{blockIndex}"
+    description: "Individual code block changes in responses"
+    fields:
+      - originalCode: "Before state"
+      - modifiedCode: "After state"
+      - language: "Code language"
+      - filePath: "Target file"
+
+  codeBlockPartialInlineDiffFates:
+    count: 5179
+    percent: 5.04
+    pattern: "codeBlockPartialInlineDiffFates:{uuid}"
+    description: "Inline diff tracking with line-level granularity"
+    schema:
+      fates:
+        type: array
+        items:
+          removedLines: "Lines removed"
+          removedRange: "{startLineNumber, endLineNumberExclusive}"
+          addedLines: "Lines added"
+    moollm_relevance: "Fine-grained edit tracking for analysis"
+
+  messageRequestContext:
+    count: 3185
+    percent: 3.10
+    pattern: "messageRequestContext:{composerId}:{requestId}"
+    description: "Full context snapshot at request time"
+    schema_ref: "DATA-SCHEMAS.yml#messageRequestContext"
+
+  # Minor Key Types (low volume)
+  composer.content:
+    count: 975
+    percent: 0.95
+    pattern: "composer.content.{sha256hash}"
+    description: "Content-addressed cache by hash"
+    notes: "Large (~250KB each), possibly compressed"
+    moollm_relevance: "Deduplication of repeated content"
+
+  inlineDiffUndoRedo:
+    count: 56
+    percent: 0.05
+    pattern: "inlineDiffUndoRedo-{uuid}-{uuid}"
+    description: "Undo/redo state for inline diffs"
+    schema:
+      id: "Diff ID"
+      changes: "Array of change objects"
+      pendingRange: "Range being edited"
+      newTextLines: "New text"
+      canUndoUpdates: boolean
+      showNativeAcceptReject: boolean
+      uri: "File URI"
+      generationUUID: "Generation ID"
+      currentRange: "Current edit range"
+      originalTextLines: "Original text"
+      prompt: "User prompt that triggered edit"
+      attachedToPromptBar: boolean
+      source: "Edit source"
+      createdAt: "Timestamp"
+      composerMetadata: "Composer context"
+      hideDeletionViewZones: boolean
+      toolCallId: "Tool call that triggered"
+
+  composerData:
+    count: 36
+    percent: 0.04
+    pattern: "composerData:{composerId}"
+    description: "Conversation metadata and settings"
+    schema_ref: "DATA-SCHEMAS.yml#composerData"
+
+  inlineDiffs:
+    count: 13
+    percent: 0.01
+    pattern: "inlineDiffs-{hash|timestamp}"
+    description: "Inline diff tracking (often empty arrays)"
+
+  composer.autoAccept:
+    count: 2
+    percent: 0.002
+    keys:
+      lastSeenHeadSha: "Last git HEAD SHA for auto-accept"
+      lastSeenHeadTimestamp: "When HEAD was last seen (Unix ms)"
+    moollm_relevance: "Git integration state tracking"
+
+# ItemTable
+# Settings, caches, and smaller state values
+ItemTable:
+  total_keys: 382
+  unique_prefixes: 165
+
+  # AI Code Tracking (attribution analytics)
+  aiCodeTracking:
+    description: "Tracks AI-written vs human-written code"
+    keys:
+      aiCodeTrackingLines:
+        size_bytes: 2425714
+        count: 10000
+        description: "Per-line tracking with hash and metadata"
+        schema:
+          hash: "Line content hash"
+          metadata:
+            source: "composer | tab"
+            composerId: "Source conversation"
+            fileExtension: "File type"
+            fileName: "Full file path"
+        moollm_relevance: "Attribution analysis for AI contributions"
+
+      aiCodeTrackingScoredCommits:
+        count: 500
+        description: "Commit hashes that have been analyzed"
+
+      aiCodeTracking.recentCommit:
+        description: "Last commit with AI percentage breakdown"
+        schema:
+          commitHash: "Git commit hash"
+          commitMessage: "Commit message"
+          commitDate: "Date string"
+          repoName: "Repository name"
+          branchName: "Branch name"
+          aiPercentage: "Percentage AI-written"
+          timestamp: "Unix timestamp"
+          tabLinesAdded: "Lines from tab completion"
+          tabLinesDeleted: "Lines deleted"
+          composerLinesAdded: "Lines from composer"
+          composerLinesDeleted: "Lines deleted"
+          linesAdded: "Total lines added"
+          linesDeleted: "Total lines deleted"
+        moollm_relevance: "Critical for AI attribution metrics"
+
+      aiCodeTracking.dailyStats.v1.5.DATE:
+        count: 34
+        pattern: "aiCodeTracking.dailyStats.v1.5.YYYY-MM-DD"
+        description: "Daily AI code statistics"
+        schema:
+          date: "YYYY-MM-DD"
+          tabSuggestedLines: "Lines suggested by tab"
+          tabAcceptedLines: "Lines accepted from tab"
+          composerSuggestedLines: "Lines from composer"
+          composerAcceptedLines: "Lines accepted from composer"
+
+      aiCodeTrackingStartTime:
+        description: "When tracking started (Unix ms)"
+
+  # Feature Configuration
+  cursorai_config:
+    cursorai/featureStatusCache:
+      description: "32 boolean feature flags"
+      size_bytes: 1132
+      notable_flags:
+        advancedCodeTrackingAnalytics: true
+        autoSaveAgenticEdits: true
+        clientSideParallelToolCalls: true
+        enableAgentWebSearch: true
+        enableProjectLayoutsInSystemPrompt: true
+        enableSendToBackgroundCheckbox: true
+        shouldUseReranking: true
+        enableGitCheckpoints: false
+        enableGitStatusInSystemPrompt: false
+        debug_mode_enabled: false
+
+    cursorai/featureConfigCache:
+      description: "Runtime numeric limits"
+      size_bytes: 602
+      schema_ref: "ORCHESTRATION.yml#featureConfiguration"
+
+    cursorai/serverConfig:
+      description: "Server-side configuration cache"
+      size_bytes: 24728
+      schema_ref: "ORCHESTRATION.yml#serverConfiguration"
+
+  # Privacy Settings
+  privacy:
+    cursorai/donotchange/privacyMode:
+      type: boolean
+      description: "Legacy privacy mode flag"
+
+    cursorai/donotchange/newPrivacyMode2:
+      type: object
+      schema:
+        privacyMode: "PRIVACY_MODE_NO_TRAINING | PRIVACY_MODE_DISABLED"
+      description: "New privacy mode enum"
+
+    cursorai/donotchange/partnerDataShare:
+      type: boolean
+      description: "Partner data sharing consent"
+
+    cursorai/donotchange/newPrivacyModeHoursRemainingInGracePeriod:
+      type: number
+      description: "Hours left in grace period"
+
+  # Memory System
+  memories:
+    cursor/memoriesEnabled:
+      type: boolean
+      description: "Whether persistent memories are enabled"
+
+    cursorPendingMemories:
+      type: array
+      description: "Memories waiting to be synced"
+      schema:
+        id: "Memory UUID"
+        memory: "The memory content"
+        title: "Short title"
+        requestId: "Originating request"
+        composerId: "Source conversation"
+        timestamp: "Unix timestamp"
+      moollm_relevance: "Similar to MOOLLM hot.yml - short-term working memory"
+
+  # Layout State
+  layout:
+    agentLayout.shared.v6:
+      description: "Agent window layout persistence"
+      schema:
+        auxiliaryBarVisible: boolean
+        auxiliaryBarWidth: number
+        editorVisible: boolean
+        editorWidth: number
+        panelHeight: number
+        panelVisible: boolean
+        panelWidth: number
+        sidebarVisible: boolean
+        sidebarWidth: number
+        statusBarVisible: boolean
+
+    workbench.panel.*:
+      count: 159
+      pattern: "workbench.panel.composerChatViewPane.{uuid}.hidden"
+      description: "Per-panel visibility state"
+
+  # MCP (Model Context Protocol)
+  mcp:
+    mcpService.knownServerIds:
+      type: array
+      description: "List of known MCP server IDs"
+      example:
+        - "user-svelte"
+        - "user-browsermcp"
+        - "project-0-a2deh-puppeteer-nessus"
+      moollm_relevance: "Tracks available tool servers"
+
+  # Terminal History
+  terminal:
+    terminal.history.entries.commands:
+      size_bytes: 14775
+      description: "Terminal command history"
+      type: dict
+
+    terminal.history.entries.dirs:
+      size_bytes: 7794
+      description: "Terminal directory history"
+      type: dict
+
+  # Git Integration
+  git:
+    repositoryTracker.paths:
+      description: "Tracked repositories with access times"
+      schema:
+        "[remote/repo]":
+          localPath: "file:// URI"
+          lastAccessed: "Unix timestamp"
+
+    composer.autoAccept.lastSeenHeadSha:
+      description: "Last seen git HEAD for auto-accept"
+
+  # Stats & Counters
+  stats:
+    freeBestOfN.promptCount:
+      description: "Best-of-N prompts used"
+      current_value: 3383
+
+    languageStatus.interactCount:
+      description: "Language status interactions"
+
+    aiPane.tooltipShowCount:
+      description: "AI pane tooltip displays"
+
+    commandPalette.mru.counter:
+      description: "Command palette usage counter"
+
+  # Authentication (values redacted)
+  auth:
+    cursorAuth/accessToken:
+      description: "API access token"
+      sensitive: true
+
+    cursorAuth/refreshToken:
+      description: "Token refresh credential"
+      sensitive: true
+
+    cursorAuth/cachedEmail:
+      description: "Cached user email"
+      sensitive: false
+
+    cursorAuth/stripeMembershipType:
+      description: "Subscription type"
+      example: "business"
+
+    cursorAuth/claudeKey:
+      description: "Claude API key (BYOK)"
+      sensitive: true
+
+  # Admin/Enterprise
+  admin:
+    adminSettings.cached:
+      description: "Cached admin settings for enterprise"
+      schema:
+        allowedModels: "array - allowed model list"
+        blockedModels: "array - blocked model list"
+        dotCursorProtection: boolean
+        browserFeatures: boolean
+        browserOriginAllowlist: "array - allowed browser origins"
+        byokDisabled: "boolean - BYOK disabled"
+        sharedConversationSettings:
+          enabled: boolean
+          allowedVisibilities: array
+          allowPublicIndexing: boolean
+
+  # Chat Participants
+  chat:
+    chat.participantNameRegistry:
+      description: "Registered chat participant extensions"
+      example:
+        vscode: ["github"]
+        terminal: ["github"]
+        stripe: ["stripe"]
+        mongodb: ["mongodb"]
+        playwright: ["ms-playwright"]
+
+    chat.setupContext:
+      schema:
+        entitlement: "number (e.g., 3)"
+        installed: boolean
+        registered: boolean
+
+  # Workspace History
+  history:
+    history.recentlyOpenedPathsList:
+      description: "Recently opened folders"
+      size_bytes: 5244
+      schema:
+        entries:
+          - folderUri: "file:// URI"
+
+# MOOLLM Integration Notes
+moollm_implications:
+  hot_cold_analogy:
+    - "cursorPendingMemories ≈ MOOLLM hot.yml (working memory)"
+    - "aiCodeTrackingLines ≈ persistent cold storage"
+    - "featureStatusCache ≈ runtime feature flags"
+
+  orchestrator_hooks:
+    - "agentKv provides tool call history"
+    - "messageRequestContext shows context assembly"
+    - "aiCodeTracking.dailyStats for attribution metrics"
+    - "mcpService.knownServerIds for tool discovery"
+
+  bootstrap_opportunities:
+    - "Read repositoryTracker.paths for workspace discovery"
+    - "Parse aiCodeTracking for AI contribution analysis"
+    - "Monitor composerData for session state"
+    - "Track inlineDiffUndoRedo for edit patterns"

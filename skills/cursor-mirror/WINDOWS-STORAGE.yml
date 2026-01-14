@@ -1,0 +1,51 @@
+# Cursor storage map (Windows) — skeleton to warm start probing
+# Fill in by inspection when running on Windows.
+# Author: Don Hopkins, Leela AI
+
+paths:
+  global_state_db:
+    path: "%APPDATA%\\Cursor\\User\\globalStorage\\state.vscdb"
+    type: sqlite
+    status: "unverified"
+    notes: "Likely mirrors macOS globalStorage; ItemTable K/V."
+
+  workspace_storage_root:
+    path: "%APPDATA%\\Cursor\\User\\workspaceStorage\\"
+    type: dir
+    status: "unverified"
+    notes: "Hash-per-workspace dirs; expect state.vscdb per hash."
+
+  local_storage_leveldb:
+    path: "%APPDATA%\\Cursor\\Local Storage\\leveldb\\"
+    type: leveldb
+    status: "unverified"
+    notes: "Webview/local storage; inspect for chat/session keys."
+
+  session_storage:
+    path: "%APPDATA%\\Cursor\\Session Storage\\"
+    type: dir
+    status: "unverified"
+
+  web_storage:
+    path: "%APPDATA%\\Cursor\\WebStorage\\"
+    type: dir
+    status: "unverified"
+
+  partitions:
+    path: "%APPDATA%\\Cursor\\Partitions\\"
+    type: dir
+    status: "unverified"
+    notes: "Chrome/Electron partition stores (Cookies/DIPS/etc.)."
+
+search_hints:
+  - "rg/strings for chatSession, conversation, composer, transcript, history, messages"
+  - "sqlite: SELECT key FROM ItemTable WHERE key LIKE '%chat%';"
+  - "lsof/handle while chatting to catch active files"
+
+provenance:
+  - "Paths from public guides (mirror of macOS layout); not yet verified in situ."
+
+next_steps:
+  - "Verify presence of state.vscdb in global/workspace roots."
+  - "List workspaces (hash dirs) and size-rank state.vscdb files."
+  - "Search for chat title/marker within state.vscdb blobs."

@@ -1,0 +1,235 @@
+# Cursor AI Models
+# Extracted from local database analysis
+# Token limits and pricing are fetched from server at runtime
+# Author: Don Hopkins, Leela AI
+
+meta:
+  discovered: "2026-01-14"
+  source: "globalStorage/state.vscdb + statsigBootstrap"
+  note: |
+    Full model specs (token limits, pricing) are fetched from Cursor API at runtime.
+    This file documents models seen in local data; actual menu may differ.
+
+# All models found in local data
+models:
+  # Claude family (Anthropic)
+  claude:
+    claude-4.5-opus-high-thinking:
+      family: "Claude 4.5"
+      tier: "opus"
+      features: [high, thinking]
+      usage: "Default for agent mode (Dec 2025+)"
+      
+    claude-4.5-opus-high:
+      family: "Claude 4.5"
+      tier: "opus"
+      features: [high]
+      
+    claude-4.5-opus:
+      family: "Claude 4.5"
+      tier: "opus"
+      
+    claude-4.5-sonnet-thinking:
+      family: "Claude 4.5"
+      tier: "sonnet"
+      features: [thinking]
+      migrated_to: "claude-4.5-opus-high-thinking"
+      
+    claude-4.5-sonnet:
+      family: "Claude 4.5"
+      tier: "sonnet"
+      migrated_to: "claude-4.5-opus-high"
+      
+    claude-4.5-haiku:
+      family: "Claude 4.5"
+      tier: "haiku"
+      usage: "Fast, cheap internal operations"
+      
+    claude-4-sonnet-thinking:
+      family: "Claude 4"
+      tier: "sonnet"
+      features: [thinking]
+      migrated_to: "claude-4.5-sonnet-thinking"
+      deprecated: true
+      
+    claude-4-sonnet:
+      family: "Claude 4"
+      tier: "sonnet"
+      migrated_to: "claude-4.5-sonnet"
+      deprecated: true
+      
+    claude-4-5-sonnet-20250929:
+      family: "Claude 4.5"
+      tier: "sonnet"
+      note: "Dated version string"
+  
+  # GPT family (OpenAI)
+  gpt:
+    gpt-5.2:
+      family: "GPT 5.2"
+      note: "Latest generation"
+      
+    gpt-5.1-codex-max:
+      family: "GPT 5.1 Codex"
+      tier: "max"
+      note: "High capability coding model"
+      
+    gpt-5.1-codex-max-high:
+      family: "GPT 5.1 Codex"
+      tier: "max-high"
+      
+    gpt-5.1-codex-max-high-fast:
+      family: "GPT 5.1 Codex"
+      tier: "max-high-fast"
+      
+    gpt-5.1-codex-max-medium-fast:
+      family: "GPT 5.1 Codex"
+      tier: "max-medium-fast"
+      
+    gpt-5.1-codex-max-low:
+      family: "GPT 5.1 Codex"
+      tier: "max-low"
+      
+    gpt-5.1-codex-max-low-fast:
+      family: "GPT 5.1 Codex"
+      tier: "max-low-fast"
+      
+    gpt-5.1-codex:
+      family: "GPT 5.1 Codex"
+      migrated_to: "gpt-5.1-codex-max"
+      
+    gpt-5.1-codex-high:
+      family: "GPT 5.1 Codex"
+      tier: "high"
+      migrated_to: "gpt-5.1-codex-max-high"
+      
+    gpt-5.1-codex-high-fast:
+      family: "GPT 5.1 Codex"
+      tier: "high-fast"
+      migrated_to: "gpt-5.1-codex-max-high-fast"
+      
+    gpt-5.1-codex-low:
+      family: "GPT 5.1 Codex"
+      tier: "low"
+      migrated_to: "gpt-5.1-codex-max-low"
+      
+    gpt-5.1-codex-low-fast:
+      family: "GPT 5.1 Codex"
+      tier: "low-fast"
+      migrated_to: "gpt-5.1-codex-max-low-fast"
+      
+    gpt-5.1-codex-fast:
+      family: "GPT 5.1 Codex"
+      tier: "fast"
+      migrated_to: "gpt-5.1-codex-max-medium-fast"
+      
+    gpt-5-high:
+      family: "GPT 5"
+      tier: "high"
+      usage: "Judge model for best-of-N, planning"
+      
+    gpt-5:
+      family: "GPT 5"
+      usage: "Orientation model"
+      
+    gpt-5-mini:
+      family: "GPT 5"
+      tier: "mini"
+      usage: "Summarization"
+  
+  # Grok family (xAI)
+  grok:
+    grok-code-fast-1:
+      family: "Grok"
+      tier: "code-fast"
+      note: "Fast coding model"
+  
+  # Internal/auto-select models
+  auto:
+    auto-fast:
+      type: "auto-select"
+      description: "Automatic model selection, optimized for speed"
+      
+    auto-fast-thinking:
+      type: "auto-select"
+      description: "Auto-select with thinking enabled"
+      
+    cheetah:
+      type: "internal"
+      description: "Fast internal model"
+      
+    fiercefalcon:
+      type: "internal"
+      description: "Used for behavior analysis"
+
+# Model settings by context
+model_settings:
+  composer:
+    description: "Main chat/agent mode"
+    default: "claude-4.5-opus-high-thinking"
+    
+  background-composer:
+    description: "Background operations"
+    
+  plan-execution:
+    description: "Plan mode execution"
+    
+  best-of-n:
+    description: "Best-of-N evaluation"
+    models: ["claude-4.5-sonnet-thinking"]
+    judge: "gpt-5-high"
+
+# Internal model usage (from statsig configs)
+internal_usage:
+  summarizer: "gpt-5-mini"
+  judge: "gpt-5-high"
+  orientation: "gpt-5"
+  feasibility_check: "claude-4-sonnet-thinking"
+  plan: "gpt-5-high"
+  synthesis: "claude-4.5-opus-high"
+  agentic: "claude-4.5-haiku"
+  behavior_analysis: "fiercefalcon"
+
+# Token limits (from chatConfig)
+token_limits:
+  fullContextTokenLimit: 30000
+  maxRuleLength: 100000
+  note: |
+    Per-model token limits are not cached locally.
+    The fullContextTokenLimit applies to context assembly.
+
+# Model migrations (server-side automatic upgrades)
+migrations:
+  "2025-01":
+    claude-4-sonnet: "claude-4.5-sonnet"
+    claude-4-sonnet-thinking: "claude-4.5-sonnet-thinking"
+    
+  "2025-12-01":
+    claude-4.5-sonnet: "claude-4.5-opus-high"
+    claude-4.5-sonnet-thinking: "claude-4.5-opus-high-thinking"
+    
+  "2025-12-05":
+    gpt-5.1-codex: "gpt-5.1-codex-max"
+    gpt-5.1-codex-high: "gpt-5.1-codex-max-high"
+    gpt-5.1-codex-low: "gpt-5.1-codex-max-low"
+    gpt-5.1-codex-fast: "gpt-5.1-codex-max-medium-fast"
+
+# What's NOT available locally
+not_cached:
+  - "Per-model input/output token limits"
+  - "Per-model pricing ($/1M tokens)"
+  - "Rate limits"
+  - "Full model capability matrix"
+  - "Model context window sizes"
+  note: "These are fetched from Cursor API at runtime"
+
+# How to get full model info
+api_notes:
+  description: |
+    Cursor fetches model info from its API at runtime.
+    The model menu is populated dynamically.
+    Pricing and limits are not stored locally.
+  possible_sources:
+    - "Network inspector during Cursor startup"
+    - "Cursor API documentation (if available)"
+    - "cursor.com/pricing page"

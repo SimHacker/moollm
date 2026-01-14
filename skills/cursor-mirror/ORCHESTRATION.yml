@@ -1,0 +1,433 @@
+# Cursor Orchestration & Context Assembly
+# Deep dive into how Cursor orchestrates AI agent behavior
+# For MOOLLM bootstrap, probe, and kernel driver design
+# Author: Don Hopkins, Leela AI
+
+meta:
+  discovered: "2026-01-14"
+  source: "globalStorage/state.vscdb analysis"
+  purpose: "Understanding Cursor internals for MOOLLM orchestrator design"
+
+# Key Discovery: Bubble Structure (68 Fields!)
+bubble_schema:
+  description: |
+    Each message (bubble) in Cursor contains 68 fields capturing the full
+    context, capabilities, and state at the time of the message.
+    This is the COMPLETE picture of what the agent knew.
+  
+  version: 3  # _v field
+  
+  identity:
+    bubbleId: "UUID for this message"
+    type: "1=user, 2=assistant"
+    createdAt: "ISO 8601 timestamp"
+    requestId: "Links to request context"
+    isAgentic: "Boolean - agent mode vs simple chat"
+    unifiedMode: "2=agent, 1=chat, 0=unknown"
+  
+  content:
+    text: "Message text content"
+    codeBlocks: "Code snippets in message"
+    suggestedCodeBlocks: "Proposed code changes"
+    lints: "Linter errors at time of message"
+    images: "Attached images"
+  
+  context_sources:
+    description: "All context assembled for this message"
+    fields:
+      attachedCodeChunks: "Semantic search results"
+      attachedFileCodeChunksMetadataOnly: "File references without content"
+      attachedFolders: "Folder attachments"
+      attachedFoldersListDirResults: "Directory listings"
+      attachedFoldersNew: "Newly attached folders"
+      codebaseContextChunks: "Codebase search context"
+      contextPieces: "Generic context pieces"
+      cursorRules: ".cursorrules content"
+      docsReferences: "@docs mentions"
+      documentationSelections: "Documentation selections"
+      externalLinks: "Web URLs"
+      knowledgeItems: "Knowledge base items"
+      projectLayouts: "Directory tree snapshots"
+      recentlyViewedFiles: "Recently viewed files"
+      relevantFiles: "Files deemed relevant"
+      summarizedComposers: "Summarized prior conversations"
+      webReferences: "Web search results"
+      workspaceUris: "Workspace file URIs"
+  
+  tool_integration:
+    toolFormerData:
+      description: "Tool call details"
+      fields:
+        name: "Tool name (e.g., read_file_v2)"
+        rawArgs: "JSON arguments"
+        result: "Tool output"
+        status: "pending|running|completed|error"
+        toolCallId: "Unique call ID"
+        modelCallId: "Parent model call"
+    toolResults: "Accumulated tool results"
+    supportedTools: "Available tools for this message"
+    mcpDescriptors: "MCP server tool descriptors"
+  
+  capabilities:
+    description: "Agent capabilities (numeric types)"
+    known_types:
+      15: "Unknown (bubbleDataMap)"
+      16: "Unknown"
+      18: "Unknown"
+      19: "Unknown"
+      22: "Unknown"
+      23: "Unknown"
+      24: "Unknown"
+      25: "Unknown"
+      30: "Unknown"
+      32: "Unknown"
+      33: "Unknown"
+      34: "Unknown"
+    capabilityType: "Primary capability for this bubble"
+    capabilityStatuses: "Status of each capability (10 keys)"
+    capabilityContexts: "Capability-specific context"
+  
+  git_integration:
+    commits: "Referenced commits"
+    pullRequests: "Referenced PRs"
+    gitDiffs: "Git diff context"
+    deletedFiles: "Recently deleted files"
+  
+  diff_tracking:
+    diffHistories: "History of diffs"
+    diffsSinceLastApply: "Pending diffs"
+    diffsForCompressingFiles: "Compressed file diffs"
+    fileDiffTrajectories: "File change trajectories"
+    assistantSuggestedDiffs: "Suggested code changes"
+    humanChanges: "User-made changes"
+    attachedHumanChanges: "Boolean flag"
+  
+  ai_features:
+    thinking: "dict with text and signature fields"
+    allThinkingBlocks: "All thinking blocks in conversation"
+    aiWebSearchResults: "AI web search results"
+    useWeb: "Boolean - web search enabled"
+    interpreterResults: "Code interpreter results"
+  
+  terminal:
+    existedPreviousTerminalCommand: "Terminal context"
+    existedSubsequentTerminalCommand: "Terminal context"
+    consoleLogs: "Console output"
+  
+  ui_state:
+    notepads: "Notepad references"
+    uiElementPicked: "UI elements referenced"
+    recentLocationsHistory: "Navigation history"
+    todos: "Task list state"
+  
+  metadata:
+    tokenCount: "dict with input/output counts"
+    isRefunded: "Whether tokens were refunded"
+    isQuickSearchQuery: "Quick search mode"
+
+# Orchestration Configuration
+feature_config:
+  location: "ItemTable: cursorai/featureConfigCache"
+  description: "Runtime limits and thresholds"
+  
+  file_handling:
+    readFilesToolMaxLines: 1500
+    readFileToolMaxChars: 100000
+    readFilesToolMaxFileSizeInBytes: 2000000
+    readFileV2ToolMaxFileSizeInBytes: 200000000
+    editFileToolMaxFileSizeInLinesBeforeSwitchingToSearchReplace: 3500
+    editFileToolMaxFileSizeInCharactersBeforeSwitchingToSearchReplace: 150000
+    applyButtonLineLimit: 10000
+  
+  search:
+    fileSearchToolMaxResults: 10
+    semSearchInCmdP: 0  # Disabled
+  
+  directory:
+    listDirV2ClientSideCharacterBudget: 2500
+  
+  ui:
+    composerMaxOpenTabs: 5
+    chatSuggestionsTtlMs: 15000
+  
+  caching:
+    cmdkWarmCacheDelayMs: 60000
+    composerWarmCacheDelayMs: 60000
+    composerDiffMaxComputationTimeMs: 2000
+  
+  features:
+    sendToBackgroundFractionEnabled: 1
+
+feature_flags:
+  location: "ItemTable: cursorai/featureStatusCache"
+  description: "Feature toggles"
+  
+  enabled:
+    - enableAgentWebSearch
+    - shouldUseReranking
+    - autoSaveAgenticEdits
+    - composerSearchThroughUnloadedMessages
+    - composerFindActionsEnabled
+    - clientSideParallelToolCalls
+    - githubConnectionPromptEnabled
+    - enableProjectLayoutsInSystemPrompt
+    - putIdeEditorsStateInAdditionalDataV2
+    - enableSimpleGlobPatternGeneration
+    - enableReviewModeForTerminal
+    - advancedCodeTrackingAnalytics
+    - populateListDirV2ResultWithFileExtensions
+    - enableSendToBackgroundCheckbox
+    - enableCompactDisplayMode
+    - enableSystemNotifications
+  
+  disabled:
+    - chatUsesTools
+    - shouldSendCmdKDiffHistory
+    - shouldUseLongHistoryStack
+    - modelFallbacksToggleInSettings
+    - enableGitStatusInSystemPrompt
+    - enableReviewModeWithModesOnClient
+    - nudgesDisabled
+    - enableGitCheckpoints
+    - enableLayoutSettingsMenu
+    - forceAiBasedFinishCheckForDevs
+    - debug_mode_enabled
+
+# Server Configuration
+server_config:
+  location: "ItemTable: cursorai/serverConfig"
+  
+  indexing:
+    maxConcurrentUploads: 64
+    absoluteMaxNumberFiles: 250000
+    maxFileRetries: 30
+    syncConcurrency: 20
+    autoIndexingMaxNumFiles: 250000
+    indexingPeriodSeconds: 272
+    incremental: true
+    multiRootIndexingEnabled: true
+    copyTimeoutSeconds: 3600
+    maxBatchBytes: 2097152
+    maxBatchNumRequests: 20
+    maxSyncMerkleBatchSize: 50
+  
+  chat:
+    fullContextTokenLimit: 30000
+    maxRuleLength: 100000
+    maxMcpTools: 100
+    warnMcpTools: 80
+    numFilesForMemoryGeneration: 999999
+    numSummarizationsBeforeWarningShown: 10
+    cursorRulesReadFileFixEnabled: true
+    dontSendCtrlCBeforeCommand: true
+    clientStatsigPollIntervalMs: 300000
+  
+  tracing:
+    globalSampleRate: 1
+    tracesSampleRate: 0.0001
+    loggerSampleRate: 0.1
+    errorRateLimit: 10
+    profilesSampleRate: 0.001
+
+# Memory System
+memory_system:
+  enabled_flag: "cursor/memoriesEnabled"
+  pending_memories: "cursorPendingMemories"
+  
+  memory_schema:
+    id: "UUID"
+    memory: "Memory content text"
+    title: "Short title"
+    requestId: "Source request"
+    composerId: "Source conversation"
+    timestamp: "Unix ms"
+  
+  example:
+    id: "cdcb43b6-e861-429c-bc9b-e7e97c8ea292"
+    title: "Custom metadata file convention"
+    memory: |
+      Project convention: all LLM-generated metadata is written into 
+      item-custom.json instead of the main item file. Fields are 
+      prefixed with spacecraft_ to avoid collisions.
+  
+  moollm_parallel:
+    description: |
+      This is similar to MOOLLM's hot.yml / cold.yml system!
+      Cursor stores memories that persist across sessions,
+      used to inform future context assembly.
+
+# Composer Data Structure
+composer_schema:
+  location: "cursorDiskKV: composerData:<composerId>"
+  description: "Full conversation state"
+  
+  identity:
+    composerId: "UUID"
+    name: "Conversation title"
+    createdAt: "Unix ms"
+    lastUpdatedAt: "Unix ms"
+  
+  model_config:
+    modelName: "e.g., claude-4.5-opus-high-thinking"
+    maxMode: "Boolean - max context mode"
+  
+  state:
+    status: "Conversation status"
+    hasLoaded: "Boolean"
+    isAgentic: "Boolean"
+    isArchived: "Boolean"
+    isDraft: "Boolean"
+    hasUnreadMessages: "Boolean"
+  
+  context_tracking:
+    contextUsagePercent: "Percentage of context used"
+    contextTokensUsed: "Tokens consumed"
+    contextTokenLimit: "Max tokens available"
+    hasChangedContext: "Context modified flag"
+    allAttachedFileCodeChunksUris: "All attached files"
+  
+  file_tracking:
+    originalFileStates: "Files at start"
+    newlyCreatedFiles: "New files created"
+    newlyCreatedFolders: "New folders created"
+    totalLinesAdded: "Lines added"
+    totalLinesRemoved: "Lines removed"
+    addedFiles: "Files added"
+    removedFiles: "Files removed"
+    filesChangedCount: "Total files changed"
+  
+  modes:
+    unifiedMode: "Agent/chat mode"
+    forceMode: "Forced mode"
+    planModeSuggestionUsed: "Plan mode"
+  
+  subcomposers:
+    subComposerIds: "Child conversations"
+    isBestOfNSubcomposer: "Best-of-N child"
+    isBestOfNParent: "Best-of-N parent"
+  
+  worktrees:
+    isCreatingWorktree: "Creating git worktree"
+    isApplyingWorktree: "Applying worktree"
+    isUndoingWorktree: "Undoing worktree"
+    pendingCreateWorktree: "Pending worktree"
+
+# Key Data Stores
+data_stores:
+  cursorDiskKV:
+    description: "Main key-value store"
+    key_types:
+      bubbleId: "50,467 entries - Chat messages"
+      agentKv: "25,544 entries - Tool results, blobs"
+      checkpointId: "10,019 entries - File state snapshots"
+      codeBlockDiff: "6,865 entries - Code block changes"
+      codeBlockPartialInlineDiffFates: "5,167 entries - Inline diff tracking"
+      messageRequestContext: "3,185 entries - Full context snapshots"
+      composerData: "36 entries - Conversation metadata"
+      composer.content: "~100 entries - Conversation content"
+      inlineDiffUndoRedo: "~50 entries - Undo/redo state"
+  
+  ItemTable:
+    description: "Settings and state"
+    categories:
+      ai_config:
+        - cursorai/featureConfigCache
+        - cursorai/featureStatusCache
+        - cursorai/serverConfig
+        - aicontext.personalContext
+      memory:
+        - cursor/memoriesEnabled
+        - cursorPendingMemories
+      tracking:
+        - aiCodeTracking.dailyStats.*
+        - aiCodeTrackingLines
+        - aiCodeTrackingScoredCommits
+      mcp:
+        - mcpService.knownServerIds
+      auth:
+        - cursorAuth/accessToken
+        - cursorAuth/refreshToken
+        - cursorAuth/cachedEmail
+
+# Implications for MOOLLM
+moollm_implications:
+  bootstrap_insights:
+    description: "What we learn for MOOLLM bootstrap"
+    
+    probe_should_capture:
+      - "Feature flags (like featureStatusCache)"
+      - "Runtime limits (like featureConfigCache)"
+      - "Available tools (like supportedTools)"
+      - "Memory/context state"
+      - "Model configuration"
+    
+    context_assembly_pattern:
+      - "Cursor assembles 68 fields per message"
+      - "Each message is a complete snapshot"
+      - "Tool results cached separately (agentKv)"
+      - "File states tracked via checkpoints"
+      - "Context has explicit token tracking"
+  
+  kernel_driver_cursor:
+    description: "Cursor driver should leverage these fields"
+    
+    read_from:
+      - "cursorai/featureConfigCache → runtime limits"
+      - "cursorai/featureStatusCache → enabled features"
+      - "mcpService.knownServerIds → available MCP servers"
+      - "cursorPendingMemories → persistent memories"
+    
+    advisory_hot_cold:
+      - "hot.yml maps to cursorPendingMemories pattern"
+      - "cold.yml maps to archived/summarized composers"
+      - "working-set.yml maps to attachedFileCodeChunksMetadataOnly"
+  
+  orchestrator_design:
+    description: "Key patterns for our own orchestrator"
+    
+    context_budget:
+      - "fullContextTokenLimit: 30000 tokens"
+      - "contextUsagePercent tracking"
+      - "numSummarizationsBeforeWarningShown"
+    
+    tool_limits:
+      - "maxMcpTools: 100"
+      - "File size limits for edit vs search_replace"
+      - "Parallel tool calls enabled"
+    
+    memory_persistence:
+      - "Memories survive across sessions"
+      - "Stored with title, content, source"
+      - "Can inform future context assembly"
+    
+    checkpointing:
+      - "File state snapshots at key points"
+      - "Enables undo/redo"
+      - "Tracks file modifications"
+
+# Recommendations for MOOLLM Development
+recommendations:
+  probe_enhancements:
+    - "Add tool capability detection (like Cursor's supportedTools)"
+    - "Track context token usage"
+    - "Capture runtime limits from environment"
+    - "Detect MCP server availability"
+  
+  bootstrap_improvements:
+    - "Implement memory persistence (like cursorPendingMemories)"
+    - "Add checkpoint system for state recovery"
+    - "Track files read/written for working-set generation"
+    - "Capture context assembly patterns"
+  
+  driver_cursor_updates:
+    - "Read feature flags from cursorai/featureStatusCache"
+    - "Respect runtime limits from featureConfigCache"
+    - "Integrate with Cursor's memory system"
+    - "Leverage existing checkpoints for state"
+  
+  orchestrator_features:
+    - "Token budget tracking per message"
+    - "Automatic context summarization"
+    - "Memory extraction from conversations"
+    - "Capability-based tool selection"
+    - "File state checkpointing"
