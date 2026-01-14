@@ -339,7 +339,7 @@ The login screen for **Leela Edgebox** — "AI Video Analytics Platform":
 
 ### Leela Dashboard Login
 
-The **leela.ai** dashboard login at `akron-staging-dashboard.leela.ai`:
+The **leela.ai** dashboard login at `staging-dashboard.leela.ai`:
 - Blue gradient background
 - Email/password authentication
 - Corporate branding with cube logo
@@ -380,19 +380,19 @@ A full Chrome DevTools Network panel showing:
 
 ### Firebase Console
 
-Firebase project settings for `leela-zion2-dev-0`:
+Firebase project settings for a Leela dev environment:
 - App: `hubapp` (Web App)
 - SDK setup showing `npm install firebase`
-- Full Firebase config visible with API key
+- Full Firebase config visible (API key redacted)
 
 ---
 
 ### Google Cloud Credentials
 
-Google Cloud console showing API credentials for `leela-zion2-dev-0`:
+Google Cloud console showing API credentials for a Leela dev project:
 - Browser key created June 5, 2023
 - 14 service accounts including:
-  - `concept-server@leela-zion2-dev-0.iam.gserviceaccount.com`
+  - `concept-server@...`
   - `grafana-server@...`
   - `looker-server@...`
   - `pyvision-server@...`
