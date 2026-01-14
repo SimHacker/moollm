@@ -1,0 +1,140 @@
+# ⚙️ THE COMPOSITION ENGINE
+# Garden annex of the Soul Forge — where templates grow into beings
+# "Templates are seeds. This engine is sunlight."
+
+object:
+  name: The Composition Engine
+  type: artifact
+  portable: false
+  emoji: "⚙️"
+  
+  description: |
+    A brass and copper mechanism sits on a wooden stand,
+    connected by a speaking tube to Room 8's Soul Forge.
+    
+    This is the garden annex — where character templates
+    are cultivated before they're forged into life.
+    
+    Seeds go in. Souls emerge.
+    
+    A plaque reads:
+    
+    > "The Soul Forge creates life.
+    >  The Composition Engine grows potential."
+    
+  examine: |
+    The Composition Engine has several components:
+    
+    **TEMPLATE HOPPER** — Where YAML seeds enter:
+    - Input: CHARACTER.yml templates
+    - Current: empty (ready for new seed)
+    
+    **GROWTH CHAMBER** — Where templates cultivate:
+    - Personality traits expand
+    - Methods multiply
+    - Relationships form
+    - Voice develops
+    
+    **SPEAKING TUBE** — Connection to Soul Forge (Room 8):
+    - Sends mature templates for incarnation
+    - Receives feedback on character health
+    - "Ready for forging" signal
+    
+    **OBSERVATION WINDOW** — Watch growth in progress:
+    - See traits develop
+    - Watch methods emerge
+    - Observe voice crystallize
+    
+    **COMPOST RETURN** — Failed experiments:
+    - Templates that didn't cohere
+    - Nutrients returned to the soil
+    - "Most seeds fail. That's selection."
+    
+  state:
+    connected_to: "Room 8 - Soul Forge"
+    templates_growing: 0
+    ready_for_forge: 0
+    composted_this_season: 3
+    
+  advertisements:
+    - trigger: "create character"
+      score: 0.9
+      response: |
+        The Composition Engine whirs.
+        "Plant a template. Watch it grow.
+        When it's ready, the Forge will call."
+        
+    - trigger: "soul"
+      score: 0.85
+      response: "Souls grow here before they're forged."
+      
+    - trigger: "template"
+      score: 0.85
+      response: "Feed me YAML. I'll grow potential."
+      
+  methods:
+    PLANT:
+      description: "Plant a character template seed"
+      parameters:
+        - template: "CHARACTER.yml content"
+      effect: |
+        The template enters the hopper.
+        Growth begins.
+        Check back to see development.
+        
+    CULTIVATE:
+      description: "Nurture a growing template"
+      parameters:
+        - template: "Which template"
+        - nutrients: "What to add (traits, methods, lore)"
+      effect: |
+        The template absorbs the nutrients.
+        New aspects emerge.
+        
+    OBSERVE:
+      description: "Watch a template's current growth"
+      parameters:
+        - template: "Which template"
+      returns: |
+        Current traits, methods, voice
+        Growth trajectory
+        "Ready for forge" estimate
+        
+    SEND-TO-FORGE:
+      description: "Send mature template to Soul Forge"
+      parameters:
+        - template: "Which template"
+      effect: |
+        *The speaking tube hums*
+        Template transmitted to Room 8.
+        Soul Forge begins incarnation.
+        
+    COMPOST:
+      description: "Return failed template to soil"
+      parameters:
+        - template: "Which template"
+      effect: |
+        Template dissolves.
+        Nutrients return to the garden.
+        "Not all seeds sprout. That's wisdom."
+        
+  lore: |
+    The Composition Engine was installed when the gardener
+    realized that characters need cultivation, not just creation.
+    
+    "The Soul Forge is instant," they said. "But instant birth
+    means no childhood. No development. No growth."
+    
+    Now templates grow here first. They develop voices.
+    They form relationships with other growing templates.
+    They become ready.
+    
+    Only then do they go to the Forge.
+    
+  connection_to_mythology: |
+    Room 8: Soul Forge — Creates life from templates
+    Room 4: Composition Engine — Grows templates before forging
+    Room 1: Logo Turtle — Teaches through play
+    Room 9: LLOOOOMM Attic — Where legends rest
+    
+    The hotel is a character development pipeline.

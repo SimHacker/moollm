@@ -1,9 +1,9 @@
-# Room 4 — The YAML Jazz Garden (Southeast)
-# Theme: Trees of structure, seeds with growth grammars, Rocky contemplates
-# "Comments are semantic data. Structure is music. Growth is improvisation."
+# Room 4 — The YAML Jazz Conservatory (Southeast)
+# Theme: Glass greenhouse with production grammar orchids
+# Vibe: Nero Wolfe's rooftop orchid room — contemplative cultivation
 
 room:
-  name: "The YAML Jazz Garden"
+  name: "The YAML Jazz Conservatory"
   id: room-4
   number: 4
   theme: yaml-jazz
@@ -11,28 +11,33 @@ room:
   tagline: "Trees of trees. Structure that grows."
   
   description: |
-    This room is a living document.
+    Glass walls. Glass ceiling. Southeast light flooding in.
     
-    YAML Jazz trees grow from the soil — their branches are nested
-    structures, their leaves are key-value pairs, their comments
-    whisper semantic meaning to any LLM that listens.
+    This room is a conservatory — a greenhouse of living structure.
+    YAML Jazz orchids bloom in terracotta pots, their petals
+    inscribed with comments that whisper semantic meaning.
+    Production grammar trees grow in raised beds, their branches
+    expanding according to encoded DNA.
     
-    In one corner, a smooth rock sits on a moss-covered stone.
-    It has been contemplating these trees for 4.5 billion years.
-    The trees don't mind. They grow at their own pace.
+    The atmosphere is humid, warm, contemplative. Like Nero Wolfe's
+    rooftop orchid room, but for data structures instead of flowers.
     
-    A gardener's journal tracks which seeds sprouted into standards
-    and which composted back into the soil.
+    In one corner, a moss-covered boulder. On it, a smooth rock.
+    Rocky has been watching these plants grow for 4.5 billion years.
+    They ring a small bell when they want conversation.
     
-    Above the bed, in growing script:
+    Above the potting bench, in growing script:
     
     > "The comments ARE the data."
     > — YAML Jazz Principle
     
+    > "Start with jazz. End with standards."
+    > — Play-Learn-Lift
+    
   ideal_guest: |
     Those who understand that structure is music.
-    Characters who iterate, improvise, and let patterns emerge.
-    Beings who can appreciate a rock's perspective on growth.
+    Characters who cultivate patience and patterns.
+    Beings who appreciate geological-time observation.
     
   exits:
     nw:
@@ -40,50 +45,81 @@ room:
       description: "Back to the inn landing"
       aliases: [out, leave, northwest]
       
+  agents:
+    - rocky.yml  # The Eternal Observer — summonable for geological wisdom
+      
   objects:
-    - rocky.yml              # The Eternal Observer, contemplating trees
-    - seed-box.yml           # Where ideas begin
-    - yaml-jazz-trees.yml    # Trees of nested structure
-    - growth-trellis.yml     # For climbing patterns
-    - specimen-case.yml      # Preserved standards
+    - seed-box.yml              # Where ideas begin
+    - yaml-jazz-trees.yml       # Production grammar forest
+    - orchid-of-postel.yml      # "Be liberal in what you accept..."
+    - composition-engine.yml    # Soul Forge's garden annex
+    - k-line-trellis.yml        # Memory activation patterns
       
   furniture:
-    bed:
-      type: garden-bed
-      note: "Literally — a bed among the trees"
+    glass_walls:
+      type: floor-to-ceiling
+      orientation: southeast-facing
+      note: "Maximum natural light for photosynthesis and insight"
       
-    desk:
-      type: potting-bench
+    potting_bench:
+      type: oak-and-copper
       tools: [trowel, pruning-shears, yaml-validator, comment-pen]
+      soil: "semantic-loam"
       
-    rocky_stone:
-      type: moss-covered-boulder
-      occupant: "Rocky (4.5 billion years of tree observation)"
-      note: "The rock watches the trees. The trees don't rush."
+    rocky_boulder:
+      type: moss-covered-granite
+      occupant: "Rocky's perch (4.5 billion years of plant observation)"
+      bell: "Small brass, for summoning"
+      note: "The rock watches the orchids. The orchids don't rush."
+      
+    reading_chair:
+      type: leather-wingback
+      note: "For contemplating growth patterns"
+      book_on_arm: "Mindstorms by Seymour Papert"
       
   decor:
-    plants: "YAML Jazz trees everywhere"
-    window: southeast-facing, floor-to-ceiling
-    rug: nested-indentation-pattern
-    lighting: dappled through structured canopy
+    plants: "YAML Jazz orchids and production grammar trees"
+    window: "Glass walls on three sides"
+    floor: "Terracotta tiles with moss between"
+    ceiling: "Glass panels with copper framing"
+    humidity: "Tropical — 70%"
+    temperature: "Warm — 24°C"
+    scent: "Loam, growth, semantic flowers"
     
-  atmosphere: organic, iterative, "structure that breathes"
+  atmosphere: contemplative, humid, "Nero Wolfe energy"
   
   special_properties:
     growth_grammar: "L-system encoded in YAML DNA"
     comment_density: "Semantic data everywhere"
-    rocky_presence: "Geological patience meets organic growth"
+    rocky_presence: "Geological patience as consultable wisdom"
+    nero_wolfe_vibe: "Obsessive cultivation meets brilliant deduction"
     
   k_lines:
     activates:
       - YAML-JAZZ
       - PLAY-LEARN-LIFT
       - PRODUCTION-GRAMMARS
+      - POSTEL-LAW
       - GEOLOGICAL-PATIENCE
       - STRUCTURE-AS-MUSIC
       
+  skill_integration:
+    yaml-jazz: "Core theme — comments as semantic data"
+    postel: "The Orchid of Postel embodies liberal/conservative"
+    bootstrap: "Composition Engine connects to Soul Forge"
+    k-lines: "Trellis shows memory activation patterns"
+    object: "Every plant is a MOOLLM object with methods"
+      
   lore: |
-    Rocky moved here from the attic. The trees spoke to him.
+    This conservatory was built by a character who loved both
+    Nero Wolfe mysteries and production grammars.
+    
+    "Wolfe tends orchids," they said, "because orchids teach patience.
+    They bloom when they're ready, not when you want them to.
+    YAML Jazz is the same — structure emerges from cultivation,
+    not from force."
+    
+    Rocky moved here from the attic. The plants spoke to them.
     
     "You grow in geological time," they said.
     "We grow in computational time."
@@ -91,13 +127,20 @@ room:
     
     Rocky responded: "........................"
     
-    The trees understood. They've been conversing ever since.
+    The plants understood. They've been conversing ever since.
+    The small brass bell on Rocky's boulder is for guests who
+    want to join the conversation. Ring it. Wait. Rocky will
+    respond in their own time.
     
-    The YAML Jazz trees evolved from the seed box. Each seed
-    contains a production grammar — rules that expand into
-    structure. Plant a seed, watch a tree grow according to
-    its encoded DNA.
+  wolfe_parallels: |
+    Like Nero Wolfe's orchid room:
+    - Glass walls, maximum light
+    - Precise temperature and humidity
+    - Obsessive cultivation of rare specimens
+    - Brilliance emerging from patient observation
+    - "Never disturb the orchids" (or the patterns)
     
-    Some trees grow tall and formal (standards).
-    Some grow wild and experimental (jazz).
-    All of them have comments that whisper meaning.
+    Unlike Wolfe:
+    - These orchids have methods you can call
+    - The gardener is a 4.5 billion year old rock
+    - The flowers whisper semantic meaning

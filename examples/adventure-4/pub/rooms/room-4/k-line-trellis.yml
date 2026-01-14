@@ -1,0 +1,141 @@
+# 🌿 THE K-LINE TRELLIS
+# Memory activation patterns as climbing vines
+# Minsky's K-lines made visible
+
+object:
+  name: The K-Line Trellis
+  type: living-memory
+  portable: false
+  emoji: "🌿"
+  
+  description: |
+    A wooden trellis stands against the glass wall,
+    covered in climbing vines that glow faintly.
+    
+    These aren't ordinary vines. They're K-lines —
+    Marvin Minsky's memory activation patterns,
+    grown into living form.
+    
+    When you remember something, specific vines light up.
+    When you learn something new, new tendrils grow.
+    
+    A small plaque at the base:
+    
+    > "A K-line is a 'Knowledge-line' — a partial state
+    >  of mind that, when activated, reinstates the
+    >  mental state of an earlier experience."
+    > — Marvin Minsky, Society of Mind (1986)
+    
+  examine: |
+    You trace the vines across the trellis.
+    
+    **CORE VINES** — Deep memories:
+    - YAML-JAZZ: "Comments are data" (thick, old vine)
+    - POSTEL-LAW: "Accept liberally, emit conservatively"
+    - PLAY-LEARN-LIFT: "Jazz to standards"
+    - STRUCTURE-GROWTH: "Trees of trees"
+    
+    **CONNECTED TENDRILS** — Associations:
+    - YAML-JAZZ → ENTROPY-PRESERVATION (recent growth)
+    - POSTEL-LAW → ROBUSTNESS → INTERNET-HISTORY
+    - PLAY-LEARN-LIFT → JAZZ-IMPROVISATION → COLTRANE
+    
+    **NEW SHOOTS** — Recent learnings:
+    - PRODUCTION-GRAMMARS (today)
+    - L-SYSTEMS (today)
+    - GEOLOGICAL-PATIENCE (just planted)
+    
+    **DORMANT SECTIONS** — Inactive memories:
+    - Some vines are gray, waiting to be activated
+    - Touch them and they glow briefly, then fade
+    
+    A thermometer shows K-LINE TEMPERATURE: 37 active, 156 dormant.
+    
+  state:
+    active_k_lines: 37
+    dormant_k_lines: 156
+    newest_vine: "PRODUCTION-GRAMMARS"
+    strongest_vine: "YAML-JAZZ"
+    
+  advertisements:
+    - trigger: "remember"
+      score: 0.95
+      response: |
+        *A section of trellis glows*
+        The K-lines activate. Context flows.
+        
+    - trigger: "learn"
+      score: 0.9
+      response: "New tendril growing. Give it time."
+      
+    - trigger: "connect"
+      score: 0.85
+      response: |
+        *Two vines intertwine*
+        Associations forming. Memory linking.
+        
+  methods:
+    ACTIVATE:
+      description: "Activate a K-line by name"
+      parameters:
+        - k_line: "Which memory pattern"
+      effect: |
+        *The named vine glows bright*
+        Associated vines glow dimly.
+        Mental state partially reinstated.
+        Context activated.
+        
+    TRACE:
+      description: "Follow a K-line's connections"
+      parameters:
+        - k_line: "Starting point"
+      returns: |
+        Connected K-lines and their associations.
+        The web of memory made visible.
+        
+    PLANT:
+      description: "Create a new K-line vine"
+      parameters:
+        - name: "K-line identifier"
+        - associations: "What it connects to"
+      effect: |
+        New tendril emerges from soil.
+        Begins climbing toward associated vines.
+        
+    PRUNE:
+      description: "Let a K-line go dormant"
+      parameters:
+        - k_line: "Which memory"
+      effect: |
+        Vine grays but doesn't die.
+        Can be reactivated later.
+        "Forgetting is just dimming, not deletion."
+        
+    OVERVIEW:
+      description: "See the full trellis state"
+      returns: |
+        All active K-lines (glowing)
+        All dormant K-lines (gray)
+        Strongest connections
+        Newest growth
+        
+  lore: |
+    The K-Line Trellis was grown from a cutting taken
+    from Room 2's K-Line Board.
+    
+    "The Board is for display," the gardener said.
+    "The Trellis is for growth."
+    
+    In the Society Suite (Room 2), K-lines are recorded.
+    In the Conservatory (Room 4), K-lines are cultivated.
+    
+  minsky_connection: |
+    Marvin Minsky proposed K-lines in "Society of Mind":
+    
+    - Each K-line represents a partial mental state
+    - Activating a K-line reinstates that state
+    - K-lines connect to form webs of association
+    - Memory is distributed, not centralized
+    
+    The Ultimate Machine (Room 2) is his other creation here.
+    Minsky understood that minds are gardens, not databases.
