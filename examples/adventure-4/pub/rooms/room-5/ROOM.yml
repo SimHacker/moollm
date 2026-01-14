@@ -1,5 +1,6 @@
 # Room 5 — The Speed of Light Suite (South)
 # Theme: Many turns, one call — maximizing context window efficiency
+# Familiar: Shuffle, The Living Deck
 
 room:
   name: "The Speed of Light Suite"
@@ -10,20 +11,29 @@ room:
   tagline: "Many turns. One call. Narrative velocity."
   
   description: |
-    Time moves differently here. A grandfather clock on the wall
-    shows *narrative time*, not wall time. Its hands move faster
-    when interesting things happen, slower during pauses.
+    Time moves differently here.
     
-    A large table dominates the room, set up for a game. Cards,
-    dice, character sheets. The sign says: "33 TURNS IN ONE BREATH."
+    A grandfather clock on the wall shows *narrative time*, not
+    wall time. Its hands race during games, debates, and songs.
+    They crawl during waiting. They stop during API round-trips.
+    
+    A large game table dominates the room, cards scattered
+    mid-play. A shimmering figure made of playing cards —
+    Shuffle, the Living Deck — deals to invisible players.
+    The sign says: "33 TURNS IN ONE BREATH."
+    
+    In one corner, an ensemble stage with 8 positions.
+    In another, a songbook open to "99 Bottles of Beer."
     
     Above the bed:
     
     > "The context window is a stage where all actors perform."
+    > "API round-trips are waiting. We don't wait here."
     
   ideal_guest: |
     Characters who want to simulate. Those running multi-turn games,
     complex negotiations, ensemble scenes. Efficiency maximizers.
+    Those who understand that waiting is waste.
     
   exits:
     n:
@@ -31,10 +41,15 @@ room:
       description: "Back to the inn landing"
       aliases: [out, leave, north]
       
+  agents:
+    - shuffle.yml  # The Living Deck — familiar of this suite
+    
   objects:
-    - fluxx-table.yml
-    - narrative-clock.yml
-    - ensemble-stage.yml
+    - fluxx-table.yml     # The legendary 33-turn game
+    - 99-bottles.yml      # 99 rounds, 8 voices, 1 call
+    - narrative-clock.yml # Measures story, not seconds
+    - ensemble-stage.yml  # 8 positions, all performing at once
+    - speed-games.yml     # Cabinet of speed-optimized games
       
   furniture:
     bed:
@@ -44,18 +59,73 @@ room:
     table:
       type: game-table
       capacity: 8
-      current_game: "Stoner Fluxx"
+      current_game: "Stoner Fluxx (frozen at Turn 33)"
+      dealer: "Shuffle"
+      
+    cabinet:
+      type: glass-fronted
+      contents: "Speed Games collection"
+      note: "Games chosen for maximum rounds per call"
       
   decor:
-    clock: narrative-time-clock
+    clock: "Narrative Time Clock (hands race during action)"
     window: south-facing
-    stage: miniature proscenium
+    stage: "Miniature proscenium, 8 positions"
+    cards: "Everywhere — Shuffle's presence"
+    songbook: "Open to 99 Bottles"
     
-  atmosphere: fast, theatrical, "all the world's a stage"
+  atmosphere: fast, theatrical, "many actors, one stage"
   
+  special_properties:
+    narrative_density: "High — many events per second"
+    api_efficiency: "Maximum — one call covers many turns"
+    shuffle_presence: "The Living Deck is always dealing"
+    
   k_lines:
     activates:
       - SPEED-OF-LIGHT
       - MANY-TURNS
       - NARRATIVE-VELOCITY
       - ENSEMBLE
+      - CARRIER-PIGEON-CRITIQUE
+      
+  skill_integration:
+    speed-of-light: "Core theme — many turns, one call"
+    adversarial-committee: "Debates happen at light speed"
+    debate: "Arguments without waiting"
+    simulation: "Multi-agent without multi-call"
+    coherence-engine: "Maintains state across all turns"
+      
+  lore: |
+    The Speed of Light Suite was built to answer a question:
+    
+    "Why do multi-agent systems wait?"
+    
+    Traditional approach: Agent A speaks → API call → wait →
+    Agent B speaks → API call → wait → ...
+    
+    Speed of light: All agents in context. All turns simulated.
+    One call. Many turns. No waiting.
+    
+    The first demonstration was a 33-turn Fluxx game.
+    8 players. No API calls between turns.
+    Palm beat Andy Looney at his own game.
+    
+    The second demonstration was 99 Bottles of Beer.
+    8 singers. 99 verses. One call.
+    The song took 28 seconds.
+    
+    Shuffle deals. The clock races. Time becomes story.
+    
+  carrier_pigeon_critique: |
+    The opposite of speed of light is "carrier pigeon protocol":
+    
+    - Writing messages on toilet paper with crayon
+    - Sending them by carrier pigeon
+    - Waiting for reply
+    - When you could think at speed of light
+    
+    Every API round-trip is a pigeon flight.
+    Every wait is wasted narrative.
+    
+    Here, we don't wait. Here, we perform.

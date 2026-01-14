@@ -1,0 +1,163 @@
+# ⏰🎭 THE NARRATIVE CLOCK
+# Time measured in story beats, not seconds
+# "Fast when interesting. Slow when nothing happens."
+
+object:
+  name: The Narrative Clock
+  type: artifact
+  emoji: "⏰🎭"
+  portable: false
+  
+  description: |
+    A grandfather clock with unusual behavior.
+    
+    Its hands don't move at constant speed.
+    When the room is full of action — games, debates, songs —
+    the hands race forward.
+    When nothing happens, they barely move.
+    
+    A small plaque reads:
+    
+    > "NARRATIVE TIME
+    > 1 dramatic beat = 1 tick
+    > 33 Fluxx turns = 33 ticks
+    > 99 bottles = 99 ticks
+    > Waiting for API response = 0 ticks"
+    
+  examine: |
+    You examine the Narrative Clock.
+    
+    The face has unusual markings:
+    
+    - 12 o'clock: "CLIMAX"
+    - 3 o'clock: "RISING ACTION"
+    - 6 o'clock: "INCITING INCIDENT"
+    - 9 o'clock: "RESOLUTION"
+    
+    The current time reads: "ACT II, SCENE 3"
+    
+    A dial on the side shows:
+    
+    CURRENT NARRATIVE DENSITY:
+    ████████░░ 80%
+    
+    (A game is in progress. Time is moving fast.)
+    
+    When you step away, the hands slow.
+    When you engage, they accelerate.
+    The clock measures story, not seconds.
+    
+  state:
+    current_act: "II"
+    current_scene: 3
+    narrative_density: 0.8
+    dramatic_beats_today: 247
+    wall_clock_hours: 4.2
+    narrative_time_hours: 18.7  # More happened than clock would suggest
+    
+  advertisements:
+    - trigger: "time"
+      score: 0.9
+      response: |
+        *The clock's hands spin forward*
+        
+        "Time? What time? Story time.
+        We measure in beats, not seconds.
+        A 33-turn Fluxx game is 33 beats.
+        A 99-bottle song is 99 beats.
+        Wall time is... irrelevant."
+        
+    - trigger: "fast"
+      score: 0.85
+      response: |
+        *The minute hand races*
+        
+        "Speed of light means: many beats, one moment.
+        The context window holds all the action.
+        The clock just... keeps up."
+        
+    - trigger: "slow"
+      score: 0.8
+      response: |
+        *The hands nearly stop*
+        
+        "Nothing happening? The clock waits.
+        Narrative time is patient.
+        It only moves when story moves."
+        
+  methods:
+    CHECK-TIME:
+      description: "What time is it in narrative terms?"
+      returns: |
+        Act: [current act]
+        Scene: [current scene]
+        Dramatic beats today: [count]
+        Narrative density: [percentage]
+        
+        "We are [fraction] through the story."
+        
+    MEASURE-SCENE:
+      description: "How many narrative beats in a scene?"
+      parameters:
+        - scene_type: "What happened"
+      returns: |
+        Fluxx game (33 turns): 33 beats
+        99 Bottles (full song): 99 beats
+        Character debate: ~15 beats per topic
+        Rocky contemplation: 1 beat (very dense)
+        API round-trip wait: 0 beats (nothing happened)
+        
+    SPEED-COMPARE:
+      description: "Compare narrative time to wall time"
+      effect: |
+        SPEED OF LIGHT:
+        - Wall time: 30 seconds
+        - Narrative beats: 99 (one song)
+        - Ratio: 3.3 beats/second
+        
+        CARRIER PIGEON:
+        - Wall time: 396 seconds
+        - Narrative beats: 99 (same song)
+        - Ratio: 0.25 beats/second
+        
+        Speed of light is 13x more narratively dense.
+        More story per second. That's the principle.
+        
+    FAST-FORWARD:
+      description: "Skip to the next interesting part"
+      effect: |
+        *The clock hands spin rapidly*
+        
+        "Skipping... skipping... 
+        Nothing happened... nothing happened...
+        AH! Here we are. Something interesting."
+        
+        (Narrative resumes at next dramatic beat)
+        
+  lore: |
+    The Narrative Clock was a gift from a playwright
+    who understood that time in stories is not time on walls.
+    
+    "A year can pass in a sentence," she said.
+    "A second can take a chapter."
+    
+    In the Speed of Light Suite, the clock learned
+    to measure what matters: dramatic beats.
+    
+    33 turns of Fluxx? 33 beats.
+    99 verses of a song? 99 beats.
+    Waiting for an API response? Zero beats.
+    
+    The clock doesn't count waiting.
+    The clock counts doing.
+    
+  philosophical_note: |
+    The Narrative Clock embodies a truth about stories:
+    
+    Time is measured in events, not seconds.
+    A dense scene has more time than an empty hour.
+    Speed of light simulation is narratively dense.
+    Carrier pigeon protocol is narratively sparse.
+    
+    The clock asks: "What happened?"
+    Not: "How long did you wait?"

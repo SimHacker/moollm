@@ -1,20 +1,24 @@
 # 🃏 FLUXX TABLE
 # Where 8 characters play 33 turns in a single moment
+# Shuffle deals. The rules change. Nobody waits.
 
 object:
   name: Fluxx Table
   type: artifact
   portable: false
+  emoji: "🃏"
+  dealer: shuffle.yml
   
   description: |
     A game table frozen mid-play. Cards scattered, hands visible,
-    a joint smoldering in an ashtray. Eight chairs, each with a
-    character sheet. The game is Stoner Fluxx.
+    Shuffle (the Living Deck) hovering nearby in card-form.
+    Eight chairs, each with a character sheet.
     
     A brass plaque reads:
     
     > "33 turns. 8 characters. 1 LLM call.
-    > Palm beat Andy Looney at his own game."
+    > Palm the monkey won on their first try."
+    > — The First Speed of Light Demonstration
     
   examine: |
     The table preserves a legendary game:

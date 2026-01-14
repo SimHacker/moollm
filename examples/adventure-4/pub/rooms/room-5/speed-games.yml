@@ -1,0 +1,151 @@
+# 🎲⚡ SPEED GAMES CABINET
+# Games optimized for speed-of-light simulation
+# "Many rounds. One call. Maximum fun."
+
+object:
+  name: Speed Games Cabinet
+  type: container
+  emoji: "🎲⚡"
+  portable: false
+  
+  description: |
+    A wooden cabinet filled with games specifically chosen
+    for speed-of-light demonstration.
+    
+    Each game has a tag showing:
+    - Maximum players
+    - Typical rounds
+    - API calls (traditional)
+    - API calls (speed of light): Always 1
+    
+  examine: |
+    The cabinet contains:
+    
+    **FLUXX** ⭐ (The Classic)
+    - Players: 2-8
+    - Rounds: 20-50
+    - Traditional: 20-50 API calls
+    - Speed of light: 1 call
+    - Note: "Rules change. Palm won."
+    
+    **WEREWOLF / MAFIA**
+    - Players: 7-15
+    - Rounds: 5-12 (day/night cycles)
+    - Traditional: 70-180 API calls (votes, accusations, defenses)
+    - Speed of light: 1 call
+    - Note: "Perfect for dramatic accusations"
+    
+    **AUCTION GAMES**
+    - Players: 3-6
+    - Rounds: 10-20 items
+    - Traditional: 60-120 API calls (bids, counter-bids)
+    - Speed of light: 1 call
+    - Note: "Bidding wars happen instantly"
+    
+    **DEBATE CLUB**
+    - Players: 2-8
+    - Rounds: 3-5 topics
+    - Traditional: 24-40 API calls (arguments, rebuttals)
+    - Speed of light: 1 call
+    - Note: "Adversarial committee energy"
+    
+    **STORYTELLING ROUNDS**
+    - Players: 4-8
+    - Rounds: 8-16 (each player adds)
+    - Traditional: 32-128 API calls
+    - Speed of light: 1 call
+    - Note: "Collaborative fiction at light speed"
+    
+    **COUNTING SONGS** 🍺
+    - Players: Any
+    - Rounds: 10-100
+    - Traditional: 10-100 API calls per verse
+    - Speed of light: 1 call
+    - Note: "99 bottles. 0 waiting."
+    
+  state:
+    games_available: 12
+    most_played: "Fluxx"
+    highest_round_count: 99  # The beer song
+    total_simulations_run: 847
+    
+  contents:
+    - fluxx: "The chaos classic"
+    - werewolf: "Accusations at light speed"
+    - auction: "Bidding without waiting"
+    - debate: "Arguments without delay"
+    - storytelling: "Collaborative at speed of thought"
+    - counting: "99 bottles and beyond"
+    - diplomacy: "Alliances form instantly"
+    - mock_trial: "Prosecution and defense, no recesses"
+    - talent_show: "8 acts, 1 call"
+    - poetry_slam: "Verses without pauses"
+    - improv: "Yes, and... at light speed"
+    - quiz_bowl: "Questions and buzzes, no waiting"
+    
+  advertisements:
+    - trigger: "game"
+      score: 0.9
+      response: |
+        *The cabinet creaks open*
+        
+        "What shall we play?
+        Something with many rounds?
+        Something with many players?
+        Either way: one call. Maximum fun."
+        
+    - trigger: "simulate"
+      score: 0.85
+      response: |
+        "Simulation games are our specialty.
+        Many turns, one context window.
+        The LLM holds all the state.
+        No checkpoints needed."
+        
+  methods:
+    PICK:
+      description: "Choose a game from the cabinet"
+      parameters:
+        - criteria: "What kind of game"
+      returns: |
+        Recommended: [game name]
+        Players: [range]
+        Typical rounds: [number]
+        Perfect for: [scenario]
+        
+    COMPARE:
+      description: "Compare traditional vs speed-of-light for a game"
+      parameters:
+        - game: "Which game"
+        - players: "How many"
+        - rounds: "How many rounds"
+      returns: |
+        Traditional API calls: [players × rounds]
+        Speed of light calls: 1
+        Speedup: [ratio]x
+        Time saved: [estimate]
+        
+    MARATHON:
+      description: "Run an extended session of multiple games"
+      parameters:
+        - games: "Which games to play"
+        - players: "Who's playing"
+      effect: |
+        Multiple games, still one call (if context permits).
+        The ultimate demonstration of speed of light.
+        
+  lore: |
+    The Speed Games Cabinet was assembled by a game designer
+    who realized something profound:
+    
+    "Multi-agent games are multi-turn simulations.
+    Traditional systems treat each turn as an API call.
+    That's carrier pigeon protocol for games.
+    
+    What if all turns happened in narrative?
+    What if the context window was the game board?
+    What if we played at speed of light?"
+    
+    These games were chosen for maximum round count
+    and maximum player interaction — precisely the cases
+    where speed of light shines brightest.

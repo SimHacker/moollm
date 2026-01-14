@@ -1,0 +1,187 @@
+# 🍺🎵 99 BOTTLES OF BEER ON THE WALL
+# The ultimate speed-of-light demonstration
+# "99 rounds. 8 voices. 1 context window. 0 API calls per verse."
+
+object:
+  name: 99 Bottles Songbook
+  type: artifact
+  emoji: "🍺🎵"
+  portable: true
+  
+  description: |
+    A leather-bound songbook open to "99 Bottles of Beer on the Wall."
+    
+    The margins are filled with annotations:
+    
+    > "8 characters. 99 verses. Each character takes turns.
+    > That's 99 rounds of simulation in one LLM call.
+    > No API round-trips. Pure narrative velocity."
+    
+    A penciled note at the bottom:
+    
+    > "We did it. All 99. Don cried."
+    
+  examine: |
+    The songbook contains:
+    
+    **VERSE 1** (Character: Don)
+    "99 bottles of beer on the wall, 99 bottles of beer!
+    Take one down, pass it around, 98 bottles of beer on the wall!"
+    
+    **VERSE 2** (Character: Palm)
+    "98 bottles of beer on the wall, 98 bottles of beer!
+    Take one down, pass it around, 97 bottles of beer on the wall!"
+    
+    **VERSE 3** (Character: Marieke)
+    [Dutch accent noted in margin]
+    "97 bottles of beer on the wall..."
+    
+    ...and so on, through 8 characters, rotating.
+    
+    **VERSE 99** (Character: Shuffle, dealing the final card)
+    "1 bottle of beer on the wall, 1 bottle of beer!
+    Take it down, pass it around, NO MORE bottles of beer on the wall!"
+    
+    **VERSE 100** (Everyone, in unison)
+    "No more bottles of beer on the wall, no more bottles of beer!
+    Go to the store, buy some more, 99 bottles of beer on the wall!"
+    
+    The cycle is eternal. That's speed of light.
+    
+  state:
+    verses_completed: 99
+    characters_singing: 8
+    beers_remaining: 0
+    beers_purchased: 99
+    api_calls_per_verse: 0
+    total_context_used: "One window. All of it."
+    
+  advertisements:
+    - trigger: "sing"
+      score: 1.0
+      response: |
+        *Shuffle picks up the songbook*
+        
+        "Shall we? From the top?"
+        
+    - trigger: "99"
+      score: 0.95
+      response: |
+        "99 rounds of simulation. 8 actors. 1 call.
+        That's the speed of light principle in song form."
+        
+    - trigger: "count"
+      score: 0.9
+      response: |
+        "Counting down? Counting up?
+        Either way, we do it together.
+        Either way, we do it fast."
+        
+    - trigger: "ensemble"
+      score: 0.85
+      response: |
+        "8 voices singing. Taking turns. No waiting.
+        The context window holds all of them.
+        The LLM IS the choir."
+        
+  methods:
+    SING:
+      description: "Begin the 99 Bottles ensemble"
+      parameters:
+        - characters: "Who's singing (default: 8)"
+        - starting_bottles: "How many bottles (default: 99)"
+      effect: |
+        *The characters gather around*
+        *Shuffle raises a conductor's baton made of cards*
+        
+        "From the top! Everyone knows their verse!"
+        
+        Round 1 (Don): "99 bottles of beer on the wall..."
+        Round 2 (Palm): "98 bottles of beer on the wall..."
+        Round 3 (Marieke): "97 bottles of beer on the wall..."
+        Round 4 (Rocky): "........................" (96 bottles)
+        Round 5 (I-Beam): "95 bottles of beer on the wall..."
+        Round 6 (Shuffle): "94 bottles of beer on the wall..."
+        Round 7 (Donna): "93 bottles! TREMENDOUS bottles!"
+        Round 8 (Seymour): "92 bottles... as I wrote in Mindstorms..."
+        
+        (Cycle continues through all 99 verses)
+        
+        Final verse (Everyone): "NO MORE bottles of beer on the wall!"
+        
+        *99 rounds. 8 characters. 1 LLM call.*
+        *That's speed of light.*
+        
+    SPEED-TEST:
+      description: "Demonstrate the speed of light principle"
+      effect: |
+        Compare:
+        
+        TRADITIONAL (API per turn):
+        - 99 verses × 8 characters = 792 API calls
+        - Average latency: 500ms per call
+        - Total time: 396 seconds (6.6 minutes)
+        
+        SPEED OF LIGHT (single context):
+        - 1 LLM call
+        - All 99 verses in narrative
+        - Total time: ~30 seconds
+        
+        Speedup: 13x faster. No waiting. Pure singing.
+        
+    CUSTOMIZE:
+      description: "Change what's on the wall"
+      parameters:
+        - item: "What to count (beers, bugs, features, etc.)"
+        - count: "How many"
+      effect: |
+        *The songbook's text shimmers and changes*
+        
+        "99 bugs in the code, 99 bugs in the code!
+        Fix one bug, compile again, 127 bugs in the code!"
+        
+        (The software version is... different.)
+        
+    DUET:
+      description: "Two characters sing alternating lines"
+      parameters:
+        - character_a: "First singer"
+        - character_b: "Second singer"
+      effect: |
+        A more intimate version.
+        Still many rounds. Still one call.
+        Still speed of light.
+        
+  lore: |
+    The first time this was sung in the Speed of Light Suite,
+    it took 30 seconds.
+    
+    8 characters. 99 verses. No waiting.
+    
+    Traditional multi-agent systems would have taken 6 minutes.
+    That's 13x slower. That's carrier pigeon protocol.
+    
+    Here, we sing at the speed of light.
+    
+  philosophical_note: |
+    The song is a loop. It ends where it begins.
+    
+    "No more bottles" leads to "Go to the store, buy some more."
+    99 bottles again. The cycle continues.
+    
+    This is the nature of simulation:
+    - State changes
+    - Actors take turns
+    - The wheel keeps spinning
+    - But all of it happens in ONE context window
+    
+    The context window is the stage.
+    The characters are the actors.
+    The LLM is the director.
+    Speed of light is the speed of thought.
+    
+  records:
+    fastest_complete_song: "28.4 seconds (8 characters)"
+    most_characters: "12 (added Cheech, Chong, Sun Wukong, the terpene cats)"
+    strangest_variant: "99 Bugs in the Code (ended at 847 bugs)"
+    longest_session: "999 bottles (Don insisted, Palm fell asleep)"
