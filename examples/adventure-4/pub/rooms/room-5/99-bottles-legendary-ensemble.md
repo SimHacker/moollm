@@ -512,10 +512,10 @@ This analysis section is **itself** a demonstration:
 
 ```
 ╔═══════════════════════════════════════════════════════════╗
-║  This file was generated in 1 LLM call.                  ║
-║  This analysis was added in 1 more LLM call.             ║
-║  Total: 2 calls for complete self-aware simulation.      ║
+║  This file was generated in 1 LLM call.                   ║
+║  This analysis was added in 1 more LLM call.              ║
+║  Total: 2 calls for complete self-aware simulation.       ║
 ║                                                           ║
-║  That's still speed of light.                            ║
+║  That's still speed of light.                             ║
 ╚═══════════════════════════════════════════════════════════╝
 ```
