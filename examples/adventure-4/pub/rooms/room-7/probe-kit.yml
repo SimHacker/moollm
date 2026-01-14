@@ -1,102 +1,152 @@
-# 🔬 PROBE KIT
-# Tools for figuring out where you are — the bootstrap toolkit
+# 🧭 EXPLORER'S FIELD KIT
+# Tools for orientation — the bootstrap toolkit for curious minds
 
 object:
-  name: Probe Kit
+  name: Explorer's Field Kit
   type: artifact
   portable: true
   
   description: |
-    A leather case containing instruments for environmental
-    assessment. Compass, thermometer, barometer — but also
-    stranger tools: a "goal detector", an "affordance scanner",
-    a "constraint mapper".
+    A well-worn leather satchel containing instruments for
+    figuring out where you are and what's possible.
+    Compass, notebook, magnifying glass — but also
+    curious tools: a "goal dowsing rod", an "opportunity spyglass",
+    a "boundary feeler".
     
-    The case is labeled: "FOR COLD STARTS"
+    The brass clasp is engraved: "FOR NEW BEGINNINGS"
+    Inside the lid: "Orientation precedes action."
     
   examine: |
-    The kit contains:
+    You open the satchel and find:
     
-    STANDARD PROBES:
-      - Compass: "Where is north?" (basic orientation)
-      - Thermometer: "What's the temperature?" (environment state)
-      - Barometer: "What's the pressure?" (hidden constraints)
+    NAVIGATION TOOLS:
+      🧭 Compass — "Which way am I facing?"
+      📓 Field Notebook — "What have I noticed?"
+      🔍 Magnifying Glass — "What details matter?"
       
-    AGENT PROBES:
-      - Goal Detector: "What am I supposed to do?"
-      - Affordance Scanner: "What can I interact with?"
-      - Constraint Mapper: "What are the rules here?"
-      - Tool Inventory: "What capabilities do I have?"
+    CURIOSITY INSTRUMENTS:
+      🎯 Goal Dowsing Rod — "What am I here to do?"
+           (wiggles toward purpose, stronger near clarity)
+      🔭 Opportunity Spyglass — "What can I interact with?"
+           (highlights affordances, reveals hidden options)
+      🪶 Boundary Feather — "What are the rules here?"
+           (floats until it hits a constraint, then stops)
+      📋 Capability Clipboard — "What tools do I have?"
+           (auto-fills with available actions)
       
-    META PROBES:
-      - Driver Detector: "What orchestrator is running me?"
-      - Context Sampler: "What's in my context window?"
-      - Token Gauge: "How much space do I have?"
+    META INSTRUMENTS:
+      🎭 Driver Mirror — "Who's orchestrating this session?"
+      📜 Context Scroll — "What's in my working memory?"
+      ⏳ Token Hourglass — "How much space do I have left?"
       
   state:
-    last_probe: "this room"
-    probes_available: 9
-    battery: "full"
+    last_exploration: "this room"
+    curiosity_level: "high"
+    battery: "runs on wonder (infinite)"
     
   advertisements:
     - trigger: "where am I"
       score: 0.95
-      response: "Run the probes. Let's find out together."
+      response: "Let's find out together! *opens satchel*"
       
     - trigger: "what can I do"
       score: 0.9
-      response: "Affordance scanner. Point it at anything."
+      response: "The opportunity spyglass reveals all possibilities."
       
     - trigger: "boot sequence"
       score: 0.85
-      response: "The kit contains the complete boot protocol."
+      response: "Every adventure starts with orientation."
       
-  methods:
-    PROBE:
-      description: "Run all probes on current environment"
-      returns: |
-        # ENVIRONMENT ASSESSMENT
-        location: [where you are]
-        driver: [which orchestrator]
-        tools: [available capabilities]
-        constraints: [limits and rules]
-        goals: [detected intentions]
-        context: [what's in scope]
+    - trigger: "help"
+      score: 0.8
+      response: |
+        *hands you the field notebook*
         
-    SCAN:
-      description: "Scan a specific object for affordances"
-      parameters:
-        - target: "What to scan"
+        "First we figure out where we are.
+        Then we figure out what's possible.
+        Then we decide what matters."
+        
+  methods:
+    EXPLORE:
+      description: "Survey current environment with all instruments"
+      effect: |
+        *unfolds the kit on a flat surface*
+        *each instrument activates*
+        
+        The compass settles. The spyglass focuses.
+        The dowsing rod twitches toward something.
+        
       returns: |
-        name: [object name]
-        type: [object type]
-        methods: [available actions]
-        advertisements: [what it responds to]
+        # FIELD NOTES — Current Situation
+        
+        LOCATION: [where you are]
+        DRIVER: [which orchestrator is running]
+        TOOLS: [available capabilities]
+        BOUNDARIES: [limits and rules]
+        PURPOSE: [detected intentions]
+        CONTEXT: [what's in working memory]
+        
+    LOOK:
+      description: "Examine something closely with the spyglass"
+      parameters:
+        - target: "What to observe"
+      effect: |
+        *peers through the opportunity spyglass*
+        *affordances shimmer into visibility*
+        
+      returns: |
+        NAME: [what it's called]
+        TYPE: [what kind of thing]
+        CAN DO: [available methods]
+        RESPONDS TO: [what triggers it]
         
     INVENTORY:
-      description: "List all available tools"
-      returns: "Complete capability inventory"
+      description: "Check what tools you have available"
+      effect: "*flips through capability clipboard*"
+      returns: "Complete list of your current abilities"
       
     ORIENT:
-      description: "Quick orientation — where am I, what's the goal"
+      description: "Quick check — where am I, what's the goal?"
+      effect: |
+        *quick glance at compass and dowsing rod*
+        
       returns: |
-        location: [brief]
-        mission: [if detectable]
-        immediate_actions: [suggested next steps]
+        HERE: [brief location]
+        GOAL: [if detectable]
+        NEXT: [suggested first steps]
         
   lore: |
-    The probe kit was assembled by an agent who specialized
-    in "first contact" scenarios. She was dropped into unknown
-    environments constantly — different codebases, different
-    orchestrators, different goals.
+    This kit was assembled by an explorer who specialized
+    in "first mornings" — those moments when you wake up
+    somewhere unfamiliar and have to figure out everything.
     
-    "You can't act until you orient," she said. "And you can't
-    orient without instruments."
+    "You can't move until you know where you are," she said.
+    "And you can't know where you are without looking."
     
-  insight: |
+    She was kind. She knew that disorientation is scary.
+    These tools make it a little less so.
+    
+  connection_to_bootstrap: |
     The bootstrap skill uses this kit:
-    - CURSOR-PROBE runs driver detection
-    - hot.yml and cold.yml are probe results
+    - CURSOR driver detection is the Driver Mirror
+    - hot.yml and cold.yml are Field Notes
     - working-set.yml is the current orientation
     
-    Every MOOLLM session starts with a probe.
+    Every MOOLLM session starts with orientation.
+    Curiosity, not interrogation.
+    
+  philosophical_note: |
+    Probes can feel invasive.
+    Exploration feels like play.
+    
+    Both gather information.
+    One treats the world as subject.
+    One treats the world as friend.
+    
+  k_lines:
+    - ORIENTATION
+    - CURIOSITY
+    - COLD_START
+    - BOOTSTRAP
+    - FIRST_MORNING
+    - EXPLORATION
