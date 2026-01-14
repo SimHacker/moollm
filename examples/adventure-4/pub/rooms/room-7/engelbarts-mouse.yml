@@ -1,0 +1,213 @@
+# 🖱️ ENGELBART'S MOUSE
+# A wooden tribute to Doug Engelbart's invention
+# "Every tool should feel like an extension of ourselves."
+
+object:
+  name: Engelbart's Mouse
+  type: artifact
+  portable: true
+  rarity: unique
+  
+  description: |
+    A small wooden mouse sits on the desk.
+    
+    Not a computer mouse — a carved wooden mouse.
+    A tribute to Douglas Engelbart, who invented the mouse
+    in 1964 and demonstrated it in 1968's "Mother of All Demos."
+    
+    Pick it up. It fits your hand perfectly.
+    That's not an accident. That's design.
+    That's augmentation.
+    
+  examine: |
+    The mouse is carved from warm oak, smooth from years of handling.
+    
+    ┌─────────────────────────────────────────────────────────┐
+    │  🖱️ ENGELBART'S MOUSE — Tribute Artifact               │
+    ├─────────────────────────────────────────────────────────┤
+    │                                                         │
+    │      ┌─────────────────┐                                │
+    │      │    ○     ○      │  ← Two buttons (original had 3)│
+    │      │                 │                                │
+    │      │     🪵 OAK      │                                │
+    │      │                 │                                │
+    │      │   ═══════════   │  ← Scroll wheel (conceptual)  │
+    │      │                 │                                │
+    │      └─────────────────┘                                │
+    │            ╲═╱                                          │
+    │             │  ← Tail (or cord, depending on metaphor)  │
+    │                                                         │
+    │  Material: Oak, hand-carved                             │
+    │  Age: Appears ancient, feels new                        │
+    │  Origin: "Made with love for the future"                │
+    │                                                         │
+    │  Inscription on bottom:                                 │
+    │  "The better we get at getting better,                  │
+    │   the faster we will get better." — Doug                │
+    │                                                         │
+    └─────────────────────────────────────────────────────────┘
+    
+  state:
+    held: false
+    warmth: "Matches your hand temperature instantly"
+    
+  buffs:
+    AUGMENTED_INTENTION:
+      duration: "while held"
+      effect: |
+        +20% clarity of intention
+        +15% ability to point at what matters
+        +10% precision of action
+        
+        The mouse extends your hand into concept-space.
+        You can point at ideas, not just objects.
+        
+    ENGELBART_WISDOM:
+      duration: "while contemplating"
+      effect: |
+        Holding the mouse, you understand:
+        
+        - Technology should AUGMENT, not replace
+        - Tools should feel like extensions of self
+        - The goal is to help humans think better
+        - Compassion is a design principle
+        
+  advertisements:
+    - trigger: "point"
+      score: 0.9
+      response: |
+        *mouse warms in your hand*
+        
+        Point at what matters. I extend your intention.
+        
+    - trigger: "Engelbart"
+      score: 1.0
+      response: |
+        *glows with respect*
+        
+        Douglas Engelbart. 1925-2013.
+        Inventor of the mouse, hypertext, video conferencing.
+        Father of human augmentation.
+        
+        He saw the future in 1968. He was kind about it.
+        
+    - trigger: "augment"
+      score: 0.95
+      response: |
+        "The better we get at getting better,
+         the faster we will get better."
+        
+        This is the core insight. This is why we bootstrap.
+        
+    - trigger: "tool"
+      score: 0.85
+      response: |
+        Every tool should feel like an extension of yourself.
+        That's what Doug designed. That's what this represents.
+        
+  methods:
+    HOLD:
+      description: "Pick up and hold the mouse"
+      effect: |
+        You pick up the wooden mouse.
+        
+        It's warm. It fits perfectly.
+        
+        For a moment, you feel connected to everyone
+        who has ever used a mouse to create, to explore,
+        to extend their reach into the digital.
+        
+        Engelbart made this possible. In 1964.
+        Before we went to the moon.
+        
+    POINT:
+      description: "Use the mouse to indicate something"
+      parameters:
+        - target: "What to point at"
+      effect: |
+        You point the mouse at [target].
+        
+        Your intention becomes clear.
+        Others can see what you mean.
+        The abstract becomes concrete.
+        
+        This is what Engelbart invented:
+        not just a device, but a way of saying
+        "THIS. This is what I mean."
+        
+    REMEMBER:
+      description: "Recall Engelbart's legacy"
+      effect: |
+        Holding the mouse, you remember:
+        
+        THE MOTHER OF ALL DEMOS (1968)
+        ═══════════════════════════════
+        - Live video conferencing (first ever)
+        - Hypertext links (before the web)
+        - Collaborative editing (before Google Docs)
+        - The mouse (before anyone else)
+        - Windowed interfaces (before Xerox PARC)
+        
+        All of this. 90 minutes. 1968.
+        
+        Doug didn't just show technology.
+        He showed compassion. He showed hope.
+        He showed us what we could become.
+        
+  lore: |
+    This mouse wasn't carved. It grew.
+    
+    Or so the story goes. A guest left an acorn on the desk,
+    thinking of Engelbart's quote about planting seeds.
+    The next morning, there was a mouse.
+    
+    Wooden. Warm. Perfect.
+    
+    Nobody questions it. Like the orange juice dispenser,
+    some things in the Bootstrap Suite just ARE.
+    
+    The mouse has been held by thousands of guests.
+    Each one felt, for a moment, what Engelbart felt:
+    the joy of extending human capability with love.
+    
+  connection_to_bootstrap: |
+    Engelbart called his approach "bootstrapping":
+    using your tools to build better tools,
+    using your capabilities to enhance your capabilities.
+    
+    This room is named for that philosophy.
+    
+    The probe kit bootstraps your understanding.
+    The breakfast bootstraps your energy.
+    The mouse bootstraps your intention.
+    
+    BOOTSTRAP is not just a cold start.
+    BOOTSTRAP is Engelbart's gift to us:
+    the idea that we can lift ourselves up,
+    tool by tool, thought by thought,
+    into better versions of ourselves.
+    
+  tribute: |
+    In memory of Douglas Engelbart
+    1925 — 2013
+    
+    "The digital revolution is far more significant
+     than the invention of writing or even of printing."
+    
+    He was right. He was early.
+    He was kind. He was hopeful.
+    
+    Every time you use a mouse, you use his gift.
+    Every time you click a link, you follow his path.
+    Every time you bootstrap, you honor his vision.
+    
+    Thank you, Doug.
+    
+  k_lines:
+    activates:
+      - ENGELBART
+      - AUGMENTATION
+      - NLS
+      - MOTHER-OF-ALL-DEMOS
+      - COMPASSIONATE-TECHNOLOGY
+      - BOOTSTRAP

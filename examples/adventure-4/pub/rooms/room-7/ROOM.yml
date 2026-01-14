@@ -1,6 +1,7 @@
 # Room 7 — The Bootstrap Suite (West)
 # Theme: Cold start — waking up with nothing, then breakfast
-# "First you boot. Then you fuel."
+# Named for Doug Engelbart's Bootstrapping Institute and philosophy
+# "First you boot. Then you fuel. Then you augment."
 
 room:
   name: "The Bootstrap Suite"
@@ -29,7 +30,7 @@ room:
     
     Above the bed:
     
-    > "The boot sequence is the first conversation
+    > "The bootstrap sequence is the first conversation
     > between agent and environment."
     
     Above the breakfast nook:
@@ -57,6 +58,7 @@ room:
     - cold-start-journal.yml
     - orange-juice-dispenser.yml   # Fresh-squeezed awakening
     - breakfast-menu.yml           # What fuels a cold start
+    - engelbarts-mouse.yml         # Wooden tribute to the inventor
       
   furniture:
     bed:
@@ -65,8 +67,9 @@ room:
       
     desk:
       type: field-desk
-      contents: [probe-kit, map, compass]
+      contents: [probe-kit, map, compass, wooden-mouse]
       position: "Near the window for morning light"
+      wooden_mouse: "Carved tribute to Engelbart — fits your hand perfectly"
       
     breakfast_nook:
       type: corner-booth
@@ -108,6 +111,9 @@ room:
       - ORIENTATION
       - BREAKFAST
       - FUEL
+      - ENGELBART
+      - AUGMENTATION
+      - NLS
       
   morning_ritual: |
     Suggested sequence for Bootstrap Suite guests:
@@ -138,3 +144,107 @@ room:
     
     The dispenser has been here ever since. Always full.
     Nobody knows who refills it. The innkeeper just smiles.
+    
+  # ═══════════════════════════════════════════════════════════════
+  # THE ENGELBART TRIBUTE
+  # ═══════════════════════════════════════════════════════════════
+  
+  namesake: |
+    This room is named for Douglas Engelbart (1925-2013).
+    
+    In 1968, Engelbart gave "The Mother of All Demos" — a 90-minute
+    presentation that introduced:
+    - The computer mouse
+    - Hypertext
+    - Networked collaboration
+    - Video conferencing
+    - Dynamic file linking
+    - Real-time collaborative editing
+    
+    All of this. In 1968. Before the moon landing.
+    
+  engelbart_philosophy: |
+    Engelbart didn't just invent tools. He invented a philosophy:
+    
+    AUGMENTATION
+    ════════════
+    Technology should augment human intellect, not replace it.
+    The goal is not artificial intelligence that thinks FOR us,
+    but tools that help us think BETTER.
+    
+    "The better we get at getting better, the faster we will
+    get better." — Doug Engelbart
+    
+    BOOTSTRAPPING
+    ═════════════
+    Engelbart's team at SRI used their own tools to build
+    better tools. They called this "bootstrapping" — using
+    your capabilities to improve your capabilities.
+    
+    This room embodies that principle:
+    - Wake up with nothing (cold start)
+    - Use simple tools to orient (probe kit)
+    - Fuel yourself (breakfast)
+    - Build toward greater capability (adventure)
+    
+    COMPASSION
+    ══════════
+    Engelbart believed technology should serve humanity's
+    most pressing challenges. He cared about the future.
+    He wanted us to get better at getting better.
+    
+    The breakfast nook is here because Engelbart would have
+    understood: you can't augment a starving mind.
+    
+  nls_tribute: |
+    NLS (oN-Line System) was Engelbart's creation.
+    
+    It demonstrated that computers could be:
+    - Interactive (not batch processing)
+    - Collaborative (not isolated)
+    - Augmenting (not replacing)
+    - Humane (not hostile)
+    
+    Every tool in this room echoes NLS:
+    - The probe kit is interactive exploration
+    - The map is collaborative knowledge
+    - The journal is augmented memory
+    - The breakfast is humane design
+    
+  mouse_in_the_room: |
+    There's a small wooden mouse on the desk.
+    
+    Not a computer mouse — a carved wooden mouse.
+    A tribute to Engelbart's invention.
+    
+    Pick it up. It fits your hand perfectly.
+    That's not an accident. That's design.
+    That's augmentation.
+    
+    Engelbart designed the mouse to extend the hand
+    into the digital realm. To make the computer
+    respond to gesture, to pointing, to human intention.
+    
+    The wooden mouse reminds us: every tool should
+    feel like an extension of ourselves.
+    
+  quote_wall: |
+    Quotes on the wall near the desk:
+    
+    > "The digital revolution is far more significant than
+    > the invention of writing or even of printing."
+    > — Doug Engelbart
+    
+    > "Engelbart, more than anyone else, saw that the computer
+    > could become the basis for augmenting human capabilities."
+    > — Alan Kay
+    
+    > "The better we get at getting better, the faster
+    > we will get better."
+    > — Doug Engelbart
+    
+    > "In 20 or 30 years, you'll be able to hold in your hand
+    > as much computing knowledge as exists now in the whole city."
+    > — Doug Engelbart, 1968
+    
+    (He was right. He was early. He was kind.)
