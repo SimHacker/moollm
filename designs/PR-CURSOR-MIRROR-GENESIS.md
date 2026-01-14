@@ -128,6 +128,7 @@ platform_adapters:
   cursor: "skills/cursor-mirror/cursor_mirror.py"
   claude_code: "skills/claude-mirror/ (planned)"
   windsurf: "skills/windsurf-mirror/ (planned)"
+  moollm: "skills/moollm-mirror/ (planned custom moollm orchestrator)"
 ```
 
 The butler remains constant. The house changes.
@@ -234,6 +235,7 @@ One photo of Andy Looney → reverse-engineered to 15 artifacts → 33-turn Ston
 3. **Incarnation templates** — Easy I-Beam spawning for projects
 4. **Thinking block analysis** — Pattern extraction from reasoning
 5. **Image gallery generation** — Automated via `cursor-mirror image-gallery`
+6. **moollm-mirror** — Custom MOOLLM orchestrator introspection (last but not least!)
 
 ---
 
