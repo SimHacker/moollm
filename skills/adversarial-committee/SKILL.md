@@ -169,6 +169,7 @@ deliberation:
 | Command | Action |
 |---------|--------|
 | `CONVENE [committee]` | Activate committee for deliberation |
+| `FORM-SMART [topic]` | Dynamic selection based on propensities (See [SELECTION.md](SELECTION.md)) |
 | `PRESENT [question]` | Introduce topic for debate |
 | `DEBATE` | Run structured debate rounds |
 | `CALIBRATE [member] [adjustment]` | Tune persona behavior |

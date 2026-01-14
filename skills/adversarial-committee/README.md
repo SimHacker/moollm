@@ -19,6 +19,7 @@
 
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
+- [Smart Selection Guide](SELECTION.md) — diversity-based formation logic
 
 ## Overview
 
