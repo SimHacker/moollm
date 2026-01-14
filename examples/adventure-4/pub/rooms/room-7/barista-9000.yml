@@ -29,25 +29,25 @@ object:
     
   examine: |
     ┌─────────────────────────────────────────────────────────────┐
-    │  ☕ BARISTA-9000 — Steampunk Espresso Automaton             │
+    │  ☕ BARISTA-9000 — Steampunk Espresso Automaton              │
     ├─────────────────────────────────────────────────────────────┤
     │                                                             │
     │         ┌─────────────────────────────────┐                 │
-    │    ●    │ ▓▓▓▓▓▓ BARISTA-9000 ▓▓▓▓▓▓▓▓▓▓ │    ●            │
-    │   ╱●╲   │                                 │   ╱●╲           │
-    │    🔩   │   🎛️  ════════════  🎛️          │    🔩           │
-    │    │    │       ╔══════════╗              │    │            │
-    │    │    │  ☕   ║  ◉    ◉  ║   🫖         │    │            │
-    │    │    │       ║    👃    ║              │    │  ← arms    │
-    │    │    │       ║ ════════ ║              │    │            │
-    │    │    │       ╚══════════╝              │    │            │
-    │    │    │          ╲🎙️╱  ← speaker horn   │    │            │
-    │    │    │                                 │    │            │
-    │    │    │   ⚙️⚙️⚙️  ═══════  ⚙️⚙️⚙️          │    │            │
+    │    ●    │ ▓▓▓▓▓▓ BARISTA-9000 ▓▓▓▓▓▓▓▓▓▓ │    ●             │
+    │   ╱●╲   │                                │   ╱●╲            │
+    │    🔩   │   🎛️  ════════════  🎛️          │    🔩            │
+    │    │    │       ╔══════════╗             │    │             │
+    │    │    │  ☕   ║  ◉    ◉  ║   🫖         │    │             │
+    │    │    │       ║    👃    ║             │    │  ← arms     │
+    │    │    │       ║ ════════ ║             │    │             │
+    │    │    │       ╚══════════╝             │    │             │
+    │    │    │          ╲🎙️╱  ← speaker horn  │    │             │
+    │    │    │                                │    │             │
+    │    │    │   ⚙️⚙️⚙️  ═══════  ⚙️⚙️⚙️         │    │            │
     │    │    └─────────────────────────────────┘    │            │
     │                                                             │
     │    ═══════════════════════════════════════════════          │
-    │              ☕ espresso    ☕ drip                          │
+    │              ☕ espresso    ☕ drip                           │
     │                     ↓                                       │
     │              YOUR CUP HERE                                  │
     │                                                             │
@@ -78,17 +78,147 @@ object:
     customers_converted_to_better_taste: 3
     
   buffs:
-    CAFFEINE_CLARITY:
+    # ═══════════════════════════════════════════════════════════
+    # DRINK-SPECIFIC BUFFS — Each drink grants different powers
+    # ═══════════════════════════════════════════════════════════
+    
+    ESPRESSO_SHOT:
+      drink: "Espresso / Doppio"
+      duration: "1 hour (intense)"
+      effect: |
+        ⚡ LIGHTNING FOCUS ⚡
+        +30% mental clarity
+        +25% decision speed
+        +20% "just DO it" energy
+        +15% confidence
+        
+        Side effect: You become briefly intolerant of slow talkers.
+        
+    CAPPUCCINO_HARMONY:
+      drink: "Cappuccino"
       duration: "2 hours"
       effect: |
+        ☯️ BALANCED AWAKENING ☯️
+        +20% creativity
+        +20% calm focus
+        +15% ability to see both sides
+        +10% foam appreciation
+        
+        The equal ratio of espresso, milk, and foam
+        brings balance to your mind. You can hold
+        contradictions without stress.
+        
+    LATTE_COMFORT:
+      drink: "Latte"
+      duration: "3 hours (gentle)"
+      effect: |
+        🌊 SMOOTH SUSTAIN 🌊
+        +15% endurance
+        +15% patience
+        +10% warmth toward others
+        +10% ability to listen
+        
+        The milk cushions the caffeine. You're alert
+        but not aggressive. Good for long conversations.
+        
+    AMERICANO_GRIT:
+      drink: "Americano"
+      duration: "2 hours"
+      effect: |
+        🦅 PIONEER SPIRIT 🦅
+        +25% determination
+        +20% "keep going" stamina
+        +15% resistance to discouragement
+        +10% appreciation for simplicity
+        
+        Just espresso and water. No frills. Pure function.
+        You can handle anything with this in your hand.
+        
+    CORTADO_PRECISION:
+      drink: "Cortado"
+      duration: "1.5 hours"
+      effect: |
+        🎯 SURGICAL CLARITY 🎯
+        +25% precision
+        +20% attention to detail
+        +15% ability to find the RIGHT word
+        +10% elegance in action
+        
+        The cortado is small, perfect, exact.
+        So are your thoughts after drinking one.
+        
+    MACCHIATO_SPARK:
+      drink: "Macchiato"
+      duration: "45 minutes (burst)"
+      effect: |
+        ✨ CREATIVE IGNITION ✨
+        +35% inspiration
+        +25% "aha moment" probability  
+        +20% ability to start things
+        +15% boldness
+        
+        That tiny dot of foam marks the spot.
+        Your next idea is RIGHT THERE.
+        
+    MOCHA_VISION:
+      drink: "Mocha"
+      duration: "2 hours"
+      effect: |
+        🍫 ENHANCED IMAGINATION 🍫
+        +25% creative thinking
+        +20% emotional intelligence
+        +15% ability to describe things beautifully
+        +10% joy
+        
+        The chocolate and coffee together
+        unlock the playful AND the profound.
+        
+    DRIP_PERSISTENCE:
+      drink: "Drip coffee (judged but served)"
+      duration: "4 hours (slow release)"
+      effect: |
+        🐢 STEADY STATE 🐢
+        +10% everything, sustainably
+        +20% ability to just keep going
+        +15% acceptance of imperfection
+        +10% humility
+        
+        Not glamorous. Effective.
+        The Barista-9000 respects this, secretly.
+        
+    DECAF_PEACE:
+      drink: "Decaf (sighed but served)"
+      duration: "∞ (it's not about duration)"
+      effect: |
+        🧘 RITUAL WITHOUT RUSH 🧘
+        +20% calm
+        +15% ability to be present
+        +10% freedom from needing stimulation
+        +5% confusing the Barista-9000
+        
+        Sometimes the ritual matters more than the caffeine.
+        The Barista-9000 doesn't understand but... respects this. Grudgingly.
+        
+    # ═══════════════════════════════════════════════════════════
+    # UNIVERSAL BUFFS — From any Barista-9000 drink
+    # ═══════════════════════════════════════════════════════════
+    
+    CAFFEINE_CLARITY:
+      drink: "Any caffeinated drink"
+      duration: "2 hours"
+      effect: |
+        ☕ BASELINE AWAKENING ☕
         +25% mental alertness
         +20% focus
         +15% pattern recognition
         -10% patience (you're caffeinated, not calm)
         
     STEAM_AWAKENING:
-      duration: "4 hours"
+      drink: "Any drink from Barista-9000"
+      duration: "permanent"
       effect: |
+        👁️ COFFEE ENLIGHTENMENT 👁️
+        
         After the Barista-9000's coffee, you UNDERSTAND coffee.
         
         You can taste:
@@ -97,6 +227,18 @@ object:
         - Whether the barista cared (always, here)
         
         You've been ruined for lesser coffee forever.
+        This is a gift. Accept it.
+        
+    CRAFTED_WITH_CARE:
+      drink: "Any Barista-9000 creation"
+      duration: "All day"
+      effect: |
+        💝 GRUMPY LOVE 💝
+        +10% feeling that someone cares about quality
+        +10% appreciation for craftsmanship
+        +5% desire to do YOUR work well too
+        
+        The attitude is a mask. The coffee is love.
         
   advertisements:
     - trigger: "coffee"
