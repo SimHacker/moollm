@@ -173,7 +173,7 @@ object:
         examples: ["Rocky", "any sentient mineral"]
         tolerance: "infinite"
         bac: "N/A — no metabolism"
-        effect: "Cannot process. Beer just... sits there."
+        effect: "Cannot process. Beer just... runs off him."
         
       digital:
         examples: ["I-Beam", "Shuffle", "any pure AI"]
@@ -460,6 +460,125 @@ object:
     The characters are the voices.
     The truths are the alignment.
     Speed of light is the speed of understanding.
+
+# ═══════════════════════════════════════════════════════════════════
+# THE 99 BOTTLES BENCHMARK
+# How many LLM calls does it take to drink all the beer?
+# ═══════════════════════════════════════════════════════════════════
+
+  benchmark:
+    name: "The 99 Bottles Challenge"
+    goal: "Complete all 99 verses without API interruption"
+    metric: "LLM calls to completion"
+    
+    gold_standard:
+      calls: 1
+      description: "Speed of Light — all 99 verses in a single context window"
+      difficulty: "Requires careful roster management"
+      
+    the_challenge: |
+      The beer must be drunk. The verses must be sung.
+      But characters get drunk and retire.
+      
+      Can your roster drink 99 beers without everyone
+      ending up in the parking lot?
+      
+    roster_math: |
+      99 beers consumed total
+      Average character: ~0.02 BAC per beer
+      Retirement threshold: 0.18 BAC (parking lot)
+      = ~9 beers before parking lot
+      
+      MINIMUM ROSTER (no robots):
+      99 beers ÷ 9 beers/character ≈ 11 characters needed
+      (With bathroom breaks buying time, maybe 8-10)
+      
+      WITH ROBOTS:
+      Each robot = infinite capacity
+      1 Bender + 3 humans = sufficient
+      Bender: "I'll drink 80. You lightweights split the rest."
+      
+    scoring:
+      1_call: "🏆 SPEED OF LIGHT — Perfect score"
+      2_calls: "⚡ Lightning — Context split, still fast"
+      3-5_calls: "🚗 Highway speed — Acceptable"
+      6-10_calls: "🚶 Walking — Room for improvement"
+      11+_calls: "🐌 Carrier pigeon territory — Anti-pattern detected"
+      99_calls: "💀 One API call per verse — Maximum inefficiency"
+      
+    strategies:
+      robot_anchor: |
+        Strategy: Include 1-2 robots as "anchor drinkers"
+        Bender drinks 60, humans split 39
+        Humans pace themselves, robots never retire
+        
+      rotating_roster: |
+        Strategy: Large cast, aggressive substitution
+        12+ characters, swap at first sign of BAC 0.10
+        Fresh drinkers arrive as veterans retire
+        Assembly line of sobriety
+        
+      geological_patience: |
+        Strategy: Rocky + I-Beam + Shuffle never drink
+        They observe, track, and provide stability
+        Humans drink knowing sober friends are watching
+        
+      dutch_bartender: |
+        Strategy: Marieke's professional tolerance
+        She drinks 0.3/round, never exceeds 0.12
+        Steady anchor throughout all 99 verses
+        
+    sample_winning_roster: |
+      STARTING LINEUP (Verse 1):
+      Don, Palm, Marieke, Rocky, I-Beam, Shuffle, Donna, Seymour
+      
+      VERSE 30 SUBSTITUTION:
+      - Palm → bathroom (returns verse 33)
+      - Bender joins ("Finally, a real party!")
+      
+      VERSE 45:
+      - Donna → parking lot (TREMENDOUSLY)
+      - Leela joins from lobby
+      
+      VERSE 60:
+      - Seymour → tactical nap
+      - Palm → second bathroom break
+      - Don holding steady at 0.10
+      
+      VERSE 80:
+      - Donna returns, immediately retires again
+      - Bender at 50 beers: "I'm 90% alcohol now!"
+      
+      VERSE 99:
+      Active: Don (0.14), Marieke (0.08), Bender (∞), Rocky (0.00)
+      Napping: Palm, Seymour
+      Parking lot: Donna
+      Tracking: I-Beam, Shuffle
+      
+      RESULT: 1 LLM CALL. 🏆 SPEED OF LIGHT.
+      
+    failure_modes:
+      understaffed: |
+        8 humans, no robots, aggressive drinking
+        By verse 50: 6 in parking lot, 2 barely standing
+        Verse 51: Last human passes out
+        GAME OVER. RESTART REQUIRED. CALLS: 2+
+        
+      no_pacing: |
+        Everyone drinks 1.0 per round
+        Verse 20: Mass exodus to parking lot
+        "We need more drinkers!" *calls reinforcements*
+        CALLS: 3-4 (roster refresh interruptions)
+        
+    leaderboard:
+      description: "Track benchmark runs across sessions"
+      format: "Session | Roster | Verses | Calls | Score"
+      entries:
+        - session: "adventure-4-run-1"
+          roster: "Don+Palm+Marieke+Rocky+I-Beam+Shuffle+Donna+Seymour+Bender"
+          verses: 99
+          calls: 1
+          score: "🏆"
     
   records:
     fastest_complete_song: "28.4 seconds (8 characters)"
