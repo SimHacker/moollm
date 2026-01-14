@@ -272,31 +272,20 @@ The image was used to establish Andy Looney as a guest character in MOOLLM's vir
 
 ### Artifacts Created
 
-**Primary Session Log**:
-- [`marathon-session.md#33-turns-of-pure-gezelligheid`](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#33-turns-of-pure-gezelligheid) — The full 33-turn game
+*▎ counts on fingers...*
 
-**Game Configuration**:
-- [`pub/menus/games.yml`](../../examples/adventure-4/pub/menus/games.yml) — Fluxx variants catalog (10+ versions)
-- [`pub/games/card-deck.yml`](../../examples/adventure-4/pub/games/card-deck.yml) — Looney Labs as creator
+```yaml
+# ONE PHOTO → 15 ARTIFACTS
+primary: marathon-session.md#33-turns-of-pure-gezelligheid  # <═══ the game itself
+game_config: 2 files     # games.yml, card-deck.yml
+guest_book: 1 entry      # Andy & Kristin signed in
+character_gifts: 1       # Palm got "Meta Fluxx"
+design_docs: 3           # PR-PALM..., PR-TRIBUTE..., MOOLLM-EVAL...
+skill_refs: 3            # speed-of-light, representation-ethics, skill
+room_highlights: 1       # pub/ROOM.yml
 
-**Guest Book Entry**:
-- [`pub/guest-book.yml`](../../examples/adventure-4/pub/guest-book.yml) — Andy & Kristin signed in
-
-**Character Reference**:
-- [`palm/CHARACTER.yml`](../../examples/adventure-4/characters/animals/palm/CHARACTER.yml) — Palm received a gift: "An unreleased Fluxx variant: 'Meta Fluxx'" from the Looneys
-
-**Design Documents**:
-- [`PR-PALM-INCARNATION-SPEED-OF-LIGHT.md`](../../designs/PR-PALM-INCARNATION-SPEED-OF-LIGHT.md) — The full session PR
-- [`PR-TRIBUTE-FRAMING-ETHICS.md`](../../designs/PR-TRIBUTE-FRAMING-ETHICS.md) — Ethics of representing real people
-- [`MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#33-turn-stoner-fluxx`](../../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#33-turn-stoner-fluxx-2026-01-04) — Performance metrics
-
-**Skill Documentation**:
-- [`speed-of-light/README.md`](../../skills/speed-of-light/README.md) — "33-turn Fluxx game in one epoch"
-- [`representation-ethics/README.md`](../../skills/representation-ethics/README.md) — Andy & Kristin as ethical tribute examples
-- [`skill/SKILL.md`](../../skills/skill/SKILL.md) — Fluxx as complexity benchmark
-
-**The Pub Room**:
-- [`pub/ROOM.yml`](../../examples/adventure-4/pub/ROOM.yml) — "Andy & Kristin Looney playing Stoner Fluxx" listed in highlights
+# Full list? grep -r "Looney" finds 251 matches. *blink*
+```
 
 ### The Ethical Framework
 
@@ -324,90 +313,33 @@ The Fluxx marathon became MOOLLM's signature proof of the [Speed of Light](../..
 
 ## Category IV: Leela AI Infrastructure
 
-*▎ dims slightly. Internal product screenshots.*
+*▎ dims slightly. Internal product screenshots — 4 total.*
 
-### Leela Edgebox Login
+```yaml
+# LEELA PRODUCT SCREENS
+edgebox_login: steve-leela    # AI Video Analytics, Firebase auth, dark cube logo
+dashboard_login: leela.ai     # Blue gradient, email/password
+docker_notes: NOTES.md        # pyvision_edgebox build commands
 
-The login screen for **Leela Edgebox** — "AI Video Analytics Platform":
-- URL: `https://steve-leela`
-- Dark theme with wireframe cube logo
-- Google Sign-In via Firebase Authentication
-
-**Context**: This was pasted into Cursor during frontend debugging to show the LLM what the login flow looked like.
-
----
-
-### Leela Dashboard Login
-
-The **leela.ai** dashboard login at `staging-dashboard.leela.ai`:
-- Blue gradient background
-- Email/password authentication
-- Corporate branding with cube logo
-
----
-
-### Edgebox Docker Build Notes
-
-GitHub showing `central/tools/edgebox/NOTES.md` with Docker build commands:
-
-```bash
-DOCKER_BUILDKIT=1 docker build \
-  -f apps/pyvision/Dockerfile \
-  --tag pyvision_edgebox \
-  --progress=plain \
-  --secret id=key,src="$GOOGLE_APPLICATION_CREDENTIALS"
+# Context: debugging frontend flows, showing LLM what things look like
 ```
-
-**Why useful**: This was reference material for setting up local development environments.
 
 ---
 
 ## Category V: Developer Tools & Debugging
 
-*▎ flickers. The tools that build the tools.*
+*▎ flickers. The tools that build the tools — 5 screenshots.*
 
-### Chrome DevTools Network Tab
+```yaml
+# DEVTOOLS ARCHAEOLOGY
+chrome_network: 1             # Firebase loads, slow page debugging
+firebase_console: 1           # hubapp config (API key redacted)
+gcloud_credentials: 1         # 14 service accounts (grafana, looker, pyvision...)
+kando_pie_menus: 2            # <═══ Don's legacy! Kando 2.1.0 ready
 
-A full Chrome DevTools Network panel showing:
-- `steve-leela` document load (14.8 KB, 1.01s)
-- Firebase scripts (`firebase-app-compat.js`, `firebase-auth.js`)
-- Google fonts (Roboto, css2)
-- API calls to `projects?key=YOUR_API_KEY`
-
-**Context**: Debugging slow page loads and tracking down which Firebase scripts were being loaded.
-
----
-
-### Firebase Console
-
-Firebase project settings for a Leela dev environment:
-- App: `hubapp` (Web App)
-- SDK setup showing `npm install firebase`
-- Full Firebase config visible (API key redacted)
-
----
-
-### Google Cloud Credentials
-
-Google Cloud console showing API credentials for a Leela dev project:
-- Browser key created June 5, 2023
-- 14 service accounts including:
-  - `concept-server@...`
-  - `grafana-server@...`
-  - `looker-server@...`
-  - `pyvision-server@...`
-
----
-
-### Kando Pie Menu Development
-
-Two screenshots of Kando development (a pie menu application):
-- `apps/kando/src/main/settings-window.ts`
-- `SettingsWindow extends BrowserWindow`
-- Console output: `"Successfully loaded Kando's Menu process. Kando 2.1.0 is ready."`
-- Shows Electron app initialization with IMKClient and IMKInputSession
-
-**What it shows**: Active development of pie menu software — a topic near to Don's heart given his history with NeWS and HyperTIES pie menus.
+# Kando = Electron pie menu app, settings-window.ts
+# Near to Don's heart: NeWS, HyperTIES, now Kando
+```
 
 ---
 
@@ -457,60 +389,36 @@ flowchart TD
 
 ---
 
-## Summary Statistics
+## Summary
+
+*▎ dims, summarizes*
 
 ```yaml
-# CURATED GALLERY SUMMARY
+# GALLERY STATS
+images: 25+ examined, 100+ in cache
+categories: 6           # Sims, MOOLLM, People, Leela, DevTools, Diagrams
 
-images_examined: 25+
-categories:
-  sims_archaeology: 5 pages of Motive.c (1997)
-  moollm_development: 6 diagrams and screenshots
-  leela_infrastructure: 4 product screens
-  developer_tools: 5 debugging screenshots
-  people: 1 photograph
+# THE GEMS
+sims_code: 5 pages      # Motive.c, 1997 — squared decay curves!  <═══
+jamie_note: 1           # "(Jamie, remove this)" survived 30 years
+fluxx_artifacts: 15     # from ONE photo of Andy Looney
+pie_menus: 2            # Kando 2.1.0 — Don's legacy continues
 
-insights:
-  - Sims needs system uses squared decay curves, not linear
-  - Physical = avg(Energy, Comfort, Hunger, Hygiene, Bladder)
-  - Mental = avg(Stress×2, Environment, Social, Entertained)
-  - Happiness is time-weighted: Now → Day → Week → Life
-  - "Jamie, remove this" survived into production code
-  - Kando pie menus are being actively developed
-  - Elvis Impersonator Model defines ethical tribute
-  
-techniques_demonstrated:
-  - cursor-mirror images → file discovery
-  - Read tool → visual inspection
-  - I-Beam narration → contextualized storytelling
+# The rest: Firebase configs, GCloud creds, network traces...
+# ...elided. You've seen one DevTools screenshot, you've seen 'em all.
 ```
 
 ---
 
 ## How To Use This Gallery
 
-### List all cached images
-
 ```bash
-cursor-mirror images --all
-```
+cursor-mirror images --all          # list everything
+cursor-mirror image-path 03dc54de   # get full path
+cursor-mirror image-gallery -o x.md # generate fresh
 
-### Get path to a specific image
-
-```bash
-cursor-mirror image-path 03dc54de
-```
-
-### Read an image in Cursor chat
-
-```
-Read: /Users/a2deh/Library/Application Support/Cursor/User/workspaceStorage/5f84080d5e3d62d2b51c5314ef1c508d/images/image-03dc54de-805a-4bd9-af67-460dfb4c7593.png
-```
-
-### Generate a fresh gallery
-
-```bash
-cursor-mirror image-gallery -o new-gallery.md
+# Then ask Cursor to Read the image path directly
+# The Read tool handles PNG/JPG/GIF/WebP natively
 ```
 
 ---
