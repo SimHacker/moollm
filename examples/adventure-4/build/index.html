@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure 4 — A New Beginning — MOOLLM Adventure</title>
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --surface: #12121a;
+            --text: #e8e6e3;
+            --accent: #ff6b35;
+            --muted: #6b7280;
+        }
+        
+        * { box-sizing: border-box; }
+        
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Berkeley Mono', 'JetBrains Mono', monospace;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background: var(--surface);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: var(--accent);
+        }
+        
+        #adventure {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+        
+        .adventure-output {
+            flex: 1;
+            overflow-y: auto;
+        }
+        
+        .adventure-line {
+            margin-bottom: 0.5rem;
+            white-space: pre-wrap;
+        }
+        
+        .adventure-line.command { color: var(--accent); }
+        .adventure-line.room { 
+            border-left: 3px solid var(--accent);
+            padding-left: 1rem;
+            margin: 1rem 0;
+        }
+        .adventure-line.error { color: #ef4444; }
+        
+        .adventure-input-row {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: var(--surface);
+            border-radius: 8px;
+        }
+        
+        .prompt { color: var(--accent); font-weight: bold; }
+        
+        #adventure-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎮 Adventure 4 — A New Beginning</h1>
+    </div>
+    <div id="adventure"></div>
+    
+    <script type="module">
+        import { AdventureEngine, AdventureUI } from './adventure.js';
+        
+        const response = await fetch('./adventure.json');
+        const data = await response.json();
+        
+        const engine = new AdventureEngine();
+        engine.load(data);
+        new AdventureUI(engine, 'adventure');
+    </script>
+</body>
+</html>

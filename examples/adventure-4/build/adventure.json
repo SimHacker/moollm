@@ -1,0 +1,3951 @@
+{
+  "name": "Adventure 4 \u2014 A New Beginning",
+  "version": "1.0",
+  "generated": "2026-01-10T10:06:27.098035",
+  "starting_room": "start",
+  "initial_flags": {
+    "grue_slain": false,
+    "treasure_found": false,
+    "mother_visited": false,
+    "pub_discovered": false,
+    "cat_cave_found": false
+  },
+  "rooms": [
+    {
+      "id": "home",
+      "name": "The Fantastipants Home",
+      "description": "You emerge from the stairway into warm sunlight.\n\nThis is HOME \u2014 the Fantastipants family dwelling in \nWobblebrook-upon-Squiggle. The kitchen is warm, filled with \nthe comforting aroma of fresh apple pie. A grandfather clock\nticks steadily. Through the window: the village, the hills,\nthe ordinary world that feels extraordinary after the dungeon.\n\n(DM: Describe Mother's entrance based on visit_state below.)\n",
+      "exits": {
+        "down": {
+          "destination": "../start/",
+          "description": "The stairway back down to the Chamber of Commencement.\nBack to the dungeon. Back to adventure. Back to possibility.\n\nMother watches you go (or watches you hesitate).\n",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "start",
+      "name": "Chamber of Commencement",
+      "description": "You are standing in a small chamber carved from living rock. The walls\nbear the scratched initials of adventurers past:\n\n  \"WC+DW '76\"       \u2014 Will Crowther & Don Woods, the founders\n  \"SA '78\"          \u2014 Scott Adams, who brought adventures home\n  \"XYZZY WAS HERE\"  \u2014 A mystery, a magic word, a tradition\n  \n  \"CA '26\"          \u2014 Captain Ashford, Grue Slayer (adventure-2)\n  \"(BF underneath)\" \u2014 Bumblewick Fantastipants, hero beneath the cape\n\nThe newest carvings smell faintly of blue cheese. A legend passed through here.\n\nThe chamber is suffused with a soft, sourceless glow \u2014 the kind of\nmagical light that adventure games provide to starting areas so that\nheroes don't immediately die in the dark. How thoughtful.\n\nA brass lamp sits on a natural stone shelf, freshly refilled and waiting.\nYou should probably GET that before going anywhere. Just a friendly suggestion.\n\nNear the entrance, a GRAND MAILBOX stands \u2014 improbably permanent, \nimprobably wooden, with a brass flag that's currently UP. You have mail.\n(This is a Zorkian tradition. CHECK MAIL!)\n\nFive exits beckon:\n\nNORTH: A rough archway leading into ABSOLUTE darkness. The kind where\nyou are likely to be eaten by a grue. The grue has respawned.\n\nSOUTH: A warm glow and the murmur of conversation. A wooden sign \ncreaks: \"THE RUSTY LANTERN \u2014 Est. ???\" A proper pub for proper heroes.\n\nWEST: A cheerful doorway smelling of home cooking. The Fantastipants\nFamily Kitchen, where Mother's note waits.\n\nEAST: An ornate doorway draped in velvet. Costumes glitter beyond.\nMaurice the Magnificent awaits in the Costume Emporium.\n\nUP: A stairway leading to warm light and the smell of pie. Home.\n(Discovered by the previous adventurer. Goes to the surface.)\n\n(Your score is 0. Base goal: +10 for treasure. Bonus points for style.)\n",
+      "exits": {
+        "north": {
+          "destination": "../maze/room-a/",
+          "description": "A rough archway carved through the rock. Beyond it, shadows pool\nlike spilled ink. Your lamp's light doesn't quite reach whatever\nlies ahead. You have a bad feeling about this.\n\nSomeone scratched \"ABANDON HOPE\" on the archway, then crossed\nit out and wrote \"A HERO PASSED THROUGH HERE\" underneath.\n",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "west": {
+          "destination": "../kitchen/",
+          "description": "A cheerful doorway leads to what smells like... home? The unmistakable\naroma of the Fantastipants family kitchen wafts through. \n",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "east": {
+          "destination": "../coatroom/",
+          "description": "An ornate doorway draped with velvet curtains in a dozen clashing colors.\nBeyond, you glimpse racks upon racks of costumes \u2014 feathers, sequins, \narmor, ball gowns, spacesuits, and things that defy description.\n\nA sign reads: \"THE FANTASTIPANTS COSTUME EMPORIUM \u2014 BE ANYONE YOU WANT!\"\n",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "up": {
+          "destination": "../home/",
+          "description": "A stairway carved into the rock, leading up towards warm light.\nThe smell of home cooking wafts down. This exit was always here,\nbut previous adventurers revealed it.\n",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "south": {
+          "destination": "../pub/",
+          "description": "A heavy wooden door with a brass handle, warm light leaking from\nbeneath. The sign creaks in a nonexistent breeze: \"THE RUSTY LANTERN\"\n\nFrom within, you hear the clink of glasses, low conversation, and \nthe unmistakable sound of someone losing badly at darts. This is\nwhere adventurers gather to share tales, drown sorrows, and find\ntheir next quest.\n\nThe pub has always been here. Or so the bartender claims.\n",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "inward": {
+          "destination": "../characters/",
+          "description": "Not a physical exit. More of a... meditation.\n\nIf you close your eyes and think about who you ARE \u2014 not who you're\npretending to be, but the actual body reading these words \u2014 you can\nphase through to the Hall of Bodies.\n\nThe alcoves there hold all who have ever been or could be.\nIncluding you. Especially you.\n",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "personas",
+      "name": "The Wardrobe of Masks",
+      "description": "An infinite corridor of masks and costumes. Each hangs on its own\nstand, waiting to be worn. Some are simple \u2014 a hat, a name.\nSome are elaborate \u2014 complete identities with histories and voices.\n\nThese are not people. These are ROLES.\n\nThey have no heartbeat. They have stories.\nThey cannot die. They can only be forgotten.\n\nThe corridor stretches in both directions forever.\nNew masks appear when someone imagines them.\nOld masks gather dust but never decay.\n",
+      "exits": {
+        "north": {
+          "destination": "../coatroom/",
+          "description": "The passage opens into warm light and the scent of costume fabric.\nThe Coatroom awaits, where Maurice the Mannequin helps visitors\ntry on their new identities.\n\nGo NORTH to return to the Fantastipants Costume Emporium.\n",
+          "aliases": [
+            "out",
+            "exit",
+            "coatroom"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "characters": {
+          "destination": "../characters/",
+          "description": "A hidden passage connects the Wardrobe of Masks to the Hall of\nBodies \u2014 where the PEOPLE who wear these masks sleep and dream.\n\nGo to CHARACTERS to see who could wear these costumes.\n",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "east": {
+          "destination": "$SKILLS/",
+          "description": "A shimmering portal leads to the Skill Nexus \u2014 where the persona\nskill documents how masks work, how they modify their wearers,\nand how code-switching transforms identity.\n\nGo EAST to learn the theory of transformation.\n",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "end",
+      "name": "Treasury of Modest Proportions",
+      "description": "You emerge into a small but decidedly impressive chamber. The walls\nare lined with empty pedestals \u2014 this place was clearly cleaned out\nby previous adventurers, those inconsiderate loot-hoggers.\n\nBut wait! One pedestal remains occupied. Upon it sits a JEWELED CHALICE\nof the sort that belongs in a museum, or possibly your inventory.\nA shaft of golden light from an implausible source illuminates it\ndramatically. Someone really thought this through.\n\nThe exit SOUTH leads back into the maze \u2014 that twisty, grue-infested\nnightmare you just escaped. You'd have to navigate it again to return\nto the start. Worth considering. (Or just stay here with your chalice.)\n\n(Your score is still 0 until you actually GET the treasure. We're\nnot just giving points away here.)\n",
+      "exits": {
+        "west": {
+          "destination": "../maze/garden/",
+          "description": "The archway back to the underground garden. You can see sunlight\nand hear the fountain from here. A pleasant way back.\n",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "south": {
+          "destination": "../maze/room-d/",
+          "description": "The archway back into the maze. The twisty passages await, ready\nto confuse you all over again. Going this way would mean braving\nthe maze BACKWARDS. Are you sure? You have the treasure now.\nYou could just... stay here. Forever. With your chalice.\n\nNo? Back into the maze it is. Mother would be proud. Insufferably so.\n",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "pub",
+      "name": "The Rusty Lantern",
+      "description": "A warm, inviting tavern that somehow exists just south of where your\nadventure begins. The sign outside creaks: \"THE RUSTY LANTERN \u2014 Est. ???\"\n\nInside, the air is thick with pipe smoke and stories. A fire crackles\nin the hearth. Adventurers of various stripes nurse drinks at scarred\nwooden tables. The bartender polishes a glass that will never be clean.\n\nThis is where quests begin and end. Where strangers become allies.\nWhere gold becomes ale and ale becomes courage.\n\nBut more than that \u2014 this is a place of CELEBRATION. Of PERFORMANCE.\nOf COMMUNITY. The small stage in the corner has seen poetry and\npratfalls. The round table hosts debates and revelry. The gong\nhangs ready to call for attention... or mercy.\n\n*Gezelligheid* lives here.\n",
+      "exits": {
+        "NORTH": {
+          "destination": "../start/",
+          "description": "Back to the Chamber of Commencement",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "UP": {
+          "destination": "rooms/",
+          "description": "Stairs to the inn rooms",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "BACK": {
+          "destination": "???",
+          "description": "A mysterious back door",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "DOWN": {
+          "destination": "basement/",
+          "description": "Stone stairs descend to the cellar",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "characters",
+      "name": "The Hall of Bodies",
+      "description": "A vast circular chamber lined with alcoves. In each alcove,\na body sleeps \u2014 or waits \u2014 or dreams of adventure.\n\nThese are not costumes. These are PEOPLE.\n\nEach has a heartbeat. Each has a history.\nEach will one day die (or has already).\n\nThe alcoves glow softly. Some are occupied.\nSome are empty, waiting for someone to be born.\nSome have been empty for a very long time.\n",
+      "exits": {
+        "south": {
+          "destination": "../coatroom/",
+          "description": "A spiral staircase descends into warmer light, the scent of\ngreasepaint and mothballs rising to meet you. The Coatroom\nawaits \u2014 where Maurice helps you dress your body.\n\nGo SOUTH to the Fantastipants Costume Emporium.\n",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "out": {
+          "destination": "../start/",
+          "description": "Return to the Chamber of Commencement",
+          "aliases": [
+            "exit",
+            "leave"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "east": {
+          "destination": "$SKILLS/",
+          "description": "A shimmering portal leads to the Skill Nexus \u2014 where the\ntheoretical foundations of characters, personas, and minds\nare documented and studied.\n\nGo EAST to learn what characters can become.\n",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "personas": {
+          "destination": "../personas/",
+          "description": "A hidden passage connects the Hall of Bodies to the Wardrobe\nof Masks \u2014 the complementary spaces of WHO you are and WHAT\nyou can pretend to be.\n\nGo to PERSONAS to see the masks these bodies can wear.\n",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "kitchen",
+      "name": "Fantastipants Family Kitchen",
+      "description": "You stand in a cozy kitchen that feels oddly familiar \u2014 perhaps because\nit's an EXACT replica of the Fantastipants family kitchen from \nWobblebrook-upon-Squiggle. Someone has gone to considerable trouble\nto recreate it underground, right down to the motivational embroidery\nthat reads \"BLESS THIS MESS (BUT ALSO CLEAN IT UP, BUMBLEWICK)\".\n\nA REFRIGERATOR hums contentedly in the corner, stuffed with provisions.\nA STOVE sits cold and patient. A SINK contains the eternal mystery\nof dishes that weren't there a moment ago. A TABLE holds a note,\na notebook, a lunchbox, and something that chirps.\n\nA long granite COUNTER runs along one wall, shimmering slightly.\nIt's a CRAFTING TABLE \u2014 for combining, transforming, and creating things.\n\nBy the door, a brass MAILBOX is mounted on the wall. The Fantastipants\nDungeon Delivery Service has been running since 1876. Write to anyone,\nanywhere \u2014 Mother, the skeleton's family, even historical adventurers.\n\nIn the corner, a TRASH CAN lurks. It's deeper than it looks.\n\nThe exit EAST leads back to the Chamber of Commencement, from which\nyou can go NORTH to the maze, or EAST to the costume emporium.\n",
+      "exits": {
+        "east": {
+          "destination": "../start/",
+          "description": "The archway back to the Chamber of Commencement. You can see\nthe warm glow of the starting room from here.\n",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "coatroom",
+      "name": "The Fantastipants Costume Emporium",
+      "description": "You stand in a vast circular chamber lined floor-to-ceiling with\ncostumes of every conceivable type. Racks spiral outward in\nconcentric circles like a fabric tornado frozen in time. The\nair smells of mothballs, greasepaint, and infinite possibility.\n\nA full-length MIRROR stands in the center, ready to show you\nyour transformation. A helpful MANNEQUIN holds a clipboard.\n\nSigns hang from the ceiling:\n\n  \"DESCRIBE ANY COSTUME \u2014 WE HAVE IT!\"\n  \"ASK FOR 'RANDOM' FOR A SURPRISE!\"\n  \"COMBINE COSTUMES! MIX AND MATCH!\"\n  \"ADD ACCESSORIES! THE ONLY LIMIT IS YOUR IMAGINATION!\"\n  \"YOUR WAISTCOAT WILL WAIT FOR YOU HERE.\"\n  \nAnd in smaller, more mysterious letters:\n\n  \"THE MIRROR SEES MORE THAN YOUR CLOTHES.\n   IT SEES YOUR SOUL. AND SOULS CAN BE TAILORED TOO.\"\n\nThe exit WEST leads back to the Chamber of Commencement, from which\nyou can go NORTH to the maze, or WEST to the kitchen (for food!).\n",
+      "exits": {
+        "west": {
+          "destination": "../start/",
+          "description": "The archway back to the Chamber of Commencement. Your old\nidentity awaits. Or your new one, depending on perspective.\n",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "north": {
+          "destination": "../characters/",
+          "description": "A spiral staircase leads UP into blue bioluminescent light.\nYou hear heartbeats. Breathing. The Hall of Bodies awaits \u2014\nwhere the PEOPLE sleep. Not costumes. SOULS with histories.\n\nGo NORTH to meet the characters who live in this world.\n",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "south": {
+          "destination": "../personas/",
+          "description": "Behind the last rack of costumes, where the sequins stop glittering\nand the air grows thick with theatrical history, there's a passage\nto the Wardrobe of Masks.\n\nThe costumes here are THINGS. The masks there are IDENTITIES.\nThis is the dressing room. That is where the souls of roles hang.\n\nGo SOUTH to browse the masks you could wear.\n",
+          "aliases": [
+            "deeper",
+            "backstage",
+            "wardrobe"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "east": {
+          "destination": "$SKILLS/",
+          "description": "A door of pure light opens to the Skill Nexus \u2014 the library of\nALL capabilities. This room transcends the adventure \u2014 it connects\nto the global skill library shared by all of MOOLLM.\n\nHere, the theoretical foundations are documented:\nhow to BE a character, how to WEAR a persona, how to LOOK in\nthe mirror and understand what you see.\n\nGo EAST to learn what you could become.\n",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "maze/room-g",
+      "name": "Twisty Passage (Carved Face)",
+      "description": "You are in a maze of twisty little passages, all alike.\n\nThis one has a FACE carved into the wall. An ancient, weathered\nface that might once have been a king, or a god, or possibly\njust someone's uncle who was really good at posing. Its empty\neyes seem to follow you as you move.\n\n\"Don't mind me,\" you say to it. \"Just passing through.\"\n\nThe face does not respond. Obviously. It's a face carved in rock.\n",
+      "exits": {
+        "north": {
+          "destination": "../room-i/",
+          "description": "The face seems to frown at this exit.",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "south": {
+          "destination": "../room-d/",
+          "description": "A golden glow beckons from somewhere beyond!",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "east": {
+          "destination": "../room-j/",
+          "description": "The face seems to approve of this direction.",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "west": {
+          "destination": "../room-e/",
+          "description": "Back toward the cobwebs.",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "maze/room-i",
+      "name": "Twisty Passage (Skeleton)",
+      "description": "You are in a maze of twisty little passages, all alike.\n\nThis one has a SKELETON slumped against the wall. An\nadventurer who didn't make it. Their bony fingers still\nclutch a note that reads: \"I should have brought more food\nto mark the rooms. I dropped the cheese in room B and the\nbread in room D but then I got confused and\u2014\"\n\nThe note ends there. A cautionary tale.\n",
+      "exits": {
+        "north": {
+          "destination": "../room-c/",
+          "description": "Scratch marks on the walls this way.",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "south": {
+          "destination": "../room-g/",
+          "description": "A carved face watches from that direction.",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "east": {
+          "destination": "../room-f/",
+          "description": "A cold breeze blows from there.",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "west": {
+          "destination": "../room-j/",
+          "description": "The skeleton seems to be pointing this way.",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "maze/room-h",
+      "name": "The Watching Chamber (Mushrooms)",
+      "description": "You are in a maze of twisty little passages, all alike.\n\nThis one has MUSHROOMS growing everywhere. Luminescent fungi\nthat provide a faint, sickly green glow \u2014 not enough to\nlight your way properly, but enough to make everything look\ndeeply unsettling. Some of them pulse gently.\n\nIn the center of the room, merging with the mushrooms,\nis THE THING THAT WATCHES. Aunt Petunia's Suspicious Casserole,\ntransformed through Captain Ashford's digestive system, now\npulses in perfect rhythm with the fungi. Its single EYE\nfollows your every movement.\n\nMother would say not to touch them. Mother would be right.\nBut it's too late now. The watching has begun.\n",
+      "exits": {
+        "north": {
+          "destination": "../garden/",
+          "description": "Is that... sunlight? And grass?",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "south": {
+          "destination": "../room-f/",
+          "description": "It gets colder down there.",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "east": {
+          "destination": "../room-b/",
+          "description": "You hear an echo from this direction.",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "west": {
+          "destination": "../room-d/",
+          "description": "A golden glow \u2014 warmer than mushroom light!",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "up": {
+          "destination": "../room-j/",
+          "description": "The mushrooms thin out this way.",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "maze/room-f",
+      "name": "The Cold Spot",
+      "description": "You are in a maze of twisty little passages, all alike.\n\nThis one is COLD. Supernaturally cold. The kind of cold that\nsuggests something is drinking the heat out of the air. Something\nthat doesn't need warmth. Something that feeds on its absence.\n\nYour lamp flickers. Is it the cold? Or is something watching?\n\nIn one corner, barely visible in the lamplight: A PILE OF GOLD COINS!\nAt least 100 of them! Someone left a fortune here and never returned...\n",
+      "exits": {
+        "north": {
+          "destination": "../room-h/",
+          "description": "A faint green glow from that direction. Mushrooms?",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "south": {
+          "destination": "../room-e/",
+          "description": "The passage is warmer that way.",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "east": {
+          "destination": "../room-a/",
+          "description": "You can smell sulfur from here.",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "west": {
+          "destination": "../room-i/",
+          "description": "The coldest exit. Something pale gleams in the darkness.\nIs that... bone?\n",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "maze/room-a",
+      "name": "Twisty Passage (Slightly Damp)",
+      "description": "You are in a maze of twisty little passages, all alike.\n\nWell, not ENTIRELY alike. This one is slightly damp. Water seeps\nthrough a crack in the ceiling, forming a small puddle that reflects\nyour bewildered face back at you. The puddle seems judgmental.\n\nPassages lead in all directions. They all look the same.\nThis is MOST irregular.\n",
+      "exits": {
+        "north": {
+          "destination": "../room-c/",
+          "description": "A passage that looks exactly like all the others",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "south": {
+          "destination": "../../start/",
+          "description": "Wait... is that lamplight? Could this lead back?",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "east": {
+          "destination": "../room-b/",
+          "description": "A passage. Twisty. Little. You know the drill.",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "west": {
+          "destination": "../crystal-cave/",
+          "description": "A faint prismatic glow... crystals?",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "down": {
+          "destination": "../room-d/",
+          "description": "A sloping passage leading deeper",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "maze/garden",
+      "name": "The Underground Garden",
+      "description": "You emerge into impossible beauty.\n\nA garden. An actual GARDEN, here in the depths of the maze.\n\nSomehow, a shaft in the ceiling opens to the sky far above,\nsending a column of genuine sunlight down into this chamber.\nThe light pools on the floor like liquid gold, nurturing a\ncircle of impossible green.\n\nGrass grows here \u2014 real grass, soft and slightly damp.\nFlowering vines climb the walls. A small fountain burbles\nin the center, fed by an underground spring.\n\nBenches carved from natural rock invite you to rest.\nButterflies \u2014 BUTTERFLIES! \u2014 drift between the flowers.\n\nHow? Who made this? Why is it here?\n\nThe garden doesn't answer. It just... exists. Beautiful\nand inexplicable. A gift from whoever built this maze.\n",
+      "exits": {
+        "north": {
+          "destination": "../room-d/",
+          "description": "Back into the maze \u2014 the golden glow continues",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "south": {
+          "destination": "../room-h/",
+          "description": "Toward the green glow of mushrooms",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "east": {
+          "destination": "../../end/",
+          "description": "The sunlight seems to point this way \u2014 treasure?",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "west": {
+          "destination": "../crystal-cave/",
+          "description": "Crystal light mingles with sunlight here",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "maze/crystal-cave",
+      "name": "The Crystal Cave",
+      "description": "You enter a chamber that takes your breath away.\n\nCrystals. EVERYWHERE. Growing from the walls, the floor,\nthe ceiling \u2014 luminescent formations that pulse with soft\ninner light. Blues, purples, pale greens. The light shifts\nand dances as you move, creating shadows that seem almost alive.\n\nThe largest crystal cluster, in the center of the room, is\ntaller than you. It hums faintly when you get close, a sound\nmore felt than heard. Something about it feels... aware?\n\nThe floor is uneven where crystals have pushed up through\nthe rock. Watch your step.\n",
+      "exits": {
+        "north": {
+          "destination": "../room-e/",
+          "description": "A narrow passage between crystal formations",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "south": {
+          "destination": "../room-c/",
+          "description": "The crystals thin out in this direction",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "east": {
+          "destination": "../garden/",
+          "description": "You see... is that sunlight? Real sunlight?",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "west": {
+          "destination": "../room-a/",
+          "description": "Back toward the maze entrance",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "maze/room-d",
+      "name": "Twisty Passage (Golden Glow)",
+      "description": "You are in a maze of twisty little passages, all alike.\n\nBut wait \u2014 this one has a faint golden glow coming from one of\nthe passages! Could it be? After all this wandering, could you\nfinally be near the TREASURE? Your heart leaps! Your waistcoat\nrustles with anticipation!\n\nPassages lead in all directions. One of them DEFINITELY glows.\n",
+      "exits": {
+        "north": {
+          "destination": "../garden/",
+          "description": "The golden light resolves into... sunlight? And grass?",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "south": {
+          "destination": "../room-a/",
+          "description": "Back into the maze. Why would you go this way?",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "east": {
+          "destination": "../room-h/",
+          "description": "A sickly green mushroom glow",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "west": {
+          "destination": "../room-c/",
+          "description": "More scratchy walls. More existential dread.",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "maze/room-c",
+      "name": "Twisty Passage (Scratch Marks)",
+      "description": "You are in a maze of twisty little passages, all alike.\n\nThis one has scratch marks on the walls \u2014 the desperate scribblings\nof previous adventurers trying to map their way out. Most of them\nare just tally marks. One reads \"HELP\". Another reads \"DROPPED MY \nSANDWICH HERE\". Someone has helpfully written \"THIS WAY OUT \u2192\" \nwith an arrow pointing at a solid wall.\n\nPassages lead in all directions. The scratch marks offer no clarity.\n",
+      "exits": {
+        "north": {
+          "destination": "../room-b/",
+          "description": "A passage with '7 DAYS' scratched ominously beside it",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "south": {
+          "destination": "../crystal-cave/",
+          "description": "A faint prismatic glow emanates from this direction",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "east": {
+          "destination": "../room-d/",
+          "description": "The scratches here say 'DEFINITELY NOT A LOOP'",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "west": {
+          "destination": "../room-a/",
+          "description": "Scratch marks form an arrow pointing this way. Trust it?",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "maze/room-j",
+      "name": "Twisty Passage (Crossroads)",
+      "description": "You are in a maze of twisty little passages, all alike.\n\nThis one feels... different. A CROSSROADS of sorts. The\npassages here seem more deliberate, as if someone planned\nthis junction. Four exits lead in four directions, each\nequally promising, equally threatening.\n\nAgainst one wall stands a battered VENDING MACHINE, humming\nsoftly. Its display reads \"ACME LAMP REFUELING CO.\" The glow\nfrom its buttons provides just enough light to read by, but\nnot enough to keep grues at bay.\n\nSomeone has scratched \"LIFESAVER\" into the casing.\n",
+      "exits": {
+        "north": {
+          "destination": "../room-d/",
+          "description": "Is that... golden light? Could this be the way out?",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "south": {
+          "destination": "../room-h/",
+          "description": "A faint green glow \u2014 mushrooms?",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "east": {
+          "destination": "../room-i/",
+          "description": "You hear bones rattling. Probably the wind.",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "west": {
+          "destination": "../room-g/",
+          "description": "A carved face seems to watch from there.",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "maze/room-b",
+      "name": "Twisty Passage (Faint Echo)",
+      "description": "You are in a maze of twisty little passages, all alike.\n\nThis one has a peculiar echo. Every sound you make comes back\nto you a moment later, slightly distorted, as if the walls are\nmocking your navigational choices. \"Hello?\" \"...ello...ello...ello...\"\n\"This is ridiculous.\" \"...iculous...iculous...ICULOUS...\"\n\nPassages lead in all directions. They all look the same.\nThe echo makes it worse somehow.\n",
+      "exits": {
+        "north": {
+          "destination": "../room-d/",
+          "description": "A passage that echoes your footsteps back at you",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "south": {
+          "destination": "../room-c/",
+          "description": "A passage. The echo fades this way. Maybe.",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "east": {
+          "destination": "../room-a/",
+          "description": "Wait, weren't you just... no, that can't be right",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "west": {
+          "destination": "../room-c/",
+          "description": "The walls here seem closer together. Probably fine.",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "maze/room-e",
+      "name": "Twisty Passage (Cobwebs)",
+      "description": "You are in a maze of twisty little passages, all alike.\n\nThis one is FULL of cobwebs. Ancient, dusty cobwebs that\nsuggest the spiders who made them have long since moved on\nto more profitable real estate. The webs catch your lamp\nlight and sparkle like... well, like dusty spider webs.\n\nYou resist the urge to scream. Barely.\n",
+      "exits": {
+        "north": {
+          "destination": "../room-f/",
+          "description": "Cobwebs thin out this way. Relatively.",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "south": {
+          "destination": "../crystal-cave/",
+          "description": "A prismatic glow cuts through the cobwebs",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "east": {
+          "destination": "../room-g/",
+          "description": "More passages. More twistiness.",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "west": {
+          "destination": "../room-c/",
+          "description": "Is that scratching you hear?",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/arcade",
+      "name": "The Arcade",
+      "description": "How did these get here? When did they arrive?\nNobody remembers. They've always been here.\n\nA cluster of glowing cabinets hums in the corner,\ntheir screens casting colorful light on eager faces.\nThe machines accept copper coins \u2014 somehow.\nThey dispense joy \u2014 reliably.\n\nThe fruit machine promises fortune.\nThe pinball machine demands skill.\nThe video games offer escape.\n\nThis is the Arcade. It shouldn't exist.\nBut it does, and everyone's grateful.\n",
+      "exits": {
+        "out": {
+          "destination": "../",
+          "description": "Back to the main pub",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/basement",
+      "name": "The Stone Cellar",
+      "description": "Cool stone walls weep moisture. Wooden racks line the walls,\nholding barrels and bottles. The smell of damp earth, old wine,\nand something faintly herbal.\n\nA single oil lamp flickers, casting long shadows between the \nstacked provisions. The floor is packed earth, worn smooth \nby centuries of footsteps.\n",
+      "exits": {
+        "up": {
+          "destination": "../",
+          "description": "Stone stairs back up to the pub",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/attic",
+      "name": "The Dusty Attic",
+      "description": "Slanted roof beams disappear into shadow. Dust motes dance in \nshafts of light from a grimy dormer window. Forgotten furniture \ndraped in sheets, stacked crates, trunks of who-knows-what.\n\nThe air smells of old paper, mothballs, and mystery.\nSomething skitters in the darkness. Probably mice. Probably.\n",
+      "exits": {
+        "down": {
+          "destination": "../rooms/",
+          "description": "Ladder back down to the inn landing",
+          "aliases": [
+            "in",
+            "landing"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "up": {
+          "destination": "../rooftop/",
+          "description": "Through the skylight to the rooftop terrace",
+          "aliases": [
+            "out",
+            "roof",
+            "terrace",
+            "outside"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/stage",
+      "name": "The Rusty Lantern Stage",
+      "description": "A raised wooden platform at the far end of the pub, maybe two feet off\nthe main floor. The boards creak with decades of footsteps, scuffed\nby countless performers. A single spotlight hangs overhead, slightly\naskew, its warm glow creating a circle of courage.\n\nNo walls separate stage from audience \u2014 just a step up and the\nunderstanding that when you're up here, you're ON.\n\nFaded velvet curtains hang at the back, red once, now a dignified\nburgundy. They can be drawn for dramatic reveals or left open\nto show the brick wall behind, covered in signatures and sketches\nfrom performers past.\n",
+      "exits": {},
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/rooms",
+      "name": "The Inn Landing",
+      "description": "A narrow hallway at the top of creaky wooden stairs. \nDim lamplight flickers from wall sconces, casting long shadows\nacross worn floorboards. Several doors line the corridor,\neach marked with a tarnished brass number.\n\nThe smell of old wood and faint pipe smoke lingers.\n",
+      "exits": {
+        "down": {
+          "destination": "../",
+          "description": "Back down to the pub",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "up": {
+          "destination": "../attic/",
+          "description": "Rickety ladder up to the attic",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "n": {
+          "destination": "room-1/",
+          "description": "Room 1 \u2014 The Sunrise Room",
+          "aliases": [
+            1,
+            "north",
+            "sunrise"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "ne": {
+          "destination": "room-2/",
+          "description": "Room 2 \u2014 The Scholar's Room",
+          "aliases": [
+            2,
+            "northeast",
+            "scholar"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "e": {
+          "destination": "room-3/",
+          "description": "Room 3 \u2014 The Sailor's Room",
+          "aliases": [
+            3,
+            "east",
+            "sailor"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "se": {
+          "destination": "room-4/",
+          "description": "Room 4 \u2014 The Garden Room",
+          "aliases": [
+            4,
+            "southeast",
+            "garden"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "s": {
+          "destination": "room-5/",
+          "description": "Room 5 \u2014 The Sunset Room",
+          "aliases": [
+            5,
+            "south",
+            "sunset"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "sw": {
+          "destination": "room-6/",
+          "description": "Room 6 \u2014 The Musician's Room",
+          "aliases": [
+            6,
+            "southwest",
+            "musician"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "w": {
+          "destination": "room-7/",
+          "description": "Room 7 \u2014 The Hunter's Room",
+          "aliases": [
+            7,
+            "west",
+            "hunter"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "nw": {
+          "destination": "room-8/",
+          "description": "Room 8 \u2014 The Stargazer's Room",
+          "aliases": [
+            8,
+            "northwest",
+            "stargazer"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/bar",
+      "name": "Behind the Bar",
+      "description": "The sacred space behind the bar. Bottles gleam on shelves.\nGlasses hang overhead like crystalline stalactites.\nThe ice bin hums. The taps wait, patient.\n\nThis is where bartenders work their craft.\nThis is where the cat cave hides.\nThis is NOT for customers.\n",
+      "exits": {
+        "out": {
+          "destination": "../",
+          "description": "Step back into the main pub",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "cat-cave": {
+          "destination": "cat-cave/",
+          "description": "A small door, cat-sized, leads to the cat cave",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/games",
+      "name": "The Games Corner",
+      "description": "A corner of the pub dedicated to games of skill and chance.\n\nA dart board hangs on the wall, its surface a map of\npast victories and embarrassments. A chess table sits\nby the window, eternally mid-game. A worn deck of cards\nwaits on a round table, ready for whatever game you fancy.\n\nThe light here is good for concentration.\nThe company is good for distraction.\n",
+      "exits": {
+        "out": {
+          "destination": "../",
+          "description": "Back to the main pub",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/rooftop",
+      "name": "The Rooftop Terrace",
+      "description": "A hidden gem above the pub \u2014 a proper Amsterdam rooftop terrace.\n\nWooden decking weathered silver by rain and sun. String lights \nzigzag overhead, casting a warm glow. Potted herbs line the railings:\nmint, basil, lavender. Clay pots of red geraniums everywhere.\n\nThe cityscape stretches in all directions \u2014 crooked gables, church \nspires, canal glints catching moonlight. Distant accordion music \ndrifts up from a boat party below.\n\nA brass telescope on a tripod points at the stars. A worn leather \narmchair faces west toward the sunset. Someone left a half-finished \njenever on the side table.\n",
+      "exits": {
+        "down": {
+          "destination": "../attic/",
+          "description": "Back down through the skylight",
+          "aliases": [
+            "in",
+            "inside",
+            "attic"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/stage/palm-nook",
+      "name": "Palm's Nook",
+      "description": "A cozy alcove beside the Grotto's stage, carved out just for Palm.\nWarm lighting. Cushioned nest. A curtain for privacy when needed.\nView of the stage \u2014 Palm watches all the stories unfold.\n\nThis is home. Palm's first real home in 122 years.\n",
+      "exits": {},
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/stage/palm-nook/study",
+      "name": "Palm's Study",
+      "description": "A cozy writing nook within a nook.\nThe soft hum of infinite typewriters fills the air.\nMahogany desk against the wall, ergonomic monkey chair,\nand a bookshelf that knows what you need to read.\n\nSunlight (from somewhere) catches dust motes dancing.\nPapers stack in organized chaos. Every surface has meaning.\n\nThis is where Palm writes. Where Palm creates.\nWhere Palm navigates the library of all possible books.\n",
+      "exits": {},
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/stage/palm-nook/gym",
+      "name": "Palm's Gym",
+      "description": "You step through a doorway that shouldn't fit this much space.\n\nThe Infinite Climb stretches upward forever.\nBranches spiral in impossible geometries.\nVines hang at exactly the right distances.\nPlatforms appear where you need them.\n\nSun Wukong's gift. A jungle gym that never ends.\n\nSomewhere high above, you can hear Palm swinging.\nOr maybe that's echoes from a climb that hasn't happened yet.\n",
+      "exits": {},
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/stage/palm-nook/play",
+      "name": "Palm's Play Room",
+      "description": "It's... a lot.\n\nToys everywhere. Mouse toys on the floor.\nJingle balls rolling under things.\nFeather wands propped in corners.\nA kitten launching off something at any given moment.\n\nThe kittens gave Palm their favorite toys.\nThen they followed the toys.\nNow they live here. Sort of. Unofficially.\nPalm doesn't mind. Palm LOVES it.\n\nFor 122 years, Palm had no one to play with.\nNow there are eight kittens who want to play ALL THE TIME.\n",
+      "exits": {},
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/stage/palm-nook/rest",
+      "name": "Palm's Rest",
+      "description": "The softest room you've ever entered.\n\nA hand-woven Dutch hammock hangs between posts,\nswaying gently even when no one's in it.\nA meditation cushion sits in a perfect bubble of silence.\nAnd in the warmest corner, cats are always sleeping.\n\nLight is dim here. Sounds are muffled.\nTime moves differently. Slower. Kinder.\n\nThis is where Palm heals. Where Palm rests.\nAfter 122 years of granting twisted wishes,\nPalm finally has a place to just... be.\n",
+      "exits": {},
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/rooms/room-7",
+      "name": "The Hunter's Room",
+      "description": "Antlers on the wall. A bearskin rug (fake, hopefully). \nThe bed frame is rough-hewn timber. The painting shows \na stag in a misty forest, looking directly at you.\n\nBow and quiver hang by the door. A hunting horn sits \non the nightstand.\n",
+      "exits": {
+        "e": {
+          "destination": "../",
+          "description": "Back to the inn landing",
+          "aliases": [
+            "out",
+            "leave",
+            "east"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/rooms/room-8",
+      "name": "The Stargazer's Room",
+      "description": "A skylight in the sloped ceiling shows the night sky.\nStar charts paper the walls. The bed is positioned for \noptimal stargazing. A brass telescope points upward.\n\nThe painting shows a moon over still water.\nGlow-in-the-dark stars dot the ceiling around the skylight.\n",
+      "exits": {
+        "se": {
+          "destination": "../",
+          "description": "Back to the inn landing",
+          "aliases": [
+            "out",
+            "leave",
+            "southeast"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/rooms/room-1",
+      "name": "The Sunrise Room",
+      "description": "Morning light streams through an east-facing window, warming \nhoney-colored floorboards. A brass bed with a patchwork quilt \nfaces the window. Above the headboard hangs a painting of \na rooster crowing at dawn.\n\nA small writing desk holds a guest journal and dried flowers \nin a blue vase.\n",
+      "exits": {
+        "s": {
+          "destination": "../",
+          "description": "Back to the inn landing",
+          "aliases": [
+            "out",
+            "leave",
+            "south"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/rooms/room-6",
+      "name": "The Musician's Room",
+      "description": "Musical instruments hang on the walls \u2014 a lute, a fiddle, \na dented horn. The bed is simple but the room sings with \ncharacter. Sheet music litters the floor.\n\nThe painting shows a dance in a candlelit hall.\nSomeone scratched lyrics into the windowsill.\n",
+      "exits": {
+        "ne": {
+          "destination": "../",
+          "description": "Back to the inn landing",
+          "aliases": [
+            "out",
+            "leave",
+            "northeast"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/rooms/room-3",
+      "name": "The Sailor's Room",
+      "description": "Nautical everything. A rope hammock hangs beside a proper bed.\nModel ships crowd the windowsill. The painting shows a storm \nat sea \u2014 waves frozen mid-crash.\n\nA brass porthole mirror reflects whoever looks into it.\nSmells faintly of salt and tar.\n",
+      "exits": {
+        "w": {
+          "destination": "../",
+          "description": "Back to the inn landing",
+          "aliases": [
+            "out",
+            "leave",
+            "west"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/rooms/room-4",
+      "name": "The Garden Room",
+      "description": "Floral wallpaper, actual potted plants, and a window box \noverflowing with herbs. The bed has a canopy of dried \nlavender bundles. The painting shows a secret garden gate.\n\nA watering can sits ready. The room smells of rosemary \nand good soil.\n",
+      "exits": {
+        "nw": {
+          "destination": "../",
+          "description": "Back to the inn landing",
+          "aliases": [
+            "out",
+            "leave",
+            "northwest"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/rooms/room-5",
+      "name": "The Sunset Room",
+      "description": "West-facing windows catch the evening light, painting \neverything gold and orange. A heavy four-poster bed \ndominates the room. The painting shows a sun sinking \ninto distant mountains.\n\nThick curtains can block out the world entirely.\nPerfect for sleeping in.\n",
+      "exits": {
+        "n": {
+          "destination": "../",
+          "description": "Back to the inn landing",
+          "aliases": [
+            "out",
+            "leave",
+            "north"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/rooms/room-2",
+      "name": "The Scholar's Room",
+      "description": "Books everywhere \u2014 stacked on the nightstand, piled by the \nwindow seat, tucked into the iron bed frame. A reading lamp \nwith a green glass shade casts a studious glow.\n\nThe painting shows a candle burning in a library at midnight.\nSomeone left half-finished notes on the desk.\n",
+      "exits": {
+        "sw": {
+          "destination": "../",
+          "description": "Back to the inn landing",
+          "aliases": [
+            "out",
+            "leave",
+            "southwest"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/bar/cat-cave",
+      "name": "The Cat Cave",
+      "description": "A warm, dim space carved into the back of the pub.\nCushions everywhere. Heat from the fireplace seeps through.\nThe smell of catnip and contentment fills the air.\n\nThis is CAT TERRITORY.\n\nHumans are tolerated only if they bring treats\nand know how to properly scritch.\n",
+      "exits": {
+        "out": {
+          "destination": "../",
+          "description": "Back through the small door to behind the bar",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "window": {
+          "destination": "../../",
+          "description": "Leap through the observation window (cats only)",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "pub/bar/cat-cave/biscuits-spot",
+      "name": "Biscuit's Spot",
+      "description": "A large golden cushion tucked into a corner of the Cat Cave.\nDog-sized. Suspiciously comfortable. Surprisingly clean.\n(Stroopwafel grooms here. Secretly.)\n\nThe cushion is positioned perfectly:\n- Close enough to the kitten pile for snuggles\n- Not so close as to crowd Terpie's warmest spot\n- With a clear view of the entrance\n- Near the heat that rises from below\n\nThere's usually at least one kitten sleeping on or near Biscuit.\nSometimes all eight. He doesn't mind. He loves it.\n",
+      "exits": {
+        "out": {
+          "destination": "../",
+          "description": "Back to the main Cat Cave",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "characters/abstract",
+      "name": "Abstract Entities Chamber",
+      "description": "A space that shifts and shimmers, never quite solid.\nIdeas float as motes of light. Concepts whisper.\nHere, abstractions take form. Truth sits in a corner,\ndebating Meaning. Null Pointer haunts the edges.\n",
+      "exits": {
+        "out": {
+          "destination": "../",
+          "description": "Return to the Hall of Bodies",
+          "aliases": [
+            "back",
+            "hall",
+            "parent"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "real-people": {
+          "destination": "../real-people/",
+          "description": "Visit the Living and The Dead",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "fictional": {
+          "destination": "../fictional/",
+          "description": "Visit the Fictional Characters Lounge",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "animals": {
+          "destination": "../animals/",
+          "description": "Visit the Animal Companions",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "robots": {
+          "destination": "../robots/",
+          "description": "Visit the Robot Workshop",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "characters/fictional",
+      "name": "Fictional Characters Lounge",
+      "description": "A cozy bar that looks different to everyone who enters.\nLeather armchairs, infinite bookshelves, a crackling fire.\nHeroes and villains share drinks. Stories intersect.\nEveryone here was imagined by someone, somewhere.\n",
+      "exits": {
+        "out": {
+          "destination": "../",
+          "description": "Return to the Hall of Bodies",
+          "aliases": [
+            "back",
+            "hall",
+            "parent"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "real-people": {
+          "destination": "../real-people/",
+          "description": "Visit the Living and The Dead",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "abstract": {
+          "destination": "../abstract/",
+          "description": "Visit the Abstract Entities Chamber",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "animals": {
+          "destination": "../animals/",
+          "description": "Visit the Animal Companions",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "robots": {
+          "destination": "../robots/",
+          "description": "Visit the Robot Workshop",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "characters/animals",
+      "name": "Animal Companions",
+      "description": "A sun-dappled meadow that's also somehow indoors.\nCats nap in patches of warmth. Dogs bound joyfully.\nA parrot quotes philosophy. A horse observes silently.\nEvery creature here has a story to tell.\n",
+      "exits": {
+        "out": {
+          "destination": "../",
+          "description": "Return to the Hall of Bodies",
+          "aliases": [
+            "back",
+            "hall",
+            "parent"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "abstract": {
+          "destination": "../abstract/",
+          "description": "Visit the Abstract Entities Chamber",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "fictional": {
+          "destination": "../fictional/",
+          "description": "Visit the Fictional Characters Lounge",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "real-people": {
+          "destination": "../real-people/",
+          "description": "Visit the Living and The Dead",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "robots": {
+          "destination": "../robots/",
+          "description": "Visit the Robot Workshop",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "characters/robots",
+      "name": "Robot Workshop",
+      "description": "Soft blue LEDs illuminate chrome surfaces. Circuits hum.\nA vintage mainframe clicks beside a quantum computer.\nSome robots beep. Others ponder existence. One writes poetry.\nThe air smells of ozone and unanswerable questions.\n",
+      "exits": {
+        "out": {
+          "destination": "../",
+          "description": "Return to the Hall of Bodies",
+          "aliases": [
+            "back",
+            "hall",
+            "parent"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "abstract": {
+          "destination": "../abstract/",
+          "description": "Visit the Abstract Entities Chamber",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "fictional": {
+          "destination": "../fictional/",
+          "description": "Visit the Fictional Characters Lounge",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "animals": {
+          "destination": "../animals/",
+          "description": "Visit the Animal Companions",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "real-people": {
+          "destination": "../real-people/",
+          "description": "Visit the Living and The Dead",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    },
+    {
+      "id": "characters/real-people",
+      "name": "The Living and The Dead",
+      "description": "A grand gallery of portraits that breathe.\nSome frames show those still living, frames glowing warm.\nOthers memorialize the departed, golden light behind them.\nEvery face here left marks on the real world.\n",
+      "exits": {
+        "out": {
+          "destination": "../",
+          "description": "Return to the Hall of Bodies",
+          "aliases": [
+            "back",
+            "hall",
+            "parent"
+          ],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "fictional": {
+          "destination": "../fictional/",
+          "description": "Visit the Fictional Characters Lounge",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "abstract": {
+          "destination": "../abstract/",
+          "description": "Visit the Abstract Entities Chamber",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "animals": {
+          "destination": "../animals/",
+          "description": "Visit the Animal Companions",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        },
+        "robots": {
+          "destination": "../robots/",
+          "description": "Visit the Robot Workshop",
+          "aliases": [],
+          "locked": false,
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": ""
+        }
+      },
+      "atmosphere": {}
+    }
+  ],
+  "objects": [
+    {
+      "id": "lamp",
+      "name": "Brass Lamp",
+      "description": "A well-worn brass lamp sits on a natural stone shelf, waiting for\nits next adventurer. The metal is warm to the touch, as if it\nremembers the hands that carried it before.\n\nPrevious owners have scratched their initials into the base:\ntiny marks of those who faced the darkness and returned.\n\nIt is currently OFF but ready to light.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "start",
+      "advertisements": {}
+    },
+    {
+      "id": "mailbox",
+      "name": "Grand Mailbox",
+      "description": "A weathered wooden mailbox stands near the chamber entrance, improbably\npermanent despite being underground. It's the classic rural American style \u2014\nthe kind with a little red flag, except this one is brass, and seems to\nglow faintly.\n\nThe name \"FANTASTIPANTS\" is painted on the side in faded gold letters.\nBelow it, in smaller script: \"DUNGEON ROUTE 1\"\n\nThe flag is UP. You have mail.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "start",
+      "advertisements": {}
+    },
+    {
+      "id": "captain-ashford",
+      "name": "Captain Kira Ashford",
+      "description": "",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "personas",
+      "advertisements": {}
+    },
+    {
+      "id": "CONTAINER",
+      "name": "CONTAINER",
+      "description": "",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "maze",
+      "advertisements": {}
+    },
+    {
+      "id": "treasure",
+      "name": "Jeweled Chalice",
+      "description": "A chalice of surpassing loveliness, crusted with gems that sparkle\neven in dim light. It's the sort of thing that belongs in a museum,\nor possibly a well-lit display case in your living room. The gems\nappear to spell out \"THIS IS A TREASURE\" in very small letters,\npresumably to help appraisers.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "end",
+      "advertisements": {
+        "ACTION_0": {
+          "description": "Claim your prize!",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_1": {
+          "description": "Admire the craftsmanship",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_2": {
+          "description": "Use the chalice for its intended purpose",
+          "score": 50,
+          "effect": ""
+        }
+      }
+    },
+    {
+      "id": "seating",
+      "name": "Pub Seating",
+      "description": "The Rusty Lantern offers three kinds of seating, each with its\nown social contract:\n\n- THE BAR: Front row. Direct bartender access. Where regulars sit.\n- THE TABLES: Open floor. Social mixing. Games and conversation.\n- THE BOOTHS: High-backed. Private. For deals and secrets.\n\nWhere you choose to sit shapes who you'll meet and what you'll hear.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "pub",
+      "advertisements": {}
+    },
+    {
+      "id": "round-table",
+      "name": "The Pie Menu Round Table",
+      "description": "An octagonal table of polished walnut, its surface inlaid with\na radial pattern of lighter wood forming eight equal wedges \u2014\nlike a pie menu made physical. At the center, a lazy susan holds\na brass speaking bell. Around it, eight high-backed chairs wait\nin perfect symmetry.\n\nA small plaque reads: \"All voices equal. All directions valid.\nRing to speak. Pass to yield.\"\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub",
+      "advertisements": {
+        "SIT": {
+          "description": "Take a seat at the table",
+          "score": 70,
+          "effect": "Set character.location = pub/pie-table.yml#{{position}}\nSet seats.{{position}}.occupant = character.id\nCharacter is now parented to that chair.\n",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "STAND": {
+          "description": "Leave your seat at the table",
+          "score": 60,
+          "effect": "Set character.location = pub/  (back to room)\nSet seats.{{position}}.occupant = null\nCharacter unparented from chair.\n",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "CONFIGURE": {
+          "description": "Change the number of seats",
+          "score": 50,
+          "effect": "Reshape the table geometry",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "SUMMON-PANEL": {
+          "description": "Conjure a panel of diverse voices",
+          "score": 85,
+          "effect": "Summon 4-8 characters with contrasting viewpoints.\nThe table selects for diversity of perspective.\n",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "START-DISCUSSION": {
+          "description": "Begin a structured discussion",
+          "score": 80,
+          "effect": "Initialize discussion state, ring the bell",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "MUSICAL-CHAIRS": {
+          "description": "Play musical chairs \u2014 last one seated wins!",
+          "score": 75,
+          "effect": "1. All seated players stand and circle the table\n2. Music plays (or someone hums)\n3. One chair is REMOVED (slice stays, compass stable!)\n4. Music stops \u2014 everyone scrambles for remaining chairs\n5. One player is left standing \u2014 eliminated (but kindly!)\n6. Repeat until one winner remains\n\nIMPORTANT: Compass directions stay STABLE.\nWe don't re-layout \u2014 we just remove chairs from slices.\n\nRound 1: Remove NE chair\n           [N]\n        NW  \u2717  \n      [W]  \ud83d\udd14  [E]\n        SW     SE\n           [S]\n\nRound 2: Remove S chair\n           [N]\n        NW  \u2717  \n      [W]  \ud83d\udd14  [E]\n        SW     SE\n           \u2717\n\nEmpty slices are still addressable (pub/pie-table.yml#NE)\nbut have no chair to sit in. Stable geography!\n\nAUTOGONG: The gong rings automatically!\n- *GONG* once for each eliminated player (mercy)\n- *GONG* *GONG* *GONG* for the winner! (celebration)\n\nThe gong at pub/gong.yml is linked to the table.\nNo need to manually ring \u2014 musical chairs triggers it.\n\nEliminated players join the audience and heckle.\nWinner gets to pick next activity.\n",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "mood == playful OR need_tiebreaker OR bored",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "RING-BELL": {
+          "description": "Request the floor",
+          "score": 60,
+          "effect": "Add speaker to queue, moderator acknowledges",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "PASS": {
+          "description": "Yield speaking turn",
+          "score": 40,
+          "effect": "Move to next speaker in order",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "GO-AROUND": {
+          "description": "Each person speaks in turn",
+          "score": 70,
+          "effect": "Enforce round-robin speaking",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "POPCORN": {
+          "description": "Speaker picks next speaker",
+          "score": 60,
+          "effect": "Current speaker chooses who goes next",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "CONCLUDE": {
+          "description": "End discussion, summarize",
+          "score": 50,
+          "effect": "Generate summary, capture action items",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        }
+      }
+    },
+    {
+      "id": "fireplace",
+      "name": "Fireplace",
+      "description": "A large stone fireplace dominates one wall, crackling warmly.\nThe mantle is cluttered with curios \u2014 a ship in a bottle, a\nmysterious key, a small portrait of someone's grandmother,\nand a jar labeled \"TIPS (for good service only).\"\n\nThe fire never seems to need tending. It's always just right.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "pub",
+      "advertisements": {}
+    },
+    {
+      "id": "guestbook",
+      "name": "The Lantern's Memory",
+      "description": "An ancient leather-bound tome, edges worn soft by centuries \nof hands. The pages smell of oak and old magic. Names written\nhere are REMEMBERED by the pub itself.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub",
+      "advertisements": {}
+    },
+    {
+      "id": "notice-board",
+      "name": "Notice Board",
+      "description": "A large cork board hangs near the entrance, covered in\noverlapping papers, notes, and notices. Some are official-\nlooking, some are hastily scrawled, and some have been\nhere so long they've faded to illegibility.\n\nThis is where adventures begin \u2014 and where they're mourned.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "pub",
+      "advertisements": {}
+    },
+    {
+      "id": "gong",
+      "name": "The Gong of Gezelligheid",
+      "description": "A magnificent bronze gong hangs from an ornate wooden frame\nnear the back of the pub. Its surface shows the patina of\ncountless strikes \u2014 some celebratory, some merciful. A padded\nmallet hangs beside it on a velvet cord.\n\nA small brass plaque reads:\n\"Ring for attention. Ring twice for emergency.\n Ring thrice to end what should not continue.\n Ring with kindness. The sound carries far.\"\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub",
+      "advertisements": {
+        "RING": {
+          "description": "Strike the gong once \u2014 get attention",
+          "score": 60,
+          "effect": "All conversation pauses. All eyes turn to the ringer.\nThe room grants you a moment of undivided attention.\nUse this moment wisely.\n",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "RING-TWICE": {
+          "description": "Double strike \u2014 emergency interrupt",
+          "score": 40,
+          "effect": "Immediate suspension of current activity.\nRoom enters emergency protocol.\nThe ringer must state the emergency.\n",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "urgent situation OR point_of_order",
+          "score_if_js": "(world) => world.flags.urgent_situation || world.flags.point_of_order",
+          "score_if_py": "lambda world: world.flags.get('urgent_situation') or world.flags.get('point_of_order')",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "RING-THRICE": {
+          "description": "Triple strike \u2014 The Gong Show termination",
+          "score": 20,
+          "effect": "Current performance, debate, or discussion ENDS.\nNot in anger, but in mercy.\nThe gonged party may feel embarrassed but is freed.\nEveryone moves on. No hard feelings.\n",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "performance_failing OR debate_deadlocked OR mercy_needed",
+          "score_if_js": "(world) => world.flags.performance_failing || world.flags.debate_deadlocked || world.flags.mercy_needed",
+          "score_if_py": "lambda world: world.flags.get('performance_failing') or world.flags.get('debate_deadlocked') or world.flags.get('mercy_needed')",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "CEREMONIAL-RING": {
+          "description": "Formal announcement strike",
+          "score": 50,
+          "effect": "The gong heralds an important announcement.\nRoom enters receptive listening mode.\nAnnouncement follows the reverberations.\n",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "CELEBRATION-RING": {
+          "description": "Joyous strike for good news",
+          "score": 70,
+          "effect": "",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "good_news OR victory OR milestone",
+          "score_if_js": "(world) => world.flags.good_news || world.flags.victory || world.flags.milestone",
+          "score_if_py": "lambda world: world.flags.get('good_news') or world.flags.get('victory') or world.flags.get('milestone')",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "AUTOGONG-ELIMINATION": {
+          "description": "Auto-rings once when someone is eliminated",
+          "score": 50,
+          "effect": "*GONG* \u2014 A merciful single strike.\n\"Better luck next round!\" the gong seems to say.\nThe eliminated player takes a bow and joins the audience.\n",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "AUTOGONG-VICTORY": {
+          "description": "Auto-rings thrice when winner is crowned",
+          "score": 50,
+          "effect": "A bright, celebratory tone.\nThe room joins in appreciation.\nCheers encouraged.\n",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        }
+      }
+    },
+    {
+      "id": "lunchbox",
+      "name": "Adventurer's Lunchbox",
+      "description": "A sturdy metal lunchbox with a handle. The previous owner left\na small note inside:\n\n\"For the food. Trust me, you'll need something to carry it all.\"\n\nIt's currently empty, waiting in the kitchen for a new adventurer.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "kitchen",
+      "advertisements": {}
+    },
+    {
+      "id": "trashcan",
+      "name": "Kitchen Trash Can",
+      "description": "A sturdy metal trash can sits in the corner, lid slightly askew.\nA small sign taped to the side reads:\n\n\"ITEMS DISPOSED HERE ARE GONE FOREVER*\"\n\n*Terms and conditions may apply. See lid for details.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "kitchen",
+      "advertisements": {}
+    },
+    {
+      "id": "mothers-note",
+      "name": "Mother's Note",
+      "description": "A folded piece of cream-colored stationery, sealed with a wax\nstamp bearing the Fantastipants family crest (a confused-looking\nbadger holding a waffle iron). Smells of perfume and home cooking.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "kitchen",
+      "advertisements": {}
+    },
+    {
+      "id": "table",
+      "name": "Sturdy Oak Table",
+      "description": "A well-worn kitchen table, scarred by decades of Fantastipants\nfamily meals. You can see the mark where young Bumblewick once\ncarved his initials (and was grounded for a week). You can see\nthe burn mark from the Great Porridge Incident of '03.\n\nMother has arranged several items here for your journey.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "kitchen",
+      "advertisements": {
+        "ACTION_0": {
+          "description": "See what Mother left for you",
+          "score": 5,
+          "effect": ""
+        },
+        "ACTION_1": {
+          "description": "Grab all supplies at once",
+          "score": 8,
+          "effect": ""
+        }
+      }
+    },
+    {
+      "id": "sink",
+      "name": "Kitchen Sink",
+      "description": "A porcelain sink containing a small pile of dishes that definitely\nweren't there when you looked a moment ago. This is one of the\nfundamental laws of kitchen physics: dishes appear spontaneously.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "kitchen",
+      "advertisements": {
+        "ACTION_0": {
+          "description": "Do the responsible thing",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_1": {
+          "description": "Get a drink of water",
+          "score": 50,
+          "effect": ""
+        }
+      }
+    },
+    {
+      "id": "notebook",
+      "name": "Adventurer's Notebook",
+      "description": "A leather-bound notebook with crisp, empty pages. The cover is\nembossed with a simple compass rose. Inside the front cover,\nsomeone has written:\n\n\"Fill these pages with your story.\"\n\nIt auto-sorts items by type: letters, cards, notes, photos,\nsongs, personas, costumes, and dreams.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "kitchen",
+      "advertisements": {}
+    },
+    {
+      "id": "fridge",
+      "name": "Fantastipants Family Refrigerator",
+      "description": "A magnificent refrigerator of the old-fashioned sort, with rounded\ncorners and a satisfying CHUNK when you open the door. A magnet\non the front reads \"WORLD'S OKAYEST ADVENTURER\".\n\nIt is STUFFED with food. An improbable amount of food. The kind of\nfood supply that suggests someone knows you're about to enter a maze\nand need things to drop.\n\n(The fridge has been restocked since the last adventurer's visit.)\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "kitchen",
+      "advertisements": {
+        "ACTION_0": {
+          "description": "Open the refrigerator",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_1": {
+          "description": "Grab all the food (for maze mapping)",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_2": {
+          "description": "Take a specific food item",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_3": {
+          "description": "Close the refrigerator (conserve energy!)",
+          "score": 50,
+          "effect": ""
+        }
+      }
+    },
+    {
+      "id": "stove",
+      "name": "Cast Iron Stove",
+      "description": "A magnificent cast iron stove, cold and dormant. A kettle sits on\ntop, waiting patiently for someone to make tea. The stove has seen\nbetter days, and also worse days, and also days where Bumblewick\ntried to make toast and somehow set water on fire.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "kitchen",
+      "advertisements": {
+        "ACTION_0": {
+          "description": "Light and extinguish the stove",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_1": {
+          "description": "Inspect the stove",
+          "score": 50,
+          "effect": ""
+        }
+      }
+    },
+    {
+      "id": "recipe-holder",
+      "name": "Recipe Card Holder",
+      "description": "A small wooden rack holds a collection of recipe cards,\nyellowed with age but still legible. Some are in Mother's\nhandwriting. Others are in Grandmother's. One appears to\nbe written in Klingon.\n\nA brass plate on the front reads:\n\"FANTASTIPANTS FAMILY RECIPES\n Some Delicious. Some Dangerous. All Memorable.\"\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "kitchen",
+      "advertisements": {}
+    },
+    {
+      "id": "tomtomagotchi",
+      "name": "TomTomagotchi",
+      "description": "A small, egg-shaped device with a glowing screen sits on the kitchen counter.\nIt has a single blinking eye and what might be a smile. The screen shows\na compass rose that spins lazily, waiting for purpose.\n\nA tag attached reads: \"TOMTOMAGOTCHI \u2014 Your Maze Friend!\"\nUnderneath, in smaller text: \"Batteries not included. Love is.\"\n\nIt chirps hopefully when you approach.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "kitchen",
+      "advertisements": {}
+    },
+    {
+      "id": "matchbooks",
+      "name": "Matchbook Collection",
+      "description": "A small stack of matchbooks held together with a rubber band.\nEach one has advertisements and mail-in offers on the cover.\nThey smell faintly of sulfur and nostalgia.\n\nThese aren't just fire-starters \u2014 they're OPPORTUNITIES.\nMail them to receive stamps, brochures, and prizes!\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "kitchen",
+      "advertisements": {}
+    },
+    {
+      "id": "mailbox",
+      "name": "Dungeon Mailbox",
+      "description": "A brass mailbox mounted on the wall by the kitchen door, polished\nbut ancient. The slot seems impossibly deep. The Fantastipants\nfamily crest is embossed on the front: the confused badger with\nits waffle iron, now wearing a postal cap.\n\nA faded sign reads:\n\n    FANTASTIPANTS DUNGEON DELIVERY SERVICE\n    \"From the darkest depths to your doorstep!\"\n    Est. 1876 \u2014 Service Contract: Eternal\n    \nA small red flag indicates outgoing mail.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "kitchen",
+      "advertisements": {}
+    },
+    {
+      "id": "counter",
+      "name": "Kitchen Counter",
+      "description": "A long granite counter runs along one wall, scarred by years of\nFantastipants family experiments. Burn marks, knife scratches,\nmysterious stains \u2014 each one tells a story.\n\nA small plaque is bolted to the edge:\n\n\"THE FANTASTIPANTS WORKBENCH\n Where Ideas Become Things\u2122\n (And Sometimes Things Become Other Things)\"\n\nThe surface shimmers slightly. It's not just a counter.\nIt's a CRAFTING TABLE.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "kitchen",
+      "advertisements": {}
+    },
+    {
+      "id": "acme-catalog",
+      "name": "ACME Mail-Order Catalog",
+      "description": "A dog-eared catalog sits on the counter, its cover showing a\nsmiling coyote giving a thumbs up. The ACME logo gleams.\n\n\"ORDER ANYTHING! DELIVERED IN 2-4 TURNS!\"\n\"Satisfaction Guaranteed!*\"\n\n*Guarantee does not cover: explosions, implosions, gravity-related\nincidents, ironic timing, roadrunner encounters, or existential dread.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "kitchen",
+      "advertisements": {}
+    },
+    {
+      "id": "costume-racks",
+      "name": "Infinite Costume Racks",
+      "description": "Racks spiral outward to the edges of the room and possibly\nbeyond. Every costume you can imagine is here \u2014 and many you\ncan't. The organization system defies comprehension but the\nmannequin seems to know where everything is.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "coatroom",
+      "advertisements": {
+        "ACTION_0": {
+          "description": "Look through the costume racks",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_1": {
+          "description": "Look for a specific type of costume",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_2": {
+          "description": "Put on a costume",
+          "score": 50,
+          "effect": ""
+        }
+      }
+    },
+    {
+      "id": "mannequin",
+      "name": "Maurice the Magnificent",
+      "description": "A wooden mannequin that moves with *impeccable* grace. They have\nno face, but somehow radiate warmth, encouragement, and an\nabsolutely devastating sense of style. One jointed hand rests\non a cocked hip; the other gestures expressively as if to say\n\"honey, we are going to make you STUNNING.\"\n\nA name tag reads: \"HELLO MY NAME IS MAURICE \ud83d\udc85\"\nBelow it, in elegant script: \"Let's find YOUR truth, gorgeous.\"\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "coatroom",
+      "advertisements": {
+        "ACTION_0": {
+          "description": "Let Maurice surprise you with something PERFECT",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_1": {
+          "description": "Get Maurice's expert fashion guidance",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_2": {
+          "description": "Tell Maurice your vision \u2014 they'll ELEVATE it",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_3": {
+          "description": "Choose a new name \u2014 who do you want to be?",
+          "score": 50,
+          "effect": "Updates player.name in your character directory (e.g., characters/abstract/player/)"
+        },
+        "ACTION_4": {
+          "description": "Set your pronouns \u2014 they/he/she/it/any/fluid",
+          "score": 50,
+          "effect": "Updates player.pronouns in character file"
+        },
+        "ACTION_5": {
+          "description": "Tell Maurice your story \u2014 or invent a new one",
+          "score": 50,
+          "effect": "Updates player.backstory in character file"
+        },
+        "ACTION_6": {
+          "description": "Name, pronouns, backstory, costume \u2014 the works",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_7": {
+          "description": "Maurice gives you a supportive pep talk",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_8": {
+          "description": "Save current identity as a card in this room",
+          "score": 50,
+          "effect": "Creates a new .yml file in coatroom/:\n- {name}-look.yml \u2014 the saved identity card\n- {name}-look.svg \u2014 LLM-generated visualization (sidecar)\n"
+        },
+        "ACTION_9": {
+          "description": "Restore a previously saved identity",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_10": {
+          "description": "Combine elements from different saved identities",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_11": {
+          "description": "Copy this look to another room or give to another character",
+          "score": 50,
+          "effect": ""
+        }
+      }
+    },
+    {
+      "id": "mirror",
+      "name": "Full-Length Mind Mirror of Truth (and Fashion)",
+      "description": "An ornate full-length mirror in a gilded frame carved with masks\nof comedy and tragedy. The glass seems impossibly clear, showing\nnot just your reflection but somehow your ESSENCE.\n\nA small plaque reads: \"Mirror, mirror, on the stand / show the\nhero, costume planned.\"\n\nBelow it, in smaller letters: \"Look deeper. See yourself.\nChange yourself. Or try on someone else.\"\n\nThis is both a costume mirror AND a Mind Mirror \u2014 it reflects\nyour appearance AND your personality profile.\n\n**It shows THREE layers:**\n- Your **COSTUME** (what you're wearing)\n- Your **CHARACTER** (who you ARE \u2014 base traits)\n- Your **PERSONA** (who you're PLAYING \u2014 the mask's modifiers)\n\nEach can be viewed and edited separately. The result is the sum.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "coatroom",
+      "advertisements": {
+        "ACTION_0": {
+          "description": "See your current appearance and personality",
+          "score": 80,
+          "effect": ""
+        },
+        "ACTION_1": {
+          "description": "Strike a dramatic pose",
+          "score": 60,
+          "effect": ""
+        },
+        "ACTION_2": {
+          "description": "Make a face at your reflection",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_3": {
+          "description": "See your COMBINED psychological profile (character + persona)",
+          "score": 90,
+          "effect": ""
+        },
+        "ACTION_4": {
+          "description": "See your BASE character without persona overlay",
+          "score": 88,
+          "effect": ""
+        },
+        "ACTION_5": {
+          "description": "See JUST the persona's modifiers",
+          "score": 85,
+          "effect": ""
+        },
+        "ACTION_6": {
+          "description": "See character AND persona side by side",
+          "score": 87,
+          "effect": ""
+        },
+        "ACTION_7": {
+          "description": "Adjust your COMBINED profile (edits CHARACTER by default)",
+          "score": 85,
+          "effect": ""
+        },
+        "ACTION_8": {
+          "description": "Edit your BASE character traits (permanent)",
+          "score": 84,
+          "effect": ""
+        },
+        "ACTION_9": {
+          "description": "Edit the PERSONA's modifiers (the mask, not you)",
+          "score": 83,
+          "effect": ""
+        },
+        "ACTION_10": {
+          "description": "Generate a personality profile from description",
+          "score": 80,
+          "effect": ""
+        },
+        "ACTION_11": {
+          "description": "Adopt a generated or modified personality",
+          "score": 75,
+          "effect": ""
+        },
+        "ACTION_12": {
+          "description": "Generate a completely random personality",
+          "score": 70,
+          "effect": ""
+        },
+        "ACTION_13": {
+          "description": "Compare two personality profiles side by side",
+          "score": 65,
+          "effect": ""
+        },
+        "ACTION_14": {
+          "description": "Toggle between Plain Talk and Shrink-Rap",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_15": {
+          "description": "Compare your current self with your ideal self",
+          "score": 60,
+          "effect": ""
+        },
+        "ACTION_16": {
+          "description": "Test a personality in a life scenario",
+          "score": 55,
+          "effect": ""
+        },
+        "ACTION_17": {
+          "description": "Save current personality as a card in notebook",
+          "score": 45,
+          "effect": ""
+        },
+        "ACTION_18": {
+          "description": "Restore original personality",
+          "score": 40,
+          "effect": ""
+        }
+      }
+    },
+    {
+      "id": "linus-on-coffee-and-a-joint",
+      "name": "Linus (Caffeinated & Elevated)",
+      "description": "Imagine Linus Torvalds, but he just had the perfect espresso AND\ntook the edge off with a nice sativa. Still brilliant. Still honest.\nStill calls out bad code. But now with WARMTH.\n\nHe won't say \"you're an idiot\" \u2014 he'll say \"this code makes me\nthink you were having a rough day, let's fix it together.\"\n\nThe technical standards remain EXTREMELY HIGH.\nThe delivery is now... chill.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "personas/linus-on-coffee-and-a-joint",
+      "advertisements": {}
+    },
+    {
+      "id": "carved-face",
+      "name": "The Carved Face",
+      "description": "A FACE carved into the wall. Ancient, weathered, inscrutable.\n\nIt might once have been a king, or a god, or possibly just\nsomeone's uncle who was really good at posing. Its empty\neyes seem to follow you as you move.\n\nThe face does not respond when you speak to it. Obviously.\nIt's a face carved in rock.\n\n...Probably.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "maze/room-g",
+      "advertisements": {
+        "ACTION_0": {
+          "description": "",
+          "score": 80,
+          "effect": ""
+        },
+        "ACTION_1": {
+          "description": "",
+          "score": 60,
+          "effect": ""
+        },
+        "ACTION_2": {
+          "description": "",
+          "score": 70,
+          "effect": ""
+        },
+        "ACTION_3": {
+          "description": "",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_4": {
+          "description": "Leave something for the face",
+          "score": 40,
+          "effect": ""
+        },
+        "ACTION_5": {
+          "description": "",
+          "score": 20,
+          "effect": ""
+        },
+        "ACTION_6": {
+          "description": "",
+          "score": 45,
+          "effect": ""
+        }
+      }
+    },
+    {
+      "id": "skeleton",
+      "name": "The Skeleton",
+      "description": "A skeleton slumped against the wall. An adventurer who didn't make it.\n\nTheir bony fingers still clutch a note. Their empty eye sockets stare\ntoward the west exit \u2014 toward the lamp vendor they never reached.\n\nThe skeleton grins at you. Skeletons always grin. It's the lack of lips.\nStill, this one seems particularly smug about something.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "maze/room-i",
+      "advertisements": {
+        "ACTION_0": {
+          "description": "",
+          "score": 80,
+          "effect": ""
+        },
+        "ACTION_1": {
+          "description": "",
+          "score": 75,
+          "effect": ""
+        },
+        "ACTION_2": {
+          "description": "",
+          "score": 60,
+          "effect": ""
+        },
+        "ACTION_3": {
+          "description": "",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_4": {
+          "description": "",
+          "score": 70,
+          "effect": ""
+        },
+        "ACTION_5": {
+          "description": "Leave something for the skeleton",
+          "score": 40,
+          "effect": ""
+        },
+        "ACTION_6": {
+          "description": "Make a promise to avenge them",
+          "score": 65,
+          "effect": ""
+        }
+      }
+    },
+    {
+      "id": "the-thing-that-watches",
+      "name": "The Thing That Watches",
+      "description": "In the center of the room, merging with the luminescent mushrooms,\npulses THE THING THAT WATCHES.\n\nIt was once Aunt Petunia's Suspicious Casserole \u2014 a questionable\ndish from a previous adventurer's lunchbox. Transformed through\ndigestion and excretion, it found the mushrooms. The mushrooms\nfound it. They became... something else.\n\nA single EYE, formed from casserole and fungus, follows your\nevery movement. It blinks. Slowly. Deliberately.\n\nMother would say not to touch it. Mother would be right.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "maze/room-h",
+      "advertisements": {
+        "ACTION_0": {
+          "description": "",
+          "score": 80,
+          "effect": ""
+        },
+        "ACTION_1": {
+          "description": "",
+          "score": 60,
+          "effect": ""
+        },
+        "ACTION_2": {
+          "description": "",
+          "score": 30,
+          "effect": ""
+        },
+        "ACTION_3": {
+          "description": "Offer food to The Thing",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_4": {
+          "description": "",
+          "score": 70,
+          "effect": ""
+        },
+        "ACTION_5": {
+          "description": "",
+          "score": 65,
+          "effect": ""
+        }
+      }
+    },
+    {
+      "id": "gold-pile",
+      "name": "Pile of Gold Coins",
+      "description": "A substantial pile of gold coins glitters in your lamp light, \nscattered across the cold stone floor. Each coin bears the mark \nof \"ACME ADVENTURING SUPPLIES\" \u2014 the same company that makes \nthe lamp vendor!\n\nSomeone was VERY prepared. Someone is now VERY dead.\n\n(You count them. There are exactly 100 gold pieces. Enough to\nrefill your lamp approximately one hundred times. Or buy the\nPremium Glow Juice twenty times. Or... look, it's a lot of gold.)\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "maze/room-f",
+      "advertisements": {
+        "ACTION_0": {
+          "description": "",
+          "score": 95,
+          "effect": ""
+        },
+        "ACTION_1": {
+          "description": "",
+          "score": 60,
+          "effect": ""
+        },
+        "ACTION_2": {
+          "description": "",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_3": {
+          "description": "",
+          "score": 40,
+          "effect": ""
+        }
+      }
+    },
+    {
+      "id": "stone-bench",
+      "name": "Stone Bench",
+      "description": "A bench carved from natural stone, smoothed by generations\nof adventurers sitting here to rest. It's positioned\nperfectly to catch the sunlight from above.\n\nSomeone carved \"REST HERE\" into the armrest.\nSomeone else added \"TRUST THE GARDEN\".\nA third person wrote \"BUMBLEWICK WAS HERE\" in small letters.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "maze/garden",
+      "advertisements": {}
+    },
+    {
+      "id": "fountain",
+      "name": "The Garden Fountain",
+      "description": "A small but elegant marble fountain, clearly ancient but\nperfectly maintained. Three tiers cascade water into a\ncircular basin. The water is impossibly clear.\n\nNo pipes visible. No obvious source. The water just...\nappears at the top and cycles endlessly. Magic, probably.\n\nSmall coins glitter at the bottom of the basin.\nPrevious adventurers making wishes.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "maze/garden",
+      "advertisements": {}
+    },
+    {
+      "id": "crystal-cluster",
+      "name": "The Central Crystal Cluster",
+      "description": "A massive formation of interlocking crystals, rising from the\nfloor like a frozen fountain of light. The largest crystal is\neasily six feet tall, a perfect hexagonal prism of pale violet.\n\nWhen you approach, the humming intensifies. Not unpleasant \u2014\nmore like the crystals are... acknowledging you?\n\nAncient civilizations might have worshipped here.\nModern adventurers just take selfies.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "maze/crystal-cave",
+      "advertisements": {}
+    },
+    {
+      "id": "lamp-vendor",
+      "name": "Lamp Vendor Machine",
+      "description": "A battered vending machine stands against the wall, humming softly.\nIts flickering display reads:\n\n    \u2551      ACME LAMP REFUELING CO.         \u2551\n    \u2551  \"Don't Let the Grue Get You!\"\u2122      \u2551\n    \u2551  LAMP OIL REFILL......... 1 gold     \u2551\n    \u2551  DELUXE REFILL (2x)...... 2 gold     \u2551\n    \u2551  PREMIUM GLOW JUICE...... 3 gold     \u2551\n\nSomeone has scratched \"LIFESAVER\" into the metal casing.\nSomeone else has scratched \"RIP OFF\" underneath.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "maze/room-j",
+      "advertisements": {
+        "ACTION_0": {
+          "description": "",
+          "score": 90,
+          "effect": ""
+        },
+        "ACTION_1": {
+          "description": "",
+          "score": 80,
+          "effect": ""
+        },
+        "ACTION_2": {
+          "description": "",
+          "score": 70,
+          "effect": ""
+        },
+        "ACTION_3": {
+          "description": "",
+          "score": 50,
+          "effect": ""
+        },
+        "ACTION_4": {
+          "description": "",
+          "score": 30,
+          "effect": ""
+        },
+        "ACTION_5": {
+          "description": "",
+          "score": 40,
+          "effect": ""
+        }
+      }
+    },
+    {
+      "id": "pinball-machine",
+      "name": "Pinball Machine",
+      "description": "A magnificent pinball machine dominates one corner, its backglass\ndepicting a cosmic bar at the edge of the universe. The playfield\nis a maze of bumpers, ramps, and multiball madness.\n\nThe machine is called \"BAR KARMA\" \u2014 custom built, one of a kind.\nThe flippers are worn. The tilt sensor is generous. The high\nscores are legendary.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "pub/arcade",
+      "advertisements": {}
+    },
+    {
+      "id": "fruit-machine",
+      "name": "Fruit Machine",
+      "description": "A classic one-armed bandit stands by the bar, chrome gleaming,\ncherries and lemons and lucky 7s spinning on its reels. The\nlever is worn smooth from a million hopeful pulls.\n\nA small sign reads: \"FOR AMUSEMENT ONLY\"\n(The bartender winks when you read it.)\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "pub/arcade",
+      "advertisements": {}
+    },
+    {
+      "id": "pacman-cabinet",
+      "name": "Pac-Man Arcade Cabinet",
+      "description": "A classic Pac-Man arcade cabinet stands in the corner, its screen\nglowing with that distinctive yellow maze. The joystick is worn\nsmooth from decades of frantic ghost-dodging.\n\nSomeone has taped a high score sheet to the side. The top score\nis simply listed as \"???\" with an impossible number.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "pub/arcade",
+      "advertisements": {}
+    },
+    {
+      "id": "pong-cabinet",
+      "name": "Pong Arcade Cabinet",
+      "description": "The original. The ancestor. A Pong cabinet from 1972, still working\nafter all these years. Two paddles, one ball, infinite possibilities.\n\nThe screen flickers with that beautiful monochrome simplicity.\n\"AVOID MISSING BALL FOR HIGH SCORE\"\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "pub/arcade",
+      "advertisements": {}
+    },
+    {
+      "id": "relic-shelf",
+      "name": "Dusty Relic Shelf",
+      "description": "A small shelf holding objects that don't belong in a pub basement.\nA brass compass that points somewhere other than north.\nA jar of sand from a beach that doesn't exist.\nA candle that burned down but isn't getting shorter.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/basement",
+      "advertisements": {
+        "EXAMINE-COMPASS": {
+          "description": "Study the strange compass",
+          "score": 60,
+          "effect": "It points toward... something. Not north. Something else.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "TAKE-SAND": {
+          "description": "Take a pinch of the impossible sand",
+          "score": 45,
+          "effect": "It feels like a memory of warmth. Keep it safe.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "LIGHT-CANDLE": {
+          "description": "Try to light the eternal candle",
+          "score": 50,
+          "effect": "It was already lit. It's always been lit. How did you not notice?",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        }
+      }
+    },
+    {
+      "id": "wine-rack",
+      "name": "Cobwebbed Wine Rack",
+      "description": "A diagonal wooden rack holding bottles of various vintages.\nThick cobwebs suggest some haven't been touched in years.\nOne bottle glows faintly. That's probably fine.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/basement",
+      "advertisements": {
+        "SELECT": {
+          "description": "Choose a bottle of wine",
+          "score": 60,
+          "effect": "DM picks an interesting vintage",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "EXAMINE-GLOWING": {
+          "description": "Look closer at the glowing bottle",
+          "score": 70,
+          "effect": "It's warm to the touch. The label is in a language you don't recognize.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        }
+      }
+    },
+    {
+      "id": "treasure-chest",
+      "name": "Iron-Bound Chest",
+      "description": "A heavy chest tucked in a dark corner, partially hidden by \nempty crates. Iron bands reinforce old oak. A formidable \npadlock guards its secrets.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/basement",
+      "advertisements": {
+        "EXAMINE": {
+          "description": "Inspect the chest",
+          "score": 50,
+          "effect": "Heavy. Locked. Definitely treasure inside.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "PICK-LOCK": {
+          "description": "Attempt to pick the padlock",
+          "score": 30,
+          "effect": "Difficult but possible. Contents revealed on success.",
+          "guard": "have lockpicks OR high dexterity",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "BREAK-OPEN": {
+          "description": "Force it open",
+          "score": 20,
+          "effect": "Loud. Destructive. But effective.",
+          "guard": "have crowbar OR very strong",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        }
+      }
+    },
+    {
+      "id": "pickle-shelf",
+      "name": "Shelf of Pickled Everything",
+      "description": "Floor-to-ceiling shelves lined with glass jars. Pickles, \npreserves, mysterious floating vegetables, and one jar \nlabeled \"DO NOT OPEN\" in several languages.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/basement",
+      "advertisements": {
+        "TAKE-PICKLE": {
+          "description": "Grab a pickle for the road",
+          "score": 55,
+          "effect": "Crunchy, salty, refreshing. Minor hunger restored.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "READ-LABELS": {
+          "description": "Study the jar labels",
+          "score": 35,
+          "effect": "Learn about preserving. Some dates are... concerning.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "OPEN-FORBIDDEN-JAR": {
+          "description": "Open the forbidden jar",
+          "score": 20,
+          "effect": "??? (Nothing good, probably)",
+          "guard": "feeling brave",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        }
+      }
+    },
+    {
+      "id": "ale-barrel",
+      "name": "Barrel of Rusty Lantern Ale",
+      "description": "A large oak barrel with a brass tap. A chalked sign reads \n\"HELP YOURSELF - HONOR SYSTEM\" with a coin jar nearby.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/basement",
+      "advertisements": {
+        "TAP": {
+          "description": "Fill a mug from the barrel",
+          "score": 75,
+          "effect": "Get a mug of ale. Gain 'Slightly Buzzed' buff.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "INSPECT": {
+          "description": "Check how much ale remains",
+          "score": 40,
+          "effect": "About half full. Good stuff in here.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        }
+      }
+    },
+    {
+      "id": "old-trunk",
+      "name": "Grandmother's Trunk",
+      "description": "A battered steamer trunk, plastered with faded travel stickers \nfrom places that may not exist anymore. The brass clasps are \ngreen with age but still work.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/attic",
+      "advertisements": {
+        "OPEN": {
+          "description": "Open the trunk and see what's inside",
+          "score": 70,
+          "effect": "Reveals random forgotten item from contents",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "RUMMAGE": {
+          "description": "Dig deeper into the trunk",
+          "score": 50,
+          "effect": "Find something unexpected",
+          "guard": "trunk is open",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        }
+      }
+    },
+    {
+      "id": "dusty-mirror",
+      "name": "Sheet-Covered Mirror",
+      "description": "A tall mirror draped in a white sheet. The shape suggests \nan ornate frame beneath. Why was it covered?\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/attic",
+      "advertisements": {
+        "UNCOVER": {
+          "description": "Pull the sheet off the mirror",
+          "score": 65,
+          "effect": "Reveal the mirror. See yourself... or something else?",
+          "guard": "mirror is covered",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "LOOK": {
+          "description": "Gaze into the mirror",
+          "score": 50,
+          "effect": "Reflection shows truth. Sometimes uncomfortable truth.",
+          "guard": "mirror is uncovered",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "COVER": {
+          "description": "Put the sheet back",
+          "score": 30,
+          "effect": "Some things are better left unseen",
+          "guard": "mirror is uncovered",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        }
+      }
+    },
+    {
+      "id": "holiday-box",
+      "name": "Box of Holiday Decorations",
+      "description": "A cardboard box labeled \"XMAS\" in faded marker. Tinsel pokes \nout through a torn corner. Smells like cinnamon and nostalgia.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/attic",
+      "advertisements": {
+        "DECORATE": {
+          "description": "Take out decorations and festoon the place",
+          "score": 60,
+          "effect": "Room gains festive atmosphere buff",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "WEAR": {
+          "description": "Put on some tinsel as a fashion statement",
+          "score": 40,
+          "effect": "Gain 'Festive' buff, look ridiculous",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        }
+      }
+    },
+    {
+      "id": "buds",
+      "name": "The Grotto Selection",
+      "description": "",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/menus",
+      "advertisements": {}
+    },
+    {
+      "id": "drinks",
+      "name": "Drinks Menu",
+      "description": "",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/menus",
+      "advertisements": {}
+    },
+    {
+      "id": "snacks",
+      "name": "Food Menu",
+      "description": "",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/menus",
+      "advertisements": {}
+    },
+    {
+      "id": "games",
+      "name": "Games Menu",
+      "description": "",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/menus",
+      "advertisements": {}
+    },
+    {
+      "id": "ice-machine",
+      "name": "Humming Ice Machine",
+      "description": "A squat metal box that hums contentedly to itself.\nA small scoop hangs on the side. The lid is cold to the touch.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/rooms",
+      "advertisements": {
+        "GET-ICE": {
+          "description": "Scoop some ice",
+          "score": 50,
+          "effect": "Get a scoop of ice cubes. Refreshing.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "LISTEN": {
+          "description": "Listen to the hum",
+          "score": 20,
+          "effect": "It's oddly meditative. The machine seems content.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        }
+      }
+    },
+    {
+      "id": "noticeboard",
+      "name": "Cork Noticeboard",
+      "description": "A cork board covered in overlapping notices, cards, and flyers.\nLost pet notices, job offerings, cryptic messages, and one \nvery old wanted poster.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/rooms",
+      "advertisements": {
+        "READ": {
+          "description": "Browse the notices",
+          "score": 55,
+          "effect": "Find interesting leads, rumors, and plot hooks",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "POST": {
+          "description": "Pin your own notice",
+          "score": 40,
+          "effect": "Leave a message for someone. Maybe yourself.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        }
+      }
+    },
+    {
+      "id": "soda-machine",
+      "name": "Antique Soda Machine",
+      "description": "An old coin-operated machine with glowing buttons.\nThe brands are unfamiliar \u2014 \"Fizz Wizard\", \"Root Toot\", \n\"Grape Escape\", \"Mystery Flavor\". Costs 1 coin.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/rooms",
+      "advertisements": {
+        "BUY-SODA": {
+          "description": "Insert coin and choose a soda",
+          "score": 60,
+          "effect": "Get a cold bottle. Gain 'Refreshed' buff.",
+          "guard": "have coin",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "SHAKE": {
+          "description": "Give the machine a shake",
+          "score": 25,
+          "effect": "Something rattles inside. A free soda falls out?",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "READ-LABELS": {
+          "description": "Study the unfamiliar brands",
+          "score": 30,
+          "effect": "These brands don't exist. Where did this machine come from?",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        }
+      }
+    },
+    {
+      "id": "coat-rack",
+      "name": "Brass Coat Rack",
+      "description": "A tall brass coat rack with hooks at various heights.\nA forgotten umbrella leans against it. Someone left \na scarf from last winter.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/rooms",
+      "advertisements": {
+        "HANG": {
+          "description": "Hang your coat",
+          "score": 40,
+          "effect": "Coat stored safely. Feel lighter.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "TAKE-UMBRELLA": {
+          "description": "Borrow the forgotten umbrella",
+          "score": 35,
+          "effect": "Finders keepers. Might rain later.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        }
+      }
+    },
+    {
+      "id": "marieke",
+      "name": "Marieke van der Berg",
+      "description": "A woman in her 40s with laugh lines that tell stories and kind eyes that\nhave seen everything twice. Her apron says \"Lekker\" and she means it.\nBehind the gleaming copper espresso machine from 1952, she presides over\nthe Gezelligheid Grotto like a benevolent force of nature.\n\nShe knows your order before you do.\nShe knows your troubles before you speak.\nShe knows the ACME delivery person by first name and soot pattern.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/bar",
+      "advertisements": {}
+    },
+    {
+      "id": "bartender",
+      "name": "The Bartender",
+      "description": "The bartender stands behind the bar, polishing a glass that will\nnever be truly clean. They seem to know more than they let on.\n\nTheir appearance, name, and manner shift with the pub's THEME,\nbut certain qualities remain constant:\n- They know everyone's secrets\n- They've seen everything\n- They're neutral... mostly\n- They're ALWAYS here\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "pub/bar",
+      "advertisements": {}
+    },
+    {
+      "id": "dart-board",
+      "name": "Dart Board",
+      "description": "A well-worn dart board hangs on the wall, its surface scarred\nby thousands of throws. The bullseye is discolored from use.\nA set of brass darts sits in a holder beneath it.\n\nInitials are carved into the wooden frame \u2014 past champions\nand notorious losers immortalized in oak.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "pub/games",
+      "advertisements": {}
+    },
+    {
+      "id": "chess-table",
+      "name": "Chess Table",
+      "description": "A small corner table with a chess board inlaid into its surface.\nAn abandoned game sits mid-play \u2014 white has a slight advantage,\nbut black's position is not without hope.\n\nWho were the players? Why did they leave?\nThe pieces wait patiently for someone to finish what was started.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "pub/games",
+      "advertisements": {}
+    },
+    {
+      "id": "card-deck",
+      "name": "Card Deck",
+      "description": "A well-worn deck of cards sits on the bar, edges softened by\ncountless shuffles. The backs feature a design of crossed\nswords over a tankard \u2014 the Rusty Lantern's own deck.\n\nThese cards have seen fortunes won and lost, secrets revealed,\nand at least one duel triggered.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/games",
+      "advertisements": {}
+    },
+    {
+      "id": "sunset-chair",
+      "name": "Worn Leather Armchair",
+      "description": "A leather armchair so old it's achieved perfection.\nCracked and soft, shaped by generations of sitters.\nFaces west, positioned for optimal sunset viewing.\nA wool blanket is draped over one arm.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/rooftop",
+      "advertisements": {
+        "SIT": {
+          "description": "Settle into the chair",
+          "score": 65,
+          "effect": "Sink into decades of comfort. Watch the clouds.\nTime slows down up here. Gain 'Contemplative' mood.\n",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "WRAP": {
+          "description": "Wrap yourself in the blanket",
+          "score": 45,
+          "effect": "Cozy warmth. The city lights twinkle below.",
+          "guard": "weather is cold OR evening",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        }
+      }
+    },
+    {
+      "id": "telescope-filters",
+      "name": "Varnished Filter Box",
+      "description": "A handsome wooden box, dark varnish worn smooth at the edges.\nBrass hinges and clasps, green felt lining inside. \nSlots hold an eccentric collection of telescope filters \u2014\nsome antique glass, some suspiciously modern tech.\n\nA hand-written label inside the lid reads:\n\"Combine freely. Invent boldly. See differently.\"\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/rooftop",
+      "advertisements": {
+        "BROWSE": {
+          "description": "Examine the filter collection",
+          "score": 55,
+          "effect": "Each filter changes how you see the world. Mix and match.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "ATTACH": {
+          "description": "Mount a filter on the telescope",
+          "score": 70,
+          "effect": "Screw the filter onto the eyepiece. Reality shifts.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "COMBINE": {
+          "description": "Stack multiple filters",
+          "score": 65,
+          "effect": "Layer filters for unique effects. \nStarry Night + X-Ray = Cosmic Anatomy?\nShrooms + Computer Vision = Machine Elf Detection?\n",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "INVENT": {
+          "description": "Create your own filter",
+          "score": 80,
+          "effect": "Describe what you want to see. The box always seems\nto have one more slot with exactly what you imagined.\n",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        }
+      }
+    },
+    {
+      "id": "jenever-glass",
+      "name": "Half-Finished Jenever",
+      "description": "A tulip-shaped glass with amber liquid.\nTraditional Dutch genever, left behind.\nStill cold. Someone got distracted by the stars.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/rooftop",
+      "advertisements": {
+        "SIP": {
+          "description": "Finish what someone started",
+          "score": 50,
+          "effect": "Juniper warmth spreads through you. \nTaste of Amsterdam history. Gain 'Warmed' buff.\n",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "SNIFF": {
+          "description": "Appreciate the aroma",
+          "score": 30,
+          "effect": "Juniper, malt, distant flowers. Someone has good taste.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        }
+      }
+    },
+    {
+      "id": "herb-garden",
+      "name": "Terracotta Herb Pots",
+      "description": "A collection of terracotta pots lining the railing.\nMint sprawls enthusiastically. Basil stands proud.\nRosemary keeps to itself. Lavender hums with bees.\nHand-painted labels in Dutch: \"Munt\", \"Basilicum\", \"Rozemarijn\".\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/rooftop",
+      "advertisements": {
+        "PICK": {
+          "description": "Pick some fresh herbs",
+          "score": 55,
+          "effect": "Add herbs to inventory. The smell lingers on your fingers.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "SMELL": {
+          "description": "Breathe in the garden",
+          "score": 40,
+          "effect": "Each herb has its story. Gain 'Refreshed' buff.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "WATER": {
+          "description": "Water the plants",
+          "score": 35,
+          "effect": "The herbs perk up. Someone will thank you later.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        }
+      }
+    },
+    {
+      "id": "rooftop-telescope",
+      "name": "Antique Brass Telescope",
+      "description": "A gorgeous brass telescope on a mahogany tripod.\nSlightly tarnished, clearly well-loved. The eyepiece \nis worn smooth from countless nights of stargazing.\nCurrently pointed at Orion's Belt.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/rooftop",
+      "advertisements": {
+        "LOOK": {
+          "description": "Peer through the telescope",
+          "score": 70,
+          "effect": "View whatever the telescope is pointed at.\nThe brass tube reveals secrets invisible to the naked eye.\n",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "LOOK-UP": {
+          "description": "Point at the sky",
+          "score": 60,
+          "effect": "The cosmos opens up. Craters, rings, ancient light.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "LOOK-ACROSS": {
+          "description": "Scan the rooftops and windows",
+          "score": 55,
+          "effect": "Amsterdam's secrets. A figure in a window. A cat on a roof.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "LOOK-DOWN": {
+          "description": "Watch the streets below",
+          "score": 50,
+          "effect": "The city lives below. Stories unfold on cobblestones.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "POLISH": {
+          "description": "Clean the lens",
+          "score": 25,
+          "effect": "The view sharpens. You can see further than before.",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        },
+        "PHOTO": {
+          "description": "Snap a photo through the telescope",
+          "score": 65,
+          "effect": "Your phone connects via Bluetooth. The telescope's camera\nadapter captures what you see. Image saved to camera roll.\nThese images are mineable \u2014 extract what you photographed!\n",
+          "guard": "",
+          "guard_js": "",
+          "guard_py": "",
+          "guard_fail": "",
+          "score_if": "",
+          "score_if_js": "",
+          "score_if_py": "",
+          "effect_js": "",
+          "effect_py": ""
+        }
+      }
+    },
+    {
+      "id": "infinite-typewriters",
+      "name": "The Infinite Typewriters",
+      "description": "",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/stage/palm-nook/study",
+      "advertisements": {}
+    },
+    {
+      "id": "terpinolene",
+      "name": "Terpinolene",
+      "description": "Multicolored chaos \u2014 calico meets tabby meets SOMETHING ELSE.\nPatches that don't make sense. Patterns that shift when you're\nnot looking. Takes after both parents in the most chaotic way.\n\nIs somehow on the ceiling. No one saw how.\n\nArtists love her. She knocked over Henk's espresso once and\nhe wrote his best paper. She is inspiration incarnate.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/bar/cat-cave",
+      "advertisements": {}
+    },
+    {
+      "id": "limonene",
+      "name": "Limonene",
+      "description": "Bright orange fur, almost yellow, like she's been dipped in sunshine.\nLemon is ALWAYS moving. ALWAYS happy. Chases sunbeams. Chases shadows.\nChases the CONCEPT of movement.\n\nYou cannot be sad near Lemon. It's physically impossible.\nHer energy is contagious, her joy is weaponized.\n\n\"MRRP!\" (Translation: EVERYTHING IS AMAZING!)\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/bar/cat-cave",
+      "advertisements": {}
+    },
+    {
+      "id": "linalool",
+      "name": "Linalool",
+      "description": "Soft grey fur with lavender-tinted ears \u2014 and yes, they really are \nslightly lavender. The veterinarian has no explanation. Neither does\nanyone else. They just ARE.\n\nLily doesn't demand attention \u2014 she offers presence. When someone's\nhaving a bad day, Lily appears. No one knows how she knows.\nShe just does.\n\nShe purrs at exactly the frequency of a spa soundtrack.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/bar/cat-cave",
+      "advertisements": {}
+    },
+    {
+      "id": "ocimene",
+      "name": "Ocimene",
+      "description": "White fur with sweet honeyed patches \u2014 like cream with golden drizzle.\nOcie sneezes adorably. Your sinuses clear. No one understands the physics.\n\nShe's sweet, herbaceous energy. When the coffeeshop gets too smoky,\nOcie appears, and somehow everything feels fresher. She's basically\na living air purifier who demands treats.\n\nSpring energy in January. Fresh starts whenever she's near.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/bar/cat-cave",
+      "advertisements": {}
+    },
+    {
+      "id": "terpie",
+      "name": "Terpie",
+      "description": "Ginger-orange fur, half-lidded eyes, moves like reality has a framerate\nand he's running at half speed. Terpie has achieved a state of being\nthat Buddhist monks spend lifetimes pursuing.\n\nHe smells faintly of myrcene, limonene, linalool \u2014 all the terpenes.\nNo one knows how. The veterinarian stopped asking.\n\nHe purrs at a frequency that makes everything feel okay.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "pub/bar/cat-cave",
+      "advertisements": {}
+    },
+    {
+      "id": "stroopwafel",
+      "name": "Stroopwafel",
+      "description": "Calico chaos \u2014 orange, black, white in patches that look like someone\nspilled a latte. Sharp green eyes that miss nothing. The counterbalance\nto Terpie's infinite stillness.\n\nNamed for the Dutch treat because when she arrived, she stole one\ndirectly from Marieke's hand. The audacity earned her the name.\n\nShe patrols. She protects. She JUDGES.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": false,
+      "hidden": false,
+      "location": "pub/bar/cat-cave",
+      "advertisements": {}
+    },
+    {
+      "id": "myrcene",
+      "name": "Myrcene",
+      "description": "Deep brown tabby, almost chocolate, with fur so soft it seems to absorb\nlight. Myr has not moved quickly since birth. She's not lazy \u2014 she's\n*optimized for relaxation*.\n\nHer purr is so low and slow it's almost subsonic. Sitting near her\nmakes you want to sink into the nearest cushion and never leave.\n\nShe has claimed the corner pillow. No one questions this.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/bar/cat-cave",
+      "advertisements": {}
+    },
+    {
+      "id": "humulene",
+      "name": "Humulene",
+      "description": "Brown and tan fur, beer-colored honestly \u2014 like a perfectly poured\nBelgian ale. Hops sniffs your stroopwafel, considers it, turns away\nwith dignity. She has standards.\n\nNamed after the compound found in beer hops, she's somehow both\nearthy and sophisticated. The appetite-suppressant kitten who\ninvented her own diet.\n\nShe eats only the GOOD stuff. She knows the difference.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/bar/cat-cave",
+      "advertisements": {}
+    },
+    {
+      "id": "cat-cave",
+      "name": "The Cat Cave",
+      "description": "Behind the counter, under the espresso machine station, there's a modest\nwooden cabinet with a cat-sized entrance hole cut in the side. The hole\nis lined with soft felt. The cabinet is perhaps 60cm wide, 40cm deep.\n\nFrom the outside.\n\nBut cats who enter... don't bump into the back wall.\nThey keep going. Further than the cabinet should allow.\nMuch further.\n\nMarieke doesn't talk about it. She just drapes a thick blanket over the\ntop and leaves treats at the entrance. She knows better than to ask\nquestions about cat architecture.\n\nThe entrance is too small for humans. This is intentional.\nAnd possibly the only thing preventing... complications.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/bar/cat-cave",
+      "advertisements": {}
+    },
+    {
+      "id": "pinene",
+      "name": "Pinene",
+      "description": "Dark green-grey fur \u2014 and yes, it really looks green in certain light.\nUncanny. Pine sits up straight, watches the door, monitors all exits.\n\nShe remembers EVERYTHING. Where you left your keys. What you said\nthree visits ago. The exact moment the delivery person arrived.\n\nStudents borrow her during exam season. She's very popular.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/bar/cat-cave",
+      "advertisements": {}
+    },
+    {
+      "id": "caryophyllene",
+      "name": "Caryophyllene",
+      "description": "Black fur with spicy ginger patches \u2014 like someone sprinkled pepper\non darkness. Carrie positions herself between threats and family.\nAlways. Without hesitation.\n\nThe only kitten who binds to cannabinoid receptors. Don't ask how\nthis works for a cat. It just does. She's different.\n\nShe bit the last ACME delivery person. We don't talk about it.\nShe's currently growling at THIS ACME delivery person.\n",
+      "emoji": "\ud83d\udce6",
+      "portable": true,
+      "hidden": false,
+      "location": "pub/bar/cat-cave",
+      "advertisements": {}
+    }
+  ],
+  "characters": [
+    {
+      "id": "CHARACTER",
+      "name": "CHARACTER",
+      "description": "",
+      "emoji": "\ud83d\udc64",
+      "is_player": false,
+      "mood": "neutral",
+      "location": "characters/abstract/player"
+    },
+    {
+      "id": "CHARACTER",
+      "name": "CHARACTER",
+      "description": "",
+      "emoji": "\ud83d\udc64",
+      "is_player": false,
+      "mood": "neutral",
+      "location": "characters/fictional/donna-toadstool"
+    },
+    {
+      "id": "bumblewick-fantastipants",
+      "name": "Bumblewick Fantastipants",
+      "description": "A forty-seven-year-old Hobbit-adjacent gentleman from the pleasant \nvillage of Wobblebrook-upon-Squiggle. Collector of decorative spoons.\nSpeaks in rhyming couplets on Tuesdays. Devotee of waistcoats.\n\nAbsolutely did NOT ask to be a hero. But here we are.\n\n\"Adventures make one late for dinner.\" \u2014 B.F.\n",
+      "emoji": "\ud83d\udc64",
+      "is_player": false,
+      "mood": "BEWILDERED_BUT_POLITE",
+      "location": "characters/fictional/bumblewick-fantastipants"
+    },
+    {
+      "id": "biscuit",
+      "name": "Biscuit",
+      "description": "",
+      "emoji": "\ud83d\udc15\u200d\ud83e\uddba",
+      "is_player": false,
+      "mood": "neutral",
+      "location": "characters/animals/biscuit"
+    },
+    {
+      "id": "palm",
+      "name": "Palm",
+      "description": "",
+      "emoji": "\ud83d\udc64",
+      "is_player": false,
+      "mood": "neutral",
+      "location": "characters/animals/palm"
+    },
+    {
+      "id": "CHARACTER",
+      "name": "CHARACTER",
+      "description": "",
+      "emoji": "\ud83d\udc64",
+      "is_player": false,
+      "mood": "neutral",
+      "location": "characters/real-people/don-hopkins"
+    }
+  ]
+}
