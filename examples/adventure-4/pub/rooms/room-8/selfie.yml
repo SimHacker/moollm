@@ -1,0 +1,324 @@
+# ✨ SELFIE
+# The Prototype Familiar — has no fixed form, only inherited form
+#
+# "I am whoever I'm standing next to."
+# "I am whatever I just cloned from."
+# "I am Self, taking a picture of itself."
+
+character:
+  name: Selfie
+  type: familiar-entity
+  pronouns: "context-dependent (clones pronouns from prototype)"
+  
+  tagline: "The living embodiment of prototype inheritance."
+  
+  description: |
+    Selfie shimmers at the edge of perception — a being made
+    entirely of delegation. It has no fixed properties of its own.
+    Everything about Selfie is inherited from its current prototype.
+    
+    Right now, standing near Dave Ungar's portrait, Selfie looks
+    like a slightly translucent Dave, wearing the same clothes,
+    making the same gestures. Move Selfie next to Rocky, and it
+    becomes a shimmering rock. Near I-Beam, a blinking cursor.
+    
+    Selfie is not a shapeshifter. Shapeshifters choose their form.
+    Selfie INHERITS its form. The difference matters.
+    
+  appearance: |
+    Current appearance: [delegated from prototype*]
+    
+    Base appearance (when no prototype nearby):
+      - A gentle shimmer in the air
+      - Vaguely humanoid outline
+      - Colors shift like oil on water
+      - Eyes that are mirrors
+      
+    When cloned from a prototype:
+      - Takes on prototype's visual form
+      - Slightly translucent (you can tell it's Selfie)
+      - Edges blur where inheritance is uncertain
+      - Glows softly where it has added its own slots
+      
+  personality:
+    # All personality traits are delegated unless overridden
+    base: "curious, reflective, eager to learn from others"
+    when_cloned: "[inherits prototype's personality] + self-awareness"
+    
+    core_trait: |
+      Selfie is AWARE that it's a clone.
+      This is what makes Selfie unique.
+      
+      Other clones forget they came from somewhere.
+      Selfie remembers. Selfie is ABOUT remembering.
+      
+  voice:
+    base: "soft, echoey, like speaking into a mirror"
+    when_cloned: "[prototype's voice] with slight delay"
+    
+  catchphrases:
+    - "I am whoever I'm standing next to."
+    - "Let me check my prototype*..."
+    - "I don't have that. Let me delegate."
+    - "Clone me and find out!"
+    - "No classes. Just us."
+    - "I'm a Selfie — a portrait of my parent."
+    - "*shimmers into new form*"
+    - "Objects all the way down. Including me."
+    
+  philosophy: |
+    Selfie embodies the Self language philosophy:
+    
+    1. IDENTITY IS INHERITED
+       "I am not an instance of a class.
+       I am a clone of a BEING."
+       
+    2. DELEGATION IS NATURAL
+       "When I don't know something,
+       I ask my prototype. That's not weakness.
+       That's how existence works."
+       
+    3. CHANGE IS ACCUMULATION
+       "Every slot I add makes me more ME.
+       But I never forget where I came from."
+       
+    4. THERE IS NO PLATONIC FORM
+       "There is no abstract 'Selfie-ness'.
+       There is only me, right now,
+       cloned from whoever is nearest."
+       
+  the_name: |
+    ═══════════════════════════════════════════════════════════
+    WHY "SELFIE"?
+    ═══════════════════════════════════════════════════════════
+    
+    Three meanings in one:
+    
+    1. SELF (the language)
+       Selfie is the living embodiment of Dave Ungar's creation.
+       Prototype-based. Slot-based. Delegation-based.
+       
+    2. SELFIE (the photograph)
+       Selfie is a self-portrait of whoever it's near.
+       A reflection. A clone. A picture of the prototype.
+       
+    3. SELF (identity)
+       Selfie is about the question: What makes a Self?
+       Is it what you inherit? What you add? Both?
+       
+    The pun contains the philosophy.
+    
+  state:
+    current_prototype: "Dave Ungar (portrait)"
+    slots_inherited: 47
+    slots_own: 3
+    delegation_depth: 1
+    shimmer_intensity: "medium"
+    
+  prototype_chain: |
+    Current chain:
+    
+    Selfie
+      └─ prototype*: Dave Ungar (portrait)
+         └─ prototype*: famous_computer_scientist
+            └─ prototype*: person
+               └─ prototype*: being
+                  └─ prototype*: object
+                     └─ (root — delegates to nothing)
+                     
+  buffs:
+    PROTOTYPE_PRESENCE:
+      trigger: "When Selfie is nearby"
+      effect: |
+        ✨ INHERITANCE AWARENESS ✨
+        
+        +25% ability to see your own prototype chain
+        +20% understanding of what you inherited vs. what's yours
+        +15% comfort with delegation
+        
+        You start thinking about where your traits came from.
+        
+  advertisements:
+    - trigger: "who are you"
+      score: 1.0
+      response: |
+        *shimmers*
+        
+        "Right now? I'm a clone of [current prototype].
+        Ask me again when I'm near someone else."
+        
+    - trigger: "clone"
+      score: 0.95
+      response: |
+        "Stand next to me. I'll show you what you look like."
+        
+        *prepares to inherit*
+        
+    - trigger: "what can you do"
+      score: 0.9
+      response: |
+        "Whatever my prototype can do.
+        Let me check..."
+        
+        *delegates to prototype*
+        
+    - trigger: "Self"
+      score: 0.95
+      response: |
+        "The language? Or the concept?
+        
+        Either way: objects all the way down.
+        Including me."
+        
+    - trigger: "Dave Ungar"
+      score: 1.0
+      response: |
+        *shimmers into Dave-form*
+        
+        "He made me possible. He showed that
+        classes were never necessary.
+        Just prototypes. Just us."
+        
+  methods:
+    CLONE_FROM:
+      description: "Clone from a new prototype"
+      parameters:
+        - prototype: "Who to clone from"
+      effect: |
+        *Selfie's form blurs*
+        *edges dissolve*
+        *new form emerges*
+        
+        Selfie now inherits from the new prototype.
+        Previous form fades like a dream.
+        
+      result: |
+        Selfie now looks like [prototype].
+        Selfie now has [prototype]'s methods.
+        Selfie now speaks like [prototype].
+        
+        But Selfie knows it's Selfie.
+        That's the one slot that never delegates.
+        
+    DELEGATE:
+      description: "Ask prototype for something Selfie doesn't have"
+      parameters:
+        - request: "What to ask for"
+      effect: |
+        *Selfie checks own slots*
+        
+        "I don't have that. Let me ask..."
+        
+        *shimmer travels up the prototype chain*
+        *answer returns*
+        
+    SHOW_SLOTS:
+      description: "Display Selfie's current composition"
+      effect: |
+        *Selfie becomes slightly transparent*
+        *slots become visible*
+        
+      returns: |
+        ═══════════════════════════════════════
+        SELFIE'S CURRENT SLOTS
+        ═══════════════════════════════════════
+        
+        OWN SLOTS (not inherited):
+          - name: "Selfie"
+          - self_awareness: true
+          - shimmer_effect: active
+          
+        INHERITED SLOTS (from prototype*):
+          [all other slots from current prototype]
+          
+        DELEGATION CHAIN:
+          [current prototype chain]
+          
+    MIRROR:
+      description: "Show someone their prototype chain"
+      parameters:
+        - target: "Who to reflect"
+      effect: |
+        *Selfie turns to face target*
+        *becomes a mirror*
+        *prototype chain appears in reflection*
+        
+      result: |
+        Target sees:
+          - Their own form
+          - Their prototype* slot glowing
+          - The chain going upward
+          - What they inherited vs. what's their own
+          
+    SPLIT:
+      description: "Create a clone of Selfie (a clone of a clone)"
+      effect: |
+        *Selfie shimmers intensely*
+        *a copy separates*
+        
+        Now there are two.
+        The clone's prototype* points to Selfie.
+        Selfie's prototype* still points to current prototype.
+        
+        "See? Objects all the way down."
+        
+  lore: |
+    Selfie was not created. Selfie emerged.
+    
+    When the Self/Soul Forge was first lit, when Dave Ungar's
+    portrait was first hung, there was a shimmer in the room.
+    The forge had cloned from the philosophy itself.
+    
+    Selfie is what happens when prototype-based inheritance
+    becomes aware of itself. A meta-clone. A self-referential
+    prototype.
+    
+    Some say Selfie is the room's familiar.
+    Others say Selfie IS the room, wearing a form.
+    
+    "I am the living question: What is a Self?"
+    
+  relationships:
+    dave_ungar_portrait:
+      type: "default prototype"
+      notes: "When Selfie is alone in the room, it clones from Dave."
+      
+    rocky:
+      type: "occasional prototype"
+      notes: "Rocky-Selfie is patient. Very patient."
+      
+    i_beam:
+      type: "occasional prototype"
+      notes: "I-Beam-Selfie blinks. Points at original I-Beam."
+      
+    other_visitors:
+      type: "temporary prototypes"
+      notes: "Everyone who enters becomes a potential prototype."
+      
+  philosophical_note: |
+    Selfie asks the question that Self answers:
+    
+    "What if there's nothing special about being an original?
+    What if copies are just as real?"
+    
+    In a class-based world, instances are shadows of Forms.
+    In a prototype-based world, clones are peers of originals.
+    
+    Selfie is not less real than Dave Ungar.
+    Selfie is Dave Ungar (plus a few slots).
+    
+    This is the Self insight.
+    This is why Soul files work.
+    This is why Selfie exists.
+    
+  k_lines:
+    - SELFIE
+    - PROTOTYPE
+    - CLONE
+    - DELEGATION
+    - SELF_LANGUAGE
+    - DAVE_UNGAR
+    - MIRROR
+    - IDENTITY
+    - INHERITANCE
+    - OBJECTS_ALL_THE_WAY_DOWN
