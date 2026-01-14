@@ -1,18 +1,29 @@
-# Room 1 — The Sunrise Room (North)
+# Room 1 — The Constructionist Suite (North)
+# Theme: Papert's "learning by building" — artifacts you can inspect
 
 room:
-  name: "The Sunrise Room"
+  name: "The Constructionist Suite"
   id: room-1
   number: 1
+  theme: constructionism
+  
+  tagline: "Build to learn. Inspect to understand."
   
   description: |
-    Morning light streams through an east-facing window, warming 
-    honey-colored floorboards. A brass bed with a patchwork quilt 
-    faces the window. Above the headboard hangs a painting of 
-    a rooster crowing at dawn.
+    Morning light streams through an east-facing window onto a room
+    filled with *inspectable artifacts*. Every object here can be
+    taken apart, examined, and reassembled. A Logo turtle traces
+    spirals on the floor. A half-built clock sits on the workbench,
+    gears visible and turning.
     
-    A small writing desk holds a guest journal and dried flowers 
-    in a blue vase.
+    Above the bed hangs a quote in gold letters:
+    
+    > "You can't think about thinking without thinking about
+    > thinking about something." — Seymour Papert
+    
+  ideal_guest: |
+    Characters who learn by doing. Tinkers, makers, reverse-engineers.
+    Those who understand "debugging" as a life philosophy.
     
   exits:
     s:
@@ -20,20 +31,31 @@ room:
       description: "Back to the inn landing"
       aliases: [out, leave, south]
       
+  objects:
+    - logo-turtle.yml
+    - clock-mechanism.yml
+    - debugging-journal.yml
+      
   furniture:
     bed:
       type: brass-bed
       quality: comfortable
-      quilt: patchwork-sunrise-colors
+      quilt: circuit-board-pattern
       
-    desk:
-      type: writing-desk
-      contents: [guest-journal, quill, ink-pot]
+    workbench:
+      type: makers-bench
+      tools: [magnifying-glass, tiny-screwdrivers, tweezers]
+      projects: [half-built-clock, dismantled-music-box]
       
   decor:
-    painting: "Rooster at Dawn"
+    painting: "Turtle Geometry" by Hal Abelson
     window: east-facing
-    vase: blue-ceramic
-    rug: braided-oval
+    rug: hexagonal-tessellation
     
-  atmosphere: warm, hopeful, early-riser-friendly
+  atmosphere: curious, hands-on, "let's see how this works"
+  
+  k_lines:
+    activates:
+      - CONSTRUCTIONISM
+      - PLAY-LEARN-LIFT
+      - INSPECTION

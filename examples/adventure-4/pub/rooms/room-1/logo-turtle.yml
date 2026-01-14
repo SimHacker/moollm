@@ -1,0 +1,87 @@
+# 🐢 LOGO TURTLE
+# The original inspectable agent — geometry made visible
+
+object:
+  name: Logo Turtle
+  type: artifact
+  portable: true
+  
+  description: |
+    A small mechanical turtle sits on the floor, trailing a faint
+    line of ink behind it. It responds to spoken commands: FORWARD,
+    BACK, LEFT, RIGHT, PENUP, PENDOWN. It's currently drawing an
+    intricate spiral.
+    
+    This is how Papert taught children to think computationally —
+    by giving them something that made their thinking *visible*.
+    
+  examine: |
+    The turtle is surprisingly simple:
+    - A body that moves
+    - A pen that draws
+    - Commands that compose
+    
+    The magic isn't in the turtle. It's in what happens in your
+    head when you try to make it draw a circle.
+    
+  state:
+    position: [150, 200]
+    heading: 45
+    pen: down
+    color: blue
+    
+  advertisements:
+    - trigger: "how do I learn"
+      score: 0.8
+      response: "Build something. Watch it fail. Fix it. That's learning."
+      
+    - trigger: "debugging"
+      score: 0.9
+      response: "The turtle shows you exactly what your program does — not what you *think* it does."
+      
+    - trigger: "geometry"
+      score: 0.7
+      response: "A circle is just FORWARD 1, RIGHT 1, repeated 360 times. Try it."
+      
+  methods:
+    COMMAND:
+      description: "Give the turtle a Logo command"
+      examples:
+        - "FORWARD 100"
+        - "RIGHT 90"
+        - "REPEAT 4 [FORWARD 50 RIGHT 90]"
+      effect: |
+        The turtle executes the command, leaving a visible trace.
+        Errors are educational — the turtle does exactly what you said,
+        not what you meant.
+        
+    INSPECT:
+      description: "Examine the turtle's current state"
+      returns: |
+        position: [x, y]
+        heading: degrees
+        pen: up/down
+        trail: list of points drawn
+        
+    TRACE:
+      description: "Watch the turtle execute step-by-step"
+      effect: "Slow-motion execution. See each command happen."
+      
+    CLEAR:
+      description: "Clear the trail and start fresh"
+      effect: "The turtle returns to center, heading north, pen down."
+      
+  lore: |
+    Seymour Papert created Logo in 1967 at MIT. The turtle was
+    originally a robot that drew on paper. Later it became virtual.
+    
+    The insight: children don't need to learn programming to use
+    computers. They need computers that let them *think* better.
+    
+    Every MOOLLM agent is a descendant of this turtle — something
+    that makes invisible processes visible.
+    
+  inspiration:
+    - "Papert, S. (1980). Mindstorms"
+    - "Abelson & diSessa. Turtle Geometry"
+    - "MIT Logo Group"

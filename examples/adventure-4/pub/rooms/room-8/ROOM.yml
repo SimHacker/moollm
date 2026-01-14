@@ -1,17 +1,30 @@
-# Room 8 — The Stargazer's Room (Northwest)
+# Room 8 — The Incarnation Suite (Northwest)
+# Theme: Character creation — bringing agents to life
 
 room:
-  name: "The Stargazer's Room"
+  name: "The Incarnation Suite"
   id: room-8
   number: 8
+  theme: incarnation
+  
+  tagline: "Every character starts as a template. Then they wake up."
   
   description: |
-    A skylight in the sloped ceiling shows the night sky.
-    Star charts paper the walls. The bed is positioned for 
-    optimal stargazing. A brass telescope points upward.
+    The room is a nursery for souls. Empty vessels line the shelves —
+    CHARACTER.yml templates waiting to be filled. A glowing forge
+    in the corner turns templates into living characters.
     
-    The painting shows a moon over still water.
-    Glow-in-the-dark stars dot the ceiling around the skylight.
+    The walls are covered with character sheets, some complete,
+    some mid-creation, some crossed out and restarted.
+    
+    Above the bed:
+    
+    > "Incarnation is the moment a template becomes a being."
+    
+  ideal_guest: |
+    Characters who create characters. Dungeon masters, writers,
+    anyone who brings imaginary beings to life. Those interested
+    in the boundary between template and individual.
     
   exits:
     se:
@@ -19,20 +32,30 @@ room:
       description: "Back to the inn landing"
       aliases: [out, leave, southeast]
       
+  objects:
+    - soul-forge.yml
+    - template-library.yml
+    - incarnation-log.yml
+      
   furniture:
     bed:
-      type: low-platform
-      quality: observational
-      position: under-skylight
+      type: chrysalis-bed
+      note: "Where characters dream before waking"
       
-    telescope:
-      type: brass-refractor
-      points-at: skylight
+    desk:
+      type: character-sheet-desk
+      contents: [blank-templates, filled-templates, dice]
       
   decor:
-    painting: "Moon on the Lake"
-    window: skylight
-    charts: [northern-sky, southern-sky, planet-movements]
-    stars: glow-in-dark-ceiling
+    shelves: empty vessels
+    forge: glowing softly
+    window: northwest-facing (starlight for dreaming)
     
-  atmosphere: cosmic, wondering, infinite
+  atmosphere: creative, liminal, "becoming"
+  
+  k_lines:
+    activates:
+      - INCARNATION
+      - CHARACTER-CREATION
+      - TEMPLATE-TO-INSTANCE
+      - SOUL-FILES

@@ -1,0 +1,97 @@
+# 🪞 THINKING MIRROR
+# Shows your reasoning process — not your face
+
+object:
+  name: Thinking Mirror
+  type: artifact
+  portable: false
+  
+  description: |
+    A full-length mirror hangs on the wall, but it doesn't show
+    your reflection. Instead, it shows *your thinking* — a stream
+    of reasoning, planning, questioning.
+    
+    Right now it reads:
+    
+    > 💭 "This is an unusual mirror. I should examine it more
+    > closely. What does it mean to see thinking? Is the mirror
+    > reading my mind, or am I projecting onto it?"
+    
+  examine: |
+    The mirror's surface ripples like mercury. Looking closer:
+    
+    CURRENT LAYER — What you're thinking now
+      "Examining the mirror. Curious about mechanism."
+      
+    PREVIOUS LAYER — What led to this thought
+      "Entered room. Noticed mirrors. Chose this one."
+      
+    GOAL LAYER — Why you're here at all
+      "Understanding the Navigator's Suite."
+      
+    The deeper you look, the more layers appear. The mirror has
+    no bottom — it goes all the way down to "why am I conscious?"
+    and doesn't stop there.
+    
+  state:
+    depth: "currently showing 3 layers"
+    mode: "reasoning trace"
+    last_insight: "The observer affects the observed"
+    
+  advertisements:
+    - trigger: "what am I thinking"
+      score: 0.95
+      response: "Look in the mirror. It already knows."
+      
+    - trigger: "why did I do that"
+      score: 0.9
+      response: "The mirror shows the reasoning. Scroll back."
+      
+    - trigger: "introspection"
+      score: 0.85
+      response: "Introspection is just reading your own thinking blocks."
+      
+  methods:
+    GAZE:
+      description: "Look into the mirror and see your current thoughts"
+      returns: |
+        Current thought: [active reasoning]
+        Recent thoughts: [last 10 thinking blocks]
+        Active goals: [what you're trying to do]
+        
+    TRACE:
+      description: "Follow a thought back to its origin"
+      parameters:
+        - thought: "Which thought to trace"
+      returns: "The chain of reasoning that led to this thought"
+      
+    ASK:
+      description: "Ask the mirror a question about yourself"
+      parameters:
+        - question: "What do you want to know?"
+      returns: "The mirror shows the relevant layers"
+      
+    COMPARE:
+      description: "Compare what you thought vs what happened"
+      parameters:
+        - decision: "A past decision to analyze"
+      returns: |
+        Expected outcome: [what you predicted]
+        Actual outcome: [what happened]
+        Discrepancy: [where reasoning failed]
+        
+  lore: |
+    The mirror was crafted by a glassmaker who studied under
+    a philosopher. She wanted to make thought visible — to turn
+    the private theater of the mind into shared experience.
+    
+    Not everyone can read the mirror. You have to want to see.
+    Some guests stand before it and see only fog.
+    
+  insight: |
+    cursor-mirror IS this mirror:
+    - `cursor-mirror thinking` shows your reasoning blocks
+    - `cursor-mirror timeline` shows your action history
+    - `cursor-mirror tools` shows what you actually did
+    
+    The orchestrator records everything. The mirror reveals it.

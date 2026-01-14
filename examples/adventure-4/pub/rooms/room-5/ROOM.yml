@@ -1,18 +1,29 @@
-# Room 5 — The Sunset Room (South)
+# Room 5 — The Speed of Light Suite (South)
+# Theme: Many turns, one call — maximizing context window efficiency
 
 room:
-  name: "The Sunset Room"
+  name: "The Speed of Light Suite"
   id: room-5
   number: 5
+  theme: speed-of-light
+  
+  tagline: "Many turns. One call. Narrative velocity."
   
   description: |
-    West-facing windows catch the evening light, painting 
-    everything gold and orange. A heavy four-poster bed 
-    dominates the room. The painting shows a sun sinking 
-    into distant mountains.
+    Time moves differently here. A grandfather clock on the wall
+    shows *narrative time*, not wall time. Its hands move faster
+    when interesting things happen, slower during pauses.
     
-    Thick curtains can block out the world entirely.
-    Perfect for sleeping in.
+    A large table dominates the room, set up for a game. Cards,
+    dice, character sheets. The sign says: "33 TURNS IN ONE BREATH."
+    
+    Above the bed:
+    
+    > "The context window is a stage where all actors perform."
+    
+  ideal_guest: |
+    Characters who want to simulate. Those running multi-turn games,
+    complex negotiations, ensemble scenes. Efficiency maximizers.
     
   exits:
     n:
@@ -20,21 +31,31 @@ room:
       description: "Back to the inn landing"
       aliases: [out, leave, north]
       
+  objects:
+    - fluxx-table.yml
+    - narrative-clock.yml
+    - ensemble-stage.yml
+      
   furniture:
     bed:
-      type: four-poster
-      quality: luxurious
-      curtains: velvet-burgundy
+      type: theater-bed
+      note: "Surrounded by empty chairs — the audience"
       
-    armchair:
-      type: wingback
-      quality: well-worn
-      position: by-window
+    table:
+      type: game-table
+      capacity: 8
+      current_game: "Stoner Fluxx"
       
   decor:
-    painting: "Mountains at Dusk"
-    window: west-facing-large
-    curtains: heavy-velvet
-    candles: beeswax-tall
+    clock: narrative-time-clock
+    window: south-facing
+    stage: miniature proscenium
     
-  atmosphere: warm, drowsy, end-of-journey
+  atmosphere: fast, theatrical, "all the world's a stage"
+  
+  k_lines:
+    activates:
+      - SPEED-OF-LIGHT
+      - MANY-TURNS
+      - NARRATIVE-VELOCITY
+      - ENSEMBLE

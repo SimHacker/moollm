@@ -1,0 +1,90 @@
+# 🌱 SEED BOX
+# Where ideas begin — pure PLAY, no judgment
+
+object:
+  name: Seed Box
+  type: artifact
+  portable: true
+  
+  description: |
+    A wooden box filled with seed packets of every variety. Some
+    are labeled clearly ("TOMATO", "BASIL"). Others have cryptic
+    notes ("THAT WEIRD THING FROM THE DREAM").
+    
+    A sign reads: "PLANT FREELY. MOST WILL FAIL. THAT'S THE POINT."
+    
+  examine: |
+    The seeds are organized by type:
+    
+    KNOWN VARIETIES — Proven ideas:
+      - "Web scraper" (reliable, boring)
+      - "REST API" (grows anywhere)
+      - "Config file" (low maintenance)
+      
+    EXPERIMENTAL — Might work:
+      - "LLM as game master" (promising!)
+      - "YAML with soul" (weird but interesting)
+      - "Characters as interfaces" (novel)
+      
+    WILD — No idea if viable:
+      - "Emoji fordite layers"
+      - "Monkey beats game designer"
+      - "Tool that inspects itself"
+      
+    The wild section has the most empty slots. Those seeds got planted.
+    
+  state:
+    seeds_available: 47
+    recently_planted: ["cursor-mirror", "I-Beam", "confetti-crawler"]
+    germination_rate: "12%"
+    
+  advertisements:
+    - trigger: "new idea"
+      score: 0.95
+      response: "Don't evaluate yet. Plant it. See what grows."
+      
+    - trigger: "might not work"
+      score: 0.9
+      response: "Most seeds don't sprout. Plant them anyway."
+      
+    - trigger: "brainstorm"
+      score: 0.85
+      response: "Grab a handful. Scatter them. Watch."
+      
+  methods:
+    PLANT:
+      description: "Plant a seed without judgment"
+      parameters:
+        - idea: "What to try"
+      effect: |
+        The seed goes into the PLAY bed.
+        No evaluation. No planning. Just planting.
+        Check back later to see if it sprouted.
+        
+    SCATTER:
+      description: "Plant many seeds at once"
+      parameters:
+        - count: "How many random ideas to generate"
+      returns: "A handful of possibilities, unfiltered"
+      
+    CHECK:
+      description: "See which recent plantings sprouted"
+      returns: |
+        Sprouted: [ideas that showed promise]
+        Still dormant: [ideas that haven't moved]
+        Composted: [ideas that died — nutrients for others]
+        
+  lore: |
+    The seed box was a gift from a guest who was a jazz musician.
+    
+    "In jazz," she said, "you play a hundred wrong notes to find
+    the one that changes everything. This box is for wrong notes."
+    
+  insight: |
+    PLAY is the first stage of play-learn-lift:
+    - No judgment
+    - No planning
+    - Just generation
+    
+    Most seeds fail. That's not waste — that's selection pressure.
+    The survivors are the ideas worth developing.

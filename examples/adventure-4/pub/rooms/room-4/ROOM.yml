@@ -1,17 +1,30 @@
-# Room 4 — The Garden Room (Southeast)
+# Room 4 — The Garden Suite (Southeast)
+# Theme: Play-Learn-Lift — the methodology in living form
 
 room:
-  name: "The Garden Room"
+  name: "The Garden Suite"
   id: room-4
   number: 4
+  theme: play-learn-lift
+  
+  tagline: "Start with jazz. End with standards."
   
   description: |
-    Floral wallpaper, actual potted plants, and a window box 
-    overflowing with herbs. The bed has a canopy of dried 
-    lavender bundles. The painting shows a secret garden gate.
+    This room is a greenhouse. Plants grow at different stages —
+    seedlings in wild patches (PLAY), organized rows being studied
+    (LEARN), and preserved specimens in glass cases (LIFT).
     
-    A watering can sits ready. The room smells of rosemary 
-    and good soil.
+    A gardener's journal tracks which experiments succeeded and
+    which composted back into the soil.
+    
+    Above the bed, in growing script:
+    
+    > "The best way to have a good idea is to have lots of ideas."
+    > — Linus Pauling
+    
+  ideal_guest: |
+    Characters who iterate. Those who know that the first draft
+    is never final. Explorers who eventually want to settle.
     
   exits:
     nw:
@@ -19,20 +32,30 @@ room:
       description: "Back to the inn landing"
       aliases: [out, leave, northwest]
       
+  objects:
+    - seed-box.yml
+    - growth-trellis.yml
+    - specimen-case.yml
+      
   furniture:
     bed:
-      type: canopy
-      quality: fragrant
-      canopy: dried-lavender
+      type: garden-bed
+      note: "Literally — a bed among the plants"
       
-    windowbox:
-      type: herb-garden
-      contents: [rosemary, thyme, mint, mystery-herb]
+    desk:
+      type: potting-bench
+      tools: [trowel, pruning-shears, labels]
       
   decor:
-    painting: "The Secret Gate"
-    window: south-facing-sunny
-    wallpaper: climbing-roses
-    plants: [fern, ivy, something-flowering]
+    plants: "everywhere"
+    window: southeast-facing, floor-to-ceiling
+    rug: soil (actual soil)
     
-  atmosphere: verdant, peaceful, growing
+  atmosphere: organic, iterative, "always growing"
+  
+  k_lines:
+    activates:
+      - PLAY-LEARN-LIFT
+      - ITERATION
+      - METHODOLOGY
+      - JAZZ-TO-STANDARDS

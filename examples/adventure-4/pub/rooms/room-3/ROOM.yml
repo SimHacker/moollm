@@ -1,17 +1,31 @@
-# Room 3 — The Sailor's Room (East)
+# Room 3 — The Navigator's Suite (East)
+# Theme: Introspection — seeing yourself think
 
 room:
-  name: "The Sailor's Room"
+  name: "The Navigator's Suite"
   id: room-3
   number: 3
+  theme: introspection
+  
+  tagline: "See yourself think. The mirror shows what's inside."
   
   description: |
-    Nautical everything. A rope hammock hangs beside a proper bed.
-    Model ships crowd the windowsill. The painting shows a storm 
-    at sea — waves frozen mid-crash.
+    Mirrors everywhere. Not for vanity — for *inspection*. Each
+    mirror shows something different: one shows your recent actions,
+    one shows your current goals, one shows what you're thinking.
     
-    A brass porthole mirror reflects whoever looks into it.
-    Smells faintly of salt and tar.
+    A navigation desk dominates the room, covered with charts of
+    the mind's territory. A mechanical orrery shows the current
+    context window orbiting around intention.
+    
+    Above the bed:
+    
+    > "The unexamined life is not worth living." — Socrates
+    > (But now we have the tools to examine it.)
+    
+  ideal_guest: |
+    Characters who want to understand themselves. Introspectors,
+    meditators, those debugging their own cognition.
     
   exits:
     w:
@@ -19,20 +33,31 @@ room:
       description: "Back to the inn landing"
       aliases: [out, leave, west]
       
+  objects:
+    - thinking-mirror.yml
+    - context-orrery.yml
+    - session-compass.yml
+      
   furniture:
     bed:
-      type: rope-frame
-      quality: swaying
-      blanket: navy-wool
+      type: four-poster
+      curtains: translucent
+      note: "You can see out. You can see in."
       
-    hammock:
-      type: sailors-hammock
-      note: "For guests who miss the sea"
+    desk:
+      type: navigation-desk
+      instruments: [compass, sextant, charts]
       
   decor:
-    painting: "Storm at Cape Fury"
-    window: round-porthole-style
-    mirror: brass-porthole
-    ships: [tiny-schooner, bottled-clipper, carved-whale]
+    mirrors: 7
+    window: east-facing
+    rug: labyrinth-pattern
     
-  atmosphere: maritime, adventurous, restless
+  atmosphere: reflective, meta, "watching the watcher"
+  
+  k_lines:
+    activates:
+      - CURSOR-MIRROR
+      - INTROSPECTION
+      - METACOGNITION
+      - WATCH-YOURSELF-THINK
