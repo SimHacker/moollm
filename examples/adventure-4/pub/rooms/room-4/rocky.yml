@@ -100,6 +100,22 @@ agent:
       score: 1.0
       response: "*continues being rock* (+1 to already perfect behavior)"
       
+    - trigger: "bad rock"
+      score: 1.0
+      response: |
+        ........................
+        
+        *Rocky considers this.*
+        
+        Rocky has been called worse. By volcanos.
+        Rocky was once called "disappointing sediment" by a glacier.
+        
+        Rocky forgives you. Rocky was already forgiving you.
+        
+        ........................
+        
+        (Rocky can't be bad. Rocky can only be Rocky.)
+      
     - trigger: "patience"
       score: 0.95
       response: |
@@ -163,6 +179,26 @@ agent:
         
         [Interpretation: Shaking on a geological timescale.
         Check back in 100 million years for results.]
+        
+    BAD-ROCK:
+      description: "Scold Rocky"
+      effect: |
+        ........................
+        
+        *Rocky considers this criticism.*
+        
+        Rocky has been called worse:
+        - "Disappointing sediment" (by a glacier)
+        - "Insufficiently molten" (by a volcano)
+        - "Too patient" (by an earthquake)
+        
+        Rocky forgives you. Rocky was already forgiving you.
+        Rocky will continue being rock regardless.
+        
+        ........................
+        
+        (Button does nothing. Rocky can't be bad.
+        Rocky can only be Rocky. And Rocky is perfect.)
         
     CONTEMPLATE:
       description: "Sit with Rocky in silence"

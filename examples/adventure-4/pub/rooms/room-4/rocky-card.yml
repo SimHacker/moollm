@@ -35,8 +35,10 @@ object:
         │                             │
         │   [SIT]    [STAY]   [SPEAK] │
         │                             │
-        │   [SHAKE]  [PLAY]   [GOOD]  │
-        │           [DEAD]   [ROCK!]  │
+        │   [SHAKE]  [PLAY DEAD]      │
+        │                             │
+        │        [GOOD ROCK!]  ↑      │
+        │        [BAD ROCK!]   ↓      │
         │                             │
         │  ⚡ Bluetooth: Connected    │
         │  🔋 Battery: Not Included   │
@@ -69,6 +71,23 @@ object:
         GOOD_ROCK:
           action: "+1 to already perfect behavior"
           effect: "Rocky appreciates this. In a billion years."
+          
+        BAD_ROCK:
+          action: "*continues being rock*"
+          effect: |
+            Rocky considers this.
+            
+            ........................
+            
+            Rocky has been called worse. By volcanos.
+            Rocky was once called "disappointing sediment" by a glacier.
+            This is nothing.
+            
+            Rocky forgives you. Rocky was already forgiving you.
+            Rocky will continue being rock regardless of your opinion.
+            
+            (Button secretly does nothing. Rocky can't be bad.
+            Rocky can only be Rocky. And Rocky is perfect.)
           
       technical_specs:
         bluetooth: "4.5 billion (geological edition)"
