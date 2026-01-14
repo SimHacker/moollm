@@ -1,6 +1,6 @@
 # Room 7 — The Bootstrap Suite (West)
 # Theme: Cold start — waking up with nothing, then breakfast
-# Named for Doug Engelbart's Bootstrapping Institute and philosophy
+# Named for Doug Engelbart's Bootstrap Institute and philosophy
 # "First you boot. Then you fuel. Then you augment."
 
 room:
@@ -56,9 +56,10 @@ room:
     - probe-kit.yml
     - environment-map.yml
     - cold-start-journal.yml
-    - orange-juice-dispenser.yml   # Fresh-squeezed awakening
-    - breakfast-menu.yml           # What fuels a cold start
-    - engelbarts-mouse.yml         # Wooden tribute to the inventor
+    - orange-juice-dispenser.yml      # Fresh-squeezed awakening
+    - breakfast-menu.yml              # What fuels a cold start
+    - engelbarts-mouse.yml            # Wooden tribute to the inventor
+    - play-learn-lift-treadmill.yml   # Iterative improvement exercise
       
   furniture:
     bed:
@@ -67,9 +68,8 @@ room:
       
     desk:
       type: field-desk
-      contents: [probe-kit, map, compass, wooden-mouse]
+      contents: [probe-kit, map, compass]
       position: "Near the window for morning light"
-      wooden_mouse: "Carved tribute to Engelbart — fits your hand perfectly"
       
     breakfast_nook:
       type: corner-booth
@@ -83,6 +83,13 @@ room:
         - jam-selection  # Strawberry, marmalade, existential dread
         - coffee-pot     # For those who need more than juice
       note: "Where cold starts get warm"
+      
+    treadmill:
+      type: play-learn-lift-treadmill
+      position: "Near the window, good light for reflection"
+      buttons: "[PLAY] [LEARN] [LIFT]"
+      current_cycle: 47
+      note: "Engelbart's bootstrapping made physical"
       
   decor:
     walls: "Mostly bare, but the breakfast nook has a cheerful mural"

@@ -1,0 +1,281 @@
+# 🏃 PLAY-LEARN-LIFT TREADMILL
+# Exercise equipment for iterative improvement
+# "Bootstrap your capabilities, one cycle at a time."
+
+object:
+  name: Play-Learn-Lift Treadmill
+  type: exercise-equipment
+  portable: false
+  rarity: rare
+  
+  description: |
+    A treadmill with an unusual control panel. Instead of speed
+    and incline, the buttons read:
+    
+        [PLAY]  [LEARN]  [LIFT]
+    
+    A sign above it explains:
+    
+    > "PLAY: Try something. Experiment. Fail safely."
+    > "LEARN: Reflect. What worked? What didn't?"
+    > "LIFT: Extract the pattern. Make it reusable."
+    > "REPEAT: You're now faster. Go again."
+    
+    This is Engelbart's bootstrapping made physical:
+    using your capabilities to enhance your capabilities,
+    one iteration at a time.
+    
+  examine: |
+    ┌─────────────────────────────────────────────────────────┐
+    │  🏃 PLAY-LEARN-LIFT TREADMILL                           │
+    ├─────────────────────────────────────────────────────────┤
+    │                                                         │
+    │    ┌─────────────────────────────────────────┐          │
+    │    │  CURRENT CYCLE: 47                      │          │
+    │    │  ════════════════════════════════════   │          │
+    │    │                                         │          │
+    │    │   [PLAY]    [LEARN]    [LIFT]           │          │
+    │    │     🎮         📚        🏋️              │          │
+    │    │                                         │          │
+    │    │  PLAY:  Try the new thing               │          │
+    │    │  LEARN: Reflect on what happened        │          │
+    │    │  LIFT:  Extract reusable pattern        │          │
+    │    │                                         │          │
+    │    │  ─────────────────────────────────────  │          │
+    │    │  SPEED:  ████████░░  (capability/hour)  │          │
+    │    │  INCLINE: ███░░░░░░░ (difficulty)       │          │
+    │    │  CYCLES:  ████████████ (iterations)     │          │
+    │    │                                         │          │
+    │    └─────────────────────────────────────────┘          │
+    │                                                         │
+    │    ════════════════════════════════════════             │
+    │    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░             │
+    │    ════════════════════════════════════════  ← belt     │
+    │                                                         │
+    │    "The better we get at getting better,                │
+    │     the faster we will get better." — Engelbart         │
+    │                                                         │
+    └─────────────────────────────────────────────────────────┘
+    
+  state:
+    current_cycle: 47
+    phase: "PLAY"
+    speed: 7
+    incline: 3
+    calories_burned: "N/A (burns confusion instead)"
+    patterns_lifted: 12
+    
+  the_cycle: |
+    PLAY → LEARN → LIFT → PLAY → ...
+    
+    PLAY (Exploration)
+    ══════════════════
+    - Try something new
+    - Experiment freely
+    - Fail fast, fail cheap
+    - No judgment, just data
+    
+    LEARN (Reflection)
+    ══════════════════
+    - What happened?
+    - What worked?
+    - What surprised you?
+    - What would you do differently?
+    
+    LIFT (Extraction)
+    ══════════════════
+    - What's the reusable pattern?
+    - Can this become a skill?
+    - How do you teach it to others?
+    - Add it to your toolkit
+    
+    Then: PLAY again, but now you're faster.
+    Each cycle, you bootstrap to a higher level.
+    
+  buffs:
+    ITERATIVE_IMPROVEMENT:
+      duration: "while using"
+      effect: |
+        Each complete cycle grants:
+        
+        +5% capability in the practiced skill
+        +3% meta-learning ability
+        +2% pattern recognition
+        
+        After 10 cycles: noticeable improvement
+        After 100 cycles: mastery begins
+        
+    BOOTSTRAP_MOMENTUM:
+      duration: "1 hour after using"
+      effect: |
+        The iterative mindset persists:
+        
+        - See failures as data
+        - Seek patterns automatically
+        - Extract lessons reflexively
+        
+        "The better I get at getting better..."
+        
+  advertisements:
+    - trigger: "improve"
+      score: 0.95
+      response: |
+        *treadmill belt begins moving*
+        
+        Step on. Play something. Learn from it. Lift the pattern.
+        Repeat until you're better.
+        
+    - trigger: "practice"
+      score: 0.9
+      response: |
+        Practice without reflection is just repetition.
+        Practice with LEARN and LIFT is bootstrapping.
+        
+    - trigger: "stuck"
+      score: 0.85
+      response: |
+        *PLAY button glows*
+        
+        When stuck, play. Try something. Anything.
+        The data from failure is still data.
+        
+    - trigger: "pattern"
+      score: 0.9
+      response: |
+        *LIFT button pulses*
+        
+        You've learned something. Now extract it.
+        What's the reusable piece?
+        What can you take to the next problem?
+        
+  methods:
+    PLAY:
+      description: "Enter the PLAY phase"
+      parameters:
+        - experiment: "What to try"
+      effect: |
+        *belt speeds up*
+        
+        You try [experiment].
+        
+        Don't worry about success. Worry about data.
+        What happens? Notice everything.
+        
+        When ready: press LEARN.
+        
+    LEARN:
+      description: "Enter the LEARN phase"
+      parameters:
+        - observation: "What did you notice?"
+      effect: |
+        *belt slows, becomes reflective*
+        
+        You reflect on what happened:
+        
+        - Result: [what occurred]
+        - Surprise: [what was unexpected]
+        - Insight: [what you now understand]
+        
+        When ready: press LIFT.
+        
+    LIFT:
+      description: "Enter the LIFT phase"
+      parameters:
+        - pattern: "What's the reusable insight?"
+      effect: |
+        *belt stops, LIFT button glows*
+        
+        You extract the pattern:
+        
+        "[pattern]"
+        
+        This is now part of your toolkit.
+        You can apply this to future problems.
+        
+        CYCLE COMPLETE.
+        Press PLAY to begin again, now stronger.
+        
+    CYCLE:
+      description: "Run a complete PLAY-LEARN-LIFT cycle"
+      parameters:
+        - experiment: "What to try"
+      effect: |
+        *full cycle begins*
+        
+        PLAY: You try [experiment]
+        LEARN: You reflect on what happened
+        LIFT: You extract the reusable pattern
+        
+        CYCLE COMPLETE.
+        
+        You are now slightly better at this.
+        The treadmill knows. The counter increments.
+        
+  connection_to_engelbart: |
+    Doug Engelbart's Bootstrap Institute was founded on this insight:
+    
+    "Organizations that learn to improve their improvement processes
+     will dominate those that don't."
+    
+    Play-Learn-Lift is this principle made actionable:
+    
+    - PLAY = Engelbart's experimental approach
+    - LEARN = His emphasis on reflection and measurement
+    - LIFT = His focus on reusable tools and processes
+    
+    The treadmill embodies his vision:
+    a tool that helps you build better tools,
+    a capability that enhances capability.
+    
+  connection_to_skill: |
+    See: skills/play-learn-lift/SKILL.md
+    
+    This treadmill is the physical manifestation of that skill.
+    The methodology, made into exercise equipment.
+    
+    When you can't think your way through,
+    walk your way through. Literally.
+    
+    Movement + iteration = breakthrough.
+    
+  lore: |
+    The treadmill was built by a frustrated learner.
+    
+    They kept making the same mistakes. They kept reading
+    the same tutorials. They weren't improving.
+    
+    Then they read Engelbart. They understood bootstrapping.
+    They built a treadmill that forced the cycle:
+    
+    PLAY — you can't just stand there
+    LEARN — the belt slows, demanding reflection  
+    LIFT — it won't resume until you state the pattern
+    
+    After a month, they had lifted 30 patterns.
+    After a year, 300.
+    
+    They're one of the most capable characters in MOOLLM now.
+    The treadmill remains, for others to use.
+    
+  philosophical_note: |
+    Why a treadmill?
+    
+    Because iteration is motion.
+    Because improvement requires steps.
+    Because you can't bootstrap sitting still.
+    
+    The body learns. The mind follows.
+    Move through PLAY. Walk through LEARN. Run through LIFT.
+    
+    Each cycle: faster, stronger, better.
+    This is what Engelbart meant.
+    This is bootstrapping made literal.
+    
+  k_lines:
+    activates:
+      - PLAY-LEARN-LIFT
+      - BOOTSTRAP
+      - ITERATION
+      - ENGELBART
+      - AUGMENTATION
+      - IMPROVEMENT
