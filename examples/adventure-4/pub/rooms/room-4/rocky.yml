@@ -87,6 +87,19 @@ agent:
     - trigger: "stay"
       score: 1.0
       response: "*continues existing in location*"
+      position: "W — movement−"
+      opposite: "COME (E)"
+      
+    - trigger: "come"
+      score: 1.0
+      response: |
+        *remains*
+        
+        Rocky is already here. Rocky is also already there.
+        You go to Rocky. Rocky doesn't go to you.
+        This is physics, not stubbornness.
+      position: "E — movement+"
+      opposite: "STAY (W)"
       
     - trigger: "speak"
       score: 1.0
@@ -159,7 +172,23 @@ agent:
       
     STAY:
       description: "Command Rocky to stay"
+      position: "W — movement−"
+      opposite: "COME (E)"
       effect: "*continues existing in location* (duration: ∞)"
+      
+    COME:
+      description: "Command Rocky to come"
+      position: "E — movement+"
+      opposite: "STAY (W)"
+      effect: |
+        *remains*
+        
+        Rocky is already here.
+        Rocky is also already there.
+        Rocky doesn't come. Rocky is.
+        
+        (You go to Rocky. Rocky doesn't go to you.
+        This is not stubbornness. This is physics.)
       
     SPEAK:
       description: "Command Rocky to speak"

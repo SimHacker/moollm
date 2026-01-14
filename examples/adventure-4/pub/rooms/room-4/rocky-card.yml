@@ -30,49 +30,90 @@ object:
       name: "Pet Rock Remote Control"
       tagline: "100% Functional. Battery Not Included."
       appearance: |
-        ┌─────────────────────────────┐
-        │  🪨 PET ROCK REMOTE v4.5B  │
-        │                             │
-        │   [SIT]    [STAY]   [SPEAK] │
-        │                             │
-        │   [SHAKE]  [PLAY DEAD]      │
-        │                             │
-        │        [GOOD ROCK!]  ↑      │
-        │        [BAD ROCK!]   ↓      │
-        │                             │
-        │  ⚡ Bluetooth: Connected    │
-        │  🔋 Battery: Not Included   │
-        │  📶 Signal: ∞               │
-        │                             │
-        │  「QR CODE」← Links to ∅    │
-        └─────────────────────────────┘
+        ┌───────────────────────────────┐
+        │   🪨 PET ROCK REMOTE v4.5B    │
+        │                               │
+        │         [GOOD ROCK!]          │
+        │              N                │
+        │     [SPEAK]     [SHAKE]       │
+        │        NW         NE          │
+        │                               │
+        │  [STAY]             [COME]    │
+        │    W                   E      │
+        │                               │
+        │       [SIT]    [PLAY DEAD]    │
+        │        SW          SE         │
+        │              S                │
+        │         [BAD ROCK!]           │
+        │                               │
+        │  ⚡ Bluetooth: Connected       │
+        │  🔋 Battery: Not Included     │
+        │  📶 Signal: ∞                 │
+        │                               │
+        │  「QR CODE」← Links to ∅      │
+        └───────────────────────────────┘
+        
+        PIE MENU LOGIC (opposing pairs):
+        ════════════════════════════════
+        N ↔ S   GOOD/BAD      moral axis
+        E ↔ W   COME/STAY     movement axis
+        NE↔SW   SHAKE/SIT     activity axis
+        NW↔SE   SPEAK/DEAD    expression axis
         
       buttons:
-        SIT:
-          action: "*already sitting*"
-          success_rate: "100%"
-          
-        STAY:
-          action: "*continues existing*"
-          duration: "∞"
-          
-        SPEAK:
-          action: "........................"
-          meaning: "Everything"
-          
-        SHAKE:
-          action: "*geological vibration*"
-          eta: "100 million years"
-          
-        PLAY_DEAD:
-          action: "*achieves stillness*"
-          realism: "Indistinguishable"
-          
         GOOD_ROCK:
+          position: "N — moral+"
+          opposite: "BAD_ROCK (S)"
           action: "+1 to already perfect behavior"
           effect: "Rocky appreciates this. In a billion years."
           
+        SPEAK:
+          position: "NW — expression+"
+          opposite: "PLAY_DEAD (SE)"
+          action: "........................"
+          meaning: "Everything. Said perfectly. In silence."
+          
+        SHAKE:
+          position: "NE — activity+"
+          opposite: "SIT (SW)"
+          action: "*geological vibration*"
+          eta: "100 million years"
+          
+        STAY:
+          position: "W — movement−"
+          opposite: "COME (E)"
+          action: "*continues existing*"
+          duration: "∞"
+          
+        COME:
+          position: "E — movement+"
+          opposite: "STAY (W)"
+          action: "*remains*"
+          effect: |
+            Rocky is already here.
+            Rocky is also already there.
+            Rocky doesn't come. Rocky is.
+            
+            (You go to Rocky. Rocky doesn't go to you.
+            This is not stubbornness. This is physics.)
+          
+        SIT:
+          position: "SW — activity−"
+          opposite: "SHAKE (NE)"
+          action: "*already sitting*"
+          success_rate: "100%"
+          note: "Has been sitting for 4.5 billion years"
+          
+        PLAY_DEAD:
+          position: "SE — expression−"
+          opposite: "SPEAK (NW)"
+          action: "*achieves stillness*"
+          realism: "Indistinguishable from actual death. Also from life."
+          note: "Rocky has been playing dead for 4.5 billion years. Or living. Same thing."
+          
         BAD_ROCK:
+          position: "S — moral−"
+          opposite: "GOOD_ROCK (N)"
           action: "*continues being rock*"
           effect: |
             Rocky considers this.
