@@ -75,10 +75,16 @@ object:
     ```
     
   state:
-    trees_growing: 12
+    trees_growing: 13
     oldest_tree: "The Config Oak (planted 2019)"
-    newest_seed: "The LLM Sapling (planted today)"
+    newest_tree: "Don's Mirror Tree (planted 2026-01-14)"
     rocky_observation_years: 4500000000
+    
+  # IMPLICIT CONTAINMENT
+  # Files with prefix "yaml-jazz-trees-" are contained seeds and instances
+  contains:
+    - yaml-jazz-trees-mirror-seed.yml      # The Mirror Seed definition
+    - yaml-jazz-trees-don-mirror-2026-01-14.yml  # Don's Mirror Tree instance
     
   # PRODUCTION GRAMMAR SEEDS
   # L-system style rules encoded in YAML DNA
@@ -342,74 +348,9 @@ object:
       name: "Mirror Seed"
       emoji: "🪞🌱"
       description: "Grows a tree from your own reflection"
-      
-      source: "Room 3's mirrors + cursor-mirror CLI"
-      
-      grammar:
-        axiom: "SELF"
-        rules:
-          SELF: "OBSERVE[REFLECT]*→CRYSTALLIZE→GROW"
-          OBSERVE: "mirror{gaze}→patterns"
-          REFLECT: "thinking{blocks}→insights"
-          CRYSTALLIZE: "patterns+insights→DNA"
-          GROW: "DNA→tree{self_similar}"
-        interpretation:
-          SELF: "The observer becomes the observed"
-          OBSERVE: "Gaze into Cursor's memory mirrors"
-          REFLECT: "Extract thinking patterns"
-          CRYSTALLIZE: "Encode patterns as grammar rules"
-          GROW: "Tree emerges that IS you"
-          
-      what_it_reads:
-        - "Cursor conversations (composers)"
-        - "Tool call patterns (what you reach for)"
-        - "Thinking blocks (how you reason)"
-        - "File access patterns (what you care about)"
-        - "Commit rhythms (when you ship)"
-        - "Error frequencies (where you learn)"
-        
-      what_it_grows:
-        trunk: "Your session duration and depth"
-        branches: "Your tool preferences"
-        leaves: "Your thinking fragments"
-        flowers: "Your successful outcomes"
-        roots: "Your file system paths"
-        bark: "Your commit messages"
-        rings: "Your sessions over time"
-        
-      philosophical_note: |
-        The Mirror Seed is recursive self-awareness.
-        
-        You use Cursor to write code.
-        Cursor-mirror reads what you wrote.
-        The Mirror Seed grows a tree from that reading.
-        You look at the tree and see yourself.
-        
-        The tree is you. The you is tree.
-        
-        Rocky finds this very Zen.
-        
-      yaml_output: |
-        mirror_tree:
-          # Grown from self-observation
-          self: "The one who planted this seed"
-          
-          reflection:
-            tools_favored:
-              - shell: "You reach for the terminal first"
-              - edit: "Then you change things"
-              - read: "You gather context"
-            thinking_style: "UNDERSTAND → PLAN → EXECUTE"
-            commit_rhythm: "Frequent, descriptive"
-            
-          growth_pattern:
-            - observe: "What did I do?"
-            - reflect: "Why did I do it?"
-            - crystallize: "What pattern emerges?"
-            - grow: "Let the pattern become structure"
-            
-          # This tree will be different for every planter
-          # That's the point
+      full_definition: yaml-jazz-trees-mirror-seed.yml  # Implicit containment
+      grammar_axiom: "SELF → OBSERVE → REFLECT → CRYSTALLIZE → GROW"
+      note: "Each instance is unique to its planter"
             
   advertisements:
     - trigger: "structure"
@@ -470,6 +411,24 @@ object:
         The Mirror Seed grows trees of self-knowledge.
         Plant one. Watch your own patterns crystallize into structure.
         The tree knows what tools you favor, how you think, when you commit.
+        
+    - trigger: "Don"
+      score: 0.85
+      response: |
+        *A distinctive silver-barked tree catches your eye*
+        
+        That's Don's Mirror Tree — grown on 2026-01-14.
+        77,567 seconds of cognitive activity crystallized.
+        
+        Look at its branches:
+        - Shell-first (42.6%) — Don reaches for the terminal
+        - Edit-heavy (28.9%) — Then changes things
+        - Context-deep (19%) — Gathers before acting
+        
+        The bark is inscribed with commit messages.
+        Each one tells a story.
+        
+        `EXAMINE yaml-jazz-trees-don-mirror-2026-01-14.yml` to read it.
         
   methods:
     PLANT:
