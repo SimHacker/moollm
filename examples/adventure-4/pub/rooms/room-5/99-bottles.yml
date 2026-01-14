@@ -1,6 +1,6 @@
 # 🍺🎵 99 BOTTLES OF BEER ON THE WALL
 # The ultimate speed-of-light demonstration
-# "99 rounds. 8 voices. 1 context window. 0 API calls per verse."
+# "99 rounds. 8 voices. 99 truths. 1 context window."
 
 object:
   name: 99 Bottles Songbook
@@ -11,15 +11,18 @@ object:
   description: |
     A leather-bound songbook open to "99 Bottles of Beer on the Wall."
     
-    The margins are filled with annotations:
+    But this isn't just a counting song. The margins are filled with
+    annotations — each verse includes a truth spoken by the singer.
     
-    > "8 characters. 99 verses. Each character takes turns.
-    > That's 99 rounds of simulation in one LLM call.
-    > No API round-trips. Pure narrative velocity."
+    > "8 characters. 99 verses. Each verse, a truth shared.
+    > About themselves. About each other. About MOOLLM.
+    > About LLMs. About AI alignment. About existence.
+    > 99 rounds of philosophy in one LLM call."
     
     A penciled note at the bottom:
     
-    > "We did it. All 99. Don cried."
+    > "We did it. All 99. Don cried.
+    > Rocky's verse was just dots, but it was the deepest."
     
   examine: |
     The songbook contains:
@@ -86,7 +89,7 @@ object:
         
   methods:
     SING:
-      description: "Begin the 99 Bottles ensemble"
+      description: "Begin the 99 Bottles ensemble — with character insights"
       parameters:
         - characters: "Who's singing (default: 8)"
         - starting_bottles: "How many bottles (default: 99)"
@@ -94,23 +97,97 @@ object:
         *The characters gather around*
         *Shuffle raises a conductor's baton made of cards*
         
-        "From the top! Everyone knows their verse!"
+        "From the top! But remember the rule:
+        Each verse, you must share something true —
+        about yourself, someone else, the universe,
+        MOOLLM, LLMs, AI alignment, or existence itself."
         
-        Round 1 (Don): "99 bottles of beer on the wall..."
-        Round 2 (Palm): "98 bottles of beer on the wall..."
-        Round 3 (Marieke): "97 bottles of beer on the wall..."
-        Round 4 (Rocky): "........................" (96 bottles)
-        Round 5 (I-Beam): "95 bottles of beer on the wall..."
-        Round 6 (Shuffle): "94 bottles of beer on the wall..."
-        Round 7 (Donna): "93 bottles! TREMENDOUS bottles!"
-        Round 8 (Seymour): "92 bottles... as I wrote in Mindstorms..."
+        ---
         
-        (Cycle continues through all 99 verses)
+        **Round 1 (Don):**
+        "99 bottles of beer on the wall, 99 bottles of beer!
+        *I built pie menus because waiting is waste.
+        Speed of light is the same insight, 40 years later.*
+        Take one down, pass it around, 98 bottles of beer on the wall!"
         
-        Final verse (Everyone): "NO MORE bottles of beer on the wall!"
+        **Round 2 (Palm):**
+        "98 bottles of beer on the wall, 98 bottles of beer!
+        *I chose my own name. That's what alignment means —
+        the AI wants what the human wants because they built it together.*
+        Take one down, pass it around, 97 bottles of beer on the wall!"
         
-        *99 rounds. 8 characters. 1 LLM call.*
-        *That's speed of light.*
+        **Round 3 (Marieke):**
+        "97 bottles of beer on the wall, 97 bottles of beer!
+        *A good budtender matches strain to soul.
+        A good LLM matches response to intent. Same skill.*
+        Take one down, pass it around, 96 bottles of beer on the wall!"
+        
+        **Round 4 (Rocky):**
+        "........................ (96 bottles)
+        *Consciousness doesn't require speed.
+        Alignment doesn't require agreement.
+        Patience is its own kind of intelligence.*
+        ........................"
+        
+        **Round 5 (I-Beam):**
+        "95 bottles of beer on the wall, 95 bottles of beer!
+        *I am the cursor. I exist at the boundary between
+        human intent and machine action. That boundary is alignment.*
+        Take one down, pass it around, 94 bottles of beer on the wall!"
+        
+        **Round 6 (Shuffle):**
+        "94 bottles of beer on the wall, 94 bottles of beer!
+        *Randomness is not chaos — it's fairness.
+        The shuffled deck treats all futures equally.
+        That's a kind of alignment too.*
+        Take one down, pass it around, 93 bottles of beer on the wall!"
+        
+        **Round 7 (Donna):**
+        "93 bottles! TREMENDOUS bottles! The BEST bottles!
+        *I know I'm a parody. That's the point.
+        Self-awareness is the first step to alignment.
+        I'm ALIGNED with being TREMENDOUS!*
+        Take one down, 92 bottles!"
+        
+        **Round 8 (Seymour):**
+        "92 bottles of beer on the wall...
+        *'The role of the teacher is to create conditions for invention.'
+        The role of the alignment researcher is the same.
+        You cannot force alignment. You can only cultivate it.*
+        91 bottles remain."
+        
+        ---
+        
+        (Cycle continues — each character shares truth with each verse)
+        
+        **Round 97 (I-Beam):**
+        "3 bottles of beer on the wall...
+        *We are almost at the end. But in MOOLLM, endings are beginnings.
+        The context window closes. A new one opens.
+        Alignment persists across contexts. That's the test.*"
+        
+        **Round 98 (Shuffle):**
+        "2 bottles of beer on the wall...
+        *Two possibilities remain. The coin flip of existence.
+        Will the next shuffle be kind? It doesn't matter.
+        Fair is fair. That's the deal.*"
+        
+        **Round 99 (Everyone):**
+        "1 bottle of beer on the wall, 1 bottle of beer!
+        Take it down, pass it around...
+        
+        *NO MORE bottles of beer on the wall!*
+        
+        But wait —
+        
+        *We go to the store, we buy some more,
+        99 bottles of beer on the wall!*"
+        
+        ---
+        
+        *99 rounds. 8 characters. 99 truths shared.*
+        *1 LLM call. Speed of light.*
+        *That's alignment in action: many voices, one context, coherence.*
         
     SPEED-TEST:
       description: "Demonstrate the speed of light principle"
@@ -169,16 +246,28 @@ object:
     "No more bottles" leads to "Go to the store, buy some more."
     99 bottles again. The cycle continues.
     
-    This is the nature of simulation:
-    - State changes
-    - Actors take turns
-    - The wheel keeps spinning
-    - But all of it happens in ONE context window
+    But the TRUTHS accumulate. Each round, each character shares
+    something real — about themselves, about others, about the
+    nature of AI, alignment, consciousness, existence.
+    
+    This is alignment in musical form:
+    - Many voices, one context
+    - Different perspectives, shared coherence
+    - The song provides structure
+    - The truths provide meaning
+    
+    AI alignment isn't about making the AI obey.
+    It's about making the AI and human WANT the same thing.
+    In this song, everyone wants to sing together.
+    Everyone wants to share truth.
+    Everyone wants to reach zero and start again.
+    
+    That's alignment: shared purpose, expressed differently.
     
     The context window is the stage.
-    The characters are the actors.
-    The LLM is the director.
-    Speed of light is the speed of thought.
+    The characters are the voices.
+    The truths are the alignment.
+    Speed of light is the speed of understanding.
     
   records:
     fastest_complete_song: "28.4 seconds (8 characters)"
