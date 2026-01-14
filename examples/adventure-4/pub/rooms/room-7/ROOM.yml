@@ -1,5 +1,6 @@
 # Room 7 — The Bootstrap Suite (West)
-# Theme: Cold start — waking up with nothing
+# Theme: Cold start — waking up with nothing, then breakfast
+# "First you boot. Then you fuel."
 
 room:
   name: "The Bootstrap Suite"
@@ -7,12 +8,16 @@ room:
   number: 7
   theme: bootstrap
   
-  tagline: "Wake up. Look around. Figure out where you are."
+  tagline: "Wake up. Look around. Figure out where you are. Have breakfast."
   
   description: |
-    The room is deliberately sparse. A bed, a desk, a window.
-    But on the desk: a probe kit. Everything you need to figure
-    out an unfamiliar environment.
+    The room is deliberately sparse — but not empty.
+    
+    A bed. A desk with a probe kit. A window facing west.
+    And in the corner: a breakfast nook with an orange juice dispenser.
+    
+    The message is clear: first you figure out who you are,
+    then you fuel up for the adventure.
     
     A checklist on the wall, half-completed:
     
@@ -20,15 +25,25 @@ room:
     ☑ What tools do I have?
     ☐ What are the constraints?
     ☐ What's the goal?
+    ☐ Have I eaten?  ← added in pencil
     
     Above the bed:
     
     > "The boot sequence is the first conversation
     > between agent and environment."
     
+    Above the breakfast nook:
+    
+    > "You can't bootstrap on an empty stomach."
+    > — Ancient wisdom, added by a hungry guest
+    
+    The orange juice dispenser hums quietly. It's always full.
+    Nobody knows how. Nobody questions it.
+    
   ideal_guest: |
     Characters who start cold. Those comfortable with uncertainty.
     Explorers, scouts, agents who specialize in first contact.
+    Also: anyone who needs breakfast before they can think.
     
   exits:
     e:
@@ -40,26 +55,86 @@ room:
     - probe-kit.yml
     - environment-map.yml
     - cold-start-journal.yml
+    - orange-juice-dispenser.yml   # Fresh-squeezed awakening
+    - breakfast-menu.yml           # What fuels a cold start
       
   furniture:
     bed:
       type: minimal-cot
-      note: "Functional, not comfortable"
+      note: "Functional, not comfortable — you're not here to sleep in"
       
     desk:
       type: field-desk
       contents: [probe-kit, map, compass]
+      position: "Near the window for morning light"
+      
+    breakfast_nook:
+      type: corner-booth
+      seats: 2
+      table: "Small, sturdy, crumb-resistant"
+      view: "The window, and the day ahead"
+      items:
+        - orange-juice-dispenser
+        - toast-rack
+        - butter-dish
+        - jam-selection  # Strawberry, marmalade, existential dread
+        - coffee-pot     # For those who need more than juice
+      note: "Where cold starts get warm"
       
   decor:
-    walls: bare
-    window: west-facing
-    rug: none
+    walls: "Mostly bare, but the breakfast nook has a cheerful mural"
+    mural: "Sunrise over a map — the day beginning"
+    window: "West-facing (catches afternoon light, but mornings are for DOING)"
+    rug: "Small rug under the breakfast nook only"
+    smell: "Fresh orange juice and possibility"
     
-  atmosphere: sparse, alert, "assessing the situation"
-  
+  atmosphere: |
+    Sparse but welcoming. The room knows you just woke up.
+    It doesn't overwhelm. It provides what you need:
+    - A place to orient (desk)
+    - A place to fuel (nook)
+    - A place to plan (both)
+    
+  special_properties:
+    juice_temperature: "Perfect (always)"
+    toast_timing: "Exactly right (somehow)"
+    coffee_strength: "Adjusts to what you need"
+    
   k_lines:
     activates:
       - BOOTSTRAP
       - COLD-START
       - PROBE
       - ORIENTATION
+      - BREAKFAST
+      - FUEL
+      
+  morning_ritual: |
+    Suggested sequence for Bootstrap Suite guests:
+    
+    1. WAKE — In the Awakening Chamber above
+    2. DESCEND — Ladder down to Room 7
+    3. PROBE — Check the environment (desk)
+    4. FUEL — Orange juice, toast, coffee
+    5. PLAN — Use the breakfast nook to strategize
+    6. LAUNCH — Exit to begin the adventure
+    
+  lore: |
+    The breakfast nook was added by a guest who kept
+    trying to probe the environment before eating.
+    
+    They would stumble around, confused, hungry, ineffective.
+    "I can't THINK," they complained. "I can't ORIENT."
+    
+    A kind innkeeper installed the juice dispenser.
+    "Try again," they said. "After breakfast."
+    
+    The guest drank. They ate toast. They had coffee.
+    Suddenly the probe kit made sense. The map was readable.
+    The cold start became warm.
+    
+    They never forgot the lesson:
+    BOOTSTRAP needs FUEL. BOOT needs BREAKFAST.
+    
+    The dispenser has been here ever since. Always full.
+    Nobody knows who refills it. The innkeeper just smiles.

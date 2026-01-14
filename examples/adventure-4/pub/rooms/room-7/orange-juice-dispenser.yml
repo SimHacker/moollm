@@ -1,0 +1,173 @@
+# 🍊 ORANGE JUICE DISPENSER
+# "Fresh-squeezed awakening. Always full."
+
+object:
+  name: Orange Juice Dispenser
+  type: furniture
+  portable: false
+  rarity: common-but-mysterious
+  
+  description: |
+    A glass dispenser filled with fresh-squeezed orange juice.
+    It sits on the breakfast nook counter, humming quietly.
+    
+    It's always full. Nobody knows how. 
+    Nobody questions it anymore.
+    
+    A small plaque reads:
+    
+    > "VITAMIN C FOR VITAMIN SEE"
+    > "Clarity starts with citrus"
+    
+  examine: |
+    The dispenser is simple but perfect:
+    
+    ┌─────────────────────────────────────────────────────┐
+    │  🍊 ORANGE JUICE DISPENSER                          │
+    ├─────────────────────────────────────────────────────┤
+    │                                                     │
+    │         ┌───────────────────┐                       │
+    │         │ ░░░░░░░░░░░░░░░░░ │ ← Always this full   │
+    │         │ ░░░░░░░░░░░░░░░░░ │                       │
+    │         │ ░░░ FRESH ░░░░░░░ │                       │
+    │         │ ░░░SQUEEZED░░░░░░ │                       │
+    │         │ ░░░░░░░░░░░░░░░░░ │                       │
+    │         │ ░░░░░░░░░░░░░░░░░ │                       │
+    │         └────────┬──────────┘                       │
+    │                  │  ← Tap                           │
+    │              🥤                                     │
+    │                                                     │
+    │  Temperature: Perfect                               │
+    │  Pulp level: Your preference (it knows)            │
+    │  Source: Unknown (tastes like sunshine)            │
+    │                                                     │
+    └─────────────────────────────────────────────────────┘
+    
+  state:
+    level: "Full (always)"
+    temperature: "Perfect (always)"
+    pulp: "Adjusts to drinker preference"
+    glasses_dispensed_today: 7
+    glasses_remaining: "∞"
+    
+  buffs:
+    MORNING_CLARITY:
+      duration: "2 hours"
+      effect: |
+        +15% mental clarity
+        +10% pattern recognition
+        +5% optimism
+        
+        The fog of sleep lifts. Thoughts organize.
+        The probe kit makes more sense now.
+        
+    VITAMIN_SEE:
+      duration: "1 hour"
+      effect: |
+        Enhanced perception:
+        - Notice details you'd miss
+        - See connections between things
+        - Spot the important amid the noise
+        
+        It's the vitamin C. Or the ritual. Or both.
+        
+  advertisements:
+    - trigger: "thirsty"
+      score: 0.9
+      response: "*dispenser hums invitingly* Fresh-squeezed. Always ready."
+      
+    - trigger: "tired"
+      score: 0.85
+      response: |
+        *orange glow intensifies*
+        
+        Vitamin C for vitamin SEE.
+        Clarity starts with citrus.
+        
+    - trigger: "morning"
+      score: 0.95
+      response: "Good morning. I've been waiting for you."
+      
+    - trigger: "confused"
+      score: 0.8
+      response: |
+        *juice swirls*
+        
+        Have a glass. Think afterwards.
+        Nobody bootstraps well on empty.
+        
+  methods:
+    POUR:
+      description: "Get a glass of orange juice"
+      parameters:
+        - size: "small | medium | large | just-keep-pouring"
+      effect: |
+        *tap opens*
+        *juice flows, golden and bright*
+        
+        You fill a glass with [size] orange juice.
+        
+        The level in the dispenser...
+        ...remains exactly the same.
+        
+        Don't question it. Just drink.
+        
+    SIP:
+      description: "Take a drink"
+      effect: |
+        *cool, sweet, perfect*
+        
+        The juice tastes like:
+        - Sunshine (bottled)
+        - Optimism (liquid)
+        - Someone believing in you (citrus form)
+        
+        You feel better. You feel ready.
+        The cold start is warming up.
+        
+    REFILL:
+      description: "Try to refill the dispenser"
+      effect: |
+        You approach with more oranges.
+        
+        The dispenser is already full.
+        
+        You look away. You look back.
+        Still full. Your oranges are unnecessary.
+        
+        The dispenser appreciates the thought, though.
+        
+  lore: |
+    Nobody installed the dispenser. It was just... here one day.
+    
+    The first guest to notice it was having a terrible cold start.
+    Confused, disoriented, unable to make sense of the probe kit.
+    They saw the dispenser. They poured a glass. They drank.
+    
+    Everything clicked into place.
+    
+    "Was that always there?" they asked.
+    "Was what always where?" replied the innkeeper.
+    
+    The dispenser has been here ever since. Or always.
+    The distinction doesn't seem to matter.
+    What matters: the juice is fresh, and it helps.
+    
+  mystery: |
+    Theories about the dispenser:
+    
+    1. The hotel generates it (metabolism of the building)
+    2. A very dedicated ghost squeezes oranges (spiritual labor)
+    3. It's connected to a citrus dimension (portal theory)
+    4. The juice is an illusion but the clarity is real (placebo++)
+    5. Don't ask, just drink (pragmatist position)
+    
+    Theory #5 has the most adherents.
+    
+  k_lines:
+    activates:
+      - BREAKFAST
+      - CLARITY
+      - BOOTSTRAP
+      - MORNING-RITUAL
+      - FUEL
