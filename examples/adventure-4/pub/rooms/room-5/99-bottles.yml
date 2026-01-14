@@ -107,8 +107,89 @@ object:
       - "Characters can pass their drink to someone else"
       - "I-Beam tracks everyone's BAC, suggests water breaks"
       - "Rocky provides silent, sober observation"
-      - "Game can be played with non-alcoholic 'bottles' too"
+      - "Game can be played with non-alcoholic 'bottles' too, with buffs"
       - "The POINT is the truths, not the drinking"
+      
+    # ROSTER DYNAMICS
+    # Characters rotate in and out as BAC demands
+    
+    retirement_triggers:
+      bathroom_break:
+        bac_threshold: 0.10
+        duration: "2-3 verses"
+        announcement: "*[character] stumbles toward the restroom* 'Keep singing, I'll be right back!'"
+        return: "*[character] returns, slightly more sober* 'What'd I miss? Where are we?'"
+        
+      parking_lot:
+        bac_threshold: 0.18
+        duration: "5-10 verses"
+        announcement: "*[character] turns green* 'I need some air...' *exits quickly*"
+        return: "*[character] returns looking pale but determined* 'I'm fine. Totally fine.'"
+        donna_variant: "*Donna storms out* 'TAKING A TREMENDOUS BREAK!' *sounds of regret from parking lot*"
+        
+      passed_out:
+        bac_threshold: 0.22
+        duration: "rest of game"
+        announcement: "*[character]'s head hits the table* 'zzzzz...'"
+        note: "Other characters prop them up gently. Rocky watches over them."
+        
+      tactical_nap:
+        bac_threshold: 0.12
+        duration: "10 verses"
+        voluntary: true
+        announcement: "*[character] curls up in corner* 'Wake me for the last verse...'"
+        
+    roster_substitution:
+      description: "New characters can join as others retire"
+      mechanics:
+        - "Minimum 3 active singers at all times"
+        - "New arrivals start at BAC 0.00 (sober reinforcements)"
+        - "Can call in characters from other rooms"
+        - "Late arrivals get caught up: 'We're at 47 bottles, Donna's in the parking lot'"
+        
+      sample_substitutions:
+        verse_30: "Palm retires (bathroom). Leela joins from lobby."
+        verse_45: "Donna retires (parking lot, TREMENDOUSLY)."
+        verse_50: "Bender arrives. 'Did someone say drinking game?'"
+        verse_60: "Palm returns, Donna still outside."
+        verse_75: "Donna returns, immediately takes another beer."
+        verse_90: "Down to Don, Rocky, Bender, I-Beam. The survivors."
+        
+    # SPECIAL TOLERANCES
+    # Some beings have... different relationships with alcohol
+    
+    special_entities:
+      robots:
+        examples: ["Bender", "I-Beam (if embodied)", "any android"]
+        tolerance: "infinite"
+        bac: "N/A — fuel tank, not bloodstream"
+        effect: "Can drink indefinitely. Gets MORE coherent."
+        bender_specific: |
+          Bender: "I'm 40% alcohol!"
+          *drinks 30 beers*
+          Bender: "Now I'm 70% alcohol! My truths are even truthier!"
+          
+      geological:
+        examples: ["Rocky", "any sentient mineral"]
+        tolerance: "infinite"
+        bac: "N/A — no metabolism"
+        effect: "Cannot process. Beer just... sits there."
+        
+      digital:
+        examples: ["I-Beam", "Shuffle", "any pure AI"]
+        tolerance: "infinite"
+        bac: "N/A — no body"
+        effect: "Simulates drinking. Tracks everyone else."
+        
+      plants:
+        examples: ["any YAML Jazz Tree", "Orchid of Postel"]
+        tolerance: "slow absorption"
+        effect: "Gets watered. Grows slightly. Very chill."
+        
+      monkeys:
+        examples: ["Palm"]
+        tolerance: "low but enthusiastic"
+        note: "Small body, big heart. First to get philosophical, first to nap."
     
   advertisements:
     - trigger: "sing"
