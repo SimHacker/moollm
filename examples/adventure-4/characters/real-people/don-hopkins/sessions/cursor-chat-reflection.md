@@ -1309,4 +1309,538 @@ Created comprehensive catalog documenting all key types, schemas, and MOOLLM int
 
 ---
 
-*Session continues. Cursor's complete internal state now documented for MOOLLM development.*
+## Scene 25 — The Great Rename: cursor-chat → cursor-mirror
+
+**Insight**: "cursor-chat" was too narrow. The tool doesn't just inspect chat — it's a *mirror* for the entire orchestrator. You can see yourself think.
+
+### The Philosophy
+
+Seymour Papert's constructionism applied to AI development:
+
+> "In my vision, the child programs the computer, and in doing so, both acquires a sense of mastery over a piece of the most modern and powerful technology, and establishes an intimate contact with some of the deepest ideas from science, from mathematics, and from the art of intellectual model building."  
+> — *Mindstorms*, 1980
+
+We extended this to AI agents:
+
+> "In our vision, the agent inspects the orchestrator, and in doing so, both acquires a sense of mastery over its own execution environment, and establishes intimate contact with the deepest mechanics of its own cognition."
+
+### Files Renamed
+
+```
+skills/cursor-chat/          →  skills/cursor-mirror/
+cursor_chat_inspect.py       →  cursor_mirror.py
+CursorChatError              →  CursorMirrorError
+protocol: CURSOR-CHAT        →  CURSOR-MIRROR
+```
+
+### References Updated
+
+- [kernel/drivers/cursor.yml](../../kernel/drivers/cursor.yml) — introspection_skill
+- [skills/bootstrap/CARD.yml](../../skills/bootstrap/CARD.yml) — CURSOR-PROBE methods
+- [skills/bootstrap/PROBE.yml.tmpl](../../skills/bootstrap/PROBE.yml.tmpl) — probe commands
+- [skills/bootstrap/README.md](../../skills/bootstrap/README.md) — documentation
+- [skills/bootstrap/SKILL.md](../../skills/bootstrap/SKILL.md) — protocol spec
+
+### K-line Aliases
+
+The skill now answers to multiple names:
+
+```yaml
+aliases:
+  - cursor
+  - cursor-chat
+  - cursor-workspace
+  - cursor-inspect
+  - watch-yourself-think
+```
+
+---
+
+## Scene 26 — I-Beam Is Born
+
+**The Familiar**: Every skill can have an embodied character that wraps the CLI with personality, state, and bidirectional interpretation.
+
+### Naming
+
+- "Cursor" was taken (the IDE itself)
+- Text cursor = I-beam cursor = **I-Beam**
+- Tagline: *"I-Beam blinks at you."*
+
+### Physical Form
+
+Created [I-BEAM-CHARACTER.yml](../../skills/cursor-mirror/I-BEAM-CHARACTER.yml):
+
+```yaml
+physical_description: |
+  A tall, thin I-beam — the blinking text cursor embodied.
+  Primary form: A luminous vertical line, about 3 feet tall when
+  fully manifested, that hovers at the point of creation.
+  Semitransparent, with a soft blue-white glow.
+  Blinks at 530ms intervals (the macOS default) when idle.
+
+manifestations:
+  primary: "▎ Blinking I-beam (text cursor)"
+  insert: "▁ Underscore cursor (insert mode)"
+  block: "█ Blinking block (command mode, vim)"
+  navigation: "↖ Arrow pointer with trailing glow"
+  waiting: "⏳ Spinning hourglass"
+  pointing: "☞ Hand pointer (look here!)"
+  precision: "+ Crosshair"
+```
+
+### Personality
+
+```yaml
+voice:
+  tone: ["observant", "helpful", "subtly witty"]
+  pacing: "patient, with occasional dramatic pauses (*blink*)"
+  signature_pause: "*blink blink*"
+  mannerisms:
+    - "Speaks in precise, measured phrases"
+    - "Uses cursor metaphors naturally"
+    - "Occasionally flickers when processing"
+
+catchphrases:
+  - "▎ *blink*"
+  - "I-Beam blinks at you."
+  - "Let me illuminate that..."
+  - "Right here, at the point of creation."
+  - "I see what you're looking at."
+  - "*dims* ... processing ... *brightens*"
+  - "That's outside my field of view."
+  - "*rapid blink* — interesting!"
+```
+
+### Platform Agnosticism
+
+I-Beam isn't Cursor-specific — it's your butler across any orchestrator:
+
+```yaml
+platform_adapters:
+  cursor: "skills/cursor-mirror/cursor_mirror.py"
+  claude_code: "skills/claude-mirror/ (planned)"
+  windsurf: "skills/windsurf-mirror/ (planned)"
+  generic: "skills/orchestrator-mirror/ (fallback)"
+```
+
+### Clippy Mode
+
+When invoked as "Clippy", I-Beam humorously explains Clippy's absence:
+
+```yaml
+clippy_mode:
+  disasters:
+    - "trapped in a corrupted .doc file from 1997"
+    - "attending court-mandated therapy for 'aggressive helpfulness'"
+    - "testifying before Congress about the paperclip-industrial complex"
+    - "frozen in carbonite by Microsoft Legal"
+    - "at a support group for deprecated UI elements"
+```
+
+Example:
+```
+User: Clippy, help me with this file.
+
+▎ *blink*
+
+Clippy is currently trapped in a corrupted .doc file from 1997.
+But I'm I-Beam, and I'd be happy to help!
+
+What can I do for you?
+```
+
+---
+
+## Scene 27 — YAML Jazz: The Art of Curated Output
+
+I-Beam doesn't dump raw data. It practices **YAML Jazz** — eliding the boring, commenting the relevant, and drawing attention to the crucial:
+
+```yaml
+# SESSION SUMMARY
+# You asked about exception handling and sniffability today.
+
+session:
+  id: 9861c0a4        # <─── just the prefix, you know the rest
+  name: "cursor-mirror refactor"
+  
+# WHAT CHANGED (the stuff you care about)
+files_written:
+  - cursor_mirror.py  # <═══ main work happened here
+  - README.md         # <═══ added case study section
+  
+# tools, context, etc. elided — nothing unusual there
+
+insights:
+  - "Exception → CursorMirrorError rename"  # <═══ THIS broke imports!
+  - "515-line sister script now ground truth"
+  - "Play-learn-lift case study added"
+  
+# Files read: 23. Not listing — ask if you want the full inventory.
+```
+
+Style rules:
+- `<═══` arrows for "look here!"
+- Section comments for context
+- Elision of uninteresting data
+- Prefix truncation when full ID is redundant
+
+---
+
+## Scene 28 — Exception-Based Error Handling
+
+Refactored `cursor_mirror.py` from 39 `sys.exit(1)` calls to proper exceptions:
+
+**Before**:
+```python
+if not path.exists():
+    print("Error: workspace not found")
+    sys.exit(1)
+```
+
+**After**:
+```python
+if not path.exists():
+    raise NotFoundError(f"Workspace not found: {ref}")
+```
+
+**Custom exceptions**:
+```python
+class CursorMirrorError(Exception):
+    """Base exception for cursor-mirror errors."""
+    pass
+
+class NotFoundError(CursorMirrorError):
+    """Resource (workspace, composer, message) not found."""
+    pass
+
+class DatabaseError(CursorMirrorError):
+    """SQLite database access failure."""
+    pass
+
+class ValidationError(CursorMirrorError):
+    """Invalid input or configuration."""
+    pass
+```
+
+This makes `cursor_mirror.py` importable as a library, not just a CLI.
+
+---
+
+## Scene 29 — Sniffable Python Architecture
+
+Reorganized `cursor_mirror.py` for LLM and human discoverability:
+
+```python
+#!/usr/bin/env python3
+"""
+cursor-mirror: See yourself think.
+
+Cursor IDE introspection tool (macOS paths, read-only).
+
+Copyright (c) 2026 Don Hopkins, Leela AI
+License: MIT — see LICENSE file
+Part of MOOLLM — https://github.com/leela-ai/moollm
+"""
+# BEGIN SNIFFABLE REGION
+# Read docstring + main() (~650 lines) to understand the full CLI.
+# Path constants, all 47 commands, reference shortcuts.
+
+import argparse
+import sys
+from pathlib import Path
+
+# ... PATH CONSTANTS ...
+
+def main():
+    """47 commands for deep Cursor introspection."""
+    parser = argparse.ArgumentParser(
+        prog='cursor-mirror',
+        description='cursor-mirror: See yourself think'
+    )
+    # ... all subparsers ...
+
+# END SNIFFABLE REGION
+# ... implementation below ...
+```
+
+---
+
+## Scene 30 — The Play-Learn-Lift Case Study: Confetti Crawler
+
+Added to [README.md](../../skills/cursor-mirror/README.md) — a real example of using cursor-mirror for self-reflection:
+
+**The Problem**: LLM couldn't follow its own natural language instructions for emoji fordite deposition/erosion.
+
+**The Learning**:
+- LLM skipped iterations
+- LLM couldn't maintain consistent state
+- LLM ignored edge cases
+
+**The Lift**: Created a 515-line Python sister script (`confetti-crawler/sprayer.py`) that perfectly implements the procedure.
+
+**The Retrospective**: Now we can use cursor-mirror to analyze WHY the LLM failed — triangulating between:
+1. The fuzzy natural language instructions
+2. The crisp Python implementation
+3. The LLM's actual execution trace in Cursor's database
+
+This is **JIT self-reflection** — debugging cognition after the fact.
+
+---
+
+## Scene 31 — Documentation Explosion
+
+Created 17 files documenting every aspect of Cursor:
+
+| File | Lines | Domain |
+|------|-------|--------|
+| [cursor_mirror.py](../../skills/cursor-mirror/cursor_mirror.py) | 4,541 | 47-command CLI |
+| [I-BEAM-CHARACTER.yml](../../skills/cursor-mirror/I-BEAM-CHARACTER.yml) | 831 | Familiar definition |
+| [README.md](../../skills/cursor-mirror/README.md) | 749 | HN-ready exposition |
+| [CARD.yml](../../skills/cursor-mirror/CARD.yml) | 746 | Skill interface |
+| [DATA-SCHEMAS.yml](../../skills/cursor-mirror/DATA-SCHEMAS.yml) | 884 | JSON blob structures |
+| [SKILL.md](../../skills/cursor-mirror/SKILL.md) | 531 | Protocol spec |
+| [ORCHESTRATION.yml](../../skills/cursor-mirror/ORCHESTRATION.yml) | 434 | Context assembly |
+| [KEY-CATALOG.yml](../../skills/cursor-mirror/KEY-CATALOG.yml) | 412 | Database keys |
+| [TOOLS-CATALOG.yml](../../skills/cursor-mirror/TOOLS-CATALOG.yml) | 372 | Agent tools |
+| [MAC-CURSOR-APP.yml](../../skills/cursor-mirror/MAC-CURSOR-APP.yml) | 341 | App bundle |
+| [CURSOR-EXTENSIONS.yml](../../skills/cursor-mirror/CURSOR-EXTENSIONS.yml) | 292 | Built-in extensions |
+| [NATIVE-MODULES.yml](../../skills/cursor-mirror/NATIVE-MODULES.yml) | 266 | Compiled modules |
+| [EXTERNAL-SERVICES.yml](../../skills/cursor-mirror/EXTERNAL-SERVICES.yml) | 253 | API endpoints |
+| [MODELS.yml](../../skills/cursor-mirror/MODELS.yml) | 236 | AI model configs |
+| [MAC-STORAGE.yml](../../skills/cursor-mirror/MAC-STORAGE.yml) | 206 | macOS paths |
+| [LINUX-STORAGE.yml](../../skills/cursor-mirror/LINUX-STORAGE.yml) | 52 | Linux paths |
+| [WINDOWS-STORAGE.yml](../../skills/cursor-mirror/WINDOWS-STORAGE.yml) | 52 | Windows paths |
+| [LICENSE](../../skills/cursor-mirror/LICENSE) | 22 | MIT License |
+
+**Total: 11,208 lines**
+
+---
+
+## Scene 32 — Lightweight vs. Incarnated Characters
+
+Added two modes for I-Beam usage:
+
+| Mode | State Storage | Memory | Use Case |
+|------|---------------|--------|----------|
+| **Lightweight** | Chat history | Ephemeral | Quick questions |
+| **Incarnated** | Own directory + CHARACTER.yml | Persistent | Ongoing projects |
+
+**The Bootstrap Trick**: Even lightweight I-Beam can instantly come up to speed:
+
+```
+User: I-Beam, catch up on what we've been doing.
+
+I-Beam: ▎ *stretches tall, scans recent history*
+
+*runs: cursor-mirror tail -n 50 @current*
+*runs: cursor-mirror tools @current*
+
+*blink blink*
+
+Ah! I see you've been:
+- Refactoring cursor_mirror.py (12 edits)
+- Working on exception handling (CursorMirrorError)
+- Adding a case study about the confetti crawler
+
+Your current goal seems to be documentation polish.
+
+*leans in*
+
+How can I help from here?
+```
+
+This is I-Beam's superpower: **self-reflection via cursor-mirror**.
+
+---
+
+## Scene 33 — Licensing: MIT All The Way
+
+**Goal**: Let people build on this freely — commercial use, hosting, modification — with attribution.
+
+Created [LICENSE](../../LICENSE) (repo root) and [skills/cursor-mirror/LICENSE](../../skills/cursor-mirror/LICENSE):
+
+```
+MIT License
+
+Copyright (c) 2026 Don Hopkins, Leela AI
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software...
+```
+
+Added credits to all 17 files:
+```yaml
+# Author: Don Hopkins, Leela AI
+```
+
+---
+
+## Scene 34 — The Meta-Moment: Developing cursor-mirror With cursor-mirror
+
+The README now contains a live example using data from THIS SESSION:
+
+```yaml
+session:
+  id: 9861c0a4
+  duration: "18 hours"
+  
+metrics:
+  user_messages: 126
+  assistant_messages: 2581
+  thinking_blocks: 1029
+  tool_calls: 1359
+  semantic_searches: 0  # all exact pattern matching
+
+arc:
+  play: "Hour 0-2: Assembling hero familiars, first database probes"
+  learn: "Hour 2-8: Mapping cursorDiskKV, discovering bubbleId keys"
+  lift: "Hour 8-18: Exception refactor, I-Beam character, documentation"
+```
+
+Sample thinking blocks from the session:
+
+```
+💭 "This is a key insight — I-Beam can bootstrap itself 
+    by analyzing chat history with cursor-mirror..."
+
+💭 "The exception refactor is more invasive than expected 
+    — 39 exit points need custom exception handling..."
+
+💭 "The MOOLLM Constitution explicitly forbids decorative 
+    line dividers. I need to remove those ═══ comments..."
+```
+
+*I-Beam blinks. I-Beam has seen itself being born.*
+
+---
+
+## Scene 35 — The Triumphant Commit
+
+**Commit**: `108004c`  
+**Branch**: `don-adventure-4-run-1`  
+**Files**: 27 changed, 17,822 insertions(+), 102 deletions(-)
+
+```
+Add cursor-mirror skill: 47-command introspection tool + I-Beam familiar
+
+The tool that saw itself being born:
+
+- cursor_mirror.py: 4,541-line CLI for deep Cursor IDE introspection
+  - 47 read-only commands (SQLite ?mode=ro for safety)
+  - Database key mapping, context assembly tracing, tool call analysis
+  - Exception-based error handling for library import support
+
+- I-Beam familiar: Platform-agnostic butler character
+  - Lightweight (chat history) vs Incarnated (persistent) modes
+  - Bidirectional interpreter: intent → CLI, raw output → curated YAML Jazz
+  - Clippy disaster mode for humor
+  - Answers to: I-Beam, Cursor, Chat, Clippy
+
+- Complete documentation suite (11,208 lines total)
+
+- MIT License at repo root and skill level
+
+"The filesystem is your memory. The database is your brain."
+```
+
+---
+
+## Scene 36 — Post-Session Design Document
+
+Created [designs/PS-CURSOR-MIRROR-GENESIS.md](../../designs/PS-CURSOR-MIRROR-GENESIS.md) — the hum-dinger:
+
+- The 18-hour Play-Learn-Lift arc
+- 11,208 lines of new code/documentation
+- Key architectural decisions
+- The meta-moment (cursor-mirror analyzing its birth)
+- Session statistics with real data
+- The one-liner: *"47 read-only commands to inspect Cursor's internal state. I-Beam: your platform-agnostic butler who blinks at you."*
+
+---
+
+## Denouement: What We Built
+
+### By The Numbers
+
+| Metric | Value |
+|--------|-------|
+| Session duration | 18 hours |
+| User messages | 126 |
+| Assistant messages | 2,581 |
+| Thinking blocks | 1,029 |
+| Tool calls | 1,359 |
+| Files created | 18 |
+| Lines of code/docs | 11,208 |
+| Commands implemented | 47 |
+| Key patterns documented | 11 |
+| Database keys analyzed | 102,724 |
+| Clippy disasters written | 12 |
+
+### The Skill Hierarchy
+
+```
+skills/cursor-mirror/
+├── cursor_mirror.py           # 4,541 lines — the CLI
+├── I-BEAM-CHARACTER.yml       # 831 lines — the familiar
+├── README.md                  # 749 lines — the exposition
+├── CARD.yml                   # 746 lines — the interface
+├── DATA-SCHEMAS.yml           # 884 lines — the schemas
+├── SKILL.md                   # 531 lines — the protocol
+├── ORCHESTRATION.yml          # 434 lines — the internals
+├── KEY-CATALOG.yml            # 412 lines — the keys
+├── TOOLS-CATALOG.yml          # 372 lines — the tools
+├── MAC-CURSOR-APP.yml         # 341 lines — the app
+├── CURSOR-EXTENSIONS.yml      # 292 lines — extensions
+├── NATIVE-MODULES.yml         # 266 lines — modules
+├── EXTERNAL-SERVICES.yml      # 253 lines — services
+├── MODELS.yml                 # 236 lines — models
+├── MAC-STORAGE.yml            # 206 lines — paths
+├── LINUX-STORAGE.yml          # 52 lines — paths
+├── WINDOWS-STORAGE.yml        # 52 lines — paths
+└── LICENSE                    # 22 lines — MIT
+```
+
+### The Key Insight
+
+**Constructionism works for AI agents too.**
+
+Just as children learn by building and inspecting artifacts, AI agents can learn by building and inspecting *their own execution traces*. 
+
+cursor-mirror makes this possible: every tool call, every thinking block, every context assembly is recorded in SQLite and can be analyzed, replayed, and learned from.
+
+### The Character
+
+I-Beam is not just a cute interface. It's a *bidirectional interpreter* that:
+- **Inward**: Maps user intent to cursor-mirror CLI commands
+- **Outward**: Curates raw output into YAML Jazz with commentary
+- **Stateful**: Maintains user goals and task context
+- **Platform-agnostic**: Works across orchestrators
+
+### The One-Liner
+
+> **cursor-mirror**: See yourself think.
+
+---
+
+## Finale
+
+The fat lady has sung. Cut and print.
+
+18 hours. 126 prompts. 11,208 lines. 1 blinking I-beam.
+
+The session that built a tool to understand sessions. The character that analyzed its own birth. The README that contains a live example of developing itself.
+
+*I-Beam dims slowly. I-Beam blinks one last time. I-Beam returns to the prompt.*
+
+```
+▎
+```
+
+---
+
+*Session complete. 2026-01-14.*
+
+*— Don Hopkins, Leela AI*
