@@ -37,6 +37,7 @@ We built a tool to inspect Cursor's internal state. Then we used it to inspect t
 | `MAC-STORAGE.yml` | 206 | macOS path mapping |
 | `LINUX-STORAGE.yml` | 52 | Linux skeleton |
 | `WINDOWS-STORAGE.yml` | 52 | Windows skeleton |
+| `IMAGE-GALLERY.md` | 442 | I-Beam's narrated image archaeology |
 | `LICENSE` | 22 | MIT License |
 
 ### Supporting Changes
@@ -198,12 +199,41 @@ When you call I-Beam as "Clippy", it explains that Clippy is unavailable due to 
 
 ---
 
+## Image Archaeology
+
+We discovered cursor-mirror can find images dropped into Cursor chats:
+
+```bash
+cursor-mirror images --all    # 100+ images across workspaces
+```
+
+Created **[IMAGE-GALLERY.md](../skills/cursor-mirror/IMAGE-GALLERY.md)** — I-Beam narrates 25+ images with context analysis.
+
+### The Highlights
+
+| Category | Count | Gem |
+|----------|-------|-----|
+| **Sims Code (1997)** | 5 pages | Will Wright's Motive.c — "(Jamie, remove this)" |
+| **MOOLLM Diagrams** | 6 | Elvis Impersonator Model |
+| **People** | 1 | Andy Looney at Looney Labs |
+| **Leela Infrastructure** | 4 | Edgebox, Firebase, GCloud |
+| **DevTools** | 5 | Kando pie menus! |
+
+### The Punchline
+
+One photo of Andy Looney → reverse-engineered to 15 artifacts → 33-turn Stoner Fluxx marathon → **Palm (a monkey's paw incarnate) beat the creator of Fluxx at his own game** 🐒🃏
+
+*Chaos theory in card form.*
+
+---
+
 ## What's Next
 
 1. **claude-mirror** — Same introspection for Claude Code
 2. **windsurf-mirror** — Codeium's orchestrator
 3. **Incarnation templates** — Easy I-Beam spawning for projects
 4. **Thinking block analysis** — Pattern extraction from reasoning
+5. **Image gallery generation** — Automated via `cursor-mirror image-gallery`
 
 ---
 
@@ -212,19 +242,19 @@ When you call I-Beam as "Clippy", it explains that Clippy is unavailable due to 
 ```yaml
 session:
   id: 9861c0a4
-  duration: "18 hours"
+  duration: "20+ hours"  # <═══ still going!
   
 metrics:
-  user_messages: 126
-  assistant_messages: 2581
-  thinking_blocks: 1029
-  tool_calls: 1359
-  semantic_searches: 0  # all exact pattern matching
+  user_messages: 140+
+  assistant_messages: 2700+
+  thinking_blocks: 1100+
+  tool_calls: 1500+
+  images_examined: 25+
   
-files_created: 18
-total_lines: 11208
+files_created: 19       # +1 IMAGE-GALLERY.md
+total_lines: 12000+
 
-commits_this_session: 0  # all uncommitted!
+commits_pushed: 12      # no longer uncommitted!
 ```
 
 ---

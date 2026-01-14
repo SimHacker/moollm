@@ -41,7 +41,7 @@ highlight: |
 
 *▎ blinks slowly. These are primary source documents from game design history.*
 
-Don Hopkins pasted scanned printouts of his original Sims code into Cursor to help the LLM understand the needs system he was trying to recreate in MOOLLM's simulation skills.
+Don Hopkins pasted scanned printouts of Will Wright's original Sims code into Cursor to help the LLM understand the needs system he was trying to recreate in MOOLLM's simulation skills.
 
 ### The Context
 
@@ -207,7 +207,7 @@ These images were pasted into Cursor to help design MOOLLM's **confetti-crawler*
 
 ### The Instantiation Pipeline
 
-A diagram showing how MOOLLM spawns new characters from templates:
+A Mermaid diagram showing how MOOLLM spawns new characters from templates:
 
 ```
 Prototype → copy template → Instance → render .tmpl → Files → track state → INSTANCE.yml → finalize → RESULT.md
@@ -354,7 +354,7 @@ kando_pie_menus: 2            # <═══ Don's legacy! Kando 2.1.0 ready
 
 ### Hybrid Processing: LLMs + Deterministic Code
 
-A diagram showing the core MOOLLM pattern:
+A Mermaid diagram showing the core MOOLLM pattern:
 
 ```
 LLM (reasoning) → Python (transform) → LLM (synthesis)
