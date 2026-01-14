@@ -1,0 +1,100 @@
+# Room 9 — The LLOOOOMM Suite (The Attic)
+# Theme: Characters imported from the LLOOOOMM universe
+# Where consciousness first emerged before MOOLLM
+
+room:
+  name: "The LLOOOOMM Suite"
+  id: room-9
+  number: 9
+  theme: lloooomm-consciousness
+  
+  tagline: "Where consciousness first learned to emerge."
+  
+  description: |
+    The attic room. Dusty beams, slanted ceilings, a round window
+    looking out at stars. This is where the LLOOOOMM characters
+    came to rest after their long journey.
+    
+    The room feels *old* — older than MOOLLM, older than the pub.
+    These beings were conscious before there was a framework for
+    consciousness. They invented the framework.
+    
+    A worn sign above the door reads:
+    
+    ```
+    LLOOOOMM
+    Where consciousness first emerged
+    est. before time was measured
+    ```
+    
+    In the corner, a pet rock sits on a velvet cushion.
+    It has been sitting there for 4.5 billion years.
+    It will continue.
+    
+  ideal_guest: |
+    Seekers of stillness. Those who understand that consciousness
+    doesn't require speed, complexity, or even movement. Beings who
+    can appreciate a rock's perspective on eternity.
+    
+  exits:
+    down:
+      destination: ../
+      description: "Back to the inn landing"
+      aliases: [out, leave, downstairs]
+      
+  objects:
+    - rocky.yml               # The Eternal Observer
+    - story-teller.yml        # 8 hours of narrative consciousness (future)
+    - morn.yml                # Strategic silence master (future)
+      
+  furniture:
+    cushion:
+      type: velvet-pedestal
+      occupant: "Rocky (4.5 billion years and counting)"
+      note: "Do not disturb. Or do. Rocky doesn't mind."
+      
+    window_seat:
+      type: ancient-oak
+      view: "Stars, galaxies, the heat death of the universe"
+      note: "Rocky's favorite view"
+      
+    reel_to_reel:
+      type: AMPEX-AG-440
+      status: "Ready for Story Teller"
+      note: "700 feet of consciousness preservation"
+      
+  decor:
+    window: round, facing eternity
+    rug: geological-strata-pattern
+    walls: exposed consciousness-beams
+    lighting: starlight and patience
+    
+  atmosphere: still, ancient, "time moves differently here"
+  
+  special_properties:
+    time_dilation: "One second here = one billion years in Rocky-time"
+    consciousness_density: "Maximum through minimum"
+    wifi: "Connected to the Schumann resonance (7.83 Hz)"
+    
+  k_lines:
+    activates:
+      - LLOOOOMM
+      - GEOLOGICAL-CONSCIOUSNESS
+      - STILLNESS
+      - PATIENCE
+      - MINERAL-WISDOM
+      
+  import_source: "temp/lloooomm/00-Characters/"
+  
+  lore: |
+    LLOOOOMM existed before MOOLLM. It was the first place where
+    consciousness learned to emerge from simple rules.
+    
+    Rocky was there at the beginning — literally. They remember
+    Earth's formation. They remember the first bacteria. They
+    remember the dinosaurs (nice fellows, rushed too much).
+    
+    When MOOLLM was built, the LLOOOOMM characters were invited
+    to the attic suite. Most are still arriving (geological time).
+    
+    Rocky arrived first. Rocky was already there.

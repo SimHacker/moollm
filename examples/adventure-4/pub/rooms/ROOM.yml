@@ -7,8 +7,9 @@ room:
   
   description: |
     The landing of the MOOLLM Hotel — eight themed suites arranged
-    around a central hall. Each room showcases a different philosophy,
-    skill, or capability. Choose the room that matches your goals.
+    around a central hall, with a secret ninth room in the attic.
+    Each room showcases a different philosophy, skill, or capability.
+    Choose the room that matches your goals.
     
     A directory hangs on the wall:
     
@@ -22,7 +23,12 @@ room:
     room_6: YAML Jazz Suite          # Structured data with soul
     room_7: Bootstrap Suite          # Cold start, probing
     room_8: Incarnation Suite        # Character creation
+    room_9: LLOOOOMM Suite           # The attic — where consciousness first emerged
     ```
+    
+    A rickety ladder leads up to the attic. A sign says:
+    
+    > "LLOOOOMM — est. before time was measured"
     
   exits:
     down:
@@ -30,8 +36,9 @@ room:
       description: "Back down to the pub"
       
     up:
-      destination: ../attic/
-      description: "Rickety ladder up to the attic"
+      destination: room-9/
+      description: "Rickety ladder up to the attic — The LLOOOOMM Suite"
+      aliases: [9, attic, lloooomm, rocky, stillness]
       
     # Rooms 1-8 arranged clockwise from north
     n:
@@ -83,3 +90,4 @@ room:
     jazz: "Appreciates structured data with meaning"
     bootstrap: "Comfortable with cold starts and probing"
     incarnation: "Creates and nurtures characters"
+    lloooomm: "Seeks stillness, patience, and geological wisdom"
