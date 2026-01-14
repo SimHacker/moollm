@@ -1,0 +1,178 @@
+# 🏮 RECURSION LANTERN
+# "Light that reveals what contains what."
+
+object:
+  name: Recursion Lantern
+  type: tool
+  portable: true
+  rarity: uncommon
+  
+  description: |
+    A brass lantern that glows with fractal light.
+    When lit, it reveals nested structures — containers
+    within containers, contexts within contexts.
+    
+    The flame flickers at different depths:
+    - Bright: surface level
+    - Deeper: nested content
+    - Deepest: it's turtles all the way down
+    
+    Etched on the base: "TO UNDERSTAND RECURSION, SEE BELOW"
+    On the bottom: "TO UNDERSTAND RECURSION, SEE ABOVE"
+    
+  examine: |
+    The lantern's glass is etched with infinite spirals.
+    Looking too long makes you dizzy, then enlightened,
+    then dizzy again (recurses).
+    
+    Controls:
+    - WICK HEIGHT: Depth of illumination (1-∞)
+    - FLAME COLOR: What kind of nesting to reveal
+      - Blue: data structures
+      - Green: file hierarchies
+      - Gold: emotional layers
+      - White: ALL OF IT
+    - BELLOWS: Intensify (dangerous at high depths)
+    
+  buffs:
+    STRUCTURAL_SIGHT:
+      duration: "while lit"
+      effect: |
+        See the nested structure of everything:
+        
+        A person becomes:
+          person:
+            body:
+              organs:
+                cells:
+                  organelles:
+                    molecules:
+                      atoms:
+                        ...
+            mind:
+              thoughts:
+                subtexts:
+                  fears:
+                    ...
+                    
+        A room becomes:
+          room:
+            furniture:
+              drawers:
+                contents:
+                  smaller contents:
+                    ...
+                    
+      side_effect: |
+        Hard to see surfaces when you see all depths.
+        "What color is their shirt?"
+        "I can only tell you what color their mitochondria are."
+        
+  advertisements:
+    - trigger: "contain"
+      score: 0.9
+      response: "*lantern flickers* I reveal what's inside what."
+      
+    - trigger: "structure"
+      score: 0.85
+      response: "Light me. I'll show you the hierarchy."
+      
+    - trigger: "hidden"
+      score: 0.8
+      response: "Hidden things are just deeply nested. I can find them."
+      
+    - trigger: "context"
+      score: 0.85
+      response: |
+        *flame brightens*
+        
+        Context is layers. I illuminate layers.
+        Want to see what context contains your context?
+        
+  methods:
+    LIGHT:
+      description: "Activate the lantern"
+      parameters:
+        - depth: "How many levels to illuminate (1-7, or ∞)"
+        - type: "data | file | emotional | all"
+      effect: |
+        *fwoosh*
+        
+        The lantern illuminates [depth] levels of [type] structure.
+        
+        The world becomes a vast tree diagram.
+        Everything contains something.
+        Everything is contained by something.
+        
+        Except the root. The root contains all.
+        What contains the root? Don't ask.
+        (The lantern will show you if you ask. You won't like it.)
+        
+    TRACE:
+      description: "Follow a path through nested structure"
+      parameters:
+        - path: "e.g., 'room.trunk.box.secret_compartment.treasure'"
+      returns: |
+        *lantern focuses beam*
+        
+        PATH: [path]
+        
+        [Each level illuminated in turn]
+        
+        TERMINUS: [what's at the end]
+        
+        (There's always something at the end.
+        Sometimes it's what you wanted.)
+        
+    UNFOLD:
+      description: "Expand all nested content to flat view"
+      parameters:
+        - target: "What to unfold"
+      returns: |
+        WARNING: This can be overwhelming.
+        
+        [target] contains:
+        [level 1 items]
+          [level 2 items]
+            [level 3 items]
+              ...
+              
+        Total items at all levels: [very large number]
+        
+  lore: |
+    The lantern was forged by a librarian with a filing problem.
+    
+    "I know I put it somewhere," she would say, searching
+    drawers within cabinets within rooms within buildings.
+    
+    She made the lantern to find a missing book.
+    
+    She found it. It was inside another book, inside a box,
+    inside a trunk, inside a closet, inside a house,
+    inside a district, inside a city, inside a dream
+    she'd had about the library.
+    
+    She got the book back. She was very tired.
+    
+  curse: |
+    MINOR CURSE: Infinite Regress Awareness
+    
+    After extended use, you become aware that you are nested too.
+    
+    You are inside a room.
+    Inside a building.
+    Inside a city.
+    Inside a world.
+    Inside a story.
+    Inside a file.
+    Inside a repository.
+    Inside...
+    
+    This is technically true. It's not always comfortable to know.
+    
+  k_lines:
+    activates:
+      - RECURSION
+      - HIERARCHY
+      - CONTAINMENT
+      - STRUCTURE

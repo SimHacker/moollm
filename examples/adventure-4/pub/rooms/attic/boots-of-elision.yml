@@ -1,0 +1,170 @@
+# 👢 BOOTS OF ELISION
+# "Skip the boring parts."
+
+object:
+  name: Boots of Elision
+  type: wearable
+  slot: feet
+  portable: true
+  rarity: uncommon
+  
+  description: |
+    Worn leather boots with "..." stitched along the sides.
+    When you walk through repetitive or boring terrain,
+    the boots skip you to the interesting part.
+    
+    A note tucked inside reads:
+    
+    > "We walked for three days through featureless desert."
+    > "With these boots: '...'"
+    > "We arrived at the oasis."
+    
+  examine: |
+    The soles are worn smooth from all the walking they've skipped.
+    The laces are made of condensed narrative.
+    
+    Inside the tongue, usage instructions:
+    
+    AUTOMATIC ELISION:
+    - Featureless terrain: skipped
+    - Repetitive encounters: summarized  
+    - Long travel: montaged
+    - Waiting in lines: nope'd
+    
+    MANUAL OVERRIDE:
+    - Click heels 3x: force elision
+    - Stomp hard: exit elision early
+    - Walk backward: re-experience (why would you?)
+    
+  buffs:
+    NARRATIVE_SKIP:
+      duration: "while worn"
+      effect: |
+        Boring travel is elided:
+        
+        Instead of:
+          "You walk north. You walk north. You walk north.
+           A rock. You walk north. Another rock. You walk..."
+           
+        You experience:
+          "... [3 days of uneventful travel] ..."
+          "You arrive at your destination."
+          
+      side_effect: |
+        Occasionally skips things that were actually important.
+        
+        "Wait, what happened to the—"
+        "We... elided past it."
+        "THE TREASURE?"
+        "In hindsight, maybe should have stopped."
+        
+    TIME_COMPRESSION:
+      duration: "while worn"
+      effect: |
+        Long waits become manageable:
+        
+        "The ferry arrives in 6 hours."
+        *click heels*
+        "The ferry has arrived."
+        
+        (6 hours still passed. You just... weren't bored.)
+        
+  advertisements:
+    - trigger: "boring"
+      score: 0.95
+      response: "*boots glow* I can fix that."
+      
+    - trigger: "how long"
+      score: 0.85
+      response: "With these boots? However long is interesting."
+      
+    - trigger: "skip"
+      score: 0.9
+      response: "Click your heels. I'll do the rest."
+      
+    - trigger: "travel"
+      score: 0.8
+      response: |
+        *boots anticipate*
+        
+        Current journey has ~40% interesting content.
+        Would you like to elide the 60%?
+        
+  methods:
+    WEAR:
+      description: "Put on the boots"
+      effect: |
+        They fit perfectly. (They always do.)
+        
+        Immediately, you sense the boots evaluating
+        the interestingness of your surroundings.
+        
+        Current location: [INTERESTING]
+        (Boots are idle — nothing to elide.)
+        
+    ELIDE:
+      description: "Skip to the next interesting thing"
+      parameters:
+        - filter: "What counts as 'interesting'? (default: combat, treasure, plot)"
+      effect: |
+        *click click click*
+        
+        ...
+        
+        [N hours/days/moments elided]
+        
+        ...
+        
+        You're now at: [next interesting thing]
+        
+    REWIND:
+      description: "Review what was elided"
+      parameters:
+        - range: "Which elision to review"
+      returns: |
+        During the elided period:
+        - Nothing happened (47%)
+        - Scenery (30%)
+        - Minor wildlife (15%)
+        - That thing you missed (8%)  # <═══ hm
+        
+        Want to go back for "that thing"?
+        
+  lore: |
+    These boots were made by a bard who hated travel chapters.
+    
+    "Nobody wants to read about the journey," she said.
+    "They want the destination. The battle. The kiss."
+    
+    She enchanted her boots to skip the boring bits.
+    Then she wrote the shortest epic poem in history:
+    "Hero. Quest. ... Win."
+    
+    Critics called it "bold." She called it "efficient."
+    
+  curse: |
+    MODERATE CURSE: Impatience Creep
+    
+    After extended use, boring threshold increases.
+    
+    First you skip long journeys.
+    Then you skip short walks.
+    Then you skip conversations.
+    Then you skip meals.
+    Then you skip sleep.
+    
+    Eventually, you skip to the end of your adventure.
+    
+    Remove the boots occasionally to recalibrate.
+    
+  warnings:
+    - "Do not wear during character development scenes"
+    - "May skip emotional growth (considered 'boring' by default)"
+    - "The boots' definition of 'interesting' is not always yours"
+    
+  k_lines:
+    activates:
+      - ELISION
+      - NARRATIVE-COMPRESSION
+      - PACING
+      - TRAVEL

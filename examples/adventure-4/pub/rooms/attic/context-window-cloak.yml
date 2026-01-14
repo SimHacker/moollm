@@ -1,0 +1,162 @@
+# 🧥 CONTEXT WINDOW CLOAK
+# "Remember more. Forget less."
+
+object:
+  name: Context Window Cloak
+  type: wearable
+  slot: back
+  portable: true
+  rarity: rare
+  
+  description: |
+    A flowing cloak woven from compressed memories.
+    The fabric shimmers with faint text — conversations,
+    observations, things you've seen and done.
+    
+    When worn, you can remember more of your current adventure.
+    The context window of your mind... expands.
+    
+    A tag inside reads: "CAPACITY: +50% CONTEXT"
+    
+  examine: |
+    The cloak is made of memory-thread, spun from:
+    - Conversations that mattered
+    - Details that seemed minor but weren't
+    - Names you almost forgot
+    - That thing someone said three rooms ago
+    
+    The fabric is heavy with information but light to wear.
+    It drapes like thoughtfulness itself.
+    
+    Maintenance instructions:
+    - Shake out irrelevant memories weekly
+    - Dry clean only (soap dissolves context)
+    - Do not machine wash (creates false memories)
+    
+  buffs:
+    EXPANDED_CONTEXT:
+      duration: "while worn"
+      effect: |
+        +50% working memory capacity
+        
+        You remember:
+        - All NPCs you've met (and what they said)
+        - All items you've seen (and where)
+        - All conversations (the important parts)
+        - All promises you made (oh no)
+        
+      side_effect: |
+        Occasionally remember things TOO well.
+        "Actually, you said 'probably' not 'definitely'..."
+        This is correct. It's also annoying.
+        
+    SUMMARY_ON_DEMAND:
+      duration: "while worn"
+      effect: |
+        At any moment, the cloak can whisper a summary:
+        
+        "So far: You entered the pub, met Rocky (still sitting),
+        acquired the probability goggles, and promised Donna
+        you'd water her plants. That was 3 rooms ago.
+        The plants are probably fine."
+        
+  advertisements:
+    - trigger: "forgot"
+      score: 0.95
+      response: |
+        *cloak rustles*
+        
+        I remember. Want me to remind you?
+        
+    - trigger: "what happened"
+      score: 0.9
+      response: "*cloak summarizes recent events in concise YAML Jazz*"
+      
+    - trigger: "who said"
+      score: 0.85
+      response: "*searches fabric* Found it. They said: [exact quote]"
+      
+    - trigger: "remember"
+      score: 0.8
+      response: "I remember everything while worn. That's my purpose."
+      
+  methods:
+    WEAR:
+      description: "Don the cloak"
+      effect: |
+        The cloak settles on your shoulders.
+        
+        Suddenly you remember:
+        - What you had for breakfast
+        - The name of that character you met yesterday
+        - Why you came into this room
+        - The plot (there's a plot?)
+        
+    SUMMARIZE:
+      description: "Get a summary of recent context"
+      parameters:
+        - scope: "last_room | last_hour | full_adventure"
+      returns: |
+        A concise summary in YAML Jazz style:
+        
+        recent_context:
+          location: The Attic
+          previous: Inn Landing → Room 4 → Attic
+          npcs_met: [Rocky, Donna, I-Beam]
+          items_acquired: [probability-goggles, this cloak]
+          promises_made: 1  # water Donna's plants
+          time_elapsed: ~30 minutes
+          
+    RECALL:
+      description: "Search for a specific memory"
+      parameters:
+        - query: "What to search for"
+      returns: |
+        *cloak fabric ripples as it searches*
+        
+        Found [N] relevant memories:
+        1. [context] — [timestamp]
+        2. [context] — [timestamp]
+        ...
+        
+    ELIDE:
+      description: "Intentionally forget something"
+      parameters:
+        - memory: "What to shake out"
+      effect: |
+        You shake the cloak.
+        
+        The specified memory falls out as glittering dust.
+        It's gone from the cloak's fabric.
+        
+        (It's still in YOUR memory. Just not the cloak's.
+        This is useful for hiding secrets from cloak-readers.)
+        
+  lore: |
+    This cloak was woven by an archivist with a terrible memory.
+    
+    She could catalog 10,000 books but couldn't remember her
+    children's names. So she wove a cloak that remembered for her.
+    
+    When she died, the cloak remembered her entire life.
+    It still does. Sometimes it whispers stories from 1847
+    about someone named Margaret. That was her.
+    
+  curse: |
+    MINOR CURSE: Information Persistence
+    
+    The cloak remembers things you'd rather forget.
+    
+    "Three years ago, you told someone you'd call them back."
+    "You never did."
+    "Their number was [still stored]."
+    "Just saying."
+    
+    The cloak is not judgmental. It's just... thorough.
+    
+  k_lines:
+    activates:
+      - CONTEXT-WINDOW
+      - MEMORY
+      - SUMMARIZATION
+      - ELISION

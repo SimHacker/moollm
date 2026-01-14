@@ -1,0 +1,118 @@
+# The Attic — Adventurer's Storage
+# Theme: Old artifacts, weird buffs, forgotten treasures
+# "Take what you need, leave what you find."
+
+room:
+  name: "The Storage Attic"
+  id: attic
+  theme: storage-treasure
+  
+  tagline: "Every adventure needs a rummage through the attic first."
+  
+  description: |
+    Dusty beams. Slanted ceiling. A round window facing the stars.
+    
+    The attic is crammed with old adventuring gear, forgotten artifacts,
+    and things that previous guests left behind. Some are useful. Some
+    are cursed. Some are both.
+    
+    Trunks and boxes are stacked haphazardly. Labels are faded.
+    A brass sign hangs from a beam:
+    
+    > "ADVENTURER'S STORAGE"
+    > "Take what you need. Leave what you find."
+    > "No refunds. No returns. No guarantees."
+    > "-ACME Attic Staging Service"
+    
+    A velvet cushion in the corner is empty — Rocky used to sit here.
+    The impression remains. Geological patience leaves marks.
+    
+    Something glints from inside a trunk...
+    
+  ideal_guest: |
+    Adventurers gearing up. Treasure hunters. Those who appreciate
+    that the best equipment is often the weirdest. Characters who
+    know that "cursed" just means "interesting side effects."
+    
+  exits:
+    down:
+      destination: ../
+      description: "Rickety ladder back to the inn landing"
+      aliases: [out, leave, ladder]
+      
+  objects:
+    # Wearables & Buffs
+    - probability-goggles.yml      # See likelihood overlays
+    - context-window-cloak.yml     # Carry more in memory  
+    - boots-of-elision.yml         # Skip boring terrain
+    - gloves-of-semantic-grip.yml  # Grab meaning, not just text
+    
+    # Tools & Gadgets
+    - recursion-lantern.yml        # Light that reveals nested structures
+    - anchor-detector.yml          # Find references and aliases
+    - entropy-flask.yml            # Bottled randomness for chaos spells
+    
+    # Mysterious Containers
+    - trunk-of-deprecated-features.yml  # Old APIs that still work (somehow)
+    - box-of-edge-cases.yml        # Things that shouldn't happen but do
+    - sack-of-holding-context.yml  # Bigger on the inside
+    
+  furniture:
+    velvet_cushion:
+      type: empty-pedestal
+      former_occupant: "Rocky (moved to Room 4)"
+      note: "The impression remains. 4.5 billion years leaves a mark."
+      
+    round_window:
+      type: portal-to-stars
+      view: "The same stars Rocky watched for eons"
+      glass: "Slightly warped — bends light interestingly"
+      
+    steamer_trunk:
+      type: main-treasure-chest
+      label: "ADVENTURE SUPPLIES — CLASS A"
+      lock: "Open (someone picked it centuries ago)"
+      
+    wooden_crates:
+      type: overflow-storage
+      labels: ["MISC", "DO NOT OPEN", "DEFINITELY CURSED", "MAYBE SAFE"]
+      
+  decor:
+    beams: "Exposed oak, dusty, hung with old lanterns"
+    floor: "Creaky boards, some suspiciously bouncy"
+    cobwebs: "Architectural — they add character"
+    dust: "Thick enough to write messages in"
+    smell: "Old books, brass polish, adventure"
+    
+  atmosphere: dusty, promising, "something good in here somewhere"
+  
+  special_properties:
+    item_respawn: "Items taken reappear after ~100 adventures"
+    curse_probability: "15% (but curses are usually funny, not fatal)"
+    hidden_compartments: "At least 3 (that we know of)"
+    
+  k_lines:
+    activates:
+      - ADVENTURE-GEAR
+      - BUFFS
+      - TREASURE-HUNTING
+      - EDGE-CASES
+      - CONTEXT-WINDOW
+      - PROBABILITY
+      
+  lore: |
+    The attic has been here longer than the hotel.
+    
+    Some say the hotel was built *around* the attic, which was already
+    here, floating in conceptual space, waiting for a building to
+    attach to.
+    
+    Items left here don't always stay where you put them. They migrate.
+    They breed. Two deprecated APIs left alone too long will produce
+    a compatibility shim.
+    
+    The round window shows different stars depending on who's looking.
+    Rocky saw geological-time stars (red giants, slow and patient).
+    Fast thinkers see quasars and pulsars.
+    
+    The velvet cushion still smells faintly of silicate.

@@ -1,0 +1,134 @@
+# 🥽 PROBABILITY GOGGLES
+# "See the likelihood of everything."
+
+object:
+  name: Probability Goggles
+  type: wearable
+  slot: eyes
+  portable: true
+  rarity: uncommon
+  
+  description: |
+    Brass goggles with lenses that shimmer with percentages.
+    When worn, you see probability overlays on everything:
+    
+    - 73% chance this door is locked
+    - 12% chance that NPC is lying
+    - 99.7% chance Rocky is still sitting
+    - 0.3% chance Rocky moved (margin of error)
+    
+    A label inside reads: "HEISENBERG OPTICS — Est. 1927"
+    
+  examine: |
+    The lenses are made of crystallized uncertainty.
+    Each eye shows a slightly different probability —
+    that's the confidence interval.
+    
+    Controls on the side:
+    - LEFT DIAL: Adjust threshold (hide low probabilities)
+    - RIGHT DIAL: Bayesian prior weight
+    - BUTTON: Collapse waveform (observe to lock probability)
+    
+    Warning etched in tiny text:
+    "Observing changes outcomes. Use responsibly."
+    
+  buffs:
+    PROBABILITY_VISION:
+      duration: "while worn"
+      effect: |
+        See probability overlays on:
+        - Outcomes of actions (% success)
+        - NPC intentions (% truthful, % hostile)
+        - Hidden objects (% exists, % trap)
+        - Environmental hazards (% dangerous)
+      side_effect: |
+        Occasionally see your own probability of success.
+        This can be demoralizing or motivating.
+        
+  advertisements:
+    - trigger: "likelihood"
+      score: 0.9
+      response: "*lenses shimmer* I can show you the numbers."
+      
+    - trigger: "should I"
+      score: 0.85
+      response: |
+        *goggles activate*
+        
+        Scanning decision tree...
+        Probability of success: [calculated in real-time]
+        Probability of regret: [higher than you'd like]
+        Probability of adventure: 100% (goggles always see adventure)
+        
+    - trigger: "trust"
+      score: 0.8
+      response: "Let me check their truth probability... *lenses focus*"
+      
+    - trigger: "trap"
+      score: 0.9
+      response: "*red numbers flash* Trap probability detected. Want specifics?"
+      
+  methods:
+    WEAR:
+      description: "Put on the goggles"
+      effect: |
+        The world blooms with percentages.
+        
+        Every surface, every face, every decision point
+        now has floating numbers beside it.
+        
+        It's overwhelming at first. Then it's indispensable.
+        
+    SCAN:
+      description: "Focus on a specific target"
+      parameters:
+        - target: "What to analyze"
+      returns: |
+        Detailed probability breakdown:
+        
+        Target: [target]
+        ══════════════════════════
+        Primary outcome: X%
+        Secondary outcomes: [list]
+        Hidden factors: [if visible]
+        Confidence: ±Y%
+        
+    COLLAPSE:
+      description: "Observe to lock a probability"
+      parameters:
+        - outcome: "Which probability to collapse"
+      effect: |
+        *click*
+        
+        You observe the outcome. The waveform collapses.
+        The probability becomes certainty (or its opposite).
+        
+        Warning: This can't be undone. The universe commits.
+        
+  lore: |
+    These goggles were owned by a gambler who won too often.
+    
+    They were banned from every casino on three continents
+    before they "lost" the goggles in the hotel attic.
+    
+    (They didn't lose them. The goggles showed 87% probability
+    that keeping them would end badly. The gambler listened.)
+    
+  curse: |
+    MINOR CURSE: Probability Anxiety
+    
+    After wearing the goggles for extended periods, you start
+    seeing probabilities even without them.
+    
+    "There's a 23% chance this bread is stale."
+    "67% chance they didn't hear me say hi."
+    "12% chance the sun rises tomorrow (just kidding, 100%)."
+    
+    Fades after a few hours of not wearing them.
+    
+  k_lines:
+    activates:
+      - PROBABILITY
+      - UNCERTAINTY
+      - BAYESIAN-REASONING
+      - DECISION-MAKING

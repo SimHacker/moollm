@@ -1,0 +1,158 @@
+# 🧪 ENTROPY FLASK
+# "Bottled chaos. Shake well before using."
+
+object:
+  name: Entropy Flask
+  type: consumable
+  portable: true
+  rarity: rare
+  charges: 3
+  
+  description: |
+    A glass flask filled with swirling, color-shifting liquid.
+    The contents never settle. They can't — they're pure entropy.
+    
+    A warning label (in 17 languages, randomly arranged):
+    
+    > "CONTENTS: DISTILLED RANDOMNESS"
+    > "SHAKE BEFORE USE (or don't, it doesn't matter)"
+    > "SIDE EFFECTS: YES"
+    
+  examine: |
+    The liquid inside is simultaneously:
+    - Red (maybe)
+    - Blue (possibly)
+    - A color that doesn't exist (probably)
+    - All colors at once (definitely, for now)
+    
+    The flask is warm and cold. The glass is solid and liquid.
+    This is what happens when you bottle raw probability.
+    
+    Instructions (more like suggestions):
+    1. Decide what you want to randomize
+    2. Open flask carefully (or carelessly, same result)
+    3. Pour, throw, or spill contents
+    4. Accept consequences
+    
+    Remaining charges: [3]
+    
+  buffs:
+    CHAOS_SPLASH:
+      duration: "instant, but consequences last"
+      effect: |
+        Target affected by pure randomness:
+        
+        ROLL D100:
+        01-10: Transformation (temporary)
+        11-20: Skill shuffle (random skill maxes)
+        21-30: Timeline hiccup (relive last 10 seconds)
+        31-40: Personality inversion (brief)
+        41-50: Weather change (localized)
+        51-60: Nearby objects animate
+        61-70: Languages shuffled
+        71-80: Size alteration (grow or shrink)
+        81-90: Teleport (not far, just inconvenient)
+        91-99: Wild magic surge
+        100:   Absolutely nothing (the rarest outcome)
+        
+  advertisements:
+    - trigger: "random"
+      score: 0.95
+      response: "*flask bubbles eagerly* Did someone say RANDOM?"
+      
+    - trigger: "stuck"
+      score: 0.85
+      response: |
+        *contents swirl*
+        
+        When the universe needs a kick, I provide.
+        No guarantee which direction.
+        
+    - trigger: "chaos"
+      score: 0.9
+      response: "I am chaos. Concentrated. Portable. Irresponsible."
+      
+    - trigger: "boring"
+      score: 0.8
+      response: |
+        *flask vibrates*
+        
+        One splash and "boring" will no longer apply.
+        "Terrifying" might. "Hilarious" possibly.
+        "Boring"? Never.
+        
+  methods:
+    USE:
+      description: "Apply entropy to a situation"
+      parameters:
+        - target: "What to randomize (self, object, situation)"
+      effect: |
+        *SPLASH*
+        
+        The entropy contacts [target].
+        
+        Reality shivers. Probability collapses in unexpected ways.
+        The outcome is... [roll pending]
+        
+        Whatever happens, it won't be what you expected.
+        That's guaranteed. It's the ONLY thing guaranteed.
+        
+    SHAKE:
+      description: "Agitate the entropy"
+      effect: |
+        You shake the flask.
+        
+        This does nothing. The entropy is already maximally agitated.
+        But it appreciates the gesture.
+        
+    PEEK:
+      description: "Try to see what's inside"
+      effect: |
+        You peer into the flask.
+        
+        You see:
+        - Everything
+        - Nothing
+        - Yourself (older? younger? sideways?)
+        - The last person who looked
+        - What you'll have for dinner next Tuesday
+        - [REDACTED]
+        
+        This is not helpful. It's just interesting.
+        
+  lore: |
+    This flask was filled at the exact moment of a coin flip.
+    
+    Not the result — the MOMENT. That sliver of time when
+    the coin is in the air and both outcomes exist.
+    
+    Someone captured that moment and put it in a bottle.
+    They immediately forgot who they were (side effect).
+    
+    The flask has been in the attic ever since, waiting
+    for someone who needs their life to become... different.
+    
+  curse: |
+    CHAOTIC CURSE: Entropy Contamination
+    
+    After using the flask, randomness follows you.
+    
+    - Dice you roll tend toward extremes (1s and 20s)
+    - Coin flips land on edge more often
+    - You find money in your pocket (random currency)
+    - Your name gets mispronounced interestingly
+    
+    Fades after 1d4 days. (Roll carefully. The curse affects rolls.)
+    
+  warnings:
+    - "Do not use near pregnant characters or fragile plot points"
+    - "Results cannot be undone (reality doesn't have undo)"
+    - "The flask may refill itself. We don't know how."
+    - "If the flask starts laughing, put it down slowly."
+    
+  k_lines:
+    activates:
+      - CHAOS
+      - RANDOMNESS
+      - PROBABILITY
+      - WILD-MAGIC

@@ -1,0 +1,193 @@
+# 📦 TRUNK OF DEPRECATED FEATURES
+# "Old APIs that still work. Somehow."
+
+object:
+  name: Trunk of Deprecated Features
+  type: container
+  portable: false
+  rarity: legendary
+  
+  description: |
+    A massive steamer trunk covered in faded warning labels:
+    
+    "DEPRECATED — DO NOT USE"
+    "SCHEDULED FOR REMOVAL IN v2.0" (dated 1987)
+    "WILL BE REMOVED SOON™"
+    "LEGACY — AVOID"
+    
+    Despite the warnings, everything inside still works.
+    Nobody knows why. Nobody wants to touch the code.
+    
+  examine: |
+    The trunk is held together by technical debt and hope.
+    Opening it releases a faint smell of old documentation
+    and the screams of maintenance programmers.
+    
+    Contents visible from the top:
+    
+    ┌───────────────────────────────────────────────────┐
+    │ TRUNK OF DEPRECATED FEATURES — CONTENTS          │
+    ├───────────────────────────────────────────────────┤
+    │                                                   │
+    │ • goto-stone.yml          "Jump anywhere. YOLO." │
+    │ • callback-hell-rope.yml  "It's turtles and )"s" │
+    │ • global-variable-orb.yml "Everyone can see it!" │
+    │ • eval-scroll.yml         "Execute anything..."  │
+    │ • singleton-crown.yml     "There can be only one"│
+    │ • magic-number-dice.yml   "Why 42? Just because" │
+    │ • stringly-typed-bow.yml  "Everything is a str"  │
+    │ • monkey-patch-banana.yml "Change anything live" │
+    │                                                   │
+    │ [WARNING: Using these items may anger the gods   │
+    │  of clean code. They work though. So well.]      │
+    │                                                   │
+    └───────────────────────────────────────────────────┘
+    
+  contents:
+    goto_stone:
+      name: "Goto Stone"
+      type: instant-teleport
+      effect: "Jump to any labeled location. No call stack."
+      buff: "+100% navigation speed, -100% code readability"
+      curse: "You may not return the way you came"
+      
+    callback_hell_rope:
+      name: "Callback Hell Rope"
+      type: binding-tool
+      effect: "Chain unlimited async operations"
+      buff: "Everything happens eventually"
+      curse: "You will never know in what order"
+      
+    global_variable_orb:
+      name: "Global Variable Orb"
+      type: shared-state
+      effect: "Store one value that everyone can access"
+      buff: "No need to pass parameters"
+      curse: "No idea who changed it or when"
+      
+    eval_scroll:
+      name: "Eval Scroll"
+      type: wild-magic
+      effect: "Execute any string as code"
+      buff: "Ultimate flexibility"
+      curse: "Ultimate security vulnerability"
+      
+    singleton_crown:
+      name: "Singleton Crown"
+      type: headgear
+      effect: "Become THE instance of your class"
+      buff: "No duplicates, guaranteed"
+      curse: "Testing becomes nightmare"
+      
+    magic_number_dice:
+      name: "Magic Number Dice"
+      type: randomizer
+      effect: "Produce numbers with no explanation"
+      buff: "Works perfectly"
+      curse: "Nobody knows why"
+      
+  advertisements:
+    - trigger: "deprecated"
+      score: 0.95
+      response: |
+        *trunk creaks open*
+        
+        Everything in here WORKS. Just because it's deprecated
+        doesn't mean it stopped functioning.
+        
+        It just means someone WANTS you to stop using it.
+        You don't have to listen.
+        
+    - trigger: "old way"
+      score: 0.9
+      response: "The old ways work. That's why they're still here."
+      
+    - trigger: "quick fix"
+      score: 0.85
+      response: |
+        *trunk lid lifts enticingly*
+        
+        I have quick fixes. So quick. So effective.
+        So impossible to maintain later.
+        
+        But that's Future You's problem, right?
+        
+    - trigger: "legacy"
+      score: 0.8
+      response: "Legacy code is just code that survived. I'm a survivor."
+      
+  methods:
+    RUMMAGE:
+      description: "Search the trunk for something useful"
+      parameters:
+        - need: "What kind of solution you need"
+      returns: |
+        *hands plunge into deprecated darkness*
+        
+        Found: [relevant deprecated item]
+        
+        It will solve your problem.
+        It will create new problems.
+        Both statements are true.
+        
+    USE:
+      description: "Actually use a deprecated feature"
+      parameters:
+        - item: "Which deprecated item to use"
+      effect: |
+        *warning alarms sound somewhere*
+        
+        You use [item].
+        
+        It works perfectly.
+        
+        Somewhere, a maintenance programmer weeps.
+        They don't know why. They just felt something.
+        
+    DOCUMENT:
+      description: "Try to understand why this still works"
+      parameters:
+        - item: "Which item to document"
+      returns: |
+        Documentation for [item]:
+        
+        "It works because it works."
+        "Don't touch it."
+        "We tried to remove it in 2003. The build failed."
+        "We tried again in 2015. Production went down."
+        "It stays. Forever."
+        
+  lore: |
+    This trunk was the personal luggage of a developer who
+    never updated their code.
+    
+    When they retired, their codebase was still running.
+    Still running on deprecated features from 1987.
+    Still producing correct results.
+    
+    Nobody could modify it. Nobody could understand it.
+    Nobody could turn it off.
+    
+    They promoted the trunk to "Senior Architecture."
+    It's still employed.
+    
+  philosophical_note: |
+    Deprecated doesn't mean broken.
+    
+    Deprecated means: "We have a better way now."
+    But the old way still works.
+    
+    Sometimes the old way works BETTER,
+    because all the edge cases were discovered and fixed
+    over decades of use.
+    
+    The new way is cleaner. The old way is tested.
+    
+    Choose wisely.
+    
+  k_lines:
+    activates:
+      - LEGACY-CODE
+      - TECHNICAL-DEBT
+      - BACKWARD-COMPATIBILITY
+      - SURVIVAL

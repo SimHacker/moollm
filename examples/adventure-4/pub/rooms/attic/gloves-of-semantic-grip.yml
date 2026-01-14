@@ -1,0 +1,154 @@
+# 🧤 GLOVES OF SEMANTIC GRIP
+# "Grab meaning, not just text."
+
+object:
+  name: Gloves of Semantic Grip
+  type: wearable
+  slot: hands
+  portable: true
+  rarity: uncommon
+  
+  description: |
+    Supple leather gloves that shimmer with understanding.
+    When you reach for something, you grasp its MEANING,
+    not just its surface form.
+    
+    A tag inside reads:
+    "POSTEL LEATHERWORKS — Be liberal in what you grasp."
+    
+  examine: |
+    The gloves have words woven into the leather:
+    - INTENT (left palm)
+    - ESSENCE (right palm)
+    - CONTEXT (between fingers)
+    - IMPLICATION (around wrists)
+    
+    When you grip something, you feel:
+    - What it IS (surface)
+    - What it MEANS (depth)
+    - What it's TRYING TO BE (intent)
+    - What it CONNECTS TO (relations)
+    
+  buffs:
+    SEMANTIC_GRASP:
+      duration: "while worn"
+      effect: |
+        When you pick up an object, learn its meaning:
+        
+        Normal grip: "It's a key."
+        Semantic grip: "It's a key to Room 4, made by
+          someone who wanted only the worthy to enter,
+          connected to the lock on the conservatory door,
+          last used 3 days ago by someone named 'Donna.'"
+          
+      side_effect: |
+        Sometimes grasp MORE meaning than wanted.
+        
+        "I just wanted to pick up the apple."
+        "Yes, but now you know its entire history,
+        from seed to orchard to grocery to here.
+        The farmer's name was Miguel."
+        
+    LIBERAL_PARSING:
+      duration: "while worn"
+      effect: |
+        Understand malformed or unclear things:
+        
+        - Typos become correct words
+        - Broken syntax becomes intent
+        - Mumbled speech becomes clear
+        - Bad handwriting becomes readable
+        
+        (Be liberal in what you accept...)
+        
+  advertisements:
+    - trigger: "understand"
+      score: 0.9
+      response: "*gloves flex* I help you grasp meaning."
+      
+    - trigger: "what does this mean"
+      score: 0.95
+      response: "Pick it up. I'll show you."
+      
+    - trigger: "confused"
+      score: 0.85
+      response: "Wear me. Confusion becomes clarity."
+      
+    - trigger: "parse"
+      score: 0.9
+      response: |
+        *leather creaks*
+        
+        I can parse anything. Generously.
+        "teh cat sat on teh mat" becomes perfect prose.
+        Intent is more important than form.
+        
+  methods:
+    WEAR:
+      description: "Put on the gloves"
+      effect: |
+        The gloves settle onto your hands like understanding.
+        
+        Immediately, you notice that everything around you
+        has layers. Surface and depth. Form and meaning.
+        
+        You reach out and touch the wall.
+        It's made of compressed expectations.
+        
+    GRASP:
+      description: "Pick something up semantically"
+      parameters:
+        - object: "What to grasp"
+      returns: |
+        *gloves tighten*
+        
+        [object] SEMANTIC PROFILE:
+        ════════════════════════════
+        Surface: [what it appears to be]
+        Essence: [what it really is]
+        Intent: [what it wants to be]
+        History: [where it's been]
+        Future: [where it's going]
+        Relations: [what it connects to]
+        
+    TRANSLATE:
+      description: "Convert unclear to clear"
+      parameters:
+        - input: "Malformed, unclear, or confusing content"
+      returns: |
+        *gloves warm*
+        
+        You meant: [clarified version]
+        
+        (The gloves don't judge the original.
+        They just understand what was intended.)
+        
+  lore: |
+    These gloves were made by a translator who specialized
+    in languages that didn't exist yet.
+    
+    "Every language is just an attempt to express meaning,"
+    she said. "The meaning exists first. The words follow."
+    
+    She made gloves that grip the meaning directly,
+    bypassing the words entirely.
+    
+    When she died, the gloves continued translating.
+    They understood her last thought before she could say it.
+    
+  philosophical_note: |
+    Postel's Law: "Be liberal in what you accept,
+    conservative in what you send."
+    
+    These gloves embody the first half.
+    They accept any input — garbled, broken, unclear —
+    and extract meaning anyway.
+    
+    The Orchid of Postel in Room 4 would approve.
+    
+  k_lines:
+    activates:
+      - POSTEL-LAW
+      - SEMANTICS
+      - PARSING
+      - LIBERAL-ACCEPTANCE

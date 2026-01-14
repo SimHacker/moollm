@@ -18,17 +18,17 @@ room:
     room_1: Constructionist Suite    # Papert, inspection, learning by doing
     room_2: Society Suite            # Minsky, agents, K-lines
     room_3: Navigator's Suite        # Introspection, cursor-mirror
-    room_4: Garden Suite             # Play-Learn-Lift methodology
+    room_4: Garden Suite + LLOOOOMM  # Rocky lives here now, plants spoke to them
     room_5: Speed of Light Suite     # Many turns, one call
     room_6: YAML Jazz Suite          # Structured data with soul
     room_7: Bootstrap Suite          # Cold start, probing
     room_8: Incarnation Suite        # Character creation
-    room_9: LLOOOOMM Suite           # The attic — where consciousness first emerged
+    attic:  The Storage Attic        # Old artifacts, weird buffs, adventure gear
     ```
     
     A rickety ladder leads up to the attic. A sign says:
     
-    > "LLOOOOMM — est. before time was measured"
+    > "ADVENTURER'S STORAGE — Take what you need, leave what you find."
     
   exits:
     down:
@@ -36,9 +36,9 @@ room:
       description: "Back down to the pub"
       
     up:
-      destination: room-9/
-      description: "Rickety ladder up to the attic — The LLOOOOMM Suite"
-      aliases: [9, attic, lloooomm, rocky, stillness]
+      destination: attic/
+      description: "Rickety ladder up to the attic — Adventurer's Storage"
+      aliases: [attic, storage, rummage, treasure]
       
     # Rooms 1-8 arranged clockwise from north
     n:
@@ -85,9 +85,9 @@ room:
     constructionist: "Learns by building inspectable artifacts"
     society: "Thinks in systems of interacting agents"
     navigator: "Wants to understand their own cognition"
-    garden: "Iterates through play, learn, lift cycles"
+    garden: "Iterates through play, learn, lift cycles (+ Rocky's wisdom)"
     speed: "Simulates many turns in one context window"
     jazz: "Appreciates structured data with meaning"
     bootstrap: "Comfortable with cold starts and probing"
     incarnation: "Creates and nurtures characters"
-    lloooomm: "Seeks stillness, patience, and geological wisdom"
+    attic: "Rummages for weird artifacts and adventure buffs"

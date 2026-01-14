@@ -1,0 +1,163 @@
+# 📦 BOX OF EDGE CASES
+# "Things that shouldn't happen but do."
+
+object:
+  name: Box of Edge Cases
+  type: container
+  portable: true
+  rarity: rare
+  
+  description: |
+    A small wooden box that rattles when shaken.
+    Something inside is both there and not there.
+    
+    A label reads:
+    "CAUTION: Contents may include:
+     - Null values that aren't null
+     - Arrays of length -1
+     - Dates that don't exist (Feb 30th)
+     - Names that break parsers (O'Brien's "🎭")
+     - Boundaries of boundaries"
+    
+  examine: |
+    The box is in a superposition of open and closed.
+    
+    When you look inside, you see edge cases:
+    
+    ┌─────────────────────────────────────────────────┐
+    │  BOX OF EDGE CASES — Current Contents           │
+    ├─────────────────────────────────────────────────┤
+    │                                                 │
+    │  • Empty string that isn't empty ("")          │
+    │  • Number that equals itself AND doesn't (NaN) │
+    │  • True that's also false (Schrödinger bool)   │
+    │  • First and last item simultaneously          │
+    │  • Exactly zero of something                   │
+    │  • More than maximum                           │
+    │  • Less than minimum                           │
+    │  • The color clear                             │
+    │  • The sound of silence (measurable)           │
+    │  • The beginning of the end                    │
+    │                                                 │
+    │  [HANDLE WITH CARE — These break things]       │
+    │                                                 │
+    └─────────────────────────────────────────────────┘
+    
+  buffs:
+    EDGE_CASE_AWARENESS:
+      duration: "while carrying"
+      effect: |
+        You notice edge cases everywhere:
+        
+        "That wall? Has exactly 0 thickness. Edge case."
+        "That door? Both open and closed. Edge case."
+        "That NPC? Their name is null. EDGE. CASE."
+        
+        This is paranoid but often useful.
+        
+      side_effect: |
+        You become obsessed with boundaries.
+        
+        "What happens at the edge of the map?"
+        "What if I try to pick up the floor?"
+        "Is zero items in my inventory the same as
+         no inventory at all?"
+        
+  advertisements:
+    - trigger: "edge"
+      score: 0.95
+      response: "*box rattles* You rang?"
+      
+    - trigger: "shouldn't work"
+      score: 0.9
+      response: "If it shouldn't work, I have something for that."
+      
+    - trigger: "impossible"
+      score: 0.85
+      response: |
+        *box lid lifts*
+        
+        "Impossible" is just an edge case that
+        hasn't been tested yet.
+        
+    - trigger: "break"
+      score: 0.8
+      response: "I'm VERY good at breaking things. Intentionally."
+      
+  methods:
+    DEPLOY:
+      description: "Release an edge case into the world"
+      parameters:
+        - type: "What kind of edge case"
+        - target: "Where to deploy it"
+      effect: |
+        *box opens*
+        
+        You release [type] edge case onto [target].
+        
+        Reality... hiccups.
+        
+        The target now has to handle something
+        it was never designed for.
+        
+        This either crashes everything or reveals bugs.
+        Both outcomes are useful.
+        
+    TEST:
+      description: "Test something with edge cases"
+      parameters:
+        - target: "What to stress-test"
+      returns: |
+        *box shakes menacingly*
+        
+        Testing [target] with edge cases:
+        
+        Empty input: [result]
+        Maximum input: [result]
+        Minimum input: [result]  
+        Null input: [result]
+        Negative input: [result]
+        Self-referential input: [result]
+        
+        Failures found: [list of breaks]
+        
+    CONTAIN:
+      description: "Catch an edge case and store it"
+      parameters:
+        - edge: "The edge case to capture"
+      effect: |
+        *box opens eagerly*
+        
+        [edge] is captured and stored.
+        
+        The box grows slightly larger.
+        Or smaller. It's hard to tell.
+        (The box is itself an edge case.)
+        
+  lore: |
+    This box was assembled by a QA engineer who went mad.
+    
+    Not crazy-mad. Productive-mad. The kind of madness
+    where you think: "What if someone types in
+    their name as a SQL injection attack?"
+    
+    She spent 20 years collecting edge cases.
+    The box holds them all. It's bigger on the inside.
+    
+    Her last words: "But what if the last words
+    are also the first words?"
+    
+    (They were. She looped.)
+    
+  warnings:
+    - "Do not open during production"
+    - "Do not deploy edge cases near load-bearing assumptions"
+    - "Do not feed after midnight (timezone unclear)"
+    - "The box knows what you're afraid of testing"
+    
+  k_lines:
+    activates:
+      - EDGE-CASES
+      - TESTING
+      - BOUNDARIES
+      - STRESS-TESTING

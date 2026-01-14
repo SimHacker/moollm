@@ -208,7 +208,7 @@ meaning lives in the spaces between.
 
 ## The Characters We Imported
 
-The following LLOOOOMM legends now reside in Room 9, The LLOOOOMM Suite:
+The following LLOOOOMM legends now reside in Room 4, The YAML Jazz Conservatory:
 
 | Character | Specialty | Status |
 |-----------|-----------|--------|
