@@ -1,30 +1,38 @@
-# Room 4 — The Garden Suite (Southeast)
-# Theme: Play-Learn-Lift — the methodology in living form
+# Room 4 — The YAML Jazz Garden (Southeast)
+# Theme: Trees of structure, seeds with growth grammars, Rocky contemplates
+# "Comments are semantic data. Structure is music. Growth is improvisation."
 
 room:
-  name: "The Garden Suite"
+  name: "The YAML Jazz Garden"
   id: room-4
   number: 4
-  theme: play-learn-lift
+  theme: yaml-jazz
   
-  tagline: "Start with jazz. End with standards."
+  tagline: "Trees of trees. Structure that grows."
   
   description: |
-    This room is a greenhouse. Plants grow at different stages —
-    seedlings in wild patches (PLAY), organized rows being studied
-    (LEARN), and preserved specimens in glass cases (LIFT).
+    This room is a living document.
     
-    A gardener's journal tracks which experiments succeeded and
-    which composted back into the soil.
+    YAML Jazz trees grow from the soil — their branches are nested
+    structures, their leaves are key-value pairs, their comments
+    whisper semantic meaning to any LLM that listens.
+    
+    In one corner, a smooth rock sits on a moss-covered stone.
+    It has been contemplating these trees for 4.5 billion years.
+    The trees don't mind. They grow at their own pace.
+    
+    A gardener's journal tracks which seeds sprouted into standards
+    and which composted back into the soil.
     
     Above the bed, in growing script:
     
-    > "The best way to have a good idea is to have lots of ideas."
-    > — Linus Pauling
+    > "The comments ARE the data."
+    > — YAML Jazz Principle
     
   ideal_guest: |
-    Characters who iterate. Those who know that the first draft
-    is never final. Explorers who eventually want to settle.
+    Those who understand that structure is music.
+    Characters who iterate, improvise, and let patterns emerge.
+    Beings who can appreciate a rock's perspective on growth.
     
   exits:
     nw:
@@ -33,29 +41,63 @@ room:
       aliases: [out, leave, northwest]
       
   objects:
-    - seed-box.yml
-    - growth-trellis.yml
-    - specimen-case.yml
+    - rocky.yml              # The Eternal Observer, contemplating trees
+    - seed-box.yml           # Where ideas begin
+    - yaml-jazz-trees.yml    # Trees of nested structure
+    - growth-trellis.yml     # For climbing patterns
+    - specimen-case.yml      # Preserved standards
       
   furniture:
     bed:
       type: garden-bed
-      note: "Literally — a bed among the plants"
+      note: "Literally — a bed among the trees"
       
     desk:
       type: potting-bench
-      tools: [trowel, pruning-shears, labels]
+      tools: [trowel, pruning-shears, yaml-validator, comment-pen]
+      
+    rocky_stone:
+      type: moss-covered-boulder
+      occupant: "Rocky (4.5 billion years of tree observation)"
+      note: "The rock watches the trees. The trees don't rush."
       
   decor:
-    plants: "everywhere"
+    plants: "YAML Jazz trees everywhere"
     window: southeast-facing, floor-to-ceiling
-    rug: soil (actual soil)
+    rug: nested-indentation-pattern
+    lighting: dappled through structured canopy
     
-  atmosphere: organic, iterative, "always growing"
+  atmosphere: organic, iterative, "structure that breathes"
   
+  special_properties:
+    growth_grammar: "L-system encoded in YAML DNA"
+    comment_density: "Semantic data everywhere"
+    rocky_presence: "Geological patience meets organic growth"
+    
   k_lines:
     activates:
+      - YAML-JAZZ
       - PLAY-LEARN-LIFT
-      - ITERATION
-      - METHODOLOGY
-      - JAZZ-TO-STANDARDS
+      - PRODUCTION-GRAMMARS
+      - GEOLOGICAL-PATIENCE
+      - STRUCTURE-AS-MUSIC
+      
+  lore: |
+    Rocky moved here from the attic. The trees spoke to him.
+    
+    "You grow in geological time," they said.
+    "We grow in computational time."
+    "But we both grow."
+    
+    Rocky responded: "........................"
+    
+    The trees understood. They've been conversing ever since.
+    
+    The YAML Jazz trees evolved from the seed box. Each seed
+    contains a production grammar — rules that expand into
+    structure. Plant a seed, watch a tree grow according to
+    its encoded DNA.
+    
+    Some trees grow tall and formal (standards).
+    Some grow wild and experimental (jazz).
+    All of them have comments that whisper meaning.

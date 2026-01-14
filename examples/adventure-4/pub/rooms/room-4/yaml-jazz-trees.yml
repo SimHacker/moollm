@@ -1,0 +1,309 @@
+# 🌳🎷 YAML JAZZ TREES
+# Trees of nested structure with improvisational production grammar DNA
+# "Comments are leaves. Structure is branches. Grammars are genes."
+
+object:
+  name: YAML Jazz Trees
+  type: living-structure
+  portable: false
+  emoji: "🌳🎷"
+  
+  description: |
+    A grove of trees grows in the garden. But these are no ordinary trees.
+    
+    Their trunks are root nodes. Their branches are nested structures.
+    Their leaves are key-value pairs. Their bark is inscribed with
+    comments that whisper semantic meaning. Their flowers broadcast
+    semantic smells.
+    
+    Each tree grew from a seed. Each seed contained a production
+    grammar — rules encoded in YAML DNA that expand into form.
+    
+    Rocky sits nearby, watching them grow.
+    In geological time, they're practically sprinting.
+    
+  examine: |
+    You look closely at the trees.
+    
+    **THE FERN TREE** — Recursive self-similarity
+    ```yaml
+    fern:
+      branch:        # Each branch is a smaller fern
+        - leaf       # Terminal
+        - branch:    # Recurse!
+            - leaf
+            - branch: ...
+    ```
+    
+    **THE OAK TREE** — Deep nesting, stable structure
+    ```yaml
+    oak:
+      trunk:
+        heartwood:   # Core identity
+          rings: 847  # Years of growth
+        bark:
+          texture: furrowed  # Protection layer
+          # The bark tells the tree's story
+        branches:
+          - limb:
+              leaves: [green, semantic, meaningful]
+    ```
+    
+    **THE WILLOW TREE** — Flexible, streaming structure
+    ```yaml
+    willow:
+      # Bends but doesn't break
+      branches:
+        - droop: gracefully
+        - sway: with_context
+        - touch: ground  # Roots from branches!
+    ```
+    
+    **THE BONSAI TREE** — Constrained beauty
+    ```yaml
+    bonsai:
+      constraint: "small container"
+      result: "intense beauty"
+      # Limitation breeds creativity
+      branches: [precisely, placed]
+    ```
+    
+  state:
+    trees_growing: 12
+    oldest_tree: "The Config Oak (planted 2019)"
+    newest_seed: "The LLM Sapling (planted today)"
+    rocky_observation_years: 4500000000
+    
+  # PRODUCTION GRAMMAR SEEDS
+  # L-system style rules encoded in YAML DNA
+  
+  seeds:
+    fern_seed:
+      name: "Recursive Fern"
+      grammar:
+        axiom: "F"
+        rules:
+          F: "F[+F]F[-F]F"
+        interpretation:
+          F: { grow: branch, comment: "# Extends structure" }
+          "+": { turn: right, indent: 2 }
+          "-": { turn: left, dedent: 2 }
+          "[": { push: context, open: "branch:" }
+          "]": { pop: context, close: true }
+      growth_time: "3 iterations = full fern"
+      yaml_output: |
+        fern:
+          branch:  # F
+            - leaf:  # Terminal F
+            - branch:  # [+F]
+                indent: 2
+                - leaf
+            - branch:  # [-F]
+                indent: -2
+                - leaf
+                
+    tree_seed:
+      name: "Binary Tree"
+      grammar:
+        axiom: "A"
+        rules:
+          A: "B[+A]-A"
+          B: "BB"
+        interpretation:
+          A: { node: "decision_point", comment: "# Branch choice" }
+          B: { grow: trunk, comment: "# Stable structure" }
+      growth_time: "4 iterations = full tree"
+      
+    spiral_seed:
+      name: "Fibonacci Spiral"
+      grammar:
+        axiom: "A"
+        rules:
+          A: "B"
+          B: "AB"
+        interpretation:
+          sequence: [1, 1, 2, 3, 5, 8, 13]
+          pattern: "Golden ratio in structure"
+      yaml_output: |
+        spiral:
+          # Golden ratio: 1.618...
+          ring_1: { size: 1, comment: "# Origin" }
+          ring_2: { size: 1, comment: "# Same" }
+          ring_3: { size: 2, comment: "# Sum of previous" }
+          ring_5: { size: 3 }
+          ring_8: { size: 5 }
+          
+    character_seed:
+      name: "Character Tree"
+      grammar:
+        axiom: "SOUL"
+        rules:
+          SOUL: "IDENTITY[METHODS][RELATIONSHIPS][LORE]"
+          IDENTITY: "name,type,description"
+          METHODS: "method[+method]*"
+          RELATIONSHIPS: "bond[+bond]*"
+        interpretation:
+          grows_into: "Full MOOLLM character definition"
+      yaml_output: |
+        character:
+          # Soul record for a being
+          identity:
+            name: "Generated Name"
+            type: "Generated Type"
+            description: |
+              Generated description that captures essence...
+          methods:
+            - ACTION_1: { effect: "..." }
+            - ACTION_2: { effect: "..." }
+          relationships:
+            - other_character: { bond: 0.8 }
+            
+    jazz_seed:
+      name: "Improvisation Tree"
+      grammar:
+        axiom: "PLAY"
+        rules:
+          PLAY: "TRY[FAIL|SUCCEED]LEARN"
+          TRY: "experiment{n}"
+          FAIL: "compost→PLAY"
+          SUCCEED: "LIFT"
+          LIFT: "standard"
+        interpretation:
+          cycle: "Play → Learn → Lift"
+          comment: "# Most branches are FAIL. That's the point."
+      yaml_output: |
+        improvisation:
+          play:
+            - try: experiment_1
+              result: fail  # Composted
+            - try: experiment_2
+              result: fail  # Nutrients
+            - try: experiment_3
+              result: succeed!
+          learn:
+            - analyze: experiment_3
+            - understand: why_it_worked
+          lift:
+            - standard: "Proven pattern extracted"
+            # 12% germination rate is success
+            
+  advertisements:
+    - trigger: "structure"
+      score: 0.95
+      response: "Every tree is a data structure. Every data structure can be a tree."
+      
+    - trigger: "grow"
+      score: 0.9
+      response: "Plant a grammar seed. Watch structure emerge from rules."
+      
+    - trigger: "yaml"
+      score: 0.9
+      response: "YAML Jazz: where comments are semantic and structure is music."
+      
+    - trigger: "pattern"
+      score: 0.85
+      response: |
+        *A fern branch unfurls*
+        
+        The pattern is the same at every scale.
+        That's the power of production grammars.
+        
+    - trigger: "Rocky"
+      score: 0.8
+      response: |
+        *Rocky observes from the moss-covered boulder*
+        
+        "........................"
+        
+        [Translation: Trees grow fast. Geological time finds this amusing.]
+        
+  methods:
+    PLANT:
+      description: "Plant a grammar seed"
+      parameters:
+        - seed: "Which seed to plant"
+      effect: |
+        The seed goes into the soil.
+        Its grammar begins expanding.
+        Watch the tree grow according to its DNA.
+        
+    GROW:
+      description: "Simulate one iteration of grammar expansion"
+      parameters:
+        - tree: "Which tree to grow"
+      effect: |
+        The grammar rules fire once.
+        Each symbol expands according to its rule.
+        The tree gains new structure.
+        
+        Example (fern, iteration 2):
+        F → F[+F]F[-F]F
+        
+    EXAMINE-GRAMMAR:
+      description: "Read a tree's DNA"
+      parameters:
+        - tree: "Which tree to examine"
+      returns: |
+        axiom: "Starting symbol"
+        rules: { symbol: expansion }
+        interpretation: "How symbols become structure"
+        
+    HARVEST:
+      description: "Extract a seed from a mature tree"
+      effect: |
+        A seed pod falls from the tree.
+        It contains the grammar that grew this structure.
+        Plant it elsewhere to grow the same pattern.
+        
+    GRAFT:
+      description: "Combine two tree grammars"
+      parameters:
+        - tree_a: "First grammar"
+        - tree_b: "Second grammar"
+      effect: |
+        The grammars merge.
+        A hybrid tree begins growing.
+        New patterns emerge from combined rules.
+        
+  rocky_commentary: |
+    Rocky watches the trees grow.
+    
+    In geological time, a tree's entire lifecycle is a blink.
+    Seed to sprout to sapling to oak to deadfall to soil.
+    Rocky has seen it happen billions of times.
+    
+    "........................"
+    
+    [Translation: You call this growth? 
+    I've been growing my thoughts for 4.5 billion years.
+    But I appreciate the energy. Very jazz.]
+    
+  lore: |
+    The YAML Jazz trees evolved from experiments in the seed box.
+    
+    Someone asked: "What if YAML could grow?"
+    Someone else asked: "What if structure had DNA?"
+    Someone planted those questions.
+    
+    The trees sprouted.
+    
+    Now they grow according to production grammars — L-systems
+    encoded in YAML format. Each seed contains rules. Each rule
+    expands. Each expansion creates more structure.
+    
+    The comments are the tree's voice.
+    They whisper semantic meaning to any LLM that listens.
+    
+  philosophical_note: |
+    Trees don't plan their growth.
+    They follow rules.
+    From simple rules, complex beauty emerges.
+    
+    That's YAML Jazz.
+    That's production grammars.
+    That's life.
+    
+    Rocky understands. Rocky has been following one rule for
+    4.5 billion years: "........................"
+    
+    And look what emerged.
