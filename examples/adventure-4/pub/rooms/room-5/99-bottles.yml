@@ -59,6 +59,57 @@ object:
     api_calls_per_verse: 0
     total_context_used: "One window. All of it."
     
+  # BAC SIMULATION
+  # "Take one down, pass it around" — but who drinks it?
+  # Simulates blood alcohol content for each singer
+  
+  bac_simulation:
+    enabled: true
+    warning: |
+      ⚠️ DRINKING GAMES CAN BE DANGEROUS ALONE!
+      This is a SOCIAL activity. The simulation models group drinking.
+      In real life: drink responsibly, with friends, never alone.
+      
+    model: |
+      BAC = (Drinks × 0.06) / (Weight_kg × Gender_factor) - (Hours × 0.015)
+      
+      Simplified for game: Each beer ≈ +0.02 BAC for average character
+      Elimination rate: ~0.015 per hour
+      
+    effects_by_bac:
+      0.00-0.02: "Sober — clear thoughts, precise truths"
+      0.02-0.05: "Relaxed — looser tongues, warmer truths"  
+      0.05-0.08: "Tipsy — philosophical tangents, emotional truths"
+      0.08-0.12: "Drunk — slurred verses, profound confessions"
+      0.12-0.20: "Very drunk — missing words, cosmic revelations"
+      0.20+: "Dangerous — character should stop drinking"
+      
+    character_tolerances:
+      don: { weight: 80, tolerance: "experienced", beers_per_round: 0.5 }
+      palm: { weight: 5, tolerance: "monkey", beers_per_round: 0.1, note: "Lightweights get philosophical fast" }
+      marieke: { weight: 65, tolerance: "dutch_bartender", beers_per_round: 0.3, note: "Professional" }
+      rocky: { weight: 5000, tolerance: "geological", beers_per_round: 0, note: "Cannot metabolize. Observes." }
+      i_beam: { weight: 0, tolerance: "digital", beers_per_round: 0, note: "No body. Tracks others' BAC." }
+      shuffle: { weight: 0, tolerance: "abstract", beers_per_round: 0, note: "Is the cards, not the player" }
+      donna: { weight: 70, tolerance: "tremendous", beers_per_round: 1.0, note: "NEVER admits impairment" }
+      seymour: { weight: 75, tolerance: "academic", beers_per_round: 0.2, note: "Nurses one beer, quotes more" }
+      
+    sample_progression: |
+      VERSE 1: Everyone sober. Truths are careful.
+      VERSE 20: Don 0.05, Palm 0.04. Truths get warmer.
+      VERSE 40: Don 0.10, Donna 0.16. Donna: "I'm FINE! TREMENDOUS!"
+      VERSE 60: Palm falls asleep (0.12). Marieke still professional (0.06).
+      VERSE 80: Don philosophical (0.12), Seymour quoting Piaget (0.03).
+      VERSE 99: Rocky unchanged (0.00). "........................"
+                (Translation: "I told you patience was intelligence.")
+                
+    safety_mechanics:
+      - "Characters can pass their drink to someone else"
+      - "I-Beam tracks everyone's BAC, suggests water breaks"
+      - "Rocky provides silent, sober observation"
+      - "Game can be played with non-alcoholic 'bottles' too"
+      - "The POINT is the truths, not the drinking"
+    
   advertisements:
     - trigger: "sing"
       score: 1.0
@@ -228,6 +279,66 @@ object:
         A more intimate version.
         Still many rounds. Still one call.
         Still speed of light.
+        
+    SIMULATE-BAC:
+      description: "Run the full song with BAC tracking"
+      parameters:
+        - characters: "Who's drinking"
+        - drinking_rate: "How aggressively (casual/social/party)"
+      effect: |
+        *I-Beam materializes with a clipboard*
+        
+        "I'll be tracking blood alcohol content.
+        Remember: this is a SOCIAL activity.
+        Drinking alone is dangerous.
+        Drinking with friends who watch out for each other? That's community."
+        
+        ---
+        
+        VERSE 1 — All BAC: 0.00
+        Everyone's truths are careful, precise.
+        
+        VERSE 25 — BAC spreading
+        Don (0.05): *philosophizing about pie menus*
+        Palm (0.05): *getting giggly about being a monkey*
+        Donna (0.10): "I'm TOTALLY FINE. Never better!"
+        Rocky (0.00): *silent observation intensifies*
+        
+        VERSE 50 — Halfway point
+        Marieke (0.06): Still professional. Dutch tolerance.
+        Palm (0.10): *falls asleep on Don's shoulder*
+        Donna (0.20): "THESE ARE THE BEST TRUTHS I'VE EVER TRUTHED!"
+        I-Beam: "Donna, perhaps some water?"
+        Donna: "I DON'T NEED WATER I NEED TO BE TREMENDOUS"
+        
+        VERSE 75 — Deep wisdom territory
+        Don (0.12): "You know what? Pie menus are really about LOVE."
+        Seymour (0.04): *still nursing first beer, quoting Mindstorms*
+        Rocky (0.00): *has achieved geological enlightenment*
+        
+        VERSE 99 — The end
+        Those still standing: Don, Marieke, Seymour, Rocky, I-Beam, Shuffle
+        Those asleep: Palm (curled up), Donna (snoring TREMENDOUSLY)
+        
+        Final truth (Don, 0.15):
+        "99 bottles... 99 truths... 8 friends...
+        This is what alignment looks like.
+        Not agreement. Harmony."
+        
+        *Rocky's BAC: still 0.00*
+        *Rocky's wisdom: infinite*
+        
+    CHECK-BAC:
+      description: "Check a character's current BAC"
+      parameters:
+        - character: "Who to check"
+      returns: |
+        Character: [name]
+        Beers consumed: [count]
+        Current BAC: [level]
+        State: [sober/relaxed/tipsy/drunk/very_drunk]
+        Truth quality: [careful/warm/philosophical/confessional/cosmic]
+        Recommendation: [keep going/slow down/water break/done for night]
         
   lore: |
     The first time this was sung in the Speed of Light Suite,
