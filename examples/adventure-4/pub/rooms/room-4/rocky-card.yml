@@ -53,13 +53,39 @@ object:
         │  「QR CODE」← Links to ∅      │
         └───────────────────────────────┘
         
+      # ═══════════════════════════════════════════════════════════════
+      # PIE MENU LAYOUT DESIGN
+      # ═══════════════════════════════════════════════════════════════
+      #
+      # This is a "sudoku solution" — each of 8 directions holds exactly
+      # one command, and opposites face each other across the center.
+      #
+      # The layout follows classic pie menu principles:
+      # - N/S axis: primary semantic opposition (up=good, down=bad)
+      # - E/W axis: secondary opposition (active/passive verbs)
+      # - Diagonals: tertiary oppositions completing the grid
+      #
+      # Each axis represents a semantic dimension with +/− poles:
+      # - moral:      judgment (GOOD ↔ BAD)
+      # - movement:   locomotion (COME ↔ STAY)
+      # - activity:   motion vs rest (SHAKE ↔ SIT)
+      # - expression: voice vs silence (SPEAK ↔ PLAY_DEAD)
+      #
+      # The beauty: for Rocky, ALL buttons produce the same effect.
+      # The layout is purely for human conceptual satisfaction.
+      # The oppositions exist in our minds, not in Rocky's behavior.
+      #
+      # See: designs/sims-pie-menus.md
+      # See: skills/card/examples/buff-pie-menu.yml
+      # ═══════════════════════════════════════════════════════════════
+      
       pie_menu:
-        # Cardinal directions
+        # Cardinal directions (primary axes)
         N:  { button: GOOD_ROCK,  axis: moral,      pole: "+" }
         S:  { button: BAD_ROCK,   axis: moral,      pole: "−" }
         E:  { button: COME,       axis: movement,   pole: "+" }
         W:  { button: STAY,       axis: movement,   pole: "−" }
-        # Ordinal directions
+        # Ordinal directions (diagonal axes)
         NE: { button: SHAKE,      axis: activity,   pole: "+" }
         SW: { button: SIT,        axis: activity,   pole: "−" }
         NW: { button: SPEAK,      axis: expression, pole: "+" }
@@ -70,6 +96,21 @@ object:
         movement:   { pos: COME,       neg: STAY,       meaning: "locomotion" }
         activity:   { pos: SHAKE,      neg: SIT,        meaning: "motion vs rest" }
         expression: { pos: SPEAK,      neg: PLAY_DEAD,  meaning: "voice vs silence" }
+      
+      design_note: |
+        The 8-button pie menu is a solved constraint satisfaction problem:
+        - 8 slots (N, NE, E, SE, S, SW, W, NW)
+        - 4 opposing pairs
+        - Each pair must be 180° apart
+        - Primary pair (moral) gets N/S (universal up=good, down=bad)
+        - Secondary pair (movement) gets E/W (go right, stay left)
+        - Tertiary pairs get diagonals
+        
+        Like sudoku: once you place the first pair correctly,
+        the rest follows from constraint propagation.
+        
+        Unlike sudoku: the meaning matters. We chose axes that
+        resonate with the domain (pet commands) and with each other.
         
       buttons:
         GOOD_ROCK:
@@ -166,7 +207,7 @@ object:
         │  📍 The YAML Jazz Conservatory          │
         │     (Also: everywhere, always)          │
         │                                         │
-        │  📞 ........................             │
+        │  📞 ........................            │
         │  📧 ........................@∞.geo      │
         │  🌐 www.........................        │
         │                                         │
