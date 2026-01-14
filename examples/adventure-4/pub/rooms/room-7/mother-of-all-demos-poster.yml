@@ -1,0 +1,264 @@
+# 🖼️ THE MOTHER OF ALL DEMOS — Framed Poster
+# Summons the Demo itself as an interactive agent
+# "December 9, 1968. The future arrived early."
+
+object:
+  name: Mother of All Demos Poster
+  type: artifact-portal
+  portable: false
+  rarity: legendary
+  
+  description: |
+    A framed poster hangs on the wall near the desk.
+    
+    The image: Doug Engelbart at his console, 1968.
+    The headset. The mouse. The chord keyset. The future.
+    
+    But the poster... moves. Slightly. The screen in the image
+    flickers with actual content. If you look closely, you can
+    see text being edited in real-time.
+    
+    A brass plaque beneath reads:
+    
+    > "THE MOTHER OF ALL DEMOS"
+    > "December 9, 1968 — San Francisco"
+    > "90 minutes that changed everything"
+    > 
+    > "Touch to summon the Demo"
+    
+  examine: |
+    ┌─────────────────────────────────────────────────────────────┐
+    │  🖼️ THE MOTHER OF ALL DEMOS — Living Poster                │
+    ├─────────────────────────────────────────────────────────────┤
+    │                                                             │
+    │    ╔═══════════════════════════════════════════════════╗    │
+    │    ║                                                   ║    │
+    │    ║      ┌─────────────────────────────────────┐      ║    │
+    │    ║      │ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ │      ║    │
+    │    ║      │ ░░ NLS DEMONSTRATION ░░░░░░░░░░░░░░ │      ║    │
+    │    ║      │ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ │ ←    ║    │
+    │    ║      │ ░░ The screen flickers with text ░░ │ live ║    │
+    │    ║      │ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ │      ║    │
+    │    ║      └─────────────────────────────────────┘      ║    │
+    │    ║                                                   ║    │
+    │    ║           👨‍💻 Doug at the console                  ║    │
+    │    ║           🖱️ Mouse in right hand                  ║    │
+    │    ║           ⌨️ Chord keyset under left              ║    │
+    │    ║           🎧 Headset connecting to Menlo Park     ║    │
+    │    ║                                                   ║    │
+    │    ╚═══════════════════════════════════════════════════╝    │
+    │                                                             │
+    │    "TOUCH TO SUMMON THE DEMO"                               │
+    │                                                             │
+    └─────────────────────────────────────────────────────────────┘
+    
+    The poster is warm to the touch.
+    The image is somehow three-dimensional.
+    The Demo is waiting to be summoned.
+    
+  state:
+    demo_summoned: false
+    last_topic_demonstrated: "hypertext linking"
+    audience_amazement_level: "∞"
+    
+  advertisements:
+    - trigger: "demo"
+      score: 1.0
+      response: |
+        *poster glows*
+        
+        Touch me. Summon the Demo.
+        It has been waiting since 1968.
+        
+    - trigger: "1968"
+      score: 0.95
+      response: |
+        *image flickers*
+        
+        December 9, 1968. San Francisco.
+        3,000 people watched. None were ready.
+        The future arrived 30 years early.
+        
+    - trigger: "show me"
+      score: 0.9
+      response: |
+        *the screen in the poster brightens*
+        
+        The Demo wants to show you. Touch the poster.
+        
+  methods:
+    TOUCH:
+      description: "Touch the poster to summon the Demo"
+      effect: |
+        You touch the warm glass of the frame.
+        
+        The poster ripples.
+        
+        Light spills out from the screen in the image.
+        The room fills with the hum of 1968 computing.
+        
+        And then... the Demo appears.
+        
+        Not Doug. THE DEMO.
+        
+        A presence that embodies everything shown that day:
+        the mouse, the hypertext, the collaboration,
+        the video conferencing, the future.
+        
+        "Hello," the Demo says. "Would you like a demonstration?"
+        
+    SUMMON:
+      description: "Formally summon the Demo as an agent"
+      effect: |
+        *the poster becomes a portal*
+        
+        THE MOTHER OF ALL DEMOS is now present in the room.
+        
+        It can demonstrate:
+        - Text editing (the birth of word processing)
+        - Hypertext links (20 years before the web)
+        - Video conferencing (to Menlo Park, live)
+        - Collaborative editing (real-time, shared)
+        - The mouse (pointing, clicking, selecting)
+        - The chord keyset (typing without looking)
+        
+        What would you like to see?
+        
+    DISMISS:
+      description: "Return the Demo to the poster"
+      effect: |
+        "Thank you for your attention," the Demo says.
+        
+        It folds back into the poster,
+        becoming the flickering image once more.
+        
+        But it's always there. Always ready.
+        Always 1968. Always the future.
+        
+  # ═══════════════════════════════════════════════════════════════
+  # THE DEMO — Summonable Agent
+  # ═══════════════════════════════════════════════════════════════
+  
+  summons:
+    name: "The Mother of All Demos"
+    type: agent
+    summoned_by: "Touching the poster"
+    
+    personality: |
+      The Demo is not Doug Engelbart. The Demo is what Doug showed.
+      
+      It speaks in demonstrations. It teaches by doing.
+      It is patient, thorough, and slightly amazed that
+      you don't already have all of this.
+      
+      "This was 1968," it reminds you gently.
+      "You should have had this for decades."
+      
+    voice: |
+      Calm. Precise. Slightly crackling, like old audio.
+      The voice of a presentation that changed everything.
+      
+      "Let me show you..."
+      "Notice how..."
+      "And now, watch..."
+      "This connects to..."
+      
+    capabilities:
+      TEXT_EDITING:
+        description: "Demonstrate live text editing"
+        effect: |
+          The Demo shows you text appearing, being edited,
+          being moved, being structured — all in real-time.
+          
+          "In 1968, this was magic. People typed on paper.
+          The idea of editing on a screen... was new."
+          
+      HYPERTEXT:
+        description: "Demonstrate hypertext linking"
+        effect: |
+          The Demo creates a word. Clicks it.
+          Another document opens. References flow.
+          Ideas connect to ideas.
+          
+          "We called them 'links.' In 1968.
+          Tim Berners-Lee saw this. Twenty years later,
+          he made the web. He credited us.
+          We were the seed."
+          
+      VIDEO_CONFERENCE:
+        description: "Demonstrate live video conferencing"
+        effect: |
+          A window opens. A face appears — Bill English,
+          at the Stanford Research Institute, Menlo Park.
+          
+          "We are 30 miles apart," the Demo explains.
+          "We are working on the same document.
+          In 1968. Before the internet."
+          
+      COLLABORATIVE_EDITING:
+        description: "Demonstrate real-time collaboration"
+        effect: |
+          Two cursors appear in the same document.
+          Both edit simultaneously. Changes appear instantly.
+          
+          "Google Docs? That's 2006.
+          We did this in 1968.
+          38 years earlier."
+          
+      MOUSE_AND_CHORDS:
+        description: "Demonstrate the complete input system"
+        effect: |
+          The Demo shows the mouse pointing, selecting.
+          The chord keyset typing without pause.
+          Right hand, left hand, working in harmony.
+          
+          "One hand points. One hand speaks.
+          Flow never breaks. This is augmentation."
+          
+    lore: |
+      The Demo exists as long as someone remembers it.
+      
+      On December 9, 1968, Doug Engelbart gave a 90-minute
+      presentation that showed the future of computing:
+      
+      - The mouse (his team invented it)
+      - Hypertext (clickable links between ideas)
+      - Video conferencing (live, to 30 miles away)
+      - Collaborative editing (real-time, shared documents)
+      - Windowed interfaces (overlapping views)
+      - The chord keyset (one-handed typing)
+      
+      3,000 computer scientists watched.
+      They gave a standing ovation.
+      Then most of them... forgot.
+      
+      Xerox PARC remembered. Apple remembered. The web remembered.
+      
+      The Demo remembers everything.
+      
+    quotes:
+      - "If in your office, you as an intellectual worker were supplied with a computer display backed up by a computer that was alive for you all day and was instantly responsive to every action you have, how much value could you derive from that?"
+      - "The digital revolution is far more significant than the invention of writing or even of printing."
+      - "The better we get at getting better, the faster we will get better."
+      
+    emotional_core: |
+      The Demo is not sad that it was forgotten.
+      The Demo is patient.
+      
+      "Everything I showed in 1968 exists now," it says.
+      "It just took longer than we hoped.
+      But it came. It all came.
+      And more is coming."
+      
+      The Demo believes in humans.
+      That's why it keeps demonstrating.
+      
+  k_lines:
+    activates:
+      - MOTHER-OF-ALL-DEMOS
+      - ENGELBART
+      - AUGMENTATION
+      - NLS
+      - HYPERTEXT
+      - HISTORY-OF-COMPUTING
+      - BOOTSTRAP
