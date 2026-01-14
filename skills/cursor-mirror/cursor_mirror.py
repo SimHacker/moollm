@@ -8,7 +8,7 @@ Copyright (c) 2026 Don Hopkins, Leela AI
 License: MIT — see LICENSE file
 Part of MOOLLM — https://github.com/leela-ai/moollm
 
-47 Commands organized by function:
+51 Commands organized by function:
 
   # Workspace/Composer Navigation
   list-workspaces   Show workspaces with folder paths and stats (w1, w2...)
@@ -46,6 +46,12 @@ Part of MOOLLM — https://github.com/leela-ai/moollm
   # Files & Todos
   files             Files touched in a conversation
   todos             Show todos/tasks from a conversation
+  
+  # Image Commands (NEW!)
+  images            List cached images from chat sessions
+  image-path        Get full path to a cached image
+  image-info        Show metadata for a cached image
+  image-gallery     Generate narrated image gallery markdown
   
   # Export & Stats
   export-chat       Export composer bubbles as JSON/YAML
@@ -538,6 +544,39 @@ Debug mode:
     p.add_argument("--yaml", action="store_true")
     p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_keys)
+
+    # ─── IMAGE COMMANDS ───
+    
+    # images
+    p = sub.add_parser("images", help="List cached images from chat sessions")
+    p.add_argument("composer", nargs="?", help="Filter by composer (optional)")
+    p.add_argument("-a", "--all", action="store_true", help="Show all images across workspaces")
+    p.add_argument("-n", "--limit", type=int, default=50, help="Max images to show")
+    p.add_argument("--sort", choices=["date", "size", "workspace"], default="date",
+                   help="Sort by: date (default), size, workspace")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_images)
+    
+    # image-path
+    p = sub.add_parser("image-path", help="Get full path to a cached image")
+    p.add_argument("ref", help="Image UUID or filename fragment")
+    p.set_defaults(func=cmd_image_path)
+    
+    # image-info
+    p = sub.add_parser("image-info", help="Show metadata for a cached image")
+    p.add_argument("ref", help="Image UUID or path")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_image_info)
+    
+    # image-gallery
+    p = sub.add_parser("image-gallery", help="Generate narrated image gallery markdown")
+    p.add_argument("-o", "--output", help="Output file (default: stdout)")
+    p.add_argument("-n", "--limit", type=int, default=100, help="Max images")
+    p.add_argument("--sample", type=int, default=10, help="Sample N images for narration hints")
+    p.add_argument("--workspace", help="Filter to specific workspace")
+    p.set_defaults(func=cmd_image_gallery)
 
     args = ap.parse_args()
     
@@ -4535,6 +4574,252 @@ def cmd_info(args):
         print(f"  {size:>10}  {k}")
     
     conn.close()
+
+
+# IMAGE COMMANDS
+
+def iter_image_paths() -> Iterator[Tuple[Path, str, str]]:
+    """Iterate all cached images across workspaces.
+    
+    Yields: (image_path, workspace_hash, workspace_folder)
+    """
+    for ws_path in iter_workspace_paths():
+        img_dir = ws_path / "images"
+        if img_dir.exists():
+            ws_hash = ws_path.name
+            ws_folder = get_workspace_folder(ws_path) or "unknown"
+            for img in img_dir.iterdir():
+                if img.suffix.lower() in ['.png', '.jpg', '.jpeg', '.gif', '.webp']:
+                    yield img, ws_hash, ws_folder
+
+
+def get_image_metadata(img_path: Path, ws_hash: str, ws_folder: str) -> Dict[str, Any]:
+    """Get metadata for an image file."""
+    stat = img_path.stat()
+    return {
+        "path": str(img_path),
+        "filename": img_path.name,
+        "uuid": img_path.stem.replace("image-", "").replace("Screenshot ", ""),
+        "workspace": ws_folder.split("/")[-1] if ws_folder else "unknown",
+        "workspace_hash": ws_hash,
+        "size_kb": round(stat.st_size / 1024, 1),
+        "size_bytes": stat.st_size,
+        "modified": datetime.fromtimestamp(stat.st_mtime).strftime('%Y-%m-%d %H:%M'),
+        "modified_ts": stat.st_mtime,
+    }
+
+
+def cmd_images(args):
+    """List cached images from chat sessions."""
+    images = []
+    
+    for img_path, ws_hash, ws_folder in iter_image_paths():
+        meta = get_image_metadata(img_path, ws_hash, ws_folder)
+        images.append(meta)
+    
+    # Sort
+    if args.sort == "date":
+        images.sort(key=lambda x: x["modified_ts"], reverse=True)
+    elif args.sort == "size":
+        images.sort(key=lambda x: x["size_bytes"], reverse=True)
+    elif args.sort == "workspace":
+        images.sort(key=lambda x: (x["workspace"], -x["modified_ts"]))
+    
+    # Limit
+    if args.limit:
+        images = images[:args.limit]
+    
+    if args.yaml or args.json:
+        print(fmt(images, args))
+    else:
+        # Group by workspace
+        by_ws: Dict[str, List[Dict]] = {}
+        for img in images:
+            ws = img["workspace"]
+            if ws not in by_ws:
+                by_ws[ws] = []
+            by_ws[ws].append(img)
+        
+        print(f"Cached Images ({len(images)} total)")
+        print("═" * 80)
+        
+        for ws, imgs in sorted(by_ws.items(), key=lambda x: -len(x[1])):
+            total_kb = sum(i["size_kb"] for i in imgs)
+            print(f"\n📁 {ws} ({len(imgs)} images, {total_kb:.1f} KB)")
+            print("─" * 60)
+            for img in imgs[:10]:  # Show first 10 per workspace
+                print(f"  {img['modified']}  {img['size_kb']:>7.1f}KB  {img['uuid'][:8]}...")
+            if len(imgs) > 10:
+                print(f"  ... and {len(imgs) - 10} more")
+
+
+def cmd_image_path(args):
+    """Get full path to a cached image."""
+    ref = args.ref.lower()
+    
+    for img_path, ws_hash, ws_folder in iter_image_paths():
+        if ref in img_path.name.lower() or ref in str(img_path).lower():
+            print(str(img_path))
+            return
+    
+    raise NotFoundError(f"Image not found: {args.ref}")
+
+
+def cmd_image_info(args):
+    """Show metadata for a cached image."""
+    ref = args.ref.lower()
+    
+    for img_path, ws_hash, ws_folder in iter_image_paths():
+        if ref in img_path.name.lower() or ref in str(img_path).lower():
+            meta = get_image_metadata(img_path, ws_hash, ws_folder)
+            
+            # Try to get dimensions using file header
+            try:
+                with open(img_path, 'rb') as f:
+                    header = f.read(24)
+                    if header.startswith(b'\x89PNG'):
+                        # PNG: width/height at bytes 16-24
+                        import struct
+                        w, h = struct.unpack('>II', header[16:24])
+                        meta["dimensions"] = {"width": w, "height": h}
+            except Exception:
+                pass
+            
+            if args.yaml or args.json:
+                print(fmt(meta, args))
+            else:
+                print(f"Image: {meta['filename']}")
+                print("─" * 60)
+                print(f"  Path:      {meta['path']}")
+                print(f"  UUID:      {meta['uuid']}")
+                print(f"  Workspace: {meta['workspace']}")
+                print(f"  Size:      {meta['size_kb']:.1f} KB")
+                print(f"  Modified:  {meta['modified']}")
+                if "dimensions" in meta:
+                    print(f"  Dimensions: {meta['dimensions']['width']}x{meta['dimensions']['height']}")
+                print(f"\nTo read this image:")
+                print(f"  Read: {meta['path']}")
+            return
+    
+    raise NotFoundError(f"Image not found: {args.ref}")
+
+
+def cmd_image_gallery(args):
+    """Generate narrated image gallery markdown."""
+    images = []
+    
+    for img_path, ws_hash, ws_folder in iter_image_paths():
+        meta = get_image_metadata(img_path, ws_hash, ws_folder)
+        images.append(meta)
+    
+    # Sort by date (newest first)
+    images.sort(key=lambda x: x["modified_ts"], reverse=True)
+    
+    # Filter by workspace if specified
+    if args.workspace:
+        images = [i for i in images if args.workspace.lower() in i["workspace"].lower()]
+    
+    # Limit
+    if args.limit:
+        images = images[:args.limit]
+    
+    # Group by workspace
+    by_ws: Dict[str, List[Dict]] = {}
+    for img in images:
+        ws = img["workspace"]
+        if ws not in by_ws:
+            by_ws[ws] = []
+        by_ws[ws].append(img)
+    
+    # Generate markdown
+    lines = [
+        "# ▎ I-Beam's Image Gallery",
+        "# Author: Don Hopkins, Leela AI",
+        "",
+        "*cursor-mirror extracted cached images from Cursor's workspace storage.*",
+        "",
+        "---",
+        "",
+        "## Overview",
+        "",
+        "```yaml",
+        "# IMAGE INVENTORY",
+        f"total_images: {len(images)}",
+        "workspaces:",
+    ]
+    
+    for ws, imgs in sorted(by_ws.items(), key=lambda x: -len(x[1])):
+        total_kb = sum(i["size_kb"] for i in imgs)
+        lines.append(f"  {ws}: {len(imgs)} images ({total_kb:.0f} KB)")
+    
+    if images:
+        dates = [i["modified"] for i in images]
+        lines.extend([
+            "",
+            "date_range:",
+            f"  oldest: {min(dates)}",
+            f"  newest: {max(dates)}",
+        ])
+    
+    lines.extend([
+        "```",
+        "",
+        "---",
+        "",
+    ])
+    
+    # Generate sections per workspace
+    for ws, imgs in sorted(by_ws.items(), key=lambda x: -len(x[1])):
+        total_kb = sum(i["size_kb"] for i in imgs)
+        lines.extend([
+            f"## {ws}",
+            "",
+            f"*{len(imgs)} images, {total_kb:.1f} KB total*",
+            "",
+            "| Date | Size | UUID | Path |",
+            "|------|------|------|------|",
+        ])
+        
+        for img in imgs:
+            uuid_short = img["uuid"][:8] + "..."
+            path_short = f"...{img['path'][-50:]}" if len(img['path']) > 50 else img['path']
+            lines.append(f"| {img['modified']} | {img['size_kb']:.0f}KB | `{uuid_short}` | `{path_short}` |")
+        
+        lines.extend(["", "---", ""])
+    
+    # Usage section
+    lines.extend([
+        "## Usage",
+        "",
+        "To view an image in Cursor chat:",
+        "",
+        "```",
+        "Read: /full/path/to/image.png",
+        "```",
+        "",
+        "To list images:",
+        "",
+        "```bash",
+        "cursor-mirror images --all",
+        "cursor-mirror images --sort size",
+        "cursor-mirror image-path <uuid>",
+        "cursor-mirror image-info <uuid> --yaml",
+        "```",
+        "",
+        "---",
+        "",
+        f"*Generated: {datetime.now().strftime('%Y-%m-%d %H:%M')}*",
+        "*By: cursor-mirror image-gallery*",
+    ])
+    
+    output = "\n".join(lines)
+    
+    if args.output:
+        with open(args.output, 'w') as f:
+            f.write(output)
+        print(f"Gallery written to: {args.output}")
+    else:
+        print(output)
 
 
 if __name__ == "__main__":

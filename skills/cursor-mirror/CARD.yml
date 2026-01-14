@@ -44,7 +44,7 @@ card:
     name: cursor_mirror.py
     language: python3
     lines: 4550
-    commands: 47
+    commands: 51
     dependencies: [yaml]  # stdlib + yaml
     features:
       - "Multi-level caching (bubble counts, composers, all-composers)"
@@ -341,6 +341,59 @@ card:
       returns: "Todo items with status (pending, in_progress, completed)"
       
     # ═══════════════════════════════════════════════════════════════════════
+    # IMAGE COMMANDS
+    # ═══════════════════════════════════════════════════════════════════════
+    
+    IMAGES:
+      category: images
+      description: "List cached images from chat sessions"
+      command: "cursor-mirror images [--all] [--sort date|size|workspace] [-n N]"
+      parameters:
+        - {name: composer, type: string, required: false, note: "Filter by composer"}
+        - {name: all, type: boolean, description: "Show all images across workspaces"}
+        - {name: sort, type: string, default: "date", note: "date, size, or workspace"}
+        - {name: limit, type: integer, default: 50}
+      returns: "Image paths, sizes, dates, grouped by workspace"
+      use_for:
+        - "Finding images dropped into chat"
+        - "Recovering pasted screenshots"
+        - "Building image galleries"
+      
+    IMAGE-PATH:
+      category: images
+      description: "Get full path to a cached image"
+      command: "cursor-mirror image-path <ref>"
+      parameters:
+        - {name: ref, type: string, required: true, note: "UUID or filename fragment"}
+      returns: "Full filesystem path to image"
+      use_for:
+        - "Copying image to workspace"
+        - "Reading image with Read tool"
+      
+    IMAGE-INFO:
+      category: images
+      description: "Show metadata for a cached image"
+      command: "cursor-mirror image-info <ref> [--yaml]"
+      parameters:
+        - {name: ref, type: string, required: true}
+      returns: "Path, UUID, workspace, size, dimensions, modified date"
+      
+    IMAGE-GALLERY:
+      category: images
+      description: "Generate narrated image gallery markdown"
+      command: "cursor-mirror image-gallery [-o FILE] [-n LIMIT] [--workspace WS]"
+      parameters:
+        - {name: output, type: string, description: "Output file (default: stdout)"}
+        - {name: limit, type: integer, default: 100}
+        - {name: workspace, type: string, description: "Filter to workspace"}
+      returns: "Markdown document with image inventory, tables, and usage instructions"
+      use_for:
+        - "Creating image documentation"
+        - "Cataloging development screenshots"
+        - "I-Beam narrated galleries"
+      k_line: IMAGE-ARCHAEOLOGY
+      
+    # ═══════════════════════════════════════════════════════════════════════
     # EXPORT & STATS
     # ═══════════════════════════════════════════════════════════════════════
     
@@ -558,6 +611,19 @@ card:
       score: 80
       trigger: "searching for specific workspaces or conversations"
       satisfies: [search, discovery, navigation]
+      
+    IMAGES:
+      visibility: public
+      score: 85
+      trigger: "finding cached images, screenshots, recovering pasted images"
+      satisfies: [images, screenshots, gallery, archaeology]
+      k_line: IMAGE-ARCHAEOLOGY
+      
+    IMAGE-GALLERY:
+      visibility: public
+      score: 80
+      trigger: "creating image documentation, cataloging screenshots"
+      satisfies: [images, documentation, gallery, narration]
 
   # ─────────────────────────────────────────────────────────────────────────
   # REFERENCE SHORTCUTS
@@ -676,6 +742,22 @@ card:
       files:
         - "embeddable_files.txt               # Files for embedding"
         - "high_level_folder_description.txt  # Important paths"
+        
+    images:
+      path: "~/Library/Application Support/Cursor/User/workspaceStorage/<hash>/images/"
+      pattern: "image-<uuid>.png"
+      description: |
+        Cached images from chat sessions. When you paste or drag an image into
+        Cursor chat, it's cached here with a UUID filename.
+      metadata_in_bubbles:
+        - "context.selectedImages[].uuid"
+        - "context.selectedImages[].path"
+        - "context.selectedImages[].dimension"
+        - "context.selectedImages[].loadedAt"
+      use_for:
+        - "Recovering pasted screenshots"
+        - "Building image galleries"
+        - "Referencing images by path for Read tool"
 
   # ─────────────────────────────────────────────────────────────────────────
   # K-LINES
@@ -686,6 +768,7 @@ card:
       - CURSOR-CHAT
       - WATCH-YOURSELF-THINK
       - FILES-AS-STATE
+      - IMAGE-ARCHAEOLOGY
     related:
       - BOOTSTRAP
       - HOT-COLD
@@ -701,6 +784,7 @@ card:
     documentation:
       - "SKILL.md"              # Protocol details
       - "README.md"             # Deep context
+      - "IMAGE-GALLERY.md"      # I-Beam narrated image gallery
       - "DATA-SCHEMAS.yml"      # JSON schema documentation
       - "KEY-CATALOG.yml"       # Complete key type inventory
       - "MODELS.yml"            # AI model catalog
