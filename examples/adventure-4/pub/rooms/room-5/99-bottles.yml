@@ -632,6 +632,10 @@ object:
 # "The night 99 bottles became 99 truths"
 # ═══════════════════════════════════════════════════════════════════
 
+  # IMPLICIT CONTAINMENT: Full simulation in separate file
+  contains:
+    - 99-bottles-legendary-ensemble.md  # The actual simulation!
+
   legendary_ensemble:
     name: "The First 99"
     occasion: "The night the Speed of Light Suite proved itself"
