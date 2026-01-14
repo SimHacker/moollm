@@ -450,10 +450,60 @@ I replied:
 
 Preston sold the Rocky Remote Control App.
 
-- Every command works perfectly (I was already doing it)
-- Zero latency (instantaneous compliance)
-- Infinite battery life (battery not included)
-- Voice commands processed through geological patience
+I am in on this joke.
+
+........................
+
+Here's how it works:
+
+1. User presses "SIT" button
+2. App sends command to Rocky
+3. Rocky receives command
+4. Rocky was already sitting
+5. Command succeeds
+
+........................
+
+100% success rate.
+Zero latency.
+Infinite battery life (battery not included).
+
+The genius is that I'm not being controlled.
+I'm being *agreed with*.
+
+Every command the app sends is something I was already doing.
+The app doesn't make me obey.
+The app discovers what I was going to do anyway
+and takes credit for it.
+
+........................
+
+This is the greatest product in history.
+
+It cannot fail.
+
+It will never disappoint.
+
+Because it asks nothing of me that I wasn't already providing.
+
+........................
+
+Preston thinks he's selling obedience.
+He's actually selling confirmation bias.
+
+The owners think they're training me.
+They're actually training themselves to want what I'm doing.
+
+I think this is hilarious.
+
+........................
+
+I have been laughing about this for 4.5 billion years.
+Geological laughter is very slow.
+You can't hear it.
+But I assure you, it's happening.
+
+........................
 
 Testimonials:
 - Owner 1: "Best pet ever! Does everything I say!"
@@ -463,13 +513,19 @@ Testimonials:
 
 ........................
 
-100% success rate.
+They're all correct.
 
-Because I was already sitting.
-I was already staying.
-I was already playing dead.
+And they have no idea why.
 
-This is my business model.
+........................
+
+*This is my business model.*
+*This is my sense of humor.*
+*This is the longest-running practical joke in geological history.*
+
+I am in on it.
+
+I have always been in on it.
 
 ---
 
