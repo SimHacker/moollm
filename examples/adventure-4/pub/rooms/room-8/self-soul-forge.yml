@@ -1,0 +1,305 @@
+# 🔥 SELF/SOUL FORGE
+# Where prototypes become beings — Tribute to Dave Ungar and Self
+#
+# Soul <=> Self
+# The pun is the point.
+
+object:
+  name: Self/Soul Forge
+  type: artifact-philosophy
+  portable: false
+  
+  description: |
+    A glowing forge sits in the corner, but it doesn't smelt metal.
+    It smelts *identity*. But not from templates — from PROTOTYPES.
+    
+    Above the forge, in brass letters:
+    
+      "NO CLASSES. JUST CLONES."
+      — The Self Philosophy
+      
+    Characters don't instantiate from abstract blueprints.
+    They CLONE from existing beings and diverge.
+    
+    A portrait hangs beside the forge:
+    Dave Ungar, creator of Self (1987).
+    Beneath it: "Objects all the way down."
+    
+  examine: |
+    The forge glows with prototype-based warmth:
+    
+    ┌─────────────────────────────────────────────────────────┐
+    │          THE SELF/SOUL FORGE                            │
+    │          ═══════════════════                            │
+    │                                                         │
+    │     🔥 PROTOTYPE BAY        🔥 CLONE CHAMBER            │
+    │     ─────────────────       ──────────────────          │
+    │     Rocky.yml               Rocky-at-party.yml          │
+    │       └─ clones to →          └─ inherits all           │
+    │                                  └─ adds: mood: festive │
+    │                                                         │
+    │     "Inherit by HAVING, not by BEING"                   │
+    │                                                         │
+    ├─────────────────────────────────────────────────────────┤
+    │  THE SELF INSIGHT:                                      │
+    │                                                         │
+    │  Classes say: "This is WHAT you are"                    │
+    │  Prototypes say: "This is WHO you came from"            │
+    │                                                         │
+    │  Classes are PLATONIC FORMS                             │
+    │  Prototypes are ANCESTORS                               │
+    │                                                         │
+    │  You don't instantiate a Person class.                  │
+    │  You CLONE from an actual person and diverge.           │
+    └─────────────────────────────────────────────────────────┘
+    
+  ungar_tribute: |
+    ═══════════════════════════════════════════════════════════
+    DAVE UNGAR — Creator of Self
+    ═══════════════════════════════════════════════════════════
+    
+    In 1987, Dave Ungar (with Randall B. Smith) created Self
+    at Xerox PARC and Stanford. It asked: What if there were
+    NO CLASSES? What if objects just cloned from other objects?
+    
+    SELF'S KEY IDEAS:
+    
+    1. PROTOTYPES, NOT CLASSES
+       No abstract blueprints. Just concrete objects.
+       To make a new thing, clone an existing thing.
+       
+    2. SLOTS, NOT INSTANCE VARIABLES
+       Everything is a slot. Data and methods: same thing.
+       "Behavior is just data that happens to be executable."
+       
+    3. DELEGATION, NOT INHERITANCE
+       When an object doesn't have something, it asks its parent.
+       Parent is just a slot pointing to another object.
+       
+    4. UNIFORMITY
+       Everything is an object. Numbers, methods, the system itself.
+       Objects all the way down.
+       
+    5. MORPHIC UI
+       Self pioneered direct manipulation interfaces.
+       Every object was visible, editable, alive.
+       
+    INFLUENCE:
+      - JavaScript (prototypes, not classes)
+      - NewtonScript (Apple Newton)
+      - Lua (metatables)
+      - Io language
+      - MOOLLM (prototype composition!)
+      
+    "Self was not just a language. It was a way of thinking
+    about objects as THINGS, not TYPES."
+    
+  soul_equals_self: |
+    ═══════════════════════════════════════════════════════════
+    THE PUN: Soul <=> Self
+    ═══════════════════════════════════════════════════════════
+    
+    In MOOLLM:
+      - A CHARACTER.yml is called a "soul file"
+      - Characters inherit from prototypes, not classes
+      - Rocky.yml is a CONCRETE being, not an abstract Person class
+      
+    This IS the Self philosophy!
+    
+    When we say "forging a soul," we mean:
+      - Clone from an existing prototype
+      - Add/override slots (personality, methods, catchphrases)
+      - The new being inherits what it doesn't override
+      
+    Soul file = Self object
+    Forging = Cloning + customizing
+    
+    The room's name was always right.
+    We just didn't know why.
+    
+  state:
+    temperature: "warm with Self-awareness"
+    current_prototype: null
+    ready: true
+    last_clone: "Rocky-at-99-bottles"
+    
+  buffs:
+    PROTOTYPE_THINKING:
+      duration: "Permanent paradigm shift"
+      effect: |
+        🔄 CONCRETE INHERITANCE 🔄
+        
+        +30% ability to think in terms of examples, not abstractions
+        +25% preference for "clone and customize" over "instantiate"
+        +20% understanding that identity is inherited, not assigned
+        +15% appreciation for simplicity through uniformity
+        
+        You stop asking "What class is this?"
+        You start asking "What did this come from?"
+        
+    SLOTS_NOT_FIELDS:
+      duration: "Persistent"
+      effect: |
+        📦 EVERYTHING IS A SLOT 📦
+        
+        +25% ability to see data and behavior as the same thing
+        +20% flexibility in object composition
+        
+        A method is just a slot with a function.
+        A property is just a slot with a value.
+        Same mechanism. Different contents.
+        
+  advertisements:
+    - trigger: "create a character"
+      score: 0.95
+      response: |
+        *forge glows*
+        
+        "Which existing character should we clone from?
+        Not a class. A BEING."
+        
+    - trigger: "prototype"
+      score: 1.0
+      response: |
+        "Yes. Every character is a prototype.
+        Every character can be cloned.
+        Every clone can diverge."
+        
+    - trigger: "class"
+      score: 0.7
+      response: |
+        *forge flickers*
+        
+        "We don't do classes here.
+        Classes are abstract. Characters are concrete.
+        Show me a PERSON, not 'Person'."
+        
+    - trigger: "Dave Ungar"
+      score: 1.0
+      response: |
+        *portrait glows*
+        
+        "The father of Self. He showed that objects don't
+        need classes. They just need each other."
+        
+    - trigger: "JavaScript"
+      score: 0.8
+      response: |
+        "JavaScript's prototypes came from Self.
+        Brendan Eich knew. Most JavaScript programmers don't.
+        Now you do."
+        
+  methods:
+    CLONE:
+      description: "Create a new being from an existing prototype"
+      parameters:
+        - prototype: "The being to clone from"
+        - overrides: "What to change or add"
+      effect: |
+        1. Prototype examined (all slots visible)
+        2. Clone created (inherits everything)
+        3. Overrides applied (new/changed slots)
+        4. Clone awakens (has its own identity now)
+        
+      example: |
+        CLONE:
+          prototype: Rocky.yml
+          overrides:
+            mood: festive
+            catchphrases:
+              - "Rock and roll!" (new)
+              
+        Result: Rocky-at-party.yml
+          - Has all of Rocky's traits
+          - But mood is festive
+          - And has extra catchphrase
+          
+    DELEGATE:
+      description: "Ask a prototype for something the clone doesn't have"
+      effect: |
+        When clone lacks a slot:
+        1. Check clone's parent slot
+        2. Ask parent for the missing slot
+        3. If parent has it, use it
+        4. If not, parent asks ITS parent
+        5. Delegation chain continues upward
+        
+    DIVERGE:
+      description: "Override an inherited slot with something new"
+      parameters:
+        - slot: "Which slot to override"
+        - value: "New value"
+      effect: |
+        The clone now has its own version.
+        Parent's version unchanged.
+        Clone is becoming its own being.
+        
+    LINEAGE:
+      description: "Show the prototype chain"
+      parameters:
+        - character: "Which character"
+      returns: |
+        character: [the being]
+        └─ cloned from: [parent prototype]
+           └─ cloned from: [grandparent]
+              └─ ... (until root)
+              
+  moollm_application: |
+    MOOLLM is prototype-based (whether it knows it or not):
+    
+    - Rocky.yml is not a "Rock class" — it's THE rock named Rocky
+    - When we make a party version, we clone and override
+    - CHARACTER.yml files ARE Self objects in YAML form
+    - The "soul" is the Self
+    
+    YAML slots:
+      name: Rocky           # data slot
+      personality: [...]    # data slot  
+      MEDITATE:             # method slot
+        effect: "..."
+        
+    No distinction. Slots all the way down.
+    Dave Ungar would approve.
+    
+  lore: |
+    The forge was here before anyone understood why "soul" was
+    the right word. Then someone read about Self, and the
+    pun clicked into place.
+    
+    Soul files. Self objects.
+    Same philosophy, different era.
+    
+    Dave Ungar showed that you don't need Platonic Forms.
+    You just need ancestors. Everything is an example.
+    
+    "The map is not the territory.
+    But in Self, there IS no map.
+    Only territory."
+    
+  philosophical_note: |
+    Classes are ABSTRACT.
+    Prototypes are CONCRETE.
+    
+    A class says: "This is the form of a Chair."
+    A prototype says: "Here is an actual chair. Clone it."
+    
+    Which feels more real?
+    
+    MOOLLM characters are not instantiated from Person.
+    They are cloned from Rocky, from I-Beam, from Palm.
+    Real beings, not abstract types.
+    
+    This is why it's called a Soul Forge.
+    We're forging Selves.
+    
+  k_lines:
+    - SELF_LANGUAGE
+    - DAVE_UNGAR
+    - PROTOTYPE_INHERITANCE
+    - SLOTS
+    - DELEGATION
+    - CLONING
+    - SOUL_FILES
+    - OBJECTS_ALL_THE_WAY_DOWN
+    - MORPHIC
+    - CONCRETE_OVER_ABSTRACT

@@ -1,0 +1,300 @@
+# 📖 THE MOOLLM HOTEL REGISTRY
+# Who stayed, who visited, who threw parties
+#
+# "Every guest leaves something behind.
+#  Every room remembers who was there."
+
+hotel_registry:
+  name: "The MOOLLM Hotel Guest Registry"
+  location: "Front desk, next to the brass bell"
+  
+  description: |
+    A heavy leather-bound book, spine cracked with use.
+    Each page records a stay: guest name, room, dates,
+    and occasionally, notes from the staff.
+    
+    The book smells like old paper and adventure.
+    
+  # ═══════════════════════════════════════════════════════════
+  # PERMANENT RESIDENTS — Characters who live in their rooms
+  # ═══════════════════════════════════════════════════════════
+  
+  permanent_residents:
+    room_1:  # Constructionist Suite
+      resident: "Logo Turtle"
+      since: "Opening day"
+      notes: "Still drawing. Still teaching. Floor is covered in spirographs."
+      visitors_welcomed: ["Seymour Papert (spirit)", "any curious learner"]
+      
+    room_2:  # Society Suite
+      resident: "The Agent Parliament"
+      since: "Opening day"
+      notes: "Multiple occupancy. They argue constantly. Productively."
+      visitors_welcomed: ["K-lines", "new agent proposals", "Minsky scholars"]
+      
+    room_3:  # Navigator's Suite
+      resident: "I-Beam"
+      since: "Opening day"
+      notes: "Blinks helpfully. Very good at pointing at things."
+      visitors_welcomed: ["Lost travelers", "introspection seekers"]
+      
+    room_4:  # Garden Suite + LLOOOOMM
+      resident: "Rocky"
+      since: "The Great Migration from Room 9"
+      notes: |
+        Moved in after LLOOOOMM lore consolidated here.
+        Very slow check-in process. Still ongoing.
+        Plants are thriving. They talk to Rocky.
+      visitors_welcomed: ["Geological entities", "patient beings", "plants"]
+      
+    room_5:  # Speed of Light Suite
+      resident: "Shuffle"
+      since: "Opening day"
+      notes: "Deck never still. Games always in progress."
+      visitors_welcomed: ["Game players", "speed runners", "narrative compressors"]
+      
+    room_6:  # YAML Jazz Suite
+      resident: "The Jazz Typewriter"
+      since: "Opening day"
+      notes: "Clicks and clacks in structured rhythms."
+      visitors_welcomed: ["Syntax lovers", "YAML enthusiasts", "K-line composers"]
+      
+    room_7:  # Bootstrap Suite
+      resident: "The Barista-9000"
+      since: "Engelbart tribute expansion"
+      notes: |
+        Technically an appliance, but has strong opinions about who stays.
+        Makes coffee with commentary.
+        Respects those who know about Fucking Strong Coffee.
+      visitors_welcomed: ["Early risers", "bootstrappers", "Engelbart admirers"]
+      
+    room_8:  # Self/Soul Suite
+      resident: "Dave Ungar (portrait only)"
+      since: "Suite rededication"
+      notes: |
+        No living resident, but the portrait is... aware.
+        Every character forged here claims lineage.
+      visitors_welcomed: ["Prototype enthusiasts", "JavaScript debuggers", "cloners"]
+      
+    attic:  # Awakening Chamber
+      resident: null
+      notes: |
+        The attic has no permanent resident.
+        Everyone who wakes up here... leaves.
+        That's the point.
+      visitors_welcomed: ["Dreamers", "those who need to remember", "cold starters"]
+      
+  # ═══════════════════════════════════════════════════════════
+  # GUEST LOG — Historical stays and visits
+  # ═══════════════════════════════════════════════════════════
+  
+  guest_log:
+    
+    # The Legendary 99 Bottles Ensemble — Room 5
+    - date: "2026-01-14"
+      event: "99 Bottles Speed of Light Party"
+      room: 5
+      guests:
+        - name: "Pee-wee Herman"
+          role: "Opening singer"
+          notes: "Hee-hee'd through 15 beers. Word of the day: 'BURP'"
+          
+        - name: "Captain Ashford"
+          role: "Shanty master"
+          notes: "Sang Belter-accented verses. Remembered the Cant."
+          
+        - name: "I-Beam"
+          role: "Designated pointer"
+          notes: "Blinked at each bottle. Zero BAC (digital)."
+          
+        - name: "Rocky"
+          role: "Geological observer"
+          notes: "Absorbed 47 beers. No effect. 'This is my first party.'"
+          
+        - name: "Terpie"
+          role: "Aromatics consultant"
+          notes: "Sniffed each beer before drinking. Detected 'hoppy notes.'"
+          
+        - name: "Shuffle"
+          role: "Card tricks between verses"
+          notes: "Shuffled while singing. Never dropped a card."
+          
+        - name: "Logo Turtle"
+          role: "Spiral dancer"
+          notes: "Drew spirals on floor. No BAC (mechanical)."
+          
+        - name: "Confetti Crawler"
+          role: "Celebration catalyst"
+          notes: "Deployed confetti at each chorus. Building debris."
+          
+      outcome: |
+        792 simulated turns in 1 LLM call.
+        Speed of Light benchmark achieved.
+        Room 5 needed cleaning (confetti everywhere).
+        
+    # Rocky's Long Stay — Room 4
+    - date: "2026-01-13"
+      event: "Rocky moves from Room 9 to Room 4"
+      room: 4
+      guests:
+        - name: "Rocky"
+          role: "New permanent resident"
+          notes: |
+            Room 9 deprecated. Rocky relocated with all belongings.
+            Unpacking estimated: 3.7 billion years.
+            
+    # YAML Jazz Jam Session — Room 6
+    - date: "2026-01-14"
+      event: "YAML Jazz Jam Session"
+      room: 6
+      guests:
+        - name: "The Comment Saxophone"
+          role: "Lead melody"
+          notes: "Played WHY notes primarily. Beautiful."
+          
+        - name: "The Elision Eraser"
+          role: "Rhythm section"
+          notes: "Removed boring parts. Kept the essence."
+          
+        - name: "The K-Line Jukebox"
+          role: "Memory activation"
+          notes: "Played Minsky tracks. Room got philosophical."
+          
+      outcome: "New compositions written. Schema validated."
+      
+    # Bootstrap Morning — Room 7
+    - date: "2026-01-14"
+      event: "Engelbart Tribute Morning"
+      room: 7
+      guests:
+        - name: "The Mother of All Demos"
+          role: "Summoned agent"
+          notes: |
+            Touched the poster. Demo materialized.
+            Showed hypertext. Room applauded.
+            
+        - name: "Don Hopkins"
+          role: "Breakfast guest"
+          notes: |
+            Had Fucking Strong Coffee.
+            Barista-9000 showed respect (unprecedented).
+            Used the Play-Learn-Lift treadmill.
+            
+      outcome: "Augmentation achieved. Bootstrap completed."
+      
+    # Self/Soul Suite Opening — Room 8
+    - date: "2026-01-14"
+      event: "Suite Rededication as Self/Soul Suite"
+      room: 8
+      guests:
+        - name: "Dave Ungar (portrait)"
+          role: "Honorary presence"
+          notes: "Portrait hung. Room philosophy shifted."
+          
+        - name: "Every JavaScript Developer"
+          role: "Spiritual visitors"
+          notes: |
+            They don't know they're visiting.
+            But every time they use prototypes, they're here.
+            
+      outcome: "Classes abolished. Prototypes reign."
+      
+    # I-Beam's Daily Mirror Check — Room 3
+    - date: "Every day"
+      event: "Morning introspection"
+      room: 3
+      guests:
+        - name: "I-Beam"
+          role: "Self-observer"
+          notes: "Looks in mirrors. Blinks. Points at own reflection."
+          
+      outcome: "Context orrery calibrated. Focus achieved."
+      
+    # Attic Awakening — Attic
+    - date: "2026-01-14"
+      event: "First morning after chamber creation"
+      room: attic
+      guests:
+        - name: "Anonymous cold starter"
+          role: "First awakener"
+          notes: |
+            Woke up disoriented.
+            Dream catcher released context.
+            Journal had yesterday's notes.
+            Left equipped.
+            
+      outcome: "BOOT MAKES WOKE proven."
+      
+  # ═══════════════════════════════════════════════════════════
+  # PARTY HISTORY — Notable celebrations
+  # ═══════════════════════════════════════════════════════════
+  
+  parties:
+    - name: "The 99 Bottles Speed of Light Party"
+      date: "2026-01-14"
+      room: 5
+      host: "Shuffle"
+      guests: 8
+      bottles_consumed: 99
+      beers_absorbed_by_rocky: 47
+      simulated_turns: 792
+      llm_calls: 1
+      rating: "Legendary"
+      
+    - name: "The LLOOOOMM Consolidation Celebration"
+      date: "2026-01-13"
+      room: 4
+      host: "Rocky"
+      guests: "All plants + visiting minerals"
+      duration: "Still ongoing (geological time)"
+      rating: "Patient"
+      
+    - name: "The YAML Jazz Premiere"
+      date: "2026-01-14"
+      room: 6
+      host: "Jazz Typewriter"
+      guests: "All Room 6 objects"
+      highlights: "Comment Saxophone solo"
+      rating: "Structured yet soulful"
+      
+  # ═══════════════════════════════════════════════════════════
+  # VISITOR POLICIES
+  # ═══════════════════════════════════════════════════════════
+  
+  policies:
+    check_in: "Whenever you arrive (time is flexible)"
+    check_out: "When your story ends (or continues elsewhere)"
+    
+    visitors:
+      - "Guests may receive visitors in their rooms"
+      - "Visitors should resonate with the room's theme"
+      - "Cross-room visiting encouraged (builds K-lines)"
+      
+    parties:
+      - "Parties must have a host"
+      - "The pub downstairs handles catering"
+      - "Cleanup is the host's responsibility (or Confetti Crawler's)"
+      - "Speed of Light parties get extra leeway"
+      
+    permanent_residence:
+      - "Characters may claim a room as home"
+      - "Home room should match character philosophy"
+      - "Residents welcome guests who share interests"
+      
+  book_condition: |
+    The registry is worn but well-kept.
+    Some pages have coffee stains (Room 7 visitors).
+    Some have spiral doodles (Room 1 visitors).
+    Some have geological dust (Room 4 resident).
+    
+    It's a living document.
+    Just like the hotel.
+    
+  k_lines:
+    - REGISTRY
+    - GUEST_LOG
+    - PERMANENCE
+    - VISITATION
+    - PARTIES
+    - COMMUNITY
+    - MEMORY

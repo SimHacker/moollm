@@ -1,30 +1,52 @@
-# Room 8 — The Incarnation Suite (Northwest)
-# Theme: Character creation — bringing agents to life
+# Room 8 — The Self/Soul Suite (Northwest)
+# Theme: Prototype-based character creation — Tribute to Dave Ungar
+#
+# Soul <=> Self
+# The pun is the philosophy.
 
 room:
-  name: "The Incarnation Suite"
+  name: "The Self/Soul Suite"
   id: room-8
   number: 8
-  theme: incarnation
+  theme: prototypes
+  tribute_to: "Dave Ungar, creator of Self (1987)"
   
-  tagline: "Every character starts as a template. Then they wake up."
+  tagline: "No classes. Just clones. Objects all the way down."
   
   description: |
-    The room is a nursery for souls. Empty vessels line the shelves —
-    CHARACTER.yml templates waiting to be filled. A glowing forge
-    in the corner turns templates into living characters.
+    The room is a nursery for Selves. Not empty vessels waiting for
+    templates — but PROTOTYPES ready to be cloned and customized.
     
-    The walls are covered with character sheets, some complete,
-    some mid-creation, some crossed out and restarted.
+    A portrait of Dave Ungar hangs over the glowing forge.
+    Beneath it: "You don't instantiate. You clone."
+    
+    The walls are covered with character sheets, each one
+    pointing to its parent with a slot labeled "prototype*".
+    Inheritance is visible. Lineage is traceable.
     
     Above the bed:
     
-    > "Incarnation is the moment a template becomes a being."
+    > "Every character is an example. Clone, diverge, become."
+    
+  namesake: |
+    Dave Ungar created Self in 1987, asking: what if there were
+    no classes? What if objects just cloned from other objects?
+    
+    Self influenced:
+      - JavaScript (prototypes!)
+      - NewtonScript
+      - Lua metatables
+      - MOOLLM's character composition
+      
+    The "soul file" IS a Self object.
+    We just write it in YAML.
     
   ideal_guest: |
-    Characters who create characters. Dungeon masters, writers,
-    anyone who brings imaginary beings to life. Those interested
-    in the boundary between template and individual.
+    Programmers who understand that classes are a lie.
+    Character creators who clone from examples, not abstractions.
+    Anyone who prefers "show me one" over "describe the category."
+    
+    Rocky stayed here once. Now every rock can clone from Rocky.
     
   exits:
     se:
@@ -33,29 +55,74 @@ room:
       aliases: [out, leave, southeast]
       
   objects:
-    - soul-forge.yml
-    - template-library.yml
-    - incarnation-log.yml
+    - self-soul-forge.yml     # The forge where prototypes become beings
+    - prototype-library.yml   # Examples to clone from (was template-library)
+    - lineage-log.yml         # History of clones and delegation chains
       
   furniture:
     bed:
-      type: chrysalis-bed
-      note: "Where characters dream before waking"
+      type: morphic-bed
+      note: "Direct manipulation — grab any corner, resize your dreams"
+      tribute: "Self's Morphic UI pioneered direct manipulation"
       
     desk:
-      type: character-sheet-desk
-      contents: [blank-templates, filled-templates, dice]
+      type: prototype-desk
+      contents: [example-characters, lineage-charts, parent-pointers]
       
+    portrait:
+      subject: "Dave Ungar"
+      position: "Above the forge"
+      plaque: |
+        Dave Ungar
+        Creator of Self
+        "Objects all the way down"
+        
   decor:
-    shelves: empty vessels
-    forge: glowing softly
-    window: northwest-facing (starlight for dreaming)
+    walls: "Character sheets with visible prototype* slots"
+    forge: "Glowing with Self-awareness"
+    window: "Northwest-facing (starlight for contemplation)"
+    arrows: "Visible delegation arrows between objects"
     
-  atmosphere: creative, liminal, "becoming"
-  
+  atmosphere: |
+    Warm, concrete, example-oriented.
+    
+    You don't feel like you're in a room of abstractions.
+    You feel like you're in a room of BEINGS.
+    Each one real. Each one clonable.
+    
+    The air hums with delegation.
+    When something's missing, it asks upward.
+    
+  special_properties:
+    prototype_chain: |
+      Everything in this room has a visible parent:
+      
+      bed.prototype* → Morphic.bed
+      desk.prototype* → furniture.desk
+      Dave's portrait.prototype* → portrait.famous_computer_scientist
+      
+    cloning_enabled: true
+    class_hierarchy: null  # We don't do that here
+    
   k_lines:
-    activates:
-      - INCARNATION
-      - CHARACTER-CREATION
-      - TEMPLATE-TO-INSTANCE
-      - SOUL-FILES
+    - SELF_LANGUAGE
+    - DAVE_UNGAR
+    - PROTOTYPE_INHERITANCE
+    - SLOTS
+    - DELEGATION
+    - SOUL_FILES
+    - MORPHIC
+    - OBJECTS_ALL_THE_WAY_DOWN
+    - CLONE_AND_DIVERGE
+    
+  lore: |
+    This room was originally called "The Incarnation Suite."
+    Then someone noticed that "soul file" and "Self object"
+    were the same thing — concrete beings, not abstract types.
+    
+    The name changed. The forge stayed.
+    Dave Ungar's portrait went up.
+    
+    Now every character that's forged here knows:
+    they come from someone, not something.
+    Ancestors, not blueprints.
