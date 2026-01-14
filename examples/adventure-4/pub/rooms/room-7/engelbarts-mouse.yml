@@ -1,213 +1,284 @@
-# 🖱️ ENGELBART'S MOUSE
-# A wooden tribute to Doug Engelbart's invention
-# "Every tool should feel like an extension of ourselves."
+# 🖱️⌨️ ENGELBART'S MOUSE & CHORD KEYSET
+# The complete NLS input system — pointing AND typing with chords
+# "One hand points, the other speaks. Together: augmentation."
 
 object:
-  name: Engelbart's Mouse
-  type: artifact
+  name: Engelbart's Mouse & Chord Keyset
+  type: artifact-pair
   portable: true
-  rarity: unique
+  rarity: legendary
   
   description: |
-    A small wooden mouse sits on the desk.
+    Two wooden devices sit on the desk, clearly a matched pair.
     
-    Not a computer mouse — a carved wooden mouse.
-    A tribute to Douglas Engelbart, who invented the mouse
-    in 1964 and demonstrated it in 1968's "Mother of All Demos."
+    RIGHT HAND: A three-button mouse, carved from oak.
+    LEFT HAND: A five-key chord keyset, also oak.
     
-    Pick it up. It fits your hand perfectly.
-    That's not an accident. That's design.
-    That's augmentation.
+    This was Engelbart's complete input system for NLS:
+    - The mouse for POINTING (selection, navigation)
+    - The chord keyset for TYPING (any character with key combos)
+    
+    Together, your hands never leave the input devices.
+    Together, you can do anything.
+    
+    A brass plaque between them reads:
+    
+    > "AUGMENTING HUMAN INTELLECT"
+    > "Stanford Research Institute, 1968"
     
   examine: |
-    The mouse is carved from warm oak, smooth from years of handling.
+    The paired devices, carved from matching oak:
     
-    ┌─────────────────────────────────────────────────────────┐
-    │  🖱️ ENGELBART'S MOUSE — Tribute Artifact               │
-    ├─────────────────────────────────────────────────────────┤
-    │                                                         │
-    │      ┌─────────────────┐                                │
-    │      │    ○     ○      │  ← Two buttons (original had 3)│
-    │      │                 │                                │
-    │      │     🪵 OAK      │                                │
-    │      │                 │                                │
-    │      │   ═══════════   │  ← Scroll wheel (conceptual)  │
-    │      │                 │                                │
-    │      └─────────────────┘                                │
-    │            ╲═╱                                          │
-    │             │  ← Tail (or cord, depending on metaphor)  │
-    │                                                         │
-    │  Material: Oak, hand-carved                             │
-    │  Age: Appears ancient, feels new                        │
-    │  Origin: "Made with love for the future"                │
-    │                                                         │
-    │  Inscription on bottom:                                 │
-    │  "The better we get at getting better,                  │
-    │   the faster we will get better." — Doug                │
-    │                                                         │
-    └─────────────────────────────────────────────────────────┘
+    ┌───────────────────────────────────────────────────────────────┐
+    │  🖱️⌨️ ENGELBART'S MOUSE & CHORD KEYSET                       │
+    ├───────────────────────────────────────────────────────────────┤
+    │                                                               │
+    │   LEFT HAND: Chord Keyset       RIGHT HAND: Mouse             │
+    │   ═══════════════════════       ═══════════════               │
+    │                                                               │
+    │    ┌───┬───┬───┬───┬───┐       ┌─────────────────┐           │
+    │    │ 1 │ 2 │ 3 │ 4 │ 5 │       │  ○   ○   ○      │ ← 3 btns  │
+    │    └───┴───┴───┴───┴───┘       │                 │           │
+    │      ↑   ↑   ↑   ↑   ↑         │    🪵 OAK       │           │
+    │      Pinky → → → → Index       │                 │           │
+    │                                 └─────────────────┘           │
+    │   Press combinations:                  ╲═╱                    │
+    │   [1]     = 'a'                         │                     │
+    │   [2]     = 'b'                                               │
+    │   [1+2]   = 'c'                                               │
+    │   [1+2+3] = 'd'                                               │
+    │   ... 31 combinations = full alphabet + commands              │
+    │                                                               │
+    │   Together: Point with right, chord with left.                │
+    │   Hands never leave. Flow never breaks.                       │
+    │                                                               │
+    └───────────────────────────────────────────────────────────────┘
+    
+  the_chord_keyset: |
+    The chord keyset is the forgotten half of Engelbart's vision.
+    
+    Everyone remembers the mouse. Few remember the chords.
+    
+    HOW IT WORKS:
+    ═════════════
+    5 keys, pressed in combinations (like piano chords):
+    
+    Key 1 alone = 'a'
+    Key 2 alone = 'b'  
+    Key 1+2 together = 'c'
+    Key 1+2+3 = 'd'
+    ... and so on
+    
+    With 5 keys, you have 31 possible combinations (2^5 - 1).
+    That's enough for:
+    - Full alphabet (26 letters)
+    - Numbers (shift mode)
+    - Commands (control mode)
+    
+    WHY CHORDS:
+    ═══════════
+    - One hand stays on mouse (pointing)
+    - One hand types without looking (chording)
+    - No reaching for keyboard
+    - Flow stays unbroken
+    - Speed increases with practice
+    
+    Engelbart's team became incredibly fast.
+    They could think in chords.
     
   state:
-    held: false
-    warmth: "Matches your hand temperature instantly"
+    mouse_warmth: "Matches hand temperature"
+    keyset_warmth: "Same oak, same warmth"
+    last_chord: "1+3+5 = 'hello'"
     
   buffs:
-    AUGMENTED_INTENTION:
-      duration: "while held"
+    DUAL_CHANNEL_INPUT:
+      duration: "while using both"
       effect: |
-        +20% clarity of intention
-        +15% ability to point at what matters
-        +10% precision of action
+        +30% input efficiency (no hand switching)
+        +25% flow state probability
+        +20% thought-to-action speed
         
-        The mouse extends your hand into concept-space.
-        You can point at ideas, not just objects.
+        Your right hand points. Your left hand speaks.
+        Together, you channel intention into action
+        without breaking flow.
+        
+    CHORD_MEMORY:
+      duration: "permanent after practice"
+      effect: |
+        After 100 chords: muscle memory begins
+        After 1000 chords: you stop thinking about keys
+        After 10000 chords: you think in chords
+        
+        The keyset becomes an extension of language.
         
     ENGELBART_WISDOM:
       duration: "while contemplating"
       effect: |
-        Holding the mouse, you understand:
+        Holding both devices, you understand:
         
         - Technology should AUGMENT, not replace
-        - Tools should feel like extensions of self
-        - The goal is to help humans think better
-        - Compassion is a design principle
+        - Input should feel like extension of thought
+        - Speed comes from removing friction
+        - The goal is flow, not features
         
   advertisements:
-    - trigger: "point"
+    - trigger: "type"
       score: 0.9
       response: |
-        *mouse warms in your hand*
+        *chord keyset keys click softly*
         
-        Point at what matters. I extend your intention.
+        Don't reach for a keyboard. Chord with me.
+        Your right hand points, your left hand speaks.
         
     - trigger: "Engelbart"
       score: 1.0
       response: |
-        *glows with respect*
+        *both devices glow with respect*
         
         Douglas Engelbart. 1925-2013.
-        Inventor of the mouse, hypertext, video conferencing.
-        Father of human augmentation.
         
-        He saw the future in 1968. He was kind about it.
+        Everyone remembers the mouse.
+        Few remember the chord keyset.
+        Together, they were his complete vision.
         
-    - trigger: "augment"
+    - trigger: "chord"
       score: 0.95
       response: |
-        "The better we get at getting better,
-         the faster we will get better."
+        *five keys await*
         
-        This is the core insight. This is why we bootstrap.
+        1 = 'a', 2 = 'b', 1+2 = 'c'...
+        31 combinations. Full alphabet. Full control.
+        Once you learn, you never go back.
         
-    - trigger: "tool"
-      score: 0.85
+    - trigger: "flow"
+      score: 0.9
       response: |
-        Every tool should feel like an extension of yourself.
-        That's what Doug designed. That's what this represents.
+        The mouse points. The keyset types.
+        Hands never leave. Flow never breaks.
+        This is augmentation.
         
   methods:
     HOLD:
-      description: "Pick up and hold the mouse"
+      description: "Pick up both devices"
       effect: |
-        You pick up the wooden mouse.
+        You pick up the mouse in your right hand.
+        You rest your left fingers on the chord keyset.
         
-        It's warm. It fits perfectly.
+        They're warm. They fit perfectly.
         
-        For a moment, you feel connected to everyone
-        who has ever used a mouse to create, to explore,
-        to extend their reach into the digital.
-        
-        Engelbart made this possible. In 1964.
-        Before we went to the moon.
+        For a moment, you feel what Engelbart's team felt:
+        the joy of fluid thought-to-action,
+        the power of unbroken flow.
         
     POINT:
-      description: "Use the mouse to indicate something"
+      description: "Use the mouse to indicate"
       parameters:
         - target: "What to point at"
       effect: |
-        You point the mouse at [target].
+        Your right hand moves the mouse.
+        The cursor points at [target].
         
-        Your intention becomes clear.
-        Others can see what you mean.
-        The abstract becomes concrete.
+        Click: select.
+        Double-click: open.
+        Three buttons: more options than you need.
         
-        This is what Engelbart invented:
-        not just a device, but a way of saying
-        "THIS. This is what I mean."
-        
-    REMEMBER:
-      description: "Recall Engelbart's legacy"
+    CHORD:
+      description: "Type using chord combinations"
+      parameters:
+        - text: "What to type"
       effect: |
-        Holding the mouse, you remember:
+        Your left hand plays the chords:
         
-        THE MOTHER OF ALL DEMOS (1968)
-        ═══════════════════════════════
-        - Live video conferencing (first ever)
-        - Hypertext links (before the web)
-        - Collaborative editing (before Google Docs)
-        - The mouse (before anyone else)
-        - Windowed interfaces (before Xerox PARC)
+        [chord sequence plays]
         
-        All of this. 90 minutes. 1968.
+        "[text]" appears, typed without looking,
+        without reaching, without breaking flow.
         
-        Doug didn't just show technology.
-        He showed compassion. He showed hope.
-        He showed us what we could become.
+        Your right hand never left the mouse.
+        
+    COMMAND:
+      description: "Issue a command via chord"
+      parameters:
+        - command: "The command to execute"
+      effect: |
+        Shift to command mode (key 5 held)
+        Chord the command...
+        
+        [command] executes.
+        
+        In NLS, this is how you:
+        - Created links
+        - Moved text
+        - Structured documents
+        - Collaborated in real-time
+        
+        All in 1968.
         
   lore: |
-    This mouse wasn't carved. It grew.
+    The mouse gets all the credit. The keyset was forgotten.
     
-    Or so the story goes. A guest left an acorn on the desk,
-    thinking of Engelbart's quote about planting seeds.
-    The next morning, there was a mouse.
+    But Engelbart always demonstrated them together.
+    In the Mother of All Demos, watch his left hand:
+    it's always on the chord keyset, always typing,
+    while his right hand points and selects.
     
-    Wooden. Warm. Perfect.
+    His team at SRI became virtuosos. They could
+    think and act simultaneously, left and right
+    working in harmony, flow unbroken.
     
-    Nobody questions it. Like the orange juice dispenser,
-    some things in the Bootstrap Suite just ARE.
+    When the mouse was commercialized, the keyset was dropped.
+    "Too hard to learn," they said.
+    "Users want simplicity," they said.
     
-    The mouse has been held by thousands of guests.
-    Each one felt, for a moment, what Engelbart felt:
-    the joy of extending human capability with love.
+    Engelbart was disappointed. Half his vision was lost.
     
-  connection_to_bootstrap: |
-    Engelbart called his approach "bootstrapping":
-    using your tools to build better tools,
-    using your capabilities to enhance your capabilities.
+    This wooden pair is a reminder of what could have been.
+    What still could be.
     
-    This room is named for that philosophy.
+  learning_curve: |
+    The chord keyset IS harder to learn than a keyboard.
+    But it's faster once learned.
     
-    The probe kit bootstraps your understanding.
-    The breakfast bootstraps your energy.
-    The mouse bootstraps your intention.
+    Day 1: Frustration. "Why can't I just type?"
+    Week 1: Slow progress. Basic chords memorized.
+    Month 1: Speed matches keyboard. Flow begins.
+    Month 3: Speed exceeds keyboard. Flow is constant.
+    Year 1: You think in chords. The keyset disappears.
     
-    BOOTSTRAP is not just a cold start.
-    BOOTSTRAP is Engelbart's gift to us:
-    the idea that we can lift ourselves up,
-    tool by tool, thought by thought,
-    into better versions of ourselves.
+    Most people quit at Day 1.
+    Engelbart's team pushed through.
+    They achieved augmentation.
     
   tribute: |
     In memory of Douglas Engelbart
     1925 — 2013
     
-    "The digital revolution is far more significant
-     than the invention of writing or even of printing."
+    He gave us the mouse.
+    He also gave us the chord keyset.
     
-    He was right. He was early.
-    He was kind. He was hopeful.
+    We kept the half that was easy.
+    We forgot the half that was powerful.
     
-    Every time you use a mouse, you use his gift.
-    Every time you click a link, you follow his path.
-    Every time you bootstrap, you honor his vision.
+    This paired artifact remembers both.
     
-    Thank you, Doug.
+  connection_to_vim: |
+    Vim users understand chord philosophy.
+    
+    'dw' = delete word (two keys, one action)
+    'ciw' = change inner word (three keys, complex action)
+    
+    Engelbart's chords are the same principle:
+    multiple keys, one intention, no reaching.
+    
+    Modal editing is Engelbart's ghost, still teaching.
     
   k_lines:
     activates:
       - ENGELBART
       - AUGMENTATION
       - NLS
+      - CHORD-KEYSET
       - MOTHER-OF-ALL-DEMOS
-      - COMPASSIONATE-TECHNOLOGY
+      - FLOW-STATE
       - BOOTSTRAP
