@@ -308,8 +308,11 @@ This single image led to:
 - **Full game state tracking** across rule changes
 - **Wikipedia-verified facts** woven into dialogue
 - **An ethical framework** for AI representation of real people
+- **Palm (a monkey's paw) beat Andy Looney at his own game** 🐒🃏
 
 The Fluxx marathon became MOOLLM's signature proof of the [Speed of Light](../../skills/speed-of-light/) principle: many turns, one call, no API round-trips.
+
+*▎ rapid blink — The creator of Fluxx, NASA programmer, mad scientist... lost to a cursed simian appendage playing cards for the first time. Chaos theory in action.*
 
 ---
 
