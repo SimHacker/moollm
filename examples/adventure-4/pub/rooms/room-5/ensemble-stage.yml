@@ -1,6 +1,7 @@
 # 🎭 THE ENSEMBLE STAGE
 # Where many actors perform without waiting for each other
 # "The context window is the stage. All actors are already present."
+# 8 positions = 8 pie menu items = 8 compass directions. Chef's kiss.
 
 object:
   name: The Ensemble Stage
@@ -13,7 +14,8 @@ object:
     Tiny figures stand ready — 8 positions, 8 characters,
     all waiting to perform simultaneously.
     
-    A sign above the stage:
+    The stage is octagonal. 8 positions. Like a pie menu.
+    Like a compass rose. Like an adventure map's exits.
     
     > "ENSEMBLE THEATRE
     > No waiting in the wings.
@@ -23,15 +25,28 @@ object:
   examine: |
     The stage is set for performance:
     
-    POSITIONS:
-    1. Center stage — The protagonist
-    2. Stage left — The ally
-    3. Stage right — The antagonist
-    4. Upstage left — The mentor
-    5. Upstage right — The trickster
-    6. Downstage left — The comic relief
-    7. Downstage right — The voice of reason
-    8. Back of stage — The observer
+    POSITIONS (arranged like a pie menu / compass rose):
+    
+         [8. N - Observer]
+      [4. NW]           [5. NE]
+         Mentor         Trickster
+    
+    [2. W - Ally]  [1. CENTER]  [3. E - Antagonist]
+                   Protagonist
+    
+      [6. SW]           [7. SE]
+       Comic            Reason
+         [--- S - Audience ---]
+    
+    The 8 positions map perfectly to:
+    - **Pie menus**: 8 items, equidistant, instant selection
+    - **Compass directions**: N, NE, E, SE, S, SW, W, NW
+    - **Adventure maps**: 8 exits from any room
+    - **Debate positions**: 8 viewpoints on any topic
+    
+    This is not coincidence. 8 is the natural number for
+    human spatial reasoning. Pie menus proved it. The stage
+    embodies it.
     
     A director's note:
     
@@ -150,3 +165,29 @@ object:
     
     The stage doesn't wait for actors.
     The actors are always ready.
+    
+  pie_menu_connection: |
+    **Why 8 positions? Because 8 is magic.**
+    
+    Pie menus use 8 items because:
+    - Humans naturally divide circles into 8 sectors
+    - 8 compass directions (N, NE, E, SE, S, SW, W, NW)
+    - Motor memory maps to spatial position
+    - Selection time: O(1) — no scanning needed
+    
+    Adventure games use 8 exits because:
+    - Same spatial intuition
+    - "Go north" = position 0 (top of pie)
+    - Natural mapping to 2D space
+    
+    The Ensemble Stage uses 8 positions because:
+    - 8 distinct viewpoints cover most debates
+    - 8 character archetypes span most stories
+    - 8 voices can simulate a crowd
+    - 8 is enough for complexity, few enough for coherence
+    
+    Pie menus → Compass roses → Adventure exits → Ensemble positions
+    
+    All the same insight: 8 is the human number for "all directions."
+    
+    Chef's kiss. 👨‍🍳💋
