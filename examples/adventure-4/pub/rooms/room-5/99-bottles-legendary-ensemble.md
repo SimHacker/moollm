@@ -384,15 +384,16 @@
 ## BENCHMARK RESULT
 
 ```
-╔═══════════════════════════════════════════════╗
-║  99 VERSES COMPLETED                          ║
-║  8 CHARACTERS                                 ║
-║  99 TRUTHS SHARED                             ║
-║  0 RETIREMENTS                                ║
-║  1 LLM CALL                                   ║
-║                                               ║
-║  🏆 SPEED OF LIGHT — PERFECT SCORE 🏆          ║
-╚═══════════════════════════════════════════════╝
+╔═══════════════════════════════════════════════════════════╗
+║  99 VERSES COMPLETED                                      ║
+║  8 CHARACTERS × 99 TURNS = 792 SIMULATED TURNS            ║
+║  99 TRUTHS SHARED                                         ║
+║  ~25 EXPLICIT, ~74 ELIDED (narrative compression)         ║
+║  0 RETIREMENTS                                            ║
+║  1 LLM CALL                                               ║
+║                                                           ║
+║  🏆 SPEED OF LIGHT — PERFECT SCORE 🏆                      ║
+╚═══════════════════════════════════════════════════════════╝
 ```
 
 ---
