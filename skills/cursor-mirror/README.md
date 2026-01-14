@@ -724,6 +724,24 @@ This is **constructionist debugging** applied to AI development itself. The sess
 - **Hopkins, D.** (1987). *Logo Adventure*. — Constructionist game where "cheating" means learning the programming language.
 - **Laurel, B.** (1991). *Computers as Theatre*. Addison-Wesley. — Interface design as dramatic engagement; characters as agents.
 
+## Image Archaeology
+
+cursor-mirror can discover, catalog, and analyze images dropped into Cursor chats. The `Read` tool sees them; I-Beam narrates their significance.
+
+See: **[IMAGE-GALLERY.md](./IMAGE-GALLERY.md)** — a curated gallery of 25+ images with context analysis.
+
+| Category | Count | Highlight |
+|----------|-------|-----------|
+| **Sims Code (1997)** | 5 pages | Motive.c — squared decay curves, "(Jamie, remove this)" |
+| **MOOLLM Diagrams** | 6 | Instantiation pipeline, Elvis Impersonator Model |
+| **People** | 1 | Andy Looney at Looney Labs booth |
+| **Leela Infrastructure** | 4 | Edgebox, Dashboard, Firebase configs |
+| **DevTools** | 5 | Chrome Network, Kando pie menus |
+
+**The Punchline**: One photo of Andy Looney → 15 artifacts → 33-turn Stoner Fluxx marathon → **Palm (a monkey's paw incarnate) beat the creator of Fluxx at his own game** 🐒🃏
+
+*Chaos theory in card form.*
+
 ## Files
 
 | File | Lines | Content |
@@ -734,6 +752,7 @@ This is **constructionist debugging** applied to AI development itself. The sess
 | `DATA-SCHEMAS.yml` | 700+ | JSON schema documentation |
 | `KEY-CATALOG.yml` | 412 | Complete key inventory |
 | `I-BEAM-CHARACTER.yml` | 520 | Spirit familiar character |
+| `IMAGE-GALLERY.md` | 440+ | Image archaeology gallery |
 
 ## License
 
