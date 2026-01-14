@@ -1,0 +1,883 @@
+# Cursor data schemas (platform-neutral)
+# JSON value formats stored in SQLite; same structure on macOS/Linux/Windows.
+# YAML Jazz: comments are documentation; examples are illustrative, not exhaustive.
+# Author: Don Hopkins, Leela AI
+
+version: "2026-01-14"
+source: "Reverse-engineered from Cursor globalStorage and workspaceStorage state.vscdb"
+
+# Core entities
+bubble:
+  description: |
+    A single message in a conversation (user prompt or assistant response).
+    The fundamental unit of chat history.
+  storage:
+    table: cursorDiskKV
+    location: global state.vscdb
+    key_pattern: "bubbleId:<composerId>:<messageId>"
+  fields:
+    text:
+      type: string
+      description: "Message content (user prompt or assistant response)"
+      aliases: [content]
+    type:
+      type: integer
+      description: "Message author type"
+      values:
+        1: user
+        2: assistant
+    bubbleId:
+      type: uuid
+      description: "Unique identifier for this message"
+    createdAt:
+      type: string (ISO 8601)
+      description: "Timestamp when message was created"
+      example: "2026-01-14T15:30:00.000Z"
+    # Optional/contextual fields
+    rawText:
+      type: string
+      description: "Original unprocessed text (when present)"
+    selections:
+      type: array of selection
+      description: "Code selections attached to message (user highlighted code)"
+      see: "#/embedded_objects/selection"
+    lints:
+      type: array of lint
+      description: "Linter errors/warnings attached to message"
+      see: "#/embedded_objects/lint"
+    codeBlocks:
+      type: array of code_block
+      description: "Parsed code blocks from assistant response"
+      see: "#/embedded_objects/code_block"
+    relevantFiles:
+      type: array of file_reference
+      description: "Files referenced or attached to this message"
+      see: "#/embedded_objects/file_reference"
+    checkpointId:
+      type: uuid
+      description: "Checkpoint for undo/redo (assistant messages)"
+    toolCalls:
+      type: array of tool_call
+      description: "Tool invocations (when agent mode active)"
+      see: "#/embedded_objects/tool_call"
+    toolResults:
+      type: array of tool_result
+      description: "Results of tool calls"
+      see: "#/embedded_objects/tool_result"
+    context:
+      type: object
+      description: "Context gathered for this message (files, symbols, etc.)"
+      see: "#/embedded_objects/context"
+    currentFile:
+      type: string
+      description: "Path to file active when message was sent"
+    cursorPosition:
+      type: object
+      description: "Cursor position in editor when message was sent"
+      fields:
+        line: integer
+        column: integer
+  examples:
+    simple_user_message:
+      bubbleId: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+      type: 1
+      text: "How do I read a file in Python?"
+      createdAt: "2026-01-14T10:15:30.123Z"
+      selections: []
+      lints: []
+
+    user_message_with_selection:
+      bubbleId: "b2c3d4e5-f6a7-8901-bcde-f12345678901"
+      type: 1
+      text: "Why is this function so slow?"
+      createdAt: "2026-01-14T10:16:00.000Z"
+      currentFile: "src/process.py"
+      selections:
+        - uri: "file:///Users/dev/project/src/process.py"
+          relativePath: "src/process.py"
+          text: "def process_all(items):\n    result = []\n    for item in items:\n        result.append(transform(item))\n    return result"
+          startLine: 42
+          endLine: 46
+          language: "python"
+      lints:
+        - message: "Consider using list comprehension"
+          severity: 3
+          startLine: 42
+          source: "pylint"
+
+    assistant_response_with_code:
+      bubbleId: "c3d4e5f6-a7b8-9012-cdef-123456789012"
+      type: 2
+      text: "The function is slow because it appends to a list in a loop. Here's a faster version using list comprehension:\n\n```python\ndef process_all(items):\n    return [transform(item) for item in items]\n```"
+      createdAt: "2026-01-14T10:16:05.000Z"
+      codeBlocks:
+        - language: "python"
+          code: "def process_all(items):\n    return [transform(item) for item in items]"
+          relativePath: "src/process.py"
+          applied: false
+
+    agent_mode_with_tools:
+      bubbleId: "d4e5f6a7-b8c9-0123-def0-234567890123"
+      type: 2
+      text: "I'll read the file and analyze the issue."
+      createdAt: "2026-01-14T10:17:00.000Z"
+      toolCalls:
+        - id: "call_xyz789"
+          name: "read_file"
+          arguments:
+            path: "src/process.py"
+          status: "completed"
+      toolResults:
+        - callId: "call_xyz789"
+          success: true
+          output: "def process_all(items):\n    result = []\n    ..."
+          truncated: true
+
+composer:
+  description: |
+    A conversation container (chat session). Each composer has a unique ID
+    and contains multiple bubbles. Metadata lives in workspace ItemTable;
+    bubbles live in global cursorDiskKV.
+  storage:
+    metadata:
+      table: ItemTable
+      location: workspace state.vscdb
+      key: "composer.composerData"
+    bubbles:
+      table: cursorDiskKV
+      location: global state.vscdb
+      key_pattern: "bubbleId:<composerId>:*"
+  fields:
+    composerId:
+      type: uuid
+      description: "Unique identifier for this conversation"
+      aliases: [allComposers.<id>]
+    type:
+      type: string
+      description: "Composer type"
+      values:
+        head: "Active conversation head"
+    name:
+      type: string
+      description: "User-visible conversation title"
+      example: "Cursor chat data management tools"
+    createdAt:
+      type: integer (unix ms)
+      description: "Timestamp when conversation was created"
+    lastUpdatedAt:
+      type: integer (unix ms)
+      description: "Timestamp of last activity"
+    subtitle:
+      type: string
+      description: "Secondary display text (often truncated last message)"
+    contextUsagePercent:
+      type: number
+      description: "Context window usage (0.0–1.0)"
+    isStarred:
+      type: boolean
+      description: "User starred/pinned this conversation"
+    composerMode:
+      type: string
+      description: "Mode of the composer"
+      values:
+        agent: "Agentic mode with tool access"
+        normal: "Standard chat mode"
+  example:
+    composerId: "f1e2d3c4-b5a6-7890-1234-567890abcdef"
+    type: "head"
+    name: "Cursor chat data management tools"
+    createdAt: 1736870400000
+    lastUpdatedAt: 1736871200000
+    subtitle: "How do I read a file..."
+    contextUsagePercent: 0.42
+    isStarred: false
+
+prompt:
+  description: |
+    A user prompt as recorded in aiService.prompts. This is a log of prompts
+    sent, separate from the bubble storage. Useful for prompt history.
+  storage:
+    table: ItemTable
+    location: workspace state.vscdb
+    key: "aiService.prompts"
+    format: JSON array
+  fields:
+    text:
+      type: string
+      description: "Prompt text as entered by user"
+    commandType:
+      type: integer
+      description: "Type of command/action"
+      values:
+        4: "Chat/composer prompt"
+    timestamp:
+      type: integer (unix ms)
+      description: "When prompt was submitted (may be absent)"
+  example:
+    text: "How do I grep in Python?"
+    commandType: 4
+
+generation:
+  description: |
+    A generation request as recorded in aiService.generations. Tracks
+    completion requests with metadata (not the full response text).
+  storage:
+    table: ItemTable
+    location: workspace state.vscdb
+    key: "aiService.generations"
+    format: JSON array
+  fields:
+    generationUUID:
+      type: uuid
+      description: "Unique identifier for this generation"
+    type:
+      type: string
+      description: "Type of generation"
+      values:
+        composer: "Chat/composer response"
+        edit: "Inline edit"
+    textDescription:
+      type: string
+      description: "Brief description (often echoes prompt)"
+    unixMs:
+      type: integer
+      description: "Timestamp when generation was requested"
+    model:
+      type: string
+      description: "Model used (when present)"
+      example: "claude-3-5-sonnet-20241022"
+  example:
+    generationUUID: "76fa2233-b501-4446-a617-10007d150650"
+    type: "composer"
+    textDescription: "How do I grep in Python?"
+    unixMs: 1736871200000
+
+message_request_context:
+  description: |
+    Context metadata attached to a message request. Usually sparse;
+    does not contain message text.
+  storage:
+    table: cursorDiskKV
+    location: global state.vscdb
+    key_pattern: "messageRequestContext:<composerId>:<messageId>"
+  fields: {}
+  note: "Typically empty; message text is in bubbleId keys, not here."
+
+# Embedded objects (sub-structures within bubbles)
+embedded_objects:
+  selection:
+    description: |
+      A code selection attached to a user message. Represents highlighted
+      code the user included as context for their prompt.
+    fields:
+      uri:
+        type: string
+        description: "File URI (file:///path/to/file.py)"
+      relativePath:
+        type: string
+        description: "Relative path within workspace"
+      text:
+        type: string
+        description: "Selected code text"
+      startLine:
+        type: integer
+        description: "1-based starting line number"
+      endLine:
+        type: integer
+        description: "1-based ending line number"
+      startColumn:
+        type: integer
+        description: "0-based starting column"
+      endColumn:
+        type: integer
+        description: "0-based ending column"
+      language:
+        type: string
+        description: "Language identifier (python, typescript, etc.)"
+    example:
+      uri: "file:///Users/dev/project/src/main.py"
+      relativePath: "src/main.py"
+      text: "def hello():\n    print('world')"
+      startLine: 10
+      endLine: 12
+      startColumn: 0
+      endColumn: 20
+      language: "python"
+
+  lint:
+    description: |
+      A linter diagnostic attached to a message. Cursor can include
+      current lints as context for debugging prompts.
+    fields:
+      uri:
+        type: string
+        description: "File URI with the lint"
+      relativePath:
+        type: string
+        description: "Relative path within workspace"
+      message:
+        type: string
+        description: "Lint message text"
+      severity:
+        type: integer
+        description: "Severity level"
+        values:
+          1: error
+          2: warning
+          3: info
+          4: hint
+      startLine:
+        type: integer
+        description: "1-based line number"
+      endLine:
+        type: integer
+        description: "1-based end line"
+      startColumn:
+        type: integer
+        description: "0-based column"
+      endColumn:
+        type: integer
+        description: "0-based end column"
+      source:
+        type: string
+        description: "Linter source (eslint, pyright, etc.)"
+      code:
+        type: string or integer
+        description: "Lint rule code (E501, no-unused-vars, etc.)"
+    example:
+      uri: "file:///Users/dev/project/src/main.py"
+      relativePath: "src/main.py"
+      message: "Undefined name 'foo'"
+      severity: 1
+      startLine: 15
+      endLine: 15
+      startColumn: 4
+      endColumn: 7
+      source: "pyright"
+      code: "reportUndefinedVariable"
+
+  code_block:
+    description: |
+      A parsed code block from an assistant response. Extracted from
+      markdown code fences in the response text.
+    fields:
+      languageId:
+        type: string
+        description: "Language identifier (python, shellscript, typescript, etc.)"
+        aliases: [language]
+      content:
+        type: string
+        description: "Code content"
+        aliases: [code]
+      uri:
+        type: string
+        description: "Target file URI (when specified in fence)"
+      relativePath:
+        type: string
+        description: "Target file relative path"
+      startLine:
+        type: integer
+        description: "Target start line (for edits)"
+      endLine:
+        type: integer
+        description: "Target end line (for edits)"
+      applied:
+        type: boolean
+        description: "Whether user applied this edit"
+      unregistered:
+        type: boolean
+        description: "Whether block is unregistered (standalone)"
+      isGenerating:
+        type: boolean
+        description: "Whether code is still being streamed"
+      isClickable:
+        type: boolean
+        description: "Whether block is clickable in UI"
+      codeBlockIdx:
+        type: integer
+        description: "Index of this block in the response"
+    example:
+      languageId: "python"
+      content: "def greet(name):\n    return f'Hello, {name}!'"
+      unregistered: true
+      isGenerating: false
+      codeBlockIdx: 0
+
+  file_reference:
+    description: |
+      A file attached or referenced in a message. Can be explicitly
+      attached by user or gathered as context.
+    fields:
+      uri:
+        type: string
+        description: "File URI"
+      relativePath:
+        type: string
+        description: "Relative path within workspace"
+      content:
+        type: string
+        description: "File content (when included)"
+      language:
+        type: string
+        description: "Language identifier"
+      reason:
+        type: string
+        description: "Why this file was included"
+        values:
+          - "user-attached"
+          - "auto-context"
+          - "mentioned"
+          - "open-editor"
+    example:
+      uri: "file:///Users/dev/project/README.md"
+      relativePath: "README.md"
+      language: "markdown"
+      reason: "user-attached"
+
+  tool_call:
+    description: |
+      A tool invocation in agent mode. Records what tool was called,
+      with what arguments, and a unique ID for correlating results.
+    fields:
+      id:
+        type: string
+        description: "Unique ID for this tool call (correlates with result)"
+      name:
+        type: string
+        description: "Tool name"
+        examples:
+          - "read_file"
+          - "write_file"
+          - "run_terminal_cmd"
+          - "search_files"
+          - "list_dir"
+          - "grep_search"
+          - "codebase_search"
+      arguments:
+        type: object
+        description: "Tool arguments (structure varies by tool)"
+      status:
+        type: string
+        description: "Call status"
+        values:
+          - "pending"
+          - "running"
+          - "completed"
+          - "failed"
+    example:
+      id: "call_abc123"
+      name: "read_file"
+      arguments:
+        path: "/Users/dev/project/src/main.py"
+        max_lines: 100
+      status: "completed"
+
+  tool_result:
+    description: |
+      Result of a tool call. Contains output, errors, and metadata.
+    fields:
+      callId:
+        type: string
+        description: "ID of the tool_call this result is for"
+      success:
+        type: boolean
+        description: "Whether the tool call succeeded"
+      output:
+        type: string or object
+        description: "Tool output (file content, command output, etc.)"
+      error:
+        type: string
+        description: "Error message if failed"
+      truncated:
+        type: boolean
+        description: "Whether output was truncated"
+      metadata:
+        type: object
+        description: "Additional metadata (exit codes, file sizes, etc.)"
+    example:
+      callId: "call_abc123"
+      success: true
+      output: "#!/usr/bin/env python3\nimport sys\n..."
+      truncated: false
+      metadata:
+        bytes_read: 1024
+        encoding: "utf-8"
+
+  context:
+    description: |
+      Context object attached to a message, containing gathered information
+      used to inform the AI response.
+    fields:
+      files:
+        type: array of file_reference
+        description: "Files included as context"
+      symbols:
+        type: array
+        description: "Code symbols (functions, classes) referenced"
+      codebase:
+        type: object
+        description: "Codebase search results included"
+      webSearch:
+        type: array
+        description: "Web search results (when enabled)"
+      docs:
+        type: array
+        description: "Documentation lookups"
+    note: "Structure varies based on what context sources were used"
+
+  symbol:
+    description: |
+      A code symbol (function, class, variable) referenced in context.
+    fields:
+      name:
+        type: string
+        description: "Symbol name"
+      kind:
+        type: string
+        description: "Symbol kind"
+        values:
+          - "function"
+          - "class"
+          - "method"
+          - "variable"
+          - "constant"
+          - "interface"
+          - "type"
+      uri:
+        type: string
+        description: "File containing the symbol"
+      range:
+        type: object
+        description: "Location in file"
+        fields:
+          startLine: integer
+          endLine: integer
+      signature:
+        type: string
+        description: "Symbol signature/definition"
+    example:
+      name: "process_data"
+      kind: "function"
+      uri: "file:///Users/dev/project/src/utils.py"
+      range:
+        startLine: 42
+        endLine: 58
+      signature: "def process_data(input: str, options: dict) -> Result:"
+
+# Auxiliary entities
+history_entry:
+  description: |
+    An entry in history.entries tracking recently opened editors/files.
+    Not chat-related; workspace navigation history.
+  storage:
+    table: ItemTable
+    location: workspace state.vscdb
+    key: "history.entries"
+    format: JSON array
+  fields:
+    resource:
+      type: object
+      description: "File resource info"
+      subfields:
+        path: "File path"
+        scheme: "file, untitled, etc."
+    timestamp:
+      type: integer (unix ms)
+      description: "When file was accessed"
+  note: "Used for editor history, not chat history."
+
+composer_data_envelope:
+  description: |
+    The top-level structure of composer.composerData in workspace ItemTable.
+    Contains metadata for all composers in the workspace.
+  storage:
+    table: ItemTable
+    location: workspace state.vscdb
+    key: "composer.composerData"
+  structure:
+    allComposers:
+      type: object
+      description: "Map of composerId → composer metadata"
+    mostRecentComposerInAgentMode:
+      type: uuid
+      description: "Last composer used in agent mode"
+    composerPinnedOrder:
+      type: array of uuid
+      description: "Ordering of pinned/starred composers"
+  example:
+    allComposers:
+      "f1e2d3c4-b5a6-7890-1234-567890abcdef":
+        type: "head"
+        name: "My chat"
+        createdAt: 1736870400000
+        lastUpdatedAt: 1736871200000
+    mostRecentComposerInAgentMode: "f1e2d3c4-b5a6-7890-1234-567890abcdef"
+
+# Type values reference
+enums:
+  bubble_type:
+    description: "Who authored the message"
+    values:
+      1: user
+      2: assistant
+
+  command_type:
+    description: "Type of prompt/command"
+    values:
+      4: "Composer/chat prompt"
+
+  generation_type:
+    description: "Type of AI generation"
+    values:
+      composer: "Chat response"
+      edit: "Inline edit"
+
+  lint_severity:
+    description: "Severity of linter diagnostic"
+    values:
+      1: error
+      2: warning
+      3: info
+      4: hint
+
+  tool_status:
+    description: "Status of a tool call"
+    values:
+      pending: "Tool call queued"
+      running: "Tool currently executing"
+      completed: "Tool finished successfully"
+      failed: "Tool execution failed"
+
+  file_reference_reason:
+    description: "Why a file was included in context"
+    values:
+      user-attached: "User explicitly attached the file"
+      auto-context: "Automatically gathered by Cursor"
+      mentioned: "File was mentioned in conversation"
+      open-editor: "File was open in editor"
+
+  symbol_kind:
+    description: "Type of code symbol"
+    values:
+      function: "Function or procedure"
+      class: "Class definition"
+      method: "Method on a class"
+      variable: "Variable binding"
+      constant: "Constant value"
+      interface: "Interface/protocol definition"
+      type: "Type alias or definition"
+
+  composer_mode:
+    description: "Mode of the composer/conversation"
+    values:
+      normal: "Standard chat mode"
+      agent: "Agentic mode with tool access"
+
+# Relationships
+relationships:
+  composer_to_bubbles:
+    description: "A composer contains many bubbles"
+    join: "bubbleId:<composerId>:* keys in cursorDiskKV"
+    cardinality: "1:N"
+
+  workspace_to_composers:
+    description: "A workspace references many composers via metadata"
+    join: "composer.composerData.allComposers in workspace ItemTable"
+    cardinality: "1:N"
+    note: "Bubble text is in global DB; only metadata is per-workspace"
+
+  prompt_to_generation:
+    description: "Prompts and generations are parallel logs, loosely coupled"
+    correlation: "By timestamp (unixMs) and textDescription"
+    note: "Not directly linked; both are append-only logs"
+
+# Notes
+notes:
+  - |
+    Bubble text is centralized in global state.vscdb (cursorDiskKV), not per-workspace.
+    This means all conversations across all workspaces share the same bubble store.
+  - |
+    Workspace state.vscdb holds metadata (composer heads, prompts/generations log)
+    but not the actual chat message text.
+  - |
+    The prompts/generations logs in workspace ItemTable are auxiliary traces;
+    the authoritative chat history is in cursorDiskKV bubbles.
+  - |
+    Field names may vary slightly (text vs content); always check both.
+  - |
+    Timestamps: createdAt in bubbles is ISO 8601 string; unixMs/createdAt in
+    composer metadata and generations is integer milliseconds since epoch.
+
+# Context Assembly System
+context_assembly:
+  description: |
+    Cursor gathers context from multiple sources before each AI request.
+    This section documents how context is collected and assembled.
+
+  bubble_context_field:
+    description: "Context attached to user messages (bubbles with type=1)"
+    location: "bubble.context object"
+    fields:
+      fileSelections:
+        type: array
+        description: "Files attached via @ mention"
+        item_keys: [uri, uuid, collapseByDefault, addedWithoutMention]
+      folderSelections:
+        type: array
+        description: "Folders attached via @ mention"
+        item_keys: [relativePath, uuid, addedWithoutMention]
+      selections:
+        type: array
+        description: "Code selections (user-highlighted text)"
+        item_keys: [text, rawText, range, uri, uuid]
+      terminalSelections:
+        type: array
+        description: "Terminal output selections"
+        item_keys: [text, rawText, range, uri, uuid]
+      selectedImages:
+        type: array
+        description: "Pasted or attached images"
+      cursorRules:
+        type: array
+        description: ".cursorrules file content"
+      mentions:
+        type: array
+        description: "All @ mention types used"
+      externalLinks:
+        type: array
+        description: "External URLs referenced"
+
+  message_request_context:
+    description: "Full context assembled for AI request (larger than bubble.context)"
+    location: "cursorDiskKV: messageRequestContext:<composerId>:<messageId>"
+    fields:
+      ideEditorsState:
+        type: json_string
+        description: "Visible files, cursor position, line counts"
+        nested_keys: [visibleFiles, recentlyViewedFiles]
+      currentFileLocationData:
+        type: json_string
+        description: "Current cursor position"
+        nested_keys: [relativeWorkspacePath, lineNumber]
+      todos:
+        type: array
+        description: "Current todo list state"
+      diffsSinceLastApply:
+        type: array
+        description: "Pending diffs (accepted/rejected status)"
+      deletedFiles:
+        type: array
+        description: "Recently deleted files"
+      projectLayouts:
+        type: array
+        description: "Directory tree snapshots"
+      webReferences:
+        type: array
+        description: "Web search results included in context"
+      cursorRules:
+        type: array
+        description: "Applied .cursorrules content"
+
+  retrieval_system:
+    description: "Codebase indexing and semantic search"
+    location: "workspaceStorage/<hash>/anysphere.cursor-retrieval/"
+    files:
+      embeddable_files.txt:
+        format: "Plain text, one path per line"
+        description: "List of files sent to embedding server"
+        example: |
+          central/package.json
+          moollm/skills/cursor-mirror/cursor_mirror.py
+      high_level_folder_description.txt:
+        format: json
+        description: "Important paths for context (READMEs, configs)"
+        schema:
+          timestamp: "Unix ms"
+          paths: "Array of relative paths"
+
+  codebase_search_tool:
+    description: "Semantic code search via vector embeddings"
+    tool_name: "codebase_search"
+    args:
+      query: "Natural language question"
+      target_directories: "Array of paths to search"
+      explanation: "Why this search is needed"
+    result:
+      codeResults:
+        type: array
+        item_schema:
+          codeBlock:
+            relativeWorkspacePath: string
+            range: {startPosition, endPosition}
+            contents: string
+            detailedLines: array
+          score: number
+
+  indexing_backend:
+    url: "https://repo42.cursor.sh"
+    sync_method: |
+      1. Compute merkle tree of embeddable files
+      2. Compare hash with server (handshake)
+      3. Upload changed files for embedding
+      4. Status: synced | out_of_sync
+    logs: "logs/<timestamp>/window<N>/exthost/anysphere.cursor-retrieval/"
+
+# MCP (Model Context Protocol) Integration
+mcp_integration:
+  description: "Cursor integrates with MCP servers for extended tool capabilities"
+  
+  known_servers:
+    location: "ItemTable key: mcpService.knownServerIds"
+    format: "JSON array of server IDs"
+    id_patterns:
+      user: "user-<server-name>"
+      project: "project-<n>-<user>-<server-name>"
+  
+  tool_naming:
+    description: "MCP tool calls use prefixed names"
+    pattern: "mcp_<server-name>_<tool-name>"
+    examples:
+      - "mcp_cursor-ide-browser_browser_navigate"
+      - "mcp_puppeteer-nessus_browser_snapshot"
+      - "mcp_svelte_user-svelte-list-sections"
+  
+  tool_call_structure:
+    location: "bubbleId in cursorDiskKV, toolFormerData field"
+    fields:
+      tool: "Tool object reference"
+      toolCallId: "Unique ID for this call"
+      toolIndex: "Index in sequence"
+      modelCallId: "Parent model call ID"
+      status: "pending | running | completed | error"
+      name: "mcp_<server>_<tool>"
+      rawArgs: "JSON string of arguments"
+      params: "Parsed parameters"
+      result: "JSON string of MCP result"
+      userDecision: "User approval status if required"
+  
+  result_format:
+    description: "MCP tool results follow MCP protocol"
+    schema:
+      selectedTool: "Tool name as returned by server"
+      result:
+        content:
+          type: array
+          items:
+            type: "text | image | blob"
+            text: "Text content if type=text"
+  
+  common_servers:
+    cursor-ide-browser:
+      description: "Built-in browser automation"
+      tools: [browser_navigate, browser_click, browser_type, browser_snapshot]
+    svelte:
+      description: "Svelte documentation and code fixing"
+      tools: [list-sections, get-documentation, svelte-autofixer]
+    puppeteer-nessus:
+      description: "External Puppeteer browser control"
+      tools: [browser_navigate, browser_click, browser_snapshot]
+
+provenance:
+  - "Reverse-engineered 2026-01-14 from macOS Cursor installation"
+  - "Confirmed via Python sqlite3 inspection and JSON parsing"
+  - "Cross-platform validity assumed; file paths differ but JSON schemas should match"

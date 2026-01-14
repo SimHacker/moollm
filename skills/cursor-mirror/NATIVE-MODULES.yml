@@ -1,0 +1,265 @@
+# Cursor Native Modules & Binaries Catalog
+# Complete inventory of compiled native code in Cursor.app
+# Path: /Applications/Cursor.app/Contents/Resources/app/
+# Author: Don Hopkins, Leela AI
+
+meta:
+  version: "1.0"
+  discovered: "2026-01-14"
+  platform: "macOS (darwin)"
+  architecture: "universal (x86_64 + arm64)"
+
+# Native Node.js Modules (.node files)
+native_modules:
+  total_count: 14
+  total_size: "~25 MB"
+
+  # Cursor-Specific (Anysphere)
+  anysphere:
+    file_service:
+      path: "extensions/cursor-retrieval/node_modules/@anysphere/file-service/file_service.darwin-universal.node"
+      size: "21 MB"
+      description: "Core file indexing and retrieval service for codebase search"
+      purpose: "Powers semantic search, codebase indexing, and file sync"
+      libraries:
+        - "CoreFoundation.framework"
+        - "Security.framework"
+        - "libiconv.2.dylib"
+        - "libz.1.dylib"
+      notes: "Universal binary (x86_64 + arm64), largest native module"
+      moollm_relevance: "Core to understanding how Cursor indexes codebases"
+
+    policy_watcher:
+      path: "node_modules/@anysphere/policy-watcher/build/Release/vscode-policy-watcher.node"
+      size: "140 KB"
+      description: "Enterprise policy enforcement watcher"
+      purpose: "Monitors and applies enterprise/admin policies"
+      exports:
+        - "CreateWatcher"
+        - "DisposeWatcher"
+        - "PolicyWatcher"
+        - "BooleanPolicy"
+        - "StringPolicy"
+        - "NumberPolicy"
+      moollm_relevance: "Understanding enterprise feature gating"
+
+    cursor_proclist:
+      path: "node_modules/cursor-proclist/build/Release/cursor_proclist.node"
+      size: "96 KB"
+      description: "Process list utility"
+      purpose: "Get process information and descendant PIDs"
+      exports:
+        - "getDescendantPids"
+        - "getProcessInformation"
+      moollm_relevance: "Terminal process tracking"
+
+  # VS Code Native Modules
+  vscode:
+    sqlite3:
+      path: "node_modules/@vscode/sqlite3/build/Release/vscode-sqlite3.node"
+      size: "1.8 MB"
+      description: "SQLite3 database binding"
+      purpose: "Access to state.vscdb and other SQLite databases"
+      moollm_relevance: "Critical - enables all database introspection"
+
+    spdlog:
+      path: "node_modules/@vscode/spdlog/build/Release/spdlog.node"
+      size: "480 KB"
+      description: "Fast logging library"
+      purpose: "High-performance logging for VS Code/Cursor"
+      notes: "Based on gabime/spdlog C++ library"
+
+    deviceid:
+      path: "node_modules/@vscode/deviceid/build/Release/windows.node"
+      size: "36 KB"
+      description: "Device identification"
+      purpose: "Get unique device/machine identifiers"
+      notes: "Named 'windows.node' but works on macOS"
+
+  # Standard Node.js Native Modules
+  standard:
+    node_pty:
+      path: "node_modules/node-pty/build/Release/pty.node"
+      size: "104 KB"
+      description: "Pseudo-terminal bindings"
+      purpose: "Terminal emulation for integrated terminal"
+      helpers:
+        - "spawn-helper"
+      moollm_relevance: "Terminal integration"
+
+    native_watchdog:
+      path: "node_modules/native-watchdog/build/Release/watchdog.node"
+      size: "72 KB"
+      description: "Process watchdog"
+      purpose: "Monitor and restart crashed processes"
+
+    native_keymap:
+      path: "node_modules/native-keymap/build/Release/keymapping.node"
+      size: "80 KB"
+      description: "Keyboard layout detection"
+      purpose: "Get current keyboard layout for proper key handling"
+
+    native_is_elevated:
+      path: "node_modules/native-is-elevated/build/Release/iselevated.node"
+      size: "68 KB"
+      description: "Privilege detection"
+      purpose: "Check if running with elevated/admin privileges"
+
+    parcel_watcher:
+      path: "node_modules/@parcel/watcher/build/Release/watcher.node"
+      size: "500 KB"
+      description: "Fast file system watcher"
+      purpose: "Watch for file changes (alternative to chokidar)"
+      notes: "Used by Parcel bundler, included for performance"
+
+    kerberos:
+      path: "node_modules/kerberos/build/Release/kerberos.node"
+      size: "260 KB"
+      description: "Kerberos authentication"
+      purpose: "Enterprise SSO authentication support"
+
+    windows_foreground_love:
+      path: "node_modules/windows-foreground-love/build/Release/foreground_love.node"
+      size: "72 KB"
+      description: "Window focus management"
+      purpose: "Bring windows to foreground properly"
+      notes: "Cross-platform despite name"
+
+  # Extension-specific
+  extensions:
+    js_debug:
+      path: "extensions/ms-vscode.js-debug/src/w32appcontainertokens-XTRA77NA.node"
+      size: "260 KB"
+      description: "JavaScript debugger native helper"
+      purpose: "Windows app container token handling for debugging"
+
+# WebAssembly Modules (.wasm files)
+wasm_modules:
+  total_count: 11
+  
+  tree_sitter:
+    description: "Incremental parsing library for syntax highlighting"
+    files:
+      - name: "tree-sitter.wasm"
+        size: "200 KB"
+        description: "Core tree-sitter runtime"
+      - name: "tree-sitter-typescript.wasm"
+        size: "1.4 MB"
+        description: "TypeScript/JavaScript parser (largest)"
+      - name: "tree-sitter-css.wasm"
+        size: "100 KB"
+        description: "CSS parser"
+      - name: "tree-sitter-regex.wasm"
+        size: "16 KB"
+        description: "Regex parser"
+      - name: "tree-sitter-ini.wasm"
+        size: "8 KB"
+        description: "INI file parser"
+
+  oniguruma:
+    name: "onig.wasm"
+    size: "456 KB"
+    description: "Oniguruma regex engine"
+    purpose: "TextMate grammar regex matching"
+
+  http_parser:
+    files:
+      - name: "llhttp.wasm"
+        size: "56 KB"
+        description: "HTTP parser"
+      - name: "llhttp_simd.wasm"
+        size: "56 KB"
+        description: "SIMD-optimized HTTP parser"
+
+  chromehash:
+    name: "chromehash_bg.wasm"
+    size: "20 KB"
+    description: "Chrome hash utilities"
+
+  unknown:
+    files:
+      - name: "a443ca1a33b96237dd48.module.wasm"
+        size: "180 KB"
+      - name: "dbd61d846b1102299709.module.wasm"
+        size: "180 KB"
+    notes: "Hashed filenames, purpose unknown"
+
+# Command-Line Binaries
+cli_binaries:
+  cursor:
+    path: "bin/cursor"
+    description: "Main CLI entry point"
+    purpose: "Open files, workspaces from command line"
+    usage: "cursor [options] [paths...]"
+
+  code:
+    path: "bin/code"
+    description: "VS Code compatibility alias"
+    purpose: "Drop-in replacement for 'code' command"
+
+  cursor_tunnel:
+    path: "bin/cursor-tunnel"
+    size: "Mach-O 64-bit arm64"
+    description: "Remote tunnel server"
+    purpose: "Connect to Cursor remotely (SSH-like)"
+    notes: "Native binary, not script"
+
+  ripgrep:
+    path: "node_modules/@vscode/ripgrep/bin/rg"
+    version: "15.1.0-cursor3"
+    features:
+      - "PCRE2"
+      - "NEON SIMD"
+    description: "Fast regex search"
+    purpose: "Powers file search in Cursor"
+    notes: "Custom Cursor build with modifications"
+
+# Helper Scripts & Binaries
+helpers:
+  cursor_terminal_wrapper:
+    path: "resources/helpers/cursor-terminal-wrapper"
+    type: "Mach-O binary"
+    description: "Terminal wrapper for shell integration"
+
+  node:
+    path: "resources/helpers/node"
+    description: "Bundled Node.js runtime"
+
+  shell_integration:
+    path: "out/vs/workbench/contrib/terminal/common/scripts/"
+    files:
+      - "shellIntegration-bash.sh (13 KB)"
+      - "shellIntegration-rc.zsh (9 KB)"
+      - "shellIntegration.fish (7 KB)"
+      - "shellIntegration.ps1 (12 KB)"
+    purpose: "Terminal command tracking and decoration"
+
+  process_helpers:
+    path: "out/vs/base/node/"
+    files:
+      - "ps.sh"
+      - "terminateProcess.sh"
+      - "cpuUsage.sh"
+    purpose: "Process management utilities"
+
+# MOOLLM Implications
+moollm_implications:
+  introspection_targets:
+    - "sqlite3.node enables all database access"
+    - "file_service.node is the indexing engine"
+    - "policy-watcher.node shows enterprise features"
+
+  potential_hooks:
+    - "Shell integration scripts could be extended"
+    - "Process list could inform context assembly"
+    - "Ripgrep is the search backbone"
+
+  architecture_notes:
+    - "Universal binaries support both Intel and Apple Silicon"
+    - "Heavy use of WASM for cross-platform parsing"
+    - "Native modules are pre-compiled per platform"
+
+  security_considerations:
+    - "Native code is not inspectable like JavaScript"
+    - "file_service handles sensitive codebase data"
+    - "kerberos.node handles enterprise authentication"

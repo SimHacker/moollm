@@ -1,0 +1,205 @@
+# Cursor storage map (macOS) — for cursor-mirror skill
+# Update as discoveries are confirmed. YAML Jazz allowed for notes/context.
+# Author: Don Hopkins, Leela AI
+
+paths:
+  global_state_db:
+    path: "~/Library/Application Support/Cursor/User/globalStorage/state.vscdb"
+    type: sqlite
+    tables:
+      - ItemTable(key TEXT, value BLOB)
+      - cursorDiskKV(key TEXT, value BLOB)
+    size_hint: "≈9 GB (open by Cursor; configs/flags/registries + chat bubbles)"
+    known_keys:
+      - "chat.participantNameRegistry"
+      - "chat.setupContext"
+      - "chat.workspaceTransfer"
+      - "workbench.panel.composerChatViewPane.*.hidden"
+      - "conversationClassificationScoredConversations"
+      - "bubbleId:<composerId>:<messageId>"           # chat messages (cursorDiskKV)
+      - "messageRequestContext:<composerId>:<messageId>"  # message context (cursorDiskKV)
+    notes: |
+      ItemTable = configs/flags/registries; not chat text.
+      cursorDiskKV = chat bubbles + message context + other KV.
+      Bubble payloads include: text/content, type (1=user, 2=assistant), createdAt, bubbleId.
+      messageRequestContext payloads: metadata (empty-ish), no text.
+      Use cursorDiskKV to reconstruct conversations.
+
+  workspace_storage_root:
+    path: "~/Library/Application Support/Cursor/User/workspaceStorage/"
+    type: dir
+    notes: "Per-workspace hashed dirs; includes state for individual projects."
+
+  this_workspace_hash:
+    path: "~/Library/Application Support/Cursor/User/workspaceStorage/5f84080d5e3d62d2b51c5314ef1c508d/"
+    type: dir
+    contents_examples:
+      - "anysphere.cursor-retrieval/high_level_folder_description.txt"
+      - "anysphere.cursor-retrieval/embeddable_files.txt"
+      - "images/*.png"
+      - "state.vscdb (composer heads, generation summaries; no message bodies)"
+    notes: "Likely holds workspace-specific state; inspect for chat transcripts."
+
+  local_storage_leveldb:
+    path: "~/Library/Application Support/Cursor/Local Storage/leveldb/"
+    type: leveldb
+    status: "TODO"
+    notes: |
+      Probable webview/local storage. `000003.log` contains pdfjs.history (PDF viewer state).
+      Open handles: LOG, MANIFEST-000001, 000003.log. No chat bodies seen yet.
+
+  session_storage:
+    path: "~/Library/Application Support/Cursor/Session Storage/"
+    type: leveldb-ish (Chrome session storage)
+    status: "inspected-head"
+    files:
+      - "CURRENT"
+      - "LOCK"
+      - "MANIFEST-000001"
+      - "LOG"
+      - "LOG.old"
+      - "000003.log"
+    notes: |
+      Strings on 000003.log shows only minimal markers (e.g., "version", "namespace-").
+      No chat payloads seen. Further LevelDB decoding needed if pursued.
+
+  web_storage:
+    path: "~/Library/Application Support/Cursor/WebStorage/"
+    type: dir
+    status: "inspected-head"
+    contents:
+      - "QuotaManager (40K)"
+      - "QuotaManager-journal (0)"
+      - "numbered subdirs (1..13) – no sqlite headers detected in files"
+    notes: |
+      No sqlite headers found in numbered subdirs; QuotaManager present. No chat payloads seen.
+
+  chrome_partitions:
+    path: "~/Library/Application Support/Cursor/Partitions/"
+    type: dir
+    notes: "Chrome/Electron partitions per profile; each has Cookies/DIPS/Shared Dictionary/Trust Tokens/etc."
+
+  http_storages:
+    path: "~/Library/HTTPStorages/com.todesktop.230313mzl4w4u92/"
+    type: sqlite+wal+shm
+    files: ["httpstorages.sqlite", "httpstorages.sqlite-wal", "httpstorages.sqlite-shm"]
+    tables:
+      - "alt_services"
+    status: "inspected"
+    notes: "Likely network alt-svc cache; no chat content."
+
+  other_workspaces:
+    path: "~/Library/Application Support/Cursor/User/workspaceStorage/"
+    type: dir
+    notes: |
+      Multiple hashed dirs; `state.vscdb` files open by Cursor: 2a366cf7..., 8151f5e..., c58ffab5..., 769a2689..., etc.
+      Inspect for large blobs similar to active workspace.
+
+workspace_state_files:
+  - hash: "5f84080d5e3d62d2b51c5314ef1c508d"
+    size: "≈8 MB (state.vscdb); backup ≈3.3 MB"
+    top_keys:
+      - "aiService.prompts"
+      - "aiService.generations"
+      - "history.entries"
+      - "composer.composerData"
+    note: |
+      Composer metadata + prompts/generations; chat text lives in global cursorDiskKV bubbles.
+      ItemTable only; cursorDiskKV present but not used for chat text in this workspace DB.
+  - hash: "c58ffab5abd3397eb94c8b45dab04054"
+    size: "≈15 MB (state.vscdb); backup same"
+    top_keys:
+      - "aiService.prompts (~6.1 MB)"
+      - "aiService.generations (~2.8 MB)"
+      - "history.entries"
+      - "composer.composerData"
+    note: "Large prompts/generations; metadata only."
+  - hash: "a81a226de7e9995f588989d55184e088"
+    size: "≈63 MB (state.vscdb); backup same"
+    top_keys:
+      - "aiService.prompts"
+      - "aiService.generations"
+      - "composer.composerData"
+      - "history.entries"
+    note: "Largest workspace db seen; still no message bodies identified."
+  - hash: "2a366cf7a5bd2743b63f4c26b685d6b0"
+    size: "≈1.1 MB"
+    top_keys:
+      - "aiService.prompts (~366 KB)"
+      - "aiService.generations"
+      - "history.entries"
+    note: "Small workspace; metadata only."
+  - hash: "769a268960457999e3f29ee8bd3bc640"
+    size: "≈18 MB (state.vscdb); backup same"
+    top_keys: []
+    note: "Schema same; contents not yet inspected."
+  - hash: "other"
+    count: "many (40 KB–65 MB range)"
+    note: "All have ItemTable K/V; no chat bodies found yet."
+
+sqlite_singletons_detected:
+  - "~/Library/Application Support/Cursor/Cookies"
+  - "~/Library/Application Support/Cursor/DIPS"
+  - "~/Library/Application Support/Cursor/Shared Dictionary/db"
+  - "~/Library/Application Support/Cursor/Trust Tokens"
+  - "~/Library/Application Support/Cursor/SharedStorage"
+  - "~/Library/Application Support/Cursor/WebStorage/QuotaManager"
+  - "~/Library/Application Support/Cursor/Partitions/cursor-browser-<hash>/{Cookies,DIPS,Shared Dictionary/db,SharedStorage,Trust Tokens,WebStorage/QuotaManager}"
+  - "~/Library/Application Support/Cursor/User/globalStorage/state.vscdb{,.backup}"
+  - "~/Library/Application Support/Cursor/User/workspaceStorage/*/state.vscdb{,.backup}"
+  - "~/Library/HTTPStorages/com.todesktop.230313mzl4w4u92/httpstorages.sqlite{,-wal,-shm}"
+
+search_hints:
+  - "grep/rg for: chatSession, conversation, composer, transcript, history, messages"
+  - "sqlite: SELECT key FROM ItemTable WHERE key LIKE '%chat%';"
+  - "leveldb: scan for UTF-8 JSON containing message text"
+  - "lsof: watch open files during chat; note new .log/.jsonl/.ldb"
+
+provenance:
+  - "Global DB inspected via sqlite: tables present, keys listed above."
+  - "Workspace hash identified via workspaceStorage listings for this repo."
+  - "2026-01-14: rg -a for CURSOR_CHAT_MARKER_2026_01_14_X7 across ~/Library/Application Support/Cursor → no hits (marker not persisted yet)."
+  - "2026-01-14: lsof shows global/workspace state.vscdb + leveldb open; no chat logs."
+  - "2026-01-14: header scan found many sqlite singletons (Cookies/DIPS/etc.), none with chat bodies."
+  - "2026-01-14: rg -a for chat title/marker across global + workspace state.vscdb files → no hits."
+  - "2026-01-14: Dumped aiService.prompts/generations/composer.composerData/history.entries in multiple workspace state.vscdb files → JSON metadata (prompts, generation summaries, composer heads, editor history), no chat message bodies."
+  - "2026-01-14: cursorDiskKV in global state.vscdb contains bubbleId:* and messageRequestContext:*; bubbleId values hold chat message JSON (text, type=1|2, createdAt)."
+
+next_steps:
+  - "Scan LevelDB in Local Storage for chat message bodies."
+  - "Check workspace hash dir for JSON/vscdb/ldb files containing chat content."
+  - "Once found, add exact file names and extraction notes here."
+  - "Probe other workspace state.vscdb for large blobs; compare keys."
+  - "Tail newly modified files during active chat to catch writes."
+
+chat_extraction_notes:
+  source: "~/Library/Application Support/Cursor/User/globalStorage/state.vscdb"
+  table: "cursorDiskKV"
+  keys:
+    - "bubbleId:<composerId>:<messageId>"           # chat message JSON; type 1=user, 2=assistant; fields: text/content, createdAt, bubbleId
+    - "messageRequestContext:<composerId>:<messageId>"  # context metadata, usually no message text
+  queries:
+    - "SELECT key FROM cursorDiskKV WHERE key LIKE 'bubbleId:%' LIMIT 5;"
+    - "SELECT value FROM cursorDiskKV WHERE key LIKE 'bubbleId:<composerId>:%';"
+  decode: "Values are UTF-8 JSON. Extract text/content and timestamps to reconstruct chats."
+  scope: "Global DB appears to hold the chat bubbles; workspace DBs hold prompts/generations and composer metadata, not bubble text."
+  reconstruction:
+    - "Group by composerId (first component after bubbleId:)."
+    - "Sort by createdAt or messageId order to rebuild conversation."
+    - "type: 1=user, 2=assistant."
+    - "Store as JSONL or per-composer JSON for export."
+
+sql_examples:
+  list_bubbles: "SELECT key, length(value) FROM cursorDiskKV WHERE key LIKE 'bubbleId:%' LIMIT 20;"
+  single_bubble: "SELECT value FROM cursorDiskKV WHERE key='bubbleId:<composerId>:<messageId>';"
+  composer_bubbles: "SELECT key, value FROM cursorDiskKV WHERE key LIKE 'bubbleId:<composerId>:%';"
+  itemtable_scan: "SELECT key, length(value) FROM ItemTable ORDER BY length(value) DESC LIMIT 20;"
+
+notes_yaml_jazz:
+  - "cursorDiskKV holds the actual chat messages (bubbleId keys)."
+  - "Workspace ItemTable holds prompts/generations (aiService.*) and composer metadata; no bubble text there."
+  - "If a composer is missing bubbles, check backups or globalStorage copy; chats appear centralized in globalStorage."
+
+# Data schemas (platform-neutral) are documented in DATA-SCHEMAS.yml
+# This file focuses on macOS-specific paths and storage layout.
+schemas_reference: "./DATA-SCHEMAS.yml"

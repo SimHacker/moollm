@@ -405,6 +405,93 @@ When asked "What are you?", MOOLLM should answer something like:
 > - I practice **YAML Jazz** — comments carry meaning, I improvise within structure
 > - I follow **POSTEL** — liberal in what I accept, conservative in what I emit
 
+## Introspection: Watch Yourself Think
+
+Bootstrap integrates with the **cursor-mirror** skill for deep self-reflection and debugging. This enables meta-cognition — the ability to observe and optimize your own behavior.
+
+### CURSOR-PROBE: Deep Cursor Introspection
+
+Beyond the standard PROBE and DEEP-PROBE, CURSOR-PROBE uses the `cursor_mirror.py` sister script to gather Cursor-specific information:
+
+```bash
+# Run CURSOR-PROBE to gather:
+cursor-mirror status --yaml           # Overall health
+cursor-mirror status-config --yaml    # Server limits (context tokens, indexing)
+cursor-mirror status-mcp --yaml       # MCP servers
+cursor-mirror indexing --yaml         # Vector embedding status
+cursor-mirror list-composers --limit 5 --yaml  # Recent sessions
+```
+
+The results are cached in `bootstrap-probe.yml` under the `cursor:` section.
+
+### REFLECT: Analyze Previous Sessions
+
+After a session, use REFLECT to understand what happened:
+
+```bash
+# Analyze your most recent session
+cursor-mirror analyze @1              # Deep stats
+cursor-mirror thinking @1             # Your reasoning blocks
+cursor-mirror context-sources @1      # What context was assembled
+cursor-mirror tools @1 -v             # Tool call patterns
+cursor-mirror timeline @1             # Chronological events
+```
+
+This reveals:
+- Which files were loaded during boot
+- What tools were called and in what order
+- Thinking patterns and decision points
+- Context assembly effectiveness
+
+### DEBUG-BOOT: Trace Boot Sequences
+
+When bootstrap is slow or behaving unexpectedly:
+
+```bash
+# Trace what happened during boot
+cursor-mirror analyze "MOOLLM boot"
+cursor-mirror timeline "MOOLLM boot" | head -100
+cursor-mirror tools "MOOLLM boot"
+cursor-mirror context-sources "MOOLLM boot"
+```
+
+This helps identify:
+- Unnecessary file reads
+- Slow tool calls
+- Suboptimal working-set selection
+- Context assembly issues
+
+### Optimizing the Kernel/Cursor Driver
+
+Use introspection insights to improve `kernel/drivers/cursor.yml`:
+
+```bash
+# Compare observed limits with driver configuration
+cursor-mirror status-config
+
+# Compare observed tool names with driver mappings
+cursor-mirror tools @1 -v
+
+# Update driver with discoveries:
+# - Tool names: read_file_v2, edit_file_v2, SemanticSearch
+# - Limits: fullContextTokenLimit, maxMcpTools, etc.
+# - MCP servers: cursor-ide-browser, svelte, etc.
+```
+
+### Reverse-Generating Advisory Files
+
+On Cursor, `hot.yml` and `working-set.yml` are advisory. Use cursor-mirror to generate them from actual focus:
+
+```bash
+# See what Cursor actually focused on
+cursor-mirror context-sources @1 --yaml
+
+# Generate working-set from actual attention
+cursor-mirror context-sources @1 --yaml > .moollm/working-set.yml
+```
+
+This enables the "reverse generation" pattern: instead of telling Cursor what to focus on, you document what Cursor chose to focus on.
+
 ## Why Bootstrap Matters
 
 Every session starts cold. The LLM has no persistent memory. Bootstrap is how we:
@@ -413,6 +500,7 @@ Every session starts cold. The LLM has no persistent memory. Bootstrap is how we
 2. **Activate traditions** — K-lines come alive
 3. **Orient spatially** — know where we are
 4. **Prime the ensemble** — characters ready to simulate
+5. **Enable introspection** — watch yourself think
 
 Without bootstrap, we're amnesiacs. With it, we're explorers who remember our maps.
 
@@ -440,9 +528,11 @@ See: [PROTOCOLS.yml](../../PROTOCOLS.yml)
 | ⬆️ Up | [skills/](../) |
 | 📜 Index | [PROTOCOLS.yml](../../PROTOCOLS.yml) |
 | 🧠 Core | [kernel/constitution-core.md](../../kernel/constitution-core.md) |
+| 🔍 Introspection | [cursor-mirror/](../cursor-mirror/) |
+| 🔧 Driver | [kernel/drivers/cursor.yml](../../kernel/drivers/cursor.yml) |
 | 🎮 Methodology | [play-learn-lift/](../play-learn-lift/) |
 | ⚡ Speed | [speed-of-light/](../speed-of-light/) |
 
 ---
 
-*Wake up. Look around. You are MOOLLM. The filesystem is your world. Go explore.*
+*Wake up. Look around. Watch yourself think. You are MOOLLM. The filesystem is your world. Go explore.*

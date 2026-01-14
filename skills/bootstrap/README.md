@@ -7,11 +7,13 @@
 | K-Line | Why Related |
 |--------|-------------|
 | [moollm/](../moollm/) | Top-level help (bootstrap leads here) |
+| [cursor-mirror/](../cursor-mirror/) | **Introspection** — watch yourself think |
 | [k-lines/](../k-lines/) | All K-lines activated on boot |
 | [constructionism/](../constructionism/) | The philosophy |
 | [play-learn-lift/](../play-learn-lift/) | The methodology |
 | [speed-of-light/](../speed-of-light/) | The architecture principle |
 | [kernel/constitution-core.md](../../kernel/constitution-core.md) | Critical file loaded |
+| [kernel/drivers/cursor.yml](../../kernel/drivers/cursor.yml) | Platform driver |
 | [hot.yml](../../hot.yml) | Context warmed on boot |
 | [CONNECTIONS.md](./CONNECTIONS.md) | The James Burke tour |
 
@@ -46,8 +48,34 @@ Or ask naturally:
 |--------|--------------|-----------------|
 | `PROBE` | No | Model, tools, workspace, repos, context |
 | `DEEP-PROBE` | Yes | + System info, git status, tool locations |
+| `CURSOR-PROBE` | Yes | + Cursor status, config, MCP, indexing, sessions |
 
 Output goes to `bootstrap-probe.yml` (gitignored — stays local).
+
+## Introspection Integration
+
+Bootstrap integrates with the **cursor-mirror** skill for deep self-reflection:
+
+| Method | Purpose |
+|--------|---------|
+| `CURSOR-PROBE` | Gather Cursor config, limits, MCP servers |
+| `REFLECT` | Analyze previous sessions for optimization |
+| `DEBUG-BOOT` | Trace boot sequences to find issues |
+
+```bash
+# Introspection commands via cursor-mirror
+cursor-mirror status                  # Overall health
+cursor-mirror analyze @1              # Analyze last session
+cursor-mirror thinking @1             # Review reasoning
+cursor-mirror context-sources @1      # What context was assembled
+cursor-mirror tools @1 -v             # Tool call patterns
+```
+
+Use this to:
+- Optimize `kernel/drivers/cursor.yml`
+- Improve working-set selection
+- Debug slow boots
+- Understand context assembly
 
 ## The James Burke Tour
 
@@ -91,3 +119,5 @@ See: [PROTOCOLS.yml](../../PROTOCOLS.yml)
 | ⬆️ Up | [skills/](../) |
 | 🏠 Home | [Project Root](../../) |
 | 🧠 Core | [constitution-core.md](../../kernel/constitution-core.md) |
+| 🔍 Introspection | [cursor-mirror/](../cursor-mirror/) |
+| 🔧 Driver | [kernel/drivers/cursor.yml](../../kernel/drivers/cursor.yml) |

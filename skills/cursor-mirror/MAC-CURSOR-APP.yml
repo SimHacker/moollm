@@ -1,0 +1,340 @@
+# Cursor App Layout (macOS)
+# Deep map of application bundle and data directories
+# Update as discoveries are confirmed.
+# Author: Don Hopkins, Leela AI
+
+version_info:
+  app_version: "2.3.35"
+  commit: "cf8353edc265f5e46b798bfb276861d0bf3bf120"
+  build_date: "2026-01-13T07:39:18.564Z"
+  quality: "stable"
+  application_name: "cursor"
+  total_size: "593 MB"
+
+# Application Bundle Structure
+app_bundle:
+  path: "/Applications/Cursor.app"
+  
+  Contents:
+    Info.plist: "39 KB - App metadata, version, bundle ID"
+    PkgInfo: "8 bytes - Package type marker"
+    CodeResources: "2 KB - Code signing resources"
+    _CodeSignature: "Code signing directory"
+    
+    MacOS:
+      Cursor: "Main launcher binary"
+    
+    Frameworks:
+      description: "Electron and helper frameworks (250 MB)"
+      contents:
+        - name: "Electron Framework.framework"
+          description: "Core Electron runtime"
+        - name: "Cursor Helper.app"
+          description: "Main helper process"
+        - name: "Cursor Helper (GPU).app"
+          description: "GPU process helper"
+        - name: "Cursor Helper (Plugin).app"
+          description: "Plugin process helper"
+        - name: "Cursor Helper (Renderer).app"
+          description: "Renderer process helper"
+        - name: "Mantle.framework"
+          description: "macOS Metal graphics"
+        - name: "ReactiveObjC.framework"
+          description: "Reactive programming"
+        - name: "Squirrel.framework"
+          description: "Auto-update framework"
+    
+    Resources:
+      description: "Application resources and assets"
+      
+      icons:
+        - "Cursor.icns"
+        - "default.icns"
+        - "*.icns (language-specific file icons)"
+      
+      localizations:
+        description: "*.lproj directories for 50+ languages"
+        examples: [en.lproj, de.lproj, ja.lproj, zh-Hans.lproj]
+      
+      LICENSES.chromium.html: "15 MB - Chromium license notices"
+      
+      app:
+        path: "Contents/Resources/app/"
+        size: "~220 MB unpacked"
+        
+        package.json: "App manifest"
+        product.json: "60 KB - Product configuration"
+        LICENSE.txt: "26 KB - Cursor license"
+        ThirdPartyNotices.txt: "186 KB - Third-party licenses"
+        
+        # CLI tools
+        bin:
+          description: "Command-line interface binaries"
+          contents:
+            - name: "cursor"
+              description: "Main CLI entry point (symlink target)"
+            - name: "code"
+              description: "VS Code compatibility alias"
+            - name: "cursor-tunnel"
+              description: "Remote tunnel connection"
+        
+        # Compiled JavaScript (50 MB)
+        out:
+          description: "Compiled TypeScript/JavaScript bundles"
+          contents:
+            - name: "main.js"
+              size: "1.3 MB"
+              description: "Main process entry"
+            - name: "cli.js"
+              size: "210 KB"
+              description: "CLI implementation"
+            - name: "bootstrap-fork.js"
+              size: "19 KB"
+              description: "Fork bootstrapper"
+            - name: "nls.messages.json"
+              size: "716 KB"
+              description: "Localization strings"
+            - name: "nls.keys.json"
+              size: "453 KB"
+              description: "Localization keys"
+          
+          vs:
+            description: "VS Code core modules"
+            layers:
+              base: "Core utilities, browser compat, common"
+              code: "Code-specific integration"
+              editor: "Monaco editor core"
+              platform: "Platform services (files, storage, etc.)"
+              workbench:
+                description: "Workbench UI and services"
+                subdirs: ["api", "browser", "contrib", "services"]
+          
+          media: "Static assets (images, fonts)"
+          vscode-dts: "VS Code TypeScript definitions"
+        
+        # Node.js dependencies (77 MB)
+        node_modules:
+          description: "Bundled Node.js dependencies"
+          notable:
+            - name: "@vscode/sqlite3"
+              path: "node_modules/@vscode/sqlite3/build/Release/vscode-sqlite3.node"
+              description: "Native SQLite binding for state.vscdb files"
+            - name: "vscode-languageclient"
+              description: "Language server protocol client"
+            - name: "xterm"
+              description: "Terminal emulator"
+        
+        # Built-in extensions (91 MB, 108 total)
+        extensions:
+          description: "Built-in VS Code and Cursor extensions"
+          
+          cursor_specific:
+            description: "Cursor-exclusive extensions (15 total)"
+            contents:
+              - name: "cursor-retrieval"
+                size: "24 MB"
+                description: "Codebase indexing and semantic search"
+                activation: "onStartupFinished"
+                backend: "repo42.cursor.sh"
+              - name: "cursor-mcp"
+                size: "3.4 MB"
+                description: "Model Context Protocol server management"
+                activation: "onStartupFinished, onUri"
+              - name: "cursor-agent-exec"
+                size: "3.6 MB"
+                description: "Agent execution runtime"
+              - name: "cursor-always-local"
+                size: "3.6 MB"
+                description: "Local-only mode handling"
+              - name: "cursor-browser-extension"
+                size: "3.6 MB"
+                description: "Browser extension integration"
+              - name: "cursor-commits"
+                size: "2.5 MB"
+                description: "Git commit integration"
+              - name: "cursor-shadow-workspace"
+                size: "1.1 MB"
+                description: "Shadow workspace for previews"
+              - name: "cursor-deeplink"
+                size: "880 KB"
+                description: "Deep link handling"
+              - name: "cursor-ios-simulator-connect"
+                size: "556 KB"
+                description: "iOS simulator integration"
+              - name: "cursor-android-emulator-connect"
+                size: "4.2 MB"
+                description: "Android emulator integration"
+              - name: "cursor-browser-automation"
+                size: "148 KB"
+                description: "Built-in browser automation (MCP)"
+              - name: "cursor-worktree-textmate"
+                size: "120 KB"
+                description: "Git worktree TextMate grammars"
+              - name: "cursor-ndjson-ingest"
+                size: "36 KB"
+                description: "NDJSON file ingestion"
+              - name: "cursor-file-service"
+                size: "8 KB"
+                description: "File service utilities"
+              - name: "theme-cursor"
+                description: "Cursor color theme"
+          
+          language_extensions:
+            description: "Programming language support (VS Code built-ins)"
+            examples: [typescript-language-features, python, javascript, go, rust, cpp, csharp, java, ruby, php]
+          
+          tool_extensions:
+            description: "Development tools"
+            examples: [git, docker, debug-auto-launch, debug-server-ready, emmet, markdown-language-features, json-language-features, css-language-features, html-language-features]
+        
+        policies: "Enterprise policy definitions"
+        resources: "Additional static resources"
+
+# User Data Directories
+user_data:
+  root: "~/Library/Application Support/Cursor/"
+  
+  User:
+    description: "User-specific settings and data"
+    
+    globalStorage:
+      description: "Global persistent storage"
+      contents:
+        state.vscdb:
+          description: "Global SQLite database (~8.7 GB)"
+          tables:
+            cursorDiskKV:
+              description: "Main key-value store"
+              key_patterns:
+                - "bubbleId:<composerId>:<messageId>"
+                - "agentKv:blob:<hash>"
+                - "checkpointId:<composerId>:<uuid>"
+                - "messageRequestContext:<composerId>:<msgId>"
+            ItemTable:
+              description: "Metadata key-value store"
+              key_patterns:
+                - "mcpService.knownServerIds"
+                - "aiService.prompts"
+                - "aiService.generations"
+                - "composer.composerData"
+        
+        storage.json: "Workspace-to-profile associations"
+    
+    workspaceStorage:
+      description: "Per-workspace data (hashed folder names)"
+      per_workspace:
+        state.vscdb:
+          description: "Workspace-specific SQLite"
+          tables:
+            ItemTable:
+              key_patterns:
+                - "composer.composerData"
+                - "aiService.prompts"
+                - "aiService.generations"
+        
+        workspace.json: "Maps hash to folder path"
+        
+        anysphere.cursor-retrieval:
+          description: "Semantic search data"
+          contents:
+            embeddable_files.txt: "List of files for embedding (one per line)"
+            high_level_folder_description.txt: "Important paths for context (JSON)"
+        
+        images: "Pasted images and screenshots (*.png with UUID names)"
+    
+    settings.json: "User preferences"
+    keybindings.json: "Custom keyboard shortcuts"
+    snippets: "User code snippets"
+    History: "File edit history"
+  
+  logs:
+    description: "Application logs (timestamped directories)"
+    structure: "logs/<timestamp>/window<N>/exthost/<extension>/"
+    notable:
+      - "renderer.log"
+      - "exthost/output_logging_*.log"
+      - "exthost/anysphere.cursor-retrieval/Cursor Indexing & Retrieval.log"
+    
+    retrieval_log_contents:
+      description: "Semantic indexing log entries"
+      entries:
+        - "Finished computing merkle tree"
+        - "Doing the initial handshake with hash"
+        - "Computed simhash vector of length: 256"
+        - "Total num embeddable files"
+        - "Syncing with repo42.cursor.sh"
+        - "Completed job successfully"
+  
+  Cache: "Cached data"
+  CachedData: "V8 code cache"
+  CachedExtensionVSIXs: "Downloaded extension packages"
+  Crashpad: "Crash reports"
+  Local Storage:
+    leveldb: "LevelDB for webview local storage"
+  Session Storage: "Session-scoped storage"
+  WebStorage: "Web storage (IndexedDB, etc.)"
+  Partitions: "Per-profile browser partitions"
+
+# HTTP Storage (ToDesktop)
+http_storage:
+  path: "~/Library/HTTPStorages/com.todesktop.230313mzl4w4u92/"
+  contents: ["httpstorages.sqlite", "httpstorages.sqlite-wal", "httpstorages.sqlite-shm"]
+  description: "Alt-services cache for ToDesktop wrapper"
+
+# Key Binaries and Native Modules
+native_binaries:
+  main_executable:
+    path: "/Applications/Cursor.app/Contents/MacOS/Cursor"
+    description: "Main Electron launcher"
+  
+  cli_tools:
+    - path: "/Applications/Cursor.app/Contents/Resources/app/bin/cursor"
+      description: "CLI entry point"
+    - path: "/Applications/Cursor.app/Contents/Resources/app/bin/code"
+      description: "VS Code compatibility"
+    - path: "/Applications/Cursor.app/Contents/Resources/app/bin/cursor-tunnel"
+      description: "Remote tunnel"
+  
+  sqlite_binding:
+    path: "/Applications/Cursor.app/Contents/Resources/app/node_modules/@vscode/sqlite3/build/Release/vscode-sqlite3.node"
+    description: "Native SQLite3 binding for state.vscdb access"
+  
+  electron_framework:
+    path: "/Applications/Cursor.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework"
+    description: "Electron runtime"
+
+# External Services
+external_services:
+  semantic_search:
+    url: "https://repo42.cursor.sh"
+    description: "Codebase embedding and retrieval server"
+    protocol:
+      - "Merkle tree hash handshake"
+      - "Simhash vector upload (256-dim)"
+      - "File embedding sync"
+      - "Semantic query processing"
+  
+  ai_backend:
+    description: "AI model inference (Anysphere servers)"
+    features: ["Chat completions", "Code generation", "Tool calling"]
+  
+  mcp_servers:
+    description: "Model Context Protocol servers (user-configured)"
+    storage: "ItemTable: mcpService.knownServerIds"
+    builtin: ["cursor-ide-browser"]
+
+# Notes
+notes:
+  - "App built on Electron (Chromium + Node.js)"
+  - "Most logic under Contents/Resources/app/"
+  - "SQLite driver (@vscode/sqlite3) powers state.vscdb files"
+  - "No in-bundle chat data; all user data under ~/Library/Application Support/Cursor/"
+  - "cursor-retrieval extension (24 MB) handles semantic search"
+  - "cursor-mcp extension handles Model Context Protocol"
+  - "Logs rotate per-window with timestamps"
+  - "Merkle trees used for efficient codebase sync"
+
+provenance:
+  - "Reverse-engineered 2026-01-14 from Cursor 2.3.35 on macOS"
+  - "Confirmed via du, ls, plutil, python3 JSON parsing"
+  - "Database schemas from sqlite3 inspection"

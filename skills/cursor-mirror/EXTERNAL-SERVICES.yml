@@ -1,0 +1,253 @@
+# Cursor External Services & API Endpoints
+# Complete catalog of Cursor's backend infrastructure
+# Discovered: 2026-01-14
+# Author: Don Hopkins, Leela AI
+
+meta:
+  version: "1.0"
+  source: "Application bundle + database inspection"
+  note: "All endpoints discovered from compiled JavaScript and SQLite configs"
+
+# Primary AI Backends
+ai_backends:
+  primary:
+    agent.api5.cursor.sh:
+      description: "Primary AI agent endpoint"
+      purpose: "Tool calling, chat, code generation"
+      
+    api2.cursor.sh:
+      description: "Legacy/fallback API endpoint"
+      
+    api3.cursor.sh:
+      description: "Secondary API endpoint"
+      
+    api4.cursor.sh:
+      description: "Tertiary API endpoint"
+
+  geo_optimized:
+    agent-gcpp-uswest.api5.cursor.sh:
+      description: "US West (GCP) agent endpoint"
+      region: "us-west"
+      
+    agent-gcpp-eucentral.api5.cursor.sh:
+      description: "EU Central (GCP) agent endpoint"
+      region: "eu-central"
+      
+    agentn.api5.cursor.sh:
+      description: "Agent N endpoint (unknown purpose)"
+      
+    agentn-gcpp-uswest.api5.cursor.sh:
+      description: "Agent N US West"
+      
+    agentn-gcpp-eucentral.api5.cursor.sh:
+      description: "Agent N EU Central"
+
+# Semantic Search / Indexing
+semantic_search:
+  repo42.cursor.sh:
+    description: "Codebase embedding and retrieval server"
+    purpose: "Semantic search, codebase indexing"
+    protocol:
+      - "Merkle tree hash handshake (content addressing)"
+      - "Simhash vector upload (256-dim embeddings)"
+      - "File embedding sync"
+      - "Semantic query processing"
+    used_by: ["cursor-retrieval", "cursor-always-local"]
+    config_keys:
+      defaultUserPathEncryptionKey: "Encrypts file paths for privacy"
+      defaultTeamPathEncryptionKey: "Team-shared encryption"
+
+# Metrics & Telemetry
+telemetry:
+  metrics.cursor.sh:
+    url: "https://80ec2259ebfad12d8aa2afe6eb4f6dd5@metrics.cursor.sh/4508016051945472"
+    description: "Sentry-style error and performance tracking"
+    dsn_id: "80ec2259ebfad12d8aa2afe6eb4f6dd5"
+    project_id: "4508016051945472"
+    config:
+      tracesSampleRate: 0.0001
+      loggerSampleRate: 0.1
+      minidumpSampleRate: 1
+      errorRateLimit: 10
+      profilesSampleRate: 0.001
+
+# Extension Marketplace
+marketplace:
+  marketplace.cursorapi.com:
+    description: "Primary extension marketplace"
+    purpose: "VS Code extension hosting"
+    
+  marketplace.cursor.sh:
+    description: "Secondary marketplace URL"
+    
+  staging-marketplace.cursor.sh:
+    description: "Staging marketplace for testing"
+
+# Product Updates
+updates:
+  changelog.cursor.com:
+    description: "Changelog and release notes"
+    nightly_param: "?nightly=true"
+    
+  dev-staging.cursor.sh:
+    description: "Development staging server"
+
+# Internal Tooling
+internal:
+  anytool.corp.anysphere.co:
+    url: "https://anytool.corp.anysphere.co/api/replay-chat"
+    description: "Internal chat replay tool (debugging)"
+    purpose: "Reproduce and debug chat sessions"
+    
+  docs.anysphere.dev:
+    url: "https://docs.anysphere.dev/sandboxing"
+    description: "Internal documentation"
+
+# Server Configuration (from cursorai/serverConfig)
+server_config:
+  indexing:
+    maxConcurrentUploads: 64
+    absoluteMaxNumberFiles: 250000
+    maxFileRetries: 30
+    syncConcurrency: 20
+    autoIndexingMaxNumFiles: 250000
+    indexingPeriodSeconds: 272
+    incremental: true
+    maxBatchBytes: 2097152  # 2 MB
+    maxBatchNumRequests: 20
+    maxSyncMerkleBatchSize: 50
+    copyTimeoutSeconds: 3600
+    multiRootIndexingEnabled: true
+
+  chat:
+    fullContextTokenLimit: 30000
+    maxRuleLength: 100000
+    maxMcpTools: 100
+    warnMcpTools: 80
+    numSummarizationsBeforeWarningShown: 10
+    listDirV2PredefinedIgnoreGlobs:
+      - "**/node_modules/*"
+      - "**/__pycache__/*"
+      - "**/.*"
+
+  background_composer:
+    enableBackgroundAgent: true
+    windowInWindowPreloadCount: 8
+    windowInWindowPingIntervalMs: 10000
+    maxWindowInWindows: 10
+    showBackgroundAgentDisclaimer: true
+    showBackgroundAgentHistoryAction: true
+
+  bugbot:
+    backgroundCallFrequencyMs: 3600000  # 1 hour
+
+# Model Migrations (Server-Pushed)
+model_migrations:
+  description: "Server pushes model upgrade migrations"
+  recent_migrations:
+    - from: "claude-4-sonnet"
+      to: "claude-4.5-sonnet"
+      contexts: ["composer", "background-composer", "plan-execution"]
+      
+    - from: "claude-4-sonnet-thinking"
+      to: "claude-4.5-sonnet-thinking"
+      contexts: ["composer", "background-composer", "plan-execution"]
+      
+    - from: "claude-4.5-sonnet"
+      to: "claude-4.5-opus-high"
+      contexts: ["composer", "background-composer", "plan-execution"]
+      flags: ["migrateOldComposersAndCurrentComposer"]
+      
+    - from: "gpt-5.1-codex"
+      to: "gpt-5.1-codex-max"
+      contexts: ["composer", "background-composer", "plan-execution"]
+      variants: ["low", "high"]
+
+# Agent Action Permissions
+agent_permissions:
+  description: "Actions available to AI agents"
+  allowed_actions_sample:
+    file_ops:
+      - "workbench.action.files.save"
+      - "workbench.action.files.saveAll"
+      - "workbench.action.files.newFile"
+      - "workbench.action.revertAndCloseActiveEditor"
+    editor:
+      - "editor.action.formatDocument"
+      - "editor.action.organizeImports"
+      - "editor.action.quickFix"
+      - "editor.action.refactor"
+    search:
+      - "_search.runRipgrepRaw"
+      - "actions.find"
+      - "workbench.action.quickOpen"
+    terminal:
+      - "workbench.action.terminal.attachToSession"
+      - "workbench.action.terminal.detachSession"
+    composer:
+      - "composer.fixerrormessage"
+      - "composer.addfilestocomposer"
+      - "composer.startComposerPrompt"
+      - "composer.cancelChat"
+    mcp:
+      - "workbench.action.mcp.clearAllTokens"
+      - "mcp.deeplinkInstall"
+    special:
+      - "workbench.action.startInfiniteComposerSession"
+      - "workbench.action.stopInfiniteComposerSession"
+      
+  denied_actions:
+    description: "Actions agents cannot perform"
+    reason: "Prevent UI disruption, window management chaos"
+    examples:
+      - "workbench.action.splitEditor*"
+      - "workbench.action.moveEditor*"
+      - "workbench.action.focusFirstEditorGroup"
+      - "workbench.action.newEmptyEditorWindow"
+
+# Known MCP Servers (User-Configured)
+mcp_servers:
+  builtin:
+    - id: "cursor-ide-browser"
+      description: "Built-in browser automation"
+      
+  user_configured_examples:
+    - "user-hackernews-bigquery"
+    - "user-leela-bigquery"
+    - "user-leela-manufacturing"
+    - "user-leela-dev"
+    - "user-browsermcp"
+    - "user-svelte"
+    - "user-puppeteer-nessus"
+    - "user-mcp-inspector"
+    
+  project_scoped:
+    pattern: "project-{index}-{user}-{server}"
+    examples:
+      - "project-0-a2deh-puppeteer-nessus"
+      - "project-0-a2deh-hackernews-bigquery"
+
+# MOOLLM Implications
+moollm_implications:
+  orchestrator_design:
+    - "Multiple geo-distributed API endpoints for failover"
+    - "Server-pushed config updates (no client restart needed)"
+    - "Model migrations handled server-side"
+    - "Agent action permissions are configurable"
+    
+  context_assembly:
+    - "30K token context limit for full context"
+    - "100K max rule length"
+    - "100 max MCP tools (80 warning threshold)"
+    - "Summarization after 10 message threshold"
+    
+  indexing_protocol:
+    - "Merkle tree sync for efficient delta updates"
+    - "Path encryption for privacy"
+    - "250K file limit per workspace"
+    - "2 MB batch upload limit"
+    
+  background_agents:
+    - "Up to 10 concurrent background composers"
+    - "8 preloaded window-in-window instances"
+    - "10 second ping interval for health checks"

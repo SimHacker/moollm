@@ -1,0 +1,372 @@
+# Cursor Agent Tools Catalog
+# Comprehensive survey of all tools available to the Cursor AI agent
+# Generated from database analysis of 50,000+ tool calls
+# Author: Don Hopkins, Leela AI
+
+meta:
+  generated: "2026-01-14"
+  source: "globalStorage/state.vscdb cursorDiskKV bubbleId keys"
+  total_tool_calls: 19789
+  unique_tools: 29
+
+# Tools with "explanation" parameter (WHY field)
+# The "explanation" parameter captures the agent's reasoning for WHY it's
+# calling a particular tool - invaluable for understanding agent intent.
+tools_with_explanation:
+  description: |
+    These tools require or support an "explanation" parameter that captures
+    the agent's reasoning. This is Cursor's "WHY" field - documenting intent
+    alongside action. Essential for:
+    - Debugging agent behavior
+    - Training data extraction
+    - Audit trails
+    - Understanding decision chains
+
+  codebase_search:
+    count: 61
+    category: "search"
+    has_explanation: true
+    parameters:
+      query:
+        type: string
+        required: true
+        description: "Natural language question for semantic search"
+      target_directories:
+        type: array
+        required: false
+        description: "Paths to limit search scope"
+      explanation:
+        type: string
+        required: true
+        description: "WHY: Reason for this search, what we're trying to find"
+    example:
+      query: "How is bpy.types.Menu class defined?"
+      target_directories: ["/Users/a2deh/GroundUp/git/blender/scripts"]
+      explanation: "Search for Menu class definition and layout usage patterns"
+    result_schema:
+      codeResults:
+        type: array
+        items:
+          codeBlock:
+            relativeWorkspacePath: string
+            range: {startPosition, endPosition}
+            contents: string
+          score: number
+
+  web_search:
+    count: 330
+    category: "search"
+    has_explanation: true
+    parameters:
+      search_term:
+        type: string
+        required: true
+        aliases: ["searchTerm"]
+      explanation:
+        type: string
+        required: true
+        description: "WHY: Reason for this web search"
+    example:
+      search_term: "Blender pie menu development history"
+      explanation: "Search for when pie menus were officially added to Blender"
+    result_schema:
+      references:
+        type: array
+        items:
+          title: string
+          chunk: string
+
+  run_terminal_cmd:
+    count: 3737
+    category: "execution"
+    has_explanation: true
+    parameters:
+      command:
+        type: string
+        required: true
+      is_background:
+        type: boolean
+        required: false
+      required_permissions:
+        type: array
+        required: false
+      explanation:
+        type: string
+        required: false
+        description: "WHY: What this command accomplishes"
+    example:
+      command: "python3 extract_nodes.py"
+      explanation: "Extract node metadata (idname, ui_name, description)"
+
+  delete_file:
+    count: 65
+    category: "file_ops"
+    has_explanation: true
+    parameters:
+      target_file:
+        type: string
+        required: true
+        aliases: ["path"]
+      explanation:
+        type: string
+        required: true
+        description: "WHY: Reason for deletion (safety audit)"
+    example:
+      target_file: "/path/to/old-file.md"
+      explanation: "Delete old file since content is now integrated elsewhere"
+
+# File Operations
+file_operations:
+  read_file:
+    count: 4041
+    category: "file_ops"
+    has_explanation: false
+    parameters:
+      path:
+        type: string
+        aliases: ["target_file"]
+      offset:
+        type: integer
+        description: "Line number to start from"
+      limit:
+        type: integer
+        description: "Number of lines to read"
+
+  read_file_v2:
+    count: 675
+    category: "file_ops"
+    has_explanation: false
+    parameters:
+      path: {type: string}
+      offset: {type: integer}
+      limit: {type: integer}
+    note: "v2 version, same functionality"
+
+  write:
+    count: 1139
+    category: "file_ops"
+    has_explanation: false
+    parameters:
+      file_path: {type: string}
+      contents: {type: string}
+
+  search_replace:
+    count: 4941
+    category: "file_ops"
+    has_explanation: false
+    parameters:
+      file_path: {type: string}
+      old_string: {type: string}
+      new_string: {type: string}
+      replace_all: {type: boolean}
+    note: "Most used tool overall - precise text replacement"
+
+  edit_file_v2:
+    count: 1042
+    category: "file_ops"
+    has_explanation: false
+    parameters: "(streaming edit protocol)"
+    note: "v2 edit uses different streaming format"
+
+  apply_patch:
+    count: 1007
+    category: "file_ops"
+    has_explanation: false
+    parameters: "(diff patch format)"
+
+# Search Operations
+search_operations:
+  grep:
+    count: 1444
+    category: "search"
+    has_explanation: false
+    parameters:
+      pattern: {type: string, description: "Regex pattern"}
+      path: {type: string}
+      glob: {type: string}
+      type: {type: string, description: "File type filter"}
+      output_mode: {type: string, enum: ["content", "files_with_matches", "count"]}
+      multiline: {type: boolean}
+      head_limit: {type: integer}
+      "-A": {type: integer, description: "Lines after match"}
+      "-B": {type: integer, description: "Lines before match"}
+      "-C": {type: integer, description: "Context lines"}
+      "-i": {type: boolean, description: "Case insensitive"}
+      "-n": {type: boolean, description: "Line numbers"}
+
+  rg:
+    count: 501
+    category: "search"
+    has_explanation: false
+    note: "Ripgrep variant with similar params"
+
+  ripgrep_raw_search:
+    count: 286
+    category: "search"
+    has_explanation: false
+    parameters:
+      pattern: {type: string}
+      path: {type: string}
+      glob: {type: string}
+      caseInsensitive: {type: boolean}
+      multiline: {type: boolean}
+      context: {type: integer}
+      contextBefore: {type: integer}
+      contextAfter: {type: integer}
+      headLimit: {type: integer}
+      outputMode: {type: string}
+
+  glob_file_search:
+    count: 107
+    category: "search"
+    has_explanation: false
+    parameters:
+      glob_pattern:
+        type: string
+        aliases: ["globPattern"]
+      target_directory:
+        type: string
+        aliases: ["targetDirectory"]
+
+# Directory Operations
+directory_operations:
+  list_dir:
+    count: 253
+    category: "file_ops"
+    has_explanation: false
+    parameters:
+      target_directory: {type: string}
+      ignore_globs: {type: array}
+
+  list_dir_v2:
+    count: 72
+    category: "file_ops"
+    has_explanation: false
+    parameters:
+      path: {type: string}
+      ignore: {type: array}
+
+# Terminal Execution
+terminal_execution:
+  run_terminal_command_v2:
+    count: 1402
+    category: "execution"
+    has_explanation: false
+    parameters: "(streaming terminal protocol)"
+    note: "v2 version with different streaming format"
+
+# Linting & Validation
+linting:
+  read_lints:
+    count: 328
+    category: "validation"
+    has_explanation: false
+    parameters:
+      paths: {type: array, description: "Files/directories to check"}
+
+# Task Management
+task_management:
+  todo_write:
+    count: 331
+    category: "meta"
+    has_explanation: false
+    parameters:
+      todos:
+        type: array
+        items:
+          id: string
+          content: string
+          status: {enum: ["pending", "in_progress", "completed", "cancelled"]}
+      merge: {type: boolean}
+
+  switch_mode:
+    count: 3
+    category: "meta"
+    has_explanation: false
+    note: "Switch between agent modes (plan, debug, etc.)"
+
+# MCP Tools (Model Context Protocol)
+mcp_tools:
+  description: |
+    MCP tools follow pattern: mcp_<server>_<tool>
+    These are external tools provided by MCP servers.
+
+  cursor-ide-browser:
+    server_type: "builtin"
+    total_calls: 76
+    tools:
+      browser_navigate:
+        count: 70
+        parameters:
+          url: {type: string}
+      browser_click:
+        count: 3
+        parameters:
+          element: {type: string, description: "Human-readable element desc"}
+          ref: {type: string, description: "Element reference from snapshot"}
+      browser_type:
+        count: 1
+        parameters:
+          element: {type: string}
+          ref: {type: string}
+          text: {type: string}
+          submit: {type: boolean}
+      browser_select_option:
+        count: 1
+        parameters:
+          element: {type: string}
+          ref: {type: string}
+          values: {type: array}
+      browser_snapshot:
+        count: 1
+        parameters: {}
+
+  puppeteer-nessus:
+    server_type: "user"
+    total_calls: 13
+    tools:
+      browser_navigate:
+        count: 10
+        parameters:
+          url: {type: string}
+      browser_click:
+        count: 1
+        parameters:
+          element: {type: string}
+          ref: {type: string}
+      browser_press_key:
+        count: 1
+        parameters:
+          key: {type: string}
+      browser_snapshot:
+        count: 1
+        parameters: {}
+
+# Statistics Summary
+statistics:
+  by_category:
+    file_ops: 12153  # read, write, search_replace, edit, apply_patch, list_dir, delete
+    search: 2399     # grep, rg, ripgrep, glob, codebase_search
+    execution: 5139  # run_terminal_cmd, run_terminal_command_v2
+    validation: 328  # read_lints
+    web: 330         # web_search
+    meta: 334        # todo_write, switch_mode
+    mcp: 89          # browser tools
+
+  with_explanation:
+    - codebase_search  # 61 calls, always has explanation
+    - web_search       # 330 calls, always has explanation
+    - run_terminal_cmd # 3737 calls, often has explanation
+    - delete_file      # 65 calls, always has explanation
+
+  observation: |
+    The "explanation" parameter appears on tools that:
+    1. Have side effects (delete_file)
+    2. Make external calls (web_search)
+    3. Require semantic understanding (codebase_search)
+    4. Execute arbitrary commands (run_terminal_cmd)
+    
+    This pattern suggests explanation is used for:
+    - Audit trails (especially for destructive operations)
+    - Intent capture (for semantic operations)
+    - Training data enrichment

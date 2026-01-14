@@ -1,0 +1,292 @@
+# Cursor Built-in Extensions Catalog
+# Deep analysis of Cursor-specific extensions
+# Path: /Applications/Cursor.app/Contents/Resources/app/extensions/
+# Author: Don Hopkins, Leela AI
+
+meta:
+  version: "1.0"
+  discovered: "2026-01-14"
+  total_cursor_extensions: 15
+  total_size: "~50 MB"
+
+# Core AI/Agent Extensions
+core_extensions:
+
+  cursor-retrieval:
+    path: "extensions/cursor-retrieval"
+    size: "24 MB (includes 21MB native module)"
+    description: "Codebase indexing and semantic search engine"
+    activation: ["onStartupFinished"]
+    main: "./dist/main"
+    native_module: "node_modules/@anysphere/file-service/file_service.darwin-universal.node"
+    contributes:
+      commands:
+        - command: "cursor.grepClient.debug"
+          title: "Debug Grep Client"
+      configuration:
+        - key: "cursor-retrieval.canAttemptGithubLogin"
+          description: "Whether Cursor should attempt github login to augment indexing"
+      languages: true
+      keybindings: true
+      menus: true
+    backend: "repo42.cursor.sh"
+    moollm_relevance: "Core to understanding how Cursor builds context"
+
+  cursor-agent-exec:
+    path: "extensions/cursor-agent-exec"
+    size: "3.6 MB"
+    description: "Agent execution runtime for running commands"
+    activation: ["*"]
+    main: "./dist/main"
+    api_proposals: ["cursor", "control"]
+    purpose: |
+      Provides the execution environment for AI agents to:
+      - Run terminal commands
+      - Execute file operations
+      - Coordinate with other extensions
+    moollm_relevance: "Understanding agent capabilities"
+
+  cursor-always-local:
+    path: "extensions/cursor-always-local"
+    size: "3.6 MB"
+    description: "Experimentation and local-first features"
+    activation: 
+      - "onStartupFinished"
+      - "onResolveRemoteAuthority:background-composer"
+    main: "./dist/main"
+    api_proposals:
+      - "cursor"
+      - "control"
+      - "externalUriOpener"
+      - "contribSourceControlInputBoxMenu"
+      - "resolvers"
+    contributes:
+      menus:
+        scm_inputBox:
+          - command: "cursor.generateGitCommitMessage"
+            when: "scmProvider == git"
+      jsonValidation:
+        - fileMatch: ".cursor/environment.json"
+          schema: "environment.schema.json"
+      resourceLabelFormatters:
+        - scheme: "vscode-remote"
+          authority: "background-composer+*"
+          workspaceSuffix: "cloud-agent"
+    schemas:
+      environment.schema.json:
+        purpose: "Defines dev environment configuration"
+        fields:
+          - name: "Environment name"
+          - user: "User to run as"
+          - install: "Install command"
+          - start: "Start command"
+          - repositoryDependencies: "Required repos for GitHub token"
+          - ports: "Ports to expose"
+          - terminals: "Terminals to spawn"
+          - build.dockerfile: "Dockerfile location"
+          - snapshot: "Base environment snapshot ID"
+          - agentCanUpdateSnapshot: "Allow agent to update"
+    moollm_relevance: "Background composer and environment management"
+
+# MCP (Model Context Protocol) Extensions
+mcp_extensions:
+
+  cursor-mcp:
+    path: "extensions/cursor-mcp"
+    size: "3.4 MB"
+    description: "MCP server management and client connections"
+    activation: ["onStartupFinished", "onUri"]
+    main: "./dist/main"
+    source_files:
+      - main.ts: "Extension entry, OAuth handling"
+      - everythingProvider.ts: "Provider factory"
+      - mcpLease.ts: "MCP lease management (9.6KB)"
+      - commands/mcpCommands.ts: "Command implementations (70KB!)"
+    registered_actions:
+      - name: "MCPActions.CallTool"
+        purpose: "Invoke an MCP tool"
+      - name: "MCPActions.GetInstructions"
+        purpose: "Get server instructions"
+      - name: "MCPActions.GetPrompt"
+        purpose: "Get a prompt template"
+      - name: "MCPActions.ReadResource"
+        purpose: "Read an MCP resource"
+      - name: "MCPActions.CreateClient"
+        purpose: "Create new MCP client connection"
+      - name: "MCPActions.DeleteClient"
+        purpose: "Disconnect MCP client"
+      - name: "MCPActions.ListOfferings"
+        purpose: "List available tools/resources/prompts"
+      - name: "MCPActions.ListToolsRaw"
+        purpose: "Get raw tool definitions"
+      - name: "MCPActions.ReloadClient"
+        purpose: "Reconnect MCP client"
+      - name: "MCPActions.LogoutServer"
+        purpose: "OAuth logout"
+      - name: "MCPActions.ClearAllTokens"
+        purpose: "Clear all OAuth tokens"
+    oauth_support:
+      uri_handler: "cursor://anysphere.cursor-mcp/oauth/callback"
+      flow: "Authorization code with PKCE"
+    transports:
+      - SSEClientTransport
+      - StdioClientTransport
+      - StreamableHTTPClientTransport
+    moollm_relevance: "Critical for understanding tool integration"
+
+  cursor-browser-automation:
+    path: "extensions/cursor-browser-automation"
+    size: "148 KB"
+    description: "Built-in MCP server for browser automation"
+    activation: ["onStartupFinished"]
+    main: "./dist/extension.js"
+    source_files:
+      - browserTools.ts: "Browser automation implementation (45KB)"
+      - browserUIScript.ts: "UI injection scripts (7KB)"
+      - extension.ts: "MCP provider registration (13KB)"
+      - logger.ts: "Logging utilities"
+    mcp_provider:
+      id: "cursor-ide-browser"
+      instructions: "MCP server for web navigation and interaction"
+    tools:
+      - browser_navigate: "Navigate to URL"
+      - browser_snapshot: "Capture accessibility snapshot"
+      - browser_click: "Click on element"
+      - browser_type: "Type into element"
+      - browser_hover: "Hover over element"
+      - browser_select_option: "Select dropdown option"
+      - browser_press_key: "Press keyboard key"
+      - browser_wait_for: "Wait for text/time"
+      - browser_navigate_back: "Go back"
+      - browser_resize: "Resize window"
+      - browser_console_messages: "Get console logs"
+      - browser_network_requests: "Get network requests"
+      - browser_tabs: "List/create/close/select tabs"
+      - browser_take_screenshot: "Take screenshot"
+    moollm_relevance: "Built-in browser automation, no external MCP needed"
+
+  cursor-browser-extension:
+    path: "extensions/cursor-browser-extension"
+    size: "3.6 MB"
+    description: "Playwright integration for browser control"
+    activation: ["onStartupFinished", "onUri"]
+    main: "./dist/main"
+    purpose: "External browser extension communication"
+    moollm_relevance: "Alternative browser automation path"
+
+# Git Integration Extensions
+git_extensions:
+
+  cursor-commits:
+    path: "extensions/cursor-commits"
+    size: "2.5 MB"
+    description: "Git commit tracking for AI attribution metrics"
+    activation: ["onStartupFinished"]
+    main: "./dist/main"
+    dependencies: ["vscode.git"]
+    api_proposals:
+      - "control"
+      - "cursor"
+      - "cursorTracing"
+    purpose: |
+      Tracks:
+      - AI-generated code in commits
+      - Request-to-commit correlation
+      - Online metrics for usage analytics
+    moollm_relevance: "AI code attribution data source"
+
+  cursor-worktree-textmate:
+    path: "extensions/cursor-worktree-textmate"
+    size: "120 KB"
+    description: "Git worktree TextMate grammars"
+    purpose: "Syntax highlighting for git worktree files"
+
+# Development Environment Extensions
+dev_extensions:
+
+  cursor-shadow-workspace:
+    path: "extensions/cursor-shadow-workspace"
+    size: "1.1 MB"
+    description: "Shadow workspace for code previews"
+    activation: ["onStartupFinished"]
+    main: "./dist/extension"
+    contributes:
+      commands: true
+      configuration: true
+    purpose: |
+      Creates invisible workspaces for:
+      - Code preview before apply
+      - Diff generation
+      - Safe code evaluation
+
+  cursor-ios-simulator-connect:
+    path: "extensions/cursor-ios-simulator-connect"
+    size: "556 KB"
+    description: "iOS Simulator integration"
+    purpose: "Connect to iOS simulators for mobile dev"
+
+  cursor-android-emulator-connect:
+    path: "extensions/cursor-android-emulator-connect"
+    size: "4.2 MB"
+    description: "Android Emulator integration"
+    purpose: "Connect to Android emulators for mobile dev"
+
+# Utility Extensions
+utility_extensions:
+
+  cursor-deeplink:
+    path: "extensions/cursor-deeplink"
+    size: "880 KB"
+    description: "Deep link URI handling"
+    activation: ["onStartupFinished"]
+    main: "./dist/main"
+    contributes:
+      commands: true
+    purpose: "Handle cursor:// URLs for external integration"
+
+  cursor-ndjson-ingest:
+    path: "extensions/cursor-ndjson-ingest"
+    size: "36 KB"
+    description: "NDJSON file ingestion"
+    purpose: "Parse newline-delimited JSON for data import"
+
+  cursor-file-service:
+    path: "extensions/cursor-file-service"
+    size: "8 KB"
+    description: "File service utilities"
+    purpose: "Common file operations wrapper"
+
+  theme-cursor:
+    path: "extensions/theme-cursor"
+    description: "Cursor color theme"
+    purpose: "Visual theme for Cursor IDE"
+
+# API Proposals Used
+api_proposals_summary:
+  cursor: "Core Cursor API access"
+  control: "Extension control APIs"
+  cursorTracing: "Performance tracing"
+  externalUriOpener: "Open external URLs"
+  contribSourceControlInputBoxMenu: "SCM input box menus"
+  resolvers: "Remote resolver APIs"
+
+# MOOLLM Integration Opportunities
+moollm_implications:
+  context_assembly:
+    - "cursor-retrieval controls what context AI sees"
+    - "cursor-always-local manages environment config"
+    - "cursor-shadow-workspace handles preview/diff"
+
+  tool_integration:
+    - "cursor-mcp is the MCP orchestrator"
+    - "cursor-browser-automation is built-in browser MCP"
+    - "cursor-agent-exec runs commands"
+
+  metrics_tracking:
+    - "cursor-commits tracks AI attribution"
+    - "Extension activation events reveal startup flow"
+
+  customization_hooks:
+    - "environment.schema.json for dev environments"
+    - "MCP OAuth flow for authenticated tools"
+    - "Deep links for external integration"
