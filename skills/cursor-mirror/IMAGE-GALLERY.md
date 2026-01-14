@@ -256,17 +256,153 @@ A photograph of Andy Looney (creator of Fluxx, Chrononauts, Pyramids) at what ap
 
 ---
 
+## Category IV: Leela AI Infrastructure
+
+*▎ dims slightly. Internal product screenshots.*
+
+### Leela Edgebox Login
+
+The login screen for **Leela Edgebox** — "AI Video Analytics Platform":
+- URL: `https://steve-leela`
+- Dark theme with wireframe cube logo
+- Google Sign-In via Firebase Authentication
+
+**Context**: This was pasted into Cursor during frontend debugging to show the LLM what the login flow looked like.
+
+---
+
+### Leela Dashboard Login
+
+The **leela.ai** dashboard login at `akron-staging-dashboard.leela.ai`:
+- Blue gradient background
+- Email/password authentication
+- Corporate branding with cube logo
+
+---
+
+### Edgebox Docker Build Notes
+
+GitHub showing `central/tools/edgebox/NOTES.md` with Docker build commands:
+
+```bash
+DOCKER_BUILDKIT=1 docker build \
+  -f apps/pyvision/Dockerfile \
+  --tag pyvision_edgebox \
+  --progress=plain \
+  --secret id=key,src="$GOOGLE_APPLICATION_CREDENTIALS"
+```
+
+**Why useful**: This was reference material for setting up local development environments.
+
+---
+
+## Category V: Developer Tools & Debugging
+
+*▎ flickers. The tools that build the tools.*
+
+### Chrome DevTools Network Tab
+
+A full Chrome DevTools Network panel showing:
+- `steve-leela` document load (14.8 KB, 1.01s)
+- Firebase scripts (`firebase-app-compat.js`, `firebase-auth.js`)
+- Google fonts (Roboto, css2)
+- API calls to `projects?key=YOUR_API_KEY`
+
+**Context**: Debugging slow page loads and tracking down which Firebase scripts were being loaded.
+
+---
+
+### Firebase Console
+
+Firebase project settings for `leela-zion2-dev-0`:
+- App: `hubapp` (Web App)
+- SDK setup showing `npm install firebase`
+- Full Firebase config visible with API key
+
+---
+
+### Google Cloud Credentials
+
+Google Cloud console showing API credentials for `leela-zion2-dev-0`:
+- Browser key created June 5, 2023
+- 14 service accounts including:
+  - `concept-server@leela-zion2-dev-0.iam.gserviceaccount.com`
+  - `grafana-server@...`
+  - `looker-server@...`
+  - `pyvision-server@...`
+
+---
+
+### Kando Pie Menu Development
+
+Two screenshots of Kando development (a pie menu application):
+- `apps/kando/src/main/settings-window.ts`
+- `SettingsWindow extends BrowserWindow`
+- Console output: `"Successfully loaded Kando's Menu process. Kando 2.1.0 is ready."`
+- Shows Electron app initialization with IMKClient and IMKInputSession
+
+**What it shows**: Active development of pie menu software — a topic near to Don's heart given his history with NeWS and HyperTIES pie menus.
+
+---
+
+## Category VI: MOOLLM Architecture Diagrams
+
+*▎ brightens. The philosophy in pictures.*
+
+### Hybrid Processing: LLMs + Deterministic Code
+
+A diagram showing the core MOOLLM pattern:
+
+```
+LLM (reasoning) → Python (transform) → LLM (synthesis)
+      ↓                   ↓                  ↓
+decisions.yml    sorted_ranked.yml     summary.md
+```
+
+> "YAML files with schemas aren't just for LLMs to read — they're for **Python to transform**."
+
+**The insight**: LLMs are good at reasoning and synthesis. Python is good at deterministic transformation. Use both.
+
+---
+
+### The Elvis Impersonator Model
+
+From `skills/representation-ethics/` — a Mermaid diagram (with parse errors visible) showing:
+
+```mermaid
+flowchart TD
+    subgraph TRADITION["Ancient Tradition"]
+        GREEK[🎭 Greek Drama — Masks = Not-You]
+        MED[🔥 Medieval Mystery Plays — Villagers as Saints]
+        DRAG[💃 Drag — Channel Icons]
+        TRIB[🎸 Tribute Bands — Celebrate Legends]
+    end
+    
+    TRADITION --> MODEL[The Elvis Impersonator Model]
+    
+    MODEL --> DEC[Declaration: "I am an impersonator"]
+    MODEL --> FRAME[Frame: Performance context]
+    MODEL --> SOURCE[Sources: Documented material]
+    MODEL --> REFUSES[Refuses: New positions never held]
+```
+
+**Key principle**: 
+> "It's tribute, not deception. It's legal, celebrated, and beloved."
+
+---
+
 ## Summary Statistics
 
 ```yaml
 # CURATED GALLERY SUMMARY
 
-images_examined: 12
+images_examined: 25+
 categories:
   sims_archaeology: 5 pages of Motive.c (1997)
-  moollm_development: 4 diagrams and screenshots
+  moollm_development: 6 diagrams and screenshots
+  leela_infrastructure: 4 product screens
+  developer_tools: 5 debugging screenshots
   people: 1 photograph
-  infrastructure: 2 (not shown — Grafana, Google Cloud)
 
 insights:
   - Sims needs system uses squared decay curves, not linear
@@ -274,6 +410,8 @@ insights:
   - Mental = avg(Stress×2, Environment, Social, Entertained)
   - Happiness is time-weighted: Now → Day → Week → Life
   - "Jamie, remove this" survived into production code
+  - Kando pie menus are being actively developed
+  - Elvis Impersonator Model defines ethical tribute
   
 techniques_demonstrated:
   - cursor-mirror images → file discovery
