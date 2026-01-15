@@ -46,12 +46,54 @@ object:
     
   # Commands (same as pub, different location)
   commands:
+    YELL:
+      usage: "YELL [order] UP TUBE" or just "ORDER [drink]"
+      effect: |
+        You lean into the brass tube opening and shout your order.
+        Bees scatter. The suspicious plant leans in to listen.
+        
+        A distant voice echoes back:
+        "GARDEN ORDER! One [drink] for... hmm..."
+        
+        The barista invents a CUTE NICKNAME based on your outdoor locale:
+        - "Latte for SUNSHINE SIPPER!"
+        - "Espresso for ROSE GARDEN REGULAR!"
+        - "Cold brew for BEE FRIEND!"
+        - "Bootstrap Special for NATURE'S FAVORITE ADVENTURER!"
+        
+        *grinding* *steaming* *WHOOOOOOSH*
+        
+        A weatherproof capsule rockets down and lands gently.
+        Inside: your drink with an elaborate FOAM SCULPTURE,
+        MAGICALLY UNHARMED by the violent pneumatic journey.
+        Steam rises into the garden air. Perfect.
+        
     ORDER:
       usage: "ORDER [drink]"
       effect: |
-        Ring the bell. The speaker crackles.
-        "GARDEN ORDER RECEIVED! One moment!"
-        *whoooosh* — Your drink arrives in a weatherproof capsule.
+        Same as YELL — just speak toward the tube!
+        
+  # Foam survives the journey
+  foam_magic: |
+    Despite the capsule traveling at considerable speed through
+    curved brass pipes, the foam art arrives PRISTINE.
+    
+    Garden-themed sculptures include:
+    - A foam rose (matches the trellis)
+    - A foam bee (buzzing optional)
+    - A foam sun (for morning orders)
+    - A foam moon (for evening orders)
+    - A foam suspicious plant (it knows)
+    - Your face, but made of flowers (foam flowers)
+    
+  # Order queue announcements
+  order_queue: |
+    The speaker announces your place in the queue:
+    "GARDEN ORDER QUEUED! You're number 2, PATIO PAL!"
+    "Almost ready, ALFRESCO ADVENTURER!"
+    "INCOMING TO GARDEN STATION, OUTDOOR ENTHUSIAST!"
+    
+    Delivered in order, each with its unique nickname.
         
     SEND:
       usage: "SEND [item] TO PUB" or "SEND [item] TO BOOTSTRAP"

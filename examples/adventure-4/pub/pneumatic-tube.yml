@@ -117,12 +117,87 @@ object:
         
   # Commands
   commands:
+    YELL:
+      usage: "YELL [order] UP TUBE" or just "ORDER [drink]"
+      effect: |
+        You lean toward the tube and shout your order into the brass
+        opening. Your voice echoes up through the pipes.
+        
+        A distant, enthusiastic voice responds:
+        "ORDER RECEIVED! One [drink] for... let me see..."
+        
+        The barista invents a CUTE NICKNAME for you on the spot:
+        - "One latte for SUNSHINE ADVENTURER!"
+        - "Cappuccino for THE BRAVE WAISTCOAT!"
+        - "Espresso for DEFINITELY-NOT-GRUE-FOOD!"
+        - "Bootstrap Special for MY FAVORITE CUSTOMER TODAY!"
+        
+        *grinding sounds* *steaming sounds* *whoooosh*
+        
+        A capsule rockets down the tube and lands with a gentle *thunk*.
+        Inside: your drink, PERFECTLY INTACT, topped with an elaborate
+        FOAM SCULPTURE that defies physics and the laws of pneumatic
+        delivery.
+        
     ORDER:
       usage: "ORDER [drink]"
       effect: |
-        The barista acknowledges your order through the speaker.
-        You hear grinding, steaming, whooshing.
-        A capsule arrives with your drink and foam art!
+        Same as YELL — the barista hears everything.
+        
+  # The Magic of Foam Delivery
+  foam_magic: |
+    The drinks arrive MAGICALLY UNHARMED by the pneumatic journey.
+    
+    How? Nobody knows. The barista claims it's "PRECISION ENGINEERING"
+    but the capsules clearly exceed safe g-forces for foam art.
+    
+    Theories:
+    - The tubes are enchanted
+    - The foam is structural
+    - Reality bends for good coffee
+    - The barista is a wizard (unconfirmed)
+    
+    Regardless: your cappuccino arrives with a perfect foam grue,
+    your latte sports a tiny foam castle, and your Bootstrap Special
+    has a foam sculpture of YOUR FACE (somehow accurate).
+    
+  # Foam Sculptures (barista's specialty)
+  foam_sculptures:
+    description: |
+      ROBO-BARISTA 3000™ takes EXTREME PRIDE in foam art.
+      Each drink arrives with a unique sculpture.
+      
+    examples:
+      - "A foam grue (surprisingly cute)"
+      - "A tiny foam adventurer holding a lamp"
+      - "Your face, rendered in milk foam (unsettling accuracy)"
+      - "A foam treasure chest with foam gold coins"
+      - "A foam map of the maze (changes daily)"
+      - "A foam Mother, looking proud"
+      - "A foam skeleton pointing west"
+      - "Abstract foam representing 'the concept of hope'"
+      - "A foam cat (one of the 8 kittens, rotates)"
+      - "A foam version of your current costume"
+      
+    special_occasions:
+      victory: "Foam trophy with 'HERO' written in cocoa"
+      death_recovery: "Foam hug (yes, a hug, in foam)"
+      first_order: "Foam welcome mat saying 'HELLO FRIEND'"
+      regular_customer: "Foam portrait gallery of past visits"
+      
+  # Order Queue
+  order_queue: |
+    Orders are delivered IN ORDER, first come first served.
+    
+    The barista announces each one:
+    "NEXT UP: Espresso for CAPTAIN COURAGE!"
+    "INCOMING: Cold brew for THE MYSTERIOUS STRANGER!"
+    "SPECIAL DELIVERY: Bootstrap Special for FOAM APPRECIATOR!"
+    
+    If multiple people order, you hear the queue:
+    "Three orders ahead of you, PATIENT HERO!"
+    "Your drink is NEXT, ALMOST-CAFFEINATED ONE!"
+    "HERE IT COMES, WORTHY VESSEL OF COFFEE!"
         
     SEND:
       usage: "SEND [item] TO GARDEN" or "SEND [item] TO BOOTSTRAP"
