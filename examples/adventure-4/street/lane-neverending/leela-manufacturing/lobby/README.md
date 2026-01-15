@@ -14,7 +14,7 @@ flowchart TB
         direction TB
         Roof["🌿 Rooftop\nGarden & Drones"]
         F3["Floor 3\n📦 Shipping"]
-        F2["Floor 2\n🔥 Processing"]
+        F2["Floor 2\n🔥 Factory"]
         F1["Floor 1\n🔄 Intake"]
         Lobby["Ground\n🚪 Lobby ← YOU ARE HERE"]
         Basement["Basement\n🔬 R&D"]
@@ -29,7 +29,7 @@ flowchart TB
 |-------|------|----------|
 | 🌿 | [Rooftop](../rooftop/) | Garden, drone pads, Eventually |
 | 3 | [Shipping](../floor-3/) | Packaging, dispatch, pneumatic hub |
-| 2 | [Processing](../floor-2/) | Insight Furnace, processing cells |
+| 2 | [Factory](../floor-2/) | Insight Furnace, processing cells |
 | 1 | [Intake](../floor-1/) | Conveyor system, video pipeline |
 | G | **Lobby** | Reception, elevator access |
 | B | [Basement](../basement/) | R&D Laboratory *(clearance required)* |
@@ -70,7 +70,7 @@ Camera LOB1 tracks visitor flow:
 
 ```mermaid
 pie title Visitor Destinations Today
-    "Floor 2 (Processing)" : 34
+    "Floor 2 (Factory)" : 34
     "Loading Docks" : 28
     "Floor 1 (Intake)" : 19
     "Rooftop" : 12
@@ -79,7 +79,7 @@ pie title Visitor Destinations Today
 
 | Destination | % of Visitors | Notes |
 |-------------|---------------|-------|
-| Floor 2 (Processing) | 34% | Most common — problems need processing |
+| Floor 2 (Factory) | 34% | Most common — problems need processing |
 | Loading Docks | 28% | Deliveries and pickups |
 | Floor 1 (Intake) | 19% | Submitting new questions |
 | Rooftop | 12% | Thinking, Eventually consultation |

@@ -29,7 +29,7 @@ flowchart TB
         direction TB
         Roof["🌿 Rooftop Garden"]
         F3["Floor 3: Shipping"]
-        F2["Floor 2: Processing"]
+        F2["Floor 2: Factory"]
         F1["Floor 1: Intake"]
         Lobby["Ground: Lobby"]
         Basement["Basement: R&D"]

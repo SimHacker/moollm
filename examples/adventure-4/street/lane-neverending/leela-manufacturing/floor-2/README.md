@@ -148,7 +148,7 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-    FAC1["📹 FAC1"] --> |"watches"| Floor["Processing Floor"]
+    FAC1["📹 FAC1"] --> |"watches"| Floor["Factory Floor"]
     Floor --> |"processes"| FAC1Feed["FAC1's feed"]
     FAC1Feed --> |"becomes"| Insight["Insight about\nFAC1 watching"]
     Insight --> |"processed by"| Floor

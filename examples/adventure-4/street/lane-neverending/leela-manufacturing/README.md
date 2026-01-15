@@ -207,7 +207,7 @@ flowchart TB
             Pneumatic["🔵 Pneumatic Hub"]
         end
         
-        subgraph F2["Floor 2: Processing"]
+        subgraph F2["Floor 2: Factory"]
             Furnace["🔥 Insight Furnace"]
             Cells["🧪 Processing Cells"]
             Board["📺 Big Board"]
@@ -259,7 +259,7 @@ flowchart TB
 |-------|------|---------|
 | 🌿 | **Rooftop** | Garden, drone pads, wisdom tortoise |
 | 3 | **Shipping** | Packaging, departure board, pneumatic tubes |
-| 2 | **Processing** | Insight Furnace, processing cells, Big Board |
+| 2 | **Factory** | Insight Furnace, processing cells, Big Board |
 | 1 | **Intake** | Conveyor system, sorting, intake monitoring |
 | G | **Lobby** | Directory, elevator, street access |
 | B | **Basement** | R&D Laboratory, Zone 7, Forbidden Shelf |

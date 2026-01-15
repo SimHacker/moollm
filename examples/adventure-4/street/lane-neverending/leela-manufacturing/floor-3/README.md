@@ -2,7 +2,7 @@
 
 > *"Where insights go out into the world."*
 
-The **Shipping Department** is the final stage of Leela's visual intelligence pipeline. Finished insights arrive from the Processing Floor, get packaged, labeled, and dispatched to customers across... everywhere.
+The **Shipping Department** is the final stage of Leela's visual intelligence pipeline. Finished insights arrive from the Factory Floor, get packaged, labeled, and dispatched to customers across... everywhere.
 
 ---
 
@@ -129,7 +129,7 @@ flowchart TB
 | Tube | Destination | Avg Transit Time | Capsules/Hour |
 |------|-------------|------------------|---------------|
 | 1 | Floor 1 (Intake) | 3 seconds | 47 |
-| 2 | Floor 2 (Processing) | 3 seconds | 23 |
+| 2 | Floor 2 (Factory) | 3 seconds | 23 |
 | 3 | Lobby | 4 seconds | 12 |
 | 4 | Basement | 5 seconds | 8 |
 | 5 | Loading Docks | 6 seconds | 89 |
@@ -187,7 +187,7 @@ When an insight fails to provide value, we don't take it back — we figure out 
 
 | Direction | Destination | Notes |
 |-----------|-------------|-------|
-| ⬇️ Down | [Floor 2 — Processing](../floor-2/) | Insight Furnace |
+| ⬇️ Down | [Floor 2 — Factory](../floor-2/) | Insight Furnace |
 | ⬆️ Up | [Rooftop Garden](../rooftop/) | Drone pads |
 | 🚛 East | [Loading Docks](../loading-docks/) | Truck dispatch |
 | 🛗 Elevator | [Lobby](../lobby/) | Main entrance |

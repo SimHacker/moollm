@@ -14,7 +14,7 @@ Leela AI is a **Visual Intelligence Platform** — we transform video into under
 flowchart TB
     subgraph Cameras["📹 Leela's Seven Eyes"]
         LOG1["LOG1\nLoading Docks"]
-        FAC1["FAC1\nProcessing"]
+        FAC1["FAC1\nFactory"]
         INT1["INT1\nIntake"]
         SHP1["SHP1\nShipping"]
         LOB1["LOB1\nLobby"]
@@ -75,7 +75,7 @@ flowchart LR
         PD --> PT --> PDep
     end
     
-    ODep --> Processor["Processing Floor"]
+    ODep --> Processor["Factory Floor"]
     PDep --> Processor
 
     style ObjectTrack fill:#e74c3c,color:#fff
@@ -163,7 +163,7 @@ This is normal. (Probably.)
 | Direction | Destination | Notes |
 |-----------|-------------|-------|
 | ⬇️ Down | [Lobby](../lobby/) | Main entrance |
-| ⬆️ Up | [Floor 2 — Processing](../floor-2/) | The Insight Furnace |
+| ⬆️ Up | [Floor 2 — Factory](../floor-2/) | The Insight Furnace |
 | 🚛 East | [Loading Docks](../loading-docks/) | Incoming shipments |
 
 ---

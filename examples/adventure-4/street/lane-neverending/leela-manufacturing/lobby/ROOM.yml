@@ -29,14 +29,14 @@ room:
     │                                        │
     │  🌿 Rooftop ........ Garden & Drones   │
     │  3  Shipping ....... Outbound          │
-    │  2  Processing ..... The Furnace       │
+    │  2  Factory ........ The Furnace       │
     │  1  Intake ......... Conveyors         │
     │  G  Lobby .......... You Are Here      │
     │  B  Basement ....... R&D (Restricted)  │
     │                                        │
     │  External:                             │
     │  🚛 Loading Docks    📦 Storage         │
-    │  📮 Mail Room       🏛️ Warehouse 23    │
+    │  📮 Mail Room       🏛️ Warehouse 23     │
     └────────────────────────────────────────┘
     
     ELEVATOR:
@@ -67,7 +67,7 @@ room:
       
     elevator_2:
       to: ../floor-2/
-      description: "Elevator to Floor 2 (Processing)"
+      description: "Elevator to Floor 2 (Factory)"
       
     elevator_1:
       to: ../floor-1/

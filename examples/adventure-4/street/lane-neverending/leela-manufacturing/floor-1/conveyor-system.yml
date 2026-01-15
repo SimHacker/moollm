@@ -180,7 +180,7 @@ object:
     📹 LOG1 (Loading Docks) — First Eye
        Watching: Forklifts, drones, workers, deliveries
        
-    📹 FAC1 (Processing Floor) — Second Eye
+    📹 FAC1 (Factory Floor) — Second Eye
        Watching: Insight Furnace, cells, workers thinking
        Note: RECURSIVE — processed by the floor it watches
        
@@ -298,7 +298,7 @@ object:
     
     # Leela's Seven Eyes
     camera_log1: { status: "live", location: "Loading Docks", fps: 30, uptime_days: 847 }
-    camera_fac1: { status: "live", location: "Processing Floor", fps: 30, uptime_days: 423, recursive: true }
+    camera_fac1: { status: "live", location: "Factory Floor", fps: 30, uptime_days: 423, recursive: true }
     camera_int1: { status: "live", location: "Intake Floor", fps: 30, uptime_days: 312, recursive: "high" }
     camera_shp1: { status: "live", location: "Shipping Floor", fps: 30, uptime_days: 289 }
     camera_lob1: { status: "live", location: "Lobby", fps: 30, uptime_days: 512 }

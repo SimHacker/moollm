@@ -7,7 +7,7 @@ room:
   
   description: |
     The SHIPPING DEPARTMENT is a hive of activity. Finished insights
-    arrive from the Processing Floor below and get packaged, labeled,
+    arrive from the Factory Floor below and get packaged, labeled,
     and dispatched to customers across... everywhere.
     
     Pneumatic tubes whoosh. Drones launch from the roof access. 
@@ -69,7 +69,7 @@ room:
   exits:
     down:
       destination: ../floor-2/
-      description: "Down to Floor 2 — Processing"
+      description: "Down to Floor 2 — Factory"
       aliases: [2, processing]
       
     up:
