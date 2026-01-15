@@ -33,7 +33,9 @@ object:
     │                                                                 │
     │   📦 STORAGE .............. Containers, Shelving, Warehousing   │
     │   🚚 LOGISTICS ............ Shipping, Handling, Distribution    │
-    │   🏗️ INFRASTRUCTURE ....... Utilities, Networks, Foundations    │
+    │   🚁 DRONES ............... Aerial Delivery, Surveillance       │
+    │   🐴 HORSES & CARRIAGES ... Traditional Transport               │
+    │   🏗️ INFRASTRUCTURE ....... Utilities, Pneumatics, Networks     │
     │   📹 SURVEILLANCE ......... Cameras, Monitoring, Security       │
     │   🗺️ MAPPING .............. Cartography, Navigation, Topology   │
     │   🎭 MODELS & POSES ....... Characters, Animations, Actions     │
@@ -184,6 +186,217 @@ object:
               description: "Manual, 2-ton capacity"
               
     # ═══════════════════════════════════════════════════════════════
+    # DRONES
+    # ═══════════════════════════════════════════════════════════════
+    
+    drones:
+      name: "🚁 Drones & Aerial Systems"
+      tagline: "Eyes in the sky. Packages from above."
+      page: 22
+      
+      categories:
+        delivery_drones:
+          items:
+            - name: "Courier Drone (Light)"
+              sku: "LEE-CD-001"
+              price: "200 coins"
+              payload: "2 kg"
+              range: "10 km"
+              description: "Small package delivery, auto-navigation"
+              
+            - name: "Courier Drone (Heavy)"
+              sku: "LEE-CD-002"
+              price: "450 coins"
+              payload: "15 kg"
+              range: "25 km"
+              description: "Larger packages, weather-resistant"
+              
+            - name: "Swarm Courier Pack (6)"
+              sku: "LEE-SC-001"
+              price: "1000 coins"
+              payload: "50 kg combined"
+              description: "Coordinated swarm for heavy/awkward loads"
+              
+        surveillance_drones:
+          items:
+            - name: "Scout Drone"
+              sku: "LEE-SD-001"
+              price: "150 coins"
+              description: "Quiet, long-endurance, HD camera"
+              flight_time: "4 hours"
+              
+            - name: "Patrol Drone"
+              sku: "LEE-PD-001"
+              price: "300 coins"
+              description: "Autonomous patrol routes, night vision"
+              
+            - name: "Mapping Drone"
+              sku: "LEE-MD-001"
+              price: "400 coins"
+              description: "3D terrain mapping, auto-cartography"
+              
+        utility_drones:
+          items:
+            - name: "Inspection Drone"
+              sku: "LEE-ID-002"
+              price: "250 coins"
+              description: "Hard-to-reach areas, zoom camera, light"
+              
+            - name: "Agricultural Drone"
+              sku: "LEE-AD-001"
+              price: "350 coins"
+              description: "Crop monitoring, seeding, pest control"
+              
+            - name: "Construction Drone"
+              sku: "LEE-CD-003"
+              price: "500 coins"
+              description: "Light assembly, cable laying, surveying"
+              
+        drone_infrastructure:
+          items:
+            - name: "Drone Dock (Single)"
+              sku: "LEE-DD-001"
+              price: "100 coins"
+              description: "Charging, weather shelter, landing pad"
+              
+            - name: "Drone Hub (6-bay)"
+              sku: "LEE-DH-001"
+              price: "500 coins"
+              description: "Multi-drone management, auto-dispatch"
+              
+            - name: "Drone Control Console"
+              sku: "LEE-DC-004"
+              price: "350 coins"
+              description: "Manual override, fleet management, video feeds"
+              
+    # ═══════════════════════════════════════════════════════════════
+    # HORSES & CARRIAGES
+    # ═══════════════════════════════════════════════════════════════
+    
+    horses_and_carriages:
+      name: "🐴 Horses & Carriages"
+      tagline: "Traditional transport. Timeless reliability."
+      page: 25
+      
+      note: |
+        For those who prefer the proven methods.
+        All horses are well-trained, healthy, and treated ethically.
+        Leela does NOT sell to anyone who won't care for them properly.
+        
+      categories:
+        horses:
+          items:
+            - name: "Draft Horse"
+              sku: "LEE-DH-002"
+              price: "800 coins"
+              description: "Strong, patient, hauls heavy loads"
+              temperament: "Gentle giant"
+              
+            - name: "Riding Horse"
+              sku: "LEE-RH-001"
+              price: "600 coins"
+              description: "Fast, responsive, comfortable gait"
+              temperament: "Spirited but trainable"
+              
+            - name: "War Horse"
+              sku: "LEE-WH-001"
+              price: "1500 coins"
+              description: "Battle-trained, brave, armored"
+              temperament: "Fearless, bonded to rider"
+              
+            - name: "Pony"
+              sku: "LEE-PY-001"
+              price: "400 coins"
+              description: "Smaller riders, pack animal, hardy"
+              temperament: "Stubborn but loyal"
+              
+            - name: "Matched Pair"
+              sku: "LEE-MP-001"
+              price: "1400 coins"
+              description: "Two horses trained to work together"
+              
+        carriages:
+          items:
+            - name: "Farm Cart"
+              sku: "LEE-FC-001"
+              price: "150 coins"
+              description: "Simple, sturdy, open-bed hauling"
+              capacity: "500 kg"
+              
+            - name: "Covered Wagon"
+              sku: "LEE-CW-001"
+              price: "400 coins"
+              description: "Weather protection, long journeys"
+              capacity: "800 kg or 4 passengers"
+              
+            - name: "Passenger Coach"
+              sku: "LEE-PC-002"
+              price: "800 coins"
+              description: "Comfortable, sprung suspension"
+              capacity: "6 passengers"
+              
+            - name: "Stagecoach"
+              sku: "LEE-SC-002"
+              price: "1200 coins"
+              description: "Long-distance, luggage rack, sturdy"
+              capacity: "9 passengers + luggage"
+              
+            - name: "Fancy Carriage"
+              sku: "LEE-FC-002"
+              price: "2000 coins"
+              description: "Ornate, cushioned, makes an impression"
+              capacity: "4 passengers in style"
+              
+            - name: "Hearse"
+              sku: "LEE-HR-001"
+              price: "600 coins"
+              description: "Dignified transport for the departed"
+              
+        tack_and_equipment:
+          items:
+            - name: "Saddle (Standard)"
+              sku: "LEE-SD-002"
+              price: "75 coins"
+              description: "Leather, comfortable, durable"
+              
+            - name: "Saddle (War)"
+              sku: "LEE-SW-001"
+              price: "150 coins"
+              description: "High cantle, weapon mounts"
+              
+            - name: "Harness Set (Single)"
+              sku: "LEE-HS-001"
+              price: "60 coins"
+              description: "For one horse pulling"
+              
+            - name: "Harness Set (Team)"
+              sku: "LEE-HT-001"
+              price: "200 coins"
+              description: "For 2-4 horses"
+              
+            - name: "Horse Armor (Barding)"
+              sku: "LEE-HA-001"
+              price: "500 coins"
+              description: "Plate protection for war horses"
+              
+        stables:
+          items:
+            - name: "Stable (2 stalls)"
+              sku: "LEE-ST-002"
+              price: "400 coins"
+              description: "Shelter, feed storage, water trough"
+              
+            - name: "Stable (6 stalls)"
+              sku: "LEE-ST-006"
+              price: "1000 coins"
+              description: "Larger operation, tack room included"
+              
+            - name: "Carriage House"
+              sku: "LEE-CH-001"
+              price: "600 coins"
+              description: "Vehicle storage, maintenance space"
+              
+    # ═══════════════════════════════════════════════════════════════
     # INFRASTRUCTURE
     # ═══════════════════════════════════════════════════════════════
     
@@ -228,21 +441,71 @@ object:
               description: "Multi-stage, potable output"
               
         pneumatic_systems:
+          note: |
+            The preferred delivery method of Leela Manufacturing.
+            Fast, reliable, and surprisingly versatile.
+            
           items:
-            - name: "Pneumatic Tube Station"
+            - name: "Pneumatic Tube Station (Basic)"
               sku: "LEE-PT-001"
               price: "300 coins"
-              description: "Send/receive node, auto-routing"
+              description: "Send/receive node, manual addressing"
               
-            - name: "Tube Segment (10m)"
+            - name: "Pneumatic Tube Station (Smart)"
+              sku: "LEE-PT-002"
+              price: "500 coins"
+              description: "Auto-routing, queue management, priority lanes"
+              
+            - name: "Tube Segment — Brass (10m)"
               sku: "LEE-TS-010"
               price: "25 coins"
-              description: "Brass, airtight, modular"
+              description: "Standard brass, airtight, modular"
               
-            - name: "Junction Hub"
-              sku: "LEE-JH-001"
+            - name: "Tube Segment — Glass (10m)"
+              sku: "LEE-TG-010"
+              price: "40 coins"
+              description: "Transparent, see your package fly by"
+              
+            - name: "Tube Segment — Insulated (10m)"
+              sku: "LEE-TI-010"
+              price: "35 coins"
+              description: "Temperature-controlled for food/drinks"
+              
+            - name: "Junction Hub (4-way)"
+              sku: "LEE-JH-004"
               price: "100 coins"
-              description: "4-way routing, automatic"
+              description: "Automatic routing, 4 directions"
+              
+            - name: "Junction Hub (8-way)"
+              sku: "LEE-JH-008"
+              price: "200 coins"
+              description: "Major interchange, 8 directions"
+              
+            - name: "Pneumatic Capsule (Standard)"
+              sku: "LEE-PC-001"
+              price: "5 coins"
+              description: "Reusable carrier, 2kg capacity"
+              
+            - name: "Pneumatic Capsule (Large)"
+              sku: "LEE-PC-002"
+              price: "15 coins"
+              description: "Bigger carrier, 10kg capacity"
+              
+            - name: "Pneumatic Capsule (Drink)"
+              sku: "LEE-PC-003"
+              price: "8 coins"
+              description: "Insulated, spill-proof, for beverages"
+              
+            - name: "Compressor Station"
+              sku: "LEE-CS-002"
+              price: "400 coins"
+              description: "Powers up to 20 stations, quiet operation"
+              
+            - name: "Tube Network Starter Kit"
+              sku: "LEE-TN-001"
+              price: "800 coins"
+              description: "2 stations, 50m tube, 10 capsules, compressor"
+              includes: "Everything to start your own network"
               
     # ═══════════════════════════════════════════════════════════════
     # SURVEILLANCE
