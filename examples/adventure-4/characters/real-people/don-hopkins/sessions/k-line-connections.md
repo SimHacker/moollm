@@ -404,7 +404,7 @@ You stand in the K-lines manifold, surrounded by your companions. Golden threads
 | K-Lines Skill | [skills/k-lines/](../../../../../skills/k-lines/) |
 | Incarnation Skill | [skills/incarnation/](../../../../../skills/incarnation/) |
 | Palm's Character | [characters/animals/palm/](../../animals/palm/) |
-| PR Documentation | [designs/PR-K-LINES-SAFARI.md](../../../../../designs/PR-K-LINES-SAFARI.md) |
+| PR Documentation | [designs/PR-K-LINES-SAFARI.md](../../../../../../designs/PR-K-LINES-SAFARI.md) |
 
 ---
 
