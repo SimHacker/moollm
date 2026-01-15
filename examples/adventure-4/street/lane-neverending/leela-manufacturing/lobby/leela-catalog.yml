@@ -927,6 +927,33 @@ object:
               price: "400 coins"
               description: "Larger display, multi-zone view"
               
+            - name: "Dashboard Kiosk"
+              sku: "LEE-DK-001"
+              price: "500 coins"
+              description: "Freestanding display station, public-facing"
+              features:
+                - "32-inch touchscreen"
+                - "Rugged enclosure"
+                - "Customizable widgets"
+                - "Real-time data feeds"
+                - "Interactive maps and charts"
+              use_cases:
+                - "Factory floor status"
+                - "Visitor information"
+                - "Queue management"
+                - "Wayfinding"
+                - "Production metrics"
+              includes: "Mounting pedestal, cable management"
+              
+            - name: "Dashboard Kiosk (Outdoor)"
+              sku: "LEE-DK-002"
+              price: "700 coins"
+              description: "Weatherproof, sunlight-readable"
+              features:
+                - "IP65 rated"
+                - "Anti-glare screen"
+                - "Temperature regulated"
+              
             - name: "Data Logger"
               sku: "LEE-DL-001"
               price: "150 coins"
