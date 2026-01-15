@@ -15,15 +15,15 @@ room:
     - logistic-container
     - manufacturing-intelligence
   
-  description: |
+description: |
     The LOADING DOCKS wrap around the back of Leela Manufacturing.
-    Five bays, each with a truck-sized door, dock levelers, and
-    the constant activity of logistics in motion.
+    Eight bays — four in, four out — each with a truck-sized door,
+    dock levelers, and the constant activity of logistics in motion.
     
-    ┌─────┬─────┬─────┬─────┬─────┐
-    │ B1  │ B2  │ B3  │ B4  │ B5  │
-    │ IN  │ IN  │ IN  │ OUT │ OUT │
-    └─────┴─────┴─────┴─────┴─────┘
+    ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
+    │ B1  │ B2  │ B3  │ B4  │ B5  │ B6  │ B7  │ B8  │
+    │ IN  │ IN  │ IN  │ IN  │ OUT │ OUT │ OUT │ OUT │
+    └─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘
     
     Forklifts beep. Pallets stack. Workers in safety vests
     coordinate the flow of knowledge in and out of the building.
@@ -34,12 +34,15 @@ room:
   examine: |
     LOADING DOCKS — BACK OF BUILDING
     
-    THE BAYS:
+THE BAYS (4 IN, 4 OUT):
     Bay 1 (INBOUND): Currently unloading raw data shipment
     Bay 2 (INBOUND): Truck backing in with bulk questions
     Bay 3 (INBOUND): Empty, awaiting confusion tanker
-    Bay 4 (OUTBOUND): Insight Express #1 loading
-    Bay 5 (OUTBOUND): Reserved for premium/rush orders
+    Bay 4 (INBOUND): Reserved for paradox-safe deliveries
+    Bay 5 (OUTBOUND): Insight Express #1 loading
+    Bay 6 (OUTBOUND): Bulk wisdom shipment staging
+    Bay 7 (OUTBOUND): Reserved for premium/rush orders
+    Bay 8 (OUTBOUND): Pigeon post & small parcel dispatch
     
     DOCK OFFICE:
     A small windowed office overlooking the bays.
@@ -65,12 +68,15 @@ room:
     • "MIND THE GAP" (painted on every dock edge)
     • "NO PARADOXES ACCEPTED AT DOCK LEVEL"
     
-  current_activity:
+current_activity:
     bay_1: "Unloading raw data from Data Hauler Prime"
     bay_2: "Bulk questions arriving, inspection in progress"
     bay_3: "Empty — confusion tanker ETA 15 minutes"
-    bay_4: "Insight Express #1 — 50% loaded"
-    bay_5: "Premium order staging"
+    bay_4: "Paradox delivery (sealed, don't peek)"
+    bay_5: "Insight Express #1 — 50% loaded"
+    bay_6: "Bulk wisdom pallets stacking"
+    bay_7: "Premium order staging"
+    bay_8: "Pigeon crates ready for flight"
     
   exits:
     inside:
@@ -96,7 +102,11 @@ room:
   # Factorio Logistics — Bay Configurations
   # See: skills/logistic-container/CARD.yml
   
-  logistics_bays:
+logistics_bays:
+    
+    # ═══════════════════════════════════════════════════════════
+    # INBOUND BAYS (1-4)
+    # ═══════════════════════════════════════════════════════════
     
     bay_1:
       chest_mode: buffer        # 📦🟢 Green — staging for inbound
@@ -125,31 +135,69 @@ room:
           note: "Confusion tankers always welcome"
           
     bay_4:
+      chest_mode: buffer
+      emoji: "📦🟢"
+      receives:
+        - tags: ["paradox", "hazardous", "sealed"]
+      buffer_for:
+        destination: ../basement/
+        when: "containment.ready"
+      notes: "Paradox-safe deliveries route to R&D basement"
+          
+    # ═══════════════════════════════════════════════════════════
+    # OUTBOUND BAYS (5-8)
+    # ═══════════════════════════════════════════════════════════
+          
+    bay_5:
       chest_mode: active-provider  # 📦🔴 Red — pushing OUT
       emoji: "📦🔴"
       push_to:
         - match: { tags: ["insight", "knowledge"] }
           destination: logistics/truck-yard/
-        - match: { tags: ["premium", "wisdom"] }
-          destination: logistics/rail-siding/
+        - match: { tags: ["express"] }
+          destination: logistics/drone-pad/
           
-    bay_5:
+    bay_6:
       chest_mode: active-provider
       emoji: "📦🔴"
       push_to:
-        - match: { tags: ["rush", "express"] }
-          destination: logistics/drone-pad/
+        - match: { tags: ["wisdom", "bulk"] }
+          destination: logistics/rail-siding/
         - default: logistics/truck-yard/
           
-  # Circuit signals for bay status
+    bay_7:
+      chest_mode: active-provider
+      emoji: "📦🔴"
+      push_to:
+        - match: { tags: ["premium", "rush"] }
+          destination: logistics/drone-pad/
+        - match: { tags: ["courier"] }
+          destination: logistics/truck-yard/
+          
+    bay_8:
+      chest_mode: active-provider
+      emoji: "📦🔴"
+      push_to:
+        - match: { tags: ["small", "letter", "pigeon"] }
+          destination: ../mail-room/
+        - match: { tags: ["parcel"] }
+          destination: logistics/truck-yard/
+          
+# Circuit signals for bay status
   signals:
     emit:
       - signal: "bay-1-status"
         value: "bay_1.fullness"
       - signal: "bay-2-status"
         value: "bay_2.fullness"
+      - signal: "bay-3-status"
+        value: "bay_3.fullness"
+      - signal: "bay-4-status"
+        value: "bay_4.fullness"
+      - signal: "inbound-capacity"
+        value: "(bay_1.capacity + bay_2.capacity + bay_3.capacity + bay_4.capacity) - (bay_1.items + bay_2.items + bay_3.items + bay_4.items)"
       - signal: "outbound-ready"
-        value: "bay_4.items > 0 OR bay_5.items > 0"
+        value: "bay_5.items > 0 OR bay_6.items > 0 OR bay_7.items > 0 OR bay_8.items > 0"
         
   objects:
     - dock-office.yml
