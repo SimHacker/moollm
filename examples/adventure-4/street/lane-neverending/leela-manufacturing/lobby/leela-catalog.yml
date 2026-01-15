@@ -180,6 +180,35 @@ object:
               price: "80 coins"
               description: "Modular, configurable speed"
               
+            - name: "Inserter (Basic)"
+              sku: "LEE-IN-001"
+              price: "25 coins"
+              description: "Moves items belt-to-belt or belt-to-machine"
+              speed: "1 item/sec"
+              
+            - name: "Inserter (Fast)"
+              sku: "LEE-IN-002"
+              price: "50 coins"
+              description: "Yellow arm, 3x speed"
+              speed: "3 items/sec"
+              
+            - name: "Inserter (Stack)"
+              sku: "LEE-IN-003"
+              price: "100 coins"
+              description: "Moves multiple items per swing"
+              capacity: "Up to 12 items/swing"
+              
+            - name: "Inserter (Long)"
+              sku: "LEE-IN-004"
+              price: "40 coins"
+              description: "Reaches across 2 tiles"
+              
+            - name: "Inserter (Filter)"
+              sku: "LEE-IN-005"
+              price: "75 coins"
+              description: "Only picks up specified items"
+              programmable: true
+              
             - name: "Pallet Jack"
               sku: "LEE-PJ-001"
               price: "45 coins"
@@ -518,7 +547,7 @@ object:
       
       note: |
         All Leela surveillance products include:
-        - Privacy mode (configurable blindspots)
+        - Privacy mode (configurable blindspots, pi)
         - Data retention policies
         - Ethical use guidelines
         NOT like ACME cameras (which record your embarrassing moments
