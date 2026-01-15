@@ -11,15 +11,15 @@
 ```mermaid
 flowchart TB
     subgraph North["NORTH SIDE"]
-        ACME["🏚️ ACME SURPLUS\n4 Lane Neverending\n(closed, painted tunnel)"]
+        ACME["🏚️ ACME SURPLUS<br/>4 Lane Neverending<br/>(closed, painted tunnel)"]
     end
     
     subgraph Street["═══ LANE NEVERENDING ═══"]
-        W2["← w2"] --> W1["W1\nYou Are Here"] --> Center["center →"]
+        W2["← w2"] --> W1["W1<br/>You Are Here"] --> Center["center →"]
     end
     
     subgraph South["SOUTH SIDE"]
-        Leela["🏭 LEELA MANUFACTURING\n5 Lane Neverending\n(thriving)"]
+        Leela["🏭 LEELA MANUFACTURING<br/>5 Lane Neverending<br/>(thriving)"]
     end
 
     style ACME fill:#7f8c8d,color:#fff
@@ -46,11 +46,11 @@ flowchart TB
 flowchart LR
     subgraph ACME["🏚️ ACME SURPLUS"]
         Window["Dusty windows"]
-        Anvil["Display anvil\n(not for sale)"]
-        Tunnel["🎨 PAINTED TUNNEL\n(DO NOT RUN)"]
+        Anvil["Display anvil<br/>(not for sale)"]
+        Tunnel["🎨 PAINTED TUNNEL<br/>(DO NOT RUN)"]
     end
     
-    You["🏃 You"] --> |"sprint at tunnel"| THWACK["💥 THWACK\n(solid plywood)"]
+    You["🏃 You"] --> |"sprint at tunnel"| THWACK["💥 THWACK<br/>(solid plywood)"]
     Delivery["🚚 ACME Delivery"] --> |"walks through"| Tunnel
 
     style Tunnel fill:#9b59b6,color:#fff

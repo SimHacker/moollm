@@ -15,33 +15,33 @@ The core of Leela Manufacturing is a sophisticated data pipeline that transforms
 ```mermaid
 flowchart TB
     subgraph ModelDev["🔬 Model Development (R&D Basement)"]
-        OD[("Object Model\nDevelopment")]
-        PD[("Pose Model\nDevelopment")]
+        OD[("Object Model<br/>Development")]
+        PD[("Pose Model<br/>Development")]
     end
 
     subgraph Training["🏋️ Training Pipeline"]
-        OT["Object Model\nTraining\n━━━━━━━━━━\n🎯 mAP: 0.947\n⚡ GPU×4"]
-        PT["Pose Model\nTraining\n━━━━━━━━━━\n🎯 PCK: 0.923\n⚡ GPU×4"]
+        OT["Object Model<br/>Training<br/>━━━━━━━━━━<br/>🎯 mAP: 0.947<br/>⚡ GPU×4"]
+        PT["Pose Model<br/>Training<br/>━━━━━━━━━━<br/>🎯 PCK: 0.923<br/>⚡ GPU×4"]
     end
 
     subgraph Deploy["🚀 Model Deployment"]
-        ODep["Object Detector\n━━━━━━━━━━━━\nyolo-leela-v2.3.7"]
-        PDep["Pose Estimator\n━━━━━━━━━━━━\npose-leela-v1.8.2"]
+        ODep["Object Detector<br/>━━━━━━━━━━━━<br/>yolo-leela-v2.3.7"]
+        PDep["Pose Estimator<br/>━━━━━━━━━━━━<br/>pose-leela-v1.8.2"]
     end
 
     OD --> OT --> ODep
     PD --> PT --> PDep
 
     subgraph Intake["📹 Video Intake"]
-        V[("VIDEO\nInput")]
+        V[("VIDEO<br/>Input")]
     end
 
     V --> |"Fork"| Objects
     V --> |"Fork"| Poses
 
     subgraph Processing["⚙️ Parallel Processing"]
-        Objects["🔵 OBJECTS\nBounding boxes\nClassifications\nConfidence scores"]
-        Poses["🟠 POSES\nJoint positions\nMovement vectors\nGesture signatures"]
+        Objects["🔵 OBJECTS<br/>Bounding boxes<br/>Classifications<br/>Confidence scores"]
+        Poses["🟠 POSES<br/>Joint positions<br/>Movement vectors<br/>Gesture signatures"]
     end
 
     ODep -.-> |"powers"| Objects
@@ -51,25 +51,25 @@ flowchart TB
     Poses --> |"merge"| Insights
 
     subgraph Understanding["💡 Understanding"]
-        Insights["🟡 INSIGHTS\n━━━━━━━━━━\nContext + Motion\n= Understanding"]
+        Insights["🟡 INSIGHTS<br/>━━━━━━━━━━<br/>Context + Motion<br/>= Understanding"]
     end
 
     Insights --> Actions
 
     subgraph ActionLayer["🐍 Python Actions"]
-        Actions["🟢 PYTHON ACTIONS\n━━━━━━━━━━━━━━━\nDefine high-level actions\nEmit to SQL tables\nTrigger alerts"]
+        Actions["🟢 PYTHON ACTIONS<br/>━━━━━━━━━━━━━━━<br/>Define high-level actions<br/>Emit to SQL tables<br/>Trigger alerts"]
     end
 
     Actions --> SQL
 
     subgraph Storage["💾 Storage"]
-        SQL[("🔘 SQL\nStructured\nIndexed\nQueryable")]
+        SQL[("🔘 SQL<br/>Structured<br/>Indexed<br/>Queryable")]
     end
 
     SQL --> PDA
 
     subgraph Assistant["🤖 Personal Data Assistant"]
-        PDA["💬 PDA\n━━━━━━━━━━━━━━━\nChat-driven interface\nGenerates queries\nAnalyzes results\nCreates visualizations"]
+        PDA["💬 PDA<br/>━━━━━━━━━━━━━━━<br/>Chat-driven interface<br/>Generates queries<br/>Analyzes results<br/>Creates visualizations"]
     end
 
     style V fill:#9b59b6,color:#fff
@@ -93,17 +93,17 @@ Two parallel pipelines develop and train the ML models that power perception:
 flowchart LR
     subgraph ObjectPipeline["Object Detection Track"]
         direction TB
-        OD1["📚 Research\nYOLO variants\nTransformers\nAttention mechanisms"]
-        OD2["🏋️ Training\nCOCO, ImageNet\nLeela-Custom-v3"]
-        OD3["🚀 Deploy\nyolo-leela-v2.3.7"]
+        OD1["📚 Research<br/>YOLO variants<br/>Transformers<br/>Attention mechanisms"]
+        OD2["🏋️ Training<br/>COCO, ImageNet<br/>Leela-Custom-v3"]
+        OD3["🚀 Deploy<br/>yolo-leela-v2.3.7"]
         OD1 --> OD2 --> OD3
     end
 
     subgraph PosePipeline["Pose Estimation Track"]
         direction TB
-        PD1["📚 Research\nKeypoint detectors\nTemporal models\nMotion predictors"]
-        PD2["🏋️ Training\nMPII, COCO-Pose\nLeela-Motion-v2"]
-        PD3["🚀 Deploy\npose-leela-v1.8.2"]
+        PD1["📚 Research<br/>Keypoint detectors<br/>Temporal models<br/>Motion predictors"]
+        PD2["🏋️ Training<br/>MPII, COCO-Pose<br/>Leela-Motion-v2"]
+        PD3["🚀 Deploy<br/>pose-leela-v1.8.2"]
         PD1 --> PD2 --> PD3
     end
 
@@ -118,14 +118,14 @@ Video enters and immediately forks to parallel processors:
 ```mermaid
 flowchart TB
     V["📹 VIDEO INPUT"]
-    V --> |"Frame by frame"| Fork{"Junction Alpha\n(Fork)"}
-    Fork --> |"Blue containers"| O["🔵 Object Detector\n━━━━━━━━━━━━━━\n• Bounding boxes\n• Classifications\n• Confidence: 97%\n\n'A cat. 97% sure.'"]
-    Fork --> |"Orange containers"| P["🟠 Pose Estimator\n━━━━━━━━━━━━━━\n• Joint positions\n• Movement vectors\n• Gestures\n\n'Waving. Definitely.'"]
+    V --> |"Frame by frame"| Fork{"Junction Alpha<br/>(Fork)"}
+    Fork --> |"Blue containers"| O["🔵 Object Detector<br/>━━━━━━━━━━━━━━<br/>• Bounding boxes<br/>• Classifications<br/>• Confidence: 97%<br/><br/>'A cat. 97% sure.'"]
+    Fork --> |"Orange containers"| P["🟠 Pose Estimator<br/>━━━━━━━━━━━━━━<br/>• Joint positions<br/>• Movement vectors<br/>• Gestures<br/><br/>'Waving. Definitely.'"]
     
-    O --> Merge{"Junction Beta\n(Merge)"}
+    O --> Merge{"Junction Beta<br/>(Merge)"}
     P --> Merge
     
-    Merge --> I["🟡 INSIGHTS\n━━━━━━━━━━━━━━\n'A cat (97%) is\nwaving (definitely).'"]
+    Merge --> I["🟡 INSIGHTS<br/>━━━━━━━━━━━━━━<br/>'A cat (97%) is<br/>waving (definitely).'"]
 
     style V fill:#9b59b6,color:#fff
     style O fill:#3498db,color:#fff
@@ -283,16 +283,16 @@ The Storage Complex contains prototypical containers for cloning:
 ```mermaid
 flowchart LR
     subgraph Storage["📦 STORAGE COMPLEX"]
-        A["Aisle A\n🪵 Wooden\nCrates, barrels\nchests, boxes"]
-        B["Aisle B\n🔩 Metal\nBins, drums\nlockers, safes"]
-        C["Aisle C\n👜 Soft\nSacks, bags\npouches, packs"]
-        D["Aisle D\n✨ Special\nParadox boxes\nQuantum containers"]
-        E["Aisle E\n🖼️ Display\nShelves, cases\nracks, mannequins"]
-        L["Aisle L\n🏭 Leela\nLogistics chests\n/dev/null box"]
+        A["Aisle A<br/>🪵 Wooden<br/>Crates, barrels<br/>chests, boxes"]
+        B["Aisle B<br/>🔩 Metal<br/>Bins, drums<br/>lockers, safes"]
+        C["Aisle C<br/>👜 Soft<br/>Sacks, bags<br/>pouches, packs"]
+        D["Aisle D<br/>✨ Special<br/>Paradox boxes<br/>Quantum containers"]
+        E["Aisle E<br/>🖼️ Display<br/>Shelves, cases<br/>racks, mannequins"]
+        L["Aisle L<br/>🏭 Leela<br/>Logistics chests<br/>/dev/null box"]
     end
     
-    Dolly["🏗️👑 Dolly\nLift Queen\nFork Queen"]
-    Clone["🔬 Cloning\nStation"]
+    Dolly["🏗️👑 Dolly<br/>Lift Queen<br/>Fork Queen"]
+    Clone["🔬 Cloning<br/>Station"]
     
     Dolly --> Storage
     Clone --> Storage

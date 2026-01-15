@@ -13,18 +13,18 @@ This is where workers come to think. Where Eventually the Tortoise holds court. 
 ```mermaid
 flowchart TB
     subgraph Garden["🌿 ROOFTOP GARDEN"]
-        Tree["🌳 The Origin Tree\n(shouldn't exist here)"]
-        Herbs["🌿 Herb Spiral\nrosemary, lavender,\nthyme, ideas"]
-        Veggies["🥬 Vegetable Beds\ntomatoes, peppers,\ninsights"]
-        Flowers["🌸 Flower Patches\naesthetic + functional"]
-        Mushroom["🍄 Mushroom Corner\nshaded, mysterious\nDON'T EAT THESE"]
-        Compost["♻️ Compost Bins\nrecycling failed insights\ninto future potential"]
+        Tree["🌳 The Origin Tree<br/>(shouldn't exist here)"]
+        Herbs["🌿 Herb Spiral<br/>rosemary, lavender,<br/>thyme, ideas"]
+        Veggies["🥬 Vegetable Beds<br/>tomatoes, peppers,<br/>insights"]
+        Flowers["🌸 Flower Patches<br/>aesthetic + functional"]
+        Mushroom["🍄 Mushroom Corner<br/>shaded, mysterious<br/>DON'T EAT THESE"]
+        Compost["♻️ Compost Bins<br/>recycling failed insights<br/>into future potential"]
     end
     
     subgraph Facilities["Facilities"]
-        Turtle["🐢 Eventually's\nSunny Corner"]
-        Scope["🔭 Observation\nDeck"]
-        Pads["🛸 Drone Pads\n×6"]
+        Turtle["🐢 Eventually's<br/>Sunny Corner"]
+        Scope["🔭 Observation<br/>Deck"]
+        Pads["🛸 Drone Pads<br/>×6"]
     end
 
     style Tree fill:#228B22,color:#fff
@@ -39,11 +39,11 @@ An oak that shouldn't exist on a rooftop. Its trunk is thick, its branches sprea
 
 ```mermaid
 flowchart TB
-    Origin["🌳 The Origin Tree\n(somewhere ancient)"]
+    Origin["🌳 The Origin Tree<br/>(somewhere ancient)"]
     
-    Origin --> |"cutting taken"| Rooftop["🌱 Rooftop Tree\n(Leela Manufacturing)"]
-    Origin --> |"cutting taken"| Garden["🌱 Back Garden Tree\n(The Pub)"]
-    Origin --> |"cutting taken"| Other["🌱 Other locations\n(unknown)"]
+    Origin --> |"cutting taken"| Rooftop["🌱 Rooftop Tree<br/>(Leela Manufacturing)"]
+    Origin --> |"cutting taken"| Garden["🌱 Back Garden Tree<br/>(The Pub)"]
+    Origin --> |"cutting taken"| Other["🌱 Other locations<br/>(unknown)"]
 
     style Origin fill:#228B22,color:#fff
 ```
@@ -62,8 +62,8 @@ An ancient wisdom tortoise who has been here longer than anyone remembers.
 
 ```mermaid
 flowchart LR
-    Question["❓ Your Question"] --> Wait["⏳ Wait...\n(hours, sometimes)"]
-    Wait --> Answer["💡 Wisdom\n(always worth it)"]
+    Question["❓ Your Question"] --> Wait["⏳ Wait...<br/>(hours, sometimes)"]
+    Wait --> Answer["💡 Wisdom<br/>(always worth it)"]
 
     style Wait fill:#DEB887,color:#000
 ```
@@ -90,12 +90,12 @@ Six hexagonal landing zones near the edge of the roof:
 ```mermaid
 flowchart TB
     subgraph Pads["🛸 DRONE PADS"]
-        P1["Pad 1\n🟢 Clear"]
-        P2["Pad 2\n🟡 Landing"]
-        P3["Pad 3\n🔴 Occupied"]
-        P4["Pad 4\n🟢 Clear"]
-        P5["Pad 5\n🟢 Clear"]
-        P6["Pad 6\n🟡 Launching"]
+        P1["Pad 1<br/>🟢 Clear"]
+        P2["Pad 2<br/>🟡 Landing"]
+        P3["Pad 3<br/>🔴 Occupied"]
+        P4["Pad 4<br/>🟢 Clear"]
+        P5["Pad 5<br/>🟢 Clear"]
+        P6["Pad 6<br/>🟡 Launching"]
     end
     
     Pads --> Routes
@@ -128,10 +128,10 @@ A raised platform with the best view of Lane Neverending.
 flowchart LR
     Telescope["🔭 Telescope"]
     
-    Telescope --> Pub["🍺 The Pub\n(waves back!)"]
-    Telescope --> Street["🛣️ Lane Neverending\n(east to west)"]
-    Telescope --> Sky["🌟 Night Sky\n(LLOOOOMM Constellation)"]
-    Telescope --> Other["🏢 Other Buildings\n(the neighborhood)"]
+    Telescope --> Pub["🍺 The Pub<br/>(waves back!)"]
+    Telescope --> Street["🛣️ Lane Neverending<br/>(east to west)"]
+    Telescope --> Sky["🌟 Night Sky<br/>(LLOOOOMM Constellation)"]
+    Telescope --> Other["🏢 Other Buildings<br/>(the neighborhood)"]
 ```
 
 The pub's rooftop also has a telescope. The two occasionally wave at each other.

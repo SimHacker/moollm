@@ -11,14 +11,14 @@
 ```mermaid
 flowchart TB
     subgraph Plaza["🌳 ORIGIN PLAZA"]
-        Tree["🌳 The Origin Tree\nAncient. Knowing."]
-        Lamp["🏮 The Famous Lamp\n(not the flickering one)"]
+        Tree["🌳 The Origin Tree<br/>Ancient. Knowing."]
+        Lamp["🏮 The Famous Lamp<br/>(not the flickering one)"]
         Bench["🪑 Thinking Benches"]
-        Fountain["⛲ The Fountain\nWishes optional"]
+        Fountain["⛲ The Fountain<br/>Wishes optional"]
     end
     
-    W1["← w1\nLeela & Pub"] --> Plaza
-    Plaza --> E1["e1 →\nGlitch Memorial"]
+    W1["← w1<br/>Leela & Pub"] --> Plaza
+    Plaza --> E1["e1 →<br/>Glitch Memorial"]
 ```
 
 ---
@@ -29,7 +29,7 @@ This is the original. All other "Origin Tree cuttings" throughout the neighborho
 
 ```mermaid
 flowchart TB
-    Origin["🌳 THE ORIGIN TREE\n(here, center)"]
+    Origin["🌳 THE ORIGIN TREE<br/>(here, center)"]
     
     Origin --> |"cutting"| Rooftop["Leela Rooftop"]
     Origin --> |"cutting"| Garden["Pub Garden"]

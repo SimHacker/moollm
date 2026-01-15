@@ -10,7 +10,7 @@
 
 ```mermaid
 flowchart LR
-    E3["← e3\n(east side!)"] --> |"THE LOOP!"| W3["W3\nYou Are Here"]
+    E3["← e3<br/>(east side!)"] --> |"THE LOOP!"| W3["W3<br/>You Are Here"]
     W3 --> W2["w2 →"]
     
     style W3 fill:#9b59b6,color:#fff

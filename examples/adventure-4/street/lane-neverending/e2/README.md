@@ -10,11 +10,11 @@
 
 ```mermaid
 flowchart TB
-    E1["← e1"] --> E2["E2\nMarket Square"]
+    E1["← e1"] --> E2["E2<br/>Market Square"]
     E2 --> E3["e3 →"]
     
     subgraph Square["THE SQUARE"]
-        Fountain["⛲ Fountain of\nInfinite Loops"]
+        Fountain["⛲ Fountain of<br/>Infinite Loops"]
         Shops["🏪 Storefronts"]
         Stage["🎭 Small stage"]
     end
@@ -27,7 +27,7 @@ flowchart TB
 ```mermaid
 flowchart LR
     Jug1["🏺 Jug A"] --> |"pours into"| Jug2["🏺 Jug B"]
-    Jug2 --> |"held by same figure\nwho holds"| Jug1
+    Jug2 --> |"held by same figure<br/>who holds"| Jug1
 ```
 
 A recursive monument to all programmers stuck in `while(true){}`.

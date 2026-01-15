@@ -13,13 +13,13 @@ This is where Leela's future is invented.
 ```mermaid
 flowchart TB
     subgraph Basement["🔬 R&D LABORATORY"]
-        Z1["Zone 1\n✅ Controlled Experiments\n(relatively safe)"]
-        Z2["Zone 2\n🥽 Uncontrolled Experiments\n(wear goggles)"]
-        Z3["Zone 3\n📝 Theoretical Work\n(whiteboards only)"]
-        Z4["Zone 4\n🤪 Applied Madness\n(sign waiver first)"]
-        Z5["Zone 5\n📚 The Archive\n(historical knowledge)"]
-        Z6["Zone 6\n❄️ Cold Storage\n(temp-sensitive insights)"]
-        Z7["Zone 7\n⚠️ [SEALED]\n(we don't talk about Zone 7)"]
+        Z1["Zone 1<br/>✅ Controlled Experiments<br/>(relatively safe)"]
+        Z2["Zone 2<br/>🥽 Uncontrolled Experiments<br/>(wear goggles)"]
+        Z3["Zone 3<br/>📝 Theoretical Work<br/>(whiteboards only)"]
+        Z4["Zone 4<br/>🤪 Applied Madness<br/>(sign waiver first)"]
+        Z5["Zone 5<br/>📚 The Archive<br/>(historical knowledge)"]
+        Z6["Zone 6<br/>❄️ Cold Storage<br/>(temp-sensitive insights)"]
+        Z7["Zone 7<br/>⚠️ [SEALED]<br/>(we don't talk about Zone 7)"]
     end
     
     Z1 --> Z2 --> Z3 --> Z4
@@ -135,13 +135,13 @@ pie title Research Staff Composition
 
 ```mermaid
 flowchart TB
-    Shelf["🚫 THE FORBIDDEN SHELF\n━━━━━━━━━━━━━━━━━━\nExperiments TOO SUCCESSFUL"]
+    Shelf["🚫 THE FORBIDDEN SHELF<br/>━━━━━━━━━━━━━━━━━━<br/>Experiments TOO SUCCESSFUL"]
     
-    Shelf --> E7["Experiment 7\n'Perfect Answer'\nAnswers questions\nyou shouldn't ask"]
-    Shelf --> E12["Experiment 12\n'Infinite Insight'\nUnderstanding includes\nthings better left unknown"]
-    Shelf --> E23["Experiment 23\n'Completed Problem'\nSolved itself.\nKeeps solving OTHER problems."]
-    Shelf --> E31["Experiment 31\n'Wisdom Crystals'\n100% pure wisdom.\nMade everyone quit\nand become monks."]
-    Shelf --> E44["Experiment 44\n[REDACTED]"]
+    Shelf --> E7["Experiment 7<br/>'Perfect Answer'<br/>Answers questions<br/>you shouldn't ask"]
+    Shelf --> E12["Experiment 12<br/>'Infinite Insight'<br/>Understanding includes<br/>things better left unknown"]
+    Shelf --> E23["Experiment 23<br/>'Completed Problem'<br/>Solved itself.<br/>Keeps solving OTHER problems."]
+    Shelf --> E31["Experiment 31<br/>'Wisdom Crystals'<br/>100% pure wisdom.<br/>Made everyone quit<br/>and become monks."]
+    Shelf --> E44["Experiment 44<br/>[REDACTED]"]
 
     style Shelf fill:#e74c3c,color:#fff
 ```
@@ -154,7 +154,7 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-    Door["⚠️ ZONE 7 DOOR\n━━━━━━━━━━━━━━\nPARADOX CONTAINMENT"]
+    Door["⚠️ ZONE 7 DOOR<br/>━━━━━━━━━━━━━━<br/>PARADOX CONTAINMENT"]
     
     Door --> |"sealed"| Inside["???"]
     
@@ -162,8 +162,8 @@ flowchart TB
         W1["Do not knock"]
         W2["Do not listen"]
         W3["Do not look too long"]
-        W4["If you hear your name,\nit's NOT calling you"]
-        W5["Personnel count is\nSUPPOSED to be uncertain"]
+        W4["If you hear your name,<br/>it's NOT calling you"]
+        W5["Personnel count is<br/>SUPPOSED to be uncertain"]
     end
     
     Door --> Warnings

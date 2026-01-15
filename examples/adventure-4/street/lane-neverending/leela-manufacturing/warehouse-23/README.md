@@ -12,20 +12,20 @@ If you've seen *Raiders of the Lost Ark*, you know what this is.
 
 ```mermaid
 flowchart TB
-    Entry["🚪 Entry\n(clearance required)"]
+    Entry["🚪 Entry<br/>(clearance required)"]
     
-    Entry --> Hall["Main Hall\nCrates as far as\nyou can see"]
+    Entry --> Hall["Main Hall<br/>Crates as far as<br/>you can see"]
     
-    Hall --> Deep["Deeper Stacks\n(geometry uncertain)"]
-    Deep --> Deeper["Even Deeper\n(don't go alone)"]
+    Hall --> Deep["Deeper Stacks<br/>(geometry uncertain)"]
+    Deep --> Deeper["Even Deeper<br/>(don't go alone)"]
     Deeper --> Unknown["???"]
     
     subgraph Notable["Notable Crates"]
-        Ark["📦 The Ark\n(don't open)"]
-        Grail["📦 The Grail\n(choose wisely)"]
-        Pandora["📦 Pandora's Box\n(hope remains)"]
-        Ring["📦 The One Ring\n(destroy it)"]
-        Question["📦 The '?' Container\n(from FAC1 incident)"]
+        Ark["📦 The Ark<br/>(don't open)"]
+        Grail["📦 The Grail<br/>(choose wisely)"]
+        Pandora["📦 Pandora's Box<br/>(hope remains)"]
+        Ring["📦 The One Ring<br/>(destroy it)"]
+        Question["📦 The '?' Container<br/>(from FAC1 incident)"]
     end
     
     Hall --> Notable
@@ -40,7 +40,7 @@ flowchart TB
 ```mermaid
 flowchart LR
     You["👤 You"] --> |"'Where is...?'"| Archivist["🧓 The Archivist"]
-    Archivist --> |"consults memory"| Answer["'Row 47,281.\nShelf 3.\nDon't touch the\none next to it.'"]
+    Archivist --> |"consults memory"| Answer["'Row 47,281.<br/>Shelf 3.<br/>Don't touch the<br/>one next to it.'"]
 ```
 
 **The Archivist** knows where every crate is. They've been here longer than the warehouse has existed, which is architecturally concerning.
@@ -86,14 +86,14 @@ That container is now here. It has been here since that day.
 
 ```mermaid
 flowchart TB
-    Outside["📐 Outside:\n2,000 sq ft building"]
-    Inside["📐 Inside:\n??? (measurement fails)"]
+    Outside["📐 Outside:<br/>2,000 sq ft building"]
+    Inside["📐 Inside:<br/>??? (measurement fails)"]
     
     Outside --> |"step through door"| Inside
     
-    Inside --> |"walk 10 minutes"| Still["Still inside\n(rows continue)"]
-    Still --> |"walk 30 minutes"| Deeper["Deeper\n(lighting changes)"]
-    Deeper --> |"walk 1 hour"| Return["Somehow back\nat entrance"]
+    Inside --> |"walk 10 minutes"| Still["Still inside<br/>(rows continue)"]
+    Still --> |"walk 30 minutes"| Deeper["Deeper<br/>(lighting changes)"]
+    Deeper --> |"walk 1 hour"| Return["Somehow back<br/>at entrance"]
 
     style Inside fill:#34495e,color:#fff
 ```
@@ -112,12 +112,12 @@ The warehouse is non-Euclidean. The space inside exceeds the space outside. This
 
 ```mermaid
 flowchart LR
-    Request["📋 Request\nAccess"]
+    Request["📋 Request<br/>Access"]
     
-    Request --> Level["Security Level\ncheck"]
-    Level --> Purpose["Purpose\nverification"]
-    Purpose --> Archivist["Archivist\napproval"]
-    Archivist --> Access["🔓 Access\nGranted"]
+    Request --> Level["Security Level<br/>check"]
+    Level --> Purpose["Purpose<br/>verification"]
+    Purpose --> Archivist["Archivist<br/>approval"]
+    Archivist --> Access["🔓 Access<br/>Granted"]
     
     Level --> |"insufficient"| Denied["🚫 Denied"]
     Purpose --> |"suspicious"| Denied

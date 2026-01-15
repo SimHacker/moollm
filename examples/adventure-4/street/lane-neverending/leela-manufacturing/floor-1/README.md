@@ -13,32 +13,32 @@ Leela AI is a **Visual Intelligence Platform** — we transform video into under
 ```mermaid
 flowchart TB
     subgraph Cameras["📹 Leela's Seven Eyes"]
-        LOG1["LOG1\nLoading Docks"]
-        FAC1["FAC1\nFactory"]
-        INT1["INT1\nIntake"]
-        SHP1["SHP1\nShipping"]
-        LOB1["LOB1\nLobby"]
-        ROOF1["ROOF1\nRooftop"]
-        BASE1["BASE1\nBasement"]
+        LOG1["LOG1<br/>Loading Docks"]
+        FAC1["FAC1<br/>Factory"]
+        INT1["INT1<br/>Intake"]
+        SHP1["SHP1<br/>Shipping"]
+        LOB1["LOB1<br/>Lobby"]
+        ROOF1["ROOF1<br/>Rooftop"]
+        BASE1["BASE1<br/>Basement"]
     end
     
-    Cameras --> V["📹 VIDEO INTAKE\nLine V (Purple)"]
+    Cameras --> V["📹 VIDEO INTAKE<br/>Line V (Purple)"]
     
-    V --> Fork{"Junction Alpha\n(Fork)"}
+    V --> Fork{"Junction Alpha<br/>(Fork)"}
     
-    Fork --> O["🔵 OBJECT DETECTION\nLine O (Blue)"]
-    Fork --> P["🟠 POSE ESTIMATION\nLine P (Orange)"]
+    Fork --> O["🔵 OBJECT DETECTION<br/>Line O (Blue)"]
+    Fork --> P["🟠 POSE ESTIMATION<br/>Line P (Orange)"]
     
-    O --> Merge{"Junction Beta\n(Merge)"}
+    O --> Merge{"Junction Beta<br/>(Merge)"}
     P --> Merge
     
-    Merge --> I["🟡 INSIGHTS\nLine I (Gold)"]
+    Merge --> I["🟡 INSIGHTS<br/>Line I (Gold)"]
     
-    I --> A["🟢 PYTHON ACTIONS\nLine A (Green)"]
+    I --> A["🟢 PYTHON ACTIONS<br/>Line A (Green)"]
     
-    A --> SQL["💾 SQL STORAGE\nLine S (Silver)"]
+    A --> SQL["💾 SQL STORAGE<br/>Line S (Silver)"]
     
-    SQL --> PDA["💬 PDA\nPersonal Data Assistant"]
+    SQL --> PDA["💬 PDA<br/>Personal Data Assistant"]
 
     style V fill:#9b59b6,color:#fff
     style O fill:#3498db,color:#fff
@@ -61,17 +61,17 @@ Two parallel ML pipelines feed our processors:
 flowchart LR
     subgraph ObjectTrack["🔴 Object Detection Track"]
         direction TB
-        OD["Development\nYOLO, DETR, ViT"]
-        OT["Training\nCOCO, ImageNet"]
-        ODep["Deploy\nyolo-leela-v2.3.7"]
+        OD["Development<br/>YOLO, DETR, ViT"]
+        OT["Training<br/>COCO, ImageNet"]
+        ODep["Deploy<br/>yolo-leela-v2.3.7"]
         OD --> OT --> ODep
     end
     
     subgraph PoseTrack["🟠 Pose Estimation Track"]
         direction TB
-        PD["Development\nHRNet, ViTPose"]
-        PT["Training\nMPII, COCO-Pose"]
-        PDep["Deploy\npose-leela-v1.8.2"]
+        PD["Development<br/>HRNet, ViTPose"]
+        PT["Training<br/>MPII, COCO-Pose"]
+        PDep["Deploy<br/>pose-leela-v1.8.2"]
         PD --> PT --> PDep
     end
     
@@ -106,13 +106,13 @@ Workers in blue jumpsuits sort incoming containers:
 
 ```mermaid
 flowchart LR
-    Input["📦 Incoming\nContainers"] --> S1["Station 1\nClassification"]
-    S1 --> S2["Station 2\nPriority"]
-    S2 --> S3["Station 3\nRouting"]
+    Input["📦 Incoming<br/>Containers"] --> S1["Station 1<br/>Classification"]
+    S1 --> S2["Station 2<br/>Priority"]
+    S2 --> S3["Station 3<br/>Routing"]
     
     S3 --> LineO["→ Line O"]
     S3 --> LineP["→ Line P"]
-    S3 --> CWD["→ Confused\nWelcome Desk"]
+    S3 --> CWD["→ Confused<br/>Welcome Desk"]
     S3 --> Q["→ Quarantine"]
 
     style CWD fill:#f39c12,color:#fff
