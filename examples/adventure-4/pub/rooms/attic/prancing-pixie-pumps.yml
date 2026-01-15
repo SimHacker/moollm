@@ -115,6 +115,18 @@ object:
     - trigger: "too long"
       score: 0.85
       response: "Let me dance through it for you. One moment..."
+      
+    - trigger: "go to"
+      score: 0.8
+      response: "*shoes perk up* Walk? Or LEAP?"
+      
+    - trigger: "far"
+      score: 0.75
+      response: "Distance is just unelided space. Shall we skip it?"
+      
+    - trigger: "teleport"
+      score: 0.9
+      response: "I prefer 'grand jeté' but yes. Where to?"
         
   methods:
     WEAR:
@@ -196,6 +208,76 @@ object:
         Total time: 6 hours.
         Highlights: 4 minutes.
         Efficiency: 98.9%
+        
+    LEAP:
+      description: "Hop from room to room to room in one bound"
+      parameters:
+        - destination: "Where you want to end up"
+        - stops: "Optional waypoints (or 'direct')"
+      effect: |
+        *the shoes begin to glow*
+        *you feel the rhythm building*
+        
+        LEAP!
+        
+        Kitchen → ... → Hallway → ... → Stairs → ... → 
+        Attic → ... → Roof → ... → DESTINATION
+        
+        All in one graceful, elided bound.
+        
+        Each room you pass through:
+        - Noted but not narrated
+        - Obstacles auto-avoided  
+        - NPCs see a blur and a sparkle
+        - Doors open just in time
+        
+        You land exactly where you intended.
+        (Or close enough. The shoes have style.)
+        
+      performance: |
+        WITHOUT LEAP:
+          "Go north." [response]
+          "Go east." [response]  
+          "Climb stairs." [response]
+          "Go north." [response]
+          "Enter room." [response]
+          = 5 LLM iterations
+          
+        WITH LEAP:
+          "LEAP to the treasure room"
+          Kitchen... Hallway... Stairs... Landing... Door...
+          *you arrive*
+          = 1 LLM iteration
+          
+        EFFICIENCY: 500%
+        
+    GRAND_JETE:
+      description: "Teleport across vast distances in a single leap"
+      parameters:
+        - destination: "Anywhere you can name or describe"
+      effect: |
+        *the shoes BLAZE with moonlight*
+        *reality stretches like taffy*
+        
+        GRAND JETÉ!
+        
+        You don't walk the distance.
+        You don't even skip it.
+        You DANCE ACROSS THE NARRATIVE.
+        
+        "From the kitchen... to the dragon's lair... in one leap."
+        
+        Everything between: elided.
+        Travel time: one pirouette.
+        Actual distance: irrelevant.
+        
+      limits: |
+        - Must have visited OR heard of destination
+        - Cannot GRAND_JETE into combat (rude)
+        - Cannot GRAND_JETE while being observed by enemy
+        - The shoes need a running start (3 taps minimum)
+        
+      cost: "One charge (shoes recharge at dawn, while you sleep)"
         
   lore: |
     These shoes were made by an elven choreographer 
@@ -283,3 +365,6 @@ object:
       - TLDR
       - SUMMARIZATION
       - HIGHLIGHTS
+      - TELEPORTATION
+      - ROOM-HOPPING
+      - SPEED-OF-LIGHT
