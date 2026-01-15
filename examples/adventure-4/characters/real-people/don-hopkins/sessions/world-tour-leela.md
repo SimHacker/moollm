@@ -1044,7 +1044,7 @@ THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
 | **Delivery** | Painted tunnels, rockets, impossible physics | Pneumatic tubes, drones, reliable logistics |
 | **Quality** | "Works 2% of the time" | "Works or we debug it" |
 | **Warranty** | "Not responsible for anything" | "Prototype inheritance means we fix the source" |
-| **Catalog** | Portable holes, rocket skates, anvils | [1,400+ practical products](../../../../street/lane-neverending/leela-manufacturing/lobby/leela-catalog.yml) |
+| **Catalog** | [Portable holes, rocket skates, anvils](../../../../kitchen/acme-catalog.yml) + [Monster Manual](../../../../pub/rooms/attic/acme-monster-manual.yml) | [1,400+ practical products](../../../../street/lane-neverending/leela-manufacturing/lobby/leela-catalog.yml) |
 | **Funding** | "Series F! (Previous five burned through)" | Self-sustaining knowledge economy |
 | **Status** | Storefront closed, pivoting to AI | Thriving, 8 operator stations |
 
