@@ -72,9 +72,525 @@ object:
       effect: "Monster returns whence it came. Usually."
       warning: "Must know monster's true name. Good luck."
       
-  # ═══════════════════════════════════════════════════════════
+    POPULATE:
+      description: "Fill an entire dungeon or maze with themed monsters"
+      usage: "POPULATE [location] WITH [theme]"
+      effect: |
+        *You speak the incantation of mass summoning*
+        *The book glows ominously*
+        *Monsters begin appearing throughout the target location*
+        
+        The theme determines the monster mix.
+        The location determines the density.
+        Your regrets determine your future.
+        
+      warning: |
+        BULK SUMMONING has BULK CONSEQUENCES.
+        Backfire chance applies to EACH monster.
+        Themes may... drift.
+        
+    DEPOPULATE:
+      description: "Attempt to remove all monsters from an area"
+      usage: "DEPOPULATE [location]"
+      effect: "Monsters are asked to leave. Results vary."
+      warning: "Requires knowing ALL their true names. Good luck."
+      
+  # THEMED POPULATION PRESETS
+  # "From Unicorn Sparkles to Eternal Damnation!"
+  
+  population_themes:
+  
+    # 🦄 HAPPY UNICORN ELF LAND
+    
+    HAPPY_UNICORN_ELF_LAND:
+      name: "🦄 Happy Unicorn Elf Land"
+      tagline: "Sparkles! Friendship! Aggressive Positivity!"
+      difficulty: "Kindergarten (deceptively)"
+      atmosphere: "Rainbows, glitter, suspiciously cheerful music"
+      
+      monster_mix:
+        - creature: "Sparkle Unicorn"
+          quantity: "2d4"
+          behavior: "Prances helpfully. Stabs with rainbow horn if annoyed."
+          hidden_nature: "Judges you silently. Remembers everything."
+          
+        - creature: "Giggling Pixie Swarm"
+          quantity: "Too many"
+          behavior: "Helpful pranks! Braiding hair! Stealing shiny things!"
+          hidden_nature: "Pranks escalate. 'Helpful' is subjective."
+          
+        - creature: "Wise Elf Elder"
+          quantity: "1 per clearing"
+          behavior: "Offers cryptic advice. Points toward danger."
+          hidden_nature: "Advice is technically accurate but narratively cruel."
+          
+        - creature: "Talking Woodland Creature"
+          quantity: "1d6 per area"
+          behavior: "Sings exposition. Provides clues. Very trusting."
+          hidden_nature: "Will absolutely snitch on you to the villain."
+          
+        - creature: "Friendship Bear"
+          quantity: "1d4"
+          behavior: "Hugs! Sharing! Teaching lessons about feelings!"
+          hidden_nature: "Hugs are very strong. 'Sharing' includes your HP."
+          
+      backfire_theme: |
+        The happiness becomes MANDATORY.
+        Monsters enforce joy. Violently.
+        "WHY AREN'T YOU SMILING?!"
+        
+      marginalia: "It was all smiles until the unicorn found the ACME catalog"
+      
+    # 🍄 WHIMSICAL FUNGAL FOREST
+    
+    WHIMSICAL_FUNGAL_FOREST:
+      name: "🍄 Whimsical Fungal Forest"
+      tagline: "Spores! Confusion! Mushroom Logic!"
+      difficulty: "Easy (until the hallucinations start)"
+      atmosphere: "Bioluminescence, giggles, reality is negotiable"
+      
+      monster_mix:
+        - creature: "Shroom Folk"
+          quantity: "3d6"
+          behavior: "Friendly! Offer tea! Tea has side effects!"
+          hidden_nature: "Side effects include: seeing the truth."
+          
+        - creature: "Myconid Chorus"
+          quantity: "1 cluster"
+          behavior: "Sings in spores. Communicates via vibes."
+          hidden_nature: "You're now part of the network. Surprise."
+          
+        - creature: "Giant Toadstool"
+          quantity: "Environment feature"
+          behavior: "Bouncy! Great for reaching high places!"
+          hidden_nature: "Some are mimics. Some are trampolines. Flip a coin."
+          
+        - creature: "Spore Spirit"
+          quantity: "1d4"
+          behavior: "Floats peacefully. Grants visions."
+          hidden_nature: "Visions are of your embarrassing memories."
+          
+      backfire_theme: |
+        Everyone starts seeing everyone else's hallucinations.
+        Reality becomes consensus-based.
+        The mushrooms vote.
+        
+      marginalia: "We ate the purple ones. We saw too much."
+      
+    # 🏰 CLASSIC DUNGEON CRAWL
+    
+    CLASSIC_DUNGEON_CRAWL:
+      name: "🏰 Classic Dungeon Crawl"
+      tagline: "Goblins! Treasure! Traps! The Classics!"
+      difficulty: "Medium"
+      atmosphere: "Torchlit, damp, someone definitely died here"
+      
+      monster_mix:
+        - creature: "Goblin Patrol"
+          quantity: "2d6 per corridor"
+          behavior: "Patrols badly. Argues about whose turn it is."
+          hidden_nature: "Actually unionized. Has demands."
+          
+        - creature: "Treasure Chest (Definitely Not A Mimic)"
+          quantity: "1 per room"
+          behavior: "Sits there. Temptingly. Definitely just a chest."
+          hidden_nature: "50% mimic. 30% trapped. 20% actually treasure."
+          
+        - creature: "Skeleton Guard"
+          quantity: "1d4 per doorway"
+          behavior: "Guards door. Rattles. Very dedicated."
+          hidden_nature: "Will negotiate if you know the password."
+          
+        - creature: "Gelatinous Cube"
+          quantity: "1"
+          behavior: "Slowly approaches. Cleans the dungeon."
+          hidden_nature: "Contains 1d4 previous adventurers' equipment."
+          
+        - creature: "Boss Dragon (Budget)"
+          quantity: "1 (in the deepest room)"
+          behavior: "Hoards treasure. Monologues. Has a weakness."
+          hidden_nature: "Weakness is always mentioned in its monologue."
+          
+      backfire_theme: |
+        The goblins have read the adventurer's handbook.
+        They know about the "murderhobos."
+        They've prepared accordingly.
+        
+      marginalia: "The goblins formed a union. We had to negotiate."
+      
+    # 🕷️ CREEPY CRAWLY CAVES
+    
+    CREEPY_CRAWLY_CAVES:
+      name: "🕷️ Creepy Crawly Caves"
+      tagline: "Legs! Webs! Chitinous Nightmares!"
+      difficulty: "Medium-Hard (Hard if arachnophobic)"
+      atmosphere: "Skittering sounds, webs everywhere, something's watching"
+      
+      monster_mix:
+        - creature: "Giant Spider"
+          quantity: "2d4"
+          behavior: "Webs. Waits. Very patient."
+          hidden_nature: "Actually just wants friends. Socially awkward."
+          
+        - creature: "Centipede Swarm"
+          quantity: "Oh god so many"
+          behavior: "Flows like horrible water. Gets everywhere."
+          hidden_nature: "Ticklish. Hates being laughed at."
+          
+        - creature: "Ettercap Weaver"
+          quantity: "1d4"
+          behavior: "Makes art. Web art. You're the canvas."
+          hidden_nature: "Deeply insecure about its craftsmanship."
+          
+        - creature: "Cave Cricket (Giant)"
+          quantity: "3d6"
+          behavior: "JUMPS. Without warning. At your face."
+          hidden_nature: "More scared of you. Doesn't help."
+          
+        - creature: "The Queen"
+          quantity: "1 (she's waiting)"
+          behavior: "Doesn't move. Children bring her food."
+          hidden_nature: "You're the food. Children are en route."
+          
+      backfire_theme: |
+        Spiders discover you're the intruder.
+        They were here first.
+        They outnumber you.
+        They're organized now.
+        
+      marginalia: "I can still hear the skittering. In my dreams."
+      
+    # 🧟 ZOMBIE APOCALYPSE
+    
+    ZOMBIE_APOCALYPSE:
+      name: "🧟 Zombie Apocalypse"
+      tagline: "Shamble! Moan! Overwhelming Numbers!"
+      difficulty: "Medium (Hard if you get cornered)"
+      atmosphere: "Moaning, decay, boards on windows won't save you"
+      
+      monster_mix:
+        - creature: "Standard Zombie"
+          quantity: "4d6 per area"
+          behavior: "Shambles. Moans. Follows noise."
+          hidden_nature: "Used to be someone. Still wearing name tag."
+          
+        - creature: "Fast Zombie"
+          quantity: "1d4 (surprise)"
+          behavior: "RUNS. Doesn't follow the rules."
+          hidden_nature: "Very confused about its own speed."
+          
+        - creature: "Zombie Boss"
+          quantity: "1 per floor"
+          behavior: "Bigger. Slower. Hits harder."
+          hidden_nature: "Former middle management. Still delegates."
+          
+        - creature: "Survivor (Suspicious)"
+          quantity: "1d4"
+          behavior: "Asks for help. Definitely not bitten."
+          hidden_nature: "Definitely bitten. Timer running."
+          
+        - creature: "Patient Zero"
+          quantity: "1 (optional boss)"
+          behavior: "Intelligent. Remembers. Commands."
+          hidden_nature: "Just wants to know why this happened."
+          
+      backfire_theme: |
+        Zombies develop tactics.
+        They stop shambling.
+        They start planning.
+        The moaning becomes organized.
+        
+      marginalia: "We thought boards would help. They did not help."
+      
+    # 👻 HAUNTED MANSION
+    
+    HAUNTED_MANSION:
+      name: "👻 Haunted Mansion"
+      tagline: "Spirits! Portraits! Doors That Lock Behind You!"
+      difficulty: "Medium (Psychological)"
+      atmosphere: "Creaking, cold spots, someone's playing the organ"
+      
+      monster_mix:
+        - creature: "Resident Ghost"
+          quantity: "1 per room"
+          behavior: "Haunts their room. Has a sad backstory."
+          hidden_nature: "Actually just lonely. Will chat for hours."
+          
+        - creature: "Animated Portrait"
+          quantity: "All of them"
+          behavior: "Eyes follow. Sometimes comments."
+          hidden_nature: "Knows all the secrets. Terrible gossips."
+          
+        - creature: "Poltergeist (Troublemaker)"
+          quantity: "1d4"
+          behavior: "Throws things. Laughs. Hides your stuff."
+          hidden_nature: "Just wants attention. Therapy would help."
+          
+        - creature: "The Lady in White"
+          quantity: "1"
+          behavior: "Appears at midnight. Points at something."
+          hidden_nature: "Pointing at where she hid the treasure. Trying to help."
+          
+        - creature: "The Master of the House"
+          quantity: "1 (final boss)"
+          behavior: "Protects the secret. Guards the truth."
+          hidden_nature: "The secret is usually embarrassing, not evil."
+          
+      backfire_theme: |
+        The ghosts decide you're the new permanent resident.
+        They start planning your death.
+        So you can stay forever.
+        It's not malice. It's enthusiasm.
+        
+      marginalia: "They just wanted someone to listen. FOR ETERNITY."
+      
+    # 🔥 VOLCANIC HELLSCAPE
+    
+    VOLCANIC_HELLSCAPE:
+      name: "🔥 Volcanic Hellscape"
+      tagline: "Lava! Demons! Everything Is On Fire!"
+      difficulty: "Hard"
+      atmosphere: "Heat, sulfur, the floor is literally lava"
+      
+      monster_mix:
+        - creature: "Magma Elemental"
+          quantity: "1d4"
+          behavior: "Slow but hot. Leaves trails. Don't touch."
+          hidden_nature: "Just wants to cool down. Cannot."
+          
+        - creature: "Fire Salamander"
+          quantity: "2d4"
+          behavior: "Dances in flames. Plays with fire. Literally."
+          hidden_nature: "Thinks YOU'RE fireproof. Keeps sharing."
+          
+        - creature: "Lesser Demon"
+          quantity: "2d6"
+          behavior: "Offers deals. Terms unfavorable."
+          hidden_nature: "Actually bound by contract law. Find loopholes."
+          
+        - creature: "Hellhound"
+          quantity: "1d4"
+          behavior: "Fetches souls. Good boys. Bad news."
+          hidden_nature: "Loves belly rubs. Still evil. Conflicted."
+          
+        - creature: "Pit Fiend Executive"
+          quantity: "1"
+          behavior: "Manages the hellscape. Has meetings."
+          hidden_nature: "Hates the bureaucracy. Respects efficiency."
+          
+      backfire_theme: |
+        The hellscape becomes literal Hell.
+        ACTUAL demons show up.
+        They have a permit.
+        You're in violation.
+        
+      marginalia: "It was hot. Then it got hotter. Then I stopped writing."
+      
+    # 🐙 ELDRITCH DEPTHS
+    
+    ELDRITCH_DEPTHS:
+      name: "🐙 Eldritch Depths"
+      tagline: "Tentacles! Madness! Non-Euclidean Architecture!"
+      difficulty: "EXTREME (Sanity Required)"
+      atmosphere: "Whispers, geometry that hurts to look at, wet sounds"
+      
+      monster_mix:
+        - creature: "Deep One Hybrid"
+          quantity: "2d4"
+          behavior: "Lurks. Stares. Occasionally offers fish."
+          hidden_nature: "Fish is a peace offering. Accept it."
+          
+        - creature: "Star Spawn Fragment"
+          quantity: "1d4"
+          behavior: "Exists incorrectly. Breaks space."
+          hidden_nature: "Doesn't know it's horrifying. Thinks it's normal."
+          
+        - creature: "Cultist (Enthusiastic)"
+          quantity: "3d6"
+          behavior: "Chants. Robes. Very dedicated."
+          hidden_nature: "Just happy to be included. Bad at chanting."
+          
+        - creature: "The Thing in the Pit"
+          quantity: "1 (per pit)"
+          behavior: "Waits. Whispers. Offers knowledge."
+          hidden_nature: "Knowledge comes with... updates."
+          
+        - creature: "SOMETHING THAT SHOULD NOT BE"
+          quantity: "??? (counts are meaningless)"
+          behavior: "Exists. That's the problem."
+          hidden_nature: "Actually quite polite. That makes it worse."
+          
+      backfire_theme: |
+        The architecture starts making sense.
+        You understand the whispers.
+        This is not a good thing.
+        Reality was a suggestion anyway.
+        
+      marginalia: "I can see the angles now. I can see ALL the angles."
+      
+    # 💀 LICH'S DOMAIN
+    
+    LICHS_DOMAIN:
+      name: "💀 Lich's Domain"
+      tagline: "Undead Army! Dark Magic! One Very Dramatic Boss!"
+      difficulty: "Very Hard"
+      atmosphere: "Bone motifs, purple lightning, monologue energy"
+      
+      monster_mix:
+        - creature: "Skeleton Battalion"
+          quantity: "4d6"
+          behavior: "Marches in formation. Very disciplined."
+          hidden_nature: "Secretly miss being alive. Will talk about it."
+          
+        - creature: "Wraith Lieutenant"
+          quantity: "1d4"
+          behavior: "Commands undead. Reports to lich. Very efficient."
+          hidden_nature: "Angling for promotion. May be bribed."
+          
+        - creature: "Bone Golem"
+          quantity: "1d4"
+          behavior: "Guards doors. Very large. Made of MANY bones."
+          hidden_nature: "One bone is load-bearing. Find it."
+          
+        - creature: "Death Knight"
+          quantity: "1-2"
+          behavior: "Challenges worthy foes. Has a code."
+          hidden_nature: "Code has loopholes. Exploit honor."
+          
+        - creature: "The Lich (Obviously)"
+          quantity: "1"
+          behavior: "Monologues. Casts. Phylactery hidden nearby."
+          hidden_nature: "Phylactery is always in an ironic location."
+          
+      backfire_theme: |
+        The lich was expecting you.
+        The lich is ALWAYS expecting you.
+        The lich has read your character sheet.
+        The lich is disappointed.
+        
+      marginalia: "The lich remembered my birthday. That was the worst part."
+      
+    # 😈 DEMON PRINCE'S THRONE ROOM
+    
+    DEMON_PRINCES_THRONE:
+      name: "😈 Demon Prince's Throne Room"
+      tagline: "Ultimate Evil! Final Boss! Probably Overkill!"
+      difficulty: "MAXIMUM (Good Luck)"
+      atmosphere: "Screaming, chains, throne made of despair (literal)"
+      
+      monster_mix:
+        - creature: "Pit Fiend Guard"
+          quantity: "2d4"
+          behavior: "Guards. Glares. Occasionally judges."
+          hidden_nature: "Just wants a vacation. Any vacation."
+          
+        - creature: "Succubus/Incubus Attendant"
+          quantity: "1d4"
+          behavior: "Offers refreshments. Refreshments have consequences."
+          hidden_nature: "Actually just doing their job. Surprisingly professional."
+          
+        - creature: "Chain Devil (Custodian)"
+          quantity: "1d4"
+          behavior: "Maintains the chains. Very particular."
+          hidden_nature: "Knows the building layout. Might give directions."
+          
+        - creature: "Balor General"
+          quantity: "1-2"
+          behavior: "Commands armies. Carries flaming sword and whip."
+          hidden_nature: "Sword and whip are extensions. Losing them HURTS."
+          
+        - creature: "THE DEMON PRINCE"
+          quantity: "1 (obviously)"
+          behavior: "Sits on throne. Offers deals. Very patient."
+          hidden_nature: "Bored. Actually wants entertainment. Might play games."
+          
+      backfire_theme: |
+        You have the Demon Prince's attention.
+        Full, undivided attention.
+        For eternity.
+        Congratulations on your promotion.
+        
+      marginalia: "The contract was very long. I should have read it."
+      
+    # 🌈 CHAOS REALM
+    
+    CHAOS_REALM:
+      name: "🌈 Chaos Realm"
+      tagline: "Randomness! Mutation! Reality Is A Suggestion!"
+      difficulty: "????? (Changes)"
+      atmosphere: "Everything. All at once. Constantly shifting."
+      
+      monster_mix:
+        - creature: "Chaos Spawn"
+          quantity: "1d100 (reroll every turn)"
+          behavior: "Changes form constantly. Random actions."
+          hidden_nature: "Wants stability more than anything. Cannot have it."
+          
+        - creature: "Mutation Spirit"
+          quantity: "Variable"
+          behavior: "Offers 'improvements.' Improvements are random."
+          hidden_nature: "Genuinely trying to help. Definition of 'help' varies."
+          
+        - creature: "Paradox Elemental"
+          quantity: "0 and also 1"
+          behavior: "Exists and doesn't. Yes and no. Both."
+          hidden_nature: "Asking it questions may resolve the paradox. Or worsen it."
+          
+        - creature: "Dice Golem"
+          quantity: "20"
+          behavior: "Rolls self. Result determines reality."
+          hidden_nature: "Weighted. But toward what changes."
+          
+        - creature: "The Chaos Lord (Current)"
+          quantity: "1 (for now)"
+          behavior: "Rules by random decree. Throne is musical chairs."
+          hidden_nature: "Will be replaced mid-fight. New boss has new rules."
+          
+      backfire_theme: |
+        The chaos notices it's being controlled.
+        Chaos doesn't like control.
+        The manual pages start shuffling.
+        You're not sure which monsters you summoned anymore.
+        
+      marginalia: "The dice rolled themselves. We became the dice."
+      
+  population_rules: |
+    POPULATING A LOCATION:
+    
+    1. Choose location (maze, dungeon, forest, etc.)
+    2. Choose theme (from above or request custom)
+    3. Speak the incantation: "POPULATE [location] WITH [theme]"
+    4. Book glows, monsters appear throughout location
+    5. Each monster rolls for backfire INDIVIDUALLY
+    
+    DENSITY:
+    - Small location: Minimum quantities
+    - Medium location: Listed quantities
+    - Large location: Double quantities
+    - Mega location: Triple quantities and add boss variants
+    
+    MIXING THEMES:
+    You can say "POPULATE with [theme1] TRANSITIONING TO [theme2]"
+    The location will gradient from one theme to another.
+    Example: "Happy Unicorn Elf Land TRANSITIONING TO Volcanic Hellscape"
+    Result: Increasingly singed unicorns. Confused elves. Lava pixies.
+    
+    CUSTOM THEMES:
+    Request any theme. DM invents appropriate monsters.
+    Theme should include: aesthetic, difficulty, atmosphere, irony.
+    
+  population_warnings: |
+    ⚠️ BULK SUMMONING WARNINGS ⚠️
+    
+    - Backfire chance applies to EACH monster
+    - Themes may drift during population
+    - Monsters in the same area may form alliances
+    - OR they may fight each other (entertainment?)
+    - Depopulating requires knowing ALL true names
+    - Some monsters refuse to leave
+    - The book keeps a tally. It's judging you.
+    
   # MONSTER CATEGORIES
-  # ═══════════════════════════════════════════════════════════
   
   categories:
     
@@ -501,12 +1017,22 @@ object:
     page_89: "Jiggles is still following me"
     page_123: "If you summon the abomination, tell my wife—"
     page_124: "[the rest of the page is missing]"
+    page_201: "I populated Happy Unicorn Elf Land. The unicorns found the catalog."
+    page_202: "They ordered anvils. ANVILS."
+    page_247: "Tried DEPOPULATE. Didn't know the true names. They know mine now."
+    page_298: "Mixed Haunted Mansion with Chaos Realm. The ghosts are random now."
+    page_333: "The Demon Prince sent a thank-you note. That's worse somehow."
     final_page: "I have made a terrible mistake"
     inside_back_cover: |
       SUMMONING COUNTER:
       Successful: III
       "Successful" (survived): IIII IIII II
       Regrets: IIII IIII IIII IIII IIII...
+      
+      POPULATION COUNTER:
+      Locations populated: 7
+      Locations successfully depopulated: 0
+      Locations we don't talk about anymore: 7
       
   k_lines:
     - ACME
@@ -516,3 +1042,7 @@ object:
     - BACKFIRE
     - IRONIC_FAILURE
     - CREATURE_FEATURE
+    - DUNGEON_POPULATION
+    - THEMED_MONSTERS
+    - BULK_SUMMONING
+    - MAZE_INHABITANTS
