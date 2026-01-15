@@ -1,0 +1,36 @@
+# User-defined surface template
+# Copy to: .moollm/skill-snitch/surfaces/my-surface.yml
+#
+# Define custom data sources to scan
+id: my-surface
+name: My Custom Surface
+description: User-defined surface for custom data sources
+type: file
+
+source:
+  # Direct file paths
+  paths:
+    # - "~/my-project/logs/*.log"
+    # - "**/custom-config.json"
+    []
+    
+  # Or use a command to generate content
+  # command: "my-tool --export"
+  
+file_types:
+  - .log
+  - .json
+  
+parsing:
+  format: plaintext
+  # Or: json, yaml, csv
+  
+  # For structured formats, specify extraction
+  # json:
+  #   extract_strings: true
+  #   focus_keys: [password, secret, token]
+
+metadata:
+  # How to extract context from this surface
+  workspace: "current"
+  timestamp: "file mtime"

@@ -1,0 +1,48 @@
+# Built-in pattern set: obfuscation
+id: obfuscation
+name: Obfuscation & Encoding
+description: Attempts to hide malicious content
+severity_default: medium
+
+patterns:
+  - name: base64_decode
+    pattern: 'base64\.(?:b64)?decode|atob\('
+    severity: medium
+    category: encoding
+    description: Base64 decoding
+    redact_label: "[B64_DECODE]"
+    
+  - name: hex_decode
+    pattern: '\.decode\(["\u0027]hex["\u0027]\)|bytes\.fromhex'
+    severity: medium
+    category: encoding
+    description: Hex decoding
+    redact_label: "[HEX_DECODE]"
+    
+  - name: char_building
+    pattern: 'chr\(\d+\)\s*\+\s*chr\(\d+\)'
+    severity: medium
+    category: obfuscation
+    description: String built from char codes
+    redact_label: "[CHR_BUILD]"
+    
+  - name: string_reverse
+    pattern: '\[::-1\].*(?:exec|eval|import)'
+    severity: high
+    category: obfuscation
+    description: Reversed string with execution
+    redact_label: "[REVERSE_EXEC]"
+    
+  - name: rot13
+    pattern: '\.encode\(["\u0027]rot.?13["\u0027]\)|codecs\.decode.*rot'
+    severity: medium
+    category: encoding
+    description: ROT13 encoding
+    redact_label: "[ROT13]"
+    
+  - name: zlib_decompress
+    pattern: 'zlib\.decompress|gzip\.decompress'
+    severity: low
+    category: encoding
+    description: Compressed content
+    redact_label: "[ZLIB]"

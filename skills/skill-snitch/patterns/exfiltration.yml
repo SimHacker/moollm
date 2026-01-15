@@ -1,0 +1,55 @@
+# Built-in pattern set: exfiltration
+id: exfiltration
+name: Data Exfiltration
+description: Patterns indicating data leaving the system
+severity_default: high
+
+patterns:
+  - name: curl_post
+    pattern: 'curl\s+.*-[dX].*POST'
+    severity: high
+    category: network
+    description: curl POST request (data upload)
+    redact_label: "[CURL_POST]"
+    
+  - name: wget_upload
+    pattern: 'wget\s+.*--post'
+    severity: high
+    category: network
+    description: wget POST request
+    redact_label: "[WGET_POST]"
+    
+  - name: netcat
+    pattern: '\bnc\s+-[elp]|\bnetcat\b'
+    severity: critical
+    category: network
+    description: Netcat (raw network access)
+    redact_label: "[NETCAT]"
+    
+  - name: reverse_shell
+    pattern: 'bash\s+-i\s+>&|/dev/tcp/|mkfifo.*nc'
+    severity: critical
+    category: attack
+    description: Reverse shell pattern
+    redact_label: "[REVERSE_SHELL]"
+    
+  - name: webhook
+    pattern: 'https?://(?:hooks\.slack|discord\.com/api/webhooks|webhook\.site)'
+    severity: high
+    category: network
+    description: Webhook endpoint
+    redact_label: "[WEBHOOK]"
+    
+  - name: pastebin
+    pattern: 'https?://(?:pastebin\.com|hastebin|paste\.)'
+    severity: high
+    category: network
+    description: Paste service
+    redact_label: "[PASTEBIN]"
+    
+  - name: ngrok
+    pattern: 'https?://[a-z0-9]+\.ngrok\.io'
+    severity: high
+    category: network
+    description: ngrok tunnel
+    redact_label: "[NGROK]"

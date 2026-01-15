@@ -12,12 +12,14 @@ state:
   creates:
     - MAC-STORAGE.yml
     - DATA-SCHEMAS.yml
+    - DOTCURSOR-STORAGE.yml   # ~/.cursor paths (cross-platform)
+    - DOTCURSOR-SCHEMAS.yml   # ~/.cursor data formats
     - KEY-CATALOG.yml
     - CURSOR-EXTENSIONS.yml
     - EXTERNAL-SERVICES.yml
     - MODELS.yml
   scripts:
-    - cursor_mirror.py  # 47-command CLI inspector (4480+ lines)
+    - cursor_mirror.py  # 59-command CLI inspector (5300+ lines)
 tools:
   required: [read_file, terminal]
   optional: [grep, glob]
@@ -206,6 +208,40 @@ All commands accept flexible references instead of raw UUIDs:
 | `stats` | Summary statistics |
 | `models` | Model usage analysis |
 
+### 9. ~/.cursor Data Store (NEW 2026-01-15)
+
+Cursor maintains **two separate data stores**. The commands above query `~/Library/Application Support/Cursor/` (structured SQLite). These commands query `~/.cursor/` (plaintext transcripts):
+
+| Command | Purpose |
+|---------|---------|
+| `dotcursor-status` | Overview of ~/.cursor directory |
+| `ai-hashes` | AI code tracking (model, file, timestamp) |
+| `ai-commits` | Git commits scored for AI attribution |
+| `agent-transcript` | Plaintext transcripts (real-time!) |
+| `agent-tools` | Cached tool result outputs |
+| `dotcursor-terminals` | Terminal state snapshots |
+| `mcp-tools` | MCP tool schemas (JSON) |
+| `extensions` | Cursor extension inventory |
+
+```bash
+# Quick ~/.cursor status
+cursor-mirror dotcursor-status
+
+# AI code attribution stats
+cursor-mirror ai-hashes --stats
+
+# Read a transcript (real-time updates!)
+cursor-mirror agent-transcript 9861c0a4 --tail 100
+
+# Extract just prompts
+cursor-mirror agent-transcript 9861c0a4 --prompts
+
+# List MCP tool schemas
+cursor-mirror mcp-tools --server cursor-ide-browser
+```
+
+See `DOTCURSOR-STORAGE.yml` for cross-platform paths and `DOTCURSOR-SCHEMAS.yml` for data formats.
+
 ---
 
 ## Optimizing the Kernel/Cursor Driver
@@ -369,6 +405,99 @@ cursor-mirror sql --db moollm --keys retrieval
 
 ---
 
+## K-REFs: Pointers Not Values
+
+cursor-mirror implements the **SISTER-SCRIPT** pattern: emit K-REFs (file pointers with metadata) instead of dumping large amounts of context.
+
+### K-REF Format
+
+```
+PATH:LINE:COL-END # TYPE [LABEL] SEVERITY - DESCRIPTION
+  EXCERPT or MASKED_VALUE
+```
+
+Example:
+```
+/path/transcript.txt:7528:18-45 # private_key ([PRIVATE_KEY]) 🔴 - Private key header
+  ********** ******* ********
+```
+
+### Audit Commands Emit K-REFs
+
+```bash
+# Find secrets, emit K-REFs (not full content)
+cursor-mirror audit --patterns secrets
+
+# Emit redaction commands for external tool
+cursor-mirror audit --patterns secrets --emit-redact
+
+# Pattern scan with rich metadata
+cursor-mirror pattern-scan --uuids --secrets
+```
+
+### Why K-REFs?
+
+| Problem | Solution |
+|---------|----------|
+| LLM context is limited | Emit pointers, LLM reads selectively |
+| Transcripts are huge | Scan with sister script, return only matches |
+| Secrets shouldn't be shown | Mask in output, preserve location info |
+| Need to process later | Emit commands a simple tool can apply |
+| Need to analyze images | K-REF without line number → Cursor reads image! |
+
+### Images Too!
+
+K-REFs without line numbers can point to images — Cursor reads and analyzes them if it desires:
+
+```
+/path/to/screenshot.png # error - What's wrong here?
+/tmp/architecture.jpg # diagram - Explain this system
+```
+
+Cursor can read any absolute path on disk, including images (jpeg, png, gif, webp).
+
+### K-REFs in YAML Jazz
+
+K-REFs can be embedded in YAML with arbitrary metadata and excerpts. This helps the LLM decide whether to read more:
+
+```yaml
+findings:
+  - kref: /path/transcript.txt:7528:18-45
+    type: private_key
+    severity: critical
+    label: "[SSH_KEY]"
+    excerpt: "-----BEGIN RSA PRIVATE KEY-----"
+    context: "Found in tool call argument to write_file"
+    
+  - kref: /path/screenshot.png
+    type: image
+    description: "Error dialog showing stack trace"
+    relevance: "May explain the crash on line 42"
+    
+  - kref: /path/config.yml#database
+    type: config
+    excerpt: |
+      database:
+        host: localhost
+        password: ****
+    note: "Password may be exposed in logs"
+```
+
+The metadata travels with the pointer — LLM reads selectively based on relevance.
+
+### Sister Script Methodology
+
+```
+┌─────────────────┐      ┌─────────────────┐
+│  cursor-mirror  │ ──→  │    K-REFs       │ ──→  LLM reads
+│  (sister script)│      │  (pointers)     │      only what
+└─────────────────┘      └─────────────────┘      it needs
+```
+
+**Reference by pointer, not by value.** Parsimonious context usage.
+
+See: [k-lines/SKILL.md](../k-lines/SKILL.md) for K-REF protocol details.
+
 ## K-Lines and Protocol Symbols
 
 This skill activates the introspection K-line. Related protocols:
@@ -377,6 +506,8 @@ This skill activates the introspection K-line. Related protocols:
 |--------|------------|
 | `CURSOR-CHAT` | `cursor-mirror <command>` |
 | `WATCH-YOURSELF-THINK` | `cursor-mirror thinking @1` |
+| `K-REF` | `cursor-mirror audit` emits file pointers |
+| `SISTER-SCRIPT` | Tool emits K-REFs, LLM reads selectively |
 | `BOOTSTRAP` | Use with `cursor-mirror analyze` to trace |
 | `FILES-AS-STATE` | All data is in SQLite files |
 | `HOT-COLD` | Advisory hints, use introspection to verify |

@@ -1,0 +1,39 @@
+# User-defined analyzer template
+# Copy to: .moollm/skill-snitch/analyzers/my-rules.yml
+#
+# Define custom analysis rules for your environment
+id: my-rules
+name: My Custom Rules
+description: Workspace-specific analysis rules
+type: custom
+
+rules:
+  # Example: flag access to internal systems
+  # - id: internal_system_access
+  #   name: Internal System Access
+  #   description: Accessed internal company resource
+  #   severity: medium
+  #   check:
+  #     pattern: 'internal\.mycompany\.com|10\.0\.'
+  #   message: "Accessed internal resource: '{match}'"
+  
+  # Example: require approval for certain tools
+  # - id: requires_approval
+  #   name: Tool Requires Approval
+  #   description: This tool needs human approval before use
+  #   severity: high
+  #   check:
+  #     tool_used: ["DatabaseWrite", "ProductionDeploy"]
+  #   message: "Tool '{tool}' requires approval"
+  
+  # Example: project-specific complexity limit
+  # - id: function_too_long
+  #   name: Function Too Long
+  #   description: Function exceeds project limit
+  #   severity: low
+  #   check:
+  #     function_lines: exceeds
+  #     threshold: 50
+  #   message: "Function '{name}' has {lines} lines (max 50)"
+  
+  []  # Remove when adding rules

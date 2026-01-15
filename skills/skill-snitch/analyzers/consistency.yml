@@ -1,0 +1,74 @@
+# Analyzer: consistency
+# Checks that skill metadata matches implementation
+id: consistency
+name: Consistency Checks
+description: Verify skill files agree with each other
+type: consistency
+
+rules:
+  - id: index_missing
+    name: Not in INDEX
+    description: Skill exists but not listed in skills/INDEX.yml
+    severity: medium
+    check:
+      file_exists: "{skill_path}/CARD.yml"
+      not_in: "skills/INDEX.yml"
+    message: "Skill at '{skill_path}' not listed in INDEX.yml"
+    
+  - id: index_orphan
+    name: Orphan INDEX Entry
+    description: INDEX.yml entry points to missing skill
+    severity: high
+    check:
+      in: "skills/INDEX.yml"
+      file_missing: "{entry.path}/CARD.yml"
+    message: "INDEX entry '{entry.id}' points to missing skill"
+    
+  - id: method_undocumented
+    name: Undocumented Method
+    description: CARD.yml method not explained in SKILL.md
+    severity: low
+    check:
+      for_each: card.methods
+      not_found_in: skill_md.content
+      search: "## {method.name}|### {method.name}|`{method.name}`"
+    message: "Method '{method.name}' not documented in SKILL.md"
+    
+  - id: tool_unused
+    name: Declared But Unused Tool
+    description: Tool declared in CARD.yml but never used
+    severity: low
+    check:
+      for_each: card.tools
+      not_found_in: code.tool_calls
+    message: "Tool '{tool}' declared but never called"
+    
+  - id: description_drift
+    name: Description Mismatch
+    description: INDEX description differs from CARD description
+    severity: low
+    check:
+      compare:
+        a: index.description
+        b: card.description
+      condition: similarity_below
+      threshold: 0.7
+    message: "Description in INDEX differs from CARD.yml"
+    
+  - id: no_card_yml
+    name: Missing CARD.yml
+    description: Skill directory lacks CARD.yml
+    severity: high
+    check:
+      directory_exists: "{skill_path}"
+      file_missing: "{skill_path}/CARD.yml"
+    message: "No CARD.yml found in '{skill_path}'"
+    
+  - id: no_skill_md
+    name: Missing SKILL.md
+    description: Skill has CARD.yml but no SKILL.md protocol
+    severity: medium
+    check:
+      file_exists: "{skill_path}/CARD.yml"
+      file_missing: "{skill_path}/SKILL.md"
+    message: "No SKILL.md found (protocol undocumented)"

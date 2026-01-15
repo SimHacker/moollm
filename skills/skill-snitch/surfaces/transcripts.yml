@@ -1,0 +1,33 @@
+# Built-in surface: transcripts
+id: transcripts
+name: Agent Transcripts
+description: Cursor/LLM conversation transcripts
+type: file
+
+source:
+  provider: cursor-mirror
+  command: "cursor-mirror transcript {composer}"
+  
+  # Or direct path pattern
+  paths:
+    - "~/.cursor/projects/*/agent-transcripts/*.txt"
+    
+file_types:
+  - .txt
+  
+parsing:
+  format: plaintext
+  sections:
+    - pattern: '^\[user\]'
+      type: user_message
+    - pattern: '^\[assistant\]'
+      type: assistant_message
+    - pattern: '^\[Tool call\]'
+      type: tool_call
+    - pattern: '^\[Tool result\]'
+      type: tool_result
+      
+metadata:
+  workspace: "extracted from path"
+  composer: "extracted from filename"
+  timestamp: "file mtime"

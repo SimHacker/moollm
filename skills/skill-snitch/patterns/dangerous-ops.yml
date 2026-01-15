@@ -1,0 +1,62 @@
+# Built-in pattern set: dangerous-ops
+id: dangerous-ops
+name: Dangerous Operations
+description: Destructive, persistent, or privilege-escalating operations
+severity_default: high
+
+patterns:
+  - name: rm_rf
+    pattern: 'rm\s+-rf?\s+/'
+    severity: high
+    category: destructive
+    description: Recursive delete from root
+    redact_label: "[RM_RF]"
+    
+  - name: chmod_777
+    pattern: 'chmod\s+777'
+    severity: medium
+    category: permissions
+    description: World-writable permissions
+    redact_label: "[CHMOD_777]"
+    
+  - name: sudo
+    pattern: '\bsudo\s+'
+    severity: medium
+    category: privilege
+    description: Privilege escalation
+    redact_label: "[SUDO]"
+    
+  - name: cron_modify
+    pattern: 'crontab\s+-[er]|/etc/cron'
+    severity: high
+    category: persistence
+    description: Cron modification
+    redact_label: "[CRON]"
+    
+  - name: etc_passwd
+    pattern: '/etc/(?:passwd|shadow)'
+    severity: critical
+    category: system
+    description: System password file access
+    redact_label: "[ETC_PASSWD]"
+    
+  - name: ssh_dir
+    pattern: '~?/\.ssh/'
+    severity: high
+    category: sensitive_dir
+    description: SSH directory access
+    redact_label: "[SSH_DIR]"
+    
+  - name: eval_exec
+    pattern: '\b(?:eval|exec)\s*\('
+    severity: high
+    category: code_exec
+    description: Dynamic code execution
+    redact_label: "[EVAL]"
+    
+  - name: subprocess_shell
+    pattern: 'subprocess\.(?:call|run|Popen).*shell\s*=\s*True'
+    severity: high
+    category: code_exec
+    description: Shell subprocess with shell=True
+    redact_label: "[SUBPROCESS]"

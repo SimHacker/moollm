@@ -846,6 +846,31 @@ WORKING-SET:
   location: kernel/context-assembly-protocol.md
   invoke_when: "Assembling or updating context"
 
+K-REF:
+  meaning: "K-line as file pointer: path:line + metadata. Reference not value."
+  location: skills/k-lines/SKILL.md
+  invoke_when: "Emitting pointers to file locations with annotations"
+  format: "PATH[:LINE[-END]][#ANCHOR][?SEARCH] # TYPE [LABEL] SEVERITY - DESC"
+  examples:
+    - "/path/file.txt:42:10-46 # secret 🔴 - Line+column range"
+    - "/path/SKILL.md#k-refs # section - Anchor to heading"
+    - "/path/main.py?def audit # search - Find pattern"
+    - "/path/config.yml # config - Whole file"
+  benefit: "Parsimonious context: LLM reads only what it needs"
+
+SISTER-SCRIPT:
+  meaning: "Tool emits K-REFs, LLM reads selectively. Scan → pointers → read."
+  location: skills/k-lines/SKILL.md, skills/cursor-mirror/SKILL.md
+  invoke_when: "Large data (transcripts, databases) needs scanning"
+  pattern:
+    - "Sister script scans data sources"
+    - "Emits K-REF pointers with metadata"
+    - "LLM reads only referenced sections"
+  benefit: "Works on files larger than context window"
+  examples:
+    - "cursor-mirror audit --emit-kref"
+    - "cursor-mirror pattern-scan --secrets"
+
 SUMMARIZE:
   meaning: "Compress without losing truth. Backlink to sources."
   location: kernel/memory-management-protocol.md

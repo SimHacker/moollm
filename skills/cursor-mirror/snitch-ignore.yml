@@ -1,0 +1,38 @@
+# Default ignore patterns for deep-snitch
+# These suppress known false positives from pattern definitions and examples
+
+ignore_paths:
+  - "**/cursor_mirror.py"           # Contains pattern definitions
+  - "**/snitch-ignore.yml"          # This file
+  - "**/example-patterns.yml"       # Pattern examples
+  - "**/*-design.md"                # Design docs with security examples
+  - "**/SKILL.md"                   # Skill docs often have examples
+
+ignore_patterns:
+  # Pattern definitions that match themselves
+  - name: pattern_definition
+    context: "AuditPattern\\(|PATTERN_REGISTRY|r'\\("
+    description: "Pattern definition in code"
+    
+  # Documentation examples
+  - name: doc_example
+    context: "```|example:|Example:|# Example"
+    description: "Code example in documentation"
+    
+  # Test fixtures
+  - name: test_fixture
+    context: "test_|_test\\.|fixture|mock"
+    description: "Test data"
+
+ignore_categories:
+  # Categories to skip entirely (uncomment to enable)
+  # - identifier    # UUIDs, hashes - usually noise
+  # - hash          # MD5, SHA - usually noise
+  # - url           # HTTP URLs - usually legitimate
+
+severity_threshold: info  # minimum severity to report (info|low|medium|high|critical)
+
+notes: |
+  This file ships with cursor-mirror and provides sensible defaults.
+  Override in ~/.moollm/skill-snitch/ignore.yml for personal settings.
+  Override in .moollm/skill-snitch/ignore.yml for workspace settings.

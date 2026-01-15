@@ -1,8 +1,23 @@
+# CARD.yml — Worm
+#
+# Two-pointer reversible cursor for filesystem traversal and data pipelines.
+# "Every EAT has a POOP. Every CHOMP has a BARF."
+
 card:
-  name: WORM
+  id: worm
+  name: Worm
   type: [skill, cursor, traversal, pipeline]
+  emoji: 🪱
   tier: 1
-  invoke_when: ["crawl filesystem", "span structures", "ingest/emit data"]
+  rarity: uncommon
+  
+  invoke_when:
+    - "crawl filesystem"
+    - "span structures"
+    - "ingest/emit data"
+    - "pipe between documents"
+    - "build data pipelines"
+    
   advertisement_names:
     - MOVE-WORM
     - MOVE-HEAD
@@ -24,20 +39,26 @@ card:
     - BARF
     - STICK-UP-BUM
   related:
-    - skills/data-flow
-    - skills/context
-    - skills/room
-    - skills/advertisement
-    - skills/random-toys
-  tags: [moollm, worm, cursor, pointer, pipeline]
+    - skills/data-flow     # Streaming data pipelines
+    - skills/context       # Context assembly
+    - skills/room          # Directory as room metaphor
+    - skills/adventure     # Worms traverse adventures
+    - skills/advertisement # Worm verbs as advertisements
+    
+  tags: [moollm, worm, cursor, pointer, pipeline, reversible, traversal]
+  
   description: |
-    Two-pointer worm (head/tail) cursor that inchworms through directories and
-    links. It can ingest content (tokens become active in its "brain"), carry a
-    buffer, and emit data at head or tail—even pipe between documents, or into
-    an etherial worm network where worms eat each other's output. Length is
-    head–tail distance; can be zero-length (NOP). The EAT/POOP/BARF/STICK-UP-BUM
-    verbs form a reversible basis (undo/redo, serialize/deserialize). Inspired
-    by the LLOOOOMM worms (bulldozer, link-hopper, mapper, dream, tree).
+    Two-pointer worm (head/tail) cursor that inchworms through directories 
+    and links. Ingest content (tokens become active in its "brain"), carry a
+    buffer, and emit data at head or tail. Pipe between documents, or into
+    an ethereal worm network where worms eat each other's output.
+    
+    Length = head–tail distance (zero-length = NOP cursor).
+    
+    The EAT/POOP/BARF/STICK-UP-BUM verbs form a reversible basis for
+    undo/redo and serialize/deserialize operations.
+    
+  lineage: "LLOOOOMM worms (bulldozer, link-hopper, mapper, dream, tree)"
 
 tools:
   required:
@@ -216,33 +237,6 @@ advertisements:
       method: STICK-UP-BUM
       params:
         data: "{{data|...}}"
-  NEXT-UNIT:
-    score: 65
-    condition: "Advance head by unit (char/word/sentence/paragraph/section/page)"
-    effect: "Move head forward by count units; tail unchanged"
-    delegate:
-      method: NEXT-UNIT
-      params:
-        unit: "{{unit|word}}"
-        count: "{{count|1}}"
-  PREV-UNIT:
-    score: 65
-    condition: "Move head backward by unit"
-    effect: "Move head backward by count units; tail unchanged"
-    delegate:
-      method: PREV-UNIT
-      params:
-        unit: "{{unit|word}}"
-        count: "{{count|1}}"
-  SELECT-RANGE:
-    score: 65
-    condition: "Select N units starting at head"
-    effect: "Selects range into buffer/payload (units: char|word|sentence|paragraph|section|page)"
-    delegate:
-      method: SELECT-RANGE
-      params:
-        unit: "{{unit|word}}"
-        count: "{{count|1}}"
 
 methods:
   MOVE-WORM:
@@ -381,30 +375,6 @@ methods:
     parameters: {}
     output: chat
     effect: "Unhides subtree"
-
-  NEXT-UNIT:
-    description: "Advance head by unit"
-    parameters:
-      unit: "char|word|sentence|paragraph|section|page|line"
-      count: "How many units to move forward"
-    output: chat
-    effect: "Moves head forward by units; tail unchanged"
-
-  PREV-UNIT:
-    description: "Move head backward by unit"
-    parameters:
-      unit: "char|word|sentence|paragraph|section|page|line"
-      count: "How many units to move back"
-    output: chat
-    effect: "Moves head backward by units; tail unchanged"
-
-  SELECT-RANGE:
-    description: "Select a range starting at head into buffer/payload"
-    parameters:
-      unit: "char|word|sentence|paragraph|section|page|line"
-      count: "How many units to select"
-    output: chat
-    effect: "Captures selection into buffer/payload; does not move tail unless caller sets it"
 
 # Worm variants (YAML jazz; inspiration pointers)
 variants:

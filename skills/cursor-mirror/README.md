@@ -1,6 +1,6 @@
 # cursor-mirror
 
-**See yourself think.** Introspection tools for Cursor IDE — 47 read-only commands to inspect conversations, tool calls, context assembly, and agent reasoning from Cursor's internal SQLite databases.
+**See yourself think.** Introspection tools for Cursor IDE — 59 read-only commands to inspect conversations, tool calls, context assembly, agent reasoning, and AI attribution from Cursor's internal databases and `~/.cursor` plaintext data.
 
 *By Don Hopkins, Leela AI — Part of [MOOLLM](../../MOOLLM.md)*
 
@@ -116,11 +116,33 @@ cursor-mirror status-mcp
 
 ### Data Locations (macOS)
 
+Cursor maintains **two separate data stores**:
+
+**1. Application Support (Structured SQLite):**
+
 | Path | Content |
 |------|---------|
 | `~/Library/Application Support/Cursor/User/globalStorage/state.vscdb` | Global: all conversations, tool results, config |
 | `~/Library/Application Support/Cursor/User/workspaceStorage/<hash>/state.vscdb` | Per-workspace: composer metadata, prompts |
 | `~/Library/Application Support/Cursor/User/workspaceStorage/<hash>/anysphere.cursor-retrieval/` | Indexing: embeddable files, folder descriptions |
+
+**2. ~/.cursor (Plaintext Projects):**
+
+| Path | Content |
+|------|---------|
+| `~/.cursor/ai-tracking/ai-code-tracking.db` | AI code attribution (80MB) |
+| `~/.cursor/extensions/` | Cursor extensions (1.3GB) |
+| `~/.cursor/projects/<workspace>/agent-transcripts/` | **Real-time plaintext transcripts!** |
+| `~/.cursor/projects/<workspace>/agent-tools/` | Cached tool result outputs |
+| `~/.cursor/projects/<workspace>/terminals/` | Terminal state snapshots |
+| `~/.cursor/projects/<workspace>/mcps/` | MCP tool schemas (JSON) |
+
+The composer UUID is the primary key across both systems. Cross-reference with:
+```bash
+cursor-mirror dotcursor-status          # Overview
+cursor-mirror agent-transcript <id>     # Read transcript
+cursor-mirror ai-hashes --stats         # AI code attribution
+```
 
 ### Database Schema
 

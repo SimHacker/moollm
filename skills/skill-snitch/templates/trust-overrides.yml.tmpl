@@ -1,0 +1,29 @@
+# skill-snitch trust overrides
+# Copy to: .moollm/skill-snitch/trust-overrides.yml
+version: 1
+
+# Manual trust level overrides for specific skills
+# These take precedence over computed trust levels
+
+overrides:
+  # Example entries:
+  #
+  # skills/bootstrap/:
+  #   trust: green
+  #   reason: "Core skill, reviewed thoroughly"
+  #   reviewed_by: "Don Hopkins"
+  #   reviewed_date: 2026-01-15
+  #
+  # skills/untrusted-download/:
+  #   trust: red
+  #   reason: "Downloaded from unknown source, contains shell commands"
+  #   expires: 2026-02-01  # Re-review after this date
+
+# Trusted publishers (all their skills get at least BLUE)
+trusted_publishers:
+  # - leela-ai
+  # - moollm-official
+
+# Quarantined skills (always RED, require explicit override)
+quarantine: []
+  # - skills/malware-sample/

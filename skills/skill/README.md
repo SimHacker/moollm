@@ -39,13 +39,15 @@ A skill is a **documented capability** that can be:
 
 ## MOOLLM's Unique Contributions
 
-| Innovation | What It Means | Proof |
-|------------|---------------|-------|
-| **Instantiation** | Skills as prototypes that create instances | adventure-4 from adventure/ |
-| **K-lines** | Names activate entire knowledge contexts | "Palm" → all of Palm's soul |
-| **Empathic Templates** | Smart generation, not string substitution | Character descriptions |
-| **Speed of Light** | Many agents, many turns, one call | **33-turn Fluxx**, **21-turn cat prowl** |
-| **Three-Tier Persistence** | Platform → Narrative → State | Session logs + world state |
+| # | Innovation | What It Means | Proof |
+|---|------------|---------------|-------|
+| 1 | **Instantiation** | Skills as prototypes that create instances | adventure-4 from adventure/ |
+| 2 | **Three-Tier Persistence** | Platform → Narrative → State | Session logs + world state |
+| 3 | **K-lines** | Names activate entire knowledge contexts | "Palm" → all of Palm's soul |
+| 4 | **Empathic Templates** | Smart generation, not string substitution | Character descriptions |
+| 5 | **Speed of Light** | Many agents, many turns, one call | **33-turn Fluxx**, **21-turn cat prowl** |
+| 6 | **CARD.yml** | Machine-readable interface with advertisements | Every skill has sniffable metadata |
+| 7 | **Ethical Framing** | Room-based inheritance of performance context | Pub framing → all children inherit |
 
 ---
 

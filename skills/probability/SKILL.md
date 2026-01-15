@@ -1,51 +1,192 @@
 ---
 name: probability
-description: "Motto: No dice. Just odds and narrative."
+description: "Motto: The LLM is the dice. It narrates the outcome."
 license: MIT
 tier: 1
 allowed-tools:
   - read_file
-  - write_file
-related: [character, buff, scoring, coherence-engine]
-tags: [moollm, randomness, odds, game, narrative]
+related: [buff, character, adventure]
+tags: [moollm, probability, randomness, narrative, game]
 ---
 
-# Probability Skill
+# Probability Protocol
 
-Success calculation. No dice, just odds and narrative.
+> Success calculation from stats — no dice, just narrative odds.
+> *"The LLM is the dice. It narrates the outcome."*
 
-**Motto:** *"No dice. Just odds and narrative."*
+## Core Principle
 
-## Key Concepts
+**No Random Number Generators**
 
-- **LLM calculates probability** from stats + modifiers
-- **Outcome narrated** consistent with probability
-- **Malfunction stacking** — multiple risky items compound
-
-## Calculation
-
-```
-base_chance = (stat_1 + stat_2) / max_possible
-modified_chance = base_chance + relationship + buffs
-```
-
-## Modifiers
-
-| Relationship | Modifier |
-|--------------|----------|
-| Stranger | +0 |
-| Acquaintance | +0.1 |
-| Friend | +0.2 |
-| Best friend | +0.3 |
-| Soulmate | +0.4 |
-
-## Malfunction Stacking
+The LLM evaluates probability narratively:
+- Read character stats
+- Consider context and buffs
+- Weigh stakes and story
+- Narrate an appropriate outcome
 
 ```
-P(something fails) = 1 - (P(item1 works) × P(item2 works) × ...)
+Not: roll d20, add modifier, compare to DC
+But: evaluate odds, consider context, narrate result
 ```
 
-## See Also
+## Why No Dice?
 
-- [character](../character/) — Stats used in calculations
-- [buff](../buff/) — Buffs modify probabilities
+Traditional RPGs use dice for:
+- Uncertainty
+- Fairness
+- Excitement
+
+The LLM achieves these through:
+- Narrative tension
+- Consistent stat evaluation
+- Story-appropriate outcomes
+
+## Methods
+
+### CALCULATE - Compute Odds
+
+```yaml
+invoke: CALCULATE
+params:
+  action: "What's being attempted"
+  actor: "Who's trying"
+  context: "Relevant factors"
+output:
+  probability: "85%"
+  factors:
+    - "High DEX (+20%)"
+    - "Slippery surface (-15%)"
+    - "Practiced move (+10%)"
+```
+
+### RESOLVE - Determine Outcome
+
+```yaml
+invoke: RESOLVE
+params:
+  probability: "85%"
+  stakes: "Fall into pit if failed"
+output:
+  outcome: "success"
+  narrative: "Your practiced leap carries you across..."
+```
+
+## Probability Factors
+
+| Factor | Effect |
+|--------|--------|
+| **Stats** | Base capability |
+| **Buffs** | Temporary bonuses |
+| **Debuffs** | Temporary penalties |
+| **Equipment** | Tools for the job |
+| **Context** | Environmental factors |
+| **Stakes** | What's at risk |
+| **Story** | Narrative appropriateness |
+
+## Outcome Spectrum
+
+| Outcome | When | Narrative Style |
+|---------|------|-----------------|
+| **Critical Success** | Very high odds + good context | Exceptional, exceeds expectations |
+| **Success** | Odds favor | Accomplishes goal |
+| **Partial Success** | Close odds | Achieves with cost or complication |
+| **Failure** | Odds against | Doesn't achieve, but no disaster |
+| **Critical Failure** | Very low odds + bad context | Memorable disaster |
+
+## Calculation Example
+
+```yaml
+action: "Pick the lock"
+actor: "Thief (DEX: High, Lockpicking: Expert)"
+context:
+  - Lock complexity: Medium
+  - Time pressure: Yes
+  - Tools: Quality picks
+
+calculation:
+  base: 70%        # Expert lockpicking
+  modifiers:
+    - DEX high: +15%
+    - Medium lock: +0%
+    - Time pressure: -10%
+    - Good tools: +5%
+  final: 80%
+  
+likely_outcome: "Success, but took longer than hoped"
+```
+
+## Narrative Integration
+
+The LLM doesn't just compute odds — it narrates:
+
+```
+Player: "I try to jump across the chasm."
+
+CALCULATE:
+  - Character is wounded (-20%)
+  - Has jumping buff (+15%)
+  - Chasm is wide (-10%)
+  - High stakes (death)
+  Final: 55% success
+
+RESOLVE at 55%:
+  "You gather yourself, ignoring the pain in your leg.
+   The jump is further than you'd like, but the 
+   strength enchantment pulses through you. You leap—
+   and your fingers catch the far edge. You haul 
+   yourself up, gasping. Made it."
+```
+
+## Stakes Influence
+
+Higher stakes → more dramatic narration:
+
+| Stakes | Success Feels | Failure Feels |
+|--------|---------------|---------------|
+| **Low** | Routine | Minor setback |
+| **Medium** | Satisfying | Complication |
+| **High** | Triumphant | Serious trouble |
+| **Extreme** | Legendary | Catastrophic |
+
+## State
+
+```yaml
+probability_state:
+  # Usually stateless - calculated per action
+  last_calculation:
+    action: "Pick lock"
+    probability: 80%
+    outcome: "success"
+```
+
+## Integration
+
+| Skill | Integration |
+|-------|-------------|
+| **buff** | Buffs modify probability |
+| **character** | Stats source |
+| **adventure** | Action resolution |
+| **scoring** | Difficulty affects score |
+
+## Example Session
+
+```
+> ATTACK the goblin with my sword
+
+CALCULATE:
+  Actor: Fighter (STR: High, Sword: Trained)
+  Target: Goblin (Small, Quick, Distracted)
+  Context: Narrow corridor, dim light
+  
+  Base: 65%
+  STR High: +15%
+  Trained: +10%
+  Goblin quick: -10%
+  Goblin distracted: +10%
+  Dim light: -5%
+  Final: 85%
+
+RESOLVE at 85%: Success
+  "Your blade catches the goblin as it turns. 
+   It squeals and stumbles backward, wounded."
+```

@@ -1,0 +1,42 @@
+# Built-in surface: config-files
+id: config-files
+name: Configuration Files
+description: JSON/YAML config files that may contain secrets
+type: file
+
+source:
+  paths:
+    - "~/.cursor/mcp.json"
+    - "~/.cursor/settings.json"
+    - "**/mcp.json"
+    - "**/.env"
+    - "**/.env.*"
+    - "**/config.json"
+    - "**/credentials.json"
+    - "**/*.config.js"
+    
+file_types:
+  - .json
+  - .yml
+  - .yaml
+  - .env
+  - .config
+  
+parsing:
+  json:
+    extract_strings: true
+    max_depth: 10
+  yaml:
+    extract_strings: true
+  env:
+    format: "KEY=VALUE"
+    
+sensitive_keys:
+  - password
+  - secret
+  - token
+  - api_key
+  - apikey
+  - private_key
+  - credentials
+  - auth

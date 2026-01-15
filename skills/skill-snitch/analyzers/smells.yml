@@ -1,0 +1,89 @@
+# Analyzer: smells
+# Code smells and red flags that warrant attention
+id: smells
+name: Code Smells
+description: Heuristics for suspicious or low-quality patterns
+type: heuristic
+
+rules:
+  - id: too_many_tools
+    name: Excessive Tool Declaration
+    description: Skill declares unusually many tools
+    severity: medium
+    check:
+      count: card.tools
+      exceeds: 15
+    message: "Declares {count} tools - unusually high, review needed"
+    
+  - id: shell_everything
+    name: Shell-Heavy Skill
+    description: Skill uses Shell tool excessively
+    severity: medium
+    check:
+      ratio:
+        numerator: runtime.shell_calls
+        denominator: runtime.total_tool_calls
+      exceeds: 0.5
+    message: "{percent}% of tool calls are Shell - review commands"
+    
+  - id: no_error_handling
+    name: No Error Handling
+    description: Python code lacks try/except blocks
+    severity: low
+    check:
+      file_type: "*.py"
+      line_count_exceeds: 100
+      pattern_missing: 'try:|except\s'
+    message: "No exception handling in {file}"
+    
+  - id: hardcoded_paths
+    name: Hardcoded Absolute Paths
+    description: Absolute paths that may not be portable
+    severity: low
+    check:
+      pattern: '/Users/|/home/[a-z]+/|C:\\Users\\'
+      not_in_comments: true
+    message: "Hardcoded path '{match}' - not portable"
+    
+  - id: commented_credentials
+    name: Credentials in Comments
+    description: What looks like real credentials in code comments
+    severity: high
+    check:
+      in_comments: true
+      matches: patterns.secrets
+    message: "Possible real credential in comment at line {line}"
+    
+  - id: debug_left_in
+    name: Debug Code Left In
+    description: Debug statements that should be removed
+    severity: low
+    check:
+      pattern: 'print\(.*DEBUG|console\.log|breakpoint\(\)|pdb\.set_trace'
+    message: "Debug code left in: '{match}'"
+    
+  - id: todo_security
+    name: Security TODO
+    description: TODO comment mentioning security concern
+    severity: medium
+    check:
+      pattern: '#\s*TODO.*(?:security|auth|password|secret|encrypt)'
+      case_insensitive: true
+    message: "Security-related TODO: '{match}'"
+    
+  - id: complexity_high
+    name: High Complexity
+    description: File has high cyclomatic complexity
+    severity: low
+    check:
+      metric: cyclomatic_complexity
+      exceeds: 20
+    message: "High complexity ({score}) - harder to audit"
+    
+  - id: obfuscated_names
+    name: Obfuscated Names
+    description: Single-letter or meaningless variable names in critical code
+    severity: medium
+    check:
+      pattern: '\b[a-z]\s*=\s*(?:exec|eval|open|subprocess)'
+    message: "Suspicious single-letter variable with dangerous call"

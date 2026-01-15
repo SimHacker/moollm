@@ -1,0 +1,36 @@
+# Built-in surface: sqlite
+id: sqlite
+name: SQLite Databases
+description: Cursor's SQLite state databases
+type: database
+
+source:
+  provider: cursor-mirror
+  command: "cursor-mirror query --db {db} --sql {sql}"
+  
+  databases:
+    - name: state.vscdb
+      path: "~/Library/Application Support/Cursor/User/globalStorage/state.vscdb"
+      platform: darwin
+      
+    - name: state.vscdb
+      path: "~/.config/Cursor/User/globalStorage/state.vscdb"
+      platform: linux
+      
+    - name: state.vscdb
+      path: "%APPDATA%/Cursor/User/globalStorage/state.vscdb"
+      platform: windows
+
+tables:
+  - name: ItemTable
+    key_column: key
+    value_column: value
+    
+queries:
+  all_keys: "SELECT key FROM ItemTable"
+  by_pattern: "SELECT key, value FROM ItemTable WHERE key LIKE ?"
+  value: "SELECT value FROM ItemTable WHERE key = ?"
+  
+parsing:
+  format: json
+  # Values are often JSON strings that need unpacking

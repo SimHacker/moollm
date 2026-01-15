@@ -1,0 +1,138 @@
+# cursor_mirror_config.yml
+# Default configuration for cursor-mirror
+# 
+# Load order:
+#   1. Built-in defaults (in script)
+#   2. This file (skills/cursor-mirror/cursor_mirror_config.yml)
+#   3. User config (~/.config/cursor-mirror/config.yml)
+#   4. Project config (.moollm/cursor-mirror.yml)
+#   5. Command-line arguments (highest priority)
+
+# Limits for various commands
+limits:
+  default: 50
+  tail: 20
+  stream: 100
+  grep: 100
+  images: 50
+  image_gallery: 100
+  events: 50
+  secrets: 100
+  commits: 50
+  deep_snitch: 200
+  pattern_scan: 50
+  audit: 100
+  full_audit: 100
+  exfil_audit: 100
+
+# Time filter defaults
+time:
+  default_since: null  # No filter by default
+  supported_units:
+    - h  # hours
+    - m  # minutes
+    - d  # days
+    - w  # weeks
+
+# Output formats
+output:
+  default_format: table  # table, yaml, json
+  pretty_json: true
+  timestamps: iso  # iso, unix, human
+  truncate_long_values: 100  # chars
+
+# Security scanning patterns
+security:
+  # Categories available for deep-snitch
+  categories:
+    - secrets
+    - uuids
+    - hashes
+    - urls
+    - paths
+    - git
+    - shell_exfil
+    - code_execution
+    - dangerous_paths
+    - obfuscation
+    - prompt_injection
+    - data_exfil
+    - suspicious_behavior
+    - dangerous_ops
+
+  # Severity levels
+  severity_order:
+    - critical
+    - high
+    - medium
+    - low
+    - info
+
+  # Default minimum severity for reports
+  min_severity: low
+
+# Path patterns (macOS defaults)
+paths:
+  macos:
+    cursor_support: ~/Library/Application Support/Cursor
+    global_storage: ~/Library/Application Support/Cursor/User/globalStorage
+    workspace_storage: ~/Library/Application Support/Cursor/User/workspaceStorage
+    dot_cursor: ~/.cursor
+    
+  linux:
+    cursor_support: ~/.config/Cursor
+    global_storage: ~/.config/Cursor/User/globalStorage
+    workspace_storage: ~/.config/Cursor/User/workspaceStorage
+    dot_cursor: ~/.cursor
+    
+  windows:
+    cursor_support: ~/AppData/Roaming/Cursor
+    global_storage: ~/AppData/Roaming/Cursor/User/globalStorage
+    workspace_storage: ~/AppData/Roaming/Cursor/User/workspaceStorage
+    dot_cursor: ~/.cursor
+
+# Reference resolution settings
+resolution:
+  # Minimum hash prefix length for matching
+  min_hash_prefix: 4
+  
+  # Index references (e.g., @1, @2)
+  index_base: 1  # 1-based indexing
+  index_sort: recency  # recency (default) or size
+  # @1 = most recently modified workspace/composer
+  # @2 = second most recent, etc.
+  
+  # Tree path separator
+  tree_separator: .
+  
+  # Match hash prefixes in find command
+  match_hash_prefixes: true
+
+# Export settings
+export:
+  # Include trailing newline in JSONL exports
+  trailing_newline: true
+  
+  # Default include types for JSONL
+  jsonl_include:
+    - messages
+    - tools
+    - thinking
+
+# Debug settings
+debug:
+  enabled: false
+  log_to_stderr: true
+  log_db_queries: false
+  log_resolution: true
+
+# Cache settings
+cache:
+  # Cache bubble counts per composer
+  bubble_counts: true
+  
+  # Cache all-composers lookup
+  all_composers: true
+  
+  # Cache timeout (not implemented, in-memory only)
+  timeout_seconds: 300

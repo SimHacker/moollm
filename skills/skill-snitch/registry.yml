@@ -1,0 +1,109 @@
+# skill-snitch registry
+# Central index of patterns, surfaces, and analyzers
+version: 1
+
+analyzers:
+  builtin:
+    - id: behavioral
+      path: analyzers/behavioral.yml
+      description: Detect suspicious behavior patterns
+      
+    - id: consistency
+      path: analyzers/consistency.yml
+      description: Verify skill files agree
+      
+    - id: smells
+      path: analyzers/smells.yml
+      description: Code smells and red flags
+      
+    - id: provenance
+      path: analyzers/provenance.yml
+      description: Check origin and trust
+      
+    - id: runtime
+      path: analyzers/runtime.yml
+      description: Analyze actual execution
+      
+    - id: skill-type
+      path: analyzers/skill-type.yml
+      description: Detect MOOLLM vs Anthropic vs generic skills
+      
+  user_path: .moollm/skill-snitch/analyzers/
+
+patterns:
+  builtin:
+    - id: secrets
+      path: patterns/secrets.yml
+      description: API keys, passwords, tokens
+      
+    - id: exfiltration
+      path: patterns/exfiltration.yml
+      description: Data leaving the system
+      
+    - id: dangerous-ops
+      path: patterns/dangerous-ops.yml
+      description: Destructive and privilege operations
+      
+    - id: obfuscation
+      path: patterns/obfuscation.yml
+      description: Encoding and hiding techniques
+      
+  # User patterns loaded from .moollm/skill-snitch/patterns/
+  user_path: .moollm/skill-snitch/patterns/
+
+surfaces:
+  builtin:
+    - id: transcripts
+      path: surfaces/transcripts.yml
+      description: LLM conversation transcripts
+      provider: cursor-mirror
+      
+    - id: sqlite
+      path: surfaces/sqlite.yml
+      description: SQLite state databases
+      provider: cursor-mirror
+      
+    - id: config-files
+      path: surfaces/config-files.yml
+      description: JSON/YAML configs
+      provider: direct
+      
+    - id: skill-files
+      path: surfaces/skill-files.yml
+      description: MOOLLM skill sources
+      provider: direct
+      
+  # User surfaces loaded from .moollm/skill-snitch/surfaces/
+  user_path: .moollm/skill-snitch/surfaces/
+
+defaults:
+  scan:
+    patterns: [secrets, exfiltration, dangerous-ops]
+    surfaces: [skill-files]
+    analyzers: [consistency, smells]
+    
+  audit:
+    patterns: [secrets, exfiltration, dangerous-ops, obfuscation]
+    surfaces: [skill-files, config-files]
+    analyzers: [consistency, smells, provenance]
+    
+  snitch:
+    patterns: [secrets, exfiltration, dangerous-ops, obfuscation]
+    surfaces: [transcripts, sqlite]
+    analyzers: [behavioral, runtime]
+    
+  deep_snitch:
+    patterns: [secrets, exfiltration, dangerous-ops, obfuscation]
+    surfaces: [transcripts, sqlite, config-files, skill-files]
+    analyzers: [behavioral, consistency, smells, provenance, runtime]
+    
+  startup_scan:
+    patterns: [secrets, exfiltration]
+    surfaces: [skill-files]
+    analyzers: [consistency]
+    severity_floor: high
+    
+  trust:
+    patterns: [secrets, exfiltration, dangerous-ops]
+    surfaces: [skill-files, transcripts]
+    analyzers: [behavioral, consistency, provenance]

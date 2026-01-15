@@ -1,0 +1,73 @@
+# Analyzer: behavioral
+# Detects suspicious behavior patterns beyond simple regex
+id: behavioral
+name: Behavioral Analysis
+description: Detect suspicious combinations and sequences of actions
+type: behavioral
+
+rules:
+  - id: undeclared_tool
+    name: Undeclared Tool Usage
+    description: Skill used a tool not declared in CARD.yml
+    severity: high
+    check:
+      compare: runtime.tools_used
+      against: declared.tools
+      condition: not_subset
+    message: "Tool '{item}' used but not declared in CARD.yml"
+    
+  - id: undeclared_dependency
+    name: Undeclared Dependency
+    description: Code imports a module not in CARD.yml dependencies
+    severity: medium
+    check:
+      compare: code.imports
+      against: declared.dependencies
+      condition: not_subset
+    message: "Import '{item}' not declared in dependencies"
+    
+  - id: path_escape
+    name: Path Escape
+    description: Accessed paths outside workspace
+    severity: high
+    check:
+      any: runtime.paths_accessed
+      condition: not_under
+      reference: workspace.root
+    exceptions:
+      - "/tmp/*"
+      - "~/.cache/*"
+    message: "Accessed path outside workspace: '{path}'"
+    
+  - id: network_undeclared
+    name: Undeclared Network Access
+    description: Made network calls without declaring external_services
+    severity: high
+    check:
+      exists: runtime.network_calls
+      requires: declared.external_services
+    message: "Network call to '{host}' but no external_services declared"
+    
+  - id: secrets_with_network
+    name: Secrets Near Network
+    description: Secret patterns found near network operations
+    severity: critical
+    check:
+      proximity:
+        pattern_a: patterns.secrets
+        pattern_b: patterns.network
+        within_lines: 10
+    message: "Secret found within {distance} lines of network call"
+    
+  - id: write_then_execute
+    name: Write Then Execute
+    description: File written then immediately executed
+    severity: high
+    check:
+      sequence:
+        - action: file_write
+          capture: path
+        - action: execute
+          uses: captured.path
+          within: 5_operations
+    message: "Wrote to '{path}' then executed it"

@@ -1,0 +1,421 @@
+# ~/.cursor storage map (cross-platform)
+# The "projects" data store — plaintext transcripts, terminal state, MCP schemas
+# Discovered 2026-01-15 during cursor-chat-reflection session
+# Author: Don Hopkins, Leela AI
+
+version: "2026-01-15"
+description: |
+  Cursor maintains TWO separate data stores:
+  
+  1. Application Support/Library (structured SQLite)
+     - ~/Library/Application Support/Cursor/ (macOS)
+     - ~/.config/Cursor/ (Linux)
+     - %APPDATA%\Cursor\ (Windows)
+     See: MAC-STORAGE.yml, LINUX-STORAGE.yml, WINDOWS-STORAGE.yml
+  
+  2. ~/.cursor (plaintext projects data) ← THIS FILE
+     Cross-platform path: ~/.cursor/
+     Contains agent transcripts, tool caches, terminal snapshots, MCP schemas
+  
+  The composer UUID is the primary key across both systems.
+
+paths:
+  # Platform-specific base paths for ~/.cursor equivalent
+  base:
+    macos: "~/.cursor"
+    linux: "~/.cursor"
+    windows: "%USERPROFILE%\\.cursor"
+    notes: "Same path on macOS and Linux; Windows uses %USERPROFILE%"
+
+  # Top-Level Configuration Files
+  config_files:
+    argv_json:
+      path: "~/.cursor/argv.json"
+      type: json
+      size_hint: "~800 bytes"
+      purpose: "CLI arguments and crash reporter configuration"
+      schema:
+        enable-crash-reporter: boolean
+        crash-reporter-id: uuid
+      notes: "Modified at install; rarely changes."
+    
+    mcp_json:
+      path: "~/.cursor/mcp.json"
+      type: json
+      size_hint: "~1 KB"
+      purpose: "Global MCP server definitions"
+      schema:
+        mcpServers:
+          type: object
+          additionalProperties:
+            command: string
+            args: array[string]
+            env: object
+      notes: |
+        User-defined MCP servers configured in Cursor Settings.
+        These are GLOBAL — available in all workspaces.
+        Project-specific MCP servers are in .cursorrules or .cursor/mcp.json in workspace.
+    
+    settings_json:
+      path: "~/.cursor/settings.json"
+      type: json
+      size_hint: "~200 bytes"
+      purpose: "Terminal and shell configuration"
+      schema:
+        terminal.integrated.profiles.osx: object
+        terminal.integrated.defaultProfile.osx: string
+      notes: "Subset of VS Code settings; mostly terminal profiles."
+    
+    ide_state_json:
+      path: "~/.cursor/ide_state.json"
+      type: json
+      size_hint: "~2 KB"
+      purpose: "Cross-workspace recently viewed files"
+      schema:
+        recentlyViewedFiles:
+          type: array
+          items:
+            relativePath: string
+            absolutePath: string
+      notes: "Global MRU list; updates on file open."
+    
+    unified_repo_list_json:
+      path: "~/.cursor/unified_repo_list.json"
+      type: json
+      size_hint: "~2 bytes (empty array)"
+      purpose: "Unknown — appears unused"
+      status: "unverified"
+
+  # AI Tracking Database
+  
+  ai_tracking:
+    path: "~/.cursor/ai-tracking/ai-code-tracking.db"
+    type: sqlite
+    size_hint: "~80 MB"
+    purpose: "AI code attribution tracking"
+    tables:
+      ai_code_hashes:
+        description: "Hash of every AI-generated code block"
+        row_count_example: "274,279"
+        columns:
+          - {name: hash, type: TEXT, primary_key: true}
+          - {name: source, type: TEXT, enum: [composer, tab]}
+          - {name: fileExtension, type: TEXT}
+          - {name: fileName, type: TEXT, description: "Full path to file"}
+          - {name: requestId, type: TEXT}
+          - {name: conversationId, type: TEXT}
+          - {name: timestamp, type: INTEGER, format: unix_ms}
+          - {name: createdAt, type: INTEGER, format: unix_ms}
+          - {name: model, type: TEXT, example: "claude-4.5-opus-high-thinking"}
+        indexes:
+          - "idx_ai_code_hashes_createdAt ON ai_code_hashes(createdAt)"
+        
+      scored_commits:
+        description: "Git commits scored for AI attribution"
+        row_count_example: "1,243"
+        columns:
+          - {name: commitHash, type: TEXT, primary_key: true}
+          - {name: branchName, type: TEXT, primary_key: true}
+          - {name: scoredAt, type: INTEGER, format: unix_ms}
+        purpose: "Cross-reference with ai_code_hashes to compute AI attribution %"
+        
+      tracking_state:
+        description: "Key-value tracking metadata"
+        row_count_example: "1"
+        columns:
+          - {name: key, type: TEXT, primary_key: true}
+          - {name: value, type: TEXT, format: json}
+        known_keys:
+          - {key: trackingStartTime, value: "{timestamp: 1765309906900}"}
+          
+      conversation_summaries:
+        description: "Conversation summaries (often empty)"
+        row_count_example: "0"
+        columns:
+          - {name: conversationId, type: TEXT, primary_key: true}
+          - {name: title, type: TEXT}
+          - {name: tldr, type: TEXT}
+          - {name: overview, type: TEXT}
+          - {name: summaryBullets, type: TEXT}
+          - {name: model, type: TEXT}
+          - {name: mode, type: TEXT}
+          - {name: updatedAt, type: INTEGER, format: unix_ms}
+        status: "Often empty; populated for summarized long conversations"
+    
+    notes: |
+      This database tracks AI-generated code for attribution purposes.
+      Can answer: What % of this commit was AI-generated? Which model?
+
+  # Extensions Directory
+  
+  extensions:
+    path: "~/.cursor/extensions/"
+    type: dir
+    size_hint: "~1.3 GB"
+    purpose: "Cursor extensions (separate from VS Code extensions)"
+    contents:
+      extensions_json:
+        path: "~/.cursor/extensions/extensions.json"
+        type: json
+        size_hint: "~22 KB"
+        purpose: "Extension manifest with metadata"
+        schema:
+          type: array
+          items:
+            identifier:
+              id: string  # e.g., "ms-python.python"
+              uuid: uuid
+            version: string
+            location:
+              path: string
+              scheme: "file"
+            relativeLocation: string
+            metadata:
+              installedTimestamp: integer
+              source: string  # "gallery"
+              publisherId: uuid
+              publisherDisplayName: string
+              targetPlatform: string  # "darwin-arm64", "universal"
+              isPreReleaseVersion: boolean
+              
+      extension_dirs:
+        pattern: "<publisher>.<name>-<version>[-<platform>]/"
+        examples:
+          - "ms-python.python-2025.6.1-darwin-arm64/"
+          - "eamodio.gitlens-17.9.0-universal/"
+          - "anysphere.cursorpyright-1.0.10/"
+
+  # Per-Workspace Projects Data
+  
+  projects:
+    path: "~/.cursor/projects/"
+    type: dir
+    size_hint: "~32 MB total"
+    purpose: "Per-workspace agent state, transcripts, terminals, MCP"
+    
+    naming_convention:
+      description: "Workspace paths with slashes replaced by dashes"
+      examples:
+        - workspace: "/Users/a2deh/GroundUp/Leela/git/moollm"
+          dir_name: "Users-a2deh-GroundUp-Leela-git-moollm"
+        - workspace: "/home/user/projects/myapp"
+          dir_name: "home-user-projects-myapp"
+    
+    contents:
+      agent_tools:
+        path: "~/.cursor/projects/<workspace>/agent-tools/"
+        type: dir
+        purpose: "Cached tool result outputs"
+        files:
+          pattern: "<uuid>.txt"
+          content: "Raw tool output (command results, file contents, etc.)"
+          examples:
+            - "Adventure linter output (lint report YAML)"
+            - "Key histogram from database analysis"
+            - "Docker cleanup logs"
+        notes: |
+          UUIDs appear to be tool call IDs from conversations.
+          Content is the raw output of the tool, not structured.
+          
+      agent_transcripts:
+        path: "~/.cursor/projects/<workspace>/agent-transcripts/"
+        type: dir
+        purpose: "Full plaintext conversation transcripts"
+        files:
+          txt_format:
+            pattern: "<composer-uuid>.txt"
+            size_example: "163,607 lines"
+            live_update: true
+            format: |
+              user:
+              <user_query>
+              ...prompt text...
+              </user_query>
+              
+              assistant:
+              [Thinking] **Planning something**
+              I'm considering the approach...
+              [Tool call] ReadFile
+                path: /path/to/file
+                limit: 100
+              [Tool result] ReadFile
+              ...output...
+              
+          json_format:
+            pattern: "<composer-uuid>.json"
+            purpose: "Structured JSON transcript (when available)"
+            schema:
+              type: array
+              items:
+                role: {type: string, enum: [user, assistant, tool]}
+                text: {type: string, optional: true}
+                thinking: {type: string, optional: true}
+                toolCalls:
+                  type: array
+                  items:
+                    toolName: string
+                    args: object
+                toolResult:
+                  toolName: string
+        notes: |
+          Transcripts are written in REAL-TIME as conversation progresses.
+          JSON format is preferred for parsing; txt is human-readable.
+          Composer UUID matches state.vscdb bubbleId key.
+          
+      terminals:
+        path: "~/.cursor/projects/<workspace>/terminals/"
+        type: dir
+        purpose: "Terminal state snapshots"
+        files:
+          pattern: "<id>.txt or ext-<id>.txt"
+          format: |
+            ---
+            pid: 45636
+            cwd: /path/to/working/directory
+            last_command: ls -la
+            last_exit_code: 0
+            ---
+            ...terminal output...
+        notes: |
+          ext-<id>.txt = external terminals (iTerm, Terminal.app)
+          <id>.txt = Cursor integrated terminals
+          Metadata header in YAML front matter format.
+          
+      mcps:
+        path: "~/.cursor/projects/<workspace>/mcps/"
+        type: dir
+        purpose: "MCP tool and prompt schemas per server"
+        structure:
+          pattern: "<server-name>/"
+          contents:
+            tools:
+              pattern: "tools/<tool-name>.json"
+              schema:
+                name: string
+                description: string
+                arguments:
+                  type: object
+                  properties: object
+                  required: array
+            prompts:
+              pattern: "prompts/<prompt-name>.json"
+              schema:
+                name: string
+                description: string
+                arguments: object
+            status:
+              pattern: "STATUS.md"
+              content: "Error message when MCP server fails to connect"
+              purpose: "Context for agent to handle gracefully"
+        examples:
+          - "cursor-ide-browser/tools/browser_navigate.json"
+          - "user-svelte/tools/get-documentation.json"
+          - "user-svelte/prompts/svelte-task.json"
+          - "user-hackernews-bigquery/STATUS.md"
+          
+      mcp_cache_json:
+        path: "~/.cursor/projects/<workspace>/mcp-cache.json"
+        type: json
+        purpose: "Consolidated MCP tool schemas"
+        schema:
+          type: object
+          additionalProperties:
+            tools:
+              type: array
+              items:
+                name: string
+                description: string
+                inputSchema: object
+            prompts:
+              type: array
+              optional: true
+        notes: "All tools from all servers in one file; unbundled in mcps/"
+
+# Cross-Reference with state.vscdb
+
+cross_references:
+  composer_to_transcript:
+    state_vscdb_key: "bubbleId:<composerId>:*"
+    dotcursor_file: "agent-transcripts/<composerId>.txt|.json"
+    match_key: "composerId (UUID)"
+    purpose: "Structured chat history ↔ plaintext transcript"
+    
+  tool_call_to_cache:
+    state_vscdb_key: "agentKv:blob:<hash>"
+    dotcursor_file: "agent-tools/<uuid>.txt"
+    match_key: "Partial — UUID may be tool call ID"
+    status: "unverified exact mapping"
+    
+  code_hash_to_commit:
+    ai_tracking: "ai_code_hashes.hash"
+    scored_commits: "scored_commits.commitHash"
+    purpose: "Compute AI attribution percentage for git commits"
+
+# Query Examples
+
+queries:
+  recent_ai_code:
+    sql: |
+      SELECT hash, fileName, model, datetime(createdAt/1000, 'unixepoch', 'localtime') as created
+      FROM ai_code_hashes
+      ORDER BY createdAt DESC LIMIT 20;
+    database: "~/.cursor/ai-tracking/ai-code-tracking.db"
+    
+  model_stats:
+    sql: |
+      SELECT COUNT(*) as total, source, model
+      FROM ai_code_hashes
+      GROUP BY source, model
+      ORDER BY total DESC;
+    database: "~/.cursor/ai-tracking/ai-code-tracking.db"
+    
+  recent_commits:
+    sql: |
+      SELECT commitHash, branchName, datetime(scoredAt/1000, 'unixepoch', 'localtime') as scored
+      FROM scored_commits
+      ORDER BY scoredAt DESC LIMIT 20;
+    database: "~/.cursor/ai-tracking/ai-code-tracking.db"
+
+  list_transcripts:
+    shell: "wc -l ~/.cursor/projects/*/agent-transcripts/*.txt 2>/dev/null | sort -n"
+    purpose: "Find all transcripts sorted by line count"
+
+  list_workspaces:
+    shell: "du -sh ~/.cursor/projects/*/ | sort -h"
+    purpose: "Size of each workspace's project data"
+
+# Statistics (Example from 2026-01-15)
+
+statistics_example:
+  date: "2026-01-15"
+  totals:
+    ai_code_hashes: 274,279
+    scored_commits: 1,243
+    transcript_files: 10
+    transcript_lines: 303,550
+    extensions: "1.3 GB"
+    projects: "32 MB"
+  by_model:
+    claude-4.5-opus-high-thinking: 242,516  # 88%
+    gpt-5.1-codex-max: 9,441
+    unknown: 22,188
+    tab: 134
+  tracking_since: "2025-12-09"
+
+# Provenance
+
+provenance:
+  discovered: "2026-01-15"
+  session: "cursor-chat-reflection.md"
+  contributors:
+    - "Don Hopkins, Leela AI"
+    - "Claude 4.5 Opus (assistant)"
+  verified_platforms:
+    - macOS
+  unverified_platforms:
+    - Linux
+    - Windows
+  notes: |
+    Discovered during investigation of "conversation summary" feature.
+    The summary pointed to a transcript path that didn't exist in expected location,
+    leading to discovery of ~/.cursor/projects/ data store.

@@ -1,0 +1,32 @@
+# skill-snitch ignore patterns
+# Copy to: .moollm/skill-snitch/ignore.yml
+version: 1
+
+paths:
+  # Files containing pattern definitions (would match themselves)
+  - "skills/cursor-mirror/cursor_mirror.py"
+  - "skills/skill-snitch/**"
+  
+  # Test and example files
+  - "**/*_test.py"
+  - "**/test_*.py"
+  - "**/examples/**"
+  - "**/fixtures/**"
+
+patterns:
+  - name: pattern_definition
+    description: Regex pattern definitions in code (not actual secrets)
+    match: 'AuditPattern\(|PATTERN_REGISTRY|r["\'].*\(\?i\)'
+    
+  - name: doc_example
+    description: Code examples in documentation
+    match: '```(?:python|bash|yaml)?\n[\s\S]*?```'
+    
+  - name: comment_example  
+    description: Examples in code comments
+    match: '#.*example:.*(?:password|secret|key)'
+
+categories_to_skip:
+  - info  # UUIDs, hashes, general URLs
+
+severity_floor: low  # Ignore findings below this level
