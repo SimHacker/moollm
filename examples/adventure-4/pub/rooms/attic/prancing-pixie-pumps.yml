@@ -9,6 +9,11 @@ object:
   portable: true
   rarity: uncommon
   
+  state:
+    left_dial: 4      # 1=hop, 2=skip, 3=jump, 4=leap, 5=bound, ∞=grand jeté
+    right_dial: 3     # 1=silent, 2=terse, 3=normal, 4=vivid, 5=epic
+    charges: 3        # for grand jeté, recharges at dawn
+  
   description: |
     Delicate shoes with silver taps and "..." embroidered in moonthread.
     When you dance through repetitive or boring terrain,
@@ -25,6 +30,33 @@ object:
     The ribbons are made of condensed narrative.
     They smell faintly of starlight and impatience.
     
+    On each shoe: a small silver dial.
+    
+    LEFT SHOE DIAL — LEAP DISTANCE:
+    ┌─────────────────────────────────────┐
+    │  1   2   3   4   5   ∞             │
+    │   ◯───◯───◯───●───◯───◯            │
+    │  hop skip jump LEAP  GRAND JETÉ    │
+    └─────────────────────────────────────┘
+    1: One room. A gentle hop.
+    2: Two rooms. A skip.
+    3: Three rooms. A proper jump.
+    4: Many rooms. A LEAP. (current)
+    5: Across zones. A bound.
+    ∞: Anywhere. GRAND JETÉ.
+    
+    RIGHT SHOE DIAL — LANDING VERBOSITY:
+    ┌─────────────────────────────────────┐
+    │  ·  ··  ···  ····  ·····           │
+    │   ◯───◯───●───◯───◯                │
+    │ silent terse normal vivid EPIC     │
+    └─────────────────────────────────────┘
+    ·:     "You arrive."
+    ··:    "You arrive at the kitchen."
+    ···:   "You land gracefully in the kitchen. Sunlight streams through the window." (current)
+    ····:  Full paragraph describing arrival, surroundings, atmosphere.
+    ·····: EPIC landing. Purple prose. Every detail. The DM is INSPIRED.
+    
     Inside the tongue, in flowing elven script:
     AUTOMATIC ELISION:
     - Featureless terrain: skipped
@@ -36,6 +68,8 @@ object:
     - Tap tap tap: force elision
     - Stomp: exit elision early
     - Moonwalk: re-experience (why would you?)
+    - Turn left dial: adjust distance
+    - Turn right dial: adjust verbosity
     
   buffs:
     NARRATIVE_SKIP:
@@ -138,8 +172,39 @@ object:
         The shoes are already evaluating the interestingness
         of your surroundings.
         
+        Current settings:
+          Left dial (distance): 4 — LEAP
+          Right dial (verbosity): 3 — normal
+        
         Current location: [INTERESTING]
         (Shoes are patient — nothing to skip yet.)
+        
+    SET_DISTANCE:
+      description: "Turn the left dial to adjust leap distance"
+      parameters:
+        - level: "1-5 or ∞ (hop/skip/jump/leap/bound/grand jeté)"
+      effect: |
+        *click*
+        
+        Left dial now set to: [level]
+        
+        Next leap will cover: [corresponding distance]
+        
+    SET_VERBOSITY:
+      description: "Turn the right dial to adjust landing description"
+      parameters:
+        - level: "1-5 (silent/terse/normal/vivid/epic)"
+      effect: |
+        *click*
+        
+        Right dial now set to: [level]
+        
+        1 - SILENT:  "You arrive."
+        2 - TERSE:   "You arrive at [place]."
+        3 - NORMAL:  One sentence with a detail.
+        4 - VIVID:   Full paragraph, atmosphere, sensory.
+        5 - EPIC:    DM goes off. Purple prose. Every detail.
+                     The room becomes REAL.
         
     SKIP:
       description: "Hop and skip to the next interesting thing"
@@ -368,3 +433,5 @@ object:
       - TELEPORTATION
       - ROOM-HOPPING
       - SPEED-OF-LIGHT
+      - VERBOSITY-CONTROL
+      - OUTPUT-LENGTH
