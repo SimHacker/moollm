@@ -89,15 +89,51 @@ object:
         True name: "Smokealot McBurnface"
         
   # MONSTER CATEGORIES
-  # Seeds for improvisation, not exhaustive lists
+  # Suggestive names, DM improvises details
   
   categories:
-    classic: "Dragons, grues, minotaurs, basilisks, hydras, phoenixes"
-    undead: "Ghosts, skeletons, zombies, vampires, liches"
-    eldritch: "Shoggoths, mind flayers, things that should not be"
-    nature: "Owlbears, gelatinous cubes, rust monsters, mimics"
-    constructs: "Golems (iron, flesh, bone), animated armor"
-    tricksters: "Imps, gremlins, doppelgangers"
+    # 🔥 CLASSIC: dragon, grue, minotaur, basilisk, hydra, phoenix, chimera,
+    #    manticore, griffon, wyvern, cockatrice, kraken, behemoth, leviathan
+    
+    # 👻 UNDEAD: ghost, skeleton, zombie, vampire, lich, wraith, specter,
+    #    banshee, revenant, mummy, wight, ghoul, death knight, bone lord
+    
+    # 🐙 ELDRITCH: shoggoth, mind flayer, aboleth, gibbering mouther,
+    #    star spawn, deep one, elder thing, formless spawn, color out of space
+    
+    # 🌲 NATURE: owlbear, gelatinous cube, rust monster, mimic, treant,
+    #    shambling mound, stirge, bulette, carrion crawler, otyugh, roper
+    
+    # 🤖 CONSTRUCTS: iron golem, flesh golem, bone golem, animated armor,
+    #    shield guardian, homunculus, scarecrow, clockwork soldier
+    
+    # 🎭 TRICKSTERS: imp, gremlin, doppelganger, pixie, sprite, quickling,
+    #    nilbog, jackalwere, kenku, rakshasa, succubus, incubus
+    
+    # 🐺 BEASTS: dire wolf, giant spider, cave bear, winter wolf, hell hound,
+    #    displacer beast, phase spider, blink dog, worg, roc, purple worm
+    
+    # 😈 FIENDS: pit fiend, balor, chain devil, bone devil, ice devil,
+    #    vrock, hezrou, glabrezu, nalfeshnee, marilith, night hag
+    
+  examples:
+    # Shows WEAKNESS aspect
+    - monster: "ACME Grue"
+      weakness: "Crippling fear of flashlights"
+      backfire: "Becomes emotionally attached, won't leave"
+      true_name: "[CANNOT BE PRONOUNCED]"
+      
+    # Shows IRONIC FAILURE aspect  
+    - monster: "ACME Mimic"
+      weakness: "Gets attached to things it imitates"
+      backfire: "Imitates YOU, now there are two of you"
+      true_name: "Changes constantly"
+      
+    # Shows TRUE NAME aspect
+    - monster: "ACME Lich"
+      weakness: "Phylactery always in obvious place"
+      backfire: "Lectures about the good old days for hours"
+      true_name: "Not sharing. Nice try."
     
   # POPULATION THEMES
   # Spectrum from friendly to fatal
