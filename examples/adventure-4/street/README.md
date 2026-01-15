@@ -82,7 +82,7 @@ These names were chosen for both meaning and mellifluousness:
 
 | Street | Position | Tribute | Era | Status |
 |--------|----------|---------|-----|--------|
-| **Bartle Boulevard** | Far North | Richard Bartle, MUD1 | 1978 | 📋 Planned |
+| **MUD Row** | Far North | MUD1 (like Skid Row, but muddier) | 1978 | 📋 Planned |
 | **Adams Avenue** | North | Scott Adams (Adventureland) | 1978 | 📋 Planned |
 | **Zork Row** | North | Infocom's Zork | 1977-1982 | 📋 Planned |
 | **Habitat Boulevard** | Mid-North | Lucasfilm's Habitat | 1986 | 📋 Planned |
@@ -95,6 +95,11 @@ These names were chosen for both meaning and mellifluousness:
 Glitch Way sits directly north of Lane Neverending — they're family.
 Game Neverending (2002-2004) became Flickr but inspired Glitch (2011-2012).
 Lane Neverending honors that whole lineage.
+
+**MUD Row:**
+The far northern edge of town. Classic Essex architecture (whatever that is — 
+brutalist 1970s university buildings? Half-timbered medieval? Both?). Like Skid Row, 
+but muddier. Where the original multi-user dungeons began.
 
 **South of Lane Neverending:** The pub's back garden → the maze → dungeons and wilder places.
 
@@ -136,7 +141,7 @@ The heart of town is where **Kay Lane** crosses **Lane Neverending**.
 ```
 N O R T H   ("Old Town" — text adventure district)
               │          │        │         │        │
-──────────────┼──────────┼────────┼─────────┼────────┼────────  Bartle Boulevard (MUD, 1978)
+──────────────┼──────────┼────────┼─────────┼────────┼────────  MUD Row (1978, Essex architecture)
               │          │        │         │        │
 ──────────────┼──────────┼────────┼─────────┼────────┼────────  Adams Avenue (Scott Adams, 1978)
               │          │        │         │        │
@@ -161,7 +166,7 @@ N O R T H   ("Old Town" — text adventure district)
 S O U T H   (into the wilds)
 ```
 
-The further north you go, the older the inspirations ("Old Town" — MUD, Adams, Zork).
+The further north you go, the older the inspirations ("Old Town" — MUD Row, Adams Ave, Zork Row).
 Glitch Way sits just north of Lane Neverending — honoring their shared lineage.
 The further south you go, the wilder it gets (maze, dungeons, unknown).
 
