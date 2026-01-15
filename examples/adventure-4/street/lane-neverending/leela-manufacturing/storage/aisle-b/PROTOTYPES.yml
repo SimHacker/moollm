@@ -1,0 +1,291 @@
+# AISLE B — METAL CONTAINERS
+# Prototype Definitions for Cloning
+# See: skills/prototype/
+
+aisle:
+  id: aisle-b
+  name: "Aisle B: Metal Containers"
+  material: metal
+  
+  description: |
+    Metal containers for durability and security.
+    Good for: hazardous materials, security, industrial use.
+    
+# ═══════════════════════════════════════════════════════════════
+# PROTOTYPES — Clone these, don't use them directly!
+# ═══════════════════════════════════════════════════════════════
+
+prototypes:
+
+  # ─────────────────────────────────────────────────────────────
+  # BINS
+  # ─────────────────────────────────────────────────────────────
+  
+  metal-bin:
+    id: metal-bin
+    name: "Metal Bin"
+    type: container
+    emoji: "🗑️"
+    tags: [container, metal, stackable, industrial]
+    
+    description: "A galvanized steel storage bin."
+    examine: "Heavy gauge steel, handles on sides. Dents tell stories."
+    
+    container: true
+    capacity: 25
+    takeable: false
+    stackable: true
+    
+    chest_mode: storage
+    
+    durability: 100
+    fireproof: true
+    
+    methods:
+      OPEN: "Flip open the lid"
+      CLOSE: "Clang the lid shut"
+      STACK: "Stack on another bin"
+      KICK: "Make a satisfying *CLANG*"
+      
+    sounds:
+      open: "*clank*"
+      close: "*CLANG*"
+      kick: "*BONNNNNG*"
+      
+  parts-bin:
+    inherits: metal-bin
+    name: "Parts Bin"
+    description: "A bin with compartment dividers for small parts."
+    capacity: 30
+    tags: [container, metal, organized, industrial]
+    examine: |
+      Dividers create a grid of compartments.
+      Each compartment labeled with part numbers.
+      
+  recycling-bin:
+    inherits: metal-bin
+    name: "Recycling Bin"
+    description: "A bin for recyclable materials. ♻️"
+    tags: [container, metal, recycling, environmental]
+    accepts_only: [metal, paper, glass, plastic]
+    
+  # ─────────────────────────────────────────────────────────────
+  # DRUMS
+  # ─────────────────────────────────────────────────────────────
+  
+  steel-drum:
+    id: steel-drum
+    name: "Steel Drum"
+    type: container
+    emoji: "🛢️"
+    tags: [container, metal, industrial, hazmat-capable]
+    
+    description: "A 55-gallon steel drum."
+    examine: |
+      Standard industrial drum, painted blue.
+      Removable lid secured with a ring clamp.
+      
+    container: true
+    capacity: 55
+    takeable: false
+    rollable: true
+    
+    chest_mode: storage
+    
+    durability: 120
+    liquid_safe: true
+    chemical_safe: true
+    
+    methods:
+      OPEN: "Remove the ring clamp and lift the lid"
+      CLOSE: "Replace lid and secure ring clamp"
+      ROLL: "Roll the drum on its edge"
+      DRUM: "Play it like a steel drum 🎵"
+      
+    sounds:
+      roll: "*rumble*"
+      drum: "*bong bong bong* (surprisingly musical)"
+      
+  hazmat-drum:
+    inherits: steel-drum
+    name: "Hazmat Drum"
+    description: "⚠️ HAZARDOUS MATERIALS ⚠️"
+    tags: [container, metal, industrial, HAZARDOUS, dangerous]
+    color: yellow
+    warning_labels: ["CORROSIVE", "TOXIC", "DO NOT OPEN"]
+    examine: |
+      Yellow drum covered in warning labels.
+      The paint is bubbling slightly. Probably fine.
+      
+  oil-drum:
+    inherits: steel-drum
+    name: "Oil Drum"
+    description: "A drum of industrial lubricant."
+    default_contents: { type: "oil", quantity: 55 }
+    flammable: true
+    
+  # ─────────────────────────────────────────────────────────────
+  # LOCKERS
+  # ─────────────────────────────────────────────────────────────
+  
+  locker:
+    id: locker
+    name: "Locker"
+    type: container
+    emoji: "🚪"
+    tags: [container, metal, lockable, personal]
+    
+    description: "A standard metal locker with a combination lock."
+    examine: |
+      Tall steel locker, gray paint chipped from use.
+      Vents at top and bottom. A few dents.
+      Someone's scratched initials inside.
+      
+    container: true
+    capacity: 20
+    takeable: false
+    lockable: true
+    locked: false
+    
+    chest_mode: storage
+    
+    durability: 80
+    
+    methods:
+      OPEN: "Enter combination and open"
+      CLOSE: "Swing door shut"
+      LOCK: "Spin the dial to secure"
+      BANG: "Slam the door satisfyingly"
+      SHOVE_IN: "Push someone inside (mean)"
+      
+    sounds:
+      open: "*click* *creeeeak*"
+      close: "*CLANG*"
+      lock: "*spin spin click*"
+      
+  gym-locker:
+    inherits: locker
+    name: "Gym Locker"
+    smell: "Old sneakers and anxiety"
+    examine: |
+      Standard gym locker. Contains forgotten socks.
+      That smell never comes out.
+      
+  school-locker:
+    inherits: locker
+    name: "School Locker"
+    examine: |
+      Covered in stickers, scratches, and memories.
+      Definitely contains at least one old textbook
+      and a permission slip from 2019.
+      
+  evidence-locker:
+    inherits: locker
+    name: "Evidence Locker"
+    tags: [container, metal, lockable, official, secure]
+    locked: true
+    security_level: high
+    examine: |
+      Reinforced evidence locker with chain of custody log.
+      Tagged with case numbers. Do not tamper.
+      
+  # ─────────────────────────────────────────────────────────────
+  # SAFES
+  # ─────────────────────────────────────────────────────────────
+  
+  safe:
+    id: safe
+    name: "Safe"
+    type: container
+    emoji: "🔐"
+    tags: [container, metal, lockable, secure, valuable]
+    
+    description: "A heavy steel safe with a combination dial."
+    examine: |
+      Thick steel walls, probably fireproof.
+      Combination dial on the front. 
+      This would take dynamite to crack.
+      
+    container: true
+    capacity: 15
+    takeable: false
+    lockable: true
+    locked: true
+    
+    chest_mode: storage
+    
+    durability: 500
+    fireproof: true
+    
+    methods:
+      OPEN: "Enter correct combination"
+      CRACK: "Attempt to crack the safe (difficult)"
+      DRILL: "Drill into the lock mechanism (loud, slow)"
+      BLOW: "Use explosives (destroys some contents)"
+      
+    sounds:
+      open: "*click* *thunk* *CREAK*"
+      
+  wall-safe:
+    inherits: safe
+    name: "Wall Safe"
+    description: "A safe built into the wall, hidden behind a painting."
+    capacity: 10
+    hidden: true
+    hidden_by: "portrait of someone important"
+    
+  floor-safe:
+    inherits: safe
+    name: "Floor Safe"
+    description: "A safe built into the floor, under a rug."
+    capacity: 20
+    hidden: true
+    hidden_by: "ornate rug"
+    
+  # ─────────────────────────────────────────────────────────────
+  # CANS
+  # ─────────────────────────────────────────────────────────────
+  
+  tin-can:
+    id: tin-can
+    name: "Tin Can"
+    type: container
+    emoji: "🥫"
+    tags: [container, metal, takeable, sealed]
+    
+    description: "A sealed tin can."
+    examine: "Sealed metal cylinder. Contents unknown until opened."
+    
+    container: true
+    capacity: 2
+    takeable: true
+    sealed: true
+    
+    methods:
+      OPEN: "Use a can opener (or improvise)"
+      SHAKE: "Listen to contents slosh or rattle"
+      THROW: "Chuck it at something"
+      
+  ammo-can:
+    inherits: tin-can
+    name: "Ammo Can"
+    description: "A military surplus ammunition can."
+    capacity: 8
+    takeable: true
+    sealed: false
+    tags: [container, metal, takeable, military, waterproof]
+    examine: |
+      Olive drab steel with a hinged lid and rubber gasket.
+      Completely waterproof. Currently empty of ammo.
+      Good for storing anything that needs to stay dry.
+      
+  lunch-box:
+    inherits: tin-can
+    name: "Metal Lunch Box"
+    description: "A classic metal lunch box with thermos clip."
+    capacity: 5
+    sealed: false
+    tags: [container, metal, takeable, nostalgic]
+    examine: |
+      Classic metal lunch box, probably with a superhero on it.
+      Clip for thermos on top. Smells like old sandwiches.

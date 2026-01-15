@@ -35,6 +35,7 @@ room:
     │       Rooftop .... Garden & Observation                 │
     │                                                         │
     │       Mail Room ....... Communications Hub              │
+    │       Storage ......... Prototype Warehouse             │
     │       Loading Docks ... Behind building                 │
     │       Logistics Yard .. East side                       │
     │                                                         │
@@ -120,6 +121,13 @@ room:
         A door marked "MAIL ROOM" with a 📬 symbol. You can hear the
         *thwoop* of pneumatic tubes and soft cooing of pigeons.
       aliases: [mail, post, postal, letters]
+      
+    storage:
+      destination: storage/
+      description: |
+        A wide cargo door marked "STORAGE — PROTOTYPES".
+        Forklifts beep within. The smell of sawdust and metal.
+      aliases: [storage, warehouse, prototypes, clone]
       
     loading:
       destination: loading-docks/

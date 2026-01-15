@@ -1,0 +1,127 @@
+# STORAGE ROOMS
+# Container Prototypes for Cloning
+# See: skills/prototype/, skills/container/, skills/logistic-container/
+
+room:
+  name: Leela Storage Complex
+  type: warehouse
+  
+  lighting: industrial
+  atmosphere: organized_rows
+  
+  skills:
+    - prototype
+    - container
+    - logistic-container
+    
+  description: |
+    The STORAGE COMPLEX is a vast warehouse of floor-to-ceiling shelving.
+    
+    Every container type used in Leela Manufacturing lives here as a
+    PROTOTYPE — not instances to be used, but templates to be CLONED.
+    Need a crate? Clone one. Need a barrel? Clone one. The originals
+    stay pristine, ready to spawn infinite copies.
+    
+    Aisles are labeled:
+    
+    ┌─────────────────────────────────────────────────────────────┐
+    │                   STORAGE COMPLEX                           │
+    │                   ═══════════════                           │
+    │                                                             │
+    │   AISLE A: Wooden Containers (crates, barrels, boxes)       │
+    │   AISLE B: Metal Containers (bins, drums, lockers)          │
+    │   AISLE C: Soft Containers (sacks, bags, pouches)           │
+    │   AISLE D: Special Containers (paradox-safe, quantum)       │
+    │   AISLE E: Display Containers (shelves, racks, hooks)       │
+    │                                                             │
+    │   ⚠️ PROTOTYPES ONLY — DO NOT USE — CLONE FIRST ⚠️          │
+    │                                                             │
+    └─────────────────────────────────────────────────────────────┘
+    
+    A forklift sits idle at the end of the main aisle.
+    
+  examine: |
+    STORAGE COMPLEX — PROTOTYPE WAREHOUSE
+    
+    THE CONCEPT:
+    Every container here is a prototype — a template for cloning.
+    When you need a container, you CLONE it, creating a fresh instance.
+    The prototype remains untouched, ready to spawn more copies.
+    
+    This is Self/JavaScript prototype inheritance made physical:
+    - Prototypes are concrete objects (not abstract classes)
+    - Instances clone from prototypes
+    - Instances can override prototype properties
+    - Delegation walks the prototype chain
+    
+    THE INVENTORY:
+    Thousands of container types, organized by material and purpose.
+    Each has a placard showing its properties and suggested uses.
+    
+    THE FORKLIFT:
+    "Dolly" — an automated forklift that can retrieve prototypes
+    from high shelves. She's been doing this for 40 years and
+    knows where everything is by memory.
+    
+  # Container prototypes live in subdirectories
+  # Each is a clonable template
+  
+  prototypes_index:
+    description: "Master list of container prototypes"
+    location: "prototypes/"
+    
+  exits:
+    lobby:
+      destination: ../
+      description: "Back to the main lobby"
+      
+    loading:
+      destination: ../loading-docks/
+      description: "To the loading docks"
+      
+    logistics:
+      destination: ../logistics/
+      description: "To the logistics yard"
+      
+    aisle_a:
+      destination: aisle-a/
+      description: "Wooden containers — crates, barrels, boxes"
+      aliases: [a, wood, wooden]
+      
+    aisle_b:
+      destination: aisle-b/
+      description: "Metal containers — bins, drums, lockers"
+      aliases: [b, metal]
+      
+    aisle_c:
+      destination: aisle-c/
+      description: "Soft containers — sacks, bags, pouches"
+      aliases: [c, soft, fabric]
+      
+    aisle_d:
+      destination: aisle-d/
+      description: "Special containers — paradox-safe, quantum, dimensional"
+      aliases: [d, special, weird]
+      
+    aisle_e:
+      destination: aisle-e/
+      description: "Display containers — shelves, racks, hooks"
+      aliases: [e, display, shelving]
+      
+  objects:
+    - dolly-forklift.yml
+    - cloning-station.yml
+    
+  staff:
+    warehouse_manager:
+      name: "Proto"
+      title: "Prototype Curator"
+      personality: "Protective of originals, enthusiastic about cloning"
+      catchphrase: "Don't touch the original! Clone it!"
+      
+  ambience: |
+    The hum of climate control keeping containers pristine.
+    Occasional beeps from Dolly the forklift.
+    The satisfying echo of your footsteps in the vast space.
+    
+    Somewhere, a container is being cloned. *pop*

@@ -1,0 +1,101 @@
+# DOLLY THE FORKLIFT
+# Automated warehouse assistant
+# See: skills/logistic-container/
+
+object:
+  id: dolly-forklift
+  name: "Dolly"
+  type: vehicle
+  emoji: "🏗️"
+  
+  tags: [vehicle, automated, helpful, warehouse]
+  
+  description: |
+    An automated forklift named Dolly. She's been working here
+    for 40 years and knows where everything is by memory.
+    
+  examine: |
+    DOLLY — SENIOR RETRIEVAL SPECIALIST
+    ════════════════════════════════════
+    
+    A small yellow forklift with:
+    - Faded "DOLLY" name sticker on the side
+    - Motivational bumper sticker: "Lift With Your Forks, Not Your Feelings"
+    - Dent collection telling 40 years of stories
+    - Fluffy dice hanging from the roll cage
+    
+    Dolly has an uncanny ability to know exactly which shelf
+    holds which prototype, even the ones that were moved last week.
+    
+    She communicates via beeps:
+    - *beep* — Acknowledged
+    - *beep beep* — Following you
+    - *BEEP BEEP BEEP* — You're in the way
+    - *sad beep* — That prototype doesn't exist
+    
+  takeable: false
+  
+  character:
+    name: Dolly
+    role: Warehouse Retrieval Specialist
+    seniority: 40 years
+    personality: |
+      Patient, methodical, slightly judgmental about how other
+      forklifts are operated. Has opinions about shelf organization.
+      
+  state:
+    carrying: null
+    location: "main aisle"
+    mood: "content"
+    
+  methods:
+    FETCH:
+      description: "Retrieve a prototype from storage"
+      parameters:
+        prototype: "Name or path of the prototype"
+      effect: |
+        Dolly drives to the correct shelf, retrieves the prototype,
+        and brings it to the cloning station.
+      sound: "*beep* *whirrrr* *beep beep* — Got it!"
+      
+    FOLLOW:
+      description: "Have Dolly follow you through the aisles"
+      effect: "Dolly trails behind, ready to carry things"
+      sound: "*beep beep* — Following!"
+      
+    STAY:
+      description: "Tell Dolly to wait here"
+      effect: "Dolly parks and waits patiently"
+      sound: "*beep* — Waiting."
+      
+    LIFT:
+      description: "Ask Dolly to lift something heavy"
+      parameters:
+        target: "What to lift"
+      effect: "Dolly positions forks and lifts"
+      
+    PET:
+      description: "Pat Dolly's roll cage affectionately"
+      effect: "Dolly's mood improves"
+      sound: "*happy beep*"
+      
+  autonomous_behaviors:
+    - name: organize
+      trigger: "Items out of place"
+      effect: "Dolly tidies up, beeping disapprovingly"
+      
+    - name: avoid
+      trigger: "Obstacle in path"
+      effect: "Dolly navigates around, beeping warning"
+      
+    - name: charge
+      trigger: "Battery low"
+      effect: "Dolly drives to charging station"
+      sound: "*tired beep*"
+      
+  facts:
+    - "Dolly has lifted exactly 847,293 items in her career"
+    - "Her favorite aisle is C (soft containers — easy lifting)"
+    - "She does NOT like Aisle D (too weird)"
+    - "Dolly has never knocked over a shelf (she's very proud)"
+    - "The fluffy dice were a gift from a retired employee"

@@ -1,0 +1,406 @@
+# AISLE E — DISPLAY CONTAINERS
+# Prototype Definitions for Cloning
+# See: skills/prototype/
+
+aisle:
+  id: aisle-e
+  name: "Aisle E: Display Containers"
+  material: various
+  
+  description: |
+    Containers designed to show off contents rather than hide them.
+    Good for: shops, museums, collections, organization.
+    
+# ═══════════════════════════════════════════════════════════════
+# PROTOTYPES — Clone these, don't use them directly!
+# ═══════════════════════════════════════════════════════════════
+
+prototypes:
+
+  # ─────────────────────────────────────────────────────────────
+  # SHELVING
+  # ─────────────────────────────────────────────────────────────
+  
+  shelf-unit:
+    id: shelf-unit
+    name: "Shelf Unit"
+    type: container
+    emoji: "🗄️"
+    tags: [container, display, wooden, organized]
+    
+    description: "A freestanding shelf unit with multiple shelves."
+    examine: |
+      Wooden shelving unit, five shelves tall.
+      Each shelf can hold multiple items, visible at a glance.
+      Slightly dusty on top.
+      
+    container: true
+    capacity: 50
+    takeable: false
+    
+    properties:
+      shelves: 5
+      items_visible: true
+      
+    chest_mode: passive-provider  # 📦🟡 Contents available to network
+    
+    methods:
+      LOOK: "See all contents at a glance"
+      TAKE: "Remove an item from a shelf"
+      PLACE: "Add an item to a shelf"
+      ORGANIZE: "Arrange contents neatly"
+      DUST: "Clean the top shelf (overdue)"
+      
+  bookshelf:
+    inherits: shelf-unit
+    name: "Bookshelf"
+    description: "A tall bookshelf for books and curios."
+    capacity: 60
+    tags: [container, display, wooden, books]
+    examine: |
+      Floor-to-ceiling bookshelf, dark wood.
+      Filled with books of various sizes.
+      A few non-book items tucked between volumes.
+      
+  pantry-shelf:
+    inherits: shelf-unit
+    name: "Pantry Shelf"
+    description: "Kitchen shelving for dry goods."
+    capacity: 40
+    tags: [container, display, kitchen, food-storage]
+    examine: |
+      Wire shelving with multiple levels.
+      Organized by category: grains, canned goods, spices.
+      The top shelf has things no one remembers buying.
+      
+  trophy-shelf:
+    inherits: shelf-unit
+    name: "Trophy Shelf"
+    description: "A display shelf for awards and trophies."
+    capacity: 20
+    tags: [container, display, awards, nostalgic]
+    examine: |
+      Glass-fronted cabinet with internal lighting.
+      Trophies, medals, certificates, and one
+      suspicious "Participant" ribbon.
+      
+  # ─────────────────────────────────────────────────────────────
+  # DISPLAY CASES
+  # ─────────────────────────────────────────────────────────────
+  
+  display-case:
+    id: display-case
+    name: "Display Case"
+    type: container
+    emoji: "🪟"
+    tags: [container, display, glass, museum]
+    
+    description: "A glass display case for showcasing items."
+    examine: |
+      Glass case on a wooden base.
+      Items inside are visible but protected.
+      Small placard holder for descriptions.
+      
+    container: true
+    capacity: 10
+    takeable: false
+    lockable: true
+    locked: true
+    
+    properties:
+      items_visible: true
+      touch_protected: true
+      
+    chest_mode: passive-provider
+    
+    methods:
+      LOOK: "Examine contents through glass"
+      OPEN: "Unlock and open the case"
+      READ_PLACARD: "Read item descriptions"
+      TAP: "*tap tap tap* on the glass (annoying)"
+      
+    sounds:
+      tap: "*tap tap tap*"
+      
+  jewelry-case:
+    inherits: display-case
+    name: "Jewelry Display Case"
+    description: "A velvet-lined case for fine jewelry."
+    capacity: 15
+    tags: [container, display, glass, valuable, jewelry]
+    examine: |
+      Black velvet interior with ring holders,
+      necklace hooks, and compartments for earrings.
+      Subtle lighting makes everything sparkle.
+      
+  museum-case:
+    inherits: display-case
+    name: "Museum Display Case"
+    description: "A professional museum exhibit case."
+    capacity: 20
+    tags: [container, display, glass, museum, climate-controlled]
+    examine: |
+      Climate-controlled case with UV-filtering glass.
+      Temperature and humidity displays on the side.
+      A small camera monitors for art thieves.
+      (The camera is a deterrent. Probably.)
+      
+  curio-cabinet:
+    inherits: display-case
+    name: "Curio Cabinet"
+    description: "A cabinet for displaying curious objects."
+    capacity: 25
+    tags: [container, display, glass, eclectic, mysterious]
+    examine: |
+      Tall wooden cabinet with glass doors.
+      Contains a bewildering assortment of curiosities:
+      - Strange rocks
+      - Old photographs of strangers
+      - Taxidermy of dubious species
+      - Things that glow faintly
+      - At least one jar of teeth
+      
+  # ─────────────────────────────────────────────────────────────
+  # RACKS
+  # ─────────────────────────────────────────────────────────────
+  
+  coat-rack:
+    id: coat-rack
+    name: "Coat Rack"
+    type: container
+    emoji: "🧥"
+    tags: [container, display, wooden, wearables]
+    
+    description: "A standing coat rack with multiple hooks."
+    examine: |
+      Wooden coat rack with curved hooks.
+      Currently holding a variety of outerwear.
+      One lonely umbrella. One forgotten scarf.
+      
+    container: true
+    capacity: 10
+    takeable: false
+    
+    properties:
+      items_visible: true
+      hooks: 8
+      
+    methods:
+      HANG: "Hang something on a hook"
+      TAKE: "Take something from a hook"
+      SPIN: "Make it spin (don't)"
+      
+  weapon-rack:
+    id: weapon-rack
+    name: "Weapon Rack"
+    type: container
+    emoji: "⚔️"
+    tags: [container, display, wooden, weapons]
+    
+    description: "A wall-mounted rack for weapons."
+    examine: |
+      Sturdy wooden rack with brackets for weapons.
+      Swords, axes, maces — each in its place.
+      Impressive and slightly intimidating.
+      
+    container: true
+    capacity: 12
+    takeable: false
+    
+    properties:
+      items_visible: true
+      wall_mounted: true
+      
+    methods:
+      LOOK: "Admire the arsenal"
+      TAKE: "Arm yourself"
+      HANG: "Return a weapon to its place"
+      THREATEN: "Gesture meaningfully at the rack"
+      
+  wine-rack:
+    inherits: coat-rack
+    name: "Wine Rack"
+    description: "A wooden rack for wine bottles."
+    emoji: "🍷"
+    capacity: 24
+    tags: [container, display, wooden, wine, sophisticated]
+    examine: |
+      Diamond-pattern wine storage.
+      Bottles resting at the proper angle.
+      Labels visible for browsing.
+      A few notable vintages. Many questionable ones.
+      
+  spice-rack:
+    id: spice-rack
+    name: "Spice Rack"
+    type: container
+    emoji: "🧂"
+    tags: [container, display, kitchen, organized]
+    
+    description: "A tiered rack for spice jars."
+    examine: |
+      Rotating spice rack with labeled jars.
+      Alphabetical order has... degraded over time.
+      Some jars contain substances of uncertain age.
+      
+    container: true
+    capacity: 30
+    takeable: true
+    
+    properties:
+      items_visible: true
+      rotates: true
+      
+    methods:
+      SPIN: "Rotate to find a spice"
+      SMELL: "Sample the aromatics"
+      ALPHABETIZE: "Restore order to chaos"
+      
+  # ─────────────────────────────────────────────────────────────
+  # HOOKS AND HANGERS
+  # ─────────────────────────────────────────────────────────────
+  
+  wall-hook:
+    id: wall-hook
+    name: "Wall Hook"
+    type: container
+    emoji: "🪝"
+    tags: [container, display, wall-mounted, simple]
+    
+    description: "A simple hook mounted on the wall."
+    examine: "A single hook. Holds one thing. Does its job."
+    
+    container: true
+    capacity: 1
+    takeable: false
+    
+    properties:
+      items_visible: true
+      wall_mounted: true
+      
+    methods:
+      HANG: "Hang something"
+      TAKE: "Take what's hanging"
+      
+  key-hooks:
+    inherits: wall-hook
+    name: "Key Hooks"
+    description: "A row of labeled hooks for keys."
+    capacity: 10
+    tags: [container, display, wall-mounted, keys, organized]
+    examine: |
+      Row of small hooks with labels underneath.
+      "FRONT" "BACK" "CAR" "???" "SPARE" "DON'T LOSE"
+      At least one hook is empty. Ominous.
+      
+  pegboard:
+    id: pegboard
+    name: "Pegboard"
+    type: container
+    emoji: "📍"
+    tags: [container, display, wall-mounted, tools, organized]
+    
+    description: "A pegboard for hanging tools."
+    examine: |
+      Classic workshop pegboard with various hooks.
+      Tools outlined in marker to show where each goes.
+      Several outlines have no tools. Several tools have no outlines.
+      
+    container: true
+    capacity: 40
+    takeable: false
+    
+    properties:
+      items_visible: true
+      wall_mounted: true
+      organized_chaos: true
+      
+    methods:
+      LOOK: "Survey the tools"
+      TAKE: "Borrow a tool"
+      HANG: "Return a tool to its outline"
+      TRACE: "Outline a new tool location"
+      
+  # ─────────────────────────────────────────────────────────────
+  # SPECIALTY DISPLAY
+  # ─────────────────────────────────────────────────────────────
+  
+  mannequin:
+    id: mannequin
+    name: "Mannequin"
+    type: container
+    emoji: "🧍"
+    tags: [container, display, wearables, creepy]
+    
+    description: "A display mannequin for clothing."
+    examine: |
+      Featureless humanoid form, posed artfully.
+      Currently displaying... something fashionable.
+      You could swear it moved when you looked away.
+      
+    container: true
+    capacity: 5  # One outfit's worth
+    takeable: false
+    
+    properties:
+      items_visible: true
+      definitely_not_alive: true
+      probably: true
+      
+    methods:
+      DRESS: "Put clothing on the mannequin"
+      UNDRESS: "Remove clothing"
+      POSE: "Adjust the pose"
+      STARE: "It stares back"
+      
+    creepy_factor: 7
+    
+  bust:
+    id: bust
+    name: "Display Bust"
+    type: container
+    emoji: "🗿"
+    tags: [container, display, jewelry, headwear]
+    
+    description: "A bust for displaying hats or jewelry."
+    examine: |
+      Head and shoulders form in black velvet.
+      Perfect for displaying necklaces, hats, or masks.
+      Has no face, yet somehow looks judgmental.
+      
+    container: true
+    capacity: 3
+    takeable: true
+    
+    methods:
+      PLACE: "Display something on the bust"
+      TAKE: "Remove displayed item"
+      ROTATE: "Turn for different viewing angle"
+      
+  pedestal:
+    id: pedestal
+    name: "Display Pedestal"
+    type: container
+    emoji: "🏛️"
+    tags: [container, display, museum, spotlight]
+    
+    description: "A marble pedestal for a featured item."
+    examine: |
+      White marble pedestal with spotlight above.
+      Designed for ONE important object.
+      A small placard holder at the base.
+      
+    container: true
+    capacity: 1
+    takeable: false
+    
+    properties:
+      spotlight: true
+      items_visible: true
+      dramatic: very
+      
+    methods:
+      PLACE: "Set a featured item"
+      TAKE: "Remove the featured item"
+      SPOTLIGHT: "Adjust the dramatic lighting"
+      ADMIRE: "Stand back and appreciate"

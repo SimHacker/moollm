@@ -1,0 +1,355 @@
+# AISLE D — SPECIAL CONTAINERS
+# Prototype Definitions for Cloning
+# See: skills/prototype/
+
+aisle:
+  id: aisle-d
+  name: "Aisle D: Special Containers"
+  material: exotic
+  
+  description: |
+    Unusual containers for unusual contents.
+    Good for: paradoxes, quantum states, dimensional storage, hazards.
+    ⚠️ Handle with extreme caution. Read all warnings.
+    
+# ═══════════════════════════════════════════════════════════════
+# PROTOTYPES — Clone these, don't use them directly!
+# ═══════════════════════════════════════════════════════════════
+
+prototypes:
+
+  # ─────────────────────────────────────────────────────────────
+  # PARADOX-SAFE CONTAINERS
+  # ─────────────────────────────────────────────────────────────
+  
+  paradox-box:
+    id: paradox-box
+    name: "Paradox Containment Box"
+    type: container
+    emoji: "🔲"
+    tags: [container, special, paradox-safe, dangerous]
+    
+    description: "A box for storing logical paradoxes."
+    examine: |
+      Lead-lined box with warning labels:
+      ⚠️ PARADOX CONTAINMENT UNIT
+      ⚠️ DO NOT OPEN IF CONTENTS ARE OBSERVING YOU
+      ⚠️ CONTENTS MAY OR MAY NOT EXIST
+      
+      The Leela R&D basement generates these.
+      Someone has to store them somewhere.
+      
+    container: true
+    capacity: 1  # One paradox at a time
+    takeable: false
+    
+    chest_mode: storage
+    
+    durability: "undefined"
+    
+    properties:
+      contains_paradox: maybe
+      schrodinger_compatible: true
+      causes_headaches: true
+      
+    methods:
+      OPEN: "WARNING: May resolve paradox unpredictably"
+      OBSERVE: "Attempt to observe contents (changes them)"
+      SHAKE: "Hear Schrödinger's cat... or not"
+      LABEL: "Write a description (may be contradicted)"
+      
+    warnings:
+      - "This container contains itself"
+      - "Opening this box closes it"
+      - "The lock is locked inside the box"
+      
+  recursion-container:
+    inherits: paradox-box
+    name: "Recursion Container"
+    description: "A container that contains a container that contains..."
+    tags: [container, special, recursive, infinite]
+    examine: |
+      Looking inside, you see another container.
+      Inside that, another container.
+      Inside that...
+      
+      (Maximum safe recursion depth: 7)
+      
+    depth: infinite
+    max_safe_depth: 7
+    
+    methods:
+      DESCEND: "Go one level deeper"
+      ASCEND: "Come back up one level"
+      BOTTOM: "ERROR: STACK OVERFLOW"
+      
+  # ─────────────────────────────────────────────────────────────
+  # QUANTUM CONTAINERS
+  # ─────────────────────────────────────────────────────────────
+  
+  quantum-box:
+    id: quantum-box
+    name: "Quantum Superposition Box"
+    type: container
+    emoji: "⚛️"
+    tags: [container, special, quantum, observation-sensitive]
+    
+    description: "A box whose contents exist in superposition."
+    examine: |
+      The contents are in all possible states until observed.
+      The box is labeled:
+      
+      ┌────────────────────────────────┐
+      │  QUANTUM STORAGE UNIT          │
+      │  Contents: YES ∧ NO            │
+      │  State: |ψ⟩ = α|0⟩ + β|1⟩      │
+      │  DO NOT OBSERVE CASUALLY       │
+      └────────────────────────────────┘
+      
+    container: true
+    capacity: 1
+    takeable: true
+    
+    state: superposition
+    
+    properties:
+      observed: false
+      collapsed: false
+      probability_alive: 0.5
+      probability_dead: 0.5
+      
+    methods:
+      OPEN: "Collapse the wave function"
+      PEEK: "Partial observation (risky)"
+      MEASURE: "Full quantum measurement"
+      ENTANGLE: "Entangle with another quantum box"
+      
+    on_open: |
+      Wave function collapses.
+      Contents resolve to one definite state.
+      Cannot be un-observed.
+      
+  schrodinger-box:
+    inherits: quantum-box
+    name: "Schrödinger's Box"
+    description: "Contains a cat that is alive AND dead."
+    emoji: "🐱📦⚛️"
+    capacity: 1
+    default_contents: { type: "cat", state: "superposition" }
+    examine: |
+      The famous box. You know what's inside.
+      (And also what isn't.)
+      
+      From within: a meow... or was it silence?
+      
+    on_open: |
+      The cat is either:
+      - Very much alive and annoyed, OR
+      - Very much dead and still annoyed (ghost cat)
+      
+      50/50. You won't know until you look.
+      
+  # ─────────────────────────────────────────────────────────────
+  # DIMENSIONAL CONTAINERS
+  # ─────────────────────────────────────────────────────────────
+  
+  tesseract-box:
+    id: tesseract-box
+    name: "Tesseract Storage"
+    type: container
+    emoji: "🔮"
+    tags: [container, special, dimensional, 4d]
+    
+    description: "A four-dimensional storage container."
+    examine: |
+      Trying to look at it directly hurts your eyes.
+      It has... more sides than it should.
+      Looking at one face, you can see all the others.
+      
+      Capacity is measured in 4D hypercubes.
+      Do not attempt to unfold.
+      
+    container: true
+    capacity: 1000  # Bigger on the inside (many insides)
+    takeable: true
+    
+    dimensions: 4
+    
+    methods:
+      OPEN: "Access from this dimensional angle"
+      ROTATE: "Rotate through 4th dimension (nauseating)"
+      UNFOLD: "⚠️ DO NOT UNFOLD ⚠️"
+      FOLD: "Collapse back to 3D representation"
+      
+    warnings:
+      - "May contain items from other timelines"
+      - "Do not shake in 4th dimension"
+      - "Items may arrive before being stored"
+      
+  pocket-dimension:
+    id: pocket-dimension
+    name: "Pocket Dimension Container"
+    type: container
+    emoji: "🌌"
+    tags: [container, special, dimensional, infinite]
+    
+    description: "A container opening to a small pocket dimension."
+    examine: |
+      The inside is a tiny universe.
+      Looking in, you see stars and nebulae.
+      Items float gently in zero gravity.
+      
+      Time moves differently in there.
+      An item stored for a day may age a century.
+      Or vice versa.
+      
+    container: true
+    capacity: infinite
+    takeable: true
+    
+    properties:
+      time_ratio: variable  # 1:100 to 100:1
+      gravity: 0
+      habitable: barely
+      
+    methods:
+      OPEN: "Create portal to pocket dimension"
+      ENTER: "Step inside (risky)"
+      RETRIEVE: "Reach in and grab something"
+      OBSERVE: "Peer into the pocket cosmos"
+      
+  # ─────────────────────────────────────────────────────────────
+  # TEMPORAL CONTAINERS
+  # ─────────────────────────────────────────────────────────────
+  
+  time-capsule:
+    id: time-capsule
+    name: "Time Capsule"
+    type: container
+    emoji: "⏰📦"
+    tags: [container, special, temporal, sealed]
+    
+    description: "A container that delivers its contents to the future."
+    examine: |
+      Steel cylinder with date dial and temporal lock.
+      Set a date, seal it, contents arrive then.
+      
+      WARNING: Cannot be opened before set date.
+      Not even by you. Especially not by you.
+      
+    container: true
+    capacity: 20
+    takeable: true
+    
+    locked: true
+    
+    properties:
+      target_date: null
+      sealed: false
+      
+    methods:
+      SET_DATE: "Choose when contents will be accessible"
+      SEAL: "Lock contents until target date"
+      WAIT: "Wait for the target date (not recommended)"
+      SHAKE: "Hear echoes from the future"
+      
+  stasis-pod:
+    id: stasis-pod
+    name: "Stasis Pod"
+    type: container
+    emoji: "❄️📦"
+    tags: [container, special, temporal, preservation]
+    
+    description: "A pod that suspends contents outside of time."
+    examine: |
+      Cryo-temporal pod. Contents experience no time.
+      A sandwich stored in 1952 is still fresh.
+      (Assuming anyone stored sandwiches in 1952)
+      
+    container: true
+    capacity: 50
+    takeable: false
+    
+    properties:
+      time_inside: frozen
+      contents_age: never
+      
+    methods:
+      OPEN: "Break stasis field"
+      CLOSE: "Engage stasis field"
+      CHECK: "View contents through time-proof window"
+      
+  # ─────────────────────────────────────────────────────────────
+  # HAZARDOUS CONTAINERS
+  # ─────────────────────────────────────────────────────────────
+  
+  antimatter-container:
+    id: antimatter-container
+    name: "Antimatter Containment Pod"
+    type: container
+    emoji: "⚠️☢️"
+    tags: [container, special, DANGEROUS, antimatter]
+    
+    description: "⚠️ EXTREME DANGER: ANTIMATTER STORAGE ⚠️"
+    examine: |
+      ⚠️⚠️⚠️ WARNING ⚠️⚠️⚠️
+      
+      ANTIMATTER CONTAINMENT UNIT
+      Contents must NOT contact matter.
+      Magnetic containment field: ACTIVE
+      
+      If containment fails:
+      - Do not run. It won't help.
+      - Do not panic. It won't help either.
+      - Write your will. (Actually, no time.)
+      
+    container: true
+    capacity: 1
+    takeable: false
+    
+    properties:
+      containment_field: active
+      yield: "city block"
+      
+    methods:
+      OPEN: "⚠️ DISABLE CONTAINMENT ⚠️ (don't)"
+      CHECK: "View containment status"
+      STABILIZE: "Reinforce containment field"
+      
+    on_containment_failure: |
+      Everything in a 500-meter radius ceases to exist.
+      This includes you.
+      
+  void-container:
+    id: void-container
+    name: "Void Container"
+    type: container
+    emoji: "🕳️"
+    tags: [container, special, void, existential]
+    
+    description: "A container of pure nothing."
+    examine: |
+      Looking inside, you see nothing.
+      Not "empty" — NOTHING.
+      The absence of existence itself.
+      
+      Items placed inside... don't go anywhere.
+      They just stop existing.
+      
+    container: true
+    capacity: infinite
+    takeable: false
+    
+    properties:
+      retrievable: false
+      contents: "the void"
+      
+    methods:
+      LOOK: "Gaze into the void (it gazes back)"
+      DISCARD: "Permanently remove something from existence"
+      SPEAK: "The void does not answer"
+      
+    philosophical_note: |
+      This is not a trash can.
+      Things in a trash can still exist.
+      This is un-existence.

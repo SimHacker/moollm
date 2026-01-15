@@ -1,0 +1,269 @@
+# AISLE A — WOODEN CONTAINERS
+# Prototype Definitions for Cloning
+# See: skills/prototype/
+
+aisle:
+  id: aisle-a
+  name: "Aisle A: Wooden Containers"
+  material: wood
+  
+  description: |
+    Traditional wooden containers. Rustic, reliable, splinter-prone.
+    Good for: general storage, atmosphere, stacking.
+    
+# ═══════════════════════════════════════════════════════════════
+# PROTOTYPES — Clone these, don't use them directly!
+# ═══════════════════════════════════════════════════════════════
+
+prototypes:
+
+  # ─────────────────────────────────────────────────────────────
+  # CRATES
+  # ─────────────────────────────────────────────────────────────
+  
+  wooden-crate:
+    id: wooden-crate
+    name: "Wooden Crate"
+    type: container
+    emoji: "📦"
+    tags: [container, wooden, stackable, breakable]
+    
+    description: "A sturdy wooden crate with rope handles."
+    examine: "Rough pine planks, iron corner brackets. Smells of sawdust."
+    
+    container: true
+    capacity: 20
+    takeable: false  # Too heavy
+    stackable: true
+    stack_limit: 3
+    
+    chest_mode: storage  # 📦⚪ Default logistics mode
+    
+    durability: 50
+    
+    methods:
+      OPEN: "Pry off the lid to reveal contents"
+      CLOSE: "Hammer the lid back on"
+      BREAK: "Smash the crate (destroys container, spills contents)"
+      STACK: "Place on top of another crate"
+      
+    sounds:
+      open: "*creak*"
+      close: "*thunk*"
+      break: "*CRASH* (splinters everywhere)"
+      
+  small-crate:
+    inherits: wooden-crate
+    name: "Small Crate"
+    capacity: 8
+    takeable: true  # Light enough to carry
+    description: "A small wooden crate, easy to carry."
+    
+  shipping-crate:
+    inherits: wooden-crate
+    name: "Shipping Crate"
+    capacity: 100
+    stack_limit: 5
+    description: "A large shipping crate with stenciled addresses."
+    examine: |
+      Heavy-duty construction for long journeys.
+      Stenciled: "FRAGILE" "THIS SIDE UP" "HANDLE WITH CARE"
+      (All sides say "THIS SIDE UP")
+      
+  mystery-crate:
+    inherits: wooden-crate
+    name: "Mystery Crate"
+    description: "A crate with no labels. What's inside?"
+    examine: "Completely unmarked. Could be anything."
+    tags: [container, wooden, stackable, breakable, mysterious]
+    
+    on_open: |
+      Generate random interesting contents appropriate to context.
+      Could be treasure, could be snakes. Probably not both.
+      
+  # ─────────────────────────────────────────────────────────────
+  # BARRELS
+  # ─────────────────────────────────────────────────────────────
+  
+  barrel:
+    id: barrel
+    name: "Barrel"
+    type: container
+    emoji: "🛢️"
+    tags: [container, wooden, rollable, liquid-safe]
+    
+    description: "A traditional oak barrel with iron hoops."
+    examine: |
+      Coopered oak staves, three iron hoops.
+      Bung hole in the side. Slightly damp.
+      
+    container: true
+    capacity: 40
+    takeable: false
+    rollable: true
+    
+    chest_mode: storage
+    
+    durability: 60
+    liquid_safe: true
+    
+    methods:
+      OPEN: "Remove the bung or pry off the top"
+      ROLL: "Roll the barrel along the ground"
+      TAP: "Insert a spigot to drain contents"
+      HIDE_IN: "Climb inside (if empty)"
+      
+    sounds:
+      roll: "*rumble rumble rumble*"
+      tap: "*glug glug glug*"
+      
+  ale-barrel:
+    inherits: barrel
+    name: "Ale Barrel"
+    description: "A barrel marked 'ALE' in burnt letters."
+    default_contents: { type: "ale", quantity: 40 }
+    smell: "Hoppy and malty"
+    
+  pickle-barrel:
+    inherits: barrel
+    name: "Pickle Barrel"
+    description: "A barrel of pickles. Classic."
+    default_contents: { type: "pickles", quantity: 100 }
+    smell: "Vinegar and dill"
+    
+  powder-barrel:
+    inherits: barrel
+    name: "Powder Barrel"
+    description: "⚠️ DANGER: EXPLOSIVE ⚠️"
+    tags: [container, wooden, rollable, EXPLOSIVE, dangerous]
+    default_contents: { type: "gunpowder", quantity: 20 }
+    
+    on_fire: "BOOM. Everything in the room takes damage."
+    on_break: "Powder spills. Keep away from sparks."
+    
+  # ─────────────────────────────────────────────────────────────
+  # BOXES
+  # ─────────────────────────────────────────────────────────────
+  
+  wooden-box:
+    id: wooden-box
+    name: "Wooden Box"
+    type: container
+    emoji: "🗃️"
+    tags: [container, wooden, takeable]
+    
+    description: "A simple wooden box with a hinged lid."
+    examine: "Plain pine, brass hinges. Nothing fancy."
+    
+    container: true
+    capacity: 10
+    takeable: true
+    
+    chest_mode: storage
+    
+    durability: 20
+    
+    methods:
+      OPEN: "Lift the lid"
+      CLOSE: "Lower the lid"
+      LOCK: "If it has a lock, secure it"
+      
+  jewelry-box:
+    inherits: wooden-box
+    name: "Jewelry Box"
+    description: "A small ornate box, velvet-lined."
+    capacity: 5
+    tags: [container, wooden, takeable, ornate, valuable]
+    examine: |
+      Carved mahogany with mother-of-pearl inlay.
+      Inside: red velvet lining with compartments.
+      Plays a tiny music box tune when opened.
+    sounds:
+      open: "*tinkle tinkle* (tiny music box melody)"
+      
+  tool-box:
+    inherits: wooden-box
+    name: "Tool Box"
+    description: "A carpenter's tool box with compartments."
+    capacity: 15
+    tags: [container, wooden, takeable, organized]
+    examine: |
+      Multiple compartments and a lift-out tray.
+      Smells of linseed oil and wood shavings.
+      
+  cigar-box:
+    inherits: wooden-box
+    name: "Cigar Box"
+    description: "A cedar cigar box. Might contain cigars."
+    capacity: 3
+    tags: [container, wooden, takeable, aromatic]
+    smell: "Rich cedar and tobacco"
+    
+  # ─────────────────────────────────────────────────────────────
+  # CHESTS
+  # ─────────────────────────────────────────────────────────────
+  
+  chest:
+    id: chest
+    name: "Chest"
+    type: container
+    emoji: "🧰"
+    tags: [container, wooden, lockable, valuable]
+    
+    description: "A wooden chest with iron banding."
+    examine: |
+      Solid oak construction, iron bands and corners.
+      Heavy iron lock on the front.
+      
+    container: true
+    capacity: 30
+    takeable: false
+    lockable: true
+    locked: false
+    
+    chest_mode: storage
+    
+    durability: 80
+    
+    methods:
+      OPEN: "Lift the heavy lid"
+      CLOSE: "Lower the lid with a thud"
+      LOCK: "Secure with key or combination"
+      UNLOCK: "Open with key or combination"
+      PICK: "Attempt to pick the lock"
+      
+  treasure-chest:
+    inherits: chest
+    name: "Treasure Chest"
+    description: "A classic treasure chest. X marks the spot!"
+    tags: [container, wooden, lockable, valuable, treasure]
+    emoji: "💰"
+    examine: |
+      Iron-banded oak, clearly designed to hold treasure.
+      The lock is ornate and probably trapped.
+      
+    locked: true
+    trapped: maybe
+    
+  hope-chest:
+    inherits: chest
+    name: "Hope Chest"
+    description: "A cedar hope chest, heirloom quality."
+    capacity: 40
+    tags: [container, wooden, lockable, sentimental]
+    examine: |
+      Beautiful cedar with carved decorations.
+      Traditionally holds things you hope to use someday.
+      Contains hopes, dreams, and probably some linens.
+      
+  ice-chest:
+    inherits: chest
+    name: "Ice Chest"
+    description: "An insulated wooden ice chest."
+    tags: [container, wooden, insulated, cold]
+    examine: |
+      Thick wooden walls lined with zinc.
+      Keeps contents cold when stocked with ice.
+    properties:
+      temperature: cold
+      preserves_food: true

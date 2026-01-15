@@ -1,0 +1,133 @@
+# CLONING STATION
+# Interface for creating instances from prototypes
+# See: skills/prototype/
+
+object:
+  id: cloning-station
+  name: "Prototype Cloning Station"
+  type: machine
+  emoji: "🧬"
+  
+  tags: [machine, prototype, manufacturing, instantiation]
+  
+  description: |
+    A sleek terminal with a conveyor belt and fabrication chamber.
+    This is where prototypes become instances.
+    
+  examine: |
+    PROTOTYPE CLONING STATION v3.7
+    ═══════════════════════════════
+    
+    THE TERMINAL:
+    Touch screen interface showing:
+    - Prototype catalog (searchable)
+    - Clone queue
+    - Recent clones
+    - Customization options
+    
+    THE CHAMBER:
+    Glass-walled fabrication chamber with blue glow.
+    Prototypes go in. Instances come out.
+    The prototype is unharmed in the process.
+    
+    THE CONVEYOR:
+    Newly cloned containers roll out on a belt.
+    Labeled, tagged, and ready for use.
+    
+    OPERATING INSTRUCTIONS:
+    1. Select prototype from catalog
+    2. Customize properties (optional)
+    3. Set quantity
+    4. Press CLONE
+    5. Collect your containers from the output belt
+    
+    CUSTOMIZATION OPTIONS:
+    - Override name
+    - Set initial contents
+    - Apply labels/tags
+    - Pre-configure chest_mode for logistics
+    - Set locks and access permissions
+    
+  takeable: false
+  
+  state:
+    queue: []
+    last_cloned: null
+    total_cloned: 47382
+    
+  methods:
+    CLONE:
+      description: "Create an instance from a prototype"
+      parameters:
+        prototype: "Which prototype to clone (path or name)"
+        quantity: "How many to create (default 1)"
+        overrides: "Properties to customize on the clone"
+      effect: |
+        1. Resolve prototype path
+        2. Read prototype definition
+        3. Create instance with unique ID
+        4. Apply any overrides
+        5. Place on output conveyor
+        
+    SEARCH:
+      description: "Search the prototype catalog"
+      parameters:
+        query: "What to search for (name, tag, material)"
+      effect: "Display matching prototypes"
+      
+    PREVIEW:
+      description: "Preview a prototype before cloning"
+      parameters:
+        prototype: "Which prototype to preview"
+      effect: "Show full prototype definition"
+      
+    BATCH:
+      description: "Queue multiple different clones"
+      parameters:
+        clones: "List of {prototype, quantity, overrides}"
+      effect: "Process all in sequence"
+      
+    HISTORY:
+      description: "View recent clone operations"
+      effect: "Show last 20 clones with timestamps"
+      
+  # Integration with prototype inheritance
+  prototype_resolution:
+    order:
+      - Check aisle-a/ (wooden)
+      - Check aisle-b/ (metal)
+      - Check aisle-c/ (soft)
+      - Check aisle-d/ (special)
+      - Check aisle-e/ (display)
+    
+    on_clone:
+      - Generate unique instance ID
+      - Copy all prototype properties
+      - Apply inheritance chain
+      - Override with custom properties
+      - Set location to output conveyor
+      
+  # Example usage
+  examples:
+    - action: "CLONE wooden-crate 5"
+      result: "5 wooden crates on conveyor"
+      
+    - action: "CLONE barrel with contents=ale"
+      result: "1 ale barrel on conveyor"
+      
+    - action: "CLONE schrodinger-box"
+      result: "1 box containing a cat (alive AND dead)"
+      
+    - action: "BATCH [{paradox-box, 2}, {tesseract-box, 1}]"
+      result: "2 paradox boxes, 1 tesseract on conveyor"
+      
+  sounds:
+    clone: "*whirrrr* *DING* — Clone complete!"
+    search: "*bloop bloop* — Results displayed"
+    error: "*bzzt* — Prototype not found"
+    
+  warnings:
+    - "Do not clone the cloning station"
+    - "Cloning recursive containers may take infinite time"
+    - "Void containers cannot be pre-filled"
+    - "Antimatter containers clone without antimatter (safety feature)"
