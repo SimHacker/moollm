@@ -1,5 +1,5 @@
 # OPERATOR STATIONS
-# The seven control consoles
+# The eight control consoles
 
 object:
   id: operator-stations
@@ -8,7 +8,7 @@ object:
   emoji: "🖥️"
   
   description: |
-    Seven control consoles arranged in a semicircle, each monitoring
+    Eight control consoles arranged in a semicircle, each monitoring
     a critical system. Screens glow. Keyboards click. Operators
     focus intently on their domains.
     
@@ -16,10 +16,10 @@ object:
     OPERATOR STATIONS — CONTROL CONSOLES
     ═════════════════════════════════════
     
-    ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐
-    │  A  │ │  B  │ │  C  │ │  D  │ │  E  │ │  F  │ │  G  │
-    │DOCK │ │FLOOR│ │AERO │ │TUBE │ │LIFT │ │ NET │ │ DB  │
-    └─────┘ └─────┘ └─────┘ └─────┘ └─────┘ └─────┘ └─────┘
+    ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐
+    │  A  │ │  B  │ │  C  │ │  D  │ │  E  │ │  F  │ │  G  │ │  H  │
+    │DOCK │ │FLOOR│ │AERO │ │TUBE │ │LIFT │ │ NET │ │ DB  │ │ CAM │
+    └─────┘ └─────┘ └─────┘ └─────┘ └─────┘ └─────┘ └─────┘ └─────┘
     
     STATION A — DOCK CONTROL
     Operator: "Bays 1-4 inbound, 5-8 outbound. All clear."
@@ -49,6 +49,10 @@ object:
     Operator: "12,847 queries/sec. Replication healthy."
     Screens: Query dashboard, storage metrics, backup status
     
+    STATION H — SECURITY & SURVEILLANCE
+    Operator: "All cameras live. No anomalies. Dolly's dancing again."
+    Screens: Camera grid, access logs, motion alerts, visitor tracking
+    
   stations:
     A:
       name: "Dock Control"
@@ -77,6 +81,10 @@ object:
     G:
       name: "Central Database"
       system: database
+      operator: "Currently staffed"
+    H:
+      name: "Security & Surveillance"
+      system: cameras
       operator: "Currently staffed"
       
   methods:

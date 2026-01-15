@@ -45,7 +45,7 @@ This is where Leela watches itself work.
 
 ## Operator Stations
 
-Seven stations, each monitoring a critical system:
+Eight stations, each monitoring a critical system:
 
 | Station | System | Monitors |
 |---------|--------|----------|
@@ -54,8 +54,9 @@ Seven stations, each monitoring a critical system:
 | **C** | Aerial Operations | Drone fleet, flight paths, weather |
 | **D** | Pneumatic Network | Tube routing, capsule tracking, pressure |
 | **E** | Vertical Transport | Elevators, freight lifts, scheduling |
-| **F** | Signal Networks | WiFi, industrial control, camera feeds |
+| **F** | Signal Networks | WiFi, industrial control, data flows |
 | **G** | Central Database | Records, queries, replication, backups |
+| **H** | Security & Surveillance | Cameras, access logs, motion alerts, visitors |
 
 ---
 

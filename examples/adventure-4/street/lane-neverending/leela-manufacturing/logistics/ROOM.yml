@@ -96,6 +96,10 @@ room:
     The heart of all knowledge. Every record. Every transaction.
     Current: 847 PB stored, 12,000 queries/sec, replication healthy.
     
+    STATION H — SECURITY & SURVEILLANCE
+    All cameras, all access points, all the eyes of Leela.
+    Current: 12 cameras live, 0 anomalies, Dolly's dancing again.
+    
     ═══════════════════════════════════════════════════════════════
     THE BIG BOARD
     ═══════════════════════════════════════════════════════════════
@@ -171,7 +175,7 @@ room:
     - camera-log1.yml       # Leela's First Eye
     - central-display.yml   # The main operations map
     - pneumatic-hub.yml     # Where the tubes converge
-    - operator-stations.yml # The seven control stations
+    - operator-stations.yml # The eight control stations
     - big-board.yml         # Real-time metrics display
     - signal-rack.yml       # Network infrastructure
     - central-database.yml  # The heart of all knowledge
@@ -369,6 +373,9 @@ room:
         
       - station: G
         role: "Central Database"
+        
+      - station: H
+        role: "Security & Surveillance"
         
   ambience:
     sounds:
