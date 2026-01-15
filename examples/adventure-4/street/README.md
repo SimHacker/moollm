@@ -12,7 +12,6 @@ This document describes the street grid topology for the virtual town. Streets a
 flowchart TB
     subgraph EW["E-W STREETS (Projects) ↓ North to South"]
         direction TB
-        space1[" "]
         Adv["Adventure<br>Avenue"] ~~~ Zork["Zork<br>Row"]
         Zork ~~~ MUD["MUD<br>Row"]
         MUD ~~~ Adams["Adams<br>Avenue"]
@@ -27,7 +26,8 @@ flowchart TB
     subgraph NS["N-S STREETS (People) → West to East"]
         direction LR
         space2[" "]
-        Suth["Sutherland<br>Street"] ~~~ Kay["Kay<br>Lane"]
+        space2 ~~~ Suth["Sutherland<br>Street"]
+        Suth ~~~ Kay["Kay<br>Lane"]
         Kay ~~~ Eng["Engelbart<br>Avenue"]
         Eng ~~~ Min["Minsky<br>Way"]
         Min ~~~ Pap["Papert<br>Path"]
@@ -35,7 +35,6 @@ flowchart TB
         Tur ~~~ Lic["Licklider<br>Lane"]
     end
     
-    style space1 fill:none,stroke:none
     style space2 fill:none,stroke:none
 ```
 
