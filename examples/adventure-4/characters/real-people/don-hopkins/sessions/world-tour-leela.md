@@ -208,18 +208,34 @@ flowchart TB
 **Don:** "The ground floor uses a **diamond pattern** with reflexive two-way links and multiple paths."
 
 ```
-              PUB
-           ↙   ↓   ↘
-       COAT  GARDEN  KITCHEN
-           ↘   ↓   ↙
-              MAZE
+                PUB
+             ↙   ↓   ↘
+            SW   S   SE
+           ╱     │     ╲
+       COAT ←─W─GARDEN─E─→ KITCHEN
+                 │
+                 S
+                 ↓
+               MAZE
 ```
 
 **Don:** "Every exit has a matching return. Go southwest to Coatroom, come back northeast to Pub. Go south to Garden, come back north to Pub. Consistent, spatial, reflexive."
 
-**Marieke:** "And multiple paths to the same place!"
+**Don:** "And notice — Coatroom and Kitchen connect HORIZONTALLY to Garden, not diagonally to Maze. The diamond is:
+- **PUB** at top (N)
+- **COAT** at left (W), **KITCHEN** at right (E)
+- **GARDEN** in the center
+- **MAZE** at bottom (S)"
 
-**Don:** "Right! Three ways to reach the Garden from the Pub:
+**Marieke:** "So from Garden you can go four ways?"
+
+**Don:** "Exactly! From Garden:
+- **North** → Pub
+- **West** → Coatroom  
+- **East** → Kitchen
+- **South** → Maze
+
+And from the Pub, three ways to reach the Garden:
 1. Direct: south
 2. Via Coatroom: southwest → east  
 3. Via Kitchen: southeast → west
