@@ -306,6 +306,365 @@ recursion-container:
       "The barber is a woman."
       — Not actually a solution, but people try.
       
+# ─────────────────────────────────────────────────────────────
+  # DATA STRUCTURE CONTAINERS
+  # ─────────────────────────────────────────────────────────────
+  
+  cons-cell:
+    id: cons-cell
+    name: "Cons Cell"
+    type: container
+    emoji: "🔗"
+    tags: [container, special, lisp, data-structure, fundamental]
+    
+    description: "The fundamental building block. CAR and CDR. That's all you need."
+    examine: |
+      ┌────────────────────────────────────┐
+      │  CONS CELL                         │
+      │  ══════════                        │
+      │                                    │
+      │  ┌───────┬───────┐                 │
+      │  │  CAR  │  CDR  │                 │
+      │  │   •   │   •───────→             │
+      │  └───────┴───────┘                 │
+      │                                    │
+      │  (cons 'a 'b) → (A . B)            │
+      │  (car cell)   → A                  │
+      │  (cdr cell)   → B                  │
+      │                                    │
+      │  "The atom of Lisp."               │
+      └────────────────────────────────────┘
+      
+      A simple pair. Two slots. CAR and CDR.
+      Named after the IBM 704's address registers:
+      - CAR: Contents of Address Register
+      - CDR: Contents of Decrement Register
+      
+      From these humble pairs, all lists are built.
+      All trees. All structures. Everything.
+      
+    container: true
+    capacity: 2  # Exactly two things: CAR and CDR
+    takeable: true
+    
+    properties:
+      car: null
+      cdr: null
+      dotted_pair: true
+      
+    state:
+      car: null
+      cdr: null
+      
+    methods:
+      CAR:
+        description: "Get the first element"
+        effect: "Returns contents of CAR slot"
+        alias: "FIRST"
+        
+      CDR:
+        description: "Get the rest"
+        effect: "Returns contents of CDR slot"
+        alias: "REST"
+        
+      CONS:
+        description: "Create a new cons cell"
+        parameters:
+          car: "First element"
+          cdr: "Second element (often another cons or NIL)"
+        effect: "Returns new cons cell (CAR . CDR)"
+        
+      SETCAR:
+        description: "Set the CAR"
+        parameters:
+          value: "New value for CAR"
+        effect: "CAR updated (mutation!)"
+        warning: "Functional programmers may disapprove"
+        
+      SETCDR:
+        description: "Set the CDR"
+        parameters:
+          value: "New value for CDR"
+        effect: "CDR updated (mutation!)"
+        warning: "May create circular structures"
+        
+      LIST:
+        description: "Build a proper list"
+        effect: "Chain of cons cells ending in NIL"
+        
+    examples:
+      proper_list: "(cons 'a (cons 'b (cons 'c nil))) → (A B C)"
+      dotted_pair: "(cons 'a 'b) → (A . B)"
+      nested: "(cons (cons 'a 'b) (cons 'c 'd)) → ((A . B) C . D)"
+      
+    warnings:
+      - "Circular CDR chains may cause infinite loops"
+      - "CAR of NIL is NIL"
+      - "CDR of NIL is NIL"
+      - "This is literally how Lisp works"
+      
+    philosophical_note: |
+      John McCarthy, 1958.
+      From two pointers, everything.
+      The cons cell is perhaps the most elegant
+      data structure ever conceived.
+      
+      "Lisp is worth learning for the profound
+       enlightenment experience you will have
+       when you finally get it."
+       — Eric S. Raymond
+       
+  list-cell:
+    inherits: cons-cell
+    name: "List Cell"
+    description: "A cons cell configured for proper lists (CDR is list or NIL)."
+    
+    properties:
+      proper_list: true
+      cdr_type: "list or nil"
+      
+    examine: |
+      A cons cell that insists on being part of a proper list.
+      CDR must be another list-cell or NIL.
+      No dotted pairs allowed.
+      
+      (A B C) = (A . (B . (C . NIL)))
+      
+  circular-list:
+    inherits: cons-cell
+    name: "Circular List Cell"
+    emoji: "🔄🔗"
+    description: "A cons cell whose CDR eventually points back to itself."
+    tags: [container, special, lisp, circular, infinite]
+    
+    examine: |
+      ┌────────────────────────────────────┐
+      │  CIRCULAR LIST                     │
+      │  ═══════════════                   │
+      │                                    │
+      │  ┌───┬───┐   ┌───┬───┐            │
+      │  │ A │ •─┼──→│ B │ •─┼──┐         │
+      │  └───┴───┘   └───┴───┘  │         │
+      │    ↑                    │         │
+      │    └────────────────────┘         │
+      │                                    │
+      │  #1=(A B . #1#)                   │
+      │                                    │
+      │  ⚠️ CDR forever returns elements  │
+      └────────────────────────────────────┘
+      
+      The snake eating its tail.
+      Useful for round-robin, infinite sequences.
+      Dangerous for naive traversal.
+      
+    properties:
+      circular: true
+      length: infinite
+      traversal_warning: "Will not terminate"
+      
+    warnings:
+      - "LENGTH will not return"
+      - "PRINT may need *print-circle* = T"
+      - "Equal? Good luck."
+      
+  quad-tree:
+    id: quad-tree
+    name: "Quad Tree Container"
+    type: container
+    emoji: "🔲⁴"
+    tags: [container, special, spatial, data-structure, recursive]
+    
+    description: "A container that subdivides space into four quadrants, recursively."
+    examine: |
+      ┌────────────────────────────────────┐
+      │  QUAD TREE                         │
+      │  ══════════                        │
+      │                                    │
+      │  ┌─────────┬─────────┐             │
+      │  │         │         │             │
+      │  │   NW    │   NE    │             │
+      │  │         │         │             │
+      │  ├─────────┼─────────┤             │
+      │  │         │         │             │
+      │  │   SW    │   SE    │             │
+      │  │         │         │             │
+      │  └─────────┴─────────┘             │
+      │                                    │
+      │  Each quadrant may contain:        │
+      │  - Items (if leaf)                 │
+      │  - Four more quadrants (if branch) │
+      │                                    │
+      │  Depth: Recursive                  │
+      │  Resolution: Arbitrary             │
+      └────────────────────────────────────┘
+      
+      Spatial partitioning for 2D space.
+      Used in games, maps, collision detection.
+      Items go in the quadrant they belong to.
+      Quadrants subdivide when they get too full.
+      
+    container: true
+    capacity: "varies by depth"
+    takeable: true
+    
+    properties:
+      dimensions: 2
+      quadrants: [NW, NE, SW, SE]
+      max_items_per_leaf: 4
+      max_depth: 8
+      bounds: { x: 0, y: 0, width: 100, height: 100 }
+      
+    state:
+      root:
+        type: leaf
+        items: []
+        bounds: { x: 0, y: 0, width: 100, height: 100 }
+        
+    methods:
+      INSERT:
+        description: "Add an item at a position"
+        parameters:
+          item: "What to insert"
+          x: "X coordinate"
+          y: "Y coordinate"
+        effect: |
+          Item placed in appropriate quadrant.
+          If quadrant exceeds max_items, it subdivides.
+          
+      QUERY:
+        description: "Find items in a region"
+        parameters:
+          x: "Region X"
+          y: "Region Y"
+          width: "Region width"
+          height: "Region height"
+        effect: "Returns all items overlapping region"
+        
+      REMOVE:
+        description: "Remove an item"
+        parameters:
+          item: "What to remove"
+        effect: "Item removed. Quadrant may merge if sparse."
+        
+      SUBDIVIDE:
+        description: "Split a quadrant into four"
+        effect: "Leaf becomes branch with four child quadrants"
+        
+      TRAVERSE:
+        description: "Visit all nodes"
+        parameters:
+          order: "pre/post/level"
+        effect: "Visits each node in specified order"
+        
+      VISUALIZE:
+        description: "Draw the quad tree structure"
+        effect: |
+          ┌───┬───┐
+          │NW │NE │
+          ├───┼───┤
+          │SW │SE │
+          └───┴───┘
+          
+    uses:
+      - "Collision detection in games"
+      - "Image compression"
+      - "Geographic information systems"
+      - "Barnes-Hut simulation"
+      - "Spatial indexing"
+      
+  oct-tree:
+    inherits: quad-tree
+    name: "Oct Tree Container"
+    emoji: "🔲⁸"
+    description: "Like a quad tree, but for 3D space. Eight octants."
+    tags: [container, special, spatial, data-structure, 3d, recursive]
+    
+    examine: |
+      ┌────────────────────────────────────┐
+      │  OCT TREE (3D Quad Tree)           │
+      │  ══════════════════════            │
+      │                                    │
+      │       ┌───────┬───────┐            │
+      │      /│      /│      /│            │
+      │     / │ TNW / │ TNE / │            │
+      │    ┌───────┬───────┐  │            │
+      │    │  │    │  │    │  │            │
+      │    │ BNW   │ BNE   │ /             │
+      │    ├───────┼───────┤/              │
+      │    │ BSW   │ BSE   │               │
+      │    └───────┴───────┘               │
+      │                                    │
+      │  8 octants: TNW, TNE, TSW, TSE     │
+      │             BNW, BNE, BSW, BSE     │
+      │  (Top/Bottom + NW/NE/SW/SE)        │
+      └────────────────────────────────────┘
+      
+    properties:
+      dimensions: 3
+      octants: [TNW, TNE, TSW, TSE, BNW, BNE, BSW, BSE]
+      
+    uses:
+      - "3D game collision"
+      - "Point cloud processing"
+      - "Voxel worlds"
+      - "3D rendering optimization"
+      
+  binary-tree:
+    id: binary-tree
+    name: "Binary Tree Container"
+    type: container
+    emoji: "🌲"
+    tags: [container, special, data-structure, recursive, ordered]
+    
+    description: "Each node has at most two children: left and right."
+    examine: |
+      ┌────────────────────────────────────┐
+      │  BINARY TREE                       │
+      │  ═══════════                       │
+      │                                    │
+      │           [ROOT]                   │
+      │          /      \                  │
+      │       [L]        [R]               │
+      │      /   \      /   \              │
+      │    [LL] [LR]  [RL]  [RR]           │
+      │                                    │
+      │  Each node: value, left, right     │
+      │  Ordered: left < node < right      │
+      │  (for binary search trees)         │
+      └────────────────────────────────────┘
+      
+    container: true
+    capacity: "unbounded"
+    takeable: true
+    
+    properties:
+      value: null
+      left: null
+      right: null
+      ordered: false  # Set true for BST
+      
+    methods:
+      INSERT:
+        description: "Add a value to the tree"
+        effect: "Value placed according to ordering (if BST)"
+        
+      FIND:
+        description: "Search for a value"
+        effect: "O(log n) for balanced trees, O(n) worst case"
+        
+      TRAVERSE:
+        description: "Visit all nodes"
+        parameters:
+          order: "in-order / pre-order / post-order"
+        effect: |
+          in-order:   Left, Node, Right (sorted for BST)
+          pre-order:  Node, Left, Right
+          post-order: Left, Right, Node
+          
+      BALANCE:
+        description: "Rebalance the tree"
+        effect: "Tree restructured for O(log n) operations"
+        
   # ─────────────────────────────────────────────────────────────
   # QUANTUM CONTAINERS
   # ─────────────────────────────────────────────────────────────
