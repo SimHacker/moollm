@@ -161,24 +161,33 @@ object:
     └──────────────────────────────────────────────────────────┘
     
     ┌──────────────────────────────────────────────────────────┐
-    │  THINKER STACK (Orchestration/API)                       │
+    │  THINKER STACK (Symbolic Python Action Layer)            │
     │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐      │
     │  │THINK-1  │  │THINK-2  │  │THINK-3  │  │THINK-4  │      │
     │  │ CPU     │  │ CPU     │  │ CPU     │  │ CPU     │      │
     │  │ Python  │  │ Python  │  │ Python  │  │ Python  │      │
     │  └─────────┘  └─────────┘  └─────────┘  └─────────┘      │
     │                                                          │
-    │  NO GPUs NEEDED — Thinkers orchestrate, not compute:     │
-    │  • API calls to LLM providers (Claude, GPT, etc.)        │
+    │  SYMBOLIC PYTHON ACTION LAYER — versatile processing:    │
+    │                                                          │
+    │  LIGHTWEIGHT VISION (no GPU needed):                     │
+    │  • Colored light detectors — status indicators, signals  │
+    │  • ArUco marker tracking — fiducial positioning          │
+    │  • QR code readers — inventory, routing labels           │
+    │  • Simple image processing — thresholds, contours        │
+    │                                                          │
+    │  HIGH-LEVEL AI (API calls):                              │
+    │  • LLM calls — Claude, GPT, reasoning tasks              │
+    │  • VLM calls — vision-language, scene understanding      │
     │  • MOOLLM kernel execution, skill dispatch               │
     │  • Context assembly, prompt construction                 │
+    │                                                          │
+    │  ORCHESTRATION:                                          │
     │  • Task queue via PostgreSQL FOR SKIP LOCKED             │
     │  • Results back to PostgreSQL + downstream systems       │
+    │  • Coordination between Lookers, Storage, Web            │
     │                                                          │
-    │  The heavy lifting happens elsewhere:                    │
-    │  • LLMs run on provider infrastructure                   │
-    │  • Lookers have the GPUs for vision                      │
-    │  • Thinkers just think (and wait for API responses)      │
+    │  Not just LLM wrappers — a full symbolic action layer.   │
     └──────────────────────────────────────────────────────────┘
     
     ┌──────────────────────────────────────────────────────────┐
