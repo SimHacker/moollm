@@ -101,7 +101,8 @@ These names were chosen for both meaning and mellifluousness:
 **The Glitch Connection:**
 Glitch Way sits directly north of Lane Neverending — they're family.
 Game Neverending (2002-2004) became Flickr but inspired Glitch (2011-2012).
-Lane Neverending honors that whole lineage.
+After Glitch shut down, Stewart Butterfield's team created Slack.
+Lane Neverending honors that whole lineage. (No Slack roads though — some things stay corporate.)
 
 **Adventure Avenue:**
 The NORTHERN frontier. No more streets beyond this — just adventure wilderness.
