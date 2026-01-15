@@ -1,5 +1,7 @@
 # LOGISTICS YARD
 # Rail, containers, trucks, drones — the full operation
+# Factorio Logistics Protocol Integration
+# See: skills/logistic-container, designs/factorio-logistics-protocol.md
 
 room:
   name: Leela Logistics Yard
@@ -7,6 +9,12 @@ room:
   
   lighting: outdoor
   atmosphere: industrial_active
+  
+  # Skills integration
+  skills:
+    - logistic-container
+    - manufacturing-intelligence
+    - postal  # For instant internal transfers
   
   description: |
     The LOGISTICS YARD spreads out east of the main building — a
@@ -126,3 +134,164 @@ room:
     - rail-cars.yml
     - drone-ground-station.yml
     - pigeon-loft.yml
+    
+  # ═══════════════════════════════════════════════════════
+  # FACTORIO LOGISTICS INTEGRATION
+  # ═══════════════════════════════════════════════════════
+  
+  # Container yard as grid storage
+  # See: skills/logistic-container (grid_storage)
+  
+  logistic_containers:
+    
+    container_yard:
+      type: grid-storage
+      capacity: 200  # TEU
+      auto_create_cells: true
+      stack_limit: 10000
+      
+      # Color-coded container zones
+      zones:
+        blue_zone:
+          chest_mode: passive-provider  # 📦🟡 Available to network
+          provides: [{ tags: ["raw-data", "unprocessed"] }]
+          
+        yellow_zone:
+          chest_mode: buffer  # 📦🟢 Staging
+          buffer_for:
+            destination: ../floor-2/
+            when: "processing.capacity > 0"
+            
+        green_zone:
+          chest_mode: active-provider  # 📦🔴 Push out!
+          push_to:
+            - match: { tags: ["finished", "knowledge"] }
+              destination: truck-yard/
+            - match: { tags: ["premium"] }
+              destination: rail-siding/
+              
+        red_zone:
+          chest_mode: storage  # 📦⬜ Overflow/hazmat
+          accepts: [{ tags: ["paradox", "hazmat", "edge-case"] }]
+          warning: "HAZMAT PROTOCOLS IN EFFECT"
+          
+        purple_zone:
+          chest_mode: requester  # 📦🔵 Premium requests
+          request_list:
+            - tags: ["wisdom"]
+              count: 10
+              min: 2
+              
+        black_zone:
+          chest_mode: storage
+          classified: true
+          accepts: [{ tags: ["classified"] }]
+          
+    truck_yard:
+      chest_mode: buffer
+      capacity: 12  # trucks
+      buffer_for:
+        - destination: external  # Long haul
+          when: "truck.available"
+          
+    rail_siding:
+      chest_mode: active-provider
+      push_to:
+        - match: { tags: ["bulk"] }
+          destination: "origin-yard"  # W3
+        - match: { tags: ["construction"] }
+          destination: "construction-depot"  # E3
+          
+    drone_pad:
+      chest_mode: active-provider
+      push_to:
+        - match: { tags: ["local", "express"] }
+          destination: lane-neverending-loop
+        - match: { tags: ["pub-order"] }
+          destination: ../../pub/
+          method: drone
+          
+    pigeon_loft:
+      chest_mode: passive-provider
+      provides: [{ tags: ["traditional", "slow", "thoughtful"] }]
+      transport_method: enlightened-pigeon
+      note: "They stop to think. That's why they're enlightened."
+      
+  # Conveyor belts between zones
+  # See: designs/factorio-logistics-protocol.md (Conveyor Belts)
+  
+  belt_network:
+    
+    receiving_belt:
+      from: ../loading-docks/bay_1
+      to: container_yard/blue_zone
+      flow:
+        enabled: true
+        direction: inbound
+        speed: 5  # items per turn
+        allow: [{ tags: ["raw"] }]
+        
+    processing_belt:
+      from: container_yard/yellow_zone
+      to: ../floor-1/
+      flow:
+        enabled: true
+        direction: outbound
+        speed: 10
+        
+    shipping_belt:
+      from: ../floor-3/
+      to: container_yard/green_zone
+      flow:
+        enabled: true
+        direction: inbound
+        speed: 10
+        allow: [{ tags: ["finished"] }]
+        
+    express_belt:
+      from: container_yard/green_zone
+      to: drone_pad
+      flow:
+        enabled: true
+        direction: outbound
+        speed: 20
+        color: blue  # High-speed belt tier
+        allow: [{ tags: ["express", "rush"] }]
+        
+  # Circuit network signals
+  signals:
+    emit:
+      - signal: "yard-capacity"
+        value: "container_yard.used / container_yard.capacity"
+      - signal: "trucks-available"
+        value: "truck_yard.empty_slots"
+      - signal: "drones-ready"
+        value: "drone_pad.charged_count"
+      - signal: "hazmat-warning"
+        value: "red_zone.items > 0"
+        
+  # Transport methods
+  # Default: postal (instant), optional: physical (dramatic)
+  transport:
+    internal:
+      method: postal  # Instant, free
+      
+    external:
+      methods:
+        - truck: { time: "travel", cost: "fuel" }
+        - rail: { time: "scheduled", cost: "bulk-rate" }
+        - drone: { time: "fast", cost: "battery" }
+        - pigeon: { time: "whenever", cost: "seed" }
+        
+  # Control tower monitors all logistics
+  control_tower:
+    monitors:
+      - container_yard
+      - truck_yard
+      - rail_siding
+      - drone_pad
+      - all_belts
+    signals:
+      receives: all
+      displays: dashboard
+    authority: "Yard Master coordinates all movement"

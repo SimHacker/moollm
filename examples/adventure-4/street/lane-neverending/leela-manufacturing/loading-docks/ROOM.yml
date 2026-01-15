@@ -1,5 +1,7 @@
 # LOADING DOCKS
 # Where the physical world meets the knowledge factory
+# Integrated with Factorio Logistics Protocol
+# See: skills/logistic-container, designs/factorio-logistics-protocol.md
 
 room:
   name: Leela Loading Docks
@@ -7,6 +9,11 @@ room:
   
   lighting: industrial
   atmosphere: busy
+  
+  # Factorio-style logistics integration
+  skills:
+    - logistic-container
+    - manufacturing-intelligence
   
   description: |
     The LOADING DOCKS wrap around the back of Leela Manufacturing.
@@ -86,7 +93,80 @@ room:
       description: "Around the building to Lane Neverending"
       aliases: [lane, street, front]
       
+  # Factorio Logistics — Bay Configurations
+  # See: skills/logistic-container/CARD.yml
+  
+  logistics_bays:
+    
+    bay_1:
+      chest_mode: buffer        # 📦🟢 Green — staging for inbound
+      emoji: "📦🟢"
+      receives:
+        - tags: ["raw-data", "bulk"]
+      buffer_for:
+        destination: ../floor-1/
+        when: "intake.ready"
+        
+    bay_2:
+      chest_mode: buffer
+      emoji: "📦🟢"
+      receives:
+        - tags: ["questions", "problems"]
+      buffer_for:
+        destination: ../floor-1/
+        when: "sorting.available"
+        
+    bay_3:
+      chest_mode: requester     # 📦🔵 Blue — actively requesting
+      emoji: "📦🔵"
+      request_list:
+        - tags: ["confusion"]
+          count: unlimited
+          note: "Confusion tankers always welcome"
+          
+    bay_4:
+      chest_mode: active-provider  # 📦🔴 Red — pushing OUT
+      emoji: "📦🔴"
+      push_to:
+        - match: { tags: ["insight", "knowledge"] }
+          destination: logistics/truck-yard/
+        - match: { tags: ["premium", "wisdom"] }
+          destination: logistics/rail-siding/
+          
+    bay_5:
+      chest_mode: active-provider
+      emoji: "📦🔴"
+      push_to:
+        - match: { tags: ["rush", "express"] }
+          destination: logistics/drone-pad/
+        - default: logistics/truck-yard/
+          
+  # Circuit signals for bay status
+  signals:
+    emit:
+      - signal: "bay-1-status"
+        value: "bay_1.fullness"
+      - signal: "bay-2-status"
+        value: "bay_2.fullness"
+      - signal: "outbound-ready"
+        value: "bay_4.items > 0 OR bay_5.items > 0"
+        
   objects:
     - dock-office.yml
     - forklifts.yml
     - current-trucks.yml
+    
+  # Inserters — automated item transfer
+  inserters:
+    
+    bay_to_intake:
+      type: stack-inserter
+      stack_size: 50
+      input: { source: "bay_1", filter: { tags: ["ready"] } }
+      output: { destination: "../floor-1/#sorting-line" }
+      
+    shipping_to_bay:
+      type: long-arm-inserter
+      range: 2
+      input: { source: "../floor-3/#outbound" }
+      output: { destination: "bay_4" }
