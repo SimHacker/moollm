@@ -11,43 +11,56 @@ The street runs east and west... and then loops back on itself. Walk far enough 
 ## Street Map
 
 ```mermaid
-flowchart LR
-    subgraph West["WEST"]
-        W3["w3\n🏪 More shops"]
-        W2["w2\n🏛️ Landmarks"]
-        W1["w1\n🏭 LEELA\n🍺 Next to pub"]
+flowchart TB
+    subgraph NorthSide["NORTH SIDE OF STREET"]
+        N_W3["     "]
+        N_W2["     "]
+        N_W1["🏚️ ACME\n(closed)"]
+        N_C["     "]
+        N_E1["     "]
+        N_E2["     "]
+        N_E3["     "]
     end
     
-    subgraph Center["CENTER"]
-        C["center\n🌳 Origin Plaza\n⚡ Flickering Lamp"]
+    subgraph Street["═══════════ LANE NEVERENDING (east ↔ west) ═══════════"]
+        W3["w3"] --> W2["w2"] --> W1["w1"] --> C["center"] --> E1["e1"] --> E2["e2"] --> E3["e3"]
+        E3 --> |"loops!"| W3
     end
     
-    subgraph East["EAST"]
-        E1["e1\n💤 Sleeping Figure\n📸 Glitch Memorial"]
-        E2["e2\n🏪 ACME Surplus"]
-        E3["e3\n🎭 More discoveries"]
+    subgraph SouthSide["SOUTH SIDE OF STREET"]
+        S_W3["     "]
+        S_W2["     "]
+        S_W1["🏭 LEELA"]
+        S_C["🍺 PUB"]
+        S_E1["     "]
+        S_E2["     "]
+        S_E3["     "]
     end
-    
-    W3 --> W2 --> W1 --> C --> E1 --> E2 --> E3
-    E3 --> |"loops!"| W3
 
+    style N_W1 fill:#7f8c8d,color:#fff
+    style S_W1 fill:#3498db,color:#fff
+    style S_C fill:#f39c12,color:#fff
     style C fill:#27ae60,color:#fff
-    style W1 fill:#3498db,color:#fff
 ```
+
+**Key locations:**
+- **ACME Surplus** (4 Lane Neverending) — North side of W1, closed, painted tunnel
+- **Leela Manufacturing** (5 Lane Neverending) — South side of W1, thriving factory
+- **The Pub** — South side of center, neighbor to Leela
 
 ---
 
 ## Street Segments
 
-| Segment | Direction | Notable Features | Links |
-|---------|-----------|------------------|-------|
-| [w3](w3/) | Far West | Shops and curiosities | [→](w3/) |
-| [w2](w2/) | West | Landmarks and history | [→](w2/) |
-| [w1](w1/) | Near West | **Leela Manufacturing**, pub access | [→](w1/) |
-| [center](center/) | Center | Origin Plaza, The Flickering Lamp | [→](center/) |
-| [e1](e1/) | Near East | Sleeping Figure, Glitch Memorial | [→](e1/) |
-| [e2](e2/) | East | ACME Surplus (painted tunnel!) | [→](e2/) |
-| [e3](e3/) | Far East | More to discover | [→](e3/) |
+| Segment | North Side | South Side |
+|---------|------------|------------|
+| [w3](w3/) | Curiosity shops | — |
+| [w2](w2/) | Landmarks | — |
+| [w1](w1/) | **ACME Surplus** (closed, painted tunnel) | **Leela Manufacturing** (thriving) |
+| [center](center/) | — | **The Pub**, Origin Plaza |
+| [e1](e1/) | — | Sleeping Figure, Glitch Memorial |
+| [e2](e2/) | Market Square | Fountain of Infinite Loops |
+| [e3](e3/) | Loop point | → connects to w3 |
 
 ---
 
@@ -154,11 +167,13 @@ A small plaque honoring the citizens of [Glitch](https://en.wikipedia.org/wiki/G
 > *The giants are gone. The imagination remains.*
 > *Thanks for all the cubimal boxes."*
 
-### ACME Surplus (e2)
+### ACME Surplus (w1, North Side)
 
-A storefront selling assorted ACME products. There's a boarded-up section with a painted tunnel that you **cannot** walk through, no matter how fast you run.
+An abandoned storefront directly across from Leela Manufacturing. Mail-order killed the brick-and-mortar business. There's a boarded-up section with a painted tunnel that you **cannot** walk through, no matter how fast you run.
 
 (Rumor has it ACME agents *can* use it for deliveries...)
+
+The contrast is striking: on one side of the street, a failed retail gimmick shop. On the other, a thriving knowledge factory. The future won.
 
 ---
 

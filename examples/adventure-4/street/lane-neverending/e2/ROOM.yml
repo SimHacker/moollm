@@ -15,21 +15,21 @@ room:
     a dry fountain — the FOUNTAIN OF INFINITE LOOPS, according to
     the plaque. Someone turned it off to save on water sprites.
     
-    More empty storefronts, but these look like they were occupied
-    more recently. A faded sign: "ACME SURPLUS — EVERYTHING MUST GO"
-    (it did).
+    A few storefronts line the square, some occupied, some not.
+    The feel is quieter here, further from the center's bustle.
     
     The lane continues in both directions. It never ends, after all.
     
   examine: |
-    THE FOUNTAIN:
+    THE FOUNTAIN OF INFINITE LOOPS:
     A stone basin with a statue of a figure pouring water from a jug
     into... another jug held by the same figure. It's recursive.
     The water sprites went on strike. Now it's just decorative.
+    A plaque: "Dedicated to all those stuck in while(true){}"
     
     STOREFRONTS:
-    • 12 Lane Neverending — "ACME SURPLUS" (closed, but the door creaks)
-    • 14 Lane Neverending — Something that was once a bakery (smell lingers)
+    • 12 Lane Neverending — Something that was once a bakery (smell lingers)
+    • 14 Lane Neverending — A curiosity shop (hours: "whenever")
     • 16 Lane Neverending — Shuttered, but a light flickers inside
     
     THE SQUARE:
@@ -48,9 +48,8 @@ room:
       description: "The lane continues east, toward the edge of... something."
       aliases: [e, forward]
       
-objects:
+  objects:
     - infinite-fountain.yml
-    - acme-surplus.yml
     
   # Flyweight instances — shared prototype, minimal instance data
   # See: ../STREET-FURNITURE.yml
@@ -75,8 +74,3 @@ objects:
       prototype: ../STREET-FURNITURE.yml#street-bench
       location: "facing the fountain"
       carvings: ["while(true){}", "INFINITE LOOP MEMORIAL"]
-      
-    bench_acme:
-      prototype: ../STREET-FURNITURE.yml#street-bench
-      location: "near ACME surplus"
-      carvings: ["BEEP BEEP", "meep meep"]

@@ -10,25 +10,27 @@ room:
   grue_safe: true
   
 description: |
-    Lane Neverending stretches west from the pub. This section has
-    an older feel — the cobblestones are more worn, the lamp posts
-    more ornate, the buildings taller with that pre-crash architecture
-    that said "we're building forever."
+    Lane Neverending stretches west from the pub. This section tells
+    the story of two economies in a single glance:
     
-    On the SOUTH side of the street, LEELA MANUFACTURING INTELLIGENCE
-    rises three stories — a converted factory with tall arched windows
-    and smokestacks that emit sparks of light instead of smoke. The
-    sign reads: "5 Lane Neverending — Industrial Knowledge & Insight."
+    On the SOUTH side: LEELA MANUFACTURING INTELLIGENCE rises three
+    stories — a converted factory with tall arched windows and smokestacks
+    that emit sparks of light instead of smoke. The sign reads:
+    "5 Lane Neverending — Industrial Knowledge & Insight."
+    Thriving on information. Building understanding.
     
-    A CLOCK TOWER rises from a building on the north side, its face
-    showing a time that may or may not be accurate. Nobody's checked
-    in years. Nobody needs to. Time is flexible here.
+    On the NORTH side: ACME SURPLUS sits empty and boarded up.
+    "4 Lane Neverending — EVERYTHING MUST GO" (it did).
+    Mail-order ate the brick-and-mortar business. The painted tunnel
+    on the boarded window is the only thing that still works here
+    (for some people, anyway).
     
-    To the EAST, The Rusty Lantern beckons. To the WEST, the lane
-    continues toward the older parts of town.
+    A study in contrasts. Knowledge thrives. Gimmicks fade.
+    But the tunnel... the tunnel still has secrets.
     
 examine: |
-    LEELA MANUFACTURING INTELLIGENCE (5 Lane Neverending):
+    LEELA MANUFACTURING INTELLIGENCE (5 Lane Neverending, SOUTH):
+    ═══════════════════════════════════════════════════════════════
     Red brick industrial building, three stories, south side of street.
     Tall arched windows reveal conveyor belts, workstations, the
     occasional flash of insight being packaged for delivery.
@@ -38,19 +40,25 @@ examine: |
     Neighbor to The Rusty Lantern — the pub is just one door east.
     Knowledge and ale, side by side. As it should be.
     
-    THE CLOCK TOWER (6 Lane Neverending):
-    North side. The clock shows 3:47 (always has, always will).
-    A small plaque: "Donated by the Habitat Historical Society,
-    in memory of pixels past."
+    ACME SURPLUS (4 Lane Neverending, NORTH):
+    ═════════════════════════════════════════
+    Dusty storefront, north side, directly across from Leela.
+    Once sold portable holes, rocket skates, and anvils.
+    Now sells nothing. Mail-order killed the retail star.
     
-    OTHER STOREFRONTS:
-    • 4 Lane Neverending — A dusty antique shop? The window is too
-      grimy to see through clearly
+    The famous PAINTED TUNNEL is here — on a boarded-up section.
+    Looks SO real. You CANNOT run through it. (Others can.)
     
-    ATMOSPHERE:
-    This section feels like it remembers more than it says. The
-    cobblestones have stories. The lamp posts have seen things.
-    Virtual history happened here.
+    A one-anvil memorial to the brick-and-mortar economy.
+    
+    THE CONTRAST:
+    Look south: a factory full of knowledge workers, glowing screens,
+    ideas becoming real.
+    
+    Look north: a failed storefront, dusty windows, a tunnel that
+    only works for delivery drivers.
+    
+    The future and the past, facing each other across the cobblestones.
     
   exits:
     east:
@@ -63,7 +71,7 @@ examine: |
       description: "Lane Neverending continues west, into the older district."
       aliases: [w, forward]
       
-leela:
+    leela:
       destination: ../leela-manufacturing/
       description: |
         The front doors of LEELA MANUFACTURING INTELLIGENCE.
@@ -71,19 +79,29 @@ leela:
         A sign: "5 Lane Neverending — Industrial Knowledge & Insight"
         You can see the scale model glowing in the lobby.
       aliases: [5, south, factory, manufacturing, intelligence, leela]
+      side: south
       
-objects:
-    - clock-tower.yml
+  objects:
+    - acme-surplus.yml  # North side, across from Leela
     
   buildings:
-    - leela-manufacturing/  # Full facility with floors and departments
+    north:
+      - name: "ACME Surplus"
+        address: "4 Lane Neverending"
+        status: closed
+        notable: "The painted tunnel"
+        
+    south:
+      - leela-manufacturing/  # Full facility with floors and departments
+        address: "5 Lane Neverending"
+        status: thriving
     
   # Flyweight instances — shared prototype, minimal instance data
   # See: ../STREET-FURNITURE.yml
   flyweight:
     lamp_post_north:
       prototype: ../STREET-FURNITURE.yml#lamp-post
-      location: "north side, near clock tower"
+      location: "north side, near ACME"
       style: "ornate, older design"
       
     lamp_post_south:
@@ -91,7 +109,7 @@ objects:
       location: "south side, near Leela entrance"
       style: "ornate, older design"
       
-    bench_1:
+    bench_contrast:
       prototype: ../STREET-FURNITURE.yml#street-bench
-      location: "under the clock tower"
-      carvings: ["3:47 forever", "time is a flat circle"]
+      location: "between the two buildings"
+      carvings: ["knowledge vs gimmicks", "one thrives, one fades"]
