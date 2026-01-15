@@ -989,6 +989,24 @@ THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
 
 **The Coordinator:** "I know. I had to explain that Leela products actually WORK."
 
+**Dolly:** *beeps and gestures at something smoldering near the curb*
+
+**Palm:** "Is that another crashed Tesla?"
+
+**Don:** *squinting* "Hard to tell. Could be a Cybertruck. Could be a burning dumpster. The silhouette is identical."
+
+**Donna:** "How do you tell them apart?"
+
+**Don:** "The dumpster has better build quality and its panels are actually aligned."
+
+**Marieke:** "And the smell?"
+
+**Don:** "The dumpster smells BETTER. Burning garbage has a more pleasant aroma than burning lithium battery pack and Elon's broken promises."
+
+*A stainless steel panel falls off the smoldering object with a sad clang.*
+
+**Don:** "Cybertruck. Definitely Cybertruck. Dumpsters don't shed."
+
 **Palm:** *examining the tunnel* "Wait — I see someone INSIDE it. Running toward us!"
 
 *Everyone looks. For a moment, there's definitely movement in the painted darkness...*
