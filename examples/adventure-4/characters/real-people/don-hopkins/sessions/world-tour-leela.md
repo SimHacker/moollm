@@ -813,6 +813,190 @@ flowchart TB
 
 ---
 
+## Part 3: Walking Lane Neverending — The Infinite Loop
+
+*The tour exits the pub's front door onto Lane Neverending.*
+
+**Don:** "Now for the street itself. Lane Neverending. Named for Habitat, Game Neverending, and Glitch — three pioneering virtual worlds that showed us what online communities could be."
+
+### The Street Map
+
+```mermaid
+flowchart LR
+    W3[w3<br/>Origin]
+    W2[w2<br/>Memorial]
+    W1[w1<br/>ACME vs Leela]
+    C[Center<br/>Pub]
+    E1[e1<br/>Flickering Lamp]
+    E2[e2<br/>Fountain]
+    E3[e3<br/>Loop Point]
+    
+    W3 --> W2 --> W1 --> C --> E1 --> E2 --> E3
+    E3 -.->|loops back| W3
+```
+
+**Don:** "The street loops. Walk east far enough, you end up back at the west end. Walk west far enough, same thing. That's not a bug — that's the point. Good ideas loop forever."
+
+### The Walk Begins
+
+*The tour heads west from the pub.*
+
+| Segment | File | What's There |
+|---------|------|--------------|
+| Center | [center/ROOM.yml](../../../../street/lane-neverending/center/ROOM.yml) | The Pub (south), Origin Plaza |
+| W1 | [w1/ROOM.yml](../../../../street/lane-neverending/w1/ROOM.yml) | Leela (south), ACME (north) |
+| W2 | [w2/ROOM.yml](../../../../street/lane-neverending/w2/ROOM.yml) | Glitch Memorial |
+| W3 | [w3/ROOM.yml](../../../../street/lane-neverending/w3/ROOM.yml) | Origin Tree, Origin Plaque |
+| E1 | [e1/ROOM.yml](../../../../street/lane-neverending/e1/ROOM.yml) | Flickering Lamppost |
+| E2 | [e2/ROOM.yml](../../../../street/lane-neverending/e2/ROOM.yml) | Infinite Fountain |
+| E3 | [e3/ROOM.yml](../../../../street/lane-neverending/e3/ROOM.yml) | Construction Site, Loop Point |
+
+**Don:** "First stop — right next door. The contrast that defines Lane Neverending."
+
+---
+
+### W1: The Great Contrast
+
+*The tour stands at W1, looking at both sides of the street.*
+
+**Don:** "Look south: Leela Manufacturing Intelligence. Three stories. Tall arched windows. Smokestacks emitting sparks of LIGHT, not smoke. Thriving on knowledge."
+
+**Don:** "Now look north..."
+
+*Everyone turns to look at the boarded-up storefront.*
+
+**Don:** "ACME Surplus. 4 Lane Neverending. 'EVERYTHING MUST GO' — and it did."
+
+| Building | Address | Status | Business Model |
+|----------|---------|--------|----------------|
+| [Leela Manufacturing](../../../../street/lane-neverending/leela-manufacturing/) | 5 Lane Neverending | Thriving | Industrial knowledge production |
+| [ACME Surplus](../../../../street/lane-neverending/w1/acme-surplus.yml) | 4 Lane Neverending | Closed | Failed gimmicks, gone to mail-order |
+
+**Marieke:** "What happened to ACME?"
+
+**Don:** "Mail-order ate the brick-and-mortar business. They pivoted to online delivery — drones, painted tunnels, impossible logistics. But you can't run a storefront when your products only work for the delivery driver."
+
+---
+
+### The ACME Storefront
+
+*The tour approaches the dusty windows.*
+
+**Don:** "Let's see what's left."
+
+**Window Display:**
+- An empty pedestal labeled "PORTABLE HOLE (SOLD)"
+- A sign: "ROCKET SKATES — OUT OF STOCK INDEFINITELY"
+- A faded poster of a coyote looking disappointed
+- One (1) slightly dented anvil (display model, not for sale)
+
+**Selfie:** "What's that on the boarded-up section?"
+
+*Everyone looks at the painted tunnel.*
+
+**Don:** "Ah. The famous ACME painted tunnel. A perfect trompe l'oeil. The perspective is museum-quality. The shadows update with the time of day. It looks COMPLETELY runnable."
+
+**Donna:** "I'm going to run through it."
+
+**Don:** "Donna, no—"
+
+*Donna sprints at full speed.*
+
+***THWACK***
+
+*Donna slides down the plywood, joining a collection of impact marks and scattered feathers.*
+
+**Don:** "—it's a painting."
+
+**Donna:** *groaning* "It looked SO real."
+
+**Don:** "That's the problem."
+
+*A sign on the boards:*
+```
+THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
+(Yes, we know it looks real. That's the problem.)
+```
+
+**Palm:** *examining the tunnel* "Wait — I see someone INSIDE it. Running toward us!"
+
+*Everyone looks. For a moment, there's definitely movement in the painted darkness...*
+
+*Then it's just paint again.*
+
+**Don:** "The tunnel IS real. But only for ACME employees. Delivery drivers go through it like an open door. Drones fly through without slowing. But when YOU try it?"
+
+**Donna:** "Plywood."
+
+**Don:** "Every time."
+
+---
+
+### ACME vs Leela: The Business Model War
+
+*The tour sits on a bench between the two buildings.*
+
+**Don:** "This is the story of two economies facing each other across the cobblestones."
+
+| | ACME | Leela |
+|---|------|-------|
+| **Product** | Gimmicks that fail hilariously | Knowledge that actually works |
+| **Delivery** | Painted tunnels, rockets, impossible physics | Pneumatic tubes, drones, reliable logistics |
+| **Quality** | "Works 2% of the time" | "Works or we debug it" |
+| **Warranty** | "Not responsible for anything" | "Prototype inheritance means we fix the source" |
+| **Catalog** | Portable holes, rocket skates, anvils | [1,400+ practical products](../../../../street/lane-neverending/leela-manufacturing/lobby/leela-catalog.yml) |
+| **Status** | Storefront closed, online only | Thriving, 8 operator stations |
+
+**The Coordinator:** "We get ACME orders sometimes. People ordering rocket skates expecting them to work. We have to explain: Leela products do what they're supposed to do. That's our whole thing."
+
+**Dolly:** *beeps dismissively at the ACME storefront*
+
+**Don:** "The secret is in the catalog. ACME sells slapstick. Leela sells solutions. ACME products make you laugh. Leela products make you EFFECTIVE."
+
+**Archie:** "Also, our products don't explode."
+
+**Don:** "That too."
+
+---
+
+### The Origin Tree (W3)
+
+*The tour continues west to the loop point.*
+
+**Don:** "This is where it all started. The [Origin Tree](../../../../street/lane-neverending/w3/origin-tree.yml)."
+
+*A massive ancient tree stands in a small plaza. Cuttings have been taken from it — one grows on Leela's rooftop.*
+
+**Don:** "Every tree in this neighborhood traces back to this one. The [Origin Plaque](../../../../street/lane-neverending/w3/origin-plaque.yml) lists the lineage. When you see the [Turtle Eventually](../../../../street/lane-neverending/leela-manufacturing/rooftop/turtle-eventually.yml) on Leela's roof sitting under a young tree — that tree is a cutting from THIS tree."
+
+---
+
+### The Infinite Loop
+
+*The tour continues east, passing through E1, E2, E3...*
+
+**Don:** "Keep walking..."
+
+*E1: A [flickering lamppost](../../../../street/lane-neverending/e1/flickering-lamppost.yml) that nobody can fix. A [sleeping figure](../../../../street/lane-neverending/e1/sleeping-figure.yml) on a bench who's been there since the world began.*
+
+*E2: The [Infinite Fountain](../../../../street/lane-neverending/e2/infinite-fountain.yml), where the water loops back to its source.*
+
+*E3: A [construction site](../../../../street/lane-neverending/e3/construction-site.yml) for buildings yet to come...*
+
+**Don:** "And now..."
+
+*The tour rounds a corner and finds themselves back at W3.*
+
+**Palm:** "We're back at the Origin Tree!"
+
+**Don:** "The lane never ends. It loops. Walk forever in either direction — you'll see everything, end up where you started, and never leave."
+
+**Stamp:** "That's how the mail works too! No dead ends. Every address reachable from every other address."
+
+**Don:** "That's the philosophy. Interconnection. Loops. No orphan nodes. The pub connects to Leela connects to the street connects to the pub."
+
+---
+
 ### The Cat Cave & Residents
 
 | Cat | File | Personality |
