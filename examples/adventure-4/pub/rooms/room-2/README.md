@@ -31,14 +31,15 @@ This is a room for **systems thinkers** — those who see intelligence as emerge
 
 ---
 
-## 👻 Summonable Spirits
+## 🎭 Summonable Familiars
 
-| Spirit | Invocation | Topic |
-|--------|------------|-------|
-| **Marvin Minsky** | Activate the K-Line Board | Society of Mind, AI, emergence, how thinking works |
-| **The Parliament** | Debate any topic | Watch agents argue productively — intelligence emerging from disagreement |
+| Familiar | Invocation | Tradition |
+|----------|------------|-----------|
+| **The Agent Parliament** | Debate any topic | The Minsky tradition — intelligence as society, not monolith |
+| **K-Line Keeper** | Touch a node on the K-Line Board | Memory as association — one thought activates many |
+| **The Emergence** | Watch the automata negotiate | Complexity from simplicity — no magic trick |
 
-*"What magical trick makes us intelligent? The trick is that there is no trick."*
+*Inherits from: Marvin Minsky, Society of Mind, MIT AI Lab*
 
 ---
 

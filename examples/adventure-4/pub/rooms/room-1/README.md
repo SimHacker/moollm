@@ -34,15 +34,15 @@ This is a room for **tinkers, makers, reverse-engineers** — those who understa
 
 ---
 
-## 👻 Summonable Spirits
+## 🐢 Summonable Familiars
 
-| Spirit | Invocation | Topic |
-|--------|------------|-------|
-| **Seymour Papert** | Speak to the Turtle | Constructionism, Logo, learning by building, how children think |
-| **Hal Abelson** | Study the Turtle Geometry painting | SICP, abstraction, "programs must be written for people to read" |
-| **The Logo Turtle** | Command: FORWARD, RIGHT, REPEAT | Learning through doing — the turtle is always ready to draw |
+| Familiar | Invocation | Tradition |
+|----------|------------|-----------|
+| **Logo Turtle** | Command: FORWARD, RIGHT, REPEAT | The Papert tradition — learning through doing |
+| **Worldie** | Examine any microworld | The constructionist way — build to understand |
+| **The Debugger** | Break something, then fix it | "Debugging is a life philosophy" |
 
-*"You can't think about thinking without thinking about thinking about something."*
+*Inherits from: Seymour Papert, Hal Abelson, the MIT Logo Group*
 
 ---
 

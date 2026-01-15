@@ -39,15 +39,15 @@ Each mirror corresponds to a cursor-mirror command category:
 
 ---
 
-## 👻 Summonable Spirits
+## 🪞 Summonable Familiars
 
-| Spirit | Invocation | Topic |
-|--------|------------|-------|
-| **Socrates** | Speak to the Deep Mirror | Questions about questions, examined life, knowing yourself |
-| **James Burke** | Spin the Disco Ball | Connections! Unexpected links between everything and everything |
-| **I-Beam** | Always present | Introspection guidance, cursor-mirror navigation |
+| Familiar | Invocation | Tradition |
+|----------|------------|-----------|
+| **I-Beam** | Always present | Your introspection guide — points at what you're not seeing |
+| **The Questioner** | Speak to the Deep Mirror | The Socratic tradition — questions about questions |
+| **The Connector** | Spin the Disco Ball | The Burke tradition — unexpected links between everything |
 
-*The Deep Mirror shows the examined life. The Disco Ball shows the connected one.*
+*Inherits from: Socrates, James Burke, the examined life tradition*
 
 ---
 

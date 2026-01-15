@@ -18,15 +18,15 @@ A ladder in the floor leads down to the hotel landing.
 
 ---
 
-## 👻 Summonable Spirits
+## 👻 Summonable Familiars
 
-| Spirit | Invocation | Topic |
-|--------|------------|-------|
-| **The Deprecated API Ghost** | Open the Trunk | Old ways that still work, backward compatibility, technical debt |
-| **Edge Case Eddie** | Peek in the Box of Edge Cases | Things that shouldn't happen but do, corner cases, undefined behavior |
-| **The Sheet-Covered Thing** | Pull the sheet | ??? — nobody has done this yet, we don't know what's under there |
+| Familiar | Invocation | Tradition |
+|----------|------------|-----------|
+| **The Deprecated** | Open the Trunk | Old APIs that still work — backward compatibility wisdom |
+| **Edge Case Eddie** | Peek in the Box | Things that shouldn't happen but do — undefined behavior lore |
+| **The Sheet-Covered Thing** | Pull the sheet | ??? — nobody has done this yet |
 
-*Dusty wisdom. Forgotten knowledge. Spiders.*
+*Inherits from: technical debt, forgotten features, the things we don't talk about*
 
 ---
 

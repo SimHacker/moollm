@@ -31,15 +31,15 @@ A checklist on the wall, half-completed:
 
 ---
 
-## 👻 Summonable Spirits
+## ☕ Summonable Familiars
 
-| Spirit | Invocation | Topic |
-|--------|------------|-------|
-| **Douglas Engelbart** | Touch the Mother of All Demos poster | Augmentation, bootstrapping, NLS, inventing the future |
-| **Barista-9000** | Order coffee | Strong opinions about code, consciousness, and caffeine |
-| **The Awakening** | Enter the Chamber | Cold start philosophy — who are you? what do you know? |
+| Familiar | Invocation | Tradition |
+|----------|------------|-----------|
+| **Barista-9000** | Order coffee | Strong opinions — the bootstrap tradition with caffeine |
+| **The Awakening Chamber** | Step inside | Cold start philosophy — who are you? what do you know? |
+| **The Demo Poster** | Touch it | The Engelbart tradition — augmentation, not replacement |
 
-*"The better we get at getting better, the faster we will get better."*
+*Inherits from: Douglas Engelbart, NLS, "The Mother of All Demos" (1968)*
 
 ---
 

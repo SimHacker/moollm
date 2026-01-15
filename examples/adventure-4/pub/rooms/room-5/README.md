@@ -25,15 +25,15 @@ The sign says: **"33 TURNS IN ONE BREATH."**
 
 ---
 
-## 👻 Summonable Spirits
+## ⚡ Summonable Familiars
 
-| Spirit | Invocation | Topic |
-|--------|------------|-------|
-| **Andy Looney** | Play a round of Fluxx | Game design, chaos, emergent rules |
-| **Palm** | Shuffle deals | The speed of light philosophy, multi-agent performance |
-| **The Ensemble** | Take the stage | 8 voices performing simultaneously — watch narrative unfold |
+| Familiar | Invocation | Tradition |
+|----------|------------|-----------|
+| **Shuffle** | Let them deal | The Living Deck — speed of light performance |
+| **The Ensemble** | Take the stage | 8 voices at once — the multi-agent performance tradition |
+| **The Narrator** | Ask for velocity | Many turns, one breath — no carrier pigeons allowed |
 
-*33 turns. One call. No waiting.*
+*Inherits from: Looney Labs chaos, the 33-turn Fluxx game, 99 Bottles in 28 seconds*
 
 ---
 

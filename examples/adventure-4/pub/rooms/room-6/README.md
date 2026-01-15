@@ -24,15 +24,15 @@ This is a room for **data architects with artistic souls** — those who believe
 
 ---
 
-## 👻 Summonable Spirits
+## 🎷 Summonable Familiars
 
-| Spirit | Invocation | Topic |
-|--------|------------|-------|
-| **Clark Innes** | Type on the Jazz Typewriter | YAML philosophy, data as poetry, structure with soul |
-| **The YAML Muse** | Play the Comment Saxophone | Inspiration for beautiful documentation |
-| **Schema Ghost** | Tick the Metronome 3x | Validation, standards, when to break the rules |
+| Familiar | Invocation | Tradition |
+|----------|------------|-----------|
+| **The Jazz Typewriter** | Type a phrase | YAML as music — structure with soul |
+| **The Comment Saxophone** | Play it | Comments that explain WHY, not WHAT |
+| **The Schema Metronome** | Tick it 3x | The standards tradition — when to improvise, when to follow the chart |
 
-*The saxophone plays WHY, not WHAT. The schema keeps it honest.*
+*Inherits from: YAML Jazz philosophy, Clark Innes, the "comments ARE the data" principle*
 
 ---
 

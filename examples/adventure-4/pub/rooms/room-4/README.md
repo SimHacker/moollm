@@ -23,15 +23,15 @@ The atmosphere is humid, warm, contemplative. Like **Nero Wolfe's rooftop orchid
 
 ---
 
-## 👻 Summonable Spirits
+## 🌿 Summonable Familiars
 
-| Spirit | Invocation | Topic |
-|--------|------------|-------|
-| **Jon Postel** | Water the Orchid of Postel | Robustness principle, liberal/conservative, internet philosophy |
-| **Rocky** | Ring the brass bell | Deep time, patience, geological perspective on problems |
-| **Nero Wolfe** | Tend the orchids in silence | Deduction, cultivation, the art of patient observation |
+| Familiar | Invocation | Tradition |
+|----------|------------|-----------|
+| **Rocky** | Ring the brass bell | Deep time — 4.5 billion years of patience |
+| **The Orchid of Postel** | Water it carefully | The robustness principle — liberal acceptance, conservative output |
+| **The Cultivator** | Tend the orchids in silence | The Wolfe tradition — deduction through patient observation |
 
-*Rocky has been thinking about your question for 4.5 billion years. The answer is coming.*
+*Inherits from: Jon Postel (RFC 761), Nero Wolfe mysteries, geological time*
 
 ---
 

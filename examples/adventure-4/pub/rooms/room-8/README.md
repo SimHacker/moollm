@@ -22,15 +22,15 @@ The walls are covered with character sheets, each one pointing to its parent wit
 
 ---
 
-## 👻 Summonable Spirits
+## 🧬 Summonable Familiars
 
-| Spirit | Invocation | Topic |
-|--------|------------|-------|
-| **Dave Ungar** | Speak to the portrait | Prototype inheritance, Self language, "no classes, just clones" |
-| **Randy Smith** | Use the Outliner | Morphic, direct manipulation, the UI is made of objects |
-| **Selfie** | Clone anything | Living prototype inheritance — the familiar demonstrates |
+| Familiar | Invocation | Tradition |
+|----------|------------|-----------|
+| **Selfie** | Clone anything | The living prototype — demonstrates inheritance by being it |
+| **The Outliner** | Open any object | The Self tradition — see slots, edit live, no text files |
+| **The Clone-O-Matic** | Pull the lever | "You don't instantiate. You clone." |
 
-*"Objects all the way down. Speed all the way up."*
+*Inherits from: Dave Ungar, Randy Smith, Self (1987), Sun Labs*
 
 ---
 
