@@ -173,14 +173,29 @@ object:
     └──────────────────────────────────────────────────────────┘
     
     ┌──────────────────────────────────────────────────────────┐
-    │  WEB STACK (API/UI)                                      │
+    │  WEB STACK (Caddy + Services)                            │
     │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐      │
-    │  │ WEB-1   │  │ WEB-2   │  │ WEB-3   │  │ WEB-4   │      │
-    │  │ nginx   │  │ nginx   │  │ nginx   │  │ nginx   │      │
-    │  │ FastAPI │  │ FastAPI │  │ FastAPI │  │ FastAPI │      │
+    │  │ GRAFANA │  │   PDA   │  │   HUB   │  │INSIGHTS │      │
+    │  │ metrics │  │ mobile  │  │ portal  │  │analytics│      │
+    │  │ alerts  │  │ control │  │  API    │  │ reports │      │
     │  └─────────┘  └─────────┘  └─────────┘  └─────────┘      │
-    │  • REST API, WebSocket connections                       │
-    │  • Dashboard, operator console, visitor portal           │
+    │                      │                                   │
+    │              ┌───────┴───────┐                           │
+    │              │     CADDY     │ ← automatic HTTPS         │
+    │              │  reverse proxy│   zero-config TLS         │
+    │              └───────────────┘                           │
+    │                                                          │
+    │  SERVICES:                                               │
+    │  • Grafana — metrics dashboards, alerting, PostgreSQL    │
+    │  • PDA — mobile operator interface, handheld control     │
+    │  • Hub — central portal, API gateway, WebSocket          │
+    │  • Insights — analytics, reports, data exploration       │
+    │                                                          │
+    │  WHY CADDY:                                              │
+    │  • Automatic HTTPS (Let's Encrypt built-in)              │
+    │  • Zero-config TLS certificate management                │
+    │  • Simple Caddyfile config vs nginx.conf complexity      │
+    │  • HTTP/3 support out of the box                         │
     │  • PostgreSQL connection pooling via PgBouncer           │
     └──────────────────────────────────────────────────────────┘
     
