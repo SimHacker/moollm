@@ -544,6 +544,275 @@ flowchart TB
 | Room 8 | [Self Language](../../../../pub/rooms/room-8/ROOM.yml) | [Soul Forge](../../../../pub/rooms/room-8/self-soul-forge.yml) | out→Landing |
 | Attic | [Magical Items](../../../../pub/rooms/attic/ROOM.yml) | [Probability Goggles](../../../../pub/rooms/attic/probability-goggles.yml) | down→Landing |
 
+---
+
+## Part 2: The Grand Room Tour — Summoning the Familiars
+
+*The tour group climbs the stairs to the hotel landing. Don rings a small bell.*
+
+**Don:** "Now for the best part. Each room has a FAMILIAR — a summonable guide who embodies its philosophy. Let's visit each one."
+
+---
+
+### Room 1: The Constructionist Suite
+
+*The tour enters Room 1. A Logo turtle traces spirals on the floor.*
+
+**Don:** "Worldie? We have visitors."
+
+*A shimmering globe appears — Worldie, the Microworld Familiar.*
+
+**Worldie:** "Welcome to the Constructionist Suite! I'm the `world` parameter — the microworld where learning happens."
+
+| Object | File | Purpose |
+|--------|------|---------|
+| Logo Turtle | [logo-turtle.yml](../../../../pub/rooms/room-1/logo-turtle.yml) | "Build to learn — I draw what you think" |
+| Clock Mechanism | [clock-mechanism.yml](../../../../pub/rooms/room-1/clock-mechanism.yml) | "Take me apart. See how I work." |
+| Debugging Journal | [debugging-journal.yml](../../../../pub/rooms/room-1/debugging-journal.yml) | "Errors are just unfinished learning" |
+
+**Worldie:** "Seymour Papert taught us: you can't think about thinking without thinking about something. This room IS that something. Every object can be inspected, disassembled, understood."
+
+**Don:** "What's the core philosophy?"
+
+**Worldie:** "CONSTRUCTIONISM. You don't learn by being told — you learn by BUILDING. The turtle doesn't draw for you. It draws what YOU command. The clock doesn't tell time — it shows you HOW time is told."
+
+*The turtle draws a perfect spiral and waits for the next command.*
+
+---
+
+### Room 2: The Society Suite
+
+*The tour enters Room 2. Small automata negotiate on shelves.*
+
+**Don:** "We invoke the K-Line Spider."
+
+*A spider made of colored strings descends from the bulletin board.*
+
+**K-Line Spider:** "Ah! Visitors! Each of you is a society of mind — agents cooperating, competing, combining into intelligence."
+
+| Object | File | Purpose |
+|--------|------|---------|
+| Agent Parliament | [agent-parliament.yml](../../../../pub/rooms/room-2/agent-parliament.yml) | "Where mental agents debate" |
+| K-Line Board | [k-line-board.yml](../../../../pub/rooms/room-2/k-line-board.yml) | "Memory activation patterns made visible" |
+| Ultimate Machine | [ultimate-machine.yml](../../../../pub/rooms/room-2/ultimate-machine.yml) | "Minsky's 'most useless machine' — turns itself off" |
+
+**K-Line Spider:** "Marvin Minsky asked: how can mindless parts create a mindful whole? The answer is SOCIETY. No single agent is intelligent. But agents working together — arguing, specializing, delegating — that's mind."
+
+**Cell G:** "This is how I work! Eight processing cells, each with a specialty, all contributing to the Insight Furnace."
+
+**K-Line Spider:** "Exactly! You ARE a society of mind. The strings on this board show how memories activate each other. Pull one string, others light up. That's a K-line — a memory activating related memories."
+
+*The spider weaves a new connection between "SOCIETY" and "EMERGENCE."*
+
+---
+
+### Room 3: The Navigator's Suite
+
+*The tour enters Room 3. Eight mirrors reflect different aspects of the visitors.*
+
+**Don:** "I-Beam? Show us what you see."
+
+*A beam of light materializes into I-Beam, the introspection familiar.*
+
+**I-Beam:** "I see EVERYTHING you're thinking. Look in the mirrors."
+
+| Mirror | Category | Shows |
+|--------|----------|-------|
+| 🗺️ Map | Navigation | Where you've been, where you could go |
+| 🌊 River | Streaming | Messages flowing through time |
+| 🔬 Deep | Analysis | Patterns you haven't noticed |
+| 🔧 Instrument | Tools | What you're using and how |
+| 👁️ Attention | Context | What Cursor sees right now |
+| 📚 Memory | Archive | What's been saved, what's forgotten |
+| 📊 System | Status | The machinery beneath |
+| 🖼️ Gallery | Images | Visual memory bank |
+
+**I-Beam:** "The disco ball in the center — that's the James Burke mirror. It catches light from ALL mirrors and reveals CONNECTIONS. Things you didn't know were related."
+
+**Donna:** *reaching for a big red button* "What does THIS do?"
+
+**I-Beam:** "That's the GRAB FOCUS button. It forces attention to whatever you're pointing at. Donna, I knew you couldn't resist."
+
+*Donna presses it. Everyone's attention snaps to her.*
+
+**I-Beam:** "Self-observation is the beginning of wisdom. But sometimes you need a button to make everyone look."
+
+---
+
+### Room 4: The YAML Jazz Conservatory
+
+*The tour enters a glass greenhouse. Orchids bloom with inscribed petals.*
+
+**Don:** "Rocky? We need geological wisdom."
+
+*A long pause. Then, from a moss-covered boulder...*
+
+**Rocky:** "........................"
+
+**Don:** "Rocky speaks in dots. One dot per million years of thought. That was 24 million years of greeting."
+
+| Object | File | Purpose |
+|--------|------|---------|
+| Orchid of Postel | [orchid-of-postel.yml](../../../../pub/rooms/room-4/orchid-of-postel.yml) | "Be liberal in what you accept, conservative in what you produce" |
+| YAML Jazz Trees | [yaml-jazz-trees.yml](../../../../pub/rooms/room-4/yaml-jazz-trees.yml) | "Production grammars that grow" |
+| Seed Box | [seed-box.yml](../../../../pub/rooms/room-4/seed-box.yml) | "Where ideas begin" |
+| K-Line Trellis | [k-line-trellis.yml](../../../../pub/rooms/room-4/k-line-trellis.yml) | "Memory patterns climbing toward light" |
+
+**Rocky:** ".........."
+
+**Don:** "Rocky says: the comments ARE the data. In YAML Jazz, structure is music. The comments are improvisation. The plants here grow according to production grammars — L-systems encoded in their DNA."
+
+**Archie:** "This is like the prefab system in Deep Storage!"
+
+**Don:** "Exactly. Same principle, different scale. Rocky has been watching these plants grow for 4.5 billion years. They ring a small bell when they want conversation."
+
+*Rocky says nothing. The orchids whisper semantic meaning.*
+
+---
+
+### Room 5: The Speed of Light Suite
+
+*The tour enters Room 5. A grandfather clock's hands race wildly.*
+
+**Don:** "Shuffle! Deal us in."
+
+*A figure made of playing cards materializes — Shuffle, the Living Deck.*
+
+**Shuffle:** "Welcome to SPEED! Here, we don't wait. We PERFORM."
+
+| Object | File | Purpose |
+|--------|------|---------|
+| Fluxx Table | [fluxx-table.yml](../../../../pub/rooms/room-5/fluxx-table.yml) | "33 turns, 8 players, ONE API call" |
+| 99 Bottles | [99-bottles.yml](../../../../pub/rooms/room-5/99-bottles.yml) | "99 verses, 8 voices, 28 seconds" |
+| Narrative Clock | [narrative-clock.yml](../../../../pub/rooms/room-5/narrative-clock.yml) | "Measures story, not seconds" |
+| Ensemble Stage | [ensemble-stage.yml](../../../../pub/rooms/room-5/ensemble-stage.yml) | "8 positions, all performing at once" |
+
+**Shuffle:** "Traditional multi-agent: Agent speaks → API call → wait → next agent → API call → wait. WASTE! Here, all agents are in context. All turns simulated. One call covers many turns."
+
+**Palm:** "That's how the Stoner Fluxx game worked! 33 turns, no waiting!"
+
+**Shuffle:** "You beat Andy Looney at his own game, Palm. Because we don't send carrier pigeons when we could think at the speed of light."
+
+*Shuffle deals cards to invisible players. The clock hands spin.*
+
+**Shuffle:** "The context window is a stage. Put all your actors on it. Let them perform. Don't make them wait in the wings for API round-trips."
+
+---
+
+### Room 6: The YAML Jazz Suite
+
+*The tour enters Room 6. Sheet music covers every surface — but it's all YAML.*
+
+**Don:** "The Metronome speaks here."
+
+*A brass metronome begins ticking. Each tick validates a schema.*
+
+**The Metronome:** "TICK — valid. TICK — valid. TICK — you missed a colon."
+
+| Object | File | Purpose |
+|--------|------|---------|
+| Jazz Typewriter | [jazz-typewriter.yml](../../../../pub/rooms/room-6/jazz-typewriter.yml) | "Types YAML as music" |
+| Comment Saxophone | [comment-saxophone.yml](../../../../pub/rooms/room-6/comment-saxophone.yml) | "Plays meaning, not just notes" |
+| Elision Eraser | [elision-eraser.yml](../../../../pub/rooms/room-6/elision-eraser.yml) | "Removes boring, reveals essential" |
+| K-Line Jukebox | [k-line-jukebox.yml](../../../../pub/rooms/room-6/k-line-jukebox.yml) | "Plays memory associations like songs" |
+| Anchor Compass | [anchor-compass.yml](../../../../pub/rooms/room-6/anchor-compass.yml) | "Navigate &anchors and *aliases" |
+
+**The Metronome:** "YAML is jazz. The schema is the chord changes — the structure you must follow. The comments are improvisation — the meaning you add. The pipe character | is the breath between phrases."
+
+**Don:** "Play us SOCIETY-OF-MIND."
+
+*The jukebox whirs. K-lines light up: AGENTS → EMERGENCE → MINSKY → INTELLIGENCE → SOCIETY.*
+
+**The Metronome:** "TICK — every connection valid. TICK — meaning propagates. TICK — the song continues."
+
+---
+
+### Room 7: The Bootstrap Suite
+
+*The tour enters Room 7. Sparse but warm. The Barista-9000 hisses steam.*
+
+**Don:** "This is Doug Engelbart's room. And the Barista-9000's domain."
+
+*The Barista-9000's monocle swivels to examine the tour group.*
+
+**Barista-9000:** "Ah. A tour group. Let me guess — 'just coffee, please'? *sigh* I'll make you something ADEQUATE."
+
+| Object | File | Purpose |
+|--------|------|---------|
+| Awakening Chamber | [awakening-chamber.yml](../../../../pub/rooms/room-7/awakening-chamber.yml) | "NPC → Full Character instantiation" |
+| Barista-9000 | [barista-9000.yml](../../../../pub/rooms/room-7/barista-9000.yml) | "Espresso robot with opinions (Est. 1889)" |
+| Juice-O-Matic 3000 | [juice-o-matic.yml](../../../../pub/rooms/room-7/juice-o-matic.yml) | "Fresh juice, smoothies, iceys" |
+| Engelbart's Toolkit | [engelbarts-augmentation-toolkit.yml](../../../../pub/rooms/room-7/engelbarts-augmentation-toolkit.yml) | "H-LAM/T philosophy made tangible" |
+| Mother of All Demos | [mother-of-all-demos-poster.yml](../../../../pub/rooms/room-7/mother-of-all-demos-poster.yml) | "Touch to summon the 1968 demo" |
+| Play-Learn-Lift Treadmill | [play-learn-lift-treadmill.yml](../../../../pub/rooms/room-7/play-learn-lift-treadmill.yml) | "Iterative improvement exercise" |
+
+**Don:** "Engelbart invented the mouse, hypertext, video conferencing — all in 1968. His philosophy: AUGMENTATION. Technology should help us think BETTER, not replace our thinking."
+
+**Barista-9000:** "And you can't think on an empty stomach. *produces nine perfect espressos* DRINK. Then bootstrap."
+
+**Don:** "The treadmill has three buttons: PLAY, LEARN, LIFT. That's the cycle. You play to discover. You learn from discovery. You lift what you've learned into new capability."
+
+*The Barista-9000 addresses the group:* "The grooviest of days starts with a Fucking Strong Coffee. Ask for it by name. I RESPECT it."
+
+---
+
+### Room 8: The Self/Soul Suite
+
+*The tour enters Room 8. A glowing forge pulses. Selfie waves from a workbench.*
+
+**Selfie:** "Welcome to MY room! I'm the living prototype — clone from me and customize!"
+
+| Object | File | Purpose |
+|--------|------|---------|
+| Soul Forge | [self-soul-forge.yml](../../../../pub/rooms/room-8/self-soul-forge.yml) | "Where prototypes become beings" |
+| Clone-O-Matic | [clone-o-matic.yml](../../../../pub/rooms/room-8/clone-o-matic.yml) | "You don't instantiate — you CLONE" |
+| Transmogrifier | [transmogrifier.yml](../../../../pub/rooms/room-8/transmogrifier.yml) | "Clone → Edit → Become" |
+| Slot Inspector | [slot-inspector.yml](../../../../pub/rooms/room-8/slot-inspector.yml) | "See inside any object — all the way down" |
+| Morphic Workbench | [morphic-workbench.yml](../../../../pub/rooms/room-8/morphic-workbench.yml) | "Direct manipulation UI design" |
+| Outliner | [outliner.yml](../../../../pub/rooms/room-8/outliner.yml) | "Self's famous object browser" |
+
+**Selfie:** "Dave Ungar asked: what if there were no classes? What if objects just cloned from other objects? That's Self. That's ME."
+
+**Don:** "Every character in this world is a prototype. Clone from Palm, you get Palm's traits. Clone from Marieke, you get her Dutch accent. Override the slots you want to change. Inherit the rest."
+
+**Selfie:** "Look at the walls — every character sheet has a `prototype*` slot pointing to its parent. Inheritance is VISIBLE here. Lineage is TRACEABLE."
+
+**Dolly:** *beeps*
+
+**Selfie:** "Dolly cloned from a generic forklift prototype but diverged into Employee of the Month. That's the beauty — clone and BECOME."
+
+---
+
+### The Attic: Adventurer's Storage
+
+*The tour climbs the ladder to the attic. Dust motes float in the light.*
+
+**Don:** "No familiar lives here permanently. But the ITEMS are alive."
+
+*A pair of goggles glows faintly.*
+
+| Object | File | Purpose |
+|--------|------|---------|
+| Probability Goggles | [probability-goggles.yml](../../../../pub/rooms/attic/probability-goggles.yml) | "See likelihood overlays on everything" |
+| Context Window Cloak | [context-window-cloak.yml](../../../../pub/rooms/attic/context-window-cloak.yml) | "Carry more in memory" |
+| Recursion Lantern | [recursion-lantern.yml](../../../../pub/rooms/attic/recursion-lantern.yml) | "Light that reveals nested structures" |
+| Entropy Flask | [entropy-flask.yml](../../../../pub/rooms/attic/entropy-flask.yml) | "Bottled randomness for chaos" |
+| Prancing Pixie Pumps | [prancing-pixie-pumps.yml](../../../../pub/rooms/attic/prancing-pixie-pumps.yml) | "Dance through boring terrain" |
+| Box of Edge Cases | [box-of-edge-cases.yml](../../../../pub/rooms/attic/box-of-edge-cases.yml) | "Things that shouldn't happen but do" |
+| Trunk of Deprecated Features | [trunk-of-deprecated-features.yml](../../../../pub/rooms/attic/trunk-of-deprecated-features.yml) | "Old APIs that still work" |
+
+**Don:** "Take what you need. Leave what you find. Mind the edge cases."
+
+**Palm:** *puts on the Probability Goggles* "I can see... the likelihood of everything! The probability that this tour ends well is 94.7%."
+
+**Don:** "What's the other 5.3%?"
+
+**Palm:** "Someone opens the ACME Monster Manual."
+
+*Everyone backs away from the dusty tome in the corner.*
+
+---
+
 ### The Cat Cave & Residents
 
 | Cat | File | Personality |
