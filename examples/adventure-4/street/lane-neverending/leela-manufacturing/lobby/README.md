@@ -12,12 +12,12 @@ The **Lobby** is clean, professional, and quietly impressive. The Leela logo glo
 flowchart TB
     subgraph Building["🏭 LEELA MANUFACTURING INTELLIGENCE"]
         direction TB
-        Roof["🌿 Rooftop\nGarden & Drones"]
-        F3["Floor 3\n📦 Shipping"]
-        F2["Floor 2\n🔥 Factory"]
-        F1["Floor 1\n🔄 Intake"]
-        Lobby["Ground\n🚪 Lobby ← YOU ARE HERE"]
-        Basement["Basement\n🔬 R&D"]
+        Roof["🌿 Rooftop<br/>Garden & Drones"]
+        F3["Floor 3<br/>📦 Shipping"]
+        F2["Floor 2<br/>🔥 Factory"]
+        F1["Floor 1<br/>🔄 Intake"]
+        Lobby["Ground<br/>🚪 Lobby ← YOU ARE HERE"]
+        Basement["Basement<br/>🔬 R&D"]
     end
     
     Roof --> F3 --> F2 --> F1 --> Lobby --> Basement
@@ -50,7 +50,7 @@ flowchart TB
 ```mermaid
 flowchart LR
     Visitor["👤 Visitor"] --> Reception["🛎️ Reception Desk"]
-    Reception --> Help["How can we\nhelp you today?"]
+    Reception --> Help["How can we<br/>help you today?"]
     Help --> Directory["📋 Directory"]
     Help --> Elevator["🛗 Elevator"]
     Help --> Guide["🚶 Guided Tour"]
@@ -100,7 +100,7 @@ flowchart TB
     Elevator --> F2["2: Factory"]
     Elevator --> F1["1: Intake"]
     Elevator --> Lobby["G: Lobby"]
-    Elevator --> B["B: Basement\n🔒 Clearance Required"]
+    Elevator --> B["B: Basement<br/>🔒 Clearance Required"]
 
     style B fill:#e74c3c,color:#fff
 ```

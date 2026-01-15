@@ -13,16 +13,16 @@ This is **prototype-based design** made physical. Everything here is a template.
 ```mermaid
 flowchart LR
     subgraph Input["Request"]
-        Request["'I need a\nwooden crate'"]
+        Request["'I need a<br/>wooden crate'"]
     end
     
     Request --> Terminal["🖥️ Cloning Terminal"]
     
     Terminal --> Search["Search prototypes"]
-    Search --> Aisle["Aisle A:\nWooden Containers"]
-    Aisle --> Prototype["wooden-crate\nprototype"]
+    Search --> Aisle["Aisle A:<br/>Wooden Containers"]
+    Aisle --> Prototype["wooden-crate<br/>prototype"]
     Prototype --> Clone["📦 CLONE"]
-    Clone --> Output["Fresh crate\n(your instance)"]
+    Clone --> Output["Fresh crate<br/>(your instance)"]
 ```
 
 **Commands:**
@@ -38,12 +38,12 @@ flowchart LR
 ```mermaid
 flowchart TB
     subgraph Storage["📦 STORAGE COMPLEX"]
-        A["🪵 Aisle A\nWooden Containers"]
-        B["🔩 Aisle B\nMetal Containers"]
-        C["👜 Aisle C\nSoft Containers"]
-        D["✨ Aisle D\nSpecial Containers"]
-        E["🖼️ Aisle E\nDisplay Containers"]
-        L["🏭 Aisle L\nLeela Logistics"]
+        A["🪵 Aisle A<br/>Wooden Containers"]
+        B["🔩 Aisle B<br/>Metal Containers"]
+        C["👜 Aisle C<br/>Soft Containers"]
+        D["✨ Aisle D<br/>Special Containers"]
+        E["🖼️ Aisle E<br/>Display Containers"]
+        L["🏭 Aisle L<br/>Leela Logistics"]
     end
     
     Central["🔬 Cloning Station"]
@@ -76,10 +76,10 @@ flowchart TB
 ```mermaid
 flowchart LR
     subgraph AisleA["🪵 AISLE A"]
-        Crate["wooden-crate\n📦 Standard shipping"]
-        Barrel["ale-barrel\n🛢️ Liquid storage"]
-        Chest["treasure-chest\n💰 Valuables"]
-        Box["simple-box\n📦 Basic storage"]
+        Crate["wooden-crate<br/>📦 Standard shipping"]
+        Barrel["ale-barrel<br/>🛢️ Liquid storage"]
+        Chest["treasure-chest<br/>💰 Valuables"]
+        Box["simple-box<br/>📦 Basic storage"]
     end
 
     style AisleA fill:#8B4513,color:#fff
@@ -101,12 +101,12 @@ flowchart LR
 ```mermaid
 flowchart TB
     subgraph AisleD["✨ AISLE D — SPECIAL"]
-        Paradox["paradox-box\n🔄 Contents uncertain"]
-        Schrodinger["schrodinger-box\n😺 Superposition storage"]
-        Tesseract["tesseract-box\n4️⃣ 4D storage"]
-        Russell["russells-set\n❓ Paradox incarnate"]
-        Cons["cons-cell\n(car . cdr)"]
-        QuadTree["quad-tree\n📐 2D spatial"]
+        Paradox["paradox-box<br/>🔄 Contents uncertain"]
+        Schrodinger["schrodinger-box<br/>😺 Superposition storage"]
+        Tesseract["tesseract-box<br/>4️⃣ 4D storage"]
+        Russell["russells-set<br/>❓ Paradox incarnate"]
+        Cons["cons-cell<br/>(car . cdr)"]
+        QuadTree["quad-tree<br/>📐 2D spatial"]
     end
 
     style AisleD fill:#9400D3,color:#fff
@@ -147,17 +147,17 @@ Factorio-style logistics containers with special modes:
 ```mermaid
 flowchart TB
     subgraph AisleL["🏭 AISLE L — LEELA LOGISTICS"]
-        Storage["leela-storage-chest\n📦 General storage"]
-        Passive["leela-passive-provider\n📦🟡 Available for bots"]
-        Active["leela-active-provider\n📦🔴 PUSH OUT!"]
-        Requester["leela-requester\n📦🟣 Requests items"]
-        Buffer["leela-buffer\n📦🔵 Smart buffer"]
+        Storage["leela-storage-chest<br/>📦 General storage"]
+        Passive["leela-passive-provider<br/>📦🟡 Available for bots"]
+        Active["leela-active-provider<br/>📦🔴 PUSH OUT!"]
+        Requester["leela-requester<br/>📦🟣 Requests items"]
+        Buffer["leela-buffer<br/>📦🔵 Smart buffer"]
     end
     
     subgraph Special["SPECIAL CONTAINERS"]
-        DevNull["/dev/null-box\n🕳️ Destroys contents"]
-        Dumpster["burning-dumpster\n🔥 Continuously on fire"]
-        Infinite["infinite-source\n♾️ Never empties"]
+        DevNull["/dev/null-box<br/>🕳️ Destroys contents"]
+        Dumpster["burning-dumpster<br/>🔥 Continuously on fire"]
+        Infinite["infinite-source<br/>♾️ Never empties"]
     end
 
     style DevNull fill:#000,color:#fff
@@ -218,13 +218,13 @@ Everything in Storage is a **prototype**, not an instance:
 
 ```mermaid
 flowchart TB
-    Proto["📋 Prototype\n(template)"]
+    Proto["📋 Prototype<br/>(template)"]
     
     Proto --> |"clone()"| I1["📦 Instance 1"]
     Proto --> |"clone()"| I2["📦 Instance 2"]
     Proto --> |"clone()"| I3["📦 Instance 3"]
     
-    I1 --> |"customize"| I1a["📦 Modified\nInstance 1"]
+    I1 --> |"customize"| I1a["📦 Modified<br/>Instance 1"]
 ```
 
 From the **Self** programming language:

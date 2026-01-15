@@ -15,7 +15,7 @@ flowchart TB
     subgraph NorthSide["NORTH SIDE OF STREET"]
         N_W3["     "]
         N_W2["     "]
-        N_W1["🏚️ ACME\n(closed)"]
+        N_W1["🏚️ ACME<br/>(closed)"]
         N_C["     "]
         N_E1["     "]
         N_E2["     "]
@@ -73,12 +73,12 @@ flowchart TB
     Start --> Walk["Walk east..."]
     Walk --> More["Keep walking..."]
     More --> Still["Still walking..."]
-    Still --> Back["You're back where\nyou started"]
+    Still --> Back["You're back where<br/>you started"]
     
     Back --> |"or"| West["Walk west..."]
     West --> MoreW["Keep walking..."]
     MoreW --> StillW["Still walking..."]
-    StillW --> BackW["You're back where\nyou started"]
+    StillW --> BackW["You're back where<br/>you started"]
 ```
 
 The street loops. East connects to west. West connects to east. You can walk forever and never leave. You can also walk forever and see everything.
@@ -116,16 +116,16 @@ Every segment of Lane Neverending shares common elements, implemented via the [F
 ```mermaid
 flowchart LR
     subgraph Prototypes["📋 Shared Prototypes"]
-        Lamp["🏮 Lamp Post\nMagical flame\nGrue-safe"]
-        Bench["🪑 Street Bench\nWrought iron\nComfortable"]
-        Cobbles["🟫 Cobblestones\nWell-worn\nHistoric"]
-        Gutter["💧 Gutter\nFunctional\nOccasional frog"]
+        Lamp["🏮 Lamp Post<br/>Magical flame<br/>Grue-safe"]
+        Bench["🪑 Street Bench<br/>Wrought iron<br/>Comfortable"]
+        Cobbles["🟫 Cobblestones<br/>Well-worn<br/>Historic"]
+        Gutter["💧 Gutter<br/>Functional<br/>Occasional frog"]
     end
     
     subgraph Instances["Each Street Gets"]
-        L1["Lamp Post\n(north side)"]
-        L2["Lamp Post\n(south side)"]
-        B1["Bench\n(unique carvings)"]
+        L1["Lamp Post<br/>(north side)"]
+        L2["Lamp Post<br/>(south side)"]
+        B1["Bench<br/>(unique carvings)"]
     end
     
     Prototypes --> |"flyweight"| Instances
@@ -148,9 +148,9 @@ flowchart LR
 flowchart TB
     Plaza["🌳 ORIGIN PLAZA"]
     
-    Plaza --> Tree["The Origin Tree\n(ancient, knowing)"]
-    Plaza --> Lamp["The Flickering Lamp\n(famous, mysterious)"]
-    Plaza --> Fountain["The Fountain\n(wishes optional)"]
+    Plaza --> Tree["The Origin Tree<br/>(ancient, knowing)"]
+    Plaza --> Lamp["The Flickering Lamp<br/>(famous, mysterious)"]
+    Plaza --> Fountain["The Fountain<br/>(wishes optional)"]
 ```
 
 The heart of Lane Neverending. The tree here is the source of cuttings throughout the neighborhood — including the one on [Leela's rooftop](leela-manufacturing/rooftop/).
@@ -183,8 +183,8 @@ The neighborhood pub sits just east of [Leela Manufacturing](leela-manufacturing
 
 ```mermaid
 flowchart LR
-    Leela["🏭 Leela\n5 Lane Neverending"]
-    Pub["🍺 The Pub\n(next door)"]
+    Leela["🏭 Leela<br/>5 Lane Neverending"]
+    Pub["🍺 The Pub<br/>(next door)"]
     
     Leela --> |"pneumatic tube"| Pub
     Leela --> |"walk"| Pub

@@ -10,7 +10,7 @@
 
 ```mermaid
 flowchart LR
-    W3["← w3"] --> W2["W2\nYou Are Here"]
+    W3["← w3"] --> W2["W2<br/>You Are Here"]
     W2 --> W1["w1 →"]
     
     subgraph Landmarks["This Block"]

@@ -10,8 +10,8 @@
 
 ```mermaid
 flowchart LR
-    E2["← e2"] --> E3["E3\nYou Are Here"]
-    E3 --> |"THE LOOP!"| W3["w3 →\n(west side!)"]
+    E2["← e2"] --> E3["E3<br/>You Are Here"]
+    E3 --> |"THE LOOP!"| W3["w3 →<br/>(west side!)"]
     
     style E3 fill:#9b59b6,color:#fff
 ```
@@ -64,10 +64,10 @@ Why does Lane Neverending loop?
 flowchart TB
     Q["Why loop?"]
     
-    Q --> A1["So nobody is ever\n'at the end'"]
-    Q --> A2["So everywhere connects\nto everywhere"]
-    Q --> A3["Because real communities\ndon't have edges"]
-    Q --> A4["Because Game Neverending\nknew something we forgot"]
+    Q --> A1["So nobody is ever<br/>'at the end'"]
+    Q --> A2["So everywhere connects<br/>to everywhere"]
+    Q --> A3["Because real communities<br/>don't have edges"]
+    Q --> A4["Because Game Neverending<br/>knew something we forgot"]
 ```
 
 ---

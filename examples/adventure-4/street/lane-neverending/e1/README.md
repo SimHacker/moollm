@@ -10,13 +10,13 @@
 
 ```mermaid
 flowchart LR
-    Center["← center"] --> E1["E1\nYou Are Here"]
+    Center["← center"] --> E1["E1<br/>You Are Here"]
     E1 --> E2["e2 →"]
     
     subgraph Landmarks["This Block"]
-        Lamp["🏮 The Flickering Lamp\n(famous, mysterious)"]
-        Memorial["📸 Glitch Memorial\n(2011-2012)"]
-        Figure["💤 The Sleeping Figure\n(always here)"]
+        Lamp["🏮 The Flickering Lamp<br/>(famous, mysterious)"]
+        Memorial["📸 Glitch Memorial<br/>(2011-2012)"]
+        Figure["💤 The Sleeping Figure<br/>(always here)"]
     end
 ```
 
@@ -30,10 +30,10 @@ One lamp post on this street flickers. Just one. It has flickered for as long as
 flowchart TB
     Lamp["🏮 THE FLICKERING LAMP"]
     
-    Lamp --> Q1["Why does it flicker?\nUnknown."]
-    Lamp --> Q2["Has anyone fixed it?\nMany have tried."]
-    Lamp --> Q3["Is it trying to\ncommunicate?\nPossibly."]
-    Lamp --> Q4["Should we worry?\nProbably not.\n(Probably.)"]
+    Lamp --> Q1["Why does it flicker?<br/>Unknown."]
+    Lamp --> Q2["Has anyone fixed it?<br/>Many have tried."]
+    Lamp --> Q3["Is it trying to<br/>communicate?<br/>Possibly."]
+    Lamp --> Q4["Should we worry?<br/>Probably not.<br/>(Probably.)"]
 ```
 
 **Theories:**

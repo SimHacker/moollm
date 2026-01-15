@@ -14,19 +14,19 @@ flowchart LR
         Insights["✨ Refined Insights"]
     end
     
-    Insights --> Package["📦 Packaging\nStations"]
+    Insights --> Package["📦 Packaging<br/>Stations"]
     
-    Package --> Doc["📋 Documentation\nCenter"]
+    Package --> Doc["📋 Documentation<br/>Center"]
     
     Doc --> Dispatch["🚀 Dispatch"]
     
     subgraph Methods["Delivery Methods"]
-        Tube["🔵 Pneumatic Tube\n(local, fast)"]
-        Drone["🛸 Drone\n(medium range)"]
-        Truck["🚛 Truck\n(bulk orders)"]
-        Rail["🚂 Rail\n(cross-world)"]
-        Pigeon["🕊️ Pigeon\n(traditional)"]
-        Pickup["🚶 Walk-in\n(customers collect)"]
+        Tube["🔵 Pneumatic Tube<br/>(local, fast)"]
+        Drone["🛸 Drone<br/>(medium range)"]
+        Truck["🚛 Truck<br/>(bulk orders)"]
+        Rail["🚂 Rail<br/>(cross-world)"]
+        Pigeon["🕊️ Pigeon<br/>(traditional)"]
+        Pickup["🚶 Walk-in<br/>(customers collect)"]
     end
     
     Dispatch --> Methods
@@ -80,12 +80,12 @@ Six specialized stations for different shipment types:
 ```mermaid
 flowchart TB
     subgraph Stations["PACKAGING STATIONS"]
-        S1["Station 1\n📦 Standard\nCardboard, labels"]
-        S2["Station 2\n🥚 Fragile\nFoam, bubble wrap\nHANDLE WITH CARE"]
-        S3["Station 3\n👑 Premium\nVelvet-lined boxes\nGold ribbon"]
-        S4["Station 4\n📚 Bulk\nShrink-wrapped pallets"]
-        S5["Station 5\n☢️ Hazardous\nContainment vessels\nWarning labels"]
-        S6["Station 6\n🎨 Custom\nBespoke packaging\nfor special orders"]
+        S1["Station 1<br/>📦 Standard<br/>Cardboard, labels"]
+        S2["Station 2<br/>🥚 Fragile<br/>Foam, bubble wrap<br/>HANDLE WITH CARE"]
+        S3["Station 3<br/>👑 Premium<br/>Velvet-lined boxes<br/>Gold ribbon"]
+        S4["Station 4<br/>📚 Bulk<br/>Shrink-wrapped pallets"]
+        S5["Station 5<br/>☢️ Hazardous<br/>Containment vessels<br/>Warning labels"]
+        S6["Station 6<br/>🎨 Custom<br/>Bespoke packaging<br/>for special orders"]
     end
 
     style S3 fill:#f1c40f,color:#000
@@ -111,14 +111,14 @@ A brass-and-glass marvel of Victorian engineering:
 flowchart TB
     Hub["🔵 PNEUMATIC HUB"]
     
-    Hub --> T1["Tube 1\n→ Floor 1"]
-    Hub --> T2["Tube 2\n→ Floor 2"]
-    Hub --> T3["Tube 3\n→ Lobby"]
-    Hub --> T4["Tube 4\n→ Basement"]
-    Hub --> T5["Tube 5\n→ Loading Docks"]
-    Hub --> T6["Tube 6\n→ Mail Room"]
-    Hub --> T7["Tube 7\n→ THE PUB\n🍺 PRIORITY"]
-    Hub --> T8["Tube 8\n→ Rooftop"]
+    Hub --> T1["Tube 1<br/>→ Floor 1"]
+    Hub --> T2["Tube 2<br/>→ Floor 2"]
+    Hub --> T3["Tube 3<br/>→ Lobby"]
+    Hub --> T4["Tube 4<br/>→ Basement"]
+    Hub --> T5["Tube 5<br/>→ Loading Docks"]
+    Hub --> T6["Tube 6<br/>→ Mail Room"]
+    Hub --> T7["Tube 7<br/>→ THE PUB<br/>🍺 PRIORITY"]
+    Hub --> T8["Tube 8<br/>→ Rooftop"]
 
     style T7 fill:#f39c12,color:#fff
     style Hub fill:#3498db,color:#fff
@@ -147,11 +147,11 @@ A dedicated team that translates "raw insight" into "actionable knowledge":
 
 ```mermaid
 flowchart LR
-    Raw["🟡 Raw Insight\n'Correlation detected\nbetween variables\nX₇ and ∂Y/∂t'"]
+    Raw["🟡 Raw Insight<br/>'Correlation detected<br/>between variables<br/>X₇ and ∂Y/∂t'"]
     
     Raw --> Explainer["📝 Explainer"]
     
-    Explainer --> Clear["✅ Clear Insight\n'When temperature rises,\nproductivity increases.\nRecommendation: Better HVAC.'"]
+    Explainer --> Clear["✅ Clear Insight<br/>'When temperature rises,<br/>productivity increases.<br/>Recommendation: Better HVAC.'"]
 
     style Raw fill:#f1c40f,color:#000
     style Clear fill:#27ae60,color:#fff

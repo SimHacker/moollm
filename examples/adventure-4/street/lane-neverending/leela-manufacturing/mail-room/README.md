@@ -13,16 +13,16 @@ Fully integrated with the [Postal System](../../../../skills/postal/).
 ```mermaid
 flowchart TB
     subgraph MailRoom["📮 MAIL ROOM"]
-        Inbox["📥 General Inbox\nLetters, texts, packages"]
-        Outbox["📤 General Outbox\nActive provider mode"]
-        Sorting["📬 Sorting Bins\nBy destination type"]
+        Inbox["📥 General Inbox<br/>Letters, texts, packages"]
+        Outbox["📤 General Outbox<br/>Active provider mode"]
+        Sorting["📬 Sorting Bins<br/>By destination type"]
     end
     
     subgraph Methods["Delivery Methods"]
-        Postal["📮 Postal\nInternal transit"]
-        Drone["🛸 Drone\nLane Neverending"]
-        Pigeon["🕊️ Pigeon\nTraditional"]
-        Pneumatic["🔵 Pneumatic\nAll floors + pub"]
+        Postal["📮 Postal<br/>Internal transit"]
+        Drone["🛸 Drone<br/>Lane Neverending"]
+        Pigeon["🕊️ Pigeon<br/>Traditional"]
+        Pneumatic["🔵 Pneumatic<br/>All floors + pub"]
     end
     
     Inbox --> Sorting
@@ -73,14 +73,14 @@ The pub tube is the fastest. Some insights are best delivered with a pint.
 flowchart LR
     Bank["📞 Phone Bank"]
     
-    Bank --> Text["📱 Texting\n(modern)"]
-    Bank --> Voice["☎️ Voice\n(traditional)"]
-    Bank --> Hotlines["🔴 Hotlines\n(specialized)"]
+    Bank --> Text["📱 Texting<br/>(modern)"]
+    Bank --> Voice["☎️ Voice<br/>(traditional)"]
+    Bank --> Hotlines["🔴 Hotlines<br/>(specialized)"]
     
     subgraph Hotlines_Detail["Hotlines"]
-        H1["Wisdom Hotline\n(answers slowly)"]
-        H2["Paradox Support\n(may or may not help)"]
-        H3["Emergency\n(actual emergencies)"]
+        H1["Wisdom Hotline<br/>(answers slowly)"]
+        H2["Paradox Support<br/>(may or may not help)"]
+        H3["Emergency<br/>(actual emergencies)"]
     end
     
     Hotlines --> Hotlines_Detail
@@ -103,9 +103,9 @@ For traditional correspondence:
 flowchart LR
     Loft["🕊️ Pigeon Loft"]
     
-    Loft --> Standard["Standard Pigeons\n(local delivery)"]
-    Loft --> Premium["Premium Pigeons\n(express, trained)"]
-    Loft --> Enlightened["Enlightened Pigeons\n(carry wisdom, rare)"]
+    Loft --> Standard["Standard Pigeons<br/>(local delivery)"]
+    Loft --> Premium["Premium Pigeons<br/>(express, trained)"]
+    Loft --> Enlightened["Enlightened Pigeons<br/>(carry wisdom, rare)"]
 ```
 
 | Pigeon Type | Range | Capacity | Availability |
@@ -124,13 +124,13 @@ Incoming mail is automatically sorted:
 flowchart TB
     Incoming["📥 Incoming Mail"]
     
-    Incoming --> Sort{"Sort by\nType"}
+    Incoming --> Sort{"Sort by<br/>Type"}
     
-    Sort --> Internal["🏭 Internal\n(same building)"]
-    Sort --> Local["🏘️ Local\n(Lane Neverending)"]
-    Sort --> Regional["🌆 Regional\n(greater area)"]
-    Sort --> External["🌍 External\n(everywhere else)"]
-    Sort --> Weird["❓ Weird\n(ask the Archivist)"]
+    Sort --> Internal["🏭 Internal<br/>(same building)"]
+    Sort --> Local["🏘️ Local<br/>(Lane Neverending)"]
+    Sort --> Regional["🌆 Regional<br/>(greater area)"]
+    Sort --> External["🌍 External<br/>(everywhere else)"]
+    Sort --> Weird["❓ Weird<br/>(ask the Archivist)"]
 
     style Weird fill:#9b59b6,color:#fff
 ```

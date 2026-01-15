@@ -24,9 +24,9 @@ flowchart TB
     
     subgraph Furnace["🔥 THE INSIGHT FURNACE"]
         direction TB
-        Chamber["Combustion Chamber\n2000°K cognitive heat"]
-        Filter["Wisdom Filter\nRemoves assumptions"]
-        Crystal["Crystallization\nInsight formation"]
+        Chamber["Combustion Chamber<br/>2000°K cognitive heat"]
+        Filter["Wisdom Filter<br/>Removes assumptions"]
+        Crystal["Crystallization<br/>Insight formation"]
         Chamber --> Filter --> Crystal
     end
     
@@ -34,8 +34,8 @@ flowchart TB
     
     subgraph Outputs["⬆️ OUTPUTS"]
         Insights["✨ Refined Insights"]
-        BQ["Better Questions\n(recycled to Intake)"]
-        Wisdom["Pure Wisdom\n(rare, handle carefully)"]
+        BQ["Better Questions<br/>(recycled to Intake)"]
+        Wisdom["Pure Wisdom<br/>(rare, handle carefully)"]
     end
 
     style Furnace fill:#e74c3c,color:#fff
@@ -63,14 +63,14 @@ Eight glass-walled workspaces surround the Furnace, each tackling different prob
 ```mermaid
 flowchart TB
     subgraph Cells["PROCESSING CELLS"]
-        A["Cell A\n🏭 Manufacturing\nOptimization"]
-        B["Cell B\n🚛 Logistics\nPuzzles"]
-        C["Cell C\n⚙️ Process\nImprovement"]
-        D["Cell D\n📊 Data\nAnalysis"]
-        E["Cell E\n🤔 Meta-Problems\n(problems about problems)"]
-        F["Cell F\n⚡ Edge Cases"]
-        G["Cell G\n👁️ 'The Weird Ones'\n[CLASSIFIED]"]
-        H["Cell H\n🧹 Currently Empty\n(being decontaminated)"]
+        A["Cell A<br/>🏭 Manufacturing<br/>Optimization"]
+        B["Cell B<br/>🚛 Logistics<br/>Puzzles"]
+        C["Cell C<br/>⚙️ Process<br/>Improvement"]
+        D["Cell D<br/>📊 Data<br/>Analysis"]
+        E["Cell E<br/>🤔 Meta-Problems<br/>(problems about problems)"]
+        F["Cell F<br/>⚡ Edge Cases"]
+        G["Cell G<br/>👁️ 'The Weird Ones'<br/>[CLASSIFIED]"]
+        H["Cell H<br/>🧹 Currently Empty<br/>(being decontaminated)"]
     end
 
     style G fill:#9b59b6,color:#fff
@@ -122,18 +122,18 @@ This is where the Object Detection and Pose Estimation pipelines converge:
 ```mermaid
 flowchart LR
     subgraph From_Floor1["From Floor 1"]
-        Objects["🔵 Objects\n'A cat. 97% sure.'"]
-        Poses["🟠 Poses\n'Waving. Definitely.'"]
+        Objects["🔵 Objects<br/>'A cat. 97% sure.'"]
+        Poses["🟠 Poses<br/>'Waving. Definitely.'"]
     end
     
     Objects --> Merge{"Junction Beta"}
     Poses --> Merge
     
-    Merge --> Insight["🟡 Insight\n'A cat (97%) is\nwaving (definitely).'"]
+    Merge --> Insight["🟡 Insight<br/>'A cat (97%) is<br/>waving (definitely).'"]
     
     Insight --> Furnace["🔥 Insight Furnace"]
     
-    Furnace --> Understanding["✨ Understanding\n'The cat is greeting\nsomeone it recognizes.'"]
+    Furnace --> Understanding["✨ Understanding<br/>'The cat is greeting<br/>someone it recognizes.'"]
 
     style Objects fill:#3498db,color:#fff
     style Poses fill:#e67e22,color:#fff
@@ -150,7 +150,7 @@ flowchart LR
 flowchart TB
     FAC1["📹 FAC1"] --> |"watches"| Floor["Factory Floor"]
     Floor --> |"processes"| FAC1Feed["FAC1's feed"]
-    FAC1Feed --> |"becomes"| Insight["Insight about\nFAC1 watching"]
+    FAC1Feed --> |"becomes"| Insight["Insight about<br/>FAC1 watching"]
     Insight --> |"processed by"| Floor
 
     style FAC1 fill:#9b59b6,color:#fff

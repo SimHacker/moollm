@@ -13,17 +13,17 @@ This facility is fully integrated with the [Factorio Logistics Protocol](../../.
 ```mermaid
 flowchart LR
     subgraph Inbound["⬇️ INBOUND"]
-        B1["Bay 1\nRaw Data"]
-        B2["Bay 2\nBulk Questions"]
-        B3["Bay 3\nConfusion Tankers"]
-        B4["Bay 4\nParadox-Safe"]
+        B1["Bay 1<br/>Raw Data"]
+        B2["Bay 2<br/>Bulk Questions"]
+        B3["Bay 3<br/>Confusion Tankers"]
+        B4["Bay 4<br/>Paradox-Safe"]
     end
     
     subgraph Outbound["⬆️ OUTBOUND"]
-        B5["Bay 5\nInsight Express"]
-        B6["Bay 6\nBulk Wisdom"]
-        B7["Bay 7\nPremium/Rush"]
-        B8["Bay 8\nPigeon Post"]
+        B5["Bay 5<br/>Insight Express"]
+        B6["Bay 6<br/>Bulk Wisdom"]
+        B7["Bay 7<br/>Premium/Rush"]
+        B8["Bay 8<br/>Pigeon Post"]
     end
     
     Inbound --> Processing["🏭 To Floor 1"]
@@ -59,17 +59,17 @@ Each bay operates as a **logistic node** with chest modes:
 ```mermaid
 flowchart TB
     subgraph InboundBays["Inbound Bays (Passive Providers)"]
-        B1["Bay 1\n📦🟡 passive-provider"]
-        B2["Bay 2\n📦🟡 passive-provider"]
-        B3["Bay 3\n📦🟡 passive-provider"]
-        B4["Bay 4\n📦🔵 buffer"]
+        B1["Bay 1<br/>📦🟡 passive-provider"]
+        B2["Bay 2<br/>📦🟡 passive-provider"]
+        B3["Bay 3<br/>📦🟡 passive-provider"]
+        B4["Bay 4<br/>📦🔵 buffer"]
     end
     
     subgraph OutboundBays["Outbound Bays (Requesters)"]
-        B5["Bay 5\n📦🔴 active-provider"]
-        B6["Bay 6\n📦🟡 passive-provider"]
-        B7["Bay 7\n📦🔴 active-provider"]
-        B8["Bay 8\n📦🔴 active-provider"]
+        B5["Bay 5<br/>📦🔴 active-provider"]
+        B6["Bay 6<br/>📦🟡 passive-provider"]
+        B7["Bay 7<br/>📦🔴 active-provider"]
+        B8["Bay 8<br/>📦🔴 active-provider"]
     end
     
     InboundBays --> |"Floor 1 Intake"| OutboundBays
@@ -92,8 +92,8 @@ flowchart TB
 flowchart LR
     Bay["🏗️ Forklift Bay"]
     
-    Bay --> Dolly["👑 Dolly Doorin\nLift Queen / Fork Queen"]
-    Bay --> Fleet["Leela Forklifts ×4\nCloneable, Self-Driving"]
+    Bay --> Dolly["👑 Dolly Doorin<br/>Lift Queen / Fork Queen"]
+    Bay --> Fleet["Leela Forklifts ×4<br/>Cloneable, Self-Driving"]
 ```
 
 **Dolly Doorin** (Lift Queen) resides here when not in [Storage](../storage/). She knows where everything is. The files obey her.
@@ -113,8 +113,8 @@ Factorio-style logistic and construction drones:
 flowchart TB
     Station["🛸 Drone Charging Station"]
     
-    Station --> Logistic["Logistic Drones ×12\nCarry items between\nlogistic nodes"]
-    Station --> Construction["Construction Drones ×6\nRepair, build,\nmaintenance"]
+    Station --> Logistic["Logistic Drones ×12<br/>Carry items between<br/>logistic nodes"]
+    Station --> Construction["Construction Drones ×6<br/>Repair, build,<br/>maintenance"]
 ```
 
 | Type | Count | Status | Recyclable |
@@ -130,9 +130,9 @@ For historical/fantasy integration:
 flowchart TB
     House["🐴 Carriage House"]
     
-    House --> Carriage["Horse-Drawn Carriages\nD&D compatible"]
+    House --> Carriage["Horse-Drawn Carriages<br/>D&D compatible"]
     House --> Horses["Draft & Riding Horses"]
-    House --> Jareth["Old Jareth\nStable Master"]
+    House --> Jareth["Old Jareth<br/>Stable Master"]
 ```
 
 *"For when the destination is more important than the speed."* — Old Jareth
@@ -145,11 +145,11 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-    LOG1["📹 LOG1\nFirst Eye"]
+    LOG1["📹 LOG1<br/>First Eye"]
     
     LOG1 --> |"watches"| Docks["Loading Docks"]
     Docks --> |"observed by"| Pipeline["Video Pipeline"]
-    Pipeline --> |"generates"| Insights["Insights about\nlogistics operations"]
+    Pipeline --> |"generates"| Insights["Insights about<br/>logistics operations"]
 ```
 
 | Detection | Last Hour |
