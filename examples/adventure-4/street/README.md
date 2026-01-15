@@ -1,0 +1,204 @@
+# The Street Grid
+
+> *"Meet me at the corner of Kay and Neverending."*
+
+This document describes the street grid topology for the virtual town. Streets are named according to a tribute convention that honors both **pioneers** (people) and **projects** (virtual worlds).
+
+---
+
+## The Grid Plan
+
+```mermaid
+flowchart TB
+    subgraph Grid["THE TOWN GRID"]
+        direction TB
+        
+        subgraph NS["N-S STREETS (People)"]
+            direction LR
+            Suth["Sutherland\nStreet"]
+            Kay["Kay\nLane"]
+            Eng["Engelbart\nAvenue"]
+            Min["Minsky\nWay"]
+            Pap["Papert\nPath"]
+        end
+        
+        subgraph EW["E-W STREETS (Projects)"]
+            direction TB
+            Hab["Habitat Boulevard"]
+            Lane["Lane Neverending"]
+            Zork["Zork Row"]
+        end
+    end
+```
+
+---
+
+## Naming Convention
+
+| Direction | Named After | Pattern | Examples |
+|-----------|-------------|---------|----------|
+| **North-South** | People (pioneers) | [Name] + Street Type | Kay Lane, Engelbart Avenue |
+| **East-West** | Projects (virtual worlds) | [Project] + Street Type | Lane Neverending, Habitat Boulevard |
+
+### Why This Convention?
+
+- **People run vertically** — like pillars holding up the world
+- **Projects run horizontally** — like layers of history, each era building on the last
+- **Intersections** — where a pioneer meets a world they influenced
+
+---
+
+## North-South Streets (Pioneers)
+
+*Vertical streets honoring the people who built the foundations.*
+
+| Street | Tribute | Why | Status |
+|--------|---------|-----|--------|
+| **Kay Lane** | Alan Kay | Smalltalk, Dynabook, OOP. The main spine. Pun on "K-Line" (Minsky). | 🎯 Planned (main) |
+| **Engelbart Avenue** | Doug Engelbart | Mother of all demos, mouse, hypertext, augmentation. | 📋 Planned |
+| **Minsky Way** | Marvin Minsky | Society of Mind, K-lines, AI foundations. | 📋 Planned |
+| **Papert Path** | Seymour Papert | Logo, constructionism, microworlds, turtle graphics. | 📋 Planned |
+| **Sutherland Street** | Ivan Sutherland | Sketchpad, VR pioneer, computer graphics. | 📋 Planned |
+| **Turing Terrace** | Alan Turing | The foundation of it all. | 📋 Planned |
+| **Licklider Lane** | J.C.R. Licklider | Man-computer symbiosis, ARPANET vision. | 📋 Planned |
+
+### The Sound Test
+
+These names were chosen for both meaning and mellifluousness:
+
+- **Engelbart Avenue** — EN-gel-bart AV-en-ue (perfect cadence)
+- **Kay Lane** — punchy, memorable, pun-laden
+- **Papert Path** — alliterative
+- **Sutherland Street** — S-S alliteration
+- **Minsky Way** — echoes "Milky Way"
+
+---
+
+## East-West Streets (Projects/Worlds)
+
+*Horizontal streets honoring the virtual worlds and projects that shaped this medium.*
+
+**Ordered north to south** (oldest inspirations in the north, newest at the southern frontier):
+
+| Street | Position | Tribute | Era | Status |
+|--------|----------|---------|-----|--------|
+| **MUD Alley** | Far North | MUD1, the first MUD | 1978 | 📋 Planned |
+| **Zork Row** | North | Infocom's Zork | 1977-1980s | 📋 Planned |
+| **Habitat Boulevard** | Mid-North | Lucasfilm's Habitat | 1986 | 📋 Planned |
+| **Sims Street** | Mid | The Sims, SimCity | 1989-2000 | 📋 Planned |
+| **Second Life Circle** | Mid-South | Second Life | 2003 | 📋 Planned |
+| **Lane Neverending** | **South Edge** | Habitat, Game Neverending, Glitch | 1986-2012 | ✅ Built |
+
+**South of Lane Neverending:** The pub's back garden → the maze → dungeons and wilder places.
+
+---
+
+## The Main Intersection
+
+The heart of town is where **Kay Lane** crosses **Lane Neverending**.
+
+```
+                 KAY LANE
+                    │
+                    │ N
+                    │ (toward Zork Row, Habitat Blvd)
+       ┌────────────┼────────────┐
+  W ───┤    Lane Neverending     ├─── E
+       │            │            │
+       │   [PUB]    │            │
+       │  (south)   │            │
+       └────────────┼────────────┘
+                    │
+                    │ S (behind pub: garden → maze → dungeons)
+                    │
+```
+
+**At this intersection:**
+- The Rusty Lantern pub (south side of Lane Neverending, at center)
+- Kay Lane extends **north** toward Zork Row and beyond
+- Kay Lane extends **south** into the pub's back garden, then the maze, then dungeons
+
+**Lane Neverending is the southern edge of the street grid** — the frontier between town and the wilder places beyond.
+
+---
+
+## The Full Grid (Future Vision)
+
+**North is UP. The pub marks the southern edge of the street grid.**
+
+```
+N O R T H   (toward old text adventures)
+              │          │        │         │        │
+──────────────┼──────────┼────────┼─────────┼────────┼────────  MUD Alley (far north)
+              │          │        │         │        │
+──────────────┼──────────┼────────┼─────────┼────────┼────────  Zork Row
+              │          │        │         │        │
+──────────────┼──────────┼────────┼─────────┼────────┼────────  Habitat Blvd
+              │          │        │         │        │
+──────────────┼──────────┼────────┼─────────┼────────┼────────  Lane Neverending (southern edge)
+              │          │  PUB ◆ │         │ LEELA  │            ◆ = main intersection
+              │Sutherland│  Kay   │Engelbart│ Minsky │ Papert
+              │  Street  │  Lane  │ Avenue  │  Way   │  Path
+                         │
+                         ▼
+              [Garden → Maze → Dungeons]  (beyond the grid)
+
+S O U T H   (into the wilds)
+```
+
+The further north you go, the older the inspirations (MUD, Zork).
+The further south you go, the wilder it gets (maze, dungeons, unknown).
+
+---
+
+## Building Placement
+
+Each street segment can have buildings on two sides:
+
+```
+NORTH SIDE:  [ building ]
+═════════════ STREET ═════════════
+SOUTH SIDE:  [ building ]
+```
+
+Future expansion may allow corner buildings (NE, NW, SE, SW).
+
+---
+
+## Current Implementation
+
+| Street | Status | Segments | Notes |
+|--------|--------|----------|-------|
+| [Lane Neverending](lane-neverending/) | ✅ Built | w3 ↔ e3 (loops) | Main E-W street |
+| Kay Lane | 📋 Planned | — | Main N-S spine, crosses at center |
+| Others | 📋 Planned | — | Deferred for future expansion |
+
+---
+
+## Directory Structure
+
+```
+street/
+├── README.md                    # This file (grid plan)
+├── lane-neverending/            # E-W: The endless loop
+│   ├── center/                  # Kay Lane intersection
+│   ├── w1/ through w3/          # West segments
+│   ├── e1/ through e3/          # East segments
+│   └── leela-manufacturing/     # Building (south of w1)
+├── kay-lane/                    # N-S: Main spine (planned)
+│   ├── center/                  # Lane Neverending intersection
+│   ├── n1/ through n3/          # North segments
+│   └── s1/ through s3/          # South segments
+└── [other streets]/             # Future expansion
+```
+
+---
+
+## See Also
+
+- [Lane Neverending](lane-neverending/) — the first and currently only street
+- [Leela Manufacturing](lane-neverending/leela-manufacturing/) — the knowledge factory
+
+---
+
+*The grid grows as the town grows. One intersection at a time.*
