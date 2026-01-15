@@ -70,26 +70,51 @@ object:
         
         (6 hours still passed. You just... danced through them.)
         
+    SUMMARY_GENERATION:
+      duration: "while worn"
+      effect: |
+        Long texts become short texts:
+        
+        "Here is my 47-page proposal—"
+        *tap tap*
+        "TL;DR: You want money. Risks exist. Upside big."
+        
+        The shoes extract essence. Discard filler.
+        Everything is a dance: beginning, middle, end.
+        Why walk through all the steps?
+        
   advertisements:
     - trigger: "boring"
       score: 0.95
-      response: "*boots glow* I can fix that."
+      response: "*shoes shimmer* I can fix that."
       
     - trigger: "how long"
       score: 0.85
-      response: "With these boots? However long is interesting."
+      response: "With these shoes? However long is interesting."
       
     - trigger: "skip"
       score: 0.9
-      response: "Click your heels. I'll do the rest."
+      response: "Tap your toes. I'll do the rest."
       
     - trigger: "travel"
       score: 0.8
       response: |
-        *boots anticipate*
+        *shoes anticipate*
         
         Current journey has ~40% interesting content.
         Would you like to elide the 60%?
+        
+    - trigger: "tldr"
+      score: 0.95
+      response: "*ribbons flutter* I can condense that."
+      
+    - trigger: "summarize"
+      score: 0.9
+      response: "How short? Tweet, paragraph, or haiku?"
+      
+    - trigger: "too long"
+      score: 0.85
+      response: "Let me dance through it for you. One moment..."
         
   methods:
     WEAR:
@@ -132,6 +157,46 @@ object:
         
         Want to moonwalk back for "that thing"?
         
+    TLDR:
+      description: "Generate a summary of anything"
+      parameters:
+        - target: "What to summarize (text, conversation, event, book, quest)"
+        - length: "How condensed? (tweet / paragraph / page)"
+      effect: |
+        *shoes tap thoughtfully*
+        
+        The ribbons unspool slightly, absorbing the content...
+        Then re-weave into condensed narrative.
+        
+        Returns: The essential points. The good parts.
+        Everything else: elided.
+        
+      examples:
+        - input: "War and Peace"
+          output: "Russia. War. Peace. Everyone's related."
+          
+        - input: "This 3-hour meeting"
+          output: "Decision: none. Action items: 2. Could've been email: yes."
+          
+        - input: "The hero's 10-page backstory"
+          output: "Dead parents. Prophecy. Sword. Let's go."
+          
+    HIGHLIGHT:
+      description: "Extract only the interesting moments from a period"
+      parameters:
+        - period: "What timeframe to scan"
+      returns: |
+        Interesting moments, separated by "..."
+        
+        "You entered the dungeon..."
+        "...found the secret door..."
+        "...defeated the boss..."
+        "...got the treasure."
+        
+        Total time: 6 hours.
+        Highlights: 4 minutes.
+        Efficiency: 98.9%
+        
   lore: |
     These shoes were made by an elven choreographer 
     who hated boring travel montages.
@@ -152,18 +217,18 @@ object:
     
     "99 bottles of beer on the wall..."
     
-    Without boots: 99 verses. 99 turns. Hours of play.
+    Without shoes: 99 verses. 99 turns. Hours of play.
     
-    With boots:
+    With shoes:
       "99 bottles of beer on the wall—"
-      *click click click*
+      *tap tap tap*
       "... [97 verses elided, highlights preserved] ..."
       "1 bottle of beer on the wall, 1 bottle of beer..."
       "No more bottles of beer on the wall."
       
     792 simulated turns. 1 LLM call.
     
-    The boots didn't skip the fun parts:
+    The shoes didn't skip the fun parts:
     - Pee-wee's hee-hee at bottle 84
     - Captain Ashford's Belter accent at bottle 47
     - Rocky absorbing 47 beers with no effect
@@ -179,12 +244,12 @@ object:
     Found in a government evidence locker, alongside 
     a heavily redacted document collection.
     
-    The boots were worn by someone who elided... a lot.
+    The shoes were worn by someone who elided... a lot.
     Names. Dates. Flight logs. Client lists.
     
     ████████ didn't ████ himself.
     
-    The boots know what was skipped.
+    The shoes know what was skipped.
     They're not telling.
     
   curse: |
@@ -215,3 +280,6 @@ object:
       - NARRATIVE-COMPRESSION
       - PACING
       - TRAVEL
+      - TLDR
+      - SUMMARIZATION
+      - HIGHLIGHTS
