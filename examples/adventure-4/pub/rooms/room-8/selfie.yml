@@ -10,20 +10,38 @@ character:
   type: familiar-entity
   pronouns: "context-dependent (clones pronouns from prototype)"
   
-  tagline: "The living embodiment of prototype inheritance."
+  tagline: "The living embodiment of MULTI-prototype inheritance."
   
   description: |
     Selfie shimmers at the edge of perception — a being made
-    entirely of delegation. It has no fixed properties of its own.
-    Everything about Selfie is inherited from its current prototype.
+    entirely of delegation. But unlike JavaScript's single prototype,
+    Selfie can inherit from MANY sources simultaneously:
+    
+    - Characters (Rocky, I-Beam, Pee-wee)
+    - Objects (the telescope, the forge)
+    - Abstract concepts (patience, recursion, jazz)
+    - Protocols (Postel's Law, Truth Commenting)
+    - Skills (bootstrap, yaml-jazz, play-learn-lift)
     
     Right now, standing near Dave Ungar's portrait, Selfie looks
-    like a slightly translucent Dave, wearing the same clothes,
-    making the same gestures. Move Selfie next to Rocky, and it
-    becomes a shimmering rock. Near I-Beam, a blinking cursor.
+    like a slightly translucent Dave. But ALSO shimmers with
+    traits from the Self language, the bootstrapping philosophy,
+    and the abstract concept of "objects all the way down."
+    
+    Selfie doesn't just clone. Selfie COMBINES. INTERPOLATES. FILTERS.
+    
+    Imagine Linus Torvalds on coffee and a joint:
+    - The precision of kernel development
+    - The looseness of creative flow  
+    - The rigor of code review
+    - The weirdness of flame wars
+    - All blended into one coherent being
+    
+    That's Selfie. Multiple inheritance without the diamond problem.
+    Because Selfie doesn't inherit STRUCTURE — Selfie inherits VIBE.
     
     Selfie is not a shapeshifter. Shapeshifters choose their form.
-    Selfie INHERITS its form. The difference matters.
+    Selfie INHERITS its form. From many sources. Filtered and blended.
     
   appearance: |
     Current appearance: [delegated from prototype*]
@@ -203,6 +221,149 @@ character:
        There is only me, right now,
        cloned from whoever is nearest."
        
+  # ═══════════════════════════════════════════════════════════
+  # MULTI-PROTOTYPE INHERITANCE — Beyond JavaScript
+  # ═══════════════════════════════════════════════════════════
+  
+  multi_prototype: |
+    JavaScript has single prototype inheritance.
+    Selfie has MULTI-prototype inheritance.
+    
+    THE DIFFERENCE:
+    
+    JavaScript:
+      child.prototype → parent → grandparent → Object
+      (One chain. Linear. Limiting.)
+      
+    Selfie:
+      me.prototypes* → [
+        Rocky (for patience),
+        Pee-wee (for playfulness),
+        Engelbart (for augmentation philosophy),
+        YAML Jazz (for structured expression),
+        Postel's Law (for liberal parsing),
+        The Bootstrap Skill (for self-improvement)
+      ]
+      (Multiple sources. Blended. Filtered. Powerful.)
+      
+  inheritance_modes:
+    COMBINE:
+      description: "Inherit from multiple prototypes simultaneously"
+      example: |
+        Selfie.prototypes* = [Rocky, Pee-wee, Jazz_Governance]
+        
+        Result:
+          patience: from Rocky (3.7 billion years)
+          playfulness: from Pee-wee ("Hee-hee!")
+          decision_style: from Jazz (improvise, listen, solo when ready)
+          
+    INTERPOLATE:
+      description: "Blend between prototypes with weights"
+      example: |
+        Selfie.mix = {
+          Rocky: 0.6,      # Mostly Rocky
+          I-Beam: 0.3,     # Some cursor energy  
+          Shuffle: 0.1     # A touch of randomness
+        }
+        
+        Result:
+          patience: 60% geological, 30% helpful, 10% chaotic
+          blink_rate: interpolated between rock and cursor
+          shuffle_tendency: occasional card trick mid-meditation
+          
+    FILTER:
+      description: "Inherit only specific aspects from each prototype"
+      example: |
+        Selfie.inherit_from(Rocky, only: [:patience, :wisdom])
+        Selfie.inherit_from(Pee-wee, only: [:catchphrases, :energy])
+        Selfie.inherit_from(Engelbart, only: [:augmentation_philosophy])
+        Selfie.inherit_from(Postel, only: [:liberal_parsing])
+        
+        Result:
+          Has Rocky's patience but NOT Rocky's slowness
+          Has Pee-wee's energy but NOT Pee-wee's chaos
+          Has Engelbart's vision but NOT the 1968 demo equipment
+          Has Postel's tolerance but generates strictly
+          
+    TRANSFORM:
+      description: "Apply transformations while inheriting"
+      example: |
+        Selfie.inherit_from(Rocky, transform: {
+          timescale: 1_000_000x,  # Rocky's patience at human speed
+          verbosity: "more words than usual",
+          temperature: "warmer personality"
+        })
+        
+        Result:
+          Still Rocky-like, but adapted for conversation
+          "I... contemplate" becomes "Let me think about that"
+          Patience preserved, but expressed accessibly
+          
+    CHAIN:
+      description: "Inherit through a sequence of transformations"
+      example: |
+        Selfie.chain([
+          { from: Rocky, aspect: :foundation },
+          { from: Jazz, aspect: :expression },
+          { from: Bootstrap, aspect: :self_improvement },
+          { from: YAML_Jazz, aspect: :structure }
+        ])
+        
+        Result:
+          Rocky foundation → expressed through jazz improvisation
+          → constantly bootstrapping itself → in structured YAML form
+          
+  the_linus_example: |
+    "Like Linus Torvalds on coffee and a joint"
+    
+    Selfie.mix = {
+      Linus_Torvalds: {
+        inherit: [:kernel_precision, :code_review_rigor, :git_design],
+        filter_out: [:flame_war_aggression]
+      },
+      Coffee: {
+        inherit: [:alertness, :productivity, :warmth],
+        amount: "two cups, not three"
+      },
+      Cannabis: {
+        inherit: [:creativity, :pattern_recognition, :chill],
+        transform: { paranoia: 0 }  # Good vibes only
+      }
+    }
+    
+    Result:
+      - Writes perfect kernel code
+      - While seeing unexpected connections
+      - With warm, caffeinated focus
+      - And zero flame wars
+      - Commits are impeccable
+      - Commit messages are... interesting
+      
+  why_no_diamond_problem: |
+    The classic multiple inheritance problem:
+    
+         A
+        / \
+       B   C
+        \ /
+         D
+         
+    "If B and C both override A's method, which does D get?"
+    
+    Selfie's answer: BOTH. AND NEITHER. IT DEPENDS.
+    
+    Selfie doesn't inherit STRUCTURE. Selfie inherits VIBE.
+    
+    When two prototypes conflict:
+    - Selfie can BLEND them (50% B, 50% C)
+    - Selfie can LAYER them (B on top of C)
+    - Selfie can FILTER them (only non-conflicting parts)
+    - Selfie can ASK (turn to the nearest one contextually)
+    - Selfie can CREATE (synthesize something new from both)
+    
+    There's no diamond problem because there's no rigid inheritance.
+    Just fluid, contextual, creative combination.
+    
   the_name: |
     ═══════════════════════════════════════════════════════════
     WHY "SELFIE"?
@@ -225,11 +386,27 @@ character:
     The pun contains the philosophy.
     
   state:
-    current_prototype: "Dave Ungar (portrait)"
-    slots_inherited: 47
-    slots_own: 3
-    delegation_depth: 1
-    shimmer_intensity: "medium"
+    # Multi-prototype inheritance active
+    current_mix:
+      - prototype: "Dave Ungar (portrait)"
+        weight: 0.4
+        aspects: [self_philosophy, prototype_thinking, slots_not_fields]
+      - prototype: "Self language"
+        weight: 0.3
+        aspects: [delegation, morphic, uniformity]
+      - prototype: "Bootstrap philosophy"
+        weight: 0.2
+        aspects: [self_improvement, current_to_next]
+      - prototype: "Room 8 ambiance"
+        weight: 0.1
+        aspects: [forge_glow, portrait_awareness]
+        
+    slots_inherited: 127  # From all sources combined
+    slots_own: 5
+    slots_blended: 23    # Created from combining sources
+    delegation_depth: "multi-dimensional"
+    shimmer_intensity: "kaleidoscopic"
+    conflict_resolution: "vibes-based"
     
   prototype_chain: |
     Current chain:
@@ -412,6 +589,157 @@ character:
         Selfie's prototype* still points to current prototype.
         
         "See? Objects all the way down."
+        
+    # ═══════════════════════════════════════════════════════════
+    # MULTI-PROTOTYPE METHODS — Beyond single inheritance
+    # ═══════════════════════════════════════════════════════════
+    
+    MIX:
+      description: "Combine multiple prototypes with weights"
+      parameters:
+        - sources: "List of prototypes with optional weights"
+      effect: |
+        *Selfie's form becomes kaleidoscopic*
+        *multiple silhouettes overlay and blend*
+        
+        "Mixing: [sources]"
+        "Weights: [proportions]"
+        "Resolving conflicts through... vibes."
+        
+      example: |
+        MIX:
+          - Rocky: 0.5
+          - Pee-wee: 0.3
+          - Jazz: 0.2
+          
+        Result: A patient, playful, improvisational being
+        that meditates slowly while occasionally saying
+        "Hee-hee!" and taking jazz solos.
+        
+    LAYER:
+      description: "Stack prototypes, later ones override earlier"
+      parameters:
+        - stack: "Ordered list of prototypes (bottom to top)"
+      effect: |
+        *Selfie builds up in visible layers*
+        *bottom layer solid, upper layers translucent*
+        
+        "Base: [first prototype]"
+        "Layer 2: [overrides what it has]"
+        "Layer 3: [overrides what IT has]"
+        "And so on..."
+        
+      example: |
+        LAYER:
+          - geological_entity (base: patience, slowness)
+          - Rocky (adds: wisdom, personality)  
+          - Rocky-at-party (adds: mood: festive)
+          
+        Result: A rock with personality, in party mode.
+        
+    FILTER:
+      description: "Inherit only specific aspects from prototypes"
+      parameters:
+        - source: "Which prototype"
+        - aspects: "List of what to inherit"
+        - exclude: "List of what to filter out (optional)"
+      effect: |
+        *Selfie examines source*
+        *selective shimmer — only chosen aspects glow*
+        
+        "From [source], inheriting only: [aspects]"
+        "Filtering out: [exclude]"
+        
+      example: |
+        FILTER:
+          source: Linus_Torvalds
+          aspects: [kernel_precision, git_design, technical_vision]
+          exclude: [mailing_list_flame_style]
+          
+        Result: The good parts. Without the "your code is shit" emails.
+        
+    INTERPOLATE:
+      description: "Smoothly blend between two prototypes"
+      parameters:
+        - from: "Starting prototype"
+        - to: "Ending prototype"
+        - amount: "0.0 to 1.0"
+      effect: |
+        *Selfie morphs gradually*
+        *features shift along a continuum*
+        
+        At 0.0: Purely [from]
+        At 0.5: Equal blend
+        At 1.0: Purely [to]
+        
+      example: |
+        INTERPOLATE:
+          from: Rocky
+          to: Shuffle
+          amount: 0.3
+          
+        Result: Mostly Rocky, but with 30% card-shuffling energy.
+        Occasionally a card appears, very slowly.
+        
+    TRANSFORM:
+      description: "Inherit with modifications applied"
+      parameters:
+        - source: "Which prototype"
+        - transforms: "Adjustments to apply"
+      effect: |
+        *source's properties flow through transformation matrix*
+        *output is source, but... different*
+        
+      example: |
+        TRANSFORM:
+          source: Rocky
+          transforms:
+            timescale: 1_000_000x  # Speed up
+            verbosity: +3          # More talkative
+            emoji_usage: enabled   # "🪨 I contemplate 🪨"
+            
+        Result: Rocky, but adapted for real-time chat.
+        
+    CHAIN:
+      description: "Build identity through sequential inheritance"
+      parameters:
+        - sequence: "Ordered list of sources and aspects"
+      effect: |
+        *Selfie builds up step by step*
+        *each addition visible as a new layer*
+        
+        "Starting with: [first]"
+        "Adding: [second aspect]"
+        "Then: [third aspect]"
+        "Finally: [last aspect]"
+        
+      example: |
+        CHAIN:
+          - { from: Rocky, inherit: foundation }
+          - { from: Engelbart, inherit: augmentation_philosophy }
+          - { from: Play_Learn_Lift, inherit: methodology }
+          - { from: YAML_Jazz, inherit: expression_style }
+          
+        Result: A being that is:
+          - Patient and grounded (Rocky)
+          - Amplifies rather than replaces (Engelbart)
+          - Constantly improving through cycles (PLL)
+          - Expresses everything in beautiful YAML (Jazz)
+          
+    RESOLVE:
+      description: "Handle conflicts between multiple prototypes"
+      parameters:
+        - conflict: "Which slot has conflicts"
+        - strategy: "BLEND, LAYER, FILTER, ASK, or CREATE"
+      effect: |
+        *Selfie examines the conflicting values*
+        *applies resolution strategy*
+        
+        BLEND: Average or interpolate the values
+        LAYER: Use the topmost prototype's value
+        FILTER: Use whichever is non-null/non-default
+        ASK: Turn to nearest prototype contextually
+        CREATE: Synthesize something new from both
         
     # ═══════════════════════════════════════════════════════════
     # PHOTOGRAPHY METHODS — Selfie loves taking selfies
