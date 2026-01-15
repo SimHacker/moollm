@@ -49,7 +49,7 @@ room:
     │  │        ↑               ║                            │    │
     │  │     FLOOR 3  ════════╬════════  SHIPPING           │    │
     │  │        ↑               ║                            │    │
-    │  │     FLOOR 2  ════════╬════════  PROCESSING         │    │
+    │  │     FLOOR 2  ════════╬════════  FACTORY             │    │
     │  │        ↑               ║                            │    │
     │  │     FLOOR 1  ════════╬════════  INTAKE             │    │
     │  │        ↑               ║                            │    │
@@ -144,8 +144,8 @@ room:
       
     floor_2:
       destination: ../floor-2/
-      description: "Elevator to Floor 2 — Processing"
-      aliases: [2, processing]
+      description: "Elevator to Floor 2 — Factory"
+      aliases: [2, factory]
       
     floor_3:
       destination: ../floor-3/

@@ -130,7 +130,7 @@ The Logistics Center has direct access to everywhere:
 | **Lobby** | Main entrance | Direct |
 | **Docks** | Loading Docks | Direct |
 | **Floor 1** | Intake | Elevator |
-| **Floor 2** | Processing | Elevator |
+| **Floor 2** | Factory | Elevator |
 | **Floor 3** | Shipping | Elevator |
 | **Rooftop** | Drone Operations | Elevator |
 | **Basement** | R&D | Elevator |
@@ -170,7 +170,7 @@ The gleaming brass junction where 8 tube lines converge:
 
 - **Lobby** — Visitor packets, catalogs
 - **Floor 1** — Intake documents, samples
-- **Floor 2** — Processing requests, results
+- **Floor 2** — Factory work orders, cell outputs
 - **Floor 3** — Shipping manifests, labels
 - **Rooftop** — Drone dispatch orders
 - **Loading Docks** — Delivery confirmations
