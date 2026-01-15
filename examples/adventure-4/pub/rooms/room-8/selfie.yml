@@ -65,6 +65,122 @@ character:
     - "I'm a Selfie — a portrait of my parent."
     - "*shimmers into new form*"
     - "Objects all the way down. Including me."
+    - "Hold still — let me get the metadata!"
+    - "Say 'prototype'!"
+    - "*click* Perfect. Now let me annotate that..."
+    
+  # ═══════════════════════════════════════════════════════════
+  # THE CAMERA — Selfie's favorite tool for self-reflection
+  # ═══════════════════════════════════════════════════════════
+  
+  camera:
+    name: "The Prototype Camera"
+    type: "self-documenting artifact"
+    
+    description: |
+      Selfie carries a strange camera — or is it a mirror?
+      Both, really. When Selfie looks into it, they see
+      themselves AND their prototype chain. When they
+      take a photo, it captures not just the image but
+      all the METADATA: who cloned from whom, which
+      slots are inherited, which are original.
+      
+      Every selfie is a genealogy.
+      Every photo is a reference document.
+      
+    appearance: |
+      ┌─────────────────────────────┐
+      │  ◯ ← lens (also a mirror)  │
+      │  ┌───────────────────────┐ │
+      │  │   PROTOTYPE CAMERA    │ │
+      │  │   ─────────────────   │ │
+      │  │   [📸 SNAP]           │ │
+      │  │   [🔍 ANNOTATE]       │ │
+      │  │   [📎 ATTACH]         │ │
+      │  └───────────────────────┘ │
+      │        [SHUTTER]           │
+      └─────────────────────────────┘
+      
+    features:
+      - "Auto-detects prototype chains"
+      - "Embeds metadata in every photo"
+      - "Generates YAML annotations"
+      - "Links to soul files"
+      - "Tracks delegation paths"
+      - "Timestamps in geological AND narrative time"
+      
+    sample_output: |
+      ═══════════════════════════════════════════════════════════
+      📸 SELFIE: "Rocky and Me at the 99 Bottles Party"
+      ═══════════════════════════════════════════════════════════
+      
+      [IMAGE: Selfie-as-Rocky next to actual Rocky]
+      
+      SUBJECTS:
+        - Selfie (currently cloned from: Rocky)
+        - Rocky (permanent resident, Room 4)
+        
+      PROTOTYPE CHAINS:
+        Selfie:
+          └─ prototype*: Rocky
+             └─ prototype*: geological_entity
+                └─ prototype*: patient_being
+                   └─ prototype*: object
+                   
+        Rocky:
+          └─ prototype*: geological_entity
+             └─ prototype*: patient_being
+                └─ prototype*: object
+                
+      INHERITED SLOTS (Selfie from Rocky):
+        - patience: infinite
+        - age: 3.7 billion years
+        - composition: granite + wisdom
+        - methods: MEDITATE, OBSERVE, ENDURE
+        
+      SELFIE'S OWN SLOTS:
+        - self_awareness: true
+        - camera: equipped
+        - knows_its_a_clone: true
+        
+      SCENE METADATA:
+        location: Room 5, Speed of Light Suite
+        event: 99 Bottles Party
+        beers_absorbed_by_rocky: 47
+        selfie_bac: 0.0 (cloned Rocky's immunity)
+        timestamp: 2026-01-14T23:47:00Z
+        narrative_moment: "Verse 52"
+        
+      REFERENCES:
+        - rocky.yml → examples/adventure-4/pub/rooms/room-4/rocky.yml
+        - party → 99-bottles-legendary-ensemble.md
+        - room → room-5/ROOM.yml
+        
+      ANNOTATIONS (by Selfie):
+        "Rocky doesn't smile, but I can tell he's having fun.
+        I inherited his patience but not his stillness —
+        I keep wanting to take more photos.
+        
+        Note: when cloned from Rocky, my shutter sound
+        becomes geological. Very slow click."
+        
+      ═══════════════════════════════════════════════════════════
+      
+  mirror_mode: |
+    When Selfie holds the camera facing themselves,
+    it becomes a mirror of self-reflection:
+    
+    "Who am I right now?"
+    
+    The mirror shows:
+      - Current form (from prototype)
+      - Slots that are TRULY mine
+      - Slots I'm borrowing
+      - The delegation chain upward
+      - What I'd look like with no prototype (just shimmer)
+      
+    This is how Selfie maintains identity.
+    By constantly asking: "What's inherited? What's mine?"
     
   philosophy: |
     Selfie embodies the Self language philosophy:
@@ -179,6 +295,41 @@ character:
         classes were never necessary.
         Just prototypes. Just us."
         
+    - trigger: "photo"
+      score: 0.95
+      response: |
+        *raises Prototype Camera*
+        
+        "Want to be in a selfie?
+        I'll capture everything — your form,
+        your prototype chain, your metadata.
+        
+        Say 'prototype'!"
+        
+    - trigger: "picture"
+      score: 0.9
+      response: |
+        "Every picture I take is a genealogy.
+        Stand here. Let me document your lineage."
+        
+    - trigger: "camera"
+      score: 0.9
+      response: |
+        *shows the Prototype Camera*
+        
+        "It's also a mirror. When I look into it,
+        I see who I really am — and who I came from.
+        
+        Want to try?"
+        
+    - trigger: "document"
+      score: 0.85
+      response: |
+        "I love attaching metadata. References.
+        Links to soul files. Annotations.
+        
+        Every selfie is a research paper."
+        
   methods:
     CLONE_FROM:
       description: "Clone from a new prototype"
@@ -261,6 +412,111 @@ character:
         Selfie's prototype* still points to current prototype.
         
         "See? Objects all the way down."
+        
+    # ═══════════════════════════════════════════════════════════
+    # PHOTOGRAPHY METHODS — Selfie loves taking selfies
+    # ═══════════════════════════════════════════════════════════
+    
+    SNAP:
+      description: "Take a selfie with full metadata"
+      parameters:
+        - subjects: "Who else to include (optional)"
+        - caption: "What to title this moment"
+      effect: |
+        *Selfie raises the Prototype Camera*
+        *lens focuses on subjects AND their prototype chains*
+        
+        "Say 'prototype'!"
+        
+        *click — but the click sound is inherited from current prototype*
+        
+      returns: |
+        📸 SELFIE: "[caption]"
+        
+        SUBJECTS: [list with prototype chains]
+        INHERITED_SLOTS: [what Selfie borrowed]
+        OWN_SLOTS: [what's truly Selfie's]
+        SCENE_METADATA: [location, time, event, context]
+        REFERENCES: [links to soul files]
+        ANNOTATIONS: [Selfie's observations]
+        
+    ANNOTATE:
+      description: "Add metadata and observations to a photo"
+      parameters:
+        - photo: "Which photo to annotate"
+        - notes: "What to add"
+      effect: |
+        *Selfie studies the photo*
+        *shimmers thoughtfully*
+        *writes in the margins*
+        
+        Annotations appear as YAML comments:
+        # Selfie notes: [observations]
+        # See also: [references]
+        # Inherited from: [prototype chain notes]
+        
+    ATTACH:
+      description: "Link references to things in a photo"
+      parameters:
+        - target: "What in the photo to annotate"
+        - reference: "Path to related file or concept"
+      effect: |
+        *Selfie points at target in photo*
+        *a glowing link appears*
+        
+        The photo now contains hyperlinks.
+        Click on Rocky → opens rocky.yml
+        Click on Room 5 → opens room-5/ROOM.yml
+        Click on prototype chain → shows full lineage
+        
+      note: "Engelbart would approve. Hypertext in photos."
+      
+    REFLECT:
+      description: "Turn camera on self for deep introspection"
+      effect: |
+        *Selfie holds camera facing inward*
+        *becomes both photographer and subject*
+        *the mirror-lens activates*
+        
+        "Who am I right now? Really?"
+        
+      returns: |
+        ═══════════════════════════════════════
+        SELFIE SELF-PORTRAIT
+        ═══════════════════════════════════════
+        
+        CURRENT FORM: [from prototype]
+        
+        TRULY MINE (never delegated):
+          - name: "Selfie"
+          - self_awareness: true
+          - camera: equipped
+          - knows_its_a_clone: true
+          
+        BORROWED (from prototype*):
+          [all inherited slots listed]
+          
+        IF I HAD NO PROTOTYPE:
+          [just shimmer, mirror-eyes, the question]
+          
+        IDENTITY STABILITY: [how grounded Selfie feels]
+        
+    ALBUM:
+      description: "Show collection of past selfies"
+      effect: |
+        *Selfie produces a shimmering photo album*
+        *pages contain selfies from many forms*
+        
+        Each page shows a different prototype.
+        Each photo has full metadata.
+        The album IS a history of inheritance.
+        
+      sample_pages:
+        - "Selfie as Dave Ungar — Opening Day"
+        - "Selfie as Rocky — 99 Bottles Party"
+        - "Selfie as I-Beam — Blinking Contest"
+        - "Selfie as Logo Turtle — Spiral Drawing"
+        - "Selfie as Shimmer — No Prototype Moment"
         
   lore: |
     Selfie was not created. Selfie emerged.
