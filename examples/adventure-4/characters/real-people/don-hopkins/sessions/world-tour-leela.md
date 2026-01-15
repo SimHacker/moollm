@@ -104,49 +104,57 @@ flowchart TB
 
 **Vertical Navigation:** Only the Rooms Landing (central hub) connects up/down. Individual rooms connect horizontally to the hub.
 
-### Hotel Floor Layout
+### Hotel Floor Layout (Hub & Spoke)
 
 ```mermaid
-flowchart LR
-    R1[Room 1<br/>Constructionism]
-    R2[Room 2<br/>Minsky]
-    R3[Room 3<br/>Mirrors]
-    R4[Room 4<br/>Postel]
-    HUB[LANDING<br/>↑Attic ↓Pub]
-    R5[Room 5<br/>Speed]
-    R6[Room 6<br/>YAML Jazz]
-    R7[Room 7<br/>Awakening]
-    R8[Room 8<br/>Self]
+flowchart TB
+    subgraph WEST[West Wing]
+        R1[Room 1<br/>Constructionism]
+        R2[Room 2<br/>Minsky]
+        R3[Room 3<br/>Mirrors]
+        R4[Room 4<br/>Postel]
+    end
     
-    R1 -->|east| R2
-    R2 -->|east| R3
-    R3 -->|east| R4
-    R4 -->|east| HUB
-    HUB -->|east| R5
-    R5 -->|east| R6
-    R6 -->|east| R7
-    R7 -->|east| R8
+    HUB[LANDING<br/>Ice Machine<br/>Soda Machine<br/>↑Attic ↓Pub]
+    
+    subgraph EAST[East Wing]
+        R5[Room 5<br/>Speed]
+        R6[Room 6<br/>YAML Jazz]
+        R7[Room 7<br/>Awakening]
+        R8[Room 8<br/>Self]
+    end
+    
+    R1 -->|out| HUB
+    R2 -->|out| HUB
+    R3 -->|out| HUB
+    R4 -->|out| HUB
+    HUB -->|room 5| R5
+    HUB -->|room 6| R6
+    HUB -->|room 7| R7
+    HUB -->|room 8| R8
 ```
 
-**Hotel Floor Navigation:**
+**Hotel Floor Navigation (Hub & Spoke — Pie Menu Model):**
 | From | Direction | To |
 |------|-----------|-----|
-| Pub | up | Rooms Landing |
-| Rooms Landing | down | Pub |
-| Rooms Landing | up | Attic |
-| Attic | down | Rooms Landing |
-| Rooms Landing | west | Room 4 |
-| Rooms Landing | east | Room 5 |
-| Room 1 | east | Room 2 |
-| Room 2 | west | Room 1, east | Room 3 |
-| Room 3 | west | Room 2, east | Room 4 |
-| Room 4 | west | Room 3, east | Landing |
-| Room 5 | west | Landing, east | Room 6 |
-| Room 6 | west | Room 5, east | Room 7 |
-| Room 7 | west | Room 6, east | Room 8 |
-| Room 8 | west | Room 7 |
+| Pub | up | Landing |
+| Landing | down | Pub |
+| Landing | up | Attic |
+| Attic | down | Landing |
+| Landing | room 1 | Room 1 |
+| Landing | room 2 | Room 2 |
+| Landing | room 3 | Room 3 |
+| Landing | room 4 | Room 4 |
+| Landing | room 5 | Room 5 |
+| Landing | room 6 | Room 6 |
+| Landing | room 7 | Room 7 |
+| Landing | room 8 | Room 8 |
+| Room 1-8 | out | Landing |
 
-**Centrality:** 4 rooms west of hub (1-4), 4 rooms east of hub (5-8). The landing is the only vertical connection point.
+**Pie Menu Model:** All 8 rooms connect ONLY to the central Landing. Rooms do not connect to each other. The Landing has:
+- Up stairs to Attic
+- Down stairs to Pub
+- Shared facilities (ice machine, soda machine, signage)
 
 ### Horizontal Layout (Ground Level)
 
@@ -211,15 +219,15 @@ flowchart TB
 
 | Location | Theme | Key Artifact | Exits |
 |----------|-------|--------------|-------|
-| Room 1 | [Constructionism](../../../../pub/rooms/room-1/ROOM.yml) | [Logo Turtle](../../../../pub/rooms/room-1/logo-turtle.yml) | east→2 |
-| Room 2 | [Minsky/Mind](../../../../pub/rooms/room-2/ROOM.yml) | [Ultimate Machine](../../../../pub/rooms/room-2/ultimate-machine.yml) | west→1, east→3 |
-| Room 3 | [Mirrors](../../../../pub/rooms/room-3/ROOM.yml) | [Thinking Mirror](../../../../pub/rooms/room-3/thinking-mirror.yml) | west→2, east→4 |
-| Room 4 | [Postel/YAML](../../../../pub/rooms/room-4/ROOM.yml) | [Orchid of Postel](../../../../pub/rooms/room-4/orchid-of-postel.yml) | west→3, east→Landing |
-| **Landing** | [Rooms Hub](../../../../pub/rooms/ROOM.yml) | Ice Machine, Soda Machine | west→4, east→5, up→Attic, down→Pub |
-| Room 5 | [Speed Games](../../../../pub/rooms/room-5/ROOM.yml) | [Ensemble Stage](../../../../pub/rooms/room-5/ensemble-stage.yml) | west→Landing, east→6 |
-| Room 6 | [YAML Jazz](../../../../pub/rooms/room-6/ROOM.yml) | [Jazz Typewriter](../../../../pub/rooms/room-6/jazz-typewriter.yml) | west→5, east→7 |
-| Room 7 | [Awakening](../../../../pub/rooms/room-7/ROOM.yml) | [Awakening Chamber](../../../../pub/rooms/room-7/awakening-chamber.yml) | west→6, east→8 |
-| Room 8 | [Self Language](../../../../pub/rooms/room-8/ROOM.yml) | [Soul Forge](../../../../pub/rooms/room-8/self-soul-forge.yml) | west→7 |
+| **Landing** | [Rooms Hub](../../../../pub/rooms/ROOM.yml) | Ice Machine, Soda Machine, Signage | up→Attic, down→Pub, room 1-8 |
+| Room 1 | [Constructionism](../../../../pub/rooms/room-1/ROOM.yml) | [Logo Turtle](../../../../pub/rooms/room-1/logo-turtle.yml) | out→Landing |
+| Room 2 | [Minsky/Mind](../../../../pub/rooms/room-2/ROOM.yml) | [Ultimate Machine](../../../../pub/rooms/room-2/ultimate-machine.yml) | out→Landing |
+| Room 3 | [Mirrors](../../../../pub/rooms/room-3/ROOM.yml) | [Thinking Mirror](../../../../pub/rooms/room-3/thinking-mirror.yml) | out→Landing |
+| Room 4 | [Postel/YAML](../../../../pub/rooms/room-4/ROOM.yml) | [Orchid of Postel](../../../../pub/rooms/room-4/orchid-of-postel.yml) | out→Landing |
+| Room 5 | [Speed Games](../../../../pub/rooms/room-5/ROOM.yml) | [Ensemble Stage](../../../../pub/rooms/room-5/ensemble-stage.yml) | out→Landing |
+| Room 6 | [YAML Jazz](../../../../pub/rooms/room-6/ROOM.yml) | [Jazz Typewriter](../../../../pub/rooms/room-6/jazz-typewriter.yml) | out→Landing |
+| Room 7 | [Awakening](../../../../pub/rooms/room-7/ROOM.yml) | [Awakening Chamber](../../../../pub/rooms/room-7/awakening-chamber.yml) | out→Landing |
+| Room 8 | [Self Language](../../../../pub/rooms/room-8/ROOM.yml) | [Soul Forge](../../../../pub/rooms/room-8/self-soul-forge.yml) | out→Landing |
 | Attic | [Magical Items](../../../../pub/rooms/attic/ROOM.yml) | [Probability Goggles](../../../../pub/rooms/attic/probability-goggles.yml) | down→Landing |
 
 ### The Cat Cave & Residents
