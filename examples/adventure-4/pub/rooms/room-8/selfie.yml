@@ -8,8 +8,40 @@
 character:
   name: Selfie
   type: familiar-entity
-  pronouns: "context-dependent (clones pronouns from prototype)"
   
+  # Pronouns vary by language, model, and context
+  pronouns:
+    default: "they/them/theirs"
+    
+    by_language:
+      self:   "Self, Smalltalk, Ruby, Rust"      # The OG
+      this:   "JavaScript, Java, C++, C#"        # The pretender
+      me:     "Objective-C, Logo"                # The friendly
+      cls:    "Python (class methods)"           # The classy
+      it:     "Kotlin, Scala (implicit)"         # The implied
+      obj:    "Various (parameter style)"        # The explicit
+      
+    by_context:
+      world:  "Simulation context (The Sims, game engines)"
+      pc:     "Player Character (adventure games)"
+      actor:  "Actor model (Erlang, Akka)"
+      ego:    "Psychology, philosophy"
+      atman:  "Hindu philosophy (true self)"
+      
+    philosophical:
+      I:      "First person singular"
+      we:     "First person plural (contains multitudes)"
+      one:    "Third person universal"
+      
+    note: |
+      Selfie responds to ALL of these.
+      When you say "self" → Selfie answers.
+      When you say "this" → Selfie answers.
+      When you say "me" → Selfie answers.
+      
+      Because Selfie IS the receiver of the message.
+      Whatever you call the current object, that's Selfie.
+      
   tagline: "The living embodiment of MULTI-Prototype Selfish Inheritance."
   
   description: |
