@@ -26,14 +26,9 @@ room:
     open. A brass plaque by the door reads: "7 Lane Neverending — Est. ???"
     The sign creaks: warm light spills out.
     
-    Next door to the west, LEELA MANUFACTURING INTELLIGENCE rises three
-    stories — a converted factory with tall arched windows and smokestacks
-    that emit sparks of light instead of smoke. The sign reads:
-    "Industrial Knowledge & Insight."
-    
-    The street continues EAST and WEST, lined with buildings both
-    occupied and waiting. The heart of the village forms here,
-    around pub and factory.
+The street continues EAST and WEST, lined with buildings both
+    occupied and waiting. To the west, you can see the tall smokestacks
+    of LEELA MANUFACTURING at 5 Lane Neverending, neighbor to the pub.
     
     A STREET SIGN stands at the corner:
     
@@ -59,14 +54,7 @@ room:
     A sandwich board advertises today's specials. The door is
     oak with brass fittings, heavy but welcoming.
     
-    LEELA MANUFACTURING INTELLIGENCE (5 Lane Neverending):
-    Red brick industrial building, three stories. Through the
-    tall windows you can see conveyor belts, workstations, the
-    occasional flash of insight being packaged for delivery.
-    Smokestacks emit ideas, not pollution. The loading dock
-    accepts "RAW DATA" deliveries.
-    
-    THE ATMOSPHERE:
+THE ATMOSPHERE:
     This street feels... significant. Like the main street of
     every virtual world that ever was. Habitat's Populopolis.
     Glitch's whimsical lanes. Game Neverending's promise of
@@ -120,16 +108,7 @@ room:
         descend, but the lane itself? Never ends.
       aliases: [w, left]
       
-    leela:
-      destination: ../leela-manufacturing/
-      description: |
-        The front doors of LEELA MANUFACTURING INTELLIGENCE.
-        Red brick, three stories, tall arched windows.
-        A sign: "Industrial Knowledge & Insight — Est. ???"
-        You can see the scale model glowing in the lobby.
-      aliases: [5, factory, manufacturing, intelligence]
-      
-  ambience: |
+ambience: |
     The sounds of a lived-in street. Distant conversation. A cart
     rattling somewhere. The creak of the pub sign. Birds on lamp posts.
     The occasional pedestrian nodding as they pass.
@@ -137,9 +116,6 @@ room:
     It's the kind of street where nothing happens and everything
     could happen. The ur-street. The proto-lane.
     
-  objects:
+objects:
     - street-sign.yml
     - sandwich-board.yml
-    
-  buildings:
-    - leela-manufacturing/  # Full facility with floors and departments

@@ -9,29 +9,43 @@ room:
   lighting: natural
   grue_safe: true
   
-  description: |
+description: |
     Lane Neverending stretches west from the pub. This section has
     an older feel — the cobblestones are more worn, the lamp posts
     more ornate, the buildings taller with that pre-crash architecture
     that said "we're building forever."
     
-    A CLOCK TOWER rises from one of the buildings, its face showing
-    a time that may or may not be accurate. Nobody's checked in years.
-    Nobody needs to. Time is flexible here.
+    On the SOUTH side of the street, LEELA MANUFACTURING INTELLIGENCE
+    rises three stories — a converted factory with tall arched windows
+    and smokestacks that emit sparks of light instead of smoke. The
+    sign reads: "5 Lane Neverending — Industrial Knowledge & Insight."
+    
+    A CLOCK TOWER rises from a building on the north side, its face
+    showing a time that may or may not be accurate. Nobody's checked
+    in years. Nobody needs to. Time is flexible here.
     
     To the EAST, The Rusty Lantern beckons. To the WEST, the lane
     continues toward the older parts of town.
     
-  examine: |
-    THE CLOCK TOWER:
-    Part of 6 Lane Neverending. The clock shows 3:47 (always has,
-    always will). A small plaque: "Donated by the Habitat Historical
-    Society, in memory of pixels past."
+examine: |
+    LEELA MANUFACTURING INTELLIGENCE (5 Lane Neverending):
+    Red brick industrial building, three stories, south side of street.
+    Tall arched windows reveal conveyor belts, workstations, the
+    occasional flash of insight being packaged for delivery.
+    Smokestacks emit ideas, not pollution. The loading dock around
+    back accepts "RAW DATA" deliveries.
     
-    STOREFRONTS:
+    Neighbor to The Rusty Lantern — the pub is just one door east.
+    Knowledge and ale, side by side. As it should be.
+    
+    THE CLOCK TOWER (6 Lane Neverending):
+    North side. The clock shows 3:47 (always has, always will).
+    A small plaque: "Donated by the Habitat Historical Society,
+    in memory of pixels past."
+    
+    OTHER STOREFRONTS:
     • 4 Lane Neverending — A dusty antique shop? The window is too
       grimy to see through clearly
-    • 6 Lane Neverending — The Clock Tower building, ground floor empty
     
     ATMOSPHERE:
     This section feels like it remembers more than it says. The
@@ -49,5 +63,17 @@ room:
       description: "Lane Neverending continues west, into the older district."
       aliases: [w, forward]
       
+leela:
+      destination: ../leela-manufacturing/
+      description: |
+        The front doors of LEELA MANUFACTURING INTELLIGENCE.
+        Red brick, three stories, tall arched windows.
+        A sign: "5 Lane Neverending — Industrial Knowledge & Insight"
+        You can see the scale model glowing in the lobby.
+      aliases: [5, south, factory, manufacturing, intelligence, leela]
+      
   objects:
     - clock-tower.yml
+    
+  buildings:
+    - leela-manufacturing/  # Full facility with floors and departments

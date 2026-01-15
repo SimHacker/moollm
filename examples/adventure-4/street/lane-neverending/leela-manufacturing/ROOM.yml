@@ -29,7 +29,7 @@ room:
     │       FLOOR DIRECTORY:                                  │
     │       ─────────────────                                 │
     │       Floor 1 .... Intake Department                    │
-    │       Floor 2 .... Processing Floor                      │
+    │       Floor 2 .... Factory Floor                      │
     │       Floor 3 .... Shipping & Fulfillment               │
     │       Basement ... R&D Laboratory                       │
     │       Rooftop .... Garden & Observation                 │
@@ -80,13 +80,13 @@ room:
     jobs: 200+
     land_value: "$$$"
     
-  exits:
+exits:
     out:
-      destination: ../center/
+      destination: ../w1/
       description: |
         The front doors lead back out to Lane Neverending.
-        The Rusty Lantern is right next door.
-      aliases: [outside, street, lane, door, leave]
+        The Rusty Lantern is right next door to the east.
+      aliases: [outside, street, lane, door, leave, north]
       
     floor1:
       destination: floor-1/
