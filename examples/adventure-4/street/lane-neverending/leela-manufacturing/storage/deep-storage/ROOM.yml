@@ -1,0 +1,129 @@
+# DEEP STORAGE — ARCHITECTURAL PREFABS
+# Pre-fab Buildings, Rooms, and Structures for Cloning
+# "Need a lair? Clone one."
+
+room:
+  name: "Leela Deep Storage — Architectural Division"
+  type: warehouse-secure
+  
+  lighting: dramatic
+  atmosphere: cavernous
+  
+  skills:
+    - prototype
+    - container
+    - room
+    - architecture
+    
+  description: |
+    Beyond a heavy freight elevator, the DEEP STORAGE opens up:
+    a cavern carved from bedrock, filled with miniaturized buildings.
+    
+    These aren't containers — they're ROOMS. BUILDINGS. STRUCTURES.
+    Each one a prototype, scaled down for storage but fully functional
+    when cloned and deployed at full size.
+    
+    ┌─────────────────────────────────────────────────────────────┐
+    │           LEELA DEEP STORAGE — ARCHITECTURAL DIVISION       │
+    │           ═══════════════════════════════════════════       │
+    │                                                             │
+    │   SECTION S: Shelters (fallout, storm, panic rooms)         │
+    │   SECTION L: Lairs (mad scientist, villain, secret)         │
+    │   SECTION T: Towers (ivory, wizard, watchtower)             │
+    │   SECTION D: Domiciles (cottages, cabins, apartments)       │
+    │   SECTION W: Workspaces (labs, workshops, studios)          │
+    │   SECTION V: Venues (theaters, arenas, ballrooms)           │
+    │   SECTION X: Experimental (non-Euclidean, pocket dims)      │
+    │                                                             │
+    │   ⚠️ PROTOTYPES ONLY — DO NOT ENTER — CLONE FIRST ⚠️        │
+    │                                                             │
+    │   LEELA QUALITY: Dependable. Tested. Robust-First.          │
+    │   NOT ACME: Your lair will not collapse on you.             │
+    │                                                             │
+    └─────────────────────────────────────────────────────────────┘
+    
+    A control booth overlooks the cavern. Inside, an operator
+    named "Archie" manages the architectural deployment system.
+    
+  examine: |
+    DEEP STORAGE — ARCHITECTURAL PROTOTYPES
+    
+    THE CONCEPT:
+    Every building here is a prototype — a template for cloning.
+    When you need a lair, you CLONE it. The original stays pristine.
+    
+    THE SCALE:
+    Prototypes are stored at 1:100 scale in climate-controlled cases.
+    When cloned and deployed, they expand to full size.
+    Some customers prefer to keep pocket-sized backup copies.
+    
+    THE GUARANTEE:
+    Unlike ACME prefabs, Leela buildings:
+    - Don't collapse dramatically
+    - Don't have obvious weak points for heroes
+    - Don't come with self-destruct buttons by default
+    - Are actually up to code
+    
+    DEPLOYMENT:
+    1. Select a prototype
+    2. Specify location
+    3. Clone and deploy
+    4. Move in
+    
+  sections:
+    shelters:
+      name: "Section S: Shelters"
+      contents: "Fallout shelters, storm cellars, panic rooms, safe houses"
+      
+    lairs:
+      name: "Section L: Lairs"
+      contents: "Mad scientist labs, villain headquarters, secret bases"
+      
+    towers:
+      name: "Section T: Towers"
+      contents: "Ivory towers, wizard towers, watchtowers, bell towers"
+      
+    domiciles:
+      name: "Section D: Domiciles"
+      contents: "Cottages, cabins, apartments, treehouses"
+      
+    workspaces:
+      name: "Section W: Workspaces"
+      contents: "Laboratories, workshops, studios, offices"
+      
+    venues:
+      name: "Section V: Venues"
+      contents: "Theaters, arenas, ballrooms, concert halls"
+      
+    experimental:
+      name: "Section X: Experimental"
+      contents: "Non-Euclidean spaces, pocket dimensions, impossible rooms"
+      warning: "May not comply with local physics ordinances"
+      
+  exits:
+    elevator:
+      destination: ../
+      description: "Freight elevator back to main storage"
+      
+  objects:
+    - PROTOTYPES.yml
+    - deployment-console.yml
+    
+  staff:
+    architect:
+      name: "Archie"
+      title: "Architectural Deployment Specialist"
+      personality: "Detail-oriented, loves floor plans, hates ACME"
+      catchphrase: "Where would you like your lair today?"
+      
+  ambience: |
+    The hum of climate control. Dramatic lighting on miniature buildings.
+    Occasional *pop* as a prototype is cloned and deployed somewhere.
+    Archie humming while reviewing blueprints.
+    
+  k_lines:
+    - LEELA-MANUFACTURING
+    - ARCHITECTURE
+    - PROTOTYPES
+    - PREFAB
+    - ROBUST-FIRST

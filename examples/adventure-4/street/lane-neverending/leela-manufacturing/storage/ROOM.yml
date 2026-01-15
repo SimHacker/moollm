@@ -35,6 +35,9 @@ room:
     │   AISLE E: Display Containers (shelves, racks, hooks)       │
     │   AISLE L: Leela Logistics (Factorio-style, NOT ACME)       │
     │                                                             │
+    │   🛗 DEEP STORAGE: Architectural Prefabs (freight elevator) │
+    │      Shelters, Lairs, Towers, Domiciles, Experimental       │
+    │                                                             │
     │   ⚠️ PROTOTYPES ONLY — DO NOT USE — CLONE FIRST ⚠️          │
     │                                                             │
     └─────────────────────────────────────────────────────────────┘
@@ -113,6 +116,12 @@ aisle_e:
       destination: aisle-l/
       description: "Leela Logistics — Factorio-style containers (NOT ACME!)"
       aliases: [l, leela, logistics, factorio]
+      
+    deep_storage:
+      destination: deep-storage/
+      description: "Architectural Prefabs — buildings, lairs, towers, shelters"
+      aliases: [deep, architecture, prefab, buildings, lairs]
+      access: freight_elevator
       
   objects:
     - dolly-forklift.yml
