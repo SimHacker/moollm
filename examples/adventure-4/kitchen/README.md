@@ -184,10 +184,11 @@ Your navigation pet! Part GPS, part friend, part oracle.
 
 | Direction | Destination |
 |-----------|-------------|
-| 🚪 East | [garden/](../garden/) — Back Garden |
-| 🎭 (via start) | [coatroom/](../coatroom/) — Be anyone! |
-| 🌀 (via start) | [maze/](../maze/) — The dark maze |
-| 🏠 (via start UP) | [home/](../home/) — Mother waits |
+| 🚪 East | [garden/](../garden/) — Back Garden (spawn point) |
+| 🍺 Northeast | [pub/](../pub/) — Staff shortcut to pub |
+| 🎭 (via garden) | [coatroom/](../coatroom/) — Be anyone! |
+| 🌀 (via garden) | [maze/](../maze/) — The dark maze |
+| 🏠 (via end UP) | [home/](../home/) — Mother waits |
 | ⬆️ Up | [adventure-4/](../) |
 
 ---

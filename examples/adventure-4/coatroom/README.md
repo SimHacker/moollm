@@ -286,9 +286,10 @@ These skills persist in your character file and travel with you!
 
 | Direction | Destination |
 |-----------|-------------|
-| 🚪 **West** | [garden/](../garden/) — Back Garden |
+| 🚪 **West** | [garden/](../garden/) — Back Garden (spawn point) |
+| 🍺 **Northwest** | [pub/](../pub/) — Shortcut to pub (dramatic entrance!) |
 | 🧬 **North** | [characters/](../characters/) — Hall of Bodies |
 | 🎭 **South** | [personas/](../personas/) — Wardrobe of Masks |
 | 📚 **East** | [skills/](../skills/) — Skill Nexus |
-| 🍳 (via start, west) | [kitchen/](../kitchen/) — Food for maze mapping |
-| 🌀 (via start, north) | [maze/](../maze/) — The grue-infested maze |
+| 🍳 (via garden, west) | [kitchen/](../kitchen/) — Food for maze mapping |
+| 🌀 (via garden, south) | [maze/](../maze/) — The grue-infested maze |

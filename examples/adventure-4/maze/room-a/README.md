@@ -16,10 +16,11 @@ This room has **no lighting**. Enter without a lit lamp and you will be eaten by
 
 | Direction | Destination | Description |
 |-----------|-------------|-------------|
-| **North** | [room-c/](../room-c/) | Passage with scratch marks |
-| **North** | [../../garden/](../../garden/) | 🔆 **Back to the garden!** |
+| **North** | [../../garden/](../../garden/) | 🔆 **Back to the garden!** (safety) |
+| **South** | [room-c/](../room-c/) | Passage with scratch marks |
 | **East** | [room-b/](../room-b/) | Passage with echo |
-| **West** | [room-d/](../room-d/) | Passage with golden glow |
+| **West** | [crystal-cave/](../crystal-cave/) | Prismatic glow... crystals? |
+| **Down** | [room-d/](../room-d/) | Sloping passage, deeper |
 
 ---
 
@@ -43,6 +44,7 @@ This room receives smells drifting from the south. Anything dropped in the garde
 
 ## Navigation
 
+| Direction | Destination |
+|-----------|-------------|
 | ⬆️ Up | [../](../) — The Maze |
-|-------|----------------------|
-| 🏠 Garden | [../../garden/](../../garden/) |
+| 🌿 North | [../../garden/](../../garden/) — Back to safety! |

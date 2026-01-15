@@ -30,18 +30,18 @@ Or explore all 10 maze rooms, map with food, avoid/slay the grue.
 | Property | Value |
 |----------|-------|
 | **Lighting** | Magical (grue-safe) |
-| **Exit** | South → [maze/room-d/](../maze/room-d/) |
-| **Position** | (0, 1) — north of start |
+| **Exits** | North → maze, Up → home |
+| **Position** | Deep south of maze |
 
 ---
 
 ## After Getting the Treasure
 
 Options:
-1. Navigate back through the maze to start
-2. Go UP from start to home
-3. Show Mother what you found
-4. Keep your promises!
+1. **GO UP** → Home! Show Mother what you found!
+2. **GO NORTH** → Navigate back through the maze to garden
+3. Keep your promises!
+4. Do the dishes!
 
 ---
 
@@ -49,6 +49,6 @@ Options:
 
 | Direction | Destination |
 |-----------|-------------|
-| ⬆️ Up | [adventure-4/](../) |
-| 🌀 South | [maze/room-d/](../maze/room-d/) |
-| 🚪 Garden | [../garden/](../garden/) |
+| ⬆️ Up | [home/](../home/) — Mother waits! |
+| 🌀 North | [maze/room-d/](../maze/room-d/) — Back into the maze |
+| 🌿 (via maze) | [garden/](../garden/) — Spawn point |

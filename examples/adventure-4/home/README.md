@@ -9,7 +9,9 @@
 
 ## 🏠 Coming Home
 
-You can visit home **anytime** via START → UP → HOME.
+You can visit home via **END (Treasury) → UP → HOME**.
+
+The path: Garden → South → Maze → Deep South → Treasury → UP → Home
 
 Mother's response depends on WHERE YOU ARE in your adventure:
 

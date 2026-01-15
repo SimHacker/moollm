@@ -9,7 +9,12 @@
 
 **Path:** `adventure-4/pub/`  
 **Parent:** [../](../) (adventure-4 root)  
-**Exits:** NORTH → [../garden/](../garden/) (back garden) | UP → rooms/ | BACK → ???
+**Exits:**
+- NORTH → [../garden/](../garden/) (back garden, spawn point)
+- SOUTH → [../street/lane-neverending/center/](../street/lane-neverending/center/) (Lane Neverending)
+- SOUTHWEST → [../kitchen/](../kitchen/) (staff corridor)
+- SOUTHEAST → [../coatroom/](../coatroom/) (costume entrance)
+- UP → rooms/ | DOWN → basement/ | BACK → ???
 
 ---
 
