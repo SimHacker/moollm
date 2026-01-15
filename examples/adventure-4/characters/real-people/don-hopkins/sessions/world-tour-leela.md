@@ -1179,12 +1179,28 @@ THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
 
 ---
 
-### The Cat Cave & Residents
+## Part 4: Inside the Pub — A Deeper Look
 
-| Cat | File | Personality |
-|-----|------|-------------|
-| Stroopwafel | [cat-stroopwafel.yml](../../../../pub/bar/cat-cave/cat-stroopwafel.yml) | Sweet, layered |
-| Terpie | [cat-terpie.yml](../../../../pub/bar/cat-cave/cat-terpie.yml) | Aromatic elder |
+*The tour returns to the Rusty Lantern for a deeper exploration.*
+
+**Don:** "Now let's look INSIDE the pub properly. There's more here than meets the eye."
+
+---
+
+### The Bar — And What Lives Beneath
+
+*Don leads the group to the bar.*
+
+**Don:** "Look at the [bar](../../../../pub/bar/ROOM.yml). Standard pub setup — drinks, conversation, Marieke the budtender. But look UNDER the bar..."
+
+*Everyone peers beneath the counter.*
+
+**Don:** "The [Cat Cave](../../../../pub/bar/cat-cave/ROOM.yml). Home to a family of cats — and one dog who thinks he's a cat."
+
+| Resident | File | Personality |
+|----------|------|-------------|
+| Stroopwafel | [cat-stroopwafel.yml](../../../../pub/bar/cat-cave/cat-stroopwafel.yml) | Sweet, layered, the matriarch |
+| Terpie | [cat-terpie.yml](../../../../pub/bar/cat-cave/cat-terpie.yml) | Aromatic elder, knows things |
 | Myrcene | [kitten-myrcene.yml](../../../../pub/bar/cat-cave/kitten-myrcene.yml) | Earthy, relaxing |
 | Limonene | [kitten-limonene.yml](../../../../pub/bar/cat-cave/kitten-limonene.yml) | Citrus, uplifting |
 | Pinene | [kitten-pinene.yml](../../../../pub/bar/cat-cave/kitten-pinene.yml) | Piney, alert |
@@ -1194,6 +1210,134 @@ THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
 | Ocimene | [kitten-ocimene.yml](../../../../pub/bar/cat-cave/kitten-ocimene.yml) | Sweet, herbaceous |
 | Terpinolene | [kitten-terpinolene.yml](../../../../pub/bar/cat-cave/kitten-terpinolene.yml) | Complex, fresh |
 | Biscuit | [biscuits-spot/ROOM.yml](../../../../pub/bar/cat-cave/biscuits-spot/ROOM.yml) | Dog pretending to be cat |
+
+**Marieke:** "The kittens are named after terpenes. Cannabis science meets cat cafe."
+
+**Donna:** "And Biscuit?"
+
+**Don:** "A dog who discovered he fits better with the cats. Has his own [spot](../../../../pub/bar/cat-cave/biscuits-spot/ROOM.yml) in the cave. Nobody questions it."
+
+---
+
+### The Stage — And Palm's Nook
+
+*Don points to the stage area.*
+
+**Don:** "Now look at the [stage](../../../../pub/stage/ROOM.yml). Open mic nights, performances, debates. But tucked behind it..."
+
+*The group follows Don to a cozy corner.*
+
+**Don:** "[Palm's Nook](../../../../pub/stage/palm-nook/ROOM.yml). Where our favorite monkey lives."
+
+**Palm:** *waves* "Home sweet home!"
+
+| Room | File | Purpose |
+|------|------|---------|
+| The Nook | [ROOM.yml](../../../../pub/stage/palm-nook/ROOM.yml) | Palm's main living space |
+| Study | [study/ROOM.yml](../../../../pub/stage/palm-nook/study/ROOM.yml) | [Infinite Typewriters](../../../../pub/stage/palm-nook/study/infinite-typewriters.yml), research |
+| Gym | [gym/ROOM.yml](../../../../pub/stage/palm-nook/gym/ROOM.yml) | [Infinite Climb](../../../../pub/stage/palm-nook/gym/infinite-climb.yml), exercise |
+| Play | [play/ROOM.yml](../../../../pub/stage/palm-nook/play/ROOM.yml) | Games, recreation |
+| Rest | [rest/ROOM.yml](../../../../pub/stage/palm-nook/rest/ROOM.yml) | [Hammock](../../../../pub/stage/palm-nook/rest/hammock.yml), [Silence Cushion](../../../../pub/stage/palm-nook/rest/silence-cushion.yml) |
+
+**Don:** "A monkey needs variety. Study for thinking, gym for climbing, play for fun, rest for... rest. It's a whole apartment back there."
+
+---
+
+### The Basement — Below the Pub
+
+*Don leads the group down creaky stairs.*
+
+**Don:** "The [basement](../../../../pub/basement/ROOM.yml). Where things get stored, forgotten, and occasionally rediscovered."
+
+*Dim light reveals dusty shelves and mysterious crates.*
+
+**Don:** "Every pub needs a basement. This is where the old kegs go. Where the holiday decorations live. Where someone once left a box that nobody's opened since 1987."
+
+---
+
+### The Attic — Magical Storage
+
+*Don leads the group up narrow stairs past the hotel floor.*
+
+**Don:** "The [attic](../../../../pub/rooms/attic/ROOM.yml). Not the rooftop — that's higher. This is where we keep... special things."
+
+| Artifact | File | Power |
+|----------|------|-------|
+| Probability Goggles | [probability-goggles.yml](../../../../pub/rooms/attic/probability-goggles.yml) | See likelihood distributions |
+| Context Window Cloak | [context-window-cloak.yml](../../../../pub/rooms/attic/context-window-cloak.yml) | Expand what you can perceive |
+| Recursion Lantern | [recursion-lantern.yml](../../../../pub/rooms/attic/recursion-lantern.yml) | Light that reflects infinitely |
+| Entropy Flask | [entropy-flask.yml](../../../../pub/rooms/attic/entropy-flask.yml) | Contains pure randomness |
+| Gloves of Semantic Grip | [gloves-of-semantic-grip.yml](../../../../pub/rooms/attic/gloves-of-semantic-grip.yml) | Handle meaning directly |
+| Prancing Pixie Pumps | [prancing-pixie-pumps.yml](../../../../pub/rooms/attic/prancing-pixie-pumps.yml) | Dance through context |
+| ACME Monster Manual | [acme-monster-manual.yml](../../../../pub/rooms/attic/acme-monster-manual.yml) | Catalog of failures |
+| Box of Edge Cases | [box-of-edge-cases.yml](../../../../pub/rooms/attic/box-of-edge-cases.yml) | Every weird input ever |
+| Trunk of Deprecated Features | [trunk-of-deprecated-features.yml](../../../../pub/rooms/attic/trunk-of-deprecated-features.yml) | What we no longer support |
+
+**Palm:** *puts on the Probability Goggles* "I can see... futures branching..."
+
+**Don:** "Careful with those. Some futures are better left unobserved."
+
+---
+
+### The Rooftop — Telescope Views
+
+*Don leads the group to the very top.*
+
+**Don:** "And finally, the [rooftop](../../../../pub/rooftop/ROOM.yml). The highest point of the pub."
+
+*The night sky stretches overhead. A telescope stands ready.*
+
+**Don:** "The [telescope](../../../../pub/rooftop/telescope.yml). Let's see what we can see."
+
+*Don adjusts the telescope.*
+
+---
+
+#### Looking Up: The LLOOOOMM Constellation
+
+**Don:** "First, the sky. See that pattern of stars?"
+
+*Everyone looks up.*
+
+**Don:** "The [LLOOOOMM Constellation](../../../../pub/rooftop/lloooomm-constellation.yml). Seven stars forming... something. An owl? A moose? A recursive loop? Depends on how you look."
+
+---
+
+#### Looking Across: Adjacent Buildings
+
+*Don swings the telescope horizontally.*
+
+**Don:** "Now the buildings. Look west — there's [Leela Manufacturing](../../../../street/lane-neverending/leela-manufacturing/ROOM.yml), smokestacks glowing. Look northwest — the [ACME storefront](../../../../street/lane-neverending/w1/acme-surplus.yml), dark and boarded."
+
+**Palm:** "I can see someone in the Leela logistics room!"
+
+**Don:** "That's the night shift. Knowledge never sleeps."
+
+---
+
+#### Looking Down: The Streets Below
+
+*Don angles the telescope downward.*
+
+**Don:** "And below — [Lane Neverending](../../../../street/lane-neverending/center/ROOM.yml) stretching east and west. The cobblestones. The lamp posts. The infinite loop."
+
+**Donna:** "I can see the burned-out Cybertruck from here!"
+
+**Don:** "Still smoldering. Still can't tell it from a dumpster."
+
+---
+
+#### Rooftop Amenities
+
+| Item | File | Purpose |
+|------|------|---------|
+| Telescope | [telescope.yml](../../../../pub/rooftop/telescope.yml) | See stars, buildings, streets |
+| Armchair | [armchair.yml](../../../../pub/rooftop/armchair.yml) | Comfortable observation |
+| Herb Garden | [herb-garden.yml](../../../../pub/rooftop/herb-garden.yml) | Fresh ingredients |
+| Filter Box | [filter-box.yml](../../../../pub/rooftop/filter-box.yml) | Signal processing |
+| Jenever Glass | [jenever-glass.yml](../../../../pub/rooftop/jenever-glass.yml) | Dutch courage |
+
+**Don:** "A rooftop should be a place for contemplation. Stars above, streets below, a drink in hand. The whole world visible if you know where to look."
 
 ---
 
