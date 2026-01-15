@@ -1750,7 +1750,7 @@ The tool that saw itself being born:
 
 ## Scene 36 — Post-Session Design Document
 
-Created [designs/PR-CURSOR-MIRROR-GENESIS.md](../../../../../../../designs/PR-CURSOR-MIRROR-GENESIS.md) — the hum-dinger:
+Created [designs/PR-CURSOR-MIRROR-GENESIS.md](../../../../../../designs/PR-CURSOR-MIRROR-GENESIS.md) — the hum-dinger:
 
 - The 18-hour Play-Learn-Lift arc
 - 11,208 lines of new code/documentation
@@ -1862,7 +1862,7 @@ One photo of Andy Looney → reverse-engineered to 15 artifacts → [33-turn Sto
 
 - [IMAGE-GALLERY.md](../../../../../skills/cursor-mirror/IMAGE-GALLERY.md) — The curated gallery
 - [README.md](../../../../../skills/cursor-mirror/README.md) — Added Image Archaeology section
-- [PR-CURSOR-MIRROR-GENESIS.md](../../../../../../../designs/PR-CURSOR-MIRROR-GENESIS.md) — Updated with image work
+- [PR-CURSOR-MIRROR-GENESIS.md](../../../../../../designs/PR-CURSOR-MIRROR-GENESIS.md) — Updated with image work
 
 ---
 
