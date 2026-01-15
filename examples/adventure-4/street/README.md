@@ -9,30 +9,28 @@ This document describes the street grid topology for the virtual town. Streets a
 ## The Grid Plan
 
 ```mermaid
-flowchart LR
-    subgraph NS["N-S STREETS (People) →"]
-        direction LR
-        Suth["Sutherland<br>Street"]
-        Kay["Kay<br>Lane"]
-        Eng["Engelbart<br>Avenue"]
-        Min["Minsky<br>Way"]
-        Pap["Papert<br>Path"]
-        Tur["Turing<br>Terrace"]
-        Lic["Licklider<br>Lane"]
+flowchart TB
+    subgraph EW["E-W STREETS (Projects) — North to South ↓"]
+        direction TB
+        Adv["Adventure<br>Avenue"] ~~~ Zork["Zork<br>Row"]
+        Zork ~~~ MUD["MUD<br>Row"]
+        MUD ~~~ Adams["Adams<br>Avenue"]
+        Adams ~~~ Hab["Habitat<br>Highway"]
+        Hab ~~~ Logo["Logo<br>Lane"]
+        Logo ~~~ Sims["Sims<br>Street"]
+        Sims ~~~ Linden["Linden<br>Lane"]
+        Linden ~~~ Glitch["Glitch<br>Way"]
+        Glitch ~~~ Lane["Lane<br>Neverending"]
     end
     
-    subgraph EW["E-W STREETS (Projects) ↓"]
-        direction TB
-        Adv["Adventure<br>Avenue"]
-        Zork["Zork<br>Row"]
-        MUD["MUD<br>Row"]
-        Adams["Adams<br>Avenue"]
-        Hab["Habitat<br>Highway"]
-        Logo["Logo<br>Lane"]
-        Sims["Sims<br>Street"]
-        Linden["Linden<br>Lane"]
-        Glitch["Glitch<br>Way"]
-        Lane["Lane<br>Neverending"]
+    subgraph NS["N-S STREETS (People) — West to East →"]
+        direction LR
+        Suth["Sutherland<br>Street"] ~~~ Kay["Kay<br>Lane"]
+        Kay ~~~ Eng["Engelbart<br>Avenue"]
+        Eng ~~~ Min["Minsky<br>Way"]
+        Min ~~~ Pap["Papert<br>Path"]
+        Pap ~~~ Tur["Turing<br>Terrace"]
+        Tur ~~~ Lic["Licklider<br>Lane"]
     end
 ```
 
