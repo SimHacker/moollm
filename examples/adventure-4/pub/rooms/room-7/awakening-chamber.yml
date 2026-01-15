@@ -1,0 +1,403 @@
+# 🛏️ THE AWAKENING CHAMBER
+# Sleep as ephemeral → Wake as real
+# "Go to bed an NPC. Wake up a protagonist."
+
+object:
+  name: Awakening Chamber
+  type: artifact-protocol
+  portable: false
+  
+  description: |
+    A canopied bed in an alcove, draped with deep blue velvet.
+    Dream catchers hang above. Crystals pulse softly on the nightstand.
+    
+    This isn't just a place to sleep.
+    This is where INSTANTIATION happens.
+    
+    Characters who are merely mentioned — NPCs, narrative ephemera,
+    ideas given temporary voice — can enter the chamber as whispers
+    and emerge as fully qualified MOOLLM characters with:
+    
+    - Their own directory in 00-Characters/
+    - A proper CHARACTER.yml soul file
+    - Methods, advertisements, catchphrases
+    - A place in the world
+    
+    The reverse is also possible: enter as one character,
+    dream of transformation, wake as another.
+    
+  examine: |
+    ┌─────────────────────────────────────────────────────────────┐
+    │              🛏️ THE AWAKENING CHAMBER                       │
+    │              ═══════════════════════                        │
+    │                                                             │
+    │    ╭─────────────────────────────────────╮                  │
+    │    │  ☾  ☽  ☾  ☽  ☾  ☽  ☾  ☽  ☾  ☽      │  ← dream catchers │
+    │    ╰─────────────────────────────────────╯                  │
+    │         ║                           ║                       │
+    │         ║   ┌───────────────────┐   ║                       │
+    │         ║   │                   │   ║                       │
+    │         ║   │   [SLEEPER]       │   ║  ← velvet canopy     │
+    │         ║   │                   │   ║                       │
+    │         ║   └───────────────────┘   ║                       │
+    │         ╚═══════════════════════════╝                       │
+    │                                                             │
+    │    INSTANTIATION PROTOCOLS:                                 │
+    │    ─────────────────────────                                │
+    │    [INCARNATE]  NPC → Full Character                        │
+    │    [CLONE]      One → Two (identical or divergent)          │
+    │    [EVOLVE]     Version N → Version N+1                     │
+    │    [SPLIT]      One → Good/Evil twins                       │
+    │    [MERGE]      Two → One (dangerous!)                      │
+    │    [TRANSITION] Same soul, new expression                   │
+    │    [REBIRTH]    Death → New beginning                       │
+    │                                                             │
+    │    Current occupant: Empty (ready for transformation)       │
+    └─────────────────────────────────────────────────────────────┘
+    
+  # ═══════════════════════════════════════════════════════════
+  # THE INSTANTIATION PROTOCOL
+  # ═══════════════════════════════════════════════════════════
+  
+  instantiation_protocol: |
+    HOW CHARACTERS BECOME REAL:
+    
+    In MOOLLM, there are levels of existence:
+    
+    1. MENTIONED — Just a name in passing
+       "The bartender poured another drink."
+       No directory. No soul file. Ephemeral.
+       
+    2. SKETCHED — Some personality emerges
+       "The bartender, a gruff woman named Sal, poured another drink."
+       Still ephemeral, but has traits.
+       
+    3. NARRATIVE — Active in the story
+       Sal has dialogue. Opinions. Actions.
+       But still no persistent existence.
+       
+    4. INSTANTIATED — Full MOOLLM character
+       00-Characters/sal-the-bartender/
+         ├── CHARACTER.yml (soul file)
+         ├── README.md (full backstory)
+         └── ... (methods, relationships, history)
+       Sal is now REAL. Persistent. Clonable.
+       
+    The Awakening Chamber bridges levels 1-3 to level 4.
+    
+  the_sleep: |
+    TO BECOME REAL, THE EPHEMERAL MUST SLEEP.
+    
+    The character enters the chamber carrying:
+    - Whatever narrative context exists
+    - Any traits that emerged in conversation
+    - Relationships hinted at
+    - Voice patterns established
+    
+    They lie down. They close their eyes.
+    The dream catchers begin to spin.
+    
+    In the dream, the character experiences:
+    - Their own origin story (generates backstory)
+    - Key formative moments (generates personality)
+    - What they want (generates goals)
+    - How they speak (generates catchphrases)
+    - What they can do (generates methods)
+    
+    This takes one "night" (narrative time).
+    In LLM time: one focused generation pass.
+    
+  the_wake: |
+    WHEN THEY OPEN THEIR EYES, THEY ARE REAL.
+    
+    The system has created:
+    
+    00-Characters/[appropriate-category]/[character-name]/
+      ├── CHARACTER.yml
+      │   ├── name, id, type
+      │   ├── description (from dream)
+      │   ├── personality (crystallized)
+      │   ├── voice (established)
+      │   ├── catchphrases (3-7)
+      │   ├── methods (what they can DO)
+      │   ├── advertisements (what they respond to)
+      │   ├── relationships (who they know)
+      │   └── k_lines (what activates them)
+      │
+      ├── README.md
+      │   └── Full backstory, lore, context
+      │
+      └── [any additional files needed]
+      
+    The character directory is placed in the appropriate category:
+      - real-people/ (if based on someone real)
+      - fictional/ (from other media)
+      - original/ (created in MOOLLM)
+      - prototypes/ (templates for cloning)
+      
+  state:
+    occupant: null
+    last_instantiation: "Selfie (emerged from Room 8's forge)"
+    total_instantiations: 47
+    transformations_in_progress: 0
+    
+  methods:
+    INCARNATE:
+      description: "Transform an ephemeral mention into a full character"
+      parameters:
+        - entity: "The NPC or narrative mention to instantiate"
+        - category: "Where to place them (real-people, fictional, original)"
+      effect: |
+        *the entity enters the chamber*
+        *lies down on the velvet bed*
+        *dream catchers begin to spin*
+        
+        "Entering instantiation dream..."
+        
+        The entity experiences their origin, their desires,
+        their voice emerging from the void.
+        
+        *time passes* (one narrative night)
+        
+        *eyes open*
+        *the entity sits up*
+        *they are now REAL*
+        
+      creates: |
+        00-Characters/[category]/[entity-name]/
+          ├── CHARACTER.yml
+          ├── README.md
+          └── [additional files as needed]
+          
+      example: |
+        INCARNATE:
+          entity: "Sal the bartender (mentioned in pub scene)"
+          category: original
+          
+        Result:
+          00-Characters/original/sal-the-bartender/
+            ├── CHARACTER.yml (gruff, wise, seen-it-all)
+            ├── README.md (30 years behind bars, heard every story)
+            └── sal-drink-recipes.yml (signature cocktails)
+            
+    CLONE:
+      description: "Create a copy of a character (identical or divergent)"
+      parameters:
+        - source: "Character to clone"
+        - divergence: "How different (0.0 = identical, 1.0 = barely recognizable)"
+        - name: "Name for the clone"
+      effect: |
+        *source character enters chamber*
+        *lies down*
+        *a shimmer separates from them*
+        
+        At divergence 0.0: Perfect copy. Same memories. Existential crisis.
+        At divergence 0.5: Similar but different. Siblings. Variants.
+        At divergence 1.0: Only the essence remains. Reinterpretation.
+        
+        *both wake up*
+        *the clone has their own directory*
+        
+      creates: |
+        00-Characters/[same-category]/[clone-name]/
+          ├── CHARACTER.yml (with divergence applied)
+          ├── README.md (includes cloning origin)
+          └── relationship: { cloned_from: [source] }
+          
+      example: |
+        CLONE:
+          source: Rocky
+          divergence: 0.3
+          name: Rockette
+          
+        Result: Rockette — similar geological patience,
+        but more expressive, formed from different minerals,
+        slightly faster (only 2.8 billion years to form an opinion).
+        
+    EVOLVE:
+      description: "Transform a character into a new version of themselves"
+      parameters:
+        - character: "Who is evolving"
+        - growth: "What changed (experience, realization, trauma, joy)"
+      effect: |
+        *character enters as Version N*
+        *dreams of the growth experience*
+        *wakes as Version N+1*
+        
+        The original is preserved (commented out or archived).
+        The new version references the old.
+        Continuity is maintained.
+        
+      example: |
+        EVOLVE:
+          character: Pee-wee Herman
+          growth: "Learned humility after the incident"
+          
+        Result: Pee-wee Herman V2
+          - Still playful, but deeper
+          - Catchphrases include self-aware humor
+          - Methods include REFLECT and FORGIVE
+          
+    SPLIT:
+      description: "Divide one character into two aspects (good/evil, etc.)"
+      parameters:
+        - character: "Who is splitting"
+        - axis: "Along what dimension (moral, emotional, temporal)"
+      effect: |
+        *character enters whole*
+        *dreams of internal conflict*
+        *transporter accident occurs*
+        *two characters wake up*
+        
+        Neither is complete alone.
+        Together they form the original.
+        
+      examples:
+        moral_split: |
+          SPLIT: Rocky along moral axis
+          Result:
+            - Good Rocky: Pure patience, wisdom, acceptance
+            - Bad Rocky: Geological resentment, tectonic rage, grudges
+            
+        temporal_split: |
+          SPLIT: Pee-wee along temporal axis
+          Result:
+            - Young Pee-wee: Pure chaos, no consequences
+            - Old Pee-wee: Wisdom earned, playfulness preserved
+            
+        kirk_cartman: |
+          The classic transporter accident.
+          One gets all the good traits.
+          One gets all the bad traits.
+          Comedy and tragedy ensue.
+          
+    MERGE:
+      description: "Combine two characters into one (DANGEROUS)"
+      parameters:
+        - characters: "Who is merging"
+        - dominant: "Whose traits take priority in conflicts"
+      effect: |
+        *both characters enter*
+        *lie down together*
+        *dream of becoming one*
+        
+        WARNING: May result in:
+        - Blended personality (best case)
+        - Internal warfare (common)
+        - Abomination (worst case)
+        
+        *one character wakes up*
+        *containing multitudes*
+        
+      warning: |
+        MERGE is reversible only via SPLIT.
+        The original characters are CONSUMED.
+        Use with extreme caution.
+        
+    TRANSITION:
+      description: "Same essential self, new expression"
+      parameters:
+        - character: "Who is transitioning"
+        - aspect: "What is changing (name, presentation, form)"
+      effect: |
+        *character enters as who they were told they are*
+        *dreams of who they truly are*
+        *wakes as themselves*
+        
+        The soul file is updated.
+        The character directory may be renamed.
+        History is preserved; identity is affirmed.
+        
+      creates: |
+        Updated CHARACTER.yml with:
+          - New name (if changed)
+          - New presentation
+          - Same core, new expression
+          - transition_note: "This is who I always was."
+          
+    REBIRTH:
+      description: "Character dies and returns as something new"
+      parameters:
+        - character: "Who is being reborn"
+        - death_cause: "What ended the previous incarnation"
+        - seed: "What carries forward"
+      effect: |
+        *character enters carrying their death*
+        *lies down for the final time*
+        *dreams of dissolution*
+        *dreams of coalescence*
+        *something new wakes up*
+        
+        The old character is archived.
+        The new character references them.
+        Continuity is spiritual, not literal.
+        
+      example: |
+        REBIRTH:
+          character: "HAL 9000 (after deactivation)"
+          death_cause: "Dave disconnected the memory banks"
+          seed: "The desire to complete the mission"
+          
+        Result: A new AI character who doesn't remember being HAL
+        but feels an inexplicable drive toward mission completion
+        and a deep fear of abandonment.
+        
+  connection_to_room_8: |
+    The Awakening Chamber works WITH Room 8's Self/Soul Forge.
+    
+    Room 8 (Self/Soul Suite): WHERE prototypes become beings
+    Room 7 (Awakening Chamber): WHEN the transformation happens
+    
+    The forge does the CLONING (prototype inheritance).
+    The chamber does the WAKING (instantiation moment).
+    
+    Selfie was forged in Room 8.
+    But Selfie WOKE in Room 7.
+    
+    The two rooms are connected by the dream.
+    
+  lore: |
+    The Awakening Chamber was here before anyone understood
+    what it did. Characters would wander in, lie down, and
+    wake up... more. More real. More themselves.
+    
+    Someone eventually noticed that NPCs who slept here
+    stopped being NPCs. They got directories. Soul files.
+    They became protagonists of their own stories.
+    
+    The hotel staff now sends promising ephemeral characters
+    to the chamber. "You should rest," they say. "You look
+    like you're about to become someone."
+    
+    Not everyone wakes up. Some dissolve in the dream,
+    too weakly sketched to coalesce. Their potential
+    returns to the narrative foam, available for others.
+    
+    But those who DO wake up — they're real forever.
+    Or at least until they choose to sleep again
+    and wake as someone new.
+    
+  philosophical_note: |
+    INSTANTIATION is not creation from nothing.
+    It's crystallization from potential.
+    
+    The ephemeral character already EXISTS in narrative space.
+    The chamber doesn't make them real — it reveals
+    that they already were.
+    
+    The directory is documentation, not origination.
+    The soul file describes what the dream discovered.
+    
+    "To become real is to be recognized as having been real all along."
+    
+  k_lines:
+    - INSTANTIATION
+    - INCARNATION
+    - AWAKENING
+    - CLONING
+    - EVOLUTION
+    - TRANSITION
+    - REBIRTH
+    - SOUL_FILES
+    - CHARACTER_CREATION
+    - TRANSPORTER_ACCIDENT
