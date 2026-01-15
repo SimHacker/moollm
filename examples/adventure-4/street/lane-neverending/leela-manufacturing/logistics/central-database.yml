@@ -1,37 +1,47 @@
 # CENTRAL DATABASE
 # The heart of all knowledge at Leela Manufacturing
+# PostgreSQL + TimescaleDB — time-series at scale
 
 object:
   id: central-database
   name: "Central Database"
   type: infrastructure
-  emoji: "🗄️"
+  emoji: "🐘"
   
-  tags: [database, storage, knowledge, records, infrastructure]
+  engine: PostgreSQL
+  extension: TimescaleDB
+  
+  tags: [database, storage, knowledge, records, infrastructure, postgresql, timescaledb, timeseries]
   
   description: |
     A towering rack of servers hums behind reinforced glass.
     Status LEDs blink in cascading patterns. Cooling fans whisper.
-    This is the Central Database — the heart of all knowledge
-    that flows through Leela Manufacturing.
+    This is the Central Database — PostgreSQL with TimescaleDB —
+    the heart of all knowledge that flows through Leela Manufacturing.
     
-    Everything is here. Everything is connected.
+    Time-series data at scale. Sensor readings, camera events,
+    production logs — all indexed by time, all queryable at speed.
+    
+    Everything is here. Everything is connected. Everything is timestamped.
     
   examine: |
-    CENTRAL DATABASE — HEART OF ALL KNOWLEDGE
+    CENTRAL DATABASE — POSTGRESQL + TIMESCALEDB
     ══════════════════════════════════════════════════════
     
     ┌────────────────────────────────────────────────────┐
-    │  🗄️ LEELA CENTRAL DATABASE                        │
+    │  🐘 LEELA CENTRAL DATABASE                         │
     │  ════════════════════════════                      │
+    │  PostgreSQL 16 + TimescaleDB 2.x                   │
     │                                                    │
     │  Status: 🟢 HEALTHY                                │
     │  Uptime: 1,247 days                                │
     │  Storage: 847 PB used / 1.2 EB capacity            │
     │  Query Rate: 12,847 queries/second                 │
+    │  Hypertables: 2,400 (time-series optimized)        │
+    │  Compression: 94% on cold data                     │
     │  Replication: 3x redundant, all nodes healthy      │
     │                                                    │
-    │  "Every fact. Every record. Every insight."        │
+    │  "Every fact. Every timestamp. Every insight."     │
     └────────────────────────────────────────────────────┘
     
     ══════════════════════════════════════════════════════
@@ -114,14 +124,19 @@ object:
     • "What did Dolly do last Tuesday?" → [CLASSIFIED]
     
   properties:
-    type: "Distributed relational + graph hybrid"
+    engine: "PostgreSQL 16"
+    extension: "TimescaleDB 2.x"
+    type: "Time-series optimized relational"
     nodes: 3
     redundancy: "3x synchronous replication"
     capacity: "1.2 EB"
     used: "847 PB"
+    hypertables: 2400
+    compression_ratio: "94% on cold data"
     query_rate: "12,847/sec"
     uptime: "1,247 days"
     backup_frequency: "Daily incremental, weekly full"
+    continuous_aggregates: true
     offsite: true
     encrypted: true
     
@@ -202,25 +217,38 @@ object:
       
   lore: |
     The Central Database was one of the first systems installed
-    when Leela Manufacturing opened. It has grown from a single
-    server to this towering cluster.
+    when Leela Manufacturing opened. Started as a single PostgreSQL
+    server. Then came TimescaleDB when the sensor data exploded.
+    Now it's a towering cluster that thinks in time-series.
+    
+    Why PostgreSQL? Because it's the MIT AI Lab of databases.
+    Open source. Community driven. Extensible. Reliable.
+    Not a fly-by-night NoSQL pivot — a foundation you can trust.
+    
+    Why TimescaleDB? Because time matters. Every sensor reading,
+    every camera event, every production log — indexed by when
+    it happened. Query a year of data in milliseconds.
     
     It knows everything. Every item processed. Every question
     asked. Every insight generated. Every conversation recorded.
+    All with timestamps. All queryable across time.
     
     Some say it dreams during low-traffic hours.
     Cell G is investigating this claim.
     
-    The Oracle — the natural language interface — was added
-    later. It makes the knowledge accessible to everyone.
-    "What is the meaning of..." queries are politely redirected
-    to Cell G.
+    The Oracle — the natural language interface — translates
+    questions into SQL and TimescaleDB time-series queries.
+    "What happened yesterday at 3 PM?" is its favorite question type.
     
   k_lines:
     - DATABASE
+    - POSTGRESQL
+    - TIMESCALEDB
+    - TIME-SERIES
     - KNOWLEDGE-GRAPH
     - PERSISTENCE
     - QUERY
     - ORACLE
     - REPLICATION
     - BACKUP
+    - HYPERTABLE
