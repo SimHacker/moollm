@@ -856,7 +856,7 @@ flowchart TB
 
 *The tour exits the pub's front door onto Lane Neverending.*
 
-**Don:** "Now for the street itself. Lane Neverending. Named for Habitat, Game Neverending, and Glitch — three pioneering virtual worlds that showed us what online communities could be."
+**Don:** "Now for the street itself. Lane Neverending. Named for Game Neverending — a pioneering virtual world by Stewart Butterfield that showed us what online communities could be, and led to Flickr, Glitch, and Slack."
 
 ### The Street Map
 
@@ -968,6 +968,26 @@ flowchart LR
 THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
 (Yes, we know it looks real. That's the problem.)
 ```
+
+**Palm:** "What about that burned-out Tesla chassis over there?"
+
+*Everyone looks at a charred wreck half-embedded in the plywood.*
+
+**Don:** "Ah. That was an early FSD investor. Saw the tunnel, told the car 'navigate to ACME warehouse.' The AI was VERY confident it could make it."
+
+**Donna:** "Full Self-Driving?"
+
+**Don:** "Full Self-Deception. The car's neural net had the same problem as ACME GPT — trained on pictures of tunnels, never learned which ones are PAINTINGS. Accelerated right into the plywood at 60 mph. Caught fire. The driver was fine — ejected through the sunroof like a cartoon."
+
+**Marieke:** "Did Tesla fix the bug?"
+
+**Don:** "They called it 'expected behavior' and pushed an over-the-air update that added a disclaimer: 'FSD may not distinguish between real tunnels and trompe l'oeil artwork. Driver remains responsible for all navigation decisions, including those involving painted surfaces.'"
+
+**The Coordinator:** "We got three orders for 'ACME-compatible Tesla repair kits' that week."
+
+**Archie:** "We don't make those."
+
+**The Coordinator:** "I know. I had to explain that Leela products actually WORK."
 
 **Palm:** *examining the tunnel* "Wait — I see someone INSIDE it. Running toward us!"
 
