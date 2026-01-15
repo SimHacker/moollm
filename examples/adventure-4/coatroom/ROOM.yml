@@ -33,6 +33,8 @@ room:
     
 The exit WEST leads to the pub's garden for outdoor dining.
 The exit NORTHWEST is a shortcut diagonally to the pub bar!
+
+(Coatroom is EAST of Garden, so exit WEST goes to Garden.)
   
   occupants: []
   
@@ -42,13 +44,13 @@ The exit NORTHWEST is a shortcut diagonally to the pub bar!
     - costume-racks.yml
   
   exits:
-    east:
+    west:
       destination: ../garden/
       description: |
         The path back to the pub's garden. Tables, chairs, sunshine,
         and a moment to admire your new look in the daylight.
         
-    northeast:
+    northwest:
       destination: ../pub/
       description: |
         A narrow passage cuts diagonally toward the pub's main room.

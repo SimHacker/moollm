@@ -276,15 +276,6 @@ room:
       aliases: [garden, outside, out, back, patio]
       
     SOUTHWEST:
-      destination: ../coatroom/
-      description: |
-        A passage leads toward the Costume Emporium. You can hear
-        the rustle of fabric and the whisper of sequins calling to you.
-        
-        "NEED A NEW LOOK? COSTUMES THIS WAY →"
-      aliases: [coatroom, costumes, emporium, wardrobe]
-      
-    SOUTHEAST:
       destination: ../kitchen/
       description: |
         A narrow service corridor angles through to the kitchen.
@@ -294,6 +285,15 @@ room:
         The kitchen serves both the garden (outdoor dining) and the bar
         (food orders, supplies). This is the diagonal shortcut.
       aliases: [kitchen, service, corridor, shortcut, staff]
+      
+    SOUTHEAST:
+      destination: ../coatroom/
+      description: |
+        A passage leads toward the Costume Emporium. You can hear
+        the rustle of fabric and the whisper of sequins calling to you.
+        
+        "NEED A NEW LOOK? OR NEW MIND AND PERSONALITY? COSTUMES THIS WAY →"
+      aliases: [coatroom, costumes, emporium, wardrobe]
       
     UP:
       destination: rooms/

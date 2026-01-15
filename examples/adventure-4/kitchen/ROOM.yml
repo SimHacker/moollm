@@ -32,6 +32,8 @@ room:
     
     The exit EAST leads to the pub's garden — outdoor dining!
     The exit NORTHEAST is a staff shortcut diagonally to the pub bar.
+    
+    (Kitchen is WEST of Garden, so exit EAST goes to Garden.)
   
   occupants: []
   
@@ -45,14 +47,14 @@ room:
     - trashcan.yml
   
   exits:
-    west:
+    east:
       destination: ../garden/
       description: |
         The garden gate leads to the pub's back garden — tables,
         chairs, flowers, and the comforting smell of ale from the pub.
         The outdoor dining area. Your domain.
         
-    northwest:
+    northeast:
       destination: ../pub/
       description: |
         A narrow service corridor cuts diagonally through to the pub.

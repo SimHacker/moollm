@@ -116,7 +116,7 @@ room:
         WARNING: The maze is dark. GET LAMP first!
       aliases: [gate, maze, out]
       
-    east:
+    west:
       destination: ../kitchen/
       description: |
         A narrow path squeezes between the pub wall and a fence,
@@ -127,7 +127,7 @@ room:
         The Fantastipants Kitchen's garden gate.
       aliases: [side, yard, kitchen, overgrown]
       
-    west:
+    east:
       destination: ../coatroom/
       description: |
         A flagstone path winds between overgrown hedges toward what

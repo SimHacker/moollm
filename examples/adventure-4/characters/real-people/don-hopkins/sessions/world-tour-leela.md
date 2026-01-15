@@ -212,18 +212,18 @@ flowchart TB
              ↙   ↓   ↘
             SW   S   SE
            ╱     │     ╲
-       COAT ←─W─GARDEN─E─→ KITCHEN
+    KITCHEN ←─W─GARDEN─E─→ COATROOM
                  │
                  S
                  ↓
                MAZE
 ```
 
-**Don:** "Every exit has a matching return. Go southwest to Coatroom, come back northeast to Pub. Go south to Garden, come back north to Pub. Consistent, spatial, reflexive."
+**Don:** "Every exit has a matching return. Go southwest to Kitchen, come back northeast to Pub. Go south to Garden, come back north to Pub. Consistent, spatial, reflexive."
 
-**Don:** "And notice — Coatroom and Kitchen connect HORIZONTALLY to Garden, not diagonally to Maze. The diamond is:
+**Don:** "And notice — Kitchen and Coatroom connect HORIZONTALLY to Garden, not diagonally to Maze. The diamond is:
 - **PUB** at top (N)
-- **COAT** at left (W), **KITCHEN** at right (E)
+- **KITCHEN** at left (W), **COATROOM** at right (E)
 - **GARDEN** in the center
 - **MAZE** at bottom (S)"
 
@@ -231,14 +231,14 @@ flowchart TB
 
 **Don:** "Exactly! From Garden:
 - **North** → Pub
-- **West** → Coatroom  
-- **East** → Kitchen
+- **West** → Kitchen
+- **East** → Coatroom
 - **South** → Maze
 
 And from the Pub, three ways to reach the Garden:
 1. Direct: south
-2. Via Coatroom: southwest → east  
-3. Via Kitchen: southeast → west
+2. Via Kitchen: southwest → east
+3. Via Coatroom: southeast → west
 
 This isn't just convenience — it's **topology**. The space has SHAPE. You can take shortcuts. You can avoid people. You can discover that the Kitchen and Coatroom both open onto the Garden and think 'oh, THAT'S how this place is laid out.'"
 
@@ -286,19 +286,19 @@ This isn't just convenience — it's **topology**. The space has SHAPE. You can 
 flowchart TB
     LANE[Lane Neverending]
     PUB[PUB<br/>Bar, Stage, Arcade]
-    COAT[Coatroom]
     KITCHEN[Kitchen]
+    COATROOM[Coatroom]
     GARDEN[Garden]
     MAZE[Maze]
     ENDROOM[End]
     HOME[Home]
-    
+
     LANE -->|south| PUB
     PUB -->|south| GARDEN
-    PUB -->|southwest| COAT
-    PUB -->|southeast| KITCHEN
-    COAT -->|east| GARDEN
-    KITCHEN -->|west| GARDEN
+    PUB -->|southwest| KITCHEN
+    PUB -->|southeast| COATROOM
+    KITCHEN -->|east| GARDEN
+    COATROOM -->|west| GARDEN
     GARDEN -->|south| MAZE
     MAZE -->|deep| ENDROOM
     ENDROOM -->|up| HOME
@@ -309,21 +309,21 @@ flowchart TB
 |------|-----------|-----|
 | Lane | south | Pub |
 | Pub | south | Garden |
-| Pub | southwest | Coatroom |
-| Pub | southeast | Kitchen |
-| Coatroom | east | Garden |
-| Coatroom | northeast | Pub |
-| Kitchen | west | Garden |
-| Kitchen | northwest | Pub |
+| Pub | southwest | Kitchen |
+| Pub | southeast | Coatroom |
+| Kitchen | east | Garden |
+| Kitchen | northeast | Pub |
+| Coatroom | west | Garden |
+| Coatroom | northwest | Pub |
 | Garden | north | Pub |
-| Garden | west | Coatroom |
-| Garden | east | Kitchen |
+| Garden | west | Kitchen |
+| Garden | east | Coatroom |
 | Garden | south | Maze |
 
 **Multiple Paths to Garden:**
 - Direct: Pub → south → Garden
-- Via Coatroom: Pub → southwest → Coatroom → east → Garden
-- Via Kitchen: Pub → southeast → Kitchen → west → Garden
+- Via Kitchen: Pub → southwest → Kitchen → east → Garden
+- Via Coatroom: Pub → southeast → Coatroom → west → Garden
 
 ### Featured Pub Artifacts
 
@@ -1684,7 +1684,7 @@ Thinker claims task → processes → metadata to hypertable
 
 ### The Fleet
 
-*Henri Blackwood, the Dispatch Master, shows the group around.*
+*Henry Minskison, the Dispatch Master (former stagecoach driver and bear trainer), shows the group around.*
 
 | Vehicle | Horses | Capacity | Best For |
 |---------|--------|----------|----------|
