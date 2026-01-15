@@ -1750,7 +1750,7 @@ The tool that saw itself being born:
 
 ## Scene 36 — Post-Session Design Document
 
-Created [designs/PS-CURSOR-MIRROR-GENESIS.md](../../designs/PS-CURSOR-MIRROR-GENESIS.md) — the hum-dinger:
+Created [designs/PS-CURSOR-MIRROR-GENESIS.md](../../../../../designs/PS-CURSOR-MIRROR-GENESIS.md) — the hum-dinger:
 
 - The 18-hour Play-Learn-Lift arc
 - 11,208 lines of new code/documentation
