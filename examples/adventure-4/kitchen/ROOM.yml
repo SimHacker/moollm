@@ -30,8 +30,8 @@ room:
     
     In the corner, a TRASH CAN lurks. It's deeper than it looks.
     
-    The exit EAST leads back to the Chamber of Commencement, from which
-    you can go NORTH to the maze, or EAST to the costume emporium.
+    The exit EAST leads back to the pub's garden, from which
+    you can go NORTH to the maze, or SOUTH to the pub.
   
   occupants: []
   
@@ -46,10 +46,10 @@ room:
   
   exits:
     east:
-      destination: ../start/
+      destination: ../garden/
       description: |
-        The archway back to the Chamber of Commencement. You can see
-        the warm glow of the starting room from here.
+        The garden gate leads back to the pub's back garden — tables,
+        chairs, flowers, and the comforting smell of ale from the pub.
   
   world_position:
     x: -1

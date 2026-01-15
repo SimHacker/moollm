@@ -266,5 +266,5 @@ tower/            # Height, wind, view mechanics
 
 | ⬆️ Up | [adventure-4/](../) |
 |-------|---------------------|
-| 🚪 Start | [../start/](../start/) |
+| 🚪 Garden | [../garden/](../garden/) |
 | 🏆 End | [../end/](../end/) |

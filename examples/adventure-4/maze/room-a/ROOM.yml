@@ -35,16 +35,16 @@ room:
     Passages lead in all directions. They all look the same.
     This is MOST irregular.
   
-  # This room connects BACK to start
-  note: "The SOUTH exit leads back to the Chamber of Commencement"
+  # This room connects BACK to the garden
+  note: "The NORTH exit leads back to the pub's garden"
   
   exits:
     north:
+      destination: ../../garden/
+      description: "Wait... is that daylight? Could this lead back to the garden?"
+    south:
       destination: ../room-c/
       description: "A passage that looks exactly like all the others"
-    south:
-      destination: ../../start/
-      description: "Wait... is that lamplight? Could this lead back?"
     east:
       destination: ../room-b/
       description: "A passage. Twisty. Little. You know the drill."

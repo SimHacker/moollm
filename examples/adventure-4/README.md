@@ -29,7 +29,7 @@ adventure-4/
 ├── personas/               # Wearable identities
 │   └── captain-ashford.yml # The Grue Slayer persona
 │
-├── start/                  # Chamber of Commencement
+├── garden/                 # Back garden (spawn point, GET LAMP here!)
 ├── kitchen/                # Mother's domain (note, fridge, Tom)
 ├── coatroom/               # Maurice's identity laboratory
 ├── pub/                    # The Rusty Lantern → Gezelligheid Grotto
@@ -192,7 +192,7 @@ The LOG is for quick reference. The TRANSCRIPT is for reading.
 ## 🎬 Quick Start
 
 ```
-> GET LAMP              # In start/ — don't enter maze without it
+> GET LAMP              # In garden/ — don't enter maze without it
 > GO WEST               # Kitchen — read Mother's note!
 > READ NOTE             # Make promises. Write back.
 > GO SOUTH              # Pub — meet Marieke. Visit the Cat Cave.

@@ -31,8 +31,8 @@ room:
       "THE MIRROR SEES MORE THAN YOUR CLOTHES.
        IT SEES YOUR SOUL. AND SOULS CAN BE TAILORED TOO."
     
-    The exit WEST leads back to the Chamber of Commencement, from which
-    you can go NORTH to the maze, or WEST to the kitchen (for food!).
+The exit WEST leads back to the pub's garden, from which
+you can go NORTH to the maze, or SOUTH to the pub (for ale!).
   
   occupants: []
   
@@ -43,10 +43,10 @@ room:
   
   exits:
     west:
-      destination: ../start/
+      destination: ../garden/
       description: |
-        The archway back to the Chamber of Commencement. Your old
-        identity awaits. Or your new one, depending on perspective.
+        The path back to the pub's garden. Tables, chairs, sunshine,
+        and a moment to admire your new look in the daylight.
         
     north:
       destination: ../characters/

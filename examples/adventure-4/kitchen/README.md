@@ -11,7 +11,7 @@ An exact replica of the Fantastipants family kitchen from Wobblebrook-upon-Squig
 
 **Your first move should be:**
 
-1. **GET LAMP** (from start room)
+1. **GET LAMP** (from the garden)
 2. **Come to the kitchen**
 3. **READ NOTE** on the table
 4. **⭐ WRITE A REPLY TO MOTHER ⭐**
@@ -184,7 +184,7 @@ Your navigation pet! Part GPS, part friend, part oracle.
 
 | Direction | Destination |
 |-----------|-------------|
-| 🚪 East | [start/](../start/) — Chamber of Commencement |
+| 🚪 East | [garden/](../garden/) — Back Garden |
 | 🎭 (via start) | [coatroom/](../coatroom/) — Be anyone! |
 | 🌀 (via start) | [maze/](../maze/) — The dark maze |
 | 🏠 (via start UP) | [home/](../home/) — Mother waits |

@@ -35,13 +35,7 @@ room:
   
   # Ways out
   exits:
-    west:
-      destination: ../maze/garden/
-      description: |
-        The archway back to the underground garden. You can see sunlight
-        and hear the fountain from here. A pleasant way back.
-        
-    south:
+    north:
       destination: ../maze/room-d/
       description: |
         The archway back into the maze. The twisty passages await, ready
@@ -50,6 +44,15 @@ room:
         You could just... stay here. Forever. With your chalice.
         
         No? Back into the maze it is. Mother would be proud. Insufferably so.
+        
+    up:
+      destination: ../home/
+      description: |
+        A spiral staircase winds upward toward warm light. The smell of 
+        home cooking wafts down — pie, clean laundry, safety.
+        
+        Mother awaits. With your treasure, you can finally make her proud.
+        (She was already proud, but she'll NEVER admit it.)
   
   # Position in world space  
   world_position:

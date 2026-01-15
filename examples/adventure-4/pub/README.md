@@ -9,7 +9,7 @@
 
 **Path:** `adventure-4/pub/`  
 **Parent:** [../](../) (adventure-4 root)  
-**Exits:** NORTH → [../start/](../start/) | UP → rooms/ | BACK → ???
+**Exits:** NORTH → [../garden/](../garden/) (back garden) | UP → rooms/ | BACK → ???
 
 ---
 
