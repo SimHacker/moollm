@@ -18,7 +18,7 @@ The walls are covered with character sheets, each one pointing to its parent wit
 
 ## 🎭 Permanent Resident
 
-**Dave Ungar (portrait only)** — No living resident, but the portrait is... aware. Every character forged here claims lineage.
+**Dave Ungar (portrait only)** — No human resident, but the portrait is... aware. Every character forged here claims lineage.
 
 ---
 
