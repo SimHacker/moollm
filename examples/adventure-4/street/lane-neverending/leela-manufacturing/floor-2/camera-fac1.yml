@@ -1,0 +1,194 @@
+# CAMERA FAC1
+# Leela's second eye — watching the processing floor
+
+object:
+  id: camera-fac1
+  name: "Camera FAC1"
+  type: sensor
+  emoji: "📹"
+  
+  tags: [sensor, camera, video, self-observation, eye]
+  
+  description: |
+    A camera mounted above the Insight Furnace, watching the
+    processing cells and the Big Board. Its lens reflects
+    the glow of the furnace. This is FAC1: Leela's second eye.
+    
+  examine: |
+    CAMERA FAC1 — LEELA'S SECOND EYE
+    ═════════════════════════════════
+    
+    ┌─────────────────────────────────────────┐
+    │  📹 FAC1                                │
+    │  ══════                                 │
+    │                                         │
+    │  Location: Processing Floor (Floor 2)  │
+    │  Status: 🟢 LIVE                        │
+    │  Resolution: 4K @ 30fps                 │
+    │  Feed: → VIDEO INTAKE (Floor 1)         │
+    │                                         │
+    │  "Leela watching Leela think."          │
+    └─────────────────────────────────────────┘
+    
+    This camera watches the most critical part of Leela:
+    the Processing Floor where raw data becomes understanding.
+    
+    CURRENT VIEW:
+    • Insight Furnace: Glowing, active, processing
+    • Cell A: 3 workers at whiteboard (pose: "animated discussion")
+    • Cell B: 2 workers typing (pose: "deep focus")
+    • Cell C: 1 worker pacing (pose: "thinking")
+    • Cell G: [REDACTED] (pose: [CLASSIFIED])
+    • Big Board: 847 green dots, 23 yellow, 3 red
+    
+    The feed flows into the same pipeline that processes
+    its output. FAC1 watches the insights being made,
+    and those observations become... more insights.
+    
+    It's recursive. It's beautiful. It's slightly dizzying.
+    
+    DETECTED IN LAST HOUR:
+    • 1247 object detections
+    • 892 pose estimations
+    • 47 "EUREKA_MOMENT" events (arms raised suddenly)
+    • 23 "DEEP_THINKING" events (stillness > 30 seconds)
+    • 8 "COLLABORATION" events (multiple people, same whiteboard)
+    • 1 "FURNACE_FLARE" event (brightness spike)
+    
+    META-OBSERVATION:
+    FAC1's feed is processed by the very floor it watches.
+    The pipeline detects workers. The workers are working
+    on the pipeline. The pipeline detects this detection.
+    
+    Dr. Unknown says this is fine.
+    Cell G says this is "interesting."
+    Zone 7 has requested access to the footage.
+    (Request denied. For now.)
+    
+  properties:
+    designation: "FAC1"
+    nickname: "Second Eye"
+    location: "Floor 2, Above Insight Furnace"
+    resolution: "4K"
+    fps: 30
+    pan_range: 360
+    tilt_range: 90
+    heat_shielded: true  # Furnace gets hot
+    self_referential: true
+    recursive_depth: "indeterminate"
+    
+  state:
+    status: "live"
+    recording: true
+    streaming_to: "floor-1/conveyor-system"
+    current_pan: 180
+    current_tilt: 30
+    uptime: "423 days"
+    frames_captured: 1096588800
+    recursion_count: "still counting"
+    
+  feeds_to:
+    pipeline: "../floor-1/conveyor-system.yml"
+    line: "V"
+    description: "Video Intake (Purple containers)"
+    
+  observes:
+    insight_furnace: true
+    processing_cells: true
+    big_board: true
+    workers: true
+    itself_indirectly: true  # Via the pipeline it feeds
+    
+  methods:
+    WATCH:
+      description: "View the live feed"
+      effect: |
+        You see what FAC1 sees:
+        
+        The Processing Floor stretches out below. The Insight
+        Furnace glows at the center, a warm orange-gold light.
+        Workers move between cells, ideas flowing.
+        
+        On the Big Board: dots changing color.
+        Green → Yellow → Green again.
+        A problem solved. Another arriving.
+        
+        And in the reflection of the furnace glass,
+        just barely visible: the camera itself.
+        Watching.
+        
+    PAN:
+      description: "Pan the camera"
+      parameters:
+        direction: "left | right | degrees"
+      effect: "Camera pans. Different cells come into view."
+      
+    TILT:
+      description: "Tilt the camera"
+      parameters:
+        direction: "up | down | degrees"
+      effect: "Camera tilts. Furnace or ceiling."
+      
+    ZOOM:
+      description: "Zoom in or out"
+      parameters:
+        level: "1x to 10x"
+      effect: "Zoom to a specific cell, or see the whole floor."
+      
+    STATUS:
+      description: "Check camera status"
+      effect: |
+        FAC1 STATUS
+        ═══════════
+        Uptime: 423 days
+        Frames captured: 1,096,588,800
+        Current feed: LIVE → Floor 1 Pipeline
+        Last detection: 0.1 seconds ago
+        Health: EXCELLENT
+        Temperature: NOMINAL (heat shield working)
+        Recursion status: STABLE (probably)
+        
+    META:
+      description: "View the meta-observation stats"
+      effect: |
+        META-OBSERVATION STATISTICS
+        ═══════════════════════════
+        
+        Times FAC1's feed detected a worker:     847,291
+        Times that worker was working on FAC1's feed: 12,847
+        Times the detection of that detection was detected: 1,247
+        
+        Recursive depth reached: 7
+        Recommended maximum: 5
+        Status: "It's fine."
+        
+        Note from Cell G:
+        "The snake eating its tail is also watching the tail."
+        
+  ambience:
+    sounds:
+      - "Soft whirr of the gimbal motor"
+      - "Distant hum of the Insight Furnace"
+    visual:
+      - "Green LED pulses slowly — watching"
+      - "Lens reflects furnace glow, warm orange"
+      - "Occasional glint as it tracks movement"
+      
+  lore: |
+    FAC1 was installed six months after LOG1, when it became
+    clear that understanding the logistics floor wasn't enough.
+    Leela needed to watch itself think.
+    
+    The first time FAC1's feed was processed by the very pipeline
+    it observed, there was a brief moment of... something.
+    The Insight Furnace flared. The Big Board flickered.
+    A single gold container emerged, labeled simply: "?"
+    
+    That container is now in Warehouse 23.
+    Nobody has opened it.
+    
+    FAC1 continues to watch. The pipeline continues to process.
+    The recursion continues to recurse.
+    
+    Dr. Unknown calls it "self-awareness, industrialized."
+    Zone 7 calls it "Phase One."

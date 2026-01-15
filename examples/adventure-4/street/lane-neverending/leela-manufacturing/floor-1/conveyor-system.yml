@@ -175,6 +175,20 @@ object:
     The line FORKS at Junction Alpha, splitting each stream
     to BOTH the Object and Pose processors simultaneously.
     
+    LIVE FEEDS (Leela's Eyes):
+    ──────────────────────────
+    📹 LOG1 (Loading Docks) — Leela's First Eye
+       Watching: Forklifts, drones, workers, deliveries
+       Status: 🟢 LIVE @ 30fps
+       
+    📹 FAC1 (Processing Floor) — Leela's Second Eye
+       Watching: Insight Furnace, cells, workers thinking
+       Status: 🟢 LIVE @ 30fps
+       Note: This feed is processed BY the floor it watches.
+             Recursion is... stable. Probably.
+    
+    "Leela watches itself work. And learns."
+    
     JUNCTION BETA: The Convergence
     ══════════════════════════════
     Objects and Poses containers MERGE here.
@@ -266,8 +280,12 @@ object:
     line_t_p: { speed: "variable", items: 3, gpus: 4, epoch: 89, pck: 0.923 }
     deploy_bay_p: { model: "pose-leela-v1.8.2", accuracy: 0.923, deployed: "1d ago" }
     
+    # Leela's Eyes
+    camera_log1: { status: "live", location: "Loading Docks", fps: 30, uptime_days: 847 }
+    camera_fac1: { status: "live", location: "Processing Floor", fps: 30, uptime_days: 423, recursive: true }
+    
     # Data Pipeline
-    line_v: { speed: "fast", items: 34, fps: 30 }
+    line_v: { speed: "fast", items: 34, fps: 30, sources: ["LOG1", "FAC1", "external"] }
     line_o: { speed: "normal", items: 89, objects_detected: 1247 }
     line_p: { speed: "normal", items: 89, poses_tracked: 1247 }
     junction_beta: { merging: true, insights_created: 847 }
