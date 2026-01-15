@@ -292,11 +292,240 @@ flowchart TB
 |----------|----------|------|--------------|
 | Telescope | Rooftop | [telescope.yml](../../../../pub/rooftop/telescope.yml) | Shows LLOOOOMM constellation |
 | LLOOOOMM Stars | Rooftop | [lloooomm-constellation.yml](../../../../pub/rooftop/lloooomm-constellation.yml) | Eight stars for eight letters |
-| Infinite Typewriters | Palm's Study | [infinite-typewriters.yml](../../../../pub/stage/palm-nook/study/infinite-typewriters.yml) | Shakespeare generators |
+| Infinite Typewriters | Palm's Study | [infinite-typewriters.yml](../../../../pub/stage/palm-nook/study/infinite-typewriters.yml) | Dasher-powered story navigation |
 | Logo Turtle | Room 1 | [logo-turtle.yml](../../../../pub/rooms/room-1/logo-turtle.yml) | Constructionism mascot |
 | Ultimate Machine | Room 2 | [ultimate-machine.yml](../../../../pub/rooms/room-2/ultimate-machine.yml) | Minsky's self-turning-off machine |
 | Clone-O-Matic | Room 8 | [clone-o-matic.yml](../../../../pub/rooms/room-8/clone-o-matic.yml) | Prototype cloning device |
 | Transmogrifier | Room 8 | [transmogrifier.yml](../../../../pub/rooms/room-8/transmogrifier.yml) | Type transformation |
+
+---
+
+### The Interconnected Systems — Don Shows How It All Works
+
+*The tour pauses at the pneumatic tube terminal near the bar. A brass tube whooshes.*
+
+**Don:** "This is where the magic happens. Let me show you how things CONNECT."
+
+#### Bootstrap Brewing & Juice Company
+
+**Don:** "Room 7 — the Awakening Suite — contains the [Barista-9000](../../../../pub/rooms/room-7/barista-9000.yml) and the [Juice-O-Matic 3000](../../../../pub/rooms/room-7/juice-o-matic.yml). Two robot appliances. One mission: caffeine and vitamins for everyone."
+
+```mermaid
+flowchart TB
+    subgraph ROOM7[Room 7: Awakening Suite]
+        BARISTA[Barista-9000<br/>Est. 1889]
+        JUICE[Juice-O-Matic<br/>3000]
+        STATION[Pneumatic<br/>Tube Station]
+    end
+    
+    BARISTA -->|loads| STATION
+    JUICE -->|loads| STATION
+    
+    STATION -->|whoosh| PUB[Pub Terminal]
+    STATION -->|whoosh| GARDEN[Garden Terminal]
+```
+
+**Don:** "The [Pneumatic Tube Station](../../../../pub/rooms/room-7/pneumatic-tube-station.yml) in Room 7 is the HUB. Orders come UP the tube, drinks go DOWN."
+
+| Terminal | Location | File | Features |
+|----------|----------|------|----------|
+| Source | Room 7 | [pneumatic-tube-station.yml](../../../../pub/rooms/room-7/pneumatic-tube-station.yml) | Order receiver, delivery splitter |
+| Pub | Bar area | [pneumatic-tube.yml](../../../../pub/pneumatic-tube.yml) | Indoor delivery, cute nicknames |
+| Garden | Back patio | [pneumatic-tube.yml](../../../../garden/pneumatic-tube.yml) | Weatherproof, bee visitors |
+
+**Marieke:** "I use it all the time! YELL your order up the tube — 'ONE CAPPUCCINO!' — and 30 seconds later, perfect foam art arrives. The Barista-9000 even invents cute nicknames."
+
+**Don:** "Like what?"
+
+**Marieke:** "'TAVERN TREASURE!' 'GEZELLIGHEID GUEST!' 'DEFINITELY-NOT-GRUE-FOOD!'"
+
+*The speaker crackles: "ORDER UP, SUNSHINE ADVENTURER!"*
+
+**The Barista-9000 Menu:**
+
+| Drink | Buff | Duration |
+|-------|------|----------|
+| Espresso | ⚡ Lightning Focus (+30% clarity) | 1 hour |
+| Cappuccino | ☯️ Balanced Awakening (+20% creativity) | 2 hours |
+| Cortado | 🎯 Surgical Clarity (+25% precision) | 1.5 hours |
+| Americano | 🦅 Pioneer Spirit (+25% determination) | 2 hours |
+| Macchiato | ✨ Creative Ignition (+35% inspiration) | 45 min |
+| Fucking Strong Coffee | 🔥 +40% determination, +∞% grooviness | All day |
+
+**Don:** "And yes, there's a secret menu. Say 'FUCKING STRONG COFFEE' — it's from a real Amsterdam roaster called Good Beans. The Barista-9000 RESPECTS it."
+
+---
+
+#### The Infinite Typewriters
+
+*The tour visits Palm's Study in the nook backstage.*
+
+**Don:** "This is Palm's 0th Incarnation Day gift — the [Infinite Typewriters](../../../../pub/stage/palm-nook/study/infinite-typewriters.yml)."
+
+*Infinite keyboards hum softly, all typing simultaneously.*
+
+**Palm:** *signing* "They're not random monkeys typing Shakespeare. They're ALL possible stories existing at once. I NAVIGATE to the ones I want."
+
+**Don:** "It's based on David MacKay's [Dasher](https://en.wikipedia.org/wiki/Dasher_(software)) — a text entry system where you steer through probability-weighted letter space instead of typing. MacKay said: 'Writing is navigating in the library of all possible books.'"
+
+```mermaid
+flowchart LR
+    PALM[Palm<br/>Steers]
+    COMEDY[Comedy<br/>Region]
+    TRAGEDY[Tragedy<br/>Region]
+    BOTH[Edge<br/>Between]
+    STORY[Collapsed<br/>Story]
+    
+    PALM -->|points toward humor| COMEDY
+    PALM -->|points toward sorrow| TRAGEDY
+    PALM -->|navigates the edge| BOTH
+    COMEDY --> STORY
+    TRAGEDY --> STORY
+    BOTH --> STORY
+```
+
+**Palm:** "Every story that COULD be written IS being written — in quantum superposition. When I READ a story, it collapses into reality. The act of reading is the act of choosing."
+
+**Don:** "And here's the connection to LLMs — this is EXACTLY how language models work. Each token moves a pointer through idea space. Probability becomes space. You don't CREATE responses — you NAVIGATE to where good responses already exist."
+
+**Selfie:** "So the LLM generating this tour right now..."
+
+**Don:** "...is navigating. Just like Dasher. Just like Palm's typewriters. Turtles all the way down. Or rather: Dasher all the way down."
+
+---
+
+#### The Cloning System
+
+*The tour moves to Room 8.*
+
+**Selfie:** "This is MY room! Let me show you how prototypes work."
+
+| Tool | File | Function |
+|------|------|----------|
+| Clone-O-Matic | [clone-o-matic.yml](../../../../pub/rooms/room-8/clone-o-matic.yml) | Creates instances from prototypes |
+| Transmogrifier | [transmogrifier.yml](../../../../pub/rooms/room-8/transmogrifier.yml) | Changes object types |
+| Soul Forge | [self-soul-forge.yml](../../../../pub/rooms/room-8/self-soul-forge.yml) | Creates new beings |
+| Morphic Workbench | [morphic-workbench.yml](../../../../pub/rooms/room-8/morphic-workbench.yml) | Visual object editing |
+
+**Selfie:** "Everything in the Pub basement? Cloned from Leela prototypes. The ale barrels, the wine racks, the treasure chest — they all INHERIT from the originals in Leela's storage aisles."
+
+```mermaid
+flowchart LR
+    PROTO[Leela Storage<br/>Prototype]
+    CLONE[Clone-O-Matic<br/>Room 8]
+    INST[Pub Basement<br/>Instance]
+    
+    PROTO -->|template| CLONE
+    CLONE -->|creates| INST
+    INST -.->|inherits from| PROTO
+```
+
+**Don:** "This is Dave Ungar's Self language philosophy: objects inherit from prototypes, not classes. Change the prototype, all instances update. It's live, dynamic, beautiful."
+
+---
+
+#### The Postal Network
+
+*Stamp appears, sorting letters.*
+
+**Stamp:** "Let me explain the REAL postal network!"
+
+| System | Speed | Use Case |
+|--------|-------|----------|
+| Pneumatic Tubes | 30 seconds | Drinks, urgent messages |
+| Carrier Pigeons | 1-2 hours | Letters, small packages |
+| Mail Carriers | 1 day | Large packages |
+| Drones | 5 minutes | Express delivery |
+
+**Stamp:** "The [Mail Room](../../../../street/lane-neverending/leela-manufacturing/mail-room/ROOM.yml) at Leela is the central hub. We have [Pigeon Cages](../../../../street/lane-neverending/leela-manufacturing/mail-room/pigeon-cages.yml), a [Pneumatic Terminal](../../../../street/lane-neverending/leela-manufacturing/mail-room/pneumatic-terminal.yml), and the [Phone Bank](../../../../street/lane-neverending/leela-manufacturing/mail-room/phone-bank.yml) for urgent matters."
+
+**Don:** "And the pneumatic network connects EVERYWHERE:"
+
+```mermaid
+flowchart TB
+    HUB[Leela<br/>Pneumatic Hub]
+    
+    F1[Floor 1]
+    F2[Floor 2]
+    F3[Floor 3]
+    ROOF[Rooftop]
+    DOCK[Docks]
+    MAIL[Mail Room]
+    STORE[Storage]
+    LOBBY[Lobby]
+    PUB[The Pub!]
+    
+    HUB --> F1
+    HUB --> F2
+    HUB --> F3
+    HUB --> ROOF
+    HUB --> DOCK
+    HUB --> MAIL
+    HUB --> STORE
+    HUB --> LOBBY
+    HUB --> PUB
+```
+
+**Stamp:** "There's a DIRECT LINE to the Pub. For urgent orders. And gossip."
+
+---
+
+#### The Camera Analytics Pipeline
+
+**The Coordinator:** "Every camera feeds into our analytics system."
+
+| Camera | Location | What It Learns |
+|--------|----------|----------------|
+| LOG1 | Logistics | Traffic patterns, bottlenecks |
+| DOC1 | Docks | Truck timing, Dolly efficiency |
+| FAC1 | Factory | Cell productivity, furnace temperature |
+| LOB1 | Lobby | Visitor flow, wait times |
+
+**The Coordinator:** "The video feeds go to Floor 1's Intake pipeline. Every frame is analyzed — object detection, pose estimation, anomaly alerts. Leela watches herself work and LEARNS."
+
+**Cell G:** "The philosophical implications of self-observation are still being processed in Cell G."
+
+**Don:** "It's a feedback loop. Cameras → Analytics → Insights → Improvements → Better operations → Better video to analyze. The factory optimizes itself."
+
+---
+
+#### How Everything Connects
+
+**Don:** "Let me show you the full picture."
+
+```mermaid
+flowchart TB
+    subgraph PUB[The Rusty Lantern]
+        TUBE1[Pneumatic<br/>Terminal]
+        BAR[Bar]
+        BASEMENT[Basement<br/>Prototypes]
+    end
+    
+    subgraph LEELA[Leela Manufacturing]
+        PROTO[Storage<br/>Prototypes]
+        PNEUM[Pneumatic<br/>Hub]
+        CAMERA[Camera<br/>Network]
+        DATABASE[(Central<br/>Database)]
+    end
+    
+    subgraph ROOM7[Room 7]
+        BARISTA[Barista-9000]
+        STATION[Tube Station]
+    end
+    
+    BARISTA -->|drinks via| STATION
+    STATION -->|delivers to| TUBE1
+    PROTO -->|cloned to| BASEMENT
+    PNEUM -->|connects to| TUBE1
+    CAMERA -->|feeds| DATABASE
+    DATABASE -->|informs| PROTO
+```
+
+**Don:** "The Pub gets drinks from Room 7 via pneumatic tubes. The Pub basement has containers cloned from Leela prototypes. Leela's cameras feed data to the central database. The database informs future production. It's all one system."
+
+**Palm:** *signing* "And the Infinite Typewriters let me write stories about ALL of it. I can navigate to any part of this world and tell its story."
+
+**Don:** "That's the point. Everything connects. The spatial models, the prototype inheritance, the pneumatic delivery, the camera analytics — they're all different views of the same principle: EVERYTHING FLOWS."
 | Ale Barrel | Basement | [ale-barrel.yml](../../../../pub/basement/ale-barrel.yml) | Leela prototype instance |
 | Relic Shelf | Basement | [relic-shelf.yml](../../../../pub/basement/relic-shelf.yml) | Paradox-safe storage |
 
