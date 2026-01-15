@@ -47,10 +47,10 @@
 ### Design Documents
 | Document | Link |
 |----------|------|
-| MOOLLM Manifesto | [MOOLLM-MANIFESTO.md](../../../../../designs/MOOLLM-MANIFESTO.md) |
-| Factorio Logistics | [factorio-logistics-protocol.md](../../../../../designs/factorio-logistics-protocol.md) |
-| Cursor Self-Review | [cursor-self-review.md](../../../../../designs/cursor-self-review.md) |
-| Sims Design Index | [sims-design-index.md](../../../../../designs/sims-design-index.md) |
+| MOOLLM Manifesto | [MOOLLM-MANIFESTO.md](../../../../../../designs/MOOLLM-MANIFESTO.md) |
+| Factorio Logistics | [factorio-logistics-protocol.md](../../../../../../designs/factorio-logistics-protocol.md) |
+| Cursor Self-Review | [cursor-self-review.md](../../../../../../designs/cursor-self-review.md) |
+| Sims Design Index | [sims-design-index.md](../../../../../../designs/sims-design-index.md) |
 
 ### Skills Referenced
 | Skill | CARD | README |
