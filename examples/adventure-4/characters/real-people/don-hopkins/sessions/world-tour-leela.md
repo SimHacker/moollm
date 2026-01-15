@@ -1422,7 +1422,7 @@ flowchart TB
 | G | Lobby | [ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/lobby/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/lobby/README.md) | [leela-catalog](../../../../street/lane-neverending/leela-manufacturing/lobby/leela-catalog.yml) |
 | G | Logistics | [ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/logistics/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/logistics/README.md) | [operator-stations](../../../../street/lane-neverending/leela-manufacturing/logistics/operator-stations.yml), [central-database](../../../../street/lane-neverending/leela-manufacturing/logistics/central-database.yml) |
 | G | Mail Room | [ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/mail-room/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/mail-room/README.md) | [pneumatic-terminal](../../../../street/lane-neverending/leela-manufacturing/mail-room/pneumatic-terminal.yml), [pigeon-cages](../../../../street/lane-neverending/leela-manufacturing/mail-room/pigeon-cages.yml) |
-| G | Loading Docks | [ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/loading-docks/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/loading-docks/README.md) | [dock-office](../../../../street/lane-neverending/leela-manufacturing/loading-docks/dock-office.yml), [drone-station](../../../../street/lane-neverending/leela-manufacturing/loading-docks/drone-station.yml) |
+| G | Loading Docks | [ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/loading-docks/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/loading-docks/README.md) | [dock-office](../../../../street/lane-neverending/leela-manufacturing/loading-docks/dock-office.yml), [drone-station](../../../../street/lane-neverending/leela-manufacturing/loading-docks/drone-station.yml), [carriage-house](../../../../street/lane-neverending/leela-manufacturing/loading-docks/carriage-house.yml), [pony-express](../../../../street/lane-neverending/leela-manufacturing/loading-docks/pony-express.yml) |
 | G | Storage | [ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/storage/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/storage/README.md) | [cloning-station](../../../../street/lane-neverending/leela-manufacturing/storage/cloning-station.yml), [dolly-forklift](../../../../street/lane-neverending/leela-manufacturing/storage/dolly-forklift.yml) |
 | G | Deep Storage | [ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/storage/deep-storage/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/storage/deep-storage/README.md) | [deployment-console](../../../../street/lane-neverending/leela-manufacturing/storage/deep-storage/deployment-console.yml) |
 | B | Basement | [ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/basement/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/basement/README.md) | [zone-7-door](../../../../street/lane-neverending/leela-manufacturing/basement/zone-7-door.yml) |
@@ -1650,6 +1650,99 @@ Thinker claims task → processes → metadata to hypertable
 **Archie:** "We can tell you what happened LAST YEAR. It's all in the hypertables."
 
 **Don:** "One database. One truth. Queryable forever."
+
+---
+
+## Part 5.75: The Pony Express — Traditional Logistics
+
+*The tour walks through the Loading Docks to a side building that smells of hay and leather.*
+
+**Don:** "And now for something completely different."
+
+*A horse whickers. Old Jareth waves from a stall.*
+
+**Don:** "The [Carriage House](../../../../street/lane-neverending/leela-manufacturing/loading-docks/carriage-house.yml). And home of the [Leela Pony Express](../../../../street/lane-neverending/leela-manufacturing/loading-docks/pony-express.yml)."
+
+**Palm:** "Horses? In a manufacturing facility?"
+
+**Don:** "Because not every realm has WiFi, Palm. Some forests EAT technology. Some kingdoms banned drones after the Great Buzzing Incident of '84. Some customers just prefer a rider at their gate."
+
+---
+
+### Why Pony Express?
+
+| Problem | ACME Solution | Leela Solution |
+|---------|---------------|----------------|
+| Enchanted Forest delivery | Drone turned into toad | Rider on Shadowmere |
+| Mountain castle access | Truck fell off cliff | Stagecoach with armed guard |
+| Swamp of Despair crossing | Smart truck sank | Ponies know the paths |
+| Dragon-haunted pass | Drone eaten as snack | Rider carries dragon-proof pouch |
+
+**Don:** "ACME still hasn't figured out how to deliver to rustic realms. Their painted tunnel doesn't work in places without walls."
+
+---
+
+### The Fleet
+
+*Henri Blackwood, the Dispatch Master, shows the group around.*
+
+| Vehicle | Horses | Capacity | Best For |
+|---------|--------|----------|----------|
+| Pony Cart (C1) | Pip | 200 kg | Village deliveries |
+| Standard Carriage (C2) | Thunder & Lightning | 500 kg | Regular routes |
+| Stagecoach (C3) | 4 horses | 1000 kg | Frontier runs, armed guard |
+
+**Henri:** "We serve four main routes: Medieval Kingdom Circuit, Enchanted Forest Express, Frontier Stagecoach Line, and Village Circuit."
+
+---
+
+### The Integration
+
+**Don:** "But here's the thing — this isn't separate from the modern logistics. It's INTEGRATED."
+
+```
+Modern → Pony Express:
+Package arrives (drone/truck) → Sorted → Transferred to Carriage House →
+Loaded onto horse transport → Dispatched to rustic realm
+
+Pony Express → Modern:
+Rider arrives with package → Logged in PostgreSQL → Transferred to docks →
+Continue via drone/truck as appropriate
+```
+
+**The Coordinator:** "All Pony Express shipments are tracked in PostgreSQL TimescaleDB. Same database as the drones. Same tracking. Same visibility."
+
+**Palm:** "You track HORSES in PostgreSQL?"
+
+**Don:** "We track everything in PostgreSQL. The horses have check-in waypoints. Riders send status via carrier pigeon. It all goes in the database."
+
+**Archie:** "Last waypoint: Enchanted Forest marker 3. Horse: Shadowmere. Status: Galloping. Estimated arrival: 2 hours."
+
+**Don:** "Modern efficiency meets traditional reliability. That's the Leela way."
+
+---
+
+### The Horses
+
+*The group meets the stable residents.*
+
+| Horse | Type | Personality |
+|-------|------|-------------|
+| Thunder & Lightning | Draft pair (gray) | Steady, reliable |
+| Biscuit & Crumpet | Draft pair (brown) | Strong, patient |
+| Shadowmere | Riding (black) | Possibly enchanted |
+| Epona | Riding (chestnut) | Knows too much |
+| Pip & Squeak | Ponies | Small but determined |
+
+**Old Jareth:** *brushing Epona* "A horse knows more than it lets on."
+
+**Donna:** "Can I pet one?"
+
+**Old Jareth:** "Epona likes visitors. Just don't ask her about the future. She gets cryptic."
+
+*Epona stares at Donna with knowing eyes.*
+
+**Donna:** "...okay that's unsettling."
 
 ---
 
