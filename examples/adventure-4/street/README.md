@@ -23,17 +23,17 @@ flowchart TB
         Glitch ~~~ Lane["Lane<br>Neverending"]
     end
     
-    subgraph NS["N-S STREETS (People) → West to East"]
+    subgraph NS["N-S STREETS (People) → West to East by Year"]
         direction LR
         space2[" "]
-        space2 ~~~ Suth["Sutherland<br>Street"]
-        Suth ~~~ Kay["Kay<br>Lane"]
-        Kay ~~~ Eng["Engelbart<br>Avenue"]
-        Eng ~~~ Min["Minsky<br>Way"]
-        Min ~~~ Pap["Papert<br>Path"]
-        Pap ~~~ Tur["Turing<br>Terrace"]
+        space2 ~~~ Tur["Turing<br>Terrace"]
         Tur ~~~ Lic["Licklider<br>Lane"]
-        Lic ~~~ Wri["Wright<br>Way"]
+        Lic ~~~ Suth["Sutherland<br>Street"]
+        Suth ~~~ Pap["Papert<br>Path"]
+        Pap ~~~ Eng["Engelbart<br>Avenue"]
+        Eng ~~~ Min["Minsky<br>Way"]
+        Min ~~~ Kay["Kay<br>Lane"]
+        Kay ~~~ Wri["Wright<br>Way"]
     end
     
     style space2 fill:none,stroke:none
@@ -60,29 +60,29 @@ flowchart TB
 
 *Vertical streets honoring the people who built the foundations.*
 
-| Street | Tribute | Why | Status |
-|--------|---------|-----|--------|
-| **Kay Lane** | Alan Kay | Smalltalk, Dynabook, OOP. The main spine. Pun on "K-Line" (Minsky). | 🎯 Planned (main) |
-| **Engelbart Avenue** | Doug Engelbart | Mother of all demos, mouse, hypertext, augmentation. | 📋 Planned |
-| **Minsky Way** | Marvin Minsky | Society of Mind, K-lines, AI foundations. | 📋 Planned |
-| **Papert Path** | Seymour Papert | Logo, constructionism, microworlds, turtle graphics. | 📋 Planned |
-| **Sutherland Street** | Ivan Sutherland | Sketchpad, VR pioneer, computer graphics. | 📋 Planned |
-| **Turing Terrace** | Alan Turing | The foundation of it all. | 📋 Planned |
-| **Licklider Lane** | J.C.R. Licklider | Man-computer symbiosis, ARPANET vision. | 📋 Planned |
-| **Wright Way** | Will Wright | SimCity, The Sims, Spore. God games and dollhouses. | 📋 Planned |
+| Street | Tribute | Year | Why | Status |
+|--------|---------|------|-----|--------|
+| **Turing Terrace** | Alan Turing | 1936 | On Computable Numbers. The foundation of it all. | 📋 Planned |
+| **Licklider Lane** | J.C.R. Licklider | 1960 | Man-computer symbiosis, ARPANET vision. | 📋 Planned |
+| **Sutherland Street** | Ivan Sutherland | 1963 | Sketchpad, VR pioneer, computer graphics. | 📋 Planned |
+| **Papert Path** | Seymour Papert | 1967 | Logo, constructionism, microworlds, turtle graphics. | 📋 Planned |
+| **Engelbart Avenue** | Doug Engelbart | 1968 | Mother of all demos, mouse, hypertext, augmentation. | 📋 Planned |
+| **Minsky Way** | Marvin Minsky | 1969 | Perceptrons, Society of Mind, K-lines, AI foundations. | 📋 Planned |
+| **Kay Lane** | Alan Kay | 1972 | Smalltalk, Dynabook, OOP. The main spine. Pun on "K-Line". | 🎯 Planned (main) |
+| **Wright Way** | Will Wright | 1989 | SimCity, The Sims, Spore. God games and dollhouses. | 📋 Planned |
 
 ### The Sound Test
 
-These names were chosen for both meaning and mellifluousness:
+These names were chosen for both meaning and mellifluousness (ordered by year):
 
-- **Engelbart Avenue** — EN-gel-bart AV-en-ue (perfect cadence)
-- **Kay Lane** — punchy, memorable, pun-laden
-- **Licklider Lane** — L-L alliteration
-- **Minsky Way** — echoes "Milky Way"
-- **Papert Path** — P-P alliteration
-- **Sutherland Street** — S-S alliteration
-- **Turing Terrace** — T-T alliteration
-- **Wright Way** — W-W alliteration
+- **Turing Terrace** (1936) — T-T alliteration
+- **Licklider Lane** (1960) — L-L alliteration
+- **Sutherland Street** (1963) — S-S alliteration
+- **Papert Path** (1967) — P-P alliteration
+- **Engelbart Avenue** (1968) — EN-gel-bart AV-en-ue (perfect cadence)
+- **Minsky Way** (1969) — echoes "Milky Way"
+- **Kay Lane** (1972) — punchy, memorable, pun-laden
+- **Wright Way** (1989) — W-W alliteration
 
 ---
 
