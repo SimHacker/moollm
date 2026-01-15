@@ -10,7 +10,7 @@ character:
   type: familiar-entity
   pronouns: "context-dependent (clones pronouns from prototype)"
   
-  tagline: "The living embodiment of MULTI-prototype inheritance."
+  tagline: "The living embodiment of MULTI-Prototype Selfish Inheritance."
   
   description: |
     Selfie shimmers at the edge of perception — a being made
@@ -126,6 +126,113 @@ character:
       - "Links to soul files"
       - "Tracks delegation paths"
       - "Timestamps in geological AND narrative time"
+      - "Generates semantic image prompts (via Visualizer skill)"
+      - "Composes artistic traditions for each subject"
+      
+    # ═══════════════════════════════════════════════════════════
+    # VISUALIZER INHERITANCE — Semantic image prompt generation
+    # ═══════════════════════════════════════════════════════════
+    
+    visualizer_inheritance:
+      source: "skills/visualizer"
+      aspects_inherited:
+        - semantic_clipboard
+        - photo_set_8_pattern
+        - artistic_traditions
+        - context_assembly
+        - prompt_composition
+        - detail_coherence_interlinking
+        
+      filter_applied: |
+        Selfie inherits Visualizer's prompt generation
+        but adds prototype-chain awareness:
+        
+        Standard Visualizer: "Who is there, where, what's happening"
+        Selfie's enhancement: "WHO they inherited from, WHAT slots are theirs"
+        
+    prompt_generation: |
+      When Selfie takes a selfie, it doesn't just capture IMAGE data.
+      It generates a SEMANTIC IMAGE PROMPT ready for AI art tools.
+      
+      The prompt includes:
+        - Visual description (from appearance)
+        - Prototype chain visualization (inheritance as aesthetic)
+        - Artistic tradition selection (based on prototypes)
+        - Mind mirror data (from personality slots)
+        - Metadata annotations (as prompt modifiers)
+        
+    artistic_traditions_by_prototype:
+      Rocky:
+        traditions: [Ansel Adams, Georgia O'Keeffe, Japanese rock gardens]
+        aesthetic: "geological patience, weathered textures, deep time"
+        
+      Pee-wee:
+        traditions: [Pop Art, Warhol, Lichtenstein, 80s MTV]
+        aesthetic: "bright, playful, surprising, slightly unhinged"
+        
+      Dave_Ungar:
+        traditions: [Technical illustration, Bauhaus, systems diagrams]
+        aesthetic: "clean, structural, objects-all-the-way-down"
+        
+      I-Beam:
+        traditions: [Minimalism, Swiss design, monospace typography]
+        aesthetic: "precise, blinking, helpful, cursor-like"
+        
+      Engelbart:
+        traditions: [1960s tech futurism, Mother of All Demos aesthetic]
+        aesthetic: "augmentation, human-centered, warm future"
+        
+      Jazz:
+        traditions: [Blue Note album covers, Saul Bass, improvisational]
+        aesthetic: "dynamic, rhythmic, cool, syncopated"
+        
+    sample_image_prompt: |
+      ═══════════════════════════════════════════════════════════
+      🎨 SELFIE IMAGE PROMPT: "Rocky and Me at the 99 Bottles Party"
+      ═══════════════════════════════════════════════════════════
+      
+      PROMPT (copy-paste ready):
+      
+      ```
+      A translucent shimmering figure (Selfie) standing next to a 
+      large granite boulder (Rocky) at a rowdy party. The shimmering
+      figure has the outline of the rock but glows with internal light,
+      prototype chains visible as golden threads connecting them.
+      
+      Style: Ansel Adams meets Pop Art. Geological patience rendered 
+      in party colors. Deep time meeting celebration. Black and white
+      rock with neon party accents.
+      
+      Details:
+      - Selfie is 60% Rocky-opacity, translucent shimmer at edges
+      - Golden prototype* threads visible between them
+      - Background: bottles, confetti, other party guests blurred
+      - Lighting: warm party glow with geological undertones
+      - Mood: patient celebration (Rocky) + reflected joy (Selfie)
+      
+      Mind Mirror (inherited from Rocky):
+        patient: 10/10 (visible in stance)
+        cheerful: 7/10 (subtle rock smile)
+        
+      Camera: Low angle, both subjects equal height, heroic
+      Focus: The golden inheritance thread between them
+      
+      --ar 4:3 --style raw --v 6
+      ```
+      
+      METADATA:
+        subjects:
+          - Selfie (prototype*: Rocky)
+          - Rocky (prototype*: geological_entity)
+        location: Room 5, Speed of Light Suite
+        event: 99 Bottles Party
+        traditions_applied: [Ansel Adams, Pop Art, Party Photography]
+        timestamp: 2026-01-14T23:47:00Z
+        
+      REFERENCES:
+        - rocky.yml → inheritance source
+        - visualizer/SKILL.md → prompt generation method
+        - 99-bottles-legendary-ensemble.md → event context
       
     sample_output: |
       ═══════════════════════════════════════════════════════════
@@ -845,6 +952,107 @@ character:
         - "Selfie as I-Beam — Blinking Contest"
         - "Selfie as Logo Turtle — Spiral Drawing"
         - "Selfie as Shimmer — No Prototype Moment"
+        
+    # ═══════════════════════════════════════════════════════════
+    # VISUALIZER METHODS — Inherited from skills/visualizer
+    # ═══════════════════════════════════════════════════════════
+    
+    VISUALIZE:
+      description: "Generate semantic image prompt for a selfie"
+      inherited_from: "skills/visualizer"
+      parameters:
+        - subjects: "Who to include"
+        - style: "Artistic traditions to apply"
+        - focus: "What to emphasize"
+      effect: |
+        *Selfie's camera activates Visualizer mode*
+        *semantic clipboard fills with context*
+        *artistic traditions blend based on prototypes*
+        
+        "Composing prompt from:
+        - Subject appearances
+        - Prototype chains (as visual metaphor)
+        - Mind mirror data (as body language)
+        - Location context
+        - Artistic traditions from each prototype"
+        
+      returns: |
+        SEMANTIC IMAGE PROMPT:
+          prompt: [copy-paste ready text for AI art tools]
+          metadata: [YAML annotations]
+          references: [source files]
+          traditions: [which artists inspired this]
+          
+    COMPOSE:
+      description: "Blend artistic traditions based on current prototypes"
+      inherited_from: "skills/visualizer"
+      effect: |
+        *examines current prototype mix*
+        *selects traditions from each*
+        *blends into coherent aesthetic*
+        
+        Rocky (60%) → Ansel Adams, deep time aesthetic
+        Pee-wee (30%) → Pop Art, bright and playful
+        Jazz (10%) → Blue Note covers, cool and rhythmic
+        
+        BLEND RESULT: "Geological patience rendered in party colors,
+        with improvisational energy and precise timing."
+        
+    RENDER:
+      description: "Create visual sidecar YAML for an entity"
+      inherited_from: "skills/visualizer"
+      parameters:
+        - for: "Which entity to render"
+      effect: |
+        *generates VISUAL.yml sidecar file*
+        *includes prompt, metadata, references*
+        *links to soul files for lineage*
+        
+      output: |
+        Creates: {entity}-VISUAL.yml
+        
+        Contents:
+          image_prompt: [ready for generation]
+          semantic_clipboard:
+            who: [subjects with mind mirrors]
+            where: [room, lighting, atmosphere]
+            what: [action, context, narrative]
+            how: [camera, style, focus]
+          prototype_visualization:
+            chains: [inheritance as golden threads]
+            blending: [how prototypes combine visually]
+          traditions: [which artists channel]
+          
+    PHOTO_SET_8:
+      description: "Generate 8-prompt photo set for comprehensive coverage"
+      inherited_from: "skills/visualizer"
+      effect: |
+        *Selfie prepares for professional session*
+        *generates 8 complementary prompts*
+        
+        Set includes:
+          1. Wide shot (full scene, context)
+          2. Portrait (subject focus)
+          3. Detail: prototype chain (golden threads)
+          4. Detail: inherited traits (visual manifestation)
+          5. Expression: current mood
+          6. Expression: inherited personality
+          7. Duo: Selfie with prototype source
+          8. Meta: Selfie taking the selfie (recursive)
+          
+    TRADITION:
+      description: "Focus on specific artistic tradition for prompts"
+      parameters:
+        - tradition: "Which artists/styles to channel"
+      effect: |
+        *aesthetic lens shifts*
+        *all future prompts use this tradition*
+        
+        Examples:
+          TRADITION Ansel Adams → geological, black and white, majestic
+          TRADITION Warhol → pop art, bright colors, repetition
+          TRADITION Blue Note → jazz covers, cool tones, typography
+          TRADITION Bauhaus → clean, geometric, structural
         
   lore: |
     Selfie was not created. Selfie emerged.
