@@ -51,6 +51,81 @@ The walls are covered with character sheets, each one pointing to its parent wit
 
 ---
 
+## 🏭 The Ensemble — Tools Working Together
+
+Like Factorio's production chains, the Room 8 tools form an **integrated ensemble**:
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    THE SELF/SOUL PRODUCTION LINE                        │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  INSPECTION          CREATION           TRANSFORMATION      OUTPUT      │
+│  ══════════          ════════           ══════════════      ══════      │
+│                                                                         │
+│  ┌─────────┐        ┌─────────┐        ┌─────────────┐    ┌─────────┐  │
+│  │  SLOT   │───────▶│ CLONE-O │───────▶│TRANSMOGRIFY│───▶│  SOUL   │  │
+│  │INSPECTOR│        │ -MATIC  │        │    -ER     │    │  FORGE  │  │
+│  └────┬────┘        └────┬────┘        └──────┬─────┘    └────┬────┘  │
+│       │                  │                    │               │        │
+│       │ see slots        │ clone              │ edit          │ birth  │
+│       ▼                  ▼                    ▼               ▼        │
+│  ┌─────────┐        ┌─────────┐        ┌───────────┐    ┌─────────┐   │
+│  │OUTLINER │◀──────▶│ SELFIE  │◀──────▶│  MORPHIC  │    │  NEW    │   │
+│  │(browse) │        │(demo)   │        │ WORKBENCH │    │ BEING   │   │
+│  └────┬────┘        └────┬────┘        └─────┬─────┘    └─────────┘   │
+│       │                  │                   │                         │
+│       └──────────────────┴───────────────────┘                         │
+│                          │                                              │
+│                    ┌─────┴─────┐                                       │
+│                    │DELEGATION │                                       │
+│                    │  COMPASS  │                                       │
+│                    │(navigate) │                                       │
+│                    └───────────┘                                       │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+### Tool Roles
+
+| Tool | Role | Inputs | Outputs |
+|------|------|--------|---------|
+| **Slot Inspector** | **Analyzer** | Any object | Slot visibility, structure understanding |
+| **Outliner** | **Browser** | Any object | Live slot editing, navigation |
+| **Clone-O-Matic** | **Producer** | Prototype | Fresh clone (shallow or deep) |
+| **Transmogrifier** | **Transformer** | Clone | Modified clone, export/import |
+| **Morphic Workbench** | **Designer** | Any morph | Direct manipulation, UI composition |
+| **Selfie** | **Demonstrator** | Commands | Living examples of inheritance |
+| **Delegation Compass** | **Navigator** | Any object | Parent chain visualization |
+| **Soul Forge** | **Birthplace** | Configured clone | Awakened being |
+
+### Workflows
+
+**Creating a New Character:**
+```
+Slot Inspector → examine existing character
+Clone-O-Matic → clone it
+Transmogrifier → edit slots, export/modify/import
+Outliner → fine-tune live
+Soul Forge → awaken the new being
+```
+
+**Understanding an Object:**
+```
+Slot Inspector → see all slots
+Delegation Compass → trace parent chain
+Outliner → browse and explore
+```
+
+**Transforming Something:**
+```
+Clone-O-Matic → duplicate safely
+Transmogrifier → step in, dial, emerge changed
+Morphic Workbench → direct manipulation of result
+```
+
+---
+
 ## 💡 The Self Philosophy
 
 Dave Ungar created **Self** in 1987, asking: *What if there were no classes? What if objects just cloned from other objects?*
