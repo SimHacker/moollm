@@ -24,7 +24,7 @@ room:
     
     Aisles are labeled:
     
-    ┌─────────────────────────────────────────────────────────────┐
+┌─────────────────────────────────────────────────────────────┐
     │                   STORAGE COMPLEX                           │
     │                   ═══════════════                           │
     │                                                             │
@@ -33,6 +33,7 @@ room:
     │   AISLE C: Soft Containers (sacks, bags, pouches)           │
     │   AISLE D: Special Containers (paradox-safe, quantum)       │
     │   AISLE E: Display Containers (shelves, racks, hooks)       │
+    │   AISLE L: Leela Logistics (Factorio-style, NOT ACME)       │
     │                                                             │
     │   ⚠️ PROTOTYPES ONLY — DO NOT USE — CLONE FIRST ⚠️          │
     │                                                             │
@@ -103,10 +104,15 @@ room:
       description: "Special containers — paradox-safe, quantum, dimensional"
       aliases: [d, special, weird]
       
-    aisle_e:
+aisle_e:
       destination: aisle-e/
       description: "Display containers — shelves, racks, hooks"
       aliases: [e, display, shelving]
+      
+    aisle_l:
+      destination: aisle-l/
+      description: "Leela Logistics — Factorio-style containers (NOT ACME!)"
+      aliases: [l, leela, logistics, factorio]
       
   objects:
     - dolly-forklift.yml
