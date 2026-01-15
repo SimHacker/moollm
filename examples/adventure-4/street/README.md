@@ -23,16 +23,16 @@ flowchart LR
     
     subgraph EW["E-W STREETS (Projects) ↓"]
         direction TB
-        Adv["Adventure Avenue"]
-        Zork["Zork Row"]
-        MUD["MUD Row"]
-        Adams["Adams Avenue"]
-        Hab["Habitat Highway"]
-        Logo["Logo Lane"]
-        Sims["Sims Street"]
-        Linden["Linden Lane"]
-        Glitch["Glitch Way"]
-        Lane["Lane Neverending"]
+        Adv["Adventure<br>Avenue"]
+        Zork["Zork<br>Row"]
+        MUD["MUD<br>Row"]
+        Adams["Adams<br>Avenue"]
+        Hab["Habitat<br>Highway"]
+        Logo["Logo<br>Lane"]
+        Sims["Sims<br>Street"]
+        Linden["Linden<br>Lane"]
+        Glitch["Glitch<br>Way"]
+        Lane["Lane<br>Neverending"]
     end
 ```
 
