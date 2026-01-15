@@ -1,5 +1,5 @@
 # CONVEYOR SYSTEM
-# Intake sorting and routing
+# Intake sorting and routing — The Leela Pipeline
 
 object:
   id: conveyor-system
@@ -7,137 +7,201 @@ object:
   type: infrastructure
   emoji: "🔄"
   
-  tags: [infrastructure, logistics, automation]
+  tags: [infrastructure, logistics, automation, pipeline]
   
   description: |
-    Seven main conveyor lines crisscross the floor, carrying
-    containers from the loading docks to sorting stations.
-    Each line handles a different type of input.
+    The main conveyor lines trace a flowing pipeline across the floor.
+    Video comes in, forks to parallel tracks, converges to insights,
+    flows to storage, and emerges as visualized understanding.
     
   examine: |
-    INTAKE CONVEYOR SYSTEM
-    ══════════════════════
+    INTAKE CONVEYOR SYSTEM — THE LEELA PIPELINE
+    ════════════════════════════════════════════
     
-    Seven parallel lines, color-coded:
+    Follow the flow:
     
-    LINE A (Blue): Questions
-    ════════════════════════
-    Blue containers glide past, each holding one or more questions.
-    Some containers vibrate with curiosity.
-    Destination: Question Processing (Floor 2, Cells A-C)
+                         ┌─────────────┐
+                         │    VIDEO    │
+                         │   (input)   │
+                         └──────┬──────┘
+                                │
+                           ═════╧═════
+                          /           \
+                         ▼             ▼
+              ┌──────────────┐  ┌──────────────┐
+              │   OBJECTS    │  │    POSES     │
+              │  (detected)  │  │  (skeletal)  │
+              └──────┬───────┘  └───────┬──────┘
+                     │                  │
+                     └────────┬─────────┘
+                              ▼
+                     ┌────────────────┐
+                     │    INSIGHTS    │
+                     │  (understood)  │
+                     └───────┬────────┘
+                             │
+                             ▼
+                     ┌────────────────┐
+                     │      SQL       │
+                     │   (stored)     │
+                     └───────┬────────┘
+                             │
+                    ┌────────┴────────┐
+                    ▼                 ▼
+           ┌────────────┐    ┌────────────────┐
+           │    PDA     │───▶│    QUERIES     │
+           │  (writes)  │    │  (retrieves)   │
+           └────────────┘    └───────┬────────┘
+                                     │
+                                     ▼
+                          ┌──────────────────┐
+                          │  VISUALIZATIONS  │
+                          │    (shows)       │
+                          └──────────────────┘
     
-    LINE B (Yellow): Problems  
-    ═════════════════════════
-    Yellow containers, heavier-looking. Problems have weight.
-    Some containers seem reluctant to move.
-    Destination: Problem Furnace (Floor 2)
+    ════════════════════════════════════════════════════════════
     
-    LINE C (Green): Raw Data
-    ════════════════════════
-    Green containers, often larger. Data comes in bulk.
-    Humming sounds — data is restless.
-    Destination: Data Processing (Floor 2, Cell D)
+    LINE V (Purple): Video Intake
+    ═════════════════════════════
+    Raw video streams arrive on purple containers.
+    Cameras, recordings, live feeds — all enter here.
+    The line FORKS at Junction Alpha, splitting each stream.
     
-    LINE D (Purple): Video → Objects
-    ════════════════════════════════
-    Purple containers with blinking lights. Video streams inside.
-    Each frame analyzed, objects extracted, catalogued.
-    Destination: Vision Processing (Floor 2, Cell F)
-    Output: Detected objects, scene graphs, temporal patterns
-    
-    LINE E (Orange): Poses → Insights
-    ═════════════════════════════════
-    Orange containers with motion sensors. Human poses captured.
-    Skeletal data flows through, gestures recognized.
-    Destination: Motion Analysis (Floor 2, Cell G)
-    Output: Movement insights, behavioral patterns, dance moves
-    
-    LINE F (Cyan): SQL → Queries
+    LINE O (Blue): Objects Track
     ════════════════════════════
-    Cyan containers humming with structured data.
-    Queries arrive malformed, leave optimized.
-    Destination: Query Optimization (Floor 2, Cell D-2)
-    Output: Execution plans, indices, pipeline configurations
+    Blue containers carry detected objects — bounding boxes,
+    classifications, confidence scores. "A cat. 97% sure."
+    Runs parallel to the Poses track.
     
-    LINE G (Silver): Pipelines
-    ══════════════════════════
-    Silver containers linking other containers together.
-    Data flows defined, orchestrated, monitored.
-    Destination: Pipeline Assembly (Floor 2, Cell E)
-    Output: ETL workflows, streaming pipelines, DAGs
+    LINE P (Orange): Poses Track  
+    ════════════════════════════
+    Orange containers carry skeletal data — joint positions,
+    movement vectors, gesture signatures. "Waving. Definitely waving."
+    Runs parallel to the Objects track.
+    
+    JUNCTION BETA: The Convergence
+    ══════════════════════════════
+    Objects and Poses containers MERGE here.
+    Blue meets Orange. Context meets Motion.
+    "A cat (97%) is waving (definitely)."
+    Output: Insight containers (Gold)
+    
+    LINE I (Gold): Insights Flow
+    ════════════════════════════
+    Gold containers, heavier with understanding.
+    Each insight knows what it saw AND what it meant.
+    Flows steadily toward the SQL reservoir.
+    
+    LINE S (Silver): SQL Storage
+    ════════════════════════════
+    Silver containers descend into the SQL tanks below.
+    Structured. Indexed. Queryable. Patient.
+    Data waits here to be retrieved.
+    
+    LINE Q (Cyan): Queries
+    ══════════════════════
+    Cyan containers pull data UP from SQL storage.
+    Each query container arrives empty, leaves full.
+    "SELECT understanding FROM insights WHERE cat = waving"
+    
+    PDA STATION (Green): Query Writers
+    ═══════════════════════════════════
+    Personal Data Assistants sit at terminals, crafting queries.
+    They translate questions into SQL, intentions into JOINs.
+    "What did the cat do?" → SELECT * FROM insights...
+    
+    LINE Z (Rainbow): Visualizations
+    ═════════════════════════════════
+    Rainbow containers at journey's end.
+    Charts, graphs, dashboards, stories.
+    Data made visible. Understanding made beautiful.
     
     SPECIAL ROUTING:
-    • Red containers: QUARANTINE (automatic divert)
-    • Purple containers: "Weird Ones" (manual inspection)
-    • Unmarked containers: Confused Welcome Desk
-    • Containers that move themselves: Zone 7
+    • Corrupted video: QUARANTINE (automatic divert)
+    • Unrecognizable poses: "Is that a dance?" desk
+    • Queries that return everything: Optimization intervention
+    • Visualizations too beautiful: Gallery display
     
   state:
-    line_a: { speed: "normal", items: 47, backed_up: false }
-    line_b: { speed: "slow", items: 23, backed_up: true }
-    line_c: { speed: "fast", items: 156, backed_up: false }
-    line_d: { speed: "normal", items: 12, backed_up: false, fps: 30 }
-    line_e: { speed: "normal", items: 8, backed_up: false, poses_per_sec: 60 }
-    line_f: { speed: "fast", items: 89, backed_up: false, queries_optimized: 847 }
-    line_g: { speed: "variable", items: 5, backed_up: false, pipelines_active: 23 }
+    line_v: { speed: "fast", items: 34, fps: 30 }
+    line_o: { speed: "normal", items: 89, objects_detected: 1247 }
+    line_p: { speed: "normal", items: 89, poses_tracked: 1247 }
+    junction_beta: { merging: true, insights_created: 847 }
+    line_i: { speed: "steady", items: 42, understanding_level: "high" }
+    line_s: { speed: "variable", items: 156, rows_stored: 2847291 }
+    line_q: { speed: "on-demand", active_queries: 23 }
+    pda_station: { assistants: 4, queries_written_today: 89 }
+    line_z: { speed: "careful", visualizations: 12, beauty_score: 8.7 }
     
   processing_stats:
-    video_objects:
-      frames_analyzed_today: 1247000
-      objects_detected: 3891247
+    video_intake:
+      streams_today: 47
+      frames_processed: 1247000
+      fork_efficiency: "99.2%"
+      
+    object_detection:
+      objects_found: 3891247
+      categories: 847
       confidence_avg: 0.94
+      strangest_object: "A cat wearing a top hat"
       
-    pose_insights:
-      poses_captured: 89000
+    pose_estimation:
+      poses_tracked: 891247
       gestures_recognized: 12400
-      dances_identified: 3  # Someone's been practicing
+      dances_identified: 3
+      interpretive_dances: 1  # "We're still not sure"
       
-    sql_queries:
-      queries_received: 4721
-      queries_optimized: 4698
-      execution_time_saved: "47 hours"
-      worst_query: "SELECT * FROM everything"
+    insight_generation:
+      insights_created: 47891
+      connections_found: 128947
+      "aha_moments": 23
       
-    pipelines:
-      pipelines_defined: 156
-      pipelines_running: 23
-      data_flowing: "3.2 TB/hour"
+    sql_storage:
+      tables: 847
+      rows: 28472910
+      indices: 2847
+      oldest_data: "2019-03-14"
+      
+    queries:
+      queries_today: 4721
+      avg_response_time: "47ms"
+      slowest_query: "SELECT * FROM everything JOIN everything"
+      
+    visualizations:
+      charts_generated: 847
+      dashboards_active: 23
+      "wow_reactions": 47
       
   methods:
     STATUS:
-      description: "Check conveyor status"
-      effect: "Display throughput and any blockages"
+      description: "Check pipeline status"
+      effect: "Display throughput at each stage"
       
     TRACE:
-      description: "Follow a specific container"
+      description: "Follow data through the pipeline"
       parameters:
-        container_id: "Container number"
-      effect: "Track container through the system"
+        video_id: "Source video identifier"
+      effect: "Track from intake to visualization"
       
     EMERGENCY_STOP:
       description: "Halt all conveyors"
-      effect: "*ALARM* — All lines stop. Use sparingly."
+      effect: "*ALARM* — All lines stop. Data buffers."
       
-    ANALYZE_VIDEO:
-      description: "Submit video for object detection"
+    SUBMIT_VIDEO:
+      description: "Add video to the pipeline"
       parameters:
         video: "Video stream or file"
-      effect: "Objects extracted, scene graph generated"
+      effect: "Forks to Objects and Poses tracks"
       
-    CAPTURE_POSE:
-      description: "Submit pose data for analysis"
+    ASK_PDA:
+      description: "Have a PDA write a query for you"
       parameters:
-        pose: "Skeletal tracking data"
-      effect: "Gesture recognized, movement insight generated"
+        question: "Natural language question"
+      effect: "PDA translates to SQL, runs query, returns results"
       
-    OPTIMIZE_QUERY:
-      description: "Submit SQL for optimization"
+    VISUALIZE:
+      description: "Generate visualization from query results"
       parameters:
-        query: "SQL statement"
-      effect: "Query plan generated, indices suggested"
-      
-    BUILD_PIPELINE:
-      description: "Define a data pipeline"
-      parameters:
-        stages: "Pipeline stage definitions"
-      effect: "DAG generated, orchestration configured"
+        data: "Query results"
+        style: "Chart type or 'auto'"
+      effect: "Beautiful understanding emerges"
