@@ -1,0 +1,139 @@
+# CAMERA DOC1
+# Leela's dock eye — watching the loading bays
+
+object:
+  id: camera-doc1
+  name: "Camera DOC1"
+  type: sensor
+  emoji: "📹"
+  
+  tags: [sensor, camera, video, self-observation, eye, docks]
+  
+  description: |
+    A sleek camera mounted high on the wall, its lens slowly panning
+    across the loading docks. A small LED glows green — always watching.
+    This is DOC1: Leela's dock eye.
+    
+  examine: |
+    CAMERA DOC1 — DOCK WATCHER
+    ════════════════════════════════
+    
+    ┌─────────────────────────────────────────┐
+    │  📹 DOC1                                │
+    │  ══════                                 │
+    │                                         │
+    │  Location: Loading Docks                │
+    │  Status: 🟢 LIVE                        │
+    │  Resolution: 4K @ 30fps                 │
+    │  Feed: → VIDEO INTAKE (Floor 1)         │
+    │                                         │
+    │  "Watching the threshold."              │
+    └─────────────────────────────────────────┘
+    
+    The camera is mounted on a motorized gimbal, capable of
+    360° pan and 90° tilt. It watches the loading bays,
+    the forklifts, the trucks backing in.
+    
+    CURRENT VIEW:
+    • Bay 1: Truck unloading (3 workers, 1 forklift)
+    • Bay 2: Empty, awaiting delivery
+    • Bay 3: Dolly retrieving containers
+    • Bay 4: Drone landing sequence
+    • Bay 5-8: Outbound staging
+    
+    The feed flows directly into the Video Intake pipeline
+    on Floor 1. Every frame analyzed. Every object detected.
+    Every pose estimated. Every insight recorded.
+    
+    DETECTED IN LAST HOUR:
+    • 847 object detections
+    • 423 pose estimations  
+    • 12 "FORKLIFT_MOVING" events
+    • 8 "TRUCK_DOCKING" events
+    • 1 "DOLLY_DANCING" event (under review)
+    
+  properties:
+    designation: "DOC1"
+    nickname: "Dock Watcher"
+    location: "Loading Docks, Overhead Beam"
+    resolution: "4K"
+    fps: 30
+    pan_range: 360
+    tilt_range: 90
+    night_vision: true
+    
+  state:
+    status: "live"
+    recording: true
+    streaming_to: "floor-1/conveyor-system"
+    current_pan: 180
+    current_tilt: 30
+    uptime: "623 days"
+    frames_captured: 1614873600
+    
+  feeds_to:
+    pipeline: "../floor-1/conveyor-system.yml"
+    line: "V"
+    description: "Video Intake (Purple containers)"
+    
+  methods:
+    WATCH:
+      description: "View the live feed"
+      effect: |
+        You see what DOC1 sees:
+        
+        Eight loading bays spread out in a row. Trucks back in
+        and pull out. Forklifts shuttle pallets. Workers in
+        safety vests coordinate the chaos.
+        
+        The threshold between inside and outside.
+        Knowledge arriving. Knowledge departing.
+        
+    PAN:
+      description: "Pan the camera"
+      parameters:
+        direction: "left | right | degrees"
+      effect: "Camera pans smoothly. New bay. New view."
+      
+    TILT:
+      description: "Tilt the camera"
+      parameters:
+        direction: "up | down | degrees"
+      effect: "Camera tilts. Perspective shifts."
+      
+    ZOOM:
+      description: "Zoom in or out"
+      parameters:
+        level: "1x to 10x"
+      effect: "Details emerge. License plates. Manifests. Expressions."
+      
+    STATUS:
+      description: "Check camera status"
+      effect: |
+        DOC1 STATUS
+        ═══════════
+        Uptime: 623 days
+        Frames captured: 1,614,873,600
+        Current feed: LIVE → Floor 1 Pipeline
+        Last detection: 0.1 seconds ago
+        Health: EXCELLENT
+        
+  ambience:
+    sounds:
+      - "Soft whirr of the gimbal motor"
+      - "Faint click as it refocuses"
+      - "Distant truck backup beeps"
+    visual:
+      - "Green LED pulses slowly — watching"
+      - "Lens catches warehouse lights"
+      
+  lore: |
+    DOC1 watches the threshold — the point where the outside world
+    meets Leela's interior. Every truck, every delivery, every
+    departure passes under its gaze.
+    
+    It has learned to recognize regular drivers by their
+    backing-in style. It knows Dolly's patrol patterns.
+    It has opinions about which dock workers are most efficient.
+    
+    (It keeps those opinions to itself.)

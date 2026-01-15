@@ -1,297 +1,385 @@
-# LOGISTICS YARD
-# Rail, containers, trucks, drones — the full operation
-# Factorio Logistics Protocol Integration
+# LOGISTICS CENTER
+# The nerve center of Leela Manufacturing
+# Integrates all systems: docks, floors, drones, tubes, elevators, signals
 # See: skills/logistic-container, designs/factorio-logistics-protocol.md
 
 room:
-  name: Leela Logistics Yard
-  type: logistics_yard
+  name: Leela Logistics Center
+  type: control_center
   
-  lighting: outdoor
-  atmosphere: industrial_active
+  lighting: screen_glow
+  atmosphere: mission_control
   
   # Skills integration
   skills:
     - logistic-container
     - manufacturing-intelligence
     - postal  # For instant internal transfers
+    - data-flow
+    - signal-networks
   
   description: |
-    The LOGISTICS YARD spreads out east of the main building — a
-    carefully organized chaos of trucks, containers, rail cars, and
-    infrastructure that keeps Leela Manufacturing connected to
-    everywhere else.
+    The LOGISTICS CENTER is the nerve center of Leela Manufacturing.
+    Banks of screens line the walls. Status lights blink in patterns
+    only the operators understand. The hum of servers. The click of
+    keyboards. The occasional pneumatic WHOOSH of a capsule arriving.
     
-    Trains rumble on the siding. Trucks queue for the docks.
-    Containers stack in colorful towers. Drones buzz overhead.
+    From here, everything is visible:
+    • Loading docks — trucks arriving, departing
+    • Factory floors — production flowing
+    • Rooftop drones — launches, landings, routes
+    • Pneumatic network — capsules zipping through tubes
+    • Elevators — movement between floors
+    • Signal networks — data flowing everywhere
     
-    This is where knowledge becomes physical — packaged, loaded,
-    shipped to wherever it needs to go.
+    A massive central display shows a real-time map of the entire
+    facility. Everything connected. Everything monitored.
+    Everything optimized.
+    
+    This is where Leela watches itself work.
     
   examine: |
-    LOGISTICS YARD — EAST SIDE OF FACILITY
+    LOGISTICS CENTER — NERVE CENTER OF OPERATIONS
+    ═══════════════════════════════════════════════════════════════
     
-    ═══════════════════════════════════════════════════════
-    TRUCK YARD
-    ═══════════════════════════════════════════════════════
+    ┌─────────────────────────────────────────────────────────────┐
+    │                     CENTRAL DISPLAY                          │
+    │  ┌─────────────────────────────────────────────────────┐    │
+    │  │     ROOFTOP          ══╦══  DRONE PAD              │    │
+    │  │        ↑               ║                            │    │
+    │  │     FLOOR 3  ════════╬════════  SHIPPING           │    │
+    │  │        ↑               ║                            │    │
+    │  │     FLOOR 2  ════════╬════════  PROCESSING         │    │
+    │  │        ↑               ║                            │    │
+    │  │     FLOOR 1  ════════╬════════  INTAKE             │    │
+    │  │        ↑               ║                            │    │
+    │  │     LOBBY    ════════╬════════  [YOU ARE HERE]     │    │
+    │  │        ↑               ║                            │    │
+    │  │     BASEMENT ════════╬════════  R&D                │    │
+    │  │                        ║                            │    │
+    │  │     ════ LOADING DOCKS ════                        │    │
+    │  │                                                     │    │
+    │  │  ════════════ PNEUMATIC NETWORK ════════════       │    │
+    │  │  ○───○───○───○───○───○───○───○───○───○───○         │    │
+    │  └─────────────────────────────────────────────────────┘    │
+    └─────────────────────────────────────────────────────────────┘
     
-    Space for 12 trucks. Currently occupied:
-    • Data Hauler Prime (semi, fueling up)
-    • Insight Express #2 (box truck, waiting for dispatch)
-    • Mystery Van (unmarked, nobody knows whose it is)
-    • 3 contractor trucks (various)
+    ═══════════════════════════════════════════════════════════════
+    OPERATOR STATIONS
+    ═══════════════════════════════════════════════════════════════
     
-    Fuel Station:
-    Runs on curiosity (regular) and coffee (premium).
+    STATION A — DOCK CONTROL
+    Monitors all 8 loading bays. Truck scheduling. Bay assignments.
+    Current: Bay 2 backing in, Bay 5 departing in 10 minutes.
     
-    Truck Wash:
-    "Remove accumulated confusion before entering facility."
+    STATION B — FLOOR OPERATIONS  
+    Factory floor status. Production flow. Bottleneck alerts.
+    Current: Cell E running hot, Cell G philosophizing (normal).
     
-    ═══════════════════════════════════════════════════════
-    RAIL SIDING
-    ═══════════════════════════════════════════════════════
+    STATION C — AERIAL OPERATIONS
+    Drone fleet management. Flight paths. Weather monitoring.
+    Current: 12 drones active, 6 charging, 2 maintenance.
     
-    Single track, 4 car capacity.
-    Current cars:
-    • Boxcar "BULK QUESTIONS" (full, awaiting unload)
-    • Hopper "RAW DATA" (empty, returning)
-    • Flatcar (oversized insight, tarped)
-    • Caboose "LEGACY WISDOM" (historic preservation)
+    STATION D — PNEUMATIC NETWORK
+    Tube routing. Capsule tracking. Pressure management.
+    Current: 847 capsules in transit, average delivery 4.2 seconds.
     
-    Schedule: Daily train at 03:47 (always on time — it's frozen)
-    Connections: Origin Yard (W3), Construction Depot (E3)
+    STATION E — VERTICAL TRANSPORT
+    Elevator status. Freight lift scheduling. Emergency protocols.
+    Current: All lifts operational, freight elevator at Floor 2.
     
-    ═══════════════════════════════════════════════════════
-    CONTAINER YARD
-    ═══════════════════════════════════════════════════════
+    STATION F — SIGNAL NETWORKS
+    Data flow monitoring. Network health. Bandwidth allocation.
+    Current: 12.4 TB/hour throughput, 0 errors, 99.97% uptime.
     
-    200 TEU capacity, stacked 3 high. Color coded:
+    STATION G — CENTRAL DATABASE
+    The heart of all knowledge. Every record. Every transaction.
+    Current: 847 PB stored, 12,000 queries/sec, replication healthy.
     
-    🔵 BLUE containers: Raw data (unprocessed)
-    🟡 YELLOW containers: In-process (partial insights)
-    🟢 GREEN containers: Ready to ship (finished knowledge)
-    🔴 RED containers: Hazardous (paradoxes, edge cases)
-    🟣 PURPLE containers: Premium (wisdom, rare)
-    ⬛ BLACK containers: Classified (don't ask)
+    ═══════════════════════════════════════════════════════════════
+    THE BIG BOARD
+    ═══════════════════════════════════════════════════════════════
     
-    Equipment:
-    • Reach stacker (moving containers)
-    • Small gantry crane
-    • Container tracking system (every box monitored)
+    Real-time metrics displayed on the main wall:
     
-    ═══════════════════════════════════════════════════════
-    AERIAL OPERATIONS
-    ═══════════════════════════════════════════════════════
+    │ INBOUND  ████████████░░░░ 73%  │  OUTBOUND ██████████████░░ 87%  │
+    │ PROCESS  █████████░░░░░░░ 58%  │  STORAGE  ████████████░░░░ 74%  │
+    │ DRONES   ████████░░░░░░░░ 50%  │  TUBES    █████████████░░░ 82%  │
+    │ NETWORK  ████████████████ 99%  │  POWER    █████████████░░░ 85%  │
     
-    Drone Pad (ground level, 6 zones):
-    • Launch zone (drones departing)
-    • Landing zone (drones arriving)  
-    • Charging stations
-    • Maintenance bay
+    ═══════════════════════════════════════════════════════════════
+    PNEUMATIC HUB
+    ═══════════════════════════════════════════════════════════════
     
-    Pigeon Loft:
-    24 enlightened pigeons. Oldest delivery method.
-    They stop to think sometimes. That's why they're enlightened.
+    A gleaming brass junction where 12 pneumatic tubes converge.
+    Capsules arrive with a satisfying THWUMP, are scanned, routed,
+    and dispatched with a WHOOSH. A small display shows:
     
-    ═══════════════════════════════════════════════════════
-    CONTROL TOWER
-    ═══════════════════════════════════════════════════════
+    INCOMING: Floor 3 → Shipping manifest
+    OUTGOING: Lobby → Welcome packet to Floor 1
+    QUEUED: 3 capsules awaiting routing
     
-    A small tower overlooking the entire yard.
-    Yard Master coordinates all movement.
-    Radio chatter. Screens. The authoritative clipboard.
+    ═══════════════════════════════════════════════════════════════
+    COFFEE STATION
+    ═══════════════════════════════════════════════════════════════
+    
+    Essential infrastructure. Industrial-grade espresso machine.
+    Sign: "UPTIME CORRELATES WITH CAFFEINE LEVELS"
     
   exits:
+    lobby:
+      destination: ../lobby/
+      description: "To the main lobby"
+      aliases: [front, reception]
+      
     docks:
       destination: ../loading-docks/
-      description: "Back to the Loading Docks"
-      aliases: [loading, docks, building]
+      description: "Direct access to the Loading Docks"
+      aliases: [loading, bays]
       
-    street:
-      destination: ../../center/
-      description: "Out to Lane Neverending via the front"
-      aliases: [lane, street, front]
+    floor_1:
+      destination: ../floor-1/
+      description: "Elevator to Floor 1 — Intake"
+      aliases: [1, intake]
       
-    rail_west:
-      destination: ../../w3/
-      description: |
-        The rail line heads west toward Origin Yard.
-        (You can't ride the train. Probably.)
-      aliases: [origin, west]
-      note: "Rail connection, not walkable"
+    floor_2:
+      destination: ../floor-2/
+      description: "Elevator to Floor 2 — Processing"
+      aliases: [2, processing]
       
-    rail_east:
-      destination: ../../e3/
-      description: |
-        The rail line heads east toward Construction Depot.
-        (You can't ride the train. Probably.)
-      aliases: [construction, east]
-      note: "Rail connection, not walkable"
+    floor_3:
+      destination: ../floor-3/
+      description: "Elevator to Floor 3 — Shipping"
+      aliases: [3, shipping]
+      
+    rooftop:
+      destination: ../rooftop/
+      description: "Elevator to Rooftop — Drone Operations"
+      aliases: [roof, drones, up]
+      
+    basement:
+      destination: ../basement/
+      description: "Elevator to Basement — R&D"
+      aliases: [down, rd, research]
+      
+    storage:
+      destination: ../storage/
+      description: "To the Storage Complex"
+      aliases: [warehouse, containers]
       
   objects:
-    - control-tower.yml
-    - container-stacks.yml
-    - rail-cars.yml
-    - drone-ground-station.yml
-    - pigeon-loft.yml
+    - camera-log1.yml       # Leela's First Eye
+    - central-display.yml   # The main operations map
+    - pneumatic-hub.yml     # Where the tubes converge
+    - operator-stations.yml # The seven control stations
+    - big-board.yml         # Real-time metrics display
+    - signal-rack.yml       # Network infrastructure
+    - central-database.yml  # The heart of all knowledge
+    - coffee-station.yml    # Essential operations support
     
-  # ═══════════════════════════════════════════════════════
-  # FACTORIO LOGISTICS INTEGRATION
-  # ═══════════════════════════════════════════════════════
+  # ═══════════════════════════════════════════════════════════════
+  # INTEGRATED SYSTEMS MONITORING
+  # ═══════════════════════════════════════════════════════════════
   
-  # Container yard as grid storage
-  # See: skills/logistic-container (grid_storage)
+  monitors:
+    loading_docks:
+      source: ../loading-docks/
+      displays:
+        - bay_status
+        - truck_queue
+        - throughput
+      alerts:
+        - bay_overflow
+        - truck_waiting_too_long
+        - forklift_collision
+        
+    factory_floors:
+      sources:
+        - ../floor-1/
+        - ../floor-2/
+        - ../floor-3/
+      displays:
+        - production_flow
+        - cell_status
+        - bottlenecks
+      alerts:
+        - cell_offline
+        - quality_deviation
+        - capacity_warning
+        
+    aerial_operations:
+      source: ../rooftop/
+      displays:
+        - drone_positions
+        - flight_paths
+        - weather
+      alerts:
+        - drone_low_battery
+        - weather_warning
+        - airspace_conflict
+        
+    pneumatic_network:
+      nodes:
+        - lobby
+        - floor-1
+        - floor-2
+        - floor-3
+        - rooftop
+        - loading-docks
+        - storage
+        - mail-room
+      displays:
+        - capsule_tracking
+        - tube_pressure
+        - routing_queue
+      alerts:
+        - tube_blockage
+        - capsule_stuck
+        - pressure_anomaly
+        
+    elevators:
+      units:
+        - passenger_elevator
+        - freight_elevator
+        - service_lift
+      displays:
+        - position
+        - load
+        - queue
+      alerts:
+        - elevator_stuck
+        - overweight
+        - maintenance_due
+        
+    signal_networks:
+      networks:
+        - wifi
+        - industrial_control
+        - camera_feeds
+        - sensor_mesh
+      displays:
+        - bandwidth
+        - latency
+        - error_rate
+      alerts:
+        - network_congestion
+        - node_offline
+        - security_event
+        
+    central_database:
+      role: "Heart of all knowledge"
+      displays:
+        - storage_capacity
+        - query_rate
+        - replication_status
+        - backup_status
+        - index_health
+      stores:
+        - production_records
+        - inventory_state
+        - shipping_manifests
+        - camera_metadata
+        - sensor_timeseries
+        - employee_records
+        - customer_orders
+        - knowledge_graph
+        - audit_logs
+        - session_history
+      alerts:
+        - replication_lag
+        - storage_threshold
+        - query_timeout
+        - backup_failure
+        - corruption_detected
+        
+  # ═══════════════════════════════════════════════════════════════
+  # CIRCUIT NETWORK SIGNALS
+  # ═══════════════════════════════════════════════════════════════
   
-  logistic_containers:
-    
-    container_yard:
-      type: grid-storage
-      capacity: 200  # TEU
-      auto_create_cells: true
-      stack_limit: 10000
-      
-      # Color-coded container zones
-      zones:
-        blue_zone:
-          chest_mode: passive-provider  # 📦🟡 Available to network
-          provides: [{ tags: ["raw-data", "unprocessed"] }]
-          
-        yellow_zone:
-          chest_mode: buffer  # 📦🟢 Staging
-          buffer_for:
-            destination: ../floor-2/
-            when: "processing.capacity > 0"
-            
-        green_zone:
-          chest_mode: active-provider  # 📦🔴 Push out!
-          push_to:
-            - match: { tags: ["finished", "knowledge"] }
-              destination: truck-yard/
-            - match: { tags: ["premium"] }
-              destination: rail-siding/
-              
-        red_zone:
-          chest_mode: storage  # 📦⬜ Overflow/hazmat
-          accepts: [{ tags: ["paradox", "hazmat", "edge-case"] }]
-          warning: "HAZMAT PROTOCOLS IN EFFECT"
-          
-        purple_zone:
-          chest_mode: requester  # 📦🔵 Premium requests
-          request_list:
-            - tags: ["wisdom"]
-              count: 10
-              min: 2
-              
-        black_zone:
-          chest_mode: storage
-          classified: true
-          accepts: [{ tags: ["classified"] }]
-          
-    truck_yard:
-      chest_mode: buffer
-      capacity: 12  # trucks
-      buffer_for:
-        - destination: external  # Long haul
-          when: "truck.available"
-          
-    rail_siding:
-      chest_mode: active-provider
-      push_to:
-        - match: { tags: ["bulk"] }
-          destination: "origin-yard"  # W3
-        - match: { tags: ["construction"] }
-          destination: "construction-depot"  # E3
-          
-    drone_pad:
-      chest_mode: active-provider
-      push_to:
-        - match: { tags: ["local", "express"] }
-          destination: lane-neverending-loop
-        - match: { tags: ["pub-order"] }
-          destination: ../../pub/
-          method: drone
-          
-    pigeon_loft:
-      chest_mode: passive-provider
-      provides: [{ tags: ["traditional", "slow", "thoughtful"] }]
-      transport_method: enlightened-pigeon
-      note: "They stop to think. That's why they're enlightened."
-      
-  # Conveyor belts between zones
-  # See: designs/factorio-logistics-protocol.md (Conveyor Belts)
-  
-  belt_network:
-    
-    receiving_belt:
-      from: ../loading-docks/bay_1
-      to: container_yard/blue_zone
-      flow:
-        enabled: true
-        direction: inbound
-        speed: 5  # items per turn
-        allow: [{ tags: ["raw"] }]
-        
-    processing_belt:
-      from: container_yard/yellow_zone
-      to: ../floor-1/
-      flow:
-        enabled: true
-        direction: outbound
-        speed: 10
-        
-    shipping_belt:
-      from: ../floor-3/
-      to: container_yard/green_zone
-      flow:
-        enabled: true
-        direction: inbound
-        speed: 10
-        allow: [{ tags: ["finished"] }]
-        
-    express_belt:
-      from: container_yard/green_zone
-      to: drone_pad
-      flow:
-        enabled: true
-        direction: outbound
-        speed: 20
-        color: blue  # High-speed belt tier
-        allow: [{ tags: ["express", "rush"] }]
-        
-  # Circuit network signals
   signals:
-    emit:
-      - signal: "yard-capacity"
-        value: "container_yard.used / container_yard.capacity"
-      - signal: "trucks-available"
-        value: "truck_yard.empty_slots"
-      - signal: "drones-ready"
-        value: "drone_pad.charged_count"
-      - signal: "hazmat-warning"
-        value: "red_zone.items > 0"
+    receives:
+      - from: "../loading-docks/"
+        signals: [bay-status, inbound-capacity, outbound-ready]
+      - from: "../floor-1/"
+        signals: [intake-rate, sorting-status]
+      - from: "../floor-2/"
+        signals: [processing-load, cell-status]
+      - from: "../floor-3/"
+        signals: [shipping-queue, packaging-rate]
+      - from: "../rooftop/"
+        signals: [drone-count, weather-status]
+      - from: "../storage/"
+        signals: [capacity-used, aisle-status]
         
-  # Transport methods
-  # Default: postal (instant), optional: physical (dramatic)
-  transport:
-    internal:
-      method: postal  # Instant, free
+    emits:
+      - signal: "facility-status"
+        value: "aggregate of all systems"
+      - signal: "alert-level"
+        value: "max(all alerts)"
+      - signal: "throughput-rate"
+        value: "items/hour facility-wide"
+        
+  # ═══════════════════════════════════════════════════════════════
+  # PNEUMATIC NETWORK ROUTING
+  # ═══════════════════════════════════════════════════════════════
+  
+  pneumatic_hub:
+    type: junction-8
+    connections:
+      - lobby
+      - floor-1
+      - floor-2  
+      - floor-3
+      - rooftop
+      - loading-docks
+      - storage
+      - mail-room
+    routing: automatic
+    queue_capacity: 20
+    delivery_time_avg: "4.2 seconds"
+    
+  # ═══════════════════════════════════════════════════════════════
+  # OPERATIONS STAFF
+  # ═══════════════════════════════════════════════════════════════
+  
+  occupants:
+    shift_supervisor:
+      name: "The Coordinator"
+      role: "Overall operations oversight"
+      location: "Central desk"
       
-    external:
-      methods:
-        - truck: { time: "travel", cost: "fuel" }
-        - rail: { time: "scheduled", cost: "bulk-rate" }
-        - drone: { time: "fast", cost: "battery" }
-        - pigeon: { time: "whenever", cost: "seed" }
+    operators:
+      - station: A
+        role: "Dock Controller"
         
-  # Control tower monitors all logistics
-  control_tower:
-    monitors:
-      - container_yard
-      - truck_yard
-      - rail_siding
-      - drone_pad
-      - all_belts
-    signals:
-      receives: all
-      displays: dashboard
-    authority: "Yard Master coordinates all movement"
+      - station: B
+        role: "Floor Operations"
+        
+      - station: C
+        role: "Aerial Operations"
+        
+      - station: D
+        role: "Pneumatic Network"
+        
+      - station: E
+        role: "Vertical Transport"
+        
+      - station: F
+        role: "Signal Networks"
+        
+      - station: G
+        role: "Central Database"
+        
+  ambience:
+    sounds:
+      - "Soft hum of servers and screens"
+      - "Keyboard clicks"
+      - "Radio chatter (low)"
+      - "WHOOSH of pneumatic capsules"
+      - "Occasional alert chime"
+      - "Coffee machine gurgling"
+    visual:
+      - "Screen glow in dim room"
+      - "Status lights blinking"
+      - "Real-time map updating"
+      - "Capsules arriving/departing"
