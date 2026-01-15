@@ -162,11 +162,11 @@ object:
     
     ┌──────────────────────────────────────────────────────────┐
     │  THINKER STACK (Symbolic Python Action Layer)            │
-    │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐      │
-    │  │THINKER-1│  │THINKER-2  │  │THINK-3  │  │THINK-4  │      │
-    │  │ CPU     │  │ CPU     │  │ CPU     │  │ CPU     │      │
-    │  │ Python  │  │ Python  │  │ Python  │  │ Python  │      │
-    │  └─────────┘  └─────────┘  └─────────┘  └─────────┘      │
+    │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
+    │  │THINKER-1 │  │THINKER-2 │  │THINKER-3 │  │THINKER-4 │  │
+    │  │ CPU      │  │ CPU      │  │ CPU      │  │ CPU      │  │
+    │  │ Python   │  │ Python   │  │ Python   │  │ Python   │  │
+    │  └──────────┘  └──────────┘  └──────────┘  └──────────┘  │
     │                                                          │
     │  SYMBOLIC PYTHON ACTION LAYER — versatile processing:    │
     │                                                          │
@@ -220,19 +220,25 @@ object:
     ┌──────────────────────────────────────────────────────────┐
     │  STORAGE STACK (Object/File + Ingest)                    │
     │                                                          │
-    │  OBJECT STORAGE (MinIO cluster):                         │
-    │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐      │
-    │  │STORE-1  │  │STORE-2  │  │STORE-3  │  │STORE-4  │      │
-    │  │ MinIO   │  │ MinIO   │  │ MinIO   │  │ MinIO   │      │
-    │  │ 100 TB  │  │ 100 TB  │  │ 100 TB  │  │ 100 TB  │      │
-    │  └─────────┘  └─────────┘  └─────────┘  └─────────┘      │
+    │  OBJECT STORAGE (S3 cluster):                            │
+    │  S3 STORAGE CLUSTER:                                      │
+    │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
+    │  │ STORE-1  │  │ STORE-2  │  │ STORE-3  │  │ STORE-4  │  │
+    │  │ S3/MinIO │  │ S3/MinIO │  │ S3/MinIO │  │ S3/MinIO │  │
+    │  │ primary  │  │ primary  │  │ mirror   │  │ backup   │  │
+    │  └──────────┘  └──────────┘  └──────────┘  └──────────┘  │
+    │                                                          │
+    │  • S3-compatible object storage (MinIO cluster)          │
+    │  • Primary nodes for hot data, mirror for redundancy     │
+    │  • Backup node for cold storage, disaster recovery       │
+    │  • Cross-site replication available                      │
     │                                                          │
     │  INGEST SERVICES:                                        │
-    │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐      │
-    │  │ VIDEO   │  │ SENSOR  │  │  LOG    │  │  BULK   │      │
-    │  │ INGEST  │  │ INGEST  │  │ INGEST  │  │ IMPORT  │      │
-    │  │ streams │  │ IoT/MQTT│  │ syslog  │  │ batch   │      │
-    │  └─────────┘  └─────────┘  └─────────┘  └─────────┘      │
+    │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
+    │  │  VIDEO   │  │  SENSOR  │  │   LOG    │  │   BULK   │  │
+    │  │  INGEST  │  │  INGEST  │  │  INGEST  │  │  IMPORT  │  │
+    │  │  streams │  │ IoT/MQTT │  │  syslog  │  │  batch   │  │
+    │  └──────────┘  └──────────┘  └──────────┘  └──────────┘  │
     │                                                          │
     │  STORAGE:                                                │
     │  • S3-compatible object storage (400 TB total)           │
