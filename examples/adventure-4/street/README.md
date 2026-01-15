@@ -153,10 +153,10 @@ The heart of town is where **Kay Lane** crosses **Lane Neverending**.
 
 ```
 N O R T H   (adventure wilderness — dungeons, caves, dragons)
-              │          │        │         │        │
-══════════════╪══════════╪════════╪═════════╪════════╪════════  Adventure Avenue (NORTHERN EDGE)
-              │          │        │         │        │           ↑ buildings and lots open to dungeons north
-──────────────┼──────────┼────────┼─────────┼────────┼────────  Zork Row (Infocom, 1977-82)
+              │          │        │         │        │          ↑ buildings and lots open to forests and dungeons north
+══════════════╪══════════╪════════╪═════════╪════════╪════════  Adventure Avenue (1976, NORTHERN EDGE)
+              │          │        │         │        │ 
+──────────────┼──────────┼────────┼─────────┼────────┼────────  Zork Row (MIT-DM, Infocom, 1977-82)
               │          │        │         │        │
 ──────────────┼──────────┼────────┼─────────┼────────┼────────  MUD Row (1978, Essex architecture)
               │          │        │         │        │
