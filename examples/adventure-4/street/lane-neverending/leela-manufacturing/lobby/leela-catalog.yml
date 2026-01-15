@@ -43,7 +43,7 @@ object:
     │   📡 SIGNAL NETWORKS ...... Communication, Data, Protocols      │
     │   🏭 FACTORIO PROTOCOLS ... Automation, Production, Flows       │
     │   🏛️ ARCHITECTURE ......... Buildings, Rooms, Layouts           │
-    │   🔧 MISCELLANEOUS ........ Everything Else                     │
+    │   🔧 MISCELLANEOUS ........ Tools, Novelties, Signage            │
     │                                                                 │
     │  ─────────────────────────────────────────────────────────────  │
     │                                                                 │
@@ -980,6 +980,75 @@ object:
               sku: "LEE-FT-001"
               price: "15 coins"
               description: "See how the magic happens"
+              
+        signage:
+          note: |
+            Professional signage for any occasion.
+            Clear. Authoritative. Sometimes ominous.
+            
+          items:
+            - name: "DO NOT PRESS Button Label"
+              sku: "LEE-DN-001"
+              price: "2 coins"
+              description: "Self-adhesive, red on white, guarantees it will be pressed"
+              sizes: "Small, Medium, Large, Comically Large"
+              
+            - name: "WRONG LINE Queue Sign"
+              sku: "LEE-WL-001"
+              price: "8 coins"
+              description: "Hanging sign, chain included, DMV-authentic"
+              effect: "Crushes hopes, redirects traffic"
+              
+            - name: "TAKE A NUMBER Dispenser"
+              sku: "LEE-TN-001"
+              price: "25 coins"
+              description: "Wall-mounted, infinite tickets"
+              includes: "First 1000 numbers (roll)"
+              
+            - name: "NOW SERVING Display"
+              sku: "LEE-NS-001"
+              price: "40 coins"
+              description: "Manual or automatic, 4-digit"
+              
+            - name: "AUTHORIZED PERSONNEL ONLY"
+              sku: "LEE-AP-002"
+              price: "5 coins"
+              description: "Makes anywhere feel restricted"
+              
+            - name: "DANGER: HIGH VOLTAGE"
+              sku: "LEE-HV-001"
+              price: "4 coins"
+              description: "Yellow/black, lightning bolt, scary"
+              
+            - name: "BEWARE OF DOG (No Dog Required)"
+              sku: "LEE-BD-001"
+              price: "6 coins"
+              description: "Works even without actual dog"
+              
+            - name: "EXIT Sign (Glowing)"
+              sku: "LEE-EX-001"
+              price: "15 coins"
+              description: "Always on, battery backup, regulatory compliant"
+              
+            - name: "EMPLOYEES MUST WASH HANDS"
+              sku: "LEE-WH-002"
+              price: "3 coins"
+              description: "Restroom essential, ignored by 40%"
+              
+            - name: "WET FLOOR Cone"
+              sku: "LEE-WF-001"
+              price: "7 coins"
+              description: "Yellow, foldable, liability shield"
+              
+            - name: "PUSH / PULL Door Signs (Pair)"
+              sku: "LEE-PP-002"
+              price: "4 coins"
+              description: "Everyone still gets it wrong"
+              
+            - name: "Custom Sign (Per Character)"
+              sku: "LEE-CS-001"
+              price: "0.5 coins/char"
+              description: "Any message, any size, your font"
               
   # ═══════════════════════════════════════════════════════════════
   # COMPARISON WITH ACME
