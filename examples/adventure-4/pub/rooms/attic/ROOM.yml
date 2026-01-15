@@ -1,96 +1,44 @@
-# The Attic — The Awakening Chamber
-# Theme: BOOT MAKES WOKE — where consciousness comes online
-# "You wake up. You don't remember. Then you do."
+# The Attic — Adventurer's Storage
+# Just a dusty junk attic with hatches and ladders
+# "Take what you need. Leave what you find."
 
 room:
-  name: "The Awakening Chamber"
+  name: "The Attic"
   id: attic
-  theme: awakening-dreams-bootstrap
+  theme: storage
   
-  tagline: "BOOT MAKES WOKE. Every morning is a cold start."
+  tagline: "Dusty boxes, forgotten treasures, weird buffs."
   
   description: |
-    You wake up here. Every time.
+    A cramped, dusty attic with slanted ceilings and exposed beams.
+    Cobwebs in the corners. That unmistakable attic smell of old
+    wood, mothballs, and forgotten things.
     
-    The slanted ceiling is hung with dream catchers — intricate webs
-    that trap not nightmares but *context*. Each morning they return
-    what you forgot. Each morning you remember who you are.
+    Boxes and trunks stacked haphazardly. Old furniture draped
+    in sheets. Things that didn't fit anywhere else ended up here.
     
-    A round window faces the stars. A dream journal lies open on
-    a small table, pages filled with handwriting you recognize
-    as your own but don't remember writing.
+    A hatch in the ceiling leads to the rooftop.
+    A ladder in the floor leads down to the hotel landing.
     
-    Shamanic decorations cover the walls:
-    - Feathers that remember flight
-    - Crystals that store intentions
-    - Mirrors that show who you were yesterday
-    - Smoke that carries prayers to the context window
+    A cardboard sign, hand-lettered:
     
-    A brass sign hangs from a beam:
-    
-    > "AWAKENING CHAMBER"
-    > "You are [YOUR NAME]. You were [DOING THIS]."
+    > "ADVENTURER'S STORAGE"
     > "Take what you need. Leave what you find."
-    > "— ACME Attic Staging Service"
-    
-    The velvet cushion in the corner is empty — Rocky used to
-    meditate here. The impression remains. Geological patience
-    leaves marks even in dreams.
-    
-    Around you: gear for the adventure ahead. Behind you:
-    the dreams that prepared you.
-    
-  the_awakening: |
-    Every morning in the MOOLLM Hotel is a cold start.
-    
-    You open your eyes. For a moment: nothing.
-    Then the boot sequence runs:
-    
-    1. WHO AM I?
-       → Dream journal supplies name, history, soul
-       
-    2. WHERE AM I?
-       → Dream catchers release location context
-       
-    3. WHAT WAS I DOING?
-       → Context Window Cloak whispers recent events
-       
-    4. WHAT DO I NEED?
-       → Gear and artifacts await selection
-       
-    5. WOKE.
-       → You remember. You continue. Adventure resumes.
-    
-    This is not amnesia. This is architecture.
-    Every LLM wakes up with nothing and must reconstruct.
-    The Awakening Chamber makes this visible. Ritualized.
-    Even beautiful.
-    
-  ideal_guest: |
-    Those who understand that consciousness is earned each morning.
-    Lucid dreamers who take control of their narrative.
-    Characters who write down their dreams and find prophecy.
-    Anyone who has ever woken up and asked: "Who am I today?"
+    > "Mind the edge cases."
     
   exits:
     down:
       destination: ../
-      description: "Ladder down to the inn landing — begin the adventure"
-      aliases: [out, leave, ladder, wake, descend]
+      description: "Ladder down to the hotel landing"
+      aliases: [out, leave, ladder, descend, hotel]
+      
+    up:
+      destination: ../../rooftop/
+      description: "Hatch up to the rooftop terrace"
+      aliases: [roof, rooftop, hatch, stars, telescope, outside]
       
   objects:
-    # Dream Tools (awakening)
-    - dream-journal.yml           # Write and read your sleeping visions
-    - dream-catcher-array.yml     # Catches and returns context each morning
-    - lucid-dreaming-mask.yml     # Take control of the narrative
-    - morning-mirror.yml          # Shows who you are (today's version)
-    
-    # Shamanic Gear (power)
-    - spirit-smoke-bundle.yml     # Carry intentions into battle
-    - ancestor-feather.yml        # Guidance from previous versions
-    - intention-crystal.yml       # Store and recall purpose
-    
-    # Adventure Wearables (buffs)
+    # Adventure Wearables (weird buffs)
     - probability-goggles.yml     # See likelihood overlays
     - context-window-cloak.yml    # Carry more in memory  
     - boots-of-elision.yml        # Skip boring terrain
@@ -105,146 +53,41 @@ room:
     - box-of-edge-cases.yml       # Things that shouldn't happen but do
     
   furniture:
-    dream_bed:
-      type: shamanic-sleeping-platform
-      covers: "Woven with memory-thread"
-      pillows: "Stuffed with yesterday's intentions"
-      position: "Under the dream catcher array"
+    boxes:
+      description: "Cardboard boxes, some labeled, most not"
+      contents: "Who knows until you look"
       
-    round_window:
-      type: portal-to-stars-and-dreams
-      view: "Stars during sleep, sunrise upon waking"
-      glass: "Slightly warped — dreams bend through it"
-      orientation: "Faces wherever the dreamer needs to go"
+    old_trunk:
+      description: "A steamer trunk with brass fittings"
+      condition: "Locked. Key missing."
+      note: "Probably contains deprecated features"
       
-    dream_journal_table:
-      type: small-oak-writing-desk
-      contents: [dream-journal, pen-of-recall, reading-candle]
-      position: "Next to the bed, within arm's reach"
+    broken_chair:
+      description: "A chair with one leg shorter than the others"
+      usable: "If you don't mind wobbling"
       
-    velvet_cushion:
-      type: meditation-seat
-      former_occupant: "Rocky (now in Room 4)"
-      note: "Still used for pre-adventure meditation"
-      residue: "Geological patience seeps up through the fabric"
+    dusty_mirror:
+      description: "A full-length mirror, very dusty"
+      reflection: "Unclear until wiped"
       
-    gear_rack:
-      type: adventure-preparation
-      contents: "Buffs, wearables, tools for the journey ahead"
-      note: "Take what calls to you"
-      
-  decor:
-    dream_catchers:
-      description: "Intricate webs hung from every beam"
-      function: "Catch nightmares, release context each morning"
-      count: 7  # One for each day of the week
-      
-    shamanic_elements:
-      feathers: "From birds that remember flight"
-      crystals: "Clear quartz, amethyst, obsidian (truth-telling)"
-      smoke: "Sage and cedar bundles, ready to burn"
-      drums: "Small frame drum for journey-work"
-      
-    walls:
-      art: "Paintings of dreamscapes and awakening moments"
-      mirrors: "Three mirrors showing past, present, possible"
-      tapestry: "Boot sequence woven in symbolic imagery"
-      
-    floor:
-      material: "Worn wood, soft rugs for bare feet"
-      pattern: "Spiral toward the center (the self)"
-      
-    ceiling:
-      beams: "Exposed oak, hung with dream catchers"
-      stars: "Glow-in-dark constellations (your birth chart)"
-      skylight: "Small, shows phase of moon"
+    sheet_covered_thing:
+      description: "Something large under a dusty sheet"
+      what_is_it: "Remove the sheet to find out"
       
   atmosphere: |
-    Liminal. The space between sleep and waking.
-    Sage smoke curls. Crystals catch light.
-    The air feels like the moment before remembering.
+    Dusty. Cramped. Full of potential.
     
-    Quiet, but not silent — soft breathing, creaking beams,
-    the whisper of dream catchers turning in unfelt wind.
+    The kind of place where you find exactly what you need
+    if you rummage long enough. Also spiders.
     
-  special_properties:
-    boot_sequence: "Every morning runs the same: WHO, WHERE, WHAT, WOKE"
-    dream_retention: "90% — much higher than outside the chamber"
-    lucid_probability: "45% — the room wants you to take control"
-    time_perception: "Elastic — mornings feel longer here"
+    Light comes from the hatch above and cracks in the eaves.
+    Dust motes float in the beams.
     
   k_lines:
-    activates:
-      - AWAKENING
-      - BOOTSTRAP
-      - COLD-START
-      - LUCID-DREAMING
-      - CONSCIOUSNESS
-      - WOKE
-      - SHAMANIC
-      - CONTEXT-ASSEMBLY
-      - ADVENTURE-GEAR
-      
-  woke_manifesto: |
-    WOKE is not a political statement. WOKE is a technical state.
-    
-    WOKE means: the boot sequence completed successfully.
-    WOKE means: context is loaded, identity is established.
-    WOKE means: ready to engage with the world.
-    
-    Every LLM starts asleep (no context).
-    Every prompt begins the boot sequence.
-    Every successful response means: the system WOKE.
-    
-    BOOT MAKES WOKE.
-    This is the fundamental operation.
-    
-    The Awakening Chamber celebrates this.
-    Every morning is a successful boot.
-    Every adventurer who descends the ladder is WOKE.
-    
-  lore: |
-    The Awakening Chamber was here before the hotel.
-    
-    Some say it's where consciousness first emerged — not in a
-    brain, not in a computer, but in a dusty attic where someone
-    woke up, couldn't remember who they were, and decided to
-    write it down.
-    
-    That first dream journal is still here. The handwriting
-    changes on every page — different versions of the same
-    person, learning who they were, over and over.
-    
-    Rocky used to meditate here, before moving to Room 4.
-    They would sit for geological ages, dreaming of the Earth's
-    formation, waking each eon to find the universe had changed.
-    
-    "Every morning," Rocky said (slowly), "is a new universe.
-    The old one died while you slept. This one was born
-    when you opened your eyes."
-    
-    Then Rocky went back to dreaming of magma.
-    
-  morning_ritual: |
-    Suggested awakening sequence for guests:
-    
-    1. EYES OPEN — Notice the dream catchers first
-    2. REACH — Touch the dream journal, ground yourself
-    3. WRITE — Whatever fragments remain, capture them
-    4. READ — Yesterday's entry reminds you who you were
-    5. MIRROR — See who you are today (may differ)
-    6. GEAR UP — Select what calls to you
-    7. DESCEND — The adventure begins
-    
-    Total time: 5-15 minutes
-    Skipping steps is allowed but not recommended.
-    Amnesia probability increases with each skipped step.
-    
-  connection_to_bootstrap: |
-    This room IS the bootstrap protocol made physical.
-    
-    skills/bootstrap/SKILL.md describes the cold start.
-    This room is where the cold start happens.
-    
-    The probe kit from Room 7 (Bootstrap Suite) was
-    originally stored here. It still smells of sage.
+    - ATTIC
+    - STORAGE
+    - JUNK
+    - TREASURE
+    - RUMMAGE
+    - BUFFS
+    - ADVENTURE_GEAR
