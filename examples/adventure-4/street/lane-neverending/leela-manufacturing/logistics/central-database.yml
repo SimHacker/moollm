@@ -99,15 +99,15 @@ object:
     ┌─────────────────────────────────────────────────┐
     │  EVENT DISPATCH ARCHITECTURE                    │
     │                                                 │
-    │  ┌─────────┐    NOTIFY     ┌─────────┐        │
-    │  │ Producer│─────────────→│ Channel │        │
-    │  └─────────┘               └────┬────┘        │
-    │                                 │              │
-    │               ┌─────────────────┼──────────┐  │
-    │               ↓                 ↓          ↓  │
-    │         ┌─────────┐      ┌─────────┐ ┌─────┐ │
-    │         │Worker A │      │Worker B │ │ ... │ │
-    │         └─────────┘      └─────────┘ └─────┘ │
+    │  ┌─────────┐    NOTIFY     ┌─────────┐          │
+    │  │ Producer│─────────────→│ Channel │           │
+    │  └─────────┘               └────┬────┘          │
+    │                                 │               │
+    │               ┌─────────────────┼──────────┐    │
+    │               ↓                 ↓          ↓    │
+    │         ┌─────────┐      ┌─────────┐   ┌─────┐  │
+    │         │Worker A │      │Worker B │   │ ... │  │
+    │         └─────────┘      └─────────┘   └─────┘  │
     └─────────────────────────────────────────────────┘
     
     WHY POSTGRES FOR EVERYTHING?
@@ -127,20 +127,80 @@ object:
     ARCHITECTURE
     ══════════════════════════════════════════════════════
     
-    ┌─────────────────────────────────────────────────┐
-    │  PRIMARY CLUSTER (3 nodes)                      │
-    │  ┌─────────┐  ┌─────────┐  ┌─────────┐        │
-    │  │ NODE A  │──│ NODE B  │──│ NODE C  │        │
-    │  │ (lead)  │  │ (sync)  │  │ (sync)  │        │
-    │  └─────────┘  └─────────┘  └─────────┘        │
-    │       │            │            │              │
-    │       └────────────┼────────────┘              │
-    │                    │                           │
-    │              ┌─────────┐                       │
-    │              │ BACKUP  │ ← Daily snapshots     │
-    │              │ (cold)  │   Weekly offsite      │
-    │              └─────────┘                       │
-    └─────────────────────────────────────────────────┘
+    ┌──────────────────────────────────────────────────────────┐
+    │  PRIMARY DATABASE CLUSTER (3 nodes)                      │
+    │  ┌─────────┐  ┌─────────┐  ┌─────────┐                   │
+    │  │ NODE A  │──│ NODE B  │──│ NODE C  │                   │
+    │  │ (lead)  │  │ (sync)  │  │ (sync)  │                   │
+    │  └────┬────┘  └────┬────┘  └────┬────┘                   │
+    │       └────────────┼────────────┘                        │
+    └────────────────────┼─────────────────────────────────────┘
+                         │
+         ┌───────────────┼───────────────┐
+         │               │               │
+         ▼               ▼               ▼
+    ┌─────────┐    ┌─────────┐    ┌─────────┐
+    │ BACKUP  │    │ REPLICA │    │ REPLICA │
+    │ (cold)  │    │ (read)  │    │ (read)  │
+    └─────────┘    └─────────┘    └─────────┘
+    
+    ══════════════════════════════════════════════════════
+    WORKER SERVER STACKS
+    ══════════════════════════════════════════════════════
+    
+    ┌──────────────────────────────────────────────────────────┐
+    │  LOOKER STACK (Computer Vision)                          │
+    │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐      │
+    │  │LOOKER-1 │  │LOOKER-2 │  │LOOKER-3 │  │LOOKER-4 │      │
+    │  │ GPU×4   │  │ GPU×4   │  │ GPU×4   │  │ GPU×4   │      │
+    │  │ cameras │  │ cameras │  │ cameras │  │ cameras │      │
+    │  └─────────┘  └─────────┘  └─────────┘  └─────────┘      │
+    │  • Object detection, pose estimation, OCR                │
+    │  • 24 cameras, 30 FPS each = 720 frames/sec              │
+    │  • Results → PostgreSQL hypertables                      │
+    └──────────────────────────────────────────────────────────┘
+    
+    ┌──────────────────────────────────────────────────────────┐
+    │  THINKER STACK (AI/Inference)                            │
+    │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐      │
+    │  │THINK-1  │  │THINK-2  │  │THINK-3  │  │THINK-4  │      │
+    │  │ GPU×8   │  │ GPU×8   │  │ GPU×8   │  │ GPU×8   │      │
+    │  │ LLM/VLM │  │ LLM/VLM │  │ LLM/VLM │  │ LLM/VLM │      │
+    │  └─────────┘  └─────────┘  └─────────┘  └─────────┘      │
+    │  • LLM inference, vision-language models                 │
+    │  • MOOLLM kernel execution, skill dispatch               │
+    │  • Task queue via PostgreSQL FOR SKIP LOCKED             │
+    └──────────────────────────────────────────────────────────┘
+    
+    ┌──────────────────────────────────────────────────────────┐
+    │  WEB STACK (API/UI)                                      │
+    │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐      │
+    │  │ WEB-1   │  │ WEB-2   │  │ WEB-3   │  │ WEB-4   │      │
+    │  │ nginx   │  │ nginx   │  │ nginx   │  │ nginx   │      │
+    │  │ FastAPI │  │ FastAPI │  │ FastAPI │  │ FastAPI │      │
+    │  └─────────┘  └─────────┘  └─────────┘  └─────────┘      │
+    │  • REST API, WebSocket connections                       │
+    │  • Dashboard, operator console, visitor portal           │
+    │  • PostgreSQL connection pooling via PgBouncer           │
+    └──────────────────────────────────────────────────────────┘
+    
+    ┌──────────────────────────────────────────────────────────┐
+    │  STORAGE STACK (Object/File)                             │
+    │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐      │
+    │  │STORE-1  │  │STORE-2  │  │STORE-3  │  │STORE-4  │      │
+    │  │ MinIO   │  │ MinIO   │  │ MinIO   │  │ MinIO   │      │
+    │  │ 100 TB  │  │ 100 TB  │  │ 100 TB  │  │ 100 TB  │      │
+    │  └─────────┘  └─────────┘  └─────────┘  └─────────┘      │
+    │  • S3-compatible object storage                          │
+    │  • Video archives, model weights, backups                │
+    │  • Metadata indexed in PostgreSQL                        │
+    └──────────────────────────────────────────────────────────┘
+    
+    ALL STACKS CONNECT TO POSTGRESQL:
+    • Lookers write detections to hypertables
+    • Thinkers claim tasks via FOR SKIP LOCKED
+    • Web reads/writes via connection pool
+    • Storage metadata indexed for fast lookup
     
     ══════════════════════════════════════════════════════
     CURRENT STATISTICS
