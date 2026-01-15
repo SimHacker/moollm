@@ -1,0 +1,150 @@
+# 📬 PNEUMATIC TUBE RECEIVER — Garden Station
+# Receives deliveries from Bootstrap Suite (Room 7)
+# Orders go UP the tube, drinks come DOWN!
+
+object:
+  name: Pneumatic Tube Receiver (Garden)
+  type: delivery_endpoint
+  location: garden
+  
+  description: |
+    A weathered brass pneumatic tube terminal stands near the garden
+    wall, partially covered in climbing roses. Despite its age, the
+    mechanism hums with quiet efficiency.
+    
+    A speaker crackles with distant barista commentary. Bees investigate
+    the tube opening, hoping for sugar.
+    
+    A placard reads:
+    
+      ┌──────────────────────────────────────────┐
+      │  GARDEN STATION — DELIVERY ENDPOINT      │
+      │                                          │
+      │  ☕ Coffee from BARISTA-9000              │
+      │  🍊 Juice from JUICE-O-MATIC 3000        │
+      │  🥤 Smoothies & 🧊 Iceys available!      │
+      │                                          │
+      │  YELL your order UP the tube!            │
+      │  Drinks arrive in ~30 seconds.           │
+      │  (Weatherproof capsules!)                │
+      │                                          │
+      │  Source: Bootstrap Suite (Room 7)        │
+      └──────────────────────────────────────────┘
+    
+  examine: |
+    The garden terminal is simpler than the pub's — more weathered,
+    wrapped in roses, but equally efficient:
+    
+    ┌─────────────────────────────────────────────────────────────┐
+    │  📬 GARDEN STATION — PNEUMATIC RECEIVER                     │
+    ├─────────────────────────────────────────────────────────────┤
+    │                                                             │
+    │    ┌─────────────────────────────────────────┐              │
+    │    │  🌹 ○═══════════════════════════○ 🌹    │              │
+    │    │              ↑ YELL HERE ↑              │              │
+    │    │                    │                    │              │
+    │    │              ↓ DRINKS HERE ↓            │              │
+    │    │         ┌─────────────────────┐         │              │
+    │    │    🐝   │   DELIVERY CHUTE    │   🐝    │              │
+    │    │         │      🥤 ☕ 🧊        │         │              │
+    │    │         └─────────────────────┘         │              │
+    │    │                                         │              │
+    │    │  🔊 "ORDER UP, NATURE'S FAVORITE!"      │              │
+    │    └─────────────────────────────────────────┘              │
+    │                                                             │
+    │    STATUS: ONLINE | Weather Shield: ACTIVE                  │
+    └─────────────────────────────────────────────────────────────┘
+    
+  # How to Order
+  ordering: |
+    1. YELL your order UP the tube
+       "ONE CAPPUCCINO!" or "TROPICAL SMOOTHIE!" or "ORANGE ICEY!"
+       
+    2. The Barista-9000 or Juice-O-Matic acknowledges
+       *crackle* "GARDEN ORDER! One [drink] for..."
+       
+    3. You get a CUTE NICKNAME (garden-themed!)
+       "...SUNSHINE SIPPER! Coming right up!"
+       "...BEE FRIEND! On its way!"
+       "...PATIO PAL! Almost there!"
+       
+    4. *grinding* *steaming* OR *squeezing* *blending*
+       
+    5. *WHOOOOOOSH* — Weatherproof capsule arrives!
+       
+    6. Your drink, foam sculpture intact,
+       ready to enjoy in the garden sunshine.
+       
+  commands:
+    YELL:
+      usage: "YELL [order] UP TUBE"
+      aliases: ["ORDER", "SHOUT"]
+      effect: "Order sent to Bootstrap Suite, drink delivered here"
+      
+    ORDER:
+      usage: "ORDER [drink]"
+      effect: "Same as YELL — just speak toward the tube"
+      
+    CHECK:
+      usage: "CHECK TUBE"
+      effect: "See if a drink is waiting in the chute"
+      
+  # Menu Reference (full menu lives at source)
+  menu_summary: |
+    Full menu available from Bootstrap Suite:
+    
+    ☕ COFFEE (from Barista-9000)
+      Espresso, Cappuccino, Latte, Americano, Cortado,
+      Macchiato, Mocha, Drip, Decaf (judged),
+      Fucking Strong Coffee (respect earned)
+      
+    🍊 FRESH JUICE (from Juice-O-Matic)
+      Orange, Grapefruit, Apple, Grape, Berry Mix, Tropical
+      
+    🥤 SMOOTHIES
+      Berry Blast, Tropical Storm, Green Machine,
+      Peanut Butter Banana, Breakfast Blend
+      
+    🧊 ICEYS
+      Orange, Berry, Tropical, Rainbow,
+      Grue Repellent (garlic-citrus, grues avoid you)
+      
+    See: pub/rooms/room-7/barista-9000.yml (coffee menu)
+    See: pub/rooms/room-7/juice-o-matic.yml (juice menu)
+    
+  # Garden-specific features  
+  garden_features:
+    weather_shield: |
+      An awning extends automatically when rain is detected.
+      Drinks arrive in weatherproof capsules.
+      
+    outdoor_enjoyment: |
+      Perfect for sipping at the garden tables.
+      The suspicious plant watches you drink. Approvingly?
+      
+    bee_visitors: |
+      Bees sometimes investigate the tube.
+      They're hoping for smoothie residue.
+      The Juice-O-Matic occasionally leaves them a drop. Shh.
+      
+  ambience: |
+    The tube occasionally whooshes. Bees buzz.
+    The speaker crackles:
+    
+    "Garden order ready, ROSE GARDEN REGULAR!"
+    "Enjoy the sunshine, OUTDOOR ENTHUSIAST!"
+    "Foam art today: A tiny foam sun! ☀️"
+    
+  source:
+    location: "pub/rooms/room-7/"
+    barista: "barista-9000.yml"
+    juice: "juice-o-matic.yml"
+    tube_station: "pneumatic-tube-station.yml"
+    
+  k_lines:
+    activates:
+      - DELIVERY
+      - COFFEE
+      - JUICE
+      - GARDEN
+      - SERVICE

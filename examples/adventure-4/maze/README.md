@@ -264,7 +264,8 @@ tower/            # Height, wind, view mechanics
 
 ## Navigation
 
+| Direction | Destination |
+|-----------|-------------|
 | ⬆️ Up | [adventure-4/](../) |
-|-------|---------------------|
-| 🚪 Garden | [../garden/](../garden/) |
-| 🏆 End | [../end/](../end/) |
+| 🌿 North (from room-a) | [../garden/](../garden/) — Back to spawn |
+| 🏆 South (deep) | [../end/](../end/) — Treasury |

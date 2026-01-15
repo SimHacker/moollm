@@ -39,15 +39,15 @@ room:
     as a planter for sunflowers. A CAT is definitely watching you from
     somewhere, but you can't quite spot it.
     
-    The BACK DOOR to the pub is immediately SOUTH — propped open, warm
+    The BACK DOOR to the pub is immediately NORTH — propped open, warm
     light and conversation spilling out along with the smell of ale and
     cooking.
     
-    A low GATE in the garden wall leads NORTH to a narrow alley.
+    A low GATE in the garden wall leads SOUTH into shadowy darkness.
     
-    To the EAST, a path winds toward what sounds like a main street.
+    To the EAST, a path winds toward the Costume Emporium.
     
-    To the WEST, another path disappears into an overgrown side yard.
+    To the WEST, another path leads to the kitchen.
     
     It's the kind of garden where adventures begin — or where heroes
     rest between them.
@@ -87,8 +87,9 @@ room:
     - newspaper.yml
     - blackboard.yml
     - suspicious-plant.yml
-    - lamp.yml      # GET LAMP! (from Chamber of Commencement tradition)
-    - mailbox.yml   # CHECK MAIL! (Zorkian tradition)
+    - lamp.yml           # GET LAMP! (from Chamber of Commencement tradition)
+    - mailbox.yml        # CHECK MAIL! (Zorkian tradition)
+    - pneumatic-tube.yml # Coffee delivery from Bootstrap Room!
     
   # Ways out
   exits:

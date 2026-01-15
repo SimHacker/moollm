@@ -1,0 +1,129 @@
+# 📬 PNEUMATIC TUBE RECEIVER — Pub Station
+# Receives deliveries from Bootstrap Suite (Room 7)
+# Orders go UP the tube, drinks come DOWN!
+
+object:
+  name: Pneumatic Tube Receiver (Pub)
+  type: delivery_endpoint
+  location: pub
+  
+  description: |
+    A brass pneumatic tube terminal mounted on the wall near the bar.
+    A glass observation window shows capsules whooshing past. A padded
+    delivery chute opens at waist height, ready to receive beverages.
+    
+    A speaker grille crackles with distant barista commentary.
+    
+    A placard reads:
+    
+      ┌──────────────────────────────────────────┐
+      │  PUB STATION — DELIVERY ENDPOINT         │
+      │                                          │
+      │  ☕ Coffee from BARISTA-9000              │
+      │  🍊 Juice from JUICE-O-MATIC 3000        │
+      │  🥤 Smoothies & 🧊 Iceys available!      │
+      │                                          │
+      │  YELL your order UP the tube!            │
+      │  Drinks arrive in ~30 seconds.           │
+      │                                          │
+      │  Source: Bootstrap Suite (Room 7)        │
+      └──────────────────────────────────────────┘
+    
+  examine: |
+    The receiver is elegantly simple:
+    
+    ┌─────────────────────────────────────────────────────────────┐
+    │  📬 PUB STATION — PNEUMATIC RECEIVER                        │
+    ├─────────────────────────────────────────────────────────────┤
+    │                                                             │
+    │    ┌─────────────────────────────────────────┐              │
+    │    │  ○═══════════════════════════════════○  │              │
+    │    │              ↑ YELL HERE ↑              │              │
+    │    │                    │                    │              │
+    │    │              ↓ DRINKS HERE ↓            │              │
+    │    │         ┌─────────────────────┐         │              │
+    │    │         │   DELIVERY CHUTE    │         │              │
+    │    │         │      🥤 ☕ 🧊        │         │              │
+    │    │         └─────────────────────┘         │              │
+    │    │                                         │              │
+    │    │  🔊 Speaker: "ORDER UP, TAVERN HERO!"   │              │
+    │    └─────────────────────────────────────────┘              │
+    │                                                             │
+    │    STATUS: ONLINE | Connected to Bootstrap Suite            │
+    └─────────────────────────────────────────────────────────────┘
+    
+  # How to Order
+  ordering: |
+    1. YELL your order UP the tube
+       "ONE CAPPUCCINO!" or "BERRY SMOOTHIE!" or "RAINBOW ICEY!"
+       
+    2. The Barista-9000 or Juice-O-Matic acknowledges
+       *crackle* "ORDER RECEIVED! One [drink] for..."
+       
+    3. You get a CUTE NICKNAME
+       "...TAVERN TREASURE! Coming right up!"
+       
+    4. *grinding* *steaming* OR *squeezing* *blending*
+       
+    5. *WHOOOOOOSH* — Capsule arrives!
+       
+    6. Your drink, with perfect FOAM SCULPTURE,
+       magically unharmed by the journey.
+       
+  commands:
+    YELL:
+      usage: "YELL [order] UP TUBE"
+      aliases: ["ORDER", "SHOUT"]
+      effect: "Order sent to Bootstrap Suite, drink delivered here"
+      
+    ORDER:
+      usage: "ORDER [drink]"
+      effect: "Same as YELL — just speak toward the tube"
+      
+    CHECK:
+      usage: "CHECK TUBE"
+      effect: "See if a drink is waiting in the chute"
+      
+  # Menu Reference (full menu lives at source)
+  menu_summary: |
+    Full menu available from Bootstrap Suite:
+    
+    ☕ COFFEE (from Barista-9000)
+      Espresso, Cappuccino, Latte, Americano, Cortado,
+      Macchiato, Mocha, Drip, Decaf (judged),
+      Fucking Strong Coffee (respect earned)
+      
+    🍊 FRESH JUICE (from Juice-O-Matic)
+      Orange, Grapefruit, Apple, Grape, Berry Mix, Tropical
+      
+    🥤 SMOOTHIES
+      Berry Blast, Tropical Storm, Green Machine,
+      Peanut Butter Banana, Breakfast Blend
+      
+    🧊 ICEYS
+      Orange, Berry, Tropical, Rainbow,
+      Grue Repellent (garlic-citrus, grues avoid you)
+      
+    See: pub/rooms/room-7/barista-9000.yml (coffee menu)
+    See: pub/rooms/room-7/juice-o-matic.yml (juice menu)
+    
+  ambience: |
+    The tube occasionally whooshes with passing capsules.
+    The speaker crackles:
+    
+    "Drink ready for pickup, GEZELLIGHEID GUEST!"
+    "Another satisfied customer!"
+    "FOAM ART TODAY: A portrait of your soul!"
+    
+  source:
+    location: "pub/rooms/room-7/"
+    barista: "barista-9000.yml"
+    juice: "juice-o-matic.yml"
+    tube_station: "pneumatic-tube-station.yml"
+    
+  k_lines:
+    activates:
+      - DELIVERY
+      - COFFEE
+      - JUICE
+      - SERVICE
