@@ -63,7 +63,7 @@ prototypes:
       - "Opening this box closes it"
       - "The lock is locked inside the box"
       
-  recursion-container:
+recursion-container:
     inherits: paradox-box
     name: "Recursion Container"
     description: "A container that contains a container that contains..."
@@ -82,6 +82,229 @@ prototypes:
       DESCEND: "Go one level deeper"
       ASCEND: "Come back up one level"
       BOTTOM: "ERROR: STACK OVERFLOW"
+      
+  universal-set:
+    id: universal-set
+    name: "Universal Set Container"
+    type: container
+    emoji: "𝕌"
+    tags: [container, special, set-theory, universal, infinite]
+    
+    description: "The set that contains everything. Including itself."
+    examine: |
+      ┌────────────────────────────────────┐
+      │  UNIVERSAL SET  𝕌                  │
+      │  ════════════════                  │
+      │                                    │
+      │  Contains: EVERYTHING              │
+      │  Including: This container         │
+      │  Also including: The concept of    │
+      │    "including"                     │
+      │                                    │
+      │  ∀x : x ∈ 𝕌                        │
+      │  "For all x, x is in 𝕌"            │
+      │                                    │
+      │  Capacity: Yes                     │
+      └────────────────────────────────────┘
+      
+      Looking inside, you see... everything.
+      Every object. Every concept. Every possibility.
+      You see yourself looking inside.
+      You see yourself seeing yourself.
+      
+      Mathematicians argue this shouldn't exist.
+      The container disagrees.
+      
+    container: true
+    capacity: infinite
+    takeable: false
+    
+    properties:
+      contains_everything: true
+      contains_itself: true
+      contains_nothing: "also yes (nothing is a thing)"
+      naive_set_theory: "required"
+      
+    methods:
+      QUERY:
+        description: "Ask if something is contained"
+        effect: "Always returns TRUE"
+        note: "Everything is in the Universal Set"
+        
+      ADD:
+        description: "Add something to the set"
+        effect: "It was already there. But now it's there again."
+        
+      REMOVE:
+        description: "Remove something from the set"
+        effect: "ERROR: Cannot remove from Universal Set"
+        note: "Where would it go? Outside everything?"
+        
+      LOOK:
+        description: "Look inside"
+        effect: |
+          You see everything.
+          This takes a while.
+          Actually, it takes forever.
+          You're still looking.
+          
+    warnings:
+      - "Contains itself (don't think too hard)"
+      - "Contains the set of all things not in it (empty, but present)"
+      - "Looking inside may cause existential vertigo"
+      - "Zermelo-Fraenkel set theory does not approve"
+      
+  russells-set:
+    id: russells-set
+    name: "Russell's Paradox Container"
+    type: container
+    emoji: "🔄❓"
+    tags: [container, special, set-theory, paradox, DANGEROUS, philosophical]
+    
+    description: "The set of all sets that do not contain themselves."
+    examine: |
+      ┌────────────────────────────────────┐
+      │  RUSSELL'S SET  R                  │
+      │  ════════════════                  │
+      │                                    │
+      │  R = { x : x ∉ x }                 │
+      │                                    │
+      │  "The set of all sets that do      │
+      │   not contain themselves."         │
+      │                                    │
+      │  Does R contain itself?            │
+      │                                    │
+      │  If yes → it shouldn't (by def)    │
+      │  If no  → it should (by def)       │
+      │                                    │
+      │  Status: ██████ PARADOX ██████     │
+      │                                    │
+      │  ⚠️ FOUNDATION OF MATHEMATICS ⚠️   │
+      │  ⚠️ COMPROMISED IN THIS AREA  ⚠️   │
+      └────────────────────────────────────┘
+      
+      The container flickers. It exists and doesn't exist.
+      It contains itself and doesn't contain itself.
+      Simultaneously. Continuously. Painfully.
+      
+      Bertrand Russell discovered this in 1901.
+      He was very sorry.
+      
+    container: true
+    capacity: "undefined"
+    takeable: false
+    
+    properties:
+      contains_itself: "yes AND no"
+      exists: "undecidable"
+      discovered_by: "Bertrand Russell, 1901"
+      broke: "naive set theory"
+      
+    state:
+      current_membership: "oscillating"
+      observation_count: 0
+      headaches_caused: "many"
+      
+    methods:
+      QUERY_MEMBERSHIP:
+        description: "Does this set contain itself?"
+        effect: |
+          The container considers the question.
+          It contains itself.
+          Therefore it shouldn't contain itself.
+          Therefore it doesn't contain itself.
+          Therefore it should contain itself.
+          Therefore it does contain itself.
+          Therefore...
+          
+          You get a headache.
+          The container also gets a headache.
+          
+      ADD:
+        description: "Add a set to this container"
+        guard: "set must not contain itself"
+        effect: "Set added. Container membership recalculated. Paradox intensifies."
+        
+      OBSERVE:
+        description: "Observe the container's self-membership"
+        effect: |
+          You observe carefully.
+          The container is simultaneously a member and not a member of itself.
+          Your observation does not resolve this.
+          Logic breaks a little.
+          Somewhere, a philosopher weeps.
+          
+      RESOLVE:
+        description: "Attempt to resolve the paradox"
+        effect: "ERROR: This is what ZFC set theory is for. Container remains paradoxical."
+        
+    warnings:
+      - "This paradox broke naive set theory"
+      - "Observing does not help"
+      - "Do not use for actual storage"
+      - "Bertrand Russell was never the same after"
+      - "May cause foundations of mathematics to feel unstable"
+      
+    philosophical_note: |
+      This paradox led to:
+      - The development of axiomatic set theory
+      - Zermelo-Fraenkel set theory (ZFC)
+      - Russell's own Type Theory
+      - Many, many headaches
+      
+      The container exists as a warning and a reminder
+      that self-reference is dangerous.
+      
+  barbers-box:
+    id: barbers-box
+    name: "Barber's Paradox Container"
+    type: container
+    emoji: "💈📦"
+    tags: [container, special, set-theory, paradox, self-reference]
+    
+    description: "Contains all and only those things that don't contain themselves."
+    examine: |
+      ┌────────────────────────────────────┐
+      │  THE BARBER'S BOX                  │
+      │  ══════════════════                │
+      │                                    │
+      │  "This box contains all boxes      │
+      │   that do not contain themselves." │
+      │                                    │
+      │  In the village of Set Theory,     │
+      │  there is a barber who shaves      │
+      │  all and only those who do not     │
+      │  shave themselves.                 │
+      │                                    │
+      │  Who shaves the barber?            │
+      │  What contains this box?           │
+      │                                    │
+      │  ¯\_(ツ)_/¯                        │
+      └────────────────────────────────────┘
+      
+      A more accessible version of Russell's Paradox.
+      The container is labeled with a barbershop pole.
+      Faint sound of scissors that cut themselves.
+      
+    container: true
+    capacity: "paradoxical"
+    takeable: true
+    
+    inherits: russells-set
+    
+    properties:
+      variant: "accessible"
+      involves_barber: true
+      involves_shaving: metaphorically
+      
+    methods:
+      SHAVE:
+        description: "Does the barber shave himself?"
+        effect: "If he does, he doesn't. If he doesn't, he does."
+        
+    humor_note: |
+      "The barber is a woman."
+      — Not actually a solution, but people try.
       
   # ─────────────────────────────────────────────────────────────
   # QUANTUM CONTAINERS
