@@ -95,6 +95,269 @@ object:
       effect: "Monsters are asked to leave. Results vary."
       warning: "Requires knowing ALL their true names. Good luck."
       
+    FIGHT:
+      description: "Engage a monster in combat (improvised)"
+      usage: "FIGHT [monster] / ATTACK [monster] / HIT [monster] WITH [thing]"
+      effect: |
+        Combat is fully improvised! No stats needed!
+        
+        The DM considers:
+        - What are you fighting with?
+        - What's the monster's hidden weakness?
+        - How creative is your approach?
+        - Is this dramatically appropriate?
+        
+        Then narrates the result. Violence ensues.
+        
+    FLEE:
+      description: "Run away from a monster"
+      usage: "FLEE / RUN / ESCAPE / NOPE"
+      effect: |
+        *You attempt to flee!*
+        
+        Success depends on:
+        - Monster's speed vs yours
+        - Available exits
+        - Whether you trip on something ironic
+        - Cartoon physics (faster if you don't look back)
+        
+    BEFRIEND:
+      description: "Attempt to befriend a monster instead of fighting"
+      usage: "BEFRIEND [monster] / TALK TO [monster] / OFFER [thing] TO [monster]"
+      effect: |
+        *You attempt diplomacy with a creature of darkness!*
+        
+        Success depends on:
+        - Monster's hidden nature (listed in entry)
+        - What you're offering
+        - Whether you're sincere
+        - Whether the monster is hungry
+        
+        Many monsters are lonely. Some just want respect.
+        Some will eat you anyway. Worth a try.
+        
+  # COMBAT GUIDE
+  # "Violence is Always an Option! (Not Always a Good One)"
+  
+  combat:
+    philosophy: |
+      Combat in the Monster Manual is IMPROVISED.
+      No hit points. No initiative. No dice required.
+      (Though dice are fun if you want them.)
+      
+      Instead: NARRATIVE COMBAT.
+      
+      The DM describes the fight.
+      You describe your actions.
+      Consequences emerge from the story.
+      
+    how_it_works: |
+      ATTACKING A MONSTER:
+      
+      1. Describe what you do
+         "I swing my sword at the dragon!"
+         "I throw the ACME anvil at the ghost!"
+         "I try to reason with the eldritch horror!"
+         
+      2. DM considers:
+         - Monster's threat level (LOW to EXTREME)
+         - Monster's hidden weakness (exploit for advantage)
+         - Your approach (clever = better odds)
+         - Dramatic timing (climactic moments favor heroes)
+         
+      3. DM narrates the result:
+         - Clear hit: Monster is affected!
+         - Glancing blow: Some effect, monster retaliates
+         - Miss: You're now in trouble
+         - Critical: Something dramatic happens
+         - Fumble: Comedy ensues
+         
+    weapons_and_tools: |
+      WHAT CAN YOU FIGHT WITH?
+      
+      Anything! This is improvised combat!
+      
+      CONVENTIONAL:
+        Sword, axe, bow, magic wand, etc.
+        Works as expected. Boring but reliable.
+        
+      ACME PRODUCTS:
+        Use items from the ACME Catalog!
+        Powerful but... you know. Backfire chance.
+        
+      ENVIRONMENT:
+        Chandeliers, barrels, conveniently placed anvils.
+        Bonus points for creativity.
+        
+      WORDS:
+        Insults, compliments, true names, puns.
+        Some monsters are vulnerable to sick burns.
+        
+      FRIENDSHIP:
+        The ultimate weapon. See BEFRIEND action.
+        Works more often than you'd think.
+        
+    monster_attacks: |
+      WHEN MONSTERS FIGHT BACK:
+      
+      Monsters don't have stats. They have DESCRIPTIONS.
+      
+      A dragon's attack is "breathes fire."
+      A ghost's attack is "chilling touch."
+      A mind flayer's attack is "psychic criticism."
+      
+      DM describes the attack.
+      You describe your defense.
+      Narrative determines the outcome.
+      
+      GETTING HIT:
+      - Minor hit: You're inconvenienced
+      - Solid hit: You're hurt (describe how)
+      - Major hit: You're in serious trouble
+      - Devastating: Dramatic consequences
+      
+      There's no HP to track. Just the story of your wounds.
+      "I'm limping now." "My arm is burned." "I can't unsee that."
+      
+    exploiting_weaknesses: |
+      EVERY MONSTER HAS A HIDDEN WEAKNESS.
+      
+      It's listed in their entry. USE IT.
+      
+      Examples:
+      - Dragon: "Allergic to its own smoke"
+        → Make it sneeze! Smoke bomb! Pepper!
+        
+      - Ghost: "Gets depressed if ignored"
+        → Just... don't acknowledge it. Walk past.
+        
+      - Skeleton: "Falls apart if startled"
+        → BOO! (Seriously, that's it.)
+        
+      - Shoggoth: "Needs constant praise"
+        → "You're doing GREAT, Shoggoth! Love your work!"
+        
+      - Lich: "Phylactery is always in an obvious place"
+        → Look for the glowing thing. There's always one.
+        
+      Exploiting weakness = automatic advantage.
+      Creative exploitation = possible instant win.
+      
+    dramatic_timing: |
+      COMBAT FOLLOWS NARRATIVE LOGIC.
+      
+      Early in adventure: Monsters are threatening
+      Mid adventure: Even fights
+      Climax: Heroes start winning
+      Darkest moment: Everything goes wrong (temporarily)
+      Final confrontation: Epic
+      
+      The DM adjusts difficulty to serve the story.
+      This isn't cheating. This is DRAMA.
+      
+    death_and_consequences: |
+      CAN YOU DIE?
+      
+      In theory: Yes.
+      In practice: Depends on the story.
+      
+      HEROIC DEATH: If it serves the narrative
+      COMIC DEATH: If it's funny (you get better)
+      DRAMATIC INJURY: More likely than death
+      CARTOON LOGIC: You survive but with consequences
+      
+      The ACME Monster Manual follows cartoon physics.
+      You can survive anything once.
+      Twice is pushing it.
+      
+    group_combat: |
+      FIGHTING WITH ALLIES:
+      
+      Each person describes their action.
+      DM weaves them into one narrative.
+      
+      TEAMWORK BONUS:
+      - Coordinated attacks: Better results
+      - Combo moves: Very effective
+      - One person exploits weakness while others attack: Devastating
+      
+      FRIENDLY FIRE:
+      ACME products in group combat have...
+      ...increased backfire radius.
+      
+    monster_morale: |
+      MONSTERS CAN SURRENDER OR FLEE.
+      
+      They have hidden natures. They want things.
+      
+      A dragon who's losing might offer treasure.
+      A ghost who's losing might offer information.
+      A demon who's losing might offer a deal. (DON'T.)
+      
+      Victory doesn't require death.
+      Sometimes the best win is a new ally.
+      (Or at least a monster that owes you one.)
+      
+    sample_combat: |
+      EXAMPLE: Fighting an ACME Dragon (Economy Size)
+      
+      PLAYER: "I throw my ACME Portable Hole at the dragon's feet!"
+      
+      DM: "The hole deploys! The dragon's left leg drops through—
+      but the dragon beats its wings, hovering! It's angry now.
+      Smoke billows from its nostrils. It's about to breathe fire!"
+      
+      PLAYER: "Wait — smoke! It's allergic to its own smoke!
+      I grab the ACME Giant Fan from my pack!"
+      
+      DM: "You bought that? Bold. Roll for backfire... you're clear!
+      The fan whirs to life, blowing the dragon's own smoke
+      back into its face!"
+      
+      PLAYER: "Take THAT, Smokealot McBurnface!"
+      
+      DM: "The dragon sneezes violently — a massive ACHOO that
+      sends it tumbling through its own Portable Hole! You hear
+      a distant thud. And then, faintly: 'I demand union representation!'"
+      
+      PLAYER: "I close the hole."
+      
+      DM: "The dragon is defeated. But somewhere, in the void,
+      it's filing a complaint."
+      
+    improvised_weapons_examples: |
+      CREATIVE COMBAT IDEAS:
+      
+      🪑 FURNITURE
+      "I hit the skeleton with a chair!"
+      → Classic. Effective. The skeleton is now scattered.
+      
+      🎹 PIANO
+      "I drop the ACME Grand Piano on the ogre!"
+      → Dramatic. Musical. 45% chance it lands on YOU.
+      
+      📖 THIS BOOK
+      "I read the monster's own entry at it!"
+      → Meta. Confusing. Monster has existential crisis.
+      
+      🧀 CHEESE
+      "I throw cheese at the grue!"
+      → It can smell cheese. This is either genius or fatal.
+      
+      💬 INSULTS
+      "I mock the demon's fashion sense!"
+      → Demons are surprisingly vain. Roll for sick burn.
+      
+      🤗 HUGS
+      "I hug the eldritch abomination!"
+      → It... wasn't expecting that. Nobody ever hugs it.
+      → 40% chance of weird friendship. 60% chance of dissolution.
+      
+      🎵 MUSIC
+      "I play a lullaby for the zombie horde!"
+      → Zombies don't sleep. But they might remember sleeping.
+      → Surprisingly melancholy result.
+      
   # THEMED POPULATION PRESETS
   # "From Unicorn Sparkles to Eternal Damnation!"
   
@@ -1022,6 +1285,10 @@ object:
     page_247: "Tried DEPOPULATE. Didn't know the true names. They know mine now."
     page_298: "Mixed Haunted Mansion with Chaos Realm. The ghosts are random now."
     page_333: "The Demon Prince sent a thank-you note. That's worse somehow."
+    page_401: "Tried to fight the dragon with a chair. Chair won."
+    page_402: "Hugged the shoggoth. We're friends now. Send help."
+    page_456: "Exploited the lich's weakness. The phylactery was in its TOP HAT."
+    page_501: "Read the ghost its own entry. It cried. We both cried."
     final_page: "I have made a terrible mistake"
     inside_back_cover: |
       SUMMONING COUNTER:
@@ -1046,3 +1313,7 @@ object:
     - THEMED_MONSTERS
     - BULK_SUMMONING
     - MAZE_INHABITANTS
+    - IMPROVISED_COMBAT
+    - NARRATIVE_FIGHTING
+    - BEFRIENDING_MONSTERS
+    - HIDDEN_WEAKNESSES
