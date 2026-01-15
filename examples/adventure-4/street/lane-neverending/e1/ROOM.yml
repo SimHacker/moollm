@@ -48,6 +48,24 @@ room:
       description: "Lane Neverending continues east. The street numbers climb."
       aliases: [e, forward]
       
-  objects:
-    - flickering-lamppost.yml
+objects:
+    - flickering-lamppost.yml  # The famous flickering one (unique!)
     - sleeping-figure.yml
+    
+  # Flyweight instances — shared prototype, minimal instance data
+  # See: ../STREET-FURNITURE.yml
+  flyweight:
+    lamp_post_south:
+      prototype: ../STREET-FURNITURE.yml#lamp-post
+      location: "south side"
+      note: "The normal one. The OTHER lamp post flickers."
+      
+    bench_occupied:
+      prototype: ../STREET-FURNITURE.yml#street-bench
+      location: "north side"
+      note: "The sleeping figure uses this one"
+      
+    bench_empty:
+      prototype: ../STREET-FURNITURE.yml#street-bench
+      location: "south side"
+      carvings: ["ZzZzZ", "wake me when it's over"]

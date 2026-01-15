@@ -119,3 +119,19 @@ ambience: |
 objects:
     - street-sign.yml
     - sandwich-board.yml
+    
+  # Flyweight instances — shared prototype, minimal instance data
+  # See: ../STREET-FURNITURE.yml
+  flyweight:
+    lamp_post_north:
+      prototype: ../STREET-FURNITURE.yml#lamp-post
+      location: "north side, near pub entrance"
+      
+    lamp_post_south:
+      prototype: ../STREET-FURNITURE.yml#lamp-post
+      location: "south side, across from pub"
+      
+    bench_1:
+      prototype: ../STREET-FURNITURE.yml#street-bench
+      location: "near the street sign"
+      carvings: ["EST ???", "The lane never ends"]

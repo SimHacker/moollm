@@ -48,6 +48,35 @@ room:
       description: "The lane continues east, toward the edge of... something."
       aliases: [e, forward]
       
-  objects:
+objects:
     - infinite-fountain.yml
     - acme-surplus.yml
+    
+  # Flyweight instances — shared prototype, minimal instance data
+  # See: ../STREET-FURNITURE.yml
+  flyweight:
+    lamp_post_ne:
+      prototype: ../STREET-FURNITURE.yml#lamp-post
+      location: "northeast corner of square"
+      
+    lamp_post_nw:
+      prototype: ../STREET-FURNITURE.yml#lamp-post
+      location: "northwest corner of square"
+      
+    lamp_post_se:
+      prototype: ../STREET-FURNITURE.yml#lamp-post
+      location: "southeast corner of square"
+      
+    lamp_post_sw:
+      prototype: ../STREET-FURNITURE.yml#lamp-post
+      location: "southwest corner of square"
+      
+    bench_fountain:
+      prototype: ../STREET-FURNITURE.yml#street-bench
+      location: "facing the fountain"
+      carvings: ["while(true){}", "INFINITE LOOP MEMORIAL"]
+      
+    bench_acme:
+      prototype: ../STREET-FURNITURE.yml#street-bench
+      location: "near ACME surplus"
+      carvings: ["BEEP BEEP", "meep meep"]

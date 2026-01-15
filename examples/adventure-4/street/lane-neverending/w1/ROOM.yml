@@ -72,8 +72,26 @@ leela:
         You can see the scale model glowing in the lobby.
       aliases: [5, south, factory, manufacturing, intelligence, leela]
       
-  objects:
+objects:
     - clock-tower.yml
     
   buildings:
     - leela-manufacturing/  # Full facility with floors and departments
+    
+  # Flyweight instances — shared prototype, minimal instance data
+  # See: ../STREET-FURNITURE.yml
+  flyweight:
+    lamp_post_north:
+      prototype: ../STREET-FURNITURE.yml#lamp-post
+      location: "north side, near clock tower"
+      style: "ornate, older design"
+      
+    lamp_post_south:
+      prototype: ../STREET-FURNITURE.yml#lamp-post
+      location: "south side, near Leela entrance"
+      style: "ornate, older design"
+      
+    bench_1:
+      prototype: ../STREET-FURNITURE.yml#street-bench
+      location: "under the clock tower"
+      carvings: ["3:47 forever", "time is a flat circle"]

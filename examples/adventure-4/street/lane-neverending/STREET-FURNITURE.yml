@@ -1,0 +1,173 @@
+# STREET FURNITURE PROTOTYPES
+# Flyweight pattern — shared prototypes, lightweight instances
+# See: skills/prototype/
+#
+# Each street room references these by ID with minimal instance data.
+# "Featherweight identical objects!"
+
+prototypes:
+
+  # ═══════════════════════════════════════════════════════════════
+  # LAMP POST — The standard street light of Lane Neverending
+  # ═══════════════════════════════════════════════════════════════
+  
+  lamp-post:
+    id: lamp-post
+    name: "Wrought-Iron Lamp Post"
+    type: fixture
+    emoji: "🏮"
+    
+    tags: [fixture, lighting, street-furniture, flyweight]
+    
+    portable: false
+    
+    description: |
+      A classic wrought-iron lamp post with a magical flame.
+      One stands on every block of Lane Neverending, casting
+      warm light that keeps the grues at bay.
+      
+    examine: |
+      LANE NEVERENDING LAMP POST
+      ══════════════════════════
+      
+      Wrought-iron, ornate, timeless design.
+      The style hasn't changed since the first virtual streets.
+      
+      THE LAMP:
+      A magical flame burns steadily inside a glass housing.
+      No fuel, no smoke, no maintenance (mostly).
+      The light is warm, golden, welcoming.
+      
+      THE POST:
+      Decorative ironwork with the Lane Neverending crest.
+      A small plaque at the base: "Donated by the Virtual
+      Preservation Society. May this light never go out."
+      
+      At night, the lamps create pools of safety.
+      Grues cannot abide the light.
+      Avatars gather beneath them.
+      
+    properties:
+      grue_safe: true
+      light_radius: 10
+      magical: true
+      maintenance: "rarely needed"
+      
+    methods:
+      EXAMINE:
+        description: "Look at the lamp post"
+        effect: "Standard lamp post. Nothing unusual."
+        
+      LEAN:
+        description: "Lean against the post"
+        effect: "Sturdy. Good for waiting."
+        
+      LIGHT:
+        description: "Check if it's lit"
+        effect: "Always lit. Magic."
+        
+    ambience: |
+      The flame burns steadily.
+      Moths dance around the glass.
+      The iron is warm to the touch.
+      
+  # ═══════════════════════════════════════════════════════════════
+  # COBBLESTONES — The ground beneath your feet
+  # ═══════════════════════════════════════════════════════════════
+  
+  cobblestones:
+    id: cobblestones
+    name: "Cobblestone Street"
+    type: terrain
+    emoji: "🧱"
+    
+    tags: [terrain, street-furniture, flyweight]
+    
+    description: |
+      The cobblestones of Lane Neverending, worn smooth by
+      generations of feet, hooves, and wheels.
+      
+    examine: |
+      LANE NEVERENDING COBBLESTONES
+      ═════════════════════════════
+      
+      Herringbone pattern, gray granite.
+      Each stone has been here since... always?
+      
+      Some stones are worn deeper than others.
+      Grooves from cart wheels. Divots from boots.
+      The street remembers every journey.
+      
+      Between the stones: weeds, sometimes flowers.
+      Life finds a way in the cracks.
+      
+    properties:
+      traversable: true
+      pattern: herringbone
+      material: granite
+      
+  # ═══════════════════════════════════════════════════════════════
+  # BENCH — For sitting and watching
+  # ═══════════════════════════════════════════════════════════════
+  
+  street-bench:
+    id: street-bench
+    name: "Street Bench"
+    type: fixture
+    emoji: "🪑"
+    
+    tags: [fixture, seating, street-furniture, flyweight]
+    
+    portable: false
+    
+    description: |
+      A wooden bench for weary travelers.
+      Every block has one or two.
+      
+    examine: |
+      LANE NEVERENDING BENCH
+      ═══════════════════════
+      
+      Sturdy wooden slats on iron legs.
+      Worn smooth by countless sitters.
+      
+      Carved initials and dates in the wood.
+      "J+M 1987" "Avatar wuz here" "∞"
+      
+      A good place to rest, people-watch,
+      or contemplate the nature of virtual existence.
+      
+    properties:
+      seating: 3
+      resting: true
+      
+    methods:
+      SIT:
+        description: "Sit on the bench"
+        effect: "You rest. Time passes pleasantly."
+        
+      READ_CARVINGS:
+        description: "Examine the carved messages"
+        effect: "Decades of visitors have left their marks."
+        
+  # ═══════════════════════════════════════════════════════════════
+  # GUTTER — Drainage and atmosphere
+  # ═══════════════════════════════════════════════════════════════
+  
+  gutter:
+    id: gutter
+    name: "Street Gutter"
+    type: terrain
+    emoji: "〰️"
+    
+    tags: [terrain, street-furniture, flyweight, drainage]
+    
+    description: |
+      Stone gutters line the edges of the street,
+      channeling rainwater toward mysterious drains.
+      
+    examine: |
+      The gutter runs along the street edge.
+      Water trickles toward iron grates.
+      Where does it go? Nobody knows.
+      (Actually, the sewers. But that's less mysterious.)

@@ -51,5 +51,20 @@ room:
       description: "Lane Neverending continues west, toward its origin point."
       aliases: [w, forward]
       
-  objects:
+objects:
     - glitch-memorial.yml
+    
+  # Flyweight instances — shared prototype, minimal instance data
+  # See: ../STREET-FURNITURE.yml
+  flyweight:
+    lamp_post_north:
+      prototype: ../STREET-FURNITURE.yml#lamp-post
+      location: "north side, very old design"
+      style: "Habitat-era, chunky ironwork"
+      
+    lamp_post_south:
+      prototype: ../STREET-FURNITURE.yml#lamp-post
+      location: "south side, near memorial"
+      style: "Habitat-era, chunky ironwork"
+      
+    # Note: The memorial bench is unique (glitch-memorial.yml)
