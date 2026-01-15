@@ -13,6 +13,7 @@ object:
     The main conveyor lines trace a flowing pipeline across the floor.
     Video comes in, forks to parallel tracks, converges to insights,
     flows to storage, and emerges as visualized understanding.
+    Model development and training feed into the processors.
     
   examine: |
     INTAKE CONVEYOR SYSTEM — THE LEELA PIPELINE
@@ -20,46 +21,66 @@ object:
     
     Follow the flow:
     
-                         ┌─────────────┐
-                         │    VIDEO    │
-                         │   (input)   │
-                         └──────┬──────┘
-                                │
-                           ═════╧═════
-                          /           \
-                         ▼             ▼
-              ┌──────────────┐  ┌──────────────┐
-              │   OBJECTS    │  │    POSES     │
-              │  (detected)  │  │  (skeletal)  │
-              └──────┬───────┘  └───────┬──────┘
-                     │                  │
-                     └────────┬─────────┘
-                              ▼
-                     ┌────────────────┐
-                     │    INSIGHTS    │
-                     │  (understood)  │
-                     └───────┬────────┘
-                             │
-                             ▼
-                     ┌────────────────┐
-                     │      SQL       │
-                     │   (stored)     │
-                     └───────┬────────┘
-                             │
-                    ┌────────┴────────┐
-                    ▼                 ▼
-           ┌────────────┐    ┌────────────────┐
-           │    PDA     │───▶│    QUERIES     │
-           │  (writes)  │    │  (retrieves)   │
-           └────────────┘    └───────┬────────┘
-                                     │
-                                     ▼
-                          ┌──────────────────┐
-                          │  VISUALIZATIONS  │
-                          │    (shows)       │
-                          └──────────────────┘
+    ┌─────────────────┐          ┌─────────────┐
+    │      MODEL      │          │    VIDEO    │
+    │   DEVELOPMENT   │          │   (input)   │
+    └────────┬────────┘          └──────┬──────┘
+             │                          │
+             ▼                     ═════╧═════
+    ┌─────────────────┐           /           \
+    │    TRAINING     │          ▼             ▼
+    │    PIPELINE     │ ┌──────────────┐ ┌──────────────┐
+    └────────┬────────┘ │   OBJECTS    │ │    POSES     │
+             │          │  (detected)  │ │  (skeletal)  │
+             │          └──────┬───────┘ └───────┬──────┘
+             │    ┌────────────┤                 │
+             │    │            └────────┬────────┘
+             ▼    ▼                     ▼
+    ┌─────────────────┐        ┌────────────────┐
+    │ OBJECT DETECTOR │        │    INSIGHTS    │
+    │  MODEL DEPLOY   │───────▶│  (understood)  │
+    └─────────────────┘        └───────┬────────┘
+             │                         │
+             ▼                         ▼
+    ┌─────────────────┐        ┌────────────────┐
+    │  POSE ESTIMATOR │        │      SQL       │
+    │  MODEL DEPLOY   │        │   (stored)     │
+    └─────────────────┘        └───────┬────────┘
+                                       │
+                              ┌────────┴────────┐
+                              ▼                 ▼
+                     ┌────────────┐    ┌────────────────┐
+                     │    PDA     │───▶│    QUERIES     │
+                     │  (writes)  │    │  (retrieves)   │
+                     └────────────┘    └───────┬────────┘
+                                               │
+                                               ▼
+                                    ┌──────────────────┐
+                                    │  VISUALIZATIONS  │
+                                    │    (shows)       │
+                                    └──────────────────┘
     
     ════════════════════════════════════════════════════════════
+    
+    LINE M (Red): Model Development
+    ═══════════════════════════════
+    Red containers carry model architectures, hyperparameters,
+    research papers, and architectural innovations.
+    "New attention mechanism. Try this."
+    Source: R&D (Basement)
+    
+    LINE T (Magenta): Training Pipeline
+    ════════════════════════════════════
+    Magenta containers heavy with training data, loss curves,
+    checkpoints, and gradient updates.
+    "Epoch 47. Loss: 0.0023. Looking good."
+    Feeds into: Object Detector & Pose Estimator deployment
+    
+    MODEL DEPLOYMENT BAYS
+    ═════════════════════
+    Trained models arrive here, are validated, and deployed
+    to the Object and Pose processors. Hot-swappable.
+    "New model v2.3.7 deployed. Accuracy: +2.1%"
     
     LINE V (Purple): Video Intake
     ═════════════════════════════
@@ -71,12 +92,14 @@ object:
     ════════════════════════════
     Blue containers carry detected objects — bounding boxes,
     classifications, confidence scores. "A cat. 97% sure."
+    POWERED BY: Latest deployed object detection model.
     Runs parallel to the Poses track.
     
     LINE P (Orange): Poses Track  
     ════════════════════════════
     Orange containers carry skeletal data — joint positions,
     movement vectors, gesture signatures. "Waving. Definitely waving."
+    POWERED BY: Latest deployed pose estimation model.
     Runs parallel to the Objects track.
     
     JUNCTION BETA: The Convergence
@@ -121,8 +144,14 @@ object:
     • Unrecognizable poses: "Is that a dance?" desk
     • Queries that return everything: Optimization intervention
     • Visualizations too beautiful: Gallery display
+    • Failed training runs: Post-mortem analysis
+    • Model regressions: Rollback bay
     
   state:
+    line_m: { speed: "deliberate", items: 3, innovations_pending: 7 }
+    line_t: { speed: "variable", items: 12, gpus_active: 8, current_epoch: 47 }
+    model_deploy_object: { model: "yolo-leela-v2.3.7", accuracy: 0.947, deployed: "2h ago" }
+    model_deploy_pose: { model: "pose-leela-v1.8.2", accuracy: 0.923, deployed: "1d ago" }
     line_v: { speed: "fast", items: 34, fps: 30 }
     line_o: { speed: "normal", items: 89, objects_detected: 1247 }
     line_p: { speed: "normal", items: 89, poses_tracked: 1247 }
@@ -134,6 +163,25 @@ object:
     line_z: { speed: "careful", visualizations: 12, beauty_score: 8.7 }
     
   processing_stats:
+    model_development:
+      architectures_proposed: 23
+      papers_read: 847
+      "eureka_moments": 3
+      coffee_consumed: "too much"
+      
+    training_pipeline:
+      models_trained_this_week: 12
+      gpu_hours: 2847
+      best_accuracy: 0.947
+      worst_loss: "we don't talk about run #7"
+      checkpoints_saved: 156
+      
+    model_deployment:
+      object_model_version: "2.3.7"
+      pose_model_version: "1.8.2"
+      rollbacks_this_month: 1
+      uptime: "99.7%"
+      
     video_intake:
       streams_today: 47
       frames_processed: 1247000
@@ -205,3 +253,25 @@ object:
         data: "Query results"
         style: "Chart type or 'auto'"
       effect: "Beautiful understanding emerges"
+      
+    TRAIN_MODEL:
+      description: "Submit model for training"
+      parameters:
+        architecture: "Model architecture"
+        dataset: "Training dataset"
+        hyperparameters: "Training config"
+      effect: "Model enters training pipeline"
+      
+    DEPLOY_MODEL:
+      description: "Deploy trained model to processor"
+      parameters:
+        model: "Model checkpoint"
+        target: "object_detector | pose_estimator"
+      effect: "Hot-swap model in production"
+      
+    ROLLBACK:
+      description: "Revert to previous model version"
+      parameters:
+        target: "object_detector | pose_estimator"
+        version: "Version to restore"
+      effect: "Previous model restored. Breathe."
