@@ -82,6 +82,7 @@ These names were chosen for both meaning and mellifluousness:
 
 | Street | Position | Tribute | Era | Status |
 |--------|----------|---------|-----|--------|
+| **Adventure Avenue** | **NORTHERN EDGE** | Adventure genre (Colossal Cave, etc.) | 1976+ | 📋 Planned |
 | **MUD Row** | Far North | MUD1 (like Skid Row, but muddier) | 1978 | 📋 Planned |
 | **Adams Avenue** | North | Scott Adams (Adventureland) | 1978 | 📋 Planned |
 | **Zork Row** | North | Infocom's Zork | 1977-1982 | 📋 Planned |
@@ -96,8 +97,14 @@ Glitch Way sits directly north of Lane Neverending — they're family.
 Game Neverending (2002-2004) became Flickr but inspired Glitch (2011-2012).
 Lane Neverending honors that whole lineage.
 
+**Adventure Avenue:**
+The NORTHERN frontier. No more streets beyond this — just adventure wilderness.
+Buildings along the north side of Adventure Avenue open directly into dungeons,
+caves, and adventure country. Colossal Cave is up there somewhere. So are dragons.
+This is where the street grid ends and the adventure begins.
+
 **MUD Row:**
-The far northern edge of town. Classic Essex architecture (whatever that is — 
+Just south of Adventure Avenue. Classic Essex architecture (whatever that is — 
 brutalist 1970s university buildings? Half-timbered medieval? Both?). Like Skid Row, 
 but muddier. Where the original multi-user dungeons began.
 
@@ -139,8 +146,10 @@ The heart of town is where **Kay Lane** crosses **Lane Neverending**.
 **North is UP. The pub marks the southern edge of the street grid.**
 
 ```
-N O R T H   ("Old Town" — text adventure district)
+N O R T H   (adventure wilderness — dungeons, caves, dragons)
               │          │        │         │        │
+══════════════╪══════════╪════════╪═════════╪════════╪════════  Adventure Avenue (NORTHERN EDGE)
+              │          │        │         │        │           ↑ buildings open to dungeons north
 ──────────────┼──────────┼────────┼─────────┼────────┼────────  MUD Row (1978, Essex architecture)
               │          │        │         │        │
 ──────────────┼──────────┼────────┼─────────┼────────┼────────  Adams Avenue (Scott Adams, 1978)
@@ -167,8 +176,11 @@ S O U T H   (into the wilds)
 ```
 
 The further north you go, the older the inspirations ("Old Town" — MUD Row, Adams Ave, Zork Row).
+Adventure Avenue marks the northern edge — beyond it lies adventure wilderness.
 Glitch Way sits just north of Lane Neverending — honoring their shared lineage.
-The further south you go, the wilder it gets (maze, dungeons, unknown).
+Lane Neverending marks the southern edge — beyond it lies the pub's garden, maze, and dungeons.
+
+**Both edges lead to adventure. The grid is civilization. Beyond is wilderness.**
 
 ---
 
