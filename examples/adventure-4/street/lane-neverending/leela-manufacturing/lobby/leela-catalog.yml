@@ -667,7 +667,7 @@ object:
             - name: "Dungeon Mapper"
               sku: "LEE-DM-001"
               price: "100 coins"
-              description: "Auto-mapping device, fog-of-war reveal"
+              description: "Auto-mapping device, fog-of-war reveal, item dropper, maze solver"
               
         navigation:
           items:
@@ -685,6 +685,25 @@ object:
               sku: "LEE-PO-001"
               price: "200 coins"
               description: "Floating guide, knows shortest paths"
+              
+            - name: "TomTomagotchi"
+              sku: "LEE-TT-001"
+              price: "150 coins"
+              description: "GPS pet companion, needs feeding and attention"
+              features:
+                - "Turn-by-turn directions (in cute voice)"
+                - "Gets sad if you ignore its route suggestions"
+                - "Happy chirps when you arrive"
+                - "Remembers your favorite places"
+                - "Evolves based on travel habits"
+              care_requirements:
+                - "Feed it map data"
+                - "Pet it when it finds shortcuts"
+                - "Don't let it run out of battery (it cries)"
+              personalities:
+                - "Explorer (loves new routes)"
+                - "Homebody (prefers familiar paths)"
+                - "Adventurer (suggests scenic detours)"
               
     # ═══════════════════════════════════════════════════════════════
     # MODELS & POSES
