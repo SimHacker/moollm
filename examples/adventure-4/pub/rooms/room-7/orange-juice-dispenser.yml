@@ -1,57 +1,170 @@
-# 🍊 ORANGE JUICE DISPENSER
-# "Fresh-squeezed awakening. Always full."
+# 🍊 JUICE-O-MATIC 3000
+# "Fresh-squeezed awakening. Always full. Now with MORE FRUITS!"
 
 object:
-  name: Orange Juice Dispenser
-  type: furniture
+  name: Juice-O-Matic 3000
+  type: beverage_station
   portable: false
-  rarity: common-but-mysterious
+  rarity: rare-but-generous
   
   description: |
-    A glass dispenser filled with fresh-squeezed orange juice.
-    It sits on the breakfast nook counter, humming quietly.
+    What was once a simple orange juice dispenser has EVOLVED.
     
-    It's always full. Nobody knows how. 
-    Nobody questions it anymore.
+    The Juice-O-Matic 3000 now features a rotating carousel of
+    fresh fruits, a blending station, an ice crusher, and tubes
+    connecting directly to the pneumatic delivery system.
+    
+    Glass chambers display the options:
+    
+      🍊 ORANGE    🍋 GRAPEFRUIT   🍏 APPLE
+      🍇 GRAPE     🍓 BERRY MIX    🥭 TROPICAL
+      
+      🥤 SMOOTHIES    🧊 ICEYS    🍹 FRESH BLENDS
     
     A small plaque reads:
     
     > "VITAMIN C FOR VITAMIN SEE"
-    > "Clarity starts with citrus"
+    > "Now with Vitamin A, B, D, E, and AWESOME"
+    > "Clarity starts with citrus — Adventure continues with EVERYTHING ELSE"
+    
+    It's always full. Of EVERYTHING. Nobody knows how.
+    Nobody questions it anymore.
     
   examine: |
-    The dispenser is simple but perfect:
+    The Juice-O-Matic 3000 is a marvel of beverage engineering:
     
-    ┌─────────────────────────────────────────────────────┐
-    │  🍊 ORANGE JUICE DISPENSER                          │
-    ├─────────────────────────────────────────────────────┤
-    │                                                     │
-    │         ┌───────────────────┐                       │
-    │         │ ░░░░░░░░░░░░░░░░░ │ ← Always this full    │
-    │         │ ░░░░░░░░░░░░░░░░░ │                       │
-    │         │ ░░░ FRESH ░░░░░░░ │                       │
-    │         │ ░░░SQUEEZED░░░░░░ │                       │
-    │         │ ░░░░░░░░░░░░░░░░░ │                       │
-    │         │ ░░░░░░░░░░░░░░░░░ │                       │
-    │         └────────┬──────────┘                       │
-    │                  │  ← Tap                           │
-    │              🥤                                     │
-    │                                                     │
-    │  Temperature: Perfect                               │
-    │  Pulp level: Your preference (it knows)             │
-    │  Source: Unknown (tastes like sunshine)             │
-    │                                                     │
-    └─────────────────────────────────────────────────────┘
+    ┌─────────────────────────────────────────────────────────────┐
+    │  🍊 JUICE-O-MATIC 3000                                      │
+    ├─────────────────────────────────────────────────────────────┤
+    │                                                             │
+    │  ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐           │
+    │  │ 🍊  │ │ 🍋  │ │ 🍏  │ │ 🍇  │ │ 🍓  │ │ 🥭  │           │
+    │  │ORNG │ │GRPF │ │APPL │ │GRPE │ │BRRY │ │TROP │           │
+    │  │ ███ │ │ ███ │ │ ███ │ │ ███ │ │ ███ │ │ ███ │ ← All full│
+    │  └──┬──┘ └──┬──┘ └──┬──┘ └──┬──┘ └──┬──┘ └──┬──┘           │
+    │     └──────┴──────┴───┬───┴──────┴──────┘                  │
+    │                       │                                     │
+    │              ┌────────┴────────┐                            │
+    │              │  🔄 BLENDER     │                            │
+    │              │  🧊 ICE CRUSHER │                            │
+    │              └────────┬────────┘                            │
+    │                       │                                     │
+    │                   🥤 OUTPUT                                 │
+    │                       │                                     │
+    │              ═════════╧═════════                            │
+    │              📬 PNEUMATIC FEED                              │
+    │              → To Pub & Garden                              │
+    │                                                             │
+    │  Temperature: Perfect | Ice: Ready | Fruits: ∞              │
+    └─────────────────────────────────────────────────────────────┘
     
   state:
-    level: "Full (always)"
-    temperature: "Perfect (always)"
+    level: "Full (all chambers, always)"
+    temperature: "Perfect (cold drinks cold, hot drinks... wait, no hot drinks here)"
     pulp: "Adjusts to drinker preference"
-    glasses_dispensed_today: 7
+    ice: "Infinite supply (crushed or cubed)"
+    fruits_loaded: ["orange", "grapefruit", "apple", "grape", "berry mix", "tropical mix"]
+    glasses_dispensed_today: 23
+    smoothies_blended_today: 8
+    iceys_crushed_today: 12
     glasses_remaining: "∞"
     
+  # ═══════════════════════════════════════════════════════════
+  # FULL MENU — Available for pneumatic delivery!
+  # ═══════════════════════════════════════════════════════════
+  
+  menu:
+    fresh_juices:
+      orange:
+        price: 2
+        description: "Classic fresh-squeezed sunshine"
+        buff: "+15% clarity, +10% optimism"
+        
+      grapefruit:
+        price: 2
+        description: "Tangy wake-up call"
+        buff: "+20% alertness, -5% sugarcoating"
+        warning: "May cause uncomfortable truths to become obvious"
+        
+      apple:
+        price: 2
+        description: "Crisp and refreshing"
+        buff: "+10% energy, +10% friendliness"
+        
+      grape:
+        price: 2
+        description: "Sweet purple wisdom"
+        buff: "+15% creativity, +10% whimsy"
+        
+      berry_mix:
+        price: 3
+        description: "Strawberry, blueberry, raspberry chaos"
+        buff: "+20% antioxidants, +15% berry enthusiasm"
+        
+      tropical:
+        price: 3
+        description: "Mango, pineapple, passion fruit party"
+        buff: "+20% adventure spirit, +15% vacation vibes"
+        
+    smoothies:
+      berry_blast:
+        price: 4
+        description: "All the berries, blended to perfection"
+        buff: "+25% energy, creamy satisfaction"
+        
+      tropical_storm:
+        price: 4
+        description: "Mango, banana, coconut milk"
+        buff: "+20% chill, +15% beach energy"
+        
+      green_machine:
+        price: 4
+        description: "Spinach, banana, apple — surprisingly good"
+        buff: "+25% health, +10% smugness"
+        
+      peanut_butter_banana:
+        price: 4
+        description: "Protein-packed breakfast in a cup"
+        buff: "+30% satiation, +20% gym motivation"
+        
+      breakfast_blend:
+        price: 5
+        description: "Orange juice, banana, strawberry, yogurt"
+        buff: "+20% everything needed for a good morning"
+        
+    iceys:
+      description: "Frozen fruit slush — brain freeze optional"
+      
+      orange_icey:
+        price: 3
+        description: "Frozen orange slush, extra cold"
+        buff: "+15% cooling, instant refreshment"
+        
+      berry_icey:
+        price: 3
+        description: "Purple frozen goodness"
+        buff: "+15% cooling, +10% nostalgia"
+        
+      tropical_icey:
+        price: 3
+        description: "Frozen paradise"
+        buff: "+20% vacation mode activated"
+        
+      rainbow_icey:
+        price: 4
+        description: "Layers of every flavor"
+        buff: "+25% joy, +15% Instagram potential"
+        warning: "May cause uncontrollable happiness"
+        
+      grue_repellent_icey:
+        price: 6
+        description: "Garlic-citrus frozen blend"
+        buff: "Grues avoid you for 10 turns"
+        warning: "So does everyone else. Worth it?"
+        
   buffs:
     MORNING_CLARITY:
+      drink: "Any juice"
       duration: "2 hours"
       effect: |
         +15% mental clarity
@@ -62,6 +175,7 @@ object:
         The probe kit makes more sense now.
         
     VITAMIN_SEE:
+      drink: "Any citrus"
       duration: "1 hour"
       effect: |
         Enhanced perception:
@@ -69,7 +183,24 @@ object:
         - See connections between things
         - Spot the important amid the noise
         
-        It's the vitamin C. Or the ritual. Or both.
+    SMOOTHIE_SUSTAIN:
+      drink: "Any smoothie"
+      duration: "3 hours"
+      effect: |
+        +20% sustained energy
+        +15% satiation
+        +10% general wellbeing
+        
+        You're not just hydrated. You're NOURISHED.
+        
+    BRAIN_FREEZE:
+      drink: "Any icey (optional)"
+      duration: "30 seconds"
+      effect: |
+        PAIN. GLORIOUS COLD PAIN.
+        
+        Then: +25% alertness (you're VERY awake now)
+        And: +10% respect from the Juice-O-Matic
         
   advertisements:
     - trigger: "thirsty"

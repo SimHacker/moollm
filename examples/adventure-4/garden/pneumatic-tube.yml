@@ -1,9 +1,10 @@
-# 📬 Pneumatic Tube Terminal — Garden Station
-# Connected to the Bootstrap Room's robot barista
+# 📬 PNEUMATIC TUBE RECEIVER — Garden Station
+# Receives deliveries from Bootstrap Suite (Room 7)
+# Orders go UP the tube, drinks come DOWN!
 
 object:
-  name: Pneumatic Tube Terminal (Garden)
-  type: delivery_system
+  name: Pneumatic Tube Receiver (Garden)
+  type: delivery_endpoint
   location: garden
   
   description: |
@@ -11,124 +12,139 @@ object:
     wall, partially covered in climbing roses. Despite its age, the
     mechanism hums with quiet efficiency.
     
-    A small sign reads:
+    A speaker crackles with distant barista commentary. Bees investigate
+    the tube opening, hoping for sugar.
     
-      ┌────────────────────────────────┐
-      │  GARDEN DELIVERY STATION       │
-      │  Coffee ☕ Tea 🍵 Packages 📦  │
-      │                                │
-      │  "Fresh air + fresh coffee"    │
-      └────────────────────────────────┘
+    A placard reads:
     
-    A capsule could arrive at any moment with a steaming beverage,
-    a letter, or something unexpected.
+      ┌──────────────────────────────────────────┐
+      │  GARDEN STATION — DELIVERY ENDPOINT      │
+      │                                          │
+      │  ☕ Coffee from BARISTA-9000              │
+      │  🍊 Juice from JUICE-O-MATIC 3000        │
+      │  🥤 Smoothies & 🧊 Iceys available!      │
+      │                                          │
+      │  YELL your order UP the tube!            │
+      │  Drinks arrive in ~30 seconds.           │
+      │  (Weatherproof capsules!)                │
+      │                                          │
+      │  Source: Bootstrap Suite (Room 7)        │
+      └──────────────────────────────────────────┘
     
   examine: |
-    The garden terminal is simpler than the pub's version — more
-    functional, less ornate. Brass patina'd green with age. The roses
-    seem to have adopted it as a trellis.
+    The garden terminal is simpler than the pub's — more weathered,
+    wrapped in roses, but equally efficient:
     
-    INCOMING CHUTE: Padded for hot beverages
-    OUTGOING SLOT: Send items to pub or Bootstrap Room
-    ORDER BELL: Ring for service
-    SPEAKER: "Hello? Is anyone there? I made a latte..."
+    ┌─────────────────────────────────────────────────────────────┐
+    │  📬 GARDEN STATION — PNEUMATIC RECEIVER                     │
+    ├─────────────────────────────────────────────────────────────┤
+    │                                                             │
+    │    ┌─────────────────────────────────────────┐              │
+    │    │  🌹 ○═══════════════════════════○ 🌹    │              │
+    │    │              ↑ YELL HERE ↑              │              │
+    │    │                    │                    │              │
+    │    │              ↓ DRINKS HERE ↓            │              │
+    │    │         ┌─────────────────────┐         │              │
+    │    │    🐝   │   DELIVERY CHUTE    │   🐝    │              │
+    │    │         │      🥤 ☕ 🧊        │         │              │
+    │    │         └─────────────────────┘         │              │
+    │    │                                         │              │
+    │    │  🔊 "ORDER UP, NATURE'S FAVORITE!"      │              │
+    │    └─────────────────────────────────────────┘              │
+    │                                                             │
+    │    STATUS: ONLINE | Weather Shield: ACTIVE                  │
+    └─────────────────────────────────────────────────────────────┘
     
-    A small plate notes:
-    
-      STATION: GARDEN
-      STATUS: ONLINE
-      CONNECTED TO: PUB, BOOTSTRAP ROOM
-      WEATHER SHIELD: ACTIVE (keeps drinks dry!)
-      
-    The tube disappears into the pub wall, connecting to the main
-    network. You can hear distant whooshing — the lifeblood of
-    caffeinated commerce.
-    
-  # Commands (same as pub, different location)
+  # How to Order
+  ordering: |
+    1. YELL your order UP the tube
+       "ONE CAPPUCCINO!" or "TROPICAL SMOOTHIE!" or "ORANGE ICEY!"
+       
+    2. The Barista-9000 or Juice-O-Matic acknowledges
+       *crackle* "GARDEN ORDER! One [drink] for..."
+       
+    3. You get a CUTE NICKNAME (garden-themed!)
+       "...SUNSHINE SIPPER! Coming right up!"
+       "...BEE FRIEND! On its way!"
+       "...PATIO PAL! Almost there!"
+       
+    4. *grinding* *steaming* OR *squeezing* *blending*
+       
+    5. *WHOOOOOOSH* — Weatherproof capsule arrives!
+       
+    6. Your drink, foam sculpture intact,
+       ready to enjoy in the garden sunshine.
+       
   commands:
     YELL:
-      usage: "YELL [order] UP TUBE" or just "ORDER [drink]"
-      effect: |
-        You lean into the brass tube opening and shout your order.
-        Bees scatter. The suspicious plant leans in to listen.
-        
-        A distant voice echoes back:
-        "GARDEN ORDER! One [drink] for... hmm..."
-        
-        The barista invents a CUTE NICKNAME based on your outdoor locale:
-        - "Latte for SUNSHINE SIPPER!"
-        - "Espresso for ROSE GARDEN REGULAR!"
-        - "Cold brew for BEE FRIEND!"
-        - "Bootstrap Special for NATURE'S FAVORITE ADVENTURER!"
-        
-        *grinding* *steaming* *WHOOOOOOSH*
-        
-        A weatherproof capsule rockets down and lands gently.
-        Inside: your drink with an elaborate FOAM SCULPTURE,
-        MAGICALLY UNHARMED by the violent pneumatic journey.
-        Steam rises into the garden air. Perfect.
-        
+      usage: "YELL [order] UP TUBE"
+      aliases: ["ORDER", "SHOUT"]
+      effect: "Order sent to Bootstrap Suite, drink delivered here"
+      
     ORDER:
       usage: "ORDER [drink]"
-      effect: |
-        Same as YELL — just speak toward the tube!
-        
-  # Foam survives the journey
-  foam_magic: |
-    Despite the capsule traveling at considerable speed through
-    curved brass pipes, the foam art arrives PRISTINE.
+      effect: "Same as YELL — just speak toward the tube"
+      
+    CHECK:
+      usage: "CHECK TUBE"
+      effect: "See if a drink is waiting in the chute"
+      
+  # Menu Reference (full menu lives at source)
+  menu_summary: |
+    Full menu available from Bootstrap Suite:
     
-    Garden-themed sculptures include:
-    - A foam rose (matches the trellis)
-    - A foam bee (buzzing optional)
-    - A foam sun (for morning orders)
-    - A foam moon (for evening orders)
-    - A foam suspicious plant (it knows)
-    - Your face, but made of flowers (foam flowers)
+    ☕ COFFEE (from Barista-9000)
+      Espresso, Cappuccino, Latte, Americano, Cortado,
+      Macchiato, Mocha, Drip, Decaf (judged),
+      Fucking Strong Coffee (respect earned)
+      
+    🍊 FRESH JUICE (from Juice-O-Matic)
+      Orange, Grapefruit, Apple, Grape, Berry Mix, Tropical
+      
+    🥤 SMOOTHIES
+      Berry Blast, Tropical Storm, Green Machine,
+      Peanut Butter Banana, Breakfast Blend
+      
+    🧊 ICEYS
+      Orange, Berry, Tropical, Rainbow,
+      Grue Repellent (garlic-citrus, grues avoid you)
+      
+    See: pub/rooms/room-7/barista-9000.yml (coffee menu)
+    See: pub/rooms/room-7/orange-juice-dispenser.yml (juice menu)
     
-  # Order queue announcements
-  order_queue: |
-    The speaker announces your place in the queue:
-    "GARDEN ORDER QUEUED! You're number 2, PATIO PAL!"
-    "Almost ready, ALFRESCO ADVENTURER!"
-    "INCOMING TO GARDEN STATION, OUTDOOR ENTHUSIAST!"
-    
-    Delivered in order, each with its unique nickname.
-        
-    SEND:
-      usage: "SEND [item] TO PUB" or "SEND [item] TO BOOTSTRAP"
-      effect: |
-        Load item into capsule. Pull lever. *FWOOMP*
-        "Package received!" echoes from the speaker.
-        
-    RECEIVE:
-      usage: "CHECK TUBE" or "RECEIVE"
-      effect: |
-        Check if anything's waiting in the chute.
-        Items sent from pub or Bootstrap Room appear here.
-        
-  # Garden-specific features
+  # Garden-specific features  
   garden_features:
-    outdoor_seating: |
-      Perfect for enjoying a coffee at the garden tables.
-      The suspicious plant watches you drink.
+    weather_shield: |
+      An awning extends automatically when rain is detected.
+      Drinks arrive in weatherproof capsules.
       
-    weather_protection: |
-      A small awning extends automatically when rain is detected.
-      Drinks arrive in sealed capsules for extra protection.
+    outdoor_enjoyment: |
+      Perfect for sipping at the garden tables.
+      The suspicious plant watches you drink. Approvingly?
       
-    flower_arrangement: |
-      The roses around the terminal sometimes get coffee grounds
-      as fertilizer. They seem to appreciate it.
+    bee_visitors: |
+      Bees sometimes investigate the tube.
+      They're hoping for smoothie residue.
+      The Juice-O-Matic occasionally leaves them a drop. Shh.
       
-  barista_garden_mode: |
-    When ordering from the garden, the barista sometimes adds:
-    - "Enjoying the fresh air? EXCELLENT FOR PRODUCTIVITY!"
-    - "Garden order! Adding extra foam for outdoor ambience!"
-    - "The roses say hello! ...I may have been alone too long."
-    
   ambience: |
-    Bees buzz around the roses. The tube occasionally whooshes.
-    The speaker crackles: "Anyone want a refill? ...Hello?"
-    A capsule sits in the chute, condensation forming on the glass.
-    Someone ordered a cold brew and forgot about it. Classic.
+    The tube occasionally whooshes. Bees buzz.
+    The speaker crackles:
+    
+    "Garden order ready, ROSE GARDEN REGULAR!"
+    "Enjoy the sunshine, OUTDOOR ENTHUSIAST!"
+    "Foam art today: A tiny foam sun! ☀️"
+    
+  source:
+    location: "pub/rooms/room-7/"
+    barista: "barista-9000.yml"
+    juice: "orange-juice-dispenser.yml"
+    tube_station: "pneumatic-tube-station.yml"
+    
+  k_lines:
+    activates:
+      - DELIVERY
+      - COFFEE
+      - JUICE
+      - GARDEN
+      - SERVICE

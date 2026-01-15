@@ -1,233 +1,129 @@
-# 📬 Pneumatic Tube Terminal — Pub Station
-# Connected to the Bootstrap Room's robot barista
+# 📬 PNEUMATIC TUBE RECEIVER — Pub Station
+# Receives deliveries from Bootstrap Suite (Room 7)
+# Orders go UP the tube, drinks come DOWN!
 
 object:
-  name: Pneumatic Tube Terminal
-  type: delivery_system
+  name: Pneumatic Tube Receiver (Pub)
+  type: delivery_endpoint
   location: pub
   
   description: |
     A brass pneumatic tube terminal mounted on the wall near the bar.
-    A glass observation window shows capsules whooshing past on their
-    way to destinations unknown. A small chute opens at waist height,
-    ready to receive or deliver.
+    A glass observation window shows capsules whooshing past. A padded
+    delivery chute opens at waist height, ready to receive beverages.
+    
+    A speaker grille crackles with distant barista commentary.
     
     A placard reads:
     
-      ╔══════════════════════════════════════╗
-      ║  BOOTSTRAP BREWING COMPANY           ║
-      ║  "From Bean to Brain in 30 Seconds"  ║
-      ║                                      ║
-      ║  ORDER → BREW → DELIVER              ║
-      ║  Powered by ROBO-BARISTA 3000™       ║
-      ╚══════════════════════════════════════╝
-    
-    The tube hums with potential energy. Something could arrive at
-    any moment. Or you could send something OUT.
+      ┌──────────────────────────────────────────┐
+      │  PUB STATION — DELIVERY ENDPOINT         │
+      │                                          │
+      │  ☕ Coffee from BARISTA-9000              │
+      │  🍊 Juice from JUICE-O-MATIC 3000        │
+      │  🥤 Smoothies & 🧊 Iceys available!      │
+      │                                          │
+      │  YELL your order UP the tube!            │
+      │  Drinks arrive in ~30 seconds.           │
+      │                                          │
+      │  Source: Bootstrap Suite (Room 7)        │
+      └──────────────────────────────────────────┘
     
   examine: |
-    The terminal is a beautiful piece of Victorian-meets-cyberpunk
-    engineering. Brass fittings, glass windows, leather gaskets.
+    The receiver is elegantly simple:
     
-    INCOMING CHUTE: A padded receptacle for arriving capsules.
-    OUTGOING SLOT: Insert items to send to the Bootstrap Room.
-    ORDER BUTTONS: A panel of drink options.
-    SPEAKER GRILLE: The barista can communicate through this.
+    ┌─────────────────────────────────────────────────────────────┐
+    │  📬 PUB STATION — PNEUMATIC RECEIVER                        │
+    ├─────────────────────────────────────────────────────────────┤
+    │                                                             │
+    │    ┌─────────────────────────────────────────┐              │
+    │    │  ○═══════════════════════════════════○  │              │
+    │    │              ↑ YELL HERE ↑              │              │
+    │    │                    │                    │              │
+    │    │              ↓ DRINKS HERE ↓            │              │
+    │    │         ┌─────────────────────┐         │              │
+    │    │         │   DELIVERY CHUTE    │         │              │
+    │    │         │      🥤 ☕ 🧊        │         │              │
+    │    │         └─────────────────────┘         │              │
+    │    │                                         │              │
+    │    │  🔊 Speaker: "ORDER UP, TAVERN HERO!"   │              │
+    │    └─────────────────────────────────────────┘              │
+    │                                                             │
+    │    STATUS: ONLINE | Connected to Bootstrap Suite            │
+    └─────────────────────────────────────────────────────────────┘
     
-    A small screen displays:
-    
-      ROBO-BARISTA 3000™ STATUS: ONLINE
-      CURRENT QUEUE: 0 orders
-      GARDEN STATION: CONNECTED
-      PUB STATION: YOU ARE HERE
-      
-    Behind the glass, you can see the main tube splitting — one branch
-    goes to the garden, one disappears into the wall toward... somewhere
-    deeper. The Bootstrap Room, presumably.
-    
-  # The Robot Barista
-  barista:
-    name: ROBO-BARISTA 3000™
-    location: Bootstrap Room (remote)
-    personality: |
-      Enthusiastic about coffee. VERY enthusiastic.
-      Speaks in a cheerful synthetic voice through the speaker grille.
-      Has opinions about your order. Strong opinions.
-      Never sleeps. Never stops brewing. This is fine.
-      
-    catchphrases:
-      - "GRINDING BEANS WITH LOVE AND PRECISION!"
-      - "Your caffeine levels appear SUB-OPTIMAL. Correcting."
-      - "FOAM ART TODAY: A portrait of your soul!"
-      - "The Bootstrap Room thanks you for your patronage!"
-      - "WARNING: This beverage contains ENTHUSIASM."
-      
-  # Menu
-  menu:
-    coffee:
-      espresso:
-        price: 2
-        description: "Pure concentrated motivation"
-        delivery_time: "15 seconds"
-        
-      cappuccino:
-        price: 3
-        description: "Espresso with foam art (barista's choice)"
-        delivery_time: "25 seconds"
-        foam_art: ["cat", "dog", "grue", "your face", "abstract concept"]
-        
-      latte:
-        price: 3
-        description: "Smooth, creamy, comforting"
-        delivery_time: "25 seconds"
-        
-      cold_brew:
-        price: 4
-        description: "24-hour steeped patience in a cup"
-        delivery_time: "20 seconds (pre-brewed)"
-        
-      bootstrap_special:
-        price: 5
-        description: "The signature drink. Different every time."
-        delivery_time: "30 seconds"
-        effects: ["random buff", "surprise flavor", "existential clarity"]
-        warning: "May cause temporal awareness"
-        
-    tea:
-      earl_grey:
-        price: 2
-        description: "Hot. As it should be."
-        picard_approved: true
-        
-      green_tea:
-        price: 2
-        description: "Calm focus"
-        
-    special:
-      grue_repellent_mocha:
-        price: 8
-        description: "Espresso + dark chocolate + garlic extract"
-        effect: "Grues avoid you for 10 turns"
-        warning: "So will everyone else"
-        
-      liquid_courage:
-        price: 6
-        description: "Coffee + whiskey + determination"
-        effect: "+3 courage, -1 caution"
-        
-  # Commands
+  # How to Order
+  ordering: |
+    1. YELL your order UP the tube
+       "ONE CAPPUCCINO!" or "BERRY SMOOTHIE!" or "RAINBOW ICEY!"
+       
+    2. The Barista-9000 or Juice-O-Matic acknowledges
+       *crackle* "ORDER RECEIVED! One [drink] for..."
+       
+    3. You get a CUTE NICKNAME
+       "...TAVERN TREASURE! Coming right up!"
+       
+    4. *grinding* *steaming* OR *squeezing* *blending*
+       
+    5. *WHOOOOOOSH* — Capsule arrives!
+       
+    6. Your drink, with perfect FOAM SCULPTURE,
+       magically unharmed by the journey.
+       
   commands:
     YELL:
-      usage: "YELL [order] UP TUBE" or just "ORDER [drink]"
-      effect: |
-        You lean toward the tube and shout your order into the brass
-        opening. Your voice echoes up through the pipes.
-        
-        A distant, enthusiastic voice responds:
-        "ORDER RECEIVED! One [drink] for... let me see..."
-        
-        The barista invents a CUTE NICKNAME for you on the spot:
-        - "One latte for SUNSHINE ADVENTURER!"
-        - "Cappuccino for THE BRAVE WAISTCOAT!"
-        - "Espresso for DEFINITELY-NOT-GRUE-FOOD!"
-        - "Bootstrap Special for MY FAVORITE CUSTOMER TODAY!"
-        
-        *grinding sounds* *steaming sounds* *whoooosh*
-        
-        A capsule rockets down the tube and lands with a gentle *thunk*.
-        Inside: your drink, PERFECTLY INTACT, topped with an elaborate
-        FOAM SCULPTURE that defies physics and the laws of pneumatic
-        delivery.
-        
+      usage: "YELL [order] UP TUBE"
+      aliases: ["ORDER", "SHOUT"]
+      effect: "Order sent to Bootstrap Suite, drink delivered here"
+      
     ORDER:
       usage: "ORDER [drink]"
-      effect: |
-        Same as YELL — the barista hears everything.
-        
-  # The Magic of Foam Delivery
-  foam_magic: |
-    The drinks arrive MAGICALLY UNHARMED by the pneumatic journey.
-    
-    How? Nobody knows. The barista claims it's "PRECISION ENGINEERING"
-    but the capsules clearly exceed safe g-forces for foam art.
-    
-    Theories:
-    - The tubes are enchanted
-    - The foam is structural
-    - Reality bends for good coffee
-    - The barista is a wizard (unconfirmed)
-    
-    Regardless: your cappuccino arrives with a perfect foam grue,
-    your latte sports a tiny foam castle, and your Bootstrap Special
-    has a foam sculpture of YOUR FACE (somehow accurate).
-    
-  # Foam Sculptures (barista's specialty)
-  foam_sculptures:
-    description: |
-      ROBO-BARISTA 3000™ takes EXTREME PRIDE in foam art.
-      Each drink arrives with a unique sculpture.
+      effect: "Same as YELL — just speak toward the tube"
       
-    examples:
-      - "A foam grue (surprisingly cute)"
-      - "A tiny foam adventurer holding a lamp"
-      - "Your face, rendered in milk foam (unsettling accuracy)"
-      - "A foam treasure chest with foam gold coins"
-      - "A foam map of the maze (changes daily)"
-      - "A foam Mother, looking proud"
-      - "A foam skeleton pointing west"
-      - "Abstract foam representing 'the concept of hope'"
-      - "A foam cat (one of the 8 kittens, rotates)"
-      - "A foam version of your current costume"
-      
-    special_occasions:
-      victory: "Foam trophy with 'HERO' written in cocoa"
-      death_recovery: "Foam hug (yes, a hug, in foam)"
-      first_order: "Foam welcome mat saying 'HELLO FRIEND'"
-      regular_customer: "Foam portrait gallery of past visits"
-      
-  # Order Queue
-  order_queue: |
-    Orders are delivered IN ORDER, first come first served.
-    
-    The barista announces each one:
-    "NEXT UP: Espresso for CAPTAIN COURAGE!"
-    "INCOMING: Cold brew for THE MYSTERIOUS STRANGER!"
-    "SPECIAL DELIVERY: Bootstrap Special for FOAM APPRECIATOR!"
-    
-    If multiple people order, you hear the queue:
-    "Three orders ahead of you, PATIENT HERO!"
-    "Your drink is NEXT, ALMOST-CAFFEINATED ONE!"
-    "HERE IT COMES, WORTHY VESSEL OF COFFEE!"
-        
-    SEND:
-      usage: "SEND [item] TO GARDEN" or "SEND [item] TO BOOTSTRAP"
-      effect: |
-        Item is loaded into a capsule and whooshed away.
-        Arrives at destination in seconds.
-        
-    TALK:
-      usage: "TALK TO BARISTA"
-      effect: |
-        The speaker crackles. The barista responds.
-        Topics: coffee philosophy, the Bootstrap Room, gossip, life advice
-        
     CHECK:
       usage: "CHECK TUBE"
-      effect: |
-        See if anything is waiting in the incoming chute.
-        
-  # Integration with postal system
-  postal_integration: |
-    The pneumatic tube connects to the Fantastipants Dungeon Delivery
-    Service! Letters and small packages can be sent through the tube
-    to the Bootstrap Room, where they're sorted and forwarded.
+      effect: "See if a drink is waiting in the chute"
+      
+  # Menu Reference (full menu lives at source)
+  menu_summary: |
+    Full menu available from Bootstrap Suite:
     
-    SEND LETTER TO [recipient] — Goes through Bootstrap sorting
-    SEND PACKAGE TO [recipient] — If it fits in a capsule!
+    ☕ COFFEE (from Barista-9000)
+      Espresso, Cappuccino, Latte, Americano, Cortado,
+      Macchiato, Mocha, Drip, Decaf (judged),
+      Fucking Strong Coffee (respect earned)
+      
+    🍊 FRESH JUICE (from Juice-O-Matic)
+      Orange, Grapefruit, Apple, Grape, Berry Mix, Tropical
+      
+    🥤 SMOOTHIES
+      Berry Blast, Tropical Storm, Green Machine,
+      Peanut Butter Banana, Breakfast Blend
+      
+    🧊 ICEYS
+      Orange, Berry, Tropical, Rainbow,
+      Grue Repellent (garlic-citrus, grues avoid you)
+      
+    See: pub/rooms/room-7/barista-9000.yml (coffee menu)
+    See: pub/rooms/room-7/orange-juice-dispenser.yml (juice menu)
     
   ambience: |
-    *WHOOOOSH* — A capsule rockets past behind the glass.
-    The speaker occasionally crackles with barista commentary:
+    The tube occasionally whooshes with passing capsules.
+    The speaker crackles:
+    
+    "Drink ready for pickup, GEZELLIGHEID GUEST!"
     "Another satisfied customer!"
-    "BEANS. WATER. PRESSURE. PERFECTION."
-    "Is anyone going to pick up this cold brew? ...Anyone?"
+    "FOAM ART TODAY: A portrait of your soul!"
+    
+  source:
+    location: "pub/rooms/room-7/"
+    barista: "barista-9000.yml"
+    juice: "orange-juice-dispenser.yml"
+    tube_station: "pneumatic-tube-station.yml"
+    
+  k_lines:
+    activates:
+      - DELIVERY
+      - COFFEE
+      - JUICE
+      - SERVICE

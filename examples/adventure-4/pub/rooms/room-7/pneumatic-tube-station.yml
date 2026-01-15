@@ -1,0 +1,183 @@
+# 📬 PNEUMATIC TUBE STATION — Bootstrap Suite HQ
+# The SOURCE endpoint — serves garden and pub
+# "From Bean to Brain in 30 Seconds!"
+
+object:
+  name: Pneumatic Tube Station
+  type: delivery_system
+  location: room-7
+  portable: false
+  
+  description: |
+    A magnificent brass pneumatic tube station dominates one corner
+    of the Bootstrap Suite. Three large tubes branch from a central
+    hub — one receives orders, two deliver to destinations.
+    
+    The Barista-9000 stands adjacent, mechanical arms positioned to
+    load capsules with beverages. The juice dispenser has a dedicated
+    feed line. Everything is integrated. Everything is EFFICIENT.
+    
+    A placard reads:
+    
+      ╔══════════════════════════════════════════════════╗
+      ║     BOOTSTRAP BREWING & JUICE COMPANY            ║
+      ║                                                  ║
+      ║  "From Bean to Brain in 30 Seconds"              ║
+      ║  "Vitamin C for Vitamin SEE"                     ║
+      ║                                                  ║
+      ║  DESTINATIONS:                                   ║
+      ║    🍺 PUB STATION ────────── Ready               ║
+      ║    🌿 GARDEN STATION ─────── Ready               ║
+      ║                                                  ║
+      ║  Powered by BARISTA-9000 & JUICE-O-MATIC        ║
+      ╚══════════════════════════════════════════════════╝
+    
+  examine: |
+    The station is a Victorian engineering marvel:
+    
+    ┌─────────────────────────────────────────────────────────────┐
+    │  📬 PNEUMATIC TUBE STATION — BOOTSTRAP SUITE                │
+    ├─────────────────────────────────────────────────────────────┤
+    │                                                             │
+    │         ┌─────────────────────────────────────┐             │
+    │         │      ORDER RECEIVER TUBE            │             │
+    │         │  ○═══════════════════════════○      │             │
+    │         │         ↓ orders arrive             │             │
+    │         └─────────────┬───────────────────────┘             │
+    │                       │                                     │
+    │    ┌──────────────────┼──────────────────────┐              │
+    │    │                  │                      │              │
+    │    │  ☕ BARISTA-9000  │ 🍊 JUICE-O-MATIC     │              │
+    │    │    [brewing]     │   [dispensing]       │              │
+    │    │                  │                      │              │
+    │    └──────────────────┼──────────────────────┘              │
+    │                       │                                     │
+    │         ┌─────────────┴───────────────────────┐             │
+    │         │      DELIVERY SPLITTER              │             │
+    │         │           ╱ ╲                       │             │
+    │         │          ╱   ╲                      │             │
+    │    ○═══╱             ╲═══○                    │             │
+    │   🍺 PUB            🌿 GARDEN                  │             │
+    │                                                             │
+    │  STATUS: ONLINE | QUEUE: 0 | FOAM: PRISTINE                 │
+    └─────────────────────────────────────────────────────────────┘
+    
+  # Order Processing
+  order_processing: |
+    When someone YELLS an order up the tube from pub or garden:
+    
+    1. ORDER ARRIVES through receiver tube
+       *whoooosh* *thunk*
+       
+    2. BARISTA-9000 or JUICE-O-MATIC acknowledges
+       "ORDER RECEIVED! One [drink] for..."
+       
+    3. CUTE NICKNAME is invented on the spot
+       "...SUNSHINE ADVENTURER! Coming right up!"
+       
+    4. BEVERAGE is prepared with care
+       *grinding* *steaming* OR *squeezing* *blending*
+       
+    5. FOAM SCULPTURE is added (if applicable)
+       The barista takes EXTREME PRIDE in this.
+       
+    6. CAPSULE is loaded and routed
+       "DESTINATION: [PUB/GARDEN]!"
+       
+    7. *WHOOOOOOSH* — Drink arrives at destination
+       Magically unharmed. Foam perfect. Always.
+       
+  # Cute Nicknames
+  nickname_generator: |
+    The Barista-9000 invents a CUTE NICKNAME for every customer:
+    
+    Random selections:
+    - "SUNSHINE ADVENTURER"
+    - "THE BRAVE WAISTCOAT"
+    - "DEFINITELY-NOT-GRUE-FOOD"
+    - "CAPTAIN COURAGE"
+    - "FOAM APPRECIATOR"
+    - "THE MYSTERIOUS STRANGER"
+    - "CAFFEINATED HERO"
+    - "CITRUS ENTHUSIAST"
+    - "SMOOTHIE ROYALTY"
+    - "ICE QUEEN/KING"
+    - "BERRY FRIEND"
+    - "TROPICAL TRAVELER"
+    - "MY FAVORITE CUSTOMER TODAY"
+    
+    Garden-specific:
+    - "PATIO PAL"
+    - "BEE FRIEND"
+    - "ROSE GARDEN REGULAR"
+    - "NATURE'S FAVORITE"
+    - "OUTDOOR ENTHUSIAST"
+    - "ALFRESCO ADVENTURER"
+    
+    Pub-specific:
+    - "BAR BUDDY"
+    - "TAVERN TREASURE"
+    - "FIRESIDE FRIEND"
+    - "GEZELLIGHEID GUEST"
+    
+  # Foam Magic
+  foam_magic: |
+    Drinks arrive MAGICALLY UNHARMED by pneumatic delivery.
+    
+    The foam sculptures survive:
+    - 90-degree turns
+    - 50 mph tube velocity
+    - Gravity changes
+    - Common sense
+    
+    Theories:
+    - "PRECISION ENGINEERING" (barista's claim)
+    - Enchanted tubes
+    - Structural foam
+    - Reality bends for good coffee
+    - Don't ask, just drink
+    
+  foam_sculptures:
+    description: "Each drink arrives with unique foam art"
+    examples:
+      coffee:
+        - "A foam grue (surprisingly cute)"
+        - "Your face, in milk foam (unsettling accuracy)"
+        - "A foam treasure chest"
+        - "A foam map of the maze (changes daily)"
+        - "A foam Mother, looking proud"
+        - "A foam version of your current costume"
+        - "Abstract foam representing 'the concept of hope'"
+        
+      juice:
+        - "Citrus wedge garnish (perfectly balanced)"
+        - "Fruit slice art (edible)"
+        - "A tiny umbrella (always)"
+        
+      smoothie:
+        - "Whipped cream mountain"
+        - "Berry face (two berries for eyes)"
+        - "Swirl patterns (Instagram-worthy)"
+        
+      icey:
+        - "Snow sculpture on top"
+        - "Frozen fruit topper"
+        - "Crystalline patterns in the ice"
+        
+  # Queue Management
+  queue: |
+    Orders are delivered IN ORDER, first come first served.
+    
+    The speaker announces:
+    "THREE ORDERS AHEAD OF YOU, PATIENT HERO!"
+    "YOUR DRINK IS NEXT, ALMOST-CAFFEINATED ONE!"
+    "INCOMING TO [DESTINATION], WORTHY VESSEL OF BEVERAGE!"
+    
+  k_lines:
+    activates:
+      - DELIVERY
+      - COFFEE
+      - JUICE
+      - BOOTSTRAP
+      - SERVICE
+      - PNEUMATIC
