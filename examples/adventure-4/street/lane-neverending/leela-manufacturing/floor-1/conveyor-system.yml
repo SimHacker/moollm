@@ -74,18 +74,39 @@ object:
                         │   (stored)     │
                         └───────┬────────┘
                                 │
+                                │
                        ┌────────┴────────┐
+                       │                 │
                        ▼                 ▼
-              ┌────────────┐    ┌────────────────┐
-              │    PDA     │───▶│    QUERIES     │
-              │  (writes)  │    │  (retrieves)   │
-              └────────────┘    └───────┬────────┘
-                                        │
-                                        ▼
-                             ┌──────────────────┐
-                             │  VISUALIZATIONS  │
-                             │    (shows)       │
-                             └──────────────────┘
+              ┌────────────────────────────────┐
+              │              PDA               │
+              │    (Personal Data Assistant)   │
+              │                                │
+              │  ┌──────────────────────────┐  │
+              │  │      💬 CHAT DRIVEN      │  │
+              │  └──────────────────────────┘  │
+              │         │                      │
+              │         ▼                      │
+              │  ┌──────────────────────────┐  │
+              │  │   GENERATES QUERIES      │  │
+              │  └──────────────────────────┘  │
+              │         │                      │
+              │         ▼                      │
+              │  ┌──────────────────────────┐  │
+              │  │   READS SQL DATA         │  │
+              │  └──────────────────────────┘  │
+              │         │                      │
+              │         ▼                      │
+              │  ┌──────────────────────────┐  │
+              │  │   ANALYZES RESULTS       │  │
+              │  └──────────────────────────┘  │
+              │         │                      │
+              │         ▼                      │
+              │  ┌──────────────────────────┐  │
+              │  │ GENERATES VISUALIZATIONS │  │
+              │  └──────────────────────────┘  │
+              │                                │
+              └────────────────────────────────┘
     
     ════════════════════════════════════════════════════════════
     
@@ -191,23 +212,40 @@ object:
     Structured. Indexed. Queryable. Patient.
     Data waits here to be retrieved.
     
-    LINE Q (Cyan): Queries
-    ══════════════════════
-    Cyan containers pull data UP from SQL storage.
-    Each query container arrives empty, leaves full.
-    "SELECT understanding FROM insights WHERE cat = waving"
+    PDA: Personal Data Assistant
+    ═════════════════════════════
+    The PDA is a chat-driven interface for exploring data.
+    Users converse naturally; the PDA does the rest.
     
-    PDA STATION (Green): Query Writers
-    ═══════════════════════════════════
-    Personal Data Assistants sit at terminals, crafting queries.
-    They translate questions into SQL, intentions into JOINs.
-    "What did the cat do?" → SELECT * FROM insights...
+    💬 CHAT DRIVEN
+    ───────────────
+    "What did the cat do yesterday?"
+    "Show me all greetings this week"
+    "Compare engagement before and after lunch"
     
-    LINE Z (Rainbow): Visualizations
-    ═════════════════════════════════
-    Rainbow containers at journey's end.
+    GENERATES QUERIES
+    ─────────────────
+    Natural language → SQL (or other query languages)
+    The PDA figures out the right tables, joins, filters.
+    You don't need to know SQL. The PDA knows SQL.
+    
+    READS SQL DATA
+    ──────────────
+    Executes queries against the SQL storage.
+    Handles pagination, streaming, large result sets.
+    Knows when to sample vs. full scan.
+    
+    ANALYZES RESULTS
+    ────────────────
+    Statistical summaries, trend detection, anomalies.
+    "Greetings are up 23% this week."
+    "Unusual pattern detected at 3am."
+    
+    GENERATES VISUALIZATIONS
+    ────────────────────────
     Charts, graphs, dashboards, stories.
-    Data made visible. Understanding made beautiful.
+    Picks the right visualization for the data.
+    "Here's a timeline of cat sightings."
     
     SPECIAL ROUTING:
     • Corrupted video: QUARANTINE (automatic divert)
@@ -236,9 +274,12 @@ object:
     line_i: { speed: "steady", items: 42, understanding_level: "high" }
     line_a: { speed: "fast", items: 38, actions_defined: 156, tables_emitting: 12 }
     line_s: { speed: "variable", items: 156, rows_stored: 2847291 }
-    line_q: { speed: "on-demand", active_queries: 23 }
-    pda_station: { assistants: 4, queries_written_today: 89 }
-    line_z: { speed: "careful", visualizations: 12, beauty_score: 8.7 }
+    pda: 
+      status: "listening"
+      active_chats: 7
+      queries_generated_today: 289
+      analyses_run: 156
+      visualizations_created: 89
     
   processing_stats:
     object_model_development:
@@ -303,14 +344,14 @@ object:
       indices: 2847
       oldest_data: "2019-03-14"
       
-    queries:
-      queries_today: 4721
-      avg_response_time: "47ms"
-      slowest_query: "SELECT * FROM everything JOIN everything"
-      
-    visualizations:
-      charts_generated: 847
+    pda:
+      conversations_today: 423
+      queries_generated: 4721
+      avg_query_time: "47ms"
+      analyses_performed: 892
+      visualizations_created: 847
       dashboards_active: 23
+      most_asked: "What happened yesterday?"
       "wow_reactions": 47
       
   methods:
@@ -334,18 +375,20 @@ object:
         video: "Video stream or file"
       effect: "Forks to Objects and Poses tracks"
       
-    ASK_PDA:
-      description: "Have a PDA write a query for you"
+    CHAT:
+      description: "Start or continue a conversation with PDA"
       parameters:
-        question: "Natural language question"
-      effect: "PDA translates to SQL, runs query, returns results"
-      
-    VISUALIZE:
-      description: "Generate visualization from query results"
-      parameters:
-        data: "Query results"
-        style: "Chart type or 'auto'"
-      effect: "Beautiful understanding emerges"
+        message: "Natural language message"
+      effect: "PDA responds with queries, analysis, visualizations as needed"
+      examples:
+        - "What happened yesterday?"
+        - "Show me all cat sightings"
+        - "Why is engagement down?"
+        - "Compare this week to last week"
+        
+    PDA_STATUS:
+      description: "Check PDA status and active conversations"
+      effect: "Shows active chats, recent queries, system health"
       
     DEFINE_ACTION:
       description: "Create a new Python action"
