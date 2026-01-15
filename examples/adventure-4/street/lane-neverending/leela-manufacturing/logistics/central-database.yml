@@ -79,6 +79,51 @@ object:
     • Backups — because disasters happen
     
     ══════════════════════════════════════════════════════
+    PUBSUB EVENT TASK DISPATCH QUEUE
+    ══════════════════════════════════════════════════════
+    
+    Why use GCS PubSub, Redis, Kafka, or RabbitMQ when PostgreSQL does it all?
+    
+    LISTEN/NOTIFY — native pub/sub in PostgreSQL
+    • Publishers emit events to channels
+    • Subscribers receive in real-time
+    • No external broker required
+    • Transactional — events only fire on COMMIT
+    
+    TASK QUEUE — FOR SKIP LOCKED pattern
+    • Jobs table with visibility timeout
+    • Workers claim tasks atomically
+    • Failed tasks automatically retry
+    • Dead letter queue for persistent failures
+    
+    ┌─────────────────────────────────────────────────┐
+    │  EVENT DISPATCH ARCHITECTURE                    │
+    │                                                 │
+    │  ┌─────────┐    NOTIFY     ┌─────────┐        │
+    │  │ Producer│─────────────→│ Channel │        │
+    │  └─────────┘               └────┬────┘        │
+    │                                 │              │
+    │               ┌─────────────────┼──────────┐  │
+    │               ↓                 ↓          ↓  │
+    │         ┌─────────┐      ┌─────────┐ ┌─────┐ │
+    │         │Worker A │      │Worker B │ │ ... │ │
+    │         └─────────┘      └─────────┘ └─────┘ │
+    └─────────────────────────────────────────────────┘
+    
+    WHY POSTGRES FOR EVERYTHING?
+    
+    • VISIBILITY — one system to monitor, one log to check
+    • CONTROL — full SQL access to queue state
+    • CUSTOMIZATION — build exactly what you need
+    • ELEGANCE — no Rube Goldberg of microservices
+    • TRANSACTIONS — events + data in one atomic commit
+    • DEBUGGING — SELECT * FROM task_queue WHERE failed
+    
+    "ACME uses 17 different message brokers.
+    Leela uses PostgreSQL.
+    Guess which one can tell you what happened yesterday."
+    
+    ══════════════════════════════════════════════════════
     ARCHITECTURE
     ══════════════════════════════════════════════════════
     
@@ -137,6 +182,15 @@ object:
     uptime: "1,247 days"
     backup_frequency: "Daily incremental, weekly full"
     continuous_aggregates: true
+    # PubSub Event Task Dispatch
+    pubsub_channels: 847
+    active_listeners: 234
+    task_queue_tables: 12
+    pending_tasks: 1247
+    tasks_per_second: 847
+    visibility_timeout: "30 seconds"
+    retry_policy: "exponential backoff, max 5"
+    dead_letter_queue: true
     offsite: true
     encrypted: true
     
@@ -245,6 +299,10 @@ object:
     - POSTGRESQL
     - TIMESCALEDB
     - TIME-SERIES
+    - PUBSUB
+    - TASK-QUEUE
+    - EVENT-DISPATCH
+    - LISTEN-NOTIFY
     - KNOWLEDGE-GRAPH
     - PERSISTENCE
     - QUERY
