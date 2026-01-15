@@ -838,6 +838,115 @@ object:
               price: "400 coins"
               description: "Line-of-sight relay, 50km range"
               
+        wifi_networks:
+          items:
+            - name: "WiFi Access Point"
+              sku: "LEE-WA-001"
+              price: "75 coins"
+              description: "Indoor coverage, 50 device capacity"
+              range: "100m indoor"
+              
+            - name: "WiFi Access Point (Outdoor)"
+              sku: "LEE-WA-002"
+              price: "120 coins"
+              description: "Weatherproof, extended range"
+              range: "300m outdoor"
+              
+            - name: "Mesh Network Kit (3-pack)"
+              sku: "LEE-MN-001"
+              price: "200 coins"
+              description: "Self-configuring, whole-building coverage"
+              
+            - name: "WiFi Router (Enterprise)"
+              sku: "LEE-WR-001"
+              price: "250 coins"
+              description: "VLAN support, 200 devices, QoS"
+              
+            - name: "Guest Network Portal"
+              sku: "LEE-GN-001"
+              price: "50 coins"
+              description: "Captive portal, time limits, bandwidth caps"
+              
+        industrial_automation:
+          note: |
+            SCADA-compatible systems for factory and facility control.
+            All systems include safety interlocks and manual overrides.
+            
+          items:
+            - name: "PLC Controller (Basic)"
+              sku: "LEE-PLC-001"
+              price: "300 coins"
+              description: "Programmable Logic Controller, 16 I/O"
+              
+            - name: "PLC Controller (Advanced)"
+              sku: "LEE-PLC-002"
+              price: "600 coins"
+              description: "64 I/O, PID control, ladder logic"
+              
+            - name: "Industrial Sensor Pack"
+              sku: "LEE-IS-001"
+              price: "150 coins"
+              description: "Temperature, pressure, flow, level"
+              includes: "10 sensors, various types"
+              
+            - name: "Motor Controller"
+              sku: "LEE-MC-001"
+              price: "200 coins"
+              description: "Variable speed drive, soft start"
+              
+            - name: "Valve Actuator"
+              sku: "LEE-VA-001"
+              price: "100 coins"
+              description: "Electric, proportional control"
+              
+            - name: "Conveyor Controller"
+              sku: "LEE-CC-001"
+              price: "250 coins"
+              description: "Speed, direction, zone control"
+              integrates: "Inserters, sensors, belts"
+              
+        monitoring_networks:
+          items:
+            - name: "SCADA Console"
+              sku: "LEE-SC-001"
+              price: "800 coins"
+              description: "Supervisory control, multi-system view"
+              features:
+                - "Real-time dashboards"
+                - "Alarm management"
+                - "Historical trending"
+                - "Remote access (secure)"
+                
+            - name: "HMI Touch Panel (7 inch)"
+              sku: "LEE-HMI-007"
+              price: "200 coins"
+              description: "Human-Machine Interface, local control"
+              
+            - name: "HMI Touch Panel (15 inch)"
+              sku: "LEE-HMI-015"
+              price: "400 coins"
+              description: "Larger display, multi-zone view"
+              
+            - name: "Data Logger"
+              sku: "LEE-DL-001"
+              price: "150 coins"
+              description: "Records all sensor data, 1 year storage"
+              
+            - name: "Alert Gateway"
+              sku: "LEE-AG-001"
+              price: "100 coins"
+              description: "SMS, email, pigeon alerts on threshold"
+              
+            - name: "Predictive Maintenance Module"
+              sku: "LEE-PM-001"
+              price: "350 coins"
+              description: "AI-based failure prediction"
+              features:
+                - "Vibration analysis"
+                - "Thermal monitoring"
+                - "Wear estimation"
+                - "Maintenance scheduling"
+              
             - name: "Crystal Communicator (Pair)"
               sku: "LEE-CC-002"
               price: "100 coins"
