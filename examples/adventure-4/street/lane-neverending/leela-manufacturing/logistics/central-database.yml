@@ -221,14 +221,14 @@ object:
     │  STORAGE STACK (Object/File + Ingest)                    │
     │                                                          │
     │  OBJECT STORAGE (S3 cluster):                            │
-    │  S3 STORAGE CLUSTER:                                      │
+    │  S3 STORAGE CLUSTER:                                     │
     │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
     │  │ STORE-1  │  │ STORE-2  │  │ STORE-3  │  │ STORE-4  │  │
-    │  │ S3/MinIO │  │ S3/MinIO │  │ S3/MinIO │  │ S3/MinIO │  │
+    │  │ Leela S3 │  │ Leela S3 │  │ Leela S3 │  │ Leela S3 │  │
     │  │ primary  │  │ primary  │  │ mirror   │  │ backup   │  │
     │  └──────────┘  └──────────┘  └──────────┘  └──────────┘  │
     │                                                          │
-    │  • S3-compatible object storage (MinIO cluster)          │
+    │  • Leela's own S3-compatible object storage server       │
     │  • Primary nodes for hot data, mirror for redundancy     │
     │  • Backup node for cold storage, disaster recovery       │
     │  • Cross-site replication available                      │
@@ -246,13 +246,19 @@ object:
     │  • Metadata indexed in PostgreSQL                        │
     │                                                          │
     │  INGEST:                                                 │
-    │  • Video Ingest — RTSP streams → HLS segments → MinIO    │
+    │  • Video Ingest — camera chunks uploaded → S3 triggers   │
+    │    import and ingestion automatically on upload          │
     │  • Sensor Ingest — MQTT/IoT → TimescaleDB hypertables    │
-    │  • Log Ingest — syslog/journald → PostgreSQL + MinIO     │
+    │  • Log Ingest — syslog/journald → PostgreSQL + S3        │
     │  • Bulk Import — CSV/Parquet batch loads → PostgreSQL    │
     │                                                          │
+    │  UPLOAD-TRIGGERED PIPELINE:                              │
+    │  Camera uploads video chunk → S3 bucket notification →   │
+    │  PostgreSQL NOTIFY → Thinker claims task → processes →   │
+    │  metadata to PostgreSQL hypertable. Fully automated.     │
+    │                                                          │
     │  All ingest writes metadata to PostgreSQL immediately.   │
-    │  Blobs go to MinIO. Queryable within seconds.            │
+    │  Blobs stay in S3. Queryable within seconds.             │
     └──────────────────────────────────────────────────────────┘
     
     ALL STACKS CONNECT TO POSTGRESQL:
