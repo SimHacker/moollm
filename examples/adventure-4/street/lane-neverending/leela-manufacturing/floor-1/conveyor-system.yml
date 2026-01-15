@@ -13,7 +13,7 @@ object:
     The main conveyor lines trace a flowing pipeline across the floor.
     Video comes in, forks to parallel tracks, converges to insights,
     flows to storage, and emerges as visualized understanding.
-    Model development and training feed into the processors.
+    Two parallel model pipelines feed the processors.
     
   examine: |
     INTAKE CONVEYOR SYSTEM — THE LEELA PIPELINE
@@ -21,86 +21,132 @@ object:
     
     Follow the flow:
     
-    ┌─────────────────┐          ┌─────────────┐
-    │      MODEL      │          │    VIDEO    │
-    │   DEVELOPMENT   │          │   (input)   │
-    └────────┬────────┘          └──────┬──────┘
-             │                          │
-             ▼                     ═════╧═════
-    ┌─────────────────┐           /           \
-    │    TRAINING     │          ▼             ▼
-    │    PIPELINE     │ ┌──────────────┐ ┌──────────────┐
-    └────────┬────────┘ │   OBJECTS    │ │    POSES     │
-             │          │  (detected)  │ │  (skeletal)  │
-             │          └──────┬───────┘ └───────┬──────┘
-             │    ┌────────────┤                 │
-             │    │            └────────┬────────┘
-             ▼    ▼                     ▼
-    ┌─────────────────┐        ┌────────────────┐
-    │ OBJECT DETECTOR │        │    INSIGHTS    │
-    │  MODEL DEPLOY   │───────▶│  (understood)  │
-    └─────────────────┘        └───────┬────────┘
-             │                         │
-             ▼                         ▼
-    ┌─────────────────┐        ┌────────────────┐
-    │  POSE ESTIMATOR │        │      SQL       │
-    │  MODEL DEPLOY   │        │   (stored)     │
-    └─────────────────┘        └───────┬────────┘
-                                       │
-                              ┌────────┴────────┐
-                              ▼                 ▼
-                     ┌────────────┐    ┌────────────────┐
-                     │    PDA     │───▶│    QUERIES     │
-                     │  (writes)  │    │  (retrieves)   │
-                     └────────────┘    └───────┬────────┘
-                                               │
-                                               ▼
-                                    ┌──────────────────┐
-                                    │  VISUALIZATIONS  │
-                                    │    (shows)       │
-                                    └──────────────────┘
+    ┌─────────────────┐                       ┌─────────────────┐
+    │  OBJECT MODEL   │                       │   POSE MODEL    │
+    │   DEVELOPMENT   │                       │   DEVELOPMENT   │
+    └────────┬────────┘                       └────────┬────────┘
+             │                                         │
+             ▼                                         ▼
+    ┌─────────────────┐                       ┌─────────────────┐
+    │  OBJECT MODEL   │                       │   POSE MODEL    │
+    │    TRAINING     │                       │    TRAINING     │
+    └────────┬────────┘                       └────────┬────────┘
+             │                                         │
+             ▼                                         ▼
+    ┌─────────────────┐                       ┌─────────────────┐
+    │  OBJECT MODEL   │                       │   POSE MODEL    │
+    │     DEPLOY      │                       │     DEPLOY      │
+    └────────┬────────┘                       └────────┬────────┘
+             │                                         │
+             │              ┌─────────────┐            │
+             │              │    VIDEO    │            │
+             │              │   (input)   │            │
+             │              └──────┬──────┘            │
+             │                     │                   │
+             │                ═════╧═════              │
+             │               /           \             │
+             ▼              ▼             ▼            ▼
+        ┌──────────────────────┐   ┌──────────────────────┐
+        │       OBJECTS        │   │        POSES         │
+        │ ┌──────────────────┐ │   │ ┌──────────────────┐ │
+        │ │  Object Detector │ │   │ │  Pose Estimator  │ │
+        │ │    (model v2.3)  │ │   │ │    (model v1.8)  │ │
+        │ └──────────────────┘ │   │ └──────────────────┘ │
+        │      (detected)      │   │      (skeletal)      │
+        └──────────┬───────────┘   └───────────┬──────────┘
+                   │                           │
+                   └─────────────┬─────────────┘
+                                 ▼
+                        ┌────────────────┐
+                        │    INSIGHTS    │
+                        │  (understood)  │
+                        └───────┬────────┘
+                                │
+                                ▼
+                        ┌────────────────┐
+                        │      SQL       │
+                        │   (stored)     │
+                        └───────┬────────┘
+                                │
+                       ┌────────┴────────┐
+                       ▼                 ▼
+              ┌────────────┐    ┌────────────────┐
+              │    PDA     │───▶│    QUERIES     │
+              │  (writes)  │    │  (retrieves)   │
+              └────────────┘    └───────┬────────┘
+                                        │
+                                        ▼
+                             ┌──────────────────┐
+                             │  VISUALIZATIONS  │
+                             │    (shows)       │
+                             └──────────────────┘
     
     ════════════════════════════════════════════════════════════
     
-    LINE M (Red): Model Development
-    ═══════════════════════════════
-    Red containers carry model architectures, hyperparameters,
-    research papers, and architectural innovations.
-    "New attention mechanism. Try this."
-    Source: R&D (Basement)
+    OBJECT DETECTION PIPELINE (Left Track)
+    ═══════════════════════════════════════
     
-    LINE T (Magenta): Training Pipeline
-    ════════════════════════════════════
-    Magenta containers heavy with training data, loss curves,
-    checkpoints, and gradient updates.
-    "Epoch 47. Loss: 0.0023. Looking good."
-    Feeds into: Object Detector & Pose Estimator deployment
+    LINE M-O (Red): Object Model Development
+    ─────────────────────────────────────────
+    Red containers from R&D carry new architectures.
+    YOLO variants, transformers, attention mechanisms.
+    "What if we added more layers?" "What if we added FEWER?"
     
-    MODEL DEPLOYMENT BAYS
-    ═════════════════════
-    Trained models arrive here, are validated, and deployed
-    to the Object and Pose processors. Hot-swappable.
-    "New model v2.3.7 deployed. Accuracy: +2.1%"
+    LINE T-O (Magenta): Object Model Training
+    ──────────────────────────────────────────
+    Magenta containers heavy with ImageNet, COCO, custom datasets.
+    Loss curves descend. Accuracy climbs. GPUs whir.
+    "Epoch 127. mAP: 0.947. Ship it."
+    
+    DEPLOY BAY O: Object Detector Deployment
+    ─────────────────────────────────────────
+    Trained object models validated and hot-swapped.
+    Current: yolo-leela-v2.3.7
+    Previous: yolo-leela-v2.3.6 (standby for rollback)
+    
+    LINE O (Blue): Objects Track
+    ────────────────────────────
+    Blue containers carry detected objects — bounding boxes,
+    classifications, confidence scores. "A cat. 97% sure."
+    POWERED BY: yolo-leela-v2.3.7
+    
+    ════════════════════════════════════════════════════════════
+    
+    POSE ESTIMATION PIPELINE (Right Track)
+    ═══════════════════════════════════════
+    
+    LINE M-P (Coral): Pose Model Development
+    ─────────────────────────────────────────
+    Coral containers from R&D carry skeleton architectures.
+    Keypoint detectors, temporal models, motion predictors.
+    "17 joints? 25 joints? 133 joints?"
+    
+    LINE T-P (Pink): Pose Model Training
+    ─────────────────────────────────────
+    Pink containers with motion capture data, dance videos,
+    sports footage, yoga poses. Training the body reader.
+    "PCK@0.5: 0.923. Hands still tricky."
+    
+    DEPLOY BAY P: Pose Estimator Deployment
+    ───────────────────────────────────────
+    Trained pose models validated and hot-swapped.
+    Current: pose-leela-v1.8.2
+    Previous: pose-leela-v1.8.1 (standby for rollback)
+    
+    LINE P (Orange): Poses Track  
+    ─────────────────────────────
+    Orange containers carry skeletal data — joint positions,
+    movement vectors, gesture signatures. "Waving. Definitely waving."
+    POWERED BY: pose-leela-v1.8.2
+    
+    ════════════════════════════════════════════════════════════
     
     LINE V (Purple): Video Intake
     ═════════════════════════════
     Raw video streams arrive on purple containers.
     Cameras, recordings, live feeds — all enter here.
-    The line FORKS at Junction Alpha, splitting each stream.
-    
-    LINE O (Blue): Objects Track
-    ════════════════════════════
-    Blue containers carry detected objects — bounding boxes,
-    classifications, confidence scores. "A cat. 97% sure."
-    POWERED BY: Latest deployed object detection model.
-    Runs parallel to the Poses track.
-    
-    LINE P (Orange): Poses Track  
-    ════════════════════════════
-    Orange containers carry skeletal data — joint positions,
-    movement vectors, gesture signatures. "Waving. Definitely waving."
-    POWERED BY: Latest deployed pose estimation model.
-    Runs parallel to the Objects track.
+    The line FORKS at Junction Alpha, splitting each stream
+    to BOTH the Object and Pose processors simultaneously.
     
     JUNCTION BETA: The Convergence
     ══════════════════════════════
@@ -148,10 +194,17 @@ object:
     • Model regressions: Rollback bay
     
   state:
-    line_m: { speed: "deliberate", items: 3, innovations_pending: 7 }
-    line_t: { speed: "variable", items: 12, gpus_active: 8, current_epoch: 47 }
-    model_deploy_object: { model: "yolo-leela-v2.3.7", accuracy: 0.947, deployed: "2h ago" }
-    model_deploy_pose: { model: "pose-leela-v1.8.2", accuracy: 0.923, deployed: "1d ago" }
+    # Object Detection Pipeline
+    line_m_o: { speed: "deliberate", items: 2, architectures_pending: 3 }
+    line_t_o: { speed: "variable", items: 4, gpus: 4, epoch: 127, mAP: 0.947 }
+    deploy_bay_o: { model: "yolo-leela-v2.3.7", accuracy: 0.947, deployed: "2h ago" }
+    
+    # Pose Estimation Pipeline
+    line_m_p: { speed: "deliberate", items: 1, architectures_pending: 2 }
+    line_t_p: { speed: "variable", items: 3, gpus: 4, epoch: 89, pck: 0.923 }
+    deploy_bay_p: { model: "pose-leela-v1.8.2", accuracy: 0.923, deployed: "1d ago" }
+    
+    # Data Pipeline
     line_v: { speed: "fast", items: 34, fps: 30 }
     line_o: { speed: "normal", items: 89, objects_detected: 1247 }
     line_p: { speed: "normal", items: 89, poses_tracked: 1247 }
@@ -163,24 +216,30 @@ object:
     line_z: { speed: "careful", visualizations: 12, beauty_score: 8.7 }
     
   processing_stats:
-    model_development:
-      architectures_proposed: 23
-      papers_read: 847
-      "eureka_moments": 3
-      coffee_consumed: "too much"
+    object_model_development:
+      architectures_proposed: 15
+      papers_read: 423
+      yolo_variants_tried: 7
+      transformer_experiments: 4
       
-    training_pipeline:
-      models_trained_this_week: 12
-      gpu_hours: 2847
-      best_accuracy: 0.947
-      worst_loss: "we don't talk about run #7"
-      checkpoints_saved: 156
+    object_model_training:
+      models_trained_this_week: 8
+      gpu_hours: 1847
+      best_mAP: 0.947
+      datasets: ["COCO", "ImageNet", "Leela-Custom-v3"]
       
-    model_deployment:
-      object_model_version: "2.3.7"
-      pose_model_version: "1.8.2"
-      rollbacks_this_month: 1
-      uptime: "99.7%"
+    pose_model_development:
+      architectures_proposed: 8
+      papers_read: 312
+      keypoint_configs_tried: 5
+      temporal_models_explored: 3
+      
+    pose_model_training:
+      models_trained_this_week: 4
+      gpu_hours: 1000
+      best_pck: 0.923
+      datasets: ["MPII", "COCO-Pose", "Leela-Motion-v2"]
+      hands_still_tricky: true
       
     video_intake:
       streams_today: 47
@@ -254,24 +313,42 @@ object:
         style: "Chart type or 'auto'"
       effect: "Beautiful understanding emerges"
       
-    TRAIN_MODEL:
-      description: "Submit model for training"
+    TRAIN_OBJECT_MODEL:
+      description: "Submit object detection model for training"
       parameters:
-        architecture: "Model architecture"
+        architecture: "Model architecture (YOLO, DETR, etc.)"
         dataset: "Training dataset"
         hyperparameters: "Training config"
-      effect: "Model enters training pipeline"
+      effect: "Model enters object training pipeline"
       
-    DEPLOY_MODEL:
-      description: "Deploy trained model to processor"
+    TRAIN_POSE_MODEL:
+      description: "Submit pose estimation model for training"
+      parameters:
+        architecture: "Model architecture (HRNet, ViTPose, etc.)"
+        dataset: "Training dataset"
+        hyperparameters: "Training config"
+      effect: "Model enters pose training pipeline"
+      
+    DEPLOY_OBJECT_MODEL:
+      description: "Deploy trained object model"
       parameters:
         model: "Model checkpoint"
-        target: "object_detector | pose_estimator"
-      effect: "Hot-swap model in production"
+      effect: "Hot-swap object detector in production"
       
-    ROLLBACK:
-      description: "Revert to previous model version"
+    DEPLOY_POSE_MODEL:
+      description: "Deploy trained pose model"
       parameters:
-        target: "object_detector | pose_estimator"
-        version: "Version to restore"
-      effect: "Previous model restored. Breathe."
+        model: "Model checkpoint"
+      effect: "Hot-swap pose estimator in production"
+      
+    ROLLBACK_OBJECT:
+      description: "Revert object detector to previous version"
+      parameters:
+        version: "Version to restore (default: previous)"
+      effect: "Previous object model restored"
+      
+    ROLLBACK_POSE:
+      description: "Revert pose estimator to previous version"
+      parameters:
+        version: "Version to restore (default: previous)"
+      effect: "Previous pose model restored"
