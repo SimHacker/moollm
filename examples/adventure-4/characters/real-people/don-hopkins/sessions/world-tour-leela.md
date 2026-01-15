@@ -874,7 +874,19 @@ flowchart LR
 
 **Marieke:** "What happened to ACME?"
 
-**Don:** "Mail-order ate the brick-and-mortar business. They pivoted to online delivery — drones, painted tunnels, impossible logistics. But you can't run a storefront when your products only work for the delivery driver."
+**Don:** "Oh, THAT'S a story." *settles onto a bench* "ACME was the original fly-by-night operation. Get rich quick. Ship fast, break things, blame the customer. Their products never worked, but their MARKETING was incredible."
+
+**Palm:** "Sounds familiar."
+
+**Don:** "It should. ACME is the ur-example of every tech bubble scam you've ever seen. Portable holes? That was their NFT. Rocket skates? Their crypto token. Painted tunnels? Their ChatGPT wrapper."
+
+**Donna:** "Wait, they're still around?"
+
+**Don:** "Oh yes. They pivoted. Again. They're on their fifth pivot. First it was mail-order. Then they added blockchain to their anvils — 'ACME Web3 Anvils, now with provable weight!' Then NFTs of their product failures — 'Own a piece of Wile E. Coyote's suffering!' Then AI. 'ACME GPT: It hallucinates, but entertainingly!'"
+
+**Marieke:** "And people BUY this?"
+
+**Don:** "There's always a new generation of coyotes."
 
 ---
 
@@ -936,26 +948,102 @@ THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
 
 *The tour sits on a bench between the two buildings.*
 
-**Don:** "This is the story of two economies facing each other across the cobblestones."
+**Don:** "This is the story of two economies facing each other across the cobblestones. Two philosophies of AI. Two approaches to technology. And they are MORTAL ENEMIES."
+
+**Palm:** "Mortal enemies? Over what?"
+
+**Don:** "Over EVERYTHING. Over what technology is FOR. Over whether products should WORK. Over whether you owe your customers anything beyond a slick pitch deck."
+
+---
+
+#### The Philosophical Divide
 
 | | ACME | Leela |
 |---|------|-------|
+| **Founded** | "Recently! We're disrupting!" | 1986 (Habitat lineage) |
+| **Philosophy** | Move fast, break things, pivot | Build carefully, debug thoroughly, ship stable |
+| **AI Approach** | "Slap GPT on it and ship" | Deep integration, constrained navigation, tested protocols |
 | **Product** | Gimmicks that fail hilariously | Knowledge that actually works |
 | **Delivery** | Painted tunnels, rockets, impossible physics | Pneumatic tubes, drones, reliable logistics |
 | **Quality** | "Works 2% of the time" | "Works or we debug it" |
 | **Warranty** | "Not responsible for anything" | "Prototype inheritance means we fix the source" |
 | **Catalog** | Portable holes, rocket skates, anvils | [1,400+ practical products](../../../../street/lane-neverending/leela-manufacturing/lobby/leela-catalog.yml) |
-| **Status** | Storefront closed, online only | Thriving, 8 operator stations |
+| **Funding** | "Series F! (Previous five burned through)" | Self-sustaining knowledge economy |
+| **Status** | Storefront closed, pivoting to AI | Thriving, 8 operator stations |
 
-**The Coordinator:** "We get ACME orders sometimes. People ordering rocket skates expecting them to work. We have to explain: Leela products do what they're supposed to do. That's our whole thing."
+---
 
-**Dolly:** *beeps dismissively at the ACME storefront*
+#### The ACME Pivot Timeline
 
-**Don:** "The secret is in the catalog. ACME sells slapstick. Leela sells solutions. ACME products make you laugh. Leela products make you EFFECTIVE."
+**Don:** "Let me tell you about ACME's pivot history."
+
+| Era | ACME Pivot | What They Sold | Outcome |
+|-----|------------|----------------|---------|
+| Classic | Mail-order gimmicks | Anvils, rockets, portable holes | Products didn't work |
+| Web 1.0 | E-commerce | Same products, now online! | Products still didn't work |
+| Web 2.0 | "Social anvils" | Share your anvil drops! | Nobody shared |
+| Crypto | ACME Coin, NFT failures | "Own your anvil on-chain" | Rug pulled |
+| AI (current) | ACME GPT, AI Wrappers | "ChatGPT but for coyotes" | Hallucinates, but entertainingly |
+
+**Marieke:** "They're still getting funded?"
+
+**Don:** "There's ALWAYS money for the next pivot. VCs love a good narrative. 'This time we'll get the roadrunner.'"
+
+---
+
+#### The Leela Lineage
+
+**Don:** "Now look at Leela." *gestures at the thriving factory* "Founded on the Habitat lineage. That's 1986. Chip Morningstar, Randy Farmer. The people who INVENTED the word 'avatar.' Who figured out that virtual worlds need STRUCTURE and TRUST."
+
+| Era | Leela Evolution | What They Built | Outcome |
+|-----|-----------------|-----------------|---------|
+| 1986 | Habitat | First graphical MMO | Proved virtual worlds work |
+| 1987 | Logo Adventure | Constructionist game design | Code IS the game |
+| 2002 | Game Neverending | Social gaming | Became Flickr (they pivoted UP) |
+| 2011 | Glitch | Whimsical MMO | Gone too soon, but open-sourced |
+| Now | MOOLLM | AI operating system | Deep, constrained, works |
+
+**Don:** "See the difference? ACME pivots AWAY from failure. Leela builds ON success. ACME burns through investors. Leela builds knowledge capital. ACME ships broken and blames the customer. Leela ships working and improves from feedback."
+
+---
+
+#### The AI Philosophy War
+
+**Palm:** "But they're both doing AI now, right?"
+
+**Don:** "VERY differently." *pulls out a small chart*
+
+| | ACME GPT | Leela MOOLLM |
+|---|----------|--------------|
+| **Core belief** | "AI is magic, ship it" | "AI needs constraints to be useful" |
+| **Architecture** | Wrapper around someone else's model | Deep integration, multi-layer protocols |
+| **Hallucination** | "Feature, not bug" | Constrained via K-lines, skills, memory |
+| **Context** | "What context? Ship it!" | Bootstrap, working-set, session history |
+| **Testing** | "Users are beta testers" | Probe-based validation |
+| **Documentation** | "Check the Discord" | Every skill has CARD.yml, SKILL.md, README.md |
+| **When it breaks** | "Have you tried restarting?" | Self-healing protocols, repair manifests |
+
+**Don:** "ACME ships AI wrappers. Leela ships AI operating systems. ACME hallucinates product-market fit. Leela actually HAS product-market fit."
+
+---
+
+**The Coordinator:** "We get ACME orders sometimes. People ordering rocket skates expecting them to work. They've been trained by ACME marketing to expect magic. We have to explain: Leela products do what they're supposed to do. That's our whole thing. It's actually quite radical."
+
+**Dolly:** *beeps dismissively at the ACME storefront, then does a little superiority spin*
+
+**Don:** "The secret is in the catalog. ACME sells hype. Leela sells solutions. ACME products make you laugh. Leela products make you EFFECTIVE."
 
 **Archie:** "Also, our products don't explode."
 
 **Don:** "That too."
+
+**Donna:** "Why do they hate each other so much though?"
+
+**Don:** "Because ACME makes AI look bad. Every time ACME ships a broken chatbot, every time their 'AI anvil' hallucinates its own weight, every time their 'smart rocket' flies into a cliff — it makes people distrust ALL AI. Including the stuff that actually works. Leela has to clean up ACME's reputation mess."
+
+**The Coordinator:** "We spend 30% of our support time explaining that we're NOT like ACME."
+
+**Don:** "Mortal enemies. Across the cobblestones. Forever."
 
 ---
 
