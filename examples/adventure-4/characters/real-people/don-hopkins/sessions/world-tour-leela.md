@@ -1038,8 +1038,8 @@ THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
 | | ACME | Leela |
 |---|------|-------|
 | **Foundation** | "Recently! We're disrupting!" | MIT AI Lab tradition — old school kids and tourists, Zork players |
-| **Philosophy** | Move fast, break things, pivot | Build carefully, debug thoroughly, ship stable |
-| **AI Approach** | "Slap GPT on it and ship" | Deep integration, constrained navigation, tested protocols |
+| **Philosophy** | Move fast, break things, pivot | Constructionism — learning by building, building by learning |
+| **AI Approach** | "Slap GPT on it and ship", garbage out | Deep integration, constrained navigation, tested protocols, garbage in |
 | **Product** | Gimmicks that fail hilariously | Knowledge that actually works |
 | **Delivery** | Painted tunnels, rockets, impossible physics | Pneumatic tubes, drones, reliable logistics |
 | **Quality** | "Works 2% of the time" | "Works or we debug it" |
