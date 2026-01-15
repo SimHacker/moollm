@@ -1,0 +1,92 @@
+# 📬 Pneumatic Tube Terminal — Garden Station
+# Connected to the Bootstrap Room's robot barista
+
+object:
+  name: Pneumatic Tube Terminal (Garden)
+  type: delivery_system
+  location: garden
+  
+  description: |
+    A weathered brass pneumatic tube terminal stands near the garden
+    wall, partially covered in climbing roses. Despite its age, the
+    mechanism hums with quiet efficiency.
+    
+    A small sign reads:
+    
+      ┌────────────────────────────────┐
+      │  GARDEN DELIVERY STATION       │
+      │  Coffee ☕ Tea 🍵 Packages 📦  │
+      │                                │
+      │  "Fresh air + fresh coffee"    │
+      └────────────────────────────────┘
+    
+    A capsule could arrive at any moment with a steaming beverage,
+    a letter, or something unexpected.
+    
+  examine: |
+    The garden terminal is simpler than the pub's version — more
+    functional, less ornate. Brass patina'd green with age. The roses
+    seem to have adopted it as a trellis.
+    
+    INCOMING CHUTE: Padded for hot beverages
+    OUTGOING SLOT: Send items to pub or Bootstrap Room
+    ORDER BELL: Ring for service
+    SPEAKER: "Hello? Is anyone there? I made a latte..."
+    
+    A small plate notes:
+    
+      STATION: GARDEN
+      STATUS: ONLINE
+      CONNECTED TO: PUB, BOOTSTRAP ROOM
+      WEATHER SHIELD: ACTIVE (keeps drinks dry!)
+      
+    The tube disappears into the pub wall, connecting to the main
+    network. You can hear distant whooshing — the lifeblood of
+    caffeinated commerce.
+    
+  # Commands (same as pub, different location)
+  commands:
+    ORDER:
+      usage: "ORDER [drink]"
+      effect: |
+        Ring the bell. The speaker crackles.
+        "GARDEN ORDER RECEIVED! One moment!"
+        *whoooosh* — Your drink arrives in a weatherproof capsule.
+        
+    SEND:
+      usage: "SEND [item] TO PUB" or "SEND [item] TO BOOTSTRAP"
+      effect: |
+        Load item into capsule. Pull lever. *FWOOMP*
+        "Package received!" echoes from the speaker.
+        
+    RECEIVE:
+      usage: "CHECK TUBE" or "RECEIVE"
+      effect: |
+        Check if anything's waiting in the chute.
+        Items sent from pub or Bootstrap Room appear here.
+        
+  # Garden-specific features
+  garden_features:
+    outdoor_seating: |
+      Perfect for enjoying a coffee at the garden tables.
+      The suspicious plant watches you drink.
+      
+    weather_protection: |
+      A small awning extends automatically when rain is detected.
+      Drinks arrive in sealed capsules for extra protection.
+      
+    flower_arrangement: |
+      The roses around the terminal sometimes get coffee grounds
+      as fertilizer. They seem to appreciate it.
+      
+  barista_garden_mode: |
+    When ordering from the garden, the barista sometimes adds:
+    - "Enjoying the fresh air? EXCELLENT FOR PRODUCTIVITY!"
+    - "Garden order! Adding extra foam for outdoor ambience!"
+    - "The roses say hello! ...I may have been alone too long."
+    
+  ambience: |
+    Bees buzz around the roses. The tube occasionally whooshes.
+    The speaker crackles: "Anyone want a refill? ...Hello?"
+    A capsule sits in the chute, condensation forming on the glass.
+    Someone ordered a cold brew and forgot about it. Classic.

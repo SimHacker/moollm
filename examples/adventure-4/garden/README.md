@@ -60,6 +60,7 @@ When you die, you respawn here with your inventory intact.
 | **Newspaper** | [newspaper.yml](newspaper.yml) | Local news and rumors |
 | **Blackboard** | [blackboard.yml](blackboard.yml) | Today's specials |
 | **Suspicious Plant** | [suspicious-plant.yml](suspicious-plant.yml) | It's watching you |
+| **Pneumatic Tube** | [pneumatic-tube.yml](pneumatic-tube.yml) | ☕ Order coffee from Bootstrap Room! |
 
 ---
 
