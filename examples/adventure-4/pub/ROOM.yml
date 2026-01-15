@@ -1,6 +1,7 @@
 room:
   name: The Rusty Lantern
   type: pub
+  address: "7 Lane Neverending"
   
   # 🎭 ROOM FRAMING — Everything here inherits this context
   # See: skills/representation-ethics (room_framing)
@@ -259,8 +260,9 @@ room:
   
   exits:
     NORTH:
-      destination: ../start/
-      description: "Back to the Chamber of Commencement"
+      destination: ../garden/
+      description: "Out to the Back Garden — fresh air and possibilities"
+      aliases: [garden, outside, out, back, patio]
       
     UP:
       destination: rooms/
@@ -276,6 +278,17 @@ room:
     DOWN:
       destination: basement/
       description: "Stone stairs descend to the cellar"
+      
+    SOUTH:
+      destination: ../street/lane-neverending/center/
+      description: |
+        The front door of The Rusty Lantern opens onto Lane Neverending.
+        Cobblestones stretch east and west. The afternoon sun glints off
+        the brass address plaque: "7 Lane Neverending."
+        
+        This is the main street. The spine of the virtual world.
+        It never ends.
+      aliases: [front, door, street, lane, outside]
       
   objects:
     - bartender.yml

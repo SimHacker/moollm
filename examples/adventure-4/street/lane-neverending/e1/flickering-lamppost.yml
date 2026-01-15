@@ -1,0 +1,74 @@
+# The flickering lamp post
+
+object:
+  name: Flickering Lamp Post
+  type: fixture
+  portable: false
+  
+  description: |
+    A wrought-iron lamp post with a magical flame that flickers
+    erratically. It's been "scheduled for maintenance" for years.
+    
+  examine: |
+    THE FLICKERING LAMP POST
+    
+    One of the older lamp posts on Lane Neverending. The magical
+    flame inside sputters and dances unpredictably:
+    
+    *flicker* ... *flicker flicker* ... *steady* ... *FLICKER*
+    
+    A work order is nailed to the post:
+    
+    ┌─────────────────────────────────────┐
+    │  MAINTENANCE REQUEST #4,721         │
+    │  Status: PENDING                    │
+    │  Priority: LOW                      │
+    │  Assigned: Nobody                   │
+    │  Date Filed: [illegible]            │
+    │                                     │
+    │  Notes: "It's been like this        │
+    │  forever. At this point it's        │
+    │  a landmark." — Maintenance Dept.   │
+    └─────────────────────────────────────┘
+    
+    LOCAL LEGEND:
+    They say the lamp flickers in patterns. Some claim it's 
+    morse code. Others say it predicts the weather. A few
+    insist it's trying to communicate.
+    
+    Nobody has cracked the code yet.
+    (There might not be one.)
+    (But what if there is?)
+    
+  actions:
+    WATCH:
+      description: "Study the flickering pattern"
+      effect: |
+        You watch carefully...
+        
+        *flicker* ... *flicker* ... *steady* ... *BRIGHT* ... *dim*
+        
+        Is that... S.O.S.? No, wait. It's just random.
+        
+        Or IS it?
+        
+        (It's random. Probably. Maybe.)
+        
+    TAP:
+      description: "Tap the lamp post"
+      effect: |
+        *CLANG*
+        
+        The flame steadies for a moment, burns bright...
+        
+        ...then goes back to flickering. Some things can't be fixed.
+        Some things don't want to be.
+        
+  secret:
+    the_truth: |
+      The lamp IS trying to communicate. It's the ghost of an old
+      street light from Habitat, still running its original code.
+      
+      It's saying: "HELLO WORLD HELLO WORLD HELLO WORLD"
+      
+      Forever.

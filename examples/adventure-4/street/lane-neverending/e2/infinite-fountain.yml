@@ -1,0 +1,88 @@
+# The Fountain of Infinite Loops
+
+object:
+  name: Fountain of Infinite Loops
+  type: landmark
+  portable: false
+  status: dry
+  
+  description: |
+    A stone fountain in the center of a small plaza. Currently dry,
+    but impressive in its recursive design.
+    
+  examine: |
+    THE FOUNTAIN OF INFINITE LOOPS
+    
+    A masterwork of virtual-world sculpture:
+    
+    At the center, a stone figure holds a jug, pouring water into...
+    another jug held by the same figure, which pours into...
+    another jug held by the same figure, which pours into...
+    
+    It's recursive. It's impossible. It's deeply satisfying.
+    
+    A plaque on the rim:
+    
+    ┌─────────────────────────────────────────────────────┐
+    │  THE FOUNTAIN OF INFINITE LOOPS                     │
+    │                                                     │
+    │  "What flows out must flow in"                      │
+    │                                                     │
+    │  Commissioned by the Guild of Eternal Recursion     │
+    │  Unveiled: Whenever                                 │
+    │  Status: DRY (water sprites on strike since 2019)   │
+    │                                                     │
+    │  TO RESTORE: Find a water sprite willing to work    │
+    │  for exposure. (Good luck.)                         │
+    └─────────────────────────────────────────────────────┘
+    
+    The basin is cracked and dry. Leaves have gathered.
+    Someone left a rubber duck in the empty pool.
+    
+    But the sculpture itself is beautiful — if you trace the water
+    path with your eyes, you get dizzy. It has no beginning or end.
+    
+    (Just like Lane Neverending itself.)
+    
+  actions:
+    TRACE:
+      description: "Follow the water path with your eyes"
+      effect: |
+        You trace the path: jug to jug to jug to jug...
+        
+        Your eyes spiral. Your brain protests.
+        
+        For a moment, you understand recursion on a visceral level.
+        Then the moment passes and you're just dizzy.
+        
+    WISH:
+      description: "Toss a coin and make a wish"
+      effect: |
+        You toss a coin into the empty basin.
+        
+        *clink*
+        
+        It joins a small pile of coins from hopeful passers-by.
+        Wishes made to a dry fountain. Hope persists anyway.
+        
+        (Your wish is noted. Results may vary.)
+        
+    DUCK:
+      description: "Examine the rubber duck"
+      effect: |
+        A yellow rubber duck sits in the dry fountain basin.
+        Someone drew a tiny hat on it with marker.
+        A label on the bottom: "DEBUG DUCK — For Testing Purposes"
+        
+        It squeaks when you squeeze it.
+        
+        For some reason, this makes you feel better.
+        
+  the_water_sprites:
+    status: "On strike"
+    demands:
+      - "Fair wages (currently: 0)"
+      - "Health benefits (water is heavy!)"
+      - "Recognition (we're not just 'special effects')"
+    willing_to_negotiate: true
+    contact: "Leave a note at the fountain"

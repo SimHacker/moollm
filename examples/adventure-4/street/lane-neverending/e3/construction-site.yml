@@ -1,0 +1,91 @@
+# The construction site at the frontier
+
+object:
+  name: Construction Site
+  type: landmark
+  portable: false
+  status: "perpetually under construction"
+  
+  description: |
+    The eastern edge of Lane Neverending is a construction site.
+    The world is still being built here.
+    
+  examine: |
+    THE FRONTIER CONSTRUCTION SITE
+    
+    Where the cobblestones end, possibility begins.
+    
+    WHAT YOU SEE:
+    • Stakes with string marking future streets
+    • Piles of cobblestones waiting to be laid
+    • Surveying equipment (theodolite, measuring tape, dreams)
+    • A construction trailer labeled "WORLD BUILDERS LOCAL #1"
+    • A porta-potty (even builders need facilities)
+    
+    THE SIGN:
+    ┌─────────────────────────────────────────┐
+    │  🚧 UNDER CONSTRUCTION 🚧               │
+    │                                         │
+    │  LANE NEVERENDING EXPANSION PROJECT     │
+    │  "Building tomorrow's memories today"   │
+    │                                         │
+    │  Coming Soon:                           │
+    │  • More street segments                 │
+    │  • Intersections                        │
+    │  • Shops & homes                        │
+    │  • Your ideas here                      │
+    │                                         │
+    │  GIANTS AT WORK — Please be patient     │
+    └─────────────────────────────────────────┘
+    
+    A BULLETIN BOARD near the trailer:
+    • Job postings for "World Builders" (experience preferred)
+    • A map showing planned expansions (very ambitious)
+    • A petition: "MORE PARKS" (47 signatures)
+    • A counter-petition: "FEWER PARKS MORE PUBS" (48 signatures)
+    
+    THE FEELING:
+    Standing here, you feel the potential. The world isn't finished.
+    It's still being written. And you're part of the story.
+    
+  actions:
+    BUILD:
+      description: "Contribute to the construction"
+      effect: |
+        You pick up a cobblestone and place it carefully.
+        
+        It's not much. But it's something. Every world is built
+        one stone at a time.
+        
+        A builder waves from the trailer: "Thanks, volunteer!"
+        
+    SIGN_PETITION:
+      description: "Sign one of the petitions"
+      effect: |
+        Which petition?
+        - "MORE PARKS" (currently losing: 47 signatures)
+        - "FEWER PARKS MORE PUBS" (currently winning: 48 signatures)
+        
+        You add your name. Democracy in action.
+        
+    DREAM:
+      description: "Imagine what could be built here"
+      effect: |
+        You close your eyes and imagine...
+        
+        • A market square with vendors from across virtual worlds
+        • A park with a statue of forgotten game characters
+        • A theater where stories come to life
+        • A library of every world that ever was
+        • Your own home, with a garden and a view
+        
+        Anything is possible. The ground is ready.
+        The builders are waiting.
+        What should they build next?
+        
+  builder_wisdom: |
+    "We don't build worlds alone. We build them together.
+    Every player who walks these streets is a co-creator.
+    The lane never ends because we keep adding to it."
+    
+    — First Principle of the World Builders Guild

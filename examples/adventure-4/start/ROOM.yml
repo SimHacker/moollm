@@ -110,17 +110,15 @@ room:
         but previous adventurers revealed it.
         
     south:
-      destination: ../pub/
+      destination: ../garden/
       description: |
-        A heavy wooden door with a brass handle, warm light leaking from
-        beneath. The sign creaks in a nonexistent breeze: "THE RUSTY LANTERN"
+        A low gate leads into a cozy garden — tables, chairs, flowers,
+        and the back door to The Rusty Lantern beyond. The smell of
+        lavender and distant ale mingles pleasantly.
         
-        From within, you hear the clink of glasses, low conversation, and 
-        the unmistakable sound of someone losing badly at darts. This is
-        where adventurers gather to share tales, drown sorrows, and find
-        their next quest.
-        
-        The pub has always been here. Or so the bartender claims.
+        This is where adventures begin now — in the garden, before
+        you even reach the pub proper.
+      aliases: [garden, gate, out]
         
     inward:
       destination: ../characters/

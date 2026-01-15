@@ -1,0 +1,189 @@
+# The abandoned ACME Surplus store
+
+object:
+  name: ACME Surplus Storefront
+  type: building
+  portable: false
+  status: closed
+  
+  description: |
+    A dusty storefront with a faded sign: "ACME SURPLUS — EVERYTHING MUST GO"
+    Everything did go. The store is empty now.
+    
+    One section of the windows is boarded up. Someone has painted
+    a TUNNEL on the boards — a perfect trompe l'oeil leading into
+    darkness. It looks... very runnable.
+    
+  examine: |
+    ACME SURPLUS — 12 LANE NEVERENDING
+    
+    The windows are dusty but not boarded. Inside, empty shelves
+    stretch into darkness. A few price tags flutter in a draft
+    from somewhere.
+    
+    THE SIGN:
+    "ACME SURPLUS — EVERYTHING MUST GO!"
+    (In smaller letters: "And it did. Sorry.")
+    
+    WINDOW DISPLAY:
+    • An empty pedestal labeled "PORTABLE HOLE (SOLD)"
+    • A sign: "ROCKET SKATES — OUT OF STOCK INDEFINITELY"
+    • A faded poster of a coyote looking disappointed
+    • One (1) slightly dented anvil (display model, not for sale)
+    
+    THE PAINTED TUNNEL:
+    One section of window is boarded up with plywood. On the plywood,
+    someone has painted a REMARKABLY convincing tunnel entrance.
+    The perspective is perfect. The shadows are just right. It looks
+    like you could run straight through into the hillside beyond.
+    
+    You cannot.
+    
+    Trust us.
+    
+    A small pile of impact marks and feathers at the base suggests
+    others have tried. A sign has been added:
+    
+    "THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
+     (Yes, we know it looks real. That's the problem.)"
+    
+    THE DOOR:
+    Locked, but the lock looks... negotiable. A small sign:
+    "CLOSED FOR INVENTORY (checking what we have left: nothing)"
+    
+    A note taped to the door:
+    "For genuine ACME products, visit The Rusty Lantern kitchen.
+    We're not responsible for anything purchased there either."
+    
+    GRAFFITI:
+    Someone spray-painted "MEEP MEEP" on the wall.
+    Someone else crossed it out and wrote "TOO SOON."
+    
+  actions:
+    PEEK:
+      description: "Look through the dusty window"
+      effect: |
+        You cup your hands against the glass and peer inside...
+        
+        Empty shelves. Dust motes floating in dim light.
+        A cash register that's clearly been cleaned out.
+        
+        But wait — is that a box in the back? Labeled...
+        "DO NOT OPEN — SERIOUSLY — WE MEAN IT"?
+        
+        Probably nothing. Probably.
+        
+    KNOCK:
+      description: "Knock on the door"
+      effect: |
+        *knock knock knock*
+        
+        Silence.
+        
+        Then, from deep inside: a distant *crash*, followed by
+        what sounds like a "meep."
+        
+        ...probably just the building settling.
+        
+    READ_ANVIL:
+      description: "Examine the anvil in the window"
+      effect: |
+        The anvil sits on a small pedestal. A tag hangs from it:
+        
+        "ACME ANVIL (Display Model)
+        Weight: Exactly right for comedic timing
+        Material: Cartoon-grade iron
+        NOT FOR SALE
+        
+        (We learned our lesson.)"
+        
+    RUN_INTO_TUNNEL:
+      description: "Sprint at the painted tunnel"
+      aliases: [run, sprint, enter tunnel, go through tunnel]
+      effect: |
+        You back up. You stretch. You get a running start.
+        
+        The tunnel looks SO REAL. The physics say it should work.
+        Everything about it says "run through me."
+        
+        You sprint. Full speed. Arms pumping. Wind in your face.
+        
+        *THWACK*
+        
+        You hit solid plywood. Of course you do. It's a painting.
+        
+        You slide down the boards, leaving a you-shaped impact mark
+        that joins the collection of previous attempts.
+        
+        From somewhere nearby, you hear: "meep meep."
+        
+        You look around. Nobody's there.
+        
+        (You take 0 damage. Pride is another matter.)
+        
+    STUDY_TUNNEL:
+      description: "Examine the painted tunnel closely"
+      effect: |
+        You study the painting carefully...
+        
+        It's REALLY good. Museum quality. The depth is perfect.
+        The shadows are accurate to the current time of day.
+        The darkness inside seems to... move?
+        
+        For a moment, you could SWEAR you see something running
+        toward you from deep inside the painted tunnel.
+        
+        Then it's just paint again.
+        
+        A signature in the corner: "W.E.C. — I'll get it right next time"
+        
+  rumors:
+    deliveries: |
+      People say they've seen ACME delivery trucks emerge from the tunnel.
+      
+      At 3 AM, when nobody's watching, vans painted with the ACME logo
+      roll out of the "painting" carrying crates to unknown destinations.
+      
+      Drones buzz through it like it's an open door.
+      
+      Delivery boys on bicycles pedal straight through without slowing,
+      packages balanced on their heads, whistling cheerfully.
+      
+      Service technicians in jumpsuits disappear into it with toolboxes
+      and emerge hours later, covered in soot, muttering about "the warehouse."
+      
+      But when YOU try it? Plywood. Every time.
+      
+      Some say you need an ACME Employee ID badge.
+      Some say you need to not WANT it to work.
+      Some say it only works if you're on the clock.
+      
+      Nobody knows for sure. The tunnel keeps its secrets.
+      
+  secret:
+    the_back_room: |
+      There IS something in the back. A single box that wouldn't sell.
+      Inside: an ACME Product that works EXACTLY as intended.
+      
+      Nobody knows what to do with it.
+      
+      It's terrifying.
+      
+    the_tunnel: |
+      The tunnel IS real. But only for:
+      - Roadrunners
+      - ACME employees (delivery, service, drone operators)
+      - Anyone who genuinely doesn't think about it
+      
+      Everyone else just hits plywood.
+      
+      It's not fair. But then again, ACME products never were.
+      
+    acme_logistics: |
+      The tunnel connects to the ACME Distribution Network — a series
+      of painted tunnels, fake doors, and impossible spaces that span
+      the entire virtual world.
+      
+      How do ACME products arrive so fast? The tunnel network.
+      How do they always find you? The tunnel network.
+      Why do the products never work right? That's a different department.

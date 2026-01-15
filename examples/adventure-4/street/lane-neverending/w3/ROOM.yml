@@ -1,0 +1,107 @@
+# 🛤️ LANE NEVERENDING — West 3 (1 Lane Neverending)
+# Western terminus — the origin point
+
+room:
+  name: "Lane Neverending (W3)"
+  type: street
+  
+  address: "1 Lane Neverending"
+  
+  lighting: natural
+  grue_safe: true
+  
+  description: |
+    You have reached 1 LANE NEVERENDING — the western origin point.
+    The street begins here (or ends here, depending on your perspective).
+    
+    A small PLAZA opens up, centered on an ancient oak tree that
+    somehow predates the virtual world it grows in. The ORIGIN TREE,
+    they call it. Its roots go down to the bare metal.
+    
+    A bronze plaque at the base:
+    
+    ┌─────────────────────────────────────────────────────┐
+    │  HERE BEGAN LANE NEVERENDING                        │
+    │  Planted in the spirit of virtual worlds past:     │
+    │                                                     │
+    │  HABITAT (1986) — The first avatars walked here    │
+    │  GAME NEVERENDING (2002) — The name lives on       │
+    │  GLITCH (2011) — The giants remember               │
+    │                                                     │
+    │  "A street that never ends                          │
+    │   begins with a single step."                       │
+    │                        — Ancient Avatar Proverb     │
+    └─────────────────────────────────────────────────────┘
+    
+  examine: |
+    THE ORIGIN TREE:
+    An oak of impossible age. Its trunk is wide enough that three
+    avatars holding hands couldn't encircle it. Initials are carved
+    into the bark — the oldest ones in formats that predate Unicode.
+    
+    Beneath the tree: a stone circle, worn smooth. People gather
+    here for important announcements, new year celebrations, and
+    the occasional wedding. It's a place of beginnings.
+    
+    THE PLAZA:
+    Cobblestones radiate outward from the tree in concentric circles.
+    Benches face inward. A small fountain (working, unlike the one
+    down the street) provides background music.
+    
+    1 LANE NEVERENDING:
+    The first building. A small structure that's been many things:
+    town hall, guild headquarters, museum, and now... empty, but
+    maintained. Waiting for its next purpose.
+    
+    THE WESTERN EDGE:
+    Beyond the plaza, paths lead in several directions, but they're
+    overgrown. "FUTURE EXPANSION" signs mark the boundaries.
+    The lane never ends, but this is where it starts.
+    
+  exits:
+    east:
+      destination: ../w2/
+      description: "Lane Neverending stretches east toward the pub and beyond."
+      aliases: [e, back, lane]
+      
+    west:
+      destination: ../e3/
+      description: |
+        The lane curves gently beyond the plaza... and continues. You
+        walk west past the Origin Tree, but somehow the street numbers
+        start climbing again. Construction scaffolding appears ahead.
+        
+        Wait. Weren't you just AT the beginning?
+        
+        The lane never ends. It loops. It always has.
+        MOO HAA HAA.
+      aliases: [w, continue, loop]
+      
+      # The secret
+      loop_note: |
+        You cannot leave Lane Neverending by walking.
+        You can only leave by going NORTH (into buildings) or
+        by accepting that the lane is your home now.
+      
+    north:
+      destination: null
+      description: "A path leads north, but it's roped off. Future development."
+      blocked: true
+      
+    south:
+      destination: null
+      description: "A path leads south, but it's roped off. Future development."
+      blocked: true
+      
+  special:
+    origin_point: true
+    significance: |
+      This is the navel of the world. The first coordinate.
+      All addresses on Lane Neverending are measured from here.
+      
+      In Habitat, there was a center. In Glitch, there were
+      starting streets. This is that tradition, made manifest.
+      
+  objects:
+    - origin-tree.yml
+    - origin-plaque.yml

@@ -1,0 +1,48 @@
+# Garden tables and chairs
+
+object:
+  name: Garden Tables
+  type: furniture
+  portable: false
+  
+  description: |
+    Three round tables of varying sizes, surrounded by mismatched chairs.
+    Each has seen years of outdoor use — weathered but solid.
+    
+  examine: |
+    TABLE 1 (small, 2 chairs):
+    Perfect for an intimate conversation. Currently occupied by a
+    half-finished chess problem, pieces frozen mid-game. White to
+    move. Mate in 3, if you can find it.
+    
+    TABLE 2 (medium, 4 chairs):
+    The social table. Umbrella unfurled, providing dappled shade.
+    Someone's abandoned newspaper. An empty pint glass with a bee
+    investigating the dregs.
+    
+    TABLE 3 (large, 6 chairs):
+    The adventuring party table. Scratched with old campaign maps
+    and initials. A candle stub in a wine bottle. This table has
+    seen some planning sessions.
+    
+    THE BARREL TABLE:
+    Not a proper table — just an old ale barrel with a board on top.
+    But someone left a hand-written menu on it:
+    
+    "TODAY'S GARDEN SPECIALS:
+    • Pie (ask inside)
+    • Whatever's cold
+    • Sunshine (free)"
+    
+  actions:
+    SIT:
+      description: "Take a seat at a table"
+      usage: "SIT [at table 1/2/3/barrel]"
+      effect: |
+        You settle into a chair. The garden sounds wash over you.
+        This is a good place to think. Or not think.
+        
+    SOLVE:
+      description: "Attempt the chess problem"
+      usage: "SOLVE CHESS"
+      hint: "Knight sacrifice, then discovered check..."

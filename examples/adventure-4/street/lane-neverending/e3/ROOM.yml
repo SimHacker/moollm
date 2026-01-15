@@ -1,0 +1,74 @@
+# 🛤️ LANE NEVERENDING — East 3 (18-22 Lane Neverending)
+# Eastern terminus (for now)
+
+room:
+  name: "Lane Neverending (E3)"
+  type: street
+  
+  address_range: "18-22 Lane Neverending"
+  
+  lighting: natural
+  grue_safe: true
+  
+  description: |
+    Lane Neverending reaches its eastern extent — for now. The
+    cobblestones give way to a dirt path that disappears into
+    morning mist (or evening mist, or just regular mist).
+    
+    A wooden sign at the edge:
+    
+    ┌─────────────────────────────────┐
+    │  LANE NEVERENDING CONTINUES    │
+    │  (construction in progress)     │
+    │  Please pardon our dust.        │
+    │  — The Management               │
+    └─────────────────────────────────┘
+    
+    The storefronts here are the newest, still smelling of fresh
+    paint and possibility. The neighborhood is expanding.
+    
+  examine: |
+    THE EDGE:
+    Where the cobblestones end, a dirt path begins. Stakes with
+    string mark where future streets will go. Someone has left
+    surveying equipment. The world is being built.
+    
+    STOREFRONTS:
+    • 18 Lane Neverending — Fresh paint, "OPENING SOON" (believable)
+    • 20 Lane Neverending — Still under construction (sounds of hammering)
+    • 22 Lane Neverending — Last building, optimistically numbered
+    
+    ATMOSPHERE:
+    This is the frontier. The edge of the known world. Beyond here,
+    the lane continues in theory, but not yet in practice. The
+    builders are coming. The avatars will follow.
+    
+    It never ends. It just hasn't been built yet.
+    
+  exits:
+    west:
+      destination: ../e2/
+      description: "Back toward the fountain square and the center of town."
+      aliases: [w, back, center]
+      
+    east:
+      destination: ../w3/
+      description: |
+        The lane curves gently... and continues. You walk east, but
+        somehow the street numbers start descending again. The Origin
+        Tree comes into view ahead.
+        
+        Wait. Weren't you just heading AWAY from there?
+        
+        The lane never ends. It loops. It always has.
+        MOO HAA HAA.
+      aliases: [e, forward, continue]
+      
+      # The secret
+      loop_note: |
+        Lane Neverending is a MÖBIUS STRIP of a street.
+        Walk far enough in any direction, you end up where you started.
+        The name was never a promise. It was a warning.
+        
+  objects:
+    - construction-site.yml

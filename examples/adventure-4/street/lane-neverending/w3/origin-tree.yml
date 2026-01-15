@@ -1,0 +1,73 @@
+# The Origin Tree at 1 Lane Neverending
+
+object:
+  name: The Origin Tree
+  type: landmark
+  portable: false
+  significance: sacred
+  
+  description: |
+    An ancient oak of impossible age, standing at the western origin
+    of Lane Neverending. Its trunk is massive, its branches spread
+    wide, and its roots — they say — go down to the bare metal.
+    
+  examine: |
+    THE ORIGIN TREE
+    
+    The oldest living thing on Lane Neverending. Possibly the oldest
+    thing in this virtual world. Definitely older than it should be.
+    
+    TRUNK:
+    Wide enough that three avatars holding hands couldn't encircle it.
+    The bark is carved with initials, dates, and messages going back
+    decades — in virtual time, that's generations.
+    
+    Some visible carvings:
+    • "CM + RF '86" — Chip Morningstar & Randy Farmer, Habitat founders
+    • "LK '95" — Someone named LK, early explorer
+    • "GLITCH FOREVER 2012" — Players who didn't want to forget
+    • Fresh carvings still being added...
+    
+    BRANCHES:
+    Home to birds, squirrels, and the occasional cat. Fairy lights
+    have been strung up, glowing softly in the evening. Someone hung
+    a tire swing once; it's still there, swaying.
+    
+    ROOTS:
+    They break through the cobblestones in places, reminding everyone
+    that nature predates infrastructure. Stone circles and benches
+    have been placed around the roots for sitting and contemplation.
+    
+    THE FEELING:
+    Standing here, you feel... connected. To every avatar that walked
+    before you. To every world that came and went. To the promise
+    that virtual worlds matter, that community persists, that the
+    lane never truly ends.
+    
+  actions:
+    CARVE:
+      description: "Add your initials to the tree"
+      effect: |
+        You carve your mark into the bark, joining the generations
+        before you. Somewhere, a database entry is made. Your initials
+        will remain as long as the world exists.
+        
+        "You were here. You mattered."
+        
+    SIT:
+      description: "Rest beneath the Origin Tree"
+      effect: |
+        The shade is cool. The roots make surprisingly comfortable
+        seats. The bustle of the street fades. You feel at peace.
+        
+        This is a good place to think.
+        
+    TOUCH:
+      description: "Place your hand on the trunk"
+      effect: |
+        The bark is rough and warm, as if the tree holds sunlight.
+        
+        For a moment, you feel connected to everyone who has stood
+        here before. The founders. The pioneers. The players.
+        
+        The tree remembers them all.

@@ -1,0 +1,68 @@
+# The suspicious plant
+
+object:
+  name: Suspicious Plant
+  type: flora
+  portable: false
+  sentient: probably
+  
+  description: |
+    One of the planters contains something... unusual. It's tall,
+    leafy, and seems to turn toward you when you're not looking.
+    
+  examine: |
+    It's definitely a plant. Definitely.
+    
+    Characteristics:
+    • Tall (about 4 feet)
+    • Leafy (big tropical-looking leaves)
+    • Green (mostly)
+    • Has what might be eyes (probably just flowers)
+    • Is definitely not watching you (it was looking at that bird)
+    
+    A small wooden stake in the soil reads:
+    "AUDREY II (rescued)"
+    
+    Wait, that's crossed out. Now it says:
+    "PLANTY McPLANTFACE (harmless)"
+    
+    There's also a hand-lettered sign:
+    "Please don't feed me. I'm on a diet."
+    
+    The plant rustles, though there's no wind.
+    
+  actions:
+    TALK:
+      description: "Address the plant"
+      effect: |
+        The plant rustles attentively. Its leaves angle toward you.
+        
+        It doesn't respond verbally, but you get the distinct
+        impression it's listening. And judging.
+        
+    FEED:
+      description: "Offer the plant something"
+      warning: "The sign says not to..."
+      effect: |
+        The plant perks up IMMEDIATELY.
+        
+        Its leaves spread wide in what can only be described as
+        enthusiasm. A tendril extends hopefully.
+        
+        A voice from the pub yells: "DON'T FEED THE PLANT!"
+        
+        The plant wilts theatrically.
+        
+    WATER:
+      description: "Water the plant"
+      effect: |
+        The plant sighs contentedly. Its leaves perk up.
+        A small flower opens. It might be smiling?
+        
+        You've made a friend. A suspicious, definitely-not-carnivorous
+        friend.
+        
+  secret:
+    true_nature: "Actually just a very dramatic house plant"
+    relationship_with_rocky: "Distant cousins (mineralogically speaking)"
+    favorite_food: "Compliments"

@@ -1,0 +1,195 @@
+# 🌿 THE BACK GARDEN
+# Where every adventure begins — fresh air and possibilities
+# North of The Rusty Lantern, behind the pub
+
+room:
+  name: The Rusty Lantern Back Garden
+  type: outdoor_patio
+  
+  # This is the starting room!
+  starting_room: true
+  respawn_point: true
+  
+  # Safe and inviting
+  lighting: natural
+  time_of_day: variable  # Could be dawn, afternoon, twilight...
+  grue_safe: true
+  
+  respawn_message: |
+    The world fades... and returns.
+    
+    You find yourself sitting at a garden table, a half-finished drink
+    before you, as if you'd just dozed off for a moment. The afternoon
+    sun is warm. Bees drone lazily among the flowers.
+    
+    Was it all a dream? Your inventory suggests otherwise.
+    
+  description: |
+    You are in the back garden of The Rusty Lantern, a cozy outdoor space
+    behind the pub. Worn flagstones form a small patio, surrounded by
+    planters overflowing with herbs, flowers, and things that probably
+    shouldn't grow together but somehow do.
+    
+    TABLES AND CHAIRS are scattered about — mismatched wooden furniture
+    with the comfortable patina of years of use. Someone left a newspaper.
+    Someone else left a chess problem half-solved.
+    
+    Hanging baskets drip with flowers. A TRELLIS on the west wall supports
+    climbing roses and something that might be hops. An old BARREL serves
+    as a planter for sunflowers. A CAT is definitely watching you from
+    somewhere, but you can't quite spot it.
+    
+    The BACK DOOR to the pub is immediately SOUTH — propped open, warm
+    light and conversation spilling out along with the smell of ale and
+    cooking.
+    
+    A low GATE in the garden wall leads NORTH to a narrow alley.
+    
+    To the EAST, a path winds toward what sounds like a main street.
+    
+    To the WEST, another path disappears into an overgrown side yard.
+    
+    It's the kind of garden where adventures begin — or where heroes
+    rest between them.
+    
+  examine: |
+    The garden is larger than it first appears. That's pub gardens for you.
+    
+    FLORA:
+    • Lavender (buzzing with bees)
+    • Rosemary (smell of memory)
+    • Something tall and yellow (sunflowers, definitely sunflowers)
+    • Climbing roses (red, fragrant, a few thorns)
+    • Hops vines (the pub grows its own)
+    • A small herb spiral (for the kitchen)
+    • One SUSPICIOUS PLANT that seems to be watching back
+    
+    FURNITURE:
+    • Three round tables (two seats, four seats, six seats)
+    • A wooden bench against the wall
+    • A barrel being used as a table
+    • Mismatched chairs (each with a story)
+    
+    FEATURES:
+    • Strings of unlit fairy lights (for evening)
+    • A blackboard with today's specials
+    • A small fountain (currently a birdbath)
+    • Several flower pots of varying ambition
+    
+    The afternoon light is golden. Perfect adventuring weather.
+    
+  # Who and what is here
+  occupants:
+    - hero  # You start here!
+    
+  objects:
+    - garden-table.yml
+    - newspaper.yml
+    - blackboard.yml
+    - suspicious-plant.yml
+    
+  # Ways out
+  exits:
+    south:
+      destination: ../pub/
+      description: |
+        The back door to The Rusty Lantern stands open, welcoming.
+        Warm light, the clink of glasses, the murmur of stories being
+        told and retold. The heart of the establishment.
+        
+        A sign on the door: "WELCOME BACK IN — WIPE YOUR FEET"
+      aliases: [pub, inside, door, back, lantern]
+      
+    north:
+      destination: ../start/
+      description: |
+        A low wooden gate in the garden wall, leading to a narrow alley
+        that runs behind the buildings. From here you can reach the
+        Chamber of Commencement — the traditional starting point of
+        adventures past.
+        
+        Graffiti on the gate: "XYZZY →"
+      aliases: [gate, alley, out, chamber]
+      
+    east:
+      destination: ../coatroom/
+      description: |
+        A flagstone path winds between overgrown hedges toward what
+        sounds like a busier street. You can hear cart wheels, chatter,
+        and what might be a street vendor selling something dubious.
+        
+        The path leads to the Costume Emporium's side entrance.
+      aliases: [path, street, costumes]
+      
+    west:
+      destination: ../kitchen/
+      description: |
+        A narrow path squeezes between the pub wall and a fence,
+        disappearing into an overgrown side yard. Oddly, it smells
+        like Mother's cooking — that is, if Mother ran a family
+        restaurant adjacent to adventure dungeons.
+        
+        The Fantastipants Kitchen's garden gate.
+      aliases: [side, yard, kitchen, overgrown]
+      
+    up:
+      destination: ../home/
+      description: |
+        A rickety wooden staircase clings to the back of the pub,
+        leading up to a small balcony. The smell of home wafts down —
+        pie, clean laundry, safety.
+        
+        "STAFF ONLY (but really, who's checking?)"
+      aliases: [stairs, home, upstairs, balcony]
+      
+  # Atmosphere
+  ambience: |
+    Bees drone among the lavender. A fountain burbles (or is that
+    just a leaky tap?). Distant pub sounds provide a warm backdrop.
+    Somewhere, a bird sings. Somewhere else, a cat doesn't care.
+    
+    The garden exists in a state of comfortable neglect — tended just
+    enough to be charming, ignored just enough to be wild.
+    
+  # Weather can change!
+  weather:
+    current: sunny
+    possibilities:
+      - sunny: "Golden afternoon light, perfect for sitting outside"
+      - cloudy: "Overcast but warm, good thinking weather"
+      - drizzle: "Light rain, but the umbrella at table 3 works"
+      - evening: "Fairy lights on, candles lit, magical"
+      - night: "Moonlit, quiet, cats everywhere"
+      
+  # The invisible cat
+  hidden_cat:
+    name: "Schrodinger (or possibly not)"
+    location: "Simultaneously in the hedge and not in the hedge"
+    will_appear_if: "You stop looking for it"
+    behavior: |
+      If EXAMINED directly: not there
+      If IGNORED: definitely there, watching
+      If CALLED: might come, might not
+      If OFFERED FOOD: instant best friend
+      
+  # Garden activities
+  activities:
+    SIT:
+      description: "Take a seat at one of the tables"
+      effect: "Rest, think, people-watch"
+      
+    SMELL:
+      description: "Inhale the garden scents"
+      effect: "Lavender, rosemary, roses, hops, distant cooking"
+      
+    WATCH:
+      description: "Observe the garden and its denizens"
+      effect: "May notice the cat. May notice other things."
+      
+    READ:
+      description: "Check the newspaper or blackboard"
+      effect: "Local news, today's specials, adventure hooks"
+      
+    GARDEN:
+      description: "Do some light weeding or watering"
+      effect: "The plants appreciate it. One of them SAYS SO."

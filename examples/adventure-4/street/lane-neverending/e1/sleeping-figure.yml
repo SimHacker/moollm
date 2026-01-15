@@ -1,0 +1,83 @@
+# The sleeping figure on the bench
+
+object:
+  name: Sleeping Figure
+  type: npc
+  portable: false
+  state: dormant
+  
+  description: |
+    A figure wrapped in a patchwork cloak, sleeping on a bench.
+    They've been there as long as anyone can remember.
+    
+  examine: |
+    THE SLEEPING FIGURE
+    
+    Wrapped in a cloak made of patches from a hundred different
+    virtual worlds — you recognize fabric from Habitat, Glitch,
+    Second Life, and places you can't name.
+    
+    Their face is obscured. Their breathing is slow and steady.
+    Too steady. Suspiciously steady.
+    
+    A cardboard sign leans against the bench:
+    
+    ┌─────────────────────────────────────┐
+    │  WAITING FOR THE NEXT WORLD         │
+    │                                     │
+    │  (Please do not wake)               │
+    │  (I'll know when it's time)         │
+    │                                     │
+    │  Tips appreciated but not expected. │
+    └─────────────────────────────────────┘
+    
+    A tin cup sits nearby, containing:
+    • A few coins from currencies that no longer exist
+    • A button that says "I ♥ UR"
+    • A folded note
+    
+    THE NOTE (if you read it):
+    "I was there when Habitat opened. I was there when Glitch closed.
+    I'll be there when the next great world begins. Wake me then."
+    
+  actions:
+    WAKE:
+      description: "Try to wake the figure"
+      effect: |
+        You reach out...
+        
+        The figure shifts slightly. Mumbles something that sounds
+        like "not yet... still dreaming..."
+        
+        They don't wake. They're waiting for something specific.
+        Something that hasn't happened yet.
+        
+    TIP:
+      description: "Leave something in the cup"
+      effect: |
+        You add your offering to the cup.
+        
+        The figure doesn't stir, but you could swear the corner
+        of their mouth twitches upward. Just slightly.
+        
+        "Thanks," they murmur, still asleep. "See you in the next one."
+        
+    READ_NOTE:
+      description: "Read the note in the cup"
+      effect: |
+        The note is old, written in careful handwriting:
+        
+        "I was there when Habitat opened. I was there when Glitch
+        closed. I'll be there when the next great world begins.
+        
+        Wake me then.
+        
+        — A. Veteran (Avatar since '86)"
+        
+  secret:
+    identity: |
+      The sleeping figure is one of the original Habitat beta testers.
+      They've been "sleeping" across virtual worlds for decades,
+      waking only when something truly new begins.
+      
+      They'll wake for MOOLLM. Eventually. When it's ready.

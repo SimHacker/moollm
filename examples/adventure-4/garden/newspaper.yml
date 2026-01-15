@@ -1,0 +1,48 @@
+# The abandoned newspaper
+
+object:
+  name: The Daily Dungeon
+  type: readable
+  portable: true
+  
+  description: |
+    Today's edition of The Daily Dungeon, the adventuring world's
+    premier news source. Slightly damp from morning dew. Someone
+    left it at table 2.
+    
+  examine: |
+    THE DAILY DUNGEON
+    "All the news that's fit to scroll"
+    ─────────────────────────────────
+    
+    HEADLINES:
+    
+    ▸ GRUE SIGHTINGS UP 15% THIS QUARTER
+      "They're just hungry," says expert
+    
+    ▸ LOCAL HERO FINDS TREASURE, LOSES IT TO TAX
+      "The kingdom takes 40%," laments adventurer
+    
+    ▸ PUB REVIEW: The Rusty Lantern ★★★★½
+      "Solid ale, better stories, mysterious back room"
+    
+    ▸ WANTED: BRAVE SOULS FOR UNDEFINED QUEST
+      "Must be comfortable with ambiguity"
+      Apply at notice board, Chamber of Commencement
+    
+    ▸ OPINION: Are We Creating Too Many Mazes?
+      "What happened to good old-fashioned outdoor quests?"
+    
+    ▸ CLASSIFIEDS:
+      - ACME Products: "Quality* guaranteed" (*conditions apply)
+      - Lamp Oil: Best prices in the realm
+      - Lost: One sock, answers to "Left"
+    
+  actions:
+    READ:
+      description: "Read the newspaper"
+      effect: "Local news, rumors, adventure hooks"
+      
+    TAKE:
+      description: "Pick up the newspaper"
+      effect: "Added to inventory. Might come in handy."

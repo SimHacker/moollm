@@ -1,0 +1,95 @@
+# The Glitch Memorial Bench
+
+object:
+  name: Glitch Memorial Bench
+  type: furniture
+  portable: false
+  significance: sacred
+  
+  description: |
+    A bronze bench in a small alcove between buildings, surrounded
+    by a tiny garden of impossible flowers. A place of remembrance.
+    
+  examine: |
+    THE GLITCH MEMORIAL BENCH
+    
+    Bronze, weathered by virtual rain, polished by countless visitors.
+    The back is engraved:
+    
+    ┌─────────────────────────────────────────────────────┐
+    │                                                     │
+    │           IN MEMORY OF GLITCH                       │
+    │              (2011 - 2012)                          │
+    │                                                     │
+    │     The world of Ur lives on in all who played.    │
+    │                                                     │
+    │     "The giants still dream. We still remember."    │
+    │                                                     │
+    └─────────────────────────────────────────────────────┘
+    
+    THE GARDEN:
+    Flowers that shouldn't exist outside Ur, but somehow do:
+    • Sparkly (glows faintly)
+    • Awesome Stew ingredients (aromatic)
+    • Paper trees (rustling softly)
+    
+    OFFERINGS LEFT BY VISITORS:
+    • Fresh flowers (someone comes regularly)
+    • A small Glitch avatar figurine
+    • A burned-down candle
+    • A note: "I still have my house key"
+    • Another note: "Friendly remembers"
+    
+    Names scratched into the back of the bench — players who
+    wanted to be remembered in Ur forever:
+    
+    GlitchGirl2011 · UrExplorer · TinySpecker · Rube42
+    MazeRunner · JujuBeetle · ButterScotch · AlphaDreamer
+    ... (hundreds more, in smaller and smaller letters)
+    
+  actions:
+    SIT:
+      description: "Rest on the memorial bench"
+      effect: |
+        You sit. The bronze is warm, despite the shade.
+        
+        For a moment, you hear distant music — the Glitch soundtrack?
+        Laughter from a world that no longer exists.
+        
+        You feel... remembered. As if the bench knows you were here.
+        
+    LEAVE_OFFERING:
+      description: "Leave something at the memorial"
+      effect: |
+        You add your offering to the collection. A small gesture.
+        But small gestures are how worlds are built.
+        
+        The flowers seem to lean toward your gift.
+        
+    REMEMBER:
+      description: "Think about Glitch"
+      effect: |
+        You close your eyes and remember — or imagine — Ur.
+        
+        Streets that twisted impossibly. Giants who dreamed the world.
+        A community that loved each other fiercely for one brief year.
+        
+        When Glitch closed, they released everything to the public domain.
+        The art. The music. The code. A final gift.
+        
+        "We were here. We mattered. Take what we made and make more."
+        
+  the_eleven_giants:
+    note: "The world of Ur was dreamed by eleven Giants"
+    giants:
+      - Friendly: "Giant of Friendship"
+      - Grendaline: "Giant of Green Growing Things"
+      - Humbaba: "Giant of Mountains and Caves"
+      - Lem: "Giant of Night and the Mind"
+      - Mab: "Giant of Harvests and Crafting"
+      - Pot: "Giant of Prosperity"
+      - Spriggan: "Giant of Mischief"
+      - Tii: "Giant of the Elements"
+      - Cosma: "Giant of Everything Else"
+      - Alph: "Giant of Creation"
+      - Zille: "Giant of Mountains and Caves (the other one)"
