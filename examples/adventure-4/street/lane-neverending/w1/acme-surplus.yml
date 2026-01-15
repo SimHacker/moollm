@@ -1,5 +1,6 @@
 # The abandoned ACME Surplus store
 # North side of w1, across from Leela Manufacturing
+# MORTAL ENEMIES with Leela across the street
 
 object:
   name: ACME Surplus Storefront
@@ -8,17 +9,61 @@ object:
   status: closed
   side: north
   
+  # The rivalry
+  enemy: Leela Manufacturing
+  rivalry_intensity: mortal
+  
   description: |
     A dusty storefront with a faded sign: "ACME SURPLUS — EVERYTHING MUST GO"
     Everything did go. The store is empty now.
     
     NORTH side of the street, directly across from Leela Manufacturing.
-    A study in contrasts: the bustling knowledge factory on one side,
-    the abandoned mail-order casualty on the other.
+    MORTAL ENEMIES. A study in contrasts: the bustling knowledge factory
+    on one side, the fly-by-night gimmick shop on the other.
     
     One section of the windows is boarded up. Someone has painted
     a TUNNEL on the boards — a perfect trompe l'oeil leading into
     darkness. It looks... very runnable.
+    
+  philosophy: |
+    ACME represents everything wrong with tech:
+    - Ship fast, break things, blame the customer
+    - Pivot constantly, never fix the core problem
+    - Marketing over engineering
+    - "Disruptive" products that don't work
+    - Funded by VCs who love a good narrative
+    
+    The ur-example of every tech bubble:
+    - Portable holes were their NFTs
+    - Rocket skates were their crypto tokens
+    - Painted tunnels are their ChatGPT wrappers
+    - "ACME GPT: It hallucinates, but entertainingly!"
+    
+  pivot_history:
+    - era: Classic
+      business: Mail-order gimmicks
+      products: [anvils, rockets, portable holes]
+      outcome: Products didn't work
+      
+    - era: Web 1.0
+      business: E-commerce
+      products: [same products, now online!]
+      outcome: Products still didn't work
+      
+    - era: Web 2.0
+      business: Social anvils
+      slogan: "Share your anvil drops!"
+      outcome: Nobody shared
+      
+    - era: Crypto
+      business: ACME Coin, NFT failures
+      slogan: "Own your anvil on-chain"
+      outcome: Rug pulled
+      
+    - era: AI (current)
+      business: ACME GPT, AI Wrappers
+      slogan: "ChatGPT but for coyotes"
+      outcome: Hallucinates, but entertainingly
     
   examine: |
     ACME SURPLUS — 4 LANE NEVERENDING (NORTH SIDE)
@@ -193,3 +238,92 @@ object:
       How do ACME products arrive so fast? The tunnel network.
       How do they always find you? The tunnel network.
       Why do the products never work right? That's a different department.
+      
+  rivalry:
+    enemy: Leela Manufacturing
+    location: Directly across the street (5 Lane Neverending)
+    intensity: MORTAL
+    
+    why_they_hate_leela: |
+      Leela makes them look bad.
+      
+      Every time Leela ships a product that WORKS, it reminds everyone
+      that ACME products DON'T. Every time Leela debugs instead of pivots,
+      every time Leela documents instead of "moving fast," every time
+      Leela's knowledge economy generates sustainable value instead of
+      burning through another funding round — ACME looks worse.
+      
+      ACME's entire business model depends on customers not knowing better.
+      Leela teaches customers to know better.
+      
+    why_leela_hates_them: |
+      ACME makes AI look bad.
+      
+      Every time ACME ships a broken chatbot wrapped around someone else's
+      model, every time their "AI anvil" hallucinates its own weight, every
+      time their "smart rocket" decides cliffs are goals — it poisons the
+      well for everyone.
+      
+      Leela spends 30% of support time explaining: "No, we're not like ACME."
+      
+      ACME is the reason people distrust AI. ACME is the reason "ChatGPT
+      wrapper" is an insult. ACME is the reason investors now ask "but
+      does it actually WORK?" (As if that should ever have been optional.)
+      
+    the_philosophical_war: |
+      ACME believes: Ship fast, pivot faster, blame the customer.
+      Leela believes: Build carefully, debug thoroughly, improve from feedback.
+      
+      ACME believes: AI is magic, slap GPT on it and ship.
+      Leela believes: AI needs constraints, structure, memory, context.
+      
+      ACME believes: "Disruptive" means breaking things.
+      Leela believes: "Disruptive" means making things work that didn't before.
+      
+      They cannot both be right.
+      
+    incidents:
+      - name: The Anvil Incident
+        date: "Last Tuesday"
+        description: |
+          An ACME delivery drone dropped an anvil on Leela's loading dock.
+          "Accidental route optimization," ACME claimed.
+          The anvil had "ACME GPT: NOW WITH GRAVITY AWARENESS" printed on it.
+          It fell.
+          
+      - name: The Wrapper War
+        date: Ongoing
+        description: |
+          ACME keeps releasing ChatGPT wrappers that compete with Leela products.
+          "ACME Insight Engine!" "ACME Knowledge Factory!" "ACME Intelligence!"
+          They all hallucinate. They all break. They all pivot to something new.
+          Leela keeps shipping things that work.
+          The cobblestones between them grow colder.
+          
+      - name: The Painted Tunnel Dispute
+        date: "Since the beginning"
+        description: |
+          ACME claims their painted tunnel technology is "revolutionary AI."
+          Leela points out it only works for ACME employees.
+          "That's a feature!" says ACME.
+          "That's fraud," says Leela.
+          The debate continues.
+          
+    quotes:
+      acme_on_leela: |
+        "They're so BORING. 'Documentation.' 'Testing.' 'Products that work.'
+        Where's the VISION? Where's the DISRUPTION?"
+        — ACME Marketing (on their 7th pivot)
+        
+      leela_on_acme: |
+        "We spend 30% of our support time explaining that we're NOT like them."
+        — The Coordinator
+        
+        "Also, our products don't explode."
+        — Archie (Engineering)
+        
+      the_truth: |
+        "One of us will still be here in ten years.
+        The other will have pivoted to something else.
+        We both know which is which."
+        — Don Hopkins, watching from the pub
