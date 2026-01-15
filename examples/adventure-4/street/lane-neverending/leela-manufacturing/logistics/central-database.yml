@@ -8,8 +8,8 @@ object:
   type: infrastructure
   emoji: "🐘"
   
-  engine: PostgreSQL
-  extension: TimescaleDB
+  engine: PostgreSQL 18.1
+  extension: TimescaleDB 2.24
   
   tags: [database, storage, knowledge, records, infrastructure, postgresql, timescaledb, timeseries]
   
@@ -31,7 +31,7 @@ object:
     ┌────────────────────────────────────────────────────┐
     │  🐘 LEELA CENTRAL DATABASE                         │
     │  ════════════════════════════                      │
-    │  PostgreSQL 16 + TimescaleDB 2.x                   │
+    │  PostgreSQL 18.1 + TimescaleDB 2.24                │
     │                                                    │
     │  Status: 🟢 HEALTHY                                │
     │  Uptime: 1,247 days                                │
@@ -124,8 +124,8 @@ object:
     • "What did Dolly do last Tuesday?" → [CLASSIFIED]
     
   properties:
-    engine: "PostgreSQL 16"
-    extension: "TimescaleDB 2.x"
+    engine: "PostgreSQL 18.1"
+    extension: "TimescaleDB 2.24"
     type: "Time-series optimized relational"
     nodes: 3
     redundancy: "3x synchronous replication"
