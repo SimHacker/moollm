@@ -31,8 +31,8 @@ room:
       "THE MIRROR SEES MORE THAN YOUR CLOTHES.
        IT SEES YOUR SOUL. AND SOULS CAN BE TAILORED TOO."
     
-The exit WEST leads back to the pub's garden, from which
-you can go NORTH to the maze, or SOUTH to the pub (for ale!).
+The exit WEST leads to the pub's garden for outdoor dining.
+The exit NORTHWEST is a shortcut diagonally to the pub bar!
   
   occupants: []
   
@@ -47,6 +47,16 @@ you can go NORTH to the maze, or SOUTH to the pub (for ale!).
       description: |
         The path back to the pub's garden. Tables, chairs, sunshine,
         and a moment to admire your new look in the daylight.
+        
+    northwest:
+      destination: ../pub/
+      description: |
+        A narrow passage cuts diagonally toward the pub's main room.
+        You can hear laughter, clinking glasses, and someone attempting
+        a sea shanty. Perfect for making an entrance in your new costume!
+        
+        "DRAMATIC ENTRANCE THIS WAY →"
+      aliases: [pub, bar, entrance, shortcut]
         
     north:
       destination: ../characters/

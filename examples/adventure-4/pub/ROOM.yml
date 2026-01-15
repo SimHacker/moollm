@@ -275,6 +275,15 @@ room:
         (food orders, supplies). This is the diagonal shortcut.
       aliases: [kitchen, service, corridor, shortcut, staff]
       
+    SOUTHEAST:
+      destination: ../coatroom/
+      description: |
+        A passage leads toward the Costume Emporium. You can hear
+        the rustle of fabric and the whisper of sequins calling to you.
+        
+        "NEED A NEW LOOK? COSTUMES THIS WAY →"
+      aliases: [coatroom, costumes, emporium, wardrobe]
+      
     UP:
       destination: rooms/
       description: "Stairs to the inn rooms"
