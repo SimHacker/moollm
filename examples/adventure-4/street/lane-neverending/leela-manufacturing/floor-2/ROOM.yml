@@ -1,0 +1,88 @@
+# FLOOR 2 — PROCESSING FLOOR
+# Where problems become insights
+
+room:
+  name: Leela Floor 2 — Processing Floor
+  type: factory_floor
+  
+  description: |
+    The PROCESSING FLOOR is where the magic happens — or rather, where
+    the careful, methodical transformation of problems into insights occurs.
+    Magic is unreliable. Process is eternal.
+    
+    The floor is organized into PROCESSING CELLS, each one a self-contained
+    workspace where a team attacks a specific problem. Whiteboards cover
+    every wall. The air crackles with concentration.
+    
+    In the center of the floor: THE INSIGHT FURNACE, a massive structure
+    that glows with contained energy. Raw problems go in one side.
+    Refined insights come out the other. What happens inside is...
+    complicated.
+    
+  examine: |
+    PROCESSING FLOOR — FLOOR 2
+    
+    THE PROCESSING CELLS:
+    Eight glass-walled workspaces, each tackling different problems:
+    • Cell A: Manufacturing optimization
+    • Cell B: Logistics puzzles
+    • Cell C: Process improvement
+    • Cell D: Data analysis
+    • Cell E: Meta-problems (problems about problems)
+    • Cell F: Edge cases
+    • Cell G: "The Weird Ones" (you don't want to know)
+    • Cell H: Currently empty (being decontaminated)
+    
+    THE INSIGHT FURNACE:
+    A towering structure of copper pipes, glass chambers, and
+    humming machinery. Temperature gauges. Pressure valves.
+    A sign: "CAUTION: CONTENTS MAY BE PROFOUND"
+    
+    Inputs: Raw problems (from Intake)
+    Outputs: Refined insights (to Shipping)
+    Byproducts: Better questions (recycled to Intake)
+    
+    THE BIG BOARD:
+    A massive display showing every problem in process:
+    • Green dots: On track
+    • Yellow dots: Needs attention
+    • Red dots: Stuck (send help)
+    • Purple dots: "We're not sure what's happening"
+    
+    THE COFFEE STATION:
+    Industrial-sized. Essential infrastructure. Never runs out.
+    A sign: "COFFEE IS NOT OPTIONAL. COFFEE IS PROCESS."
+    
+  workers:
+    - "Process Engineers (always at whiteboards)"
+    - "Knowledge Smiths (at the Furnace)"
+    - "Insight Wranglers (catching outputs)"
+    - "Quality Assurance (testing everything)"
+    
+  equipment:
+    - "The Insight Furnace"
+    - "Pattern Recognition Array"
+    - "The Big Board"
+    - "Whiteboards (87 of them)"
+    - "Coffee Machine Mk VII"
+    
+  exits:
+    down:
+      destination: ../floor-1/
+      description: "Down to Floor 1 — Intake"
+      aliases: [1, intake]
+      
+    up:
+      destination: ../floor-3/
+      description: "Up to Floor 3 — Shipping"
+      aliases: [3, shipping]
+      
+    lobby:
+      destination: ../
+      description: "Elevator to the lobby"
+      aliases: [elevator, out]
+      
+  objects:
+    - insight-furnace.yml
+    - processing-cells.yml
+    - big-board.yml

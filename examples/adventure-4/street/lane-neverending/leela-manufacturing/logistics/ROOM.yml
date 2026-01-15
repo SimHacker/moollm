@@ -1,0 +1,128 @@
+# LOGISTICS YARD
+# Rail, containers, trucks, drones — the full operation
+
+room:
+  name: Leela Logistics Yard
+  type: logistics_yard
+  
+  lighting: outdoor
+  atmosphere: industrial_active
+  
+  description: |
+    The LOGISTICS YARD spreads out east of the main building — a
+    carefully organized chaos of trucks, containers, rail cars, and
+    infrastructure that keeps Leela Manufacturing connected to
+    everywhere else.
+    
+    Trains rumble on the siding. Trucks queue for the docks.
+    Containers stack in colorful towers. Drones buzz overhead.
+    
+    This is where knowledge becomes physical — packaged, loaded,
+    shipped to wherever it needs to go.
+    
+  examine: |
+    LOGISTICS YARD — EAST SIDE OF FACILITY
+    
+    ═══════════════════════════════════════════════════════
+    TRUCK YARD
+    ═══════════════════════════════════════════════════════
+    
+    Space for 12 trucks. Currently occupied:
+    • Data Hauler Prime (semi, fueling up)
+    • Insight Express #2 (box truck, waiting for dispatch)
+    • Mystery Van (unmarked, nobody knows whose it is)
+    • 3 contractor trucks (various)
+    
+    Fuel Station:
+    Runs on curiosity (regular) and coffee (premium).
+    
+    Truck Wash:
+    "Remove accumulated confusion before entering facility."
+    
+    ═══════════════════════════════════════════════════════
+    RAIL SIDING
+    ═══════════════════════════════════════════════════════
+    
+    Single track, 4 car capacity.
+    Current cars:
+    • Boxcar "BULK QUESTIONS" (full, awaiting unload)
+    • Hopper "RAW DATA" (empty, returning)
+    • Flatcar (oversized insight, tarped)
+    • Caboose "LEGACY WISDOM" (historic preservation)
+    
+    Schedule: Daily train at 03:47 (always on time — it's frozen)
+    Connections: Origin Yard (W3), Construction Depot (E3)
+    
+    ═══════════════════════════════════════════════════════
+    CONTAINER YARD
+    ═══════════════════════════════════════════════════════
+    
+    200 TEU capacity, stacked 3 high. Color coded:
+    
+    🔵 BLUE containers: Raw data (unprocessed)
+    🟡 YELLOW containers: In-process (partial insights)
+    🟢 GREEN containers: Ready to ship (finished knowledge)
+    🔴 RED containers: Hazardous (paradoxes, edge cases)
+    🟣 PURPLE containers: Premium (wisdom, rare)
+    ⬛ BLACK containers: Classified (don't ask)
+    
+    Equipment:
+    • Reach stacker (moving containers)
+    • Small gantry crane
+    • Container tracking system (every box monitored)
+    
+    ═══════════════════════════════════════════════════════
+    AERIAL OPERATIONS
+    ═══════════════════════════════════════════════════════
+    
+    Drone Pad (ground level, 6 zones):
+    • Launch zone (drones departing)
+    • Landing zone (drones arriving)  
+    • Charging stations
+    • Maintenance bay
+    
+    Pigeon Loft:
+    24 enlightened pigeons. Oldest delivery method.
+    They stop to think sometimes. That's why they're enlightened.
+    
+    ═══════════════════════════════════════════════════════
+    CONTROL TOWER
+    ═══════════════════════════════════════════════════════
+    
+    A small tower overlooking the entire yard.
+    Yard Master coordinates all movement.
+    Radio chatter. Screens. The authoritative clipboard.
+    
+  exits:
+    docks:
+      destination: ../loading-docks/
+      description: "Back to the Loading Docks"
+      aliases: [loading, docks, building]
+      
+    street:
+      destination: ../../center/
+      description: "Out to Lane Neverending via the front"
+      aliases: [lane, street, front]
+      
+    rail_west:
+      destination: ../../w3/
+      description: |
+        The rail line heads west toward Origin Yard.
+        (You can't ride the train. Probably.)
+      aliases: [origin, west]
+      note: "Rail connection, not walkable"
+      
+    rail_east:
+      destination: ../../e3/
+      description: |
+        The rail line heads east toward Construction Depot.
+        (You can't ride the train. Probably.)
+      aliases: [construction, east]
+      note: "Rail connection, not walkable"
+      
+  objects:
+    - control-tower.yml
+    - container-stacks.yml
+    - rail-cars.yml
+    - drone-ground-station.yml
+    - pigeon-loft.yml

@@ -1,0 +1,92 @@
+# LOADING DOCKS
+# Where the physical world meets the knowledge factory
+
+room:
+  name: Leela Loading Docks
+  type: industrial_loading
+  
+  lighting: industrial
+  atmosphere: busy
+  
+  description: |
+    The LOADING DOCKS wrap around the back of Leela Manufacturing.
+    Five bays, each with a truck-sized door, dock levelers, and
+    the constant activity of logistics in motion.
+    
+    ┌─────┬─────┬─────┬─────┬─────┐
+    │ B1  │ B2  │ B3  │ B4  │ B5  │
+    │ IN  │ IN  │ IN  │ OUT │ OUT │
+    └─────┴─────┴─────┴─────┴─────┘
+    
+    Forklifts beep. Pallets stack. Workers in safety vests
+    coordinate the flow of knowledge in and out of the building.
+    
+    A truck is currently backing into Bay 2, loaded with
+    "BULK QUESTIONS — HANDLE WITH CURIOSITY."
+    
+  examine: |
+    LOADING DOCKS — BACK OF BUILDING
+    
+    THE BAYS:
+    Bay 1 (INBOUND): Currently unloading raw data shipment
+    Bay 2 (INBOUND): Truck backing in with bulk questions
+    Bay 3 (INBOUND): Empty, awaiting confusion tanker
+    Bay 4 (OUTBOUND): Insight Express #1 loading
+    Bay 5 (OUTBOUND): Reserved for premium/rush orders
+    
+    DOCK OFFICE:
+    A small windowed office overlooking the bays.
+    Dispatch coordinator with clipboard, headset, coffee.
+    Schedules on the wall. Radio chatter constant.
+    Sign: "IF IT MOVES, LOG IT"
+    
+    EQUIPMENT AREA:
+    • Forklifts (3, electric)
+    • Pallet jacks (many)
+    • Shrink wrap station
+    • Scale (for weighing knowledge — heavier = more valuable?)
+    • First aid station (forklifts are unforgiving)
+    
+    THE BREAK ROOM:
+    A small room off to the side for dock workers.
+    Vending machines. Microwave. Table with yesterday's newspaper.
+    A sign: "HONK FOR SERVICE" (truckers can honk from the yard)
+    
+    SAFETY NOTICES:
+    • "HARD HATS REQUIRED BEYOND THIS POINT"
+    • "FORKLIFTS HAVE RIGHT OF WAY"
+    • "MIND THE GAP" (painted on every dock edge)
+    • "NO PARADOXES ACCEPTED AT DOCK LEVEL"
+    
+  current_activity:
+    bay_1: "Unloading raw data from Data Hauler Prime"
+    bay_2: "Bulk questions arriving, inspection in progress"
+    bay_3: "Empty — confusion tanker ETA 15 minutes"
+    bay_4: "Insight Express #1 — 50% loaded"
+    bay_5: "Premium order staging"
+    
+  exits:
+    inside:
+      destination: ../floor-1/
+      description: "Door to Floor 1 — Intake (for incoming shipments)"
+      aliases: [1, intake, in]
+      
+    shipping:
+      destination: ../floor-3/
+      description: "Door to Floor 3 — Shipping (for outgoing shipments)"
+      aliases: [3, shipping]
+      
+    yard:
+      destination: ../logistics/
+      description: "Out to the Logistics Yard — truck parking, rail siding"
+      aliases: [logistics, trucks, rail, outside]
+      
+    street:
+      destination: ../../center/
+      description: "Around the building to Lane Neverending"
+      aliases: [lane, street, front]
+      
+  objects:
+    - dock-office.yml
+    - forklifts.yml
+    - current-trucks.yml

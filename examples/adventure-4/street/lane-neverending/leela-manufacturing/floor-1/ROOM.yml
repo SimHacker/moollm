@@ -1,0 +1,81 @@
+# FLOOR 1 — INTAKE DEPARTMENT
+# Where problems arrive and get sorted
+
+room:
+  name: Leela Floor 1 — Intake Department
+  type: factory_floor
+  
+  description: |
+    The INTAKE DEPARTMENT occupies the entire first floor. Conveyor belts
+    crisscross the space, carrying containers of various sizes — each one
+    holding a problem, question, or batch of raw data waiting to be processed.
+    
+    Workers in blue jumpsuits sort incoming shipments with practiced efficiency.
+    Some containers glow faintly. Others rattle. One seems to be asking questions
+    about itself.
+    
+    A massive board on the wall shows today's intake volume:
+    
+    ┌─────────────────────────────────────────┐
+    │  TODAY'S INTAKE                         │
+    │  ═══════════════                        │
+    │  Questions received: 1,247              │
+    │  Problems logged: 892                   │
+    │  Data batches: 3.2 TB                   │
+    │  Confusion tankers: 2 (still unloading) │
+    │  Paradoxes (quarantined): 1             │
+    └─────────────────────────────────────────┘
+    
+  examine: |
+    INTAKE DEPARTMENT — FLOOR 1
+    
+    THE SORTING LINES:
+    Three main conveyor lines run the length of the floor:
+    • Line A: Questions (blue containers)
+    • Line B: Problems (yellow containers)
+    • Line C: Raw Data (green containers)
+    
+    THE SORTING STATIONS:
+    Workers evaluate each incoming item:
+    1. "Is this actually a question?" (You'd be surprised)
+    2. "What category?" (Manufacturing, logistics, process, meta, other)
+    3. "Priority level?" (Urgent, normal, whenever, never)
+    4. "Route to which processing line?"
+    
+    THE CONFUSED WELCOME DESK:
+    For items that don't fit any category. A patient worker sits here
+    with a large cup of coffee and an expression of infinite tolerance.
+    Sign: "IF YOU DON'T KNOW WHAT THIS IS, NEITHER DO WE. YET."
+    
+    THE QUARANTINE ZONE:
+    A glassed-off area in the corner for dangerous items.
+    Currently contains: 1 paradox (pacing back and forth),
+    2 recursive questions (asking each other), and something
+    that arrived labeled "DO NOT THINK ABOUT."
+    
+  workers:
+    - "Intake Specialists (blue jumpsuits)"
+    - "Categorizers (clipboards, thoughtful expressions)"
+    - "The Confused Welcome Desk attendant"
+    - "Quarantine Officer (hazmat suit, nervous)"
+    
+  exits:
+    down:
+      destination: ../
+      description: "Back down to the lobby"
+      aliases: [lobby, out]
+      
+    up:
+      destination: ../floor-2/
+      description: "Up to Floor 2 — Processing"
+      aliases: [2, processing]
+      
+    loading:
+      destination: ../loading-docks/
+      description: "Direct access to the loading docks (for incoming shipments)"
+      aliases: [docks, receiving]
+      
+  objects:
+    - conveyor-system.yml
+    - sorting-stations.yml
+    - intake-board.yml

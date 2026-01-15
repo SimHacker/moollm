@@ -1,0 +1,116 @@
+# BASEMENT — R&D LABORATORY
+# Where experimental knowledge is manufactured
+
+room:
+  name: Leela Basement — R&D Laboratory
+  type: laboratory
+  
+  lighting: dim_with_occasional_flashes
+  atmosphere: mysterious
+  
+  description: |
+    The R&D LABORATORY occupies the entire basement. The lighting is
+    intentionally dim — some experiments prefer it that way. Occasional
+    flashes illuminate bubbling beakers, sparking equipment, and
+    researchers in goggles hunched over incomprehensible apparatus.
+    
+    A sign at the entrance:
+    
+    ┌─────────────────────────────────────────────────────┐
+    │  R&D LABORATORY                                     │
+    │  ═══════════════                                    │
+    │  "What if we tried...?"                             │
+    │                                                     │
+    │  CURRENT EXPERIMENTS:                               │
+    │  • Wisdom synthesis (ongoing, decade 3)             │
+    │  • Insight recycling (promising results)            │
+    │  • Paradox processing (DO NOT ENTER ZONE 7)         │
+    │  • [REDACTED] (ask Dr. Unknown)                     │
+    └─────────────────────────────────────────────────────┘
+    
+  examine: |
+    R&D LABORATORY — BASEMENT
+    
+    THE LAYOUT:
+    The basement is divided into zones, each more experimental
+    than the last:
+    
+    Zone 1: Controlled experiments (relatively safe)
+    Zone 2: Uncontrolled experiments (wear goggles)
+    Zone 3: Theoretical work (whiteboards only)
+    Zone 4: Applied madness (sign waiver first)
+    Zone 5: The Archive (historical knowledge storage)
+    Zone 6: Cold storage (temperature-sensitive insights)
+    Zone 7: [SEALED] (we don't talk about Zone 7)
+    
+    THE RESEARCHERS:
+    • Mad Scientists (3, varying degrees of madness)
+    • Reasonable Scientists (5, keeping things grounded)
+    • One Unreasonable Scientist (title: "Dr. Why Not")
+    • Graduate students (infinite, replaceable)
+    • One Very Old Turtle (wisdom consultant, Zone 5)
+    
+    EQUIPMENT:
+    • Bubbling things
+    • Sparking things
+    • Things that hum ominously
+    • One thing that's perfectly silent (most concerning)
+    • A chalkboard covered in equations that hurt to look at
+    
+    THE FORBIDDEN SHELF:
+    A locked cabinet containing experiments deemed "too successful."
+    Label: "IN CASE OF EMERGENCY, DO NOT OPEN. ESPECIALLY THEN."
+    
+  warnings:
+    - "Do not feed the hypotheses"
+    - "Protective eyewear required beyond Zone 1"
+    - "If you hear your name from Zone 7, ignore it"
+    - "Coffee in designated areas only (reactions possible)"
+    
+  current_projects:
+    wisdom_synthesis:
+      status: "Ongoing (30+ years)"
+      progress: "We've made better questions"
+      lead: "Dr. Patient"
+      
+    insight_recycling:
+      status: "Promising"
+      progress: "Used insights can be 87% recovered"
+      lead: "Dr. Sustainable"
+      
+    paradox_processing:
+      status: "EXTREME CAUTION"
+      progress: "We understand the problem. The problem understands us back."
+      lead: "Dr. Unknown (identity classified)"
+      location: "Zone 7 (sealed)"
+      
+  exits:
+    up:
+      destination: ../
+      description: "Stairs up to the lobby"
+      aliases: [lobby, out, escape]
+      
+    archive:
+      destination: archive/
+      description: "Zone 5 — The Archive"
+      aliases: [5, library, old]
+      
+    cold:
+      destination: cold-storage/
+      description: "Zone 6 — Cold Storage"
+      aliases: [6, cold, storage]
+      
+    zone7:
+      destination: null
+      description: |
+        Zone 7 is sealed. Heavy doors. Warning lights.
+        A sign: "NO ENTRY. WE MEAN IT. THE DOOR IS LOCKED FOR YOUR PROTECTION."
+        You can hear... something... on the other side.
+        It might be humming.
+      blocked: true
+      reason: "Paradox containment"
+      
+  objects:
+    - forbidden-shelf.yml
+    - experimental-equipment.yml
+    - zone-7-door.yml

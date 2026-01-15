@@ -120,6 +120,15 @@ room:
         descend, but the lane itself? Never ends.
       aliases: [w, left]
       
+    leela:
+      destination: ../leela-manufacturing/
+      description: |
+        The front doors of LEELA MANUFACTURING INTELLIGENCE.
+        Red brick, three stories, tall arched windows.
+        A sign: "Industrial Knowledge & Insight — Est. ???"
+        You can see the scale model glowing in the lobby.
+      aliases: [5, factory, manufacturing, intelligence]
+      
   ambience: |
     The sounds of a lived-in street. Distant conversation. A cart
     rattling somewhere. The creak of the pub sign. Birds on lamp posts.
@@ -131,4 +140,6 @@ room:
   objects:
     - street-sign.yml
     - sandwich-board.yml
-    - leela-manufacturing.yml
+    
+  buildings:
+    - leela-manufacturing/  # Full facility with floors and departments

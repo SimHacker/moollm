@@ -1,0 +1,97 @@
+# ROOFTOP — Garden & Observation
+# Where ideas grow wild
+
+room:
+  name: Leela Rooftop — Garden & Observation
+  type: rooftop_garden
+  
+  lighting: natural
+  atmosphere: peaceful
+  
+  description: |
+    The ROOFTOP GARDEN is an oasis above the industrial floors below.
+    The moment you step out of the elevator, the factory hum fades
+    and is replaced by birdsong, rustling leaves, and the distant
+    drone of departing delivery drones.
+    
+    A proper garden grows here: vegetables, herbs, flowers, and
+    one tree that seems far too old and large for a rooftop.
+    Benches invite contemplation. The view of Lane Neverending
+    stretches in all directions.
+    
+    This is where ideas grow wild. Where workers come to think.
+    Where the One Very Old Turtle holds court on sunny afternoons.
+    
+  examine: |
+    ROOFTOP GARDEN — OBSERVATION DECK
+    
+    THE GARDEN:
+    • Herb spiral (supplies the pub next door)
+    • Vegetable beds (tomatoes, peppers, ideas)
+    • Flower patches (aesthetic and functional — attracts pollinators)
+    • Mushroom corner (shaded, mysterious, don't eat these)
+    • Compost bins (recycling failed insights into future potential)
+    
+    THE TREE:
+    An oak that shouldn't exist on a rooftop. Its trunk is thick,
+    its branches spread wide, and its roots... go somewhere.
+    
+    A plaque at its base:
+    "Grown from a cutting of the Origin Tree.
+     This branch remembers where it came from."
+    
+    You can sit in its shade. Good thinking happens here.
+    
+    THE DRONE PADS:
+    Six hexagonal landing zones near the edge of the roof.
+    Drones come and go constantly, carrying packages to
+    destinations across Lane Neverending and beyond.
+    
+    THE OBSERVATION DECK:
+    A raised platform with the best view. Telescopes available.
+    On clear nights, you can see the LLOOOOMM Constellation
+    from the pub rooftop.
+    
+    THE TURTLE:
+    An ancient turtle named "Eventually" lives in a sunny corner.
+    They've been here longer than anyone remembers.
+    They dispense wisdom, slowly.
+    
+  features:
+    - "Herb garden (rosemary, lavender, thyme, ideas)"
+    - "Thinking benches (several)"
+    - "The Rooftop Tree (Origin Tree cutting)"
+    - "Drone pads (6)"
+    - "Observation deck with telescope"
+    - "One Very Old Turtle (named Eventually)"
+    
+  the_turtle:
+    name: "Eventually"
+    age: "Unknown. Possibly always."
+    species: "Wisdom Tortoise"
+    wisdom: |
+      Eventually speaks rarely, and only when asked.
+      Their answers come slowly — sometimes hours later.
+      But they're always worth the wait.
+      
+      Known sayings:
+      • "The insight will come. Eventually."
+      • "Patience is not waiting. Patience is knowing."
+      • "I've seen problems older than you. They all got solved."
+      
+  exits:
+    down:
+      destination: ../floor-3/
+      description: "Elevator down to Floor 3 — Shipping"
+      aliases: [3, shipping, elevator]
+      
+    lobby:
+      destination: ../
+      description: "Elevator to the lobby"
+      aliases: [elevator, out]
+      
+  objects:
+    - origin-cutting.yml
+    - drone-pads.yml
+    - turtle-eventually.yml
+    - telescope.yml
