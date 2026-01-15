@@ -46,6 +46,8 @@ room:
     WAITING AREA:
     Comfortable chairs. A coffee table with magazines
     (all about manufacturing, knowledge, and tortoises).
+    A thick Leela Products Catalog sits prominently — 
+    Edition 47, leather-bound, much better than ACME's.
     A small fountain burbles peacefully.
     
     WINDOWS:
@@ -87,7 +89,8 @@ room:
       description: "Door to Storage Complex"
       
   objects:
-    - camera-lob1.yml  # Leela's Front Eye
+    - camera-lob1.yml      # Leela's Front Eye
+    - leela-catalog.yml    # Products & Services Catalog, Edition 47
     
   staff:
     receptionist:
