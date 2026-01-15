@@ -10,8 +10,9 @@ This document describes the street grid topology for the virtual town. Streets a
 
 ```mermaid
 flowchart TB
-    subgraph EW["E-W STREETS (Projects) — North to South ↓"]
+    subgraph EW["E-W STREETS (Projects) ↓ North to South"]
         direction TB
+        space1[" "]
         Adv["Adventure<br>Avenue"] ~~~ Zork["Zork<br>Row"]
         Zork ~~~ MUD["MUD<br>Row"]
         MUD ~~~ Adams["Adams<br>Avenue"]
@@ -23,8 +24,9 @@ flowchart TB
         Glitch ~~~ Lane["Lane<br>Neverending"]
     end
     
-    subgraph NS["N-S STREETS (People) — West to East →"]
+    subgraph NS["N-S STREETS (People) → West to East"]
         direction LR
+        space2[" "]
         Suth["Sutherland<br>Street"] ~~~ Kay["Kay<br>Lane"]
         Kay ~~~ Eng["Engelbart<br>Avenue"]
         Eng ~~~ Min["Minsky<br>Way"]
@@ -32,6 +34,9 @@ flowchart TB
         Pap ~~~ Tur["Turing<br>Terrace"]
         Tur ~~~ Lic["Licklider<br>Lane"]
     end
+    
+    style space1 fill:none,stroke:none
+    style space2 fill:none,stroke:none
 ```
 
 ---
