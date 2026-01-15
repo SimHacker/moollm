@@ -87,6 +87,7 @@ These names were chosen for both meaning and mellifluousness:
 | **Adams Avenue** | North | Scott Adams (Adventureland) | 1978 | 📋 Planned |
 | **Zork Row** | North | Infocom's Zork | 1977-1982 | 📋 Planned |
 | **Habitat Boulevard** | Mid-North | Lucasfilm's Habitat | 1986 | 📋 Planned |
+| **Logo Lane** | Mid | Logo Adventure (Don Hopkins, C64) | 1987 | 📋 Planned |
 | **Sims Street** | Mid | The Sims, SimCity | 1989-2000 | 📋 Planned |
 | **Linden Lane** | Mid-South | Second Life (Linden Lab) | 2003 | 📋 Planned |
 | **Glitch Way** | Just North of Lane | Glitch (Tiny Speck) | 2011-2012 | 📋 Planned |
@@ -107,6 +108,11 @@ This is where the street grid ends and the adventure begins.
 Just south of Adventure Avenue. Classic Essex architecture (whatever that is — 
 brutalist 1970s university buildings? Half-timbered medieval? Both?). Like Skid Row, 
 but muddier. Where the original multi-user dungeons began.
+
+**Logo Lane:**
+Where the command line IS the parser. Don Hopkins' Logo Adventure (1987, C64 Terrapin Logo)
+let users "cheat" by learning Logo commands. Constructionist game design — the code
+was the game, the game was the code. Turtles optional but encouraged.
 
 **South of Lane Neverending:** The pub's back garden → the maze → dungeons and wilder places.
 
@@ -157,6 +163,8 @@ N O R T H   (adventure wilderness — dungeons, caves, dragons)
 ──────────────┼──────────┼────────┼─────────┼────────┼────────  Zork Row (Infocom, 1977-82)
               │          │        │         │        │
 ──────────────┼──────────┼────────┼─────────┼────────┼────────  Habitat Boulevard (1986)
+              │          │        │         │        │
+──────────────┼──────────┼────────┼─────────┼────────┼────────  Logo Lane (1987)
               │          │        │         │        │
 ──────────────┼──────────┼────────┼─────────┼────────┼────────  Sims Street (1989-2000)
               │          │        │         │        │
