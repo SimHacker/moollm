@@ -108,35 +108,46 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-    subgraph NORTH[Lane Neverending]
-        DOOR[Front Door]
-    end
+    LANE[Lane Neverending]
+    PUB[PUB<br/>Bar, Stage, Arcade]
+    COAT[Coatroom]
+    KITCHEN[Kitchen]
+    GARDEN[Garden]
+    MAZE[Maze]
+    ENDROOM[End]
+    HOME[Home]
     
-    subgraph MAIN[Main Pub Floor]
-        STAGE[Stage<br/>Palm's Nook]
-        BAR[Bar<br/>Cat Cave]
-        ARCADE[Arcade<br/>Games]
-    end
-    
-    subgraph SIDES[Side Rooms]
-        COAT[Coatroom<br/>West]
-        KITCHEN[Kitchen<br/>East]
-    end
-    
-    GARDEN[Garden<br/>Outdoor Dining]
-    MAZE[Maze<br/>Twisty Passages]
-    ENDROOM[End<br/>Treasure]
-    HOME[Home<br/>Mom's House]
-    
-    DOOR --> MAIN
-    MAIN --> SIDES
-    SIDES --> GARDEN
-    GARDEN --> MAZE
-    MAZE --> ENDROOM
-    ENDROOM --> HOME
+    LANE -->|south| PUB
+    PUB -->|south| GARDEN
+    PUB -->|southwest| COAT
+    PUB -->|southeast| KITCHEN
+    COAT -->|east| GARDEN
+    KITCHEN -->|west| GARDEN
+    GARDEN -->|south| MAZE
+    MAZE -->|deep| ENDROOM
+    ENDROOM -->|up| HOME
 ```
 
-**Navigation:** SOUTH from pub through garden → maze → end → home (up).
+**Spatial Navigation:**
+| From | Direction | To |
+|------|-----------|-----|
+| Lane | south | Pub |
+| Pub | south | Garden |
+| Pub | southwest | Coatroom |
+| Pub | southeast | Kitchen |
+| Coatroom | east | Garden |
+| Coatroom | northeast | Pub |
+| Kitchen | west | Garden |
+| Kitchen | northwest | Pub |
+| Garden | north | Pub |
+| Garden | west | Coatroom |
+| Garden | east | Kitchen |
+| Garden | south | Maze |
+
+**Multiple Paths to Garden:**
+- Direct: Pub → south → Garden
+- Via Coatroom: Pub → southwest → Coatroom → east → Garden
+- Via Kitchen: Pub → southeast → Kitchen → west → Garden
 
 ### Featured Pub Artifacts
 
