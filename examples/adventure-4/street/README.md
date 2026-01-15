@@ -43,7 +43,7 @@ flowchart LR
 | Direction | Named After | Pattern | Examples |
 |-----------|-------------|---------|----------|
 | **North-South** | People (pioneers) | [Name] + Street Type | Kay Lane, Engelbart Avenue |
-| **East-West** | Projects (virtual worlds) | [Project] + Street Type | Lane Neverending, Habitat Boulevard |
+| **East-West** | Projects (virtual worlds) | [Project] + Street Type | Lane Neverending, Habitat Highway |
 
 ### Why This Convention?
 
@@ -111,7 +111,7 @@ caves, and adventure country. Colossal Cave is up there somewhere. So are dragon
 This is where the street grid ends and the adventure begins.
 
 **MUD Row:**
-Just south of Adventure Avenue. Classic Essex architecture (whatever that is — 
+Just south of Zork Row. Classic Essex architecture (whatever that is — 
 brutalist 1970s university buildings? Half-timbered medieval? Both?). Like Skid Row, 
 but muddier. Where the original multi-user dungeons began.
 
@@ -132,7 +132,7 @@ The heart of town is where **Kay Lane** crosses **Lane Neverending**.
                  KAY LANE
                     │
                     │ N
-                    │ (toward Zork Row, Habitat Blvd)
+                    │ (toward Zork Row, Habitat Highway)
        ┌────────────┼────────────┐
   W ───┤    Lane Neverending     ├─── E
        │            │            │
