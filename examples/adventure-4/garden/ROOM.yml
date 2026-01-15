@@ -93,6 +93,16 @@ room:
     
   # Ways out
   exits:
+    north:
+      destination: ../pub/
+      description: |
+        The back door to The Rusty Lantern stands open, welcoming.
+        Warm light, the clink of glasses, the murmur of stories being
+        told and retold. The heart of the establishment.
+        
+        A sign on the door: "WELCOME BACK IN — WIPE YOUR FEET"
+      aliases: [pub, inside, door, back, lantern]
+      
     south:
       destination: ../maze/room-a/
       description: |
@@ -104,17 +114,28 @@ room:
         "A HERO PASSED THROUGH HERE"
         
         WARNING: The maze is dark. GET LAMP first!
-      aliases: [gate, maze, out, south]
+      aliases: [gate, maze, out]
       
-    north:
-      destination: ../pub/
+    west:
+      destination: ../kitchen/
       description: |
-        The back door to The Rusty Lantern stands open, welcoming.
-        Warm light, the clink of glasses, the murmur of stories being
-        told and retold. The heart of the establishment.
+        A narrow path squeezes between the pub wall and a fence,
+        disappearing into an overgrown side yard. Oddly, it smells
+        like Mother's cooking — that is, if Mother ran a family
+        restaurant adjacent to adventure dungeons.
         
-        A sign on the door: "WELCOME BACK IN — WIPE YOUR FEET"
-      aliases: [pub, inside, door, back, lantern]
+        The Fantastipants Kitchen's garden gate.
+      aliases: [side, yard, kitchen, overgrown]
+      
+    east:
+      destination: ../coatroom/
+      description: |
+        A flagstone path winds between overgrown hedges toward what
+        sounds like a busier street. You can hear cart wheels, chatter,
+        and what might be a street vendor selling something dubious.
+        
+        The path leads to the Costume Emporium's side entrance.
+      aliases: [path, costumes]
       
     inward:
       destination: ../characters/
@@ -130,27 +151,6 @@ room:
         
       metaphysical: true
       command: '"THINK ABOUT MYSELF" or "GO INWARD" or "VISIT HALL"'
-      
-    east:
-      destination: ../coatroom/
-      description: |
-        A flagstone path winds between overgrown hedges toward what
-        sounds like a busier street. You can hear cart wheels, chatter,
-        and what might be a street vendor selling something dubious.
-        
-        The path leads to the Costume Emporium's side entrance.
-      aliases: [path, street, costumes]
-      
-    west:
-      destination: ../kitchen/
-      description: |
-        A narrow path squeezes between the pub wall and a fence,
-        disappearing into an overgrown side yard. Oddly, it smells
-        like Mother's cooking — that is, if Mother ran a family
-        restaurant adjacent to adventure dungeons.
-        
-        The Fantastipants Kitchen's garden gate.
-      aliases: [side, yard, kitchen, overgrown]
       
       
   # Atmosphere

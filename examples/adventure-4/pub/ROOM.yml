@@ -260,6 +260,17 @@ room:
   
   exits:
     NORTH:
+      destination: ../street/lane-neverending/center/
+      description: |
+        The front door of The Rusty Lantern opens onto Lane Neverending.
+        Cobblestones stretch east and west. The afternoon sun glints off
+        the brass address plaque: "7 Lane Neverending."
+        
+        This is the main street. The spine of the virtual world.
+        It never ends.
+      aliases: [front, door, street, lane, outside]
+      
+    SOUTH:
       destination: ../garden/
       description: "Out to the Back Garden — fresh air and possibilities"
       aliases: [garden, outside, out, back, patio]
@@ -281,7 +292,7 @@ room:
         A passage leads toward the Costume Emporium. You can hear
         the rustle of fabric and the whisper of sequins calling to you.
         
-        "NEED A NEW LOOK? COSTUMES THIS WAY →"
+        "NEED A NEW LOOK? OR NEW MIND AND PERSONALITY? COSTUMES THIS WAY →"
       aliases: [coatroom, costumes, emporium, wardrobe]
       
     UP:
@@ -298,17 +309,6 @@ room:
     DOWN:
       destination: basement/
       description: "Stone stairs descend to the cellar"
-      
-    SOUTH:
-      destination: ../street/lane-neverending/center/
-      description: |
-        The front door of The Rusty Lantern opens onto Lane Neverending.
-        Cobblestones stretch east and west. The afternoon sun glints off
-        the brass address plaque: "7 Lane Neverending."
-        
-        This is the main street. The spine of the virtual world.
-        It never ends.
-      aliases: [front, door, street, lane, outside]
       
   objects:
     - bartender.yml

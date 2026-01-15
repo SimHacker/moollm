@@ -1,0 +1,339 @@
+# PONY EXPRESS DELIVERY SERVICE
+# Traditional logistics for rustic and historic adventure realms
+# "When drones can't fly and trucks can't drive, we ride."
+
+object:
+  id: pony-express
+  name: "Leela Pony Express"
+  type: service
+  emoji: "🐎📬"
+  
+  tags: [delivery, logistics, horses, traditional, fantasy, dnd, rustic, historic]
+  
+  operated_from: carriage-house.yml
+  integrated_with: ../logistics/ROOM.yml
+  
+  description: |
+    The LEELA PONY EXPRESS — traditional delivery logistics for realms
+    where modern technology fears to tread.
+    
+    Medieval kingdoms. Enchanted forests. Wild west frontiers.
+    Dragon-haunted mountain passes. Places where drones get
+    eaten and trucks sink in swamps.
+    
+    Headquarters: The Carriage House at Leela Manufacturing
+    Motto: "Neither rain, nor snow, nor dragons of unusual size..."
+    
+  examine: |
+    LEELA PONY EXPRESS — RUSTIC DELIVERY LOGISTICS
+    ══════════════════════════════════════════════════════
+    
+    ┌─────────────────────────────────────────────────────────────┐
+    │  🐎📬 PONY EXPRESS DISPATCH                                 │
+    │  ═══════════════════════════════════════════════════════════│
+    │                                                             │
+    │  ROUTES SERVED:                                             │
+    │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐         │
+    │  │MEDIEVAL │  │ FANTASY │  │WILD WEST│  │ RUSTIC  │         │
+    │  │KINGDOMS │  │ REALMS  │  │FRONTIER │  │ VILLAGES│         │
+    │  │ castles │  │ forests │  │  towns  │  │ hamlets │         │
+    │  └─────────┘  └─────────┘  └─────────┘  └─────────┘         │
+    │                                                             │
+    │  DELIVERY TIERS:                                            │
+    │  • Pony Cart Express — Small parcels, 1-2 day local         │
+    │  • Rider Courier — Urgent, single saddlebag, fastest        │
+    │  • Carriage Standard — Medium loads, 3-5 day regional       │
+    │  • Stagecoach Route — Heavy cargo, scheduled runs           │
+    │                                                             │
+    │  STATUS: 🟢 OPERATIONAL                                     │
+    │  RIDERS ON DUTY: 4                                          │
+    │  ACTIVE DELIVERIES: 12                                      │
+    │  HORSES RESTED: 6/8                                         │
+    │                                                             │
+    │  "Neither rain, nor snow, nor dragons of unusual size..."   │
+    └─────────────────────────────────────────────────────────────┘
+    
+    ══════════════════════════════════════════════════════
+    INTEGRATION WITH LEELA LOGISTICS
+    ══════════════════════════════════════════════════════
+    
+    The Pony Express is fully integrated with the modern
+    Leela Logistics network:
+    
+    HANDOFF POINTS:
+    • Incoming: Modern deliveries arrive at Loading Docks
+      → Sorted → Transferred to Carriage House
+      → Loaded onto appropriate horse transport
+      → Dispatched to rustic realms
+      
+    • Outgoing: Rustic realm packages arrive by horse
+      → Received at Carriage House
+      → Logged in Central Database (yes, PostgreSQL)
+      → Transferred to modern logistics
+      → Continue via drone/truck as appropriate
+    
+    TRACKING:
+    • All shipments tracked in PostgreSQL TimescaleDB
+    • Rider check-ins at waypoints (carrier pigeon relay)
+    • Estimated arrival calculated by route + weather + horse
+    • Real-time status: "Last seen: Enchanted Forest waypoint 3"
+    
+    THE BEAUTY OF IT:
+    Packages flow seamlessly between worlds.
+    A customer in a medieval kingdom orders from the Leela catalog.
+    Drone flies to the realm boundary.
+    Pony Express takes it from there.
+    Delivered to the castle gate by rider.
+    
+    Modern efficiency meets traditional reliability.
+    
+    ══════════════════════════════════════════════════════
+    ROUTES & SCHEDULES
+    ══════════════════════════════════════════════════════
+    
+    ROUTE: MEDIEVAL KINGDOM CIRCUIT
+    ────────────────────────────────
+    • Leela → Castle Gate → Village Square → Tower → return
+    • Frequency: Daily departure at dawn
+    • Vehicle: Standard Carriage (C2)
+    • Duration: 3 days round trip
+    • Hazards: Bandits (low), weather (moderate)
+    
+    ROUTE: ENCHANTED FOREST EXPRESS
+    ────────────────────────────────
+    • Leela → Forest Edge → Waypoint 1-5 → Elf Settlement
+    • Frequency: Every 3 days
+    • Vehicle: Rider Courier (speed essential)
+    • Duration: 2 days one way
+    • Hazards: Getting lost (high), magic (unpredictable)
+    • Note: Iron horseshoes cause problems. Use brass.
+    
+    ROUTE: FRONTIER STAGECOACH LINE
+    ────────────────────────────────
+    • Leela → River Crossing → Desert Pass → Frontier Town
+    • Frequency: Weekly
+    • Vehicle: Stagecoach (C3) with armed guard
+    • Duration: 5 days one way
+    • Hazards: Outlaws (high), terrain (rough)
+    • Note: Strongbox included. Sheriff notified.
+    
+    ROUTE: VILLAGE CIRCUIT
+    ────────────────────────────────
+    • Leela → Hamlet A → Village B → Farm C → Hamlet D → return
+    • Frequency: Twice weekly
+    • Vehicle: Pony Cart (C1)
+    • Duration: 2 days round trip
+    • Hazards: Muddy roads (seasonal), curious geese (persistent)
+    
+    ══════════════════════════════════════════════════════
+    PERSONNEL
+    ══════════════════════════════════════════════════════
+    
+    DISPATCH MASTER: Henry Minskison
+    • Former stagecoach driver, bear trainer, 30 years experience
+    • Knows every route, every waypoint, every innkeeper
+    • Coordinates with Old Jareth (Stable Master)
+    • Desk in the Carriage House, next to the tack room
+    
+    RIDERS:
+    • Swift Sam — Fastest courier, rides Shadowmere
+    • Steady Eddie — Never lost a package, prefers Epona
+    • Dusty Rhodes — Frontier specialist, handles outlaws
+    • Young Clara — Apprentice, eager, learning the routes
+    
+    GUARDS (Stagecoach runs):
+    • Big Mike — Intimidating presence, rarely needs weapon
+    • Sharpshooter Sue — Exactly what it sounds like
+    
+  philosophy: |
+    WHY PONY EXPRESS IN A WORLD OF DRONES?
+    
+    Because not every realm has WiFi.
+    Because some forests eat technology.
+    Because dragons think drones are snacks.
+    Because some customers PREFER a rider at their gate.
+    
+    ACME tried automated delivery everywhere.
+    Their drone got turned into a toad in the Enchanted Forest.
+    Their truck sank in the Swamp of Despair.
+    Their "smart anvil" was last seen orbiting a wizard's tower.
+    
+    Leela adapts. Some realms need horses.
+    We have horses. We have riders. We deliver.
+    
+    The modern and traditional, working together.
+    That's the Leela way.
+    
+  services:
+    rider_courier:
+      name: "Rider Courier"
+      emoji: "🏇📨"
+      description: "Single rider, saddlebag only, fastest option"
+      capacity: "10 kg, small packages only"
+      speed: "1-2 days local, 2-4 days regional"
+      cost: "Premium"
+      best_for: "Urgent documents, small valuables, time-sensitive"
+      
+    pony_cart_express:
+      name: "Pony Cart Express"
+      emoji: "🐴🛒"
+      description: "Small cart, pony-drawn, local deliveries"
+      capacity: "200 kg"
+      speed: "1-2 days local"
+      cost: "Economy"
+      best_for: "Local village deliveries, small bulk orders"
+      
+    carriage_standard:
+      name: "Carriage Standard"
+      emoji: "🚃📦"
+      description: "Full carriage, scheduled routes, reliable"
+      capacity: "500 kg or 4 passengers"
+      speed: "3-5 days regional"
+      cost: "Standard"
+      best_for: "Regular shipments, passenger + cargo"
+      
+    stagecoach_line:
+      name: "Stagecoach Line"
+      emoji: "🚌📦🔫"
+      description: "Heavy transport, armed guard, frontier routes"
+      capacity: "1000 kg or 8 passengers"
+      speed: "5-7 days long haul"
+      cost: "Premium (includes security)"
+      best_for: "Valuable cargo, dangerous routes, bulk transport"
+      
+  integration:
+    database: ../logistics/central-database.yml
+    coordinator: ../logistics/ROOM.yml
+    vehicles: carriage-house.yml
+    
+    handoff_protocol: |
+      MODERN → PONY EXPRESS:
+      1. Package arrives at Loading Docks (any modern method)
+      2. Sorted by destination realm
+      3. If realm is "rustic" → flag for Pony Express
+      4. Transfer to Carriage House
+      5. Henry assigns route and vehicle
+      6. Package loaded, manifest updated in PostgreSQL
+      7. Rider departs with tracking ID
+      
+      PONY EXPRESS → MODERN:
+      1. Rider arrives at Carriage House with incoming
+      2. Packages logged in (Old Jareth or Henry)
+      3. Entered into Central Database
+      4. Transferred to Loading Docks
+      5. Continue via drone/truck/pneumatic as appropriate
+      
+    tracking: |
+      All Pony Express shipments tracked in PostgreSQL:
+      • shipment_id, origin, destination, route
+      • vehicle_type, rider_assigned, horse_assigned
+      • departed_at, last_waypoint, last_checkin
+      • estimated_arrival, actual_arrival
+      • status: [dispatched, in_transit, waypoint_N, delivered, returned]
+      
+      Waypoint check-ins via:
+      • Carrier pigeon (most common)
+      • Magical sending stone (enchanted forest routes)
+      • Telegraph (frontier routes, where available)
+      • Runner relay (short distances)
+      
+  lore: |
+    The Pony Express was established when Leela realized that
+    not all customers live in places with roads, electricity,
+    or breathable atmosphere for drones.
+    
+    The first shipment was to a wizard's tower. The drone
+    got zapped by a ward. The truck couldn't climb the
+    floating island. Henry suggested horses.
+    
+    "Horses don't care about wards," he said. "They just
+    want oats and a pat on the nose."
+    
+    The wizard got his package. He tipped the rider in
+    enchanted horseshoes. Those horseshoes are now on
+    Shadowmere, which explains a few things.
+    
+    Since then, the Pony Express has delivered to:
+    • 47 castles
+    • 12 enchanted forests
+    • 8 dragon lairs (exterior delivery only)
+    • 3 underwater kingdoms (waterproof packaging required)
+    • 1 floating city (long ladder involved)
+    • Countless villages, hamlets, and frontier towns
+    
+    ACME still hasn't figured out how to deliver to these places.
+    Their painted tunnel doesn't work in realms without walls.
+    
+  methods:
+    DISPATCH:
+      description: "Send a shipment via Pony Express"
+      parameters:
+        destination: "Where it's going"
+        package: "What's being sent"
+        service: "rider, cart, carriage, or stagecoach"
+        urgency: "standard or rush"
+      effect: |
+        Henry reviews the request...
+        Checks route availability...
+        Assigns rider and vehicle...
+        
+        "Package dispatched! Tracking ID: PE-[number]"
+        "Estimated arrival: [days] days"
+        "Rider: [name] on [horse]"
+        
+    TRACK:
+      description: "Check status of a Pony Express shipment"
+      parameters:
+        tracking_id: "The PE-[number] from dispatch"
+      effect: |
+        Checking PostgreSQL...
+        
+        SHIPMENT: [tracking_id]
+        Status: [status]
+        Last waypoint: [location]
+        Last check-in: [time]
+        Estimated arrival: [date]
+        Rider: [name]
+        Horse: [horse_name]
+        
+    SCHEDULE_PICKUP:
+      description: "Request pickup from a rustic realm"
+      parameters:
+        location: "Where to pick up"
+        package: "What's being collected"
+        date: "When to arrive"
+      effect: |
+        Henry schedules the pickup...
+        
+        "Rider will arrive at [location] on [date]."
+        "Please have package ready and accessible."
+        "Carrier pigeon confirmation will be sent."
+        
+    CHECK_ROUTES:
+      description: "See current route status"
+      effect: |
+        PONY EXPRESS ROUTE STATUS
+        ═════════════════════════
+        
+        Medieval Circuit: 🟢 Running
+        Enchanted Express: 🟡 Delayed (fog in forest)
+        Frontier Line: 🟢 Running
+        Village Circuit: 🟢 Running
+        
+        Next departures:
+        • Medieval: Tomorrow, dawn
+        • Enchanted: 2 days
+        • Frontier: 4 days
+        • Village: Tomorrow, afternoon
+        
+  k_lines:
+    - LOGISTICS
+    - PONY-EXPRESS
+    - TRADITIONAL
+    - HORSES
+    - DELIVERY
+    - RUSTIC
+    - FANTASY
+    - INTEGRATION
+    - TRACKING
+    - POSTGRESQL  # Yes, even the horses are tracked in PostgreSQL
