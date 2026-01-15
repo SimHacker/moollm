@@ -156,6 +156,91 @@ flowchart TB
 - Down stairs to Pub
 - Shared facilities (ice machine, soda machine, signage)
 
+### The Spatial Models — Don Explains
+
+*Don pauses at the Landing, gesturing at the eight doors arranged around them.*
+
+**Don:** "Let me explain the spatial models we use. There are three patterns here, and they all serve different purposes."
+
+#### Model 1: Hub & Spoke (Pie Menu)
+
+**Don:** "The hotel floor uses the **pie menu model**. Eight rooms, one central hub. Every room connects ONLY to the hub — not to each other."
+
+```
+         [1] [2] [3] [4]
+               ↘ ↓ ↙
+              LANDING
+               ↗ ↑ ↖
+         [5] [6] [7] [8]
+```
+
+**Don:** "Why? Because the hub is special. It has the stairs, the ice machine, the shared facilities. If you want to go from Room 1 to Room 8, you MUST pass through the hub. This creates natural traffic, natural encounters, natural centrality."
+
+**Selfie:** "It's like prototype inheritance! The Landing is the prototype — all the rooms inherit their connection to the world through it."
+
+**Don:** "Exactly. The hub is the gatekeeper. The meeting point. The place where strangers become friends because they're both getting ice at 2 AM."
+
+#### Model 2: Diamond Grid (Reflexive Shortcuts)
+
+**Don:** "The ground floor uses a **diamond pattern** with reflexive two-way links and multiple paths."
+
+```
+              PUB
+           ↙   ↓   ↘
+       COAT  GARDEN  KITCHEN
+           ↘   ↓   ↙
+              MAZE
+```
+
+**Don:** "Every exit has a matching return. Go southwest to Coatroom, come back northeast to Pub. Go south to Garden, come back north to Pub. Consistent, spatial, reflexive."
+
+**Marieke:** "And multiple paths to the same place!"
+
+**Don:** "Right! Three ways to reach the Garden from the Pub:
+1. Direct: south
+2. Via Coatroom: southwest → east  
+3. Via Kitchen: southeast → west
+
+This isn't just convenience — it's **topology**. The space has SHAPE. You can take shortcuts. You can avoid people. You can discover that the Kitchen and Coatroom both open onto the Garden and think 'oh, THAT'S how this place is laid out.'"
+
+#### Model 3: Vertical Stack (Linear with Branches)
+
+**Don:** "The building's vertical structure is a **linear stack** — each level connects only to the ones above and below."
+
+```
+    ROOFTOP
+       ↕
+    ATTIC  
+       ↕
+    LANDING (hub)
+       ↕
+    PUB
+       ↕
+    BASEMENT
+```
+
+**Don:** "But notice — the vertical connections all go through the Landing, not through individual rooms. The rooms don't have their own stairs. If you're in Room 3 and want to go to the basement, you MUST go out to the Landing first."
+
+**Cell G:** "This creates a hierarchy. The Landing is more important than the rooms. The Pub is more important than the basement. Centrality emerges from connectivity."
+
+#### Why These Models Matter
+
+**Don:** "These aren't arbitrary. They're **design patterns** for spatial navigation."
+
+| Model | Structure | Creates |
+|-------|-----------|---------|
+| Hub & Spoke | Central point, radiating connections | Natural gathering, forced encounters |
+| Diamond Grid | Reflexive exits, multiple paths | Exploration, shortcuts, topology |
+| Vertical Stack | Linear levels, single connection points | Hierarchy, journey, progression |
+
+**Don:** "When you're building a world, you're not just placing rooms — you're designing how people MOVE through space. How they meet. How they get lost. How they find their way."
+
+**Palm:** *signs from the curtain rod* "The path IS the story."
+
+**Don:** "The path is the story."
+
+---
+
 ### Horizontal Layout (Ground Level)
 
 ```mermaid
