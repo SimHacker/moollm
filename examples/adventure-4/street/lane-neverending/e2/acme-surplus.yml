@@ -1,0 +1,87 @@
+# The abandoned ACME Surplus store
+
+object:
+  name: ACME Surplus Storefront
+  type: building
+  portable: false
+  status: closed
+  
+  description: |
+    A dusty storefront with a faded sign: "ACME SURPLUS — EVERYTHING MUST GO"
+    Everything did go. The store is empty now.
+    
+  examine: |
+    ACME SURPLUS — 12 LANE NEVERENDING
+    
+    The windows are dusty but not boarded. Inside, empty shelves
+    stretch into darkness. A few price tags flutter in a draft
+    from somewhere.
+    
+    THE SIGN:
+    "ACME SURPLUS — EVERYTHING MUST GO!"
+    (In smaller letters: "And it did. Sorry.")
+    
+    WINDOW DISPLAY:
+    • An empty pedestal labeled "PORTABLE HOLE (SOLD)"
+    • A sign: "ROCKET SKATES — OUT OF STOCK INDEFINITELY"
+    • A faded poster of a coyote looking disappointed
+    • One (1) slightly dented anvil (display model, not for sale)
+    
+    THE DOOR:
+    Locked, but the lock looks... negotiable. A small sign:
+    "CLOSED FOR INVENTORY (checking what we have left: nothing)"
+    
+    A note taped to the door:
+    "For genuine ACME products, visit The Rusty Lantern kitchen.
+    We're not responsible for anything purchased there either."
+    
+    GRAFFITI:
+    Someone spray-painted "MEEP MEEP" on the wall.
+    Someone else crossed it out and wrote "TOO SOON."
+    
+  actions:
+    PEEK:
+      description: "Look through the dusty window"
+      effect: |
+        You cup your hands against the glass and peer inside...
+        
+        Empty shelves. Dust motes floating in dim light.
+        A cash register that's clearly been cleaned out.
+        
+        But wait — is that a box in the back? Labeled...
+        "DO NOT OPEN — SERIOUSLY — WE MEAN IT"?
+        
+        Probably nothing. Probably.
+        
+    KNOCK:
+      description: "Knock on the door"
+      effect: |
+        *knock knock knock*
+        
+        Silence.
+        
+        Then, from deep inside: a distant *crash*, followed by
+        what sounds like a "meep."
+        
+        ...probably just the building settling.
+        
+    READ_ANVIL:
+      description: "Examine the anvil in the window"
+      effect: |
+        The anvil sits on a small pedestal. A tag hangs from it:
+        
+        "ACME ANVIL (Display Model)
+        Weight: Exactly right for comedic timing
+        Material: Cartoon-grade iron
+        NOT FOR SALE
+        
+        (We learned our lesson.)"
+        
+  secret:
+    the_back_room: |
+      There IS something in the back. A single box that wouldn't sell.
+      Inside: an ACME Product that works EXACTLY as intended.
+      
+      Nobody knows what to do with it.
+      
+      It's terrifying.
