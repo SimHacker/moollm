@@ -9,25 +9,30 @@ This document describes the street grid topology for the virtual town. Streets a
 ## The Grid Plan
 
 ```mermaid
-flowchart TB
-    subgraph Grid["THE TOWN GRID"]
+flowchart LR
+    subgraph NS["N-S STREETS (People) →"]
+        direction LR
+        Suth["Sutherland<br>Street"]
+        Kay["Kay<br>Lane"]
+        Eng["Engelbart<br>Avenue"]
+        Min["Minsky<br>Way"]
+        Pap["Papert<br>Path"]
+        Tur["Turing<br>Terrace"]
+        Lic["Licklider<br>Lane"]
+    end
+    
+    subgraph EW["E-W STREETS (Projects) ↓"]
         direction TB
-        
-        subgraph NS["N-S STREETS (People)"]
-            direction LR
-            Suth["Sutherland\nStreet"]
-            Kay["Kay\nLane"]
-            Eng["Engelbart\nAvenue"]
-            Min["Minsky\nWay"]
-            Pap["Papert\nPath"]
-        end
-        
-        subgraph EW["E-W STREETS (Projects)"]
-            direction TB
-            Hab["Habitat Boulevard"]
-            Lane["Lane Neverending"]
-            Zork["Zork Row"]
-        end
+        Adv["Adventure Avenue"]
+        Zork["Zork Row"]
+        MUD["MUD Row"]
+        Adams["Adams Avenue"]
+        Hab["Habitat Highway"]
+        Logo["Logo Lane"]
+        Sims["Sims Street"]
+        Linden["Linden Lane"]
+        Glitch["Glitch Way"]
+        Lane["Lane Neverending"]
     end
 ```
 
