@@ -34,6 +34,7 @@ room:
     │   SECTION W: Workspaces (labs, workshops, studios)          │
     │   SECTION V: Venues (theaters, arenas, ballrooms)           │
     │   SECTION X: Experimental (non-Euclidean, pocket dims)      │
+    │   SECTION P: Planning (grids, layouts, infrastructure)     │
     │                                                             │
     │   ⚠️ PROTOTYPES ONLY — DO NOT ENTER — CLONE FIRST ⚠️        │
     │                                                             │
@@ -100,13 +101,19 @@ room:
       contents: "Non-Euclidean spaces, pocket dimensions, impossible rooms"
       warning: "May not comply with local physics ordinances"
       
+    layouts:
+      name: "Section P: Planning & Layouts"
+      contents: "Grid patterns, radial layouts, street plans, infrastructure"
+      note: "Clone a layout, fill in the rooms"
+      
   exits:
     elevator:
       destination: ../
       description: "Freight elevator back to main storage"
       
   objects:
-    - PROTOTYPES.yml
+    - PROTOTYPES.yml      # Buildings and rooms
+    - LAYOUTS.yml         # Grid, radial, topology patterns
     - deployment-console.yml
     
   staff:

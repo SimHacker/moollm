@@ -25,6 +25,7 @@ These aren't containers — they're **ROOMS. BUILDINGS. STRUCTURES.** Each one a
 | **W: Workspaces** | Professional spaces | Research lab, artist studio, maker workshop |
 | **V: Venues** | Event spaces | Small theater, grand ballroom |
 | **X: Experimental** | Weird stuff | Non-Euclidean room, pocket dimension, tesseract |
+| **P: Planning** | Layouts & infrastructure | Grids, radial, street plans, deployment |
 
 ---
 
@@ -91,6 +92,64 @@ Your Leela villain HQ features:
 | **Non-Euclidean Room** | Angles don't add up, interior larger than exterior | May cause philosophical distress |
 | **Pocket Dimension** | Entire dimension, keychain-sized | Do not lose the key |
 | **Tesseract Room** | 4 spatial dimensions | May take 2-3 visits to stop screaming |
+
+---
+
+---
+
+## 📐 Section P: Planning & Layouts
+
+Clone a layout pattern, fill in the rooms!
+
+### Grid Layouts
+
+| Layout | Pattern | Use Cases |
+|--------|---------|-----------|
+| **Rectangular Grid** | N/S/E/W connections | City blocks, dungeons, offices |
+| **Hex Grid** | 6-way connections | Natural terrain, crystalline |
+| **8-Way Grid** | Cardinal + diagonal | Chess-like, fluid movement |
+
+### Radial/Star Layouts (Pie Menu Style)
+
+| Layout | Pattern | Use Cases |
+|--------|---------|-----------|
+| **4-Way Pie** | ✚ N/E/S/W from center | Classic adventure rooms |
+| **8-Way Pie** | ✳️ Including diagonals | Maximum navigation |
+| **Concentric Rings** | ◎ Nested circles | Layered security, temples |
+| **Star/Hub** | ✴️ Spokes from center | Transit hubs, throne rooms |
+
+### Topological Patterns
+
+| Topology | Description |
+|----------|-------------|
+| **Tree** | Hierarchical branching, no cycles |
+| **Graph** | Free-form any-to-any connections |
+| **Linear** | Rooms in a line |
+| **Loop** | Circular path returning to start |
+
+### Street Plans
+
+| Plan | Style |
+|------|-------|
+| **Manhattan Grid** | Numbered streets, avenues |
+| **Radial Plan** | European plaza with radiating streets |
+| **Organic Medieval** | Winding historical growth |
+
+### Infrastructure Networks
+
+| Network | Description |
+|---------|-------------|
+| **Utility** | Power, water, data, pneumatic tubes |
+| **Transit** | Hub-and-spoke transportation |
+| **Supply Chain** | Factorio-style production flows |
+
+### Deployment Strategies
+
+| Strategy | Approach |
+|----------|----------|
+| **Phased** | Build in stages, each enables next |
+| **Hub-First** | Center out, ensures connectivity |
+| **Edge-In** | Perimeter first, fill center |
 
 ---
 

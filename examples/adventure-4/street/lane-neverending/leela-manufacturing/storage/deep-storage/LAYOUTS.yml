@@ -1,0 +1,530 @@
+# DEEP STORAGE — LAYOUT PROTOTYPES
+# Grid, Radial, and Topological Patterns for Room Generation
+# Street Plans, Roadmaps, Infrastructure Planning
+# "Clone a layout, fill in the rooms."
+
+layouts:
+
+  # ═══════════════════════════════════════════════════════════════
+  # GRID LAYOUTS
+  # ═══════════════════════════════════════════════════════════════
+  
+  rectangular-grid:
+    id: rectangular-grid
+    name: "Rectangular Grid Layout"
+    type: layout
+    emoji: "▦"
+    tags: [layout, grid, rectangular, cardinal]
+    
+    description: |
+      Classic grid layout with N/S/E/W connections.
+      Like a city block or dungeon level.
+      
+    pattern: |
+      ┌───┬───┬───┬───┐
+      │ A │ B │ C │ D │
+      ├───┼───┼───┼───┤
+      │ E │ F │ G │ H │
+      ├───┼───┼───┼───┤
+      │ I │ J │ K │ L │
+      └───┴───┴───┴───┘
+      
+    properties:
+      dimensions: [rows, columns]
+      connections: [north, south, east, west]
+      wrap: optional  # torus topology
+      
+    generation:
+      algorithm: "nested loops"
+      exits: "cardinal directions to adjacent cells"
+      naming: "coordinate-based or sequential"
+      
+    use_cases:
+      - "City blocks"
+      - "Dungeon levels"
+      - "Office buildings"
+      - "Warehouse aisles"
+      
+  hex-grid:
+    id: hex-grid
+    name: "Hexagonal Grid Layout"
+    type: layout
+    emoji: "⬡"
+    tags: [layout, grid, hexagonal, six-way]
+    
+    description: |
+      Hexagonal grid with 6 connections per cell.
+      Better for organic/natural layouts.
+      
+    pattern: |
+         ╱╲   ╱╲   ╱╲
+        ╱ A╲ ╱ B╲ ╱ C╲
+        ╲   ╱╲   ╱╲   ╱
+         ╲╱ D╲╱ E╲╱ F╲
+         ╱╲   ╱╲   ╱╲
+        ╱ G╲ ╱ H╲ ╱ I╲
+        ╲   ╱╲   ╱╲   ╱
+         ╲╱   ╲╱   ╲╱
+         
+    properties:
+      dimensions: [rows, columns]
+      connections: [ne, e, se, sw, w, nw]
+      offset: "odd-q or even-q"
+      
+    use_cases:
+      - "Natural terrain"
+      - "Beehive structures"
+      - "Strategy game maps"
+      - "Crystalline layouts"
+      
+  diagonal-grid:
+    id: diagonal-grid
+    name: "8-Way Grid Layout"
+    type: layout
+    emoji: "✦"
+    tags: [layout, grid, diagonal, eight-way]
+    
+    description: |
+      Grid with 8 connections: cardinal + diagonal.
+      More fluid movement, chess-like.
+      
+    properties:
+      dimensions: [rows, columns]
+      connections: [n, ne, e, se, s, sw, w, nw]
+      diagonal_cost: "optional movement penalty"
+      
+  # ═══════════════════════════════════════════════════════════════
+  # RADIAL/STAR LAYOUTS (Pie Menu Style)
+  # ═══════════════════════════════════════════════════════════════
+  
+  star-layout:
+    id: star-layout
+    name: "Star/Radial Layout"
+    type: layout
+    emoji: "✴️"
+    tags: [layout, radial, star, hub-and-spoke]
+    
+    description: |
+      Central hub with spokes radiating outward.
+      Like a pie menu or wagon wheel.
+      
+    pattern: |
+              [N]
+               │
+        [NW]   │   [NE]
+           ╲   │   ╱
+            ╲  │  ╱
+             ╲ │ ╱
+        [W]───[HUB]───[E]
+             ╱ │ ╲
+            ╱  │  ╲
+           ╱   │   ╲
+        [SW]   │   [SE]
+               │
+              [S]
+              
+    properties:
+      spokes: 8  # configurable: 4, 6, 8, 12
+      hub: "central room"
+      rings: optional  # concentric circles
+      
+    generation:
+      hub_first: true
+      spokes_from_center: true
+      optional_outer_ring: true
+      
+    use_cases:
+      - "Pie menus"
+      - "Compass roses"
+      - "Throne rooms with exits"
+      - "Transit hubs"
+      - "Spider web layouts"
+      
+  pie-menu-4:
+    id: pie-menu-4
+    name: "4-Way Pie Menu"
+    type: layout
+    emoji: "✚"
+    tags: [layout, radial, pie, cardinal]
+    
+    description: |
+      Four-way radial: North, East, South, West.
+      Classic adventure game layout.
+      
+    pattern: |
+            [N]
+             │
+      [W]───[●]───[E]
+             │
+            [S]
+            
+  pie-menu-8:
+    id: pie-menu-8
+    name: "8-Way Pie Menu"
+    type: layout
+    emoji: "✳️"
+    tags: [layout, radial, pie, eight-way]
+    
+    description: |
+      Eight-way radial including diagonals.
+      Maximum navigation flexibility.
+      
+    pattern: |
+        [NW] [N] [NE]
+           ╲ │ ╱
+      [W]───[●]───[E]
+           ╱ │ ╲
+        [SW] [S] [SE]
+        
+  concentric-rings:
+    id: concentric-rings
+    name: "Concentric Rings Layout"
+    type: layout
+    emoji: "◎"
+    tags: [layout, radial, rings, layered]
+    
+    description: |
+      Nested rings around a center.
+      Each ring connected to adjacent rings.
+      
+    pattern: |
+           ┌─────────────┐
+          ╱ ┌─────────┐   ╲
+         │ ╱ ┌─────┐   ╲   │
+         ││ ╱       ╲   │  │
+         │││  [●]    │  │  │
+         ││ ╲       ╱   │  │
+         │ ╲ └─────┘   ╱   │
+          ╲ └─────────┘   ╱
+           └─────────────┘
+           
+    properties:
+      rings: 3  # configurable
+      sectors_per_ring: [1, 4, 8]  # inner to outer
+      ring_connections: "radial"
+      sector_connections: "circular"
+      
+  # ═══════════════════════════════════════════════════════════════
+  # TOPOLOGICAL PATTERNS
+  # ═══════════════════════════════════════════════════════════════
+  
+  tree-topology:
+    id: tree-topology
+    name: "Tree/Hierarchical Layout"
+    type: topology
+    emoji: "🌳"
+    tags: [topology, tree, hierarchical, branching]
+    
+    description: |
+      Root with branching children.
+      No cycles, single path to each node.
+      
+    pattern: |
+              [ROOT]
+             ╱  │  ╲
+           [A] [B] [C]
+           ╱│   │   │╲
+         [1][2][3] [4][5]
+         
+    properties:
+      branching_factor: variable
+      depth: configurable
+      balance: optional
+      
+    use_cases:
+      - "File systems"
+      - "Organization charts"
+      - "Tech trees"
+      - "Family trees"
+      
+  graph-topology:
+    id: graph-topology
+    name: "Free-Form Graph"
+    type: topology
+    emoji: "🕸️"
+    tags: [topology, graph, free-form, connections]
+    
+    description: |
+      Any-to-any connections. Cycles allowed.
+      Maximum flexibility, requires explicit edges.
+      
+    use_cases:
+      - "Social networks"
+      - "Transit systems"
+      - "Neural networks"
+      - "Maze with shortcuts"
+      
+  linear-chain:
+    id: linear-chain
+    name: "Linear Chain Layout"
+    type: topology
+    emoji: "━"
+    tags: [topology, linear, chain, sequence]
+    
+    description: |
+      Rooms connected in a line.
+      Simple progression, obvious path.
+      
+    pattern: "[A]━━[B]━━[C]━━[D]━━[E]"
+    
+    use_cases:
+      - "Tutorial sequences"
+      - "Train cars"
+      - "Story progression"
+      - "Assembly lines"
+      
+  loop-topology:
+    id: loop-topology
+    name: "Loop/Ring Topology"
+    type: topology
+    emoji: "○"
+    tags: [topology, loop, ring, circular]
+    
+    description: |
+      Circular path returning to start.
+      Two directions to any destination.
+      
+    pattern: |
+           ┌──[A]──┐
+           │       │
+         [D]     [B]
+           │       │
+           └──[C]──┘
+           
+  # ═══════════════════════════════════════════════════════════════
+  # STREET PLANS
+  # ═══════════════════════════════════════════════════════════════
+  
+  manhattan-grid:
+    id: manhattan-grid
+    name: "Manhattan Grid Plan"
+    type: street-plan
+    emoji: "🏙️"
+    tags: [streets, grid, urban, numbered]
+    
+    description: |
+      Rectangular grid with numbered streets and avenues.
+      Classic American urban planning.
+      
+    pattern: |
+      ═══════╪═══════╪═══════╪═══════
+       1st   │ 2nd   │ 3rd   │ 4th
+      ═══════╪═══════╪═══════╪═══════
+        A    │   B   │   C   │   D
+      ═══════╪═══════╪═══════╪═══════
+        E    │   F   │   G   │   H
+      ═══════╪═══════╪═══════╪═══════
+             AVE A   AVE B   AVE C
+             
+    properties:
+      streets: "numbered, E-W"
+      avenues: "named/numbered, N-S"
+      blocks: "rectangular lots"
+      
+  radial-plan:
+    id: radial-plan
+    name: "Radial Street Plan"
+    type: street-plan
+    emoji: "🎯"
+    tags: [streets, radial, european, central]
+    
+    description: |
+      Streets radiating from central plaza.
+      Classic European city center.
+      
+    pattern: |
+              ╲ │ ╱
+               ╲│╱
+          ─────[⬤]─────
+               ╱│╲
+              ╱ │ ╲
+              
+    properties:
+      center: "plaza or monument"
+      radials: "major arteries"
+      rings: "connecting roads"
+      
+  organic-medieval:
+    id: organic-medieval
+    name: "Organic Medieval Plan"
+    type: street-plan
+    emoji: "🏰"
+    tags: [streets, organic, medieval, winding]
+    
+    description: |
+      Winding streets grown organically over time.
+      Seemingly random but historically layered.
+      
+    properties:
+      structure: "follows terrain and history"
+      landmarks: "churches, markets, wells"
+      growth: "incremental over centuries"
+      
+  # ═══════════════════════════════════════════════════════════════
+  # INFRASTRUCTURE PLANNING
+  # ═══════════════════════════════════════════════════════════════
+  
+  utility-network:
+    id: utility-network
+    name: "Utility Network Layout"
+    type: infrastructure
+    emoji: "🔌"
+    tags: [infrastructure, utilities, networks]
+    
+    description: |
+      Trunk lines with branch distribution.
+      Power, water, data, pneumatic tubes.
+      
+    pattern: |
+      [SOURCE]════════════════════[TRUNK]
+                    │    │    │
+                   [A]  [B]  [C]
+                    │    │    │
+                   ○○○  ○○○  ○○○
+                   
+    types:
+      - power: "electrical distribution"
+      - water: "supply and drainage"
+      - data: "network infrastructure"
+      - pneumatic: "tube delivery systems"
+      - steam: "heating networks"
+      
+  transit-network:
+    id: transit-network
+    name: "Transit Network Layout"
+    type: infrastructure
+    emoji: "🚇"
+    tags: [infrastructure, transit, transportation]
+    
+    description: |
+      Hub-and-spoke with transfer points.
+      Subway, bus, teleportation networks.
+      
+    pattern: |
+           [TERMINAL]
+               │
+      [A]══════╪══════[B]
+               │
+           [CENTRAL]
+           ╱   │   ╲
+         [C]  [D]  [E]
+         
+    properties:
+      hubs: "transfer stations"
+      lines: "color-coded routes"
+      zones: "fare regions"
+      
+  supply-chain:
+    id: supply-chain
+    name: "Supply Chain Layout"
+    type: infrastructure
+    emoji: "📦"
+    tags: [infrastructure, logistics, supply-chain]
+    
+    description: |
+      Source → Processing → Distribution → Consumption.
+      Factorio-style production chains.
+      
+    pattern: |
+      [RAW]──▶[PROCESS]──▶[WAREHOUSE]──▶[RETAIL]──▶[CONSUMER]
+        │         │            │
+        └────◀────┴─────◀──────┘
+                (returns)
+                
+    leela_integration:
+      source: "Leela Manufacturing"
+      processing: "Floor 1-3"
+      warehouse: "Storage Complex"
+      distribution: "Loading Docks"
+      
+  # ═══════════════════════════════════════════════════════════════
+  # DEPLOYMENT PATTERNS
+  # ═══════════════════════════════════════════════════════════════
+  
+  phased-deployment:
+    id: phased-deployment
+    name: "Phased Deployment Plan"
+    type: deployment
+    emoji: "📅"
+    tags: [deployment, phased, staged, roadmap]
+    
+    description: |
+      Build infrastructure in phases.
+      Each phase enables the next.
+      
+    phases:
+      phase_1: "Foundation and core"
+      phase_2: "Primary connections"
+      phase_3: "Secondary features"
+      phase_4: "Polish and optimization"
+      
+  hub-first-deployment:
+    id: hub-first-deployment
+    name: "Hub-First Deployment"
+    type: deployment
+    emoji: "🎯"
+    tags: [deployment, hub, central, outward]
+    
+    description: |
+      Build central hub first, then radiate outward.
+      Ensures connectivity at each step.
+      
+    sequence:
+      1: "Deploy hub"
+      2: "Connect primary spokes"
+      3: "Add secondary nodes"
+      4: "Fill in connections"
+      
+  edge-in-deployment:
+    id: edge-in-deployment
+    name: "Edge-In Deployment"
+    type: deployment
+    emoji: "🔲"
+    tags: [deployment, perimeter, boundary, inward]
+    
+    description: |
+      Build perimeter first, then fill center.
+      Defines boundaries before interior.
+      
+    sequence:
+      1: "Define boundaries"
+      2: "Build perimeter rooms"
+      3: "Fill interior"
+      4: "Connect and optimize"
+
+# ═══════════════════════════════════════════════════════════════
+# GENERATION TOOLS
+# ═══════════════════════════════════════════════════════════════
+
+generation:
+  
+  clone_layout:
+    description: "Clone a layout prototype"
+    steps:
+      - "Select layout pattern"
+      - "Specify dimensions/parameters"
+      - "Clone creates room structure"
+      - "Fill rooms with content"
+      
+  combine_layouts:
+    description: "Hybrid layouts"
+    examples:
+      - "Grid with radial hub"
+      - "Tree with loop shortcuts"
+      - "Concentric rings with radial spokes"
+      
+  randomize:
+    description: "Random generation within pattern"
+    controls:
+      - "Connection probability"
+      - "Room type distribution"
+      - "Density variation"
+
+k_lines:
+  - LEELA-MANUFACTURING
+  - LAYOUTS
+  - TOPOLOGY
+  - STREET-PLANS
+  - INFRASTRUCTURE
+  - GENERATION
+  - PROTOTYPES
