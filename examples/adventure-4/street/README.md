@@ -83,9 +83,9 @@ These names were chosen for both meaning and mellifluousness:
 | Street | Position | Tribute | Era | Status |
 |--------|----------|---------|-----|--------|
 | **Adventure Avenue** | **NORTHERN EDGE** | Adventure genre (Colossal Cave, etc.) | 1976+ | 📋 Planned |
-| **MUD Row** | Far North | MUD1 (like Skid Row, but muddier) | 1978 | 📋 Planned |
+| **Zork Row** | Far North | Infocom's Zork | 1977-1982 | 📋 Planned |
+| **MUD Row** | North | MUD1 (like Skid Row, but muddier) | 1978 | 📋 Planned |
 | **Adams Avenue** | North | Scott Adams (Adventureland) | 1978 | 📋 Planned |
-| **Zork Row** | North | Infocom's Zork | 1977-1982 | 📋 Planned |
 | **Habitat Boulevard** | Mid-North | Lucasfilm's Habitat | 1986 | 📋 Planned |
 | **Logo Lane** | Mid | Logo Adventure (Don Hopkins, C64) | 1987 | 📋 Planned |
 | **Sims Street** | Mid | The Sims, SimCity | 1989-2000 | 📋 Planned |
@@ -155,7 +155,7 @@ The heart of town is where **Kay Lane** crosses **Lane Neverending**.
 N O R T H   (adventure wilderness — dungeons, caves, dragons)
               │          │        │         │        │
 ══════════════╪══════════╪════════╪═════════╪════════╪════════  Adventure Avenue (NORTHERN EDGE)
-              │          │        │         │        │           ↑ buildings open to dungeons north
+              │          │        │         │        │           ↑ buildings aopen to dungeons north
 ──────────────┼──────────┼────────┼─────────┼────────┼────────  MUD Row (1978, Essex architecture)
               │          │        │         │        │
 ──────────────┼──────────┼────────┼─────────┼────────┼────────  Adams Avenue (Scott Adams, 1978)
