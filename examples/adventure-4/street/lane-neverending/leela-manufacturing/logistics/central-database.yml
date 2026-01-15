@@ -156,14 +156,14 @@ object:
     │  │ cameras │  │ cameras │  │ cameras │  │ cameras │      │
     │  └─────────┘  └─────────┘  └─────────┘  └─────────┘      │
     │  • Object detection, pose estimation, OCR                │
-    │  • 24 cameras, 30 FPS each = 720 frames/sec              │
+    │  • Multiple camera streams, scalable                     │
     │  • Results → PostgreSQL hypertables                      │
     └──────────────────────────────────────────────────────────┘
     
     ┌──────────────────────────────────────────────────────────┐
     │  THINKER STACK (Symbolic Python Action Layer)            │
     │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐      │
-    │  │THINK-1  │  │THINK-2  │  │THINK-3  │  │THINK-4  │      │
+    │  │THINKER-1│  │THINKER-2  │  │THINK-3  │  │THINK-4  │      │
     │  │ CPU     │  │ CPU     │  │ CPU     │  │ CPU     │      │
     │  │ Python  │  │ Python  │  │ Python  │  │ Python  │      │
     │  └─────────┘  └─────────┘  └─────────┘  └─────────┘      │
