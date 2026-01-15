@@ -10,6 +10,10 @@ object:
     A dusty storefront with a faded sign: "ACME SURPLUS — EVERYTHING MUST GO"
     Everything did go. The store is empty now.
     
+    One section of the windows is boarded up. Someone has painted
+    a TUNNEL on the boards — a perfect trompe l'oeil leading into
+    darkness. It looks... very runnable.
+    
   examine: |
     ACME SURPLUS — 12 LANE NEVERENDING
     
@@ -26,6 +30,22 @@ object:
     • A sign: "ROCKET SKATES — OUT OF STOCK INDEFINITELY"
     • A faded poster of a coyote looking disappointed
     • One (1) slightly dented anvil (display model, not for sale)
+    
+    THE PAINTED TUNNEL:
+    One section of window is boarded up with plywood. On the plywood,
+    someone has painted a REMARKABLY convincing tunnel entrance.
+    The perspective is perfect. The shadows are just right. It looks
+    like you could run straight through into the hillside beyond.
+    
+    You cannot.
+    
+    Trust us.
+    
+    A small pile of impact marks and feathers at the base suggests
+    others have tried. A sign has been added:
+    
+    "THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
+     (Yes, we know it looks real. That's the problem.)"
     
     THE DOOR:
     Locked, but the lock looks... negotiable. A small sign:
@@ -77,6 +97,46 @@ object:
         
         (We learned our lesson.)"
         
+    RUN_INTO_TUNNEL:
+      description: "Sprint at the painted tunnel"
+      aliases: [run, sprint, enter tunnel, go through tunnel]
+      effect: |
+        You back up. You stretch. You get a running start.
+        
+        The tunnel looks SO REAL. The physics say it should work.
+        Everything about it says "run through me."
+        
+        You sprint. Full speed. Arms pumping. Wind in your face.
+        
+        *THWACK*
+        
+        You hit solid plywood. Of course you do. It's a painting.
+        
+        You slide down the boards, leaving a you-shaped impact mark
+        that joins the collection of previous attempts.
+        
+        From somewhere nearby, you hear: "meep meep."
+        
+        You look around. Nobody's there.
+        
+        (You take 0 damage. Pride is another matter.)
+        
+    STUDY_TUNNEL:
+      description: "Examine the painted tunnel closely"
+      effect: |
+        You study the painting carefully...
+        
+        It's REALLY good. Museum quality. The depth is perfect.
+        The shadows are accurate to the current time of day.
+        The darkness inside seems to... move?
+        
+        For a moment, you could SWEAR you see something running
+        toward you from deep inside the painted tunnel.
+        
+        Then it's just paint again.
+        
+        A signature in the corner: "W.E.C. — I'll get it right next time"
+        
   secret:
     the_back_room: |
       There IS something in the back. A single box that wouldn't sell.
@@ -85,3 +145,10 @@ object:
       Nobody knows what to do with it.
       
       It's terrifying.
+      
+    the_tunnel: |
+      The tunnel IS real. But only for roadrunners.
+      
+      Everyone else just hits plywood.
+      
+      It's not fair. But then again, ACME products never were.
