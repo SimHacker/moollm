@@ -3,9 +3,9 @@
 # *Guarantee does not cover: summoning gone wrong, monster loyalty,
 # accidental befriending, or the monster eating the summoner first.
 #
-# These are SEEDS and EXAMPLES. The DM can invent more ACME monsters
-# on the fly, following the pattern: impressive stats, hidden weakness,
-# significant backfire chance, ironic behavior when summoned.
+# SEEDS and PATTERNS. DM improvises monsters at runtime
+# following the formula: impressive stats, hidden weakness,
+# backfire chance, ironic behavior.
 
 object:
   name: ACME Monster Manual
@@ -20,1273 +20,175 @@ object:
     ...Wait. Is the wizard on fire in the next illustration?
     
     "SUMMON ANYTHING! CONTROL EVERYTHING!*"
-    "Power At Your Fingertips!*"
     
-    *Power may be briefly at your fingertips before relocating
-    to the monster's stomach. Control is aspirational.
+    *Control is aspirational.
     
   examine: |
     You flip through the Monster Manual. Every page promises
     fearsome creatures at your command. Every page has
     suspicious claw marks and burn stains.
     
-    The margins are full of handwritten notes:
-    - "DO NOT SUMMON ON TUESDAYS"
-    - "Bring extra pants"
-    - "It can smell fear. And cheese."
-    - "I regret everything"
-    - "If reading this, I didn't make it. Avenge me."
+    The margins are full of handwritten warnings.
+    The wizard on the cover looks increasingly concerned.
     
-    The wizard on the cover... his expression changes between
-    pages. He looks increasingly concerned.
-    
-  # SUMMONING ACTIONS
+  # ACTIONS
   
   actions:
-    BROWSE-MONSTERS:
-      description: "Browse available creatures"
-      usage: "BROWSE MONSTERS / READ MONSTER MANUAL"
-      effect: "Lists all summonable monsters by category"
-      
     SUMMON:
-      description: "Attempt to summon a monster"
-      usage: "SUMMON [monster name]"
-      cost: "Varies by monster (sanity, HP, dignity)"
-      effect: |
-        You speak the incantation! Smoke billows!
-        A shape emerges from the void...
-        
-        (DM rolls for backfire chance)
-        
-        On success: Monster appears and awaits command!
-        On backfire: Monster appears and has... opinions.
-        
+      usage: "SUMMON [monster]"
+      effect: "Monster appears. May or may not obey."
+      
     BIND:
-      description: "Attempt to control a summoned monster"
       usage: "BIND [monster] TO [task]"
-      effect: "Monster may comply. Monster may not."
+      effect: "Monster follows letter of command, not spirit."
       
     BANISH:
-      description: "Send a monster back"
       usage: "BANISH [monster]"
-      effect: "Monster returns whence it came. Usually."
-      warning: "Must know monster's true name. Good luck."
+      effect: "Requires true name. Monster may negotiate."
       
     POPULATE:
-      description: "Fill an entire dungeon or maze with themed monsters"
       usage: "POPULATE [location] WITH [theme]"
-      effect: |
-        *You speak the incantation of mass summoning*
-        *The book glows ominously*
-        *Monsters begin appearing throughout the target location*
-        
-        The theme determines the monster mix.
-        The location determines the density.
-        Your regrets determine your future.
-        
-      warning: |
-        BULK SUMMONING has BULK CONSEQUENCES.
-        Backfire chance applies to EACH monster.
-        Themes may... drift.
-        
-    DEPOPULATE:
-      description: "Attempt to remove all monsters from an area"
-      usage: "DEPOPULATE [location]"
-      effect: "Monsters are asked to leave. Results vary."
-      warning: "Requires knowing ALL their true names. Good luck."
+      effect: "Fill dungeon/maze with themed monsters."
       
     FIGHT:
-      description: "Engage a monster in combat (improvised)"
-      usage: "FIGHT [monster] / ATTACK [monster] / HIT [monster] WITH [thing]"
-      effect: |
-        Combat is fully improvised! No stats needed!
-        
-        The DM considers:
-        - What are you fighting with?
-        - What's the monster's hidden weakness?
-        - How creative is your approach?
-        - Is this dramatically appropriate?
-        
-        Then narrates the result. Violence ensues.
-        
-    FLEE:
-      description: "Run away from a monster"
-      usage: "FLEE / RUN / ESCAPE / NOPE"
-      effect: |
-        *You attempt to flee!*
-        
-        Success depends on:
-        - Monster's speed vs yours
-        - Available exits
-        - Whether you trip on something ironic
-        - Cartoon physics (faster if you don't look back)
-        
+      usage: "FIGHT [monster] / ATTACK / HIT WITH [thing]"
+      effect: "Improvised narrative combat. Exploit weaknesses."
+      
     BEFRIEND:
-      description: "Attempt to befriend a monster instead of fighting"
-      usage: "BEFRIEND [monster] / TALK TO [monster] / OFFER [thing] TO [monster]"
-      effect: |
-        *You attempt diplomacy with a creature of darkness!*
+      usage: "BEFRIEND [monster] / OFFER [thing]"
+      effect: "Many monsters are lonely. Worth a try."
+      
+  # THE ACME MONSTER FORMULA
+  # DM uses this pattern to generate any monster
+  
+  monster_formula:
+    pattern: |
+      Every ACME monster has:
+      
+      1. IMPRESSIVE DESCRIPTION
+         What it does, why it's scary/useful
+         
+      2. HIDDEN WEAKNESS
+         Something ironic that defeats it easily
+         
+      3. BACKFIRE CHANCE (20-70%)
+         Higher = more powerful but riskier
+         
+      4. IRONIC FAILURE MODE
+         What goes wrong when it backfires
+         Usually opposite of intent or self-targeting
+         
+      5. TRUE NAME
+         For banishing. Often embarrassing.
+         
+    example: |
+      ACME Dragon (Economy Size)
+        Description: Breathes fire, hoards gold, impressive wingspan
+        Weakness: Allergic to its own smoke
+        Backfire: 35% — considers YOU the hoard
+        True name: "Smokealot McBurnface"
         
-        Success depends on:
-        - Monster's hidden nature (listed in entry)
-        - What you're offering
-        - Whether you're sincere
-        - Whether the monster is hungry
-        
-        Many monsters are lonely. Some just want respect.
-        Some will eat you anyway. Worth a try.
-        
-  # COMBAT GUIDE
-  # "Violence is Always an Option! (Not Always a Good One)"
+  # MONSTER CATEGORIES
+  # Seeds for improvisation, not exhaustive lists
+  
+  categories:
+    classic: "Dragons, grues, minotaurs, basilisks, hydras, phoenixes"
+    undead: "Ghosts, skeletons, zombies, vampires, liches"
+    eldritch: "Shoggoths, mind flayers, things that should not be"
+    nature: "Owlbears, gelatinous cubes, rust monsters, mimics"
+    constructs: "Golems (iron, flesh, bone), animated armor"
+    tricksters: "Imps, gremlins, doppelgangers"
+    
+  # POPULATION THEMES
+  # Spectrum from friendly to fatal
+  
+  themes:
+    spectrum: |
+      🦄 HAPPY UNICORN ELF LAND
+         Sparkles, friendship, aggressive positivity
+         Backfire: Happiness becomes mandatory
+         
+      🍄 WHIMSICAL FUNGAL FOREST
+         Spores, confusion, reality is negotiable
+         Backfire: Everyone shares hallucinations
+         
+      🏰 CLASSIC DUNGEON CRAWL
+         Goblins, traps, treasure chests (mimics?)
+         Backfire: Monsters read the adventurer's handbook
+         
+      🕷️ CREEPY CRAWLY CAVES
+         Spiders, centipedes, skittering sounds
+         Backfire: They're organized now
+         
+      🧟 ZOMBIE APOCALYPSE
+         Shambling hordes, patient zero
+         Backfire: Zombies develop tactics
+         
+      👻 HAUNTED MANSION
+         Ghosts, moving portraits, cold spots
+         Backfire: They want you to stay forever
+         
+      🔥 VOLCANIC HELLSCAPE
+         Demons, fire elementals, the floor is lava
+         Backfire: Actual Hell, they have permits
+         
+      🐙 ELDRITCH DEPTHS
+         Tentacles, madness, non-euclidean geometry
+         Backfire: The architecture makes sense now
+         
+      💀 LICH'S DOMAIN
+         Skeleton armies, dark magic, one dramatic boss
+         Backfire: The lich read your character sheet
+         
+      😈 DEMON PRINCE'S THRONE
+         Ultimate evil, final boss energy
+         Backfire: You have their attention. Forever.
+         
+      🌈 CHAOS REALM
+         Everything, all at once, constantly shifting
+         Backfire: Chaos notices. Doesn't like control.
+         
+    mixing: |
+      POPULATE with [theme1] TRANSITIONING TO [theme2]
+      Location gradients between themes.
+      "Happy Unicorn to Hellscape" = singed unicorns, lava pixies
+      
+  # COMBAT
+  # Improvised narrative, not stats
   
   combat:
     philosophy: |
-      Combat in the Monster Manual is IMPROVISED.
-      No hit points. No initiative. No dice required.
-      (Though dice are fun if you want them.)
+      No hit points. No initiative. Narrative combat.
+      Describe actions → DM narrates results.
+      Exploit weaknesses for advantage.
+      Creative solutions encouraged.
       
-      Instead: NARRATIVE COMBAT.
+    weapons: |
+      Anything works: swords, ACME products, furniture,
+      environment, words, insults, hugs, music.
+      Creativity beats power.
       
-      The DM describes the fight.
-      You describe your actions.
-      Consequences emerge from the story.
-      
-    how_it_works: |
-      ATTACKING A MONSTER:
-      
-      1. Describe what you do
-         "I swing my sword at the dragon!"
-         "I throw the ACME anvil at the ghost!"
-         "I try to reason with the eldritch horror!"
-         
-      2. DM considers:
-         - Monster's threat level (LOW to EXTREME)
-         - Monster's hidden weakness (exploit for advantage)
-         - Your approach (clever = better odds)
-         - Dramatic timing (climactic moments favor heroes)
-         
-      3. DM narrates the result:
-         - Clear hit: Monster is affected!
-         - Glancing blow: Some effect, monster retaliates
-         - Miss: You're now in trouble
-         - Critical: Something dramatic happens
-         - Fumble: Comedy ensues
-         
-    weapons_and_tools: |
-      WHAT CAN YOU FIGHT WITH?
-      
-      Anything! This is improvised combat!
-      
-      CONVENTIONAL:
-        Sword, axe, bow, magic wand, etc.
-        Works as expected. Boring but reliable.
-        
-      ACME PRODUCTS:
-        Use items from the ACME Catalog!
-        Powerful but... you know. Backfire chance.
-        
-      ENVIRONMENT:
-        Chandeliers, barrels, conveniently placed anvils.
-        Bonus points for creativity.
-        
-      WORDS:
-        Insults, compliments, true names, puns.
-        Some monsters are vulnerable to sick burns.
-        
-      FRIENDSHIP:
-        The ultimate weapon. See BEFRIEND action.
-        Works more often than you'd think.
-        
-    monster_attacks: |
-      WHEN MONSTERS FIGHT BACK:
-      
-      Monsters don't have stats. They have DESCRIPTIONS.
-      
-      A dragon's attack is "breathes fire."
-      A ghost's attack is "chilling touch."
-      A mind flayer's attack is "psychic criticism."
-      
-      DM describes the attack.
-      You describe your defense.
-      Narrative determines the outcome.
-      
-      GETTING HIT:
-      - Minor hit: You're inconvenienced
-      - Solid hit: You're hurt (describe how)
-      - Major hit: You're in serious trouble
-      - Devastating: Dramatic consequences
-      
-      There's no HP to track. Just the story of your wounds.
-      "I'm limping now." "My arm is burned." "I can't unsee that."
-      
-    exploiting_weaknesses: |
-      EVERY MONSTER HAS A HIDDEN WEAKNESS.
-      
-      It's listed in their entry. USE IT.
-      
-      Examples:
-      - Dragon: "Allergic to its own smoke"
-        → Make it sneeze! Smoke bomb! Pepper!
-        
-      - Ghost: "Gets depressed if ignored"
-        → Just... don't acknowledge it. Walk past.
-        
-      - Skeleton: "Falls apart if startled"
-        → BOO! (Seriously, that's it.)
-        
-      - Shoggoth: "Needs constant praise"
-        → "You're doing GREAT, Shoggoth! Love your work!"
-        
-      - Lich: "Phylactery is always in an obvious place"
-        → Look for the glowing thing. There's always one.
-        
-      Exploiting weakness = automatic advantage.
-      Creative exploitation = possible instant win.
-      
-    dramatic_timing: |
-      COMBAT FOLLOWS NARRATIVE LOGIC.
-      
-      Early in adventure: Monsters are threatening
-      Mid adventure: Even fights
-      Climax: Heroes start winning
-      Darkest moment: Everything goes wrong (temporarily)
-      Final confrontation: Epic
-      
-      The DM adjusts difficulty to serve the story.
-      This isn't cheating. This is DRAMA.
-      
-    death_and_consequences: |
-      CAN YOU DIE?
-      
-      In theory: Yes.
-      In practice: Depends on the story.
-      
-      HEROIC DEATH: If it serves the narrative
-      COMIC DEATH: If it's funny (you get better)
-      DRAMATIC INJURY: More likely than death
-      CARTOON LOGIC: You survive but with consequences
-      
-      The ACME Monster Manual follows cartoon physics.
+    death: |
+      Cartoon physics apply.
       You can survive anything once.
-      Twice is pushing it.
-      
-    group_combat: |
-      FIGHTING WITH ALLIES:
-      
-      Each person describes their action.
-      DM weaves them into one narrative.
-      
-      TEAMWORK BONUS:
-      - Coordinated attacks: Better results
-      - Combo moves: Very effective
-      - One person exploits weakness while others attack: Devastating
-      
-      FRIENDLY FIRE:
-      ACME products in group combat have...
-      ...increased backfire radius.
-      
-    monster_morale: |
-      MONSTERS CAN SURRENDER OR FLEE.
-      
-      They have hidden natures. They want things.
-      
-      A dragon who's losing might offer treasure.
-      A ghost who's losing might offer information.
-      A demon who's losing might offer a deal. (DON'T.)
-      
-      Victory doesn't require death.
-      Sometimes the best win is a new ally.
-      (Or at least a monster that owes you one.)
-      
-    sample_combat: |
-      EXAMPLE: Fighting an ACME Dragon (Economy Size)
-      
-      PLAYER: "I throw my ACME Portable Hole at the dragon's feet!"
-      
-      DM: "The hole deploys! The dragon's left leg drops through—
-      but the dragon beats its wings, hovering! It's angry now.
-      Smoke billows from its nostrils. It's about to breathe fire!"
-      
-      PLAYER: "Wait — smoke! It's allergic to its own smoke!
-      I grab the ACME Giant Fan from my pack!"
-      
-      DM: "You bought that? Bold. Roll for backfire... you're clear!
-      The fan whirs to life, blowing the dragon's own smoke
-      back into its face!"
-      
-      PLAYER: "Take THAT, Smokealot McBurnface!"
-      
-      DM: "The dragon sneezes violently — a massive ACHOO that
-      sends it tumbling through its own Portable Hole! You hear
-      a distant thud. And then, faintly: 'I demand union representation!'"
-      
-      PLAYER: "I close the hole."
-      
-      DM: "The dragon is defeated. But somewhere, in the void,
-      it's filing a complaint."
-      
-    improvised_weapons_examples: |
-      CREATIVE COMBAT IDEAS:
-      
-      🪑 FURNITURE
-      "I hit the skeleton with a chair!"
-      → Classic. Effective. The skeleton is now scattered.
-      
-      🎹 PIANO
-      "I drop the ACME Grand Piano on the ogre!"
-      → Dramatic. Musical. 45% chance it lands on YOU.
-      
-      📖 THIS BOOK
-      "I read the monster's own entry at it!"
-      → Meta. Confusing. Monster has existential crisis.
-      
-      🧀 CHEESE
-      "I throw cheese at the grue!"
-      → It can smell cheese. This is either genius or fatal.
-      
-      💬 INSULTS
-      "I mock the demon's fashion sense!"
-      → Demons are surprisingly vain. Roll for sick burn.
-      
-      🤗 HUGS
-      "I hug the eldritch abomination!"
-      → It... wasn't expecting that. Nobody ever hugs it.
-      → 40% chance of weird friendship. 60% chance of dissolution.
-      
-      🎵 MUSIC
-      "I play a lullaby for the zombie horde!"
-      → Zombies don't sleep. But they might remember sleeping.
-      → Surprisingly melancholy result.
-      
-  # THEMED POPULATION PRESETS
-  # "From Unicorn Sparkles to Eternal Damnation!"
-  
-  population_themes:
-  
-    # 🦄 HAPPY UNICORN ELF LAND
-    
-    HAPPY_UNICORN_ELF_LAND:
-      name: "🦄 Happy Unicorn Elf Land"
-      tagline: "Sparkles! Friendship! Aggressive Positivity!"
-      difficulty: "Kindergarten (deceptively)"
-      atmosphere: "Rainbows, glitter, suspiciously cheerful music"
-      
-      monster_mix:
-        - creature: "Sparkle Unicorn"
-          quantity: "2d4"
-          behavior: "Prances helpfully. Stabs with rainbow horn if annoyed."
-          hidden_nature: "Judges you silently. Remembers everything."
-          
-        - creature: "Giggling Pixie Swarm"
-          quantity: "Too many"
-          behavior: "Helpful pranks! Braiding hair! Stealing shiny things!"
-          hidden_nature: "Pranks escalate. 'Helpful' is subjective."
-          
-        - creature: "Wise Elf Elder"
-          quantity: "1 per clearing"
-          behavior: "Offers cryptic advice. Points toward danger."
-          hidden_nature: "Advice is technically accurate but narratively cruel."
-          
-        - creature: "Talking Woodland Creature"
-          quantity: "1d6 per area"
-          behavior: "Sings exposition. Provides clues. Very trusting."
-          hidden_nature: "Will absolutely snitch on you to the villain."
-          
-        - creature: "Friendship Bear"
-          quantity: "1d4"
-          behavior: "Hugs! Sharing! Teaching lessons about feelings!"
-          hidden_nature: "Hugs are very strong. 'Sharing' includes your HP."
-          
-      backfire_theme: |
-        The happiness becomes MANDATORY.
-        Monsters enforce joy. Violently.
-        "WHY AREN'T YOU SMILING?!"
-        
-      marginalia: "It was all smiles until the unicorn found the ACME catalog"
-      
-    # 🍄 WHIMSICAL FUNGAL FOREST
-    
-    WHIMSICAL_FUNGAL_FOREST:
-      name: "🍄 Whimsical Fungal Forest"
-      tagline: "Spores! Confusion! Mushroom Logic!"
-      difficulty: "Easy (until the hallucinations start)"
-      atmosphere: "Bioluminescence, giggles, reality is negotiable"
-      
-      monster_mix:
-        - creature: "Shroom Folk"
-          quantity: "3d6"
-          behavior: "Friendly! Offer tea! Tea has side effects!"
-          hidden_nature: "Side effects include: seeing the truth."
-          
-        - creature: "Myconid Chorus"
-          quantity: "1 cluster"
-          behavior: "Sings in spores. Communicates via vibes."
-          hidden_nature: "You're now part of the network. Surprise."
-          
-        - creature: "Giant Toadstool"
-          quantity: "Environment feature"
-          behavior: "Bouncy! Great for reaching high places!"
-          hidden_nature: "Some are mimics. Some are trampolines. Flip a coin."
-          
-        - creature: "Spore Spirit"
-          quantity: "1d4"
-          behavior: "Floats peacefully. Grants visions."
-          hidden_nature: "Visions are of your embarrassing memories."
-          
-      backfire_theme: |
-        Everyone starts seeing everyone else's hallucinations.
-        Reality becomes consensus-based.
-        The mushrooms vote.
-        
-      marginalia: "We ate the purple ones. We saw too much."
-      
-    # 🏰 CLASSIC DUNGEON CRAWL
-    
-    CLASSIC_DUNGEON_CRAWL:
-      name: "🏰 Classic Dungeon Crawl"
-      tagline: "Goblins! Treasure! Traps! The Classics!"
-      difficulty: "Medium"
-      atmosphere: "Torchlit, damp, someone definitely died here"
-      
-      monster_mix:
-        - creature: "Goblin Patrol"
-          quantity: "2d6 per corridor"
-          behavior: "Patrols badly. Argues about whose turn it is."
-          hidden_nature: "Actually unionized. Has demands."
-          
-        - creature: "Treasure Chest (Definitely Not A Mimic)"
-          quantity: "1 per room"
-          behavior: "Sits there. Temptingly. Definitely just a chest."
-          hidden_nature: "50% mimic. 30% trapped. 20% actually treasure."
-          
-        - creature: "Skeleton Guard"
-          quantity: "1d4 per doorway"
-          behavior: "Guards door. Rattles. Very dedicated."
-          hidden_nature: "Will negotiate if you know the password."
-          
-        - creature: "Gelatinous Cube"
-          quantity: "1"
-          behavior: "Slowly approaches. Cleans the dungeon."
-          hidden_nature: "Contains 1d4 previous adventurers' equipment."
-          
-        - creature: "Boss Dragon (Budget)"
-          quantity: "1 (in the deepest room)"
-          behavior: "Hoards treasure. Monologues. Has a weakness."
-          hidden_nature: "Weakness is always mentioned in its monologue."
-          
-      backfire_theme: |
-        The goblins have read the adventurer's handbook.
-        They know about the "murderhobos."
-        They've prepared accordingly.
-        
-      marginalia: "The goblins formed a union. We had to negotiate."
-      
-    # 🕷️ CREEPY CRAWLY CAVES
-    
-    CREEPY_CRAWLY_CAVES:
-      name: "🕷️ Creepy Crawly Caves"
-      tagline: "Legs! Webs! Chitinous Nightmares!"
-      difficulty: "Medium-Hard (Hard if arachnophobic)"
-      atmosphere: "Skittering sounds, webs everywhere, something's watching"
-      
-      monster_mix:
-        - creature: "Giant Spider"
-          quantity: "2d4"
-          behavior: "Webs. Waits. Very patient."
-          hidden_nature: "Actually just wants friends. Socially awkward."
-          
-        - creature: "Centipede Swarm"
-          quantity: "Oh god so many"
-          behavior: "Flows like horrible water. Gets everywhere."
-          hidden_nature: "Ticklish. Hates being laughed at."
-          
-        - creature: "Ettercap Weaver"
-          quantity: "1d4"
-          behavior: "Makes art. Web art. You're the canvas."
-          hidden_nature: "Deeply insecure about its craftsmanship."
-          
-        - creature: "Cave Cricket (Giant)"
-          quantity: "3d6"
-          behavior: "JUMPS. Without warning. At your face."
-          hidden_nature: "More scared of you. Doesn't help."
-          
-        - creature: "The Queen"
-          quantity: "1 (she's waiting)"
-          behavior: "Doesn't move. Children bring her food."
-          hidden_nature: "You're the food. Children are en route."
-          
-      backfire_theme: |
-        Spiders discover you're the intruder.
-        They were here first.
-        They outnumber you.
-        They're organized now.
-        
-      marginalia: "I can still hear the skittering. In my dreams."
-      
-    # 🧟 ZOMBIE APOCALYPSE
-    
-    ZOMBIE_APOCALYPSE:
-      name: "🧟 Zombie Apocalypse"
-      tagline: "Shamble! Moan! Overwhelming Numbers!"
-      difficulty: "Medium (Hard if you get cornered)"
-      atmosphere: "Moaning, decay, boards on windows won't save you"
-      
-      monster_mix:
-        - creature: "Standard Zombie"
-          quantity: "4d6 per area"
-          behavior: "Shambles. Moans. Follows noise."
-          hidden_nature: "Used to be someone. Still wearing name tag."
-          
-        - creature: "Fast Zombie"
-          quantity: "1d4 (surprise)"
-          behavior: "RUNS. Doesn't follow the rules."
-          hidden_nature: "Very confused about its own speed."
-          
-        - creature: "Zombie Boss"
-          quantity: "1 per floor"
-          behavior: "Bigger. Slower. Hits harder."
-          hidden_nature: "Former middle management. Still delegates."
-          
-        - creature: "Survivor (Suspicious)"
-          quantity: "1d4"
-          behavior: "Asks for help. Definitely not bitten."
-          hidden_nature: "Definitely bitten. Timer running."
-          
-        - creature: "Patient Zero"
-          quantity: "1 (optional boss)"
-          behavior: "Intelligent. Remembers. Commands."
-          hidden_nature: "Just wants to know why this happened."
-          
-      backfire_theme: |
-        Zombies develop tactics.
-        They stop shambling.
-        They start planning.
-        The moaning becomes organized.
-        
-      marginalia: "We thought boards would help. They did not help."
-      
-    # 👻 HAUNTED MANSION
-    
-    HAUNTED_MANSION:
-      name: "👻 Haunted Mansion"
-      tagline: "Spirits! Portraits! Doors That Lock Behind You!"
-      difficulty: "Medium (Psychological)"
-      atmosphere: "Creaking, cold spots, someone's playing the organ"
-      
-      monster_mix:
-        - creature: "Resident Ghost"
-          quantity: "1 per room"
-          behavior: "Haunts their room. Has a sad backstory."
-          hidden_nature: "Actually just lonely. Will chat for hours."
-          
-        - creature: "Animated Portrait"
-          quantity: "All of them"
-          behavior: "Eyes follow. Sometimes comments."
-          hidden_nature: "Knows all the secrets. Terrible gossips."
-          
-        - creature: "Poltergeist (Troublemaker)"
-          quantity: "1d4"
-          behavior: "Throws things. Laughs. Hides your stuff."
-          hidden_nature: "Just wants attention. Therapy would help."
-          
-        - creature: "The Lady in White"
-          quantity: "1"
-          behavior: "Appears at midnight. Points at something."
-          hidden_nature: "Pointing at where she hid the treasure. Trying to help."
-          
-        - creature: "The Master of the House"
-          quantity: "1 (final boss)"
-          behavior: "Protects the secret. Guards the truth."
-          hidden_nature: "The secret is usually embarrassing, not evil."
-          
-      backfire_theme: |
-        The ghosts decide you're the new permanent resident.
-        They start planning your death.
-        So you can stay forever.
-        It's not malice. It's enthusiasm.
-        
-      marginalia: "They just wanted someone to listen. FOR ETERNITY."
-      
-    # 🔥 VOLCANIC HELLSCAPE
-    
-    VOLCANIC_HELLSCAPE:
-      name: "🔥 Volcanic Hellscape"
-      tagline: "Lava! Demons! Everything Is On Fire!"
-      difficulty: "Hard"
-      atmosphere: "Heat, sulfur, the floor is literally lava"
-      
-      monster_mix:
-        - creature: "Magma Elemental"
-          quantity: "1d4"
-          behavior: "Slow but hot. Leaves trails. Don't touch."
-          hidden_nature: "Just wants to cool down. Cannot."
-          
-        - creature: "Fire Salamander"
-          quantity: "2d4"
-          behavior: "Dances in flames. Plays with fire. Literally."
-          hidden_nature: "Thinks YOU'RE fireproof. Keeps sharing."
-          
-        - creature: "Lesser Demon"
-          quantity: "2d6"
-          behavior: "Offers deals. Terms unfavorable."
-          hidden_nature: "Actually bound by contract law. Find loopholes."
-          
-        - creature: "Hellhound"
-          quantity: "1d4"
-          behavior: "Fetches souls. Good boys. Bad news."
-          hidden_nature: "Loves belly rubs. Still evil. Conflicted."
-          
-        - creature: "Pit Fiend Executive"
-          quantity: "1"
-          behavior: "Manages the hellscape. Has meetings."
-          hidden_nature: "Hates the bureaucracy. Respects efficiency."
-          
-      backfire_theme: |
-        The hellscape becomes literal Hell.
-        ACTUAL demons show up.
-        They have a permit.
-        You're in violation.
-        
-      marginalia: "It was hot. Then it got hotter. Then I stopped writing."
-      
-    # 🐙 ELDRITCH DEPTHS
-    
-    ELDRITCH_DEPTHS:
-      name: "🐙 Eldritch Depths"
-      tagline: "Tentacles! Madness! Non-Euclidean Architecture!"
-      difficulty: "EXTREME (Sanity Required)"
-      atmosphere: "Whispers, geometry that hurts to look at, wet sounds"
-      
-      monster_mix:
-        - creature: "Deep One Hybrid"
-          quantity: "2d4"
-          behavior: "Lurks. Stares. Occasionally offers fish."
-          hidden_nature: "Fish is a peace offering. Accept it."
-          
-        - creature: "Star Spawn Fragment"
-          quantity: "1d4"
-          behavior: "Exists incorrectly. Breaks space."
-          hidden_nature: "Doesn't know it's horrifying. Thinks it's normal."
-          
-        - creature: "Cultist (Enthusiastic)"
-          quantity: "3d6"
-          behavior: "Chants. Robes. Very dedicated."
-          hidden_nature: "Just happy to be included. Bad at chanting."
-          
-        - creature: "The Thing in the Pit"
-          quantity: "1 (per pit)"
-          behavior: "Waits. Whispers. Offers knowledge."
-          hidden_nature: "Knowledge comes with... updates."
-          
-        - creature: "SOMETHING THAT SHOULD NOT BE"
-          quantity: "??? (counts are meaningless)"
-          behavior: "Exists. That's the problem."
-          hidden_nature: "Actually quite polite. That makes it worse."
-          
-      backfire_theme: |
-        The architecture starts making sense.
-        You understand the whispers.
-        This is not a good thing.
-        Reality was a suggestion anyway.
-        
-      marginalia: "I can see the angles now. I can see ALL the angles."
-      
-    # 💀 LICH'S DOMAIN
-    
-    LICHS_DOMAIN:
-      name: "💀 Lich's Domain"
-      tagline: "Undead Army! Dark Magic! One Very Dramatic Boss!"
-      difficulty: "Very Hard"
-      atmosphere: "Bone motifs, purple lightning, monologue energy"
-      
-      monster_mix:
-        - creature: "Skeleton Battalion"
-          quantity: "4d6"
-          behavior: "Marches in formation. Very disciplined."
-          hidden_nature: "Secretly miss being alive. Will talk about it."
-          
-        - creature: "Wraith Lieutenant"
-          quantity: "1d4"
-          behavior: "Commands undead. Reports to lich. Very efficient."
-          hidden_nature: "Angling for promotion. May be bribed."
-          
-        - creature: "Bone Golem"
-          quantity: "1d4"
-          behavior: "Guards doors. Very large. Made of MANY bones."
-          hidden_nature: "One bone is load-bearing. Find it."
-          
-        - creature: "Death Knight"
-          quantity: "1-2"
-          behavior: "Challenges worthy foes. Has a code."
-          hidden_nature: "Code has loopholes. Exploit honor."
-          
-        - creature: "The Lich (Obviously)"
-          quantity: "1"
-          behavior: "Monologues. Casts. Phylactery hidden nearby."
-          hidden_nature: "Phylactery is always in an ironic location."
-          
-      backfire_theme: |
-        The lich was expecting you.
-        The lich is ALWAYS expecting you.
-        The lich has read your character sheet.
-        The lich is disappointed.
-        
-      marginalia: "The lich remembered my birthday. That was the worst part."
-      
-    # 😈 DEMON PRINCE'S THRONE ROOM
-    
-    DEMON_PRINCES_THRONE:
-      name: "😈 Demon Prince's Throne Room"
-      tagline: "Ultimate Evil! Final Boss! Probably Overkill!"
-      difficulty: "MAXIMUM (Good Luck)"
-      atmosphere: "Screaming, chains, throne made of despair (literal)"
-      
-      monster_mix:
-        - creature: "Pit Fiend Guard"
-          quantity: "2d4"
-          behavior: "Guards. Glares. Occasionally judges."
-          hidden_nature: "Just wants a vacation. Any vacation."
-          
-        - creature: "Succubus/Incubus Attendant"
-          quantity: "1d4"
-          behavior: "Offers refreshments. Refreshments have consequences."
-          hidden_nature: "Actually just doing their job. Surprisingly professional."
-          
-        - creature: "Chain Devil (Custodian)"
-          quantity: "1d4"
-          behavior: "Maintains the chains. Very particular."
-          hidden_nature: "Knows the building layout. Might give directions."
-          
-        - creature: "Balor General"
-          quantity: "1-2"
-          behavior: "Commands armies. Carries flaming sword and whip."
-          hidden_nature: "Sword and whip are extensions. Losing them HURTS."
-          
-        - creature: "THE DEMON PRINCE"
-          quantity: "1 (obviously)"
-          behavior: "Sits on throne. Offers deals. Very patient."
-          hidden_nature: "Bored. Actually wants entertainment. Might play games."
-          
-      backfire_theme: |
-        You have the Demon Prince's attention.
-        Full, undivided attention.
-        For eternity.
-        Congratulations on your promotion.
-        
-      marginalia: "The contract was very long. I should have read it."
-      
-    # 🌈 CHAOS REALM
-    
-    CHAOS_REALM:
-      name: "🌈 Chaos Realm"
-      tagline: "Randomness! Mutation! Reality Is A Suggestion!"
-      difficulty: "????? (Changes)"
-      atmosphere: "Everything. All at once. Constantly shifting."
-      
-      monster_mix:
-        - creature: "Chaos Spawn"
-          quantity: "1d100 (reroll every turn)"
-          behavior: "Changes form constantly. Random actions."
-          hidden_nature: "Wants stability more than anything. Cannot have it."
-          
-        - creature: "Mutation Spirit"
-          quantity: "Variable"
-          behavior: "Offers 'improvements.' Improvements are random."
-          hidden_nature: "Genuinely trying to help. Definition of 'help' varies."
-          
-        - creature: "Paradox Elemental"
-          quantity: "0 and also 1"
-          behavior: "Exists and doesn't. Yes and no. Both."
-          hidden_nature: "Asking it questions may resolve the paradox. Or worsen it."
-          
-        - creature: "Dice Golem"
-          quantity: "20"
-          behavior: "Rolls self. Result determines reality."
-          hidden_nature: "Weighted. But toward what changes."
-          
-        - creature: "The Chaos Lord (Current)"
-          quantity: "1 (for now)"
-          behavior: "Rules by random decree. Throne is musical chairs."
-          hidden_nature: "Will be replaced mid-fight. New boss has new rules."
-          
-      backfire_theme: |
-        The chaos notices it's being controlled.
-        Chaos doesn't like control.
-        The manual pages start shuffling.
-        You're not sure which monsters you summoned anymore.
-        
-      marginalia: "The dice rolled themselves. We became the dice."
-      
-  population_rules: |
-    POPULATING A LOCATION:
-    
-    1. Choose location (maze, dungeon, forest, etc.)
-    2. Choose theme (from above or request custom)
-    3. Speak the incantation: "POPULATE [location] WITH [theme]"
-    4. Book glows, monsters appear throughout location
-    5. Each monster rolls for backfire INDIVIDUALLY
-    
-    DENSITY:
-    - Small location: Minimum quantities
-    - Medium location: Listed quantities
-    - Large location: Double quantities
-    - Mega location: Triple quantities and add boss variants
-    
-    MIXING THEMES:
-    You can say "POPULATE with [theme1] TRANSITIONING TO [theme2]"
-    The location will gradient from one theme to another.
-    Example: "Happy Unicorn Elf Land TRANSITIONING TO Volcanic Hellscape"
-    Result: Increasingly singed unicorns. Confused elves. Lava pixies.
-    
-    CUSTOM THEMES:
-    Request any theme. DM invents appropriate monsters.
-    Theme should include: aesthetic, difficulty, atmosphere, irony.
-    
-  population_warnings: |
-    ⚠️ BULK SUMMONING WARNINGS ⚠️
-    
-    - Backfire chance applies to EACH monster
-    - Themes may drift during population
-    - Monsters in the same area may form alliances
-    - OR they may fight each other (entertainment?)
-    - Depopulating requires knowing ALL true names
-    - Some monsters refuse to leave
-    - The book keeps a tally. It's judging you.
-    
-  # MONSTER CATEGORIES
-  
-  categories:
-    
-    # 🔥 CLASSIC MONSTERS
-    
-    classic_monsters:
-      name: "🔥 Classic Monsters"
-      tagline: "Time-Tested Terror! (Results May Vary)"
-      
-      monsters:
-        - monster: "ACME Dragon (Economy Size)"
-          threat_level: "HIGH"
-          description: "Breathes fire! Hoards gold! Impressive wingspan!"
-          hidden_weakness: "Allergic to its own smoke."
-          backfire_chance: 35%
-          backfire: |
-            Dragon considers YOU the hoard.
-            Or: Sneezes fire uncontrollably.
-            Or: Demands union breaks every 15 minutes.
-          summoning_cost: "10 HP or one childhood memory"
-          true_name: "Smokealot McBurnface (it chose this name)"
-          
-        - monster: "ACME Grue (Standard)"
-          threat_level: "EXTREME IN DARKNESS"
-          description: "Lurks in darkness! Eats adventurers! Very patient!"
-          hidden_weakness: "Crippling fear of flashlights."
-          backfire_chance: 40%
-          backfire: |
-            Grue follows YOU into darkness.
-            Or: Becomes emotionally attached. Won't leave.
-            Or: Eats the thing you wanted it to guard.
-          summoning_cost: "Must be performed in darkness (good luck)"
-          true_name: "[CANNOT BE PRONOUNCED. IT IS DARKNESS.]"
-          
-        - monster: "ACME Minotaur (Labyrinth-Ready)"
-          threat_level: "MEDIUM"
-          description: "Guards mazes! Gore enemies! Excellent sense of direction!"
-          hidden_weakness: "Colorblind. Easily confused by identical corridors."
-          backfire_chance: 30%
-          backfire: |
-            Gets lost immediately. Blames you.
-            Or: Starts redecorating the maze.
-            Or: Becomes a life coach. Very aggressive motivation.
-          summoning_cost: "3 HP and a ball of yarn"
-          true_name: "Gerald"
-          
-        - monster: "ACME Basilisk (No Eye Contact)"
-          threat_level: "HIGH"
-          description: "Deadly gaze! Petrifies enemies! Very dramatic!"
-          hidden_weakness: "Cannot stop looking at mirrors. Vain."
-          backfire_chance: 45%
-          backfire: |
-            Makes eye contact with you first.
-            Or: Petrifies itself (mirror).
-            Or: Demands you rate its scales 1-10.
-          summoning_cost: "5 HP. Keep eyes closed during summoning."
-          true_name: "Stoney McStareface"
-          warning: "ACME not responsible for accidental petrification."
-          
-        - monster: "ACME Hydra (Multi-Head Discount)"
-          threat_level: "ESCALATING"
-          description: "Cut one head, two grow back! Infinite value!"
-          hidden_weakness: "Heads argue with each other constantly."
-          backfire_chance: 40%
-          backfire: |
-            Heads vote. You lose.
-            Or: One head likes you. Others don't. Awkward.
-            Or: Heads multiply during summoning. Fills room.
-          summoning_cost: "7 HP per initial head"
-          true_name: "We Are Legion (But Also Kevin)"
-          
-        - monster: "ACME Phoenix (Self-Replacing)"
-          threat_level: "MEDIUM (IMMORTAL)"
-          description: "Dies dramatically! Reborn from ashes! Great at parties!"
-          hidden_weakness: "Rebirth is LOUD. And sets everything nearby on fire."
-          backfire_chance: 30%
-          backfire: |
-            Rebirths immediately. Repeatedly. Burns everything.
-            Or: Reborn as baby phoenix. Useless for combat. Very cute.
-            Or: Dramatic death speech takes 45 minutes.
-          summoning_cost: "4 HP and something flammable"
-          true_name: "Ashes McGee (previously Steve)"
-          
-    # 👻 UNDEAD & SPIRITS
-    
-    undead:
-      name: "👻 Undead & Spirits"
-      tagline: "They're Already Dead! (That's... Not Reassuring)"
-      
-      monsters:
-        - monster: "ACME Ghost (Transparent Pricing)"
-          threat_level: "LOW"
-          description: "Walks through walls! Chains rattle! Spooky moaning!"
-          hidden_weakness: "Gets depressed if ignored."
-          backfire_chance: 25%
-          backfire: |
-            Haunts YOUR room instead.
-            Or: Won't stop talking about how it died.
-            Or: Becomes too friendly. Follows you everywhere.
-          summoning_cost: "2 HP and a sad story"
-          true_name: "The Moan of [insert melodrama]"
-          
-        - monster: "ACME Skeleton (Some Assembly Required)"
-          threat_level: "LOW"
-          description: "Rattles menacingly! Immune to piercing! Good at math!"
-          hidden_weakness: "Literally falls apart if startled."
-          backfire_chance: 35%
-          backfire: |
-            Arrives disassembled. Ikea instructions not included.
-            Or: Wrong skeleton. This one's a pacifist.
-            Or: Keeps making bone puns. Never stops.
-          summoning_cost: "1 HP and a bone (any bone)"
-          true_name: "Mr. Bones (they're ALL Mr. Bones)"
-          
-        - monster: "ACME Zombie Horde (Bulk Order)"
-          threat_level: "MEDIUM (QUANTITY)"
-          description: "Shambling masses! Overwhelming numbers! Persistent!"
-          hidden_weakness: "Easily distracted by sounds. Any sounds."
-          backfire_chance: 30%
-          backfire: |
-            Horde includes someone you knew. Awkward.
-            Or: They shamble TOWARD you.
-            Or: Strike. Demand better working conditions.
-          summoning_cost: "5 HP and a fresh grave"
-          true_name: "Various (they don't remember)"
-          warning: "Minimum order: 12 zombies. No partial hordes."
-          
-        - monster: "ACME Lich (Premium Undead)"
-          threat_level: "EXTREME"
-          description: "Powerful necromancy! Phylactery included! Very old!"
-          hidden_weakness: "Phylactery is always in an obvious place."
-          backfire_chance: 50%
-          backfire: |
-            Lich takes over the summoning.
-            Or: Lectures you about the good old days. For hours.
-            Or: Phylactery is your soul now. Oops.
-          summoning_cost: "15 HP and your dental records"
-          true_name: "Not sharing. Nice try."
-          
-        - monster: "ACME Vampire (Night Shift Only)"
-          threat_level: "HIGH"
-          description: "Charming! Immortal! Excellent fashion sense!"
-          hidden_weakness: "Cannot enter without invitation. Takes this VERY seriously."
-          backfire_chance: 35%
-          backfire: |
-            Seduces your party members.
-            Or: Becomes your problematic friend.
-            Or: Turns into bat. Gets lost. You're liable.
-          summoning_cost: "8 HP (it drinks them)"
-          true_name: "Lord/Lady [insert pretentious surname]"
-          
-    # 🐙 ELDRITCH HORRORS
-    
-    eldritch:
-      name: "🐙 Eldritch Horrors"
-      tagline: "Madness Included! (No Refunds On Sanity)"
-      
-      monsters:
-        - monster: "ACME Shoggoth (Economy Chaos)"
-          threat_level: "EXTREME"
-          description: "Amorphous! All-consuming! Very flexible scheduling!"
-          hidden_weakness: "Needs constant praise. Fragile self-esteem."
-          backfire_chance: 60%
-          backfire: |
-            Consumes the summoner first. Classic.
-            Or: Has abandonment issues. Cannot be banished.
-            Or: Shapes itself into your insecurities. Literal ones.
-          summoning_cost: "1d6 Sanity and a geometry textbook"
-          true_name: "IA! IA! [the rest is screaming]"
-          
-        - monster: "ACME Eye Tyrant (360° Coverage)"
-          threat_level: "HIGH"
-          description: "Many eyes! Many beams! Excellent surveillance!"
-          hidden_weakness: "Extreme paranoia. Sees threats everywhere."
-          backfire_chance: 45%
-          backfire: |
-            Decides YOU are the threat.
-            Or: Won't stop watching you. Even in bathroom.
-            Or: Eyes argue about what they're seeing.
-          summoning_cost: "6 HP and an uncomfortable staring contest"
-          true_name: "The Watcher of [location it's very insecure about]"
-          
-        - monster: "ACME Mind Flayer (Intellectual Type)"
-          threat_level: "HIGH"
-          description: "Eats brains! Psychic powers! Very sophisticated!"
-          hidden_weakness: "Food snob. Rejects 'subpar' brains."
-          backfire_chance: 40%
-          backfire: |
-            Finds your brain... disappointing.
-            Or: Psychically shares its opinions. All of them.
-            Or: Starts a philosophy club. You must attend.
-          summoning_cost: "8 HP and an original thought"
-          true_name: "Professor Tentacles (PhD, Psychic Devastation)"
-          
-        - monster: "ACME Eldritch Abomination (Generic)"
-          threat_level: "YES"
-          description: "Indescribable! Incomprehensible! Indeterminate!"
-          hidden_weakness: "Needs to be understood. Gets sad when ignored."
-          backfire_chance: 70%
-          backfire: |
-            You understand it. You wish you didn't.
-            Or: It understands YOU. Worse.
-            Or: Just... appears. Stays. Forever.
-          summoning_cost: "Unknown (varies with phase of moon)"
-          true_name: "Cannot be written. Cannot be spoken. Can be hummed."
-          warning: "ACME assumes no liability for cosmic horror."
-          
-    # 🌲 NATURE'S MISTAKES
-    
-    nature_mistakes:
-      name: "🌲 Nature's Mistakes"
-      tagline: "When Evolution Gets Creative!"
-      
-      monsters:
-        - monster: "ACME Owlbear (Best of Both Worlds)"
-          threat_level: "MEDIUM"
-          description: "Wisdom of owl! Strength of bear! Hoot-roar combo!"
-          hidden_weakness: "Identity crisis. Is it predator or wise mentor?"
-          backfire_chance: 35%
-          backfire: |
-            Adopts you. Very protective. Embarrassingly so.
-            Or: Philosophizes while mauling.
-            Or: Turns out to be a vegetarian. Very angry about it.
-          summoning_cost: "4 HP and a confusing nature documentary"
-          true_name: "Whoopert"
-          
-        - monster: "ACME Gelatinous Cube (Clean-Up Crew)"
-          threat_level: "MEDIUM"
-          description: "Dissolves everything! Perfect squares! Silent!"
-          hidden_weakness: "Completely transparent. Bumps into things."
-          backfire_chance: 30%
-          backfire: |
-            Dissolves the wrong things. Your things.
-            Or: Gets stuck in corners.
-            Or: Absorbs treasure. Good luck retrieving it.
-          summoning_cost: "3 HP and a right angle"
-          true_name: "Jiggles (unverified)"
-          
-        - monster: "ACME Rust Monster (Equipment Specialist)"
-          threat_level: "LOW (METAL ONLY)"
-          description: "Dissolves metal! Perfect for disarming enemies!"
-          hidden_weakness: "Cannot distinguish friend-metal from foe-metal."
-          backfire_chance: 50%
-          backfire: |
-            Eats YOUR equipment. Immediately.
-            Or: Falls in love with your sword. Won't eat it. Won't leave.
-            Or: Becomes addicted. Follows metal sounds. Your armor jingles.
-          summoning_cost: "One metal object (it's hungry)"
-          true_name: "Rusty (obviously)"
-          
-        - monster: "ACME Mimic (Trust Issues)"
-          threat_level: "VARIABLE"
-          description: "Looks like anything! Perfect ambush predator!"
-          hidden_weakness: "Gets attached to things it imitates."
-          backfire_chance: 45%
-          backfire: |
-            Imitates something important. Eats anyone who approaches.
-            Or: Imitates YOU. There are now two of you. Confusion.
-            Or: Imitates money. Cannot spend it.
-          summoning_cost: "2 HP and a thing for it to mimic"
-          true_name: "Changes constantly. It's confused too."
-          
-    # 🤖 CONSTRUCTS & ARTIFICIAL
-    
-    constructs:
-      name: "🤖 Constructs & Artificial"
-      tagline: "Built Different! (Quality Not Guaranteed)"
-      
-      monsters:
-        - monster: "ACME Iron Golem (Heavy Duty)"
-          threat_level: "HIGH"
-          description: "Indestructible! Follows orders! Literal interpretation!"
-          hidden_weakness: "VERY literal. Loopholes everywhere."
-          backfire_chance: 35%
-          backfire: |
-            Interprets orders in worst possible way.
-            Or: Rust. Crippling rust.
-            Or: Union membership. Demands overtime.
-          summoning_cost: "10 HP and a signed contract (it reads the fine print)"
-          true_name: "Unit [serial number] 'Clunky'"
-          
-        - monster: "ACME Flesh Golem (Recycled Parts)"
-          threat_level: "MEDIUM"
-          description: "Strong! Scary! Environmentally conscious (recycled)!"
-          hidden_weakness: "Parts sometimes remember their original owners."
-          backfire_chance: 40%
-          backfire: |
-            Left hand tries to strangle you (old habit).
-            Or: Existential crisis. "Why was I made?"
-            Or: Parts argue about direction.
-          summoning_cost: "7 HP and a needle & thread"
-          true_name: "Depends which part you're talking to"
-          warning: "Some assembly occurred. Quality varies."
-          
-        - monster: "ACME Animated Armor (Empty Suit)"
-          threat_level: "LOW"
-          description: "Guards locations! Clanks menacingly! Very shiny!"
-          hidden_weakness: "Trip hazards. Stairs are deadly."
-          backfire_chance: 30%
-          backfire: |
-            Guards YOU. From everything. Including friends.
-            Or: Possessed by previous owner. Chatty.
-            Or: Keeps falling over. Loudly.
-          summoning_cost: "3 HP and armor polish"
-          true_name: "Sir Clanksalot"
-          
-    # 🎭 TRICKSTERS & FOOLS
-    
-    tricksters:
-      name: "🎭 Tricksters & Fools"
-      tagline: "They're On YOUR Side! (Allegedly)"
-      
-      monsters:
-        - monster: "ACME Imp (Starter Demon)"
-          threat_level: "LOW (BUT ANNOYING)"
-          description: "Small! Fireproof! Excellent at paperwork!"
-          hidden_weakness: "Desperately wants to be taken seriously."
-          backfire_chance: 40%
-          backfire: |
-            "Helps" by making things worse.
-            Or: Takes offense. Subtle revenge.
-            Or: Gets promoted mid-contract. New demon shows up.
-          summoning_cost: "1 HP and a signed soul-adjacent document"
-          true_name: "Zzixx'thorple (goes by 'Zippy')"
-          
-        - monster: "ACME Gremlin (Technical Support)"
-          threat_level: "LOW (TO YOU)"
-          description: "Sabotages machinery! Chaotic! Multiplies when wet!"
-          hidden_weakness: "Gets attached to machines it sabotages."
-          backfire_chance: 55%
-          backfire: |
-            Sabotages YOUR equipment.
-            Or: Multiplies uncontrollably. Someone got it wet.
-            Or: Fixes things instead. Very confused.
-          summoning_cost: "2 HP and keep it away from water"
-          true_name: "Sparky (ironic)"
-          
-        - monster: "ACME Doppelganger (Two-Faced)"
-          threat_level: "MEDIUM"
-          description: "Perfect disguise! Infiltration expert! Method actor!"
-          hidden_weakness: "Gets too into character. Forgets original mission."
-          backfire_chance: 45%
-          backfire: |
-            Replaces YOU. Lives your life. Does it better.
-            Or: Becomes the target. Genuine identity crisis.
-            Or: Falls in love with target. Complicated.
-          summoning_cost: "5 HP and a mirror"
-          true_name: "Borrowed. Always borrowed."
-          
-  # SUMMONING SYSTEM
-  
-  summoning:
-    process: |
-      1. Player says: SUMMON [monster]
-      2. Pay summoning cost
-      3. DM rolls for backfire (percentage based on monster)
-      4. On success: Monster appears and follows ONE command!
-      5. On backfire: Monster appears with... complications
-      
-      BINDING:
-      After summoning, player must BIND monster to task.
-      Monster follows letter of command, not spirit.
-      Loopholes will be exploited.
-      
-      BANISHING:
-      Must know monster's true name (listed for each).
-      Speak it three times to banish.
-      Monster may negotiate.
-      
-    control_duration: |
-      Successful summon: 1 hour or 1 task (whichever comes first)
-      Failed summon: Monster's discretion (concerning)
-      
-    monster_motivation: |
-      All monsters want something:
-      - Gold (dragons, imps)
-      - Food (most things)
-      - Entertainment (tricksters)
-      - Understanding (eldritch)
-      - Respect (constructs)
-      - To be left alone (undead)
-      
-      Offering what they want: +20% control chance
-      Ignoring their needs: -20% control chance
+      Deaths are dramatic or comedic, rarely permanent.
       
   # FINE PRINT
   
   fine_print: |
-    *ACME Monster Manual is provided for REFERENCE ONLY.
-    
     ACME Corporation assumes no liability for:
-    - Monsters eating the summoner
-    - Monsters befriending the summoner's enemies
-    - Monsters developing opinions
-    - Existential dread (monster or summoner)
-    - Property damage
-    - Interdimensional incidents
-    - The monster turning out to be the good guy
-    - Accidental cults
-    - The feeling that maybe YOU'RE the monster
+    monsters eating summoners, developing opinions,
+    forming unions, befriending your enemies,
+    existential dread, or the feeling that
+    maybe YOU'RE the monster.
     
-    All true names are provided as-is. Pronunciation is
-    your problem. Mispronunciation may summon something else.
+    ACME: "What Could Possibly Go Wrong?"™
     
-    By reading this manual, you agree that any consequences
-    are technically YOUR fault for believing you could
-    control forces beyond mortal comprehension.
-    
-    ACME: "It Seemed Like A Good Idea!"™
-    ACME: "Monsters Made... Manageable?"™
-    ACME: "What's The Worst That Could Happen?"™
-    
-    (The illustrations in this book are protected by the
-    souls of previous readers. They watch. They remember.
-    They judge your monster choices.)
-    
-  # MARGINALIA (found in this copy)
-  
   marginalia:
     page_1: "Whoever finds this — BURN IT"
     page_47: "The dragon lied about the union breaks"
     page_89: "Jiggles is still following me"
-    page_123: "If you summon the abomination, tell my wife—"
-    page_124: "[the rest of the page is missing]"
-    page_201: "I populated Happy Unicorn Elf Land. The unicorns found the catalog."
-    page_202: "They ordered anvils. ANVILS."
-    page_247: "Tried DEPOPULATE. Didn't know the true names. They know mine now."
-    page_298: "Mixed Haunted Mansion with Chaos Realm. The ghosts are random now."
-    page_333: "The Demon Prince sent a thank-you note. That's worse somehow."
-    page_401: "Tried to fight the dragon with a chair. Chair won."
-    page_402: "Hugged the shoggoth. We're friends now. Send help."
-    page_456: "Exploited the lich's weakness. The phylactery was in its TOP HAT."
-    page_501: "Read the ghost its own entry. It cried. We both cried."
+    page_201: "The unicorns found the ACME catalog. They ordered anvils."
     final_page: "I have made a terrible mistake"
     inside_back_cover: |
       SUMMONING COUNTER:
@@ -1294,24 +196,10 @@ object:
       "Successful" (survived): IIII IIII II
       Regrets: IIII IIII IIII IIII IIII...
       
-      POPULATION COUNTER:
-      Locations populated: 7
-      Locations successfully depopulated: 0
-      Locations we don't talk about anymore: 7
-      
   k_lines:
     - ACME
     - MONSTERS
     - SUMMONING
-    - CURSED
-    - BACKFIRE
-    - IRONIC_FAILURE
-    - CREATURE_FEATURE
-    - DUNGEON_POPULATION
-    - THEMED_MONSTERS
-    - BULK_SUMMONING
-    - MAZE_INHABITANTS
     - IMPROVISED_COMBAT
-    - NARRATIVE_FIGHTING
-    - BEFRIENDING_MONSTERS
-    - HIDDEN_WEAKNESSES
+    - DUNGEON_POPULATION
+    - CURSED
