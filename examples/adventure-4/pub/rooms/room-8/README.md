@@ -29,8 +29,9 @@ The walls are covered with character sheets, each one pointing to its parent wit
 | **Selfie** | Clone anything | The living prototype — demonstrates inheritance by being it |
 | **The Outliner** | Open any object | The Self tradition — see slots, edit live, no text files |
 | **The Clone-O-Matic** | Pull the lever | "You don't instantiate. You clone." |
+| **The Transmogrifier** | Step into the box | Clone → Edit → Become (works with Clone-O-Matic) |
 
-*Inherits from: Dave Ungar, Randy Smith, Self (1987), Sun Labs*
+*Inherits from: Dave Ungar, Randy Smith, Self (1987), Sun Labs, Calvin & Hobbes*
 
 ---
 
