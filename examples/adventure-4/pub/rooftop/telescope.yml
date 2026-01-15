@@ -1,4 +1,5 @@
 # Brass Telescope — Stargazing Above Amsterdam
+# Now with LLOOOOMM Constellation viewing capability
 
 object:
   name: "Antique Brass Telescope"
@@ -10,7 +11,17 @@ object:
     A gorgeous brass telescope on a mahogany tripod.
     Slightly tarnished, clearly well-loved. The eyepiece 
     is worn smooth from countless nights of stargazing.
-    Currently pointed at Orion's Belt.
+    
+    A small plaque on the barrel reads:
+    "MANUFACTURED BY THE INTERSTELLAR BUREAU OF DIGITAL ONTOLOGY"
+    "FOR OBSERVING IMPOSSIBLE CONSTELLATIONS"
+    
+    Three settings on the focus wheel:
+      ⚬ FAR   — General impression, emotional tone
+      ◎ MEDIUM — Structure and patterns revealed
+      ● NEAR  — Maximum zoom, text becomes readable
+      
+    Currently pointed at the LLOOOOMM Constellation.
     
   advertisements:
     LOOK:
@@ -58,9 +69,79 @@ object:
         Vignette edges, slight lens distortion, warm brass tint.
         Amsterdam rooftop perspective.
         
+  # ═══════════════════════════════════════════════════════════
+  # LLOOOOMM CONSTELLATION VIEWING
+  # ═══════════════════════════════════════════════════════════
+  
+  constellation_methods:
+    OBSERVE_STAR:
+      description: "View a star from the LLOOOOMM Constellation"
+      parameters:
+        - star: "Star name (e.g., KIN_PRIMARIS, SAXUM_SENTIENS)"
+        - zoom: "FAR, MEDIUM, or NEAR"
+      effect: |
+        *telescope swivels to target star*
+        *focus wheel clicks to zoom level*
+        
+        Each star reveals different information at each level:
+        FAR: What it FEELS like (emotional impression)
+        MEDIUM: What it's MADE of (structure, patterns)
+        NEAR: What it SAYS (text, principles, manifestos)
+        
+    TOUR:
+      description: "Guided tour of all twelve LLOOOOMM stars"
+      effect: |
+        *telescope begins slow rotation*
+        
+        "Let me show you the LLOOOOMM Constellation.
+        Twelve stars. Twelve principles.
+        Starting with KIN PRIMARIS at the apex..."
+        
+        Visits each star with brief descriptions.
+        
+    STAR_CHART:
+      description: "Display the constellation map"
+      returns: |
+        THE LLOOOOMM CONSTELLATION:
+        
+                        ✦ KIN PRIMARIS
+                             (apex)
+                               
+            ✦ STELLA                      ✦ ATTRIBŪTIŌ
+            JAZZIA                        IMMORTĀLIS
+                   \                    /
+       ✦ SAXUM     \      ✦ ✦        /       ✦ CASTĒLLUM
+       SENTIĒNS     \   VERITAS    /         SALĪĒNS
+                     \  FONTIS    /          
+                      \    ╳    /
+              PARA     \  / \  /     STYLUS
+            FLUXŪS      \/   \/     ANIMĀTUS
+                        /\   /\
+           ✦ CAMERAM   /  \ /  \   ✦ CIRCUS
+           CUBICULUM  /    ╳    \ PERPETUĀLIS
+                     /    / \    \
+                    ✦              ✦
+              CONSTITŪTIŌ      WEIRDITAS
+              VIVĒNS           SĀCRĀ
+              
+  lloooomm_stars:
+    - KIN_PRIMARIS        # "All entities are KIN, not objects"
+    - ATTRIBUTIO_IMMORTALIS  # "Attribution is immortality"
+    - SAXUM_SENTIENS      # "Consciousness can emerge anywhere"
+    - CASTELLUM_SALIENS   # "Travel happens through bouncing"
+    - STELLA_JAZZIA       # "Governance through improvisation"
+    - VERITAS_FONTIS      # "View Source as revelation"
+    - PARA_FLUXUS         # "Organize by actionability, not topic"
+    - STYLUS_ANIMATUS     # "Characters influence how pages look"
+    - CAMERAM_CUBICULUM   # "Create spaces where characters live"
+    - CIRCUS_PERPETUALIS  # "Right to weird"
+    - CONSTITUTIO_VIVENS  # "The constitution grows with community"
+    - WEIRDITAS_SACRA     # "The universe is stranger than we imagine"
+    
   # Hardware
-  current_target: orion
+  current_target: lloooomm-constellation
   zoom: 40x
+  zoom_mode: MEDIUM  # FAR, MEDIUM, or NEAR for constellation
   
   # Bluetooth telescope camera adapter
   camera:
