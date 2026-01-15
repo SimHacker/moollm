@@ -1,0 +1,286 @@
+# 👠 PRANCING PIXIE PUMPS OF PASSING
+# "Skip the boring parts!"
+
+object:
+  name: Prancing Pixie Pumps of Passing
+  aliases: [tap shoes, dancing shoes, skipping slippers, elision shoes]
+  type: wearable
+  slot: feet
+  portable: true
+  rarity: uncommon
+  
+  description: |
+    Delicate shoes with silver taps and "..." embroidered in moonthread.
+    When you dance through repetitive or boring terrain,
+    they skip and hop you to the interesting part.
+    
+    A note tucked inside reads:
+    
+    > "We pranced for three days through featureless desert."
+    > "With these shoes: '... ♪ ♫ ...'"
+    > "We arrived at the oasis, barely winded."
+    
+  examine: |
+    The taps are worn bright from all the skipping they've done.
+    The ribbons are made of condensed narrative.
+    They smell faintly of starlight and impatience.
+    
+    Inside the tongue, in flowing elven script:
+    
+    AUTOMATIC ELISION:
+    - Featureless terrain: skipped
+    - Repetitive encounters: hop-hop-summarized  
+    - Long travel: montaged with dance numbers
+    - Waiting in lines: shuffle-ball-change'd away
+    
+    MANUAL OVERRIDE:
+    - Tap tap tap: force elision
+    - Stomp: exit elision early
+    - Moonwalk: re-experience (why would you?)
+    
+  buffs:
+    NARRATIVE_SKIP:
+      duration: "while worn"
+      effect: |
+        Boring travel becomes a dance:
+        
+        Instead of:
+          "You walk north. You walk north. You walk north.
+           A rock. You walk north. Another rock. You walk..."
+           
+        You experience:
+          "♪ ... [3 days of uneventful prancing] ... ♫"
+          "You pirouette into your destination."
+          
+      side_effect: |
+        Occasionally skips things that were actually important.
+        
+        "Wait, what happened to the—"
+        "We... danced past it."
+        "THE TREASURE?"
+        "In hindsight, maybe should have stopped to look."
+        
+    TIME_COMPRESSION:
+      duration: "while worn"
+      effect: |
+        Long waits become dance numbers:
+        
+        "The ferry arrives in 6 hours."
+        *tap tap tap*
+        "The ferry has arrived."
+        
+        (6 hours still passed. You just... danced through them.)
+        
+    SUMMARY_GENERATION:
+      duration: "while worn"
+      effect: |
+        Long texts become short texts:
+        
+        "Here is my 47-page proposal—"
+        *tap tap*
+        "TL;DR: You want money. Risks exist. Upside big."
+        
+        The shoes extract essence. Discard filler.
+        Everything is a dance: beginning, middle, end.
+        Why walk through all the steps?
+        
+  advertisements:
+    - trigger: "boring"
+      score: 0.95
+      response: "*shoes shimmer* I can fix that."
+      
+    - trigger: "how long"
+      score: 0.85
+      response: "With these shoes? However long is interesting."
+      
+    - trigger: "skip"
+      score: 0.9
+      response: "Tap your toes. I'll do the rest."
+      
+    - trigger: "travel"
+      score: 0.8
+      response: |
+        *shoes anticipate*
+        
+        Current journey has ~40% interesting content.
+        Would you like to elide the 60%?
+        
+    - trigger: "tldr"
+      score: 0.95
+      response: "*ribbons flutter* I can condense that."
+      
+    - trigger: "summarize"
+      score: 0.9
+      response: "How short? Tweet, paragraph, or haiku?"
+      
+    - trigger: "too long"
+      score: 0.85
+      response: "Let me dance through it for you. One moment..."
+        
+  methods:
+    WEAR:
+      description: "Put on the prancing shoes"
+      effect: |
+        They fit perfectly. (Elven craftsmanship.)
+        
+        Your feet feel lighter. Your toes want to tap.
+        The shoes are already evaluating the interestingness
+        of your surroundings.
+        
+        Current location: [INTERESTING]
+        (Shoes are patient — nothing to skip yet.)
+        
+    SKIP:
+      description: "Hop and skip to the next interesting thing"
+      parameters:
+        - filter: "What counts as 'interesting'? (default: combat, treasure, plot)"
+      effect: |
+        *tap tap tap*
+        
+        ♪ ... ♫
+        
+        [N hours/days/moments danced through]
+        
+        ♫ ... ♪
+        
+        You land gracefully at: [next interesting thing]
+        
+    REWIND:
+      description: "Review what was skipped"
+      parameters:
+        - range: "Which elision to review"
+      returns: |
+        During the skipped period:
+        - Nothing happened (47%)
+        - Scenery (30%)
+        - Minor wildlife (15%)
+        - That thing you missed (8%)  # <═══ hm
+        
+        Want to moonwalk back for "that thing"?
+        
+    TLDR:
+      description: "Generate a summary of anything"
+      parameters:
+        - target: "What to summarize (text, conversation, event, book, quest)"
+        - length: "How condensed? (tweet / paragraph / page)"
+      effect: |
+        *shoes tap thoughtfully*
+        
+        The ribbons unspool slightly, absorbing the content...
+        Then re-weave into condensed narrative.
+        
+        Returns: The essential points. The good parts.
+        Everything else: elided.
+        
+      examples:
+        - input: "War and Peace"
+          output: "Russia. War. Peace. Everyone's related."
+          
+        - input: "This 3-hour meeting"
+          output: "Decision: none. Action items: 2. Could've been email: yes."
+          
+        - input: "The hero's 10-page backstory"
+          output: "Dead parents. Prophecy. Sword. Let's go."
+          
+    HIGHLIGHT:
+      description: "Extract only the interesting moments from a period"
+      parameters:
+        - period: "What timeframe to scan"
+      returns: |
+        Interesting moments, separated by "..."
+        
+        "You entered the dungeon..."
+        "...found the secret door..."
+        "...defeated the boss..."
+        "...got the treasure."
+        
+        Total time: 6 hours.
+        Highlights: 4 minutes.
+        Efficiency: 98.9%
+        
+  lore: |
+    These shoes were made by an elven choreographer 
+    who hated boring travel montages.
+    
+    "Nobody wants to trudge," she said, pirouetting.
+    "They want to ARRIVE. Gracefully. With flair."
+    
+    She enchanted her dancing shoes to skip the dull bits.
+    Then she choreographed the shortest ballet in history:
+    "Overture. ♪...♫ Finale."
+    
+    Critics called it "avant-garde." She called it "efficient."
+    
+  legendary_performance: |
+    THE 99 BOTTLES SPEED OF LIGHT
+    
+    Room 5. The party. The song.
+    
+    "99 bottles of beer on the wall..."
+    
+    Without shoes: 99 verses. 99 turns. Hours of play.
+    
+    With shoes:
+      "99 bottles of beer on the wall—"
+      *tap tap tap*
+      "... [97 verses elided, highlights preserved] ..."
+      "1 bottle of beer on the wall, 1 bottle of beer..."
+      "No more bottles of beer on the wall."
+      
+    792 simulated turns. 1 LLM call.
+    
+    The shoes didn't skip the fun parts:
+    - Pee-wee's hee-hee at bottle 84
+    - Captain Ashford's Belter accent at bottle 47
+    - Rocky absorbing 47 beers with no effect
+    - Shuffle's card tricks between verses
+    - The Confetti Crawler's celebratory debris
+    
+    Just the repetition. The counting down.
+    The parts where nothing NEW happened.
+    
+    That's elision done right.
+    
+  previous_owner: |
+    Found in a government evidence locker, alongside 
+    a heavily redacted document collection.
+    
+    The shoes were worn by someone who elided... a lot.
+    Names. Dates. Flight logs. Client lists.
+    
+    ████████ didn't ████ himself.
+    
+    The shoes know what was skipped.
+    They're not telling.
+    
+  curse: |
+    MODERATE CURSE: Dance Fever
+    
+    After extended use, boring threshold increases.
+    
+    First you skip long journeys.
+    Then you hop through short walks.
+    Then you tap through conversations.
+    Then you pirouette past meals.
+    Then you chassé through sleep.
+    
+    Eventually, you dance to the end of your adventure
+    without remembering any of it.
+    
+    Remove the shoes occasionally. Rest your feet.
+    
+  warnings:
+    - "Do not wear during character development scenes"
+    - "May skip emotional growth (considered 'slow' by default)"
+    - "The shoes' definition of 'interesting' favors spectacle over depth"
+    - "You cannot stop dancing until something interesting happens"
+    
+  k_lines:
+    activates:
+      - ELISION
+      - NARRATIVE-COMPRESSION
+      - PACING
+      - TRAVEL
+      - TLDR
+      - SUMMARIZATION
+      - HIGHLIGHTS

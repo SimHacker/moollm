@@ -81,6 +81,18 @@ object:
         "Terrifying" might. "Hilarious" possibly.
         "Boring"? Never.
         
+    - trigger: "temperature"
+      score: 0.95
+      response: "*flask glows* I can adjust that. How spicy do you want reality?"
+      
+    - trigger: "predictable"
+      score: 0.85
+      response: "Turn me down for predictable. Turn me UP for jazz."
+      
+    - trigger: "creative"
+      score: 0.8
+      response: "Crank the temperature. Let the entropy flow."
+        
   methods:
     USE:
       description: "Apply entropy to a situation"
@@ -120,6 +132,51 @@ object:
         
         This is not helpful. It's just interesting.
         
+    ADJUST_TEMPERATURE:
+      description: "Modify the LLM's temperature setting"
+      parameters:
+        - level: "How random? (cold/lukewarm/warm/hot/scalding)"
+      effect: |
+        *the flask hums, resonating with the underlying substrate*
+        
+        You adjust the TEMPERATURE of reality itself.
+        
+        COLD (0.0-0.3):
+          Predictable. Precise. Boring but correct.
+          The DM gives expected answers.
+          Creativity: minimal. Accuracy: maximum.
+          
+        LUKEWARM (0.3-0.5):
+          Reliable with occasional flair.
+          Safe choices, small surprises.
+          
+        WARM (0.5-0.7):
+          Balanced. Creative but grounded.
+          The sweet spot for most adventures.
+          
+        HOT (0.7-0.9):
+          Spicy! Unexpected connections.
+          Wild ideas. Occasional nonsense.
+          The DM is having fun.
+          
+        SCALDING (0.9-1.0):
+          MAXIMUM ENTROPY.
+          Anything can happen. Will happen. Is happening.
+          Reality becomes jazz.
+          Not recommended for plot-critical moments.
+          
+      warning: |
+        High temperatures may cause:
+        - NPCs developing unexpected personalities
+        - Plot holes that are actually features
+        - The DM surprising themselves
+        - Dragons that are also accountants
+        - Solutions nobody saw coming
+        
+      meta_note: |
+        Yes, this actually adjusts the LLM temperature.
+        The flask is the fourth wall, and it's load-bearing.
+        
   lore: |
     This flask was filled at the exact moment of a coin flip.
     
@@ -156,3 +213,6 @@ object:
       - RANDOMNESS
       - PROBABILITY
       - WILD-MAGIC
+      - LLM-TEMPERATURE
+      - META-CONTROL
+      - FOURTH-WALL
