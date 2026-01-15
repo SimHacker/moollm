@@ -92,17 +92,61 @@
 flowchart TB
     ROOF[Rooftop<br/>Telescope, Herbs]
     ATTIC[Hotel Attic<br/>Magic Items]
-    ROOMS[Hotel Floor<br/>8 Themed Rooms]
+    HUB[Rooms Landing<br/>Central Hub]
     PUB[Main Pub<br/>Bar, Stage, Arcade]
     BASE[Basement<br/>Ale, Wine, Relics]
     
-    ROOF --> ATTIC
-    ATTIC --> ROOMS
-    ROOMS --> PUB
-    PUB --> BASE
+    ROOF -->|down| ATTIC
+    ATTIC -->|down| HUB
+    HUB -->|down| PUB
+    PUB -->|down| BASE
 ```
 
-**Navigation:** UP from pub → Rooms → Attic → Rooftop. DOWN from pub → Basement.
+**Vertical Navigation:** Only the Rooms Landing (central hub) connects up/down. Individual rooms connect horizontally to the hub.
+
+### Hotel Floor Layout
+
+```mermaid
+flowchart LR
+    R1[Room 1<br/>Constructionism]
+    R2[Room 2<br/>Minsky]
+    R3[Room 3<br/>Mirrors]
+    R4[Room 4<br/>Postel]
+    HUB[LANDING<br/>↑Attic ↓Pub]
+    R5[Room 5<br/>Speed]
+    R6[Room 6<br/>YAML Jazz]
+    R7[Room 7<br/>Awakening]
+    R8[Room 8<br/>Self]
+    
+    R1 -->|east| R2
+    R2 -->|east| R3
+    R3 -->|east| R4
+    R4 -->|east| HUB
+    HUB -->|east| R5
+    R5 -->|east| R6
+    R6 -->|east| R7
+    R7 -->|east| R8
+```
+
+**Hotel Floor Navigation:**
+| From | Direction | To |
+|------|-----------|-----|
+| Pub | up | Rooms Landing |
+| Rooms Landing | down | Pub |
+| Rooms Landing | up | Attic |
+| Attic | down | Rooms Landing |
+| Rooms Landing | west | Room 4 |
+| Rooms Landing | east | Room 5 |
+| Room 1 | east | Room 2 |
+| Room 2 | west | Room 1, east | Room 3 |
+| Room 3 | west | Room 2, east | Room 4 |
+| Room 4 | west | Room 3, east | Landing |
+| Room 5 | west | Landing, east | Room 6 |
+| Room 6 | west | Room 5, east | Room 7 |
+| Room 7 | west | Room 6, east | Room 8 |
+| Room 8 | west | Room 7 |
+
+**Centrality:** 4 rooms west of hub (1-4), 4 rooms east of hub (5-8). The landing is the only vertical connection point.
 
 ### Horizontal Layout (Ground Level)
 
@@ -163,19 +207,20 @@ flowchart TB
 | Ale Barrel | Basement | [ale-barrel.yml](../../../../pub/basement/ale-barrel.yml) | Leela prototype instance |
 | Relic Shelf | Basement | [relic-shelf.yml](../../../../pub/basement/relic-shelf.yml) | Paradox-safe storage |
 
-### The Eight Hotel Rooms
+### The Hotel Floor (8 Rooms + Central Hub)
 
-| Room | Theme | Key Artifact | Summonable Familiar |
-|------|-------|--------------|---------------------|
-| 1 | [Constructionism](../../../../pub/rooms/room-1/ROOM.yml) | [Logo Turtle](../../../../pub/rooms/room-1/logo-turtle.yml) | The Debugger |
-| 2 | [Minsky/Mind](../../../../pub/rooms/room-2/ROOM.yml) | [Ultimate Machine](../../../../pub/rooms/room-2/ultimate-machine.yml) | K-Line Spider |
-| 3 | [Mirrors](../../../../pub/rooms/room-3/ROOM.yml) | [Thinking Mirror](../../../../pub/rooms/room-3/thinking-mirror.yml) | The Reflection |
-| 4 | [Postel/YAML](../../../../pub/rooms/room-4/ROOM.yml) | [Orchid of Postel](../../../../pub/rooms/room-4/orchid-of-postel.yml) | Rocky |
-| 5 | [Speed Games](../../../../pub/rooms/room-5/ROOM.yml) | [Ensemble Stage](../../../../pub/rooms/room-5/ensemble-stage.yml) | Shuffle |
-| 6 | [YAML Jazz](../../../../pub/rooms/room-6/ROOM.yml) | [Jazz Typewriter](../../../../pub/rooms/room-6/jazz-typewriter.yml) | The Metronome |
-| 7 | [Awakening](../../../../pub/rooms/room-7/ROOM.yml) | [Awakening Chamber](../../../../pub/rooms/room-7/awakening-chamber.yml) | Doug Engelbart |
-| 8 | [Self Language](../../../../pub/rooms/room-8/ROOM.yml) | [Soul Forge](../../../../pub/rooms/room-8/self-soul-forge.yml) | [Selfie](../../../../pub/rooms/room-8/selfie.yml) |
-| Attic | [Magical Items](../../../../pub/rooms/attic/ROOM.yml) | [Probability Goggles](../../../../pub/rooms/attic/probability-goggles.yml) | Emotion Engine |
+| Location | Theme | Key Artifact | Exits |
+|----------|-------|--------------|-------|
+| Room 1 | [Constructionism](../../../../pub/rooms/room-1/ROOM.yml) | [Logo Turtle](../../../../pub/rooms/room-1/logo-turtle.yml) | east→2 |
+| Room 2 | [Minsky/Mind](../../../../pub/rooms/room-2/ROOM.yml) | [Ultimate Machine](../../../../pub/rooms/room-2/ultimate-machine.yml) | west→1, east→3 |
+| Room 3 | [Mirrors](../../../../pub/rooms/room-3/ROOM.yml) | [Thinking Mirror](../../../../pub/rooms/room-3/thinking-mirror.yml) | west→2, east→4 |
+| Room 4 | [Postel/YAML](../../../../pub/rooms/room-4/ROOM.yml) | [Orchid of Postel](../../../../pub/rooms/room-4/orchid-of-postel.yml) | west→3, east→Landing |
+| **Landing** | [Rooms Hub](../../../../pub/rooms/ROOM.yml) | Ice Machine, Soda Machine | west→4, east→5, up→Attic, down→Pub |
+| Room 5 | [Speed Games](../../../../pub/rooms/room-5/ROOM.yml) | [Ensemble Stage](../../../../pub/rooms/room-5/ensemble-stage.yml) | west→Landing, east→6 |
+| Room 6 | [YAML Jazz](../../../../pub/rooms/room-6/ROOM.yml) | [Jazz Typewriter](../../../../pub/rooms/room-6/jazz-typewriter.yml) | west→5, east→7 |
+| Room 7 | [Awakening](../../../../pub/rooms/room-7/ROOM.yml) | [Awakening Chamber](../../../../pub/rooms/room-7/awakening-chamber.yml) | west→6, east→8 |
+| Room 8 | [Self Language](../../../../pub/rooms/room-8/ROOM.yml) | [Soul Forge](../../../../pub/rooms/room-8/self-soul-forge.yml) | west→7 |
+| Attic | [Magical Items](../../../../pub/rooms/attic/ROOM.yml) | [Probability Goggles](../../../../pub/rooms/attic/probability-goggles.yml) | down→Landing |
 
 ### The Cat Cave & Residents
 
