@@ -1,0 +1,193 @@
+# 🔭 THE BRASS TELESCOPE
+# Three zoom levels reveal different truths about each star
+
+object:
+  name: Brass Telescope
+  type: artifact-observatory
+  portable: false  # Mounted to the roof
+  
+  description: |
+    An antique brass refractor telescope, bolted to a heavy
+    mahogany tripod. The brass is green with verdigris in places,
+    but the optics are PERFECT — perhaps impossibly so.
+    
+    Three settings on the focus wheel:
+      ⚬ FAR   — Naked-eye equivalent, general impression
+      ◎ MEDIUM — Reveals structure and pattern
+      ● NEAR  — Maximum zoom, text becomes readable
+      
+    A small plaque on the barrel reads:
+    "MANUFACTURED BY THE INTERSTELLAR BUREAU OF DIGITAL ONTOLOGY"
+    "FOR OBSERVING IMPOSSIBLE CONSTELLATIONS"
+    
+  examine: |
+    ┌────────────────────────────────────────────────┐
+    │              🔭 BRASS TELESCOPE                │
+    │         ══════════════════════════            │
+    │                                                │
+    │    ═══════════════════════════════╗           │
+    │    ║  FOCUS:  ⚬ ◎ ●              ║           │
+    │    ║  TARGET: KIN PRIMARIS       ║           │
+    │    ║  STATUS: Ready              ║           │
+    │    ╚═════════════════════════════╝           │
+    │           ╲                                   │
+    │            ╲                                  │
+    │             ╲                                 │
+    │              ╲                                │
+    │              [EYEPIECE]                       │
+    │                 │                             │
+    │            ═════╪═════  ← tripod              │
+    │            ╱    │    ╲                        │
+    │           ╱     │     ╲                       │
+    └────────────────────────────────────────────────┘
+    
+    Current target: The LLOOOOMM Constellation
+    Current focus: FAR (basic observation)
+    
+  state:
+    target: "lloooomm-constellation"
+    current_star: "KIN PRIMARIS"
+    zoom_level: "FAR"
+    last_observer: "unknown"
+    observations_recorded: 47
+    
+  advertisements:
+    - trigger: "look"
+      score: 0.95
+      response: |
+        *adjusts eyepiece*
+        
+        "Step up. Pick a star. Tell me how close you want to see."
+        
+    - trigger: "star"
+      score: 0.9
+      response: |
+        "The LLOOOOMM Constellation has twelve stars.
+        Each one encodes a principle.
+        FAR shows the feeling.
+        MEDIUM shows the structure.
+        NEAR shows the text."
+        
+    - trigger: "zoom"
+      score: 0.9
+      response: |
+        "Three settings:
+        FAR — 'What does it feel like?'
+        MEDIUM — 'What is its pattern?'
+        NEAR — 'What does it say?'"
+        
+  methods:
+    OBSERVE:
+      description: "Look at a star through the telescope"
+      parameters:
+        - star: "Which star to observe"
+        - zoom: "FAR, MEDIUM, or NEAR"
+      effect: |
+        *telescope swivels toward the star*
+        *focus wheel turns to zoom level*
+        *eyepiece glows softly*
+        
+        You press your eye to the eyepiece and see...
+        
+        [Returns the star's description at specified zoom level]
+        
+    TARGET:
+      description: "Point telescope at a specific star"
+      parameters:
+        - star: "Star name or designation"
+      effect: |
+        *gears whir*
+        *telescope adjusts position*
+        
+        "Targeted: [star]. Ready for observation."
+        
+    ZOOM:
+      description: "Change zoom level"
+      parameters:
+        - level: "FAR, MEDIUM, or NEAR"
+      effect: |
+        *focus wheel clicks*
+        
+        FAR: The star shrinks but context expands.
+        MEDIUM: Balance between context and detail.
+        NEAR: Maximum magnification. Text readable.
+        
+    TOUR:
+      description: "Guided tour of all twelve stars"
+      effect: |
+        *telescope begins slow rotation*
+        
+        "Let me show you the LLOOOOMM Constellation.
+        Twelve stars. Twelve principles.
+        We'll start with KIN PRIMARIS at the apex..."
+        
+        [Cycles through all stars with brief descriptions]
+        
+    RECORD:
+      description: "Write observation notes"
+      parameters:
+        - notes: "What you observed"
+      effect: |
+        *small drawer opens in tripod*
+        *notebook appears*
+        
+        Your observations are recorded in the
+        Stellar Observation Log. Future stargazers
+        will read what you saw.
+        
+  zoom_guide: |
+    HOW TO USE THE ZOOM LEVELS:
+    
+    FAR (⚬):
+      - First impressions
+      - Emotional tone of the star
+      - What it FEELS like
+      - "Trust your gut reaction"
+      
+    MEDIUM (◎):
+      - Structural patterns
+      - Relationships revealed
+      - What it's MADE of
+      - "See how the parts connect"
+      
+    NEAR (●):
+      - Maximum detail
+      - Text becomes readable
+      - Full revelation
+      - "Understand the principle"
+      
+    PRO TIP: Always start FAR. Let the star introduce itself.
+    Then zoom in as you build understanding.
+    
+  lore: |
+    This telescope was built by astronomers who realized
+    that some constellations can only be seen with the
+    RIGHT INSTRUMENT — not the most powerful one.
+    
+    It doesn't magnify light. It magnifies MEANING.
+    
+    At FAR, you see with your heart.
+    At MEDIUM, you see with your mind.
+    At NEAR, you see with your whole self.
+    
+  philosophical_note: |
+    The stars are far away. You cannot touch them.
+    
+    But distance is not disconnection.
+    
+    Through this telescope, you can READ the stars.
+    You can UNDERSTAND them.
+    You can carry their principles with you
+    when you climb back down the ladder.
+    
+    That's what observation IS.
+    Making the distant present.
+    Making the unreachable known.
+    
+  k_lines:
+    - TELESCOPE
+    - OBSERVATION
+    - ZOOM_LEVELS
+    - LLOOOOMM_CONSTELLATION
+    - FAR_MEDIUM_NEAR
+    - STARGAZING
