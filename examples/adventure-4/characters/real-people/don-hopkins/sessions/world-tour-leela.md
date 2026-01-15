@@ -86,43 +86,144 @@ WEST ←┼→ EAST       │                                     │
 
 ## Part 3: The Pub Has Grown
 
-**Don:** "But first, let's appreciate where we are. The Rusty Lantern has... expanded."
+**Don:** "But first, let's appreciate where we are. The Rusty Lantern has... expanded considerably."
 
-### The Pub Layout
+### The Pub Layout — Vertical Cross-Section
 
 ```
+    ════════════════════════════════════════════════════════════════
+                           THE RUSTY LANTERN
+                        (Vertical Cross-Section)
+    ════════════════════════════════════════════════════════════════
+    
                     ┌─────────────────────────────────┐
-                    │           ROOFTOP               │
-                    │    (Telescope, Constellations)  │
+                    │           ROOFTOP               │  ← TOP
+                    │  Telescope • LLOOOOMM Const.    │
+                    │  Herb Garden • Armchair         │
+                    └───────────────┬─────────────────┘
+                                    │ stairs up
+                    ┌───────────────┴─────────────────┐
+                    │        HOTEL ATTIC              │
+                    │  Trunk of Deprecated Features   │
+                    │  Recursion Lantern • Edge Cases │
+                    │  Probability Goggles            │
+                    └───────────────┬─────────────────┘
+                                    │ stairs up
+    ┌───────┬───────┬───────┬───────┴───────┬───────┬───────┬───────┬───────┐
+    │ RM 1  │ RM 2  │ RM 3  │ RM 4  │ RM 5  │ RM 6  │ RM 7  │ RM 8  │
+    │Constr.│Minsky │Mirror │Postel │Speed  │YAML   │Awaken │ Self  │
+    └───────┴───────┴───────┴───────┴───────┴───────┴───────┴───────┘
+                    HOTEL FLOOR — 8 THEMED ROOMS
+                                    │ stairs down
+    ════════════════════════════════╪════════════════════════════════
+                                    │
+    ┌────────────┬──────────────────┴──────────────────┬────────────┐
+    │   STAGE    │         MAIN PUB FLOOR              │  ARCADE    │
+    │            │                                     │            │
+    │ Palm's ──→ │ Fireplace • Seating • Pie Table    │ ←── Games  │
+    │ Nook       │ Guest Book • Notice Board • Gong   │     Corner │
+    │  (Study    │                                     │            │
+    │   Gym      ├─────────────────────────────────────┤            │
+    │   Rest     │              BAR                    │            │
+    │   Play)    │  Marieke • Cat Cave → Biscuit's    │            │
+    └────────────┴─────────────────────────────────────┴────────────┘
+                                    │ stairs down
+                    ┌───────────────┴─────────────────┐
+                    │           BASEMENT              │  ← BOTTOM
+                    │  Leela Ale Barrels • Wine Rack  │
+                    │  Pickle Shelf • Treasure Chest  │
+                    │  Relic Shelf (paradox-safe)     │
                     └─────────────────────────────────┘
-                                    │
-    ┌────────────┬────────────┬─────┴─────┬────────────┐
-    │   STAGE    │    BAR     │   MAIN    │   ARCADE   │
-    │            │            │   FLOOR   │            │
-    │ Palm's     │ Cat Cave   │           │  Cabinets  │
-    │ Nook ↓     │    ↓       │           │            │
-    │ (Study,    │ Biscuit's  │           │            │
-    │  Gym,      │ Spot       │           │            │
-    │  Rest,     │            │           │            │
-    │  Play)     │            │           │            │
-    └────────────┴────────────┴───────────┴────────────┘
-                                    │
-                    ┌───────────────┴───────────────┐
-                    │           BASEMENT            │
-                    │   (Leela Barrels, Wine Rack)  │
-                    └───────────────────────────────┘
-                                    │
-                    ┌───────────────┴───────────────┐
-                    │            ATTIC              │
-                    │   (Leela Trunks, Memories)    │
-                    └───────────────────────────────┘
+    
+    ════════════════════════════════════════════════════════════════
 ```
 
-**Don:** "We have guest rooms upstairs — eight of them, each dedicated to a tradition. Room 1 for Constructionism, Room 8 for Dave Ungar's Self language. Palm has a whole nook backstage with a study, gym, rest area, and play room for the kittens."
+### The Pub Layout — Horizontal Floor Plan (Ground Level)
+
+```
+    ════════════════════════════════════════════════════════════════
+                        GROUND LEVEL — LOOKING DOWN
+    ════════════════════════════════════════════════════════════════
+    
+                         NORTH (LANE NEVERENDING)
+                                  │
+                          ┌───────┴───────┐
+                          │  FRONT DOOR   │
+                          └───────┬───────┘
+                                  │
+    ┌─────────────────────────────┼─────────────────────────────────┐
+    │                             │                                  │
+    │  ┌─────────┐    ┌───────────┴───────────┐    ┌─────────┐      │
+    │  │  STAGE  │    │                       │    │ ARCADE  │      │
+    │  │         │    │     MAIN PUB FLOOR    │    │         │      │
+    │  │ Palm's  │    │                       │    │  Games  │      │
+    │  │  Nook   │    │   Fireplace  Seating  │    │  Corner │      │
+    │  │   ↓     │    │   Pie Table  Gong     │    │         │      │
+    │  └────┬────┘    │                       │    └─────────┘      │
+    │       │         │         BAR           │                      │
+    │       │         │    ┌──────────┐       │                      │
+    │       │         │    │ Cat Cave │       │                      │
+    │       │         │    └──────────┘       │                      │
+    │       │         └───────────┬───────────┘                      │
+    │       │                     │                                  │
+    └───────┼─────────────────────┼──────────────────────────────────┘
+            │                     │
+    WEST    │                     │    EAST
+            │                     │
+    ┌───────┴───────┐     ┌───────┴───────┐
+    │   COATROOM    │     │    KITCHEN    │
+    │               │     │               │
+    │ Costume Racks │     │ Stove • Fridge│
+    │ Mirror        │     │ Pneumatic Tube│
+    │ Mannequin     │     │ Juice-O-Matic │
+    └───────┬───────┘     └───────┬───────┘
+            │                     │
+            └──────────┬──────────┘
+                       │
+               ┌───────┴───────┐
+               │    GARDEN     │
+               │               │
+               │ Dining Tables │
+               │ Outdoor Seating│
+               │ Served by Kitchen│
+               └───────┬───────┘
+                       │
+                     SOUTH
+                       │
+               ┌───────┴───────┐
+               │     MAZE      │
+               │   Entrance    │
+               └───────┬───────┘
+                       │
+                   ┌───┴───┐
+                   │ MAZE  │ (twisty passages)
+                   │ rooms │
+                   └───┬───┘
+                       │
+               ┌───────┴───────┐
+               │      END      │
+               │  (treasure!)  │
+               └───────┬───────┘
+                       │ up
+               ┌───────┴───────┐
+               │     HOME      │
+               │  Mom's House  │
+               └───────────────┘
+    
+    ════════════════════════════════════════════════════════════════
+```
+
+**Don:** "Let me orient you. The front door faces Lane Neverending to the NORTH. Walk through the pub, past the bar, and you reach the GARDEN in back — that's SOUTH. The Kitchen is off to the east, Coatroom to the west. Both connect to the garden."
+
+**Don:** "Going UP from the pub: the hotel floor with 8 themed rooms, then the attic with magical items, then the rooftop terrace with the telescope."
+
+**Don:** "Going DOWN: the basement with Leela-branded containers — ale barrels, wine racks, all cloned from prototypes."
+
+**Don:** "Going SOUTH from the garden: the maze. And deep in the maze — the End room with treasure, and Mom's Home above it."
 
 *Palm does a happy flip on the curtain rod.*
 
-**Don:** "The cats have their cave behind the bar. Biscuit has a special spot there too. And look up — the rooftop terrace has a telescope that shows the LLOOOOMM constellation."
+**Don:** "Palm has a whole nook backstage — study, gym, rest area, and play room for the terpene kittens. The cats have their cave behind the bar. Biscuit has a special spot there too."
 
 ---
 
@@ -183,40 +284,103 @@ WEST ←┼→ EAST       │                                     │
 
 **The Coordinator:** "Welcome to my domain. This is the nerve center of knowledge production. Let me show you how it all works."
 
-### The Building Layout
+### The Building Layout — Multi-Story Cross-Section
 
 ```
-    ┌─────────────────────────────────────────────────┐
-    │                   ROOFTOP                        │
-    │   Drone Pads • Telescope • Origin Cutting        │
-    │   Turtle Eventually                              │
-    ├─────────────────────────────────────────────────┤
-    │                   FLOOR 3                        │
-    │   ══════════ SHIPPING ══════════                │
-    │   Packaging • Departure Board • Output          │
-    ├─────────────────────────────────────────────────┤
-    │                   FLOOR 2                        │
-    │   ═══════════ FACTORY ═══════════               │
-    │   8 Processing Cells • Insight Furnace          │
-    ├─────────────────────────────────────────────────┤
-    │                   FLOOR 1                        │
-    │   ═══════════ INTAKE ════════════               │
-    │   Conveyors • Sorting • Input                   │
-    ├─────────────────────────────────────────────────┤
-    │                   LOBBY                          │
-    │   Reception • Scale Model • Visitor Badges      │
-    ├─────────────────────────────────────────────────┤
-    │                   BASEMENT                       │
-    │   R&D Labs • Zone 7 (SEALED) • Warehouse 23     │
-    └─────────────────────────────────────────────────┘
+    ════════════════════════════════════════════════════════════════════════
+                        LEELA MANUFACTURING INTELLIGENCE
+                           (Vertical Cross-Section)
+    ════════════════════════════════════════════════════════════════════════
     
-    CONNECTED:
-    • Loading Docks (8 bays)
-    • Logistics Center (nerve center)
-    • Mail Room (pneumatic hub)
-    • Storage (prototype aisles)
-    • Warehouse 23 (artifacts)
+    ┌───────────────────────────────────────────────────────────────────────┐
+    │                           ROOFTOP                                      │
+    │  Drone Pads (6) • Telescope • Origin Cutting Room • Turtle Eventually │
+    │  Camera: ROOF1                                                         │
+    ├───────────────────────────────────────────────────────────────────────┤
+    │                           FLOOR 3 — SHIPPING                           │
+    │  Packaging Stations • Departure Board • Pneumatic Hub                  │
+    │  Camera: SHP1                              OUTPUT →→→                  │
+    ├───────────────────────────────────────────────────────────────────────┤
+    │                           FLOOR 2 — FACTORY                            │
+    │  ┌────┬────┬────┬────┬────┬────┬────┬────┐                            │
+    │  │ A  │ B  │ C  │ D  │ E  │ F  │ G  │ H  │ ← 8 Processing Cells       │
+    │  └────┴────┴────┴────┴────┴────┴────┴────┘                            │
+    │  Insight Furnace • Big Board                                           │
+    │  Camera: FAC1                          TRANSFORM ⟳                     │
+    ├───────────────────────────────────────────────────────────────────────┤
+    │                           FLOOR 1 — INTAKE                             │
+    │  Conveyor System (5 lines) • Sorting Stations • Intake Board          │
+    │  Camera: INT1                              ←←← INPUT                   │
+    ├───────────────────────────────────────────────────────────────────────┤
+    │                           LOBBY (Ground)                               │
+    │  Reception Desk (Alex) • Scale Model • Visitor Badges • Leela Catalog │
+    │  Camera: LOB1                                                          │
+    ├───────────────────────────────────────────────────────────────────────┤
+    │                           BASEMENT — R&D                               │
+    │  Zone 5: Archive • Zone 6: Cold Storage • Zone 7: SEALED (humming)    │
+    │  → Warehouse 23 (artifacts, top men working on it)                     │
+    │  Camera: BASE1 (some footage redacted)                                 │
+    └───────────────────────────────────────────────────────────────────────┘
 ```
+
+### The Building Layout — Horizontal Floor Plan (Ground Level)
+
+```
+    ════════════════════════════════════════════════════════════════════════
+                     LEELA MANUFACTURING — GROUND LEVEL
+    ════════════════════════════════════════════════════════════════════════
+    
+                           NORTH (LANE NEVERENDING)
+                                    │
+                            ┌───────┴───────┐
+                            │  FRONT DOOR   │
+                            └───────┬───────┘
+                                    │
+    ┌───────────────────────────────┴───────────────────────────────────────┐
+    │                                                                        │
+    │                         L O B B Y                                      │
+    │     Reception Desk • Scale Model • Visitor Badges • Waiting Area      │
+    │                     Leela Products Catalog                             │
+    │                                                                        │
+    ├────────────┬──────────────────────────────────────┬───────────────────┤
+    │            │                                      │                    │
+    │ LOGISTICS  │          ↑ ELEVATORS ↑              │   MAIL ROOM       │
+    │  CENTER    │    ┌───────────────────────┐        │                    │
+    │            │    │ Passenger │ Freight   │        │ Pneumatic Hub      │
+    │ 8 Stations │    │ Elevator  │ Elevator  │        │ Sorting Bins       │
+    │ Big Board  │    └───────────────────────┘        │ Pigeon Cages       │
+    │ Databases  │                                      │ Phone Bank         │
+    │            │                                      │                    │
+    ├────────────┴──────────────────────────────────────┴───────────────────┤
+    │                                                                        │
+    │ WEST                                                            EAST  │
+    │                                                                        │
+    │  ┌─────────────────────────────────────────────────────────────────┐  │
+    │  │                    LOADING DOCKS                                 │  │
+    │  │  ┌────┬────┬────┬────┬────┬────┬────┬────┐                      │  │
+    │  │  │ B1 │ B2 │ B3 │ B4 │ B5 │ B6 │ B7 │ B8 │                      │  │
+    │  │  │ IN │ IN │ IN │ IN │OUT │OUT │OUT │OUT │                      │  │
+    │  │  └────┴────┴────┴────┴────┴────┴────┴────┘                      │  │
+    │  │  Dock Office • Forklift Bay • Drone Station • Carriage House    │  │
+    │  │  Camera: DOC1                                                    │  │
+    │  └─────────────────────────────────────────────────────────────────┘  │
+    │                                                                        │
+    ├────────────────────────────────────────────────────────────────────────┤
+    │                                                                        │
+    │                          S T O R A G E                                 │
+    │  ┌─────────────────────────────────────────────────────────────────┐  │
+    │  │ AISLE A │ AISLE B │ AISLE C │ AISLE D │ AISLE E │ AISLE L       │  │
+    │  │ Wood    │ Metal   │ Soft    │ Special │ Display │ Leela Premium │  │
+    │  └─────────────────────────────────────────────────────────────────┘  │
+    │  Cloning Station • Dolly the Forklift                                  │
+    │  → Deep Storage (Architectural Prefabs)                                │
+    │                                                                        │
+    └────────────────────────────────────────────────────────────────────────┘
+                                    │
+                                  SOUTH
+```
+
+**Don:** "The building is a vertical pipeline: Intake at the bottom, Factory in the middle, Shipping at the top. But it's also a horizontal network — Logistics Center connects to Loading Docks connects to Storage. Every room links to every other room."
 
 ---
 
@@ -390,7 +554,187 @@ WEST ←┼→ EAST       │                                     │
 
 ---
 
-## Part 14: How It All Synergizes
+## Part 14: Camera Analytics — Leela Watching Leela
+
+*The tour stops at Station H — Security & Surveillance.*
+
+**The Coordinator:** "This is where the magic happens. Every camera feeds into our analytics pipeline."
+
+### The Camera Network
+
+```
+    ════════════════════════════════════════════════════════════════
+                    LEELA CAMERA NETWORK
+    ════════════════════════════════════════════════════════════════
+    
+    CAMERA          LOCATION              WHAT IT SEES
+    ──────          ────────              ────────────
+    LOG1            Logistics Center      The entire operation (First Eye)
+    DOC1            Loading Docks         Trucks, Dolly, bay activity
+    LOB1            Lobby                 Visitors, reception
+    INT1            Floor 1 (Intake)      Conveyor flow, sorting
+    FAC1            Floor 2 (Factory)     Processing cells, furnace
+    SHP1            Floor 3 (Shipping)    Packaging, dispatch
+    BASE1           Basement              R&D (some footage redacted)
+    ROOF1           Rooftop               Drone pads, sky
+    
+    ════════════════════════════════════════════════════════════════
+```
+
+**The Coordinator:** "All feeds flow to Floor 1's Video Intake pipeline. Every frame analyzed:"
+
+### Real-Time Analytics
+
+| Metric | Today's Count |
+|--------|---------------|
+| Object Detections | 847,293 |
+| Pose Estimations | 423,147 |
+| Face Recognitions | 12,847 |
+| Anomaly Alerts | 3 |
+| Dolly Dances | 1 (under review) |
+
+**Don:** "This is self-observation. Leela watching Leela. The insights feed back into the Factory — we learn how we work, then work better."
+
+**Cell G:** "The philosophical implications of self-observation are... still being processed."
+
+---
+
+## Part 15: Data Flow Through the Building
+
+**Don:** "Let me show you how data actually moves through this building."
+
+### The Complete Data Flow
+
+```
+    ════════════════════════════════════════════════════════════════
+                      LEELA DATA FLOW DIAGRAM
+    ════════════════════════════════════════════════════════════════
+    
+                    EXTERNAL WORLD
+                          │
+                          ▼
+    ┌─────────────────────────────────────────────────────────────┐
+    │                   LOADING DOCKS                              │
+    │  Trucks arrive → Unload → Stage at inbound bays             │
+    │  Camera DOC1 → Video to Intake                               │
+    └───────────────────────┬─────────────────────────────────────┘
+                            │ Conveyor / Elevator
+                            ▼
+    ┌─────────────────────────────────────────────────────────────┐
+    │                   FLOOR 1 — INTAKE                           │
+    │  Sorting Lines: Q (Questions), D (Data), C (Confusion)      │
+    │                 I (Insights), V (Video)                      │
+    │  Raw input → Classified → Routed to Factory                  │
+    └───────────────────────┬─────────────────────────────────────┘
+                            │ Conveyor / Pneumatic
+                            ▼
+    ┌─────────────────────────────────────────────────────────────┐
+    │                   FLOOR 2 — FACTORY                          │
+    │                                                              │
+    │  ┌────┐ ┌────┐ ┌────┐ ┌────┐ ┌────┐ ┌────┐ ┌────┐ ┌────┐   │
+    │  │ A  │ │ B  │ │ C  │ │ D  │ │ E  │ │ F  │ │ G  │ │ H  │   │
+    │  │Mfg │ │Log │ │Pro │ │Qua │ │Urg │ │Cre │ │Phi │ │Res │   │
+    │  └──┬─┘ └──┬─┘ └──┬─┘ └──┬─┘ └──┬─┘ └──┬─┘ └──┬─┘ └──┬─┘   │
+    │     └──────┴──────┴──────┴──────┴──────┴──────┴──────┘      │
+    │                          │                                   │
+    │                    INSIGHT FURNACE                           │
+    │                     (transforms)                             │
+    └───────────────────────┬─────────────────────────────────────┘
+                            │ Processed output
+                            ▼
+    ┌─────────────────────────────────────────────────────────────┐
+    │                   FLOOR 3 — SHIPPING                         │
+    │  Packaging → Labeling → Manifests → Dispatch                 │
+    │  Express → Drones       Standard → Trucks                    │
+    │  Traditional → Pigeons  Premium → Rail                       │
+    └───────────────────────┬─────────────────────────────────────┘
+                            │
+            ┌───────────────┼───────────────┐
+            ▼               ▼               ▼
+    ┌──────────────┐ ┌────────────┐ ┌──────────────┐
+    │   ROOFTOP    │ │LOADING DOCK│ │  MAIL ROOM   │
+    │   Drones     │ │  Trucks    │ │  Pigeons     │
+    └──────────────┘ └────────────┘ └──────────────┘
+            │               │               │
+            └───────────────┴───────────────┘
+                            │
+                            ▼
+                    EXTERNAL WORLD
+                   (The Pub, Origin Plaza, etc.)
+    
+    ════════════════════════════════════════════════════════════════
+    
+    PARALLEL NETWORKS:
+    
+    ═══════════ PNEUMATIC ═══════════   ════════ SIGNAL ════════
+    Capsules in transit: 847              Bandwidth: 12.4 TB/hr
+    Avg delivery: 4.2 seconds             Uptime: 99.97%
+    Hub connections: 8                    Active connections: 847
+    
+    ═══════════ DATABASE ═══════════    ═══════ LOGISTICS ═══════
+    Storage: 847 PB                       Operators: 8 stations
+    Queries/sec: 12,847                   Systems monitored: All
+    Replication: 3x healthy               Alert level: GREEN
+    
+    ════════════════════════════════════════════════════════════════
+```
+
+**Don:** "Everything flows. Input to transform to output. But also sideways — Logistics monitors all systems, Database stores all records, Pneumatic routes all messages."
+
+---
+
+## Part 16: The Leela Catalog — A Tour of Products
+
+*The tour stops in the Lobby, where Archie opens the thick Leela Products Catalog.*
+
+**Archie:** "This is our catalog. Edition 47. 1,400+ products. Let me show you the highlights."
+
+### Featured Products
+
+**Don:** "Unlike the ACME catalog, these products actually work."
+
+#### Logistics & Transport
+
+| Product | SKU | Price | Why It's Better Than ACME |
+|---------|-----|-------|---------------------------|
+| Courier Drone (Light) | LEE-CD-001 | 200 coins | Won't crash into cliffs |
+| Inserter (Stack) | LEE-IN-003 | 100 coins | Actually picks up items |
+| TomTomagotchi | LEE-TT-001 | 150 coins | GPS pet that cares |
+| Matched Horse Pair | LEE-MP-001 | 1400 coins | Ethically treated |
+
+#### Pneumatic Network
+
+| Product | SKU | Price | Feature |
+|---------|-----|-------|---------|
+| Smart Tube Station | LEE-PT-002 | 500 coins | Auto-routing, priorities |
+| Glass Tube Segment | LEE-TG-010 | 40 coins | See your package fly! |
+| Drink Capsule | LEE-PC-003 | 8 coins | Insulated, spill-proof |
+| Starter Kit | LEE-TN-001 | 800 coins | Everything to begin |
+
+#### Industrial Automation
+
+| Product | SKU | Price | Feature |
+|---------|-----|-------|---------|
+| PLC Controller | LEE-PLC-002 | 600 coins | 64 I/O, ladder logic |
+| Self-Healing Module | LEE-SH-001 | 400 coins | Robust-First recovery |
+| SCADA Console | LEE-SC-001 | 800 coins | Full facility view |
+| Dashboard Kiosk | LEE-DK-001 | 500 coins | Public-facing displays |
+
+#### Signage (Everyone's Favorite Section)
+
+| Product | SKU | Price | Note |
+|---------|-----|-------|------|
+| DO NOT PRESS Button | LEE-DN-001 | 2 coins | Guarantees it will be pressed |
+| WRONG LINE Sign | LEE-WL-001 | 8 coins | DMV-authentic |
+| BEWARE OF DOG | LEE-BD-001 | 6 coins | No dog required |
+
+**Don:** "The catalog also has architectural prefabs, surveillance systems, WiFi networks, horses and carriages, and... signage. The signage section is surprisingly popular."
+
+**Marieke:** "I ordered the DO NOT PRESS button for the bar. It's been pressed 847 times."
+
+---
+
+## Part 18: How It All Synergizes
 
 *The tour gathers in the Logistics Center for the finale.*
 
@@ -448,7 +792,7 @@ WEST ←┼→ EAST       │                                     │
 
 ---
 
-## Part 15: The Future
+## Part 19: The Future
 
 *The tour returns to the Pub garden as the sun sets.*
 
