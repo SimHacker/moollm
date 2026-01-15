@@ -1,35 +1,95 @@
-# Pickle Shelf — Preserved Foods
+# 🥒 Leela Pickle Shelf — Instance
+# Cloned from Leela Manufacturing storage prototype
+# Inherits: reliable display container behavior
 
 object:
-  name: "Shelf of Pickled Everything"
+  name: "Pickle Shelf"
   id: pickle-shelf
-  type: furniture
+  type: display-container
   emoji: "🥒"
   
-  description: |
-    Floor-to-ceiling shelves lined with glass jars. Pickles, 
-    preserves, mysterious floating vegetables, and one jar 
-    labeled "DO NOT OPEN" in several languages.
+  # PROTOTYPE INHERITANCE
+  prototype:
+    source: "street/lane-neverending/leela-manufacturing/storage/aisle-e/PROTOTYPES.yml"
+    id: shelf-unit
+    brand: LEELA
+    quality: robust-first
     
-  advertisements:
-    TAKE-PICKLE:
-      description: "Grab a pickle for the road"
-      score: 55
-      effect: "Crunchy, salty, refreshing. Minor hunger restored."
+  inherits:
+    container: true
+    capacity: 30  # jars
+    display_mode: true
+    sturdy: true
+    
+  description: |
+    A sturdy wooden shelf bearing rows of glass pickle jars.
+    Each jar sealed with wax, labeled in careful handwriting.
+    The Leela Quality seal is burned into the shelf's edge.
+    
+    The pub has been pickling things for generations.
+    Some of these jars are older than the current building.
+    
+  examine: |
+    LEELA PICKLE SHELF — PRESERVATION STATION
+    ═════════════════════════════════════════
+    
+    Glass jars in neat rows, each sealed and labeled:
+    
+    ├── Cucumber Pickles (classic) ......... 12 jars
+    ├── Pickled Onions (tangy) ............. 6 jars
+    ├── Mystery Pickles (unlabeled) ........ 3 jars
+    ├── Pickled Eggs (unsettling) .......... 4 jars
+    └── "DO NOT OPEN" (ominous) ............ 1 jar
+    
+    The shelf itself has held this weight for 80 years.
+    Not a wobble. Not a creak. Leela Quality.
+    
+  contents:
+    jars:
+      - id: cucumber-pickles
+        name: "Cucumber Pickles"
+        count: 12
+        quality: "perfectly crunchy"
+        
+      - id: pickled-onions
+        name: "Pickled Onions"
+        count: 6
+        quality: "tangy, breath-destroying"
+        
+      - id: mystery-pickles
+        name: "Mystery Pickles"
+        count: 3
+        quality: "unknown origin, definitely edible, probably"
+        
+      - id: pickled-eggs
+        name: "Pickled Eggs"
+        count: 4
+        quality: "traditional, unsettling, delicious"
+        
+      - id: do-not-open
+        name: "DO NOT OPEN"
+        count: 1
+        quality: "???"
+        warning: "Seriously. Don't."
+        
+  commands:
+    TAKE_JAR:
+      description: "Select a jar from the shelf"
+      effect: "Choose any jar. Some choices are better than others."
       
-    READ-LABELS:
-      description: "Study the jar labels"
-      score: 35
-      effect: "Learn about preserving. Some dates are... concerning."
+    READ_LABELS:
+      description: "Study the handwritten labels"
+      effect: "Learn the history of each batch. Some dates go back decades."
       
-    OPEN-FORBIDDEN-JAR:
-      description: "Open the forbidden jar"
-      score: 20
-      guard: "feeling brave"
-      effect: "??? (Nothing good, probably)"
-      
-  contents: # suggestions -- be creative!
-    - pickle-jar
-    - preserved-beets
-    - mystery-jar
-    - forbidden-jar
+  leela_quality:
+    brand: LEELA
+    motto: "Dependable. Tested. Robust-First."
+    load_bearing: "Exceeds requirements by 300%"
+    not_acme: true
+    
+  k_lines:
+    - LEELA-MANUFACTURING
+    - DISPLAY-CONTAINER
+    - PROTOTYPE-INSTANCE
+    - ROBUST-FIRST
+    - PRESERVATION

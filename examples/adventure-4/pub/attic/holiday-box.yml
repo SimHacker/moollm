@@ -1,28 +1,109 @@
-# Holiday Decorations Box
+# 🎄 Leela Holiday Box — Instance
+# Cloned from Leela Manufacturing storage prototype
+# Inherits: reliable seasonal storage container
 
 object:
   name: "Box of Holiday Decorations"
   id: holiday-box
-  type: container
+  type: seasonal-container
   emoji: "🎄"
   
-  description: |
-    A cardboard box labeled "XMAS" in faded marker. Tinsel pokes 
-    out through a torn corner. Smells like cinnamon and nostalgia.
+  # PROTOTYPE INHERITANCE
+  prototype:
+    source: "street/lane-neverending/leela-manufacturing/storage/aisle-a/PROTOTYPES.yml"
+    id: wooden-box
+    brand: LEELA
+    quality: robust-first
+    variant: seasonal-storage
     
-  advertisements:
+  inherits:
+    container: true
+    capacity: 15
+    takeable: true
+    sturdy: true
+    
+  description: |
+    A cardboard box with the Leela Quality seal, labeled "XMAS" 
+    in faded marker. Tinsel pokes out through a torn corner.
+    
+    Smells like cinnamon and nostalgia.
+    
+    The box has survived decades of being shoved into attics,
+    dropped during decoration, and forgotten for 11 months.
+    Leela built it to last. It did.
+    
+  examine: |
+    LEELA HOLIDAY BOX — SEASONAL STORAGE
+    ════════════════════════════════════
+    
+    Contents:
+    ├── Tangled Lights ......... (it's a tradition)
+    ├── Tinsel ................. (silver, escapist)
+    ├── Ornaments .............. (glass, fragile, miraculous)
+    └── Tree-Topper Star ....... (slightly bent, perfect)
+    
+    The box has notes in different handwriting from different years:
+    "Don't forget extension cord!" - 1987
+    "Blue lights burned out" - 1993
+    "Star needs new battery" - 2008
+    "It's not Christmas without the chaos" - 2024
+    
+  contents:
+    decorations:
+      - id: tangled-lights
+        name: "Tangled Lights"
+        description: "Somehow more tangled every year"
+        tradition: "Untangling them IS the decoration"
+        
+      - id: tinsel
+        name: "Silver Tinsel"
+        description: "Gets everywhere. Stays everywhere."
+        warning: "Will appear in unexpected places until March"
+        
+      - id: ornaments
+        name: "Glass Ornaments"
+        description: "Miraculously unbroken after all these years"
+        fragile: true
+        survived: "42 years of attic storage"
+        
+      - id: tree-topper-star
+        name: "Tree-Topper Star"
+        description: "Slightly bent, slightly dusty, absolutely perfect"
+        battery: needs_replacing
+        
+  commands:
     DECORATE:
       description: "Take out decorations and festoon the place"
-      score: 60
       effect: "Room gains festive atmosphere buff"
+      time: "4 hours (2 for decorating, 2 for untangling)"
       
-    WEAR:
+    WEAR_TINSEL:
       description: "Put on some tinsel as a fashion statement"
-      score: 40
-      effect: "Gain 'Festive' buff, look ridiculous"
+      effect: "Gain 'Festive' buff, look ridiculous, sparkle"
       
-  contents:
-    - tangled-lights
-    - tinsel
-    - ornaments
-    - tree-topper-star
+    OPEN_CAREFULLY:
+      description: "Open the box and check the ornaments"
+      effect: "They survived. They always survive."
+      
+  buffs:
+    FESTIVE_ATMOSPHERE:
+      duration: "Through January"
+      effects:
+        - "+20% holiday cheer"
+        - "+15% nostalgia"
+        - "+10% appreciation of tacky decorations"
+        
+  leela_quality:
+    brand: LEELA
+    motto: "Dependable. Tested. Robust-First."
+    survived: "50+ holiday seasons"
+    condition: "Worn but functional (exactly right)"
+    not_acme: true
+    
+  k_lines:
+    - LEELA-MANUFACTURING
+    - SEASONAL-CONTAINER
+    - PROTOTYPE-INSTANCE
+    - ROBUST-FIRST
+    - HOLIDAY
+    - NOSTALGIA

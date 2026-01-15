@@ -28,15 +28,25 @@ Something about this place feels older than the pub above. The stones remember t
 
 ---
 
-## 📦 Objects
+## 📦 Leela Container Instances
 
-| Object | File | Description |
-|--------|------|-------------|
-| **Wine Rack** | [wine-rack.yml](wine-rack.yml) | Dusty bottles, some very old |
-| **Ale Barrel** | [ale-barrel.yml](ale-barrel.yml) | Still good, probably |
-| **Pickle Shelf** | [pickle-shelf.yml](pickle-shelf.yml) | Jars of preserved mysteries |
-| **Relic Shelf** | [relic-shelf.yml](relic-shelf.yml) | Things too important to throw away |
-| **Treasure Chest** | [treasure-chest.yml](treasure-chest.yml) | Locked. Key missing. |
+All containers in the basement are **Leela-branded instances**, cloned from prototypes in the [Leela Manufacturing Storage Complex](../../street/lane-neverending/leela-manufacturing/storage/).
+
+| Object | File | Prototype Source | Description |
+|--------|------|------------------|-------------|
+| **Ale Barrel** | [ale-barrel.yml](ale-barrel.yml) | Aisle A: Wooden | Leela barrel, 27 units remaining |
+| **Wine Rack** | [wine-rack.yml](wine-rack.yml) | Aisle E: Display | Leela rack, glowing bottle included |
+| **Pickle Shelf** | [pickle-shelf.yml](pickle-shelf.yml) | Aisle E: Display | Leela shelf, "DO NOT OPEN" jar |
+| **Treasure Chest** | [treasure-chest.yml](treasure-chest.yml) | Aisle A: Wooden | Leela chest, Grade 7 lock |
+| **Relic Shelf** | [relic-shelf.yml](relic-shelf.yml) | Aisle D: Special | Paradox-safe containment |
+
+### Leela Quality Promise
+
+Every container bears the **Leela Quality Seal**:
+- **Dependable** — Works every time
+- **Tested** — Proven in the field
+- **Robust-First** — Built to last
+- **NOT ACME** — No cartoon explosions, no unpredictable behavior
 
 ---
 

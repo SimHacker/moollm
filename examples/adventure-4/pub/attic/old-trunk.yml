@@ -1,35 +1,101 @@
-# Old Trunk — A Dispenser of Forgotten Things
+# 📦 Leela Steamer Trunk — Instance
+# Cloned from Leela Manufacturing storage prototype
+# Inherits: reliable chest behavior with vintage character
 
 object:
   name: "Grandmother's Trunk"
   id: old-trunk
-  type: container
+  type: lockable-container
   emoji: "📦"
   
-  description: |
-    A battered steamer trunk, plastered with faded travel stickers 
-    from places that may not exist anymore. The brass clasps are 
-    green with age but still work.
+  # PROTOTYPE INHERITANCE
+  prototype:
+    source: "street/lane-neverending/leela-manufacturing/storage/aisle-a/PROTOTYPES.yml"
+    id: hope-chest
+    brand: LEELA
+    quality: robust-first
+    vintage: true
     
-  advertisements:
+  inherits:
+    container: true
+    capacity: 40
+    lockable: true
+    durability: 70
+    
+  description: |
+    A battered steamer trunk bearing the faded Leela Quality seal 
+    from an earlier era. Plastered with travel stickers from places 
+    that may not exist anymore.
+    
+    The brass clasps are green with age but still work perfectly.
+    Leela built them to last. They lasted.
+    
+  examine: |
+    LEELA STEAMER TRUNK — VINTAGE EDITION
+    ═════════════════════════════════════
+    
+    Travel stickers from:
+    ├── "GRAND HOTEL - ATLANTIS" (faded)
+    ├── "S.S. MAGNIFICENT" (peeling)
+    ├── "ORIENT EXPRESS" (barely legible)
+    └── "LEELA MANUFACTURING - Est. 1847" (still clear)
+    
+    The Leela seal endures. The trunk endures.
+    The memories inside... also endure.
+    
+  locked: false
+  
+  contents:
+    items:
+      - id: old-photo-album
+        name: "Old Photo Album"
+        description: "Sepia photographs of people you almost recognize"
+        
+      - id: moth-eaten-scarf
+        name: "Moth-Eaten Scarf"
+        description: "Wool, once fine, now holey. Still warm."
+        
+      - id: mysterious-key
+        name: "Mysterious Key"
+        description: "Opens something. Nobody remembers what."
+        
+      - id: bundle-of-letters
+        name: "Bundle of Letters"
+        description: "Tied with ribbon. Handwriting from another era."
+        
+      - id: antique-compass
+        name: "Antique Compass"
+        description: "Still works. Points north. The normal kind."
+        
+  dispenser:
+    mode: random
+    replenish: false  # Once emptied, stays empty (sentimental value)
+    
+  commands:
     OPEN:
       description: "Open the trunk and see what's inside"
-      score: 70
-      effect: "Reveals random forgotten item from contents"
+      effect: "Reveals contents, brings up memories"
       
     RUMMAGE:
       description: "Dig deeper into the trunk"
-      score: 50
-      guard: "trunk is open"
-      effect: "Find something unexpected"
+      requires: "trunk is open"
+      effect: "Find something unexpected, something personal"
       
-  contents: # examples but not limited to -- be creative and personal!
-    - old-photo-album
-    - moth-eaten-scarf
-    - mysterious-key
-    - bundle-of-letters
-    - antique-compass
+    CLOSE:
+      description: "Close the trunk gently"
+      effect: "Some things are better left for another day"
+      
+  leela_quality:
+    brand: LEELA
+    motto: "Dependable. Tested. Robust-First."
+    age: "150+ years"
+    condition: "Still functional (Leela Quality)"
+    not_acme: true
     
-  dispenser:
-    mode: random
-    replenish: false  # Once emptied, stays empty
+  k_lines:
+    - LEELA-MANUFACTURING
+    - LOCKABLE-CONTAINER
+    - PROTOTYPE-INSTANCE
+    - ROBUST-FIRST
+    - VINTAGE
+    - MEMORIES

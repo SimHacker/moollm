@@ -26,12 +26,15 @@ room:
     accepts: [beverages, provisions, barrels, casks, preserves]
     temperature: cool
     
-  contents:
-    - wine-barrels
-    - ale-casks
-    - pickle-jars
-    - root-vegetables
-    - mysterious-locked-crate
+  # All containers are Leela-branded instances, cloned from prototypes
+  # in street/lane-neverending/leela-manufacturing/storage/
+  
+  objects:
+    - ale-barrel.yml        # Leela barrel, inherits from aisle-a prototype
+    - wine-rack.yml         # Leela rack, inherits from aisle-e prototype
+    - pickle-shelf.yml      # Leela shelf, inherits from aisle-e prototype
+    - treasure-chest.yml    # Leela chest, inherits from aisle-a prototype
+    - relic-shelf.yml       # Leela paradox-safe, inherits from aisle-d prototype
     
   # Easter egg
   secrets:

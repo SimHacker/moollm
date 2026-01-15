@@ -28,13 +28,24 @@ This is the pub's attic — not to be confused with the [Adventurer's Storage](.
 
 ---
 
-## 📦 Objects
+## 📦 Leela Container Instances
 
-| Object | File | Description |
-|--------|------|-------------|
-| **Old Trunk** | [old-trunk.yml](old-trunk.yml) | Leather, brass fittings, locked |
-| **Holiday Box** | [holiday-box.yml](holiday-box.yml) | Decorations for festivals long past |
-| **Dusty Mirror** | [dusty-mirror.yml](dusty-mirror.yml) | Reflection unclear until wiped |
+All containers in the attic are **Leela-branded instances**, cloned from prototypes in the [Leela Manufacturing Storage Complex](../../street/lane-neverending/leela-manufacturing/storage/).
+
+| Object | File | Prototype Source | Description |
+|--------|------|------------------|-------------|
+| **Grandmother's Trunk** | [old-trunk.yml](old-trunk.yml) | Aisle A: Wooden | 150+ years old, still works |
+| **Holiday Box** | [holiday-box.yml](holiday-box.yml) | Aisle A: Wooden | 50+ holiday seasons survived |
+| **Dusty Mirror** | [dusty-mirror.yml](dusty-mirror.yml) | Aisle E: Display | Special Glass Division (discontinued) |
+
+### Leela Vintage Quality
+
+These containers show what **Leela Quality** means over time:
+- **The trunk** — 150 years, still functional
+- **The holiday box** — 50 seasons of attic storage, ornaments intact
+- **The mirror** — 87 years, not a crack, shatter-resistant glass
+
+*"Leela builds things that last. ACME builds things that... don't."*
 
 ---
 
