@@ -70,17 +70,17 @@ flowchart LR
 
 ```mermaid
 flowchart TB
+    Street["W1 (here)"] --> Lobby
+    
     subgraph Leela["🏭 LEELA MANUFACTURING"]
         direction TB
         Roof["🌿 Rooftop"]
-        F3["Floor 3"]
-        F2["Floor 2"]
-        F1["Floor 1"]
-        Lobby["Lobby"]
-        Basement["Basement"]
+        Roof --- F3["Floor 3"]
+        F3 --- F2["Floor 2"]
+        F2 --- F1["Floor 1"]
+        F1 --- Lobby["Lobby"]
+        Lobby --- Basement["Basement"]
     end
-    
-    Street["W1 (here)"] --> Lobby
 
     style Leela fill:#3498db,color:#fff
 ```
