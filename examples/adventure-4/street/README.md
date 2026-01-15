@@ -134,7 +134,7 @@ The heart of town is where **Kay Lane** crosses **Lane Neverending**.
                  KAY LANE
                     │
                     │ N
-                    │ (toward Zork Row, Habitat Blvd)
+                    │ (toward Zork Row, Habitat Highway)
        ┌────────────┼────────────┐
   W ───┤    Lane Neverending     ├─── E
        │            │            │
