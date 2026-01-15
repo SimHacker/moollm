@@ -1,0 +1,87 @@
+# PNEUMATIC HUB
+# Tube transport terminal
+
+object:
+  id: pneumatic-hub
+  name: "Pneumatic Hub"
+  type: infrastructure
+  emoji: "📫"
+  
+  tags: [infrastructure, transport, pneumatic]
+  
+  description: |
+    The central hub of Leela's pneumatic tube system. Capsules
+    whoosh in and out constantly, carrying small packages and
+    messages throughout the facility and beyond.
+    
+  examine: |
+    PNEUMATIC HUB
+    ═════════════
+    
+    A magnificent brass-and-glass structure, tubes radiating outward
+    like the spokes of a wheel. Capsules arrive and depart with
+    satisfying *thwoop* sounds.
+    
+    ┌─────────────────────────────────────────────────────────────┐
+    │                    PNEUMATIC HUB                            │
+    │                                                             │
+    │               [ROOF]                                        │
+    │                 ↑                                           │
+    │    [MAIL]←──[  HUB  ]──→[LOADING]                          │
+    │                 │                                           │
+    │      ↙    ↓    ↘                                           │
+    │  [F1]  [F2]  [BASEMENT]                                    │
+    │                 │                                           │
+    │                 ↓                                           │
+    │            [THE PUB]                                        │
+    └─────────────────────────────────────────────────────────────┘
+    
+    ACTIVE TUBES:
+    • Tube 1: To Rooftop/Drones — *thwoop* (departure)
+    • Tube 2: To Mail Room — steady traffic
+    • Tube 3: To Loading Docks — *thwoop* (arrival)
+    • Tube 4: To Floor 1 — quiet
+    • Tube 5: To Floor 2 — *thwoop* *thwoop*
+    • Tube 6: To Basement — occasional use
+    • Tube 7: To The Pub — (the "priority" line)
+    • Tube 8: EMERGENCY — sealed
+    
+    CAPSULE SIZES:
+    • Small: Documents, messages
+    • Medium: Small packages, samples
+    • Large: Bigger items (tight squeeze)
+    
+    The control panel shows queue depths and transit times.
+    Average delivery: 30 seconds anywhere in the building.
+    
+  state:
+    tubes:
+      - { id: 1, destination: "rooftop", status: "active", queue: 3 }
+      - { id: 2, destination: "mail-room", status: "active", queue: 7 }
+      - { id: 3, destination: "loading-docks", status: "active", queue: 2 }
+      - { id: 4, destination: "floor-1", status: "idle", queue: 0 }
+      - { id: 5, destination: "floor-2", status: "active", queue: 5 }
+      - { id: 6, destination: "basement", status: "idle", queue: 1 }
+      - { id: 7, destination: "pub", status: "priority", queue: 0 }
+      - { id: 8, destination: "emergency", status: "sealed", queue: 0 }
+      
+  methods:
+    SEND:
+      description: "Send a capsule"
+      parameters:
+        destination: "Where to send"
+        contents: "What to send"
+      effect: "*thwoop* — capsule departs"
+      
+    RECEIVE:
+      description: "Check for incoming capsules"
+      effect: "Display any capsules waiting for pickup"
+      
+    STATUS:
+      description: "View tube system status"
+      effect: "Display all tubes, queues, and transit times"
+      
+  sounds:
+    send: "*thwoop* — capsule away"
+    receive: "*thunk* — capsule arrived"
+    busy: "*thwoop thwoop thwoop* — heavy traffic"

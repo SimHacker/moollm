@@ -1,0 +1,73 @@
+# THE ROOFTOP TREE
+# A cutting from the Origin Tree
+
+object:
+  id: origin-cutting
+  name: "The Rooftop Tree"
+  type: tree
+  emoji: "🌳"
+  
+  tags: [tree, sacred, origin, landmark]
+  
+  description: |
+    An oak tree that shouldn't exist on a rooftop. Its trunk is thick,
+    its branches spread wide, and its roots... go somewhere.
+    
+  examine: |
+    THE ROOFTOP TREE
+    ════════════════
+    
+    An oak of impossible presence. Far too old, far too large,
+    for a rooftop garden. Yet here it stands.
+    
+    A bronze plaque at its base:
+    
+    ┌─────────────────────────────────────────┐
+    │  Grown from a cutting of the Origin    │
+    │  Tree at 1 Lane Neverending.           │
+    │                                         │
+    │  This branch remembers where it came   │
+    │  from. Its roots reach down through    │
+    │  the building, seeking stories.        │
+    │                                         │
+    │  Planted: [DATE FORGOTTEN]             │
+    │  Expected lifespan: Indefinite         │
+    └─────────────────────────────────────────┘
+    
+    The bark is carved with initials — workers past and present.
+    The oldest carvings are in character encodings that predate Unicode.
+    
+    Sitting under this tree, problems seem smaller.
+    Solutions seem closer. The shade is cool and wise.
+    
+  properties:
+    age: "impossible"
+    parent: "Origin Tree, 1 Lane Neverending"
+    roots: "go through the building"
+    shade: "perfect for thinking"
+    
+  methods:
+    SIT:
+      description: "Rest in the shade of the tree"
+      effect: |
+        You sit beneath the spreading branches.
+        The factory noise fades. Time slows.
+        Good thinking happens here.
+        
+    CARVE:
+      description: "Add your initials to the trunk"
+      effect: "Your mark joins centuries of others"
+      
+    TOUCH:
+      description: "Place your hand on the bark"
+      effect: |
+        The bark is warm. 
+        For a moment, you feel connected to the Origin Tree,
+        to Lane Neverending, to everything that came before.
+        
+    CLIMB:
+      description: "Climb the tree"
+      effect: |
+        The branches are sturdy and inviting.
+        From up here, you can see farther than the building should allow.
+        Is that... the Origin Tree itself? In the distance?

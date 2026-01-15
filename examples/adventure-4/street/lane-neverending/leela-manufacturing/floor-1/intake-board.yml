@@ -1,0 +1,61 @@
+# INTAKE BOARD
+# Daily intake statistics
+
+object:
+  id: intake-board
+  name: "Intake Status Board"
+  type: display
+  emoji: "📊"
+  
+  tags: [display, statistics, intake]
+  
+  description: |
+    A massive display board showing today's intake volume.
+    Numbers update in real-time.
+    
+  examine: |
+    INTAKE STATUS BOARD
+    ═══════════════════
+    
+    ┌─────────────────────────────────────────────────────┐
+    │  TODAY'S INTAKE                    [LIVE]          │
+    │  ═══════════════                                   │
+    │                                                    │
+    │  Questions received:      1,247  ▲ +12%           │
+    │  Problems logged:           892  ▼ -3%            │
+    │  Data batches:            3.2 TB  ▲ +45%          │
+    │  Confusion tankers:           2  (still unloading)│
+    │  Paradoxes (quarantined):     1  ⚠️               │
+    │                                                    │
+    │  ────────────────────────────────────────────────  │
+    │                                                    │
+    │  THROUGHPUT                                        │
+    │  Line A (Questions): ████████████░░ 78%           │
+    │  Line B (Problems):  ██████░░░░░░░░ 42%  ⚠️ SLOW  │
+    │  Line C (Data):      █████████████░ 89%           │
+    │                                                    │
+    │  ────────────────────────────────────────────────  │
+    │                                                    │
+    │  ALERTS                                            │
+    │  • Line B backing up — Problem #447 stuck         │
+    │  • Paradox in quarantine asking to speak to manager│
+    │  • Confusion tanker 2 leaking slightly            │
+    │                                                    │
+    │  DAILY RECORD: 2,847 items (set 3 years ago)      │
+    │  TODAY'S PROJECTED: 2,139 items                   │
+    └─────────────────────────────────────────────────────┘
+    
+  methods:
+    REFRESH:
+      description: "Update the display"
+      effect: "Numbers flicker and update"
+      
+    HISTORY:
+      description: "View historical data"
+      effect: "Charts show intake trends over time"
+      
+    DRILL_DOWN:
+      description: "Get details on a specific metric"
+      parameters:
+        metric: "Which stat to examine"
+      effect: "Detailed breakdown appears"

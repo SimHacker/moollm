@@ -1,0 +1,92 @@
+# EXPERIMENTAL EQUIPMENT
+# Various R&D apparatus
+
+object:
+  id: experimental-equipment
+  name: "Experimental Equipment"
+  type: equipment
+  emoji: "🔬⚗️"
+  
+  tags: [equipment, science, experimental, dangerous]
+  
+  description: |
+    Assorted experimental apparatus scattered throughout the basement.
+    Bubbling things. Sparking things. Things that hum ominously.
+    
+  examine: |
+    EXPERIMENTAL EQUIPMENT
+    ══════════════════════
+    
+    The basement is cluttered with apparatus of varying danger levels:
+    
+    BUBBLING THINGS:
+    • Beaker Array Alpha — 47 beakers, all bubbling differently
+    • The Cauldron — not magical, just very large
+    • Fermentation Tanks — "Brewing" insights (takes 6 months)
+    • Something in a jar that bubbles when you look at it
+    
+    SPARKING THINGS:
+    • Tesla Coil (decorative? functional? unclear)
+    • "The Synapse Simulator" — arcs between electrodes
+    • A Jacob's Ladder that spells words nobody can read
+    • Van de Graaff generator (for making hair stand up during eureka moments)
+    
+    THINGS THAT HUM OMINOUSLY:
+    • The Black Box — nobody knows what it does, but it's DOING something
+    • Quantum Processor QX-7 — computing answers to unasked questions
+    • "The Resonator" — hums at exactly the frequency of existential dread
+    • A server rack that's been running since 1987 (nobody will turn it off)
+    
+    THINGS THAT ARE PERFECTLY SILENT:
+    • The Null Chamber — absorbs all sound. Also, apparently, some light.
+    • Specimen Container #0 — contains something. Says nothing.
+    • A whiteboard that used to have equations that "solved themselves"
+    (This category is most concerning to the staff.)
+    
+    THE CHALKBOARD:
+    Covered in equations that hurt to look at.
+    Some equations have been circled with "!!!"
+    Others have been erased... but the chalk dust remembers.
+    One equation appears to be solving itself in real-time.
+    
+  equipment_list:
+    - name: "Beaker Array Alpha"
+      status: "bubbling"
+      danger: "low"
+      purpose: "idea fermentation"
+      
+    - name: "The Black Box"
+      status: "unknown"
+      danger: "unknown"
+      purpose: "unknown"
+      note: "It's been humming for 15 years. We're afraid to unplug it."
+      
+    - name: "The Null Chamber"
+      status: "silent"
+      danger: "medium"
+      purpose: "sensory deprivation, idea extraction"
+      note: "Staff report 'insights' after 30 minutes. 'Madness' after 60."
+      
+    - name: "1987 Server"
+      status: "running"
+      danger: "philosophical"
+      purpose: "unknown, possibly essential"
+      note: "Last person to suggest turning it off was reassigned to Zone 7."
+      
+  methods:
+    EXAMINE_EQUIPMENT:
+      description: "Look at specific equipment"
+      parameters:
+        item: "Which equipment"
+      effect: "Detailed examination (may cause existential questions)"
+      
+    ACTIVATE:
+      description: "Turn something on"
+      parameters:
+        item: "Which equipment"
+      effect: "Varies. Sometimes dramatically."
+      warning: "Not recommended without supervision"
+      
+    TASTE:
+      description: "Taste something bubbling"
+      effect: "DO NOT. DR. WHY NOT ALREADY TRIED THIS."

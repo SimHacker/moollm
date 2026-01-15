@@ -1,0 +1,93 @@
+# THE INSIGHT FURNACE
+# Where problems become insights
+
+object:
+  id: insight-furnace
+  name: "The Insight Furnace"
+  type: machinery
+  emoji: "🔥"
+  
+  tags: [machinery, processing, core, landmark]
+  
+  description: |
+    A towering structure of copper pipes, glass chambers, and
+    humming machinery. The heart of Leela's processing floor.
+    
+  examine: |
+    THE INSIGHT FURNACE
+    ═══════════════════
+    
+    A magnificent industrial structure, three stories tall within
+    the floor. Copper pipes spiral upward. Glass chambers glow with
+    contained energy. Steam vents periodically (dramatically).
+    
+    ┌─────────────────────────────────────────────────────┐
+    │              ╔═══════════════╗                      │
+    │              ║   INSIGHT     ║                      │
+    │              ║   FURNACE     ║                      │
+    │              ╠═══════════════╣                      │
+    │    INPUT ──▶ ║  ~~~~~~~~~~~~ ║ ──▶ OUTPUT          │
+    │  (problems)  ║  ~~~~~~~~~~~~ ║   (insights)        │
+    │              ║  ~~~~~~~~~~~~ ║                      │
+    │              ╚═══════════════╝                      │
+    │                    │                                │
+    │                    ▼                                │
+    │              BYPRODUCT                              │
+    │           (better questions)                        │
+    └─────────────────────────────────────────────────────┘
+    
+    SPECIFICATIONS:
+    • Capacity: 50 problems/hour
+    • Output: ~47 insights/hour (some problems are harder)
+    • Temperature: Variable (depends on problem complexity)
+    • Pressure: Concerning but stable
+    
+    WHAT HAPPENS INSIDE:
+    That's... complicated. The process involves:
+    1. Problem decomposition
+    2. Pattern extraction
+    3. Analogical reasoning
+    4. Synthesis
+    5. Something that might be "inspiration" but is probably steam
+    6. Insight crystallization
+    
+    Nobody fully understands step 5. The Furnace was here before
+    the documentation team.
+    
+    SAFETY NOTICES:
+    • "CAUTION: CONTENTS MAY BE PROFOUND"
+    • "DO NOT OPEN DURING PROCESSING"
+    • "If you hear voices, they're probably insights"
+    
+  state:
+    temperature: 847
+    pressure: "high but stable"
+    current_batch: 23
+    output_queue: 19
+    
+  methods:
+    STATUS:
+      description: "Check furnace status"
+      effect: "Display temperature, pressure, throughput"
+      
+    OBSERVE:
+      description: "Watch the process through the viewing port"
+      effect: |
+        Through the thick glass, you see...
+        
+        Problems dissolving into their component concepts.
+        Patterns forming, breaking, reforming.
+        Something that looks almost like understanding.
+        
+        Then: *DING* — an insight emerges, crystallized and ready.
+        
+    FEED:
+      description: "Add a problem to the furnace"
+      parameters:
+        problem: "What to process"
+      effect: "Problem enters the input hopper. Now we wait."
+      
+  warning: |
+    The Insight Furnace has been running continuously for 40 years.
+    Nobody knows what would happen if it stopped.
+    Nobody wants to find out.

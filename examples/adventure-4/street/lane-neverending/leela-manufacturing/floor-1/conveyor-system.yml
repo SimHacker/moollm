@@ -1,0 +1,143 @@
+# CONVEYOR SYSTEM
+# Intake sorting and routing
+
+object:
+  id: conveyor-system
+  name: "Intake Conveyor System"
+  type: infrastructure
+  emoji: "🔄"
+  
+  tags: [infrastructure, logistics, automation]
+  
+  description: |
+    Seven main conveyor lines crisscross the floor, carrying
+    containers from the loading docks to sorting stations.
+    Each line handles a different type of input.
+    
+  examine: |
+    INTAKE CONVEYOR SYSTEM
+    ══════════════════════
+    
+    Seven parallel lines, color-coded:
+    
+    LINE A (Blue): Questions
+    ════════════════════════
+    Blue containers glide past, each holding one or more questions.
+    Some containers vibrate with curiosity.
+    Destination: Question Processing (Floor 2, Cells A-C)
+    
+    LINE B (Yellow): Problems  
+    ═════════════════════════
+    Yellow containers, heavier-looking. Problems have weight.
+    Some containers seem reluctant to move.
+    Destination: Problem Furnace (Floor 2)
+    
+    LINE C (Green): Raw Data
+    ════════════════════════
+    Green containers, often larger. Data comes in bulk.
+    Humming sounds — data is restless.
+    Destination: Data Processing (Floor 2, Cell D)
+    
+    LINE D (Purple): Video → Objects
+    ════════════════════════════════
+    Purple containers with blinking lights. Video streams inside.
+    Each frame analyzed, objects extracted, catalogued.
+    Destination: Vision Processing (Floor 2, Cell F)
+    Output: Detected objects, scene graphs, temporal patterns
+    
+    LINE E (Orange): Poses → Insights
+    ═════════════════════════════════
+    Orange containers with motion sensors. Human poses captured.
+    Skeletal data flows through, gestures recognized.
+    Destination: Motion Analysis (Floor 2, Cell G)
+    Output: Movement insights, behavioral patterns, dance moves
+    
+    LINE F (Cyan): SQL → Queries
+    ════════════════════════════
+    Cyan containers humming with structured data.
+    Queries arrive malformed, leave optimized.
+    Destination: Query Optimization (Floor 2, Cell D-2)
+    Output: Execution plans, indices, pipeline configurations
+    
+    LINE G (Silver): Pipelines
+    ══════════════════════════
+    Silver containers linking other containers together.
+    Data flows defined, orchestrated, monitored.
+    Destination: Pipeline Assembly (Floor 2, Cell E)
+    Output: ETL workflows, streaming pipelines, DAGs
+    
+    SPECIAL ROUTING:
+    • Red containers: QUARANTINE (automatic divert)
+    • Purple containers: "Weird Ones" (manual inspection)
+    • Unmarked containers: Confused Welcome Desk
+    • Containers that move themselves: Zone 7
+    
+  state:
+    line_a: { speed: "normal", items: 47, backed_up: false }
+    line_b: { speed: "slow", items: 23, backed_up: true }
+    line_c: { speed: "fast", items: 156, backed_up: false }
+    line_d: { speed: "normal", items: 12, backed_up: false, fps: 30 }
+    line_e: { speed: "normal", items: 8, backed_up: false, poses_per_sec: 60 }
+    line_f: { speed: "fast", items: 89, backed_up: false, queries_optimized: 847 }
+    line_g: { speed: "variable", items: 5, backed_up: false, pipelines_active: 23 }
+    
+  processing_stats:
+    video_objects:
+      frames_analyzed_today: 1247000
+      objects_detected: 3891247
+      confidence_avg: 0.94
+      
+    pose_insights:
+      poses_captured: 89000
+      gestures_recognized: 12400
+      dances_identified: 3  # Someone's been practicing
+      
+    sql_queries:
+      queries_received: 4721
+      queries_optimized: 4698
+      execution_time_saved: "47 hours"
+      worst_query: "SELECT * FROM everything"
+      
+    pipelines:
+      pipelines_defined: 156
+      pipelines_running: 23
+      data_flowing: "3.2 TB/hour"
+      
+  methods:
+    STATUS:
+      description: "Check conveyor status"
+      effect: "Display throughput and any blockages"
+      
+    TRACE:
+      description: "Follow a specific container"
+      parameters:
+        container_id: "Container number"
+      effect: "Track container through the system"
+      
+    EMERGENCY_STOP:
+      description: "Halt all conveyors"
+      effect: "*ALARM* — All lines stop. Use sparingly."
+      
+    ANALYZE_VIDEO:
+      description: "Submit video for object detection"
+      parameters:
+        video: "Video stream or file"
+      effect: "Objects extracted, scene graph generated"
+      
+    CAPTURE_POSE:
+      description: "Submit pose data for analysis"
+      parameters:
+        pose: "Skeletal tracking data"
+      effect: "Gesture recognized, movement insight generated"
+      
+    OPTIMIZE_QUERY:
+      description: "Submit SQL for optimization"
+      parameters:
+        query: "SQL statement"
+      effect: "Query plan generated, indices suggested"
+      
+    BUILD_PIPELINE:
+      description: "Define a data pipeline"
+      parameters:
+        stages: "Pipeline stage definitions"
+      effect: "DAG generated, orchestration configured"

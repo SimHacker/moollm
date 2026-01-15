@@ -1,0 +1,67 @@
+# DRONE LANDING PADS
+# Rooftop launch/landing zones
+
+object:
+  id: drone-pads
+  name: "Drone Landing Pads"
+  type: infrastructure
+  emoji: "🛬"
+  
+  tags: [infrastructure, drones, logistics]
+  
+  description: |
+    Six hexagonal landing pads near the roof edge, marked with
+    glowing LED outlines. Drones come and go constantly.
+    
+  examine: |
+    DRONE LANDING PADS
+    ══════════════════
+    
+    Six hexagonal pads arranged in a honeycomb pattern:
+    
+      [1] [2]
+    [3] [4] [5]
+        [6]
+    
+    PAD STATUS:
+    • Pad 1: Occupied (drone charging)
+    • Pad 2: Clear, awaiting arrival
+    • Pad 3: Drone departing — *WHIRR*
+    • Pad 4: Occupied (loading cargo)
+    • Pad 5: Clear
+    • Pad 6: Maintenance mode
+    
+    FEATURES:
+    • LED boundary lights (glow at night)
+    • Charging contacts (inductive)
+    • Cargo loading arms (automated)
+    • Wind sensors (for safe landings)
+    • Anti-collision beacons
+    
+    A drone arrives every few minutes, deposits its cargo,
+    recharges briefly, and departs with outgoing shipments.
+    
+    The control booth nearby monitors all drone traffic.
+    
+  state:
+    pads:
+      - { id: 1, status: "charging", drone: "L-047" }
+      - { id: 2, status: "clear" }
+      - { id: 3, status: "departing", drone: "L-112" }
+      - { id: 4, status: "loading", drone: "C-023" }
+      - { id: 5, status: "clear" }
+      - { id: 6, status: "maintenance" }
+      
+  methods:
+    STATUS:
+      description: "Check pad availability"
+      effect: "Display current pad states"
+      
+    WATCH:
+      description: "Watch the drones come and go"
+      effect: |
+        *WHIRR* — a drone arrives, touches down precisely.
+        Cargo unloads automatically. Charging begins.
+        *WHIRR* — another departs, climbing into the sky.
+        
+        It's oddly hypnotic.
