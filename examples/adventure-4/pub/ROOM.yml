@@ -264,6 +264,26 @@ room:
       description: "Out to the Back Garden — fresh air and possibilities"
       aliases: [garden, outside, out, back, patio]
       
+    SOUTHWEST:
+      destination: ../kitchen/
+      description: |
+        A narrow service corridor angles through to the kitchen.
+        The smell of cooking grows stronger. You can hear pots clanging,
+        someone humming, and the eternal mystery of running water.
+        
+        The kitchen serves both the garden (outdoor dining) and the bar
+        (food orders, supplies). This is the diagonal shortcut.
+      aliases: [kitchen, service, corridor, shortcut, staff]
+      
+    SOUTHEAST:
+      destination: ../coatroom/
+      description: |
+        A passage leads toward the Costume Emporium. You can hear
+        the rustle of fabric and the whisper of sequins calling to you.
+        
+        "NEED A NEW LOOK? COSTUMES THIS WAY →"
+      aliases: [coatroom, costumes, emporium, wardrobe]
+      
     UP:
       destination: rooms/
       description: "Stairs to the inn rooms"

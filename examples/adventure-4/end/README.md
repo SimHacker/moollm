@@ -51,4 +51,4 @@ Options:
 |-----------|-------------|
 | ⬆️ Up | [adventure-4/](../) |
 | 🌀 South | [maze/room-d/](../maze/room-d/) |
-| 🚪 Start | [../start/](../start/) |
+| 🚪 Garden | [../garden/](../garden/) |

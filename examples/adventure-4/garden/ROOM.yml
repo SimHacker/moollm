@@ -87,10 +87,25 @@ room:
     - newspaper.yml
     - blackboard.yml
     - suspicious-plant.yml
+    - lamp.yml      # GET LAMP! (from Chamber of Commencement tradition)
+    - mailbox.yml   # CHECK MAIL! (Zorkian tradition)
     
   # Ways out
   exits:
     south:
+      destination: ../maze/room-a/
+      description: |
+        A low wooden gate in the garden wall leads into darkness.
+        Beyond, shadows pool like spilled ink. You can hear something
+        breathing in the darkness.
+        
+        Graffiti on the gate: "ABANDON HOPE" crossed out, replaced with
+        "A HERO PASSED THROUGH HERE"
+        
+        WARNING: The maze is dark. GET LAMP first!
+      aliases: [gate, maze, out, south]
+      
+    north:
       destination: ../pub/
       description: |
         The back door to The Rusty Lantern stands open, welcoming.
@@ -100,16 +115,20 @@ room:
         A sign on the door: "WELCOME BACK IN — WIPE YOUR FEET"
       aliases: [pub, inside, door, back, lantern]
       
-    north:
-      destination: ../start/
+    inward:
+      destination: ../characters/
       description: |
-        A low wooden gate in the garden wall, leading to a narrow alley
-        that runs behind the buildings. From here you can reach the
-        Chamber of Commencement — the traditional starting point of
-        adventures past.
+        Not a physical exit. More of a... meditation.
         
-        Graffiti on the gate: "XYZZY →"
-      aliases: [gate, alley, out, chamber]
+        If you close your eyes and think about who you ARE — not who you're
+        pretending to be, but the actual body reading these words — you can
+        phase through to the Hall of Bodies.
+        
+        The alcoves there hold all who have ever been or could be.
+        Including you. Especially you.
+        
+      metaphysical: true
+      command: '"THINK ABOUT MYSELF" or "GO INWARD" or "VISIT HALL"'
       
     east:
       destination: ../coatroom/
@@ -132,15 +151,6 @@ room:
         The Fantastipants Kitchen's garden gate.
       aliases: [side, yard, kitchen, overgrown]
       
-    up:
-      destination: ../home/
-      description: |
-        A rickety wooden staircase clings to the back of the pub,
-        leading up to a small balcony. The smell of home wafts down —
-        pie, clean laundry, safety.
-        
-        "STAFF ONLY (but really, who's checking?)"
-      aliases: [stairs, home, upstairs, balcony]
       
   # Atmosphere
   ambience: |

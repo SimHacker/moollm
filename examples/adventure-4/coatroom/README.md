@@ -286,7 +286,7 @@ These skills persist in your character file and travel with you!
 
 | Direction | Destination |
 |-----------|-------------|
-| 🚪 **West** | [start/](../start/) — Chamber of Commencement |
+| 🚪 **West** | [garden/](../garden/) — Back Garden |
 | 🧬 **North** | [characters/](../characters/) — Hall of Bodies |
 | 🎭 **South** | [personas/](../personas/) — Wardrobe of Masks |
 | 📚 **East** | [skills/](../skills/) — Skill Nexus |

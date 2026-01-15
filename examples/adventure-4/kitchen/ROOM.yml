@@ -30,8 +30,8 @@ room:
     
     In the corner, a TRASH CAN lurks. It's deeper than it looks.
     
-    The exit EAST leads back to the Chamber of Commencement, from which
-    you can go NORTH to the maze, or EAST to the costume emporium.
+    The exit EAST leads to the pub's garden — outdoor dining!
+    The exit NORTHEAST is a staff shortcut diagonally to the pub bar.
   
   occupants: []
   
@@ -46,10 +46,22 @@ room:
   
   exits:
     east:
-      destination: ../start/
+      destination: ../garden/
       description: |
-        The archway back to the Chamber of Commencement. You can see
-        the warm glow of the starting room from here.
+        The garden gate leads to the pub's back garden — tables,
+        chairs, flowers, and the comforting smell of ale from the pub.
+        The outdoor dining area. Your domain.
+        
+    northeast:
+      destination: ../pub/
+      description: |
+        A narrow service corridor cuts diagonally through to the pub.
+        Swinging doors, worn smooth by decades of servers carrying trays.
+        The smell of ale grows stronger. You can hear the murmur of
+        patrons and the clink of glasses.
+        
+        "STAFF SHORTCUT — Mind the wet floor"
+      aliases: [pub, bar, corridor, shortcut, staff]
   
   world_position:
     x: -1

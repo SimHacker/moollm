@@ -17,7 +17,7 @@ This room has **no lighting**. Enter without a lit lamp and you will be eaten by
 | Direction | Destination | Description |
 |-----------|-------------|-------------|
 | **North** | [room-c/](../room-c/) | Passage with scratch marks |
-| **South** | [../../start/](../../start/) | 🔆 **Back to safety!** |
+| **North** | [../../garden/](../../garden/) | 🔆 **Back to the garden!** |
 | **East** | [room-b/](../room-b/) | Passage with echo |
 | **West** | [room-d/](../room-d/) | Passage with golden glow |
 
@@ -31,7 +31,7 @@ The puddle catches lamp light and reflects it back at you. Good for checking you
 
 ## 👃 Smell Notes
 
-This room receives smells drifting from the south. Anything dropped in start/ may waft in.
+This room receives smells drifting from the south. Anything dropped in the garden may waft in.
 
 ---
 
@@ -45,4 +45,4 @@ This room receives smells drifting from the south. Anything dropped in start/ ma
 
 | ⬆️ Up | [../](../) — The Maze |
 |-------|----------------------|
-| 🏠 Start | [../../start/](../../start/) |
+| 🏠 Garden | [../../garden/](../../garden/) |
