@@ -1037,7 +1037,7 @@ THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
 
 | | ACME | Leela |
 |---|------|-------|
-| **Founded** | "Recently! We're disrupting!" | 1986 (Habitat lineage) |
+| **Foundation** | "Recently! We're disrupting!" | MIT AI Lab tradition — old school kids and tourists, Zork players |
 | **Philosophy** | Move fast, break things, pivot | Build carefully, debug thoroughly, ship stable |
 | **AI Approach** | "Slap GPT on it and ship" | Deep integration, constrained navigation, tested protocols |
 | **Product** | Gimmicks that fail hilariously | Knowledge that actually works |
@@ -1070,17 +1070,26 @@ THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
 
 #### The Leela Lineage
 
-**Don:** "Now look at Leela." *gestures at the thriving factory* "Founded on the Habitat lineage. That's 1986. Chip Morningstar, Randy Farmer. The people who INVENTED the word 'avatar.' Who figured out that virtual worlds need STRUCTURE and TRUST."
+**Don:** "Now look at Leela." *gestures at the thriving factory* "This isn't a startup. This is a FOUNDATION. Built on the MIT AI Lab tradition — the old school kids and tourists who wandered the halls, played Zork, argued about LISP, and believed computers should augment human intelligence, not replace it."
+
+**Palm:** "Kids and tourists?"
+
+**Don:** "That's what they called the hackers who hung around the AI Lab. Not employees — just people who showed up because they loved the work. They built things for the joy of building. They shared code because hoarding was for suits. They played Zork in the basement and invented the future upstairs."
 
 | Era | Leela Evolution | What They Built | Outcome |
 |-----|-----------------|-----------------|---------|
-| 1986 | Habitat | First graphical MMO | Proved virtual worlds work |
+| 1960s | MIT AI Lab | The hacker ethic, LISP, the dream | Foundation of everything |
+| 1970s | Zork/Infocom | Interactive fiction, parser games | "You are in a maze of twisty passages" |
+| 1980s | Logo, Smalltalk | Constructionist education, OOP | Learning by building |
+| 1986 | Habitat | First graphical MMO, invented "avatar" | Proved virtual worlds work |
 | 1987 | Logo Adventure | Constructionist game design | Code IS the game |
 | 2002 | Game Neverending | Social gaming | Became Flickr (they pivoted UP) |
 | 2011 | Glitch | Whimsical MMO | Gone too soon, but open-sourced |
 | Now | MOOLLM | AI operating system | Deep, constrained, works |
 
-**Don:** "See the difference? ACME pivots AWAY from failure. Leela builds ON success. ACME burns through investors. Leela builds knowledge capital. ACME ships broken and blames the customer. Leela ships working and improves from feedback."
+**Don:** "See the difference? ACME pivots AWAY from failure. Leela builds ON tradition. ACME burns through investors. Leela builds knowledge capital. ACME ships broken and blames the customer. Leela ships working and improves from feedback."
+
+**Don:** "ACME was founded last Tuesday. Leela's foundation goes back to people who thought 'what if computers could UNDERSTAND?'"
 
 ---
 
