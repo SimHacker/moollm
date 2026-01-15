@@ -258,7 +258,7 @@ object:
     │  metadata to PostgreSQL hypertable. Fully automated.     │
     │                                                          │
     │  All ingest writes metadata to PostgreSQL immediately.   │
-    │  Blobs stay in S3. Queryable within seconds.             │
+    │  Blobs stay in S3. Queryable immediately.                │
     └──────────────────────────────────────────────────────────┘
     
     ALL STACKS CONNECT TO POSTGRESQL:
