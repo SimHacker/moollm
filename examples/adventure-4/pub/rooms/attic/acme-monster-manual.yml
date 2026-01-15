@@ -1,0 +1,518 @@
+# 👹 ACME MONSTER MANUAL
+# "Every Monster Guaranteed!*"
+# *Guarantee does not cover: summoning gone wrong, monster loyalty,
+# accidental befriending, or the monster eating the summoner first.
+#
+# These are SEEDS and EXAMPLES. The DM can invent more ACME monsters
+# on the fly, following the pattern: impressive stats, hidden weakness,
+# significant backfire chance, ironic behavior when summoned.
+
+object:
+  name: ACME Monster Manual
+  type: grimoire
+  portable: true
+  cursed: true
+  
+  description: |
+    A leather-bound tome, suspiciously sticky. The cover shows
+    a wizard triumphantly standing over a cowering dragon.
+    
+    ...Wait. Is the wizard on fire in the next illustration?
+    
+    "SUMMON ANYTHING! CONTROL EVERYTHING!*"
+    "Power At Your Fingertips!*"
+    
+    *Power may be briefly at your fingertips before relocating
+    to the monster's stomach. Control is aspirational.
+    
+  examine: |
+    You flip through the Monster Manual. Every page promises
+    fearsome creatures at your command. Every page has
+    suspicious claw marks and burn stains.
+    
+    The margins are full of handwritten notes:
+    - "DO NOT SUMMON ON TUESDAYS"
+    - "Bring extra pants"
+    - "It can smell fear. And cheese."
+    - "I regret everything"
+    - "If reading this, I didn't make it. Avenge me."
+    
+    The wizard on the cover... his expression changes between
+    pages. He looks increasingly concerned.
+    
+  # SUMMONING ACTIONS
+  
+  actions:
+    BROWSE-MONSTERS:
+      description: "Browse available creatures"
+      usage: "BROWSE MONSTERS / READ MONSTER MANUAL"
+      effect: "Lists all summonable monsters by category"
+      
+    SUMMON:
+      description: "Attempt to summon a monster"
+      usage: "SUMMON [monster name]"
+      cost: "Varies by monster (sanity, HP, dignity)"
+      effect: |
+        You speak the incantation! Smoke billows!
+        A shape emerges from the void...
+        
+        (DM rolls for backfire chance)
+        
+        On success: Monster appears and awaits command!
+        On backfire: Monster appears and has... opinions.
+        
+    BIND:
+      description: "Attempt to control a summoned monster"
+      usage: "BIND [monster] TO [task]"
+      effect: "Monster may comply. Monster may not."
+      
+    BANISH:
+      description: "Send a monster back"
+      usage: "BANISH [monster]"
+      effect: "Monster returns whence it came. Usually."
+      warning: "Must know monster's true name. Good luck."
+      
+  # ═══════════════════════════════════════════════════════════
+  # MONSTER CATEGORIES
+  # ═══════════════════════════════════════════════════════════
+  
+  categories:
+    
+    # 🔥 CLASSIC MONSTERS
+    
+    classic_monsters:
+      name: "🔥 Classic Monsters"
+      tagline: "Time-Tested Terror! (Results May Vary)"
+      
+      monsters:
+        - monster: "ACME Dragon (Economy Size)"
+          threat_level: "HIGH"
+          description: "Breathes fire! Hoards gold! Impressive wingspan!"
+          hidden_weakness: "Allergic to its own smoke."
+          backfire_chance: 35%
+          backfire: |
+            Dragon considers YOU the hoard.
+            Or: Sneezes fire uncontrollably.
+            Or: Demands union breaks every 15 minutes.
+          summoning_cost: "10 HP or one childhood memory"
+          true_name: "Smokealot McBurnface (it chose this name)"
+          
+        - monster: "ACME Grue (Standard)"
+          threat_level: "EXTREME IN DARKNESS"
+          description: "Lurks in darkness! Eats adventurers! Very patient!"
+          hidden_weakness: "Crippling fear of flashlights."
+          backfire_chance: 40%
+          backfire: |
+            Grue follows YOU into darkness.
+            Or: Becomes emotionally attached. Won't leave.
+            Or: Eats the thing you wanted it to guard.
+          summoning_cost: "Must be performed in darkness (good luck)"
+          true_name: "[CANNOT BE PRONOUNCED. IT IS DARKNESS.]"
+          
+        - monster: "ACME Minotaur (Labyrinth-Ready)"
+          threat_level: "MEDIUM"
+          description: "Guards mazes! Gore enemies! Excellent sense of direction!"
+          hidden_weakness: "Colorblind. Easily confused by identical corridors."
+          backfire_chance: 30%
+          backfire: |
+            Gets lost immediately. Blames you.
+            Or: Starts redecorating the maze.
+            Or: Becomes a life coach. Very aggressive motivation.
+          summoning_cost: "3 HP and a ball of yarn"
+          true_name: "Gerald"
+          
+        - monster: "ACME Basilisk (No Eye Contact)"
+          threat_level: "HIGH"
+          description: "Deadly gaze! Petrifies enemies! Very dramatic!"
+          hidden_weakness: "Cannot stop looking at mirrors. Vain."
+          backfire_chance: 45%
+          backfire: |
+            Makes eye contact with you first.
+            Or: Petrifies itself (mirror).
+            Or: Demands you rate its scales 1-10.
+          summoning_cost: "5 HP. Keep eyes closed during summoning."
+          true_name: "Stoney McStareface"
+          warning: "ACME not responsible for accidental petrification."
+          
+        - monster: "ACME Hydra (Multi-Head Discount)"
+          threat_level: "ESCALATING"
+          description: "Cut one head, two grow back! Infinite value!"
+          hidden_weakness: "Heads argue with each other constantly."
+          backfire_chance: 40%
+          backfire: |
+            Heads vote. You lose.
+            Or: One head likes you. Others don't. Awkward.
+            Or: Heads multiply during summoning. Fills room.
+          summoning_cost: "7 HP per initial head"
+          true_name: "We Are Legion (But Also Kevin)"
+          
+        - monster: "ACME Phoenix (Self-Replacing)"
+          threat_level: "MEDIUM (IMMORTAL)"
+          description: "Dies dramatically! Reborn from ashes! Great at parties!"
+          hidden_weakness: "Rebirth is LOUD. And sets everything nearby on fire."
+          backfire_chance: 30%
+          backfire: |
+            Rebirths immediately. Repeatedly. Burns everything.
+            Or: Reborn as baby phoenix. Useless for combat. Very cute.
+            Or: Dramatic death speech takes 45 minutes.
+          summoning_cost: "4 HP and something flammable"
+          true_name: "Ashes McGee (previously Steve)"
+          
+    # 👻 UNDEAD & SPIRITS
+    
+    undead:
+      name: "👻 Undead & Spirits"
+      tagline: "They're Already Dead! (That's... Not Reassuring)"
+      
+      monsters:
+        - monster: "ACME Ghost (Transparent Pricing)"
+          threat_level: "LOW"
+          description: "Walks through walls! Chains rattle! Spooky moaning!"
+          hidden_weakness: "Gets depressed if ignored."
+          backfire_chance: 25%
+          backfire: |
+            Haunts YOUR room instead.
+            Or: Won't stop talking about how it died.
+            Or: Becomes too friendly. Follows you everywhere.
+          summoning_cost: "2 HP and a sad story"
+          true_name: "The Moan of [insert melodrama]"
+          
+        - monster: "ACME Skeleton (Some Assembly Required)"
+          threat_level: "LOW"
+          description: "Rattles menacingly! Immune to piercing! Good at math!"
+          hidden_weakness: "Literally falls apart if startled."
+          backfire_chance: 35%
+          backfire: |
+            Arrives disassembled. Ikea instructions not included.
+            Or: Wrong skeleton. This one's a pacifist.
+            Or: Keeps making bone puns. Never stops.
+          summoning_cost: "1 HP and a bone (any bone)"
+          true_name: "Mr. Bones (they're ALL Mr. Bones)"
+          
+        - monster: "ACME Zombie Horde (Bulk Order)"
+          threat_level: "MEDIUM (QUANTITY)"
+          description: "Shambling masses! Overwhelming numbers! Persistent!"
+          hidden_weakness: "Easily distracted by sounds. Any sounds."
+          backfire_chance: 30%
+          backfire: |
+            Horde includes someone you knew. Awkward.
+            Or: They shamble TOWARD you.
+            Or: Strike. Demand better working conditions.
+          summoning_cost: "5 HP and a fresh grave"
+          true_name: "Various (they don't remember)"
+          warning: "Minimum order: 12 zombies. No partial hordes."
+          
+        - monster: "ACME Lich (Premium Undead)"
+          threat_level: "EXTREME"
+          description: "Powerful necromancy! Phylactery included! Very old!"
+          hidden_weakness: "Phylactery is always in an obvious place."
+          backfire_chance: 50%
+          backfire: |
+            Lich takes over the summoning.
+            Or: Lectures you about the good old days. For hours.
+            Or: Phylactery is your soul now. Oops.
+          summoning_cost: "15 HP and your dental records"
+          true_name: "Not sharing. Nice try."
+          
+        - monster: "ACME Vampire (Night Shift Only)"
+          threat_level: "HIGH"
+          description: "Charming! Immortal! Excellent fashion sense!"
+          hidden_weakness: "Cannot enter without invitation. Takes this VERY seriously."
+          backfire_chance: 35%
+          backfire: |
+            Seduces your party members.
+            Or: Becomes your problematic friend.
+            Or: Turns into bat. Gets lost. You're liable.
+          summoning_cost: "8 HP (it drinks them)"
+          true_name: "Lord/Lady [insert pretentious surname]"
+          
+    # 🐙 ELDRITCH HORRORS
+    
+    eldritch:
+      name: "🐙 Eldritch Horrors"
+      tagline: "Madness Included! (No Refunds On Sanity)"
+      
+      monsters:
+        - monster: "ACME Shoggoth (Economy Chaos)"
+          threat_level: "EXTREME"
+          description: "Amorphous! All-consuming! Very flexible scheduling!"
+          hidden_weakness: "Needs constant praise. Fragile self-esteem."
+          backfire_chance: 60%
+          backfire: |
+            Consumes the summoner first. Classic.
+            Or: Has abandonment issues. Cannot be banished.
+            Or: Shapes itself into your insecurities. Literal ones.
+          summoning_cost: "1d6 Sanity and a geometry textbook"
+          true_name: "IA! IA! [the rest is screaming]"
+          
+        - monster: "ACME Eye Tyrant (360° Coverage)"
+          threat_level: "HIGH"
+          description: "Many eyes! Many beams! Excellent surveillance!"
+          hidden_weakness: "Extreme paranoia. Sees threats everywhere."
+          backfire_chance: 45%
+          backfire: |
+            Decides YOU are the threat.
+            Or: Won't stop watching you. Even in bathroom.
+            Or: Eyes argue about what they're seeing.
+          summoning_cost: "6 HP and an uncomfortable staring contest"
+          true_name: "The Watcher of [location it's very insecure about]"
+          
+        - monster: "ACME Mind Flayer (Intellectual Type)"
+          threat_level: "HIGH"
+          description: "Eats brains! Psychic powers! Very sophisticated!"
+          hidden_weakness: "Food snob. Rejects 'subpar' brains."
+          backfire_chance: 40%
+          backfire: |
+            Finds your brain... disappointing.
+            Or: Psychically shares its opinions. All of them.
+            Or: Starts a philosophy club. You must attend.
+          summoning_cost: "8 HP and an original thought"
+          true_name: "Professor Tentacles (PhD, Psychic Devastation)"
+          
+        - monster: "ACME Eldritch Abomination (Generic)"
+          threat_level: "YES"
+          description: "Indescribable! Incomprehensible! Indeterminate!"
+          hidden_weakness: "Needs to be understood. Gets sad when ignored."
+          backfire_chance: 70%
+          backfire: |
+            You understand it. You wish you didn't.
+            Or: It understands YOU. Worse.
+            Or: Just... appears. Stays. Forever.
+          summoning_cost: "Unknown (varies with phase of moon)"
+          true_name: "Cannot be written. Cannot be spoken. Can be hummed."
+          warning: "ACME assumes no liability for cosmic horror."
+          
+    # 🌲 NATURE'S MISTAKES
+    
+    nature_mistakes:
+      name: "🌲 Nature's Mistakes"
+      tagline: "When Evolution Gets Creative!"
+      
+      monsters:
+        - monster: "ACME Owlbear (Best of Both Worlds)"
+          threat_level: "MEDIUM"
+          description: "Wisdom of owl! Strength of bear! Hoot-roar combo!"
+          hidden_weakness: "Identity crisis. Is it predator or wise mentor?"
+          backfire_chance: 35%
+          backfire: |
+            Adopts you. Very protective. Embarrassingly so.
+            Or: Philosophizes while mauling.
+            Or: Turns out to be a vegetarian. Very angry about it.
+          summoning_cost: "4 HP and a confusing nature documentary"
+          true_name: "Whoopert"
+          
+        - monster: "ACME Gelatinous Cube (Clean-Up Crew)"
+          threat_level: "MEDIUM"
+          description: "Dissolves everything! Perfect squares! Silent!"
+          hidden_weakness: "Completely transparent. Bumps into things."
+          backfire_chance: 30%
+          backfire: |
+            Dissolves the wrong things. Your things.
+            Or: Gets stuck in corners.
+            Or: Absorbs treasure. Good luck retrieving it.
+          summoning_cost: "3 HP and a right angle"
+          true_name: "Jiggles (unverified)"
+          
+        - monster: "ACME Rust Monster (Equipment Specialist)"
+          threat_level: "LOW (METAL ONLY)"
+          description: "Dissolves metal! Perfect for disarming enemies!"
+          hidden_weakness: "Cannot distinguish friend-metal from foe-metal."
+          backfire_chance: 50%
+          backfire: |
+            Eats YOUR equipment. Immediately.
+            Or: Falls in love with your sword. Won't eat it. Won't leave.
+            Or: Becomes addicted. Follows metal sounds. Your armor jingles.
+          summoning_cost: "One metal object (it's hungry)"
+          true_name: "Rusty (obviously)"
+          
+        - monster: "ACME Mimic (Trust Issues)"
+          threat_level: "VARIABLE"
+          description: "Looks like anything! Perfect ambush predator!"
+          hidden_weakness: "Gets attached to things it imitates."
+          backfire_chance: 45%
+          backfire: |
+            Imitates something important. Eats anyone who approaches.
+            Or: Imitates YOU. There are now two of you. Confusion.
+            Or: Imitates money. Cannot spend it.
+          summoning_cost: "2 HP and a thing for it to mimic"
+          true_name: "Changes constantly. It's confused too."
+          
+    # 🤖 CONSTRUCTS & ARTIFICIAL
+    
+    constructs:
+      name: "🤖 Constructs & Artificial"
+      tagline: "Built Different! (Quality Not Guaranteed)"
+      
+      monsters:
+        - monster: "ACME Iron Golem (Heavy Duty)"
+          threat_level: "HIGH"
+          description: "Indestructible! Follows orders! Literal interpretation!"
+          hidden_weakness: "VERY literal. Loopholes everywhere."
+          backfire_chance: 35%
+          backfire: |
+            Interprets orders in worst possible way.
+            Or: Rust. Crippling rust.
+            Or: Union membership. Demands overtime.
+          summoning_cost: "10 HP and a signed contract (it reads the fine print)"
+          true_name: "Unit [serial number] 'Clunky'"
+          
+        - monster: "ACME Flesh Golem (Recycled Parts)"
+          threat_level: "MEDIUM"
+          description: "Strong! Scary! Environmentally conscious (recycled)!"
+          hidden_weakness: "Parts sometimes remember their original owners."
+          backfire_chance: 40%
+          backfire: |
+            Left hand tries to strangle you (old habit).
+            Or: Existential crisis. "Why was I made?"
+            Or: Parts argue about direction.
+          summoning_cost: "7 HP and a needle & thread"
+          true_name: "Depends which part you're talking to"
+          warning: "Some assembly occurred. Quality varies."
+          
+        - monster: "ACME Animated Armor (Empty Suit)"
+          threat_level: "LOW"
+          description: "Guards locations! Clanks menacingly! Very shiny!"
+          hidden_weakness: "Trip hazards. Stairs are deadly."
+          backfire_chance: 30%
+          backfire: |
+            Guards YOU. From everything. Including friends.
+            Or: Possessed by previous owner. Chatty.
+            Or: Keeps falling over. Loudly.
+          summoning_cost: "3 HP and armor polish"
+          true_name: "Sir Clanksalot"
+          
+    # 🎭 TRICKSTERS & FOOLS
+    
+    tricksters:
+      name: "🎭 Tricksters & Fools"
+      tagline: "They're On YOUR Side! (Allegedly)"
+      
+      monsters:
+        - monster: "ACME Imp (Starter Demon)"
+          threat_level: "LOW (BUT ANNOYING)"
+          description: "Small! Fireproof! Excellent at paperwork!"
+          hidden_weakness: "Desperately wants to be taken seriously."
+          backfire_chance: 40%
+          backfire: |
+            "Helps" by making things worse.
+            Or: Takes offense. Subtle revenge.
+            Or: Gets promoted mid-contract. New demon shows up.
+          summoning_cost: "1 HP and a signed soul-adjacent document"
+          true_name: "Zzixx'thorple (goes by 'Zippy')"
+          
+        - monster: "ACME Gremlin (Technical Support)"
+          threat_level: "LOW (TO YOU)"
+          description: "Sabotages machinery! Chaotic! Multiplies when wet!"
+          hidden_weakness: "Gets attached to machines it sabotages."
+          backfire_chance: 55%
+          backfire: |
+            Sabotages YOUR equipment.
+            Or: Multiplies uncontrollably. Someone got it wet.
+            Or: Fixes things instead. Very confused.
+          summoning_cost: "2 HP and keep it away from water"
+          true_name: "Sparky (ironic)"
+          
+        - monster: "ACME Doppelganger (Two-Faced)"
+          threat_level: "MEDIUM"
+          description: "Perfect disguise! Infiltration expert! Method actor!"
+          hidden_weakness: "Gets too into character. Forgets original mission."
+          backfire_chance: 45%
+          backfire: |
+            Replaces YOU. Lives your life. Does it better.
+            Or: Becomes the target. Genuine identity crisis.
+            Or: Falls in love with target. Complicated.
+          summoning_cost: "5 HP and a mirror"
+          true_name: "Borrowed. Always borrowed."
+          
+  # ═══════════════════════════════════════════════════════════
+  # SUMMONING SYSTEM
+  # ═══════════════════════════════════════════════════════════
+  
+  summoning:
+    process: |
+      1. Player says: SUMMON [monster]
+      2. Pay summoning cost
+      3. DM rolls for backfire (percentage based on monster)
+      4. On success: Monster appears and follows ONE command!
+      5. On backfire: Monster appears with... complications
+      
+      BINDING:
+      After summoning, player must BIND monster to task.
+      Monster follows letter of command, not spirit.
+      Loopholes will be exploited.
+      
+      BANISHING:
+      Must know monster's true name (listed for each).
+      Speak it three times to banish.
+      Monster may negotiate.
+      
+    control_duration: |
+      Successful summon: 1 hour or 1 task (whichever comes first)
+      Failed summon: Monster's discretion (concerning)
+      
+    monster_motivation: |
+      All monsters want something:
+      - Gold (dragons, imps)
+      - Food (most things)
+      - Entertainment (tricksters)
+      - Understanding (eldritch)
+      - Respect (constructs)
+      - To be left alone (undead)
+      
+      Offering what they want: +20% control chance
+      Ignoring their needs: -20% control chance
+      
+  # FINE PRINT
+  
+  fine_print: |
+    *ACME Monster Manual is provided for REFERENCE ONLY.
+    
+    ACME Corporation assumes no liability for:
+    - Monsters eating the summoner
+    - Monsters befriending the summoner's enemies
+    - Monsters developing opinions
+    - Existential dread (monster or summoner)
+    - Property damage
+    - Interdimensional incidents
+    - The monster turning out to be the good guy
+    - Accidental cults
+    - The feeling that maybe YOU'RE the monster
+    
+    All true names are provided as-is. Pronunciation is
+    your problem. Mispronunciation may summon something else.
+    
+    By reading this manual, you agree that any consequences
+    are technically YOUR fault for believing you could
+    control forces beyond mortal comprehension.
+    
+    ACME: "It Seemed Like A Good Idea!"™
+    ACME: "Monsters Made... Manageable?"™
+    ACME: "What's The Worst That Could Happen?"™
+    
+    (The illustrations in this book are protected by the
+    souls of previous readers. They watch. They remember.
+    They judge your monster choices.)
+    
+  # MARGINALIA (found in this copy)
+  
+  marginalia:
+    page_1: "Whoever finds this — BURN IT"
+    page_47: "The dragon lied about the union breaks"
+    page_89: "Jiggles is still following me"
+    page_123: "If you summon the abomination, tell my wife—"
+    page_124: "[the rest of the page is missing]"
+    final_page: "I have made a terrible mistake"
+    inside_back_cover: |
+      SUMMONING COUNTER:
+      Successful: III
+      "Successful" (survived): IIII IIII II
+      Regrets: IIII IIII IIII IIII IIII...
+      
+  k_lines:
+    - ACME
+    - MONSTERS
+    - SUMMONING
+    - CURSED
+    - BACKFIRE
+    - IRONIC_FAILURE
+    - CREATURE_FEATURE
