@@ -65,16 +65,23 @@ room:
       aliases: [e, back, lane]
       
     west:
-      destination: null  # Origin point
+      destination: ../e3/
       description: |
-        The plaza ends at a low wall overlooking... everything and nothing.
-        The edge of the built world. Beyond here, only possibility.
+        The lane curves gently beyond the plaza... and continues. You
+        walk west past the Origin Tree, but somehow the street numbers
+        start climbing again. Construction scaffolding appears ahead.
         
-        A sign: "THE LANE NEVER ENDS — IT JUST HASN'T BEEN BUILT YET"
+        Wait. Weren't you just AT the beginning?
         
-        You could climb over, but there's nothing there. Yet.
-      blocked: true
-      future: "The world expands when the world is ready"
+        The lane never ends. It loops. It always has.
+        MOO HAA HAA.
+      aliases: [w, continue, loop]
+      
+      # The secret
+      loop_note: |
+        You cannot leave Lane Neverending by walking.
+        You can only leave by going NORTH (into buildings) or
+        by accepting that the lane is your home now.
       
     north:
       destination: null

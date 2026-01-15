@@ -52,12 +52,20 @@ room:
       aliases: [w, back, center]
       
     east:
-      destination: null  # Not yet built!
+      destination: ../w3/
       description: |
-        The dirt path continues east, but a rope barrier and a sign
-        discourage further exploration: "UNDER CONSTRUCTION — GIANTS AT WORK"
+        The lane curves gently... and continues. You walk east, but
+        somehow the street numbers start descending again. The Origin
+        Tree comes into view ahead.
         
-        You can see stakes marking future streets. Someday this will
-        be somewhere. For now, it's the edge of the world.
-      blocked: true
-      future: "More of Lane Neverending, when the world expands"
+        Wait. Weren't you just heading AWAY from there?
+        
+        The lane never ends. It loops. It always has.
+        MOO HAA HAA.
+      aliases: [e, forward, continue]
+      
+      # The secret
+      loop_note: |
+        Lane Neverending is a MÖBIUS STRIP of a street.
+        Walk far enough in any direction, you end up where you started.
+        The name was never a promise. It was a warning.
