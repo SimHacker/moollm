@@ -1,0 +1,336 @@
+# DRONE CHARGING STATION
+# Logistic and Construction Drone Prototypes
+# Factorio-style autonomous units
+# See: skills/logistic-container/, skills/prototype/
+
+object:
+  id: drone-station
+  name: "Drone Charging Station"
+  type: vehicle_station
+  emoji: "🤖🔋"
+  brand: LEELA
+  
+  tags: [station, drones, logistics, construction, prototype, factorio]
+  
+  description: |
+    A hexagonal charging station bristling with drone ports.
+    Blue lights pulse as logistic drones charge. Orange lights
+    for construction drones. Two pristine prototypes sit in
+    the center, labeled "CLONE ON DEMAND."
+    
+  examine: |
+    DRONE CHARGING STATION — LEELA AUTONOMOUS FLEET
+    ════════════════════════════════════════════════
+    
+    ┌─────────────────────────────────────────────────────────────┐
+    │                    DRONE STATION ALPHA                      │
+    │                                                             │
+    │        🔵 🔵 🔵        LOGISTIC DRONES         🔵 🔵 🔵     │
+    │     [L1][L2][L3]  ┌─────────────────┐  [L4][L5][L6]        │
+    │                   │  ✨ PROTOTYPES ✨ │                      │
+    │        🟠 🟠 🟠   │  [LP]     [CP]  │   🟠 🟠 🟠           │
+    │     [C1][C2][C3]  └─────────────────┘  [C4][C5][C6]        │
+    │                    CONSTRUCTION DRONES                      │
+    │                                                             │
+    │  🔵 = Logistic (blue)     🟠 = Construction (orange)       │
+    │  ✨ = Prototype (clone me!)                                 │
+    │                                                             │
+    │  ACTIVE: 8    CHARGING: 4    AVAILABLE: 12                 │
+    └─────────────────────────────────────────────────────────────┘
+    
+    LOGISTIC DRONES (Blue):
+    Transport items between containers. Serve the logistics network.
+    Pick up from providers, deliver to requesters. Factorio-style.
+    
+    CONSTRUCTION DRONES (Orange):
+    Build, repair, and deconstruct. Given blueprints, they build.
+    Given demolition orders, they disassemble. Return materials.
+    
+    RECYCLING:
+    Damaged or retired drones can be deposited in the recycler
+    slot. Materials recovered: 80%. Components reused.
+    
+  container: true
+  capacity: 14  # 12 active slots + 2 prototypes
+  
+  # Prototype definitions
+  prototypes:
+  
+    leela-logistic-drone:
+      id: leela-logistic-drone
+      name: "Leela Logistic Drone"
+      type: drone
+      emoji: "🔵🤖"
+      brand: LEELA
+      tags: [drone, logistics, autonomous, flying, leela-brand, factorio]
+      
+      description: "A blue autonomous drone for logistics transport."
+      examine: |
+        LEELA LOGISTIC DRONE
+        ═════════════════════
+        
+        Compact quadcopter with cargo compartment.
+        Blue shell, Leela logo on top.
+        
+        SPECIFICATIONS:
+        • Payload: 50 kg / 10 items
+        • Range: Unlimited (within facility)
+        • Speed: Fast
+        • Battery: 2 hours flight / 30 min charge
+        • AI: Logistics network integration
+        
+        BEHAVIOR:
+        Monitors logistics network for requests.
+        Picks up items from provider chests.
+        Delivers to requester chests.
+        Returns to station when idle or low battery.
+        
+        STATUS LIGHTS:
+        • Solid blue: Idle, available
+        • Pulsing blue: In transit
+        • Blinking blue: Searching for item
+        • Red: Low battery, returning
+        
+      takeable: false
+      flying: true
+      
+      properties:
+        payload_kg: 50
+        payload_items: 10
+        battery_max: 100
+        speed: fast
+        
+      state:
+        battery: 100
+        cargo: []
+        task: idle
+        destination: null
+        
+      chest_mode: bot  # Factorio-style logistics bot behavior
+      
+      methods:
+        DISPATCH:
+          description: "Manually assign a delivery task"
+          parameters:
+            from: "Pickup location"
+            to: "Delivery location"
+            item: "What to transport"
+          effect: "Drone executes delivery"
+          
+        RECALL:
+          description: "Call drone back to station"
+          effect: "Drone abandons task, returns to charge"
+          
+        STATUS:
+          description: "Query drone state"
+          effect: "Reports task, location, battery"
+          
+        RETIRE:
+          description: "Mark drone for recycling"
+          effect: "Drone returns to station, enters recycler"
+          
+      autonomous_behaviors:
+        serve_network:
+          trigger: "Requester chest has unfulfilled requests"
+          effect: |
+            1. Find provider chest with requested item
+            2. Fly to provider, pick up items
+            3. Fly to requester, deliver items
+            4. Return to idle or next task
+            
+        low_battery:
+          trigger: "battery < 20"
+          effect: "Return to charging station immediately"
+          
+        avoid_collision:
+          trigger: "Obstacle or other drone in path"
+          effect: "Adjust altitude, navigate around"
+          
+      sounds:
+        takeoff: "*whirrrr* — rotors spinning up"
+        flight: "*buzzzzz*"
+        pickup: "*click* — cargo secured"
+        delivery: "*click* — cargo released"
+        land: "*whirr... thunk* — landed"
+        
+    leela-construction-drone:
+      id: leela-construction-drone
+      name: "Leela Construction Drone"
+      type: drone
+      emoji: "🟠🤖"
+      brand: LEELA
+      tags: [drone, construction, autonomous, flying, leela-brand, factorio]
+      
+      description: "An orange autonomous drone for construction tasks."
+      examine: |
+        LEELA CONSTRUCTION DRONE
+        ═════════════════════════
+        
+        Heavy-duty hexcopter with tool attachments.
+        Orange shell, Leela logo, articulated arms.
+        
+        SPECIFICATIONS:
+        • Payload: 100 kg (construction materials)
+        • Range: Unlimited (within facility)
+        • Speed: Moderate (careful with materials)
+        • Battery: 1.5 hours work / 45 min charge
+        • AI: Blueprint interpretation
+        
+        TOOLS:
+        • Welding torch
+        • Precision manipulators
+        • Material scanner
+        • Cutting laser
+        • "Percussive adjustment" module (hammer)
+        
+        CAPABILITIES:
+        • BUILD: Construct from blueprints
+        • REPAIR: Fix damaged structures
+        • DECONSTRUCT: Disassemble, recover materials
+        • UPGRADE: Improve existing structures
+        
+        STATUS LIGHTS:
+        • Solid orange: Idle, available
+        • Pulsing orange: Working
+        • Blinking orange: Waiting for materials
+        • Red: Low battery, returning
+        
+      takeable: false
+      flying: true
+      
+      properties:
+        payload_kg: 100
+        battery_max: 100
+        speed: moderate
+        tools: [welder, manipulator, scanner, cutter, hammer]
+        
+      state:
+        battery: 100
+        materials: []
+        task: idle
+        blueprint: null
+        
+      chest_mode: construction-bot  # Factorio-style
+      
+      methods:
+        BUILD:
+          description: "Construct something from blueprint"
+          parameters:
+            blueprint: "What to build"
+            location: "Where to build it"
+          effect: |
+            Drone fetches materials, flies to location,
+            constructs according to blueprint.
+            
+        REPAIR:
+          description: "Fix a damaged structure"
+          parameters:
+            target: "What to repair"
+          effect: "Drone assesses damage, fetches materials, repairs"
+          
+        DECONSTRUCT:
+          description: "Disassemble a structure"
+          parameters:
+            target: "What to take apart"
+          effect: |
+            Drone carefully disassembles structure.
+            Materials returned to storage.
+            80% material recovery.
+            
+        UPGRADE:
+          description: "Improve an existing structure"
+          parameters:
+            target: "What to upgrade"
+            blueprint: "Upgrade specification"
+          effect: "Drone modifies structure per blueprint"
+          
+        RECALL:
+          description: "Call drone back to station"
+          effect: "Drone abandons task, returns to charge"
+          
+        RETIRE:
+          description: "Mark drone for recycling"
+          effect: "Drone returns to station, enters recycler"
+          
+      autonomous_behaviors:
+        serve_build_queue:
+          trigger: "Build order in queue"
+          effect: |
+            1. Read blueprint
+            2. Fetch required materials
+            3. Fly to build site
+            4. Construct structure
+            5. Return to idle or next task
+            
+        repair_patrol:
+          trigger: "Enabled in settings"
+          effect: "Patrol area, automatically repair damage"
+          
+        low_battery:
+          trigger: "battery < 20"
+          effect: "Return to charging station immediately"
+          
+      sounds:
+        takeoff: "*WHIRRRR* — heavy rotors engaging"
+        flight: "*BUZZZZ*"
+        weld: "*FZZZZT* — welding in progress"
+        cut: "*ZZZAP* — laser cutting"
+        hammer: "*CLANG CLANG* — percussive adjustment"
+        complete: "*ding* — construction complete"
+        
+  # Station operations
+  methods:
+    CLONE_LOGISTIC:
+      description: "Create a new logistic drone"
+      effect: "Blue drone materializes, begins charging"
+      cost: "10 metal, 5 circuits"
+      
+    CLONE_CONSTRUCTION:
+      description: "Create a new construction drone"
+      effect: "Orange drone materializes, begins charging"
+      cost: "20 metal, 10 circuits, 2 tools"
+      
+    RECYCLE:
+      description: "Retire a drone, recover materials"
+      parameters:
+        drone: "Which drone to recycle"
+      effect: "Drone disassembled, 80% materials returned"
+      
+    STATUS:
+      description: "Fleet overview"
+      effect: "Display all drones, states, battery levels"
+      
+    DISPATCH_ALL:
+      description: "Activate all idle drones"
+      effect: "All available drones begin serving network"
+      
+    RECALL_ALL:
+      description: "Return all drones to station"
+      effect: "All drones abandon tasks, return to charge"
+      
+  fleet:
+    logistic:
+      L1: { status: "charging", battery: 60 }
+      L2: { status: "active", battery: 80, task: "delivery to floor-3" }
+      L3: { status: "active", battery: 45, task: "pickup from bay-1" }
+      L4: { status: "idle", battery: 100 }
+      L5: { status: "idle", battery: 100 }
+      L6: { status: "charging", battery: 30 }
+      
+    construction:
+      C1: { status: "active", battery: 70, task: "repair bay-2 dock leveler" }
+      C2: { status: "idle", battery: 100 }
+      C3: { status: "charging", battery: 45 }
+      C4: { status: "idle", battery: 95 }
+      C5: { status: "active", battery: 55, task: "upgrade shelving unit" }
+      C6: { status: "charging", battery: 20 }
+      
+  ambience: |
+    The station hums with activity. Blue and orange lights pulse
+    as drones charge. Occasionally one lifts off with a *whirr*,
+    ascending to join the others crisscrossing the facility.
+    
+    A gentle *ding* sounds as a drone completes charging.
+    Another *buzz* as one departs on a mission.
+    
+    The prototypes sit pristine, waiting to be cloned.

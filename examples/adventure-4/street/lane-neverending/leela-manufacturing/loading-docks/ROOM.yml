@@ -199,9 +199,10 @@ logistics_bays:
       - signal: "outbound-ready"
         value: "bay_5.items > 0 OR bay_6.items > 0 OR bay_7.items > 0 OR bay_8.items > 0"
         
-  objects:
+objects:
     - dock-office.yml
-    - forklifts.yml
+    - forklift-bay.yml
+    - drone-station.yml
     - current-trucks.yml
     
   # Inserters — automated item transfer
