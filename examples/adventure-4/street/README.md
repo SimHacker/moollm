@@ -73,9 +73,11 @@ These names were chosen for both meaning and mellifluousness:
 
 - **Engelbart Avenue** — EN-gel-bart AV-en-ue (perfect cadence)
 - **Kay Lane** — punchy, memorable, pun-laden
-- **Papert Path** — alliterative
-- **Sutherland Street** — S-S alliteration
+- **Licklider Lane** — L-L alliteration
 - **Minsky Way** — echoes "Milky Way"
+- **Papert Path** — P-P alliteration
+- **Sutherland Street** — S-S alliteration
+- **Turing Terrace** — T-T alliteration
 
 ---
 
@@ -132,7 +134,7 @@ The heart of town is where **Kay Lane** crosses **Lane Neverending**.
                  KAY LANE
                     │
                     │ N
-                    │ (toward Zork Row, Habitat Highway)
+                    │ (toward Zork Row, Habitat Blvd)
        ┌────────────┼────────────┐
   W ───┤    Lane Neverending     ├─── E
        │            │            │
