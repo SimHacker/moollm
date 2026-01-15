@@ -34,6 +34,7 @@ room:
     │       Basement ... R&D Laboratory                       │
     │       Rooftop .... Garden & Observation                 │
     │                                                         │
+    │       Mail Room ....... Communications Hub              │
     │       Loading Docks ... Behind building                 │
     │       Logistics Yard .. East side                       │
     │                                                         │
@@ -112,6 +113,13 @@ room:
       destination: rooftop/
       description: "Elevator to the Rooftop Garden"
       aliases: [roof, garden, up]
+      
+    mail:
+      destination: mail-room/
+      description: |
+        A door marked "MAIL ROOM" with a 📬 symbol. You can hear the
+        *thwoop* of pneumatic tubes and soft cooing of pigeons.
+      aliases: [mail, post, postal, letters]
       
     loading:
       destination: loading-docks/
