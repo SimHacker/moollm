@@ -547,7 +547,9 @@ object:
       
       note: |
         All Leela surveillance products include:
-        - Privacy mode (configurable blindspots, pi)
+        - Privacy mode (configurable blindspots, pixellated censorship)
+        - On site edgeboxes for local processing
+        - Private data storage
         - Data retention policies
         - Ethical use guidelines
         NOT like ACME cameras (which record your embarrassing moments
@@ -593,6 +595,52 @@ object:
               sku: "LEE-AS-001"
               price: "150 coins"
               description: "Integrated sensors, silent or loud"
+              
+        data_interfaces:
+          items:
+            - name: "Leela PDA"
+              sku: "LEE-PDA-001"
+              price: "200 coins"
+              description: "Personal Data Assistant, rugged design"
+              features:
+                - "Chat interface for natural queries"
+                - "Data analysis dashboard"
+                - "Camera feed viewer"
+                - "Alert notifications"
+                - "Secure messaging"
+              battery: "72 hours standby"
+              
+            - name: "Leela PDA Pro"
+              sku: "LEE-PDA-002"
+              price: "400 coins"
+              description: "Advanced analytics, AI assistant"
+              features:
+                - "Pattern recognition"
+                - "Predictive alerts"
+                - "Multi-site management"
+                - "Voice commands"
+                - "Encrypted comms"
+              battery: "1 week standby"
+              
+            - name: "Analysis Console"
+              sku: "LEE-AC-001"
+              price: "600 coins"
+              description: "Desktop station, multi-monitor support"
+              features:
+                - "Real-time data aggregation"
+                - "Historical trend analysis"
+                - "Custom report generation"
+                - "Chat interface for complex queries"
+                
+            - name: "Edge Box"
+              sku: "LEE-EB-001"
+              price: "300 coins"
+              description: "Local processing node, privacy-first"
+              features:
+                - "On-site data processing"
+                - "No cloud dependency"
+                - "Configurable retention"
+                - "Encrypted local storage"
               
     # ═══════════════════════════════════════════════════════════════
     # MAPPING
