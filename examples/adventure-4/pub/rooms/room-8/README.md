@@ -22,6 +22,18 @@ The walls are covered with character sheets, each one pointing to its parent wit
 
 ---
 
+## 👻 Summonable Spirits
+
+| Spirit | Invocation | Topic |
+|--------|------------|-------|
+| **Dave Ungar** | Speak to the portrait | Prototype inheritance, Self language, "no classes, just clones" |
+| **Randy Smith** | Use the Outliner | Morphic, direct manipulation, the UI is made of objects |
+| **Selfie** | Clone anything | Living prototype inheritance — the familiar demonstrates |
+
+*"Objects all the way down. Speed all the way up."*
+
+---
+
 ## 📦 Objects
 
 | Object | File | Description |

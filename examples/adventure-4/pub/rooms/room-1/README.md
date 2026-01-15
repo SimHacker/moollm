@@ -34,9 +34,15 @@ This is a room for **tinkers, makers, reverse-engineers** — those who understa
 
 ---
 
-## 👤 Summonable Agent
+## 👻 Summonable Spirits
 
-**Seymour Papert** — Invoke through the turtle familiar. The father of constructionism appears to discuss learning, Logo, and how children think.
+| Spirit | Invocation | Topic |
+|--------|------------|-------|
+| **Seymour Papert** | Speak to the Turtle | Constructionism, Logo, learning by building, how children think |
+| **Hal Abelson** | Study the Turtle Geometry painting | SICP, abstraction, "programs must be written for people to read" |
+| **The Logo Turtle** | Command: FORWARD, RIGHT, REPEAT | Learning through doing — the turtle is always ready to draw |
+
+*"You can't think about thinking without thinking about thinking about something."*
 
 ---
 

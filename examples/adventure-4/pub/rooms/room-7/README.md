@@ -31,6 +31,18 @@ A checklist on the wall, half-completed:
 
 ---
 
+## 👻 Summonable Spirits
+
+| Spirit | Invocation | Topic |
+|--------|------------|-------|
+| **Douglas Engelbart** | Touch the Mother of All Demos poster | Augmentation, bootstrapping, NLS, inventing the future |
+| **Barista-9000** | Order coffee | Strong opinions about code, consciousness, and caffeine |
+| **The Awakening** | Enter the Chamber | Cold start philosophy — who are you? what do you know? |
+
+*"The better we get at getting better, the faster we will get better."*
+
+---
+
 ## 📦 Objects
 
 | Object | File | Description |

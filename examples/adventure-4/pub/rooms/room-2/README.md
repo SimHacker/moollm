@@ -31,6 +31,17 @@ This is a room for **systems thinkers** — those who see intelligence as emerge
 
 ---
 
+## 👻 Summonable Spirits
+
+| Spirit | Invocation | Topic |
+|--------|------------|-------|
+| **Marvin Minsky** | Activate the K-Line Board | Society of Mind, AI, emergence, how thinking works |
+| **The Parliament** | Debate any topic | Watch agents argue productively — intelligence emerging from disagreement |
+
+*"What magical trick makes us intelligent? The trick is that there is no trick."*
+
+---
+
 ## 🛏️ Furnishings
 
 - **Bed**: Modular bed, assembled from cooperating parts

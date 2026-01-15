@@ -25,6 +25,18 @@ The sign says: **"33 TURNS IN ONE BREATH."**
 
 ---
 
+## 👻 Summonable Spirits
+
+| Spirit | Invocation | Topic |
+|--------|------------|-------|
+| **Andy Looney** | Play a round of Fluxx | Game design, chaos, emergent rules |
+| **Palm** | Shuffle deals | The speed of light philosophy, multi-agent performance |
+| **The Ensemble** | Take the stage | 8 voices performing simultaneously — watch narrative unfold |
+
+*33 turns. One call. No waiting.*
+
+---
+
 ## 📦 Objects
 
 | Object | File | Description |

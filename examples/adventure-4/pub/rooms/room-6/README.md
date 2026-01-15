@@ -24,6 +24,18 @@ This is a room for **data architects with artistic souls** — those who believe
 
 ---
 
+## 👻 Summonable Spirits
+
+| Spirit | Invocation | Topic |
+|--------|------------|-------|
+| **Clark Innes** | Type on the Jazz Typewriter | YAML philosophy, data as poetry, structure with soul |
+| **The YAML Muse** | Play the Comment Saxophone | Inspiration for beautiful documentation |
+| **Schema Ghost** | Tick the Metronome 3x | Validation, standards, when to break the rules |
+
+*The saxophone plays WHY, not WHAT. The schema keeps it honest.*
+
+---
+
 ## 📦 Objects
 
 | Object | File | Description |

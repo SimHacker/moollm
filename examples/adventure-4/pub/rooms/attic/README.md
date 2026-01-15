@@ -18,6 +18,18 @@ A ladder in the floor leads down to the hotel landing.
 
 ---
 
+## 👻 Summonable Spirits
+
+| Spirit | Invocation | Topic |
+|--------|------------|-------|
+| **The Deprecated API Ghost** | Open the Trunk | Old ways that still work, backward compatibility, technical debt |
+| **Edge Case Eddie** | Peek in the Box of Edge Cases | Things that shouldn't happen but do, corner cases, undefined behavior |
+| **The Sheet-Covered Thing** | Pull the sheet | ??? — nobody has done this yet, we don't know what's under there |
+
+*Dusty wisdom. Forgotten knowledge. Spiders.*
+
+---
+
 ## 📦 Adventure Wearables (Weird Buffs!)
 
 | Item | File | Effect |

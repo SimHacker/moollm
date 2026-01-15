@@ -39,6 +39,18 @@ Each mirror corresponds to a cursor-mirror command category:
 
 ---
 
+## 👻 Summonable Spirits
+
+| Spirit | Invocation | Topic |
+|--------|------------|-------|
+| **Socrates** | Speak to the Deep Mirror | Questions about questions, examined life, knowing yourself |
+| **James Burke** | Spin the Disco Ball | Connections! Unexpected links between everything and everything |
+| **I-Beam** | Always present | Introspection guidance, cursor-mirror navigation |
+
+*The Deep Mirror shows the examined life. The Disco Ball shows the connected one.*
+
+---
+
 ## 📦 Objects
 
 | Object | File | Description |
