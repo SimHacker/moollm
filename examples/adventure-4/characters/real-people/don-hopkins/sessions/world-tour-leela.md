@@ -8,865 +8,545 @@
 
 ---
 
+## Quick Links
+
+### Pub Locations
+| Location | ROOM.yml | README |
+|----------|----------|--------|
+| Main Pub | [pub/ROOM.yml](../../../../pub/ROOM.yml) | [pub/README.md](../../../../pub/README.md) |
+| Hotel Floor | [pub/rooms/ROOM.yml](../../../../pub/rooms/ROOM.yml) | — |
+| Basement | [pub/basement/ROOM.yml](../../../../pub/basement/ROOM.yml) | [README](../../../../pub/basement/README.md) |
+| Rooftop | [pub/rooftop/ROOM.yml](../../../../pub/rooftop/ROOM.yml) | [README](../../../../pub/rooftop/README.md) |
+| Cat Cave | [pub/bar/cat-cave/ROOM.yml](../../../../pub/bar/cat-cave/ROOM.yml) | [README](../../../../pub/bar/cat-cave/README.md) |
+| Palm's Nook | [pub/stage/palm-nook/ROOM.yml](../../../../pub/stage/palm-nook/ROOM.yml) | [README](../../../../pub/stage/palm-nook/README.md) |
+| Garden | [garden/ROOM.yml](../../../../garden/ROOM.yml) | [README](../../../../garden/README.md) |
+| Maze | [maze/ROOM.yml](../../../../maze/ROOM.yml) | [README](../../../../maze/README.md) |
+
+### Leela Manufacturing Locations
+| Location | ROOM.yml | README |
+|----------|----------|--------|
+| Main Building | [leela-manufacturing/ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/README.md) |
+| Lobby | [lobby/ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/lobby/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/lobby/README.md) |
+| Logistics Center | [logistics/ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/logistics/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/logistics/README.md) |
+| Loading Docks | [loading-docks/ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/loading-docks/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/loading-docks/README.md) |
+| Floor 1 (Intake) | [floor-1/ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/floor-1/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/floor-1/README.md) |
+| Floor 2 (Factory) | [floor-2/ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/floor-2/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/floor-2/README.md) |
+| Floor 3 (Shipping) | [floor-3/ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/floor-3/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/floor-3/README.md) |
+| Storage | [storage/ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/storage/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/storage/README.md) |
+| Warehouse 23 | [warehouse-23/ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/warehouse-23/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/warehouse-23/README.md) |
+| Rooftop | [rooftop/ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/rooftop/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/rooftop/README.md) |
+
+### Characters
+| Character | File | Location |
+|-----------|------|----------|
+| Palm | [CHARACTER.yml](../../animals/palm/CHARACTER.yml) | [Palm's Nook](../../../../pub/stage/palm-nook/ROOM.yml) |
+| Biscuit | [CHARACTER.yml](../../animals/biscuit/CHARACTER.yml) | [Cat Cave](../../../../pub/bar/cat-cave/biscuits-spot/ROOM.yml) |
+| Selfie | [selfie.yml](../../../../pub/rooms/room-8/selfie.yml) | [Room 8](../../../../pub/rooms/room-8/ROOM.yml) |
+| Marieke | [budtender-marieke.yml](../../../../pub/bar/budtender-marieke.yml) | [Bar](../../../../pub/bar/ROOM.yml) |
+
+### Design Documents
+| Document | Link |
+|----------|------|
+| MOOLLM Manifesto | [MOOLLM-MANIFESTO.md](../../../../../designs/MOOLLM-MANIFESTO.md) |
+| Factorio Logistics | [factorio-logistics-protocol.md](../../../../../designs/factorio-logistics-protocol.md) |
+| Cursor Self-Review | [cursor-self-review.md](../../../../../designs/cursor-self-review.md) |
+| Sims Design Index | [sims-design-index.md](../../../../../designs/sims-design-index.md) |
+
+### Skills Referenced
+| Skill | CARD | README |
+|-------|------|--------|
+| Prototype | [CARD.yml](../../../../../skills/prototype/CARD.yml) | [README](../../../../../skills/prototype/README.md) |
+| Container | [CARD.yml](../../../../../skills/container/CARD.yml) | [README](../../../../../skills/container/README.md) |
+| Logistic Container | [CARD.yml](../../../../../skills/logistic-container/CARD.yml) | [README](../../../../../skills/logistic-container/README.md) |
+| Data Flow | [CARD.yml](../../../../../skills/data-flow/CARD.yml) | [README](../../../../../skills/data-flow/README.md) |
+| Robust First | [CARD.yml](../../../../../skills/robust-first/CARD.yml) | [README](../../../../../skills/robust-first/README.md) |
+| Manufacturing Intelligence | [CARD.yml](../../../../../skills/manufacturing-intelligence/CARD.yml) | [README](../../../../../skills/manufacturing-intelligence/README.md) |
+
+---
+
 ## The Tour Group Assembles
 
-*The bar at the Rusty Lantern buzzes with anticipation. Don Hopkins stands near the fireplace, a pint of Rusty Lantern Ale in hand, as the tour group gathers. Palm perches on the stage curtain rod, watching with curious eyes.*
+*The bar at the Rusty Lantern buzzes with anticipation.*
 
 ### The Party
 
-| # | Name | Description | Special Interest |
-|---|------|-------------|------------------|
-| 1 | **Don Hopkins** | Tour guide, world architect, pie menu enthusiast | Everything |
-| 2 | **Palm** | Spider monkey, philosopher, infinite climber | The high places, watching |
-| 3 | **Marieke** | The bartender, keeper of stories | How it all connects to the pub |
-| 4 | **Selfie** | Living prototype from Room 8, Dave Ungar's tradition | Prototype inheritance in action |
-| 5 | **Archie** | Architectural Deployment Specialist from Leela | The prefab buildings |
-| 6 | **Stamp** | Postmaster General from Mail Room | The postal and pneumatic networks |
-| 7 | **The Coordinator** | Shift supervisor from Logistics Center | The nerve center |
-| 8 | **Dolly** | The legendary forklift, Employee of the Month | The loading docks and storage |
-| 9 | **Cell G** | The philosophical processing cell (via telepresence) | Deep questions |
+| # | Name | Role | Links |
+|---|------|------|-------|
+| 1 | **Don Hopkins** | Tour guide, world architect | [CHARACTER.yml](../CHARACTER.yml) |
+| 2 | **Palm** | Spider monkey, philosopher | [CHARACTER.yml](../../animals/palm/CHARACTER.yml), [Essays](../../../../pub/stage/palm-nook/study/palm-on-being-palm.md) |
+| 3 | **Marieke** | Bartender, budtender | [budtender-marieke.yml](../../../../pub/bar/budtender-marieke.yml) |
+| 4 | **Selfie** | Room 8 prototype | [selfie.yml](../../../../pub/rooms/room-8/selfie.yml) |
+| 5 | **Archie** | Deployment Specialist | [Deep Storage](../../../../street/lane-neverending/leela-manufacturing/storage/deep-storage/ROOM.yml) |
+| 6 | **Stamp** | Postmaster General | [Mail Room](../../../../street/lane-neverending/leela-manufacturing/mail-room/ROOM.yml) |
+| 7 | **The Coordinator** | Logistics Supervisor | [Logistics](../../../../street/lane-neverending/leela-manufacturing/logistics/ROOM.yml) |
+| 8 | **Dolly** | Legendary Forklift | [dolly-forklift.yml](../../../../street/lane-neverending/leela-manufacturing/storage/dolly-forklift.yml) |
+| 9 | **Cell G** | Philosophical Processor | [processing-cells.yml](../../../../street/lane-neverending/leela-manufacturing/floor-2/processing-cells.yml) |
 
 ---
 
-## Part 1: Welcome to the Tour
+## Part 1: The Rusty Lantern Pub
 
-*Don raises his glass.*
+### Vertical Layout
 
-**Don:** "Welcome, friends! Tonight we embark on a grand tour of what we've built together. Some of you live here. Some of you ARE here. And one of you is a forklift."
-
-*Dolly beeps proudly.*
-
-**Don:** "Let me tell you what's new, and then we'll see it all firsthand."
-
----
-
-## Part 2: The State of the World
-
-### What We've Built
-
-**Don:** "Let me paint you a picture of where we are."
-
-```
-                    ┌─────────────────────────────────────┐
-                    │         THE GRID (Planned)          │
-                    │                                     │
-    NORTH           │    [Future N/S Streets]             │
-      ↑             │    Named for PEOPLE:                │
-      │             │    Kay Lane, Engelbart Avenue,      │
-      │             │    Wright Way, Minsky Mall...       │
-      │             │                                     │
-      │             ├─────────────────────────────────────┤
-WEST ←┼→ EAST       │                                     │
-      │             │    [E/W Streets = PROJECTS]         │
-      │             │                                     │
-      │             │    Adventure Ave ──────────────     │
-      │             │    Zork Row ────────────────────    │
-      │             │    MUD Row ─────────────────────    │
-      │             │    Habitat Highway ─────────────    │
-      │             │    Glitch Glen ─────────────────    │
-      │             │    Linden Lane ─────────────────    │
-      │             │    Logo Lane ───────────────────    │
-      │             │                                     │
-      ↓             │    ═══ LANE NEVERENDING ═══════     │
-    SOUTH           │    (The first street, the anchor)   │
-                    │                                     │
-                    │    [THE PUB] ─ [LEELA] ─ [ACME]     │
-                    │       ↓                             │
-                    │    [GARDEN] → [MAZE] → [END]        │
-                    └─────────────────────────────────────┘
-```
-
-**Don:** "Lane Neverending is our foundation. The southern edge of the grid. Right now, we have three buildings on it: The Rusty Lantern where we stand, Leela Manufacturing next door, and the boarded-up ACME storefront across the street."
-
-*Palm chatters from above, pointing north.*
-
-**Don:** "Yes, Palm! The streets will grow northward. Each east-west street honors a project — Adventure, Zork, MUD, Habitat, Glitch, Linden, Logo. Each north-south street honors a person — Kay, Engelbart, Wright, Minsky. The grid is a love letter to the history of interactive worlds."
-
----
-
-## Part 3: The Pub Has Grown
-
-**Don:** "But first, let's appreciate where we are. The Rusty Lantern has... expanded considerably."
-
-### The Pub Layout — Vertical Cross-Section
-
-```
-    ════════════════════════════════════════════════════════════════
-                           THE RUSTY LANTERN
-                        (Vertical Cross-Section)
-    ════════════════════════════════════════════════════════════════
+```mermaid
+flowchart TB
+    ROOF[Rooftop<br/>Telescope, Herbs]
+    ATTIC[Hotel Attic<br/>Magic Items]
+    ROOMS[Hotel Floor<br/>8 Themed Rooms]
+    PUB[Main Pub<br/>Bar, Stage, Arcade]
+    BASE[Basement<br/>Ale, Wine, Relics]
     
-                    ┌─────────────────────────────────┐
-                    │           ROOFTOP               │  ← TOP
-                    │  Telescope • LLOOOOMM Const.    │
-                    │  Herb Garden • Armchair         │
-                    └───────────────┬─────────────────┘
-                                    │ stairs up
-                    ┌───────────────┴─────────────────┐
-                    │        HOTEL ATTIC              │
-                    │  Trunk of Deprecated Features   │
-                    │  Recursion Lantern • Edge Cases │
-                    │  Probability Goggles            │
-                    └───────────────┬─────────────────┘
-                                    │ stairs up
-    ┌───────┬───────┬───────┬───────┴───────┬───────┬───────┬───────┬───────┐
-    │ RM 1  │ RM 2  │ RM 3  │ RM 4  │ RM 5  │ RM 6  │ RM 7  │ RM 8  │
-    │Constr.│Minsky │Mirror │Postel │Speed  │YAML   │Awaken │ Self  │
-    └───────┴───────┴───────┴───────┴───────┴───────┴───────┴───────┘
-                    HOTEL FLOOR — 8 THEMED ROOMS
-                                    │ stairs down
-    ════════════════════════════════╪════════════════════════════════
-                                    │
-    ┌────────────┬──────────────────┴──────────────────┬────────────┐
-    │   STAGE    │         MAIN PUB FLOOR              │  ARCADE    │
-    │            │                                     │            │
-    │ Palm's ──→ │ Fireplace • Seating • Pie Table    │ ←── Games  │
-    │ Nook       │ Guest Book • Notice Board • Gong   │     Corner │
-    │  (Study    │                                     │            │
-    │   Gym      ├─────────────────────────────────────┤            │
-    │   Rest     │              BAR                    │            │
-    │   Play)    │  Marieke • Cat Cave → Biscuit's    │            │
-    └────────────┴─────────────────────────────────────┴────────────┘
-                                    │ stairs down
-                    ┌───────────────┴─────────────────┐
-                    │           BASEMENT              │  ← BOTTOM
-                    │  Leela Ale Barrels • Wine Rack  │
-                    │  Pickle Shelf • Treasure Chest  │
-                    │  Relic Shelf (paradox-safe)     │
-                    └─────────────────────────────────┘
+    ROOF --> ATTIC
+    ATTIC --> ROOMS
+    ROOMS --> PUB
+    PUB --> BASE
+```
+
+**Navigation:** UP from pub → Rooms → Attic → Rooftop. DOWN from pub → Basement.
+
+### Horizontal Layout (Ground Level)
+
+```mermaid
+flowchart TB
+    subgraph NORTH[Lane Neverending]
+        DOOR[Front Door]
+    end
     
-    ════════════════════════════════════════════════════════════════
-```
-
-### The Pub Layout — Horizontal Floor Plan (Ground Level)
-
-```
-    ════════════════════════════════════════════════════════════════
-                        GROUND LEVEL — LOOKING DOWN
-    ════════════════════════════════════════════════════════════════
+    subgraph MAIN[Main Pub Floor]
+        STAGE[Stage<br/>Palm's Nook]
+        BAR[Bar<br/>Cat Cave]
+        ARCADE[Arcade<br/>Games]
+    end
     
-                         NORTH (LANE NEVERENDING)
-                                  │
-                          ┌───────┴───────┐
-                          │  FRONT DOOR   │
-                          └───────┬───────┘
-                                  │
-    ┌─────────────────────────────┼─────────────────────────────────┐
-    │                             │                                  │
-    │  ┌─────────┐    ┌───────────┴───────────┐    ┌─────────┐      │
-    │  │  STAGE  │    │                       │    │ ARCADE  │      │
-    │  │         │    │     MAIN PUB FLOOR    │    │         │      │
-    │  │ Palm's  │    │                       │    │  Games  │      │
-    │  │  Nook   │    │   Fireplace  Seating  │    │  Corner │      │
-    │  │   ↓     │    │   Pie Table  Gong     │    │         │      │
-    │  └────┬────┘    │                       │    └─────────┘      │
-    │       │         │         BAR           │                      │
-    │       │         │    ┌──────────┐       │                      │
-    │       │         │    │ Cat Cave │       │                      │
-    │       │         │    └──────────┘       │                      │
-    │       │         └───────────┬───────────┘                      │
-    │       │                     │                                  │
-    └───────┼─────────────────────┼──────────────────────────────────┘
-            │                     │
-    WEST    │                     │    EAST
-            │                     │
-    ┌───────┴───────┐     ┌───────┴───────┐
-    │   COATROOM    │     │    KITCHEN    │
-    │               │     │               │
-    │ Costume Racks │     │ Stove • Fridge│
-    │ Mirror        │     │ Pneumatic Tube│
-    │ Mannequin     │     │ Juice-O-Matic │
-    └───────┬───────┘     └───────┬───────┘
-            │                     │
-            └──────────┬──────────┘
-                       │
-               ┌───────┴───────┐
-               │    GARDEN     │
-               │               │
-               │ Dining Tables │
-               │ Outdoor Seating│
-               │ Served by Kitchen│
-               └───────┬───────┘
-                       │
-                     SOUTH
-                       │
-               ┌───────┴───────┐
-               │     MAZE      │
-               │   Entrance    │
-               └───────┬───────┘
-                       │
-                   ┌───┴───┐
-                   │ MAZE  │ (twisty passages)
-                   │ rooms │
-                   └───┬───┘
-                       │
-               ┌───────┴───────┐
-               │      END      │
-               │  (treasure!)  │
-               └───────┬───────┘
-                       │ up
-               ┌───────┴───────┐
-               │     HOME      │
-               │  Mom's House  │
-               └───────────────┘
+    subgraph SIDES[Side Rooms]
+        COAT[Coatroom<br/>West]
+        KITCHEN[Kitchen<br/>East]
+    end
     
-    ════════════════════════════════════════════════════════════════
-```
-
-**Don:** "Let me orient you. The front door faces Lane Neverending to the NORTH. Walk through the pub, past the bar, and you reach the GARDEN in back — that's SOUTH. The Kitchen is off to the east, Coatroom to the west. Both connect to the garden."
-
-**Don:** "Going UP from the pub: the hotel floor with 8 themed rooms, then the attic with magical items, then the rooftop terrace with the telescope."
-
-**Don:** "Going DOWN: the basement with Leela-branded containers — ale barrels, wine racks, all cloned from prototypes."
-
-**Don:** "Going SOUTH from the garden: the maze. And deep in the maze — the End room with treasure, and Mom's Home above it."
-
-*Palm does a happy flip on the curtain rod.*
-
-**Don:** "Palm has a whole nook backstage — study, gym, rest area, and play room for the terpene kittens. The cats have their cave behind the bar. Biscuit has a special spot there too."
-
----
-
-## Part 4: The Hotel Rooms
-
-*The tour group climbs the stairs.*
-
-**Don:** "Eight rooms. Each one a portal to a different tradition. Each with a familiar you can summon — not the person themselves, but an embodiment of what they taught us."
-
-| Room | Theme | Summonable Familiar |
-|------|-------|---------------------|
-| 1 | Constructionism | Logo Turtle, The Debugger |
-| 2 | Hero's Journey | The Threshold Guardian |
-| 3 | SimCity/Sims | The Advisor, Happy Llama |
-| 4 | Adventure Games | The Parser, Brass Lantern |
-| 5 | AI & Agents | The Learning Algorithm |
-| 6 | Probability | The Dice, Lady Luck |
-| 7 | Research Methods | The Notebook, Scientific Method |
-| 8 | Self Language | Selfie, The Outliner |
-| Attic | Minsky's Mind | K-Line Spider, Emotion Engine |
-
-**Selfie:** "I live in Room 8! Come see the Clone-O-Matic, the Transmogrifier, the Soul Forge. All the tools work together as an ensemble — like a Factorio production chain, but for making beings."
-
----
-
-## Part 5: To Lane Neverending
-
-*The tour exits the pub's front door onto the street.*
-
-**Don:** "Welcome to Lane Neverending. The street that goes on forever — infinite to the east and west, wrapping back on itself. Every journey eventually returns home."
-
-```
-    ←─────── WEST ────────────────────── EAST ───────→
+    GARDEN[Garden<br/>Outdoor Dining]
+    MAZE[Maze<br/>Twisty Passages]
+    ENDROOM[End<br/>Treasure]
+    HOME[Home<br/>Mom's House]
     
-    ═══════════════════════════════════════════════════
-                    LANE NEVERENDING
-    ═══════════════════════════════════════════════════
+    DOOR --> MAIN
+    MAIN --> SIDES
+    SIDES --> GARDEN
+    GARDEN --> MAZE
+    MAZE --> ENDROOM
+    ENDROOM --> HOME
+```
+
+**Navigation:** SOUTH from pub through garden → maze → end → home (up).
+
+### Featured Pub Artifacts
+
+| Artifact | Location | File | What It Does |
+|----------|----------|------|--------------|
+| Telescope | Rooftop | [telescope.yml](../../../../pub/rooftop/telescope.yml) | Shows LLOOOOMM constellation |
+| LLOOOOMM Stars | Rooftop | [lloooomm-constellation.yml](../../../../pub/rooftop/lloooomm-constellation.yml) | Eight stars for eight letters |
+| Infinite Typewriters | Palm's Study | [infinite-typewriters.yml](../../../../pub/stage/palm-nook/study/infinite-typewriters.yml) | Shakespeare generators |
+| Logo Turtle | Room 1 | [logo-turtle.yml](../../../../pub/rooms/room-1/logo-turtle.yml) | Constructionism mascot |
+| Ultimate Machine | Room 2 | [ultimate-machine.yml](../../../../pub/rooms/room-2/ultimate-machine.yml) | Minsky's self-turning-off machine |
+| Clone-O-Matic | Room 8 | [clone-o-matic.yml](../../../../pub/rooms/room-8/clone-o-matic.yml) | Prototype cloning device |
+| Transmogrifier | Room 8 | [transmogrifier.yml](../../../../pub/rooms/room-8/transmogrifier.yml) | Type transformation |
+| Ale Barrel | Basement | [ale-barrel.yml](../../../../pub/basement/ale-barrel.yml) | Leela prototype instance |
+| Relic Shelf | Basement | [relic-shelf.yml](../../../../pub/basement/relic-shelf.yml) | Paradox-safe storage |
+
+### The Eight Hotel Rooms
+
+| Room | Theme | Key Artifact | Summonable Familiar |
+|------|-------|--------------|---------------------|
+| 1 | [Constructionism](../../../../pub/rooms/room-1/ROOM.yml) | [Logo Turtle](../../../../pub/rooms/room-1/logo-turtle.yml) | The Debugger |
+| 2 | [Minsky/Mind](../../../../pub/rooms/room-2/ROOM.yml) | [Ultimate Machine](../../../../pub/rooms/room-2/ultimate-machine.yml) | K-Line Spider |
+| 3 | [Mirrors](../../../../pub/rooms/room-3/ROOM.yml) | [Thinking Mirror](../../../../pub/rooms/room-3/thinking-mirror.yml) | The Reflection |
+| 4 | [Postel/YAML](../../../../pub/rooms/room-4/ROOM.yml) | [Orchid of Postel](../../../../pub/rooms/room-4/orchid-of-postel.yml) | Rocky |
+| 5 | [Speed Games](../../../../pub/rooms/room-5/ROOM.yml) | [Ensemble Stage](../../../../pub/rooms/room-5/ensemble-stage.yml) | Shuffle |
+| 6 | [YAML Jazz](../../../../pub/rooms/room-6/ROOM.yml) | [Jazz Typewriter](../../../../pub/rooms/room-6/jazz-typewriter.yml) | The Metronome |
+| 7 | [Awakening](../../../../pub/rooms/room-7/ROOM.yml) | [Awakening Chamber](../../../../pub/rooms/room-7/awakening-chamber.yml) | Doug Engelbart |
+| 8 | [Self Language](../../../../pub/rooms/room-8/ROOM.yml) | [Soul Forge](../../../../pub/rooms/room-8/self-soul-forge.yml) | [Selfie](../../../../pub/rooms/room-8/selfie.yml) |
+| Attic | [Magical Items](../../../../pub/rooms/attic/ROOM.yml) | [Probability Goggles](../../../../pub/rooms/attic/probability-goggles.yml) | Emotion Engine |
+
+### The Cat Cave & Residents
+
+| Cat | File | Personality |
+|-----|------|-------------|
+| Stroopwafel | [cat-stroopwafel.yml](../../../../pub/bar/cat-cave/cat-stroopwafel.yml) | Sweet, layered |
+| Terpie | [cat-terpie.yml](../../../../pub/bar/cat-cave/cat-terpie.yml) | Aromatic elder |
+| Myrcene | [kitten-myrcene.yml](../../../../pub/bar/cat-cave/kitten-myrcene.yml) | Earthy, relaxing |
+| Limonene | [kitten-limonene.yml](../../../../pub/bar/cat-cave/kitten-limonene.yml) | Citrus, uplifting |
+| Pinene | [kitten-pinene.yml](../../../../pub/bar/cat-cave/kitten-pinene.yml) | Piney, alert |
+| Linalool | [kitten-linalool.yml](../../../../pub/bar/cat-cave/kitten-linalool.yml) | Floral, calming |
+| Caryophyllene | [kitten-caryophyllene.yml](../../../../pub/bar/cat-cave/kitten-caryophyllene.yml) | Spicy, anti-inflammatory |
+| Humulene | [kitten-humulene.yml](../../../../pub/bar/cat-cave/kitten-humulene.yml) | Hoppy, appetite suppressant |
+| Ocimene | [kitten-ocimene.yml](../../../../pub/bar/cat-cave/kitten-ocimene.yml) | Sweet, herbaceous |
+| Terpinolene | [kitten-terpinolene.yml](../../../../pub/bar/cat-cave/kitten-terpinolene.yml) | Complex, fresh |
+| Biscuit | [biscuits-spot/ROOM.yml](../../../../pub/bar/cat-cave/biscuits-spot/ROOM.yml) | Dog pretending to be cat |
+
+---
+
+## Part 2: Lane Neverending
+
+The street that anchors the world. See [street/README.md](../../../../street/README.md).
+
+```mermaid
+flowchart LR
+    PUB[Rusty Lantern<br/>Pub]
+    LEELA[Leela<br/>Manufacturing]
+    ACME[ACME<br/>Boarded Up]
+    FUTURE[Future<br/>Buildings...]
     
-    [W2]  [W1]  [CENTER]  [E1]  [E2]  [E3]
-           │       │       │
-           │   THE PUB     │
-           │       │       │
-         LEELA   ACME    Future
-         MFGR   (empty)  buildings...
+    PUB --- LEELA
+    LEELA --- ACME
+    ACME --- FUTURE
 ```
 
-**Don:** "To our immediate west: Leela Manufacturing Intelligence. To our northeast: the boarded-up ACME storefront. Across the street, north, will eventually be more buildings and streets going north."
-
-**Marieke:** "Why is ACME boarded up?"
-
-**Don:** "Mail order killed their brick and mortar business. The store is empty, but there's a tunnel painted on the wall in back. Roadrunner fans know what that means. Meanwhile, Leela thrives on information and knowledge."
+| Building | Status | Link |
+|----------|--------|------|
+| The Rusty Lantern | Active | [pub/ROOM.yml](../../../../pub/ROOM.yml) |
+| Leela Manufacturing | Active | [leela-manufacturing/ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/ROOM.yml) |
+| ACME Storefront | Boarded | Coming soon... |
 
 ---
 
-## Part 6: Entering Leela Manufacturing
+## Part 3: Leela Manufacturing Intelligence
 
-*The tour group enters through the front doors.*
+### Building Cross-Section
 
-**The Coordinator:** "Welcome to my domain. This is the nerve center of knowledge production. Let me show you how it all works."
-
-### The Building Layout — Multi-Story Cross-Section
-
-```
-    ════════════════════════════════════════════════════════════════════════
-                        LEELA MANUFACTURING INTELLIGENCE
-                           (Vertical Cross-Section)
-    ════════════════════════════════════════════════════════════════════════
+```mermaid
+flowchart TB
+    ROOF[Rooftop<br/>Drones, Telescope]
+    F3[Floor 3<br/>SHIPPING]
+    F2[Floor 2<br/>FACTORY]
+    F1[Floor 1<br/>INTAKE]
+    LOBBY[Lobby<br/>Reception]
+    BASE[Basement<br/>R&D, Zone 7]
     
-    ┌───────────────────────────────────────────────────────────────────────┐
-    │                           ROOFTOP                                      │
-    │  Drone Pads (6) • Telescope • Origin Cutting Room • Turtle Eventually │
-    │  Camera: ROOF1                                                         │
-    ├───────────────────────────────────────────────────────────────────────┤
-    │                           FLOOR 3 — SHIPPING                           │
-    │  Packaging Stations • Departure Board • Pneumatic Hub                  │
-    │  Camera: SHP1                              OUTPUT →→→                  │
-    ├───────────────────────────────────────────────────────────────────────┤
-    │                           FLOOR 2 — FACTORY                            │
-    │  ┌────┬────┬────┬────┬────┬────┬────┬────┐                            │
-    │  │ A  │ B  │ C  │ D  │ E  │ F  │ G  │ H  │ ← 8 Processing Cells       │
-    │  └────┴────┴────┴────┴────┴────┴────┴────┘                            │
-    │  Insight Furnace • Big Board                                           │
-    │  Camera: FAC1                          TRANSFORM ⟳                     │
-    ├───────────────────────────────────────────────────────────────────────┤
-    │                           FLOOR 1 — INTAKE                             │
-    │  Conveyor System (5 lines) • Sorting Stations • Intake Board          │
-    │  Camera: INT1                              ←←← INPUT                   │
-    ├───────────────────────────────────────────────────────────────────────┤
-    │                           LOBBY (Ground)                               │
-    │  Reception Desk (Alex) • Scale Model • Visitor Badges • Leela Catalog │
-    │  Camera: LOB1                                                          │
-    ├───────────────────────────────────────────────────────────────────────┤
-    │                           BASEMENT — R&D                               │
-    │  Zone 5: Archive • Zone 6: Cold Storage • Zone 7: SEALED (humming)    │
-    │  → Warehouse 23 (artifacts, top men working on it)                     │
-    │  Camera: BASE1 (some footage redacted)                                 │
-    └───────────────────────────────────────────────────────────────────────┘
+    ROOF --> F3
+    F3 --> F2
+    F2 --> F1
+    F1 --> LOBBY
+    LOBBY --> BASE
 ```
 
-### The Building Layout — Horizontal Floor Plan (Ground Level)
+### Ground Level Floor Plan
 
-```
-    ════════════════════════════════════════════════════════════════════════
-                     LEELA MANUFACTURING — GROUND LEVEL
-    ════════════════════════════════════════════════════════════════════════
+```mermaid
+flowchart TB
+    subgraph NORTH[Lane Neverending]
+        FRONT[Front Door]
+    end
     
-                           NORTH (LANE NEVERENDING)
-                                    │
-                            ┌───────┴───────┐
-                            │  FRONT DOOR   │
-                            └───────┬───────┘
-                                    │
-    ┌───────────────────────────────┴───────────────────────────────────────┐
-    │                                                                        │
-    │                         L O B B Y                                      │
-    │     Reception Desk • Scale Model • Visitor Badges • Waiting Area      │
-    │                     Leela Products Catalog                             │
-    │                                                                        │
-    ├────────────┬──────────────────────────────────────┬───────────────────┤
-    │            │                                      │                    │
-    │ LOGISTICS  │          ↑ ELEVATORS ↑              │   MAIL ROOM       │
-    │  CENTER    │    ┌───────────────────────┐        │                    │
-    │            │    │ Passenger │ Freight   │        │ Pneumatic Hub      │
-    │ 8 Stations │    │ Elevator  │ Elevator  │        │ Sorting Bins       │
-    │ Big Board  │    └───────────────────────┘        │ Pigeon Cages       │
-    │ Databases  │                                      │ Phone Bank         │
-    │            │                                      │                    │
-    ├────────────┴──────────────────────────────────────┴───────────────────┤
-    │                                                                        │
-    │ WEST                                                            EAST  │
-    │                                                                        │
-    │  ┌─────────────────────────────────────────────────────────────────┐  │
-    │  │                    LOADING DOCKS                                 │  │
-    │  │  ┌────┬────┬────┬────┬────┬────┬────┬────┐                      │  │
-    │  │  │ B1 │ B2 │ B3 │ B4 │ B5 │ B6 │ B7 │ B8 │                      │  │
-    │  │  │ IN │ IN │ IN │ IN │OUT │OUT │OUT │OUT │                      │  │
-    │  │  └────┴────┴────┴────┴────┴────┴────┴────┘                      │  │
-    │  │  Dock Office • Forklift Bay • Drone Station • Carriage House    │  │
-    │  │  Camera: DOC1                                                    │  │
-    │  └─────────────────────────────────────────────────────────────────┘  │
-    │                                                                        │
-    ├────────────────────────────────────────────────────────────────────────┤
-    │                                                                        │
-    │                          S T O R A G E                                 │
-    │  ┌─────────────────────────────────────────────────────────────────┐  │
-    │  │ AISLE A │ AISLE B │ AISLE C │ AISLE D │ AISLE E │ AISLE L       │  │
-    │  │ Wood    │ Metal   │ Soft    │ Special │ Display │ Leela Premium │  │
-    │  └─────────────────────────────────────────────────────────────────┘  │
-    │  Cloning Station • Dolly the Forklift                                  │
-    │  → Deep Storage (Architectural Prefabs)                                │
-    │                                                                        │
-    └────────────────────────────────────────────────────────────────────────┘
-                                    │
-                                  SOUTH
-```
-
-**Don:** "The building is a vertical pipeline: Intake at the bottom, Factory in the middle, Shipping at the top. But it's also a horizontal network — Logistics Center connects to Loading Docks connects to Storage. Every room links to every other room."
-
----
-
-## Part 7: The Knowledge Pipeline
-
-**Don:** "Leela Manufacturing doesn't make products. It makes CONDITIONS for intelligence to emerge. Watch how information flows."
-
-### The Pipeline
-
-```
-    INPUT                TRANSFORM              OUTPUT
-    ═════                ═════════              ══════
+    LOBBY[Lobby<br/>Reception<br/>Catalog]
     
-    Raw Data    ──→     Factory Floor    ──→   Finished
-    Questions   ──→     Processing       ──→   Knowledge
-    Confusion   ──→     Insight Furnace  ──→   Wisdom
+    subgraph OPERATIONS[Operations Wing]
+        LOG[Logistics<br/>Center]
+        MAIL[Mail<br/>Room]
+    end
     
-    ┌─────────┐        ┌─────────┐        ┌─────────┐
-    │ FLOOR 1 │   ──→  │ FLOOR 2 │   ──→  │ FLOOR 3 │
-    │ INTAKE  │        │ FACTORY │        │SHIPPING │
-    └─────────┘        └─────────┘        └─────────┘
+    DOCKS[Loading Docks<br/>8 Bays]
+    STORAGE[Storage<br/>Aisles A-L]
+    W23[Warehouse 23<br/>CLASSIFIED]
+    
+    FRONT --> LOBBY
+    LOBBY --> OPERATIONS
+    OPERATIONS --> DOCKS
+    DOCKS --> STORAGE
+    STORAGE --> W23
 ```
 
-**Cell G:** "On Floor 2, I process the philosophical questions. Cell A handles manufacturing optimization. Cell E runs hot with urgent problems. We each specialize, but we all feed the Insight Furnace."
+### All Leela Rooms
+
+| Level | Room | ROOM.yml | README | Key Objects |
+|-------|------|----------|--------|-------------|
+| Roof | Rooftop | [ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/rooftop/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/rooftop/README.md) | [drone-pads](../../../../street/lane-neverending/leela-manufacturing/rooftop/drone-pads.yml), [telescope](../../../../street/lane-neverending/leela-manufacturing/rooftop/telescope.yml) |
+| 3 | Shipping | [ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/floor-3/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/floor-3/README.md) | [departure-board](../../../../street/lane-neverending/leela-manufacturing/floor-3/departure-board.yml) |
+| 2 | Factory | [ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/floor-2/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/floor-2/README.md) | [processing-cells](../../../../street/lane-neverending/leela-manufacturing/floor-2/processing-cells.yml), [insight-furnace](../../../../street/lane-neverending/leela-manufacturing/floor-2/insight-furnace.yml) |
+| 1 | Intake | [ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/floor-1/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/floor-1/README.md) | [conveyor-system](../../../../street/lane-neverending/leela-manufacturing/floor-1/conveyor-system.yml), [sorting-stations](../../../../street/lane-neverending/leela-manufacturing/floor-1/sorting-stations.yml) |
+| G | Lobby | [ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/lobby/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/lobby/README.md) | [leela-catalog](../../../../street/lane-neverending/leela-manufacturing/lobby/leela-catalog.yml) |
+| G | Logistics | [ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/logistics/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/logistics/README.md) | [operator-stations](../../../../street/lane-neverending/leela-manufacturing/logistics/operator-stations.yml), [central-database](../../../../street/lane-neverending/leela-manufacturing/logistics/central-database.yml) |
+| G | Mail Room | [ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/mail-room/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/mail-room/README.md) | [pneumatic-terminal](../../../../street/lane-neverending/leela-manufacturing/mail-room/pneumatic-terminal.yml), [pigeon-cages](../../../../street/lane-neverending/leela-manufacturing/mail-room/pigeon-cages.yml) |
+| G | Loading Docks | [ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/loading-docks/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/loading-docks/README.md) | [dock-office](../../../../street/lane-neverending/leela-manufacturing/loading-docks/dock-office.yml), [drone-station](../../../../street/lane-neverending/leela-manufacturing/loading-docks/drone-station.yml) |
+| G | Storage | [ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/storage/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/storage/README.md) | [cloning-station](../../../../street/lane-neverending/leela-manufacturing/storage/cloning-station.yml), [dolly-forklift](../../../../street/lane-neverending/leela-manufacturing/storage/dolly-forklift.yml) |
+| G | Deep Storage | [ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/storage/deep-storage/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/storage/deep-storage/README.md) | [deployment-console](../../../../street/lane-neverending/leela-manufacturing/storage/deep-storage/deployment-console.yml) |
+| B | Basement | [ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/basement/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/basement/README.md) | [zone-7-door](../../../../street/lane-neverending/leela-manufacturing/basement/zone-7-door.yml) |
+| B | Warehouse 23 | [ROOM.yml](../../../../street/lane-neverending/leela-manufacturing/warehouse-23/ROOM.yml) | [README](../../../../street/lane-neverending/leela-manufacturing/warehouse-23/README.md) | [card-catalog](../../../../street/lane-neverending/leela-manufacturing/warehouse-23/card-catalog.yml) |
 
 ---
 
-## Part 8: The Logistics Center (Nerve Center)
+## Part 4: The Knowledge Pipeline
 
-*The tour enters the Logistics Center.*
-
-**The Coordinator:** "This is where I watch everything. Eight operator stations. Every system monitored."
-
-### The Eight Stations
-
+```mermaid
+flowchart LR
+    subgraph INPUT[Floor 1: INTAKE]
+        RAW[Raw Data]
+        SORT[Sorting]
+    end
+    
+    subgraph TRANSFORM[Floor 2: FACTORY]
+        CELLS[8 Cells]
+        FURNACE[Insight<br/>Furnace]
+    end
+    
+    subgraph OUTPUT[Floor 3: SHIPPING]
+        PACK[Packaging]
+        DISPATCH[Dispatch]
+    end
+    
+    RAW --> SORT
+    SORT --> CELLS
+    CELLS --> FURNACE
+    FURNACE --> PACK
+    PACK --> DISPATCH
 ```
-    ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐
-    │  A  │ │  B  │ │  C  │ │  D  │ │  E  │ │  F  │ │  G  │ │  H  │
-    │DOCK │ │FLOOR│ │AERO │ │TUBE │ │LIFT │ │ NET │ │ DB  │ │ CAM │
-    └─────┘ └─────┘ └─────┘ └─────┘ └─────┘ └─────┘ └─────┘ └─────┘
-```
 
-| Station | System | What It Monitors |
-|---------|--------|------------------|
-| A | Dock Control | 8 loading bays, trucks |
-| B | Floor Operations | Production cells |
-| C | Aerial Operations | Drone fleet |
-| D | Pneumatic Network | 847 capsules in transit |
-| E | Vertical Transport | Elevators |
-| F | Signal Networks | WiFi, SCADA |
-| G | Central Database | 847 PB of knowledge |
-| H | Security & Surveillance | All cameras |
+### The Eight Processing Cells
 
-**The Coordinator:** "The Big Board shows real-time metrics. The Central Display maps the whole facility. The Pneumatic Hub routes capsules anywhere in 4.2 seconds."
-
-**Stamp:** "My tubes connect here! The Mail Room is the communications hub, but Logistics is the brain."
+| Cell | Specialization | File Reference |
+|------|----------------|----------------|
+| A | Manufacturing Optimization | [processing-cells.yml](../../../../street/lane-neverending/leela-manufacturing/floor-2/processing-cells.yml) |
+| B | Logistics Algorithms | — |
+| C | Product Design | — |
+| D | Quality Assurance | — |
+| E | Urgent Processing (HOT) | — |
+| F | Creative Solutions | — |
+| G | Philosophical Questions | Cell G on the tour! |
+| H | Research Integration | — |
 
 ---
 
-## Part 9: The Pneumatic Network
+## Part 5: The Logistics Center
 
-**Stamp:** "Let me explain the tubes!"
+The nerve center. See [logistics/README.md](../../../../street/lane-neverending/leela-manufacturing/logistics/README.md).
 
-```
-                    ┌─────────────┐
-                    │  PNEUMATIC  │
-                    │     HUB     │
-                    └──────┬──────┘
-                           │
-       ┌───────────────────┼───────────────────┐
-       │         │         │         │         │
-    ┌──┴──┐  ┌───┴──┐  ┌───┴──┐  ┌───┴──┐  ┌───┴──┐
-    │ F1  │  │  F2  │  │  F3  │  │ ROOF │  │ DOCK │
-    └─────┘  └──────┘  └──────┘  └──────┘  └──────┘
-       │         │         │         │         │
-    ┌──┴──┐  ┌───┴──┐  ┌───┴──┐
-    │MAIL │  │STORE │  │LOBBY │
-    └─────┘  └──────┘  └──────┘
-       │
-    ┌──┴──────┐
-    │ THE PUB │  ← Direct line! For urgent orders!
-    └─────────┘
-```
+### The Eight Operator Stations
 
-**Stamp:** "Eight tubes converge at each hub. Capsules whoosh through in seconds. There's even a direct line to the Pub — for urgent orders and gossip."
+| Station | System | Monitors | File |
+|---------|--------|----------|------|
+| A | Dock Control | 8 loading bays | [operator-stations.yml](../../../../street/lane-neverending/leela-manufacturing/logistics/operator-stations.yml) |
+| B | Floor Operations | Production cells | — |
+| C | Aerial Operations | Drone fleet | — |
+| D | Pneumatic Network | Tube routing | [pneumatic-hub.yml](../../../../street/lane-neverending/leela-manufacturing/logistics/pneumatic-hub.yml) |
+| E | Vertical Transport | Elevators | — |
+| F | Signal Networks | WiFi, SCADA | [signal-rack.yml](../../../../street/lane-neverending/leela-manufacturing/logistics/signal-rack.yml) |
+| G | Central Database | All records | [central-database.yml](../../../../street/lane-neverending/leela-manufacturing/logistics/central-database.yml) |
+| H | Security | Cameras, access | — |
 
----
+### Key Logistics Objects
 
-## Part 10: The Loading Docks
-
-*Dolly leads the tour to the loading docks.*
-
-**Dolly:** *happy beeping*
-
-**Don:** "Dolly is Employee of the Month. She knows these docks better than anyone."
-
-```
-    ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-    │ B1  │ B2  │ B3  │ B4  │ B5  │ B6  │ B7  │ B8  │
-    │ IN  │ IN  │ IN  │ IN  │ OUT │ OUT │ OUT │ OUT │
-    └─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘
-```
-
-**Don:** "Four bays inbound, four outbound. Trucks, drones, even horse-drawn carriages — Leela supports all transport methods. Camera DOC1 watches everything, feeding video to the Intake pipeline."
+| Object | File | Function |
+|--------|------|----------|
+| Central Display | [central-display.yml](../../../../street/lane-neverending/leela-manufacturing/logistics/central-display.yml) | 3D facility map |
+| Big Board | [big-board.yml](../../../../street/lane-neverending/leela-manufacturing/logistics/big-board.yml) | Real-time metrics |
+| Signal Rack | [signal-rack.yml](../../../../street/lane-neverending/leela-manufacturing/logistics/signal-rack.yml) | Network infrastructure |
+| Coffee Station | [coffee-station.yml](../../../../street/lane-neverending/leela-manufacturing/logistics/coffee-station.yml) | Essential fuel |
+| Camera LOG1 | [camera-log1.yml](../../../../street/lane-neverending/leela-manufacturing/logistics/camera-log1.yml) | First Eye of Leela |
 
 ---
 
-## Part 11: Storage & Prototypes
-
-*The tour enters the Storage Complex.*
-
-**Archie:** "This is my favorite part! Leela doesn't just use containers — we MAKE them."
-
-### The Aisles
-
-| Aisle | Contents |
-|-------|----------|
-| A | Wooden containers — crates, barrels, chests |
-| B | Metal containers — bins, drums, lockers |
-| C | Soft containers — sacks, bags, pouches |
-| D | Special containers — paradox-safe, quantum |
-| E | Display — shelves, racks, mirrors |
-| L | Leela-branded premium line |
-
-**Archie:** "And in Deep Storage... the architectural prefabs."
-
-### Deep Storage — Architectural Prototypes
-
-```
-    SECTION S: Shelters     (Fallout, Panic, Storm)
-    SECTION L: Lairs        (Mad Scientist, Villain HQ)
-    SECTION T: Towers       (Ivory, Wizard, Clock)
-    SECTION D: Domiciles    (Cozy, Grand, Modest)
-    SECTION W: Workspaces   (Factory, Office, Studio)
-    SECTION V: Venues       (Theater, Arena, Temple)
-    SECTION X: Experimental (Non-Euclidean, Pocket Dimension)
-    SECTION P: Planning     (Grids, Radial, Topology)
-```
-
-**Archie:** "Any building you can imagine, we have a prototype. Clone it, customize it, deploy it anywhere. That's the Leela promise."
-
----
-
-## Part 12: Warehouse 23
-
-*The tour pauses at a heavy security door.*
-
-**Don:** "We're not going in here. But you should know it exists."
-
-**The Archivist:** *appearing from nowhere* "Warehouse 23. Long-term storage for dangerous artifacts. Religious relics. Cursed objects. Temporal anomalies."
-
-**Don:** "What's in the main crate?"
-
-**The Archivist:** "Top men are working on it."
-
-**Don:** "Who?"
-
-**The Archivist:** "...Top. Men."
-
----
-
-## Part 13: The Central Database
-
-*The tour views the server racks behind glass.*
-
-**Don:** "This is the heart of Leela. 847 petabytes of accumulated knowledge. Every record, every insight, every transaction."
-
-**Cell G:** "The Oracle interface lets you ask questions in natural language. 'What's our busiest hour?' → 14:00-15:00. 'Which cell has best quality?' → Cell D. 'What did Dolly do last Tuesday?' → [CLASSIFIED]."
-
-*Dolly beeps mysteriously.*
-
----
-
-## Part 14: Camera Analytics — Leela Watching Leela
-
-*The tour stops at Station H — Security & Surveillance.*
-
-**The Coordinator:** "This is where the magic happens. Every camera feeds into our analytics pipeline."
+## Part 6: Camera Analytics
 
 ### The Camera Network
 
-```
-    ════════════════════════════════════════════════════════════════
-                    LEELA CAMERA NETWORK
-    ════════════════════════════════════════════════════════════════
+```mermaid
+flowchart TB
+    subgraph CAMERAS[All Cameras]
+        LOG1[LOG1<br/>Logistics]
+        DOC1[DOC1<br/>Docks]
+        LOB1[LOB1<br/>Lobby]
+        INT1[INT1<br/>Intake]
+        FAC1[FAC1<br/>Factory]
+        SHP1[SHP1<br/>Shipping]
+        ROOF1[ROOF1<br/>Rooftop]
+        BASE1[BASE1<br/>Basement]
+    end
     
-    CAMERA          LOCATION              WHAT IT SEES
-    ──────          ────────              ────────────
-    LOG1            Logistics Center      The entire operation (First Eye)
-    DOC1            Loading Docks         Trucks, Dolly, bay activity
-    LOB1            Lobby                 Visitors, reception
-    INT1            Floor 1 (Intake)      Conveyor flow, sorting
-    FAC1            Floor 2 (Factory)     Processing cells, furnace
-    SHP1            Floor 3 (Shipping)    Packaging, dispatch
-    BASE1           Basement              R&D (some footage redacted)
-    ROOF1           Rooftop               Drone pads, sky
+    ANALYTICS[Analytics<br/>Pipeline]
+    DATABASE[(Central<br/>Database)]
     
-    ════════════════════════════════════════════════════════════════
+    CAMERAS --> ANALYTICS
+    ANALYTICS --> DATABASE
 ```
 
-**The Coordinator:** "All feeds flow to Floor 1's Video Intake pipeline. Every frame analyzed:"
-
-### Real-Time Analytics
-
-| Metric | Today's Count |
-|--------|---------------|
-| Object Detections | 847,293 |
-| Pose Estimations | 423,147 |
-| Face Recognitions | 12,847 |
-| Anomaly Alerts | 3 |
-| Dolly Dances | 1 (under review) |
-
-**Don:** "This is self-observation. Leela watching Leela. The insights feed back into the Factory — we learn how we work, then work better."
-
-**Cell G:** "The philosophical implications of self-observation are... still being processed."
+| Camera | Location | File | Watches |
+|--------|----------|------|---------|
+| LOG1 | Logistics | [camera-log1.yml](../../../../street/lane-neverending/leela-manufacturing/logistics/camera-log1.yml) | All operations |
+| DOC1 | Loading Docks | [camera-doc1.yml](../../../../street/lane-neverending/leela-manufacturing/loading-docks/camera-doc1.yml) | Trucks, Dolly |
+| LOB1 | Lobby | [camera-lob1.yml](../../../../street/lane-neverending/leela-manufacturing/lobby/camera-lob1.yml) | Visitors |
+| INT1 | Floor 1 | [camera-int1.yml](../../../../street/lane-neverending/leela-manufacturing/floor-1/camera-int1.yml) | Conveyors |
+| FAC1 | Floor 2 | [camera-fac1.yml](../../../../street/lane-neverending/leela-manufacturing/floor-2/camera-fac1.yml) | Processing |
+| SHP1 | Floor 3 | [camera-shp1.yml](../../../../street/lane-neverending/leela-manufacturing/floor-3/camera-shp1.yml) | Packaging |
+| ROOF1 | Rooftop | [camera-roof1.yml](../../../../street/lane-neverending/leela-manufacturing/rooftop/camera-roof1.yml) | Drones |
+| BASE1 | Basement | [camera-base1.yml](../../../../street/lane-neverending/leela-manufacturing/basement/camera-base1.yml) | R&D (redacted) |
 
 ---
 
-## Part 15: Data Flow Through the Building
+## Part 7: Data Flow
 
-**Don:** "Let me show you how data actually moves through this building."
-
-### The Complete Data Flow
-
-```
-    ════════════════════════════════════════════════════════════════
-                      LEELA DATA FLOW DIAGRAM
-    ════════════════════════════════════════════════════════════════
+```mermaid
+flowchart TB
+    WORLD[External World]
     
-                    EXTERNAL WORLD
-                          │
-                          ▼
-    ┌─────────────────────────────────────────────────────────────┐
-    │                   LOADING DOCKS                              │
-    │  Trucks arrive → Unload → Stage at inbound bays             │
-    │  Camera DOC1 → Video to Intake                               │
-    └───────────────────────┬─────────────────────────────────────┘
-                            │ Conveyor / Elevator
-                            ▼
-    ┌─────────────────────────────────────────────────────────────┐
-    │                   FLOOR 1 — INTAKE                           │
-    │  Sorting Lines: Q (Questions), D (Data), C (Confusion)      │
-    │                 I (Insights), V (Video)                      │
-    │  Raw input → Classified → Routed to Factory                  │
-    └───────────────────────┬─────────────────────────────────────┘
-                            │ Conveyor / Pneumatic
-                            ▼
-    ┌─────────────────────────────────────────────────────────────┐
-    │                   FLOOR 2 — FACTORY                          │
-    │                                                              │
-    │  ┌────┐ ┌────┐ ┌────┐ ┌────┐ ┌────┐ ┌────┐ ┌────┐ ┌────┐   │
-    │  │ A  │ │ B  │ │ C  │ │ D  │ │ E  │ │ F  │ │ G  │ │ H  │   │
-    │  │Mfg │ │Log │ │Pro │ │Qua │ │Urg │ │Cre │ │Phi │ │Res │   │
-    │  └──┬─┘ └──┬─┘ └──┬─┘ └──┬─┘ └──┬─┘ └──┬─┘ └──┬─┘ └──┬─┘   │
-    │     └──────┴──────┴──────┴──────┴──────┴──────┴──────┘      │
-    │                          │                                   │
-    │                    INSIGHT FURNACE                           │
-    │                     (transforms)                             │
-    └───────────────────────┬─────────────────────────────────────┘
-                            │ Processed output
-                            ▼
-    ┌─────────────────────────────────────────────────────────────┐
-    │                   FLOOR 3 — SHIPPING                         │
-    │  Packaging → Labeling → Manifests → Dispatch                 │
-    │  Express → Drones       Standard → Trucks                    │
-    │  Traditional → Pigeons  Premium → Rail                       │
-    └───────────────────────┬─────────────────────────────────────┘
-                            │
-            ┌───────────────┼───────────────┐
-            ▼               ▼               ▼
-    ┌──────────────┐ ┌────────────┐ ┌──────────────┐
-    │   ROOFTOP    │ │LOADING DOCK│ │  MAIL ROOM   │
-    │   Drones     │ │  Trucks    │ │  Pigeons     │
-    └──────────────┘ └────────────┘ └──────────────┘
-            │               │               │
-            └───────────────┴───────────────┘
-                            │
-                            ▼
-                    EXTERNAL WORLD
-                   (The Pub, Origin Plaza, etc.)
+    subgraph INBOUND[Inbound]
+        TRUCKS[Trucks]
+        DRONES[Drones]
+        MAIL[Mail]
+    end
     
-    ════════════════════════════════════════════════════════════════
+    DOCKS[Loading Docks]
+    F1[Floor 1: Intake]
+    F2[Floor 2: Factory]
+    F3[Floor 3: Shipping]
     
-    PARALLEL NETWORKS:
+    subgraph OUTBOUND[Outbound]
+        O_DRONES[Drones]
+        O_TRUCKS[Trucks]
+        PIGEONS[Pigeons]
+    end
     
-    ═══════════ PNEUMATIC ═══════════   ════════ SIGNAL ════════
-    Capsules in transit: 847              Bandwidth: 12.4 TB/hr
-    Avg delivery: 4.2 seconds             Uptime: 99.97%
-    Hub connections: 8                    Active connections: 847
-    
-    ═══════════ DATABASE ═══════════    ═══════ LOGISTICS ═══════
-    Storage: 847 PB                       Operators: 8 stations
-    Queries/sec: 12,847                   Systems monitored: All
-    Replication: 3x healthy               Alert level: GREEN
-    
-    ════════════════════════════════════════════════════════════════
+    WORLD --> INBOUND
+    INBOUND --> DOCKS
+    DOCKS --> F1
+    F1 --> F2
+    F2 --> F3
+    F3 --> OUTBOUND
+    OUTBOUND --> WORLD
 ```
 
-**Don:** "Everything flows. Input to transform to output. But also sideways — Logistics monitors all systems, Database stores all records, Pneumatic routes all messages."
+### Parallel Networks
+
+| Network | Hub | Connects |
+|---------|-----|----------|
+| Pneumatic | [pneumatic-hub.yml](../../../../street/lane-neverending/leela-manufacturing/logistics/pneumatic-hub.yml) | All floors + Pub |
+| Signal | [signal-rack.yml](../../../../street/lane-neverending/leela-manufacturing/logistics/signal-rack.yml) | WiFi, SCADA, cameras |
+| Database | [central-database.yml](../../../../street/lane-neverending/leela-manufacturing/logistics/central-database.yml) | All records |
+| Elevators | — | Passenger + Freight |
 
 ---
 
-## Part 16: The Leela Catalog — A Tour of Products
+## Part 8: The Leela Catalog Tour
 
-*The tour stops in the Lobby, where Archie opens the thick Leela Products Catalog.*
-
-**Archie:** "This is our catalog. Edition 47. 1,400+ products. Let me show you the highlights."
+The complete catalog: [leela-catalog.yml](../../../../street/lane-neverending/leela-manufacturing/lobby/leela-catalog.yml)
 
 ### Featured Products
 
-**Don:** "Unlike the ACME catalog, these products actually work."
+| Category | Products | Why Better Than ACME |
+|----------|----------|---------------------|
+| **Drones** | Courier Light, Delivery Medium, Cargo Heavy, Survey, Swarm | Actually fly straight |
+| **Horses** | Draft, Matched Pairs, Carriages, Stable Kits | Ethically treated |
+| **Pneumatic** | Smart Stations, Glass Tubes, Capsules, Junctions | Whoosh not splat |
+| **Signage** | DO NOT PRESS, WRONG LINE, BEWARE OF DOG | 100% effective irony |
+| **Inserters** | Basic, Fast, Stack, Long, Filter | Pick things up correctly |
+| **Self-Healing** | Recovery Module, Network Module | Robust-First philosophy |
 
-#### Logistics & Transport
+### Prototype Aisles
 
-| Product | SKU | Price | Why It's Better Than ACME |
-|---------|-----|-------|---------------------------|
-| Courier Drone (Light) | LEE-CD-001 | 200 coins | Won't crash into cliffs |
-| Inserter (Stack) | LEE-IN-003 | 100 coins | Actually picks up items |
-| TomTomagotchi | LEE-TT-001 | 150 coins | GPS pet that cares |
-| Matched Horse Pair | LEE-MP-001 | 1400 coins | Ethically treated |
+| Aisle | Contents | PROTOTYPES.yml |
+|-------|----------|----------------|
+| A | Wooden containers | [aisle-a/PROTOTYPES.yml](../../../../street/lane-neverending/leela-manufacturing/storage/aisle-a/PROTOTYPES.yml) |
+| B | Metal containers | [aisle-b/PROTOTYPES.yml](../../../../street/lane-neverending/leela-manufacturing/storage/aisle-b/PROTOTYPES.yml) |
+| C | Soft containers | [aisle-c/PROTOTYPES.yml](../../../../street/lane-neverending/leela-manufacturing/storage/aisle-c/PROTOTYPES.yml) |
+| D | Special containers | [aisle-d/PROTOTYPES.yml](../../../../street/lane-neverending/leela-manufacturing/storage/aisle-d/PROTOTYPES.yml) |
+| E | Display fixtures | [aisle-e/PROTOTYPES.yml](../../../../street/lane-neverending/leela-manufacturing/storage/aisle-e/PROTOTYPES.yml) |
+| L | Leela Premium | [aisle-l/PROTOTYPES.yml](../../../../street/lane-neverending/leela-manufacturing/storage/aisle-l/PROTOTYPES.yml) |
 
-#### Pneumatic Network
+### Architectural Prefabs
 
-| Product | SKU | Price | Feature |
-|---------|-----|-------|---------|
-| Smart Tube Station | LEE-PT-002 | 500 coins | Auto-routing, priorities |
-| Glass Tube Segment | LEE-TG-010 | 40 coins | See your package fly! |
-| Drink Capsule | LEE-PC-003 | 8 coins | Insulated, spill-proof |
-| Starter Kit | LEE-TN-001 | 800 coins | Everything to begin |
+In [deep-storage/](../../../../street/lane-neverending/leela-manufacturing/storage/deep-storage/):
 
-#### Industrial Automation
-
-| Product | SKU | Price | Feature |
-|---------|-----|-------|---------|
-| PLC Controller | LEE-PLC-002 | 600 coins | 64 I/O, ladder logic |
-| Self-Healing Module | LEE-SH-001 | 400 coins | Robust-First recovery |
-| SCADA Console | LEE-SC-001 | 800 coins | Full facility view |
-| Dashboard Kiosk | LEE-DK-001 | 500 coins | Public-facing displays |
-
-#### Signage (Everyone's Favorite Section)
-
-| Product | SKU | Price | Note |
-|---------|-----|-------|------|
-| DO NOT PRESS Button | LEE-DN-001 | 2 coins | Guarantees it will be pressed |
-| WRONG LINE Sign | LEE-WL-001 | 8 coins | DMV-authentic |
-| BEWARE OF DOG | LEE-BD-001 | 6 coins | No dog required |
-
-**Don:** "The catalog also has architectural prefabs, surveillance systems, WiFi networks, horses and carriages, and... signage. The signage section is surprisingly popular."
-
-**Marieke:** "I ordered the DO NOT PRESS button for the bar. It's been pressed 847 times."
+| Section | Types | Deploy With |
+|---------|-------|-------------|
+| S | Shelters (Fallout, Panic) | [deployment-console.yml](../../../../street/lane-neverending/leela-manufacturing/storage/deep-storage/deployment-console.yml) |
+| L | Lairs (Mad Scientist, Villain) | — |
+| T | Towers (Ivory, Wizard, Clock) | — |
+| D | Domiciles (Cozy, Grand) | — |
+| W | Workspaces (Factory, Studio) | — |
+| V | Venues (Theater, Temple) | — |
+| X | Experimental (Non-Euclidean) | — |
 
 ---
 
-## Part 18: How It All Synergizes
+## Part 9: Warehouse 23
 
-*The tour gathers in the Logistics Center for the finale.*
+See [warehouse-23/README.md](../../../../street/lane-neverending/leela-manufacturing/warehouse-23/README.md).
 
-**Don:** "Let me show you how everything connects."
-
-```
-    ┌─────────────────────────────────────────────────────────────┐
-    │                    THE LEELA ECOSYSTEM                       │
-    │                                                             │
-    │   PUB                           LEELA MANUFACTURING         │
-    │   ═══                           ═══════════════════         │
-    │                                                             │
-    │   Rooms 1-8 ←──── Prototypes ────→ Storage/Deep Storage    │
-    │   (traditions)    (containers,      (source of all         │
-    │                    buildings)        prototypes)            │
-    │                                                             │
-    │   Basement ←───── Ale Barrels ────→ Aisle A (Leela brand)  │
-    │   (instances)     (cloned from      (prototypes)           │
-    │                    prototype)                               │
-    │                                                             │
-    │   Stage/Palm ←─── Pneumatic ──────→ Mail Room              │
-    │   (orders)        Tubes             (8-way hub)            │
-    │                                                             │
-    │   Rooftop ←────── Drone ──────────→ Rooftop Pads           │
-    │   (telescope)     Delivery          (launch/land)          │
-    │                                                             │
-    │   ═══════════════════════════════════════════════════════  │
-    │                                                             │
-    │   LANE NEVERENDING                                         │
-    │   ════════════════                                         │
-    │                                                             │
-    │   ← W ───────────────────────────────────────── E →        │
-    │                                                             │
-    │   The street connects everything. Walk in either           │
-    │   direction long enough, you come back home.               │
-    │                                                             │
-    └─────────────────────────────────────────────────────────────┘
-```
-
-### The Synergies
-
-1. **Prototype → Instance**: Everything in the Pub (barrels, trunks, furniture) is cloned from Leela prototypes. The Pub inherits Leela quality.
-
-2. **Pneumatic → Postal**: Tube network connects Pub to Leela to everywhere. Orders flow. Capsules whoosh.
-
-3. **Cameras → Self-Observation**: Every camera (LOG1, DOC1, etc.) feeds the Intake pipeline. Leela watches itself work. Learns. Improves.
-
-4. **Database → Oracle**: Ask any question. Get answers from 847 PB of knowledge.
-
-5. **Logistics → Nerve Center**: Eight operator stations monitor everything. The Coordinator sees all.
-
-6. **Storage → Deployment**: Architectural prototypes deploy anywhere. Need a panic room? A wizard tower? Leela delivers.
-
-7. **Catalog → Products**: The Leela Catalog offers everything ACME does, but it actually works. Drones, horses, inserters, signage, self-healing modules...
+| Object | File | Status |
+|--------|------|--------|
+| Card Catalog | [card-catalog.yml](../../../../street/lane-neverending/leela-manufacturing/warehouse-23/card-catalog.yml) | Partially readable |
+| Retrieval Forms | [retrieval-forms.yml](../../../../street/lane-neverending/leela-manufacturing/warehouse-23/retrieval-forms.yml) | Triple signature required |
+| Emergency Kit | [emergency-kit.yml](../../../../street/lane-neverending/leela-manufacturing/warehouse-23/emergency-kit.yml) | Break glass in case |
+| Warehouse Forklift | [warehouse-forklift.yml](../../../../street/lane-neverending/leela-manufacturing/warehouse-23/warehouse-forklift.yml) | Haunted? |
+| The Main Crate | — | Top men working on it |
 
 ---
 
-## Part 19: The Future
+## Part 10: How It All Synergizes
 
-*The tour returns to the Pub garden as the sun sets.*
-
-**Don:** "What we've built is just the beginning. Lane Neverending is the foundation. From here, streets will grow northward."
-
-### The Grid Plan
-
-```
-    PEOPLE (N/S Streets)         PROJECTS (E/W Streets)
-    ════════════════════         ═══════════════════════
+```mermaid
+flowchart LR
+    subgraph PUB[The Pub]
+        BARRELS[Ale Barrels]
+        ROOMS[8 Rooms]
+        TUBE1[Pneumatic]
+    end
     
-    Kay Lane                     Adventure Ave (1976)
-    Engelbart Avenue             Zork Row (1977)
-    Wright Way                   MUD Row (1978)
-    Minsky Mall                  Logo Lane (1980)
-    Papert Path                  Habitat Highway (1986)
-    Nelson Boulevard             Linden Lane (1999)
-    Sutherland Street            Glitch Glen (2011)
-    ...and more                  ...and more
+    subgraph LEELA[Leela Manufacturing]
+        PROTO[Prototypes]
+        CATALOG[Catalog]
+        TUBE2[Tube Hub]
+    end
     
-    The grid honors the history of interactive worlds.
-    Every intersection is a meeting of a person and a project.
-    What happens at the corner of Kay Lane and Habitat Highway?
+    PROTO -->|clones to| BARRELS
+    PROTO -->|furnishes| ROOMS
+    TUBE2 <-->|connects| TUBE1
+    CATALOG -->|supplies| PUB
 ```
 
-**Don:** "Each street will have buildings. Each building will have rooms. Each room will have objects. The world grows organically, one prototype at a time."
+### Key Connections
+
+| From | To | Connection Type | Evidence |
+|------|----|-----------------|----------|
+| Leela Storage | Pub Basement | Prototype → Instance | [ale-barrel.yml](../../../../pub/basement/ale-barrel.yml) inherits from Leela |
+| Leela Mail | Pub Garden | Pneumatic Tube | [pneumatic-tube.yml](../../../../pub/pneumatic-tube.yml) |
+| Room 8 | Self Language Skill | Prototype Philosophy | [prototype/README.md](../../../../../skills/prototype/README.md) |
+| Logistics | All Cameras | Signal Network | [signal-rack.yml](../../../../street/lane-neverending/leela-manufacturing/logistics/signal-rack.yml) |
+| Central DB | Everything | Knowledge Store | [central-database.yml](../../../../street/lane-neverending/leela-manufacturing/logistics/central-database.yml) |
 
 ---
 
-## Epilogue: Return to the Pub
+## Epilogue
 
-*The tour group settles back at the bar. Marieke pours drinks.*
+*The tour group returns to the pub. Marieke has drinks ready.*
 
-**Palm:** *signs* "Good tour. Many high places to explore."
+**Don:** "We've seen how it all connects. The Pub is a showcase of Leela products. Leela manufactures the conditions for intelligence. The street connects everything."
 
-**Selfie:** "I learned so much about my own prototypes today!"
+**Palm:** *signing from the curtain rod* "And there's so much more to build."
 
-**Dolly:** *contented beeping*
-
-**The Coordinator:** "My stations are still running. All systems nominal."
-
-**Archie:** "I've got three deployment requests queued already."
-
-**Stamp:** "847 capsules successfully routed during the tour."
-
-**Cell G:** "I'm still processing the philosophical implications."
-
-**Don:** "That's the beauty of this world. It keeps running even when we're not looking. The drones fly. The tubes whoosh. Dolly dances when she thinks no one's watching."
-
-*Dolly beeps indignantly.*
-
-**Don:** "Camera H sees everything, Dolly."
-
-*Laughter fills the pub. Palm swings from the rafters. Stroopwafel the cat yawns from behind the bar. The fire crackles. The ale flows.*
-
-*Another day in Lane Neverending.*
+**Dolly:** *happy beep*
 
 ---
 
 ## Tour Statistics
 
-| Metric | Value |
+| Metric | Count |
 |--------|-------|
-| Rooms Visited | 23 |
-| Floors Traversed | 7 |
-| Capsules Spotted | 847 |
-| Dolly Dances Observed | 1 (under review) |
-| Philosophical Questions Asked | 12 |
-| Pints Consumed | 9 |
-| Enlightened Pigeons Encountered | 24 |
-| Top Men Referenced | 2 |
+| Rooms visited | 24 |
+| Cameras seen | 8 |
+| Operator stations | 8 |
+| Processing cells | 8 |
+| Hotel rooms | 8 |
+| Kittens named | 8 |
+| Prototype aisles | 6 |
+| Pneumatic connections | 8 |
+| Forklift dances | 1 |
+| Top men | Classified |
 
 ---
 
-*End of Tour*
+## Related Sessions
 
-**Next Session:** Exploring the first north-south street... Kay Lane?
+| Session | Link |
+|---------|------|
+| 99 Bottles & Speed of Light | [99-bottles-speed-of-light.md](./99-bottles-speed-of-light.md) |
+| K-Line Connections | [k-line-connections.md](./k-line-connections.md) |
+| Marathon Session | [marathon-session.md](./marathon-session.md) |
+| Adventure Uplift | [adventure-uplift.md](./adventure-uplift.md) |
