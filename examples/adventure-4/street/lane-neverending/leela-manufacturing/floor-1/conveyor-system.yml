@@ -1,0 +1,490 @@
+# CONVEYOR SYSTEM
+# Intake sorting and routing — The Leela Pipeline
+
+object:
+  id: conveyor-system
+  name: "Intake Conveyor System"
+  type: infrastructure
+  emoji: "🔄"
+  
+  tags: [infrastructure, logistics, automation, pipeline]
+  
+  description: |
+    The main conveyor lines trace a flowing pipeline across the floor.
+    Video comes in, forks to parallel tracks, converges to insights,
+    flows to storage, and emerges as visualized understanding.
+    Two parallel model pipelines feed the processors.
+    
+  examine: |
+    INTAKE CONVEYOR SYSTEM — THE LEELA PIPELINE
+    ════════════════════════════════════════════
+    
+    Follow the flow:
+    
+    ┌─────────────────┐                       ┌─────────────────┐
+    │  OBJECT MODEL   │                       │   POSE MODEL    │
+    │   DEVELOPMENT   │                       │   DEVELOPMENT   │
+    └────────┬────────┘                       └────────┬────────┘
+             │                                         │
+             ▼                                         ▼
+    ┌─────────────────┐                       ┌─────────────────┐
+    │  OBJECT MODEL   │                       │   POSE MODEL    │
+    │    TRAINING     │                       │    TRAINING     │
+    └────────┬────────┘                       └────────┬────────┘
+             │                                         │
+             ▼                                         ▼
+    ┌─────────────────┐                       ┌─────────────────┐
+    │  OBJECT MODEL   │                       │   POSE MODEL    │
+    │     DEPLOY      │                       │     DEPLOY      │
+    └────────┬────────┘                       └────────┬────────┘
+             │                                         │
+             │              ┌─────────────┐            │
+             │              │    VIDEO    │            │
+             │              │   (input)   │            │
+             │              └──────┬──────┘            │
+             │                     │                   │
+             │                ═════╧═════              │
+             │               /           \             │
+             ▼              ▼             ▼            ▼
+        ┌──────────────────────┐   ┌──────────────────────┐
+        │       OBJECTS        │   │        POSES         │
+        │ ┌──────────────────┐ │   │ ┌──────────────────┐ │
+        │ │  Object Detector │ │   │ │  Pose Estimator  │ │
+        │ │    (model v2.3)  │ │   │ │    (model v1.8)  │ │
+        │ └──────────────────┘ │   │ └──────────────────┘ │
+        │      (detected)      │   │      (skeletal)      │
+        └──────────┬───────────┘   └───────────┬──────────┘
+                   │                           │
+                   └─────────────┬─────────────┘
+                                 ▼
+                        ┌────────────────┐
+                        │    INSIGHTS    │
+                        │  (understood)  │
+                        └───────┬────────┘
+                                │
+                                ▼
+                        ┌────────────────┐
+                        │ PYTHON ACTIONS │
+                        │ (high-level)   │
+                        └───────┬────────┘
+                                │
+                                ▼
+                        ┌────────────────┐
+                        │      SQL       │
+                        │   (stored)     │
+                        └───────┬────────┘
+                                │
+                                │
+                       ┌────────┴────────┐
+                       │                 │
+                       ▼                 ▼
+              ┌────────────────────────────────┐
+              │              PDA               │
+              │    (Personal Data Assistant)   │
+              │                                │
+              │  ┌──────────────────────────┐  │
+              │  │      💬 CHAT DRIVEN      │  │
+              │  └──────────────────────────┘  │
+              │         │                      │
+              │         ▼                      │
+              │  ┌──────────────────────────┐  │
+              │  │   GENERATES QUERIES      │  │
+              │  └──────────────────────────┘  │
+              │         │                      │
+              │         ▼                      │
+              │  ┌──────────────────────────┐  │
+              │  │   READS SQL DATA         │  │
+              │  └──────────────────────────┘  │
+              │         │                      │
+              │         ▼                      │
+              │  ┌──────────────────────────┐  │
+              │  │   ANALYZES RESULTS       │  │
+              │  └──────────────────────────┘  │
+              │         │                      │
+              │         ▼                      │
+              │  ┌──────────────────────────┐  │
+              │  │ GENERATES VISUALIZATIONS │  │
+              │  └──────────────────────────┘  │
+              │                                │
+              └────────────────────────────────┘
+    
+    ════════════════════════════════════════════════════════════
+    
+    OBJECT DETECTION PIPELINE (Left Track)
+    ═══════════════════════════════════════
+    
+    LINE M-O (Red): Object Model Development
+    ─────────────────────────────────────────
+    Red containers from R&D carry new architectures.
+    YOLO variants, transformers, attention mechanisms.
+    "What if we added more layers?" "What if we added FEWER?"
+    
+    LINE T-O (Magenta): Object Model Training
+    ──────────────────────────────────────────
+    Magenta containers heavy with ImageNet, COCO, custom datasets.
+    Loss curves descend. Accuracy climbs. GPUs whir.
+    "Epoch 127. mAP: 0.947. Ship it."
+    
+    DEPLOY BAY O: Object Detector Deployment
+    ─────────────────────────────────────────
+    Trained object models validated and hot-swapped.
+    Current: yolo-leela-v2.3.7
+    Previous: yolo-leela-v2.3.6 (standby for rollback)
+    
+    LINE O (Blue): Objects Track
+    ────────────────────────────
+    Blue containers carry detected objects — bounding boxes,
+    classifications, confidence scores. "A cat. 97% sure."
+    POWERED BY: yolo-leela-v2.3.7
+    
+    ════════════════════════════════════════════════════════════
+    
+    POSE ESTIMATION PIPELINE (Right Track)
+    ═══════════════════════════════════════
+    
+    LINE M-P (Coral): Pose Model Development
+    ─────────────────────────────────────────
+    Coral containers from R&D carry skeleton architectures.
+    Keypoint detectors, temporal models, motion predictors.
+    "17 joints? 25 joints? 133 joints?"
+    
+    LINE T-P (Pink): Pose Model Training
+    ─────────────────────────────────────
+    Pink containers with motion capture data, dance videos,
+    sports footage, yoga poses. Training the body reader.
+    "PCK@0.5: 0.923. Hands still tricky."
+    
+    DEPLOY BAY P: Pose Estimator Deployment
+    ───────────────────────────────────────
+    Trained pose models validated and hot-swapped.
+    Current: pose-leela-v1.8.2
+    Previous: pose-leela-v1.8.1 (standby for rollback)
+    
+    LINE P (Orange): Poses Track  
+    ─────────────────────────────
+    Orange containers carry skeletal data — joint positions,
+    movement vectors, gesture signatures. "Waving. Definitely waving."
+    POWERED BY: pose-leela-v1.8.2
+    
+    ════════════════════════════════════════════════════════════
+    
+    LINE V (Purple): Video Intake
+    ═════════════════════════════
+    Raw video streams arrive on purple containers.
+    Cameras, recordings, live feeds — all enter here.
+    The line FORKS at Junction Alpha, splitting each stream
+    to BOTH the Object and Pose processors simultaneously.
+    
+    LIVE FEEDS (Leela's Seven Eyes):
+    ─────────────────────────────────
+    📹 LOG1 (Loading Docks) — First Eye
+       Watching: Forklifts, drones, workers, deliveries
+       
+    📹 FAC1 (Factory Floor) — Second Eye
+       Watching: Insight Furnace, cells, workers thinking
+       Note: RECURSIVE — processed by the floor it watches
+       
+    📹 INT1 (Intake Floor) — Intake Eye
+       Watching: Conveyors, sorting, containers flowing
+       Note: HIGHLY RECURSIVE — watches the pipeline it feeds
+       
+    📹 SHP1 (Shipping Floor) — Shipping Eye
+       Watching: Packaging, departure board, insights leaving
+       
+    📹 LOB1 (Lobby) — Front Eye
+       Watching: Entrance, visitors, elevator traffic
+       
+    📹 ROOF1 (Rooftop) — Sky Eye
+       Watching: Garden, drones, Eventually the tortoise
+       
+    📹 BASE1 (Basement) — Deep Eye
+       Watching: R&D, experiments, Zone 7 door
+       Note: PARTIAL REDACTION — Zone 7 arc excluded
+    
+    All feeds: 🟢 LIVE @ 30fps
+    
+    "Leela watches itself work. And learns."
+    
+    JUNCTION BETA: The Convergence
+    ══════════════════════════════
+    Objects and Poses containers MERGE here.
+    Blue meets Orange. Context meets Motion.
+    "A cat (97%) is waving (definitely)."
+    Output: Insight containers (Gold)
+    
+    LINE I (Gold): Insights Flow
+    ════════════════════════════
+    Gold containers, heavier with understanding.
+    Each insight knows what it saw AND what it meant.
+    Flows into Python Actions for high-level processing.
+    
+    LINE A (Green): Python Actions
+    ══════════════════════════════
+    Green containers carry executable logic.
+    Python scripts consume insights, define high-level actions,
+    and emit structured data to SQL tables.
+    
+    "Cat detected waving" → action: GREETING_DETECTED
+                         → emit: events.greetings (timestamp, entity, gesture)
+                         → emit: metrics.engagement (score: 0.87)
+    
+    Actions can:
+    • Aggregate multiple insights into events
+    • Trigger alerts and notifications
+    • Update state machines
+    • Emit to multiple SQL tables
+    • Call external APIs
+    • Schedule follow-up actions
+    
+    LINE S (Silver): SQL Storage
+    ════════════════════════════
+    Silver containers descend into the SQL tanks below.
+    Structured. Indexed. Queryable. Patient.
+    Data waits here to be retrieved.
+    
+    PDA: Personal Data Assistant
+    ═════════════════════════════
+    The PDA is a chat-driven interface for exploring data.
+    Users converse naturally; the PDA does the rest.
+    
+    💬 CHAT DRIVEN
+    ───────────────
+    "What did the cat do yesterday?"
+    "Show me all greetings this week"
+    "Compare engagement before and after lunch"
+    
+    GENERATES QUERIES
+    ─────────────────
+    Natural language → SQL (or other query languages)
+    The PDA figures out the right tables, joins, filters.
+    You don't need to know SQL. The PDA knows SQL.
+    
+    READS SQL DATA
+    ──────────────
+    Executes queries against the SQL storage.
+    Handles pagination, streaming, large result sets.
+    Knows when to sample vs. full scan.
+    
+    ANALYZES RESULTS
+    ────────────────
+    Statistical summaries, trend detection, anomalies.
+    "Greetings are up 23% this week."
+    "Unusual pattern detected at 3am."
+    
+    GENERATES VISUALIZATIONS
+    ────────────────────────
+    Charts, graphs, dashboards, stories.
+    Picks the right visualization for the data.
+    "Here's a timeline of cat sightings."
+    
+    SPECIAL ROUTING:
+    • Corrupted video: QUARANTINE (automatic divert)
+    • Unrecognizable poses: "Is that a dance?" desk
+    • Queries that return everything: Optimization intervention
+    • Visualizations too beautiful: Gallery display
+    • Failed training runs: Post-mortem analysis
+    • Model regressions: Rollback bay
+    
+  state:
+    # Object Detection Pipeline
+    line_m_o: { speed: "deliberate", items: 2, architectures_pending: 3 }
+    line_t_o: { speed: "variable", items: 4, gpus: 4, epoch: 127, mAP: 0.947 }
+    deploy_bay_o: { model: "yolo-leela-v2.3.7", accuracy: 0.947, deployed: "2h ago" }
+    
+    # Pose Estimation Pipeline
+    line_m_p: { speed: "deliberate", items: 1, architectures_pending: 2 }
+    line_t_p: { speed: "variable", items: 3, gpus: 4, epoch: 89, pck: 0.923 }
+    deploy_bay_p: { model: "pose-leela-v1.8.2", accuracy: 0.923, deployed: "1d ago" }
+    
+    # Leela's Seven Eyes
+    camera_log1: { status: "live", location: "Loading Docks", fps: 30, uptime_days: 847 }
+    camera_fac1: { status: "live", location: "Factory Floor", fps: 30, uptime_days: 423, recursive: true }
+    camera_int1: { status: "live", location: "Intake Floor", fps: 30, uptime_days: 312, recursive: "high" }
+    camera_shp1: { status: "live", location: "Shipping Floor", fps: 30, uptime_days: 289 }
+    camera_lob1: { status: "live", location: "Lobby", fps: 30, uptime_days: 512 }
+    camera_roof1: { status: "live", location: "Rooftop", fps: 30, uptime_days: 201, outdoor: true }
+    camera_base1: { status: "live", location: "Basement", fps: 30, uptime_days: 156, redacted: true }
+    
+    # Data Pipeline
+    line_v: { speed: "fast", items: 34, fps: 30, sources: ["LOG1", "FAC1", "INT1", "SHP1", "LOB1", "ROOF1", "BASE1", "external"] }
+    line_o: { speed: "normal", items: 89, objects_detected: 1247 }
+    line_p: { speed: "normal", items: 89, poses_tracked: 1247 }
+    junction_beta: { merging: true, insights_created: 847 }
+    line_i: { speed: "steady", items: 42, understanding_level: "high" }
+    line_a: { speed: "fast", items: 38, actions_defined: 156, tables_emitting: 12 }
+    line_s: { speed: "variable", items: 156, rows_stored: 2847291 }
+    pda: 
+      status: "listening"
+      active_chats: 7
+      queries_generated_today: 289
+      analyses_run: 156
+      visualizations_created: 89
+    
+  processing_stats:
+    object_model_development:
+      architectures_proposed: 15
+      papers_read: 423
+      yolo_variants_tried: 7
+      transformer_experiments: 4
+      
+    object_model_training:
+      models_trained_this_week: 8
+      gpu_hours: 1847
+      best_mAP: 0.947
+      datasets: ["COCO", "ImageNet", "Leela-Custom-v3"]
+      
+    pose_model_development:
+      architectures_proposed: 8
+      papers_read: 312
+      keypoint_configs_tried: 5
+      temporal_models_explored: 3
+      
+    pose_model_training:
+      models_trained_this_week: 4
+      gpu_hours: 1000
+      best_pck: 0.923
+      datasets: ["MPII", "COCO-Pose", "Leela-Motion-v2"]
+      hands_still_tricky: true
+      
+    video_intake:
+      streams_today: 47
+      frames_processed: 1247000
+      fork_efficiency: "99.2%"
+      
+    object_detection:
+      objects_found: 3891247
+      categories: 847
+      confidence_avg: 0.94
+      strangest_object: "A cat wearing a top hat"
+      
+    pose_estimation:
+      poses_tracked: 891247
+      gestures_recognized: 12400
+      dances_identified: 3
+      interpretive_dances: 1  # "We're still not sure"
+      
+    insight_generation:
+      insights_created: 47891
+      connections_found: 128947
+      "aha_moments": 23
+      
+    python_actions:
+      actions_defined: 156
+      actions_triggered_today: 8472
+      tables_emitting_to: 12
+      avg_execution_time: "23ms"
+      most_triggered: "MOTION_DETECTED"
+      alerts_sent: 47
+      state_machines_active: 8
+      
+    sql_storage:
+      tables: 847
+      rows: 28472910
+      indices: 2847
+      oldest_data: "2019-03-14"
+      
+    pda:
+      conversations_today: 423
+      queries_generated: 4721
+      avg_query_time: "47ms"
+      analyses_performed: 892
+      visualizations_created: 847
+      dashboards_active: 23
+      most_asked: "What happened yesterday?"
+      "wow_reactions": 47
+      
+  methods:
+    STATUS:
+      description: "Check pipeline status"
+      effect: "Display throughput at each stage"
+      
+    TRACE:
+      description: "Follow data through the pipeline"
+      parameters:
+        video_id: "Source video identifier"
+      effect: "Track from intake to visualization"
+      
+    EMERGENCY_STOP:
+      description: "Halt all conveyors"
+      effect: "*ALARM* — All lines stop. Data buffers."
+      
+    SUBMIT_VIDEO:
+      description: "Add video to the pipeline"
+      parameters:
+        video: "Video stream or file"
+      effect: "Forks to Objects and Poses tracks"
+      
+    CHAT:
+      description: "Start or continue a conversation with PDA"
+      parameters:
+        message: "Natural language message"
+      effect: "PDA responds with queries, analysis, visualizations as needed"
+      examples:
+        - "What happened yesterday?"
+        - "Show me all cat sightings"
+        - "Why is engagement down?"
+        - "Compare this week to last week"
+        
+    PDA_STATUS:
+      description: "Check PDA status and active conversations"
+      effect: "Shows active chats, recent queries, system health"
+      
+    DEFINE_ACTION:
+      description: "Create a new Python action"
+      parameters:
+        name: "Action name (e.g., GREETING_DETECTED)"
+        trigger: "Insight pattern to match"
+        script: "Python code to execute"
+        emit_to: "SQL tables to write to"
+      effect: "New action registered in pipeline"
+      
+    LIST_ACTIONS:
+      description: "Show all defined actions"
+      effect: "Display action catalog with trigger patterns"
+      
+    TEST_ACTION:
+      description: "Test action with sample insight"
+      parameters:
+        action: "Action name"
+        insight: "Sample insight data"
+      effect: "Dry run — shows what would be emitted"
+      
+    TRAIN_OBJECT_MODEL:
+      description: "Submit object detection model for training"
+      parameters:
+        architecture: "Model architecture (YOLO, DETR, etc.)"
+        dataset: "Training dataset"
+        hyperparameters: "Training config"
+      effect: "Model enters object training pipeline"
+      
+    TRAIN_POSE_MODEL:
+      description: "Submit pose estimation model for training"
+      parameters:
+        architecture: "Model architecture (HRNet, ViTPose, etc.)"
+        dataset: "Training dataset"
+        hyperparameters: "Training config"
+      effect: "Model enters pose training pipeline"
+      
+    DEPLOY_OBJECT_MODEL:
+      description: "Deploy trained object model"
+      parameters:
+        model: "Model checkpoint"
+      effect: "Hot-swap object detector in production"
+      
+    DEPLOY_POSE_MODEL:
+      description: "Deploy trained pose model"
+      parameters:
+        model: "Model checkpoint"
+      effect: "Hot-swap pose estimator in production"
+      
+    ROLLBACK_OBJECT:
+      description: "Revert object detector to previous version"
+      parameters:
+        version: "Version to restore (default: previous)"
+      effect: "Previous object model restored"
+      
+    ROLLBACK_POSE:
+      description: "Revert pose estimator to previous version"
+      parameters:
+        version: "Version to restore (default: previous)"
+      effect: "Previous pose model restored"

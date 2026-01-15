@@ -1,0 +1,329 @@
+# CARRIAGE HOUSE
+# Traditional horse-drawn transport for D&D integration
+# "Some deliveries require a classic touch."
+
+object:
+  id: carriage-house
+  name: "Carriage House"
+  type: vehicle_station
+  emoji: "🐴🚃"
+  
+  tags: [station, vehicles, carriage, horses, traditional, fantasy, dnd]
+  
+  description: |
+    A traditional carriage house attached to the loading docks.
+    For when modern logistics just won't do — or when the
+    destination is off the grid, through enchanted forests,
+    or requires a certain... aesthetic.
+    
+    The smell of hay and leather. The sound of horses.
+    A sign: "LEELA TRADITIONAL LOGISTICS — Est. ???"
+    
+  examine: |
+    CARRIAGE HOUSE — TRADITIONAL TRANSPORT
+    ══════════════════════════════════════
+    
+    ┌─────────────────────────────────────────────────────────────┐
+    │  LEELA CARRIAGE HOUSE                                       │
+    │                                                             │
+    │     🐴        🐴🐴       🐴🐴🐴🐴                            │
+    │    [C1]      [C2]        [C3]                               │
+    │   PONY     STANDARD    STAGECOACH                           │
+    │   CART     CARRIAGE                                         │
+    │                                                             │
+    │  STABLES: 8 horses (4 draft, 2 riding, 2 ponies)           │
+    │  PROTOTYPE BAY: [P] Classic Carriage (Clone Me!)           │
+    │                                                             │
+    │  "For journeys that require a traditional touch."           │
+    └─────────────────────────────────────────────────────────────┘
+    
+    AVAILABLE VEHICLES:
+    • C1: Pony Cart — Small deliveries, 1 pony, 200kg capacity
+    • C2: Standard Carriage — 2 horses, 500kg, 4 passengers
+    • C3: Stagecoach — 4 horses, 1000kg, 8 passengers, armed guard optional
+    • [P]: Prototype — Pristine classic carriage (clone for custom)
+    
+    THE STABLES:
+    Eight stalls, well-maintained. Fresh hay, clean water.
+    • Thunder & Lightning — Draft horses (matched pair, gray)
+    • Biscuit & Crumpet — Draft horses (matched pair, brown)
+    • Shadowmere — Riding horse (black, possibly enchanted)
+    • Epona — Riding horse (chestnut, knows too much)
+    • Pip & Squeak — Ponies (small but determined)
+    
+    TACK ROOM:
+    Harnesses, bridles, saddles, blankets. All well-oiled.
+    A workbench for repairs. Spare horseshoes.
+    
+    THE COACHMAN'S QUARTERS:
+    Small room with a cot, a table, and many horse-related books.
+    Currently occupied by Old Jareth, the stable master.
+    
+  container: true
+  capacity: 4  # Vehicle slots
+  
+  # The prototype carriage definition
+  prototype:
+    leela-carriage:
+      id: leela-carriage
+      name: "Leela Classic Carriage"
+      type: vehicle
+      emoji: "🚃"
+      
+      tags: [vehicle, carriage, horse-drawn, traditional, fantasy]
+      
+      description: "A well-crafted horse-drawn carriage with Leela livery."
+      examine: |
+        LEELA CLASSIC CARRIAGE
+        ═══════════════════════
+        
+        Fine craftsmanship. Wooden body with iron fittings.
+        Deep green paint with gold Leela logo on the doors.
+        
+        SPECIFICATIONS:
+        • Capacity: 500 kg cargo OR 4 passengers
+        • Horses required: 2 (draft preferred)
+        • Speed: Walking / Trotting / Galloping
+        • Terrain: Roads, paths, light forest
+        • Weather protection: Enclosed cabin
+        
+        FEATURES:
+        • Cushioned bench seats (velvet, green)
+        • Cargo compartment under seats
+        • Luggage rack on roof
+        • Lanterns (2, oil)
+        • Mudguards (essential)
+        • Brake lever
+        • Driver's seat (elevated, with blanket)
+        
+        INCLUDED:
+        • Basic tool kit
+        • Horse blankets (2)
+        • Emergency feed bag
+        • First aid kit (human AND horse)
+        
+      takeable: false
+      driveable: true
+      requires: "2 horses"
+      
+      properties:
+        capacity_kg: 500
+        passengers: 4
+        horses_required: 2
+        speed_modes: [walk, trot, gallop]
+        terrain: [road, path, forest-light]
+        
+      state:
+        horses: []
+        cargo: []
+        passengers: []
+        driver: null
+        speed: stationary
+        
+      methods:
+        HITCH:
+          description: "Attach horses to the carriage"
+          parameters:
+            horses: "Which horses to hitch"
+          effect: "Horses connected, carriage ready to move"
+          
+        UNHITCH:
+          description: "Detach horses from the carriage"
+          effect: "Horses freed, can be stabled or ridden"
+          
+        DRIVE:
+          description: "Take the reins and drive"
+          effect: "Player becomes driver"
+          
+        BOARD:
+          description: "Enter as a passenger"
+          effect: "Player seated in cabin"
+          
+        DISEMBARK:
+          description: "Exit the carriage"
+          effect: "Player exits to current location"
+          
+        LOAD:
+          description: "Load cargo into the carriage"
+          parameters:
+            cargo: "What to load"
+          guard: "cargo.weight <= remaining_capacity"
+          effect: "Cargo stored in compartment"
+          
+        UNLOAD:
+          description: "Remove cargo from the carriage"
+          parameters:
+            cargo: "What to unload"
+          effect: "Cargo placed at current location"
+          
+        WALK:
+          description: "Travel at walking pace"
+          effect: "Slow, steady, easy on horses"
+          speed: 3
+          
+        TROT:
+          description: "Travel at trotting pace"
+          effect: "Moderate speed, sustainable"
+          speed: 6
+          
+        GALLOP:
+          description: "Travel at full speed"
+          effect: "Fast but tiring for horses"
+          speed: 12
+          note: "Cannot maintain indefinitely"
+          
+        REST:
+          description: "Stop to rest the horses"
+          effect: "Horses recover stamina"
+          
+      sounds:
+        hitch: "*jingle jangle* — harness secured"
+        move: "*clop clop clop* — hooves on cobblestone"
+        trot: "*cloppity cloppity clop*"
+        gallop: "*CLOPPITYCLOPPITYCLOP*"
+        stop: "*whoa* — carriage halts"
+        creak: "*creeeeak* — wood and leather"
+        
+  # Horse prototypes
+  horses:
+    
+    draft_horse:
+      id: draft-horse
+      name: "Draft Horse"
+      type: animal
+      emoji: "🐴"
+      tags: [animal, horse, draft, strong]
+      
+      description: "A large, powerful horse bred for pulling."
+      examine: |
+        A magnificent draft horse. Broad chest, feathered
+        hooves, patient eyes. Built for strength, not speed.
+        
+        Can pull: Heavy loads, carriages, wagons, plows
+        Temperament: Calm, steady, reliable
+        
+      properties:
+        strength: high
+        speed: moderate
+        stamina: high
+        temperament: calm
+        
+    riding_horse:
+      id: riding-horse
+      name: "Riding Horse"
+      type: animal
+      emoji: "🐎"
+      tags: [animal, horse, riding, fast]
+      
+      description: "A sleek horse bred for riding."
+      examine: |
+        A beautiful riding horse. Lean build, alert ears,
+        eager to run. Fast and responsive to commands.
+        
+        Can carry: One rider, light saddlebags
+        Temperament: Spirited, intelligent, loyal
+        
+      properties:
+        strength: moderate
+        speed: high
+        stamina: moderate
+        temperament: spirited
+        
+    pony:
+      id: pony
+      name: "Pony"
+      type: animal
+      emoji: "🐴"
+      tags: [animal, pony, small, sturdy]
+      
+      description: "A small but sturdy pony."
+      examine: |
+        A compact, sturdy pony. Don't let the size fool you —
+        ponies are tough, determined, and surprisingly strong.
+        
+        Can pull: Small carts, light loads
+        Can carry: Halflings, children, light riders
+        Temperament: Stubborn, friendly, clever
+        
+      properties:
+        strength: moderate
+        speed: moderate
+        stamina: very_high
+        temperament: stubborn_but_friendly
+        
+  staff:
+    stable_master:
+      name: "Old Jareth"
+      title: "Stable Master"
+      description: |
+        An elderly man with weathered hands and kind eyes.
+        Has been caring for horses here since before anyone
+        can remember. Possibly since before the building.
+        
+        Knows every horse by name, temperament, and lineage.
+        Can diagnose a limp at fifty paces.
+        Makes the best horse treats in the region.
+        
+      catchphrase: "A horse knows more than it lets on."
+      
+  methods:
+    BORROW_CARRIAGE:
+      description: "Take an available carriage"
+      parameters:
+        carriage: "Which carriage (C1, C2, C3)"
+      effect: "Carriage assigned, horses hitched on request"
+      
+    CLONE_CARRIAGE:
+      description: "Create a new carriage from prototype"
+      effect: "New carriage materialized in carriage house"
+      
+    RENT_HORSES:
+      description: "Rent horses for a journey"
+      parameters:
+        horses: "Which horses"
+        duration: "How long"
+      effect: "Horses assigned to you"
+      
+    STABLE:
+      description: "Return horses to stables"
+      parameters:
+        horses: "Which horses to stable"
+      effect: "Horses returned, fed, watered"
+      
+    RETURN:
+      description: "Return a borrowed carriage"
+      effect: "Carriage parked, horses stabled"
+      
+  fleet:
+    C1:
+      name: "Pony Cart"
+      type: cart
+      horses: ["Pip"]
+      capacity_kg: 200
+      passengers: 1
+      status: available
+      
+    C2:
+      name: "Standard Carriage"
+      type: carriage
+      horses: ["Thunder", "Lightning"]
+      capacity_kg: 500
+      passengers: 4
+      status: available
+      
+    C3:
+      name: "Stagecoach"
+      type: stagecoach
+      horses: ["Biscuit", "Crumpet", "Shadowmere", "Epona"]
+      capacity_kg: 1000
+      passengers: 8
+      status: available
+      features: ["armed guard station", "luggage roof rack", "strongbox"]
+      
+  ambience: |
+    The warm smell of hay and horse. Leather and oil.
+    A horse stamps, another whickers softly.
+    Old Jareth hums while brushing down Epona.
+    
+    Outside, the forklifts beep and drones buzz.
+    In here, time moves at a horse's pace.

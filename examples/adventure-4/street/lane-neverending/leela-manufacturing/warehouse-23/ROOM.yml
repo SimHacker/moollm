@@ -1,0 +1,242 @@
+# WAREHOUSE 23
+# Long-Term Storage for Dangerous Artifacts
+# "Top men are working on it."
+
+room:
+  name: Warehouse 23
+  type: secure_storage
+  
+  lighting: dim_industrial
+  atmosphere: vast_mysterious
+  clearance_required: true
+  
+  skills:
+    - container
+    - logistic-container
+    
+  description: |
+    You stand at the entrance of WAREHOUSE 23.
+    
+    It stretches before you into darkness — row after row after row
+    of identical wooden crates, stacked floor to ceiling on industrial
+    shelving that disappears into shadow. The warehouse is impossibly
+    large. Larger than the building should allow. Larger than makes
+    geometric sense.
+    
+    A single forklift sits idle near the entrance.
+    A clipboard hangs from a nail. The top sheet reads:
+    
+    ┌─────────────────────────────────────────────────────────────┐
+    │           WAREHOUSE 23 — LONG-TERM SECURE STORAGE          │
+    │           ═══════════════════════════════════════          │
+    │                                                             │
+    │   CLASSIFICATION: TOP SECRET                               │
+    │   CONTENTS: Artifacts, Cursed Items, Dangerous Knowledge   │
+    │   ACCESS: Authorized Personnel Only                        │
+    │   RETRIEVAL: By Written Request (Form 27B-Stroke-6)        │
+    │                                                             │
+    │   "We have top men working on it."                         │
+    │   "Who?"                                                    │
+    │   "...Top. Men."                                            │
+    │                                                             │
+    └─────────────────────────────────────────────────────────────┘
+    
+    Somewhere deep in the stacks, something glows faintly.
+    
+  examine: |
+    WAREHOUSE 23 — ARTIFACT REPOSITORY
+    
+    THE SCALE:
+    The warehouse extends farther than you can see. The ceiling is
+    lost in shadow somewhere above the sodium lights. The aisles
+    between shelving units are numbered, but the numbers don't seem
+    to follow any logical sequence. Aisle 7 is between Aisles 42 and
+    Negative Purple.
+    
+    THE CRATES:
+    Thousands upon thousands of identical wooden crates, each stamped
+    with classification codes, dates, and warnings:
+    
+    • "DO NOT OPEN"
+    • "DO NOT OPEN UNTIL [DATE REDACTED]"
+    • "DO NOT OPEN EVER"
+    • "ESPECIALLY DO NOT OPEN"
+    • "OPENING THIS CRATE VOIDS WARRANTY ON REALITY"
+    
+    Some crates hum. Some glow. One is slightly colder than absolute
+    zero, which shouldn't be possible. Another contains something that
+    knocks back when you knock.
+    
+    THE FILING SYSTEM:
+    A card catalog near the entrance, wooden drawers stretching up
+    beyond sight. Each card contains:
+    - Crate number
+    - Contents (often just "UNKNOWN" or "DO NOT INVESTIGATE")
+    - Date acquired
+    - Clearance level
+    - Special handling instructions
+    
+    NOTABLE SECTIONS:
+    • Section A: Religious Artifacts (glowing subsection)
+    • Section B: Cursed Objects (cold subsection)
+    • Section C: Temporal Anomalies (subsection exists on Tuesdays only)
+    • Section D: Memetic Hazards (don't read the labels)
+    • Section E: "Miscellaneous" (largest section)
+    • Section F: Empty (or is it?)
+    • Section [REDACTED]: You don't have clearance for this
+    
+    THE ATMOSPHERE:
+    Dust motes hang suspended in the air. Time moves differently here.
+    You've been standing at the entrance for either thirty seconds or
+    thirty years, it's hard to tell. The warehouse remembers things
+    the world has forgotten.
+    
+  notable_crates:
+    
+    ark_of_the_covenant:
+      location: "Aisle [CLASSIFIED], Row [CLASSIFIED], Crate [CLASSIFIED]"
+      contents: "Religious artifact. Gold. Winged figures on top."
+      warnings:
+        - "DO NOT OPEN"
+        - "DO NOT LOOK INSIDE"
+        - "FACE-MELTING HAZARD"
+      status: "In storage since 1936"
+      notes: "Top men are working on it."
+      
+    crystal_skull_collection:
+      location: "Aisle 19, Row 57, Crates 1-13"
+      contents: "Crystal skulls of various provenance"
+      warnings:
+        - "INTERDIMENSIONAL BEINGS MAY EMERGE"
+        - "DO NOT ALIGN"
+      status: "We don't talk about these"
+      
+    holy_grail:
+      location: "Nice try"
+      contents: "You chose... poorly"
+      status: "Location classified. Or lost. Or never here."
+      
+    pandoras_box:
+      location: "Aisle 1, Row 1, Crate 1"
+      contents: "All the evils of the world. Also hope."
+      warnings:
+        - "OPENED ONCE ALREADY"
+        - "HOPE STILL INSIDE (PLEASE DON'T)"
+      status: "Resealed. Mostly."
+      
+    monkeys_paw:
+      location: "Aisle 666, Row 13, Crate 3"
+      contents: "Cursed wish-granting artifact"
+      warnings:
+        - "WISHES GRANTED IRONICALLY"
+        - "TWO WISHES REMAINING"
+      notes: "Previous owners regretted everything"
+      
+    necronomicon:
+      location: "Section D (Memetic Hazards)"
+      contents: "Book. Bound in suspicious leather."
+      warnings:
+        - "DO NOT READ ALOUD"
+        - "DO NOT READ SILENTLY"
+        - "DO NOT THINK ABOUT READING"
+        - "KLAATU BARADA... SOMETHING"
+      
+    one_ring:
+      location: "Aisle ???, Row ???, Crate ???"
+      contents: "Gold ring. Plain. Inscription visible when heated."
+      warnings:
+        - "DO NOT WEAR"
+        - "DO NOT COVET"
+        - "DARK LORD MAY ATTEMPT RETRIEVAL"
+      status: "Location changes. Ring wants to be found."
+      
+    crate_of_holding:
+      location: "Aisle ∞"
+      contents: "Other crates. Recursively."
+      warnings:
+        - "DO NOT PLACE INSIDE ANOTHER CRATE OF HOLDING"
+        - "MAXIMUM SAFE RECURSION DEPTH: 7"
+        
+    empty_crate:
+      location: "Section F, Row 1, Crate 1"
+      contents: "Absolutely nothing. Verified empty."
+      warnings:
+        - "THE NOTHING IS THE POINT"
+        - "CRATE MUST REMAIN EMPTY"
+        - "IF CRATE CONTAINS SOMETHING, ALERT MANAGEMENT"
+      notes: "Last inspection found something. Crate was replaced."
+      
+    schrodingers_crate:
+      location: "Aisle Q, Row Q, Crate Q"
+      contents: "Cat (alive AND dead)"
+      warnings:
+        - "DO NOT OBSERVE"
+        - "OBSERVATION COLLAPSES WAVE FUNCTION"
+      status: "Contents unverified (intentionally)"
+      
+    the_original_warehouse_map:
+      location: "Card catalog, Drawer 0"
+      contents: "Map of Warehouse 23"
+      warnings:
+        - "MAP IS NOT THE TERRITORY"
+        - "TERRITORY CHANGES"
+        - "MAP MAY BE LYING"
+      notes: "Seven previous cartographers went mad"
+      
+  exits:
+    out:
+      destination: ../basement/
+      description: |
+        The heavy security door leads back to the R&D basement.
+        You feel a strange relief at leaving.
+      aliases: [exit, door, leave, back, basement]
+      
+    deeper:
+      destination: stacks/
+      description: |
+        The aisles stretch into darkness. You could venture deeper,
+        but retrieval teams have been lost for weeks in there.
+      aliases: [stacks, aisles, in, explore]
+      note: "Navigation becomes unreliable past Aisle 100"
+      
+  objects:
+    - card-catalog.yml
+    - warehouse-forklift.yml
+    - retrieval-forms.yml
+    - emergency-kit.yml
+    
+  staff:
+    warehouse_keeper:
+      name: "The Archivist"
+      description: |
+        An ancient figure in a dusty coat. Has worked here since
+        the warehouse opened. Possibly since before. Knows where
+        everything is. Will not tell you.
+      catchphrase: "That crate? We have top men working on it."
+      
+  ambience: |
+    The hum of sodium lights. The settling of old crates.
+    Distant sounds that might be footsteps, or might be
+    something shifting in its container.
+    
+    Time passes strangely here. Your watch has stopped.
+    Or is running backwards. Hard to tell.
+    
+    Somewhere, something whispers. You're probably imagining it.
+    
+  warnings:
+    - "Do not wander without a guide"
+    - "Do not open crates without authorization"
+    - "Do not read labels in Section D"
+    - "If lost, stay where you are. Someone will find you. Eventually."
+    - "Report any crates that weren't there yesterday"
+    - "Report any crates that are no longer there"
+    - "Time is a suggestion in Warehouse 23"
+    
+  properties:
+    geometry: "non-euclidean"
+    time_flow: "variable"
+    larger_inside: true
+    crates_counted: "impossible"
+    last_full_inventory: "never completed"
+    top_men: "working on it"

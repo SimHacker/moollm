@@ -1,0 +1,309 @@
+# MAIL ROOM
+# Integrated with the Postal System
+# See: skills/postal/CARD.yml
+
+room:
+  name: Leela Mail Room
+  type: mail_center
+  
+  lighting: bright
+  atmosphere: organized_chaos
+  
+  # Core skill integration
+  skills:
+    - postal
+    - logistic-container
+    
+  description: |
+    The MAIL ROOM is the communications hub of Leela Manufacturing.
+    Every letter, text, package, and insight passes through here.
+    
+    Rows of sorting bins line the walls. Pneumatic tubes terminate
+    in a central hub, capsules arriving with satisfying *thwoop* sounds.
+    A bank of phones handles the text message traffic. Pigeons coo
+    in cages near the window, awaiting long-distance assignments.
+    
+    The walls are covered with:
+    
+    ┌─────────────────────────────────────────────────────────────┐
+    │                    LEELA MAIL ROOM                          │
+    │                    ════════════════                          │
+    │                                                             │
+    │  "Neither rain nor snow nor paradox nor existential crisis │
+    │   shall stay these couriers from their appointed rounds."   │
+    │                                                             │
+    │  SERVICES:                                                  │
+    │  ─────────                                                  │
+    │  📧 Letters ......... Standard (3 turns), Express (1 turn) │
+    │  📱 Texts ........... Instant                               │
+    │  📦 Packages ........ Freight (10 turns), Courier (2 turns)│
+    │  🐦 Pigeon Post ..... Traditional (whenever they feel like) │
+    │  📬 Internal ........ Postal transfer (instant, free!)     │
+    │                                                             │
+    └─────────────────────────────────────────────────────────────┘
+    
+  examine: |
+    MAIL ROOM — COMMUNICATIONS HUB
+    
+    THE SORTING AREA:
+    Massive wall of cubbyholes, each labeled:
+    • By floor (1, 2, 3, Basement, Rooftop)
+    • By department (Intake, Processing, Shipping, R&D)
+    • By external destination (Lane Neverending, Pub, Origin Plaza...)
+    • SPECIAL: "CLASSIFIED" (locked), "PARADOX" (don't look inside)
+    
+    THE PNEUMATIC TERMINAL:
+    Eight tubes converge here from across the facility.
+    Capsules arrive constantly with *thwoop* sounds.
+    A display shows tube status and queue depth.
+    
+    THE PHONE BANK:
+    Rows of phones for text message operations.
+    Screens showing message queues, delivery confirmations.
+    One phone is labeled "HOT LINE TO THE PUB" (red, always ready).
+    
+    THE PIGEON LOFT (Interior):
+    24 enlightened pigeons in comfortable cages.
+    Each has a name tag. They coo thoughtfully.
+    A schedule board shows who's available for assignments.
+    Feed and water dispensers. Tiny beds.
+    
+    THE PACKAGE STAGING AREA:
+    Tables for wrapping, labeling, and staging outgoing items.
+    Scales for calculating freight costs.
+    Bubble wrap (irresistibly poppable).
+    
+    STAFF:
+    • Postmaster General "Stamp" (runs the operation)
+    • Sorting Sprites (fast, accurate, slightly caffeinated)
+    • Phone Operators (cheerful, efficient)
+    • Pigeon Whisperer (speaks their language)
+    
+  # Postal system integration
+  # See: skills/postal/CARD.yml
+  
+  postal_integration:
+    
+    # This room IS a postal node
+    endpoint_type: room
+    address: "leela-manufacturing/mail-room/"
+    
+    # Central hub for internal logistics
+    hub:
+      internal_transit: instant
+      free_within_facility: true
+      
+    # Inboxes and outboxes
+    mailboxes:
+      
+      general_inbox:
+        type: inbox
+        accepts: [letter, text, package]
+        processing: automatic
+        routes_to: sorting_bins
+        
+      general_outbox:
+        type: outbox
+        chest_mode: active-provider  # 📦🔴 Push out!
+        push_to:
+          - match: { destination_type: "internal" }
+            method: postal
+            time: 0
+            cost: 0
+          - match: { destination_type: "lane-neverending" }
+            method: drone
+            time: 1
+          - match: { destination_type: "external" }
+            method: letter
+            time: 3
+            
+      express_outbox:
+        type: outbox
+        priority: high
+        methods_available: [express, courier, drone]
+        
+      freight_staging:
+        type: buffer
+        chest_mode: buffer  # 📦🟢
+        for_items: [heavy, bulk, oversized]
+        routes_to: ../logistics/
+        
+    # Delivery methods (from postal skill)
+    methods:
+      text:
+        available: true
+        time: 0
+        cost: 0
+        note: "Instant via phone network"
+        
+      letter:
+        available: true
+        time: 3
+        cost: 1
+        note: "Standard mail"
+        
+      express:
+        available: true
+        time: 1
+        cost: 5
+        note: "Priority handling"
+        tracking: true
+        
+      courier:
+        available: true
+        time: 2
+        cost: 10
+        note: "Hand-delivered, guaranteed"
+        
+      freight:
+        available: true
+        time: 10
+        cost_per_kg: 0.5
+        note: "For heavy items, routes via logistics"
+        
+      pigeon:
+        available: true
+        time: "whenever"
+        cost: "seed"
+        note: "Traditional. Thoughtful. Unreliable timing."
+        
+      postal_transfer:
+        available: true
+        time: 0
+        cost: 0
+        note: "Internal logistics — instant and free"
+        internal_only: true
+        
+    # Connection to logistics
+    logistics_integration:
+      receives_from:
+        - ../loading-docks/  # Incoming packages
+        - ../floor-3/        # Outgoing shipments
+      sends_to:
+        - ../logistics/      # Freight and bulk
+        - ../floor-1/        # Internal distribution
+        
+  # Pneumatic tube connections
+  pneumatic_tubes:
+    hub: true  # This is the central hub
+    connections:
+      - tube: 1
+        destination: ../floor-1/
+        label: "INTAKE"
+      - tube: 2
+        destination: ../floor-2/
+        label: "PROCESSING"
+      - tube: 3
+        destination: ../floor-3/
+        label: "SHIPPING"
+      - tube: 4
+        destination: ../basement/
+        label: "R&D (STAND CLEAR)"
+      - tube: 5
+        destination: ../rooftop/
+        label: "GARDEN"
+      - tube: 6
+        destination: ../  # Lobby
+        label: "RECEPTION"
+      - tube: 7
+        destination: ../../pub/
+        label: "THE PUB (URGENT)"
+      - tube: 8
+        destination: EMERGENCY
+        label: "BREAK GLASS"
+        
+  # Phone operations
+  phone_services:
+    text_messaging:
+      instant: true
+      queue_display: true
+      
+    notifications:
+      types:
+        - mail_received
+        - text_received
+        - package_arrived
+        - delivery_confirmed
+        - quest_update
+        
+    hot_lines:
+      - name: "THE PUB"
+        number: "7"
+        color: red
+        note: "For urgent orders and gossip"
+      - name: "ORIGIN PLAZA"
+        number: "1"
+        note: "Ceremonial communications"
+      - name: "CONSTRUCTION SITE"
+        number: "22"
+        note: "Building coordination"
+        
+  # Actions available here
+  actions:
+    CHECK_MAIL:
+      description: "See what's arrived"
+      effect: "Display inbox contents"
+      
+    SEND_LETTER:
+      description: "Compose and send a letter"
+      parameters: [to, subject, body, attachments]
+      effect: "Queue for delivery"
+      
+    SEND_TEXT:
+      description: "Send instant message"
+      parameters: [to, message]
+      effect: "Delivered immediately"
+      
+    SEND_PACKAGE:
+      description: "Ship physical items"
+      parameters: [to, contents, method]
+      effect: "Queue for logistics"
+      
+    CHECK_TRACKING:
+      description: "Track a shipment"
+      parameters: [tracking_number]
+      effect: "Show delivery status"
+      
+    DISPATCH_PIGEON:
+      description: "Send via traditional post"
+      parameters: [to, message, pigeon_name]
+      effect: "Pigeon departs (eventually)"
+      
+  exits:
+    lobby:
+      destination: ../
+      description: "Back to the main lobby"
+      aliases: [out, lobby]
+      
+    shipping:
+      destination: ../floor-3/
+      description: "Direct access to Shipping Department"
+      aliases: [3, shipping]
+      
+    logistics:
+      destination: ../logistics/
+      description: "To the Logistics Yard (for freight)"
+      aliases: [freight, yard]
+      
+  objects:
+    - sorting-bins.yml
+    - pneumatic-terminal.yml
+    - phone-bank.yml
+    - pigeon-cages.yml
+    - package-station.yml
+    
+  staff:
+    postmaster:
+      name: "Stamp"
+      title: "Postmaster General"
+      personality: "Precise, punctual, passionate about delivery"
+      catchphrase: "Neither rain nor snow..."
+      
+  ambience: |
+    *thwoop* — a capsule arrives.
+    Phones chirp softly. Pigeons coo.
+    The sorting sprites work in efficient silence.
+    Somewhere, a package is being wrapped with excessive bubble wrap.
+    
+    The mail never stops. The mail never sleeps.
+    The mail is eternal.

@@ -1,0 +1,106 @@
+# LOBBY — GROUND FLOOR
+# Where the world meets Leela
+
+room:
+  name: Leela Manufacturing Lobby
+  type: lobby
+  
+  description: |
+    The LOBBY of Leela Manufacturing is clean, professional, and
+    quietly impressive. The Leela logo glows softly on the wall
+    behind the reception desk. A directory board lists all floors.
+    
+    Visitors arrive seeking knowledge. They leave with insights.
+    (Or sometimes, more questions than they started with.)
+    
+  examine: |
+    LEELA MANUFACTURING — LOBBY
+    ═══════════════════════════
+    
+    RECEPTION DESK:
+    A curved desk of polished wood and brushed steel.
+    The receptionist smiles warmly. "How can we help you today?"
+    Behind them: the Leela logo, glowing gentle gold.
+    
+    DIRECTORY BOARD:
+    ┌────────────────────────────────────────┐
+    │  LEELA MANUFACTURING INTELLIGENCE      │
+    │  ═════════════════════════════════     │
+    │                                        │
+    │  🌿 Rooftop ........ Garden & Drones   │
+    │  3  Shipping ....... Outbound          │
+    │  2  Factory ........ The Furnace       │
+    │  1  Intake ......... Conveyors         │
+    │  G  Lobby .......... You Are Here      │
+    │  B  Basement ....... R&D (Restricted)  │
+    │                                        │
+    │  External:                             │
+    │  🚛 Loading Docks    📦 Storage         │
+    │  📮 Mail Room       🏛️ Warehouse 23     │
+    └────────────────────────────────────────┘
+    
+    ELEVATOR:
+    Brass doors with art deco styling. The indicator
+    shows the current floor. A soft chime when it arrives.
+    
+    WAITING AREA:
+    Comfortable chairs. A coffee table with magazines
+    (all about manufacturing, knowledge, and tortoises).
+    A small fountain burbles peacefully.
+    
+    WINDOWS:
+    Large windows look out onto Lane Neverending.
+    The pub is visible to the east. Lamp posts glow.
+    
+  exits:
+    street:
+      to: ../w1/
+      description: "Exit to Lane Neverending"
+      
+    elevator_roof:
+      to: ../rooftop/
+      description: "Elevator to Rooftop"
+      
+    elevator_3:
+      to: ../floor-3/
+      description: "Elevator to Floor 3 (Shipping)"
+      
+    elevator_2:
+      to: ../floor-2/
+      description: "Elevator to Floor 2 (Factory)"
+      
+    elevator_1:
+      to: ../floor-1/
+      description: "Elevator to Floor 1 (Intake)"
+      
+    elevator_b:
+      to: ../basement/
+      description: "Elevator to Basement (Clearance Required)"
+      clearance_required: true
+      
+    loading:
+      to: ../loading-docks/
+      description: "Door to Loading Docks"
+      
+    storage:
+      to: ../storage/
+      description: "Door to Storage Complex"
+      
+  objects:
+    - camera-lob1.yml  # Leela's Front Eye
+    
+  staff:
+    receptionist:
+      name: "Alex"
+      role: "Reception"
+      demeanor: "Warm, helpful, knows everything"
+      
+  ambience:
+    sounds:
+      - "Soft fountain burbling"
+      - "Elevator chimes"
+      - "Quiet footsteps on marble"
+    visual:
+      - "Leela logo glowing gold"
+      - "Sunlight through windows"
+      - "Directory board updating occasionally"

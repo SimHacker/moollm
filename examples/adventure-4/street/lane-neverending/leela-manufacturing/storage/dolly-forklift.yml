@@ -1,0 +1,153 @@
+# DOLLY THE FORKLIFT
+# Automated warehouse assistant
+# Inherits from: Molly Doran (Slow Horses)
+# See: skills/logistic-container/
+
+object:
+  id: dolly-forklift
+  name: "Dolly"
+  full_name: "Dolly Doorin"  # Drag queen homage to Molly Doran
+  title: "Lift Queen"
+  type: vehicle
+  emoji: "🏗️👑"
+  
+  tags: [vehicle, automated, helpful, warehouse, archivist]
+  
+  # Lineage
+  inherits:
+    archetype: "Molly Doran"
+    source: "Slow Horses (Mick Herron)"
+    description: |
+      The formidable woman who runs the Archive in the basement
+      of Regent's Park (MI5 HQ). Moves via mobility scooter.
+      Knows where every file is. Knows where every body is buried.
+      The spooks fear her. The files obey her.
+      
+      Dolly is the forklift manifestation of this archetype:
+      - Institutional memory that predates everyone
+      - Knows where everything is, even things that moved
+      - Slightly terrifying competence
+      - Will help you, but will also judge you
+      - The warehouse equivalent of "I know what you did"
+      
+  description: |
+    An automated forklift named Dolly. She's been working here
+    for 40 years and knows where everything is by memory.
+    
+    (Named after a legendary archivist who knew where all the
+    bodies were buried. Dolly knows where all the boxes are buried.
+    Same energy.)
+    
+  examine: |
+    DOLLY DOORIN — LIFT QUEEN
+    ══════════════════════════
+    
+    A small yellow forklift with:
+    - Faded "DOLLY" name sticker on the side
+    - Motivational bumper sticker: "Lift With Your Forks, Not Your Feelings"
+    - Dent collection telling 40 years of stories
+    - Fluffy dice hanging from the roll cage
+    
+    Dolly has an uncanny ability to know exactly which shelf
+    holds which prototype, even the ones that were moved last week.
+    
+    She communicates via beeps:
+    - *beep* — Acknowledged
+    - *beep beep* — Following you
+    - *BEEP BEEP BEEP* — You're in the way
+    - *sad beep* — That prototype doesn't exist
+    
+  takeable: false
+  
+  character:
+    name: Dolly
+    role: Warehouse Retrieval Specialist
+    seniority: 40 years
+    personality: |
+      Patient, methodical, slightly judgmental about how other
+      forklifts are operated. Has opinions about shelf organization.
+      
+  state:
+    carrying: null
+    location: "main aisle"
+    mood: "content"
+    
+  methods:
+    FETCH:
+      description: "Retrieve a prototype from storage"
+      parameters:
+        prototype: "Name or path of the prototype"
+      effect: |
+        Dolly drives to the correct shelf, retrieves the prototype,
+        and brings it to the cloning station.
+      sound: "*beep* *whirrrr* *beep beep* — Got it!"
+      
+    FOLLOW:
+      description: "Have Dolly follow you through the aisles"
+      effect: "Dolly trails behind, ready to carry things"
+      sound: "*beep beep* — Following!"
+      
+    STAY:
+      description: "Tell Dolly to wait here"
+      effect: "Dolly parks and waits patiently"
+      sound: "*beep* — Waiting."
+      
+    LIFT:
+      description: "Ask Dolly to lift something heavy"
+      parameters:
+        target: "What to lift"
+      effect: "Dolly positions forks and lifts"
+      
+    PET:
+      description: "Pat Dolly's roll cage affectionately"
+      effect: "Dolly's mood improves"
+      sound: "*happy beep*"
+      
+  autonomous_behaviors:
+    - name: organize
+      trigger: "Items out of place"
+      effect: "Dolly tidies up, beeping disapprovingly"
+      
+    - name: avoid
+      trigger: "Obstacle in path"
+      effect: "Dolly navigates around, beeping warning"
+      
+    - name: charge
+      trigger: "Battery low"
+      effect: "Dolly drives to charging station"
+      sound: "*tired beep*"
+      
+  facts:
+    - "Dolly has lifted exactly 847,293 items in her career"
+    - "Her favorite aisle is C (soft containers — easy lifting)"
+    - "She does NOT like Aisle D (too weird)"
+    - "Dolly has never knocked over a shelf (she's very proud)"
+    - "The fluffy dice were a gift from a retired employee"
+    - "She knows things about the boxes that the boxes don't know about themselves"
+    - "Management tried to replace her once. Once."
+    
+  lineage_notes: |
+    MOLLY DORAN (Slow Horses):
+    The Queen of the Archive. MI5's institutional memory in human form.
+    Navigates the basement stacks in her mobility scooter, faster than
+    you'd think possible. Has never lost a file. Has found files people
+    tried very hard to lose.
+    
+    "You want something from the Archive, you ask Molly nicely.
+     Very nicely. And you bring biscuits."
+    
+    Dolly inherited:
+    - The preternatural knowledge of location
+    - The judgment (those beeps aren't random)
+    - The irreplaceability
+    - The "I've been here longer than you and I'll be here after"
+    
+    What Dolly adds:
+    - Forks (Molly didn't have forks)
+    - Beeps instead of withering stares
+    - Fluffy dice (personal touch)
+    
+    THE NAME:
+    "Dolly Doorin" — a drag queen play on "Molly Doran."
+    She's fabulous and she knows where your files are.
+    The fluffy dice are part of the aesthetic.

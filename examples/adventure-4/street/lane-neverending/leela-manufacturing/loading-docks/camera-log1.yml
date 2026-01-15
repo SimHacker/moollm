@@ -1,0 +1,142 @@
+# CAMERA LOG1
+# Leela's first eye — watching the logistics floor
+
+object:
+  id: camera-log1
+  name: "Camera LOG1"
+  type: sensor
+  emoji: "📹"
+  
+  tags: [sensor, camera, video, self-observation, eye]
+  
+  description: |
+    A sleek camera mounted high on the wall, its lens slowly panning
+    across the loading docks. A small LED glows green — always watching.
+    This is LOG1: Leela's first eye.
+    
+  examine: |
+    CAMERA LOG1 — LEELA'S FIRST EYE
+    ════════════════════════════════
+    
+    ┌─────────────────────────────────────────┐
+    │  📹 LOG1                                │
+    │  ══════                                 │
+    │                                         │
+    │  Location: Loading Docks                │
+    │  Status: 🟢 LIVE                        │
+    │  Resolution: 4K @ 30fps                 │
+    │  Feed: → VIDEO INTAKE (Floor 1)         │
+    │                                         │
+    │  "Leela watching Leela."                │
+    └─────────────────────────────────────────┘
+    
+    The camera is mounted on a motorized gimbal, capable of
+    360° pan and 90° tilt. It watches the loading bays,
+    the forklifts, the drones, the workers.
+    
+    CURRENT VIEW:
+    • Bay 1: Truck unloading (3 workers, 1 forklift)
+    • Bay 2: Empty, awaiting delivery
+    • Bay 3: Dolly retrieving containers
+    • Bay 4: Drone landing sequence
+    
+    The feed flows directly into the Video Intake pipeline
+    on Floor 1. Every frame analyzed. Every object detected.
+    Every pose estimated. Every insight recorded.
+    
+    Leela watches itself work.
+    And learns.
+    
+    DETECTED IN LAST HOUR:
+    • 847 object detections
+    • 423 pose estimations  
+    • 12 "FORKLIFT_MOVING" events
+    • 47 "DRONE_LANDING" events
+    • 1 "DOLLY_DANCING" event (under review)
+    
+  properties:
+    designation: "LOG1"
+    nickname: "First Eye"
+    location: "Loading Docks, South Wall"
+    resolution: "4K"
+    fps: 30
+    pan_range: 360
+    tilt_range: 90
+    night_vision: true
+    self_referential: true
+    
+  state:
+    status: "live"
+    recording: true
+    streaming_to: "floor-1/conveyor-system"
+    current_pan: 127
+    current_tilt: 15
+    uptime: "847 days"
+    frames_captured: 2198476800
+    
+  feeds_to:
+    pipeline: "../floor-1/conveyor-system.yml"
+    line: "V"
+    description: "Video Intake (Purple containers)"
+    
+  methods:
+    WATCH:
+      description: "View the live feed"
+      effect: |
+        You see what LOG1 sees:
+        
+        The loading docks spread out below. Forklifts move
+        like busy insects. Drones descend from the sky.
+        Workers load and unload, their poses tracked,
+        their movements understood.
+        
+        In the corner of the frame: Dolly, paused,
+        almost as if she knows she's being watched.
+        
+    PAN:
+      description: "Pan the camera"
+      parameters:
+        direction: "left | right | degrees"
+      effect: "Camera pans smoothly. New view. New insights."
+      
+    TILT:
+      description: "Tilt the camera"
+      parameters:
+        direction: "up | down | degrees"
+      effect: "Camera tilts. Perspective shifts."
+      
+    ZOOM:
+      description: "Zoom in or out"
+      parameters:
+        level: "1x to 10x"
+      effect: "Details emerge. Or context expands."
+      
+    STATUS:
+      description: "Check camera status"
+      effect: |
+        LOG1 STATUS
+        ═══════════
+        Uptime: 847 days
+        Frames captured: 2,198,476,800
+        Current feed: LIVE → Floor 1 Pipeline
+        Last detection: 0.3 seconds ago
+        Health: EXCELLENT
+        
+  ambience:
+    sounds:
+      - "Soft whirr of the gimbal motor"
+      - "Faint click as it refocuses"
+    visual:
+      - "Green LED pulses slowly — watching"
+      - "Lens catches light, glints occasionally"
+      
+  lore: |
+    LOG1 was the first camera installed when Leela Manufacturing
+    opened. It has watched every delivery, every shipment,
+    every forklift dance across this floor.
+    
+    When the self-observation pipeline was activated, LOG1
+    became special: it was Leela's first eye looking at itself.
+    
+    The philosophical implications are... still being processed.
+    (Cell G is working on it.)

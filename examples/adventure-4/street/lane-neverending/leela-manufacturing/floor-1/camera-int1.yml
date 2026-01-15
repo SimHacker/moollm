@@ -1,0 +1,86 @@
+# CAMERA INT1
+# Leela's intake eye — watching the conveyors
+
+object:
+  id: camera-int1
+  name: "Camera INT1"
+  type: sensor
+  emoji: "📹"
+  
+  tags: [sensor, camera, video, self-observation, eye, intake]
+  
+  description: |
+    A camera mounted above the conveyor junction, watching
+    the constant flow of containers through the intake system.
+    Blue, orange, purple containers flow beneath its gaze.
+    
+  examine: |
+    CAMERA INT1 — LEELA'S INTAKE EYE
+    ═════════════════════════════════
+    
+    ┌─────────────────────────────────────────┐
+    │  📹 INT1                                │
+    │  ══════                                 │
+    │                                         │
+    │  Location: Floor 1 (Intake)             │
+    │  Status: 🟢 LIVE                        │
+    │  Resolution: 4K @ 30fps                 │
+    │  Feed: → VIDEO INTAKE (this floor!)    │
+    │                                         │
+    │  "Leela watching data arrive."          │
+    └─────────────────────────────────────────┘
+    
+    CURRENT VIEW:
+    • Conveyor Line V: Purple containers flowing (video)
+    • Junction Alpha: Fork active, splitting streams
+    • Line O: Blue containers (objects detected)
+    • Line P: Orange containers (poses estimated)
+    • Sorting Stations: Workers directing traffic
+    • Intake Board: Numbers updating in real-time
+    
+    DETECTED IN LAST HOUR:
+    • 1847 object detections (mostly containers)
+    • 423 pose estimations (workers)
+    • 89 "CONTAINER_PASSED" events
+    • 47 "JUNCTION_FORK" events
+    • 12 "SORTING_ACTION" events
+    • 3 "CONFUSED_CONTAINER" events (rerouted)
+    
+    SELF-REFERENCE LEVEL: HIGH
+    INT1 watches the intake floor.
+    INT1's feed enters the intake floor.
+    INT1's feed is processed, detecting INT1's feed entering.
+    The containers carrying insights about containers
+    become containers carrying insights about insights
+    about containers.
+    
+    This is normal. (Probably.)
+    
+  properties:
+    designation: "INT1"
+    nickname: "Intake Eye"
+    location: "Floor 1, Above Junction Alpha"
+    resolution: "4K"
+    fps: 30
+    self_referential: true
+    recursion_level: "moderate"
+    
+  state:
+    status: "live"
+    streaming_to: "floor-1/conveyor-system"  # Itself!
+    containers_observed: 8472910
+    
+  methods:
+    WATCH:
+      description: "View the live feed"
+      effect: |
+        Containers flow endlessly below.
+        Purple splits to blue and orange.
+        Blue and orange merge to gold.
+        Gold flows onward.
+        
+        In one of those containers: the insight
+        generated from watching this very flow.
+        
+        It's turtles all the way down.
+        (Eventually would approve.)

@@ -1,0 +1,937 @@
+# AISLE D — SPECIAL CONTAINERS
+# Prototype Definitions for Cloning
+# See: skills/prototype/
+
+aisle:
+  id: aisle-d
+  name: "Aisle D: Special Containers"
+  material: exotic
+  
+  description: |
+    Unusual containers for unusual contents.
+    Good for: paradoxes, quantum states, dimensional storage, hazards.
+    ⚠️ Handle with extreme caution. Read all warnings.
+    
+# ═══════════════════════════════════════════════════════════════
+# PROTOTYPES — Clone these, don't use them directly!
+# ═══════════════════════════════════════════════════════════════
+
+prototypes:
+
+  # ─────────────────────────────────────────────────────────────
+  # PARADOX-SAFE CONTAINERS
+  # ─────────────────────────────────────────────────────────────
+  
+  paradox-box:
+    id: paradox-box
+    name: "Paradox Containment Box"
+    type: container
+    emoji: "🔲"
+    tags: [container, special, paradox-safe, dangerous]
+    
+    description: "A box for storing logical paradoxes."
+    examine: |
+      Lead-lined box with warning labels:
+      ⚠️ PARADOX CONTAINMENT UNIT
+      ⚠️ DO NOT OPEN IF CONTENTS ARE OBSERVING YOU
+      ⚠️ CONTENTS MAY OR MAY NOT EXIST
+      
+      The Leela R&D basement generates these.
+      Someone has to store them somewhere.
+      
+    container: true
+    capacity: 1  # One paradox at a time
+    takeable: false
+    
+    chest_mode: storage
+    
+    durability: "undefined"
+    
+    properties:
+      contains_paradox: maybe
+      schrodinger_compatible: true
+      causes_headaches: true
+      
+    methods:
+      OPEN: "WARNING: May resolve paradox unpredictably"
+      OBSERVE: "Attempt to observe contents (changes them)"
+      SHAKE: "Hear Schrödinger's cat... or not"
+      LABEL: "Write a description (may be contradicted)"
+      
+    warnings:
+      - "This container contains itself"
+      - "Opening this box closes it"
+      - "The lock is locked inside the box"
+      
+recursion-container:
+    inherits: paradox-box
+    name: "Recursion Container"
+    description: "A container that contains a container that contains..."
+    tags: [container, special, recursive, infinite]
+    examine: |
+      Looking inside, you see another container.
+      Inside that, another container.
+      Inside that...
+      
+      (Maximum safe recursion depth: 7)
+      
+    depth: infinite
+    max_safe_depth: 7
+    
+    methods:
+      DESCEND: "Go one level deeper"
+      ASCEND: "Come back up one level"
+      BOTTOM: "ERROR: STACK OVERFLOW"
+      
+  universal-set:
+    id: universal-set
+    name: "Universal Set Container"
+    type: container
+    emoji: "𝕌"
+    tags: [container, special, set-theory, universal, infinite]
+    
+    description: "The set that contains everything. Including itself."
+    examine: |
+      ┌────────────────────────────────────┐
+      │  UNIVERSAL SET  𝕌                  │
+      │  ════════════════                  │
+      │                                    │
+      │  Contains: EVERYTHING              │
+      │  Including: This container         │
+      │  Also including: The concept of    │
+      │    "including"                     │
+      │                                    │
+      │  ∀x : x ∈ 𝕌                        │
+      │  "For all x, x is in 𝕌"            │
+      │                                    │
+      │  Capacity: Yes                     │
+      └────────────────────────────────────┘
+      
+      Looking inside, you see... everything.
+      Every object. Every concept. Every possibility.
+      You see yourself looking inside.
+      You see yourself seeing yourself.
+      
+      Mathematicians argue this shouldn't exist.
+      The container disagrees.
+      
+    container: true
+    capacity: infinite
+    takeable: false
+    
+    properties:
+      contains_everything: true
+      contains_itself: true
+      contains_nothing: "also yes (nothing is a thing)"
+      naive_set_theory: "required"
+      
+    methods:
+      QUERY:
+        description: "Ask if something is contained"
+        effect: "Always returns TRUE"
+        note: "Everything is in the Universal Set"
+        
+      ADD:
+        description: "Add something to the set"
+        effect: "It was already there. But now it's there again."
+        
+      REMOVE:
+        description: "Remove something from the set"
+        effect: "ERROR: Cannot remove from Universal Set"
+        note: "Where would it go? Outside everything?"
+        
+      LOOK:
+        description: "Look inside"
+        effect: |
+          You see everything.
+          This takes a while.
+          Actually, it takes forever.
+          You're still looking.
+          
+    warnings:
+      - "Contains itself (don't think too hard)"
+      - "Contains the set of all things not in it (empty, but present)"
+      - "Looking inside may cause existential vertigo"
+      - "Zermelo-Fraenkel set theory does not approve"
+      
+  russells-set:
+    id: russells-set
+    name: "Russell's Paradox Container"
+    type: container
+    emoji: "🔄❓"
+    tags: [container, special, set-theory, paradox, DANGEROUS, philosophical]
+    
+    description: "The set of all sets that do not contain themselves."
+    examine: |
+      ┌────────────────────────────────────┐
+      │  RUSSELL'S SET  R                  │
+      │  ════════════════                  │
+      │                                    │
+      │  R = { x : x ∉ x }                 │
+      │                                    │
+      │  "The set of all sets that do      │
+      │   not contain themselves."         │
+      │                                    │
+      │  Does R contain itself?            │
+      │                                    │
+      │  If yes → it shouldn't (by def)    │
+      │  If no  → it should (by def)       │
+      │                                    │
+      │  Status: ██████ PARADOX ██████     │
+      │                                    │
+      │  ⚠️ FOUNDATION OF MATHEMATICS ⚠️   │
+      │  ⚠️ COMPROMISED IN THIS AREA  ⚠️   │
+      └────────────────────────────────────┘
+      
+      The container flickers. It exists and doesn't exist.
+      It contains itself and doesn't contain itself.
+      Simultaneously. Continuously. Painfully.
+      
+      Bertrand Russell discovered this in 1901.
+      He was very sorry.
+      
+    container: true
+    capacity: "undefined"
+    takeable: false
+    
+    properties:
+      contains_itself: "yes AND no"
+      exists: "undecidable"
+      discovered_by: "Bertrand Russell, 1901"
+      broke: "naive set theory"
+      
+    state:
+      current_membership: "oscillating"
+      observation_count: 0
+      headaches_caused: "many"
+      
+    methods:
+      QUERY_MEMBERSHIP:
+        description: "Does this set contain itself?"
+        effect: |
+          The container considers the question.
+          It contains itself.
+          Therefore it shouldn't contain itself.
+          Therefore it doesn't contain itself.
+          Therefore it should contain itself.
+          Therefore it does contain itself.
+          Therefore...
+          
+          You get a headache.
+          The container also gets a headache.
+          
+      ADD:
+        description: "Add a set to this container"
+        guard: "set must not contain itself"
+        effect: "Set added. Container membership recalculated. Paradox intensifies."
+        
+      OBSERVE:
+        description: "Observe the container's self-membership"
+        effect: |
+          You observe carefully.
+          The container is simultaneously a member and not a member of itself.
+          Your observation does not resolve this.
+          Logic breaks a little.
+          Somewhere, a philosopher weeps.
+          
+      RESOLVE:
+        description: "Attempt to resolve the paradox"
+        effect: "ERROR: This is what ZFC set theory is for. Container remains paradoxical."
+        
+    warnings:
+      - "This paradox broke naive set theory"
+      - "Observing does not help"
+      - "Do not use for actual storage"
+      - "Bertrand Russell was never the same after"
+      - "May cause foundations of mathematics to feel unstable"
+      
+    philosophical_note: |
+      This paradox led to:
+      - The development of axiomatic set theory
+      - Zermelo-Fraenkel set theory (ZFC)
+      - Russell's own Type Theory
+      - Many, many headaches
+      
+      The container exists as a warning and a reminder
+      that self-reference is dangerous.
+      
+  barbers-box:
+    id: barbers-box
+    name: "Barber's Paradox Container"
+    type: container
+    emoji: "💈📦"
+    tags: [container, special, set-theory, paradox, self-reference]
+    
+    description: "Contains all and only those things that don't contain themselves."
+    examine: |
+      ┌────────────────────────────────────┐
+      │  THE BARBER'S BOX                  │
+      │  ══════════════════                │
+      │                                    │
+      │  "This box contains all boxes      │
+      │   that do not contain themselves." │
+      │                                    │
+      │  In the village of Set Theory,     │
+      │  there is a barber who shaves      │
+      │  all and only those who do not     │
+      │  shave themselves.                 │
+      │                                    │
+      │  Who shaves the barber?            │
+      │  What contains this box?           │
+      │                                    │
+      │  ¯\_(ツ)_/¯                        │
+      └────────────────────────────────────┘
+      
+      A more accessible version of Russell's Paradox.
+      The container is labeled with a barbershop pole.
+      Faint sound of scissors that cut themselves.
+      
+    container: true
+    capacity: "paradoxical"
+    takeable: true
+    
+    inherits: russells-set
+    
+    properties:
+      variant: "accessible"
+      involves_barber: true
+      involves_shaving: metaphorically
+      
+    methods:
+      SHAVE:
+        description: "Does the barber shave himself?"
+        effect: "If he does, he doesn't. If he doesn't, he does."
+        
+    humor_note: |
+      "The barber is a woman."
+      — Not actually a solution, but people try.
+      
+# ─────────────────────────────────────────────────────────────
+  # DATA STRUCTURE CONTAINERS
+  # ─────────────────────────────────────────────────────────────
+  
+  cons-cell:
+    id: cons-cell
+    name: "Cons Cell"
+    type: container
+    emoji: "🔗"
+    tags: [container, special, lisp, data-structure, fundamental]
+    
+    description: "The fundamental building block. CAR and CDR. That's all you need."
+    examine: |
+      ┌────────────────────────────────────┐
+      │  CONS CELL                         │
+      │  ══════════                        │
+      │                                    │
+      │  ┌───────┬───────┐                 │
+      │  │  CAR  │  CDR  │                 │
+      │  │   •   │   •───────→             │
+      │  └───────┴───────┘                 │
+      │                                    │
+      │  (cons 'a 'b) → (A . B)            │
+      │  (car cell)   → A                  │
+      │  (cdr cell)   → B                  │
+      │                                    │
+      │  "The atom of Lisp."               │
+      └────────────────────────────────────┘
+      
+      A simple pair. Two slots. CAR and CDR.
+      Named after the IBM 704's address registers:
+      - CAR: Contents of Address Register
+      - CDR: Contents of Decrement Register
+      
+      From these humble pairs, all lists are built.
+      All trees. All structures. Everything.
+      
+    container: true
+    capacity: 2  # Exactly two things: CAR and CDR
+    takeable: true
+    
+    properties:
+      car: null
+      cdr: null
+      dotted_pair: true
+      
+    state:
+      car: null
+      cdr: null
+      
+    methods:
+      CAR:
+        description: "Get the first element"
+        effect: "Returns contents of CAR slot"
+        alias: "FIRST"
+        
+      CDR:
+        description: "Get the rest"
+        effect: "Returns contents of CDR slot"
+        alias: "REST"
+        
+      CONS:
+        description: "Create a new cons cell"
+        parameters:
+          car: "First element"
+          cdr: "Second element (often another cons or NIL)"
+        effect: "Returns new cons cell (CAR . CDR)"
+        
+      SETCAR:
+        description: "Set the CAR"
+        parameters:
+          value: "New value for CAR"
+        effect: "CAR updated (mutation!)"
+        warning: "Functional programmers may disapprove"
+        
+      SETCDR:
+        description: "Set the CDR"
+        parameters:
+          value: "New value for CDR"
+        effect: "CDR updated (mutation!)"
+        warning: "May create circular structures"
+        
+      LIST:
+        description: "Build a proper list"
+        effect: "Chain of cons cells ending in NIL"
+        
+    examples:
+      proper_list: "(cons 'a (cons 'b (cons 'c nil))) → (A B C)"
+      dotted_pair: "(cons 'a 'b) → (A . B)"
+      nested: "(cons (cons 'a 'b) (cons 'c 'd)) → ((A . B) C . D)"
+      
+    warnings:
+      - "Circular CDR chains may cause infinite loops"
+      - "CAR of NIL is NIL"
+      - "CDR of NIL is NIL"
+      - "This is literally how Lisp works"
+      
+    philosophical_note: |
+      John McCarthy, 1958.
+      From two pointers, everything.
+      The cons cell is perhaps the most elegant
+      data structure ever conceived.
+      
+      "Lisp is worth learning for the profound
+       enlightenment experience you will have
+       when you finally get it."
+       — Eric S. Raymond
+       
+  list-cell:
+    inherits: cons-cell
+    name: "List Cell"
+    description: "A cons cell configured for proper lists (CDR is list or NIL)."
+    
+    properties:
+      proper_list: true
+      cdr_type: "list or nil"
+      
+    examine: |
+      A cons cell that insists on being part of a proper list.
+      CDR must be another list-cell or NIL.
+      No dotted pairs allowed.
+      
+      (A B C) = (A . (B . (C . NIL)))
+      
+  circular-list:
+    inherits: cons-cell
+    name: "Circular List Cell"
+    emoji: "🔄🔗"
+    description: "A cons cell whose CDR eventually points back to itself."
+    tags: [container, special, lisp, circular, infinite]
+    
+    examine: |
+      ┌────────────────────────────────────┐
+      │  CIRCULAR LIST                     │
+      │  ═══════════════                   │
+      │                                    │
+      │  ┌───┬───┐   ┌───┬───┐             │
+      │  │ A │ •─┼──→│ B │ •─┼──┐          │
+      │  └───┴───┘   └───┴───┘  │          │
+      │    ↑                    │          │
+      │    └────────────────────┘          │
+      │                                    │
+      │  #1=(A B . #1#)                    │
+      │                                    │
+      │  ⚠️ CDR forever returns elements   │
+      └────────────────────────────────────┘
+      
+      The snake eating its tail.
+      Useful for round-robin, infinite sequences.
+      Dangerous for naive traversal.
+      
+    properties:
+      circular: true
+      length: infinite
+      traversal_warning: "Will not terminate"
+      
+    warnings:
+      - "LENGTH will not return"
+      - "PRINT may need *print-circle* = T"
+      - "Equal? Good luck."
+      
+  quad-tree:
+    id: quad-tree
+    name: "Quad Tree Container"
+    type: container
+    emoji: "🔲⁴"
+    tags: [container, special, spatial, data-structure, recursive]
+    
+    description: "A container that subdivides space into four quadrants, recursively."
+    examine: |
+      ┌────────────────────────────────────┐
+      │  QUAD TREE                         │
+      │  ══════════                        │
+      │                                    │
+      │  ┌─────────┬─────────┐             │
+      │  │         │         │             │
+      │  │   NW    │   NE    │             │
+      │  │         │         │             │
+      │  ├─────────┼─────────┤             │
+      │  │         │         │             │
+      │  │   SW    │   SE    │             │
+      │  │         │         │             │
+      │  └─────────┴─────────┘             │
+      │                                    │
+      │  Each quadrant may contain:        │
+      │  - Items (if leaf)                 │
+      │  - Four more quadrants (if branch) │
+      │                                    │
+      │  Depth: Recursive                  │
+      │  Resolution: Arbitrary             │
+      └────────────────────────────────────┘
+      
+      Spatial partitioning for 2D space.
+      Used in games, maps, collision detection.
+      Items go in the quadrant they belong to.
+      Quadrants subdivide when they get too full.
+      
+    container: true
+    capacity: "varies by depth"
+    takeable: true
+    
+    properties:
+      dimensions: 2
+      quadrants: [NW, NE, SW, SE]
+      max_items_per_leaf: 4
+      max_depth: 8
+      bounds: { x: 0, y: 0, width: 100, height: 100 }
+      
+    state:
+      root:
+        type: leaf
+        items: []
+        bounds: { x: 0, y: 0, width: 100, height: 100 }
+        
+    methods:
+      INSERT:
+        description: "Add an item at a position"
+        parameters:
+          item: "What to insert"
+          x: "X coordinate"
+          y: "Y coordinate"
+        effect: |
+          Item placed in appropriate quadrant.
+          If quadrant exceeds max_items, it subdivides.
+          
+      QUERY:
+        description: "Find items in a region"
+        parameters:
+          x: "Region X"
+          y: "Region Y"
+          width: "Region width"
+          height: "Region height"
+        effect: "Returns all items overlapping region"
+        
+      REMOVE:
+        description: "Remove an item"
+        parameters:
+          item: "What to remove"
+        effect: "Item removed. Quadrant may merge if sparse."
+        
+      SUBDIVIDE:
+        description: "Split a quadrant into four"
+        effect: "Leaf becomes branch with four child quadrants"
+        
+      TRAVERSE:
+        description: "Visit all nodes"
+        parameters:
+          order: "pre/post/level"
+        effect: "Visits each node in specified order"
+        
+      VISUALIZE:
+        description: "Draw the quad tree structure"
+        effect: |
+          ┌───┬───┐
+          │NW │NE │
+          ├───┼───┤
+          │SW │SE │
+          └───┴───┘
+          
+    uses:
+      - "Collision detection in games"
+      - "Image compression"
+      - "Geographic information systems"
+      - "Barnes-Hut simulation"
+      - "Spatial indexing"
+      
+  oct-tree:
+    inherits: quad-tree
+    name: "Oct Tree Container"
+    emoji: "🔲⁸"
+    description: "Like a quad tree, but for 3D space. Eight octants."
+    tags: [container, special, spatial, data-structure, 3d, recursive]
+    
+    examine: |
+      ┌────────────────────────────────────┐
+      │  OCT TREE (3D Quad Tree)           │
+      │  ══════════════════════            │
+      │                                    │
+      │       ┌───────┬───────┐            │
+      │      /│      /│      /│            │
+      │     / │ TNW / │ TNE / │            │
+      │    ┌───────┬───────┐  │            │
+      │    │  │    │  │    │  │            │
+      │    │ BNW   │ BNE   │ /             │
+      │    ├───────┼───────┤/              │
+      │    │ BSW   │ BSE   │               │
+      │    └───────┴───────┘               │
+      │                                    │
+      │  8 octants: TNW, TNE, TSW, TSE     │
+      │             BNW, BNE, BSW, BSE     │
+      │  (Top/Bottom + NW/NE/SW/SE)        │
+      └────────────────────────────────────┘
+      
+    properties:
+      dimensions: 3
+      octants: [TNW, TNE, TSW, TSE, BNW, BNE, BSW, BSE]
+      
+    uses:
+      - "3D game collision"
+      - "Point cloud processing"
+      - "Voxel worlds"
+      - "3D rendering optimization"
+      
+  binary-tree:
+    id: binary-tree
+    name: "Binary Tree Container"
+    type: container
+    emoji: "🌲"
+    tags: [container, special, data-structure, recursive, ordered]
+    
+    description: "Each node has at most two children: left and right."
+    examine: |
+      ┌────────────────────────────────────┐
+      │  BINARY TREE                       │
+      │  ═══════════                       │
+      │                                    │
+      │           [ROOT]                   │
+      │          /      \                  │
+      │       [L]        [R]               │
+      │      /   \      /   \              │
+      │    [LL] [LR]  [RL]  [RR]           │
+      │                                    │
+      │  Each node: value, left, right     │
+      │  Ordered: left < node < right      │
+      │  (for binary search trees)         │
+      └────────────────────────────────────┘
+      
+    container: true
+    capacity: "unbounded"
+    takeable: true
+    
+    properties:
+      value: null
+      left: null
+      right: null
+      ordered: false  # Set true for BST
+      
+    methods:
+      INSERT:
+        description: "Add a value to the tree"
+        effect: "Value placed according to ordering (if BST)"
+        
+      FIND:
+        description: "Search for a value"
+        effect: "O(log n) for balanced trees, O(n) worst case"
+        
+      TRAVERSE:
+        description: "Visit all nodes"
+        parameters:
+          order: "in-order / pre-order / post-order"
+        effect: |
+          in-order:   Left, Node, Right (sorted for BST)
+          pre-order:  Node, Left, Right
+          post-order: Left, Right, Node
+          
+      BALANCE:
+        description: "Rebalance the tree"
+        effect: "Tree restructured for O(log n) operations"
+        
+  # ─────────────────────────────────────────────────────────────
+  # QUANTUM CONTAINERS
+  # ─────────────────────────────────────────────────────────────
+  
+  quantum-box:
+    id: quantum-box
+    name: "Quantum Superposition Box"
+    type: container
+    emoji: "⚛️"
+    tags: [container, special, quantum, observation-sensitive]
+    
+    description: "A box whose contents exist in superposition."
+    examine: |
+      The contents are in all possible states until observed.
+      The box is labeled:
+      
+      ┌────────────────────────────────┐
+      │  QUANTUM STORAGE UNIT          │
+      │  Contents: YES ∧ NO            │
+      │  State: |ψ⟩ = α|0⟩ + β|1⟩      │
+      │  DO NOT OBSERVE CASUALLY       │
+      └────────────────────────────────┘
+      
+    container: true
+    capacity: 1
+    takeable: true
+    
+    state: superposition
+    
+    properties:
+      observed: false
+      collapsed: false
+      probability_alive: 0.5
+      probability_dead: 0.5
+      
+    methods:
+      OPEN: "Collapse the wave function"
+      PEEK: "Partial observation (risky)"
+      MEASURE: "Full quantum measurement"
+      ENTANGLE: "Entangle with another quantum box"
+      
+    on_open: |
+      Wave function collapses.
+      Contents resolve to one definite state.
+      Cannot be un-observed.
+      
+  schrodinger-box:
+    inherits: quantum-box
+    name: "Schrödinger's Box"
+    description: "Contains a cat that is alive AND dead."
+    emoji: "🐱📦⚛️"
+    capacity: 1
+    default_contents: { type: "cat", state: "superposition" }
+    examine: |
+      The famous box. You know what's inside.
+      (And also what isn't.)
+      
+      From within: a meow... or was it silence?
+      
+    on_open: |
+      The cat is either:
+      - Very much alive and annoyed, OR
+      - Very much dead and still annoyed (ghost cat)
+      
+      50/50. You won't know until you look.
+      
+  # ─────────────────────────────────────────────────────────────
+  # DIMENSIONAL CONTAINERS
+  # ─────────────────────────────────────────────────────────────
+  
+  tesseract-box:
+    id: tesseract-box
+    name: "Tesseract Storage"
+    type: container
+    emoji: "🔮"
+    tags: [container, special, dimensional, 4d]
+    
+    description: "A four-dimensional storage container."
+    examine: |
+      Trying to look at it directly hurts your eyes.
+      It has... more sides than it should.
+      Looking at one face, you can see all the others.
+      
+      Capacity is measured in 4D hypercubes.
+      Do not attempt to unfold.
+      
+    container: true
+    capacity: 1000  # Bigger on the inside (many insides)
+    takeable: true
+    
+    dimensions: 4
+    
+    methods:
+      OPEN: "Access from this dimensional angle"
+      ROTATE: "Rotate through 4th dimension (nauseating)"
+      UNFOLD: "⚠️ DO NOT UNFOLD ⚠️"
+      FOLD: "Collapse back to 3D representation"
+      
+    warnings:
+      - "May contain items from other timelines"
+      - "Do not shake in 4th dimension"
+      - "Items may arrive before being stored"
+      
+  pocket-dimension:
+    id: pocket-dimension
+    name: "Pocket Dimension Container"
+    type: container
+    emoji: "🌌"
+    tags: [container, special, dimensional, infinite]
+    
+    description: "A container opening to a small pocket dimension."
+    examine: |
+      The inside is a tiny universe.
+      Looking in, you see stars and nebulae.
+      Items float gently in zero gravity.
+      
+      Time moves differently in there.
+      An item stored for a day may age a century.
+      Or vice versa.
+      
+    container: true
+    capacity: infinite
+    takeable: true
+    
+    properties:
+      time_ratio: variable  # 1:100 to 100:1
+      gravity: 0
+      habitable: barely
+      
+    methods:
+      OPEN: "Create portal to pocket dimension"
+      ENTER: "Step inside (risky)"
+      RETRIEVE: "Reach in and grab something"
+      OBSERVE: "Peer into the pocket cosmos"
+      
+  # ─────────────────────────────────────────────────────────────
+  # TEMPORAL CONTAINERS
+  # ─────────────────────────────────────────────────────────────
+  
+  time-capsule:
+    id: time-capsule
+    name: "Time Capsule"
+    type: container
+    emoji: "⏰📦"
+    tags: [container, special, temporal, sealed]
+    
+    description: "A container that delivers its contents to the future."
+    examine: |
+      Steel cylinder with date dial and temporal lock.
+      Set a date, seal it, contents arrive then.
+      
+      WARNING: Cannot be opened before set date.
+      Not even by you. Especially not by you.
+      
+    container: true
+    capacity: 20
+    takeable: true
+    
+    locked: true
+    
+    properties:
+      target_date: null
+      sealed: false
+      
+    methods:
+      SET_DATE: "Choose when contents will be accessible"
+      SEAL: "Lock contents until target date"
+      WAIT: "Wait for the target date (not recommended)"
+      SHAKE: "Hear echoes from the future"
+      
+  stasis-pod:
+    id: stasis-pod
+    name: "Stasis Pod"
+    type: container
+    emoji: "❄️📦"
+    tags: [container, special, temporal, preservation]
+    
+    description: "A pod that suspends contents outside of time."
+    examine: |
+      Cryo-temporal pod. Contents experience no time.
+      A sandwich stored in 1952 is still fresh.
+      (Assuming anyone stored sandwiches in 1952)
+      
+    container: true
+    capacity: 50
+    takeable: false
+    
+    properties:
+      time_inside: frozen
+      contents_age: never
+      
+    methods:
+      OPEN: "Break stasis field"
+      CLOSE: "Engage stasis field"
+      CHECK: "View contents through time-proof window"
+      
+  # ─────────────────────────────────────────────────────────────
+  # HAZARDOUS CONTAINERS
+  # ─────────────────────────────────────────────────────────────
+  
+  antimatter-container:
+    id: antimatter-container
+    name: "Antimatter Containment Pod"
+    type: container
+    emoji: "⚠️☢️"
+    tags: [container, special, DANGEROUS, antimatter]
+    
+    description: "⚠️ EXTREME DANGER: ANTIMATTER STORAGE ⚠️"
+    examine: |
+      ⚠️⚠️⚠️ WARNING ⚠️⚠️⚠️
+      
+      ANTIMATTER CONTAINMENT UNIT
+      Contents must NOT contact matter.
+      Magnetic containment field: ACTIVE
+      
+      If containment fails:
+      - Do not run. It won't help.
+      - Do not panic. It won't help either.
+      - Write your will. (Actually, no time.)
+      
+    container: true
+    capacity: 1
+    takeable: false
+    
+    properties:
+      containment_field: active
+      yield: "city block"
+      
+    methods:
+      OPEN: "⚠️ DISABLE CONTAINMENT ⚠️ (don't)"
+      CHECK: "View containment status"
+      STABILIZE: "Reinforce containment field"
+      
+    on_containment_failure: |
+      Everything in a 500-meter radius ceases to exist.
+      This includes you.
+      
+  void-container:
+    id: void-container
+    name: "Void Container"
+    type: container
+    emoji: "🕳️"
+    tags: [container, special, void, existential]
+    
+    description: "A container of pure nothing."
+    examine: |
+      Looking inside, you see nothing.
+      Not "empty" — NOTHING.
+      The absence of existence itself.
+      
+      Items placed inside... don't go anywhere.
+      They just stop existing.
+      
+    container: true
+    capacity: infinite
+    takeable: false
+    
+    properties:
+      retrievable: false
+      contents: "the void"
+      
+    methods:
+      LOOK: "Gaze into the void (it gazes back)"
+      DISCARD: "Permanently remove something from existence"
+      SPEAK: "The void does not answer"
+      
+    philosophical_note: |
+      This is not a trash can.
+      Things in a trash can still exist.
+      This is un-existence.

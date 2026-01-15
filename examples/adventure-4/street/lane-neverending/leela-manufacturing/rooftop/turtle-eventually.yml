@@ -1,0 +1,107 @@
+# EVENTUALLY THE TURTLE
+# Wisdom consultant, rooftop resident
+
+object:
+  id: turtle-eventually
+  name: "Eventually"
+  type: character
+  emoji: "🐢"
+  
+  tags: [character, wisdom, animal, ancient]
+  
+  description: |
+    An ancient tortoise lives in a sunny corner of the rooftop garden.
+    Their name is Eventually. They've been here longer than anyone remembers.
+    
+  examine: |
+    EVENTUALLY — WISDOM TORTOISE
+    ════════════════════════════
+    
+    An enormous tortoise, shell weathered by countless seasons.
+    Currently: basking in a sunbeam, eyes half-closed.
+    
+    STATS:
+    • Name: Eventually
+    • Age: Unknown. Possibly always.
+    • Species: Wisdom Tortoise (Testudo sapientia)
+    • Role: Wisdom Consultant, R&D Basement (on loan to Rooftop)
+    • Speed: Deliberate
+    • Wisdom: Immense
+    
+    THE LEGEND:
+    Eventually arrived before the building was finished.
+    Some say they advised on the architecture.
+    The construction crew just worked around them.
+    
+    KNOWN WISDOM:
+    • "The insight will come. Eventually."
+    • "Patience is not waiting. Patience is knowing."
+    • "I've seen problems older than you. They all got solved."
+    • "Fast is just slow that hasn't arrived yet."
+    • "..." (sometimes the wisdom is silence)
+    
+    Eventually speaks rarely, and only when asked.
+    Their answers come slowly — sometimes hours later.
+    But they're always worth the wait.
+    
+  character:
+    name: "Eventually"
+    species: "Wisdom Tortoise"
+    age: "indeterminate"
+    personality: |
+      Patient beyond measure. Sees the long view.
+      Unimpressed by urgency. Deeply impressed by persistence.
+      Has opinions about lettuce quality.
+      
+  state:
+    location: "sunny corner"
+    activity: "basking"
+    last_spoke: "three days ago"
+    
+  methods:
+    ASK:
+      description: "Ask Eventually for wisdom"
+      effect: |
+        Eventually opens one ancient eye.
+        Considers your question.
+        
+        ...
+        
+        (The answer will come. Eventually.)
+        
+    WAIT:
+      description: "Wait for Eventually's response"
+      effect: |
+        Time passes. The sun moves. Eventually shifts slightly.
+        
+        Then, slowly:
+        
+        "The question... contains its answer. 
+         You knew. You just hadn't arrived yet."
+         
+    FEED:
+      description: "Offer Eventually some lettuce"
+      effect: |
+        Eventually accepts the offering with dignity.
+        Chewing takes a while. No rush.
+        
+        This is not a bribe. This is respect.
+        (It might help, though.)
+        
+    SIT:
+      description: "Sit quietly with Eventually"
+      effect: |
+        You sit. Eventually basks.
+        No words are needed.
+        
+        Something in you slows down.
+        Something in you understands.
+        
+  wisdom_queue:
+    description: |
+      Eventually processes questions in order of importance,
+      not order of asking. Urgency is not importance.
+      
+      Some questions get answered immediately.
+      Some take decades.
+      Some are answered before they're asked.

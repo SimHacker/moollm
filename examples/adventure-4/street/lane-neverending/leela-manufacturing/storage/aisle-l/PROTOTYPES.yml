@@ -1,0 +1,684 @@
+# AISLE L — LEELA LOGISTICS CONTAINERS
+# Prototype Definitions for Cloning
+# See: skills/logistic-container/, designs/factorio-logistics-protocol.md
+#
+# ⚠️ NOT ACME — These are LEELA brand! They actually work.
+
+aisle:
+  id: aisle-l
+  name: "Aisle L: Leela Logistics Containers"
+  brand: LEELA
+  material: industrial
+  
+  description: |
+    Leela-branded logistics containers for the Factorio-style
+    automation network. Unlike ACME products, these actually work
+    as intended. Mostly. Usually. The /dev/null box works perfectly.
+    
+  motto: "We manufacture intelligence. We also manufacture boxes."
+    
+# ═══════════════════════════════════════════════════════════════
+# PROTOTYPES — Clone these, don't use them directly!
+# ═══════════════════════════════════════════════════════════════
+
+prototypes:
+
+  # ─────────────────────────────────────────────────────────────
+  # STANDARD LOGISTICS CHESTS (Factorio-style)
+  # ─────────────────────────────────────────────────────────────
+  
+  leela-storage-chest:
+    id: leela-storage-chest
+    name: "Leela Storage Chest"
+    type: logistic-container
+    emoji: "📦⚪"
+    brand: LEELA
+    tags: [container, logistics, storage, leela-brand]
+    
+    description: "A Leela-branded storage chest. Network-aware but passive."
+    examine: |
+      ┌─────────────────────────────────────┐
+      │  LEELA STORAGE CHEST               │
+      │  ═══════════════════               │
+      │  Mode: STORAGE (⚪ White)           │
+      │  Network: Connected                │
+      │  Status: Available                 │
+      │                                    │
+      │  Stores items for network access.  │
+      │  Does not push or pull actively.   │
+      └─────────────────────────────────────┘
+      
+      Steel construction with Leela logo. Lid hinges smoothly.
+      An indicator light shows network connection status.
+      
+    container: true
+    capacity: 48
+    takeable: false
+    
+    chest_mode: storage  # ⚪ White — passive storage
+    network_visible: true
+    
+    methods:
+      OPEN: "Lift the lid"
+      CLOSE: "Lower the lid"
+      QUERY: "Check contents via network"
+      CONNECT: "Join logistics network"
+      
+  leela-passive-provider:
+    id: leela-passive-provider
+    name: "Leela Passive Provider Chest"
+    type: logistic-container
+    emoji: "📦🟡"
+    brand: LEELA
+    tags: [container, logistics, provider, leela-brand]
+    
+    description: "A yellow Leela chest. Contents available to the network."
+    examine: |
+      ┌─────────────────────────────────────┐
+      │  LEELA PASSIVE PROVIDER            │
+      │  ═════════════════════             │
+      │  Mode: PASSIVE-PROVIDER (🟡 Yellow)│
+      │  Network: Connected                │
+      │  Status: Providing                 │
+      │                                    │
+      │  "Take from me if you need it."    │
+      │  Contents visible to requesters.   │
+      └─────────────────────────────────────┘
+      
+      Yellow steel with Leela logo. Bots know what's inside
+      and can come take items when requested elsewhere.
+      
+    container: true
+    capacity: 48
+    takeable: false
+    
+    chest_mode: passive-provider  # 🟡 Yellow — available to network
+    provides: { tags: ["*"] }  # Everything inside is available
+    
+    methods:
+      OPEN: "Lift the lid"
+      CLOSE: "Lower the lid"
+      ADVERTISE: "List what's available to the network"
+      
+  leela-active-provider:
+    id: leela-active-provider
+    name: "Leela Active Provider Chest"
+    type: logistic-container
+    emoji: "📦🔴"
+    brand: LEELA
+    tags: [container, logistics, provider, active, leela-brand]
+    
+    description: "A red Leela chest. Actively pushes contents OUT."
+    examine: |
+      ┌─────────────────────────────────────┐
+      │  LEELA ACTIVE PROVIDER             │
+      │  ════════════════════              │
+      │  Mode: ACTIVE-PROVIDER (🔴 Red)    │
+      │  Network: Connected                │
+      │  Status: PUSHING                   │
+      │                                    │
+      │  "GET THIS STUFF OUT OF HERE!"     │
+      │  Bots actively empty this chest.   │
+      └─────────────────────────────────────┘
+      
+      Red steel with Leela logo. Bots prioritize emptying this.
+      Use for output staging — items won't stay long.
+      
+    container: true
+    capacity: 48
+    takeable: false
+    
+    chest_mode: active-provider  # 🔴 Red — pushing OUT
+    push_priority: high
+    
+    methods:
+      OPEN: "Lift the lid (items may be leaving)"
+      CLOSE: "Lower the lid"
+      FLUSH: "Force immediate push of all contents"
+      
+  leela-requester:
+    id: leela-requester
+    name: "Leela Requester Chest"
+    type: logistic-container
+    emoji: "📦🔵"
+    brand: LEELA
+    tags: [container, logistics, requester, leela-brand]
+    
+    description: "A blue Leela chest. Requests items from the network."
+    examine: |
+      ┌─────────────────────────────────────┐
+      │  LEELA REQUESTER CHEST             │
+      │  ════════════════════              │
+      │  Mode: REQUESTER (🔵 Blue)         │
+      │  Network: Connected                │
+      │  Status: Requesting                │
+      │                                    │
+      │  Request List: [configurable]      │
+      │  Bots will deliver requested items.│
+      └─────────────────────────────────────┘
+      
+      Blue steel with Leela logo. Configure what you need,
+      bots will find and deliver it from provider chests.
+      
+    container: true
+    capacity: 48
+    takeable: false
+    
+    chest_mode: requester  # 🔵 Blue — pulling IN
+    request_list: []  # Configure on clone
+    
+    methods:
+      OPEN: "Lift the lid"
+      CLOSE: "Lower the lid"
+      REQUEST: "Add item to request list"
+      CANCEL: "Remove item from request list"
+      STATUS: "Show pending requests"
+      
+  leela-buffer:
+    id: leela-buffer
+    name: "Leela Buffer Chest"
+    type: logistic-container
+    emoji: "📦🟢"
+    brand: LEELA
+    tags: [container, logistics, buffer, leela-brand]
+    
+    description: "A green Leela chest. Staging area with smart routing."
+    examine: |
+      ┌─────────────────────────────────────┐
+      │  LEELA BUFFER CHEST                │
+      │  ═══════════════════               │
+      │  Mode: BUFFER (🟢 Green)           │
+      │  Network: Connected                │
+      │  Status: Staging                   │
+      │                                    │
+      │  Both requests AND provides.       │
+      │  Smart staging for flow control.   │
+      └─────────────────────────────────────┘
+      
+      Green steel with Leela logo. The Swiss Army knife of
+      logistics chests — can both pull and push as needed.
+      
+    container: true
+    capacity: 48
+    takeable: false
+    
+    chest_mode: buffer  # 🟢 Green — bidirectional
+    can_request: true
+    can_provide: true
+    
+    methods:
+      OPEN: "Lift the lid"
+      CLOSE: "Lower the lid"
+      CONFIGURE: "Set buffer rules"
+      BALANCE: "Auto-balance with other buffers"
+
+  # ─────────────────────────────────────────────────────────────
+  # SPECIAL LEELA CONTAINERS
+  # ─────────────────────────────────────────────────────────────
+  
+  dev-null-box:
+    id: dev-null-box
+    name: "/dev/null Box"
+    type: logistic-container
+    emoji: "🕳️"
+    brand: LEELA
+    tags: [container, logistics, destroyer, void, leela-brand]
+    
+    description: "Items go in. Nothing comes out. Works as intended."
+    examine: |
+      ┌────────────────────────────────────┐
+      │  LEELA /dev/null BOX               │
+      │  ══════════════════                │
+      │  Mode: VOID                        │
+      │  Network: Connected                │
+      │  Status: Consuming                 │
+      │                                    │
+      │  Items placed here cease to exist. │
+      │  Capacity: Infinite (∞)            │
+      │  Retrieval: Impossible             │
+      │                                    │
+      │  ⚠️ THIS IS NOT A TRASH CAN        │
+      │  ⚠️ THERE IS NO UNDO               │
+      └────────────────────────────────────┘
+      
+      Matte black steel with a subtle Leela logo.
+      The interior is... absent. Not dark. Absent.
+      You can hear a faint *whoosh* when items go in.
+      
+    container: true
+    capacity: infinite
+    takeable: false
+    retrievable: false
+    
+    chest_mode: void  # 🕳️ — consuming
+    accepts: { tags: ["*"] }
+    
+    properties:
+      items_destroyed: true
+      no_recovery: true
+      
+    methods:
+      OPEN: "The lid slides aside, revealing nothing"
+      DISCARD: "Drop something into oblivion"
+      COUNT: "Always returns 0"
+      RETRIEVE: "ERROR: Nothing to retrieve"
+      
+    sounds:
+      discard: "*whoosh* — gone forever"
+      
+    warnings:
+      - "Items are DESTROYED, not stored"
+      - "This cannot be undone"
+      - "Works exactly as intended"
+      
+  bit-bucket:
+    id: bit-bucket
+    name: "Bit Bucket"
+    type: logistic-container
+    emoji: "🪣"
+    brand: LEELA
+    tags: [container, logistics, destroyer, recycling, leela-brand]
+    
+    description: "Like /dev/null but collects statistics on what it destroys."
+    examine: |
+      ┌────────────────────────────────────┐
+      │  LEELA BIT BUCKET                  │
+      │  ═══════════════                   │
+      │  Mode: DESTRUCTIVE-AUDIT           │
+      │  Network: Connected                │
+      │  Status: Collecting                │
+      │                                    │
+      │  Items destroyed: [count]          │
+      │  Types destroyed: [histogram]      │
+      │  Last item: [timestamp]            │
+      │                                    │
+      │  For when you need to know what    │
+      │  you're throwing away.             │
+      └────────────────────────────────────┘
+      
+      Industrial steel bucket with Leela logo.
+      A small display shows destruction statistics.
+      "42,847 items processed. 0 regrets."
+      
+    container: true
+    capacity: infinite
+    takeable: true
+    retrievable: false
+    
+    chest_mode: void
+    
+    state:
+      items_destroyed: 0
+      types_histogram: {}
+      last_item: null
+      
+    methods:
+      DISCARD: "Add to the void, increment counter"
+      STATS: "Show destruction statistics"
+      RESET: "Clear statistics (items still gone)"
+      AUDIT: "Generate report of everything destroyed"
+      
+  burning-dumpster:
+    id: burning-dumpster
+    name: "Burning Dumpster"
+    type: logistic-container
+    emoji: "🔥🗑️"
+    brand: LEELA
+    tags: [container, logistics, destroyer, fire, dramatic, leela-brand]
+    
+    description: "Everything is fine. This is fine."
+    examine: |
+      ┌────────────────────────────────────┐
+      │  LEELA BURNING DUMPSTER            │
+      │  ═════════════════════             │
+      │  Mode: THERMAL DISPOSAL            │
+      │  Network: Connected                │
+      │  Status: 🔥 ON FIRE 🔥              │
+      │                                    │
+      │  Temperature: Yes                  │
+      │  Fire Status: Eternal              │
+      │  Capacity: Limited by heat         │
+      │  Smoke: Where there is fire        │
+      │                                    │
+      │  "This is fine." — Management      │
+      └────────────────────────────────────┘
+      
+      A standard industrial dumpster that is, and always has been,
+      and always will be, on fire. The flames never spread, never
+      go out, and cheerfully consume anything placed inside.
+      
+      A small dog sits nearby, looking unconcerned.
+      
+    container: true
+    capacity: 100
+    takeable: false
+    retrievable: false
+    
+    chest_mode: void
+    on_fire: always
+    
+    properties:
+      temperature: "metaphorically high"
+      spreads: false
+      extinguishable: false
+      
+    methods:
+      DISCARD: "Toss into the flames"
+      WARM_HANDS: "Stand nearby for warmth"
+      EXTINGUISH: "Nice try. The flames are eternal."
+      CONTEMPLATE: "Wonder about the state of things"
+      
+    sounds:
+      ambient: "*crackle* *pop* — the flames continue"
+      discard: "*FWOOSH* — consumed by fire"
+      
+    ambience: |
+      The flames dance cheerfully.
+      The dog blinks slowly.
+      Everything is fine.
+      
+  infinite-source:
+    id: infinite-source
+    name: "Infinite Source Chest"
+    type: logistic-container
+    emoji: "♾️📦"
+    brand: LEELA
+    tags: [container, logistics, source, creative, leela-brand]
+    
+    description: "The opposite of /dev/null. Things come out that weren't put in."
+    examine: |
+      ┌─────────────────────────────────────┐
+      │  LEELA INFINITE SOURCE             │
+      │  ══════════════════                │
+      │  Mode: CREATIVE                    │
+      │  Network: Connected                │
+      │  Status: Producing                 │
+      │                                    │
+      │  Produces: [configured item type]  │
+      │  Rate: Unlimited                   │
+      │  Source: ???                       │
+      │                                    │
+      │  ⚠️ FOR TESTING/CREATIVE MODE ONLY │
+      └─────────────────────────────────────┘
+      
+      Gleaming white chest with Leela logo.
+      It hums slightly. The interior glows.
+      Items materialize from nowhere.
+      
+      Somewhere, an economist is crying.
+      
+    container: true
+    capacity: infinite
+    takeable: false
+    
+    chest_mode: infinite-provider
+    
+    properties:
+      creates_from_nothing: true
+      configured_item: null  # Set on clone
+      rate: unlimited
+      
+    methods:
+      CONFIGURE: "Set what this chest produces"
+      TAKE: "Remove items (they'll be replaced instantly)"
+      DISABLE: "Stop production (temporary)"
+      
+    warnings:
+      - "May break your economy"
+      - "For testing/creative mode only"
+      - "Conservation of mass is a suggestion"
+      
+  compost-bin:
+    id: compost-bin
+    name: "Leela Compost Bin"
+    type: logistic-container
+    emoji: "🌱🗑️"
+    brand: LEELA
+    tags: [container, logistics, transformer, organic, leela-brand]
+    
+    description: "Accepts organic waste, produces fertilizer over time."
+    examine: |
+      ┌─────────────────────────────────────┐
+      │  LEELA COMPOST BIN                 │
+      │  ══════════════════                │
+      │  Mode: TRANSFORMER                 │
+      │  Network: Connected                │
+      │  Status: Composting                │
+      │                                    │
+      │  Input: Organic waste              │
+      │  Output: Fertilizer                │
+      │  Progress: [████░░░░░░] 40%        │
+      │                                    │
+      │  Worms working. Please wait.       │
+      └─────────────────────────────────────┘
+      
+      Sturdy green bin with Leela logo and ventilation holes.
+      You can hear the gentle work of decomposition within.
+      Earthy smell. Worms doing their job.
+      
+    container: true
+    capacity: 50
+    takeable: false
+    
+    chest_mode: transformer
+    accepts: { tags: ["organic", "food", "plant"] }
+    produces: { type: "fertilizer", ratio: "10:1" }
+    
+    properties:
+      transform_time: 100  # turns
+      current_progress: 0
+      worms: "present and happy"
+      
+    methods:
+      ADD: "Add organic material"
+      CHECK: "View composting progress"
+      HARVEST: "Collect finished fertilizer"
+      TURN: "Mix the compost (speeds up process)"
+      
+  recycler:
+    id: recycler
+    name: "Leela Recycler"
+    type: logistic-container
+    emoji: "♻️📦"
+    brand: LEELA
+    tags: [container, logistics, transformer, recycling, leela-brand]
+    
+    description: "Breaks items down into raw materials."
+    examine: |
+      ┌─────────────────────────────────────┐
+      │  LEELA RECYCLER                    │
+      │  ═══════════════                   │
+      │  Mode: DECONSTRUCTOR               │
+      │  Network: Connected                │
+      │  Status: Processing                │
+      │                                    │
+      │  Input: Any recyclable item        │
+      │  Output: Raw materials             │
+      │  Efficiency: 80%                   │
+      │                                    │
+      │  ♻️ Reduce, Reuse, Recycle         │
+      └─────────────────────────────────────┘
+      
+      Industrial recycler with Leela logo.
+      Conveyor in one side, material bins on the other.
+      Grinding and sorting noises within.
+      
+    container: true
+    capacity: 20
+    takeable: false
+    
+    chest_mode: transformer
+    accepts: { tags: ["recyclable", "metal", "wood", "fabric"] }
+    efficiency: 0.8  # 80% material recovery
+    
+    methods:
+      INSERT: "Feed item into recycler"
+      PROCESS: "Run recycling cycle"
+      COLLECT: "Retrieve raw materials"
+      EFFICIENCY: "Check material recovery rate"
+      
+  overflow-valve:
+    id: overflow-valve
+    name: "Leela Overflow Valve"
+    type: logistic-container
+    emoji: "🚰📦"
+    brand: LEELA
+    tags: [container, logistics, routing, safety, leela-brand]
+    
+    description: "Accepts overflow when primary storage is full."
+    examine: |
+      ┌─────────────────────────────────────┐
+      │  LEELA OVERFLOW VALVE              │
+      │  ═══════════════════               │
+      │  Mode: OVERFLOW                    │
+      │  Network: Connected                │
+      │  Status: Standby                   │
+      │                                    │
+      │  Primary: [linked chest]           │
+      │  Activates: When primary full      │
+      │  Current: Empty (primary OK)       │
+      │                                    │
+      │  Safety first. No lost items.      │
+      └─────────────────────────────────────┘
+      
+      Secondary storage that activates when linked primary is full.
+      Prevents logistics backups. Safety release valve for items.
+      
+    container: true
+    capacity: 100
+    takeable: false
+    
+    chest_mode: overflow
+    linked_primary: null  # Configure on clone
+    
+    properties:
+      activates_when: "primary.full"
+      priority: low  # Fill last
+      
+    methods:
+      LINK: "Connect to primary storage"
+      STATUS: "Check overflow state"
+      DRAIN: "Return items to primary when space available"
+      
+  quarantine-box:
+    id: quarantine-box
+    name: "Leela Quarantine Box"
+    type: logistic-container
+    emoji: "☣️📦"
+    brand: LEELA
+    tags: [container, logistics, hazmat, isolation, leela-brand]
+    
+    description: "For items that shouldn't mix with others."
+    examine: |
+      ┌─────────────────────────────────────┐
+      │  LEELA QUARANTINE BOX              │
+      │  ═══════════════════               │
+      │  Mode: ISOLATION                   │
+      │  Network: ISOLATED                 │
+      │  Status: Sealed                    │
+      │                                    │
+      │  ☣️ HAZARDOUS CONTENTS ☣️           │
+      │                                    │
+      │  Contents do not appear in normal  │
+      │  network queries. Manual access.   │
+      └─────────────────────────────────────┘
+      
+      Yellow steel with hazmat warnings and Leela logo.
+      Completely isolated from logistics network.
+      For paradoxes, corrupted data, and things that bite.
+      
+    container: true
+    capacity: 20
+    takeable: false
+    locked: true
+    
+    chest_mode: isolated  # Not on network
+    network_visible: false
+    
+    properties:
+      sealed: true
+      isolated: true
+      requires_clearance: true
+      
+    methods:
+      OPEN: "Unseal (requires clearance)"
+      SEAL: "Reseal the container"
+      INSPECT: "Peek through inspection window"
+      DECONTAMINATE: "Attempt to make contents safe"
+      
+  priority-queue:
+    id: priority-queue
+    name: "Leela Priority Queue"
+    type: logistic-container
+    emoji: "⚡📦"
+    brand: LEELA
+    tags: [container, logistics, priority, ordering, leela-brand]
+    
+    description: "FIFO/LIFO/Priority ordering for item dispatch."
+    examine: |
+      ┌─────────────────────────────────────┐
+      │  LEELA PRIORITY QUEUE              │
+      │  ═══════════════════               │
+      │  Mode: ORDERED-DISPATCH            │
+      │  Network: Connected                │
+      │  Status: Processing                │
+      │                                    │
+      │  Order Mode: [FIFO/LIFO/PRIORITY]  │
+      │  Items queued: [count]             │
+      │  Next out: [item]                  │
+      └─────────────────────────────────────┘
+      
+      Items come out in order based on queue configuration.
+      First in first out, last in first out, or by priority tag.
+      
+    container: true
+    capacity: 50
+    takeable: false
+    
+    chest_mode: queue
+    queue_mode: fifo  # or lifo, or priority
+    
+    methods:
+      ENQUEUE: "Add item to queue"
+      DEQUEUE: "Remove next item"
+      PEEK: "See next item without removing"
+      REORDER: "Change queue mode"
+      
+  load-balancer:
+    id: load-balancer
+    name: "Leela Load Balancer"
+    type: logistic-container
+    emoji: "⚖️📦"
+    brand: LEELA
+    tags: [container, logistics, splitter, balancing, leela-brand]
+    
+    description: "Distributes items evenly across multiple outputs."
+    examine: |
+      ┌─────────────────────────────────────┐
+      │  LEELA LOAD BALANCER               │
+      │  ════════════════════              │
+      │  Mode: DISTRIBUTION                │
+      │  Network: Connected                │
+      │  Status: Balancing                 │
+      │                                    │
+      │  Outputs: [list of destinations]   │
+      │  Mode: Round-robin / Weighted      │
+      │  Balance: Even across all outputs  │
+      └─────────────────────────────────────┘
+      
+      One input, multiple outputs. Items distributed evenly.
+      Like a Factorio splitter, but smarter.
+      
+    container: true
+    capacity: 10
+    takeable: false
+    
+    chest_mode: splitter
+    outputs: []  # Configure on clone
+    balance_mode: round_robin  # or weighted, or fill_first
+    
+    methods:
+      INPUT: "Add item to be distributed"
+      CONFIGURE: "Set output destinations"
+      WEIGHT: "Adjust distribution weights"
+      STATS: "Show distribution statistics"

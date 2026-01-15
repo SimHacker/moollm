@@ -1,0 +1,94 @@
+# FLOOR 3 — SHIPPING & FULFILLMENT
+# Where insights go out into the world
+
+room:
+  name: Leela Floor 3 — Shipping Department
+  type: factory_floor
+  
+  description: |
+    The SHIPPING DEPARTMENT is a hive of activity. Finished insights
+    arrive from the Factory Floor below and get packaged, labeled,
+    and dispatched to customers across... everywhere.
+    
+    Pneumatic tubes whoosh. Drones launch from the roof access. 
+    The occasional enlightened pigeon flutters past with a message
+    tied to its leg.
+    
+    A departure board shows outgoing shipments:
+    
+    ┌─────────────────────────────────────────────────────┐
+    │  OUTGOING SHIPMENTS                                 │
+    │  ═══════════════════                                │
+    │  14:23 — Insight Bundle #4471 — The Rusty Lantern   │
+    │  14:25 — Knowledge Crate K-99 — Construction Site   │
+    │  14:30 — Wisdom (Premium) — Origin Plaza            │
+    │  14:47 — Bulk Questions — RETURN TO INTAKE          │
+    │  15:00 — [CLASSIFIED] — [CLASSIFIED]                │
+    └─────────────────────────────────────────────────────┘
+    
+  examine: |
+    SHIPPING DEPARTMENT — FLOOR 3
+    
+    PACKAGING STATIONS:
+    Workers carefully wrap insights for transport:
+    • Standard packaging (cardboard, labels)
+    • Fragile packaging (foam, "HANDLE WITH CARE")
+    • Premium packaging (velvet-lined boxes)
+    • Bulk packaging (shrink-wrapped pallets)
+    
+    DOCUMENTATION CENTER:
+    Every insight ships with proper paperwork:
+    • What it is
+    • How to use it
+    • What NOT to do with it
+    • Warranty information (insights are non-refundable)
+    
+    THE EXPLAINERS:
+    A team dedicated to making insights understandable.
+    They translate "raw insight" into "actionable knowledge."
+    Their motto: "If you can't explain it, it's not done."
+    
+    DISPATCH OPTIONS:
+    • Pneumatic tube (local, fast)
+    • Drone (medium range)
+    • Truck (bulk orders)
+    • Rail (cross-world)
+    • Pigeon (traditional)
+    • "Walk-in pickup" (customers can collect)
+    
+    RETURNS DESK:
+    For insights that didn't quite work out.
+    Sign: "WE DON'T DO REFUNDS. WE DO BETTER QUESTIONS."
+    
+  workers:
+    - "Packaging Specialists"
+    - "Documentation Writers (The Explainers)"
+    - "Dispatch Coordinators"
+    - "Returns Specialist (very patient person)"
+    
+  exits:
+    down:
+      destination: ../floor-2/
+      description: "Down to Floor 2 — Factory"
+      aliases: [2, processing]
+      
+    up:
+      destination: ../rooftop/
+      description: "Up to the Rooftop Garden (and drone pads)"
+      aliases: [roof, garden, drones]
+      
+    loading:
+      destination: ../loading-docks/
+      description: "Direct access to loading docks (for outgoing shipments)"
+      aliases: [docks, trucks]
+      
+    lobby:
+      destination: ../
+      description: "Elevator to the lobby"
+      aliases: [elevator, out]
+      
+  objects:
+    - departure-board.yml
+    - packaging-stations.yml
+    - pneumatic-hub.yml
+    - camera-shp1.yml  # Leela's Shipping Eye

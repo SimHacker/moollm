@@ -102,6 +102,39 @@ room:
       In Habitat, there was a center. In Glitch, there were
       starting streets. This is that tradition, made manifest.
       
-  objects:
+objects:
     - origin-tree.yml
     - origin-plaque.yml
+    
+  # Flyweight instances — shared prototype, minimal instance data
+  # See: ../STREET-FURNITURE.yml
+  flyweight:
+    lamp_post_plaza_1:
+      prototype: ../STREET-FURNITURE.yml#lamp-post
+      location: "plaza perimeter, northeast"
+      style: "original design, brass accents"
+      
+    lamp_post_plaza_2:
+      prototype: ../STREET-FURNITURE.yml#lamp-post
+      location: "plaza perimeter, northwest"
+      style: "original design, brass accents"
+      
+    lamp_post_plaza_3:
+      prototype: ../STREET-FURNITURE.yml#lamp-post
+      location: "plaza perimeter, southeast"
+      style: "original design, brass accents"
+      
+    lamp_post_plaza_4:
+      prototype: ../STREET-FURNITURE.yml#lamp-post
+      location: "plaza perimeter, southwest"
+      style: "original design, brass accents"
+      
+    bench_tree_1:
+      prototype: ../STREET-FURNITURE.yml#street-bench
+      location: "under the Origin Tree, facing east"
+      carvings: ["Here since '86", "The first bench"]
+      
+    bench_tree_2:
+      prototype: ../STREET-FURNITURE.yml#street-bench
+      location: "under the Origin Tree, facing west"
+      carvings: ["The end is the beginning", "∞"]

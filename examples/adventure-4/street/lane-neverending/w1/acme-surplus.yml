@@ -1,21 +1,27 @@
 # The abandoned ACME Surplus store
+# North side of w1, across from Leela Manufacturing
 
 object:
   name: ACME Surplus Storefront
   type: building
   portable: false
   status: closed
+  side: north
   
   description: |
     A dusty storefront with a faded sign: "ACME SURPLUS — EVERYTHING MUST GO"
     Everything did go. The store is empty now.
+    
+    NORTH side of the street, directly across from Leela Manufacturing.
+    A study in contrasts: the bustling knowledge factory on one side,
+    the abandoned mail-order casualty on the other.
     
     One section of the windows is boarded up. Someone has painted
     a TUNNEL on the boards — a perfect trompe l'oeil leading into
     darkness. It looks... very runnable.
     
   examine: |
-    ACME SURPLUS — 12 LANE NEVERENDING
+    ACME SURPLUS — 4 LANE NEVERENDING (NORTH SIDE)
     
     The windows are dusty but not boarded. Inside, empty shelves
     stretch into darkness. A few price tags flutter in a draft

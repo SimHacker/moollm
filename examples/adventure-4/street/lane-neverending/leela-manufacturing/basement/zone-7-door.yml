@@ -1,0 +1,135 @@
+# ZONE 7 DOOR
+# Paradox containment
+
+object:
+  id: zone-7-door
+  name: "Zone 7 Door"
+  type: barrier
+  emoji: "🚪⚠️"
+  
+  tags: [door, sealed, dangerous, paradox]
+  
+  description: |
+    A heavy blast door separating Zone 7 from the rest of the basement.
+    Warning lights flash. The door is sealed.
+    Something on the other side knows you're there.
+    
+  examine: |
+    ZONE 7 DOOR
+    ═══════════
+    
+    ┌─────────────────────────────────────────────────────────┐
+    │                                                         │
+    │                    ⚠️ ZONE 7 ⚠️                          │
+    │                                                         │
+    │              PARADOX CONTAINMENT AREA                   │
+    │                                                         │
+    │  ════════════════════════════════════════════════════  │
+    │                                                         │
+    │  STATUS: SEALED                                         │
+    │  REASON: Active paradox processing                      │
+    │  PERSONNEL INSIDE: Unknown (count keeps changing)       │
+    │                                                         │
+    │  ════════════════════════════════════════════════════  │
+    │                                                         │
+    │  NO ENTRY                                               │
+    │  WE MEAN IT                                             │
+    │  THE DOOR IS LOCKED FOR YOUR PROTECTION                 │
+    │                                                         │
+    │  (If you hear your name from inside, IGNORE IT)         │
+    │                                                         │
+    └─────────────────────────────────────────────────────────┘
+    
+    THE DOOR:
+    Three feet of blast-resistant steel. Reinforced with something
+    that looks like lead but probably isn't. Warning lights rotate
+    slowly — red, yellow, red, yellow.
+    
+    THE WINDOW:
+    A small, thick viewport allows you to see inside.
+    What you see... doesn't make sense.
+    The room appears to be both occupied and empty.
+    There's a researcher at a whiteboard, but also nobody.
+    The equations on the board solve themselves, then unsolve.
+    
+    THE SOUNDS:
+    You can hear something through the door.
+    Humming? Talking? Both?
+    Sometimes it sounds like your own voice.
+    (It's not. Probably.)
+    
+    THE PROJECT:
+    Zone 7 handles paradox processing.
+    "We understand the problem. The problem understands us back."
+    Dr. Unknown (identity classified) leads the team.
+    Or teams. The count is... uncertain.
+    
+  state:
+    sealed: true
+    warning_lights: "active"
+    sounds: "humming"
+    personnel_count: "indeterminate"
+    
+  locked: true
+  lockable: true
+  
+  methods:
+    LOOK_THROUGH_WINDOW:
+      description: "Peer through the viewport"
+      effect: |
+        You look inside Zone 7.
+        
+        You see a researcher working at a whiteboard.
+        They turn and wave at you.
+        But they're also not there.
+        But they are.
+        
+        The whiteboard says: "If this statement is false..."
+        You look away before reading the rest.
+        
+    LISTEN:
+      description: "Listen at the door"
+      effect: |
+        You press your ear to the cold steel.
+        
+        Humming. Definitely humming.
+        And... is that your name?
+        
+        No. It's not. Ignore it.
+        
+        (But it really did sound like your name.)
+        
+    KNOCK:
+      description: "Knock on the door"
+      effect: |
+        *knock knock knock*
+        
+        From inside: *knock knock knock*
+        
+        Exactly the same rhythm.
+        
+        You didn't knock again. But you hear: *knock knock knock*
+        
+        This is why we don't knock on Zone 7.
+        
+    ATTEMPT_OPEN:
+      description: "Try to open the door"
+      effect: |
+        The door doesn't move. Of course it doesn't.
+        
+        A speaker crackles:
+        "Zone 7 access requires Level Omega clearance,
+         Dr. Unknown's approval, and acceptance that
+         'you' is a flexible concept in this zone."
+         
+        You don't have any of those things.
+        
+        (Do you even want to enter? Does the you that would
+        enter still want to by the time they're inside?)
+        
+  warnings:
+    - "Do not knock"
+    - "Do not listen"
+    - "Do not look too long"
+    - "If you hear your name, it's NOT calling you"
+    - "Personnel count is SUPPOSED to be uncertain"

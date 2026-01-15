@@ -1,0 +1,69 @@
+# THE BIG BOARD
+# Problem status visualization
+
+object:
+  id: big-board
+  name: "The Big Board"
+  type: display
+  emoji: "📺"
+  
+  tags: [display, status, visualization]
+  
+  description: |
+    A massive display showing every problem currently in process,
+    updated in real-time. The heartbeat of the Factory Floor.
+    
+  examine: |
+    THE BIG BOARD
+    ═════════════
+    
+    Wall-sized display, visible from anywhere on the floor.
+    Thousands of colored dots, each representing a problem.
+    
+    ┌─────────────────────────────────────────────────────────┐
+    │  PROCESSING STATUS                         [LIVE]      │
+    │  ═════════════════                                     │
+    │                                                        │
+    │  ●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●  │
+    │  ●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●  │
+    │  ●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●  │
+    │  ●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●  │
+    │                                                        │
+    │  LEGEND:                                               │
+    │  🟢 On track (892)                                     │
+    │  🟡 Needs attention (147)                              │
+    │  🔴 Stuck — send help (23)                             │
+    │  🟣 "We're not sure what's happening" (7)              │
+    │  ⚫ Completed today (456)                               │
+    │                                                        │
+    │  ─────────────────────────────────────────────────     │
+    │                                                        │
+    │  TOP PRIORITY:                                         │
+    │  • P-4471: Widget explosion prevention (Cell A) 🟡     │
+    │  • P-4492: Vampire salesman (Cell B) 🔴                │
+    │  • P-4500: The Thing in Cell G [REDACTED] 🟣           │
+    │                                                        │
+    │  FURNACE STATUS: ████████████████░░ 89% capacity      │
+    │                                                        │
+    └─────────────────────────────────────────────────────────┘
+    
+    Workers glance at the board constantly.
+    When a red dot appears, someone hurries toward it.
+    When a purple dot appears, people look away.
+    
+  methods:
+    FILTER:
+      description: "Show only certain statuses"
+      parameters:
+        status: "green/yellow/red/purple"
+      effect: "Board filters to show only matching problems"
+      
+    ZOOM:
+      description: "Focus on a specific problem"
+      parameters:
+        problem_id: "Problem number"
+      effect: "Detailed view of problem status and history"
+      
+    ALERTS:
+      description: "Show current alerts only"
+      effect: "Red and purple dots highlighted"

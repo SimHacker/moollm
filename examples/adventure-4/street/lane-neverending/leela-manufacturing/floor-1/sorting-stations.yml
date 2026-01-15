@@ -1,0 +1,52 @@
+# SORTING STATIONS
+# Where items get categorized
+
+object:
+  id: sorting-stations
+  name: "Sorting Stations"
+  type: workstation
+  emoji: "📋"
+  
+  tags: [workstation, intake, categorization]
+  
+  description: |
+    Eight sorting stations along the conveyor lines, staffed by
+    Categorizers with clipboards and thoughtful expressions.
+    
+  examine: |
+    SORTING STATIONS
+    ════════════════
+    
+    Each station is a small booth with:
+    • Conveyor access (items arrive automatically)
+    • Classification terminal
+    • Routing controls
+    • Very large coffee mug
+    
+    THE SORTING PROCESS:
+    1. "Is this actually a question?" (You'd be surprised how often: no)
+    2. "What category?" (Manufacturing, logistics, process, meta, other, ???)
+    3. "Priority level?" (Urgent, normal, whenever, never, "dear god why")
+    4. "Route to which processing line?"
+    
+    STATION SPECIALTIES:
+    • Stations 1-3: Questions (high volume)
+    • Stations 4-5: Problems (requires experience)
+    • Station 6: Data validation
+    • Station 7: Edge cases (the weird stuff)
+    • Station 8: The Confused Welcome Desk
+    
+    THE CONFUSED WELCOME DESK (Station 8):
+    For items that defy categorization. The worker here has seen
+    everything. Nothing surprises them anymore. Their coffee mug
+    says: "I'VE SEEN WEIRDER."
+    
+  workers:
+    station_1: { name: "Quick-sort Quinn", specialty: "speed" }
+    station_2: { name: "Careful Carlos", specialty: "accuracy" }
+    station_3: { name: "Three-way Tina", specialty: "multitasking" }
+    station_4: { name: "Problem Pete", specialty: "difficult items" }
+    station_5: { name: "Weighty Wanda", specialty: "heavy problems" }
+    station_6: { name: "Data Dave", specialty: "validation" }
+    station_7: { name: "Edge-case Eddie", specialty: "anomalies" }
+    station_8: { name: "The Confused Welcome Desk", specialty: "everything else" }

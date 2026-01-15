@@ -70,5 +70,19 @@ room:
         Walk far enough in any direction, you end up where you started.
         The name was never a promise. It was a warning.
         
-  objects:
+objects:
     - construction-site.yml
+    
+  # Flyweight instances — shared prototype, minimal instance data
+  # See: ../STREET-FURNITURE.yml
+  flyweight:
+    lamp_post_last:
+      prototype: ../STREET-FURNITURE.yml#lamp-post
+      location: "last lamp on the paved section"
+      note: "Beyond here, no streetlights yet"
+      
+    bench_frontier:
+      prototype: ../STREET-FURNITURE.yml#street-bench
+      location: "edge of construction"
+      carvings: ["FUTURE SITE OF...", "watch this space"]
+      new: true

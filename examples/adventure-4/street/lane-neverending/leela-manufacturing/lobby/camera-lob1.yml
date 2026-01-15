@@ -1,0 +1,79 @@
+# CAMERA LOB1
+# Leela's front eye — watching the entrance
+
+object:
+  id: camera-lob1
+  name: "Camera LOB1"
+  type: sensor
+  emoji: "📹"
+  
+  tags: [sensor, camera, video, self-observation, eye, entrance]
+  
+  description: |
+    A discreet camera mounted above the lobby directory,
+    watching the entrance, the elevator, and everyone who
+    comes to Leela Manufacturing seeking knowledge.
+    
+  examine: |
+    CAMERA LOB1 — LEELA'S FRONT EYE
+    ════════════════════════════════
+    
+    ┌─────────────────────────────────────────┐
+    │  📹 LOB1                                │
+    │  ══════                                 │
+    │                                         │
+    │  Location: Lobby (Ground Floor)         │
+    │  Status: 🟢 LIVE                        │
+    │  Resolution: 4K @ 30fps                 │
+    │  Feed: → VIDEO INTAKE (Floor 1)         │
+    │                                         │
+    │  "Leela watching who enters."           │
+    └─────────────────────────────────────────┘
+    
+    CURRENT VIEW:
+    • Front Door: Currently closed
+    • Directory Board: Glowing softly
+    • Elevator: Doors closed, indicator shows "2"
+    • Reception Desk: Attendant helping visitor
+    • Waiting Area: 2 people seated, 1 reading
+    • Street View: Lane Neverending visible through windows
+    
+    DETECTED IN LAST HOUR:
+    • 234 object detections
+    • 156 pose estimations
+    • 47 "VISITOR_ARRIVED" events
+    • 23 "ELEVATOR_USED" events
+    • 12 "DIRECTORY_CONSULTED" events
+    • 3 "CONFUSED_VISITOR" events (redirected to help)
+    
+    VISITOR ANALYTICS:
+    Most common destinations:
+    1. Floor 2 (Factory) — 34%
+    2. Loading Docks — 28%
+    3. Floor 1 (Intake) — 19%
+    4. Rooftop — 12%
+    5. Basement — 7% (requires clearance)
+    
+  properties:
+    designation: "LOB1"
+    nickname: "Front Eye"
+    location: "Lobby, Above Directory"
+    resolution: "4K"
+    fps: 30
+    facial_blur: true  # Privacy for visitors
+    
+  state:
+    status: "live"
+    streaming_to: "floor-1/conveyor-system"
+    visitors_today: 47
+    
+  methods:
+    WATCH:
+      description: "View the live feed"
+      effect: |
+        The lobby is clean, professional, welcoming.
+        The Leela Manufacturing logo glows on the wall.
+        
+        A visitor approaches the directory, studies it,
+        then heads for the elevator. Floor 2.
+        Another problem to process.

@@ -1,0 +1,288 @@
+# AISLE C — SOFT CONTAINERS
+# Prototype Definitions for Cloning
+# See: skills/prototype/
+
+aisle:
+  id: aisle-c
+  name: "Aisle C: Soft Containers"
+  material: fabric
+  
+  description: |
+    Flexible containers made of fabric, leather, and other soft materials.
+    Good for: personal items, bulk goods, portable storage.
+    
+# ═══════════════════════════════════════════════════════════════
+# PROTOTYPES — Clone these, don't use them directly!
+# ═══════════════════════════════════════════════════════════════
+
+prototypes:
+
+  # ─────────────────────────────────────────────────────────────
+  # SACKS
+  # ─────────────────────────────────────────────────────────────
+  
+  burlap-sack:
+    id: burlap-sack
+    name: "Burlap Sack"
+    type: container
+    emoji: "👝"
+    tags: [container, fabric, takeable, bulk]
+    
+    description: "A rough burlap sack, tied with twine."
+    examine: |
+      Rough woven burlap, scratchy but strong.
+      Cinched at the top with twine.
+      Classic sack. 10/10 would carry potatoes in.
+      
+    container: true
+    capacity: 30
+    takeable: true
+    
+    chest_mode: storage
+    
+    durability: 15
+    
+    methods:
+      OPEN: "Untie the twine"
+      CLOSE: "Gather and tie with twine"
+      CARRY: "Sling over shoulder"
+      WEAR: "Put over head (limited visibility)"
+      
+    sounds:
+      rustle: "*shhhk shhhk*"
+      
+  potato-sack:
+    inherits: burlap-sack
+    name: "Potato Sack"
+    description: "A sack for potatoes. May contain potatoes."
+    default_contents: { type: "potatoes", quantity: 20 }
+    smell: "Earthy"
+    
+  mail-sack:
+    inherits: burlap-sack
+    name: "Mail Sack"
+    description: "A postal service mail sack."
+    tags: [container, fabric, takeable, official, postal]
+    examine: |
+      Canvas mail sack with "ROYAL MAIL" stenciled on side.
+      Or maybe "POSTAL SERVICE". Or maybe "LEELA MAIL".
+      Definitely official.
+      
+  money-bag:
+    inherits: burlap-sack
+    name: "Money Bag"
+    description: "A bag with a $ symbol on it. Classic."
+    emoji: "💰"
+    capacity: 10
+    tags: [container, fabric, takeable, valuable]
+    examine: |
+      Exactly the kind of bag you'd see in a cartoon heist.
+      Big dollar sign on the side. Drawstring top.
+      Currently empty (probably).
+      
+  # ─────────────────────────────────────────────────────────────
+  # BAGS
+  # ─────────────────────────────────────────────────────────────
+  
+  canvas-bag:
+    id: canvas-bag
+    name: "Canvas Bag"
+    type: container
+    emoji: "👜"
+    tags: [container, fabric, takeable, reusable]
+    
+    description: "A sturdy canvas tote bag."
+    examine: |
+      Heavy canvas, reinforced handles.
+      Probably says something clever on it.
+      Very Portland. Much sustainability.
+      
+    container: true
+    capacity: 15
+    takeable: true
+    wearable: true
+    wear_slot: shoulder
+    
+    durability: 25
+    
+    methods:
+      OPEN: "Look inside"
+      CARRY: "Sling over shoulder"
+      WEAR: "Wear across body"
+      
+  messenger-bag:
+    inherits: canvas-bag
+    name: "Messenger Bag"
+    description: "A cross-body messenger bag with many pockets."
+    capacity: 20
+    tags: [container, fabric, takeable, organized, urban]
+    examine: |
+      Canvas messenger bag with flap closure.
+      Multiple pockets, padded laptop compartment.
+      Very "I work at a startup" energy.
+      
+  duffel-bag:
+    inherits: canvas-bag
+    name: "Duffel Bag"
+    description: "A cylindrical duffel bag with handles and strap."
+    capacity: 40
+    examine: |
+      Large cylindrical bag with zipper top.
+      Handles and shoulder strap.
+      Could contain gym clothes, or a body. You decide.
+      
+  paper-bag:
+    id: paper-bag
+    name: "Paper Bag"
+    type: container
+    emoji: "🛍️"
+    tags: [container, paper, takeable, disposable]
+    
+    description: "A brown paper bag."
+    examine: |
+      Standard brown paper bag.
+      One use only. Do not get wet.
+      
+    container: true
+    capacity: 8
+    takeable: true
+    
+    durability: 3
+    water_destroys: true
+    
+    methods:
+      OPEN: "Unfold the top"
+      POP: "Inflate and pop (loud)"
+      WEAR: "Put over head (anonymous)"
+      BREATHE_INTO: "For hyperventilation management"
+      
+    sounds:
+      pop: "*BANG*"
+      
+  # ─────────────────────────────────────────────────────────────
+  # POUCHES
+  # ─────────────────────────────────────────────────────────────
+  
+  leather-pouch:
+    id: leather-pouch
+    name: "Leather Pouch"
+    type: container
+    emoji: "👛"
+    tags: [container, leather, takeable, small]
+    
+    description: "A small leather drawstring pouch."
+    examine: |
+      Soft leather pouch with drawstring closure.
+      Sized for coins, gems, or small objects.
+      
+    container: true
+    capacity: 5
+    takeable: true
+    wearable: true
+    wear_slot: belt
+    
+    durability: 20
+    
+    methods:
+      OPEN: "Loosen the drawstring"
+      CLOSE: "Pull the drawstring tight"
+      JINGLE: "Shake to hear contents"
+      
+    sounds:
+      jingle: "*clink clink*"
+      
+  coin-purse:
+    inherits: leather-pouch
+    name: "Coin Purse"
+    description: "A small purse for coins."
+    capacity: 3
+    default_contents: { type: "coins", quantity: "random" }
+    
+  spell-component-pouch:
+    inherits: leather-pouch
+    name: "Spell Component Pouch"
+    description: "A pouch for magical spell components."
+    capacity: 10
+    tags: [container, leather, takeable, magical]
+    examine: |
+      Small pouches within the pouch, each holding
+      different spell components: bat guano, sulfur,
+      newt eyes, mistletoe, various powders...
+      
+  tobacco-pouch:
+    inherits: leather-pouch
+    name: "Tobacco Pouch"
+    description: "A pouch for pipe tobacco."
+    capacity: 2
+    smell: "Rich tobacco"
+    default_contents: { type: "pipe_tobacco", quantity: "some" }
+    
+  # ─────────────────────────────────────────────────────────────
+  # BACKPACKS
+  # ─────────────────────────────────────────────────────────────
+  
+  backpack:
+    id: backpack
+    name: "Backpack"
+    type: container
+    emoji: "🎒"
+    tags: [container, fabric, takeable, wearable, adventurer]
+    
+    description: "A sturdy adventurer's backpack."
+    examine: |
+      Canvas and leather backpack with multiple compartments.
+      Padded shoulder straps. Built for adventuring.
+      Smells like every trail you've ever hiked.
+      
+    container: true
+    capacity: 30
+    takeable: true
+    wearable: true
+    wear_slot: back
+    
+    durability: 40
+    
+    methods:
+      OPEN: "Open the main compartment"
+      CLOSE: "Close and buckle"
+      WEAR: "Put on both shoulders"
+      SEARCH: "Rummage through pockets"
+      ORGANIZE: "Arrange contents neatly"
+      
+  school-backpack:
+    inherits: backpack
+    name: "School Backpack"
+    description: "A backpack covered in buttons and patches."
+    capacity: 25
+    examine: |
+      Covered in band patches, political buttons,
+      and at least one Sharpie drawing.
+      Contains textbooks you never read.
+      
+  hiking-backpack:
+    inherits: backpack
+    name: "Hiking Backpack"
+    description: "A large frame backpack for serious hiking."
+    capacity: 60
+    weight_limit: 50
+    tags: [container, fabric, takeable, wearable, expedition]
+    examine: |
+      External frame backpack with hip belt.
+      Sleeping bag straps, water bottle pockets,
+      and way too many compression straps.
+      
+  bag-of-holding:
+    inherits: backpack
+    name: "Bag of Holding"
+    description: "A backpack that's bigger on the inside."
+    emoji: "✨🎒✨"
+    capacity: 500
+    weight_limit: null  # Weightless contents
+    tags: [container, fabric, takeable, wearable, magical, dimensional]
+    examine: |
+      Looks like an ordinary backpack, but when you
+      reach inside... the interior keeps going.
+      And going. And going.
+      
+      WARNING: Do not place inside another bag of holding.
+      Do not look too deep. Do not feed after midnight.
