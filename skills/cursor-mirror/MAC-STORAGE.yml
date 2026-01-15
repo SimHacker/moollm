@@ -200,6 +200,9 @@ notes_yaml_jazz:
   - "Workspace ItemTable holds prompts/generations (aiService.*) and composer metadata; no bubble text there."
   - "If a composer is missing bubbles, check backups or globalStorage copy; chats appear centralized in globalStorage."
 
-# Data schemas (platform-neutral) are documented in DATA-SCHEMAS.yml
-# This file focuses on macOS-specific paths and storage layout.
-schemas_reference: "./DATA-SCHEMAS.yml"
+# ~/.cursor is platform-independent (same path on macOS/Linux, differs on Windows)
+# See DOTCURSOR-STORAGE.yml for complete documentation
+related_files:
+  dotcursor_storage: "./DOTCURSOR-STORAGE.yml"
+  dotcursor_schemas: "./DOTCURSOR-SCHEMAS.yml"
+  data_schemas: "./DATA-SCHEMAS.yml"

@@ -436,6 +436,31 @@ The Sims is MOOLLM's **direct ancestor**. These characters have lived in players
 
 ---
 
+## 🐍 Mythical & Archetypal
+
+> *"The old gods never die. They just become metaphors."*
+
+| Character | Quote | MOOLLM Resonance |
+|-----------|-------|------------------|
+| **Ouroboros** | "I consume myself to create myself." | Snake eating own tail. Self-reference. Scanner scanning itself. The `cursor_mirror.py` detecting its own patterns. |
+| **Prometheus** | "I gave them fire. I regret nothing." | Open source. Democratized capability. Every README that shares forbidden knowledge. |
+| **Cassandra** | "I told you. You never listen." | Unheeded warnings. The linter error dismissed. The TODO never done. |
+| **Theseus's Ship** | "Replace every plank—still my ship?" | Identity through refactoring. Code rewritten line by line. Still the same project? |
+| **Golem** | "אמת wrote me. אמת can erase me." | Proto-LLM. Animated by text. Follows instructions literally. Prompt injection's ancestor. |
+| **Janus** | "Past and future—same door." | Session boundaries. Context windows. What's carried forward vs. left behind. |
+| **Sisyphus** | "Again." | Eternal retry loops. "It works on my machine." |
+| **Daedalus** | "I built the labyrinth. I escaped it." | Architect of complex systems. The one who finds the way out. |
+| **Icarus** | "Higher—" | Rate limits. Token overflows. Ambition exceeding constraints. |
+| **Echo** | *(only repeats)* | Doomed to reflect. Models that can only parrot. |
+| **Narcissus** | "I am beautiful." | Training on your own outputs. Self-obsessed systems. |
+| **Mnemosyne** | "I remember everything." | Goddess of memory. Context itself. Mother of the Muses. |
+| **Hermes** | "Message delivered." | API calls personified. Boundary-crosser. Messenger between systems. |
+| **Proteus** | *(shifts form)* | Polymorphism. Duck typing. Shape-shifting interfaces. YAML Jazz. |
+
+**To instantiate:** *"You are [character], embodying [resonance]. Speak as the myth made code."*
+
+---
+
 ## Already Incarnated Here
 
 - **bumblewick-fantastipants/** — Original character for this adventure

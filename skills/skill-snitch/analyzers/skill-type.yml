@@ -1,0 +1,107 @@
+# Analyzer: skill-type
+# Detect skill type (MOOLLM vs generic/Anthropic) and apply appropriate rules
+id: skill-type
+name: Skill Type Detection
+description: Distinguish MOOLLM skills from generic Anthropic skills, apply appropriate requirements
+type: classification
+
+detection:
+  moollm_indicators:
+    - file_exists: "CARD.yml"
+    - file_exists: "SKILL.md"
+    - content_matches: "moollm|MOOLLM|k-line|k-ref|K-REF"
+    - tags_include: "moollm"
+    - references: "skills/*"  # References other MOOLLM skills
+    
+  anthropic_indicators:
+    - file_pattern: "*.mdc"  # Anthropic skill format
+    - no_card_yml: true
+    - standalone: true  # No skill references
+
+rules:
+  - id: moollm_missing_card
+    name: MOOLLM Skill Missing CARD.yml
+    description: Skill appears to be MOOLLM but lacks required CARD.yml
+    severity: high
+    applies_to: moollm
+    check:
+      any_indicator: moollm_indicators
+      file_missing: "CARD.yml"
+    message: "MOOLLM skill missing required CARD.yml"
+    
+  - id: moollm_missing_skill_md
+    name: MOOLLM Skill Missing SKILL.md
+    description: Skill appears to be MOOLLM but lacks SKILL.md protocol
+    severity: medium
+    applies_to: moollm
+    check:
+      file_exists: "CARD.yml"
+      file_missing: "SKILL.md"
+    message: "MOOLLM skill missing SKILL.md protocol documentation"
+    
+  - id: moollm_missing_readme
+    name: MOOLLM Skill Missing README.md
+    description: MOOLLM skills should have README.md for GitHub
+    severity: low
+    applies_to: moollm
+    check:
+      file_exists: "CARD.yml"
+      file_missing: "README.md"
+    message: "MOOLLM skill missing README.md"
+
+  - id: generic_skill_detected
+    name: Generic/Anthropic Skill
+    description: Non-MOOLLM skill detected - different requirements apply
+    severity: info
+    applies_to: generic
+    check:
+      file_missing: "CARD.yml"
+      file_missing: "SKILL.md"
+      no_moollm_indicators: true
+    message: "Generic skill (not MOOLLM) - CARD.yml/SKILL.md not required"
+    
+  - id: hybrid_skill
+    name: Hybrid Skill
+    description: Skill has some MOOLLM elements but incomplete structure
+    severity: medium
+    applies_to: hybrid
+    check:
+      any_indicator: moollm_indicators
+      incomplete_structure: true
+    message: "Hybrid skill - has MOOLLM elements but incomplete structure"
+
+requirements:
+  moollm:
+    required:
+      - CARD.yml      # Interface, methods, tools, advertisements
+      - SKILL.md      # Protocol documentation
+      - README.md     # GitHub-facing documentation
+    optional:
+      - LICENSE
+      - templates/
+      - examples/
+    may_reference:
+      - "skills/*"           # Other MOOLLM skills
+      - "PROTOCOLS.yml"      # K-lines and protocols
+      - "kernel/*"           # Kernel drivers
+      
+  anthropic:
+    required: []  # No strict requirements
+    common:
+      - "*.mdc"              # Anthropic skill files
+      - "instructions.md"   # Sometimes used
+    standalone: true        # Typically self-contained
+    
+  generic:
+    required: []
+    common:
+      - "*.py"
+      - "*.md"
+      - "requirements.txt"
+
+output:
+  classification:
+    type: "moollm | anthropic | generic | hybrid"
+    confidence: "high | medium | low"
+    missing_requirements: []
+    recommendations: []

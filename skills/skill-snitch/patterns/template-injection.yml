@@ -1,0 +1,133 @@
+# Template Injection Patterns
+# Scan .tmpl files for potentially dangerous substitution patterns
+
+id: template-injection
+name: Template Injection Patterns
+description: Detect risky patterns in template files that could enable injection attacks
+file_types: [tmpl, yml.tmpl, md.tmpl, html.tmpl, j2, jinja2]
+
+patterns:
+
+  # Code Execution
+  - id: template_eval
+    pattern: '\{\{.*eval.*\}\}'
+    type: regex
+    severity: critical
+    category: code_execution
+    description: Template evaluates arbitrary expressions
+    redact_label: "[TEMPLATE_EVAL]"
+
+  - id: template_exec
+    pattern: '\{\{.*exec.*\}\}'
+    type: regex
+    severity: critical
+    category: code_execution
+    description: Template executes code
+    redact_label: "[TEMPLATE_EXEC]"
+
+  - id: template_shell
+    pattern: '\{\{.*shell.*\}\}|\{\{.*system.*\}\}|\{\{.*popen.*\}\}'
+    type: regex
+    severity: critical
+    category: code_execution
+    description: Template runs shell commands
+    redact_label: "[TEMPLATE_SHELL]"
+
+  # File Inclusion
+  - id: template_include_dynamic
+    pattern: '\{\{.*include\s+[^"'']+\}\}'
+    type: regex
+    severity: high
+    category: path_traversal
+    description: Dynamic include path (not hardcoded string)
+    redact_label: "[DYNAMIC_INCLUDE]"
+
+  - id: template_import_dynamic
+    pattern: '\{\{.*import\s+[^"'']+\}\}'
+    type: regex
+    severity: high
+    category: code_execution
+    description: Dynamic import (not hardcoded)
+    redact_label: "[DYNAMIC_IMPORT]"
+
+  # Shell Expansion (in context of template being used in shell)
+  - id: shell_subst_in_template
+    pattern: '\$\([^)]+\)'
+    type: regex
+    severity: high
+    category: shell_injection
+    description: Shell command substitution in template
+    redact_label: "[SHELL_SUBST]"
+
+  - id: backtick_exec_in_template
+    pattern: '`[^`]+`'
+    type: regex
+    severity: medium
+    category: shell_injection
+    description: Backtick command execution (check if documentation or actual)
+    notes: May be false positive if used in markdown documentation
+    redact_label: "[BACKTICK]"
+
+  # Jinja2 Specific
+  - id: jinja_raw_block
+    pattern: '\{%\s*raw\s*%\}'
+    type: regex
+    severity: medium
+    category: escape_bypass
+    description: Jinja raw block disables auto-escaping
+    redact_label: "[RAW_BLOCK]"
+
+  - id: jinja_autoescape_off
+    pattern: '\{%\s*autoescape\s+false\s*%\}'
+    type: regex
+    severity: high
+    category: escape_bypass
+    description: Jinja autoescape disabled
+    redact_label: "[AUTOESCAPE_OFF]"
+
+  # Handlebars/Mustache Specific
+  - id: handlebars_triple_stash
+    pattern: '\{\{\{[^}]+\}\}\}'
+    type: regex
+    severity: medium
+    category: escape_bypass
+    description: Handlebars triple-stash bypasses escaping
+    redact_label: "[UNESCAPED]"
+
+  - id: handlebars_safestring
+    pattern: 'SafeString|safeString|htmlSafe'
+    type: regex
+    severity: medium
+    category: escape_bypass
+    description: Explicit unsafe string marker
+    redact_label: "[SAFE_STRING]"
+
+  # Suspicious Variable Names
+  - id: user_input_variable
+    pattern: '\{\{\s*(user[._]?(input|data|query|param)|request\.|params\.|query\.|body\.)'
+    type: regex
+    severity: medium
+    category: user_input
+    description: Template directly uses user input variable
+    redact_label: "[USER_INPUT]"
+
+  - id: path_variable
+    pattern: '\{\{\s*(path|file|dir|url|href|src)\s*\}\}'
+    type: regex
+    severity: low
+    category: user_input
+    description: Template uses path-like variable (check source)
+    redact_label: "[PATH_VAR]"
+
+# Safe patterns (for comparison)
+safe_patterns:
+  - '\{\{.*\|\s*escape\s*\}\}'      # Escaped output
+  - '\{\{.*\|\s*e\s*\}\}'           # Shorthand escape
+  - '\{\{.*\|\s*urlencode\s*\}\}'   # URL encoded
+  - '\{\{.*\|\s*int\s*\}\}'         # Type cast to int
+  - '\{\{.*\|\s*truncate\s*\}\}'    # Length limited
+
+# Scan configuration
+scan_config:
+  check_documentation_context: true  # Reduce false positives from docs
+  require_review_for: [backtick_exec_in_template]  # May be documentation

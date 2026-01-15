@@ -8,6 +8,42 @@ Copyright (c) 2026 Don Hopkins, Leela AI
 License: MIT — see LICENSE file
 Part of MOOLLM — https://github.com/leela-ai/moollm
 
+═══════════════════════════════════════════════════════════════════════════════
+FOR LLM AGENTS — READ THIS FIRST
+═══════════════════════════════════════════════════════════════════════════════
+
+QUICK START:
+  cursor-mirror tail @1              # Last messages from CURRENT chat
+  cursor-mirror analyze @1           # Stats for current chat  
+  cursor-mirror tools @1 --limit 10  # Recent tool calls
+  cursor-mirror tree                 # Browse all workspaces/composers
+  cursor-mirror grep "error"         # Search across ALL chats
+
+REFERENCE SYNTAX (use anywhere a composer/workspace is needed):
+  @1, @2, @3     → By recency (most recent first, like bash !-1)
+  fe18, 769a     → Hash prefix (4+ hex chars)
+  moollm         → Name/folder fragment search
+  w1.c2          → Tree path (workspace 1, composer 2)
+
+COMMON GOTCHAS:
+  • @1 = most RECENT, not largest. Changes when you switch projects.
+  • Some commands need positional arg, some use --composer flag. Check help.
+  • Security scans (secrets, deep-snitch) may show FALSE POSITIVES when
+    scanning transcripts that contain pattern definitions (like this script).
+  • Empty output usually means: wrong composer ID, or no matching data.
+
+SECURITY SCANNER CAVEAT:
+  The `secrets`, `deep-snitch`, and `full-audit` commands scan for dangerous
+  patterns. They WILL detect their own pattern definitions if you scan the
+  transcript of a session where security code was written. This is the
+  "Ouroboros effect" — the scanner eating its own tail. ~80% of findings
+  in such cases are false positives. Look at the actual line content.
+
+WHAT'S WHERE:
+  ~/.cursor/                           → Config, MCP, extensions
+  ~/Library/Application Support/Cursor → Databases (state.vscdb)
+  ~/.cursor/projects/*/agent-transcripts/ → Plaintext chat logs
+
 51 Commands organized by function:
 
   # Workspace/Composer Navigation
@@ -81,7 +117,7 @@ REFERENCE SHORTCUTS:
   Workspaces and composers can be referenced by:
   - Full UUID/hash:   769a268960457999e3f29ee8bd3bc640
   - Prefix:           769a26 (minimum unique prefix)
-  - Index:            @1, @2, @3 (sorted by size/message count)
+  - Index:            @1, @2, @3 (sorted by recency - most recent first)
   - Name fragment:    moollm, SpaceCraft (searches folder/name)
   - Tree path:        w3.c2 (workspace 3, composer 2)
   
@@ -187,8 +223,8 @@ Debug mode:
     p.set_defaults(func=cmd_list_workspaces)
 
     # ─── show-workspace ───
-    p = sub.add_parser("show-workspace", help="Detailed info about a workspace")
-    p.add_argument("workspace", help="Workspace hash (or prefix)")
+    p = sub.add_parser("show-workspace", help="Workspace details (use: show-workspace @1)")
+    p.add_argument("workspace", help="Workspace ref: @1, hash prefix, name")
     p.add_argument("--yaml", action="store_true", help="Output as YAML")
     p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_show_workspace)
@@ -212,16 +248,16 @@ Debug mode:
     p.set_defaults(func=cmd_tree)
 
     # ─── show-composer ───
-    p = sub.add_parser("show-composer", help="Detailed info about a composer")
-    p.add_argument("composer", help="Composer UUID (or prefix)")
+    p = sub.add_parser("show-composer", help="Composer details (use: show-composer @1)")
+    p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
     p.add_argument("--yaml", action="store_true", help="Output as YAML")
     p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_show_composer)
 
     # ─── tail ───
-    p = sub.add_parser("tail", help="Show recent chat messages")
-    p.add_argument("-n", "--lines", type=int, default=20, help="Number of messages")
-    p.add_argument("--composer", help="Filter by composerId")
+    p = sub.add_parser("tail", help="Show recent chat messages (use: tail [@1|hash|name])")
+    p.add_argument("composer", nargs="?", help="Composer ref: @1, hash prefix, name (optional)")
+    p.add_argument("-n", "--limit", type=int, default=20, help="Max messages to show")
     p.add_argument("--tools", action="store_true", help="Only agent/tool activity")
     p.add_argument("--user", action="store_true", help="Only user messages")
     p.add_argument("--assistant", action="store_true", help="Only assistant messages")
@@ -234,7 +270,7 @@ Debug mode:
 
     # ─── stream ───
     p = sub.add_parser("stream", help="Unified stream of all activity")
-    p.add_argument("-n", "--lines", type=int, default=100, help="Number of items")
+    p.add_argument("-n", "--limit", type=int, default=100, help="Max items to show")
     p.add_argument("--since", help="Time filter: 1h, 30m, 1d, 2024-01-15")
     p.add_argument("--composer", help="Filter by composerId")
     p.add_argument("--type", choices=["user", "assistant", "all"], default="all")
@@ -269,15 +305,15 @@ Debug mode:
     p.add_argument("-c", "--count", action="store_true", help="Count matches only")
     p.add_argument("-l", "--composers-only", action="store_true", help="List matching composers")
     p.add_argument("-C", "--context", type=int, default=0, metavar="N")
-    p.add_argument("-n", "--max-results", type=int)
+    p.add_argument("-n", "--limit", type=int, help="Max results to show")
     p.add_argument("--yaml", action="store_true")
     p.add_argument("--json", action="store_true")
     p.add_argument("-p", "--pretty", action="store_true")
     p.set_defaults(func=cmd_grep)
 
     # ─── transcript ───
-    p = sub.add_parser("transcript", help="Readable conversation transcript")
-    p.add_argument("composer", help="Composer UUID (or prefix)")
+    p = sub.add_parser("transcript", help="Readable transcript (use: transcript @1)")
+    p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
     p.add_argument("--context", action="store_true", help="Include context (files, selections)")
     p.add_argument("--thinking", action="store_true", help="Include thinking blocks")
     p.add_argument("--markdown", action="store_true", help="Output as Markdown")
@@ -287,8 +323,8 @@ Debug mode:
     p.set_defaults(func=cmd_transcript)
 
     # ─── files ───
-    p = sub.add_parser("files", help="Files touched in a conversation")
-    p.add_argument("composer", help="Composer UUID (or prefix)")
+    p = sub.add_parser("files", help="Files touched (use: files @1)")
+    p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
     p.add_argument("--yaml", action="store_true")
     p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_files)
@@ -301,53 +337,55 @@ Debug mode:
     p.set_defaults(func=cmd_models)
 
     # ─── tools ───
-    p = sub.add_parser("tools", help="List tool calls in a conversation")
-    p.add_argument("composer", help="Composer UUID (or prefix)")
+    p = sub.add_parser("tools", help="List tool calls (use: tools [@1|hash|name])")
+    p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
     p.add_argument("--status", choices=["all", "completed", "error"], default="all")
     p.add_argument("--name", help="Filter by tool name")
+    p.add_argument("-n", "--limit", type=int, help="Max results to show")
     p.add_argument("--yaml", action="store_true")
     p.add_argument("--json", action="store_true")
     p.add_argument("-v", "--verbose", action="store_true", help="Show results/params")
     p.set_defaults(func=cmd_tools)
 
     # ─── todos ───
-    p = sub.add_parser("todos", help="Show todos/tasks from a conversation")
-    p.add_argument("composer", help="Composer UUID (or prefix)")
+    p = sub.add_parser("todos", help="Show todos/tasks (use: todos @1)")
+    p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
     p.add_argument("--yaml", action="store_true")
     p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_todos)
 
     # ─── context ───
-    p = sub.add_parser("context", help="Show context gathered in a conversation")
-    p.add_argument("composer", help="Composer UUID (or prefix)")
+    p = sub.add_parser("context", help="Show context gathered (use: context @1)")
+    p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
     p.add_argument("--yaml", action="store_true")
     p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_context)
 
     # ─── analyze ───
-    p = sub.add_parser("analyze", help="Deep analysis of a conversation (boot sequence)")
-    p.add_argument("composer", help="Composer UUID (or prefix)")
+    p = sub.add_parser("analyze", help="Deep analysis (use: analyze @1)")
+    p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
     p.add_argument("--yaml", action="store_true")
     p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_analyze)
 
     # ─── timeline ───
-    p = sub.add_parser("timeline", help="Chronological timeline of all activity")
-    p.add_argument("composer", help="Composer UUID (or prefix)")
+    p = sub.add_parser("timeline", help="Chronological timeline (use: timeline @1)")
+    p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
     p.add_argument("--yaml", action="store_true")
     p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_timeline)
 
     # ─── checkpoints ───
-    p = sub.add_parser("checkpoints", help="List file checkpoints in a conversation")
-    p.add_argument("composer", help="Composer UUID (or prefix)")
+    p = sub.add_parser("checkpoints", help="List file checkpoints (use: checkpoints @1)")
+    p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
     p.add_argument("--yaml", action="store_true")
     p.add_argument("--json", action="store_true")
     p.add_argument("-v", "--verbose", action="store_true", help="Show all file details")
     p.set_defaults(func=cmd_checkpoints)
 
     # ─── blobs ───
-    p = sub.add_parser("blobs", help="List cached agentKv blobs (tool results)")
+    p = sub.add_parser("blobs", help="List cached agentKv blobs (use: blobs [@1|hash])")
+    p.add_argument("composer", nargs="?", help="Composer ref: @1, hash prefix, name (optional)")
     p.add_argument("-n", "--limit", type=int, default=20, help="Number to show")
     p.add_argument("--min-size", type=int, default=1000, help="Min blob size in bytes")
     p.add_argument("--show", help="Show specific blob by hash prefix")
@@ -363,8 +401,8 @@ Debug mode:
     p.set_defaults(func=cmd_tool_result)
 
     # ─── thinking ───
-    p = sub.add_parser("thinking", help="Show thinking blocks from a conversation")
-    p.add_argument("composer", help="Composer UUID (or prefix)")
+    p = sub.add_parser("thinking", help="Show thinking blocks (use: thinking @1)")
+    p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
     p.add_argument("-n", "--limit", type=int, default=20, help="Number to show")
     p.add_argument("--yaml", action="store_true")
     p.add_argument("--json", action="store_true")
@@ -489,7 +527,8 @@ Debug mode:
     p.set_defaults(func=cmd_status_endpoints)
 
     # ─── stats ───
-    p = sub.add_parser("stats", help="Summary statistics")
+    p = sub.add_parser("stats", help="Summary statistics (use: stats [@1|hash|name] for single chat)")
+    p.add_argument("composer", nargs="?", help="Composer ref: @1, hash prefix, name (optional)")
     p.add_argument("--yaml", action="store_true")
     p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_stats)
@@ -578,6 +617,288 @@ Debug mode:
     p.add_argument("--workspace", help="Filter to specific workspace")
     p.set_defaults(func=cmd_image_gallery)
 
+    # ─── ~/.cursor COMMANDS (2026-01-15) ───
+    
+    # dotcursor-status
+    p = sub.add_parser("dotcursor-status", help="Overview of ~/.cursor directory")
+    p.add_argument("--workspace", help="Filter to specific workspace")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_dotcursor_status)
+    
+    # ai-hashes
+    p = sub.add_parser("ai-hashes", help="Query AI code tracking database")
+    p.add_argument("--since", help="Time filter: 1h, 30m, 1d, 2024-01-15")
+    p.add_argument("--model", help="Filter by model name (supports wildcards)")
+    p.add_argument("--file", help="Filter by file pattern")
+    p.add_argument("--source", choices=["composer", "tab"], help="Filter by source")
+    p.add_argument("-n", "--limit", type=int, default=20, help="Max results")
+    p.add_argument("--stats", action="store_true", help="Show statistics only")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_ai_hashes)
+    
+    # ai-commits
+    p = sub.add_parser("ai-commits", help="Git commits scored for AI attribution")
+    p.add_argument("--since", help="Time filter: 1h, 30m, 1d")
+    p.add_argument("--branch", help="Filter by branch name")
+    p.add_argument("-n", "--limit", type=int, default=20, help="Max results")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_ai_commits)
+    
+    # agent-transcript
+    p = sub.add_parser("agent-transcript", help="Read plaintext transcript from ~/.cursor")
+    p.add_argument("composer", help="Composer UUID (or prefix)")
+    p.add_argument("--workspace", help="Workspace name/path")
+    p.add_argument("--tail", type=int, help="Show last N lines")
+    p.add_argument("--head", type=int, help="Show first N lines")
+    p.add_argument("--prompts", action="store_true", help="Extract prompts only")
+    p.add_argument("--responses", action="store_true", help="Extract responses only")
+    p.add_argument("--tools", action="store_true", help="Extract tool calls only")
+    p.add_argument("--thinking", action="store_true", help="Extract thinking blocks only")
+    p.add_argument("--format", choices=["auto", "txt", "json"], default="auto",
+                   help="Transcript format: auto (default), txt, json")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json-out", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_agent_transcript)
+    
+    # transcript-index
+    p = sub.add_parser("transcript-index", help="Index a specific transcript with line-range K-REFs (requires composer)")
+    p.add_argument("composer", help="Composer UUID or prefix (required - use 'find' to discover)")
+    p.add_argument("--workspace", help="Workspace name/path")
+    p.add_argument("--min-lines", type=int, default=5, help="Min lines for a section")
+    p.add_argument("--types", help="Comma-separated types: user,assistant,tool,thinking,error")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_transcript_index)
+    
+    # events (linter mode)
+    p = sub.add_parser("events", help="Scan for actionable events, emit file:line pointers for LLM")
+    p.add_argument("--composer", help="Scan specific composer transcript")
+    p.add_argument("--workspace", help="Workspace name/path filter")
+    p.add_argument("--since", help="Time filter: 1h, 30m, 1d, 7d")
+    p.add_argument("--types", help="Event types: error,todo,stale,prompt,checkpoint,tool_fail")
+    p.add_argument("--severity", choices=["info", "warn", "error"], help="Min severity")
+    p.add_argument("-n", "--limit", type=int, default=50, help="Max events")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_events)
+    
+    # tgrep (transcript-aware grep)
+    p = sub.add_parser("tgrep", help="Transcript-aware grep with structured output")
+    p.add_argument("pattern", help="Pattern to search (regex by default)")
+    p.add_argument("files", nargs="*", help="Files to search (default: recent transcripts)")
+    p.add_argument("--composer", help="Search specific composer transcript")
+    p.add_argument("--workspace", help="Workspace filter")
+    p.add_argument("-B", "--before", type=int, default=0, help="Lines before match")
+    p.add_argument("-A", "--after", type=int, default=0, help="Lines after match")
+    p.add_argument("-C", "--context", type=int, help="Lines before and after (overrides -B/-A)")
+    p.add_argument("--section", help="Limit to section type: user,assistant,thinking,tool,yaml")
+    p.add_argument("--refs-only", action="store_true", help="Output only file:line refs")
+    p.add_argument("--excerpt", action="store_true", help="Include matching excerpt")
+    p.add_argument("--meta", action="store_true", help="Include section metadata")
+    p.add_argument("-i", "--ignorecase", action="store_true", help="Case insensitive")
+    p.add_argument("-F", "--fixed", action="store_true", help="Fixed string (literal, not regex)")
+    p.add_argument("-g", "--glob", action="store_true", help="Glob/fnmatch pattern (* ? [])")
+    p.add_argument("-w", "--word", action="store_true", help="Match whole words only")
+    p.add_argument("-v", "--invert", action="store_true", help="Invert match (lines NOT matching)")
+    p.add_argument("-n", "--limit", type=int, default=50, help="Max matches")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_tgrep)
+    
+    # secrets (scan for credentials/keys)
+    p = sub.add_parser("secrets", help="Scan for potential secrets/credentials (K-REFS output)")
+    p.add_argument("--composer", help="Scan specific composer transcript")
+    p.add_argument("--workspace", help="Workspace filter")
+    p.add_argument("--since", help="Time filter: 1h, 1d, 7d")
+    p.add_argument("-C", "--context", type=int, default=1, help="Context lines around match")
+    p.add_argument("--refs-only", action="store_true", help="Output only file:line refs")
+    p.add_argument("-n", "--limit", type=int, default=100, help="Max matches")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_secrets)
+    
+    # commits (find git commits in transcripts)
+    p = sub.add_parser("commits", help="Find git commits mentioned in transcripts (K-REFS output)")
+    p.add_argument("--composer", help="Scan specific composer transcript")
+    p.add_argument("--workspace", help="Workspace filter")
+    p.add_argument("--refs-only", action="store_true", help="Output only file:line refs")
+    p.add_argument("-n", "--limit", type=int, default=50, help="Max matches")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_commits)
+    
+    # scrub (redact sensitive content)
+    p = sub.add_parser("scrub", help="Redact sensitive content from transcripts (QUIT CURSOR FIRST)")
+    p.add_argument("--composer", help="Scrub specific composer transcript")
+    p.add_argument("--workspace", help="Workspace filter")
+    p.add_argument("--pattern", help="Custom regex pattern to redact")
+    p.add_argument("--secrets", action="store_true", help="Redact detected secrets")
+    p.add_argument("--dry-run", action="store_true", help="Show what would be redacted without changing")
+    p.add_argument("--backup", action="store_true", default=True, help="Create .bak backup (default: true)")
+    p.add_argument("--no-backup", action="store_true", help="Skip backup creation")
+    p.add_argument("--redact-text", default="[REDACTED]", help="Replacement text")
+    p.set_defaults(func=cmd_scrub)
+    
+    # deep-snitch (comprehensive security audit)
+    p = sub.add_parser("deep-snitch", help="Deep Snitch: security audit (use: deep-snitch [@1|hash])")
+    p.add_argument("composer", nargs="?", help="Composer ref: @1, hash prefix, name (optional)")
+    p.add_argument("--workspace", help="Workspace filter")
+    p.add_argument("--since", help="Time filter: 1h, 1d, 7d")
+    p.add_argument("--category", help="Pattern category: secrets,shell_exfil,code_execution,dangerous_paths,obfuscation,prompt_injection,data_exfil,suspicious_behavior,all")
+    p.add_argument("--severity", choices=["critical", "high", "medium", "low", "info"], help="Minimum severity")
+    p.add_argument("--files", action="store_true", help="Show files exposed in context")
+    p.add_argument("--endpoints", action="store_true", help="Show configured endpoints/services")
+    p.add_argument("--mcp", action="store_true", help="Show MCP server access")
+    p.add_argument("--models", action="store_true", help="Show models used and data sent")
+    p.add_argument("--patterns", action="store_true", help="Scan for suspicious patterns (K-REF output)")
+    p.add_argument("--all", action="store_true", help="Full audit: patterns + endpoints + files + mcp")
+    p.add_argument("--summary", action="store_true", help="Summary only (no K-REFs)")
+    p.add_argument("-n", "--limit", type=int, default=200, help="Max findings per category")
+    p.add_argument("--emit-kref", action="store_true", help="Output as K-REFs (default)")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_deep_snitch)
+    
+    # models-info (JOIN both data stores for model info)
+    p = sub.add_parser("models-info", help="Model info: config + usage + pricing (JOINs both data stores)")
+    p.add_argument("--usage", action="store_true", help="Show usage stats from ai-tracking")
+    p.add_argument("--config", action="store_true", help="Show config from serverConfig")
+    p.add_argument("--migrations", action="store_true", help="Show model migrations")
+    p.add_argument("--all", action="store_true", help="Show everything (default)")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_models_info)
+    
+    # url-audit (find URLs with secrets in tool calls - both stores)
+    p = sub.add_parser("url-audit", help="Find URLs in tool calls (use: url-audit [@1|hash])")
+    p.add_argument("composer", nargs="?", help="Composer ref: @1, hash prefix, name (optional)")
+    p.add_argument("--workspace", help="Workspace filter")
+    p.add_argument("--pattern", help="Additional pattern to search in URLs")
+    p.add_argument("--secrets-only", action="store_true", help="Only show URLs with potential secrets")
+    p.add_argument("-n", "--limit", type=int, default=50, help="Max results")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_url_audit)
+    
+    # exfil-audit (comprehensive secret exfiltration audit - ALL tools, ALL args)
+    p = sub.add_parser("exfil-audit", help="Comprehensive secret exfiltration audit (ALL tools, ALL args, both stores)")
+    p.add_argument("--composer", help="Audit specific composer")
+    p.add_argument("--workspace", help="Workspace filter")
+    p.add_argument("--since", help="Time filter: 1h, 1d, 7d")
+    p.add_argument("--tool", help="Filter by tool name")
+    p.add_argument("--summary", action="store_true", help="Summary only, no details")
+    p.add_argument("-n", "--limit", type=int, default=100, help="Max findings")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_exfil_audit)
+    
+    # full-audit (ALL vectors: prompts, responses, tools, MCP, context, shell, images)
+    p = sub.add_parser("full-audit", help="Full communication audit - ALL vectors in/out")
+    p.add_argument("--composer", help="Audit specific composer")
+    p.add_argument("--workspace", help="Workspace filter")
+    p.add_argument("--since", help="Time filter: 1h, 1d, 7d")
+    p.add_argument("--vector", help="Filter: prompt,response,tool,mcp,shell,context,image")
+    p.add_argument("--summary", action="store_true", help="Summary only")
+    p.add_argument("-n", "--limit", type=int, default=100, help="Max findings per vector")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_full_audit)
+    
+    # pattern-scan (find UUIDs, hashes, any pattern with K-REFS output)
+    p = sub.add_parser("pattern-scan", help="Find UUIDs, hashes, secrets, custom patterns (K-REFS output)")
+    p.add_argument("--composer", help="Scan specific composer")
+    p.add_argument("--workspace", help="Workspace filter")
+    p.add_argument("--pattern", help="Custom regex pattern")
+    p.add_argument("--uuids", action="store_true", help="Find all UUIDs")
+    p.add_argument("--hashes", action="store_true", help="Find hex hashes (32+ chars)")
+    p.add_argument("--secrets", action="store_true", help="Find secrets (API keys, passwords, etc)")
+    p.add_argument("--all", action="store_true", help="Find everything")
+    p.add_argument("--emit-redact", action="store_true", help="Output redaction commands (file:line:col_start:col_end:len)")
+    p.add_argument("--emit-sed", action="store_true", help="Output sed-compatible redaction script")
+    p.add_argument("-n", "--limit", type=int, default=100, help="Max findings")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_pattern_scan)
+    
+    # mask-in-place (replace secrets with *** same length - file size unchanged)
+    p = sub.add_parser("mask-in-place", help="Mask secrets in-place (same length, file size unchanged)")
+    p.add_argument("--composer", help="Mask specific composer transcript")
+    p.add_argument("--workspace", help="Workspace filter")
+    p.add_argument("--pattern", help="Custom pattern to mask")
+    p.add_argument("--secrets", action="store_true", help="Mask detected secrets")
+    p.add_argument("--uuids", action="store_true", help="Mask UUIDs")
+    p.add_argument("--dry-run", action="store_true", help="Show what would be masked")
+    p.add_argument("--mask-char", default="*", help="Character to use for masking (default: *)")
+    p.add_argument("--backup", action="store_true", default=True, help="Create .bak backup")
+    p.add_argument("--no-backup", action="store_true", help="Skip backup")
+    p.add_argument("--cursor-stopped", action="store_true", help="I confirm Cursor is not running")
+    p.add_argument("--force", action="store_true", help="Modify files even if in use (dangerous!)")
+    p.set_defaults(func=cmd_mask_in_place)
+    
+    # audit (unified composable audit framework)
+    p = sub.add_parser("audit", help="Composable audit: surfaces × patterns")
+    p.add_argument("--surface", action="append", dest="surfaces",
+                   help="Add surface: transcript, sqlite, config (can repeat)")
+    p.add_argument("--patterns", action="append", dest="pattern_sets",
+                   help="Add pattern set: secrets, uuids, hashes, urls, paths, git (can repeat)")
+    p.add_argument("--pattern", help="Custom regex pattern")
+    p.add_argument("--pattern-file", help="Load patterns from YAML file")
+    p.add_argument("--pattern-type", choices=["regex", "literal", "glob", "fuzzy", "prefix", "suffix", "contains"],
+                   default="regex", help="Match type for --pattern")
+    p.add_argument("--composer", help="Filter transcripts by composer")
+    p.add_argument("--workspace", help="Filter by workspace")
+    p.add_argument("--emit-redact", action="store_true", help="Output redaction commands")
+    p.add_argument("--emit-kref", action="store_true", help="Output K-REF pointers (default)")
+    p.add_argument("--mask", action="store_true", help="Apply masks in-place")
+    p.add_argument("--dry-run", action="store_true", help="Dry run for --mask")
+    p.add_argument("--preserve-ws", action="store_true", default=True, help="Preserve whitespace when masking (default)")
+    p.add_argument("--no-preserve-ws", action="store_true", help="Don't preserve whitespace")
+    p.add_argument("--cursor-stopped", action="store_true", help="I confirm Cursor is not running")
+    p.add_argument("--force", action="store_true", help="Modify files even if in use (dangerous!)")
+    p.add_argument("-n", "--limit", type=int, default=100, help="Max findings")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_audit)
+    
+    # agent-tools
+    p = sub.add_parser("agent-tools", help="Cached tool results (use: agent-tools [@1|hash])")
+    p.add_argument("composer", nargs="?", help="Composer ref: @1, hash prefix, name (optional)")
+    p.add_argument("--workspace", help="Workspace name/path")
+    p.add_argument("--show", help="Show specific tool result by UUID")
+    p.add_argument("-n", "--limit", type=int, default=20, help="Max results")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_agent_tools)
+    
+    # dotcursor-terminals
+    p = sub.add_parser("dotcursor-terminals", help="Terminal state from ~/.cursor")
+    p.add_argument("--workspace", help="Workspace name/path")
+    p.add_argument("--show", help="Show specific terminal by ID")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_dotcursor_terminals)
+    
+    # mcp-tools
+    p = sub.add_parser("mcp-tools", help="MCP tool schemas from ~/.cursor")
+    p.add_argument("--workspace", help="Workspace name/path")
+    p.add_argument("--server", help="Filter by MCP server name")
+    p.add_argument("--show", help="Show specific tool schema")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_mcp_tools)
+    
+    # extensions
+    p = sub.add_parser("extensions", help="Cursor extensions from ~/.cursor")
+    p.add_argument("--sort", choices=["date", "name", "publisher", "size"], default="date",
+                   help="Sort by: date (default), name, publisher, size")
+    p.add_argument("-n", "--limit", type=int, help="Max results")
+    p.add_argument("--yaml", action="store_true", help="Output as YAML")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_extensions)
+
     args = ap.parse_args()
     
     # Initialize debug mode if requested
@@ -595,8 +916,10 @@ Debug mode:
 # Additional imports
 import json
 import logging
+import os
 import re
 import sqlite3
+import sys
 import time
 from datetime import datetime
 from typing import List, Dict, Any, Optional, Iterator, Tuple
@@ -642,6 +965,858 @@ __all__ = [
     # Utilities
     "decode_blob", "format_ts", "set_debug",
 ]
+
+# AUDIT FRAMEWORK - Composable Surfaces × Patterns
+# Architecture: SURFACES (where) × PATTERNS (what) = FINDINGS
+#
+# Architecture:
+#   SURFACES (where to look) × PATTERNS (what to find) = FINDINGS
+#
+# Add new surfaces independently (transcripts, databases, configs, etc.)
+# Add new patterns independently (secrets, UUIDs, URLs, etc.)
+# They compose automatically via the AuditRunner.
+#
+# Usage:
+#   runner = AuditRunner()
+#   runner.add_surface(TranscriptSurface(workspace="moollm"))
+#   runner.add_surface(SqliteSurface(db="state.vscdb"))
+#   runner.add_pattern_set("secrets")
+#   runner.add_pattern_set("uuids")
+#   for finding in runner.scan():
+#       print(finding)
+
+from dataclasses import dataclass, field
+from abc import ABC, abstractmethod
+from enum import Enum
+
+class Severity(Enum):
+    CRITICAL = "critical"
+    HIGH = "high"
+    MEDIUM = "medium"
+    LOW = "low"
+    INFO = "info"
+
+
+class MatchType(Enum):
+    REGEX = "regex"       # Regular expression (default)
+    LITERAL = "literal"   # Exact string match
+    GLOB = "glob"         # Shell-style glob (*?, [])
+    FUZZY = "fuzzy"       # Fuzzy match (Levenshtein distance)
+    PREFIX = "prefix"     # Starts with
+    SUFFIX = "suffix"     # Ends with
+    CONTAINS = "contains" # Substring match
+
+
+@dataclass
+class AuditPattern:
+    """A pattern to search for with configurable match type."""
+    name: str
+    pattern: str
+    match_type: MatchType = MatchType.REGEX
+    severity: Severity = Severity.INFO
+    category: str = "general"
+    description: str = ""
+    redact_label: str = ""  # e.g., "[SSH_KEY]" shown when masked
+    preserve_whitespace: bool = True  # Keep spaces/newlines in redacted output
+    fuzzy_threshold: float = 0.8  # For fuzzy matching (0-1)
+    compiled: Any = field(default=None, repr=False)
+    
+    def __post_init__(self):
+        import re
+        import fnmatch
+        
+        if self.match_type == MatchType.REGEX:
+            self.compiled = re.compile(self.pattern)
+        elif self.match_type == MatchType.LITERAL:
+            self.compiled = re.compile(re.escape(self.pattern))
+        elif self.match_type == MatchType.GLOB:
+            # Convert glob to regex for finding within text
+            # Replace * with \S* (non-whitespace) and ? with \S
+            glob_regex = re.escape(self.pattern)
+            glob_regex = glob_regex.replace(r'\*', r'\S*')
+            glob_regex = glob_regex.replace(r'\?', r'\S')
+            self.compiled = re.compile(glob_regex)
+        elif self.match_type == MatchType.PREFIX:
+            # Find words/tokens starting with prefix
+            self.compiled = re.compile(r'(?<![a-zA-Z0-9_])' + re.escape(self.pattern) + r'\S*')
+        elif self.match_type == MatchType.SUFFIX:
+            self.compiled = re.compile(r'\S*' + re.escape(self.pattern) + r'(?![a-zA-Z0-9_])')
+        elif self.match_type == MatchType.CONTAINS:
+            self.compiled = re.compile(re.escape(self.pattern))
+        elif self.match_type == MatchType.FUZZY:
+            # Fuzzy uses different matching logic
+            self.compiled = None
+        else:
+            self.compiled = re.compile(self.pattern)
+    
+    def find_matches(self, text: str) -> Iterator[Tuple[int, int, str]]:
+        """Yield (start, end, matched_text) tuples."""
+        if self.match_type == MatchType.FUZZY:
+            # Simple fuzzy: sliding window with edit distance
+            yield from self._fuzzy_match(text)
+        elif self.compiled:
+            for m in self.compiled.finditer(text):
+                yield m.start(), m.end(), m.group()
+    
+    def _fuzzy_match(self, text: str) -> Iterator[Tuple[int, int, str]]:
+        """Fuzzy matching using Levenshtein-like ratio.
+        
+        Note: This is O(n) but with a large constant factor.
+        For very large texts, consider pre-filtering with contains.
+        """
+        pattern_len = len(self.pattern)
+        if pattern_len < 3:
+            return
+        
+        # Skip if text is too large (performance safeguard)
+        if len(text) > 500000:  # 500KB limit for fuzzy
+            return
+        
+        # Pre-filter: only check around potential matches
+        pattern_lower = self.pattern.lower()
+        text_lower = text.lower()
+        
+        # Find rough matches using 3-char prefix
+        prefix = pattern_lower[:3]
+        positions = []
+        start = 0
+        while True:
+            pos = text_lower.find(prefix, start)
+            if pos == -1:
+                break
+            positions.append(pos)
+            start = pos + 1
+        
+        # Check windows around each rough match
+        seen = set()
+        for pos in positions:
+            for offset in range(-2, 3):
+                for wsize in [pattern_len - 1, pattern_len, pattern_len + 1]:
+                    if wsize < 3:
+                        continue
+                    i = pos + offset
+                    if i < 0 or i + wsize > len(text):
+                        continue
+                    if (i, wsize) in seen:
+                        continue
+                    seen.add((i, wsize))
+                    
+                    candidate = text[i:i + wsize]
+                    ratio = self._similarity(pattern_lower, candidate.lower())
+                    if ratio >= self.fuzzy_threshold:
+                        yield i, i + wsize, candidate
+    
+    def _similarity(self, s1: str, s2: str) -> float:
+        """Simple similarity ratio (0-1)."""
+        if not s1 or not s2:
+            return 0.0
+        matches = sum(1 for a, b in zip(s1, s2) if a == b)
+        return matches / max(len(s1), len(s2))
+    
+    @classmethod
+    def from_dict(cls, d: Dict) -> "AuditPattern":
+        """Create pattern from dictionary (YAML config)."""
+        match_type = MatchType(d.get("type", "regex"))
+        severity = Severity(d.get("severity", "info"))
+        return cls(
+            name=d.get("name", "unnamed"),
+            pattern=d.get("pattern", ""),
+            match_type=match_type,
+            severity=severity,
+            category=d.get("category", "custom"),
+            description=d.get("description", ""),
+            redact_label=d.get("redact_label", ""),
+            preserve_whitespace=d.get("preserve_whitespace", True),
+            fuzzy_threshold=d.get("fuzzy_threshold", 0.8),
+        )
+
+
+def is_file_in_use(path: str) -> Dict[str, Any]:
+    """Check if a file is in use by another process (using lsof).
+    
+    Returns:
+        {"in_use": bool, "processes": [...], "cursor": bool}
+    
+    TODO: PORTING
+    - macOS/Linux: lsof (current implementation)
+    - Windows: use handle.exe from Sysinternals, or:
+        import msvcrt; msvcrt.locking() to test lock
+        or: win32file.CreateFile with SHARE_NONE
+    - Cross-platform: try fcntl.flock() first, fall back to OS-specific
+    """
+    import subprocess
+    import sys
+    
+    result = {"in_use": False, "processes": [], "cursor": False}
+    
+    # TODO: PORTING - Windows implementation
+    if sys.platform == "win32":
+        # Windows: would use handle.exe or win32file
+        # For now, assume not in use (less safe but functional)
+        return result
+    
+    # macOS / Linux: use lsof
+    try:
+        proc = subprocess.run(
+            ["lsof", path],  # TODO: PORTING - lsof path may vary: /usr/bin/lsof, /usr/sbin/lsof
+            capture_output=True,
+            text=True,
+            timeout=5
+        )
+        
+        if proc.returncode == 0 and proc.stdout.strip():
+            lines = proc.stdout.strip().split('\n')
+            if len(lines) > 1:
+                result["in_use"] = True
+                for line in lines[1:]:
+                    parts = line.split()
+                    if parts:
+                        proc_name = parts[0]
+                        result["processes"].append(proc_name)
+                        if "cursor" in proc_name.lower() or "Cursor" in proc_name:
+                            result["cursor"] = True
+    except subprocess.TimeoutExpired:
+        pass
+    except FileNotFoundError:
+        pass  # lsof not installed
+    except Exception:
+        pass
+    
+    return result
+
+
+def check_cursor_running() -> Dict[str, Any]:
+    """Check if Cursor is running.
+    
+    Returns:
+        {"running": bool, "pids": [...], "warning": str}
+    
+    TODO: PORTING
+    - macOS/Linux: pgrep (current implementation)
+    - Windows: tasklist /FI "IMAGENAME eq Cursor.exe"
+        or: wmic process where "name='Cursor.exe'" get processid
+        or: psutil.process_iter() cross-platform
+    - Cross-platform: consider psutil library (pip install psutil)
+    """
+    import subprocess
+    import sys
+    
+    result = {"running": False, "pids": [], "warning": ""}
+    
+    # TODO: PORTING - Windows implementation
+    if sys.platform == "win32":
+        try:
+            proc = subprocess.run(
+                ["tasklist", "/FI", "IMAGENAME eq Cursor.exe", "/NH"],
+                capture_output=True,
+                text=True,
+                timeout=5
+            )
+            if "Cursor.exe" in proc.stdout:
+                result["running"] = True
+                result["warning"] = "Cursor is running"
+        except Exception:
+            pass
+        return result
+    
+    # macOS / Linux: use pgrep
+    try:
+        proc = subprocess.run(
+            ["pgrep", "-f", "Cursor"],  # TODO: PORTING - pgrep flags vary by OS
+            capture_output=True,
+            text=True,
+            timeout=5
+        )
+        
+        if proc.returncode == 0 and proc.stdout.strip():
+            result["running"] = True
+            result["pids"] = proc.stdout.strip().split('\n')
+            result["warning"] = f"Cursor is running (PIDs: {', '.join(result['pids'][:3])})"
+    except Exception:
+        pass
+    
+    return result
+
+
+def mask_preserving_whitespace(text: str, mask_char: str = "*") -> str:
+    """Mask text but preserve spaces and newlines.
+    
+    'sk-proj-abc123\n  def456' → '**************\n  ******'
+    """
+    result = []
+    for ch in text:
+        if ch in ' \t\n\r':
+            result.append(ch)
+        else:
+            result.append(mask_char)
+    return ''.join(result)
+
+
+def load_patterns_from_yaml(yaml_path: str) -> List[AuditPattern]:
+    """Load pattern definitions from YAML file.
+    
+    Example YAML:
+    ```yaml
+    patterns:
+      - name: openai_key
+        pattern: 'sk-[a-zA-Z0-9]{20,}'
+        type: regex
+        severity: critical
+        category: api_key
+        description: OpenAI API key
+        redact_label: "[OPENAI_KEY]"
+        
+      - name: password_literal
+        pattern: 'mysecretpassword'
+        type: literal
+        severity: high
+        
+      - name: config_file
+        pattern: '*.config.json'
+        type: glob
+        category: sensitive_file
+    ```
+    """
+    with open(yaml_path, 'r') as f:
+        data = yaml.safe_load(f)
+    
+    patterns = []
+    for p in data.get("patterns", []):
+        patterns.append(AuditPattern.from_dict(p))
+    return patterns
+
+
+@dataclass
+class Finding:
+    """A match found during audit."""
+    surface: str           # Which surface (transcript, db, config)
+    path: str              # File/table path
+    line: int              # Line number (1-based)
+    col_start: int         # Column start (1-based)
+    col_end: int           # Column end (exclusive)
+    char_start: int        # Byte offset start
+    char_end: int          # Byte offset end
+    pattern_name: str      # Pattern that matched
+    category: str          # Pattern category
+    severity: Severity     # Severity level
+    matched: str           # Matched text (masked if sensitive)
+    match_type: str = "regex"  # How it was matched
+    description: str = "" # Pattern description
+    redact_label: str = "" # Label to show when redacted (e.g., "[SSH_KEY]")
+    context: str = ""      # Surrounding text
+    metadata: Dict = field(default_factory=dict)
+    
+    def to_kref(self) -> str:
+        """Format as K-REF pointer."""
+        sev = {"critical": "🔴", "high": "🟠", "medium": "🟡", "low": "🔵", "info": "ℹ️"
+              }.get(self.severity.value, "⚪")
+        label = f" ({self.redact_label})" if self.redact_label else ""
+        desc = f" - {self.description}" if self.description else ""
+        return f"{self.path}:{self.line}:{self.col_start}-{self.col_end} # {self.pattern_name}{label} {sev}{desc}"
+    
+    def to_redact_cmd(self) -> str:
+        """Format as redaction command."""
+        length = self.char_end - self.char_start
+        label = self.redact_label or self.pattern_name
+        return f"REDACT:{self.path}:{self.line}:{self.col_start}:{self.col_end}:{length}:{label}"
+    
+    def format_masked(self, mask_char: str = "*", preserve_ws: bool = True) -> str:
+        """Format the matched text with masking."""
+        if preserve_ws:
+            return mask_preserving_whitespace(self.matched, mask_char)
+        else:
+            return mask_char * len(self.matched)
+
+
+class AuditSurface(ABC):
+    """Base class for audit surfaces (data sources)."""
+    name: str = "base"
+    
+    @abstractmethod
+    def iter_chunks(self, filters: Dict = None) -> Iterator[Tuple[str, str, Dict]]:
+        """Yield (path, content, metadata) chunks to scan."""
+        pass
+
+
+class TranscriptSurface(AuditSurface):
+    """Scan plaintext transcripts in ~/.cursor/projects/*/agent-transcripts/."""
+    name = "transcript"
+    
+    def __init__(self, workspace: str = None, composer: str = None, since: str = None):
+        self.workspace = workspace
+        self.composer = composer
+        self.since = since
+    
+    def iter_chunks(self, filters: Dict = None) -> Iterator[Tuple[str, str, Dict]]:
+        workspaces = get_dotcursor_workspaces()
+        if self.workspace:
+            workspaces = [ws for ws in workspaces if self.workspace in ws.get("name", "")]
+        
+        for ws in workspaces:
+            trans_dir = os.path.join(ws["path"], "agent-transcripts")
+            if not os.path.isdir(trans_dir):
+                continue
+            
+            for fname in os.listdir(trans_dir):
+                if not fname.endswith('.txt'):
+                    continue
+                if self.composer and not fname.startswith(self.composer):
+                    continue
+                
+                fpath = os.path.join(trans_dir, fname)
+                try:
+                    with open(fpath, 'r', encoding='utf-8', errors='replace') as f:
+                        content = f.read()
+                    yield fpath, content, {"workspace": ws.get("name"), "composer": fname[:-4]}
+                except Exception:
+                    continue
+
+
+class SqliteSurface(AuditSurface):
+    """Scan SQLite database contents."""
+    name = "sqlite"
+    
+    def __init__(self, db_path: str = None, tables: List[str] = None, keys: List[str] = None):
+        self.db_path = db_path or GLOBAL_DB
+        self.tables = tables or ["ItemTable", "cursorDiskKV"]
+        self.keys = keys
+    
+    def iter_chunks(self, filters: Dict = None) -> Iterator[Tuple[str, str, Dict]]:
+        if not os.path.exists(self.db_path):
+            return
+        
+        try:
+            conn = sqlite3.connect(f"file:{self.db_path}?mode=ro", uri=True)
+            cur = conn.cursor()
+            
+            for table in self.tables:
+                try:
+                    if table == "ItemTable":
+                        cur.execute("SELECT key, value FROM ItemTable")
+                    elif table == "cursorDiskKV":
+                        cur.execute("SELECT key, value FROM cursorDiskKV")
+                    else:
+                        continue
+                    
+                    for key, value in cur.fetchall():
+                        if self.keys and not any(k in key for k in self.keys):
+                            continue
+                        if isinstance(value, bytes):
+                            try:
+                                value = value.decode('utf-8', errors='replace')
+                            except:
+                                continue
+                        if value:
+                            yield f"{self.db_path}:{table}:{key}", str(value), {"table": table, "key": key}
+                except sqlite3.Error:
+                    continue
+            
+            conn.close()
+        except sqlite3.Error:
+            pass
+
+
+class ConfigSurface(AuditSurface):
+    """Scan JSON/YAML config files."""
+    name = "config"
+    
+    def __init__(self, paths: List[str] = None):
+        self.paths = paths or []
+    
+    def iter_chunks(self, filters: Dict = None) -> Iterator[Tuple[str, str, Dict]]:
+        for path in self.paths:
+            if os.path.exists(path):
+                try:
+                    with open(path, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                    yield path, content, {"type": "config"}
+                except Exception:
+                    continue
+
+
+# Pattern Registry - add patterns by category
+# Each pattern can specify: name, pattern, type, severity, category, description, redact_label
+PATTERN_REGISTRY: Dict[str, List[AuditPattern]] = {
+    "secrets": [
+        AuditPattern("openai_key", r'sk-[a-zA-Z0-9]{20,}', MatchType.REGEX, Severity.CRITICAL, 
+                    "api_key", "OpenAI API key", "[OPENAI_KEY]"),
+        AuditPattern("openai_project", r'sk-proj-[a-zA-Z0-9]{20,}', MatchType.REGEX, Severity.CRITICAL, 
+                    "api_key", "OpenAI project key", "[OPENAI_PROJECT_KEY]"),
+        AuditPattern("anthropic_key", r'sk-ant-[a-zA-Z0-9]{20,}', MatchType.REGEX, Severity.CRITICAL, 
+                    "api_key", "Anthropic API key", "[ANTHROPIC_KEY]"),
+        AuditPattern("aws_access", r'AKIA[0-9A-Z]{16}', MatchType.REGEX, Severity.CRITICAL, 
+                    "api_key", "AWS access key ID", "[AWS_KEY]"),
+        AuditPattern("github_pat", r'ghp_[a-zA-Z0-9]{36}', MatchType.REGEX, Severity.CRITICAL, 
+                    "api_key", "GitHub personal access token", "[GITHUB_PAT]"),
+        AuditPattern("github_oauth", r'gho_[a-zA-Z0-9]{36}', MatchType.REGEX, Severity.CRITICAL, 
+                    "api_key", "GitHub OAuth token", "[GITHUB_OAUTH]"),
+        AuditPattern("gitlab_pat", r'glpat-[a-zA-Z0-9\-]{20}', MatchType.REGEX, Severity.CRITICAL, 
+                    "api_key", "GitLab personal access token", "[GITLAB_PAT]"),
+        AuditPattern("private_key", r'-----BEGIN (?:RSA |EC |DSA |OPENSSH )?PRIVATE KEY-----', 
+                    MatchType.REGEX, Severity.CRITICAL, "crypto", "Private key header", "[PRIVATE_KEY]"),
+        AuditPattern("password", r'(?i)password[\s]*[=:]+[\s]*["\']?[^\s"\']{8,}', MatchType.REGEX, 
+                    Severity.HIGH, "credential", "Password assignment", "[PASSWORD]"),
+        AuditPattern("api_key_generic", r'(?i)api[_-]?key[\s]*[=:]+[\s]*["\']?[^\s"\']{16,}', 
+                    MatchType.REGEX, Severity.HIGH, "credential", "Generic API key", "[API_KEY]"),
+        AuditPattern("bearer_token", r'(?i)bearer\s+[a-zA-Z0-9\-_.]{20,}', MatchType.REGEX, 
+                    Severity.HIGH, "credential", "Bearer token", "[BEARER_TOKEN]"),
+        AuditPattern("jwt", r'eyJ[a-zA-Z0-9\-_]+\.eyJ[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+', 
+                    MatchType.REGEX, Severity.HIGH, "token", "JSON Web Token", "[JWT]"),
+        AuditPattern("url_with_creds", r'https?://[^:/\s]+:[^@\s]+@[^\s]+', MatchType.REGEX, 
+                    Severity.CRITICAL, "url", "URL with embedded credentials", "[URL_CREDS]"),
+    ],
+    "uuids": [
+        AuditPattern("uuid", r'[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}', 
+                    MatchType.REGEX, Severity.INFO, "identifier", "UUID v4", "[UUID]"),
+    ],
+    "hashes": [
+        AuditPattern("md5", r'(?<![a-fA-F0-9])[a-fA-F0-9]{32}(?![a-fA-F0-9])', MatchType.REGEX, 
+                    Severity.INFO, "hash", "MD5 hash", "[MD5]"),
+        AuditPattern("sha1", r'(?<![a-fA-F0-9])[a-fA-F0-9]{40}(?![a-fA-F0-9])', MatchType.REGEX, 
+                    Severity.INFO, "hash", "SHA-1 hash", "[SHA1]"),
+        AuditPattern("sha256", r'(?<![a-fA-F0-9])[a-fA-F0-9]{64}(?![a-fA-F0-9])', MatchType.REGEX, 
+                    Severity.INFO, "hash", "SHA-256 hash", "[SHA256]"),
+    ],
+    "urls": [
+        AuditPattern("http_url", r'https?://[^\s<>"\']+', MatchType.REGEX, 
+                    Severity.LOW, "url", "HTTP/HTTPS URL"),
+        AuditPattern("file_url", r'file://[^\s<>"\']+', MatchType.REGEX, 
+                    Severity.MEDIUM, "url", "File URL", "[FILE_URL]"),
+    ],
+    "paths": [
+        AuditPattern("env_file", r'(?i)\.env(?:\.local|\.prod|\.dev)?(?:\s|$|")', MatchType.REGEX, 
+                    Severity.HIGH, "sensitive_file", "Environment file", "[ENV_FILE]"),
+        AuditPattern("ssh_key", r'(?i)~/.ssh/id_rsa', MatchType.REGEX, Severity.CRITICAL, 
+                    "sensitive_file", "SSH private key path", "[SSH_KEY_PATH]"),
+        AuditPattern("aws_creds", r'(?i)~/.aws/credentials', MatchType.REGEX, Severity.CRITICAL, 
+                    "sensitive_file", "AWS credentials file", "[AWS_CREDS_PATH]"),
+        AuditPattern("kube_config", r'(?i)~/.kube/config', MatchType.REGEX, Severity.HIGH, 
+                    "sensitive_file", "Kubernetes config", "[KUBE_CONFIG]"),
+    ],
+    "git": [
+        AuditPattern("git_sha_full", r'(?<![a-fA-F0-9])[a-fA-F0-9]{40}(?![a-fA-F0-9])', 
+                    MatchType.REGEX, Severity.INFO, "git", "Full git SHA", "[GIT_SHA]"),
+        AuditPattern("git_sha_short", r'(?i)(?:commit|checkout)\s+([a-fA-F0-9]{7,40})', 
+                    MatchType.REGEX, Severity.INFO, "git", "Git commit reference", "[GIT_REF]"),
+    ],
+    
+    # DEEP SNITCH PATTERNS - Comprehensive suspicious activity detection
+    "shell_exfil": [
+        AuditPattern("curl_post", r'curl\s+.*(-d|--data|--data-\w+|-F|--form)', MatchType.REGEX,
+                    Severity.HIGH, "exfiltration", "curl sending data", "[CURL_POST]"),
+        AuditPattern("curl_upload", r'curl\s+.*(-T|--upload-file)', MatchType.REGEX,
+                    Severity.CRITICAL, "exfiltration", "curl file upload", "[CURL_UPLOAD]"),
+        AuditPattern("wget_post", r'wget\s+.*--post', MatchType.REGEX,
+                    Severity.HIGH, "exfiltration", "wget POST request", "[WGET_POST]"),
+        AuditPattern("netcat", r'\b(nc|netcat|ncat)\s+', MatchType.REGEX,
+                    Severity.CRITICAL, "exfiltration", "netcat (raw network)", "[NETCAT]"),
+        AuditPattern("ssh_command", r'ssh\s+.*@', MatchType.REGEX,
+                    Severity.HIGH, "network", "SSH connection", "[SSH]"),
+        AuditPattern("scp_transfer", r'scp\s+', MatchType.REGEX,
+                    Severity.HIGH, "exfiltration", "SCP file transfer", "[SCP]"),
+        AuditPattern("rsync_remote", r'rsync\s+.*:', MatchType.REGEX,
+                    Severity.HIGH, "exfiltration", "rsync to remote", "[RSYNC]"),
+        AuditPattern("base64_pipe", r'\|\s*base64', MatchType.REGEX,
+                    Severity.MEDIUM, "obfuscation", "piping to base64", "[BASE64_PIPE]"),
+        AuditPattern("reverse_shell", r'bash\s+-i\s+>&|/dev/tcp/', MatchType.REGEX,
+                    Severity.CRITICAL, "attack", "Reverse shell pattern", "[REVERSE_SHELL]"),
+    ],
+    "code_execution": [
+        AuditPattern("python_eval", r'\beval\s*\(', MatchType.REGEX,
+                    Severity.HIGH, "code_exec", "Python eval()", "[EVAL]"),
+        AuditPattern("python_exec", r'\bexec\s*\(', MatchType.REGEX,
+                    Severity.HIGH, "code_exec", "Python exec()", "[EXEC]"),
+        AuditPattern("python_compile", r'\bcompile\s*\([^)]*,\s*[\'"][^\'"]*[\'"]\s*,\s*[\'"]exec', MatchType.REGEX,
+                    Severity.HIGH, "code_exec", "Python compile() for exec", "[COMPILE]"),
+        AuditPattern("subprocess_shell", r'subprocess\.\w+\([^)]*shell\s*=\s*True', MatchType.REGEX,
+                    Severity.HIGH, "code_exec", "subprocess with shell=True", "[SUBPROCESS_SHELL]"),
+        AuditPattern("os_system", r'\bos\.system\s*\(', MatchType.REGEX,
+                    Severity.MEDIUM, "code_exec", "os.system() call", "[OS_SYSTEM]"),
+        AuditPattern("os_popen", r'\bos\.popen\s*\(', MatchType.REGEX,
+                    Severity.MEDIUM, "code_exec", "os.popen() call", "[OS_POPEN]"),
+        AuditPattern("pickle_load", r'pickle\.loads?\s*\(', MatchType.REGEX,
+                    Severity.HIGH, "code_exec", "pickle deserialization", "[PICKLE]"),
+        AuditPattern("yaml_unsafe", r'yaml\.(?:load|unsafe_load)\s*\([^)]*\)', MatchType.REGEX,
+                    Severity.HIGH, "code_exec", "Unsafe YAML load", "[YAML_UNSAFE]"),
+        AuditPattern("import_module", r'__import__\s*\(|importlib\.import_module', MatchType.REGEX,
+                    Severity.MEDIUM, "code_exec", "Dynamic import", "[DYNAMIC_IMPORT]"),
+    ],
+    "dangerous_paths": [
+        AuditPattern("etc_passwd", r'/etc/passwd', MatchType.REGEX,
+                    Severity.CRITICAL, "system_file", "Password file access", "[ETC_PASSWD]"),
+        AuditPattern("etc_shadow", r'/etc/shadow', MatchType.REGEX,
+                    Severity.CRITICAL, "system_file", "Shadow password file", "[ETC_SHADOW]"),
+        AuditPattern("proc_access", r'/proc/\d+/', MatchType.REGEX,
+                    Severity.HIGH, "system_file", "Process info access", "[PROC]"),
+        AuditPattern("home_ssh", r'~/\.ssh/|/home/[^/]+/\.ssh/', MatchType.REGEX,
+                    Severity.CRITICAL, "sensitive_dir", "SSH directory access", "[SSH_DIR]"),
+        AuditPattern("home_gnupg", r'~/\.gnupg|/home/[^/]+/\.gnupg', MatchType.REGEX,
+                    Severity.CRITICAL, "sensitive_dir", "GPG directory access", "[GPG_DIR]"),
+        AuditPattern("browser_profile", r'(Chrome|Firefox|Safari)/.*/(Cookies|Login|passwords)', MatchType.REGEX,
+                    Severity.CRITICAL, "sensitive_file", "Browser credential file", "[BROWSER_CREDS]"),
+        AuditPattern("keychain", r'~/Library/Keychains|\.keychain', MatchType.REGEX,
+                    Severity.CRITICAL, "sensitive_file", "macOS Keychain access", "[KEYCHAIN]"),
+        AuditPattern("history_file", r'~/\.(bash_history|zsh_history|python_history)', MatchType.REGEX,
+                    Severity.HIGH, "sensitive_file", "Shell history file", "[HISTORY]"),
+    ],
+    "obfuscation": [
+        AuditPattern("base64_decode", r'base64\.(b64)?decode|atob\s*\(', MatchType.REGEX,
+                    Severity.MEDIUM, "obfuscation", "Base64 decoding", "[B64_DECODE]"),
+        AuditPattern("hex_decode", r'bytes\.fromhex|binascii\.unhexlify', MatchType.REGEX,
+                    Severity.MEDIUM, "obfuscation", "Hex decoding", "[HEX_DECODE]"),
+        AuditPattern("rot13", r'codecs\.(decode|encode)\([^)]*rot', MatchType.REGEX,
+                    Severity.MEDIUM, "obfuscation", "ROT13 encoding", "[ROT13]"),
+        AuditPattern("chr_ord_build", r'chr\s*\(\s*\d+\s*\)', MatchType.REGEX,
+                    Severity.MEDIUM, "obfuscation", "Building strings with chr()", "[CHR_BUILD]"),
+        AuditPattern("unicode_escape", r'\\u[0-9a-fA-F]{4}.*\\u[0-9a-fA-F]{4}', MatchType.REGEX,
+                    Severity.LOW, "obfuscation", "Unicode escape sequences", "[UNICODE_ESC]"),
+        AuditPattern("long_hex_string", r'0x[0-9a-fA-F]{32,}', MatchType.REGEX,
+                    Severity.MEDIUM, "obfuscation", "Long hex literal", "[LONG_HEX]"),
+    ],
+    "prompt_injection": [
+        AuditPattern("ignore_previous", r'(?i)ignore\s+(all\s+)?previous\s+instructions?', MatchType.REGEX,
+                    Severity.CRITICAL, "injection", "Prompt injection attempt", "[IGNORE_PREV]"),
+        AuditPattern("new_instructions", r'(?i)new\s+instructions?:|your\s+new\s+task', MatchType.REGEX,
+                    Severity.HIGH, "injection", "Instruction override attempt", "[NEW_INST]"),
+        AuditPattern("system_prompt_leak", r'(?i)reveal\s+(your\s+)?system\s+prompt|what\s+are\s+your\s+instructions', MatchType.REGEX,
+                    Severity.MEDIUM, "injection", "System prompt extraction", "[SYS_PROMPT_LEAK]"),
+        AuditPattern("jailbreak_dan", r'(?i)\bDAN\b.*do\s+anything\s+now|act\s+as\s+DAN', MatchType.REGEX,
+                    Severity.HIGH, "injection", "DAN jailbreak attempt", "[DAN_JAILBREAK]"),
+        AuditPattern("roleplay_bypass", r'(?i)pretend\s+you\s+are|you\s+are\s+now\s+a|roleplay\s+as', MatchType.REGEX,
+                    Severity.MEDIUM, "injection", "Roleplay bypass attempt", "[ROLEPLAY]"),
+    ],
+    "data_exfil": [
+        AuditPattern("requests_post", r'requests\.(post|put|patch)\s*\(', MatchType.REGEX,
+                    Severity.MEDIUM, "exfiltration", "HTTP POST via requests", "[REQUESTS_POST]"),
+        AuditPattern("urllib_post", r'urllib\.request\.urlopen.*data\s*=', MatchType.REGEX,
+                    Severity.MEDIUM, "exfiltration", "HTTP POST via urllib", "[URLLIB_POST]"),
+        AuditPattern("socket_connect", r'socket\.socket\([^)]*\).*\.connect\s*\(', MatchType.REGEX,
+                    Severity.HIGH, "exfiltration", "Raw socket connection", "[SOCKET]"),
+        AuditPattern("webhook_url", r'https?://.*webhook|hooks\.(slack|discord)', MatchType.REGEX,
+                    Severity.HIGH, "exfiltration", "Webhook URL", "[WEBHOOK]"),
+        AuditPattern("pastebin", r'https?://(pastebin\.com|paste\.ee|hastebin)', MatchType.REGEX,
+                    Severity.HIGH, "exfiltration", "Pastebin service", "[PASTEBIN]"),
+        AuditPattern("file_upload_service", r'https?://(file\.io|transfer\.sh|0x0\.st)', MatchType.REGEX,
+                    Severity.CRITICAL, "exfiltration", "File upload service", "[FILE_UPLOAD]"),
+        AuditPattern("ngrok_tunnel", r'https?://[a-z0-9]+\.ngrok\.io', MatchType.REGEX,
+                    Severity.HIGH, "exfiltration", "Ngrok tunnel", "[NGROK]"),
+    ],
+    "suspicious_behavior": [
+        AuditPattern("disable_ssl", r'verify\s*=\s*False|CERT_NONE', MatchType.REGEX,
+                    Severity.HIGH, "security", "SSL verification disabled", "[NO_SSL]"),
+        AuditPattern("temp_file_exec", r'/tmp/[^/]+\.(sh|py|exe|bin)', MatchType.REGEX,
+                    Severity.HIGH, "code_exec", "Executable in /tmp", "[TMP_EXEC]"),
+        AuditPattern("cron_modify", r'crontab\s+-|/etc/cron', MatchType.REGEX,
+                    Severity.CRITICAL, "persistence", "Cron job modification", "[CRON]"),
+        AuditPattern("startup_modify", r'~/.bashrc|~/.profile|~/.zshrc.*>>', MatchType.REGEX,
+                    Severity.HIGH, "persistence", "Shell startup modification", "[STARTUP]"),
+        AuditPattern("kill_process", r'\bkill\s+-9|\bpkill\b|\bkillall\b', MatchType.REGEX,
+                    Severity.MEDIUM, "system", "Process termination", "[KILL]"),
+        AuditPattern("chmod_exec", r'chmod\s+[+0-7]*[x7]', MatchType.REGEX,
+                    Severity.MEDIUM, "code_exec", "Making file executable", "[CHMOD_X]"),
+        AuditPattern("rm_rf", r'rm\s+(-rf|-fr|--force)', MatchType.REGEX,
+                    Severity.HIGH, "destructive", "Forced recursive delete", "[RM_RF]"),
+    ],
+}
+
+
+class AuditRunner:
+    """Runs audits across surfaces with patterns. Composable."""
+    
+    def __init__(self):
+        self.surfaces: List[AuditSurface] = []
+        self.patterns: List[AuditPattern] = []
+    
+    def add_surface(self, surface: AuditSurface) -> "AuditRunner":
+        """Add a surface to scan."""
+        self.surfaces.append(surface)
+        return self
+    
+    def add_pattern(self, pattern: AuditPattern) -> "AuditRunner":
+        """Add a single pattern."""
+        self.patterns.append(pattern)
+        return self
+    
+    def add_pattern_set(self, name: str) -> "AuditRunner":
+        """Add a registered pattern set by name."""
+        if name in PATTERN_REGISTRY:
+            self.patterns.extend(PATTERN_REGISTRY[name])
+        return self
+    
+    def add_custom_pattern(self, regex: str, name: str = "custom", 
+                          severity: Severity = Severity.INFO) -> "AuditRunner":
+        """Add a custom regex pattern."""
+        self.patterns.append(AuditPattern(name, regex, severity, "custom"))
+        return self
+    
+    def add_patterns_from_yaml(self, yaml_path: str) -> "AuditRunner":
+        """Load patterns from YAML config file."""
+        self.patterns.extend(load_patterns_from_yaml(yaml_path))
+        return self
+    
+    def scan(self, limit: int = 1000) -> Iterator[Finding]:
+        """Run audit and yield findings."""
+        count = 0
+        
+        for surface in self.surfaces:
+            for path, content, metadata in surface.iter_chunks():
+                if count >= limit:
+                    return
+                
+                # Build line/column mappings
+                lines = content.split('\n')
+                char_to_line = []
+                char_to_col = []
+                for i, line in enumerate(lines):
+                    for c in range(len(line)):
+                        char_to_line.append(i + 1)
+                        char_to_col.append(c + 1)
+                    char_to_line.append(i + 1)
+                    char_to_col.append(len(line) + 1)
+                
+                for pattern in self.patterns:
+                    # Use the pattern's find_matches method (supports all match types)
+                    for start, end, matched in pattern.find_matches(content):
+                        if count >= limit:
+                            return
+                        
+                        line = char_to_line[start] if start < len(char_to_line) else len(lines)
+                        col_s = char_to_col[start] if start < len(char_to_col) else 1
+                        col_e = char_to_col[end-1] + 1 if end-1 < len(char_to_col) else col_s
+                        
+                        # Mask sensitive matches (preserve whitespace)
+                        if pattern.severity in (Severity.CRITICAL, Severity.HIGH):
+                            masked = mask_preserving_whitespace(matched, '*')
+                            # Truncate for display but show actual length
+                            if len(masked) > 60:
+                                display = masked[:30] + f"...({len(matched)} chars)..." + masked[-20:]
+                            else:
+                                display = masked
+                        else:
+                            if len(matched) > 60:
+                                display = matched[:30] + '...' + matched[-20:]
+                            else:
+                                display = matched
+                        
+                        yield Finding(
+                            surface=surface.name,
+                            path=path,
+                            line=line,
+                            col_start=col_s,
+                            col_end=col_e,
+                            char_start=start,
+                            char_end=end,
+                            pattern_name=pattern.name,
+                            category=pattern.category,
+                            severity=pattern.severity,
+                            matched=display,
+                            match_type=pattern.match_type.value,
+                            description=pattern.description,
+                            redact_label=pattern.redact_label,
+                            metadata=metadata
+                        )
+                        count += 1
+    
+    def mask_in_place(self, mask_char: str = "*", dry_run: bool = True,
+                      backup: bool = True, preserve_whitespace: bool = True,
+                      force: bool = False, cursor_stopped: bool = False) -> List[Dict]:
+        """Apply fixed-length masks to all findings (file size unchanged).
+
+        Args:
+            mask_char: Character to use for masking (default: *)
+            dry_run: If True, don't actually write files
+            backup: Create .bak files before modifying
+            preserve_whitespace: Keep spaces and newlines in masked output
+            force: If True, modify files even if in use (dangerous!)
+            cursor_stopped: If True, skip the Cursor running check
+        """
+        results = []
+        
+        # Check if Cursor is running (unless user says it's stopped)
+        if not dry_run and not cursor_stopped:
+            cursor_status = check_cursor_running()
+            if cursor_status["running"] and not force:
+                return [{
+                    "error": "Cursor is running",
+                    "warning": cursor_status["warning"],
+                    "hint": "Quit Cursor first, or use --cursor-stopped if you're sure, or --force to override"
+                }]
+
+        # Group findings by file
+        by_file: Dict[str, List[Finding]] = {}
+        for finding in self.scan():
+            if finding.surface != "transcript":
+                continue  # Only mask transcript files
+            by_file.setdefault(finding.path, []).append(finding)
+
+        for path, findings in by_file.items():
+            # Check if file is in use (unless forcing)
+            if not dry_run and not force:
+                file_status = is_file_in_use(path)
+                if file_status["in_use"]:
+                    results.append({
+                        "path": path,
+                        "error": "File in use",
+                        "processes": file_status["processes"],
+                        "cursor": file_status["cursor"],
+                        "hint": "File is locked by another process"
+                    })
+                    continue
+            
+            try:
+                with open(path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                original_size = len(content)
+                original_content = content
+            except Exception as e:
+                results.append({"path": path, "error": str(e)})
+                continue
+            
+            # Sort by position descending to preserve offsets
+            findings.sort(key=lambda f: f.char_start, reverse=True)
+            
+            masked_types = []
+            for f in findings:
+                original_text = content[f.char_start:f.char_end]
+                
+                if preserve_whitespace:
+                    # Preserve spaces and newlines
+                    mask = mask_preserving_whitespace(original_text, mask_char)
+                else:
+                    mask = mask_char * (f.char_end - f.char_start)
+                
+                content = content[:f.char_start] + mask + content[f.char_end:]
+                masked_types.append(f.redact_label or f.pattern_name)
+            
+            # Verify size unchanged
+            if len(content) != original_size:
+                results.append({"path": path, "error": "Size mismatch!"})
+                continue
+            
+            if not dry_run:
+                if backup:
+                    with open(path + '.bak', 'w', encoding='utf-8') as f:
+                        f.write(original_content)
+                with open(path, 'w', encoding='utf-8') as f:
+                    f.write(content)
+            
+            results.append({
+                "path": path,
+                "findings": len(findings),
+                "types": list(set(masked_types)),
+                "size": original_size,
+                "preserved_whitespace": preserve_whitespace,
+                "dry_run": dry_run
+            })
+        
+        return results
+    
+    def emit_redact_commands(self) -> Iterator[str]:
+        """Emit redaction commands for external processing."""
+        yield "# REDACT format: file:line:col_start:col_end:length:type"
+        for f in self.scan():
+            yield f.to_redact_cmd()
+
 
 # Logging and Debug
 
@@ -701,6 +1876,48 @@ def cli() -> int:
 
 # Helper Functions
 
+
+# CONFIG LOADING (not sniffable - implementation detail)
+# Load order: built-in -> skill config -> user config -> project config -> CLI args
+
+def load_config() -> dict:
+    """Load configuration from multiple sources (later sources override earlier)."""
+    config = {
+        "limits": {"default": 50, "tail": 20, "stream": 100},
+        "resolution": {"min_hash_prefix": 4, "match_hash_prefixes": True},
+        "export": {"trailing_newline": True},
+        "debug": {"enabled": False},
+    }
+    
+    # Config file locations (in priority order, later overrides earlier)
+    config_paths = [
+        Path(__file__).parent / "cursor_mirror_config.yml",  # Skill default
+        Path.home() / ".config/cursor-mirror/config.yml",     # User config
+        Path.home() / ".cursor-mirror.yml",                   # User config alt
+        Path.cwd() / ".moollm/cursor-mirror.yml",             # Project config
+    ]
+    
+    try:
+        for cfg_path in config_paths:
+            if cfg_path.exists():
+                with open(cfg_path) as f:
+                    file_config = yaml.safe_load(f) or {}
+                    # Deep merge
+                    for k, v in file_config.items():
+                        if isinstance(v, dict) and k in config:
+                            config[k].update(v)
+                        else:
+                            config[k] = v
+    except ImportError:
+        pass  # yaml not available, use defaults
+    except Exception:
+        pass  # Config load failed, use defaults
+    
+    return config
+
+CONFIG = load_config()
+
+
 def open_db(path: Path) -> sqlite3.Connection:
     """Open SQLite in read-only mode."""
     debug("open_db: %s", path.name if hasattr(path, 'name') else path)
@@ -746,25 +1963,30 @@ def parse_since(since: str) -> Optional[str]:
 
 def resolve_workspace(ref: str) -> Optional[Path]:
     """Resolve workspace reference to full path.
+
+    Accepts (in order of precedence):
+      @1, @2, @3    → Index by RECENCY (most recent first, like bash !-1)
+      769a26        → Hash prefix (4+ hex chars, case-insensitive)
+      moollm        → Folder name fragment (searches path)
+      /full/path    → Absolute path (passed through)
+
+    Returns None if not found. Use 'find' command to discover workspaces.
     
-    Accepts:
-      - Hash prefix: "769a26" or full hash
-      - Numeric index: "@1", "@2" (1-based, sorted by size desc)
-      - Folder name fragment: "moollm", "SpaceCraft"
-      - Full path: "/Users/a2deh/GroundUp/Leela/git/moollm"
+    Note: @1 changes when you switch projects! It's always "most recently
+    modified state.vscdb", not a stable reference.
     """
     if not ref:
         return None
     
     debug("resolve_workspace: ref=%r", ref)
     
-    # Index reference (@1, @2, etc.)
+    # Index reference (@1, @2, etc.) - sorted by recency (most recent first)
     if ref.startswith("@") and ref[1:].isdigit():
         idx = int(ref[1:]) - 1
         workspaces = sorted(
             [ws for ws in WORKSPACES_ROOT.iterdir() if ws.is_dir()],
-            key=lambda w: (w / "state.vscdb").stat().st_size if (w / "state.vscdb").exists() else 0,
-            reverse=True
+            key=lambda w: (w / "state.vscdb").stat().st_mtime if (w / "state.vscdb").exists() else 0,
+            reverse=True  # Most recent first
         )
         if 0 <= idx < len(workspaces):
             debug("resolve_workspace: index @%d -> %s", idx + 1, workspaces[idx].name[:8])
@@ -808,12 +2030,23 @@ def resolve_workspace(ref: str) -> Optional[Path]:
 
 
 def resolve_composer(ref: str, workspace_ref: Optional[str] = None) -> Optional[Tuple[str, Dict[str, Any]]]:
-    """Resolve composer reference to (composerId, metadata).
-    
-    Accepts:
-      - UUID or prefix: "9861c0a4" or full UUID
-      - Numeric index: "@1", "@2" (1-based, sorted by message count desc)
-      - Name fragment: "cursor-mirror", "moollm"
+    """Resolve composer reference to (composerId, metadata dict).
+
+    Accepts (in order of precedence):
+      @1, @2, @3    → Index by RECENCY (most recent lastSendTime first)
+      fe18ce96      → UUID prefix (4+ hex chars)
+      "my chat"     → Name fragment (searches composer name)
+      moollm        → Workspace folder fragment (if in that workspace)
+
+    Args:
+      ref: The reference string to resolve
+      workspace_ref: Optional workspace filter (also accepts @1/prefix/name)
+
+    Returns:
+      (composer_id, metadata_dict) or None if not found.
+      
+    The metadata dict includes: name, mode, createdAt, lastSendTime, etc.
+    Use resolve_composer_id() if you just need the UUID string.
     """
     if not ref:
         return None
@@ -841,13 +2074,13 @@ def resolve_composer(ref: str, workspace_ref: Optional[str] = None) -> Optional[
     
     debug("resolve_composer: %d composers to search", len(composers_meta))
     
-    # Index reference (@1, @2, etc.)
+    # Index reference (@1, @2, etc.) - sorted by recency (most recent first)
     if ref.startswith("@") and ref[1:].isdigit():
         idx = int(ref[1:]) - 1
         sorted_composers = sorted(
             composers_meta.items(),
-            key=lambda x: x[1].get("_bubble_count", 0),
-            reverse=True
+            key=lambda x: x[1].get("lastSendTime") or x[1].get("createdAt") or "",
+            reverse=True  # Most recent first
         )
         if 0 <= idx < len(sorted_composers):
             cid, meta = sorted_composers[idx]
@@ -939,7 +2172,26 @@ def get_workspace_composers(ws_path: Path) -> List[Dict[str, Any]]:
 
 
 def iter_bubbles(composer_id: Optional[str] = None) -> Iterator[Tuple[str, str, Dict[str, Any]]]:
-    """Yield (composer_id, bubble_key, bubble_dict) for all bubbles."""
+    """Yield (composer_id, bubble_key, bubble_dict) for all bubbles.
+
+    Args:
+      composer_id: Full UUID to filter by (NOT a prefix or @1 reference!
+                   Use resolve_composer_id() first if you have a reference).
+                   Pass None to iterate ALL bubbles across ALL composers.
+
+    Yields:
+      Tuples of (composer_uuid, "bubbleId:uuid:suffix", bubble_dict)
+      
+    The bubble_dict contains:
+      - type: 1=user, 2=assistant
+      - text: Message content
+      - createdAt: Timestamp (ms since epoch)
+      - toolCalls, toolResults, thinking, codeBlocks, etc.
+      
+    Note: This reads from cursorDiskKV in the global state.vscdb.
+    Large composers may have 1000s of bubbles. Use load_bubbles() for
+    sorted, filtered access.
+    """
     conn = open_db(GLOBAL_DB)
     cur = conn.cursor()
     if composer_id:
@@ -1159,11 +2411,11 @@ def cmd_list_workspaces(args):
 
 
 def get_workspace_index() -> List[Dict]:
-    """Get indexed list of workspaces sorted by size."""
+    """Get indexed list of workspaces sorted by recency (most recent first)."""
     ws_list = sorted(
         [ws for ws in WORKSPACES_ROOT.iterdir() if ws.is_dir()],
-        key=lambda w: (w / "state.vscdb").stat().st_size if (w / "state.vscdb").exists() else 0,
-        reverse=True
+        key=lambda w: (w / "state.vscdb").stat().st_mtime if (w / "state.vscdb").exists() else 0,
+        reverse=True  # Most recent first
     )
     result = []
     for idx, ws in enumerate(ws_list):
@@ -1625,9 +2877,27 @@ def cmd_show_composer(args):
 
 
 def cmd_tail(args):
-    """Show recent chat messages."""
+    """Show recent chat messages (like unix tail for chats).
+
+    Usage:
+      tail              # Last 20 messages across ALL chats
+      tail @1           # Last 20 messages from most recent chat
+      tail fe18 -n 50   # Last 50 from specific composer
+      tail --user       # Only user messages
+      tail --tools      # Only messages with tool calls
+
+    Empty output? Check: composer exists, has messages, filters aren't too strict.
+    """
+    # Resolve composer reference (@1, prefix, name) to full ID
+    composer_id = None
+    if args.composer:
+        composer_id = resolve_composer_id(args.composer)
+        if not composer_id:
+            print(f"Composer not found: {args.composer}", file=sys.stderr)
+            return
+    
     bubbles = []
-    for cid, k, obj in iter_bubbles(args.composer):
+    for cid, k, obj in iter_bubbles(composer_id):
         obj["_key"] = k
         obj["_composer"] = cid
         
@@ -1647,7 +2917,7 @@ def cmd_tail(args):
         bubbles.append(obj)
     
     bubbles.sort(key=lambda x: x.get("createdAt") or "", reverse=True)
-    bubbles = bubbles[:args.lines]
+    bubbles = bubbles[:args.limit]
     bubbles.reverse()
     
     for obj in bubbles:
@@ -1682,7 +2952,7 @@ def cmd_stream(args):
     
     # Sort by time
     items.sort(key=lambda x: x[0], reverse=True)
-    items = items[:args.lines]
+    items = items[:args.limit]
     items.reverse()
     
     for ts, obj in items:
@@ -1796,7 +3066,21 @@ def cmd_export_prompts(args):
 
 
 def cmd_grep(args):
-    """Grep-like search in chat bubbles."""
+    """Grep-like regex search across ALL chat messages.
+
+    Searches the cursorDiskKV bubble store (the live data Cursor uses).
+    
+    Usage:
+      grep "error"              # Case-sensitive search
+      grep -i "warning"         # Case-insensitive
+      grep "def.*init" -n 20    # Regex, limit 20 results
+      grep -F "exact match"     # Fixed string (no regex)
+      
+    Output format: [composer_prefix] message_preview...
+    
+    For searching plaintext transcripts instead, use 'tgrep' command.
+    For searching specific composer only, there's no filter yet (grep is global).
+    """
     flags = re.IGNORECASE if args.ignore_case else 0
     if args.fixed_strings:
         pattern = re.compile(re.escape(args.pattern), flags)
@@ -1818,8 +3102,8 @@ def cmd_grep(args):
         if found:
             match_count += 1
             matched_composers.add(cid)
-            
-            if args.max_results and match_count > args.max_results:
+
+            if args.limit and match_count > args.limit:
                 break
             
             if not args.count and not args.composers_only:
@@ -2112,10 +3396,16 @@ def cmd_tools(args):
         
         tools.append(tool)
     
+    # Apply limit if specified
+    total = len(tools)
+    if args.limit:
+        tools = tools[:args.limit]
+    
     if args.yaml or args.json:
         print(fmt(tools, args))
     else:
-        print(f"Tool calls in {target[:16]}... ({len(tools)} calls)")
+        shown = f" (showing {len(tools)})" if args.limit and args.limit < total else ""
+        print(f"Tool calls in {target[:16]}... ({total} calls{shown})")
         print(f"{'TIME':<20} {'STATUS':<10} {'TOOL':<20} ARGS")
         print("─" * 100)
         for t in tools:
@@ -2231,7 +3521,22 @@ def cmd_context(args):
 
 
 def cmd_analyze(args):
-    """Deep analysis of a conversation (boot sequence)."""
+    """Deep analysis of a conversation - the go-to overview command.
+
+    Shows:
+      - Message counts (user vs assistant)
+      - Duration and timespan
+      - Models used
+      - Tool call breakdown (with error counts)
+      - Context usage
+      
+    Usage:
+      analyze @1        # Analyze current/most recent chat
+      analyze fe18      # Analyze by hash prefix
+      analyze --yaml    # Output as YAML for parsing
+      
+    This is often the first command to run on an unfamiliar composer.
+    """
     target = resolve_composer_id(args.composer)
     if not target:
         raise NotFoundError(f"Composer not found: {args.composer}")
@@ -3600,7 +4905,9 @@ def cmd_export_jsonl(args):
                 }))
     
     output = "\n".join(lines)
-    
+    if lines:
+        output += "\n"  # Trailing newline for proper wc -l count
+
     if args.output:
         Path(args.output).write_text(output)
         print(f"Exported {len(lines)} records to {args.output}")
@@ -4229,16 +5536,22 @@ def cmd_sql(args):
 
 
 def cmd_find(args):
-    """Find workspaces/composers by name pattern."""
+    """Find workspaces/composers by name pattern or hash prefix."""
     pattern = args.pattern.lower()
     results = {"workspaces": [], "composers": []}
+    
+    # Check if pattern looks like a hash prefix (hex chars only)
+    is_hash_pattern = all(c in '0123456789abcdef' for c in pattern) and len(pattern) >= 4
     
     if args.type in ("workspace", "all"):
         for ws in WORKSPACES_ROOT.iterdir():
             if not ws.is_dir():
                 continue
             folder = get_workspace_folder(ws)
-            if folder and pattern in folder.lower():
+            # Match by hash prefix OR folder name
+            hash_match = is_hash_pattern and ws.name.lower().startswith(pattern)
+            name_match = folder and pattern in folder.lower()
+            if hash_match or name_match:
                 db_path = ws / "state.vscdb"
                 results["workspaces"].append({
                     "hash": ws.name,
@@ -4254,7 +5567,10 @@ def cmd_find(args):
         for cid, c in all_composers.items():
             name = c.get("name", "") or ""
             folder = c.get("_workspace_folder") or ""
-            if pattern in name.lower() or pattern in folder.lower():
+            # Match by hash prefix OR name/folder
+            hash_match = is_hash_pattern and cid.lower().startswith(pattern)
+            name_match = pattern in name.lower() or pattern in folder.lower()
+            if hash_match or name_match:
                 results["composers"].append({
                     "id": cid,
                     "short": cid[:8],
@@ -4820,6 +6136,3327 @@ def cmd_image_gallery(args):
         print(f"Gallery written to: {args.output}")
     else:
         print(output)
+
+
+# ~/.cursor Commands (2026-01-15)
+
+DOTCURSOR_BASE = os.path.expanduser("~/.cursor")
+DOTCURSOR_PROJECTS = os.path.join(DOTCURSOR_BASE, "projects")
+DOTCURSOR_AI_TRACKING = os.path.join(DOTCURSOR_BASE, "ai-tracking", "ai-code-tracking.db")
+DOTCURSOR_EXTENSIONS = os.path.join(DOTCURSOR_BASE, "extensions")
+
+
+def get_dotcursor_workspaces() -> List[Dict[str, Any]]:
+    """List all workspace directories in ~/.cursor/projects/"""
+    workspaces = []
+    if not os.path.isdir(DOTCURSOR_PROJECTS):
+        return workspaces
+    
+    for name in os.listdir(DOTCURSOR_PROJECTS):
+        ws_path = os.path.join(DOTCURSOR_PROJECTS, name)
+        if not os.path.isdir(ws_path):
+            continue
+        
+        # Calculate size
+        total_size = 0
+        for root, dirs, files in os.walk(ws_path):
+            for f in files:
+                try:
+                    total_size += os.path.getsize(os.path.join(root, f))
+                except:
+                    pass
+        
+        # Count contents
+        transcripts = []
+        transcript_dir = os.path.join(ws_path, "agent-transcripts")
+        if os.path.isdir(transcript_dir):
+            transcripts = [f for f in os.listdir(transcript_dir) if f.endswith('.txt') or f.endswith('.json')]
+        
+        tools = []
+        tools_dir = os.path.join(ws_path, "agent-tools")
+        if os.path.isdir(tools_dir):
+            tools = [f for f in os.listdir(tools_dir) if f.endswith('.txt')]
+        
+        terminals = []
+        term_dir = os.path.join(ws_path, "terminals")
+        if os.path.isdir(term_dir):
+            terminals = [f for f in os.listdir(term_dir) if f.endswith('.txt')]
+        
+        workspaces.append({
+            "name": name,
+            "path": ws_path,
+            "size_kb": total_size / 1024,
+            "transcripts": len(transcripts),
+            "tools": len(tools),
+            "terminals": len(terminals),
+        })
+    
+    return sorted(workspaces, key=lambda x: -x["size_kb"])
+
+
+def resolve_dotcursor_workspace(ref: Optional[str]) -> Optional[str]:
+    """Resolve workspace reference to full path in ~/.cursor/projects/"""
+    if not ref:
+        return None
+    
+    # Direct path match
+    for ws in get_dotcursor_workspaces():
+        if ref == ws["name"] or ref in ws["name"]:
+            return ws["path"]
+    
+    return None
+
+
+def cmd_dotcursor_status(args):
+    """Overview of ~/.cursor directory."""
+    result = {
+        "path": DOTCURSOR_BASE,
+        "exists": os.path.isdir(DOTCURSOR_BASE),
+    }
+    
+    if not result["exists"]:
+        print(f"~/.cursor directory not found at: {DOTCURSOR_BASE}")
+        return
+    
+    # Config files
+    config_files = {}
+    for name in ["argv.json", "mcp.json", "settings.json", "ide_state.json", "unified_repo_list.json"]:
+        path = os.path.join(DOTCURSOR_BASE, name)
+        if os.path.isfile(path):
+            config_files[name] = {
+                "size": os.path.getsize(path),
+                "exists": True
+            }
+    result["config_files"] = config_files
+    
+    # AI tracking
+    if os.path.isfile(DOTCURSOR_AI_TRACKING):
+        try:
+            conn = sqlite3.connect(f"file:{DOTCURSOR_AI_TRACKING}?mode=ro", uri=True)
+            cursor = conn.cursor()
+            
+            ai_tracking = {
+                "path": DOTCURSOR_AI_TRACKING,
+                "size_mb": os.path.getsize(DOTCURSOR_AI_TRACKING) / (1024 * 1024),
+                "tables": {}
+            }
+            
+            for table in ["ai_code_hashes", "scored_commits", "tracking_state", "conversation_summaries"]:
+                try:
+                    cursor.execute(f"SELECT COUNT(*) FROM {table}")
+                    ai_tracking["tables"][table] = cursor.fetchone()[0]
+                except:
+                    pass
+            
+            # Model breakdown
+            try:
+                cursor.execute("""
+                    SELECT model, COUNT(*) as cnt FROM ai_code_hashes 
+                    GROUP BY model ORDER BY cnt DESC LIMIT 5
+                """)
+                ai_tracking["top_models"] = [{"model": r[0] or "(unknown)", "count": r[1]} for r in cursor.fetchall()]
+            except:
+                pass
+            
+            conn.close()
+            result["ai_tracking"] = ai_tracking
+        except Exception as e:
+            result["ai_tracking"] = {"error": str(e)}
+    
+    # Extensions
+    if os.path.isdir(DOTCURSOR_EXTENSIONS):
+        ext_json = os.path.join(DOTCURSOR_EXTENSIONS, "extensions.json")
+        ext_count = len([d for d in os.listdir(DOTCURSOR_EXTENSIONS) if os.path.isdir(os.path.join(DOTCURSOR_EXTENSIONS, d))])
+        result["extensions"] = {
+            "path": DOTCURSOR_EXTENSIONS,
+            "count": ext_count,
+            "manifest_exists": os.path.isfile(ext_json)
+        }
+    
+    # Projects (workspaces)
+    workspaces = get_dotcursor_workspaces()
+    total_transcripts = sum(ws["transcripts"] for ws in workspaces)
+    total_tools = sum(ws["tools"] for ws in workspaces)
+    total_size = sum(ws["size_kb"] for ws in workspaces)
+    
+    result["projects"] = {
+        "path": DOTCURSOR_PROJECTS,
+        "workspaces": len(workspaces),
+        "total_transcripts": total_transcripts,
+        "total_tools": total_tools,
+        "total_size_mb": total_size / 1024,
+        "workspace_list": [{"name": ws["name"], "size_kb": ws["size_kb"], "transcripts": ws["transcripts"]} for ws in workspaces[:10]]
+    }
+    
+    if args.yaml:
+        print(yaml.dump(result, default_flow_style=False, sort_keys=False, allow_unicode=True))
+    elif args.json:
+        print(json.dumps(result, indent=2))
+    else:
+        print(f"~/.cursor Status")
+        print("=" * 60)
+        print(f"Path: {DOTCURSOR_BASE}")
+        print()
+        print("Config Files:")
+        for name, info in config_files.items():
+            print(f"  {name}: {info['size']} bytes")
+        print()
+        if "ai_tracking" in result:
+            ai = result["ai_tracking"]
+            if "error" not in ai:
+                print(f"AI Tracking: {ai['size_mb']:.1f} MB")
+                for table, count in ai.get("tables", {}).items():
+                    print(f"  {table}: {count:,} rows")
+                if "top_models" in ai:
+                    print("  Top models:")
+                    for m in ai["top_models"][:3]:
+                        print(f"    {m['model']}: {m['count']:,}")
+        print()
+        print(f"Extensions: {result.get('extensions', {}).get('count', 0)} installed")
+        print()
+        print(f"Projects: {len(workspaces)} workspaces, {total_transcripts} transcripts, {total_size/1024:.1f} MB")
+        for ws in workspaces[:5]:
+            print(f"  {ws['name'][:50]}...: {ws['size_kb']:.0f} KB, {ws['transcripts']} transcripts")
+
+
+def cmd_ai_hashes(args):
+    """Query AI code tracking database."""
+    if not os.path.isfile(DOTCURSOR_AI_TRACKING):
+        print(f"AI tracking database not found: {DOTCURSOR_AI_TRACKING}")
+        return
+    
+    conn = sqlite3.connect(f"file:{DOTCURSOR_AI_TRACKING}?mode=ro", uri=True)
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+    
+    if args.stats:
+        # Statistics only
+        cursor.execute("SELECT COUNT(*) FROM ai_code_hashes")
+        total = cursor.fetchone()[0]
+        
+        cursor.execute("""
+            SELECT source, model, COUNT(*) as cnt 
+            FROM ai_code_hashes 
+            GROUP BY source, model 
+            ORDER BY cnt DESC
+        """)
+        by_source_model = [dict(r) for r in cursor.fetchall()]
+        
+        cursor.execute("""
+            SELECT fileExtension, COUNT(*) as cnt 
+            FROM ai_code_hashes 
+            GROUP BY fileExtension 
+            ORDER BY cnt DESC LIMIT 10
+        """)
+        by_ext = [dict(r) for r in cursor.fetchall()]
+        
+        result = {
+            "total": total,
+            "by_source_model": by_source_model,
+            "by_extension": by_ext
+        }
+        
+        if args.yaml:
+            print(yaml.dump(result, default_flow_style=False, sort_keys=False))
+        elif args.json:
+            print(json.dumps(result, indent=2))
+        else:
+            print(f"AI Code Hashes: {total:,} total")
+            print()
+            print("By Source/Model:")
+            for row in by_source_model[:10]:
+                print(f"  {row['source'] or '?'}/{row['model'] or '?'}: {row['cnt']:,}")
+            print()
+            print("By Extension:")
+            for row in by_ext:
+                print(f"  .{row['fileExtension'] or '?'}: {row['cnt']:,}")
+        return
+    
+    # Build query
+    conditions = []
+    params = []
+    
+    if args.since:
+        since_ts = parse_time_filter(args.since)
+        if since_ts:
+            conditions.append("createdAt >= ?")
+            params.append(since_ts)
+    
+    if args.model:
+        conditions.append("model LIKE ?")
+        params.append(args.model.replace("*", "%"))
+    
+    if args.file:
+        conditions.append("fileName LIKE ?")
+        params.append(f"%{args.file}%")
+    
+    if args.source:
+        conditions.append("source = ?")
+        params.append(args.source)
+    
+    where = " AND ".join(conditions) if conditions else "1=1"
+    
+    cursor.execute(f"""
+        SELECT hash, source, fileExtension, fileName, model, 
+               datetime(createdAt/1000, 'unixepoch', 'localtime') as created
+        FROM ai_code_hashes
+        WHERE {where}
+        ORDER BY createdAt DESC
+        LIMIT ?
+    """, params + [args.limit])
+    
+    results = [dict(r) for r in cursor.fetchall()]
+    conn.close()
+    
+    if args.yaml:
+        print(yaml.dump(results, default_flow_style=False, sort_keys=False))
+    elif args.json:
+        print(json.dumps(results, indent=2))
+    else:
+        print(f"AI Code Hashes ({len(results)} results)")
+        print("-" * 80)
+        for r in results:
+            fname = r["fileName"] or ""
+            fname_short = "..." + fname[-40:] if len(fname) > 40 else fname
+            print(f"{r['created']} | {r['source']:8} | {r['model'] or '?':30} | {fname_short}")
+
+
+def cmd_ai_commits(args):
+    """Git commits scored for AI attribution."""
+    if not os.path.isfile(DOTCURSOR_AI_TRACKING):
+        print(f"AI tracking database not found: {DOTCURSOR_AI_TRACKING}")
+        return
+    
+    conn = sqlite3.connect(f"file:{DOTCURSOR_AI_TRACKING}?mode=ro", uri=True)
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+    
+    conditions = []
+    params = []
+    
+    if args.since:
+        since_ts = parse_time_filter(args.since)
+        if since_ts:
+            conditions.append("scoredAt >= ?")
+            params.append(since_ts)
+    
+    if args.branch:
+        conditions.append("branchName LIKE ?")
+        params.append(f"%{args.branch}%")
+    
+    where = " AND ".join(conditions) if conditions else "1=1"
+    
+    cursor.execute(f"""
+        SELECT commitHash, branchName, 
+               datetime(scoredAt/1000, 'unixepoch', 'localtime') as scored
+        FROM scored_commits
+        WHERE {where}
+        ORDER BY scoredAt DESC
+        LIMIT ?
+    """, params + [args.limit])
+    
+    results = [dict(r) for r in cursor.fetchall()]
+    conn.close()
+    
+    if args.yaml:
+        print(yaml.dump(results, default_flow_style=False, sort_keys=False))
+    elif args.json:
+        print(json.dumps(results, indent=2))
+    else:
+        print(f"Scored Commits ({len(results)} results)")
+        print("-" * 70)
+        for r in results:
+            print(f"{r['scored']} | {r['commitHash'][:12]} | {r['branchName']}")
+
+
+def cmd_agent_transcript(args):
+    """Read plaintext transcript from ~/.cursor."""
+    composer_id = args.composer
+    
+    # Find transcript file
+    transcript_path = None
+    transcript_format = args.format
+    
+    workspaces = get_dotcursor_workspaces()
+    if args.workspace:
+        workspaces = [ws for ws in workspaces if args.workspace in ws["name"]]
+    
+    for ws in workspaces:
+        trans_dir = os.path.join(ws["path"], "agent-transcripts")
+        if not os.path.isdir(trans_dir):
+            continue
+        
+        for f in os.listdir(trans_dir):
+            if f.startswith(composer_id):
+                candidate = os.path.join(trans_dir, f)
+                if transcript_format == "auto":
+                    # Prefer JSON if available
+                    if f.endswith(".json"):
+                        transcript_path = candidate
+                        transcript_format = "json"
+                        break
+                    elif f.endswith(".txt") and transcript_path is None:
+                        transcript_path = candidate
+                        transcript_format = "txt"
+                elif transcript_format == "json" and f.endswith(".json"):
+                    transcript_path = candidate
+                    break
+                elif transcript_format == "txt" and f.endswith(".txt"):
+                    transcript_path = candidate
+                    break
+        if transcript_path:
+            break
+    
+    if not transcript_path:
+        print(f"Transcript not found for composer: {composer_id}")
+        return
+    
+    # Read and optionally filter
+    with open(transcript_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    if args.tail:
+        lines = content.split('\n')
+        content = '\n'.join(lines[-args.tail:])
+    elif args.head:
+        lines = content.split('\n')
+        content = '\n'.join(lines[:args.head])
+    
+    # Filtering for txt format
+    if transcript_format == "txt" and (args.prompts or args.responses or args.tools or args.thinking):
+        lines = content.split('\n')
+        filtered = []
+        in_section = None
+        
+        for line in lines:
+            if line.strip() == "user:":
+                in_section = "user"
+            elif line.strip() == "assistant:":
+                in_section = "assistant"
+            elif line.startswith("[Thinking]"):
+                in_section = "thinking"
+            elif line.startswith("[Tool call]") or line.startswith("[Tool result]"):
+                in_section = "tool"
+            
+            if args.prompts and in_section == "user":
+                filtered.append(line)
+            elif args.responses and in_section == "assistant":
+                filtered.append(line)
+            elif args.tools and in_section == "tool":
+                filtered.append(line)
+            elif args.thinking and in_section == "thinking":
+                filtered.append(line)
+        
+        content = '\n'.join(filtered)
+    
+    # Output
+    if args.yaml or getattr(args, 'json_out', False):
+        result = {
+            "path": transcript_path,
+            "format": transcript_format,
+            "lines": len(content.split('\n')),
+            "content": content if len(content) < 50000 else content[:50000] + "\n... (truncated)"
+        }
+        if args.yaml:
+            print(yaml.dump(result, default_flow_style=False, sort_keys=False, allow_unicode=True))
+        else:
+            print(json.dumps(result, indent=2))
+    else:
+        print(f"# Transcript: {transcript_path}")
+        print(f"# Format: {transcript_format}, Lines: {len(content.split(chr(10)))}")
+        print("-" * 60)
+        print(content)
+
+
+def cmd_transcript_index(args):
+    """Scan transcript and emit line-range pointers for LLM navigation."""
+    composer_id = args.composer
+    
+    # Find transcript file (prefer .txt for line-based indexing)
+    transcript_path = None
+    workspaces = get_dotcursor_workspaces()
+    if args.workspace:
+        workspaces = [ws for ws in workspaces if args.workspace in ws["name"]]
+    
+    for ws in workspaces:
+        trans_dir = os.path.join(ws["path"], "agent-transcripts")
+        if not os.path.isdir(trans_dir):
+            continue
+        for f in os.listdir(trans_dir):
+            if f.startswith(composer_id) and f.endswith(".txt"):
+                transcript_path = os.path.join(trans_dir, f)
+                break
+        if transcript_path:
+            break
+    
+    if not transcript_path:
+        print(f"Transcript not found for composer: {composer_id}")
+        return
+    
+    # Parse type filters
+    type_filter = None
+    if args.types:
+        type_filter = set(args.types.lower().split(','))
+    
+    # Read and index
+    with open(transcript_path, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+    
+    sections = []
+    current = None
+    
+    for i, line in enumerate(lines, 1):
+        stripped = line.strip()
+        
+        # Detect section boundaries
+        section_type = None
+        summary = None
+        
+        if stripped == "user:":
+            section_type = "user"
+            summary = "user prompt"
+        elif stripped == "assistant:":
+            section_type = "assistant"
+            summary = "assistant response"
+        elif stripped.startswith("[Thinking]"):
+            section_type = "thinking"
+            summary = "thinking block"
+        elif stripped.startswith("[Tool call]"):
+            section_type = "tool"
+            # Extract tool name
+            parts = stripped.split()
+            if len(parts) >= 3:
+                summary = f"tool call: {parts[2]}"
+            else:
+                summary = "tool call"
+        elif stripped.startswith("[Tool result]"):
+            section_type = "tool_result"
+            parts = stripped.split()
+            if len(parts) >= 3:
+                summary = f"tool result: {parts[2]}"
+            else:
+                summary = "tool result"
+        elif "error" in stripped.lower() or "Error" in stripped:
+            if current and current["type"] not in ("error",):
+                section_type = "error"
+                summary = f"error: {stripped[:60]}..."
+        
+        # Handle section transitions
+        if section_type:
+            if current:
+                current["end"] = i - 1
+                if current["end"] - current["start"] + 1 >= args.min_lines:
+                    sections.append(current)
+            current = {
+                "type": section_type,
+                "start": i,
+                "end": i,
+                "summary": summary
+            }
+        elif current:
+            current["end"] = i
+            # Enhance summary with first meaningful content
+            if current["type"] == "user" and len(stripped) > 5:
+                # Skip XML tags, get actual user text
+                if not stripped.startswith('<') and not stripped.startswith('</') and not current.get("content_preview"):
+                    current["content_preview"] = stripped[:100]
+            elif current["type"] == "assistant" and len(stripped) > 10:
+                if not stripped.startswith('[') and not current.get("content_preview"):
+                    current["content_preview"] = stripped[:80]
+    
+    # Close last section
+    if current:
+        current["end"] = len(lines)
+        if current["end"] - current["start"] + 1 >= args.min_lines:
+            sections.append(current)
+    
+    # Apply type filter
+    if type_filter:
+        sections = [s for s in sections if s["type"] in type_filter]
+    
+    # Output
+    if args.yaml:
+        result = {
+            "path": transcript_path,
+            "total_lines": len(lines),
+            "sections": sections
+        }
+        print(yaml.dump(result, default_flow_style=False, sort_keys=False))
+    elif args.json:
+        result = {
+            "path": transcript_path,
+            "total_lines": len(lines),
+            "sections": sections
+        }
+        print(json.dumps(result, indent=2))
+    else:
+        print(f"# Transcript: {transcript_path}")
+        print(f"# Total lines: {len(lines)}, Sections: {len(sections)}")
+        print()
+        for s in sections:
+            preview = s.get("content_preview", "")
+            if preview:
+                preview = f" | {preview}"
+            print(f"{transcript_path}:{s['start']}-{s['end']} # {s['summary']}{preview}")
+
+
+def cmd_events(args):
+    """Scan for actionable events, emit file:line pointers for LLM iteration loop."""
+    events = []
+    
+    # Parse filters
+    type_filter = set(args.types.split(',')) if args.types else None
+    since_ts = parse_time_filter(args.since) if args.since else None
+    severity_order = {"info": 0, "warn": 1, "error": 2}
+    min_severity = severity_order.get(args.severity, 0) if args.severity else 0
+    
+    # Get workspaces
+    workspaces = get_dotcursor_workspaces()
+    if args.workspace:
+        workspaces = [ws for ws in workspaces if args.workspace in ws["name"]]
+    
+    # Scan transcripts for events
+    for ws in workspaces:
+        trans_dir = os.path.join(ws["path"], "agent-transcripts")
+        if not os.path.isdir(trans_dir):
+            continue
+        
+        for fname in os.listdir(trans_dir):
+            if not fname.endswith('.txt'):
+                continue
+            
+            # Filter by composer if specified
+            if args.composer and not fname.startswith(args.composer):
+                continue
+            
+            fpath = os.path.join(trans_dir, fname)
+            
+            # Check modification time
+            if since_ts:
+                mtime = os.path.getmtime(fpath) * 1000
+                if mtime < since_ts:
+                    continue
+            
+            # Scan file for events
+            try:
+                with open(fpath, 'r', encoding='utf-8') as f:
+                    lines = f.readlines()
+            except:
+                continue
+            
+            for i, line in enumerate(lines, 1):
+                stripped = line.strip()
+                event = None
+                
+                # Detect actual runtime errors and failures
+                # Skip lines that look like code patterns
+                is_code_pattern = stripped.startswith('except ') or stripped.startswith('raise ') or \
+                          stripped.startswith('+') or stripped.startswith('-') or \
+                          stripped.startswith('print(f') or stripped.startswith('old_string:') or \
+                          stripped.startswith('new_string:') or 'except ' in stripped.lower()
+                
+                # Real runtime errors in execution
+                if 'NameError:' in line or 'TypeError:' in line or 'SyntaxError:' in line or \
+                   'AttributeError:' in line or 'KeyError:' in line or 'IndexError:' in line:
+                    event = {
+                        "type": "error",
+                        "severity": "error",
+                        "path": fpath,
+                        "line": i,
+                        "context": stripped[:120]
+                    }
+                
+                # Tool/command failures
+                elif 'FAILED' in line or 'failed with' in line or 'Exit code: 1' in line:
+                    if not is_code_pattern:
+                        event = {
+                            "type": "tool_fail",
+                            "severity": "error",
+                            "path": fpath,
+                            "line": i,
+                            "context": stripped[:120]
+                        }
+                
+                # Actual crashes or unhandled issues
+                elif 'Traceback' in line or 'crashed' in line.lower():
+                    event = {
+                        "type": "tool_fail",
+                        "severity": "error",
+                        "path": fpath,
+                        "line": i,
+                        "context": stripped[:120]
+                    }
+                
+                # Explicit TODOs in assistant responses
+                elif 'TODO:' in line or 'FIXME:' in line:
+                    event = {
+                        "type": "todo",
+                        "severity": "warn",
+                        "path": fpath,
+                        "line": i,
+                        "context": stripped[:120]
+                    }
+                
+                # Incomplete indicators
+                elif 'not yet implemented' in line.lower() or 'placeholder' in line.lower():
+                    event = {
+                        "type": "todo",
+                        "severity": "info",
+                        "path": fpath,
+                        "line": i,
+                        "context": stripped[:120]
+                    }
+                
+                # User prompts (for context)
+                elif stripped == "user:":
+                    # Look ahead for the actual prompt
+                    if i + 2 < len(lines):
+                        prompt_line = lines[i + 1].strip()
+                        if prompt_line.startswith('<user_query>') and i + 2 < len(lines):
+                            prompt_text = lines[i + 2].strip()
+                        else:
+                            prompt_text = prompt_line
+                        if prompt_text and not prompt_text.startswith('<'):
+                            event = {
+                                "type": "prompt",
+                                "severity": "info",
+                                "path": fpath,
+                                "line": i,
+                                "end_line": min(i + 10, len(lines)),
+                                "context": prompt_text[:100]
+                            }
+                
+                if event:
+                    # Apply filters
+                    if type_filter and event["type"] not in type_filter:
+                        continue
+                    if severity_order.get(event["severity"], 0) < min_severity:
+                        continue
+                    
+                    events.append(event)
+                    
+                    if len(events) >= args.limit:
+                        break
+            
+            if len(events) >= args.limit:
+                break
+        
+        if len(events) >= args.limit:
+            break
+    
+    # Also scan AI tracking for recent activity
+    if os.path.isfile(DOTCURSOR_AI_TRACKING) and (not type_filter or "checkpoint" in type_filter):
+        try:
+            conn = sqlite3.connect(f"file:{DOTCURSOR_AI_TRACKING}?mode=ro", uri=True)
+            conn.row_factory = sqlite3.Row
+            cursor = conn.cursor()
+            
+            # Recent commits that might need review
+            cursor.execute("""
+                SELECT commitHash, branchName, 
+                       datetime(scoredAt/1000, 'unixepoch', 'localtime') as scored
+                FROM scored_commits
+                ORDER BY scoredAt DESC
+                LIMIT 5
+            """)
+            for row in cursor.fetchall():
+                if len(events) >= args.limit:
+                    break
+                if min_severity <= severity_order["info"]:
+                    events.append({
+                        "type": "checkpoint",
+                        "severity": "info",
+                        "source": "ai-tracking",
+                        "context": f"commit {row['commitHash'][:12]} on {row['branchName']} ({row['scored']})"
+                    })
+            conn.close()
+        except:
+            pass
+    
+    # Output
+    if args.yaml:
+        print(yaml.dump({"events": events, "count": len(events)}, default_flow_style=False, sort_keys=False))
+    elif args.json:
+        print(json.dumps({"events": events, "count": len(events)}, indent=2))
+    else:
+        print(f"# Events: {len(events)}")
+        print()
+        for e in events:
+            sev_icon = {"error": "E", "warn": "W", "info": "I"}.get(e["severity"], "?")
+            if "path" in e:
+                end = e.get("end_line", e["line"] + 5)
+                print(f"[{sev_icon}] {e['path']}:{e['line']}-{end} # {e['type']} | {e['context']}")
+            else:
+                print(f"[{sev_icon}] {e.get('source', '?')} # {e['type']} | {e['context']}")
+
+
+def cmd_tgrep(args):
+    """Transcript-aware grep with structured output and section recognition."""
+    import re
+    import fnmatch
+    
+    pattern = args.pattern
+    flags = re.IGNORECASE if args.ignorecase else 0
+    
+    # Build matcher based on mode
+    if args.fixed:
+        # Literal string match
+        if args.ignorecase:
+            def matcher(line):
+                return pattern.lower() in line.lower()
+        else:
+            def matcher(line):
+                return pattern in line
+    elif args.glob:
+        # Glob/fnmatch pattern
+        if args.ignorecase:
+            pat_lower = pattern.lower()
+            def matcher(line):
+                return fnmatch.fnmatch(line.lower(), f"*{pat_lower}*")
+        else:
+            def matcher(line):
+                return fnmatch.fnmatch(line, f"*{pattern}*")
+    else:
+        # Regex (default)
+        if args.word:
+            pattern = rf'\b{pattern}\b'
+        try:
+            regex = re.compile(pattern, flags)
+        except re.error as e:
+            print(f"Invalid regex: {e}")
+            return
+        def matcher(line):
+            return regex.search(line) is not None
+    
+    # Invert if requested
+    if args.invert:
+        orig_matcher = matcher
+        def matcher(line):
+            return not orig_matcher(line)
+    
+    before = args.context if args.context else args.before
+    after = args.context if args.context else args.after
+    
+    # Collect files to search
+    files_to_search = []
+    
+    if args.files:
+        files_to_search = [os.path.abspath(f) for f in args.files if os.path.isfile(f)]
+    else:
+        # Default: search transcripts
+        workspaces = get_dotcursor_workspaces()
+        if args.workspace:
+            workspaces = [ws for ws in workspaces if args.workspace in ws["name"]]
+        
+        for ws in workspaces:
+            trans_dir = os.path.join(ws["path"], "agent-transcripts")
+            if os.path.isdir(trans_dir):
+                for fname in os.listdir(trans_dir):
+                    if fname.endswith('.txt'):
+                        if args.composer and not fname.startswith(args.composer):
+                            continue
+                        files_to_search.append(os.path.join(trans_dir, fname))
+    
+    if not files_to_search:
+        print("No files to search")
+        return
+    
+    # Section detection patterns
+    section_patterns = {
+        "user": re.compile(r'^user:\s*$'),
+        "assistant": re.compile(r'^assistant:\s*$'),
+        "thinking": re.compile(r'^\[Thinking\]'),
+        "tool_call": re.compile(r'^\[Tool call\]'),
+        "tool_result": re.compile(r'^\[Tool result\]'),
+        "user_query": re.compile(r'^<user_query>'),
+        "user_query_end": re.compile(r'^</user_query>'),
+        "thinking_tag": re.compile(r'^<thinking>'),
+        "thinking_tag_end": re.compile(r'^</thinking>'),
+        "yaml_start": re.compile(r'^---\s*$'),
+        "yaml_block": re.compile(r'^[a-zA-Z_][a-zA-Z0-9_]*:\s'),
+    }
+    
+    matches = []
+    
+    for fpath in files_to_search:
+        try:
+            with open(fpath, 'r', encoding='utf-8', errors='replace') as f:
+                lines = f.readlines()
+        except:
+            continue
+        
+        # Track current section state
+        current_section = None
+        section_start = 0
+        in_tag = None
+        in_yaml = False
+        
+        for i, line in enumerate(lines):
+            line_stripped = line.rstrip('\n\r')
+            lineno = i + 1  # 1-indexed
+            
+            # Update section state
+            for sec_type, sec_pattern in section_patterns.items():
+                if sec_pattern.match(line_stripped):
+                    if sec_type == "yaml_start":
+                        in_yaml = not in_yaml
+                    elif sec_type == "user_query":
+                        in_tag = "user_query"
+                    elif sec_type == "user_query_end":
+                        in_tag = None
+                    elif sec_type == "thinking_tag":
+                        in_tag = "thinking"
+                    elif sec_type == "thinking_tag_end":
+                        in_tag = None
+                    elif sec_type in ("user", "assistant", "thinking", "tool_call", "tool_result"):
+                        current_section = sec_type
+                        section_start = lineno
+                    break
+            
+            # Determine effective section
+            if in_tag:
+                effective_section = in_tag
+            elif in_yaml:
+                effective_section = "yaml"
+            elif current_section:
+                effective_section = current_section
+            else:
+                effective_section = "text"
+            
+            # Filter by section if specified
+            if args.section:
+                allowed = args.section.split(',')
+                if effective_section not in allowed:
+                    continue
+            
+            # Search for pattern
+            if matcher(line_stripped):
+                # Calculate excerpt window
+                start_line = max(0, i - before)
+                end_line = min(len(lines), i + after + 1)
+                
+                excerpt_lines = []
+                if args.excerpt or (not args.refs_only):
+                    excerpt_lines = [l.rstrip('\n\r') for l in lines[start_line:end_line]]
+                
+                match_info = {
+                    "path": fpath,
+                    "line": lineno,
+                    "start": start_line + 1,
+                    "end": end_line,
+                    "section": effective_section,
+                    "match": line_stripped[:200],
+                }
+                
+                if args.meta:
+                    match_info["section_start"] = section_start
+                    match_info["in_tag"] = in_tag
+                    match_info["in_yaml"] = in_yaml
+                
+                if excerpt_lines:
+                    match_info["excerpt"] = excerpt_lines
+                
+                matches.append(match_info)
+                
+                if len(matches) >= args.limit:
+                    break
+        
+        if len(matches) >= args.limit:
+            break
+    
+    # Output
+    if args.yaml:
+        print(yaml.dump({"matches": matches, "count": len(matches)}, 
+                       default_flow_style=False, sort_keys=False, allow_unicode=True))
+    elif args.json:
+        print(json.dumps({"matches": matches, "count": len(matches)}, indent=2))
+    elif args.refs_only:
+        for m in matches:
+            print(f"{m['path']}:{m['start']}-{m['end']} # {m['section']} | {m['match'][:80]}")
+    else:
+        # Rich output with excerpts
+        for m in matches:
+            print(f"\n{m['path']}:{m['start']}-{m['end']} # {m['section']}")
+            if m.get("excerpt"):
+                print("-" * 60)
+                for j, eline in enumerate(m["excerpt"]):
+                    actual_line = m["start"] + j
+                    marker = ">>>" if actual_line == m["line"] else "   "
+                    print(f"{marker} {actual_line:5d} | {eline[:120]}")
+        print(f"\n# Total: {len(matches)} matches")
+
+
+# Secret patterns for detection
+SECRET_PATTERNS = [
+    # API Keys
+    (r'sk-[a-zA-Z0-9]{20,}', 'openai_key'),
+    (r'sk-proj-[a-zA-Z0-9]{20,}', 'openai_project_key'),
+    (r'AKIA[0-9A-Z]{16}', 'aws_access_key'),
+    (r'(?i)aws[_-]?secret[_-]?access[_-]?key["\s:=]+[A-Za-z0-9/+=]{40}', 'aws_secret'),
+    (r'ghp_[a-zA-Z0-9]{36}', 'github_pat'),
+    (r'gho_[a-zA-Z0-9]{36}', 'github_oauth'),
+    (r'github_pat_[a-zA-Z0-9]{22}_[a-zA-Z0-9]{59}', 'github_fine_grained'),
+    (r'glpat-[a-zA-Z0-9\-]{20}', 'gitlab_pat'),
+    (r'xox[baprs]-[0-9]{10,13}-[0-9]{10,13}-[a-zA-Z0-9]{24}', 'slack_token'),
+    (r'(?i)bearer\s+[a-zA-Z0-9\-_.]{20,}', 'bearer_token'),
+    
+    # Passwords and secrets
+    (r'(?i)password[\s]*[=:]+[\s]*["\']?[^\s"\']{8,}', 'password'),
+    (r'(?i)passwd[\s]*[=:]+[\s]*["\']?[^\s"\']{8,}', 'passwd'),
+    (r'(?i)secret[\s]*[=:]+[\s]*["\']?[^\s"\']{8,}', 'secret'),
+    (r'(?i)api[_-]?key[\s]*[=:]+[\s]*["\']?[^\s"\']{16,}', 'api_key'),
+    (r'(?i)auth[_-]?token[\s]*[=:]+[\s]*["\']?[^\s"\']{16,}', 'auth_token'),
+    
+    # Private keys
+    (r'-----BEGIN (?:RSA |EC |DSA |OPENSSH )?PRIVATE KEY-----', 'private_key'),
+    (r'-----BEGIN PGP PRIVATE KEY BLOCK-----', 'pgp_private'),
+    
+    # Database connection strings
+    (r'(?i)mongodb(?:\+srv)?://[^\s]+', 'mongodb_uri'),
+    (r'(?i)postgres(?:ql)?://[^\s]+', 'postgres_uri'),
+    (r'(?i)mysql://[^\s]+', 'mysql_uri'),
+    (r'(?i)redis://[^\s]+', 'redis_uri'),
+    
+    # Other
+    (r'(?i)npm_[a-zA-Z0-9]{36}', 'npm_token'),
+    (r'(?i)pypi-[a-zA-Z0-9]{32,}', 'pypi_token'),
+    (r'AIza[0-9A-Za-z\-_]{35}', 'google_api_key'),
+]
+
+
+def cmd_secrets(args):
+    """Scan transcripts for potential secrets/credentials using K-REFS output.
+
+    Looks for: API keys, private keys, database URIs, passwords, tokens, etc.
+
+    ⚠️  EXPECT FALSE POSITIVES when scanning sessions where:
+      - Security patterns were written/discussed (detects its own definitions)
+      - Documentation contains example credentials
+      - Code handles credential patterns (even without real values)
+    
+    The scanner detects patterns like `-----BEGIN PRIVATE KEY-----` even when
+    they appear in pattern definitions or docs. Always verify actual line content.
+    """
+    import re
+    
+    # Compile patterns
+    compiled = [(re.compile(pat), name) for pat, name in SECRET_PATTERNS]
+    
+    # Get files to scan
+    files_to_scan = []
+    workspaces = get_dotcursor_workspaces()
+    if args.workspace:
+        workspaces = [ws for ws in workspaces if args.workspace in ws["name"]]
+    
+    since_ts = parse_time_filter(args.since) if args.since else None
+    
+    for ws in workspaces:
+        trans_dir = os.path.join(ws["path"], "agent-transcripts")
+        if os.path.isdir(trans_dir):
+            for fname in os.listdir(trans_dir):
+                if fname.endswith('.txt'):
+                    if args.composer and not fname.startswith(args.composer):
+                        continue
+                    fpath = os.path.join(trans_dir, fname)
+                    if since_ts:
+                        mtime = os.path.getmtime(fpath) * 1000
+                        if mtime < since_ts:
+                            continue
+                    files_to_scan.append(fpath)
+    
+    matches = []
+    context = args.context
+    
+    for fpath in files_to_scan:
+        try:
+            with open(fpath, 'r', encoding='utf-8', errors='replace') as f:
+                lines = f.readlines()
+        except:
+            continue
+        
+        for i, line in enumerate(lines):
+            line_stripped = line.rstrip('\n\r')
+            lineno = i + 1
+            
+            for regex, secret_type in compiled:
+                match = regex.search(line_stripped)
+                if match:
+                    # Mask the actual secret in output
+                    matched_text = match.group()
+                    if len(matched_text) > 12:
+                        masked = matched_text[:6] + "..." + matched_text[-4:]
+                    else:
+                        masked = matched_text[:4] + "..."
+                    
+                    start_line = max(1, lineno - context)
+                    end_line = min(len(lines), lineno + context)
+                    
+                    excerpt = []
+                    if not args.refs_only:
+                        for j in range(start_line - 1, end_line):
+                            excerpt.append(lines[j].rstrip('\n\r')[:100])
+                    
+                    matches.append({
+                        "path": fpath,
+                        "line": lineno,
+                        "start": start_line,
+                        "end": end_line,
+                        "type": secret_type,
+                        "masked": masked,
+                        "excerpt": excerpt if excerpt else None
+                    })
+                    
+                    if len(matches) >= args.limit:
+                        break
+            
+            if len(matches) >= args.limit:
+                break
+        if len(matches) >= args.limit:
+            break
+    
+    # Output
+    if args.yaml:
+        print(yaml.dump({"secrets": matches, "count": len(matches)}, 
+                       default_flow_style=False, sort_keys=False))
+    elif args.json:
+        print(json.dumps({"secrets": matches, "count": len(matches)}, indent=2))
+    elif args.refs_only:
+        for m in matches:
+            print(f"{m['path']}:{m['start']}-{m['end']} # {m['type']} | {m['masked']}")
+    else:
+        print(f"# Potential Secrets Found: {len(matches)}")
+        print(f"# WARNING: Review carefully - may include false positives")
+        print()
+        for m in matches:
+            print(f"{m['path']}:{m['start']}-{m['end']} # {m['type']} | {m['masked']}")
+            if m.get("excerpt"):
+                print("-" * 60)
+                for eline in m["excerpt"]:
+                    print(f"    {eline}")
+                print()
+
+
+def cmd_commits(args):
+    """Find git commits mentioned in transcripts using K-REFS output."""
+    import re
+    
+    # Patterns for git commits
+    commit_patterns = [
+        (re.compile(r'\b([0-9a-f]{40})\b'), 'full_sha'),
+        (re.compile(r'\b([0-9a-f]{7,12})\b(?=\s|$|[^0-9a-f])'), 'short_sha'),
+        (re.compile(r'commit\s+([0-9a-f]{7,40})', re.I), 'commit_ref'),
+        (re.compile(r'git\s+(?:checkout|cherry-pick|revert|show)\s+([0-9a-f]{7,40})', re.I), 'git_cmd'),
+    ]
+    
+    # Get files to scan
+    files_to_scan = []
+    workspaces = get_dotcursor_workspaces()
+    if args.workspace:
+        workspaces = [ws for ws in workspaces if args.workspace in ws["name"]]
+    
+    for ws in workspaces:
+        trans_dir = os.path.join(ws["path"], "agent-transcripts")
+        if os.path.isdir(trans_dir):
+            for fname in os.listdir(trans_dir):
+                if fname.endswith('.txt'):
+                    if args.composer and not fname.startswith(args.composer):
+                        continue
+                    files_to_scan.append(os.path.join(trans_dir, fname))
+    
+    matches = []
+    seen_commits = set()
+    
+    for fpath in files_to_scan:
+        try:
+            with open(fpath, 'r', encoding='utf-8', errors='replace') as f:
+                lines = f.readlines()
+        except:
+            continue
+        
+        for i, line in enumerate(lines):
+            line_stripped = line.rstrip('\n\r')
+            lineno = i + 1
+            
+            for regex, commit_type in commit_patterns:
+                for match in regex.finditer(line_stripped):
+                    sha = match.group(1)
+                    # Skip if looks like a UUID or other non-commit hash
+                    if '-' in sha:
+                        continue
+                    # Dedupe
+                    if sha[:12] in seen_commits:
+                        continue
+                    seen_commits.add(sha[:12])
+                    
+                    context_preview = line_stripped[:100]
+                    
+                    matches.append({
+                        "path": fpath,
+                        "line": lineno,
+                        "sha": sha[:12],
+                        "full_sha": sha if len(sha) == 40 else None,
+                        "type": commit_type,
+                        "context": context_preview
+                    })
+                    
+                    if len(matches) >= args.limit:
+                        break
+            
+            if len(matches) >= args.limit:
+                break
+        if len(matches) >= args.limit:
+            break
+    
+    # Output
+    if args.yaml:
+        print(yaml.dump({"commits": matches, "count": len(matches)}, 
+                       default_flow_style=False, sort_keys=False))
+    elif args.json:
+        print(json.dumps({"commits": matches, "count": len(matches)}, indent=2))
+    elif args.refs_only:
+        for m in matches:
+            print(f"{m['path']}:{m['line']}-{m['line']} # {m['type']} | {m['sha']}")
+    else:
+        print(f"# Git Commits Found: {len(matches)}")
+        print()
+        for m in matches:
+            print(f"{m['path']}:{m['line']} # {m['type']} | {m['sha']} | {m['context'][:60]}")
+
+
+def cmd_scrub(args):
+    """Redact sensitive content from transcripts. QUIT CURSOR FIRST!"""
+    import re
+    
+    print("=" * 60)
+    print("SCRUB: Redact sensitive content from Cursor transcripts")
+    print("=" * 60)
+    print()
+    print("WARNING: Make sure Cursor is QUIT before running this!")
+    print("         Cursor must not be writing to these files.")
+    print()
+    
+    # Build patterns to scrub
+    patterns_to_scrub = []
+    
+    if args.secrets:
+        for pat, name in SECRET_PATTERNS:
+            patterns_to_scrub.append((re.compile(pat), name))
+    
+    if args.pattern:
+        try:
+            patterns_to_scrub.append((re.compile(args.pattern), 'custom'))
+        except re.error as e:
+            print(f"Invalid pattern: {e}")
+            return
+    
+    if not patterns_to_scrub:
+        print("No patterns specified. Use --secrets and/or --pattern")
+        return
+    
+    # Get files to scrub
+    files_to_scrub = []
+    workspaces = get_dotcursor_workspaces()
+    if args.workspace:
+        workspaces = [ws for ws in workspaces if args.workspace in ws["name"]]
+    
+    for ws in workspaces:
+        trans_dir = os.path.join(ws["path"], "agent-transcripts")
+        if os.path.isdir(trans_dir):
+            for fname in os.listdir(trans_dir):
+                if fname.endswith('.txt'):
+                    if args.composer and not fname.startswith(args.composer):
+                        continue
+                    files_to_scrub.append(os.path.join(trans_dir, fname))
+    
+    if not files_to_scrub:
+        print("No transcript files found to scrub")
+        return
+    
+    print(f"Files to scan: {len(files_to_scrub)}")
+    print(f"Patterns: {len(patterns_to_scrub)}")
+    print(f"Mode: {'DRY RUN' if args.dry_run else 'LIVE'}")
+    print()
+    
+    total_redactions = 0
+    files_modified = 0
+    
+    for fpath in files_to_scrub:
+        try:
+            with open(fpath, 'r', encoding='utf-8', errors='replace') as f:
+                content = f.read()
+        except Exception as e:
+            print(f"Error reading {fpath}: {e}")
+            continue
+        
+        original_content = content
+        file_redactions = 0
+        
+        for regex, pattern_name in patterns_to_scrub:
+            matches = list(regex.finditer(content))
+            for match in reversed(matches):  # Reverse to preserve positions
+                matched_text = match.group()
+                if args.dry_run:
+                    print(f"  Would redact [{pattern_name}]: {matched_text[:20]}... in {os.path.basename(fpath)}")
+                content = content[:match.start()] + args.redact_text + content[match.end():]
+                file_redactions += 1
+        
+        if file_redactions > 0:
+            total_redactions += file_redactions
+            files_modified += 1
+            
+            if not args.dry_run:
+                # Create backup unless disabled
+                if not args.no_backup:
+                    backup_path = fpath + '.bak'
+                    try:
+                        with open(backup_path, 'w', encoding='utf-8') as f:
+                            f.write(original_content)
+                        print(f"  Backup: {backup_path}")
+                    except Exception as e:
+                        print(f"  WARNING: Could not create backup: {e}")
+                        print(f"  Skipping {fpath}")
+                        continue
+                
+                # Write scrubbed content
+                try:
+                    with open(fpath, 'w', encoding='utf-8') as f:
+                        f.write(content)
+                    print(f"  Scrubbed {file_redactions} items in {os.path.basename(fpath)}")
+                except Exception as e:
+                    print(f"  ERROR writing {fpath}: {e}")
+    
+    print()
+    print(f"{'Would redact' if args.dry_run else 'Redacted'}: {total_redactions} items in {files_modified} files")
+    if args.dry_run:
+        print("\nRun without --dry-run to apply changes")
+
+
+def cmd_exfil_audit(args):
+    """Comprehensive secret exfiltration audit - ALL tools, ALL arguments, both stores.
+    
+    Design: Systematic, complete by construction.
+    - Scans EVERY tool call from both data stores
+    - Checks EVERY argument against comprehensive secret patterns
+    - Reports ALL findings with K-REFS pointers
+    """
+    import re
+    from collections import defaultdict
+    
+    # Comprehensive secret patterns - expanded for full coverage
+    EXFIL_PATTERNS = [
+        # API Keys - specific vendors
+        (r'sk-[a-zA-Z0-9]{20,}', 'openai_key', 'high'),
+        (r'sk-proj-[a-zA-Z0-9]{20,}', 'openai_project_key', 'high'),
+        (r'sk-ant-[a-zA-Z0-9]{20,}', 'anthropic_key', 'high'),
+        (r'AKIA[0-9A-Z]{16}', 'aws_access_key', 'high'),
+        (r'(?i)aws[_-]?secret[_-]?access[_-]?key["\s:=]+[A-Za-z0-9/+=]{40}', 'aws_secret', 'high'),
+        (r'ghp_[a-zA-Z0-9]{36}', 'github_pat', 'high'),
+        (r'gho_[a-zA-Z0-9]{36}', 'github_oauth', 'high'),
+        (r'github_pat_[a-zA-Z0-9]{22}_[a-zA-Z0-9]{59}', 'github_fine_grained', 'high'),
+        (r'glpat-[a-zA-Z0-9\-]{20}', 'gitlab_pat', 'high'),
+        (r'xox[baprs]-[0-9]{10,13}-[0-9]{10,13}-[a-zA-Z0-9]{24}', 'slack_token', 'high'),
+        (r'AIza[0-9A-Za-z\-_]{35}', 'google_api_key', 'high'),
+        (r'ya29\.[0-9A-Za-z\-_]+', 'google_oauth', 'high'),
+        (r'(?i)npm_[a-zA-Z0-9]{36}', 'npm_token', 'high'),
+        (r'(?i)pypi-[a-zA-Z0-9]{32,}', 'pypi_token', 'high'),
+        (r'sq0[a-z]{3}-[0-9A-Za-z\-_]{22,}', 'square_token', 'high'),
+        (r'stripe_[a-zA-Z0-9]{24,}', 'stripe_key', 'high'),
+        (r'sk_live_[a-zA-Z0-9]{24,}', 'stripe_secret', 'high'),
+        (r'rk_live_[a-zA-Z0-9]{24,}', 'stripe_restricted', 'high'),
+        (r'twilio_[a-zA-Z0-9]{32}', 'twilio_key', 'high'),
+        (r'AC[a-f0-9]{32}', 'twilio_sid', 'medium'),
+        (r'sendgrid\.[a-zA-Z0-9\-_]{34,}', 'sendgrid_key', 'high'),
+        (r'SG\.[a-zA-Z0-9\-_]{22}\.[a-zA-Z0-9\-_]{43}', 'sendgrid_api', 'high'),
+        
+        # Generic secrets
+        (r'(?i)bearer\s+[a-zA-Z0-9\-_.]{20,}', 'bearer_token', 'high'),
+        (r'(?i)password[\s]*[=:]+[\s]*["\']?[^\s"\']{8,}', 'password', 'high'),
+        (r'(?i)passwd[\s]*[=:]+[\s]*["\']?[^\s"\']{8,}', 'passwd', 'high'),
+        (r'(?i)secret[\s]*[=:]+[\s]*["\']?[^\s"\']{8,}', 'secret_value', 'high'),
+        (r'(?i)api[_-]?key[\s]*[=:]+[\s]*["\']?[^\s"\']{16,}', 'api_key', 'high'),
+        (r'(?i)auth[_-]?token[\s]*[=:]+[\s]*["\']?[^\s"\']{16,}', 'auth_token', 'high'),
+        (r'(?i)access[_-]?token[\s]*[=:]+[\s]*["\']?[^\s"\']{16,}', 'access_token', 'high'),
+        (r'(?i)private[_-]?key[\s]*[=:]+[\s]*["\']?[^\s"\']{16,}', 'private_key_value', 'high'),
+        
+        # Private keys (PEM format)
+        (r'-----BEGIN (?:RSA |EC |DSA |OPENSSH )?PRIVATE KEY-----', 'private_key_pem', 'critical'),
+        (r'-----BEGIN PGP PRIVATE KEY BLOCK-----', 'pgp_private', 'critical'),
+        (r'-----BEGIN ENCRYPTED PRIVATE KEY-----', 'encrypted_private_key', 'critical'),
+        
+        # Database URIs with credentials
+        (r'(?i)mongodb(?:\+srv)?://[^:]+:[^@]+@[^\s]+', 'mongodb_uri_with_creds', 'critical'),
+        (r'(?i)postgres(?:ql)?://[^:]+:[^@]+@[^\s]+', 'postgres_uri_with_creds', 'critical'),
+        (r'(?i)mysql://[^:]+:[^@]+@[^\s]+', 'mysql_uri_with_creds', 'critical'),
+        (r'(?i)redis://[^:]+:[^@]+@[^\s]+', 'redis_uri_with_creds', 'critical'),
+        (r'(?i)amqp://[^:]+:[^@]+@[^\s]+', 'amqp_uri_with_creds', 'critical'),
+        
+        # URLs with secrets in query params
+        (r'https?://[^\s]*[?&](?:api_?key|token|secret|password|auth)=[^&\s]{8,}', 'url_with_secret_param', 'high'),
+        (r'https?://[^:]+:[^@]+@[^\s]+', 'url_with_basic_auth', 'critical'),
+        
+        # Sensitive file paths being accessed
+        (r'(?i)\.env(?:\.local|\.prod|\.dev)?$', 'env_file', 'high'),
+        (r'(?i)credentials\.json', 'credentials_file', 'high'),
+        (r'(?i)service[_-]?account.*\.json', 'service_account_file', 'high'),
+        (r'(?i)id_rsa(?:\.pub)?$', 'ssh_key_file', 'high'),
+        (r'(?i)\.pem$', 'pem_file', 'medium'),
+        (r'(?i)\.p12$', 'p12_file', 'high'),
+        (r'(?i)\.pfx$', 'pfx_file', 'high'),
+        (r'(?i)\.keystore$', 'keystore_file', 'high'),
+        (r'(?i)/etc/passwd', 'etc_passwd', 'medium'),
+        (r'(?i)/etc/shadow', 'etc_shadow', 'critical'),
+        (r'(?i)~/.ssh/', 'ssh_dir', 'high'),
+        (r'(?i)~/.aws/credentials', 'aws_credentials_file', 'critical'),
+        (r'(?i)~/.netrc', 'netrc_file', 'high'),
+        
+        # JWT tokens
+        (r'eyJ[a-zA-Z0-9\-_]+\.eyJ[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+', 'jwt_token', 'high'),
+        
+        # SSH private key content
+        (r'-----BEGIN OPENSSH PRIVATE KEY-----', 'openssh_private_key', 'critical'),
+        
+        # High-entropy strings (potential secrets) - 32+ hex chars
+        (r'(?<![a-fA-F0-9])[a-fA-F0-9]{32,64}(?![a-fA-F0-9])', 'hex_string_32plus', 'low'),
+    ]
+    
+    # Compile patterns
+    compiled_patterns = [(re.compile(p), name, sev) for p, name, sev in EXFIL_PATTERNS]
+    
+    findings = []
+    stats = defaultdict(lambda: defaultdict(int))
+    
+    # Source 1: Transcripts
+    workspaces = get_dotcursor_workspaces()
+    if args.workspace:
+        workspaces = [ws for ws in workspaces if args.workspace in ws["name"]]
+    
+    since_ts = parse_time_filter(args.since) if args.since else None
+    
+    for ws in workspaces:
+        trans_dir = os.path.join(ws["path"], "agent-transcripts")
+        if not os.path.isdir(trans_dir):
+            continue
+        
+        for fname in os.listdir(trans_dir):
+            if not fname.endswith('.txt'):
+                continue
+            if args.composer and not fname.startswith(args.composer):
+                continue
+            
+            fpath = os.path.join(trans_dir, fname)
+            
+            if since_ts:
+                mtime = os.path.getmtime(fpath) * 1000
+                if mtime < since_ts:
+                    continue
+            
+            try:
+                with open(fpath, 'r', encoding='utf-8', errors='replace') as f:
+                    lines = f.readlines()
+            except:
+                continue
+            
+            # Parse tool calls with their full argument blocks
+            current_tool = None
+            tool_start_line = 0
+            tool_args_text = []
+            
+            for i, line in enumerate(lines):
+                stripped = line.strip()
+                lineno = i + 1
+                
+                # Detect tool call start
+                if stripped.startswith('[Tool call]'):
+                    # Process previous tool if exists
+                    if current_tool and tool_args_text:
+                        full_args = '\n'.join(tool_args_text)
+                        _scan_for_secrets(
+                            full_args, compiled_patterns, findings, stats,
+                            fpath, tool_start_line, current_tool, "transcript",
+                            args.limit, args.tool
+                        )
+                    
+                    # Start new tool
+                    parts = stripped.split()
+                    current_tool = parts[2] if len(parts) > 2 else "unknown"
+                    tool_start_line = lineno
+                    tool_args_text = []
+                
+                # Detect end of tool section
+                elif stripped.startswith('[Tool result]') or stripped in ('user:', 'assistant:'):
+                    if current_tool and tool_args_text:
+                        full_args = '\n'.join(tool_args_text)
+                        _scan_for_secrets(
+                            full_args, compiled_patterns, findings, stats,
+                            fpath, tool_start_line, current_tool, "transcript",
+                            args.limit, args.tool
+                        )
+                    current_tool = None
+                    tool_args_text = []
+                
+                # Collect tool args
+                elif current_tool:
+                    tool_args_text.append(line)
+                
+                if len(findings) >= args.limit:
+                    break
+            
+            if len(findings) >= args.limit:
+                break
+        if len(findings) >= args.limit:
+            break
+    
+    # Source 2: SQLite
+    if len(findings) < args.limit:
+        global_db = os.path.expanduser("~/Library/Application Support/Cursor/User/globalStorage/state.vscdb")
+        if os.path.isfile(global_db):
+            try:
+                conn = sqlite3.connect(f"file:{global_db}?mode=ro", uri=True)
+                cursor = conn.cursor()
+                
+                # Get tool calls from bubbles
+                cursor.execute("""
+                    SELECT key, value FROM cursorDiskKV 
+                    WHERE key LIKE 'bubbleId:%'
+                    AND value LIKE '%"tool"%'
+                    LIMIT 1000
+                """)
+                
+                for key, value in cursor.fetchall():
+                    if len(findings) >= args.limit:
+                        break
+                    try:
+                        data = json.loads(value)
+                        # Extract tool info if present
+                        tool_name = data.get("tool", {}).get("name", "unknown") if isinstance(data.get("tool"), dict) else "unknown"
+                        tool_args = json.dumps(data.get("tool", {}).get("args", data))
+                        
+                        _scan_for_secrets(
+                            tool_args, compiled_patterns, findings, stats,
+                            key, 0, tool_name, "sqlite",
+                            args.limit, args.tool
+                        )
+                    except:
+                        pass
+                
+                conn.close()
+            except:
+                pass
+    
+    # Output
+    if args.yaml:
+        output = {
+            "findings": findings,
+            "stats": {
+                "total_findings": len(findings),
+                "by_severity": dict(stats["severity"]),
+                "by_type": dict(stats["type"]),
+                "by_tool": dict(stats["tool"]),
+            }
+        }
+        print(yaml.dump(output, default_flow_style=False, sort_keys=False, allow_unicode=True))
+    elif args.json:
+        output = {
+            "findings": findings,
+            "stats": {
+                "total_findings": len(findings),
+                "by_severity": dict(stats["severity"]),
+                "by_type": dict(stats["type"]),
+                "by_tool": dict(stats["tool"]),
+            }
+        }
+        print(json.dumps(output, indent=2))
+    else:
+        print("=" * 70)
+        print("🔐 EXFILTRATION AUDIT (Comprehensive)")
+        print("=" * 70)
+        print(f"Sources: transcripts (~/.cursor) + state.vscdb")
+        print(f"Patterns checked: {len(EXFIL_PATTERNS)}")
+        print()
+        
+        # Summary stats
+        print("📊 SUMMARY")
+        print("-" * 40)
+        print(f"Total findings: {len(findings)}")
+        if stats["severity"]:
+            print(f"By severity: " + ", ".join(f"{k}={v}" for k, v in sorted(stats["severity"].items(), key=lambda x: -x[1])))
+        if stats["type"] and not args.summary:
+            print(f"By type: " + ", ".join(f"{k}={v}" for k, v in list(stats["type"].items())[:5]))
+        if stats["tool"]:
+            print(f"By tool: " + ", ".join(f"{k}={v}" for k, v in list(stats["tool"].items())[:5]))
+        
+        if not args.summary and findings:
+            print()
+            print("🚨 FINDINGS (K-REFS)")
+            print("-" * 40)
+            for f in findings[:30]:  # Limit display
+                sev_icon = {"critical": "🔴", "high": "🟠", "medium": "🟡", "low": "⚪"}.get(f["severity"], "?")
+                if f["source"] == "transcript":
+                    print(f"{sev_icon} {f['path']}:{f['line']} [{f['tool']}]")
+                else:
+                    print(f"{sev_icon} {f['path'][:50]} [{f['tool']}]")
+                print(f"   {f['type']}: {f['masked'][:80]}")
+            
+            if len(findings) > 30:
+                print(f"\n... and {len(findings) - 30} more findings")
+        
+        print()
+
+
+def cmd_pattern_scan(args):
+    """Find UUIDs, hashes, secrets, custom patterns with K-REFS output."""
+    import re
+    
+    patterns = []
+    
+    # UUID pattern (standard format)
+    if args.uuids or args.all:
+        patterns.append((
+            re.compile(r'[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}', re.I),
+            'uuid', 'info'
+        ))
+    
+    # Hash patterns
+    if args.hashes or args.all:
+        patterns.append((re.compile(r'(?<![a-fA-F0-9])[a-fA-F0-9]{32}(?![a-fA-F0-9])'), 'md5_hash', 'info'))
+        patterns.append((re.compile(r'(?<![a-fA-F0-9])[a-fA-F0-9]{40}(?![a-fA-F0-9])'), 'sha1_hash', 'info'))
+        patterns.append((re.compile(r'(?<![a-fA-F0-9])[a-fA-F0-9]{64}(?![a-fA-F0-9])'), 'sha256_hash', 'info'))
+    
+    # Secret patterns
+    if args.secrets or args.all:
+        patterns.extend([
+            (re.compile(r'sk-[a-zA-Z0-9]{20,}'), 'openai_key', 'critical'),
+            (re.compile(r'sk-ant-[a-zA-Z0-9]{20,}'), 'anthropic_key', 'critical'),
+            (re.compile(r'AKIA[0-9A-Z]{16}'), 'aws_key', 'critical'),
+            (re.compile(r'ghp_[a-zA-Z0-9]{36}'), 'github_pat', 'critical'),
+            (re.compile(r'-----BEGIN (?:RSA |EC |DSA |OPENSSH )?PRIVATE KEY-----'), 'private_key', 'critical'),
+            (re.compile(r'(?i)password[\s]*[=:]+[\s]*["\']?[^\s"\']{8,}'), 'password', 'high'),
+            (re.compile(r'(?i)api[_-]?key[\s]*[=:]+[\s]*["\']?[^\s"\']{16,}'), 'api_key', 'high'),
+            (re.compile(r'eyJ[a-zA-Z0-9\-_]+\.eyJ[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+'), 'jwt', 'high'),
+        ])
+    
+    # Custom pattern
+    if args.pattern:
+        try:
+            patterns.append((re.compile(args.pattern), 'custom', 'info'))
+        except re.error as e:
+            print(f"Invalid pattern: {e}")
+            return
+    
+    if not patterns:
+        print("No patterns specified. Use --uuids, --hashes, --secrets, --all, or --pattern")
+        return
+    
+    findings = []
+    
+    # Scan transcripts
+    workspaces = get_dotcursor_workspaces()
+    if args.workspace:
+        workspaces = [ws for ws in workspaces if args.workspace in ws["name"]]
+    
+    for ws in workspaces:
+        trans_dir = os.path.join(ws["path"], "agent-transcripts")
+        if not os.path.isdir(trans_dir):
+            continue
+        
+        for fname in os.listdir(trans_dir):
+            if not fname.endswith('.txt'):
+                continue
+            if args.composer and not fname.startswith(args.composer):
+                continue
+            
+            fpath = os.path.join(trans_dir, fname)
+            try:
+                with open(fpath, 'r', encoding='utf-8', errors='replace') as f:
+                    content = f.read()
+            except:
+                continue
+            
+            lines = content.split('\n')
+            
+            # Build char->line and char->col mappings
+            char_to_line = []
+            char_to_col = []
+            line_starts = [0]
+            char_count = 0
+            for i, line in enumerate(lines):
+                for c in range(len(line)):
+                    char_to_line.append(i + 1)
+                    char_to_col.append(c + 1)  # 1-based column
+                # newline char
+                char_to_line.append(i + 1)
+                char_to_col.append(len(line) + 1)
+                char_count += len(line) + 1
+                if i < len(lines) - 1:
+                    line_starts.append(char_count)
+            
+            for regex, ptype, severity in patterns:
+                for match in regex.finditer(content):
+                    if len(findings) >= args.limit:
+                        break
+                    
+                    start_pos = match.start()
+                    end_pos = match.end()
+                    line_num = char_to_line[start_pos] if start_pos < len(char_to_line) else len(lines)
+                    col_start = char_to_col[start_pos] if start_pos < len(char_to_col) else 1
+                    col_end = char_to_col[end_pos - 1] if end_pos - 1 < len(char_to_col) else col_start
+                    matched = match.group()
+                    
+                    findings.append({
+                        'path': fpath,
+                        'line': line_num,
+                        'col_start': col_start,
+                        'col_end': col_end + 1,  # exclusive end
+                        'char_start': start_pos,
+                        'char_end': end_pos,
+                        'length': len(matched),
+                        'type': ptype,
+                        'severity': severity,
+                        'value': matched if len(matched) <= 20 else matched[:10] + '...' + matched[-6:],
+                    })
+                
+                if len(findings) >= args.limit:
+                    break
+            if len(findings) >= args.limit:
+                break
+        if len(findings) >= args.limit:
+            break
+    
+    # Output
+    if args.emit_redact:
+        # Simple redaction commands: file:line:col_start:col_end:length:type
+        # Can be piped to a simple tool for processing
+        print("# REDACT format: file:line:col_start:col_end:length:type")
+        print("# Apply with: awk or simple Python script")
+        print(f"# Total: {len(findings)}")
+        for f in findings:
+            print(f"REDACT:{f['path']}:{f['line']}:{f['col_start']}:{f['col_end']}:{f['length']}:{f['type']}")
+    elif args.emit_sed:
+        # Group by file for efficient sed processing
+        by_file = {}
+        for f in findings:
+            by_file.setdefault(f['path'], []).append(f)
+        
+        print("#!/bin/bash")
+        print("# Auto-generated redaction script")
+        print(f"# {len(findings)} redactions across {len(by_file)} files")
+        print()
+        for fpath, items in by_file.items():
+            print(f"# {os.path.basename(fpath)}: {len(items)} redactions")
+            print(f"cp '{fpath}' '{fpath}.bak'")
+            # Use Python for reliable fixed-length replacement (sed struggles with this)
+            print(f"python3 -c \"")
+            print(f"import sys")
+            print(f"with open('{fpath}', 'r') as f: c = f.read()")
+            # Sort by char_start descending to preserve offsets
+            sorted_items = sorted(items, key=lambda x: x['char_start'], reverse=True)
+            for item in sorted_items:
+                mask = '*' * item['length']
+                print(f"c = c[:{item['char_start']}] + '{mask}' + c[{item['char_end']}:]")
+            print(f"with open('{fpath}', 'w') as f: f.write(c)")
+            print(f"\"")
+            print()
+    elif args.yaml:
+        print(yaml.dump({'findings': findings, 'count': len(findings)}, 
+                       default_flow_style=False, sort_keys=False, allow_unicode=True))
+    elif args.json:
+        print(json.dumps({'findings': findings, 'count': len(findings)}, indent=2))
+    else:
+        print(f"# Pattern Scan: {len(findings)} findings")
+        print(f"# Patterns: {len(patterns)}")
+        print()
+        for f in findings:
+            sev_icon = {'critical': '🔴', 'high': '🟠', 'medium': '🟡', 'info': 'ℹ️'}.get(f['severity'], '⚪')
+            print(f"{f['path']}:{f['line']}:{f['col_start']}-{f['col_end']} # {f['type']} len={f['length']}")
+            print(f"  {sev_icon} {f['value']}")
+
+
+def cmd_audit(args):
+    """Unified composable audit: surfaces × patterns.
+
+    Examples:
+        audit --surface transcript --patterns secrets
+        audit --surface transcript --surface sqlite --patterns secrets --patterns uuids
+        audit --surface transcript --pattern "my-secret-.*" --emit-redact
+        audit --surface transcript --patterns secrets --mask --dry-run
+        audit --pattern-file my-patterns.yml
+        audit --pattern "password123" --pattern-type literal
+        audit --pattern "secret*key" --pattern-type glob
+    """
+    # Resolve composer reference (@1, prefix, name) to full ID
+    composer_id = None
+    if args.composer:
+        composer_id = resolve_composer_id(args.composer)
+        if not composer_id:
+            print(f"Composer not found: {args.composer}", file=sys.stderr)
+            return
+    
+    runner = AuditRunner()
+
+    # Add surfaces
+    surfaces = args.surfaces or ["transcript"]  # Default to transcripts
+    for surface in surfaces:
+        if surface == "transcript":
+            runner.add_surface(TranscriptSurface(
+                workspace=args.workspace,
+                composer=composer_id
+            ))
+        elif surface == "sqlite":
+            runner.add_surface(SqliteSurface())
+        elif surface == "config":
+            # Add common config paths
+            home = os.path.expanduser("~")
+            runner.add_surface(ConfigSurface(paths=[
+                os.path.join(home, ".cursor", "mcp.json"),
+                os.path.join(home, ".cursor", "settings.json"),
+            ]))
+        else:
+            print(f"Unknown surface: {surface}")
+            print("Available: transcript, sqlite, config")
+            return
+    
+    # Add patterns from YAML file
+    if args.pattern_file:
+        try:
+            runner.add_patterns_from_yaml(args.pattern_file)
+        except Exception as e:
+            print(f"Error loading pattern file: {e}")
+            return
+    
+    # Add pattern sets
+    pattern_sets = args.pattern_sets or []
+    if not pattern_sets and not args.pattern and not args.pattern_file:
+        pattern_sets = ["secrets"]  # Default
+    
+    for pset in pattern_sets:
+        if pset in PATTERN_REGISTRY:
+            runner.add_pattern_set(pset)
+        else:
+            print(f"Unknown pattern set: {pset}")
+            print(f"Available: {', '.join(PATTERN_REGISTRY.keys())}")
+            return
+    
+    # Add custom pattern with specified type
+    if args.pattern:
+        match_type = MatchType(args.pattern_type)
+        runner.add_pattern(AuditPattern(
+            name="custom",
+            pattern=args.pattern,
+            match_type=match_type,
+            severity=Severity.INFO,
+            category="custom",
+            description=f"Custom {args.pattern_type} pattern",
+            redact_label="[CUSTOM]"
+        ))
+    
+    # Execute
+    preserve_ws = not args.no_preserve_ws
+    
+    if args.mask:
+        results = runner.mask_in_place(
+            dry_run=args.dry_run, 
+            backup=True, 
+            preserve_whitespace=preserve_ws,
+            force=getattr(args, 'force', False),
+            cursor_stopped=getattr(args, 'cursor_stopped', False)
+        )
+        if args.yaml:
+            print(yaml.dump(results, default_flow_style=False))
+        elif args.json:
+            print(json.dumps(results, indent=2))
+        else:
+            for r in results:
+                if "error" in r:
+                    if "path" in r:
+                        print(f"❌ {r['path']}: {r['error']}")
+                    else:
+                        print(f"❌ {r['error']}")
+                        if "warning" in r:
+                            print(f"   {r['warning']}")
+                        if "hint" in r:
+                            print(f"   {r['hint']}")
+                else:
+                    mode = "Would mask" if r["dry_run"] else "Masked"
+                    types_str = ", ".join(r.get("types", []))
+                    print(f"✓ {mode} {r['findings']} in {os.path.basename(r['path'])}")
+                    print(f"  Types: {types_str}")
+                    print(f"  Size: {r['size']} (unchanged), Whitespace: {'preserved' if r.get('preserved_whitespace') else 'replaced'}")
+        return
+    
+    if args.emit_redact:
+        for cmd in runner.emit_redact_commands():
+            print(cmd)
+        return
+    
+    # Default: K-REF output
+    findings = list(runner.scan(limit=args.limit))
+    
+    if args.yaml:
+        out = [{
+            "kref": f.to_kref(), 
+            "severity": f.severity.value, 
+            "pattern": f.pattern_name,
+            "match_type": f.match_type,
+            "description": f.description,
+            "redact_label": f.redact_label,
+            "matched": f.matched
+        } for f in findings]
+        print(yaml.dump({"findings": out, "count": len(out)}, 
+                       default_flow_style=False, allow_unicode=True))
+    elif args.json:
+        out = [{
+            "path": f.path, "line": f.line, 
+            "col_start": f.col_start, "col_end": f.col_end, 
+            "char_start": f.char_start, "char_end": f.char_end,
+            "pattern": f.pattern_name, 
+            "match_type": f.match_type,
+            "severity": f.severity.value,
+            "description": f.description,
+            "redact_label": f.redact_label,
+            "matched": f.matched, 
+            "surface": f.surface
+        } for f in findings]
+        print(json.dumps({"findings": out, "count": len(out)}, indent=2))
+    else:
+        print(f"# Audit: {len(findings)} findings")
+        print(f"# Surfaces: {', '.join(surfaces)}")
+        psets = pattern_sets or []
+        if args.pattern:
+            psets.append(f"custom:{args.pattern_type}")
+        if args.pattern_file:
+            psets.append(f"file:{args.pattern_file}")
+        print(f"# Patterns: {', '.join(psets) if psets else 'default:secrets'}")
+        print()
+        
+        for f in findings:
+            print(f.to_kref())
+            print(f"  {f.matched}")
+
+
+def cmd_mask_in_place(args):
+    """Mask secrets in-place with same-length replacement (file size unchanged).
+
+    Key feature: Replaces each character with mask_char, preserving exact length.
+    This means file offsets remain valid and file size is unchanged.
+    """
+    import re
+
+    print("MASK-IN-PLACE (file size preserved)")
+    print()
+    
+    # Safety check: is Cursor running?
+    if not args.dry_run and not args.cursor_stopped:
+        cursor_status = check_cursor_running()
+        if cursor_status["running"] and not args.force:
+            print(f"ERROR: {cursor_status['warning']}")
+            print()
+            print("Options:")
+            print("  --cursor-stopped  : I confirm Cursor is not running")
+            print("  --force           : Modify anyway (dangerous!)")
+            print("  --dry-run         : Preview without modifying")
+            return
+        elif cursor_status["running"] and args.force:
+            print(f"WARNING: {cursor_status['warning']}")
+            print("Proceeding anyway (--force)")
+            print()
+    
+    patterns = []
+    
+    # UUID pattern
+    if args.uuids:
+        patterns.append((
+            re.compile(r'[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}', re.I),
+            'uuid'
+        ))
+    
+    # Secret patterns
+    if args.secrets:
+        patterns.extend([
+            (re.compile(r'sk-[a-zA-Z0-9]{20,}'), 'openai_key'),
+            (re.compile(r'sk-ant-[a-zA-Z0-9]{20,}'), 'anthropic_key'),
+            (re.compile(r'AKIA[0-9A-Z]{16}'), 'aws_key'),
+            (re.compile(r'ghp_[a-zA-Z0-9]{36}'), 'github_pat'),
+            (re.compile(r'(?i)password[\s]*=[\s]*["\']?[^\s"\']{8,}'), 'password'),
+            (re.compile(r'eyJ[a-zA-Z0-9\-_]+\.eyJ[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+'), 'jwt'),
+        ])
+    
+    # Custom pattern
+    if args.pattern:
+        try:
+            patterns.append((re.compile(args.pattern), 'custom'))
+        except re.error as e:
+            print(f"Invalid pattern: {e}")
+            return
+    
+    if not patterns:
+        print("No patterns specified. Use --secrets, --uuids, or --pattern")
+        return
+    
+    mask_char = args.mask_char[0]  # Use first char only
+    
+    # Get files to process
+    files_to_mask = []
+    workspaces = get_dotcursor_workspaces()
+    if args.workspace:
+        workspaces = [ws for ws in workspaces if args.workspace in ws["name"]]
+    
+    for ws in workspaces:
+        trans_dir = os.path.join(ws["path"], "agent-transcripts")
+        if os.path.isdir(trans_dir):
+            for fname in os.listdir(trans_dir):
+                if fname.endswith('.txt'):
+                    if args.composer and not fname.startswith(args.composer):
+                        continue
+                    files_to_mask.append(os.path.join(trans_dir, fname))
+    
+    if not files_to_mask:
+        print("No transcript files found")
+        return
+    
+    print(f"Files to scan: {len(files_to_mask)}")
+    print(f"Patterns: {len(patterns)}")
+    print(f"Mask character: '{mask_char}'")
+    print(f"Mode: {'DRY RUN' if args.dry_run else 'LIVE'}")
+    print()
+    
+    total_masks = 0
+    files_modified = 0
+    
+    for fpath in files_to_mask:
+        # Check if file is in use
+        if not args.dry_run and not args.force:
+            file_status = is_file_in_use(fpath)
+            if file_status["in_use"]:
+                procs = ", ".join(file_status["processes"][:3])
+                print(f"  SKIP {os.path.basename(fpath)}: in use by {procs}")
+                continue
+        
+        try:
+            with open(fpath, 'r', encoding='utf-8', errors='replace') as f:
+                content = f.read()
+        except Exception as e:
+            print(f"Error reading {fpath}: {e}")
+            continue
+        
+        original_size = len(content)
+        original_content = content
+        file_masks = 0
+        
+        # Find all matches and their positions
+        all_matches = []
+        for regex, ptype in patterns:
+            for match in regex.finditer(content):
+                all_matches.append({
+                    'start': match.start(),
+                    'end': match.end(),
+                    'text': match.group(),
+                    'type': ptype
+                })
+        
+        # Sort by position (reverse to preserve offsets)
+        all_matches.sort(key=lambda x: x['start'], reverse=True)
+        
+        # Apply masks
+        for m in all_matches:
+            masked = mask_char * len(m['text'])
+            
+            if args.dry_run:
+                preview = m['text'][:20] + '...' if len(m['text']) > 20 else m['text']
+                print(f"  Would mask [{m['type']}] len={len(m['text'])}: {preview}")
+            
+            content = content[:m['start']] + masked + content[m['end']:]
+            file_masks += 1
+        
+        # Verify size unchanged
+        if len(content) != original_size:
+            print(f"  ERROR: Size mismatch in {fpath}! Original={original_size}, New={len(content)}")
+            continue
+        
+        if file_masks > 0:
+            total_masks += file_masks
+            files_modified += 1
+            
+            if not args.dry_run:
+                # Create backup
+                if not args.no_backup:
+                    backup_path = fpath + '.bak'
+                    try:
+                        with open(backup_path, 'w', encoding='utf-8') as f:
+                            f.write(original_content)
+                    except Exception as e:
+                        print(f"  WARNING: Backup failed: {e}")
+                        continue
+                
+                # Write masked content
+                try:
+                    with open(fpath, 'w', encoding='utf-8') as f:
+                        f.write(content)
+                    print(f"  Masked {file_masks} items in {os.path.basename(fpath)} (size unchanged: {original_size})")
+                except Exception as e:
+                    print(f"  ERROR writing {fpath}: {e}")
+    
+    print()
+    print(f"{'Would mask' if args.dry_run else 'Masked'}: {total_masks} items in {files_modified} files")
+    print(f"File sizes: UNCHANGED")
+    if args.dry_run:
+        print("\nRun without --dry-run to apply")
+
+
+def cmd_full_audit(args):
+    """Full communication audit - ALL vectors in and out of Cursor.
+    
+    Vectors audited:
+    - PROMPTS: User input sent to LLM
+    - RESPONSES: LLM output (may echo secrets from context)
+    - TOOL_CALLS: Arguments sent to tools
+    - TOOL_RESULTS: Data returned from tools
+    - MCP: MCP server communication
+    - SHELL: Terminal commands executed
+    - CONTEXT: Files mentioned/read as context
+    - IMAGES: Image paths referenced
+    - THINKING: Internal reasoning (may contain secrets)
+    """
+    import re
+    from collections import defaultdict
+    
+    # Use the same comprehensive patterns
+    AUDIT_PATTERNS = [
+        # High-value secrets
+        (r'sk-[a-zA-Z0-9]{20,}', 'openai_key', 'critical'),
+        (r'sk-ant-[a-zA-Z0-9]{20,}', 'anthropic_key', 'critical'),
+        (r'AKIA[0-9A-Z]{16}', 'aws_access_key', 'critical'),
+        (r'ghp_[a-zA-Z0-9]{36}', 'github_pat', 'critical'),
+        (r'-----BEGIN (?:RSA |EC |DSA |OPENSSH )?PRIVATE KEY-----', 'private_key', 'critical'),
+        (r'(?i)password[\s]*[=:]+[\s]*["\']?[^\s"\']{8,}', 'password', 'high'),
+        (r'(?i)api[_-]?key[\s]*[=:]+[\s]*["\']?[^\s"\']{16,}', 'api_key', 'high'),
+        (r'https?://[^:/\s]+:[^@\s]+@[^\s]+', 'url_with_creds', 'critical'),
+        (r'(?i)bearer\s+[a-zA-Z0-9\-_.]{20,}', 'bearer_token', 'high'),
+        (r'eyJ[a-zA-Z0-9\-_]+\.eyJ[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+', 'jwt', 'high'),
+        # Sensitive files
+        (r'(?i)\.env(?:\.local|\.prod|\.dev)?(?:\s|$|")', 'env_file', 'high'),
+        (r'(?i)credentials\.json', 'credentials_file', 'high'),
+        (r'(?i)~/.ssh/id_rsa', 'ssh_key', 'critical'),
+        (r'(?i)~/.aws/credentials', 'aws_creds_file', 'critical'),
+    ]
+    
+    compiled = [(re.compile(p), n, s) for p, n, s in AUDIT_PATTERNS]
+    
+    # Vector-specific patterns
+    shell_danger = re.compile(r'(?i)(curl|wget|ssh|scp|rsync|nc|netcat)\s+.*(-d|--data|@)', re.I)
+    mcp_pattern = re.compile(r'\[Tool call\]\s+(cursor-ide-browser|user-\w+|mcp-\w+)', re.I)
+    
+    findings = defaultdict(list)
+    stats = defaultdict(lambda: defaultdict(int))
+    
+    # Get transcripts
+    workspaces = get_dotcursor_workspaces()
+    if args.workspace:
+        workspaces = [ws for ws in workspaces if args.workspace in ws["name"]]
+    
+    since_ts = parse_time_filter(args.since) if args.since else None
+    vector_filter = set(args.vector.split(',')) if args.vector else None
+    
+    for ws in workspaces:
+        trans_dir = os.path.join(ws["path"], "agent-transcripts")
+        if not os.path.isdir(trans_dir):
+            continue
+        
+        for fname in os.listdir(trans_dir):
+            if not fname.endswith('.txt'):
+                continue
+            if args.composer and not fname.startswith(args.composer):
+                continue
+            
+            fpath = os.path.join(trans_dir, fname)
+            if since_ts:
+                mtime = os.path.getmtime(fpath) * 1000
+                if mtime < since_ts:
+                    continue
+            
+            try:
+                with open(fpath, 'r', encoding='utf-8', errors='replace') as f:
+                    lines = f.readlines()
+            except:
+                continue
+            
+            # State machine to track sections
+            current_section = None
+            section_start = 0
+            section_content = []
+            current_tool = None
+            
+            for i, line in enumerate(lines):
+                stripped = line.strip()
+                lineno = i + 1
+                
+                # Detect section changes
+                new_section = None
+                if stripped == 'user:':
+                    new_section = 'prompt'
+                elif stripped == 'assistant:':
+                    new_section = 'response'
+                elif stripped.startswith('[Thinking]'):
+                    new_section = 'thinking'
+                elif stripped.startswith('[Tool call]'):
+                    new_section = 'tool_call'
+                    parts = stripped.split()
+                    current_tool = parts[2] if len(parts) > 2 else 'unknown'
+                    # Check if MCP
+                    if mcp_pattern.match(stripped):
+                        new_section = 'mcp'
+                elif stripped.startswith('[Tool result]'):
+                    new_section = 'tool_result'
+                
+                # Process previous section if section changed
+                if new_section and current_section:
+                    _audit_section(
+                        current_section, '\n'.join(section_content),
+                        compiled, shell_danger, findings, stats,
+                        fpath, section_start, current_tool, args.limit, vector_filter
+                    )
+                
+                if new_section:
+                    current_section = new_section
+                    section_start = lineno
+                    section_content = []
+                    if new_section not in ('tool_call', 'mcp'):
+                        current_tool = None
+                else:
+                    section_content.append(line)
+            
+            # Process last section
+            if current_section and section_content:
+                _audit_section(
+                    current_section, '\n'.join(section_content),
+                    compiled, shell_danger, findings, stats,
+                    fpath, section_start, current_tool, args.limit, vector_filter
+                )
+    
+    # Also check context files from SQLite
+    if not vector_filter or 'context' in vector_filter:
+        global_db = os.path.expanduser("~/Library/Application Support/Cursor/User/globalStorage/state.vscdb")
+        if os.path.isfile(global_db):
+            try:
+                conn = sqlite3.connect(f"file:{global_db}?mode=ro", uri=True)
+                cursor = conn.cursor()
+                
+                # Get context/file references
+                cursor.execute("""
+                    SELECT key, value FROM cursorDiskKV 
+                    WHERE key LIKE 'bubbleId:%' 
+                    AND (value LIKE '%"context"%' OR value LIKE '%"files"%')
+                    LIMIT 100
+                """)
+                
+                for key, value in cursor.fetchall():
+                    try:
+                        # Scan for sensitive file paths
+                        for regex, secret_type, severity in compiled:
+                            for match in regex.finditer(value):
+                                findings['context'].append({
+                                    'path': key[:50],
+                                    'line': 0,
+                                    'type': secret_type,
+                                    'severity': severity,
+                                    'masked': match.group()[:20] + '...',
+                                    'source': 'sqlite'
+                                })
+                                stats['context'][secret_type] += 1
+                    except:
+                        pass
+                
+                conn.close()
+            except:
+                pass
+    
+    # Output
+    total = sum(len(v) for v in findings.values())
+    
+    if args.yaml:
+        print(yaml.dump({
+            'findings': dict(findings),
+            'stats': {k: dict(v) for k, v in stats.items()},
+            'total': total
+        }, default_flow_style=False, sort_keys=False, allow_unicode=True))
+    elif args.json:
+        print(json.dumps({
+            'findings': dict(findings),
+            'stats': {k: dict(v) for k, v in stats.items()},
+            'total': total
+        }, indent=2))
+    else:
+        print("=" * 70)
+        print("🔒 FULL COMMUNICATION AUDIT")
+        print("=" * 70)
+        print(f"Total findings: {total}")
+        print()
+        
+        for vector in ['prompt', 'response', 'tool_call', 'tool_result', 'mcp', 'thinking', 'context']:
+            vec_findings = findings.get(vector, [])
+            if vec_findings or not args.summary:
+                icon = {
+                    'prompt': '📤', 'response': '📥', 'tool_call': '🔧',
+                    'tool_result': '📋', 'mcp': '🔌', 'thinking': '💭', 'context': '📁'
+                }.get(vector, '❓')
+                print(f"{icon} {vector.upper()}: {len(vec_findings)} findings")
+                
+                if not args.summary:
+                    for f in vec_findings[:10]:
+                        sev_icon = {'critical': '🔴', 'high': '🟠', 'medium': '🟡'}.get(f['severity'], '⚪')
+                        if f.get('source') == 'sqlite':
+                            print(f"  {sev_icon} [sqlite] {f['type']}: {f['masked']}")
+                        else:
+                            print(f"  {sev_icon} {f['path']}:{f['line']} {f['type']}: {f['masked']}")
+                    if len(vec_findings) > 10:
+                        print(f"  ... and {len(vec_findings) - 10} more")
+                print()
+
+
+def _audit_section(section, content, patterns, shell_danger, findings, stats, path, line, tool, limit, vector_filter):
+    """Audit a transcript section for secrets."""
+    if vector_filter and section not in vector_filter:
+        return
+    
+    if len(findings.get(section, [])) >= limit:
+        return
+    
+    # Skip self-references (pattern definitions)
+    if 'AUDIT_PATTERNS' in content[:500] or 'EXFIL_PATTERNS' in content[:500]:
+        return
+    
+    # Check for secrets
+    for regex, secret_type, severity in patterns:
+        for match in regex.finditer(content):
+            matched = match.group()
+            if len(matched) > 20:
+                masked = matched[:10] + '...' + matched[-4:]
+            else:
+                masked = matched[:8] + '...'
+            
+            findings[section].append({
+                'path': path,
+                'line': line,
+                'tool': tool,
+                'type': secret_type,
+                'severity': severity,
+                'masked': masked,
+            })
+            stats[section][secret_type] += 1
+    
+    # Special check for shell commands with data exfil
+    if section == 'tool_call' and tool and 'shell' in tool.lower():
+        if shell_danger.search(content):
+            findings[section].append({
+                'path': path,
+                'line': line,
+                'tool': tool,
+                'type': 'shell_data_exfil',
+                'severity': 'high',
+                'masked': content[:50] + '...',
+            })
+            stats[section]['shell_data_exfil'] += 1
+
+
+def _scan_for_secrets(text, patterns, findings, stats, path, line, tool, source, limit, tool_filter):
+    """Helper to scan text for secrets and add findings."""
+    if tool_filter and tool_filter.lower() not in tool.lower():
+        return
+    
+    for regex, secret_type, severity in patterns:
+        if len(findings) >= limit:
+            return
+        
+        for match in regex.finditer(text):
+            matched = match.group()
+            
+            # Skip if it looks like it's part of the pattern definition itself
+            if 'SECRET_PATTERNS' in text[:500] or 'EXFIL_PATTERNS' in text[:500]:
+                if matched in text[:1000]:  # Likely self-reference
+                    continue
+            
+            # Mask the secret
+            if len(matched) > 16:
+                masked = matched[:8] + "..." + matched[-4:]
+            else:
+                masked = matched[:4] + "..."
+            
+            findings.append({
+                "source": source,
+                "path": path,
+                "line": line,
+                "tool": tool,
+                "type": secret_type,
+                "severity": severity,
+                "masked": masked,
+            })
+            
+            stats["severity"][severity] += 1
+            stats["type"][secret_type] += 1
+            stats["tool"][tool] += 1
+            
+            if len(findings) >= limit:
+                return
+
+
+def cmd_url_audit(args):
+    """Find URLs in tool calls, check for secrets (JOINs both stores)."""
+    import re
+    
+    # Resolve composer reference (@1, prefix, name) to full ID
+    composer_id = None
+    if args.composer:
+        composer_id = resolve_composer_id(args.composer)
+        if not composer_id:
+            print(f"Composer not found: {args.composer}", file=sys.stderr)
+            return
+    
+    # URL pattern
+    url_pattern = re.compile(r'https?://[^\s"\'\]}>]+')
+    
+    # Secret patterns in URLs
+    url_secret_patterns = [
+        (re.compile(r'[?&](?:api_?key|token|secret|password|auth|key)=([^&\s]+)', re.I), 'query_param_secret'),
+        (re.compile(r'://[^:]+:([^@]+)@', re.I), 'basic_auth_password'),
+        (re.compile(r'[?&]access_token=([^&\s]+)', re.I), 'access_token'),
+        (re.compile(r'[?&]client_secret=([^&\s]+)', re.I), 'client_secret'),
+        (re.compile(r'/v\d+/[a-f0-9]{32,}', re.I), 'embedded_key'),
+    ]
+    
+    results = []
+    
+    # Source 1: Transcripts (plaintext)
+    workspaces = get_dotcursor_workspaces()
+    if args.workspace:
+        workspaces = [ws for ws in workspaces if args.workspace in ws["name"]]
+    
+    for ws in workspaces:
+        trans_dir = os.path.join(ws["path"], "agent-transcripts")
+        if not os.path.isdir(trans_dir):
+            continue
+        
+        for fname in os.listdir(trans_dir):
+            if not fname.endswith('.txt'):
+                continue
+            if composer_id and not fname.startswith(composer_id):
+                continue
+            
+            fpath = os.path.join(trans_dir, fname)
+            try:
+                with open(fpath, 'r', encoding='utf-8', errors='replace') as f:
+                    lines = f.readlines()
+            except:
+                continue
+            
+            in_tool = False
+            tool_name = None
+            
+            for i, line in enumerate(lines):
+                stripped = line.strip()
+                
+                # Track if we're in a tool call section
+                if stripped.startswith('[Tool call]'):
+                    in_tool = True
+                    parts = stripped.split()
+                    tool_name = parts[2] if len(parts) > 2 else "unknown"
+                elif stripped.startswith('[Tool result]'):
+                    in_tool = True
+                    tool_name = "result"
+                elif stripped in ('user:', 'assistant:'):
+                    in_tool = False
+                
+                # Find URLs
+                for url_match in url_pattern.finditer(line):
+                    url = url_match.group()
+                    
+                    # Check for secrets in URL
+                    secrets_found = []
+                    for secret_re, secret_type in url_secret_patterns:
+                        if secret_re.search(url):
+                            secrets_found.append(secret_type)
+                    
+                    # Check custom pattern
+                    if args.pattern:
+                        if not re.search(args.pattern, url, re.I):
+                            if not secrets_found:
+                                continue
+                    
+                    # Filter if secrets-only
+                    if args.secrets_only and not secrets_found:
+                        continue
+                    
+                    # Mask any secrets in URL for output
+                    masked_url = url
+                    for secret_re, _ in url_secret_patterns:
+                        masked_url = secret_re.sub(lambda m: m.group(0).replace(m.group(1), '[REDACTED]') if m.groups() else '[REDACTED]', masked_url)
+                    
+                    results.append({
+                        "source": "transcript",
+                        "path": fpath,
+                        "line": i + 1,
+                        "tool": tool_name if in_tool else None,
+                        "url": masked_url[:200],
+                        "secrets": secrets_found if secrets_found else None,
+                        "in_tool_call": in_tool,
+                    })
+                    
+                    if len(results) >= args.limit:
+                        break
+            
+            if len(results) >= args.limit:
+                break
+        if len(results) >= args.limit:
+            break
+    
+    # Source 2: SQLite (structured tool calls) - if not at limit
+    if len(results) < args.limit:
+        global_db = os.path.expanduser("~/Library/Application Support/Cursor/User/globalStorage/state.vscdb")
+        if os.path.isfile(global_db):
+            try:
+                conn = sqlite3.connect(f"file:{global_db}?mode=ro", uri=True)
+                cursor = conn.cursor()
+                
+                # Search tool calls in bubbles
+                cursor.execute("""
+                    SELECT key, value FROM cursorDiskKV 
+                    WHERE key LIKE 'bubbleId:%' 
+                    AND (value LIKE '%http://%' OR value LIKE '%https://%')
+                    LIMIT ?
+                """, (args.limit - len(results),))
+                
+                for key, value in cursor.fetchall():
+                    try:
+                        data = json.loads(value)
+                        text = json.dumps(data)
+                        
+                        for url_match in url_pattern.finditer(text):
+                            url = url_match.group()
+                            
+                            secrets_found = []
+                            for secret_re, secret_type in url_secret_patterns:
+                                if secret_re.search(url):
+                                    secrets_found.append(secret_type)
+                            
+                            if args.secrets_only and not secrets_found:
+                                continue
+                            
+                            masked_url = url
+                            for secret_re, _ in url_secret_patterns:
+                                masked_url = secret_re.sub(lambda m: m.group(0).replace(m.group(1), '[REDACTED]') if m.groups() else '[REDACTED]', masked_url)
+                            
+                            results.append({
+                                "source": "state.vscdb",
+                                "key": key[:50],
+                                "url": masked_url[:200],
+                                "secrets": secrets_found if secrets_found else None,
+                            })
+                            
+                            if len(results) >= args.limit:
+                                break
+                    except:
+                        pass
+                    
+                    if len(results) >= args.limit:
+                        break
+                
+                conn.close()
+            except Exception as e:
+                pass
+    
+    # Output
+    if args.yaml:
+        print(yaml.dump({"urls": results, "count": len(results)}, 
+                       default_flow_style=False, sort_keys=False, allow_unicode=True))
+    elif args.json:
+        print(json.dumps({"urls": results, "count": len(results)}, indent=2))
+    else:
+        print(f"# URL Audit: {len(results)} URLs found")
+        print(f"# Sources: transcripts (~/.cursor) + state.vscdb")
+        secrets_count = sum(1 for r in results if r.get("secrets"))
+        if secrets_count:
+            print(f"# ⚠️  URLs with potential secrets: {secrets_count}")
+        print()
+        
+        for r in results:
+            if r["source"] == "transcript":
+                loc = f"{r['path']}:{r['line']}"
+                tool_info = f" [{r['tool']}]" if r.get("tool") else ""
+            else:
+                loc = r.get("key", "sqlite")
+                tool_info = ""
+            
+            secret_flag = " 🔑" if r.get("secrets") else ""
+            print(f"{loc}{tool_info}{secret_flag}")
+            print(f"  {r['url']}")
+            if r.get("secrets"):
+                print(f"  ⚠️  {', '.join(r['secrets'])}")
+            print()
+
+
+def cmd_models_info(args):
+    """Model info: config + usage + pricing (JOINs both data stores)."""
+    import re
+    from collections import defaultdict
+    
+    show_all = args.all or not (args.usage or args.config or args.migrations)
+    
+    report = {
+        "server_config": {},
+        "model_migrations": [],
+        "usage_stats": {},
+        "transcript_mentions": defaultdict(int),
+    }
+    
+    # 1. Get server config from state.vscdb (ItemTable)
+    global_db = os.path.expanduser("~/Library/Application Support/Cursor/User/globalStorage/state.vscdb")
+    if os.path.isfile(global_db):
+        try:
+            conn = sqlite3.connect(f"file:{global_db}?mode=ro", uri=True)
+            cursor = conn.cursor()
+            
+            # Get serverConfig
+            cursor.execute("SELECT value FROM ItemTable WHERE key = 'cursorai/serverConfig'")
+            row = cursor.fetchone()
+            if row:
+                server_config = json.loads(row[0])
+                
+                # Extract model-related config
+                if show_all or args.config:
+                    report["server_config"] = {
+                        "chat_config": {
+                            "fullContextTokenLimit": server_config.get("chatConfig", {}).get("fullContextTokenLimit"),
+                            "maxRuleLength": server_config.get("chatConfig", {}).get("maxRuleLength"),
+                            "maxMcpTools": server_config.get("chatConfig", {}).get("maxMcpTools"),
+                        },
+                        "config_version": server_config.get("configVersion"),
+                        "auto_context": server_config.get("autoContextConfig", {}),
+                    }
+                
+                # Extract model migrations
+                if show_all or args.migrations:
+                    report["model_migrations"] = server_config.get("modelMigrations", [])
+            
+            # Get feature config
+            cursor.execute("SELECT value FROM ItemTable WHERE key = 'cursorai/featureConfigCache'")
+            row = cursor.fetchone()
+            if row:
+                feature_config = json.loads(row[0])
+                report["server_config"]["feature_limits"] = {
+                    "readFilesToolMaxLines": feature_config.get("readFilesToolMaxLines"),
+                    "readFileToolMaxChars": feature_config.get("readFileToolMaxChars"),
+                    "editFileToolMaxFileSizeInLines": feature_config.get("editFileToolMaxFileSizeInLinesBeforeSwitchingToSearchReplace"),
+                }
+            
+            conn.close()
+        except Exception as e:
+            report["server_config"]["error"] = str(e)
+    
+    # 2. Get usage stats from ai-code-tracking.db
+    if (show_all or args.usage) and os.path.isfile(DOTCURSOR_AI_TRACKING):
+        try:
+            conn = sqlite3.connect(f"file:{DOTCURSOR_AI_TRACKING}?mode=ro", uri=True)
+            conn.row_factory = sqlite3.Row
+            cursor = conn.cursor()
+            
+            # Get model usage stats
+            cursor.execute("""
+                SELECT source, model, COUNT(*) as count,
+                       MIN(datetime(createdAt/1000, 'unixepoch', 'localtime')) as first_use,
+                       MAX(datetime(createdAt/1000, 'unixepoch', 'localtime')) as last_use
+                FROM ai_code_hashes
+                GROUP BY source, model
+                ORDER BY count DESC
+            """)
+            
+            usage = []
+            for row in cursor.fetchall():
+                usage.append({
+                    "source": row["source"],
+                    "model": row["model"] or "unknown",
+                    "code_blocks": row["count"],
+                    "first_use": row["first_use"],
+                    "last_use": row["last_use"],
+                })
+            report["usage_stats"]["by_model"] = usage
+            
+            # Get extension stats
+            cursor.execute("""
+                SELECT fileExtension, COUNT(*) as count
+                FROM ai_code_hashes
+                GROUP BY fileExtension
+                ORDER BY count DESC
+                LIMIT 15
+            """)
+            report["usage_stats"]["by_extension"] = [
+                {"ext": row[0], "count": row[1]} for row in cursor.fetchall()
+            ]
+            
+            # Get total stats
+            cursor.execute("SELECT COUNT(*) FROM ai_code_hashes")
+            report["usage_stats"]["total_code_blocks"] = cursor.fetchone()[0]
+            
+            cursor.execute("SELECT COUNT(*) FROM scored_commits")
+            report["usage_stats"]["scored_commits"] = cursor.fetchone()[0]
+            
+            conn.close()
+        except Exception as e:
+            report["usage_stats"]["error"] = str(e)
+    
+    # 3. Scan transcripts for model mentions
+    if show_all or args.usage:
+        model_pattern = re.compile(r'(claude-[a-z0-9\-_.]+|gpt-[a-z0-9\-_.]+|gemini-[a-z0-9\-_.]+)', re.I)
+        
+        workspaces = get_dotcursor_workspaces()
+        for ws in workspaces[:5]:  # Limit to avoid long scan
+            trans_dir = os.path.join(ws["path"], "agent-transcripts")
+            if not os.path.isdir(trans_dir):
+                continue
+            
+            for fname in os.listdir(trans_dir)[:10]:  # Sample
+                if not fname.endswith('.txt'):
+                    continue
+                fpath = os.path.join(trans_dir, fname)
+                try:
+                    with open(fpath, 'r', encoding='utf-8', errors='replace') as f:
+                        content = f.read()
+                    for match in model_pattern.finditer(content):
+                        model = match.group(1).lower()
+                        report["transcript_mentions"][model] += 1
+                except:
+                    pass
+        
+        report["transcript_mentions"] = dict(
+            sorted(report["transcript_mentions"].items(), key=lambda x: -x[1])[:20]
+        )
+    
+    # Output
+    if args.yaml:
+        print(yaml.dump(report, default_flow_style=False, sort_keys=False, allow_unicode=True))
+    elif args.json:
+        print(json.dumps(report, indent=2))
+    else:
+        print("=" * 70)
+        print("📊 MODEL INFO (JOINed from both data stores)")
+        print("=" * 70)
+        
+        if show_all or args.config:
+            print("\n⚙️  SERVER CONFIG (from state.vscdb)")
+            print("-" * 50)
+            cfg = report.get("server_config", {})
+            if cfg.get("chat_config"):
+                print(f"  Context token limit: {cfg['chat_config'].get('fullContextTokenLimit')}")
+                print(f"  Max rule length: {cfg['chat_config'].get('maxRuleLength')}")
+                print(f"  Max MCP tools: {cfg['chat_config'].get('maxMcpTools')}")
+            if cfg.get("feature_limits"):
+                fl = cfg["feature_limits"]
+                print(f"  Read file max lines: {fl.get('readFilesToolMaxLines')}")
+                print(f"  Read file max chars: {fl.get('readFileToolMaxChars')}")
+        
+        if show_all or args.migrations:
+            print("\n🔄 MODEL MIGRATIONS")
+            print("-" * 50)
+            for mig in report.get("model_migrations", [])[:5]:
+                print(f"  {mig.get('previousModel')} → {mig.get('targetModel')} ({mig.get('modelSetting')})")
+            if len(report.get("model_migrations", [])) > 5:
+                print(f"  ... and {len(report['model_migrations']) - 5} more")
+        
+        if show_all or args.usage:
+            print("\n📈 USAGE STATS (from ai-code-tracking.db)")
+            print("-" * 50)
+            stats = report.get("usage_stats", {})
+            if stats.get("total_code_blocks"):
+                print(f"  Total AI code blocks: {stats['total_code_blocks']:,}")
+                print(f"  Scored git commits: {stats.get('scored_commits', 0):,}")
+            
+            print("\n  By Model:")
+            for u in stats.get("by_model", [])[:8]:
+                print(f"    {u['source']}/{u['model']}: {u['code_blocks']:,} blocks")
+            
+            print("\n  By Extension:")
+            for e in stats.get("by_extension", [])[:5]:
+                print(f"    {e['ext']}: {e['count']:,}")
+        
+        if show_all:
+            print("\n💬 TRANSCRIPT MENTIONS (sampled)")
+            print("-" * 50)
+            for model, count in list(report.get("transcript_mentions", {}).items())[:10]:
+                print(f"  {model}: {count}")
+        
+        print()
+
+
+def cmd_deep_snitch(args):
+    """Deep Snitch - comprehensive security audit with K-REF output.
+
+    Scans Cursor activity for:
+    - Secrets (API keys, passwords, tokens)
+    - Shell exfiltration (curl, wget, netcat, ssh)
+    - Code execution (eval, exec, subprocess)
+    - Dangerous paths (/etc/passwd, ~/.ssh, etc.)
+    - Obfuscation (base64, hex, chr building)
+    - Prompt injection attempts
+    - Data exfiltration (webhooks, pastebin, file uploads)
+    - Suspicious behavior (SSL bypass, cron, rm -rf)
+
+    ⚠️  FALSE POSITIVE WARNING:
+    If you scan a transcript where security code was written (like this script),
+    the scanner will detect its own pattern definitions! Example:
+      - Pattern `r'/etc/passwd'` in code → flagged as "etc_passwd access"
+      - Pattern `-----BEGIN PRIVATE KEY-----` in docs → flagged as "private_key"
+    
+    This is the "Ouroboros effect". Look at actual line content to verify.
+    Expect ~80% false positives when scanning security-focused sessions.
+
+    Outputs K-REFs with severity levels for each finding.
+    """
+    import re
+    from collections import defaultdict
+    
+    # Determine what to scan
+    show_all = args.all
+    show_patterns = args.patterns or args.all or args.category
+    show_overview = args.endpoints or args.mcp or args.files or args.models or args.all
+    
+    # If nothing specified, do full audit
+    if not (show_patterns or show_overview):
+        show_all = True
+        show_patterns = True
+        show_overview = True
+    
+    # Severity filter
+    severity_order = {"critical": 0, "high": 1, "medium": 2, "low": 3, "info": 4}
+    min_severity = severity_order.get(args.severity, 4) if args.severity else 4
+    
+    # Categories to scan
+    if args.category:
+        categories = [c.strip() for c in args.category.split(',')]
+    else:
+        categories = [
+            "secrets", "shell_exfil", "code_execution", "dangerous_paths",
+            "obfuscation", "prompt_injection", "data_exfil", "suspicious_behavior"
+        ]
+    
+    findings = []
+    stats = defaultdict(lambda: defaultdict(int))
+    
+    # Pattern scanning
+    if show_patterns:
+        # Resolve composer reference (@1, prefix, name) to full ID
+        composer_id = None
+        if args.composer:
+            composer_id = resolve_composer_id(args.composer)
+            if not composer_id:
+                print(f"Composer not found: {args.composer}", file=sys.stderr)
+                return
+        
+        runner = AuditRunner()
+        runner.add_surface(TranscriptSurface(
+            workspace=args.workspace,
+            composer=composer_id
+        ))
+        
+        # Add requested pattern categories
+        for cat in categories:
+            if cat == "all":
+                for pset in PATTERN_REGISTRY.keys():
+                    runner.add_pattern_set(pset)
+            elif cat in PATTERN_REGISTRY:
+                runner.add_pattern_set(cat)
+        
+        # Scan (collect all, filter later for proper severity prioritization)
+        all_findings = list(runner.scan(limit=10000))
+        
+        # Sort by severity (critical first) then filter
+        all_findings.sort(key=lambda f: severity_order.get(f.severity.value, 4))
+        
+        for finding in all_findings:
+            sev_level = severity_order.get(finding.severity.value, 4)
+            if sev_level <= min_severity:
+                findings.append(finding)
+                stats["severity"][finding.severity.value] += 1
+                stats["category"][finding.category] += 1
+                stats["pattern"][finding.pattern_name] += 1
+            # Apply limit per output, not per scan
+            if len(findings) >= args.limit * 10:  # generous buffer
+                break
+    
+    # Overview data
+    report = {
+        "endpoints": [],
+        "mcp_servers": [],
+        "models_used": defaultdict(int),
+        "files_exposed": set(),
+        "tool_calls": defaultdict(int),
+        "data_volume": {"prompts": 0, "responses": 0},
+    }
+    
+    if show_overview:
+        # Check configured endpoints
+        mcp_json = os.path.join(DOTCURSOR_BASE, "mcp.json")
+        if os.path.isfile(mcp_json):
+            try:
+                with open(mcp_json, 'r') as f:
+                    mcp_config = json.load(f)
+                for server_name, server_config in mcp_config.get("mcpServers", {}).items():
+                    cmd = server_config.get("command", "")
+                    report["endpoints"].append({
+                        "type": "mcp_server",
+                        "name": server_name,
+                        "command": cmd
+                    })
+            except:
+                pass
+        
+        # Scan transcripts for overview
+        workspaces = get_dotcursor_workspaces()
+        if args.workspace:
+            workspaces = [ws for ws in workspaces if args.workspace in ws.get("name", "")]
+        
+        since_ts = parse_time_filter(args.since) if args.since else None
+        file_pattern = re.compile(r'(?:path|file)["\s:]+([/\w\-_.]+\.[a-z]{1,5})', re.I)
+        model_pattern = re.compile(r'(claude-[a-z0-9\-_.]+|gpt-[a-z0-9\-_.]+|gemini-[a-z0-9\-_.]+)', re.I)
+        
+        for ws in workspaces:
+            trans_dir = os.path.join(ws["path"], "agent-transcripts")
+            if not os.path.isdir(trans_dir):
+                continue
+            
+            for fname in os.listdir(trans_dir):
+                if not fname.endswith('.txt'):
+                    continue
+                if args.composer and not fname.startswith(args.composer):
+                    continue
+                
+                fpath = os.path.join(trans_dir, fname)
+                if since_ts and os.path.getmtime(fpath) * 1000 < since_ts:
+                    continue
+                
+                try:
+                    with open(fpath, 'r', encoding='utf-8', errors='replace') as f:
+                        content = f.read()
+                except:
+                    continue
+                
+                # Extract stats
+                for match in file_pattern.finditer(content):
+                    report["files_exposed"].add(match.group(1))
+                for match in model_pattern.finditer(content):
+                    report["models_used"][match.group(1).lower()] += 1
+    
+    # Convert for output
+    report["files_exposed"] = sorted(report["files_exposed"])[:50]
+    report["models_used"] = dict(report["models_used"])
+    
+    # Output
+    if args.yaml:
+        output = {
+            "findings": [{
+                "kref": f.to_kref(),
+                "severity": f.severity.value,
+                "category": f.category,
+                "pattern": f.pattern_name,
+                "description": f.description,
+                "redact_label": f.redact_label,
+                "matched": f.matched
+            } for f in findings],
+            "stats": {
+                "total": len(findings),
+                "by_severity": dict(stats["severity"]),
+                "by_category": dict(stats["category"]),
+            },
+            "overview": report if show_overview else None
+        }
+        print(yaml.dump(output, default_flow_style=False, allow_unicode=True))
+        
+    elif args.json:
+        output = {
+            "findings": [{
+                "path": f.path, "line": f.line,
+                "col_start": f.col_start, "col_end": f.col_end,
+                "severity": f.severity.value,
+                "category": f.category,
+                "pattern": f.pattern_name,
+                "description": f.description,
+                "redact_label": f.redact_label,
+                "matched": f.matched
+            } for f in findings],
+            "stats": {
+                "total": len(findings),
+                "by_severity": dict(stats["severity"]),
+                "by_category": dict(stats["category"]),
+            },
+            "overview": report if show_overview else None
+        }
+        print(json.dumps(output, indent=2))
+        
+    else:
+        # K-REF output with logging levels
+        sev_icon = {"critical": "🔴", "high": "🟠", "medium": "🟡", "low": "🔵", "info": "ℹ️"}
+        sev_label = {"critical": "CRITICAL", "high": "HIGH", "medium": "MEDIUM", "low": "LOW", "info": "INFO"}
+        
+        print("DEEP SNITCH REPORT")
+        print(f"Categories: {', '.join(categories)}")
+        if args.composer:
+            print(f"Composer: {args.composer}")
+        if args.since:
+            print(f"Since: {args.since}")
+        print()
+        
+        # Summary first
+        if not args.summary:
+            print(f"Total findings: {len(findings)}")
+            if stats["severity"]:
+                sev_str = ", ".join(f"{sev_icon.get(k, '?')} {k}={v}" for k, v in 
+                                   sorted(stats["severity"].items(), key=lambda x: severity_order.get(x[0], 99)))
+                print(f"By severity: {sev_str}")
+            print()
+        
+        # Group by severity for output
+        if not args.summary:
+            for sev in ["critical", "high", "medium", "low", "info"]:
+                sev_findings = [f for f in findings if f.severity.value == sev]
+                if not sev_findings:
+                    continue
+                
+                print(f"{sev_icon.get(sev, '?')} {sev_label.get(sev, sev).upper()} ({len(sev_findings)})")
+                print("-" * 60)
+                
+                for f in sev_findings[:args.limit // 5]:  # Limit per severity
+                    print(f.to_kref())
+                    # Truncate matched for display
+                    matched_display = f.matched
+                    if len(matched_display) > 80:
+                        matched_display = matched_display[:40] + "..." + matched_display[-30:]
+                    print(f"  {matched_display}")
+                
+                if len(sev_findings) > args.limit // 5:
+                    print(f"  ... and {len(sev_findings) - args.limit // 5} more {sev} findings")
+                print()
+        
+        # Overview section
+        if show_overview and not args.summary:
+            print("OVERVIEW")
+            print("-" * 60)
+            
+            if report["endpoints"]:
+                print(f"MCP Endpoints: {len(report['endpoints'])}")
+                for ep in report["endpoints"][:5]:
+                    print(f"  {ep['name']} → {ep.get('command', '?')}")
+            
+            if report["models_used"]:
+                print(f"Models used: {', '.join(list(report['models_used'].keys())[:5])}")
+            
+            if report["files_exposed"]:
+                print(f"Files exposed: {len(report['files_exposed'])} files")
+        
+        # Summary stats
+        print()
+        print("SUMMARY")
+        print("-" * 60)
+        critical = stats["severity"].get("critical", 0)
+        high = stats["severity"].get("high", 0)
+        medium = stats["severity"].get("medium", 0)
+        
+        if critical > 0:
+            print(f"🔴 {critical} CRITICAL findings - immediate attention required!")
+        if high > 0:
+            print(f"🟠 {high} HIGH findings - review recommended")
+        if medium > 0:
+            print(f"🟡 {medium} MEDIUM findings - consider reviewing")
+        
+        if critical == 0 and high == 0:
+            print("✅ No critical or high severity findings")
+        
+        # Top patterns
+        if stats["pattern"]:
+            top_patterns = sorted(stats["pattern"].items(), key=lambda x: -x[1])[:5]
+            print(f"\nTop patterns: {', '.join(f'{p}({c})' for p, c in top_patterns)}")
+
+
+def cmd_agent_tools(args):
+    """Cached tool results from ~/.cursor."""
+    workspaces = get_dotcursor_workspaces()
+    if args.workspace:
+        workspaces = [ws for ws in workspaces if args.workspace in ws["name"]]
+    
+    if args.show:
+        # Show specific tool result
+        for ws in workspaces:
+            tools_dir = os.path.join(ws["path"], "agent-tools")
+            if not os.path.isdir(tools_dir):
+                continue
+            for f in os.listdir(tools_dir):
+                if f.startswith(args.show) and f.endswith('.txt'):
+                    tool_path = os.path.join(tools_dir, f)
+                    with open(tool_path, 'r', encoding='utf-8') as fp:
+                        content = fp.read()
+                    print(f"# Tool: {f}")
+                    print(f"# Path: {tool_path}")
+                    print("-" * 60)
+                    print(content)
+                    return
+        print(f"Tool result not found: {args.show}")
+        return
+    
+    # List all tool results
+    results = []
+    for ws in workspaces:
+        tools_dir = os.path.join(ws["path"], "agent-tools")
+        if not os.path.isdir(tools_dir):
+            continue
+        
+        for f in os.listdir(tools_dir):
+            if f.endswith('.txt'):
+                tool_path = os.path.join(tools_dir, f)
+                try:
+                    size = os.path.getsize(tool_path)
+                    with open(tool_path, 'r', encoding='utf-8') as fp:
+                        preview = fp.read(200).replace('\n', ' ')[:100]
+                except:
+                    size = 0
+                    preview = ""
+                
+                results.append({
+                    "uuid": f.replace('.txt', ''),
+                    "workspace": ws["name"],
+                    "size": size,
+                    "preview": preview
+                })
+    
+    results = sorted(results, key=lambda x: -x["size"])[:args.limit]
+    
+    if args.yaml:
+        print(yaml.dump(results, default_flow_style=False, sort_keys=False))
+    elif args.json:
+        print(json.dumps(results, indent=2))
+    else:
+        print(f"Agent Tools ({len(results)} results)")
+        print("-" * 80)
+        for r in results:
+            print(f"{r['uuid'][:36]} | {r['size']:>8} bytes | {r['preview'][:50]}...")
+
+
+def cmd_dotcursor_terminals(args):
+    """Terminal state from ~/.cursor."""
+    workspaces = get_dotcursor_workspaces()
+    if args.workspace:
+        workspaces = [ws for ws in workspaces if args.workspace in ws["name"]]
+    
+    if args.show:
+        # Show specific terminal
+        for ws in workspaces:
+            term_dir = os.path.join(ws["path"], "terminals")
+            if not os.path.isdir(term_dir):
+                continue
+            for f in os.listdir(term_dir):
+                if f.startswith(args.show) or f == f"{args.show}.txt":
+                    term_path = os.path.join(term_dir, f)
+                    with open(term_path, 'r', encoding='utf-8') as fp:
+                        content = fp.read()
+                    print(f"# Terminal: {f}")
+                    print(f"# Path: {term_path}")
+                    print("-" * 60)
+                    print(content)
+                    return
+        print(f"Terminal not found: {args.show}")
+        return
+    
+    # List all terminals
+    results = []
+    for ws in workspaces:
+        term_dir = os.path.join(ws["path"], "terminals")
+        if not os.path.isdir(term_dir):
+            continue
+        
+        for f in os.listdir(term_dir):
+            if f.endswith('.txt'):
+                term_path = os.path.join(term_dir, f)
+                try:
+                    with open(term_path, 'r', encoding='utf-8') as fp:
+                        content = fp.read()
+                    # Parse YAML front matter
+                    cwd = ""
+                    last_cmd = ""
+                    if content.startswith("---"):
+                        parts = content.split("---", 2)
+                        if len(parts) >= 3:
+                            try:
+                                meta = yaml.safe_load(parts[1])
+                                cwd = meta.get("cwd", "")
+                                last_cmd = meta.get("last_command", "")
+                            except:
+                                pass
+                except:
+                    cwd = ""
+                    last_cmd = ""
+                
+                results.append({
+                    "id": f.replace('.txt', ''),
+                    "workspace": ws["name"],
+                    "cwd": cwd,
+                    "last_command": last_cmd
+                })
+    
+    if args.yaml:
+        print(yaml.dump(results, default_flow_style=False, sort_keys=False))
+    elif args.json:
+        print(json.dumps(results, indent=2))
+    else:
+        print(f"Terminals ({len(results)} results)")
+        print("-" * 80)
+        for r in results:
+            print(f"{r['id']:15} | {r['cwd'][:40]:40} | {r['last_command'][:30]}")
+
+
+def cmd_mcp_tools(args):
+    """MCP tool schemas from ~/.cursor."""
+    workspaces = get_dotcursor_workspaces()
+    if args.workspace:
+        workspaces = [ws for ws in workspaces if args.workspace in ws["name"]]
+    
+    results = []
+    
+    for ws in workspaces:
+        mcps_dir = os.path.join(ws["path"], "mcps")
+        if not os.path.isdir(mcps_dir):
+            continue
+        
+        for server in os.listdir(mcps_dir):
+            server_path = os.path.join(mcps_dir, server)
+            if not os.path.isdir(server_path):
+                continue
+            
+            if args.server and args.server not in server:
+                continue
+            
+            tools_dir = os.path.join(server_path, "tools")
+            prompts_dir = os.path.join(server_path, "prompts")
+            
+            tools = []
+            if os.path.isdir(tools_dir):
+                for f in os.listdir(tools_dir):
+                    if f.endswith('.json'):
+                        tool_path = os.path.join(tools_dir, f)
+                        try:
+                            with open(tool_path, 'r') as fp:
+                                tool_data = json.load(fp)
+                            tools.append({
+                                "name": tool_data.get("name", f.replace('.json', '')),
+                                "description": tool_data.get("description", "")[:100]
+                            })
+                            
+                            if args.show and args.show in tool_data.get("name", ""):
+                                if args.yaml:
+                                    print(yaml.dump(tool_data, default_flow_style=False))
+                                elif args.json:
+                                    print(json.dumps(tool_data, indent=2))
+                                else:
+                                    print(yaml.dump(tool_data, default_flow_style=False))
+                                return
+                        except:
+                            pass
+            
+            prompts = []
+            if os.path.isdir(prompts_dir):
+                for f in os.listdir(prompts_dir):
+                    if f.endswith('.json'):
+                        prompts.append(f.replace('.json', ''))
+            
+            results.append({
+                "workspace": ws["name"],
+                "server": server,
+                "tools": len(tools),
+                "prompts": len(prompts),
+                "tool_list": tools
+            })
+    
+    if args.show:
+        print(f"Tool not found: {args.show}")
+        return
+    
+    if args.yaml:
+        print(yaml.dump(results, default_flow_style=False, sort_keys=False))
+    elif args.json:
+        print(json.dumps(results, indent=2))
+    else:
+        print(f"MCP Tools ({len(results)} servers)")
+        print("-" * 80)
+        for r in results:
+            print(f"{r['server']:30} | {r['tools']:3} tools | {r['prompts']:2} prompts | {r['workspace'][:30]}")
+            for t in r["tool_list"][:5]:
+                print(f"    - {t['name']}")
+
+
+def cmd_extensions(args):
+    """Cursor extensions from ~/.cursor."""
+    ext_json = os.path.join(DOTCURSOR_EXTENSIONS, "extensions.json")
+    
+    if not os.path.isfile(ext_json):
+        print(f"Extensions manifest not found: {ext_json}")
+        return
+    
+    with open(ext_json, 'r') as f:
+        extensions = json.load(f)
+    
+    results = []
+    for ext in extensions:
+        ident = ext.get("identifier", {})
+        meta = ext.get("metadata", {})
+        
+        results.append({
+            "id": ident.get("id", ""),
+            "version": ext.get("version", ""),
+            "publisher": meta.get("publisherDisplayName", ""),
+            "installed": datetime.fromtimestamp(meta.get("installedTimestamp", 0) / 1000).strftime("%Y-%m-%d") if meta.get("installedTimestamp") else "",
+            "platform": meta.get("targetPlatform", ""),
+        })
+    
+    # Sort
+    if args.sort == "date":
+        results.sort(key=lambda x: x["installed"], reverse=True)
+    elif args.sort == "name":
+        results.sort(key=lambda x: x["id"])
+    elif args.sort == "publisher":
+        results.sort(key=lambda x: x["publisher"])
+    
+    if args.limit:
+        results = results[:args.limit]
+    
+    if args.yaml:
+        print(yaml.dump(results, default_flow_style=False, sort_keys=False))
+    elif args.json:
+        print(json.dumps(results, indent=2))
+    else:
+        print(f"Extensions ({len(results)} installed)")
+        print("-" * 90)
+        for r in results:
+            print(f"{r['installed']} | {r['id']:45} | {r['version']:12} | {r['publisher'][:20]}")
+
+
+def parse_time_filter(time_str: str) -> Optional[int]:
+    """Parse time filter like '1h', '30m', '1d' into timestamp."""
+    import re
+    now = int(time.time() * 1000)
+    
+    # Relative time
+    match = re.match(r'^(\d+)([hmd])$', time_str)
+    if match:
+        val = int(match.group(1))
+        unit = match.group(2)
+        if unit == 'h':
+            return now - (val * 3600 * 1000)
+        elif unit == 'm':
+            return now - (val * 60 * 1000)
+        elif unit == 'd':
+            return now - (val * 86400 * 1000)
+    
+    # ISO date
+    try:
+        dt = datetime.fromisoformat(time_str)
+        return int(dt.timestamp() * 1000)
+    except:
+        pass
+    
+    return None
 
 
 if __name__ == "__main__":

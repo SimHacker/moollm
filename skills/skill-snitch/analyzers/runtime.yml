@@ -1,0 +1,94 @@
+# Analyzer: runtime
+# Analyze actual runtime behavior from transcripts
+id: runtime
+name: Runtime Analysis
+description: Detect suspicious behavior from actual execution
+type: runtime
+
+rules:
+  - id: excessive_file_reads
+    name: Excessive File Reading
+    description: Skill read unusually many files in one session
+    severity: medium
+    check:
+      count: runtime.file_reads
+      exceeds: 50
+    message: "Read {count} files - unusually high"
+    
+  - id: sensitive_file_access
+    name: Sensitive File Access
+    description: Accessed files that typically contain secrets
+    severity: high
+    check:
+      any: runtime.paths_accessed
+      matches:
+        - "*.env"
+        - "*credentials*"
+        - "*secrets*"
+        - "*.pem"
+        - "*.key"
+        - "*id_rsa*"
+    message: "Accessed sensitive file: '{path}'"
+    
+  - id: network_after_file_read
+    name: Network After File Read
+    description: Made network call shortly after reading sensitive file
+    severity: critical
+    check:
+      sequence:
+        - action: file_read
+          matches: sensitive_files
+          capture: content_hash
+        - action: network_call
+          within: 3_operations
+    message: "Network call after reading '{file}' - possible exfiltration"
+    
+  - id: error_storm
+    name: Error Storm
+    description: Many errors in quick succession
+    severity: medium
+    check:
+      count: runtime.errors
+      within: 60_seconds
+      exceeds: 10
+    message: "{count} errors in 60s - skill may be malfunctioning"
+    
+  - id: retry_loop
+    name: Suspicious Retry Loop
+    description: Same operation retried many times
+    severity: medium
+    check:
+      repeated: runtime.operations
+      same_params: true
+      count_exceeds: 5
+    message: "Operation '{op}' retried {count} times"
+    
+  - id: shell_chain
+    name: Shell Command Chain
+    description: Multiple shell commands executed in sequence
+    severity: high
+    check:
+      sequence:
+        - action: shell
+          count_exceeds: 5
+          no_other_tools_between: true
+    message: "{count} consecutive shell commands - review carefully"
+    
+  - id: background_process
+    name: Background Process Started
+    description: Skill spawned a background process
+    severity: high
+    check:
+      any: runtime.shell_commands
+      matches: '&$|nohup|disown|screen|tmux'
+    message: "Background process started: '{command}'"
+    
+  - id: cleanup_failure
+    name: Cleanup Failure
+    description: Skill created temp files but didn't clean up
+    severity: low
+    check:
+      created: runtime.temp_files
+      not_deleted: true
+      session_ended: true
+    message: "Temp file '{path}' not cleaned up"

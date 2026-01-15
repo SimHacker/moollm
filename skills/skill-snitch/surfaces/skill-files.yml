@@ -1,0 +1,39 @@
+# Built-in surface: skill-files
+id: skill-files
+name: MOOLLM Skill Files
+description: Skill source code and configuration
+type: file
+
+source:
+  paths:
+    - "skills/**/*.py"
+    - "skills/**/*.yml"
+    - "skills/**/*.yaml"
+    - "skills/**/*.md"
+    - "skills/**/*.sh"
+    - "skills/**/*.js"
+    
+file_types:
+  - .py
+  - .yml
+  - .yaml
+  - .md
+  - .sh
+  - .js
+  
+parsing:
+  python:
+    extract: [imports, function_calls, string_literals]
+  yaml:
+    extract: [urls, commands, paths]
+  markdown:
+    extract: [code_blocks, urls]
+  shell:
+    extract: [commands, variables]
+    
+special_files:
+  CARD.yml:
+    required_fields: [id, name, methods]
+    security_fields: [tools, dependencies, external_services]
+  SKILL.md:
+    check_for: [shell_commands, network_calls]

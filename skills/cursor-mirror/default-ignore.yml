@@ -1,0 +1,49 @@
+# cursor-mirror default ignore patterns for deep-snitch
+# These patterns reduce false positives from security scanner code
+version: 1
+
+paths:
+  # Security scanner code (contains pattern definitions)
+  - "**/cursor_mirror.py"
+  - "**/skill-snitch/**"
+  
+  # Test files
+  - "**/*_test.py"
+  - "**/test_*.py"
+  - "**/tests/**"
+  
+  # Example files
+  - "**/examples/**"
+  - "**/example-*.yml"
+  - "**/fixtures/**"
+  
+  # Generated/cache files
+  - "**/__pycache__/**"
+  - "**/*.pyc"
+  - "**/node_modules/**"
+
+patterns:
+  - name: pattern_definition
+    match: 'AuditPattern\('
+    reason: "Pattern class definitions, not actual secrets"
+    
+  - name: pattern_registry
+    match: 'PATTERN_REGISTRY\['
+    reason: "Registry entries defining what to look for"
+    
+  - name: regex_literal
+    match: 'r["\'][^"\']*\(\?[imsxu]\)'
+    reason: "Regex patterns with flags, likely definitions"
+    
+  - name: severity_enum
+    match: 'Severity\.(CRITICAL|HIGH|MEDIUM|LOW|INFO)'
+    reason: "Severity level constants"
+
+file_extensions_to_skip:
+  - .pyc
+  - .pyo
+  - .so
+  - .dylib
+  - .dll
+
+max_file_size_kb: 1000  # Skip files larger than this

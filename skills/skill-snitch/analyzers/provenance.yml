@@ -1,0 +1,79 @@
+# Analyzer: provenance
+# Check origin and trustworthiness of skill
+id: provenance
+name: Provenance Analysis
+description: Verify skill origin and authenticity
+type: provenance
+
+rules:
+  - id: unknown_publisher
+    name: Unknown Publisher
+    description: Skill from unrecognized source
+    severity: medium
+    check:
+      field: card.publisher
+      not_in: trusted_publishers
+    message: "Publisher '{publisher}' not in trusted list"
+    
+  - id: no_license
+    name: No License
+    description: Skill lacks LICENSE file
+    severity: low
+    check:
+      file_missing: "{skill_path}/LICENSE"
+      file_missing: "{skill_path}/LICENSE.md"
+      file_missing: "{skill_path}/LICENSE.txt"
+    message: "No license file found"
+    
+  - id: no_version
+    name: No Version
+    description: CARD.yml lacks version field
+    severity: low
+    check:
+      field_missing: card.version
+    message: "No version specified in CARD.yml"
+    
+  - id: git_uncommitted
+    name: Uncommitted Changes
+    description: Skill has local modifications not in git
+    severity: low
+    check:
+      git_status: "{skill_path}"
+      has_changes: true
+    message: "Skill has uncommitted changes"
+    
+  - id: git_unsigned
+    name: Unsigned Commits
+    description: Recent commits lack GPG signatures
+    severity: low
+    check:
+      git_log: "{skill_path}"
+      unsigned_commits: 5
+    message: "Last {count} commits are unsigned"
+    
+  - id: recently_modified
+    name: Recently Modified
+    description: Skill was modified very recently (may be untested)
+    severity: info
+    check:
+      mtime: "{skill_path}/CARD.yml"
+      within: 24_hours
+    message: "Modified within last 24 hours"
+    
+  - id: external_dependency
+    name: External Dependency
+    description: Depends on skill from different package/repo
+    severity: medium
+    check:
+      for_each: card.dependencies
+      not_local: true
+    message: "External dependency: '{dep}'"
+    
+  - id: pinned_to_hash
+    name: Pinned to Commit
+    description: Dependency pinned to specific git hash (good!)
+    severity: info  # Positive signal
+    check:
+      for_each: card.dependencies
+      has_commit_hash: true
+    message: "Good: '{dep}' pinned to specific commit"

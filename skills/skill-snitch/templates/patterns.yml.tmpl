@@ -1,0 +1,35 @@
+# User-defined patterns template
+# Copy to: .moollm/skill-snitch/patterns/my-patterns.yml
+#
+# Define custom patterns specific to your environment
+id: my-patterns
+name: My Custom Patterns
+description: User-defined patterns for this workspace
+severity_default: medium
+
+patterns:
+  # Example: detect internal service URLs
+  # - name: internal_api
+  #   pattern: 'https?://internal\.mycompany\.com'
+  #   severity: medium
+  #   category: network
+  #   description: Internal API endpoint
+  #   redact_label: "[INTERNAL_API]"
+  
+  # Example: detect custom secret format
+  # - name: my_api_key
+  #   pattern: 'MYAPP_[A-Z0-9]{32}'
+  #   severity: critical
+  #   category: api_key
+  #   description: My application API key
+  #   redact_label: "[MYAPP_KEY]"
+  
+  # Example: project-specific sensitive paths
+  # - name: prod_config
+  #   pattern: '/prod/config|production\.yml'
+  #   severity: high
+  #   category: sensitive_file
+  #   description: Production configuration
+  #   redact_label: "[PROD_CONFIG]"
+  
+  []  # Remove this line when adding patterns

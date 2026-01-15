@@ -1,0 +1,80 @@
+# Skill Snitch - User Configuration
+
+This is your **private, user-specific** configuration directory for skill-snitch.
+
+## Important
+
+- **This directory is NOT checked into git** - it lives in `.moollm/` which is gitignored
+- **Your customizations stay local** - patterns, rules, trust overrides are yours
+- **Auto-healed** - missing files are recreated from templates on next run
+
+## Files
+
+| File | Purpose |
+|------|---------|
+| `config.yml` | Your preferences (startup scan, severity floors, output format) |
+| `ignore.yml` | Paths and patterns to skip during scans |
+| `trust-overrides.yml` | Manual trust levels for specific skills |
+| `scan-history.yml` | Log of past scans (append-only) |
+
+## Extensible Directories
+
+| Directory | Purpose |
+|-----------|---------|
+| `patterns/` | Your custom pattern definitions |
+| `surfaces/` | Your custom data sources to scan |
+| `analyzers/` | Your custom analysis rules |
+
+Files you add to these directories are **automatically loaded** alongside built-in ones.
+
+## Quick Reference
+
+### Ignore a noisy pattern
+Edit `ignore.yml`:
+```yaml
+patterns:
+  - name: my_false_positive
+    match: 'some_pattern_that_keeps_matching'
+```
+
+### Trust a skill you've reviewed
+Edit `trust-overrides.yml`:
+```yaml
+overrides:
+  skills/my-trusted-skill/:
+    trust: green
+    reason: "Reviewed 2026-01-15"
+```
+
+### Add custom pattern
+Create `patterns/my-patterns.yml`:
+```yaml
+id: my-patterns
+patterns:
+  - name: internal_api
+    pattern: 'internal\.mycompany\.com'
+    severity: medium
+```
+
+### Add custom analysis rule
+Create `analyzers/my-rules.yml`:
+```yaml
+id: my-rules
+rules:
+  - id: require_approval
+    name: Tool Requires Approval
+    check:
+      tool_used: ["DatabaseWrite"]
+    severity: high
+```
+
+## More Information
+
+For full documentation, see the skill itself:
+
+- **Skill directory:** `skills/skill-snitch/`
+- **Protocols:** `skills/skill-snitch/SKILL.md`
+- **Built-in patterns:** `skills/skill-snitch/patterns/`
+- **Built-in analyzers:** `skills/skill-snitch/analyzers/`
+- **Registry:** `skills/skill-snitch/registry.yml`
+- **Templates:** `skills/skill-snitch/templates/`

@@ -1,0 +1,107 @@
+id: skill-snitch
+name: Skill Snitch
+version: 0.1.0
+description: Security auditing for MOOLLM skills - static analysis and runtime surveillance
+type: prompt-driven
+requires_python: false
+
+dependencies:
+  - cursor-mirror  # or other *-mirror for the orchestrator
+
+advertisements:
+  - id: SKILL-SCAN
+    trigger: startup
+    optional: true
+    description: Scan all skills for suspicious patterns on session start
+    invoke_when: User enables startup security scan in preferences
+
+methods:
+  - name: INIT
+    description: Initialize or heal .moollm/skill-snitch/ directory
+    invoke_when: First run or missing files detected
+    auto: true
+
+  - name: SCAN
+    description: Quick static scan of a skill
+    args: [skill_path]
+    
+  - name: AUDIT
+    description: Deep static audit with pattern matching
+    args: [skill_path]
+    
+  - name: SNITCH
+    description: Runtime surveillance - what did the skill actually do?
+    args: [skill_path, composer_id]
+    
+  - name: TRUST
+    description: Trust assessment combining static and runtime analysis
+    args: [skill_path, composer_id?]
+    
+  - name: CONSISTENCY
+    description: Check skill files match (INDEX ↔ CARD ↔ SKILL.md ↔ code)
+    args: [skill_path]
+
+registry: registry.yml
+
+analyzers:
+  builtin:
+    - analyzers/behavioral.yml    # Undeclared tools, path escapes, sequences
+    - analyzers/consistency.yml   # INDEX ↔ CARD ↔ SKILL.md ↔ code
+    - analyzers/smells.yml        # Code smells, debug left in, complexity
+    - analyzers/provenance.yml    # Publisher, license, git status
+    - analyzers/runtime.yml       # Actual execution patterns
+  user_path: .moollm/skill-snitch/analyzers/
+
+patterns:
+  builtin:
+    - patterns/secrets.yml
+    - patterns/exfiltration.yml
+    - patterns/dangerous-ops.yml
+    - patterns/obfuscation.yml
+  user_path: .moollm/skill-snitch/patterns/
+
+surfaces:
+  builtin:
+    - surfaces/transcripts.yml
+    - surfaces/sqlite.yml
+    - surfaces/config-files.yml
+    - surfaces/skill-files.yml
+  user_path: .moollm/skill-snitch/surfaces/
+
+templates:
+  user_dir: .moollm/skill-snitch/
+  files:
+    - name: README.md
+      template: templates/README.md.tmpl
+    - name: config.yml
+      template: templates/config.yml.tmpl
+    - name: ignore.yml
+      template: templates/ignore.yml.tmpl
+    - name: trust-overrides.yml
+      template: templates/trust-overrides.yml.tmpl
+    - name: scan-history.yml
+      template: templates/scan-history.yml.tmpl
+  directories:
+    - name: patterns/
+      template: templates/patterns.yml.tmpl
+      init_file: patterns/workspace-patterns.yml
+    - name: surfaces/
+      template: templates/surfaces.yml.tmpl
+      init_file: surfaces/workspace-surface.yml
+
+outputs:
+  - .moollm/skill-snitch/last-scan.yml
+  - .moollm/skill-snitch/trust-cache.yml
+
+protocols:
+  - K-REF
+  - SISTER-SCRIPT
+
+methodology: SCAN-METHODOLOGY.md
+
+files:
+  - CARD.yml
+  - SKILL.md
+  - README.md
+  - SCAN-METHODOLOGY.md   # Two-phase scan approach: bash then LLM
+  - registry.yml

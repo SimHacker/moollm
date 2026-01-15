@@ -1,0 +1,531 @@
+# ~/.cursor data schemas (platform-neutral)
+# JSON/text value formats in ~/.cursor directory
+# Companion to DOTCURSOR-STORAGE.yml — storage locations
+# Companion to DATA-SCHEMAS.yml — state.vscdb schemas
+# Author: Don Hopkins, Leela AI
+
+version: "2026-01-15"
+source: "Reverse-engineered from ~/.cursor inspection, 2026-01-15"
+
+# Agent Transcript Schemas
+
+agent_transcript_txt:
+  description: |
+    Human-readable plaintext transcript of agent conversation.
+    Written in real-time as conversation progresses.
+  storage:
+    location: "~/.cursor/projects/<workspace>/agent-transcripts/"
+    pattern: "<composer-uuid>.txt"
+    encoding: "UTF-8"
+  format: |
+    Pseudo-YAML/Markdown hybrid:
+    
+    user:
+    <user_query>
+    ...user prompt text...
+    </user_query>
+    
+    assistant:
+    [Thinking] **Bold thinking title**
+    Thinking content here...
+    [Tool call] ToolName
+      param1: value1
+      param2: value2
+    [Tool result] ToolName
+    ...tool output...
+    
+    Regular assistant response text here...
+    
+  parsing_hints:
+    role_markers:
+      - "user:" # Start of user turn
+      - "assistant:" # Start of assistant turn
+    user_query_delimiters:
+      start: "<user_query>"
+      end: "</user_query>"
+    thinking_pattern: '^\[Thinking\] (.*)$'
+    tool_call_pattern: '^\[Tool call\] (\w+)$'
+    tool_result_pattern: '^\[Tool result\] (\w+)$'
+    tool_param_pattern: '^  (\w+): (.*)$'
+  notes: |
+    Not strict YAML — contains nested content that breaks YAML parsers.
+    Best parsed with line-by-line state machine.
+    Tool call arguments are indented 2 spaces.
+
+agent_transcript_json:
+  description: |
+    Structured JSON transcript of agent conversation.
+    Preferred format for parsing when available.
+  storage:
+    location: "~/.cursor/projects/<workspace>/agent-transcripts/"
+    pattern: "<composer-uuid>.json"
+    encoding: "UTF-8"
+  schema:
+    type: array
+    items:
+      oneOf:
+        - $ref: "#/message_types/user_message"
+        - $ref: "#/message_types/assistant_message"
+        - $ref: "#/message_types/tool_result_message"
+        
+message_types:
+  user_message:
+    type: object
+    properties:
+      role:
+        type: string
+        const: "user"
+      text:
+        type: string
+        description: |
+          Full user input including XML tags for attached files.
+          Format: <attached_files>...</attached_files><user_query>...</user_query>
+    required: [role, text]
+    
+  assistant_message:
+    type: object
+    properties:
+      role:
+        type: string
+        const: "assistant"
+      text:
+        type: string
+        description: "Response text (absent when only tool calls)"
+      thinking:
+        type: string
+        description: "Internal reasoning (Claude extended thinking)"
+      toolCalls:
+        type: array
+        items:
+          $ref: "#/tool_call"
+    required: [role]
+    notes: "At least one of text, thinking, or toolCalls present"
+    
+  tool_result_message:
+    type: object
+    properties:
+      role:
+        type: string
+        const: "tool"
+      toolResult:
+        type: object
+        properties:
+          toolName:
+            type: string
+    required: [role, toolResult]
+
+tool_call:
+  type: object
+  properties:
+    toolName:
+      type: string
+      examples: ["Read", "Grep", "Shell", "StrReplace", "Write"]
+    args:
+      type: object
+      description: "Tool-specific arguments"
+      examples:
+        Read:
+          path: "/path/to/file"
+          offset: 1
+          limit: 100
+        Grep:
+          pattern: "regex.*here"
+          path: "/search/dir"
+          output_mode: "content"
+        Shell:
+          command: "ls -la"
+          description: "List files"
+  required: [toolName, args]
+
+# Agent Tools Cache Schema
+
+agent_tool_cache:
+  description: |
+    Cached output from tool executions.
+    Raw text — format depends on the tool that generated it.
+  storage:
+    location: "~/.cursor/projects/<workspace>/agent-tools/"
+    pattern: "<uuid>.txt"
+    encoding: "UTF-8"
+  format: "Raw tool output — no standard schema"
+  content_examples:
+    - type: "Adventure linter output"
+      preview: |
+        ╔═══════════════════════════════════════════════════════════════╗
+        ║  adventure.py — The MOOLLM Adventure Compiler                 ║
+        ╚═══════════════════════════════════════════════════════════════╝
+    - type: "Database key histogram"
+      preview: |
+        === Full Key Type Histogram (cursorDiskKV) ===
+        Total keys: 102,724
+        Unique prefixes: 1053
+    - type: "Docker cleanup log"
+      preview: |
+        === RUNNING CLEANUP ===
+        Deleted Images:
+        untagged: us-east1-docker.pkg.dev/...
+  notes: |
+    UUID appears to be tool call ID from conversation.
+    Mapping to specific tool calls not yet verified.
+
+# Terminal State Schema
+
+terminal_state:
+  description: |
+    Snapshot of terminal state for agent context.
+    YAML front matter header followed by raw terminal output.
+  storage:
+    location: "~/.cursor/projects/<workspace>/terminals/"
+    patterns:
+      - "<id>.txt"       # Cursor integrated terminal
+      - "ext-<id>.txt"   # External terminal (iTerm, Terminal.app)
+    encoding: "UTF-8"
+  format: |
+    ---
+    pid: 45636
+    cwd: /path/to/working/directory
+    last_command: ls -la
+    last_exit_code: 0
+    ---
+    ...terminal output (shell session history)...
+  schema:
+    header:
+      type: object
+      properties:
+        pid:
+          type: integer
+          description: "Process ID of shell"
+        cwd:
+          type: string
+          description: "Current working directory"
+        last_command:
+          type: string
+          description: "Most recent command executed"
+        last_exit_code:
+          type: integer
+          description: "Exit code of last command"
+    body:
+      type: string
+      description: "Raw terminal session output"
+
+# MCP Tool Schema
+
+mcp_tool_schema:
+  description: |
+    JSON Schema for a single MCP tool.
+    Standard MCP protocol tool definition.
+  storage:
+    location: "~/.cursor/projects/<workspace>/mcps/<server>/tools/"
+    pattern: "<tool-name>.json"
+    encoding: "UTF-8"
+  schema:
+    type: object
+    properties:
+      name:
+        type: string
+        description: "Tool identifier"
+        examples: ["browser_navigate", "get-documentation"]
+      description:
+        type: string
+        description: "Human-readable description for agent"
+      arguments:
+        type: object
+        description: "JSON Schema for tool arguments"
+        properties:
+          type:
+            type: string
+            const: "object"
+          properties:
+            type: object
+            description: "Argument property definitions"
+          required:
+            type: array
+            items:
+              type: string
+          "$schema":
+            type: string
+            const: "http://json-schema.org/draft-07/schema#"
+    required: [name, description, arguments]
+  example:
+    name: "browser_navigate"
+    description: "Navigate to a URL"
+    arguments:
+      type: "object"
+      properties:
+        url:
+          type: "string"
+          description: "The URL to navigate to"
+        viewId:
+          type: "string"
+          description: "Target browser tab ID"
+      required: ["url"]
+
+mcp_prompt_schema:
+  description: |
+    JSON Schema for an MCP prompt template.
+    Standard MCP protocol prompt definition.
+  storage:
+    location: "~/.cursor/projects/<workspace>/mcps/<server>/prompts/"
+    pattern: "<prompt-name>.json"
+    encoding: "UTF-8"
+  schema:
+    type: object
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+      arguments:
+        type: object
+    required: [name]
+
+mcp_cache:
+  description: |
+    Consolidated MCP tool/prompt schemas for all servers.
+    Single file containing everything from mcps/<server>/ directories.
+  storage:
+    location: "~/.cursor/projects/<workspace>/mcp-cache.json"
+    encoding: "UTF-8"
+  schema:
+    type: object
+    description: "Keyed by server name"
+    additionalProperties:
+      type: object
+      properties:
+        tools:
+          type: array
+          items:
+            type: object
+            properties:
+              name: {type: string}
+              description: {type: string}
+              inputSchema: {type: object}
+        prompts:
+          type: array
+          items:
+            type: object
+
+mcp_status:
+  description: |
+    Error status when MCP server fails to connect.
+    Provides context for agent to handle gracefully.
+  storage:
+    location: "~/.cursor/projects/<workspace>/mcps/<server>/STATUS.md"
+    encoding: "UTF-8"
+  content: |
+    The MCP server errored. If you definitely need to use this tool or the user 
+    has explicitly asked for it to be used, concisely inform the user and instruct 
+    them to check the MCP status in Cursor Settings; otherwise try to proceed with 
+    a different approach.
+
+# AI Tracking Schemas
+
+ai_code_hash:
+  description: |
+    Hash record for AI-generated code block.
+    Used for attribution tracking.
+  storage:
+    database: "~/.cursor/ai-tracking/ai-code-tracking.db"
+    table: "ai_code_hashes"
+  schema:
+    type: object
+    properties:
+      hash:
+        type: string
+        description: "Hash of the generated code block"
+      source:
+        type: string
+        enum: [composer, tab]
+        description: "composer = chat, tab = autocomplete"
+      fileExtension:
+        type: string
+        examples: [md, py, yml, ts, tsx]
+      fileName:
+        type: string
+        description: "Full path to file where code was written"
+      requestId:
+        type: string
+      conversationId:
+        type: string
+        description: "Maps to composer UUID"
+      timestamp:
+        type: integer
+        format: "unix_ms"
+      createdAt:
+        type: integer
+        format: "unix_ms"
+      model:
+        type: string
+        examples:
+          - "claude-4.5-opus-high-thinking"
+          - "gpt-5.1-codex-max"
+
+scored_commit:
+  description: |
+    Git commit that has been scored for AI attribution.
+    Cross-reference with ai_code_hashes to compute %.
+  storage:
+    database: "~/.cursor/ai-tracking/ai-code-tracking.db"
+    table: "scored_commits"
+  schema:
+    type: object
+    properties:
+      commitHash:
+        type: string
+        description: "Git commit SHA"
+      branchName:
+        type: string
+        description: "Branch name at time of commit"
+      scoredAt:
+        type: integer
+        format: "unix_ms"
+
+# Extensions Schema
+
+extension_manifest:
+  description: |
+    Extension metadata from extensions.json.
+    Tracks installed extensions with versions and install times.
+  storage:
+    location: "~/.cursor/extensions/extensions.json"
+    encoding: "UTF-8"
+  schema:
+    type: array
+    items:
+      type: object
+      properties:
+        identifier:
+          type: object
+          properties:
+            id:
+              type: string
+              description: "Extension ID"
+              examples: ["ms-python.python", "eamodio.gitlens"]
+            uuid:
+              type: string
+              format: uuid
+        version:
+          type: string
+        location:
+          type: object
+          properties:
+            path:
+              type: string
+            scheme:
+              type: string
+              const: "file"
+        relativeLocation:
+          type: string
+          description: "Directory name under extensions/"
+        metadata:
+          type: object
+          properties:
+            installedTimestamp:
+              type: integer
+              format: "unix_ms"
+            source:
+              type: string
+              examples: ["gallery"]
+            publisherId:
+              type: string
+              format: uuid
+            publisherDisplayName:
+              type: string
+            targetPlatform:
+              type: string
+              examples: ["darwin-arm64", "universal", "undefined"]
+            isPreReleaseVersion:
+              type: boolean
+            isBuiltin:
+              type: boolean
+            isSystem:
+              type: boolean
+
+# Config File Schemas
+
+argv_json:
+  storage:
+    location: "~/.cursor/argv.json"
+  schema:
+    type: object
+    properties:
+      enable-crash-reporter:
+        type: boolean
+      crash-reporter-id:
+        type: string
+        format: uuid
+
+mcp_json:
+  storage:
+    location: "~/.cursor/mcp.json"
+  schema:
+    type: object
+    properties:
+      mcpServers:
+        type: object
+        additionalProperties:
+          type: object
+          properties:
+            command:
+              type: string
+              description: "Executable to run"
+            args:
+              type: array
+              items:
+                type: string
+            env:
+              type: object
+              additionalProperties:
+                type: string
+  example:
+    mcpServers:
+      puppeteer-nessus:
+        command: "npx"
+        args: ["-y", "@browsermcp/mcp@latest"]
+        env:
+          PATH: "/opt/homebrew/bin:/usr/local/bin"
+      svelte:
+        command: "npx"
+        args: ["-y", "@sveltejs/mcp"]
+
+ide_state_json:
+  storage:
+    location: "~/.cursor/ide_state.json"
+  schema:
+    type: object
+    properties:
+      recentlyViewedFiles:
+        type: array
+        items:
+          type: object
+          properties:
+            relativePath:
+              type: string
+            absolutePath:
+              type: string
+          required: [relativePath, absolutePath]
+
+settings_json:
+  storage:
+    location: "~/.cursor/settings.json"
+  schema:
+    type: object
+    properties:
+      terminal.integrated.profiles.osx:
+        type: object
+        description: "Terminal profile definitions"
+      terminal.integrated.defaultProfile.osx:
+        type: string
+        description: "Default terminal profile name"
+
+# Provenance
+
+provenance:
+  version: "2026-01-15"
+  discovered_during: "cursor-chat-reflection session"
+  contributors:
+    - "Don Hopkins, Leela AI"
+  notes: |
+    Schemas reverse-engineered from file inspection.
+    JSON transcript format discovered in single file (396cf342).
+    TXT format is more common; JSON may be generated on demand.

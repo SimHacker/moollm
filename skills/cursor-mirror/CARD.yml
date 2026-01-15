@@ -532,6 +532,103 @@ card:
       command: "cursor-mirror keys [--db <ref>] [--pattern PATTERN]"
       returns: "Key names sorted by size"
 
+    # ~/.cursor COMMANDS (2026-01-15)
+    
+    DOTCURSOR-STATUS:
+      category: dotcursor
+      description: "Overview of ~/.cursor directory"
+      command: "cursor-mirror dotcursor-status [--workspace WS] [--yaml]"
+      returns: "Config files, AI tracking, extensions, projects summary"
+      use_for:
+        - "Quick orientation to ~/.cursor data store"
+        - "Checking AI tracking database status"
+        - "Listing workspace transcripts"
+      note: "Companion to 'status' for Application Support data"
+      
+    AI-HASHES:
+      category: dotcursor
+      description: "Query AI code tracking database"
+      command: "cursor-mirror ai-hashes [--since TIME] [--model MODEL] [--stats]"
+      parameters:
+        - {name: since, type: string, note: "1h, 30m, 1d, or ISO date"}
+        - {name: model, type: string, note: "Filter by model (wildcards OK)"}
+        - {name: file, type: string, note: "Filter by file pattern"}
+        - {name: stats, type: boolean, description: "Show statistics only"}
+      returns: "Code hashes with model, file, timestamp"
+      use_for:
+        - "Understanding AI code attribution"
+        - "Model usage analysis"
+        - "Tracking AI-generated code over time"
+      
+    AI-COMMITS:
+      category: dotcursor
+      description: "Git commits scored for AI attribution"
+      command: "cursor-mirror ai-commits [--since TIME] [--branch BRANCH]"
+      parameters:
+        - {name: since, type: string}
+        - {name: branch, type: string}
+      returns: "Commit hashes, branches, scoring timestamps"
+      use_for:
+        - "Finding AI-attributed commits"
+        - "Branch-level AI usage analysis"
+      
+    AGENT-TRANSCRIPT:
+      category: dotcursor
+      description: "Read plaintext transcript from ~/.cursor"
+      command: "cursor-mirror agent-transcript <composer> [--tail N] [--prompts]"
+      parameters:
+        - {name: composer, type: string, required: true}
+        - {name: tail, type: integer, description: "Last N lines"}
+        - {name: prompts, type: boolean, description: "Extract prompts only"}
+        - {name: responses, type: boolean, description: "Extract responses only"}
+        - {name: tools, type: boolean, description: "Extract tool calls only"}
+        - {name: thinking, type: boolean, description: "Extract thinking blocks"}
+        - {name: format, type: string, enum: [auto, txt, json]}
+      returns: "Full or filtered transcript content"
+      use_for:
+        - "Reading live conversation transcripts"
+        - "Extracting prompts for documentation"
+        - "Analyzing tool usage patterns"
+      note: "Transcripts update in real-time!"
+      
+    AGENT-TOOLS:
+      category: dotcursor
+      description: "Cached tool results from ~/.cursor"
+      command: "cursor-mirror agent-tools [--workspace WS] [--show UUID]"
+      returns: "List of cached tool outputs with previews"
+      use_for:
+        - "Recovering tool output from past sessions"
+        - "Understanding what was cached"
+      
+    DOTCURSOR-TERMINALS:
+      category: dotcursor
+      description: "Terminal state snapshots from ~/.cursor"
+      command: "cursor-mirror dotcursor-terminals [--workspace WS] [--show ID]"
+      returns: "Terminal IDs, cwds, last commands"
+      use_for:
+        - "Reviewing terminal context"
+        - "Understanding agent's terminal awareness"
+      
+    MCP-TOOLS:
+      category: dotcursor
+      description: "MCP tool schemas from ~/.cursor"
+      command: "cursor-mirror mcp-tools [--server NAME] [--show TOOL]"
+      returns: "MCP servers, tool counts, schemas"
+      use_for:
+        - "Discovering available MCP tools"
+        - "Understanding tool schemas"
+        - "Cross-referencing with mcp.json"
+      note: "Complements 'status-mcp' with schema details"
+      
+    EXTENSIONS:
+      category: dotcursor
+      description: "Cursor extensions from ~/.cursor"
+      command: "cursor-mirror extensions [--sort date|name|publisher]"
+      returns: "Extension IDs, versions, publishers, install dates"
+      use_for:
+        - "Extension inventory"
+        - "Tracking installed extensions"
+
   # ─────────────────────────────────────────────────────────────────────────
   # ADVERTISEMENTS: What this skill offers
   # ─────────────────────────────────────────────────────────────────────────
@@ -624,6 +721,33 @@ card:
       score: 80
       trigger: "creating image documentation, cataloging screenshots"
       satisfies: [images, documentation, gallery, narration]
+      
+    # ~/.cursor advertisements
+    DOTCURSOR-STATUS:
+      visibility: public
+      score: 90
+      trigger: "exploring ~/.cursor, AI tracking, plaintext transcripts"
+      satisfies: [dotcursor, transcripts, ai-tracking, exploration]
+      k_line: DOTCURSOR-DISCOVERY
+      
+    AI-HASHES:
+      visibility: public
+      score: 85
+      trigger: "understanding AI code attribution, model usage"
+      satisfies: [ai-attribution, models, tracking, analysis]
+      
+    AGENT-TRANSCRIPT:
+      visibility: public
+      score: 90
+      trigger: "reading plaintext transcripts, extracting prompts"
+      satisfies: [transcripts, prompts, documentation, extraction]
+      note: "Real-time transcript access"
+      
+    MCP-TOOLS:
+      visibility: public
+      score: 80
+      trigger: "listing MCP tool schemas, understanding available tools"
+      satisfies: [mcp, tools, schemas, discovery]
 
   # ─────────────────────────────────────────────────────────────────────────
   # REFERENCE SHORTCUTS
@@ -769,6 +893,8 @@ card:
       - WATCH-YOURSELF-THINK
       - FILES-AS-STATE
       - IMAGE-ARCHAEOLOGY
+      - DOTCURSOR-DISCOVERY      # NEW: ~/.cursor data exploration
+      - AI-ATTRIBUTION           # NEW: AI code tracking
     related:
       - BOOTSTRAP
       - HOT-COLD
@@ -785,19 +911,21 @@ card:
       - "SKILL.md"              # Protocol details
       - "README.md"             # Deep context
       - "IMAGE-GALLERY.md"      # I-Beam narrated image gallery
-      - "DATA-SCHEMAS.yml"      # JSON schema documentation
+      - "DATA-SCHEMAS.yml"      # JSON schema documentation (state.vscdb)
+      - "DOTCURSOR-SCHEMAS.yml" # JSON schema documentation (~/.cursor) ← NEW
       - "KEY-CATALOG.yml"       # Complete key type inventory
       - "MODELS.yml"            # AI model catalog
     platform_maps:
-      - "MAC-STORAGE.yml"       # macOS paths
+      - "MAC-STORAGE.yml"       # macOS paths (includes ~/.cursor reference)
       - "LINUX-STORAGE.yml"     # Linux paths (skeletal)
       - "WINDOWS-STORAGE.yml"   # Windows paths (skeletal)
+      - "DOTCURSOR-STORAGE.yml" # ~/.cursor paths (cross-platform) ← NEW
       - "MAC-CURSOR-APP.yml"    # App bundle structure
       - "NATIVE-MODULES.yml"    # Native binaries catalog
       - "CURSOR-EXTENSIONS.yml" # Built-in extensions deep dive
       - "EXTERNAL-SERVICES.yml" # Backend APIs and services
     sister_scripts:
-      - "cursor_mirror.py"  # Main inspector (4480 lines, 47 commands)
+      - "cursor_mirror.py"  # Main inspector (5300+ lines, 59 commands)
     
   # ─────────────────────────────────────────────────────────────────────────
   # RELATED
@@ -821,6 +949,10 @@ card:
     - export
     - analysis
     - meta-cognition
+    - dotcursor
+    - transcripts
+    - ai-attribution
+    - extensions
     - self-awareness
     - debug
     - bootstrap

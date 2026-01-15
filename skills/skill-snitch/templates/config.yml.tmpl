@@ -1,0 +1,23 @@
+# skill-snitch configuration
+# Copy to: .moollm/skill-snitch/config.yml
+version: 1
+
+startup_scan:
+  enabled: false
+  min_severity: medium
+
+scan_defaults:
+  include_examples: false
+  follow_dependencies: true
+  max_depth: 3
+
+trust_defaults:
+  unknown_skill: yellow
+  no_card_yml: orange
+  external_network: orange
+  shell_commands: yellow
+
+output:
+  format: kref  # kref, yaml, json
+  show_context: true
+  context_lines: 3

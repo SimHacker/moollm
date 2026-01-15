@@ -1,0 +1,56 @@
+# Example audit pattern configuration
+# Load with: cursor-mirror audit --pattern-file example-patterns.yml
+
+patterns:
+  # Literal string match (exact)
+  - name: hardcoded_password
+    pattern: 'password123'
+    type: literal
+    severity: critical
+    category: credential
+    description: Common hardcoded password
+    redact_label: "[HARDCODED_PW]"
+  
+  # Glob pattern (shell-style wildcards)
+  - name: config_backup
+    pattern: '*.config.bak'
+    type: glob
+    severity: medium
+    category: sensitive_file
+    description: Configuration backup files
+    redact_label: "[CONFIG_BAK]"
+  
+  # Regex pattern (default)
+  - name: internal_api_key
+    pattern: 'MYAPP-[A-Z0-9]{16}'
+    type: regex
+    severity: high
+    category: api_key
+    description: Internal application API key
+    redact_label: "[MYAPP_KEY]"
+  
+  # Fuzzy matching (typo-tolerant) - use sparingly, slower on large files
+  # - name: fuzzy_secret
+  #   pattern: 'confidential'
+  #   type: fuzzy
+  #   severity: low
+  #   category: classification
+  #   description: Confidential markers (fuzzy match)
+  #   fuzzy_threshold: 0.8
+  
+  # Prefix matching
+  - name: temp_token
+    pattern: 'tmp_tok_'
+    type: prefix
+    severity: medium
+    category: token
+    description: Temporary tokens
+    redact_label: "[TMP_TOKEN]"
+  
+  # Contains (substring)
+  - name: internal_domain
+    pattern: '.internal.corp'
+    type: contains
+    severity: low
+    category: infrastructure
+    description: Internal domain references
