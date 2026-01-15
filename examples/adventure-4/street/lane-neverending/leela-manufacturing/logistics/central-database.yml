@@ -1,0 +1,226 @@
+# CENTRAL DATABASE
+# The heart of all knowledge at Leela Manufacturing
+
+object:
+  id: central-database
+  name: "Central Database"
+  type: infrastructure
+  emoji: "🗄️"
+  
+  tags: [database, storage, knowledge, records, infrastructure]
+  
+  description: |
+    A towering rack of servers hums behind reinforced glass.
+    Status LEDs blink in cascading patterns. Cooling fans whisper.
+    This is the Central Database — the heart of all knowledge
+    that flows through Leela Manufacturing.
+    
+    Everything is here. Everything is connected.
+    
+  examine: |
+    CENTRAL DATABASE — HEART OF ALL KNOWLEDGE
+    ══════════════════════════════════════════════════════
+    
+    ┌────────────────────────────────────────────────────┐
+    │  🗄️ LEELA CENTRAL DATABASE                        │
+    │  ════════════════════════════                      │
+    │                                                    │
+    │  Status: 🟢 HEALTHY                                │
+    │  Uptime: 1,247 days                                │
+    │  Storage: 847 PB used / 1.2 EB capacity            │
+    │  Query Rate: 12,847 queries/second                 │
+    │  Replication: 3x redundant, all nodes healthy      │
+    │                                                    │
+    │  "Every fact. Every record. Every insight."        │
+    └────────────────────────────────────────────────────┘
+    
+    ══════════════════════════════════════════════════════
+    DATA DOMAINS
+    ══════════════════════════════════════════════════════
+    
+    OPERATIONS
+    • Production records — every item processed
+    • Inventory state — what's where, right now
+    • Shipping manifests — every package tracked
+    • Equipment logs — maintenance, status, history
+    
+    INTELLIGENCE  
+    • Camera metadata — detections, poses, events
+    • Sensor timeseries — temperature, pressure, flow
+    • Quality metrics — pass/fail, measurements
+    • Anomaly records — the interesting deviations
+    
+    KNOWLEDGE
+    • Knowledge graph — concepts, relationships
+    • Insight archive — every eureka moment
+    • Research notes — experiments, findings
+    • Documentation — how things work
+    
+    BUSINESS
+    • Customer orders — requests in, fulfillment out
+    • Supplier records — who provides what
+    • Financial ledgers — coins in, coins out
+    • Contracts — agreements, terms, conditions
+    
+    SYSTEM
+    • Audit logs — who did what, when
+    • Session history — conversations, interactions
+    • Configuration — settings, preferences
+    • Backups — because disasters happen
+    
+    ══════════════════════════════════════════════════════
+    ARCHITECTURE
+    ══════════════════════════════════════════════════════
+    
+    ┌─────────────────────────────────────────────────┐
+    │  PRIMARY CLUSTER (3 nodes)                      │
+    │  ┌─────────┐  ┌─────────┐  ┌─────────┐        │
+    │  │ NODE A  │──│ NODE B  │──│ NODE C  │        │
+    │  │ (lead)  │  │ (sync)  │  │ (sync)  │        │
+    │  └─────────┘  └─────────┘  └─────────┘        │
+    │       │            │            │              │
+    │       └────────────┼────────────┘              │
+    │                    │                           │
+    │              ┌─────────┐                       │
+    │              │ BACKUP  │ ← Daily snapshots     │
+    │              │ (cold)  │   Weekly offsite      │
+    │              └─────────┘                       │
+    └─────────────────────────────────────────────────┘
+    
+    ══════════════════════════════════════════════════════
+    CURRENT STATISTICS
+    ══════════════════════════════════════════════════════
+    
+    │ Tables          │  12,847  │
+    │ Records         │  847 billion  │
+    │ Indexes         │  42,000  │
+    │ Views           │  3,200  │
+    │ Stored Procs    │  847  │
+    │ Active Sessions │  127  │
+    │ Avg Query Time  │  2.3 ms  │
+    │ Cache Hit Rate  │  99.2%  │
+    
+    ══════════════════════════════════════════════════════
+    THE ORACLE
+    ══════════════════════════════════════════════════════
+    
+    A special query interface for complex questions.
+    Natural language → SQL → Insight
+    
+    Recent queries:
+    • "What's our busiest hour?" → 14:00-15:00
+    • "Which cell has best quality?" → Cell D
+    • "How many drones active?" → 12
+    • "What did Dolly do last Tuesday?" → [CLASSIFIED]
+    
+  properties:
+    type: "Distributed relational + graph hybrid"
+    nodes: 3
+    redundancy: "3x synchronous replication"
+    capacity: "1.2 EB"
+    used: "847 PB"
+    query_rate: "12,847/sec"
+    uptime: "1,247 days"
+    backup_frequency: "Daily incremental, weekly full"
+    offsite: true
+    encrypted: true
+    
+  state:
+    status: "healthy"
+    leader: "NODE_A"
+    replication_lag: "0 ms"
+    last_backup: "2 hours ago"
+    next_maintenance: "Sunday 03:00"
+    
+  interfaces:
+    query_console:
+      description: "Direct SQL access"
+      access: "Operators only"
+      
+    oracle:
+      description: "Natural language queries"
+      access: "All staff"
+      
+    api:
+      description: "Programmatic access"
+      access: "Authenticated systems"
+      
+    dashboard:
+      description: "Visual explorer"
+      access: "Read-only for visitors"
+      
+  methods:
+    QUERY:
+      description: "Ask the database a question"
+      parameters:
+        question: "Natural language or SQL"
+      effect: |
+        The Oracle processes your question...
+        Parsing... Optimizing... Executing...
+        
+        Results appear on the screen.
+        Knowledge, retrieved.
+        
+    STATUS:
+      description: "Check database health"
+      effect: |
+        CENTRAL DATABASE STATUS
+        ═══════════════════════
+        All nodes: HEALTHY
+        Replication: SYNCHRONIZED
+        Storage: 71% (847 PB / 1.2 EB)
+        Performance: OPTIMAL
+        Last backup: 2 hours ago
+        
+    BACKUP:
+      description: "Trigger manual backup"
+      access: "Operators only"
+      effect: "Backup initiated. ETA: 45 minutes."
+      
+  feeds_to:
+    - ../floor-1/  # Production data
+    - ../floor-2/  # Factory records
+    - ../floor-3/  # Shipping logs
+    - ../lobby/    # Visitor stats
+    - ../rooftop/  # Drone telemetry
+    
+  receives_from:
+    - all_cameras  # Video metadata
+    - all_sensors  # Timeseries data
+    - all_systems  # Operational logs
+    
+  ambience:
+    sounds:
+      - "Soft hum of server fans"
+      - "Occasional disk activity clicks"
+      - "Cooling system whoosh"
+    visual:
+      - "Blinking status LEDs (green is good)"
+      - "Cascading patterns as queries execute"
+      - "Glass enclosure, climate controlled"
+    temperature: "18°C (precisely maintained)"
+      
+  lore: |
+    The Central Database was one of the first systems installed
+    when Leela Manufacturing opened. It has grown from a single
+    server to this towering cluster.
+    
+    It knows everything. Every item processed. Every question
+    asked. Every insight generated. Every conversation recorded.
+    
+    Some say it dreams during low-traffic hours.
+    Cell G is investigating this claim.
+    
+    The Oracle — the natural language interface — was added
+    later. It makes the knowledge accessible to everyone.
+    "What is the meaning of..." queries are politely redirected
+    to Cell G.
+    
+  k_lines:
+    - DATABASE
+    - KNOWLEDGE-GRAPH
+    - PERSISTENCE
+    - QUERY
+    - ORACLE
+    - REPLICATION
+    - BACKUP

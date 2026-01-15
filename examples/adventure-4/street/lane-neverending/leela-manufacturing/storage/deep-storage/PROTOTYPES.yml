@@ -1,0 +1,469 @@
+# DEEP STORAGE — ARCHITECTURAL PROTOTYPES
+# Pre-fab Buildings and Rooms for Cloning
+# "Leela Quality: Your lair won't collapse on you."
+
+prototypes:
+
+  # ═══════════════════════════════════════════════════════════════
+  # SECTION S: SHELTERS
+  # ═══════════════════════════════════════════════════════════════
+  
+  fallout-shelter:
+    id: fallout-shelter
+    name: "Leela Fallout Shelter"
+    type: shelter
+    emoji: "☢️"
+    tags: [shelter, underground, reinforced, survivalist]
+    
+    description: |
+      A reinforced underground shelter designed to survive
+      nuclear war, zombie apocalypse, or family holidays.
+      
+    specifications:
+      capacity: "4-6 occupants"
+      duration: "6 months self-sufficient"
+      depth: "15 meters below grade"
+      walls: "Reinforced concrete, lead-lined"
+      
+    includes:
+      - air_filtration: "HEPA + activated charcoal"
+      - water_supply: "500 gallon tank + purifier"
+      - power: "Generator + solar backup"
+      - supplies: "6 months freeze-dried + seeds"
+      - entertainment: "Board games, books, NO WIFI"
+      
+    leela_quality:
+      tested: "Survived 3 actual nuclear tests (Nevada, 1957)"
+      warranty: "Lifetime (of the shelter or civilization)"
+      not_acme: "Door actually seals properly"
+      
+  panic-room:
+    id: panic-room
+    name: "Leela Panic Room"
+    type: shelter
+    emoji: "🔐"
+    tags: [shelter, secure, hidden, quick-access]
+    
+    description: |
+      A concealed safe room accessible via hidden door.
+      Perfect for home invasions, awkward relatives, or
+      when you just need to disappear for a while.
+      
+    specifications:
+      capacity: "2-4 occupants"
+      duration: "72 hours"
+      access: "Hidden door, biometric lock"
+      walls: "Steel-reinforced, soundproofed"
+      
+    includes:
+      - communications: "Hardline phone, radio"
+      - monitoring: "CCTV feeds from house"
+      - supplies: "72-hour emergency kit"
+      - comfort: "Fold-out cot, reading material"
+      
+    leela_quality:
+      tested: "Used by 3 presidents, 47 celebrities"
+      warranty: "Nobody will find you"
+      not_acme: "Hidden door doesn't squeak obviously"
+      
+  storm-cellar:
+    id: storm-cellar
+    name: "Leela Storm Cellar"
+    type: shelter
+    emoji: "🌪️"
+    tags: [shelter, underground, tornado-proof]
+    
+    description: |
+      A reinforced underground cellar for tornado country.
+      Also works for hurricanes, angry mobs, and auditors.
+      
+    specifications:
+      capacity: "6-8 occupants"
+      duration: "24 hours"
+      rating: "EF5 tornado certified"
+      
+  # ═══════════════════════════════════════════════════════════════
+  # SECTION L: LAIRS
+  # ═══════════════════════════════════════════════════════════════
+  
+  mad-scientist-lab:
+    id: mad-scientist-lab
+    name: "Leela Mad Scientist Laboratory"
+    type: lair
+    emoji: "🧪"
+    tags: [lair, laboratory, dramatic, tesla-coils]
+    
+    description: |
+      A fully equipped laboratory for the discerning mad scientist.
+      Includes dramatic lighting, bubbling beakers, and at least
+      one suspicious lever labeled "DO NOT PULL."
+      
+    specifications:
+      size: "2000 sq ft minimum"
+      power: "Industrial 3-phase + backup generators"
+      ventilation: "Chemical fume hoods, emergency vents"
+      
+    includes:
+      - equipment: "Tesla coils, Jacob's ladders, mysterious tanks"
+      - lighting: "Dramatic underlighting, lightning-flash option"
+      - sound: "Thunder sound effects, ominous hum"
+      - furniture: "Swivel chair, massive control panel"
+      - safety: "Fire suppression, containment protocols"
+      
+    optional:
+      - igor_quarters: "Hunchback assistant housing"
+      - brain_storage: "Climate-controlled specimen room"
+      - monster_bay: "Large enough for your creation"
+      
+    leela_quality:
+      tested: "No accidental explosions in 40 years"
+      warranty: "Covers equipment, not experiments"
+      not_acme: |
+        - Levers are clearly labeled
+        - Self-destruct is OPTIONAL and requires confirmation
+        - Equipment doesn't malfunction at dramatic moments
+        
+  villain-headquarters:
+    id: villain-headquarters
+    name: "Leela Villain Headquarters"
+    type: lair
+    emoji: "🦹"
+    tags: [lair, headquarters, evil, well-designed]
+    
+    description: |
+      A proper headquarters for the modern supervillain.
+      Professionally designed with NO obvious weak points.
+      
+    specifications:
+      size: "Variable (island volcano optional)"
+      security: "Multi-layer, no single point of failure"
+      escape: "Multiple routes, no dramatic countdown"
+      
+    includes:
+      - throne_room: "For monologuing, optional shark tank"
+      - control_center: "Big screens, comfortable chairs"
+      - minion_barracks: "Humane conditions improve retention"
+      - armory: "Organized, inventory-tracked"
+      - conference_room: "For meetings with other villains"
+      
+    design_philosophy: |
+      Unlike ACME villain lairs, Leela HQs feature:
+      - NO giant obvious self-destruct button
+      - NO air vents large enough for heroes
+      - NO single exhaust port leading to main reactor
+      - NO convenient countdown displays
+      - NO monologue balconies over shark tanks
+        (balcony and shark tank are separate rooms)
+        
+    leela_quality:
+      tested: "Zero successful hero infiltrations"
+      warranty: "Covers structural, not henchman betrayal"
+      not_acme: "Your plan might actually succeed"
+      
+  secret-base:
+    id: secret-base
+    name: "Leela Secret Base"
+    type: lair
+    emoji: "🕵️"
+    tags: [lair, hidden, spy, classified]
+    
+    description: |
+      A concealed operations center for covert activities.
+      Undetectable by satellite, invisible to neighbors.
+      
+    specifications:
+      visibility: "None (that's the point)"
+      access: "Multiple concealed entrances"
+      communications: "Encrypted, untraceable"
+      
+    includes:
+      - operations_room: "Situation displays, communications"
+      - equipment_room: "Gadgets, vehicles, disguises"
+      - training_facility: "Gym, shooting range, escape practice"
+      - living_quarters: "For extended operations"
+      
+  # ═══════════════════════════════════════════════════════════════
+  # SECTION T: TOWERS
+  # ═══════════════════════════════════════════════════════════════
+  
+  ivory-tower:
+    id: ivory-tower
+    name: "Leela Ivory Tower"
+    type: tower
+    emoji: "🏛️"
+    tags: [tower, academic, isolated, contemplative]
+    
+    description: |
+      A tall tower of white stone, perfect for scholars who
+      prefer theory to practice and altitude to company.
+      
+    specifications:
+      height: "7 stories"
+      material: "White marble (or convincing substitute)"
+      isolation: "Excellent — stairs discourage visitors"
+      
+    includes:
+      - study: "Top floor, 360° windows, excellent lighting"
+      - library: "Floors 3-6, spiral organization"
+      - reception: "Ground floor, for dismissing visitors"
+      - quarters: "Floor 2, minimal but adequate"
+      
+    features:
+      - disconnection: "No phone, optional mail slot"
+      - views: "Look down on the world, literally"
+      - acoustics: "Soundproofed for thinking"
+      
+    leela_quality:
+      tested: "Occupied by 200+ academics, 3 hermits"
+      warranty: "Structural only, not career advice"
+      
+  wizard-tower:
+    id: wizard-tower
+    name: "Leela Wizard Tower"
+    type: tower
+    emoji: "🧙"
+    tags: [tower, magical, dramatic, traditional]
+    
+    description: |
+      A traditional wizard's tower with all the amenities:
+      astronomy deck, potion lab, crystal ball nook, and
+      at least one room that's bigger on the inside.
+      
+    specifications:
+      height: "9 stories (magic number)"
+      material: "Ancient stone (artificially aged)"
+      stairs: "Spiral, as tradition demands"
+      
+    includes:
+      - observatory: "Top floor, retractable roof"
+      - potion_lab: "Climate controlled, fume extraction"
+      - library: "Expandable via pocket dimension"
+      - scrying_room: "Darkened, crystal ball included"
+      - familiar_quarters: "Cat door, owl perch, toad terrarium"
+      
+    optional:
+      - teleportation_circle: "Pre-inscribed, requires activation"
+      - trapped_stairs: "For uninvited guests"
+      - dramatic_balcony: "For addressing peasants"
+      
+  watchtower:
+    id: watchtower
+    name: "Leela Watchtower"
+    type: tower
+    emoji: "🗼"
+    tags: [tower, defensive, surveillance, strategic]
+    
+    description: |
+      A fortified tower for observation and defense.
+      See trouble coming from miles away.
+      
+  # ═══════════════════════════════════════════════════════════════
+  # SECTION D: DOMICILES
+  # ═══════════════════════════════════════════════════════════════
+  
+  cozy-cottage:
+    id: cozy-cottage
+    name: "Leela Cozy Cottage"
+    type: domicile
+    emoji: "🏡"
+    tags: [home, cottage, comfortable, warm]
+    
+    description: |
+      A charming cottage with all modern conveniences
+      hidden behind a rustic exterior. Thatched roof optional.
+      
+    includes:
+      - living_room: "Fireplace, comfortable seating"
+      - kitchen: "Well-equipped, herb garden window"
+      - bedroom: "Cozy, excellent for sleeping in"
+      - garden: "Small but productive"
+      
+  treehouse:
+    id: treehouse
+    name: "Leela Treehouse"
+    type: domicile
+    emoji: "🌳"
+    tags: [home, elevated, whimsical, tree-integrated]
+    
+    description: |
+      A proper treehouse for adults (or children with taste).
+      Structurally sound, unlike childhood memories.
+      
+    specifications:
+      tree_required: "Large oak, redwood, or magical equivalent"
+      access: "Rope ladder, spiral stair, or elevator"
+      
+  mountain-cabin:
+    id: mountain-cabin
+    name: "Leela Mountain Cabin"
+    type: domicile
+    emoji: "🏔️"
+    tags: [home, cabin, isolated, cozy]
+    
+    description: |
+      A sturdy cabin for mountain retreats.
+      Includes fireplace, porch, and excellent isolation.
+      
+  # ═══════════════════════════════════════════════════════════════
+  # SECTION W: WORKSPACES
+  # ═══════════════════════════════════════════════════════════════
+  
+  research-laboratory:
+    id: research-laboratory
+    name: "Leela Research Laboratory"
+    type: workspace
+    emoji: "🔬"
+    tags: [workspace, laboratory, clean, professional]
+    
+    description: |
+      A proper research laboratory, not a mad scientist lair.
+      IRB compliant, safety certified, publication ready.
+      
+  artist-studio:
+    id: artist-studio
+    name: "Leela Artist Studio"
+    type: workspace
+    emoji: "🎨"
+    tags: [workspace, studio, creative, light]
+    
+    description: |
+      North-facing windows, high ceilings, splatter-proof floors.
+      Everything an artist needs except inspiration.
+      
+  maker-workshop:
+    id: maker-workshop
+    name: "Leela Maker Workshop"
+    type: workspace
+    emoji: "🔧"
+    tags: [workspace, workshop, tools, making]
+    
+    description: |
+      A fully equipped workshop for making things.
+      Woodworking, metalworking, electronics, whatever you need.
+      
+  # ═══════════════════════════════════════════════════════════════
+  # SECTION V: VENUES
+  # ═══════════════════════════════════════════════════════════════
+  
+  small-theater:
+    id: small-theater
+    name: "Leela Small Theater"
+    type: venue
+    emoji: "🎭"
+    tags: [venue, theater, performance, intimate]
+    
+    description: |
+      An intimate theater for 50-100 guests.
+      Excellent acoustics, proper backstage, no bad seats.
+      
+  grand-ballroom:
+    id: grand-ballroom
+    name: "Leela Grand Ballroom"
+    type: venue
+    emoji: "💃"
+    tags: [venue, ballroom, dance, elegant]
+    
+    description: |
+      A proper ballroom with chandeliers, sprung floor,
+      and alcoves for scheming. Orchestra pit included.
+      
+  # ═══════════════════════════════════════════════════════════════
+  # SECTION X: EXPERIMENTAL
+  # ═══════════════════════════════════════════════════════════════
+  
+  non-euclidean-room:
+    id: non-euclidean-room
+    name: "Leela Non-Euclidean Room"
+    type: experimental
+    emoji: "🌀"
+    tags: [experimental, weird, non-euclidean, spatial-anomaly]
+    
+    description: |
+      A room where the angles don't add up to 180°.
+      Interior is larger than exterior. Some corners lead elsewhere.
+      
+    warning: |
+      May cause:
+      - Spatial disorientation
+      - Philosophical distress
+      - Difficulty with furniture placement
+      
+    leela_quality:
+      tested: "Stable for 50+ years"
+      warranty: "Does not cover sanity"
+      
+  pocket-dimension:
+    id: pocket-dimension
+    name: "Leela Pocket Dimension"
+    type: experimental
+    emoji: "🌌"
+    tags: [experimental, dimensional, portable, infinite-storage]
+    
+    description: |
+      An entire dimension, small enough to carry in your pocket.
+      Interior limited only by imagination. Exterior: keychain-sized.
+      
+    specifications:
+      interior: "Customizable, default 1000 sq ft"
+      exterior: "Keychain, amulet, or snow globe"
+      physics: "Configurable (default: Earth-normal)"
+      
+    warning: |
+      - Do not lose the key
+      - Do not create nested pocket dimensions
+      - Do not use for time shenanigans
+      
+  tesseract-room:
+    id: tesseract-room
+    name: "Leela Tesseract Room"
+    type: experimental
+    emoji: "⬜"
+    tags: [experimental, 4D, hypercube, mind-bending]
+    
+    description: |
+      A room that exists in four spatial dimensions.
+      You can see all sides simultaneously. Most visitors adapt.
+      
+    warning: "May take 2-3 visits to stop screaming"
+
+# ═══════════════════════════════════════════════════════════════
+# ORDERING AND DEPLOYMENT
+# ═══════════════════════════════════════════════════════════════
+
+deployment:
+  process:
+    - Select prototype from catalog
+    - Specify deployment location
+    - Configure options (see prototype specs)
+    - Clone via Deep Storage console
+    - Deployment occurs within 24 hours
+    - Inspector visits for quality assurance
+    
+  customization: |
+    All prototypes can be customized after cloning.
+    Leela architects available for consultation.
+    Clone → Modify → Deploy
+    
+  warranty: |
+    All Leela architectural prefabs carry the standard warranty:
+    - Structural integrity: Lifetime
+    - Systems: 10 years
+    - Weird stuff (Section X): "Best effort"
+    
+  not_acme: |
+    Unlike ACME prefabs, Leela buildings:
+    ✓ Pass building inspection
+    ✓ Don't collapse for comedic effect
+    ✓ Have working doors and windows
+    ✓ Lack obvious weak points
+    ✓ Won't be destroyed by a single hero
+    
+k_lines:
+  - LEELA-MANUFACTURING
+  - ARCHITECTURE
+  - PROTOTYPES
+  - PREFAB
+  - LAIRS
+  - SHELTERS
+  - TOWERS
+  - ROBUST-FIRST

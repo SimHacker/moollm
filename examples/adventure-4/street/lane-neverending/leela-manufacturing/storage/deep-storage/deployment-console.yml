@@ -1,0 +1,100 @@
+# DEPLOYMENT CONSOLE
+# Where architectural dreams become reality
+
+object:
+  id: deployment-console
+  name: "Deployment Console"
+  type: workstation
+  emoji: "🖥️"
+  
+  description: |
+    A sophisticated console for deploying architectural prototypes.
+    Screens show available designs, deployment locations, and
+    customization options. Archie spends most of his time here.
+    
+  examine: |
+    DEPLOYMENT CONSOLE — ARCHITECTURAL DEPLOYMENT SYSTEM
+    ════════════════════════════════════════════════════
+    
+    ┌────────────────────────────────────────────────────┐
+    │         LEELA ARCHITECTURAL DEPLOYMENT             │
+    │              "From Blueprint to Reality"            │
+    ├────────────────────────────────────────────────────┤
+    │                                                    │
+    │  PROTOTYPE CATALOG:                                │
+    │  ┌──────────────────────────────────────────────┐ │
+    │  │ [S] Shelters    [L] Lairs     [T] Towers     │ │
+    │  │ [D] Domiciles   [W] Workspaces [V] Venues    │ │
+    │  │ [X] Experimental [P] Planning/Layouts        │ │
+    │  └──────────────────────────────────────────────┘ │
+    │                                                    │
+    │  DEPLOYMENT STATUS:                                │
+    │  In queue: 3                                       │
+    │  Deploying: 1 (Panic Room → Origin Plaza)         │
+    │  Completed today: 7                                │
+    │                                                    │
+    │  CUSTOMIZATION OPTIONS:                            │
+    │  • Size scaling (0.5x to 10x)                     │
+    │  • Material override                               │
+    │  • Feature add-ons                                 │
+    │  • Themed variations                               │
+    │                                                    │
+    │  QUALITY ASSURANCE:                                │
+    │  🟢 All deployments pass Leela Quality check       │
+    │  🟢 Warranty active on all prototypes              │
+    │  🟢 NOT ACME — guaranteed to work                  │
+    │                                                    │
+    └────────────────────────────────────────────────────┘
+    
+    RECENT DEPLOYMENTS:
+    • Fallout Shelter → Underground bunker, Location: [Private]
+    • Ivory Tower → Academy district, Client: "Philosopher"
+    • Mad Scientist Lab → Volcano lair, Client: [Redacted]
+    • Cozy Cottage → Lane Neverending W4, Client: Retiree
+    
+  screens:
+    main: "Prototype catalog and selection"
+    left: "Deployment queue and status"
+    right: "Customization options"
+    overhead: "3D preview of selected design"
+    
+  sections:
+    S: "Shelters — Fallout, Panic, Storm"
+    L: "Lairs — Mad Scientist, Villain HQ"
+    T: "Towers — Ivory, Wizard, Clock"
+    D: "Domiciles — Cozy, Grand, Modest"
+    W: "Workspaces — Factory, Office, Studio"
+    V: "Venues — Theater, Arena, Temple"
+    X: "Experimental — Non-Euclidean, Pocket Dimension"
+    P: "Planning — Grids, Radial, Topology"
+    
+  methods:
+    BROWSE:
+      description: "Browse prototype catalog"
+      parameters: [section]
+      effect: "Display shows available prototypes in section"
+      
+    DEPLOY:
+      description: "Deploy a prototype"
+      parameters: [prototype, location, customization]
+      access: "Authorized personnel"
+      effect: |
+        Deployment initiated...
+        Cloning prototype...
+        Applying customizations...
+        Transporting to location...
+        
+        *pop*
+        
+        Deployment complete.
+        Warranty activated.
+        
+    PREVIEW:
+      description: "Preview a prototype in 3D"
+      parameters: [prototype]
+      effect: "Holographic display shows the design rotating"
+      
+    CUSTOMIZE:
+      description: "Configure deployment options"
+      parameters: [prototype]
+      effect: "Opens customization menu with available options"

@@ -1,0 +1,105 @@
+# 🔍 SLOT INSPECTOR
+# See inside any object — all the way down
+# "In Self, everything is a slot."
+
+object:
+  name: Slot Inspector
+  type: introspection_tool
+  portable: true
+  
+  description: |
+    A brass monocle on a chain, but the lens is... strange.
+    It doesn't magnify. It REVEALS.
+    
+    Look at any object through this lens and you see its SLOTS:
+    - Data slots (what it knows)
+    - Method slots (what it can do)  
+    - Parent slots (where it inherits from)
+    
+    The frame is inscribed:
+    
+    > "There is no distinction between code and data.
+    > There are only slots."
+    
+  examine: |
+    Through the Slot Inspector, a simple adventurer looks like:
+    
+    ┌─────────────────────────────────────────────────────────────┐
+    │  👤 adventurer                                              │
+    ├─────────────────────────────────────────────────────────────┤
+    │  DATA SLOTS:                                                │
+    │    name: "Bumblewick Fantastipants"                         │
+    │    health: 100                                              │
+    │    gold: 35                                                 │
+    │    inventory: [lamp, mailbox, cheese]                       │
+    │                                                             │
+    │  METHOD SLOTS:                                              │
+    │    walk: [code]                                             │
+    │    talk: [code]                                             │
+    │    examine: [code]                                          │
+    │    die: [code] → respawn                                    │
+    │                                                             │
+    │  PARENT SLOTS:                                              │
+    │    prototype*: → characters/abstract/adventurer             │
+    │    traits*: → mind-mirror/curious-explorer                  │
+    │                                                             │
+    │  INHERITED (via prototype*):                                │
+    │    species: "human"                                         │
+    │    canCarry: true                                           │
+    │    grue_edible: true                                        │
+    └─────────────────────────────────────────────────────────────┘
+    
+  how_self_works: |
+    In Self, EVERYTHING is a slot in an object:
+    
+    - Variables? Slots.
+    - Methods? Slots (that contain code).
+    - Inheritance? Slots (marked with * for parent delegation).
+    
+    When you send a message to an object:
+    1. Check if it has a slot with that name
+    2. If not, check parent* slots
+    3. Keep going up until found or error
+    
+    This is DELEGATION, not inheritance.
+    The parent isn't a template — it's a real object that answers for you.
+    
+  commands:
+    INSPECT:
+      usage: "INSPECT [object] WITH SLOT INSPECTOR"
+      effect: "See all slots, organized by type"
+      
+    TRACE:
+      usage: "TRACE [slot] ON [object]"
+      effect: "Follow the delegation chain to find where slot is defined"
+      
+    DIFF:
+      usage: "DIFF [object1] AND [object2]"
+      effect: "See which slots differ between two objects"
+      
+  buffs:
+    SLOT_VISION:
+      duration: "While worn"
+      effect: |
+        +30% understanding of object structure
+        +20% ability to find bugs
+        +15% appreciation for Self's elegance
+        
+        You see the world as slots all the way down.
+        
+  lore: |
+    Dave Ungar designed Self so that EVERYTHING was uniform:
+    no special syntax for variables vs methods,
+    no distinction between "class variables" and "instance variables."
+    
+    Just slots. Objects containing slots. 
+    Some slots hold data. Some hold code. Some delegate to parents.
+    
+    The Slot Inspector reveals this beautiful simplicity.
+    
+  k_lines:
+    - SELF-LANGUAGE
+    - SLOTS
+    - INTROSPECTION
+    - DELEGATION
+    - UNIFORMITY

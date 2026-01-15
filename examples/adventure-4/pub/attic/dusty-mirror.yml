@@ -1,33 +1,95 @@
-# Dusty Mirror — Covered with a Sheet
+# 🪞 Leela Mirror — Instance
+# Cloned from Leela Manufacturing storage prototype
+# Inherits: reliable display furniture with special properties
 
 object:
-  name: "Sheet-Covered Mirror"
+  name: "Dusty Full-Length Mirror"
   id: dusty-mirror
   type: furniture
   emoji: "🪞"
   
+  # PROTOTYPE INHERITANCE
+  prototype:
+    source: "street/lane-neverending/leela-manufacturing/storage/aisle-e/PROTOTYPES.yml"
+    id: full-length-mirror
+    brand: LEELA
+    quality: robust-first
+    
+  inherits:
+    breakable: false  # Leela mirrors don't break
+    reflective: true
+    frame: "oak with brass corners"
+    
   description: |
-    A tall mirror draped in a white sheet. The shape suggests 
-    an ornate frame beneath. Why was it covered?
+    A full-length mirror in an oak frame, bearing the Leela 
+    Quality seal on the brass corner brackets. Covered in a 
+    thick layer of dust.
     
-  state:
-    covered: true
+    The reflection is unclear until wiped, but something
+    moves in the dust-fog. Probably just your imagination.
     
-  advertisements:
-    UNCOVER:
-      description: "Pull the sheet off the mirror"
-      score: 65
-      guard: "mirror is covered"
-      effect: "Reveal the mirror. See yourself... or something else?"
+    The frame is solid oak. The mirror is Leela glass — 
+    famously shatter-resistant. 87 years and not a crack.
+    
+  examine: |
+    LEELA MIRROR — FULL-LENGTH EDITION
+    ═══════════════════════════════════
+    
+    Frame: Solid oak, brass corners
+    Glass: Leela shatter-resistant (since 1939)
+    Condition: Dusty but undamaged
+    
+    The dust forms patterns when you breathe on it.
+    The reflection seems to move a half-second slow.
+    This is probably normal.
+    
+    LEELA QUALITY: "Reflects reality. Mostly."
+    
+  dusty: true
+  
+  properties:
+    shatter_resistant: true
+    age: 87
+    reflection_delay: 0.5  # seconds? or something else?
+    
+  commands:
+    WIPE:
+      description: "Clean the dust from the mirror"
+      effect: "Reflection becomes clear. Your face stares back. Just your face. Of course."
       
-    LOOK:
-      description: "Gaze into the mirror"
-      score: 50
-      guard: "mirror is uncovered"
-      effect: "Reflection shows truth. Sometimes uncomfortable truth."
+    EXAMINE_REFLECTION:
+      description: "Look closely at your reflection"
+      effect: "It's you. Just you. The delay is barely noticeable."
       
-    COVER:
-      description: "Put the sheet back"
-      score: 30
-      guard: "mirror is uncovered"
-      effect: "Some things are better left unseen"
+    BREATHE:
+      description: "Breathe on the dusty surface"
+      effect: "The dust swirls into patterns. Like faces. Like memories."
+      
+    SPEAK_TO:
+      description: "Say something to the mirror"
+      effect: "The reflection mouths the words. A half-second late."
+      
+  secrets:
+    hidden_property: |
+      The mirror doesn't just reflect the present.
+      Under certain conditions, at certain times,
+      it shows things that were. Or will be.
+      
+      Leela's "Special Glass Division" made it.
+      The documentation was lost. Probably on purpose.
+      
+  leela_quality:
+    brand: LEELA
+    division: "Special Glass (discontinued)"
+    motto: "Dependable. Tested. Robust-First."
+    shatter_tested: "Class A — Unbreakable under normal conditions"
+    not_acme: true
+    special_properties: "Undocumented"
+    
+  k_lines:
+    - LEELA-MANUFACTURING
+    - FURNITURE
+    - PROTOTYPE-INSTANCE
+    - ROBUST-FIRST
+    - MIRROR
+    - MYSTERIOUS

@@ -1,0 +1,75 @@
+# RETRIEVAL FORMS
+# Form 27B-Stroke-6
+
+object:
+  id: retrieval-forms
+  name: "Retrieval Forms"
+  type: paperwork
+  emoji: "📋"
+  
+  description: |
+    A stack of official retrieval request forms. Form 27B-Stroke-6.
+    Required for any crate access. In triplicate. Notarized.
+    With supervisor approval. And a good reason.
+    
+  examine: |
+    RETRIEVAL FORMS — FORM 27B-STROKE-6
+    ════════════════════════════════════
+    
+    CRATE RETRIEVAL REQUEST FORM
+    Form 27B-Stroke-6 (Rev. 47)
+    
+    ┌────────────────────────────────────────────┐
+    │ WAREHOUSE 23 — OFFICIAL RETRIEVAL REQUEST  │
+    ├────────────────────────────────────────────┤
+    │                                            │
+    │ Crate #: ________________________________  │
+    │                                            │
+    │ Requestor: ______________________________  │
+    │                                            │
+    │ Clearance Level: ________________________  │
+    │                                            │
+    │ Reason for Retrieval:                      │
+    │ __________________________________________ │
+    │ __________________________________________ │
+    │ __________________________________________ │
+    │                                            │
+    │ Have you read the warnings? [ ] Yes        │
+    │ Do you accept responsibility? [ ] Yes      │
+    │ Next of kin notified? [ ] Yes [ ] N/A      │
+    │                                            │
+    │ Supervisor Approval: ____________________  │
+    │ Notary Seal: [    ]                        │
+    │ Archivist Approval: ____________________   │
+    │ (Good luck with that one)                  │
+    │                                            │
+    │ FOR OFFICE USE ONLY:                       │
+    │ Approved [ ]  Denied [ ]  Filed [ ]        │
+    │ Lost [ ]  Redacted [ ]  Nice Try [ ]       │
+    │                                            │
+    └────────────────────────────────────────────┘
+    
+    STACK STATUS: 847 forms remaining
+    FORMS SUBMITTED THIS YEAR: 12
+    FORMS APPROVED THIS YEAR: 0
+    FORMS "UNDER REVIEW": 12
+    
+  properties:
+    form_number: "27B-Stroke-6"
+    copies_required: 3
+    approvals_needed: 3
+    average_processing_time: "Indefinite"
+    
+  methods:
+    TAKE:
+      description: "Take a form"
+      effect: "You now have a blank Form 27B-Stroke-6."
+      
+    SUBMIT:
+      description: "Submit a completed form"
+      effect: |
+        The Archivist glances at your form.
+        "We'll get back to you."
+        
+        (Status: Under Review)
+        (Time to resolution: Unknown)

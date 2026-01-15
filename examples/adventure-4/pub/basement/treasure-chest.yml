@@ -1,41 +1,86 @@
-# Treasure Chest — Hidden Wealth
+# 💰 Leela Treasure Chest — Instance
+# Cloned from Leela Manufacturing storage prototype
+# Inherits: reliable lockable container behavior
 
 object:
-  name: "Iron-Bound Chest"
+  name: "Landlord's Lockbox"
   id: treasure-chest
-  type: container
+  type: lockable-container
   emoji: "💰"
   
+  # PROTOTYPE INHERITANCE
+  prototype:
+    source: "street/lane-neverending/leela-manufacturing/storage/aisle-a/PROTOTYPES.yml"
+    id: treasure-chest
+    brand: LEELA
+    quality: robust-first
+    
+  inherits:
+    container: true
+    capacity: 30
+    lockable: true
+    durability: 80
+    
   description: |
-    A heavy chest tucked in a dark corner, partially hidden by 
-    empty crates. Iron bands reinforce old oak. A formidable 
-    padlock guards its secrets.
+    A heavy iron-banded chest with the Leela Quality seal embossed 
+    on the lock plate. This is where the landlord keeps the 
+    takings... and a few other valuables.
     
-  state:
-    locked: true
-    discovered: false
+    Unlike ACME chests, this one:
+    - Won't spring open dramatically
+    - Won't be trapped with cartoon explosives
+    - Won't have a false bottom that's also trapped
     
-  advertisements:
-    EXAMINE:
-      description: "Inspect the chest"
-      score: 50
-      effect: "Heavy. Locked. Definitely treasure inside."
+    It just locks. Reliably. Every time.
+    
+  examine: |
+    LEELA TREASURE CHEST — SECURE STORAGE
+    ═════════════════════════════════════
+    
+    Iron-banded oak, tested to resist:
+    ✓ Lock picking (Grade 7 lock)
+    ✓ Brute force (reinforced hinges)
+    ✓ Fire (iron banding)
+    ✓ Flood (sealed seams)
+    ✓ Cartoon logic (NOT ACME)
+    
+    Status: LOCKED
+    Key held by: The Landlord
+    
+  locked: true
+  lock_difficulty: 7
+  
+  contents:
+    description: "Unknown — chest is locked"
+    hints:
+      - "Coins clink when you move it"
+      - "Something paper rustles"
+      - "Heavier than it looks"
       
-    PICK-LOCK:
-      description: "Attempt to pick the padlock"
-      score: 30
-      guard: "have lockpicks OR high dexterity"
-      effect: "Difficult but possible. Contents revealed on success."
+  commands:
+    OPEN:
+      description: "Open the chest"
+      requires: key OR successful_pick
       
-    BREAK-OPEN:
-      description: "Force it open"
-      score: 20
-      guard: "have crowbar OR very strong"
-      effect: "Loud. Destructive. But effective."
+    PICK:
+      description: "Attempt to pick the lock"
+      difficulty: 7
+      failure: "The lock holds. Leela Quality."
       
-  contents: # suggestions -- be creative!
-    - gold-coins: 150
-    - silver-coins: 340
-    - ruby-necklace
-    - old-deed
-    - mysterious-map
+    EXAMINE_LOCK:
+      description: "Study the locking mechanism"
+      effect: "Grade 7 Leela lock. Dependable. You'll need skill or a key."
+      
+  leela_quality:
+    brand: LEELA
+    motto: "Dependable. Tested. Robust-First."
+    security_rating: "Commercial Grade"
+    not_acme: true
+    warranty: "Lifetime guarantee on lock mechanism"
+    
+  k_lines:
+    - LEELA-MANUFACTURING
+    - LOCKABLE-CONTAINER
+    - PROTOTYPE-INSTANCE
+    - ROBUST-FIRST
+    - SECURE-STORAGE

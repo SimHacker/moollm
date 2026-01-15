@@ -46,6 +46,8 @@ room:
     WAITING AREA:
     Comfortable chairs. A coffee table with magazines
     (all about manufacturing, knowledge, and tortoises).
+    A thick Leela Products Catalog sits prominently — 
+    Edition 47, leather-bound, much better than ACME's.
     A small fountain burbles peacefully.
     
     WINDOWS:
@@ -54,40 +56,59 @@ room:
     
   exits:
     street:
-      to: ../w1/
+      destination: ../../w1/
       description: "Exit to Lane Neverending"
+      aliases: [out, outside, lane]
       
-    elevator_roof:
-      to: ../rooftop/
-      description: "Elevator to Rooftop"
+    rooftop:
+      destination: ../rooftop/
+      description: "Elevator to Rooftop Garden & Drones"
+      aliases: [roof, garden, up]
       
-    elevator_3:
-      to: ../floor-3/
+    floor_3:
+      destination: ../floor-3/
       description: "Elevator to Floor 3 (Shipping)"
+      aliases: [3, shipping]
       
-    elevator_2:
-      to: ../floor-2/
+    floor_2:
+      destination: ../floor-2/
       description: "Elevator to Floor 2 (Factory)"
+      aliases: [2, processing, factory]
       
-    elevator_1:
-      to: ../floor-1/
+    floor_1:
+      destination: ../floor-1/
       description: "Elevator to Floor 1 (Intake)"
+      aliases: [1, intake]
       
-    elevator_b:
-      to: ../basement/
-      description: "Elevator to Basement (Clearance Required)"
+    basement:
+      destination: ../basement/
+      description: "Elevator to Basement (R&D)"
+      aliases: [down, rd, research]
       clearance_required: true
       
     loading:
-      to: ../loading-docks/
+      destination: ../loading-docks/
       description: "Door to Loading Docks"
+      aliases: [docks, trucks]
       
     storage:
-      to: ../storage/
+      destination: ../storage/
       description: "Door to Storage Complex"
+      aliases: [warehouse, prototypes]
+      
+    logistics:
+      destination: ../logistics/
+      description: "Door to Logistics Center"
+      aliases: [control, nerve]
+      
+    mail:
+      destination: ../mail-room/
+      description: "Door to Mail Room"
+      aliases: [mail, post, postal]
       
   objects:
-    - camera-lob1.yml  # Leela's Front Eye
+    - camera-lob1.yml      # Leela's Front Eye
+    - leela-catalog.yml    # Products & Services Catalog, Edition 47
     
   staff:
     receptionist:

@@ -1,0 +1,67 @@
+# RECEPTION DESK
+# First point of contact
+
+object:
+  id: reception-desk
+  name: "Reception Desk"
+  type: furniture
+  emoji: "🛎️"
+  
+  description: |
+    A curved desk of polished wood and brushed steel at the
+    entrance to Leela Manufacturing. The receptionist smiles
+    warmly. Behind them, the Leela logo glows gentle gold.
+    
+  examine: |
+    RECEPTION DESK — WELCOME TO LEELA
+    ═══════════════════════════════════
+    
+    A beautiful curved desk combining wood warmth with
+    steel precision. The Leela aesthetic in furniture form.
+    
+    BEHIND THE DESK:
+    • The Leela logo, backlit in soft gold
+    • Monitor showing visitor schedule
+    • Phone with direct lines to all departments
+    • Visitor sign-in tablet
+    • Small vase with fresh flowers (changed daily)
+    
+    ON THE DESK:
+    • Bell (please ring for service)
+    • Brochures ("What We Do", "How We Help", "The Tortoise")
+    • Dish of mints (help yourself)
+    • Sign: "Welcome to Leela Manufacturing Intelligence"
+    
+    THE RECEPTIONIST:
+    Alex sits behind the desk, warm smile ready.
+    They know everyone's name, every appointment,
+    and where to find the best coffee.
+    "How can I help you today?"
+    
+  occupant:
+    name: "Alex"
+    role: "Receptionist"
+    demeanor: "Warm, helpful, knows everything"
+    skills:
+      - "Greeting visitors"
+      - "Scheduling tours"
+      - "Answering questions"
+      - "Summoning the right person"
+      
+  methods:
+    RING:
+      description: "Ring the bell"
+      effect: |
+        *ding!*
+        
+        Alex looks up with a smile.
+        "Hello! How can I help you?"
+        
+    ASK:
+      description: "Ask Alex a question"
+      parameters: [question]
+      effect: "Alex provides helpful information or direction."
+      
+    SIGN_IN:
+      description: "Sign in as a visitor"
+      effect: "Alex hands you a visitor badge and welcomes you."

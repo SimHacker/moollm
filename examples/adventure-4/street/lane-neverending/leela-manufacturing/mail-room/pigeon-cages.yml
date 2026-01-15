@@ -1,0 +1,75 @@
+# PIGEON CAGES
+# Home of the enlightened pigeons
+
+object:
+  id: pigeon-cages
+  name: "Pigeon Cages"
+  type: aviary
+  emoji: "🕊️"
+  
+  description: |
+    24 enlightened pigeons in comfortable cages near the window.
+    Each has a name tag. They coo thoughtfully. The oldest and
+    most traditional delivery method at Leela Manufacturing.
+    
+  examine: |
+    PIGEON CAGES — ENLIGHTENED COURIER LOFT
+    ═════════════════════════════════════════
+    
+    24 pigeons in comfortable individual spaces:
+    
+    ROW 1 (Senior Carriers):
+    🕊️ Aristotle — Deep thinker, slow but reliable
+    🕊️ Socrates — Asks questions mid-flight
+    🕊️ Plato — Sees the ideal route
+    🕊️ Descartes — "I fly, therefore I am"
+    🕊️ Kant — Takes the categorical imperative route
+    🕊️ Nietzsche — Beyond good and evil delivery
+    
+    ROW 2 (Standard Carriers):
+    🕊️ Through 🕊️ (12 more, reliable workers)
+    
+    ROW 3 (Trainees):
+    🕊️ Through 🕊️ (6 learning the ropes)
+    
+    SCHEDULE BOARD:
+    Available: 18
+    On mission: 4
+    Contemplating: 2 (normal)
+    
+    SUPPLIES:
+    • Premium seed (philosophy-grade)
+    • Fresh water with trace minerals
+    • Tiny comfortable beds
+    • Window perch for meditation
+    
+    "They stop to think sometimes.
+     That's why they're enlightened."
+    
+  pigeons:
+    total: 24
+    available: 18
+    on_mission: 4
+    contemplating: 2
+    
+  senior_carriers:
+    - name: "Aristotle"
+      trait: "Deep thinker"
+    - name: "Socrates"
+      trait: "Asks questions"
+    - name: "Plato"
+      trait: "Sees ideal routes"
+      
+  methods:
+    DISPATCH:
+      description: "Send a pigeon"
+      parameters: [message, destination, pigeon]
+      effect: |
+        The pigeon considers the message.
+        After a thoughtful pause, it takes flight.
+        
+        Delivery time: Whenever they feel like it.
+        
+    FEED:
+      description: "Feed the pigeons"
+      effect: "Happy cooing. Morale boost."

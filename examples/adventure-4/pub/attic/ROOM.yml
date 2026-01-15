@@ -30,8 +30,10 @@ room:
     capacity: infinite
     accepts: [furniture, antiques, forgotten-things, holiday-decorations]
     
-  contents:
-    - old-trunks
-    - sheet-covered-furniture  
-    - mysterious-crates
-    - holiday-decorations-box
+  # All containers are Leela-branded instances, cloned from prototypes
+  # in street/lane-neverending/leela-manufacturing/storage/
+  
+  objects:
+    - old-trunk.yml         # Leela steamer trunk, vintage edition
+    - holiday-box.yml       # Leela seasonal storage
+    - dusty-mirror.yml      # Leela shatter-resistant mirror

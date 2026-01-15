@@ -1,0 +1,107 @@
+# 🧭 DELEGATION COMPASS
+# Navigate the prototype chain
+# "When you don't know, ask your parent."
+
+object:
+  name: Delegation Compass
+  type: navigation_tool
+  portable: true
+  
+  description: |
+    A golden compass, but instead of pointing north, it points UP —
+    toward the parent* of whatever object you're examining.
+    
+    Rotate the bezel to trace delegation chains. Watch the needle
+    follow the path of message sends, from child to parent to
+    grandparent, until it finds what it's looking for.
+    
+    Engraved on the back:
+    
+    > "Delegation, not inheritance."
+    > "The parent answers for you."
+    > "All the way up to traits."
+    
+  examine: |
+    Point the compass at an object to see its delegation chain:
+    
+    ┌─────────────────────────────────────────────────────────────┐
+    │  🧭 DELEGATION COMPASS                                      │
+    ├─────────────────────────────────────────────────────────────┤
+    │                                                             │
+    │              [your character]                               │
+    │                    │                                        │
+    │                    ↓ prototype*                             │
+    │            [adventurer prototype]                           │
+    │                    │                                        │
+    │                    ↓ prototype*                             │
+    │              [mortal being]                                 │
+    │                    │                                        │
+    │                    ↓ prototype*                             │
+    │                [object]                                     │
+    │                    │                                        │
+    │                    ↓ prototype*                             │
+    │                 [lobby]                                     │
+    │                    ◉ (root)                                 │
+    │                                                             │
+    │  Message: "walk" found at: [adventurer prototype]           │
+    │  Message: "name" found at: [your character] (local)         │
+    │  Message: "clone" found at: [object]                        │
+    │                                                             │
+    └─────────────────────────────────────────────────────────────┘
+    
+  delegation_vs_inheritance: |
+    INHERITANCE (other languages):
+      "Copy the behavior from the class template."
+      The class is abstract. Instances are concrete.
+      
+    DELEGATION (Self):
+      "Ask my parent to do it for me."
+      The parent is a REAL OBJECT. It actually runs the code.
+      I just forward the message to it.
+      
+    Why delegation is powerful:
+    - Parents can change at runtime
+    - Objects can have multiple parents (traits!)
+    - No distinction between "class methods" and "instance methods"
+    - Everything is concrete, nothing is abstract
+    
+  traits: |
+    Self introduced TRAITS — mixins before mixins were cool:
+    
+    An object can have multiple parent* slots:
+    - prototype* → where I clone from
+    - traits* → shared behavior I mix in
+    - oddball* → that weird thing I also do
+    
+    The compass shows ALL delegation paths, not just one.
+    Message lookup checks each parent slot in order.
+    
+  commands:
+    TRACE:
+      usage: "TRACE [message] ON [object]"
+      effect: "Show where the message would be found"
+      
+    CHAIN:
+      usage: "SHOW DELEGATION CHAIN FOR [object]"
+      effect: "Display the full parent* hierarchy"
+      
+    REPARENT:
+      usage: "SET PARENT OF [object] TO [new_parent]"
+      effect: "Change delegation at runtime (powerful!)"
+      
+  buffs:
+    DELEGATION_SENSE:
+      duration: "While held"
+      effect: |
+        +35% understanding of prototype chains
+        +25% ability to debug "method not found" errors
+        +20% appreciation for dynamic reparenting
+        
+        You always know where messages go.
+        
+  k_lines:
+    - SELF-LANGUAGE
+    - DELEGATION
+    - PROTOTYPE-CHAIN
+    - TRAITS
+    - MESSAGE-LOOKUP

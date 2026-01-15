@@ -1,0 +1,82 @@
+# COFFEE STATION
+# Essential operations support
+
+object:
+  id: coffee-station
+  name: "Coffee Station"
+  type: amenity
+  emoji: "☕"
+  
+  description: |
+    An industrial-grade espresso machine surrounded by mugs,
+    supplies, and a sign that reads: "UPTIME CORRELATES WITH
+    CAFFEINE LEVELS." Essential infrastructure for 24/7 operations.
+    
+  examine: |
+    COFFEE STATION — ESSENTIAL OPERATIONS SUPPORT
+    ═══════════════════════════════════════════════
+    
+    ┌─────────────────────────────────────────────┐
+    │                                             │
+    │   ☕ LEELA OPERATIONS COFFEE STATION ☕     │
+    │                                             │
+    │   "UPTIME CORRELATES WITH CAFFEINE LEVELS"  │
+    │                                             │
+    └─────────────────────────────────────────────┘
+    
+    THE MACHINE:
+    A gleaming Leela-brand industrial espresso machine.
+    Chrome and brass. Professional grade. Makes everything.
+    
+    MENU:
+    • Espresso ........... Quick boost
+    • Americano .......... Sustained focus
+    • Latte .............. Smooth operations
+    • Cappuccino ......... Morning ritual
+    • Red Eye ............ Night shift essential
+    • The Coordinator .... Triple shot, no milk, all business
+    
+    SUPPLIES:
+    • Mugs (company branded, personal, and "WORLD'S BEST DBA")
+    • Sugar, sweetener, various milks
+    • Stirrers shaped like inserters
+    • Napkins with Leela logo
+    
+    STATISTICS (posted):
+    • Cups served today: 47
+    • Cups served all-time: 847,293
+    • Correlation with uptime: 0.97
+    • Operators' favorite: The Coordinator
+    
+  menu:
+    espresso:
+      caffeine: "High"
+      time: "Quick"
+    americano:
+      caffeine: "Medium"
+      time: "Moderate"
+    latte:
+      caffeine: "Medium"
+      time: "Leisurely"
+    red_eye:
+      caffeine: "EXTREME"
+      time: "Emergency"
+    the_coordinator:
+      caffeine: "Yes"
+      time: "When you need it"
+      
+  methods:
+    ORDER:
+      description: "Make a coffee"
+      parameters: [drink]
+      effect: |
+        The machine hisses and gurgles.
+        Steam rises. Aroma fills the air.
+        Your coffee is ready.
+        
+        +10 to FOCUS for next 2 hours.
+        
+    REFILL:
+      description: "Refill beans/supplies"
+      access: "Staff only"
+      effect: "Supplies restocked. Operations continue."

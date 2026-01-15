@@ -1,0 +1,114 @@
+# 🎨 MORPHIC WORKBENCH
+# Direct manipulation interface design
+# "Grab anything. Move anything. The UI is made of objects."
+
+object:
+  name: Morphic Workbench
+  type: design_surface
+  portable: false
+  
+  description: |
+    A large drafting table with an unusual surface — it's ALIVE.
+    
+    Objects placed on it can be grabbed, stretched, rotated, nested.
+    There are no dialogs, no property sheets, no indirection.
+    You grab the thing itself and change it directly.
+    
+    A plaque reads:
+    
+    > "MORPHIC"
+    > "Every pixel is an object."
+    > "Every object is graspable."
+    > "What you see is what you have."
+    
+  examine: |
+    The Morphic Workbench demonstrates Self's revolutionary UI:
+    
+    ┌─────────────────────────────────────────────────────────────┐
+    │                    MORPHIC WORKBENCH                        │
+    │                                                             │
+    │    ┌──────────────┐      ┌────────────┐                     │
+    │    │  Button      │      │  ┌──────┐  │                     │
+    │    │  [Click Me]  │◄────►│  │ text │  │                     │
+    │    │    ◯ ◯ ◯ ◯   │      │  └──────┘  │                     │
+    │    └──────────────┘      │            │                     │
+    │         ↑                │  Container │                     │
+    │    grab handles!         │     ◯ ◯    │                     │
+    │                          └────────────┘                     │
+    │                                                             │
+    │    Instructions:                                            │
+    │    • GRAB any object's handles to resize                    │
+    │    • DRAG to move                                           │
+    │    • DROP inside another to nest                            │
+    │    • RIGHT-CLICK (or HALOS) for more options                │
+    │    • Everything is live — changes happen NOW                │
+    │                                                             │
+    └─────────────────────────────────────────────────────────────┘
+    
+  what_is_morphic: |
+    Morphic was Self's graphical framework, later adapted for:
+    - Squeak Smalltalk
+    - Lively Kernel
+    - Scratch (yes, THAT Scratch!)
+    
+    The core ideas:
+    
+    1. DIRECT MANIPULATION
+       No dialogs. No property sheets. Grab the thing. Change it.
+       
+    2. OBJECTS ALL THE WAY DOWN
+       A button is an object. Its label is an object inside it.
+       The pixels are objects. It's objects all the way down.
+       
+    3. LIVENESS
+       Changes happen immediately. There's no "compile" step.
+       The UI is always running, always responsive.
+       
+    4. UNIFORMITY
+       Everything works the same way. Grab handles work on buttons,
+       windows, text, images — everything.
+       
+  commands:
+    GRAB:
+      usage: "GRAB [object]"
+      effect: "Pick up an object for manipulation"
+      
+    STRETCH:
+      usage: "STRETCH [object] [direction]"
+      effect: "Resize using grab handles"
+      
+    NEST:
+      usage: "PUT [object] IN [container]"
+      effect: "Nest one morph inside another"
+      
+    HALOS:
+      usage: "HALOS ON [object]"
+      effect: "Show the manipulation halo with all options"
+      
+  buffs:
+    DIRECT_MANIPULATION:
+      duration: "While at workbench"
+      effect: |
+        +40% UI design speed
+        +30% intuition about object composition
+        +25% "just grab it and fix it" energy
+        -50% tolerance for dialog boxes
+        
+  legacy: |
+    Morphic lives on in:
+    
+    - Scratch: Kids drag code blocks — that's Morphic!
+    - Lively Kernel: Web-based Morphic
+    - Squeak: The Smalltalk that carried Self's ideas forward
+    - Etoys: Educational programming, Morphic inside
+    
+    When you drag a sprite in Scratch, you're using ideas
+    that came from Dave Ungar and Randy Smith's Self team.
+    
+  k_lines:
+    - SELF-LANGUAGE
+    - MORPHIC
+    - DIRECT-MANIPULATION
+    - UI-DESIGN
+    - LIVENESS
+    - SCRATCH

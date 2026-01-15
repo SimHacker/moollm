@@ -1,0 +1,94 @@
+# VISITOR BADGES
+# Access credentials for guests
+
+object:
+  id: visitor-badges
+  name: "Visitor Badges"
+  type: credentials
+  emoji: "🎫"
+  
+  description: |
+    A rack of visitor badges near the reception desk.
+    Different colors for different access levels.
+    Alex assigns the appropriate one when you sign in.
+    
+  examine: |
+    VISITOR BADGES — ACCESS CREDENTIALS
+    ════════════════════════════════════
+    
+    A neat rack of clip-on badges, color-coded:
+    
+    ┌────────────────────────────────────────────┐
+    │  LEELA MANUFACTURING VISITOR BADGES        │
+    ├────────────────────────────────────────────┤
+    │                                            │
+    │  🟢 GREEN — Public Areas                   │
+    │     Lobby, waiting area, restrooms         │
+    │     "Casual Visitor"                       │
+    │                                            │
+    │  🔵 BLUE — General Tour                    │
+    │     Floors 1-3, loading docks, storage     │
+    │     "Touring Guest"                        │
+    │                                            │
+    │  🟡 YELLOW — Business                      │
+    │     + Mail room, logistics center          │
+    │     "Business Partner"                     │
+    │                                            │
+    │  🟠 ORANGE — Technical                     │
+    │     + Basement labs (escorted)             │
+    │     "Technical Visitor"                    │
+    │                                            │
+    │  🔴 RED — Full Access                      │
+    │     Everywhere except Warehouse 23         │
+    │     "VIP / Consultant"                     │
+    │                                            │
+    │  ⬛ BLACK — Classified                     │
+    │     (You won't see these on the rack)      │
+    │     "If you need to ask, you don't have it"│
+    │                                            │
+    └────────────────────────────────────────────┘
+    
+    Each badge includes:
+    • Visitor name (handwritten)
+    • Date of visit
+    • Escort name (if required)
+    • Access level color
+    • Leela logo
+    • "Please return before leaving"
+    
+  badge_levels:
+    green:
+      name: "Casual Visitor"
+      access: ["Lobby", "Waiting area", "Restrooms"]
+    blue:
+      name: "Touring Guest"
+      access: ["+ Floors 1-3", "Loading docks", "Storage"]
+    yellow:
+      name: "Business Partner"
+      access: ["+ Mail room", "Logistics center"]
+    orange:
+      name: "Technical Visitor"
+      access: ["+ Basement labs (escorted)"]
+    red:
+      name: "VIP / Consultant"
+      access: ["All except Warehouse 23"]
+    black:
+      name: "Classified"
+      access: ["You don't need to know"]
+      
+  methods:
+    TAKE:
+      description: "Take a badge"
+      effect: |
+        Alex assigns you an appropriate badge.
+        
+        "Here you go! Please wear this visibly.
+         Return it when you leave. Enjoy your visit!"
+         
+    RETURN:
+      description: "Return your badge"
+      effect: |
+        You hand back the badge.
+        
+        "Thank you for visiting Leela Manufacturing!
+         Come back anytime."

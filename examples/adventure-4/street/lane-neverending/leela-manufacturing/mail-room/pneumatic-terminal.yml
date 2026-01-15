@@ -1,0 +1,82 @@
+# PNEUMATIC TERMINAL
+# The tube hub
+
+object:
+  id: pneumatic-terminal
+  name: "Pneumatic Terminal"
+  type: mail_infrastructure
+  emoji: "🔧"
+  
+  description: |
+    Eight pneumatic tubes converge here, capsules arriving
+    with satisfying *thwoop* sounds. A display shows tube
+    status and queue depth. The mail's highway system.
+    
+  examine: |
+    PNEUMATIC TERMINAL — TUBE HUB
+    ══════════════════════════════
+    
+    Eight brass tubes terminate in a receiving station:
+    
+    [1] INTAKE .......... 🟢 Clear
+    [2] PROCESSING ...... 🟢 Clear  
+    [3] SHIPPING ........ 🟢 Clear
+    [4] R&D ............. 🟢 Clear (STAND CLEAR warning)
+    [5] GARDEN .......... 🟢 Clear
+    [6] RECEPTION ....... 🟢 Clear
+    [7] THE PUB ......... 🔴 Urgent queue (3)
+    [8] EMERGENCY ....... ⬜ Break glass to use
+    
+    INCOMING CAPSULE:
+    *thwoop*
+    From: Floor 2
+    Contents: Processing report
+    Destination: Sorting → Shipping
+    
+    QUEUE: 3 outgoing capsules
+    
+  tubes:
+    - number: 1
+      destination: "../floor-1/"
+      label: "INTAKE"
+      status: "clear"
+    - number: 2
+      destination: "../floor-2/"
+      label: "PROCESSING"
+      status: "clear"
+    - number: 3
+      destination: "../floor-3/"
+      label: "SHIPPING"
+      status: "clear"
+    - number: 4
+      destination: "../basement/"
+      label: "R&D"
+      status: "clear"
+      warning: "STAND CLEAR"
+    - number: 5
+      destination: "../rooftop/"
+      label: "GARDEN"
+      status: "clear"
+    - number: 6
+      destination: "../lobby/"
+      label: "RECEPTION"
+      status: "clear"
+    - number: 7
+      destination: "../../pub/"
+      label: "THE PUB"
+      status: "urgent"
+      queue: 3
+    - number: 8
+      destination: "EMERGENCY"
+      label: "BREAK GLASS"
+      status: "sealed"
+      
+  methods:
+    SEND:
+      description: "Send a capsule"
+      parameters: [tube, contents]
+      effect: "Capsule dispatched with WHOOSH"
+      
+    RECEIVE:
+      description: "Check incoming"
+      effect: "Show waiting capsules"

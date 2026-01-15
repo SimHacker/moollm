@@ -1,0 +1,82 @@
+# SCALE MODEL
+# The entire facility in miniature
+
+object:
+  id: scale-model
+  name: "Scale Model"
+  type: display
+  emoji: "🏭"
+  
+  description: |
+    A detailed scale model of the entire Leela Manufacturing
+    complex sits in a glass case. Tiny lights blink. Miniature
+    forklifts move on tracks. It's oddly mesmerizing.
+    
+  examine: |
+    SCALE MODEL — LEELA MANUFACTURING IN MINIATURE
+    ═══════════════════════════════════════════════
+    
+    Under a clear glass dome, a 1:100 scale model of the
+    entire Leela facility. Incredible detail. Moving parts.
+    
+    WHAT YOU CAN SEE:
+    
+    BUILDING CUTAWAY:
+    ┌─────────────────────────────────┐
+    │ 🌿 Rooftop — tiny drones land   │
+    │ 3  Shipping — packages move     │
+    │ 2  Factory — cells light up     │
+    │ 1  Intake — conveyor runs       │
+    │ G  Lobby — YOU ARE HERE (dot)   │
+    │ B  Basement — glow from R&D     │
+    └─────────────────────────────────┘
+    
+    SURROUNDING AREAS:
+    • Loading docks with tiny trucks
+    • Storage complex (Container stacks!)
+    • Rail siding with actual model train
+    • Lane Neverending (with tiny pub!)
+    
+    MOVING ELEMENTS:
+    • Conveyor belts turn slowly
+    • Drones take off and land
+    • Tiny Dolly the forklift patrols
+    • Elevator car moves between floors
+    • Pneumatic capsules (represented by lights)
+    
+    BUTTON PANEL:
+    [LIGHTS] [ANIMATION] [HIGHLIGHT] [ZOOM]
+    
+    Sign: "Please do not tap glass.
+           The model inhabitants startle easily."
+    
+  properties:
+    scale: "1:100"
+    features:
+      - "Building cutaway"
+      - "Moving conveyors"
+      - "Working model train"
+      - "LED lighting"
+      - "Animated drones"
+    built_by: "Leela Model Shop"
+    
+  methods:
+    OBSERVE:
+      description: "Watch the model in action"
+      effect: |
+        You watch the miniature facility operate.
+        
+        A tiny truck backs into Bay 2.
+        The conveyor carries a speck from Floor 1 to Floor 2.
+        A drone lifts off from the rooftop.
+        
+        It's hypnotic.
+        
+    HIGHLIGHT:
+      description: "Highlight a specific area"
+      parameters: [area]
+      effect: "That section lights up brighter, showing detail."
+      
+    ZOOM:
+      description: "Use the magnifier"
+      effect: "A magnifying lens swings over the selected area."
