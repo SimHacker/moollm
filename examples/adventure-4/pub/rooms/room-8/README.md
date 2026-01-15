@@ -41,6 +41,7 @@ The walls are covered with character sheets, each one pointing to its parent wit
 | **Self/Soul Forge** | [self-soul-forge.yml](self-soul-forge.yml) | Where prototypes become beings |
 | **Selfie** | [selfie.yml](selfie.yml) | Living prototype inheritance familiar |
 | **Clone-O-Matic** | [clone-o-matic.yml](clone-o-matic.yml) | "You don't instantiate. You clone." |
+| **Transmogrifier** | [transmogrifier.yml](transmogrifier.yml) | Clone → Edit → Become (uses Clone-O-Matic) |
 | **Slot Inspector** | [slot-inspector.yml](slot-inspector.yml) | See inside any object — all the way down |
 | **Morphic Workbench** | [morphic-workbench.yml](morphic-workbench.yml) | Direct manipulation UI design |
 | **The Outliner** | [outliner.yml](outliner.yml) | Self's famous live object browser |
@@ -97,6 +98,20 @@ A brass and chrome machine with a glass chamber divided down the middle:
 - Lever: PULL TO CLONE
 
 No templates. No blueprints. Just real objects cloning from real objects.
+
+---
+
+## 📦 The Transmogrifier
+
+A cardboard box with hand-drawn dials, connected to the Clone-O-Matic by brass tube.
+
+**Transformation is just cloning + editing:**
+
+1. **CLONE** — Clone-O-Matic duplicates the original
+2. **EDIT** — Modify slots directly, or export/modify/import YAML
+3. **EMERGE** — Exit the box as something new
+
+*"It's a transmogrifier. It transforms stuff."* — Calvin
 
 ---
 

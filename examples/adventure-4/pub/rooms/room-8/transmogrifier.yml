@@ -1,0 +1,271 @@
+# 📦 THE TRANSMOGRIFIER
+# "It's a transmogrifier. It transforms stuff."
+# Calvin's cardboard box meets Self's prototype editing
+#
+# Uses Clone-O-Matic as duplication service, then edits the result.
+
+object:
+  name: The Transmogrifier
+  type: transformation_device
+  portable: false
+  
+  description: |
+    A large cardboard box with hand-drawn dials and buttons. 
+    One side says "TRANSMOGRIFIER" in wobbly crayon letters.
+    An arrow points to a dial labeled with various creatures.
+    
+    But look closer — this isn't just any cardboard box.
+    
+    It's connected to the Clone-O-Matic by a brass tube.
+    A YAML export slot on one side. An import slot on the other.
+    And inside? The Slot Inspector's monocle, mounted for precision editing.
+    
+    > "First, clone. Then, transform."
+    > "The box doesn't create from nothing — it remixes what exists."
+    
+  examine: |
+    ┌─────────────────────────────────────────────────────────────┐
+    │  📦 THE TRANSMOGRIFIER                                      │
+    │     "Clone → Edit → Become"                                 │
+    ├─────────────────────────────────────────────────────────────┤
+    │                                                             │
+    │    ┌───────────────────────────────────────────┐            │
+    │    │                                           │            │
+    │    │     ╔═══════════════════════════╗         │            │
+    │    │     ║  WHAT DO YOU WANT TO BE?  ║         │            │
+    │    │     ╚═══════════════════════════╝         │            │
+    │    │                                           │            │
+    │    │       🐯 ← ───●─── → 🦖                   │            │
+    │    │            [DIAL]                         │            │
+    │    │                                           │            │
+    │    │     ┌─────────┐      ┌─────────┐          │            │
+    │    │     │ EXPORT  │      │ IMPORT  │          │            │
+    │    │     │  .yml   │      │  .yml   │          │            │
+    │    │     └─────────┘      └─────────┘          │            │
+    │    │                                           │            │
+    │    │         [ TRANSMOGRIFY! ]                 │            │
+    │    │                                           │            │
+    │    └───────────────────────────────────────────┘            │
+    │                    │                                        │
+    │                    │ (brass tube to Clone-O-Matic)          │
+    │                    ↓                                        │
+    │              [CLONE-O-MATIC]                                │
+    │                                                             │
+    └─────────────────────────────────────────────────────────────┘
+    
+  how_it_works: |
+    The Transmogrifier is a TRANSFORMATION pipeline, not a creation device.
+    It builds on the Clone-O-Matic's duplication:
+    
+    ┌─────────────────────────────────────────────────────────────┐
+    │                  TRANSMOGRIFICATION PIPELINE                │
+    ├─────────────────────────────────────────────────────────────┤
+    │                                                             │
+    │  1. CLONE (via Clone-O-Matic)                               │
+    │     └─→ Original stays safe                                 │
+    │     └─→ Clone enters the box                                │
+    │                                                             │
+    │  2. EDIT (inside the box)                                   │
+    │     ├─→ DIRECT: Modify slots in place                       │
+    │     │     name: "tiger" → name: "dinosaur"                  │
+    │     │     teeth: "sharp" → teeth: "REALLY sharp"            │
+    │     │                                                       │
+    │     └─→ EXPORT/MODIFY/IMPORT:                               │
+    │           1. Export clone to .yml file                      │
+    │           2. Edit the file externally                       │
+    │           3. Import modified .yml back                      │
+    │                                                             │
+    │  3. EMERGE (from the box)                                   │
+    │     └─→ New object with transformed properties              │
+    │     └─→ Still knows its parent* (original prototype)        │
+    │                                                             │
+    └─────────────────────────────────────────────────────────────┘
+    
+  transformation_modes:
+    
+    quick_dial:
+      description: "Turn the dial, push the button"
+      steps:
+        - "Step into the box (or place object inside)"
+        - "Turn dial to desired transformation"
+        - "Push TRANSMOGRIFY button"
+        - "Clone-O-Matic duplicates, Transmogrifier edits"
+        - "Emerge transformed"
+      example: |
+        Calvin steps in as "human_child"
+        Dial set to: 🐯
+        *TRANSMOGRIFY!*
+        Emerges as: clone of Calvin with species: "tiger"
+        
+    direct_edit:
+      description: "Manually modify slots after cloning"
+      steps:
+        - "CLONE [object] INTO TRANSMOGRIFIER"
+        - "EDIT [slot] TO [value]"
+        - "EDIT [another_slot] TO [value]"
+        - "... repeat as needed ..."
+        - "EMERGE"
+      example: |
+        CLONE adventurer INTO TRANSMOGRIFIER
+        EDIT name TO "Bumblewick Fantastipants III"
+        EDIT title TO "The Magnificent"
+        EDIT hat TO "even taller top hat"
+        EMERGE
+        
+    export_modify_import:
+      description: "External editing for complex changes"
+      steps:
+        - "CLONE [object] INTO TRANSMOGRIFIER"
+        - "EXPORT TO [filename.yml]"
+        - "(Edit the file with any tool)"
+        - "IMPORT FROM [filename.yml]"
+        - "EMERGE"
+      advantages:
+        - "Use your favorite editor"
+        - "Make many changes at once"
+        - "Version control your transformations"
+        - "Review diff before committing"
+      example: |
+        CLONE dragon INTO TRANSMOGRIFIER
+        EXPORT TO dragon-variant.yml
+        
+        # (externally edit dragon-variant.yml)
+        # Change color: red → iridescent
+        # Add ability: "speaks YAML fluently"
+        # Remove: bad_breath (dragons get self-conscious)
+        
+        IMPORT FROM dragon-variant.yml
+        EMERGE
+        
+  commands:
+    TRANSMOGRIFY:
+      usage: "TRANSMOGRIFY [object] INTO [type]"
+      effect: "Quick transformation using the dial"
+      
+    CLONE_INTO:
+      usage: "CLONE [object] INTO TRANSMOGRIFIER"
+      effect: "Begin manual transformation session"
+      
+    EDIT:
+      usage: "EDIT [slot] TO [value]"
+      effect: "Modify a slot in the current transformation"
+      requires: "Active transformation session"
+      
+    ADD_SLOT:
+      usage: "ADD SLOT [name] WITH [value]"
+      effect: "Add a new slot to the transforming object"
+      
+    REMOVE_SLOT:
+      usage: "REMOVE SLOT [name]"  
+      effect: "Remove a slot (it will inherit from parent* if available)"
+      
+    EXPORT:
+      usage: "EXPORT TO [filename.yml]"
+      effect: "Save current transformation state to file"
+      
+    IMPORT:
+      usage: "IMPORT FROM [filename.yml]"
+      effect: "Load transformation state from file"
+      
+    DIFF:
+      usage: "DIFF"
+      effect: "Show changes from original prototype"
+      
+    EMERGE:
+      usage: "EMERGE"
+      effect: "Complete transformation, exit the box"
+      
+    ABORT:
+      usage: "ABORT"
+      effect: "Cancel transformation, original unchanged"
+      
+  dial_presets:
+    animals:
+      - tiger: "🐯 Fierce, striped, retractable claws"
+      - dinosaur: "🦖 Ancient, toothy, tiny arms"
+      - elephant: "🐘 Big, wise, never forgets"
+      - owl: "🦉 Nocturnal, wise, head-spinning"
+      
+    characters:
+      - wizard: "🧙 Pointy hat, staff, mysterious"
+      - robot: "🤖 Metal, logical, beep boop"
+      - ghost: "👻 Translucent, spooky, chain-rattling optional"
+      - superhero: "🦸 Cape, powers, tragic backstory"
+      
+    objects:
+      - toaster: "🍞 Slots, heat, breakfast potential"
+      - spaceship: "🚀 Fast, zero-g, pew pew optional"
+      - book: "📚 Pages, knowledge, bookmarks"
+      
+    meta:
+      - yourself_but_different: "🔄 Same prototype, different slots"
+      - opposite: "⚡ Invert key properties"
+      - enhanced: "⬆️ Amplify existing traits"
+      - simplified: "⬇️ Reduce to essential slots"
+      
+  integration:
+    clone_o_matic:
+      role: "Duplication service"
+      connection: "Brass pneumatic tube"
+      protocol: |
+        1. Transmogrifier requests clone from Clone-O-Matic
+        2. Clone-O-Matic creates shallow or deep clone (configurable)
+        3. Clone is delivered via tube into the box
+        4. Transmogrifier takes over for editing
+        
+    slot_inspector:
+      role: "Precision viewing during edits"
+      connection: "Mounted monocle inside the box"
+      effect: "See exactly what slots you're changing"
+      
+    outliner:
+      role: "Live editing interface"
+      connection: "Holographic projection inside the box"
+      effect: "Visual slot manipulation"
+      
+  philosophy: |
+    The Transmogrifier embodies a key insight:
+    
+    **Transformation is just cloning + editing.**
+    
+    You don't create new things from nothing.
+    You find something similar, copy it, then make it yours.
+    
+    This is how:
+    - Characters evolve (clone, edit backstory)
+    - Variants are made (clone, tweak properties)
+    - NPCs become PCs (clone, add depth)
+    - Ideas become implementations (clone template, fill in details)
+    
+    The cardboard box reminds us: the technology is simple.
+    The magic is in knowing what to change.
+    
+  lore: |
+    Calvin explained it to Hobbes once:
+    
+    "It's a transmogrifier. It transforms stuff."
+    "What does it transform stuff into?"
+    "Whatever you want! That's the point!"
+    
+    When this box arrived in Room 8, someone connected it
+    to the Clone-O-Matic. Now it actually works — not through
+    imagination, but through prototype inheritance.
+    
+    The crayon drawings are still there. They're important.
+    They remind us that the best technology feels like play.
+    
+  calvin_and_hobbes:
+    tribute: true
+    creator: "Bill Watterson"
+    original: "A cardboard box with dial, used for imaginary transformation"
+    moollm_version: "Same box, but connected to Self's object system"
+    spirit_preserved: "Playful transformation, anything is possible"
+    
+  k_lines:
+    - SELF_LANGUAGE
+    - CLONING
+    - TRANSFORMATION
+    - EXPORT_IMPORT
+    - SLOT_EDITING
+    - CALVIN_AND_HOBBES
+    - PROTOTYPE_INHERITANCE
