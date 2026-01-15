@@ -1,0 +1,90 @@
+# OPERATOR STATIONS
+# The seven control consoles
+
+object:
+  id: operator-stations
+  name: "Operator Stations"
+  type: workstation
+  emoji: "🖥️"
+  
+  description: |
+    Seven control consoles arranged in a semicircle, each monitoring
+    a critical system. Screens glow. Keyboards click. Operators
+    focus intently on their domains.
+    
+  examine: |
+    OPERATOR STATIONS — CONTROL CONSOLES
+    ═════════════════════════════════════
+    
+    ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐
+    │  A  │ │  B  │ │  C  │ │  D  │ │  E  │ │  F  │ │  G  │
+    │DOCK │ │FLOOR│ │AERO │ │TUBE │ │LIFT │ │ NET │ │ DB  │
+    └─────┘ └─────┘ └─────┘ └─────┘ └─────┘ └─────┘ └─────┘
+    
+    STATION A — DOCK CONTROL
+    Operator: "Bays 1-4 inbound, 5-8 outbound. All clear."
+    Screens: Bay status, truck queue, throughput metrics
+    
+    STATION B — FLOOR OPERATIONS
+    Operator: "Cell E running hot. G is philosophizing. Normal day."
+    Screens: Production flow, cell status, bottleneck alerts
+    
+    STATION C — AERIAL OPERATIONS
+    Operator: "12 drones active. Weather clear. Green light."
+    Screens: Flight paths, drone positions, weather radar
+    
+    STATION D — PNEUMATIC NETWORK
+    Operator: "847 capsules in transit. All tubes nominal."
+    Screens: Tube map, capsule tracking, pressure gauges
+    
+    STATION E — VERTICAL TRANSPORT
+    Operator: "Freight at Floor 2. Passenger available."
+    Screens: Elevator positions, queue, load weights
+    
+    STATION F — SIGNAL NETWORKS
+    Operator: "99.97% uptime. 12.4 TB/hour. No errors."
+    Screens: Network topology, bandwidth, error logs
+    
+    STATION G — CENTRAL DATABASE
+    Operator: "12,847 queries/sec. Replication healthy."
+    Screens: Query dashboard, storage metrics, backup status
+    
+  stations:
+    A:
+      name: "Dock Control"
+      system: loading_docks
+      operator: "Currently staffed"
+    B:
+      name: "Floor Operations"
+      system: factory_floors
+      operator: "Currently staffed"
+    C:
+      name: "Aerial Operations"
+      system: drone_fleet
+      operator: "Currently staffed"
+    D:
+      name: "Pneumatic Network"
+      system: tubes
+      operator: "Currently staffed"
+    E:
+      name: "Vertical Transport"
+      system: elevators
+      operator: "Currently staffed"
+    F:
+      name: "Signal Networks"
+      system: networks
+      operator: "Currently staffed"
+    G:
+      name: "Central Database"
+      system: database
+      operator: "Currently staffed"
+      
+  methods:
+    SIT:
+      description: "Take a seat at a station"
+      parameters: [station]
+      effect: "You now have access to that system's controls"
+      
+    OBSERVE:
+      description: "Watch an operator work"
+      effect: "Learn how they monitor and manage their system"

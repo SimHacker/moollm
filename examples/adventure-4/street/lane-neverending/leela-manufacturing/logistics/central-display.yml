@@ -1,0 +1,61 @@
+# CENTRAL DISPLAY
+# The real-time operations map
+
+object:
+  id: central-display
+  name: "Central Display"
+  type: display
+  emoji: "🗺️"
+  
+  description: |
+    A massive curved screen dominates the center of the room,
+    showing a real-time map of the entire Leela facility.
+    Every floor, every system, every flow — all visible at once.
+    
+  examine: |
+    CENTRAL DISPLAY — FACILITY OPERATIONS MAP
+    ══════════════════════════════════════════
+    
+    The display shows a 3D cutaway of Leela Manufacturing:
+    
+    ┌─────────────────────────────────────────────────────┐
+    │  🌿 ROOFTOP ═══════════════ Drones: 12 active      │
+    │      ↕                                              │
+    │  3️⃣  FLOOR 3 ═════════════ Shipping: 87% flow     │
+    │      ↕                                              │
+    │  2️⃣  FLOOR 2 ═════════════ Processing: 58%        │
+    │      ↕                                              │
+    │  1️⃣  FLOOR 1 ═════════════ Intake: 73%            │
+    │      ↕                                              │
+    │  G   LOBBY ═══════════════ Visitors: 3             │
+    │      ↕                                              │
+    │  B   BASEMENT ════════════ R&D: CLASSIFIED         │
+    │                                                     │
+    │  ════════════ PNEUMATIC NETWORK ════════════       │
+    │  ○───○───○───○───○───○───○───○ (847 in transit)    │
+    │                                                     │
+    │  🚛 DOCKS: 6/8 active  📦 STORAGE: 74% capacity    │
+    └─────────────────────────────────────────────────────┘
+    
+    Touch any area to zoom in. Real-time updates every second.
+    
+  properties:
+    size: "4m x 2m curved"
+    resolution: "8K"
+    refresh_rate: "1 second"
+    touch_enabled: true
+    
+  methods:
+    ZOOM:
+      description: "Zoom into a specific area"
+      parameters: [area]
+      effect: "Display zooms to show detailed view of selected area"
+      
+    OVERVIEW:
+      description: "Return to full facility view"
+      effect: "Display returns to the full overview"
+      
+    HIGHLIGHT:
+      description: "Highlight a specific system"
+      parameters: [system]
+      effect: "System flows and connections illuminate"

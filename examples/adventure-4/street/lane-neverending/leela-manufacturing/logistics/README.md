@@ -71,7 +71,7 @@ The Logistics Center monitors and coordinates:
 
 ### Factory Floors
 - Floor 1 (Intake) — Sorting, intake rates
-- Floor 2 (Processing) — Cell status, production flow
+- Floor 2 (Factory) — Cell status, production flow
 - Floor 3 (Shipping) — Packaging, dispatch queue
 
 ### Aerial Operations

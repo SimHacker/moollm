@@ -1,0 +1,87 @@
+# EMERGENCY KIT
+# For when things go wrong in the stacks
+
+object:
+  id: emergency-kit
+  name: "Emergency Kit"
+  type: equipment
+  emoji: "🆘"
+  
+  description: |
+    A bright red emergency kit mounted by the entrance.
+    For when retrieval missions go wrong. Contains supplies
+    for survival in non-Euclidean space.
+    
+  examine: |
+    EMERGENCY KIT — WAREHOUSE 23 SURVIVAL
+    ══════════════════════════════════════
+    
+    A red metal box with "EMERGENCY" in white letters.
+    Glass front, break to access. Mounted by the exit.
+    
+    CONTENTS:
+    ┌────────────────────────────────────────┐
+    │ STANDARD SUPPLIES:                     │
+    │ • Flashlight (extra batteries)         │
+    │ • Compass (may not work past Aisle 50) │
+    │ • Emergency rations (3 days)           │
+    │ • Water (3 liters)                     │
+    │ • First aid kit                        │
+    │ • Emergency blanket                    │
+    │ • Flare gun (3 flares)                 │
+    │                                        │
+    │ WAREHOUSE 23 SPECIAL SUPPLIES:         │
+    │ • Ball of twine (for finding way back) │
+    │ • Chalk (for marking where you've been)│
+    │ • Earplugs (some crates whisper)       │
+    │ • Blindfold (for Section D)            │
+    │ • Salt (multi-purpose protection)      │
+    │ • Copy of emergency protocols          │
+    │ • "HELP" sign (fluorescent)            │
+    │                                        │
+    │ DO NOT OPEN UNLESS NECESSARY           │
+    └────────────────────────────────────────┘
+    
+    INSTRUCTION CARD:
+    "If lost in the stacks:
+     1. Stay calm
+     2. Mark your position
+     3. Do not open any crates
+     4. Use flare if in genuine distress
+     5. Wait for the Archivist
+     6. Accept that time moves differently here"
+    
+    KIT STATUS: SEALED (last inspected 1 year ago)
+    
+  contents:
+    standard:
+      - "Flashlight (extra batteries)"
+      - "Compass"
+      - "Emergency rations (3 days)"
+      - "Water (3 liters)"
+      - "First aid kit"
+      - "Emergency blanket"
+      - "Flare gun (3 flares)"
+    special:
+      - "Ball of twine"
+      - "Chalk"
+      - "Earplugs"
+      - "Blindfold"
+      - "Salt"
+      - "Emergency protocols"
+      - "HELP sign"
+      
+  methods:
+    BREAK_GLASS:
+      description: "Access the emergency kit"
+      effect: |
+        CRASH!
+        
+        Glass shatters. Alarm sounds briefly.
+        The Archivist looks up, sighs.
+        
+        You now have access to emergency supplies.
+        
+    INSPECT:
+      description: "Look at the kit through the glass"
+      effect: "Everything appears to be in order. Probably."

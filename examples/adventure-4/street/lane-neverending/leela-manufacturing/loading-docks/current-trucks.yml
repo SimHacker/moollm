@@ -1,0 +1,94 @@
+# CURRENT TRUCKS
+# The trucks at the dock right now
+
+object:
+  id: current-trucks
+  name: "Current Trucks"
+  type: vehicles
+  emoji: "🚚"
+  
+  description: |
+    Several trucks are at the loading docks right now,
+    in various stages of loading and unloading.
+    Engines idle. Workers move cargo. Business as usual.
+    
+  examine: |
+    CURRENT TRUCKS AT LOADING DOCKS
+    ═════════════════════════════════
+    
+    BAY 1 (INBOUND):
+    🚛 "DATA HAULER PRIME"
+    Large semi-truck, blue with Leela logo.
+    Currently unloading: Raw data pallets
+    Driver: Taking a coffee break
+    ETA to clear: 45 minutes
+    
+    BAY 2 (INBOUND):
+    🚚 "INSIGHT EXPRESS #2"
+    Box truck, yellow.
+    Currently: Backing in
+    Cargo: Bulk questions (handle with curiosity)
+    Driver: "Beep beep beep..."
+    
+    BAY 3 (INBOUND):
+    [EMPTY — awaiting confusion tanker]
+    
+    BAY 4 (INBOUND):
+    🚐 "MYSTERY VAN"
+    Unmarked white van.
+    Contents: Unknown
+    Driver: Never seen
+    Status: Just... there. Always.
+    
+    BAY 5 (OUTBOUND):
+    🚛 "WISDOM WAGON"
+    Large truck, green.
+    Currently: 50% loaded
+    Cargo: Finished insights for Origin Plaza
+    
+    BAY 6 (OUTBOUND):
+    🚚 "BULK CARRIER #7"
+    Flatbed with containers.
+    Currently: Staging
+    Cargo: Premium knowledge shipment
+    
+    BAY 7 (OUTBOUND):
+    [RESERVED — rush order staging]
+    
+    BAY 8 (OUTBOUND):
+    🛺 "PIGEON EXPRESS"
+    Small cargo van with pigeon logo.
+    Currently: Loading small parcels
+    Note: Pigeons ride in back (in cages, thoughtfully)
+    
+  trucks:
+    - bay: 1
+      name: "Data Hauler Prime"
+      type: "Semi-truck"
+      status: "Unloading"
+      cargo: "Raw data pallets"
+    - bay: 2
+      name: "Insight Express #2"
+      type: "Box truck"
+      status: "Backing in"
+      cargo: "Bulk questions"
+    - bay: 4
+      name: "Mystery Van"
+      type: "Van"
+      status: "Unknown"
+      cargo: "Unknown"
+    - bay: 5
+      name: "Wisdom Wagon"
+      type: "Semi-truck"
+      status: "Loading 50%"
+      cargo: "Finished insights"
+    - bay: 6
+      name: "Bulk Carrier #7"
+      type: "Flatbed"
+      status: "Staging"
+      cargo: "Premium knowledge"
+    - bay: 8
+      name: "Pigeon Express"
+      type: "Cargo van"
+      status: "Loading"
+      cargo: "Small parcels"

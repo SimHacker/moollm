@@ -1,0 +1,71 @@
+# CARD CATALOG
+# Index to the unknowable
+
+object:
+  id: card-catalog
+  name: "Card Catalog"
+  type: index
+  emoji: "🗃️"
+  
+  description: |
+    A wooden card catalog stretching up beyond sight. Each drawer
+    contains cards for crates in the warehouse. The indexing system
+    defies logic. The Archivist understands it. Probably.
+    
+  examine: |
+    CARD CATALOG — INDEX TO WAREHOUSE 23
+    ═════════════════════════════════════
+    
+    The catalog extends upward into shadow. Wooden drawers,
+    brass handles, yellowed cards within. The organization
+    system is... unconventional.
+    
+    DRAWER LABELS (visible range):
+    A-Aardvark through A-Apocalypse
+    B-Babel through B-Byzantium  
+    C-Cthulhu through C-Cosmic
+    ...
+    Ω-Omega through Ω-Otherwise
+    ∞-Infinite through ∞-Impossible
+    ?-Unknown through ?-Unknowable
+    
+    SAMPLE CARD:
+    ┌────────────────────────────────────────┐
+    │ CRATE #: 9906753                       │
+    │ CONTENTS: [REDACTED]                   │
+    │ ACQUIRED: 1936                         │
+    │ LOCATION: Aisle [CLASSIFIED]           │
+    │ CLEARANCE: TOP SECRET                  │
+    │ HANDLING: DO NOT OPEN                  │
+    │           DO NOT LOOK INSIDE           │
+    │           DO NOT ASK QUESTIONS         │
+    │ STATUS: Top men working on it          │
+    └────────────────────────────────────────┘
+    
+    NOTE ATTACHED TO CATALOG:
+    "If the card you seek is not here,
+     the crate does not exist.
+     (Or it doesn't want to be found.)"
+    
+  properties:
+    drawers: "Uncountable"
+    cards_per_drawer: "Variable"
+    organization: "Non-Euclidean alphabetical"
+    last_complete_inventory: "Never"
+    
+  methods:
+    SEARCH:
+      description: "Search for a crate"
+      parameters: [query]
+      effect: |
+        You pull open a drawer...
+        Cards flutter. Some seem to move on their own.
+        Result: [CLASSIFIED] or [NOT FOUND] or [NICE TRY]
+        
+    BROWSE:
+      description: "Browse random cards"
+      effect: |
+        You flip through cards at random.
+        Most are heavily redacted.
+        One mentions something about a monkey's paw.
+        You close the drawer quickly.
