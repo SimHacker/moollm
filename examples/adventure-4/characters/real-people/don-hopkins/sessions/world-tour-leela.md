@@ -1500,6 +1500,159 @@ The nerve center. See [logistics/README.md](../../../../street/lane-neverending/
 
 ---
 
+## Part 5.5: The Infrastructure Stack — Don Explains
+
+*The tour gathers around Station G — the Central Database station.*
+
+**Don:** "Now let me show you what REALLY powers Leela. Not magic. Not mystery. Just good engineering."
+
+### The Central Database: PostgreSQL + TimescaleDB
+
+**Don:** "Everything runs on PostgreSQL 18 with TimescaleDB 2.24. One database. One source of truth."
+
+```
+┌────────────────────────────────────────────────────┐
+│  🐘 LEELA CENTRAL DATABASE                         │
+│  PostgreSQL 18.1 + TimescaleDB 2.24                │
+│                                                    │
+│  • Time-series optimized                           │
+│  • PubSub event queue (LISTEN/NOTIFY)              │
+│  • Task dispatch (FOR SKIP LOCKED)                 │
+│  • No Redis. No RabbitMQ. Just PostgreSQL.         │
+└────────────────────────────────────────────────────┘
+```
+
+**Palm:** "Why not use Redis for the queue?"
+
+**Don:** "VISIBILITY. With PostgreSQL, I can run `SELECT * FROM task_queue WHERE failed` and see exactly what's broken. Try that with Redis. I'll wait."
+
+**The Coordinator:** "We haven't had a mystery queue failure in 18 months."
+
+**Don:** "Because there ARE no mysteries. It's all in the database. Queryable. Debuggable. Visible."
+
+---
+
+### The Four Server Stacks
+
+*Don gestures at a rack diagram on the big board.*
+
+**Don:** "Four stacks. Each does one thing well."
+
+| Stack | Purpose | Details |
+|-------|---------|---------|
+| **Looker** | Computer Vision | GPU servers, object detection, pose estimation, OCR |
+| **Thinker** | Symbolic Python Action Layer | CPU servers, ArUco tracking, QR codes, LLM/VLM calls |
+| **Web** | Services | Caddy + Grafana, PDA, Hub, Insights |
+| **Storage** | S3 + Ingest | Leela S3, backups, mirroring, upload-triggered pipeline |
+
+---
+
+### Looker Stack (Computer Vision)
+
+**Don:** "The Lookers have the GPUs. Object detection, pose estimation, OCR. Multiple camera streams, scalable."
+
+**Archie:** "When a camera sees something interesting, the Looker writes to a PostgreSQL hypertable. Timestamped, indexed, queryable."
+
+**Don:** "Not some opaque blob in S3. Actual structured data you can JOIN against."
+
+---
+
+### Thinker Stack (Symbolic Python Action Layer)
+
+**Don:** "Thinkers are the brains — but not necessarily heavy compute."
+
+| Task Type | Examples |
+|-----------|----------|
+| Lightweight Vision | Colored light detectors, ArUco markers, QR codes |
+| High-Level AI | LLM calls (Claude, GPT), VLM for scene understanding |
+| Orchestration | MOOLLM kernel execution, skill dispatch |
+
+**Palm:** "So Thinkers call the LLM APIs?"
+
+**Don:** "Among other things. They also do lightweight image processing that doesn't need GPUs — status light detection, fiducial tracking, that kind of thing. The Lookers do the heavy vision. Thinkers do the symbolic layer."
+
+**Don:** "Task queue is PostgreSQL FOR SKIP LOCKED. Thinkers claim tasks atomically. No race conditions. No lost jobs. No Redis cluster to babysit."
+
+---
+
+### Web Stack (Caddy + Services)
+
+**Don:** "Caddy for reverse proxy. Automatic HTTPS. Zero config TLS. HTTP/3."
+
+| Service | Purpose |
+|---------|---------|
+| **Grafana** | Metrics, dashboards, alerting — pulls from PostgreSQL |
+| **PDA** | Mobile operator interface, handheld control |
+| **Hub** | Central portal, API gateway, WebSocket |
+| **Insights** | Analytics, reports, data exploration |
+
+**Marieke:** "Why Caddy instead of nginx?"
+
+**Don:** "Have you ever written an nginx.conf? Have you ever debugged one at 3 AM? Caddy just WORKS. Automatic Let's Encrypt. No renewal cron jobs. No certificate panics."
+
+---
+
+### Storage Stack (Leela S3 + Ingest)
+
+**Don:** "Our own S3-compatible storage. Not AWS. Not MinIO. Ours."
+
+```
+┌──────────────────────────────────────────────┐
+│  S3 STORAGE CLUSTER                          │
+│  ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ │
+│  │PRIMARY │ │PRIMARY │ │ MIRROR │ │ BACKUP │ │
+│  │ hot    │ │ hot    │ │ redund │ │ cold   │ │
+│  └────────┘ └────────┘ └────────┘ └────────┘ │
+└──────────────────────────────────────────────┘
+```
+
+**Don:** "Primary for hot data. Mirror for redundancy. Backup for disaster recovery."
+
+---
+
+### The Upload-Triggered Pipeline
+
+*Don draws on the big board.*
+
+**Don:** "This is the magic. Camera uploads video chunk to S3..."
+
+```
+Camera → S3 upload → bucket notification → PostgreSQL NOTIFY →
+Thinker claims task → processes → metadata to hypertable
+```
+
+**Don:** "Fully automated. No polling. No cron jobs. Upload triggers processing. Metadata is queryable immediately."
+
+**The Coordinator:** "ACME still uses polling loops. Every 5 seconds, checking 'is there new data?' Burning cycles. Missing events."
+
+**Don:** "We get notified. PostgreSQL LISTEN/NOTIFY. Thinker wakes up, claims the task, does the work, writes the result. Done before ACME's polling loop even fires."
+
+---
+
+### Why PostgreSQL For Everything?
+
+*Don pauses, looks at the group.*
+
+**Don:** "People ask why we don't use a 'modern' architecture. Microservices. Kafka. Redis. RabbitMQ. Kubernetes. Service mesh."
+
+**Don:** "Because we've SEEN that architecture. It's 47 services, 12 message brokers, 3 different databases, and when something breaks at 2 AM, you can't even figure out which LOG FILE to check."
+
+| Problem | ACME Approach | Leela Approach |
+|---------|---------------|----------------|
+| Task queue | Redis + custom code | PostgreSQL FOR SKIP LOCKED |
+| Event bus | Kafka + ZooKeeper | PostgreSQL LISTEN/NOTIFY |
+| Time series | InfluxDB | TimescaleDB (PostgreSQL extension) |
+| Debugging | "Check the Datadog" | SELECT * FROM events WHERE... |
+| Late night pages | "Which service crashed?" | One database, one log, one truth |
+
+**Don:** "ACME uses 17 different message brokers. Leela uses PostgreSQL. Guess which one can tell you what happened yesterday."
+
+**Archie:** "We can tell you what happened LAST YEAR. It's all in the hypertables."
+
+**Don:** "One database. One truth. Queryable forever."
+
+---
+
 ## Part 6: Camera Analytics
 
 ### The Camera Network
