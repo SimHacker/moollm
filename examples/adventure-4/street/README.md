@@ -78,16 +78,23 @@ These names were chosen for both meaning and mellifluousness:
 
 *Horizontal streets honoring the virtual worlds and projects that shaped this medium.*
 
-**Ordered north to south** (oldest inspirations in the north, newest at the southern frontier):
+**Ordered north to south** — "Old Town" text adventures in the north, newer worlds toward the south:
 
 | Street | Position | Tribute | Era | Status |
 |--------|----------|---------|-----|--------|
-| **MUD Alley** | Far North | MUD1, the first MUD | 1978 | 📋 Planned |
-| **Zork Row** | North | Infocom's Zork | 1977-1980s | 📋 Planned |
+| **Bartle Boulevard** | Far North | Richard Bartle, MUD1 | 1978 | 📋 Planned |
+| **Adams Avenue** | North | Scott Adams (Adventureland) | 1978 | 📋 Planned |
+| **Zork Row** | North | Infocom's Zork | 1977-1982 | 📋 Planned |
 | **Habitat Boulevard** | Mid-North | Lucasfilm's Habitat | 1986 | 📋 Planned |
 | **Sims Street** | Mid | The Sims, SimCity | 1989-2000 | 📋 Planned |
 | **Second Life Circle** | Mid-South | Second Life | 2003 | 📋 Planned |
-| **Lane Neverending** | **South Edge** | Habitat, Game Neverending, Glitch | 1986-2012 | ✅ Built |
+| **Glitch Way** | Just North of Lane | Glitch (Tiny Speck) | 2011-2012 | 📋 Planned |
+| **Lane Neverending** | **South Edge** | Habitat → Game Neverending → Glitch | 1986-2012 | ✅ Built |
+
+**The Glitch Connection:**
+Glitch Way sits directly north of Lane Neverending — they're family.
+Game Neverending (2002-2004) became Flickr but inspired Glitch (2011-2012).
+Lane Neverending honors that whole lineage.
 
 **South of Lane Neverending:** The pub's back garden → the maze → dungeons and wilder places.
 
@@ -127,15 +134,23 @@ The heart of town is where **Kay Lane** crosses **Lane Neverending**.
 **North is UP. The pub marks the southern edge of the street grid.**
 
 ```
-N O R T H   (toward old text adventures)
+N O R T H   ("Old Town" — text adventure district)
               │          │        │         │        │
-──────────────┼──────────┼────────┼─────────┼────────┼────────  MUD Alley (far north)
+──────────────┼──────────┼────────┼─────────┼────────┼────────  Bartle Boulevard (MUD, 1978)
               │          │        │         │        │
-──────────────┼──────────┼────────┼─────────┼────────┼────────  Zork Row
+──────────────┼──────────┼────────┼─────────┼────────┼────────  Adams Avenue (Scott Adams, 1978)
               │          │        │         │        │
-──────────────┼──────────┼────────┼─────────┼────────┼────────  Habitat Blvd
+──────────────┼──────────┼────────┼─────────┼────────┼────────  Zork Row (Infocom, 1977-82)
               │          │        │         │        │
-──────────────┼──────────┼────────┼─────────┼────────┼────────  Lane Neverending (southern edge)
+──────────────┼──────────┼────────┼─────────┼────────┼────────  Habitat Boulevard (1986)
+              │          │        │         │        │
+──────────────┼──────────┼────────┼─────────┼────────┼────────  Sims Street (1989-2000)
+              │          │        │         │        │
+──────────────┼──────────┼────────┼─────────┼────────┼────────  Second Life Circle (2003)
+              │          │        │         │        │
+──────────────┼──────────┼────────┼─────────┼────────┼────────  Glitch Way (2011-12) ← family!
+              │          │        │         │        │
+══════════════╪══════════╪════════╪═════════╪════════╪════════  Lane Neverending (SOUTHERN EDGE)
               │          │  PUB ◆ │         │ LEELA  │            ◆ = main intersection
               │Sutherland│  Kay   │Engelbart│ Minsky │ Papert
               │  Street  │  Lane  │ Avenue  │  Way   │  Path
@@ -146,7 +161,8 @@ N O R T H   (toward old text adventures)
 S O U T H   (into the wilds)
 ```
 
-The further north you go, the older the inspirations (MUD, Zork).
+The further north you go, the older the inspirations ("Old Town" — MUD, Adams, Zork).
+Glitch Way sits just north of Lane Neverending — honoring their shared lineage.
 The further south you go, the wilder it gets (maze, dungeons, unknown).
 
 ---
