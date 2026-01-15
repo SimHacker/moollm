@@ -161,15 +161,24 @@ object:
     └──────────────────────────────────────────────────────────┘
     
     ┌──────────────────────────────────────────────────────────┐
-    │  THINKER STACK (AI/Inference)                            │
+    │  THINKER STACK (Orchestration/API)                       │
     │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐      │
     │  │THINK-1  │  │THINK-2  │  │THINK-3  │  │THINK-4  │      │
-    │  │ GPU×8   │  │ GPU×8   │  │ GPU×8   │  │ GPU×8   │      │
-    │  │ LLM/VLM │  │ LLM/VLM │  │ LLM/VLM │  │ LLM/VLM │      │
+    │  │ CPU     │  │ CPU     │  │ CPU     │  │ CPU     │      │
+    │  │ Python  │  │ Python  │  │ Python  │  │ Python  │      │
     │  └─────────┘  └─────────┘  └─────────┘  └─────────┘      │
-    │  • LLM inference, vision-language models                 │
+    │                                                          │
+    │  NO GPUs NEEDED — Thinkers orchestrate, not compute:     │
+    │  • API calls to LLM providers (Claude, GPT, etc.)        │
     │  • MOOLLM kernel execution, skill dispatch               │
+    │  • Context assembly, prompt construction                 │
     │  • Task queue via PostgreSQL FOR SKIP LOCKED             │
+    │  • Results back to PostgreSQL + downstream systems       │
+    │                                                          │
+    │  The heavy lifting happens elsewhere:                    │
+    │  • LLMs run on provider infrastructure                   │
+    │  • Lookers have the GPUs for vision                      │
+    │  • Thinkers just think (and wait for API responses)      │
     └──────────────────────────────────────────────────────────┘
     
     ┌──────────────────────────────────────────────────────────┐
