@@ -45,14 +45,14 @@ room:
     - trashcan.yml
   
   exits:
-    east:
+    west:
       destination: ../garden/
       description: |
         The garden gate leads to the pub's back garden — tables,
         chairs, flowers, and the comforting smell of ale from the pub.
         The outdoor dining area. Your domain.
         
-    northeast:
+    northwest:
       destination: ../pub/
       description: |
         A narrow service corridor cuts diagonally through to the pub.

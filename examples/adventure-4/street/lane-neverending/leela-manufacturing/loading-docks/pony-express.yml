@@ -129,8 +129,8 @@ object:
     PERSONNEL
     ══════════════════════════════════════════════════════
     
-    DISPATCH MASTER: Henrietta "Henri" Blackwood
-    • Former stagecoach driver, 30 years experience
+    DISPATCH MASTER: Henry Minskison
+    • Former stagecoach driver, bear trainer, 30 years experience
     • Knows every route, every waypoint, every innkeeper
     • Coordinates with Old Jareth (Stable Master)
     • Desk in the Carriage House, next to the tack room
@@ -212,13 +212,13 @@ object:
       2. Sorted by destination realm
       3. If realm is "rustic" → flag for Pony Express
       4. Transfer to Carriage House
-      5. Henri assigns route and vehicle
+      5. Henry assigns route and vehicle
       6. Package loaded, manifest updated in PostgreSQL
       7. Rider departs with tracking ID
       
       PONY EXPRESS → MODERN:
       1. Rider arrives at Carriage House with incoming
-      2. Packages logged in (Old Jareth or Henri)
+      2. Packages logged in (Old Jareth or Henry)
       3. Entered into Central Database
       4. Transferred to Loading Docks
       5. Continue via drone/truck/pneumatic as appropriate
@@ -244,9 +244,9 @@ object:
     
     The first shipment was to a wizard's tower. The drone
     got zapped by a ward. The truck couldn't climb the
-    floating island. Henri suggested horses.
+    floating island. Henry suggested horses.
     
-    "Horses don't care about wards," she said. "They just
+    "Horses don't care about wards," he said. "They just
     want oats and a pat on the nose."
     
     The wizard got his package. He tipped the rider in
@@ -273,7 +273,7 @@ object:
         service: "rider, cart, carriage, or stagecoach"
         urgency: "standard or rush"
       effect: |
-        Henri reviews the request...
+        Henry reviews the request...
         Checks route availability...
         Assigns rider and vehicle...
         
@@ -303,7 +303,7 @@ object:
         package: "What's being collected"
         date: "When to arrive"
       effect: |
-        Henri schedules the pickup...
+        Henry schedules the pickup...
         
         "Rider will arrive at [location] on [date]."
         "Please have package ready and accessible."
