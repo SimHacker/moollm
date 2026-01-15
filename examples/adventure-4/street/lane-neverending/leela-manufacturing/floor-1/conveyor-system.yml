@@ -64,6 +64,12 @@ object:
                                 │
                                 ▼
                         ┌────────────────┐
+                        │ PYTHON ACTIONS │
+                        │ (high-level)   │
+                        └───────┬────────┘
+                                │
+                                ▼
+                        ┌────────────────┐
                         │      SQL       │
                         │   (stored)     │
                         └───────┬────────┘
@@ -159,7 +165,25 @@ object:
     ════════════════════════════
     Gold containers, heavier with understanding.
     Each insight knows what it saw AND what it meant.
-    Flows steadily toward the SQL reservoir.
+    Flows into Python Actions for high-level processing.
+    
+    LINE A (Green): Python Actions
+    ══════════════════════════════
+    Green containers carry executable logic.
+    Python scripts consume insights, define high-level actions,
+    and emit structured data to SQL tables.
+    
+    "Cat detected waving" → action: GREETING_DETECTED
+                         → emit: events.greetings (timestamp, entity, gesture)
+                         → emit: metrics.engagement (score: 0.87)
+    
+    Actions can:
+    • Aggregate multiple insights into events
+    • Trigger alerts and notifications
+    • Update state machines
+    • Emit to multiple SQL tables
+    • Call external APIs
+    • Schedule follow-up actions
     
     LINE S (Silver): SQL Storage
     ════════════════════════════
@@ -210,6 +234,7 @@ object:
     line_p: { speed: "normal", items: 89, poses_tracked: 1247 }
     junction_beta: { merging: true, insights_created: 847 }
     line_i: { speed: "steady", items: 42, understanding_level: "high" }
+    line_a: { speed: "fast", items: 38, actions_defined: 156, tables_emitting: 12 }
     line_s: { speed: "variable", items: 156, rows_stored: 2847291 }
     line_q: { speed: "on-demand", active_queries: 23 }
     pda_station: { assistants: 4, queries_written_today: 89 }
@@ -263,6 +288,15 @@ object:
       connections_found: 128947
       "aha_moments": 23
       
+    python_actions:
+      actions_defined: 156
+      actions_triggered_today: 8472
+      tables_emitting_to: 12
+      avg_execution_time: "23ms"
+      most_triggered: "MOTION_DETECTED"
+      alerts_sent: 47
+      state_machines_active: 8
+      
     sql_storage:
       tables: 847
       rows: 28472910
@@ -312,6 +346,26 @@ object:
         data: "Query results"
         style: "Chart type or 'auto'"
       effect: "Beautiful understanding emerges"
+      
+    DEFINE_ACTION:
+      description: "Create a new Python action"
+      parameters:
+        name: "Action name (e.g., GREETING_DETECTED)"
+        trigger: "Insight pattern to match"
+        script: "Python code to execute"
+        emit_to: "SQL tables to write to"
+      effect: "New action registered in pipeline"
+      
+    LIST_ACTIONS:
+      description: "Show all defined actions"
+      effect: "Display action catalog with trigger patterns"
+      
+    TEST_ACTION:
+      description: "Test action with sample insight"
+      parameters:
+        action: "Action name"
+        insight: "Sample insight data"
+      effect: "Dry run — shows what would be emitted"
       
     TRAIN_OBJECT_MODEL:
       description: "Submit object detection model for training"
