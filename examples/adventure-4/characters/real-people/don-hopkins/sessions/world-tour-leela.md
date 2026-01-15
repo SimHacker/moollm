@@ -1045,8 +1045,8 @@ THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
 | **Quality** | "Works 2% of the time" | "Works or we debug it" |
 | **Warranty** | "Not responsible for anything" | "Prototype inheritance means we fix the source" |
 | **Catalog & Services** | [Gimmicks that fail](../../../../kitchen/acme-catalog.yml) + [Monsters that eat you](../../../../pub/rooms/attic/acme-monster-manual.yml) | [1,400+ products that work](../../../../street/lane-neverending/leela-manufacturing/lobby/leela-catalog.yml) + [Logistics that deliver](../../../../street/lane-neverending/leela-manufacturing/logistics/ROOM.yml) |
-| **Funding** | "Series F! (Previous five burned through)" | Sustainable happy customers |
-| **Status** | Storefront closed, pivoting to AI | Thriving, 8 operator stations |
+| **Funding** | Scam victims + ripped off investors | Sustainable happy customers |
+| **Status** | Storefront closed, pivoting to Generative AI | Thriving, 8 operator stations |
 
 ---
 
