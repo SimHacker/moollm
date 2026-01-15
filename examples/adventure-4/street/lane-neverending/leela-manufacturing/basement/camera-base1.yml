@@ -1,0 +1,92 @@
+# CAMERA BASE1
+# Leela's deep eye — watching the research... carefully
+
+object:
+  id: camera-base1
+  name: "Camera BASE1"
+  type: sensor
+  emoji: "📹"
+  
+  tags: [sensor, camera, video, self-observation, eye, classified]
+  
+  description: |
+    A reinforced camera mounted in the corner of the R&D basement,
+    watching the experimental equipment, the Forbidden Shelf, and
+    the ominous door to Zone 7. Some of its footage is... classified.
+    
+  examine: |
+    CAMERA BASE1 — LEELA'S DEEP EYE
+    ════════════════════════════════
+    
+    ┌─────────────────────────────────────────┐
+    │  📹 BASE1                               │
+    │  ═══════                                │
+    │                                         │
+    │  Location: Basement (R&D Laboratory)    │
+    │  Status: 🟢 LIVE                        │
+    │  Resolution: 4K @ 30fps                 │
+    │  Feed: → VIDEO INTAKE (Floor 1)         │
+    │  Classification: PARTIAL REDACTION      │
+    │                                         │
+    │  "Leela watching the deep work."        │
+    └─────────────────────────────────────────┘
+    
+    CURRENT VIEW:
+    • Beaker Array Alpha: Bubbling (colors: blue, green, suspicious)
+    • The Black Box: Still humming. Still unknown.
+    • Forbidden Shelf: Locked. Glowing faintly.
+    • Zone 7 Door: Warning lights rotating
+    • Researchers: 3 visible, 2 at whiteboards, 1 staring at nothing
+    
+    DETECTED IN LAST HOUR:
+    • 89 object detections
+    • 47 pose estimations
+    • 12 "RESEARCHER_THINKING" events
+    • 3 "EQUIPMENT_ACTIVATED" events
+    • 1 "FORBIDDEN_SHELF_APPROACHED" event (alarm triggered)
+    • 0 "ZONE_7_ENTRY" events (door remained sealed)
+    
+    REDACTED FOOTAGE:
+    ██████████████████████████████████
+    ██████████████████████████████████
+    (Some portions of BASE1's feed are automatically
+    redacted before entering the pipeline. What happens
+    in Zone 7's visible arc is... not processed.)
+    
+  properties:
+    designation: "BASE1"
+    nickname: "Deep Eye"
+    location: "Basement, R&D Laboratory"
+    resolution: "4K"
+    fps: 30
+    low_light: true
+    redaction_enabled: true
+    zone_7_arc: "excluded from pipeline"
+    
+  state:
+    status: "live"
+    streaming_to: "floor-1/conveyor-system"
+    redaction_active: true
+    zone_7_visible: false  # By design
+    
+  methods:
+    WATCH:
+      description: "View the live feed"
+      effect: |
+        The basement laboratory spreads out, dimly lit.
+        Equipment hums. Beakers bubble. Researchers think.
+        
+        The Forbidden Shelf glows in the corner.
+        The Zone 7 door is visible, warning lights rotating.
+        
+        A portion of the feed is black — redacted in real-time.
+        You're not supposed to see that part.
+        Nobody is.
+        
+    VIEW_REDACTED:
+      description: "Attempt to view redacted portions"
+      clearance_required: "Omega"
+      effect: |
+        ACCESS DENIED
+        
+        Nice try.

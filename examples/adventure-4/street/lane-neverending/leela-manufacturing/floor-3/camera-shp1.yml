@@ -1,0 +1,86 @@
+# CAMERA SHP1
+# Leela's shipping eye — watching insights depart
+
+object:
+  id: camera-shp1
+  name: "Camera SHP1"
+  type: sensor
+  emoji: "📹"
+  
+  tags: [sensor, camera, video, self-observation, eye, shipping]
+  
+  description: |
+    A camera mounted above the departure board, watching
+    packaged insights being prepared for shipment into the world.
+    The split-flap display clacks. Packages move. Knowledge flows out.
+    
+  examine: |
+    CAMERA SHP1 — LEELA'S SHIPPING EYE
+    ═══════════════════════════════════
+    
+    ┌─────────────────────────────────────────┐
+    │  📹 SHP1                                │
+    │  ══════                                 │
+    │                                         │
+    │  Location: Floor 3 (Shipping)           │
+    │  Status: 🟢 LIVE                        │
+    │  Resolution: 4K @ 30fps                 │
+    │  Feed: → VIDEO INTAKE (Floor 1)         │
+    │                                         │
+    │  "Leela watching knowledge leave."      │
+    └─────────────────────────────────────────┘
+    
+    CURRENT VIEW:
+    • Departure Board: *clack clack clack* (updating)
+    • Packaging Station 1: Wrapping "Premium Insight" package
+    • Packaging Station 3: Bulk wisdom being palleted
+    • Pneumatic Hub: Capsule launching to Loading Docks
+    • Queue: 23 packages awaiting processing
+    
+    DETECTED IN LAST HOUR:
+    • 567 object detections
+    • 234 pose estimations
+    • 89 "PACKAGE_WRAPPED" events
+    • 47 "DEPARTURE_UPDATED" events
+    • 23 "PNEUMATIC_LAUNCH" events
+    • 12 "RUSH_ORDER" events
+    • 1 "PACKAGE_TOO_BEAUTIFUL" event (sent to gallery)
+    
+    DEPARTURE BOARD STATUS (via SHP1):
+    ┌────────────────────────────────────────┐
+    │ DEST          TIME    STATUS           │
+    │ ════════════════════════════════════   │
+    │ PUB           14:23   DEPARTED    🟢   │
+    │ LANE-E2       14:31   BOARDING    🟡   │
+    │ WAREHOUSE-23  14:45   DELAYED     🔴   │
+    │ ROOFTOP       14:47   ON TIME     🟢   │
+    │ EXTERNAL      15:00   QUEUED      ⚪   │
+    └────────────────────────────────────────┘
+    
+  properties:
+    designation: "SHP1"
+    nickname: "Shipping Eye"
+    location: "Floor 3, Above Departure Board"
+    resolution: "4K"
+    fps: 30
+    clack_detection: true  # Counts board updates by sound
+    
+  state:
+    status: "live"
+    streaming_to: "floor-1/conveyor-system"
+    packages_observed_today: 847
+    
+  methods:
+    WATCH:
+      description: "View the live feed"
+      effect: |
+        The shipping floor hums with outbound energy.
+        
+        *clack clack clack* — the departure board updates.
+        Another package wrapped. Another insight sent.
+        
+        Workers move with purpose. Knowledge flows out
+        into the world, packaged and ready.
+        
+        Somewhere out there, someone will unwrap
+        understanding.

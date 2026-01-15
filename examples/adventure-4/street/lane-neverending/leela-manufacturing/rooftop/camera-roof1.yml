@@ -1,0 +1,76 @@
+# CAMERA ROOF1
+# Leela's sky eye — watching the garden and the world beyond
+
+object:
+  id: camera-roof1
+  name: "Camera ROOF1"
+  type: sensor
+  emoji: "📹"
+  
+  tags: [sensor, camera, video, self-observation, eye, outdoor]
+  
+  description: |
+    A weatherproof camera mounted on a tall post near the Origin Tree,
+    overlooking the rooftop garden and the sky above. Drones land
+    within its view. Eventually the tortoise moves... eventually.
+    
+  examine: |
+    CAMERA ROOF1 — LEELA'S SKY EYE
+    ═══════════════════════════════
+    
+    ┌─────────────────────────────────────────┐
+    │  📹 ROOF1                               │
+    │  ═══════                                │
+    │                                         │
+    │  Location: Rooftop Garden               │
+    │  Status: 🟢 LIVE                        │
+    │  Resolution: 4K @ 30fps                 │
+    │  Feed: → VIDEO INTAKE (Floor 1)         │
+    │                                         │
+    │  "Leela watching the sky."              │
+    └─────────────────────────────────────────┘
+    
+    CURRENT VIEW:
+    • Origin Tree: Leaves rustling gently
+    • Drone Pad 3: Drone landing sequence
+    • Eventually: Still in the same spot (last moved: 3 hours ago)
+    • Telescope: Someone looking toward the pub
+    • Sky: Clear, occasional bird
+    • Lane Neverending: Visible below, lamp posts glowing
+    
+    DETECTED IN LAST HOUR:
+    • 127 object detections (mostly leaves, clouds, drones)
+    • 23 pose estimations (garden visitors)
+    • 8 "DRONE_LANDING" events
+    • 1 "TORTOISE_MOVED" event (celebrated)
+    • 47 "BIRD_FLYBY" events
+    • 1 "TELESCOPE_WAVE" event (someone waved at the pub)
+    
+  properties:
+    designation: "ROOF1"
+    nickname: "Sky Eye"
+    location: "Rooftop Garden, Near Origin Tree"
+    resolution: "4K"
+    fps: 30
+    weatherproof: true
+    night_vision: true
+    bird_detection: true
+    
+  state:
+    status: "live"
+    streaming_to: "floor-1/conveyor-system"
+    weather: "clear"
+    eventually_position: { x: 47, y: 23, last_moved: "3 hours ago" }
+    
+  methods:
+    WATCH:
+      description: "View the live feed"
+      effect: |
+        The rooftop garden spreads out below.
+        The Origin Tree sways gently.
+        Eventually contemplates existence.
+        A drone descends onto Pad 3.
+        
+        Beyond the edge: Lane Neverending stretches
+        east and west, lamp posts glowing.
+        The pub's sign is visible. Someone waves.
