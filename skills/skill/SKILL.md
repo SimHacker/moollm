@@ -226,7 +226,47 @@ See: [../speed-of-light/](../speed-of-light/)
 
 ---
 
-### 7. Skills as Rooms, Characters, and Objects
+### 7. Ethical Framing: Room-Based Context Inheritance
+
+> *"The room defines the performance. Everything inside inherits its framing."*
+
+When you enter a space, you inherit its ethical and performative context:
+
+```yaml
+# pub/ROOM.yml
+room:
+  name: The Rusty Lantern
+  
+  framing:
+    mode: [performance, celebration, tribute]
+    inherits_to_children: true
+    
+    description: |
+      This is a PLACE OF PERFORMANCE AND CELEBRATION.
+      Everything within these walls is understood as:
+      - Social play
+      - Entertainment and expression
+      - TRIBUTE PERFORMANCE — honoring those we admire
+      
+    what_this_means:
+      debates: "Arguments are sport, not war"
+      performances: "The stage is open, judgment is kind"
+      tributes: "We invoke those we admire as loving simulations"
+```
+
+**Why this matters:**
+- Characters in the pub automatically inherit "performance mode"
+- Tribute impersonations are framed as celebration, not deception
+- Ethical context flows from rooms to all children
+- No need to repeat framing in every sub-room
+
+**Example:** When Palm performs as Andy Looney in the pub, the room's framing makes it explicitly a *tribute* — celebrated fan performance, not deceptive impersonation.
+
+See: [../representation-ethics/](../representation-ethics/)
+
+---
+
+### 8. Skills as Rooms, Characters, and Objects
 
 In MOO tradition, everything can manifest in multiple ways. A MOOLLM skill is **triadic**:
 
@@ -277,7 +317,7 @@ card:
 
 ---
 
-### 8. Codebase as Navigable World
+### 9. Codebase as Navigable World
 
 Modern IDEs like Cursor can mount multiple repositories. Each codebase becomes a navigable world:
 
