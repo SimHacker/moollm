@@ -1046,7 +1046,7 @@ THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
 | **Warranty** | "Not responsible for anything" | "Prototype inheritance means we fix the source" |
 | **Catalog & Services** | [Gimmicks that fail](../../../../kitchen/acme-catalog.yml) + [Monsters that eat you](../../../../pub/rooms/attic/acme-monster-manual.yml) | [1,400+ products that work](../../../../street/lane-neverending/leela-manufacturing/lobby/leela-catalog.yml) + [Logistics that deliver](../../../../street/lane-neverending/leela-manufacturing/logistics/ROOM.yml) |
 | **Funding** | Scam victims + ripped off investors | Sustainable happy customers |
-| **Status** | Storefront closed, pivoting to Generative AI | Thriving, 8 operator stations |
+| **Status** | Storefront closed, pivoting to Generative AI | Thriving, 8 operator stations, deep root in Neuro-Symbolic AI and Constructionism |
 
 ---
 
@@ -1070,7 +1070,7 @@ THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
 
 #### The Leela Lineage
 
-**Don:** "Now look at Leela." *gestures at the thriving factory* "This isn't a startup. This is a FOUNDATION. Built on the MIT AI Lab tradition — the old school kids and tourists who wandered the halls, played Zork, argued about LISP, and believed computers should augment human intelligence, not replace it."
+**Don:** "Now look at Leela." *gestures at the thriving factory* "This isn't a startup. This is a FOUNDATION. Built on the MIT AI Lab tradition — the old school kids and tourists who wandered the halls, played Zork, argued about LISP, played with Legos and Robots, and believed computers should augment human intelligence, not replace it."
 
 **Palm:** "Kids and tourists?"
 
@@ -1122,6 +1122,14 @@ THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
 **Archie:** "Also, our products don't explode."
 
 **Don:** "That too."
+
+**Archie:** "Ever since we taught the edgebox skill to clean up disk space, it's been self-healing. Robust first."
+
+**Don:** "That's the difference. ACME ships a product, it breaks, they pivot. Leela ships a product, it breaks, we teach it to FIX ITSELF. The edgebox monitors its own health, cleans up after itself, recovers from failures. It doesn't call home begging for a reboot — it just... handles it."
+
+**The Coordinator:** "We haven't had to manually intervene on an edgebox in months. They just... work."
+
+**Don:** "Robust first. Self-healing. That's not a feature — that's a PHILOSOPHY."
 
 **Donna:** "Why do they hate each other so much though?"
 
