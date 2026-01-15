@@ -104,57 +104,74 @@ flowchart TB
 
 **Vertical Navigation:** Only the Rooms Landing (central hub) connects up/down. Individual rooms connect horizontally to the hub.
 
-### Hotel Floor Layout (Hub & Spoke)
+### Hotel Floor Layout (Hub & Spoke — Pie Menu Star)
+
+```
+                         [Room 2]
+                          Minsky
+                            N
+                            │
+       [Room 1]      NW ↖   │   ↗ NE      [Room 3]
+    Constructionism        ╲│╱           Mirrors
+                            │
+    [Room 8] W ←────────[LANDING]────────→ E [Room 4]
+       Self                 │               Postel
+                            │
+       [Room 7]      SW ↙   │   ↘ SE      [Room 5]
+      Awakening            ╱│╲            Speed
+                            │
+                            S
+                         [Room 6]
+                        YAML Jazz
+```
 
 ```mermaid
 flowchart TB
-    subgraph WEST[West Wing]
-        R1[Room 1<br/>Constructionism]
-        R2[Room 2<br/>Minsky]
-        R3[Room 3<br/>Mirrors]
-        R4[Room 4<br/>Postel]
-    end
-    
+    R2[Room 2<br/>Minsky<br/>N]
+    R1[Room 1<br/>Constructionism<br/>NW]
+    R3[Room 3<br/>Mirrors<br/>NE]
+    R8[Room 8<br/>Self<br/>W]
     HUB[LANDING<br/>Ice Machine<br/>Soda Machine<br/>↑Attic ↓Pub]
-    
-    subgraph EAST[East Wing]
-        R5[Room 5<br/>Speed]
-        R6[Room 6<br/>YAML Jazz]
-        R7[Room 7<br/>Awakening]
-        R8[Room 8<br/>Self]
-    end
-    
-    R1 -->|out| HUB
-    R2 -->|out| HUB
-    R3 -->|out| HUB
-    R4 -->|out| HUB
-    HUB -->|room 5| R5
-    HUB -->|room 6| R6
-    HUB -->|room 7| R7
-    HUB -->|room 8| R8
+    R4[Room 4<br/>Postel<br/>E]
+    R7[Room 7<br/>Awakening<br/>SW]
+    R5[Room 5<br/>Speed<br/>SE]
+    R6[Room 6<br/>YAML Jazz<br/>S]
+
+    R1 <-->|NW| HUB
+    R2 <-->|N| HUB
+    R3 <-->|NE| HUB
+    R4 <-->|E| HUB
+    R5 <-->|SE| HUB
+    R6 <-->|S| HUB
+    R7 <-->|SW| HUB
+    R8 <-->|W| HUB
 ```
 
-**Hotel Floor Navigation (Hub & Spoke — Pie Menu Model):**
-| From | Direction | To |
-|------|-----------|-----|
+**Hotel Floor Navigation (Hub & Spoke — Pie Menu Star):**
+
+| Room | Direction | Theme | Return |
+|------|-----------|-------|--------|
+| Room 1 | NW (northwest) | Constructionism | SE → Landing |
+| Room 2 | N (north) | Minsky/Society of Mind | S → Landing |
+| Room 3 | NE (northeast) | Mirrors/Navigator | SW → Landing |
+| Room 4 | E (east) | Postel/YAML | W → Landing |
+| Room 5 | SE (southeast) | Speed of Light | NW → Landing |
+| Room 6 | S (south) | YAML Jazz | N → Landing |
+| Room 7 | SW (southwest) | Awakening/Bootstrap | NE → Landing |
+| Room 8 | W (west) | Self/Prototype | E → Landing |
+
+| Vertical | Direction | Destination |
+|----------|-----------|-------------|
 | Pub | up | Landing |
 | Landing | down | Pub |
 | Landing | up | Attic |
 | Attic | down | Landing |
-| Landing | room 1 | Room 1 |
-| Landing | room 2 | Room 2 |
-| Landing | room 3 | Room 3 |
-| Landing | room 4 | Room 4 |
-| Landing | room 5 | Room 5 |
-| Landing | room 6 | Room 6 |
-| Landing | room 7 | Room 7 |
-| Landing | room 8 | Room 8 |
-| Room 1-8 | out | Landing |
 
-**Pie Menu Model:** All 8 rooms connect ONLY to the central Landing. Rooms do not connect to each other. The Landing has:
+**Pie Menu Model:** All 8 rooms radiate from the central Landing like compass points. Rooms do not connect to each other — only to the hub. The Landing has:
 - Up stairs to Attic
 - Down stairs to Pub
 - Shared facilities (ice machine, soda machine, signage)
+- Natural traffic — everyone passes through
 
 ### The Spatial Models — Don Explains
 
@@ -167,11 +184,17 @@ flowchart TB
 **Don:** "The hotel floor uses the **pie menu model**. Eight rooms, one central hub. Every room connects ONLY to the hub — not to each other."
 
 ```
-         [1] [2] [3] [4]
-               ↘ ↓ ↙
-              LANDING
-               ↗ ↑ ↖
-         [5] [6] [7] [8]
+                    [2]
+                     N
+              [1]    ↑    [3]
+                NW ↖ │ ↗ NE
+                     │
+        [8] W ←──[LANDING]──→ E [4]
+                     │
+                SW ↙ │ ↘ SE
+              [7]    ↓    [5]
+                     S
+                    [6]
 ```
 
 **Don:** "Why? Because the hub is special. It has the stairs, the ice machine, the shared facilities. If you want to go from Room 1 to Room 8, you MUST pass through the hub. This creates natural traffic, natural encounters, natural centrality."
