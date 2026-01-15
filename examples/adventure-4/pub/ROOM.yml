@@ -259,8 +259,9 @@ room:
   
   exits:
     NORTH:
-      destination: ../start/
-      description: "Back to the Chamber of Commencement"
+      destination: ../garden/
+      description: "Out to the Back Garden — fresh air and possibilities"
+      aliases: [garden, outside, out, back, patio]
       
     UP:
       destination: rooms/
