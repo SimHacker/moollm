@@ -33,6 +33,7 @@ flowchart TB
         Min ~~~ Pap["Papert<br>Path"]
         Pap ~~~ Tur["Turing<br>Terrace"]
         Tur ~~~ Lic["Licklider<br>Lane"]
+        Lic ~~~ Wri["Wright<br>Way"]
     end
     
     style space2 fill:none,stroke:none
@@ -68,6 +69,7 @@ flowchart TB
 | **Sutherland Street** | Ivan Sutherland | Sketchpad, VR pioneer, computer graphics. | 📋 Planned |
 | **Turing Terrace** | Alan Turing | The foundation of it all. | 📋 Planned |
 | **Licklider Lane** | J.C.R. Licklider | Man-computer symbiosis, ARPANET vision. | 📋 Planned |
+| **Wright Way** | Will Wright | SimCity, The Sims, Spore. God games and dollhouses. | 📋 Planned |
 
 ### The Sound Test
 
@@ -80,6 +82,7 @@ These names were chosen for both meaning and mellifluousness:
 - **Papert Path** — P-P alliteration
 - **Sutherland Street** — S-S alliteration
 - **Turing Terrace** — T-T alliteration
+- **Wright Way** — W-W alliteration
 
 ---
 
