@@ -39,9 +39,13 @@ room:
     Zone 2: Uncontrolled experiments (wear goggles)
     Zone 3: Theoretical work (whiteboards only)
     Zone 4: Applied madness (sign waiver first)
-    Zone 5: The Archive (historical knowledge storage)
+Zone 5: The Archive (historical knowledge storage)
     Zone 6: Cold storage (temperature-sensitive insights)
     Zone 7: [SEALED] (we don't talk about Zone 7)
+    
+    WAREHOUSE 23: (heavy security door, keycard required)
+    Long-term storage for dangerous artifacts. Impossibly large.
+    "Top men are working on it."
     
     THE RESEARCHERS:
     • Mad Scientists (3, varying degrees of madness)
@@ -100,7 +104,7 @@ room:
       description: "Zone 6 — Cold Storage"
       aliases: [6, cold, storage]
       
-    zone7:
+zone7:
       destination: null
       description: |
         Zone 7 is sealed. Heavy doors. Warning lights.
@@ -109,6 +113,18 @@ room:
         It might be humming.
       blocked: true
       reason: "Paradox containment"
+      
+    warehouse:
+      destination: ../warehouse-23/
+      description: |
+        A heavy security door marked "WAREHOUSE 23 — AUTHORIZED PERSONNEL ONLY."
+        Keycard reader. Biometric scanner. A third lock that checks something
+        ineffable about your soul.
+        
+        Through the small window, you can see endless rows of crates
+        stretching into impossible distance.
+      aliases: [23, artifacts, storage, crates]
+      clearance_required: true
       
   objects:
     - forbidden-shelf.yml
