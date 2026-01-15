@@ -984,6 +984,39 @@ object:
               price: "200 coins"
               description: "One-to-many announcements"
               
+            - name: "Self-Healing Module"
+              sku: "LEE-SH-001"
+              price: "400 coins"
+              description: "Robust-First recovery system"
+              philosophy: "Systems should fix themselves before asking for help"
+              features:
+                - "Automatic fault detection"
+                - "Graceful degradation"
+                - "Component isolation"
+                - "Hot-swap support"
+                - "Rollback capability"
+                - "Redundant pathways"
+              behaviors:
+                minor_fault: "Auto-repair, log event, continue"
+                major_fault: "Isolate, reroute, alert operator"
+                critical_fault: "Safe shutdown, preserve state, await repair"
+              integrates_with:
+                - "Predictive Maintenance Module"
+                - "Alert Gateway"
+                - "SCADA Console"
+                - "Data Logger"
+              leela_quality: "If it can heal itself, you sleep better"
+              
+            - name: "Self-Healing Module (Network)"
+              sku: "LEE-SH-002"
+              price: "350 coins"
+              description: "Network-specific self-repair"
+              features:
+                - "Route recalculation"
+                - "Node failover"
+                - "Bandwidth rebalancing"
+                - "Packet loss recovery"
+              
         data_networks:
           items:
             - name: "Network Node"
