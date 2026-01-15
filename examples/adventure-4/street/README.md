@@ -9,25 +9,30 @@ This document describes the street grid topology for the virtual town. Streets a
 ## The Grid Plan
 
 ```mermaid
-flowchart TB
-    subgraph Grid["THE TOWN GRID"]
+flowchart LR
+    subgraph NS["N-S STREETS (People) →"]
+        direction LR
+        Suth["Sutherland<br>Street"]
+        Kay["Kay<br>Lane"]
+        Eng["Engelbart<br>Avenue"]
+        Min["Minsky<br>Way"]
+        Pap["Papert<br>Path"]
+        Tur["Turing<br>Terrace"]
+        Lic["Licklider<br>Lane"]
+    end
+    
+    subgraph EW["E-W STREETS (Projects) ↓"]
         direction TB
-        
-        subgraph NS["N-S STREETS (People)"]
-            direction LR
-            Suth["Sutherland\nStreet"]
-            Kay["Kay\nLane"]
-            Eng["Engelbart\nAvenue"]
-            Min["Minsky\nWay"]
-            Pap["Papert\nPath"]
-        end
-        
-        subgraph EW["E-W STREETS (Projects)"]
-            direction TB
-            Hab["Habitat Boulevard"]
-            Lane["Lane Neverending"]
-            Zork["Zork Row"]
-        end
+        Adv["Adventure Avenue"]
+        Zork["Zork Row"]
+        MUD["MUD Row"]
+        Adams["Adams Avenue"]
+        Hab["Habitat Highway"]
+        Logo["Logo Lane"]
+        Sims["Sims Street"]
+        Linden["Linden Lane"]
+        Glitch["Glitch Way"]
+        Lane["Lane Neverending"]
     end
 ```
 
@@ -38,7 +43,7 @@ flowchart TB
 | Direction | Named After | Pattern | Examples |
 |-----------|-------------|---------|----------|
 | **North-South** | People (pioneers) | [Name] + Street Type | Kay Lane, Engelbart Avenue |
-| **East-West** | Projects (virtual worlds) | [Project] + Street Type | Lane Neverending, Habitat Boulevard |
+| **East-West** | Projects (virtual worlds) | [Project] + Street Type | Lane Neverending, Habitat Highway |
 
 ### Why This Convention?
 
@@ -68,9 +73,11 @@ These names were chosen for both meaning and mellifluousness:
 
 - **Engelbart Avenue** — EN-gel-bart AV-en-ue (perfect cadence)
 - **Kay Lane** — punchy, memorable, pun-laden
-- **Papert Path** — alliterative
-- **Sutherland Street** — S-S alliteration
+- **Licklider Lane** — L-L alliteration
 - **Minsky Way** — echoes "Milky Way"
+- **Papert Path** — P-P alliteration
+- **Sutherland Street** — S-S alliteration
+- **Turing Terrace** — T-T alliteration
 
 ---
 
@@ -96,7 +103,8 @@ These names were chosen for both meaning and mellifluousness:
 **The Glitch Connection:**
 Glitch Way sits directly north of Lane Neverending — they're family.
 Game Neverending (2002-2004) became Flickr but inspired Glitch (2011-2012).
-Lane Neverending honors that whole lineage.
+After Glitch shut down, Stewart Butterfield's team created Slack.
+Lane Neverending honors that whole lineage. (No Slack roads though — some things stay corporate.)
 
 **Adventure Avenue:**
 The NORTHERN frontier. No more streets beyond this — just adventure wilderness.
@@ -105,7 +113,7 @@ caves, and adventure country. Colossal Cave is up there somewhere. So are dragon
 This is where the street grid ends and the adventure begins.
 
 **MUD Row:**
-Just south of Adventure Avenue. Classic Essex architecture (whatever that is — 
+Just south of Zork Row. Classic Essex architecture (whatever that is — 
 brutalist 1970s university buildings? Half-timbered medieval? Both?). Like Skid Row, 
 but muddier. Where the original multi-user dungeons began.
 
@@ -126,7 +134,7 @@ The heart of town is where **Kay Lane** crosses **Lane Neverending**.
                  KAY LANE
                     │
                     │ N
-                    │ (toward Zork Row, Habitat Blvd)
+                    │ (toward Zork Row, Habitat Highway)
        ┌────────────┼────────────┐
   W ───┤    Lane Neverending     ├─── E
        │            │            │
