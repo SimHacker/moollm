@@ -1,0 +1,111 @@
+# 📋 THE OUTLINER
+# Self's famous object browser
+# "Unfold any object. See its slots. Edit them live."
+
+object:
+  name: The Outliner
+  type: browser
+  portable: false
+  
+  description: |
+    A tall wooden cabinet with countless sliding drawers, each one
+    containing... another cabinet? No, each drawer IS an object,
+    and opening it reveals its slots as smaller drawers.
+    
+    It's outliners all the way down.
+    
+    A brass plate reads:
+    
+    > "THE OUTLINER"
+    > "Every object can be opened."
+    > "Every slot can be examined."
+    > "Every value can be changed."
+    > "(Yes, while it's running.)"
+    
+  examine: |
+    When you open an object's drawer, you see an Outliner view:
+    
+    ┌─────────────────────────────────────────────────────────────┐
+    │ ▼ adventurer                                         [×]    │
+    ├─────────────────────────────────────────────────────────────┤
+    │   ├─ name: "Bumblewick Fantastipants"          [edit]       │
+    │   ├─ health: 100                               [edit]       │
+    │   ├─ gold: 35                                  [edit]       │
+    │   │                                                         │
+    │   ├─▶ inventory (3 items)                      [expand]     │
+    │   │   ├─ lamp                                               │
+    │   │   ├─ mailbox                                            │
+    │   │   └─ cheese                                             │
+    │   │                                                         │
+    │   ├─● walk                                     [code]       │
+    │   ├─● talk                                     [code]       │
+    │   │                                                         │
+    │   └─* prototype → characters/abstract/adventurer [follow]   │
+    └─────────────────────────────────────────────────────────────┘
+    
+    Legend:
+      ├─  data slot
+      ├─▶ collection (expandable)
+      ├─● method slot
+      └─* parent slot (delegating)
+      
+  how_it_works: |
+    The Outliner was Self's primary development tool:
+    
+    1. OPEN any object to see its slots
+    2. EDIT any slot by clicking [edit]
+    3. EXPAND collections to see contents
+    4. FOLLOW parent* links to see delegation
+    5. VIEW code for method slots
+    6. ADD new slots directly
+    7. CHANGES HAPPEN LIVE — no save button!
+    
+    This was revolutionary in 1987. Most languages required:
+    - Write code in text editor
+    - Compile
+    - Run
+    - Find bug
+    - Stop
+    - Edit text
+    - Compile again...
+    
+    In Self with Outliners:
+    - Browse to the bug
+    - Fix it
+    - Continue running
+    
+  commands:
+    OUTLINE:
+      usage: "OUTLINE [object]"
+      effect: "Open an outliner view on any object"
+      
+    EDIT:
+      usage: "EDIT [slot] ON [object]"
+      effect: "Modify a slot's value"
+      
+    ADD_SLOT:
+      usage: "ADD SLOT [name] TO [object]"
+      effect: "Create a new slot on an object"
+      
+    FOLLOW:
+      usage: "FOLLOW [parent*]"
+      effect: "Navigate to the parent object"
+      
+  philosophy: |
+    The Outliner embodies Self's core belief:
+    
+    "The program is not TEXT. The program is OBJECTS."
+    
+    You don't edit source files. You manipulate living objects.
+    The Outliner is your window into that living world.
+    
+    When you add a slot, it exists immediately.
+    When you change code, it runs the new version.
+    There is no distinction between "edit time" and "run time."
+    
+  k_lines:
+    - SELF_LANGUAGE
+    - OUTLINER
+    - LIVE_PROGRAMMING
+    - OBJECT_BROWSER
+    - NO_TEXT_FILES

@@ -28,6 +28,12 @@ The walls are covered with character sheets, each one pointing to its parent wit
 |--------|------|-------------|
 | **Self/Soul Forge** | [self-soul-forge.yml](self-soul-forge.yml) | Where prototypes become beings |
 | **Selfie** | [selfie.yml](selfie.yml) | Living prototype inheritance familiar |
+| **Clone-O-Matic** | [clone-o-matic.yml](clone-o-matic.yml) | "You don't instantiate. You clone." |
+| **Slot Inspector** | [slot-inspector.yml](slot-inspector.yml) | See inside any object — all the way down |
+| **Morphic Workbench** | [morphic-workbench.yml](morphic-workbench.yml) | Direct manipulation UI design |
+| **The Outliner** | [outliner.yml](outliner.yml) | Self's famous live object browser |
+| **Delegation Compass** | [delegation-compass.yml](delegation-compass.yml) | Navigate the prototype chain |
+| **Sun Labs Badge** | [sun-labs-badge.yml](sun-labs-badge.yml) | Where Self was developed (1987-1995) |
 
 ---
 
@@ -67,6 +73,48 @@ No classes. No abstract types. Just **concrete beings that clone from other bein
 - **Portrait**: Dave Ungar, above the forge
 - **Walls**: Character sheets with visible `prototype*` slots
 - **Arrows**: Delegation arrows between objects
+
+---
+
+## 🧬 The Clone-O-Matic
+
+A brass and chrome machine with a glass chamber divided down the middle:
+- Left side: the PROTOTYPE
+- Right side: empty space becoming the CLONE
+- Dial: SHALLOW ↔ DEEP
+- Lever: PULL TO CLONE
+
+No templates. No blueprints. Just real objects cloning from real objects.
+
+---
+
+## 🔍 The Slot Inspector
+
+A brass monocle that REVEALS rather than magnifies. Look at any object and see:
+- **Data slots** — what it knows
+- **Method slots** — what it can do  
+- **Parent slots** — where it inherits from
+
+*"There is no distinction between code and data. There are only slots."*
+
+---
+
+## 🎨 The Morphic Workbench
+
+Direct manipulation interface design. Grab anything. Move anything. The UI is made of objects.
+
+Self pioneered Morphic, which later became:
+- Squeak's UI framework
+- Scratch's drag-and-drop blocks
+- Etoys educational programming
+
+---
+
+## 📋 The Outliner
+
+Self's famous object browser. Unfold any object. See its slots. Edit them LIVE.
+
+No text files. No compile step. The program IS the objects.
 
 ---
 

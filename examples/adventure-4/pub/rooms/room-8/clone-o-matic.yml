@@ -1,0 +1,111 @@
+# 🧬 CLONE-O-MATIC
+# "You don't instantiate. You clone."
+# The Self way of creating new objects
+
+object:
+  name: Clone-O-Matic
+  type: creation_device
+  portable: false
+  
+  description: |
+    A gleaming brass and chrome machine with a large glass chamber
+    divided down the middle. On one side: the PROTOTYPE. On the other:
+    empty space, waiting to become the CLONE.
+    
+    A dial reads: "SHALLOW" ←→ "DEEP"
+    A lever reads: "PULL TO CLONE"
+    A slot accepts prototype* references.
+    
+    Above it, in Self's signature font:
+    
+    > "Every object is an example.
+    > Every clone is a fresh start.
+    > There are no abstractions here."
+    
+  examine: |
+    ┌─────────────────────────────────────────────────────────────┐
+    │  🧬 CLONE-O-MATIC — Prototype Duplication Engine            │
+    ├─────────────────────────────────────────────────────────────┤
+    │                                                             │
+    │    ┌─────────────────┬─────────────────┐                    │
+    │    │                 │                 │                    │
+    │    │   PROTOTYPE     │     CLONE       │                    │
+    │    │                 │                 │                    │
+    │    │    [object]     │    [empty]      │                    │
+    │    │                 │                 │                    │
+    │    │   ══════════    │   ══════════    │                    │
+    │    │   slots: {...}  │   slots: {...}  │                    │
+    │    │   parent*: ───────────────────→   │                    │
+    │    │                 │                 │                    │
+    │    └─────────────────┴─────────────────┘                    │
+    │                                                             │
+    │    DEPTH: ○───────●─────○  [SHALLOW ← → DEEP]               │
+    │                                                             │
+    │    [ PULL TO CLONE ]                                        │
+    │                                                             │
+    └─────────────────────────────────────────────────────────────┘
+    
+  how_it_works: |
+    1. INSERT a prototype into the left chamber
+       (Any object can be a prototype — there's no special class)
+       
+    2. SET the depth dial:
+       - SHALLOW: Clone just the object, parent* points to original
+       - DEEP: Clone the entire delegation chain
+       
+    3. PULL the lever
+       *whirrrr* *flash* *ding!*
+       
+    4. RETRIEVE your clone from the right chamber
+       - It has its own slots
+       - It can be modified independently
+       - It remembers where it came from (parent*)
+       
+  clone_types:
+    shallow:
+      description: "Clone points to original as parent"
+      effect: |
+        clone.parent* = original
+        clone.slots = {} (empty, inherits everything)
+        Changes to original affect clone (delegation)
+        
+    deep:
+      description: "Clone copies entire chain"
+      effect: |
+        clone.parent* = clone_of_original_parent
+        clone.slots = copy(original.slots)
+        Clone is independent (can still share deeper ancestors)
+        
+  philosophy: |
+    In Self, there is no distinction between "class" and "instance."
+    There are only OBJECTS — some of which serve as examples for others.
+    
+    The Clone-O-Matic makes this tangible:
+    - No templates, no blueprints, no abstractions
+    - Just real objects you can point to and say "make another like this"
+    - The clone IS a real object, as real as its prototype
+    
+    This is how characters work in MOOLLM:
+    - Want a new adventurer? Clone from an existing one.
+    - Want a variant? Clone and modify.
+    - Want to understand inheritance? Follow the parent* pointers.
+    
+  commands:
+    CLONE:
+      usage: "CLONE [object]"
+      effect: "Create a shallow clone, parent* points to original"
+      
+    DEEP_CLONE:
+      usage: "DEEP CLONE [object]"
+      effect: "Create a deep clone, copying the entire chain"
+      
+    INSPECT:
+      usage: "INSPECT [object]"
+      effect: "See all slots and the parent* pointer"
+      
+  k_lines:
+    - SELF_LANGUAGE
+    - PROTOTYPE_INHERITANCE
+    - CLONING
+    - DELEGATION
+    - OBJECTS_NOT_CLASSES
