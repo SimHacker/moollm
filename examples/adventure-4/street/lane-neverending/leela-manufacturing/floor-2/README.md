@@ -1,4 +1,5 @@
-i
+# Floor 2: Factory Floor
+
 > *"Where problems become insights."*
 
 The **Factory Floor** is where the magic happens — or rather, where the careful, methodical transformation of problems into insights occurs. Magic is unreliable. Process is eternal.
