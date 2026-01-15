@@ -200,15 +200,35 @@ object:
     └──────────────────────────────────────────────────────────┘
     
     ┌──────────────────────────────────────────────────────────┐
-    │  STORAGE STACK (Object/File)                             │
+    │  STORAGE STACK (Object/File + Ingest)                    │
+    │                                                          │
+    │  OBJECT STORAGE (MinIO cluster):                         │
     │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐      │
     │  │STORE-1  │  │STORE-2  │  │STORE-3  │  │STORE-4  │      │
     │  │ MinIO   │  │ MinIO   │  │ MinIO   │  │ MinIO   │      │
     │  │ 100 TB  │  │ 100 TB  │  │ 100 TB  │  │ 100 TB  │      │
     │  └─────────┘  └─────────┘  └─────────┘  └─────────┘      │
-    │  • S3-compatible object storage                          │
+    │                                                          │
+    │  INGEST SERVICES:                                        │
+    │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐      │
+    │  │ VIDEO   │  │ SENSOR  │  │  LOG    │  │  BULK   │      │
+    │  │ INGEST  │  │ INGEST  │  │ INGEST  │  │ IMPORT  │      │
+    │  │ streams │  │ IoT/MQTT│  │ syslog  │  │ batch   │      │
+    │  └─────────┘  └─────────┘  └─────────┘  └─────────┘      │
+    │                                                          │
+    │  STORAGE:                                                │
+    │  • S3-compatible object storage (400 TB total)           │
     │  • Video archives, model weights, backups                │
     │  • Metadata indexed in PostgreSQL                        │
+    │                                                          │
+    │  INGEST:                                                 │
+    │  • Video Ingest — RTSP streams → HLS segments → MinIO    │
+    │  • Sensor Ingest — MQTT/IoT → TimescaleDB hypertables    │
+    │  • Log Ingest — syslog/journald → PostgreSQL + MinIO     │
+    │  • Bulk Import — CSV/Parquet batch loads → PostgreSQL    │
+    │                                                          │
+    │  All ingest writes metadata to PostgreSQL immediately.   │
+    │  Blobs go to MinIO. Queryable within seconds.            │
     └──────────────────────────────────────────────────────────┘
     
     ALL STACKS CONNECT TO POSTGRESQL:
