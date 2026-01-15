@@ -1,0 +1,50 @@
+# 🛤️ LANE NEVERENDING — West 1 (4-6 Lane Neverending)
+
+room:
+  name: "Lane Neverending (W1)"
+  type: street
+  
+  address_range: "4-6 Lane Neverending"
+  
+  lighting: natural
+  grue_safe: true
+  
+  description: |
+    Lane Neverending stretches west from the pub. This section has
+    an older feel — the cobblestones are more worn, the lamp posts
+    more ornate, the buildings taller with that pre-crash architecture
+    that said "we're building forever."
+    
+    A CLOCK TOWER rises from one of the buildings, its face showing
+    a time that may or may not be accurate. Nobody's checked in years.
+    Nobody needs to. Time is flexible here.
+    
+    To the EAST, The Rusty Lantern beckons. To the WEST, the lane
+    continues toward the older parts of town.
+    
+  examine: |
+    THE CLOCK TOWER:
+    Part of 6 Lane Neverending. The clock shows 3:47 (always has,
+    always will). A small plaque: "Donated by the Habitat Historical
+    Society, in memory of pixels past."
+    
+    STOREFRONTS:
+    • 4 Lane Neverending — A dusty antique shop? The window is too
+      grimy to see through clearly
+    • 6 Lane Neverending — The Clock Tower building, ground floor empty
+    
+    ATMOSPHERE:
+    This section feels like it remembers more than it says. The
+    cobblestones have stories. The lamp posts have seen things.
+    Virtual history happened here.
+    
+  exits:
+    east:
+      destination: ../center/
+      description: "Back toward The Rusty Lantern and the center of town."
+      aliases: [e, pub, back, lantern]
+      
+    west:
+      destination: ../w2/
+      description: "Lane Neverending continues west, into the older district."
+      aliases: [w, forward]

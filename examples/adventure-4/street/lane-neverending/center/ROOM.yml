@@ -1,0 +1,121 @@
+# 🛤️ LANE NEVERENDING — Center (7 Lane Neverending)
+# In front of The Rusty Lantern
+# Tribute to Habitat, Game Neverending, Glitch
+
+room:
+  name: "Lane Neverending (7)"
+  type: street
+  
+  address: "7 Lane Neverending"
+  
+  # Outdoor, safe during day
+  lighting: natural
+  grue_safe: true  # Streets are lit
+  
+  description: |
+    You are standing on LANE NEVERENDING, a cobblestone street that
+    stretches endlessly in both directions — or at least, that's what
+    the name promises. In practice, it goes about three blocks each way
+    before becoming "somewhere else."
+    
+    The street has the quality of a place that has always existed and
+    always will. Avatars have walked here since the first virtual worlds.
+    The cobblestones remember pixel feet.
+    
+    To the NORTH, the front door of THE RUSTY LANTERN stands invitingly
+    open. A brass plaque by the door reads: "7 Lane Neverending — Est. ???"
+    The sign creaks: warm light spills out.
+    
+    The street continues EAST and WEST, lined with the promise of
+    storefronts and homes yet to be built. For now, just cobblestones,
+    lamp posts, and possibility.
+    
+    A STREET SIGN stands at the corner:
+    
+    ┌────────────────────────┐
+    │   LANE NEVERENDING     │
+    │   ←  W  ·  7  ·  E  →  │
+    └────────────────────────┘
+    
+  examine: |
+    The street is wide enough for two carts to pass, paved with
+    cobblestones worn smooth by generations of feet, hooves, and
+    whatever else passes for locomotion in virtual worlds.
+    
+    FEATURES:
+    • Wrought-iron lamp posts (magically lit at night)
+    • A few wooden benches for watching the world go by
+    • Cobblestones in a herringbone pattern
+    • Drainage gutters (surprisingly sophisticated)
+    • The occasional weed pushing through cracks (life finds a way)
+    
+    THE PUB (7 Lane Neverending):
+    The Rusty Lantern's front facade. Bay windows glow warmly.
+    A sandwich board advertises today's specials. The door is
+    oak with brass fittings, heavy but welcoming.
+    
+    THE ATMOSPHERE:
+    This street feels... significant. Like the main street of
+    every virtual world that ever was. Habitat's Populopolis.
+    Glitch's whimsical lanes. Game Neverending's promise of
+    infinite possibility.
+    
+    The street goes on. It never ends. That's the whole point.
+    
+  tribute: |
+    LANE NEVERENDING — A tribute to:
+    
+    HABITAT (1986) — Chip Morningstar & Randy Farmer
+    The first graphical virtual world. They coined "avatar."
+    Populopolis was the main street. This is its descendant.
+    
+    GAME NEVERENDING (2002) — Stewart Butterfield, Ludicorp
+    The MMO that became Flickr when they pivoted. The game
+    never launched, but the name lives on. Here.
+    
+    GLITCH (2011) — Stewart Butterfield, Tiny Speck
+    The whimsical MMO set in the world of Ur. When it closed,
+    they released everything to the public domain. The giants
+    still dream. The streets still remember.
+    
+    (Tiny Speck became Slack. Everything pivots eventually.
+    But the lane? The lane never ends.)
+    
+  exits:
+    north:
+      destination: ../../pub/
+      description: |
+        The front door of The Rusty Lantern. Heavy oak, brass handle,
+        warm light leaking from the frosted glass panels. The address
+        plaque reads "7 Lane Neverending."
+        
+        A sandwich board: "COME IN! WE HAVE ALE AND STORIES."
+      aliases: [pub, lantern, door, inside, 7]
+      
+    east:
+      destination: ../e1/
+      description: |
+        Lane Neverending continues east, cobblestones stretching toward
+        the morning sun (or afternoon, or whenever). More lamp posts.
+        More possibilities. The street numbers climb.
+      aliases: [e, right]
+      
+    west:
+      destination: ../w1/
+      description: |
+        Lane Neverending continues west, cobblestones stretching toward
+        the setting sun (narratively speaking). The street numbers
+        descend, but the lane itself? Never ends.
+      aliases: [w, left]
+      
+  ambience: |
+    The sounds of a lived-in street. Distant conversation. A cart
+    rattling somewhere. The creak of the pub sign. Birds on lamp posts.
+    The occasional pedestrian nodding as they pass.
+    
+    It's the kind of street where nothing happens and everything
+    could happen. The ur-street. The proto-lane.
+    
+  objects:
+    - street-sign.yml
+    - sandwich-board.yml

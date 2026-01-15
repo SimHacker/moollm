@@ -1,0 +1,52 @@
+# 🛤️ LANE NEVERENDING — West 2 (2-3 Lane Neverending)
+
+room:
+  name: "Lane Neverending (W2)"
+  type: street
+  
+  address_range: "2-3 Lane Neverending"
+  
+  lighting: natural
+  grue_safe: true
+  
+  description: |
+    The older district of Lane Neverending. The buildings here have
+    that Habitat-era charm — chunky, pixelated in memory if not in
+    actual appearance, designed when virtual real estate was infinite
+    and optimism was the default.
+    
+    A MEMORIAL BENCH sits in a small alcove between buildings:
+    
+    "IN MEMORY OF GLITCH (2011-2012)
+     The world of Ur lives on in all who played there.
+     The giants still dream. We still remember."
+    
+    Flowers have been left recently. Someone still visits.
+    
+  examine: |
+    THE MEMORIAL BENCH:
+    Bronze, weathered, well-loved. Names are scratched into the back:
+    players who wanted to be remembered. A small garden surrounds it —
+    Glitch flowers that shouldn't exist outside Ur, but somehow do.
+    
+    THE BUILDINGS:
+    • 2 Lane Neverending — Oldest building on the street. Foundation
+      stones from the original Populopolis? Probably legend.
+    • 3 Lane Neverending — A former guild hall, now quiet. The banner
+      still flies: "AVATARS UNITED — SINCE '86"
+    
+    ATMOSPHERE:
+    Reverent. This is where virtual worlds began, in spirit if not
+    in literal geography. The air feels thick with nostalgia and
+    the ghost-data of players long logged off.
+    
+  exits:
+    east:
+      destination: ../w1/
+      description: "Back toward the clock tower and the center of town."
+      aliases: [e, back]
+      
+    west:
+      destination: ../w3/
+      description: "Lane Neverending continues west, toward its origin point."
+      aliases: [w, forward]

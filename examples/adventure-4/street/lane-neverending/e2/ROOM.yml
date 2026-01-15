@@ -1,0 +1,49 @@
+# 🛤️ LANE NEVERENDING — East 2 (12-16 Lane Neverending)
+
+room:
+  name: "Lane Neverending (E2)"
+  type: street
+  
+  address_range: "12-16 Lane Neverending"
+  
+  lighting: natural
+  grue_safe: true
+  
+  description: |
+    The street widens slightly here, making room for what was once
+    a market square. The cobblestones form a circular pattern around
+    a dry fountain — the FOUNTAIN OF INFINITE LOOPS, according to
+    the plaque. Someone turned it off to save on water sprites.
+    
+    More empty storefronts, but these look like they were occupied
+    more recently. A faded sign: "ACME SURPLUS — EVERYTHING MUST GO"
+    (it did).
+    
+    The lane continues in both directions. It never ends, after all.
+    
+  examine: |
+    THE FOUNTAIN:
+    A stone basin with a statue of a figure pouring water from a jug
+    into... another jug held by the same figure. It's recursive.
+    The water sprites went on strike. Now it's just decorative.
+    
+    STOREFRONTS:
+    • 12 Lane Neverending — "ACME SURPLUS" (closed, but the door creaks)
+    • 14 Lane Neverending — Something that was once a bakery (smell lingers)
+    • 16 Lane Neverending — Shuttered, but a light flickers inside
+    
+    THE SQUARE:
+    A few more benches. A public notice board with peeling posters.
+    A small stage platform that's seen better days. Community events
+    happened here, once. They could again.
+    
+  exits:
+    west:
+      destination: ../e1/
+      description: "Back toward the center of Lane Neverending."
+      aliases: [w, back]
+      
+    east:
+      destination: ../e3/
+      description: "The lane continues east, toward the edge of... something."
+      aliases: [e, forward]

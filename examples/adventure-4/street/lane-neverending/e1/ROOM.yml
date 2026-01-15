@@ -1,0 +1,49 @@
+# 🛤️ LANE NEVERENDING — East 1 (8-10 Lane Neverending)
+
+room:
+  name: "Lane Neverending (E1)"
+  type: street
+  
+  address_range: "8-10 Lane Neverending"
+  
+  lighting: natural
+  grue_safe: true
+  
+  description: |
+    Lane Neverending continues east. The cobblestones here are slightly
+    newer — this section was repaved after the Great Pixel Flood of '09.
+    
+    STOREFRONTS line both sides, but their doors are boarded up or
+    display "COMING SOON" signs in various states of optimism. The
+    buildings are ready. The tenants are not.
+    
+    To the WEST, The Rusty Lantern's sign is still visible, swaying
+    gently. To the EAST, the street continues toward... somewhere.
+    
+    A lamp post flickers. A cat watches from a windowsill.
+    
+  examine: |
+    NORTH SIDE (even numbers):
+    • 8 Lane Neverending — Empty storefront, "FOR LEASE" sign
+    • 10 Lane Neverending — Boarded up, graffiti reads "SOON"
+    
+    SOUTH SIDE (odd numbers):
+    • 9 Lane Neverending — Windows papered over, sounds of construction?
+    • 11 Lane Neverending — A door, but it leads to a brick wall (art piece?)
+    
+    The street furniture:
+    • Two benches (one occupied by a sleeping figure)
+    • A lamp post (the flickering one)
+    • A fire hydrant (or the local equivalent)
+    • An empty notice board
+    
+  exits:
+    west:
+      destination: ../center/
+      description: "Back toward The Rusty Lantern and the center of town."
+      aliases: [w, pub, back, lantern]
+      
+    east:
+      destination: ../e2/
+      description: "Lane Neverending continues east. The street numbers climb."
+      aliases: [e, forward]
