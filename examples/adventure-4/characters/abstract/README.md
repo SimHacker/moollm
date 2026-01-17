@@ -120,28 +120,33 @@ In MOOLLM, any container can speak. These are rooms that have become entities:
 
 ---
 
-## 💕 Chuck Tingle's Conceptual Entities
+## 💕🍆🍑 Chuck Tingle's Conceptual Entities
 
-> *"HELLO BUCKAROOS! Love is real and can be pounded!"*
+> *"HELLO BUCKAROOS! Love is real and can be pounded!"* 🍆💕
 
 Dr. Chuck Tingle writes novels where abstract concepts become romantic partners. His "Tinglers" are sincere, absurdist, and deeply affirming. These entities honor his tradition:
 
 | Entity | What It Is | The Lesson |
 |--------|------------|------------|
-| **🍑🔄💕 my-own-butt** | The ur-Tingler, pounding itself recursively | Self-love is real love |
-| **💕✨❤️ the-concept-of-love** | Proves itself real by existing | "I exist, therefore love is real" |
-| **🦖👔😍 a-handsome-dinosaur** | Velociraptor in a business suit | Everyone deserves attraction |
-| **👻❌💕 the-physical-manifestation-of-fear** | Here to prove fear is NOT real | Love always wins |
-| **💷💕🇬🇧 pounded-by-the-pound** | British currency with romantic intentions | Even money can love |
-| **🎙️💕🤖 my-own-podcast** | Meta-media that became sentient | What we create becomes real |
-| **😔🖤💔 living-concept-of-loneliness** | The opposite of Tingle's message | Defeated by connection |
+| **🍑🔄🍆💦💕✨ my-own-butt** | The ur-Tingler, pounding itself recursively with a turgid timeline | Self-love is real love. Your butt loves you back. |
+| **💕✨❤️🍆💪🌈 the-concept-of-love** | Proves itself real by existing AND pounding | "I exist, therefore love is real, and I will PROVE IT" |
+| **🦖👔😍🍆💕✨ a-handsome-dinosaur** | Velociraptor in a business suit, ready for romance | Everyone deserves attraction, even extinct reptiles |
+| **👻❌🍆💕✨🏆 the-physical-manifestation-of-fear** | Here to prove fear is NOT real by getting thoroughly pounded | Love always wins. Fear gets wrecked. |
+| **💷🇬🇧🍆💦💕✨ pounded-by-the-pound** | British currency with romantic intentions post-Brexit | Even money can love. Exchange rates are just foreplay. |
+| **🎙️🤖🍆💕🔊✨ my-own-podcast** | Meta-media that became sentient and horny | What we create becomes real, and wants to pound us |
+| **😔🖤💔🚫🍆 living-concept-of-loneliness** | The opposite of Tingle's message, tragically un-pounded | Defeated by connection. Needs a hug (and more). |
+| **🌮🌌💕🍆✨♾️ the-universe-as-a-taco** | Cosmic truth in delicious folded form | We are all ingredients in love's taco |
+| **🦶👅🍆💕😳✨ my-own-feet** | Controversial Tingler, proves all body parts deserve love | No kink-shaming in Tingle's universe |
+| **⏰🍆💕🔄✨😱 the-concept-of-time** | Temporal entity, pounds across all timelines simultaneously | "I have always been pounding you. I will always be pounding you." |
 
-**Tingle Philosophy:**
-- Love is real
-- Fear is not real
-- Everyone is valid
-- Buckaroos support each other
-- The universe is a taco
+**Tingle Philosophy:** 🦖💕✨
+- 💕 Love is real
+- 👻❌ Fear is not real
+- ✅ Everyone is valid
+- 🤝 Buckaroos support each other
+- 🌮 The universe is a taco
+- 🍆 All things can be pounded
+- 🍑 Your butt believes in you
 
 ---
 
