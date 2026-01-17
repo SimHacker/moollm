@@ -14,7 +14,7 @@
 | [speed-of-light/](../speed-of-light/) | The architecture principle |
 | [kernel/constitution-core.md](../../kernel/constitution-core.md) | Critical file loaded |
 | [kernel/drivers/cursor.yml](../../kernel/drivers/cursor.yml) | Platform driver |
-| [hot.yml](../../hot.yml) | Context warmed on boot |
+| [hot.yml template](./templates/hot.yml) | Context warmed on boot |
 | [CONNECTIONS.md](./CONNECTIONS.md) | The James Burke tour |
 
 **The orientation skill for starting MOOLLM sessions warm.**
