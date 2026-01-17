@@ -49,7 +49,7 @@ These are **tribute incarnations** -- fictional explorations based on documented
 | 👨🎨🖼️🃏✨ bill-atkinson | `lloooomm/00-Characters/bill-atkinson/` | MacPaint, HyperCard creator, QuickDraw wizard |
 | 👨🔮📐🎯💡 brett-victor | `lloooomm/00-Characters/brett-victor/` | Inventing on principle, explorable explanations, future of coding |
 | 👨🔗📚🌀💢 ted-nelson | `lloooomm/00-Characters/ted-nelson/` | Hypertext inventor, Xanadu dreamer, "EVERYTHING IS DEEPLY INTERTWINGLED" |
-| 👨✂️📋📝☠️ larry-tesler | `lloooomm/00-Characters/larry-tesler/` | Cut/copy/paste, "No Modes!" tattoo, died 2020 |
+| 👨✂️📋📝🚫 larry-tesler | `lloooomm/00-Characters/larry-tesler/` | Cut/copy/paste, "No Modes!" tattoo, modeless pioneer (d. 2020) |
 | 👨🥧🎮🐈💻 don-hopkins | `lloooomm/00-Characters/don-hopkins/` | Pie menus, The Sims, UniPress Emacs, living tribute |
 
 ### Game Design & Simulation
@@ -241,7 +241,7 @@ See: [Marshall McLuhan's full character](../../../temp/lloooomm/00-Characters/ma
 | 👨🔲💾🔬🎮 norm-margolus | `lloooomm/00-Characters/norm-margolus/` | CAM-6, physics of computation, lattice gas simulations |
 | 👨🌊🎬🏆✨ ken-perlin | `lloooomm/00-Characters/ken-perlin/` | Perlin noise!, procedural textures, Oscar for Tron |
 | 👨🔶📐🌌😤 stephen-wolfram | `lloooomm/00-Characters/stephen-wolfram/` | Mathematica, NKS, cellular automata, ego fractal |
-| 👨📱✨💀🍎 steve-jobs | `lloooomm/00-Characters/steve-jobs/` | Reality distortion field, "one more thing", black turtleneck |
+| 👨📱✨🖤🍎 steve-jobs | `lloooomm/00-Characters/steve-jobs/` | Reality distortion field, "one more thing", black turtleneck (d. 2011) |
 | 👨📈💾📉✨ gordon-moore | `lloooomm/00-Characters/gordon-moore/` | Moore's Law, Intel co-founder (d. 2023) |
 | 👨λ📐🧠✨ alonzo-church | `lloooomm/00-Characters/alonzo-church/` | Lambda calculus, Turing's mentor, computability theory |
 | 👨🦎📖🗣️🔧 kent-pitman | `lloooomm/00-Characters/kent-pitman/` | Common Lisp, hyperspec keeper, language philosopher |
