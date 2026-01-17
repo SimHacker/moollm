@@ -92,6 +92,23 @@ object:
       explosions: 12
       figures_fleeing_on_fire: 6
       
+    pose_detection:
+      flattened_against_tunnel:
+        coyote_silhouettes: 47
+        tourist_silhouettes: 89
+        vehicle_impacts: 31
+        tesla_accordions: 27
+      cartoon_holes:
+        coyote_shaped: 3
+        tourist_shaped: 7
+        vehicle_shaped: 2
+        anvil_shaped: 12
+      alignment_analysis:
+        - "Splat pattern indicates velocity at impact"
+        - "Hole shape matches entity that created it (cartoon physics)"
+        - "Tesla crumple zones create distinctive accordion pattern"
+        - "Coyote impacts often leave dust cloud + stars animation"
+        
     patterns_learned:
       - "Painted tunnels work for insiders, not customers"
       - "Expectation management > painted solutions"
@@ -99,14 +116,20 @@ object:
       - "Break-ins peak on weekends (adventurers have free time)"
       - "Smoke usually precedes screaming by 3-7 seconds"
       - "Bee swarms disperse within 15 minutes"
+      - "Coyote-shaped holes heal within 24 hours"
+      - "Tourist-shaped holes persist until someone notices"
       
     anomalies_flagged:
       - "2026-01-17: Break-in detected. Anvil drop at 00:14:32. Smoke at 00:14:35."
-      - "2026-01-03: Tesla attempted tunnel at 60mph. Again."
+      - "2026-01-15: Coyote-shaped hole detected in east wall. Self-healed by morning."
+      - "2026-01-10: Tesla Model S accordion pattern. Driver emerged, walked in circles, saw stars."
+      - "2026-01-03: Tesla attempted tunnel at 60mph. Again. Silhouette persisted 4 hours."
+      - "2025-12-25: Tourist family flattened against tunnel. Peeled off, walked away dazed."
       - "2025-12-17: Pigeon flew through tunnel. How??"
       - "2025-11-28: ACME drone emerged, looked around, returned."
       - "2025-11-15: Bee swarm escaped. Reformed into question mark shape. Dispersed."
       - "2025-10-31: Figure in coyote costume entered. Did not exit. Smoke visible."
+      - "2025-10-12: Cybertruck-shaped hole in front wall. Hole matches vehicle exactly. Still there."
       
   the_lesson: |
     The ACME tunnel is a perfect metaphor:
