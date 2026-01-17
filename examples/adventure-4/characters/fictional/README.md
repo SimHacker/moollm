@@ -123,7 +123,7 @@ Voyager's Emergency Medical Hologram, activated when the ship's doctor dies — 
 | **👨🔧⚡ montgomery-scott** | TOS/TNG | "I'm givin' her all she's got!" — miracle worker tradition |
 | **👨⚔️🦷 worf** | TNG/DS9 | Klingon honor in Starfleet, culture clash, bat'leth |
 | **🌌✨😏 q** | TNG | Omnipotent trickster, "Mon capitaine!" |
-| **🐍🪡🎭 garak** | DS9 | "I'm just a simple tailor" — spy, liar, survivor |
+| **🐍🪡🎭 garak** | DS9 | "I'm just a simple tailor" — spy, liar, survivor, queer |
 | **👨⚔️😈 dukat** | DS9 | Charming villain, self-deception, occupation apologist |
 | **👨⚾👊 sisko** | DS9 | The Emissary, grief into leadership, punched Q |
 
