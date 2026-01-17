@@ -127,27 +127,27 @@ The holy trinity of open educational simulations:
 │                    🏙️ MICROPOLIS                        │
 │              (Open-source SimCity engine)               │
 │                                                         │
-│   ┌─────────────┐    ┌─────────────┐    ┌───────────┐  │
-│   │ 🏠 Zones    │    │ 🚗 Traffic  │    │ 💰 Budget │  │
-│   └─────────────┘    └─────────────┘    └───────────┘  │
+│   ┌─────────────┐    ┌─────────────┐    ┌───────────┐   │
+│   │ 🏠 Zones    │    │ 🚗 Traffic   │    │ 💰 Budget │   │
+│   └─────────────┘    └─────────────┘    └───────────┘   │
 │                          ↕                              │
-│   ┌─────────────────────────────────────────────────┐  │
-│   │              🧱 SNAP! INTERFACE                  │  │
-│   │  ┌─────────────────────────────────────────┐    │  │
-│   │  │ when [crime rate] > [50]                │    │  │
-│   │  │   build [police station] at [hotspot]   │    │  │
-│   │  │   notify [mayor character]              │    │  │
-│   │  └─────────────────────────────────────────┘    │  │
-│   └─────────────────────────────────────────────────┘  │
+│   ┌─────────────────────────────────────────────────┐   │
+│   │              🧱 SNAP! INTERFACE                 │   │
+│   │  ┌─────────────────────────────────────────┐    │   │
+│   │  │ when [crime rate] > [50]                │    │   │
+│   │  │   build [police station] at [hotspot]   │    │   │
+│   │  │   notify [mayor character]              │    │   │
+│   │  └─────────────────────────────────────────┘    │   │
+│   └─────────────────────────────────────────────────┘   │
 │                          ↕                              │
-│   ┌─────────────────────────────────────────────────┐  │
-│   │              🤖 MOOLLM LAYER                     │  │
-│   │                                                  │  │
-│   │  👤 Mayor Character ← receives notifications    │  │
-│   │  🏠 City Hall Room ← contains city state        │  │
-│   │  📜 GOVERNANCE Protocol ← ethical constraints   │  │
-│   │  💬 LLM ← explains decisions, roleplays mayor   │  │
-│   └─────────────────────────────────────────────────┘  │
+│   ┌─────────────────────────────────────────────────┐   │
+│   │              🤖 MOOLLM LAYER                    │   │
+│   │                                                 │   │
+│   │  👤 Mayor Character ← receives notifications    │   │
+│   │  🏠 City Hall Room ← contains city state        │   │
+│   │  📜 GOVERNANCE Protocol ← ethical constraints   │   │
+│   │  💬 LLM ← explains decisions, roleplays mayor   │   │
+│   └─────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -230,24 +230,47 @@ export:
     condition.has_item: "<[inventory v] contains [{item}]>"
 ```
 
-### Micropolis TCL → Snap! Blocks
+### Micropolis WASM → Snap! Blocks
 
-Micropolis is written in TCL. A Snap! extension could:
+Micropolis has been refactored into **clean C++ classes** independent of any scripting language, compiled to **WebAssembly (WASM)**, and runs directly in the browser. This modern architecture (by 👨🥧🎮🐈💻 Don Hopkins) makes Snap! integration natural:
 
-1. Expose Micropolis state as Snap! variables
-2. Allow Snap! scripts to trigger Micropolis actions
-3. Visualize city data as Snap! lists and sprites
+1. 🌐 **Same runtime environment** — both Snap! and Micropolis run in the browser
+2. 📦 **Clean C++ API** — exposed to JavaScript via WASM bindings
+3. 🔄 **Real-time state access** — Snap! can query city state directly
+4. ⚡ **Low latency** — no network round-trips, direct memory access
 
-```tcl
-# Micropolis side
-proc snap_get_population {} {
-  return $City(population)
-}
+```javascript
+// Micropolis WASM bindings exposed to JavaScript
+const micropolis = await MicropolisModule();
 
-proc snap_build_zone {type x y} {
-  DoTool $type $x $y
-}
+// Snap! extension accessing Micropolis directly
+SnapExtensions.primitives.set(
+  'micropolis_getPopulation()',
+  function() {
+    return micropolis.getPopulation();
+  }
+);
+
+SnapExtensions.primitives.set(
+  'micropolis_buildZone(type, x, y)',
+  function(type, x, y) {
+    micropolis.doTool(type, x, y);
+  }
+);
+
+SnapExtensions.primitives.set(
+  'micropolis_getCrimeRate(x, y)',
+  function(x, y) {
+    return micropolis.getCrimeRate(x, y);
+  }
+);
 ```
+
+**The WASM Advantage:**
+- 🚀 Near-native performance in the browser
+- 🔧 C++ classes cleanly separated from UI concerns
+- 🌐 Same JavaScript runtime as Snap!
+- 📱 Runs on any modern browser, no install required
 
 ```
 ┌─────────────────────────────────────┐
@@ -255,9 +278,13 @@ proc snap_build_zone {type x y} {
 ├─────────────────────────────────────┤
 │ (population)                        │
 │ (crime rate at x: [100] y: [50])    │
+│ (pollution at x: [] y: [])          │
+│ (land value at x: [] y: [])         │
 │ build [residential v] at x: [] y: []│
 │ set tax rate to [7] %               │
+│ set game speed to [3]               │
 │ when [disaster v] occurs            │
+│ when population changes by [1000]   │
 └─────────────────────────────────────┘
 ```
 
