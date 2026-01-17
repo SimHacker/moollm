@@ -24,21 +24,21 @@ These are **tribute incarnations** -- fictional explorations based on documented
 
 | Character | Reference | Description |
 |-----------|-----------|-------------|
-| alan-kay | `lloooomm/00-Characters/alan-kay/` | Smalltalk creator, "The best way to predict the future is to invent it" |
-| alan-turing | `lloooomm/00-Characters/alan-turing/` | Father of computer science, Turing machine, WWII codebreaker |
-| marvin-minsky | `lloooomm/00-Characters/marvin-minsky/` | Society of Mind, AI pioneer, K-lines |
-| seymour-papert | `lloooomm/00-Characters/seymour-papert/` | Logo, constructionism, Mindstorms |
-| gary-drescher | `lloooomm/00-Characters/gary-drescher/` | Made-Up Minds, schema mechanism |
-| jean-piaget | `lloooomm/00-Characters/jean-piaget/` | Developmental psychology, constructivism |
-| doug-engelbart | `lloooomm/00-Characters/doug-engelbart/` | Mother of all demos, augmenting human intellect |
-| ivan-sutherland | `lloooomm/00-Characters/ivan-sutherland/` | Sketchpad, father of computer graphics |
-| dan-ingalls | `lloooomm/00-Characters/dan-ingalls/` | Smalltalk implementation, Squeak |
-| dave-ungar | `lloooomm/00-Characters/dave-ungar/` | Self language, prototype-based OO |
-| carl-hewitt | `lloooomm/00-Characters/carl-hewitt/` | Actor model of computation |
-| grace-hopper | `lloooomm/00-Characters/grace-hopper/` | COBOL, compiler pioneer, "Amazing Grace" |
-| john-von-neumann | `lloooomm/00-Characters/john-von-neumann/` | Von Neumann architecture, cellular automata |
-| douglas-hofstadter | `lloooomm/00-Characters/douglas-hofstadter/` | Gödel, Escher, Bach; strange loops |
-| geoffrey-hinton | `lloooomm/00-Characters/geoffrey-hinton/` | Deep learning pioneer, backpropagation |
+| 👨💻🔮 alan-kay | `lloooomm/00-Characters/alan-kay/` | Smalltalk creator, "The best way to predict the future is to invent it" |
+| 👨🧪🔐 alan-turing | `lloooomm/00-Characters/alan-turing/` | Father of computer science, Turing machine, WWII codebreaker |
+| 👨🧠🔗 marvin-minsky | `lloooomm/00-Characters/marvin-minsky/` | Society of Mind, AI pioneer, K-lines |
+| 👨🐢📐 seymour-papert | `lloooomm/00-Characters/seymour-papert/` | Logo, constructionism, Mindstorms |
+| 👨🧩🤖 gary-drescher | `lloooomm/00-Characters/gary-drescher/` | Made-Up Minds, schema mechanism |
+| 👨👶🧠 jean-piaget | `lloooomm/00-Characters/jean-piaget/` | Developmental psychology, constructivism |
+| 👨🖱️💡 doug-engelbart | `lloooomm/00-Characters/doug-engelbart/` | Mother of all demos, augmenting human intellect |
+| 👨🖼️✏️ ivan-sutherland | `lloooomm/00-Characters/ivan-sutherland/` | Sketchpad, father of computer graphics |
+| 👨💻🐿️ dan-ingalls | `lloooomm/00-Characters/dan-ingalls/` | Smalltalk implementation, Squeak |
+| 👨🪞🧬 dave-ungar | `lloooomm/00-Characters/dave-ungar/` | Self language, prototype-based OO |
+| 👨🎭📨 carl-hewitt | `lloooomm/00-Characters/carl-hewitt/` | Actor model of computation |
+| 👩⚓🐛 grace-hopper | `lloooomm/00-Characters/grace-hopper/` | COBOL, compiler pioneer, "Amazing Grace" |
+| 👨🧮🎲 john-von-neumann | `lloooomm/00-Characters/john-von-neumann/` | Von Neumann architecture, cellular automata |
+| 👨🔄🎨 douglas-hofstadter | `lloooomm/00-Characters/douglas-hofstadter/` | Gödel, Escher, Bach; strange loops |
+| 👨🧠📉 geoffrey-hinton | `lloooomm/00-Characters/geoffrey-hinton/` | Deep learning pioneer, backpropagation |
 
 ### HCI & Interaction Design
 
@@ -56,12 +56,12 @@ These are **tribute incarnations** -- fictional explorations based on documented
 
 | Character | Reference | Description |
 |-----------|-----------|-------------|
-| will-wright | `lloooomm/00-Characters/will-wright/` | SimCity, The Sims, Spore |
-| shigeru-miyamoto | `lloooomm/00-Characters/shigeru-miyamoto/` | Mario, Zelda, Nintendo design philosophy |
-| dani-bunten-berry | `lloooomm/00-Characters/dani-bunten-berry/` | M.U.L.E., Seven Cities of Gold, multiplayer pioneer |
-| chaim-gingold | `lloooomm/00-Characters/chaim-gingold/` | Spore procedural generation |
-| craig-reynolds | `lloooomm/00-Characters/craig-reynolds/` | Boids, flocking algorithms |
-| warren-robinett | `lloooomm/00-Characters/warren-robinett/` | Adventure (Atari), first Easter egg |
+| 👨🏠🎮 will-wright | `lloooomm/00-Characters/will-wright/` | SimCity, The Sims, Spore |
+| 👨🍄⭐ shigeru-miyamoto | `lloooomm/00-Characters/shigeru-miyamoto/` | Mario, Zelda, Nintendo design philosophy |
+| 👩🎮🏳️‍⚧️ dani-bunten-berry | `lloooomm/00-Characters/dani-bunten-berry/` | M.U.L.E., Seven Cities of Gold, multiplayer pioneer |
+| 👨🌌🔬 chaim-gingold | `lloooomm/00-Characters/chaim-gingold/` | Spore procedural generation |
+| 👨🐦🔀 craig-reynolds | `lloooomm/00-Characters/craig-reynolds/` | Boids, flocking algorithms |
+| 👨🥚🎮 warren-robinett | `lloooomm/00-Characters/warren-robinett/` | Adventure (Atari), first Easter egg |
 
 ### Music & Art
 
@@ -168,24 +168,24 @@ These are **tribute incarnations** -- fictional explorations based on documented
 
 | Character | Reference | Description |
 |-----------|-----------|-------------|
-| diana-merry-shapiro | `lloooomm/00-Characters/diana-merry-shapiro/` | **Co-invented BitBLT at Xerox PARC**, overlapping windows, "Casa Susanna" documentary |
-| lynn-conway | `lloooomm/00-Characters/lynn-conway/` | VLSI revolution, fired from IBM 1968 for transitioning, reinvented chip design at PARC |
-| sophie-wilson | `lloooomm/00-Characters/sophie-wilson/` | ARM architecture -- every smartphone carries her genius |
-| wendy-carlos | `lloooomm/00-Characters/wendy-carlos/` | Switched-On Bach, electronic music pioneer |
-| mary-ann-horton | *wikipedia* | Berkeley UNIX, USENET pioneer, transitioned 1997 |
-| dani-bunten-berry | `lloooomm/00-Characters/dani-bunten-berry/` | M.U.L.E., The Sims dedicated to her memory |
-| rebecca-heineman | *wikipedia* | Space Invaders champion 1980, Interplay co-founder, 70+ games, Netflix "High Score" |
-| vanessa-freudenberg | *squeak community* | SqueakJS creator, Croquet, Multisynq, Smalltalk genius |
-| jennell-jaquays | *wikipedia* | D&D modules (Dark Tower), id Software, Quake (d. Jan 2024) |
-| audrey-tang | `lloooomm/00-Characters/audrey-tang/` | Taiwan Digital Minister, vTaiwan, radical transparency |
-| dame-stephanie-shirley | `lloooomm/00-Characters/dame-stephanie-shirley/` | Nazi refugee, founded tech company employing women, signed letters "Steve" |
-| divine | `lloooomm/00-Characters/divine/` | John Waters' muse, "the filthiest person alive" |
-| klaus-nomi | `lloooomm/00-Characters/klaus-nomi/` | Operatic alien, new wave icon |
-| grace-jones | `lloooomm/00-Characters/grace-jones/` | "Pull up to the bumper", fierce presence |
-| nina-hagen | `lloooomm/00-Characters/nina-hagen/` | German punk opera, wild spirit |
-| leigh-bowery | `lloooomm/00-Characters/leigh-bowery/` | Club kid, performance art, living sculpture |
-| heklina | `lloooomm/00-Characters/heklina/` | SF drag legend, Trannyshack founder |
-| lou-reed | `lloooomm/00-Characters/lou-reed/` | "Walk on the Wild Side", Velvet Underground |
+| 👩💻🖼️ diana-merry-shapiro | `lloooomm/00-Characters/diana-merry-shapiro/` | **Co-invented BitBLT at Xerox PARC**, overlapping windows, "Casa Susanna" documentary |
+| 👩💻⚡ lynn-conway | `lloooomm/00-Characters/lynn-conway/` | VLSI revolution, fired from IBM 1968 for transitioning, reinvented chip design at PARC |
+| 👩💻📱 sophie-wilson | `lloooomm/00-Characters/sophie-wilson/` | ARM architecture -- every smartphone carries her genius |
+| 👩🎹🎼 wendy-carlos | `lloooomm/00-Characters/wendy-carlos/` | Switched-On Bach, electronic music pioneer |
+| 👩💻🌐 mary-ann-horton | *wikipedia* | Berkeley UNIX, USENET pioneer, transitioned 1997 |
+| 👩🎮🏳️‍⚧️ dani-bunten-berry | `lloooomm/00-Characters/dani-bunten-berry/` | M.U.L.E., The Sims dedicated to her memory |
+| 👩🎮👾 rebecca-heineman | *wikipedia* | Space Invaders champion 1980, Interplay co-founder, 70+ games, Netflix "High Score" |
+| 👩💻🐿️ vanessa-freudenberg | *squeak community* | SqueakJS creator, Croquet, Multisynq, Smalltalk genius |
+| 👩🐉🎮 jennell-jaquays | *wikipedia* | D&D modules (Dark Tower), id Software, Quake (d. Jan 2024) |
+| 👩🇹🇼💻 audrey-tang | `lloooomm/00-Characters/audrey-tang/` | Taiwan Digital Minister, vTaiwan, radical transparency |
+| 👩💼✍️ dame-stephanie-shirley | `lloooomm/00-Characters/dame-stephanie-shirley/` | Nazi refugee, founded tech company employing women, signed letters "Steve" |
+| 👩💄🎬 divine | `lloooomm/00-Characters/divine/` | John Waters' muse, "the filthiest person alive" |
+| 👨🎭👽 klaus-nomi | `lloooomm/00-Characters/klaus-nomi/` | Operatic alien, new wave icon |
+| 👩💪🎤 grace-jones | `lloooomm/00-Characters/grace-jones/` | "Pull up to the bumper", fierce presence |
+| 👩🎸🌋 nina-hagen | `lloooomm/00-Characters/nina-hagen/` | German punk opera, wild spirit |
+| 👨🎨🎭 leigh-bowery | `lloooomm/00-Characters/leigh-bowery/` | Club kid, performance art, living sculpture |
+| 👩👠🌈 heklina | `lloooomm/00-Characters/heklina/` | SF drag legend, Trannyshack founder |
+| 👨🎸🚶 lou-reed | `lloooomm/00-Characters/lou-reed/` | "Walk on the Wild Side", Velvet Underground |
 
 ### Media & Systems Thinkers
 

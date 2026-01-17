@@ -85,6 +85,29 @@ The documents in this directory crystallize ideas from:
 
 ---
 
+## Character Suggestions
+
+Fictional characters that embody EVAL themes — evaluation, authenticity, judgment, consciousness:
+
+| Character | Source | Emoji Identity | Why They Fit |
+|-----------|--------|----------------|--------------|
+| **🦉🤖✨ Owl Robot** | *Blade Runner* (1982) | 🦉 owl, 🤖 robot, ✨ artificial shimmer | The first question in Blade Runner: "Is it real?" The owl is artificial — and beautiful. EVAL asks: does authenticity matter, or does the performance? |
+| **🤖👁️ Roy Batty** | *Blade Runner* | 🤖 replicant, 👁️ Tyrell eye | "I've seen things you people wouldn't believe." Evaluation through witnessed experience. |
+| **🧬🔍 Deckard** | *Blade Runner* | 🧬 human(?), 🔍 detective | The evaluator who may himself be evaluated. |
+| **🌌👻 HAL 9000** | *2001* | 🌌 space, 👻 ghost in machine | Evaluation gone wrong — or right? |
+| **🐑⚡ Philip K. Dick** | Author | 🐑 android dreams, ⚡ electric | The original asker: do androids dream of electric sheep? |
+
+### The Owl's Question
+
+> "Is it artificial?"  
+> "Of course it is."  
+> "Must be expensive."  
+> "Very."
+
+The owl doesn't need to be "real" to be valuable. EVAL games explore this: **what we evaluate as meaningful may be constructed, performed, artificial — and still matter.**
+
+---
+
 ## The Mantra
 
 > Meaning arises through judgment.  

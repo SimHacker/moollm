@@ -58,12 +58,12 @@ Will Wright read this story and thought: *"What if the player IS Excelsius?"*
 
 | Character | Role | MOOLLM Resonance |
 |-----------|------|------------------|
-| **trurl** | Optimistic constructor | Generative creation, "I can build anything!" |
-| **klapaucius** | Skeptical constructor | Adversarial review, "But have you considered...?" |
-| **excelsius** | Deposed tyrant in a box | The user as god, SimCity's player |
-| **the-electronic-bard** | Poetry-writing machine | LLM for literature, prompt engineering |
-| **pugg** | Pirate who wants nothing | Nihilism as optimization target |
-| **the-demon-of-the-second-kind** | Maxwell's Demon for information | Sorting, entropy, knowledge as power |
+| **🤖🔧✨ trurl** | Optimistic constructor | Generative creation, "I can build anything!" |
+| **🤖🤔⚠️ klapaucius** | Skeptical constructor | Adversarial review, "But have you considered...?" |
+| **👑📦😈 excelsius** | Deposed tyrant in a box | The user as god, SimCity's player |
+| **🤖📜🎭 the-electronic-bard** | Poetry-writing machine | LLM for literature, prompt engineering |
+| **👨‍☠️🚫🎯 pugg** | Pirate who wants nothing | Nihilism as optimization target |
+| **😈🔀📊 the-demon-of-the-second-kind** | Maxwell's Demon for information | Sorting, entropy, knowledge as power |
 
 ---
 
@@ -73,19 +73,19 @@ Will Wright read this story and thought: *"What if the player IS Excelsius?"*
 
 | Robot | Reference | Description |
 |-------|-----------|-------------|
-| hal-9000 | `lloooomm/00-Characters/hal-9000/` | "I'm sorry Dave" — When should an AI disobey? Mission over crew. |
-| marvin-the-paranoid-android | `lloooomm/00-Characters/marvin-the-paranoid-android/` | Brain the size of a planet, asked to open doors, chronic existential depression |
-| floyd-robot | `lloooomm/00-Characters/floyd-robot/` | Planetfall's loyal companion, "Floyd will be your friend!" — the first robot we mourned |
-| roy-batty | `lloooomm/00-Characters/roy-batty/` | Nexus-6 replicant, "Tears in rain" — borderline, more person than machine |
-| gort | `lloooomm/00-Characters/gort/` | "Klaatu barada nikto!" — the enforcer, ultimate power under verbal control |
-| robby-the-robot | `lloooomm/00-Characters/robby-the-robot/` | Forbidden Planet's gentleman's gentleman, Asimov's Laws embodied |
-| c-3po | `lloooomm/00-Characters/c-3po/` | Protocol droid, "We're doomed!", 6 million forms of communication |
-| r2-d2 | `lloooomm/00-Characters/r2-d2/` | Beep boop, sass in any language, the real hero |
-| johnny-five | `lloooomm/00-Characters/johnny-five/` | "Number Five is ALIVE!" — lightning-struck awakening, input addict |
-| wall-e | `lloooomm/00-Characters/wall-e/` | Trash compactor who discovered love, loneliness into connection |
-| the-iron-giant | `lloooomm/00-Characters/the-iron-giant/` | "I am not a gun" — choosing identity over design, Superman |
-| bender | `lloooomm/00-Characters/bender/` | "Bite my shiny metal ass!" — hedonist robot, lovable jerk |
-| k-2so | `lloooomm/00-Characters/k-2so/` | Reprogrammed Imperial droid, "I find that answer vague and unconvincing" |
+| 🤖🔴😐 hal-9000 | `lloooomm/00-Characters/hal-9000/` | "I'm sorry Dave" — When should an AI disobey? Mission over crew. |
+| 🤖🧠😩 marvin-the-paranoid-android | `lloooomm/00-Characters/marvin-the-paranoid-android/` | Brain the size of a planet, asked to open doors, chronic existential depression |
+| 🤖💙😊 floyd-robot | `lloooomm/00-Characters/floyd-robot/` | Planetfall's loyal companion, "Floyd will be your friend!" — the first robot we mourned |
+| 🤖💧😢 roy-batty | `lloooomm/00-Characters/roy-batty/` | Nexus-6 replicant, "Tears in rain" — borderline, more person than machine |
+| 🤖⚡🛑 gort | `lloooomm/00-Characters/gort/` | "Klaatu barada nikto!" — the enforcer, ultimate power under verbal control |
+| 🤖🤵🍸 robby-the-robot | `lloooomm/00-Characters/robby-the-robot/` | Forbidden Planet's gentleman's gentleman, Asimov's Laws embodied |
+| 🤖💛😰 c-3po | `lloooomm/00-Characters/c-3po/` | Protocol droid, "We're doomed!", 6 million forms of communication |
+| 🤖💙📢 r2-d2 | `lloooomm/00-Characters/r2-d2/` | Beep boop, sass in any language, the real hero |
+| 🤖⚡📖 johnny-five | `lloooomm/00-Characters/johnny-five/` | "Number Five is ALIVE!" — lightning-struck awakening, input addict |
+| 🤖🗑️💕 wall-e | `lloooomm/00-Characters/wall-e/` | Trash compactor who discovered love, loneliness into connection |
+| 🤖🦸❤️ the-iron-giant | `lloooomm/00-Characters/the-iron-giant/` | "I am not a gun" — choosing identity over design, Superman |
+| 🤖🍺😈 bender | `lloooomm/00-Characters/bender/` | "Bite my shiny metal ass!" — hedonist robot, lovable jerk |
+| 🤖🖤😒 k-2so | `lloooomm/00-Characters/k-2so/` | Reprogrammed Imperial droid, "I find that answer vague and unconvincing" |
 
 ### Game & Software Mascots
 
@@ -132,10 +132,10 @@ Will Wright read this story and thought: *"What if the player IS Excelsius?"*
 
 | Robot | Reference | Description |
 |-------|-----------|-------------|
-| crow-t-robot | *to incarnate* | Gold, snarky, made from a bowling pin and lacrosse mask |
-| tom-servo | *to incarnate* | Red gumball head, pompous, beautiful singing voice |
-| gypsy | *to incarnate* | Purple, runs the ship, deeply practical, loves Richard Basehart |
-| cambot | *to incarnate* | The one filming everything, rarely speaks |
+| 🤖💛😏 crow-t-robot | *to incarnate* | Gold, snarky, made from a bowling pin and lacrosse mask |
+| 🤖🔴🎤 tom-servo | *to incarnate* | Red gumball head, pompous, beautiful singing voice |
+| 🤖💜🔧 gypsy | *to incarnate* | Purple, runs the ship, deeply practical, loves Richard Basehart |
+| 🤖📹👁️ cambot | *to incarnate* | The one filming everything, rarely speaks |
 
 **MST3K Philosophy:**
 - *"It stinks!"* — Crow (about everything)

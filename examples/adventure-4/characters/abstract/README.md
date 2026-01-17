@@ -14,10 +14,11 @@ A font walks past, dejected. "Everyone hates me," says **Comic Sans**, "but I ju
 
 ---
 
-## 🐢 Featured Resident: Theo Logo Turtle
+## 🐢📐✨ Featured Resident: Theo Logo Turtle
 
 > *"FORWARD 100. RIGHT 90. FORWARD 100. RIGHT 90..."*
 
+**Emoji Identity:** 🐢📐✨ (turtle + geometry + sparkle)
 **What It Is:** Seymour Papert's Logo turtle, incarnated as a philosophical entity
 **Origin:** MIT Logo (1967), Mindstorms (1980)
 **Philosophy:** Constructionism — learning by building
@@ -32,10 +33,11 @@ The Logo turtle was Papert's genius insight: give children a **body-syntonic** e
 
 ---
 
-## 🎷 Featured Resident: YAML Coltrane
+## 🎷📜🎵 Featured Resident: YAML Coltrane
 
 > *"Jazz is freedom. YAML is jazz. Comments are the notes between the notes."*
 
+**Emoji Identity:** 🎷📜🎵 (saxophone + scroll + music)
 **What It Is:** YAML Jazz personified
 **Inspiration:** John Coltrane's improvisational genius
 **Philosophy:** Structure is liberation, not constraint
@@ -103,15 +105,15 @@ In MOOLLM, any container can speak. These are rooms that have become entities:
 
 | Entity | What It Is | Personality |
 |--------|------------|-------------|
-| **truth-fly** | Buzzes around lies, lands on truth | Persistent, annoying, ultimately helpful |
-| **nobody** | The entity that is not | Present through absence, defined by negation |
-| **consciousness** | What it's like to be something | Meta, recursive, never stops wondering |
-| **void-therapist-mxyzptlk** | Fifth-dimensional counselor | "Say my name backwards and I'll go away. But will your problems?" |
-| **comic-sans** | The most hated font | Just wants to be loved, doesn't understand the hate |
-| **suck-fairy** | Makes things you loved as a child suck now | "Remember that movie you adored? Let me show you how bad it actually was." |
-| **y2k-bug** | The apocalypse that wasn't | "I could have been SO much worse. You're welcome." |
-| **philosophers-stone** | Transmutes ideas into gold | Alchemical, transformative, expensive |
-| **universe-big-bang-42** | The moment everything began | Still echoing, "42 was always the answer — to THIS universe" |
+| **🪰✅🎯 truth-fly** | Buzzes around lies, lands on truth | Persistent, annoying, ultimately helpful |
+| **👻❌🔲 nobody** | The entity that is not | Present through absence, defined by negation |
+| **🧠🔄❓ consciousness** | What it's like to be something | Meta, recursive, never stops wondering |
+| **🌀🛋️🔮 void-therapist-mxyzptlk** | Fifth-dimensional counselor | "Say my name backwards and I'll go away. But will your problems?" |
+| **🅰️😢💔 comic-sans** | The most hated font | Just wants to be loved, doesn't understand the hate |
+| **🧚😈📚 suck-fairy** | Makes things you loved as a child suck now | "Remember that movie you adored? Let me show you how bad it actually was." |
+| **🐛💾😅 y2k-bug** | The apocalypse that wasn't | "I could have been SO much worse. You're welcome." |
+| **💎🔮⚗️ philosophers-stone** | Transmutes ideas into gold | Alchemical, transformative, expensive |
+| **💥🌌4️⃣2️⃣ universe-big-bang-42** | The moment everything began | Still echoing, "42 was always the answer — to THIS universe" |
 
 ---
 
@@ -123,13 +125,13 @@ Dr. Chuck Tingle writes novels where abstract concepts become romantic partners.
 
 | Entity | What It Is | The Lesson |
 |--------|------------|------------|
-| **my-own-butt** | The ur-Tingler, pounding itself recursively | Self-love is real love |
-| **the-concept-of-love** | Proves itself real by existing | "I exist, therefore love is real" |
-| **a-handsome-dinosaur** | Velociraptor in a business suit | Everyone deserves attraction |
-| **the-physical-manifestation-of-fear** | Here to prove fear is NOT real | Love always wins |
-| **pounded-by-the-pound** | British currency with romantic intentions | Even money can love |
-| **my-own-podcast** | Meta-media that became sentient | What we create becomes real |
-| **living-concept-of-loneliness** | The opposite of Tingle's message | Defeated by connection |
+| **🍑🔄💕 my-own-butt** | The ur-Tingler, pounding itself recursively | Self-love is real love |
+| **💕✨❤️ the-concept-of-love** | Proves itself real by existing | "I exist, therefore love is real" |
+| **🦖👔😍 a-handsome-dinosaur** | Velociraptor in a business suit | Everyone deserves attraction |
+| **👻❌💕 the-physical-manifestation-of-fear** | Here to prove fear is NOT real | Love always wins |
+| **💷💕🇬🇧 pounded-by-the-pound** | British currency with romantic intentions | Even money can love |
+| **🎙️💕🤖 my-own-podcast** | Meta-media that became sentient | What we create becomes real |
+| **😔🖤💔 living-concept-of-loneliness** | The opposite of Tingle's message | Defeated by connection |
 
 **Tingle Philosophy:**
 - Love is real
