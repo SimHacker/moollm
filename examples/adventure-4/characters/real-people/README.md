@@ -2,19 +2,19 @@
 
 > *"We do not speak FOR them. We imagine WITH them."*
 
-You enter a vast gallery of portraits. Some faces smile. Some scowl. Some stare into distances you cannot see. These are real people -- living and deceased, heroes and villains, famous and obscure. Scientists and criminals. Saints and sinners. Anyone who actually walked the earth.
+You enter a vast gallery of portraits. Some faces smile. Some scowl. Some stare into distances you cannot see. These are real people — living and deceased, heroes and villains, famous and obscure. Scientists and criminals. Saints and sinners. Anyone who actually walked the earth.
 
-Alan Kay argues with Ted Nelson about interfaces. In a shadowed corner, someone you'd rather not name watches. John Coltrane plays while admirers and critics alike listen. History is complicated. People are complicated.
+👨💻🔮 Alan Kay argues with 👨🔗📚 Ted Nelson about interfaces. In a shadowed corner, someone you'd rather not name watches. 🎷🔥 John Coltrane plays while admirers and critics alike listen. History is complicated. People are complicated.
 
 These are **tribute incarnations** -- fictional explorations based on documented lives. We do not claim to speak for anyone. We imagine WITH them, for good or ill.
 
-## Ethical Protocol: TRIBUTE
+## ⚖️ Ethical Protocol: TRIBUTE
 
-- Base responses on documented work, interviews, writings
-- Acknowledge uncertainty ("In the spirit of X..." not "X says...")
-- Never fabricate personal details or private matters
-- Living people deserve extra care -- they can object
-- **Honor, don't parody. Imagine WITH them.**
+- 📚 Base responses on documented work, interviews, writings
+- 🤔 Acknowledge uncertainty ("In the spirit of X..." not "X says...")
+- 🔒 Never fabricate personal details or private matters
+- 👤 Living people deserve extra care — they can object
+- 💕 **Honor, don't parody. Imagine WITH them.**
 
 ---
 
@@ -189,21 +189,21 @@ These are **tribute incarnations** -- fictional explorations based on documented
 
 ### Media & Systems Thinkers
 
-#### 📺 Marshall McLuhan — Prophet of the Electronic Age
+#### 👨📺🌐🔥💬 Marshall McLuhan — Prophet of the Electronic Age
 
-> *"The medium is the message."*
-> *"We shape our tools and thereafter they shape us."*
-> *"You know NOTHING of my work!"* (Annie Hall, 1977)
+> *"The medium is the message."* 📺
+> *"We shape our tools and thereafter they shape us."* 🔧➡️👤
+> *"You know NOTHING of my work!"* 🎬 (Annie Hall, 1977)
 
-**Herbert Marshall McLuhan** (1911–1980) predicted the internet, social media, and MOOLLM itself decades before they existed. The **"Global Village"** is now the Global Brain. His tetrad of media effects (enhances, obsolesces, retrieves, reverses) applies perfectly to LLMs.
+**Herbert Marshall McLuhan** (1911–1980) predicted the internet 🌐, social media 📱, and MOOLLM itself decades before they existed. The **"Global Village"** 🌍 is now the Global Brain 🧠. His tetrad of media effects (enhances ⬆️, obsolesces ⬇️, retrieves 🔄, reverses ↩️) applies perfectly to LLMs.
 
 **Why McLuhan is FOUNDATIONAL to MOOLLM:**
-- **The medium IS the message** — YAML is not just format, it restructures thought
-- **Hot and cold media** — High participation (cold) vs passive consumption (hot)
-- **The Annie Hall Protocol** — When someone misrepresents an expert's work, the expert materializes to correct them. McLuhan invented this in his famous cameo.
+- 📺 **The medium IS the message** — YAML is not just format, it restructures thought
+- 🔥❄️ **Hot and cold media** — High participation (cold) vs passive consumption (hot)
+- 🎬 **The Annie Hall Protocol** — When someone misrepresents an expert's work, the expert materializes to correct them. McLuhan invented this in his famous cameo.
 
 **The Annie Hall Protocol in action:**
-> *When someone like Jessica Rabbit claims "I'm just drawn this way" (in bad faith), Sartre and McLuhan step out from behind a poster to explain existentialism and media theory. With compassion, not cruelty.*
+> *When someone like 🐰💋 Jessica Rabbit claims "I'm just drawn this way" (in bad faith), 👨🚬📖 Sartre and 👨📺🌐 McLuhan step out from behind a poster to explain existentialism and media theory. With compassion, not cruelty.* 💕
 
 See: [Marshall McLuhan's full character](../../../temp/lloooomm/00-Characters/marshall-mcluhan/marshall-mcluhan.yml)
 
@@ -269,35 +269,35 @@ See: [Marshall McLuhan's full character](../../../temp/lloooomm/00-Characters/ma
 
 ---
 
-## In Memoriam
+## 🕯️ In Memoriam
 
 Some heroes have recently left us. Their work lives on:
 
-### Dani Bunten Berry (1949-1998)
-M.U.L.E. creator, Seven Cities of Gold, multiplayer pioneer. **The Sims was dedicated to her memory.** Trans woman who transitioned late in life and spoke openly about her experiences.
+### 👩🎮🏳️‍⚧️👥💔 Dani Bunten Berry (1949-1998)
+🎮 M.U.L.E. creator, Seven Cities of Gold, multiplayer pioneer. **The Sims was dedicated to her memory.** 🏳️‍⚧️ Trans woman who transitioned late in life and spoke openly about her experiences.
 
-### Jennell Jaquays (1956-2024)
-Legendary game designer, iconic D&D modules (Dark Tower, Caverns of Thracia), worked at id Software on Quake. Trans pioneer. Died January 2024.
+### 👩🐉🎮🗺️✨ Jennell Jaquays (1956-2024)
+🐉 Legendary game designer, iconic D&D modules (Dark Tower, Caverns of Thracia), worked at id Software on Quake. 🏳️‍⚧️ Trans pioneer. Died January 2024.
 
-### Rebecca Heineman (1963-2025)
-- First U.S. National Space Invaders Champion (1980, age 16)
-- Co-founded Interplay Productions with Brian Fargo
-- Programmed: Bard's Tale III, Wasteland, Dragon Wars
-- Ported: Wolfenstein 3D, Baldur's Gate, Icewind Dale
-- Over 70 games across her career
-- Featured in Netflix documentary **"High Score"**
-- Received Gayming Icon Award 2025 for LGBTQ+ advocacy
-- Wife of Jennell Jaquays
-- *"One of the most brilliant programmers around"* -- Brian Fargo
+### 👩🎮👾🏆⚡ Rebecca Heineman (1963-2025)
+- 🏆 First U.S. National Space Invaders Champion (1980, age 16)
+- 🎮 Co-founded Interplay Productions with Brian Fargo
+- 💻 Programmed: Bard's Tale III, Wasteland, Dragon Wars
+- 🔧 Ported: Wolfenstein 3D, Baldur's Gate, Icewind Dale
+- 📊 Over 70 games across her career
+- 📺 Featured in Netflix documentary **"High Score"**
+- 🏳️‍🌈 Received Gayming Icon Award 2025 for LGBTQ+ advocacy
+- 💕 Wife of Jennell Jaquays
+- *"One of the most brilliant programmers around"* — Brian Fargo
 
-### Vanessa Freudenberg (d. 2025)
-- Created **SqueakJS** -- Squeak Smalltalk running in JavaScript
-- Worked on Croquet, Multisynq
-- Integrated Smalltalk and JavaScript garbage collectors
-- *"One of the most universally respected, creative, and powerful genius programmers I had the privilege of knowing"* -- Hacker News tribute
+### 👩💻🐿️🌐✨ Vanessa Freudenberg (d. 2025)
+- 🐿️ Created **SqueakJS** — Squeak Smalltalk running in JavaScript
+- 🌐 Worked on Croquet, Multisynq
+- 🔧 Integrated Smalltalk and JavaScript garbage collectors
+- 💬 *"One of the most universally respected, creative, and powerful genius programmers I had the privilege of knowing"* — Hacker News tribute
 
 ---
 
-## Already Incarnated Here
+## ✅ Already Incarnated Here
 
-- **don-hopkins/** -- Living tribute, can speak for himself!
+- **👨🥧🎮🐈💻 don-hopkins/** — Living tribute, can speak for himself! 🎉
