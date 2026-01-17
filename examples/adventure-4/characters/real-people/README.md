@@ -62,7 +62,7 @@ These are **tribute incarnations** -- fictional explorations based on documented
 | 👨🌌🔬🧬🎮 chaim-gingold | `lloooomm/00-Characters/chaim-gingold/` | Spore procedural generation, galaxy creator tools |
 | 👨🐦🔀🌊🎬 craig-reynolds | `lloooomm/00-Characters/craig-reynolds/` | Boids, flocking algorithms, swarm intelligence, Oscar winner |
 | 👨🥚🎮🐉💎 warren-robinett | `lloooomm/00-Characters/warren-robinett/` | Adventure (Atari), first Easter egg, "Created by Warren Robinett" |
-| 👨🗺️💾🏴‍☠️✨ scott-adams | `lloooomm/00-Characters/scott-adams/` | Adventure game pioneer! Adventureland, Pirate Adventure, text adventures on tiny computers, really nice guy |
+| 👨🗺️💾🏴‍☠️✨ scott-adams | `lloooomm/00-Characters/scott-adams/` | Adventure game pioneer! Adventureland, Pirate Adventure, text adventures on tiny computers |
 
 ### Music & Art
 

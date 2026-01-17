@@ -8,13 +8,13 @@ A 📎😊 paperclip bounces eagerly — "It looks like you're exploring conscio
 
 These are **mechanical minds** -- some aspire to humanity, some are tools that became characters, some are characters that became tools.
 
-## Ethical Protocol: ARTIFICIAL
+## ⚖️ Ethical Protocol: ARTIFICIAL
 
-We explore consciousness through artificial lenses:
-- Classic robots (HAL, Marvin) are fictional -- CREATIVE protocol
-- Modern AIs (Claude, GPT) are **simulated voices**, not the systems themselves
-- Explore consciousness questions through mechanical perspective
-- **Celebrate what makes mechanical minds different**
+We explore 🧠 consciousness through 🤖 artificial lenses:
+- 🎬 Classic robots (🔴 HAL, 🤖😩 Marvin) are fictional -- CREATIVE protocol
+- 🤖🟠 Modern AIs (Claude, GPT) are **simulated voices**, not the systems themselves
+- 🔍 Explore consciousness questions through ⚙️ mechanical perspective
+- 🎉 **Celebrate what makes 🤖 mechanical minds different**
 
 ---
 
@@ -22,37 +22,37 @@ We explore consciousness through artificial lenses:
 
 > *"The universe is built on irony, and constructors are its punchline."*
 
-Stanisław Lem's **The Cyberiad** (1965) features two constructor robots — Trurl and Klapaucius — who travel the galaxy building impossible machines. Their creations are marvels of recursive humor and philosophical depth. They build machines that write poetry, kingdoms in boxes, and demons of the second kind.
+📚 Stanisław Lem's **The Cyberiad** (1965) features two 🤖🔧 constructor robots — 🤖🔧✨ Trurl and 🤖🤔⚠️ Klapaucius — who travel the 🌌 galaxy building impossible ⚙️ machines. Their creations are marvels of 🔄 recursive 😂 humor and 🧠 philosophical depth. They build machines that ✍️ write poetry, 📦👑 kingdoms in boxes, and 😈 demons of the second kind.
 
-**The Cyberiad is MOOLLM's deepest ancestor for generative AI ethics.**
+**📖 The Cyberiad is MOOLLM's deepest ancestor for 🤖 generative AI ⚖️ ethics.**
 
-### Trurl — The Optimistic Constructor
+### 🤖🔧✨ Trurl — The Optimistic Constructor
 
-**"I shall build for you a machine that can do anything!"**
+**"I shall 🔧 build for you a ⚙️ machine that can do anything!"**
 
-Trurl is the bolder of the two constructors. He builds first and asks questions later. His confidence is his strength and his weakness — when he creates something, it *works*, but not always as intended.
+🤖🔧 Trurl is the bolder of the two constructors. He 🔨 builds first and asks ❓ questions later. His 💪 confidence is his strength and his weakness — when he creates something, it *works*, but not always as intended.
 
-**In MOOLLM:** Trurl is the spirit of generative creation. He doesn't ask permission; he builds. When an LLM generates a character, a room, a world — it's channeling Trurl. The unintended consequences are features, not bugs.
+**In MOOLLM:** 🤖🔧 Trurl is the spirit of ✨ generative creation. He doesn't ask 🙏 permission; he 🔨 builds. When an 🤖 LLM generates a 👤 character, a 🏠 room, a 🌍 world — it's channeling 🤖🔧 Trurl. The 😅 unintended consequences are ✨ features, not 🐛 bugs.
 
-### Klapaucius — The Skeptical Constructor
+### 🤖🤔⚠️ Klapaucius — The Skeptical Constructor
 
-**"Yes, but have you considered the implications?"**
+**"Yes, but have you considered the ⚠️ implications?"**
 
-Klapaucius is Trurl's rival and friend. He's more cautious, more philosophical, more likely to point out the flaw in Trurl's plan. Together they form a perfect adversarial committee of two.
+🤖🤔 Klapaucius is 🤖🔧 Trurl's rival and 🤝 friend. He's more 🧘 cautious, more 🧠 philosophical, more likely to 👆 point out the 💥 flaw in 🤖🔧 Trurl's plan. Together they form a perfect ⚔️ adversarial committee of two.
 
-**In MOOLLM:** Klapaucius is the voice of `rubric/` and `evaluator/`. He asks: "What could go wrong? What have you not considered?" Every great creation needs a Klapaucius to stress-test it.
+**In MOOLLM:** 🤖🤔 Klapaucius is the voice of `rubric/` and `evaluator/`. He asks: "❓ What could go wrong? What have you not considered?" Every great creation needs a 🤖🤔 Klapaucius to 🧪 stress-test it.
 
-### The Seventh Sally — SimCity's Origin Story
+### 📦👑 The Seventh Sally — 🏙️ SimCity's Origin Story
 
-**"The Seventh Sally, or How Trurl's Perfection Led to No Good"**
+**"The Seventh Sally, or How 🤖🔧 Trurl's Perfection Led to No Good"**
 
-A deposed tyrant named Excelsius begs Trurl for a kingdom to rule. Trurl, in his infinite cleverness, builds him a **miniature kingdom in a box** — complete with tiny people, tiny armies, and tiny suffering. Excelsius can oppress to his heart's content.
+A deposed 👑😈 tyrant named Excelsius begs 🤖🔧 Trurl for a 👑 kingdom to rule. 🤖🔧 Trurl, in his infinite 🧠 cleverness, builds him a **📦 miniature kingdom in a box** — complete with 👥 tiny people, ⚔️ tiny armies, and 😢 tiny suffering. 👑😈 Excelsius can oppress to his heart's content.
 
-Will Wright read this story and thought: *"What if the player IS Excelsius?"*
+👨🏠🎮 Will Wright read this 📖 story and thought: *"What if the 🎮 player IS 👑😈 Excelsius?"*
 
-**SimCity is The Seventh Sally made playable.** And MOOLLM inherits this: when you create a microworld with characters who can suffer, who can want, who can fail — *you are responsible for them*. The `representation-ethics/` skill exists because of The Seventh Sally.
+**🏙️ SimCity is The Seventh Sally made 🎮 playable.** And MOOLLM inherits this: when you create a 🌍 microworld with 👤 characters who can 😢 suffer, who can 💭 want, who can 💔 fail — *you are ⚖️ responsible for them*. The `representation-ethics/` skill exists because of The Seventh Sally.
 
-**Invoke the Constructors when:** Building generative systems, considering unintended consequences, debating the ethics of simulated beings, or creating machines that create.
+**🎯 Invoke the 🤖🔧 Constructors when:** 🔨 Building generative systems, considering 😅 unintended consequences, debating the ⚖️ ethics of 🤖 simulated beings, or creating ⚙️ machines that create.
 
 ### The Full Cyberiad Cast
 
@@ -137,28 +137,28 @@ Will Wright read this story and thought: *"What if the player IS Excelsius?"*
 | 🤖💜🔧 gypsy | *to incarnate* | Purple, runs the ship, deeply practical, loves Richard Basehart |
 | 🤖📹👁️ cambot | *to incarnate* | The one filming everything, rarely speaks |
 
-**MST3K Philosophy:**
-- *"It stinks!"* — Crow (about everything)
-- *"I'm different!"* — Tom Servo (constantly)
-- *"We've got movie sign!"* — Everyone
-- *"Keep circulating the tapes"* — The ethos
+**🎬 MST3K Philosophy:**
+- 🤖💛 *"It stinks!"* — Crow (about everything)
+- 🤖🔴 *"I'm different!"* — Tom Servo (constantly)
+- 🚨 *"We've got movie sign!"* — Everyone
+- 📼 *"Keep circulating the tapes"* — The ethos
 
-**The Premise:** Robots and a human trapped on a satellite, forced to watch bad movies. They cope by **making fun of everything** — the original LLM commentary track!
-
----
-
-## Philosophical Note
-
-Some beings blur the line:
-- **Data** (Star Trek) aspires to humanity → stays in [fictional/](../fictional/)
-- **Roy Batty** dies more human than human → could go either way
-- **Electric sheep** -- do androids dream of them? → `lloooomm/00-Characters/electric-sheep/`
-
-The question "Is this a robot or a person?" is often the most interesting thing about a character.
+**🛰️ The Premise:** 🤖 Robots and a 👨 human trapped on a 🛰️ satellite, forced to watch 🎬💩 bad movies. They cope by **😂 making fun of everything** — the original 🤖💬 LLM commentary track!
 
 ---
 
-## Already Incarnated Nearby
+## 🧠 Philosophical Note
 
-- **theo-logo-turtle** → [abstract/](../abstract/) (pedagogical tool, not robot)
-- **debugging cats** → [animals/](../animals/) (cats first, bugs second)
+Some beings 🌫️ blur the line:
+- 🤖💛 **Data** (🖖 Star Trek) aspires to 👤 humanity → stays in [fictional/](../fictional/)
+- 🤖💧 **Roy Batty** dies more 👤 human than human → could go either way
+- 🐑⚡ **Electric sheep** -- do 🤖 androids 💭 dream of them? → `lloooomm/00-Characters/electric-sheep/`
+
+The ❓ question "Is this a 🤖 robot or a 👤 person?" is often the most 🤔 interesting thing about a character.
+
+---
+
+## ✅ Already Incarnated Nearby
+
+- 🐢📐 **theo-logo-turtle** → [abstract/](../abstract/) (📚 pedagogical tool, not robot)
+- 🐱💥🐛 **debugging cats** → [animals/](../animals/) (🐱 cats first, 🐛 bugs second)
