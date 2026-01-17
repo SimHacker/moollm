@@ -14,20 +14,26 @@
 
 ```mermaid
 flowchart TB
-    subgraph North["NORTH SIDE"]
+    subgraph North["⬆️ NORTH SIDE"]
         ACME["🏚️ ACME SURPLUS<br/>4 Lane Neverending<br/>(closed, painted tunnel)"]
     end
     
-    subgraph Street["═══ LANE NEVERENDING ═══"]
-        W2["← w2"] --> W1["W1<br/>You Are Here"] --> Center["center →"]
+    North --> Street
+    
+    subgraph Street["LANE NEVERENDING"]
+        direction LR
+        W2["← w2"] --- W1["W1<br/>You Are Here"] --- Center["center →"]
     end
     
-    subgraph South["SOUTH SIDE"]
+    Street --> South
+    
+    subgraph South["⬇️ SOUTH SIDE"]
         Leela["🏭 LEELA MANUFACTURING<br/>5 Lane Neverending<br/>(thriving)"]
     end
 
     style ACME fill:#7f8c8d,color:#fff
     style Leela fill:#3498db,color:#fff
+    style W1 fill:#f1c40f,color:#000
 ```
 
 ---
