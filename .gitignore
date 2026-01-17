@@ -39,8 +39,11 @@ build/
 .env.local
 *key.json
 
-# MOOLLM bootstrap probe — contains local machine info
-# NEVER commit this! Keep your laptop/server info private.
-bootstrap-probe.yml
+# MOOLLM runtime files — generated from templates
+# Templates live in skills/bootstrap/templates/
+# Runtime instances are gitignored, generated on boot
+/bootstrap-probe.yml
+/cold.yml
+/startup.yml
 .moollm/
 .agent
