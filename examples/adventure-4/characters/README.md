@@ -2,7 +2,7 @@
 
 > *"You ARE your file. And this is where all files come home."*
 
-The doors swing open and you step into a vast terminal of being. Marble floors echo with the footsteps of real people and fictional characters alike. Departure boards flicker with names: **🤖💧 Roy Batty** to Platform 4, **🤖💛 Data** arriving on Track 7, **👨🎀 Pee-wee Herman** screaming through the halls.
+The 🚪 doors swing open and you step into a vast terminal of being. Marble floors echo with the footsteps of real people and fictional characters alike. Departure boards flicker with names: **🤖💧 Roy Batty** to Platform 4, **🤖💛 Data** arriving on Track 7, **👨🎀 Pee-wee Herman** screaming through the halls.
 
 In the west wing, scientists and artists debate — **👨💻🔮 Alan Kay** arguing with **👨🔗📚 Ted Nelson** about interfaces while **🎹🌫️ Brian Eno** plays ambient music in the background. **👨🎊 Rip Taylor** walks past throwing confetti on everyone. **👨📺🌐 Marshall McLuhan** steps out from behind a promotional poster to correct someone: *"You know NOTHING of my work!"* 🎬
 
