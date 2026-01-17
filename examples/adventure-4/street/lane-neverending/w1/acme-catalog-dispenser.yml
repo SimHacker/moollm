@@ -71,7 +71,7 @@ object:
     THE CAMERA:
     Looking across the street, you notice a camera in Leela's lobby
     window is pointed directly at this dispenser.
-    CAM-ACME-01 is watching.
+    CAM-ACM1 is watching.
     
     THE IRONY:
     The store behind this dispenser is CLOSED and BOARDED UP.
@@ -101,7 +101,7 @@ object:
         (This is an INSTANCE pointing to ./acme-catalog.yml)
         (The prototype stays here. You carry a lightweight pointer.)
         
-        Somewhere across the street, CAM-ACME-01 logs:
+        Somewhere across the street, CAM-ACM1 logs:
         "CATALOG_DISPENSED: entity_unknown. Probability of regret: 78%"
         
     READ_IN_DISPENSER:
@@ -263,7 +263,7 @@ object:
       - "It just... refills. Don't question it."
       
   neighborhood_context:
-    across_street: "Leela Manufacturing (watching via CAM-ACME-01)"
+    across_street: "Leela Manufacturing (watching via CAM-ACM1)"
     behind: "ACME Surplus (closed, trapped)"
     relationship_to_leela: |
       Leela employees pass this dispenser every day.
@@ -271,7 +271,7 @@ object:
       Some study the malfunction rates — "competitive analysis."
       Some just shake their heads and keep walking.
       
-      CAM-ACME-01 logs every interaction.
+      CAM-ACM1 logs every interaction.
       The data is... educational.
       
   secret:
