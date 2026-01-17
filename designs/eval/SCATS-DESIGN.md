@@ -70,13 +70,13 @@ Scats can represent:
 ## Scat Lifecycle
 
 ```
-✍️ Draft → 🎵 Jam → 📜 Canonical → 🌊 Drift
+🤖 Generation → ✍️ Draft → 🎵 Jam → 📜 Canonical → 🌊 Drift
 ```
 
 | Stage | Description |
 |-------|-------------|
-| **Draft** | Initial expression, private or semi-public |
-| **Generation** | Ask LLM to generate, edit, interpret, translate, give feedback and suggestions |
+| **Generation** | Users and LLMs create initial content — prompt, generate, spark |
+| **Draft** | Users and LLMs edit, interpret, refine, suggest — private or semi-public iteration |
 | **Jam** | Others remix, annotate, embellish |
 | **Canonical** | Crystallized version gains authority as successful fruitful meme |
 | **Drift** | Meaning mutates over time and context |
