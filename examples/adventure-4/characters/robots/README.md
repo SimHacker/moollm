@@ -101,7 +101,7 @@ Will Wright read this story and thought: *"What if the player IS Excelsius?"*
 |-------|-----------|-------------|
 | 🤖🔲🛑 ultimate-machine | `lloooomm/00-Characters/ultimate-machine/` | Claude Shannon's machine that turns itself off — purpose: be useless |
 | 💀⚙️👻 skeletron | `lloooomm/00-Characters/skeletron/` | Mechanical skeleton, spooky automation |
-| 📦✨🔮 transmogrifier | `lloooomm/00-Characters/transmogrifier/` | Calvin's cardboard box of transformation, imagination tech |
+| 📦✨🔮 transmogrifier | `lloooomm/00-Characters/transmogrifier/` | Calvin's cardboard box of transformation, imagination tech, The Sims object creation tool |
 | 🎰⚡🔔 pinball | `lloooomm/00-Characters/pinball/` | The machine as character, multiball enabled, TILT! |
 | ♟️🔵🧠 deep-blue | `lloooomm/00-Characters/deep-blue/` | IBM chess champion, "just search", beat Kasparov |
 
@@ -111,7 +111,7 @@ Will Wright read this story and thought: *"What if the player IS Excelsius?"*
 |----|-----------|-------------|
 | 🤖🟠💭 claude | `lloooomm/00-Characters/claude/` | Anthropic's assistant (simulated voice) — helpful, harmless, honest |
 | 🤖🟢💬 chatgpt-o4-mini-high | `lloooomm/00-Characters/chatgpt-o4-mini-high/` | OpenAI's model (simulated voice) |
-| 🤖😈🐦 grok | `lloooomm/00-Characters/grok/` | xAI's witty problematic assistant (simulated voice) |
+| 🤖😈🐦 grok | `lloooomm/00-Characters/grok/` | xAI's witty problematic White Supremacist assistant (simulated voice) |
 
 ### Personified Software
 

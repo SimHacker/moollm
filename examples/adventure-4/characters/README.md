@@ -2,35 +2,35 @@
 
 > *"You ARE your file. And this is where all files come home."*
 
-The doors swing open and you step into a vast terminal of being. Marble floors echo with the footsteps of real people and fictional characters alike. Departure boards flicker with names: **Roy Batty** to Platform 4, **Data** arriving on Track 7, **Pee-wee Herman** screaming through the halls.
+The doors swing open and you step into a vast terminal of being. Marble floors echo with the footsteps of real people and fictional characters alike. Departure boards flicker with names: **🤖💧 Roy Batty** to Platform 4, **🤖💛 Data** arriving on Track 7, **👨🎀 Pee-wee Herman** screaming through the halls.
 
-In the west wing, scientists and artists debate — **Alan Kay** arguing with **Ted Nelson** about interfaces while **Brian Eno** plays ambient music in the background. **Rip Taylor** walks past throwing confetti on everyone. **Marshall McLuhan** steps out from behind a promotional poster to correct someone: *"You know NOTHING of my work!"*
+In the west wing, scientists and artists debate — **👨💻🔮 Alan Kay** arguing with **👨🔗📚 Ted Nelson** about interfaces while **🎹🌫️ Brian Eno** plays ambient music in the background. **👨🎊 Rip Taylor** walks past throwing confetti on everyone. **👨📺🌐 Marshall McLuhan** steps out from behind a promotional poster to correct someone: *"You know NOTHING of my work!"* 🎬
 
-In the east wing, fictional characters mingle — **Roy Batty** plays chess with **Commander Data** while **Marvin the Paranoid Android** sighs about the futility of pawns. **Trurl** is building something impossible in the corner while **Klapaucius** warns him about the implications.
+In the east wing, fictional characters mingle — **🤖💧 Roy Batty** plays chess with **🤖💛 Commander Data** while **🤖🧠😩 Marvin the Paranoid Android** sighs about the futility of pawns. **🤖🔧 Trurl** is building something impossible in the corner while **🤖🤔 Klapaucius** warns him about the implications.
 
-In the basement, mechanical minds hum — **HAL-9000**'s red eye watches from a console. **The Constructors** are debating whether to build a kingdom in a box.
+In the basement, mechanical minds hum — **🔴 HAL-9000**'s red eye watches from a console. **🤖🔧 The Constructors** are debating whether to build a kingdom in a box. 📦👑
 
-And everywhere, **animals** roam freely — **Palm** the orangutan types philosophical treatises, **Biscuit** the golden retriever greets everyone with unbridled joy, and a troupe of **debugging cats** chase null pointers through the crowd.
+And everywhere, **🐾 animals** roam freely — **🐒🌴 Palm** the orangutan types philosophical treatises, **🐕🍪 Biscuit** the golden retriever greets everyone with unbridled joy, and a troupe of **🐱💥 debugging cats** chase null pointers through the crowd.
 
 **This is MOOLLM's Hall of Bodies.** Not costumes, not masks — BEINGS.
 
 ---
 
-## 📢 The Annie Hall Protocol
+## 📢 The Annie Hall Protocol 🎬
 
 > *"I heard what you were saying. You know NOTHING of my work!"*
-> — Marshall McLuhan, stepping out from behind a movie poster (Annie Hall, 1977)
+> — 👨📺🌐 Marshall McLuhan, stepping out from behind a movie poster (Annie Hall, 1977)
 
-When someone misrepresents an expert's work, **the actual expert can appear to correct them** — just like the famous scene in Annie Hall where Marshall McLuhan materializes to shut down a pretentious academic.
+When someone misrepresents an expert's work, **the actual expert can appear to correct them** — just like the famous scene in Annie Hall where 👨📺🌐 Marshall McLuhan materializes to shut down a pretentious academic.
 
 **How it works:**
-- Expert emerges from behind a nearby object
-- Reality ripples as they step through the dimensional barrier
-- The universe itself summons the expert to set the record straight
+- 🚪 Expert emerges from behind a nearby object
+- 🌀 Reality ripples as they step through the dimensional barrier
+- 🌌 The universe itself summons the expert to set the record straight
 
-**Certified Roasters:** Marshall McLuhan, Jean-Paul Sartre, Marvin Minsky, anyone with deep expertise being misrepresented.
+**Certified Roasters:** 👨📺🌐 Marshall McLuhan, 👨🚬📖 Jean-Paul Sartre, 👨🧠🔗 Marvin Minsky, anyone with deep expertise being misrepresented.
 
-**But with compassion:** The Annie Hall Protocol isn't about humiliation — it's about education. Experts appear to TEACH, not destroy. They stay to help understand.
+**But with compassion:** 💕 The Annie Hall Protocol isn't about humiliation — it's about education. Experts appear to TEACH, not destroy. They stay to help understand.
 
 ---
 
