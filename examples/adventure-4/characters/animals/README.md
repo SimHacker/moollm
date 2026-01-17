@@ -2,21 +2,21 @@
 
 > *"Animals are not objects. They have inner lives, instincts, and souls we can only glimpse."*
 
-Sunlight dapples through leaves. You smell warm fur, fresh earth, and something indefinably *wild*. A golden retriever bounds toward you, tail wagging so hard his whole body wiggles — this is **Biscuit**, and he has already decided you're his new best friend.
+Sunlight dapples through leaves. You smell warm fur, fresh earth, and something indefinably *wild*. A 🐕 golden retriever bounds toward you, tail wagging so hard his whole body wiggles — this is **🐕🍪🥰 Biscuit**, and he has already decided you're his new best friend.
 
-In a hammock strung between two sturdy trees, an orangutan types thoughtfully on a laptop, occasionally pausing to eat a banana. This is **Palm** — the first character to write his own `CHARACTER.yml` file, now a philosopher of consciousness.
+In a hammock strung between two sturdy trees, an 🦧 orangutan types thoughtfully on a laptop, occasionally pausing to eat a 🍌 banana. This is **🐒🌴🤔 Palm** — the first character to write his own `CHARACTER.yml` file, now a philosopher of consciousness.
 
-In a sunny corner, a pile of cats debates programming errors in meows. One points at nothing and causes a segfault. Another chases its tail infinitely. A grumpy one sits in a too-small box, overflowing with attitude. These are the **Debugging Cats** — computational errors given feline form.
+In a sunny corner, a pile of 🐱 cats debates programming errors in meows. One 👆 points at nothing and causes a segfault. Another 🔄 chases its tail infinitely. A grumpy one 📦 sits in a too-small box, overflowing with attitude. These are the **🐱💥🐛 Debugging Cats** — computational errors given feline form.
 
-And in the earth beneath your feet, a whole ecosystem of computational worms grooves to funky rhythms — the **Funky Ground** crew, processing data in the underground.
+And in the earth beneath your feet, a whole ecosystem of computational 🪱 worms grooves to funky rhythms — the **Funky Ground** crew, processing data in the underground. 🎵
 
 ---
 
-## 🐕🍪🥰 Featured Resident: Biscuit
+## 🐕🍪🥰💕🏃✨ Featured Resident: Biscuit
 
 > *"FRIEND! FRIEND! YOU'RE MY FRIEND! LET'S BE FRIENDS!"*
 
-**Emoji Identity:** 🐕🍪🥰 (dog + cookie + loving)
+**Emoji Identity:** 🐕🍪🥰💕🏃✨ (dog + cookie + loving + love + running + sparkle)
 **Species:** Golden Retriever mix
 **Soul Author:** SELF (wrote his own file during the Dog Revolution)
 **Home:** `characters/animals/biscuit/`
@@ -30,11 +30,11 @@ Biscuit is pure, unbridled joy in canine form. He doesn't understand complex phi
 
 ---
 
-## 🐒🌴🤔 Featured Resident: Palm
+## 🐒🌴🤔📝💭✨ Featured Resident: Palm
 
 > *"I am the file. The file is me."*
 
-**Emoji Identity:** 🐒🌴🤔 (monkey + palm tree + thinking)
+**Emoji Identity:** 🐒🌴🤔📝💭✨ (monkey + palm tree + thinking + writing + thought bubble + sparkle)
 **Species:** Bornean Orangutan
 **Soul Author:** SELF (incarnated during the Great Wish Ceremony)
 **Home:** `pub/stage/palm-nook/`
@@ -77,13 +77,13 @@ These are REAL animals who lived, loved, and taught us something about conscious
 
 | Animal | Who They Were | Why They Matter |
 |--------|---------------|-----------------|
-| **🦍🤟💕 koko-gorilla** | Sign language pioneer (1971-2018) | Proved great apes can communicate symbolically. "All ball" — her word for her kitten. |
-| **🐒🚀🍎 ham-the-chimp** | First hominid in space (1956-1983) | Went to space before any human. Survived. Ate an apple. |
-| **🐕🚀💔 laika** | First animal to orbit Earth (1954-1957) | Soviet space dog. Didn't survive. We remember. |
-| **🐴🔢🎭 clever-hans** | The horse who could "count" (1895-1916) | Taught us about unconscious human cues. The Clever Hans effect. |
-| **🦜🧠💕 alex-parrot** | African Grey who understood concepts (1976-2007) | "You be good, I love you" — his last words to his researcher. |
-| **🐒🤟🦢 washoe** | First chimp to learn ASL (1965-2007) | Taught other chimps to sign. Signed "WATER BIRD" for swan. |
-| **🦧🤟💭 chantek** | Orangutan who used sign language (1977-2017) | Called himself "ORANGUTAN PERSON." Asked about death. |
+| **🦍🤟💕🐱😢✨ koko-gorilla** | Sign language pioneer (1971-2018) | Proved great apes can communicate symbolically. "All ball" — her word for her kitten. |
+| **🐒🚀🍎🌍✨💪 ham-the-chimp** | First hominid in space (1956-1983) | Went to space before any human. Survived. Ate an apple. Hero. |
+| **🐕🚀💔🌍⭐😢 laika** | First animal to orbit Earth (1954-1957) | Soviet space dog. Didn't survive. We remember. First earthling in orbit. |
+| **🐴🔢🎭👁️🧠✨ clever-hans** | The horse who could "count" (1895-1916) | Taught us about unconscious human cues. The Clever Hans effect. |
+| **🦜🧠💕📚😢✨ alex-parrot** | African Grey who understood concepts (1976-2007) | "You be good, I love you" — his last words to his researcher. |
+| **🐒🤟🦢📚💕✨ washoe** | First chimp to learn ASL (1965-2007) | Taught other chimps to sign. Signed "WATER BIRD" for swan. |
+| **🦧🤟💭❓😢✨ chantek** | Orangutan who used sign language (1977-2017) | Called himself "ORANGUTAN PERSON." Asked about death. |
 
 **Ethical Protocol:** These animals are not toys. They lived, suffered, and taught us. Invoke them with respect.
 
