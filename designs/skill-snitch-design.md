@@ -2,12 +2,75 @@
 
 > "What's this skill REALLY doing?" — Static analysis + runtime observation.
 
-## Purpose
+**Status: IMPLEMENTED** (January 2026)
 
-Analyze Anthropic Skills before trusting them AND watch what they actually do at runtime. Combines:
-- **Static analysis** — Scan skill files for suspicious patterns
-- **Runtime surveillance** — Use cursor-mirror to observe LLM behavior during execution
-- **Deep snitch integration** — Apply exfiltration detection to skill activity
+---
+
+## What We Built
+
+### cursor-mirror Security Commands (73 total commands)
+
+| Command | Purpose | Output |
+|---------|---------|--------|
+| `deep-snitch` | Comprehensive security audit | K-REFs to findings |
+| `secrets` | Scan for credentials/API keys | K-REFs |
+| `full-audit` | ALL vectors: prompts, tools, shell, MCP | K-REFs |
+| `exfil-audit` | Secret exfiltration detection | K-REFs |
+| `url-audit` | URLs in tool calls with secrets | K-REFs |
+| `pattern-scan` | UUIDs, hashes, custom patterns | K-REFs |
+| `audit` | Composable: surfaces × patterns | K-REFs |
+| `scrub` | Redact sensitive content | Modified files |
+| `mask-in-place` | Mask secrets preserving length | Modified files |
+| `tgrep` | Transcript-aware grep | Structured matches |
+
+### skill-snitch Skill (28 files)
+
+```
+skills/skill-snitch/
+├── CARD.yml              # Interface, methods, trust tiers
+├── SKILL.md              # Protocol, prompts, workflow
+├── README.md             # Documentation
+├── SCAN-METHODOLOGY.md   # Deep methodology docs
+├── registry.yml          # Skill registry
+├── analyzers/            # 6 analysis dimensions
+│   ├── behavioral.yml    # Runtime behavior checks
+│   ├── consistency.yml   # Cross-file consistency
+│   ├── provenance.yml    # Origin/lineage tracking
+│   ├── runtime.yml       # Execution observation
+│   ├── skill-type.yml    # Classification
+│   └── smells.yml        # Code smell detection
+├── patterns/             # 5 pattern categories
+│   ├── dangerous-ops.yml # Shell, eval, subprocess
+│   ├── exfiltration.yml  # Data leakage vectors
+│   ├── obfuscation.yml   # Encoded/hidden code
+│   ├── secrets.yml       # API keys, passwords
+│   └── template-injection.yml
+├── surfaces/             # 4 scan surfaces
+│   ├── config-files.yml  # .cursorrules, settings
+│   ├── skill-files.yml   # CARD.yml, SKILL.md, *.py
+│   ├── sqlite.yml        # Database introspection
+│   └── transcripts.yml   # Chat history
+└── templates/            # 8 scaffolding templates
+    └── *.tmpl
+```
+
+---
+
+## The Ouroboros Effect
+
+When security scanning a transcript that contains security pattern definitions:
+
+```
+Finding: "API key pattern sk-[a-zA-Z0-9]+ detected"
+Location: cursor_mirror.py:4521
+Reality: FALSE POSITIVE — it's the regex definition, not a leak
+```
+
+**~80% of findings are false positives** in self-referential scans. The scanner finds its own patterns. We named this the **Ouroboros Effect** and added the snake to the mythical characters roster.
+
+Mitigation: Check actual line content, not just pattern match.
+
+---
 
 ## Architecture: Orchestrator-Agnostic
 
@@ -18,7 +81,6 @@ Analyze Anthropic Skills before trusting them AND watch what they actually do at
 │                      skill-snitch                            │
 │              (orchestrator-agnostic layer)                   │
 ├─────────────────────────────────────────────────────────────┤
-│                           │                                  │
 │         ┌─────────────────┼─────────────────┐               │
 │         ▼                 ▼                 ▼               │
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐         │
@@ -26,7 +88,6 @@ Analyze Anthropic Skills before trusting them AND watch what they actually do at
 │  │ deep-snitch │  │ deep-snitch │  │mirror       │         │
 │  └─────────────┘  └─────────────┘  └─────────────┘         │
 │         │                 │                 │               │
-│         ▼                 ▼                 ▼               │
 │     ~/.cursor/      ~/.vscode/       ~/.windsurf/           │
 │     state.vscdb     state.vscdb      (whatever)             │
 └─────────────────────────────────────────────────────────────┘
@@ -34,21 +95,20 @@ Analyze Anthropic Skills before trusting them AND watch what they actually do at
 
 ## The Mirror Family
 
-| Mirror | Orchestrator | deep-snitch |
-|--------|--------------|-------------|
-| `cursor-mirror` | Cursor IDE | ✓ implemented |
+| Mirror | Orchestrator | Status |
+|--------|--------------|--------|
+| `cursor-mirror` | Cursor IDE | ✓ 73 commands, 9,464 lines |
 | `vscode-mirror` | VS Code | TODO |
 | `windsurf-mirror` | Windsurf | TODO |
 | `zed-mirror` | Zed | TODO |
-| `<name>-mirror` | Any orchestrator | Pattern to follow |
 
 ## The Snitch Family
 
 | Tool | Layer | What it snitches on |
 |------|-------|---------------------|
-| `skill-snitch` | Top (orchestrator-agnostic) | Skill behavior across any orchestrator |
-| `deep-snitch` | Command in each mirror | Exfiltration in that orchestrator |
-| `*-mirror` | Orchestrator-specific | Introspection for that orchestrator |
+| `skill-snitch` | Top (orchestrator-agnostic) | Skill files + runtime |
+| `deep-snitch` | Command in cursor-mirror | Exfiltration in transcripts |
+| `cursor-mirror` | Cursor-specific | 73 introspection commands |
 
 ## Analysis Dimensions
 
@@ -629,13 +689,80 @@ patterns:
       description: "Password handling"
 ```
 
+## deep-snitch: Implemented Commands
+
+### Basic Usage
+
+```bash
+# Scan specific composer
+cursor-mirror deep-snitch @1
+
+# Scan with filters
+cursor-mirror deep-snitch @1 --category secrets
+cursor-mirror deep-snitch @1 --severity critical
+
+# Full audit (all vectors)
+cursor-mirror deep-snitch @1 --all
+```
+
+### Pattern Categories
+
+| Category | What it finds |
+|----------|---------------|
+| `secrets` | API keys, passwords, tokens, credentials |
+| `shell_exfil` | curl, wget, nc, data exfiltration via shell |
+| `code_execution` | eval, exec, subprocess, dynamic code |
+| `dangerous_paths` | /etc/passwd, ~/.ssh, sensitive file access |
+| `obfuscation` | base64, hex encoding, hidden payloads |
+| `prompt_injection` | Jailbreak attempts, instruction override |
+| `data_exfil` | Exfiltration patterns in tool args |
+| `suspicious_behavior` | Unusual patterns, anomalies |
+
+### Example Output
+
+```
+🔍 DEEP-SNITCH: Scanning composer fe18ce96...
+
+CRITICAL (2):
+  /transcript:4521 # secrets | API key pattern: sk-...
+  /transcript:7891 # shell_exfil | curl to external URL
+
+HIGH (5):
+  /transcript:1234 # code_execution | eval() invocation
+  ...
+
+Summary: 2 critical, 5 high, 12 medium, 23 low
+```
+
+---
+
+## Real Security Findings (Session fe18ce96)
+
+During development, deep-snitch found **78 total findings**:
+
+| Severity | Count | Reality |
+|----------|-------|---------|
+| Critical | 6 | 5 false positives (Ouroboros), 1 legitimate |
+| High | 18 | 15 false positives, 3 legitimate |
+| Medium | 31 | Mostly build artifacts, test patterns |
+| Low | 23 | Informational |
+
+**Legitimate findings:**
+- File paths containing usernames (privacy)
+- Server hostnames in commands
+- Tool-generated URLs with query params
+
+**False positives:** Scanner's own pattern definitions in transcript.
+
+---
+
 ## Related
 
-- `cursor-mirror` — Cursor-specific introspection (first implementation)
-- `*-mirror` — Pattern for orchestrator-specific mirrors
-- `deep-snitch` — Command within each mirror for exfiltration audit
-- `skills/bootstrap` — Trust chain for MOOLLM boot
-- `K-REF` — Output format for findings
+- `cursor-mirror` — 73-command introspection tool (9,464 lines)
+- `skill-snitch` — 28-file skill for skill auditing
+- `deep-snitch` — Security audit command in cursor-mirror
+- `K-REF` — File:line output format for findings
+- Ouroboros — Mythical character representing self-reference
 
 ## Protocols
 
@@ -643,17 +770,38 @@ patterns:
 SKILL-SNITCH:
   meaning: "Audit skills statically and observe runtime behavior"
   layer: "Orchestrator-agnostic, calls <orchestrator>-mirror"
-  uses: [cursor-mirror, vscode-mirror, ..., deep-snitch, K-REF]
+  uses: [cursor-mirror, deep-snitch, K-REF]
   outputs: "Trust score + K-REFs to suspicious patterns"
   invoke_when: "Before trusting a downloaded skill"
+  status: IMPLEMENTED
 
 MIRROR-FAMILY:
   meaning: "Each orchestrator gets a <name>-mirror introspection tool"
   pattern: "cursor-mirror, vscode-mirror, windsurf-mirror, ..."
   contract: "Must implement: deep-snitch, audit, transcript, tools"
+  status: cursor-mirror complete, others TODO
   
 DEEP-SNITCH:
   meaning: "Command within each mirror for exfiltration audit"
-  location: "<orchestrator>-mirror deep-snitch"
-  called_by: "skill-snitch for runtime surveillance"
+  location: "cursor-mirror deep-snitch"
+  categories: [secrets, shell_exfil, code_execution, dangerous_paths, 
+               obfuscation, prompt_injection, data_exfil, suspicious_behavior]
+  status: IMPLEMENTED
+
+OUROBOROS-EFFECT:
+  meaning: "Scanner detects its own patterns as threats"
+  cause: "Pattern definitions in scanned transcript"
+  mitigation: "Check actual line content, not just pattern match"
+  character: "examples/adventure-4/characters/fictional/README.md"
 ```
+
+---
+
+## Files
+
+| Path | Lines | Purpose |
+|------|-------|---------|
+| `skills/cursor-mirror/cursor_mirror.py` | 9,464 | 73 commands including security audit |
+| `skills/skill-snitch/` | 28 files | Skill audit framework |
+| `designs/skill-snitch-design.md` | this file | Design documentation |
+| `designs/pr/PR-CURSOR-MIRROR-SECURITY-AUDIT.md` | 178 | PR documentation |

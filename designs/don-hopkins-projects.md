@@ -303,7 +303,7 @@ Don Hopkins worked on The Sims at Maxis, implementing:
 
 ### Pie Menus
 
-The iconic Sims pie menus that made the game accessible. See [sims-pie-menus.md](./sims-pie-menus.md).
+The iconic Sims pie menus that made the game accessible. See [sims-pie-menus.md](./sims/sims-pie-menus.md).
 
 ### Object Architecture Extensions
 
@@ -322,7 +322,7 @@ From The Sims work:
 3. **Simulation should be inspectable** → YAML files
 4. **Play and creation should be seamless** → Filesystem editing
 
-See [sims-design-index.md](./sims-design-index.md) for complete coverage.
+See [sims-design-index.md](./sims/sims-design-index.md) for complete coverage.
 
 ---
 
@@ -455,10 +455,10 @@ Each step builds on the last. MOOLLM is the synthesis.
 
 ### MOOLLM Documents
 - [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Complete philosophy
-- [sims-design-index.md](./sims-design-index.md) — All Sims influences
-- [simcity-multiplayer-micropolis.md](./simcity-multiplayer-micropolis.md) — Multiplayer SimCity, OLPC, constructionist education
-- [sims-pie-menus.md](./sims-pie-menus.md) — Pie menu deep dive
-- [sims-edith-editor.md](./sims-edith-editor.md) — Live debugging (PSIBER lineage)
+- [sims-design-index.md](./sims/sims-design-index.md) — All Sims influences
+- [simcity-multiplayer-micropolis.md](./sims/simcity-multiplayer-micropolis.md) — Multiplayer SimCity, OLPC, constructionist education
+- [sims-pie-menus.md](./sims/sims-pie-menus.md) — Pie menu deep dive
+- [sims-edith-editor.md](./sims/sims-edith-editor.md) — Live debugging (PSIBER lineage)
 - [stanza-notes.md](./stanza-notes.md) — Linguistic motherboard
 
 ### Skills

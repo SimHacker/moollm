@@ -15,7 +15,7 @@
 | [dog/](../dog/) | Dogs have pack-oriented needs |
 | [yaml-jazz/](../yaml-jazz/) | Comments as dynamic inner voice |
 | [advertisement/](../advertisement/) | Needs advertise what character wants |
-| [designs/sims-personality-motives.md](../../designs/sims-personality-motives.md) | Will Wright's original system |
+| [designs/sims/sims-personality-motives.md](../../designs/sims/sims-personality-motives.md) | Will Wright's original system |
 
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete needs system

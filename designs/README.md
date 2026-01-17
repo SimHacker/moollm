@@ -27,6 +27,33 @@ moollm/
 
 ## 📚 Document Index
 
+### EVAL Design Documents (NEW)
+
+The **[eval/](./eval/)** subdirectory contains design documents for the EVAL game genre and philosophy:
+
+| Document | Description |
+|----------|-------------|
+| [eval/README.md](./eval/README.md) | Index to all EVAL documents |
+| [eval/EVAL-INCARNATE-PHILOSOPHY.md](./eval/EVAL-INCARNATE-PHILOSOPHY.md) | Core philosophy: meaning arises through judgment |
+| [eval/EVAL-BRAND-FAMILY.md](./eval/EVAL-BRAND-FAMILY.md) | Full catalog of EVAL titles |
+| [eval/THE-EVALS-DESIGN.md](./eval/THE-EVALS-DESIGN.md) | Social simulation (The Evals) |
+| [eval/EVALEYE-DESIGN.md](./eval/EVALEYE-DESIGN.md) | Attention interface (EvalEye) |
+| [eval/EVALSELF-DESIGN.md](./eval/EVALSELF-DESIGN.md) | Inner life (EVALSelf) |
+| [eval/EVALCITY-DESIGN.md](./eval/EVALCITY-DESIGN.md) | Civic simulation (EvalCity) |
+| [eval/SCATS-DESIGN.md](./eval/SCATS-DESIGN.md) | Emoji-rich YAML Jazz expressions |
+| [eval/EVAL-WORMS.md](./eval/EVAL-WORMS.md) | Two-ended interpretive bots |
+| [eval/EVAL-FACTIONS.md](./eval/EVAL-FACTIONS.md) | In-world ideological actors |
+| [eval/EVAL-ARTIFACTS.md](./eval/EVAL-ARTIFACTS.md) | Diary, Wish Book, Hope Chest, etc. |
+| [eval/EMOJI-ANCHORS.md](./eval/EMOJI-ANCHORS.md) | Outline syntax with emoji |
+| [eval/EVAL-DOM-SPEC.md](./eval/EVAL-DOM-SPEC.md) | MOOLLM DOM, reserved keywords |
+| [eval/EVAL-VS-SIM.md](./eval/EVAL-VS-SIM.md) | How EVAL differs from SIM |
+| [eval/EVAL-TAXONOMY.md](./eval/EVAL-TAXONOMY.md) | Entity types, autonomy levels, dialects, code-switching |
+| [eval/CHURCH-OF-THE-EVAL-GENIUS.md](./eval/CHURCH-OF-THE-EVAL-GENIUS.md) | The official EVAL religion (SubGenius parody/tribute) |
+
+> *"EVAL is the next game genre designing token since SIM — now with LLMs we can EVALuate instead of SIMply SIMulating."*
+
+---
+
 ### Core Framework Documents
 
 | Document | Description |
@@ -42,42 +69,42 @@ moollm/
 **Master Index:**
 | Document | Description |
 |----------|-------------|
-| [sims-design-index.md](./sims-design-index.md) | **Start here.** Master index of all Sims influences with quick reference |
+| [sims-design-index.md](./sims/sims-design-index.md) | **Start here.** Master index of all Sims influences with quick reference |
 
 **Core Sims Design:**
 | Document | Sims Concept | MOOLLM Application |
 |----------|--------------|-------------------|
-| [sims-maxis-requirements.md](./sims-maxis-requirements.md) | Seven Points of Sim | Core design principles |
-| [sims-happy-friends-home.md](./sims-happy-friends-home.md) | Project X proposal (1996) | Three Pillars, plug-ins |
-| [sims-find-best-action.md](./sims-find-best-action.md) | Jamie Doornbos' algorithm | Action queue, advertisements |
+| [sims-maxis-requirements.md](./sims/sims-maxis-requirements.md) | Seven Points of Sim | Core design principles |
+| [sims-happy-friends-home.md](./sims/sims-happy-friends-home.md) | Project X proposal (1996) | Three Pillars, plug-ins |
+| [sims-find-best-action.md](./sims/sims-find-best-action.md) | Jamie Doornbos' algorithm | Action queue, advertisements |
 
 **System-Specific:**
 | Document | Covers |
 |----------|--------|
-| [sims-simantics-vm.md](./sims-simantics-vm.md) | SimAntics programming → Skills as programs |
-| [sims-object-model.md](./sims-object-model.md) | Objects, properties → YAML files, CARD.yml |
-| [sims-social-system.md](./sims-social-system.md) | Relationships, groups → Guest book, party skill |
-| [sims-personality-motives.md](./sims-personality-motives.md) | Needs, traits → CHARACTER.yml, SIMS-TRAITS |
-| [sims-astrology.md](./sims-astrology.md) | **Astrillogical Effect** → K-lines, Simulator Effect, implication over simulation |
-| [sims-room-spatial.md](./sims-room-spatial.md) | Rooms, routing → ROOM.yml, exits |
-| [sims-time-events.md](./sims-time-events.md) | Time, disasters → Speed of Light, economy |
-| [sims-edith-editor.md](./sims-edith-editor.md) | Live debugging → Files as inspectable state |
-| [sims-animation-visuals.md](./sims-animation-visuals.md) | Animation, balloons → Prose description |
-| [sims-portable-objects.md](./sims-portable-objects.md) | Carrying, inventory → File containment |
-| [sims-services-economy.md](./sims-services-economy.md) | Money, bills, disasters → economy skill |
-| [sims-pie-menus.md](./sims-pie-menus.md) | Pie menus, memory palaces → CARD.yml navigation |
+| [sims-simantics-vm.md](./sims/sims-simantics-vm.md) | SimAntics programming → Skills as programs |
+| [sims-object-model.md](./sims/sims-object-model.md) | Objects, properties → YAML files, CARD.yml |
+| [sims-social-system.md](./sims/sims-social-system.md) | Relationships, groups → Guest book, party skill |
+| [sims-personality-motives.md](./sims/sims-personality-motives.md) | Needs, traits → CHARACTER.yml, SIMS-TRAITS |
+| [sims-astrology.md](./sims/sims-astrology.md) | **Astrillogical Effect** → K-lines, Simulator Effect, implication over simulation |
+| [sims-room-spatial.md](./sims/sims-room-spatial.md) | Rooms, routing → ROOM.yml, exits |
+| [sims-time-events.md](./sims/sims-time-events.md) | Time, disasters → Speed of Light, economy |
+| [sims-edith-editor.md](./sims/sims-edith-editor.md) | Live debugging → Files as inspectable state |
+| [sims-animation-visuals.md](./sims/sims-animation-visuals.md) | Animation, balloons → Prose description |
+| [sims-portable-objects.md](./sims/sims-portable-objects.md) | Carrying, inventory → File containment |
+| [sims-services-economy.md](./sims/sims-services-economy.md) | Money, bills, disasters → economy skill |
+| [sims-pie-menus.md](./sims/sims-pie-menus.md) | Pie menus, memory palaces → CARD.yml navigation |
 
 **History & Context:**
 | Document | Covers |
 |----------|--------|
-| [sims-team-history.md](./sims-team-history.md) | Maxis/EA timeline, team credits, naming saga, BBC documentary |
-| [sims-inclusivity.md](./sims-inclusivity.md) | LGBTQ+, gender, The Sims' progressive evolution |
-| [sims-tiny-life.md](./sims-tiny-life.md) | Indie Sims alternative, pixel abstraction |
+| [sims-team-history.md](./sims/sims-team-history.md) | Maxis/EA timeline, team credits, naming saga, BBC documentary |
+| [sims-inclusivity.md](./sims/sims-inclusivity.md) | LGBTQ+, gender, The Sims' progressive evolution |
+| [sims-tiny-life.md](./sims/sims-tiny-life.md) | Indie Sims alternative, pixel abstraction |
 
 **SimCity & Micropolis:**
 | Document | Covers |
 |----------|--------|
-| [simcity-multiplayer-micropolis.md](./simcity-multiplayer-micropolis.md) | SimCityNet, OLPC, Sugar, What-If branching |
+| [simcity-multiplayer-micropolis.md](./sims/simcity-multiplayer-micropolis.md) | SimCityNet, OLPC, Sugar, What-If branching |
 
 ### Project Lineage
 
@@ -91,23 +118,23 @@ These document specific development sessions and feature additions:
 
 | Document | What It Documents |
 |----------|-------------------|
-| [PR-COMPLETE-DON-ADVENTURE-RUN-1.md](./PR-COMPLETE-DON-ADVENTURE-RUN-1.md) | Epic 33-turn adventure session |
-| [PR-PALM-INCARNATION-SPEED-OF-LIGHT.md](./PR-PALM-INCARNATION-SPEED-OF-LIGHT.md) | Palm the monkey's autonomous incarnation |
-| [PR-PALM-ESSAYS-VERIFIED.md](./PR-PALM-ESSAYS-VERIFIED.md) | Palm's philosophical essays verification |
-| [PR-PALM-HOUSEWARMING.md](./PR-PALM-HOUSEWARMING.md) | Palm's nook furniture and gifts |
-| [PR-INFINITE-TYPEWRITERS-DASHER.md](./PR-INFINITE-TYPEWRITERS-DASHER.md) | Infinite Typewriters object, Dasher philosophy |
-| [PR-TRIBUTE-FRAMING-ETHICS.md](./PR-TRIBUTE-FRAMING-ETHICS.md) | Three-beat tribute protocol for real people |
-| [PR-PUB-STAGE-MENUS-PERSONAS.md](./PR-PUB-STAGE-MENUS-PERSONAS.md) | Pub refactoring, stage, menus, personas |
-| [PR-MESSAGE-PIE-TABLE-DEBATES.md](./PR-MESSAGE-PIE-TABLE-DEBATES.md) | Pie table debates system |
-| [PR-MESSAGE-MANY-VOICES.md](./PR-MESSAGE-MANY-VOICES.md) | Multi-voice character system |
-| [PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md](./PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md) | Cat midnight prowl speed-of-light demo |
-| [PR-BISCUIT-DOG-REVOLUTION.md](./PR-BISCUIT-DOG-REVOLUTION.md) | Biscuit the dog, dog skill |
-| [PR-EMPATHIC-SUITE-SPEED-OF-LIGHT.md](./PR-EMPATHIC-SUITE-SPEED-OF-LIGHT.md) | Empathic suite integration |
-| [PR-GODFAMILY-COMPLETE.md](./PR-GODFAMILY-COMPLETE.md) | Godfamily concept implementation |
-| [PR-SKILL-ANATOMY-COMPLETE.md](./PR-SKILL-ANATOMY-COMPLETE.md) | Skill structure standardization |
-| [PR-SKILL-META-SKILL-UPGRADE.md](./PR-SKILL-META-SKILL-UPGRADE.md) | Meta-skill improvements |
-| [PR-CHARACTER-CATALOG-EXPANSION.md](./PR-CHARACTER-CATALOG-EXPANSION.md) | Character catalog expansion |
-| [PR-ADVENTURE-COMPILER-VISION.md](./PR-ADVENTURE-COMPILER-VISION.md) | Adventure compilation vision |
+| [PR-COMPLETE-DON-ADVENTURE-RUN-1.md](./pr/PR-COMPLETE-DON-ADVENTURE-RUN-1.md) | Epic 33-turn adventure session |
+| [PR-PALM-INCARNATION-SPEED-OF-LIGHT.md](./pr/PR-PALM-INCARNATION-SPEED-OF-LIGHT.md) | Palm the monkey's autonomous incarnation |
+| [PR-PALM-ESSAYS-VERIFIED.md](./pr/PR-PALM-ESSAYS-VERIFIED.md) | Palm's philosophical essays verification |
+| [PR-PALM-HOUSEWARMING.md](./pr/PR-PALM-HOUSEWARMING.md) | Palm's nook furniture and gifts |
+| [PR-INFINITE-TYPEWRITERS-DASHER.md](./pr/PR-INFINITE-TYPEWRITERS-DASHER.md) | Infinite Typewriters object, Dasher philosophy |
+| [PR-TRIBUTE-FRAMING-ETHICS.md](./pr/PR-TRIBUTE-FRAMING-ETHICS.md) | Three-beat tribute protocol for real people |
+| [PR-PUB-STAGE-MENUS-PERSONAS.md](./pr/PR-PUB-STAGE-MENUS-PERSONAS.md) | Pub refactoring, stage, menus, personas |
+| [PR-MESSAGE-PIE-TABLE-DEBATES.md](./pr/PR-MESSAGE-PIE-TABLE-DEBATES.md) | Pie table debates system |
+| [PR-MESSAGE-MANY-VOICES.md](./pr/PR-MESSAGE-MANY-VOICES.md) | Multi-voice character system |
+| [PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md](./pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md) | Cat midnight prowl speed-of-light demo |
+| [PR-BISCUIT-DOG-REVOLUTION.md](./pr/PR-BISCUIT-DOG-REVOLUTION.md) | Biscuit the dog, dog skill |
+| [PR-EMPATHIC-SUITE-SPEED-OF-LIGHT.md](./pr/PR-EMPATHIC-SUITE-SPEED-OF-LIGHT.md) | Empathic suite integration |
+| [PR-GODFAMILY-COMPLETE.md](./pr/PR-GODFAMILY-COMPLETE.md) | Godfamily concept implementation |
+| [PR-SKILL-ANATOMY-COMPLETE.md](./pr/PR-SKILL-ANATOMY-COMPLETE.md) | Skill structure standardization |
+| [PR-SKILL-META-SKILL-UPGRADE.md](./pr/PR-SKILL-META-SKILL-UPGRADE.md) | Meta-skill improvements |
+| [PR-CHARACTER-CATALOG-EXPANSION.md](./pr/PR-CHARACTER-CATALOG-EXPANSION.md) | Character catalog expansion |
+| [PR-ADVENTURE-COMPILER-VISION.md](./pr/PR-ADVENTURE-COMPILER-VISION.md) | Adventure compilation vision |
 
 ### Ideas & Correspondence
 
@@ -179,7 +206,7 @@ Per [PRESERVE-JOURNEY](../PROTOCOLS.yml): the path to the solution IS the value.
 | MOOLLM-MANIFESTO.md | [PROTOCOLS.yml](../PROTOCOLS.yml) symbols |
 | kilroy-ideas.md | [ITS-ABOUT-TIME](../PROTOCOLS.yml), [PLAY-LEARN-LIFT](../PROTOCOLS.yml) |
 | constitution-design | [kernel/constitution-core.md](../kernel/constitution-core.md) |
-| sims-* documents | [sims-design-index.md](./sims-design-index.md) master index |
+| sims-* documents | [sims-design-index.md](./sims/sims-design-index.md) master index |
 | PR-* documents | Session logs, feature documentation |
 
 ---
@@ -188,18 +215,18 @@ Per [PRESERVE-JOURNEY](../PROTOCOLS.yml): the path to the solution IS the value.
 
 **For newcomers:**
 1. [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — The master document
-2. [sims-design-index.md](./sims-design-index.md) — Sims → MOOLLM mappings
+2. [sims-design-index.md](./sims/sims-design-index.md) — Sims → MOOLLM mappings
 3. [don-hopkins-projects.md](./don-hopkins-projects.md) — Project lineage
 
 **For Sims archaeology:**
-1. [sims-maxis-requirements.md](./sims-maxis-requirements.md) — Philosophy
-2. [sims-happy-friends-home.md](./sims-happy-friends-home.md) — Original vision
-3. [sims-team-history.md](./sims-team-history.md) — Team and timeline
+1. [sims-maxis-requirements.md](./sims/sims-maxis-requirements.md) — Philosophy
+2. [sims-happy-friends-home.md](./sims/sims-happy-friends-home.md) — Original vision
+3. [sims-team-history.md](./sims/sims-team-history.md) — Team and timeline
 
 **For session history:**
-1. [PR-COMPLETE-DON-ADVENTURE-RUN-1.md](./PR-COMPLETE-DON-ADVENTURE-RUN-1.md) — Epic session
-2. [PR-PALM-INCARNATION-SPEED-OF-LIGHT.md](./PR-PALM-INCARNATION-SPEED-OF-LIGHT.md) — Character creation
-3. [PR-TRIBUTE-FRAMING-ETHICS.md](./PR-TRIBUTE-FRAMING-ETHICS.md) — Ethical framing
+1. [PR-COMPLETE-DON-ADVENTURE-RUN-1.md](./pr/PR-COMPLETE-DON-ADVENTURE-RUN-1.md) — Epic session
+2. [PR-PALM-INCARNATION-SPEED-OF-LIGHT.md](./pr/PR-PALM-INCARNATION-SPEED-OF-LIGHT.md) — Character creation
+3. [PR-TRIBUTE-FRAMING-ETHICS.md](./pr/PR-TRIBUTE-FRAMING-ETHICS.md) — Ethical framing
 
 ---
 

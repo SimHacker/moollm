@@ -117,7 +117,7 @@ MOOLLM stands on decades of work:
 | [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) | **The deep dive.** Intellectual genealogy, Axis of Eval, architecture |
 | [MOOLLM-MANIFESTO.md](./designs/MOOLLM-MANIFESTO.md) | Core philosophy |
 | [CHANGES.md](./designs/CHANGES.md) | James Burke narrative of 500+ commits |
-| [sims-design-index.md](./designs/sims-design-index.md) | All The Sims → MOOLLM documents |
+| [sims-design-index.md](./designs/sims/sims-design-index.md) | All The Sims → MOOLLM documents |
 
 ### Skill Clusters
 

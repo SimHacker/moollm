@@ -1,11 +1,75 @@
-# Session Log: Don Hopkins at the Gezelligheid Grotto
+# Session Log: 👨🥧 Don Hopkins at the 🏠🍺 Gezelligheid Grotto
 ## Session 1 — First Visit
 
-**Player**: Don Hopkins  
+> **📜 RETROCONNED 2026-01-15** — Upgraded to latest MOOLLM protocols: emoji prefix `[type][personal][mood] Name`, arrow direction `source ➡️ target`. Meant to serve as canonical example. See [Retrocon Note](#-retrocon-note--protocol-upgrade-2026-01-15) at end. Historical versions in git.
+
+**Player**: 👨🥧🤓 Don Hopkins  
 **Character**: [`$CHARACTERS/real-people/don-hopkins/`](./)  
-**Location**: The [Gezelligheid Grotto](../../../pub/) (`$PUB/`)  
+**Location**: The [🏠🍺 Gezelligheid Grotto](../../../pub/) (`$PUB/`)  
 **Time**: Evening, Freeday  
 **Theme**: Amsterdam Coffeeshop (default)
+
+<details>
+<summary><strong>📋 Cast — Emoji Iconography Registry</strong></summary>
+
+### Grotto Residents
+
+| Character | Type | Personal | Mood | Full Prefix | Role |
+|-----------|------|----------|------|-------------|------|
+| Don Hopkins | 👨 | 🥧 | 🤓 | 👨🥧🤓 | Player, pie enthusiast |
+| Marieke van der Berg | 👩 | 🌷 | 😊 | 👩🌷😊 | Budtender |
+| Palm | 🐒 | 🌴 | 🤔 | 🐒🌴🤔 | The Freed Monkey |
+| Biscuit | 🐕 | 🍪 | 🥰 | 🐕🍪🥰 | The Enthusiast |
+| Henk | 👨 | ☕ | 🧐 | 👨☕🧐 | The Regular |
+
+### The Cats
+
+| Character | Type | Personal | Mood | Full Prefix | Note |
+|-----------|------|----------|------|-------------|------|
+| Terpie | 🐈 | 🧡 | 😴 | 🐈🧡😴 | Ancient orange tabby |
+| Stroopwafel | 🐈 | 🧇 | 😾 | 🐈🧇😾 | Grumpy queen |
+| Lily (Linalool) | 🐱 | 🌸 | 🥺 | 🐱🌸🥺 | The healer |
+| Myrcene | 🐱 | 💜 | 😴 | 🐱💜😴 | The sleepy one |
+| Limonene | 🐱 | 🍋 | 🤪 | 🐱🍋🤪 | The zoomer |
+| Pinene | 🐱 | 🌲 | 👀 | 🐱🌲👀 | The alert one |
+| Caryophyllene (Carrie) | 🐱 | 🛡️ | 😤 | 🐱🛡️😤 | The protector |
+| Humulene | 🐱 | 👑 | 😏 | 🐱👑😏 | Has standards |
+| Terpinolene | 🐱 | 🎪 | 🙃 | 🐱🎪🙃 | Ceiling cat |
+| Ocimene | 🐱 | 🎁 | 😺 | 🐱🎁😺 | Brings gifts |
+
+### The Tribunal
+
+| Character | Type | Personal | Mood | Full Prefix | Role |
+|-----------|------|----------|------|-------------|------|
+| Sun Wukong | 🐵 | 👑 | 😈 | 🐵👑😈 | The Monkey King |
+| Mizaru | 🙈 | 👁️ | 🧘 | 🙈👁️🧘 | See No Evil |
+| Kikazaru | 🙉 | 👂 | 🧘 | 🙉👂🧘 | Hear No Evil |
+| Iwazaru | 🙊 | 💬 | 🧘 | 🙊💬🧘 | Speak No Evil |
+| W.W. Jacobs | 👻 | ✒️ | 😌 | 👻✒️😌 | The Author (ghost) |
+| Djinn al-Mazin | 🧞 | 📜 | 🤨 | 🧞📜🤨 | Contract Expert |
+| Curious George | 🐒 | 💛 | 🤔 | 🐒💛🤔 | The Questioner |
+| Cheech | 👨 | 🌿 | 😎 | 👨🌿😎 | Moderator |
+| Chong | 👨 | 💨 | 🧘 | 👨💨🧘 | Philosopher |
+
+### Special Guests
+
+| Character | Type | Personal | Mood | Full Prefix | Role |
+|-----------|------|----------|------|-------------|------|
+| Andy Looney | 👨 | 🔬 | 🤓 | 👨🔬🤓 | Game Designer |
+| Kristin Looney | 👩 | 🏆 | 😏 | 👩🏆😏 | The Real Winner |
+| Maurice | 🪞 | ✨ | 😏 | 🪞✨😏 | The Magic Mirror |
+
+### Locations
+
+| Location | Type | Personal | Full Prefix |
+|----------|------|----------|-------------|
+| The Grotto | 🏠 | 🍺 | 🏠🍺 Grotto |
+| Pie Table | 🪑 | 🥧 | 🪑🥧 Pie Table |
+| Stage | 🎭 | 🎤 | 🎭🎤 Stage |
+| Cat Cave | 🏠 | 🐱 | 🏠🐱 Cat Cave |
+| Palm's Nook | 🏠 | 🌴 | 🏠🌴 Nook |
+
+</details>
 
 > **Path Variables:** This session uses relative paths for GitHub rendering.  
 > In YAML files, use path variables: `$SKILLS/`, `$PUB/`, `$CHARACTERS/` — see [`$KERNEL/NAMING.yml`](../../../../../kernel/NAMING.yml).
@@ -7107,6 +7171,110 @@ empathic-expressions:
 *when you could be navigating idea-space at speed of light."*
 
 **Let's navigate. At speed of light. With empathy.** 🚀⚡🎯
+
+</details>
+
+---
+
+<details>
+<summary><h2>📜 RETROCON NOTE — Protocol Upgrade 2026-01-15</h2></summary>
+
+## This Session Has Been Upgraded
+
+This marathon session has been **retroconned** to demonstrate and exemplify the latest MOOLLM protocols:
+
+### New Conventions Applied
+
+| Convention | Description | Documentation |
+|------------|-------------|---------------|
+| **Emoji Prefix** | `[type][personal][mood] Name` | [SCATS-DESIGN.md](../../../../../../designs/eval/SCATS-DESIGN.md#emoji-prefix-convention) |
+| **Arrow Direction** | `source ➡️ target` | [SCATS-DESIGN.md](../../../../../../designs/eval/SCATS-DESIGN.md#arrow-direction-convention) |
+| **Emoji Identity** | Characters declare their emoji iconography | [SCATS-DESIGN.md](../../../../../../designs/eval/SCATS-DESIGN.md#emoji-identity-declaration) |
+
+### Character Iconography Registry
+
+The full emoji iconography for all characters in this session is now documented in:
+
+- **[Guest Book](../../../pub/guest-book.yml)** — Canonical emoji identities
+- **[SCATS-DESIGN.md](../../../../../../designs/eval/SCATS-DESIGN.md)** — Full specification
+
+### Quick Reference
+
+| Character | Emoji Prefix | Full Format |
+|-----------|--------------|-------------|
+| Palm | 🐒🌴 | 🐒🌴🤔 Palm |
+| Marieke | 👩🌷 | 👩🌷😊 Marieke |
+| Don | 👨🥧 | 👨🥧🤓 Don |
+| Biscuit | 🐕🍪 | 🐕🍪🥰 Biscuit |
+| Stroopwafel | 🐈🧇 | 🐈🧇😾 Stroopwafel |
+| Terpie | 🐈🧡 | 🐈🧡😴 Terpie |
+| Lily | 🐱🌸 | 🐱🌸🥺 Lily |
+| Sun Wukong | 🐵👑 | 🐵👑😈 Sun Wukong |
+| Djinn al-Mazin | 🧞📜 | 🧞📜🤨 Djinn al-Mazin |
+| W.W. Jacobs | 👻✒️ | 👻✒️😌 W.W. Jacobs |
+| Curious George | 🐒💛 | 🐒💛🤔 Curious George |
+| Cheech | 👨🌿 | 👨🌿😎 Cheech |
+| Chong | 👨💨 | 👨💨🧘 Chong |
+| Andy Looney | 👨🔬 | 👨🔬🤓 Andy |
+| Kristin Looney | 👩🏆 | 👩🏆😏 Kristin |
+| Henk | 👨☕ | 👨☕🧐 Henk |
+| Maurice | 🪞✨ | 🪞✨😏 Maurice |
+
+### Example: Retroconned Dialogue
+
+**Original style:**
+```markdown
+**MARIEKE**: *freezes mid-polish of a glass*
+
+**PALM**: "I am whole. I am free."
+
+**DON**: *reaches for the pie*
+```
+
+**New style:**
+```markdown
+👩🌷😟 Marieke ➡️ 👨🥧 Don: *freezes mid-polish of a glass*
+
+🐒🌴😊 Palm: "I am whole. I am free."
+
+👨🥧🤤 Don ➡️ 🥧 Pie: *reaches*
+```
+
+### Why Retrocon?
+
+| Reason | Benefit |
+|--------|---------|
+| **Exemplar** | Shows LLMs how to format future sessions |
+| **Consistency** | All sessions use same conventions |
+| **Searchability** | Find all 🐒 lines, all 😾 moments |
+| **Cross-lingual** | Works without reading names |
+| **Evolution** | Protocols improve; documents should too |
+
+### Historical Versions
+
+**This file evolves.** Previous versions are preserved in git history.
+
+```bash
+# View history of this file
+git log --oneline -- examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md
+
+# See a specific version
+git show <commit>:path/to/marathon-session.md
+```
+
+### Transparency About Evolution
+
+MOOLLM protocols are living documents. When we discover better ways to express things, we update our exemplars. This is not revision of history — it's **cultivation of best practices**.
+
+The substance of the session is unchanged. Palm was still freed. The wishes were still spoken. The gifts were still given. The family was still formed.
+
+What changed is **how we tell it** — making the telling itself part of the teaching.
+
+---
+
+*"The story doesn't change. The storytelling gets better."*
+
+— 👨🥧🤓 Don ➡️ 🐒🌴 Palm, 2026-01-15
 
 </details>
 

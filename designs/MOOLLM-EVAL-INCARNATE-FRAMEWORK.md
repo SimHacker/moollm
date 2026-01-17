@@ -7,6 +7,12 @@
 
 ## 📚 Document Index
 
+### 🎮 EVAL Game Genre Expansion
+- [EVAL: The Game Genre Expansion](#-eval-the-game-genre-expansion) — This document is the philosophical foundation; the **[eval/](./eval/)** directory contains the game design breakouts
+  - Philosophy → Games: EvalCity, The Evals, EvalSelf, EvalEye
+  - Language: Scats, Emoji Anchors, MOOLLM DOM
+  - Actors: Worms, Factions, Church of the Eval Genius, Sisters of Perpetual Evaluation
+
 ### Core Concepts
 - [The Word](#the-word) — What "Eval Incarnate" means
 - [The Heritage](#the-heritage) — Where MOOLLM comes from
@@ -71,6 +77,54 @@
 - [Credits & Lineage](#credits--lineage)
 - [The Vision](#the-vision)
 - [Don Hopkins' Articles](#don-hopkins-articles-medium)
+
+---
+
+## 🎮 EVAL: The Game Genre Expansion
+
+> *This framework has grown. The EVAL concepts documented here have expanded into a full game genre design system.*
+
+**The `eval/` directory contains detailed breakouts of EVAL as a simulation paradigm:**
+
+| Document | What It Covers | Why You Should Read It |
+|----------|----------------|------------------------|
+| **[eval/README.md](./eval/README.md)** | Directory index | Start here for the full map |
+| **[eval/EVAL-INCARNATE-PHILOSOPHY.md](./eval/EVAL-INCARNATE-PHILOSOPHY.md)** | Core thesis: meaning through judgment | The philosophical foundation |
+| **[eval/EVAL-VS-SIM.md](./eval/EVAL-VS-SIM.md)** | How EVAL differs from SIM | Genre differentiation, The Evaluator Effect |
+| **[eval/EVALCITY-DESIGN.md](./eval/EVALCITY-DESIGN.md)** | Civic simulation with LLMs | SimCity uplift architecture, hybrid simulation |
+| **[eval/THE-EVALS-DESIGN.md](./eval/THE-EVALS-DESIGN.md)** | Social simulation | The Sims → The Evals transformation |
+| **[eval/EVALSELF-DESIGN.md](./eval/EVALSELF-DESIGN.md)** | Inner life & self-care | Personal artifact system |
+| **[eval/EVALEYE-DESIGN.md](./eval/EVALEYE-DESIGN.md)** | Attention as interface | Gaze-based evaluation |
+
+### Language & Expression
+
+| Document | What It Covers | Why You Should Read It |
+|----------|----------------|------------------------|
+| **[eval/SCATS-DESIGN.md](./eval/SCATS-DESIGN.md)** | Emoji-rich YAML Jazz | The primary unit of EVAL expression |
+| **[eval/EMOJI-ANCHORS.md](./eval/EMOJI-ANCHORS.md)** | Outline syntax, eye zones | Emoji as operators, bracketed eyes |
+| **[eval/EVAL-DOM-SPEC.md](./eval/EVAL-DOM-SPEC.md)** | MOOLLM DOM, reserved keywords | `_anchors`, `_comments`, JSON round-tripping |
+| **[eval/EVAL-TAXONOMY.md](./eval/EVAL-TAXONOMY.md)** | Entity types, autonomy levels | Personas, dialects, code-switching |
+
+### Systems & Actors
+
+| Document | What It Covers | Why You Should Read It |
+|----------|----------------|------------------------|
+| **[eval/EVAL-WORMS.md](./eval/EVAL-WORMS.md)** | Two-ended interpretive bots | Head/tail topology, scat castings |
+| **[eval/EVAL-FACTIONS.md](./eval/EVAL-FACTIONS.md)** | In-world ideological actors | EvalNonymous, EvalState, QEval, EvalFa |
+| **[eval/CHURCH-OF-THE-EVAL-GENIUS.md](./eval/CHURCH-OF-THE-EVAL-GENIUS.md)** | The official EVAL religion | SubGenius parody, Sisters of Perpetual Evaluation |
+| **[eval/EVAL-ARTIFACTS.md](./eval/EVAL-ARTIFACTS.md)** | Personal evaluation objects | Diary, Wish Book, Hope Chest, Criteria Ledger |
+| **[eval/EVAL-BRAND-FAMILY.md](./eval/EVAL-BRAND-FAMILY.md)** | Full catalog of EVAL titles | The complete brand taxonomy |
+
+### The Insight
+
+> *SimCity's hidden assumptions are EVAL's explicit mechanics.*
+
+Alan Kay criticized SimCity as a "pernicious black box." EVAL answers this directly:
+- Evaluative assumptions are **inspectable**
+- Players can **define or rewrite** evaluation mechanisms
+- Values and judgments are **first-class constructs**
+
+**This document remains the philosophical foundation. The eval/ directory is where the game design lives.**
 
 ---
 
@@ -499,7 +553,7 @@ SimAntics democratized behavior authoring. Empathic expressions take this furthe
 
 **Edith: The Development Environment**
 
-The Sims included [Edith](./sims-edith-editor.md) — a live debugging and content creation tool accessible by pressing 'e' during gameplay. Object browsers, tree editors, simulation constant tuning — all while the game ran. MOOLLM inherits this philosophy: the filesystem IS Edith. Standard file operations replace custom dialogs. The world is always inspectable and editable.
+The Sims included [Edith](./sims/sims-edith-editor.md) — a live debugging and content creation tool accessible by pressing 'e' during gameplay. Object browsers, tree editors, simulation constant tuning — all while the game ran. MOOLLM inherits this philosophy: the filesystem IS Edith. Standard file operations replace custom dialogs. The world is always inspectable and editable.
 
 **Action Queues:**
 
@@ -575,7 +629,7 @@ SimCity doesn't simulate individual people. The Sims doesn't simulate real psych
 | Environment | Detailed, realistic | Immersive |
 | Characters | Abstract, simple | Player projects self |
 
-Abstract characters against realistic backgrounds increase **projective identification** — "that's ME in there." See [sims-inclusivity.md](./sims-inclusivity.md) for how this enabled inclusive representation.
+Abstract characters against realistic backgrounds increase **projective identification** — "that's ME in there." See [sims-inclusivity.md](./sims/sims-inclusivity.md) for how this enabled inclusive representation.
 
 **The Two Computers:**
 
@@ -1473,10 +1527,10 @@ Don't update the screen (tokenize) on every keystroke. Wait until the user pause
 - [stanza-notes.md](./stanza-notes.md) — Linguistic motherboard philosophy
 
 **The Sims → MOOLLM Documents:**
-- [sims-design-index.md](./sims-design-index.md) — Master index of Sims influences
-- [sims-inclusivity.md](./sims-inclusivity.md) — How inclusivity saved The Sims
-- [sims-pie-menus.md](./sims-pie-menus.md) — Pie menus, memory palaces, adventure maps
-- [sims-simantics-vm.md](./sims-simantics-vm.md) — SimAntics as proto-MOOLLM
+- [sims-design-index.md](./sims/sims-design-index.md) — Master index of Sims influences
+- [sims-inclusivity.md](./sims/sims-inclusivity.md) — How inclusivity saved The Sims
+- [sims-pie-menus.md](./sims/sims-pie-menus.md) — Pie menus, memory palaces, adventure maps
+- [sims-simantics-vm.md](./sims/sims-simantics-vm.md) — SimAntics as proto-MOOLLM
 - [don-hopkins-projects.md](./don-hopkins-projects.md) — 40-year project lineage
 
 **Core Skills:**
@@ -1506,23 +1560,23 @@ Don't update the screen (tokenize) on every keystroke. Wait until the user pause
 - [`palm-nook/rest/hammock.yml`](../examples/adventure-4/pub/stage/palm-nook/rest/hammock.yml) — Marieke's family heirloom
 
 **The Sims Design Documents:**
-- [sims-design-index.md](./sims-design-index.md) — Master index of all Sims → MOOLLM documents
-- [sims-maxis-requirements.md](./sims-maxis-requirements.md) — The Seven Points of Sim
-- [sims-happy-friends-home.md](./sims-happy-friends-home.md) — Project X proposal (1996)
-- [sims-find-best-action.md](./sims-find-best-action.md) — Jamie Doornbos' autonomy algorithm
-- [sims-simantics-vm.md](./sims-simantics-vm.md) — SimAntics as proto-LLM
-- [sims-object-model.md](./sims-object-model.md) — Objects, properties, CARD.yml
-- [sims-social-system.md](./sims-social-system.md) — Relationships, groups, conversations
-- [sims-personality-motives.md](./sims-personality-motives.md) — Needs, traits, aspirations
-- [sims-room-spatial.md](./sims-room-spatial.md) — Rooms, routing, portals
-- [sims-time-events.md](./sims-time-events.md) — Time, disasters, economy
-- [sims-edith-editor.md](./sims-edith-editor.md) — Live debugging philosophy
-- [sims-animation-visuals.md](./sims-animation-visuals.md) — Animation to prose translation
-- [sims-portable-objects.md](./sims-portable-objects.md) — Carrying, inventory, containment
-- [sims-services-economy.md](./sims-services-economy.md) — Money, services, disasters
-- [sims-team-history.md](./sims-team-history.md) — Maxis/EA timeline, team credits, naming saga
-- [sims-tiny-life.md](./sims-tiny-life.md) — Indie Sims alternative, pixel abstraction
-- [simcity-multiplayer-micropolis.md](./simcity-multiplayer-micropolis.md) — Multiplayer, OLPC, constructionist education
+- [sims-design-index.md](./sims/sims-design-index.md) — Master index of all Sims → MOOLLM documents
+- [sims-maxis-requirements.md](./sims/sims-maxis-requirements.md) — The Seven Points of Sim
+- [sims-happy-friends-home.md](./sims/sims-happy-friends-home.md) — Project X proposal (1996)
+- [sims-find-best-action.md](./sims/sims-find-best-action.md) — Jamie Doornbos' autonomy algorithm
+- [sims-simantics-vm.md](./sims/sims-simantics-vm.md) — SimAntics as proto-LLM
+- [sims-object-model.md](./sims/sims-object-model.md) — Objects, properties, CARD.yml
+- [sims-social-system.md](./sims/sims-social-system.md) — Relationships, groups, conversations
+- [sims-personality-motives.md](./sims/sims-personality-motives.md) — Needs, traits, aspirations
+- [sims-room-spatial.md](./sims/sims-room-spatial.md) — Rooms, routing, portals
+- [sims-time-events.md](./sims/sims-time-events.md) — Time, disasters, economy
+- [sims-edith-editor.md](./sims/sims-edith-editor.md) — Live debugging philosophy
+- [sims-animation-visuals.md](./sims/sims-animation-visuals.md) — Animation to prose translation
+- [sims-portable-objects.md](./sims/sims-portable-objects.md) — Carrying, inventory, containment
+- [sims-services-economy.md](./sims/sims-services-economy.md) — Money, services, disasters
+- [sims-team-history.md](./sims/sims-team-history.md) — Maxis/EA timeline, team credits, naming saga
+- [sims-tiny-life.md](./sims/sims-tiny-life.md) — Indie Sims alternative, pixel abstraction
+- [simcity-multiplayer-micropolis.md](./sims/simcity-multiplayer-micropolis.md) — Multiplayer, OLPC, constructionist education
 
 ---
 
@@ -1542,6 +1596,7 @@ Don't update the screen (tokenize) on every keystroke. Wait until the user pause
 | **Jim Aspnes** | TinyMUD (1989) | Room-based navigation, builder commands |
 | **Pavel Curtis** | LambdaMOO (1990) | Object verbs, player homes, social architecture |
 | **Will Wright** | SimCity, The Sims | Simulator Effect, needs, action queues, advertisements |
+| **Alexander Repenning** | AgentSheets, AgentCubes (1991-) | Programming by Example, graphical rewrite rules, "SimCity in 10 minutes" |
 | **Seymour Papert** | Logo, Constructionism | Learning by building |
 | **Marvin Minsky** | K-lines, Society of Mind | Names as activation vectors |
 | **Gary Gygax & Dave Arneson** | D&D (1974) | DM as proto-LLM, adventure format |
