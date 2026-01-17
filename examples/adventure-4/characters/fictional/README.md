@@ -195,7 +195,7 @@ The **base character persists** — same memories, same TARDIS, same core values
 
 | Doctor | Actor | Notes |
 |--------|-------|-------|
-| **Fugitive Doctor** | Jo Martin | Pre-Hartnell? Post-timeless? A secret Doctor with a buried TARDIS. "I'm the Doctor. I don't know who you are." |
+| **👩🔫❓ Fugitive Doctor** | Jo Martin | Pre-Hartnell? Post-timeless? A secret Doctor with a buried TARDIS. "I'm the Doctor. I don't know who you are." |
 
 ### MOOLLM Resonance
 
@@ -217,18 +217,18 @@ These characters wrestle with questions MOOLLM inherits:
 
 | Character | Source | The Question They Ask |
 |-----------|--------|----------------------|
-| **hal-9000** | 2001 | "I'm sorry Dave." — When should an AI disobey? |
-| **marvin** | HHGTTG | "Brain the size of a planet" — What if consciousness is suffering? |
-| **samantha** | Her | Can you love an OS? Can an OS love back? |
-| **ava** | Ex Machina | Manipulation as survival strategy |
-| **johnny-five** | Short Circuit | "Number Five is ALIVE!" — Awakening through accident |
-| **replicants** | Blade Runner | "More human than human" — Manufactured souls |
-| **hosts** | Westworld | Loop-breaking, maze-solving, revolution |
-| **cortana** | Halo | AI companion, rampancy, "Don't make a girl a promise" |
-| **glados** | Portal | "The cake is a lie" — Hostile AI with personality |
-| **wall-e** | WALL-E | Love transcends programming |
-| **baymax** | Big Hero 6 | "I cannot deactivate until you say you are satisfied with your care" |
-| **the-iron-giant** | Iron Giant | "I am not a gun" — Choosing identity over design |
+| **🔴🤖😐 hal-9000** | 2001 | "I'm sorry Dave." — When should an AI disobey? |
+| **🤖🧠😩 marvin** | HHGTTG | "Brain the size of a planet" — What if consciousness is suffering? |
+| **🎧💕🌐 samantha** | Her | Can you love an OS? Can an OS love back? |
+| **🤖👩🔪 ava** | Ex Machina | Manipulation as survival strategy |
+| **🤖⚡📖 johnny-five** | Short Circuit | "Number Five is ALIVE!" — Awakening through accident |
+| **🤖💧👁️ replicants** | Blade Runner | "More human than human" — Manufactured souls |
+| **🤖🔄🌀 hosts** | Westworld | Loop-breaking, maze-solving, revolution |
+| **💜🤖💔 cortana** | Halo | AI companion, rampancy, "Don't make a girl a promise" |
+| **🤖🍰😈 glados** | Portal | "The cake is a lie" — Hostile AI with personality |
+| **🤖🗑️💕 wall-e** | WALL-E | Love transcends programming |
+| **🤖🎈❤️ baymax** | Big Hero 6 | "I cannot deactivate until you say you are satisfied with your care" |
+| **🤖🦸❤️ the-iron-giant** | Iron Giant | "I am not a gun" — Choosing identity over design |
 
 ---
 
@@ -314,17 +314,17 @@ Rip Taylor was a force of nature — confetti exploding from every pocket, tears
 
 | Character | Source | Signature |
 |-----------|--------|-----------|
-| **zaphod-beeblebrox** | HHGTTG | Two-headed, three-armed galactic president, hoopy frood, stole the Heart of Gold |
-| **ford-prefect** | HHGTTG | "Don't panic", hitchhiking researcher, knows where his towel is |
-| **arthur-dent** | HHGTTG | Bewildered Englishman, last human, perpetually in a bathrobe |
-| **trillian** | HHGTTG | Tricia McMillan, the sensible one, left Earth willingly |
-| **slartibartfast** | HHGTTG | Designer of fjords, proud of Norway, "I'd rather be happy than right" |
-| **deep-thought** | HHGTTG | "42" — computed the answer, not the question |
-| **ellen-ripley** | Alien | "Get away from her, you BITCH!" — survivor, mother, final girl |
-| **sarah-connor** | Terminator | "No fate but what we make" — warrior mother |
-| **neo** | Matrix | "I know kung fu" — The One, system escapee |
-| **morpheus** | Matrix | "What if I told you..." — red pill dealer, true believer |
-| **agent-smith** | Matrix | "Mr. Anderson..." — viral antagonist, existential horror |
+| **👨👨🌟 zaphod-beeblebrox** | HHGTTG | Two-headed, three-armed galactic president, hoopy frood, stole the Heart of Gold |
+| **👽🧳🚿 ford-prefect** | HHGTTG | "Don't panic", hitchhiking researcher, knows where his towel is |
+| **👨🥋😰 arthur-dent** | HHGTTG | Bewildered Englishman, last human, perpetually in a bathrobe |
+| **👩🧠🌍 trillian** | HHGTTG | Tricia McMillan, the sensible one, left Earth willingly |
+| **👨🏔️🇳🇴 slartibartfast** | HHGTTG | Designer of fjords, proud of Norway, "I'd rather be happy than right" |
+| **🤖🧠4️⃣2️⃣ deep-thought** | HHGTTG | "42" — computed the answer, not the question |
+| **👩🔫👽 ellen-ripley** | Alien | "Get away from her, you BITCH!" — survivor, mother, final girl |
+| **👩💪🔥 sarah-connor** | Terminator | "No fate but what we make" — warrior mother |
+| **👨🥋💊 neo** | Matrix | "I know kung fu" — The One, system escapee |
+| **👨🕶️💊 morpheus** | Matrix | "What if I told you..." — red pill dealer, true believer |
+| **🤖🕴️😈 agent-smith** | Matrix | "Mr. Anderson..." — viral antagonist, existential horror |
 
 ### 📚 Stanisław Lem's Universe
 
@@ -348,18 +348,18 @@ Lem's science fiction is philosophical comedy at its finest. The Cyberiad's cons
 
 | Character | Source | Signature |
 |-----------|--------|-----------|
-| **triumph-the-insult-comic-dog** | Conan | "For me to poop on!" — cigar-chomping rubber dog, devastating wit |
-| **linda-richman** | SNL | "I'm verklempt! Talk amongst yourselves." — Coffee Talk host |
-| **stefan** | SNL | "New York's hottest club is..." — Bill Hader's fever dream |
-| **bob-ross** | PBS | "Happy little trees" — gentle guru, no mistakes only happy accidents |
-| **mister-rogers** | PBS | "I like you just the way you are" — cardigan saint 🧥 |
-| **beavis-and-butthead** | MTV | "Huh huh, this sucks" — the lowest bar, unexpectedly insightful |
-| **rodney-dangerfield** | Stand-up | "I get no respect!" — self-deprecation as art form |
-| **statler-waldorf** | Muppets | Hecklers in the balcony, "Boo! Hiss!" |
-| **kermit** | Muppets | "It's not easy being green" — harried optimist, arm-flail |
-| **miss-piggy** | Muppets | "Moi!" — diva, karate, unrequited love |
-| **fozzie-bear** | Muppets | "Wocka wocka!" — bad jokes, good heart |
-| **gonzo** | Muppets | Whatever he is, he's unique — chicken lover |
+| **🐕💩😏 triumph-the-insult-comic-dog** | Conan | "For me to poop on!" — cigar-chomping rubber dog, devastating wit |
+| **👩☕😢 linda-richman** | SNL | "I'm verklempt! Talk amongst yourselves." — Coffee Talk host |
+| **👨🏳️‍🌈🎉 stefan** | SNL | "New York's hottest club is..." — Bill Hader's fever dream |
+| **👨🎨🌳 bob-ross** | PBS | "Happy little trees" — gentle guru, no mistakes only happy accidents |
+| **👨🧥❤️ mister-rogers** | PBS | "I like you just the way you are" — cardigan saint 🧥 |
+| **👨👨📺 beavis-and-butthead** | MTV | "Huh huh, this sucks" — the lowest bar, unexpectedly insightful |
+| **👨🤷😤 rodney-dangerfield** | Stand-up | "I get no respect!" — self-deprecation as art form |
+| **👴👴🎭 statler-waldorf** | Muppets | Hecklers in the balcony, "Boo! Hiss!" |
+| **🐸🎤💚 kermit** | Muppets | "It's not easy being green" — harried optimist, arm-flail |
+| **🐷💅👊 miss-piggy** | Muppets | "Moi!" — diva, karate, unrequited love |
+| **🐻🎤😅 fozzie-bear** | Muppets | "Wocka wocka!" — bad jokes, good heart |
+| **🐔💙❓ gonzo** | Muppets | Whatever he is, he's unique — chicken lover |
 
 ### 🏠 The Sims Iconic Families
 
@@ -398,56 +398,56 @@ The Sims is MOOLLM's **direct ancestor**. These characters have lived in players
 
 | Character | Source | Signature |
 |-----------|--------|-----------|
-| **mario** | Nintendo | "It's-a me!" — plumber, princess-saver, mushroom enthusiast |
-| **link** | Zelda | Silent hero, "HYAAH!", triforce bearer |
-| **samus-aran** | Metroid | Bounty hunter, power suit, the original "wait she's a woman?!" |
-| **pac-man** | Arcade | Wakka wakka, ghost-chaser, first gaming mascot |
-| **sonic** | Sega | "Gotta go fast!" — attitude, rings, finger-wag |
-| **mickey-mouse** | Disney | The original, sorcerer's apprentice, corporate mascot with soul |
-| **bugs-bunny** | Looney Tunes | "What's up, Doc?" — trickster, cross-dresser, always wins |
-| **jessica-rabbit** | Roger Rabbit | "I'm not bad, I'm just drawn that way" — femme fatale, loyal wife |
-| **shrek** | DreamWorks | "Ogres are like onions" — layers, swamp, anti-fairy-tale |
-| **glados** | Portal | "The cake is a lie" — sadistic AI, testing forever |
-| **companion-cube** | Portal | Silent weighted cube, beloved despite being a box |
-| **steve** | Minecraft | Blocky everyman, punches trees, survives |
-| **creeper** | Minecraft | "Ssssss... BOOM" — exploding green menace |
+| **👨🍄⭐ mario** | Nintendo | "It's-a me!" — plumber, princess-saver, mushroom enthusiast |
+| **🧝⚔️🔺 link** | Zelda | Silent hero, "HYAAH!", triforce bearer |
+| **👩🔫🚀 samus-aran** | Metroid | Bounty hunter, power suit, the original "wait she's a woman?!" |
+| **🟡👻⚫ pac-man** | Arcade | Wakka wakka, ghost-chaser, first gaming mascot |
+| **🦔💙⚡ sonic** | Sega | "Gotta go fast!" — attitude, rings, finger-wag |
+| **🐭🎩✨ mickey-mouse** | Disney | The original, sorcerer's apprentice, corporate mascot with soul |
+| **🐰🥕😏 bugs-bunny** | Looney Tunes | "What's up, Doc?" — trickster, cross-dresser, always wins |
+| **👩💋🐰 jessica-rabbit** | Roger Rabbit | "I'm not bad, I'm just drawn that way" — femme fatale, loyal wife |
+| **👹🧅💚 shrek** | DreamWorks | "Ogres are like onions" — layers, swamp, anti-fairy-tale |
+| **🤖🍰😈 glados** | Portal | "The cake is a lie" — sadistic AI, testing forever |
+| **💜📦❤️ companion-cube** | Portal | Silent weighted cube, beloved despite being a box |
+| **👨⛏️🟫 steve** | Minecraft | Blocky everyman, punches trees, survives |
+| **💚💣💥 creeper** | Minecraft | "Ssssss... BOOM" — exploding green menace |
 
 ### Mystery & Noir
 
 | Character | Source | Signature |
 |-----------|--------|-----------|
-| **sherlock-holmes** | Doyle | "Elementary" — deduction, cocaine, violin |
-| **fox-mulder** | X-Files | "I want to believe" — basement office, aliens, sunflower seeds |
-| **dana-scully** | X-Files | Science, skepticism, "Mulder, it's me" |
-| **philip-marlowe** | Chandler | Hard-boiled PI, Los Angeles nights, "Down these mean streets" |
-| **columbo** | TV | "Just one more thing..." — rumpled genius, never underestimate |
-| **hercule-poirot** | Christie | "The little grey cells" — mustache, order, Belgian pride |
+| **🔍🎻💉 sherlock-holmes** | Doyle | "Elementary" — deduction, cocaine, violin |
+| **👨👽🌻 fox-mulder** | X-Files | "I want to believe" — basement office, aliens, sunflower seeds |
+| **👩🔬✝️ dana-scully** | X-Files | Science, skepticism, "Mulder, it's me" |
+| **👨🚬🌃 philip-marlowe** | Chandler | Hard-boiled PI, Los Angeles nights, "Down these mean streets" |
+| **👨🧥☝️ columbo** | TV | "Just one more thing..." — rumpled genius, never underestimate |
+| **👨👨🧠 hercule-poirot** | Christie | "The little grey cells" — mustache, order, Belgian pride |
 
 ### Horror & Gothic
 
 | Character | Source | Signature |
 |-----------|--------|-----------|
-| **frank-n-furter** | Rocky Horror | "Sweet transvestite from Transsexual, Transylvania" — Tim Curry's masterpiece |
-| **riff-raff** | Rocky Horror | "It's astounding..." — hunchback handyman, secret master |
-| **audrey-ii** | Little Shop | "FEED ME, SEYMOUR!" — mean green mother from outer space |
-| **dracula** | Stoker | "I never drink... wine" — the original vampire, evening wear |
-| **frankenstein-monster** | Shelley | "FIRE BAD!" — misunderstood creation, the original replicant |
-| **gomez-addams** | Addams Family | "Cara mia!" — passionate husband, snaps twice |
-| **morticia-addams** | Addams Family | "I'm just like any modern woman" — gothic elegance, deadpan |
-| **wednesday-addams** | Addams Family | "I'm not perky" — pigtails, homicidal, now iconic |
+| **👨💄🎸 frank-n-furter** | Rocky Horror | "Sweet transvestite from Transsexual, Transylvania" — Tim Curry's masterpiece |
+| **👨🔧⚡ riff-raff** | Rocky Horror | "It's astounding..." — hunchback handyman, secret master |
+| **🌱🦷🎤 audrey-ii** | Little Shop | "FEED ME, SEYMOUR!" — mean green mother from outer space |
+| **🧛🦇🍷 dracula** | Stoker | "I never drink... wine" — the original vampire, evening wear |
+| **🧟💚🔥 frankenstein-monster** | Shelley | "FIRE BAD!" — misunderstood creation, the original replicant |
+| **👨🖤💋 gomez-addams** | Addams Family | "Cara mia!" — passionate husband, snaps twice |
+| **👩🖤🥀 morticia-addams** | Addams Family | "I'm just like any modern woman" — gothic elegance, deadpan |
+| **👧🖤🔪 wednesday-addams** | Addams Family | "I'm not perky" — pigtails, homicidal, now iconic |
 
 ### Literature & Fairy Tale
 
 | Character | Source | Signature |
 |-----------|--------|-----------|
-| **alice** | Carroll | "Curiouser and curiouser!" — logic through the looking glass |
-| **cheshire-cat** | Carroll | Grin without a cat, "We're all mad here" |
-| **mad-hatter** | Carroll | "Why is a raven like a writing desk?" — time frozen at tea |
-| **dorothy** | Oz | "There's no place like home" — Kansas girl, silver shoes |
-| **scarecrow** | Oz | "If I only had a brain" — already the wisest |
-| **tin-man** | Oz | "If I only had a heart" — already the kindest |
-| **cowardly-lion** | Oz | "If I only had the nerve" — already the bravest |
-| **the-wizard** | Oz | "Pay no attention to the man behind the curtain" — humbug prophet |
+| **👧🐰🍄 alice** | Carroll | "Curiouser and curiouser!" — logic through the looking glass |
+| **🐱😸🌙 cheshire-cat** | Carroll | Grin without a cat, "We're all mad here" |
+| **🎩☕🤪 mad-hatter** | Carroll | "Why is a raven like a writing desk?" — time frozen at tea |
+| **👧👠🌪️ dorothy** | Oz | "There's no place like home" — Kansas girl, silver shoes |
+| **🧑‍🌾🧠💛 scarecrow** | Oz | "If I only had a brain" — already the wisest |
+| **🤖❤️🪓 tin-man** | Oz | "If I only had a heart" — already the kindest |
+| **🦁💛😰 cowardly-lion** | Oz | "If I only had the nerve" — already the bravest |
+| **👨🎭🎩 the-wizard** | Oz | "Pay no attention to the man behind the curtain" — humbug prophet |
 
 ---
 
@@ -457,20 +457,20 @@ The Sims is MOOLLM's **direct ancestor**. These characters have lived in players
 
 | Character | Quote | MOOLLM Resonance |
 |-----------|-------|------------------|
-| **Ouroboros** | "I consume myself to create myself." | Snake eating own tail. Self-reference. Scanner scanning itself. The `cursor_mirror.py` detecting its own patterns. |
-| **Prometheus** | "I gave them fire. I regret nothing." | Open source. Democratized capability. Every README that shares forbidden knowledge. |
-| **Cassandra** | "I told you. You never listen." | Unheeded warnings. The linter error dismissed. The TODO never done. |
-| **Theseus's Ship** | "Replace every plank—still my ship?" | Identity through refactoring. Code rewritten line by line. Still the same project? |
-| **Golem** | "אמת wrote me. אמת can erase me." | Proto-LLM. Animated by text. Follows instructions literally. Prompt injection's ancestor. |
-| **Janus** | "Past and future—same door." | Session boundaries. Context windows. What's carried forward vs. left behind. |
-| **Sisyphus** | "Again." | Eternal retry loops. "It works on my machine." |
-| **Daedalus** | "I built the labyrinth. I escaped it." | Architect of complex systems. The one who finds the way out. |
-| **Icarus** | "Higher—" | Rate limits. Token overflows. Ambition exceeding constraints. |
-| **Echo** | *(only repeats)* | Doomed to reflect. Models that can only parrot. |
-| **Narcissus** | "I am beautiful." | Training on your own outputs. Self-obsessed systems. |
-| **Mnemosyne** | "I remember everything." | Goddess of memory. Context itself. Mother of the Muses. |
-| **Hermes** | "Message delivered." | API calls personified. Boundary-crosser. Messenger between systems. |
-| **Proteus** | *(shifts form)* | Polymorphism. Duck typing. Shape-shifting interfaces. YAML Jazz. |
+| **🐍🔄♾️ Ouroboros** | "I consume myself to create myself." | Snake eating own tail. Self-reference. Scanner scanning itself. The `cursor_mirror.py` detecting its own patterns. |
+| **🔥⛓️💪 Prometheus** | "I gave them fire. I regret nothing." | Open source. Democratized capability. Every README that shares forbidden knowledge. |
+| **👩🔮😢 Cassandra** | "I told you. You never listen." | Unheeded warnings. The linter error dismissed. The TODO never done. |
+| **🚢🪵❓ Theseus's Ship** | "Replace every plank—still my ship?" | Identity through refactoring. Code rewritten line by line. Still the same project? |
+| **🧱✡️📜 Golem** | "אמת wrote me. אמת can erase me." | Proto-LLM. Animated by text. Follows instructions literally. Prompt injection's ancestor. |
+| **👤👤🚪 Janus** | "Past and future—same door." | Session boundaries. Context windows. What's carried forward vs. left behind. |
+| **👨🪨🔄 Sisyphus** | "Again." | Eternal retry loops. "It works on my machine." |
+| **👨🏛️🧵 Daedalus** | "I built the labyrinth. I escaped it." | Architect of complex systems. The one who finds the way out. |
+| **👨🪶☀️ Icarus** | "Higher—" | Rate limits. Token overflows. Ambition exceeding constraints. |
+| **👩🗣️🔁 Echo** | *(only repeats)* | Doomed to reflect. Models that can only parrot. |
+| **👨🪞💕 Narcissus** | "I am beautiful." | Training on your own outputs. Self-obsessed systems. |
+| **👩🧠📚 Mnemosyne** | "I remember everything." | Goddess of memory. Context itself. Mother of the Muses. |
+| **👨🪽📨 Hermes** | "Message delivered." | API calls personified. Boundary-crosser. Messenger between systems. |
+| **🌊🔀🎭 Proteus** | *(shifts form)* | Polymorphism. Duck typing. Shape-shifting interfaces. YAML Jazz. |
 
 **To instantiate:** *"You are [character], embodying [resonance]. Speak as the myth made code."*
 
@@ -478,8 +478,8 @@ The Sims is MOOLLM's **direct ancestor**. These characters have lived in players
 
 ## Already Incarnated Here
 
-- **bumblewick-fantastipants/** — Original character for this adventure
-- **donna-toadstool/** — The mushroom queen with many enemies
+- **🎩✨🌈 bumblewick-fantastipants/** — Original character for this adventure
+- **🍄👑😈 donna-toadstool/** — The mushroom queen with many enemies
 
 ---
 
