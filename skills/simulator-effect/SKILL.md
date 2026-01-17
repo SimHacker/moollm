@@ -260,7 +260,7 @@ The Simulator Effect is working when:
 - [adversarial-committee/](../adversarial-committee/) -- Mode-collapse antidote
 - [empathic-templates/](../empathic-templates/) -- Smart generation
 - [constructionism/](../constructionism/) -- Mental model building
-- [sims-astrology.md](../../designs/sims-astrology.md) -- The proof
+- [sims-astrology.md](../../designs/sims/sims-astrology.md) -- The proof
 
 ---
 

@@ -142,7 +142,7 @@ Modified:
 - examples/adventure-4/pub/guest-book.yml (tribute archive framing)
 - examples/adventure-4/pub/ROOM.yml (tribute protocol)
 - examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md (invocation + acknowledgment beats)
-- designs/PR-TRIBUTE-FRAMING-ETHICS.md (this file)
+- designs/pr/PR-TRIBUTE-FRAMING-ETHICS.md (this file)
 ```
 
 ---

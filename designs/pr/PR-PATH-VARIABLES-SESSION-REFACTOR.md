@@ -138,7 +138,7 @@ Deleted `examples/adventure-4/skills/` — the global `skills/` directory IS the
 ## Files Changed
 
 ### New Files
-- `designs/PR-PATH-VARIABLES-SESSION-REFACTOR.md` — This PR
+- `designs/pr/PR-PATH-VARIABLES-SESSION-REFACTOR.md` — This PR
 - `examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md` — Marathon session log
 - `examples/adventure-4/characters/fictional/donna-toadstool/` — New character + session
 - `examples/adventure-4/pub/guestbook.yml` — Guestbook from Donna's session
@@ -155,7 +155,7 @@ Deleted `examples/adventure-4/skills/` — the global `skills/` directory IS the
 - `skills/session-log/SKILL.md` — Complete rewrite with best practices
 - `skills/session-log/README.md` — Updated overview
 - `examples/adventure-4/coatroom/ROOM.yml` — East exit uses `$SKILLS/`
-- `designs/PR-CHARACTER-ETHICS-STARTUP-COMPLETE.md` — Notes refactoring
+- `designs/pr/PR-CHARACTER-ETHICS-STARTUP-COMPLETE.md` — Notes refactoring
 
 ### Link Fixes
 - Fixed 11 broken `../animals/` links in Don's session

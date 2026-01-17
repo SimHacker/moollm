@@ -711,7 +711,7 @@ LLM: [simulates entire game session internally]
 
 **Skill:** [`skills/speed-of-light/`](../skills/speed-of-light/)
 **Proof:** [🚀 SPEED OF LIGHT SIMULATION 🚀](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#-speed-of-light-simulation-)
-**PR:** [PR-PALM-INCARNATION-SPEED-OF-LIGHT.md](./PR-PALM-INCARNATION-SPEED-OF-LIGHT.md)
+**PR:** [PR-PALM-INCARNATION-SPEED-OF-LIGHT.md](./pr/PR-PALM-INCARNATION-SPEED-OF-LIGHT.md)
 
 **6. Comment Intelligence**
 
@@ -748,19 +748,19 @@ DRY ethics. Define once, apply everywhere.
 **Skill:** [`skills/representation-ethics/`](../skills/representation-ethics/)
 **Theory:** [Ethical Framing Inheritance](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#ethical-framing-inheritance)
 **Proof:** [`pub/stage/ROOM.yml`](../examples/adventure-4/pub/stage/ROOM.yml)
-**PR:** [PR-TRIBUTE-FRAMING-ETHICS.md](./PR-TRIBUTE-FRAMING-ETHICS.md)
+**PR:** [PR-TRIBUTE-FRAMING-ETHICS.md](./pr/PR-TRIBUTE-FRAMING-ETHICS.md)
 
 ### The Proof: Things Anthropic Skills Can't Do
 
 | Capability | Evidence | PR/Analysis |
 |------------|----------|-------------|
-| 33-turn game simulation | [🚀 SPEED OF LIGHT SIMULATION 🚀](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#-speed-of-light-simulation-) | [PR-PALM-INCARNATION](./PR-PALM-INCARNATION-SPEED-OF-LIGHT.md) |
-| Autonomous character creation | [Turn 8: THE SEEING](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#turn-8-the-seeing--collective-witness-individual-becoming) | [PR-GODFAMILY-COMPLETE](./PR-GODFAMILY-COMPLETE.md) |
-| 10-cat parallel prowl | [THE MIDNIGHT PROWL](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#the-midnight-prowl) | [PR-MIDNIGHT-PROWL](./PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md) |
+| 33-turn game simulation | [🚀 SPEED OF LIGHT SIMULATION 🚀](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#-speed-of-light-simulation-) | [PR-PALM-INCARNATION](./pr/PR-PALM-INCARNATION-SPEED-OF-LIGHT.md) |
+| Autonomous character creation | [Turn 8: THE SEEING](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#turn-8-the-seeing--collective-witness-individual-becoming) | [PR-GODFAMILY-COMPLETE](./pr/PR-GODFAMILY-COMPLETE.md) |
+| 10-cat parallel prowl | [THE MIDNIGHT PROWL](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#the-midnight-prowl) | [PR-MIDNIGHT-PROWL](./pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md) |
 | Cross-session memory | Comments throughout [`adventure-4/`](../examples/adventure-4/) | [MEMGPT-ANALYSIS](./MEMGPT-ANALYSIS.md) |
-| Prototype inheritance | [`bartender/`](../skills/bartender/) → [`budtender/`](../skills/budtender/) → [`budtender-marieke.yml`](../examples/adventure-4/pub/bar/budtender-marieke.yml) | [PR-PUB-STAGE-MENUS](./PR-PUB-STAGE-MENUS-PERSONAS.md) |
-| Room-based ethical framing | [`pub/stage/ROOM.yml`](../examples/adventure-4/pub/stage/ROOM.yml) | [PR-TRIBUTE-FRAMING](./PR-TRIBUTE-FRAMING-ETHICS.md) |
-| Dog adventure + territory marking | [SESSION CONTINUES: Biscuit's First Run](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#session-continues-biscuits-first-run) | [PR-BISCUIT-DOG](./PR-BISCUIT-DOG-REVOLUTION.md) |
+| Prototype inheritance | [`bartender/`](../skills/bartender/) → [`budtender/`](../skills/budtender/) → [`budtender-marieke.yml`](../examples/adventure-4/pub/bar/budtender-marieke.yml) | [PR-PUB-STAGE-MENUS](./pr/PR-PUB-STAGE-MENUS-PERSONAS.md) |
+| Room-based ethical framing | [`pub/stage/ROOM.yml`](../examples/adventure-4/pub/stage/ROOM.yml) | [PR-TRIBUTE-FRAMING](./pr/PR-TRIBUTE-FRAMING-ETHICS.md) |
+| Dog adventure + territory marking | [SESSION CONTINUES: Biscuit's First Run](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#session-continues-biscuits-first-run) | [PR-BISCUIT-DOG](./pr/PR-BISCUIT-DOG-REVOLUTION.md) |
 | Play → Learn → Lift | [🎓 PLAY → LEARN → LIFT](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#-play--learn--lift-the-incarnation-skill) | [skills/incarnation/](../skills/incarnation/) |
 
 ### Summary: Incarnate = Anthropic + Soul
@@ -942,7 +942,7 @@ MOOLLM's design choices ([YAML Jazz](../skills/yaml-jazz/), Markdown, [comments-
 ### Supporting Documents
 - [MemGPT Analysis](./MEMGPT-ANALYSIS.md) — Memory management comparison
 - [Mike Gallaher's Ideas](./mike-gallaher-ideas.md) — Adversarial storytelling methodology
-- [Empathic Suite PR](./PR-EMPATHIC-SUITE-SPEED-OF-LIGHT.md) — The Postel-inspired skill family
+- [Empathic Suite PR](./pr/PR-EMPATHIC-SUITE-SPEED-OF-LIGHT.md) — The Postel-inspired skill family
 
 ## External References
 

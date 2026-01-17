@@ -20,12 +20,12 @@
 | [adversarial-committee/](../adversarial-committee/) | Many voices beat mode-collapse |
 | [speed-of-light/](../speed-of-light/) | One call, many turns -- imagination does the rendering |
 | [needs/](../needs/) | Sims motives as numeric seeds for imagined behavior |
-| [sims-astrology](../../designs/sims-astrology.md) | The Astrillogical Effect -- zero code, maximum perceived effect |
+| [sims-astrology](../../designs/sims/sims-astrology.md) | The Astrillogical Effect -- zero code, maximum perceived effect |
 | [MOOLLM-EVAL-INCARNATE-FRAMEWORK](../../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#the-simulator-effect) | Full theory |
 
 **Quick Links:**
 - [Full Specification](SKILL.md) -- complete protocol
-- [The Astrillogical Effect](../../designs/sims-astrology.md) -- 1997 proof
+- [The Astrillogical Effect](../../designs/sims/sims-astrology.md) -- 1997 proof
 
 ---
 
@@ -76,7 +76,7 @@ Testers immediately reported bugs:
 
 **But there was no zodiac code to tune.** The effect was entirely imagined.
 
-See: [sims-astrology.md](../../designs/sims-astrology.md)
+See: [sims-astrology.md](../../designs/sims/sims-astrology.md)
 
 ---
 
@@ -253,7 +253,7 @@ MOOLLM (2025)
 
 ## See Also
 
-- [sims-astrology.md](../../designs/sims-astrology.md) -- The Astrillogical Effect
+- [sims-astrology.md](../../designs/sims/sims-astrology.md) -- The Astrillogical Effect
 - [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#the-simulator-effect](../../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#the-simulator-effect) -- Full theory
 - [k-lines/](../k-lines/) -- The mechanism
 - [adversarial-committee/](../adversarial-committee/) -- Many-voiced antidote to mode-collapse

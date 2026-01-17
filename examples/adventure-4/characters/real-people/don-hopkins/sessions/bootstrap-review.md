@@ -76,7 +76,7 @@ notes:
 - Bootstrap flow in `skills/bootstrap/CARD.yml` and `skills/bootstrap/SKILL.md`: PROBE → DETECT-DRIVER → SETUP → WARM-CONTEXT → SELF-DESCRIBE → STARTUP.
 - Cursor driver: `kernel/drivers/cursor.yml` (advisory mode).
 - Self-review: `designs/cursor-self-review.md` (plans, DONE/TODO/MAYBE).
-- PR summary: `designs/PR-MOOLLM-BOOTSTRAP-SYNC.md`.
+- PR summary: `designs/pr/PR-MOOLLM-BOOTSTRAP-SYNC.md`.
 
 ### Voices (selected excerpts)
 - **Doug Engelbart**: "Bootstrap means improving the capability infrastructure itself. Your advisory files are documentation, not magic; that's fine, but instrument them to learn from use."

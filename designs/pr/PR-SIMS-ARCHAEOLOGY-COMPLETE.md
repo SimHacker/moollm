@@ -286,27 +286,27 @@ MOOLLM inherits all of it.
 
 ### New (22 files)
 - `designs/don-hopkins-projects.md`
-- `designs/simcity-multiplayer-micropolis.md`
-- `designs/sims-animation-visuals.md`
-- `designs/sims-design-index.md`
-- `designs/sims-edith-editor.md`
-- `designs/sims-find-best-action.md`
-- `designs/sims-happy-friends-home.md`
-- `designs/sims-inclusivity.md`
-- `designs/sims-maxis-requirements.md`
-- `designs/sims-object-model.md`
-- `designs/sims-personality-motives.md`
-- `designs/sims-pie-menus.md`
-- `designs/sims-portable-objects.md`
-- `designs/sims-queer-identity-formation.md`
-- `designs/sims-room-spatial.md`
-- `designs/sims-services-economy.md`
-- `designs/sims-simantics-vm.md`
-- `designs/sims-social-system.md`
-- `designs/sims-team-history.md`
-- `designs/sims-time-events.md`
-- `designs/sims-tiny-life.md`
-- `designs/sims-will-wright-microworlds-1996.md`
+- `designs/sims/simcity-multiplayer-micropolis.md`
+- `designs/sims/sims-animation-visuals.md`
+- `designs/sims/sims-design-index.md`
+- `designs/sims/sims-edith-editor.md`
+- `designs/sims/sims-find-best-action.md`
+- `designs/sims/sims-happy-friends-home.md`
+- `designs/sims/sims-inclusivity.md`
+- `designs/sims/sims-maxis-requirements.md`
+- `designs/sims/sims-object-model.md`
+- `designs/sims/sims-personality-motives.md`
+- `designs/sims/sims-pie-menus.md`
+- `designs/sims/sims-portable-objects.md`
+- `designs/sims/sims-queer-identity-formation.md`
+- `designs/sims/sims-room-spatial.md`
+- `designs/sims/sims-services-economy.md`
+- `designs/sims/sims-simantics-vm.md`
+- `designs/sims/sims-social-system.md`
+- `designs/sims/sims-team-history.md`
+- `designs/sims/sims-time-events.md`
+- `designs/sims/sims-tiny-life.md`
+- `designs/sims/sims-will-wright-microworlds-1996.md`
 
 ### Modified (2 files)
 - `designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md`

@@ -804,4 +804,4 @@ OUROBOROS-EFFECT:
 | `skills/cursor-mirror/cursor_mirror.py` | 9,464 | 73 commands including security audit |
 | `skills/skill-snitch/` | 28 files | Skill audit framework |
 | `designs/skill-snitch-design.md` | this file | Design documentation |
-| `designs/PR-CURSOR-MIRROR-SECURITY-AUDIT.md` | 178 | PR documentation |
+| `designs/pr/PR-CURSOR-MIRROR-SECURITY-AUDIT.md` | 178 | PR documentation |

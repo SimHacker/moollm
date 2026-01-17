@@ -167,7 +167,7 @@ MOOLLM: Single call simulates all agents. **10x faster. 10x cheaper. Perfect con
 | `skills/skill/SKILL.md` | **Major upgrade** — full rewrite with innovations |
 | `skills/skill/CARD.yml` | Enhanced with MOOLLM-specific features |
 | `skills/skill/README.md` | Updated with proof and innovation summary |
-| `designs/PR-SKILL-META-SKILL-UPGRADE.md` | This PR description |
+| `designs/pr/PR-SKILL-META-SKILL-UPGRADE.md` | This PR description |
 
 ---
 

@@ -13,7 +13,7 @@
 | [action-queue/](../action-queue/) | Queuing selected actions |
 | [coherence-engine/](../coherence-engine/) | Evaluates and orchestrates |
 | [needs/](../needs/) | What drives selection scores |
-| [designs/sims-personality-motives.md](../../designs/sims-personality-motives.md) | SimAntics origin |
+| [designs/sims/sims-personality-motives.md](../../designs/sims/sims-personality-motives.md) | SimAntics origin |
 | [examples/adventure-4/pub/](../../examples/adventure-4/pub/) | Objects advertising in action |
 
 **Full Spec:** [SKILL.md](SKILL.md)

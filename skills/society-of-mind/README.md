@@ -218,7 +218,7 @@ The Sim IS the competition.
 
 See: [needs/](../needs/), [advertisement/](../advertisement/)
 
-The [Astrillogical Effect](../../designs/sims-astrology.md) works because the zodiac activates a K-line in the player's mind, not in the code.
+The [Astrillogical Effect](../../designs/sims/sims-astrology.md) works because the zodiac activates a K-line in the player's mind, not in the code.
 
 ---
 
@@ -517,7 +517,7 @@ treatment:
   - [arXiv:2304.03442](https://arxiv.org/abs/2304.03442)
 
 - **Yilmaz, Baturay. "What If AI Agents Had Zodiac Personalities?"** GitHub, 2026.
-  - The experiment referenced in [sims-astrology.md](../../designs/sims-astrology.md)
+  - The experiment referenced in [sims-astrology.md](../../designs/sims/sims-astrology.md)
   - [github.com/baturyilmaz/what-if-ai-agents-had-zodiac-personalities](https://github.com/baturyilmaz/what-if-ai-agents-had-zodiac-personalities)
 
 ---

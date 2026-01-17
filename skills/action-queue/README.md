@@ -13,7 +13,7 @@
 | [room/](../room/) | Where actions happen |
 | [speed-of-light/](../speed-of-light/) | Multiple actions per turn |
 | [needs/](../needs/) | Needs drive action selection |
-| [designs/sims-personality-motives.md](../../designs/sims-personality-motives.md) | Original Sims design |
+| [designs/sims/sims-personality-motives.md](../../designs/sims/sims-personality-motives.md) | Original Sims design |
 
 **Full Spec:** [SKILL.md](SKILL.md)
 
