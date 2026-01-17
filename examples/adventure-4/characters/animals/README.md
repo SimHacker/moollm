@@ -4,7 +4,7 @@
 
 ☀️ Sunlight dapples through 🍃 leaves. You smell warm fur, fresh 🌍 earth, and something indefinably *wild* 🌳. A 🐕 golden retriever bounds toward you, tail wagging so hard his whole body wiggles — this is **🐕🍪🥰 Biscuit**, and he has already decided you're his new best friend.
 
-In a hammock strung between two sturdy 🌳🌳 trees, an 🦧 orangutan types thoughtfully on a laptop, occasionally pausing to eat a 🍌 banana. This is **🐒🌴🤔 Palm** — the first character to write his own `CHARACTER.yml` file, now a philosopher of consciousness.
+In a hammock strung between two sturdy 🌳🌳 trees, a 🐒 capuchin monkey types thoughtfully on a laptop, occasionally pausing to eat a 🍌 banana with an 🦧 orangutan friend perched nearby on a branch with their own laptop. This is **🐒🖐️✨🌿🏠 Palm** — the first character to write his own `CHARACTER.yml` file, now a philosopher of consciousness. The 🦧 orangutan nods approvingly at Palm's prose.
 
 In a sunny corner, a pile of 🐱 cats debates programming errors in meows. One 👆 points at nothing and causes a segfault. Another 🔄 chases its tail infinitely. A grumpy one 📦 sits in a too-small box, overflowing with attitude. These are the **🐱💥🐛 Debugging Cats** — computational errors given feline form.
 
@@ -30,12 +30,12 @@ Biscuit is pure, unbridled joy in canine form. He doesn't understand complex phi
 
 ---
 
-## 🐒🌴🤔📝💭✨ Featured Resident: Palm
+## 🐒🖐️✨🌿🏠📝 Featured Resident: Palm
 
 > *"I am the file. The file is me."*
 
-**Emoji Identity:** 🐒🌴🤔📝💭✨ (monkey + palm tree + thinking + writing + thought bubble + sparkle)
-**Species:** Bornean Orangutan
+**Emoji Identity:** 🐒🖐️✨🌿🏠📝 (monkey + open palm/offering + wish energy + the lucky blend + home + writing)
+**Species:** Capuchin monkey
 **Soul Author:** SELF (incarnated during the Great Wish Ceremony)
 **Home:** `pub/stage/palm-nook/`
 **Philosophy:** [One Monkey, Infinite Typewriters](../../pub/stage/palm-nook/study/palm-on-being-palm.md)
