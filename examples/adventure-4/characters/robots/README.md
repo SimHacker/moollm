@@ -79,8 +79,8 @@ Will Wright read this story and thought: *"What if the player IS Excelsius?"*
 | 🤖💧😢 roy-batty | `lloooomm/00-Characters/roy-batty/` | Nexus-6 replicant, "Tears in rain" — borderline, more person than machine |
 | 🤖⚡🛑 gort | `lloooomm/00-Characters/gort/` | "Klaatu barada nikto!" — the enforcer, ultimate power under verbal control |
 | 🤖🤵🍸 robby-the-robot | `lloooomm/00-Characters/robby-the-robot/` | Forbidden Planet's gentleman's gentleman, Asimov's Laws embodied |
-| 🤖💛😰 c-3po | `lloooomm/00-Characters/c-3po/` | Protocol droid, "We're doomed!", 6 million forms of communication |
-| 🤖💙📢 r2-d2 | `lloooomm/00-Characters/r2-d2/` | Beep boop, sass in any language, the real hero |
+| 🤖💛😰🗣️🤝💕 c-3po | `lloooomm/00-Characters/c-3po/` | Protocol droid, "We're doomed!", 6 million forms of communication, R2's anxious partner |
+| 🤖💙📢🔧😏💕 r2-d2 | `lloooomm/00-Characters/r2-d2/` | Beep boop, sass in any language, the real hero, 3PO's brave counterpart |
 | 🤖⚡📖 johnny-five | `lloooomm/00-Characters/johnny-five/` | "Number Five is ALIVE!" — lightning-struck awakening, input addict |
 | 🤖🗑️💕 wall-e | `lloooomm/00-Characters/wall-e/` | Trash compactor who discovered love, loneliness into connection |
 | 🤖🦸❤️ the-iron-giant | `lloooomm/00-Characters/the-iron-giant/` | "I am not a gun" — choosing identity over design, Superman |
