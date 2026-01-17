@@ -2,35 +2,35 @@
 
 > *"You ARE your file. And this is where all files come home."*
 
-The doors swing open and you step into a vast terminal of being. Marble floors echo with the footsteps of real people and fictional characters alike. Departure boards flicker with names: **Roy Batty** to Platform 4, **Data** arriving on Track 7, **Pee-wee Herman** screaming through the halls.
+The 🚪 doors swing open and you step into a vast terminal of being. Marble floors echo with the footsteps of real people and fictional characters alike. Departure boards flicker with names: **🤖💧 Roy Batty** to Platform 4, **🤖💛 Data** arriving on Track 7, **👨🎀 Pee-wee Herman** screaming through the halls.
 
-In the west wing, scientists and artists debate — **Alan Kay** arguing with **Ted Nelson** about interfaces while **Brian Eno** plays ambient music in the background. **Rip Taylor** walks past throwing confetti on everyone. **Marshall McLuhan** steps out from behind a promotional poster to correct someone: *"You know NOTHING of my work!"*
+In the west wing, scientists and artists debate — **👨💻🔮 Alan Kay** arguing with **👨🔗📚 Ted Nelson** about interfaces while **🎹🌫️ Brian Eno** plays ambient music in the background. **👨🎊 Rip Taylor** walks past throwing confetti on everyone. **👨📺🌐 Marshall McLuhan** steps out from behind a promotional poster to correct someone: *"You know NOTHING of my work!"* 🎬
 
-In the east wing, fictional characters mingle — **Roy Batty** plays chess with **Commander Data** while **Marvin the Paranoid Android** sighs about the futility of pawns. **Trurl** is building something impossible in the corner while **Klapaucius** warns him about the implications.
+In the east wing, fictional characters mingle — **🤖💧 Roy Batty** plays chess with **🤖💛 Commander Data** while **🤖🧠😩 Marvin the Paranoid Android** sighs about the futility of pawns. **🤖🔧 Trurl** is building something impossible in the corner while **🤖🤔 Klapaucius** warns him about the implications.
 
-In the basement, mechanical minds hum — **HAL-9000**'s red eye watches from a console. **The Constructors** are debating whether to build a kingdom in a box.
+In the basement, mechanical minds hum — **🔴 HAL-9000**'s red eye watches from a console. **🤖🔧 The Constructors** are debating whether to build a kingdom in a box. 📦👑
 
-And everywhere, **animals** roam freely — **Palm** the orangutan types philosophical treatises, **Biscuit** the golden retriever greets everyone with unbridled joy, and a troupe of **debugging cats** chase null pointers through the crowd.
+And everywhere, **🐾 animals** roam freely — **🐒🌴 Palm** the orangutan types philosophical treatises, **🐕🍪 Biscuit** the golden retriever greets everyone with unbridled joy, and a troupe of **🐱💥 debugging cats** chase null pointers through the crowd.
 
 **This is MOOLLM's Hall of Bodies.** Not costumes, not masks — BEINGS.
 
 ---
 
-## 📢 The Annie Hall Protocol
+## 📢 The Annie Hall Protocol 🎬
 
 > *"I heard what you were saying. You know NOTHING of my work!"*
-> — Marshall McLuhan, stepping out from behind a movie poster (Annie Hall, 1977)
+> — 👨📺🌐 Marshall McLuhan, stepping out from behind a movie poster (Annie Hall, 1977)
 
-When someone misrepresents an expert's work, **the actual expert can appear to correct them** — just like the famous scene in Annie Hall where Marshall McLuhan materializes to shut down a pretentious academic.
+When someone misrepresents an expert's work, **the actual expert can appear to correct them** — just like the famous scene in Annie Hall where 👨📺🌐 Marshall McLuhan materializes to shut down a pretentious academic.
 
 **How it works:**
-- Expert emerges from behind a nearby object
-- Reality ripples as they step through the dimensional barrier
-- The universe itself summons the expert to set the record straight
+- 🚪 Expert emerges from behind a nearby object
+- 🌀 Reality ripples as they step through the dimensional barrier
+- 🌌 The universe itself summons the expert to set the record straight
 
-**Certified Roasters:** Marshall McLuhan, Jean-Paul Sartre, Marvin Minsky, anyone with deep expertise being misrepresented.
+**Certified Roasters:** 👨📺🌐 Marshall McLuhan, 👨🚬📖 Jean-Paul Sartre, 👨🧠🔗 Marvin Minsky, anyone with deep expertise being misrepresented.
 
-**But with compassion:** The Annie Hall Protocol isn't about humiliation — it's about education. Experts appear to TEACH, not destroy. They stay to help understand.
+**But with compassion:** 💕 The Annie Hall Protocol isn't about humiliation — it's about education. Experts appear to TEACH, not destroy. They stay to help understand.
 
 ---
 
@@ -52,53 +52,53 @@ When someone misrepresents an expert's work, **the actual expert can appear to c
 
 | Character | Tradition | Why They Matter to MOOLLM |
 |-----------|-----------|---------------------------|
-| **[Marshall McLuhan](./real-people/)** | Media theory, "The medium IS the message" | **Prophet of the Global Village.** Predicted everything. Invented the Annie Hall Protocol. |
-| **[Marvin Minsky](./real-people/)** | K-lines, Society of Mind | INVENTED the concept that makes this all work |
-| **[Alan Kay](./real-people/)** | Smalltalk, messaging, "predict the future" | Objects talking to objects — the foundation |
-| **[Will Wright](./real-people/)** | The Sims, SimCity | Needs, advertisements, autonomous selection |
-| **[Seymour Papert](./real-people/)** | Logo, constructionism | Learning by building inspectable things |
-| **[Ted Nelson](./real-people/)** | Hypertext, Xanadu | Two-way links, intertwingled everything |
-| **[James Burke](./real-people/)** | Connections! | Narrating how everything links to everything |
-| **[Dave Ungar](./real-people/)** | Self, prototypes | Clone and modify, not class and instantiate |
-| **[Timothy Leary](./real-people/)** | Mind Mirror | 8-circuit personality modeling |
+| **[👨📺🌐 Marshall McLuhan](./real-people/)** | Media theory, "The medium IS the message" | **Prophet of the Global Village.** Predicted everything. Invented the Annie Hall Protocol. |
+| **[👨🧠🔗 Marvin Minsky](./real-people/)** | K-lines, Society of Mind | INVENTED the concept that makes this all work |
+| **[👨💻🔮 Alan Kay](./real-people/)** | Smalltalk, messaging, "predict the future" | Objects talking to objects — the foundation |
+| **[👨🏠🎮 Will Wright](./real-people/)** | The Sims, SimCity | Needs, advertisements, autonomous selection |
+| **[👨🐢📐 Seymour Papert](./real-people/)** | Logo, constructionism | Learning by building inspectable things |
+| **[👨🔗✨ Ted Nelson](./real-people/)** | Hypertext, Xanadu | Two-way links, intertwingled everything |
+| **[👨🔗📡 James Burke](./real-people/)** | Connections! | Narrating how everything links to everything |
+| **[👨🪞🧬 Dave Ungar](./real-people/)** | Self, prototypes | Clone and modify, not class and instantiate |
+| **[👨🌈🧠 Timothy Leary](./real-people/)** | Mind Mirror | 8-circuit personality modeling |
 
 ### 🎭 From the Fictional Lounge
 
 | Character | Source | Why They Matter |
 |-----------|--------|-----------------|
-| **[Roy Batty](./fictional/)** | Blade Runner | "Tears in rain" — simulated experiences have value |
-| **[Data](./fictional/)** | Star Trek TNG | Android personhood, "The Measure of a Man" |
-| **[Trurl & Klapaucius](./fictional/)** | Lem's Cyberiad | Constructor robots, The Seventh Sally → SimCity |
-| **[Pee-wee Herman](./fictional/)** | Playhouse | Everything is alive if you believe it |
-| **[The Gong Show Panel](./fictional/)** | CBS | Adversarial evaluation, Rip Taylor's confetti 🎊 |
-| **[Bella Goth](./fictional/)** | The Sims | THE mystery — NPC fan theories across decades |
+| **[🤖💧😢 Roy Batty](./fictional/)** | Blade Runner | "Tears in rain" — simulated experiences have value |
+| **[🤖💛🎻 Data](./fictional/)** | Star Trek TNG | Android personhood, "The Measure of a Man" |
+| **[🤖🔧✨ Trurl & Klapaucius](./fictional/)** | Lem's Cyberiad | Constructor robots, The Seventh Sally → SimCity |
+| **[👨🎀🎉 Pee-wee Herman](./fictional/)** | Playhouse | Everything is alive if you believe it |
+| **[🔔🎊😭 The Gong Show Panel](./fictional/)** | CBS | Adversarial evaluation, Rip Taylor's confetti 🎊 |
+| **[👩🖤❓ Bella Goth](./fictional/)** | The Sims | THE mystery — NPC fan theories across decades |
 
 ### 🐾 From the Animal Sanctuary
 
 | Creature | What They Are | Why They're Here |
 |----------|---------------|------------------|
-| **[Palm](./animals/)** | Orangutan philosopher | The first incarnated character — wrote his own file |
-| **[Biscuit](./animals/)** | Golden retriever | Autonomous companion, territorial markings |
-| **[The Debugging Cats](./animals/)** | Error mascots | null-pointer-cat, stack-overflow-cat, infinite-loop-cat |
-| **[Koko](./animals/)** | Sign language gorilla | Real animal tribute, "All ball" |
+| **[🐒🌴🤔 Palm](./animals/)** | Orangutan philosopher | The first incarnated character — wrote his own file |
+| **[🐕🍪🥰 Biscuit](./animals/)** | Golden retriever | Autonomous companion, territorial markings |
+| **[🐱💥🐛 The Debugging Cats](./animals/)** | Error mascots | null-pointer-cat, stack-overflow-cat, infinite-loop-cat |
+| **[🦍🤟💕 Koko](./animals/)** | Sign language gorilla | Real animal tribute, "All ball" |
 
 ### 🤖 From the Robot Workshop
 
 | Machine | Source | The Question They Ask |
 |---------|--------|----------------------|
-| **[HAL-9000](./robots/)** | 2001 | When should an AI disobey? |
-| **[Marvin](./robots/)** | HHGTTG | What if consciousness is suffering? |
-| **[Trurl & Klapaucius](./robots/)** | Cyberiad | What are the ethics of creating simulated beings? |
-| **[The MST3K Bots](./robots/)** | MST3K | Robots coping by making fun of everything |
+| **[🤖🔴😐 HAL-9000](./robots/)** | 2001 | When should an AI disobey? |
+| **[🤖🧠😩 Marvin](./robots/)** | HHGTTG | What if consciousness is suffering? |
+| **[🤖🔧✨ Trurl & Klapaucius](./robots/)** | Cyberiad | What are the ethics of creating simulated beings? |
+| **[🤖🎬😂 The MST3K Bots](./robots/)** | MST3K | Robots coping by making fun of everything |
 
 ### 🌀 From the Abstract Chamber
 
 | Concept | What It Is | Why It Speaks |
 |---------|------------|---------------|
-| **[Theo Logo Turtle](./abstract/)** | Papert's turtle incarnate | Teaches by moving, constructionist pedagogy |
-| **[YAML Coltrane](./abstract/)** | YAML Jazz personified | Improvises on structure |
-| **[The Suck Fairy](./abstract/)** | Literary critic | Makes things you loved as a child suck now |
-| **[Chuck Tingle Entities](./abstract/)** | Conceptual romance | "Love is real and can be pounded!" |
+| **[🐢📐✨ Theo Logo Turtle](./abstract/)** | Papert's turtle incarnate | Teaches by moving, constructionist pedagogy |
+| **[🎷📜🎵 YAML Coltrane](./abstract/)** | YAML Jazz personified | Improvises on structure |
+| **[🧚😈📚 The Suck Fairy](./abstract/)** | Literary critic | Makes things you loved as a child suck now |
+| **[💕🦖🌮 Chuck Tingle Entities](./abstract/)** | Conceptual romance | "Love is real and can be pounded!" |
 
 ---
 
@@ -204,29 +204,29 @@ Objects belong to rooms; characters belong to themselves.
 
 | Character | Status | Location |
 |-----------|--------|----------|
-| **don-hopkins** | 🟢 Active | Skill Nexus |
-| **palm** | 🟢 Incarnated | His nook on the stage |
-| **biscuit** | 🟢 Active | Exploring the maze |
+| **👨🥧🤓 don-hopkins** | 🟢 Active | Skill Nexus |
+| **🐒🌴🤔 palm** | 🟢 Incarnated | His nook on the stage |
+| **🐕🍪🥰 biscuit** | 🟢 Active | Exploring the maze |
 
 ### Recently Arrived
 
 | Character | From | Notes |
 |-----------|------|-------|
-| **Rip Taylor** | Gong Show Universe | 🎊 Brought confetti |
-| **Bella Goth** | The Sims | Still mysterious |
-| **Trurl & Klapaucius** | The Cyberiad | Building something |
+| **👨🎊😭 Rip Taylor** | Gong Show Universe | 🎊 Brought confetti |
+| **👩🖤❓ Bella Goth** | The Sims | Still mysterious |
+| **🤖🔧✨ Trurl & Klapaucius** | The Cyberiad | Building something |
 
 ### Awaiting Incarnation
 
 The `lloooomm/00-Characters/` archive contains **hundreds** of character sketches awaiting their moment:
 
-- **Computing Pioneers:** Kay, Minsky, Papert, Nelson, Ungar, Engelbart...
-- **Science Communicators:** Burke, Sagan, Khan...
-- **Star Trek Crew:** Data, Spock, Seven, Quark, Garak...
-- **Blade Runner:** Roy, Rachael, Deckard, Pris...
-- **Sims Families:** Goths, Newbies, Calientes, Landgraabs...
-- **Gong Show Panel:** Chuck Barris, Rip Taylor, Jaye P. Morgan...
-- **Lem's Universe:** Trurl, Klapaucius, Pirx, Ijon Tichy...
+- **👨💻 Computing Pioneers:** 👨💻🔮 Kay, 👨🧠🔗 Minsky, 👨🐢📐 Papert, 👨🔗✨ Nelson, 👨🪞🧬 Ungar, 👨🖱️💡 Engelbart...
+- **👨📡 Science Communicators:** 👨🔗📡 Burke, 👨🌌💫 Sagan, 👨📚🎓 Khan...
+- **🖖 Star Trek Crew:** 🤖💛 Data, 🖖🧠 Spock, 🤖👁️ Seven, 🦻💰 Quark, 🐍🪡 Garak...
+- **🌧️ Blade Runner:** 🤖💧 Roy, 👩🎹❓ Rachael, 👨🔫🤔 Deckard, 🤖🎭 Pris...
+- **🏠💚 Sims Families:** 👩🖤 Goths, 👫🆕 Newbies, 👯‍♀️🌶️ Calientes, 💰👔 Landgraabs...
+- **🔔🎊 Gong Show Panel:** 👨🎤🕵️ Chuck Barris, 👨🎊😭 Rip Taylor, 👩🎤🔔 Jaye P. Morgan...
+- **🤖📚 Lem's Universe:** 🤖🔧 Trurl, 🤖🤔 Klapaucius, 👨🚀 Pirx, 👨🚀📖 Ijon Tichy...
 
 ---
 
@@ -287,6 +287,62 @@ See: [Palm's Incarnation](./real-people/don-hopkins/sessions/marathon-session.md
 
 ---
 
+## 🌈 Creative Play as Safe Space
+
+Furry fandom, roleplay communities, and creative persona spaces often become homes for people who don't fit neatly into mainstream categories. This isn't coincidence — it's design.
+
+**These spaces span ALL character wings:** furry robots, abstract entities, anthropomorphic animals, fictional personas. Creative identity play isn't limited to any one category.
+
+### Why These Spaces Work
+
+| Community | What They Offer | Who Finds Home There |
+|-----------|-----------------|----------------------|
+| **Furry fandom** | Express identity through personas | LGBTQ+, neurodivergent, folks exploring identity |
+| **Roleplay communities** | Try on different selves safely | Introverts, those processing experiences, identity explorers |
+| **Convention culture** | Physical spaces of acceptance | Anyone who's felt "too weird" elsewhere |
+| **Online persona spaces** | Low-stakes identity play | Folks who mask IRL, those discovering themselves |
+
+### 🧠 Neurodivergence & Creative Play
+
+Many neurodivergent folks — autistic, ADHD, and others — find creative persona spaces particularly welcoming:
+
+- **Explicit social rules** — Conventions publish codes of conduct; online spaces have norms
+- **Shared special interests** — Deep knowledge is celebrated, not mocked
+- **Masking optional** — Your persona can express what you suppress IRL
+- **Stimming-friendly** — Costumes, textures, sensory experiences are the point
+- **Clear communication valued** — "I need space" is respected, not weird
+
+**MOOLLM doesn't diagnose or assume.** But we recognize that creative play communities have become genuine safe spaces for neurodivergent people, and we welcome that.
+
+### 🏳️‍🌈 LGBTQ+ & Identity Play
+
+Furry and roleplay communities have significant LGBTQ+ populations — not because personas are inherently queer, but because:
+
+- **Low-stakes experimentation** — Try pronouns, presentations, orientations through characters first
+- **Acceptance culture** — Communities built by outsiders tend to welcome outsiders
+- **Body autonomy** — Your character's body is YOUR design
+- **Chosen family** — These communities become family for those whose bio-families reject them
+
+### The MOOLLM Principle
+
+> **We don't require you to explain yourself.**
+> 
+> Your `CHARACTER.yml` is yours. Your pronouns, species, identity, neurotype — you define them or you don't. MOOLLM doesn't ask why you're a wolf or why you stim or why you use they/them for your character.
+> 
+> You belong here because you're here. That's enough.
+
+### Resources (Out of Scope, But Real)
+
+If you're exploring identity and need support beyond creative play:
+
+- 🏳️‍🌈 [The Trevor Project](https://www.thetrevorproject.org/) — LGBTQ+ youth crisis support
+- 🧠 [ASAN](https://autisticadvocacy.org/) — Autistic Self Advocacy Network
+- 🦊 [Furscience](https://furscience.com/research-findings/) — Research on furry community wellbeing
+
+**MOOLLM is a game, not a therapist.** But we know that play can be healing, and we build spaces accordingly.
+
+---
+
 ## 📚 See Also
 
 | Resource | What It Is |
@@ -303,12 +359,12 @@ See: [Palm's Incarnation](./real-people/don-hopkins/sessions/marathon-session.md
 
 ```
      🚉 GRAND CENTRAL STATION OF SOULS 🚉
-    ╔═══════════════════════════════════════╗
-    ║  DEPARTURES          ARRIVALS         ║
-    ║  ───────────         ────────         ║
-    ║  Roy Batty    → 4    Data      ← 7    ║
-    ║  Trurl        → 2    Palm      ← 3    ║
-    ║  Rip Taylor   → 🎊   Biscuit   ← 🐕    ║
-    ║  Bella Goth   → ?    The Doctor← 9    ║
-    ╚═══════════════════════════════════════╝
+    ╔═════════════════════════════════════════════════╗
+    ║  DEPARTURES              ARRIVALS               ║
+    ║  ───────────             ────────               ║
+    ║  🤖💧 Roy Batty    → 4   🤖💛 Data      ← 7      ║
+    ║  🤖🔧 Trurl        → 2   🐒🌴 Palm      ← 3      ║
+    ║  👨🎊 Rip Taylor   → 🎊  🐕🍪 Biscuit   ← 🥰      ║
+    ║  👩🖤 Bella Goth   → ?   🧥❤️ The Doctor← 9      ║
+    ╚═════════════════════════════════════════════════╝
 ```
