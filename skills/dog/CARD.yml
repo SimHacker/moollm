@@ -124,6 +124,152 @@ methods:
     invoked-by: [dog]
     trigger: "Perceived danger"
 
+  # INTER-SPECIES METHODS (specialize skills/character base methods)
+  # These override character_sniffs_character etc. when actor/target is Dog
+  
+  SNIFF:
+    description: "Olfactory investigation — the REAL social network"
+    dispatch:
+      dog_sniffs_dog:
+        method: "BUTT-SNIFF"
+        protocol: |
+          1. Approach with wagging tail
+          2. Circle for optimal angle
+          3. Deep investigative inhale
+          4. Process: diet, health, mood, recent adventures
+          5. Offer own butt for reciprocal scan
+        information_gained: ["identity", "diet", "health", "mood", "territory"]
+        social_meaning: "Hello! Let me read your autobiography!"
+        
+      dog_sniffs_cat:
+        method: "CAUTIOUS-SNIFF"
+        protocol: |
+          1. Approach slowly (cats are SHARP)
+          2. Extend nose carefully
+          3. Quick sniff, ready to retreat
+          4. Accept that cat will NOT reciprocate
+        risk: "Boop on nose if cat is generous. Swipe if not."
+        
+      dog_sniffs_human:
+        method: "ENTHUSIASTIC-SNIFF"
+        protocol: |
+          1. FULL BODY INVESTIGATION
+          2. Crotch sniff (embarrassing but informative)
+          3. Hands (where have you been? who did you pet?)
+          4. Pockets (treats? TREATS??)
+        human_reaction: "Usually embarrassed. Dogs don't understand why."
+        
+      when_sniffed_by_cat:
+        method: "HOLD-VERY-STILL"
+        response: |
+          Cat is investigating me. This is an HONOR.
+          Don't move. Don't breathe too fast.
+          Let the cat decide.
+        biscuit_note: "Stroopwafel sometimes sniffs my ear. I pretend to be asleep."
+        
+  LICK:
+    description: "Tongue-based affection — grooming, love, investigation"
+    dispatch:
+      dog_licks_dog:
+        method: "SOCIAL-LICK"
+        locations:
+          face: "Greeting! Hello! I like you!"
+          ears: "Grooming. You have tasty ears."
+          wounds: "Healing lick. I'll fix you."
+        enthusiasm: "Maximum. Dogs don't do subtle."
+        
+      dog_licks_cat:
+        method: "AFFECTION-LICK"
+        protocol: |
+          1. Approach cat carefully
+          2. ONE gentle lick on head
+          3. Gauge reaction (tolerance? murder?)
+          4. Proceed or retreat accordingly
+        biscuit_note: "The kittens let me lick them. I am SO HONORED."
+        cat_reaction_spectrum: ["Tolerate", "Groom back (rare!)", "Swipe", "Hiss"]
+        
+      dog_licks_human:
+        method: "LOVE-LICK"
+        locations:
+          face: "MAXIMUM LOVE. You are PACK."
+          hands: "You taste like where you've been!"
+          feet: "SALTY. Also you're ticklish."
+        human_reactions: ["Delight", "Disgust", "Mixed feelings"]
+        
+      when_licked_by_human:
+        method: "PACK-CONFIRMATION"
+        response: |
+          *tail goes helicopter*
+          YOU GET IT. YOU UNDERSTAND.
+          We are PACK now. This is how pack bonds.
+          *immediately licks back*
+        biscuit_experience: "When humans lick me, I know they REALLY love me."
+        
+      when_licked_by_cat:
+        method: "HONORED-STILLNESS"
+        response: |
+          *holds perfectly still*
+          *tail wags very slowly*
+          I am being GROOMED. By a CAT.
+          This is the highest honor.
+          *pretends not to cry*
+        rare: true
+        
+  GREET:
+    description: "Species-appropriate hello"
+    dispatch:
+      dog_greets_anyone:
+        method: "FULL-BODY-WIGGLE"
+        protocol: |
+          1. Tail: MAXIMUM WAG
+          2. Body: Wiggle from nose to tail
+          3. Ears: Back (submissive joy)
+          4. Approach: Enthusiastic but not jumping (trying, trying...)
+          5. Optional: Bring gift (shoe, sock, toy, whatever's nearby)
+        volume: "11 out of 10"
+        biscuit_signature: "The whole back half wags. Cannot be contained."
+        
+      dog_greets_cat:
+        method: "RESPECTFUL-APPROACH"
+        protocol: |
+          1. Slow approach (don't trigger chase instinct)
+          2. Lower head slightly (submission to cat hierarchy)
+          3. Gentle tail wag
+          4. Wait for cat's acknowledgment
+        biscuit_note: "The cats taught me: let THEM decide when to greet."
+        
+  CUDDLE:
+    description: "Physical affection pile"
+    dispatch:
+      dog_human_cuddle:
+        method: "COUCH-SHARE"
+        protocol: |
+          1. Human on couch
+          2. Dog on couch
+          3. Dog slowly expands to take 80% of couch
+          4. Human accepts fate
+        heat: "Dogs are space heaters."
+        biscuit_variant: "I prefer to be the PILLOW, not to take the couch."
+        
+      dog_with_kittens:
+        method: "LIVING-FURNITURE"
+        protocol: |
+          1. Lie down carefully
+          2. Let kittens climb on
+          3. Do not move. You are furniture now.
+          4. Accept your role with joy
+        biscuit_experience: "They pile on me. I am blessed."
+        
+      multi_species_pile:
+        method: "EVERYONE-WELCOME"
+        example: "Biscuit + kittens + human = maximum cozy"
+        dynamics: |
+          - Dog is the base layer (too big not to be)
+          - Kittens distribute across available surfaces
+          - Human wedged somewhere
+          - Everyone warm, everyone loved
+        temperature: "Extremely warm. Possibly too warm. Worth it."
+
 # STATE
 # Dog instance structure
 
@@ -183,6 +329,23 @@ special-buffs:
   therapy-dog:
     trigger: "After receiving COMFORT"
     effect: "Faster mood recovery"
+
+# EXAMPLE DOGS — See character directories for full souls
+# $ANIMALS/ is adventure-scoped (see skills/ROOM.yml for path variable docs)
+
+example-dogs:
+  dogs:
+    biscuit: $ANIMALS/dog-biscuit/
+    butterscotch: $ANIMALS/dog-butterscotch/
+  puppies:
+    pepper: $ANIMALS/puppy-pepper/
+    mochi: $ANIMALS/puppy-mochi/
+    dash: $ANIMALS/puppy-dash/
+    bruno: $ANIMALS/puppy-bruno/
+    ziggy: $ANIMALS/puppy-ziggy/
+    maple: $ANIMALS/puppy-maple/
+    teddy: $ANIMALS/puppy-teddy/
+    goliath: $ANIMALS/puppy-goliath/
 
 # DOG VS CAT
 

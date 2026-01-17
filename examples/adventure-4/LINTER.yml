@@ -1174,14 +1174,14 @@ events:
     location: start/
 - type: FOUND_CHARACTER
   severity: INFO
-  path: characters/animals/biscuit/CHARACTER.yml
+  path: characters/animals/dog-biscuit/CHARACTER.yml
   message: 'Found character: Biscuit'
   data:
     species: human
     location: ''
 - type: FOUND_CHARACTER
   severity: INFO
-  path: characters/animals/palm/CHARACTER.yml
+  path: characters/animals/monkey-palm/CHARACTER.yml
   message: 'Found character: Palm'
   data:
     species: Capuchin monkey
@@ -2441,38 +2441,38 @@ events:
     inferred_from: meta
 - type: UNKNOWN_FILE_TYPE
   severity: WARNING
-  path: characters/animals/biscuit/SIMS-TRAITS.yml
+  path: characters/animals/dog-biscuit/SIMS-TRAITS.yml
   message: 'Unknown YML file type: SIMS-TRAITS.yml'
   suggestion: 'Add a top-level key (object:, buff:, etc.) or lint_ignore: true'
 - type: UNKNOWN_FILE_TYPE
   severity: WARNING
-  path: characters/animals/biscuit/APPEARANCE.yml
+  path: characters/animals/dog-biscuit/APPEARANCE.yml
   message: 'Unknown YML file type: APPEARANCE.yml'
   suggestion: 'Add a top-level key (object:, buff:, etc.) or lint_ignore: true'
 - type: UNKNOWN_FILE_TYPE
   severity: WARNING
-  path: characters/animals/biscuit/dog-incarnation.yml
+  path: characters/animals/dog-biscuit/dog-incarnation.yml
   message: 'Unknown YML file type: dog-incarnation.yml'
   suggestion: 'Add a top-level key (object:, buff:, etc.) or lint_ignore: true'
 - type: INFERRED_FILE_TYPE
   severity: INFO
-  path: characters/animals/palm/SIMS-TRAITS.yml
+  path: characters/animals/monkey-palm/SIMS-TRAITS.yml
   message: Inferred type 'meta' from key 'meta'
   data:
     inferred_from: meta
 - type: UNKNOWN_FILE_TYPE
   severity: WARNING
-  path: characters/animals/palm/APPEARANCE.yml
+  path: characters/animals/monkey-palm/APPEARANCE.yml
   message: 'Unknown YML file type: APPEARANCE.yml'
   suggestion: 'Add a top-level key (object:, buff:, etc.) or lint_ignore: true'
 - type: UNKNOWN_FILE_TYPE
   severity: WARNING
-  path: characters/animals/palm/IMAGE-PROMPTS.yml
+  path: characters/animals/monkey-palm/IMAGE-PROMPTS.yml
   message: 'Unknown YML file type: IMAGE-PROMPTS.yml'
   suggestion: 'Add a top-level key (object:, buff:, etc.) or lint_ignore: true'
 - type: INFERRED_FILE_TYPE
   severity: INFO
-  path: characters/animals/palm/MIND-MIRROR.yml
+  path: characters/animals/monkey-palm/MIND-MIRROR.yml
   message: Inferred type 'meta' from key 'meta'
   data:
     inferred_from: meta
@@ -2700,13 +2700,13 @@ events:
     narrative_type: session-log
 - type: FOUND_NARRATIVE
   severity: INFO
-  path: characters/animals/biscuit/JOURNAL.md
+  path: characters/animals/dog-biscuit/JOURNAL.md
   message: 'Found narrative: JOURNAL.md'
   data:
     narrative_type: narrative
 - type: FOUND_NARRATIVE
   severity: INFO
-  path: characters/animals/palm/JOURNAL.md
+  path: characters/animals/monkey-palm/JOURNAL.md
   message: 'Found narrative: JOURNAL.md'
   data:
     narrative_type: narrative
@@ -6394,7 +6394,7 @@ world_state:
       type: personal_space
       extra:
         id: palm-nook
-        owner: characters/palm/
+        owner: characters/animals/monkey-palm/
         location:
           parent: pub/stage/
           position: Stage left, beside the curtains
@@ -6640,7 +6640,7 @@ world_state:
         emoji: "\U0001F415"
         parent: ../
         resident:
-          file: ../../../../characters/biscuit/CHARACTER.yml
+          file: ../../../../characters/animals/dog-biscuit/
           name: Biscuit
           species: Dog (adopted cat-family member)
           role: Kitten pillow, family guardian, good boy
@@ -8115,7 +8115,7 @@ world_state:
           - Spoon expertise deployed at unexpected moments
           - Apologizes to inanimate objects
           - Waistcoat is non-negotiable
-    characters/animals/biscuit:
+    characters/animals/dog-biscuit:
       name: Biscuit
       description: ''
       species: human
@@ -8227,7 +8227,7 @@ world_state:
           - Tail that curves up when extra happy
           - Patches of slightly different gold tones
           - The softest ears in the pub
-        home: examples/adventure-4/characters/biscuit/
+        home: examples/adventure-4/characters/animals/dog-biscuit/
         location_preference: 'I chose to live here, in my own directory, but I spend
           most of my time
 
@@ -8353,7 +8353,7 @@ world_state:
           - Find home
           - Find family
           - Be accepted
-    characters/animals/palm:
+    characters/animals/monkey-palm:
       name: Palm
       description: ''
       species: Capuchin monkey

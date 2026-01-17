@@ -1399,7 +1399,7 @@ MOOLLM does ALL of this with the filesystem!"
 │                                                                 │
 │  LAYER 1: EXAMPLES (Concrete Messages)                          │
 │  ├── examples/adventure-4/pub/ROOM.yml                          │
-│  ├── examples/adventure-4/characters/palm/CHARACTER.yml         │
+│  ├── examples/adventure-4/characters/animals/monkey-palm/       │
 │  └── "Here's what an actual room/character looks like"          │
 │                                                                 │
 │  LAYER 2: TEMPLATES (Schemas with Natural Language Slots)       │
@@ -5490,8 +5490,8 @@ During linting, we discovered and fixed YAML syntax errors:
 2. `start/ROOM.yml` — Unquoted `or` clauses
 3. `personas/ROOM.yml` — Unquoted `or` clauses
 4. `characters/ROOM.yml` — Em-dash and apostrophe in unquoted string
-5. `characters/animals/palm/CHARACTER.yml` — Missing `description:` key
-6. `characters/animals/palm/CHARACTER.yml` — List/note indentation
+5. `characters/animals/monkey-palm/CHARACTER.yml` — Missing `description:` key
+6. `characters/animals/monkey-palm/CHARACTER.yml` — List/note indentation
 
 The linter found real bugs! It works!
 
@@ -6999,7 +6999,7 @@ scene:
       
     - type: medium
       camera: tracking
-      subject: characters/animals/palm/
+      subject: characters/animals/monkey-palm/
       prompt: |
         Medium shot following Palm the cat through the pub.
         Patrons turn to greet him. He seems to be looking for someone.

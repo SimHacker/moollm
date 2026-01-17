@@ -61,8 +61,8 @@ We extend [Anthropic's skill model](https://docs.anthropic.com/en/docs/build-wit
 |---|------------|---------------|-------|
 | 1 | **[Instantiation](../skills/incarnation/)** | Skills clone into living directories | [`adventure/`](../skills/adventure/) → [`adventure-4/`](../examples/adventure-4/) with 150+ files |
 | 2 | **[Three-Tier Persistence](../skills/honest-forget/)** | Platform → Narrative → State | [6000+ line session log](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) |
-| 3 | **[K-lines](../skills/k-lines/)** | Names activate conceptual clusters | "[Palm](../examples/adventure-4/characters/animals/palm/)" activates soul, history, relationships |
-| 4 | **[Empathic Templates](../skills/empathic-templates/)** | Smart generation, not string substitution | [Biscuit](../examples/adventure-4/characters/animals/biscuit/) generated from traits |
+| 3 | **[K-lines](../skills/k-lines/)** | Names activate conceptual clusters | "[Palm](../examples/adventure-4/characters/animals/monkey-palm/)" activates soul, history, relationships |
+| 4 | **[Empathic Templates](../skills/empathic-templates/)** | Smart generation, not string substitution | [Biscuit](../examples/adventure-4/characters/animals/dog-biscuit/) generated from traits |
 | 5 | **[Speed of Light](../skills/speed-of-light/)** | Many turns, one call | [33-turn Fluxx](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#33-turns-of-pure-gezelligheid), [21-turn cat prowl](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#ten-cats-one-garden-infinite-independence) |
 | 6 | **[CARD.yml](../skills/card/)** | Machine-readable skill interface | Every [skill](../skills/) exposes methods, tools, [advertisements](../skills/advertisement/), state |
 | 7 | **[Ethical Framing](../skills/representation-ethics/)** | Room-based DRY ethics | [`pub/stage/`](../examples/adventure-4/pub/stage/) inherits performance framing |

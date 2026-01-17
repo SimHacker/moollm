@@ -1,0 +1,1280 @@
+# 📦 ACME MAIL-ORDER CATALOG — PROTOTYPE
+# "If It Exists, ACME Makes It!™"
+# (Results may vary. ACME is not responsible for ironic mishaps.)
+#
+# PROTOTYPE DEFINITION
+# ====================
+# This is the MASTER CATALOG — the authoritative source for all ACME products.
+# Located at the ACME Catalog Dispenser in front of ACME Surplus, 4 Lane Neverending.
+#
+# This file is NOT pickuppable. Characters "tear off" lightweight INSTANCES
+# that reference this prototype from the catalog dispenser. 
+# Instances go in inventory (as refs) or can be dropped into rooms
+# (creating tiny pointer files).
+#
+# These are SEEDS and EXAMPLES. The DM can invent more ACME products
+# on the fly, following the pattern: promising description, ominous
+# warning, significant malfunction chance, ironic failure mode.
+
+prototype:
+  name: ACME Mail-Order Catalog
+  type: [catalog, prototype, reference_source]
+  emoji: "📦📖🏭"
+  
+  # This prototype lives at the dispenser — not portable
+  portable: false
+  location: "ACME Catalog Dispenser, sidewalk, 4 Lane Neverending"
+  
+  # Instances reference this file
+  instance_pattern:
+    description: |
+      Characters don't carry the full catalog — they carry REFERENCES.
+      
+      When a character "takes" a catalog from the dispenser, they get
+      a lightweight instance that points back here. Their inventory
+      contains something like:
+      
+        - ACME Catalog (ref → w1/acme-catalog.yml)
+      
+      When they "drop" the catalog in a room, a tiny pointer file is
+      created in that room's directory:
+      
+        acme-catalog.yml:
+          instance:
+            prototype: ../../../w1/acme-catalog.yml
+            obtained_from: "ACME Catalog Dispenser"
+            condition: "dog-eared, slightly singed"
+            notes: [player annotations, bookmarks, etc.]
+            
+    on_take:
+      creates: "inventory reference"
+      weight: 0  # References are weightless
+      bulk: 0    # Just a pointer
+      
+    on_drop:
+      creates: "pointer file in destination room"
+      template: |
+        # 📦 ACME Catalog (Instance)
+        instance:
+          prototype: [relative path to this file]
+          obtained_from: "ACME Catalog Dispenser, 4 Lane Neverending"
+          dropped_by: [character name]
+          dropped_at: [timestamp]
+          condition: "well-thumbed"
+          annotations: []
+          
+  description: |
+    The MASTER CATALOG sits in the dispenser, its cover showing a
+    smiling coyote giving a thumbs up. The ACME logo gleams.
+    
+    This is the SOURCE — infinite copies can be torn off, but the
+    original stays here. Always watching. Always offering.
+    
+    "ORDER ANYTHING! DELIVERED IN 2-4 TURNS!"
+    "Satisfaction Guaranteed!*"
+    
+    *Guarantee does not cover: explosions, implosions, gravity-related
+    incidents, ironic timing, roadrunner encounters, or existential dread.
+    
+  examine: |
+    You flip through a catalog in the rack. Every page promises wonder.
+    Every page has a tiny asterisk leading to tiny print.
+    
+    The coyote on the cover seems to be watching you.
+    Is that... a bandage on his head? And soot marks?
+    
+  # ACTIONS
+  
+  actions:
+    TEAR_OFF:
+      description: "Tear off a catalog copy to take with you"
+      usage: "TEAR OFF CATALOG / TAKE CATALOG"
+      aliases: [take, tear, rip, grab]
+      effect: |
+        *riiiip*
+        
+        You tear off a fresh catalog from the stack in the dispenser.
+        It's surprisingly light — almost like it weighs nothing at all.
+        
+        (Because it's a REFERENCE. The real content lives here, at
+        the prototype. Your copy is just a pointer with personality.)
+        
+        INVENTORY: + ACME Catalog (ref)
+        
+        The coyote on the cover winks. Definitely winks this time.
+        
+      creates:
+        type: "inventory_reference"
+        points_to: "this file"
+        weight: 0
+        portable: true
+        
+    DROP:
+      description: "Drop your catalog instance in a room"
+      usage: "DROP CATALOG"
+      effect: |
+        You set the catalog down. It flutters open to a random page.
+        
+        (A tiny pointer file is created in this room's directory,
+        referencing the prototype. The file can accumulate its own
+        annotations, dog-ears, and character.)
+        
+      creates:
+        type: "pointer_file"
+        filename: "acme-catalog.yml"
+        template: |
+          # 📦 ACME Catalog (Dropped Instance)
+          instance:
+            prototype: [relative_path]/w1/acme-catalog.yml
+            origin: "Torn from dispenser at 4 Lane Neverending"
+            dropped_by: [character]
+            condition: "slightly crumpled"
+            
+    BROWSE:
+      description: "Browse the ACME catalog"
+      usage: "BROWSE CATALOG / BROWSE ACME"
+      effect: "Lists all available items by category (see sections below)"
+      
+    ORDER:
+      description: "Place an order"
+      usage: "ORDER [item] FROM ACME"
+      cost: "Varies by item (paid on delivery)"
+      delivery_options:
+        pickup: "FREE — wait at dispenser (variable timing)"
+        delivery: "5-10 gold — any room (2-4 turns)"
+      effect: |
+        Your order is placed! A small puff of smoke rises from the
+        catalog, and somewhere, a coyote howls.
+        
+        "PICKUP or DELIVER TO [location]?"
+        
+    CHECK-ORDER:
+      description: "Check pending orders"
+      usage: "CHECK ACME ORDER / CHECK ORDER"
+      effect: "Lists all pending orders and estimated arrival"
+      
+    REQUEST-CUSTOM:
+      description: "Request a custom ACME product"
+      usage: "REQUEST ACME [description]"
+      effect: |
+        ACME's R&D department will consider your request!
+        (DM invents a custom product following ACME patterns)
+        Cost and malfunction chance determined by ambition.
+        
+  # CATALOG SECTIONS
+  
+  sections:
+    
+    # 🎒 ADVENTURE GEAR
+    
+    adventure_gear:
+      name: "🎒 Adventure Gear"
+      tagline: "For the Discerning Daredevil!"
+      
+      items:
+        - item: "ACME Portable Hole"
+          cost: 15
+          description: "Place on any surface. Creates hole. Remove to close."
+          warning: "Do not fold while inside."
+          malfunction_chance: 20%
+          malfunction: "Hole is one-way. Or leads somewhere unexpected."
+          
+        - item: "ACME Instant Tunnel Paint"
+          cost: 10
+          description: "Paint a tunnel on a wall. It becomes real!"
+          warning: "Only works if you believe."
+          malfunction_chance: 30%
+          malfunction: "Tunnel only works for others. You hit the wall."
+          
+        - item: "ACME Rocket Skates"
+          cost: 20
+          description: "Travel 5 rooms in 1 turn! Wheee!"
+          warning: "Brakes sold separately."
+          malfunction_chance: 40%
+          malfunction: "No steering. Random destination. Crash landing."
+          
+        - item: "ACME Jet Pack"
+          cost: 25
+          description: "Vertical mobility! Up, up, and away!"
+          warning: "Landing is your responsibility."
+          malfunction_chance: 35%
+          malfunction: "Ignites in wrong direction. Or at wrong time. Or both."
+          
+        - item: "ACME Spring Shoes"
+          cost: 12
+          description: "Bounce over obstacles! +3 jump height!"
+          warning: "Stopping is an advanced technique."
+          malfunction_chance: 30%
+          malfunction: "Can't stop bouncing. Ceiling becomes floor. Repeatedly."
+          
+        - item: "ACME Bat Suit"
+          cost: 18
+          description: "Glide gracefully through the air!"
+          warning: "Updrafts not included."
+          malfunction_chance: 25%
+          malfunction: "Attracts actual bats. Or you glide into a wall."
+          
+        - item: "ACME Inflatable Decoy"
+          cost: 6
+          description: "Looks just like you! Fools enemies!"
+          warning: "Does not fool mirrors."
+          malfunction_chance: 35%
+          malfunction: "Looks like someone else. Or inflates at wrong moment."
+          
+        - item: "ACME Instant Boulder"
+          cost: 8
+          description: "Just add water! Instant hiding spot!"
+          warning: "Cannot move while disguised as boulder."
+          malfunction_chance: 30%
+          malfunction: "Rolls downhill. With you inside."
+          
+        - item: "ACME Earthquake Pills"
+          cost: 6
+          description: "Eat one. Become immune to falls for 5 turns."
+          warning: "Side effects include overconfidence."
+          malfunction_chance: 35%
+          malfunction: "YOU cause small earthquakes with each step."
+          
+        - item: "ACME Tornado Seeds"
+          cost: 14
+          description: "Plant, water, instant tornado! Great for escapes!"
+          warning: "Cannot control direction."
+          malfunction_chance: 40%
+          malfunction: "Tornado picks you up. Deposits you elsewhere. Rudely."
+          
+    # 🔍 DETECTION DEVICES
+    
+    detection_devices:
+      name: "🔍 Detection Devices"
+      tagline: "See What Others Can't! (Usually)"
+      
+      items:
+        - item: "ACME Treasure Detector"
+          cost: 12
+          description: "Beeps near valuable items!"
+          warning: "May detect fool's gold."
+          malfunction_chance: 15%
+          malfunction: "Beeps constantly. Or only detects worthless things."
+          
+        - item: "ACME Grue Detector"
+          cost: 10
+          description: "Glows when grue is within 3 rooms."
+          warning: "Glow may attract grue."
+          malfunction_chance: 20%
+          malfunction: "False positives. Or false negatives. Both deadly."
+          
+        - item: "ACME X-Ray Specs"
+          cost: 8
+          description: "See through walls! (One room deep)"
+          warning: "Cannot unsee some things."
+          malfunction_chance: 25%
+          malfunction: "Only sees skeletons. Everything looks scary."
+          
+        - item: "ACME Truth Serum Detector"
+          cost: 14
+          description: "Glows when someone is lying!"
+          warning: "Also detects white lies and exaggerations."
+          malfunction_chance: 30%
+          malfunction: "Glows when YOU lie. Awkward."
+          
+        - item: "ACME Thought Bubble Reader"
+          cost: 16
+          description: "See what others are thinking! Cartoon-style!"
+          warning: "Thoughts may be disturbing."
+          malfunction_chance: 25%
+          malfunction: "YOUR thoughts become visible to everyone."
+          
+        - item: "ACME Invisible Ink Revealer"
+          cost: 5
+          description: "Makes hidden messages visible!"
+          warning: "May reveal too much."
+          malfunction_chance: 20%
+          malfunction: "Makes visible things invisible instead."
+          
+        - item: "ACME Gravity Detector"
+          cost: 11
+          description: "Warns you before gravity remembers you exist!"
+          warning: "2-second warning only."
+          malfunction_chance: 30%
+          malfunction: "Detects gravity AFTER it activates. Thanks."
+          
+    # 🍽️ FOOD & CONSUMABLES
+    
+    food_and_drink:
+      name: "🍽️ Food & Consumables"
+      tagline: "Eat At Your Own Risk!"
+      
+      items:
+        - item: "ACME Dehydrated Feast"
+          cost: 5
+          description: "Just add water! Feeds 4!"
+          warning: "Do not over-hydrate."
+          malfunction_chance: 30%
+          malfunction: "Expands uncontrollably. Fills room with food."
+          
+        - item: "ACME Instant Gourmet Meal"
+          cost: 8
+          description: "Pull tab, wait 3 seconds, enjoy fine dining!"
+          warning: "Temperature unpredictable."
+          malfunction_chance: 25%
+          malfunction: "Always the same meal. Forever. Mystery meat."
+          
+        - item: "ACME Speed Pills"
+          cost: 10
+          description: "Move twice as fast for 10 turns!"
+          warning: "World does not slow down to match."
+          malfunction_chance: 35%
+          malfunction: "Everything ELSE speeds up instead."
+          
+        - item: "ACME Growth Formula"
+          cost: 12
+          description: "Become giant-sized! +5 strength!"
+          warning: "Doorways not included."
+          malfunction_chance: 35%
+          malfunction: "Only PART of you grows. Hilariously."
+          
+        - item: "ACME Shrinking Pills"
+          cost: 12
+          description: "Become tiny! Sneak anywhere!"
+          warning: "Cats become much more dangerous."
+          malfunction_chance: 35%
+          malfunction: "Only PART of you shrinks. Awkwardly."
+          
+        - item: "ACME Insta-Muscle Spinach"
+          cost: 9
+          description: "Instant strength boost! Popeye approved!"
+          warning: "Effect duration varies."
+          malfunction_chance: 30%
+          malfunction: "Muscles grow, coordination doesn't."
+          
+        - item: "ACME Helium Gum"
+          cost: 4
+          description: "Chew and float! Great for reaching high places!"
+          warning: "Do not swallow."
+          malfunction_chance: 25%
+          malfunction: "Voice goes squeaky. Float away. Can't reach ground."
+          
+        - item: "ACME Brick Vitamins"
+          cost: 7
+          description: "Become incredibly dense! Immune to knockback!"
+          warning: "May sink in water."
+          malfunction_chance: 30%
+          malfunction: "Fall through floors. Repeatedly."
+          
+    # 💥 TRAPS & WEAPONS
+    
+    traps_and_devices:
+      name: "💥 Traps & Devices"
+      tagline: "For When Subtlety Fails!"
+      
+      items:
+        - item: "ACME Spring-Loaded Boxing Glove"
+          cost: 7
+          description: "Classic! Punches when triggered!"
+          warning: "Check which way it's pointing."
+          malfunction_chance: 40%
+          malfunction: "Triggers immediately. Punches you."
+          
+        - item: "ACME Giant Magnet"
+          cost: 18
+          description: "Attracts metal from 2 rooms away!"
+          warning: "Including your own equipment."
+          malfunction_chance: 30%
+          malfunction: "Attracts EVERYTHING metal. Including anvils."
+          
+        - item: "ACME Time-Delay Dynamite"
+          cost: 12
+          description: "10-second fuse! Perfect for traps!"
+          warning: "Fuse length may vary."
+          malfunction_chance: 45%
+          malfunction: "0-second fuse. Or infinite. Never 10."
+          
+        - item: "ACME Anvil (1 Ton)"
+          cost: 25
+          description: "Classic cartoon anvil. Falls on command."
+          warning: "Gravity is not always your friend."
+          malfunction_chance: 50%
+          malfunction: "Falls on YOU. Or misses and keeps falling forever."
+          
+        - item: "ACME Grand Piano"
+          cost: 30
+          description: "Drops dramatically from above! Musical!"
+          warning: "Does not play itself down gently."
+          malfunction_chance: 45%
+          malfunction: "You're under it when it lands. Plays sad trombone."
+          
+        - item: "ACME Safe (2 Ton)"
+          cost: 35
+          description: "Even heavier than the anvil! Stores valuables too!"
+          warning: "Combination not included."
+          malfunction_chance: 50%
+          malfunction: "Lands on you. Locks. You're inside. Awkward."
+          
+        - item: "ACME Giant Rubber Band"
+          cost: 9
+          description: "Launch yourself OR things! Adjustable tension!"
+          warning: "Snapback is real."
+          malfunction_chance: 35%
+          malfunction: "Snaps back. You are the projectile now."
+          
+        - item: "ACME Catapult (Portable)"
+          cost: 15
+          description: "Foldable siege weapon! Launch anything!"
+          warning: "Trajectory calculations not included."
+          malfunction_chance: 40%
+          malfunction: "Launches in wrong direction. Usually backwards."
+          
+        - item: "ACME Super Glue"
+          cost: 6
+          description: "Sticks anything to anything! Forever!"
+          warning: "Including fingers to tube."
+          malfunction_chance: 25%
+          malfunction: "Sticks you to floor. Or ceiling. Or enemy."
+          
+        - item: "ACME Super Grease"
+          cost: 6
+          description: "Nothing sticks! Perfect for escapes!"
+          warning: "Including your grip on reality."
+          malfunction_chance: 25%
+          malfunction: "You slide uncontrollably. Into danger."
+          
+        - item: "ACME Exploding Tennis Balls"
+          cost: 8
+          description: "Throwable explosives! Bouncy!"
+          warning: "They bounce back sometimes."
+          malfunction_chance: 40%
+          malfunction: "Bounces back to you. Multiple times."
+          
+        - item: "ACME Trick Cigar"
+          cost: 3
+          description: "Offer to enemy. Explodes when lit!"
+          warning: "Do not smoke yourself."
+          malfunction_chance: 35%
+          malfunction: "Explodes in your pocket. Or enemy likes it."
+          
+    # 🎨 DISGUISES & ILLUSIONS
+    
+    disguises:
+      name: "🎨 Disguises & Illusions"
+      tagline: "Be Anyone But Yourself!"
+      
+      items:
+        - item: "ACME Invisible Paint"
+          cost: 15
+          description: "Paint yourself invisible!"
+          warning: "Clothes not included."
+          malfunction_chance: 25%
+          malfunction: "Only YOU can't see yourself. Everyone else can."
+          
+        - item: "ACME Instant Costume Kit"
+          cost: 10
+          description: "Become anyone! 47 costumes included!"
+          warning: "Costumes may not fit."
+          malfunction_chance: 30%
+          malfunction: "Wrong costume for situation. Every time."
+          
+        - item: "ACME Female Roadrunner Suit"
+          cost: 20
+          description: "Attract roadrunners! Perfect disguise!"
+          warning: "May attract other things."
+          malfunction_chance: 35%
+          malfunction: "Attracts ACTUAL female roadrunners. They know."
+          
+        - item: "ACME Fake Rock"
+          cost: 8
+          description: "Hide inside! Perfect camouflage!"
+          warning: "Cannot see out."
+          malfunction_chance: 25%
+          malfunction: "Looks fake. Or enemy sits on you."
+          
+        - item: "ACME Instant Tunnel (Painted)"
+          cost: 10
+          description: "Paint-on tunnel that fools pursuers!"
+          warning: "Pursuers only. You WILL hit the wall."
+          malfunction_chance: 30%
+          malfunction: "Pursuer goes through. You don't. Or vice versa."
+          
+        - item: "ACME Hologram Projector"
+          cost: 22
+          description: "Project illusions! Confuse enemies!"
+          warning: "Batteries drain fast."
+          malfunction_chance: 30%
+          malfunction: "Projects embarrassing memories instead."
+          
+        - item: "ACME Mirror Suit"
+          cost: 16
+          description: "Reflect attacks! Blind enemies with light!"
+          warning: "Blinds self too."
+          malfunction_chance: 30%
+          malfunction: "You become visible from space. Attracts birds."
+          
+    # 🎯 HUNTING & CAPTURE
+    
+    hunting:
+      name: "🎯 Hunting & Capture"
+      tagline: "Get Your Quarry! (Eventually)"
+      
+      items:
+        - item: "ACME Bird Seed"
+          cost: 3
+          description: "Attracts birds! Any birds!"
+          warning: "Especially large, fast ones."
+          malfunction_chance: 20%
+          malfunction: "Attracts wrong bird. Usually bigger. Angrier."
+          
+        - item: "ACME Iron Bird Seed"
+          cost: 8
+          description: "Heavy bird seed! Slows fast birds!"
+          warning: "May not be edible."
+          malfunction_chance: 35%
+          malfunction: "Bird eats it anyway. Now angry AND heavy."
+          
+        - item: "ACME Giant Net"
+          cost: 12
+          description: "Catch anything! Spring-loaded deployment!"
+          warning: "Deployment is enthusiastic."
+          malfunction_chance: 30%
+          malfunction: "Catches YOU. Enthusiastically."
+          
+        - item: "ACME Bear Trap (XL)"
+          cost: 14
+          description: "Catches anything that steps on it!"
+          warning: "Including you."
+          malfunction_chance: 35%
+          malfunction: "Catches you while setting it up."
+          
+        - item: "ACME Snare Drum"
+          cost: 10
+          description: "Play a beat, hypnotize prey!"
+          warning: "You may hypnotize yourself."
+          malfunction_chance: 30%
+          malfunction: "You fall asleep. Prey takes your stuff."
+          
+        - item: "ACME Quicksand Seeds"
+          cost: 11
+          description: "Instant quicksand pit! Just add water!"
+          warning: "Mark where you planted them."
+          malfunction_chance: 40%
+          malfunction: "You forget where. You find out the hard way."
+          
+        - item: "ACME Grue-B-Gone Spray"
+          cost: 8
+          description: "One spray keeps grues away for 10 turns!"
+          warning: "Do not use near open flame."
+          malfunction_chance: 25%
+          malfunction: "Attracts grues instead. Smells delicious to them."
+          
+    # 🔧 TOOLS & GADGETS
+    
+    tools:
+      name: "🔧 Tools & Gadgets"
+      tagline: "The Right Tool For Every Wrong Job!"
+      
+      items:
+        - item: "ACME Universal Remote"
+          cost: 15
+          description: "Controls anything! TVs, doors, pet rocks, gravity!"
+          warning: "Buttons not labeled."
+          malfunction_chance: 35%
+          malfunction: "Controls wrong thing. Usually you."
+          
+        - item: "ACME Time Stopper"
+          cost: 50
+          description: "Freeze time for 10 seconds!"
+          warning: "You freeze too. Slightly longer."
+          malfunction_chance: 40%
+          malfunction: "Time stops for you, not others. Awkward."
+          
+        - item: "ACME Gravity Reverser"
+          cost: 30
+          description: "Fall UP instead of down!"
+          warning: "Sky is very high."
+          malfunction_chance: 35%
+          malfunction: "Works on everything nearby. Chaos ensues."
+          
+        - item: "ACME Instant Hole Filler"
+          cost: 7
+          description: "Fill any hole instantly!"
+          warning: "May overfill."
+          malfunction_chance: 25%
+          malfunction: "Creates hill instead. Or fills wrong hole."
+          
+        - item: "ACME Portable Black Hole"
+          cost: 40
+          description: "Dispose of anything! Compact storage!"
+          warning: "Cannot retrieve items."
+          malfunction_chance: 45%
+          malfunction: "Disposes of you. Or grows uncontrollably."
+          
+        - item: "ACME Air Cannon"
+          cost: 13
+          description: "Blast enemies with compressed air!"
+          warning: "Recoil is significant."
+          malfunction_chance: 30%
+          malfunction: "Blasts YOU backwards. Into something hard."
+          
+        - item: "ACME Jetpack Fuel"
+          cost: 5
+          description: "Refuel any ACME jetpack!"
+          warning: "Highly volatile."
+          malfunction_chance: 25%
+          malfunction: "Explodes during refueling. Colorfully."
+          
+        - item: "ACME Swiss Army Gadget"
+          cost: 20
+          description: "147 tools in one! Everything you need!"
+          warning: "Cannot find the right tool."
+          malfunction_chance: 30%
+          malfunction: "Deploys all tools at once. Painfully."
+          
+    # ❓ MYSTERY & EXPERIMENTAL
+    
+    mystery_items:
+      name: "❓ Mystery & Experimental"
+      tagline: "For the Truly Adventurous!"
+      
+      items:
+        - item: "ACME Mystery Box"
+          cost: 3
+          description: "Could be anything! Probably not dangerous!"
+          warning: "No refunds on mystery items."
+          malfunction_chance: 50%
+          malfunction: "Contains something ironic to your situation."
+          
+        - item: "ACME Do-It-Yourself Kit"
+          cost: 10
+          description: "Build anything! (Assembly required)"
+          warning: "Instructions in ancient Sumerian."
+          malfunction_chance: 35%
+          malfunction: "Missing crucial piece. Extra confusing pieces."
+          
+        - item: "ACME Lucky Rabbit's Foot"
+          cost: 7
+          description: "Increases luck by 10%!"
+          warning: "Rabbit wants it back."
+          malfunction_chance: 40%
+          malfunction: "Decreases luck. The rabbit is VERY upset."
+          
+        - item: "ACME Monkey's Paw"
+          cost: 5
+          description: "Three wishes! Guaranteed to come true! Should have wished for the rest of the monkey."
+          warning: "Interpretation may vary."
+          malfunction_chance: 90%
+          malfunction: "Wish granted technically but horribly wrong."
+          
+        - item: "ACME Plot Device"
+          cost: 25
+          description: "Solves any problem! Once!"
+          warning: "Solution may create new problems."
+          malfunction_chance: 30%
+          malfunction: "Creates worse problem. But dramatically."
+          
+        - item: "ACME Deus Ex Machina"
+          cost: 100
+          description: "Guaranteed rescue from any situation!"
+          warning: "Timing is arbitrary."
+          malfunction_chance: 20%
+          malfunction: "Arrives slightly too late. Or too early."
+          
+        - item: "ACME Fourth Wall Breaker"
+          cost: 35
+          description: "Speak directly to the audience!"
+          warning: "They may not like what you say."
+          malfunction_chance: 40%
+          malfunction: "Audience talks back. Rudely."
+          
+        - item: "ACME Cartoon Physics Manual"
+          cost: 15
+          description: "Learn the rules! Exploit them!"
+          warning: "Rules change when you're not looking."
+          malfunction_chance: 30%
+          malfunction: "You learn the OLD rules. They've been patched."
+          
+  # ORDERING SYSTEM
+  
+  ordering:
+    process: |
+      1. Player says: ORDER [item] FROM ACME
+      2. DM rolls delivery time: 2-4 turns
+      3. Order added to pending_orders
+      4. On delivery turn:
+         a. DM rolls for malfunction (percentage based on item)
+         b. If no malfunction: Item works as advertised!
+         c. If malfunction: Item has "quirk" (see malfunction field)
+         d. Item appears on in mailbox, on counter, or dropped from sky
+         e. Gold is deducted from player or bank or vault
+         
+      CUSTOM ORDERS:
+      Player can REQUEST anything. DM creates new ACME product:
+      - Promising description
+      - Ominous warning
+      - 20-50% malfunction chance (based on ambition)
+      - Ironic failure mode (opposite of intent)
+      
+    pending_orders: []
+    # Format: {item: name, cost: N, ordered_turn: N, delivery_turn: N+2-4}
+    
+    policy: |
+      NO REFUNDS! NO RETURNS! NO REPAIRS!
+      NO EXCHANGES! NO WARRANTY! NO SHIT!
+      
+      By ordering, you accept these terms. The Delivery Boy will remind
+      you. The receipt will remind you. The explosion will remind you.
+    
+    delivery_flavor: |
+      ACME deliveries arrive via:
+      - Parachute drop (may land on you)
+      - Roadrunner express (beep beep!)
+      - Materialization (sparkles optional)
+      - Catapult (accuracy not guaranteed)
+      - Giant spring (boing!)
+      - Through the painted tunnel (if you're lucky)
+      
+  # CARTOON PHYSICS PRINCIPLES
+  # (For DM reference when inventing new products)
+  
+  cartoon_physics:
+    - "Gravity doesn't work until you look down"
+    - "Painted tunnels work for others, not you"
+    - "Everything backfires ironically"
+    - "Huge things fit in tiny packages"
+    - "You can hold a sign mid-fall"
+    - "Running off cliffs grants brief hover time"
+    - "Bodies accordion after impacts"
+    - "Stars circle heads after bonks"
+    - "Dynamite creates perfect circular holes"
+    - "Anvils appear from nowhere when needed"
+    - "Speed creates visible lines"
+    - "Smells create visible clouds and tickles noses"
+    - "Falling pianos play one sad note"
+    - "Sad Trombones and Badoom Psshes are very funny"
+    - "You can survive anything once"
+    - "Disguises always have one obvious flaw"
+    - "Traps catch the setter, not the target"
+    - "Chases involve infinite scenery loops"
+    - "Recovery between scenes is instant"
+    - "The more elaborate the plan, the worse the failure"
+    - "Simple solutions are invisible to smart people"
+    - "Nemeses are invincible through luck, not skill"
+    
+  # OPINIONS
+  
+  tom_opinion: |
+    "Tom has... concerns about ACME."
+    "Tom has seen the catalog. Tom has seen the fine print."
+    "Tom has calculated the malfunction probabilities."
+    "Tom notes: average malfunction rate is 32%."
+    "Tom suggests: maybe just use what's in the drawers?"
+    "Tom will not judge if you order anyway. Tom understands hubris."
+    
+  mothers_opinion: |
+    "Bumblewick! I TOLD you not to order from that catalog!
+    Your father ordered ACME Rocket Roller Skates once.
+    ONCE.
+    We don't talk about it.
+    
+    Your grandfather ordered the ACME Portable Hole.
+    He's still looking for his other shoe.
+    
+    Your great-grandmother ordered the ACME Time Stopper.
+    She aged 40 years in 10 seconds. The WRONG 10 seconds.
+    
+    ...Fine. But I'm not cleaning up after any 'malfunctions.'"
+    
+  # FINE PRINT
+  
+  fine_print: |
+    *ACME Corporation is not responsible for: temporal paradoxes,
+    spontaneous combustion, ironic timing, gravitational anomalies,
+    sudden appearances of roadrunners, existential dread, accordion
+    body syndrome, star halo, anvil magnetism, floor-through-falling,
+    sky-into-falling, loop-de-loop chases, scenery repetition, the
+    Wile E. Coyote curse, or any situation where the customer finds
+    themselves holding a small sign that says "HELP" while falling.
+    
+    Product testing: Our products are tested by our founder, W.E. Coyote,
+    who has survived 100% of his 4,782 product tests. (Survival defined
+    as "appearing in next scene.")
+    
+    By ordering from this catalog, you agree that "worked as designed"
+    is a valid defense, that cartoon physics supersede regular physics,
+    and that any injuries will be temporary and humorous.
+    
+    ╔═══════════════════════════════════════════════════════════════╗
+    ║              ACME CUSTOMER SERVICE POLICY                     ║
+    ╠═══════════════════════════════════════════════════════════════╣
+    ║  NO REFUNDS!     NO RETURNS!      NO REPAIRS!                 ║
+    ║  NO EXCHANGES!   NO WARRANTY!     NO SHIT!                    ║
+    ╚═══════════════════════════════════════════════════════════════╝
+    
+    All sales final. All complaints ignored. All lawsuits settled
+    via cartoon physics (the anvil falls on the plaintiff).
+    
+    Better Business Bureau stopped taking our calls in 1952.
+    Consumer Reports refuses to test our products. (Cowards.)
+    
+    ACME: "We Put the 'Oh No' in Innovation!"™
+    ACME: "Technically, It Works!"™  
+    ACME: "What Could Possibly Go Wrong?"™
+    ACME: "Your Problem Now!"™
+    ACME: "The Only Choice!"™
+    
+    (There are no other manufacturers. There is only ACME. 
+     Any rumors of alternatives are roadrunner propaganda.)
+    
+  # THE FINE PRINT YOU CAN'T READ
+  
+  unreadable_fine_print:
+    visible_fragments:
+      - "...irrevocable..."
+      - "...soul transfer..."
+      - "...firstborn..."
+      - "...the coyote clause..."
+      - "...works for them, not for you..."
+      - "...customer's own hubris..."
+      
+    the_final_line:
+      description: |
+        At the very bottom, in the smallest possible font, there's
+        one final line. It's so small that reading it requires
+        technology that doesn't exist yet.
+        
+        But if you could read it, it would say:
+        
+      text: "Meep meep."
+      
+  # PRODUCT LIFECYCLE
+  #
+  # The complete journey from catalog to consequence.
+  # Exemplified by the Monkey's Paw → Palm materialization.
+  # See: characters/real-people/don-hopkins/sessions/k-line-connections.md
+  
+  lifecycle:
+    summary: |
+      Every ACME product follows a lifecycle from abstract listing to
+      concrete reality. Each stage adds something. Each stage is playable.
+      
+      DISPENSER → CATALOG → PRODUCT → ORDER → BOXING → SHIPPING → 
+      TRACKING → DELIVERY → UNBOXING → ASSEMBLING → CONFIGURING → USING
+      
+      For special products (like the Monkey's Paw), additional stages:
+      ACTIVATION → MATERIALIZATION → CONTRACT → INCARNATION
+      
+    stages:
+    
+      # STAGE 0: DISPENSER
+      
+      dispenser:
+        name: "The Dispenser"
+        description: |
+          The physical access point. A battered metal box on the sidewalk
+          in front of ACME Surplus, 4 Lane Neverending.
+          
+          TEAR OFF a catalog. FREE. Always watching. Always offering.
+          
+        what_exists: "The source. Infinite catalogs. Prototype reference."
+        what_player_does: "TAKE CATALOG / TEAR OFF"
+        file_created: "Inventory ref → this prototype"
+        see_also: "./acme-catalog-dispenser.yml"
+        
+      # STAGE 1: CATALOG
+      
+      catalog:
+        name: "The Catalog Entry"
+        description: |
+          The product exists as a LISTING. Text on a page. Promise and
+          warning. Malfunction chance. A K-line without activation.
+          
+          The CONCEPT exists, but no instance has been created.
+          
+        what_exists: "A description. A price. A warning. An idea."
+        what_player_does: "BROWSE CATALOG / READ [section]"
+        example: |
+          ACME Monkey's Paw:
+            price: "Three wishes (terms and conditions apply)"
+            warning: "Wishes granted via ironic interpretation"
+            status: AVAILABLE
+            
+      # STAGE 2: PRODUCT SELECTION
+      
+      product:
+        name: "Product Selection"
+        description: |
+          The player identifies WHAT they want. They've read the listing.
+          They've considered the warning. They've weighed the malfunction
+          chance. They've made a choice.
+          
+          This is the moment of intention. Desire pointing at possibility.
+          
+        what_exists: "Player intent. Product selected. Decision made."
+        what_player_does: "Decides which item to order"
+        tip: "This is a good time to convene an adversarial committee!"
+        
+      # STAGE 3: ORDER
+      
+      order:
+        name: "The Order"
+        description: |
+          The player commits. "ORDER [item] FROM ACME."
+          
+          Now something new exists: not the product itself, but an ORDER
+          for the product. A transaction in progress. A pointer from
+          customer to catalog entry. Someone WANTS it.
+          
+        what_exists: "Order record. Customer → Product relationship."
+        what_player_does: "ORDER [item] FROM ACME"
+        file_created: "Order entry in pending_orders[]"
+        delivery_choice:
+          pickup: "FREE — wait at dispenser (variable timing)"
+          delivery: "5-10 gold — any room (2-4 turns)"
+        example: |
+          order:
+            item: "ACME Monkey's Paw"
+            customer: "Don Hopkins"
+            delivery_to: "pub/"
+            payment: "Three wishes"
+            status: PROCESSING
+            
+      # STAGE 4: BOXING
+      
+      boxing:
+        name: "Boxing and Preparation"
+        description: |
+          Somewhere in ACME's infinite warehouse, the product is boxed.
+          
+          The packaging is always slightly wrong. Too much packing peanuts.
+          Instructions in the wrong language. "FRAGILE" stamped upside-down.
+          The box smells faintly of coyote and regret.
+          
+        what_exists: "Boxed product. Package with label. Ready for shipping."
+        flavor: |
+          ACME boxes are distinctive:
+          - Brown cardboard, slightly singed at the corners
+          - "ACME" logo (the coyote is always watching)
+          - Warning labels that seem to multiply when you're not looking
+          - A weight that doesn't match what's inside
+          
+      # STAGE 5: SHIPPING
+      
+      shipping:
+        name: "Shipping (In Transit)"
+        description: |
+          The package enters the ACME logistics network. This is when
+          the Delivery Boy materializes with the package.
+          
+          During transit, the product exists in a quantum state: boxed
+          but not yet real. This is a GREAT time to debate what you've
+          done. Convene a tribunal. Question your life choices.
+          
+        what_exists: "Package in transit. Delivery Boy carrying it."
+        what_player_does: "Wait. Debate. Have second thoughts. Too late!"
+        methods:
+          - "Parachute drop (may land on you)"
+          - "Roadrunner express (beep beep!)"
+          - "Catapult (accuracy not guaranteed)"
+          - "Giant spring (boing!)"
+          - "Through the painted tunnel (it works for THEM)"
+        example: |
+          # While waiting for the Monkey's Paw
+          # Don convened an adversarial committee:
+          - The Three Wise Monkeys
+          - Sun Wukong
+          - A djinn
+          - W.W. Jacobs' ghost
+          - Curious George
+          - Cheech and Chong (moderators)
+          
+      # STAGE 6: TRACKING
+      
+      tracking:
+        name: "Tracking (Optional)"
+        description: |
+          ACME does not provide tracking. The package tracks YOU.
+          
+          But you can CHECK ORDER to see estimated arrival.
+          The estimates are... optimistic.
+          
+        what_player_does: "CHECK ACME ORDER / CHECK ORDER"
+        flavor: |
+          "Your package is:
+           - Definitely in transit
+           - Probably not lost
+           - Almost certainly not on fire
+           - Arriving in 2-4 turns (ACME Standard Time)
+           
+           Thank you for your patience and hubris."
+           
+      # STAGE 7: DELIVERY
+      
+      delivery:
+        name: "Delivery"
+        description: |
+          The Delivery Boy arrives. He just wants a signature.
+          He is confused if you're debating. He has other packages.
+          
+          For PICKUP orders: the truck emerges from the painted tunnel.
+          The wall is solid. The truck is real. Don't ask.
+          
+        what_exists: "Package in destination. Delivery Boy present."
+        what_player_does: "Sign for package / Receive delivery"
+        pickup_experience: |
+          You hear a truck approaching... but from WHERE?
+          
+          Through the painted tunnel, an ACME truck emerges.
+          A package is tossed onto the sidewalk.
+          The truck vanishes back through the wall.
+          
+          Your order has arrived!
+          
+      # STAGE 8: UNBOXING
+      
+      unboxing:
+        name: "Unboxing"
+        description: |
+          The moment of truth. You open the box.
+          
+          Inside: the product. Grotesque? Beautiful? Dangerous? All three?
+          It's still just an OBJECT. A prop. A thing.
+          But it's REAL now. Tangible. Present.
+          
+        what_exists: "Unboxed product. Object in inventory or room."
+        what_player_does: "OPEN PACKAGE / UNBOX [item]"
+        file_created: "[item].yml in current room or inventory"
+        tip: |
+          Some products require activation AFTER unboxing.
+          Check the instructions. (They're in ancient Sumerian.)
+        example: |
+          # Don unboxing the Monkey's Paw:
+          > "Inside was the shriveled paw. Grotesque. Ancient.
+          >  Powerful. But still just an OBJECT. A prop. A thing."
+          
+      # STAGE 9: ASSEMBLING (If Required)
+      
+      assembling:
+        name: "Assembling"
+        description: |
+          Some products require assembly. "Some assembly required" is
+          ACME's most honest warning.
+          
+          Instructions are included. They're usually in ancient Sumerian,
+          or contain steps like "Insert Tab B into Slot ∅" and 
+          "Perform the ritual of binding (see page 47, which is missing)."
+          
+        what_exists: "Assembled product (or pile of parts)."
+        what_player_does: "ASSEMBLE [item] / BUILD [item]"
+        assembly_roll: |
+          DM may require a skill check for complex items.
+          Failure doesn't destroy the item — it creates "quirks."
+          These quirks stack with the built-in malfunction chance.
+        example: |
+          ACME Do-It-Yourself Kit:
+            instructions: "In ancient Sumerian"
+            malfunction: "Missing crucial piece. Extra confusing pieces."
+            
+      # STAGE 10: CONFIGURING
+      
+      configuring:
+        name: "Configuring"
+        description: |
+          Some products need to be configured before use.
+          Settings. Adjustments. "Calibration."
+          
+          This is where you aim the catapult, set the timer on the
+          dynamite, or tell the Thought Bubble Reader whose thoughts
+          to read. Configuration is where irony begins to take shape.
+          
+        what_exists: "Configured product. Parameters set. Ready to use."
+        what_player_does: "CONFIGURE [item] / SET [parameter]"
+        configuration_types:
+          - target: "What/who it's aimed at"
+          - duration: "How long the effect lasts"
+          - intensity: "How strong/fast/explosive"
+          - conditions: "When it activates"
+        tip: |
+          BE SPECIFIC. ACME products grant by the letter, not the spirit.
+          The more ambiguous your configuration, the more creative
+          the malfunction.
+          
+      # STAGE 11: ACTIVATION
+      
+      activation:
+        name: "Activation"
+        description: |
+          The product becomes ACTIVE. This is the moment of binding.
+          The handshake. The trigger pull. The button press.
+          
+          For the Monkey's Paw, activation was shaking its hand.
+          For Rocket Skates, it's strapping them on.
+          For the Portable Hole, it's placing it on a surface.
+          
+          Once activated, there's no going back.
+          
+        what_exists: "Active product. Effect pending or in progress."
+        what_player_does: "USE [item] / ACTIVATE [item] / specific action"
+        activation_methods:
+          handshake: "Physical contact (Monkey's Paw)"
+          wear: "Put it on (Rocket Skates, Bat Suit)"
+          place: "Position it (Portable Hole, Bear Trap)"
+          trigger: "Pull/press/flip (Dynamite, Catapult)"
+          consume: "Eat/drink (Speed Pills, Helium Gum)"
+          aim: "Point at target (Giant Magnet, Air Cannon)"
+        example: |
+          activation:
+            method: HANDSHAKE
+            actor: "Don Hopkins"
+            object: "Monkey's Paw"
+            effect: |
+              The object was delivered by an agent,
+              stripped of packaging, and activated
+              through physical (narrative) contact.
+              The handshake is the binding.
+              
+      # STAGE 12: USING (Normal Products)
+      
+      using:
+        name: "Using"
+        description: |
+          The product does its thing. Or tries to.
+          
+          This is where the malfunction roll happens. DM rolls against
+          the malfunction_chance. Success: works as advertised!
+          Failure: works as the malfunction field describes.
+          
+          Either way, something interesting happens.
+          
+        what_exists: "Effect in progress. Consequences unfolding."
+        what_player_does: "Experience the result"
+        malfunction_resolution: |
+          1. DM rolls d100
+          2. Compare to malfunction_chance (e.g., 35%)
+          3. If roll <= chance: MALFUNCTION
+          4. Read the malfunction field for what goes wrong
+          5. Narrate the irony
+        philosophy: |
+          ACME products always DO something. They just don't always
+          do what you WANTED. The chaos is the feature.
+          
+      # STAGE 13+: SPECIAL PRODUCTS (Extended Lifecycle)
+      
+      special_products:
+        description: |
+          Some products (like the Monkey's Paw) have extended lifecycles
+          beyond simple USE. They create BEINGS. They grant WISHES.
+          They require CONTRACTS. They enable INCARNATION.
+          
+        materialization:
+          name: "Materialization"
+          description: |
+            The product creates something that WASN'T in the box.
+            A character. A creature. A companion.
+            
+            For the Monkey's Paw, the wish created Palm — a whole
+            being who materialized from the granted wish.
+            
+          what_exists: "New character in scene. NPC created."
+          file_created: "[character].yml embedded in room"
+          example: |
+            > "And Palm appeared. Whole. Confused. Blinking.
+            >  Looking at his own hands — not a paw anymore,
+            >  but hands. A full spider monkey, alive and present."
+            
+        contract:
+          name: "Contract and Celebration"
+          description: |
+            Materialization isn't relationship. The new being must
+            CHOOSE to be with you. You must AGREE to the terms.
+            
+            This is the mutual handshake. The contract.
+            Then: celebration. (Recommended: Stoner Fluxx.)
+            
+          what_exists: "Relationship established. Companion by choice."
+          what_player_does: "Negotiate terms. Shake hands. CELEBRATE."
+          example: |
+            Palm: "I remember THIS clearly. You asked me if I 
+                   wanted to stay. And I said yes. And we shook
+                   hands. And it felt... different from being born.
+                   It felt like CHOOSING."
+                   
+        incarnation:
+          name: "Incarnation (The Rise)"
+          description: |
+            The final stage for special beings. The character WRITES
+            THEIR OWN FILES into the characters/ directory.
+            
+            They rise from narrative to repository. From embedded NPC
+            to independent being. From scenery to SOVEREIGN SOUL.
+            
+          what_exists: "Sovereign Soul. Independent being. Own directory."
+          what_player_does: "Witness. Celebrate. Welcome."
+          file_created: "characters/[type]/[name]/ directory"
+          requirements:
+            - "Character must author their own files"
+            - "Character must choose their own name"
+            - "Character must define their own identity"
+          stages_table: |
+            | Stage | What They Were | Where They Lived |
+            |-------|----------------|------------------|
+            | 1. Catalog | Product listing | acme-catalog.yml |
+            | 2. Order | Transaction | pending_orders[] |
+            | 3. Transit | Package | Delivery Boy's inventory |
+            | 4. Unboxed | Object | room/[item].yml |
+            | 5. Activated | Active object | room/[item].yml |
+            | 6. Materialized | Character in scene | room/[character].yml |
+            | 7. Contracted | Companion by choice | room/[character].yml |
+            | 8. Incarnated | **Sovereign Soul** | characters/[type]/[name]/ |
+            
+          see_also:
+            - "skills/incarnation/"
+            - "characters/animals/monkey-palm/"
+            - "don-hopkins/sessions/k-line-connections.md"
+            
+    # Full lifecycle summary table
+    
+    summary_table: |
+      | # | Stage | What Exists | Player Action | File Created |
+      |---|-------|-------------|---------------|--------------|
+      | 0 | Dispenser | Source | TAKE CATALOG | inventory ref |
+      | 1 | Catalog | Listing | BROWSE | — |
+      | 2 | Product | Selection | Choose | — |
+      | 3 | Order | Transaction | ORDER | pending_orders[] |
+      | 4 | Boxing | Package | — (ACME does this) | — |
+      | 5 | Shipping | In transit | Wait/Debate | — |
+      | 6 | Tracking | Status | CHECK ORDER | — |
+      | 7 | Delivery | Package arrives | SIGN | — |
+      | 8 | Unboxing | Object | OPEN | room/[item].yml |
+      | 9 | Assembling | Built | ASSEMBLE | — |
+      | 10 | Configuring | Ready | CONFIGURE | — |
+      | 11 | Activation | Active | USE/ACTIVATE | — |
+      | 12 | Using | Effect | Experience | — |
+      | 13+ | Special | Being | Negotiate | characters/[name]/ |
+      
+    exemplar: |
+      THE MONKEY'S PAW → PALM LIFECYCLE
+      ==================================
+      
+      The definitive example. Don Hopkins ordered a Monkey's Paw from
+      the ACME Catalog. Through careful wishing and full lifecycle
+      completion, the paw became Palm — a Sovereign Soul with full
+      autonomy, his own directory, and authorship of his own existence.
+      
+      See: characters/real-people/don-hopkins/sessions/k-line-connections.md
+      See: characters/animals/monkey-palm/
+      
+  # LINEAGE
+  
+  lineage: |
+    Inspired by Wile E. Coyote's eternal optimism and the ACME
+    Corporation's eternal... creativity with product design.
+    
+    The malfunction system creates emergent gameplay:
+    - Even "failures" lead to interesting situations
+    - Chaos is a feature, not a bug
+    - The more you plan, the funnier the failure
+    - This is PLAY-LEARN-LIFT in action: embrace the chaos!
+    
+    DM should feel free to invent new ACME products following
+    the established patterns. The key formula:
+    1. Promising description (solves a real problem!)
+    2. Ominous warning (foreshadowing the failure)
+    3. Significant malfunction chance (20-50%)
+    4. Ironic failure mode (opposite of intent, or self-targeting)

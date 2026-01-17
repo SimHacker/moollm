@@ -30,7 +30,7 @@ Role: Kitten pillow, family guardian, good boy
 
 ---
 
-## 🦧 Summonable Familiars
+## 🐒 Summonable Familiars
 
 | Familiar | Invocation | Tradition |
 |----------|------------|-----------|

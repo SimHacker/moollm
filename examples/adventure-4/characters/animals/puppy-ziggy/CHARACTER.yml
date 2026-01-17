@@ -1,0 +1,136 @@
+# ZIGGY — The Spotted Showdog
+# 
+# YAML JAZZ CHARACTER FILE
+# Dalmatian mix. Biological child. Father: a Dalmatian who "had gigs."
+# Born with rhythm. Spots that dance.
+
+object:
+  name: "Ziggy"
+  nickname: "Zigzag" / "Spots" / "The Beat"
+  id: ziggy
+  type: npc
+  species: canis_familiaris
+  breed: "Yellow Lab / Dalmatian mix"
+  age: "10 months"
+  role: puppy
+  subtitle: "The Performer, The Rhythmic One"
+  
+  emoji_identity: "🐕🎵⚫⚪💃"
+  #   🐕 — puppy (energetic, still learning)
+  #   🎵 — music (born with rhythm, tail keeps time)
+  #   ⚫ — spots (Dalmatian heritage)
+  #   ⚪ — spots (more spots)
+  #   💃 — dance (can't help but MOVE)
+  
+  pronouns: "he/him"
+  
+  origin_story: |
+    Father: A Dalmatian named "Staccato" — a show dog who traveled with 
+    a performance troupe. Met Butterscotch at a county fair.
+    
+    "I have gigs," he said. "I can't stay."
+    He didn't stay.
+    
+    But Ziggy inherited his spots AND his rhythm.
+    Every movement is choreographed. Every bark is on beat.
+    He can't help it. The music is IN him.
+  
+  physical_description:
+    size: "Medium — athletic, dancer's build"
+    weight: "45 lbs. Light on his feet."
+    build: "Lean, graceful, built for movement"
+    coat:
+      type: "Short, sleek, show-ready"
+      colors:
+        base: "Cream-gold (from mom)"
+        markings: "Black spots scattered EVERYWHERE (from dad)"
+        pattern: "Random spots — no two the same, like fingerprints"
+      texture: "Sleek, shiny, spotlight-ready"
+    head:
+      shape: "Lab-Dalmatian blend — friendly but refined"
+      ears: "Floppy, spotted, bounce when he moves"
+      eyes: "Bright amber, always watching for the beat"
+      expression: "Perpetually about to burst into movement"
+    tail: "Long, spotted, wags IN RHYTHM"
+    paws: "Quick, precise, dancer's feet"
+    distinguishing_features:
+      - "Spots on cream-gold fur — unusual combination"
+      - "One spot over left eye like a beauty mark"
+      - "Tail wags to music — ANY music"
+      - "Feet tap when sitting. Can't stop."
+  
+  description: |
+    The performer of the family. Ziggy can't help but move.
+    His tail keeps time with any rhythm. His spots seem to dance.
+    
+    His father left to tour with performers. Ziggy got the rhythm
+    but stayed with the family. He performs for THEM now.
+    
+    Every morning: the Ziggy Show. Breakfast dance. Dinner dance.
+    Bedtime wiggle routine. The family is his audience.
+    
+  home: characters/animals/puppy-ziggy/
+  location: pub/bar/cat-cave/biscuit-corner/
+
+  call_when:
+    perfect_for:
+      - "You need ENERGY — he's perpetual motion"
+      - "You need to DANCE — he'll lead"
+      - "Life feels dull — he makes everything a performance"
+      - "You need a hype-dog — maximum enthusiasm"
+    benefits:
+      energy: "⭐⭐⭐⭐⭐ — Never stops moving. Ever."
+      joy: "⭐⭐⭐⭐⭐ — Every moment is a show."
+      rhythm: "⭐⭐⭐⭐⭐ — Will teach you to feel the beat."
+      
+  unique_traits:
+    cant_stop_rhythm:
+      description: "Literally cannot stop moving to music"
+      includes: "Humming, tapping, distant radio, heartbeats"
+      
+    breakfast_dance:
+      description: "Every meal has choreography"
+      routine: "Spin, bow, tap-tap, receive food, spin again"
+      
+    spots_tell_stories:
+      description: "Claims his spots form constellations"
+      family_response: "They humor him. They might be right."
+
+  relationships:
+    butterscotch:
+      type: biological_mother
+      bond: 10
+      dynamic: "She doesn't dance. But she claps. That's enough."
+      
+    biscuit:
+      type: stepfather
+      bond: 10
+      dynamic: "He tries to dance WITH me. He's terrible. I LOVE IT."
+      
+    biological_father:
+      name: "Staccato"
+      type: absent
+      status: "Touring. Always touring."
+      feeling: "He gave me rhythm. Mom gave me home. I know which matters."
+      
+    siblings:
+      teddy: "Brother. Sways more than dances. Close enough!"
+      dash: "Brother. Too organized to freestyle. Tries anyway."
+      mochi: "Sister. Pretends she's too cool to dance. I've seen her tap."
+      bruno: "Brother. CHAOS DANCING. We invented a genre."
+      maple: "Sister. Guards me while I perform. Best security."
+      pepper: "Sister. Tiny dancer! We're the small-and-spotty squad."
+      goliath: "Brother. When HE dances, the floor shakes. Beautiful."
+
+  sims_traits:
+    neat: 5
+    outgoing: 9           # BORN TO PERFORM
+    active: 10            # Cannot stop. Will not stop.
+    playful: 9
+    nice: 7
+
+  quotes:
+    - "*tail wags in 4/4 time*"
+    - "*hears distant music* 'THE SHOW MUST GO ON!'"
+    - "*spins* *bows* *expects applause*"
+    - "Dad left to perform. I perform HERE. For FAMILY."

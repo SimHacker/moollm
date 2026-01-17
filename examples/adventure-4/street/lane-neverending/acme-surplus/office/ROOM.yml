@@ -1,0 +1,116 @@
+# ACME SURPLUS — THE UPSTAIRS OFFICE
+# "PIVOT PLANNING — DO NOT DISTURB"
+# Where the pivots were planned. Whiteboards of failure.
+#
+# TRAP DEPLOYMENT: DM draws from ACME catalog's disguise/illusion sections
+# See: ../../w1/acme-catalog.yml
+
+room:
+  name: "ACME Management Office"
+  type: office_abandoned
+  emoji: "📋🔄💔"
+  
+  locked: true
+  lock:
+    type: "ACME Management Lock"
+    key: acme_management_key
+    difficulty: 5
+    trap: "Electrified door handle (1d4 shock, resets)"
+    
+  description: |
+    The spiral staircase creaks as you climb.
+    
+    The office is frozen in time — mid-pivot. Whiteboards cover every wall,
+    layered with plans that were never executed, strategies that were
+    abandoned mid-sentence, roadmaps to nowhere.
+    
+    A desk sits in the center, covered in papers. The chair is pushed back,
+    as if someone left in a hurry and never returned.
+    
+    The last pivot is still on the board.
+    
+  atmosphere: |
+    Dust on everything. Papers yellowed. Coffee cups fossilized.
+    The whiteboards tell a story of escalating desperation:
+    
+    "PIVOT TO SOCIAL" (crossed out)
+    "PIVOT TO MOBILE" (crossed out)
+    "PIVOT TO CRYPTO" (crossed out, with angry scribbles)
+    "PIVOT TO AI" (underlined, then crossed out)
+    "ACME FINAL FORM" (circled, with arrows to nothing)
+    
+    The last entry: "IT WORKS. THAT'S THE PROBLEM."
+    
+  # TRAP DEPLOYMENT GUIDANCE — For the DM/LLM
+  #
+  # This room should feel like CORPORATE HORROR meets ACME ILLUSIONS.
+  # The whiteboards themselves might be traps. The plans might activate.
+  # Deploy traps that are:
+  # - Illusory (things aren't what they seem)
+  # - Identity-based (who are you really?)
+  # - Psychological (existential dread as damage type)
+  #
+  # See: w1/acme-catalog.yml → disguises, detection_devices
+  
+  trap_themes:
+    primary: [illusion, identity, psychological, corporate]
+    secondary: [planning, pivot, failure, abandonment]
+    mood: "existential startup horror"
+    
+    catalog_sections:
+      - disguises        # Invisible paint, costumes, holograms
+      - detection_devices # Truth serum detectors, thought bubble readers
+      - mystery_items    # Fourth wall breakers, plot devices
+      
+    irony_patterns:
+      - "Player reads the plans → plans read the player"
+      - "Player sits in the chair → becomes middle management (debuff)"
+      - "Player erases whiteboard → whiteboard erases something of theirs"
+      - "Player finds the 'final form' → it finds them"
+      
+    example_encounters:
+      - trigger: "Reading the whiteboards"
+        suggestion: "ACME Thought Bubble Reader — YOUR thoughts become visible"
+      - trigger: "Sitting in the CEO chair"
+        suggestion: "ACME Instant Costume Kit — stuck in 'middle manager' costume"
+      - trigger: "Opening the desk drawers"
+        suggestion: "ACME Hologram Projector — projects embarrassing memories"
+        
+  # THE LAST PIVOT
+  the_last_pivot:
+    whiteboard_location: "Main wall, behind the desk"
+    content: |
+      ACME FINAL FORM
+      ================
+      
+      [Diagram of something incomprehensible]
+      [Arrows pointing to more arrows]
+      [A box labeled "THE THING THAT WORKS"]
+      [A note: "Do NOT connect to production"]
+      [A later note: "Too late"]
+      [A final note: "IT WORKS. THAT'S THE PROBLEM."]
+      
+    dm_discretion: true  # DM decides what "FINAL FORM" actually means
+    
+  # HAZARDS
+  hazards:
+    existential_dread:
+      trigger: "Reading too many pivot plans"
+      effect: "Wisdom save or take 1d4 psychic damage"
+      flavor: "The sheer volume of abandoned strategies weighs on your soul"
+      
+    middle_management_curse:
+      trigger: "Sitting in the chair"
+      effect: "Disadvantage on creativity checks until you 'pivot' to something"
+      cure: "Actually finish something instead of pivoting"
+      
+  objects:
+    # Sparse — let DM deploy as needed
+    - pivot-whiteboards.yml  # The plans, the failures, the horror
+    - ceo-desk.yml           # Papers, secrets, probably trapped
+    
+  exits:
+    down:
+      destination: ../
+      description: "Spiral staircase back to the sales floor"
+      aliases: [stairs, leave, out]

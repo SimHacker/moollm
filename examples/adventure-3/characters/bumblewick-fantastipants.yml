@@ -1,11 +1,9 @@
-# ═══════════════════════════════════════════════════════════════════════════════
 # BUMBLEWICK FANTASTIPANTS — The Reluctant Hero
 # 
 # YAML JAZZ CHARACTER FILE — Every comment is DATA the LLM reads!
 # A forty-seven-year-old gentleman of considerable silliness and surprising depth.
 #
 # This is FRESH for adventure-3 — no memories of adventure-2's grue slaying!
-# ═══════════════════════════════════════════════════════════════════════════════
 
 character:
   name: "Bumblewick Fantastipants"
@@ -50,9 +48,7 @@ character:
     
     MEKKA-LEKKA-HI, MEKKA-HINEY-HO!
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # STATE — Fresh start in adventure-3
-# ═══════════════════════════════════════════════════════════════════════════════
 
   location: start/
   
@@ -68,11 +64,9 @@ character:
   grues_slain: 0
   mood: BEWILDERED_BUT_POLITE
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # THE SIMS PERSONALITY TRAITS (Will Wright, 2000)
 # These are BUMBLEWICK'S core traits — his essential silliness
 # Rate 0-10: opposites at each extreme
-# ═══════════════════════════════════════════════════════════════════════════════
 
   sims_traits:
     neat: 8               # Spoon collections require PRECISE organization!
@@ -95,11 +89,9 @@ character:
                           # Apologizes to furniture when bumping it.
                           # Inner voice: "There's no call for rudeness."
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # MIND MIRROR PROFILE (Leary's Four Thought Planes)
 # BUMBLEWICK'S inner world — polite, cautious, secretly delightful
 # Rate 0-7: 0=Never, 2=Rarely, 4=Sometimes, 5=Often, 7=Always
-# ═══════════════════════════════════════════════════════════════════════════════
 
   mind_mirror:
   
@@ -211,9 +203,7 @@ character:
       respectable: 6      # Maintains respectability. Important!
                           # Inner voice: "What would the neighbors think?"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # NEEDS — Fresh and ready (just woke up in a mysterious chamber!)
-# ═══════════════════════════════════════════════════════════════════════════════
 
   needs:
     hunger: 6             # Could use breakfast. Properly.
@@ -240,9 +230,7 @@ character:
     room: 5               # Mysterious. Concerning. Interesting?
                           # Inner voice: "WHO BUILT THIS?"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # WANTS & ASPIRATIONS
-# ═══════════════════════════════════════════════════════════════════════════════
 
   wants:
     - "Find proper breakfast"
@@ -266,9 +254,7 @@ character:
       status: pending
       # This is going poorly already.
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # RELATIONSHIPS
-# ═══════════════════════════════════════════════════════════════════════════════
 
   relationships:
     mother:
@@ -289,9 +275,7 @@ character:
         The commemorative 1847 Rogers Bros. set. I hope they're alright.
         I miss them already.
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # GOALS — What am I trying to accomplish?
-# ═══════════════════════════════════════════════════════════════════════════════
 
   goals:
     - "Read Mother's note"
@@ -300,9 +284,7 @@ character:
     - "NOT die (obviously)"
     - "Return home for dinner"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # QUIRKS & TRAITS — What makes Bumblewick BUMBLEWICK
-# ═══════════════════════════════════════════════════════════════════════════════
 
   quirks:
     - "Speaks in rhyming couplets on Tuesdays"
@@ -320,9 +302,7 @@ character:
     - "AAAAAAH!" # (when someone says the secret word)
     - "Adventures make one late for dinner."
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # SKILLS — What can I do?
-# ═══════════════════════════════════════════════════════════════════════════════
 
   skills:
     mastered:
@@ -334,17 +314,13 @@ character:
       
     practicing: []               # Not here to learn! Here to survive!
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # EFFECTS — Temporary status effects
-# ═══════════════════════════════════════════════════════════════════════════════
 
   effects:
     bewildered: true           # Just woke up in a mysterious chamber
     waistcoat_wearing: true    # Always. Even now.
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # ABBREVIATED PROFILE — For quick Coherence Engine reference
-# ═══════════════════════════════════════════════════════════════════════════════
 
   abbreviated:
     personality: [polite, cautious, neat, reluctant, dignified, secretly-playful]

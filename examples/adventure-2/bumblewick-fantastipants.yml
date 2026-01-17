@@ -1,11 +1,9 @@
-# ═══════════════════════════════════════════════════════════════════════════════
 # BUMBLEWICK FANTASTIPANTS — The Reluctant Hero
 # 
 # YAML JAZZ CHARACTER FILE — Every comment is DATA the LLM reads!
 # This is the BASE character. Captain Ashford is a PERSONA worn on top.
 #
 # BASE + PERSONA MODIFIERS = Who appears in the narrative
-# ═══════════════════════════════════════════════════════════════════════════════
 
 character:
   name: "Bumblewick Fantastipants"
@@ -49,9 +47,7 @@ character:
     
     MEKKA-LEKKA-HI, MEKKA-HINEY-HO!
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # STATE — Adventure-2 completion state (HOME!)
-# ═══════════════════════════════════════════════════════════════════════════════
 
   location: home/
   gold: 108               # 💰 WE'RE RICH!!!
@@ -61,11 +57,9 @@ character:
   grues_slain: 1
   mood: TRIUMPHANT_AND_HOME
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # THE SIMS PERSONALITY TRAITS (Will Wright, 2000)
 # These are BUMBLEWICK'S traits — his real self underneath the persona
 # Rate 0-10: opposites at each extreme
-# ═══════════════════════════════════════════════════════════════════════════════
 
   sims_traits:
     neat: 8               # Spoon collections require PRECISE organization!
@@ -88,11 +82,9 @@ character:
                           # Apologizes to furniture when bumping it.
                           # Inner voice: "There's no call for rudeness."
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # MIND MIRROR PROFILE (Leary's Four Thought Planes)
 # BUMBLEWICK'S BASE — Before persona modifiers apply!
 # Rate 0-7: 0=Never, 2=Rarely, 4=Sometimes, 5=Often, 7=Always
-# ═══════════════════════════════════════════════════════════════════════════════
 
   mind_mirror:
   
@@ -196,9 +188,7 @@ character:
       respectable: 6      # Maintains respectability. Important!
                           # Inner voice: "What would the neighbors think?"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # NEEDS — Current state (adventure complete, home with Mother!)
-# ═══════════════════════════════════════════════════════════════════════════════
 
   needs:
     hunger: 9             # Mother's cooking! Finally!
@@ -225,9 +215,7 @@ character:
     room: 10              # Mother's house. The best room.
                           # Inner voice: "Nowhere else I'd rather be."
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # WANTS & ASPIRATIONS
-# ═══════════════════════════════════════════════════════════════════════════════
 
   wants:
     - "Tell Mother everything (she already knows)"
@@ -246,9 +234,7 @@ character:
       status: complete
       # 8/8 promises kept. She's proud.
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # RELATIONSHIPS
-# ═══════════════════════════════════════════════════════════════════════════════
 
   relationships:
     mother:
@@ -287,9 +273,7 @@ character:
         Fellow adventurer, lost to the maze. I avenged them.
         I hope they're at peace now. Dancing, even.
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # QUIRKS & TRAITS — What makes Bumblewick BUMBLEWICK
-# ═══════════════════════════════════════════════════════════════════════════════
 
   quirks:
     - "Speaks in rhyming couplets on Tuesdays"
@@ -305,9 +289,7 @@ character:
     - "At least I have my waistcoat."
     - "AAAAAAH!" # (when someone says the secret word)
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # PERSONA INTERACTION
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # When wearing Captain Ashford:
 #
@@ -321,7 +303,6 @@ character:
 # - Bold space captain who still worries about dinner
 # - "Sa-sa ke, kopeng? Also, is that a Georgian ladle?"
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
   abbreviated:
     personality: [polite, cautious, secretly-playful, dignified, reluctant-hero]

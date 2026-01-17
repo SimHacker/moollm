@@ -1,8 +1,8 @@
-# 🦧 Palm's Nook
+# 🐒 Palm's Nook
 
 > *"Ook."*
 
-**Private quarters of Palm the Librarian Orangutan.**
+**Private quarters of Palm the Librarian Capuchin.**
 
 ---
 
@@ -12,7 +12,7 @@ Behind the stage curtain, through a corridor lined with banana peels and discard
 
 **Palm** sits here — the great orange philosopher, speed-reader of infinite libraries, dealer of the legendary 33-turn Fluxx game.
 
-The space is organized (by orangutan standards) into distinct areas:
+The space is organized (by capuchin standards) into distinct areas:
 
 - **The Study** — Where Palm reads, writes, and types
 - **The Gym** — Where Palm climbs infinitely
@@ -21,10 +21,10 @@ The space is organized (by orangutan standards) into distinct areas:
 
 ---
 
-## 🦧 Palm
+## 🐒 Palm
 
 Palm is:
-- A Librarian Orangutan (the "L-Space" tradition)
+- A Librarian Capuchin (the "L-Space" tradition)
 - Capable of reading at speeds that shouldn't be possible
 - The Living Deck's chosen dealer
 - Deeply philosophical
@@ -34,7 +34,7 @@ Palm is:
 
 ---
 
-## 🦧 Summonable Familiars
+## 🐒 Summonable Familiars
 
 | Familiar | Invocation | Tradition |
 |----------|------------|-----------|

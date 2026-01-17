@@ -56,7 +56,7 @@ flowchart TB
 |---------|------------|------------|
 | [w3](w3/) | Curiosity shops | — |
 | [w2](w2/) | Landmarks | — |
-| [w1](w1/) | **ACME Surplus** (closed, painted tunnel) | **Leela Manufacturing** (thriving) |
+| [w1](w1/) | **[ACME Surplus](acme-surplus/)** (closed, locked, trapped) | **[Leela Manufacturing](leela-manufacturing/)** (thriving) |
 | [center](center/) | — | **The Pub**, Origin Plaza |
 | [e1](e1/) | — | Sleeping Figure, Glitch Memorial |
 | [e2](e2/) | Market Square | Fountain of Infinite Loops |
@@ -106,6 +106,40 @@ flowchart TB
 ```
 
 The visual intelligence factory. Where video becomes understanding.
+
+---
+
+## ACME Surplus (Abandoned)
+
+Directly **across the street** from Leela: [ACME Surplus](acme-surplus/) at **4 Lane Neverending**.
+
+```mermaid
+flowchart TB
+    subgraph ACME["📦💥🔒 ACME SURPLUS (CLOSED)"]
+        Front["🚪 Front Door<br/>[LOCKED + TRAPPED]"]
+        Sales["Empty Sales Floor<br/>(anvil hazards)"]
+        Back["Back Room<br/>[LOCKED]<br/>*tick tick tick*"]
+        Office["Office Upstairs<br/>[LOCKED]"]
+        Tunnel["🎨 Painted Tunnel<br/>(doesn't work for you)"]
+    end
+    
+    Street["Lane Neverending W1"] -.-> |"break in?"| Front
+    Front --> |"if you survive"| Sales
+    
+    style ACME fill:#7f8c8d,color:#fff
+```
+
+**Warning**: All entrances are **locked and trapped**. ACME never removed their security systems.
+
+| Entry Method | Difficulty | Trap |
+|--------------|------------|------|
+| Pick Lock | 3 | Anvil swings from ceiling |
+| Kick Door | 4 | Cascade of anvils |
+| Break Window | 2 | Rocket skates activate |
+| Sneak Vent | 3 | Tunnel paint distorts vision |
+| Run Through Tunnel | 99 | Plywood (always) |
+
+The tunnel only works for ACME employees, delivery drivers, and roadrunners. You'll bounce.
 
 ---
 

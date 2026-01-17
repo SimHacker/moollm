@@ -1,19 +1,46 @@
 # LOADING DOCKS
-# Where the physical world meets the knowledge factory
-# Integrated with Factorio Logistics Protocol
-# See: skills/logistic-container, designs/factorio-logistics-protocol.md
+# Where problems arrive and solutions ship
+# THE CAMERAS SEE EVERYTHING — safely, helpfully
+#
+# This is a DEMO of Leela dock monitoring:
+# - Forklift tracking (pedestrian safety zones)
+# - Package tracking (every box annotated)
+# - Worker safety (PPE detection, ergonomics)
+#
+# See: skills/logistic-container, skills/leela-ai
 
 room:
   name: Leela Loading Docks
   type: industrial_loading
+  emoji: "🚛👁️📦"
   
   lighting: industrial
   atmosphere: busy
+  
+  # Leela vision is watching (helpfully!)
+  leela_cameras:
+    - camera-doc1.yml   # Main dock overview
+    - name: forklift-safety
+      purpose: "Pedestrian detection in forklift zones"
+    - name: package-tracking  
+      purpose: "Every box annotated with destination"
+    - name: ergonomics
+      purpose: "Worker posture and PPE compliance monitoring"
+  
+  # What this represents
+  anti_acme: |
+    ACME couldn't track a falling anvil.
+    Leela tracks everything. Safely. Helpfully.
+    
+    Unlike ACME's "ship and pray" approach,
+    every package here is annotated, every forklift
+    is tracked, every worker is protected.
   
   # Factorio-style logistics integration
   skills:
     - logistic-container
     - manufacturing-intelligence
+    - leela-ai
   
 description: |
     The LOADING DOCKS wrap around the back of Leela Manufacturing.

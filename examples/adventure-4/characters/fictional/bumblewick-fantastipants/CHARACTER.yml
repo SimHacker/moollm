@@ -9,6 +9,12 @@ character:
   name: "Bumblewick Fantastipants"
   id: bumblewick-fantastipants
   type: player_character
+  emoji_identity: "🏡🥄🎩🐇✨"
+  #   🏡 — comfort (Fantastipants-hole means COMFORT)
+  #   🥄 — spoons (decorative spoon collector)
+  #   🎩 — waistcoat (devotee of formalwear)
+  #   🐇 — hobbit-adjacent (reluctant hero)
+  #   ✨ — whimsy (considerable silliness)
   
   # PERSONA STATE — Currently wearing no mask
   current_persona: null    # Visit the coatroom to try on Captain Ashford!
@@ -55,6 +61,12 @@ character:
   inventory: []
   # The lamp is in start/lamp.yml — GET LAMP!
   # Visit the kitchen for notebook, lunchbox, TomTomagotchi!
+  # See: skills/character/SKILL.md for inventory protocol (objects vs refs)
+  
+  inventory_capacity:
+    max_weight: 40    # Bumblewick is not particularly strong
+    max_bulk: 8       # Waistcoat pockets are limited
+    refs_free: true   # References are weightless
   
   gold: 10                # Enough for lamp refills and snacks
   

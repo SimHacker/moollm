@@ -37,7 +37,7 @@ Default: **`SESSION.md`** in the character directory, or named sessions in a `se
 characters/real-people/don-hopkins/sessions/marathon-session.md
 characters/real-people/don-hopkins/sessions/adventure-uplift.md
 characters/fictional/donna-toadstool/SESSION.md
-characters/animals/palm/SESSION.md
+characters/animals/monkey-palm/SESSION.md
 ```
 
 Name variants: `marathon-session.md`, `adventure-uplift.md`, `SESSION-day1.md`

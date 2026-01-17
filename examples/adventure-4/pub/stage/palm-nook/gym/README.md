@@ -16,7 +16,7 @@ Somewhere high above, you can hear Palm swinging. Or maybe that's echoes from a 
 
 ---
 
-## 🦧 Summonable Familiars
+## 🐒 Summonable Familiars
 
 | Familiar | Invocation | Tradition |
 |----------|------------|-----------|

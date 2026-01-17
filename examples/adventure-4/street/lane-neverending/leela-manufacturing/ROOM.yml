@@ -1,161 +1,312 @@
 # LEELA MANUFACTURING INTELLIGENCE
 # Main Lobby & Reception
 # 5 Lane Neverending
+#
+# THE ANTI-ACME — Reliable intelligence, not fly-by-night gimmicks!
+#
+# POETIC LICENSE: This fantasy factory represents what Leela DOES —
+# we help CUSTOMERS see their own factories with intelligent eyes.
+# The cameras watching this facility are the same cameras we deploy.
+# The prototype warehouse ships SKILLS, not anvils.
+# The loading docks receive PROBLEMS and ship SOLUTIONS.
+#
+# Where ACME ships broken products and blames customers,
+# Leela manufactures the CONDITIONS for intelligence to emerge.
+#
+# See: skills/leela-ai/, skills/manufacturing-intelligence/
 
 room:
   name: Leela Manufacturing Intelligence — Lobby
   type: industrial_lobby
   address: "5 Lane Neverending"
+  emoji: "🏭🔮👁️"
+  
+  # THE ANTI-ACME
+  anti_acme:
+    acme_style: "Ship fast, break things, blame the customer"
+    leela_style: "Understand deeply, build reliably, empower the customer"
+    acme_products: "Portable holes, rocket skates, painted tunnels"
+    leela_products: "Seeing eyes, causal reasoning, predictive awareness"
+    acme_promise: "It'll work this time! (It won't.)"
+    leela_promise: "We help you see what's really happening."
   
   zone: INDUSTRIAL
   lighting: bright
   grue_safe: true
   
+  # THE CAMERAS ARE WATCHING (helpfully!)
+  camera_philosophy: |
+    Every camera in this facility is a LEELA camera.
+    Neural-symbolic vision. Causal reasoning. Edge computing.
+    
+    What you see here is what we DEPLOY:
+    - Object detection (who's where, what's moving)
+    - Pose estimation (ergonomics, safety, efficiency)
+    - Activity tracking (what's happening, when, where)
+    - Anomaly detection (before problems become disasters)
+    - Context inference (understanding WHY, not just WHAT)
+    
+    The cameras don't judge. They help you SEE.
+    And seeing clearly is the first step to understanding.
+  
   description: |
     You enter LEELA MANUFACTURING INTELLIGENCE through the main doors.
-    The lobby is unexpectedly warm and welcoming for an industrial building —
-    polished concrete floors, exposed brick, and a reception desk staffed
-    by someone who seems genuinely happy to see you.
     
-    A large sign dominates the wall behind reception:
+    Unlike the shuttered ACME Surplus across the street, this place THRIVES.
+    Warm, welcoming, unexpectedly alive for an industrial building —
+    polished concrete, exposed brick, plants that seem to WATCH you.
+    (They're not watching. But the cameras are. Helpfully.)
     
-    ┌─────────────────────────────────────────────────────────┐
-    │                                                         │
-    │       LEELA MANUFACTURING INTELLIGENCE                  │
-    │       ════════════════════════════════                  │
-    │       "We manufacture the conditions                    │
-    │        for intelligence to emerge."                     │
-    │                                                         │
-    │       FLOOR DIRECTORY:                                  │
-    │       ─────────────────                                 │
-    │       Floor 1 .... Intake Department                    │
-    │       Floor 2 .... Factory Floor                      │
-    │       Floor 3 .... Shipping & Fulfillment               │
-    │       Basement ... R&D Laboratory                       │
-    │       Rooftop .... Garden & Observation                 │
-    │                                                         │
-    │       Mail Room ....... Communications Hub              │
-    │       Storage ......... Prototype Warehouse             │
-    │       Loading Docks ... Behind building                 │
-    │       Logistics Yard .. East side                       │
-    │                                                         │
-    └─────────────────────────────────────────────────────────┘
+    Above reception, a wall-sized display cycles through live feeds:
+    factory floors, loading docks, conveyor belts — all annotated with
+    glowing overlays that label, track, and predict. You realize:
+    THIS is what Leela sells. Not the factory. The SEEING.
     
-    A scale model of the facility sits under glass in the center of the lobby.
-    Tiny lights blink to show activity on each floor.
+    A brass plaque explains:
+    
+        LEELA MANUFACTURING INTELLIGENCE
+        ================================
+
+        "We don't make products. We make INSIGHTS."
+        
+        This facility is a DEMONSTRATION.
+        Every camera here runs Leela vision.
+        Every conveyor is monitored for anomalies.
+        Every worker is protected by predictive safety.
+        
+        What you see here is what YOUR factory could see.
+        
+        FLOOR DIRECTORY:
+        ----------------
+        Floor 1 .... Intake (problems arrive)
+        Floor 2 .... Factory (where seeing happens)
+        Floor 3 .... Shipping (solutions depart)
+        Basement ... R&D (the Schema Mechanism)
+        Rooftop .... Garden (turtles, eventually)
+        
+        Unlike ACME, we actually USE our own products.
+        847 days since last paradox incident.
+    
+    A scale model of the facility sits under glass in the center.
+    Tiny cameras blink. Tiny overlays annotate tiny workers.
+    It's a demo of the demo. Recursive, like everything here.
     
   examine: |
-    THE LOBBY
+    THE LOBBY — Where Seeing Begins
     
     Reception Desk:
     Staffed by a friendly agent named "Welcome." (Yes, that's their name.)
-    Visitor badges available. Hard hats for floor tours.
-    A bowl of mints. A stack of pamphlets.
+    Above them, a live feed with Leela annotations:
+    "VISITOR detected. Probability: FRIENDLY. Offering: mints."
+    
+    The View Across the Street:
+    Through the front windows, you see ACME Surplus. Shuttered.
+    Boarded up. And there it is — THE PAINTED TUNNEL.
+    A camera (CAM-ACME-01) is pointed directly at it, 24/7.
+    A small monitor shows the feed: "TUNNEL WATCHER — Live"
+    
+    As you watch, a delivery truck approaches the painted wall...
+    and drives straight through. Like the wall isn't there.
+    A tourist approaches next... and bounces off. The wall is VERY there.
+    
+    "That's the difference," says Welcome. "Solutions that work for
+    insiders vs solutions that work for everyone."
+    
+    The Wall of Cameras:
+    A dozen live feeds from customer sites (anonymized).
+    Each shows Leela vision in action:
+    • Factory floor with worker pose estimation
+    • Loading dock with package tracking
+    • Conveyor belt with anomaly detection highlights
+    • Forklift zone with pedestrian safety alerts
+    • ACME tunnel (anomaly detection, pattern recognition)
     
     The Scale Model:
-    Under glass, a perfect miniature of Leela Manufacturing.
-    Tiny conveyor belts actually move. Tiny trucks load at tiny docks.
-    Tiny drones launch from a tiny rooftop. It's hypnotic.
-    Current activity shown by blinking lights:
-    • Floor 1: BUSY (yellow)
-    • Floor 2: VERY BUSY (red)
-    • Floor 3: ACTIVE (green)
-    • Basement: MYSTERIOUS (purple, pulsing)
+    Under glass, a perfect miniature of this facility.
+    But look closer — tiny CAMERAS on every surface.
+    Tiny overlays track tiny forklifts.
+    It's not just a model. It's a PROOF.
     
-    Waiting Area:
-    Comfortable chairs. Current newspapers (including The Daily Dungeon).
-    A coffee station. Plants that seem unusually healthy.
+    The Philosophy Wall:
+    Unlike ACME (across the street, shuttered, painted tunnel still visible from our windows),
+    Leela believes in:
+    • Reliability over cleverness
+    • Understanding over impressing
+    • Helping customers see their OWN factories
+    • Making intelligence emerge from observation
     
-    Walls:
-    • Company history timeline (Est. ???)
-    • Photos of major insights shipped
-    • "Employee of the Epoch" display
-    • Safety record: "847 days since last paradox incident"
+    "ACME sold products that broke.
+     Leela sells SIGHT that works."
+    
+  # What Leela actually does (not the fantasy)
+  reality_layer: |
+    WHAT THIS FACILITY REPRESENTS:
+    
+    In REALITY, Leela deploys vision systems to CUSTOMER factories.
+    The factory floors, logistics, shipping — those are the CUSTOMER'S.
+    Leela provides the CAMERAS, the MODELS, the INSIGHT.
+    
+    This fantasy facility is a poetic representation:
+    - Floor 1 (Intake) = Customer problems arriving
+    - Floor 2 (Factory) = Where Leela vision processes data
+    - Floor 3 (Shipping) = Solutions and insights delivered
+    - Basement (R&D) = Schema mechanism, causal learning
+    - Storage = Prototype skills ready to deploy
+    
+    Every camera in this building runs Leela software.
+    Every annotation you see is REAL Leela output.
+    The factory is a living demo of the product.
     
   # SimCity stats for the whole facility
   simcity:
     zone: "I (Industrial)"
     density: HIGH
-    pollution: ZERO
+    pollution: ZERO  # Clean tech!
     jobs: 200+
     land_value: "$$$"
+    across_street: "ACME Surplus (abandoned, painted tunnel, FSD casualties)"
+    camera_watching_acme: true  # CAM-ACME-01 monitors the tunnel 24/7
+    
+  skill_connections:
+    leela_ai: "../../../../../skills/leela-ai/"
+    manufacturing_intelligence: "../../../../../skills/manufacturing-intelligence/"
+    schema_mechanism: "../../../../../skills/schema-mechanism/"
+    coherence_engine: "../../../../../skills/coherence-engine/"
     
 exits:
     out:
       destination: ../w1/
       description: |
-        The front doors lead back out to Lane Neverending.
-        The Rusty Lantern is right next door to the east.
+        The front doors lead back to Lane Neverending.
+        To the east, The Rusty Lantern. To the west, the abandoned
+        ACME Surplus with its famous painted tunnel.
       aliases: [outside, street, lane, door, leave, north]
       
     floor1:
       destination: floor-1/
-      description: "Stairs and elevator to Floor 1 — Intake Department"
+      description: "Stairs to Floor 1 — Intake (where problems arrive)"
       aliases: [1, intake, up]
       
     floor2:
       destination: floor-2/
-      description: "Elevator to Floor 2 — Factory Floor"
+      description: "Elevator to Floor 2 — Factory (where seeing happens)"
       aliases: [2, factory]
       
     floor3:
       destination: floor-3/
-      description: "Elevator to Floor 3 — Shipping & Fulfillment"
+      description: "Elevator to Floor 3 — Shipping (solutions depart)"
       aliases: [3, shipping]
       
     basement:
       destination: basement/
       description: |
         Stairs down to the Basement — R&D Laboratory
-        A sign: "AUTHORIZED PERSONNEL ONLY (but we're flexible)"
+        A sign: "SCHEMA MECHANISM TESTING — Causal reasoning in progress"
       aliases: [down, rd, lab, research]
       
     rooftop:
       destination: rooftop/
-      description: "Elevator to the Rooftop Garden"
+      description: "Elevator to the Rooftop Garden — turtles, eventually"
       aliases: [roof, garden, up]
       
     mail:
       destination: mail-room/
       description: |
-        A door marked "MAIL ROOM" with a 📬 symbol. You can hear the
-        *thwoop* of pneumatic tubes and soft cooing of pigeons.
+        A door marked "MAIL ROOM" with a 📬 symbol. Pneumatic tubes
+        connect to The Rusty Lantern and beyond. Unlike ACME's
+        mail-order chaos, Leela's postal system actually WORKS.
       aliases: [mail, post, postal, letters]
       
     storage:
       destination: storage/
       description: |
-        A wide cargo door marked "STORAGE — PROTOTYPES".
-        Forklifts beep within. The smell of sawdust and metal.
+        A wide cargo door marked "PROTOTYPE STORAGE".
+        These aren't anvils that fall on you.
+        These are SKILLS ready to deploy.
       aliases: [storage, warehouse, prototypes, clone]
       
     loading:
       destination: loading-docks/
       description: |
-        A door marked "TO LOADING DOCKS" leads to the back of the building.
-        You can hear trucks and forklifts through the door.
+        The loading docks where PROBLEMS arrive and SOLUTIONS ship.
+        Every package tracked by Leela vision.
+        Every forklift annotated for safety.
       aliases: [docks, back, trucks, loading]
       
     logistics:
       destination: logistics/
       description: |
-        A side door leads to the Logistics Yard.
-        Rail siding, container yard, drone pads visible through the window.
+        The Logistics Center — nerve center for tracking everything.
+        Unlike ACME's "ship and pray," Leela knows WHERE things are.
       aliases: [yard, rail, containers, drones]
       
-  objects:
+objects:
     - reception-desk.yml
     - scale-model.yml
     - visitor-badges.yml
+    - camera-acme-01.yml  # 📹 The Tunnel Watcher — monitors ACME across the street
     
-  philosophy: |
+philosophy: |
+    THE LEELA WAY (The Anti-ACME)
+    =============================
+    
+    ACME sold products that didn't work and blamed the customer.
+    Leela helps customers see their OWN factories more clearly.
+    
+    ACME promised "it'll work this time!" (It never did.)
+    Leela promises "we'll help you understand what's happening."
+    
+    ACME was a solution looking for problems.
+    Leela is understanding looking for applications.
+    
     We don't believe intelligence is a product.
     We believe it's a PROCESS.
     
     We manufacture the CONDITIONS for intelligence to emerge:
-    - The right questions
-    - The right environment  
-    - The right collaborators
-    - The right amount of coffee
+    - The right cameras watching the right things
+    - The right models asking the right questions
+    - The right interfaces for humans to understand
+    - The right respect for customer data sovereignty
     
     And then we get out of the way.
+    
+    "Manufacturing Intelligence" means:
+    1. AI for manufacturing (industrial applications)
+    2. Building intelligence (constructionism)
+    3. Society of Mind (agents working together)
+    4. Seeing clearly (neural-symbolic vision)
+    5. Understanding why (causal reasoning)
+    6. Helping, not replacing (human agency)
+    
+    See: skills/manufacturing-intelligence/ for all seven readings.
+
+evangelism: |
+    WHAT LEELA DOES (for visitors who ask)
+    ======================================
+    
+    Q: What does Leela actually make?
+    A: We make factories SMARTER — without replacing the humans.
+    
+    Q: How?
+    A: Cameras + AI. We watch. We understand. We predict.
+       - "That forklift is about to hit that pedestrian" (before it happens)
+       - "That machine is wearing out" (before it breaks)
+       - "That worker is overextending" (before they get hurt)
+       - "That process is bottlenecking" (before production stops)
+    
+    Q: Isn't that creepy?
+    A: Only if you do it wrong. We believe in:
+       - Transparency (workers know what's being watched)
+       - Privacy (faces blur, data stays on-premise)
+       - Human agency (AI advises, humans decide)
+       - Customer sovereignty (your data, your factory, your control)
+    
+    Q: How is this different from ACME?
+    A: *gestures out the window at painted tunnel across the street*
+       ACME sold PRODUCTS that didn't work.
+       Leela sells UNDERSTANDING that does.
+       
+       ACME promised magic. Delivered catastrophe.
+       Leela promises insight. Delivers clarity.
+       
+       Also, we've never caused a single Tesla to drive into a wall.

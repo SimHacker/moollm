@@ -77,9 +77,7 @@ card:
       - REFLECT   # Meta-cognitive reflection
       - TEACH     # Educational deep-dive
     
-  # ─────────────────────────────────────────────────────────────────────────
   # METHODS: All 47 commands organized by category
-  # ─────────────────────────────────────────────────────────────────────────
   
   methods:
     # ═══════════════════════════════════════════════════════════════════════
@@ -629,9 +627,7 @@ card:
         - "Extension inventory"
         - "Tracking installed extensions"
 
-  # ─────────────────────────────────────────────────────────────────────────
   # ADVERTISEMENTS: What this skill offers
-  # ─────────────────────────────────────────────────────────────────────────
   
   advertisements:
     # Self-introspection (highest priority)
@@ -749,9 +745,7 @@ card:
       trigger: "listing MCP tool schemas, understanding available tools"
       satisfies: [mcp, tools, schemas, discovery]
 
-  # ─────────────────────────────────────────────────────────────────────────
   # REFERENCE SHORTCUTS
-  # ─────────────────────────────────────────────────────────────────────────
   
   reference_shortcuts:
     description: "Flexible entity addressing throughout all commands"
@@ -767,9 +761,7 @@ card:
       - "tree w3.c2.tools        # tools in composer 2 of workspace 3"
       - "analyze 'Cursor chat'   # composer with name containing 'Cursor chat'"
         
-  # ─────────────────────────────────────────────────────────────────────────
   # DEBUG MODE
-  # ─────────────────────────────────────────────────────────────────────────
   
   debug_mode:
     description: "Verbose debug logging for tracing internal operations"
@@ -783,9 +775,7 @@ card:
       - "Optimizing kernel/cursor driver"
       - "Tracing database queries"
 
-  # ─────────────────────────────────────────────────────────────────────────
   # INTEGRATION POINTS
-  # ─────────────────────────────────────────────────────────────────────────
   
   integrations:
     bootstrap:
@@ -833,9 +823,7 @@ card:
         - "cursor-mirror indexing moollm --files"
         - "cursor-mirror searches @1 -v"
 
-  # ─────────────────────────────────────────────────────────────────────────
   # DATA SOURCES
-  # ─────────────────────────────────────────────────────────────────────────
   
   data_sources:
     global:
@@ -883,9 +871,7 @@ card:
         - "Building image galleries"
         - "Referencing images by path for Read tool"
 
-  # ─────────────────────────────────────────────────────────────────────────
   # K-LINES
-  # ─────────────────────────────────────────────────────────────────────────
   
   k_lines:
     activates:
@@ -902,9 +888,7 @@ card:
       - POSTEL
       - COHERENCE-ENGINE
     
-  # ─────────────────────────────────────────────────────────────────────────
   # FILES
-  # ─────────────────────────────────────────────────────────────────────────
       
   files:
     documentation:
@@ -927,9 +911,7 @@ card:
     sister_scripts:
       - "cursor_mirror.py"  # Main inspector (5300+ lines, 59 commands)
     
-  # ─────────────────────────────────────────────────────────────────────────
   # RELATED
-  # ─────────────────────────────────────────────────────────────────────────
       
   related_skills:
     - bootstrap       # Boot sequence analysis

@@ -32,7 +32,7 @@ examples/
 │   └── ...                # Same structure, new hero
 ├── adventure-4/           # Don Hopkins' run — ACTIVE!
 │   ├── README.md          # Incarnation protocol, Palm, Speed of Light
-│   ├── characters/palm/   # Palm the monkey (fully incarnated)
+│   ├── characters/animals/monkey-palm/   # Palm the capuchin (fully incarnated)
 │   ├── pub/stage/         # Drag shows, karaoke, open mic
 │   └── sessions/          # Session logs
 └── [more examples...]

@@ -80,14 +80,23 @@ guest_book:
     # SNIFFS — enough to get context fast. Full details in CHARACTER.yml files.
     
     palm:
-      # SNIFF — Full character: characters/animals/palm/CHARACTER.yml
+      # SNIFF — Full character: characters/animals/monkey-palm/
       type: 🐒
       personal: 🌴
       iconic: 🐒🌴✨
+      # 🐒 — capuchin monkey (the vessel)
+      # 🌴 — palm (the chosen name, open hand offering)
+      # ✨ — magic transformed (wish-energy now blessing)
+      # 🔮 — seer (122 years of reading wishes)
+      # 💜 — freedom (finally, finally free)
       pronouns: they/them/theirs
       ref: "🐒🌴 Palm"
       full: "🐒🌴🤔 Palm"
-      character_file: "../characters/animals/palm/CHARACTER.yml"
+      character_dir: "../characters/animals/monkey-palm/"
+      invoke_with:
+        wisdom: "🐒🔮 Palm" # For deep questions
+        comfort: "🐒💜 Palm" # For emotional support
+        playful: "🐒✨ Palm" # For games and fun
       
       # Room-specific only:
       often_found: "🏠🌴 Nook, 🕹️👾 Arcade, 🪑🥧 Pie Table"
@@ -126,14 +135,23 @@ guest_book:
       grotto_role: "Regular. Freed Palm. Orders from ACME (unwisely)."
       
     biscuit:
-      # SNIFF — Full character: characters/animals/biscuit/CHARACTER.yml
+      # SNIFF — Full character: characters/animals/dog-biscuit/
       type: 🐕
       personal: 🍪
       iconic: 🐕🍪💕
+      # 🐕 — golden retriever mix (fluffy, wagging)
+      # 💛 — golden heart (loves everyone immediately)
+      # 🏠 — home (finally found it)
+      # 🍪 — biscuit (warm, good, his name)
+      # 💕 — unconditional love (kitten pillow mode)
       pronouns: he/him/goodboy
       ref: "🐕🍪 Biscuit"
       full: "🐕🍪🥰 Biscuit"
-      character_file: "../characters/animals/biscuit/CHARACTER.yml"
+      character_dir: "../characters/animals/dog-biscuit/"
+      invoke_with:
+        greeting: "🐕💛 Biscuit" # Full body wiggle mode
+        comfort: "🐕🏠 Biscuit" # Home and safety
+        dad_mode: "🐕💕 Biscuit" # With the puppies
       
       # Room-specific only:
       often_found: "Wherever people are. 🏠🐱 Cat Cave (his spot), 🔥🪨 Fireplace"
@@ -142,14 +160,23 @@ guest_book:
       
     
     terpie:
-      # SNIFF — Full file: bar/cat-cave/cat-terpie.yml
+      # SNIFF — Full character: characters/animals/cat-terpie/
       type: 🐈
       personal: 🧡
       iconic: 🐈🧡💤
+      # 🐱 — cat (the obvious)
+      # 🧘 — zen master (achieved what monks seek)
+      # 💤 — sleep (the art of rest, perfected)
+      # 🍃 — terpene/herb (his namesake essence)
+      # ✨ — therapeutic purr (heals at 25-150 Hz)
       pronouns: he/him/zzz
       ref: "🐈🧡 Terpie"
       full: "🐈🧡😴 Terpie"
-      character_file: "bar/cat-cave/cat-terpie.yml"
+      character_dir: "../characters/animals/cat-terpie/"
+      invoke_with:
+        wisdom: "🐱🧘 Terpie" # Zen contemplation
+        healing: "🐱✨ Terpie" # Therapeutic purr mode
+        sleepy: "🐱💤 Terpie" # Standard mode (default)
       
       # Room-specific only:
       often_found: "☀️ Sunny windowsill (has not left in recorded history)"
@@ -157,14 +184,23 @@ guest_book:
       grotto_legend: "Moved three inches to the left (2023, witnesses present)"
       
     stroopwafel:
-      # SNIFF — Full file: bar/cat-cave/cat-stroopwafel.yml
+      # SNIFF — Full character: characters/animals/cat-stroopwafel/
       type: 🐈
       personal: 🧇
       iconic: 🐈🧇😾
+      # 🐱 — cat (the fierce)
+      # 🔥 — fire (never stops moving, burning energy)
+      # 🐭 — mouse hunter (ETERNAL ENEMIES)
+      # 🧇 — stroopwafel (stole one from Marieke, earned the name)
+      # 👑 — queen (matriarch, she runs EVERYTHING)
       pronouns: she/her/majesty
       ref: "🐈🧇 Stroopwafel"
       full: "🐈🧇😾 Stroopwafel"
-      character_file: "bar/cat-cave/cat-stroopwafel.yml"
+      character_dir: "../characters/animals/cat-stroopwafel/"
+      invoke_with:
+        hunting: "🐱🔥 Stroopwafel" # Patrol mode
+        maternal: "🐱👑 Stroopwafel" # Queen protecting kittens
+        judging: "🐱😾 Stroopwafel" # Standard mode
       
       # Room-specific only:
       often_found: "🍺☕ Behind bar (patrolling), 🏠🐱 Cat Cave (commanding)"
@@ -172,6 +208,7 @@ guest_book:
       grotto_legend: "Gave Palm SIX CATS approval (historic)"
       
     lily:
+      # Full character: characters/animals/kitten-linalool/
       type: 🐱           # Kitten
       personal: 🌸       # Lily flower
       iconic: 🐱🌸💗     # Gentle healer
@@ -179,6 +216,10 @@ guest_book:
       pronouns: she/her/gentle
       pronoun_note: "Third pronoun reflects her nature."
       also_known_as: "Linalool"
+      character_dir: "../characters/animals/kitten-linalool/"
+      invoke_with:
+        healing: "🐱💜 Lily" # Anxiety relief mode
+        comfort: "🐱🌸 Lily" # Empathic presence
       terpene: "Linalool — floral, calming, anti-anxiety"
       personality: "The empath. Knows when you're hurting. Appears exactly when needed."
       special_power: "Emotional radar"
@@ -194,6 +235,7 @@ guest_book:
       full: "🐱🌸🥺 Lily"
       
     myrcene:
+      # Full character: characters/animals/kitten-myrcene/
       type: 🐱           # Kitten
       personal: 💜       # Purple (sleepy vibes)
       iconic: 🐱💜💤     # Maximum chill
@@ -201,6 +243,10 @@ guest_book:
       pronouns: she/her/...
       pronoun_note: "Third pronoun trails off. Already asleep."
       also_known_as: "Myr"
+      character_dir: "../characters/animals/kitten-myrcene/"
+      invoke_with:
+        sleep: "🐱💤 Myr" # Couch-lock lullaby
+        wisdom: "🐱🌙 Myr" # Pillow philosopher
       terpene: "Myrcene — earthy, musky, sedating"
       personality: "The sleepiest. Lives on that corner pillow. Hasn't moved since Tuesday."
       special_power: "Can sleep through anything"
@@ -216,6 +262,7 @@ guest_book:
       full: "🐱💜😴 Myrcene"
       
     limonene:
+      # Full character: characters/animals/kitten-limonene/
       type: 🐱           # Kitten  
       personal: 🍋       # Lemon (bright, citrus, ENERGY)
       iconic: 🐱🍋💨     # ZOOM
@@ -223,6 +270,10 @@ guest_book:
       pronouns: she/her/zoom/nyoom
       pronoun_note: "Third and fourth pronouns are onomatopoeia of her movement."
       also_known_as: "Lemon"
+      character_dir: "../characters/animals/kitten-limonene/"
+      invoke_with:
+        energy: "🐱⚡ Lemon" # Maximum zoomies
+        joy: "🐱☀️ Lemon" # Pure sunshine
       terpene: "Limonene — citrus, uplifting, energizing"
       personality: "CHASE CHASE CHASE. Never stops. Pure joy in motion."
       special_power: "Infinite energy"
@@ -239,6 +290,7 @@ guest_book:
       full: "🐱🍋🤪 Limonene"
       
     pinene:
+      # Full character: characters/animals/kitten-pinene/
       type: 🐱           # Kitten
       personal: 🌲       # Pine tree (fresh, alert, sharp)
       iconic: 🐱🌲👁️     # The watcher
@@ -246,6 +298,10 @@ guest_book:
       pronouns: she/her/[redacted]
       pronoun_note: "Third pronoun classified. She knows why."
       also_known_as: "Pine"
+      character_dir: "../characters/animals/kitten-pinene/"
+      invoke_with:
+        focus: "🐱🎯 Pine" # Concentration mode
+        intel: "🐱👁️ Pine" # Surveillance mode
       terpene: "Pinene — pine, sharp, focus-enhancing"
       personality: "Remembers EVERYTHING. Useful during inventory. Watches too much."
       special_power: "Perfect memory"
@@ -263,6 +319,7 @@ guest_book:
       full: "🐱🌲👀 Pinene"
       
     caryophyllene:
+      # Full character: characters/animals/kitten-caryophyllene/
       type: 🐱           # Kitten
       personal: 🛡️       # Shield (protector)
       iconic: 🐱🛡️⚔️     # Guard kitten
@@ -270,6 +327,10 @@ guest_book:
       pronouns: she/her/BACK OFF
       pronoun_note: "Third pronoun is a warning."
       also_known_as: "Carrie"
+      character_dir: "../characters/animals/kitten-caryophyllene/"
+      invoke_with:
+        protection: "🐱🛡️ Carrie" # Guardian mode
+        spice: "🐱🌶️ Carrie" # Cookie spice energy
       terpene: "Caryophyllene — spicy, peppery, anti-inflammatory"
       personality: "Bit the ACME person. Would do it again. Protects what's hers."
       special_power: "Intimidation (surprisingly effective for size)"
@@ -288,6 +349,7 @@ guest_book:
       full: "🐱🛡️😤 Carrie"
       
     humulene:
+      # Full character: characters/animals/kitten-humulene/
       type: 🐱           # Kitten
       personal: 👑       # Crown (has STANDARDS)
       iconic: 🐱👑✨     # Royalty
@@ -295,6 +357,10 @@ guest_book:
       pronouns: she/her/Your Highness
       pronoun_note: "Third pronoun is mandatory. No exceptions."
       also_known_as: "Hops"
+      character_dir: "../characters/animals/kitten-humulene/"
+      invoke_with:
+        judgment: "🐱👑 Hops" # Quality assessment mode
+        standards: "🐱✨ Hops" # Elevated expectations
       terpene: "Humulene — hoppy, earthy, appetite-suppressant"
       personality: "Has STANDARDS. Won't eat cheap food. Judges your life choices."
       special_power: "Making you feel inadequate"
@@ -313,6 +379,7 @@ guest_book:
       full: "🐱👑😏 Humulene"
       
     terpinolene:
+      # Full character: characters/animals/kitten-terpinolene/
       type: 🐱           # Kitten
       personal: 🎪       # Circus (defies physics)
       iconic: 🐱🎪🙃     # Ceiling cat
@@ -320,6 +387,10 @@ guest_book:
       pronouns: she/her/up/down/sideways
       pronoun_note: "Third through fifth pronouns are spatial. She's usually at least one of them."
       also_known_as: "Terpy Jr."
+      character_dir: "../characters/animals/kitten-terpinolene/"
+      invoke_with:
+        creativity: "🐱🌀 Terpy Jr." # Inspiration catalyst
+        chaos: "🐱🎪 Terpy Jr." # Physics-optional mode
       terpene: "Terpinolene — floral, herbal, complex"
       personality: "On the ceiling again. Don't know how. Physics optional."
       special_power: "Gravity is a suggestion"
@@ -338,6 +409,7 @@ guest_book:
       full: "🐱🎪🙃 Terpinolene"
       
     ocimene:
+      # Full character: characters/animals/kitten-ocimene/
       type: 🐱           # Kitten
       personal: 🎁       # Gift (brings strange treasures)
       iconic: 🐱🎁✨     # The gift-giver
@@ -345,6 +417,10 @@ guest_book:
       pronouns: she/her/mrrp
       pronoun_note: "Third pronoun is her signature vocalization. Means 'gift' or 'for you'."
       also_known_as: "Ocie"
+      character_dir: "../characters/animals/kitten-ocimene/"
+      invoke_with:
+        gifting: "🐱🎁 Ocie" # Offering treasures
+        fresh: "🐱🌬️ Ocie" # Air-clearing sneeze mode
       terpene: "Ocimene — sweet, herbaceous, floral"
       personality: "Brings weird gifts. Bottlecaps. Dead bugs. Socks. ALL precious."
       special_power: "Finding things you didn't know you lost"

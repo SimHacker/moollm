@@ -16,7 +16,7 @@ The infinite typewriters hum in harmony — Don's gift, Dasher-inspired navigati
 
 ---
 
-## 🦧 Summonable Familiars
+## 🐒 Summonable Familiars
 
 | Familiar | Invocation | Tradition |
 |----------|------------|-----------|
@@ -43,7 +43,7 @@ The infinite typewriters hum in harmony — Don's gift, Dasher-inspired navigati
 
 | Document | Description |
 |----------|-------------|
-| [Palm on Being Palm](palm-on-being-palm.md) | Philosophical reflections on orangutan consciousness |
+| [Palm on Being Palm](palm-on-being-palm.md) | Philosophical reflections on capuchin consciousness |
 | [Tribute to Tognazzini](tribute-to-tognazzini.md) | On interface design and the human-computer connection |
 
 ---

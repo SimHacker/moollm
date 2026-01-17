@@ -15,10 +15,10 @@ room:
     
     ```yaml
     # MOOLLM HOTEL — ROOM DIRECTORY
-    room_1: Constructionist Suite    # Papert, inspection, learning by doing
+    room_1: Constructionist Suite    # Papert, Logo Turtle, build to learn
     room_2: Society Suite            # Minsky, agents, K-lines
     room_3: Navigator's Suite        # Introspection, cursor-mirror
-    room_4: Garden Suite + LLOOOOMM  # Rocky lives here now, plants spoke to them
+    room_4: Garden Conservatory      # Rocky, YAML Jazz orchids, LLOOOOMM
     room_5: Speed of Light Suite     # Many turns, one call
     room_6: YAML Jazz Suite          # Structured data with soul
     room_7: Bootstrap Suite          # Cold start, probing
@@ -45,11 +45,11 @@ room:
       description: "Up to the Rooftop Terrace — stargazing and the LLOOOOMM Constellation"
       aliases: [rooftop, stars, observatory, telescope, constellation, stargazing, sky, terrace]
       
-    # Rooms 1-8 arranged clockwise from north
+    # Rooms 1-8 arranged clockwise
     n:
       destination: room-1/
-      description: "Room 1 — The Constructionist Suite (Papert)"
-      aliases: [1, north, constructionist, papert, turtle]
+      description: "Room 1 — The Constructionist Suite (Papert, Logo Turtle)"
+      aliases: [1, north, constructionist, papert, turtle, logo, building]
       
     ne:
       destination: room-2/
@@ -63,8 +63,8 @@ room:
       
     se:
       destination: room-4/
-      description: "Room 4 — The Garden Suite (Play-Learn-Lift)"
-      aliases: [4, southeast, garden, play, learn, lift]
+      description: "Room 4 — The Garden Conservatory (Rocky + Turtle + YAML Jazz)"
+      aliases: [4, southeast, garden, conservatory, rocky, turtle, papert]
       
     s:
       destination: room-5/
@@ -87,10 +87,9 @@ room:
       aliases: [8, northwest, incarnation, soul, character]
       
   ideal_guests:
-    constructionist: "Learns by building inspectable artifacts"
     society: "Thinks in systems of interacting agents"
     navigator: "Wants to understand their own cognition"
-    garden: "Iterates through play, learn, lift cycles (+ Rocky's wisdom)"
+    garden: "Cultivates patience, constructs by doing, converses with Rocky and Theo"
     speed: "Simulates many turns in one context window"
     jazz: "Appreciates structured data with meaning"
     bootstrap: "Comfortable with cold starts and probing"

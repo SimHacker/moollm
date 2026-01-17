@@ -116,7 +116,7 @@ character:
   # LLM + reader imagination fills eight motive bars
 ```
 
-See: [Palm's SIMS-TRAITS.yml](../../examples/adventure-4/characters/animals/palm/SIMS-TRAITS.yml) -- twelve traits with semantic annotations, richer than any numeric vector.
+See: [Palm's CHARACTER.yml](../../examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml) -- traits integrated into soul file with semantic annotations, richer than any numeric vector.
 
 ### 2. Archetypal Names Over Custom Frameworks
 

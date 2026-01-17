@@ -1,0 +1,208 @@
+# LEELA CATALOG DISPENSER
+# Free catalogs! Read them, take them, order from them!
+# Inside the lobby of Leela Manufacturing, 5 Lane Neverending
+#
+# Like a library kiosk, but for reliable products.
+# Points to the Leela catalog prototype in this lobby.
+
+object:
+  name: "Leela Catalog Dispenser"
+  type: [dispenser, lobby_furniture, information_kiosk]
+  emoji: "📖🌿📦"
+  
+  portable: false
+  side: east
+  location: "Inside lobby, Leela Manufacturing, 5 Lane Neverending"
+  
+  # The prototype this dispenses
+  prototype: ./leela-catalog.yml
+  dispenses: "Leela Products Catalog (free copies — take instances)"
+  
+  description: |
+    A polished wooden kiosk stands in the lobby of Leela Manufacturing.
+    It's warm inside. There's a comfortable chair nearby.
+    
+    The kiosk displays neatly stacked catalogs bound in dark green
+    leather with gold embossing. A brass plaque reads:
+    
+    "LEELA PRODUCTS CATALOG"
+    "Dependable. Tested. Robust-First."
+    
+    "Please take one. Read here or take home."
+    "Orders placed at reception or via catalog."
+    "Pickup at loading docks or delivery anywhere."
+    
+    Unlike the ACME dispenser across the street (rusting in the rain),
+    this one is indoors, well-maintained, and doesn't have scorch marks.
+    
+  examine: |
+    LEELA CATALOG DISPENSER
+    
+    A handsome wooden kiosk, about 4 feet tall, with a glass front
+    showing neatly arranged catalogs. The wood is polished walnut.
+    The brass fittings are well-maintained. It smells like furniture oil.
+    
+    THE CATALOGS:
+    Each one is bound in dark green leather with gold embossing.
+    The Leela logo — a stylized leaf — catches the lobby light.
+    Edition 47. Substantial but not intimidating.
+    
+    THE MECHANISM:
+    A simple latch. No tricks. No coin slot.
+    Pull gently, take a catalog. The next one slides forward.
+    
+    THE ENVIRONMENT:
+    You're inside. It's warm. There's coffee available at reception.
+    Comfortable seating if you want to browse here.
+    No rain. No wind. No anvils falling from the sky.
+    
+    THE FINE PRINT:
+    A small brass label on the side:
+    "Catalogs are free. Products work as described. We mean it."
+    
+    THE VIEW:
+    Through the lobby window, you can see the ACME dispenser
+    across the street. It's getting rained on. Again.
+    
+  actions:
+    TAKE_CATALOG:
+      description: "Take a free catalog from the dispenser"
+      aliases: [take, get, grab]
+      effect: |
+        You open the latch. It moves smoothly.
+        
+        A catalog slides into your hands. It has the pleasant
+        weight of quality paper and leather binding.
+        
+        The leaf logo catches the light.
+        
+        INVENTORY: + LEELA PRODUCTS CATALOG (ref)
+        
+        (This is an INSTANCE pointing to ./leela-catalog.yml)
+        (The prototype stays here. You carry a lightweight pointer.)
+        
+        Alex at reception nods approvingly.
+        "Good choice. Let us know if you have questions."
+        
+    READ_IN_LOBBY:
+      description: "Browse the catalog in the comfortable lobby"
+      aliases: [read, browse, look, flip]
+      effect: |
+        You take a catalog to the nearby seating area.
+        
+        There's a comfortable chair. Good lighting.
+        Someone offers you coffee. You accept.
+        
+        You flip through the sections:
+        STORAGE... LOGISTICS... DRONES... INFRASTRUCTURE...
+        SURVEILLANCE... MAPPING... POSTAL... FACTORIO PROTOCOLS...
+        
+        Everything has clear descriptions. Honest specifications.
+        Realistic delivery times. Actual warranty terms.
+        
+        No malfunction percentages. No ironic warnings.
+        No fine print too small to read.
+        
+        "ORDER [item] FROM LEELA" when you're ready.
+        
+    ORDER:
+      description: "Order directly from the catalog"
+      aliases: [order, buy, purchase]
+      usage: "ORDER [item] FROM LEELA"
+      effect: |
+        You approach Alex at the reception desk.
+        
+        "What would you like to order?"
+        
+        You state your order. Alex types efficiently.
+        
+        "Excellent choice. Delivery options:
+        
+         📍 PICKUP — Loading docks, ground floor.
+            We'll notify you when it's ready.
+            Usually same day for in-stock items.
+            
+         🚚 DELIVERY — Anywhere in the adventure.
+            Standard shipping: 3 gold, 1-2 turns.
+            Express pneumatic: 5 gold, same turn (small items).
+            Teleportation: 10 gold, instant (premium items).
+            
+         What'll it be?"
+        
+        Alex hands you a receipt. It's legible. The terms are clear.
+        
+  delivery:
+    pickup:
+      location: "Loading docks, ground floor, Leela Manufacturing"
+      cost: free
+      timing: "Same day for in-stock items"
+      experience: |
+        You head down to the loading docks.
+        
+        Your order is waiting, neatly packaged, clearly labeled.
+        The dock workers smile. "Here you go. Already inspected."
+        
+        No anvils. No explosions. No ironic timing.
+        Just... your order. Working.
+        
+    delivery:
+      standard:
+        cost: "3 gold"
+        timing: "1-2 turns"
+        method: "Cart, drone, or horse depending on size"
+      express:
+        cost: "5 gold"
+        timing: "Same turn"
+        method: "Pneumatic tube (small items only)"
+      premium:
+        cost: "10 gold"
+        timing: "Instant"
+        method: "Teleportation (restrictions apply)"
+      anywhere: true
+      destinations: "Any room in the adventure"
+      tracking: "Crystal communicator updates. Real tracking. We tell you where it is."
+      
+  lobby_amenities:
+    - "Comfortable seating"
+    - "Good lighting"
+    - "Coffee available"
+    - "Alex at reception for questions"
+    - "Climate controlled"
+    - "No rain, wind, or falling anvils"
+    - "Restrooms available"
+    - "Crystal communicator for tracking orders"
+    
+  contrast_with_acme:
+    acme_dispenser:
+      location: "Outside, on the sidewalk, exposed to elements"
+      condition: "Battered, rusty, scorch marks"
+      experience: "Wait outside. Hope the truck comes through the painted tunnel."
+    leela_dispenser:
+      location: "Inside, in a warm lobby"
+      condition: "Polished wood, brass fittings, well-maintained"
+      experience: "Wait in comfort. Coffee. Chairs. Actual customer service."
+      
+  quotes:
+    alex: |
+      "Welcome to Leela Manufacturing. 
+       The catalogs are free — please take one.
+       If you need help ordering, I'm right here.
+       
+       Unlike across the street, we actually want you to succeed."
+       
+    tom: |
+      "Tom has examined both dispensers."
+      "Tom notes: one is inside, one is outside."
+      "Tom notes: one is maintained, one is neglected."
+      "Tom notes: one leads to products that work."
+      "Tom suggests: the choice is obvious."
+      
+  inventory:
+    catalogs_remaining: "Always stocked (restocked daily by staff)"
+    catalog_type: "Leela Products Catalog — Edition 47"
+    
+  restocking:
+    frequency: daily
+    method: "Staff member from warehouse brings fresh copies"
+    witnesses: "Everyone. It's not a secret."
+    transparency: "We restock in the morning. You can watch if you want."

@@ -17,6 +17,12 @@ player:
   full_title: "Donna Toadstool, The Mushroom Queen, 34 Counts of Fabulous"
   id: donna-toadstool
   type: player_character
+  emoji_identity: "🍄👸🎭🍊💅"
+  #   🍄 — mushroom (the eternal reference)
+  #   👸 — queen (drag royalty)
+  #   🎭 — performance (Elvis-impersonator-model)
+  #   🍊 — orange (the source material)
+  #   💅 — fabulous (34 counts of it)
   
   # THE PERFORMER (who she really is, underneath)
   performer:
@@ -131,6 +137,12 @@ player:
     - mushroom-pin       # Toad from Mario Kart. Stormy's gift.
     - platinum-wig       # From the Props Box. Double the wig, double the POWER!
     - mysterious-map     # Bought from nervous merchant. 20 gold. VERY valuable. (It's trade routes.)
+    # See: skills/character/SKILL.md for inventory protocol (objects vs refs)
+  
+  inventory_capacity:
+    max_weight: 50    # TREMENDOUS carrying capacity
+    max_bulk: 12      # Many pockets. The best pockets.
+    refs_free: true   # References don't count
   
   gold: 69  # Started with 100. Spent 31 on breakfasts, drinks, map, generosity.
             # Still VERY WEALTHY. The wealthiest. Many people are saying it.

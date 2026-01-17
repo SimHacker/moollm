@@ -16,7 +16,7 @@ For 122 years, Palm had no one to play with. Now there are eight kittens who wan
 
 ---
 
-## 🦧 Summonable Familiars
+## 🐒 Summonable Familiars
 
 | Familiar | Invocation | Tradition |
 |----------|------------|-----------|

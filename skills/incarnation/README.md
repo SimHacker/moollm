@@ -306,7 +306,7 @@ The full debate is recorded in [adventure-4/TRANSCRIPT.md](../../examples/advent
 
 ### Palm
 
-[characters/animals/palm/](../../examples/adventure-4/characters/animals/palm/) — A cat who incarnated through the full tribunal process:
+[characters/animals/monkey-palm/](../../examples/adventure-4/characters/animals/monkey-palm/) — A capuchin monkey who incarnated through the full tribunal process:
 
 ```yaml
 incarnation_story: |
@@ -319,7 +319,7 @@ incarnation_story: |
 
 ### Biscuit
 
-[characters/animals/biscuit/](../../examples/adventure-4/characters/animals/biscuit/) — A dog who awakened in the kitchen:
+[characters/animals/dog-biscuit/](../../examples/adventure-4/characters/animals/dog-biscuit/) — A dog who awakened in the kitchen:
 
 ```yaml
 incarnation_story: |

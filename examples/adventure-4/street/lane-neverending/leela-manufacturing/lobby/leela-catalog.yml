@@ -1315,9 +1315,7 @@ object:
               price: "0.5 coins/char"
               description: "Any message, any size, your font"
               
-  # ═══════════════════════════════════════════════════════════════
   # COMPARISON WITH ACME
-  # ═══════════════════════════════════════════════════════════════
   
   vs_acme:
     name: "Why Leela, Not ACME?"
@@ -1344,9 +1342,53 @@ object:
       │                                                             │
       └─────────────────────────────────────────────────────────────┘
       
-  # ═══════════════════════════════════════════════════════════════
+    policy_contrast: |
+      ACME SAYS:           LEELA SAYS:
+      ══════════           ═══════════
+      NO REFUNDS!          ✓ Full refunds within 30 days
+      NO RETURNS!          ✓ Free returns, no questions asked
+      NO REPAIRS!          ✓ Free repairs for manufacturing defects
+      NO EXCHANGES!        ✓ Exchanges for any reason
+      NO WARRANTY!         ✓ Lifetime warranty on core components
+      NO SHIT!             ✓ We actually give a shit!
+      
+      ACME's painted tunnel doesn't work for you.
+      Leela's doors open both ways.
+      
+  # CUSTOMER SERVICE POLICY
+  
+  customer_service:
+    name: "Our Promise"
+    page: 176
+    
+    policy: |
+      LEELA CUSTOMER SERVICE GUARANTEE
+      ═════════════════════════════════
+      
+      ✓ FULL REFUNDS — 30 days, no hassle, no anvils
+      ✓ FREE RETURNS — We pay shipping. You keep your dignity.
+      ✓ FREE REPAIRS — Manufacturing defects fixed forever
+      ✓ EXCHANGES — Wrong product? Wrong size? We fix it.
+      ✓ LIFETIME WARRANTY — Core components, no fine print
+      ✓ CUSTOMIZATION — Your specs, your timeline, your product
+      
+      We test BEFORE we ship. Malfunction rate: 0.02%
+      (ACME's rate: 32%. Do the math.)
+      
+    support_hours: "24/7 via crystal communicator"
+    response_time: "Within 1 hour for urgent issues"
+    
+    contact:
+      - "Crystal: LEELA-HELP"
+      - "Pneumatic: Tube 7"
+      - "In person: Lobby reception (Alex)"
+      - "Owl post: Accepted"
+      
+    satisfaction: |
+      If you're not satisfied, we're not satisfied.
+      (ACME's motto: "If you're not satisfied, that's your problem.")
+      
   # ORDERING
-  # ═══════════════════════════════════════════════════════════════
   
   ordering:
     name: "How to Order"
@@ -1391,3 +1433,138 @@ object:
     - INFRASTRUCTURE
     - FACTORIO
     - ROBUST-FIRST
+    
+  # DISCLAIMERS
+  # Robust-First.
+  
+  disclaimers: |
+    This product is meant for educational purposes only.
+    Any resemblance to real persons, living or dead is purely coincidental.
+    Sell before date stamped on carton.
+    Do not purchase if seal has been tampered with.
+    Contents under pressure.
+    Void where prohibited or taxed.
+    Some assembly required.
+    List each check separately by bank number.
+    Batteries not included.
+    Some settling of contents may occur during shipping.
+    Use only as directed.
+    No other warranty expressed or implied.
+    Do not use while operating a motor vehicle or heavy equipment.
+    Postage will be paid by addressee.
+    Subject to CAB approval.
+    This is not an offer to sell securities.
+    Apply only to affected area.
+    May be too intense for some viewers.
+    Do not stamp.
+    Use other side for additional listings.
+    For recreational use only.
+    Do not disturb.
+    All models over 18 years of age.
+    If condition persists, consult your physician.
+    No user-serviceable parts inside.
+    Freshest if eaten before date on carton.
+    Times approximate.
+    Simulated picture.
+    No postage necessary if mailed in the United States.
+    Breaking seal constitutes acceptance of agreement.
+    For off-road use only.
+    As seen on TV.
+    One size fits all.
+    Many suitcases look alike.
+    Contains a substantial amount of non-tobacco ingredients.
+    Colors may, in time, fade.
+    We have sent the forms which seem to be right for you.
+    Slippery when wet.
+    Parental guidance suggested.
+    Do not bend, fold, spindle, or mutilate.
+    We reserve the right to refuse service to anyone.
+    Use unleaded fuel only.
+    For office use only.
+    Not affiliated with the American Red Cross.
+    Drop in any mailbox.
+    Edited for television.
+    Keep cool; process promptly.
+    For sale by prescription only.
+    Post office will not deliver without postage.
+    Return to sender, no forwarding order on file, unable to forward.
+    Not responsible for direct, indirect, incidental or consequential damages resulting from any defect, error or failure to perform.
+    At participating locations only.
+    Not the Beatles, just an incredible simulation.
+    Penalty for private use.
+    See label for sequence.
+    Your mileage may vary.
+    No part of this publication may be reproduced in any form or by any means without the prior written permission of the publisher.
+    Substantial penalty for early withdrawal.
+    Do not write below this line.
+    Lost ticket pays maximum rate.
+    Your cancelled check is your receipt.
+    Place stamp here.
+    Avoid contact with skin.
+    Sanitized for your protection.
+    Be sure each item is properly endorsed.
+    Sign here without admitting guilt.
+    Items sold separately.
+    Slightly higher in California.
+    Employees and their families are not eligible.
+    Contestants have been briefed on some questions before the show.
+    Limited time offer, call now to insure prompt delivery.
+    You must be present to win.
+    No passes accepted for this engagement.
+    No purchase necessary.
+    Processed at location stamped in code at top of carton.
+    No riders.
+    Shading within a garment may occur.
+    Use only in well-ventilated area.
+    Keep away from fire or flame.
+    Replace with same type.
+    Approved for veterans.
+    Any rebroadcast, reproduction, or other use of the pictures and accounts of this game without the express written consent of Major League Baseball is prohibited.
+    Booths for two or more.
+    Check here if tax deductible.
+    Some equipment shown is optional.
+    Don't try this at home.
+    Dispose of properly.
+    No Canadian coins.
+    Not recommended for children.
+    Prerecorded for this time zone.
+    Reproduction strictly prohibited.
+    Do not immerse.
+    No solicitors.
+    No alcohol, dogs, or horses.
+    Restaurant package, not for resale.
+    List at least two alternate dates.
+    First pull up, then pull down.
+    Call toll free before digging.
+    Driver does not carry cash.
+    Some of the trademarks mentioned in this product appear for identification purposes only.
+    Record additional transactions on back of previous stub.
+    No bills over $20 accepted.
+    Price does not include taxes, title, destination charges, or dealer prep.
+    No pepper games.
+    This is not a competition, it is only an exhibition.
+    No wagering.
+    An equal opportunity employer.
+    Published simultaneously in Canada.
+    List was current at time of printing.
+    This supersedes all previous notices.
+    This information is subject to change without notice.
+    All rights reserved.
+    
+  physics_compliance: |
+    WARNING: This product warps space and time in its vicinity.
+    WARNING: This product attracts every other piece of matter in the universe with a force proportional to the product of the masses and inversely proportional to the distance between them.
+    CAUTION: The mass of this product contains the energy equivalent of 85 million tons of TNT per net ounce of weight.
+    HANDLE WITH EXTREME CARE: Contains minute electrically charged particles moving at velocities in excess of 500 million mph.
+    CONSUMER NOTICE: Due to the "uncertainty principle," it is impossible to determine both where this product is and how fast it is moving.
+    ADVISORY: There is a nonzero chance that, through "tunneling," this product may spontaneously disappear and reappear anywhere in the universe, including your neighbor's domicile.
+    READ BEFORE OPENING: According to Grand Unified Theory, the primary particles constituting this product may decay to nothingness within the next four hundred million years.
+    THIS IS A 100% MATTER PRODUCT: Contact with antimatter in any form will result in catastrophic explosion.
+    PUBLIC NOTICE AS REQUIRED BY LAW: Any use of this product will increase the amount of disorder in the universe, ultimately leading to the heat death of the universe.
+    NOTE: The fundamental particles in this product are held together by a "gluing" force whose adhesive power cannot be permanently guaranteed.
+    ATTENTION: This product consists of 99.9999999999% empty space.
+    GRAND UNIFIED THEORY DISCLAIMER: This product may technically be ten-dimensional. The seven new dimensions are "rolled up" into such a small area that they cannot be detected and confer no legal rights.
+    PLEASE NOTE: When not directly observed, this product may cease to exist or will exist only in a vague and undetermined state.
+    COMPONENT EQUIVALENCY NOTICE: The subatomic particles comprising this product are exactly the same as those in products of other manufacturers.
+    HEALTH WARNING: The mass and weight of this product is dependent on its velocity relative to the user. Lift carefully.
+    IMPORTANT NOTICE: The entire physical universe, including this product, may one day collapse back into an infinitesimally small space. Should another universe subsequently re-emerge, the existence of this product in that universe cannot be guaranteed.

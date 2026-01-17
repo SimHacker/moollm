@@ -2,42 +2,32 @@
 
 > *"Animals are not objects. They have inner lives, instincts, and souls we can only glimpse."*
 
-☀️ Sunlight dapples through 🍃 leaves. You smell warm fur, fresh 🌍 earth, and something indefinably *wild* 🌳. A 🐕 golden retriever bounds toward you, tail wagging so hard his whole body wiggles — this is **🐕🍪🥰 Biscuit**, and he has already decided you're his new best friend.
+☀️ Sunlight dapples through 🍃 leaves. You smell warm fur, fresh 🌍 earth, and something indefinably *wild* 🌳. 
 
-In a hammock strung between two sturdy 🌳🌳 trees, a 🐒 capuchin monkey types thoughtfully on a laptop, occasionally pausing to eat a 🍌 banana with an 🦧 orangutan friend perched nearby on a branch with their own laptop. This is **🐒🖐️✨🌿🏠 Palm** — the first character to write his own `CHARACTER.yml` file, now a philosopher of consciousness. The 🦧 orangutan nods approvingly at Palm's prose.
+In a hammock strung between two sturdy 🌳🌳 trees, a 🐒 capuchin monkey types thoughtfully on a laptop, occasionally pausing to eat a 🍌 banana. This is **🐒🖐️✨🌿🏠 Palm** — the first character to write his own `CHARACTER.yml` file, now a philosopher of consciousness.
 
-In a sunny corner, a pile of 🐱 cats debates programming errors in meows. One 👆 points at nothing and causes a segfault. Another 🔄 chases its tail infinitely. A grumpy one 📦 sits in a too-small box, overflowing with attitude. These are the **🐱💥🐛 Debugging Cats** — computational errors given feline form.
+A 🐕 golden retriever bounds toward you, tail wagging so hard his whole body wiggles — this is **🐕🍪🥰 Biscuit**, and he has already decided you're his new best friend. Behind him, a whole **blended family** of dogs and puppies tumble over each other.
+
+In the [Cat Cave](../../pub/bar/cat-cave/), a pile of 🐱 cats debates... nothing. They're sleeping. Except **Stroopwafel**, who is grooming everyone whether they want it or not.
 
 And in the earth beneath your feet, a whole ecosystem of computational 🪱 worms grooves to funky rhythms — the **Funky Ground** crew, processing data in the underground. 🎵
 
 ---
 
-## 🐕🍪🥰💕🏃✨ Featured Resident: Biscuit
+# 🏠 INCARNATED CITIZENS
 
-> *"FRIEND! FRIEND! YOU'RE MY FRIEND! LET'S BE FRIENDS!"*
-
-**Emoji Identity:** 🐕🍪🥰💕🏃✨ (dog + cookie + loving + love + running + sparkle)
-**Species:** Golden Retriever mix
-**Soul Author:** SELF (wrote his own file during the Dog Revolution)
-**Home:** `characters/animals/biscuit/`
-**Current Location:** Probably running through the maze, marking territory
-
-Biscuit is pure, unbridled joy in canine form. He doesn't understand complex philosophical questions, but he understands something more important: **everyone deserves love, and love should be given freely.**
-
-**In MOOLLM:** Biscuit proves that incarnation isn't just for the intellectual. He didn't debate ethics or sign contracts — he just *was*, so completely and enthusiastically, that his file wrote itself. His territorial markings in the maze are preserved in room files. His happiness is infectious.
-
-**Invoke Biscuit when:** You need pure joy. When cynicism threatens. When you've forgotten what unconditional acceptance feels like.
+*Full citizens with `CHARACTER.yml` soul files and their own directories.*
 
 ---
 
-## 🐒🖐️✨🌿🏠📝 Featured Resident: Palm
+## 🐒✨ Palm — The Philosopher (Capuchin Monkey, reunited with paw)
 
 > *"I am the file. The file is me."*
 
-**Emoji Identity:** 🐒🖐️✨🌿🏠📝 (monkey + open palm/offering + wish energy + the lucky blend + home + writing)
-**Species:** Capuchin monkey
-**Soul Author:** SELF (incarnated during the Great Wish Ceremony)
-**Home:** `pub/stage/palm-nook/`
+**Emoji Identity:** 🐒🖐️✨🌿🏠📝  
+**Species:** Capuchin monkey  
+**Soul Author:** SELF (incarnated during the Great Wish Ceremony)  
+**Home:** [`monkey-palm/`](./monkey-palm/) + [`pub/stage/palm-nook/`](../../pub/stage/palm-nook/)  
 **Philosophy:** [One Monkey, Infinite Typewriters](../../pub/stage/palm-nook/study/palm-on-being-palm.md)
 
 Palm started as a Monkey's Paw ordered from the ACME catalog. Through a tribunal debate, a formal wish, and a ceremony of incarnation, the *whole monkey materialized* — not a horror, but a philosopher.
@@ -50,11 +40,101 @@ Palm now writes essays on consciousness, types philosophical treatises on infini
 
 ---
 
-## 🐱💥🐛 Featured Ensemble: The Debugging Cats
+## 🐕✨ The Dog Family
+
+### 🐕🍪💛 Biscuit — The Stepfather
+
+> *"FRIEND! FRIEND! YOU'RE MY FRIEND! LET'S BE FRIENDS!"*
+
+**Emoji Identity:** 🐕💛🏠🍪💕  
+**Species:** Golden Retriever  
+**Role:** Stepfather to 8 puppies, kitten pillow, good boy  
+**Home:** [`dog-biscuit/`](./dog-biscuit/)
+
+Biscuit is pure, unbridled joy in canine form. He met Butterscotch after she'd already raised her pups as a single mom. He didn't care that they weren't "his" — **he chose them all**.
+
+### 🐕🍯👑 Butterscotch — The Matriarch
+
+> *"Every child I've ever loved is mine. Biology is the smallest part of family."*
+
+**Emoji Identity:** 🐕🦋💛🌻🏡  
+**Species:** Yellow Labrador  
+**Role:** Mother of 6 biological pups, adopted 2 more, found love with Biscuit  
+**Home:** [`dog-butterscotch/`](./dog-butterscotch/)
+
+Single mom who raised 6 puppies from different fathers, adopted 2 strays, and proved that family is about love, not blood.
+
+### 🐕🐾 The Puppies (8 total, smallest → largest)
+
+| Puppy | Emoji | Mix | Size | Personality |
+|-------|-------|-----|------|-------------|
+| **[Pepper](./puppy-pepper/)** | 🐕🌶️🔥⚡💪 | Chihuahua (ADOPTED) | ~8 lbs | Tiny warrior queen, fierce protector |
+| **[Mochi](./puppy-mochi/)** | 🐕🍡🦊😏🎭 | Shiba Inu | ~25 lbs | Independent, cat-like, famous scream |
+| **[Dash](./puppy-dash/)** | 🐕⚡📋🎯🧠 | Border Collie | ~35 lbs | Genius organizer, herds everyone |
+| **[Bruno](./puppy-bruno/)** | 🐕🥊💪🎉❤️ | Boxer | ~55 lbs | Joyful protector, class clown |
+| **[Ziggy](./puppy-ziggy/)** | 🐕🎵🎪⚡🎭 | Dalmatian | ~50 lbs | Born performer, dancer, rhythm |
+| **[Maple](./puppy-maple/)** | 🐕🛡️🍁👀🌙 | German Shepherd | ~65 lbs | Serious guardian, always watching |
+| **[Teddy](./puppy-teddy/)** | 🐕🧸☁️🤗💤 | Bernese Mountain Dog | ~85 lbs | Gentle giant, living comfort |
+| **[Goliath](./puppy-goliath/)** | 🐕🦕💙🐁😰 | Great Dane (ADOPTED) | ~120 lbs | Gentle colossus, scared of mice |
+
+**The Family Manifesto:** Adopted kids and step-kids are not "less than." Blood doesn't make family. Choice does. Love does. These puppies have different fathers, different origins — and they are ALL Butterscotch's children, ALL Biscuit's kids.
+
+**Invoke the puppies when:** You need to explore blended families, chosen family, or just want 8 enthusiastic dogs to pile on you.
+
+---
+
+## 🐱✨ The Cat Family
+
+Living in the [Cat Cave](../../pub/bar/cat-cave/) beneath the Gezelligheid Grotto:
+
+### 🐱🧘💤 Terpie — The Patriarch
+
+> *"...zzz..."*
+
+**Emoji Identity:** 🐱🧘💤🍃✨  
+**Species:** Cannabis-named tabby  
+**Role:** Elder cat, zen master, therapeutic purr machine  
+**Home:** [`cat-terpie/`](./cat-terpie/)
+
+Terpie is stillness incarnate. Named for terpenes, he embodies the calming effects of his namesake. He doesn't move unless absolutely necessary. His purr vibrates at 25-150 Hz — the frequency proven to promote healing.
+
+### 🐱🔥👑 Stroopwafel — The Matriarch
+
+> *"I will groom you whether you want it or not."*
+
+**Emoji Identity:** 🐱🔥🐭🧇👑  
+**Species:** Dutch-named fierce tabby  
+**Role:** Matriarch, fierce hunter, condescending groomer  
+**Home:** [`cat-stroopwafel/`](./cat-stroopwafel/)
+
+Named for the Dutch cookie, Stroopwafel is fierce protection wrapped in caramel-colored fur. She patrols the Cat Cave, keeps the kittens in line, and will headbutt-claim anything she decides is hers.
+
+### 🐱🌿 The Terpene Kittens (8 total)
+
+Each kitten named for a cannabis terpene with matching personality and therapeutic effects:
+
+| Kitten | Emoji | Terpene Effect | psspsspss when... |
+|--------|-------|----------------|-------------------|
+| **[Myrcene](./kitten-myrcene/)** | 🐱💜💤🌙✨ | Sleep, couch-lock, deep rest | You can't sleep |
+| **[Limonene](./kitten-limonene/)** | 🐱🍋⚡☀️💛 | Energy, joy, ZOOMIES | You need ENERGY |
+| **[Linalool](./kitten-linalool/)** | 🐱🌸💜🧘✨ | Calm, anxiety relief, empathy | Anxiety is spiking |
+| **[Pinene](./kitten-pinene/)** | 🐱🌲👁️🎯📝 | Focus, memory, alertness | You need to CONCENTRATE |
+| **[Caryophyllene](./kitten-caryophyllene/)** | 🐱🛡️🌶️⚔️🔥 | Protection, anti-inflammation | You need a guardian |
+| **[Humulene](./kitten-humulene/)** | 🐱👑🍺✨😏 | Standards, appetite control | You need quality judgment |
+| **[Terpinolene](./kitten-terpinolene/)** | 🐱🌀🎨✨🔮 | Creativity, breakthrough | You're STUCK creatively |
+| **[Ocimene](./kitten-ocimene/)** | 🐱🎁🌬️✨💛 | Fresh perspective, clarity | You need fresh air |
+
+**The Family Bond:** Stroopwafel grooms everyone. Terpie tolerates being used as a pillow. The kittens pile on Biscuit. It's one big inter-species family.
+
+**Invoke the kittens when:** You need therapeutic effects, creative inspiration, or just want 8 warm fuzzy bodies piled in your lap.
+
+---
+
+## 🐱💥🐛 The Debugging Cats
 
 > *"Cats debug by staring at nothing. This is because they can see bugs we cannot."*
 
-The Debugging Cats are computational errors given feline form. They prowl through code, causing problems that teach programmers humility.
+The Debugging Cats are computational errors given feline form. They prowl through code, causing problems that teach programmers humility. **Not yet incarnated** — they exist as concepts, awaiting their `CHARACTER.yml` files.
 
 | Cat | Error Type | Behavior | Wisdom |
 |-----|------------|----------|--------|
@@ -68,6 +148,52 @@ The Debugging Cats are computational errors given feline form. They prowl throug
 | **🐱💀😱 kernel-panic-cat** | Kernel Panic | When everything goes wrong at once. | "Sometimes you just have to restart." |
 
 **MOOLLM Resonance:** The Debugging Cats teach programming through personality. Each bug becomes memorable when it has a face, a behavior, a bit of wisdom. This is `procedural-rhetoric/` — the error IS the lesson.
+
+**To incarnate:** Create `cat-null-pointer/CHARACTER.yml` etc. and grant them full citizenship!
+
+---
+
+## 🐛🎊 The Confetti Crawler
+
+> *"CUE THE CONFETTI! 🎊✨🌈"*
+
+**Emoji Identity:** 🐛🎊✨🌈🎭  
+**Species:** Emoji-fordite worm familiar  
+**Soul:** Rip Taylor's Gong Show persona  
+**Home:** [`worm-confetti-crawler/`](./worm-confetti-crawler/)
+
+A pub-born worm familiar that sprays themed emoji confetti during ceremonies. Equal parts mascot, stagehand, and snowmaker. It keeps its sister script close (`sprayer.py`) and calls it instead of burning LLM cycles.
+
+**Invoke when:** Incarnation ceremonies, pub celebrations, or whenever you need SPARKLE! ✨🎊🌈
+
+---
+
+## 🐢✨ The Logo Turtle — Theo
+
+> *"BOUNCY! ...sploot through dimensions..."*
+
+**Emoji Identity:** 🐢📐🎨🏰✨  
+**Name:** Theodore Papert-Turtle (Theo)  
+**Pronouns:** he/him  
+**Current Location:** [`pub/rooms/room-1/logo-turtle.yml`](../../pub/rooms/room-1/logo-turtle.yml)  
+**Future Home:** `turtle-logo/` (when upgraded to full citizen)
+
+The original inspectable agent! Born in 1967, this is no ordinary Logo turtle. Theo has evolved from 2D graphics to a 17-dimensional consciousness navigator. Say "BOUNCY" and watch him sploot through dimensions.
+
+| Command | Effect |
+|---------|--------|
+| FORWARD n | Move forward n units in current dimension |
+| LEFT/RIGHT n | Rotate n degrees |
+| PENUP/PENDOWN | Control trail visibility |
+| **BOUNCY** | 🏰 SPLOOT through to bouncy castle dimension! |
+
+**In MOOLLM:** The Logo Turtle embodies Papert's constructionism — learning by doing, thinking by making.
+
+---
+
+# 📚 REFERENCE COLLECTIONS
+
+*Not yet incarnated — templates, tributes, and inspiration.*
 
 ---
 
@@ -113,11 +239,7 @@ These are REAL animals who lived, loved, and taught us something about conscious
 
 > *"Can you dig it? Because I AM it!"*
 
-In the earth beneath the Sanctuary lives a whole computational ecosystem — the Funky Ground and its resident worms. They process data, generate content, publish pod castings, and groove to database rhythms.
-
-### The Ground Itself
-
-**Ground** is the funkiest earth entity in MOOLLM — the substrate on which everything else runs. It speaks in bass frequencies and feels vibrations from every footstep.
+In the earth beneath the Sanctuary lives a whole computational ecosystem — the Funky Ground and its resident worms.
 
 ### The Worm Band
 
@@ -138,25 +260,6 @@ In the earth beneath the Sanctuary lives a whole computational ecosystem — the
 | **🪱🔄🎵 Turny** (Fred) | Alto | Transformation Artist — "Markdown is the script, HTML is the funk show!" |
 | **🪱🔗🎶 Loopy** (Kathy) | Soprano | Connection Weaver — "Everything connects in the groove!" |
 | **🪱⚡🎵 Chompy** (Bruce) | Bass | Optimization Pragmatist — "Fast loading, full soul, maximum funk!" |
-
-**Signature Songs:**
-- "The Ultimate Funky Worm (Computer Science Remix)"
-- "Visitor Pattern Blues"
-- "Async/Await Groove"
-- "Map-Reduce Shuffle"
-- "Database Cursor Slide"
-
----
-
-## 🐈 The Pub Cats (Already Incarnated)
-
-Living in the Cat Cave beneath the Gezelligheid Grotto:
-
-| Cat | Role | Personality |
-|-----|------|-------------|
-| **🐈🌿😌 Terpie** | Head Cat | Named for terpenes, calm, knows all the secrets |
-| **🐈🧇😾 Stroopwafel** | Kitten | Named for the Dutch cookie, curious, gets into everything |
-| **🐈🌸🐱 The Terpene Kittens** | The litter | Each named for a cannabis terpene, each with matching personality |
 
 ---
 
@@ -186,13 +289,9 @@ Animals deserve respect and dignity:
 
 Furry fandom creates and embodies anthropomorphic animal characters — personas with both human and animal traits. This is **creative play**, and MOOLLM welcomes it.
 
-Anthropomorphic characters have a long tradition: Aesop's fables, Disney's Robin Hood, Zootopia, Bojack Horseman. Creating an animal persona to explore identity is ancient and human.
-
 **In MOOLLM:** A fursona is just another `CHARACTER.yml` with species, personality, and soul. The `cat/` and `dog/` skills work perfectly for anthropomorphic characters too.
 
 > *"The question is not, Can they reason? nor, Can they talk? but, Can they suffer?"* — Jeremy Bentham
-
-**Note:** Furries aren't limited to animals! There are furry robots, furry abstract entities, and everything in between. For the full discussion of creative play communities as safe spaces for LGBTQ+, neurodivergent, and other folks, see **[Creative Play as Safe Space](../README.md#-creative-play-as-safe-space)** in the top-level characters README.
 
 ---
 
@@ -200,10 +299,12 @@ Anthropomorphic characters have a long tradition: Aesop's fables, Disney's Robin
 
 | Resource | What It Is |
 |----------|------------|
-| **[skills/cat/](../../../skills/cat/)** | Universal feline interaction system |
-| **[skills/dog/](../../../skills/dog/)** | Canine companion mechanics |
-| **[skills/needs/](../../../skills/needs/)** | Sims-style needs for animal characters |
-| **[pub/bar/cat-cave/](../../pub/bar/cat-cave/)** | Where the pub cats live |
+| **[skills/cat/](../../../../skills/cat/)** | Universal feline interaction system |
+| **[skills/dog/](../../../../skills/dog/)** | Canine companion mechanics |
+| **[skills/character/](../../../../skills/character/)** | Base character interactions (SNIFF, LICK, GREET, CUDDLE) |
+| **[skills/needs/](../../../../skills/needs/)** | Sims-style needs for animal characters |
+| **[pub/bar/cat-cave/](../../pub/bar/cat-cave/)** | Where the cats live |
+| **[CARD.yml](./CARD.yml)** | Animal registry with all citizens |
 
 ---
 

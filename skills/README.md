@@ -17,8 +17,8 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 |---|-----------|--------------|-------|
 | 1 | **Instantiation** | Skills as prototypes creating instances. Not just prompts — living programs. | [`adventure/`](./adventure/) → [`adventure-4/`](../examples/adventure-4/) with 150+ files |
 | 2 | **Three-Tier Persistence** | Platform (ephemeral) → Narrative (append) → State (edit). | [6000+ line session logs](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md), persistent room state |
-| 3 | **K-lines** | Names as semantic activation vectors (Minsky). | "[Palm](../examples/adventure-4/characters/animals/palm/)" activates entire soul, history, relationships |
-| 4 | **Empathic Templates** | Smart generation, not string substitution. | [Biscuit's](../examples/adventure-4/characters/animals/biscuit/) description generated from traits |
+| 3 | **K-lines** | Names as semantic activation vectors (Minsky). | "[Palm](../examples/adventure-4/characters/animals/monkey-palm/)" activates entire soul, history, relationships |
+| 4 | **Empathic Templates** | Smart generation, not string substitution. | [Biscuit's](../examples/adventure-4/characters/animals/dog-biscuit/) description generated from traits |
 | 5 | **Speed of Light** | Many turns in one call, minimal tokenization. | [33-turn Fluxx](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md), [21-turn cat prowl](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) |
 | 6 | **CARD.yml** | Machine-readable interface with advertisements. | Every skill exposes methods, tools, state schema — see [card/](./card/) |
 | 7 | **Ethical Framing** | Room-based inheritance of performance context. | [`pub/stage/`](../examples/adventure-4/pub/stage/) inherits `framing: performance` |
@@ -266,15 +266,22 @@ Instead of counting `../../../` levels, use **path variables** that resolve at r
 
 | Variable | Resolves To | Use Case |
 |----------|-------------|----------|
+| **REPO-SCOPED** | *Shared across all adventures* | |
 | `$REPO/` | `moollm/` | Repository root |
-| `$SKILLS/` | `moollm/skills/` | This directory |
+| `$SKILLS/` | `moollm/skills/` | Skill definitions |
 | `$KERNEL/` | `moollm/kernel/` | Core protocols |
+| `$DESIGNS/` | `moollm/designs/` | Architecture docs |
+| **ADVENTURE-SCOPED** | *Plugged in at runtime* | |
 | `$ADVENTURE/` | Current adventure | From startup.yml |
 | `$CHARACTERS/` | `$ADVENTURE/characters/` | Character alcoves |
+| `$ANIMALS/` | `$CHARACTERS/animals/` | Animal sanctuary |
 | `$PERSONAS/` | `$ADVENTURE/personas/` | Mask wardrobe |
 | `$PUB/` | `$ADVENTURE/pub/` | The gathering place |
 | `$COATROOM/` | `$ADVENTURE/coatroom/` | Transformation room |
 | `$START/` | `$ADVENTURE/start/` | Origin point |
+
+**Dynamic Binding:** Skills use `$ANIMALS/dog-biscuit/` — adventure provides the concrete path.
+Two-way links dovetail: skill→adventure and adventure→skill resolve consistently.
 
 ### Example Usage
 
@@ -299,7 +306,7 @@ exits:
 | Path Variable | Resolves To |
 |---------------|-------------|
 | `$COATROOM/mirror.yml` | `examples/adventure-4/coatroom/mirror.yml` |
-| `$CHARACTERS/animals/palm/` | `examples/adventure-4/characters/animals/palm/` |
+| `$CHARACTERS/animals/monkey-palm/` | `examples/adventure-4/characters/animals/monkey-palm/` |
 | `$SKILLS/character/` | `skills/character/` |
 
 ---

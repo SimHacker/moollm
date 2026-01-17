@@ -1576,7 +1576,7 @@ Added to [README.md](../../skills/cursor-mirror/README.md) — a real example of
 - LLM couldn't maintain consistent state
 - LLM ignored edge cases
 
-**The Lift**: Created a 515-line Python sister script (`confetti-crawler/sprayer.py`) that perfectly implements the procedure.
+**The Lift**: Created a 515-line Python sister script (`worm-confetti-crawler/sprayer.py`) that perfectly implements the procedure.
 
 **The Retrospective**: Now we can use cursor-mirror to analyze WHY the LLM failed — triangulating between:
 1. The fuzzy natural language instructions

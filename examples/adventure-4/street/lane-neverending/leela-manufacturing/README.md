@@ -1,10 +1,58 @@
 # Leela Manufacturing Intelligence
 
-> *"We manufacture understanding."*
+> *"We don't make products. We make SIGHT."*
 
-Welcome to **Leela Manufacturing Intelligence** — the industrial heart of Lane Neverending. Located at **5 Lane Neverending**, right next door to the pub, this facility transforms raw video streams into actionable insights, beautiful visualizations, and genuine understanding.
+Welcome to **Leela Manufacturing Intelligence** — the Anti-ACME.
 
-In SimCity terms, we're an **Industrial Zone** — but instead of manufacturing widgets, we manufacture **knowledge**.
+Located at **5 Lane Neverending**, one block west of the pub — and directly **across the street** from the *shuttered* ACME Surplus with its infamous painted tunnel.
+
+Every day, Leela employees look out their windows at that tunnel. A camera (CAM-ACME-01) watches it 24/7. The contrast is intentional. The lesson is daily.
+
+---
+
+## 🎭 The Poetic License
+
+**What you see here is fantasy. What it represents is real.**
+
+This factory floor, these loading docks, this logistics system — they represent what **Leela's customers** have. Real factories. Real warehouses. Real people doing real work.
+
+Leela doesn't RUN factories. Leela helps factories **SEE**.
+
+Every camera in this building runs Leela AI:
+- **Object detection** — who's where, what's moving
+- **Pose estimation** — ergonomics, safety, efficiency  
+- **Anomaly detection** — before problems become disasters
+- **Causal reasoning** — understanding WHY, not just WHAT
+
+The insight furnace is a metaphor for the **Schema Mechanism**. The Big Board is a metaphor for the **PDA interface**. The cameras are... just cameras. Running our actual software.
+
+---
+
+## ⚔️ The Anti-ACME
+
+| ACME | Leela |
+|------|-------|
+| Ship fast, break things, blame customer | Understand deeply, build reliably, empower customer |
+| Portable holes, rocket skates, painted tunnels | Seeing eyes, causal reasoning, predictive awareness |
+| "It'll work this time!" (It never does) | "We help you see what's happening" |
+| Products that break | Understanding that works |
+| Left a painted tunnel and a burned Tesla | 847 days since last paradox incident |
+
+---
+
+## 🔮 What This Facility Represents
+
+| Fantasy | Reality |
+|---------|---------|
+| Floor 1 — Intake | Customer problems arriving |
+| Floor 2 — Factory | Where Leela vision processes data |
+| Floor 3 — Shipping | Solutions and insights delivered |
+| Basement — R&D | Schema mechanism, causal learning |
+| Storage | Prototype skills ready to deploy |
+| Loading Docks | Problems in, solutions out |
+| Cameras everywhere | ...cameras everywhere (that part is literal) |
+
+---
 
 ---
 

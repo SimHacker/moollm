@@ -19,7 +19,11 @@ The atmosphere is humid, warm, contemplative. Like **Nero Wolfe's rooftop orchid
 
 ## 🎭 Permanent Resident
 
-**Rocky** — A moss-covered boulder in one corner. On it, a smooth rock who has been watching these plants grow for 4.5 billion years. Ring the small brass bell when you want conversation.
+**🪨 Rocky** — A moss-covered boulder in one corner. On it, a smooth rock who has been watching these plants grow for 4.5 billion years. Ring the small brass bell when you want conversation.
+
+### 🐢 Frequent Visitor
+
+The **Logo Turtle** (from [Room 1](../room-1/)) visits often — Theo and Rocky are kindred spirits, both practitioners of stillness, both moving on geological timescales. When the turtle visits, Rocky blinks.
 
 ---
 

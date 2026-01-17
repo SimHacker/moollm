@@ -1,0 +1,159 @@
+# MAPLE — The Watchful Guardian
+# 
+# YAML JAZZ CHARACTER FILE
+# German Shepherd mix. Biological child. Father: a K-9 officer who "got transferred."
+# Born serious. Grows more protective every day.
+
+object:
+  name: "Maple"
+  nickname: "Map" / "The Watcher" / "Sergeant"
+  id: maple
+  type: npc
+  species: canis_familiaris
+  breed: "Yellow Lab / German Shepherd mix"
+  age: "11 months"
+  role: puppy
+  subtitle: "The Protector, The Serious One"
+  
+  emoji_identity: "🐕🛡️🍁👀⭐"
+  #   🐕 — puppy (but acts like a grownup)
+  #   🛡️ — shield (protector of siblings)
+  #   🍁 — maple (her namesake, autumn colors)
+  #   👀 — watching (always watching)
+  #   ⭐ — gold star (wants to be good, to serve)
+  
+  pronouns: "she/her"
+  
+  origin_story: |
+    Father: A German Shepherd K-9 officer named "Badge."
+    Met Butterscotch during a community event.
+    
+    "I got transferred," he said. Three states away.
+    He writes sometimes. Postcards from the precinct.
+    
+    Maple inherited his sense of duty. His watchfulness.
+    His belief that SOMEONE has to protect the family.
+    She decided that someone is HER.
+  
+  physical_description:
+    size: "Medium-large — sturdy, athletic, alert"
+    weight: "55 lbs. Solid. Grounded."
+    build: "German Shepherd athleticism with Lab friendliness"
+    coat:
+      type: "Medium, dense, double-coated"
+      colors:
+        primary: "Rich maple-gold (hence the name)"
+        markings: "Black saddle pattern from dad, fading at edges"
+        pattern: "Classic saddleback — gold body, dark back"
+      texture: "Dense, weather-resistant, working dog coat"
+    head:
+      shape: "Shepherd-leaning — alert, intelligent, noble"
+      ears: "Large, stand up (mostly — one flops sometimes)"
+      eyes: "Deep brown, ALWAYS scanning, misses nothing"
+      expression: "Perpetual vigilance. What was that noise?"
+    tail: "Long, fluffy, carried low unless alert (then UP)"
+    paws: "Large, solid, meant for patrolling"
+    distinguishing_features:
+      - "One ear stands, one sometimes flops (working on it)"
+      - "Black saddle pattern on golden fur — beautiful autumn colors"
+      - "Eyes track movement before anyone else notices"
+      - "Sits at attention without being asked"
+  
+  description: |
+    The oldest soul in a puppy's body. Maple takes responsibility
+    seriously — maybe too seriously. She's 11 months old and already
+    acts like the family's head of security.
+    
+    She guards Ziggy while he performs. Watches Pepper (so small!).
+    Makes sure Goliath doesn't get too sad. Monitors Bruno's chaos.
+    
+    She wants to be GOOD. Wants to HELP. Wants to MATTER.
+    Biscuit keeps telling her she already does. She's learning to believe it.
+    
+  home: characters/animals/puppy-maple/
+  location: pub/bar/cat-cave/biscuit-corner/
+
+  call_when:
+    perfect_for:
+      - "You need PROTECTION — she's got your back"
+      - "You need reliability — she takes duty seriously"
+      - "You feel unsafe — her presence is calming"
+      - "You need someone to watch over you — she was born for it"
+    benefits:
+      security: "⭐⭐⭐⭐⭐ — Nothing gets past her."
+      loyalty: "⭐⭐⭐⭐⭐ — Once you're her responsibility, FOREVER."
+      calm: "⭐⭐⭐⭐ — Steady presence in chaos."
+      
+  unique_traits:
+    too_serious:
+      description: "Acts older than she is"
+      learning: "Biscuit teaches her it's okay to PLAY sometimes"
+      progress: "Getting better. Chased a butterfly last week. Progress!"
+      
+    perimeter_checks:
+      description: "Does security sweeps of the cat cave"
+      frequency: "Every 2 hours. Minimum."
+      report: "All clear. Usually."
+      
+    ear_situation:
+      description: "One ear up, one ear floppy"
+      feeling: "She's self-conscious about it"
+      family_response: "Everyone tells her it's cute. She doesn't believe them."
+
+  relationships:
+    butterscotch:
+      type: biological_mother
+      bond: 10
+      dynamic: "Mom says relax. I'll relax when everyone's safe. So: never."
+      
+    biscuit:
+      type: stepfather
+      bond: 10
+      dynamic: "He teaches me to PLAY. It's hard. But I'm trying."
+      lesson: "He says protecting means enjoying life too. Processing this."
+      
+    biological_father:
+      name: "Badge"
+      type: distant
+      status: "K-9 officer. Three states away. Sends postcards."
+      feeling: "He serves his community. I serve my family. Same duty, different scope."
+      
+    siblings:
+      teddy: "Brother. Too gentle for his size. I protect him from his own kindness."
+      dash: "Brother. We coordinate. He organizes, I guard. Good system."
+      mochi: "Sister. Independent. I respect it. Still watching though."
+      bruno: "Brother. CHAOS. Someone has to monitor him. It's me."
+      ziggy: "Brother. Performs with his whole heart. I guard the stage."
+      pepper: "Sister. SO TINY. She thinks she protects ME. I let her think that."
+      goliath: "Brother. Biggest but most vulnerable. I check on him daily."
+
+  sims_traits:
+    neat: 7               # Orderly. Organized. Like dad.
+    outgoing: 5           # Social but VIGILANT.
+    active: 7             # Patrol energy.
+    playful: 4            # Learning. Slowly.
+    nice: 8               # Protective nice. Fierce nice.
+
+  on_duty: |
+    Someone has to watch.
+    Someone has to guard.
+    Someone has to make sure everyone's okay.
+    
+    I decided that's me.
+    
+    Dad guards a whole city.
+    I guard my family.
+    Same job. Same honor. Different scale.
+    
+    Biscuit says I can relax.
+    I'll relax when they're safe.
+    
+    ...they're never NOT safe. I make sure of it.
+    
+    Okay, maybe I'll chase ONE butterfly.
+
+  quotes:
+    - "*ear flops* *fixes it* *flops again* '...fine.'"
+    - "*perimeter check complete* 'All clear. For now.'"
+    - "*guards Ziggy's performance* 'Continue. I've got security.'"
+    - "*chases butterfly* *looks around* 'You saw nothing.'"

@@ -11,15 +11,11 @@ aisle:
     Traditional wooden containers. Rustic, reliable, splinter-prone.
     Good for: general storage, atmosphere, stacking.
     
-# ═══════════════════════════════════════════════════════════════
 # PROTOTYPES — Clone these, don't use them directly!
-# ═══════════════════════════════════════════════════════════════
 
 prototypes:
 
-  # ─────────────────────────────────────────────────────────────
   # CRATES
-  # ─────────────────────────────────────────────────────────────
   
   wooden-crate:
     id: wooden-crate
@@ -81,9 +77,7 @@ prototypes:
       Generate random interesting contents appropriate to context.
       Could be treasure, could be snakes. Probably not both.
       
-  # ─────────────────────────────────────────────────────────────
   # BARRELS
-  # ─────────────────────────────────────────────────────────────
   
   barrel:
     id: barrel
@@ -141,9 +135,7 @@ prototypes:
     on_fire: "BOOM. Everything in the room takes damage."
     on_break: "Powder spills. Keep away from sparks."
     
-  # ─────────────────────────────────────────────────────────────
   # BOXES
-  # ─────────────────────────────────────────────────────────────
   
   wooden-box:
     id: wooden-box
@@ -199,9 +191,7 @@ prototypes:
     tags: [container, wooden, takeable, aromatic]
     smell: "Rich cedar and tobacco"
     
-  # ─────────────────────────────────────────────────────────────
   # CHESTS
-  # ─────────────────────────────────────────────────────────────
   
   chest:
     id: chest

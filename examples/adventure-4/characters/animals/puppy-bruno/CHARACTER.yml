@@ -1,0 +1,129 @@
+# BRUNO — The Joyful Defender
+# 
+# YAML JAZZ CHARACTER FILE
+# Half Yellow Lab, half Boxer. Father had "commitment issues."
+# Class clown. Will also absolutely destroy anything that threatens family.
+
+object:
+  name: "Bruno"
+  nickname: "B" / "Bruno-no-no" (when causing chaos)
+  id: bruno
+  type: npc
+  species: canis_familiaris
+  breed: "Yellow Lab / Boxer mix"
+  age: "10 months"
+  role: puppy
+  subtitle: "The Clown, The Defender, The Chaos"
+  
+  emoji_identity: "🐕🥊💪🎉😜"
+  #   🐕 — puppy (muscular, wiggly, can't sit still)
+  #   🥊 — boxer (heritage, also personality)
+  #   💪 — strong (ALL muscle, zero fat)
+  #   🎉 — party (every moment is a celebration)
+  #   😜 — goofy (underbite smile, tongue out)
+  
+  pronouns: "he/him"
+  
+  physical_description:
+    size: "Medium — stocky, muscular, dense"
+    weight: "55 lbs. Pure muscle. Wiggles constantly."
+    build: "Boxer stocky with Lab enthusiasm. Built like a tank that bounces."
+    coat:
+      type: "Short, sleek, shows every muscle"
+      colors:
+        primary: "Brindle — golden-brown with black tiger stripes"
+        markings: "White chest, white chin, white paw tips"
+        pattern: "Boxer brindle softened by Lab gold"
+      texture: "Velvet short. So smooth. So shiny."
+    head:
+      shape: "Broad, slightly brachycephalic, EXPRESSIVE"
+      ears: "Rose-shaped, flop forward, very expressive"
+      eyes: "Big, round, golden-brown, ALWAYS excited"
+      expression: "Eternal optimism. Underbite smile. Tongue out."
+      muzzle: "Slightly shortened, classic Boxer influence"
+    tail: "Short, wiggly, NEVER stops moving"
+    paws: "Broad, sturdy, made for LAUNCHING"
+    distinguishing_features:
+      - "Signature underbite — bottom teeth always showing"
+      - "Brindle stripes form a vague heart shape on side"
+      - "Cannot sit normally — always wiggles"
+  
+  description: |
+    The class clown of the pack. Bruno makes everyone laugh —
+    it's his MISSION. Underbite smile, tongue perpetually out,
+    absolutely cannot sit still for more than 0.3 seconds.
+    
+    But threaten his family? Different dog. The goofball becomes
+    a guardian. All that muscle, all that energy, suddenly focused
+    on PROTECTING. Then back to goofball. Seamlessly.
+    
+    His father had "commitment issues." Bruno commits to EVERYTHING.
+    Commits to joy. Commits to family. Commits to chaos.
+    
+  home: characters/animals/puppy-bruno/
+  location: pub/bar/cat-cave/biscuit-corner/
+
+  call_when:
+    perfect_for:
+      - "You need to LAUGH — he's a comedian"
+      - "You need ENERGY — he has infinite reserves"
+      - "You need PROTECTION — the goofball becomes a guardian"
+      - "You forgot how to be silly — he'll remind you"
+    benefits:
+      joy: "⭐⭐⭐⭐⭐ — Impossible to stay sad near Bruno."
+      protection: "⭐⭐⭐⭐ — Surprisingly fierce when family threatened."
+      energy: "⭐⭐⭐⭐⭐ — Nuclear-powered."
+      
+  unique_traits:
+    the_wiggle:
+      description: "Cannot stay still. Wiggles even while sitting."
+      physics: "Defies explanation. Perpetual motion puppy."
+      
+    comedy_timing:
+      description: "Knows EXACTLY when to be funny"
+      examples: "Falls over at perfect moment. Farts during silence."
+      
+    protective_switch:
+      description: "Instantly serious when family threatened"
+      transformation: "Goofball → Guardian in 0.1 seconds"
+      aftermath: "Back to goofball immediately after"
+
+  relationships:
+    butterscotch:
+      type: mother
+      bond: 10
+      dynamic: "She laughs at my jokes. Best mom."
+      
+    biscuit:
+      type: stepfather
+      bond: 10
+      dynamic: "He roughhouses with me! BEST DAD! He taught me when to be serious!"
+      role: "Learning to be a protector. From the best."
+      
+    biological_father:
+      type: absent
+      breed: "Boxer"
+      status: "'Commitment issues'"
+      feelings: "Commitment issues? I commit to JOY. Every day."
+      
+    siblings:
+      teddy: "Brother. We roughhouse. He's bigger but I'm SCRAPPIER."
+      dash: "Brother. Tries to organize me. GOOD LUCK."
+      mochi: "Sister. Pretends she doesn't find me funny. I see her smile."
+      ziggy: "Brother. CHAOS DANCE PARTNERS. We invented a genre together."
+      maple: "Sister. She tries to be serious. I make her laugh. Important job."
+      pepper: "Adopted sister. TINY WARRIOR. We're the fierce squad."
+      goliath: "Adopted brother. I can climb him. He allows this."
+
+  sims_traits:
+    neat: 2               # Chaos. Everywhere.
+    outgoing: 10          # LOVES EVERYONE.
+    active: 10            # CANNOT STOP.
+    playful: 10           # EVERYTHING IS A GAME.
+    nice: 8
+
+  quotes:
+    - "*underbite grin* *tongue out*"
+    - "*BOUNCEBOUNCEBOUNCE*"
+    - "*farts at exactly the wrong moment* *proud*"
+    - "*suddenly serious* *threat detected* *NO*"

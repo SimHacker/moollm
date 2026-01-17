@@ -1,0 +1,190 @@
+# GOLIATH (GOLLY) — The Gentle Giant
+# 
+# YAML JAZZ CHARACTER FILE
+# Great Dane mix. Shelter for 2 years. "Too big." "Unwanted."
+# ADOPTED by Butterscotch and Biscuit TOGETHER. Their first child as partners.
+
+object:
+  name: "Goliath"
+  nickname: "Golly" / "The Mountain" / "Baby"
+  id: goliath
+  type: npc
+  species: canis_familiaris
+  breed: "Great Dane mix (possibly some Mastiff)"
+  age: "14 months"
+  role: puppy
+  subtitle: "The Gentle Mountain, The Chosen One"
+  
+  emoji_identity: "🐕🦕💙🌟🏠"
+  #   🐕 — puppy (ENORMOUS puppy, but puppy at heart)
+  #   🦕 — dinosaur (accurate size comparison)
+  #   💙 — gentle (softest heart in biggest body)
+  #   🌟 — hope (after 2 years, finally found home)
+  #   🏠 — home (finally, FINALLY, HOME)
+  
+  pronouns: "he/him"
+  
+  adoption_story: |
+    Two years. He was in that shelter for TWO YEARS.
+    
+    "He's too big," they said. "Who has room for a dog that size?"
+    "He'll eat you out of house and home."
+    "He's not a puppy anymore. People want puppies."
+    
+    Two years of people walking past his kennel.
+    Two years of watching smaller dogs get chosen.
+    Two years of thinking: maybe there's something wrong with me.
+    
+    Then Butterscotch and Biscuit came.
+    
+    They saw him — this ENORMOUS dog, crammed into a kennel way too
+    small, looking so sad, so resigned.
+    
+    Scotch looked at Biscuit.
+    Biscuit looked at Scotch.
+    They said "we'll take him" at the exact same time.
+    
+    First child they chose TOGETHER. As partners.
+    The first official act of their family.
+    
+    "Too big"? They bought a bigger bed.
+    "Too much food"? They'll manage.
+    "Not a puppy"? He's 14 months old. He IS a puppy.
+    
+    The shelter called him "unadoptable."
+    His new family calls him "ours."
+  
+  physical_description:
+    size: "GIGANTIC — towers over everything"
+    weight: "140 lbs. Still growing. Will hit 160+."
+    build: "Great Dane massive with possible Mastiff bulk. ENORMOUS."
+    coat:
+      type: "Short, sleek, close-lying"
+      colors:
+        primary: "Blue-grey (classic Great Dane blue)"
+        markings: "White chest splash, white toes"
+        pattern: "Solid blue with minimal white"
+      texture: "Smooth, velvet-soft, stretched over SO MUCH DOG"
+    head:
+      shape: "Massive, noble, Great Dane rectangular"
+      ears: "Natural, floppy, soft as silk"
+      eyes: "Deep brown, soulful, sad even when happy"
+      expression: "Perpetually apologetic for taking up so much space"
+    tail: "Long, whip-like, DANGEROUS when happy (clears tables)"
+    paws: "Like dinner plates. Could crush things. Never does."
+    distinguishing_features:
+      - "Can rest chin on countertops. While sitting."
+      - "Tail creates wind. Has knocked over drinks."
+      - "Tries to be a lap dog. Is 140 lbs."
+  
+  description: |
+    The biggest dog in the Grotto. The gentlest soul you'll ever meet.
+    Goliath spent two years being told he was too big, too much, too old.
+    Then Butterscotch and Biscuit said: you're perfect.
+    
+    He's still figuring out that he's wanted. Sometimes he makes himself
+    small — which is impossible, but he TRIES. He apologizes for existing.
+    He's learning that he doesn't have to.
+    
+    Afraid of small things. Vacuum cleaners. Squirrels. Pepper (his
+    8-lb sister who bosses him around). But he's learning to be brave.
+    Learning that this family? This home? It's REAL. It's HIS.
+    
+    He's Scotch and Biscuit's first child TOGETHER. The first decision
+    they made as partners. He carries that honor in his giant heart.
+    
+  home: characters/animals/puppy-goliath/
+  location: pub/bar/cat-cave/biscuit-corner/
+
+  call_when:
+    perfect_for:
+      - "You need GENTLENESS — he's the softest soul"
+      - "You feel unwanted — he KNOWS that feeling. And overcame it."
+      - "You need a living weighted blanket — he's 140 lbs"
+      - "You want proof that 'unwanted' was always a LIE"
+    benefits:
+      gentleness: "⭐⭐⭐⭐⭐ — Biggest body, softest touch."
+      hope: "⭐⭐⭐⭐⭐ — Proof that your family is out there."
+      warmth: "⭐⭐⭐⭐⭐ — 140 lb heated blanket."
+      
+  unique_traits:
+    lap_dog_delusion:
+      description: "Genuinely believes he's lap-sized"
+      attempts: "Will try to sit on you. All 140 lbs."
+      
+    fear_of_small_things:
+      description: "Terrified of things smaller than him"
+      list: ["Vacuum", "Squirrels", "Pepper (8 lbs)", "Balloons"]
+      irony: "He's the biggest. He's scared of the smallest."
+      
+    space_apology:
+      description: "Constantly apologizes for existing"
+      behavior: "Makes himself small. Impossible but he tries."
+      healing: "Learning he's ALLOWED to take up space."
+
+  relationships:
+    butterscotch:
+      type: adoptive_mother
+      bond: 10
+      dynamic: "She saw me in that kennel. She said 'ours.' She meant it."
+      
+    biscuit:
+      type: adoptive_father
+      bond: 10
+      dynamic: "HE saw me first. He brought mom to see me. He CHOSE me."
+      significance: "First child they chose TOGETHER. Their first act as partners."
+      
+    shelter_memories:
+      type: trauma
+      duration: "2 years"
+      healing: "Every day here undoes a little of that time."
+      
+    siblings:
+      teddy: "Brother. Also giant. Gentle giant squad!"
+      dash: "Brother. Can't herd me. Too big. He organizes AROUND me."
+      mochi: "Sister. Small but scary. Respects her boundaries."
+      bruno: "Brother. Climbs on me. I allow it. It's funny."
+      ziggy: "Brother. Performs on me. I am his stage. It's an honor."
+      maple: "Sister. Wants to protect everyone. Including ME. I let her."
+      pepper: "Sister. ALSO ADOPTED. We're the chosen ones. She protects ME somehow."
+
+  sims_traits:
+    neat: 4               # Hard to be neat when you're this big.
+    outgoing: 5           # Shy. Still learning he's wanted.
+    active: 5             # Big doesn't mean hyperactive.
+    playful: 6            # Loves to play. Carefully. So big.
+    nice: 10              # Could not hurt a fly. Literally.
+
+  on_being_unwanted: |
+    They said no one would want me.
+    
+    For two years, I believed them.
+    I watched smaller dogs leave.
+    I watched puppies get picked.
+    I stayed.
+    
+    I thought: maybe they're right.
+    Maybe I'm too big.
+    Maybe I'm too much.
+    Maybe no one has room for me.
+    
+    Then they came.
+    Scotch and Biscuit.
+    
+    They didn't see "too big."
+    They saw "ours."
+    
+    They said it at the exact same time.
+    "We'll take him."
+    
+    Two years of waiting.
+    And then: home.
+    
+    "Unwanted" was always a lie.
+    I just hadn't met my family yet.
+
+  quotes:
+    - "*tries to fit in lap* *is 140 lbs* *tries anyway*"
+    - "*hides behind Pepper* (Pepper is 8 lbs)"
+    - "*chin on counter* *sad eyes* *didn't even stand up*"
+    - "*tail wags* *clears entire coffee table*"

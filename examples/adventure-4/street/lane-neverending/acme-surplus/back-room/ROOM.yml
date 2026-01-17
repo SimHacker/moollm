@@ -1,0 +1,122 @@
+# ACME SURPLUS — THE BACK ROOM
+# "EMPLOYEES ONLY — AUTHORIZED PERSONNEL — DANGER"
+# Something is ticking. Something BIG.
+#
+# TRAP DEPLOYMENT: DM draws from ACME catalog's experimental/mystery sections
+# See: ../../w1/acme-catalog.yml
+
+room:
+  name: "ACME Back Room"
+  type: storage_dangerous
+  emoji: "📦⏰💀"
+  
+  locked: true
+  lock:
+    type: "ACME Employee Lock"
+    key: acme_employee_badge
+    difficulty: 4
+    trap_on_entry: true
+    
+  description: |
+    You shouldn't be here.
+    
+    The back room is cold. Dark. Full of boxes that were never shipped,
+    returns that were never processed, prototypes that were never finished.
+    
+    And something is ticking.
+    
+    *tick tick tick*
+    
+    It's coming from somewhere in the stacks. Rhythmic. Patient.
+    It has been ticking for a long time.
+    It will keep ticking until it doesn't.
+    
+  atmosphere: |
+    Dust. Darkness. The smell of old cardboard and unfinished business.
+    Shelves stretch into shadow. Boxes are stacked to the ceiling.
+    Labels have faded. Contents have shifted.
+    
+    The ticking is louder in here.
+    
+  # TRAP DEPLOYMENT GUIDANCE — For the DM/LLM
+  #
+  # This room should feel like the EXPERIMENTAL and MYSTERY sections of the
+  # ACME catalog came to life. Deploy traps that are:
+  # - Mysterious (unknown effects)
+  # - Time-based (the ticking is SOMEWHERE)
+  # - Ironic to the player's actions
+  #
+  # See: w1/acme-catalog.yml → mystery_items, tools
+  
+  trap_themes:
+    primary: [mystery, experimental, time, unknown]
+    secondary: [storage, forgotten, prototype]
+    mood: "ominous patience"
+    
+    # What kinds of traps fit here?
+    catalog_sections:
+      - mystery_items     # Mystery boxes, do-it-yourself kits, plot devices
+      - tools             # Universal remotes, time stoppers, gravity reversers
+      - detection_devices # Detectors that detect the WRONG thing
+      
+    # Ironic trigger patterns for this room
+    irony_patterns:
+      - "Player searches boxes → finds something they weren't looking for"
+      - "Player follows the ticking → ticking stops (worse)"
+      - "Player opens a 'DO NOT OPEN' box → as advertised"
+      - "Player tries to leave quietly → something notices"
+      
+    # Suggested (not exhaustive) deployments
+    example_encounters:
+      - trigger: "Opening random box"
+        suggestion: "ACME Mystery Box — contains something ironic to situation"
+      - trigger: "Finding the ticking"
+        suggestion: "ACME Time-Delay Dynamite — fuse length 'varies'"
+      - trigger: "Reading old labels"
+        suggestion: "ACME Invisible Ink Revealer — makes visible things invisible"
+        
+  # THE TICKING
+  the_ticking:
+    source: "Unknown (for now)"
+    location: "Somewhere in the stacks"
+    rhythm: "Exactly once per second. Too precise."
+    theories:
+      - "ACME Time-Delay Dynamite (fuse length: years?)"
+      - "ACME Time Stopper (frozen mid-activation)"
+      - "Something worse"
+    dm_discretion: true  # DM decides what it actually is
+    
+  # THE BOX THAT WORKS
+  secrets:
+    the_box_that_works:
+      location: "Shelf 7, Row 13, behind the returns"
+      appearance: "Plain brown box, labeled 'ANOMALY — DO NOT SHIP'"
+      contents: "One ACME product that works PERFECTLY"
+      horror: |
+        It does exactly what it says.
+        No malfunction. No irony. No catch.
+        This terrifies everyone.
+        
+        If opened, DM should invent something useful that works perfectly —
+        and is therefore deeply unsettling in context.
+        
+  objects:
+    # Sparse — let DM deploy from catalog as needed
+    - the-ticking.yml     # Placeholder for the mystery
+    - returns-pile.yml    # Defective products — potential trap sources
+    
+  exits:
+    out:
+      destination: ../
+      description: "Back to the main sales floor"
+      aliases: [leave, sales, front]
+      notes: "No exit traps — ACME wants you gone"
+      
+    deeper:
+      destination: warehouse/
+      description: "A door marked 'WAREHOUSE — AUTHORIZED ONLY'"
+      locked: true
+      lock:
+        type: "ACME Warehouse Lock"
+        key: acme_warehouse_key
+        difficulty: 5

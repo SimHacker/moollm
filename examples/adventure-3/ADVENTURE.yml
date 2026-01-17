@@ -1,4 +1,3 @@
-# ═══════════════════════════════════════════════════════════════════════════════
 # ADVENTURE.yml — Per-Adventure Simulation State
 # 
 # This file tracks the RUNTIME state of the adventure:
@@ -8,28 +7,23 @@
 # - Session history
 #
 # Think of this as the "process table" for the microworld.
-# ═══════════════════════════════════════════════════════════════════════════════
 
 adventure:
   name: "Adventure 3 — Fresh Start"
   
-  # ─────────────────────────────────────────────────────────────────────────────
   # ACTIVE PLAYERS
   # List ALL player character files currently in play.
   # Multiple players can adventure simultaneously!
-  # ─────────────────────────────────────────────────────────────────────────────
   
   active_players:
     - characters/don-hopkins.yml    # Currently active
     # - characters/player.yml       # Add more as needed!
     # - characters/other-hero.yml   # Parallel adventures!
     
-  # ─────────────────────────────────────────────────────────────────────────────
   # CHAT TARGET
   # Who is the current chat addressed to?
   # This is WHO the user is talking to / playing as.
   # Can be a single player or a list for group scenes.
-  # ─────────────────────────────────────────────────────────────────────────────
   
   chat_target: characters/don-hopkins.yml
   
@@ -38,10 +32,8 @@ adventure:
   #   - characters/don-hopkins.yml
   #   - characters/companion.yml
   
-  # ─────────────────────────────────────────────────────────────────────────────
   # ADDRESSING COMMANDS
   # How to switch who you're talking to in chat:
-  # ─────────────────────────────────────────────────────────────────────────────
   #
   # > @don-hopkins Look around                    # Direct to specific player
   # > @player What do you see?                    # Different player
@@ -53,10 +45,8 @@ adventure:
   # > ACTIVATE player.yml                         # Add player to active list
   # > DEACTIVATE don-hopkins.yml                  # Remove from active list
   
-  # ─────────────────────────────────────────────────────────────────────────────
   # SIMULATION STATE
   # Global state that affects all players
-  # ─────────────────────────────────────────────────────────────────────────────
   
   simulation:
     turn_number: 1
@@ -71,20 +61,16 @@ adventure:
     # Pending events (processed by coherence engine)
     event_queue: []
     
-  # ─────────────────────────────────────────────────────────────────────────────
   # SESSION HISTORY
   # Lightweight log of significant events
   # (Full narrative is in README.md)
-  # ─────────────────────────────────────────────────────────────────────────────
   
   session:
     started: null         # Timestamp when adventure began
     last_action: null     # Last player action
     last_player: null     # Who took the last action
     
-  # ─────────────────────────────────────────────────────────────────────────────
   # MULTI-PLAYER NOTES
-  # ─────────────────────────────────────────────────────────────────────────────
   #
   # Multiple active players can:
   # - Be in different rooms simultaneously
@@ -103,9 +89,7 @@ adventure:
   # Think: The Sims with multiple selectable Sims.
   # Think: Engelbart's NLS with multiple cursors.
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # DOVETAILS WITH
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # - characters/           — Where all player files live
 # - README.md             — Full narrative of the adventure
