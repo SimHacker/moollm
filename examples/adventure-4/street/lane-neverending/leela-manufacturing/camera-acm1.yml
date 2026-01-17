@@ -11,17 +11,34 @@ object:
   emoji: "📹🎭🚫"
   
   location: "Front window, lobby, facing north"
-  target: "ACME Surplus painted tunnel (4 Lane Neverending)"
+  target: "ACME Surplus building (4 Lane Neverending)"
   
   description: |
     A Leela camera mounted in the lobby window, pointed across the street
-    at the shuttered ACME Surplus building. Specifically, at the infamous
-    PAINTED TUNNEL on the boarded-up window.
+    at the shuttered ACME Surplus building. Wide-angle lens captures:
+    
+    1. THE PAINTED TUNNEL — on the boarded-up side window
+    2. THE FRONT WINDOW — large, unboarded, view into showroom/warehouse
+    3. THE ENTRANCE — locked door, break-in attempts visible
     
     The feed runs on a small monitor at reception. Every visitor sees it.
     Every employee passes it. Every day, the reminder:
     
     "This is what happens when you ship products that don't work."
+    
+  coverage: |
+    ACM1 can't see everything inside ACME, but the large front window
+    provides visibility into the main showroom area. Detectable events:
+    
+    - BREAK-INS: Glass breaking, door forced, figures entering
+    - SMOKE: Visible through window (frequent, given ACME product quality)
+    - BEE SWARMS: Escaped from ACME Bee Cannon products (monthly)
+    - ANVIL DROPS: Distinctive dust clouds, screaming
+    - EXPLOSIONS: Flash, smoke, cartoon physics aftermath
+    - ESCAPE ATTEMPTS: Intruders fleeing, often on fire
+    
+    The tunnel is on a boarded window — can only see approach/bounce.
+    The front window is unboarded — partial interior visibility.
     
   purpose: |
     ACM1 serves multiple purposes:
@@ -59,22 +76,37 @@ object:
       - "Tourist disappointment supercut"
       
   analytics:
-    objects_detected:
-      - pedestrians_approaching: 4891
-      - pedestrians_bouncing: 4891
-      - delivery_trucks_passing: 247
-      - teslas_colliding: 27
-      - confused_tourists: 1203
+    tunnel_detection:
+      pedestrians_approaching: 4891
+      pedestrians_bouncing: 4891
+      delivery_trucks_passing: 247
+      teslas_colliding: 27
+      confused_tourists: 1203
+      
+    warehouse_detection:
+      break_in_attempts: 14
+      successful_entries: 8
+      smoke_events: 23
+      bee_swarm_escapes: 4
+      anvil_drops_visible: 31
+      explosions: 12
+      figures_fleeing_on_fire: 6
       
     patterns_learned:
       - "Painted tunnels work for insiders, not customers"
       - "Expectation management > painted solutions"
       - "FSD does not understand trompe l'oeil"
+      - "Break-ins peak on weekends (adventurers have free time)"
+      - "Smoke usually precedes screaming by 3-7 seconds"
+      - "Bee swarms disperse within 15 minutes"
       
     anomalies_flagged:
+      - "2026-01-17: Break-in detected. Anvil drop at 00:14:32. Smoke at 00:14:35."
       - "2026-01-03: Tesla attempted tunnel at 60mph. Again."
-      - "2025-12-17: Pigeon flew through. How??"
+      - "2025-12-17: Pigeon flew through tunnel. How??"
       - "2025-11-28: ACME drone emerged, looked around, returned."
+      - "2025-11-15: Bee swarm escaped. Reformed into question mark shape. Dispersed."
+      - "2025-10-31: Figure in coyote costume entered. Did not exit. Smoke visible."
       
   the_lesson: |
     The ACME tunnel is a perfect metaphor:
