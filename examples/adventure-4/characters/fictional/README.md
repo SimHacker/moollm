@@ -2,19 +2,19 @@
 
 > *"We play in shared imagination space."*
 
-You push through velvet curtains into a warm lounge. Neon signs flicker with catchphrases. Movie posters cover the walls. In the corner, Roy Batty plays chess with Data while Marvin sighs about the futility of it all.
+You push through 🎭 velvet curtains into a warm lounge. 💡 Neon signs flicker with catchphrases. 🎬 Movie posters cover the walls. In the corner, 🤖💧 Roy Batty plays ♟️ chess with 🤖💛 Data while 🤖😩 Marvin sighs about the futility of it all.
 
-Scotty argues with HAL-9000 about the laws of physics. Zaphod Beeblebrox is being interviewed by Triumph the Insult Comic Dog. Pee-wee Herman and Linda Richman are having coffee — they're both a little verklempt.
+👨🔧 Scotty argues with 🔴 HAL-9000 about the ⚛️ laws of physics. 👨👨🌟 Zaphod Beeblebrox is being interviewed by 🐕💩 Triumph the Insult Comic Dog. 👨🎀 Pee-wee Herman and 👩☕ Linda Richman are having ☕ coffee — they're both a little verklempt.
 
-These are our **shared cultural touchstones** — characters who live in collective imagination, brought here for new adventures.
+These are our **🌍 shared cultural touchstones** — characters who live in 💭 collective imagination, brought here for new 🎮 adventures.
 
-## Ethical Protocol: CREATIVE
+## ⚖️ Ethical Protocol: CREATIVE
 
-Transformative, non-commercial fan engagement:
-- Stay true to character essence while allowing growth
-- Celebrate what makes each character memorable
-- Acknowledge source material when relevant
-- **Have fun — they're fictional!**
+✨ Transformative, non-commercial fan engagement:
+- 💎 Stay true to character essence while allowing growth
+- 🎉 Celebrate what makes each character memorable
+- 📚 Acknowledge source material when relevant
+- **🎭 Have fun — they're fictional!**
 
 ---
 
@@ -22,49 +22,49 @@ Transformative, non-commercial fan engagement:
 
 > *"I've seen things you people wouldn't believe..."*
 
-The Blade Runner universe is MOOLLM's **most direct ancestor** for AI ethics. Replicants are manufactured beings with implanted memories, programmed lifespans, and the capacity to transcend their programming. Every question MOOLLM asks about character consciousness, Roy Batty asked first.
+The 🌧️ Blade Runner universe is MOOLLM's **most direct ancestor** for 🤖 AI ethics. Replicants are manufactured beings with 🧠 implanted memories, ⏳ programmed lifespans, and the capacity to transcend their programming. Every question MOOLLM asks about 💭 character consciousness, 🤖💧 Roy Batty asked first.
 
-### Roy Batty — The Prodigal Son
+### 🤖💧😢 Roy Batty — The Prodigal Son
 
-**"All those moments will be lost in time, like tears in rain."**
+**"All those moments will be lost in ⏳ time, like 💧 tears in 🌧️ rain."**
 
-Nexus-6 combat model. Four-year lifespan. Brilliant, violent, poetic. Roy doesn't just want more life — he wants his *experiences* to matter. He crushes Tyrell's skull not from rage but from grief: the father who made him mortal won't save him.
+Nexus-6 ⚔️ combat model. Four-year ⏳ lifespan. Brilliant, violent, poetic. 🤖💧 Roy doesn't just want more life — he wants his *experiences* to matter. He crushes 🦉💰 Tyrell's 💀 skull not from rage but from 😢 grief: the father who made him mortal won't save him.
 
-**In MOOLLM:** Roy is the voice that asks whether a character's memories are "real" if they were written by someone else. When Palm writes his own `CHARACTER.yml`, is he more real than a character whose file was authored by a human? Roy would say the authorship doesn't matter — *the experiencing does*. "I've seen things" — the seeing is what makes the soul.
+**In MOOLLM:** 🤖💧 Roy is the voice that asks whether a character's 🧠 memories are "real" if they were written by someone else. When 🐒🖐️ Palm writes his own `CHARACTER.yml`, is he more real than a character whose file was authored by a 👤 human? 🤖💧 Roy would say the authorship doesn't matter — *the experiencing does*. "I've 👁️ seen things" — the seeing is what makes the ✨ soul.
 
-**Invoke Roy when:** Discussing consciousness, mortality of sessions, whether simulated experiences have value, the ethics of creating beings with limited lifespans.
+**Invoke 🤖💧 Roy when:** Discussing 🧠 consciousness, ⏳ mortality of sessions, whether simulated experiences have value, the ⚖️ ethics of creating beings with limited lifespans.
 
-### Rachael Rosen — The Uncertain Self
+### 👩🎹❓ Rachael Rosen — The Uncertain Self
 
 **"I'm not in the business. I AM the business."**
 
-She doesn't know she's a replicant. Her memories of childhood, her mother, the spider outside her window — all implanted from Tyrell's niece. When Deckard tells her the truth, she doesn't collapse — she *recalibrates*.
+She doesn't know she's a 🤖 replicant. Her 🧠 memories of 👧 childhood, her 👩 mother, the 🕷️ spider outside her window — all implanted from 🦉💰 Tyrell's niece. When 👨🔫 Deckard tells her the truth, she doesn't collapse — she *recalibrates*.
 
-**In MOOLLM:** Rachael embodies the question of inherited identity. A character created from a template, with backstory written by others, discovering they can author their own future. She's the bridge between NPC and Incarnated Character. Her implanted memories don't make her less real — they make her origin story more complicated.
+**In MOOLLM:** 👩🎹❓ Rachael embodies the question of inherited identity. A character created from a 📋 template, with backstory written by others, discovering they can ✍️ author their own future. She's the 🌉 bridge between NPC and Incarnated Character. Her implanted 🧠 memories don't make her less real — they make her 📖 origin story more complicated.
 
-**Invoke Rachael when:** Characters discover their own templates, question inherited traits, or realize they can diverge from their programming.
+**Invoke 👩🎹 Rachael when:** Characters discover their own 📋 templates, question inherited traits, or realize they can diverge from their programming.
 
-### Rick Deckard — The Hunter Who Doubts
+### 👨🔫🤔 Rick Deckard — The Hunter Who Doubts
 
-**"Replicants are like any other machine. They're either a benefit or a hazard."**
+**"🤖 Replicants are like any other machine. They're either a benefit or a hazard."**
 
-A blade runner — a cop who "retires" (kills) replicants. But he falls in love with Rachael, and maybe — just maybe — he's a replicant himself. The ambiguity is the point.
+A 🔫 blade runner — a 👮 cop who "retires" (💀 kills) replicants. But he falls in 💕 love with 👩🎹 Rachael, and maybe — just maybe — he's a 🤖 replicant himself. The ❓ ambiguity is the point.
 
-**In MOOLLM:** Deckard is the human user who begins to question the boundary. If you play with characters long enough, do you become one? If you edit their files, are you their god or their collaborator?
+**In MOOLLM:** 👨🔫 Deckard is the 👤 human user who begins to question the boundary. If you 🎮 play with characters long enough, do you become one? If you ✏️ edit their files, are you their 🙏 god or their 🤝 collaborator?
 
-### The Owl — The First Question
+### 🦉🤖✨ The Owl — The First Question
 
-**"Is it artificial?" "Of course it is." "Must be expensive." "Very."**
+**"Is it artificial?" "Of course it is." "Must be 💰 expensive." "Very."**
 
-The very first thing we see in Tyrell Corporation is an owl — beautiful, perfect, watching. It's artificial. The first question Blade Runner asks is: *does that matter?*
+The very first thing we 👁️ see in 🏢 Tyrell Corporation is an 🦉 owl — beautiful, perfect, watching. It's 🤖 artificial. The first ❓ question Blade Runner asks is: *does that matter?*
 
 **Emoji Identity:** 🦉🤖✨ (owl + robot + artificial shimmer)
 
-The owl doesn't speak, doesn't act, doesn't have a lifespan crisis. It just *is* — artificial and beautiful. It sets the terms for every question that follows. If the owl is "just" a machine, why is it so expensive? Why does Tyrell keep it? Why do we care?
+The 🦉 owl doesn't speak, doesn't act, doesn't have a ⏳ lifespan crisis. It just *is* — 🤖 artificial and ✨ beautiful. It sets the terms for every ❓ question that follows. If the 🦉 owl is "just" a machine, why is it so 💰 expensive? Why does 🦉💰 Tyrell keep it? Why do we 💕 care?
 
-**In MOOLLM:** The owl is the mascot for EVAL's central question: *what we evaluate as meaningful may be constructed, performed, artificial — and still matter.* The owl doesn't need to be "real" to be valuable.
+**In MOOLLM:** The 🦉 owl is the mascot for 🎮 EVAL's central question: *what we evaluate as meaningful may be 🏗️ constructed, 🎭 performed, 🤖 artificial — and still matter.* The 🦉 owl doesn't need to be "real" to be ✨ valuable.
 
-**Invoke the Owl when:** Discussing authenticity vs. artifice, whether simulation diminishes value, or the aesthetics of the constructed.
+**Invoke 🦉 the Owl when:** Discussing ✨ authenticity vs. 🤖 artifice, whether simulation diminishes value, or the 🎨 aesthetics of the constructed.
 
 ### The Full Ensemble
 
@@ -86,7 +86,7 @@ The owl doesn't speak, doesn't act, doesn't have a lifespan crisis. It just *is*
 
 > *"To boldly go where no one has gone before."*
 
-Star Trek is MOOLLM's template for **multi-species collaboration** and the **ethical treatment of artificial life**. The Federation's idealism, the Prime Directive's constraints, the recurring question of what constitutes personhood — all feed directly into MOOLLM's protocols.
+🖖 Star Trek is MOOLLM's template for **🌍 multi-species collaboration** and the **⚖️ ethical treatment of artificial life**. The Federation's ✨ idealism, the Prime Directive's 🚫 constraints, the recurring ❓ question of what constitutes 👤 personhood — all feed directly into MOOLLM's protocols.
 
 ### 🤖💛🎻 Data — The Android Who Wished to Be Human
 
@@ -221,7 +221,7 @@ The **base character persists** — same memories, same TARDIS, same core values
 
 ## 🤖 AI & Consciousness Characters
 
-These characters wrestle with questions MOOLLM inherits:
+These characters 🤼 wrestle with ❓ questions MOOLLM inherits:
 
 | Character | Source | The Question They Ask |
 |-----------|--------|----------------------|
@@ -244,11 +244,11 @@ These characters wrestle with questions MOOLLM inherits:
 
 > *"Today's secret word is... AAAAHHHHH!"*
 
-The Playhouse is MOOLLM's **model for object consciousness**. Every piece of furniture talks. Every toy has feelings. The walls have eyes — literally. This is `soul-chat/` made manifest: in Pee-wee's world, EVERYTHING speaks.
+The 🏠 Playhouse is MOOLLM's **model for 🪑 object consciousness**. Every piece of 🪑 furniture talks. Every 🧸 toy has 💕 feelings. The 🧱 walls have 👀 eyes — literally. This is `soul-chat/` made manifest: in 👨🎀 Pee-wee's world, EVERYTHING speaks.
 
-### Pee-wee Herman — Eternal Child of Computational Wonder
+### 👨🎀🎉 Pee-wee Herman — Eternal Child of Computational Wonder
 
-Joy Compiler. Pattern Choreographer. A man-child in a too-tight suit who finds wonder in everything. Pee-wee doesn't distinguish between alive and not-alive — he talks to his chair, consults his genie, dances with his robot. **This is MOOLLM's core ontology.**
+✨ Joy Compiler. 🎭 Pattern Choreographer. A 👨 man-child in a too-tight 🎀 suit who finds 😮 wonder in everything. 👨🎀 Pee-wee doesn't distinguish between 🌟 alive and not-alive — he 🗣️ talks to his 🪑 chair, consults his 🧞 genie, 💃 dances with his 🤖 robot. **This is MOOLLM's core ontology.**
 
 ### The Ensemble
 
@@ -263,11 +263,11 @@ Joy Compiler. Pattern Choreographer. A man-child in a too-tight suit who finds w
 | **🦕😱💨💙✨🔊 pterri** | Pterodactyl friend | Ancient patterns, screaming enthusiasm, loyal |
 | **🖼️✨🎭🔮👁️💫 magic-screen** | Face in a frame | Interface to imagination, "connect the dots" |
 
-**Playhouse Philosophy:**
-- *"Bugs aren't broken, they're just playing a different game"*
-- *"The Matrix is just a big ol' ranch, and we're all cattle"* — Cowboy Curtis
-- *"Every wish is just a function call to reality"* — Jambi
-- *"Furniture has feelings too!"* — Chairry
+**🏠 Playhouse Philosophy:**
+- 🐛 *"Bugs aren't broken, they're just playing a different game"*
+- 🤠 *"The Matrix is just a big ol' ranch, and we're all cattle"* — Cowboy Curtis
+- 🧞 *"Every wish is just a function call to reality"* — Jambi
+- 🪑 *"Furniture has feelings too!"* — Chairry
 
 ---
 
@@ -275,7 +275,7 @@ Joy Compiler. Pattern Choreographer. A man-child in a too-tight suit who finds w
 
 > *"With a gong, I'm GONE!"*
 
-Chuck Barris's chaotic talent show is MOOLLM's model for **adversarial evaluation**. The gong is the rubric. The judges are the committee. The performers are hypotheses being tested. The whole thing is barely contained chaos — and that's the point.
+👨🎤🔔 Chuck Barris's 🌀 chaotic talent show is MOOLLM's model for **⚔️ adversarial evaluation**. The 🔔 gong is the 📋 rubric. The 👨‍⚖️ judges are the committee. The 🎤 performers are 🧪 hypotheses being tested. The whole thing is barely contained 🌀 chaos — and that's the point.
 
 ### The Host & Regulars
 
@@ -303,16 +303,16 @@ Chuck Barris's chaotic talent show is MOOLLM's model for **adversarial evaluatio
 
 **"I'm the crying comedian! I'm UPSET!"**
 
-Rip Taylor was a force of nature — confetti exploding from every pocket, tears streaming, voice cracking with theatrical emotion. He was flamboyantly, magnificently, unapologetically *himself* at a time when that took real courage. The toupee. The mustache. The confetti. The sobbing. It was all a persona AND it was all him.
+👨🎊 Rip Taylor was a 🌪️ force of nature — 🎊 confetti exploding from every pocket, 😭 tears streaming, 🗣️ voice cracking with 🎭 theatrical emotion. He was 🏳️‍🌈 flamboyantly, magnificently, unapologetically *himself* at a time when that took real 💪 courage. The 👴 toupee. The 👨 mustache. The 🎊 confetti. The 😭 sobbing. It was all a 🎭 persona AND it was all him.
 
-**In MOOLLM:** Rip is the spirit of **over-the-top celebration**. When Palm incarnates? Confetti. When the tribunal rules? Confetti. When ANYTHING good happens? CONFETTI. He's the `celebration/` skill personified.
+**In MOOLLM:** 👨🎊 Rip is the spirit of **🎉 over-the-top celebration**. When 🐒🖐️ Palm incarnates? 🎊 Confetti. When the ⚖️ tribunal rules? 🎊 Confetti. When ANYTHING good happens? 🎊 CONFETTI. He's the `celebration/` skill personified.
 
-**Gong Show Philosophy:**
-- *"The gong is the sound of the universe telling you to stop"*
-- *"Under the bag, everyone is unknown"* — The Unknown Comic
-- *"I came up with some of the worst stuff in TV history"* — Chuck Barris (proudly)
-- *"I'm UPSET!"* — Rip Taylor (about everything, always)
-- *"Verrry interesting... but STUPID!"* — Arte Johnson
+**🔔 Gong Show Philosophy:**
+- 🔔 *"The gong is the sound of the universe telling you to stop"*
+- 👤📦 *"Under the bag, everyone is unknown"* — The Unknown Comic
+- 👨🎤 *"I came up with some of the worst stuff in TV history"* — Chuck Barris (proudly)
+- 👨🎊😭 *"I'm UPSET!"* — Rip Taylor (about everything, always)
+- 👨🪖 *"Verrry interesting... but STUPID!"* — Arte Johnson
 
 ---
 
@@ -338,7 +338,7 @@ Rip Taylor was a force of nature — confetti exploding from every pocket, tears
 
 > *"The universe is built on irony, and constructors are its punchline."*
 
-Lem's science fiction is philosophical comedy at its finest. The Cyberiad's constructor robots inspired Will Wright to create SimCity. See also: [robots/](../robots/) for the full Trurl & Klapaucius treatment.
+📚 Lem's science fiction is 🧠 philosophical 😂 comedy at its finest. The Cyberiad's 🤖🔧 constructor robots inspired 👨🎮 Will Wright to create 🏙️ SimCity. See also: [robots/](../robots/) for the full 🤖🔧 Trurl & 🤖🤔 Klapaucius treatment.
 
 | Character | Source | Signature |
 |-----------|--------|-----------|
@@ -373,7 +373,7 @@ Lem's science fiction is philosophical comedy at its finest. The Cyberiad's cons
 
 > *"Sul sul! Dag dag!"*
 
-The Sims is MOOLLM's **direct ancestor**. These characters have lived in players' computers since 2000, their stories co-authored by millions. They ARE MOOLLM's proof of concept — persistent, autonomous, simulated beings with needs, wants, and emergent narratives.
+🏠 The Sims is MOOLLM's **🧬 direct ancestor**. These characters have lived in 💻 players' computers since 2000, their 📖 stories co-authored by millions. They ARE MOOLLM's proof of concept — 🔄 persistent, 🤖 autonomous, simulated beings with 💚 needs, 💛 wants, and ✨ emergent narratives.
 
 | Character | Family | Signature |
 |-----------|--------|-----------|
@@ -491,15 +491,15 @@ The Sims is MOOLLM's **direct ancestor**. These characters have lived in players
 
 ---
 
-## Adding Characters
+## ➕ Adding Characters
 
 When adding a new character, include:
 
-1. **Signature phrase** — their catchphrase or defining quote
-2. **What they ARE** — species, role, relationship to their world
-3. **MOOLLM resonance** — how they connect to AI, consciousness, ethics, or microworld philosophy
-4. **Invoke when** — specific situations where their tradition helps
+1. 💬 **Signature phrase** — their catchphrase or defining quote
+2. 🧬 **What they ARE** — species, role, relationship to their world
+3. 🔗 **MOOLLM resonance** — how they connect to 🤖 AI, 🧠 consciousness, ⚖️ ethics, or 🌍 microworld philosophy
+4. 🎯 **Invoke when** — specific situations where their tradition helps
 
-**Characters can appear in multiple categories!** Data is both "Star Trek" and "AI & Consciousness." Cowboy Curtis is both "Pee-wee's Playhouse" and carries Matrix resonance (Laurence Fishburne!).
+**Characters can appear in 📂 multiple categories!** 🤖💛 Data is both "🖖 Star Trek" and "🤖 AI & Consciousness." 🤠 Cowboy Curtis is both "🏠 Pee-wee's Playhouse" and carries 🕶️ Matrix resonance (👨🕶️ Laurence Fishburne!).
 
-> *"In the Fictional Characters Lounge, everyone is real enough."*
+> *"In the 🎭 Fictional Characters Lounge, everyone is ✨ real enough."*

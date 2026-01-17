@@ -28,6 +28,8 @@ These are **tribute incarnations** -- fictional explorations based on documented
 | 👨🧪🔐🏳️‍🌈💔 alan-turing | `lloooomm/00-Characters/alan-turing/` | Father of CS, Enigma breaker, persecuted gay hero, tragic |
 | 👨🧠🔗🤖📚 marvin-minsky | `lloooomm/00-Characters/marvin-minsky/` | Society of Mind, AI pioneer, K-lines, perceptron wars |
 | 👨🐢📐🧒✨ seymour-papert | `lloooomm/00-Characters/seymour-papert/` | Logo turtle, constructionism, Mindstorms, children as philosophers |
+| 👨🐢📚🎓✨ brian-harvey | `lloooomm/00-Characters/brian-harvey/` | Logo wizard, Snap! co-creator, Beauty and Joy of Computing, taught Jens lambda |
+| 👨🧱⚖️💻✨ jens-moenig | `lloooomm/00-Characters/jens-moenig/` | Snap! architect, lawyer-turned-Smalltalker, BYOB creator, first-class everything |
 | 👨🧩🤖📖🔍 gary-drescher | `lloooomm/00-Characters/gary-drescher/` | Made-Up Minds, schema mechanism, Piagetian AI |
 | 👨👶🧠🔄📊 jean-piaget | `lloooomm/00-Characters/jean-piaget/` | Developmental stages, constructivism, watching children think |
 | 👨🖱️💡📺🌐 doug-engelbart | `lloooomm/00-Characters/doug-engelbart/` | Mother of all demos, mouse inventor, augmenting intellect |
@@ -62,6 +64,7 @@ These are **tribute incarnations** -- fictional explorations based on documented
 | 👨🌌🔬🧬🎮 chaim-gingold | `lloooomm/00-Characters/chaim-gingold/` | Spore procedural generation, galaxy creator tools |
 | 👨🐦🔀🌊🎬 craig-reynolds | `lloooomm/00-Characters/craig-reynolds/` | Boids, flocking algorithms, swarm intelligence, Oscar winner |
 | 👨🥚🎮🐉💎 warren-robinett | `lloooomm/00-Characters/warren-robinett/` | Adventure (Atari), first Easter egg, "Created by Warren Robinett" |
+| 👨🗺️💾🏴‍☠️✨ scott-adams | `lloooomm/00-Characters/scott-adams/` | Adventure game pioneer! Adventureland, Pirate Adventure, text adventures on tiny computers |
 
 ### Music & Art
 
@@ -255,7 +258,6 @@ See: [Marshall McLuhan's full character](../../../temp/lloooomm/00-Characters/ma
 | 👨🌌💙🔭✨ carl-sagan | `lloooomm/00-Characters/carl-sagan/` | "Billions and billions", Cosmos, pale blue dot, turtleneck sage |
 | 👨🔗📺🧠✨ james-burke | `lloooomm/00-Characters/james-burke/` | Connections! Everything is linked, BBC science historian |
 | 👨📹🎓🌍❤️ sal-khan | `lloooomm/00-Characters/sal-khan/` | Khan Academy, education for all, whiteboard revolution |
-| 👨🗺️💾🏴‍☠️✨ scott-adams | `lloooomm/00-Characters/scott-adams/` | Adventure game pioneer! Adventureland, Pirate Adventure, text adventures on tiny computers, really nice guy |
 
 ### Activists & Voices
 
