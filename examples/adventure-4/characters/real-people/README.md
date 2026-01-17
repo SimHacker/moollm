@@ -255,7 +255,7 @@ See: [Marshall McLuhan's full character](../../../temp/lloooomm/00-Characters/ma
 | 👨🌌💙🔭✨ carl-sagan | `lloooomm/00-Characters/carl-sagan/` | "Billions and billions", Cosmos, pale blue dot, turtleneck sage |
 | 👨🔗📺🧠✨ james-burke | `lloooomm/00-Characters/james-burke/` | Connections! Everything is linked, BBC science historian |
 | 👨📹🎓🌍❤️ sal-khan | `lloooomm/00-Characters/sal-khan/` | Khan Academy, education for all, whiteboard revolution |
-| 👨🐕📰⚠️😬 scott-adams | `lloooomm/00-Characters/scott-adams/` | Dilbert (before he went weird), pointy-haired boss |
+| 👨🗺️💾🏴‍☠️✨ scott-adams | `lloooomm/00-Characters/scott-adams/` | Adventure game pioneer! Adventureland, Pirate Adventure, text adventures on tiny computers, really nice guy |
 
 ### Activists & Voices
 
