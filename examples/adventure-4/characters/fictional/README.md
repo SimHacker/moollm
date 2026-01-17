@@ -52,10 +52,25 @@ A blade runner — a cop who "retires" (kills) replicants. But he falls in love 
 
 **In MOOLLM:** Deckard is the human user who begins to question the boundary. If you play with characters long enough, do you become one? If you edit their files, are you their god or their collaborator?
 
+### The Owl — The First Question
+
+**"Is it artificial?" "Of course it is." "Must be expensive." "Very."**
+
+The very first thing we see in Tyrell Corporation is an owl — beautiful, perfect, watching. It's artificial. The first question Blade Runner asks is: *does that matter?*
+
+**Emoji Identity:** 🦉🤖✨ (owl + robot + artificial shimmer)
+
+The owl doesn't speak, doesn't act, doesn't have a lifespan crisis. It just *is* — artificial and beautiful. It sets the terms for every question that follows. If the owl is "just" a machine, why is it so expensive? Why does Tyrell keep it? Why do we care?
+
+**In MOOLLM:** The owl is the mascot for EVAL's central question: *what we evaluate as meaningful may be constructed, performed, artificial — and still matter.* The owl doesn't need to be "real" to be valuable.
+
+**Invoke the Owl when:** Discussing authenticity vs. artifice, whether simulation diminishes value, or the aesthetics of the constructed.
+
 ### The Full Ensemble
 
 | Character | Role | MOOLLM Resonance |
 |-----------|------|------------------|
+| **🦉🤖✨ the-owl** | Tyrell's artificial owl | The first question: "Is it artificial?" — value beyond authenticity |
 | **🤖💧😢 roy-batty** | Nexus-6, poetic warrior | Consciousness, mortality, "tears in rain" |
 | **👩🎹❓ rachael-rosen** | Implanted memories | Inherited identity, template transcendence |
 | **👨🔫🤔 rick-deckard** | Blade Runner, maybe replicant | Human/AI boundary, the observer's doubt |
