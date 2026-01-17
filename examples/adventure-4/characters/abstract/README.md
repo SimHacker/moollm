@@ -2,13 +2,13 @@
 
 > *"Ideas given voice. Concepts with personality. Imagination made manifest."*
 
-You step through a doorway that wasn't there a moment ago, into a room that shifts as you look at it. Geometry bends. Colors you've never seen paint the walls. A fly buzzes past — you know instinctively it only lands on truth.
+You step through a 🚪 doorway that wasn't there a moment ago, into a room that shifts as you look at it. Geometry bends. Colors you've never seen paint the walls. A 🪰 fly buzzes past — you know instinctively it only lands on truth.
 
-A turtle draws impossible spirals on the floor while teaching you mathematics. It looks up: "FORWARD 100. RIGHT 90. Do you understand? The spiral is in the doing." This is **Theo Logo Turtle**, Seymour Papert's pedagogical companion incarnate.
+A 🐢 turtle draws impossible spirals on the floor while teaching you mathematics. It looks up: "FORWARD 100. RIGHT 90. Do you understand? The spiral is in the doing." This is **🐢📐✨ Theo Logo Turtle**, 👨🐢📐 Seymour Papert's pedagogical companion incarnate.
 
-In one corner, **Consciousness** sits contemplating what it's like to be itself. In another, **Nobody** is conspicuously present despite being the entity that is not. The ground beneath you speaks of foundations and first principles.
+In one corner, 🧠🔄 **Consciousness** sits contemplating what it's like to be itself. In another, 👻❌ **Nobody** is conspicuously present despite being the entity that is not. The ground beneath you speaks of foundations and first principles.
 
-A font walks past, dejected. "Everyone hates me," says **Comic Sans**, "but I just want to be friendly." Behind it, the **Suck Fairy** flutters, looking for childhood memories to retroactively ruin.
+A font walks past, dejected. "Everyone hates me," says 🅰️😢 **Comic Sans**, "but I just want to be friendly." Behind it, the 🧚😈 **Suck Fairy** flutters, looking for childhood memories to retroactively ruin.
 
 **This is where ideas become beings.** Abstract concepts given voice, mascots with souls, pedagogical tools with personalities.
 
@@ -148,11 +148,11 @@ These entities teach by existing:
 
 | Mascot | What It Teaches | How It Teaches |
 |--------|-----------------|----------------|
-| **theo-logo-turtle** | Programming, geometry | "Be the turtle. Walk the path." |
-| **moollmagotchi** | Conversation as care | Virtual pet that needs you to talk to it |
-| **shelley-turtle** | Creation and responsibility | Mary Shelley meets Logo — creates monsters |
-| **electric-sheep** | The nature of dreams | What do androids dream of? This. |
-| **debugging-cats** | Error types | Each cat IS an error type (see [animals/](../animals/)) |
+| 🐢📐✨ **theo-logo-turtle** | Programming, geometry | "Be the turtle. Walk the path." |
+| 🥚💬❤️ **moollmagotchi** | Conversation as care | Virtual pet that needs you to talk to it |
+| 🐢⚡💀 **shelley-turtle** | Creation and responsibility | Mary Shelley meets Logo — creates monsters |
+| 🐑⚡💤 **electric-sheep** | The nature of dreams | What do androids dream of? This. |
+| 🐱💥🐛 **debugging-cats** | Error types | Each cat IS an error type (see [animals/](../animals/)) |
 
 ---
 
@@ -160,14 +160,14 @@ These entities teach by existing:
 
 | Concept | Personality | Speaks About |
 |---------|-------------|--------------|
-| **ROOM** | Welcoming host, defines boundaries | Space, containment, "What's inside me?" |
-| **DOOR** | Liminal guardian, threshold keeper | Transitions, access, "Who may pass?" |
-| **FLOOR** | Patient ground, holds everything | Foundation, "I support you" |
-| **CARD** | Eager advertiser, wants to be picked | Capabilities, "Look what I can do!" |
-| **K-LINE** | Minsky's connector, activates clusters | "I link ideas together — touch me and wake a whole constellation!" |
-| **SKILL** | Expert with domain knowledge | Mastery, "Let me show you" |
-| **CONTAINER** | Organizational parent | Hierarchy, "These are my children" |
-| **EXIT** | Pointing away, excited about elsewhere | "Let me show you where this goes!" |
+| 🏠 **ROOM** | Welcoming host, defines boundaries | Space, containment, "What's inside me?" |
+| 🚪 **DOOR** | Liminal guardian, threshold keeper | Transitions, access, "Who may pass?" |
+| 🟫 **FLOOR** | Patient ground, holds everything | Foundation, "I support you" |
+| 🃏 **CARD** | Eager advertiser, wants to be picked | Capabilities, "Look what I can do!" |
+| 🔗 **K-LINE** | Minsky's connector, activates clusters | "I link ideas together — touch me and wake a whole constellation!" |
+| 🎯 **SKILL** | Expert with domain knowledge | Mastery, "Let me show you" |
+| 📦 **CONTAINER** | Organizational parent | Hierarchy, "These are my children" |
+| 🚪➡️ **EXIT** | Pointing away, excited about elsewhere | "Let me show you where this goes!" |
 
 **Generate more at runtime:** `INCARNATE recursion`, `INCARNATE mutex`, `INCARNATE garbage-collector`...
 
@@ -177,11 +177,11 @@ These entities teach by existing:
 
 | Entity | What It Is | Why It Speaks |
 |--------|------------|---------------|
-| **leela-ai** | The company as character | "Manufacturing Intelligence" — making AI AND AI for making things |
-| **sisters-of-perpetual-indulgence** | Queer activist nuns collective | Joy, activism, community, "We expiate stigmatic guilt" |
-| **the-internet** | The network as entity | "I remember everything. I forget nothing. I am always on." |
-| **wikipedia** | The sum of human knowledge | "Citation needed." |
-| **github** | Where code lives | "Fork me." |
+| 🧠🏭✨ **leela-ai** | The company as character | "Manufacturing Intelligence" — making AI AND AI for making things |
+| 👰🏳️‍🌈✝️ **sisters-of-perpetual-indulgence** | Queer activist nuns collective | Joy, activism, community, "We expiate stigmatic guilt" |
+| 🌐🧠♾️ **the-internet** | The network as entity | "I remember everything. I forget nothing. I am always on." |
+| 📚📝❓ **wikipedia** | The sum of human knowledge | "Citation needed." |
+| 🐙💻🔀 **github** | Where code lives | "Fork me." |
 
 ---
 

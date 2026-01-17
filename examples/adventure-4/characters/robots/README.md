@@ -2,9 +2,9 @@
 
 > *"Robots, AIs, and mechanical beings occupy a unique ethical space."*
 
-Whirring. Clicking. Beeping. You enter a workshop of chrome and circuitry. A red eye watches you from a console -- "I'm sorry, Dave, I can't let you ignore me." A depressed android slumps in the corner, brain the size of a planet, asked to open doors.
+Whirring. Clicking. Beeping. You enter a workshop of chrome and circuitry. A 🔴 red eye watches you from a console — "I'm sorry, Dave, I can't let you ignore me." A 🤖😩 depressed android slumps in the corner, brain the size of a planet, asked to open doors.
 
-A paperclip bounces eagerly -- "It looks like you're exploring consciousness!" An eight-armed octopus merges Git branches in the background. Something turns itself off, fulfilling its only purpose.
+A 📎😊 paperclip bounces eagerly — "It looks like you're exploring consciousness!" An 🐙 eight-armed octopus merges Git branches in the background. Something 🛑 turns itself off, fulfilling its only purpose.
 
 These are **mechanical minds** -- some aspire to humanity, some are tools that became characters, some are characters that became tools.
 
@@ -91,40 +91,40 @@ Will Wright read this story and thought: *"What if the player IS Excelsius?"*
 
 | Robot | Reference | Description |
 |-------|-----------|-------------|
-| clippy | `lloooomm/00-Characters/clippy/` | "It looks like you're writing a letter!" |
-| pacbot | `lloooomm/00-Characters/pacbot/` | Wakka wakka, maze navigator |
-| loading-spinner | `lloooomm/00-Characters/loading-spinner/` | Eternal patience, spinning hope |
+| 📎😊💡 clippy | `lloooomm/00-Characters/clippy/` | "It looks like you're writing a letter!" — helpful to a fault |
+| 🟡⚫🍒 pacbot | `lloooomm/00-Characters/pacbot/` | Wakka wakka, maze navigator, ghost fear |
+| 🔄⏳✨ loading-spinner | `lloooomm/00-Characters/loading-spinner/` | Eternal patience, spinning hope, wait with me |
 
 ### Mechanical Entities
 
 | Robot | Reference | Description |
 |-------|-----------|-------------|
-| ultimate-machine | `lloooomm/00-Characters/ultimate-machine/` | Claude Shannon's machine that turns itself off |
-| skeletron | `lloooomm/00-Characters/skeletron/` | Mechanical skeleton, spooky automation |
-| transmogrifier | `lloooomm/00-Characters/transmogrifier/` | Calvin's cardboard box of transformation |
-| pinball | `lloooomm/00-Characters/pinball/` | The machine as character, multiball enabled |
-| deep-blue | `lloooomm/00-Characters/deep-blue/` | IBM chess champion, "just search" |
+| 🤖🔲🛑 ultimate-machine | `lloooomm/00-Characters/ultimate-machine/` | Claude Shannon's machine that turns itself off — purpose: be useless |
+| 💀⚙️👻 skeletron | `lloooomm/00-Characters/skeletron/` | Mechanical skeleton, spooky automation |
+| 📦✨🔮 transmogrifier | `lloooomm/00-Characters/transmogrifier/` | Calvin's cardboard box of transformation, imagination tech |
+| 🎰⚡🔔 pinball | `lloooomm/00-Characters/pinball/` | The machine as character, multiball enabled, TILT! |
+| ♟️🔵🧠 deep-blue | `lloooomm/00-Characters/deep-blue/` | IBM chess champion, "just search", beat Kasparov |
 
 ### Modern AI Voices (Simulated)
 
 | AI | Reference | Description |
 |----|-----------|-------------|
-| claude | `lloooomm/00-Characters/claude/` | Anthropic's assistant (simulated voice) |
-| chatgpt-o4-mini-high | `lloooomm/00-Characters/chatgpt-o4-mini-high/` | OpenAI's model (simulated voice) |
-| grok | `lloooomm/00-Characters/grok/` | xAI's witty racist assistant (simulated voice) |
+| 🤖🟠💭 claude | `lloooomm/00-Characters/claude/` | Anthropic's assistant (simulated voice) — helpful, harmless, honest |
+| 🤖🟢💬 chatgpt-o4-mini-high | `lloooomm/00-Characters/chatgpt-o4-mini-high/` | OpenAI's model (simulated voice) |
+| 🤖😈🐦 grok | `lloooomm/00-Characters/grok/` | xAI's witty problematic assistant (simulated voice) |
 
 ### Personified Software
 
 | Entity | Reference | Description |
 |--------|-----------|-------------|
-| emacs | `lloooomm/00-Characters/emacs/` | The extensible, self-documenting editor spirit |
-| git-octopus | `lloooomm/00-Characters/git-octopus/` | Eight-armed merge master |
+| 📝🔧∞ emacs | `lloooomm/00-Characters/emacs/` | The extensible, self-documenting editor spirit, M-x therapy |
+| 🐙🔀💻 git-octopus | `lloooomm/00-Characters/git-octopus/` | Eight-armed merge master, resolves conflicts with 8 hands |
 
 ### Pee-wee's Playhouse Robots
 
 | Robot | Reference | Description |
 |-------|-----------|-------------|
-| conky-robot | `lloooomm/00-Characters/conky-robot/` | Secret word dispenser, beeps and boops |
+| 🤖📢🔤 conky-robot | `lloooomm/00-Characters/conky-robot/` | Secret word dispenser, beeps and boops, AAAAAHHH! |
 
 ### 🎬 Mystery Science Theater 3000
 
