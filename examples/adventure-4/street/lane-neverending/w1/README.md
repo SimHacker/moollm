@@ -61,17 +61,20 @@ flowchart LR
     end
     
     You["🏃 You"] --> |"sprint at tunnel"| THWACK["💥 THWACK<br/>(solid plywood)"]
-    Delivery["🚚 ACME Delivery"] --> |"walks through"| Tunnel
+    Delivery["🚚 ACME Delivery"] --> |"drives through"| Tunnel
+    Tesla["🔷 Tesla Cybertruck"] --> |"autopilot engaged"| FIRE["🔥 DUMPSTER FIRE<br/>(recall pending)"]
 
     style Tunnel fill:#9b59b6,color:#fff
     style THWACK fill:#e74c3c,color:#fff
+    style FIRE fill:#e67e22,color:#fff
 ```
 
 **The Painted Tunnel:**
 - Looks 100% real
 - You CANNOT run through it
-- ACME employees CAN
-- Delivery drones CAN
+- ACME delivery trucks CAN (drive right through)
+- Roadrunners CAN (meep meep)
+- Tesla Cybertrucks CANNOT (autopilot doesn't recognize painted tunnels)
 - It's not fair. But ACME products never were.
 
 **The Catalog Dispenser:**
