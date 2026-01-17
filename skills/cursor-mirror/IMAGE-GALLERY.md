@@ -197,7 +197,7 @@ Motive[mHappyLife] = ((Motive[mHappyLife] * 9) + Motive[mHappyWeek]) / 10;
 
 ### What This Led To
 
-These images were pasted into Cursor to help design MOOLLM's **confetti-crawler** and **needs** skills — simulated characters with decay curves, satisfaction mechanics, and emergent behavior. The Sims code served as ground truth for what a proper needs system looks like.
+These images were pasted into Cursor to help design MOOLLM's **worm-confetti-crawler** and **needs** skills — simulated characters with decay curves, satisfaction mechanics, and emergent behavior. The Sims code served as ground truth for what a proper needs system looks like.
 
 ---
 

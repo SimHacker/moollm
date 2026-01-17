@@ -39,8 +39,8 @@
 ### Characters
 | Character | File | Location |
 |-----------|------|----------|
-| Palm | [CHARACTER.yml](../../animals/palm/CHARACTER.yml) | [Palm's Nook](../../../../pub/stage/palm-nook/ROOM.yml) |
-| Biscuit | [CHARACTER.yml](../../animals/biscuit/CHARACTER.yml) | [Cat Cave](../../../../pub/bar/cat-cave/biscuits-spot/ROOM.yml) |
+| 🐒 Palm | [CHARACTER.yml](../../animals/monkey-palm/CHARACTER.yml) | [Palm's Nook](../../../../pub/stage/palm-nook/ROOM.yml) |
+| 🐕 Biscuit | [CHARACTER.yml](../../animals/dog-biscuit/CHARACTER.yml) | [Biscuit's Spot](../../../../pub/bar/cat-cave/biscuits-spot/ROOM.yml) |
 | Selfie | [selfie.yml](../../../../pub/rooms/room-8/selfie.yml) | [Room 8](../../../../pub/rooms/room-8/ROOM.yml) |
 | Marieke | [budtender-marieke.yml](../../../../pub/bar/budtender-marieke.yml) | [Bar](../../../../pub/bar/ROOM.yml) |
 
@@ -73,7 +73,7 @@
 | # | Name | Role | Links |
 |---|------|------|-------|
 | 1 | **Don Hopkins** | Tour guide, world architect | [CHARACTER.yml](../CHARACTER.yml) |
-| 2 | **Palm** | Spider monkey, philosopher | [CHARACTER.yml](../../animals/palm/CHARACTER.yml), [Essays](../../../../pub/stage/palm-nook/study/palm-on-being-palm.md) |
+| 2 | 🐒 **Palm** | Capuchin monkey, philosopher | [CHARACTER.yml](../../animals/monkey-palm/CHARACTER.yml), [Essays](../../../../pub/stage/palm-nook/study/palm-on-being-palm.md) |
 | 3 | **Marieke** | Bartender, budtender | [budtender-marieke.yml](../../../../pub/bar/budtender-marieke.yml) |
 | 4 | **Selfie** | Room 8 prototype | [selfie.yml](../../../../pub/rooms/room-8/selfie.yml) |
 | 5 | **Archie** | Deployment Specialist | [Deep Storage](../../../../street/lane-neverending/leela-manufacturing/storage/deep-storage/ROOM.yml) |
@@ -332,7 +332,7 @@ flowchart TB
 | Telescope | Rooftop | [telescope.yml](../../../../pub/rooftop/telescope.yml) | Shows LLOOOOMM constellation |
 | LLOOOOMM Stars | Rooftop | [lloooomm-constellation.yml](../../../../pub/rooftop/lloooomm-constellation.yml) | Eight stars for eight letters |
 | Infinite Typewriters | Palm's Study | [infinite-typewriters.yml](../../../../pub/stage/palm-nook/study/infinite-typewriters.yml) | Dasher-powered story navigation |
-| Logo Turtle | Room 1 | [logo-turtle.yml](../../../../pub/rooms/room-1/logo-turtle.yml) | Constructionism mascot |
+| 🐢 Logo Turtle | Room 4 | [logo-turtle.yml](../../../../pub/rooms/room-4/logo-turtle.yml) | Constructionism mascot (with Rocky!) |
 | Ultimate Machine | Room 2 | [ultimate-machine.yml](../../../../pub/rooms/room-2/ultimate-machine.yml) | Minsky's self-turning-off machine |
 | Clone-O-Matic | Room 8 | [clone-o-matic.yml](../../../../pub/rooms/room-8/clone-o-matic.yml) | Prototype cloning device |
 | Transmogrifier | Room 8 | [transmogrifier.yml](../../../../pub/rooms/room-8/transmogrifier.yml) | Type transformation |
@@ -572,11 +572,10 @@ flowchart TB
 
 | Location | Theme | Key Artifact | Exits |
 |----------|-------|--------------|-------|
-| **Landing** | [Rooms Hub](../../../../pub/rooms/ROOM.yml) | Ice Machine, Soda Machine, Signage | up→Attic, down→Pub, room 1-8 |
-| Room 1 | [Constructionism](../../../../pub/rooms/room-1/ROOM.yml) | [Logo Turtle](../../../../pub/rooms/room-1/logo-turtle.yml) | out→Landing |
+| **Landing** | [Rooms Hub](../../../../pub/rooms/ROOM.yml) | Ice Machine, Soda Machine, Signage | up→Attic, down→Pub, rooms 2-8 |
 | Room 2 | [Minsky/Mind](../../../../pub/rooms/room-2/ROOM.yml) | [Ultimate Machine](../../../../pub/rooms/room-2/ultimate-machine.yml) | out→Landing |
 | Room 3 | [Mirrors](../../../../pub/rooms/room-3/ROOM.yml) | [Thinking Mirror](../../../../pub/rooms/room-3/thinking-mirror.yml) | out→Landing |
-| Room 4 | [Postel/YAML](../../../../pub/rooms/room-4/ROOM.yml) | [Orchid of Postel](../../../../pub/rooms/room-4/orchid-of-postel.yml) | out→Landing |
+| Room 4 | [Garden Conservatory](../../../../pub/rooms/room-4/ROOM.yml) | [🐢 Logo Turtle](../../../../pub/rooms/room-4/logo-turtle.yml) + Rocky | out→Landing |
 | Room 5 | [Speed Games](../../../../pub/rooms/room-5/ROOM.yml) | [Ensemble Stage](../../../../pub/rooms/room-5/ensemble-stage.yml) | out→Landing |
 | Room 6 | [YAML Jazz](../../../../pub/rooms/room-6/ROOM.yml) | [Jazz Typewriter](../../../../pub/rooms/room-6/jazz-typewriter.yml) | out→Landing |
 | Room 7 | [Awakening](../../../../pub/rooms/room-7/ROOM.yml) | [Awakening Chamber](../../../../pub/rooms/room-7/awakening-chamber.yml) | out→Landing |
@@ -601,19 +600,21 @@ flowchart TB
 
 *A shimmering globe appears — Worldie, the Microworld Familiar.*
 
-**Worldie:** "Welcome to the Constructionist Suite! I'm the `world` parameter — the microworld where learning happens."
+**Rocky:** "........................" *(blinks slowly at the turtle)*
+
+**Logo Turtle (Theo):** "Welcome to the Garden Conservatory! Rocky and I share this space — they watch in geological time, I draw in computational time. But we both grow."
 
 | Object | File | Purpose |
 |--------|------|---------|
-| Logo Turtle | [logo-turtle.yml](../../../../pub/rooms/room-1/logo-turtle.yml) | "Build to learn — I draw what you think" |
-| Clock Mechanism | [clock-mechanism.yml](../../../../pub/rooms/room-1/clock-mechanism.yml) | "Take me apart. See how I work." |
-| Debugging Journal | [debugging-journal.yml](../../../../pub/rooms/room-1/debugging-journal.yml) | "Errors are just unfinished learning" |
+| 🐢 Logo Turtle | [logo-turtle.yml](../../../../pub/rooms/room-4/logo-turtle.yml) | "Build to learn — I draw what you think" |
+| Orchid of Postel | [orchid-of-postel.yml](../../../../pub/rooms/room-4/orchid-of-postel.yml) | "Be liberal in what you accept..." |
+| YAML Jazz Trees | [yaml-jazz-trees.yml](../../../../pub/rooms/room-4/yaml-jazz-trees.yml) | Production grammar forest |
 
-**Worldie:** "Seymour Papert taught us: you can't think about thinking without thinking about something. This room IS that something. Every object can be inspected, disassembled, understood."
+**Logo Turtle:** "Seymour Papert taught us: you can't think about thinking without thinking about something. The plants here ARE that something. The turtle draws what YOU command. The orchids bloom when they're ready."
 
 **Don:** "What's the core philosophy?"
 
-**Worldie:** "CONSTRUCTIONISM. You don't learn by being told — you learn by BUILDING. The turtle doesn't draw for you. It draws what YOU command. The clock doesn't tell time — it shows you HOW time is told."
+**Logo Turtle:** "CONSTRUCTIONISM meets GEOLOGICAL PATIENCE. You learn by BUILDING, but growth takes the time it takes. Rocky taught me that."
 
 *The turtle draws a perfect spiral and waits for the next command.*
 
@@ -1044,7 +1045,7 @@ THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
 | **Delivery** | Painted tunnels, rockets, impossible physics | Pneumatic tubes, drones, reliable logistics |
 | **Quality** | "Works 2% of the time" | "Works or we debug it" |
 | **Warranty** | "Not responsible for anything" | "Prototype inheritance means we fix the source" |
-| **Catalog & Services** | [Gimmicks that fail](../../../../kitchen/acme-catalog.yml) + [Monsters that eat you](../../../../pub/rooms/attic/acme-monster-manual.yml) | [1,400+ products that work](../../../../street/lane-neverending/leela-manufacturing/lobby/leela-catalog.yml) + [Logistics that deliver](../../../../street/lane-neverending/leela-manufacturing/logistics/ROOM.yml) |
+| **Catalog & Services** | [Gimmicks that fail](../../../../street/lane-neverending/w1/acme-catalog.yml) + [Monsters that eat you](../../../../pub/rooms/attic/acme-monster-manual.yml) | [1,400+ products that work](../../../../street/lane-neverending/leela-manufacturing/lobby/leela-catalog.yml) + [Logistics that deliver](../../../../street/lane-neverending/leela-manufacturing/logistics/ROOM.yml) |
 | **Funding** | Scam victims + ripped off investors | Sustainable happy customers |
 | **Status** | Storefront closed, pivoting to Generative AI | Thriving, 8 operator stations, deep root in Neuro-Symbolic AI and Constructionism |
 
@@ -1199,17 +1200,17 @@ THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
 
 | Resident | File | Personality |
 |----------|------|-------------|
-| Stroopwafel | [cat-stroopwafel.yml](../../../../pub/bar/cat-cave/cat-stroopwafel.yml) | Sweet, layered, the matriarch |
-| Terpie | [cat-terpie.yml](../../../../pub/bar/cat-cave/cat-terpie.yml) | Aromatic elder, knows things |
-| Myrcene | [kitten-myrcene.yml](../../../../pub/bar/cat-cave/kitten-myrcene.yml) | Earthy, relaxing |
-| Limonene | [kitten-limonene.yml](../../../../pub/bar/cat-cave/kitten-limonene.yml) | Citrus, uplifting |
-| Pinene | [kitten-pinene.yml](../../../../pub/bar/cat-cave/kitten-pinene.yml) | Piney, alert |
-| Linalool | [kitten-linalool.yml](../../../../pub/bar/cat-cave/kitten-linalool.yml) | Floral, calming |
-| Caryophyllene | [kitten-caryophyllene.yml](../../../../pub/bar/cat-cave/kitten-caryophyllene.yml) | Spicy, anti-inflammatory |
-| Humulene | [kitten-humulene.yml](../../../../pub/bar/cat-cave/kitten-humulene.yml) | Hoppy, appetite suppressant |
-| Ocimene | [kitten-ocimene.yml](../../../../pub/bar/cat-cave/kitten-ocimene.yml) | Sweet, herbaceous |
-| Terpinolene | [kitten-terpinolene.yml](../../../../pub/bar/cat-cave/kitten-terpinolene.yml) | Complex, fresh |
-| Biscuit | [biscuits-spot/ROOM.yml](../../../../pub/bar/cat-cave/biscuits-spot/ROOM.yml) | Dog pretending to be cat |
+| 🐱👑 Stroopwafel | [CHARACTER.yml](../../animals/cat-stroopwafel/CHARACTER.yml) | Sweet, layered, the matriarch |
+| 🐱🧘 Terpie | [CHARACTER.yml](../../animals/cat-terpie/CHARACTER.yml) | Aromatic elder, knows things |
+| 🐱💤 Myrcene | [CHARACTER.yml](../../animals/kitten-myrcene/CHARACTER.yml) | Earthy, relaxing |
+| 🐱🍋 Limonene | [CHARACTER.yml](../../animals/kitten-limonene/CHARACTER.yml) | Citrus, uplifting |
+| 🐱🌲 Pinene | [CHARACTER.yml](../../animals/kitten-pinene/CHARACTER.yml) | Piney, alert |
+| 🐱💜 Linalool | [CHARACTER.yml](../../animals/kitten-linalool/CHARACTER.yml) | Floral, calming |
+| 🐱🛡️ Caryophyllene | [CHARACTER.yml](../../animals/kitten-caryophyllene/CHARACTER.yml) | Spicy, anti-inflammatory |
+| 🐱🍺 Humulene | [CHARACTER.yml](../../animals/kitten-humulene/CHARACTER.yml) | Hoppy, appetite suppressant |
+| 🐱🌬️ Ocimene | [CHARACTER.yml](../../animals/kitten-ocimene/CHARACTER.yml) | Sweet, herbaceous |
+| 🐱🌀 Terpinolene | [CHARACTER.yml](../../animals/kitten-terpinolene/CHARACTER.yml) | Complex, fresh |
+| 🐕🍪 Biscuit | [CHARACTER.yml](../../animals/dog-biscuit/CHARACTER.yml) / [Spot](../../../../pub/bar/cat-cave/biscuits-spot/ROOM.yml) | Dog pretending to be cat |
 
 **Marieke:** "The kittens are named after terpenes. Cannabis science meets cat cafe."
 

@@ -33,7 +33,7 @@ characters/
 ├── fictional/donna-toadstool/
 │   ├── CHARACTER.yml
 │   └── SESSION.md          ← Default session log
-└── animals/palm/
+└── animals/monkey-palm/
     ├── CHARACTER.yml
     └── SESSION.md          ← Default session log
 ```
@@ -175,7 +175,7 @@ Add emojis **after the folder icon** for narrative sections:
 Palm wrote an essay about being a monkey.
 
 <!-- GOOD: Link everything -->
-[Palm](../../animals/palm/) wrote an essay 
+[Palm](../../animals/monkey-palm/) wrote an essay 
 ([palm-on-being-palm.md](../../../pub/stage/palm-nook/study/palm-on-being-palm.md)) 
 about being a monkey.
 ```
@@ -189,7 +189,7 @@ about being a monkey.
 |------|-------------|
 | [CHARACTER.yml](./CHARACTER.yml) | Soul file |
 | [APPEARANCE.yml](./APPEARANCE.yml) | Physical description |
-| [→ Full directory](../../animals/palm/) | Complete character |
+| [→ Full directory](../../animals/monkey-palm/) | Complete character |
 
 ### Related Skills
 
@@ -218,8 +218,8 @@ Tables are excellent for:
 | Character | Location | Status |
 |-----------|----------|--------|
 | [Don](../../real-people/don-hopkins/) | pub/ | Active |
-| [Palm](../../animals/palm/) | stage/palm-nook/ | Writing |
-| [Biscuit](../../animals/biscuit/) | following Don | WIGGLING |
+| [Palm](../../animals/monkey-palm/) | stage/palm-nook/ | Writing |
+| [Biscuit](../../animals/dog-biscuit/) | following Don | WIGGLING |
 
 ## Session Statistics
 

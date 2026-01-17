@@ -4,6 +4,10 @@
 
 **W1** is the segment of Lane Neverending just west of center. This block tells the story of two economies facing each other across the cobblestones.
 
+**Both buildings are now explorable:**
+- **[Leela Manufacturing](../leela-manufacturing/)** — Open, thriving, welcoming
+- **[ACME Surplus](../acme-surplus/)** — Closed, locked, trapped (break in at your own risk)
+
 ---
 
 ## The Layout
@@ -64,6 +68,30 @@ flowchart LR
 - Delivery drones CAN
 - It's not fair. But ACME products never were.
 
+**The Catalog Dispenser:**
+On the sidewalk in front of ACME, a battered metal dispenser offers FREE catalogs:
+
+| Action | What Happens |
+|--------|--------------|
+| 📖 READ | Browse catalogs without taking one |
+| 📦 TAKE | Get your own ACME Mail-Order Catalog |
+| 🛒 ORDER | Speak into the "Talk to Order" button |
+
+The catalogs connect to the [ACME catalog prototype](./acme-catalog.yml) — now co-located here. Full ordering system, all products, all malfunctions.
+
+**Instance/Prototype Pattern:**
+- The prototype (`acme-catalog.yml`) lives here, next to the dispenser
+- Characters TEAR OFF lightweight instances (references) to carry
+- Instances are weightless pointers — the real content stays at the prototype
+- When dropped in a room, creates a tiny pointer file with room-specific annotations
+- The kitchen has an [instance](../../../kitchen/acme-catalog.yml) already
+
+**Delivery Options:**
+- 📍 **FREE PICKUP** — Wait at the dispenser (variable timing)
+- 🚚 **ROOM DELIVERY** — 5-10 gold, anywhere (2-4 turns)
+
+CAM-ACME-01 watches this dispenser from across the street. Every interaction is logged.
+
 ---
 
 ## Leela Manufacturing (South Side)
@@ -93,7 +121,10 @@ Full documentation: [Leela Manufacturing →](../leela-manufacturing/)
 
 ## The Pub
 
-The Rusty Lantern is just one block east, at center. Leela and the pub are neighbors — knowledge and ale, side by side. As it should be.
+The Rusty Lantern is just one block east, at center, on the south side. 
+Leela and the pub are neighbors — knowledge and ale, side by side. 
+There are persistent rumors of secret doors and pneumatic tubes connecting them.
+As there should be.
 
 ---
 
@@ -113,6 +144,7 @@ The Rusty Lantern is just one block east, at center. Leela and the pub are neigh
 |-----------|-------------|-------|
 | ⬅️ West | [w2](../w2/) | Older district |
 | ➡️ East | [center](../center/) | The pub! |
+| ⬆️ North | [ACME Surplus](../acme-surplus/) | 4 Lane Neverending (LOCKED + TRAPPED) |
 | ⬇️ South | [Leela Manufacturing](../leela-manufacturing/) | 5 Lane Neverending |
 
 ---

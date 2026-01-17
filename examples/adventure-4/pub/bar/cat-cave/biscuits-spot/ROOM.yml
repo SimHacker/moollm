@@ -35,10 +35,16 @@ room:
     
   # WHO LIVES HERE
   resident:
-    file: "../../../../characters/biscuit/CHARACTER.yml"
+    dir: "characters/animals/dog-biscuit/"     # 🐕💛🏠🍪💕
     name: "Biscuit"
+    emoji_identity: "🐕💛🏠🍪💕"
+    invoke_with:
+      default: "🐕🍪 Biscuit"       # Warm and good
+      loving: "🐕💛 Biscuit"        # Maximum heart
+      sleepy: "🐕🏠 Biscuit"        # Home and resting
+      dad: "🐕💕 Biscuit"           # With the puppies
     species: "Dog (adopted cat-family member)"
-    role: "Kitten pillow, family guardian, good boy"
+    role: "Kitten pillow, family guardian, good boy, STEPFATHER of 8 puppies"
     
   # THE CUSHION
   features:

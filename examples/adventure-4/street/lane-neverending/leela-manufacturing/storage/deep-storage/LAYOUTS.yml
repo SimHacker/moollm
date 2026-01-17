@@ -5,9 +5,7 @@
 
 layouts:
 
-  # ═══════════════════════════════════════════════════════════════
   # GRID LAYOUTS
-  # ═══════════════════════════════════════════════════════════════
   
   rectangular-grid:
     id: rectangular-grid
@@ -93,9 +91,7 @@ layouts:
       connections: [n, ne, e, se, s, sw, w, nw]
       diagonal_cost: "optional movement penalty"
       
-  # ═══════════════════════════════════════════════════════════════
   # RADIAL/STAR LAYOUTS (Pie Menu Style)
-  # ═══════════════════════════════════════════════════════════════
   
   star-layout:
     id: star-layout
@@ -204,9 +200,7 @@ layouts:
       ring_connections: "radial"
       sector_connections: "circular"
       
-  # ═══════════════════════════════════════════════════════════════
   # TOPOLOGICAL PATTERNS
-  # ═══════════════════════════════════════════════════════════════
   
   tree-topology:
     id: tree-topology
@@ -291,9 +285,7 @@ layouts:
            │       │
            └──[C]──┘
            
-  # ═══════════════════════════════════════════════════════════════
   # STREET PLANS
-  # ═══════════════════════════════════════════════════════════════
   
   manhattan-grid:
     id: manhattan-grid
@@ -360,9 +352,7 @@ layouts:
       landmarks: "churches, markets, wells"
       growth: "incremental over centuries"
       
-  # ═══════════════════════════════════════════════════════════════
   # INFRASTRUCTURE PLANNING
-  # ═══════════════════════════════════════════════════════════════
   
   utility-network:
     id: utility-network
@@ -437,9 +427,7 @@ layouts:
       warehouse: "Storage Complex"
       distribution: "Loading Docks"
       
-  # ═══════════════════════════════════════════════════════════════
   # DEPLOYMENT PATTERNS
-  # ═══════════════════════════════════════════════════════════════
   
   phased-deployment:
     id: phased-deployment
@@ -492,9 +480,7 @@ layouts:
       3: "Fill interior"
       4: "Connect and optimize"
 
-# ═══════════════════════════════════════════════════════════════
 # GENERATION TOOLS
-# ═══════════════════════════════════════════════════════════════
 
 generation:
   

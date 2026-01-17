@@ -1,0 +1,353 @@
+# ACME CATALOG DISPENSER
+# Free catalogs! Read them, take them, order from them!
+# On the sidewalk in front of ACME Surplus, north side of W1
+#
+# Like a newspaper vending machine, but for chaos.
+# Points to the ACME catalog prototype in the kitchen.
+
+object:
+  name: "ACME Catalog Dispenser"
+  type: [dispenser, street_furniture, trap_in_disguise]
+  emoji: "📰📦🆓"
+  
+  portable: false
+  side: north
+  location: "Sidewalk in front of ACME Surplus, 4 Lane Neverending"
+  
+  # The prototype this dispenses (now co-located!)
+  prototype: ./acme-catalog.yml
+  dispenses: "ACME Mail-Order Catalog (free copies — tear off instances)"
+  
+  description: |
+    A battered metal dispenser stands on the sidewalk in front of 
+    ACME Surplus. It looks like a newspaper vending machine, but 
+    instead of newspapers, it's packed with ACME Mail-Order Catalogs.
+    
+    A cheerful sign on the front:
+    
+    ┌─────────────────────────────────────┐
+    │     📦 FREE ACME CATALOGS! 📦      │
+    │                                     │
+    │   "If It Exists, ACME Makes It!™"   │
+    │                                     │
+    │   TAKE ONE! READ ONE! ORDER NOW!    │
+    │                                     │
+    │   No purchase necessary!            │
+    │   (Purchases highly encouraged)     │
+    └─────────────────────────────────────┘
+    
+    The dispenser is dented, slightly rusty, and has scorch marks
+    on one corner. A small note at the bottom:
+    
+    "ACME is not responsible for: paper cuts, spontaneous ordering,
+     catalog-induced optimism, or the Wile E. Coyote curse."
+    
+    Through the glass front, you can see stacks of catalogs.
+    The coyote on each cover seems to be watching you.
+    
+  examine: |
+    ACME CATALOG DISPENSER
+    ═══════════════════════
+    
+    The dispenser is about 4 feet tall, made of weathered metal with
+    a glass front. Inside, neatly stacked catalogs await.
+    
+    THE CATALOGS:
+    Each one shows a smiling coyote giving a thumbs up.
+    Is that... soot on his face? And bandages?
+    The ACME logo gleams despite the dust.
+    
+    THE MECHANISM:
+    Unlike most newspaper dispensers, this one has NO coin slot.
+    Just a handle. Pull and receive.
+    
+    "FREE" is emphasized in several places.
+    Suspiciously emphasized.
+    
+    THE FINE PRINT:
+    A tiny label on the side:
+    "Catalogs are free. Hope is free. Regret is earned."
+    
+    THE CAMERA:
+    Looking across the street, you notice a camera in Leela's lobby
+    window is pointed directly at this dispenser.
+    CAM-ACME-01 is watching.
+    
+    THE IRONY:
+    The store behind this dispenser is CLOSED and BOARDED UP.
+    But the catalogs keep coming.
+    Someone is refilling this dispenser.
+    At night.
+    You never see them.
+    
+  actions:
+    TAKE_CATALOG:
+      description: "Tear off a free catalog from the dispenser"
+      aliases: [take, get, grab, pull, tear]
+      effect: |
+        You pull the handle. The dispenser creaks open.
+        
+        *riiiiip*
+        
+        A catalog tears off into your hands. It's surprisingly
+        light — almost weightless. Just a reference, really.
+        
+        The coyote on the cover winks at you.
+        
+        ...Wait, did it actually wink?
+        
+        INVENTORY: + ACME MAIL-ORDER CATALOG (ref)
+        
+        (This is an INSTANCE pointing to ./acme-catalog.yml)
+        (The prototype stays here. You carry a lightweight pointer.)
+        
+        Somewhere across the street, CAM-ACME-01 logs:
+        "CATALOG_DISPENSED: entity_unknown. Probability of regret: 78%"
+        
+    READ_IN_DISPENSER:
+      description: "Browse the catalog without taking it"
+      aliases: [read, browse, look, flip]
+      effect: |
+        You lean in and flip through a catalog still in the rack.
+        
+        The glass front provides just enough access to browse...
+        
+        ADVENTURE GEAR... DETECTION DEVICES... FOOD & CONSUMABLES...
+        TRAPS & DEVICES... DISGUISES... HUNTING & CAPTURE...
+        MYSTERY & EXPERIMENTAL...
+        
+        Every page promises wonder.
+        Every page has tiny asterisks.
+        Every product has a malfunction chance.
+        
+        You can ORDER from here too — just say what you want.
+        The dispenser has a small speaker and a "Talk to Order" button.
+        
+        "ORDER [item] FROM ACME"
+        
+        📍 FREE PICKUP here (wait by the dispenser, could take a while)
+        🚚 DELIVER TO [room] for 5-10 gold (2-4 turns, anywhere!)
+        
+    ORDER:
+      description: "Order directly from the dispenser"
+      aliases: [order, buy, purchase]
+      usage: "ORDER [item] FROM ACME"
+      effect: |
+        You press the "Talk to Order" button on the dispenser.
+        
+        *crackle*
+        
+        "ACME ORDER DESK! What can we PROBABLY deliver today?"
+        
+        You state your order. The speaker crackles again.
+        
+        "EXCELLENT choice! Delivery options:
+        
+         📍 FREE PICKUP — Right here! At the dispenser!
+            Delivery in... well, we'll get it here eventually.
+            Could be 2 turns. Could be 20. You'll know when you hear
+            the truck drive through the painted tunnel.
+            Just wait right here! We recommend a good book.
+            
+         🚚 ROOM DELIVERY — Any room in the adventure! 
+            Shipping: 5 gold per item, 10 for hazmat (most things).
+            Delivery in 2-4 turns! Via parachute, roadrunner, 
+            catapult, or boing — we choose based on vibes.
+            
+         What'll it be? PICKUP or DELIVER TO [location]?"
+        
+        *click*
+        
+        The dispenser hums for a moment, then goes quiet.
+        
+        Somewhere, a coyote howls.
+        
+    EXAMINE_SCORCH_MARKS:
+      description: "Look at the burn marks on the dispenser"
+      aliases: [scorch, burn, marks]
+      effect: |
+        The scorch marks on the corner are... extensive.
+        
+        Someone clearly had an ACME product malfunction RIGHT HERE.
+        The pattern suggests a small explosion, followed by
+        someone being launched upward, then landing nearby.
+        
+        A small plaque has been welded to the spot:
+        
+        "IN MEMORY OF ORDER #4,782
+         Wile E. Coyote's attempt to 'test before shipping'
+         He survived. He always survives.
+         Products ship as-is."
+         
+    KICK_DISPENSER:
+      description: "Kick the dispenser"
+      aliases: [kick, hit, punch]
+      effect: |
+        *CLANG*
+        
+        The dispenser shakes. A catalog falls out onto the ground.
+        
+        The speaker crackles to life:
+        
+        "ACME thanks you for your enthusiasm! Would you like to
+         order some ACME ROCKET SKATES? Perfect for quick getaways!
+         Only 40% chance of random destination!"
+        
+        *click*
+        
+        ...the dispenser remembered that.
+        
+  delivery:
+    pickup:
+      location: "Right here — in front of the closed ACME Surplus storefront"
+      cost: free
+      timing: |
+        Variable. Could be 2 turns, could be 20.
+        ACME delivery trucks emerge from the painted tunnel
+        at unpredictable intervals. Sometimes at night.
+        Sometimes when you blink.
+        
+        Waiting is free. Patience is tested.
+        
+        "The pickup window is always open. The window of opportunity... varies."
+      experience: |
+        You hear a truck approaching... but from WHERE?
+        
+        Through the painted tunnel, an ACME truck emerges.
+        (The wall is solid. The truck is real. Don't ask.)
+        
+        A package is tossed onto the sidewalk.
+        The truck vanishes back through the wall.
+        
+        Your order has arrived! (Inspect before use. Warranty void.)
+        
+    room_delivery:
+      cost: "5 gold standard, 10 gold for hazmat (most items qualify)"
+      timing: "2-4 turns"
+      methods:
+        - parachute: "Drops from the sky. Usually lands nearby."
+        - roadrunner: "Very fast. Very precise. Beep beep."
+        - catapult: "Medieval but effective. Watch for arc."
+        - boing: "Spring-loaded delivery. Don't ask."
+      anywhere: true
+      destinations: "Any room in the adventure — kitchen, hotel, street, pub, anywhere"
+      tracking: "ACME does not provide tracking. The package tracks YOU."
+      
+  pickup_point:
+    description: |
+      This dispenser doubles as the official ACME pickup point.
+      
+      Free delivery TO HERE. Just... wait.
+      The sidewalk is comfortable enough.
+      Leela employees have brought lawn chairs.
+      (They're watching for research purposes.)
+      
+    waiting_activities:
+      - "Read your catalog. Dream of possibilities."
+      - "Watch the painted tunnel. Notice patterns."
+      - "Chat with passersby. Warn them. They won't listen."
+      - "Count the cameras watching you. There's at least one."
+      
+  inventory:
+    catalogs_remaining: "Infinite (restocked nightly by unknown means)"
+    catalog_type: "ACME Mail-Order Catalog — Current Season"
+    
+  restocking:
+    frequency: nightly
+    method: unknown
+    witnesses: none
+    theories:
+      - "ACME delivery drivers use the painted tunnel"
+      - "The dispenser is connected to a pocket dimension"
+      - "Roadrunner express — they're too fast to see"
+      - "It just... refills. Don't question it."
+      
+  neighborhood_context:
+    across_street: "Leela Manufacturing (watching via CAM-ACME-01)"
+    behind: "ACME Surplus (closed, trapped)"
+    relationship_to_leela: |
+      Leela employees pass this dispenser every day.
+      Some take catalogs — for "research purposes."
+      Some study the malfunction rates — "competitive analysis."
+      Some just shake their heads and keep walking.
+      
+      CAM-ACME-01 logs every interaction.
+      The data is... educational.
+      
+  secret:
+    the_first_catalog: |
+      If you take the VERY FIRST catalog in the stack (at the back),
+      it's different. Older. The coyote on the cover isn't smiling.
+      
+      This is the ORIGINAL ACME catalog from 1949.
+      The products are the same. The prices are lower.
+      The malfunction rates are... not listed.
+      
+      "ACME: A Fine Company"
+      (This was before the rebranding.)
+      
+    the_speaker: |
+      The "Talk to Order" speaker connects to... somewhere.
+      Not a call center. Not a warehouse.
+      Somewhere that always answers on the first crackle.
+      Somewhere that knows what you're going to order
+      before you say it.
+      
+      The delivery trucks come from the painted tunnel.
+      They always have.
+      
+  quotes:
+    tom: |
+      "Tom has observed the dispenser."
+      "Tom has cataloged the catalog."
+      "Tom notes: free products have hidden costs."
+      "Tom notes: instances are weightless references."
+      "Tom suggests: drop one in the kitchen. We already did."
+      
+    leela_employee: |
+      "We keep count. 847 catalogs dispensed this month.
+       12 orders visible on the loading docks.
+       0 anvils landed on anyone. So far.
+       
+       The malfunction rate holds steady at 32%.
+       We don't know why it's always 32%.
+       We don't want to know."
+       
+    don_hopkins: |
+      "I took a catalog once. For research.
+       Read the whole thing. Every product. Every warning.
+       The malfunction percentages aren't random — they're TUNED.
+       Someone optimized for maximum ironic comedy.
+       
+       That's either genius or madness.
+       With ACME, it's probably both."
+       
+  advertisements:
+    - trigger: "catalog"
+      score: 0.8
+      response: |
+        *The dispenser creaks invitingly*
+        
+        FREE CATALOGS! Take one! Read one!
+        
+        Why buy when you can BROWSE?
+        Why walk away when you can ORDER?
+        
+        ACME: Everything you need! (Terms and conditions apply.)
+        
+    - trigger: "order"
+      score: 0.9
+      response: |
+        *The speaker crackles*
+        
+        "Ready to order? Just say the word!
+         
+         📍 FREE PICKUP right here! (Patience required.)
+         🚚 ROOM DELIVERY anywhere! (5-10 gold, 2-4 turns.)
+         
+         Popular items this week:
+         - ACME Portable Hole (only 20% malfunction!)
+         - ACME Rocket Skates (40% — but so FAST!)
+         - ACME Instant Tunnel Paint (30% — usually works for YOU)
+         
+         What'll it be?"

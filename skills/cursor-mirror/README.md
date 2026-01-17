@@ -634,7 +634,7 @@ Everything connects:
 | `cursor-mirror` | LEARN tool: inspecting what happened |
 | `adventure` | PLAY environment: safe exploration |
 | `worm` | The abstract pattern: two-pointer traversal |
-| `confetti-crawler` | Concrete instance: emoji fordite mascot |
+| `worm-confetti-crawler` | Concrete instance: emoji fordite mascot |
 
 cursor-mirror closes the loop. You can't improve what you can't see.
 

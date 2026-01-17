@@ -18,9 +18,7 @@ object:
     
     Where you choose to sit shapes who you'll meet and what you'll hear.
 
-# ===========================================
 # THE BAR STOOLS — URL: seating.yml#bar-N
-# ===========================================
 
 bar_stools: &bar_stools
   description: |
@@ -117,9 +115,7 @@ bar_stools: &bar_stools
       risk: "Social faux pas if Morn is present or expected"
       check: "Is Morn here? Is it Morn's drinking time?"
 
-# ===========================================
 # THE TABLES — URL: seating.yml#table-N
-# ===========================================
 
 tables: &tables
   description: |
@@ -227,9 +223,7 @@ tables: &tables
       effect: "Take an empty table"
       note: "Others may ask to join"
 
-# ===========================================
 # THE BOOTHS — URL: seating.yml#booth-NAME
-# ===========================================
 
 booths: &booths
   description: |
@@ -319,9 +313,7 @@ booths: &booths
       requires: "Be in a booth"
       privacy: "No eavesdropping possible"
 
-# ===========================================
 # SOCIAL MECHANICS
-# ===========================================
 
 social_dynamics:
   service_levels:
@@ -344,9 +336,7 @@ social_dynamics:
     table: "Scannable from entrance"
     booth: "Must search or ask"
 
-# ===========================================
 # BIDIRECTIONAL REFERENCES
-# ===========================================
 #
 # When someone sits:
 #   1. Their character.location → pub/seating.yml#bar-3

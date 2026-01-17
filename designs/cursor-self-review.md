@@ -45,7 +45,7 @@ K-lines can reference anything:
 |-----------------|---------|
 | Skill | `speed-of-light` → `skills/speed-of-light/` |
 | Kernel protocol | `context-assembly` → `kernel/context-assembly-protocol.md` |
-| Directory | `Palm` → `examples/adventure-4/characters/animals/palm/` |
+| Directory | `Palm` → `examples/adventure-4/characters/animals/monkey-palm/` |
 | File | `PUSH` → `designs/CHANGES.md` lines 6-26 |
 | Concept | `Postel` → robustness principle, `skills/postel/` |
 
@@ -365,7 +365,7 @@ k_lines:
   memory-management: kernel/memory-management-protocol.md
   
   # Key directories
-  Palm: examples/adventure-4/characters/animals/palm/
+  Palm: examples/adventure-4/characters/animals/monkey-palm/
   
   # Concepts
   PUSH: designs/CHANGES.md  # The PUSH protocol for commits
@@ -441,7 +441,7 @@ Names activate context. K-lines are general pointers — they can reference skil
 Master index: `PROTOCOLS.yml` — the top-level symbol table
 
 Examples:
-- "Palm" → `examples/adventure-4/characters/animals/palm/`
+- "Palm" → `examples/adventure-4/characters/animals/monkey-palm/`
 - "society of mind" → `skills/society-of-mind/`
 - "context assembly" → `kernel/context-assembly-protocol.md`
 - "PUSH" → `designs/CHANGES.md` lines 6-26
@@ -1431,7 +1431,7 @@ When these connect, the LLM becomes **an intelligent navigator of skill space**:
 User: "I want to simulate a conversation between Palm and the Bartender"
 
 LLM thinks:
-├── "Palm" activates → examples/adventure-4/characters/animals/palm/
+├── "Palm" activates → examples/adventure-4/characters/animals/monkey-palm/
 ├── "Bartender" activates → skills/bartender/
 ├── "simulate conversation" → ADVERTISEMENT:SIMULATE_CONVERSATION matches
 ├── speed-of-light scores highest

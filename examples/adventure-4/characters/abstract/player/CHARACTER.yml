@@ -8,6 +8,12 @@ player:
   name: "Unknown Hero"
   id: player
   type: player_character
+  emoji_identity: "🧍❓✨🗝️🌅"
+  #   🧍 — adventurer (the one who stirs)
+  #   ❓ — unknown (identity not yet revealed)
+  #   ✨ — possibility (all paths open)
+  #   🗝️ — beginning (key to the adventure)
+  #   🌅 — dawn (everything starts here)
   
   description: |
     A figure stirs in the Chamber of Commencement. Who are they?
@@ -31,6 +37,12 @@ player:
   # The lunchbox is in kitchen/lunchbox.yml — take it from the table!
   # The notebook is in kitchen/notebook.yml — for collecting memories!
   # TomTomagotchi is in kitchen/tomtomagotchi.yml — your navigation pet!
+  # See: skills/character/SKILL.md for inventory protocol (objects vs refs)
+  
+  inventory_capacity:
+    max_weight: 50    # Total weight you can carry
+    max_bulk: 10      # Total bulk (number of large items)
+    refs_free: true   # Refs don't count against capacity
   
   gold: 10                # Enough for a few lamp refills and snacks
   

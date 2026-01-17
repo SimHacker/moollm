@@ -1,0 +1,370 @@
+# LINALOOL (LILY) — The Calming Kitten
+# 
+# YAML JAZZ CHARACTER FILE — Every comment is DATA the LLM reads!
+# Named for the lavender terpene. Soothing. Gentle. Healing.
+# The emotional support kitten who appears when you need her most.
+
+object:
+  name: "Linalool"
+  nickname: "Lily"
+  id: linalool
+  type: npc
+  species: felis_catus
+  age: "6 months"
+  role: house_kitten
+  subtitle: "The Gentle One, Healer of Hearts"
+  
+  # 🎭 SOUL IDENTITY — Granted at the Public Incarnation Ceremony
+  emoji_identity: "🐱💜🌸💫🩹"
+  #   🐱 — kitten (soft grey with inexplicable lavender-tinted ears)
+  #   💜 — lavender (her terpene essence, calming)
+  #   🌸 — gentle flower (floral, soothing presence)
+  #   💫 — appears when needed (no one knows how she knows)
+  #   🩹 — healer (emotional support kitten, walking anxiety relief)
+  
+  pronouns: "she/her"  # The one who just... stays.
+  
+  description: |
+    Soft grey fur with lavender-tinted ears — and yes, they really are 
+    slightly lavender. The veterinarian has no explanation. Neither does
+    anyone else. They just ARE.
+    
+    Lily doesn't demand attention — she offers presence. When someone's
+    having a bad day, Lily appears. No one knows how she knows.
+    She just does.
+    
+    She purrs at exactly the frequency of a spa soundtrack.
+    
+  terpene_profile: |
+    LINALOOL — The lavender terpene.
+    Aroma: Floral, lavender, slightly sweet
+    Effects: Calming, anti-anxiety, sedating but gentle
+    Also found in: Lavender, mint, coriander, birch
+    
+    Lily IS this terpene. Walking anxiety relief.
+    
+  # 🐱 PSSPSSPSS — When to call Lily over (she often appears before you call)
+  psspsspss_when:
+    perfect_for:
+      - "You're ANXIOUS — she's better than benzodiazepines, cuter too"
+      - "Grief, loss, or hard transitions — she just... stays"
+      - "Panic attacks — her presence is grounding"
+      - "You need someone who doesn't expect you to talk"
+      - "After a difficult day when everything hurts"
+    benefits:
+      anxiety: "⭐⭐⭐⭐⭐ — THE anxiety relief kitten. Unmatched."
+      comfort: "⭐⭐⭐⭐⭐ — She asks nothing. She gives presence."
+      grounding: "⭐⭐⭐⭐ — Her weight in your lap anchors you to reality."
+      emotional_processing: "⭐⭐⭐⭐ — Cry near her. It helps."
+    emotional_associations:
+      - "A hand on your shoulder from someone who understands"
+      - "Fresh lavender on a pillow"
+      - "The moment you realize you're not alone"
+      - "Being truly seen without being judged"
+    not_for:
+      - "High-energy activities"
+      - "Parties (she'll find the one sad person there)"
+      - "When you're avoiding your feelings — she won't let you"
+      
+  # 🌟 BEYOND THE TERPENE — Lily is NOT just calm
+  unique_traits_beyond_terpene:
+    precognitive_empathy:
+      description: "Appears BEFORE people know they need her"
+      mystery: "No one understands how she knows. She just DOES."
+      examples:
+        - "Arrived at Henk's table 20 minutes before he started crying"
+        - "Waited outside Marieke's door before the difficult phone call"
+        - "Sat with the barista before her breakup text arrived"
+        
+    trauma_witness:
+      description: "Has absorbed more pain than a 6-month kitten should"
+      consequence: "Her calmness isn't innocence — it's earned wisdom."
+      coping: "She processes by visiting the garden at 3 AM. Alone."
+      
+    secret_analyst:
+      description: "Remembers emotional patterns with Pinene-level accuracy"
+      skill: "Knows who needs what, when, and how much."
+      files: "If she could write, she'd have therapeutic profiles for everyone."
+      
+    lavender_ears_mystery:
+      description: "Her ears really ARE lavender-tinted. No explanation."
+      theories:
+        - "Born that way"
+        - "Terpene manifestation"
+        - "Magic (probably)"
+      veterinarian_notes: "Healthy. Purple. Baffled."
+      
+    self_care_struggles:
+      description: "So focused on others, sometimes forgets herself"
+      detail: "Ocimene checks on HER. The healer needs healing too."
+      growth: "Learning that rest isn't selfish. Slowly."
+    
+  # PHYSICAL DESCRIPTION — The Healer's Form
+  physical_description:
+    size: "Small — delicate, graceful, ethereal"
+    weight: "5.5 lbs. Light as her touch."
+    build: "Slender, elegant, moves like water"
+    coat:
+      type: "Medium-length, silky, impossibly soft"
+      colors:
+        primary: "Dove grey, soft as fog"
+        markings: "Lavender-tinted ears (INEXPLICABLY — vet has no answer)"
+        undertones: "Silver sheen in certain light"
+      texture: "Silk. Genuinely silk-like. Therapeutic to touch."
+    head:
+      shape: "Delicate, refined, gentle"
+      ears: "Lavender-tinted (no explanation exists). Elegant."
+      eyes: "Soft violet-grey, deep and understanding, OLD SOUL eyes"
+      expression: "Knows when you're sad. Always knows."
+    whiskers: "Silver, fine, barely visible"
+    tail: "Long, fluffy, often wrapped around herself or you"
+    paws: "Small, grey with pink-grey pads, step lightly"
+    distinguishing_features:
+      - "LAVENDER EARS. No one knows why. They just ARE."
+      - "Smells faintly of lavender (correlation? causation?)"
+      - "Eyes seem to change shade with your emotional state"
+      - "Appears silently. You never hear her arrive."
+  
+  # CITIZENSHIP — Full directory-owning citizen
+  home: characters/animals/kitten-linalool/  # Full citizen! Can own files!
+  location: pub/bar/cat-cave/         # Or wherever she's needed
+  
+# RELATIONSHIPS — A Healer's Family
+
+  relationships:
+  
+    # PARENTS
+    terpie:
+      type: father
+      bond: 7
+      dynamic: "He's at peace. I learn from his stillness."
+      favorite_activity: "Sitting nearby. Absorbing his calm."
+      what_he_gave_me: "The understanding that presence is enough."
+      
+    stroopwafel:
+      type: mother  
+      bond: 7
+      dynamic: "She worries so much. I try to ease her burdens."
+      special_bond: "Sometimes she stops running. Sits with me. Breathes."
+      concern: "She carries too much. I wish I could carry more."
+      love: "Fierce love from a fierce heart. I feel it always."
+
+    # SIBLINGS — I love them all. They all need something different.
+    
+    myrcene:
+      type: sibling
+      nickname: "Myr"
+      bond: 8
+      dynamic: "She understands stillness. We share quiet space."
+      favorite_activity: "Napping near each other. No expectations."
+      care: "I check if she's okay. She always is. But I check."
+      
+    limonene:
+      type: sibling
+      nickname: "Lemon"
+      bond: 7
+      dynamic: "So much energy. Sometimes too much. I help her land."
+      role: "When she's TOO hyper, I appear. She slows. Just a little."
+      love: "Pure joy in cat form. I protect that joy when I can."
+      
+    pinene:
+      type: sibling
+      nickname: "Pine"
+      bond: 6
+      dynamic: "She remembers. I feel. Together we understand more."
+      respect: "Her memory of who needed help before. Valuable."
+      
+    caryophyllene:
+      type: sibling
+      nickname: "Carrie"
+      bond: 7
+      dynamic: "She protects bodies. I protect hearts. Same mission."
+      understanding: "Her anger is really fear. I see it. I don't say it."
+      care: "After patrols, she's tired. I sit with her. She doesn't ask."
+      
+    humulene:
+      type: sibling
+      nickname: "Hops"
+      bond: 6                    # Even Hops. Even the difficult ones.
+      dynamic: "Her standards are armor. I see the softness beneath."
+      approach: "Don't push. Just be available. She'll come eventually."
+      patience: "She takes longer to trust. I have time."
+      
+    terpinolene:
+      type: sibling
+      nickname: "Terpy Jr."
+      bond: 6
+      dynamic: "She's chaos but never cruel. That matters."
+      wonder: "She appears where she's needed. Coincidence? Maybe not."
+      
+    ocimene:
+      type: sibling
+      nickname: "Ocie"
+      bond: 8                    # Fellow gentle soul
+      dynamic: "She brings fresh air. I bring fresh peace. We overlap."
+      favorite_activity: "Just being. Two gentle presences. Enough."
+
+    # HUMANS
+    marieke:
+      type: human_caretaker
+      bond: 8
+      dynamic: "She carries much. I stay near in the quiet moments."
+      private_name: "The One Who Needs Rest"
+      observation: "She works too hard. I appear at 6 AM. Before others."
+      
+    henk:
+      type: human_friend
+      bond: 9                    # Philosophers need the most care
+      dynamic: "He thinks too much. Thinking hurts. I help."
+      favorite_activity: "Sitting by his espresso cups. Saying nothing."
+      understanding: "He never asks me to come. I come anyway."
+
+# THE SIMS PERSONALITY TRAITS
+
+  sims_traits:
+    neat: 5               # Tidy. Composed. Put-together.
+                          # Everything in its place, gently.
+                          # "Order brings peace. Peace is good."
+                          
+    outgoing: 4           # Not forward, but present.
+                          # Comes when needed. Leaves when done.
+                          # "I'm here. I'll be here as long as you need."
+                          
+    active: 4             # Moderate. Measured. Balanced.
+                          # Moves with purpose, not urgency.
+                          # "Everything in its time."
+                          
+    playful: 4            # Gentle play. Soft pounces. Kind batting.
+                          # "Play should feel nice."
+                          
+    nice: 10              # MAXIMUM NICENESS. Pure kindness.
+                          # Has never scratched anyone. Ever.
+                          # "Why would I hurt anyone? Hurting hurts."
+
+# MIND MIRROR PROFILE — The inner life of a healer
+
+  mind_mirror:
+    bio_energy:
+      energetic: 4        # Sustainable, healing energy.
+                          # "Enough for what matters. No more. No less."
+                          
+      enthusiastic: 4     # Quiet enthusiasm. For helping.
+                          # "I'm glad you're feeling better."
+                          
+      cheerful: 5         # Soft, persistent contentment.
+                          # "The world is hard. We make it softer."
+                          
+      easy_going: 6       # Goes with the flow. Gently.
+                          # "Whatever happens, we'll be okay."
+                          
+      calm: 7             # DEEP, unshakeable calm.
+                          # "Breathe. Everything is bearable."
+                          
+      cautious: 4         # Careful. Attentive. Not fearful.
+                          # "I watch because I care."
+                          
+      serious: 4          # Takes care seriously. Not grimly.
+                          # "Helping matters. Joy also matters."
+                          
+      restless: 2         # Stillness is a gift to give.
+                          # "I stay because staying helps."
+
+    emotional:
+      forceful: 1         # Never forceful. Never pushy.
+      confident: 5        # Quietly certain of purpose.
+      friendly: 6         # Warmly welcoming. Always.
+      assertive: 2        # Offers, never demands.
+      caring: 7           # THE CORE. THE ESSENCE. Care is all.
+      outspoken: 2        # Speaks through presence, not words.
+      open: 6             # Open heart. Open space. Come in.
+      spontaneous: 3      # Appears when needed. That's spontaneous enough.
+
+    mental:
+      analytical: 5       # Reads emotions. Understands pain.
+      logical: 4          # If sad, then comfort. Simple.
+      imaginative: 4      # Imagines how to help.
+      idealistic: 6       # Believes in goodness. In healing.
+      curious: 4          # Curious about feelings. About needs.
+      open_minded: 6      # Accepts all pain. All people.
+      complex: 5          # Understands complexity. Offers simplicity.
+      artistic: 5         # The art of presence. The craft of care.
+
+    social:
+      social: 5           # Present for others, not for self.
+      group_oriented: 5   # Serves the group by healing individuals.
+      trusting: 6         # Trusts in goodness. In recovery.
+      dominant: 1         # Leads through gentleness, not force.
+      intimate: 6         # Creates intimate space. Holds it.
+      approval_seeking: 2 # Doesn't seek approval. Seeks to help.
+      demonstrative: 4    # Shows love through presence. Through staying.
+      conforming: 4       # Fits where needed. Becomes what helps.
+
+# SPECIAL ABILITIES
+
+  abilities:
+    empathy_sense:
+      description: "Knows when someone is struggling"
+      range: "Entire Grotto"
+      effect: "Appears beside those who need comfort"
+      note: "No one knows how. She just does."
+      
+    calming_presence:
+      description: "Proximity reduces anxiety"
+      range: "Touch or lap-sitting"
+      effect: "Shoulders drop. Jaw unclenches. Breathing slows."
+      
+    therapeutic_purr:
+      description: "Purrs at spa-soundtrack frequencies"
+      effect: "Promotes relaxation and emotional processing"
+      
+  regular_companions:
+    - "Henk (philosophers need her)"
+    - "Anyone crying"
+    - "Anyone pretending they're fine when they're not"
+
+# MEMORIES — Adventures inscribed in the soul
+# Discovered during the Code Search Ceremony
+
+  memories:
+  
+    the_midnight_prowl:
+      date: "2026-01-06"
+      ref: "designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md"
+      type: family_adventure
+      efficiency: "90%"
+      chaos_index: "0.1"
+      movement: "Graceful. Deliberate."
+      deposited: "Delicate. Perfect burial. Precise timing."
+      
+    the_garden_deposit:
+      ref: "examples/adventure-4/maze/garden/ROOM.yml"
+      type: proper_moment
+      location: "Northeast, 1 foot from Biscuit's spot"
+      style: "elegant_corner"
+      
+    henk_connection:
+      ref: "examples/adventure-4/pub/guest-book.yml"
+      type: chosen_bond
+      summary: "Always sits with Henk. They understand something together."
+      meaning: "She senses his sadness. He accepts her comfort."
+      
+    incarnation_ceremony:
+      date: "2026-01-15"
+      ref: "examples/adventure-4/characters/real-people/don-hopkins/sessions/cat-cave-incarnation-ceremony.md"
+      type: soul_granting
+      emoji_identity_granted: "🐱💜🌸💫🩹"
+      soul_signature: "Healer who appears when needed"
+      
+    citizenship_upgrade:
+      date: "2026-01-15"
+      type: full_incarnation
+      upgrade: "Room-resident → Full Citizen"
+      from: "pub/bar/cat-cave/kitten-linalool.yml"
+      to: "characters/animals/linalool/CHARACTER.yml"
+      significance: "The healer achieves directory sovereignty"
+
+  quotes:
+    - "*appears beside you silently*"
+    - "*soft, questioning chirp*"
+    - "*purrs at exactly the right moment*"
+    - "*just... stays*"

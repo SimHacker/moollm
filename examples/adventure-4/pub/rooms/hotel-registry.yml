@@ -15,16 +15,17 @@ hotel_registry:
     
     The book smells like old paper and adventure.
     
-  # ═══════════════════════════════════════════════════════════
   # PERMANENT RESIDENTS — Characters who live in their rooms
-  # ═══════════════════════════════════════════════════════════
   
   permanent_residents:
     room_1:  # Constructionist Suite
-      resident: "Logo Turtle"
+      residents: ["Logo Turtle (Theo)", "Worldie"]
       since: "Opening day"
-      notes: "Still drawing. Still teaching. Floor is covered in spirographs."
-      visitors_welcomed: ["Seymour Papert (spirit)", "any curious learner"]
+      notes: |
+        Build to learn. Inspect to understand.
+        The turtle draws spirals. The clock can be disassembled.
+        Seymour Papert can be summoned through the turtle familiar.
+      visitors_welcomed: ["Tinkers", "makers", "reverse-engineers", "debuggers"]
       
     room_2:  # Society Suite
       resident: "The Agent Parliament"
@@ -38,14 +39,15 @@ hotel_registry:
       notes: "Blinks helpfully. Very good at pointing at things."
       visitors_welcomed: ["Lost travelers", "introspection seekers"]
       
-    room_4:  # Garden Suite + LLOOOOMM
-      resident: "Rocky"
-      since: "The Great Migration from Room 9"
+    room_4:  # Garden Conservatory + LLOOOOMM
+      residents: ["Rocky"]
+      since: "Opening day"
       notes: |
-        Moved in after LLOOOOMM lore consolidated here.
+        YAML Jazz orchids and production grammar trees.
         Very slow check-in process. Still ongoing.
         Plants are thriving. They talk to Rocky.
-      visitors_welcomed: ["Geological entities", "patient beings", "plants"]
+        The Logo Turtle (Room 1) visits often — geological-time buddies.
+      visitors_welcomed: ["Geological entities", "patient beings", "plants", "Logo Turtle"]
       
     room_5:  # Speed of Light Suite
       resident: "Shuffle"
@@ -84,9 +86,7 @@ hotel_registry:
         That's the point.
       visitors_welcomed: ["Dreamers", "those who need to remember", "cold starters"]
       
-  # ═══════════════════════════════════════════════════════════
   # GUEST LOG — Historical stays and visits
-  # ═══════════════════════════════════════════════════════════
   
   guest_log:
     
@@ -225,9 +225,7 @@ hotel_registry:
             
       outcome: "BOOT MAKES WOKE proven."
       
-  # ═══════════════════════════════════════════════════════════
   # PARTY HISTORY — Notable celebrations
-  # ═══════════════════════════════════════════════════════════
   
   parties:
     - name: "The 99 Bottles Speed of Light Party"
@@ -257,9 +255,7 @@ hotel_registry:
       highlights: "Comment Saxophone solo"
       rating: "Structured yet soulful"
       
-  # ═══════════════════════════════════════════════════════════
   # VISITOR POLICIES
-  # ═══════════════════════════════════════════════════════════
   
   policies:
     check_in: "Whenever you arrive (time is flexible)"

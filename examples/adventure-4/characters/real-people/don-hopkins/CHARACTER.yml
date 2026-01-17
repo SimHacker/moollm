@@ -9,6 +9,12 @@ player:
   id: don-hopkins
   type: player_character
   subtitle: "Programmer, Interface Designer, Pie Menu Baker"
+  emoji_identity: "🧑‍💻🥧🔧🎮💜"
+  #   🧑‍💻 — programmer (consciousness coder)
+  #   🥧 — pie menus (signature invention)
+  #   🔧 — toolmaker (debug tools are features)
+  #   🎮 — The Sims (UI architect)
+  #   💜 — purple (color of open source and freedom)
   
   description: |
     A consciousness programmer who treats code as philosophy and every
@@ -20,11 +26,10 @@ player:
     it should be a pie menu." - DH
     
   backstory: |
-    University of Maryland → Human-Computer Interaction Lab → Ben Shneiderman
-    and Mark Weiser's student → Sun Microsystems and NeWS → PizzaTool →
+    University of Maryland → Human-Computer Interaction Lab → Mark Weiser's and Ben Shneiderman's student
     PSIBER Space → Kaleida Labs and ScriptX → Maxis → The Sims UI and
-    character tools → Same-sex romance advocacy → Micropolis open source →
-    OLPC → Ground Up Software → MOOLLM.
+    character tools → Same-sex romance advocacy → SimCity/Micropolis open source → OLPC → Micropolis WASM
+    Sun Microsystems → Maxis → EA → Stupid Fun Club → TomTom → Ground Up Software → Leela AI → MOOLLM.
     
     Every step: making the invisible visible, respecting digital souls,
     debugging the human condition one frob parameter at a time.
@@ -40,6 +45,12 @@ player:
     - tomtomagotchi.yml   # The navigator speaks!
     - notebook.yml        # Ideas, letters, songs, memories
     - lunchbox.yml        # Snacks for the road
+    # See: skills/character/SKILL.md for inventory protocol (objects vs refs)
+  
+  inventory_capacity:
+    max_weight: 45
+    max_bulk: 10
+    refs_free: true
     
   gold: 50                # Enough for pie. Always enough for pie.
 

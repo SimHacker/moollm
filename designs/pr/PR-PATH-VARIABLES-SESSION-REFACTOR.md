@@ -62,7 +62,7 @@ exits:
     destination: $SKILLS/
 relationships:
   palm:
-    location: $CHARACTERS/animals/palm/
+    location: $ANIMALS/monkey-palm/
 ```
 
 ### Markdown vs YAML

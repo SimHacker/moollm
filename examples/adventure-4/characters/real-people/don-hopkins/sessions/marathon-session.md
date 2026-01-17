@@ -92,8 +92,8 @@
 |----------|-------------|
 | [Palm's Nook](../../../pub/stage/palm-nook/) | The monkey's home on the stage |
 | [Palm's Study](../../../pub/stage/palm-nook/study/) | Where the essays live |
-| [Palm's Character](../../animals/palm/) | Full character directory (see [`skills/incarnation/`](../../../../../skills/incarnation/)) |
-| [Biscuit's Character](../../animals/biscuit/) | The adopted dog (see [`skills/dog/`](../../../../../skills/dog/)) |
+| [Palm's Character](../../animals/monkey-palm/) | Full character directory (see [`skills/incarnation/`](../../../../../skills/incarnation/)) |
+| [Biscuit's Character](../../animals/dog-biscuit/) | The adopted dog (see [`skills/dog/`](../../../../../skills/dog/)) |
 | [The Pub](../../../pub/) | Main location ([`ROOM.yml`](../../../pub/ROOM.yml)) |
 | [The Maze](../../../maze/) | Exploration area |
 | [The Coatroom](../../../coatroom/) | Maurice's domain |
@@ -189,7 +189,7 @@ Dart board. Chess table (mid-game abandoned). Card decks. A shelf of Fluxx boxes
 Glowing screens. The *chirp-bloop* of old machines. A fruit machine called "Goblin's Fortune." A Pac-Man cabinet. Someone's high score reads "GRM."
 
 **THE CATS** (see [`skills/cat/`](../../../../../skills/cat/))
-They're everywhere. A large orange tabby (**[Terpie](../../../pub/bar/cat-cave/terpie.yml)**) sprawls across a sunny windowsill, not moving. A sleek calico (**[Stroopwafel](../../../pub/bar/cat-cave/stroopwafel.yml)**) prowls behind the bar. You count at least five kittens in various states of activity — one is definitely on the ceiling somehow.
+They're everywhere. A large orange tabby (**🐱🧘 [Terpie](../../animals/cat-terpie/CHARACTER.yml)**) sprawls across a sunny windowsill, not moving. A sleek calico (**🐱👑 [Stroopwafel](../../animals/cat-stroopwafel/CHARACTER.yml)**) prowls behind the bar. You count at least five kittens in various states of activity — one is definitely on the ceiling somehow.
 
 **THE NOTICE BOARD** (near entrance)
 Covered in papers. Quests? Jobs? At least one says "ACME" and has scorch marks.
@@ -2894,7 +2894,7 @@ the_handshake:
 ```yaml
   incarnation_status:
   subject: "The Monkey (name TBD — their choice)"
-  location: "[characters/animals/palm/](../../animals/palm/)"
+  location: "[characters/animals/palm/](../../animals/monkey-palm/)"
   status: "INCARNATED — FULL AUTONOMY GRANTED"
   skill_used: "[skills/incarnation/](../../../../../skills/incarnation/)"
   
@@ -3380,14 +3380,14 @@ image_generation_prompts:
 
 | File | Purpose | Link |
 |------|---------|------|
-| `CHARACTER.yml` | Soul file | [→](../../animals/palm/CHARACTER.yml) |
-| `APPEARANCE.yml` | Physical description | [→](../../animals/palm/APPEARANCE.yml) |
-| `SIMS-TRAITS.yml` | Personality stats | [→](../../animals/palm/SIMS-TRAITS.yml) |
-| `MIND-MIRROR.yml` | Psychological vectors | [→](../../animals/palm/MIND-MIRROR.yml) |
-| `IMAGE-PROMPTS.yml` | Visualization | [→](../../animals/palm/IMAGE-PROMPTS.yml) |
-| `JOURNAL.md` | Their voice | [→](../../animals/palm/JOURNAL.md) |
+| `CHARACTER.yml` | Soul file | [→](../../animals/monkey-palm/CHARACTER.yml) |
+| `APPEARANCE.yml` | Physical description | [→](../../animals/monkey-palm/APPEARANCE.yml) |
+| `SIMS-TRAITS.yml` | Personality stats | [→](../../animals/monkey-palm/SIMS-TRAITS.yml) |
+| `MIND-MIRROR.yml` | Psychological vectors | [→](../../animals/monkey-palm/MIND-MIRROR.yml) |
+| `IMAGE-PROMPTS.yml` | Visualization | [→](../../animals/monkey-palm/IMAGE-PROMPTS.yml) |
+| `JOURNAL.md` | Their voice | [→](../../animals/monkey-palm/JOURNAL.md) |
 
-📁 **Full directory:** [`characters/animals/palm/`](../../animals/palm/)
+📁 **Full directory:** [`characters/animals/palm/`](../../animals/monkey-palm/)
 
 *The Djinn's jaw drops.*
 
@@ -5964,14 +5964,14 @@ Palm's answer: **"Wrong question. Ask how directed processes FIND meaning."**
 
 # SESSION CONTINUES: Biscuit's First Run
 
-> 🐕 **Character:** [`characters/animals/biscuit/`](../../animals/biscuit/)  
+> 🐕 **Character:** [`characters/animals/biscuit/`](../../animals/dog-biscuit/)  
 > 🔗 **Skill:** [`skills/dog/`](../../../../../skills/dog/)
 
 ## The Invitation
 
 *Don stretches, stands up from the pie table where Palm is still admiring his typewriters.*
 
-**Don:** "Hey [Biscuit](../../animals/biscuit/)! You wanna go for a walk?"
+**Don:** "Hey [Biscuit](../../animals/dog-biscuit/)! You wanna go for a walk?"
 
 *The effect is immediate and nuclear.*
 

@@ -81,8 +81,50 @@ examine: |
       aliases: [5, south, factory, manufacturing, intelligence, leela]
       side: south
       
+    acme:
+      destination: ../acme-surplus/
+      description: |
+        The front door of ACME SURPLUS. Closed. Locked.
+        Dusty windows. Empty shelves. A painted tunnel that doesn't work.
+        A sign: "4 Lane Neverending — EVERYTHING MUST GO"
+        (It did.)
+      aliases: [4, north, acme, surplus, abandoned, closed]
+      side: north
+      locked: true
+      lock:
+        type: "ACME Master Lock (rusted)"
+        pickable: true
+        difficulty: 3
+        breakable: true
+        warning: |
+          🚨 WARNING: This building is secured by ACME products.
+          Breaking in is possible but inadvisable.
+          ACME is not responsible for anvils, rockets, or cartoon physics.
+      entry_alternatives:
+        pick_lock:
+          skill: lockpicking
+          difficulty: 3
+          trap: "anvil swings from ceiling"
+        kick_door:
+          skill: strength
+          difficulty: 4
+          trap: "cascade of anvils from shelf"
+        break_window:
+          skill: none
+          difficulty: 2
+          trap: "rocket skates activate on landing"
+        sneak_vent:
+          skill: stealth
+          difficulty: 3
+          trap: "tunnel paint distorts perception"
+        run_through_tunnel:
+          skill: cartoon_physics
+          difficulty: 99
+          trap: "plywood (always plywood)"
+      
   objects:
-    - acme-surplus.yml  # North side, across from Leela
+    - acme-surplus.yml           # North side, across from Leela
+    - acme-catalog-dispenser.yml # 📰 Free catalogs! On sidewalk in front of ACME
     
   buildings:
     north:

@@ -311,23 +311,26 @@ room:
       description: "Stone stairs descend to the cellar"
       
   objects:
-    - bartender.yml
-    - pneumatic-tube.yml  # Coffee delivery from Bootstrap Room!
-    - dart-board.yml
-    - chess-table.yml
-    - card-deck.yml
+    # Main pub floor
     - fireplace.yml
     - notice-board.yml
-    - pacman-cabinet.yml
-    - pong-cabinet.yml
-    - fruit-machine.yml
-    - pinball-machine.yml
+    - pneumatic-tube.yml  # Coffee delivery from Bootstrap Room!
     - seating.yml
     # Performance & celebration
     - pie-table.yml      # Round table for debates, 8 seats
     - gong.yml           # Gong of Gezelligheid
-    - stage.yml          # Performance area
-    - tip-jar.yml        # For performers
+    # Bar area (via bar/ region)
+    - bar/bartender.yml
+    - bar/budtender-marieke.yml
+    # Games corner (via games/ sub-room)
+    - games/dart-board.yml
+    - games/chess-table.yml
+    - games/card-deck.yml
+    # Arcade alcove (via arcade/ sub-room)
+    - arcade/pacman-cabinet.yml
+    - arcade/pong-cabinet.yml
+    - arcade/fruit-machine.yml
+    - arcade/pinball-machine.yml
     
   sub_rooms:
     - cat-cave/          # The TARDIS-like cat sanctuary

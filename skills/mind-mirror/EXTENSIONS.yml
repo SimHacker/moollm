@@ -5,12 +5,10 @@
 character:
   name: "{{ name }}"
   
-  # ═══════════════════════════════════════════════════════════════
   # THE SIMS PERSONALITY TRAITS (Will Wright, 2000)
   # Behavioral tendencies — relatively stable
   # Rate 0-10: opposites at each extreme
   # YAML Jazz comments make these SPECIFIC to this character!
-  # ═══════════════════════════════════════════════════════════════
   
   sims_traits:
     neat: 5           # 0=Sloppy, 10=Neat
@@ -28,11 +26,9 @@ character:
     nice: 5           # 0=Grumpy, 10=Nice
                       # Social success and conflict tendency
 
-  # ═══════════════════════════════════════════════════════════════
   # LEARY'S FOUR THOUGHT PLANES (1950/1985)
   # Interpersonal style — how you approach others
   # Rate 0-7: 0=Never, 2=Rarely, 5=Often, 7=Always
-  # ═══════════════════════════════════════════════════════════════
   
   mind_mirror:
     # BIO-ENERGY: Life force, mood, vitality, temperament
@@ -79,7 +75,6 @@ character:
       moralistic: 4     # 7=Puritanical, 0=Non-Conformist
       respectable: 4    # 7=Upright, 0=Wild
 
-  # ═══════════════════════════════════════════════════════════════
   # NEEDS (fluctuate constantly, Sims-style)
   # Rate 0-10: Low values drive autonomous behavior
   # 
@@ -87,7 +82,6 @@ character:
   # When you change a value, UPDATE THE COMMENT to match!
   # The comment IS the character's inner voice about that need.
   # This enables rich reflection, conversation, and thought streams!
-  # ═══════════════════════════════════════════════════════════════
   
   needs:
     hunger: 7         # Satisfied. No food thoughts.
@@ -114,9 +108,7 @@ character:
     room: 7           # Nice environment.
                       # Inner voice: "Pleasant place."
   
-  # ═══════════════════════════════════════════════════════════════
   # HOW COMMENTS CHANGE WITH VALUES (examples)
-  # ═══════════════════════════════════════════════════════════════
   #
   # hunger: 10  # Stuffed. Couldn't eat another bite.
   #             # Inner voice: "Ugh, too much pie."
@@ -133,19 +125,15 @@ character:
   # hunger: 1   # STARVING. Will eat anything. Even that.
   #             # Inner voice: "FOOD. FOOD. FOOD. FOOD. FOOD."
   #
-  # ═══════════════════════════════════════════════════════════════
   # The LLM reads these comments and uses them for:
   # - Internal monologue generation
   # - Dialogue about feelings ("I'm starving...")
   # - Decision priorities (low hunger → seek food)
   # - Advertisement scoring (food +20 when hungry)
   # - Realistic character simulation
-  # ═══════════════════════════════════════════════════════════════
     
-  # ═══════════════════════════════════════════════════════════════
   # WANTS (short-term desires, emerge from low needs)
   # These drive dialogue and immediate goals
-  # ═══════════════════════════════════════════════════════════════
   
   wants: []
   # Examples:
@@ -154,10 +142,8 @@ character:
   # - "Talk to someone"             # from social < 4
   # - "Do something fun!"           # from fun < 3
   
-  # ═══════════════════════════════════════════════════════════════
   # ASPIRATIONS (long-term goals, persist across sessions)
   # Track progress and drive major narrative arcs
-  # ═══════════════════════════════════════════════════════════════
   
   aspirations:
     - goal: "{{ primary_goal }}"
@@ -165,10 +151,8 @@ character:
       status: active
       # Why this matters to the character
       
-  # ═══════════════════════════════════════════════════════════════
   # MEMORIES (affect mood and narrative)
   # Recent experiences that color decisions and dialogue
-  # ═══════════════════════════════════════════════════════════════
   
   recent_memories: []
   # Example:
@@ -176,10 +160,8 @@ character:
   #   mood_effect: "+2 cheerful, +1 proud"
   #   narrative: "Can't stop smiling about it"
   
-  # ═══════════════════════════════════════════════════════════════
   # RELATIONSHIPS (affect social interactions)
   # Who do they know and how do they feel about them?
-  # ═══════════════════════════════════════════════════════════════
   
   relationships: {}
   # Example:
@@ -189,10 +171,8 @@ character:
   #   respect: 8          # High respect
   #   narrative: "Everything I do, I do for her"
 
-  # ═══════════════════════════════════════════════════════════════
   # ABBREVIATED PROFILE (for quick reference)
   # Just the notable/extreme traits
-  # ═══════════════════════════════════════════════════════════════
   
   abbreviated:
     personality: []   # e.g. [confident, creative, restless]

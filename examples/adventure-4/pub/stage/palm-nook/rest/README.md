@@ -16,7 +16,7 @@ This is where Palm heals. After 122 years of granting twisted wishes, Palm final
 
 ---
 
-## 🦧 Summonable Familiars
+## 🐒 Summonable Familiars
 
 | Familiar | Invocation | Tradition |
 |----------|------------|-----------|

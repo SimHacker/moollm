@@ -402,7 +402,7 @@ Templates are **prototypes**. Instantiation creates **instances**:
 ```yaml
 prototype: skills/character/CHARACTER.yml.tmpl
   ↓ instantiate with context
-instance: examples/adventure-4/characters/palm/CHARACTER.yml
+instance: examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml
 ```
 
 The template defines **shape and intent**. The instance contains **specific values**.

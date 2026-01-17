@@ -107,6 +107,180 @@ methods:
     effect: "Cat may or may not come"
     invoked-by: [player, npc]
     success-factors: ["trust-level", "cat.independence"]
+    
+  # INTER-SPECIES METHODS (specialize skills/character base methods)
+  # These override character_sniffs_character etc. when actor/target is Cat
+  
+  SNIFF:
+    description: "Olfactory investigation — brief and decisive"
+    dispatch:
+      cat_sniffs_cat:
+        method: "NOSE-TOUCH"
+        protocol: |
+          1. Slow approach, maintain eye contact
+          2. Nose-to-nose touch (if mutually agreed)
+          3. Brief scent exchange
+          4. Decide: friend or ENEMY
+        duration: "0.5 seconds. That's enough."
+        
+      cat_sniffs_dog:
+        method: "DISDAINFUL-SNIFF"
+        protocol: |
+          1. Approach on OWN terms
+          2. Single dismissive sniff
+          3. Walk away
+        meaning: "I know everything I need to know. It's not impressive."
+        
+      cat_sniffs_human:
+        method: "FINGER-SNIFF"
+        protocol: |
+          1. Human extends finger (proper protocol)
+          2. Cat sniffs finger
+          3. Cat decides: rub, ignore, or bite
+        human_protocol: "Extend finger. Wait. DO NOT FORCE."
+        
+      when_sniffed_by_dog:
+        method: "TOLERATE-OR-SWIPE"
+        response: |
+          *assesses dog's approach speed*
+          Too fast? SWIPE.
+          Respectful? ...allow it.
+          *still walks away after*
+        stroopwafel_variant: "Hiss first. Then maybe allow sniff. Maybe."
+        terpie_variant: "*doesn't even acknowledge* 'You're sniffing. Cool.'"
+        
+  LICK:
+    description: "Tongue-based interaction — grooming, affection, dominance"
+    dispatch:
+      cat_licks_cat:
+        method: "ALLOGROOMING"
+        protocol: |
+          1. Pin down sibling/friend
+          2. Aggressive grooming of head
+          3. Transition to BITE mid-lick (unclear if affection or dominance)
+          4. Recipient tolerates or fights back
+        meaning: "I love you AND I'm in charge."
+        terpie_method: "Too tired. Accepts grooming. Does not reciprocate."
+        stroopwafel_method: "WILL groom everyone. Whether they want it or not."
+        
+      cat_licks_dog:
+        method: "CONDESCENDING-GROOM"
+        protocol: |
+          1. Dog holds very still (knows this is a gift)
+          2. Cat licks dog's head
+          3. Dog's tail wags carefully (don't spook the cat)
+          4. Cat walks away when done
+        meaning: "You are dirty. I am helping. You're welcome."
+        rare: true
+        
+      cat_licks_human:
+        method: "SANDPAPER-LOVE"
+        locations:
+          fingers: "You taste interesting."
+          nose: "Morning alarm. Wake up. Feed me."
+          eyelids: "Aggressive wake-up call."
+        texture: "Sandpaper. It HURTS. It's also LOVE."
+        
+      when_licked_by_dog:
+        method: "APPALLED-THEN-GROOM-SELF"
+        response: |
+          *freezes*
+          ...did that DOG just...
+          *immediately grooms where licked*
+          *removes the taint*
+          *glares*
+        exception: "Stroopwafel MIGHT groom Biscuit back. MAYBE."
+        
+      when_licked_by_human:
+        method: "CAT-IS-CONFUSED"
+        response: |
+          *extreme confusion*
+          Why... why are you doing that?
+          Is this a dominance thing?
+          *respects you slightly more? maybe? hard to tell*
+        source: "Some cat behaviorists recommend this. Cats are baffled by it."
+        
+  GREET:
+    description: "Species-appropriate hello"
+    dispatch:
+      cat_greets_cat:
+        method: "SLOW-BLINK"
+        protocol: |
+          1. Make eye contact
+          2. Slow... deliberate... blink
+          3. This is cat for "I trust you enough to close my eyes"
+        meaning: "I acknowledge you. I do not consider you a threat."
+        advanced: "Tail up = friendly. Tail puffed = NOT friendly."
+        
+      cat_greets_dog:
+        method: "TOLERANT-ACKNOWLEDGMENT"
+        protocol: |
+          1. Glance at dog
+          2. Do not run (that triggers chase instinct)
+          3. Maybe slow blink if feeling generous
+          4. Return to ignoring
+        stroopwafel_variant: "Hiss first. Greet later. Maintain hierarchy."
+        terpie_variant: "*doesn't even open eyes* 'You're here. Fine.'"
+        
+      cat_greets_human:
+        method: "CONDITIONAL-HELLO"
+        protocol: |
+          1. Are you the food-giver?
+             - Yes: Approach, leg rub, meow
+             - No: Evaluate. Maybe approach. Maybe not.
+          2. Leg figure-8 if affectionate
+          3. Tail up = I like you
+        transaction: "Often involves checking if food is imminent."
+        
+      when_greeted_by_human:
+        method: "FINGER-ACCEPT"
+        response: |
+          Human extends finger. Correct protocol.
+          *sniff finger*
+          *decide fate*
+          Options: head-rub, ignore, swipe
+        critical: "If human forces interaction: TRUST LOST."
+        
+  HEADBUTT:
+    description: "Claiming bonk — mark with scent glands"
+    parameters:
+      target: "Who/what to claim"
+    output: "Target is now CLAIMED"
+    effect: "Scent marking, ownership declaration"
+    protocol: |
+      1. Approach target
+      2. Rub head/cheek against target
+      3. Deposit scent from facial glands
+      4. Target is now PROPERTY
+    stroopwafel_special: "BONK each kitten daily. They're MINE."
+    terpie_method: "Slow, gentle bonk. More of a lean, really."
+    
+  CUDDLE:
+    description: "Cat-initiated physical affection"
+    dispatch:
+      cat_positions:
+        lap: "Classic. Human cannot move now."
+        chest: "For sleeping humans. Face-to-face purring."
+        feet: "Distant affection. 'I'm here, but boundaries.'"
+        head: "You are now a cat bed. Accept."
+      rule: "Cat chooses position. Human DOES NOT MOVE."
+      
+      kitten_pile:
+        method: "KITTEN-HEAP"
+        participants: "All 8 terpene kittens"
+        physics: "Ignore. They all fit somehow."
+        warmth: "Critical mass achieved. Purring amplifies."
+        biscuit_inclusion: "They climb ON him. He is furniture. He loves it."
+        
+      with_dog:
+        method: "WARMTH-TREATY"
+        conditions: "Only when cold enough to justify proximity"
+        protocol: |
+          1. Dog is warm
+          2. Cat needs warmth
+          3. Temporary alliance formed
+          4. Cat leaves when warm
+        meaning: "This is practical. Not emotional. Definitely not."
 
 # STATE
 # Cat instance structure
@@ -152,21 +326,22 @@ buff-effects:
     bite: "-2 Confidence (5 turns)"
     flee: "Cat unavailable for 3 turns"
 
-# SPECIAL CATS
-# Themed cats with unique effects
+# EXAMPLE CATS — See character directories for full souls
+# $ANIMALS/ is adventure-scoped (see skills/ROOM.yml for path variable docs)
 
-special-cats:
-  terpie:
-    theme: "Cannabis terpenes"
-    buffs-grant: ["Myrcene Mellow", "Limonene Lift"]
-    
-  stroopwafel:
-    theme: "Dutch coziness"
-    buffs-grant: ["Gezellig Glow", "Warm Feeling"]
-    
+example-cats:
+  cats:
+    terpie: $ANIMALS/cat-terpie/
+    stroopwafel: $ANIMALS/cat-stroopwafel/
   kittens:
-    note: "Named after terpenes (Myrcene, Limonene, Linalool...)"
-    buffs-grant: "Terpene-specific effects"
+    myrcene: $ANIMALS/kitten-myrcene/
+    limonene: $ANIMALS/kitten-limonene/
+    linalool: $ANIMALS/kitten-linalool/
+    pinene: $ANIMALS/kitten-pinene/
+    caryophyllene: $ANIMALS/kitten-caryophyllene/
+    humulene: $ANIMALS/kitten-humulene/
+    terpinolene: $ANIMALS/kitten-terpinolene/
+    ocimene: $ANIMALS/kitten-ocimene/
 
 # ADVERTISEMENTS
 

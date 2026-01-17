@@ -11,15 +11,11 @@ aisle:
     Flexible containers made of fabric, leather, and other soft materials.
     Good for: personal items, bulk goods, portable storage.
     
-# ═══════════════════════════════════════════════════════════════
 # PROTOTYPES — Clone these, don't use them directly!
-# ═══════════════════════════════════════════════════════════════
 
 prototypes:
 
-  # ─────────────────────────────────────────────────────────────
   # SACKS
-  # ─────────────────────────────────────────────────────────────
   
   burlap-sack:
     id: burlap-sack
@@ -80,9 +76,7 @@ prototypes:
       Big dollar sign on the side. Drawstring top.
       Currently empty (probably).
       
-  # ─────────────────────────────────────────────────────────────
   # BAGS
-  # ─────────────────────────────────────────────────────────────
   
   canvas-bag:
     id: canvas-bag
@@ -159,9 +153,7 @@ prototypes:
     sounds:
       pop: "*BANG*"
       
-  # ─────────────────────────────────────────────────────────────
   # POUCHES
-  # ─────────────────────────────────────────────────────────────
   
   leather-pouch:
     id: leather-pouch
@@ -217,9 +209,7 @@ prototypes:
     smell: "Rich tobacco"
     default_contents: { type: "pipe_tobacco", quantity: "some" }
     
-  # ─────────────────────────────────────────────────────────────
   # BACKPACKS
-  # ─────────────────────────────────────────────────────────────
   
   backpack:
     id: backpack

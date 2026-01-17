@@ -179,9 +179,74 @@ location: characters/don-hopkins/inventory
 
 **Reset:** Snap objects back home: `location = home`.
 
-## Dispensers
+## Inventory Protocol (Objects vs Refs)
 
-Some objects clone on pickup. Original stays, you get instance.
+Items in inventory can be **OBJECTS** or **REFS**:
+
+| Type | Weight | Bulk | What It Is |
+|------|--------|------|------------|
+| **Object** | Yes | Yes | The actual item (lamp, sword, lunchbox) |
+| **Ref** | No | No | Lightweight pointer to a prototype |
+
+**Refs are perfect for:** catalogs, manuals, maps, guides — things you reference but don't physically carry.
+
+```yaml
+inventory:
+  # Full object
+  - item: "Brass Lantern"
+    type: object
+    source: start/lamp.yml
+    weight: 2
+    fuel: 100
+    
+  # Lightweight ref
+  - item: "ACME Catalog"
+    type: ref
+    prototype: street/lane-neverending/w1/acme-catalog.yml
+    annotations: ["circled portable hole", "margin notes on physics"]
+```
+
+### Dispenser Protocol
+
+Some objects dispense **refs** (like the ACME Catalog Dispenser):
+
+1. TEAR OFF / TAKE at dispenser
+2. Receive REF in inventory (weight: 0)
+3. REF points to prototype for full content
+4. REF can accumulate instance-specific data (annotations, condition)
+
+### Drop Protocol
+
+When dropping a ref in a room:
+
+1. Remove from inventory
+2. Create pointer file in room directory: `[item-name].yml`
+3. Pointer contains: prototype path, dropped_by, condition, annotations
+4. Item now lives in that room (can be picked up again)
+
+```yaml
+# kitchen/acme-catalog.yml — dropped instance
+object:
+  name: "ACME Catalog"
+  type: instance
+  prototype: ../street/lane-neverending/w1/acme-catalog.yml
+  origin: "Torn from dispenser at 4 Lane Neverending"
+  dropped_by: "don-hopkins"
+  annotations: ["DO NOT ORDER Rocket Skates", "circled portable hole"]
+```
+
+### Capacity
+
+```yaml
+inventory_capacity:
+  max_weight: 45    # Varies by character
+  max_bulk: 10
+  refs_free: true   # Refs don't count!
+```
+
+## Dispensers (Full Objects)
+
+Some objects clone **full objects** on pickup. Original stays, you get instance.
 
 ```yaml
 # pub/cookie-jar.yml

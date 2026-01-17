@@ -104,6 +104,151 @@ methods:
     effect: "Update relationships map"
     invoked-by: [character, dm]
 
+  # INTER-CHARACTER INTERACTION (multiple dispatch base methods)
+  # Species-specific skills (dog, cat) and character instances add more methods
+  # that get matched by context: dog_sniffs_cat, cat_licks_human, etc.
+  
+  SNIFF:
+    description: "Olfactory investigation of another entity"
+    parameters:
+      target: "Who/what to sniff"
+      location: "Optional body part (nose, butt, hands, etc.)"
+    output: chat (what you learn)
+    effect: "Gain information about target"
+    dispatch_base:
+      character_sniffs_character: "Polite investigative sniff — what perfume? what soap?"
+      character_sniffs_object: "What is this thing? Pick up, sniff, assess."
+      character_sniffs_room: "What's the vibe here? Who's been through?"
+    specializations: "See skills/dog, skills/cat for species-specific methods"
+    invoked-by: [character]
+    
+  LICK:
+    description: "Tongue-based interaction (grooming, affection, taste)"
+    parameters:
+      target: "Who/what to lick"
+      intent: "Optional: grooming, affection, investigation, weird"
+    output: chat (reaction)
+    effect: "Bond change, target reaction"
+    dispatch_base:
+      character_licks_character: "Weird but valid. Probably establishes something."
+      character_licks_object: "Taste test. Is it food? Is it poison? Only one way to know."
+      character_licks_self: "Self-grooming. Cats do it. Humans... less so."
+    specializations: "See skills/dog, skills/cat for species-specific methods"
+    note: "Yes, human-licks-cat is a valid method. Cat behaviorists recommend it."
+    invoked-by: [character]
+    
+  GREET:
+    description: "Species/culture-appropriate hello"
+    parameters:
+      target: "Who to greet"
+    output: chat (greeting exchange)
+    effect: "Social acknowledgment, possible relationship change"
+    dispatch_base:
+      character_greets_character: "Hello! Context determines formality."
+      character_greets_group: "General greeting to room."
+    specializations: "See skills/dog, skills/cat for species-specific methods"
+    invoked-by: [character]
+    
+  CUDDLE:
+    description: "Physical affection pile"
+    parameters:
+      targets: "Who to cuddle with (can be multiple)"
+      location: "Optional furniture (couch, bed, floor)"
+    output: chat (cozy description)
+    effect: "Warmth buff, bonding, comfort"
+    dispatch_base:
+      character_cuddles_character: "Warmth and comfort exchange"
+      character_cuddles_pet: "Pet therapy. +comfort, +calm"
+      character_joins_pile: "Multi-entity cuddle situation"
+    specializations: "See skills/dog, skills/cat for species-specific methods"
+    satisfaction: { warmth: +3, bonding: +3, mobility: -2 }
+    invoked-by: [character]
+
+# MULTIPLE DISPATCH PATTERN
+# Base methods here. Species/role skills add specialized methods.
+# Most specific match wins. dog_sniffs_cat beats character_sniffs_character.
+# Specific characters can have their own specific handlers for
+# other characters and species. Lovers might have their own private pairs
+# of matching mutual kissing methods ("dovetailing").
+
+dispatch_protocol:
+  principle: "Most specific method wins"
+  resolution_order:
+    1: "Check actor's CHARACTER.yml interactions section"
+    2: "Check actor's species skill (dog, cat, etc.)"
+    3: "Check target's species skill for when_X_by_Y methods"
+    4: "Fall back to character skill base methods"
+  example: |
+    SNIFF biscuit (actor: stroopwafel, target: biscuit)
+    1. Check cat-stroopwafel/CHARACTER.yml → has my_sniff? use it
+    2. Check skills/cat → has cat_sniffs_dog? use it
+    3. Check skills/dog → has when_sniffed_by_cat? add reaction
+    4. Fall back to character_sniffs_character
+  adding_methods: |
+    To add new dispatch methods:
+    - Species skill: Add to skills/[species]/CARD.yml methods section
+    - Individual: Add to [character]/CHARACTER.yml interactions section
+    Instance methods override species methods override base methods.
+
+# INVENTORY PROTOCOL — Instance/Prototype Pattern
+
+inventory_protocol:
+  description: |
+    Characters carry items in inventory. Items can be OBJECTS (the actual
+    thing) or REFS (lightweight pointers to prototypes).
+    
+  item_types:
+    object:
+      description: "The actual item lives in your pocket"
+      has_weight: true
+      has_bulk: true
+      example: "brass-lamp.yml, notebook.yml, lunchbox.yml"
+      
+    ref:
+      description: "A lightweight pointer to a prototype"
+      has_weight: false
+      has_bulk: false
+      example: "ACME Catalog → street/lane-neverending/w1/acme-catalog.yml"
+      
+  dispenser_protocol:
+    description: "How to get refs from dispensers (like ACME Catalog Dispenser)"
+    steps:
+      - "TEAR OFF / TAKE at dispenser"
+      - "Receive REF in inventory (weight: 0)"
+      - "REF points to prototype for full content"
+      - "REF can accumulate instance-specific data"
+      
+  drop_protocol:
+    description: "What happens when dropping a ref in a room"
+    steps:
+      - "Remove from inventory"
+      - "Create pointer file in room directory: [item-name].yml"
+      - "Pointer contains: prototype path, dropped_by, condition, annotations"
+      - "Item now lives in that room (can be picked up again)"
+      
+  example_inventory: |
+    inventory:
+      - item: "ACME Catalog"
+        type: ref
+        prototype: street/lane-neverending/w1/acme-catalog.yml
+        obtained_from: "ACME Catalog Dispenser"
+        annotations: ["circled portable hole"]
+        
+      - item: "Brass Lantern"
+        type: object
+        source: start/lamp.yml
+        fuel: 100
+        weight: 2
+        
+  capacity:
+    max_weight: "Varies by character (40-50 typical)"
+    max_bulk: "Varies by character (8-12 typical)"
+    refs_free: true  # Refs don't count against capacity
+    
+  see_also:
+    - examples/adventure-4/street/lane-neverending/w1/acme-catalog.yml
+    - examples/adventure-4/street/lane-neverending/w1/acme-catalog-dispenser.yml
+
 # STATE
 # Character structure
 

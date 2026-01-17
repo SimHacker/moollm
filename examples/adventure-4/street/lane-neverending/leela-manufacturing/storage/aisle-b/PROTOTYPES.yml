@@ -11,15 +11,11 @@ aisle:
     Metal containers for durability and security.
     Good for: hazardous materials, security, industrial use.
     
-# ═══════════════════════════════════════════════════════════════
 # PROTOTYPES — Clone these, don't use them directly!
-# ═══════════════════════════════════════════════════════════════
 
 prototypes:
 
-  # ─────────────────────────────────────────────────────────────
   # BINS
-  # ─────────────────────────────────────────────────────────────
   
   metal-bin:
     id: metal-bin
@@ -69,9 +65,7 @@ prototypes:
     tags: [container, metal, recycling, environmental]
     accepts_only: [metal, paper, glass, plastic]
     
-  # ─────────────────────────────────────────────────────────────
   # DRUMS
-  # ─────────────────────────────────────────────────────────────
   
   steel-drum:
     id: steel-drum
@@ -124,9 +118,7 @@ prototypes:
     default_contents: { type: "oil", quantity: 55 }
     flammable: true
     
-  # ─────────────────────────────────────────────────────────────
   # LOCKERS
-  # ─────────────────────────────────────────────────────────────
   
   locker:
     id: locker
@@ -189,9 +181,7 @@ prototypes:
       Reinforced evidence locker with chain of custody log.
       Tagged with case numbers. Do not tamper.
       
-  # ─────────────────────────────────────────────────────────────
   # SAFES
-  # ─────────────────────────────────────────────────────────────
   
   safe:
     id: safe
@@ -242,9 +232,7 @@ prototypes:
     hidden: true
     hidden_by: "ornate rug"
     
-  # ─────────────────────────────────────────────────────────────
   # CANS
-  # ─────────────────────────────────────────────────────────────
   
   tin-can:
     id: tin-can

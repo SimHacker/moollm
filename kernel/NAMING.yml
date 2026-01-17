@@ -371,6 +371,19 @@ path_variables:
       example: "$CHARACTERS/fictional/donna-toadstool/"
       use_case: "Reference characters from anywhere without counting ../"
       
+    $ANIMALS:
+      resolves_to: "$CHARACTERS/animals/"
+      description: "Animal sanctuary in current adventure"
+      example: "$ANIMALS/dog-biscuit/"
+      use_case: "Reference animal citizens — dogs, cats, kittens, puppies, primates"
+      subdirectories:
+        cats: "cat-terpie/, cat-stroopwafel/"
+        kittens: "kitten-myrcene/, kitten-limonene/, ..."
+        dogs: "dog-biscuit/, dog-butterscotch/"
+        puppies: "puppy-pepper/, puppy-mochi/, ..."
+        primates: "monkey-palm/"
+      note: "Type prefix (cat-, dog-, kitten-, puppy-, monkey-) makes species visible at a glance"
+      
     $PERSONAS:
       resolves_to: "$ADVENTURE/personas/"
       description: "Personas directory in current adventure"
@@ -426,6 +439,49 @@ path_variables:
     - "Abstract references enable shared spaces"
     - "Self-documenting: $ADVENTURE/pub/ is obvious"
     
+  # FUTURE: SEARCH PATH RESOLUTION
+  
+  search_path_resolution:
+    principle: "Variables can resolve through a search list of directories"
+    analogy: "Like Unix PATH — check each location in order, use first match"
+    
+    example:
+      variable: "$ANIMALS/dog-biscuit/"
+      search_path:
+        - "./characters/animals/"           # Local adventure first
+        - "../shared-characters/animals/"   # Shared character repo
+        - "~/moollm-community/animals/"     # Community contributions
+      resolution: "First directory containing dog-biscuit/ wins"
+      
+    use_cases:
+      multi_repo:
+        description: "Combine multiple repos into one adventure"
+        example: |
+          $CHARACTERS resolves through:
+            1. examples/adventure-4/characters/     # Your adventure
+            2. ../moollm-npcs/characters/           # NPC library
+            3. ../moollm-community/characters/      # Community chars
+          
+      override_chain:
+        description: "Local overrides shared, shared overrides community"
+        example: |
+          Your dog-biscuit/ masks community dog-biscuit/
+          Delete local → falls through to community version
+          
+      modular_worlds:
+        description: "Plug adventure modules together"
+        example: |
+          $PUB could search:
+            1. ./pub/                    # Your customizations
+            2. ../pub-expansion-pack/    # DLC-style content
+            3. ../moollm-base/pub/       # Base game
+            
+    implementation_notes: |
+      Not yet implemented — currently single-path resolution.
+      Future engine could support search_path: [...] in startup.yml
+      Each variable could have its own search order.
+      Enables "mixin" style world composition.
+    
   # EXAMPLE CONVERSIONS
   
   conversions:
@@ -433,10 +489,16 @@ path_variables:
     after: "$SKILLS/character/SKILL.md"
     
     before: "../../../pub/bar/cat-cave/"
-    after: "$ADVENTURE/pub/bar/cat-cave/"
+    after: "$PUB/bar/cat-cave/"
     
     before: "../../../../kernel/constitution-core.md"
     after: "$KERNEL/constitution-core.md"
+    
+    before: "../../characters/animals/dog-biscuit/"
+    after: "$ANIMALS/dog-biscuit/"
+    
+    before: "../../../../../examples/adventure-4/characters/animals/monkey-palm/"
+    after: "$ANIMALS/monkey-palm/"
 
 ---
 

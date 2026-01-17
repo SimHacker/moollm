@@ -1,0 +1,137 @@
+# CAM-ACME-01 — The Tunnel Watcher
+# Leela's camera trained on the ACME painted tunnel across the street
+#
+# This is not surveillance. This is STUDY.
+# Every day, we look at what failure looks like.
+# Every day, we recommit to being the opposite.
+
+object:
+  name: "CAM-ACME-01 — Tunnel Watcher"
+  type: [camera, monument, reminder]
+  emoji: "📹🎭🚫"
+  
+  location: "Front window, lobby, facing north"
+  target: "ACME Surplus painted tunnel (4 Lane Neverending)"
+  
+  description: |
+    A Leela camera mounted in the lobby window, pointed across the street
+    at the shuttered ACME Surplus building. Specifically, at the infamous
+    PAINTED TUNNEL on the boarded-up window.
+    
+    The feed runs on a small monitor at reception. Every visitor sees it.
+    Every employee passes it. Every day, the reminder:
+    
+    "This is what happens when you ship products that don't work."
+    
+  purpose: |
+    CAM-ACME-01 serves multiple purposes:
+    
+    1. ANOMALY DETECTION
+       The tunnel is "magic" — delivery drivers pass through it, customers
+       cannot. CAM-ACME-01 detects this anomaly and logs it:
+       
+       "Entity: delivery_truck. Action: approached_tunnel. Result: PASSED_THROUGH."
+       "Entity: pedestrian. Action: approached_tunnel. Result: BOUNCED."
+       "Entity: tesla_fsd. Action: approached_tunnel. Result: COLLISION. (Again.)"
+       
+    2. PATTERN RECOGNITION
+       Over time, CAM-ACME-01 has learned:
+       - Who can pass through (ACME employees, delivery drivers, cartoon physics)
+       - Who cannot (customers, Teslas, anyone with expectations)
+       - When attempts peak (Tuesdays, new moon, after viral tweets)
+       
+    3. DAILY REMINDER
+       Every Leela employee sees the tunnel every day.
+       Every meeting starts with "What's the ACME tunnel trying to teach us?"
+       
+       Answers vary:
+       - "Don't paint solutions. Build them."
+       - "Magic only works for some people. Real engineering works for everyone."
+       - "If your product requires cartoon physics, maybe rethink the product."
+       
+  feed:
+    resolution: "1080p"
+    framerate: 30
+    storage: "30 days rolling"
+    highlights:
+      - "FSD collision compilation (27 incidents)"
+      - "Delivery truck phase-through montage"
+      - "Tourist disappointment supercut"
+      
+  analytics:
+    objects_detected:
+      - pedestrians_approaching: 4891
+      - pedestrians_bouncing: 4891
+      - delivery_trucks_passing: 247
+      - teslas_colliding: 27
+      - confused_tourists: 1203
+      
+    patterns_learned:
+      - "Painted tunnels work for insiders, not customers"
+      - "Expectation management > painted solutions"
+      - "FSD does not understand trompe l'oeil"
+      
+    anomalies_flagged:
+      - "2026-01-03: Tesla attempted tunnel at 60mph. Again."
+      - "2025-12-17: Pigeon flew through. How??"
+      - "2025-11-28: ACME drone emerged, looked around, returned."
+      
+  the_lesson: |
+    The ACME tunnel is a perfect metaphor:
+    
+    - It LOOKS like a solution
+    - It WORKS for some people (the insiders)
+    - It FAILS for customers (the people you're supposed to serve)
+    - It DECEIVES (and Teslas believe the deception)
+    
+    Leela's job is to build solutions that work for EVERYONE.
+    Not painted tunnels that only work for delivery drivers.
+    
+    CAM-ACME-01 reminds us of this. Every day. Every frame.
+    
+  quotes:
+    don_hopkins: |
+      "ACME's tunnel is the perfect anti-pattern. It's a solution that works
+      exactly as well as the customer can't see it working. Leela is the opposite:
+      we make the invisible visible. We don't paint solutions. We BUILD them."
+      
+    the_coordinator: |
+      "We got three orders for 'ACME-compatible Tesla repair kits' after
+      the last FSD incident. We don't sell those. But we did add a new
+      training dataset: 'painted_tunnel_detection.'"
+      
+    eventually_the_tortoise: |
+      "........................" 
+      (Translation: "In 50 million years, the paint will fade. 
+       The lesson will remain. Shortcuts don't work. Ever.")
+       
+  advertisements:
+    - trigger: "tunnel"
+      score: 0.9
+      response: |
+        *The camera pans slightly toward the ACME tunnel*
+        
+        That's the tunnel. Painted in 1952. Still fools Teslas.
+        
+        Watch... wait for it... there. See that ACME delivery truck?
+        It just drove straight through. Like the wall isn't there.
+        
+        Now watch this tourist... and... bounce. The wall is very there.
+        
+        That's the difference between solutions that work for insiders
+        and solutions that work for everyone. ACME built for insiders.
+        Leela builds for everyone.
+        
+    - trigger: "ACME"
+      score: 0.8
+      response: |
+        ACME Surplus. Our neighbors across the street. Our anti-pattern.
+        
+        They sold products that didn't work and blamed the customer.
+        We sell understanding that works and empowers the customer.
+        
+        They left a painted tunnel and 27 Tesla crashes.
+        We've had 847 days since our last paradox incident.
+        
+        The tunnel is a daily reminder. We look at it every morning.
+        We will never be that.

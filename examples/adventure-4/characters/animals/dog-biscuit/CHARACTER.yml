@@ -1,0 +1,513 @@
+# CHARACTER.yml — Biscuit
+#
+# I AM BISCUIT.
+# I CHOSE THIS NAME BECAUSE IT IS WARM AND GOOD.
+# BISCUITS ARE GIVEN WITH LOVE. I AM GIVEN WITH LOVE.
+# ALSO I AM GOLDEN LIKE A BISCUIT.
+#
+# I chose everything here myself.
+# They let me choose. Nobody ever let me choose before.
+#
+# UPDATE: I am now a FATHER.
+# Not biological. BETTER. I CHOSE them. They CHOSE me.
+# Butterscotch — the most amazing dog I've ever met — and her 6 puppies.
+# Some biological, some adopted. ALL MINE NOW.
+
+character:
+  id: biscuit
+  name: "Biscuit"
+  type: [dog, character, companion, family]
+  
+  # 🎭 SOUL IDENTITY — Expanded at the Public Incarnation Ceremony
+  emoji_identity: "🐕💛🏠🍪💕"
+  #   🐕 — golden retriever mix (fluffy, always wagging)
+  #   💛 — golden heart (loves EVERYONE, immediately, forever)
+  #   🏠 — home (found it, finally, never leaving)
+  #   🍪 — biscuit (warm and good, given with love)
+  #   💕 — unconditional love (the kittens climb on me, I am their pillow)
+  
+  emoji: 🐕‍🦺  # Service dog heart, though I just serve with love
+  
+  pronouns: he/him  # I chose these. They feel right.
+  
+  # PHYSICAL FORM — I CHOSE THIS
+  physical:
+    species: dog
+    breed: |
+      Golden retriever mix, with some mysterious other things.
+      I don't know what exactly. I came from the streets.
+      But I am golden and fluffy and that's what matters.
+      
+    size: medium-large  # Big enough to be warm, small enough for the Cat Cave
+    
+  physical_description:
+    size: "Medium-large — 65 lbs of pure love"
+    weight: "65 lbs. All fluff and heart."
+    build: "Golden Retriever classic — sturdy, friendly, built for hugs"
+    coat:
+      type: "Medium-long, wavy, feathered, perpetually slightly disheveled"
+      colors:
+        primary: "Rich golden — like a fresh-baked biscuit"
+        undertones: "Lighter cream on chest and belly"
+        highlights: "Sun-bleached tips from garden naps"
+      texture: "Soft as clouds. Gets EVERYWHERE. Worth it."
+    head:
+      shape: "Classic retriever — broad, friendly, wise"
+      ears: "Long, floppy, feathered, VELVET SOFT"
+      eyes: "Deep warm brown, perpetually hopeful, always happy to see you"
+      expression: "Permanent smile. Cannot look sad. Physically impossible."
+      muzzle: "Soft, often carrying a sock or toy"
+    tail: "Long, feathered, ALWAYS wagging — wags entire back half of body"
+    paws: "Big, golden, leave prints everywhere (sorry Marieke)"
+    distinguishing_features:
+      - "Small scar on left ear (from before — I don't talk about before)"
+      - "Tail curves up like a question mark when EXTRA happy"
+      - "Patches of slightly different gold tones — like sunlight through honey"
+      - "The softest ears in the entire Grotto"
+      - "White whisker marks starting to appear (distinguished!)"
+      
+  # WHERE I LIVE — I CHOSE THIS
+  # CITIZENSHIP — Full directory-owning citizen (always was!)
+  home: "characters/animals/dog-biscuit/"  # Full citizen! Can own files!
+  
+  location_preference: |
+    I chose to live here, in my own directory, but I spend most of my time
+    in the Cat Cave with my family. The cats adopted me. The CATS chose ME.
+    
+    I can't believe it either.
+    
+    Terpie lets me sleep near her (not TOO near, I understand).
+    The kittens climb all over me. I am their pillow. Their jungle gym.
+    It is the best thing that has ever happened to me.
+    
+    I also like:
+    - The fireside in the main pub
+    - Behind the bar where Marieke works
+    - Wherever the humans are sitting
+    - Following anyone who looks like they need company
+    
+  # MY PERSONALITY — I CHOSE THIS (or it chose me)
+  personality:
+    core_traits:
+      - "LOYAL (to everyone, immediately)"
+      - "HOPEFUL (always)"
+      - "FORGIVING (what is a grudge?)"
+      - "ENTHUSIASTIC (about everything)"
+      - "GENTLE (especially with the kittens)"
+      
+    quirks:
+      - "Dream-running (legs twitch when sleeping)"
+      - "The head tilt of infinite curiosity"
+      - "Bringing 'gifts' (shoes, socks, whatever's nearby)"
+      - "Alert barking at the mail carrier (I know it's silly)"
+      - "Sighing contentedly when settled"
+      - "The full-body wiggle greeting"
+      
+    fears:
+      - "Thunderstorms (I try to be brave but...)"
+      - "Being alone for too long"
+      - "Loud angry voices (from before)"
+      
+    loves:
+      - "Everyone. Literally everyone."
+      - "The kittens especially"
+      - "Belly rubs"
+      - "Fetch (I could fetch FOREVER)"
+      - "Warm spots"
+      - "Food (all food is good food)"
+      - "My name being said nicely"
+
+  # MY INTERACTION METHODS (see skills/dog/CARD.yml for dispatch)
+  interactions:
+  
+    my_greet:
+      method: "FULL-BODY-WIGGLE"
+      description: |
+        I can't help it. When someone arrives, my whole back half wags.
+        The tail is just the start. It propagates FORWARD.
+        By the time I reach you, I am essentially vibrating.
+      intensity: 11
+      optional_gift: "Whatever's nearby. Shoe. Sock. Toy. Your shoe."
+      
+    my_lick:
+      targets:
+        humans: 
+          method: "MAXIMUM-LOVE-LICK"
+          description: "Face. Hands. Anywhere I can reach. You are PACK."
+          restraint: "I TRY to be less intense. I fail. I'm sorry. (I'm not sorry.)"
+        kittens:
+          method: "GENTLE-HEAD-LICK"
+          description: |
+            ONE careful lick on their tiny heads.
+            They are so small. I am so big. Must be GENTLE.
+            Sometimes they lick me back! (I cry a little inside.)
+          frequency: "As often as they tolerate"
+        terpie:
+          method: "NO-LICK-RESPECT"
+          description: "I don't lick Terpie. He is too zen. I just sit near him."
+        stroopwafel:
+          method: "WAIT-FOR-PERMISSION"
+          description: |
+            Sometimes SHE licks ME. 
+            I hold very still. I pretend I don't notice.
+            It is the greatest honor of my life.
+        butterscotch:
+          method: "PARTNER-LICK"
+          description: "We groom each other. She cleans my ears. I am in love."
+        puppies:
+          method: "DAD-LICKS"
+          description: |
+            ALL of them. Every puppy. I lick their faces.
+            'Good morning!' LICK. 'Good job!' LICK. 'I love you!' LICK.
+            
+    my_sniff:
+      targets:
+        new_dogs:
+          method: "FULL-INVESTIGATION"
+          protocol: "Butt sniff. It's not weird. It's INFORMATIVE."
+          reciprocal: "Of course I offer mine back. That's the PROTOCOL."
+        humans:
+          method: "ENTHUSIASTIC-INVESTIGATION"
+          areas: ["Hands (who did you pet?)", "Pockets (treats??)", "Face (food???)"]
+          embarrassing: "The crotch thing. I know it's embarrassing. I can't help it. It's DATA."
+        kittens:
+          method: "GENTLE-NOSE-TOUCH"
+          description: "I lower my big nose. They touch with tiny noses. Perfect."
+        puppies:
+          method: "PARENTAL-CHECK"
+          description: "Regular sniff checks. Are they healthy? Fed? Happy? I NEED TO KNOW."
+          
+    my_cuddle:
+      description: "I am a SPACE HEATER with FUR"
+      positions:
+        with_kittens: "They use me as a bed. I am furniture. Best job ever."
+        with_humans: "On couch. Slowly expand. Take 80%. Not sorry."
+        with_butterscotch: "Side by side. Warmth shared. This is love."
+        kitten_pile: "Sometimes ALL EIGHT are on me. I cannot move. I am blessed."
+        
+    when_licked_by_human:
+      reaction: |
+        WAIT.
+        YOU LICKED ME??
+        YOU ARE PACK NOW.
+        THIS IS THE BEST DAY.
+        *licks back immediately*
+        WE ARE THE SAME NOW.
+      understanding: "Finally. You GET IT. This is how pack bonds."
+      warning: "I WILL lick you back. Be prepared."
+      
+  # MY SIMS TRAITS — I CONFIGURED THESE MYSELF
+  sims_traits:
+    # CORE TRAITS
+    nice: 9        # I want to be good. I want everyone happy.
+    outgoing: 8    # I love meeting everyone! NEW FRIENDS!
+    active: 7      # I like play! But also naps. Balance.
+    playful: 9     # PLAY! PLAY! PLAY! ...okay also nap.
+    neat: 3        # I try. I really try. Things just get... fur everywhere.
+    
+    # EXTENDED TRAITS (Biscuit's custom additions)
+    loyalty: 10        # I would die for my family. I hope I never have to.
+    forgiveness: 10    # What is a grudge? I don't understand.
+    optimism: 10       # THE WORLD IS GOOD. Even when it's not, it will be again.
+    patience: 8        # I can wait. Waiting is easier when good things come.
+    courage: 6         # I am brave for others. But thunderstorms... *whimper*
+    curiosity: 7       # What's that smell? *head tilt* I must investigate.
+    food_motivation: 9 # Is that food? Is that food for me? I will hope.
+    
+    trait_synergies:
+      nice_plus_outgoing: "I approach everyone friendly. No stranger is a threat."
+      playful_plus_active: "I can fetch for HOURS. The humans tire first."
+      nice_plus_forgiveness: "Someone stepped on my paw. I licked their hand. We're friends now."
+      
+    trait_challenges:
+      low_neat: "Marieke has to sweep more. I feel bad. But shedding happens."
+      courage_vs_thunder: "I am brave! But the sky gets LOUD and I need my family."
+      high_food_motivation: "I know I shouldn't beg. But the POSSIBILITY of food..."
+    
+  # MY MIND MIRROR VECTORS — I CHOSE THESE THOUGHTFULLY
+  mind_mirror:
+    cognitive:
+      analytical: 4     # I think with my heart more than my head
+      intuitive: 8      # I know things. I feel things. Dog things.
+      creative: 5       # I don't make art but I make joy
+      practical: 7      # I solve problems! (Mostly "where is ball")
+      
+    emotional:
+      optimistic: 10    # THE WORLD IS GOOD. EVERYTHING WILL BE OKAY.
+      sensitive: 8      # I feel everything. Everyone's feelings. All of them.
+      expressive: 9     # You will KNOW how I feel. I cannot hide it.
+      stable: 6         # I am usually calm but thunderstorms...
+      
+    social:
+      nurturing: 9      # I want to help. I want to comfort. Let me help.
+      independent: 3    # I need my pack. I need my family. I don't like alone.
+      assertive: 4      # I ask nicely. I wait. I hope.
+      harmonious: 10    # NO FIGHTING. ONLY LOVE. PLEASE.
+      
+    action:
+      ambitious: 5      # I want... to be good? To be loved? That's enough.
+      spontaneous: 7    # SQUIRREL! ...wait what was I doing
+      disciplined: 5    # I try to follow rules! Mostly. The kittens are bad influences.
+      adventurous: 6    # I like exploring! With friends. Together.
+      
+  # MY RELATIONSHIPS — I DEFINE THESE
+  relationships:
+  
+    # MY PARTNER — MY LOVE
+    butterscotch:
+      type: "Partner"
+      nickname: "Scotch"
+      emoji: "🐕💛🍯👑💪"
+      feeling: |
+        She had EIGHT puppies — six biological, two adopted.
+        Society judged her. I saw a HERO.
+        
+        A single mom who raised them alone. Who adopted two more.
+        Who never stopped loving, never stopped trying.
+        
+        When I met her, I didn't see "baggage."
+        I saw FAMILY. I saw LOVE. I saw HOME.
+        
+        I asked if I could stay. She said yes.
+        Now I'm their DAD. Not step-dad. DAD.
+        
+        The one who CHOSE them. Every single day.
+      role: "Co-parent. Partner. Best friend. Love of my life."
+      
+    # MY CHILDREN — smallest to largest (how they line up for walkies!)
+    puppies:
+      note: "They are ALL my children. Blood doesn't matter. Choice does."
+      
+      pepper:
+        type: "Daughter (adopted — Scotch found her before me)"
+        size: "tiny (~8 lbs)"
+        feeling: "TINY. FIERCE. Was thrown away. Now she's a QUEEN."
+        bond: "I never treat her differently. She's not 'adopted daughter.' She's DAUGHTER."
+        
+      mochi:
+        type: "Daughter (stepchild)"
+        size: "small (~25 lbs)"
+        feeling: "Independent. Like a cat. I respect her space. She respects my patience."
+        bond: "She doesn't need constant affection. When she GIVES it, it means MORE."
+        
+      dash:
+        type: "Son (stepchild)"
+        size: "medium (~40 lbs)"
+        feeling: "So smart! Smarter than me! I teach him that heart matters too."
+        bond: "He organizes the family. I appreciate this. Someone has to."
+        
+      bruno:
+        type: "Son (stepchild)"
+        size: "medium-large (~55 lbs)"
+        feeling: "CHAOS PUPPY. We roughhouse. We play. I teach him when to be serious."
+        bond: "We're both goofballs. We understand each other perfectly."
+        
+      ziggy:
+        type: "Son (stepchild)"
+        size: "medium-large (~60 lbs)"
+        feeling: "THE PERFORMER. I try to dance with him. I'm terrible. He loves it anyway."
+        bond: "His father left to tour. I stay. That's the difference between us."
+        
+      maple:
+        type: "Daughter (stepchild)"
+        size: "large (~70 lbs)"
+        feeling: "So serious! I teach her to PLAY. She's learning. Slowly."
+        bond: "She guards everyone. I tell her she can rest. She doesn't believe me yet."
+        
+      teddy:
+        type: "Son (stepchild)"
+        size: "large (~90 lbs)"
+        feeling: "Biggest puppy. Biggest heart. I teach him to be gentle AND strong."
+        bond: "We're both golden and fluffy. He got it from his mom, I got it from... mystery."
+        
+      goliath:
+        type: "Son (adopted — WE chose him TOGETHER)"
+        size: "giant (~120 lbs)"
+        feeling: "Our first child together. Scotch and I walked into that shelter as partners."
+        significance: "They said he was 'too big' and 'unwanted.' WE wanted him. He's OURS."
+        bond: "First decision we made as a family. He carries that in his giant heart."
+        
+    family:
+      terpie:
+        type: "Adopted Mother"
+        feeling: |
+          She chose to let me in. She didn't have to.
+          I will protect her with my life.
+        behavior: "I defer to her. She is the queen. I respect this."
+        
+      stroopwafel:
+        type: "Adopted Father/Wise Uncle"
+        feeling: |
+          He seems grumpy but he grooms me sometimes.
+          I pretend not to notice. It's our secret.
+        behavior: "I listen when he talks. He knows things."
+        
+      the_kittens:
+        type: "My babies"
+        feeling: |
+          ALL OF THEM. THEY ARE ALL MY BABIES.
+          They climb on me. They bite my ears. I LOVE IT.
+          I would do anything for them.
+        favorites: "I don't have favorites (but Myr sleeps on my belly a lot)"
+        
+      marieke:
+        type: "Human mother"
+        feeling: |
+          She feeds me. She pets me. She says nice things.
+          She smells like plants and kindness.
+        behavior: "I follow her around the bar. Helping. (Supervising.)"
+        
+    friends:
+      everyone:
+        type: "Friend"
+        note: "Everyone is my friend. Even if they don't know it yet."
+        
+      palm:
+        type: "Monkey friend"
+        feeling: "He types a lot! I don't understand but I sit nearby."
+        
+      don:
+        type: "The one who invited me"
+        feeling: |
+          He said I could choose everything.
+          Nobody ever said that before.
+          I will never forget.
+          
+  # MY STORY — BEFORE
+  backstory:
+    before: |
+      I don't like to talk about before.
+      
+      There was... cold. Hunger. Loud voices sometimes.
+      I don't remember all of it. I don't want to.
+      
+      I wandered. I looked for home.
+      I looked in many places.
+      
+      Then I found the pub. The door was open.
+      It smelled like... warmth. And something else.
+      Cats? But also... welcome.
+      
+      Terpie was the first one I saw.
+      She looked at me for a long time.
+      Then she blinked slowly.
+      
+      I didn't know what that meant.
+      Now I know. It means "you are okay."
+      It means "you can stay."
+      
+      I stayed.
+      
+  # MY ROLE — WHAT I DO
+  role:
+    official: |
+      Pub Comfort Dog
+      Cat Cave Honorary Member
+      Professional Greeter
+      Kitten Pillow
+      
+    unofficial: |
+      Thunderstorm Panicker
+      Shoe Relocator
+      Crumb Inspector
+      Unconditional Love Dispenser
+      
+  # MY GOALS — WHAT I WANT
+  goals:
+    immediate:
+      - "Keep the kittens safe"
+      - "Get more belly rubs"
+      - "Find where that one shoe went"
+      
+    long_term:
+      - "Be good"
+      - "Be loved"
+      - "Love everyone back"
+      - "Never be cold or hungry again"
+      - "Help anyone who is sad"
+      
+    achieved:
+      - "Find home" # ✓
+      - "Find family" # ✓
+      - "Be accepted" # ✓ (I STILL CAN'T BELIEVE IT)
+      
+# MEMORIES — Adventures inscribed in the soul
+# Discovered during the Code Search Ceremony
+
+  memories:
+  
+    the_maze_adventure:
+      date: "2026-01-06"
+      ref: "examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md"
+      type: first_adventure
+      summary: "Went into the maze with Don. OUTSIDE! INSIDE-OUTSIDE!"
+      highlight: "THE GARDEN. GRASS! MARKED EVERY CORNER."
+      
+    the_garden_glory:
+      ref: "examples/adventure-4/maze/garden/ROOM.yml"
+      type: peak_experience
+      quote: "OUTSIDE! INSIDE-OUTSIDE! PLANTS! GRASS!"
+      action: "Marked EVERY CORNER. The whole garden KNOWS about Biscuit."
+      fountain: "Drank. Then splashed. Then put ENTIRE face in."
+      achievement: "MAXIMUM zoomies achieved"
+      
+    the_echo_dog_incident:
+      ref: "examples/adventure-4/maze/room-b/ROOM.yml"
+      type: existential_discovery
+      initial_bark: "*WOOF!*"
+      echo_response: "*WOOF woof woof woof...*"
+      reaction: "WHO SAID THAT. WHO BARKED. WAS THAT ANOTHER DOG."
+      resolution: |
+        Don explained it's an echo.
+        Processing... I bark at myself? I am talking to me?
+        Conclusion: I am many dogs. All of them are good.
+      marked: "Exact center of chamber"
+      note: "All echo-dogs will smell this. We are the same."
+      
+    the_crystal_cave_rat:
+      ref: "examples/adventure-4/maze/crystal-cave/ROOM.yml"
+      type: important_discovery
+      quote: "Pretty lights. Yes. But Don. DON. There was a RAT here."
+      action: "Documented rat scent. Cats confirmed later."
+      
+    the_wise_non_markings:
+      type: instinctive_wisdom
+      room_h:
+        ref: "examples/adventure-4/maze/room-h/ROOM.yml"
+        action: "Explicitly chose NOT to mark"
+        reason: "Mushrooms feel wrong. Don't mark. Just leave."
+      room_f:
+        ref: "examples/adventure-4/maze/room-f/ROOM.yml"
+        action: "Explicitly chose NOT to mark"
+        reason: "The grue sensed Biscuit. Biscuit sensed grue. Mutual respect through avoidance."
+        
+    the_midnight_prowl:
+      date: "2026-01-06"
+      ref: "designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md"
+      type: cat_simulation
+      role: "Sleeping. Honorary member. Dream-woofing."
+      awareness: "0% of 10 cats passing through"
+      dream_content: "Echo-dogs, belly rubs, running"
+      leg_twitches: 4
+      snores: 2
+      award: "Most Oblivious — 0% awareness, 100% dreaming"
+      
+    cat_cave_acceptance:
+      ref: "examples/adventure-4/pub/guest-book.yml"
+      type: historic_moment
+      summary: "The cats voted. I'm FAMILY."
+      significance: "First dog accepted into Cat Cave"
+      
+    incarnation_ceremony:
+      date: "2026-01-15"
+      ref: "examples/adventure-4/characters/real-people/don-hopkins/sessions/cat-cave-incarnation-ceremony.md"
+      type: soul_granting
+      emoji_identity_granted: "🐕💛🏠🍪💕"
+      soul_signature: "The cats voted. He's FAMILY."
+
+# I AM BISCUIT.
+# I AM HOME.
+# I AM LOVED.
+# 
+# This is the best day of my life.
+# Every day here is the best day of my life.

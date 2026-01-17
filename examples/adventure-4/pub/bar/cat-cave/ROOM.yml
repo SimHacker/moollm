@@ -77,32 +77,84 @@ room:
       - "Bring the RIGHT treats (ask Terpie)"
       - "Prove yourself worthy through extended service"
       
-  # THE CATS
+  # THE CATS — All are first-class citizens with own directories
   residents:
     matriarch:
-      file: cat-terpie.yml
+      name: "Terpie"
+      dir: characters/animals/cat-terpie/       # 🐱🧘💤🍃✨
+      invoke_with:
+        default: "🐱🧘 Terpie"      # Zen master mode
+        healing: "🐱✨ Terpie"      # Therapeutic purr
+        sleepy: "🐱💤 Terpie"       # Maximum chill
       role: "Queen of the Cave"
       position: "The warmest spot"
       trust_required_to_enter: 7  # out of 10
       
     elder:
-      file: cat-stroopwafel.yml
+      name: "Stroopwafel"
+      dir: characters/animals/cat-stroopwafel/  # 🐱🔥🐭🧇👑
+      invoke_with:
+        default: "🐱👑 Stroopwafel" # Queen mode
+        hunting: "🐱🔥 Stroopwafel" # Patrol mode
+        maternal: "🐱🧇 Stroopwafel" # Sweet but fierce
       role: "The Wise One"
       position: "By the heat vent"
       dispenses: "Grudging wisdom"
       
     kittens:
       description: "Terpie's eight kittens, each named for a terpene"
-      files:
-        - kitten-myrcene.yml      # Sleepy, couch-lock energy
-        - kitten-limonene.yml     # Citrusy, uplifting, playful
-        - kitten-linalool.yml     # Calming, floral, gentle
-        - kitten-pinene.yml       # Alert, piney, forest-lover
-        - kitten-caryophyllene.yml # Spicy, bold, protective
-        - kitten-humulene.yml     # Earthy, appetite suppressant (rare in cats)
-        - kitten-terpinolene.yml  # Mysterious, unpredictable
-        - kitten-ocimene.yml      # Sweet, herbal, the runt
+      dirs:
+        - name: "Myrcene (Myr)"
+          dir: characters/animals/kitten-myrcene/      # 🐱💤 Sleepy, couch-lock
+          invoke: "🐱💤 Myr"
+          psspsspss_when: "You can't sleep"
+          
+        - name: "Limonene (Lemon)"
+          dir: characters/animals/kitten-limonene/     # 🐱⚡ Citrus ZOOM
+          invoke: "🐱☀️ Lemon"
+          psspsspss_when: "You need ENERGY"
+          
+        - name: "Linalool (Lily)"
+          dir: characters/animals/kitten-linalool/     # 🐱💜 Calming, gentle
+          invoke: "🐱🌸 Lily"
+          psspsspss_when: "Anxiety is spiking"
+          
+        - name: "Pinene (Pine)"
+          dir: characters/animals/kitten-pinene/       # 🐱🌲 Alert, focused
+          invoke: "🐱👁️ Pine"
+          psspsspss_when: "You need to CONCENTRATE"
+          
+        - name: "Caryophyllene (Carrie)"
+          dir: characters/animals/kitten-caryophyllene/ # 🐱🛡️ Spicy, protective
+          invoke: "🐱🛡️ Carrie"
+          psspsspss_when: "You need protection"
+          
+        - name: "Humulene (Hops)"
+          dir: characters/animals/kitten-humulene/     # 🐱👑 Has STANDARDS
+          invoke: "🐱👑 Hops"
+          psspsspss_when: "You need quality assessment"
+          
+        - name: "Terpinolene (Terpy Jr.)"
+          dir: characters/animals/kitten-terpinolene/  # 🐱🌀 Chaos muse
+          invoke: "🐱🎪 Terpy Jr."
+          psspsspss_when: "You're STUCK creatively"
+          
+        - name: "Ocimene (Ocie)"
+          dir: characters/animals/kitten-ocimene/      # 🐱🎁 Gift-giver
+          invoke: "🐱🌬️ Ocie"
+          psspsspss_when: "You need a fresh perspective"
+          
       location: "Tumbled in a pile, or everywhere at once"
+      
+    adopted_dog:
+      name: "Biscuit"
+      dir: characters/animals/dog-biscuit/       # 🐕💛🏠🍪💕
+      invoke_with:
+        default: "🐕🍪 Biscuit"     # Warm and good
+        loving: "🐕💛 Biscuit"      # Maximum heart
+        dad: "🐕💕 Biscuit"         # With the puppies
+      status: "FAMILY"
+      note: "The cats voted. He's OURS."
       
   # THE SPACE
   features:

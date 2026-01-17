@@ -19,7 +19,26 @@ This is a room for **tinkers, makers, reverse-engineers** — those who understa
 
 ## 🎭 Permanent Resident
 
-**Logo Turtle** — Still drawing. Still teaching. The floor is covered in spirographs.
+**Logo Turtle (Theo)** 🐢📐🎨🏰✨
+
+Still drawing. Still teaching. The floor is covered in spirographs.
+
+This turtle is an **instance** deployed in this room — it can summon Seymour Papert, teach LOGO, and remember everything that happens here.
+
+### 🚗 Vehicle Mode
+
+The turtle can be **embarked as a vehicle** for adventure travel:
+
+| Command | Effect |
+|---------|--------|
+| `EMBARK` | Step into the turtle, become its pilot |
+| `FORWARD [exit]` | Travel through an exit |
+| `RIGHT/LEFT` | Turn to face different exits |
+| `PENDOWN/PENUP` | Leave trail or travel unseen |
+| `DISEMBARK` | Step out at current location |
+| `GO HOME` | Return to Room 1 from anywhere |
+
+The turtle's **home is Room 1**, but it can carry you anywhere in the adventure. When you disembark, you're at the new location. The turtle stays with you, ready for another journey.
 
 ---
 
@@ -27,10 +46,11 @@ This is a room for **tinkers, makers, reverse-engineers** — those who understa
 
 | Object | File | Description |
 |--------|------|-------------|
-| **Logo Turtle** | [logo-turtle.yml](logo-turtle.yml) | The original constructionist companion |
-| **Clock Mechanism** | [clock-mechanism.yml](clock-mechanism.yml) | Half-built, gears visible and turning |
-| **Debugging Journal** | [debugging-journal.yml](debugging-journal.yml) | For tracking what went wrong (and right) |
-| **Worldie** | [worldie.yml](worldie.yml) | The Microworld Familiar — the `world` parameter |
+| **🐢 Logo Turtle** | [logo-turtle.yml](logo-turtle.yml) | Instance + vehicle + familiar. Teaches LOGO, summons Seymour, travels anywhere. |
+| **⚙️ Clock Mechanism** | [clock-mechanism.yml](clock-mechanism.yml) | Half-built, gears visible and turning. Take it apart to understand. |
+| **📓 Debugging Journal** | [debugging-journal.yml](debugging-journal.yml) | Record of bugs found and fixed. Every entry is a lesson. |
+| **🌍 Worldie** | [worldie.yml](worldie.yml) | The Microworld Familiar — the `world` parameter made manifest. |
+| **🐢💭 Seymour Papert** | [seymour-papert.yml](seymour-papert.yml) | Summonable through the turtle. Speaks only in quotations. |
 
 ---
 

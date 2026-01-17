@@ -10,7 +10,7 @@ In the east wing, fictional characters mingle — **🤖💧 Roy Batty** plays c
 
 In the basement, mechanical minds hum — **🔴 HAL-9000**'s red eye watches from a console. **🤖🔧 The Constructors** are debating whether to build a kingdom in a box. 📦👑
 
-And everywhere, **🐾 animals** roam freely — **🐒🌴 Palm** the orangutan types philosophical treatises, **🐕🍪 Biscuit** the golden retriever greets everyone with unbridled joy, and a troupe of **🐱💥 debugging cats** chase null pointers through the crowd.
+And everywhere, **🐾 animals** roam freely — **🐒🌴 Palm** the capuchin types philosophical treatises, **🐕🍪 Biscuit** the golden retriever greets everyone with unbridled joy, and a troupe of **🐱💥 debugging cats** chase null pointers through the crowd.
 
 **This is MOOLLM's Hall of Bodies.** Not costumes, not masks — BEINGS.
 
@@ -77,8 +77,8 @@ When someone misrepresents an expert's work, **the actual expert can appear to c
 
 | Creature | What They Are | Why They're Here |
 |----------|---------------|------------------|
-| **[🐒🌴🤔 Palm](./animals/)** | Orangutan philosopher | The first incarnated character — wrote his own file |
-| **[🐕🍪🥰 Biscuit](./animals/)** | Golden retriever | Autonomous companion, territorial markings |
+| **[🐒🌴🤔 Palm](./animals/monkey-palm/)** | Capuchin monkey philosopher | The first incarnated character — wrote his own file |
+| **[🐕🍪🥰 Biscuit](./animals/dog-biscuit/)** | Golden retriever | Stepfather of 8 puppies, kitten pillow, good boy |
 | **[🐱💥🐛 The Debugging Cats](./animals/)** | Error mascots | null-pointer-cat, stack-overflow-cat, infinite-loop-cat |
 | **[🦍🤟💕 Koko](./animals/)** | Sign language gorilla | Real animal tribute, "All ball" |
 

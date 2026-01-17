@@ -199,15 +199,16 @@ ensembles:
 # The Skill Nexus is SHARED across all adventures. We use PATH VARIABLES
 # instead of deep relative paths like ../../../../../:
 #
-# GLOBAL VARIABLES (resolve to repo locations):
+# REPO-SCOPED (shared utilities, same for all adventures):
 #   $REPO/         → moollm/
 #   $SKILLS/       → moollm/skills/
 #   $KERNEL/       → moollm/kernel/
 #   $DESIGNS/      → moollm/designs/
 #
-# ADVENTURE-RELATIVE VARIABLES (resolve via current adventure):
-#   $ADVENTURE/    → Current adventure root (from startup.yml)
+# ADVENTURE-SCOPED (plugged in at runtime via startup.yml):
+#   $ADVENTURE/    → Current adventure root
 #   $CHARACTERS/   → $ADVENTURE/characters/
+#   $ANIMALS/      → $CHARACTERS/animals/
 #   $PERSONAS/     → $ADVENTURE/personas/
 #   $PUB/          → $ADVENTURE/pub/
 #   $COATROOM/     → $ADVENTURE/coatroom/
@@ -215,10 +216,15 @@ ensembles:
 #
 # EXAMPLE RESOLUTION (when adventure-4 is active):
 #   $COATROOM/mirror.yml → examples/adventure-4/coatroom/mirror.yml
-#   $CHARACTERS/animals/palm/ → examples/adventure-4/characters/animals/palm/
+#   $ANIMALS/monkey-palm/ → examples/adventure-4/characters/animals/monkey-palm/
+#   $ANIMALS/dog-biscuit/ → examples/adventure-4/characters/animals/dog-biscuit/
 #
-# This allows the Skill Nexus to be a SHARED space accessible from any
-# adventure, with back-links that resolve to YOUR adventure.
+# DYNAMIC BINDING: Skills reference $ANIMALS/dog-biscuit/ abstractly.
+# Adventure provides concrete path. Two-way links dovetail consistently.
+# Skill→Adventure and Adventure→Skill resolve to the same targets.
+#
+# FUTURE: Search path resolution — variables could check multiple directories
+# in order (like Unix PATH), enabling multi-repo composition. See NAMING.yml.
 
 # RELATIONSHIPS
 # The Skill Nexus knows and loves the adventurers who visit.

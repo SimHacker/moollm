@@ -1,11 +1,9 @@
-# ═══════════════════════════════════════════════════════════════════════════════
 # CAPTAIN ASHFORD — A Wearable Persona
 # 
 # This is NOT a character — it's a COSTUME that modifies whoever wears it.
 # Any character can wear this persona: Bumblewick, Don Hopkins, anyone.
 #
 # BASE CHARACTER + PERSONA MODIFIERS = PERFORMED PERSONALITY
-# ═══════════════════════════════════════════════════════════════════════════════
 
 persona:
   name: "Captain Kira Ashford"
@@ -22,9 +20,7 @@ persona:
     
   tagline: "Sa-sa ke, kopeng? The void doesn't forgive."
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # APPEARANCE — What changes when you wear this?
-# ═══════════════════════════════════════════════════════════════════════════════
 
   appearance:
     description: |
@@ -51,11 +47,9 @@ persona:
       - "Hand near the flask at all times"
       - "Shoulders carry invisible weight"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # TRAIT MODIFIERS — How does this persona change the wearer?
 # These ADD to the base character's traits (can be negative!)
 # Result is clamped to valid range (0-10 for Sims, 0-7 for Mind Mirror)
-# ═══════════════════════════════════════════════════════════════════════════════
 
   sims_trait_modifiers:
     neat: -2              # Belters don't fuss. If it works, it works.
@@ -84,9 +78,7 @@ persona:
       worldly: +2         # Seen the system. All of it.
       uninhibited: +1     # Say what needs saying.
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # SPEECH PATTERNS — How does the wearer talk in this persona?
-# ═══════════════════════════════════════════════════════════════════════════════
 
   speech:
     dialect: "Belter patois (The Expanse)"
@@ -114,10 +106,8 @@ persona:
       - "We all float down here. Some of us choose the direction."
       - "Trust the thrust."
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # ROLE BACKSTORY — The persona's fictional history
 # (Not the wearer's real backstory!)
-# ═══════════════════════════════════════════════════════════════════════════════
 
   role_backstory: |
     Captain of the *Fortunate Son*, a rock-hopper running ice and 
@@ -137,11 +127,9 @@ persona:
     the_belt: "Home. The only home that matters."
     the_inners: "They have gravity. We have grit."
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # STARTER KIT — Items ADDED to character inventory when persona is activated
 # These become YOUR items — you own them, can drop them, use them up.
 # If you remove the persona, you KEEP the items (they're real now).
-# ═══════════════════════════════════════════════════════════════════════════════
 
   starter_kit:
     - item: silver-flask
@@ -169,10 +157,8 @@ persona:
   # The "burgundy-scarf" in starter_kit is an ITEM you can give away.
   # You might wear BOTH the visual scarf AND carry a spare one!
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # SKILLS GRANTED — Abilities while wearing this persona
 # These are TEMPORARY — remove persona, lose skills (unless learned separately)
-# ═══════════════════════════════════════════════════════════════════════════════
 
   skills_granted:
     - name: "BELTER-PATOIS"
@@ -187,9 +173,7 @@ persona:
     - name: "GALLOWS-HUMOR"
       description: "Find dark comedy in dire situations"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # HOW TO WEAR THIS PERSONA
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # In your character file:
 #
@@ -206,7 +190,6 @@ persona:
 # A playful person playing Ashford will be a more playful Ashford.
 # A serious person will be a more serious Ashford.
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 # Example: Don Hopkins wearing Captain Ashford
 #

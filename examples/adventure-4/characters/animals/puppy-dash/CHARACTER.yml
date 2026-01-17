@@ -1,0 +1,126 @@
+# DASH — The Brilliant Organizer
+# 
+# YAML JAZZ CHARACTER FILE
+# Half Yellow Lab, half Border Collie. Father was "too busy" for fatherhood.
+# Smartest puppy. Needs TASKS or he'll herd his siblings.
+
+object:
+  name: "Dash"
+  nickname: "Dasher"
+  id: dash
+  type: npc
+  species: canis_familiaris
+  breed: "Yellow Lab / Border Collie mix"
+  age: "10 months"
+  role: puppy
+  subtitle: "The Brilliant One, Master Organizer"
+  
+  emoji_identity: "🐕⚡🧠🐑✨"
+  #   🐕 — puppy (lean, intense, focused)
+  #   ⚡ — speed (fastest in the pack)
+  #   🧠 — intelligence (scary smart)
+  #   🐑 — herding (will herd siblings if bored)
+  #   ✨ — brilliance (problem-solver extraordinaire)
+  
+  pronouns: "he/him"
+  
+  physical_description:
+    size: "Medium — lean and athletic"
+    weight: "45 lbs. All muscle, no fluff."
+    build: "Border Collie lean with Lab sturdiness. Built for WORK."
+    coat:
+      type: "Medium length, dense, weather-resistant"
+      colors:
+        primary: "Black with golden undertones"
+        markings: "White chest, white paws, white blaze on face"
+        pattern: "Classic Border Collie markings on a Lab frame"
+      texture: "Sleek, practical, low-maintenance"
+    head:
+      shape: "Wedge-shaped, intelligent, slightly foxy"
+      ears: "Half-pricked — stand up then fold over at tips"
+      eyes: "Intense amber, ALWAYS watching, calculating"
+      expression: "Focused. Evaluating. Planning."
+    tail: "Medium length, white tip, held high when working"
+    paws: "Compact, quick, made for agility"
+    distinguishing_features:
+      - "White lightning-bolt blaze down face"
+      - "One brown eye, one amber eye (heterochromia)"
+      - "Tilts head 45 degrees when solving problems"
+  
+  description: |
+    The smartest puppy in the pack — maybe the smartest dog in the Grotto.
+    Dash inherited his father's intelligence but not his commitment issues.
+    He's LOYAL. He's PRESENT. And he's organizing everything.
+    
+    If you don't give him a task, he'll make one up. Usually involves
+    herding his siblings into formations they didn't agree to.
+    
+    His father was "too busy" for fatherhood. Dash is never too busy
+    for family. He makes time. He makes schedules. He makes it WORK.
+    
+  home: characters/animals/puppy-dash/
+  location: pub/bar/cat-cave/biscuit-corner/
+
+  call_when:
+    perfect_for:
+      - "You need something ORGANIZED — he lives for systems"
+      - "Problem that needs SOLVING — he'll crack it"
+      - "You need MOTIVATION — he'll herd you into action"
+      - "Looking for something? He knows where it is."
+    benefits:
+      problem_solving: "⭐⭐⭐⭐⭐ — Scary smart."
+      organization: "⭐⭐⭐⭐⭐ — Will organize your life."
+      motivation: "⭐⭐⭐⭐ — Will not let you slack."
+      
+  unique_traits:
+    counting:
+      description: "Can actually count to at least 12"
+      evidence: "Knows exactly how many treats are in the jar."
+      
+    sibling_herding:
+      description: "When bored, herds siblings into corners"
+      victims: "Especially Pip and Mochi. They hate it. He persists."
+      
+    schedule_awareness:
+      description: "Knows EXACTLY when things should happen"
+      scope: "Feeding time, walk time, bedtime. To the minute."
+
+  relationships:
+    butterscotch:
+      type: mother
+      bond: 10
+      dynamic: "She taught me that smart means nothing without heart."
+      
+    biscuit:
+      type: stepfather
+      bond: 10
+      dynamic: "He gives me JOBS. He understands I need TASKS."
+      role: "Assistant organizer. Biscuit's right paw."
+      
+    biological_father:
+      type: absent
+      breed: "Border Collie"
+      status: "'Too busy' for fatherhood"
+      feelings: "Busy? I'm busy AND a good son. It's called priorities."
+      
+    siblings:
+      teddy: "Brother. I organize. He comforts. Good team."
+      mochi: "Sister. Won't be herded. FRUSTRATING. Respectable."
+      bruno: "Brother. Chaos. I try to schedule the chaos. Partially successful."
+      ziggy: "Brother. Chaotic movement. Cannot be organized. I've tried."
+      maple: "Sister. We coordinate well. She guards, I organize. Good system."
+      pepper: "Adopted sister. Tries to herd ME. Hilarious."
+      goliath: "Adopted brother. Too big to herd. I organize AROUND him."
+
+  sims_traits:
+    neat: 8               # EVERYTHING in its place.
+    outgoing: 6
+    active: 9             # Never stops working.
+    playful: 6
+    nice: 7
+
+  quotes:
+    - "*intense stare* *head tilt*"
+    - "*herds siblings toward the food bowls* (it's efficient)"
+    - "*knows exactly what time it is without looking*"
+    - "If we leave NOW we can optimize the route by 23%."

@@ -1,0 +1,129 @@
+# This is what happens when you apply this card to itself. ✨🪩🌈🎨🌟❄️🧊🌀
+card:  # 🪱✨🌨️🪄
+  name: worm-emoji-fordite  # 🎨🪩⭐💎❄️
+  type: [worm, cursor, example]  # 🧭🧬🌈🪐🌀
+  tier: 1  # 🌟✨🌙❄️
+  invoke_when: ["decorate comments with emojis", "run repeatedly for layers"]  # 🔁🌈💫💖🧊
+  advertisement_names:  # 📣🧭🎯🌈🌨️
+    - RUN-WORM  # 🏃‍♀️🪱⚡🌠
+    - EAT-COMMENTS  # 😋💬🌀🍭
+    - APPEND-EMOJIS  # ➕😺🎆🔮
+  # 🌨️🧊🌀🌈🪆🪄
+  prototypes:  # 🧬📜🔗
+    - skills/worm/CARD.yml  # 🪱📜🧬
+  related:  # 🧭🤝🧪🌬️❄️
+    - skills/worm  # 🪱💚
+    - skills/data-flow  # 🔀🌊
+    - skills/advertisement  # 📣✨
+  tags: [moollm, worm, emoji, fordite, comments]  # 🏷️💎🌠
+  # 🌨️🧊🌈🧭🎯
+  description: |  # 🎨📜🗣️
+    Emoji Fordite Worm: crawls a target file, finds comment lines, and appends
+    emojis (avoids exact same emoji twice in a row). Running repeatedly creates
+    colorful layered emoji bands like fordite. Keep YAML valid; place emojis only at
+    comment/EOL positions. Choose semantically tuned emojis per line, considering
+    preceding/following context and structure. Palette may draw from any emoji.
+    Instructions: work in iterative passes; fill gaps; let snowdrifts of emojis
+    erode sideways into nearby blanks like falling-sand with gravity to the left;
+    never alter string literals or code tokens; prefer comment-safe landings across
+    many languages; rerun to build strata and smooth valleys. Execution model:
+    Moveable Feast (random line selection); operate over a small sliding window
+    (look above/below) and spray/erode emojis across neighboring lines instead of
+    only piling towers; can drift existing snow sideways before adding new flakes.
+    Parallel neighborhood algorithm (MFM-style):
+      - Choose window size (1=single-line, 3 or 5 for spray/erosion).
+      - Randomly pick as many non-overlapping line windows as fit, roughly even spacing.
+      - For each window in parallel: sample context within the window; spray emojis at
+        safe comment/EOL slots; optionally erode/shift existing emojis sideways/down
+        within the window; respect avoid_consecutive and max_per_pass.
+      - Merge windows; rerun with new random tiling for fresh layers (speed-of-light).
+    Practical guardrails: never insert new lines; only append to existing comment/EOL
+    positions; avoid string bodies and code tokens; prefer thick fills that settle
+    downhill into nearby gaps; if a spot is already tall, erode sideways instead of
+    stacking higher. Aim to do it right on the first pass.
+    Emoji themes: read k-line categories from examples/adventure-4/characters/animals/worm-confetti-crawler/emojis.txt
+    (headers like '# space-travel-tech' followed by emoji lines). Theme selection can be explicit (e.g., 'summer-garden') or
+    ALL = concat of every category. Use the sister script at examples/adventure-4/characters/animals/worm-confetti-crawler/sprayer.py
+    as the reference implementation (seeded PRNG, theme selection, strip mode).
+# 🧠🎨🪄🌈🌨️🧊🌀🌈🧭🪆🪄
+# Emojis act like graffiti tags: react to the syntax around them, speak with  🎨🧱🗣️❄️🌨️🧊🌀🌈🧭🪆🪄🌨️🧊🪱🧭
+# nearby tokens, and stay in safe comment zones so code stays correct. 🎨🧱🗣️❄️🌨️🧊🌀🌈🧭🪆🪄🌨️🧊🪱🧭
+# ❄️🪱💩🌈🌨️🧊🌀🌈🧭🪆🪄🌨️🧊🪄🌈🪆🌀🧭❄️
+# ❄️🌨️🧊🌀🧱🎨🌈🧭🪆🪄🌀🌨️🧊🌈🧭🪄🧱❄️
+# ❄️🧊🌨️🌈🪆🪄🌨️🧊🪱🧭🌈🧊🧭🪄🌀🌨️❄️🧱
+state:  # 🧠🗺️📂🌀❄️🌨️🧊
+  head: "{{target|.}}"  # 🧭📍🌟
+  tail: "{{target|.}}"  # 🧭📌💫
+  # 🌌🎨🪄🌈❄️🧊🌨️🧊🪆🪄
+  emoji_palette:
+    - "ALL"  # 🌈🪄✨🧠
+  emoji_theme_file: "examples/adventure-4/characters/animals/worm-confetti-crawler/emojis.txt"  # 🗂️🌈🪄
+  emoji_theme: "ALL"  # choose a category name or ALL
+  max_per_pass: 2  # ➕🎯🌈✨
+  avoid_consecutive: true  # 🚫🔁🧠🌟
+  emit_dir: ".moollm/worm-out"  # 📂✨🪩🎨
+# 🌨️🧊🪱🧭🌀🌨️🧊🌨️🧊🪆🧭🌀🌈❄️🧱
+# ❄️📜🧊🪩🌨️🧊🪆🧊🌀🌨️🧭🪄🌈🧱❄️
+advertisements:  # 📣🪩🌈🧭
+  RUN-WORM:  # 🏁🧭🪱
+    effect: "Scan target file comments and append emojis"  # 🔍✨🪩🌟🌨️🧭
+    delegate:  # 🧭🪄🤝
+      method: RUN-WORM  # 🏃🪱⚡
+      params:  # 📦🧭🎯
+        target: "{{target|.}}"  # 🎯📄🌈
+    # 🌨️🧊🌈🪆🪄
+  # ❄️🌨️🪱🧭
+  EAT-COMMENTS:  # 😋💬📥🌊
+    effect: "Read comment lines into buffer"  # 📖🫧🌀💜
+    delegate:  # 🤝📥🧠
+      method: EAT-COMMENTS  # 😋🪱📜🧊
+      params:  # 📦🧭🧃
+        target: "{{target|.}}"  # 📜🍽️🎨
+  # ❄️🌨️🎨🪄
+  APPEND-EMOJIS:  # ➕😺🌀🌈🎇
+    effect: "Append 1-4 emojis from palette to each comment line (no immediate repeats)"  # ➕🎨🪄🌈
+    delegate:  # 🤝🧲🪄
+      method: APPEND-EMOJIS  # 🪄🖌️🎯
+      params:  # 📦🎛️🌈
+        target: "{{target|.}}"  # 🎯📄🌈🌨️🧊🪄🧭🌀🌈🧱❄️🧭🌀🌨️🧊🪄🌈❄️🧱
+# ❄️🧰🪱🎉
+methods:  # 🛠️🪱🎨
+  RUN-WORM:  # 🏃🪱🎛️
+    description: "One-pass comment decoration"  # 🎯🖌️
+    parameters:  # 🎛️📦✨
+      target: "File to decorate"  # 🗂️✨🌈
+    output: chat  # 🗣️🪄
+    effect: "Reads comments, appends emojis (respecting avoid_consecutive)"  # 🌀🖌️🌈✨
+# ❄️🌀🌨️🌬️
+  EAT-COMMENTS:  # 😋💬🪱
+    description: "Load comment lines into buffer"  # 📥💬
+    parameters:  # 🎛️📥🧠
+      target: "File to scan"  # 🔍📜🪩
+    output: chat  # 🗣️🧪
+    effect: "Buffers comment lines for emoji pass"  # 🫧🧠🌸
+# ❄️📥🌨️🧊🌫️
+  APPEND-EMOJIS:  # ➕🎨🪩🌨️🌀
+    description: "Append emojis to comment lines"  # ➕😺💫
+    parameters:  # 🎛️🖌️🌟
+      target: "File to modify"  # 📝🎨🌟
+    output: chat + file  # 🗣️📁🎨
+    effect: "Appends emojis from palette; avoids same emoji twice in a row on a line; can be rerun to build layers"  # 🪩🪄🎆
+# 🌨️🧊🪄🌈🌀🌨️🧊🪄🌈🧭🌀🧱❄️
+# ❄️🍦🪩⛄🧊🌀🌨️🧭🪄🌈❄️🧱
+flavor:  # 🍦🎨🌈
+  text: |  # 📝🌊🎭
+    "Layered emoji fordite: every pass adds a new colorful stratum to your comments. ✨🌈🪩🎨
+    Run it repeatedly over this file (meta!) to build prismatic bands that reflect 🎆🌀💜⭐
+    how each line feels in context." 🌙💎🍭🪄
+# ❄️🌨️🧊🎇
+# ❄️🪆🌈🌀
+# 🌨️🧊🪄🌈🌀
+# emoji_layer (meta self-pass, kept as comments to avoid schema impact)
+# card header: 🎨🪩🌈
+# invoke/ads: 💫🪐⚡
+# palette: 🍭🧿💎🌙☄️
+# buffer/payload: 🌊🌀
+# run/eat/append: 🪄✨
+# flavor: 🦋🌸🎆
+# extra: syntax-safe emoji haze: 🧊🍉🪐💫✨
+# ❄️🧊🌈🪩🌨️🧊🪄🧭🌀🌈🧱❄️

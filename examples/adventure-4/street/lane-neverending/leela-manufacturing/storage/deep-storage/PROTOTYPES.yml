@@ -4,9 +4,7 @@
 
 prototypes:
 
-  # ═══════════════════════════════════════════════════════════════
   # SECTION S: SHELTERS
-  # ═══════════════════════════════════════════════════════════════
   
   fallout-shelter:
     id: fallout-shelter
@@ -82,9 +80,7 @@ prototypes:
       duration: "24 hours"
       rating: "EF5 tornado certified"
       
-  # ═══════════════════════════════════════════════════════════════
   # SECTION L: LAIRS
-  # ═══════════════════════════════════════════════════════════════
   
   mad-scientist-lab:
     id: mad-scientist-lab
@@ -182,9 +178,7 @@ prototypes:
       - training_facility: "Gym, shooting range, escape practice"
       - living_quarters: "For extended operations"
       
-  # ═══════════════════════════════════════════════════════════════
   # SECTION T: TOWERS
-  # ═══════════════════════════════════════════════════════════════
   
   ivory-tower:
     id: ivory-tower
@@ -257,9 +251,7 @@ prototypes:
       A fortified tower for observation and defense.
       See trouble coming from miles away.
       
-  # ═══════════════════════════════════════════════════════════════
   # SECTION D: DOMICILES
-  # ═══════════════════════════════════════════════════════════════
   
   cozy-cottage:
     id: cozy-cottage
@@ -304,9 +296,7 @@ prototypes:
       A sturdy cabin for mountain retreats.
       Includes fireplace, porch, and excellent isolation.
       
-  # ═══════════════════════════════════════════════════════════════
   # SECTION W: WORKSPACES
-  # ═══════════════════════════════════════════════════════════════
   
   research-laboratory:
     id: research-laboratory
@@ -341,9 +331,7 @@ prototypes:
       A fully equipped workshop for making things.
       Woodworking, metalworking, electronics, whatever you need.
       
-  # ═══════════════════════════════════════════════════════════════
   # SECTION V: VENUES
-  # ═══════════════════════════════════════════════════════════════
   
   small-theater:
     id: small-theater
@@ -367,9 +355,7 @@ prototypes:
       A proper ballroom with chandeliers, sprung floor,
       and alcoves for scheming. Orchestra pit included.
       
-  # ═══════════════════════════════════════════════════════════════
   # SECTION X: EXPERIMENTAL
-  # ═══════════════════════════════════════════════════════════════
   
   non-euclidean-room:
     id: non-euclidean-room
@@ -426,9 +412,7 @@ prototypes:
       
     warning: "May take 2-3 visits to stop screaming"
 
-# ═══════════════════════════════════════════════════════════════
 # ORDERING AND DEPLOYMENT
-# ═══════════════════════════════════════════════════════════════
 
 deployment:
   process:

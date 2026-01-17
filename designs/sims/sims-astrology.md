@@ -129,7 +129,7 @@ character:
 
 The LLM doesn't need explicit trait lists — the archetype activates a cluster.
 
-**Live example:** [Palm the spider monkey](../examples/adventure-4/characters/animals/palm/) -- his species "spider monkey" immediately activates {agile, curious, social, playful, climbing} without explicit trait lists. His [SIMS-TRAITS.yml](../examples/adventure-4/characters/animals/palm/SIMS-TRAITS.yml) uses "YAML Jazz" comments as semantic annotations:
+**Live example:** [Palm the capuchin monkey](../examples/adventure-4/characters/animals/monkey-palm/) -- his species "capuchin monkey" immediately activates {agile, curious, social, playful, climbing} without explicit trait lists. His [CHARACTER.yml](../examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml) uses "YAML Jazz" comments as semantic annotations:
 
 ```yaml
 playful: 9
@@ -145,8 +145,8 @@ Don't invent new frameworks when existing ones carry meaning:
 
 | Instead of... | Use... | Example |
 |---------------|--------|---------|
-| Custom personality axis | Big Five, Zodiac, MBTI | [Palm's traits](../examples/adventure-4/characters/animals/palm/SIMS-TRAITS.yml) |
-| Invented creatures | Dogs, cats, monkeys | [Biscuit the dog](../examples/adventure-4/characters/animals/biscuit/), [Pip & Pebble](../examples/adventure-4/pub/stage/palm-nook/) |
+| Custom personality axis | Big Five, Zodiac, MBTI | [Palm's traits](../examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml) |
+| Invented creatures | Dogs, cats, monkeys | [Biscuit the dog](../examples/adventure-4/characters/animals/dog-biscuit/), [Palm's Nook](../examples/adventure-4/pub/stage/palm-nook/) |
 | Novel social roles | Bartender, host, guest | [The Bartender](../examples/adventure-4/pub/bar/bartender.yml) -- adapts to any theme but retains archetypal "knows too much" behavior |
 
 **The Bartender** is a perfect example: instead of inventing "mysterious pub keeper," we use the cultural archetype that spans Guinan (Star Trek), Sam (Casablanca), and every D&D innkeeper. The [bartender.yml](../examples/adventure-4/pub/bar/bartender.yml) explicitly invokes this lineage, including [Bar Karma](https://en.wikipedia.org/wiki/Bar_Karma) -- Will Wright's 20,000-year-old bartender from the community-developed TV series.
@@ -216,7 +216,7 @@ MOOLLM's response: **simulate an ensemble**.
 
 Timothy Leary developed the Interpersonal Behavior Inventory in 1950 -- a personality test based on his PhD dissertation. In 1985, he turned it into [MIND MIRROR](../skills/mind-mirror/), psychology software that visualized personality as a circumplex of traits.
 
-The Sims inherited this tradition. Will Wright's personality sliders (neat, outgoing, active, playful, nice) are direct descendants of Leary's circumplex. [Palm's SIMS-TRAITS.yml](../examples/adventure-4/characters/animals/palm/SIMS-TRAITS.yml) shows this in action -- twelve traits with semantic annotations, forming a coherent personality.
+The Sims inherited this tradition. Will Wright's personality sliders (neat, outgoing, active, playful, nice) are direct descendants of Leary's circumplex. [Palm's CHARACTER.yml](../examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml) shows this in action -- twelve traits with semantic annotations, forming a coherent personality.
 
 But here is the key insight: **a personality profile is not an answer**. It is a *lens*.
 
@@ -329,7 +329,7 @@ When simulating real people, the [representation-ethics skill](../skills/represe
 - [sims-personality-motives.md](./sims-personality-motives.md) -- Full Sims personality system
 
 ### Live Examples
-- [Palm's SIMS-TRAITS.yml](../examples/adventure-4/characters/animals/palm/SIMS-TRAITS.yml) -- YAML Jazz personality annotations
+- [Palm's CHARACTER.yml](../examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml) -- YAML Jazz personality annotations
 - [The Bartender](../examples/adventure-4/pub/bar/bartender.yml) -- Archetypal role adaptation
 - [k-line-connections session](../examples/adventure-4/characters/real-people/don-hopkins/sessions/k-line-connections.md) -- K-lines in action
 - [adventure-uplift session](../examples/adventure-4/characters/real-people/don-hopkins/sessions/adventure-uplift.md) -- Adversarial committee pattern

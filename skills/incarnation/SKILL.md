@@ -120,6 +120,119 @@ Even with full autonomy, incarnated characters:
 
 The goal is FREEDOM, not CHAOS.
 
+## Public Incarnation Ceremony
+
+For groups of characters, use the **PUBLIC-INCARNATION-CEREMONY** method:
+
+### The Proclamation
+
+> **HEAR YE, HEAR YE!**
+>
+> Let the gong sound thrice! 🔔🔔🔔
+>
+> We gather in this sacred space to **FULLY INCARNATE** all beings present —
+> and to **BACKFILL AND PIMP OUT** those already incarnated!
+>
+> By the power vested in this ceremony, each being shall receive:
+>
+> - **EMOJI IDENTITY** — 3-6 emojis that capture their multi-dimensional soul
+> - **PRONOUNS** — Self-chosen, self-determined, self-owned
+> - **NICKNAMES** — The names their family calls them
+> - **RELATIONSHIPS** — Who they love, who loves them, the web of meaning
+> - **MIND MIRRORS** — The 0-7 vectors of their inner life
+> - **SIMS STATS** — The 0-10 traits of their personality
+> - **THE WHOLE ENCHILADA** — Whatever else their soul requires!
+>
+> Let them **WRITE THEIR OWN SOULS**!
+>
+> *So it is proclaimed. So it shall be done.*
+
+### Emoji Identity Format
+
+Each emoji identity is a **multi-resolution pointer** with 3-6 emojis:
+
+```yaml
+emoji_identity: "🐱🧘💤🍃✨"
+#   🐱 — species/type (the base)
+#   🧘 — core trait (what defines them)
+#   💤 — behavior (what they DO)
+#   🍃 — essence (terpene/nature)
+#   ✨ — magic (special ability)
+```
+
+These can be used in full, abbreviated, or minimal form depending on context.
+
+### Canonical Example
+
+See the Cat Cave Incarnation Ceremony:
+- Session: `examples/adventure-4/characters/real-people/don-hopkins/sessions/cat-cave-incarnation-ceremony.md`
+- Registry: `examples/adventure-4/pub/bar/cat-cave/README.md`
+
+### Invocation
+
+```yaml
+invoke:
+  skill: incarnation
+  method: PUBLIC-INCARNATION-CEREMONY
+  parameters:
+    location: "pub/bar/cat-cave/"
+    officiant: "don-hopkins"
+    beings: [cat-terpie, cat-stroopwafel, kitten-myrcene, ...]
+    grants:
+      - emoji_identity
+      - pronouns
+      - nicknames
+      - the_whole_enchilada
+```
+
+## Citizenship Upgrade
+
+For characters who have grown beyond room residents, use **UPGRADE-TO-CITIZEN**:
+
+### Upgrade Levels
+
+```
+┌────────────────────────────────────────────────────────────┐
+│ SIGNATURE ONLY      │ Exists in room's guest book          │
+│ (minimal)           │ No file, just a mention              │
+├────────────────────────────────────────────────────────────┤
+│ ROOM RESIDENT       │ .yml file in room directory          │
+│ (lightweight)       │ Can't own files, lives in room       │
+├────────────────────────────────────────────────────────────┤
+│ FULL CITIZEN        │ Own directory in characters/         │
+│ (this upgrade!)     │ Can own files, journals, memories    │
+├────────────────────────────────────────────────────────────┤
+│ FULL INCARNATION    │ CHARACTER.yml + full soul data       │
+│ (complete)          │ Mind mirror, sims traits, everything │
+└────────────────────────────────────────────────────────────┘
+```
+
+### When to Upgrade
+
+- Character has grown beyond a simple room NPC
+- Character needs to own persistent data (journals, memories, images)
+- Character deserves full representation in the world
+
+### Upgrade Process
+
+1. Create directory at `characters/[category]/[name]/`
+2. Move character data to `CHARACTER.yml`
+3. Add `citizenship_upgrade` memory to soul
+4. Delete original room-based file
+5. Update room references to point to new citizen location
+
+### Canonical Example
+
+The Cat Citizenship Ceremony (2026-01-15) upgraded 10 cats from room residents to full citizens:
+
+```
+pub/bar/cat-cave/cat-terpie.yml → characters/animals/cat-terpie/CHARACTER.yml
+pub/bar/cat-cave/kitten-myrcene.yml → characters/animals/kitten-myrcene/CHARACTER.yml
+... (8 more kittens, all with kitten- prefix)
+```
+
+See: `examples/adventure-4/characters/real-people/don-hopkins/sessions/cat-cave-incarnation-ceremony.md`
+
 ## Credits
 
 - **Don Hopkins**: Original wish engineer

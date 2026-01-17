@@ -1,0 +1,792 @@
+# ACME SURPLUS — The Abandoned Storefront
+# 4 Lane Neverending (NORTH SIDE)
+# Across the street from Leela Manufacturing
+#
+# RESTRICTED ACCESS: This building is CLOSED.
+# All entrances are LOCKED, TRAPPED, or BOTH.
+#
+# "EVERYTHING MUST GO" — and it did.
+
+room:
+  name: "ACME Surplus (Abandoned)"
+  type: abandoned_retail
+  address: "4 Lane Neverending"
+  emoji: "📦💥🔒"
+  
+  status: closed
+  abandoned_since: "The Great Pivot of Web 2.0"
+  side: north  # Across from Leela (south)
+  
+  lighting: dim
+  grue_safe: false  # It's dark in here. Things lurk.
+  
+  # SECURITY THROUGH CHAOS
+  security:
+    philosophy: |
+      ACME never removed their "security" systems.
+      The products may not work as intended — but they WORK.
+      Just not the way you want them to.
+      
+    warning: |
+      🚨 THIS BUILDING IS SECURED BY ACME PRODUCTS 🚨
+      
+      All entrances are locked, trapped, or both.
+      Breaking in is possible but inadvisable.
+      ACME is not responsible for injuries, deaths, anvils,
+      or sudden application of cartoon physics.
+      
+      You have been warned.
+      
+  # ENTRY METHODS — All risky, all trapped
+  entry_methods:
+    
+    front_door:
+      lock_type: "ACME Master Lock (rusted)"
+      difficulty: moderate
+      trap: anvil_drop
+      methods:
+        pick_lock:
+          skill_required: lockpicking
+          difficulty: 3
+          description: "The lock is old and stiff, but pickable."
+          on_success: |
+            *click*
+            
+            The lock gives way. The door creaks open.
+            You step inside—
+            
+            *WHOOOOSH*
+            
+            An anvil swings down from the ceiling on a rope!
+            
+            ROLL: Dodge or take 2d6 anvil damage.
+            
+            (The anvil is labeled "ACME SECURITY ANVIL — Model 7B")
+            
+          on_failure: |
+            *snap*
+            
+            Your pick breaks. The lock jiggles.
+            
+            From inside, you hear something mechanical... resetting.
+            
+        kick_door:
+          skill_required: strength
+          difficulty: 4
+          description: "The door is old. One good kick might do it."
+          on_success: |
+            *CRASH*
+            
+            The door flies open! You stumble inside!
+            
+            *CLANG CLANG CLANG*
+            
+            A cascade of anvils tumbles from a shelf above the door,
+            rolling toward you like metallic bowling balls.
+            
+            ROLL: Acrobatics or become an anvil pin.
+            
+            (A sign on the shelf reads: "CUSTOMER GREETING SYSTEM")
+            
+          on_failure: |
+            *THUD*
+            
+            The door doesn't budge. Your foot hurts.
+            
+            A note flutters down from somewhere:
+            "ACME DOOR: Now with Cartoon Durability™"
+            
+    side_window:
+      lock_type: "Boarded, but rotting"
+      difficulty: easy
+      trap: rocket_skates
+      methods:
+        break_window:
+          skill_required: none
+          difficulty: 2
+          description: "The boards are soft with age. Easy enough to pry."
+          on_success: |
+            You pull the boards away. The window breaks easily.
+            
+            You climb through—
+            
+            *CLICK*
+            
+            Your feet land on something. Straps tighten around your ankles.
+            
+            You look down: ACME ROCKET SKATES (Model 9).
+            
+            The fuse ignites.
+            
+            *FWOOOOOSH*
+            
+            ROLL: Steering (you don't have this skill) or hit something.
+            
+            You career through the store at 60mph, bouncing off shelves,
+            through a stack of portable holes, and out the back wall.
+            
+            You land in the alley. Smoking slightly.
+            
+            (You're inside now, technically. Mission accomplished?)
+            
+    back_door:
+      lock_type: "Chained, with ACME padlock"
+      difficulty: hard
+      trap: spring_loaded_floor
+      methods:
+        break_chain:
+          skill_required: tools
+          difficulty: 4
+          description: "Heavy chain, but the links look stressed."
+          on_success: |
+            The chain snaps!
+            
+            You push open the door—
+            
+            *BOING*
+            
+            The floor is a GIANT SPRING.
+            
+            You launch upward, through a conveniently placed hole in the
+            ceiling, through the second floor, through the ROOF—
+            
+            For a moment, you can see Lane Neverending from above.
+            Leela's rooftop garden. The pub's chimney smoke.
+            It's beautiful up here.
+            
+            Then gravity remembers you.
+            
+            You land back on the spring. Repeat. Repeat. Eventually stop.
+            
+            (You're inside. Also dizzy.)
+            
+    vent_system:
+      lock_type: "Rusty grate"
+      difficulty: moderate
+      trap: expanding_paint
+      methods:
+        sneak_in_vent:
+          skill_required: stealth
+          difficulty: 3
+          description: "The vent grate is loose. Classic infiltration route."
+          on_success: |
+            You pry open the grate and crawl inside...
+            
+            It's dusty. Dark. Something scurries ahead of you.
+            
+            You make it twenty feet before—
+            
+            *HISSSS*
+            
+            A canister ahead ruptures. ACME TUNNEL PAINT sprays everywhere.
+            
+            The walls of the vent now look like a long tunnel stretching
+            into infinity. Your sense of direction inverts. Up becomes
+            sideways. The vent is now a corridor is now a tunnel is now—
+            
+            You tumble out into the store, disoriented but intact.
+            
+            (Your clothes are now painted with depth perspective.
+            You look like a walking optical illusion.)
+            
+    painted_tunnel:
+      lock_type: "Metaphysical"
+      difficulty: impossible (for you)
+      trap: none (you just bounce)
+      methods:
+        run_through:
+          skill_required: cartoon_physics  # You don't have this
+          difficulty: 99
+          description: "You REALLY believe you can run through the painted tunnel."
+          on_success: |
+            (This message never displays. You always fail.)
+            
+          on_failure: |
+            You sprint at the tunnel. Full speed. Perfect form.
+            
+            *THWACK*
+            
+            Plywood. It was always plywood.
+            
+            From somewhere, a distant "meep meep."
+            
+            You slide down the boards, adding your silhouette to
+            the collection of previous attempts.
+            
+            (Meanwhile, an ACME delivery truck drives straight through
+            the same spot behind you. You don't see it. Nobody does.)
+            
+  description: |
+    INSIDE ACME SURPLUS (assuming you made it past the traps):
+    
+    Dust. Darkness. Empty shelves stretching into shadow.
+    
+    This was once a thriving gimmick emporium. Now it's a mausoleum
+    of failed pivots. Price tags flutter in a draft from nowhere.
+    Display cases hold nothing but regret.
+    
+    The lighting flickers — old fluorescents that never quite die.
+    Cobwebs everywhere, but no spiders. They had better places to be.
+    
+    A layer of dust covers everything. Footprints show where
+    someone walked recently. (Delivery drivers, probably.)
+    
+    The air smells like old cardboard, broken dreams, and something
+    faintly... explosive?
+    
+    Through the front windows, you can see LEELA MANUFACTURING
+    across the street. Lights on. People working. Success happening.
+    
+    The contrast hurts.
+    
+  examine: |
+    THE SALES FLOOR:
+    ════════════════
+    Empty shelves organized by category:
+    
+    • PROJECTILES (empty) — Once held anvils, safes, grand pianos
+    • PROPULSION (empty) — Rocket skates, jet packs, giant slingshots
+    • PORTABILITY (empty) — Portable holes, instant tunnels, fold-up cliffs
+    • PERSONAL (empty) — Disguise kits, female roadrunner costumes
+    • PROBLEMATIC (locked) — "DO NOT OPEN" boxes, classified devices
+    
+    A few items remain:
+    
+    THE DISPLAY ANVIL:
+    A single anvil on a pedestal. "DISPLAY MODEL — NOT FOR SALE"
+    It's been here so long it's become furniture.
+    
+    THE RETURN COUNTER:
+    Piled with defective products never picked up:
+    • Rocket skates with broken ignition
+    • A portable hole that became permanent
+    • Several "bird seed" packages (contents unknown)
+    • An angry letter from a coyote (sender address: desert)
+    
+    THE BACK ROOM:
+    A door marked "EMPLOYEES ONLY — AUTHORIZED PERSONNEL — DANGER"
+    Beyond it, darkness. And something that goes *tick tick tick*.
+    
+    THE OFFICE (upstairs):
+    A spiral staircase leads up to where management used to sit.
+    The door is labeled "PIVOT PLANNING — DO NOT DISTURB"
+    
+  areas:
+    sales_floor:
+      description: "The main retail space. Empty shelves. Memories of gimmicks."
+      hazard: falling_debris  # Things fall from high shelves
+      
+    return_counter:
+      description: "Piles of products nobody wanted back."
+      hazard: unstable_items  # The pile might shift
+      
+    back_room:
+      description: "Storage. R&D failures. The Box That Works."
+      hazard: extreme  # What's in those boxes?
+      locked: true
+      key: acme_employee_badge
+      
+    office_upstairs:
+      description: "Where the pivots were planned. Whiteboards of failure."
+      hazard: existential_dread  # Reading the pivot history damages sanity
+      locked: true
+      key: acme_management_key
+      
+  objects:
+    - display-anvil.yml
+    - return-pile.yml
+    - defective-inventory.yml
+    - the-box-that-works.yml  # Secret: one product that works perfectly
+    - dust-bunnies.yml        # They've evolved
+    
+  hazards:
+    anvil_drop:
+      trigger: "Opening front door"
+      effect: "Anvil swings from ceiling on rope"
+      damage: "2d6 blunt"
+      avoidance: "Dodge roll"
+      warning_signs: ["rope visible above door", "scuff marks on floor"]
+      
+    falling_inventory:
+      trigger: "Moving quickly through store"
+      effect: "Items tumble from high shelves"
+      damage: "1d6 per item"
+      items: ["rocket skates", "collapsed safes", "rolled-up portable holes"]
+      
+    rocket_skates_trap:
+      trigger: "Climbing through side window"
+      effect: "Feet land in primed rocket skates"
+      damage: "2d6 + trajectory damage"
+      avoidance: "Dexterity check to unbuckle before ignition"
+      
+    spring_floor:
+      trigger: "Entering through back door"
+      effect: "Giant spring launches intruder through roof"
+      damage: "1d6 per bounce"
+      side_effect: "Great view of the neighborhood"
+      
+    tunnel_paint:
+      trigger: "Crawling through vents"
+      effect: "Sprayed with reality-distorting paint"
+      damage: "0 (physical)"
+      side_effect: "Permanent depth perspective on clothing"
+      
+    the_ticking:
+      location: back_room
+      trigger: "Entering back room without authorization"
+      effect: "Something is ticking. Something BIG."
+      damage: "???"
+      warning: "You probably shouldn't find out what it is"
+      
+  npcs:
+    dust_bunnies:
+      type: evolved_cleaning_failure
+      description: "The dust has organized. It watches."
+      behavior: neutral_unless_disturbed
+      
+    the_something:
+      type: unknown
+      location: back_room
+      description: "It ticks. It waits. It has been waiting."
+      behavior: "DO NOT INVESTIGATE"
+      
+  secrets:
+    the_box_that_works:
+      location: back_room
+      description: |
+        One ACME product that works EXACTLY as intended.
+        Perfectly designed. Flawlessly executed.
+        It sits in a box labeled "ANOMALY — DO NOT SHIP"
+        
+        Nobody knows what to do with it.
+        
+        It's the most terrifying thing in the building.
+        
+    the_tunnel_network:
+      entry: painted_tunnel
+      access: acme_employees_only
+      description: |
+        The tunnel IS real. It connects to the ACME Distribution
+        Network — a web of painted tunnels, fake doors, and
+        impossible spaces spanning the virtual world.
+        
+        But only for those on the inside.
+        Everyone else just bounces.
+        
+    the_last_pivot:
+      location: office_upstairs
+      description: |
+        The whiteboard upstairs contains plans for "ACME FINAL FORM."
+        Nobody knows what it means.
+        The handwriting gets more frantic toward the end.
+        The last note says only: "IT WORKS. THAT'S THE PROBLEM."
+        
+  exits:
+    # All exits from INSIDE are unlocked (you already broke in)
+    front_door_inside:
+      destination: ../w1/
+      description: "The front door. Easy to leave. Hard to enter."
+      aliases: [out, exit, street, front, door, leave]
+      notes: "No traps when LEAVING. ACME wants you gone."
+      
+    back_alley:
+      destination: ../w1/  # Emerges on same block
+      description: "The back door leads to an alley."
+      aliases: [back, alley, rear]
+      
+    upstairs:
+      destination: office/
+      description: "Spiral stairs to the old management office."
+      locked: true
+      lock:
+        type: "ACME Management Lock"
+        key: acme_management_key
+        difficulty: 5
+        trap: "Electrified door handle (1d4 shock)"
+      trap_themes: [illusion, identity, psychological]
+      catalog_sections: [disguises, detection_devices, mystery_items]
+        
+    back_room:
+      destination: back-room/
+      description: "Through the 'EMPLOYEES ONLY' door."
+      locked: true
+      lock:
+        type: "ACME Employee Lock"
+        key: acme_employee_badge
+        difficulty: 4
+        trap: "Something ticking behind the door"
+        warning: |
+          The door is cold. Something beyond it goes *tick tick tick*.
+          A small sign: "LAST INVENTORY: NEVER. DO NOT ENTER."
+      trap_themes: [mystery, experimental, time]
+      catalog_sections: [mystery_items, tools, detection_devices]
+      leads_to: "The Warehouse (even deeper)"
+          
+    painted_tunnel_exit:
+      destination: null  # You can't use this
+      description: "The painted tunnel from the inside."
+      locked: true
+      lock:
+        type: metaphysical
+        key: cartoon_physics
+        bypass: impossible
+      notes: |
+        From inside, the tunnel looks even more real.
+        You can see daylight at the other end.
+        Delivery drivers walk through it casually.
+        
+        You cannot. Don't try. It hurts.
+        
+  # The view from inside
+  window_view:
+    facing: south
+    description: |
+      Through the dusty front windows, you see:
+      
+      LEELA MANUFACTURING INTELLIGENCE
+      ═════════════════════════════════
+      Red brick. Three stories. Tall windows glowing with activity.
+      People moving inside. Screens flickering. Work happening.
+      
+      A camera in the lobby window is pointed directly at YOU.
+      CAM-ACME-01. The Tunnel Watcher.
+      
+      Every day, they look across at this ruin.
+      Every day, they recommit to being the opposite.
+      
+      It should be humiliating.
+      
+      But ACME is beyond humiliation.
+      ACME is beyond everything.
+      ACME just IS.
+      
+  atmosphere: |
+    The store is quiet. Too quiet.
+    
+    Occasionally: a creak. A shuffle. The tick-tick-tick from the back.
+    Dust motes float in the dim light. Something watches from the shadows.
+    
+    This place feels like it's waiting for something.
+    
+    Maybe it's waiting for you to leave.
+    Maybe it's waiting for the tunnel to work for everyone.
+    Maybe it's just waiting.
+    
+    You should probably go.
+    
+  # THE FUN HOUSE OF HORRORS — DM TOOLKIT
+  #
+  # This abandoned store is a LIVE DEMONSTRATION of the ACME product catalog.
+  # Every shelf, every shadow, every creaky floorboard can spring a trap.
+  # The DM is encouraged to throw catalog products at intruders with
+  # CREATIVITY, IRONY, and POETIC JUSTICE.
+  #
+  # See: ../w1/acme-catalog.yml for the full product catalog
+  
+  fun_house:
+    philosophy: |
+      ACME SURPLUS IS A PLAYGROUND OF CONSEQUENCES.
+      
+      You broke in. You were warned. Now you get the full ACME experience.
+      
+      The DM should treat this space as a living catalog demonstration:
+      - Every product in the ACME catalog can appear here
+      - Products activate based on player actions (ironic triggers)
+      - Malfunctions happen TO the intruder, not the product
+      - The funnier the setup, the better the payoff
+      
+      GUIDING PRINCIPLES:
+      1. IRONY IS KING — The trap should relate to what the player just did
+      2. JUSTICE IS POETIC — Greedy players find wealth-themed traps
+      3. CREATIVITY IS REWARDED — Clever escape attempts trigger clever traps
+      4. SURVIVAL IS POSSIBLE — Damage is comedic, not lethal (usually)
+      5. LESSONS ARE LEARNED — Every trap teaches something about ACME
+      
+    trigger_philosophy: |
+      WHEN TO SPRING A TRAP:
+      
+      • Player moves too quickly → ROCKET SKATES activate
+      • Player reaches for something shiny → SPRING-LOADED BOXING GLOVE
+      • Player tries to hide → ACME INVISIBLE PAINT (works backwards)
+      • Player looks up → ANVIL (always look up first)
+      • Player looks down → PORTABLE HOLE opens beneath them
+      • Player touches a shelf → GIANT MAGNET pulls their equipment
+      • Player makes noise → ACME GIANT NET deploys
+      • Player tries to be clever → The CLEVERER trap triggers
+      
+    ironic_justice_examples:
+      - trigger: "Player steals something"
+        trap: "ACME Giant Magnet"
+        irony: "The thing they stole attracts everything else in the room"
+        
+      - trigger: "Player tries to sneak"
+        trap: "ACME Invisible Paint"
+        irony: "Only THEY can't see themselves — everyone else can"
+        
+      - trigger: "Player runs"
+        trap: "ACME Rocket Skates"
+        irony: "Now they're running faster than they wanted"
+        
+      - trigger: "Player searches for valuables"
+        trap: "ACME Treasure Detector"
+        irony: "It beeps constantly, attracting everything else"
+        
+      - trigger: "Player tries to climb"
+        trap: "ACME Spring Shoes"
+        irony: "They bounce, but can't stop bouncing"
+        
+      - trigger: "Player opens a box"
+        trap: "ACME Mystery Box"
+        irony: "Contains something ironically relevant to their situation"
+        
+      - trigger: "Player hides behind display"
+        trap: "ACME Grand Piano"
+        irony: "Falls from above, plays sad trombone"
+        
+      - trigger: "Player examines the ceiling"
+        trap: "Nothing... yet"
+        irony: "Gravity remembers them on the way out"
+        
+    # RUNTIME INSTANTIATION — YAML Jazz in Session Logs
+    #
+    # Traps are INSTANTIATED at runtime by blurting YAML Jazz code blocks
+    # into the session log. Each instance:
+    #   1. Points to a catalog entry as prototype
+    #   2. Adds order customizations and parameters
+    #   3. Can have properties narratively overridden as simulation evolves
+    #
+    # Example: When a player triggers a trap, the DM/LLM outputs:
+    #
+    # ```yaml
+    # # 💥 TRAP INSTANTIATED: ACME Anvil
+    # trap_instance:
+    #   prototype: $KITCHEN/acme-catalog.yml#traps_and_devices/ACME_Anvil
+    #   location: "Above the display case the player just touched"
+    #   triggered_by: "Player reached for the shiny thing"
+    #   
+    #   # Instance customizations
+    #   state:
+    #     falling: true
+    #     height: 15  # feet
+    #     velocity: 0  # accelerating
+    #     
+    #   # Override from catalog
+    #   malfunction_this_time: false  # It works perfectly (for once)
+    #   
+    #   # Irony note
+    #   poetic_justice: "They reached for gold. They got iron."
+    # ```
+    #
+    # Then in NARRATIVE, properties evolve:
+    #
+    # "The anvil plummets. Height: 10 feet. 5 feet. 
+    #  CLANG. The floor tiles crack in a perfect circle."
+    #
+    # The `state.height` is narratively decremented without editing the YAML.
+    # The simulation runs in prose, informed by the instantiated structure.
+    
+    instantiation_pattern:
+      how_it_works: |
+        1. TRIGGER: Player does something that activates a trap
+        2. INSTANTIATE: DM outputs YAML Jazz block in session log
+        3. EXCERPT: Block references catalog entry as prototype
+        4. CUSTOMIZE: Add instance-specific parameters
+        5. NARRATE: Properties evolve through prose description
+        6. RESOLVE: Trap completes, state becomes history
+        
+      yaml_jazz_template: |
+        ```yaml
+        # 💥 TRAP INSTANTIATED: [PRODUCT NAME]
+        trap_instance:
+          prototype: $KITCHEN/acme-catalog.yml#[section]/[item]
+          location: "[where in the room]"
+          triggered_by: "[what the player did]"
+          
+          state:
+            # Dynamic properties that will evolve
+            active: true
+            countdown: [number]  # if applicable
+            
+          customizations:
+            # Instance-specific overrides
+            malfunction_roll: [1-100]
+            malfunction_occurred: [true/false]
+            
+          poetic_justice: "[why this trap for this action]"
+        ```
+        
+      narrative_evolution: |
+        After instantiation, the simulation evolves through NARRATIVE:
+        
+        "The rocket skates ignite. Velocity: 10 mph. 20. 40.
+         The player careers through the store, bouncing off shelves.
+         Velocity: 60 mph. The back wall approaches.
+         
+         *CRASH*
+         
+         They land in the alley. Smoking slightly.
+         The skates power down. Velocity: 0."
+         
+        The `state.velocity` is never explicitly edited — it's NARRATED.
+        The YAML provides structure. The prose provides evolution.
+        
+      example_session_excerpt: |
+        Player: "I reach for the gold watch in the display case."
+        
+        DM: The display case is dusty, forgotten. The watch gleams...
+        
+        ```yaml
+        # 💥 TRAP INSTANTIATED: ACME Spring-Loaded Boxing Glove
+        trap_instance:
+          prototype: $KITCHEN/acme-catalog.yml#traps_and_devices/boxing_glove
+          location: "Behind the display case glass"
+          triggered_by: "Player reached for the watch"
+          
+          state:
+            extended: false
+            spring_tension: 100%
+            
+          malfunction_roll: 73  # vs 40% threshold
+          malfunction_occurred: false  # It works!
+          
+          poetic_justice: "They reached for treasure. They got punched."
+        ```
+        
+        DM: Your fingers touch the glass—
+        
+        *SPROING*
+        
+        A boxing glove on a spring rockets out of the display!
+        Spring tension: releasing. Extension: 50%. 75%. FULL.
+        
+        *THWACK*
+        
+        You stagger backward, seeing stars. The watch is still in the case.
+        The boxing glove retracts slowly, as if satisfied.
+        
+        State: You take 1d6 blunt damage. The glove resets.
+    
+    dm_arsenal: |
+      THE DM'S ACME ARSENAL
+      ═════════════════════
+      
+      The following products are "in stock" in the abandoned store and
+      can be triggered at the DM's discretion. All products reference
+      ../w1/acme-catalog.yml for full specifications.
+      
+      PROJECTILES (fall from above):
+      • ACME Anvil (1 Ton) — Classic. Falls on command. 50% hits you.
+      • ACME Grand Piano — Dramatic. Musical. Plays sad note on landing.
+      • ACME Safe (2 Ton) — Heavier. You might end up inside it.
+      
+      PROPULSION (activate under feet):
+      • ACME Rocket Skates — No steering. Random destination.
+      • ACME Spring Shoes — Can't stop bouncing.
+      • ACME Jet Pack — Ignites in wrong direction.
+      
+      ENVIRONMENTAL (triggered by presence):
+      • ACME Portable Hole — Opens beneath you. Leads somewhere unexpected.
+      • ACME Instant Tunnel Paint — Reality distortion zone.
+      • ACME Quicksand Seeds — Someone planted them. You found them.
+      
+      RESTRAINTS (triggered by action):
+      • ACME Giant Net — Enthusiastic deployment.
+      • ACME Super Glue — Sticks you to whatever you touched.
+      • ACME Bear Trap (XL) — Catches you while you look at it.
+      
+      PSYCHOLOGICAL (triggered by investigation):
+      • ACME X-Ray Specs — Only sees skeletons. Everything looks scary.
+      • ACME Thought Bubble Reader — YOUR thoughts become visible.
+      • ACME Fourth Wall Breaker — The audience talks back. Rudely.
+      
+    encounter_tables: |
+      RANDOM ENCOUNTER TABLE (d6)
+      ═══════════════════════════
+      
+      Roll when player enters new area, touches something, or gets too clever:
+      
+      1. ANVIL DROP — Something falls from above. Roll to dodge.
+      2. FLOOR TRAP — Something activates underfoot. Roll dexterity.
+      3. ENVIRONMENT — Something in the room changes. Roll perception.
+      4. RESTRAINT — Something tries to catch you. Roll escape.
+      5. PSYCHOLOGICAL — Something messes with your mind. Roll wisdom.
+      6. CHAIN REACTION — Two things happen at once. Roll luck.
+      
+      SEVERITY TABLE (d4)
+      ════════════════════
+      
+      1. MINOR — Embarrassing but harmless. Pie to the face.
+      2. MODERATE — Painful but recoverable. Rocket skates ride.
+      3. MAJOR — Significant consequences. Trapped in safe.
+      4. SPECTACULAR — Full cartoon physics. Through the roof.
+      
+    poetic_justice_generator: |
+      POETIC JUSTICE FORMULA
+      ══════════════════════
+      
+      When a player does X, the trap should be anti-X or ironic-X:
+      
+      PLAYER ACTION          →  IRONIC CONSEQUENCE
+      ───────────────────────────────────────────────
+      Steals                 →  Loses something valuable
+      Sneaks                 →  Becomes extremely visible
+      Rushes                 →  Gets moved even faster (wrong direction)
+      Hides                  →  Gets spotlighted/exposed
+      Investigates carefully →  Something happens anyway
+      Ignores warning        →  Warning was accurate
+      Reads fine print       →  Fine print reads them
+      Touches "Do Not Touch" →  Now can't stop touching
+      
+    survival_guide: |
+      HOW INTRUDERS CAN SURVIVE (for the DM to hint at)
+      ══════════════════════════════════════════════════
+      
+      The fun house is dangerous but NOT inescapable. Survival is possible
+      for players who:
+      
+      1. RESPECT THE PRODUCTS — Treating ACME items carefully reduces triggers
+      2. WATCH FOR SIGNS — Scuff marks, scorch marks, impact silhouettes
+      3. MOVE SLOWLY — Speed triggers propulsion traps
+      4. LOOK UP FIRST — Always check ceilings before entering areas
+      5. NEVER TOUCH DISPLAYS — The display anvil is actually harmless
+      6. READ THE LABELS — Warning labels are usually accurate
+      7. LEAVE QUICKLY — The store WANTS you gone; exit traps are minimal
+      
+    the_ultimate_trap: |
+      THE BACK ROOM — THE BOX THAT WORKS
+      ═══════════════════════════════════
+      
+      If players make it to the back room and find "The Box That Works,"
+      they've found the most dangerous thing in the building.
+      
+      It's an ACME product that works PERFECTLY.
+      
+      - No malfunction chance
+      - Does exactly what it says
+      - Flawless execution
+      
+      The terrifying part: ACME doesn't know WHY it works.
+      They're afraid to ship it.
+      They're afraid to open it again.
+      They're afraid of what it means about the OTHER products.
+      
+      If a player opens it, the DM should invent something that works
+      perfectly — and is therefore deeply, existentially wrong in context.
+      
+    final_note: |
+      REMEMBER: THIS IS PLAY-LEARN-LIFT
+      ══════════════════════════════════
+      
+      The fun house teaches through experience:
+      - PLAY: The traps are funny, not frustrating
+      - LEARN: Each trap demonstrates a catalog product
+      - LIFT: Survival makes players feel clever
+      
+      The goal is not to punish the players.
+      The goal is to make them LAUGH while being punished.
+      
+      ACME's products don't work as intended.
+      But they WORK.
+      Just not the way you want them to.
+      
+      "ACME: 'We Put the Oh No in Innovation!'™"
