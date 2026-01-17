@@ -6,7 +6,7 @@ Welcome to **Leela Manufacturing Intelligence** — the Anti-ACME.
 
 Located at **5 Lane Neverending**, one block west of the pub — and directly **across the street** from the *shuttered* ACME Surplus with its infamous painted tunnel.
 
-Every day, Leela employees look out their windows at that tunnel. A camera (CAM-ACM1) watches it 24/7. The contrast is intentional. The lesson is daily.
+Every day, Leela employees look out their windows at that tunnel. A camera (ACM1) watches it 24/7. The contrast is intentional. The lesson is daily.
 
 ---
 

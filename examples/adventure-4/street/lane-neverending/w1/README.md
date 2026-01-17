@@ -99,7 +99,7 @@ The catalogs connect to the [ACME catalog prototype](./acme-catalog.yml) — now
 - 📍 **FREE PICKUP** — Wait at the dispenser (variable timing)
 - 🚚 **ROOM DELIVERY** — 5-10 gold, anywhere (2-4 turns)
 
-CAM-ACM1 watches this dispenser from across the street. Every interaction is logged.
+ACM1 watches this dispenser from across the street. Every interaction is logged.
 
 ---
 

@@ -17,7 +17,7 @@ The building is **locked and trapped**. ACME never removed their "security" syst
 
 ## The Anti-Pattern
 
-Leela employees look at this building every day. There's even a camera (CAM-ACM1) pointed at it from the lobby window, observing the tunnel
+Leela employees look at this building every day. There's even a camera (ACM1) pointed at it from the lobby window, observing the tunnel
 painted on the boarded up window. It's a daily reminder:
 
 | ACME | Leela |
