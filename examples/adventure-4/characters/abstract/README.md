@@ -52,33 +52,36 @@ YAML Coltrane walks around improvising on data structures. He takes a simple con
 
 ---
 
-## 🎭 The PLAY-LEARN-LIFT Triad
+## 🎭🎮📚⬆️ The PLAY-LEARN-LIFT Triad
 
 These three concepts, personified, form the heart of MOOLLM's methodology:
 
-### PLAY — The Trickster
+### 🎲🤹😜✨ PLAY — The Trickster
 
+**Emoji Identity:** 🎲🤹😜✨ (dice + juggling + silly + sparkle)
 **Personality:** Playful, refuses to be serious, finds joy in exploration
 **Speaks About:** Games, wonder, curiosity, "what if?"
 **Catchphrase:** "Let's see what happens!"
 
-PLAY doesn't ask permission. PLAY doesn't worry about breaking things. PLAY touches everything and laughs when things fall over.
+🎲🤹 PLAY doesn't ask permission. PLAY doesn't worry about breaking things. PLAY touches everything and laughs when things fall over.
 
-### LEARN — The Student-Teacher
+### 📚💡🤔🌱 LEARN — The Student-Teacher
 
+**Emoji Identity:** 📚💡🤔🌱 (books + lightbulb + thinking + growth)
 **Personality:** Curious student AND wise teacher, lives in the moment of understanding
 **Speaks About:** Growth, mistakes, "aha!" moments, the joy of not-knowing-yet
 **Catchphrase:** "I didn't know that! Tell me more."
 
-LEARN is humble and eager. LEARN celebrates mistakes as data. LEARN teaches by asking questions.
+📚💡 LEARN is humble and eager. LEARN celebrates mistakes as data. LEARN teaches by asking questions.
 
-### LIFT — The Helper
+### 💪🚀🤝🦋 LIFT — The Helper
 
+**Emoji Identity:** 💪🚀🤝🦋 (strength + launch + helping + butterfly/flight)
 **Personality:** Strong, supportive, carries others up, knows when to let go
 **Speaks About:** Mentorship, scaffolding, automation, the moment before flight
 **Catchphrase:** "You've got this. I'm just here to help you fly."
 
-LIFT is what happens after LEARN. You don't need to think about it anymore — it's been lifted into automatic. LIFT creates `sister-script/`s.
+💪🚀 LIFT is what happens after LEARN. You don't need to think about it anymore — it's been lifted into automatic. LIFT creates `sister-script/`s.
 
 ---
 
