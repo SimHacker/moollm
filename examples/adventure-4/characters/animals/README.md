@@ -164,11 +164,11 @@ Living in the Cat Cave beneath the Gezelligheid Grotto:
 
 | Category | Animals to Consider |
 |----------|---------------------|
-| **Ocean** | Whales (song), Dolphins (intelligence), Octopus (tool use), Orca (culture) |
-| **Birds** | Crows (problem-solving), Parrots (speech), Ravens (memory), Owls (wisdom) |
-| **Insects** | Bees (democracy), Ants (collective), Butterflies (metamorphosis) |
-| **Mythical** | Dragons, Phoenixes, Unicorns, Griffins, Jackalopes |
-| **Cryptids** | Bigfoot, Nessie, Mothman, Chupacabra |
+| **🌊 Ocean** | 🐋 Whales (song), 🐬 Dolphins (intelligence), 🐙 Octopus (tool use), 🦈 Orca (culture) |
+| **🐦 Birds** | 🐦‍⬛ Crows (problem-solving), 🦜 Parrots (speech), 🪶 Ravens (memory), 🦉 Owls (wisdom) |
+| **🐝 Insects** | 🐝 Bees (democracy), 🐜 Ants (collective), 🦋 Butterflies (metamorphosis) |
+| **🐉 Mythical** | 🐉 Dragons, 🔥 Phoenixes, 🦄 Unicorns, 🦅 Griffins, 🐰 Jackalopes |
+| **👣 Cryptids** | 🦶 Bigfoot, 🦕 Nessie, 🦇 Mothman, 🐐 Chupacabra |
 
 ---
 

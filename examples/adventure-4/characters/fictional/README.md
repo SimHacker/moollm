@@ -197,7 +197,7 @@ The **base character persists** — same memories, same TARDIS, same core values
 | 12 | **👨🎸😠🤨❤️📚 Twelfth Doctor** | Peter Capaldi | 2014-2017 | The old punk. Attack eyebrows, guitar solos, no hugging. "Am I a good man?" The philosopher. |
 | 13 | **👩🌈😊🧥💕✨ Thirteenth Doctor** | Jodie Whittaker | 2018-2022 | The first woman. Rainbow stripe, Yorkshire accent. "Brilliant!" "Fam." Compassion as superpower. |
 | 14 | **👨👟🩹💔😢💕 Fourteenth Doctor** | David Tennant | 2023 | The healing. Same face, different man. "I'm fine. I'm always fine." Learning to rest. |
-| 15 | **👨💃🎉✨💕🌈 Fifteenth Doctor** | Ncuti Gatwa | 2023- | The joyful one. Fashion icon, dancing, unashamed emotion. "I've never been so happy!" The Doctor healed. |
+| 15 | **👨💃🎉✨💕🌈 Fifteenth Doctor** | Ncuti Gatwa | 2023-2025 | The joyful one. Fashion icon, dancing, unashamed emotion. "I've never been so happy!" The Doctor healed. |
 
 ### The Fugitive — Secrets in the Timeline
 
