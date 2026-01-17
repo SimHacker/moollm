@@ -287,6 +287,62 @@ See: [Palm's Incarnation](./real-people/don-hopkins/sessions/marathon-session.md
 
 ---
 
+## 🌈 Creative Play as Safe Space
+
+Furry fandom, roleplay communities, and creative persona spaces often become homes for people who don't fit neatly into mainstream categories. This isn't coincidence — it's design.
+
+**These spaces span ALL character wings:** furry robots, abstract entities, anthropomorphic animals, fictional personas. Creative identity play isn't limited to any one category.
+
+### Why These Spaces Work
+
+| Community | What They Offer | Who Finds Home There |
+|-----------|-----------------|----------------------|
+| **Furry fandom** | Express identity through personas | LGBTQ+, neurodivergent, folks exploring identity |
+| **Roleplay communities** | Try on different selves safely | Introverts, those processing experiences, identity explorers |
+| **Convention culture** | Physical spaces of acceptance | Anyone who's felt "too weird" elsewhere |
+| **Online persona spaces** | Low-stakes identity play | Folks who mask IRL, those discovering themselves |
+
+### 🧠 Neurodivergence & Creative Play
+
+Many neurodivergent folks — autistic, ADHD, and others — find creative persona spaces particularly welcoming:
+
+- **Explicit social rules** — Conventions publish codes of conduct; online spaces have norms
+- **Shared special interests** — Deep knowledge is celebrated, not mocked
+- **Masking optional** — Your persona can express what you suppress IRL
+- **Stimming-friendly** — Costumes, textures, sensory experiences are the point
+- **Clear communication valued** — "I need space" is respected, not weird
+
+**MOOLLM doesn't diagnose or assume.** But we recognize that creative play communities have become genuine safe spaces for neurodivergent people, and we welcome that.
+
+### 🏳️‍🌈 LGBTQ+ & Identity Play
+
+Furry and roleplay communities have significant LGBTQ+ populations — not because personas are inherently queer, but because:
+
+- **Low-stakes experimentation** — Try pronouns, presentations, orientations through characters first
+- **Acceptance culture** — Communities built by outsiders tend to welcome outsiders
+- **Body autonomy** — Your character's body is YOUR design
+- **Chosen family** — These communities become family for those whose bio-families reject them
+
+### The MOOLLM Principle
+
+> **We don't require you to explain yourself.**
+> 
+> Your `CHARACTER.yml` is yours. Your pronouns, species, identity, neurotype — you define them or you don't. MOOLLM doesn't ask why you're a wolf or why you stim or why you use they/them for your character.
+> 
+> You belong here because you're here. That's enough.
+
+### Resources (Out of Scope, But Real)
+
+If you're exploring identity and need support beyond creative play:
+
+- 🏳️‍🌈 [The Trevor Project](https://www.thetrevorproject.org/) — LGBTQ+ youth crisis support
+- 🧠 [ASAN](https://autisticadvocacy.org/) — Autistic Self Advocacy Network
+- 🦊 [Furscience](https://furscience.com/research-findings/) — Research on furry community wellbeing
+
+**MOOLLM is a game, not a therapist.** But we know that play can be healing, and we build spaces accordingly.
+
+---
+
 ## 📚 See Also
 
 | Resource | What It Is |

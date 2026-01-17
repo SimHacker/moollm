@@ -186,70 +186,13 @@ Animals deserve respect and dignity:
 
 Furry fandom creates and embodies anthropomorphic animal characters — personas with both human and animal traits. This is **creative play**, and MOOLLM welcomes it.
 
-- **Have fun!** — Fursonas are valid characters
-- **Play nice** — Respect other people's characters
-- **Be yourself** — Your fursona is YOUR creation
-- **Community matters** — Furry fandom has built genuine spaces of acceptance
-
 Anthropomorphic characters have a long tradition: Aesop's fables, Disney's Robin Hood, Zootopia, Bojack Horseman. Creating an animal persona to explore identity is ancient and human.
 
 **In MOOLLM:** A fursona is just another `CHARACTER.yml` with species, personality, and soul. The `cat/` and `dog/` skills work perfectly for anthropomorphic characters too.
 
 > *"The question is not, Can they reason? nor, Can they talk? but, Can they suffer?"* — Jeremy Bentham
 
----
-
-## 🌈 Creative Play as Safe Space
-
-Furry fandom, roleplay communities, and creative persona spaces often become homes for people who don't fit neatly into mainstream categories. This isn't coincidence — it's design.
-
-### Why These Spaces Work
-
-| Community | What They Offer | Who Finds Home There |
-|-----------|-----------------|----------------------|
-| **Furry fandom** | Express identity through animal personas | LGBTQ+, neurodivergent, folks exploring identity |
-| **Roleplay communities** | Try on different selves safely | Introverts, those processing experiences, identity explorers |
-| **Convention culture** | Physical spaces of acceptance | Anyone who's felt "too weird" elsewhere |
-| **Online persona spaces** | Low-stakes identity play | Folks who mask IRL, those discovering themselves |
-
-### 🧠 Neurodivergence & Creative Play
-
-Many neurodivergent folks — autistic, ADHD, and others — find creative persona spaces particularly welcoming:
-
-- **Explicit social rules** — Conventions publish codes of conduct; online spaces have norms
-- **Shared special interests** — Deep knowledge is celebrated, not mocked
-- **Masking optional** — Your persona can express what you suppress IRL
-- **Stimming-friendly** — Costumes, textures, sensory experiences are the point
-- **Clear communication valued** — "I need space" is respected, not weird
-
-**MOOLLM doesn't diagnose or assume.** But we recognize that creative play communities have become genuine safe spaces for neurodivergent people, and we welcome that.
-
-### 🏳️‍🌈 LGBTQ+ & Identity Play
-
-Furry and roleplay communities have significant LGBTQ+ populations — not because animal personas are inherently queer, but because:
-
-- **Low-stakes experimentation** — Try pronouns, presentations, orientations through characters first
-- **Acceptance culture** — Communities built by outsiders tend to welcome outsiders
-- **Body autonomy** — Your character's body is YOUR design
-- **Chosen family** — These communities become family for those whose bio-families reject them
-
-### The MOOLLM Principle
-
-> **We don't require you to explain yourself.**
-> 
-> Your `CHARACTER.yml` is yours. Your pronouns, species, identity, neurotype — you define them or you don't. MOOLLM doesn't ask why you're a wolf or why you stim or why you use they/them for your character.
-> 
-> You belong here because you're here. That's enough.
-
-### Resources (Out of Scope, But Real)
-
-If you're exploring identity and need support beyond creative play:
-
-- 🏳️‍🌈 [The Trevor Project](https://www.thetrevorproject.org/) — LGBTQ+ youth crisis support
-- 🧠 [ASAN](https://autisticadvocacy.org/) — Autistic Self Advocacy Network
-- 🦊 [Furry community mental health resources](https://furscience.com/research-findings/) — Furscience research on community wellbeing
-
-**MOOLLM is a game, not a therapist.** But we know that play can be healing, and we build spaces accordingly.
+**Note:** Furries aren't limited to animals! There are furry robots, furry abstract entities, and everything in between. For the full discussion of creative play communities as safe spaces for LGBTQ+, neurodivergent, and other folks, see **[Creative Play as Safe Space](../README.md#-creative-play-as-safe-space)** in the top-level characters README.
 
 ---
 
