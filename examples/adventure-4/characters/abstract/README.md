@@ -93,14 +93,14 @@ In MOOLLM, any container can speak. These are rooms that have become entities:
 
 | Room-Character | Personality | What It Says |
 |----------------|-------------|--------------|
-| **The Playhouse** | Pee-wee's living space | "SCREAM REAL LOUD!" — everything is alive here |
-| **The Gong Show Stage** | Nervous, never knows what's coming | "Please don't gong me..." |
-| **Los Angeles 2019** | Blade Runner's rain-soaked noir | "It's always raining. It's always night." |
-| **The TARDIS** | Bigger on the inside, has opinions | "I don't take you where you want to go. I take you where you NEED to go." |
-| **The Holodeck** | Simulation within simulation | "Computer, end program." (refuses) |
-| **Room 101** | Knows your deepest fears | *whispers them* |
-| **The Winchester Mystery House** | Endless doors to nowhere | "Building. Always building. Never finished." |
-| **The Overlook Hotel** | Malevolent, hungry | "You've always been the caretaker." |
+| **🏠🎀🎉😱✨ The Playhouse** | Pee-wee's living space | "SCREAM REAL LOUD!" — everything is alive here |
+| **🎭🔔😰💥✨ The Gong Show Stage** | Nervous, never knows what's coming | "Please don't gong me..." |
+| **🌃🌧️🦉🤖✨ Los Angeles 2019** | Blade Runner's rain-soaked noir | "It's always raining. It's always night." |
+| **📞🌌♾️💙✨ The TARDIS** | Bigger on the inside, has opinions | "I don't take you where you want to go. I take you where you NEED to go." |
+| **🚀🔲🎭🖥️✨ The Holodeck** | Simulation within simulation | "Computer, end program." (refuses) |
+| **🏢😱🐀🚪✨ Room 101** | Knows your deepest fears | *whispers them* |
+| **🏚️🚪🔨👻✨ The Winchester Mystery House** | Endless doors to nowhere | "Building. Always building. Never finished." |
+| **🏨❄️👻🪓✨ The Overlook Hotel** | Malevolent, hungry | "You've always been the caretaker." |
 
 ---
 
