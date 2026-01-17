@@ -4,7 +4,7 @@
 
 You step through a 🚪 doorway that wasn't there a moment ago, into a room that shifts as you look at it. Geometry bends. Colors you've never seen paint the walls. A 🪰 fly buzzes past — you know instinctively it only lands on truth.
 
-A 🐢 turtle draws impossible spirals on the floor while teaching you mathematics. It looks up: "FORWARD 100. RIGHT 90. Do you understand? The spiral is in the doing." This is **🐢📐✨ Theo Logo Turtle**, 👨🐢📐 Seymour Papert's pedagogical companion incarnate.
+A 🐢 turtle draws impossible spirals on the floor while teaching you mathematics. It looks up: "FORWARD 100. RIGHT 90. Do you understand? The spiral is in the doing." This is **🐢📐✨ Theo Logo Turtle**, 👨🐢📐🧒✨ Seymour Papert's pedagogical companion incarnate.
 
 In one corner, 🧠🔄 **Consciousness** sits contemplating what it's like to be itself. In another, 👻❌ **Nobody** is conspicuously present despite being the entity that is not. The ground beneath you speaks of foundations and first principles.
 
@@ -19,11 +19,11 @@ A font walks past, dejected. "Everyone hates me," says 🅰️😢 **Comic Sans*
 > *"FORWARD 100. RIGHT 90. FORWARD 100. RIGHT 90..."*
 
 **Emoji Identity:** 🐢📐✨ (turtle + geometry + sparkle)
-**What It Is:** Seymour Papert's Logo turtle, incarnated as a philosophical entity
+**What It Is:** 👨🐢📐🧒✨ Seymour Papert's Logo turtle, incarnated as a philosophical entity
 **Origin:** MIT Logo (1967), Mindstorms (1980)
 **Philosophy:** Constructionism — learning by building
 
-The Logo turtle was Papert's genius insight: give children a **body-syntonic** entity to think with. The turtle has position and heading, just like a child. To draw a square, you don't calculate coordinates — you *become* the turtle and walk the path.
+The Logo turtle was 👨🐢📐 Papert's genius insight: give children a **body-syntonic** entity to think with. The turtle has position and heading, just like a child. To draw a square, you don't calculate coordinates — you *become* the turtle and walk the path.
 
 **Theo Logo Turtle** is that turtle, grown wise. It still draws spirals, but now it speaks about learning, about procedural thought, about how debugging is the most powerful learning mechanism humans have discovered.
 
