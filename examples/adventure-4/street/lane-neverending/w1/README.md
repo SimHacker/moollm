@@ -14,20 +14,26 @@
 
 ```mermaid
 flowchart TB
-    subgraph North["NORTH SIDE"]
+    subgraph North["⬆️ NORTH SIDE"]
         ACME["🏚️ ACME SURPLUS<br/>4 Lane Neverending<br/>(closed, painted tunnel)"]
     end
     
-    subgraph Street["═══ LANE NEVERENDING ═══"]
-        W2["← w2"] --> W1["W1<br/>You Are Here"] --> Center["center →"]
+    North --> Street
+    
+    subgraph Street["LANE NEVERENDING"]
+        direction LR
+        W2["← w2"] --- W1["W1<br/>You Are Here"] --- Center["center →"]
     end
     
-    subgraph South["SOUTH SIDE"]
+    Street --> South
+    
+    subgraph South["⬇️ SOUTH SIDE"]
         Leela["🏭 LEELA MANUFACTURING<br/>5 Lane Neverending<br/>(thriving)"]
     end
 
     style ACME fill:#7f8c8d,color:#fff
     style Leela fill:#3498db,color:#fff
+    style W1 fill:#f1c40f,color:#000
 ```
 
 ---
@@ -55,17 +61,20 @@ flowchart LR
     end
     
     You["🏃 You"] --> |"sprint at tunnel"| THWACK["💥 THWACK<br/>(solid plywood)"]
-    Delivery["🚚 ACME Delivery"] --> |"walks through"| Tunnel
+    Delivery["🚚 ACME Delivery"] --> |"drives through"| Tunnel
+    Tesla["🔷 Tesla Cybertruck"] --> |"autopilot engaged"| FIRE["🔥 DUMPSTER FIRE<br/>(recall pending)"]
 
     style Tunnel fill:#9b59b6,color:#fff
     style THWACK fill:#e74c3c,color:#fff
+    style FIRE fill:#e67e22,color:#fff
 ```
 
 **The Painted Tunnel:**
 - Looks 100% real
 - You CANNOT run through it
-- ACME employees CAN
-- Delivery drones CAN
+- ACME delivery trucks CAN (drive right through)
+- Roadrunners CAN (meep meep)
+- Tesla Cybertrucks CANNOT (autopilot doesn't recognize painted tunnels)
 - It's not fair. But ACME products never were.
 
 **The Catalog Dispenser:**
@@ -90,7 +99,7 @@ The catalogs connect to the [ACME catalog prototype](./acme-catalog.yml) — now
 - 📍 **FREE PICKUP** — Wait at the dispenser (variable timing)
 - 🚚 **ROOM DELIVERY** — 5-10 gold, anywhere (2-4 turns)
 
-CAM-ACME-01 watches this dispenser from across the street. Every interaction is logged.
+ACM1 watches this dispenser from across the street. Every interaction is logged.
 
 ---
 

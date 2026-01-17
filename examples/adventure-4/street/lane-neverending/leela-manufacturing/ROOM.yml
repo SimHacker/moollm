@@ -102,7 +102,7 @@ room:
     The View Across the Street:
     Through the front windows, you see ACME Surplus. Shuttered.
     Boarded up. And there it is — THE PAINTED TUNNEL.
-    A camera (CAM-ACME-01) is pointed directly at it, 24/7.
+    A camera (ACM1) is pointed directly at it, 24/7.
     A small monitor shows the feed: "TUNNEL WATCHER — Live"
     
     As you watch, a delivery truck approaches the painted wall...
@@ -165,7 +165,7 @@ room:
     jobs: 200+
     land_value: "$$$"
     across_street: "ACME Surplus (abandoned, painted tunnel, FSD casualties)"
-    camera_watching_acme: true  # CAM-ACME-01 monitors the tunnel 24/7
+    camera_watching_acme: true  # ACM1 monitors the tunnel 24/7
     
   skill_connections:
     leela_ai: "../../../../../skills/leela-ai/"
@@ -244,7 +244,7 @@ objects:
     - reception-desk.yml
     - scale-model.yml
     - visitor-badges.yml
-    - camera-acme-01.yml  # 📹 The Tunnel Watcher — monitors ACME across the street
+    - camera-acm1.yml  # 📹 The Tunnel Watcher — monitors ACME across the street
     
 philosophy: |
     THE LEELA WAY (The Anti-ACME)
