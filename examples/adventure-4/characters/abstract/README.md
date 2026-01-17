@@ -222,7 +222,7 @@ Any noun can become a character. The pattern:
 
 | Entity | Status | Notes |
 |--------|--------|-------|
-| **player/** | Active | The abstract YOU, whoever you are — generic hero template |
+| **👤🎮🧬❓✨ player/** | Active | The abstract YOU, whoever you are — generic hero template, prototype |
 
 ### ⚠️ The Prototype Paradox
 
