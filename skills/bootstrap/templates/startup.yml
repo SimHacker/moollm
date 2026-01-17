@@ -1,0 +1,37 @@
+# startup.yml — Post-Boot Startup Hook
+#
+# What happens after BOOT completes?
+# This template configures the default startup behavior.
+#
+# COPY TO: .moollm/startup.yml or repo root startup.yml
+# Then customize for your workflow.
+#
+# INVOCATION CHAIN:
+#   BOOT → PROBE → DETECT-DRIVER → WARM-CONTEXT → SELF-DESCRIBE → STARTUP
+#
+# OVERRIDE: .moollm/startup.yml takes precedence over root startup.yml
+
+startup:
+  
+  # What mode to start in?
+  # Options: adventure, development, custom, none
+  mode: adventure
+  
+  # ADVENTURE MODE
+  adventure:
+    path: examples/adventure-4
+    action: resume  # resume | start | ask
+    no_character: generate  # generate | prompt | error
+    
+  # DEVELOPMENT MODE (alternative)
+  development:
+    focus: null  # Path to focus on
+    tasks: []    # Pending tasks
+    
+  # Messages
+  messages:
+    greeting: |
+      *You open your eyes*
+      
+      Another day in the MOOLLM-verse.
+      Type LOOK to see where you are.
