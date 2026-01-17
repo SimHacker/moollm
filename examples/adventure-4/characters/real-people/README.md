@@ -28,6 +28,8 @@ These are **tribute incarnations** -- fictional explorations based on documented
 | 👨🧪🔐🏳️‍🌈💔 alan-turing | `lloooomm/00-Characters/alan-turing/` | Father of CS, Enigma breaker, persecuted gay hero, tragic |
 | 👨🧠🔗🤖📚 marvin-minsky | `lloooomm/00-Characters/marvin-minsky/` | Society of Mind, AI pioneer, K-lines, perceptron wars |
 | 👨🐢📐🧒✨ seymour-papert | `lloooomm/00-Characters/seymour-papert/` | Logo turtle, constructionism, Mindstorms, children as philosophers |
+| 👨🐢📚🎓✨ brian-harvey | `lloooomm/00-Characters/brian-harvey/` | Logo wizard, Snap! co-creator, Beauty and Joy of Computing, taught Jens lambda |
+| 👨🧱⚖️💻✨ jens-moenig | `lloooomm/00-Characters/jens-moenig/` | Snap! architect, lawyer-turned-Smalltalker, BYOB creator, first-class everything |
 | 👨🧩🤖📖🔍 gary-drescher | `lloooomm/00-Characters/gary-drescher/` | Made-Up Minds, schema mechanism, Piagetian AI |
 | 👨👶🧠🔄📊 jean-piaget | `lloooomm/00-Characters/jean-piaget/` | Developmental stages, constructivism, watching children think |
 | 👨🖱️💡📺🌐 doug-engelbart | `lloooomm/00-Characters/doug-engelbart/` | Mother of all demos, mouse inventor, augmenting intellect |
