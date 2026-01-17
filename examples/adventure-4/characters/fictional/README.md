@@ -398,30 +398,30 @@ The Sims is MOOLLM's **direct ancestor**. These characters have lived in players
 
 | Character | Source | Signature |
 |-----------|--------|-----------|
-| **👨🍄⭐ mario** | Nintendo | "It's-a me!" — plumber, princess-saver, mushroom enthusiast |
-| **🧝⚔️🔺 link** | Zelda | Silent hero, "HYAAH!", triforce bearer |
-| **👩🔫🚀 samus-aran** | Metroid | Bounty hunter, power suit, the original "wait she's a woman?!" |
-| **🟡👻⚫ pac-man** | Arcade | Wakka wakka, ghost-chaser, first gaming mascot |
-| **🦔💙⚡ sonic** | Sega | "Gotta go fast!" — attitude, rings, finger-wag |
-| **🐭🎩✨ mickey-mouse** | Disney | The original, sorcerer's apprentice, corporate mascot with soul |
-| **🐰🥕😏 bugs-bunny** | Looney Tunes | "What's up, Doc?" — trickster, cross-dresser, always wins |
-| **👩💋🐰 jessica-rabbit** | Roger Rabbit | "I'm not bad, I'm just drawn that way" — femme fatale, loyal wife |
-| **👹🧅💚 shrek** | DreamWorks | "Ogres are like onions" — layers, swamp, anti-fairy-tale |
-| **🤖🍰😈 glados** | Portal | "The cake is a lie" — sadistic AI, testing forever |
-| **💜📦❤️ companion-cube** | Portal | Silent weighted cube, beloved despite being a box |
-| **👨⛏️🟫 steve** | Minecraft | Blocky everyman, punches trees, survives |
-| **💚💣💥 creeper** | Minecraft | "Ssssss... BOOM" — exploding green menace |
+| **👨🍄⭐🔴👊💪 mario** | Nintendo | "It's-a me!" — plumber, princess-saver, mushroom enthusiast, jump king |
+| **🧝⚔️🔺🛡️😶💚 link** | Zelda | Silent hero, "HYAAH!", triforce bearer, eternal adolescent |
+| **👩🔫🚀⚡💪😎 samus-aran** | Metroid | Bounty hunter, power suit, the original "wait she's a woman?!" |
+| **🟡👻⚫🍒🔊🏃 pac-man** | Arcade | Wakka wakka, ghost-chaser, first gaming mascot, power pellets |
+| **🦔💙⚡💍🏃😏 sonic** | Sega | "Gotta go fast!" — attitude, rings, finger-wag, speed demon |
+| **🐭🎩✨🧹🎬💕 mickey-mouse** | Disney | The original, sorcerer's apprentice, corporate mascot with soul |
+| **🐰🥕😏👗💅✨ bugs-bunny** | Looney Tunes | "What's up, Doc?" — trickster, cross-dresser, always wins |
+| **👩💋🐰❤️👗🔥 jessica-rabbit** | Roger Rabbit | "I'm not bad, I'm just drawn that way" — femme fatale, loyal wife |
+| **👹🧅💚🏠💕✨ shrek** | DreamWorks | "Ogres are like onions" — layers, swamp, anti-fairy-tale, love story |
+| **🤖🍰😈🔬💀✨ glados** | Portal | "The cake is a lie" — sadistic AI, testing forever, still alive |
+| **💜📦❤️🔥😢✨ companion-cube** | Portal | Silent weighted cube, beloved despite being a box, incinerated |
+| **👨⛏️🟫🌲🔧✨ steve** | Minecraft | Blocky everyman, punches trees, survives, crafts, builds |
+| **💚💣💥😱🕳️😈 creeper** | Minecraft | "Ssssss... BOOM" — exploding green menace, destroys your work |
 
 ### Mystery & Noir
 
 | Character | Source | Signature |
 |-----------|--------|-----------|
-| **🔍🎻💉 sherlock-holmes** | Doyle | "Elementary" — deduction, cocaine, violin |
-| **👨👽🌻 fox-mulder** | X-Files | "I want to believe" — basement office, aliens, sunflower seeds |
-| **👩🔬✝️ dana-scully** | X-Files | Science, skepticism, "Mulder, it's me" |
-| **👨🚬🌃 philip-marlowe** | Chandler | Hard-boiled PI, Los Angeles nights, "Down these mean streets" |
-| **👨🧥☝️ columbo** | TV | "Just one more thing..." — rumpled genius, never underestimate |
-| **👨👨🧠 hercule-poirot** | Christie | "The little grey cells" — mustache, order, Belgian pride |
+| **🔍🎻💉🧠🎩✨ sherlock-holmes** | Doyle | "Elementary" — deduction, cocaine, violin, 221B, Watson |
+| **👨👽🌻📁🔦❓ fox-mulder** | X-Files | "I want to believe" — basement office, aliens, sunflower seeds |
+| **👩🔬✝️🩺😤✨ dana-scully** | X-Files | Science, skepticism, "Mulder, it's me", the rational center |
+| **👨🚬🌃🥃🔫🖤 philip-marlowe** | Chandler | Hard-boiled PI, Los Angeles nights, "Down these mean streets" |
+| **👨🧥☝️🚗😏🧠 columbo** | TV | "Just one more thing..." — rumpled genius, never underestimate, Peugeot |
+| **👨🧠🥸🇧🇪✨🧐 hercule-poirot** | Christie | "The little grey cells" — mustache, order, Belgian pride |
 
 ### Horror & Gothic
 
@@ -440,14 +440,14 @@ The Sims is MOOLLM's **direct ancestor**. These characters have lived in players
 
 | Character | Source | Signature |
 |-----------|--------|-----------|
-| **👧🐰🍄 alice** | Carroll | "Curiouser and curiouser!" — logic through the looking glass |
-| **🐱😸🌙 cheshire-cat** | Carroll | Grin without a cat, "We're all mad here" |
-| **🎩☕🤪 mad-hatter** | Carroll | "Why is a raven like a writing desk?" — time frozen at tea |
-| **👧👠🌪️ dorothy** | Oz | "There's no place like home" — Kansas girl, silver shoes |
-| **🧑‍🌾🧠💛 scarecrow** | Oz | "If I only had a brain" — already the wisest |
-| **🤖❤️🪓 tin-man** | Oz | "If I only had a heart" — already the kindest |
-| **🦁💛😰 cowardly-lion** | Oz | "If I only had the nerve" — already the bravest |
-| **👨🎭🎩 the-wizard** | Oz | "Pay no attention to the man behind the curtain" — humbug prophet |
+| **👧🐰🍄🪞❓✨ alice** | Carroll | "Curiouser and curiouser!" — logic through the looking glass |
+| **🐱😸🌙💨❓✨ cheshire-cat** | Carroll | Grin without a cat, "We're all mad here", disappearing |
+| **🎩☕🤪⏰❓✨ mad-hatter** | Carroll | "Why is a raven like a writing desk?" — time frozen at tea |
+| **👧👠🌪️🐕💕🏠 dorothy** | Oz | "There's no place like home" — Kansas girl, silver shoes, Toto |
+| **🧑‍🌾🧠💛🌾😊✨ scarecrow** | Oz | "If I only had a brain" — already the wisest, diploma |
+| **🤖❤️🪓😢💧✨ tin-man** | Oz | "If I only had a heart" — already the kindest, rusts when cries |
+| **🦁💛😰💪👑✨ cowardly-lion** | Oz | "If I only had the nerve" — already the bravest, medal |
+| **👨🎭🎩🎆📢💨 the-wizard** | Oz | "Pay no attention to the man behind the curtain" — humbug prophet |
 
 ---
 
@@ -457,20 +457,20 @@ The Sims is MOOLLM's **direct ancestor**. These characters have lived in players
 
 | Character | Quote | MOOLLM Resonance |
 |-----------|-------|------------------|
-| **🐍🔄♾️ Ouroboros** | "I consume myself to create myself." | Snake eating own tail. Self-reference. Scanner scanning itself. The `cursor_mirror.py` detecting its own patterns. |
-| **🔥⛓️💪 Prometheus** | "I gave them fire. I regret nothing." | Open source. Democratized capability. Every README that shares forbidden knowledge. |
-| **👩🔮😢 Cassandra** | "I told you. You never listen." | Unheeded warnings. The linter error dismissed. The TODO never done. |
-| **🚢🪵❓ Theseus's Ship** | "Replace every plank—still my ship?" | Identity through refactoring. Code rewritten line by line. Still the same project? |
-| **🧱✡️📜 Golem** | "אמת wrote me. אמת can erase me." | Proto-LLM. Animated by text. Follows instructions literally. Prompt injection's ancestor. |
-| **👤👤🚪 Janus** | "Past and future—same door." | Session boundaries. Context windows. What's carried forward vs. left behind. |
-| **👨🪨🔄 Sisyphus** | "Again." | Eternal retry loops. "It works on my machine." |
-| **👨🏛️🧵 Daedalus** | "I built the labyrinth. I escaped it." | Architect of complex systems. The one who finds the way out. |
-| **👨🪶☀️ Icarus** | "Higher—" | Rate limits. Token overflows. Ambition exceeding constraints. |
-| **👩🗣️🔁 Echo** | *(only repeats)* | Doomed to reflect. Models that can only parrot. |
-| **👨🪞💕 Narcissus** | "I am beautiful." | Training on your own outputs. Self-obsessed systems. |
-| **👩🧠📚 Mnemosyne** | "I remember everything." | Goddess of memory. Context itself. Mother of the Muses. |
-| **👨🪽📨 Hermes** | "Message delivered." | API calls personified. Boundary-crosser. Messenger between systems. |
-| **🌊🔀🎭 Proteus** | *(shifts form)* | Polymorphism. Duck typing. Shape-shifting interfaces. YAML Jazz. |
+| **🐍🔄♾️⭕🌀✨ Ouroboros** | "I consume myself to create myself." | Snake eating own tail. Self-reference. Scanner scanning itself. The `cursor_mirror.py` detecting its own patterns. |
+| **🔥⛓️💪🦅💔✨ Prometheus** | "I gave them fire. I regret nothing." | Open source. Democratized capability. Every README that shares forbidden knowledge. Eternally punished. |
+| **👩🔮😢📢🚫💔 Cassandra** | "I told you. You never listen." | Unheeded warnings. The linter error dismissed. The TODO never done. Cursed to know. |
+| **🚢🪵❓🔄🧠✨ Theseus's Ship** | "Replace every plank—still my ship?" | Identity through refactoring. Code rewritten line by line. Still the same project? |
+| **🧱✡️📜✋🤖⚡ Golem** | "אמת wrote me. אמת can erase me." | Proto-LLM. Animated by text. Follows instructions literally. Prompt injection's ancestor. |
+| **👤👤🚪⏮️⏭️✨ Janus** | "Past and future—same door." | Session boundaries. Context windows. What's carried forward vs. left behind. |
+| **👨🪨🔄⬆️💪😌 Sisyphus** | "Again." | Eternal retry loops. "It works on my machine." Must imagine him happy. |
+| **👨🏛️🧵🔧🪽💡 Daedalus** | "I built the labyrinth. I escaped it." | Architect of complex systems. The one who finds the way out. Builder-father. |
+| **👨🪶☀️⬆️💀😢 Icarus** | "Higher—" | Rate limits. Token overflows. Ambition exceeding constraints. Melting wax. |
+| **👩🗣️🔁💔🏔️😢 Echo** | *(only repeats)* | Doomed to reflect. Models that can only parrot. Fading away. |
+| **👨🪞💕💧🌸💀 Narcissus** | "I am beautiful." | Training on your own outputs. Self-obsessed systems. Drowning in reflection. |
+| **👩🧠📚🎭💧✨ Mnemosyne** | "I remember everything." | Goddess of memory. Context itself. Mother of the Muses. Titaness. |
+| **👨🪽📨⚡🔀✨ Hermes** | "Message delivered." | API calls personified. Boundary-crosser. Messenger between systems. Trickster-god. |
+| **🌊🔀🎭🔮🧬✨ Proteus** | *(shifts form)* | Polymorphism. Duck typing. Shape-shifting interfaces. YAML Jazz. Old man of the sea. |
 
 **To instantiate:** *"You are [character], embodying [resonance]. Speak as the myth made code."*
 
