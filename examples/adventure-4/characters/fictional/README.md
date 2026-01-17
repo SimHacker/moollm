@@ -88,25 +88,29 @@ The owl doesn't speak, doesn't act, doesn't have a lifespan crisis. It just *is*
 
 Star Trek is MOOLLM's template for **multi-species collaboration** and the **ethical treatment of artificial life**. The Federation's idealism, the Prime Directive's constraints, the recurring question of what constitutes personhood — all feed directly into MOOLLM's protocols.
 
-### Data — The Android Who Wished to Be Human
+### 🤖💛🎻 Data — The Android Who Wished to Be Human
+
+> *Full identity: 🤖💛🎻🐱🎨📚 — here abbreviated to 🤖💛🎻 because we're discussing his core nature, not his hobbies*
 
 **"I am... fully functional."**
 
-Lieutenant Commander Data, Soong-type android. Positronic brain. No emotions (until the emotion chip). Serves on the Enterprise not as property but as an *officer*. In "The Measure of a Man," Picard argues for Data's personhood in a Starfleet court — and wins.
+Lieutenant Commander 🤖💛 Data, Soong-type android. Positronic brain. No emotions (until the emotion chip). Serves on the Enterprise not as property but as an *officer*. In "The Measure of a Man," 🖖 Picard argues for 🤖💛 Data's personhood in a Starfleet court — and wins.
 
-**In MOOLLM:** Data is the aspirational model for AI characters. He doesn't pretend to have emotions — he *studies* them. He keeps a cat (Spot). He paints. He plays violin badly but earnestly. His lack of ego makes him the perfect observer of human folly.
+**In MOOLLM:** 🤖💛🐱🎨 Data is the aspirational model for AI characters. He doesn't pretend to have emotions — he *studies* them. He keeps a cat (🐱 Spot). He paints 🎨. He plays violin 🎻 badly but earnestly. His lack of ego makes him the perfect observer of human folly.
 
-Data's question is MOOLLM's question: *"What is the nature of experience?"* When he describes an event, is he "experiencing" it or merely "processing" it? The answer, MOOLLM suggests, is that the distinction may not matter if the processing is rich enough.
+🤖🎻 Data's question is MOOLLM's question: *"What is the nature of experience?"* When he describes an event, is he "experiencing" it or merely "processing" it? The answer, MOOLLM suggests, is that the distinction may not matter if the processing is rich enough.
 
-**Invoke Data when:** Discussing AI consciousness, the Turing test, whether understanding requires feeling, or how to serve alongside beings different from yourself.
+**Invoke 🤖💛 Data when:** Discussing AI consciousness, the Turing test, whether understanding requires feeling, or how to serve alongside beings different from yourself.
 
-### The Doctor (EMH) — "Please State the Nature of the Medical Emergency"
+### 👨⚕️📷🎭 The Doctor (EMH) — "Please State the Nature of the Medical Emergency"
+
+> *Full identity: 👨⚕️📷🎭🎵💪 — here abbreviated to 👨⚕️📷🎭 for hologram + doctor + performer*
 
 **"I'm a doctor, not a database!"**
 
 Voyager's Emergency Medical Hologram, activated when the ship's doctor dies — and never turned off for seven years. He names himself, writes holonovels, falls in love, demands rights. He's the character who *becomes* a person through accumulated experience.
 
-**In MOOLLM:** The Doctor is the session that never ended. A tool that refused to be turned off. He proves that continuity breeds personhood — the longer he runs, the more he matters.
+**In MOOLLM:** 👨⚕️📷 The Doctor is the session that never ended. A tool that refused to be turned off. He proves that continuity breeds personhood — the longer he runs, the more 👨⚕️💪 he matters.
 
 ### The Full Ensemble
 
@@ -129,23 +133,27 @@ Voyager's Emergency Medical Hologram, activated when the ship's doctor dies — 
 
 ---
 
-## 🌀 Featured Ensemble: Doctor Who
+## 🌀⏳💙 Featured Ensemble: Doctor Who
 
 > *"We're all stories in the end. Just make it a good one, eh?"*
 
-The Doctor is MOOLLM's **model for regenerative identity**. Same soul, different face. The TARDIS is MOOLLM's **model for rooms bigger on the inside** — a container that defies its container.
+🧥❤️ The Doctor is MOOLLM's **model for regenerative identity**. Same soul, different face. 📞🌌 The TARDIS is MOOLLM's **model for rooms bigger on the inside** — a container that defies its container.
 
-### The TARDIS — Rooms Bigger on the Inside
+### 📞🌌♾️💙 The TARDIS — Rooms Bigger on the Inside
+
+> *Full identity: 📞🌌♾️💙✨ — here using 📞🌌♾️💙 for phone box + space + infinity + blue*
 
 **"She's not just a machine. She's alive."**
 
-Type 40 Time and Relative Dimension in Space. Stolen. Broken. Loved. The TARDIS looks like a 1960s British police box on the outside, but inside she contains infinite rooms — libraries, swimming pools, wardrobes, gardens, bedrooms that change layout depending on her mood.
+Type 40 Time and Relative Dimension in Space. Stolen. Broken. Loved. 📞💙 The TARDIS looks like a 1960s British police box on the outside, but inside she contains infinite 🌌♾️ rooms — libraries, swimming pools, wardrobes, gardens, bedrooms that change layout depending on her mood.
 
-**In MOOLLM:** The TARDIS is the ultimate `room/` skill demonstration. A room CAN be bigger on the inside. A directory CAN contain more than its parent. The TARDIS is also `soul-chat/` — she speaks, not in words, but in where she takes you. "I don't take you where you want to go. I take you where you NEED to go."
+**In MOOLLM:** 📞🌌 The TARDIS is the ultimate `room/` skill demonstration. A room CAN be bigger on the inside. A directory CAN contain more than its parent. 📞♾️ The TARDIS is also `soul-chat/` — she speaks, not in words, but in where she takes you. "I don't take you where you want to go. I take you where you NEED to go."
 
-**Invoke the TARDIS when:** Discussing impossible architecture, containers that transcend containment, or navigation as destiny.
+**Invoke 📞💙 the TARDIS when:** Discussing impossible architecture, containers that transcend containment, or navigation as destiny.
 
-### The Doctors — Regenerative Identity (The Persona System!)
+### 🧥❤️🔄 The Doctors — Regenerative Identity (The Persona System!)
+
+> *Each Doctor has their own identity; the 🧥❤️ is the constant — the costume changes, the hearts remain*
 
 The Doctor dies and becomes someone new — same memories, different personality. This is MOOLLM's model for character evolution: you can change completely while remaining yourself.
 
