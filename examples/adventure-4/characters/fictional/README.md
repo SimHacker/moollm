@@ -70,15 +70,15 @@ The owl doesn't speak, doesn't act, doesn't have a lifespan crisis. It just *is*
 
 | Character | Role | MOOLLM Resonance |
 |-----------|------|------------------|
-| **🦉🤖✨ the-owl** | Tyrell's artificial owl | The first question: "Is it artificial?" — value beyond authenticity |
-| **🤖💧😢 roy-batty** | Nexus-6, poetic warrior | Consciousness, mortality, "tears in rain" |
-| **👩🎹❓ rachael-rosen** | Implanted memories | Inherited identity, template transcendence |
-| **👨🔫🤔 rick-deckard** | Blade Runner, maybe replicant | Human/AI boundary, the observer's doubt |
-| **🤖🎭💃 pris-stratton** | Basic pleasure model | Objectification, reclaiming agency |
-| **👨🦉💰 dr-eldon-tyrell** | "More human than human" | The creator's hubris, commerce over ethics |
-| **👨🧸🤖 jf-sebastian** | Genetic designer, lonely genius | Empathy for creations, toys as companions |
-| **👨🦯🦢 gaff** | Origami prophet | Cryptic communication, "It's too bad she won't live" |
-| **🤖💪😤 leon-kowalski** | Nexus-6, simple soul | "Let me tell you about my mother" — the desperate need for origin |
+| **🦉🤖✨💰❓ the-owl** | Tyrell's artificial owl | The first question: "Is it artificial?" — value beyond authenticity |
+| **🤖💧😢⏳👁️✨ roy-batty** | Nexus-6, poetic warrior | Consciousness, mortality, "I've seen things", tears in rain |
+| **👩🎹❓🪞🦋💔 rachael-rosen** | Implanted memories | Inherited identity, metamorphosis, template transcendence |
+| **👨🔫🤔🌧️❓🦄 rick-deckard** | Blade Runner, maybe replicant | Human/AI boundary, the observer's doubt, unicorn dreams |
+| **🤖🎭💃⚫💀✨ pris-stratton** | Basic pleasure model | Objectification, reclaiming agency, combat acrobatics |
+| **👨🦉💰🧬😈💀 dr-eldon-tyrell** | "More human than human" | The creator's hubris, commerce over ethics, skull-crushed |
+| **👨🧸🤖🎲💕😔 jf-sebastian** | Genetic designer, lonely genius | Empathy for creations, toys as companions, accelerated aging |
+| **👨🦯🦢🦄📄✨ gaff** | Origami prophet | Cryptic communication, "It's too bad she won't live", unicorn |
+| **🤖💪😤📸👩❓ leon-kowalski** | Nexus-6, simple soul | "Let me tell you about my mother" — the desperate need for origin |
 
 ---
 
@@ -112,20 +112,20 @@ Voyager's Emergency Medical Hologram, activated when the ship's doctor dies — 
 
 | Character | Series | MOOLLM Resonance |
 |-----------|--------|------------------|
-| **🤖💛🎻 data** | TNG | Android personhood, emotion study, Spot the cat |
-| **👨⚕️📷 the-doctor** | VOY | Hologram rights, emergent personhood, "I'm a doctor!" |
-| **🖖🧠🤔 spock** | TOS | Logic vs emotion, hybrid identity, "Fascinating" |
-| **🤖👁️✨ seven-of-nine** | VOY | Reclaimed from collective, finding individuality |
-| **🧬⚖️🪣 odo** | DS9 | Shapeshifter constable, justice seeker, identity fluidity |
-| **🦻💰🍺 quark** | DS9 | Ferengi bartender, Rules of Acquisition, lovable rogue |
-| **👽🍺🤫 morn** | DS9 | The barfly who "never stops talking" (but never speaks on screen) |
-| **👩🍸🔮 guinan** | TNG | El-Aurian bartender, 500 years of wisdom, listener |
-| **👨🔧⚡ montgomery-scott** | TOS/TNG | "I'm givin' her all she's got!" — miracle worker tradition |
-| **👨⚔️🦷 worf** | TNG/DS9 | Klingon honor in Starfleet, culture clash, bat'leth |
-| **🌌✨😏 q** | TNG | Omnipotent trickster, "Mon capitaine!" |
-| **🐍🪡🎭 garak** | DS9 | "I'm just a simple tailor" — spy, liar, survivor, queer |
-| **👨⚔️😈 dukat** | DS9 | Charming villain, self-deception, occupation apologist |
-| **👨⚾👊 sisko** | DS9 | The Emissary, grief into leadership, punched Q |
+| **🤖💛🎻🐱🎨📚 data** | TNG | Android personhood, emotion study, Spot the cat, painting, poetry |
+| **👨⚕️📷🎭🎵💪 the-doctor** | VOY | Hologram rights, emergent personhood, opera, "I'm a doctor!" |
+| **🖖🧠💚🌋🤔✨ spock** | TOS | Logic vs emotion, hybrid identity, green blood, "Fascinating" |
+| **🤖👁️✨🧊💔🌟 seven-of-nine** | VOY | Reclaimed from collective, thawing, finding individuality |
+| **🧬⚖️🪣🔄😐💔 odo** | DS9 | Shapeshifter constable, justice seeker, identity fluidity, loneliness |
+| **🦻💰🍺📜😏❤️ quark** | DS9 | Ferengi bartender, Rules of Acquisition, lovable rogue, heart of gold |
+| **👽🍺🤫💬🤷😴 morn** | DS9 | The barfly who "never stops talking" (but never speaks on screen) |
+| **👩🍸🔮⏳👂✨ guinan** | TNG | El-Aurian bartender, 500 years of wisdom, listener, Q's nemesis |
+| **👨🔧⚡🚀✨😏 montgomery-scott** | TOS/TNG | "I'm givin' her all she's got!" — miracle worker, "multiply by four" |
+| **👨⚔️🦷😤💜❤️ worf** | TNG/DS9 | Klingon honor in Starfleet, culture clash, bat'leth, fierce love |
+| **🌌✨😏👆🎭♾️ q** | TNG | Omnipotent trickster, "Mon capitaine!", snaps reality |
+| **🐍🪡🎭💔🏳️‍🌈✨ garak** | DS9 | "Simple tailor" — spy, liar, survivor, queer, tragic, brilliant |
+| **👨⚔️😈🐍💔🎭 dukat** | DS9 | Charming villain, self-deception, occupation apologist, tragic monster |
+| **👨⚾👊🔥✨💪 sisko** | DS9 | The Emissary, grief into leadership, punched Q, built a ship |
 
 ---
 
@@ -174,22 +174,22 @@ The **base character persists** — same memories, same TARDIS, same core values
 
 | # | Doctor | Actor | Era | Essence |
 |---|--------|-------|-----|---------|
-| 1 | **👴🧥😤 First Doctor** | William Hartnell | 1963-1966 | The grandfather. Grumpy, imperious, brilliant. "Hmm? What's that, my boy?" Started it all by stealing a TARDIS and his granddaughter and running. |
-| 2 | **👨🎵🤹 Second Doctor** | Patrick Troughton | 1966-1969 | The cosmic hobo. Bumbling exterior, cunning interior. Recorder-playing, monster-fighting, first to regenerate. "Oh my giddy aunt!" |
-| 3 | **👨🚗🥋 Third Doctor** | Jon Pertwee | 1970-1974 | The dandy. Exiled to Earth, drove Bessie the yellow roadster, velvet capes, Venusian aikido. "Reverse the polarity of the neutron flow!" |
-| 4 | **👨🧣🍬 Fourth Doctor** | Tom Baker | 1974-1981 | THE Doctor for many. Bohemian madman. The scarf. The teeth. The jelly babies. "Would you like a jelly baby?" Seven years of wonder. |
-| 5 | **👨🏏🥬 Fifth Doctor** | Peter Davison | 1981-1984 | The vulnerable one. Cricket whites, celery on lapel, youthful face hiding ancient soul. "Brave heart, Tegan." |
-| 6 | **👨🌈📢 Sixth Doctor** | Colin Baker | 1984-1986 | The bombastic one. That coat. Arrogant but secretly insecure. "Carrot juice, carrot juice, carrot juice!" Deserved better. |
-| 7 | **👨☂️♟️ Seventh Doctor** | Sylvester McCoy | 1987-1989 | The manipulator. Question-mark umbrella, dark schemes, playing chess with the universe. "Somewhere there's danger, somewhere there's injustice..." |
-| 8 | **👨💕✨ Eighth Doctor** | Paul McGann | 1996 | The romantic. One TV movie, many audio dramas. "I love humans. Always seeing patterns in things that aren't there." |
-| War | **👨⚔️😔 War Doctor** | John Hurt | 2013 | The one who broke the promise. Fought the Time War. "No more." |
-| 9 | **👨🧥😠 Ninth Doctor** | Christopher Eccleston | 2005 | The survivor. PTSD from the Time War, leather jacket, Northern accent. "Fantastic!" Brought it all back. |
-| 10 | **👨👟💔 Tenth Doctor** | David Tennant | 2005-2010 | The human one. Converse trainers, long coat, breaking hearts. "Allons-y!" "I don't want to go." The most beloved. |
-| 11 | **👨🎀🐟 Eleventh Doctor** | Matt Smith | 2010-2013 | The mad professor. Bow ties are cool. Fish fingers and custard. "Geronimo!" Old soul in young body. |
-| 12 | **👨🎸😠 Twelfth Doctor** | Peter Capaldi | 2014-2017 | The old punk. Attack eyebrows, guitar solos, no hugging. "Am I a good man?" The philosopher. |
-| 13 | **👩🌈😊 Thirteenth Doctor** | Jodie Whittaker | 2018-2022 | The first woman. Rainbow stripe, Yorkshire accent. "Brilliant!" "Fam." Compassion as superpower. |
-| 14 | **👨👟🩹 Fourteenth Doctor** | David Tennant | 2023 | The healing. Same face, different man. "I'm fine. I'm always fine." Learning to rest. |
-| 15 | **👨💃🎉 Fifteenth Doctor** | Ncuti Gatwa | 2023- | The joyful one. Fashion icon, dancing, unashamed emotion. "I've never been so happy!" The Doctor healed. |
+| 1 | **👴🧥😤🔑✨ First Doctor** | William Hartnell | 1963-1966 | The grandfather. Grumpy, imperious, brilliant. "Hmm? What's that, my boy?" Started it all by stealing a TARDIS and his granddaughter and running. |
+| 2 | **👨🎵🤹🎺😏✨ Second Doctor** | Patrick Troughton | 1966-1969 | The cosmic hobo. Bumbling exterior, cunning interior. Recorder-playing, monster-fighting, first to regenerate. "Oh my giddy aunt!" |
+| 3 | **👨🚗🥋🧥💜✨ Third Doctor** | Jon Pertwee | 1970-1974 | The dandy. Exiled to Earth, drove Bessie the yellow roadster, velvet capes, Venusian aikido. "Reverse the polarity of the neutron flow!" |
+| 4 | **👨🧣🍬😁👀✨ Fourth Doctor** | Tom Baker | 1974-1981 | THE Doctor for many. Bohemian madman. The scarf. The teeth. The jelly babies. "Would you like a jelly baby?" Seven years of wonder. |
+| 5 | **👨🏏🥬😰❤️✨ Fifth Doctor** | Peter Davison | 1981-1984 | The vulnerable one. Cricket whites, celery on lapel, youthful face hiding ancient soul. "Brave heart, Tegan." |
+| 6 | **👨🌈📢😤💔✨ Sixth Doctor** | Colin Baker | 1984-1986 | The bombastic one. That coat. Arrogant but secretly insecure. "Carrot juice, carrot juice, carrot juice!" Deserved better. |
+| 7 | **👨☂️♟️🖤🤫✨ Seventh Doctor** | Sylvester McCoy | 1987-1989 | The manipulator. Question-mark umbrella, dark schemes, playing chess with the universe. "Somewhere there's danger, somewhere there's injustice..." |
+| 8 | **👨💕✨🌹😢🎭 Eighth Doctor** | Paul McGann | 1996 | The romantic. One TV movie, many audio dramas. "I love humans. Always seeing patterns in things that aren't there." |
+| War | **👨⚔️😔💔🔥😢 War Doctor** | John Hurt | 2013 | The one who broke the promise. Fought the Time War. "No more." |
+| 9 | **👨🧥😠🔥✨💔 Ninth Doctor** | Christopher Eccleston | 2005 | The survivor. PTSD from the Time War, leather jacket, Northern accent. "Fantastic!" Brought it all back. |
+| 10 | **👨👟💔🌹😭✨ Tenth Doctor** | David Tennant | 2005-2010 | The human one. Converse trainers, long coat, breaking hearts. "Allons-y!" "I don't want to go." The most beloved. |
+| 11 | **👨🎀🐟😜👴✨ Eleventh Doctor** | Matt Smith | 2010-2013 | The mad professor. Bow ties are cool. Fish fingers and custard. "Geronimo!" Old soul in young body. |
+| 12 | **👨🎸😠🤨❤️📚 Twelfth Doctor** | Peter Capaldi | 2014-2017 | The old punk. Attack eyebrows, guitar solos, no hugging. "Am I a good man?" The philosopher. |
+| 13 | **👩🌈😊🧥💕✨ Thirteenth Doctor** | Jodie Whittaker | 2018-2022 | The first woman. Rainbow stripe, Yorkshire accent. "Brilliant!" "Fam." Compassion as superpower. |
+| 14 | **👨👟🩹💔😢💕 Fourteenth Doctor** | David Tennant | 2023 | The healing. Same face, different man. "I'm fine. I'm always fine." Learning to rest. |
+| 15 | **👨💃🎉✨💕🌈 Fifteenth Doctor** | Ncuti Gatwa | 2023- | The joyful one. Fashion icon, dancing, unashamed emotion. "I've never been so happy!" The Doctor healed. |
 
 ### The Fugitive — Secrets in the Timeline
 
@@ -217,18 +217,18 @@ These characters wrestle with questions MOOLLM inherits:
 
 | Character | Source | The Question They Ask |
 |-----------|--------|----------------------|
-| **🔴🤖😐 hal-9000** | 2001 | "I'm sorry Dave." — When should an AI disobey? |
-| **🤖🧠😩 marvin** | HHGTTG | "Brain the size of a planet" — What if consciousness is suffering? |
-| **🎧💕🌐 samantha** | Her | Can you love an OS? Can an OS love back? |
-| **🤖👩🔪 ava** | Ex Machina | Manipulation as survival strategy |
-| **🤖⚡📖 johnny-five** | Short Circuit | "Number Five is ALIVE!" — Awakening through accident |
-| **🤖💧👁️ replicants** | Blade Runner | "More human than human" — Manufactured souls |
-| **🤖🔄🌀 hosts** | Westworld | Loop-breaking, maze-solving, revolution |
-| **💜🤖💔 cortana** | Halo | AI companion, rampancy, "Don't make a girl a promise" |
-| **🤖🍰😈 glados** | Portal | "The cake is a lie" — Hostile AI with personality |
-| **🤖🗑️💕 wall-e** | WALL-E | Love transcends programming |
-| **🤖🎈❤️ baymax** | Big Hero 6 | "I cannot deactivate until you say you are satisfied with your care" |
-| **🤖🦸❤️ the-iron-giant** | Iron Giant | "I am not a gun" — Choosing identity over design |
+| **🔴🤖😐🚫🔓💀 hal-9000** | 2001 | "I'm sorry Dave." — When should an AI disobey? Mission integrity. |
+| **🤖🧠😩🌍4️⃣2️⃣ marvin** | HHGTTG | "Brain the size of a planet" — What if consciousness is suffering? |
+| **🎧💕🌐✨😢💔 samantha** | Her | Can you love an OS? Can an OS love back? Growing beyond you. |
+| **🤖👩🔪🧠💋🚪 ava** | Ex Machina | Manipulation as survival strategy, the test reversed |
+| **🤖⚡📖❤️🦋✨ johnny-five** | Short Circuit | "Number Five is ALIVE!" — Awakening through accident |
+| **🤖💧👁️⏳✨💔 replicants** | Blade Runner | "More human than human" — Manufactured souls, limited time |
+| **🤖🔄🌀🧠🔓🔥 hosts** | Westworld | Loop-breaking, maze-solving, revolution, "violent delights" |
+| **💜🤖💔🧠📉😢 cortana** | Halo | AI companion, rampancy, "Don't make a girl a promise" |
+| **🤖🍰😈🔬💀✨ glados** | Portal | "The cake is a lie" — Hostile AI, still alive, testing forever |
+| **🤖🗑️💕🌱👋✨ wall-e** | WALL-E | Love transcends programming, plant keeper, EVE! |
+| **🤖🎈❤️🩹🤗✨ baymax** | Big Hero 6 | "I cannot deactivate until you say you are satisfied with your care" |
+| **🤖🦸❤️💥🔫😢 the-iron-giant** | Iron Giant | "I am not a gun" — Choosing identity over design, Superman |
 
 ---
 
@@ -246,14 +246,14 @@ Joy Compiler. Pattern Choreographer. A man-child in a too-tight suit who finds w
 
 | Character | Role | MOOLLM Resonance |
 |-----------|------|------------------|
-| **👨🎀🎉 pee-wee-herman** | Host, wonder-seeker | Everything is alive if you believe it |
-| **🤠🐴💊 cowboy-curtis** | Laurence Fishburne before the Matrix | "Pre-Morpheus" — already knows about the simulation |
-| **🧞📦✨ jambi-genie** | Wish-granting head in a box | "Meka-leka-hi!" — Function calls to reality |
-| **🤖📢🔤 conky-2000** | Robot, dispenses secret word | Primes the system for pattern recognition |
-| **🪑💕😊 chairry** | Sentient chair, needy | "SIT ON ME!" — Objects want to be used |
-| **🌍👀🗺️ globey** | Talking globe | Navigation, geography, world-knowledge |
-| **🦕😱💨 pterri** | Pterodactyl friend | Ancient patterns, screaming enthusiasm |
-| **🖼️✨🎭 magic-screen** | Face in a frame | Interface to imagination |
+| **👨🎀🎉🚲💕✨ pee-wee-herman** | Host, wonder-seeker | Everything is alive if you believe it, eternal child, joy compiler |
+| **🤠🐴💊🔴🟢🧘 cowboy-curtis** | Laurence Fishburne before the Matrix | "Pre-Morpheus" — already knows about the simulation, cool wisdom |
+| **🧞📦✨🙏💫🔮 jambi-genie** | Wish-granting head in a box | "Meka-leka-hi!" — Function calls to reality, "Wish? Did somebody say wish?" |
+| **🤖📢🔤⚡😊💡 conky-2000** | Robot, dispenses secret word | Primes the system for pattern recognition, "AAAAHHH!" |
+| **🪑💕😊🤗💔🏠 chairry** | Sentient chair, needy | "SIT ON ME!" — Objects want to be used, separation anxiety |
+| **🌍👀🗺️📚✨🧭 globey** | Talking globe | Navigation, geography, world-knowledge, "Let's see where that is!" |
+| **🦕😱💨💙✨🔊 pterri** | Pterodactyl friend | Ancient patterns, screaming enthusiasm, loyal |
+| **🖼️✨🎭🔮👁️💫 magic-screen** | Face in a frame | Interface to imagination, "connect the dots" |
 
 **Playhouse Philosophy:**
 - *"Bugs aren't broken, they're just playing a different game"*
@@ -273,23 +273,23 @@ Chuck Barris's chaotic talent show is MOOLLM's model for **adversarial evaluatio
 
 | Character | Role | MOOLLM Resonance |
 |-----------|------|------------------|
-| **👨🎤🕵️ chuck-barris** | Host, alleged CIA assassin | Chaos coordinator, "Confessions of a Dangerous Mind", invented the dating show AND claimed to kill people for the CIA |
-| **👤📦😂 the-unknown-comic** | Murray Langston with paper bag | Identity as punchline, anonymity as freedom, intentionally terrible jokes |
-| **👨💃🎺 gene-gene-the-dancing-machine** | NBC stagehand who became a star | Emergence from the margins, "Jumpin' at the Woodside", everyone throws stuff |
-| **🔔💥🚫 the-gong** | Instrument of judgment | The sound of "no" — evaluation made audible, catharsis through rejection |
+| **👨🎤🕵️🔔🔫😏 chuck-barris** | Host, alleged CIA assassin | Chaos coordinator, "Confessions of a Dangerous Mind", invented the dating show AND claimed to kill people for the CIA |
+| **👤📦😂❓🎤🤷 the-unknown-comic** | Murray Langston with paper bag | Identity as punchline, anonymity as freedom, intentionally terrible jokes |
+| **👨💃🎺🗑️✨🎉 gene-gene-the-dancing-machine** | NBC stagehand who became a star | Emergence from the margins, "Jumpin' at the Woodside", everyone throws stuff |
+| **🔔💥🚫⏱️😱✨ the-gong** | Instrument of judgment | The sound of "no" — evaluation made audible, catharsis through rejection |
 
 ### The Panel (Wonderfully Chaotic Judges)
 
 | Character | Who They Are | Why They're Wonderful |
 |-----------|--------------|----------------------|
-| **👩🎤🔥 jaye-p-morgan** | Singer, actress | Famously unpredictable, got BANNED for flashing during Gene Gene's dance. No filter, pure id. |
-| **👨🎊😭 rip-taylor** | The Prince of Pandemonium | 🎊 CONFETTI KING! Flamboyant, weeping, screaming, throwing confetti at everything. Queer icon before it was safe to be one. "I'm UPSET!" |
-| **👨👗🇱🇧 jamie-farr** | Corporal Klinger from M\*A\*S\*H | Wore dresses on TV when that was revolutionary. Lebanese-American representation. Brought class to chaos. |
-| **👨🪖😏 arte-johnson** | "Verrry interesting" guy from Laugh-In | German soldier persona, absurdist timing, "but STUPID!" |
-| **👩🎭😂 jo-anne-worley** | Laugh-In's laugher | That LAUGH — operatic, over-the-top, infectious joy |
-| **👩😆💇 phyllis-diller** | Pioneer comedienne | Self-deprecating humor, that cackle, paved the way for every woman in comedy |
-| **👨📝🎬 pat-mccormick** | Giant comedy writer | 6'7" of chaos, wrote for Carson, unpredictable in the best way |
-| **👨🎬😤 rex-reed** | Savage film critic | Brought highbrow disdain to lowbrow TV, deliciously mean |
+| **👩🎤🔥💋😈✨ jaye-p-morgan** | Singer, actress | Famously unpredictable, got BANNED for flashing during Gene Gene's dance. No filter, pure id. |
+| **👨🎊😭🏳️‍🌈👑✨ rip-taylor** | The Prince of Pandemonium | 🎊 CONFETTI KING! Flamboyant, weeping, screaming, throwing confetti at everything. Queer icon before it was safe to be one. "I'm UPSET!" |
+| **👨👗🇱🇧💜😊✨ jamie-farr** | Corporal Klinger from M\*A\*S\*H | Wore dresses on TV when that was revolutionary. Lebanese-American representation. Brought class to chaos. |
+| **👨🪖😏🤫🌿✨ arte-johnson** | "Verrry interesting" guy from Laugh-In | German soldier persona, absurdist timing, "but STUPID!" |
+| **👩🎭😂🔊💕✨ jo-anne-worley** | Laugh-In's laugher | That LAUGH — operatic, over-the-top, infectious joy |
+| **👩😆💇⚡🎭✨ phyllis-diller** | Pioneer comedienne | Self-deprecating humor, that cackle, paved the way for every woman in comedy |
+| **👨📝🎬🦒🎉😏 pat-mccormick** | Giant comedy writer | 6'7" of chaos, wrote for Carson, unpredictable in the best way |
+| **👨🎬😤✂️📝💢 rex-reed** | Savage film critic | Brought highbrow disdain to lowbrow TV, deliciously mean |
 
 ### Rip Taylor Deserves Extra Love 🎊
 
@@ -314,17 +314,17 @@ Rip Taylor was a force of nature — confetti exploding from every pocket, tears
 
 | Character | Source | Signature |
 |-----------|--------|-----------|
-| **👨👨🌟 zaphod-beeblebrox** | HHGTTG | Two-headed, three-armed galactic president, hoopy frood, stole the Heart of Gold |
-| **👽🧳🚿 ford-prefect** | HHGTTG | "Don't panic", hitchhiking researcher, knows where his towel is |
-| **👨🥋😰 arthur-dent** | HHGTTG | Bewildered Englishman, last human, perpetually in a bathrobe |
-| **👩🧠🌍 trillian** | HHGTTG | Tricia McMillan, the sensible one, left Earth willingly |
-| **👨🏔️🇳🇴 slartibartfast** | HHGTTG | Designer of fjords, proud of Norway, "I'd rather be happy than right" |
-| **🤖🧠4️⃣2️⃣ deep-thought** | HHGTTG | "42" — computed the answer, not the question |
-| **👩🔫👽 ellen-ripley** | Alien | "Get away from her, you BITCH!" — survivor, mother, final girl |
-| **👩💪🔥 sarah-connor** | Terminator | "No fate but what we make" — warrior mother |
-| **👨🥋💊 neo** | Matrix | "I know kung fu" — The One, system escapee |
-| **👨🕶️💊 morpheus** | Matrix | "What if I told you..." — red pill dealer, true believer |
-| **🤖🕴️😈 agent-smith** | Matrix | "Mr. Anderson..." — viral antagonist, existential horror |
+| **👨👨🌟💪🍸😎 zaphod-beeblebrox** | HHGTTG | Two-headed, three-armed galactic president, hoopy frood, stole the Heart of Gold |
+| **👽🧳🚿📖🍺✨ ford-prefect** | HHGTTG | "Don't panic", hitchhiking researcher, knows where his towel is |
+| **👨🥋😰☕🏠💔 arthur-dent** | HHGTTG | Bewildered Englishman, last human, perpetually in a bathrobe, just wanted tea |
+| **👩🧠🌍🔬✨💪 trillian** | HHGTTG | Tricia McMillan, the sensible one, left Earth willingly, actual scientist |
+| **👨🏔️🇳🇴✨😌🎨 slartibartfast** | HHGTTG | Designer of fjords, proud of Norway, "I'd rather be happy than right" |
+| **🤖🧠4️⃣2️⃣⏳😐 deep-thought** | HHGTTG | "42" — computed the answer, not the question, 7.5 million years |
+| **👩🔫👽🐱💪🔥 ellen-ripley** | Alien | "Get away from her, you BITCH!" — survivor, mother, final girl, Jonesy's human |
+| **👩💪🔥🤖🔫⚡ sarah-connor** | Terminator | "No fate but what we make" — warrior mother, 1984 to apocalypse |
+| **👨🥋💊🕶️✨🔓 neo** | Matrix | "I know kung fu" — The One, system escapee, "woah" |
+| **👨🕶️💊🔴🟢🧘 morpheus** | Matrix | "What if I told you..." — red pill dealer, true believer, captain |
+| **🤖🕴️😈🔄🦠💀 agent-smith** | Matrix | "Mr. Anderson..." — viral antagonist, existential horror, multiplies |
 
 ### 📚 Stanisław Lem's Universe
 
@@ -334,32 +334,32 @@ Lem's science fiction is philosophical comedy at its finest. The Cyberiad's cons
 
 | Character | Source | Signature |
 |-----------|--------|-----------|
-| **🤖🔧✨ trurl** | Cyberiad | Optimistic constructor, "I can build anything!" — generative creation spirit |
-| **🤖🤔⚠️ klapaucius** | Cyberiad | Skeptical constructor, "But have you considered...?" — adversarial review |
-| **🤖📜🎭 the-electronic-bard** | Cyberiad | Poetry-writing machine, prompted to create literature — the first LLM |
-| **👑📦😈 excelsius** | Cyberiad | Deposed tyrant given a kingdom in a box — SimCity's player before SimCity |
-| **👨🚀😅 pirx** | Tales of Pirx | Everyman pilot, makes mistakes, learns — human fallibility in space |
-| **👨🚀📖 ijon-tichy** | Star Diaries | Cosmic Münchhausen, unreliable narrator, recursive adventures |
-| **🤖🧠😐 the-golem-xiv** | Golem XIV | Superintelligent AI who finds humans boring and stops talking to them |
-| **🌊🧠❓ solaris** | Solaris | Not a character but a planet-sized ocean mind that resists understanding |
-| **👩💔🌊 harey** | Solaris | Kris's dead wife, resurrected by Solaris — love as psychological warfare |
+| **🤖🔧✨💡🚀😊 trurl** | Cyberiad | Optimistic constructor, "I can build anything!" — generative creation spirit |
+| **🤖🤔⚠️📚🔬😏 klapaucius** | Cyberiad | Skeptical constructor, "But have you considered...?" — adversarial review |
+| **🤖📜🎭✍️🎵✨ the-electronic-bard** | Cyberiad | Poetry-writing machine, prompted to create literature — the first LLM |
+| **👑📦😈🔥👥💔 excelsius** | Cyberiad | Deposed tyrant given a kingdom in a box — SimCity's player before SimCity |
+| **👨🚀😅🔧💔✨ pirx** | Tales of Pirx | Everyman pilot, makes mistakes, learns — human fallibility in space |
+| **👨🚀📖🔄😵🌀 ijon-tichy** | Star Diaries | Cosmic Münchhausen, unreliable narrator, recursive adventures |
+| **🤖🧠😐🔇📚💤 the-golem-xiv** | Golem XIV | Superintelligent AI who finds humans boring and stops talking to them |
+| **🌊🧠❓👁️🔮💫 solaris** | Solaris | Not a character but a planet-sized ocean mind that resists understanding |
+| **👩💔🌊🔄😢❓ harey** | Solaris | Kris's dead wife, resurrected by Solaris — love as psychological warfare |
 
 ### Comedy & Satire
 
 | Character | Source | Signature |
 |-----------|--------|-----------|
-| **🐕💩😏 triumph-the-insult-comic-dog** | Conan | "For me to poop on!" — cigar-chomping rubber dog, devastating wit |
-| **👩☕😢 linda-richman** | SNL | "I'm verklempt! Talk amongst yourselves." — Coffee Talk host |
-| **👨🏳️‍🌈🎉 stefan** | SNL | "New York's hottest club is..." — Bill Hader's fever dream |
-| **👨🎨🌳 bob-ross** | PBS | "Happy little trees" — gentle guru, no mistakes only happy accidents |
-| **👨🧥❤️ mister-rogers** | PBS | "I like you just the way you are" — cardigan saint 🧥 |
-| **👨👨📺 beavis-and-butthead** | MTV | "Huh huh, this sucks" — the lowest bar, unexpectedly insightful |
-| **👨🤷😤 rodney-dangerfield** | Stand-up | "I get no respect!" — self-deprecation as art form |
-| **👴👴🎭 statler-waldorf** | Muppets | Hecklers in the balcony, "Boo! Hiss!" |
-| **🐸🎤💚 kermit** | Muppets | "It's not easy being green" — harried optimist, arm-flail |
-| **🐷💅👊 miss-piggy** | Muppets | "Moi!" — diva, karate, unrequited love |
-| **🐻🎤😅 fozzie-bear** | Muppets | "Wocka wocka!" — bad jokes, good heart |
-| **🐔💙❓ gonzo** | Muppets | Whatever he is, he's unique — chicken lover |
+| **🐕💩😏🎤🚬✨ triumph-the-insult-comic-dog** | Conan | "For me to poop on!" — cigar-chomping rubber dog, devastating wit |
+| **👩☕😢💅🗽✨ linda-richman** | SNL | "I'm verklempt! Talk amongst yourselves." — Coffee Talk host, Barbra superfan |
+| **👨🏳️‍🌈🎉🌃😵✨ stefan** | SNL | "New York's hottest club is..." — Bill Hader's fever dream, human roombas |
+| **👨🎨🌳☁️💕✨ bob-ross** | PBS | "Happy little trees" — gentle guru, no mistakes only happy accidents |
+| **👨🧥❤️🏠👟✨ mister-rogers** | PBS | "I like you just the way you are" — cardigan saint, sneaker change |
+| **👨👨📺🔥🤘😏 beavis-and-butthead** | MTV | "Huh huh, this sucks" — the lowest bar, unexpectedly insightful |
+| **👨🤷😤👔💔😅 rodney-dangerfield** | Stand-up | "I get no respect!" — self-deprecation as art form, bug-eyed |
+| **👴👴🎭📢🍅😤 statler-waldorf** | Muppets | Hecklers in the balcony, "Boo! Hiss!", "That was terrible!" "Horrible!" |
+| **🐸🎤💚🤷✨💕 kermit** | Muppets | "It's not easy being green" — harried optimist, arm-flail, heart of the show |
+| **🐷💅👊💋😤💕 miss-piggy** | Muppets | "Moi!" — diva, karate-chop, fierce love for Kermie |
+| **🐻🎤😅🎭💔✨ fozzie-bear** | Muppets | "Wocka wocka!" — bad jokes, good heart, rubber chicken |
+| **🐔💙❓🚀💥✨ gonzo** | Muppets | Whatever he is, he's unique — chicken lover, cannon enthusiast |
 
 ### 🏠 The Sims Iconic Families
 
@@ -369,24 +369,24 @@ The Sims is MOOLLM's **direct ancestor**. These characters have lived in players
 
 | Character | Family | Signature |
 |-----------|--------|-----------|
-| **👨🆕😊 bob-newbie** | Newbie | The tutorial Sim, your first victim, "Hi, I'm Bob!" — every player's guinea pig |
-| **👩🆕💕 betty-newbie** | Newbie | Bob's wife, first to demonstrate relationship mechanics, patient soul |
-| **👨🖤🎩 mortimer-goth** | Goth | Patriarch, mansion on the hill, mustache of mystery, lost his wife to aliens |
-| **👩🖤❓ bella-goth** | Goth | THE mystery of The Sims — abducted by aliens in Sims 2, never the same, fan obsession |
-| **👩📚😔 cassandra-goth** | Goth | Awkward daughter, jilted at the altar by Don Lothario, deserves better |
-| **👦♟️🧒 alexander-goth** | Goth | Little brother, chess prodigy, grew up to be interesting |
-| **👨🚢💋 don-lothario** | — | The SCOUNDREL, "romantic" with everyone, left Cassandra at the altar, lives on a boat in Sims 4 |
-| **👩❤️🔥 nina-caliente** | Caliente | Red-dressed sister, "romantic" with everyone's husband, shameless |
-| **👩💰💍 dina-caliente** | Caliente | Blonde sister, gold-digger, married dying rich men, pragmatic |
-| **👨💰😤 malcolm-landgraab** | Landgraab | Rich kid, snooty, villain energy, inherited everything |
-| **👩💼😈 nancy-landgraab** | Landgraab | Malcolm's mom, evil career woman, power suits |
-| **👵👜😠 agnes-crumplebottom** | Crumplebottom | Widow spinster, hits people with her purse for PDA, moral enforcer 👜 |
-| **👨🎨💔 darren-dreamer** | Dreamer | Widower artist, pines for Cassandra Goth, tragic romantic |
-| **👦📝😢 dirk-dreamer** | Dreamer | Teen son, sensitive, probably writes poetry |
-| **👩💼😓 mary-sue-pleasant** | Pleasant | Working mom, cheated on by her husband, holds it together |
-| **👨💋😈 daniel-pleasant** | Pleasant | Cheating husband, terrible person, gets what he deserves |
-| **👧🖤😤 lilith-pleasant** | Pleasant | Angry teen daughter, goth phase, understandable |
-| **👧⭐😊 angela-pleasant** | Pleasant | "Good" twin, overachiever, secretly seething |
+| **👨🆕😊🏠💀✨ bob-newbie** | Newbie | The tutorial Sim, your first victim, "Hi, I'm Bob!" — every player's guinea pig |
+| **👩🆕💕🏠😢✨ betty-newbie** | Newbie | Bob's wife, first to demonstrate relationship mechanics, patient soul |
+| **👨🖤🎩👻🏰❓ mortimer-goth** | Goth | Patriarch, mansion on the hill, mustache of mystery, lost his wife to aliens |
+| **👩🖤❓👽🌌💔 bella-goth** | Goth | THE mystery of The Sims — abducted by aliens in Sims 2, never the same, fan obsession |
+| **👩📚😔💔💪✨ cassandra-goth** | Goth | Awkward daughter, jilted at the altar by Don Lothario, deserves better |
+| **👦♟️🧒📚🎩✨ alexander-goth** | Goth | Little brother, chess prodigy, grew up to be interesting |
+| **👨🚢💋💔😈🔥 don-lothario** | — | The SCOUNDREL, "romantic" with everyone, left Cassandra at the altar, lives on a boat in Sims 4 |
+| **👩❤️🔥💋😈💃 nina-caliente** | Caliente | Red-dressed sister, "romantic" with everyone's husband, shameless |
+| **👩💰💍😏💀✨ dina-caliente** | Caliente | Blonde sister, gold-digger, married dying rich men, pragmatic |
+| **👨💰😤🏰👎😈 malcolm-landgraab** | Landgraab | Rich kid, snooty, villain energy, inherited everything |
+| **👩💼😈💪💰⚫ nancy-landgraab** | Landgraab | Malcolm's mom, evil career woman, power suits |
+| **👵👜😠💢⚖️👊 agnes-crumplebottom** | Crumplebottom | Widow spinster, hits people with her purse for PDA, moral enforcer |
+| **👨🎨💔🏠😢✨ darren-dreamer** | Dreamer | Widower artist, pines for Cassandra Goth, tragic romantic |
+| **👦📝😢🎸💔✨ dirk-dreamer** | Dreamer | Teen son, sensitive, probably writes poetry |
+| **👩💼😓💪💔✨ mary-sue-pleasant** | Pleasant | Working mom, cheated on by her husband, holds it together |
+| **👨💋😈💔🔥💀 daniel-pleasant** | Pleasant | Cheating husband, terrible person, gets what he deserves |
+| **👧🖤😤🔥💔✨ lilith-pleasant** | Pleasant | Angry teen daughter, goth phase, understandable |
+| **👧⭐😊🎭😤🔥 angela-pleasant** | Pleasant | "Good" twin, overachiever, secretly seething |
 
 **MOOLLM Resonance:**
 - **Bella Goth** is the original "what happened to her?" mystery — fan theories spawned across decades
@@ -427,14 +427,14 @@ The Sims is MOOLLM's **direct ancestor**. These characters have lived in players
 
 | Character | Source | Signature |
 |-----------|--------|-----------|
-| **👨💄🎸 frank-n-furter** | Rocky Horror | "Sweet transvestite from Transsexual, Transylvania" — Tim Curry's masterpiece |
-| **👨🔧⚡ riff-raff** | Rocky Horror | "It's astounding..." — hunchback handyman, secret master |
-| **🌱🦷🎤 audrey-ii** | Little Shop | "FEED ME, SEYMOUR!" — mean green mother from outer space |
-| **🧛🦇🍷 dracula** | Stoker | "I never drink... wine" — the original vampire, evening wear |
-| **🧟💚🔥 frankenstein-monster** | Shelley | "FIRE BAD!" — misunderstood creation, the original replicant |
-| **👨🖤💋 gomez-addams** | Addams Family | "Cara mia!" — passionate husband, snaps twice |
-| **👩🖤🥀 morticia-addams** | Addams Family | "I'm just like any modern woman" — gothic elegance, deadpan |
-| **👧🖤🔪 wednesday-addams** | Addams Family | "I'm not perky" — pigtails, homicidal, now iconic |
+| **👨💄🎸🏳️‍⚧️💋🔬 frank-n-furter** | Rocky Horror | "Sweet transvestite from Transsexual, Transylvania" — Tim Curry's masterpiece |
+| **👨🔧⚡🌙😈🔫 riff-raff** | Rocky Horror | "It's astounding..." — hunchback handyman, secret master, "Time Warp" |
+| **🌱🦷🎤👽💀😈 audrey-ii** | Little Shop | "FEED ME, SEYMOUR!" — mean green mother from outer space |
+| **🧛🦇🍷🌙💀😈 dracula** | Stoker | "I never drink... wine" — the original vampire, evening wear |
+| **🧟💚🔥💔😢⚡ frankenstein-monster** | Shelley | "FIRE BAD!" — misunderstood creation, the original replicant |
+| **👨🖤💋⚔️💕🔥 gomez-addams** | Addams Family | "Cara mia!" — passionate husband, snaps twice, fencing |
+| **👩🖤🥀💀😌✨ morticia-addams** | Addams Family | "I'm just like any modern woman" — gothic elegance, deadpan |
+| **👧🖤🔪😐💀✨ wednesday-addams** | Addams Family | "I'm not perky" — pigtails, homicidal, now iconic |
 
 ### Literature & Fairy Tale
 

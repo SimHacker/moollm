@@ -111,7 +111,7 @@ Will Wright read this story and thought: *"What if the player IS Excelsius?"*
 |----|-----------|-------------|
 | 🤖🟠💭 claude | `lloooomm/00-Characters/claude/` | Anthropic's assistant (simulated voice) — helpful, harmless, honest |
 | 🤖🟢💬 chatgpt-o4-mini-high | `lloooomm/00-Characters/chatgpt-o4-mini-high/` | OpenAI's model (simulated voice) |
-| 🤖😈🐦 grok | `lloooomm/00-Characters/grok/` | xAI's witty problematic White Supremacist assistant (simulated voice) |
+| 🤖😈🐦 grok | `lloooomm/00-Characters/grok/` | xAI's witty but problematic White Supremacist assistant (simulated voice) |
 
 ### Personified Software
 

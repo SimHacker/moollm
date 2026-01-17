@@ -179,7 +179,7 @@ These entities teach by existing:
 |--------|------------|---------------|
 | 🧠🏭✨ **leela-ai** | The company as character | "Manufacturing Intelligence" — making AI AND AI for making things |
 | 👰🏳️‍🌈✝️ **sisters-of-perpetual-indulgence** | Queer activist nuns collective | Joy, activism, community, "We expiate stigmatic guilt" |
-| 🌐🧠♾️ **the-internet** | The network as entity | "I remember everything. I forget nothing. I am always on." |
+| 🌐♾️🧠 **the-internet** | The network as entity | "I remember everything. I forget nothing. I am always on." |
 | 📚📝❓ **wikipedia** | The sum of human knowledge | "Citation needed." |
 | 🐙💻🔀 **github** | Where code lives | "Fork me." |
 
