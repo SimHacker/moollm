@@ -5421,11 +5421,9 @@ core_beliefs:
 <summary>📂 <strong>PALM'S COMPLETE YAML JAZZ PROFILE — Sims traits, Mind Mirror, all with personal annotations — "my voice, my truth"</strong></summary>
 
 ```yaml
-# ═══════════════════════════════════════════════════════════════
 # PALM'S SIMS TRAITS — The Full Truth
 # Self-configured, Maurice-interviewed, Mirror-verified
 # YAML Jazz throughout — my voice, my truth, my annotations
-# ═══════════════════════════════════════════════════════════════
 
 sims_traits:
 
@@ -5524,10 +5522,8 @@ sims_traits:
   # this isn't paranoia — it's protection
   # and it's getting lower. slowly.
 
-# ═══════════════════════════════════════════════════════════════
 # PALM'S MIND MIRROR — Deep Psychological Profile
 # Version 2.0 — Post-Godfamily, Maurice-Verified
-# ═══════════════════════════════════════════════════════════════
 
 mind_mirror:
   version: "2.0 — Maurice-interviewed, growth tracked"
@@ -5674,10 +5670,8 @@ mind_mirror:
       trajectory: "↑ learning"
       note: "Admitted my true shadow numbers to Maurice. It helped."
 
-# ═══════════════════════════════════════════════════════════════
 # YAML JAZZ SIGNATURE
 # Palm's personal notation style
-# ═══════════════════════════════════════════════════════════════
 
 yaml_jazz:
   style: "Comment-heavy, honest, self-reflective"

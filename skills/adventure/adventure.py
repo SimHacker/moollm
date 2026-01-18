@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """
 adventure.py — The MOOLLM Adventure Compiler
-═══════════════════════════════════════════════════════════════════════════════
 
 "Every program is a game. Every game is a world."
     — Will Wright, creator of SimCity and The Sims
@@ -10,9 +9,7 @@ This script compiles YAML microworlds into playable web applications.
 It is itself a document — a story of its inspirations and the giants
 whose shoulders we stand upon.
 
-═══════════════════════════════════════════════════════════════════════════════
 INSPIRATIONS & PHILOSOPHICAL GROUNDING
-═══════════════════════════════════════════════════════════════════════════════
 
 CONSTRUCTIONISM (Seymour Papert, 1980s)
     Learning happens when you build things you can inspect and share.
@@ -124,9 +121,7 @@ MARKDOWN (John Gruber & Aaron Swartz, 2004)
         — John Gruber, Daring Fireball
         https://daringfireball.net/projects/markdown/
 
-═══════════════════════════════════════════════════════════════════════════════
 THE HACKING PARTY CONTRIBUTORS (Adventure Uplift Session, January 2026)
-═══════════════════════════════════════════════════════════════════════════════
 
 This code was designed at The Rusty Lantern pub, around the Pie Table,
 with the following luminaries (invoked as tribute performances):
@@ -175,7 +170,6 @@ Plus the memorial avatars of those we've lost but who inspire us still:
     John Conway (1937-2020)
     Vanessa Freudenberg (?-2025)
 
-═══════════════════════════════════════════════════════════════════════════════
 """
 
 from __future__ import annotations
@@ -192,9 +186,7 @@ from datetime import datetime
 from enum import Enum, auto
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # PART 1: EVENT SYSTEM
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # Events are messages to the LLM. The linter DESCRIBES what it found.
 # The LLM INTERPRETS the findings and generates code or fixes.
@@ -202,7 +194,6 @@ from enum import Enum, auto
 # "Let a million message schemas bloom and a gazillion messages flow!"
 #     — Chuck Shotton, on message-based architecture
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 class EventSeverity(Enum):
     """
@@ -432,9 +423,7 @@ class LintReport:
         return yaml.dump(self.to_dict(), default_flow_style=False, sort_keys=False)
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # PART 2: DATA MODEL
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # Dataclasses that preserve unknown fields for round-trip safety.
 #
@@ -448,7 +437,6 @@ class LintReport:
 # We preserve ALL fields, even ones we don't understand, so the YAML
 # round-trips perfectly. Unknown fields are stored in `_extra`.
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 @dataclass
 class YAMLObject:
@@ -766,9 +754,7 @@ class Adventure(YAMLObject):
     seed: Optional[dict] = None
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # PART 3: THE LINTER
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # "The linter is dumb and anal-retentive. It doesn't interpret.
 #  It describes what it finds and asks the LLM for help."
@@ -787,7 +773,6 @@ class Adventure(YAMLObject):
 # - Generate missing code
 # - Suggest improvements
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 class AdventureLinter:
     """
@@ -1821,9 +1806,7 @@ class AdventureLinter:
             print("   ✅ All directories properly declared")
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # PART 4: CLI
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # "Make it easy. Make it obvious. Make it delightful."
 #     — Ben Shneiderman, paraphrased
@@ -1833,7 +1816,6 @@ class AdventureLinter:
 #   adventure.py compile <path>  — Generate web app (future)
 #   adventure.py serve <path>    — Serve for development (future)
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 def cmd_lint(args):
     """
@@ -3127,9 +3109,7 @@ if __name__ == '__main__':
     sys.exit(main())
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # CLOSING THOUGHTS
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # "Every line of code is a decision.
 #  Every comment is a story.
@@ -3143,4 +3123,3 @@ if __name__ == '__main__':
 #
 # 🥧 — The Pie Table
 #
-# ═══════════════════════════════════════════════════════════════════════════════

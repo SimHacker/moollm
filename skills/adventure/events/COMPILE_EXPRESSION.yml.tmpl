@@ -8,7 +8,6 @@
 #  Both live side-by-side."
 #     — Adventure Compiler Philosophy
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 event_handler:
   name: COMPILE_EXPRESSION
@@ -22,9 +21,7 @@ event_handler:
     - JavaScript for browser runtime
     - Python for server/testing runtime
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # INPUT: What the handler receives
-# ═══════════════════════════════════════════════════════════════════════════════
 
 input:
   event:
@@ -38,9 +35,7 @@ input:
     context: "{{context}}"                        # Surrounding YAML
     runtime_context: "{{runtime_context}}"        # Available functions, state paths
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # RUNTIME CONTEXT: What the generated code can use
-# ═══════════════════════════════════════════════════════════════════════════════
 
 runtime_reference:
   # The closure always receives 'world' as parameter
@@ -101,9 +96,7 @@ runtime_reference:
       adventure_flags: "world.adventure.flags"
       current_room: "world.navigation.current_room"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # OUTPUT: What the handler produces
-# ═══════════════════════════════════════════════════════════════════════════════
 
 output:
   compiled:
@@ -117,9 +110,7 @@ output:
   # Confidence (0-100)
   confidence: "{{confidence}}"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # EXAMPLES: How to compile various expressions
-# ═══════════════════════════════════════════════════════════════════════════════
 
 examples:
   # Boolean expressions (guards, conditions)
@@ -197,9 +188,7 @@ examples:
                     world.object.state['lit'] = False
                     emit('lamp-extinguished', {'lamp': world.object.id})
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # PROCEDURE: How to compile an expression
-# ═══════════════════════════════════════════════════════════════════════════════
 
 procedure: |
   1. READ the source_expression carefully
@@ -211,9 +200,7 @@ procedure: |
   7. VERIFY both expressions have matching semantics
   8. OUTPUT the compiled expressions
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # NAMING CONVENTIONS
-# ═══════════════════════════════════════════════════════════════════════════════
 
 naming:
   js:
@@ -223,9 +210,7 @@ naming:
     style: snake_case
     examples: [i_have, i_am, get_effective, reset_effective]
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # ERROR HANDLING
-# ═══════════════════════════════════════════════════════════════════════════════
 
 error_handling:
   ambiguous_expression:

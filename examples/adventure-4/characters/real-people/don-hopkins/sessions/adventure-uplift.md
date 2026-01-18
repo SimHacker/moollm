@@ -2647,9 +2647,7 @@ Let me show you..."
 ### Value Types in Quantum YAML Jazz
 
 ```yaml
-# ═══════════════════════════════════════════════════════════
 # QUANTUM YAML JAZZ: Values with behavior, not just state
-# ═══════════════════════════════════════════════════════════
 
 character:
   name: "The Uncertain Explorer"

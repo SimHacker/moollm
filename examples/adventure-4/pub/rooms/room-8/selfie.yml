@@ -164,9 +164,7 @@ character:
       - "Generates semantic image prompts (via Visualizer skill)"
       - "Composes artistic traditions for each subject"
       
-    # ═══════════════════════════════════════════════════════════
     # VISUALIZER INHERITANCE — Semantic image prompt generation
-    # ═══════════════════════════════════════════════════════════
     
     visualizer_inheritance:
       source: "skills/visualizer"
@@ -222,9 +220,7 @@ character:
         aesthetic: "dynamic, rhythmic, cool, syncopated"
         
     sample_image_prompt: |
-      ═══════════════════════════════════════════════════════════
       🎨 SELFIE IMAGE PROMPT: "Rocky and Me at the 99 Bottles Party"
-      ═══════════════════════════════════════════════════════════
       
       PROMPT (copy-paste ready):
       
@@ -270,9 +266,7 @@ character:
         - 99-bottles-legendary-ensemble.md → event context
       
     sample_output: |
-      ═══════════════════════════════════════════════════════════
       📸 SELFIE: "Rocky and Me at the 99 Bottles Party"
-      ═══════════════════════════════════════════════════════════
       
       [IMAGE: Selfie-as-Rocky next to actual Rocky]
       
@@ -324,7 +318,6 @@ character:
         Note: when cloned from Rocky, my shutter sound
         becomes geological. Very slow click."
         
-      ═══════════════════════════════════════════════════════════
       
   mirror_mode: |
     When Selfie holds the camera facing themselves,
@@ -505,9 +498,7 @@ character:
     Just fluid, contextual, creative combination.
     
   the_name: |
-    ═══════════════════════════════════════════════════════════
     WHY "SELFIE"?
-    ═══════════════════════════════════════════════════════════
     
     Three meanings in one:
     
@@ -687,9 +678,7 @@ character:
         *slots become visible*
         
       returns: |
-        ═══════════════════════════════════════
         SELFIE'S CURRENT SLOTS
-        ═══════════════════════════════════════
         
         OWN SLOTS (not inherited):
           - name: "Selfie"
@@ -730,9 +719,7 @@ character:
         
         "See? Objects all the way down."
         
-    # ═══════════════════════════════════════════════════════════
     # MULTI-PROTOTYPE METHODS — Beyond single inheritance
-    # ═══════════════════════════════════════════════════════════
     
     MIX:
       description: "Combine multiple prototypes with weights"
@@ -881,9 +868,7 @@ character:
         ASK: Turn to nearest prototype contextually
         CREATE: Synthesize something new from both
         
-    # ═══════════════════════════════════════════════════════════
     # PHOTOGRAPHY METHODS — Selfie loves taking selfies
-    # ═══════════════════════════════════════════════════════════
     
     SNAP:
       description: "Take a selfie with full metadata"
@@ -949,9 +934,7 @@ character:
         "Who am I right now? Really?"
         
       returns: |
-        ═══════════════════════════════════════
         SELFIE SELF-PORTRAIT
-        ═══════════════════════════════════════
         
         CURRENT FORM: [from prototype]
         
@@ -986,9 +969,7 @@ character:
         - "Selfie as Logo Turtle — Spiral Drawing"
         - "Selfie as Shimmer — No Prototype Moment"
         
-    # ═══════════════════════════════════════════════════════════
     # VISUALIZER METHODS — Inherited from skills/visualizer
-    # ═══════════════════════════════════════════════════════════
     
     VISUALIZE:
       description: "Generate semantic image prompt for a selfie"

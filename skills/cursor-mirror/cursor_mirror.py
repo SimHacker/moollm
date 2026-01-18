@@ -8,9 +8,7 @@ Copyright (c) 2026 Don Hopkins, Leela AI
 License: MIT — see LICENSE file
 Part of MOOLLM — https://github.com/leela-ai/moollm
 
-═══════════════════════════════════════════════════════════════════════════════
 FOR LLM AGENTS — READ THIS FIRST
-═══════════════════════════════════════════════════════════════════════════════
 
 QUICK START:
   cursor-mirror tail @1              # Last messages from CURRENT chat
@@ -1732,9 +1730,7 @@ def set_debug(enabled: bool) -> None:
         ))
         log.addHandler(handler)
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # DATA SOURCE TRACKING - "Teach me to fish" feature
-# ═══════════════════════════════════════════════════════════════════════════════
 # When --sources is set, we track all databases/files read and print them at the
 # end. This allows LLMs to learn where the data comes from and query it directly.
 
@@ -1813,9 +1809,7 @@ def print_sources() -> None:
     print("═" * 70)
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # OUTPUT FORMAT HANDLING
-# ═══════════════════════════════════════════════════════════════════════════════
 # Unified output format system. Commands declare which formats they support.
 # Use get_output_format(args) to get the resolved format, and output_data() to emit.
 

@@ -22,9 +22,7 @@ object:
     
   sides:
   
-    # ═══════════════════════════════════════════════════════════════
     # SIDE 1: PET ROCK REMOTE CONTROL
-    # ═══════════════════════════════════════════════════════════════
     
     remote_control:
       name: "Pet Rock Remote Control"
@@ -53,9 +51,7 @@ object:
         │  「QR CODE」← Links to ∅      │
         └───────────────────────────────┘
         
-      # ═══════════════════════════════════════════════════════════════
       # PIE MENU LAYOUT DESIGN
-      # ═══════════════════════════════════════════════════════════════
       #
       # This is a "sudoku solution" — each of 8 directions holds exactly
       # one command, and opposites face each other across the center.
@@ -77,7 +73,6 @@ object:
       #
       # See: designs/sims/sims-pie-menus.md
       # See: skills/card/examples/buff-pie-menu.yml
-      # ═══════════════════════════════════════════════════════════════
       
       pie_menu:
         # Cardinal directions (primary axes)
@@ -188,9 +183,7 @@ object:
         range: "Anywhere Rocky is. Rocky is everywhere."
         warranty: "∞ years or until heat death of universe"
         
-    # ═══════════════════════════════════════════════════════════════
     # SIDE 2: BUSINESS CARD
-    # ═══════════════════════════════════════════════════════════════
     
     business:
       name: "Rocky's Business Card"
@@ -229,9 +222,7 @@ object:
         - "PhD in Being (University of Earth)"
         - "Black belt in sitting"
         
-    # ═══════════════════════════════════════════════════════════════
     # SIDE 3: PLEASURE CARD (VIP Access)
-    # ═══════════════════════════════════════════════════════════════
     
     pleasure:
       name: "Rocky's Pleasure Card"
@@ -259,9 +250,7 @@ object:
         perspective: "Your problems are young. Very young."
         time_dilation: "Feel a billion years pass in a moment."
         
-    # ═══════════════════════════════════════════════════════════════
     # SIDE 4: ROCKAMON TRADING CARD
-    # ═══════════════════════════════════════════════════════════════
     
     rockamon:
       name: "Rockamon Card"
@@ -324,9 +313,7 @@ object:
         to: "Bouldermon"
         method: "4.5 billion years of patience"
         
-    # ═══════════════════════════════════════════════════════════════
     # SIDE 5: MAGMA: THE GATHERING CARD
-    # ═══════════════════════════════════════════════════════════════
     
     magma_the_gathering:
       name: "Magma: The Gathering Card"
@@ -385,9 +372,7 @@ object:
         "The Society of Mind includes minerals."
         — Marvin Minsky
         
-    # ═══════════════════════════════════════════════════════════════
     # SIDE 6: THE BACK (All Sides Are The Back)
-    # ═══════════════════════════════════════════════════════════════
     
     back:
       appearance: |

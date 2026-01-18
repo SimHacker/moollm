@@ -5,7 +5,6 @@
 #
 # "Every file wants to be something. Help it find its identity."
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 event_handler:
   name: UNKNOWN_FILE_TYPE
@@ -17,9 +16,7 @@ event_handler:
     2. Infer the likely type
     3. Suggest adding appropriate wrapper or lint_ignore
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # INPUT
-# ═══════════════════════════════════════════════════════════════════════════════
 
 input:
   event:
@@ -27,9 +24,7 @@ input:
     path: "{{path}}"              # The mystery file
     message: "{{message}}"        # What we know
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # OUTPUT
-# ═══════════════════════════════════════════════════════════════════════════════
 
 output:
   # What we think it is
@@ -45,9 +40,7 @@ output:
   fixed_content: |
     {{fixed_yaml}}
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # TYPE DETECTION RULES
-# ═══════════════════════════════════════════════════════════════════════════════
 
 detection_rules:
   # Object-like files
@@ -104,9 +97,7 @@ detection_rules:
       - filename: "INDEX.yml"
     fix: "This is a valid index file — no wrapper needed"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # EXAMPLES
-# ═══════════════════════════════════════════════════════════════════════════════
 
 examples:
   - file: "kitchen/toaster.yml"
@@ -133,9 +124,7 @@ examples:
         duration: 5
         effect: "+2 energy"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # PROCEDURE
-# ═══════════════════════════════════════════════════════════════════════════════
 
 procedure: |
   1. READ the file content

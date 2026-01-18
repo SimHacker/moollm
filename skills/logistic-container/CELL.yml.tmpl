@@ -5,7 +5,6 @@
 # Created automatically when new item types enter a grid container.
 # Can be navigated like a mini-room if container.grid.navigable = true.
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 cell:
   # === IDENTITY ===
@@ -84,9 +83,7 @@ cell:
     is_full: "{{count >= stack_limit}}"
     percent_full: "{{count / stack_limit}}"
     
-# ═══════════════════════════════════════════════════════════════════════════════
 # OPERATIONS
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # ADD (count or instance)
 #   If fungible:
@@ -108,9 +105,7 @@ cell:
 #   If fungible: return { item_type, count }
 #   If instance: return instances[0] or instances.find(predicate)
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 # EXAMPLES
-# ═══════════════════════════════════════════════════════════════════════════════
 
 # Example: Fungible ore storage
 #

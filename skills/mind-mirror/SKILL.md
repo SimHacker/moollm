@@ -367,13 +367,11 @@ Every MOOLLM entity can have a Mind Mirror profile defining its personality.
 **But here's the magic:** The comments aren't just documentation — MOOLLM *reads* them. The LLM interprets YAML Jazz comments as semantic modulation of the data. Comments explain, qualify, contextualize, and *drive behavior*.
 
 ```yaml
-# ═══════════════════════════════════════════════════════════════════════════
 # CAPTAIN ASHFORD — Complete Personality Profile
 # 
 # This is YAML JAZZ. Every comment here is DATA that the LLM reads and uses.
 # Numbers set the dial. Comments explain what it MEANS for THIS character.
 # Comments make personality SPECIFIC, VIVID, ALIVE.
-# ═══════════════════════════════════════════════════════════════════════════
 
 character:
   name: "Captain Ashford"
@@ -462,7 +460,6 @@ character:
                          # Not a snob, but has standards.
                          # Can navigate fancy dinner AND tavern brawl.
 
-# ═══════════════════════════════════════════════════════════════════════════
 # HOW MOOLLM USES THIS:
 #
 # 1. DIALOGUE GENERATION
@@ -493,7 +490,6 @@ character:
 #    All comments combine into a distinctive presence.
 #    You FEEL Captain Ashford in every line.
 #    The YAML Jazz IS the character.
-# ═══════════════════════════════════════════════════════════════════════════
 ```
 
 **The Key Insight:** Numbers alone are dead data. Numbers + YAML Jazz comments = living character.

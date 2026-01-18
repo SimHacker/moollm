@@ -19,13 +19,10 @@
 # - Dashes aren't valid JS/Python identifiers
 # - foo-bar skill → foo_bar namespace
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 context:
   
-  # ═══════════════════════════════════════════════════════════════════════════
   # STANDARD KEYS — Always present in every ctx
-  # ═══════════════════════════════════════════════════════════════════════════
   
   standard:
     
@@ -63,9 +60,7 @@ context:
       members: []                  # List of character ids
       leader: ""                   # Current leader id
     
-  # ═══════════════════════════════════════════════════════════════════════════
   # EXTENDED KEYS — Present when relevant
-  # ═══════════════════════════════════════════════════════════════════════════
   
   extended:
     
@@ -95,9 +90,7 @@ context:
       goals: []                    # Current goals
       state: {}                    # NPC state
       
-  # ═══════════════════════════════════════════════════════════════════════════
   # SKILL STATE NAMESPACES
-  # ═══════════════════════════════════════════════════════════════════════════
   #
   # Skills register their state under world.skills.<skill_name>
   # Use UNDERSCORES not dashes (valid identifiers in JS/Python)
@@ -128,9 +121,7 @@ context:
   #   pie_menu:                    # Note: underscore!
   #     last_selection: "north"
   
-  # ═══════════════════════════════════════════════════════════════════════════
   # UTILITY FUNCTIONS — Bound to world
-  # ═══════════════════════════════════════════════════════════════════════════
   #
   # These are methods on world that closures can call.
   # They're the "API" for interacting with the world.
@@ -422,9 +413,7 @@ context:
       description: "Log for debugging (not shown to player)"
       example: 'world.log("Fuel now: " + world.object.state.fuel)'
       
-# ═══════════════════════════════════════════════════════════════════════════════
 # EXAMPLE: Lamp Simulate with Full World Context
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # simulate_js: (world) => {
 #   // world.object is this lamp
@@ -444,16 +433,12 @@ context:
 #   }
 # }
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 # EXAMPLE: Guard Expression with World Context
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # guard: "player has the key AND room is not dark"
 # guard_js: (world) => world.has("brass-key") && !world.room.is_dark
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 # EXAMPLE: Skill State Access
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # # Skill "pie-menu" stores state as world.skills.pie_menu
 # score_if: "last pie menu selection was north"
@@ -463,4 +448,3 @@ context:
 # guard: "player has at least 10 gold"
 # guard_js: (world) => world.skills.economy.gold >= 10
 #
-# ═══════════════════════════════════════════════════════════════════════════════

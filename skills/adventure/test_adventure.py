@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 """
 test_adventure.py — Test suite for MOOLLM Adventure Runtime
-═══════════════════════════════════════════════════════════════════════════════
 
 Run with: python test_adventure.py
 Or: python -m pytest test_adventure.py -v
 
-═══════════════════════════════════════════════════════════════════════════════
 """
 
 import sys
@@ -22,9 +20,7 @@ from adventure_runtime import (
 )
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # TEST DATA
-# ═══════════════════════════════════════════════════════════════════════════════
 
 MINIMAL_ADVENTURE = {
     "name": "Test Adventure",
@@ -86,9 +82,7 @@ MINIMAL_ADVENTURE = {
 }
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # TEST FUNCTIONS
-# ═══════════════════════════════════════════════════════════════════════════════
 
 def test_load_adventure():
     """Test loading an adventure."""
@@ -395,9 +389,7 @@ def test_empty_command():
     return True
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # TEST RUNNER
-# ═══════════════════════════════════════════════════════════════════════════════
 
 def run_all_tests():
     """Run all tests."""

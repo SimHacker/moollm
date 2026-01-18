@@ -17,7 +17,6 @@ object:
     
   examine: |
     INTAKE CONVEYOR SYSTEM — THE LEELA PIPELINE
-    ════════════════════════════════════════════
     
     Follow the flow:
     
@@ -108,10 +107,8 @@ object:
               │                                │
               └────────────────────────────────┘
     
-    ════════════════════════════════════════════════════════════
     
     OBJECT DETECTION PIPELINE (Left Track)
-    ═══════════════════════════════════════
     
     LINE M-O (Red): Object Model Development
     ─────────────────────────────────────────
@@ -137,10 +134,8 @@ object:
     classifications, confidence scores. "A cat. 97% sure."
     POWERED BY: yolo-leela-v2.3.7
     
-    ════════════════════════════════════════════════════════════
     
     POSE ESTIMATION PIPELINE (Right Track)
-    ═══════════════════════════════════════
     
     LINE M-P (Coral): Pose Model Development
     ─────────────────────────────────────────
@@ -166,10 +161,8 @@ object:
     movement vectors, gesture signatures. "Waving. Definitely waving."
     POWERED BY: pose-leela-v1.8.2
     
-    ════════════════════════════════════════════════════════════
     
     LINE V (Purple): Video Intake
-    ═════════════════════════════
     Raw video streams arrive on purple containers.
     Cameras, recordings, live feeds — all enter here.
     The line FORKS at Junction Alpha, splitting each stream
@@ -206,20 +199,17 @@ object:
     "Leela watches itself work. And learns."
     
     JUNCTION BETA: The Convergence
-    ══════════════════════════════
     Objects and Poses containers MERGE here.
     Blue meets Orange. Context meets Motion.
     "A cat (97%) is waving (definitely)."
     Output: Insight containers (Gold)
     
     LINE I (Gold): Insights Flow
-    ════════════════════════════
     Gold containers, heavier with understanding.
     Each insight knows what it saw AND what it meant.
     Flows into Python Actions for high-level processing.
     
     LINE A (Green): Python Actions
-    ══════════════════════════════
     Green containers carry executable logic.
     Python scripts consume insights, define high-level actions,
     and emit structured data to SQL tables.
@@ -237,13 +227,11 @@ object:
     • Schedule follow-up actions
     
     LINE S (Silver): SQL Storage
-    ════════════════════════════
     Silver containers descend into the SQL tanks below.
     Structured. Indexed. Queryable. Patient.
     Data waits here to be retrieved.
     
     PDA: Personal Data Assistant
-    ═════════════════════════════
     The PDA is a chat-driven interface for exploring data.
     Users converse naturally; the PDA does the rest.
     

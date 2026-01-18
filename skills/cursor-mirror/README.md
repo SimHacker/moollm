@@ -344,13 +344,10 @@ Add `--sources` to any command to see WHERE the data comes from:
 cursor-mirror --sources -f md list-composers -n 3
 
 # Output includes markdown table PLUS:
-# ═══════════════════════════════════════════════════════════════
 # DATA SOURCES — Query these directly for raw access
-# ═══════════════════════════════════════════════════════════════
 # 📁 DATABASES: /Users/.../globalStorage/state.vscdb
 # 📊 TABLES: ItemTable, cursorDiskKV
 # 🔍 SQL: SELECT value FROM ItemTable WHERE key='composer.composerData'
-# ═══════════════════════════════════════════════════════════════
 ```
 
 This teaches LLMs to fish! They can then query the databases directly.
