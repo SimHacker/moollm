@@ -92,9 +92,7 @@ card:
   # METHODS: All 47 commands organized by category
   
   methods:
-    # ═══════════════════════════════════════════════════════════════════════
     # NAVIGATION & DISCOVERY
-    # ═══════════════════════════════════════════════════════════════════════
     
     LIST-WORKSPACES:
       category: navigation
@@ -154,9 +152,7 @@ card:
       returns: "Full path, hash, folder, size, composers"
       note: "Debug reference resolution"
         
-    # ═══════════════════════════════════════════════════════════════════════
     # MESSAGE VIEWING
-    # ═══════════════════════════════════════════════════════════════════════
     
     TAIL:
       category: viewing
@@ -192,9 +188,7 @@ card:
         - {name: ref, type: string, required: true}
         - {name: speed, type: float, default: 1.0, note: "0 = instant"}
         
-    # ═══════════════════════════════════════════════════════════════════════
     # SEARCH & ANALYSIS
-    # ═══════════════════════════════════════════════════════════════════════
     
     GREP:
       category: analysis
@@ -223,9 +217,7 @@ card:
       returns: "User/assistant messages, tool calls, thinking"
       note: "Shows the exact sequence of events"
       
-    # ═══════════════════════════════════════════════════════════════════════
     # TOOL & AGENT INSPECTION
-    # ═══════════════════════════════════════════════════════════════════════
     
     TOOLS:
       category: tools
@@ -283,9 +275,7 @@ card:
         - "Tracing external tool calls"
         - "Designing orchestrator MCP integration"
       
-    # ═══════════════════════════════════════════════════════════════════════
     # CONTEXT ASSEMBLY & RETRIEVAL
-    # ═══════════════════════════════════════════════════════════════════════
     
     CONTEXT:
       category: context
@@ -334,9 +324,7 @@ card:
         - "anysphere.cursor-retrieval/embeddable_files.txt"
         - "anysphere.cursor-retrieval/high_level_folder_description.txt"
       
-    # ═══════════════════════════════════════════════════════════════════════
     # FILES & TODOS
-    # ═══════════════════════════════════════════════════════════════════════
     
     FILES:
       category: files
@@ -350,9 +338,7 @@ card:
       command: "cursor-mirror todos <ref>"
       returns: "Todo items with status (pending, in_progress, completed)"
       
-    # ═══════════════════════════════════════════════════════════════════════
     # IMAGE COMMANDS
-    # ═══════════════════════════════════════════════════════════════════════
     
     IMAGES:
       category: images
@@ -403,9 +389,7 @@ card:
         - "I-Beam narrated galleries"
       k_line: IMAGE-ARCHAEOLOGY
       
-    # ═══════════════════════════════════════════════════════════════════════
     # EXPORT & STATS
-    # ═══════════════════════════════════════════════════════════════════════
     
     EXPORT-CHAT:
       category: export
@@ -452,9 +436,7 @@ card:
       command: "cursor-mirror index [-o DIR]"
       returns: "YAML index with titles, dates, message counts, keywords"
       
-    # ═══════════════════════════════════════════════════════════════════════
     # STATUS COMMANDS
-    # ═══════════════════════════════════════════════════════════════════════
     
     STATUS:
       category: status
@@ -509,9 +491,7 @@ card:
       command: "cursor-mirror status-endpoints"
       returns: "AI backends, semantic search, telemetry URLs"
       
-    # ═══════════════════════════════════════════════════════════════════════
     # SQL & DATABASE COMMANDS
-    # ═══════════════════════════════════════════════════════════════════════
     
     SQL:
       category: database

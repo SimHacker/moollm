@@ -4,7 +4,7 @@
 
 **Ever wondered what the hell Cursor is actually doing?** Why it read 47 files when you asked a simple question? What context it assembled? What it was *thinking* in those hidden reasoning blocks?
 
-**cursor-mirror cracks open Cursor's brain.** 59 read-only commands to inspect every conversation, every tool call, every file it touched, every decision it made. SQLite databases + plaintext transcripts + cached tool results — all intertwined, all queryable.
+**cursor-mirror cracks open Cursor's brain.** 59 read-only commands to inspect every conversation, every tool call, every file it touched, every decision it made. SQLite databases + plaintext transcripts + cached tool results — all intertwingled, all queryable.
 
 ```bash
 # What just happened?
