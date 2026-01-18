@@ -387,6 +387,76 @@ advertisements:
     score: 80
     condition: "Dog hasn't been walked recently"
 
+# SPECIALIZATIONS
+# Age and role variants defined within the species
+
+specializations:
+
+  puppy:
+    emoji: 🐶
+    description: "Young dog — maximum chaos, maximum cute"
+    age: "< 1 year"
+    
+    modifiers:
+      energy: +50%
+      clumsiness: +80%
+      training: -60%
+      cuteness: +100%
+      attention_span: -70%
+      
+    behaviors:
+      added:
+        - TUMBLE       # Fall over constantly
+        - CHEW         # Everything is a chew toy
+        - ACCIDENT     # Potty training in progress
+        - ZOOM         # Random bursts of chaos
+        - NIBBLE       # Puppy bites (not aggressive)
+        - NAP-CRASH    # Instant sleep after play
+        
+      modified:
+        FETCH: "May not bring it back. May eat it."
+        WALK: "More like dragging/being dragged"
+        GOOD-BOY: "Doesn't know what they did but HAPPY"
+        
+    parental_inheritance:
+      from_mother: [temperament, size-tendency, coloring]
+      from_father: [temperament, size-tendency]
+      from_litter: [play-style, social-confidence]
+      from_adopter: [home, family-bonds, training]
+      
+    advertisements:
+      ADOPT-PUPPY:
+        score: 95
+        condition: "Want maximum chaos and love"
+        effect: "Bring home a puppy"
+        warning: "Sleep? What's sleep?"
+        
+      TRAIN:
+        score: 85
+        condition: "Teaching puppy basics"
+        effect: "Incremental learning with many failures"
+        
+  working-dog:
+    emoji: 🦮
+    description: "Trained for specific tasks"
+    
+    roles:
+      - guide-dog
+      - therapy-dog
+      - search-and-rescue
+      - herding-dog
+      - guard-dog
+      
+    modifiers:
+      training: +80%
+      focus: +60%
+      
+    behaviors:
+      added:
+        - WORK         # Perform trained task
+        - ALERT        # Signal handler
+        - IGNORE-DISTRACTIONS
+
 # RELATED
 
 see-also:
@@ -395,6 +465,7 @@ see-also:
   - skills/buff       # Dog interactions grant buffs
   - skills/party      # Dogs as companions
   - skills/mind-mirror # Dog personality traits
+  - skills/animal     # Base animal skill
 
 # CREDITS
 

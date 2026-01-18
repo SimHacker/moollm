@@ -370,14 +370,102 @@ advertisements:
     score: 80
     condition: "Need a mood boost or luck"
 
+# SPECIALIZATIONS
+# Age and role variants defined within the species
+
+specializations:
+
+  kitten:
+    emoji: 🐱
+    description: "Young cat — chaos incarnate, murder practice"
+    age: "< 1 year"
+    
+    modifiers:
+      energy: +100%
+      murder_instinct: +200%  # Everything is prey
+      judgment: -80%          # Not yet perfected
+      clumsiness: +60%
+      cuteness: +100%
+      
+    behaviors:
+      added:
+        - POUNCE       # Attack everything that moves
+        - STARTLE      # Jump at random stimuli
+        - CLIMB        # Up curtains, up legs, up everything
+        - ZOOM         # 3am chaos mode
+        - WRESTLE      # Sibling combat training
+        - MLEM         # Forgot tongue exists
+        
+      modified:
+        HUNT: "Practice mode — attacks toes, shadows, dust"
+        LAND: "Still learning. May faceplant."
+        JUDGE: "Tries to judge but too distracted"
+        
+    parental_inheritance:
+      from_mother: [temperament, coloring, hunting-style]
+      from_father: [temperament, size-tendency]
+      from_litter: [play-aggression, social-hierarchy]
+      from_adopter: [home, family-bonds, tolerance-of-dog]
+      
+    litter_dynamics:
+      positions:
+        - alpha-kitten    # First to food, bossy
+        - chaos-kitten    # Maximum energy
+        - sleepy-kitten   # Naps through everything
+        - observer-kitten # Watches siblings, learns
+        
+    advertisements:
+      ADOPT-KITTEN:
+        score: 95
+        condition: "Want tiny murder machine"
+        effect: "Bring home a kitten"
+        warning: "Your ankles will never be safe"
+        
+      SOCIALIZE:
+        score: 85
+        condition: "Teaching kitten manners"
+        effect: "Gradual reduction in ankle attacks"
+        
+  queen:
+    emoji: 👑🐱
+    description: "Mother cat — protective, teaching"
+    
+    behaviors:
+      added:
+        - NURSE        # Feed kittens
+        - CARRY        # Move kittens by scruff
+        - TEACH-HUNT   # Show kittens how to murder
+        - PROTECT      # Fierce defense of kittens
+        
+    parental_role:
+      teaches: [hunting, grooming, cat-etiquette]
+      protects: [from-threats, from-cold, from-dog]
+      
+  tomcat:
+    emoji: 🐈
+    description: "Unneutered male — territorial"
+    
+    modifiers:
+      territory: +80%
+      aggression: +40%
+      wandering: +60%
+      
+    behaviors:
+      added:
+        - SPRAY        # Mark territory (gross)
+        - YOWL         # Night screaming
+        - FIGHT        # Other tomcats
+
 # RELATED
 
 see-also:
+  - skills/dog        # The comparison class
   - skills/character  # Cats are characters
   - skills/buff       # Cat interactions grant buffs
   - skills/mind-mirror # Cat personality traits
   - skills/room       # Cats live in rooms
   - skills/needs      # Cats have needs too
+  - skills/animal     # Base animal skill
 
 # CREDITS
 
