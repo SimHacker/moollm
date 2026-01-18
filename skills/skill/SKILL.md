@@ -345,25 +345,20 @@ Modern IDEs like Cursor can mount multiple repositories. Each codebase becomes a
 
 Every skill evolves through three phases:
 
-```
-┌─────────────────────────────────────────────────────┐
-│                    PLAY                              │
-│  Do it manually. Explore. Make mistakes.            │
-│  "Dropped cheese in room A..."                      │
-└─────────────────────────────────────────────────────┘
-                         ↓
-┌─────────────────────────────────────────────────────┐
-│                    LEARN                             │
-│  Notice patterns. Document them.                    │
-│  "Each room needs a unique marker..."              │
-└─────────────────────────────────────────────────────┘
-                         ↓
-┌─────────────────────────────────────────────────────┐
-│                    LIFT                              │
-│  Extract reusable skill. Share it.                  │
-│  skill: maze-mapping                                │
-│  procedure: "Drop unique item in each room"        │
-└─────────────────────────────────────────────────────┘
+```yaml
+# PLAY → LEARN → LIFT cycle
+skill_evolution:
+  play:
+    action: "Do it manually. Explore. Make mistakes."
+    example: "Dropped cheese in room A..."
+  learn:
+    action: "Notice patterns. Document them."
+    example: "Each room needs a unique marker..."
+  lift:
+    action: "Extract reusable skill. Share it."
+    result:
+      skill: "maze-mapping"
+      procedure: "Drop unique item in each room"
 ```
 
 **Documentation → Procedure → Script → Tool**
