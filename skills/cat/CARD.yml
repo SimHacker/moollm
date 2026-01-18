@@ -444,6 +444,7 @@ specializations:
   tomcat:
     emoji: 🐈
     description: "Unneutered male — territorial"
+    neutered: false
     
     modifiers:
       territory: +80%
@@ -455,6 +456,29 @@ specializations:
         - SPRAY        # Mark territory (gross)
         - YOWL         # Night screaming
         - FIGHT        # Other tomcats
+        
+  neutered:
+    emoji: 🐱✂️
+    description: "Fixed cat — calmer, healthier, no spraying"
+    default_for_adults: true  # Assumed for responsible pet ownership
+    
+    modifiers:
+      territory: -40%
+      aggression: -30%
+      wandering: -50%
+      lifespan: +20%
+      
+    behaviors:
+      removed:
+        - SPRAY        # No more marking
+        - YOWL         # No mating calls
+      modified:
+        FIGHT: "Much less likely, usually defensive only"
+        
+    note: |
+      All adult cats (Terpie, Stroopwafel) are neutered/spayed.
+      This is the responsible default. Tomcat specialization
+      explicitly overrides for unneutered males.
 
 # RELATED
 

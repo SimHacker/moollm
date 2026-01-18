@@ -456,6 +456,48 @@ specializations:
         - WORK         # Perform trained task
         - ALERT        # Signal handler
         - IGNORE-DISTRACTIONS
+        
+  neutered:
+    emoji: 🐕✂️
+    description: "Fixed dog — calmer, healthier, less roaming"
+    default_for_adults: true  # Assumed for responsible pet ownership
+    
+    modifiers:
+      territory: -30%
+      aggression: -25%
+      roaming: -60%
+      mounting: -80%
+      lifespan: +15%
+      
+    behaviors:
+      removed:
+        - MARK-EVERYTHING  # Reduced marking urge
+      modified:
+        GREET: "Less intense crotch-sniffing"
+        FIGHT: "Much less likely with other dogs"
+        
+    note: |
+      All adult dogs (Biscuit, Butterscotch) are neutered/spayed.
+      This is the responsible default. Intact males/females are
+      the exception, not the rule, in responsible pet ownership.
+      
+  intact:
+    emoji: 🐕
+    description: "Unneutered/unspayed — breeding capable"
+    neutered: false
+    
+    modifiers:
+      territory: +40%
+      roaming: +60%
+      
+    behaviors:
+      added:
+        - MARK-EVERYTHING  # Constant territorial marking
+        - ROAM             # Escape attempts to find mates
+      modified:
+        GREET: "VERY enthusiastic crotch investigation"
+        
+    note: "Rarely applies to pet dogs. Mostly breeding dogs."
 
 # RELATED
 
