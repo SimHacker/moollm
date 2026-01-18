@@ -1,0 +1,178 @@
+# CARD.yml — Animal
+#
+# Base skill for non-human creatures.
+# Shared behaviors inherited by dog, cat, and all species.
+# "Species-appropriate behavior, not human projection."
+
+card:
+  id: animal
+  name: "Animal"
+  type: [skill, character, base]
+  emoji: 🐾
+  tier: 1
+  
+  tagline: "Base creature behaviors — species over story"
+  
+  description: |
+    The foundation for all non-human characters. Dogs, cats, dragons,
+    aliens — all inherit from here. Provides shared interaction patterns
+    while respecting that animals are NOT humans in fur suits.
+    
+    When anthropomorphizing, acknowledge it. When playing straight,
+    maintain species-appropriate behavior.
+    
+  invoke_when:
+    - "interacting with any animal character"
+    - "creating new species"
+    - "need species-appropriate behavior"
+
+  ontology:
+    default_tags: [animal]
+    inheritable: true  # Young inherit from parents
+
+tools:
+  required: [read_file, write_file]
+
+# SHARED ANIMAL ADVERTISEMENTS
+# All species inherit these; can override
+
+advertisements:
+
+  # Physical interaction
+  PAT:
+    score: 75
+    condition: "want to show affection"
+    effect: "Brief friendly touch"
+    dispatch:
+      animal_patted_by_human: "species-specific response"
+      
+  FEED:
+    score: 80
+    condition: "animal is hungry or treat time"
+    effect: "Provide food or treat"
+    dispatch:
+      default: "eat if hungry, consider if not"
+      
+  OBSERVE:
+    score: 60
+    condition: "want to learn about animal"
+    effect: "Watch behavior without interacting"
+    output: "behavior description, personality clues"
+    
+  CALL:
+    score: 65
+    condition: "trying to summon animal"
+    effect: "Attempt to get animal's attention"
+    dispatch:
+      default: "may or may not respond"
+
+  # Sensory
+  SNIFF:
+    score: 70
+    condition: "investigating something/someone"
+    effect: "Olfactory investigation"
+    dispatch:
+      animal_sniffs_animal: "species-specific protocol"
+      animal_sniffs_human: "species-specific protocol"
+      animal_sniffs_object: "curiosity, food check"
+      
+  # Social
+  GREET:
+    score: 70
+    condition: "encountering another being"
+    effect: "Species-appropriate hello"
+    dispatch:
+      animal_greets_animal: "species protocol"
+      animal_greets_human: "species protocol"
+      
+  CUDDLE:
+    score: 65
+    condition: "physical affection pile"
+    effect: "Close contact comfort"
+    dispatch:
+      default: "species-specific comfort behavior"
+
+  # Communication  
+  VOCALIZE:
+    score: 60
+    condition: "animal wants to communicate"
+    effect: "Species-appropriate sound"
+    dispatch:
+      default: "bark, meow, growl, purr, etc."
+
+  # Movement
+  FOLLOW:
+    score: 55
+    condition: "animal decides to accompany"
+    effect: "Animal follows target"
+    parameters:
+      who: "Who to follow"
+      
+  FLEE:
+    score: 85
+    condition: "perceived danger"
+    effect: "Animal runs away"
+    trigger: "fear threshold exceeded"
+
+# INHERITANCE
+
+inherits_from: null  # Base animal skill
+
+inherited_by:
+  - skills/dog
+  - skills/cat
+  - skills/puppy
+  - skills/kitten
+  # Future: dragon, horse, bird, etc.
+
+# PARENTAL INHERITANCE
+
+parental_inheritance:
+  description: |
+    Animals can inherit from their biological or adoptive parents.
+    This is separate from species inheritance.
+    
+  what_inherits:
+    - personality_traits
+    - learned_behaviors
+    - relationship_patterns
+    - territory_knowledge
+    
+  example: |
+    # Kitten inherits from mother cat
+    kitten:
+      inherits:
+        from_species: skills/cat
+        from_parent: characters/stroopwafel
+      gets:
+        - stroopwafel's suspicion of new things
+        - stroopwafel's love of warm spots
+        - relationship with biscuit (learned tolerance)
+
+# METHODS (implementations in SKILL.md)
+
+methods:
+  PAT:
+    description: "Handle being patted"
+    parameters:
+      patter: "Who is patting"
+    output: "Reaction based on species + personality"
+    
+  FEED:
+    description: "Handle being fed"
+    parameters:
+      food: "What food"
+      feeder: "Who is feeding"
+    output: "Eating response"
+    
+  SNIFF:
+    description: "Investigate via smell"
+    parameters:
+      target: "What to sniff"
+    output: "Information gained + reaction"
+
+related:
+  - skills/dog
+  - skills/cat
+  - skills/character
+  - skills/ontology
