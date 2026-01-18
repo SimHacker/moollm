@@ -16,13 +16,16 @@ tags: [moollm, worm, cursor, pipeline, reversible]
 
 A worm is a **two-pointer cursor** that spans structures:
 
-```
-         ┌─────────────────────────────────────────┐
-    TAIL │  buffer / payload / active_tokens       │ HEAD
-         └─────────────────────────────────────────┘
-              ↑                                ↑
-           emit here                      ingest here
-           (POOP)                         (EAT/CHOMP)
+```yaml
+# Worm: two-pointer cursor spanning structures
+worm_anatomy:
+  tail:
+    position: "left side"
+    action: "emit here (POOP)"
+  buffer: "payload / active_tokens"
+  head:
+    position: "right side"
+    action: "ingest here (EAT/CHOMP)"
 ```
 
 - **Head**: Where the worm looks, reads, ingests

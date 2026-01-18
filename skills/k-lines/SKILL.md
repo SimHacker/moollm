@@ -290,11 +290,12 @@ No line numbers for images (obviously). Just the absolute path.
 
 **Solution**: Sister scripts emit K-REFs (pointers) instead of full content:
 
-```
-┌─────────────────┐      ┌─────────────────┐
-│  cursor-mirror  │ ──→  │    K-REFs       │ ──→  LLM reads
-│  (sister script)│      │  (pointers)     │      only what
-└─────────────────┘      └─────────────────┘      it needs
+```yaml
+# Sister script → K-REF → LLM flow
+kref_flow:
+  source: "cursor-mirror (sister script)"
+  produces: "K-REFs (pointers)"
+  consumer: "LLM reads only what it needs"
 ```
 
 1. **Scan** — Script searches large data (transcripts, databases)

@@ -767,29 +767,28 @@ The same YAML file works in both compiled (fast) and interpreted (flexible) mode
 
 ### The Full Template-to-Code Pipeline
 
-```
-ADVENTURE.yml.tmpl           # Human-readable template/schema
-        ↓
-   adventure.py lint         # Parse, validate, emit events
-        ↓
-   ┌─────────────────────────────────────────────┐
-   │ • Validate REQUIRED fields                  │
-   │ • Warn on missing OPTIONAL with no default  │
-   │ • Emit COMPILE_EXPRESSION events            │
-   │ • Emit COMPILE_GENERATION events            │
-   │ • Emit COMPILE_SCORE events                 │
-   └─────────────────────────────────────────────┘
-        ↓
-   LLM receives events, compiles expressions
-        ↓
-   adventure.py compile       # Generate output
-        ↓
-   ┌─────────────────────────────────────────────┐
-   │ • adventure.json (minimal, machine-readable)│
-   │ • engine.js (with compiled expressions)     │
-   │ • schema.py (Python classes for validation) │
-   │ • index.html (playable web app)             │
-   └─────────────────────────────────────────────┘
+```yaml
+# Template-to-Code Pipeline
+template_pipeline:
+  - stage: "ADVENTURE.yml.tmpl"
+    role: "Human-readable template/schema"
+  - stage: "adventure.py lint"
+    role: "Parse, validate, emit events"
+    actions:
+      - "Validate REQUIRED fields"
+      - "Warn on missing OPTIONAL with no default"
+      - "Emit COMPILE_EXPRESSION events"
+      - "Emit COMPILE_GENERATION events"
+      - "Emit COMPILE_SCORE events"
+  - stage: "LLM receives events"
+    role: "Compiles expressions"
+  - stage: "adventure.py compile"
+    role: "Generate output"
+    outputs:
+      - "adventure.json (minimal, machine-readable)"
+      - "engine.js (with compiled expressions)"
+      - "schema.py (Python classes for validation)"
+      - "index.html (playable web app)"
 ```
 
 ### Validation and Linting

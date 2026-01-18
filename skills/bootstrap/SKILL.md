@@ -234,32 +234,34 @@ This bootstrap → reusable orientation → every session starts warm
 
 ## The Intertwingularity
 
+```yaml
+# The Intertwingularity — how ideas connect
+intellectual_lineage:
+  constructionism:
+    source: "Papert"
+    yields: "PLAY-LEARN-LIFT"
+    principle: "Low floor, high ceiling, wide walls"
+  the_sims:
+    source: "Wright/Hopkins"
+    yields: "ADVERTISEMENT + AUTONOMOUS-SELECTION"
+    principle: "YAML Jazz = SimAntics for LLMs"
+  society_of_mind:
+    source: "Minsky"
+    yields: "K-LINES"
+    principle: "Protocol symbols = semantic activators"
+  self_language:
+    source: "Ungar"
+    yields: "PROTOTYPES"
+    principle: "Skills clone, not instantiate"
+  robust_first:
+    source: "Ackley"
+    yields: "NEVER-CRASH"
+    principle: "Repair demons, homeostasis"
+  speed_of_light:
+    source: "MOOLLM"
+    yields: "Many agents, one call"
+    principle: "Coherence engine orchestrates all"
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│  CONSTRUCTIONISM (Papert)                                       │
-│    └─► PLAY-LEARN-LIFT                                          │
-│          └─► Low floor, high ceiling, wide walls                │
-│                                                                 │
-│  THE SIMS (Wright/Hopkins)                                      │
-│    └─► ADVERTISEMENT + AUTONOMOUS-SELECTION                     │
-│          └─► YAML Jazz = SimAntics for LLMs                     │
-│                                                                 │
-│  SOCIETY OF MIND (Minsky)                                       │
-│    └─► K-LINES                                                  │
-│          └─► Protocol symbols = semantic activators             │
-│                                                                 │
-│  SELF LANGUAGE (Ungar)                                          │
-│    └─► PROTOTYPES                                               │
-│          └─► Skills clone, not instantiate                      │
-│                                                                 │
-│  ROBUST-FIRST (Ackley)                                          │
-│    └─► NEVER-CRASH                                              │
-│          └─► Repair demons, homeostasis                         │
-│                                                                 │
-│  SPEED-OF-LIGHT (MOOLLM)                                        │
-│    └─► Many agents, one call                                    │
-│          └─► Coherence engine orchestrates all                  │
-└─────────────────────────────────────────────────────────────────┘
 ```
 
 ## Files to Keep HOT
