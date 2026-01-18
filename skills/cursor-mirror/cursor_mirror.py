@@ -2205,7 +2205,7 @@ def fmt(obj: Any, args) -> str:
     """Format object based on --output-format (or legacy --yaml/--json/--pretty).
     
     Uses get_output_format() to resolve the format, supporting:
-      - --output-format yaml/json/jsonl
+      - --output-format yaml/json/jsonl/md/csv
       - Legacy --yaml, --json flags
       - --pretty for indented JSON
     """
@@ -2216,12 +2216,47 @@ def fmt(obj: Any, args) -> str:
         return yaml.dump(obj, default_flow_style=False, allow_unicode=True, sort_keys=False)
     elif out_fmt == "jsonl":
         if isinstance(obj, list):
-            return "\n".join(json.dumps(item, ensure_ascii=False) for item in obj)
-        return json.dumps(obj, ensure_ascii=False)
+            return "\n".join(json.dumps(item, ensure_ascii=False, default=str) for item in obj)
+        return json.dumps(obj, ensure_ascii=False, default=str)
+    elif out_fmt == "md":
+        # Capture markdown output to string
+        import io
+        old_stdout = sys.stdout
+        sys.stdout = io.StringIO()
+        try:
+            _print_markdown(obj)
+            return sys.stdout.getvalue()
+        finally:
+            sys.stdout = old_stdout
+    elif out_fmt == "csv":
+        # Capture CSV output to string
+        if not isinstance(obj, list):
+            obj = [obj] if isinstance(obj, dict) else [{"value": obj}]
+        import io
+        import csv
+        output = io.StringIO()
+        if obj and isinstance(obj[0], dict):
+            # Union of all keys
+            all_keys = []
+            seen = set()
+            for row in obj:
+                for k in row.keys():
+                    if k not in seen:
+                        all_keys.append(k)
+                        seen.add(k)
+            def flatten(v):
+                if v is None: return ""
+                if isinstance(v, (dict, list)): return json.dumps(v, ensure_ascii=False)
+                return v
+            writer = csv.DictWriter(output, fieldnames=all_keys, extrasaction='ignore')
+            writer.writeheader()
+            for row in obj:
+                writer.writerow({k: flatten(row.get(k, "")) for k in all_keys})
+        return output.getvalue()
     else:  # json (default for structured output)
         if pretty:
-            return json.dumps(obj, ensure_ascii=False, indent=2)
-        return json.dumps(obj, ensure_ascii=False)
+            return json.dumps(obj, ensure_ascii=False, indent=2, default=str)
+        return json.dumps(obj, ensure_ascii=False, default=str)
 
 
 def parse_since(since: str) -> Optional[str]:
