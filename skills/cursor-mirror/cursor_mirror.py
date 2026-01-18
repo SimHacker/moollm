@@ -1915,9 +1915,28 @@ def output_data(data: Any, fmt: str, command: str = "command",
         import io
         output = io.StringIO()
         if isinstance(data[0], dict):
-            writer = csv.DictWriter(output, fieldnames=data[0].keys())
+            # Collect union of all keys across all objects (preserving order from first occurrence)
+            all_keys = []
+            seen_keys = set()
+            for row in data:
+                for key in row.keys():
+                    if key not in seen_keys:
+                        all_keys.append(key)
+                        seen_keys.add(key)
+            
+            # Flatten nested values for CSV compatibility
+            def flatten_value(v):
+                if v is None:
+                    return ""
+                if isinstance(v, (dict, list)):
+                    return json.dumps(v, ensure_ascii=False)
+                return v
+            
+            writer = csv.DictWriter(output, fieldnames=all_keys, extrasaction='ignore')
             writer.writeheader()
-            writer.writerows(data)
+            for row in data:
+                flat_row = {k: flatten_value(row.get(k, "")) for k in all_keys}
+                writer.writerow(flat_row)
         else:
             writer = csv.writer(output)
             writer.writerows(data)
@@ -1955,19 +1974,42 @@ def _print_text_data(data: Any, indent: int = 0) -> None:
 
 
 def _print_markdown_table(data: List[Dict]) -> None:
-    """Print data as a markdown table."""
+    """Print data as a markdown table with union of all keys."""
     if not data:
         return
-    headers = list(data[0].keys())
+    
+    # Collect union of all keys (preserving order from first occurrence)
+    headers = []
+    seen = set()
+    for row in data:
+        for key in row.keys():
+            if key not in seen:
+                headers.append(key)
+                seen.add(key)
+    
+    def format_cell(v):
+        if v is None:
+            return ""
+        if isinstance(v, (dict, list)):
+            # Compact JSON for nested structures
+            s = json.dumps(v, ensure_ascii=False)
+            if len(s) > 50:
+                s = s[:47] + "..."
+            return s
+        s = str(v)
+        # Escape pipes and newlines
+        s = s.replace("|", "\\|").replace("\n", " ")
+        if len(s) > 50:
+            s = s[:47] + "..."
+        return s
+    
     # Header row
     print("| " + " | ".join(str(h) for h in headers) + " |")
     # Separator
     print("| " + " | ".join("---" for _ in headers) + " |")
     # Data rows
     for row in data:
-        cells = [str(row.get(h, "")) for h in headers]
-        # Escape pipes in cell content
-        cells = [c.replace("|", "\\|") for c in cells]
+        cells = [format_cell(row.get(h, "")) for h in headers]
         print("| " + " | ".join(cells) + " |")
 
 
@@ -2533,10 +2575,13 @@ def cmd_list_workspaces(args):
     for idx, w in enumerate(ws_data):
         w["index"] = f"w{idx+1}"
     
-    if get_output_format(args) != "text":
+    out_fmt = get_output_format(args)
+    if out_fmt != "text":
         # Remove path for serialization
         output = [{k: v for k, v in w.items() if k != "path"} for w in ws_data]
-        print(fmt(output, args))
+        output_data(output, out_fmt, "list-workspaces",
+                   supported=["text", "json", "jsonl", "yaml", "csv", "md"])
+        return
     else:
         if sort_key == "date":
             print(f"{'IDX':<5} {'SHORT':<10} {'MODIFIED':<20} {'CHATS':>5}  FOLDER")
