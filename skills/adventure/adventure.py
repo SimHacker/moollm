@@ -808,13 +808,11 @@ class AdventureLinter:
         'methods',  # Object methods that simulate/advertisements can call
     ]
     
-    # ─────────────────────────────────────────────────────────────────────────
     # RUNTIME CONTEXT: Tells the LLM what code to generate
     #
     # "The linter points the LLM toward the execution engines and libraries
     #  the generated code will use, so it knows EXACTLY what to generate!"
     #     — Don Hopkins
-    # ─────────────────────────────────────────────────────────────────────────
     
     @staticmethod
     def _make_runtime_context(subject: str = 'object', expected_type: str = 'closure') -> dict:

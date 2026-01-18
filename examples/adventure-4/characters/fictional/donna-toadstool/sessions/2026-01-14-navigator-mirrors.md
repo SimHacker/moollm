@@ -91,7 +91,6 @@ Donna approached the north wall. I-Beam narrated:
 
 ```
 IDX   SHORT            SIZE   CHATS  FOLDER
-─────────────────────────────────────────────────────────────────────
 w1    a81a226d      64408KB    25   /Users/.../central
 w2    43763718      21072KB     2   (unknown)
 w3    769a2689      17996KB    10   /Users/.../moollm  ← DONNA'S HOME
@@ -107,9 +106,7 @@ Hash: 769a268960457999e3f29ee8bd3bc640
 Size: 17.6 MB
 
 COMPOSERS (10 conversations)
-──────────────────────────────────────────────────────────────────────
 IDX   SHORT        MSGS MODE     NAME
-──────────────────────────────────────────────────────────────────────
 c1    7033e0d8     7460 agent    Moollm project README content
 c2    3364f9bd     6986 agent    Don Hopkins character configuration
 c3    9861c0a4     3263 agent    Cursor chat data management tools  ← NOW
@@ -190,7 +187,6 @@ cursor_chat_statistics:
 
 ```
 MODEL                                      MESSAGES    CHATS
-────────────────────────────────────────────────────────────
 unknown                                       46595       28
 claude-4.5-opus-high-thinking                  3756       23  ← DEEP THOUGHT
 gpt-5.1-codex                                  1290        2
@@ -257,7 +253,6 @@ the_commits:
 
 ```
 Indexing Status (37 workspaces with retrieval data)
-────────────────────────────────────────────────────────────────────
 
 /Users/.../lloooomm
   Embeddable files: 3,009  ← Donna's spiritual ancestors

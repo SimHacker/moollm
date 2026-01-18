@@ -2364,9 +2364,7 @@ dotcursor:
   platform: macos
   base_path: ~/.cursor
   
-  # ─────────────────────────────────────────────────────────────────
   # Top-Level Configuration Files
-  # ─────────────────────────────────────────────────────────────────
   
   config_files:
     argv.json:
@@ -2405,9 +2403,7 @@ dotcursor:
       schema:
         type: array
         
-  # ─────────────────────────────────────────────────────────────────
   # AI Tracking Database
-  # ─────────────────────────────────────────────────────────────────
   
   ai_tracking:
     path: ai-tracking/ai-code-tracking.db
@@ -2453,9 +2449,7 @@ dotcursor:
           mode: {type: text}
           updatedAt: {type: integer, format: unix_ms}
           
-  # ─────────────────────────────────────────────────────────────────
   # Per-Workspace Project Data
-  # ─────────────────────────────────────────────────────────────────
   
   projects:
     path: projects/

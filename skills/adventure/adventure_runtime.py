@@ -952,9 +952,7 @@ class AdventureEngine:
                 setup_logging(LogLevel.DEBUG)
                 return {'success': True, 'message': 'Debug mode ON'}
     
-    # ─────────────────────────────────────────────────────────────────────────
     # Helper methods
-    # ─────────────────────────────────────────────────────────────────────────
     
     def _find_object(self, name: str) -> Optional[GameObject]:
         """Find object in current room."""
@@ -986,9 +984,7 @@ class AdventureEngine:
                 return char
         return None
     
-    # ─────────────────────────────────────────────────────────────────────────
     # STATE EXPORT/IMPORT
-    # ─────────────────────────────────────────────────────────────────────────
     
     def export_state(self) -> Dict:
         """

@@ -376,10 +376,8 @@ Every MOOLLM entity can have a Mind Mirror profile defining its personality.
 character:
   name: "Captain Ashford"
   
-  # ─────────────────────────────────────────────────────────────────────────
   # THE SIMS TRAITS (behavioral tendencies)
   # What do they gravitate toward? How do they act when unobserved?
-  # ─────────────────────────────────────────────────────────────────────────
   
   sims_traits:
     neat: 3            # Tolerates mess. Ship is "organized chaos."
@@ -402,10 +400,8 @@ character:
                        # First instinct: help. Second instinct: assess motive.
                        # Will throw hands if you hurt his people.
   
-  # ─────────────────────────────────────────────────────────────────────────
   # LEARY'S FOUR PLANES (interpersonal style)
   # How do they approach others? What's their vibe?
-  # ─────────────────────────────────────────────────────────────────────────
   
   mind_mirror:
   
