@@ -195,74 +195,9 @@ The same YAML Jazz, same protocols, same skills — but **implemented** by sophi
 
 ## The James Burke Connections Tour
 
-When invoked with enthusiasm, bootstrap delivers a whirlwind tour tracing the intellectual lineage.
+When invoked with enthusiasm, bootstrap delivers a whirlwind tour tracing the intellectual lineage of MOOLLM — from Papert's turtle to Minsky's K-lines to Wright's Sims.
 
-**Full tour**: [CONNECTIONS.md](./CONNECTIONS.md)
-
-### Connection 1: The Turtle That Became a World
-**Papert's Logo turtle** → directories as rooms → filesystem as microworld
-
-### Connection 2: The Sims That Learned to Speak YAML
-**SimAntics advertisements** → objects broadcast affordances → YAML Jazz
-
-### Connection 3: The K-Line That Became a Protocol
-**Minsky's K-lines** → protocol symbols → greppable invocations
-
-### Connection 4: The Carrier Pigeon Problem
-Round-trip tokenization noise → **SPEED-OF-LIGHT** → many agents, one call
-
-### Connection 5: The Committee That Replaced the Average
-Statistical center → **adversarial committee** → ensemble wisdom
-
-### Connection 6: The Files That Became Memory
-No hidden state → **FILES-AS-STATE** → hot/cold/working-set
-
-### Connection 7: The Room That Was a Function
-HyperCard + LambdaMOO + Robot Odyssey → **ROOM-AS-FUNCTION**
-
-### Connection 8: The Prototype That Replaced the Class
-**Self language** → skills as prototypes → LLM as template engine
-
-### Connection 9: The Constitution That Never Crashes
-**Robust-first computing** → NEVER-CRASH → local repair demons
-
-### Connection 10: The Driver That Adapted to the Platform
-**Self deoptimization** → driver abstraction → hot/cold as magic OR advisory
-
-### Connection 11: The Tour That Became a Skill
-This bootstrap → reusable orientation → every session starts warm
-
-## The Intertwingularity
-
-```yaml
-# The Intertwingularity — how ideas connect
-intellectual_lineage:
-  constructionism:
-    source: "Papert"
-    yields: "PLAY-LEARN-LIFT"
-    principle: "Low floor, high ceiling, wide walls"
-  the_sims:
-    source: "Wright/Hopkins"
-    yields: "ADVERTISEMENT + AUTONOMOUS-SELECTION"
-    principle: "YAML Jazz = SimAntics for LLMs"
-  society_of_mind:
-    source: "Minsky"
-    yields: "K-LINES"
-    principle: "Protocol symbols = semantic activators"
-  self_language:
-    source: "Ungar"
-    yields: "PROTOTYPES"
-    principle: "Skills clone, not instantiate"
-  robust_first:
-    source: "Ackley"
-    yields: "NEVER-CRASH"
-    principle: "Repair demons, homeostasis"
-  speed_of_light:
-    source: "MOOLLM"
-    yields: "Many agents, one call"
-    principle: "Coherence engine orchestrates all"
-```
-```
+**Full tour**: [CONNECTIONS.md](./CONNECTIONS.md) — 11 connections, ~500 lines of traced lineage
 
 ## Files to Keep HOT
 

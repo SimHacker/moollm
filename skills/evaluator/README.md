@@ -62,20 +62,21 @@ This pattern:
 
 ## The Pattern
 
-```
-Committee Room                    Evaluation Room
-     │                                 │
-     │ [heated debate]                 │
-     │                                 │
-     └──── OUTPUT ────────────────────►│
-                                       │ [no context]
-                                       │ [applies RUBRIC]
-                                       │
-     ┌──── CRITIQUE ◄─────────────────┘
-     │
-     │ [if score fails]
-     │ [revision loop]
-     ▼
+```mermaid
+flowchart LR
+    subgraph Committee["Committee Room"]
+        Debate["heated debate"]
+    end
+    
+    subgraph Eval["Evaluation Room"]
+        NoCtx["no context"]
+        Rubric["applies RUBRIC"]
+    end
+    
+    Committee -->|OUTPUT| Eval
+    Eval -->|CRITIQUE| Committee
+    
+    Note["if score fails → revision loop"]
 ```
 
 ## Credits

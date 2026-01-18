@@ -7,32 +7,13 @@
 The adventure linter emits **events** describing what it found.
 These YAML files are **handlers** that teach the LLM how to respond.
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    LINTER (adventure.py)                     │
-│                                                             │
-│   Walk directory → Parse YAML → Emit events                 │
-│                                                             │
-│   Events: COMPILE_EXPRESSION, INVALID_SCHEMA, etc.          │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    EVENT HANDLERS (YAML)                     │
-│                                                             │
-│   Each handler is a YAML Jazz template that teaches         │
-│   the LLM how to process a specific event type.             │
-│                                                             │
-│   Files: COMPILE_EXPRESSION.yml.tmpl, INVALID_SCHEMA.yml.tmpl│
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    LLM RESPONSE                              │
-│                                                             │
-│   Generated code, fixes, suggestions                        │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    Linter["LINTER (adventure.py)<br/>Walk directory → Parse YAML → Emit events<br/>Events: COMPILE_EXPRESSION, INVALID_SCHEMA, etc."]
+    Handlers["EVENT HANDLERS (YAML)<br/>Templates that teach LLM how to process events<br/>Files: COMPILE_EXPRESSION.yml.tmpl, etc."]
+    Response["LLM RESPONSE<br/>Generated code, fixes, suggestions"]
+    
+    Linter --> Handlers --> Response
 ```
 
 ## Handler Files

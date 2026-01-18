@@ -22,18 +22,23 @@ Each quadrant has a `LOGISTIC-CONTAINER.yml`. Grid rooms **inherit** from it.
 
 **Grid rooms are CITY BLOCKS at street intersections!**
 
-```
-           N (street north)
-           ↑
-    ┌──────┼──────┐
-    │  NW  │  NE  │  ← BUILDINGS you ENTER
-    │ 🏭   │  📦  │
-W ──┼──────●──────┼── E (streets east/west)
-    │  📦  │  🚚  │    
-    │  SW  │  SE  │  ← BUILDINGS you ENTER
-    └──────┼──────┘
-           ↓
-           S (street south)
+```mermaid
+flowchart TB
+    subgraph Block["City Block at Intersection"]
+        direction TB
+        N["N (street)"] 
+        subgraph Buildings["Buildings you ENTER"]
+            NW["NW 🏭"] 
+            NE["NE 📦"]
+            SW["SW 📦"] 
+            SE["SE 🚚"]
+        end
+        S["S (street)"]
+    end
+    
+    W["W (street)"] --> Block
+    Block --> E["E (street)"]
+    N --> Block --> S
 ```
 
 - **Streets** = Cardinal exits (N/S/E/W) — you TRAVEL

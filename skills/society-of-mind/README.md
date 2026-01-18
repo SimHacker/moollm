@@ -35,21 +35,15 @@
 
 Marvin Minsky proposed that intelligence is not a single thing but an emergent property of many smaller, simpler processes -- **agents** -- working together, often in conflict.
 
-```
-    ┌───────────────────────────────────────────┐
-    │              MIND                         │
-    │  ┌─────┐  ┌─────┐  ┌─────┐  ┌─────┐       │
-    │  │Agent│  │Agent│  │Agent│  │Agent│ ...   │
-    │  │  A  │  │  B  │  │  C  │  │  D  │       │
-    │  └──┬──┘  └──┬──┘  └──┬──┘  └──┬──┘       │
-    │     │        │        │        │          │
-    │     └────────┴────────┴────────┘          │
-    │                  │                        │
-    │            ┌─────┴─────┐                  │
-    │            │  AGENCY   │                  │
-    │            │(emergent) │                  │
-    │            └───────────┘                  │
-    └───────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph Mind["MIND"]
+        A["Agent A"]
+        B["Agent B"]
+        C["Agent C"]
+        D["Agent D ..."]
+        A & B & C & D --> Agency["AGENCY<br/>(emergent)"]
+    end
 ```
 
 No single agent "understands." Understanding emerges from the pattern of activations.

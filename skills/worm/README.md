@@ -17,12 +17,9 @@ A worm is a **two-pointer cursor** (head + tail) that can:
 - Emit data at head or tail (POOP/BARF)
 - Pipe between documents or into a worm network
 
-```
-         ┌─────────────────────────────────────────┐
-    TAIL │  buffer / payload / active_tokens       │ HEAD
-         └─────────────────────────────────────────┘
-              ↑                                ↑
-           POOP here                       EAT here
+```mermaid
+flowchart LR
+    Tail["TAIL<br/>POOP here"] --> Buffer["buffer / payload / active_tokens"] --> Head["HEAD<br/>EAT here"]
 ```
 
 ## The Reversible Verb Basis
