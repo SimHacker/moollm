@@ -141,29 +141,18 @@ if __name__ == "__main__":
 
 ### Dual-Audience Design
 
-```
-                    ┌─────────────────┐
-                    │   Python File   │
-                    │  (sniffable)    │
-                    └────────┬────────┘
-                             │
-            ┌────────────────┴────────────────┐
-            │                                 │
-            ▼                                 ▼
-    ┌───────────────┐                 ┌───────────────┐
-    │    Human      │                 │     LLM       │
-    │   runs:       │                 │   reads:      │
-    │  --help       │                 │  first 50     │
-    │               │                 │  lines        │
-    └───────────────┘                 └───────────────┘
-            │                                 │
-            └────────────────┬────────────────┘
-                             │
-                             ▼
-                    ┌─────────────────┐
-                    │  Same source    │
-                    │  of truth       │
-                    └─────────────────┘
+```yaml
+# One file, two audiences, same source of truth
+dual_audience:
+  source: "Python file (sniffable)"
+  audiences:
+    human:
+      entry_point: "--help"
+      sees: "CLI usage, arguments, examples"
+    llm:
+      entry_point: "first 50 lines"
+      sees: "docstring, imports, constants, CLI tree"
+  convergence: "Same source of truth — no duplication, no drift"
 ```
 
 ### DRY Principle
@@ -353,23 +342,24 @@ When the skill/SKILL.md instructs the LLM to generate a sister script, it should
 
 Sniffable Python is the **crystallization point of LIFT** — where proven procedures become reusable automation.
 
-```
-┌──────────────────────────────────────────────────────────────────────┐
-│                         PLAY-LEARN-LIFT                              │
-├──────────────────────────────────────────────────────────────────────┤
-│                                                                      │
-│   🎮 PLAY                   📚 LEARN                 🚀 LIFT          │
-│   ───────                   ───────                 ─────            │
-│   Jump in!                  Patterns emerge         Automate it!     │
-│   Try things                Document procedures     Share the tool   │
-│                                                                      │
-│   session-log.md      →     PROCEDURE.md       →    sister-script.py │
-│   "What I tried"            "How to do X"           SNIFFABLE PYTHON │
-│                                                                      │
-│   Messy exploration         Structured notes        Clean interface  │
-│   May fail                  Works when followed     Others can use   │
-│                                                                      │
-└──────────────────────────────────────────────────────────────────────┘
+```yaml
+# PLAY → LEARN → LIFT progression
+play_learn_lift:
+  play:
+    emoji: "🎮"
+    action: "Jump in! Try things"
+    artifact: "session-log.md"
+    quality: "Messy exploration, may fail"
+  learn:
+    emoji: "📚"
+    action: "Patterns emerge, document procedures"
+    artifact: "PROCEDURE.md"
+    quality: "Structured notes, works when followed"
+  lift:
+    emoji: "🚀"
+    action: "Automate it! Share the tool"
+    artifact: "sister-script.py (SNIFFABLE PYTHON)"
+    quality: "Clean interface, others can use"
 ```
 
 **The LIFT stage produces sniffable Python because:**
@@ -385,42 +375,24 @@ Sniffable Python is the **crystallization point of LIFT** — where proven proce
 
 The [skill/](../skill/) skill describes how skills act as **factories** that produce instances. When a skill generates a CLI tool, that tool should be sniffable Python.
 
-```
-┌────────────────────┐
-│    SKILL.md        │
-│    ─────────       │
-│    The teacher     │
-│    Knows how to    │
-│    build things    │
-└─────────┬──────────┘
-          │ instructs LLM to generate
-          ▼
-┌────────────────────┐
-│  Sister Script     │
-│  ─────────────     │
-│  SNIFFABLE PYTHON  │
-│  Docstring = API   │
-│  main() = CLI tree │
-│  Comments = Jazz   │
-└─────────┬──────────┘
-          │ LLM sniffs to understand
-          ▼
-┌────────────────────┐
-│  LLM Comprehension │
-│  ─────────────────  │
-│  Reads first 50    │
-│  Understands CLI   │
-│  Can invoke tool   │
-└─────────┬──────────┘
-          │ executes
-          ▼
-┌────────────────────┐
-│  Structured Output │
-│  ────────────────  │
-│  YAML / JSON       │
-│  LLM can parse     │
-│  Feeds back        │
-└────────────────────┘
+```yaml
+# Skill → Script → LLM → Output pipeline
+skill_to_script_flow:
+  - stage: "SKILL.md"
+    role: "The teacher — knows how to build things"
+    action: "instructs LLM to generate"
+  - stage: "Sister Script"
+    role: "SNIFFABLE PYTHON"
+    properties:
+      - "Docstring = API"
+      - "main() = CLI tree"
+      - "Comments = Jazz"
+    action: "LLM sniffs to understand"
+  - stage: "LLM Comprehension"
+    role: "Reads first 50 lines, understands CLI, can invoke tool"
+    action: "executes"
+  - stage: "Structured Output"
+    role: "YAML / JSON — LLM can parse, feeds back"
 ```
 
 **Example from adventure skill:**
@@ -441,32 +413,19 @@ Each of these is a sniffable subcommand. The LLM sniffs `adventure --help` (or j
 
 The [adventure/](../adventure/) skill demonstrates sniffable Python in a **feedback loop**:
 
-```
-┌─────────────────┐
-│  LLM generates  │  Create rooms, objects, characters
-│  adventure      │  in YAML Jazz format
-│  content        │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  Sniffable      │  adventure-lint.py
-│  Linter runs    │  Validates world consistency
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  LINTER.yml     │  Structured findings:
-│  output         │  errors, warnings, suggestions
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  LLM reads      │  Understands what needs fixing
-│  lint results   │  Generates corrections
-└────────┬────────┘
-         │
-         └──────────► [back to top, iterate]
+```yaml
+# Adventure linter feedback loop
+linter_feedback_loop:
+  - step: "LLM generates content"
+    does: "Create rooms, objects, characters in YAML Jazz format"
+  - step: "Sniffable linter runs"
+    does: "adventure-lint.py validates world consistency"
+  - step: "LINTER.yml output"
+    does: "Structured findings: errors, warnings, suggestions"
+  - step: "LLM reads lint results"
+    does: "Understands what needs fixing, generates corrections"
+  - step: "iterate"
+    does: "Loop back to generation with fixes"
 ```
 
 **From [examples/adventure-4/LINTER.yml](../../examples/adventure-4/LINTER.yml):**
@@ -553,30 +512,20 @@ The skill directory IS the room. The sister scripts are objects you can pick up 
 
 ## The Coherence Engine Flow
 
-```
-User: "Run the room builder for the kitchen"
-                    │
-                    ▼
-    ┌───────────────────────────────────┐
-    │  LLM reads skill/SKILL.md         │
-    │  Discovers: scripts/room-builder  │
-    └───────────────────┬───────────────┘
-                        │
-                        ▼
-    ┌───────────────────────────────────┐
-    │  LLM sniffs room-builder.py       │
-    │  Reads first 50 lines:            │
-    │  - Docstring: "Creates rooms..."  │
-    │  - Commands: create, modify, list │
-    │  - Options: --template, --force   │
-    └───────────────────┬───────────────┘
-                        │
-                        ▼
-    ┌───────────────────────────────────┐
-    │  LLM understands the API          │
-    │  Generates: room-builder create   │
-    │             --template kitchen    │
-    └───────────────────────────────────┘
+```yaml
+# Coherence Engine: user request → LLM discovery → execution
+coherence_flow:
+  trigger: "Run the room builder for the kitchen"
+  steps:
+    - action: "LLM reads skill/SKILL.md"
+      discovers: "scripts/room-builder"
+    - action: "LLM sniffs room-builder.py (first 50 lines)"
+      sees:
+        docstring: "Creates rooms..."
+        commands: [create, modify, list]
+        options: [--template, --force]
+    - action: "LLM understands API, generates command"
+      output: "room-builder create --template kitchen"
 ```
 
 The LLM discovers the tool's capabilities by reading its structure, not by loading documentation. One quick sniff and it knows what's cooking.
@@ -690,28 +639,23 @@ Invoke when: Generating or reading Python scripts that need to be LLM-comprehens
 
 Everything in MOOLLM connects. Sniffable Python sits at the intersection of multiple skills:
 
-```
-                    ┌─────────────────────┐
-                    │  constructionism    │
-                    │  (build to learn)   │
-                    └──────────┬──────────┘
-                               │
-        ┌──────────────────────┼──────────────────────┐
-        │                      │                      │
-        ▼                      ▼                      ▼
-┌───────────────┐    ┌─────────────────┐    ┌──────────────────┐
-│ play-learn-   │    │  sniffable-     │    │    yaml-jazz     │
-│ lift          │◄───│  python         │───►│   (comments as   │
-│ (LIFT stage)  │    │                 │    │    data)         │
-└───────┬───────┘    └────────┬────────┘    └──────────────────┘
-        │                     │
-        │           ┌─────────┴─────────┐
-        │           │                   │
-        ▼           ▼                   ▼
-┌───────────────┐   ┌───────────┐   ┌───────────────────┐
-│ sister-script │   │  skill    │   │    adventure      │
-│ (the format)  │   │ (factory) │   │ (linter feedback) │
-└───────────────┘   └───────────┘   └───────────────────┘
+```yaml
+# How sniffable-python connects to other skills
+skill_connections:
+  parent: "constructionism (build to learn)"
+  center: "sniffable-python"
+  peers:
+    - skill: "play-learn-lift"
+      relation: "LIFT stage produces sniffable Python"
+    - skill: "yaml-jazz"
+      relation: "Comments carry semantic meaning"
+  children:
+    - skill: "sister-script"
+      relation: "Sister scripts ARE sniffable Python"
+    - skill: "skill"
+      relation: "Skills generate sniffable scripts"
+    - skill: "adventure"
+      relation: "Linter exemplifies the feedback loop"
 ```
 
 | Skill | Relationship to Sniffable Python |
