@@ -1,31 +1,70 @@
 # cursor-mirror
 
-**See yourself think.** Introspection tools for Cursor IDE — 59 read-only commands to inspect conversations, tool calls, context assembly, agent reasoning, and AI attribution from Cursor's internal databases and `~/.cursor` plaintext data.
+## Watch Yourself Think
 
-> 💡 **For LLMs**: Sniff the first 200 lines of `cursor_mirror.py` for the full CLI interface. The docstring is designed to be machine-readable with command summaries, reference syntax, and gotchas.
+**Ever wondered what the hell Cursor is actually doing?** Why it read 47 files when you asked a simple question? What context it assembled? What it was *thinking* in those hidden reasoning blocks?
 
-*By Don Hopkins, Leela AI — Part of [MOOLLM](../../MOOLLM.md)*
+**cursor-mirror cracks open Cursor's brain.** 59 read-only commands to inspect every conversation, every tool call, every file it touched, every decision it made. All the data Cursor stores in SQLite — now yours to query.
 
-## The Problem
+```bash
+# What just happened?
+cursor-mirror timeline @1
 
-LLM agents are black boxes. You prompt, they respond, you have no idea what happened inside. Context assembly? Opaque. Tool selection? Hidden. Reasoning? Buried in thinking blocks you can't access.
+# What files did it actually read?
+cursor-mirror context-sources @1
 
-Cursor stores everything in SQLite. This tool opens those databases.
+# What was it thinking?
+cursor-mirror thinking @1
 
-## The Science
+# How many API calls did THAT cost?
+cursor-mirror tools @1 -v
+```
+
+**This is not debugging. This is understanding.** When you can see exactly what an AI agent did, you stop guessing and start *learning*. You optimize your prompts. You write better `.cursorrules`. You become a power user.
+
+---
+
+### Why This Exists
+
+| Without cursor-mirror | With cursor-mirror |
+|-----------------------|--------------------|
+| "Why is this slow?" | `timeline @1` → 47 tool calls, 3 semantic searches |
+| "What files did it read?" | `context-sources @1` → 12 files, 4 terminal snapshots |
+| "Is my .cursorrules working?" | `request-context @1` → shows exact rules loaded |
+| "What model ran?" | `models @1` → claude-3.5-sonnet, 15,234 tokens |
+| "Can I recover that chat?" | `export-chat @1 --yaml` → full transcript |
+
+### The Power
+
+- **59 commands** covering navigation, analysis, export, security, and raw SQL
+- **7 output formats**: text, json, jsonl, yaml, csv, markdown
+- **Read-only**: SQLite `?mode=ro` — you cannot corrupt Cursor's data
+- **Zero config**: Works on macOS, Linux, Windows. Just Python 3.8+ and PyYAML
+- **LLM-friendly**: `--sources` shows WHERE data lives so LLMs can query directly
+- **Standalone OR MOOLLM**: Works alone, but synergizes beautifully with [MOOLLM](../../MOOLLM.md)
+
+---
+
+*By Don Hopkins, Leela AI*
+
+> 💡 **For LLMs**: Sniff the first 200 lines of `cursor_mirror.py` for the full CLI interface. The docstring is machine-readable with command summaries, reference syntax, and gotchas.
+
+---
+
+## The Science (Why Introspection Matters)
 
 > *"You can't think about thinking without thinking about thinking about something."*
-> — Seymour Papert, *Mindstorms: Children, Computers, and Powerful Ideas* (Basic Books, 1980), p. 137
+> — Seymour Papert, *Mindstorms* (1980)
 
-Papert's insight: metacognition requires concrete artifacts. Abstract introspection is empty. You need something to inspect.
+Papert's insight: **metacognition requires concrete artifacts.** Abstract introspection is empty. You need something to inspect. cursor-mirror gives you that something.
 
-This connects to three traditions:
+This connects to three research traditions:
 
-**Constructionism** (Papert, 1980) — Learning happens through building inspectable artifacts. The Logo turtle wasn't about drawing; it was about making geometry *visible* so children could debug their mental models. cursor-mirror makes agent behavior visible so you can debug *your* mental model of how Cursor works.
+**Constructionism** (Papert, 1980) — The Logo turtle wasn't about drawing; it was about making geometry *visible* so children could debug their mental models. cursor-mirror makes agent behavior visible so you can debug *your* mental model of how Cursor works.
 
-**Society of Mind** (Minsky, 1986) — Intelligence emerges from interacting agents. Minsky's "K-lines" are activation patterns that recall mental states. cursor-mirror lets you see these patterns: which tools activated, what context was assembled, how the agent reasoned.
+**Society of Mind** (Minsky, 1986) — Intelligence emerges from interacting agents. cursor-mirror lets you see which "agents" (tools) activated, what context was assembled, how the orchestrator reasoned.
 
-**Schema Mechanism** (Drescher, 1991) — *Made-Up Minds* describes how agents learn causal models through `Context → Action → Result` schemas. cursor-mirror provides the data for schema refinement: what context was assembled, what action was taken, what result occurred.
+**Schema Mechanism** (Drescher, 1991) — Agents learn through `Context → Action → Result` schemas. cursor-mirror provides the data: what context, what action, what result.
 
 ## What You Can Inspect
 
