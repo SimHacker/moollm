@@ -1943,10 +1943,7 @@ def output_data(data: Any, fmt: str, command: str = "command",
         print(output.getvalue(), end='')
     
     elif fmt == "md":
-        if not isinstance(data, list) or not data or not isinstance(data[0], dict):
-            print("Error: Markdown table format requires a list of dicts.", file=sys.stderr)
-            sys.exit(1)
-        _print_markdown_table(data)
+        _print_markdown(data)
     
     else:
         format_not_supported(fmt, command, supported)
@@ -2011,6 +2008,109 @@ def _print_markdown_table(data: List[Dict]) -> None:
     for row in data:
         cells = [format_cell(row.get(h, "")) for h in headers]
         print("| " + " | ".join(cells) + " |")
+
+
+def _print_markdown(data: Any, depth: int = 0) -> None:
+    """Smart markdown output - adapts to data structure.
+    
+    Renders data as:
+    - Tables for lists of flat dicts
+    - Nested outlines for hierarchical dicts
+    - Bullet lists for simple arrays
+    - Code blocks for complex nested structures
+    - Headers for top-level dict keys (at depth 0)
+    """
+    if data is None:
+        print("*null*")
+        return
+    
+    if isinstance(data, str):
+        # Multi-line strings get code blocks
+        if "\n" in data and len(data) > 100:
+            print("```")
+            print(data)
+            print("```")
+        else:
+            print(data)
+        return
+    
+    if isinstance(data, (int, float, bool)):
+        print(f"`{data}`")
+        return
+    
+    if isinstance(data, list):
+        if not data:
+            print("*(empty list)*")
+            return
+        
+        # Check if it's a list of flat dicts (table-worthy)
+        if all(isinstance(item, dict) for item in data):
+            # Check if dicts are mostly flat (good for tables)
+            flat_count = sum(1 for item in data 
+                           for v in item.values() 
+                           if not isinstance(v, (dict, list)))
+            nested_count = sum(1 for item in data 
+                             for v in item.values() 
+                             if isinstance(v, (dict, list)))
+            
+            if flat_count > nested_count * 2:  # Mostly flat -> table
+                _print_markdown_table(data)
+                return
+            else:
+                # Nested dicts -> numbered outline
+                for i, item in enumerate(data):
+                    print(f"\n### {i + 1}.")
+                    _print_markdown(item, depth + 1)
+                return
+        
+        # Simple list -> bullet points
+        indent = "  " * depth
+        for item in data:
+            if isinstance(item, (dict, list)):
+                print(f"{indent}-")
+                _print_markdown(item, depth + 1)
+            else:
+                s = str(item)
+                if len(s) > 80:
+                    s = s[:77] + "..."
+                print(f"{indent}- {s}")
+        return
+    
+    if isinstance(data, dict):
+        if not data:
+            print("*(empty)*")
+            return
+        
+        indent = "  " * depth
+        
+        for key, value in data.items():
+            # Top level keys get headers
+            if depth == 0:
+                print(f"\n## {key}")
+                _print_markdown(value, depth + 1)
+            elif isinstance(value, dict):
+                print(f"{indent}**{key}:**")
+                _print_markdown(value, depth + 1)
+            elif isinstance(value, list):
+                print(f"{indent}**{key}:** ({len(value)} items)")
+                _print_markdown(value, depth + 1)
+            elif isinstance(value, str) and "\n" in value:
+                print(f"{indent}**{key}:**")
+                print(f"{indent}```")
+                for line in value.split("\n")[:10]:
+                    print(f"{indent}{line}")
+                if value.count("\n") > 10:
+                    print(f"{indent}... ({value.count(chr(10)) - 10} more lines)")
+                print(f"{indent}```")
+            else:
+                s = str(value) if value is not None else "*null*"
+                if len(s) > 60:
+                    s = s[:57] + "..."
+                print(f"{indent}- **{key}:** {s}")
+        return
+    
+    # Fallback: just stringify
+    print(str(data))
 
 
 # CLI Wrapper (entry point that handles exceptions)
@@ -3594,8 +3694,10 @@ def cmd_tools(args):
     if args.limit:
         tools = tools[:args.limit]
     
-    if get_output_format(args) != "text":
-        print(fmt(tools, args))
+    out_fmt = get_output_format(args)
+    if out_fmt != "text":
+        output_data(tools, out_fmt, "tools",
+                   supported=["text", "json", "jsonl", "yaml", "csv", "md"])
     else:
         shown = f" (showing {len(tools)})" if args.limit and args.limit < total else ""
         print(f"Tool calls in {target[:16]}... ({total} calls{shown})")
