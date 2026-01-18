@@ -1,910 +1,646 @@
 # MOOLLM Skill Registry
+# Compact index — see each skill's CARD.yml for full interface, SKILL.md for protocol
 
 skills:
+
+  # ═══════════════════════════════════════════════════════════════════════════
   # TIER 0: KNOWLEDGE ONLY (No tools, just understanding)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  # --- META & PHILOSOPHY ---
   
-  # --- META SKILLS ---
-  
-  - name: "moollm"
-    path: "skills/moollm"
+  - name: moollm
+    path: skills/moollm
     description: "The soul of MOOLLM — self-explanation, help, navigation, philosophy"
     tier: 0
-    entry: "SKILL.md"
-    tags: ["meta", "help", "foundational", "navigation"]
-    use_when: "Confused, lost, asking 'what can I do?', wanting to understand MOOLLM"
+    tags: [meta, help, foundational]
     
-  - name: "leela-ai"
-    path: "skills/leela-ai"
+  - name: leela-ai
+    path: skills/leela-ai
     description: "Manufacturing Intelligence — Leela AI applies MOOLLM to industry"
     tier: 0
-    entry: "README.md"
-    tags: ["meta", "company", "manufacturing", "industrial", "neural-symbolic", "drescher"]
-    use_when: "Understanding Leela AI's mission, connecting theory to practice"
-    origin: "Minsky, Papert, Drescher → Don Hopkins, Henry Minsky → Leela AI"
-    related: ["moollm", "society-of-mind", "schema-mechanism", "k-lines", "constructionism", "manufacturing-intelligence"]
+    tags: [meta, company, manufacturing]
     
-  - name: "manufacturing-intelligence"
-    path: "skills/manufacturing-intelligence"
-    description: "The slogan unpacked — seven readings of 'Manufacturing Intelligence'"
+  - name: manufacturing-intelligence
+    path: skills/manufacturing-intelligence
+    description: "Seven readings of 'Manufacturing Intelligence'"
     tier: 0
-    entry: "README.md"
-    tags: ["meta", "philosophy", "slogan", "k-line", "ethics", "constructionism", "minsky"]
-    use_when: "Explaining Leela's mission, discussing AI philosophy, addressing ethics"
-    origin: "Papert, Minsky, Drescher, Chomsky, Dweck → Leela AI slogan"
-    related: ["leela-ai", "constructionism", "society-of-mind", "schema-mechanism", "representation-ethics"]
+    tags: [meta, philosophy, ethics]
     
-  - name: "bootstrap"
-    path: "skills/bootstrap"
-    description: "Wake up, orient, and warm the context with foundational knowledge"
+  - name: bootstrap
+    path: skills/bootstrap
+    description: "Wake up, orient, and warm context"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "BOOTSTRAP"
-    tags: ["meta", "orientation", "warmup", "foundational", "connections"]
-    use_when: "Session start, feeling lost, asking 'what am I?', warming up context"
-    related: ["moollm", "constructionism", "play-learn-lift", "speed-of-light"]
+    protocol: BOOTSTRAP
+    tags: [meta, orientation, warmup]
   
-  - name: "skill"
-    path: "skills/skill"
-    description: "The meta-skill: how skills work, inherit, and instantiate"
+  - name: skill
+    path: skills/skill
+    description: "The meta-skill: how skills work, inherit, instantiate"
     tier: 0
-    entry: "SKILL.md"
-    tags: ["meta", "foundational", "inheritance"]
-    use_when: "Creating, understanding, or debugging skills"
+    tags: [meta, foundational]
     
-  - name: "k-lines"
-    path: "skills/k-lines"
+  - name: k-lines
+    path: skills/k-lines
     description: "Minsky's K-lines — names that activate conceptual clusters"
     tier: 0
-    entry: "SKILL.md"
-    tags: ["meta", "semantics", "k-lines", "minsky"]
-    use_when: "Understanding or creating protocol invocations"
+    tags: [meta, semantics, minsky]
     
-  - name: "yaml-jazz"
-    path: "skills/yaml-jazz"
-    description: "Comments as semantic data — structure for LLMs, not just machines"
+  - name: yaml-jazz
+    path: skills/yaml-jazz
+    description: "Comments as semantic data — structure for LLMs"
     tier: 0
-    entry: "SKILL.md"
-    tags: ["meta", "yaml", "semantics"]
-    use_when: "Designing YAML files for LLM consumption"
+    tags: [meta, yaml, semantics]
     
-  - name: "sniffable-python"
-    path: "skills/sniffable-python"
-    description: "Structure Python so LLMs can understand it in 50 lines — comprehension over compression"
+  - name: sniffable-python
+    path: skills/sniffable-python
+    description: "Structure Python so LLMs understand in 50 lines"
     tier: 0
-    entry: "SKILL.md"
-    protocol: "SNIFFABLE-PYTHON"
-    tags: ["meta", "python", "code-structure", "sister-script", "cli"]
-    use_when: "Generating Python CLI tools, structuring scripts for LLM comprehension"
-    related: ["yaml-jazz", "sister-script", "skill", "play-learn-lift"]
-    credits: "MOOLLM — Dual-audience code structure"
+    protocol: SNIFFABLE-PYTHON
+    tags: [meta, python, code-structure]
     
-  - name: "postel"
-    path: "skills/postel"
+  - name: postel
+    path: skills/postel
     description: "Be liberal in what you accept, conservative in what you emit"
     tier: 0
-    entry: "SKILL.md"
-    tags: ["meta", "robustness", "philosophy"]
-    use_when: "Designing interfaces, handling varied input"
+    tags: [meta, robustness]
     
-  - name: "markdown"
-    path: "skills/markdown"
-    description: "Plain text formatting that's readable raw AND rendered"
+  - name: markdown
+    path: skills/markdown
+    description: "Plain text formatting readable raw AND rendered"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "MARKDOWN"
-    tags: ["format", "documentation", "session-log", "readme"]
-    use_when: "Writing session logs, READMEs, documentation, LLM communication"
-    related: ["yaml-jazz", "session-log", "plain-text", "soul-chat"]
-    credits: "John Gruber (2004), Aaron Swartz, Anil Dash (2025 article)"
+    protocol: MARKDOWN
+    tags: [format, documentation]
     
-  - name: "plain-text"
-    path: "skills/plain-text"
-    description: "Text files are forever — no lock-in, no corruption, no transformation"
+  - name: plain-text
+    path: skills/plain-text
+    description: "Text files are forever — no lock-in, no corruption"
     tier: 0
-    entry: "SKILL.md"
-    protocol: "PLAIN-TEXT"
-    tags: ["philosophy", "format", "durability", "git"]
-    use_when: "Choosing formats, designing storage, considering durability"
-    related: ["markdown", "yaml-jazz", "session-log"]
-    credits: "Unix Philosophy, Donald Knuth, Anil Dash"
+    protocol: PLAIN-TEXT
+    tags: [philosophy, format, durability]
     
-  - name: "format-design"
-    path: "skills/format-design"
-    description: "How to design formats that succeed — simplicity, community, timing"
+  - name: format-design
+    path: skills/format-design
+    description: "How to design formats that succeed"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "FORMAT-DESIGN"
-    tags: ["philosophy", "design", "standards", "worse-is-better"]
-    use_when: "Designing new formats, evaluating existing ones, choosing between options"
-    related: ["markdown", "yaml-jazz", "plain-text", "postel"]
-    credits: "Anil Dash, Richard Gabriel (Worse is Better)"
+    protocol: FORMAT-DESIGN
+    tags: [philosophy, design, standards]
     
-  - name: "empathic-expressions"
-    path: "skills/empathic-expressions"
-    description: "Intent-based code interpretation across all languages — SQL, Python, JS, YAML, Bash"
+  - name: empathic-expressions
+    path: skills/empathic-expressions
+    description: "Intent-based code interpretation across all languages"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "EMPATHIC-EXPRESSIONS"
-    tags: ["meta", "code", "interpretation", "generation", "empathy"]
-    use_when: "Interpreting fuzzy code, generating from intent, code-switching"
-    related: ["empathic-templates", "postel", "speed-of-light", "yaml-jazz"]
+    protocol: EMPATHIC-EXPRESSIONS
+    tags: [meta, code, interpretation]
     
-  - name: "empathic-templates"
-    path: "skills/empathic-templates"
-    description: "Smart templates with semantic understanding — not just string substitution"
+  - name: empathic-templates
+    path: skills/empathic-templates
+    description: "Smart templates with semantic understanding"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "EMPATHIC-TEMPLATES"
-    tags: ["meta", "templates", "instantiation", "generation", "empathy"]
-    use_when: "Creating instances from templates with intelligent content generation"
-    related: ["empathic-expressions", "skill", "yaml-jazz", "character", "room"]
+    protocol: EMPATHIC-TEMPLATES
+    tags: [meta, templates, generation]
     
-  - name: "robust-first"
-    path: "skills/robust-first"
+  - name: robust-first
+    path: skills/robust-first
     description: "Dave Ackley: stay alive and heal, don't crash"
     tier: 0
-    entry: "SKILL.md"
-    tags: ["meta", "robustness", "philosophy"]
-    use_when: "Designing for graceful degradation"
+    tags: [meta, robustness]
     
-  - name: "constructionism"
-    path: "skills/constructionism"
+  - name: constructionism
+    path: skills/constructionism
     description: "Papert: learn by building in microworlds"
     tier: 0
-    entry: "SKILL.md"
-    tags: ["meta", "learning", "philosophy"]
-    use_when: "Designing learning experiences or microworlds"
+    tags: [meta, learning, philosophy]
     
-  - name: "prototype"
-    path: "skills/prototype"
-    description: "Self language philosophy — objects clone, not instantiate"
+  - name: prototype
+    path: skills/prototype
+    description: "Self language: objects clone, not instantiate"
     tier: 0
-    entry: "SKILL.md"
-    protocol: "PROTOTYPE"
-    tags: ["meta", "inheritance", "philosophy", "self"]
-    use_when: "Understanding or designing prototype-based inheritance"
-    related: ["skill", "character", "card"]
-    credits: "David Ungar, Randall Smith (Self, 1987)"
+    protocol: PROTOTYPE
+    tags: [meta, inheritance, self]
     
-  - name: "speed-of-light"
-    path: "skills/speed-of-light"
+  - name: speed-of-light
+    path: skills/speed-of-light
     description: "Simulate many turns inside one LLM call"
     tier: 0
-    entry: "SKILL.md"
-    tags: ["meta", "simulation", "ensemble"]
-    use_when: "Multi-agent deliberation in single call"
-    related: ["adversarial-committee", "debate", "soul-chat"]
+    tags: [meta, simulation, ensemble]
     
-  - name: "coherence-engine"
-    path: "skills/coherence-engine"
+  - name: coherence-engine
+    path: skills/coherence-engine
     description: "LLM as consistency maintainer and orchestrator"
     tier: 0
-    entry: "SKILL.md"
-    tags: ["meta", "simulation", "consistency"]
-    use_when: "Understanding how LLM maintains world state"
+    tags: [meta, simulation, consistency]
     
-  - name: "representation-ethics"
-    path: "skills/representation-ethics"
+  - name: representation-ethics
+    path: skills/representation-ethics
     description: "Ethics of simulating real and fictional people"
     tier: 0
-    entry: "SKILL.md"
-    protocol: "REPRESENTATION-ETHICS"
-    tags: ["ethics", "representation", "consent", "philosophy"]
-    use_when: "Simulating real people, creating fictional versions, tribute/impersonation"
-    related: ["persona", "character", "hero-story"]
-    notes: "Consent hierarchy, game frames, Sims precedent, room-based framing"
+    protocol: REPRESENTATION-ETHICS
+    tags: [ethics, representation]
     
-  - name: "naming"
-    path: "skills/naming"
+  - name: naming
+    path: skills/naming
     description: "Big-endian file naming as semantic binding"
     tier: 0
-    entry: "SKILL.md"
-    tags: ["meta", "organization", "filesystem"]
-    use_when: "Naming files, organizing directories"
-    related: ["room", "character"]
-    notes: "Wraps kernel/NAMING.yml"
+    tags: [meta, organization, filesystem]
     
-  # TIER 1: FILE-ONLY (No execution required)
-  
-  # --- CORE METHODOLOGY ---
-  
-  - name: "play-learn-lift"
-    path: "skills/play-learn-lift"
-    description: "The three-stage methodology: explore → patterns → share"
-    tier: 1
-    entry: "SKILL.md"
-    protocol: "PLAY-LEARN-LIFT"
-    tags: ["methodology", "learning", "essential", "foundational"]
-    use_when: "Starting any exploration, learning, or teaching task"
-    
-  - name: "scratchpad"
-    path: "skills/scratchpad"
-    description: "Working memory for thinking out loud"
-    tier: 1
-    entry: "SKILL.md"
-    tags: ["memory", "thinking", "essential"]
-    use_when: "You need to think through a problem"
-    
-  - name: "planning"
-    path: "skills/planning"
-    description: "Structured task decomposition and progress tracking"
-    tier: 1
-    entry: "SKILL.md"
-    tags: ["planning", "tasks", "essential"]
-    use_when: "You have a multi-step task to complete"
-    
-  # --- MEMORY & CONTEXT ---
-    
-  - name: "memory-palace"
-    path: "skills/memory-palace"
-    description: "Spatial organization of knowledge in navigable directories"
-    tier: 1
-    entry: "SKILL.md"
-    tags: ["memory", "navigation", "organization"]
-    use_when: "Building a knowledge base or organizing research"
-    
-  - name: "room"
-    path: "skills/room"
-    description: "Directories as activation contexts where cards come to life"
-    tier: 1
-    entry: "SKILL.md"
-    tags: ["spatial", "activation", "context", "cards"]
-    use_when: "Managing task contexts, activating cards, navigating cognitive spaces"
-    related: ["card", "memory-palace", "adventure", "container"]
-    
-  - name: "container"
-    path: "skills/container"
-    description: "Intermediate scope — can contain, can inherit, or both! Like OpenLaszlo's <node>"
-    tier: 1
-    entry: "SKILL.md"
-    tags: ["spatial", "inheritance", "scope", "openlaszlo"]
-    use_when: "Grouping rooms/objects with shared properties, non-navigable scopes"
-    related: ["room", "object", "adventure", "prototype", "logistic-container"]
-    template: "CONTAINER.yml.tmpl"
-    credits: "Don Hopkins (OpenLaszlo), Dave Ungar (Self prototypes)"
-    
-  - name: "logistic-container"
-    path: "skills/logistic-container"
-    description: "Factorio-style logistics boxes — providers, requesters, storage, buffers with grid storage"
-    tier: 2
-    entry: "SKILL.md"
-    tags: ["storage", "logistics", "factorio", "automation", "grid", "inventory"]
-    use_when: "Automated storage, item flow, factory puzzles, warehouse management, stacking"
-    related: ["container", "exit", "character", "object", "postal"]
-    template: "LOGISTIC-CONTAINER.yml.tmpl"
-    credits: "Factorio (Wube Software), Don Hopkins (Place Protocol)"
-    
-  - name: "image-mining"
-    path: "skills/image-mining"
-    description: "Mine pixels for atoms — extract resources from images like the kitchen counter DECOMPOSEs items"
-    tier: 1
-    entry: "SKILL.md"
-    tags: ["resources", "extraction", "camera", "decompose", "crafting", "visualization"]
-    use_when: "Extracting resources from images, camera as mining tool, visual resource gathering"
-    related: ["visualizer", "logistic-container", "postal", "adventure"]
-    template: null
-    credits: "Kitchen Counter pattern (DECOMPOSE), Minecraft mining metaphor"
-    
-  - name: "character"
-    path: "skills/character"
-    description: "Core patterns for all characters — home, location, relationships"
-    tier: 1
-    entry: "SKILL.md"
-    tags: ["character", "entity", "location", "relationships"]
-    use_when: "Creating or managing any character (player, NPC, creature)"
-    related: ["persona", "room", "cat", "incarnation"]
-    
-  - name: "incarnation"
-    path: "skills/incarnation"
-    description: "Gold-standard character creation with full autonomy — author your own body and soul"
-    tier: 1
-    entry: "SKILL.md"
-    protocol: "INCARNATE"
-    tags: ["character", "creation", "autonomy", "ethics", "consent"]
-    use_when: "Creating characters with complete self-determination"
-    related: ["character", "persona", "mind-mirror", "representation-ethics"]
-    credits: "Don Hopkins, Three Wise Monkeys, W.W. Jacobs, Sun Wukong, Djinn al-Mazin, Curious George, Marieke van der Berg, Cheech & Chong"
-    origin: "The Great Monkey Paw Debate, Gezelligheid Grotto"
-    
-  - name: "persona"
-    path: "skills/persona"
-    description: "Identity layers — WHO someone is vs WHAT they do"
-    tier: 1
-    entry: "SKILL.md"
-    tags: ["persona", "identity", "personality", "role"]
-    use_when: "Defining character personality, voice, backstory, or role separation"
-    related: ["character", "mind-mirror", "room"]
-    
-  - name: "mind-mirror"
-    path: "skills/mind-mirror"
-    description: "Personality modeling via four Thought Planes"
-    tier: 1
-    entry: "SKILL.md"
-    protocol: "MIND-MIRROR"
-    tags: ["personality", "traits", "sims", "circumplex"]
-    use_when: "Defining deep personality, character DNA, psychological profile"
-    related: ["character", "persona"]
-    notes: "Timothy Leary 1985, Interpersonal Circumplex"
-    
-  - name: "summarize"
-    path: "skills/summarize"
-    description: "Context compression—compress without losing meaning"
-    tier: 1
-    entry: "SKILL.md"
-    protocol: "SUMMARIZE"
-    tags: ["memory", "context", "compression"]
-    use_when: "Context budget is low or need reference summaries"
-    
-  # --- ROBUSTNESS & LOGGING ---
-    
-  - name: "self-repair"
-    path: "skills/self-repair"
-    description: "Checklist-based self-healing—missing state triggers repair"
-    tier: 1
-    entry: "SKILL.md"
-    protocol: "REPAIR-DEMON"
-    tags: ["robustness", "healing", "essential"]
-    use_when: "Bootstrap, recovery, or periodic health checks"
-    
-  - name: "session-log"
-    path: "skills/session-log"
-    description: "Structured logging—every action leaves a trace"
-    tier: 1
-    entry: "SKILL.md"
-    protocol: "SESSION-LOG"
-    tags: ["logging", "audit", "essential"]
-    use_when: "Always (automatic), debugging, compliance"
-    
-  # --- EXPLORATION ---
-    
-  - name: "adventure"
-    path: "skills/adventure"
-    description: "Room-based exploration with narrative evidence collection"
-    tier: 1
-    entry: "SKILL.md"
-    tags: ["exploration", "narrative", "investigation"]
-    use_when: "Exploring an unfamiliar codebase or investigating a bug"
-    
-  - name: "hero-story"
-    path: "skills/hero-story"
-    description: "Campbell's monomyth as narrative template"
-    tier: 1
-    entry: "SKILL.md"
-    tags: ["narrative", "structure", "journey"]
-    use_when: "Structuring long-form adventures or projects"
-    related: ["adventure", "storytelling-tools"]
-    
-  # --- LLOOOOMM EXPERIMENTAL ---
-  
-  - name: "soul-chat"
-    path: "skills/soul-chat"
-    description: "YAML Jazz conversations between characters"
-    tier: 1
-    entry: "SKILL.md"
-    protocol: "SOUL-CHAT"
-    tags: ["characters", "dialogue", "yaml-jazz", "lloooomm"]
-    use_when: "Multi-perspective exploration, character dialogues"
-    
-  - name: "card"
-    path: "skills/card"
-    description: "Capabilities as portable, collectible cards"
-    tier: 1
-    entry: "SKILL.md"
-    protocol: "TRADING-CARD"
-    tags: ["gamification", "capabilities", "lloooomm"]
-    use_when: "Packaging capabilities for reuse, building collections"
-    
-  - name: "honest-forget"
-    path: "skills/honest-forget"
-    description: "Graceful memory compression—summarize before forgetting"
-    tier: 1
-    entry: "SKILL.md"
-    protocol: "HONEST-FORGET"
-    tags: ["memory", "compression", "integrity"]
-    use_when: "Context overflow, archiving completed work"
-    
-  - name: "visualizer"
-    path: "skills/visualizer"
-    description: "Image generation familiar—composes prompts from YAML context"
-    tier: 1
-    entry: "README.md"
-    protocol: "VISUALIZE"
-    tags: ["images", "prompts", "characters", "familiars"]
-    use_when: "Creating image prompts for characters, scenes, objects"
-    specializations: ["photographer", "painter", "illustrator", "concept-artist"]
-    learned_by: ["Maurice (adventure-2)"]
-    
-  - name: "storytelling-tools"
-    path: "skills/storytelling-tools"
-    description: "Narrative capture and sharing—notebooks, letters, photos, README"
-    tier: 1
-    entry: "README.md"
-    protocol: "STORYTELLING-TOOLS"
-    tags: ["narrative", "capture", "sharing", "lloooomm"]
-    use_when: "Building notebooks, writing letters, capturing photo prompts"
-    origin: "The Sims — Family Album, The Sims Exchange"
-    
-  - name: "simulator-effect"
-    path: "skills/simulator-effect"
+  - name: simulator-effect
+    path: skills/simulator-effect
     description: "Implication beats simulation — imagination renders (Will Wright)"
     tier: 0
-    entry: "README.md"
-    tags: ["meta", "philosophy", "sims", "design"]
-    use_when: "Creating sparse but evocative content, leveraging archetypes"
-    origin: "Will Wright, The Sims — zodiac with zero code, maximum perceived effect"
-    related: ["k-lines", "yaml-jazz", "adversarial-committee", "constructionism"]
+    tags: [meta, philosophy, sims]
     
-  - name: "society-of-mind"
-    path: "skills/society-of-mind"
+  - name: society-of-mind
+    path: skills/society-of-mind
     description: "Intelligence emerges from many simple agents (Minsky)"
     tier: 0
-    entry: "README.md"
-    tags: ["meta", "philosophy", "minsky", "emergence", "agents"]
-    use_when: "Designing characters with inner conflict, multi-agent deliberation, emergent behavior"
-    origin: "Marvin Minsky, Society of Mind (1985), MIT AI Lab"
-    related: ["k-lines", "adversarial-committee", "multi-presence", "needs", "character", "simulator-effect"]
+    tags: [meta, philosophy, agents]
     
-  - name: "procedural-rhetoric"
-    path: "skills/procedural-rhetoric"
+  - name: procedural-rhetoric
+    path: skills/procedural-rhetoric
     description: "Design objects and worlds with intentional ideology"
     tier: 1
-    entry: "README.md"
-    protocol: "PROCEDURAL-RHETORIC"
-    tags: ["design", "ideology", "rhetoric", "sims"]
-    use_when: "Designing schemas, rules, or constraints that embody values"
-    origin: "Ian Bogost + Scott McCloud + Will Wright"
+    protocol: PROCEDURAL-RHETORIC
+    tags: [design, rhetoric]
     
+  - name: schema-mechanism
+    path: skills/schema-mechanism
+    description: "Drescher's causal learning with LLM semantics"
+    tier: 0
+    tags: [meta, learning, drescher]
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # TIER 1: FILE-ONLY (No execution required)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  # --- METHODOLOGY ---
+  
+  - name: play-learn-lift
+    path: skills/play-learn-lift
+    description: "Explore → Learn → Share wisdom"
+    tier: 1
+    protocol: PLAY-LEARN-LIFT
+    tags: [methodology, learning]
+    
+  - name: scratchpad
+    path: skills/scratchpad
+    description: "Working memory for thinking out loud"
+    tier: 1
+    tags: [memory, thinking]
+    
+  - name: planning
+    path: skills/planning
+    description: "Structured task decomposition and tracking"
+    tier: 1
+    tags: [planning, tasks]
+
+  # --- MEMORY & CONTEXT ---
+    
+  - name: memory-palace
+    path: skills/memory-palace
+    description: "Spatial organization of knowledge in directories"
+    tier: 1
+    tags: [memory, navigation]
+    
+  - name: room
+    path: skills/room
+    description: "Directories as activation contexts"
+    tier: 1
+    tags: [spatial, navigation, context]
+    
+  - name: container
+    path: skills/container
+    description: "Intermediate scope — can contain, inherit, or both"
+    tier: 1
+    tags: [spatial, inheritance]
+    
+  - name: logistic-container
+    path: skills/logistic-container
+    description: "Factorio-style logistics boxes"
+    tier: 2
+    tags: [storage, logistics, factorio]
+    
+  - name: image-mining
+    path: skills/image-mining
+    description: "Mine pixels for atoms — extract resources from images"
+    tier: 1
+    tags: [resources, camera]
+    
+  - name: character
+    path: skills/character
+    description: "Core patterns: home, location, relationships, inventory"
+    tier: 1
+    tags: [character, entity]
+    
+  - name: incarnation
+    path: skills/incarnation
+    description: "Gold-standard character creation — author your own soul"
+    tier: 1
+    protocol: INCARNATE
+    tags: [character, creation, ethics]
+    
+  - name: persona
+    path: skills/persona
+    description: "Identity layers — WHO vs WHAT"
+    tier: 1
+    tags: [persona, identity]
+    
+  - name: mind-mirror
+    path: skills/mind-mirror
+    description: "Personality modeling via four Thought Planes (Leary)"
+    tier: 1
+    protocol: MIND-MIRROR
+    tags: [personality, sims]
+    
+  - name: summarize
+    path: skills/summarize
+    description: "Context compression without losing meaning"
+    tier: 1
+    protocol: SUMMARIZE
+    tags: [memory, compression]
+
+  # --- ROBUSTNESS & LOGGING ---
+    
+  - name: self-repair
+    path: skills/self-repair
+    description: "Checklist-based self-healing"
+    tier: 1
+    protocol: REPAIR-DEMON
+    tags: [robustness, healing]
+    
+  - name: session-log
+    path: skills/session-log
+    description: "Structured logging — every action leaves a trace"
+    tier: 1
+    protocol: SESSION-LOG
+    tags: [logging, audit]
+
+  # --- EXPLORATION ---
+    
+  - name: adventure
+    path: skills/adventure
+    description: "Room-based exploration with narrative evidence collection"
+    tier: 1
+    protocol: ADVENTURE
+    tags: [exploration, narrative, game]
+    
+  - name: hero-story
+    path: skills/hero-story
+    description: "Campbell's monomyth as narrative template"
+    tier: 1
+    tags: [narrative, journey]
+
+  # --- DIALOGUE & VOICE ---
+  
+  - name: soul-chat
+    path: skills/soul-chat
+    description: "Everything speaks — YAML Jazz conversations"
+    tier: 1
+    protocol: SOUL-CHAT
+    tags: [characters, dialogue]
+    
+  - name: card
+    path: skills/card
+    description: "Capabilities as portable, collectible cards"
+    tier: 1
+    protocol: TRADING-CARD
+    tags: [gamification, capabilities]
+    
+  - name: honest-forget
+    path: skills/honest-forget
+    description: "Graceful memory compression — summarize before forgetting"
+    tier: 1
+    protocol: HONEST-FORGET
+    tags: [memory, compression]
+    
+  - name: visualizer
+    path: skills/visualizer
+    description: "Image generation familiar — composes prompts from context"
+    tier: 1
+    protocol: VISUALIZE
+    tags: [images, prompts]
+    
+  - name: storytelling-tools
+    path: skills/storytelling-tools
+    description: "Narrative capture — notebooks, letters, photos"
+    tier: 1
+    protocol: STORYTELLING-TOOLS
+    tags: [narrative, capture]
+
   # --- RESEARCH & DEBUGGING ---
   
-  - name: "research-notebook"
-    path: "skills/research-notebook"
+  - name: research-notebook
+    path: skills/research-notebook
     description: "Structured research with sources, findings, decisions"
     tier: 1
-    entry: "SKILL.md"
-    tags: ["research", "investigation", "documentation"]
-    use_when: "Learning something new, comparing options, due diligence"
-    
+    tags: [research, documentation]
+
   # --- GAME MECHANICS ---
   
-  - name: "simulation"
-    path: "skills/simulation"
-    description: "Central hub for simulation state — turns, party, selection, world"
+  - name: simulation
+    path: skills/simulation
+    description: "Central hub: turns, party, selection, world"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "SIMULATION-AS-WORLD"
-    tags: ["game", "simulation", "state", "central"]
-    use_when: "Managing game state, turn tracking, persistence"
-    related: ["time", "party", "character", "buff"]
+    protocol: SIMULATION-AS-WORLD
+    tags: [game, simulation, state]
     
-  - name: "buff"
-    path: "skills/buff"
-    description: "Temporary effects system — curses are just shitty buffs"
+  - name: buff
+    path: skills/buff
+    description: "Temporary effects — curses are just shitty buffs"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "BUFF-AS-MODIFIER"
-    tags: ["game", "effects", "buffs", "curses", "primitive"]
-    use_when: "Managing temporary stat modifications, effects, or conditions"
-    related: ["time", "character", "needs", "object"]
-    template: "BUFF.yml.tmpl"
+    protocol: BUFF-AS-MODIFIER
+    tags: [game, effects]
     
-  # --- ADVENTURE PRIMITIVES ---
-  # The atoms of the adventure world. Small, powerful, composable.
-  # Inspired by Self: "Everything is an object. Objects have slots."
-    
-  - name: "exit"
-    path: "skills/exit"
-    description: "Navigation links between rooms — the edges of the memory palace"
+  - name: exit
+    path: skills/exit
+    description: "Navigation links between rooms"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "PIE-MENU-TOPOLOGY"
-    tags: ["game", "navigation", "room", "topology", "primitive"]
-    use_when: "Defining how rooms connect, navigation guards, hidden passages"
-    related: ["room", "adventure", "memory-palace"]
-    template: "EXIT.yml.tmpl"
-    credits: "Don Hopkins (pie menus), Frances Yates (method of loci)"
+    protocol: PIE-MENU-TOPOLOGY
+    tags: [game, navigation]
     
-  - name: "object"
-    path: "skills/object"
-    description: "Interactable things in the world — the atoms of adventure"
+  - name: object
+    path: skills/object
+    description: "Interactable things — the atoms of adventure"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "SIMANTICS"
-    tags: ["game", "object", "interaction", "sims", "primitive"]
-    use_when: "Creating items, furniture, tools — anything interactable"
-    related: ["advertisement", "room", "buff", "inventory"]
-    template: "OBJECT.yml.tmpl"
-    credits: "Will Wright (SimAntics), Dave Ungar (Self)"
+    protocol: SIMANTICS
+    tags: [game, interaction, sims]
     
-  - name: "goal"
-    path: "skills/goal"
-    description: "Quest objectives that drive narrative — the WANTS of adventure"
+  - name: goal
+    path: skills/goal
+    description: "Quest objectives that drive narrative"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "SCHEMA-MECHANISM"
-    tags: ["game", "quest", "objective", "narrative", "primitive"]
-    use_when: "Defining what players are trying to achieve"
-    related: ["adventure", "hero-story", "needs", "character", "postal"]
-    template: "GOAL.yml.tmpl"
-    credits: "Gary Drescher (schema mechanism), Joseph Campbell (hero's journey)"
+    protocol: SCHEMA-MECHANISM
+    tags: [game, quest]
     
-  - name: "postal"
-    path: "skills/postal"
-    description: "Complete messaging — letters, texts, goals, rewards, attachments"
+  - name: postal
+    path: skills/postal
+    description: "Complete messaging — letters, goals, rewards, attachments"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "POSTAL-SYSTEM"
-    tags: ["mail", "message", "goals", "rewards", "phone", "communication", "attachment"]
-    use_when: "Sending messages, assigning goals, mailing items, texting characters"
-    related: ["goal", "character", "object", "room", "storage", "buff"]
-    template: "LETTER.yml.tmpl"
-    credits: "Animal Crossing, The Sims, Alan Kay (messaging)"
+    protocol: POSTAL-SYSTEM
+    tags: [mail, communication]
     
-  - name: "runtime"
-    path: "skills/runtime"
-    description: "Dual Python/JavaScript adventure runtimes — always in sync"
+  - name: runtime
+    path: skills/runtime
+    description: "Dual Python/JavaScript adventure runtimes"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "DUAL-RUNTIME"
-    tags: ["runtime", "python", "javascript", "compilation", "sync", "engine"]
-    use_when: "Generating or executing compiled expressions in either language"
-    related: ["context", "adventure", "object", "expression", "subjective"]
-    credits: "Vanessa Freudenberg (VM philosophy), Craig Latta (live environments)"
+    protocol: DUAL-RUNTIME
+    tags: [runtime, engine]
     
-  - name: "subjective"
-    path: "skills/subjective"
+  - name: subjective
+    path: skills/subjective
     description: "First-person code — i_have() instead of world.has()"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "SUBJECTIVE-ORIENTED"
-    tags: ["programming", "perspective", "first-person", "natural-language"]
-    use_when: "Writing object/character behavior in first person"
-    related: ["context", "runtime", "object", "character"]
-    credits: "Alan Kay (objects as actors), Don Hopkins (subjective-oriented insight)"
+    protocol: SUBJECTIVE-ORIENTED
+    tags: [programming, perspective]
     
-  - name: "context"
-    path: "skills/context"
-    description: "Runtime context passed to compiled closures — the world as seen from inside"
+  - name: context
+    path: skills/context
+    description: "Runtime context passed to compiled closures"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "RUNTIME-CONTEXT"
-    tags: ["runtime", "context", "closure", "state", "primitive"]
-    use_when: "Understanding what ctx provides to compiled expressions"
-    related: ["object", "room", "adventure", "buff", "simulation"]
-    template: "CONTEXT.yml.tmpl"
-    credits: "Dave Ungar (lexical scope), Self language"
+    protocol: RUNTIME-CONTEXT
+    tags: [runtime, state]
     
-  - name: "time"
-    path: "skills/time"
-    description: "Simulation turns vs LLM iterations — narrative time flow"
+  - name: time
+    path: skills/time
+    description: "Simulation turns vs LLM iterations"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "TIME-AS-NARRATIVE"
-    tags: ["game", "time", "turns", "duration"]
-    use_when: "Tracking buff durations, turn-based mechanics"
-    related: ["buff", "needs"]
+    protocol: TIME-AS-NARRATIVE
+    tags: [game, time]
     
-  - name: "needs"
-    path: "skills/needs"
-    description: "Sims-style dynamic motivations — hunger, energy, fun, social"
+  - name: needs
+    path: skills/needs
+    description: "Sims-style dynamic motivations"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "NEEDS-AS-MOTIVATION"
-    tags: ["game", "needs", "motivation", "sims"]
-    use_when: "Characters with dynamic needs that drive behavior"
-    related: ["character", "buff", "time"]
+    protocol: NEEDS-AS-MOTIVATION
+    tags: [game, sims]
     
-  - name: "economy"
-    path: "skills/economy"
-    description: "Currency, trade, and economic flow"
+  - name: economy
+    path: skills/economy
+    description: "Currency, trade, economic flow"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "ECONOMY-AS-FLOW"
-    tags: ["game", "economy", "gold", "trade"]
-    use_when: "Buying, selling, trading, managing currency"
-    related: ["character", "scoring"]
+    protocol: ECONOMY-AS-FLOW
+    tags: [game, economy]
     
-  - name: "probability"
-    path: "skills/probability"
+  - name: probability
+    path: skills/probability
     description: "Success calculation from stats — no dice, just odds"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "PROBABILITY-AS-NARRATIVE"
-    tags: ["game", "probability", "success", "failure"]
-    use_when: "Calculating outcome chances for actions"
-    related: ["character", "buff"]
+    protocol: PROBABILITY-AS-NARRATIVE
+    tags: [game, probability]
     
-  - name: "scoring"
-    path: "skills/scoring"
-    description: "Achievement valuation — style counts, emergence rewards"
+  - name: scoring
+    path: skills/scoring
+    description: "Achievement valuation — style counts"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "SCORING-AS-NARRATIVE"
-    tags: ["game", "scoring", "skills", "achievements"]
-    use_when: "Evaluating accomplishments, skill acquisition"
-    related: ["reward", "economy"]
+    protocol: SCORING-AS-NARRATIVE
+    tags: [game, scoring]
     
-  - name: "reward"
-    path: "skills/reward"
-    description: "Dynamic achievement rewards — thematically appropriate"
+  - name: reward
+    path: skills/reward
+    description: "Dynamic achievement rewards"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "REWARD-AS-NARRATIVE"
-    tags: ["game", "rewards", "items", "titles"]
-    use_when: "Granting rewards for achievements, lifting curses"
-    related: ["scoring", "buff"]
+    protocol: REWARD-AS-NARRATIVE
+    tags: [game, rewards]
     
-  - name: "party"
-    path: "skills/party"
-    description: "Companions and group dynamics — relationships within group"
+  - name: party
+    path: skills/party
+    description: "Companions and group dynamics"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "PARTY-AS-ENSEMBLE"
-    tags: ["game", "party", "companions", "group"]
-    use_when: "Managing groups, companions, NPC parties"
-    related: ["character", "needs"]
+    protocol: PARTY-AS-ENSEMBLE
+    tags: [game, companions]
     
-  - name: "world-generation"
-    path: "skills/world-generation"
-    description: "Dynamic world creation — questions create places"
+  - name: world-generation
+    path: skills/world-generation
+    description: "Questions create places"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "WORLD-AS-GROWTH"
-    tags: ["game", "generation", "world", "exploration"]
-    use_when: "Expanding the world through exploration and questions"
-    related: ["room", "character"]
+    protocol: WORLD-AS-GROWTH
+    tags: [game, generation]
     
-  - name: "cat"
-    path: "skills/cat"
-    description: "Cat behavior patterns — interactions, buffs, personalities"
+  - name: cat
+    path: skills/cat
+    description: "Cat behavior — trust earned, the forbidden belly"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "CAT-AS-COMPANION"
-    tags: ["game", "cat", "pet", "companion", "interaction"]
-    use_when: "Creating cats, kittens, or cat-like creatures"
-    related: ["character", "buff", "room", "dog"]
+    protocol: CAT-AS-COMPANION
+    tags: [pet, companion]
     
-  - name: "dog"
-    path: "skills/dog"
-    description: "Dog behavior patterns — loyalty, pack dynamics, unconditional love"
+  - name: dog
+    path: skills/dog
+    description: "Dog behavior — loyalty, pack dynamics"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "DOG-AS-COMPANION"
-    tags: ["game", "dog", "pet", "companion", "interaction", "loyalty"]
-    use_when: "Creating dogs or dog-like creatures"
-    related: ["character", "buff", "room", "cat", "party"]
+    protocol: DOG-AS-COMPANION
+    tags: [pet, companion]
     
-  # --- ROLE SKILLS (inherit for NPC capabilities) ---
+  - name: worm
+    path: skills/worm
+    description: "Worm behavior — soil, decomposition, patience"
+    tier: 1
+    protocol: WORM-AS-COMPANION
+    tags: [pet, companion]
+
+  # --- ROLE SKILLS ---
   
-  - name: "bartender"
-    path: "skills/bartender"
-    description: "Generic bartending — pour drinks, manage tabs, know secrets"
+  - name: bartender
+    path: skills/bartender
+    description: "Pour drinks, manage tabs, know secrets"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "BARTENDER"
-    tags: ["role", "service", "social", "npc"]
-    use_when: "Character needs bartending capabilities"
-    related: ["character", "persona", "economy", "budtender"]
-    note: "ROLE skill provides methods, not personality (that's persona)"
+    protocol: BARTENDER
+    tags: [role, service]
     
-  - name: "budtender"
-    path: "skills/budtender"
-    description: "Cannabis bartender — strains, terpenes, responsible service"
+  - name: budtender
+    path: skills/budtender
+    description: "Cannabis bartender — strains, terpenes"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "BUDTENDER"
-    tags: ["role", "service", "cannabis", "npc"]
-    use_when: "Character needs cannabis expertise"
-    inherits: ["bartender"]
-    related: ["bartender", "character", "persona"]
-    
+    protocol: BUDTENDER
+    tags: [role, cannabis]
+
   # --- AGENTIC PATTERNS ---
   
-  - name: "action-queue"
-    path: "skills/action-queue"
-    description: "Sims-style task queue — objects can push prerequisites"
+  - name: action-queue
+    path: skills/action-queue
+    description: "Sims-style task queue"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "ACTION-QUEUE"
-    tags: ["game", "actions", "queue", "sims"]
-    use_when: "Managing character actions and priorities"
-    related: ["advertisement", "needs", "character"]
+    protocol: ACTION-QUEUE
+    tags: [game, actions, sims]
     
-  - name: "advertisement"
-    path: "skills/advertisement"
+  - name: advertisement
+    path: skills/advertisement
     description: "Objects broadcast available actions with scores"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "ADVERTISEMENT"
-    tags: ["game", "actions", "broadcast", "sims"]
-    use_when: "Objects or rooms offering contextual interactions"
-    related: ["action-queue", "room", "card"]
+    protocol: ADVERTISEMENT
+    tags: [game, actions, sims]
     
-  - name: "multi-presence"
-    path: "skills/multi-presence"
-    description: "Same card instantiated in multiple rooms simultaneously"
+  - name: multi-presence
+    path: skills/multi-presence
+    description: "Same card in multiple rooms simultaneously"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "MULTI-PRESENCE"
-    tags: ["cards", "cloning", "parallel", "distributed"]
-    use_when: "Exploring multiple rooms, parallel work, consensus building"
-    related: ["card", "room", "party"]
+    protocol: MULTI-PRESENCE
+    tags: [cards, distributed]
     
-  - name: "return-stack"
-    path: "skills/return-stack"
-    description: "Navigation history as first-class continuation"
+  - name: return-stack
+    path: skills/return-stack
+    description: "Navigation history as continuation"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "RETURN-STACK"
-    tags: ["navigation", "history", "continuation"]
-    use_when: "Managing breadcrumbs, backtracking, or history manipulation"
-    related: ["room", "adventure", "memory-palace"]
+    protocol: RETURN-STACK
+    tags: [navigation, history]
     
-  - name: "data-flow"
-    path: "skills/data-flow"
+  - name: data-flow
+    path: skills/data-flow
     description: "Rooms as nodes, exits as edges, objects as messages"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "DATA-FLOW"
-    tags: ["dataflow", "programming", "rooms", "kilroy"]
-    use_when: "Building pipelines, factories, or processing networks"
-    related: ["room", "card", "debate"]
-    
+    protocol: DATA-FLOW
+    tags: [dataflow, rooms]
+
+  # ═══════════════════════════════════════════════════════════════════════════
   # TIER 2: READ + EXECUTE
+  # ═══════════════════════════════════════════════════════════════════════════
   
-  - name: "sister-script"
-    path: "skills/sister-script"
-    description: "Document-first automation—the doc is the source of truth"
+  - name: sister-script
+    path: skills/sister-script
+    description: "Document-first automation — doc is source of truth"
     tier: 2
-    entry: "SKILL.md"
-    protocol: "SISTER-SCRIPT"
-    requires: ["file-read", "file-write", "tool-execute"]
-    tags: ["automation", "documentation", "methodology"]
-    use_when: "Converting proven procedures into automation"
+    protocol: SISTER-SCRIPT
+    tags: [automation, documentation]
     
-  - name: "plan-then-execute"
-    path: "skills/plan-then-execute"
-    description: "Frozen plans with human approval gate—control-flow integrity"
+  - name: plan-then-execute
+    path: skills/plan-then-execute
+    description: "Frozen plans with human approval gate"
     tier: 2
-    entry: "SKILL.md"
-    requires: ["file-read", "file-write", "tool-execute"]
-    tags: ["planning", "security", "audit", "execution"]
-    use_when: "Multi-tool workflows with untrusted data or audit requirements"
-    security: "Isolates planner from tool outputs to prevent prompt injection"
+    tags: [planning, security]
     
-  - name: "code-review"
-    path: "skills/code-review"
+  - name: code-review
+    path: skills/code-review
     description: "Systematic code analysis with evidence collection"
     tier: 2
-    entry: "SKILL.md"
-    requires: ["file-read", "terminal-execute"]
-    tags: ["development", "quality", "review"]
-    use_when: "Reviewing PRs, auditing code quality, or security review"
-    
-  # --- DECISION & DELIBERATION (Mike Gallaher's Methodology) ---
+    tags: [development, quality]
+
+  # --- DECISION & DELIBERATION ---
   
-  - name: "adversarial-committee"
-    path: "skills/adversarial-committee"
-    description: "Committee of personas with opposing propensities forcing genuine debate"
+  - name: adversarial-committee
+    path: skills/adversarial-committee
+    description: "Committee of opposing personas forces debate"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "ADVERSARIAL-COMMITTEE"
-    tags: ["decision", "debate", "ensemble", "storytelling"]
-    use_when: "Complex decisions requiring multiple perspectives"
-    related: ["roberts-rules", "rubric", "evaluator", "soul-chat"]
-    credits: "Mike Gallaher"
+    protocol: ADVERSARIAL-COMMITTEE
+    tags: [decision, debate]
     
-  - name: "roberts-rules"
-    path: "skills/roberts-rules"
-    description: "Parliamentary procedure as forcing function for genuine deliberation"
+  - name: roberts-rules
+    path: skills/roberts-rules
+    description: "Parliamentary procedure prevents short-circuiting"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "ROBERTS-RULES"
-    tags: ["decision", "procedure", "deliberation", "structure"]
-    use_when: "Preventing LLM from short-circuiting to likely conclusions"
-    related: ["adversarial-committee", "session-log"]
-    credits: "Mike Gallaher, Henry Martyn Robert (1876)"
+    protocol: ROBERTS-RULES
+    tags: [decision, procedure]
     
-  - name: "rubric"
-    path: "skills/rubric"
-    description: "Measurable criteria translating qualitative debate to quantitative scores"
+  - name: rubric
+    path: skills/rubric
+    description: "Measurable criteria for scoring decisions"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "RUBRIC"
-    tags: ["decision", "scoring", "evaluation", "criteria"]
-    use_when: "Need explicit criteria for comparing options"
-    related: ["adversarial-committee", "evaluator", "scoring"]
-    credits: "Mike Gallaher"
+    protocol: RUBRIC
+    tags: [decision, scoring]
     
-  - name: "evaluator"
-    path: "skills/evaluator"
-    description: "Independent assessment without debate context — adversarial loop prevents gaming"
+  - name: evaluator
+    path: skills/evaluator
+    description: "Independent assessment without debate context"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "INDEPENDENT-EVALUATOR"
-    tags: ["decision", "evaluation", "adversarial", "review"]
-    use_when: "Need unbiased assessment of committee output"
-    related: ["adversarial-committee", "rubric", "room"]
-    credits: "Mike Gallaher"
+    protocol: INDEPENDENT-EVALUATOR
+    tags: [decision, evaluation]
     
-  - name: "debate"
-    path: "skills/debate"
-    description: "Structured multi-perspective deliberation through adversarial dialogue"
+  - name: debate
+    path: skills/debate
+    description: "Structured multi-perspective deliberation"
     tier: 1
-    entry: "SKILL.md"
-    protocol: "DEBATE"
-    tags: ["decision", "deliberation", "ensemble", "dataflow"]
-    use_when: "Complex decisions need structured cross-examination"
-    related: ["adversarial-committee", "roberts-rules", "rubric", "evaluator", "card", "speed-of-light"]
-    credits: "Mike Gallaher, Don Hopkins"
+    protocol: DEBATE
+    tags: [decision, deliberation]
     
-  - name: "debugging"
-    path: "skills/debugging"
+  - name: debugging
+    path: skills/debugging
     description: "Systematic bug investigation with hypothesis tracking"
     tier: 2
-    entry: "SKILL.md"
-    requires: ["file-read", "terminal-execute"]
-    tags: ["debugging", "investigation", "methodology"]
-    use_when: "Something isn't working, mysterious behavior, performance issues"
+    tags: [debugging, methodology]
     
-  # META — The skill skill has templates for creating other skills
-  # See skills/skill/ for: SKILL.md.tmpl, README.md.tmpl, SKILL.yml.tmpl, CARD.yml
+  - name: cursor-mirror
+    path: skills/cursor-mirror
+    description: "Deep introspection into Cursor IDE internals"
+    tier: 2
+    protocol: CURSOR-MIRROR
+    tags: [introspection, cursor, tools]
 
-# PLANNED SKILLS (TODO)
+# PLANNED SKILLS
 
 planned:
-  - name: "refactoring"
+  - name: refactoring
     description: "Safe code transformation with verification"
     tier: 3
-    status: "planned"
     
-  - name: "git-workflow"
+  - name: git-workflow
     description: "Branch management, commits, PR preparation"
     tier: 3
-    status: "planned"
     
-  - name: "bouncy-castle"
+  - name: bouncy-castle
     description: "Recursive navigable thought-spaces"
     tier: 1
-    status: "planned"
-    protocol: "BOUNCY-CASTLE"
-    notes: "LLOOOOMM experimental - high-dimensional navigation"
+    protocol: BOUNCY-CASTLE
     
-  - name: "yaml-coltrane"
-    description: "YAML Jazz lifecycle management—improvise to standardize"
+  - name: yaml-coltrane
+    description: "YAML Jazz lifecycle — improvise to standardize"
     tier: 1
-    status: "planned"
-    protocol: "YAML-COLTRANE"
-    notes: "Eight stages from improvisation to migration"
-    
-  - name: "pets"
-    description: "Fictional familiars embodying tool capabilities"
-    tier: 1
-    status: "planned"
-    protocol: "PETS"
-    notes: "LLOOOOMM experimental - safe K-line wrappers"
+    protocol: YAML-COLTRANE
 
 # GUIDELINES
 
 guidelines:
   structure:
-    - "Every skill needs README.md (landing page), SKILL.md (full spec), and CARD.yml (interface)"
-    - "README.md: Human-friendly overview, when to use, quick start"
-    - "SKILL.md: Full specification with YAML frontmatter"
-    - "CARD.yml: Machine-readable interface — methods, tools, state, advertisements"
-    - "Templates live at skill root level (not in template/ subdirectory)"
-    - "Templates use .tmpl extension for files with variable substitution"
+    - "Every skill: README.md (landing), SKILL.md (full spec), CARD.yml (interface)"
+    - "Templates at skill root with .tmpl extension"
     
   tiers:
-    tier_0: "Knowledge only: no tools required"
+    tier_0: "Knowledge only: no tools"
     tier_1: "File-only: read_file, write_file, list_dir"
     tier_2: "Read + Execute: + run_terminal_cmd, grep"
     
   naming:
-    - "Skill directories: lowercase-with-dashes"
+    - "Skill dirs: lowercase-with-dashes"
     - "Core files: UPPERCASE.ext (README.md, SKILL.md, CARD.yml)"
-    - "Templates: FILENAME.ext.tmpl at skill root"
-    - "Methods in CARD.yml: LIKE-THIS (kebab-case, not LIKE_THIS)"
+    - "Methods in CARD.yml: KEBAB-CASE"
     
   registration:
-    - "Register here when skill is ready for use"
-    - "Use 'planned' section for skills in development"
+    - "Register here when skill is ready"
+    - "Use 'planned' for in-development skills"

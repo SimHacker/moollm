@@ -632,310 +632,36 @@ Movement updates `location`, not file. See [character/](../character/).
 
 ## Pie Menu Room Topology
 
+> **Full specification:** [TOPOLOGY.yml](./TOPOLOGY.yml)
+
 The eight-direction compass maps to **two types of connections**:
 
-```
-           N (navigate)
-           ↑
-    NW ←───●───→ NE
-   (grid)  ↑   (grid)
-           │
-    W ←────┼────→ E
-(navigate) │  (navigate)
-           │
-    SW ←───●───→ SE
-   (grid)  ↓   (grid)
-           S (navigate)
-```
-
-### Cardinal Directions: Spiderweb Navigation
-
-**N/S/E/W** = Major room links, branching "out" or "away"
-
-```yaml
-exits:
-  n: ../great-hall/      # Major room north
-  s: ../cellar/          # Major room south
-  e: ../garden/          # Major room east
-  w: ../kitchen/         # Major room west
-```
-
-These form the **spiderweb** — sparse, long-distance connections between major locations.
-
-### Diagonal Directions: Grid Quadrants
-
-**NW/NE/SW/SE** = Corner links to expandable sub-room grids
-
-```yaml
-exits:
-  ne: ne/ne-1-1/         # Corner of northeast grid
-  nw: nw/nw-1-1/         # Corner of northwest grid
-  se: se/se-1-1/         # Corner of southeast grid
-  sw: sw/sw-1-1/         # Corner of southwest grid
-```
-
-Each diagonal opens into an **infinite storage quadrant**:
-
-```
-        NE QUADRANT GRID
-        
-    ne-1-4 ─── ne-2-4 ─── ne-3-4
-       │          │          │
-    ne-1-3 ─── ne-2-3 ─── ne-3-3
-       │          │          │
-    ne-1-2 ─── ne-2-2 ─── ne-3-2
-       │          │          │
-    ne-1-1 ─── ne-2-1 ─── ne-3-1
-       │
-       └────── connects to main room (sw exit)
-```
-
-### Grid Room Naming
-
-```
-{quadrant}-{x}-{y}
-
-ne-1-1 = closest northeast room (grid corner)
-ne-3-4 = 3 east, 4 north in NE quadrant
-sw-2-2 = 2 west, 2 south in SW quadrant
-```
-
-### Directory Structure
-
-```
-wizard-study/
-├── ROOM.yml              # Main room (pie menu center)
-├── nw/                   # Northwest quadrant
-│   ├── nw-1-1/ROOM.yml   # Grid corner (connects to main)
-│   ├── nw-2-1/ROOM.yml   # One east
-│   └── nw-1-2/ROOM.yml   # One north
-├── ne/                   # Northeast quadrant
-├── sw/                   # Southwest quadrant
-└── se/                   # Southeast quadrant
-```
-
-### Grid Room Auto-Linking
-
-Grid rooms have 8-direction exits to adjacent cells:
-
-```yaml
-# ne/ne-2-3/ROOM.yml
-room:
-  name: "Storage NE-2-3"
-  grid_position: { quadrant: ne, x: 2, y: 3 }
-  
-  exits:
-    n: ../ne-2-4/    # y+1
-    s: ../ne-2-2/    # y-1
-    e: ../ne-3-3/    # x+1
-    w: ../ne-1-3/    # x-1
-    ne: ../ne-3-4/   # x+1, y+1
-    nw: ../ne-1-4/   # x-1, y+1
-    se: ../ne-3-2/   # x+1, y-1
-    sw: ../ne-1-2/   # x-1, y-1
-```
-
-Corner rooms (x=1, y=1) have a special exit back to main:
-
-```yaml
-# ne/ne-1-1/ROOM.yml (corner room)
-room:
-  is_grid_corner: true
-  exits:
-    sw: ../../       # Back to main room!
-    n: ../ne-1-2/
-    e: ../ne-2-1/
-    ne: ../ne-2-2/
-```
-
-### The Metaphor: Outside and Inside
-
-| Direction | Type | Metaphor | Function |
-|-----------|------|----------|----------|
-| N/S/E/W | Cardinal | "Outside" / Highways | Navigate to other major rooms |
-| NW/NE/SW/SE | Diagonal | "Inside" / Frontage roads | Expand into storage grids |
+| Direction | Type | Function |
+|-----------|------|----------|
+| N/S/E/W | Cardinal | Navigate to major rooms (spiderweb) |
+| NW/NE/SW/SE | Diagonal | Expand into storage grids (quadrants) |
 
 **4 ways OUT** (navigation) + **4 quadrants IN** (infinite storage) = **Unlimited worlds**
 
-### Grid Connectivity Modes
+Grid naming: `{quadrant}-{x}-{y}` (e.g., `ne-2-3` = 2 east, 3 north in NE)
 
-Grids in quadrants can be **continuous** or **private**:
-
-```yaml
-# CONTINUOUS: One big grid shared between quadrants
-grid_mode: continuous
-# nw-4-1 connects to ne-1-1 (wrap around)
-# All four quadrants form one unified grid
-
-# PRIVATE: Each quadrant has isolated grid  
-grid_mode: private
-# nw grid has no connection to ne grid
-# Four separate storage areas
-```
-
-**Sparse grids are valid!** You don't need every cell:
-
-```yaml
-# Sparse grid — only rooms that exist
-wizard-study/ne/
-├── ne-1-1/     # Corner room (required)
-├── ne-2-1/     # Exists
-├── ne-5-3/     # Exists (gap is fine!)
-└── ne-10-1/    # Far out on X axis
-# Missing rooms = impassable
-# Like real buildings along a road
-```
-
-### Grid Numbering Conventions
-
-```yaml
-grid_rules:
-  no_negatives: true        # Always positive coordinates
-  zero_reserved: true       # 0 = the highway (N/S/E/W web)
-  one_one_adjacent: true    # 1-1 is always next to center
-  rotationally_symmetric: true
-  
-  addressing: |
-    Grid coords are POSITIVE and RELATIVE to quadrant.
-    This means you can rename 'nw/' to 'sw/' and the
-    internal links still work — just rotated!
-    
-  metaphor: |
-    N/S/E/W = STREETS (travel between intersections)
-    Intersection = Current room (where streets cross)
-    Diagonal quadrants = BUILDINGS you ENTER
-    Grid interior = Building floors/rooms
-    
-    The whole grid is a CITY:
-    - Cardinals = Travel along streets
-    - Diagonals = Enter buildings at corners
-    - City blocks fill the four quadrants
-```
-
-### 🏙️ The Urban Planning Metaphor
-
-**Grid rooms are CITY BLOCKS at street intersections!**
-
-```
-           N (street north)
-           ↑
-    ┌──────┼──────┐
-    │  NW  │  NE  │  ← BUILDINGS you ENTER
-    │ 🏭   │  📦  │    (warehouses, factories)
-W ──┼──────●──────┼── E (streets east/west)
-    │  📦  │  🚚  │    
-    │  SW  │  SE  │  ← BUILDINGS you ENTER
-    └──────┼──────┘
-           ↓
-           S (street south)
-```
-
-| Urban Element | MOOLLM Element | Action |
-|---------------|----------------|--------|
-| **Streets** | Cardinal exits (N/S/E/W) | TRAVEL along them |
-| **Intersection** | Current room | WHERE YOU ARE |
-| **Buildings** | Diagonal quadrants | ENTER them |
-| **Building Floors** | Grid cells | Navigate INSIDE |
-
-Example: **Fooblitzky-style city** (streets with buildings):
-
-```
-     N (street north)
-     │
-  ┌──┴──────────────────┐
-  │ 🏢 nw-1-3  nw-2-3   │  NW Building
-  │    │       │        │  (floors inside)
-  │ 🏢 nw-1-2  nw-2-2   │
-  │    │       │        │
-  │ 🏢 nw-1-1──nw-2-1───┼── to NE building
-  └─────────────────────┘
-     │
-     ●  (YOU ARE HERE — intersection)
-     │
-  W ─┴─ E (streets)
-```
-
-### Relative Addressing for Portability
-
-```yaml
-# All grid exits use relative paths:
-exits:
-  n: ../ne-2-4/    # Up one Y
-  e: ../ne-3-3/    # Right one X
-  sw: ../../       # Back to main (corner room only)
-
-# This means:
-# 1. Copy nw/ dir, rename to se/
-# 2. Search-replace "nw-" with "se-"  
-# 3. Grid still works! Just rotated 180°
-```
-
-### Memory Palace Application
-
-- **Cardinal rooms** = Major memory palace locations (palaces)
-- **Grid quadrants** = Detail storage (shelves, drawers, niches)
-- **Sparse grids** = Only memorable items get rooms
-- **Navigate with N/S/E/W**, store details in NW/NE/SW/SE
-
-See: [Pie Menus](https://en.wikipedia.org/wiki/Pie_menu), [Method of Loci](../memory-palace/), [Fooblitzky](https://en.wikipedia.org/wiki/Fooblitzky)
+See: [exit skill](../exit/) for PIE-MENU-TOPOLOGY protocol, [memory-palace/](../memory-palace/) for Method of Loci
 
 ## Codebase as Navigable World
 
-Modern IDEs like Cursor can mount multiple repositories. Each repository becomes a navigable world:
-
-**Directories are Rooms:**
-```
-@central/apps/insights/pyleela/brain/
-├── Schema.py           # The Schema Chamber
-├── Action.py           # The Action Hall  
-├── World.py            # The World Atrium
-├── Item.py             # The Item Vault
-└── DijkstraPlanner.py  # The Planning Room
-```
-
-**Files are Objects with Chambers:**
-
-A file is an object you can examine. Functions within are **chambers** you can enter:
-
-```
-> examine Schema.py
-Schema.py contains:
-  - class Schema (line 18)
-    - __init__ (line 22)
-    - createSyntheticItemIfNeeded (line 163)
-
-> enter createSyntheticItemIfNeeded
-You are now in the createSyntheticItemIfNeeded chamber.
-This function implements Drescher's synthetic item creation...
-```
-
-**Location Paths with Line Numbers:**
-
-Characters can be "at" a specific line in a file:
+Directories are rooms. Files are objects. Functions are chambers you can enter.
 
 ```yaml
+# Location paths with line numbers
 location: "@central/apps/insights/pyleela/brain/Schema.py:142"
-# Character is examining line 142 of Schema.py
+
+# Path syntax
+- @repo/path/to/file.py       # file in repo
+- @repo/path/to/file.py:42    # specific line
+- @repo/path/dir/             # directory (room)
 ```
 
-Path syntax for code:
-- `@repo/path/to/file.py` — file in mounted repo
-- `@repo/path/to/file.py:42` — specific line
-- `@repo/path/to/file.py:42-67` — line range
-- `@repo/path/dir/` — directory (room)
-
-**Links in Cards:**
-
-Connect skills to code artifacts:
-
-```yaml
-as_room:
-  artifacts:
-    - schema-mechanism: "@central/apps/insights/pyleela/brain/"
-    - task-queue: "@central/tools/edgebox/scripts/ingest.py"
-```
-
-See [character/](../character/) for party-based code review.
+See [character/](../character/) for party-based code review, README.md for detailed examples.
 
 ## NPC Embedding Patterns
 

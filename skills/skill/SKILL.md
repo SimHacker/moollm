@@ -730,6 +730,152 @@ This isn't theory. MOOLLM has demonstrated:
 
 ---
 
+## Future Direction: Skill Compiler
+
+> **TODO:** Build a "skill compiler" that optimizes skills for runtime deployment.
+
+### The Problem
+
+Full-featured skills with comprehensive SKILL.md, CARD.yml, and README.md are excellent for:
+- Development and debugging
+- Human understanding and reflection
+- Deep learning at runtime when needed
+
+But for production deployment targeting specific applications:
+- Many K-lines and links go unused
+- README documentation is redundant with SKILL.md
+- Not all methods/properties/protocols are needed
+- Context window budget is precious
+
+### The Solution: Skill Compilation
+
+Like a compiler's linker performs dead-code elimination and optimization, the **Skill Compiler** would:
+
+1. **Watch Skill Execution**
+   - Skills should have test cases and benchmark data
+   - Observe which K-lines, methods, and protocols are actually invoked
+   - Profile context usage patterns
+
+2. **Understand Target Environment**
+   - Target platform (Cursor, Claude Code, generic, custom)
+   - Target application domain
+   - Target skill subset being deployed
+   - Optimization hints (size vs. comprehensiveness)
+
+3. **Optimize and Transform**
+   - **Dead K-line elimination**: Remove unused symbolic references
+   - **Link pruning**: Remove references to unneeded related skills
+   - **README absorption**: Inject critical details from README into SKILL.md, discard the rest
+   - **Interface stripping**: Export only necessary methods/properties in CARD.yml
+   - **Bind and specialize**: Pre-resolve references for the target skill subset
+   - **Tiered resolution**: Create multi-resolution versions (sniff → scan → deep)
+
+4. **Produce Optimized Artifacts**
+   - Pre-indexed skill content
+   - Categorized and tagged for efficient discovery
+   - Multi-tiered resolution layers (header, summary, full)
+   - K-line optimized (only relevant activations)
+   - Summary clusters for related concepts
+   - Efficient runtime skill set
+
+### Compilation Modes
+
+```yaml
+compiler:
+  modes:
+    development:
+      # Full skills, all documentation
+      # Maximum introspection capability
+      strip_unused: false
+      include_readme: true
+      include_examples: true
+      
+    production:
+      # Optimized for runtime efficiency
+      strip_unused: true
+      include_readme: false  # Absorbed into SKILL.md
+      inline_critical_refs: true
+      
+    minimal:
+      # Smallest possible footprint
+      # Only methods actually called in test suite
+      strip_unused: true
+      inline_all: true
+      single_file_output: true
+```
+
+### Source vs. Compiled Skills
+
+```
+skills/                          # SOURCE: Full development skills
+├── adventure/
+│   ├── README.md               # Human documentation  
+│   ├── SKILL.md                # Full protocol spec
+│   ├── CARD.yml                # Complete interface
+│   └── tests/                  # Test cases for compiler
+│       ├── test_cases.yml
+│       └── benchmark_data/
+
+compiled/                        # OUTPUT: Optimized for target
+├── cursor-leela/               # Target: Cursor + Leela AI domain
+│   └── adventure/
+│       ├── SKILL.md            # Slimmed, README absorbed
+│       └── CARD.yml            # Only used methods
+└── minimal/                    # Target: Smallest footprint
+    └── adventure.yml           # Single-file bundle
+```
+
+### K-line Optimization
+
+K-lines are activation vectors. The compiler should:
+
+```yaml
+# SOURCE: Full K-line network
+related: [room, card, character, soul-chat, speed-of-light, 
+          action-queue, empathic-templates, yaml-jazz, postel, ...]
+
+# COMPILED: Only K-lines actually activated in target context
+related: [room, card, character]  # Pruned to essentials
+```
+
+### Multi-Tiered Resolution
+
+Compiled skills should support progressive loading:
+
+```yaml
+tiers:
+  - level: 0
+    name: "sniff"
+    content: "frontmatter + 10-line summary"
+    tokens: ~100
+    
+  - level: 1  
+    name: "scan"
+    content: "interface + method signatures"
+    tokens: ~500
+    
+  - level: 2
+    name: "deep"
+    content: "full protocol + examples"
+    tokens: ~2000
+```
+
+### Implementation Notes
+
+- Test suite is REQUIRED for compilation (like type annotations for a type checker)
+- Compiler should be conservative: when in doubt, include
+- Human-readable output: optimized skills should still be readable
+- Reversible: track what was stripped for debugging
+- Version stamped: compiled skills reference source version
+
+### See Also
+
+- [../k-lines/](../k-lines/) — K-line activation patterns
+- [../speed-of-light/](../speed-of-light/) — Context efficiency matters
+- [../bootstrap/](../bootstrap/) — Minimal skill loading
+
+---
+
 ## Summary: MOOLLM Advances the Art
 
 | Feature | Anthropic Foundation | MOOLLM Contribution |

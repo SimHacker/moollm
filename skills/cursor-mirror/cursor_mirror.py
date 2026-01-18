@@ -206,9 +206,11 @@ Debug mode:
   %(prog)s --debug <command>                 # Enable verbose debug logging
 """,
     )
-    # Global debug flag
+    # Global flags
     ap.add_argument("-d", "--debug", action="store_true",
                     help="Enable verbose debug logging to stderr")
+    ap.add_argument("--sources", action="store_true",
+                    help="Show data source paths (databases, files) for LLM self-service")
     
     sub = ap.add_subparsers(dest="cmd", required=True)
 
@@ -907,7 +909,15 @@ Debug mode:
         debug("Debug mode enabled")
         debug("Command: %s", args.cmd)
     
+    # Initialize source tracking if requested
+    if getattr(args, 'sources', False):
+        set_sources_mode(True)
+    
     args.func(args)
+    
+    # Print data sources if --sources flag was set
+    if getattr(args, 'sources', False):
+        print_sources()
 
 # END SNIFFABLE REGION
 # Below is implementation: exceptions, __all__, logging, cli(), helpers, cmd_*.
@@ -1843,6 +1853,86 @@ def set_debug(enabled: bool) -> None:
         ))
         log.addHandler(handler)
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# DATA SOURCE TRACKING - "Teach me to fish" feature
+# ═══════════════════════════════════════════════════════════════════════════════
+# When --sources is set, we track all databases/files read and print them at the
+# end. This allows LLMs to learn where the data comes from and query it directly.
+
+SOURCES_MODE = False
+_data_sources: Dict[str, set] = {
+    "databases": set(),
+    "tables": set(),
+    "files": set(),
+    "directories": set(),
+    "sql_queries": set(),
+}
+
+def set_sources_mode(enabled: bool) -> None:
+    """Enable data source tracking for LLM self-service."""
+    global SOURCES_MODE
+    SOURCES_MODE = enabled
+
+def register_source(source_type: str, path_or_query: str, table: str = None) -> None:
+    """Register a data source for later reporting.
+    
+    Args:
+        source_type: One of 'database', 'file', 'directory', 'sql'
+        path_or_query: The file path, database path, or SQL query
+        table: Optional table name for database sources
+    """
+    if not SOURCES_MODE:
+        return
+    if source_type == "database":
+        _data_sources["databases"].add(str(path_or_query))
+        if table:
+            _data_sources["tables"].add(table)
+    elif source_type == "file":
+        _data_sources["files"].add(str(path_or_query))
+    elif source_type == "directory":
+        _data_sources["directories"].add(str(path_or_query))
+    elif source_type == "sql":
+        # Truncate long queries
+        query = str(path_or_query).strip()[:200]
+        _data_sources["sql_queries"].add(query)
+
+def print_sources() -> None:
+    """Print all registered data sources for LLM self-service."""
+    print("\n" + "═" * 70)
+    print("DATA SOURCES — Query these directly for raw access")
+    print("═" * 70)
+    
+    if _data_sources["databases"]:
+        print("\n📁 DATABASES (SQLite - use: sqlite3 <path>):")
+        for db in sorted(_data_sources["databases"]):
+            print(f"   {db}")
+    
+    if _data_sources["tables"]:
+        print("\n📊 TABLES queried:")
+        for t in sorted(_data_sources["tables"]):
+            print(f"   {t}")
+    
+    if _data_sources["sql_queries"]:
+        print("\n🔍 SQL QUERIES used (adapt for your needs):")
+        for q in list(_data_sources["sql_queries"])[:10]:
+            print(f"   {q}...")
+    
+    if _data_sources["files"]:
+        print("\n📄 FILES read:")
+        for f in sorted(_data_sources["files"]):
+            print(f"   {f}")
+    
+    if _data_sources["directories"]:
+        print("\n📂 DIRECTORIES scanned:")
+        for d in sorted(_data_sources["directories"]):
+            print(f"   {d}")
+    
+    print("\n" + "─" * 70)
+    print("TIP: Use 'sqlite3 <db_path> \".tables\"' to list all tables")
+    print("TIP: Use 'sqlite3 <db_path> \".schema <table>\"' to see schema")
+    print("TIP: Use 'sqlite3 <db_path> \"SELECT * FROM <table> LIMIT 5\"' to sample data")
+    print("═" * 70)
+
 # CLI Wrapper (entry point that handles exceptions)
 
 def cli() -> int:
@@ -1921,6 +2011,7 @@ CONFIG = load_config()
 def open_db(path: Path) -> sqlite3.Connection:
     """Open SQLite in read-only mode."""
     debug("open_db: %s", path.name if hasattr(path, 'name') else path)
+    register_source("database", path)
     return sqlite3.connect(f"file:{path}?mode=ro", uri=True)
 
 
@@ -2152,6 +2243,8 @@ def get_workspace_composers(ws_path: Path) -> List[Dict[str, Any]]:
     
     conn = open_db(db_path)
     cur = conn.cursor()
+    register_source("database", db_path, "ItemTable")
+    register_source("sql", "SELECT value FROM ItemTable WHERE key='composer.composerData'")
     row = cur.execute("SELECT value FROM ItemTable WHERE key='composer.composerData'").fetchone()
     conn.close()
     
@@ -2194,12 +2287,15 @@ def iter_bubbles(composer_id: Optional[str] = None) -> Iterator[Tuple[str, str, 
     """
     conn = open_db(GLOBAL_DB)
     cur = conn.cursor()
+    register_source("database", GLOBAL_DB, "cursorDiskKV")
     if composer_id:
+        register_source("sql", f"SELECT key, value FROM cursorDiskKV WHERE key LIKE 'bubbleId:{composer_id[:8]}...'")
         rows = cur.execute(
             "SELECT key, value FROM cursorDiskKV WHERE key LIKE ?",
             (f"bubbleId:{composer_id}:%",),
         ).fetchall()
     else:
+        register_source("sql", "SELECT key, value FROM cursorDiskKV WHERE key LIKE 'bubbleId:%'")
         rows = cur.execute(
             "SELECT key, value FROM cursorDiskKV WHERE key LIKE 'bubbleId:%'"
         ).fetchall()
@@ -2331,6 +2427,7 @@ def clear_all_caches() -> None:
 
 def iter_workspace_paths() -> Iterator[Path]:
     """Iterate over all workspace directories."""
+    register_source("directory", WORKSPACES_ROOT)
     for ws in WORKSPACES_ROOT.iterdir():
         if ws.is_dir():
             yield ws
@@ -5032,6 +5129,8 @@ def get_item_table_value(key: str) -> Optional[Any]:
     """Get a value from ItemTable, parsing JSON if applicable."""
     conn = open_db(GLOBAL_DB)
     cur = conn.cursor()
+    register_source("database", GLOBAL_DB, "ItemTable")
+    register_source("sql", f"SELECT value FROM ItemTable WHERE key = '{key}'")
     row = cur.execute("SELECT value FROM ItemTable WHERE key = ?", (key,)).fetchone()
     conn.close()
     if not row:

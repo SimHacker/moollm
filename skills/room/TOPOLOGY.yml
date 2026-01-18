@@ -1,0 +1,200 @@
+# Room Topology — Grid Layout and Navigation Patterns
+# Extracted from SKILL.md for separate reference
+# See: exit skill for PIE-MENU-TOPOLOGY protocol
+
+topology:
+  name: "Pie Menu Room Topology"
+  protocol: PIE-MENU-TOPOLOGY
+  see_also: [skills/exit/, skills/room/SKILL.md]
+  
+  description: |
+    The eight-direction compass maps to TWO types of connections:
+    - Cardinals (N/S/E/W): Major room links, spiderweb navigation
+    - Diagonals (NW/NE/SW/SE): Grid quadrant storage
+
+# COMPASS DIAGRAM
+
+compass:
+  diagram: |
+           N (navigate)
+           ↑
+    NW ←───●───→ NE
+   (grid)  ↑   (grid)
+           │
+    W ←────┼────→ E
+  (navigate)│  (navigate)
+           │
+    SW ←───●───→ SE
+   (grid)  ↓   (grid)
+           S (navigate)
+           
+  metaphor: |
+    N/S/E/W = STREETS (travel between intersections)
+    Intersection = Current room (where streets cross)
+    Diagonal quadrants = BUILDINGS you ENTER
+    Grid interior = Building floors/rooms
+    
+    The whole grid is a CITY:
+    - Cardinals = Travel along streets
+    - Diagonals = Enter buildings at corners
+    - City blocks fill the four quadrants
+
+# CARDINAL DIRECTIONS
+
+cardinal:
+  description: "Spiderweb navigation — major room links"
+  directions: [n, s, e, w]
+  function: "Navigate to other major rooms"
+  metaphor: "Outside / Highways"
+  
+  example:
+    exits:
+      n: "../great-hall/"
+      s: "../cellar/"
+      e: "../garden/"
+      w: "../kitchen/"
+
+# DIAGONAL DIRECTIONS
+
+diagonal:
+  description: "Grid quadrant storage — expandable sub-rooms"
+  directions: [nw, ne, sw, se]
+  function: "Expand into storage grids"
+  metaphor: "Inside / Frontage roads"
+  
+  example:
+    exits:
+      ne: "ne/ne-1-1/"
+      nw: "nw/nw-1-1/"
+      se: "se/se-1-1/"
+      sw: "sw/sw-1-1/"
+
+# GRID LAYOUT
+
+grid:
+  naming: "{quadrant}-{x}-{y}"
+  examples:
+    - "ne-1-1: closest northeast (grid corner)"
+    - "ne-3-4: 3 east, 4 north in NE quadrant"
+    - "sw-2-2: 2 west, 2 south in SW quadrant"
+    
+  directory_structure: |
+    wizard-study/
+    ├── ROOM.yml              # Main room (pie menu center)
+    ├── nw/                   # Northwest quadrant
+    │   ├── nw-1-1/ROOM.yml   # Grid corner (connects to main)
+    │   ├── nw-2-1/ROOM.yml   # One east
+    │   └── nw-1-2/ROOM.yml   # One north
+    ├── ne/                   # Northeast quadrant
+    ├── sw/                   # Southwest quadrant
+    └── se/                   # Southeast quadrant
+    
+  auto_linking:
+    description: "Grid rooms have 8-direction exits to adjacent cells"
+    example:
+      file: "ne/ne-2-3/ROOM.yml"
+      room:
+        name: "Storage NE-2-3"
+        grid_position: { quadrant: ne, x: 2, y: 3 }
+        exits:
+          n: "../ne-2-4/"    # y+1
+          s: "../ne-2-2/"    # y-1
+          e: "../ne-3-3/"    # x+1
+          w: "../ne-1-3/"    # x-1
+          ne: "../ne-3-4/"   # x+1, y+1
+          nw: "../ne-1-4/"   # x-1, y+1
+          se: "../ne-3-2/"   # x+1, y-1
+          sw: "../ne-1-2/"   # x-1, y-1
+          
+  corner_rooms:
+    description: "Corner rooms (1,1) have special exit back to main"
+    example:
+      file: "ne/ne-1-1/ROOM.yml"
+      room:
+        is_grid_corner: true
+        exits:
+          sw: "../../"       # Back to main room!
+          n: "../ne-1-2/"
+          e: "../ne-2-1/"
+          ne: "../ne-2-2/"
+
+# CONNECTIVITY MODES
+
+connectivity:
+  modes:
+    continuous:
+      description: "One big grid shared between quadrants"
+      behavior: "nw-4-1 connects to ne-1-1 (wrap around)"
+      
+    private:
+      description: "Each quadrant has isolated grid"
+      behavior: "nw grid has no connection to ne grid"
+      
+  sparse_grids:
+    description: "Don't need every cell — missing rooms = impassable"
+    example: |
+      wizard-study/ne/
+      ├── ne-1-1/     # Corner room (required)
+      ├── ne-2-1/     # Exists
+      ├── ne-5-3/     # Exists (gap is fine!)
+      └── ne-10-1/    # Far out on X axis
+      # Like real buildings along a road
+
+# GRID RULES
+
+rules:
+  no_negatives: true        # Always positive coordinates
+  zero_reserved: true       # 0 = the highway (N/S/E/W web)
+  one_one_adjacent: true    # 1-1 is always next to center
+  rotationally_symmetric: true
+  
+  portability: |
+    Grid coords are POSITIVE and RELATIVE to quadrant.
+    This means you can:
+    1. Copy nw/ dir, rename to se/
+    2. Search-replace "nw-" with "se-"  
+    3. Grid still works! Just rotated 180°
+
+# URBAN METAPHOR
+
+urban_planning:
+  diagram: |
+           N (street north)
+           ↑
+    ┌──────┼──────┐
+    │  NW  │  NE  │  ← BUILDINGS you ENTER
+    │ 🏭   │  📦  │    (warehouses, factories)
+  W ──┼──────●──────┼── E (streets east/west)
+    │  📦  │  🚚  │    
+    │  SW  │  SE  │  ← BUILDINGS you ENTER
+    └──────┼──────┘
+           ↓
+           S (street south)
+           
+  mapping:
+    streets: "Cardinal exits (N/S/E/W) — TRAVEL along them"
+    intersection: "Current room — WHERE YOU ARE"
+    buildings: "Diagonal quadrants — ENTER them"
+    floors: "Grid cells — Navigate INSIDE"
+    
+  summary: "4 ways OUT (navigation) + 4 quadrants IN (storage) = Unlimited worlds"
+
+# MEMORY PALACE APPLICATION
+
+memory_palace:
+  cardinal_rooms: "Major memory palace locations (palaces)"
+  grid_quadrants: "Detail storage (shelves, drawers, niches)"
+  sparse_grids: "Only memorable items get rooms"
+  navigation: "Navigate with N/S/E/W, store details in NW/NE/SW/SE"
+  see_also: [skills/memory-palace/, "Fooblitzky", "Method of Loci"]
+
+# GENERATION INTEGRATION
+
+generation:
+  see_also: skills/world-generation/
+  pattern: |
+    When expanding via diagonals, use grid naming.
+    When expanding via cardinals, use semantic names.
+  example:
+    GO_NE: "Creates ne/ne-1-1/ (grid cell)"
+    GO_N: "Creates ../north-tower/ (named room)"

@@ -31,7 +31,7 @@ rules:
       - "Place bootstrap-probe.yml in .moollm/."
       - "Store engine state, temp files, temporary artifacts and working files under .moollm/, so they don't get checked in."
       - "Templates live in skills/bootstrap/templates/ (checked in)."
-      - "Runtime files (cold.yml, startup.yml, hot.yml, working-set.yml) go in .moollm/ or root (gitignored)."
+      - "Runtime files (cold.yml, startup.yml, hot.yml, working-set.yml) go in .moollm/ (gitignored)."
 
   - name: skill-reading-order
     description: "Efficient skill reading."
