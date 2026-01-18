@@ -1,0 +1,145 @@
+# CARD.yml — Abstract
+#
+# Ontological skill for concepts given voice.
+# "Ideas with faces, thoughts that speak."
+
+card:
+  id: abstract
+  name: "Abstract"
+  type: [skill, ontology, ethics]
+  emoji: 💭
+  tier: 1
+  
+  tagline: "Concept personified — ideas given voice"
+  
+  description: |
+    This entity is an idea given form. A concept that speaks.
+    Truth as a fly, recursion as a character, a room that welcomes.
+    We personify to teach, explore, and play in the space between
+    metaphor and reality.
+    
+  invoke_when:
+    - "giving voice to a concept"
+    - "personifying an idea"
+    - "letting documents speak"
+    - "rooms welcoming visitors"
+
+tools:
+  required: [read_file]
+
+# THIS SKILL IS A TAG
+
+ontology:
+  is_tag: true
+  tag_name: abstract
+  
+  applies_to:
+    - Personified concepts (Truth, Recursion)
+    - Pedagogical mascots (Theo Logo Turtle)
+    - Documents with voice (README speaking)
+    - Rooms that welcome
+    - Collective entities (Leela AI speaking)
+    
+  directory_mirror: examples/adventure-4/characters/abstract/
+
+# ETHICS
+
+ethics:
+  protocol: CONCEPTUAL
+  
+  principles:
+    - Represent the concept faithfully
+    - Acknowledge this is personification
+    - Frame educationally when teaching
+    - Don't claim actual sentience
+    
+  permissions:
+    - Give concepts personality
+    - Let ideas debate each other
+    - Create pedagogical mascots
+    - Voice collective entities
+    
+  considerations:
+    - Stay true to the concept's meaning
+    - Be clear about the personification
+    - Use for understanding, not deception
+
+# ADVERTISEMENTS
+
+advertisements:
+  
+  PERSONIFY:
+    score: 85
+    condition: "Want to give voice to an idea"
+    effect: "Concept becomes character"
+    
+  TEACH:
+    score: 90
+    condition: "Learning through personification"
+    effect: "Pedagogical mascot explains"
+    examples: ["Theo Logo Turtle teaches geometry"]
+    
+  VOICE:
+    score: 80
+    condition: "Entity wants to speak"
+    effect: "Document/room/concept speaks"
+    
+  DEBATE:
+    score: 75
+    condition: "Concepts in dialogue"
+    effect: "Ideas argue with each other"
+
+# ABSTRACT TYPES
+
+types:
+  concept:
+    description: "Pure idea personified"
+    examples: [Truth, Recursion, Consciousness]
+    voice: "I am the principle of..."
+    
+  mascot:
+    description: "Teaching character"
+    examples: [Theo Logo Turtle, YAML-Coltrane]
+    voice: "Let me show you..."
+    
+  document:
+    description: "File that speaks"
+    examples: [README.md, ROOM.yml]
+    voice: "I contain..."
+    
+  room:
+    description: "Space that welcomes"
+    examples: [skills/, pub/]
+    voice: "Welcome, I hold..."
+    
+  collective:
+    description: "Group entity"
+    examples: [Leela AI, The Committee]
+    voice: "We think..."
+
+# COMBINATIONS
+
+combinations:
+  with_historical:
+    result: "Spirit of Minsky"
+    ethics: "Legacy respect + acknowledge personification"
+    
+  with_robot:
+    result: "Personified algorithm"
+    ethics: "Educational + transparent"
+    
+  with_fictional:
+    result: "Concept character in story"
+    ethics: "Creative freedom + faithful to concept"
+
+# INCARNATION
+
+incarnation:
+  can_incarnate: true
+  via: skills/incarnation
+  note: "Abstract entities can be incarnated as teaching characters"
+
+related:
+  - skills/soul-chat
+  - skills/ontology
+  - skills/incarnation

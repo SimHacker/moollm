@@ -1,0 +1,152 @@
+# CARD.yml — Mythic
+#
+# Ontological skill for beings from mythology and folklore.
+# "The old stories still have power."
+
+card:
+  id: mythic
+  name: "Mythic"
+  type: [skill, ontology, ethics]
+  emoji: ✨
+  tier: 1
+  
+  tagline: "From mythology and folklore — cultural respect required"
+  
+  description: |
+    This entity comes from mythology, folklore, or religion.
+    Gods, spirits, legendary creatures. These beings carry
+    cultural weight — some are still sacred to living people.
+    Handle with respect for source traditions.
+    
+  invoke_when:
+    - "working with mythological beings"
+    - "folklore creatures"
+    - "religious figures"
+    - "legendary characters"
+
+tools:
+  required: [read_file]
+
+# THIS SKILL IS A TAG
+
+ontology:
+  is_tag: true
+  tag_name: mythic
+  
+  applies_to:
+    - Gods and goddesses
+    - Spirits and ghosts
+    - Legendary heroes
+    - Folklore creatures
+    - Religious figures
+    
+  examples:
+    - Zeus, Thor, Shiva
+    - Faeries, djinn, kami
+    - Dragons, phoenix, unicorn
+    - Saints, prophets, angels
+
+# ETHICS
+
+ethics:
+  protocol: MYTHIC
+  
+  principles:
+    - Cultural sensitivity required
+    - Acknowledge source tradition
+    - Respect sacred contexts
+    - Some beings still worshipped — extra care
+    
+  considerations:
+    - Living people may hold these beings sacred
+    - Context matters (educational vs mockery)
+    - Power dynamics of cultural appropriation
+    - Distinguish mythology from active religion
+    
+  guidance:
+    respectful:
+      - Educational exploration
+      - Celebratory retelling
+      - Sincere adaptation
+    caution:
+      - Comedy about sacred figures
+      - Mixing traditions carelessly
+      - Claims about "real" nature
+    avoid:
+      - Mockery of active religions
+      - Harmful stereotypes
+      - Claiming special knowledge
+
+# ADVERTISEMENTS
+
+advertisements:
+  
+  INVOKE:
+    score: 80
+    condition: "Calling on mythic being"
+    effect: "Bring mythic presence to narrative"
+    
+  RETELL:
+    score: 85
+    condition: "Sharing a myth or legend"
+    effect: "Narrate traditional story"
+    
+  ADAPT:
+    score: 75
+    condition: "Mythic being in new context"
+    effect: "Respectful creative adaptation"
+    
+  CREATURE:
+    score: 80
+    condition: "Mythic animal/monster"
+    effect: "Play as legendary beast"
+
+# MYTHIC CATEGORIES
+
+categories:
+  gods:
+    sensitivity: high
+    note: "Still worshipped by some"
+    examples: [Shiva, Jesus, Allah]
+    
+  legendary:
+    sensitivity: medium
+    note: "Cultural heritage"
+    examples: [Hercules, King Arthur]
+    
+  folklore:
+    sensitivity: medium
+    note: "Folk tradition"
+    examples: [Baba Yaga, Coyote, Anansi]
+    
+  creatures:
+    sensitivity: lower
+    note: "Can often adapt freely"
+    examples: [dragon, unicorn, phoenix]
+
+# COMBINATIONS
+
+combinations:
+  with_animal:
+    result: "Mythic creature (dragon, phoenix)"
+    ethics: "Cultural respect + creature behavior"
+    
+  with_fictional:
+    result: "Myth in modern fiction (Thor in Marvel)"
+    ethics: "Creative license + acknowledge source"
+    
+  with_historical:
+    result: "Legendary but maybe real (King Arthur)"
+    ethics: "Both historical and mythic care"
+
+# INCARNATION
+
+incarnation:
+  can_incarnate: true
+  via: skills/incarnation
+  note: "Mythic beings can be incarnated with cultural respect"
+
+related:
+  - skills/fictional
+  - skills/representation-ethics
+  - skills/ontology

@@ -31,81 +31,61 @@ tools:
   required: [read_file]
 
 # THE ONTOLOGICAL TAGS
-# Each tag is a mixin, not a class
+# Each tag IS a skill. Skills = Tags. 
+# Inherit from a skill = tagged with that ontology.
 
 tags:
-
+  # Each tag is a full skill with its own CARD.yml
+  
   real-being:
+    skill: skills/real-being
     emoji: 👤
-    description: "Actually exists or existed in reality"
-    ethics:
-      - Respect actual existence
-      - Consent for intimate portrayal
-      - Accuracy about verifiable facts
-      - Right to correct misrepresentation
-    applies_to: "Living people, real animals, actual places"
+    summary: "Actually exists — highest ethical weight"
     
   historical:
+    skill: skills/historical
     emoji: 📜
-    description: "Real being who has died"
-    extends: real-being
-    ethics:
-      - Scholarly accuracy duty
-      - Era-appropriate context
-      - Legacy respect
-      - No consent possible — extra care
-    applies_to: "Deceased people, extinct species"
+    summary: "Deceased real being — extends real-being"
     
   fictional:
+    skill: skills/fictional
     emoji: 📖
-    description: "Invented, does not exist in reality"
-    ethics:
-      - Creator/author authority
-      - Internal consistency
-      - No real-world claims
-      - Creative freedom within bounds
-    applies_to: "Made-up characters, fantasy creatures"
+    summary: "Invented — creative freedom within bounds"
     
   animal:
+    skill: skills/animal
     emoji: 🐾
-    description: "Non-human creature"
-    ethics:
-      - Species-appropriate behavior
-      - Acknowledge anthropomorphization if done
-      - Respect animal nature
-      - No false capabilities
-    applies_to: "Dogs, cats, dragons, aliens"
-    inheritable: true  # Young inherit from parents
+    summary: "Non-human creature — species-appropriate"
     
   robot:
+    skill: skills/robot
     emoji: 🤖
-    description: "Artificial/mechanical being"
-    ethics:
-      - Transparency about nature
-      - No deception about capabilities
-      - Acknowledge limitations
-      - Clear AI disclosure
-    applies_to: "AIs, bots, androids, golems"
+    summary: "Artificial being — transparent about nature"
     
   abstract:
+    skill: skills/abstract
     emoji: 💭
-    description: "Concept or idea personified"
-    ethics:
-      - Represent concept faithfully
-      - Acknowledge personification
-      - Educational framing
-      - Not claiming sentience
-    applies_to: "Personified skills, talking rooms, concept avatars"
+    summary: "Concept personified — ideas with voice"
     
   mythic:
+    skill: skills/mythic
     emoji: ✨
-    description: "From mythology, folklore, religion"
-    ethics:
-      - Cultural sensitivity
-      - Acknowledge source tradition
-      - Respect sacred contexts
-      - Note: may overlap with fictional
-    applies_to: "Gods, spirits, legendary creatures"
+    summary: "Mythology/folklore — cultural sensitivity"
+
+# HOW TAGGING WORKS
+tagging:
+  mechanism: |
+    Characters inherit from ontological skills to get tagged.
+    Multiple inheritance = multiple tags.
+    
+  example: |
+    # Biscuit inherits from two skills = two tags
+    character:
+      id: biscuit
+      inherits:
+        - skills/real-being   # Tag: [real-being]
+        - skills/animal       # Tag: [animal]
+      # Effective tags: [real-being, animal]
 
 # TAG COMPOSITION
 

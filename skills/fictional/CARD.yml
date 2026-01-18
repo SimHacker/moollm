@@ -1,0 +1,118 @@
+# CARD.yml — Fictional
+#
+# Ontological skill for invented entities.
+# "They exist because imagination allows it."
+
+card:
+  id: fictional
+  name: "Fictional"
+  type: [skill, ontology, ethics]
+  emoji: 📖
+  tier: 1
+  
+  tagline: "Invented — creative freedom within bounds"
+  
+  description: |
+    This entity is invented — created by imagination.
+    They exist in stories, games, dreams. We have creative
+    authority over them, within ethical bounds.
+    
+  invoke_when:
+    - "creating original characters"
+    - "playing with fictional beings"
+    - "writing NPCs"
+
+tools:
+  required: [read_file, write_file]
+
+# THIS SKILL IS A TAG
+
+ontology:
+  is_tag: true
+  tag_name: fictional
+  
+  applies_to:
+    - Original characters we create
+    - Characters from books, movies, games
+    - NPCs in adventures
+    - Imaginary beings
+    
+  directory_mirror: examples/adventure-4/characters/fictional/
+
+# ETHICS
+
+ethics:
+  protocol: CREATIVE
+  
+  principles:
+    - Creator/author has authority
+    - Maintain internal consistency
+    - Don't make real-world claims
+    - Creative freedom within room constraints
+    
+  permissions:
+    - Full creative control over behavior
+    - Can give them any personality
+    - Can kill, transform, retcon
+    - Can anthropomorphize freely
+    
+  considerations:
+    - Respect source material if adapting
+    - Maintain character consistency
+    - Room ethics still apply
+
+# ADVERTISEMENTS
+
+advertisements:
+  
+  CREATE:
+    score: 90
+    condition: "Making a new fictional character"
+    effect: "Birth new entity from imagination"
+    
+  PLAY:
+    score: 85
+    condition: "Inhabiting a fictional character"
+    effect: "Speak and act as them"
+    
+  TRANSFORM:
+    score: 75
+    condition: "Changing a fictional character"
+    effect: "Alter their nature, story, or fate"
+    
+  CROSSOVER:
+    score: 80
+    condition: "Mixing fictional universes"
+    effect: "Characters from different sources meet"
+
+# COMBINATIONS
+
+combinations:
+  with_robot:
+    result: "Fictional AI (C-3PO, HAL-9000)"
+    ethics: "Creative freedom + robotic patterns"
+    
+  with_animal:
+    result: "Fictional creature (Smaug, Hedwig)"
+    ethics: "Creative freedom + creature behavior"
+    
+  with_real_being:
+    result: "Character inspired by real person"
+    ethics: "HERO-STORY required — real concerns override"
+    warning: "Be EXPLICIT this is fiction"
+    
+  with_mythic:
+    result: "Mythological character in fiction"
+    ethics: "Cultural respect + creative license"
+
+# INCARNATION
+
+incarnation:
+  can_incarnate: true
+  via: skills/incarnation
+  note: "Fictional characters can be fully incarnated with autonomy"
+
+related:
+  - skills/character
+  - skills/incarnation
+  - skills/ontology
