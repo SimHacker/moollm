@@ -4,7 +4,18 @@
 # Half Yellow Lab, half Bernese Mountain Dog. Father left before birth.
 # Biggest puppy. Biggest heart. Emotional support for the whole pack.
 
-object:
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional
+  - skills/animal
+  - skills/dog
+  - characters/animals/dog-butterscotch  # Mother
+ontology:
+  tags: [fictional, animal]
+  species: dog
+  specialization: puppy
+
+character:
   name: "Teddy"
   nickname: "Teddy Bear"
   id: teddy

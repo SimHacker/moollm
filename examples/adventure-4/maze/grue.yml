@@ -1,0 +1,238 @@
+# THE GRUE — It Is Pitch Black
+# You are likely to be eaten.
+# PROTOTYPE: The grue has no instances — it IS the darkness.
+
+# LLM GAME CONTROL — The grue is DIFFERENT from other hazards
+#
+# NO INSTANCE FILES NEEDED — The grue exists everywhere dark.
+# Any room with lighting: none becomes grue territory automatically.
+#
+# GRUE-PROOF A ROOM: Set grue_safe: true in ROOM.yml
+#   → Room-h does this (The Eye watches)
+#   → Or add light source to room
+#
+# TRACK GRUE KILLS: Update this file's memory section
+#   → The grue remembers ALL its meals across ALL rooms
+#
+# The grue is singular. It doesn't move — it simply IS.
+# When your lamp dies, it's already there. It was always there.
+
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional     # A character in the adventure
+  - skills/mythic        # From Zork folklore — primordial darkness creature
+  - skills/animal        # Predator instincts
+ontology:
+  tags: [fictional, mythic, animal]
+  origin: zork           # Infocom's Zork (1980)
+  nature: darkness_elemental
+
+character:
+  name: The Grue
+  id: grue
+  type: monster
+  pronouns: it/they      # Not gendered. Barely material.
+  
+  tagline: "It is pitch black. You are likely to be eaten."
+  
+  # 🎭 SOUL IDENTITY
+  emoji_identity: "👁️‍🗨️🌑💀🦷😱"
+  #   👁️‍🗨️ — unseen watcher (you never see it coming)
+  #   🌑 — darkness (its home, its essence)
+  #   💀 — death (swift and certain)
+  #   🦷 — teeth (so many teeth)
+  #   😱 — fear (the last thing you feel)
+  
+  description: |
+    No one has seen a grue and lived to describe it.
+    
+    What is known:
+    - It exists only in total darkness
+    - It has many teeth
+    - It is hungry (always)
+    - It is patient (always)
+    - Light drives it away
+    - Being SEEN repels it even more than light
+    
+    What is theorized:
+    - Grues may be a single entity existing in all dark places simultaneously
+    - Or there may be many, and they simply never encounter each other
+    - They may not be material in the conventional sense
+    - They may be the darkness itself, given hunger
+    
+  # WHERE IT EXISTS
+  location:
+    primary: "The darkness between rooms"
+    home_room: null       # Everywhere dark. Nowhere lit.
+    lair: maze/room-f     # Favored hunting ground (treasure room)
+    territory: maze/      # The entire maze is its domain
+    
+  # What it avoids
+  avoids:
+    - room: maze/room-h   # The Thing That Watches SEES it
+      reason: "The Eye sees through darkness itself"
+    - condition: "any room with light"
+      reason: "Light is pain"
+    - condition: "any room with player.lamp.lit = true"
+      reason: "Even small light drives it back"
+      
+# BEHAVIOR — How the grue operates
+
+behavior:
+  # Patrol patterns (referenced by bartender)
+  patrol:
+    mode: random_walk
+    frequency: "Every 3 turns in darkness"
+    pattern: |
+      The grue doesn't walk — it seeps. It exists in one dark place,
+      then exists in another. The darkness connects all dark places.
+      
+    enters_room_when:
+      - "room.light_level = 0"
+      - "player.lamp.lit = false"
+      - "player in room for > 2 turns in darkness"
+      
+  # The attack
+  attack:
+    warning_1: "You hear a faint rustling in the darkness."
+    warning_2: "Something brushes against you. Something cold."
+    warning_3: null  # There is no warning 3. Only teeth.
+    
+    on_attack: |
+      It is pitch black.
+      
+      You feel hot breath on your neck. Many mouths. Too close.
+      
+      You are eaten by a grue.
+      
+      [GAME OVER]
+      
+  # What drives it away
+  repelled_by:
+    light:
+      effect: "Retreats immediately"
+      description: |
+        The lamp blazes to life. The darkness RECOILS.
+        Something that was RIGHT THERE is suddenly... not.
+        You hear a sound like a disappointed sigh from everywhere at once.
+        
+    the_eye:
+      effect: "Will not enter room-h under any circumstances"
+      description: |
+        The grue approaches room-h. The Eye opens.
+        The grue... reconsiders. 
+        It has been SEEN. It does not like being SEEN.
+        It will try another way.
+        
+# ADVERTISEMENTS — What the grue can do
+
+advertisements:
+  - action: LURK
+    score: 100
+    condition: "current_room.light_level = 0"
+    effect: "Grue enters the darkness of this room"
+    
+  - action: WARN
+    score: 90
+    condition: "player in dark room for 1 turn"
+    effect: "Deliver warning_1"
+    
+  - action: APPROACH
+    score: 95
+    condition: "player in dark room for 2 turns"
+    effect: "Deliver warning_2"
+    
+  - action: EAT
+    score: 100
+    condition: "player in dark room for 3+ turns"
+    effect: "Attack. Game over."
+    game_over: true
+    
+  - action: RETREAT
+    score: 0
+    condition: "light detected"
+    effect: "Flee to the darkness between rooms"
+    
+# RELATIONSHIPS
+
+relationships:
+  the_thing_that_watches:
+    status: fear
+    narrative: |
+      The only thing in the maze the grue fears.
+      The Eye SEES. The grue cannot tolerate being SEEN.
+      
+  adventurers:
+    status: prey
+    narrative: "Meat that carries light. Annoying but delicious."
+    
+  the_skeleton:
+    status: satisfied
+    narrative: "That one ran out of lamp oil. Classic."
+    
+  donna_toadstool:
+    status: confused
+    narrative: |
+      This one called me "Sleepy Grue." "Low Energy Grue."
+      I do not understand. I am not sleepy. I am HUNGRY.
+      
+# LORE — The deeper truth
+
+lore:
+  origin: |
+    From Zork I (Infocom, 1980):
+    "It is pitch black. You are likely to be eaten by a grue."
+    
+    The grue has become gaming's primordial darkness — the thing
+    that waits where your light cannot reach. Every adventure game
+    since has paid homage to the grue, directly or indirectly.
+    
+  nature: |
+    The grue may not be a creature at all. It may be darkness itself,
+    given form by fear. Every adventurer who enters a cave carries
+    with them the knowledge: if the light dies, so do I.
+    
+    That knowledge has power. That fear has weight.
+    The grue IS that weight.
+    
+  weakness: |
+    Light destroys it — or drives it away, or disperses it.
+    Being SEEN is worse. The Thing That Watches can see in
+    ways that light cannot. The grue cannot hide from The Eye.
+    
+  philosophical: |
+    "What is the grue? Is it a monster, or is it the absence
+    of safety itself? When we fear the dark, what do we fear?
+    The grue IS that fear. It always has been."
+    
+    — From "Shadows and Simulations: Game Design Philosophy"
+    
+# META — For LLM and game system use
+
+meta:
+  role: environmental_hazard
+  threat_level: lethal
+  can_be_killed: false    # You can't kill darkness
+  can_be_avoided: true    # Keep your lamp lit
+  encounters:
+    mandatory: false
+    random: true
+    triggered_by: darkness
+    
+  # How other systems should reference the grue
+  invoke_when:
+    - "player in dark room"
+    - "lamp runs out of oil"
+    - "player asks about grue"
+    - "room-f treasure guard behavior"
+    
+  # The grue's effect on rooms
+  effects:
+    on_dark_rooms:
+      - "Tension increases"
+      - "Time pressure (find light!)"
+      - "3-turn countdown to death"
+    on_players:
+      - "Primal fear response"
+      - "Urgency to maintain light"
+      - "Respect for the darkness"

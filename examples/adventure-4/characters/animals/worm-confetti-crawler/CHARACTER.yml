@@ -1,3 +1,13 @@
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional     # A character in the adventure
+  - skills/animal        # Worm creature
+  - skills/worm          # Worm-specific behaviors
+ontology:
+  tags: [fictional, animal]
+  species: worm
+  role: familiar
+
 card:
   name: worm-confetti-crawler
   type: [character, animal, worm, cursor, familiar]

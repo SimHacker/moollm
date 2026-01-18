@@ -4,6 +4,13 @@
 # This is a NEUTRAL template. Visit the coatroom to customize!
 # When needs change, UPDATE THE COMMENTS to match!
 
+# ONTOLOGICAL INHERITANCE — Abstract player template
+inherits:
+  - skills/abstract       # Not a specific person - a concept given form
+ontology:
+  tags: [abstract]
+  role: player_template   # Becomes concrete when incarnated
+
 player:
   name: "Unknown Hero"
   id: player

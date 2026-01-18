@@ -1,85 +1,162 @@
-# Lamp Vendor Machine
+# ACME Dungeon Supply Depot
 # A tribute to the battery vendor in Colossal Cave Adventure
+#
+# NOTE: Despite the name, ACME products are generally reliable.
+# This isn't the cartoon version. These supplies actually work.
 
 object:
-  name: Lamp Vendor Machine
-  type: machine
-  portable: false  # Too heavy to carry
+  name: ACME Dungeon Supply Depot
+  type: vending_machine
+  portable: false
+  manufacturer: ACME Corporation (Dungeon Division)
+  reliability: high  # Not the cartoon kind of ACME
   
   description: |
     A battered vending machine stands against the wall, humming softly.
-    Its flickering display reads:
-    
-        ║      ACME LAMP REFUELING CO.         ║
-        ║  "Don't Let the Grue Get You!"™      ║
-        ║  LAMP OIL REFILL......... 1 gold     ║
-        ║  DELUXE REFILL (2x)...... 2 gold     ║
-        ║  PREMIUM GLOW JUICE...... 3 gold     ║
+    Its flickering display shows a complete price list. The ACME logo
+    glows reassuringly — this is the reliable ACME, not the cartoon one.
     
     Someone has scratched "LIFESAVER" into the metal casing.
     Someone else has scratched "RIP OFF" underneath.
+    A third person has added: "PRODUCTS ACTUALLY WORK THO"
   
-  # The machine still works, somehow
   operational: true
-  power_source: unknown  # "It just... runs. Don't question it."
+  power_source: unknown  # It just runs. Don't question it.
+  
+  # === COMPLETE PRICE LIST ===
+  # Flat prices. No limits. Buy as many as you want.
+  
+  menu:
+    lamp_oil:
+      - item: "Lamp Oil Refill"
+        price: 1
+        effect: "Refills lamp to 400 oil"
+      - item: "Deluxe Refill"
+        price: 2
+        effect: "Refills lamp to 800 oil"
+      - item: "Premium Glow Juice"
+        price: 3
+        effect: "Refills to 1000 oil + blue glow (grues hesitate)"
+        
+    light_sources:
+      - item: Torch
+        price: 2
+        effect: "30 minutes of light"
+      - item: Lantern
+        price: 10
+        effect: "Refillable. Lasts 2 hours per oil refill."
+        
+    pit_supplies:
+      - item: Plank
+        price: 5
+        effect: "Bridge a pit. Single use."
+      - item: Rope (50ft)
+        price: 8
+        effect: "Climb, descend, bridge. Reusable if retrieved."
+      - item: Feather Token
+        price: 10
+        effect: "Slow fall. Saves your life once."
+        
+    wumpus_hunting:
+      - item: Crooked Arrow
+        price: 12
+        effect: "Curves around corners. Kills wumpus on hit."
+      - item: Arrow Bundle (5)
+        price: 50
+        effect: "Five crooked arrows. Traditional loadout."
+        
+    bat_management:
+      - item: Bat Fruit
+        price: 3
+        effect: "Distracts bats. One encounter."
+      - item: Bat Fruit Basket
+        price: 12
+        effect: "Five servings. They'll love you."
+        
+    grue_defense:
+      - item: Grue Repellent
+        price: 15
+        effect: "Blue cheese spray. Buys extra turns in darkness."
+      - item: Cheese Wheel
+        price: 25
+        effect: "The legendary grue defense. Maybe."
+        
+    miscellaneous:
+      - item: Map (blank)
+        price: 2
+        effect: "For noting your path."
+      - item: Chalk
+        price: 1
+        effect: "Mark walls. Lasts until it doesn't."
+      - item: Rations
+        price: 1
+        effect: "One day's food. Tastes like cardboard."
+      - item: Waterskin
+        price: 2
+        effect: "Stay hydrated in the depths."
+        
+  # === HOW TO BUY ===
   
   advertisements:
-    - action: BUY OIL
-      score: 90
-      score_if:
-        - "player.inventory contains lamp"
-        - "lamp.oil < 100"
-      result: |
-        Refills lamp to 400 oil. Costs 1 gold.
-    
-    - action: BUY DELUXE
-      score: 80
-      score_if:
-        - "player.inventory contains lamp"
-        - "lamp.oil < 50"
-        - "player.gold >= 2"
-      result: |
-        Refills lamp to 800 oil. Costs 2 gold.
-    
-    - action: BUY PREMIUM
-      score: 70
-      score_if:
-        - "player.inventory contains lamp"
-        - "player.gold >= 3"
-      result: |
-        Refills lamp to 1000 oil AND makes it glow blue.
-        The blue glow is unsettling to grues. They approach more slowly.
-        Costs 3 gold.
-    
+    - action: BUY
+      invoke: BUY <item> | BUY <quantity> <item>
+      examples:
+        - "BUY torch"
+        - "BUY 5 crooked arrows"
+        - "BUY rope"
+        - "BUY arrow bundle"
+      effect: |
+        Vend the item(s). Deduct gold. Add to inventory.
+        No limits. Buy as many as you can afford.
+        
+    - action: MENU
+      invoke: MENU | PRICES | LIST
+      effect: "Display the complete price list."
+      
     - action: EXAMINE
-      score: 50
-      result: "Read the machine's display and notices."
-    
-    - action: KICK
-      score: 30
-      score_if:
-        - "player.gold < 1"
-      result: |
-        The machine shudders but holds firm.
-        "VIOLENCE AGAINST VENDING MACHINES IS A FEDERAL OFFENSE"
-        flashes on the display. Then, softer:
-        "...but I understand. Here, take this."
-        A small vial of lamp oil drops into the dispensing slot.
-        (One-time mercy refill. Don't tell the other adventurers.)
-    
-    - action: INSERT COIN
-      score: 40
-      result: "Same as BUY OIL."
+      invoke: EXAMINE MACHINE | LOOK AT VENDOR
+      effect: "Read the display and scratched messages."
+      
+  # === EASTER EGG ===
   
-  # Easter eggs
   secrets:
-    - trigger: "KICK three times"
-      result: "The machine dispenses a single gold coin and a note: 'For the skeleton's family.'"
-    
-    - trigger: "SAY 'PLUGH' to machine"
-      result: "The display flickers: 'PASSWORD RECOGNIZED. Welcome, Adventurer Class 1972.'"
-    
-    - trigger: "INSERT treasure (chalice)"
+    - trigger: KICK (first time)
+      result: |
+        You kick the machine. Hard.
+        
+        It shudders. Clanks. Something inside goes SPROING.
+        
+        Gold coins EXPLODE from the dispensing slot — spraying in every
+        direction, bouncing off walls, rolling under things, pinging off
+        your helmet. It's chaos. It's beautiful. It's MONEY.
+        
+        50 GOLD acquired (plus a few you'll find later in your pockets).
+        
+        The display flickers angrily:
+        
+        "WHAT DO YOU THINK I AM? A ONE-ARMED BANDIT?
+         A FRUIT MACHINE? IS THIS VEGAS??"
+        
+        Then, quieter: "...fine. Take it. But don't expect that again."
+        
+    - trigger: KICK (subsequent)
+      result: |
+        You kick the machine again. It mutters:
+        
+        Examples (pick one or make something up):
+        - "Nice try, pal."
+        - "The house always wins. Except that one time."
+        - "I have a family to feed. Buy something."
+        
+        No gold.
+        
+    - trigger: "SAY PLUGH"
+      result: |
+        The display flickers:
+        "PASSWORD RECOGNIZED. Welcome, Adventurer Class 1972."
+        A small discount card drops out. (10% off all purchases this session.)
+        
+    - trigger: "INSERT TREASURE"
       result: |
         The machine beeps excitedly.
         "WINNER! WINNER! LIFETIME LAMP OIL SUBSCRIPTION!"
@@ -88,13 +165,8 @@ object:
   
   lineage:
     tribute_to: "The battery vending machine in Colossal Cave Adventure"
-    inspiration: |
+    note: |
       In the original Adventure (1976), deep in the maze was a vending
       machine that sold fresh batteries for your lamp. It was both a
       lifeline and a cruel reminder that someone had built infrastructure
       in this death trap but not, you know, an EXIT SIGN.
-    
-    philosophical_note: |
-      The fact that capitalism has penetrated even into grue-infested
-      dungeons says something profound about either human resilience
-      or human priorities. We're not sure which.

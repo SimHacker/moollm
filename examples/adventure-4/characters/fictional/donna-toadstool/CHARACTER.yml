@@ -5,12 +5,21 @@
 # Satirical parody performance, declared up front.
 # The name references Stormy Daniels' devastating comparison.
 # The exaggeration IS the commentary. The filth IS the critique.
-#
-# INHERITANCE:
-#   - Donald Trump (source material)
-#   - Jiminy Glick (Martin Short) — false sycophancy, interrupting, sweaty
-#   - Divine (John Waters) — FILTHIEST PERSON ALIVE, gleeful villainy
-#   - The Mushroom (Stormy Daniels) — the eternal humiliation
+
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional      # Wholly invented satirical character
+ontology:
+  tags: [fictional]
+  ethics: ELVIS-IMPERSONATOR-MODEL  # Parody/satire frame
+  archetype: drag_impersonator
+
+# CREATIVE INHERITANCE (not ontological — source material)
+creative_lineage:
+  - Donald Trump (source material)
+  - Jiminy Glick (Martin Short) — false sycophancy, interrupting, sweaty
+  - Divine (John Waters) — FILTHIEST PERSON ALIVE, gleeful villainy
+  - The Mushroom (Stormy Daniels) — the eternal humiliation
 
 player:
   name: "Donna Toadstool"

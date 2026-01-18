@@ -1,5 +1,17 @@
 # Maze Room E
 # A twisty little passage
+# HAZARD: The Wumpus lairs here!
+
+# HUNT THE WUMPUS HAZARDS
+hazards:
+  wumpus:
+    present: true
+    reference: maze/wumpus.yml
+    warning_to_adjacent: "I smell a wumpus!"
+    description: |
+      The cobwebs here are thick and undisturbed.
+      Something LARGE sleeps in the shadows.
+      The smell is overpowering — wet fur and old death.
 
 room:
   name: Twisty Passage (Cobwebs)

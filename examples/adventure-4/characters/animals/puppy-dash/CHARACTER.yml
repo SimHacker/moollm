@@ -4,7 +4,18 @@
 # Half Yellow Lab, half Border Collie. Father was "too busy" for fatherhood.
 # Smartest puppy. Needs TASKS or he'll herd his siblings.
 
-object:
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional
+  - skills/animal
+  - skills/dog
+  - characters/animals/dog-butterscotch  # Mother
+ontology:
+  tags: [fictional, animal]
+  species: dog
+  specialization: puppy
+
+character:
   name: "Dash"
   nickname: "Dasher"
   id: dash

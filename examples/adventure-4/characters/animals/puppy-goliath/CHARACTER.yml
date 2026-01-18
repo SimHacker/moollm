@@ -4,7 +4,20 @@
 # Great Dane mix. Shelter for 2 years. "Too big." "Unwanted."
 # ADOPTED by Butterscotch and Biscuit TOGETHER. Their first child as partners.
 
-object:
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional
+  - skills/animal
+  - skills/dog
+  - characters/animals/dog-butterscotch  # Adoptive mother
+  - characters/animals/dog-biscuit       # Adoptive father
+ontology:
+  tags: [fictional, animal]
+  species: dog
+  specialization: puppy
+  adoption: true  # First child adopted by the pack
+
+character:
   name: "Goliath"
   nickname: "Golly" / "The Mountain" / "Baby"
   id: goliath

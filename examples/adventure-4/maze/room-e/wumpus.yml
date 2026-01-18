@@ -1,0 +1,26 @@
+prototype: ../wumpus.yml
+
+instance:
+  name: Grumbus the Slumbering
+  nickname: Sleepy
+  state: sleeping
+
+traits:
+  size: massive
+  hide: matted fur
+  smell: like wet dog and regret
+  eyes: milky, half-closed
+  distinguishing: old arrow scar on left flank
+  quirk: snores melodically
+
+memory:
+  eaten: 12
+  arrows_dodged: 2
+  notable:
+    - "Hasty Harold — entered from north, didn't even see me"
+    - "Torchless Tom — grue got him first. Disappointing."
+    - "The skeleton's friend — still pointing this way"
+  encounters:
+    donna_toadstool:
+      her_opinion: "Sleepy Wumpus. Low Energy. SAD!"
+      my_opinion: "Who?"

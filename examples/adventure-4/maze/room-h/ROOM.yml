@@ -1,5 +1,15 @@
 # Maze Room H
 # A twisty little passage — NOW WITH EXTRA WATCHING
+# Adjacent to: B(bats east)
+# GRUE-SAFE: The Eye watches
+
+# HUNT THE WUMPUS WARNINGS
+wumpus_warnings:
+  on_enter:
+    - "Bats nearby!"         # B is east
+  adjacent_hazards:
+    east: superbats          # room-b
+  note: "Safe from grue (The Eye), but bats still roost nearby"
 
 room:
   name: The Watching Chamber (Mushrooms)

@@ -1,6 +1,18 @@
 # 💎 MAZE: THE CRYSTAL CAVE
 # Where the earth remembers its dreams in mineral form
 # "Pretty lights. Yes. But Don. DON. There was a RAT here." — Biscuit
+# Adjacent to: E(wumpus north!), C(pit south)
+# GRUE-SAFE: Crystal glow provides light
+
+# HUNT THE WUMPUS WARNINGS
+wumpus_warnings:
+  on_enter:
+    - "I smell a wumpus!"    # E is north — THE WUMPUS
+    - "I feel a draft!"      # C is south — pit
+  adjacent_hazards:
+    north: wumpus            # room-e — DANGER
+    south: bottomless_pit    # room-c
+  note: "Beautiful but deadly crossroads. Wumpus north, pit south."
 
 room:
   name: "The Crystal Cave"

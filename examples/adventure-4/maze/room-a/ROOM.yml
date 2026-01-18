@@ -1,5 +1,15 @@
 # Maze Room A
 # A twisty little passage
+# Adjacent to: B(bats), C(pit)
+
+# HUNT THE WUMPUS WARNINGS
+wumpus_warnings:
+  on_enter:
+    - "Bats nearby!"         # B is east
+    - "I feel a draft!"      # C is south
+  adjacent_hazards:
+    east: superbats          # room-b
+    south: bottomless_pit    # room-c
 
 room:
   name: Twisty Passage (Slightly Damp)

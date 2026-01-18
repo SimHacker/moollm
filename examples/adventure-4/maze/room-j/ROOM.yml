@@ -1,5 +1,13 @@
 # Maze Room J
-# A twisty little passage
+# A twisty little passage  
+# Adjacent to: G(pit west)
+
+# HUNT THE WUMPUS WARNINGS
+wumpus_warnings:
+  on_enter:
+    - "I feel a draft!"      # G is west
+  adjacent_hazards:
+    west: bottomless_pit     # room-g — the perfect circle
 
 room:
   name: Twisty Passage (Crossroads)

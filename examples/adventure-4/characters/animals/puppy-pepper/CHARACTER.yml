@@ -4,7 +4,19 @@
 # Chihuahua mix. Found abandoned in a cardboard box. ADOPTED.
 # Smallest puppy. Biggest courage. Proof that family is CHOSEN.
 
-object:
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional
+  - skills/animal
+  - skills/dog
+  - characters/animals/dog-butterscotch  # Adoptive mother
+ontology:
+  tags: [fictional, animal]
+  species: dog
+  specialization: puppy
+  adoption: true  # Found abandoned, chosen by family
+
+character:
   name: "Pepper"
   nickname: "Pep" / "Pepperoni" / "The Spice"
   id: pepper

@@ -1,0 +1,27 @@
+prototype: ../superbats.yml
+
+instance:
+  id: bat-roost-primary
+  population: ~200
+
+alpha:
+  name: Old Leatherwing
+  wingspan: 7ft
+  personality: regal but cranky
+  
+colony:
+  temperament: irritable
+  specialty: drops near wumpus (coincidence?)
+
+memory:
+  relocations:
+    - victim: Sir Reginald
+      destination: room-f
+      outcome: "Found treasure. Also found grue."
+    - victim: Anonymous
+      destination: room-e  
+      outcome: "Wumpus food."
+
+graffiti: 
+  - "DON'T LOOK UP"
+  - "THEY DON'T LIKE NOISE"

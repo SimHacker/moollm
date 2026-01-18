@@ -4,7 +4,18 @@
 # Named for the spicy terpene. The ONLY terpene that binds to CB2 receptors.
 # Takes after Mom. Will bite. Has bitten. Will bite again.
 
-object:
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional
+  - skills/animal
+  - skills/cat
+  - characters/animals/cat-stroopwafel  # Mother
+ontology:
+  tags: [fictional, animal]
+  species: cat
+  specialization: kitten
+
+character:
   name: "Caryophyllene"
   nickname: "Carrie"
   id: caryophyllene

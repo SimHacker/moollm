@@ -4,7 +4,17 @@
 # Father of eight. Master of stillness. Named for the terpenes.
 # Moves like time is a suggestion.
 
-object:
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional
+  - skills/animal
+  - skills/cat
+ontology:
+  tags: [fictional, animal]
+  species: cat
+  specialization: neutered
+
+character:
   name: "Terpie"
   id: terpie
   type: npc

@@ -1,5 +1,13 @@
 # 🥶 MAZE ROOM F — THE COLD SPOT
 # Something ancient waits in the darkness here...
+# Adjacent to: E(wumpus!)
+
+# HUNT THE WUMPUS WARNINGS
+wumpus_warnings:
+  on_enter:
+    - "I smell a wumpus!"    # E is south — THE WUMPUS LAIR
+  adjacent_hazards:
+    south: wumpus            # room-e — DANGER
 
 room:
   name: "The Cold Spot"

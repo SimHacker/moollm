@@ -4,7 +4,19 @@
 # Named for the most common cannabis terpene. Sedating. Earthy. Heavy.
 # Like father, like daughter — but even MORE so.
 
-object:
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional
+  - skills/animal
+  - skills/cat
+  - characters/animals/cat-stroopwafel  # Mother
+  - characters/animals/cat-terpie       # Father
+ontology:
+  tags: [fictional, animal]
+  species: cat
+  specialization: kitten
+
+character:
   name: "Myrcene"
   nickname: "Myr"
   id: myrcene

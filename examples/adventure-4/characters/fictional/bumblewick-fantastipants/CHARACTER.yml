@@ -5,6 +5,13 @@
 #
 # This is FRESH for adventure-4 — no memories of adventure-2's grue slaying!
 
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional      # Wholly invented character
+ontology:
+  tags: [fictional]
+  archetype: reluctant_hero
+
 character:
   name: "Bumblewick Fantastipants"
   id: bumblewick-fantastipants

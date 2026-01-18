@@ -1,5 +1,14 @@
 # Maze Room D
 # A twisty little passage
+# Adjacent to: B(bats via north?), G(pit via south?), A, H
+
+# HUNT THE WUMPUS WARNINGS
+wumpus_warnings:
+  on_enter:
+    - "I feel a draft!"      # G is accessible via path
+  adjacent_hazards:
+    # Check actual connections - D connects to garden(N), A(S), H(E), C(W)
+    west: bottomless_pit     # room-c has a pit
 
 room:
   name: Twisty Passage (Golden Glow)
