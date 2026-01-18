@@ -336,27 +336,26 @@ clarification-triggers:
 
 ## Relationship to Other Skills
 
-```
-┌─────────────────────────────────────────────────────┐
-│                  EMPATHIC SUITE                     │
-├─────────────────────────────────────────────────────┤
-│                                                     │
-│  ┌─────────────────────┐   ┌─────────────────────┐  │
-│  │ EMPATHIC-EXPRESSIONS│──▶│ EMPATHIC-TEMPLATES  │  │
-│  │ (interpret intent)  │   │ (instantiate)       │  │
-│  └─────────────────────┘   └─────────────────────┘  │
-│           │                         │               │
-│           ▼                         ▼               │
-│  ┌─────────────────────┐   ┌─────────────────────┐  │
-│  │ POSTEL (generous)   │   │ YAML-JAZZ (style)   │  │
-│  └─────────────────────┘   └─────────────────────┘  │
-│                                                     │
-│  All follow SPEED-OF-LIGHT philosophy:              │
-│  • Work in vectors, delay tokenization              │
-│  • Preserve precision as long as possible           │
-│  • Minimize boundary crossings                      │
-│                                                     │
-└─────────────────────────────────────────────────────┘
+```yaml
+# The Empathic Suite
+empathic_suite:
+  components:
+    empathic_expressions:
+      role: "interpret intent"
+      feeds_into: [empathic_templates, postel]
+    empathic_templates:
+      role: "instantiate"
+      feeds_into: [yaml_jazz]
+    postel:
+      role: "generous interpretation"
+    yaml_jazz:
+      role: "expressive style"
+  
+  philosophy: "SPEED-OF-LIGHT"
+  principles:
+    - "Work in vectors, delay tokenization"
+    - "Preserve precision as long as possible"
+    - "Minimize boundary crossings"
 ```
 
 ---
