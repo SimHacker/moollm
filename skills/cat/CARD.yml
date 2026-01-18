@@ -21,6 +21,18 @@ card:
     
   lineage: "Tamagotchi, Harvest Moon, Stardew Valley, Sims pets, real cats"
 
+# INHERITANCE
+inherits:
+  from: skills/animal
+  gets: [PAT, FEED, OBSERVE, SNIFF, GREET, CUDDLE, VOCALIZE, FOLLOW, FLEE]
+  overrides: [SNIFF, GREET, PAT]  # Cat-specific implementations
+
+# ONTOLOGY
+ontology:
+  default_tags: [animal]
+  # Real cats add [real-being], fictional cats add [fictional]
+  species: cat
+
 # K-LINES
 k-lines:
   kitten: young cat

@@ -20,6 +20,18 @@ card:
     
   lineage: "Nintendogs, Fable, Fallout 4 Dogmeat, Stardew Valley, real dogs"
 
+# INHERITANCE
+inherits:
+  from: skills/animal
+  gets: [PAT, FEED, OBSERVE, SNIFF, GREET, CUDDLE, VOCALIZE, FOLLOW, FLEE]
+  overrides: [SNIFF, GREET, PAT]  # Dog-specific implementations
+
+# ONTOLOGY
+ontology:
+  default_tags: [animal]
+  # Real dogs add [real-being], fictional dogs add [fictional]
+  species: dog
+
 # K-LINES
 k-lines:
   puppy: young dog
