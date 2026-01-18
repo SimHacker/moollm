@@ -2,6 +2,8 @@
 
 **See yourself think.** Introspection tools for Cursor IDE — 59 read-only commands to inspect conversations, tool calls, context assembly, agent reasoning, and AI attribution from Cursor's internal databases and `~/.cursor` plaintext data.
 
+> 💡 **For LLMs**: Sniff the first 200 lines of `cursor_mirror.py` for the full CLI interface. The docstring is designed to be machine-readable with command summaries, reference syntax, and gotchas.
+
 *By Don Hopkins, Leela AI — Part of [MOOLLM](../../MOOLLM.md)*
 
 ## The Problem
@@ -245,23 +247,74 @@ cursor-mirror files @1 --yaml > .moollm/working-set.yml
 
 ## Command Reference
 
-47 commands organized by function:
+**59 commands** organized by function. Run `cursor-mirror --help` for full list, or sniff the first 200 lines of `cursor_mirror.py` for the definitive CLI interface.
 
-**Navigation**: `list-workspaces`, `show-workspace`, `list-composers`, `show-composer`, `tree`, `find`, `which`
+### Command Categories
 
-**Messages**: `tail`, `stream`, `transcript`, `watch`
+| Category | Commands | Purpose |
+|----------|----------|---------|
+| **Navigation** | `list-workspaces`, `show-workspace`, `list-composers`, `show-composer`, `tree`, `find`, `which` | Browse workspaces and conversations |
+| **Messages** | `tail`, `stream`, `transcript`, `watch` | View chat messages |
+| **Analysis** | `grep`, `analyze`, `timeline`, `thinking` | Deep-dive into sessions |
+| **Tools** | `tools`, `tool-result`, `blobs`, `checkpoints`, `mcp`, `agent-tools`, `mcp-tools` | Inspect tool calls |
+| **Context** | `context`, `context-sources`, `request-context`, `searches`, `indexing` | See what context was assembled |
+| **Export** | `export-chat`, `export-prompts`, `export-markdown`, `export-jsonl`, `index` | Export conversations |
+| **Status** | `status`, `status-config`, `status-mcp`, `status-models`, `status-features`, `status-privacy`, `status-endpoints` | Server config and state |
+| **SQL** | `sql`, `dbs`, `tables`, `keys` | Direct database queries |
+| **Images** | `images`, `image-path`, `image-info`, `image-gallery` | Cached images from chats |
+| **Security** | `secrets`, `deep-snitch`, `full-audit`, `pattern-scan`, `mask-in-place`, `audit` | Scan for secrets/patterns |
+| **AI Attribution** | `ai-hashes`, `ai-commits` | Track AI-generated code |
+| **Transcripts** | `agent-transcript`, `transcript-index`, `dotcursor-status`, `dotcursor-terminals` | ~/.cursor plaintext data |
+| **Extensions** | `extensions` | Installed Cursor extensions |
 
-**Analysis**: `grep`, `analyze`, `timeline`, `thinking`
+### Output Formats (-f / --output-format)
 
-**Tools**: `tools`, `tool-result`, `blobs`, `checkpoints`, `mcp`
+Every command supports flexible output formats via the global `-f` flag:
 
-**Context**: `context`, `context-sources`, `request-context`, `searches`, `indexing`
+```bash
+cursor-mirror -f json status          # Compact JSON
+cursor-mirror -f yaml list-workspaces # YAML for configs
+cursor-mirror -f csv tools @1         # CSV for spreadsheets
+cursor-mirror -f md models            # Markdown tables
+cursor-mirror -f jsonl tail @1        # JSON Lines for streaming
+cursor-mirror --pretty -f json status # Pretty-printed JSON
+```
 
-**Export**: `export-chat`, `export-prompts`, `models`, `stats`, `info`
+| Format | Description | Best For |
+|--------|-------------|----------|
+| `text` | Human-readable tables (default) | Terminal viewing |
+| `json` | Compact JSON | API consumption, LLM parsing |
+| `jsonl` | JSON Lines (one object per line) | Streaming, log processing |
+| `yaml` | YAML format | Config files, readable structured data |
+| `csv` | CSV with union of all keys | Spreadsheets, data analysis |
+| `md` | Smart markdown (tables + outlines) | Documentation, chat output |
 
-**Status**: `status`, `status-config`, `status-mcp`, `status-models`, `status-features`, `status-privacy`, `status-endpoints`
+**Smart Markdown**: The `-f md` output adapts to data structure:
+- Lists of flat dicts → Tables
+- Nested dicts → Headers (`##`) + bullet outlines
+- Arrays → Bullet lists
+- Long strings → Code blocks
 
-**SQL**: `sql`, `dbs`, `tables`, `keys`
+**Union-of-Keys CSV**: When records have different fields, CSV collects ALL keys across ALL records. Missing values become empty cells. Nested objects are JSON-encoded inline.
+
+### Data Sources (--sources)
+
+Add `--sources` to any command to see WHERE the data comes from:
+
+```bash
+cursor-mirror --sources -f md list-composers -n 3
+
+# Output includes markdown table PLUS:
+# ═══════════════════════════════════════════════════════════════
+# DATA SOURCES — Query these directly for raw access
+# ═══════════════════════════════════════════════════════════════
+# 📁 DATABASES: /Users/.../globalStorage/state.vscdb
+# 📊 TABLES: ItemTable, cursorDiskKV
+# 🔍 SQL: SELECT value FROM ItemTable WHERE key='composer.composerData'
+# ═══════════════════════════════════════════════════════════════
+```
+
+This teaches LLMs to fish! They can then query the databases directly.
 
 ### Reference Shortcuts
 
@@ -323,7 +376,26 @@ pip install pyyaml  # or: pip install -r requirements.txt
 python3 cursor_mirror.py --help
 ```
 
-Single file, ~4500 lines, stdlib + yaml. No other dependencies.
+Single file, ~9800 lines, stdlib + yaml. No other dependencies.
+
+### Quick Start
+
+```bash
+# See everything about Cursor's state
+cursor-mirror status
+
+# Last 10 messages from current chat
+cursor-mirror tail @1 -n 10
+
+# What tools did the agent call?
+cursor-mirror tools @1
+
+# Export as markdown table
+cursor-mirror -f md models
+
+# Show me where the data lives (teach me to fish!)
+cursor-mirror --sources status
+```
 
 ## Library Usage
 
@@ -376,7 +448,7 @@ MOOLLM provides an interface layer above CLI tools: **simulated characters** tha
                                 │
                                 ▼
                 ┌─────────────────────────────────────┐
-                │     cursor-mirror CLI (47 cmds)     │
+                │     cursor-mirror CLI (59 cmds)     │
                 └─────────────────────────────────────┘
 ```
 
@@ -768,7 +840,7 @@ See: **[IMAGE-GALLERY.md](./IMAGE-GALLERY.md)** — a curated gallery of 25+ ima
 
 | File | Lines | Content |
 |------|-------|---------|
-| `cursor_mirror.py` | 4537 | CLI tool (47 commands) |
+| `cursor_mirror.py` | ~9800 | CLI tool (59 commands, 7 output formats) |
 | `SKILL.md` | 524 | Protocol documentation |
 | `CARD.yml` | 744 | Machine-readable interface |
 | `DATA-SCHEMAS.yml` | 700+ | JSON schema documentation |
