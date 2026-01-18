@@ -401,6 +401,66 @@ Anthropic recommends against `README.md` in skills. We respectfully disagree:
 
 **Keep both.** README is for discovery, SKILL.md is for execution.
 
+### Diagrams: Format by Audience
+
+Different files serve different audiences. Choose diagram formats accordingly:
+
+| File | Primary Audience | Best Format | Why |
+|------|------------------|-------------|-----|
+| `SKILL.md` | LLMs | **YAML Jazz** | Structured, parseable, sniffable |
+| `README.md` | Humans | **Mermaid** | Rendered by GitHub, visual |
+| Both | — | **NOT ASCII art** | Wastes tokens, hard to maintain |
+
+**SKILL.md — YAML Jazz for LLMs:**
+
+```yaml
+# LLMs parse this instantly
+data_flow:
+  input: "user request"
+  steps:
+    - action: "parse intent"
+      output: "structured command"
+    - action: "execute"
+      output: "result"
+  output: "formatted response"
+```
+
+**README.md — Mermaid for Humans:**
+
+```mermaid
+graph LR
+    A[User Request] --> B[Parse Intent]
+    B --> C[Execute]
+    C --> D[Response]
+```
+
+**Why NOT ASCII art:**
+
+```
+# ❌ ASCII art wastes tokens and breaks easily
+┌─────────┐    ┌─────────┐    ┌─────────┐
+│  Input  │───►│ Process │───►│ Output  │
+└─────────┘    └─────────┘    └─────────┘
+```
+
+ASCII art is:
+- **Token-expensive** — box characters, alignment padding
+- **Fragile** — breaks on edit, hard to maintain
+- **Unstructured** — LLMs can't parse the relationships
+- **Decorative** — looks pretty but carries no semantic data
+
+YAML Jazz is:
+- **Compact** — no decoration overhead
+- **Parseable** — LLMs extract structure directly
+- **Maintainable** — add/remove items without redrawing
+- **Semantic** — keys and values carry meaning
+
+Mermaid is:
+- **Rendered** — GitHub/GitLab show actual diagrams
+- **Version-controllable** — text diffs work
+- **Expressive** — flowcharts, sequences, state machines
+- **Human-optimized** — visual comprehension
+
 ---
 
 ## Flat-to-Structured Growth
