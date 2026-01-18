@@ -84,14 +84,24 @@ container:
     You leave the oppressive maze behind.
     Fresh air never smelled so sweet.
     
-  # === SPECIAL LOCATIONS ===
-  # Notable rooms within this container (for reference)
+  # === AVAILABLE GAMES ===
+  # Games that can run in this maze. Each is self-contained.
+  # See individual game files for rules, hazards, simulation.
   
-  notable_rooms:
-    treasure_chamber: "room-f/"    # The gold pile!
-    garden: "garden/"              # Sunlight through a crack
-    crystal_cave: "crystal-cave/"  # Magical crystals
-    
+  games:
+    hunt_the_wumpus:
+      reference: wumpus.yml
+      invoke: "PLAY WUMPUS"
+      description: "Classic 1973 game. Kill the wumpus or die trying."
+      
+    grue_survival:
+      reference: grue.yml
+      invoke: "SURVIVE THE DARK"
+      description: "Keep your lamp lit. Don't get eaten."
+      
+  # Games are MODULAR — they use the maze but don't define it.
+  # Room structure stays constant. Game state is in instance files.
+  
   # === LORE ===
   # Background story elements
   

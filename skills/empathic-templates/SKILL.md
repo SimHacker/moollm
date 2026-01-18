@@ -272,7 +272,6 @@ Templates should front-load:
 3. Optional variables with defaults
 
 ```yaml
-# =====================================================
 # CHARACTER.yml.tmpl — Character sheet template
 # 
 # Required context:
@@ -284,7 +283,6 @@ Templates should front-load:
 #   - personality_hints: list of traits
 #   - backstory_seeds: key events to include
 #   - tone: "serious" | "humorous" | "dark" (default: "neutral")
-# =====================================================
 
 id: {{generate_unique_id}}
 name: "{{character_name}}"
@@ -481,7 +479,6 @@ Templates are not just for instantiation — they ARE THE SCHEMA. The same `.tmp
 ### The Template-Schema Pattern
 
 ```yaml
-# =====================================================
 # ADVENTURE.yml.tmpl — Adventure State Schema
 # 
 # REQUIRED fields (must be provided):
@@ -497,7 +494,6 @@ Templates are not just for instantiation — they ARE THE SCHEMA. The same `.tmp
 # COMPUTED fields (LLM generates):
 #   - adventure.started: timestamp
 #   - selection.targets: starts []
-# =====================================================
 ```
 
 ### Smart Instantiation: The Drop Pattern
@@ -771,29 +767,28 @@ The same YAML file works in both compiled (fast) and interpreted (flexible) mode
 
 ### The Full Template-to-Code Pipeline
 
-```
-ADVENTURE.yml.tmpl           # Human-readable template/schema
-        ↓
-   adventure.py lint         # Parse, validate, emit events
-        ↓
-   ┌─────────────────────────────────────────────┐
-   │ • Validate REQUIRED fields                  │
-   │ • Warn on missing OPTIONAL with no default  │
-   │ • Emit COMPILE_EXPRESSION events            │
-   │ • Emit COMPILE_GENERATION events            │
-   │ • Emit COMPILE_SCORE events                 │
-   └─────────────────────────────────────────────┘
-        ↓
-   LLM receives events, compiles expressions
-        ↓
-   adventure.py compile       # Generate output
-        ↓
-   ┌─────────────────────────────────────────────┐
-   │ • adventure.json (minimal, machine-readable)│
-   │ • engine.js (with compiled expressions)     │
-   │ • schema.py (Python classes for validation) │
-   │ • index.html (playable web app)             │
-   └─────────────────────────────────────────────┘
+```yaml
+# Template-to-Code Pipeline
+template_pipeline:
+  - stage: "ADVENTURE.yml.tmpl"
+    role: "Human-readable template/schema"
+  - stage: "adventure.py lint"
+    role: "Parse, validate, emit events"
+    actions:
+      - "Validate REQUIRED fields"
+      - "Warn on missing OPTIONAL with no default"
+      - "Emit COMPILE_EXPRESSION events"
+      - "Emit COMPILE_GENERATION events"
+      - "Emit COMPILE_SCORE events"
+  - stage: "LLM receives events"
+    role: "Compiles expressions"
+  - stage: "adventure.py compile"
+    role: "Generate output"
+    outputs:
+      - "adventure.json (minimal, machine-readable)"
+      - "engine.js (with compiled expressions)"
+      - "schema.py (Python classes for validation)"
+      - "index.html (playable web app)"
 ```
 
 ### Validation and Linting

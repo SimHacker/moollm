@@ -20,7 +20,6 @@ Terpie and Stroopwafel formally offer to make Palm the **godmonkey** of their ei
 
 ```
 THE TERPENE GODFAMILY
-═════════════════════
 
 God-Spouses (to Palm):
 ├── 🐱 Terpie (mother)

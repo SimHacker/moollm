@@ -123,38 +123,24 @@ Delicious irony: AI automates what was once handmade, yet we "handcraft" the AI 
 
 The phrase is a **K-line** (Minsky). Every reading reinforces the others:
 
-```
-┌─────────────────────────────────────────────┐
-│        "Manufacturing Intelligence"         │
-├─────────────────────────────────────────────┤
-│                                             │
-│   Industrial ──────┬────── Process          │
-│        ↓           │           ↓            │
-│   "AI for          │      "Building         │
-│    factories"      │       AI systems"      │
-│        ↓           │           ↓            │
-│        └───────────┼───────────┘            │
-│                    │                        │
-│   Constructionism ─┴── Society of Mind      │
-│        ↓                    ↓               │
-│   "Build to            "Assemble from       │
-│    understand"            agents"           │
-│        ↓                    ↓               │
-│        └────────────────────┘               │
-│                    ↓                        │
-│            Manufacturing Consent            │
-│                    ↓                        │
-│           "The ethical question"            │
-│                    ↓                        │
-│              Growth Mindset                 │
-│                    ↓                        │
-│            "Effort, not gift"               │
-│                    ↓                        │
-│                Etymology                    │
-│                    ↓                        │
-│              "Made by hand"                 │
-│                                             │
-└─────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    Title["Manufacturing Intelligence"]
+    
+    Industrial["Industrial<br/>'AI for factories'"]
+    Process["Process<br/>'Building AI systems'"]
+    
+    Constructionism["Constructionism<br/>'Build to understand'"]
+    Society["Society of Mind<br/>'Assemble from agents'"]
+    
+    Consent["Manufacturing Consent<br/>'The ethical question'"]
+    Growth["Growth Mindset<br/>'Effort, not gift'"]
+    Etymology["Etymology<br/>'Made by hand'"]
+    
+    Title --> Industrial & Process
+    Industrial & Process --> Constructionism & Society
+    Constructionism & Society --> Consent
+    Consent --> Growth --> Etymology
 ```
 
 **The Simulator Effect at work:** A two-word phrase activates an entire constellation of meaning. The reader's mind manufactures the connections.

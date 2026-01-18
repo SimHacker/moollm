@@ -64,9 +64,13 @@ card:
         - "Probe artifacts kept out of git"
         
     STARTUP:
-      description: "Execute post-boot startup hook from startup.yml"
+      description: "Execute post-boot startup hook"
       parameters: []
-      reads: "startup.local.yml (if exists) OR startup.yml"
+      reads: |
+        Priority order:
+        1. .moollm/startup.yml (user override, gitignored)
+        2. /startup.yml (repo root, gitignored - generated from template)
+        Template: skills/bootstrap/templates/startup.yml
       effects:
         - "Reads startup configuration"
         - "Dispatches based on mode (adventure, development, custom, none)"

@@ -13,6 +13,17 @@
 # Butterscotch — the most amazing dog I've ever met — and her 6 puppies.
 # Some biological, some adopted. ALL MINE NOW.
 
+# ONTOLOGICAL INHERITANCE — What kind of being am I?
+inherits:
+  - skills/fictional       # I'm a character in the adventure
+  - skills/animal          # Base creature behaviors
+  - skills/dog             # Species-specific: FETCH, GOOD-BOY, etc.
+  
+ontology:
+  tags: [fictional, animal]
+  species: dog
+  specialization: neutered  # Responsible pet ownership
+  
 character:
   id: biscuit
   name: "Biscuit"

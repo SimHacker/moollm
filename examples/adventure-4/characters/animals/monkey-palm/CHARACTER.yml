@@ -1,6 +1,16 @@
 # Palm — The Freed Monkey
 # Formerly the Monkey's Paw, now a whole being
 
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional     # A character in the adventure
+  - skills/mythic        # Origin as cursed artifact
+  - skills/animal        # Now a whole monkey
+ontology:
+  tags: [fictional, mythic, animal]
+  species: capuchin_monkey
+  origin: curse_transformed  # Was artifact, became being
+
 character:
   name: "Palm"
   id: palm

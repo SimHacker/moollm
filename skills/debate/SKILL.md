@@ -209,37 +209,31 @@ debate:
 
 ## Debate Flow
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    DEBATE SESSION                            │
-│                                                              │
-│  ┌──────────┐                                               │
-│  │  TOPIC   │ "Should we adopt microservices?"              │
-│  └────┬─────┘                                               │
-│       │                                                      │
-│       ▼                                                      │
-│  ┌─────────┐  ┌─────────┐  ┌─────────┐                     │
-│  │  PRO    │  │   CON   │  │PRAGMATIC│  ← SIDES            │
-│  │ Maya    │  │  Vic    │  │  Joe    │                      │
-│  │ Frankie │  │ Tammy   │  │         │                      │
-│  └────┬────┘  └────┬────┘  └────┬────┘                     │
-│       │            │            │                           │
-│       └────────────┼────────────┘                          │
-│                    ▼                                        │
-│              ┌───────────┐                                  │
-│              │ MODERATOR │ ← Robert's Rules                 │
-│              │  + CLOCK  │   Turn-taking, timing            │
-│              └─────┬─────┘                                  │
-│                    │                                        │
-│       ┌────────────┼────────────┐                          │
-│       ▼            ▼            ▼                          │
-│  ┌─────────┐ ┌─────────┐ ┌───────────┐                    │
-│  │AUDIENCE │ │TRANSCRIPT│ │ EVALUATOR │ ← Independent      │
-│  │ scores  │ │ records  │ │ (no ctx)  │                    │
-│  └─────────┘ └─────────┘ └───────────┘                    │
-│                                                             │
-│  VERDICT: pragmatic (modular monolith) — 60% confidence    │
-└─────────────────────────────────────────────────────────────┘
+```yaml
+# Debate session structure
+debate_flow:
+  topic: "Should we adopt microservices?"
+  
+  sides:
+    pro:
+      advocates: [Maya, Frankie]
+    con:
+      advocates: [Vic, Tammy]
+    pragmatic:
+      advocates: [Joe]
+  
+  moderator:
+    style: "Robert's Rules"
+    controls: [turn-taking, timing]
+  
+  outputs:
+    audience: "scores"
+    transcript: "records"
+    evaluator: "independent (no context)"
+  
+  verdict:
+    winner: "pragmatic (modular monolith)"
+    confidence: 60%
 ```
 
 ---

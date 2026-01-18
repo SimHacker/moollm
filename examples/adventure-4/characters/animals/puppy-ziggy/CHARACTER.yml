@@ -4,7 +4,18 @@
 # Dalmatian mix. Biological child. Father: a Dalmatian who "had gigs."
 # Born with rhythm. Spots that dance.
 
-object:
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional
+  - skills/animal
+  - skills/dog
+  - characters/animals/dog-butterscotch  # Mother
+ontology:
+  tags: [fictional, animal]
+  species: dog
+  specialization: puppy
+
+character:
   name: "Ziggy"
   nickname: "Zigzag" / "Spots" / "The Beat"
   id: ziggy

@@ -1,5 +1,17 @@
 # Maze Room G
 # A twisty little passage
+# HAZARD: Another bottomless pit!
+
+# HUNT THE WUMPUS HAZARDS
+hazards:
+  pit:
+    present: true
+    reference: maze/bottomless-pit.yml
+    warning_to_adjacent: "I feel a draft!"
+    description: |
+      A perfectly circular hole opens in the center of the floor.
+      Too perfect to be natural. Someone (something?) made this.
+      The carved face watches you approach it. Do not approach it.
 
 room:
   name: Twisty Passage (Carved Face)

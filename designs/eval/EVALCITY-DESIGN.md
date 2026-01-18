@@ -995,7 +995,6 @@ history:
 
 ```
 Legend (single-character grid):
-────────────────────────────────
 .  empty     ~  water      #  forest
 R  res_low   r  res_med    ®  res_high
 C  com_low   c  com_med    ©  com_high
@@ -1004,7 +1003,6 @@ I  ind_low   i  ind_med    ℹ  ind_high
 P  coal      N  nuke       ^  power_line
 F  fire_stn  D  police     G  park
 *  fire      !  rubble     @  monster
-────────────────────────────────
 ```
 
 **The LLM reads city.yml. The simulator reads city.cty. They stay in sync.**

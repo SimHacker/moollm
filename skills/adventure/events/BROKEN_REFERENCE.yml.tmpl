@@ -5,7 +5,6 @@
 #
 # "A reference is a promise. When broken, we can keep it."
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 event_handler:
   name: BROKEN_REFERENCE
@@ -17,9 +16,7 @@ event_handler:
     2. Decide: create it, fix the reference, or ignore
     3. Generate the missing content if creating
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # INPUT
-# ═══════════════════════════════════════════════════════════════════════════════
 
 input:
   event:
@@ -31,9 +28,7 @@ input:
       destination: "{{destination}}"  # Target path
       reference_type: "{{ref_type}}"  # exit | inherits | ref | file
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # OUTPUT
-# ═══════════════════════════════════════════════════════════════════════════════
 
 output:
   # What action to take
@@ -56,9 +51,7 @@ output:
   # Confidence (0-100)
   confidence: "{{confidence}}"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # DECISION TREE
-# ═══════════════════════════════════════════════════════════════════════════════
 
 decision_tree:
   exit_reference:
@@ -90,9 +83,7 @@ decision_tree:
     if_typo_likely:
       action: fix
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # ROOM GENERATION TEMPLATE
-# ═══════════════════════════════════════════════════════════════════════════════
 
 room_template: |
   # Auto-generated room for broken reference
@@ -115,9 +106,7 @@ room_template: |
       
     # TODO: Add objects, atmosphere, etc.
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # EXAMPLES
-# ═══════════════════════════════════════════════════════════════════════════════
 
 examples:
   - broken:
@@ -145,9 +134,7 @@ examples:
         corrected: "skills/objects/light-source.yml"
       explanation: "Typo: 'light-sourc' → 'light-source'"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # PROCEDURE
-# ═══════════════════════════════════════════════════════════════════════════════
 
 procedure: |
   1. IDENTIFY the type of reference (exit, inherits, file)

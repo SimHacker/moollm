@@ -40,7 +40,6 @@ room:
     
   examine: |
     LOGISTICS CENTER — NERVE CENTER OF OPERATIONS
-    ═══════════════════════════════════════════════════════════════
     
     ┌─────────────────────────────────────────────────────────────┐
     │                     CENTRAL DISPLAY                          │
@@ -64,9 +63,7 @@ room:
     │  └─────────────────────────────────────────────────────┘    │
     └─────────────────────────────────────────────────────────────┘
     
-    ═══════════════════════════════════════════════════════════════
     OPERATOR STATIONS
-    ═══════════════════════════════════════════════════════════════
     
     STATION A — DOCK CONTROL
     Monitors all 8 loading bays. Truck scheduling. Bay assignments.
@@ -100,9 +97,7 @@ room:
     All cameras, all access points, all the eyes of Leela.
     Current: 12 cameras live, 0 anomalies, Dolly's dancing again.
     
-    ═══════════════════════════════════════════════════════════════
     THE BIG BOARD
-    ═══════════════════════════════════════════════════════════════
     
     Real-time metrics displayed on the main wall:
     
@@ -111,9 +106,7 @@ room:
     │ DRONES   ████████░░░░░░░░ 50%  │  TUBES    █████████████░░░ 82%  │
     │ NETWORK  ████████████████ 99%  │  POWER    █████████████░░░ 85%  │
     
-    ═══════════════════════════════════════════════════════════════
     PNEUMATIC HUB
-    ═══════════════════════════════════════════════════════════════
     
     A gleaming brass junction where 12 pneumatic tubes converge.
     Capsules arrive with a satisfying THWUMP, are scanned, routed,
@@ -123,9 +116,7 @@ room:
     OUTGOING: Lobby → Welcome packet to Floor 1
     QUEUED: 3 capsules awaiting routing
     
-    ═══════════════════════════════════════════════════════════════
     COFFEE STATION
-    ═══════════════════════════════════════════════════════════════
     
     Essential infrastructure. Industrial-grade espresso machine.
     Sign: "UPTIME CORRELATES WITH CAFFEINE LEVELS"
@@ -181,9 +172,7 @@ room:
     - central-database.yml  # The heart of all knowledge
     - coffee-station.yml    # Essential operations support
     
-  # ═══════════════════════════════════════════════════════════════
   # INTEGRATED SYSTEMS MONITORING
-  # ═══════════════════════════════════════════════════════════════
   
   monitors:
     loading_docks:
@@ -296,9 +285,7 @@ room:
         - backup_failure
         - corruption_detected
         
-  # ═══════════════════════════════════════════════════════════════
   # CIRCUIT NETWORK SIGNALS
-  # ═══════════════════════════════════════════════════════════════
   
   signals:
     receives:
@@ -323,9 +310,7 @@ room:
       - signal: "throughput-rate"
         value: "items/hour facility-wide"
         
-  # ═══════════════════════════════════════════════════════════════
   # PNEUMATIC NETWORK ROUTING
-  # ═══════════════════════════════════════════════════════════════
   
   pneumatic_hub:
     type: junction-8
@@ -342,9 +327,7 @@ room:
     queue_capacity: 20
     delivery_time_avg: "4.2 seconds"
     
-  # ═══════════════════════════════════════════════════════════════
   # OPERATIONS STAFF
-  # ═══════════════════════════════════════════════════════════════
   
   occupants:
     shift_supervisor:

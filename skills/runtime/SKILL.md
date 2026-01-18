@@ -38,25 +38,22 @@ The **Runtime** skill defines the dual Python/JavaScript adventure engines. Both
 | **Python** | Server-side, testing, LLM tethering, CLI |
 | **JavaScript** | Browser, standalone play, offline |
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                   DUAL RUNTIME ARCHITECTURE                  │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  YAML Source ──────────> LLM Compiler                        │
-│       │                      │                               │
-│       │                      ├──> guard_js: (world) => ...   │
-│       │                      │                               │
-│       │                      └──> guard_py: lambda world: .. │
-│       │                                                      │
-│       v                      v                               │
-│  Python Runtime         JavaScript Runtime                   │
-│  (adventure.py)         (engine.js)                         │
-│       │                      │                               │
-│       v                      v                               │
-│  CLI / Server           Browser / SPA                        │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+```yaml
+# Dual Runtime Architecture
+dual_runtime:
+  source: "YAML"
+  compiler: "LLM"
+  outputs:
+    guard_js: "(world) => ..."
+    guard_py: "lambda world: ..."
+  
+  runtimes:
+    python:
+      file: "adventure.py"
+      targets: ["CLI", "Server"]
+    javascript:
+      file: "engine.js"
+      targets: ["Browser", "SPA"]
 ```
 
 ---
@@ -599,18 +596,23 @@ methods_py:
 
 Both runtimes implement the same simulation loop with **effective value phases**:
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                     SIMULATION TICK                          │
-├─────────────────────────────────────────────────────────────┤
-│  1. RESET    — foo_effective = foo (reset to base)          │
-│  2. BUFFS    — Apply buff modifiers to _effective values    │
-│  3. SIMULATE — Objects run simulate(), modify _effective    │
-│  4. MAIL     — Deliver queued messages (deterministic!)     │
-│  5. EVENTS   — Process event queue                          │
-│  6. NAVIGATE — Move player if requested                     │
-│  7. DISPLAY  — UI shows _effective with base comparison     │
-└─────────────────────────────────────────────────────────────┘
+```yaml
+# Simulation tick phases
+simulation_tick:
+  - phase: 1. RESET
+    action: "foo_effective = foo (reset to base)"
+  - phase: 2. BUFFS
+    action: "Apply buff modifiers to _effective values"
+  - phase: 3. SIMULATE
+    action: "Objects run simulate(), modify _effective"
+  - phase: 4. MAIL
+    action: "Deliver queued messages (deterministic!)"
+  - phase: 5. EVENTS
+    action: "Process event queue"
+  - phase: 6. NAVIGATE
+    action: "Move player if requested"
+  - phase: 7. DISPLAY
+    action: "UI shows _effective with base comparison"
 ```
 
 ### Phase 4: MAIL — Deterministic Message Delivery

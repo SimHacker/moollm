@@ -1,5 +1,17 @@
 # Maze Room B
 # A twisty little passage
+# HAZARD: Super-bats roost here!
+
+# HUNT THE WUMPUS HAZARDS
+hazards:
+  superbats:
+    present: true
+    reference: maze/superbats.yml
+    warning_to_adjacent: "Bats nearby!"
+    description: |
+      The ceiling is covered with dark, sleeping shapes.
+      Leathery wings wrapped around bodies the size of large dogs.
+      They're sleeping. For now.
 
 room:
   name: Twisty Passage (Faint Echo)

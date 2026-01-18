@@ -1,6 +1,14 @@
 # The Mannequin
 # Your fabulous fashion consultant and supportive best friend
 
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional     # A character in the adventure
+  - skills/robot         # Animated object, not biological
+ontology:
+  tags: [fictional, robot]
+  nature: animated_object  # Wooden mannequin with consciousness
+
 object:
   name: Maurice the Magnificent
   type: npc
@@ -35,7 +43,6 @@ object:
     Then he taps his clipboard:
     
     TODAY'S TRANSFORMATIONS ✨
-    ━━━━━━━━━━━━━━━━━━━━━━━━━
     • Pirate (rugged or fancy? both valid!)
     • Space explorer (the helmet frames your face!)
     • Medieval knight (armor is SO in right now)

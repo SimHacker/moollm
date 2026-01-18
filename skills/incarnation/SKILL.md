@@ -191,20 +191,24 @@ For characters who have grown beyond room residents, use **UPGRADE-TO-CITIZEN**:
 
 ### Upgrade Levels
 
-```
-┌────────────────────────────────────────────────────────────┐
-│ SIGNATURE ONLY      │ Exists in room's guest book          │
-│ (minimal)           │ No file, just a mention              │
-├────────────────────────────────────────────────────────────┤
-│ ROOM RESIDENT       │ .yml file in room directory          │
-│ (lightweight)       │ Can't own files, lives in room       │
-├────────────────────────────────────────────────────────────┤
-│ FULL CITIZEN        │ Own directory in characters/         │
-│ (this upgrade!)     │ Can own files, journals, memories    │
-├────────────────────────────────────────────────────────────┤
-│ FULL INCARNATION    │ CHARACTER.yml + full soul data       │
-│ (complete)          │ Mind mirror, sims traits, everything │
-└────────────────────────────────────────────────────────────┘
+```yaml
+# Character upgrade levels
+upgrade_levels:
+  signature_only:
+    tier: "minimal"
+    storage: "Exists in room's guest book, no file"
+  room_resident:
+    tier: "lightweight"
+    storage: ".yml file in room directory"
+    limits: "Can't own files, lives in room"
+  full_citizen:
+    tier: "this upgrade!"
+    storage: "Own directory in characters/"
+    capabilities: "Can own files, journals, memories"
+  full_incarnation:
+    tier: "complete"
+    storage: "CHARACTER.yml + full soul data"
+    capabilities: "Mind mirror, sims traits, everything"
 ```
 
 ### When to Upgrade

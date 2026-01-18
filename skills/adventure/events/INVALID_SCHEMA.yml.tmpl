@@ -6,7 +6,6 @@
 # "Be liberal in what you accept. Help fix what's broken."
 #     — Postel's Principle Extended
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 event_handler:
   name: INVALID_SCHEMA
@@ -19,9 +18,7 @@ event_handler:
     3. Suggests a fix (natural language)
     4. Optionally provides corrected YAML
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # INPUT
-# ═══════════════════════════════════════════════════════════════════════════════
 
 input:
   event:
@@ -32,9 +29,7 @@ input:
     column: "{{column}}"          # Column number (if available)
     data: "{{data}}"              # Additional context
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # OUTPUT
-# ═══════════════════════════════════════════════════════════════════════════════
 
 output:
   # Natural language explanation
@@ -50,9 +45,7 @@ output:
   # Confidence (0-100)
   confidence: "{{confidence}}"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # COMMON YAML ERRORS
-# ═══════════════════════════════════════════════════════════════════════════════
 
 common_errors:
   indentation:
@@ -94,9 +87,7 @@ common_errors:
     diagnosis: "yes/no/true/false/on/off interpreted as boolean"
     fix: 'Wrap in quotes if you want string: enabled: "yes"'
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # EXAMPLES
-# ═══════════════════════════════════════════════════════════════════════════════
 
 examples:
   - error: "mapping values are not allowed in this context"
@@ -124,9 +115,7 @@ examples:
         name: Kitchen
         schedule: "9:00 AM - 5:00 PM"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # PROCEDURE
-# ═══════════════════════════════════════════════════════════════════════════════
 
 procedure: |
   1. READ the error message carefully

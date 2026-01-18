@@ -40,9 +40,7 @@ container:
   name: "The Kitchen Counter"
   chest_mode: passive-provider    # Items here are available to the network
   
-# ═══════════════════════════════════════════════════════════════════════════════
 # CHEST MODES (Factorio Colors!)
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # PASSIVE-PROVIDER (Yellow)
 #   "Take from me if you need it"
@@ -74,7 +72,6 @@ container:
 #   - Staging area
 #   - Example: Workbench surface, loading dock
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 ```
 
 ### Passive Provider (Yellow)
@@ -1099,7 +1096,6 @@ camera:
         │               │               │
         │               │               │
         ▼               ▼               ▼
-    ════════════════════════════════════════
     │           POSTAL SYSTEM              │
     │   (Instant, Free, Invisible)         │
     │                                      │
@@ -1112,7 +1108,6 @@ camera:
     │  │ Camera  │      │  Phone  │       │
     │  │ Images  │      │ Notifs  │       │
     │  └─────────┘      └─────────┘       │
-    ════════════════════════════════════════
 ```
 
 ---

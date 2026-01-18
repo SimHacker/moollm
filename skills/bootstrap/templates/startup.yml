@@ -3,13 +3,13 @@
 # What happens after BOOT completes?
 # This template configures the default startup behavior.
 #
-# COPY TO: .moollm/startup.yml or repo root startup.yml
+# COPY TO: .moollm/startup.yml
 # Then customize for your workflow.
 #
 # INVOCATION CHAIN:
 #   BOOT → PROBE → DETECT-DRIVER → WARM-CONTEXT → SELF-DESCRIBE → STARTUP
 #
-# OVERRIDE: .moollm/startup.yml takes precedence over root startup.yml
+# Runtime files always go in .moollm/ (gitignored), never repo root.
 
 startup:
   

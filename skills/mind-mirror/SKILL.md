@@ -367,21 +367,17 @@ Every MOOLLM entity can have a Mind Mirror profile defining its personality.
 **But here's the magic:** The comments aren't just documentation — MOOLLM *reads* them. The LLM interprets YAML Jazz comments as semantic modulation of the data. Comments explain, qualify, contextualize, and *drive behavior*.
 
 ```yaml
-# ═══════════════════════════════════════════════════════════════════════════
 # CAPTAIN ASHFORD — Complete Personality Profile
 # 
 # This is YAML JAZZ. Every comment here is DATA that the LLM reads and uses.
 # Numbers set the dial. Comments explain what it MEANS for THIS character.
 # Comments make personality SPECIFIC, VIVID, ALIVE.
-# ═══════════════════════════════════════════════════════════════════════════
 
 character:
   name: "Captain Ashford"
   
-  # ─────────────────────────────────────────────────────────────────────────
   # THE SIMS TRAITS (behavioral tendencies)
   # What do they gravitate toward? How do they act when unobserved?
-  # ─────────────────────────────────────────────────────────────────────────
   
   sims_traits:
     neat: 3            # Tolerates mess. Ship is "organized chaos."
@@ -404,10 +400,8 @@ character:
                        # First instinct: help. Second instinct: assess motive.
                        # Will throw hands if you hurt his people.
   
-  # ─────────────────────────────────────────────────────────────────────────
   # LEARY'S FOUR PLANES (interpersonal style)
   # How do they approach others? What's their vibe?
-  # ─────────────────────────────────────────────────────────────────────────
   
   mind_mirror:
   
@@ -462,7 +456,6 @@ character:
                          # Not a snob, but has standards.
                          # Can navigate fancy dinner AND tavern brawl.
 
-# ═══════════════════════════════════════════════════════════════════════════
 # HOW MOOLLM USES THIS:
 #
 # 1. DIALOGUE GENERATION
@@ -493,7 +486,6 @@ character:
 #    All comments combine into a distinctive presence.
 #    You FEEL Captain Ashford in every line.
 #    The YAML Jazz IS the character.
-# ═══════════════════════════════════════════════════════════════════════════
 ```
 
 **The Key Insight:** Numbers alone are dead data. Numbers + YAML Jazz comments = living character.

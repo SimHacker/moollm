@@ -14,7 +14,7 @@ card:
     Deep introspection into Cursor IDE's internal data: conversations, tool calls,
     context assembly, MCP tracing, checkpoints, and agent reasoning.
     
-    Powered by `cursor_mirror.py` — 47 commands for comprehensive analysis.
+    Powered by `cursor_mirror.py` — 59 commands, 7 output formats, LLM-friendly.
     Safe by design: all operations are read-only (SQLite ?mode=ro).
     
     "You can't think about thinking without thinking about thinking about something."
@@ -23,6 +23,13 @@ card:
     Philosophy: Watch yourself think. Analyze boot sequences, trace context assembly,
     understand how the orchestrator makes decisions. Use this to optimize
     kernel/drivers/cursor.yml, improve bootstrap, and design custom orchestrators.
+    
+    LLM-Friendly Features:
+      - `-f json/yaml/jsonl/csv/md` for machine-readable output
+      - `--sources` to reveal data paths (teach LLMs to fish!)
+      - Smart markdown with tables and nested outlines
+      - CSV with union-of-keys for heterogeneous data
+      - Sniffable header in cursor_mirror.py (first 200 lines)
     
   invoke_when:
     - "Need to review past Cursor chats"
@@ -43,8 +50,9 @@ card:
   sister_script:
     name: cursor_mirror.py
     language: python3
-    lines: 4550
-    commands: 51
+    lines: ~9800
+    commands: 59
+    output_formats: [text, json, jsonl, yaml, csv, md]
     dependencies: [yaml]  # stdlib + yaml
     features:
       - "Multi-level caching (bubble counts, composers, all-composers)"
@@ -52,8 +60,12 @@ card:
       - "Reference shortcuts (@1, @2, name fragments, tree paths)"
       - "Type hints throughout"
       - "Read-only database access (?mode=ro)"
-      - "Flexible output formats (table, JSON, YAML)"
+      - "7 output formats: text, json, jsonl, yaml, csv, md"
+      - "--sources flag to reveal data paths (teach LLMs to fish!)"
+      - "Smart markdown: tables for flat data, outlines for nested"
+      - "CSV with union-of-keys for heterogeneous records"
       - "Importable as Python module (raises exceptions, not sys.exit)"
+      - "Sniffable header: first 200 lines contain full CLI interface"
       
   familiar:
     name: "Cursor"
@@ -80,9 +92,7 @@ card:
   # METHODS: All 47 commands organized by category
   
   methods:
-    # ═══════════════════════════════════════════════════════════════════════
     # NAVIGATION & DISCOVERY
-    # ═══════════════════════════════════════════════════════════════════════
     
     LIST-WORKSPACES:
       category: navigation
@@ -142,9 +152,7 @@ card:
       returns: "Full path, hash, folder, size, composers"
       note: "Debug reference resolution"
         
-    # ═══════════════════════════════════════════════════════════════════════
     # MESSAGE VIEWING
-    # ═══════════════════════════════════════════════════════════════════════
     
     TAIL:
       category: viewing
@@ -180,9 +188,7 @@ card:
         - {name: ref, type: string, required: true}
         - {name: speed, type: float, default: 1.0, note: "0 = instant"}
         
-    # ═══════════════════════════════════════════════════════════════════════
     # SEARCH & ANALYSIS
-    # ═══════════════════════════════════════════════════════════════════════
     
     GREP:
       category: analysis
@@ -211,9 +217,7 @@ card:
       returns: "User/assistant messages, tool calls, thinking"
       note: "Shows the exact sequence of events"
       
-    # ═══════════════════════════════════════════════════════════════════════
     # TOOL & AGENT INSPECTION
-    # ═══════════════════════════════════════════════════════════════════════
     
     TOOLS:
       category: tools
@@ -271,9 +275,7 @@ card:
         - "Tracing external tool calls"
         - "Designing orchestrator MCP integration"
       
-    # ═══════════════════════════════════════════════════════════════════════
     # CONTEXT ASSEMBLY & RETRIEVAL
-    # ═══════════════════════════════════════════════════════════════════════
     
     CONTEXT:
       category: context
@@ -322,9 +324,7 @@ card:
         - "anysphere.cursor-retrieval/embeddable_files.txt"
         - "anysphere.cursor-retrieval/high_level_folder_description.txt"
       
-    # ═══════════════════════════════════════════════════════════════════════
     # FILES & TODOS
-    # ═══════════════════════════════════════════════════════════════════════
     
     FILES:
       category: files
@@ -338,9 +338,7 @@ card:
       command: "cursor-mirror todos <ref>"
       returns: "Todo items with status (pending, in_progress, completed)"
       
-    # ═══════════════════════════════════════════════════════════════════════
     # IMAGE COMMANDS
-    # ═══════════════════════════════════════════════════════════════════════
     
     IMAGES:
       category: images
@@ -391,9 +389,7 @@ card:
         - "I-Beam narrated galleries"
       k_line: IMAGE-ARCHAEOLOGY
       
-    # ═══════════════════════════════════════════════════════════════════════
     # EXPORT & STATS
-    # ═══════════════════════════════════════════════════════════════════════
     
     EXPORT-CHAT:
       category: export
@@ -440,9 +436,7 @@ card:
       command: "cursor-mirror index [-o DIR]"
       returns: "YAML index with titles, dates, message counts, keywords"
       
-    # ═══════════════════════════════════════════════════════════════════════
     # STATUS COMMANDS
-    # ═══════════════════════════════════════════════════════════════════════
     
     STATUS:
       category: status
@@ -497,9 +491,7 @@ card:
       command: "cursor-mirror status-endpoints"
       returns: "AI backends, semantic search, telemetry URLs"
       
-    # ═══════════════════════════════════════════════════════════════════════
     # SQL & DATABASE COMMANDS
-    # ═══════════════════════════════════════════════════════════════════════
     
     SQL:
       category: database

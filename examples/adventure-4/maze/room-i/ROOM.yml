@@ -1,5 +1,16 @@
 # Maze Room I
 # A twisty little passage
+# Adjacent to: C(pit north), G(pit south)
+
+# HUNT THE WUMPUS WARNINGS
+wumpus_warnings:
+  on_enter:
+    - "I feel a draft!"      # Pits in BOTH directions!
+    - "I feel a draft!"      # Yes, twice. Two pits nearby.
+  adjacent_hazards:
+    north: bottomless_pit    # room-c
+    south: bottomless_pit    # room-g
+  note: "Two drafts from two pits. The skeleton knew."
 
 room:
   name: Twisty Passage (Skeleton)

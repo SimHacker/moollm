@@ -3,9 +3,7 @@
 # "Automation is the art of making items flow where they're needed."
 #     — Factorio Design Philosophy
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 # FACTORIO LOGISTICS BOXES — ALL TYPES
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # PASSIVE PROVIDER (Yellow) — "Take from me if you need it"
 #   Items here are available to the logistics network.
@@ -32,9 +30,7 @@
 #   Staging area for time-sensitive routing.
 #   Example: Loading dock, outgoing mail staging
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 # GRID STORAGE SYSTEM
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # A logistic container can contain a GRID of cells (sub-rooms).
 # Each cell holds ONE type of item in a stack.
@@ -57,9 +53,7 @@
 #     iron-plate/
 #       CELL.yml
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 # FUNGIBLE vs INSTANCE ITEMS
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # FUNGIBLE ITEMS — Just counted
 #   All items of this type are identical.
@@ -73,7 +67,6 @@
 #
 # The container decides based on item tags or explicit config.
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 
 logistic-container:
 
@@ -365,9 +358,7 @@ logistic-container:
     total_weight: 0
     percent_full: 0
     
-# ═══════════════════════════════════════════════════════════════════════════════
 # CELL TEMPLATE — For grid storage
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # Each cell in a grid is a mini-room holding one item type.
 # This is the default template for auto-created cells.
@@ -388,9 +379,7 @@ logistic-container:
 #     created_at: null                # When first item arrived
 #     last_access: null               # When last touched
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 # EXAMPLES
-# ═══════════════════════════════════════════════════════════════════════════════
 
 # Example 1: Simple Pantry (Passive Provider)
 #
@@ -503,9 +492,7 @@ logistic-container:
 #       total_slots: 20
 #       weight_limit: 100
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # QUADRANT CONTAINER — Logistics at the Grid Level!
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # KEY INSIGHT: The logistics config lives at the QUADRANT level, not in each cell!
 #
@@ -586,9 +573,7 @@ logistic-container:
 #
 # The room doesn't repeat logistics config — it inherits it!
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 # QUADRANT EXAMPLES
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # Example: Ore Storage Quadrant (Passive Provider)
 #
@@ -654,9 +639,7 @@ logistic-container:
 #       - destination: "../../harbor/ship/cargo/"
 #         when: "world.ship.docked == true"
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 # GRID ROOMS INHERIT — Minimal Cell Definition
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # Grid rooms are MINIMAL. They inherit behavior from parent container.
 #
@@ -695,9 +678,7 @@ logistic-container:
 #   # - Parent config (grid settings)
 #   # - Neighbor discovery (auto-link)
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 # ROOM ADVERTISEMENTS — Rooms That WANT Things!
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # THE SIMS + FACTORIO UNIFICATION:
 #   In The Sims, objects advertise actions to attract Sims.
@@ -739,9 +720,7 @@ logistic-container:
 #   5. If tie, use distance (closer wins)
 #   6. If still tie, use FIFO (first to request)
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 # OPERATIONS
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # ADD item
 #   1. Check filters (allow/deny)
@@ -773,4 +752,3 @@ logistic-container:
 #   3. Create transport task for logistics bots
 #   4. When delivered, remove from this container
 #
-# ═══════════════════════════════════════════════════════════════════════════════

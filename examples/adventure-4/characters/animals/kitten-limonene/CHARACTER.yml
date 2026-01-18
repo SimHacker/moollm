@@ -4,7 +4,18 @@
 # Named for the citrus terpene. Uplifting. Energizing. BRIGHT.
 # Takes after Mom but dialed up to MAXIMUM.
 
-object:
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional
+  - skills/animal
+  - skills/cat
+  - characters/animals/cat-stroopwafel  # Mother
+ontology:
+  tags: [fictional, animal]
+  species: cat
+  specialization: kitten
+
+character:
   name: "Limonene"
   nickname: "Lemon"
   id: limonene

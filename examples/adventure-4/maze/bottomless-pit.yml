@@ -1,0 +1,212 @@
+# THE BOTTOMLESS PIT — Hunt the Wumpus Hazard
+# "I feel a draft!"
+# PROTOTYPE: Instances inherit behavior, override with instance data.
+
+# LLM GAME CONTROL — Manipulate by file operations, not ROOM.yml edits
+#
+# PITS DON'T MOVE — but you can:
+#
+# ADD PIT: Create room-x/pit.yml pointing to this prototype
+#   → New pit in room-x. Draft warnings to adjacents.
+#
+# COVER PIT: mv room-c/pit.yml room-c/pit-covered.yml
+#   → Pit still exists but covered. No warning. Maybe trap?
+#
+# RESET GAME: rm */pit.yml && cp templates/pit-*.yml to starting rooms
+#   → Pits back to starting positions, memory cleared.
+#
+# RECORD DEATH: Add to memory.fallen in the pit.yml
+#   → { name: "Player", date: "now", last_words: "..." }
+#
+# Instance files are game state. ROOM.yml is room structure.
+# Keep concerns separated. Easy reset, easy save, easy diff.
+
+# INSTANCE DEFAULTS — Override in room-specific pit.yml
+defaults:
+  shape: irregular
+  diameter: varies
+  edges: rough_stone
+  origin: natural
+  fallen_count: 0
+  graffiti: []
+  rumors: []
+
+# INSTANCE GENERATION — When creating a new pit
+generate:
+  depth:
+    options: [100ft, 500ft, 1000ft, "bottomless", "deeper than light travels"]
+    flavor: ["echoes for 3 seconds", "torch vanishes before hitting bottom", "you never hear it land"]
+  width:
+    options: [6ft, 10ft, 15ft, "room-spanning", "you could jump it... maybe"]
+  shape:
+    options: [circular, jagged, slot, hourglass, irregular]
+  edges:
+    options: [crumbling, smooth, razor-sharp, mossy, warm to touch]
+  name:
+    pattern: "The [Adjective] [Void/Maw/Drop/Abyss/Descent]"
+    examples: ["The Whispering Maw", "The Silent Drop", "Old Hungry", "The Pit That Breathes"]
+
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional     # Part of the adventure
+  - skills/abstract      # A concept given form (the void itself)
+ontology:
+  tags: [fictional, abstract]
+  origin: hunt_the_wumpus
+  nature: environmental_hazard
+
+object:
+  name: The Bottomless Pit
+  id: bottomless-pit
+  type: hazard
+  
+  tagline: "I feel a draft!"
+  
+  emoji_identity: "🕳️💨⬇️♾️💀"
+  #   🕳️ — pit (the opening)
+  #   💨 — draft (the warning)
+  #   ⬇️ — falling (forever)
+  #   ♾️ — bottomless (no end)
+  #   💀 — death (inevitable)
+  
+  description: |
+    A hole in the floor that goes down... and down... and down.
+    
+    No one knows how deep it is. No one has ever hit bottom.
+    Some say it goes to the center of the earth.
+    Some say it goes further.
+    Some say there IS no bottom — just falling, forever.
+    
+    Cold air rises from the depths, creating a draft that 
+    can be felt in adjacent rooms. This is your only warning.
+    
+  # Multiple pits exist as instances in room directories
+  # See: room-c/pit.yml, room-g/pit.yml
+      
+# WARNINGS
+
+warnings:
+  adjacent:
+    trigger: "player in room adjacent to pit"
+    message: "I feel a draft!"
+    explanation: |
+      Cold air rises from somewhere nearby.
+      A bottomless pit is ONE ROOM AWAY.
+      
+  in_room:
+    trigger: "player enters room with pit"
+    result: death
+    message: |
+      The floor gives way beneath you.
+      
+      You fall.
+      
+      And fall.
+      
+      And fall.
+      
+      The walls rush past. The light from above shrinks to a point.
+      Then to nothing.
+      
+      You keep falling.
+      
+      [GAME OVER — Fell into bottomless pit]
+      
+# BEHAVIOR
+
+behavior:
+  on_player_enters:
+    result: instant_death
+    exception: "player has FEATHER-FALL or similar magic"
+    
+  on_object_thrown_in:
+    result: object_lost
+    description: "It falls. You never hear it land."
+    
+  on_light_shined_in:
+    result: nothing_visible
+    description: |
+      Your lamp illuminates... nothing. The light just goes down
+      and down until it's swallowed by the darkness below.
+      
+# ADVERTISEMENTS
+
+advertisements:
+  - action: EMANATE-DRAFT
+    score: 100
+    condition: "always"
+    effect: "Adjacent rooms get 'I feel a draft!' warning"
+    
+  - action: CONSUME
+    score: 100
+    condition: "player enters room"
+    effect: "Player falls. Game over."
+    game_over: true
+    
+  # === CHEAT: DEFUSE THE PIT ===
+  
+  - action: BRIDGE
+    score: 70
+    condition: "player has planks OR player has rope"
+    cost: "3-10 gold (scales with pit diameter)"
+    effect: |
+      You lay planks across the pit / secure a rope bridge.
+      The pit is now crossable. Carefully.
+      
+      [Instance update: add bridged: true]
+      [Remove from adjacent warnings]
+    note: "Planks: 5 gold at vendor."
+    
+  - action: BRIBE-THE-VOID
+    score: 40
+    condition: "player.gold >= 5"
+    cost: "5-15 gold (just-in-time fair pricing)"
+    cost_formula: "min(15, max(5, player.gold * 0.3))"
+    effect: |
+      You toss gold coins into the pit.
+      
+      They fall... and fall... and then stop.
+      
+      A voice from below: "ACCEPTABLE."
+      
+      The pit seals itself. Temporarily.
+      
+      [Instance update: add sealed_until: 10_turns]
+    flavor: "The void is not greedy. It just wants acknowledgment."
+    
+  - action: FEATHER-FALL
+    score: 60
+    condition: "player has feather_token"
+    cost: "Feather token consumed (10 gold at vendor)"
+    effect: |
+      You drift gently across the pit.
+      Like a leaf. Like a dream.
+      The void watches, impressed.
+      
+      [No instance change — pit still dangerous for others]
+    note: "Feather tokens: 10 gold at vendor."
+    
+# INTERACTION WITH OTHER HAZARDS
+
+interactions:
+  grue:
+    note: "The grue won't enter a pit room — nothing to eat"
+    
+  wumpus:
+    note: "The wumpus avoids pit rooms — too smart to fall in"
+    
+  superbats:
+    note: "Bats might drop you INTO a pit room. Cruel but possible."
+    
+# META
+
+meta:
+  role: environmental_hazard
+  threat_level: lethal
+  can_be_avoided: true
+  can_be_crossed: false  # Unless you can fly
+  
+  invoke_when:
+    - "player adjacent to pit room"
+    - "player enters pit room"
+    - "player asks about drafts"

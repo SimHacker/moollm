@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """
 adventure_runtime.py — The MOOLLM Adventure Python Runtime
-═══════════════════════════════════════════════════════════════════════════════
 
 "Every program is a game. Every game is a world."
     — Will Wright
@@ -13,7 +12,6 @@ Parallel implementation to adventure.js for:
 - Testing and validation
 - Server-side game state
 
-═══════════════════════════════════════════════════════════════════════════════
 """
 
 from dataclasses import dataclass, field
@@ -25,9 +23,7 @@ import re
 import logging
 import traceback
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # LOGGING CONFIGURATION
-# ═══════════════════════════════════════════════════════════════════════════════
 
 # Create module logger
 logger = logging.getLogger('adventure')
@@ -80,9 +76,7 @@ def setup_logging(level: LogLevel = LogLevel.INFO, log_file: Optional[str] = Non
     return logger
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # ERROR TYPES
-# ═══════════════════════════════════════════════════════════════════════════════
 
 class AdventureError(Exception):
     """Base exception for adventure runtime errors."""
@@ -105,9 +99,7 @@ class StateError(AdventureError):
     pass
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # WORLD STATE
-# ═══════════════════════════════════════════════════════════════════════════════
 
 class WorldState:
     """
@@ -167,9 +159,7 @@ class WorldState:
         self._event_handlers[event_type].append(handler)
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # RUNTIME CLASSES
-# ═══════════════════════════════════════════════════════════════════════════════
 
 @dataclass
 class Entity:
@@ -409,9 +399,7 @@ class Character(Entity):
         return any(obj.id == object_id for obj in self.inventory)
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # ADVENTURE ENGINE
-# ═══════════════════════════════════════════════════════════════════════════════
 
 class AdventureEngine:
     """
@@ -964,9 +952,7 @@ class AdventureEngine:
                 setup_logging(LogLevel.DEBUG)
                 return {'success': True, 'message': 'Debug mode ON'}
     
-    # ─────────────────────────────────────────────────────────────────────────
     # Helper methods
-    # ─────────────────────────────────────────────────────────────────────────
     
     def _find_object(self, name: str) -> Optional[GameObject]:
         """Find object in current room."""
@@ -998,9 +984,7 @@ class AdventureEngine:
                 return char
         return None
     
-    # ─────────────────────────────────────────────────────────────────────────
     # STATE EXPORT/IMPORT
-    # ─────────────────────────────────────────────────────────────────────────
     
     def export_state(self) -> Dict:
         """
@@ -1163,9 +1147,7 @@ class AdventureEngine:
             self.import_state(json.load(f))
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # CLI INTERFACE (for testing)
-# ═══════════════════════════════════════════════════════════════════════════════
 
 def play_cli(adventure_json: str):
     """
@@ -1199,9 +1181,7 @@ def play_cli(adventure_json: str):
             break
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # API FOR SIMULATIONS
-# ═══════════════════════════════════════════════════════════════════════════════
 
 class SimulationRunner:
     """
@@ -1278,9 +1258,7 @@ class SimulationRunner:
         return self.engine.export_state()
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # MAIN
-# ═══════════════════════════════════════════════════════════════════════════════
 
 if __name__ == '__main__':
     import sys

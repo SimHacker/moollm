@@ -1,0 +1,170 @@
+# CARD.yml — Ontology
+#
+# Composable ontological tags for character identity.
+# Tags, not trees. Folksonomy, not taxonomy.
+# "What kind of being is this?"
+
+card:
+  id: ontology
+  name: "Ontology"
+  type: [skill, ethics, identity]
+  emoji: 🏷️
+  tier: 1
+  
+  tagline: "Tags, not trees — composable being-types"
+  
+  description: |
+    Ontological tags declare what kind of being a character IS.
+    Characters can have multiple tags — a real dog is both
+    [real-person, animal]. An AI trained on someone's writing
+    is [real-person, robot, fictional].
+    
+    Each tag carries ethical implications. When composed,
+    the most restrictive ethics win.
+    
+  invoke_when:
+    - "creating a character"
+    - "determining ethical constraints"
+    - "composing identity from multiple sources"
+
+tools:
+  required: [read_file]
+
+# THE ONTOLOGICAL TAGS
+# Each tag IS a skill. Skills = Tags. 
+# Inherit from a skill = tagged with that ontology.
+
+tags:
+  # Each tag is a full skill with its own CARD.yml
+  
+  real-being:
+    skill: skills/real-being
+    emoji: 👤
+    summary: "Actually exists — highest ethical weight"
+    
+  historical:
+    skill: skills/historical
+    emoji: 📜
+    summary: "Deceased real being — extends real-being"
+    
+  fictional:
+    skill: skills/fictional
+    emoji: 📖
+    summary: "Invented — creative freedom within bounds"
+    
+  animal:
+    skill: skills/animal
+    emoji: 🐾
+    summary: "Non-human creature — species-appropriate"
+    
+  robot:
+    skill: skills/robot
+    emoji: 🤖
+    summary: "Artificial being — transparent about nature"
+    
+  abstract:
+    skill: skills/abstract
+    emoji: 💭
+    summary: "Concept personified — ideas with voice"
+    
+  mythic:
+    skill: skills/mythic
+    emoji: ✨
+    summary: "Mythology/folklore — cultural sensitivity"
+
+# HOW TAGGING WORKS
+tagging:
+  mechanism: |
+    Characters inherit from ontological skills to get tagged.
+    Multiple inheritance = multiple tags.
+    
+  example: |
+    # Biscuit inherits from two skills = two tags
+    character:
+      id: biscuit
+      inherits:
+        - skills/real-being   # Tag: [real-being]
+        - skills/animal       # Tag: [animal]
+      # Effective tags: [real-being, animal]
+
+# TAG COMPOSITION
+
+composition:
+  
+  rule: "Most restrictive ethics apply"
+  
+  common_combinations:
+    
+    real_animal:
+      tags: [real-being, animal]
+      example: "Biscuit the dog"
+      ethics: "Real creature — full respect + species-appropriate"
+      
+    fictional_robot:
+      tags: [fictional, robot]
+      example: "C-3PO"
+      ethics: "Creative freedom + robotic behavior"
+      
+    historical_abstract:
+      tags: [historical, abstract]
+      example: "The Spirit of Minsky"
+      ethics: "Legacy respect + acknowledge personification"
+      
+    real_inspired_fiction:
+      tags: [real-being, fictional]
+      example: "Character 'inspired by' real person"
+      ethics: "HERO-STORY required + clear disclaimer"
+      warning: "High risk — be explicit this is not the person"
+      
+    ai_trained_on_real:
+      tags: [real-being, robot, fictional]
+      example: "Chatbot trained on someone's writings"
+      ethics: "Consent + AI disclosure + generated not quoted"
+      
+    mythic_animal:
+      tags: [mythic, animal]
+      example: "Phoenix, Dragon, Unicorn"
+      ethics: "Cultural respect + creature behavior"
+
+# ADVERTISEMENTS
+
+advertisements:
+  
+  TAG:
+    score: 80
+    condition: "Declaring character ontology"
+    effect: "Assign ontological tags to character"
+    parameters:
+      character: "Who to tag"
+      tags: "List of ontological tags"
+      
+  CHECK-ETHICS:
+    score: 75
+    condition: "About to portray a character"
+    effect: "Compute combined ethics from all tags"
+    parameters:
+      character: "Character to check"
+    output: "Combined ethical constraints"
+    
+  COMPOSE:
+    score: 70
+    condition: "Creating hybrid character"
+    effect: "Combine multiple ontological sources"
+    parameters:
+      sources: "List of ontological bases"
+    output: "Composed tag set with ethics"
+
+# INTEGRATION WITH OTHER SKILLS
+
+integrates_with:
+  hero-story: "HERO-STORY protocol for real-being tag"
+  representation-ethics: "Detailed ethics guidance"
+  character: "Character creation uses tags"
+  incarnation: "Incarnation respects ontological ethics"
+  room: "Room ethics combine with character ethics"
+
+related:
+  - skills/representation-ethics
+  - skills/hero-story
+  - skills/character
+  - skills/incarnation

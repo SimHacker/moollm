@@ -345,25 +345,20 @@ Modern IDEs like Cursor can mount multiple repositories. Each codebase becomes a
 
 Every skill evolves through three phases:
 
-```
-┌─────────────────────────────────────────────────────┐
-│                    PLAY                              │
-│  Do it manually. Explore. Make mistakes.            │
-│  "Dropped cheese in room A..."                      │
-└─────────────────────────────────────────────────────┘
-                         ↓
-┌─────────────────────────────────────────────────────┐
-│                    LEARN                             │
-│  Notice patterns. Document them.                    │
-│  "Each room needs a unique marker..."              │
-└─────────────────────────────────────────────────────┘
-                         ↓
-┌─────────────────────────────────────────────────────┐
-│                    LIFT                              │
-│  Extract reusable skill. Share it.                  │
-│  skill: maze-mapping                                │
-│  procedure: "Drop unique item in each room"        │
-└─────────────────────────────────────────────────────┘
+```yaml
+# PLAY → LEARN → LIFT cycle
+skill_evolution:
+  play:
+    action: "Do it manually. Explore. Make mistakes."
+    example: "Dropped cheese in room A..."
+  learn:
+    action: "Notice patterns. Document them."
+    example: "Each room needs a unique marker..."
+  lift:
+    action: "Extract reusable skill. Share it."
+    result:
+      skill: "maze-mapping"
+      procedure: "Drop unique item in each room"
 ```
 
 **Documentation → Procedure → Script → Tool**
@@ -405,6 +400,66 @@ Anthropic recommends against `README.md` in skills. We respectfully disagree:
 - **Two audiences**: humans (README) and LLMs (SKILL.md + CARD.yml)
 
 **Keep both.** README is for discovery, SKILL.md is for execution.
+
+### Diagrams: Format by Audience
+
+Different files serve different audiences. Choose diagram formats accordingly:
+
+| File | Primary Audience | Best Format | Why |
+|------|------------------|-------------|-----|
+| `SKILL.md` | LLMs | **YAML Jazz** | Structured, parseable, sniffable |
+| `README.md` | Humans | **Mermaid** | Rendered by GitHub, visual |
+| Both | — | **NOT ASCII art** | Wastes tokens, hard to maintain |
+
+**SKILL.md — YAML Jazz for LLMs:**
+
+```yaml
+# LLMs parse this instantly
+data_flow:
+  input: "user request"
+  steps:
+    - action: "parse intent"
+      output: "structured command"
+    - action: "execute"
+      output: "result"
+  output: "formatted response"
+```
+
+**README.md — Mermaid for Humans and curious LLMs:**
+
+```mermaid
+graph LR
+    A[User Request] --> B[Parse Intent]
+    B --> C[Execute]
+    C --> D[Response]
+```
+
+**Why NOT ASCII art:**
+
+```
+# ❌ ASCII art wastes tokens and breaks easily
+┌─────────┐    ┌─────────┐    ┌─────────┐
+│  Input  │───►│ Process │───►│ Output  │
+└─────────┘    └─────────┘    └─────────┘
+```
+
+ASCII art is:
+- **Token-expensive** — box characters, alignment padding
+- **Fragile** — breaks on edit, hard to maintain
+- **Unstructured** — LLMs can't parse the relationships
+- **Decorative** — looks pretty but carries no semantic data
+
+YAML Jazz is:
+- **Compact** — no decoration overhead
+- **Parseable** — LLMs extract structure directly
+- **Maintainable** — add/remove items without redrawing
+- **Semantic** — keys and values carry meaning
+
+Mermaid is:
+- **Rendered** — GitHub/GitLab show actual diagrams
+- **Version-controllable** — text diffs work
+- **Expressive** — flowcharts, sequences, state machines
+- **Human-optimized** — visual comprehension
 
 ---
 
@@ -727,6 +782,152 @@ This isn't theory. MOOLLM has demonstrated:
 
 - **[delegation-object-protocol.md](./delegation-object-protocol.md)** — Self-like inheritance
 - **[skill-instantiation-protocol.md](./skill-instantiation-protocol.md)** — How skills become instances
+
+---
+
+## Future Direction: Skill Compiler
+
+> **TODO:** Build a "skill compiler" that optimizes skills for runtime deployment.
+
+### The Problem
+
+Full-featured skills with comprehensive SKILL.md, CARD.yml, and README.md are excellent for:
+- Development and debugging
+- Human understanding and reflection
+- Deep learning at runtime when needed
+
+But for production deployment targeting specific applications:
+- Many K-lines and links go unused
+- README documentation is redundant with SKILL.md
+- Not all methods/properties/protocols are needed
+- Context window budget is precious
+
+### The Solution: Skill Compilation
+
+Like a compiler's linker performs dead-code elimination and optimization, the **Skill Compiler** would:
+
+1. **Watch Skill Execution**
+   - Skills should have test cases and benchmark data
+   - Observe which K-lines, methods, and protocols are actually invoked
+   - Profile context usage patterns
+
+2. **Understand Target Environment**
+   - Target platform (Cursor, Claude Code, generic, custom)
+   - Target application domain
+   - Target skill subset being deployed
+   - Optimization hints (size vs. comprehensiveness)
+
+3. **Optimize and Transform**
+   - **Dead K-line elimination**: Remove unused symbolic references
+   - **Link pruning**: Remove references to unneeded related skills
+   - **README absorption**: Inject critical details from README into SKILL.md, discard the rest
+   - **Interface stripping**: Export only necessary methods/properties in CARD.yml
+   - **Bind and specialize**: Pre-resolve references for the target skill subset
+   - **Tiered resolution**: Create multi-resolution versions (sniff → scan → deep)
+
+4. **Produce Optimized Artifacts**
+   - Pre-indexed skill content
+   - Categorized and tagged for efficient discovery
+   - Multi-tiered resolution layers (header, summary, full)
+   - K-line optimized (only relevant activations)
+   - Summary clusters for related concepts
+   - Efficient runtime skill set
+
+### Compilation Modes
+
+```yaml
+compiler:
+  modes:
+    development:
+      # Full skills, all documentation
+      # Maximum introspection capability
+      strip_unused: false
+      include_readme: true
+      include_examples: true
+      
+    production:
+      # Optimized for runtime efficiency
+      strip_unused: true
+      include_readme: false  # Absorbed into SKILL.md
+      inline_critical_refs: true
+      
+    minimal:
+      # Smallest possible footprint
+      # Only methods actually called in test suite
+      strip_unused: true
+      inline_all: true
+      single_file_output: true
+```
+
+### Source vs. Compiled Skills
+
+```
+skills/                          # SOURCE: Full development skills
+├── adventure/
+│   ├── README.md               # Human documentation  
+│   ├── SKILL.md                # Full protocol spec
+│   ├── CARD.yml                # Complete interface
+│   └── tests/                  # Test cases for compiler
+│       ├── test_cases.yml
+│       └── benchmark_data/
+
+compiled/                        # OUTPUT: Optimized for target
+├── cursor-leela/               # Target: Cursor + Leela AI domain
+│   └── adventure/
+│       ├── SKILL.md            # Slimmed, README absorbed
+│       └── CARD.yml            # Only used methods
+└── minimal/                    # Target: Smallest footprint
+    └── adventure.yml           # Single-file bundle
+```
+
+### K-line Optimization
+
+K-lines are activation vectors. The compiler should:
+
+```yaml
+# SOURCE: Full K-line network
+related: [room, card, character, soul-chat, speed-of-light, 
+          action-queue, empathic-templates, yaml-jazz, postel, ...]
+
+# COMPILED: Only K-lines actually activated in target context
+related: [room, card, character]  # Pruned to essentials
+```
+
+### Multi-Tiered Resolution
+
+Compiled skills should support progressive loading:
+
+```yaml
+tiers:
+  - level: 0
+    name: "sniff"
+    content: "frontmatter + 10-line summary"
+    tokens: ~100
+    
+  - level: 1  
+    name: "scan"
+    content: "interface + method signatures"
+    tokens: ~500
+    
+  - level: 2
+    name: "deep"
+    content: "full protocol + examples"
+    tokens: ~2000
+```
+
+### Implementation Notes
+
+- Test suite is REQUIRED for compilation (like type annotations for a type checker)
+- Compiler should be conservative: when in doubt, include
+- Human-readable output: optimized skills should still be readable
+- Reversible: track what was stripped for debugging
+- Version stamped: compiled skills reference source version
+
+### See Also
+
+- [../k-lines/](../k-lines/) — K-line activation patterns
+- [../speed-of-light/](../speed-of-light/) — Context efficiency matters
+- [../bootstrap/](../bootstrap/) — Minimal skill loading
 
 ---
 

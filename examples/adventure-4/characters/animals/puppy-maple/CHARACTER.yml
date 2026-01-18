@@ -4,7 +4,18 @@
 # German Shepherd mix. Biological child. Father: a K-9 officer who "got transferred."
 # Born serious. Grows more protective every day.
 
-object:
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional
+  - skills/animal
+  - skills/dog
+  - characters/animals/dog-butterscotch  # Mother
+ontology:
+  tags: [fictional, animal]
+  species: dog
+  specialization: puppy
+
+character:
   name: "Maple"
   nickname: "Map" / "The Watcher" / "Sergeant"
   id: maple

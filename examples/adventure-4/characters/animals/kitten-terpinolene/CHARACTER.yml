@@ -4,7 +4,18 @@
 # Named for the rare, complex terpene. Creative. Chaotic. Transcendent.
 # The one on the ceiling. No one saw how she got there.
 
-object:
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional
+  - skills/animal
+  - skills/cat
+  - characters/animals/cat-stroopwafel  # Mother
+ontology:
+  tags: [fictional, animal]
+  species: cat
+  specialization: kitten
+
+character:
   name: "Terpinolene"
   nickname: "Terpy Jr."
   id: terpinolene

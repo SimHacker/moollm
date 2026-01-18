@@ -319,7 +319,6 @@ The `ref` field links each memory to where it was recorded — creating a bidire
 
 ```
 OLD (room-resident)                    → NEW (full citizen with type prefix)
-───────────────────────────────────────────────────────────────────
 pub/bar/cat-cave/cat-terpie.yml       → characters/animals/cat-terpie/CHARACTER.yml
 pub/bar/cat-cave/cat-stroopwafel.yml  → characters/animals/cat-stroopwafel/CHARACTER.yml
 pub/bar/cat-cave/kitten-myrcene.yml   → characters/animals/kitten-myrcene/CHARACTER.yml

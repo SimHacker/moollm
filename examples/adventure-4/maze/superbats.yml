@@ -1,0 +1,345 @@
+# THE SUPER-BATS — Hunt the Wumpus Hazard
+# "Bats nearby!"
+# PROTOTYPE: Instances inherit behavior, override with instance data.
+
+# LLM GAME CONTROL — Manipulate by file operations, not ROOM.yml edits
+#
+# MOVE BATS: mv room-b/bats.yml room-f/bats.yml
+#   → Bats now roost in room-f. Warnings shift to room-f adjacents.
+#   → Add to memory: { moved_from: room-b, reason: "wumpus woke them" }
+#
+# RESET GAME: rm */bats.yml && cp templates/bats-fresh.yml room-b/bats.yml
+#   → Bats back to starting position, memory cleared.
+#
+# SPLIT COLONY: Create room-x/bats.yml with population: 50
+#   → Now two bat roosts! Double the chaos.
+#
+# Instance files are game state. ROOM.yml is room structure.
+# Keep concerns separated. Easy reset, easy save, easy diff.
+
+# INSTANCE DEFAULTS — Override in room-specific bats.yml
+defaults:
+  population: 50
+  alpha: null
+  temperament: irritable
+  relocation_history: []
+  graffiti: []
+
+# INSTANCE GENERATION — When creating a new bat colony
+generate:
+  alpha:
+    wingspan: [5ft, 7ft, 9ft, 12ft, "absurd"]
+    name:
+      pattern: "[Adjective] [Bat-Name]"
+      examples:
+        - "Old Leatherwing"
+        - "Screech McFlappington"
+        - "Sir Guano the Third"
+        - "Midnight Terror"
+        - "Duchess Echoloca"
+        - "The Flapping Menace"
+        - "Captain Swoops"
+        - "Fangsworth"
+        - "Radar O'Reilly"
+        - "Count Batula (no relation)"
+    personality: [regal, cranky, mischievous, sleepy, hyperactive, ancient]
+  colony:
+    population: [20, 50, 100, 200, "thousands (exaggeration)"]
+    temperament: [docile, irritable, aggressive, playful, hungry]
+    specialty: ["drops in pits", "drops near wumpus", "drops in treasure rooms", "surprisingly gentle landings"]
+
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional     # Part of the adventure
+  - skills/mythic        # Giant bats from gaming folklore
+  - skills/animal        # Creature behavior
+ontology:
+  tags: [fictional, mythic, animal]
+  origin: hunt_the_wumpus
+  nature: chaotic_neutral_hazard
+
+character:
+  name: The Super-Bats
+  id: superbats
+  type: creature_swarm
+  pronouns: they/them
+  
+  tagline: "Bats nearby!"
+  
+  emoji_identity: "🦇🦇🦇💨🎲"
+  #   🦇🦇🦇 — many bats (a swarm)
+  #   💨 — swooping (fast, chaotic)
+  #   🎲 — random (where will you end up?)
+  
+  description: |
+    Not just bats. SUPER-bats.
+    
+    Each one is the size of a large dog, with leathery wings
+    that span six feet. They hang from the ceiling in clusters,
+    sleeping... until disturbed.
+    
+    They don't want to eat you. They just want you GONE.
+    They'll pick you up and carry you to another room.
+    
+    Which room? That's the exciting part. Could be safe.
+    Could be the wumpus's lair. Could be a pit.
+    The bats don't care. They just want their cave back.
+    
+  physical: |
+    - Wingspan: 6 feet each
+    - Color: Midnight black with red eyes
+    - Sound: High-pitched chittering, audible from adjacent rooms
+    - Smell: Guano. So much guano.
+    - Grip: Surprisingly gentle. They're relocating you, not attacking.
+    
+  # Super-bats have a roost
+  location:
+    roost: maze/room-b
+    description: "The ceiling is covered with sleeping bat shapes"
+    
+# WARNINGS
+
+warnings:
+  adjacent:
+    trigger: "player in room adjacent to superbats"
+    message: "Bats nearby!"
+    explanation: |
+      You hear high-pitched chittering echoing through the tunnels.
+      Super-bats are ONE ROOM AWAY.
+      
+  in_room:
+    trigger: "player enters room with superbats"
+    message: |
+      The ceiling ERUPTS.
+      
+      Dozens of giant bats descend, chittering frantically.
+      Leathery wings surround you. Claws grip your shoulders.
+      
+      You're lifted off your feet—
+      
+# BEHAVIOR — Not lethal, but chaotic
+
+behavior:
+  on_player_enters:
+    result: relocation
+    process: |
+      1. Bats wake up (all of them, instantly)
+      2. Bats grab player
+      3. Bats carry player through caves
+      4. Bats drop player in RANDOM room
+      5. Bats return to roost
+      
+    description: |
+      You are carried through twisting tunnels, barely glimpsing
+      the walls rushing past. The bats chittering is deafening.
+      
+      Then suddenly — dropped.
+      
+      You tumble to the ground in a room you don't recognize.
+      The sound of wings fades as the bats return to their roost.
+      
+      Where are you now?
+      
+  destination:
+    type: random
+    excludes: [current_room, bat_room]  # They don't drop you back
+    includes: [pit_rooms, wumpus_room]  # Yes, they might drop you there
+    
+  warning_after_drop: |
+    [After describing new room, immediately check for hazards:]
+    - If dropped in pit room: You fall. Game over.
+    - If dropped in wumpus room: The wumpus wakes. Game over.
+    - If dropped adjacent to hazard: Give appropriate warning.
+    - If dropped in dark room: Grue countdown begins.
+    
+# THE CRUEL POSSIBILITIES
+
+cruel_possibilities:
+  - scenario: "Dropped in wumpus lair"
+    result: "Instant death by wumpus"
+    description: |
+      The bats drop you unceremoniously.
+      
+      You land in something soft. Fur. Matted, stinking fur.
+      
+      Oh no.
+      
+      [GAME OVER — Eaten by wumpus (delivered by super-bats)]
+      
+  - scenario: "Dropped in pit room"
+    result: "Instant death by falling"
+    description: |
+      The bats release you over empty air.
+      
+      There's no floor.
+      
+      [GAME OVER — Fell into bottomless pit (dropped by super-bats)]
+      
+  - scenario: "Dropped in dark room, no lamp"
+    result: "Grue countdown begins"
+    description: |
+      The bats drop you in darkness.
+      
+      Your lamp? They knocked it out of your hands somewhere
+      during the flight. It could be anywhere now.
+      
+      Something rustles in the dark nearby.
+      
+      [Grue countdown: 3 turns remaining]
+      
+  - scenario: "Dropped in safe room"
+    result: "Disoriented but alive"
+    description: |
+      The bats deposit you gently and flutter away.
+      
+      You're in... a room. You have no idea which one.
+      Time to figure out where you are.
+      
+# ADVERTISEMENTS
+
+advertisements:
+  - action: SLEEP
+    score: 80
+    condition: "default"
+    effect: "Bats hang from ceiling, dormant"
+    
+  - action: EMANATE-SOUND
+    score: 100
+    condition: "always"
+    effect: "Adjacent rooms get 'Bats nearby!' warning"
+    
+  - action: WAKE
+    score: 100
+    condition: "player enters room"
+    effect: "All bats wake instantly"
+    
+  - action: GRAB
+    score: 95
+    condition: "player in room"
+    effect: "Bats seize player"
+    
+  - action: RELOCATE
+    score: 100
+    condition: "player grabbed"
+    effect: "Carry player to random room"
+    
+  - action: DROP
+    score: 100
+    condition: "destination reached"
+    effect: "Release player, return to roost"
+    
+  # === CHEAT: DEFUSE THE BATS ===
+  
+  - action: BRIBE-WITH-FRUIT
+    score: 75
+    condition: "player has fruit OR player has berries"
+    cost: "2-8 gold worth of fruit (scales with population)"
+    cost_formula: "ceil(instance.population / 25)"
+    effect: |
+      You scatter fruit across the floor.
+      
+      The bats descend... but not on you. On the fruit.
+      Chittering happily, they feast.
+      
+      You slip past while they're distracted.
+      
+      [Safe passage this visit only]
+      [Instance update: add fed_recently: true, duration: 3_turns]
+    note: "Fruit sold at pub. Berries in maze garden."
+    
+  - action: SERENADE
+    score: 50
+    condition: "player has instrument OR player.charisma >= 7"
+    cost: "0 gold (performance check)"
+    effect: |
+      You play a soft, soothing melody.
+      
+      The bats... sway. They chirp along.
+      Old Leatherwing opens one eye, nods approval.
+      
+      They part like a curtain, letting you pass.
+      
+      [Safe passage. Bats remember you fondly.]
+      [Instance update: add friend: player.name]
+    flavor: "Bats love music. Who knew?"
+    
+  - action: HIRE-AS-TAXI
+    score: 60
+    condition: "player.gold >= 10"
+    cost: "5-20 gold (fair pricing based on destination danger)"
+    cost_formula: "base 5 + (destination.danger_level * 3)"
+    effect: |
+      "Take me to..." you shout, tossing gold.
+      
+      The bats confer. They accept the fare.
+      
+      You're grabbed — but gently. Professionally.
+      Deposited exactly where you asked.
+      
+      [Player chooses destination from known rooms]
+      [Instance update: add taxi_uses: +1]
+    note: "Destination must be room player has visited."
+    
+  - action: SMOKE-OUT
+    score: 45
+    condition: "player has torch AND player has cloth"
+    cost: "Torch consumed"
+    effect: |
+      You make the torch VERY smoky.
+      
+      The bats HATE this. They flee, shrieking,
+      pouring out through cracks you didn't know existed.
+      
+      The room is clear. For now.
+      
+      [Instance update: mv bats.yml to random adjacent room]
+      [Add to memory: { smoked_out_by: player, grudge: true }]
+    warning: "Bats hold grudges. Next encounter: no mercy."
+    
+# RELATIONSHIPS
+
+relationships:
+  the_wumpus:
+    status: avoidance
+    narrative: |
+      We don't go near the wumpus. It smells wrong.
+      But we might accidentally drop someone there.
+      Oops.
+      
+  the_grue:
+    status: indifference
+    narrative: |
+      We fly in darkness. The grue doesn't bother us.
+      We're too fast, and there are too many of us.
+      
+  adventurers:
+    status: nuisance
+    narrative: |
+      They keep coming into our cave. We don't want them here.
+      We pick them up and put them somewhere else.
+      Not our problem after that.
+      
+# META
+
+meta:
+  role: chaos_hazard
+  threat_level: variable  # Depends on where you land!
+  can_be_killed: false    # Too many, too fast
+  can_be_avoided: true    # Don't enter their room
+  
+  invoke_when:
+    - "player adjacent to bat room"
+    - "player enters bat room"
+    - "player asks about chittering sounds"
+    
+  integration_with_other_hazards: |
+    Super-bats add a chaos element:
+    
+    - You might avoid the wumpus room, only to be DROPPED in it
+    - You might be dropped adjacent to a pit
+    - You might be dropped in a dark room without your lamp
+    
+    The bats are not malicious. They're just... bats.
+    They don't know where the wumpus is.
+    They don't care about the pits.
+    They just want their cave back.

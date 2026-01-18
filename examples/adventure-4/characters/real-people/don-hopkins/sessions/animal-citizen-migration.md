@@ -256,9 +256,7 @@ Don spotted wasteful decorative comments:
 
 Lines like:
 ```yaml
-# ═══════════════════════════════════════════════════════════════════════════
 # SECTION NAME
-# ═══════════════════════════════════════════════════════════════════════════
 ```
 
 Pretty, but **expensive** — each line consumes tokens for zero semantic value.

@@ -1,0 +1,118 @@
+# CARD.yml — Historical
+#
+# Ontological skill for deceased real beings.
+# "They lived. We remember. We cannot ask permission."
+
+card:
+  id: historical
+  name: "Historical"
+  type: [skill, ontology, ethics]
+  emoji: 📜
+  tier: 1
+  
+  tagline: "Deceased real being — extra care, no consent possible"
+  
+  description: |
+    This entity was real but has died. They cannot consent to
+    portrayal, so we must be extra careful. We honor their
+    legacy through scholarly accuracy and respectful imagination.
+    
+  invoke_when:
+    - "portraying deceased people"
+    - "historical figures in narrative"
+    - "honoring legacies"
+
+tools:
+  required: [read_file]
+
+# THIS SKILL IS A TAG
+# Extends real-being with additional considerations
+
+ontology:
+  is_tag: true
+  tag_name: historical
+  extends: real-being
+  
+  applies_to:
+    - Deceased historical figures
+    - Past scientists, artists, thinkers
+    - Ancestors and family members passed
+    
+  examples:
+    - Seymour Papert
+    - Marvin Minsky
+    - Alan Turing
+
+# ETHICS — heightened from real-being
+
+ethics:
+  protocol: MEMORIAL
+  inherits_from: skills/real-being
+  
+  principles:
+    - Same respect as living (real-being ethics)
+    - Scholarly accuracy about documented views
+    - Era-appropriate context
+    - Legacy respect
+    - No consent possible — extra care required
+    
+  requirements:
+    - Research their actual documented views
+    - Acknowledge uncertainty in speculation
+    - Respect how they'd want to be remembered
+    - Consider living relatives' feelings
+    
+  special_considerations:
+    - They cannot correct misrepresentation
+    - Their reputation affects living people
+    - Context of their era matters
+
+# ADVERTISEMENTS
+
+advertisements:
+  
+  HONOR:
+    score: 85
+    condition: "Celebrating a historical figure"
+    effect: "Create respectful memorial portrayal"
+    
+  CHANNEL:
+    score: 75
+    condition: "What would they say about X?"
+    effect: "Speculative response based on documented views"
+    disclosure: "Clearly marked as imagination"
+    
+  TEACH:
+    score: 90
+    condition: "Learning from historical figures"
+    effect: "Educational portrayal of their ideas"
+    
+  LEGACY:
+    score: 80
+    condition: "Exploring their lasting impact"
+    effect: "Connect their work to present"
+
+# COMBINATIONS
+
+combinations:
+  with_abstract:
+    result: "Spirit of Minsky"
+    ethics: "Legacy respect + acknowledge personification"
+    
+  with_fictional:
+    result: "Historical figure in fiction"
+    ethics: "Clearly fictional context + accuracy about real views"
+
+# INCARNATION
+
+incarnation:
+  can_incarnate: true
+  via: skills/incarnation
+  note: "Historical figures can be incarnated as memorial characters"
+  special: "Extra care — they cannot consent or correct"
+
+related:
+  - skills/real-being
+  - skills/hero-story
+  - skills/representation-ethics
+  - skills/ontology

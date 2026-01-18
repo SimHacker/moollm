@@ -1,5 +1,17 @@
 # Maze Room C
 # A twisty little passage
+# HAZARD: Bottomless pit here!
+
+# HUNT THE WUMPUS HAZARDS
+hazards:
+  pit:
+    present: true
+    reference: maze/bottomless-pit.yml
+    warning_to_adjacent: "I feel a draft!"
+    description: |
+      A jagged hole gapes near the east wall.
+      Cold air rises from below. You can't see the bottom.
+      The scratch marks on the wall suddenly make more sense.
 
 room:
   name: Twisty Passage (Scratch Marks)

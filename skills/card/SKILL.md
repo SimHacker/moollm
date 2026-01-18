@@ -357,23 +357,23 @@ room:
 
 This creates rich emergent behavior:
 
-```
-┌─────────────────────────────────────────────────────┐
-│ design-room/                                        │
-│                                                     │
-│  ┌─────────────────────┐  ┌─────────────────────┐  │
-│  │ architect-001       │  │ critic-001          │  │
-│  │ status: awaiting    │  │ status: reviewing   │  │
-│  │ [APPROVE] [CRITIQUE]│  │ [SUBMIT] [ABSTAIN]  │  │
-│  └─────────────────────┘  └─────────────────────┘  │
-│                                                     │
-│  Characters see buttons, press them:                │
-│  - Maya: CRITIQUE (paranoid)                        │
-│  - Frankie: APPROVE (optimist)                      │
-│  - Room: NUDGE (timeout)                            │
-│                                                     │
-│  Buttons trigger state changes, cascade effects     │
-└─────────────────────────────────────────────────────┘
+```yaml
+# Emergent collaboration in design-room
+design_room:
+  cards:
+    architect-001:
+      status: "awaiting"
+      buttons: [APPROVE, CRITIQUE]
+    critic-001:
+      status: "reviewing"
+      buttons: [SUBMIT, ABSTAIN]
+  
+  character_behaviors:
+    Maya: "CRITIQUE (paranoid)"
+    Frankie: "APPROVE (optimist)"
+    Room: "NUDGE (timeout)"
+  
+  mechanics: "Buttons trigger state changes, cascade effects"
 ```
 
 ### Cross-Card Interaction

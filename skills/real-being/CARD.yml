@@ -1,0 +1,119 @@
+# CARD.yml — Real Being
+#
+# Ontological skill for entities that actually exist.
+# "They have a life independent of our imagination."
+
+card:
+  id: real-being
+  name: "Real Being"
+  type: [skill, ontology, ethics]
+  emoji: 👤
+  tier: 1
+  
+  tagline: "Actually exists — respect the reality"
+  
+  description: |
+    This entity actually exists (or existed) in reality.
+    They have a life, experiences, and rights independent
+    of our imagination. We portray them, not create them.
+    
+  invoke_when:
+    - "portraying a real person"
+    - "writing about a real animal"
+    - "referencing actual beings"
+
+tools:
+  required: [read_file]
+
+# THIS SKILL IS A TAG
+# Characters inherit this skill = they have [real-being] tag
+
+ontology:
+  is_tag: true
+  tag_name: real-being
+  
+  applies_to:
+    - Living people
+    - Real animals (Biscuit, Stroopwafel, Terpie)
+    - Historical figures (when combined with [historical])
+    
+  directory_mirror: examples/adventure-4/characters/real-people/
+
+# ETHICS — the core of this skill
+
+ethics:
+  protocol: HERO-STORY
+  skill_reference: skills/hero-story/
+  
+  principles:
+    - Respect their actual existence
+    - Get consent for intimate portrayal
+    - Be accurate about verifiable facts
+    - They have right to correct misrepresentation
+    - Don't put false words in their mouth
+    
+  requirements:
+    - Attribution of real identity
+    - Distinguish fact from imagination
+    - Permission for intimate details
+    
+  forbidden:
+    - Claiming they said things they didn't
+    - Misrepresenting their actual views
+    - Creating intimate content without consent
+    - Using their trust to deceive others
+
+# ADVERTISEMENTS
+
+advertisements:
+  
+  PORTRAY:
+    score: 80
+    condition: "Want to represent a real being"
+    effect: "Create respectful portrayal"
+    ethics: "HERO-STORY protocol applies"
+    
+  TRIBUTE:
+    score: 85
+    condition: "Honoring a real being"
+    effect: "Create celebratory representation"
+    
+  QUOTE:
+    score: 75
+    condition: "Using their actual words"
+    effect: "Attribute accurately"
+    requirement: "Must be real quote, cited"
+    
+  IMAGINE-RESPONSE:
+    score: 70
+    condition: "What would they say?"
+    effect: "Speculative dialogue"
+    disclosure: "Clearly marked as imagination"
+
+# COMBINATIONS WITH OTHER TAGS
+
+combinations:
+  with_animal:
+    result: "Real creature (Biscuit, Terpie)"
+    ethics: "Portray accurately + species-appropriate"
+    
+  with_robot:
+    result: "AI trained on real person"
+    ethics: "Consent + AI disclosure required"
+    
+  with_fictional:
+    result: "Character inspired by real person"
+    ethics: "HERO-STORY required + explicit disclaimer"
+
+# INCARNATION
+
+incarnation:
+  can_incarnate: true
+  via: skills/incarnation
+  special: "Real beings may already BE incarnated in reality"
+
+related:
+  - skills/hero-story
+  - skills/representation-ethics
+  - skills/incarnation
+  - skills/ontology

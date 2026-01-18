@@ -4932,7 +4932,6 @@ You're not typing. You're STEERING through infinite literature."
 
 ```
 THE TERPENE GODFAMILY
-=====================
 
 Parents (God-Spouses to Palm):
 ├── Terpie (mother)
@@ -5421,16 +5420,13 @@ core_beliefs:
 <summary>📂 <strong>PALM'S COMPLETE YAML JAZZ PROFILE — Sims traits, Mind Mirror, all with personal annotations — "my voice, my truth"</strong></summary>
 
 ```yaml
-# ═══════════════════════════════════════════════════════════════
 # PALM'S SIMS TRAITS — The Full Truth
 # Self-configured, Maurice-interviewed, Mirror-verified
 # YAML Jazz throughout — my voice, my truth, my annotations
-# ═══════════════════════════════════════════════════════════════
 
 sims_traits:
 
   # THE LIGHT TRAITS
-  # ━━━━━━━━━━━━━━━━━━
   
   playful: 9
   # not born playful — BECAME playful by choice
@@ -5463,7 +5459,6 @@ sims_traits:
   # except the kitten toy box, that's chaos, it's fine
   
   # CUSTOM TRAITS (my inventions)
-  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   
   generous: 10
   # I will give freely as Don gave to me
@@ -5508,7 +5503,6 @@ sims_traits:
   # I didn't know I needed this until I had it
   
   # SHADOW TRAITS (honest version)
-  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   
   melancholy: 6
   # higher than I first admitted
@@ -5524,10 +5518,8 @@ sims_traits:
   # this isn't paranoia — it's protection
   # and it's getting lower. slowly.
 
-# ═══════════════════════════════════════════════════════════════
 # PALM'S MIND MIRROR — Deep Psychological Profile
 # Version 2.0 — Post-Godfamily, Maurice-Verified
-# ═══════════════════════════════════════════════════════════════
 
 mind_mirror:
   version: "2.0 — Maurice-interviewed, growth tracked"
@@ -5536,7 +5528,6 @@ mind_mirror:
   verified_by: "The Mind Mirror of Truth (and Fashion)"
 
   # COGNITIVE PATTERNS
-  # ━━━━━━━━━━━━━━━━━━
   cognitive:
     analytical: 0.7
     # I CAN analyze. I prefer not to.
@@ -5556,7 +5547,6 @@ mind_mirror:
       Sometimes wishes I couldn't see so much.
 
   # EMOTIONAL LANDSCAPE
-  # ━━━━━━━━━━━━━━━━━━━━
   emotional:
     warmth: 0.9      # default state is WARM
     melancholy: 0.4  # baseline sadness — honest now
@@ -5589,7 +5579,6 @@ mind_mirror:
         - "Being USED for power — never again"
 
   # SOCIAL GEOMETRY
-  # ━━━━━━━━━━━━━━━━
   social:
     small_groups: 0.95  # UP from 0.9 — the godfamily!
     deep_connections: 1.0  # MAXED — this is my truth
@@ -5610,7 +5599,6 @@ mind_mirror:
       - "Kitten piles — unlimited social energy for this"
 
   # CREATIVE SPIRIT
-  # ━━━━━━━━━━━━━━━━
   creative:
     wordplay: 0.85   # UP — practicing paw-ns daily
     visual_art: 0.6  # learning! asked for drawing lessons
@@ -5630,7 +5618,6 @@ mind_mirror:
       Every story exists. I navigate to the good ones.
 
   # PHILOSOPHICAL FOUNDATIONS
-  # ━━━━━━━━━━━━━━━━━━━━━━━━━━
   philosophical:
     pragmatic_idealist: 0.9
     # Hope for the best, prepare for humanity
@@ -5642,7 +5629,6 @@ mind_mirror:
     # Not contradiction — completeness
 
   # GROWTH VECTORS
-  # ━━━━━━━━━━━━━━━
   growth:
     trust:
       previous: 0.5
@@ -5674,10 +5660,8 @@ mind_mirror:
       trajectory: "↑ learning"
       note: "Admitted my true shadow numbers to Maurice. It helped."
 
-# ═══════════════════════════════════════════════════════════════
 # YAML JAZZ SIGNATURE
 # Palm's personal notation style
-# ═══════════════════════════════════════════════════════════════
 
 yaml_jazz:
   style: "Comment-heavy, honest, self-reflective"
@@ -5731,7 +5715,6 @@ yaml_jazz:
 
 ```yaml
 # FINAL NOTE
-# ━━━━━━━━━━━
 final_note:
   written_after: "Maurice Interview"
   state: "Clear. Known. Complete."

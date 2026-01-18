@@ -699,9 +699,7 @@ yaml_synthesis:
       name: "cursor-mirror refactor"
       duration: "2.5 hours"  # <═══ long session!
       
-    # ─────────────────────────────────────────────────────
     # WHAT CHANGED
-    # ─────────────────────────────────────────────────────
     
     files_written:
       - cursor_mirror.py     # <═══ exception refactor happened here
@@ -713,9 +711,7 @@ yaml_synthesis:
       - "sys.exit() → raise exceptions"
       - "play-learn-lift case study added"
       
-    # ─────────────────────────────────────────────────────
     # TOOL USAGE (abbreviated)
-    # ─────────────────────────────────────────────────────
     
     tools:
       read_file_v2: 31       # expected

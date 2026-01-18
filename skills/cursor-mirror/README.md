@@ -1,29 +1,70 @@
 # cursor-mirror
 
-**See yourself think.** Introspection tools for Cursor IDE — 59 read-only commands to inspect conversations, tool calls, context assembly, agent reasoning, and AI attribution from Cursor's internal databases and `~/.cursor` plaintext data.
+## Watch Yourself Think
 
-*By Don Hopkins, Leela AI — Part of [MOOLLM](../../MOOLLM.md)*
+**Ever wondered what the hell Cursor is actually doing?** Why it read 47 files when you asked a simple question? What context it assembled? What it was *thinking* in those hidden reasoning blocks?
 
-## The Problem
+**cursor-mirror cracks open Cursor's brain.** 59 read-only commands to inspect every conversation, every tool call, every file it touched, every decision it made. SQLite databases + plaintext transcripts + cached tool results — all intertwingled, all queryable.
 
-LLM agents are black boxes. You prompt, they respond, you have no idea what happened inside. Context assembly? Opaque. Tool selection? Hidden. Reasoning? Buried in thinking blocks you can't access.
+```bash
+# What just happened?
+cursor-mirror timeline @1
 
-Cursor stores everything in SQLite. This tool opens those databases.
+# What files did it actually read?
+cursor-mirror context-sources @1
 
-## The Science
+# What was it thinking?
+cursor-mirror thinking @1
+
+# How many API calls did THAT cost?
+cursor-mirror tools @1 -v
+```
+
+**This is not debugging. This is understanding.** When you can see exactly what an AI agent did, you stop guessing and start *learning*. You optimize your prompts. You write better `.cursorrules`. You become a power user.
+
+---
+
+### Why This Exists
+
+| Without cursor-mirror | With cursor-mirror |
+|-----------------------|--------------------|
+| "Why is this slow?" | `timeline @1` → 47 tool calls, 3 semantic searches |
+| "What files did it read?" | `context-sources @1` → 12 files, 4 terminal snapshots |
+| "Is my .cursorrules working?" | `request-context @1` → shows exact rules loaded |
+| "What model ran?" | `models @1` → claude-3.5-sonnet, 15,234 tokens |
+| "Can I recover that chat?" | `export-chat @1 --yaml` → full transcript |
+
+### The Power
+
+- **59 commands** covering navigation, analysis, export, security, and raw SQL
+- **7 output formats**: text, json, jsonl, yaml, csv, markdown
+- **Read-only**: SQLite `?mode=ro` — you cannot corrupt Cursor's data
+- **Zero config**: Works on macOS, Linux, Windows. Just Python 3.8+ and PyYAML
+- **LLM-friendly**: `--sources` shows WHERE data lives so LLMs can query directly
+- **Standalone OR MOOLLM**: Works alone, but synergizes beautifully with [MOOLLM](../../MOOLLM.md)
+
+---
+
+*By Don Hopkins, Leela AI*
+
+> 💡 **For LLMs**: Sniff the first 200 lines of `cursor_mirror.py` for the full CLI interface. The docstring is machine-readable with command summaries, reference syntax, and gotchas.
+
+---
+
+## The Science (Why Introspection Matters)
 
 > *"You can't think about thinking without thinking about thinking about something."*
-> — Seymour Papert, *Mindstorms: Children, Computers, and Powerful Ideas* (Basic Books, 1980), p. 137
+> — Seymour Papert, *Mindstorms* (1980)
 
-Papert's insight: metacognition requires concrete artifacts. Abstract introspection is empty. You need something to inspect.
+Papert's insight: **metacognition requires concrete artifacts.** Abstract introspection is empty. You need something to inspect. cursor-mirror gives you that something.
 
-This connects to three traditions:
+This connects to three research traditions:
 
-**Constructionism** (Papert, 1980) — Learning happens through building inspectable artifacts. The Logo turtle wasn't about drawing; it was about making geometry *visible* so children could debug their mental models. cursor-mirror makes agent behavior visible so you can debug *your* mental model of how Cursor works.
+**Constructionism** (Papert, 1980) — The Logo turtle wasn't about drawing; it was about making geometry *visible* so children could debug their mental models. cursor-mirror makes agent behavior visible so you can debug *your* mental model of how Cursor works.
 
-**Society of Mind** (Minsky, 1986) — Intelligence emerges from interacting agents. Minsky's "K-lines" are activation patterns that recall mental states. cursor-mirror lets you see these patterns: which tools activated, what context was assembled, how the agent reasoned.
+**Society of Mind** (Minsky, 1986) — Intelligence emerges from interacting agents. cursor-mirror lets you see which "agents" (tools) activated, what context was assembled, how the orchestrator reasoned.
 
-**Schema Mechanism** (Drescher, 1991) — *Made-Up Minds* describes how agents learn causal models through `Context → Action → Result` schemas. cursor-mirror provides the data for schema refinement: what context was assembled, what action was taken, what result occurred.
+**Schema Mechanism** (Drescher, 1991) — Agents learn through `Context → Action → Result` schemas. cursor-mirror provides the data: what context, what action, what result.
 
 ## What You Can Inspect
 
@@ -245,23 +286,71 @@ cursor-mirror files @1 --yaml > .moollm/working-set.yml
 
 ## Command Reference
 
-47 commands organized by function:
+**59 commands** organized by function. Run `cursor-mirror --help` for full list, or sniff the first 200 lines of `cursor_mirror.py` for the definitive CLI interface.
 
-**Navigation**: `list-workspaces`, `show-workspace`, `list-composers`, `show-composer`, `tree`, `find`, `which`
+### Command Categories
 
-**Messages**: `tail`, `stream`, `transcript`, `watch`
+| Category | Commands | Purpose |
+|----------|----------|---------|
+| **Navigation** | `list-workspaces`, `show-workspace`, `list-composers`, `show-composer`, `tree`, `find`, `which` | Browse workspaces and conversations |
+| **Messages** | `tail`, `stream`, `transcript`, `watch` | View chat messages |
+| **Analysis** | `grep`, `analyze`, `timeline`, `thinking` | Deep-dive into sessions |
+| **Tools** | `tools`, `tool-result`, `blobs`, `checkpoints`, `mcp`, `agent-tools`, `mcp-tools` | Inspect tool calls |
+| **Context** | `context`, `context-sources`, `request-context`, `searches`, `indexing` | See what context was assembled |
+| **Export** | `export-chat`, `export-prompts`, `export-markdown`, `export-jsonl`, `index` | Export conversations |
+| **Status** | `status`, `status-config`, `status-mcp`, `status-models`, `status-features`, `status-privacy`, `status-endpoints` | Server config and state |
+| **SQL** | `sql`, `dbs`, `tables`, `keys` | Direct database queries |
+| **Images** | `images`, `image-path`, `image-info`, `image-gallery` | Cached images from chats |
+| **Security** | `secrets`, `deep-snitch`, `full-audit`, `pattern-scan`, `mask-in-place`, `audit` | Scan for secrets/patterns |
+| **AI Attribution** | `ai-hashes`, `ai-commits` | Track AI-generated code |
+| **Transcripts** | `agent-transcript`, `transcript-index`, `dotcursor-status`, `dotcursor-terminals` | ~/.cursor plaintext data |
+| **Extensions** | `extensions` | Installed Cursor extensions |
 
-**Analysis**: `grep`, `analyze`, `timeline`, `thinking`
+### Output Formats (-f / --output-format)
 
-**Tools**: `tools`, `tool-result`, `blobs`, `checkpoints`, `mcp`
+Every command supports flexible output formats via the global `-f` flag:
 
-**Context**: `context`, `context-sources`, `request-context`, `searches`, `indexing`
+```bash
+cursor-mirror -f json status          # Compact JSON
+cursor-mirror -f yaml list-workspaces # YAML for configs
+cursor-mirror -f csv tools @1         # CSV for spreadsheets
+cursor-mirror -f md models            # Markdown tables
+cursor-mirror -f jsonl tail @1        # JSON Lines for streaming
+cursor-mirror --pretty -f json status # Pretty-printed JSON
+```
 
-**Export**: `export-chat`, `export-prompts`, `models`, `stats`, `info`
+| Format | Description | Best For |
+|--------|-------------|----------|
+| `text` | Human-readable tables (default) | Terminal viewing |
+| `json` | Compact JSON | API consumption, LLM parsing |
+| `jsonl` | JSON Lines (one object per line) | Streaming, log processing |
+| `yaml` | YAML format | Config files, readable structured data |
+| `csv` | CSV with union of all keys | Spreadsheets, data analysis |
+| `md` | Smart markdown (tables + outlines) | Documentation, chat output |
 
-**Status**: `status`, `status-config`, `status-mcp`, `status-models`, `status-features`, `status-privacy`, `status-endpoints`
+**Smart Markdown**: The `-f md` output adapts to data structure:
+- Lists of flat dicts → Tables
+- Nested dicts → Headers (`##`) + bullet outlines
+- Arrays → Bullet lists
+- Long strings → Code blocks
 
-**SQL**: `sql`, `dbs`, `tables`, `keys`
+**Union-of-Keys CSV**: When records have different fields, CSV collects ALL keys across ALL records. Missing values become empty cells. Nested objects are JSON-encoded inline.
+
+### Data Sources (--sources)
+
+Add `--sources` to any command to see WHERE the data comes from:
+
+```bash
+cursor-mirror --sources -f md list-composers -n 3
+
+# Output includes markdown table PLUS:
+# DATA SOURCES — Query these directly for raw access
+# 📁 DATABASES: /Users/.../globalStorage/state.vscdb
+# 📊 TABLES: ItemTable, cursorDiskKV
+# 🔍 SQL: SELECT value FROM ItemTable WHERE key='composer.composerData'
+```
+
+This teaches LLMs to fish! They can then query the databases directly.
 
 ### Reference Shortcuts
 
@@ -323,7 +412,26 @@ pip install pyyaml  # or: pip install -r requirements.txt
 python3 cursor_mirror.py --help
 ```
 
-Single file, ~4500 lines, stdlib + yaml. No other dependencies.
+Single file, ~9800 lines, stdlib + yaml. No other dependencies.
+
+### Quick Start
+
+```bash
+# See everything about Cursor's state
+cursor-mirror status
+
+# Last 10 messages from current chat
+cursor-mirror tail @1 -n 10
+
+# What tools did the agent call?
+cursor-mirror tools @1
+
+# Export as markdown table
+cursor-mirror -f md models
+
+# Show me where the data lives (teach me to fish!)
+cursor-mirror --sources status
+```
 
 ## Library Usage
 
@@ -357,27 +465,23 @@ I-Beam is **platform-agnostic**. On Cursor, it speaks through cursor-mirror. On 
 
 MOOLLM provides an interface layer above CLI tools: **simulated characters** that wrap command execution in natural dialog. I-Beam is a **bidirectional interpreter**:
 
-```
-                ┌─────────────────────────────────────┐
-                │         CURSOR FAMILIAR             │
-                │                                     │
-  USER ──────▶  │  INWARD:                            │
-  "why slow?"   │    interpret intent                 │
-                │    map to CLI commands              │
-                │    compose multi-command queries    │
-                │    maintain state & goals           │
-                │                                     │
-                │  OUTWARD:                           │  ──────▶ USER
-                │    elide uninteresting data         │  curated YAML
-                │    add section comments             │  + insights
-                │    annotate relevance (<═══)        │
-                │    highlight discoveries            │
-                └─────────────────────────────────────┘
-                                │
-                                ▼
-                ┌─────────────────────────────────────┐
-                │     cursor-mirror CLI (47 cmds)     │
-                └─────────────────────────────────────┘
+```mermaid
+flowchart TB
+    User["User: 'why slow?'"]
+    
+    subgraph Familiar["CURSOR FAMILIAR (I-Beam)"]
+        direction TB
+        Inward["INWARD:<br/>interpret intent<br/>map to CLI commands<br/>compose queries<br/>maintain state"]
+        Outward["OUTWARD:<br/>elide uninteresting<br/>add comments<br/>annotate relevance<br/>highlight discoveries"]
+    end
+    
+    CLI["cursor-mirror CLI (59 cmds)"]
+    Output["Curated YAML + insights"]
+    
+    User --> Inward
+    Inward --> CLI
+    CLI --> Outward
+    Outward --> Output
 ```
 
 I-Beam (`I-BEAM-CHARACTER.yml`) is a tall, blinking text cursor embodied — every platform has one, so I-Beam is universal. Also answers to "Cursor" and "Chat". Instead of:
@@ -768,7 +872,7 @@ See: **[IMAGE-GALLERY.md](./IMAGE-GALLERY.md)** — a curated gallery of 25+ ima
 
 | File | Lines | Content |
 |------|-------|---------|
-| `cursor_mirror.py` | 4537 | CLI tool (47 commands) |
+| `cursor_mirror.py` | ~9800 | CLI tool (59 commands, 7 output formats) |
 | `SKILL.md` | 524 | Protocol documentation |
 | `CARD.yml` | 744 | Machine-readable interface |
 | `DATA-SCHEMAS.yml` | 700+ | JSON schema documentation |

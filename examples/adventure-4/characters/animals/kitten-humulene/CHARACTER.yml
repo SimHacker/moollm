@@ -4,7 +4,18 @@
 # Named for the earthy terpene found in hops and cannabis.
 # The picky one. The refined one. Has STANDARDS.
 
-object:
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional
+  - skills/animal
+  - skills/cat
+  - characters/animals/cat-stroopwafel  # Mother
+ontology:
+  tags: [fictional, animal]
+  species: cat
+  specialization: kitten
+
+character:
   name: "Humulene"
   nickname: "Hops"
   id: humulene

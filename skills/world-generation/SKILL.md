@@ -28,16 +28,16 @@ DM: *creates north*
 
 ## Generation Philosophy
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    GENERATION TRIGGERS                       │
-├─────────────────────────────────────────────────────────────┤
-│  QUESTIONS     →  "Where did the grue come from?"           │
-│  STATEMENTS    →  "There must be a library somewhere!"      │
-│  ACTIONS       →  DIG → tunnel, CLIMB → passage             │
-│  QUESTS        →  Objective location generates itself       │
-│  EXPLORATION   →  Walking beyond known areas                │
-└─────────────────────────────────────────────────────────────┘
+```yaml
+# What triggers world generation
+generation_triggers:
+  questions: "Where did the grue come from?"
+  statements: "There must be a library somewhere!"
+  actions:
+    DIG: "tunnel"
+    CLIMB: "passage"
+  quests: "Objective location generates itself"
+  exploration: "Walking beyond known areas"
 ```
 
 ## Methods

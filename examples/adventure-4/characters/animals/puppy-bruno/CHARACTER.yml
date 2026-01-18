@@ -4,7 +4,18 @@
 # Half Yellow Lab, half Boxer. Father had "commitment issues."
 # Class clown. Will also absolutely destroy anything that threatens family.
 
-object:
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional
+  - skills/animal
+  - skills/dog
+  - characters/animals/dog-butterscotch  # Mother
+ontology:
+  tags: [fictional, animal]
+  species: dog
+  specialization: puppy
+
+character:
   name: "Bruno"
   nickname: "B" / "Bruno-no-no" (when causing chaos)
   id: bruno

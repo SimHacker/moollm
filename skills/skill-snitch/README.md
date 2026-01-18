@@ -6,19 +6,30 @@ Security auditing for MOOLLM skills through static analysis and runtime surveill
 
 Skill Snitch is a **prompt-driven skill** (no Python code) that audits skills for security issues. It's entirely data-driven and extensible.
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    skill-snitch                             │
-├─────────────────────────────────────────────────────────────┤
-│  PATTERNS         SURFACES          ANALYZERS               │
-│  (what to match)  (where to look)   (how to analyze)        │
-├─────────────────────────────────────────────────────────────┤
-│  secrets          transcripts       behavioral              │
-│  exfiltration     sqlite            consistency             │
-│  dangerous-ops    config-files      smells                  │
-│  obfuscation      skill-files       provenance              │
-│                                     runtime                 │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph Snitch["skill-snitch"]
+        direction LR
+        subgraph Patterns["PATTERNS<br/>(what to match)"]
+            P1["secrets"]
+            P2["exfiltration"]
+            P3["dangerous-ops"]
+            P4["obfuscation"]
+        end
+        subgraph Surfaces["SURFACES<br/>(where to look)"]
+            S1["transcripts"]
+            S2["sqlite"]
+            S3["config-files"]
+            S4["skill-files"]
+        end
+        subgraph Analyzers["ANALYZERS<br/>(how to analyze)"]
+            A1["behavioral"]
+            A2["consistency"]
+            A3["smells"]
+            A4["provenance"]
+            A5["runtime"]
+        end
+    end
 ```
 
 ## Quick Start

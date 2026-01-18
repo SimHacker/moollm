@@ -5,7 +5,17 @@
 # Then adopted two more. Then found love with Biscuit.
 # Family is who you love, not who shares your blood.
 
-object:
+# ONTOLOGICAL INHERITANCE
+inherits:
+  - skills/fictional
+  - skills/animal
+  - skills/dog
+ontology:
+  tags: [fictional, animal]
+  species: dog
+  specialization: neutered
+
+character:
   name: "Butterscotch"
   nickname: "Scotch"
   id: butterscotch

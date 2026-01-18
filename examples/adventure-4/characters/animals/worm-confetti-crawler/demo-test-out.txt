@@ -1,4 +1,3 @@
-============================================================
 Test 1: Serial single pass (summer-garden, seed=1)
 CMD: python examples/adventure-4/characters/animals/confetti-crawler/sprayer.py -i examples/adventure-4/characters/animals/confetti-crawler/demo.yml -o - --mode serial --iterations 1 --emoji-map-file examples/adventure-4/characters/animals/confetti-crawler/emojis.txt --theme summer-garden --seed 1
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting. 🐝🐦
@@ -30,9 +29,7 @@ items: # 🐜☀🌺🐦
 # trailing comment near end 🦋🐝
 tail: true # 🦉☀🌿🐝
 
-------------------------------------------------------------
 
-============================================================
 Test 2: MFM 3 passes (neon-arcade, seed=2)
 CMD: python examples/adventure-4/characters/animals/confetti-crawler/sprayer.py -i examples/adventure-4/characters/animals/confetti-crawler/demo.yml -o - --mode mfm --iterations 3 --emoji-map-file examples/adventure-4/characters/animals/confetti-crawler/emojis.txt --theme neon-arcade --seed 2
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting.
@@ -64,9 +61,7 @@ items:
 # trailing comment near end
 tail: true
 
-------------------------------------------------------------
 
-============================================================
 Test 3: Serial 2 passes (pastel-candy, seed=3)
 CMD: python examples/adventure-4/characters/animals/confetti-crawler/sprayer.py -i examples/adventure-4/characters/animals/confetti-crawler/demo.yml -o - --mode serial --iterations 2 --emoji-map-file examples/adventure-4/characters/animals/confetti-crawler/emojis.txt --theme pastel-candy --seed 3
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting. 💖🍡 🧁💙🧁💙
@@ -98,9 +93,7 @@ items: # 🎀🎀🍡🍬💗
 # trailing comment near end 🍨🍨💕💛 💖🎀🎈
 tail: true # 🍦💛💚🎀💖🍨
 
-------------------------------------------------------------
 
-============================================================
 Test 4: MFM 5 passes with drift (drift=2,r=0.3, summer-garden, seed=4)
 CMD: python examples/adventure-4/characters/animals/confetti-crawler/sprayer.py -i examples/adventure-4/characters/animals/confetti-crawler/demo.yml -o - --mode mfm --iterations 5 --drift-radius 2 --drift-prob 0.3 --emoji-map-file examples/adventure-4/characters/animals/confetti-crawler/emojis.txt --theme summer-garden --seed 4
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting. 🐦🌷🌺
@@ -132,9 +125,7 @@ items:
 # trailing comment near end
 tail: true
 
-------------------------------------------------------------
 
-============================================================
 Test 5: Serial 1 pass then erode 5 moves (summer-garden, seed=5)
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ serial\ --iterations\ 1\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ summer-garden\ --seed\ 5\ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --erode\ --iterations\ 5\ --drift-radius\ 2
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting. 🐜🐢🦉
@@ -166,9 +157,7 @@ items: # 🕊🌻🐜
 # trailing comment near end 🐝
 tail: true # 🪺🌻🦉
 
-------------------------------------------------------------
 
-============================================================
 Test 6: Strip all emojis
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ serial\ --iterations\ 2\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ summer-garden\ --seed\ 6\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --strip\ --strip-mode\ all
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting.
@@ -188,9 +177,7 @@ CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler
   - id: 1 # inline comment target
 # trailing comment near end
 
-------------------------------------------------------------
 
-============================================================
 Test 7: Strip mfm min depth=1 iterations=4
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ serial\ --iterations\ 2\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ spring-bloom\ --seed\ 7\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --strip\ --strip-mode\ mfm\ --strip-min-depth\ 1\ --iterations\ 4\ --seed\ 7
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting. ✨🌼🌸 🌷🌺🌼
@@ -222,9 +209,7 @@ items: # 🐝🌹🌱🦋🌱
 # trailing comment near end 🦋🌈🌼 🍃🍃🐝
 tail: true # 🌼🍃🌱🌺🐞🐞
 
-------------------------------------------------------------
 
-============================================================
 Test 8: Serial 2 passes (spring-bloom) then MFM 6 passes neon with drift
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ serial\ --iterations\ 2\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ spring-bloom\ --seed\ 8\ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 6\ --drift-radius\ 2\ --drift-prob\ 0.25\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ neon-arcade\ --seed\ 9
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting. 🌼🌼 🌸
@@ -256,9 +241,7 @@ items: # 🌼🌈🌱🌻
 # trailing comment near end 🌼🌹🪷🌺 🍃🌷🌱
 tail: true # 🌿🪷🌷🌷✨🐞🌻🌻
 
-------------------------------------------------------------
 
-============================================================
 Test 9: MFM 20 passes (festival-sky, seed=10)
 CMD: python examples/adventure-4/characters/animals/confetti-crawler/sprayer.py -i examples/adventure-4/characters/animals/confetti-crawler/demo.yml -o - --mode mfm --iterations 20 --emoji-map-file examples/adventure-4/characters/animals/confetti-crawler/emojis.txt --theme festival-sky --seed 10
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting.
@@ -290,15 +273,11 @@ items: # 🎀🎉🪐🎇🚀
 # trailing comment near end 🎀
 tail: true # 🚀🎀
 
-------------------------------------------------------------
 
-============================================================
 Test 10: Empty input
 CMD: bash -lc printf\ \'\'\ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 3
 
-------------------------------------------------------------
 
-============================================================
 Test 11: MFM drift disabled (should act like plain mfm)
 CMD: python examples/adventure-4/characters/animals/confetti-crawler/sprayer.py -i examples/adventure-4/characters/animals/confetti-crawler/demo.yml -o - --mode mfm --iterations 3 --drift-radius 3 --drift-prob 0 --emoji-map-file examples/adventure-4/characters/animals/confetti-crawler/emojis.txt --theme minty-fresh --seed 11
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting.
@@ -330,9 +309,7 @@ items:
 # trailing comment near end
 tail: true
 
-------------------------------------------------------------
 
-============================================================
 Test 12: Strip serial min-depth=5 (no change expected)
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ serial\ --iterations\ 1\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ minty-fresh\ --seed\ 12\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --strip\ --strip-mode\ serial\ --strip-min-depth\ 5
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting. 🍃🥒🍏🍏
@@ -364,9 +341,7 @@ items: # 🫧☘
 # trailing comment near end 🍀🧊
 tail: true # ✨
 
-------------------------------------------------------------
 
-============================================================
 Test 13: MFM 1 pass (minty-fresh, seed=12)
 CMD: python examples/adventure-4/characters/animals/confetti-crawler/sprayer.py -i examples/adventure-4/characters/animals/confetti-crawler/demo.yml -o - --mode mfm --iterations 1 --emoji-map-file examples/adventure-4/characters/animals/confetti-crawler/emojis.txt --theme minty-fresh --seed 12
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting.
@@ -398,9 +373,7 @@ items:
 # trailing comment near end
 tail: true
 
-------------------------------------------------------------
 
-============================================================
 Test 14: Serial 3 passes (citrus-zest, seed=13)
 CMD: python examples/adventure-4/characters/animals/confetti-crawler/sprayer.py -i examples/adventure-4/characters/animals/confetti-crawler/demo.yml -o - --mode serial --iterations 3 --emoji-map-file examples/adventure-4/characters/animals/confetti-crawler/emojis.txt --theme citrus-zest --seed 13
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting. 🍈🍐🍊 🍐🍐🍊 🍋🍈
@@ -432,9 +405,7 @@ items: # 🍊🍋🍈🍋🍐🍊🍐
 # trailing comment near end 🍈 🍊🍈 🍈🍈🍐🍈
 tail: true # 🍋🍋🍋🍐
 
-------------------------------------------------------------
 
-============================================================
 Test 15: Layer + accent + trim
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ serial\ --iterations\ 2\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ spring-bloom\ --seed\ 14\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 10\ --drift-radius\ 2\ --drift-prob\ 0.35\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ neon-arcade\ --seed\ 15\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --strip\ --strip-mode\ serial\ --strip-min-depth\ 1
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting.  ✨
@@ -466,9 +437,7 @@ items: # 🌈
 # trailing comment near end  🌻
 tail: true # 🛸
 
-------------------------------------------------------------
 
-============================================================
 Test 16: Layered coats then erode smooth (garden + neon + melt)
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ serial\ --iterations\ 2\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ summer-garden\ --seed\ 16\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 6\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ neon-arcade\ --seed\ 17\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --erode\ --iterations\ 6\ --drift-radius\ 2\ --seed\ 18
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting. ☀🪷🌹 🦉🌸
@@ -500,9 +469,7 @@ items: # 🦋🌿🌹☀
 # trailing comment near end 🌷🐞🪷🌷 🌹🐢
 tail: true # 🌹🦋🐞🐢👾🎮
 
-------------------------------------------------------------
 
-============================================================
 Test 17: Three themes + drift accent + strip depth=1
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ serial\ --iterations\ 1\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ spring-bloom\ --seed\ 19\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 5\ --drift-radius\ 1\ --drift-prob\ 0.4\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ festival-sky\ --seed\ 20\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 5\ --drift-radius\ 2\ --drift-prob\ 0.3\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ ocean-vibes\ --seed\ 21\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --strip\ --strip-mode\ serial\ --strip-min-depth\ 1
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting. 🐝
@@ -534,9 +501,7 @@ items: # 🌺
 # trailing comment near end 🌼
 tail: true # ♀
 
-------------------------------------------------------------
 
-============================================================
 Test 18: Alternating themes + erosion polish
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ serial\ --iterations\ 1\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ pastel-candy\ --seed\ 22\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 8\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ cyberpunk-neon\ --seed\ 23\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 8\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ desert-sunset\ --drift-radius\ 1\ --drift-prob\ 0.25\ --seed\ 24\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --erode\ --iterations\ 8\ --drift-radius\ 2\ --seed\ 25
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting. 🍨💖 🟪🎮💡📼
@@ -568,9 +533,7 @@ items: # 🎀🔦
 # trailing comment near end 🍭🍡💗🍡 🔮🛸📼
 tail: true # 💛💗🎈
 
-------------------------------------------------------------
 
-============================================================
 Test 19: Winter -> Neon -> Festival -> Erode
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ serial\ --iterations\ 3\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ winter-holiday\ --seed\ 26\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 12\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ neon-arcade\ --drift-radius\ 1\ --drift-prob\ 0.2\ --seed\ 27\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 12\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ festival-sky\ --drift-radius\ 2\ --drift-prob\ 0.2\ --seed\ 28\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --erode\ --iterations\ 10\ --drift-radius\ 2\ --seed\ 29
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting. 🎶🎁 ☃⛄🧦 🎀🕯🎊 🎰👾🪐
@@ -602,9 +565,7 @@ name: first # 🕯🎵🎁🌟🎇👾🎮🌌🚀🎉🎆🚀
 # trailing comment near end 🎀 🌟☃☃🎊 🎶🍫 🎇🎉 🎉🎆
 tail: true # 🎄⛄🎊🎵⛄🧦✨🎶🎀🧥✨
 
-------------------------------------------------------------
 
-============================================================
 Test 20: Thick serial + ocean accents + strip depth=2
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ serial\ --iterations\ 2\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ pastel-candy\ --seed\ 30\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ serial\ --iterations\ 2\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ citrus-zest\ --seed\ 31\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 15\ --drift-radius\ 1\ --drift-prob\ 0.3\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ ocean-vibes\ --seed\ 32\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --strip\ --strip-mode\ serial\ --strip-min-depth\ 2
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting.     🏄⛵
@@ -636,9 +597,7 @@ items: # 🍐🍈
 # trailing comment near end    🍈🍊
 tail: true # 🍍🍋
 
-------------------------------------------------------------
 
-============================================================
 Test 21: Quad-stack + long mfm + erosion + strip
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ serial\ --iterations\ 1\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ spring-bloom\ --seed\ 33\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ serial\ --iterations\ 1\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ ocean-night\ --seed\ 34\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ serial\ --iterations\ 1\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ cyberpunk-neon\ --seed\ 35\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ serial\ --iterations\ 1\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ desert-sunset\ --seed\ 36\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 25\ --drift-radius\ 2\ --drift-prob\ 0.25\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ festival-sky\ --seed\ 37\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --erode\ --iterations\ 12\ --drift-radius\ 3\ --seed\ 38\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --strip\ --strip-mode\ serial\ --strip-min-depth\ 1
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting.     🎉
@@ -670,9 +629,7 @@ name: first # 🎊
 # trailing comment near end    🔥
 tail: true # 🌇
 
-------------------------------------------------------------
 
-============================================================
 Test 22: demo.txt MFM crowd + fruit + pride (comment_prefix='')
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.txt\"\ -o\ -\ --mode\ mfm\ --iterations\ 20\ --drift-radius\ 1\ --drift-prob\ 0.35\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ people-wave-spectrum\ --comment-prefix\ \'\'\ --seed\ 39\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 20\ --drift-radius\ 2\ --drift-prob\ 0.3\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ fruit-machine\ --comment-prefix\ \'\'\ --seed\ 40\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 12\ --drift-radius\ 1\ --drift-prob\ 0.25\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ pride-spectrum\ --comment-prefix\ \'\'\ --seed\ 41
 This is a demo text file with some blank lines. ♂🙋🏿 👋🙋🙋 🍋🥝🍋 💙💖🌈💙 🏳🌈 💙🌈🌈🌈
@@ -688,9 +645,7 @@ This is a demo text file with some blank lines. ♂🙋🏿 👋🙋🙋 🍋�
 🙋🏾🏽🏿🙋🏾🙋🏻🙋🍓🍈🖤💜
 This is the end of the file. 🏾 🙋🏿 🍋 🍇🍄 🤎💙🧡 🏳 ❤💙💛
 
-------------------------------------------------------------
 
-============================================================
 Test 23: demo.txt MFM people-sports + couples + festival drift
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.txt\"\ -o\ -\ --mode\ mfm\ --iterations\ 25\ --drift-radius\ 1\ --drift-prob\ 0.4\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ people-sports-spectrum\ --comment-prefix\ \'\'\ --seed\ 42\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 20\ --drift-radius\ 2\ --drift-prob\ 0.35\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ couples\ --comment-prefix\ \'\'\ --seed\ 43\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 15\ --drift-radius\ 2\ --drift-prob\ 0.3\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ festival-sky\ --comment-prefix\ \'\'\ --seed\ 44
 This is a demo text file with some blank lines. 🏄🏃 ♀🏄🚴 🏊🏽🏼 🏄♀ 🏄 👩👨👩❤ 🤝👩 👩💋👨 🚀🎈🎉
@@ -706,9 +661,7 @@ This is a demo text file with some blank lines. 🏄🏃 ♀🏄🚴 🏊🏽�
 🏽♀🏻♂🏼🤝👨👩🌠✨
 This is the end of the file. ♂🏻🏃 🏾 ♂ 🏿 🏿♂🏻♂ ♂🏻🏄 👧❤👨🏻 🏿👩👨🏻 🏽🏿🧑 🎈🪅🎀
 
-------------------------------------------------------------
 
-============================================================
 Test 24: demo.txt celebrate + fruit + rainbow-produce then strip depth=2
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.txt\"\ -o\ -\ --mode\ mfm\ --iterations\ 18\ --drift-radius\ 1\ --drift-prob\ 0.3\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ people-celebrate-spectrum\ --comment-prefix\ \'\'\ --seed\ 45\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 18\ --drift-radius\ 2\ --drift-prob\ 0.3\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ fruit-machine\ --comment-prefix\ \'\'\ --seed\ 46\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 12\ --drift-radius\ 1\ --drift-prob\ 0.25\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ rainbow-produce\ --comment-prefix\ \'\'\ --seed\ 47\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --strip\ --strip-mode\ serial\ --strip-min-depth\ 2\ --comment-prefix\ \'\'
 This is a demo text file with some blank lines.    🍇🍆
@@ -724,9 +677,7 @@ This is a demo text file with some blank lines.    🍇🍆
 🍋🍍
 This is the end of the file.     🥒 🍊
 
-------------------------------------------------------------
 
-============================================================
 Test 25: demo.txt serial fruit base + mfm pride accent
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.txt\"\ -o\ -\ --mode\ serial\ --iterations\ 3\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ fruit-machine\ --comment-prefix\ \'\'\ --seed\ 50\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ serial\ --iterations\ 2\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ orchard-fruit\ --comment-prefix\ \'\'\ --seed\ 51\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 20\ --drift-radius\ 1\ --drift-prob\ 0.3\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ pride-spectrum\ --comment-prefix\ \'\'\ --seed\ 52
 This is a demo text file with some blank lines. ✨🍈🔔🍍 🍊🍋🍉🍈 🍑 🍐🍋 🍇🥝🍇🍇 ⚧💚
@@ -742,9 +693,7 @@ This is a demo text file with some blank lines. ✨🍈🔔🍍 🍊🍋🍉🍈
 ✨🍑💰🍊🍉🍌🍑🍓🍎🍊❤💚🌈💛🌈🩷
 This is the end of the file. 🍅🍋🍋🍓 🍋🍓🔔 🍒 🍑 🍓🍋🍐🍓 🤍💚⚧🖤
 
-------------------------------------------------------------
 
-============================================================
 Test 26: demo.txt care + couples drift + erosion settle
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.txt\"\ -o\ -\ --mode\ serial\ --iterations\ 2\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ people-care-spectrum\ --comment-prefix\ \'\'\ --seed\ 53\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 18\ --drift-radius\ 2\ --drift-prob\ 0.35\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ couples\ --comment-prefix\ \'\'\ --seed\ 54\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --erode\ --iterations\ 12\ --drift-radius\ 2\ --comment-prefix\ \'\'\ --seed\ 55
 This is a demo text file with some blank lines. 🏻🤱 🍼 👨 🤝👩🤝🏻 👩🤝❤
@@ -760,9 +709,7 @@ This is a demo text file with some blank lines. 🏻🤱 🍼 👨 🤝👩🤝�
 🏻🧑🧑🧑🤱🏼👩👧
 This is the end of the file. 🦽🏾 🏽🏿🧑🧑
 
-------------------------------------------------------------
 
-============================================================
 Test 27: demo.txt profession + sports coat then strip depth=3
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.txt\"\ -o\ -\ --mode\ serial\ --iterations\ 2\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ people-profession-spectrum\ --comment-prefix\ \'\'\ --seed\ 56\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ serial\ --iterations\ 2\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ people-sports-spectrum\ --comment-prefix\ \'\'\ --seed\ 57\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --strip\ --strip-mode\ serial\ --strip-min-depth\ 3\ --comment-prefix\ \'\'
 This is a demo text file with some blank lines.  🏽 ♀ 🏊
@@ -778,9 +725,7 @@ This is a demo text file with some blank lines.  🏽 ♀ 🏊
 🏃🏃♂
 This is the end of the file.    🏄🏄♀
 
-------------------------------------------------------------
 
-============================================================
 Test 28: demo.txt chaotic festival then mfm strip melt
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.txt\"\ -o\ -\ --mode\ mfm\ --iterations\ 30\ --drift-radius\ 2\ --drift-prob\ 0.35\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ festival-sky\ --comment-prefix\ \'\'\ --seed\ 58\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --strip\ --strip-mode\ mfm\ --iterations\ 15\ --strip-min-depth\ 1\ --comment-prefix\ \'\'\ --seed\ 59
 This is a demo text file with some blank lines.  🌌
@@ -796,9 +741,7 @@ This is a demo text file with some blank lines.  🌌
 🎇
 This is the end of the file.  🎆
 
-------------------------------------------------------------
 
-============================================================
 Test 29: demo.txt mega crowd + fruit avalanche (50 mfm)
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.txt\"\ -o\ -\ --mode\ mfm\ --iterations\ 50\ --drift-radius\ 2\ --drift-prob\ 0.4\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ people-wave-spectrum\ --comment-prefix\ \'\'\ --seed\ 60\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 40\ --drift-radius\ 2\ --drift-prob\ 0.35\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ fruit-machine\ --comment-prefix\ \'\'\ --seed\ 61
 This is a demo text file with some blank lines. 🏻 🙋🏾 🏾🏾 ✨ 🍄 🍒🥥🥥
@@ -814,9 +757,7 @@ This is a demo text file with some blank lines. 🏻 🙋🏾 🏾🏾 ✨ 🍄 
 🏽🙋🏿🙋🏻🙋🏿🙋🙋🏿🙋♀🍅🍌🍓🍇🍋🍋🍇🍋🍊
 This is the end of the file. 🙋🙋 🙋♂ ♂♀ 🍅🍓🍇🍈 🍎🍒 🔔🍎
 
-------------------------------------------------------------
 
-============================================================
 Test 30: demo.txt pride + couples alternating with drift
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.txt\"\ -o\ -\ --mode\ mfm\ --iterations\ 30\ --drift-radius\ 1\ --drift-prob\ 0.35\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ pride-spectrum\ --comment-prefix\ \'\'\ --seed\ 62\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 30\ --drift-radius\ 2\ --drift-prob\ 0.3\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ couples\ --comment-prefix\ \'\'\ --seed\ 63
 This is a demo text file with some blank lines. 💙🏳 💚🩵🏳💚 ✨🤍💙🏳 👨🏿 🤝🏽👩 👩👩
@@ -832,9 +773,7 @@ This is a demo text file with some blank lines. 💙🏳 💚🩵🏳💚 ✨�
 🤍🩵🖤👨👩❤
 This is the end of the file. 🧡 🏳🤍🩷 💖🏳🤍❤ 🏻👨❤🏻 👪🤝👦
 
-------------------------------------------------------------
 
-============================================================
 Test 31: demo.txt rainbow base + festival rain + erosion settle
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.txt\"\ -o\ -\ --mode\ serial\ --iterations\ 3\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ rainbow-produce\ --comment-prefix\ \'\'\ --seed\ 64\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 35\ --drift-radius\ 2\ --drift-prob\ 0.3\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ festival-sky\ --comment-prefix\ \'\'\ --seed\ 65\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --erode\ --iterations\ 15\ --drift-radius\ 2\ --comment-prefix\ \'\'\ --seed\ 66
 This is a demo text file with some blank lines. 🍊🌽🥕🥦 🥒🥒🥬 🥦🍄🍄 🎀🎇🚀 🎉🌌🎉✨
@@ -850,9 +789,7 @@ This is a demo text file with some blank lines. 🍊🌽🥕🥦 🥒🥒🥬 �
 🍅🥒🍅🍠🥦🥦🍆🎊🎇🚀🪐🪐🚀🌌🪅✨🪩🪩
 This is the end of the file. 🥒🍅 🥬 🍇 🎆🎇🎆🪐 🎊🎈 🎉 🪐🪩🎉
 
-------------------------------------------------------------
 
-============================================================
 Test 32: demo.txt deep people mix + pride accent + strip depth=4
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.txt\"\ -o\ -\ --mode\ serial\ --iterations\ 2\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ people-celebrate-spectrum\ --comment-prefix\ \'\'\ --seed\ 67\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ serial\ --iterations\ 2\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ people-sports-spectrum\ --comment-prefix\ \'\'\ --seed\ 68\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 25\ --drift-radius\ 1\ --drift-prob\ 0.25\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ pride-spectrum\ --comment-prefix\ \'\'\ --seed\ 69\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --strip\ --strip-mode\ serial\ --strip-min-depth\ 4\ --comment-prefix\ \'\'
 This is a demo text file with some blank lines.   🏿 🏃 ⚧ 🤍
@@ -868,9 +805,7 @@ This is a demo text file with some blank lines.   🏿 🏃 ⚧ 🤍
 🏃🏄🏃🏿
 This is the end of the file.        🤍🧡 ✨🏳
 
-------------------------------------------------------------
 
-============================================================
 Test 33: YAML lake stacks (mfm x3) then deep erosion
 CMD: bash -lc python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ \"examples/adventure-4/characters/animals/confetti-crawler/demo.yml\"\ -o\ -\ --mode\ mfm\ --iterations\ 40\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ neon-arcade\ --all-sites\ --seed\ 70\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 40\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ fruit-machine\ --all-sites\ --seed\ 71\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --mode\ mfm\ --iterations\ 40\ --emoji-map-file\ \"examples/adventure-4/characters/animals/confetti-crawler/emojis.txt\"\ --theme\ pride-spectrum\ --all-sites\ --seed\ 72\ \ \ \ \ \|\ python\ \"examples/adventure-4/characters/animals/confetti-crawler/sprayer.py\"\ -i\ /dev/stdin\ -o\ -\ --erode\ --iterations\ 120\ --drift-radius\ 4\ --all-sites\ --seed\ 73
 # Demo YAML to exercise worm-emoji-fordite.py without overwriting. 👾🛸👾🎮 🍏🍑🍊💰 🔔🍓🍋🍊 🍈🍐🔔 💜
@@ -902,5 +837,4 @@ name: second # 🎰🎇🛸🎮⚧🏳✨✨
 # trailing comment near end 🛸🎆 🚀 🍈 🪙 🍊🥝🔔
 tail: true # 🌌🎰✨🍌🍆🥥🍓🖤🏳✨🪩🪩✨🌈🪩✨✨✨✨
 
-------------------------------------------------------------
 

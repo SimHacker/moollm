@@ -26,7 +26,6 @@ object:
     
   examine: |
     CENTRAL DATABASE — POSTGRESQL + TIMESCALEDB
-    ══════════════════════════════════════════════════════
     
     ┌────────────────────────────────────────────────────┐
     │  🐘 LEELA CENTRAL DATABASE                         │
@@ -44,9 +43,7 @@ object:
     │  "Every fact. Every timestamp. Every insight."     │
     └────────────────────────────────────────────────────┘
     
-    ══════════════════════════════════════════════════════
     DATA DOMAINS
-    ══════════════════════════════════════════════════════
     
     OPERATIONS
     • Production records — every item processed
@@ -78,9 +75,7 @@ object:
     • Configuration — settings, preferences
     • Backups — because disasters happen
     
-    ══════════════════════════════════════════════════════
     PUBSUB EVENT TASK DISPATCH QUEUE
-    ══════════════════════════════════════════════════════
     
     Why use GCS PubSub, Redis, Kafka, or RabbitMQ when PostgreSQL does it all?
     
@@ -123,9 +118,7 @@ object:
     Leela uses PostgreSQL.
     Guess which one can tell you what happened yesterday."
     
-    ══════════════════════════════════════════════════════
     ARCHITECTURE
-    ══════════════════════════════════════════════════════
     
     ┌──────────────────────────────────────────────────────────┐
     │  PRIMARY DATABASE CLUSTER (3 nodes)                      │
@@ -144,9 +137,7 @@ object:
     │ (cold)  │    │ (read)  │    │ (read)  │
     └─────────┘    └─────────┘    └─────────┘
     
-    ══════════════════════════════════════════════════════
     WORKER SERVER STACKS
-    ══════════════════════════════════════════════════════
     
     ┌──────────────────────────────────────────────────────────┐
     │  LOOKER STACK (Computer Vision)                          │
@@ -267,9 +258,7 @@ object:
     • Web reads/writes via connection pool
     • Storage metadata indexed for fast lookup
     
-    ══════════════════════════════════════════════════════
     CURRENT STATISTICS
-    ══════════════════════════════════════════════════════
     
     │ Tables          │  12,847  │
     │ Records         │  847 billion  │
@@ -280,9 +269,7 @@ object:
     │ Avg Query Time  │  2.3 ms  │
     │ Cache Hit Rate  │  99.2%  │
     
-    ══════════════════════════════════════════════════════
     THE ORACLE
-    ══════════════════════════════════════════════════════
     
     A special query interface for complex questions.
     Natural language → SQL → Insight
@@ -359,7 +346,6 @@ object:
       description: "Check database health"
       effect: |
         CENTRAL DATABASE STATUS
-        ═══════════════════════
         All nodes: HEALTHY
         Replication: SYNCHRONIZED
         Storage: 71% (847 PB / 1.2 EB)

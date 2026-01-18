@@ -2647,9 +2647,7 @@ Let me show you..."
 ### Value Types in Quantum YAML Jazz
 
 ```yaml
-# ═══════════════════════════════════════════════════════════
 # QUANTUM YAML JAZZ: Values with behavior, not just state
-# ═══════════════════════════════════════════════════════════
 
 character:
   name: "The Uncertain Explorer"
@@ -5424,7 +5422,6 @@ python skills/adventure/adventure.py lint examples/adventure-4/
 ╚═══════════════════════════════════════════════════════════════════════════════╝
 
 🔍 Linting adventure at: examples/adventure-4
-============================================================
 
 📂 Phase 1: Discovery
    Found: 36 rooms, 54 objects, 6 characters
@@ -5436,7 +5433,6 @@ python skills/adventure/adventure.py lint examples/adventure-4/
 ⚙️ Phase 4: Finding expressions
 
 🗺️ Phase 5: Mapping topology
-============================================================
 ✅ Linting complete: 0 errors, 13 warnings, 21 compile requests
 ```
 

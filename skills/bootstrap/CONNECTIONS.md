@@ -12,7 +12,6 @@ That turtle grew up. It became **directories you can enter** (`cd` = `GO NORTH`)
 
 ```
 Logo (1967)           →  MOOLLM (2024)
-─────────────────────────────────────────
 FORWARD 50            →  GO NORTH
 RIGHT 90              →  TURN EAST  
 PENDOWN               →  WRITE file.yml
@@ -43,7 +42,6 @@ workbench:
 
 ```
 The Sims (2000)       →  MOOLLM (2024)
-─────────────────────────────────────────
 Object advertises     →  File advertises
 Sim selects by need   →  Agent selects by goal
 Pie menu appears      →  Snap cursor shows options
@@ -72,7 +70,6 @@ These are **greppable invocations**. The name IS the magic word. Say it and the 
 
 ```
 Society of Mind (1986)  →  MOOLLM (2024)
-─────────────────────────────────────────
 K-line                  →  Protocol symbol
 Mental state            →  Behavioral pattern
 Activate by name        →  Invoke by typing
@@ -119,7 +116,6 @@ One API call:
 
 ```
 Traditional (slow)      →  MOOLLM (fast)
-─────────────────────────────────────────
 1 agent per call        →  N agents per call
 File I/O between        →  In-context messaging
 Tokenization noise      →  Vector precision
@@ -153,7 +149,6 @@ They debate at SPEED-OF-LIGHT using ROBERTS-RULES (parliamentary procedure). An 
 
 ```
 Traditional Chat        →  MOOLLM Committees
-─────────────────────────────────────────
 One voice               →  Many voices
 Statistical center      →  Cloud shape visible
 Hidden assumptions      →  Assumptions surfaced
@@ -179,7 +174,6 @@ When context overflows, we don't silently drop — we **HONEST-FORGET**: summari
 
 ```
 Traditional LLM         →  MOOLLM
-─────────────────────────────────────────
 Hidden state            →  FILES-AS-STATE
 Silent forgetting       →  HONEST-FORGET
 No audit trail          →  session-log.md
@@ -210,7 +204,6 @@ The **Logo Turtle** becomes a vehicle you RIDE, drawing on `floor.svg` as you na
 
 ```
 HyperCard (1987)        →  MOOLLM (2024)
-─────────────────────────────────────────
 Stack                   →  Adventure
 Card                    →  Room
 Button                  →  Card in play
@@ -243,7 +236,6 @@ The **LLM IS the template engine**. Not Mustache. Not Handlebars. The LLM. It ca
 
 ```
 Java (classes)          →  MOOLLM (prototypes)
-─────────────────────────────────────────
 Class definition        →  Skill template
 new Instance()          →  Clone + modify
 Rigid hierarchy         →  Flexible delegation
@@ -269,7 +261,6 @@ The **Constitution** (`kernel/constitution-core.md`) defines 14 invariants that 
 
 ```
 Traditional Software    →  MOOLLM
-─────────────────────────────────────────
 Crash on error          →  NEVER-CRASH
 Global consistency      →  Local repair
 Correctness first       →  ROBUST-FIRST
@@ -384,7 +375,6 @@ Dave Ungar's Self language could **reconstruct stack frames** that had been opti
 
 ```
 Self Deoptimization      →  MOOLLM Driver Abstraction
-─────────────────────────────────────────────────────
 Optimized away frames    →  Platform-managed context
 Reconstruct on demand    →  Advisory files can reflect reality
 Same debugging story     →  Same debugging story
@@ -414,7 +404,6 @@ The connections complete a circle:
 
 ```
 You (confused)          →  BOOTSTRAP          →  You (oriented)
-─────────────────────────────────────────────────────────────────
 "What am I?"            →  Connections tour   →  "I am MOOLLM"
 Cold context            →  Warm context       →  Ready to explore
 ```

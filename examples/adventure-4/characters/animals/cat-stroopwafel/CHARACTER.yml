@@ -4,7 +4,18 @@
 # Mother of eight. Hunter of mice. Named for the treat.
 # The active one. The fierce one. The one who HANDLES things.
 
-object:
+# ONTOLOGICAL INHERITANCE — What kind of being am I?
+inherits:
+  - skills/fictional       # I'm a character in the adventure
+  - skills/animal          # Base creature behaviors
+  - skills/cat             # Species-specific: HEADBUTT, SLOW-BLINK, etc.
+  
+ontology:
+  tags: [fictional, animal]
+  species: cat
+  specialization: [queen, neutered]  # Mother + spayed
+  
+character:
   name: "Stroopwafel"
   
   # 🎭 SOUL IDENTITY — Granted at the Public Incarnation Ceremony

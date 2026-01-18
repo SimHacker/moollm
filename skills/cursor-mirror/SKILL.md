@@ -49,29 +49,26 @@ This skill enables **meta-cognition** — the ability to observe your own reason
 
 ## The Introspection Loop
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                           YOUR SESSION                                       │
-│                                                                              │
-│  ┌────────────────────────────────────────────────────────────────────────┐ │
-│  │  Thinking → Tools → Output → Thinking → Tools → Output → ...           │ │
-│  └────────────────────────────────────────────────────────────────────────┘ │
-│                                    ↓                                         │
-│                      cursor_mirror.py                                  │
-│                                    ↓                                         │
-│  ┌────────────────────────────────────────────────────────────────────────┐ │
-│  │  • analyze      → Deep stats on what happened                          │ │
-│  │  • thinking     → Your reasoning blocks                                │ │
-│  │  • timeline     → Chronological event stream                           │ │
-│  │  • context      → What context was assembled                           │ │
-│  │  • tools        → Tool call patterns                                   │ │
-│  │  • status       → Current configuration and limits                     │ │
-│  └────────────────────────────────────────────────────────────────────────┘ │
-│                                    ↓                                         │
-│               Insights → Optimize kernel/drivers/cursor.yml                  │
-│               Insights → Improve bootstrap/working-set                       │
-│               Insights → Design better orchestration                         │
-└─────────────────────────────────────────────────────────────────────────────┘
+```yaml
+# The introspection loop
+introspection:
+  session:
+    flow: "Thinking → Tools → Output → Thinking → Tools → ..."
+  
+  mirror:
+    tool: "cursor_mirror.py"
+    commands:
+      analyze: "Deep stats on what happened"
+      thinking: "Your reasoning blocks"
+      timeline: "Chronological event stream"
+      context: "What context was assembled"
+      tools: "Tool call patterns"
+      status: "Current configuration and limits"
+  
+  insights_feed_into:
+    - "Optimize kernel/drivers/cursor.yml"
+    - "Improve bootstrap/working-set"
+    - "Design better orchestration"
 ```
 
 ---
@@ -487,11 +484,12 @@ The metadata travels with the pointer — LLM reads selectively based on relevan
 
 ### Sister Script Methodology
 
-```
-┌─────────────────┐      ┌─────────────────┐
-│  cursor-mirror  │ ──→  │    K-REFs       │ ──→  LLM reads
-│  (sister script)│      │  (pointers)     │      only what
-└─────────────────┘      └─────────────────┘      it needs
+```yaml
+# Sister script → K-REF → LLM flow
+data_flow:
+  source: "cursor-mirror (sister script)"
+  produces: "K-REFs (pointers with metadata)"
+  consumer: "LLM reads only what it needs"
 ```
 
 **Reference by pointer, not by value.** Parsimonious context usage.
