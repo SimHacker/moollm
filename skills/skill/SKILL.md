@@ -425,7 +425,7 @@ data_flow:
   output: "formatted response"
 ```
 
-**README.md — Mermaid for Humans:**
+**README.md — Mermaid for Humans and curious LLMs:**
 
 ```mermaid
 graph LR

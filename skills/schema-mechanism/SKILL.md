@@ -147,28 +147,17 @@ Drescher uses **Dijkstra's algorithm** on the schema graph -- find shortest path
 
 ## The Learning Loop
 
-```
-┌─────────────────────────────────────────────────────┐
-│  1. ACT                                             │
-│     Execute schema action                           │
-└─────────────────────────────────────────────────────┘
-                         ↓
-┌─────────────────────────────────────────────────────┐
-│  2. OBSERVE                                         │
-│     Record which items changed (on-flips, off-flips)│
-└─────────────────────────────────────────────────────┘
-                         ↓
-┌─────────────────────────────────────────────────────┐
-│  3. ATTRIBUTE                                       │
-│     Update extended context/results tables          │
-│     Track which items correlate with success        │
-└─────────────────────────────────────────────────────┘
-                         ↓
-┌─────────────────────────────────────────────────────┐
-│  4. SPIN OFF                                        │
-│     When patterns emerge, create child schemas      │
-│     with refined context/result conditions          │
-└─────────────────────────────────────────────────────┘
+```yaml
+# Schema mechanism learning loop
+learning_loop:
+  - step: 1. ACT
+    action: "Execute schema action"
+  - step: 2. OBSERVE
+    action: "Record which items changed (on-flips, off-flips)"
+  - step: 3. ATTRIBUTE
+    action: "Update extended context/results tables, track correlations"
+  - step: 4. SPIN OFF
+    action: "When patterns emerge, create child schemas with refined conditions"
 ```
 
 This maps directly to PLAY-LEARN-LIFT:

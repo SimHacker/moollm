@@ -465,27 +465,23 @@ I-Beam is **platform-agnostic**. On Cursor, it speaks through cursor-mirror. On 
 
 MOOLLM provides an interface layer above CLI tools: **simulated characters** that wrap command execution in natural dialog. I-Beam is a **bidirectional interpreter**:
 
-```
-                ┌─────────────────────────────────────┐
-                │         CURSOR FAMILIAR             │
-                │                                     │
-  USER ──────▶  │  INWARD:                            │
-  "why slow?"   │    interpret intent                 │
-                │    map to CLI commands              │
-                │    compose multi-command queries    │
-                │    maintain state & goals           │
-                │                                     │
-                │  OUTWARD:                           │  ──────▶ USER
-                │    elide uninteresting data         │  curated YAML
-                │    add section comments             │  + insights
-                │    annotate relevance (<═══)        │
-                │    highlight discoveries            │
-                └─────────────────────────────────────┘
-                                │
-                                ▼
-                ┌─────────────────────────────────────┐
-                │     cursor-mirror CLI (59 cmds)     │
-                └─────────────────────────────────────┘
+```mermaid
+flowchart TB
+    User["User: 'why slow?'"]
+    
+    subgraph Familiar["CURSOR FAMILIAR (I-Beam)"]
+        direction TB
+        Inward["INWARD:<br/>interpret intent<br/>map to CLI commands<br/>compose queries<br/>maintain state"]
+        Outward["OUTWARD:<br/>elide uninteresting<br/>add comments<br/>annotate relevance<br/>highlight discoveries"]
+    end
+    
+    CLI["cursor-mirror CLI (59 cmds)"]
+    Output["Curated YAML + insights"]
+    
+    User --> Inward
+    Inward --> CLI
+    CLI --> Outward
+    Outward --> Output
 ```
 
 I-Beam (`I-BEAM-CHARACTER.yml`) is a tall, blinking text cursor embodied — every platform has one, so I-Beam is universal. Also answers to "Cursor" and "Chat". Instead of:
