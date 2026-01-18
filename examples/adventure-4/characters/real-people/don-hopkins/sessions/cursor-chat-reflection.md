@@ -2952,7 +2952,6 @@ cursor-mirror extensions --sort date
 ```bash
 $ cursor-mirror dotcursor-status
 ~/.cursor Status
-============================================================
 AI Tracking: 71.6 MB
   ai_code_hashes: 276,231 rows
   claude-4.5-opus-high-thinking: 244,471
@@ -3021,7 +3020,6 @@ Enables parsimonious reading: LLM reads annotations + excerpts, selectively fetc
 
 ```
 🕵️  DEEP SNITCH REPORT
-======================================================================
 📡 CONFIGURED ENDPOINTS: 3 MCP servers
 🔌 MCP SERVERS: cursor-ide-browser (14 tools), puppeteer (12 tools)
 🤖 MODELS: claude-4.5-opus-high-thinking (44), gpt-5.1-codex-max (31)

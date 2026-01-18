@@ -272,7 +272,6 @@ Templates should front-load:
 3. Optional variables with defaults
 
 ```yaml
-# =====================================================
 # CHARACTER.yml.tmpl — Character sheet template
 # 
 # Required context:
@@ -284,7 +283,6 @@ Templates should front-load:
 #   - personality_hints: list of traits
 #   - backstory_seeds: key events to include
 #   - tone: "serious" | "humorous" | "dark" (default: "neutral")
-# =====================================================
 
 id: {{generate_unique_id}}
 name: "{{character_name}}"
@@ -481,7 +479,6 @@ Templates are not just for instantiation — they ARE THE SCHEMA. The same `.tmp
 ### The Template-Schema Pattern
 
 ```yaml
-# =====================================================
 # ADVENTURE.yml.tmpl — Adventure State Schema
 # 
 # REQUIRED fields (must be provided):
@@ -497,7 +494,6 @@ Templates are not just for instantiation — they ARE THE SCHEMA. The same `.tmp
 # COMPUTED fields (LLM generates):
 #   - adventure.started: timestamp
 #   - selection.targets: starts []
-# =====================================================
 ```
 
 ### Smart Instantiation: The Drop Pattern

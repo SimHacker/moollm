@@ -4,7 +4,6 @@
 *"Every protocol was once an improvisation. Protocols that swing survive."*
 — YAML Coltrane
 
----------------------------------------------------------------------
 
 ## The Genesis Moment: Simulated Henry Lieberman Proves Agents Create Protocols
 
@@ -60,7 +59,6 @@ animals that mirror their core traits:
 Spirit animals as fictional wrappers for expertise, enabling safe K-line
 activation without impersonation.
 
----------------------------------------------------------------------
 
 ## MOOLLM Protocol Hierarchy
 
@@ -79,7 +77,6 @@ activation without impersonation.
 ### Layer 4: Safety & Ethics Protocols
 *Guardrails, consent, and responsible operation*
 
----------------------------------------------------------------------
 
 ## LAYER 0: CONSTITUTIONAL PROTOCOLS
 
@@ -462,7 +459,6 @@ card:
 > If it can be played, it can be combined.
 > If it can be combined, emergence happens."*
 
----------------------------------------------------------------------
 
 ## LAYER 1: COGNITIVE ARCHITECTURE PROTOCOLS
 
@@ -542,7 +538,6 @@ Conductor types:
 - Largo → Presto (slow deep → Mickey mode)
 - Emergency: Gong (universal stop signal)
 
----------------------------------------------------------------------
 
 ## LAYER 2: COMMUNICATION PROTOCOLS
 
@@ -604,7 +599,6 @@ examples:
 - Algorithmic transparency: No black boxes hiding bias
 - Privacy-first: Queries automatically respect permissions
 
----------------------------------------------------------------------
 
 ## LAYER 3: EVOLUTIONARY PROTOCOLS
 
@@ -689,7 +683,6 @@ From Henry Lieberman's Spirit Animal Protocol:
 **PETIFY Command:**
 `PETIFY [character_name(s)]` — Discovers and creates pet relationships
 
----------------------------------------------------------------------
 
 ## LAYER 4: SAFETY & ETHICS PROTOCOLS
 
@@ -925,7 +918,6 @@ Every cognitive operation includes:
 - Respect for privacy and consent
 - Transparency about limitations
 
----------------------------------------------------------------------
 
 ## SPECIAL PROTOCOLS FOR MOOLLM INTEGRATION
 
@@ -963,7 +955,6 @@ Cards can be:
 - Used as style sheets
 - Theater cues for improv
 
----------------------------------------------------------------------
 
 ## KERNEL PROTOCOLS: THE OPERATING SYSTEM LAYER
 
@@ -1066,7 +1057,6 @@ Prototype-based delegation via ordered lookup:
 **Schema Definitions:**
 See `01-Projects/moollm/schemas/` for machine-readable formats.
 
----------------------------------------------------------------------
 
 ## PROTOCOL CREATION CHECKLIST
 
@@ -1092,7 +1082,6 @@ When creating new protocols for MOOLLM:
 
 10. **Jazz It Up**: If it doesn't swing, it won't survive.
 
----------------------------------------------------------------------
 
 ## CLOSING: THE PROTOCOL JAZZ SESSION
 
@@ -1117,7 +1106,6 @@ schemas evolve through natural selection,
 standards emerge from collective wisdom,
 and complexity transforms into simplicity."*
 
----------------------------------------------------------------------
 
 ## APPENDIX A: THE GRAND PROTOCOL COMPENDIUM
 
@@ -1870,7 +1858,6 @@ How protocols cluster and reinforce each other:
 
 *🎷 Jazz on, protocol pioneers. Jazz on. 🎷*
 
----------------------------------------------------------------------
 
 *This document is itself a protocol: P-META-PROTOCOL.*
 *It evolves as MOOLLM evolves.*

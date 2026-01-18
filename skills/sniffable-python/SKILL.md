@@ -235,9 +235,7 @@ These comments ARE data. The LLM reads them. Acts on them. Uses them to understa
 
 ```python
 # ❌ BAD: Decorative toilet paper
-# ================================================================
 # === IMPORTS ===================================================
-# ================================================================
 import argparse
 
 # ✓ GOOD: Just the content

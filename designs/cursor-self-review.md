@@ -789,9 +789,7 @@ Just like sniffable Python code puts the "what does this do?" at the top of each
 ### Sniffable CARD.yml Template
 
 ```yaml
-# ============================================================
 # SNIFF ZONE - Read this first, stop here if context is tight
-# ============================================================
 name: speed-of-light
 tier: core
 invoke_when:
@@ -804,9 +802,7 @@ protocol: |
   Maintain state mentally, write at end. Target 20-50 turns.
 proof: examples/adventure-4/.../marathon-session.md#33-turns
 
-# ============================================================
 # FULL JAZZ - Rich context, examples, K-lines
-# ============================================================
 description: |
   The context window is a stage, not a bottleneck. Instead of
   round-tripping to the LLM for each character's turn, simulate

@@ -4932,7 +4932,6 @@ You're not typing. You're STEERING through infinite literature."
 
 ```
 THE TERPENE GODFAMILY
-=====================
 
 Parents (God-Spouses to Palm):
 ├── Terpie (mother)
