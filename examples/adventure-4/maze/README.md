@@ -10,6 +10,19 @@ A proper adventure needs a proper maze. This one has grues AND a wumpus.
 
 ---
 
+## ⚠️ BIOLOGICAL HAZARD WARNING
+
+**Dogs and cats have been running around in here.**
+
+Biscuit, Butterscotch, and their puppies. Stroopwafel, Terpie, and their kittens. 
+They've been exploring, marking territory, and doing what animals do.
+
+Watch your step. AYOR.
+
+*(At Your Own Risk. The management is not responsible for what you step in.)*
+
+---
+
 ## Two Games, One Maze
 
 This maze runs **two classic games simultaneously**:
