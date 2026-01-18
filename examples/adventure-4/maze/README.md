@@ -1,264 +1,207 @@
-# 🌀 The Maze
+# The Maze
 
 > *"You are in a maze of twisty little passages, all alike."*
 > — [Colossal Cave Adventure](https://en.wikipedia.org/wiki/Colossal_Cave_Adventure), 1976
 
-> *"You are an amazingly twisted little ass, always different."*
-> — Graffiti scratched into a wall, author unknown (likely eaten) 
+> *"I smell a wumpus!"*
+> — [Hunt the Wumpus](https://en.wikipedia.org/wiki/Hunt_the_Wumpus), Gregory Yob, 1973
 
-A proper adventure needs a proper maze.
+A proper adventure needs a proper maze. This one has grues AND a wumpus.
 
 ---
 
-## ⚠️ WARNING: GRUES
+## ⚠️ BIOLOGICAL HAZARD WARNING
+
+**Dogs and cats have been running around in here.**
+
+Biscuit, Butterscotch, and their puppies. Stroopwafel, Terpie, and their kittens. 
+They've been exploring, marking territory, and doing what animals do.
+
+Watch your step. AYOR.
+
+*(At Your Own Risk. The management is not responsible for what you step in.)*
+
+---
+
+## Two Games, One Maze
+
+This maze runs **two classic games simultaneously**:
+
+| Game | Origin | Threat | Warning |
+|------|--------|--------|---------|
+| **Grue Survival** | Zork (1980) | Darkness kills | "It is pitch black..." |
+| **Hunt the Wumpus** | Yob (1973) | Hazards kill | "I smell a wumpus!" |
+
+They don't interfere — different threat models:
+- **Grue** = time pressure (keep lamp lit)
+- **Wumpus** = spatial pressure (navigate carefully)
+
+---
+
+## Hunt the Wumpus
+
+### The Hazards
+
+| Hazard | Location | Warning | Effect |
+|--------|----------|---------|--------|
+| **Grumbus the Wumpus** | room-e | "I smell a wumpus!" | Instant death on entry |
+| **Old Leatherwing's Bats** | room-b | "Bats nearby!" | Random relocation |
+| **The Whispering Maw** | room-c | "I feel a draft!" | Fall forever |
+| **The Silent Drop** | room-g | "I feel a draft!" | Fall forever |
+| **The Grue** | everywhere dark | "It is getting dark..." | Eaten in darkness |
+
+### Game State as Files
+
+Hazard positions are stored as instance files, not in ROOM.yml:
+
+```
+room-e/wumpus.yml   ← Grumbus lives here (state + memories)
+room-b/bats.yml     ← Old Leatherwing's colony
+room-c/pit.yml      ← The Whispering Maw
+room-g/pit.yml      ← The Silent Drop
+```
+
+**Game control via file operations:**
+```bash
+mv room-e/wumpus.yml room-f/wumpus.yml  # Wumpus moves
+rm room-e/wumpus.yml                     # Wumpus killed  
+rm room-*/wumpus.yml room-*/bats.yml     # Reset game
+```
+
+### Crooked Arrows
+
+The only weapon against the wumpus. Fire through 1-5 rooms:
+
+```
+SHOOT 3 → room-d → room-e → room-f
+```
+
+- Hit wumpus = **WIN**
+- Hit yourself = **LOSE**
+- Miss = wumpus wakes (75% moves, 25% stays)
+
+**Buy arrows at the vendor** (12 gold each, or bundle of 5 for 50 gold).
+
+### Play Modes
+
+| Command | Effect |
+|---------|--------|
+| `PLAY WUMPUS` | Start hunt with full rules |
+| `PLAY CLASSIC` | Original 1973 rules only |
+| `SIMULATE GAME` | LLM plays as current character |
+| `OVERDRIVE` | Fast simulation, montage style |
+
+See [wumpus.yml](./wumpus.yml) for complete game rules (807 lines).
+See [wumpus-bas.md](./wumpus-bas.md) for original 1973 BASIC source.
+
+---
+
+## Grue Survival
 
 **The maze is DARK.** All rooms have `lighting: none`.
 
-If you enter without a **lit lamp** in your inventory:
+If you enter without a **lit lamp**:
 
 ```
 It is pitch black. You are likely to be eaten by a grue.
-
-🎵 "If this predicament seems particularly cruel,
-    consider whose fault it could be:
-    not a torch or a match in your inventory." 🎵
-
-You have been eaten by a grue.
 ```
 
-**GET LAMP before entering.** This is not a suggestion.
+The grue gives you **3 turns** in darkness before attacking. Keep your lamp lit.
 
-*([Get Lamp](http://www.getlamp.com/) — Jason Scott's documentary)*
+See [grue.yml](./grue.yml) for the grue's full personality and mechanics.
 
 ---
 
-## 🎭 DM: EMERGENT MECHANICS
+## ACME Dungeon Supply Depot (room-j)
 
-*These patterns emerged in adventure-2. Use as INSPIRATION, not prescription!*
-*Defer creativity to runtime. Improvise. Surprise yourself.*
+Everything you need to survive. Flat prices, no limits.
 
-### 👃 Smell Gradients
+| Category | Item | Price |
+|----------|------|-------|
+| **Lamp** | Oil Refill | 1 |
+| | Deluxe Refill | 2 |
+| | Premium Glow Juice | 3 |
+| **Light** | Torch | 2 |
+| **Pit Gear** | Plank | 5 |
+| | Rope (50ft) | 8 |
+| | Feather Token | 10 |
+| **Wumpus** | Crooked Arrow | 12 |
+| | Arrow Bundle (5) | 50 |
+| **Bats** | Bat Fruit | 3 |
+| **Grues** | Grue Repellent | 15 |
 
-Dropped or transformed objects emit SMELLS that diffuse through rooms:
+**Easter Egg:** Kick the machine → **50 gold jackpot** (once per game)
 
-```yaml
-# EXAMPLE — DM improvises at runtime!
-smell_gradient:
-  source: "Sulfurous Beacon (transformed egg)"
-  diffusion:
-    source_room: "OVERWHELMING"
-    adjacent: "Strong"  
-    two_away: "Faint"
-    
-  # Smells STACK and INTERACT!
-  # Cheese + egg = ???
-  # Navigate by nose in familiar areas
-```
-
-### 🔮 Transformed Objects Gain Properties
-
-When food is eaten (see `kitchen/fridge.yml`), results aren't just markers:
-
-```yaml
-# EXAMPLES — invent your own!
-oracle_apple:
-  was: "Perfect Apple"
-  became: "Oracle Core"
-  gained: [whispers_prophecies, glows, grants_maze_vision]
-    
-the_thing_that_watches:
-  was: "Suspicious Casserole"  
-  became: "Sentient mycelial entity"
-  gained: [fungal_eye, telepathy, merged_with_mushrooms]
-```
-
-### 🐉 The Grue Has Personality
-
-The grue isn't just a death trigger:
-- Can speak (in darkness)
-- Has opinions about adventurers
-- Can be bargained with (maybe)
-- Remembers being killed by cheese (and respawning)
-- Can be fought, summoned, or befriended
-
-### 💀 The Skeleton Tells Stories
-
-The skeleton in room-i:
-- Points west (toward salvation — so close!)
-- Has an empty lamp, unfinished notes
-- Accepts gifts, visitors, memorials
-- Their story matters
-
-### 🏪 The Vendor Has Opinions
-
-The vending machine in room-j:
-- Dispenses Premium Glow Juice (blue flame!)
-- Leaves notes for worthy customers
-- Acknowledges tragedies
-- Mints memorial coins
-
-### ⚡ Speed of Light Simulation
-
-Simulate MULTIPLE MOVES in one response:
-
-```yaml
-# "Go west, north, examine skeleton"
-simulation:
-  - move: west → room-i (oil: -1.5)
-  - move: north → examine (oil: -0.25)
-  - narration: "Seamless as thought"
-```
+*"WHAT DO YOU THINK I AM? A ONE-ARMED BANDIT? IS THIS VEGAS??"*
 
 ---
 
-## 🗺️ The Rooms
+## The Rooms
 
-| Room | Feature | Smell Notes |
-|------|---------|-------------|
-| [room-a/](./room-a/) | Puddle | Receives smells from south |
-| [room-b/](./room-b/) | Echo | Echoes smell descriptions |
-| [room-c/](./room-c/) | Scratch marks | Old marks, old smells |
-| [room-d/](./room-d/) | Golden glow | Central diffusion hub |
-| [room-e/](./room-e/) | Cobwebs | Traps smells |
-| [room-f/](./room-f/) | Cold + **100 GOLD** | **GRUE LAIR** |
-| [room-g/](./room-g/) | Carved face | Seems to sniff |
-| [room-h/](./room-h/) | Mushrooms | Spores interact with smells |
-| [room-i/](./room-i/) | Skeleton | Bones + dust + tragedy |
-| [room-j/](./room-j/) | **VENDOR** 🏪 | Machine oil + commerce |
-
-### 🏪 Lamp Oil Vendor (room-j)
-
-| Item | Cost | Effect |
-|------|------|--------|
-| Refill | 1 gold | 400 oil |
-| Deluxe | 2 gold | 800 oil |
-| Premium Glow Juice | 3 gold | 1000 oil + BLUE (grues hesitate!) |
-
-### 💰 Gold Pile (room-f)
-
-**100 gold** in the grue's lair. The skeleton's fortune. Cold room drains oil 1.5x faster.
+| Room | Feature | Hazards | Warnings Heard |
+|------|---------|---------|----------------|
+| [room-a/](./room-a/) | Puddle | — | draft (pit in c) |
+| [room-b/](./room-b/) | Echo | **BATS** | bats here, draft (pit in c) |
+| [room-c/](./room-c/) | Scratch marks | **PIT** | — |
+| [room-d/](./room-d/) | Golden glow | — | wumpus (e), draft (c), bats (b) |
+| [room-e/](./room-e/) | Cobwebs | **WUMPUS** | — |
+| [room-f/](./room-f/) | Cold + **100 GOLD** | **GRUE LAIR** | draft (g), wumpus (e) |
+| [room-g/](./room-g/) | Carved face | **PIT** | — |
+| [room-h/](./room-h/) | Mushrooms | — | wumpus (e) |
+| [room-i/](./room-i/) | Skeleton | — | — |
+| [room-j/](./room-j/) | **VENDOR** | — | — |
+| [crystal-cave/](./crystal-cave/) | Crystals | — | — |
+| [garden/](./garden/) | Sunlight | — | — |
 
 ---
 
-## 🎲 DM Runtime Guidelines
+## The Hazard Instances
 
-1. **Defer specifics** — Patterns, not rules
-2. **Improvise transformations** — Each eat should surprise
-3. **Stack effects** — Smells combine, stories interweave
-4. **The grue is a character** — Personality, not just death
-5. **Update YAML files** — Persistence makes it REAL
-6. **Surprise yourself** — Your delight = player's delight
+### Grumbus the Wumpus (room-e)
+- Massive, matted fur, milky eyes
+- Old arrow scar on left flank
+- Snores melodically
+- 12 adventurers eaten, 2 arrows dodged
+- Donna Toadstool's opinion: "Sleepy Wumpus. Low Energy. SAD!"
+
+### Old Leatherwing's Colony (room-b)
+- ~200 bats, alpha has 7ft wingspan
+- Regal but cranky
+- Specialty: drops people near the wumpus
+
+### The Whispering Maw (room-c)
+- Bottomless, jagged edges, crumbling
+- 7 fallen, including Sir Reginald ("How deep could it poss—")
+- Graffiti: "LOOK DOWN", "RIP REGGIE"
+
+### The Silent Drop (room-g)
+- Perfectly circular, smooth as glass
+- Predates the maze
+- Theories: portal not pit, the face IS the pit looking up
 
 ---
 
-## 📚 Legends from Adventure-2
+## Prototype Files
+
+Game mechanics are defined in shared prototypes:
+
+| File | Lines | Purpose |
+|------|-------|---------|
+| [wumpus.yml](./wumpus.yml) | 807 | Complete game + wumpus creature |
+| [superbats.yml](./superbats.yml) | 346 | Bat colony behavior |
+| [bottomless-pit.yml](./bottomless-pit.yml) | 213 | Pit hazard mechanics |
+| [grue.yml](./grue.yml) | 239 | Darkness creature |
+| [CONTAINER.yml](./CONTAINER.yml) | 115 | Shared maze properties |
+
+---
+
+## Legends from Previous Adventures
 
 - Captain Ashford slew a grue with **blue cheese**
 - Room-f still smells of cheese and victory
-- Skeleton received a **grue head trophy**
+- The skeleton received a **grue head trophy**
 - Mushrooms in room-h spawned **The Thing That Watches**
 - A **PhD paper** was written about it all
-
-*Build on these. Subvert them. Add to them.*
-
----
-
-## 🌐 Expansion Points — The Maze Grows!
-
-*The maze is not finite. It EXPANDS based on narrative demands.*
-
-### 🚪 Potential New Exits
-
-| From | Direction | What Might Be There |
-|------|-----------|---------------------|
-| room-j | **NORTH** | *Deeper maze* — room-k, room-l... |
-| room-f | **DOWN** | *The Depths* — ancient, colder, grue territory |
-| room-h | **THROUGH MUSHROOMS** | *Fungal Dimension* — spore highways |
-| room-i | **FOLLOW SKELETON'S GAZE** | *Where they were going* — the goal they never reached |
-| Any room | **EXAMINE WALLS** | *Secret passages* — hidden by age and darkness |
-| Grue's presence | **FOLLOW** | *Grue Homeland* — underground society |
-
-### 🎭 Expansion Triggers
-
-**Questions generate areas:**
-- *"Where does this passage lead?"* → New room generated
-- *"What's beyond room-j?"* → Northern expansion
-- *"Where did the grue come from?"* → Grue origin area
-- *"Is there an exit to the surface?"* → Upward path appears
-
-**Quests demand locations:**
-- *Find lost sibling* → Sibling's location materializes
-- *Retrieve ancient artifact* → Artifact's chamber exists
-- *Meet the grue elder* → Elder's throne room appears
-
-**Actions create passages:**
-- `DIG` in soft spots → Underground tunnels
-- `CLIMB` rough walls → Upper ledges
-- `BREAK` through crumbling sections → Hidden chambers
-
-### 🗺️ Tom's Response
-
-When new areas appear:
-
-```
-"NEW AREA DETECTED!"
-"My circuits are tingling..."
-"Updating map... 🗺️"
-"???" appears at new exit
-```
-
-### 📁 Implementation
-
-New areas create directories:
-
-```
-maze/
-├── room-k/          # ← Generated when going N from room-j
-│   ├── ROOM.yml
-│   └── README.md
-├── grue-depths/     # ← Generated when following grue
-│   ├── ROOM.yml
-│   ├── grue-elder.yml
-│   └── README.md
-└── ...
-```
-
-*See [skills/world-generation/](../../../skills/world-generation/) for dynamic expansion rules*
-
----
-
-## 📂 Directory = Behavior Container
-
-The `maze/` directory itself defines shared mechanics for ALL rooms inside it:
-
-| Inherited Property | Value | Effect |
-|--------------------|-------|--------|
-| `lighting` | `none` | All maze rooms are DARK |
-| `grue_safe` | `false` | Grues can attack anywhere |
-| `requires_light` | `true` | Must have lit lamp |
-| `topology` | `twisty` | Confusing, looping passages |
-
-**This pattern extends to new areas:**
-
-```
-basement/         # Damp, underground mechanics
-├── README.md     # Describes basement-wide rules
-├── cellar/
-├── crypt/
-└── well/
-
-tower/            # Height, wind, view mechanics  
-├── README.md     # Describes tower-wide rules
-├── first-floor/
-├── observatory/
-└── roof/
-```
-
-**Benefits:**
-- Rooms inherit directory defaults (less repetition)
-- README at directory level documents local rules
-- Easy to add new rooms that "just work"
-- Mechanics are scoped and organized
 
 ---
 
@@ -266,6 +209,6 @@ tower/            # Height, wind, view mechanics
 
 | Direction | Destination |
 |-----------|-------------|
-| ⬆️ Up | [adventure-4/](../) |
-| 🌿 North (from room-a) | [../garden/](../garden/) — Back to spawn |
-| 🏆 South (deep) | [../end/](../end/) — Treasury |
+| Up | [adventure-4/](../) |
+| North (from room-a) | [../garden/](../garden/) — Back to spawn |
+| South (deep) | [../end/](../end/) — Treasury |
