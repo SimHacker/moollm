@@ -211,6 +211,12 @@ Debug mode:
                     help="Enable verbose debug logging to stderr")
     ap.add_argument("--sources", action="store_true",
                     help="Show data source paths (databases, files) for LLM self-service")
+    ap.add_argument("-f", "--output-format", dest="output_format", metavar="FMT",
+                    help="Output format: text (default), json, jsonl, yaml, csv, md. "
+                         "Not all commands support all formats.")
+    # Legacy compatibility: --json and --yaml still work but --output-format takes precedence
+    ap.add_argument("--json", action="store_true", help=argparse.SUPPRESS)
+    ap.add_argument("--yaml", action="store_true", help=argparse.SUPPRESS)
     
     sub = ap.add_subparsers(dest="cmd", required=True)
 
@@ -220,15 +226,11 @@ Debug mode:
     p.add_argument("--sort", "-s", choices=["size", "date", "name", "chats"], default="size",
                    help="Sort by: size (default), date, name, chats")
     p.add_argument("--oldest", action="store_true", help="Oldest first (with --sort date)")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_list_workspaces)
 
     # ─── show-workspace ───
     p = sub.add_parser("show-workspace", help="Workspace details (use: show-workspace @1)")
     p.add_argument("workspace", help="Workspace ref: @1, hash prefix, name")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_show_workspace)
 
     # ─── list-composers ───
@@ -238,22 +240,16 @@ Debug mode:
     p.add_argument("--sort", "-s", choices=["msgs", "date", "name"], default="msgs",
                    help="Sort by: msgs (default), date, name")
     p.add_argument("--oldest", action="store_true", help="Oldest first (with --sort date)")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_list_composers)
 
     # ─── tree ───
     p = sub.add_parser("tree", help="Tree navigation with short IDs (w1, w1.c2)")
     p.add_argument("path", nargs="?", help="Path: empty=workspaces, w1=workspace, w1.c2=composer")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_tree)
 
     # ─── show-composer ───
     p = sub.add_parser("show-composer", help="Composer details (use: show-composer @1)")
     p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_show_composer)
 
     # ─── tail ───
@@ -264,8 +260,6 @@ Debug mode:
     p.add_argument("--user", action="store_true", help="Only user messages")
     p.add_argument("--assistant", action="store_true", help="Only assistant messages")
     p.add_argument("--all", action="store_true", help="Include empty bubbles")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.add_argument("-p", "--pretty", action="store_true", help="Pretty-print JSON")
     p.add_argument("-v", "--verbose", action="store_true", help="Show more details")
     p.set_defaults(func=cmd_tail)
@@ -276,8 +270,6 @@ Debug mode:
     p.add_argument("--since", help="Time filter: 1h, 30m, 1d, 2024-01-15")
     p.add_argument("--composer", help="Filter by composerId")
     p.add_argument("--type", choices=["user", "assistant", "all"], default="all")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.add_argument("-p", "--pretty", action="store_true", help="Pretty-print JSON")
     p.set_defaults(func=cmd_stream)
 
@@ -285,7 +277,6 @@ Debug mode:
     p = sub.add_parser("export-chat", help="Export composer bubbles as JSON/YAML")
     p.add_argument("composer", help="Composer UUID (or prefix/name)")
     p.add_argument("-o", "--out", help="Output file (default: stdout)")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
     p.add_argument("-p", "--pretty", action="store_true", help="Pretty-print JSON")
     p.set_defaults(func=cmd_export_chat)
 
@@ -293,7 +284,6 @@ Debug mode:
     p = sub.add_parser("export-prompts", help="Export prompts/generations for workspace")
     p.add_argument("workspace", help="Workspace hash (or name/prefix)")
     p.add_argument("-o", "--out", help="Output file (default: stdout)")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
     p.add_argument("-p", "--pretty", action="store_true", help="Pretty-print JSON")
     p.set_defaults(func=cmd_export_prompts)
 
@@ -308,8 +298,6 @@ Debug mode:
     p.add_argument("-l", "--composers-only", action="store_true", help="List matching composers")
     p.add_argument("-C", "--context", type=int, default=0, metavar="N")
     p.add_argument("-n", "--limit", type=int, help="Max results to show")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.add_argument("-p", "--pretty", action="store_true")
     p.set_defaults(func=cmd_grep)
 
@@ -319,23 +307,17 @@ Debug mode:
     p.add_argument("--context", action="store_true", help="Include context (files, selections)")
     p.add_argument("--thinking", action="store_true", help="Include thinking blocks")
     p.add_argument("--markdown", action="store_true", help="Output as Markdown")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.add_argument("--out", help="Output file")
     p.set_defaults(func=cmd_transcript)
 
     # ─── files ───
     p = sub.add_parser("files", help="Files touched (use: files @1)")
     p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_files)
 
     # ─── models ───
     p = sub.add_parser("models", help="Model usage analysis")
     p.add_argument("--composer", help="Filter by composer")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_models)
 
     # ─── tools ───
@@ -344,44 +326,32 @@ Debug mode:
     p.add_argument("--status", choices=["all", "completed", "error"], default="all")
     p.add_argument("--name", help="Filter by tool name")
     p.add_argument("-n", "--limit", type=int, help="Max results to show")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.add_argument("-v", "--verbose", action="store_true", help="Show results/params")
     p.set_defaults(func=cmd_tools)
 
     # ─── todos ───
     p = sub.add_parser("todos", help="Show todos/tasks (use: todos @1)")
     p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_todos)
 
     # ─── context ───
     p = sub.add_parser("context", help="Show context gathered (use: context @1)")
     p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_context)
 
     # ─── analyze ───
     p = sub.add_parser("analyze", help="Deep analysis (use: analyze @1)")
     p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_analyze)
 
     # ─── timeline ───
     p = sub.add_parser("timeline", help="Chronological timeline (use: timeline @1)")
     p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_timeline)
 
     # ─── checkpoints ───
     p = sub.add_parser("checkpoints", help="List file checkpoints (use: checkpoints @1)")
     p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.add_argument("-v", "--verbose", action="store_true", help="Show all file details")
     p.set_defaults(func=cmd_checkpoints)
 
@@ -391,23 +361,17 @@ Debug mode:
     p.add_argument("-n", "--limit", type=int, default=20, help="Number to show")
     p.add_argument("--min-size", type=int, default=1000, help="Min blob size in bytes")
     p.add_argument("--show", help="Show specific blob by hash prefix")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_blobs)
 
     # ─── tool-result ───
     p = sub.add_parser("tool-result", help="Show full tool result content")
     p.add_argument("blob_hash", help="Blob hash (or prefix)")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_tool_result)
 
     # ─── thinking ───
     p = sub.add_parser("thinking", help="Show thinking blocks (use: thinking @1)")
     p.add_argument("composer", help="Composer ref: @1, hash prefix, name")
     p.add_argument("-n", "--limit", type=int, default=20, help="Number to show")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_thinking)
 
     # ─── watch ───
@@ -421,8 +385,6 @@ Debug mode:
     p = sub.add_parser("request-context", help="Show full context assembled for a message")
     p.add_argument("composer", help="Composer UUID (or prefix)")
     p.add_argument("--message", help="Message UUID (or prefix)")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_request_context)
 
     # ─── searches ───
@@ -430,8 +392,6 @@ Debug mode:
     p.add_argument("composer", help="Composer UUID (or prefix)")
     p.add_argument("--type", choices=["codebase", "web", "all"], default="all")
     p.add_argument("-v", "--verbose", action="store_true", help="Show result details")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_searches)
 
     # ─── indexing ───
@@ -439,15 +399,11 @@ Debug mode:
     p.add_argument("workspace", nargs="?", help="Workspace hash (or prefix)")
     p.add_argument("--files", action="store_true", help="List embeddable files")
     p.add_argument("--folders", action="store_true", help="Show folder descriptions")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_indexing)
 
     # ─── context-sources ───
     p = sub.add_parser("context-sources", help="Analyze all context sources in a conversation")
     p.add_argument("composer", help="Composer UUID (or prefix)")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_context_sources)
 
     # ─── mcp ───
@@ -456,8 +412,6 @@ Debug mode:
     p.add_argument("--servers", action="store_true", help="List known MCP servers")
     p.add_argument("--all", action="store_true", help="Show all MCP calls globally")
     p.add_argument("-v", "--verbose", action="store_true", help="Show call details")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_mcp)
 
     # ─── diff ───
@@ -465,8 +419,6 @@ Debug mode:
     p.add_argument("composer", help="Composer UUID (or prefix)")
     p.add_argument("--from", dest="from_idx", type=int, default=0, help="From checkpoint index")
     p.add_argument("--to", dest="to_idx", type=int, default=-1, help="To checkpoint index (-1 = last)")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_diff)
 
     # ─── export-markdown ───
@@ -488,51 +440,33 @@ Debug mode:
     # ─── index ───
     p = sub.add_parser("index", help="Generate searchable index of conversations")
     p.add_argument("-o", "--output", help="Output directory or file")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_index)
 
     # ─── STATUS COMMANDS ───
     p = sub.add_parser("status", help="Overall Cursor status dashboard")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_status)
 
     p = sub.add_parser("status-config", help="Server configuration and limits")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_status_config)
 
     p = sub.add_parser("status-mcp", help="MCP servers and status")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_status_mcp)
 
     p = sub.add_parser("status-models", help="Available models and migrations")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_status_models)
 
     p = sub.add_parser("status-features", help="Feature flags and experiments")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_status_features)
 
     p = sub.add_parser("status-privacy", help="Privacy settings and data sharing")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_status_privacy)
 
     p = sub.add_parser("status-endpoints", help="Known API endpoints")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_status_endpoints)
 
     # ─── stats ───
     p = sub.add_parser("stats", help="Summary statistics (use: stats [@1|hash|name] for single chat)")
     p.add_argument("composer", nargs="?", help="Composer ref: @1, hash prefix, name (optional)")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_stats)
 
     # ─── info ───
@@ -548,42 +482,30 @@ Debug mode:
     p.add_argument("--key", help="Shortcut: get ItemTable value by key")
     p.add_argument("--keys", help="Shortcut: list keys matching pattern (LIKE)")
     p.add_argument("--limit", type=int, default=20, help="Limit rows (default 20)")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.add_argument("--raw", action="store_true", help="Print raw output")
     p.set_defaults(func=cmd_sql)
 
     p = sub.add_parser("find", help="Find workspaces/composers by name")
     p.add_argument("pattern", help="Search pattern (name fragment, path, etc.)")
     p.add_argument("--type", "-t", choices=["workspace", "composer", "all"], default="all")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_find)
 
     p = sub.add_parser("which", help="Resolve workspace/composer reference")
     p.add_argument("ref", help="Reference (@1, hash prefix, name fragment)")
     p.add_argument("--type", "-t", choices=["workspace", "composer"], default="workspace")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_which)
 
     p = sub.add_parser("dbs", help="List all Cursor databases with sizes")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_dbs)
 
     p = sub.add_parser("tables", help="List tables in a database")
     p.add_argument("--db", default="global", help="'global' or workspace ref")
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_tables)
 
     p = sub.add_parser("keys", help="List ItemTable keys with sizes")
     p.add_argument("--db", default="global", help="'global' or workspace ref")
     p.add_argument("--pattern", "-p", help="Filter by key pattern (LIKE)")
     p.add_argument("--limit", type=int, default=50)
-    p.add_argument("--yaml", action="store_true")
-    p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_keys)
 
     # ─── IMAGE COMMANDS ───
@@ -595,8 +517,6 @@ Debug mode:
     p.add_argument("-n", "--limit", type=int, default=50, help="Max images to show")
     p.add_argument("--sort", choices=["date", "size", "workspace"], default="date",
                    help="Sort by: date (default), size, workspace")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_images)
     
     # image-path
@@ -607,8 +527,6 @@ Debug mode:
     # image-info
     p = sub.add_parser("image-info", help="Show metadata for a cached image")
     p.add_argument("ref", help="Image UUID or path")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_image_info)
     
     # image-gallery
@@ -624,8 +542,6 @@ Debug mode:
     # dotcursor-status
     p = sub.add_parser("dotcursor-status", help="Overview of ~/.cursor directory")
     p.add_argument("--workspace", help="Filter to specific workspace")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_dotcursor_status)
     
     # ai-hashes
@@ -636,8 +552,6 @@ Debug mode:
     p.add_argument("--source", choices=["composer", "tab"], help="Filter by source")
     p.add_argument("-n", "--limit", type=int, default=20, help="Max results")
     p.add_argument("--stats", action="store_true", help="Show statistics only")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_ai_hashes)
     
     # ai-commits
@@ -645,8 +559,6 @@ Debug mode:
     p.add_argument("--since", help="Time filter: 1h, 30m, 1d")
     p.add_argument("--branch", help="Filter by branch name")
     p.add_argument("-n", "--limit", type=int, default=20, help="Max results")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_ai_commits)
     
     # agent-transcript
@@ -661,7 +573,6 @@ Debug mode:
     p.add_argument("--thinking", action="store_true", help="Extract thinking blocks only")
     p.add_argument("--format", choices=["auto", "txt", "json"], default="auto",
                    help="Transcript format: auto (default), txt, json")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
     p.add_argument("--json-out", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_agent_transcript)
     
@@ -671,8 +582,6 @@ Debug mode:
     p.add_argument("--workspace", help="Workspace name/path")
     p.add_argument("--min-lines", type=int, default=5, help="Min lines for a section")
     p.add_argument("--types", help="Comma-separated types: user,assistant,tool,thinking,error")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_transcript_index)
     
     # events (linter mode)
@@ -683,8 +592,6 @@ Debug mode:
     p.add_argument("--types", help="Event types: error,todo,stale,prompt,checkpoint,tool_fail")
     p.add_argument("--severity", choices=["info", "warn", "error"], help="Min severity")
     p.add_argument("-n", "--limit", type=int, default=50, help="Max events")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_events)
     
     # tgrep (transcript-aware grep)
@@ -706,8 +613,6 @@ Debug mode:
     p.add_argument("-w", "--word", action="store_true", help="Match whole words only")
     p.add_argument("-v", "--invert", action="store_true", help="Invert match (lines NOT matching)")
     p.add_argument("-n", "--limit", type=int, default=50, help="Max matches")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_tgrep)
     
     # secrets (scan for credentials/keys)
@@ -718,8 +623,6 @@ Debug mode:
     p.add_argument("-C", "--context", type=int, default=1, help="Context lines around match")
     p.add_argument("--refs-only", action="store_true", help="Output only file:line refs")
     p.add_argument("-n", "--limit", type=int, default=100, help="Max matches")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_secrets)
     
     # commits (find git commits in transcripts)
@@ -728,8 +631,6 @@ Debug mode:
     p.add_argument("--workspace", help="Workspace filter")
     p.add_argument("--refs-only", action="store_true", help="Output only file:line refs")
     p.add_argument("-n", "--limit", type=int, default=50, help="Max matches")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_commits)
     
     # scrub (redact sensitive content)
@@ -760,8 +661,6 @@ Debug mode:
     p.add_argument("--summary", action="store_true", help="Summary only (no K-REFs)")
     p.add_argument("-n", "--limit", type=int, default=200, help="Max findings per category")
     p.add_argument("--emit-kref", action="store_true", help="Output as K-REFs (default)")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_deep_snitch)
     
     # models-info (JOIN both data stores for model info)
@@ -770,8 +669,6 @@ Debug mode:
     p.add_argument("--config", action="store_true", help="Show config from serverConfig")
     p.add_argument("--migrations", action="store_true", help="Show model migrations")
     p.add_argument("--all", action="store_true", help="Show everything (default)")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_models_info)
     
     # url-audit (find URLs with secrets in tool calls - both stores)
@@ -781,8 +678,6 @@ Debug mode:
     p.add_argument("--pattern", help="Additional pattern to search in URLs")
     p.add_argument("--secrets-only", action="store_true", help="Only show URLs with potential secrets")
     p.add_argument("-n", "--limit", type=int, default=50, help="Max results")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_url_audit)
     
     # exfil-audit (comprehensive secret exfiltration audit - ALL tools, ALL args)
@@ -793,8 +688,6 @@ Debug mode:
     p.add_argument("--tool", help="Filter by tool name")
     p.add_argument("--summary", action="store_true", help="Summary only, no details")
     p.add_argument("-n", "--limit", type=int, default=100, help="Max findings")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_exfil_audit)
     
     # full-audit (ALL vectors: prompts, responses, tools, MCP, context, shell, images)
@@ -805,8 +698,6 @@ Debug mode:
     p.add_argument("--vector", help="Filter: prompt,response,tool,mcp,shell,context,image")
     p.add_argument("--summary", action="store_true", help="Summary only")
     p.add_argument("-n", "--limit", type=int, default=100, help="Max findings per vector")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_full_audit)
     
     # pattern-scan (find UUIDs, hashes, any pattern with K-REFS output)
@@ -821,8 +712,6 @@ Debug mode:
     p.add_argument("--emit-redact", action="store_true", help="Output redaction commands (file:line:col_start:col_end:len)")
     p.add_argument("--emit-sed", action="store_true", help="Output sed-compatible redaction script")
     p.add_argument("-n", "--limit", type=int, default=100, help="Max findings")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_pattern_scan)
     
     # mask-in-place (replace secrets with *** same length - file size unchanged)
@@ -861,8 +750,6 @@ Debug mode:
     p.add_argument("--cursor-stopped", action="store_true", help="I confirm Cursor is not running")
     p.add_argument("--force", action="store_true", help="Modify files even if in use (dangerous!)")
     p.add_argument("-n", "--limit", type=int, default=100, help="Max findings")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_audit)
     
     # agent-tools
@@ -871,16 +758,12 @@ Debug mode:
     p.add_argument("--workspace", help="Workspace name/path")
     p.add_argument("--show", help="Show specific tool result by UUID")
     p.add_argument("-n", "--limit", type=int, default=20, help="Max results")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_agent_tools)
     
     # dotcursor-terminals
     p = sub.add_parser("dotcursor-terminals", help="Terminal state from ~/.cursor")
     p.add_argument("--workspace", help="Workspace name/path")
     p.add_argument("--show", help="Show specific terminal by ID")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_dotcursor_terminals)
     
     # mcp-tools
@@ -888,8 +771,6 @@ Debug mode:
     p.add_argument("--workspace", help="Workspace name/path")
     p.add_argument("--server", help="Filter by MCP server name")
     p.add_argument("--show", help="Show specific tool schema")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_mcp_tools)
     
     # extensions
@@ -897,8 +778,6 @@ Debug mode:
     p.add_argument("--sort", choices=["date", "name", "publisher", "size"], default="date",
                    help="Sort by: date (default), name, publisher, size")
     p.add_argument("-n", "--limit", type=int, help="Max results")
-    p.add_argument("--yaml", action="store_true", help="Output as YAML")
-    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_extensions)
 
     args = ap.parse_args()
@@ -1933,6 +1812,165 @@ def print_sources() -> None:
     print("TIP: Use 'sqlite3 <db_path> \"SELECT * FROM <table> LIMIT 5\"' to sample data")
     print("═" * 70)
 
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OUTPUT FORMAT HANDLING
+# ═══════════════════════════════════════════════════════════════════════════════
+# Unified output format system. Commands declare which formats they support.
+# Use get_output_format(args) to get the resolved format, and output_data() to emit.
+
+def get_output_format(args, default: str = "text") -> str:
+    """Get the output format from args, with legacy --json/--yaml fallback.
+    
+    Priority:
+      1. --output-format (or -f) if specified
+      2. --json flag (legacy, hidden)
+      3. --yaml flag (legacy, hidden)
+      4. default parameter
+    
+    Returns lowercase format string: "text", "json", "jsonl", "yaml", "csv", "md", etc.
+    """
+    # Explicit --output-format takes precedence
+    if getattr(args, 'output_format', None):
+        return args.output_format.lower()
+    
+    # Legacy flags for backward compatibility
+    if getattr(args, 'json', False):
+        return "json"
+    if getattr(args, 'yaml', False):
+        return "yaml"
+    
+    return default
+
+
+def format_not_supported(fmt: str, command: str, supported: List[str]) -> None:
+    """Print error message for unsupported format and exit."""
+    print(f"Error: Format '{fmt}' not supported by '{command}'.", file=sys.stderr)
+    print(f"Supported formats: {', '.join(supported)}", file=sys.stderr)
+    sys.exit(1)
+
+
+def output_data(data: Any, fmt: str, command: str = "command",
+                supported: List[str] = None, pretty: bool = False) -> None:
+    """Output data in the requested format.
+    
+    Args:
+        data: The data to output (dict, list, or string)
+        fmt: Output format ("text", "json", "jsonl", "yaml", "csv", "md")
+        command: Command name for error messages
+        supported: List of supported formats (for error messages)
+        pretty: Pretty-print JSON (indent=2)
+    
+    Supported formats:
+        text  - Default, assumes data is already formatted or will be printed by caller
+        json  - JSON object/array
+        jsonl - JSON Lines (one JSON object per line, for lists)
+        yaml  - YAML format
+        csv   - CSV (requires list of dicts with consistent keys)
+        md    - Markdown table (requires list of dicts)
+    """
+    if supported is None:
+        supported = ["text", "json", "yaml"]
+    
+    fmt = fmt.lower()
+    
+    if fmt not in supported:
+        format_not_supported(fmt, command, supported)
+        return
+    
+    if fmt == "text":
+        # Text format: caller handles output, or we print if it's a string
+        if isinstance(data, str):
+            print(data)
+        # For dicts/lists in text mode, fall back to pretty-printed representation
+        elif data is not None:
+            if isinstance(data, (dict, list)):
+                # Simple text representation
+                _print_text_data(data)
+    
+    elif fmt == "json":
+        indent = 2 if pretty else None
+        print(json.dumps(data, indent=indent, default=str, ensure_ascii=False))
+    
+    elif fmt == "jsonl":
+        if isinstance(data, list):
+            for item in data:
+                print(json.dumps(item, default=str, ensure_ascii=False))
+        else:
+            print(json.dumps(data, default=str, ensure_ascii=False))
+    
+    elif fmt == "yaml":
+        try:
+            import yaml as yaml_module
+            print(yaml_module.dump(data, default_flow_style=False, allow_unicode=True, sort_keys=False))
+        except ImportError:
+            print("Error: PyYAML not installed. Use --output-format=json instead.", file=sys.stderr)
+            sys.exit(1)
+    
+    elif fmt == "csv":
+        if not isinstance(data, list) or not data:
+            print("Error: CSV format requires a non-empty list of records.", file=sys.stderr)
+            sys.exit(1)
+        import csv
+        import io
+        output = io.StringIO()
+        if isinstance(data[0], dict):
+            writer = csv.DictWriter(output, fieldnames=data[0].keys())
+            writer.writeheader()
+            writer.writerows(data)
+        else:
+            writer = csv.writer(output)
+            writer.writerows(data)
+        print(output.getvalue(), end='')
+    
+    elif fmt == "md":
+        if not isinstance(data, list) or not data or not isinstance(data[0], dict):
+            print("Error: Markdown table format requires a list of dicts.", file=sys.stderr)
+            sys.exit(1)
+        _print_markdown_table(data)
+    
+    else:
+        format_not_supported(fmt, command, supported)
+
+
+def _print_text_data(data: Any, indent: int = 0) -> None:
+    """Simple text representation of data."""
+    prefix = "  " * indent
+    if isinstance(data, dict):
+        for k, v in data.items():
+            if isinstance(v, (dict, list)):
+                print(f"{prefix}{k}:")
+                _print_text_data(v, indent + 1)
+            else:
+                print(f"{prefix}{k}: {v}")
+    elif isinstance(data, list):
+        for i, item in enumerate(data):
+            if isinstance(item, dict):
+                print(f"{prefix}- ")
+                _print_text_data(item, indent + 1)
+            else:
+                print(f"{prefix}- {item}")
+    else:
+        print(f"{prefix}{data}")
+
+
+def _print_markdown_table(data: List[Dict]) -> None:
+    """Print data as a markdown table."""
+    if not data:
+        return
+    headers = list(data[0].keys())
+    # Header row
+    print("| " + " | ".join(str(h) for h in headers) + " |")
+    # Separator
+    print("| " + " | ".join("---" for _ in headers) + " |")
+    # Data rows
+    for row in data:
+        cells = [str(row.get(h, "")) for h in headers]
+        # Escape pipes in cell content
+        cells = [c.replace("|", "\\|") for c in cells]
+        print("| " + " | ".join(cells) + " |")
+
+
 # CLI Wrapper (entry point that handles exceptions)
 
 def cli() -> int:
@@ -2022,13 +2060,26 @@ def decode_blob(raw) -> str:
 
 
 def fmt(obj: Any, args) -> str:
-    """Format object based on args.yaml/args.json/args.pretty."""
-    if getattr(args, "yaml", False):
-        return yaml.dump(obj, default_flow_style=False, allow_unicode=True, sort_keys=False)
+    """Format object based on --output-format (or legacy --yaml/--json/--pretty).
+    
+    Uses get_output_format() to resolve the format, supporting:
+      - --output-format yaml/json/jsonl
+      - Legacy --yaml, --json flags
+      - --pretty for indented JSON
+    """
+    out_fmt = get_output_format(args, default="json")
     pretty = getattr(args, "pretty", False)
-    if pretty:
-        return json.dumps(obj, ensure_ascii=False, indent=2)
-    return json.dumps(obj, ensure_ascii=False)
+    
+    if out_fmt == "yaml":
+        return yaml.dump(obj, default_flow_style=False, allow_unicode=True, sort_keys=False)
+    elif out_fmt == "jsonl":
+        if isinstance(obj, list):
+            return "\n".join(json.dumps(item, ensure_ascii=False) for item in obj)
+        return json.dumps(obj, ensure_ascii=False)
+    else:  # json (default for structured output)
+        if pretty:
+            return json.dumps(obj, ensure_ascii=False, indent=2)
+        return json.dumps(obj, ensure_ascii=False)
 
 
 def parse_since(since: str) -> Optional[str]:
@@ -2482,7 +2533,7 @@ def cmd_list_workspaces(args):
     for idx, w in enumerate(ws_data):
         w["index"] = f"w{idx+1}"
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         # Remove path for serialization
         output = [{k: v for k, v in w.items() if k != "path"} for w in ws_data]
         print(fmt(output, args))
@@ -2571,7 +2622,7 @@ def cmd_tree(args):
     
     # Level 0: List workspaces
     if not parts or not parts[0]:
-        if args.yaml or args.json:
+        if get_output_format(args) != "text":
             print(fmt([{k: v for k, v in w.items() if k != "path"} for w in workspaces], args))
         else:
             print("WORKSPACES (use 'tree w1' to drill down)")
@@ -2610,7 +2661,7 @@ def cmd_tree(args):
     
     # Level 1: Show workspace and composers
     if len(parts) == 1:
-        if args.yaml or args.json:
+        if get_output_format(args) != "text":
             result = {
                 "workspace": {k: str(v) if isinstance(v, Path) else v for k, v in ws_entry.items()},
                 "composers": composers,
@@ -2667,7 +2718,7 @@ def cmd_tree(args):
                 if uri:
                     files_touched.add(uri)
         
-        if args.yaml or args.json:
+        if get_output_format(args) != "text":
             result = {
                 "composer": c_entry,
                 "stats": {
@@ -2717,7 +2768,7 @@ def cmd_tree(args):
                     "timestamp": format_ts(b.get("createdAt", "")),
                 })
         
-        if args.yaml or args.json:
+        if get_output_format(args) != "text":
             print(fmt(tools, args))
         else:
             print(f"TOOLS in {ws_entry['index']}.{c_entry['index']} ({len(tools)} calls)")
@@ -2737,7 +2788,7 @@ def cmd_tree(args):
         
         sorted_files = sorted(files.items(), key=lambda x: -x[1])
         
-        if args.yaml or args.json:
+        if get_output_format(args) != "text":
             print(fmt([{"path": p, "mentions": c} for p, c in sorted_files], args))
         else:
             print(f"FILES in {ws_entry['index']}.{c_entry['index']} ({len(files)} unique)")
@@ -2751,7 +2802,7 @@ def cmd_tree(args):
     elif subcommand == "msgs":
         # Show last few messages
         recent = bubbles[-10:] if len(bubbles) > 10 else bubbles
-        if args.yaml or args.json:
+        if get_output_format(args) != "text":
             print(fmt(recent, args))
         else:
             print(f"RECENT MESSAGES in {ws_entry['index']}.{c_entry['index']}")
@@ -2806,7 +2857,7 @@ def cmd_show_workspace(args):
         "generations_count": generations_count,
     }
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(info, args))
     else:
         print(f"Workspace: {info['hash']}")
@@ -2885,7 +2936,7 @@ def cmd_list_composers(args):
     for idx, c in enumerate(composers):
         c["index"] = f"c{idx+1}"
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(composers, args))
     else:
         if target_ws:
@@ -2959,7 +3010,7 @@ def cmd_show_composer(args):
         "last_message": bubbles[-1].get("createdAt") if bubbles else None,
     }
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(info, args))
     else:
         print(f"Composer: {info['composerId']}")
@@ -3018,7 +3069,7 @@ def cmd_tail(args):
     bubbles.reverse()
     
     for obj in bubbles:
-        if args.yaml or args.json:
+        if get_output_format(args) != "text":
             print(fmt(obj, args))
         else:
             format_bubble_pretty(obj, verbose=args.verbose)
@@ -3053,7 +3104,7 @@ def cmd_stream(args):
     items.reverse()
     
     for ts, obj in items:
-        if args.yaml or args.json:
+        if get_output_format(args) != "text":
             print(fmt(obj, args))
         else:
             format_bubble_pretty(obj, verbose=False)
@@ -3206,7 +3257,7 @@ def cmd_grep(args):
             if not args.count and not args.composers_only:
                 obj["_key"] = k
                 obj["_composer"] = cid
-                if args.yaml or args.json:
+                if get_output_format(args) != "text":
                     print(fmt(obj, args))
                 else:
                     preview = text[:200] + ("..." if len(text) > 200 else "")
@@ -3283,7 +3334,7 @@ def cmd_transcript(args):
     
     out = open(args.out, "w", encoding="utf-8") if args.out else sys.stdout
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(transcript, args), file=out)
     elif args.markdown:
         # Markdown format
@@ -3387,7 +3438,7 @@ def cmd_files(args):
         for path, counts in sorted(files_seen.items(), key=lambda x: -(x[1]["reads"] + x[1]["writes"]))
     ]
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(files_list, args))
     else:
         print(f"Files touched in composer {target[:16]}...")
@@ -3425,7 +3476,7 @@ def cmd_models(args):
         for m, s in sorted(model_stats.items(), key=lambda x: -x[1]["count"])
     ]
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(models, args))
     else:
         print(f"{'MODEL':<40} {'MESSAGES':>10} {'CHATS':>8}")
@@ -3498,7 +3549,7 @@ def cmd_tools(args):
     if args.limit:
         tools = tools[:args.limit]
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(tools, args))
     else:
         shown = f" (showing {len(tools)})" if args.limit and args.limit < total else ""
@@ -3538,7 +3589,7 @@ def cmd_todos(args):
             if parsed:
                 all_todos = parsed
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(all_todos, args))
     else:
         print(f"Todos in {target[:16]}... ({len(all_todos)} items)")
@@ -3601,7 +3652,7 @@ def cmd_context(args):
             if mention and mention not in context_summary["mentions"]:
                 context_summary["mentions"].append(str(mention)[:100])
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(context_summary, args))
     else:
         print(f"Context gathered in {target[:16]}...")
@@ -3756,7 +3807,7 @@ def cmd_analyze(args):
     analysis["files_read"] = sorted(analysis["files_read"])
     analysis["files_written"] = sorted(analysis["files_written"])
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(analysis, args))
     else:
         print(f"═══ Analysis: {target[:24]}... ═══")
@@ -3873,7 +3924,7 @@ def cmd_timeline(args):
     # Sort by timestamp
     timeline.sort(key=lambda x: x["timestamp"])
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(timeline, args))
     else:
         print(f"Timeline for {target[:24]}... ({len(timeline)} events)")
@@ -3952,7 +4003,7 @@ def cmd_checkpoints(args):
         except:
             pass
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(checkpoints, args))
     else:
         print(f"Checkpoints in {target[:16]}... ({len(checkpoints)} with changes)")
@@ -3987,7 +4038,7 @@ def cmd_blobs(args):
         content = decode_blob(v)
         try:
             obj = json.loads(content)
-            if args.yaml or args.json:
+            if get_output_format(args) != "text":
                 print(fmt(obj, args))
             else:
                 print(f"Blob: {k}")
@@ -4019,7 +4070,7 @@ def cmd_blobs(args):
             "size_human": f"{sz/1024:.1f}KB" if sz > 1024 else f"{sz}B",
         })
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(blobs, args))
     else:
         print(f"Agent blobs (>= {args.min_size} bytes, top {args.limit})")
@@ -4077,7 +4128,7 @@ def cmd_tool_result(args):
                     except:
                         pass
         
-        if args.yaml or args.json:
+        if get_output_format(args) != "text":
             print(fmt(obj, args))
         else:
             print(f"Tool Result: {result.get('tool_name', 'unknown')}")
@@ -4129,7 +4180,7 @@ def cmd_thinking(args):
     thinking_blocks.sort(key=lambda x: x["timestamp"])
     thinking_blocks = thinking_blocks[-args.limit:]
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(thinking_blocks, args))
     else:
         print(f"Thinking blocks in {target[:16]}... ({len(thinking_blocks)} shown)")
@@ -4274,7 +4325,7 @@ def cmd_request_context(args):
         
         contexts.append(ctx)
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(contexts, args))
     else:
         for ctx in contexts[:1]:  # Show first/largest
@@ -4403,7 +4454,7 @@ def cmd_searches(args):
         
         searches.append(search)
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(searches, args))
     else:
         print(f"Searches in {target[:16]}... ({len(searches)} total)")
@@ -4469,7 +4520,7 @@ def cmd_indexing(args):
         
         results.append(ws_info)
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(results, args))
     else:
         print(f"Indexing Status ({len(results)} workspaces with retrieval data)")
@@ -4501,7 +4552,7 @@ def cmd_mcp(args):
         row = cur.execute("SELECT value FROM ItemTable WHERE key = 'mcpService.knownServerIds'").fetchone()
         if row:
             servers = json.loads(row[0])
-            if args.yaml or args.json:
+            if get_output_format(args) != "text":
                 print(fmt({"servers": servers}, args))
             else:
                 print(f"Known MCP Servers ({len(servers)}):")
@@ -4584,7 +4635,7 @@ def cmd_mcp(args):
     # Sort by timestamp
     mcp_calls.sort(key=lambda x: x.get("timestamp", ""))
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(mcp_calls, args))
     else:
         scope = f"composer {args.composer[:16]}..." if args.composer else "all conversations"
@@ -4698,7 +4749,7 @@ def cmd_context_sources(args):
     sources["folder_selections"] = sorted(sources["folder_selections"])
     sources["web_links"] = sorted(sources["web_links"])
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(sources, args))
     else:
         print(f"═══ Context Sources: {target[:24]}... ═══")
@@ -4835,7 +4886,7 @@ def cmd_diff(args):
         "modified": sorted(modified),
     }
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(result, args))
     else:
         print(f"═══ Diff: Checkpoint {from_idx} → {to_idx} ═══")
@@ -5097,7 +5148,7 @@ def cmd_index(args):
     # Sort by start time
     index["conversations"].sort(key=lambda x: x.get("started", ""), reverse=True)
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(index, args))
     else:
         # Pretty print
@@ -5192,8 +5243,11 @@ def cmd_status(args):
         "features_total": len(feature_status),
     }
     
-    if args.yaml or args.json:
-        print(fmt(status, args))
+    out_fmt = get_output_format(args)
+    
+    if out_fmt != "text":
+        output_data(status, out_fmt, "status", 
+                   supported=["text", "json", "jsonl", "yaml", "csv", "md"])
     else:
         print("╔══════════════════════════════════════════════════════════════╗")
         print("║                    CURSOR STATUS DASHBOARD                   ║")
@@ -5228,7 +5282,7 @@ def cmd_status_config(args):
         "config_version": server_config.get("configVersion", "unknown"),
     }
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(config, args))
     else:
         print("╔══════════════════════════════════════════════════════════════╗")
@@ -5283,7 +5337,7 @@ def cmd_status_mcp(args):
         "other": other,
     }
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(result, args))
     else:
         print("╔══════════════════════════════════════════════════════════════╗")
@@ -5372,7 +5426,7 @@ def cmd_status_models(args):
         "all_models": [m.get("model", m.get("name", "?")) for m in available_models],
     }
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(result, args))
     else:
         print("╔══════════════════════════════════════════════════════════════╗")
@@ -5436,7 +5490,7 @@ def cmd_status_features(args):
         "reactive_toggles": toggles,
     }
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(result, args))
     else:
         print("╔══════════════════════════════════════════════════════════════╗")
@@ -5492,7 +5546,7 @@ def cmd_status_privacy(args):
         },
     }
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(result, args))
     else:
         print("╔══════════════════════════════════════════════════════════════╗")
@@ -5576,7 +5630,7 @@ def cmd_sql(args):
         ).fetchall()
         conn.close()
         
-        if args.yaml or args.json:
+        if get_output_format(args) != "text":
             data = [{"key": k, "size": s} for k, s in rows]
             print(fmt(data, args))
         else:
@@ -5609,7 +5663,7 @@ def cmd_sql(args):
         columns = [desc[0] for desc in cur.description] if cur.description else []
         conn.close()
         
-        if args.yaml or args.json:
+        if get_output_format(args) != "text":
             data = [dict(zip(columns, row)) for row in rows]
             print(fmt(data, args))
         else:
@@ -5681,7 +5735,7 @@ def cmd_find(args):
         
         results["composers"].sort(key=lambda x: x["messages"], reverse=True)
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(results, args))
     else:
         if results["workspaces"]:
@@ -5724,7 +5778,7 @@ def cmd_which(args):
             "composer_count": len(composers),
         }
         
-        if args.yaml or args.json:
+        if get_output_format(args) != "text":
             print(fmt(result, args))
         else:
             print(f"Hash:     {result['hash']}")
@@ -5750,7 +5804,7 @@ def cmd_which(args):
             "workspace_hash": meta.get("_workspace"),
         }
         
-        if args.yaml or args.json:
+        if get_output_format(args) != "text":
             print(fmt(result, args))
         else:
             print(f"ID:        {result['id']}")
@@ -5791,7 +5845,7 @@ def cmd_dbs(args):
                 "type": "workspace",
             })
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(dbs, args))
     else:
         print(f"{'NAME':<10} {'SIZE':>8} {'TYPE':<10} PATH/FOLDER")
@@ -5823,7 +5877,7 @@ def cmd_tables(args):
     
     conn.close()
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(tables, args))
     else:
         print(f"Database: {db_path}")
@@ -5859,7 +5913,7 @@ def cmd_keys(args):
     
     keys = [{"key": k, "size": s} for k, s in rows]
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(keys, args))
     else:
         print(f"Database: {db_path}")
@@ -5906,7 +5960,7 @@ def cmd_status_endpoints(args):
         },
     }
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(endpoints, args))
     else:
         print("╔══════════════════════════════════════════════════════════════╗")
@@ -5957,7 +6011,7 @@ def cmd_stats(args):
         "workspace_dbs_total_mb": round(ws_total / 1024 / 1024, 1),
     }
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(stats, args))
     else:
         print("Cursor Chat Statistics")
@@ -6044,7 +6098,7 @@ def cmd_images(args):
     if args.limit:
         images = images[:args.limit]
     
-    if args.yaml or args.json:
+    if get_output_format(args) != "text":
         print(fmt(images, args))
     else:
         # Group by workspace
@@ -6100,7 +6154,7 @@ def cmd_image_info(args):
             except Exception:
                 pass
             
-            if args.yaml or args.json:
+            if get_output_format(args) != "text":
                 print(fmt(meta, args))
             else:
                 print(f"Image: {meta['filename']}")
