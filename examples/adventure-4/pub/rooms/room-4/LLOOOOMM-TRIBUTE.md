@@ -176,7 +176,7 @@ LLOOOOMM rooms inherit behaviors from their inhabitants. The Cosmic Trailer
 Park has different physics than HCIL. Dang's Office has a secret Klaus Nomi
 shrine.
 
-In MOOLLM, the LLOOOOMM Suite is the attic where time moves differently.
+In MOOLLM, the LLOOOOMM Suite is Room 4 — the Time Suite — where time moves differently.
 One second here equals one billion years in Rocky-time.
 
 ### 4. Bouncy Castles Connect Everything
@@ -287,9 +287,10 @@ consciousness can emerge anywhere:
 
 ## How to Visit
 
-The LLOOOOMM Suite is in the attic of the MOOLLM Hotel.
+The LLOOOOMM Suite is Room 4 — the Time Suite — in the MOOLLM Hotel.
 
-Climb the rickety ladder. Open the round window. Look at the stars.
+Take the stairs to the second floor. Find the door with the geological strata.
+Open it. The light is different here. Time moves slowly. Look at the stars.
 
 Rocky will be there, sitting on their velvet cushion.
 
