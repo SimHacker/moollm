@@ -1,0 +1,135 @@
+---
+inherits: slideshow
+title: "{{title}}"
+created: {{date}}
+images: {{image_count}}
+style: {{style}}
+---
+
+# {{emoji}} {{title}}
+
+> *"{{opening_quote}}"*
+
+{{overview}}
+
+---
+
+{{#each images}}
+## 📍 Shot {{index}}: {{location}} ({{time}})
+
+### *"{{caption}}"*
+
+![{{alt_text}}]({{filename}})
+
+**Location:** {{location_description}}
+
+**Who's Here:**
+{{#each subjects}}
+- {{emoji}} {{name}} {{action}}
+{{/each}}
+
+{{#if notes}}
+**Notes:** {{notes}}
+{{/if}}
+
+📎 **Files:** [Prompt]({{prompt_file}}){{#if mined_file}} | [Resources]({{mined_file}}){{/if}}
+
+---
+
+{{/each}}
+
+## 📊 Stats
+
+| Time | Location | Highlights |
+|------|----------|------------|
+{{#each images}}
+| {{time}} | {{location}} | {{highlights}} |
+{{/each}}
+
+---
+
+## 🎨 Style Notes
+
+{{style_notes}}
+
+---
+
+*"{{closing_quote}}"*
+
+{{closing_emoji}}
+
+<!-- 
+═══════════════════════════════════════════════════════════════════════════════
+TEMPLATE INSTRUCTIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+This template creates a SLIDESHOW.md file for a directory of images.
+
+FRONT MATTER (required):
+  inherits: slideshow          # Always "slideshow"
+  title: string                # Gallery title
+  created: YYYY-MM-DD          # Creation date
+  images: number               # Count of images
+  style: string                # Visual style descriptor
+
+PLACEHOLDERS:
+
+  {{title}}              - Gallery title (e.g., "Don's Pub Photos — January 19, 2026")
+  {{date}}               - Creation date in YYYY-MM-DD format
+  {{image_count}}        - Number of images in gallery
+  {{style}}              - Style keyword (e.g., "first-person-phone-camera")
+  {{emoji}}              - Header emoji (e.g., 📸, 🎞️, 🖼️)
+  {{opening_quote}}      - Evocative opening quote
+  {{overview}}           - 2-3 sentence description of what this gallery contains
+  {{closing_quote}}      - Closing quote or tagline
+  {{closing_emoji}}      - Emoji signature (e.g., 🐒🍺✨)
+
+FOR EACH IMAGE:
+
+  {{index}}              - Shot number (1, 2, 3...)
+  {{location}}           - Where in the world (e.g., "The Bar", "Cat Cave")
+  {{time}}               - Time of shot (e.g., "4:30 PM")
+  {{caption}}            - Brief evocative caption in quotes
+  {{filename}}           - Image filename (relative path)
+  {{alt_text}}           - Alt text for accessibility
+  {{location_description}} - Detailed location description
+  {{subjects}}           - Array of who/what appears:
+    - emoji: Character/object emoji
+    - name: Character/object name
+    - action: What they're doing
+  {{notes}}              - Optional additional notes
+  {{prompt_file}}        - Path to .yml prompt sidecar
+  {{mined_file}}         - Path to -mined.yml resources (optional)
+  {{highlights}}         - Brief highlights for stats table
+
+STYLE NOTES:
+
+  {{style_notes}}        - Description of artistic direction, visual consistency,
+                           rendering style, mood, technical choices
+
+ORGANIZATION:
+
+  When creating a new slideshow:
+  1. Create a descriptively-named subdirectory (lowercase-dashes)
+  2. Move all related images, prompts, and mined files into it
+  3. Create SLIDESHOW.md from this template
+  4. Update parent README if applicable
+
+NAMING CONVENTION:
+
+  Directory: descriptive-name-YYYY-MM-DD (if temporal)
+  Examples:
+    - dons-pub-photos-2026-01-19/
+    - dusty-attic-art-styles/
+    - palm-portrait-session/
+    - acme-tunnel-temporal-views/
+
+MULTI-LOOK MINING:
+
+  If images have multi-look mined data, mention it in style notes:
+  
+  "Images include multi-look mined resources with Layer 1 (OpenAI) 
+  general extraction and Layer 2 (Claude) character/narrative analysis."
+
+═══════════════════════════════════════════════════════════════════════════════
+-->

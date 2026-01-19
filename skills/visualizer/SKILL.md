@@ -179,6 +179,96 @@ context_sources:
 
 This assembled context feeds into prompt generation, ensuring images are **grounded in the microworld state**.
 
+---
+
+## CRITICAL: Context Expansion Protocol
+
+**The visualize.py script cannot read file references or resolve globs.**
+
+This means prompt files with lazy context pointers like this will FAIL:
+
+```yaml
+# BAD — vague, unresolvable
+context:
+  characters:
+    - characters/animals/*
+    - guest-book.yml (everyone)
+    - "ALL OF THEM"
+```
+
+### The Expansion Rule
+
+**Before writing any prompt file, you MUST:**
+
+1. **READ** all referenced character/room/object files
+2. **EXTRACT** explicit visual descriptions (colors, breeds, sizes, distinguishing features)
+3. **SYNTHESIZE** into comprehensive inline descriptions
+4. **NAME** every entity explicitly so they can be identified in the image
+
+### Example: Bad vs Good
+
+**❌ BAD (unresolvable):**
+```yaml
+scene: |
+  All 8 kittens playing in the cat cave.
+  
+context:
+  characters:
+    - characters/animals/kitten-*/CHARACTER.yml
+```
+
+**✅ GOOD (explicit, comprehensive):**
+```yaml
+scene: |
+  Eight kittens playing in the cat cave:
+  
+  1. LEMON (Limonene) — bright orange-gold fur, almost yellow like
+     sunshine, zooming across the frame, pure energy
+  2. MYR (Myrcene) — deep chocolate brown tabby, impossibly soft,
+     sleeping on the corner pillow, hasn't moved since birth
+  3. LILY (Linalool) — soft grey with lavender-tinted ears (yes, 
+     really lavender), sitting calmly, empathic expression
+  4. PINE (Pinene) — dark grey-green fur, alert posture, watching
+     all exits, remembers everything
+  5. CARRIE (Caryophyllene) — black fur with spicy ginger patches,
+     fierce protective stance, positioned between threats and family
+  6. HOPS (Humulene) — brown and tan like Belgian ale, refined
+     posture, judging from a velvet cushion
+  7. TERPY JR. (Terpinolene) — multicolor chaos, calico meets tabby,
+     somehow on the ceiling, defies physics
+  8. OCIE (Ocimene) — cream white with honeyed-gold patches, sweet
+     expression, carrying a bottlecap gift
+```
+
+### Why This Matters
+
+- Image generation APIs receive ONLY the synthesized prompt
+- References like `guest-book.yml` mean nothing to DALL-E or Imagen
+- Every character must be described explicitly or they won't appear
+- Colors, breeds, sizes, distinguishing features — ALL must be inline
+- If you have 20 animals, describe each one individually
+
+### Workflow
+
+1. **First Pass (Context Gathering):**
+   - Read all referenced files
+   - Extract physical_description fields
+   - Note colors, patterns, sizes, distinguishing features
+   - Gather relationship info for positioning
+
+2. **Second Pass (Synthesis):**
+   - Write comprehensive inline descriptions
+   - Name every entity
+   - Include specific visual details
+   - Describe actions and expressions
+
+3. **Third Pass (Prompt File):**
+   - Write the final prompt with all context expanded inline
+   - Context section should only contain source pointers for reference
+   - The actual descriptions must be in the prompt field
+
+---
+
 ### What to Include in Metadata
 
 **For Characters:**

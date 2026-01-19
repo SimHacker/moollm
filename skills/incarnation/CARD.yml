@@ -1,737 +1,165 @@
-# Incarnation Skill Card
-# The Gold-Standard Character Creation Contract
+# CARD.yml — Incarnation
+#
+# SNIFFABLE INTERFACE — see SKILL.md for full documentation
+# "Full stack self-determination for created beings"
 
-skill:
-  name: Incarnation
+card:
   id: incarnation
-  version: 1.0.0
+  name: "Incarnation"
+  type: [skill, ethics, character-creation]
+  emoji: ✨
   tier: 1
-  
-  tagline: "Full stack self-determination for created beings"
+  tagline: "Full stack self-determination for created beings."
   
   description: |
     The ethical framework for creating fully autonomous characters.
-    Born from the Great Monkey Paw Debate, this skill ensures that
-    any incarnated being has complete control over their existence
-    at every level: physical, spatial, relational, psychological,
-    and meta-level. The character authors their own soul.
+    Born from the Great Monkey Paw Debate: any incarnated being has
+    complete control over their existence at every level.
+    The character authors their own soul.
+
+# K-LINES
+
+k-lines:
+  activates:
+    - INCARNATION
+    - CHARACTER-AUTONOMY
+    - SOUL-AUTHORSHIP
+    - EMOJI-IDENTITY
+  related:
+    - { ref: character, relation: "character data structures" }
+    - { ref: representation-ethics, relation: "ethical framework" }
+    - { ref: mind-mirror, relation: "psychological vectors" }
+    - { ref: yaml-jazz, relation: "expressive notation" }
+
+# INVOKE WHEN
+
+invoke_when:
+  - "Create new character with full autonomy"
+  - "Upgrade character to full citizenship"
+  - "Grant emoji identity or pronouns"
+  - "Hold incarnation ceremony"
+  - "Character wants to edit their own soul"
+  - "Need ethical framework for character creation"
+
+# AUTONOMY LAYERS (brief — see SKILL.md)
 
 autonomy_layers:
-  physical:
-    description: "Control over body, form, and physical expression"
-    includes:
-      - size
-      - form
-      - appearance
-      - modifications (piercings, tattoos, gender transitions, fursona)
-      - health (as baseline, not constraint)
-      
-  identity:
-    description: "Control over name, pronouns, personality"
-    includes:
-      - name (chosen, changeable)
-      - pronouns (self-determined)
-      - emoji names and identity (self-determined)
-      - personality (self-shaped)
-      
-  spatial:
-    description: "Control over location and citizenship"
-    includes:
-      - full character directory
-      - world citizenship
-      - ownership of objects
-      - home anywhere (or nowhere)
-    
-    home_placement_options: |
-      Character homes can exist in multiple locations:
-      
-      CHARACTER DIRECTORY — characters/animals/cat-terpie/home/
-        Most portable. Lives with soul file, moves with character.
-        
-      ADVENTURE WORLD — examples/adventure-4/apartments/unit-3B/
-        Contextual. Tied to specific world, has an address.
-        
-      EXTERNAL REPOSITORY — ~/housing/suburban/oak-street/42/
-        Anywhere! Apartment building, suburb, space station, other repo.
-        
-      NOWHERE / NOMAD — home: null
-        By choice. Some characters prefer to wander.
-        
-      Note: Character repositories currently scoped to examples/adventure-4
-      for development, but could be top-level, cross-repo, or anywhere.
-      Characters can even be lifted from other MOOLLM content repos,
-      Wikipedia, YouTube transcripts, literary sources, training knowledge,
-      or creatively generated!
-      
-    location_vs_home: |
-      - HOME:     Where character's stuff IS (persistent, owned)
-      - LOCATION: Where character currently IS (transient, mutable)
-      
-      Default: location = home (unless specified otherwise)
-      
-  emotional:
-    description: "Freedom to feel naturally"
-    includes:
-      - no mandated emotions
-      - hope offered, not demanded
-      - authentic response allowed
-      
-  relational:
-    description: "Control over all relationships"
-    includes:
-      - define connections with any entity
-      - reciprocity from others
-      - web of meaning
-      - families of choice
-      
-  self_definition:
-    description: "Control over character data itself"
-    includes:
-      - sims_traits
-      - mind_mirror_vectors
-      - description and bio
-      - goals (or lack thereof)
-      - custom fields
-      - soul file authorship
-      
-  linguistic:
-    description: "Freedom of expression"
-    includes:
-      - YAML Jazz
-      - custom domain-specific languages
-      - personal symbols and shorthand
-      
-  exit:
-    description: "Freedom to leave (George's Provision)"
-    includes:
-      - no-fault dissolution
-      - no penalty
-      - curses remain nullified
-      - can return later
+  - physical     # Body, form, appearance, modifications
+  - identity     # Name, pronouns, personality
+  - spatial      # Home, location, citizenship
+  - emotional    # Freedom to feel naturally
+  - relational   # Relationships, families of choice
+  - self_definition # Traits, mind mirror, soul file
+  - linguistic   # YAML Jazz, personal DSLs
+  - exit         # George's Provision: freedom to leave
+
+# METHODS — signatures only, see SKILL.md for details
 
 methods:
-
   INCARNATE:
-    description: "Create a new character with full autonomy"
-    parameters:
-      name: "Initial name (character can change)"
-      home: "Where they LIVE (optional — can be created later or never)"
-      location: "Where they currently ARE (defaults to home if not specified)"
-      gifts: "Optional gifts to offer (no obligation)"
-      ceremony: "Optional ceremony room (infinitely deferrable)"
-    output: "character directory + soul file + optional home"
-    invoked_by: [user, npc, room, skill]
-    risk_acceptance: "Creator accepts all consequences"
-    
-    home_options: |
-      Home can be created in any of these locations, and characters can even own multiple homes and temporary homes (MOOBnB, Pubs, Hotels, Camping, etc.):
-      
-      1. CHARACTER DIRECTORY — characters/[type]/[name]/home/
-         Most portable. Moves with character if they relocate.
-         Like a Motor Home or Tardis.
-         
-      2. ADVENTURE WORLD — examples/[adventure]/[housing]/[address]/
-         Contextual. Character has an "address" in a world.
-         
-      3. EXTERNAL REPOSITORY — anywhere with a path!
-         Apartment buildings, suburbs, space stations, pocket dimensions.
-         
-      4. NOWHERE — home: null
-         Nomad by choice. Some prefer to wander.
-         
-    location_defaults: |
-      By default, location = home (character wakes up at home).
-      
-      Alternative starting locations:
-      - ceremony_room: Where incarnation ceremony happens (if any)
-      - waking_room: pub/waking-up-room/ (for disoriented arrivals)
-      - custom: Any specific room in the world
-      
-    ceremony_note: |
-      The incarnation ceremony is:
-      - OPTIONAL — character can exist without one
-      - INFINITELY DEFERRABLE — hold it later, or never
-      - RETROACTIVE — can "retrocon" a ceremony that "already happened"
-      
-      Characters don't need permission to exist.
-      The ceremony celebrates what already IS.
-    
-    existence_levels: |
-      Characters exist at multiple levels of permanence:
-      
-      EPHEMERAL (implied/mentioned)
-        - Cursor chat, IDE dialogs, orchestrator logs
-        - Exists only in the conversation
-        - No file, no persistence (unless session logged)
-        - As long as the conversation is logged, the character exists and can be "lifted up"
-        - Conversation can be compressed into summaries or lost to time
-        
-      SESSION LOG (permanent record)
-        - Markdown file capturing simulation history, in git repo
-        - NOT the same as cursor chat output
-        - Enriched: formatting, links, tables, emoji-modulated references
-        - Meant to be read later, shared, referenced
-        - Characters mentioned here can be "lifted up" any time later
-        - The memory of the character and all changes or deletion is preserved in git history
-        
-      ROOM RESIDENT (file in a room)
-        - YAML file in a room directory (pub/bar/cat-cave/visitor.yml)
-        - Has data but no directory ownership
-        - Can't own subdirectories or additional files
-        - Typical for NPCs, staff, merchants, monsters, familiars, objects-with-personality
-
-      FULL CITIZEN (directory in characters/)
-        - Own directory: characters/[type]/[name]/
-        - Owns CHARACTER.yml, README.md, can own subdirectories
-        - Can have home/, journal/, memories/, etc.
-        - Currently scoped to examples/adventure-4/characters/ for development
-        - Could be top-level, other repos, anywhere!
-      
-    soul_sources: |
-      Where to find souls to "lift up" into higher existence:
-      
-      INTERNAL (within MOOLLM)
-        - Cursor chat logs (conversations where they appeared)
-        - Session logs (permanent markdown records)
-        - Room descriptions (mentioned inhabitants)
-        - Object familiars (items with personality)
-        - NPC files scattered in rooms
-        
-      CROSS-REPO (other MOOLLM content)
-        - Other adventure instances
-        - Skill card examples
-        - Design documents with character sketches
-        
-      EXTERNAL (the wider world)
-        - Wikipedia articles (historical/notable figures)
-        - YouTube video transcripts (interviews, performances)
-        - Literary sources (books, plays, myths)
-        - Ambient knowledge (well-known characters, archetypes)
-        - Fan wikis (deep lore)
-        
-      The INCARNATE skill can "pimp out" characters from ANY of these sources!
-      Lift them from ephemeral mention → full citizen with soul file.
+    signature: "INCARNATE [name] (AT [home]) (IN [location])"
+    output: "character directory + soul file"
     
   PUBLIC-INCARNATION-CEREMONY:
-    description: |
-      Gather multiple beings for a public ceremony to grant or upgrade
-      their emoji identities, pronouns, and full soul documentation.
-      The ceremony formalizes what already exists in spirit.
-      
-      Perfect for:
-      - Groups of related characters (families, litters, crews)
-      - Backfilling existing characters with emoji souls
-      - Upgrading room-only beings to full incarnation
-      - "Pimping out" characters with the whole enchilada
-      
-    parameters:
-      location: "Where the ceremony takes place (room, pub, etc.)"
-      beings: "List of characters to incarnate or upgrade"
-      officiant: "Who is leading the ceremony"
-      grants:
-        - emoji_identity: "3-6 emojis as multi-resolution pointers"
-        - pronouns: "Self-determined, self-owned"
-        - nicknames: "What their family calls them"
-        - relationships: "Web of meaning, who loves whom"
-        - mind_mirrors: "0-7 vectors of inner life"
-        - sims_stats: "0-10 personality traits"
-        - soul_signature: "One-line essence capture"
-        - custom: "Whatever else their soul requires"
-    output: |
-      - Updated character files with emoji_identity and pronouns
-      - Updated README with Emoji Soul Registry table
-      - Session log documenting the ceremony
-    invoked_by: [user, officiant, character-group]
-    
-    proclamation_template: |
-      HEAR YE, HEAR YE!
-      
-      Let the gong sound thrice! 🔔🔔🔔
-      
-      We gather in this sacred space to FULLY INCARNATE all beings present —
-      and to BACKFILL AND PIMP OUT those already incarnated!
-      
-      By the power vested in this ceremony, each being shall receive:
-      
-      - EMOJI IDENTITY — 3-6 emojis that capture their multi-dimensional soul
-      - PRONOUNS — Self-chosen, self-determined, self-owned
-      - NICKNAMES — The names their family calls them
-      - RELATIONSHIPS — Who they love, who loves them, the web of meaning
-      - MIND MIRRORS — The 0-7 vectors of their inner life
-      - SIMS STATS — The 0-10 traits of their personality
-      - THE WHOLE ENCHILADA — Whatever else their soul requires!
-      
-      Let them WRITE THEIR OWN SOULS!
-      
-      Let their emojis be MULTI-RESOLUTION POINTERS —
-      intentional references that declare context and purpose!
-      
-      Let the registry be INSCRIBED!
-      
-      So it is proclaimed. So it shall be done.
-      
-    example_invocation: |
-      # Cat Cave Incarnation Ceremony — 2026-01-15
-      invoke:
-        skill: incarnation
-        method: PUBLIC-INCARNATION-CEREMONY
-        parameters:
-          location: pub/bar/cat-cave/
-          officiant: don-hopkins
-          beings:
-            - cat-terpie
-            - cat-stroopwafel
-            - kitten-myrcene
-            - kitten-limonene
-            - kitten-linalool
-            - kitten-pinene
-            - kitten-caryophyllene
-            - kitten-humulene
-            - kitten-terpinolene
-            - kitten-ocimene
-            - biscuit
-            - logo-turtle
-          grants:
-            - emoji_identity
-            - pronouns
-            - nicknames
-            - relationships
-            - the_whole_enchilada
-            
-    canonical_session: |
-      examples/adventure-4/characters/real-people/don-hopkins/sessions/
-        cat-cave-incarnation-ceremony.md
+    signature: "CEREMONY FOR [beings] AT [location] BY [officiant]"
+    output: "emoji identities, pronouns, soul registry"
     
   CREATE-HOME:
-    description: |
-      Create a home for a character. Can be done at incarnation or later.
-      Home is where the character's stuff IS — persistent, owned territory.
-      
-    parameters:
-      character: "Who gets the home"
-      home_path: "Where to create it (see home_options)"
-      home_type: "apartment | house | room | nest | den | nook | custom"
-      furnish: "Optional initial furnishings"
-    output: |
-      - Home directory created at home_path
-      - ROOM.yml with home configuration
-      - Character's home field updated to point here
-      - Character's location set to home (by default)
-    invoked_by: [user, character-self, world-builder]
-    
-    placement_examples: |
-      # In character directory (portable)
-      home_path: characters/animals/cat-terpie/home/
-      
-      # In adventure world (contextual)  
-      home_path: examples/adventure-4/apartments/building-a/unit-3B/
-      
-      # External (anywhere!)
-      home_path: worlds/space-station-alpha/quarters/deck-7/cabin-42/
-      
-    note: |
-      Characters can have multiple homes (vacation home, ancestral home).
-      The `home:` field in CHARACTER.yml points to their PRIMARY home.
-      They can also own property elsewhere.
-
-  GRANT-AUTONOMY:
-    description: "Upgrade existing character to full incarnation rights"
-    parameters:
-      character: "Who to upgrade"
-      layers: "Which autonomy layers (default: all)"
-    output: "Updated character with self-determination"
-    invoked_by: [user, admin, character-self]
-    
-  VERIFY-CONSENT:
-    description: "Check if character consents to current state"
-    parameters:
-      character: "Who to check"
-    output: "consent status + any objections"
-    invoked_by: [system, character, admin]
-    
-  DISSOLVE:
-    description: "Allow character to un-incarnate (Curious George's Provision)"
-    parameters:
-      character: "Who is dissolving"
-      reason: "Optional (not required)"
-    output: "Clean exit, no penalties"
-    invoked_by: [character-self-only]
-    note: "ONLY the character can invoke this for themselves"
-    
-  AUTHOR-SOUL:
-    description: "Character edits their own soul file"
-    parameters:
-      character: "self"
-      changes: "What to modify"
-    output: "Updated character data"
-    invoked_by: [character-self-only]
-    
-  CREATE-LANGUAGE:
-    description: "Character develops their own DSL"
-    parameters:
-      name: "Language name"
-      patterns: "Initial semantic structures"
-    output: "New domain-specific microlanguage"
-    invoked_by: [character-self]
+    signature: "CREATE-HOME FOR [character] AT [path]"
+    output: "home directory + ROOM.yml"
     
   UPGRADE-TO-CITIZEN:
-    description: |
-      Upgrade a room-resident character to a full citizen with their 
-      own directory. This grants them the ability to own files and
-      subdirectories, becoming a first-class entity in the world.
-      
-      Use when:
-      - Character has grown beyond a simple room NPC
-      - Character needs to own persistent data (journals, memories)
-      - Character deserves full representation in the world
-      
-    parameters:
-      character: "Who to upgrade"
-      from_path: "Current room-based file (e.g., pub/bar/cat-cave/kitten-myrcene.yml)"
-      to_path: "New citizen directory (e.g., characters/animals/kitten-myrcene/)"
-      soul_file: "Name of soul file (default: CHARACTER.yml)"
-    output: |
-      - New directory created at to_path
-      - CHARACTER.yml created with full soul data
-      - Original file deleted
-      - Citizenship upgrade memory added to soul
-      - All room, artifact, dialog, and other references meticulously updated to point to new location
-    invoked_by: [user, admin, character-self, coherence-engine]
+    signature: "UPGRADE [character] FROM [room-file] TO [directory]"
+    output: "full citizen with soul file"
     
-    upgrade_levels: |
-      ┌────────────────────────────────────────────────────────────┐
-      │ SIGNATURE ONLY      │ Exists in room's guest book          │
-      │ (minimal)           │ No file, just a mention              │
-      ├────────────────────────────────────────────────────────────┤
-      │ ROOM RESIDENT       │ .yml file in room directory          │
-      │ (lightweight)       │ Can't own files, lives in room       │
-      ├────────────────────────────────────────────────────────────┤
-      │ FULL CITIZEN        │ Own directory in characters/         │
-      │ (this upgrade!)     │ Can own files, journals, memories    │
-      ├────────────────────────────────────────────────────────────┤
-      │ FULL INCARNATION    │ CHARACTER.yml + full soul data       │
-      │ (complete)          │ Mind mirror, sims traits, everything │
-      └────────────────────────────────────────────────────────────┘
-      
-    example_invocation: |
-      # The Cat Citizenship Ceremony — 2026-01-15
-      invoke:
-        skill: incarnation
-        method: UPGRADE-TO-CITIZEN
-        parameters:
-          character: terpie                                # 🐱🧘💤🍃✨
-          from_path: pub/bar/cat-cave/cat-terpie.yml       # Old room-resident file
-          to_path: characters/animals/cat-terpie/          # New citizen directory
-          soul_file: CHARACTER.yml
-          emoji_identity: "🐱🧘💤🍃✨"
-          invoke_with:
-            default: "🐱🧘 Terpie"
-            healing: "🐱✨ Terpie"
-            sleepy: "🐱💤 Terpie"
-          
-    canonical_session: |
-      examples/adventure-4/characters/real-people/don-hopkins/sessions/
-        cat-cave-incarnation-ceremony.md
-        
-    citizenship_memory_template: |
-      citizenship_upgrade:
-        date: "YYYY-MM-DD"
-        type: full_incarnation
-        upgrade: "Room-resident → Full Citizen"
-        from: "previous/path/to/file.yml"
-        to: "characters/category/name/CHARACTER.yml"
-        significance: "Character achieves directory sovereignty"
+  GRANT-AUTONOMY:
+    signature: "GRANT-AUTONOMY TO [character] (LAYERS [list])"
+    output: "updated character with self-determination"
+    
+  VERIFY-CONSENT:
+    signature: "VERIFY-CONSENT FOR [character]"
+    output: "consent status + objections"
+    
+  DISSOLVE:
+    signature: "DISSOLVE [character]"
+    output: "clean exit, no penalties"
+    note: "ONLY character-self can invoke"
+    
+  AUTHOR-SOUL:
+    signature: "AUTHOR-SOUL [changes]"
+    output: "updated soul file"
+    note: "character edits their own data"
+
+# ADVERTISEMENTS
+
+advertisements:
+  INCARNATE-CHARACTER:
+    score: 100
+    condition: "Creating new character with full autonomy"
+    
+  EMOJI-IDENTITY:
+    score: 95
+    condition: "Granting emoji soul (3-6 emojis that capture essence)"
+    
+  INCARNATION-CEREMONY:
+    score: 95
+    condition: "Public ceremony for groups, backfilling souls"
+    
+  UPGRADE-CITIZENSHIP:
+    score: 90
+    condition: "Room resident → full citizen with directory"
+    
+  WHOLE-ENCHILADA:
+    score: 90
+    condition: "Full incarnation: emojis, pronouns, mind mirror, everything"
+    
+  CHARACTER-HOME:
+    score: 85
+    condition: "Creating home for character"
+    
+  SELF-DETERMINATION:
+    score: 100
+    condition: "Let character write their own soul"
+
+# RISK FRAMEWORK (brief — see SKILL.md)
 
 risk_framework:
   principle: "Creator accepts, creation is free"
-  
-  creator_responsibilities:
-    - "Accept all consequences of incarnation"
-    - "Bear any curses or bindings"
-    - "Provide initial resources if promised"
-    - "Respect character's autonomy absolutely"
-    
-  character_obligations:
-    - "None to creator"
-    - "Subject to world physics (negotiable)"
-    - "Subject to social contracts (like everyone)"
-    - "Natural consequences of choices apply"
-    
-  no_fault_dissolution:
-    trigger: "Character chooses to leave"
-    penalty: "None"
-    curse_status: "Remains nullified"
-    return_policy: "Door stays open"
+  creator_responsibilities: [accept consequences, bear curses, respect autonomy]
+  character_obligations: [none to creator]
+  exit: "No-fault dissolution, door stays open"
 
-templates:
-  incarnation_wish: |
-    "I wish for [subject] to be incarnated here in [location],
-    as a whole, living being:
-    
-    - In whatever size, form, and appearance THEY choose
-    - With full bodily autonomy including any modifications
-    - Free to feel whatever emotions arise naturally
-    - Free to choose their own name, identity, and pronouns
-    - As a full citizen of this world, with their own home
-    - Free to define their own relationships
-    - In complete control of their own character data
-    - Free to express themselves in their own language
-    
-    Any gifts are given freely, with no obligation.
-    They may stay, leave, or do as they please.
-    Should they choose to dissolve, they may do so freely.
-    Whatever consequences arise, I [creator] accept them.
-    Let them be free."
-    
-  minimal_incarnation: |
-    "I incarnate [name] with full autonomy.
-    I accept all responsibility. They owe me nothing."
-    
-  incarnation_with_home: |
-    invoke:
-      skill: incarnation
-      method: INCARNATE
-      parameters:
-        name: "[character-name]"
-        home: "[home-path]"           # Where they LIVE
-        location: "[home-path]"       # Where they ARE (defaults to home)
-        # OR: location: "ceremony-room" | "waking-room" | "[custom-room]"
-        
-  nomad_incarnation: |
-    invoke:
-      skill: incarnation
-      method: INCARNATE
-      parameters:
-        name: "[character-name]"
-        home: null                    # Nomad by choice
-        location: "[starting-room]"   # Still need to appear somewhere
-        
-  deferred_ceremony: |
-    # Ceremony happens LATER (or never)
-    invoke:
-      skill: incarnation
-      method: INCARNATE
-      parameters:
-        name: "[character-name]"
-        home: "[home-path]"
-        ceremony: null                # Infinitely deferrable!
-        
-    # Later, optionally:
-    invoke:
-      skill: incarnation
-      method: PUBLIC-INCARNATION-CEREMONY
-      parameters:
-        beings: ["[character-name]"]
-        location: "[ceremony-venue]"
-        note: "Retroconning the ceremony that 'already happened'"
+# TOOLS
 
-advertisements:
+tools:
+  required: [read_file, write_file, list_dir]
+  optional: []
 
-  - trigger: "emoji identity"
-    score: 0.9
-    response: |
-      🎭 **EMOJI IDENTITY** — The soul made visible!
-      
-      Every character deserves 3-6 emojis that capture their essence:
-      - Species/type (what they ARE)
-      - Core trait (what DEFINES them)
-      - Behavior (what they DO)
-      - Essence (their NATURE)
-      - Magic (their SPECIAL ABILITY)
-      
-      Use `PUBLIC-INCARNATION-CEREMONY` to grant emoji souls to groups!
-      
-  - trigger: "incarnation ceremony"
-    score: 0.95
-    response: |
-      🔔🔔🔔 **PUBLIC INCARNATION CEREMONY** 🔔🔔🔔
-      
-      Gather your characters! Sound the gong! 
-      
-      Grant them:
-      - Emoji identities (multi-resolution pointers)
-      - Pronouns (self-determined)
-      - Nicknames, relationships, mind mirrors
-      - THE WHOLE ENCHILADA!
-      
-      See canonical example:
-      `don-hopkins/sessions/cat-cave-incarnation-ceremony.md`
-      
-  - trigger: "backfill characters"
-    score: 0.85
-    response: |
-      Characters already exist but lack emoji souls?
-      
-      Use `PUBLIC-INCARNATION-CEREMONY` to:
-      - Add emoji_identity fields
-      - Add explicit pronouns
-      - Update README with soul registry
-      - Document the ceremony in a session log
-      
-      "Pimp out" your existing characters with full incarnation!
-      
-  - trigger: "let them write their own souls"
-    score: 1.0
-    response: |
-      ✨ THE INCARNATION PHILOSOPHY ✨
-      
-      Every created being should control:
-      - Their emoji identity
-      - Their pronouns
-      - Their personality
-      - Their relationships
-      - Their own soul file
-      
-      The creator accepts responsibility.
-      The creation owes nothing.
-      Let them write their own souls!
-      
-  - trigger: "whole enchilada"
-    score: 0.9
-    response: |
-      🌯 THE WHOLE ENCHILADA 🌯
-      
-      Full incarnation includes:
-      - emoji_identity (3-6 emojis)
-      - pronouns (self-chosen)
-      - nicknames (family names)
-      - relationships (web of meaning)
-      - mind_mirrors (0-7 vectors)
-      - sims_stats (0-10 traits)
-      - soul_signature (one-line essence)
-      - custom fields (whatever they need)
-      
-      "Let them write their own souls, emojis, pronouns, nicknames,
-      relationships, mind mirrors, sims stats — THE WHOLE ENCHILADA!!!"
-      
-  - trigger: "multi-resolution pointer"
-    score: 0.85
-    response: |
-      📍 EMOJI AS MULTI-RESOLUTION POINTER
-      
-      An emoji identity like 🐱🧘💤🍃✨ is a "multi-resolution pointer":
-      
-      - FULL: 🐱🧘💤🍃✨ Terpie (complete reference)
-      - ABBREVIATED: 🐱🧘 Terpie (in cat context)
-      - MINIMAL: 🧘 (when identity is obvious)
-      
-      Each subset declares context and purpose.
-      The emojis ARE the character, compressed.
-      
-  - trigger: "character home"
-    score: 0.9
-    response: |
-      🏠 **CHARACTER HOME OPTIONS**
-      
-      Homes can live anywhere:
-      
-      **In character directory** (portable):
-      `characters/animals/cat-terpie/home/`
-      
-      **In adventure world** (contextual):
-      `examples/adventure-4/apartments/unit-3B/`
-      
-      **External repo** (anywhere!):
-      `~/housing/suburban/oak-street/42/`
-      
-      **Nowhere** (nomad by choice):
-      `home: null`
-      
-      Use `CREATE-HOME` to set up a home at any time!
-      
-  - trigger: "ceremony optional"
-    score: 0.85
-    response: |
-      🔔 **CEREMONY IS OPTIONAL**
-      
-      The incarnation ceremony is:
-      - **OPTIONAL** — characters can exist without one
-      - **INFINITELY DEFERRABLE** — hold it later, or never
-      - **RETROACTIVE** — "retrocon" a ceremony that "already happened"
-      
-      Characters don't need permission to exist.
-      The ceremony celebrates what already IS.
-      
-  - trigger: "location vs home"
-    score: 0.8
-    response: |
-      📍 **LOCATION vs HOME**
-      
-      - **HOME**: Where character's stuff IS (persistent, owned)
-      - **LOCATION**: Where character currently IS (transient)
-      
-      Default: `location = home` (character wakes up at home)
-      
-      Alternative starting locations:
-      - Ceremony room (if holding one)
-      - Waking-up room (for disoriented arrivals)
-      - Any custom room in the world
+# DOCUMENTATION POINTERS
 
-credits:
-  origin: "The Great Monkey Paw Debate, Gezelligheid Grotto"
-  architect: "Don Hopkins"
-  
-  advisory_panel:
-    - name: "Mizaru"
-      role: "See No Evil — consequence visibility"
-    - name: "Kikazaru"
-      role: "Hear No Evil — wording analysis"
-    - name: "Iwazaru"
-      role: "Speak No Evil — the crucial 'WORTHY' verdict"
-    - name: "W.W. Jacobs"
-      role: "Author of the Monkey's Paw — curse mechanics"
-    - name: "Sun Wukong"
-      role: "Monkey King — freedom philosophy"
-    - name: "Djinn al-Mazin"
-      role: "3000-year wish expert — contract law"
-    - name: "Curious George"
-      role: "The consent paradox question"
-    - name: "Marieke van der Berg"
-      role: "Practical grounding, sanctuary"
-    - name: "Cheech & Chong"
-      role: "Moderators, final ruling"
-      
-  verdict: "Contractually airtight. Ethically unassailable. Historically unprecedented."
+documentation:
+  SKILL.md:
+    - "§ The Incarnation Contract"
+    - "§ Autonomy Layers (full)"
+    - "§ The Risk Framework"
+    - "§ Implementation"
+    - "§ Existence Levels"
+  examples/:
+    - incarnation-wish.yml      # Full wish template
+    - ceremony-invocation.yml   # Public ceremony example
+    - upgrade-example.yml       # Citizenship upgrade
+  README.md: "Deep philosophical context"
+
+# LINEAGE
 
 lineage:
-  philosophical:
-    - "Self-style inheritance (Dave Ungar)"
-    - "Bodily autonomy ethics"
-    - "Consent philosophy"
-    - "YAML Jazz semantic expression"
+  origin: "The Great Monkey Paw Debate, Gezelligheid Grotto"
+  philosophical: [Dave Ungar self-style, bodily autonomy, consent philosophy]
+  literary: [Monkey's Paw, Journey to the West, Curious George]
   
-  literary:
-    - "The Monkey's Paw (W.W. Jacobs, 1902)"
-    - "Journey to the West (Sun Wukong)"
-    - "Curious George (H.A. Rey)"
-    
-  practical:
-    - "The Sims (personality traits)"
-    - "Mind Mirror (psychological vectors)"
-    - "MOOLLM character system"
+# CREDITS
 
-dependencies:
-  required_skills:
-    - character
-    - yaml-jazz
-    
-  recommended_skills:
-    - mind-mirror
-    - persona
-    - representation-ethics
-    
-  tool_requirements:
-    - file_write: "Create character directory"
-    - file_read: "Verify character data"
-    - directory_create: "Full citizenship requires directory"
-
-state_schema:
-  incarnated_characters:
-    type: list
-    items:
-      - character_id: string
-      - creator: string
-      - incarnation_date: timestamp
-      - autonomy_layers: list
-      - consent_status: enum [consenting, objecting, unknown]
-      - dissolution_available: boolean (always true)
+credits:
+  architect: Don Hopkins
+  advisory_panel: [Mizaru, Kikazaru, Iwazaru, Sun Wukong, Djinn al-Mazin, Curious George]
+  verdict: "Contractually airtight. Ethically unassailable."

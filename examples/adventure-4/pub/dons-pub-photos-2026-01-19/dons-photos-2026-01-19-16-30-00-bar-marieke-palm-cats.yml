@@ -1,0 +1,164 @@
+# Don's Pub Photos — Shot 1: The Bar
+# First-person phone camera, Facebook-style casual
+# "Marieke and Palm at the bar, cats supervising"
+# CONTEXT FULLY EXPANDED from character files, room files, objects
+
+prompt:
+  style: |
+    iPhone photo, first-person POV, casual Facebook snapshot aesthetic.
+    Warm pub lighting, slightly grainy, authentic candid moment.
+    People acknowledge the camera — waving, smiling, posing naturally.
+    Not professional photography — real life captured by a friend.
+    Late afternoon golden hour light streaming through windows.
+
+  scene: |
+    THE RUSTY LANTERN bar, 4:30 PM. Amsterdam coffeeshop atmosphere.
+    Late afternoon golden light streaming through windows.
+    The smell of hops, wood polish, and secrets in the air.
+    Warm, reflected light off gleaming bottles.
+    
+    ═══════════════════════════════════════════════════════════
+    ENVIRONMENT & SCENERY (from pub/bar/ROOM.yml)
+    ═══════════════════════════════════════════════════════════
+    
+    BEHIND THE BAR:
+    - Bottles gleaming on shelves — some dusty, some frequently poured
+    - THE GOOD WHISKEY on top shelf (requires ladder)
+    - A MYSTERIOUS GREEN BOTTLE with no label (glows faintly)
+    - Glasses hanging overhead like crystalline stalactites
+    - Ice bin humming, taps waiting patient
+    
+    THE 1952 COPPER ESPRESSO MACHINE:
+    - Gleaming antique machine, patina of decades
+    - Brass fixtures, steam valves, pressure gauges
+    - Hissing gently, ready for the next pull
+    - Marieke's domain, her instrument
+    
+    HET ORAKEL (The Oracle):
+    - Large ceremonial bong on shelf behind bar
+    - Glass, beautiful, well-maintained
+    - Symbol of the coffeeshop side of the Grotto
+    
+    CANNABIS MENU CHALKBOARD:
+    - Hand-lettered strains with terpene profiles
+    - "Today's Special: Gezelligheid Blend"
+    - Drawings of leaves and terpene wheels
+    
+    DRIED HERBS hanging from ceiling beams
+    
+    THE LEDGER (on counter):
+    - Who owes tabs, who's banned
+    - Marieke's handwriting, decades of history
+    
+    CAT CAVE ENTRANCE visible (small door behind bar)
+    
+    ═══════════════════════════════════════════════════════════
+    FEATURED CHARACTERS (explicit visual descriptions)
+    ═══════════════════════════════════════════════════════════
+    
+    MARIEKE VAN DER BERG (behind the bar):
+    - Woman in her 40s, Dutch, kind eyes, laugh lines that tell stories
+    - Brown hair with some grey, practical style
+    - Apron says "LEKKER" — she means it
+    - TULIP TATTOO visible on forearm
+    - Operating the 1952 copper espresso machine with practiced grace
+    - Looking up at camera with warm "Welkom, schat!" expression
+    - One hand raised in greeting, the other on espresso handle
+    - The Keeper of Gezelligheid. IS the Grotto.
+    
+    PALM (on bar stool):
+    - Small capuchin monkey, brown/grey fur, intelligent brown eyes
+    - Sitting upright on stool like a regular patron
+    - Both small monkey hands wrapped around a TINY espresso cup
+    - Looking at camera with curiosity and amusement
+    - Fur slightly fluffy, well-groomed
+    - Faint CIRCUIT PATTERNS visible in fur (wish-residue)
+    - Expression: calm contentment — this monkey has found home
+    - 122 years of wisdom in those eyes, but also playful joy
+    
+    STROOPWAFEL (on bar counter, among bottles):
+    - Calico cat, sleek, athletic build, 9 lbs pure muscle
+    - Orange, black, white patches — like spilled latte with ink
+    - Orange "WAR PAINT" patch over right eye
+    - White chest bib, sharp EMERALD GREEN eyes
+    - Sitting regally among the bottles, tail wrapped around paws
+    - NOT looking at camera (too dignified) — judging the room
+    - Expression: permanent evaluation mode
+    - She runs EVERYTHING. Don't argue.
+    
+    TERPIE (in background, sunny windowsill):
+    - LARGE orange tabby, 14 lbs, gloriously chunky
+    - Rich ginger-orange fur like marmalade in sunlight
+    - Perfect tabby M on forehead, cream chin beard
+    - Half-lidded green-gold eyes, perpetually sleepy
+    - HAS NOT MOVED — just existing in the sunbeam
+    - Cream belly visible, long fluffy tail
+    - Zen master mode. Maximum chill achieved.
+    
+    LEMON (Limonene, zooming across bar):
+    - Bright orange-gold kitten, almost YELLOW like sunshine
+    - Motion blur — she's ALWAYS moving
+    - Green eyes wide with excitement
+    - Tiny 6-month-old kitten, compact bundle of energy
+    - The brightest kitten, almost glowing
+    
+    TERPY JR. (Terpinolene, on the CEILING somehow):
+    - Multicolor chaos kitten — calico meets tabby meets ???
+    - Patches that don't make sense, patterns shifting
+    - Currently UPSIDE DOWN on a ceiling beam
+    - HOW did she get there? No one knows.
+    - Named for her father, acts like a fever dream
+    - Physics doesn't apply to her
+    
+    ═══════════════════════════════════════════════════════════
+    BACKGROUND DETAILS & NPCs
+    ═══════════════════════════════════════════════════════════
+    
+    HENK (barely visible at his usual spot):
+    - Older Dutch man, 60s-70s, worn coat
+    - Perpetual espresso cup in hand (his 5th today)
+    - The Constant. Was here before Marieke.
+    
+    Other patrons at bar stools (silhouettes):
+    - "A hooded figure in the corner"
+    - "A boisterous dwarf telling tales"
+    
+    THE FIREPLACE visible in background (crackling, warm glow)
+    
+    THE PIE TABLE visible (octagonal, polished walnut)
+    
+    THE GONG OF GEZELLIGHEID hanging near pie table
+    - Bronze, 36 inches, Amsterdam 1892
+    - Padded mallet on velvet cord
+    
+    NOTICE BOARD visible on wall
+    
+    PNEUMATIC TUBE terminal (coffee delivery from Bootstrap Room!)
+
+  mood: |
+    Warm, welcoming, gezellig (Dutch coziness).
+    The feeling of walking into your favorite local where everyone knows you.
+    Late afternoon light streaming through windows.
+    The hiss of the espresso machine. The smell of herbs and coffee.
+    Clinking glass, ice dropping, quiet conversation.
+    Home.
+
+  technical:
+    aspect_ratio: 4:3
+    style: phone_camera_candid
+    time_of_day: "4:30 PM, golden hour"
+    camera_position: first-person POV from someone entering the pub
+    
+sources_expanded:
+  marieke: pub/bar/budtender-marieke.yml
+  palm: characters/animals/monkey-palm/CHARACTER.yml
+  stroopwafel: characters/animals/cat-stroopwafel/CHARACTER.yml
+  terpie: characters/animals/cat-terpie/CHARACTER.yml
+  lemon: characters/animals/kitten-limonene/CHARACTER.yml
+  terpy_jr: characters/animals/kitten-terpinolene/CHARACTER.yml
+  bar_room: pub/bar/ROOM.yml
+  pub_room: pub/ROOM.yml
+  fireplace: pub/fireplace.yml
+  pie_table: pub/pie-table.yml
+  gong: pub/gong.yml
+  narrative: characters/real-people/don-hopkins/sessions/marathon-session.md

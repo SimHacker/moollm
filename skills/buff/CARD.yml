@@ -66,7 +66,7 @@ methods:
     effect: "Display buffs with remaining duration"
     invoked-by: [player, npc]
     
-  FIND_BY_TAG:
+  FIND-BY-TAG:
     description: "Find all buffs with a specific tag"
     parameters:
       target: "Character to search"
@@ -84,7 +84,7 @@ methods:
     effect: "Filter out buffs where tags includes tag"
     invoked-by: [healer, item, dispel]
     
-  HAS_TAG:
+  HAS-TAG:
     description: "Check if character has any buff with tag"
     parameters:
       target: "Character"

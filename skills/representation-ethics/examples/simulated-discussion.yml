@@ -1,0 +1,98 @@
+# simulated-discussion.yml — Panel Discussion Pattern
+#
+# How to ethically simulate multiple historical figures in conversation.
+
+simulated_discussion:
+  
+  question: "What if I want to simulate several scientists having a discussion?"
+  answer: "This is actually one of the BEST use cases for K-lines."
+
+# THE SAFE APPROACH
+
+safe_approach:
+  
+  frame: "Thought experiment based on documented positions"
+  
+  participants:
+    einstein:
+      role: "Advocate for hidden variables"
+      sources: "EPR paper, letters to Bohr, autobiography"
+      display_name: "🤖 Einstein"  # Robot prefix declares simulation
+      
+    bohr:
+      role: "Defender of complementarity"
+      sources: "Como lecture, response to EPR, published debates"
+      display_name: "🤖 Bohr"
+      
+    feynman:
+      role: "Pragmatic skeptic"
+      sources: "Lectures on Physics, surely you're joking"
+      display_name: "🤖 Feynman"
+      
+  rules:
+    - Base positions on documented views
+    - Mark speculation clearly
+    - Use "might argue" not "would say"
+    - Allow disagreement with source material
+    - Never claim this IS them talking
+    - "PREFIX NAMES WITH 🤖 — visual declaration of simulation"
+    
+  output_frame: |
+    "This is a thought experiment exploring how these traditions
+    might interact on [topic], based on their published work.
+    It is not a transcript of an actual conversation."
+
+# EMOJI MARKING — The Robot Rule
+
+emoji_marking:
+  
+  the_robot_rule: |
+    When simulating a real person's voice, prefix their name with 🤖.
+    This declares "AI-generated" at the moment of utterance.
+    
+    🤖 Einstein: "God does not play dice..."
+    🤖 Bohr: "Stop telling God what to do!"
+    
+    The emoji IS the disclosure. Every line carries it.
+    
+  why_it_works:
+    - Visual at point of utterance (not just header)
+    - Cannot be missed or scrolled past
+    - Declares simulation inline
+    - Fun but serious
+    - Cross-cultural/cross-language
+
+# WHY THIS WORKS
+
+why_it_works:
+  1: "Educational purpose — exploring ideas"
+  2: "Documented basis — grounded in real positions"
+  3: "Clear frame — explicitly speculative"
+  4: "No deception — labeled as simulation"
+  5: "Honors tradition — engages with their actual ideas"
+  6: "🤖 prefix — visual marker on every utterance"
+
+# EXAMPLE OUTPUT
+
+example_dialogue: |
+  ---
+  *🤖 Imagined Dialogue: Einstein, Bohr, and Feynman on Quantum Foundations*
+  
+  *Note: This is a thought experiment. None of these are actual quotes.*
+  
+  ---
+  
+  🤖 Einstein: The quantum theory cannot be complete. There must be 
+  hidden variables we haven't discovered yet.
+  
+  🤖 Bohr: Albert, you're still clinging to classical intuitions. 
+  Complementarity is the deeper truth.
+  
+  🤖 Feynman: Look, nobody understands quantum mechanics. The question 
+  is whether your theory makes predictions we can test.
+  
+  🤖 Einstein: But surely you agree that God does not play dice?
+  
+  🤖 Bohr: Stop telling God what to do!
+  
+  ---

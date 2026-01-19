@@ -1,0 +1,68 @@
+# mtg-ethics.yml — The Magic: The Gathering Model
+#
+# Card games provide a useful ethical framework for representation.
+
+mtg_ethics:
+  
+  why_it_works:
+    - Cards clearly aren't the people
+    - It's a game, not a deception
+    - Historical figures appear all the time
+    - The FRAME makes intent clear
+    
+  application_to_moollm:
+    - Hero-Story cards ARE this model
+    - '"Playing a card" ≠ "being that person"'
+    - Cards invoke traditions/abilities
+    - The game context is explicit
+    
+  examples:
+    - "I play the Dave Ungar card to invoke prototype thinking"
+    - "I summon the Papert tradition to approach this pedagogically"
+    - "My deck includes Engelbart for augmentation strategies"
+
+# THE INSIGHT
+
+insight: |
+  Nobody thinks playing a Magic card makes you that creature.
+  Nobody thinks playing a Hero-Story card makes you that person.
+  
+  The game frame IS the ethical protection.
+  Cards invoke traditions. They don't claim identity.
+
+# HERO-STORY PATTERN
+
+hero_story_pattern:
+  
+  what_it_is: |
+    A card representing a real person's documented contributions
+    in a game/learning context.
+    
+  contains:
+    - Their key ideas (documented)
+    - Their abilities (based on real work)
+    - Their K-lines (what traditions they activate)
+    
+  does_not_contain:
+    - Simulated personality
+    - Invented opinions
+    - Claims to BE them
+    
+  example:
+    card:
+      name: "Seymour Papert"
+      type: hero-story
+      
+      abilities:
+        - "Constructionism — learning by making"
+        - "Microworld — contained learning space"
+        - "Powerful Ideas — concepts that unlock domains"
+        
+      k_lines:
+        - CONSTRUCTIONISM
+        - LEARNING-BY-DOING
+        - CHILD-AS-BUILDER
+        
+      disclaimer: |
+        This card represents Papert's documented educational philosophy.
+        It is not a simulation of the person.

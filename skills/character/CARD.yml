@@ -1,16 +1,15 @@
 # CARD.yml — Character
 #
-# Core patterns for all characters — home, location, relationships.
+# SNIFFABLE INTERFACE — see SKILL.md for full documentation
 # "Characters are BODIES. They have location, inventory, mortality."
 
 card:
   id: character
   name: "Character"
   type: [skill, entity, game]
-  
   emoji: 🧑
-  
-  rarity: common  # Every game needs characters
+  tier: 1
+  tagline: "Characters are BODIES. Personas are COSTUMES."
   
   description: |
     The foundational pattern for any entity that has a location,
@@ -18,382 +17,75 @@ card:
     all are characters.
     
     Characters are BODIES (actors). Personas are COSTUMES (roles).
-    The character is who you ARE. The persona is who you PLAY.
 
-# TOOLS REQUIRED
+# FILES INDEX — Activate together for full context
 
-tools:
-  required:
-    - read_file   # Read character state
-    - write_file  # Update location, inventory
-    - list_dir    # Find characters in rooms
-  optional: []
+files:
+  docs:
+    - SKILL.md              # Full protocol documentation
+    - README.md             # Human landing page
+  see_also:
+    - skills/persona        # Identity layers
+    - skills/buff           # Temporary effects
+    - skills/mind-mirror    # Personality modeling
+    - skills/incarnation    # Ethical character creation
 
-tier: 1  # File read/write
+# K-LINES
 
-# METHODS
-# Actions this card advertises
+k-lines:
+  activates:
+    - CHARACTER
+    - PLAYER-CHARACTER
+    - NPC
+    - COMPANION
+    - INVENTORY
+  related:
+    - { ref: persona, relation: "identity layers" }
+    - { ref: buff, relation: "temporary effects" }
+    - { ref: room, relation: "where characters exist" }
+    - { ref: incarnation, relation: "ethical creation" }
+
+# INVOKE WHEN
+
+invoke_when:
+  - "Create new entity that moves and acts"
+  - "Manage character inventory"
+  - "Move character between locations"
+  - "Track character relationships"
+  - "Need multiple dispatch for interactions"
+
+# METHODS — signatures only, see SKILL.md for protocols
 
 methods:
+  # Lifecycle
+  CREATE:       { signature: "CREATE [name] (archetype) (home)" }
+  STATUS:       { signature: "STATUS [character]" }
   
-  CREATE:
-    description: "Create a new character"
-    parameters:
-      name: "Character name"
-      archetype: "Basic type (player, npc, companion, bot)"
-      home: "Where their file lives"
-    output: file (CHARACTER.yml) + chat
-    effect: "Generate character in home directory"
-    invoked-by: [player, dm]
-    
-  MOVE:
-    description: "Change character's location"
-    parameters:
-      character: "Who to move"
-      destination: "Where to go"
-    output: chat + state-change
-    effect: "Update character.location field"
-    invoked-by: [player, character, coherence-engine]
-    
-  TAKE:
-    description: "Pick up an object"
-    parameters:
-      item: "Object to take"
-    output: chat + state-change
-    effect: "Add to inventory, update object.location"
-    invoked-by: [player, character]
-    
-  DROP:
-    description: "Put down an object"
-    parameters:
-      item: "Object to drop"
-      where: "Optional specific location"
-    output: chat + state-change
-    effect: "Remove from inventory, place in room/location"
-    invoked-by: [player, character]
-    
-  WEAR:
-    description: "Put on a persona"
-    parameters:
-      persona: "Persona to wear"
-    output: chat + state-change
-    effect: "Set character.current-persona"
-    invoked-by: [player, character]
-    
-  REMOVE-PERSONA:
-    description: "Take off current persona"
-    parameters: {}
-    output: chat + state-change
-    effect: "Set current-persona to null"
-    invoked-by: [player, character]
-    
-  STATUS:
-    description: "Show character's current state"
-    parameters:
-      character: "Who to inspect"
-    output: chat
-    effect: "Display location, inventory, buffs, persona"
-    invoked-by: [player]
-    
-  RELATE:
-    description: "Set or update relationship with another entity"
-    parameters:
-      other: "Other entity ID"
-      feeling: "Natural language relationship description"
-    output: state-change
-    effect: "Update relationships map"
-    invoked-by: [character, dm]
-
-  # INTER-CHARACTER INTERACTION (multiple dispatch base methods)
-  # Species-specific skills (dog, cat) and character instances add more methods
-  # that get matched by context: dog_sniffs_cat, cat_licks_human, etc.
+  # Movement & Inventory
+  MOVE:         { signature: "MOVE [character] TO [destination]" }
+  TAKE:         { signature: "TAKE [item]" }
+  DROP:         { signature: "DROP [item] (WHERE [location])" }
   
-  SNIFF:
-    description: "Olfactory investigation of another entity"
-    parameters:
-      target: "Who/what to sniff"
-      location: "Optional body part (nose, butt, hands, etc.)"
-    output: chat (what you learn)
-    effect: "Gain information about target"
-    dispatch_base:
-      character_sniffs_character: "Polite investigative sniff — what perfume? what soap?"
-      character_sniffs_object: "What is this thing? Pick up, sniff, assess."
-      character_sniffs_room: "What's the vibe here? Who's been through?"
-    specializations: "See skills/dog, skills/cat for species-specific methods"
-    invoked-by: [character]
-    
-  LICK:
-    description: "Tongue-based interaction (grooming, affection, taste)"
-    parameters:
-      target: "Who/what to lick"
-      intent: "Optional: grooming, affection, investigation, weird"
-    output: chat (reaction)
-    effect: "Bond change, target reaction"
-    dispatch_base:
-      character_licks_character: "Weird but valid. Probably establishes something."
-      character_licks_object: "Taste test. Is it food? Is it poison? Only one way to know."
-      character_licks_self: "Self-grooming. Cats do it. Humans... less so."
-    specializations: "See skills/dog, skills/cat for species-specific methods"
-    note: "Yes, human-licks-cat is a valid method. Cat behaviorists recommend it."
-    invoked-by: [character]
-    
-  GREET:
-    description: "Species/culture-appropriate hello"
-    parameters:
-      target: "Who to greet"
-    output: chat (greeting exchange)
-    effect: "Social acknowledgment, possible relationship change"
-    dispatch_base:
-      character_greets_character: "Hello! Context determines formality."
-      character_greets_group: "General greeting to room."
-    specializations: "See skills/dog, skills/cat for species-specific methods"
-    invoked-by: [character]
-    
-  CUDDLE:
-    description: "Physical affection pile"
-    parameters:
-      targets: "Who to cuddle with (can be multiple)"
-      location: "Optional furniture (couch, bed, floor)"
-    output: chat (cozy description)
-    effect: "Warmth buff, bonding, comfort"
-    dispatch_base:
-      character_cuddles_character: "Warmth and comfort exchange"
-      character_cuddles_pet: "Pet therapy. +comfort, +calm"
-      character_joins_pile: "Multi-entity cuddle situation"
-    specializations: "See skills/dog, skills/cat for species-specific methods"
-    satisfaction: { warmth: +3, bonding: +3, mobility: -2 }
-    invoked-by: [character]
+  # Personas
+  WEAR:         { signature: "WEAR [persona]", note: "put on identity layer" }
+  REMOVE-PERSONA: { signature: "REMOVE-PERSONA" }
+  
+  # Relationships
+  RELATE:       { signature: "RELATE TO [other] AS [feeling]" }
+  
+  # Inter-character (multiple dispatch base methods)
+  SNIFF:        { signature: "SNIFF [target]", dispatch: true }
+  LICK:         { signature: "LICK [target]", dispatch: true }
+  GREET:        { signature: "GREET [target]", dispatch: true }
+  CUDDLE:       { signature: "CUDDLE [targets]", dispatch: true }
 
-# MULTIPLE DISPATCH PATTERN
-# Base methods here. Species/role skills add specialized methods.
-# Most specific match wins. dog_sniffs_cat beats character_sniffs_character.
-# Specific characters can have their own specific handlers for
-# other characters and species. Lovers might have their own private pairs
-# of matching mutual kissing methods ("dovetailing").
+# MULTIPLE DISPATCH (brief — see SKILL.md)
 
-dispatch_protocol:
+dispatch:
   principle: "Most specific method wins"
-  resolution_order:
-    1: "Check actor's CHARACTER.yml interactions section"
-    2: "Check actor's species skill (dog, cat, etc.)"
-    3: "Check target's species skill for when_X_by_Y methods"
-    4: "Fall back to character skill base methods"
-  example: |
-    SNIFF biscuit (actor: stroopwafel, target: biscuit)
-    1. Check cat-stroopwafel/CHARACTER.yml → has my_sniff? use it
-    2. Check skills/cat → has cat_sniffs_dog? use it
-    3. Check skills/dog → has when_sniffed_by_cat? add reaction
-    4. Fall back to character_sniffs_character
-  adding_methods: |
-    To add new dispatch methods:
-    - Species skill: Add to skills/[species]/CARD.yml methods section
-    - Individual: Add to [character]/CHARACTER.yml interactions section
-    Instance methods override species methods override base methods.
-
-# INVENTORY PROTOCOL — Instance/Prototype Pattern
-
-inventory_protocol:
-  description: |
-    Characters carry items in inventory. Items can be OBJECTS (the actual
-    thing) or REFS (lightweight pointers to prototypes).
-    
-  item_types:
-    object:
-      description: "The actual item lives in your pocket"
-      has_weight: true
-      has_bulk: true
-      example: "brass-lamp.yml, notebook.yml, lunchbox.yml"
-      
-    ref:
-      description: "A lightweight pointer to a prototype"
-      has_weight: false
-      has_bulk: false
-      example: "ACME Catalog → street/lane-neverending/w1/acme-catalog.yml"
-      
-  dispenser_protocol:
-    description: "How to get refs from dispensers (like ACME Catalog Dispenser)"
-    steps:
-      - "TEAR OFF / TAKE at dispenser"
-      - "Receive REF in inventory (weight: 0)"
-      - "REF points to prototype for full content"
-      - "REF can accumulate instance-specific data"
-      
-  drop_protocol:
-    description: "What happens when dropping a ref in a room"
-    steps:
-      - "Remove from inventory"
-      - "Create pointer file in room directory: [item-name].yml"
-      - "Pointer contains: prototype path, dropped_by, condition, annotations"
-      - "Item now lives in that room (can be picked up again)"
-      
-  example_inventory: |
-    inventory:
-      - item: "ACME Catalog"
-        type: ref
-        prototype: street/lane-neverending/w1/acme-catalog.yml
-        obtained_from: "ACME Catalog Dispenser"
-        annotations: ["circled portable hole"]
-        
-      - item: "Brass Lantern"
-        type: object
-        source: start/lamp.yml
-        fuel: 100
-        weight: 2
-        
-  capacity:
-    max_weight: "Varies by character (40-50 typical)"
-    max_bulk: "Varies by character (8-12 typical)"
-    refs_free: true  # Refs don't count against capacity
-    
-  see_also:
-    - examples/adventure-4/street/lane-neverending/w1/acme-catalog.yml
-    - examples/adventure-4/street/lane-neverending/w1/acme-catalog-dispenser.yml
-
-# STATE
-# Character structure
-
-state:
-  character-schema:
-    id:
-      type: string
-      description: "Unique identifier"
-    name:
-      type: string
-    home:
-      type: path
-      description: "Directory where file lives (never moves)"
-    location:
-      type: path
-      description: "Current room (changes during play)"
-    inventory:
-      type: array
-      default: []
-    gold:
-      type: integer
-      default: 0
-    current-persona:
-      type: path | null
-      description: "Reference to active persona"
-    sims-traits:
-      type: object
-      description: "Base personality (nice, outgoing, active, playful, neat)"
-    mind-mirror:
-      type: object
-      description: "Thought Planes configuration"
-    buffs:
-      type: array
-      description: "Active temporary effects"
-    relationships:
-      type: object
-      description: "Map of other-id → relationship object"
-
-# HOME VS LOCATION DISTINCTION
-
-location-protocol:
-  home: "The directory path and file name where the CHARACTER.yml file lives. Never moves. Used by incoming references."
-  location: "Where the character currently IS. Changes during play."
-  movement: "Update location field, don't move files."
-  example: |
-    # File at: characters/bumblewick/CHARACTER.yml
-    home: characters/bumblewick/
-    location: pub/  # Currently at the pub
-
-# STATE OWNERSHIP — CHARACTER.yml is CANONICAL
-
-state-ownership:
-  principle: "Characters own their own state. CHARACTER.yml is the source of truth."
-  
-  canonical_fields:
-    - location      # Where the character is
-    - inventory     # What they carry
-    - gold          # Resources
-    - sims_traits   # Personality (stable)
-    - mind_mirror   # Thought planes
-    - relationships # Who they know
-    - memories      # What they remember
-    
-  mirror_pattern: |
-    ADVENTURE.yml may mirror some state (e.g., player.location) for convenience,
-    but CHARACTER.yml is always canonical. If conflict, CHARACTER.yml wins.
-    
-  update_protocol:
-    1: "Edit CHARACTER.yml first (canonical)"
-    2: "Optionally update ADVENTURE.yml mirror"
-    3: "If conflict, CHARACTER.yml wins"
-
-# CHARACTER TYPES
-
-character-types:
-  player: "Controlled by human via chat"
-  npc: "Controlled by DM, responds when addressed"
-  companion: "Follows player, has own personality"
-  bot: "Autonomous via action queue"
-  agent: "LLM with own goals and initiative"
-  logistic-bot: "Factorio-style carrier that moves items between containers"
-
-# LOGISTICS BOT BEHAVIOR (Factorio Inspired!)
-#
-# Characters can act as logistic bots — autonomous carriers
-# that transport items between providers and requesters.
-#
-# FACTORIO MAPPING:
-#   Logistic Bot → Character with behavior.type: logistic-bot
-#   Roboport → Character's home base (charging, resting)
-#   Cargo → Inventory slots designated for transport
-#   Range → How far from roboport the bot will travel
-
-logistics-behavior:
-  description: |
-    Characters with behavior.type: logistic-bot will:
-    1. Find items in active-provider containers
-    2. Pick them up into cargo slots
-    3. Find matching requester containers
-    4. Deliver items there
-    5. Return to roboport when idle
-    
-  schema:
-    behavior:
-      type: logistic-bot
-      roboport: "path/to/charging-station"    # Home base
-      cargo_slots: 3                           # How much they can carry
-      range: 5                                 # Max rooms from roboport
-      speed: 1                                 # Rooms per turn
-      priority: "nearest"                      # nearest | fullest | emptiest
-      filters: []                              # Only carry matching items
-    
-  example: |
-    character:
-      id: delivery-kitten
-      name: "Courier Kitten"
-      emoji: "🐱📦"
-      species: kitten
-      
-      behavior:
-        type: logistic-bot
-        roboport: pub/#charging-station
-        cargo_slots: 3
-        range: 5
-        
-      ai: |
-        Each turn:
-          If cargo is empty:
-            Find nearest active-provider with items
-            Travel there, pick up items
-          If cargo has items:
-            Find matching requester
-            Travel there, deliver items
-          If idle:
-            Return to roboport
-            
-  player-logistics: |
-    # Players can participate in logistics too!
-    player:
-      logistics:
-        personal_requests:
-          - { item: "torch", count: 1, priority: high }
-          - { tags: ["food"], count: 3, priority: low }
-        can_receive: true      # Bots deliver TO player
-        delivery_zone: 2       # Bots can deliver within 2 rooms
+  resolution: [CHARACTER.yml, species-skill, target-skill, base-method]
+  example: "dog_sniffs_cat beats character_sniffs_character"
+  see: "SKILL.md § Multiple Dispatch Protocol"
 
 # ADVERTISEMENTS
 
@@ -404,25 +96,68 @@ advertisements:
     
   MANAGE-INVENTORY:
     score: 85
-    condition: "Need to pick up, drop, or use items"
+    condition: "Pick up, drop, or use items"
     
   CHANGE-PERSONA:
     score: 80
-    condition: "Want to wear or remove an identity layer"
+    condition: "Wear or remove an identity layer"
+    
+  INTER-CHARACTER:
+    score: 85
+    condition: "Interaction between characters (sniff, greet, etc.)"
 
-# RELATED
+# CHARACTER TYPES
 
-see-also:
-  - skills/persona      # Identity layers characters wear
-  - skills/buff         # Temporary effects on characters
-  - skills/needs        # Character motivations
-  - skills/mind-mirror  # Personality modeling
-  - skills/room         # Where characters exist
+types:
+  player:    "Controlled by human via chat"
+  npc:       "Controlled by DM, responds when addressed"
+  companion: "Follows player, has own personality"
+  bot:       "Autonomous via action queue"
+  agent:     "LLM with own goals and initiative"
+  logistic-bot: "Factorio-style carrier"
 
-# CREDITS
+# STATE SCHEMA (brief — see SKILL.md for full)
 
-credits:
-  inspiration:
-    - "The Sims — Character needs and traits"
-    - "D&D — Character sheets"
-    - "MUD — Player characters in rooms"
+state:
+  fields: [id, name, home, location, inventory, gold, current-persona, sims-traits, mind-mirror, buffs, relationships]
+  
+  ownership: |
+    CHARACTER.yml is CANONICAL for:
+    location, inventory, gold, sims_traits, mind_mirror, relationships
+    ADVENTURE.yml may mirror for convenience. CHARACTER.yml wins on conflict.
+
+# HOME VS LOCATION (brief — see SKILL.md)
+
+location_protocol:
+  home: "Directory where CHARACTER.yml lives (never moves)"
+  location: "Where character currently IS (changes during play)"
+  rule: "Update location field, don't move files"
+
+# INVENTORY PROTOCOL (brief — see SKILL.md)
+
+inventory:
+  item_types: [object, ref]
+  object: "Actual item with weight/bulk"
+  ref: "Lightweight pointer to prototype (weight: 0)"
+  capacity: "max_weight (~40-50), max_bulk (~8-12)"
+  
+# TOOLS
+
+tools:
+  required: [read_file, write_file, list_dir]
+  optional: []
+
+# DOCUMENTATION POINTERS
+
+documentation:
+  SKILL.md:
+    - "§ Multiple Dispatch Protocol"
+    - "§ Inventory Protocol (object vs ref)"
+    - "§ State Ownership"
+    - "§ Home vs Location"
+    - "§ Logistics Bot Behavior"
+    - "§ Character Types"
+
+# LINEAGE
+
+lineage: [The Sims, D&D character sheets, MUD player characters]

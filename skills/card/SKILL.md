@@ -27,6 +27,202 @@ Cards are templates. Put them "in play" in a [room](../room/) to activate them.
 
 ---
 
+## 📑 Index
+
+**Architecture**
+- [Card Architecture](#card-architecture) — The most important section!
+- [Recommended Section Order](#recommended-section-order)
+- [What Goes Where](#what-goes-where)
+- [Advertisements Before Methods](#advertisements-before-methods)
+- [Method Placement Rules](#method-placement-rules)
+
+**Card Types**
+- [What's a Card?](#whats-a-card)
+- [Sidecar Pattern](#sidecar-cardyml-pattern)
+- [Card Types](#card-types)
+
+**Mechanics**
+- [Activation Records](#activation-records)
+- [Card State](#card-state)
+- [Collections](#collections)
+
+---
+
+## Card Architecture
+
+> **KEY INSIGHT: Cards are ACTIVATION TRIGGERS, not activation handlers.**
+
+This is the most important concept in MOOLLM card design.
+
+### The Fundamental Distinction
+
+| | CARD.yml | SKILL.md |
+|--|----------|----------|
+| **Purpose** | Decide IF this skill applies | Explain HOW to execute |
+| **Role** | Activation trigger | Activation handler |
+| **Content** | Sniffable interface | Full documentation |
+| **Size** | ~150-200 lines | As needed |
+| **LLM reads** | First, to decide | Second, if activated |
+
+The CARD asks: "Does this situation call for me?"
+The SKILL.md answers: "Here's how to actually do it."
+
+### Recommended Section Order
+
+Order sections for optimal LLM scanning:
+
+```yaml
+# 1. Identity (who am I?)
+card:
+  id: my-skill
+  name: "My Skill"
+  emoji: 🎯
+  tagline: "One-line pitch"
+  description: "Brief paragraph"
+
+# 2. Files index (what else should LLM read?)
+files:
+  - SKILL.md
+  - examples/
+
+# 3. K-lines (what concepts does this activate?)
+k-lines:
+  activates: [MY-SKILL, RELATED-CONCEPT]
+
+# 4. Invoke when (trigger conditions)
+invoke_when:
+  - "Situation that calls for this skill"
+
+# 5. ADVERTISEMENTS — PRIMARY! Put BEFORE methods!
+advertisements:
+  DO-THE-THING:
+    score: 90
+    condition: "When this applies"
+
+# 6. Methods (signatures only, implementations in SKILL.md)
+methods:
+  DO-THING: { signature: "DO-THING [arg]" }
+
+# 7. State (brief field list)
+state:
+  fields: [field1, field2]
+
+# 8. Documentation pointers
+documentation:
+  SKILL.md:
+    - "§ Detailed section"
+```
+
+### Why Advertisements Before Methods?
+
+Advertisements are the **PRIMARY activation signal**:
+
+1. LLM scans top-down looking for "does this apply?"
+2. Ads answer that question directly
+3. Methods are secondary — only relevant AFTER activation
+4. Front-loading ads speeds up skill selection
+
+```yaml
+# GOOD — Ads first
+advertisements:
+  PET-THE-CAT:
+    score: 80
+    condition: "Cat is present"
+    
+methods:
+  PAT: { signature: "PAT [cat]" }
+
+# BAD — Methods first (LLM has to read past them)
+methods:
+  PAT: { ... long list ... }
+  SCRITCH: { ... }
+  # ... many more ...
+  
+advertisements:  # Too late! LLM already moved on
+```
+
+### What Goes Where
+
+#### In CARD.yml (sniffable interface)
+
+```yaml
+# YES — Include these
+- Brief description + tagline
+- Files index (for one-shot activation)
+- K-lines (activation vectors)
+- Advertisements (PRIMARY!)
+- Method SIGNATURES (one-liners)
+- Brief state schema (field names only)
+- Documentation pointers
+
+# NO — Move these to SKILL.md
+- Implementation details
+- Detailed protocols with sequences
+- Dispatch tables
+- Dialogue examples
+- Full state schemas with types
+- Worked examples
+```
+
+#### In SKILL.md (full documentation)
+
+```markdown
+- ## 📑 Index (link to each section)
+- Detailed method implementations
+- Protocols with step sequences
+- Dispatch tables (actor_verb_target)
+- State schemas with types and defaults
+- Integration points with other skills
+- Mechanics explanations
+```
+
+#### In examples/ (worked examples)
+
+```yaml
+# Separate files with descriptive names
+examples/
+  ceremony-invocation.yml    # Good!
+  buff-chain-trigger.yml     # Good!
+  example1.yml               # Bad — not descriptive
+```
+
+### Method Placement Rules
+
+| Situation | Place In | Example |
+|-----------|----------|---------|
+| Short signature | CARD methods | `PAT: { signature: "PAT [cat]" }` |
+| Trivial inline | Advertisement | `method: "PAT [nearest-pet]"` |
+| Detailed protocol | SKILL.md | Dispatch tables, sequences |
+| Multiple variants | SKILL.md | Species-specific versions |
+| Dispatch table | SKILL.md | `cat_sniffs_dog`, etc. |
+
+#### Embed in CARD when:
+- Method is SHORT (one-liner signature)
+- Method is UNIQUE to this skill
+- Just showing signature, not implementation
+
+#### Embed in advertisement when:
+- Method is TRIVIAL (buff, reply, simple prompt)
+- Method is AD-SPECIFIC (only makes sense in this trigger)
+
+#### Delegate to SKILL.md when:
+- Method has DETAILED protocol (sequences, tables)
+- Method is SHARED with other skills
+- Method has multiple VARIANTS
+- Method needs EXAMPLES to understand
+
+### Target Card Size
+
+```yaml
+card_yml: ~150-200 lines
+skill_md: As long as needed, but indexed
+examples:  Separate files, descriptively named
+
+smell: "If CARD > 300 lines, refactor"
+```
+
+---
+
 ## What's a Card?
 
 Cards are **portable tokens** you can carry, give, play, and activate:

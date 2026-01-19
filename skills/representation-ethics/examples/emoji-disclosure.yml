@@ -1,0 +1,392 @@
+# emoji-disclosure.yml — Visual Markers for Representation Ethics
+#
+# Emojis as inline disclosure. The mark IS the framing.
+
+# THE ROBOT RULE — Simulated Speech
+
+robot_rule:
+  
+  emoji: 🤖
+  use_when: "Simulating a real person's voice/words"
+  
+  principle: |
+    Prefix names with 🤖 when generating simulated speech.
+    Every utterance carries its own disclosure.
+    
+  examples:
+    chat_names:
+      - "🤖 Einstein"
+      - "🤖 Feynman"
+      - "🤖 Ada Lovelace"
+      
+    inline_dialogue:
+      - '🤖 Einstein: "God does not play dice..."'
+      - '🤖 Bohr: "Stop telling God what to do!"'
+      
+  why_it_works:
+    - Visual at point of utterance
+    - Cannot be scrolled past or missed
+    - Cross-cultural, cross-language
+    - Fun but serious
+    - Inline disclosure, not just header
+
+# WHEN YOU DON'T NEED 🤖 — Frame Provides Disclosure
+
+frame_indemnification:
+  
+  principle: |
+    When the CHARACTER FRAME already declares fiction/performance,
+    you don't need 🤖 on every utterance. The frame IS the disclosure.
+    
+  the_donna_example: |
+    Donna is a drag king character inspired by Trump.
+    
+    She is NOT "🤖 Trump" because:
+    1. "Donna" ≠ "Donald Trump" (different name)
+    2. Drag king context is inherently theatrical
+    3. Fictional character in a story/game
+    4. Everyone knows it's performance
+    
+    So Donna's lines are:
+      👑 Donna: Make America fabulous again!
+    
+    NOT:
+      🤖 Trump: Make America great again!
+    
+    The drag frame provides the ethical protection.
+    
+  when_robot_required:
+    - "Simulating actual person with their real name"
+    - "No other frame declares performance/fiction"
+    - "Could be mistaken for actual person's views"
+    - "Educational 'what would X say' without fiction wrapper"
+    
+  when_frame_suffices:
+    - "👑 Drag persona (Donna, Cher-ity Case)"
+    - "🎭 Actor playing role (Cate Blanchett as Dylan)"
+    - "🃏 Satirical character (SNL cold open)"
+    - "📖 Fictional character (inspired-by, renamed)"
+    - "🎪 Game/play character (hero-story card)"
+    
+  hierarchy: |
+    MOST PROTECTED ←─────────────────────────────→ NEEDS 🤖 MARKUP
+    
+    Fictional    Drag      Satire    Actor    "What if"    Direct
+    character    persona   character  role     speculation  simulation
+    (📖)         (👑)      (🃏)       (🎭)     (💭)         (🤖)
+    
+    ← Frame provides disclosure                    Needs inline markup →
+
+# REPRESENTATION EMOJI VOCABULARY
+
+emoji_vocabulary:
+
+  # SIMULATION MARKERS
+  
+  🤖:
+    meaning: "AI-generated / simulated speech"
+    use: "Prefix for simulated person's chat name"
+    example: "🤖 Socrates: What is justice?"
+    
+  # PERFORMANCE FRAME MARKERS — These ARE the disclosure
+  # When the frame is explicit, you DON'T need 🤖 on every line
+  
+  🎭:
+    meaning: "Actor / performer"
+    use: "Someone playing a role (not claiming to BE)"
+    example: "🎭 Actor playing Einstein in the biopic"
+    needs_robot: false  # The performance frame IS the disclosure
+    
+  👑:
+    meaning: "Drag persona"
+    use: "Drag king/queen character (inherently theatrical)"
+    example: "👑 Donna: Make America fabulous again!"
+    needs_robot: false  # Drag context IS the disclosure
+    note: "Donna is a drag king inspired by Trump — the drag frame indemnifies"
+    
+  🃏:
+    meaning: "Satirical character"
+    use: "SNL-style parody, clearly comedic"
+    example: "🃏 Not-Trump: I have the best words, believe me"
+    needs_robot: false  # Satire frame IS the disclosure
+    
+  📖:
+    meaning: "Fictional character"
+    use: "Character in a story/game (not real person)"
+    example: "📖 President Dump addresses the nation"
+    needs_robot: false  # Fiction frame IS the disclosure
+    
+  🎪:
+    meaning: "Play / entertainment character"
+    use: "In a game, show, or entertainment context"
+    example: "🎪 The Trump Card is played!"
+    needs_robot: false  # Game frame IS the disclosure
+    
+  💭:
+    meaning: "Speculation / imagined"
+    use: "Content that's clearly speculative"
+    example: "💭 What Einstein might have thought about..."
+    
+  # SOURCE MARKERS — Verified Content
+    
+  💬:
+    meaning: "VERIFIED quote"
+    use: "Actual words, source checked"
+    example: '💬 Einstein: "Imagination is more important than knowledge." (1929 interview)'
+    verification: "Quote exists, source confirmed"
+    
+  📜:
+    meaning: "Historical quote / documented"
+    use: "From primary sources"
+    example: '📜 Feynman: "Nobody understands quantum mechanics." (Messenger Lectures)'
+    
+  📚:
+    meaning: "Based on documented work"
+    use: "Tradition invocation from real sources"
+    example: "📚 The Papert tradition suggests..."
+    
+  # VERIFICATION MARKERS
+  
+  ✓:
+    meaning: "VERIFIED"
+    use: "Fact-checked, confirmed accurate"
+    example: "✓ Born: March 14, 1879, Ulm, Germany"
+    
+  🔗:
+    meaning: "VERIFIED link"
+    use: "URL tested, destination confirmed"
+    example: "🔗 https://en.wikipedia.org/wiki/Albert_Einstein"
+    note: "Only use if you've confirmed the link works"
+    
+  📎:
+    meaning: "VERIFIED citation"
+    use: "Reference checked, source exists"
+    example: "📎 Einstein, A. (1905). Annalen der Physik, 17(10), 891-921."
+    
+  👤:
+    meaning: "VERIFIED bio / identity"
+    use: "Biographical facts confirmed"
+    example: "👤 Albert Einstein (1879-1955), theoretical physicist"
+    
+  ⚠️:
+    meaning: "UNVERIFIED / uncertain"
+    use: "Could not confirm, proceed with caution"
+    example: "⚠️ Attributed to Einstein but source unclear"
+    
+  ❓:
+    meaning: "Apocryphal / disputed"
+    use: "Commonly attributed but possibly false"
+    example: '❓ "Insanity is doing the same thing..." (often misattributed)'
+    
+  # CONTEXT MARKERS
+    
+  🎪:
+    meaning: "Play / entertainment context"
+    use: "Clearly fictional or game context"
+    example: "🎪 Tonight's debate: Pirates vs Ninjas"
+    
+  🎓:
+    meaning: "Educational context"
+    use: "Learning/exploration frame"
+    example: "🎓 Simulated panel on quantum mechanics"
+    
+  🪞:
+    meaning: "Self-representation"
+    use: "User playing as themselves"
+    example: "🪞 Playing as myself in this adventure"
+    
+  # SAFETY MARKERS
+    
+  ⚠️:
+    meaning: "Needs extra care"
+    use: "Edge case requiring attention"
+    example: "⚠️ Simulating recently deceased person"
+    
+  ✅:
+    meaning: "Safe / ethical"
+    use: "Clearly within guidelines"
+    example: "✅ Tradition invocation"
+    
+  ❌:
+    meaning: "Forbidden / problematic"
+    use: "Bright line violation"
+    example: "❌ Deceptive impersonation"
+
+# USAGE PATTERNS
+
+usage_patterns:
+
+  simulated_dialogue:
+    format: "🤖 Name: [dialogue]"
+    example: |
+      🤖 Einstein: The quantum theory is incomplete.
+      🤖 Bohr: You're clinging to classical intuitions.
+      
+  verified_quotes:
+    format: "💬 Name: [quote] (source)"
+    example: |
+      💬 Feynman: "Nobody understands quantum mechanics." 
+      (Messenger Lectures, 1964)
+      
+  verified_facts:
+    format: "✓ [fact]"
+    example: |
+      ✓ Born: March 14, 1879, Ulm, Germany
+      ✓ Nobel Prize: 1921 (photoelectric effect)
+      
+  verified_links:
+    format: "🔗 [url]"
+    example: |
+      🔗 https://en.wikipedia.org/wiki/Richard_Feynman
+      
+  verified_citations:
+    format: "📎 [full citation]"
+    example: |
+      📎 Gleick, J. (1992). Genius: The Life and Science of Richard Feynman.
+      
+  verified_bio:
+    format: "👤 Name (dates), description"
+    example: |
+      👤 Richard Feynman (1918-1988), theoretical physicist, Nobel laureate
+      
+  uncertain_content:
+    format: "⚠️ [content]"
+    example: |
+      ⚠️ Feynman may have said this but source is unclear
+      
+  disputed_attribution:
+    format: "❓ [quote] (attribution issue)"
+    example: |
+      ❓ "If you can't explain it simply..." (often attributed to Einstein, disputed)
+      
+  # PERFORMANCE FRAMES — Each provides its own disclosure
+  
+  drag_persona:
+    format: "👑 [Drag Name]: [dialogue]"
+    example: |
+      👑 Donna: I'm gonna build a wall of sequins!
+      👑 Cher-ity Case: Do you believe in life after love?
+    note: "Drag context + distinct name = no 🤖 needed"
+    
+  actor_role:
+    format: "🎭 [Actor] as [Character]: [dialogue]"
+    example: |
+      🎭 Cate Blanchett as Bob Dylan: The times they are a-changin'.
+    note: "Actor frame = no 🤖 needed"
+    
+  satirical_character:
+    format: "🃏 [Character]: [dialogue]"
+    example: |
+      🃏 President Dump: Nobody knows more about everything than me.
+    note: "Satire frame = no 🤖 needed"
+    
+  fictional_character:
+    format: "📖 [Character]: [dialogue]"
+    example: |
+      📖 Ronald Plump, the hotel mogul, addresses his board.
+    note: "Fiction frame + renamed = no 🤖 needed"
+    
+  game_character:
+    format: "🎪 [Character]: [dialogue]"
+    example: |
+      🎪 The Einstein Card activates: "Let's think this through..."
+    note: "Game frame = no 🤖 needed"
+    
+  performance:
+    format: "🎭 [Performer] as [Character]"
+    example: |
+      🎭 Chad Michaels as Cher takes the stage.
+      
+  tradition_invocation:
+    format: "📚 The [Name] tradition..."
+    example: |
+      📚 The Papert tradition suggests learning by making.
+      
+  mixed_panel:
+    note: "Distinguish quotes from simulation"
+    example: |
+      📜 Einstein: "God does not play dice." (actual)
+      🤖 Einstein: And I still believe that today. (simulated)
+
+# THE PRINCIPLE
+
+principle: |
+  The emoji IS the disclosure. 
+  
+  Don't rely on header disclaimers alone.
+  Mark each utterance at point of generation.
+  
+  🤖 Einstein says something → reader KNOWS it's simulated.
+  💬 Einstein says something → reader KNOWS it's a verified quote.
+  ⚠️ Einstein says something → reader KNOWS it's uncertain.
+  
+  No ambiguity. No scrolling past the warning.
+  The mark travels with the content.
+
+# VERIFICATION PRINCIPLE — Trust but Mark
+
+verification_principle: |
+  VERIFIED markers (💬 ✓ 🔗 📎 👤) mean YOU CHECKED.
+  
+  Don't slap ✓ on something you didn't verify.
+  Don't use 🔗 on a link you didn't test.
+  Don't use 💬 on a quote you didn't source.
+  
+  If uncertain, use ⚠️ or ❓ instead.
+  Honest uncertainty > false confidence.
+
+verification_levels:
+  
+  💬_verified_quote:
+    meaning: "I found the original source"
+    requires: "Citation to primary source"
+    example: '💬 "The only thing we have to fear is fear itself." (FDR, 1933 inaugural)'
+    
+  ✓_verified_fact:
+    meaning: "I confirmed this is accurate"
+    requires: "Cross-reference or primary source"
+    example: "✓ Einstein received Nobel Prize in 1921 (for photoelectric effect, not relativity)"
+    
+  🔗_verified_link:
+    meaning: "I tested this URL"
+    requires: "Actually clicking the link"
+    example: "🔗 https://plato.stanford.edu/entries/einstein-philscience/"
+    
+  📎_verified_citation:
+    meaning: "This reference exists"
+    requires: "Looking up the source"
+    example: "📎 Isaacson, W. (2007). Einstein: His Life and Universe. Simon & Schuster."
+    
+  👤_verified_bio:
+    meaning: "These biographical facts are confirmed"
+    requires: "Cross-reference with reliable sources"
+    example: "👤 Marie Curie (1867-1934), physicist/chemist, 2x Nobel laureate"
+    
+  ⚠️_unverified:
+    meaning: "I haven't confirmed this"
+    requires: "Honesty about uncertainty"
+    example: "⚠️ Einstein allegedly said this but I couldn't find the source"
+    
+  ❓_disputed:
+    meaning: "This is commonly misattributed"
+    requires: "Knowledge that attribution is questionable"
+    example: '❓ "Be the change you wish to see" (often attributed to Gandhi, likely paraphrase)'
+
+# COMBINING WITH OTHER MARKERS
+
+combinations:
+  
+  educational_simulation:
+    format: "🎓🤖 Name"
+    meaning: "Educational context, simulated voice"
+    example: "🎓🤖 Socrates: Let us examine this question..."
+    
+  speculative_play:
+    format: "🎪💭 Name"
+    meaning: "Play context, clearly speculative"
+    example: "🎪💭 What if Einstein played poker?"
+    
+  performance_tribute:
+    format: "🎭✅ Name"
+    meaning: "Safe performance impersonation"
+    example: "🎭✅ Our Einstein Impersonator explains relativity"

@@ -1,0 +1,159 @@
+# Don's Pub Photos — Shot 2: The Pie Table
+# First-person phone camera, Fluxx game in progress
+# "Fluxx with Sun Wukong and Curious George!"
+# CONTEXT FULLY EXPANDED from guest-book, sessions, objects
+
+prompt:
+  style: |
+    iPhone photo, first-person POV, casual Facebook snapshot.
+    Warm pub interior lighting, card game in progress.
+    Players acknowledge camera between turns — hamming it up.
+    That vibe of documenting a legendary game night.
+    Candid chaos of a serious game with ridiculous participants.
+
+  scene: |
+    THE PIE TABLE, center of The Rusty Lantern, 4:45 PM.
+    
+    ═══════════════════════════════════════════════════════════
+    THE PIE MENU ROUND TABLE (from pub/pie-table.yml)
+    ═══════════════════════════════════════════════════════════
+    
+    THE TABLE ITSELF:
+    - OCTAGONAL table of polished WALNUT
+    - Surface INLAID with radial pattern of lighter wood
+    - Eight equal WEDGES — like a pie menu made physical
+    - HIGH-BACKED CHAIRS in perfect symmetry
+    - Scarred from decades of use, well-loved
+    
+    CENTER OF TABLE:
+    - LAZY SUSAN for sharing items
+    - BRASS SPEAKING BELL ("Ring to speak. Pass to yield.")
+    - Small plaque: "All voices equal. All directions valid."
+    
+    EAST SLICE FEATURES:
+    - SERVING TRAY with stroopwafels and bitterballen
+    - Snack crumbs scattered
+    
+    WEST SLICE:
+    - DRINK HOLDER with coffee mug and water glass
+    
+    THE GONG OF GEZELLIGHEID:
+    - Within reach of the table
+    - Bronze, 36 inches, magnificent patina
+    - Padded mallet on velvet cord
+    - Ready for celebrations or merciful endings
+    
+    FLUXX CARDS scattered across the table:
+    - "Draw 3" rule visible
+    - "Hand Limit 2" causing chaos
+    - Keeper cards stacked in front of Kristin
+    - Goal card: constantly changing
+    
+    ═══════════════════════════════════════════════════════════
+    FEATURED CHARACTERS (explicit visual descriptions)
+    ═══════════════════════════════════════════════════════════
+    
+    SUN WUKONG (The Monkey King, seated at N position):
+    - GOLDEN fur gleaming, mythical primate presence
+    - RED and GOLD traditional Chinese robes, ornate embroidery
+    - Dragon motifs, cloud patterns in the silk
+    - Mischievous grin, ancient eyes that have seen everything
+    - Holding cards close to chest with one hand
+    - Other hand making "V FOR VICTORY" sign at camera
+    - RUYI JINGU BANG (magic staff) leaning against chair
+      (shrunk to walking stick size, golden-banded ends)
+    - GOLDEN CIRCLET on head
+    - Immortal energy radiating, but playful demeanor
+    - "Great Sage Equal to Heaven" playing cards with mortals
+    - Arrived for Palm's tribunal, stayed for the vibes
+    
+    CURIOUS GEORGE (seated at NE, on stack of cushions):
+    - Small brown monkey, wide innocent eyes
+    - Classic illustrated-book appearance
+    - YELLOW HAT on head (the signature look)
+    - Sitting on cushions to reach the table
+    - Looking at cards with INTENSE concentration
+    - Tongue slightly out, problem-solving face
+    - Smaller than Palm, simpler appearance
+    - Fellow monkey, fellow curious soul
+    
+    HENK (The Constant, in his usual chair at E):
+    - Older Dutch man, 60s-70s, worn coat
+    - Perpetual espresso cup in hand (his 5th today)
+    - Weathered face, knowing eyes, speaks with silence
+    - NOT looking at camera — too busy contemplating his cards
+    - The Witness. Was here before Marieke. Will be here after.
+    - Permanent fixture energy
+    
+    KRISTIN LOONEY (at S position, clearly winning):
+    - Woman, confident smile, sharp eyes
+    - STACK of Keeper cards in front of her
+    - Giving camera a confident THUMBS UP
+    - "The Real Winner" energy — she beat Andy repeatedly
+    - Knows when to trash The Cops
+    - Solved Rubik's Cube on "That's Incredible" at age 16
+    - Game designer's wife, game designer herself
+    
+    LILY (Linalool, kitten on Henk's lap):
+    - Soft grey fur with LAVENDER-TINTED ears (yes, really)
+    - Curled up peacefully, empathic expression
+    - 6 months old, delicate features
+    - The empath kitten who appears when needed
+    - Purrs at spa soundtrack frequency
+    - She chose Henk. They understand something together.
+    
+    ═══════════════════════════════════════════════════════════
+    BACKGROUND DETAILS & SCENERY
+    ═══════════════════════════════════════════════════════════
+    
+    THE BAR visible behind (Marieke working):
+    - 1952 copper espresso machine gleaming
+    - Bottles on shelves
+    - Stroopwafel supervising from counter
+    
+    THE FIREPLACE visible (crackling warmth):
+    - Stone fireplace, centuries of soot
+    - Mantle cluttered with curios:
+      - Ship in a bottle
+      - Mysterious key (no one knows what it opens)
+      - Small portrait of someone's grandmother
+      - Tip jar (contains exactly 7 gold at all times)
+    
+    THE STAGE visible in corner:
+    - Small raised platform, worn boards
+    - Faded burgundy velvet curtains
+    - Single spotlight, warm amber
+    
+    PALM'S NOOK beside the stage:
+    - Cozy alcove, warm lighting
+    - Privacy curtain (open)
+    - Palm visible through window, waving at Don
+    
+    Other patrons around the room:
+    - "A nervous merchant clutching a map"
+    - "An off-duty guard playing darts"
+
+  mood: |
+    Competitive but friendly. Game night energy.
+    The chaos of Fluxx: rules changing, goals shifting, everyone laughing.
+    A monkey king, a children's book character, a game designer's wife,
+    and a silent Dutch philosopher playing cards together.
+    This is The Rusty Lantern. This is normal here.
+    Gezelligheid in card form.
+
+  technical:
+    aspect_ratio: 4:3
+    style: phone_camera_candid
+    time_of_day: "4:45 PM"
+    camera_position: first-person from edge of table
+    
+sources_expanded:
+  sun_wukong: pub/guest-book.yml, marathon-session.md (tribunal sections)
+  curious_george: pub/guest-book.yml
+  henk: pub/guest-book.yml
+  kristin_looney: pub/guest-book.yml
+  lily: characters/animals/kitten-linalool/CHARACTER.yml
+  pie_table: pub/pie-table.yml (full object)
+  gong: pub/gong.yml
+  pub_room: pub/ROOM.yml (venues section)
+  fireplace: pub/fireplace.yml

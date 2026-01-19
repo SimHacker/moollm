@@ -128,8 +128,36 @@ MOOLLM stands on decades of work:
 | **Spatial** | [room](./skills/room/), [adventure](./skills/adventure/), [container](./skills/container/) |
 | **Identity** | [character](./skills/character/), [incarnation](./skills/incarnation/), [persona](./skills/persona/) |
 | **Ethics** | [representation-ethics](./skills/representation-ethics/), [hero-story](./skills/hero-story/) |
+| **Visual** | [visualizer](./skills/visualizer/), [image-mining](./skills/image-mining/) |
 
 > 📚 Full index: [skills/README.md](./skills/)
+
+### Visual Generation Pipeline
+
+Two skills work in tandem to generate and analyze images:
+
+| Skill | What It Does |
+|-------|--------------|
+| 🎨 **[visualizer](./skills/visualizer/)** | Assemble context from YAML files, synthesize prompts via LLM, render through image APIs (OpenAI, Google, Stability, Replicate) |
+| ⛏️ **[image-mining](./skills/image-mining/)** | Extract semantic resources from images — objects, moods, colors, inferred sounds/smells, philosophical meaning |
+
+**The Loop:** Generate an image with `visualizer`, analyze it with `image-mining`, reflect on what the AI "grokked," iterate. Each image gets three files:
+- `{name}.png` — the image itself
+- `{name}.yml` — the regenerable prompt sidecar (human-editable recipe)
+- `{name}-mined.yml` — the mining analysis in YAML Jazz format
+
+Results live in `SLIDESHOW.md` files — GitHub-renderable galleries with inline images, AI analysis, and links to source files.
+
+### Slideshows
+
+| Location | Title | What's Inside |
+|----------|-------|---------------|
+| [pub/attic/](./examples/adventure-4/pub/attic/SLIDESHOW.md) | The Dusty Attic | 8 art styles, Recursive Imp sequence, ACME Monster Manual, Jennell Jaquays tribute |
+| [pub/rooms/room-4/](./examples/adventure-4/pub/rooms/room-4/SLIDESHOW.md) | Rocky's Gallery | Emotional support boulder, exhaustive party scene, all characters gathered |
+| [pub/rooftop/](./examples/adventure-4/pub/rooftop/SLIDESHOW.md) | Rooftop Telescope | K-Line Constellation, AR overlay views, LLOOOOMM stars |
+| [pub/stage/palm-nook/study/](./examples/adventure-4/pub/stage/palm-nook/study/SLIDESHOW.md) | Palm's Study | Dutch Golden Age portrait of Palm the monkey |
+| [characters/animals/monkey-palm/](./examples/adventure-4/characters/animals/monkey-palm/SLIDESHOW.md) | Palm's Portrait Gallery | Character-level gallery linking to study portrait |
+| [street/.../leela-manufacturing/lobby/](./examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/SLIDESHOW.md) | Camera ACM1 | ACME tunnel surveillance, tourists bouncing off painted walls |
 
 ### Session Logs
 

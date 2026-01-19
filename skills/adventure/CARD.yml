@@ -1,467 +1,151 @@
 # CARD.yml — Adventure
 #
-# Room-based exploration with narrative evidence collection.
+# SNIFFABLE INTERFACE — see SKILL.md for full documentation
 # "Every directory is a room. Every file is a clue."
 
 card:
   id: adventure
   name: "Adventure"
   type: [skill, game, simulation, narrative]
-  
   emoji: 🗺️
-  
-  rarity: epic  # Central to MOOLLM
+  tier: 1
+  tagline: "Every directory is a room. Every file is a clue."
   
   description: |
     The text adventure pattern: directories as rooms, files as clues,
     chat as commands, LLM as dungeon master.
-    
-    Play this card to turn any filesystem into a navigable world,
-    or to run an actual text adventure game.
-    
-  lineage: "Colossal Cave, Zork, MUD, LambdaMOO"
-  inherits: [simulation]
+    Turn any filesystem into a navigable world.
 
-# TOOLS REQUIRED
+inherits: [simulation]
 
-tools:
-  required:
-    - read_file   # Read room descriptions, character state
-    - write_file  # Update player location, inventory
-    - list_dir    # Discover room contents
-  optional:
-    - grep        # Search for items/clues
+# K-LINES
 
-tier: 1  # File read/write
+k-lines:
+  activates:
+    - ADVENTURE
+    - TEXT-ADVENTURE
+    - DUNGEON-MASTER
+    - ROOM-NAVIGATION
+    - CODEBASE-ARCHAEOLOGY
+  related:
+    - { ref: room, relation: "directories as rooms" }
+    - { ref: character, relation: "player and NPCs" }
+    - { ref: party, relation: "group dynamics" }
+    - { ref: simulation, relation: "parent skill" }
 
-# METHODS
-# Actions this card advertises
+# INVOKE WHEN
+
+invoke_when:
+  - "Beginning or resuming a text adventure"
+  - "Exploring filesystem as narrative"
+  - "Dungeon master narration needed"
+  - "Codebase archaeology (exploration as quest)"
+  - "Interactive fiction mechanics"
+
+# METHODS — signatures only, see SKILL.md for full protocols
 
 methods:
-
-  # LIFECYCLE METHODS — Starting and resuming adventures
+  # Lifecycle
+  START:      { signature: "START [adventure_path]", aliases: [RESTART, BEGIN] }
+  RESUME:     { signature: "RESUME [adventure_path]" }
+  ENSURE-CHARACTER: { signature: "ENSURE-CHARACTER [mode]" }
+  CREATE-CHARACTER: { signature: "CREATE-CHARACTER [name]" }
+  SAVE:       { signature: "SAVE [name]" }
+  RESTORE:    { signature: "RESTORE [name]" }
   
-  START:
-    description: "Begin a fresh adventure from the starting room"
-    aliases: [RESTART, BEGIN, NEW-GAME]
-    parameters:
-      adventure_path:
-        type: path
-        description: "Path to adventure directory (default: from startup.yml)"
-    effects:
-      - "Reset ADVENTURE.yml to initial state (turn: 0, status: ready)"
-      - "Move party to starting_room"
-      - "Clear flags, evidence, quest_log"
-      - "Keep character personalities and earned skills"
-      - "Delegate to ENSURE-CHARACTER if no character exists"
-      - "Call LOOK to describe starting room"
-    output: chat (narrative welcome)
-    sequence:
-      1: "Read ADVENTURE.yml"
-      2: "Reset simulation state"
-      3: "ENSURE-CHARACTER (if needed)"
-      4: "Move party to navigation.starting_room"
-      5: "LOOK at starting room"
-      6: "Display welcome message"
-    invoked-by: [bootstrap:STARTUP, player]
-    
-  RESUME:
-    description: "Continue adventure from where it was left off"
-    parameters:
-      adventure_path:
-        type: path
-        description: "Path to adventure directory"
-    effects:
-      - "Read ADVENTURE.yml for current state"
-      - "Check for selected characters"
-      - "If no character: delegate to START"
-      - "If character exists: describe current situation"
-      - "Remind player of recent events and goals"
-    output: chat (narrative recap)
-    sequence:
-      1: "Read ADVENTURE.yml"
-      2: "Check party.members and selection.targets"
-      3: "If empty: delegate to START"
-      4: "If exists: read player.location"
-      5: "Summarize recent events from TRANSCRIPT.md tail"
-      6: "LOOK at current room"
-      7: "Display 'Welcome back!' message"
-    invoked-by: [bootstrap:STARTUP, player]
-    
-  ENSURE-CHARACTER:
-    description: "Make sure a playable character exists and is selected"
-    parameters:
-      mode:
-        type: enum
-        values: [prompt, generate, error]
-        default: prompt
-        description: "What to do if no character exists"
-    effects:
-      - "Check if characters/ has any CHARACTER.yml files"
-      - "If none exist and mode=generate: create from template"
-      - "If none exist and mode=prompt: ask user to create"
-      - "If exists but not selected: auto-select player character"
-      - "Update party.members and selection.targets"
-    sequence:
-      1: "List characters/ directory"
-      2: "If empty:"
-      2a: "  mode=generate → CREATE-CHARACTER from template"
-      2b: "  mode=prompt → Ask user 'Before we begin, who are you?'"
-      2c: "  mode=error → Fail with helpful message"
-      3: "If characters exist but party.members empty:"
-      3a: "  Auto-add player/ to party"
-      4: "If party exists but selection empty:"
-      4a: "  Auto-select party leader"
-    invoked-by: [START, RESUME]
-    
-  CREATE-CHARACTER:
-    description: "Generate a new character from template"
-    parameters:
-      template:
-        type: path
-        default: "characters/player/CHARACTER.yml"
-      name:
-        type: string
-        description: "Character name (optional, can be set later)"
-      start_room:
-        type: path
-        default: "start/"
-    effects:
-      - "Copy template to new character file"
-      - "Set initial location to start_room"
-      - "Add to party.members"
-      - "Select as active character"
-    invoked-by: [ENSURE-CHARACTER, player]
+  # Exploration
+  LOOK:       { signature: "LOOK (AT [thing])" }
+  GO:         { signature: "GO [direction]", note: "n/s/e/w/up/down/in/out" }
+  TAKE:       { signature: "TAKE [item]" }
+  DROP:       { signature: "DROP [item]" }
+  USE:        { signature: "USE [item] (ON [target])" }
+  INVENTORY:  { signature: "INVENTORY" }
   
-  # EXPLORATION METHODS — Moving and looking
+  # Interaction
+  TALK:       { signature: "TALK TO [character] (ABOUT [topic])" }
+  EXAMINE:    { signature: "EXAMINE [thing]" }
   
-  LOOK:
-    description: "Describe current room"
-    parameters:
-      at: "Optional specific thing to examine"
-    output: chat (narrative)
-    effect: "Read ROOM.yml, narrate atmospherically"
-    invoked-by: [player]
-    
-  GO:
-    description: "Move to adjacent room"
-    parameters:
-      direction: "north, south, east, west, up, down, in, out, or room name"
-    output: chat (narrative) + state-change
-    effect: "Update player.location, describe new room"
-    invoked-by: [player, npc]
-    
-  TAKE:
-    description: "Pick up an object"
-    parameters:
-      item: "Object to take"
-    output: chat + state-change
-    effect: "Add to inventory, update object.location"
-    invoked-by: [player, npc]
-    
-  DROP:
-    description: "Put down an object"
-    parameters:
-      item: "Object to drop"
-    output: chat + state-change
-    effect: "Remove from inventory, place in room"
-    invoked-by: [player, npc]
-    
-  USE:
-    description: "Use an item or interact with object"
-    parameters:
-      item: "What to use"
-      on: "Optional target"
-    output: chat (narrative) + state-change
-    effect: "Trigger item's effect, update state"
-    invoked-by: [player, npc]
-    
-  INVENTORY:
-    description: "List what you're carrying"
-    parameters: {}
-    output: chat
-    effect: "Show player.inventory"
-    invoked-by: [player]
-    
-  TALK:
-    description: "Speak to a character"
-    parameters:
-      to: "Character to address"
-      about: "Optional topic"
-    output: chat (dialogue)
-    effect: "NPC responds in character"
-    invoked-by: [player]
-    
-  SAVE:
-    description: "Save game state"
-    parameters:
-      name: "Save name"
-    output: file + chat
-    effect: "Write current state to save file"
-    invoked-by: [player]
-    
-  RESTORE:
-    description: "Load saved game"
-    parameters:
-      name: "Save name"
-    output: chat + state-change
-    effect: "Load state from save file"
-    invoked-by: [player]
-    
-  # DEBUG METHODS — Toggle technical output
-  
-  DEBUG-ON:
-    description: "Enable debug mode — show collapsible technical logs"
-    aliases: [DEBUG, VERBOSE, SHOW-MECHANICS]
-    parameters: {}
-    effects:
-      - "Set parameters.debug.enabled: true in ADVENTURE.yml"
-      - "Future output includes <details> sections with YAML islands"
-      - "All file operations, state changes, and links are shown"
-    output: chat (confirmation)
-    sequence:
-      1: "Update ADVENTURE.yml: debug.enabled = true"
-      2: "Confirm: 'Debug mode ON. Technical details will be shown in collapsible sections.'"
-    invoked-by: [player]
-    
-  DEBUG-OFF:
-    description: "Disable debug mode — clean narrative only"
-    aliases: [QUIET, MINIMAL, HIDE-MECHANICS]
-    parameters: {}
-    effects:
-      - "Set parameters.debug.enabled: false in ADVENTURE.yml"
-      - "Future output is pure narrative without technical sections"
-    output: chat (confirmation)
-    sequence:
-      1: "Update ADVENTURE.yml: debug.enabled = false"
-      2: "Confirm: 'Debug mode OFF. Clean narrative restored.'"
-    invoked-by: [player]
-    
-  DEBUG-FORMAT:
-    description: "Customize debug output format with natural language"
-    parameters:
-      instructions:
-        type: string
-        description: "Natural language description of desired format"
-        example: "Show only file operations, skip YAML islands, use 🔧 emoji"
-    effects:
-      - "Update parameters.debug.format in ADVENTURE.yml"
-      - "Future debug output follows the new instructions"
-    output: chat (confirmation)
-    invoked-by: [player]
-
-# DEBUG MODE
-# Collapsible technical logs with YAML data islands and markdown links
-
-debug_mode:
-  description: |
-    When debug.enabled: true, the LLM generates rich technical logs
-    that show exactly how MOOLLM works under the hood.
-    
-    Debug output uses HTML <details> tags for collapsible sections:
-    
-    ```html
-    <details>
-    <summary>📂 <strong>Editing CHARACTER.yml to update player location from start/ to coatroom/</strong></summary>
-    
-    ```yaml
-    # State change in CHARACTER.yml (canonical)
-    player:
-      location: start/  →  coatroom/  # Character owns their location
-    ```
-    
-    The CHARACTER.yml file is canonical for player state. ADVENTURE.yml
-    mirrors location for convenience but CHARACTER.yml is the source of truth.
-    
-    **Files affected:**
-    - [CHARACTER.yml](./CHARACTER.yml) — location updated
-    - [ADVENTURE.yml](../../ADVENTURE.yml) — mirror updated
-    
-    </details>
-    ```
-    
-  parameters:
-    enabled: "Master switch for debug mode"
-    show_file_operations: "Log file creates, edits, deletes, moves"
-    show_state_changes: "Show before/after state with arrows"
-    show_yaml_islands: "Embed abbreviated YAML with comments"
-    show_links: "Include markdown links to all referenced files"
-    show_technical_narrative: "Explain WHY and HOW, not just WHAT"
-    format: "Natural language instructions for formatting style"
-    collapsed_by_default: "Whether details sections start open or closed"
-    section_emoji: "Visual prefix for debug section summaries"
-    
-  example_summary_styles:
-    good:
-      - "📂 Editing CHARACTER.yml to update player location from start/ to coatroom/"
-      - "📂 Creating ENEMIES.yml with 9 tiers of satirical grievances"
-      - "📂 Moving donna-toadstool/ to fictional/ — both performer and persona are fictional"
-      - "📂 State ownership: CHARACTER.yml is canonical, ADVENTURE.yml mirrors"
-    bad:
-      - "📂 File edit"           # Too vague
-      - "📂 State change"        # What state? What change?
-      - "📂 Technical details"   # Doesn't describe the content
-
-# STATE
-# What an adventure instance tracks
-
-state:
-  # Inherited from simulation
-  turn:
-    type: integer
-    default: 0
-  paused:
-    type: boolean
-    default: false
-    
-  # Adventure-specific
-  player:
-    location:
-      type: path
-      description: "Current room directory"
-    inventory:
-      type: array
-      default: []
-    gold:
-      type: integer
-      default: 0
-    health:
-      type: integer
-      default: 100
-      
-  flags:
-    type: object
-    description: "Game state flags (puzzles solved, events triggered)"
-    default: {}
-    
-  discovered:
-    type: array
-    description: "Rooms the player has visited"
-    default: []
-    
-  output:
-    log-path:
-      type: path
-      description: "Summary table (LOG.md)"
-    transcript-path:
-      type: path
-      description: "Narrative log (TRANSCRIPT.md)"
+  # Debug
+  DEBUG-ON:   { signature: "DEBUG-ON", aliases: [DEBUG, VERBOSE] }
+  DEBUG-OFF:  { signature: "DEBUG-OFF", aliases: [QUIET, MINIMAL] }
 
 # ADVERTISEMENTS
-# What this card offers to the room
 
 advertisements:
   RESUME:
     score: 100
-    condition: "Continuing a session, startup hook, 'where was I?'"
-    satisfies: [continuity, orientation, immersion]
+    condition: "Continuing session, startup hook, 'where was I?'"
     
   START:
     score: 95
     condition: "Beginning fresh, new game, restart"
-    aliases: [RESTART, BEGIN, NEW-GAME]
-    satisfies: [adventure, exploration, fresh-start]
-    
-  ENSURE-CHARACTER:
-    score: 90
-    condition: "No character selected, party empty, 'who am I?'"
-    satisfies: [identity, setup, onboarding]
     
   DUNGEON-MASTER:
     score: 85
     condition: "Need narrative framing for exploration"
-    satisfies: [narration, atmosphere, immersion]
     
   CODEBASE-ARCHAEOLOGY:
     score: 80
-    condition: "Investigating unfamiliar codebase"
-    hint: "The auth bug is a quest!"
-    satisfies: [investigation, debugging, exploration]
+    condition: "Investigating unfamiliar codebase as quest"
     
-  DEBUG-ON:
+  DEBUG-TOGGLE:
     score: 75
-    condition: "Want to see technical details, 'show me the code', 'what files changed?'"
-    aliases: [DEBUG, VERBOSE, SHOW-MECHANICS]
-    satisfies: [transparency, learning, documentation]
-    
-  DEBUG-OFF:
-    score: 75
-    condition: "Want clean narrative, 'too much detail', 'just the story'"
-    aliases: [QUIET, MINIMAL, HIDE-MECHANICS]
-    satisfies: [immersion, simplicity, reading]
+    condition: "Want to see/hide technical details"
+
+# TOOLS
+
+tools:
+  required: [read_file, write_file, list_dir]
+  optional: [grep]
+
+# ROOM PATTERN (brief — see SKILL.md)
+
+room_pattern:
+  directory: "room"
+  contents: "objects, characters, clues"
+  readme: "room description"
+  room_yml: "properties and exits"
+
+# STATE SCHEMA (brief — see SKILL.md)
+
+state:
+  player: [location, inventory, gold, health]
+  flags: "puzzles solved, events triggered"
+  discovered: "rooms visited"
+  output: [LOG.md, TRANSCRIPT.md]
+
+# PARTICIPANTS
+
+participants:
+  player: "human via chat"
+  npc: "DM (LLM) controlled"
+  bot: "action queue (autonomous)"
+  agent: "LLM with own goals"
 
 # TEMPLATES
 
 templates:
-  - ADVENTURE.yml.tmpl  # Complete adventure state
-  - LOG.md.tmpl         # Summary table
-  - TRANSCRIPT.md.tmpl  # Pure narration
+  - ADVENTURE.yml.tmpl
+  - LOG.md.tmpl
+  - TRANSCRIPT.md.tmpl
 
-# ROOM INTEGRATION
-# How adventure relates to rooms
+# DOCUMENTATION POINTERS
 
-room-pattern:
-  directory-is: "room"
-  contents-are: "objects, characters, clues"
-  readme-is: "room description"
-  room-yml-is: "room properties and exits"
+documentation:
+  SKILL.md:
+    - "§ Lifecycle Methods (START, RESUME, ENSURE-CHARACTER)"
+    - "§ Exploration Methods (GO, LOOK, TAKE, USE)"
+    - "§ Debug Mode (collapsible technical logs)"
+    - "§ State Schema (full player/flags/output)"
+    - "§ Multi-User (participants and control)"
+  events/:
+    - "Event templates for adventure errors"
 
-# MULTI-USER
-# Adventure supports multiple simultaneous participants
+# LINEAGE
 
-participants:
-  player-character:
-    controlled-by: "human via chat"
-    example: "Alice exploring the dungeon"
-  npc:
-    controlled-by: "DM (LLM)"
-    example: "Merchant sells items when addressed"
-  bot:
-    controlled-by: "action queue (autonomous)"
-    example: "Guard patrols on schedule"
-  agent:
-    controlled-by: "LLM with own goals"
-    example: "Oracle pursues prophecies"
-
-# RELATED
-
-see-also:
-  - skills/simulation  # Parent skill
-  - skills/room        # Directories as rooms
-  - skills/character   # Player and NPCs
-  - skills/party       # Group dynamics
-  - skills/memory-palace  # Same spatial metaphor
-  - skills/session-log # Audit trail
-
-# CREDITS
-
-credits:
-  inspiration:
-    # Chronological order of key influences
-    - "Gary Gygax & Dave Arneson — D&D (1974): DM role, maps, monsters, quests"
-    - "Will Crowther & Don Woods — Colossal Cave Adventure (1976)"
-    - "Infocom — Zork series (1977-): Parser, puzzles, atmosphere"
-    - "Richard Bartle & Roy Trubshaw — MUD (1978): Multi-user, persistence"
-    - "TSR — D&D Monster Manual (1977): Bestiary as design pattern"
-    - "Pavel Curtis — LambdaMOO (1990): OO rooms, verbs, social"
-    - "Douglas Engelbart — NLS: Interactive systems"
-    
-  dnd-legacy: |
-    D&D invented the DM (Dungeon Master) — the original LLM role.
-    The DM:
-    - Interprets rules flexibly (Postel's Law)
-    - Narrates outcomes atmospherically
-    - Plays all NPCs
-    - Tracks state
-    - Responds to player creativity
-    
-    MOOLLM's adventure skill makes the LLM your DM.
-    
-  monster-manual: |
-    The Monster Manual (1977) established:
-    - Bestiary as reusable catalog
-    - Stats + flavor text pattern
-    - Challenge rating (difficulty)
-    - Treasure tables (rewards)
-    
-    MOOLLM characters inherit this pattern.
+lineage:
+  - "Gary Gygax & Dave Arneson — D&D (1974): DM role"
+  - "Colossal Cave Adventure (1976)"
+  - "Infocom — Zork (1977): Parser, puzzles"
+  - "MUD (1978): Multi-user, persistence"
+  - "LambdaMOO (1990): OO rooms, verbs"

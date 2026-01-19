@@ -1,0 +1,165 @@
+# Don's Pub Photos — Shot 6: The Arcade
+# First-person phone camera, Palm getting a high score
+# "PLM beats GRM on Monkey Kong Jr.!"
+# CONTEXT FULLY EXPANDED from CHARACTER.yml, guest-book, pub/arcade/ROOM.yml
+
+prompt:
+  style: |
+    iPhone photo, first-person POV, arcade cabinet glory moment.
+    Neon glow from screens, retro gaming atmosphere.
+    The triumphant moment of a new high score.
+    Classic arcade celebration energy. CRT screen glow on faces.
+    Beeps, bloops, mechanical whirring, victory jingles.
+
+  scene: |
+    THE ARCADE ALCOVE, 7:15 PM.
+    
+    ═══════════════════════════════════════════════════════════
+    THE ARCADE ENVIRONMENT (from pub/arcade/ROOM.yml)
+    ═══════════════════════════════════════════════════════════
+    
+    THE SPACE:
+    - Cluster of glowing cabinets humming in the corner
+    - Colorful light casting on eager faces
+    - Atmosphere: nostalgic, competitive, slightly addictive
+    - Smell: ozone, old circuits, spilled ale
+    - The machines accept copper coins — somehow
+    
+    THE MYSTERY:
+    - No one installed these machines
+    - No one maintains them
+    - They never break (except dramatically, for story)
+    - They accept any coin (copper works fine)
+    - Bartender says they've "always been there"
+    - Some say a wizard was involved
+    - Some say they fell through from another world
+    
+    THE CABINETS:
+    
+    "THE GOBLIN'S FORTUNE" (fruit machine):
+    - Three reels of fruit, gems, and goblins
+    - 1 copper per pull
+    - Jackpot: 100 gold (has it EVER paid out?)
+    - Flickering enticingly in background
+    
+    "DUNGEON FLIPPER" (pinball):
+    - Dungeon-themed pinball table
+    - Navigate a marble through a tiny dungeon
+    - High score held by "AAA" since time immemorial
+    - Flippers clicking, bells dinging
+    
+    "GOBBLE GHOST" (Pac-Man):
+    - Yellow orb eats dots, avoids ghosts
+    - High score held by "GRM" (Grim the bartender)
+    - "The ghosts have names. They have PERSONALITIES."
+    - Wakka-wakka sounds in background
+    
+    "PADDLE & BALL" (Pong):
+    - Two paddles, one ball, infinite simplicity
+    - Philosophy: "Sometimes less is more"
+    - Multiplayer available
+    
+    === THE MAIN ATTRACTION ===
+    
+    "MONKEY KONG JR." (Palm's donation):
+    - Vintage arcade cabinet, original CRT monitor
+    - Donkey Kong Junior gameplay visible
+    - Classic arcade artwork on cabinet sides
+    - Palm donated this to the arcade for EVERYONE
+    - But Palm still holds the high score
+    - Gifted by "someone who loved them"
+    - "For you, Palm!" — the moment it arrived
+    
+    HIGH SCORE BOARD (magical, updates itself):
+    - "1. PLM 847,200" (NEW! Just achieved!)
+    - "2. GRM 845,100" (Grim... dethroned!)
+    - Bragging rights: SIGNIFICANT
+    
+    ═══════════════════════════════════════════════════════════
+    FEATURED CHARACTERS (explicit visual descriptions)
+    ═══════════════════════════════════════════════════════════
+    
+    PALM (at Monkey Kong Jr. cabinet, VICTORIOUS):
+    - Small capuchin monkey, brown/grey fur
+    - Standing on a stool to reach the controls
+    - Both small monkey hands on joystick and buttons
+    - Looking back at camera with ABSOLUTE JOY
+    - Both arms raised in victory, jumping pose
+    - Intelligent brown eyes lit up with triumph
+    - Faint CIRCUIT PATTERNS in fur shimmer with joy
+    - CRT glow illuminating their happy face
+    - 122 years of wisdom, but right now: pure gamer joy
+    - This cabinet was gifted to them, they donated it to everyone
+    - But they still hold the high score (PLM)
+    
+    THE MONKEY KONG JR. CABINET:
+    - Vintage arcade cabinet, original CRT monitor
+    - Donkey Kong Junior gameplay visible
+    - Screen shows: "NEW HIGH SCORE! PLM 847,200"
+    - Previous high score: "GRM 845,100" (the Grue? No, Grim!)
+    - Classic arcade artwork: vines, platforms, Mario
+    - Warm CRT glow, slightly curved screen
+    
+    CHEECH MARIN (watching over Palm's shoulder):
+    - Latino man, mustache, wide eyes
+    - MIND BLOWN expression
+    - Jaw dropped, can't believe what he's seeing
+    - "Dude... that monkey is DESTROYING this game."
+    - Joint forgotten in hand, smoke curling up
+    - Emoji: 👨🌿😎
+    
+    TOMMY CHONG (next to Cheech):
+    - Tall man, grey beard, philosophical expression
+    - More contemplative reaction
+    - Taking a hit from a vaporizer
+    - "Maybe the game is playing the monkey, man."
+    - Zen acceptance of the inexplicable
+    - Emoji: 👨💨🧘
+    
+    BISCUIT (at Palm's feet):
+    - Golden retriever mix, 65 lbs
+    - Rich golden fur, big brown eyes
+    - Looking up adoringly at Palm
+    - Tail wagging, good dog support energy
+    - Doesn't understand the game, supports anyway
+    - That's what family does
+    - Question-mark tail curve at maximum
+    
+    ═══════════════════════════════════════════════════════════
+    BACKGROUND DETAILS & ATMOSPHERE
+    ═══════════════════════════════════════════════════════════
+    
+    - Other arcade cabinets flickering in neon
+    - Pac-Man wakka-wakka sounds
+    - "Goblin's Fortune" fruit machine spinning
+    - Eternal hum of electronics
+    - Neon glow reflecting off everything
+    - Other patrons clustered around, watching
+    - The magical high score board updating itself
+    - Copper coins scattered on counter
+
+  mood: |
+    Triumph! Joy! The pure happiness of arcade victory.
+    Retro gaming nostalgia meets wholesome monkey achievement.
+    A monkey who was a cursed paw for 122 years,
+    now playing video games with friends who love them.
+    This is what freedom looks like.
+    Beeps, bloops, victory jingle, cheering.
+    "Winners get bragging rights" — SIGNIFICANT.
+
+  technical:
+    aspect_ratio: 4:3
+    style: phone_camera_candid
+    time_of_day: "7:15 PM"
+    camera_position: first-person from behind Palm, seeing screen and reaction
+
+sources_expanded:
+  palm: characters/animals/monkey-palm/CHARACTER.yml
+  biscuit: characters/animals/dog-biscuit/CHARACTER.yml
+  cheech: pub/guest-book.yml
+  chong: pub/guest-book.yml
+  arcade_room: pub/arcade/ROOM.yml (full environment)
+  pacman: pub/arcade/pacman-cabinet.yml
+  pinball: pub/arcade/pinball-machine.yml
+  fruit_machine: pub/arcade/fruit-machine.yml
+  narrative: marathon-session.md (Monkey Kong Jr. gifting scene lines 4708-4714)

@@ -199,6 +199,32 @@ The LOG is for quick reference. The TRANSCRIPT is for reading.
 > GO NORTH              # Into the maze... lamp ready?
 ```
 
+## 🎞️ Visual Galleries
+
+Encapsulated image galleries with narrative slideshows. Each inherits from the [slideshow skill](../../skills/slideshow/).
+
+| Gallery | Location | Images | Description |
+|---------|----------|--------|-------------|
+| [Don's Pub Photos](./pub/dons-pub-photos-2026-01-19/SLIDESHOW.md) | The Rusty Lantern | 8 | Facebook-style photo tour: Marieke, Palm, cats, Fluxx game, Pee-wee, impossible guests |
+| [Rocky and Friends](./pub/rooms/room-4/rocky-and-friends/SLIDESHOW.md) | Room 4 | 8+ | Rocky the emotional support boulder with all the cats, dogs, and friends |
+| [Dusty Attic Art Styles](./pub/attic/dusty-attic-art-styles/SLIDESHOW.md) | The Attic | 7 | Same room rendered in 7 legendary art styles |
+| [Telescope Constellation Views](./pub/rooftop/telescope-constellation-views/SLIDESHOW.md) | Rooftop | 2 | K-Line constellation through AR telescope lens |
+| [Palm's Portrait Session](./pub/stage/palm-nook/study/palm-portrait-session/SLIDESHOW.md) | Palm's Study | 1 | Dutch Golden Age oil painting tribute |
+| [ACME Tunnel Temporal Views](./street/lane-neverending/leela-manufacturing/lobby/acme-tunnel-temporal-views/SLIDESHOW.md) | Manufacturing Lobby | 4 | Security camera footage across timelines |
+| [Palm's Portrait Gallery](./characters/animals/monkey-palm/SLIDESHOW.md) | Character File | — | Links to Palm's portrait in the study |
+
+### Multi-Look Mining
+
+Many of these galleries include **multi-look mined** resources — layered interpretations from different AI perspectives (OpenAI, Claude, etc.). Each layer adds depth:
+
+- **Layer 1:** Objects, colors, basic resources
+- **Layer 2:** Character identity, cultural markers, narrative POV
+- **Layer 3+:** Art history, phenomenology, specialized lenses
+
+See [image-mining skill](../../skills/image-mining/SKILL.md#multi-look-mining) for the protocol.
+
+---
+
 ## 📚 References
 
 | Resource | Purpose |

@@ -1,16 +1,20 @@
-# CARD.yml — Card (The Meta-Card!)
+# CARD.yml — The Card Card
 #
-# Portable tokens of capability, identity, and access.
-# This is the card that describes what cards are.
+# SNIFFABLE INTERFACE — see SKILL.md for full documentation
+# "Portable tokens of capability, identity, and access."
+#
+# KEY INSIGHT: Cards are ACTIVATION TRIGGERS, not handlers.
+# This CARD tells you IF to use the card skill.
+# SKILL.md tells you HOW to write and structure cards.
 
 card:
   id: card
   name: "The Card Card"
   type: [skill, meta, capability]
-  
   emoji: 🎴
-  
-  rarity: mythic  # The meta-card itself
+  tier: 1
+  rarity: mythic
+  tagline: "Portable tokens of capability, identity, and access."
   
   description: |
     The meta-skill for understanding and creating cards.
@@ -18,156 +22,60 @@ card:
     
     Trading cards, playing cards, Magic cards, Tarot cards,
     business cards, key cards, receipts, tickets — all cards.
-    
-    Play this card to create new cards, understand the card
-    system, or build card-based game mechanics.
 
-# TOOLS REQUIRED
+# FILES INDEX — Activate together for full context
 
-tools:
-  required:
-    - read_file   # Read card definitions
-    - write_file  # Create/modify cards
-    - list_dir    # Find cards in collections
-  optional:
-    - grep        # Search for cards
+files:
+  docs:
+    - SKILL.md              # Full protocol + CARD ARCHITECTURE
+    - README.md             # Human landing page
+    - ACTIVATION.md         # Activation record protocol
+    - ENSEMBLES.md          # Card combinations
+    - FLUXX.md              # Rule-changing cards
+  templates:
+    - CARD.yml.tmpl         # Individual card template
+    - COLLECTION.yml.tmpl   # Card collection template
+  examples/:                # 35+ example cards by category
+    monsters: [clockwork-dragon, gelatinous-cube, mimic, owlbear, shadow]
+    collectives: [leela-ai, maker-guild, neighborhood-council]
+    buffs: [chain-trigger, pie-menu, stacking]
+    worms: [pointer, sitemap-caster]
 
-tier: 1  # File read/write
+# K-LINES
 
-# METHODS
-# Actions this card advertises
+k-lines:
+  activates:
+    - CARD
+    - TRADING-CARD
+    - PLAYING-CARD
+    - CARD-ARCHITECTURE     # How to write cards
+    - SIDECAR-PATTERN       # CARD.yml alongside entities
+  related:
+    - { ref: skill, relation: "cards are skill instances" }
+    - { ref: advertisement, relation: "cards advertise methods" }
+    - { ref: room, relation: "cards activate in rooms" }
+    - { ref: buff, relation: "cards grant buffs" }
 
-methods:
-  
-  CREATE:
-    description: "Design a new card"
-    parameters:
-      name: "Card name"
-      type: "Card type(s)"
-      capabilities: "What the card can do"
-    output: file (CARD.yml) + chat
-    effect: "Generate card definition from parameters"
-    invoked-by: [player, designer]
-    
-  PLAY:
-    description: "Activate a card in a room"
-    parameters:
-      card: "Card to play"
-      room: "Where to play it (defaults to current)"
-      method: "Which method property to invoke"
-    output: chat + state-change
-    effect: "Create activation record, execute method"
-    invoked-by: [player, npc, room]
-    
-  COLLECT:
-    description: "Add card to inventory/collection"
-    parameters:
-      card: "Card to collect"
-      collection: "Where to store it"
-    output: chat + state-change
-    effect: "Add card reference to collection"
-    invoked-by: [player]
-    
-  TRADE:
-    description: "Exchange cards between characters"
-    parameters:
-      give: "Card(s) to give"
-      receive: "Card(s) to receive"
-      with: "Other party"
-    output: chat + state-change
-    effect: "Update both inventories"
-    invoked-by: [player, npc]
-    
-  EXAMINE:
-    description: "Read a card's full definition"
-    parameters:
-      card: "Card to examine"
-    output: chat
-    effect: "Display card properties, methods, state"
-    invoked-by: [player]
-    
-  ACTIVATE:
-    description: "Create activation record for a played card"
-    parameters:
-      card: "Card being played"
-      method: "Method being invoked"
-      parameters: "Method parameters"
-    output: file (*.activation) + chat
-    effect: "Instantiate card method with state"
-    invoked-by: [coherence-engine]
+# INVOKE WHEN
 
-# STATE
-# Card structure (template)
+invoke_when:
+  - "Create a new capability as a card"
+  - "Understand card system architecture"
+  - "Design card-based game mechanics"
+  - "Add CARD.yml sidecar to entity"
+  - "Learn what goes in CARD.yml vs SKILL.md"
 
-state:
-  card-schema:
-    id:
-      type: string
-      description: "Unique identifier"
-    name:
-      type: string
-      description: "Display name"
-    type:
-      type: array
-      description: "Card types (skill, character, item, etc.)"
-    emoji:
-      type: string
-    rarity:
-      type: enum
-      values: [common, uncommon, rare, epic, mythic]
-    description:
-      type: string
-    tools:
-      type: object
-      description: "Required and optional tools"
-    methods:
-      type: object
-      description: "Actions this card can perform"
-    state:
-      type: object
-      description: "Mutable state when activated"
-    advertisements:
-      type: object
-      description: "What this card offers to the room"
-
-# CARD TYPES
-
-card-types:
-  trading-card: "Hero-Story cards for real people's traditions"
-  playing-card: "Actions, abilities, spells to play"
-  fluxx-card: "Rule-changing cards (Fluxx style)"
-  tarot-card: "Archetypal symbols, prompts for reflection"
-  key-card: "Access tokens for rooms and resources"
-  skill-card: "Capabilities you can invoke"
-  character-card: "Summonable personas or NPCs"
-  item-card: "Objects with special effects"
-
-# ACTIVATION RECORDS
-# When a card is played, it creates an activation
-
-activation-record:
-  card: "Reference to source card"
-  method: "Which method is active"
-  state: "Instance-specific state"
-  location: "Where it's activated"
-  advertisements: "Active ads in the room"
-  lifecycle: [created, active, paused, completed, cancelled]
-
-# SIDECAR PATTERN
-
-sidecar-pattern:
-  description: "Any directory entity can have a CARD.yml sidecar"
-  examples:
-    - "pub/CARD.yml — makes the pub playable"
-    - "characters/don/CARD.yml — trading card representation"
-    - "objects/lamp/CARD.yml — summon/play the lamp"
-
-# ADVERTISEMENTS
+# ADVERTISEMENTS (PRIMARY)
 
 advertisements:
   CREATE-CARD:
     score: 95
     condition: "Need to make a new capability portable"
+    
+  CARD-ARCHITECTURE:
+    score: 95
+    condition: "Learning what goes in CARD.yml vs SKILL.md"
+    see: "SKILL.md § Card Architecture"
     
   UNDERSTAND-CARDS:
     score: 85
@@ -176,23 +84,84 @@ advertisements:
   DESIGN-GAME:
     score: 80
     condition: "Building card-based game mechanics"
+    
+  SIDECAR-PATTERN:
+    score: 85
+    condition: "Adding CARD.yml to existing entity"
 
-# RELATED
+# METHODS — signatures only
 
-see-also:
-  - skills/room           # Where cards are played
-  - skills/adventure      # Cards in narrative context
-  - skills/hero-story     # Safe references to real people
-  - skills/advertisement  # Cards advertise their methods
-  - skills/data-flow      # Cards can form pipelines
-  - skills/debate         # Debate card example
+methods:
+  CREATE:   { signature: "CREATE [name] TYPE [types]" }
+  PLAY:     { signature: "PLAY [card] (IN [room])" }
+  COLLECT:  { signature: "COLLECT [card] TO [collection]" }
+  TRADE:    { signature: "TRADE [cards] WITH [character]" }
+  EXAMINE:  { signature: "EXAMINE [card]" }
+  ACTIVATE: { signature: "ACTIVATE [card] [method]" }
 
-# CREDITS
+# CARD TYPES (brief — see SKILL.md)
 
-credits:
-  inspiration:
-    - "Magic: The Gathering — Complex card interactions"
-    - "Fluxx — Rule-changing cards"
-    - "Tarot — Archetypal card prompts"
-    - "Trading cards — Collectible representations"
-    - "Self language — Cards as prototype objects"
+types:
+  trading-card:  "Hero-Story cards for real people"
+  playing-card:  "Actions, abilities, spells"
+  fluxx-card:    "Rule-changing cards"
+  skill-card:    "Capabilities you can invoke"
+  character-card: "Summonable personas"
+  item-card:     "Objects with effects"
+  key-card:      "Access tokens"
+
+# CARD STRUCTURE OVERVIEW (brief — see SKILL.md § Card Architecture)
+
+card_structure:
+  principle: "Cards are ACTIVATION TRIGGERS, not handlers"
+  
+  recommended_order:
+    1: "card: (id, name, emoji, tagline, description)"
+    2: "files: (index for context activation)"
+    3: "k-lines: (activation vectors)"
+    4: "advertisements: (PRIMARY — before methods!)"
+    5: "methods: (signatures only)"
+    6: "state: (brief)"
+    7: "documentation: (pointers to SKILL.md)"
+    
+  target_size: "~150-200 lines"
+  smell: "If CARD > 300 lines, move content to SKILL.md"
+  
+  full_docs: "SKILL.md § Card Architecture"
+
+# SIDECAR PATTERN (brief)
+
+sidecar_pattern:
+  description: "Any entity can have a CARD.yml sidecar"
+  examples:
+    - "pub/CARD.yml — makes pub playable"
+    - "characters/don/CARD.yml — trading card"
+    - "objects/lamp/CARD.yml — item card"
+
+# TOOLS
+
+tools:
+  required: [read_file, write_file, list_dir]
+  optional: [grep]
+
+# DOCUMENTATION POINTERS
+
+documentation:
+  SKILL.md:
+    - "§ Card Architecture — what goes where and why"
+    - "§ Recommended Section Order"
+    - "§ Advertisements Before Methods"
+    - "§ Method Placement Rules"
+    - "§ Sidecar Pattern"
+    - "§ Activation Records"
+    - "§ Card Types"
+  README.md: "Human-friendly overview"
+  examples/: "35+ example cards"
+
+# LINEAGE
+
+lineage:
+  - "Magic: The Gathering — Complex card interactions"
+  - "Fluxx — Rule-changing cards"
+  - "Tarot — Archetypal prompts"
+  - "Self language — Cards as prototype objects"

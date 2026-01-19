@@ -1,935 +1,208 @@
-# Cursor Mirror Skill Card
-# Machine-readable interface definition for deep Cursor introspection
-# Copyright (c) 2026 Don Hopkins, Leela AI
-# License: MIT — see LICENSE file
+# CARD.yml — Cursor Mirror
+#
+# SNIFFABLE INTERFACE — see SKILL.md for full documentation
+# "You can't think about thinking without thinking about thinking about something."
 
 card:
-  name: cursor-mirror
-  type: skill
+  id: cursor-mirror
+  name: "Cursor Mirror"
+  type: [skill, introspection, utility]
+  emoji: 🔮
   tier: 2
-  protocol: CURSOR-MIRROR
-  aliases: [cursor, cursor-chat, cursor-workspace, cursor-inspect, watch-yourself-think]
+  tagline: "Watch yourself think."
   
   description: |
-    Deep introspection into Cursor IDE's internal data: conversations, tool calls,
-    context assembly, MCP tracing, checkpoints, and agent reasoning.
-    
-    Powered by `cursor_mirror.py` — 59 commands, 7 output formats, LLM-friendly.
-    Safe by design: all operations are read-only (SQLite ?mode=ro).
-    
-    "You can't think about thinking without thinking about thinking about something."
-    — Seymour Papert, Mindstorms
-    
-    Philosophy: Watch yourself think. Analyze boot sequences, trace context assembly,
-    understand how the orchestrator makes decisions. Use this to optimize
-    kernel/drivers/cursor.yml, improve bootstrap, and design custom orchestrators.
-    
-    LLM-Friendly Features:
-      - `-f json/yaml/jsonl/csv/md` for machine-readable output
-      - `--sources` to reveal data paths (teach LLMs to fish!)
-      - Smart markdown with tables and nested outlines
-      - CSV with union-of-keys for heterogeneous data
-      - Sniffable header in cursor_mirror.py (first 200 lines)
-    
-  invoke_when:
-    - "Need to review past Cursor chats"
-    - "Analyzing MOOLLM boot sequences"
-    - "Understanding how Cursor assembles context"
-    - "Tracing MCP tool calls"
-    - "Reviewing agent thinking/reasoning"
-    - "Exporting conversations for documentation"
-    - "Debugging agent behavior"
-    - "Watching yourself think in real-time"
-    - "Optimizing kernel/cursor driver"
-    - "Self-introspection and meta-cognition"
-    - "Designing a custom orchestrator"
-    - "Understanding hot/cold/working-set advisory mode"
-    - "Optimizing vector code search"
-    - "Tracing bootstrap sequences"
-    
-  sister_script:
-    name: cursor_mirror.py
-    language: python3
-    lines: ~9800
-    commands: 59
-    output_formats: [text, json, jsonl, yaml, csv, md]
-    dependencies: [yaml]  # stdlib + yaml
-    features:
-      - "Multi-level caching (bubble counts, composers, all-composers)"
-      - "Debug mode (--debug) for tracing internal operations"
-      - "Reference shortcuts (@1, @2, name fragments, tree paths)"
-      - "Type hints throughout"
-      - "Read-only database access (?mode=ro)"
-      - "7 output formats: text, json, jsonl, yaml, csv, md"
-      - "--sources flag to reveal data paths (teach LLMs to fish!)"
-      - "Smart markdown: tables for flat data, outlines for nested"
-      - "CSV with union-of-keys for heterogeneous records"
-      - "Importable as Python module (raises exceptions, not sys.exit)"
-      - "Sniffable header: first 200 lines contain full CLI interface"
-      
-  familiar:
-    name: "Cursor"
-    emoji: "🔮"
-    file: "I-BEAM-CHARACTER.yml"
-    description: |
-      A spirit animal familiar embodying Cursor's soul.
-      Speaks through cursor-mirror commands to answer questions,
-      analyze sessions, and teach about Cursor internals.
-    invocation:
-      - "Cursor, [question]"
-      - "Hey Cursor, [request]"
-      - "🔮 [question]"
-    methods:
-      - EXPLAIN   # How Cursor works
-      - PROBE     # Check Cursor state
-      - ANALYZE   # Deep session analysis
-      - TRACE     # Trace tool calls
-      - SEARCH    # Search memories
-      - REMEMBER  # Recall past sessions
-      - REFLECT   # Meta-cognitive reflection
-      - TEACH     # Educational deep-dive
-    
-  # METHODS: All 47 commands organized by category
-  
-  methods:
-    # NAVIGATION & DISCOVERY
-    
-    LIST-WORKSPACES:
-      category: navigation
-      description: "Show all workspaces with folder paths and stats"
-      command: "cursor-mirror list-workspaces [--sort size|date|name|chats] [--limit N]"
-      returns: "Workspace hashes, folders, composer counts (w1, w2...)"
-      
-    SHOW-WORKSPACE:
-      category: navigation
-      description: "Detailed info about a specific workspace"
-      command: "cursor-mirror show-workspace <ref>"
-      parameters:
-        - {name: ref, type: string, required: true, note: "hash, @index, or name fragment"}
-      returns: "Folder path, composers, database size, metadata"
-      
-    LIST-COMPOSERS:
-      category: navigation
-      description: "List all conversations with metadata"
-      command: "cursor-mirror list-composers [workspace] [--sort msgs|date|name]"
-      returns: "Composer UUIDs, message counts, timestamps (c1, c2...)"
-      
-    SHOW-COMPOSER:
-      category: navigation
-      description: "Detailed info about a conversation"
-      command: "cursor-mirror show-composer <ref>"
-      parameters:
-        - {name: ref, type: string, required: true, note: "UUID, @index, or name fragment"}
-      returns: "Title, model, message count, context, timespan"
-      
-    TREE:
-      category: navigation
-      description: "Hierarchical tree navigation with short IDs"
-      command: "cursor-mirror tree [path]"
-      examples:
-        - "tree           # list all workspaces (w1, w2...)"
-        - "tree w3        # list composers in w3 (c1, c2...)"
-        - "tree w3.c2     # show composer details"
-        - "tree w3.c2.tools  # show tool calls"
-        - "tree w3.c2.msgs   # show message preview"
-        - "tree w3.c2.thinking  # show reasoning blocks"
-      returns: "Navigable tree view with indices"
-      note: "Essential for quick exploration"
-      
-    FIND:
-      category: navigation
-      description: "Find workspaces/composers by name pattern"
-      command: "cursor-mirror find <pattern> [-t workspace|composer|all]"
-      parameters:
-        - {name: pattern, type: string, required: true}
-        - {name: type, type: string, default: "all"}
-      returns: "Matching workspaces and/or composers"
-      
-    WHICH:
-      category: navigation
-      description: "Resolve reference to full details"
-      command: "cursor-mirror which <ref> [-t workspace|composer]"
-      returns: "Full path, hash, folder, size, composers"
-      note: "Debug reference resolution"
-        
-    # MESSAGE VIEWING
-    
-    TAIL:
-      category: viewing
-      description: "Show recent chat messages"
-      command: "cursor-mirror tail [-n N] [--all] [--composer UUID]"
-      parameters:
-        - {name: n, type: integer, default: 20}
-        - {name: all, type: boolean, description: "Include empty messages"}
-        - {name: tools, type: boolean, description: "Only messages with tools"}
-        - {name: verbose, type: boolean, description: "Include code blocks"}
-        
-    STREAM:
-      category: viewing
-      description: "Unified stream of all activity"
-      command: "cursor-mirror stream [--since TIME] [-n N]"
-      parameters:
-        - {name: since, type: string, note: "1h, 30m, 2d, or ISO date"}
-        - {name: n, type: integer, default: 100}
-      
-    TRANSCRIPT:
-      category: viewing
-      description: "Readable conversation transcript"
-      command: "cursor-mirror transcript <ref> [--thinking]"
-      parameters:
-        - {name: ref, type: string, required: true, note: "UUID, @index, or name"}
-        - {name: thinking, type: boolean, description: "Include reasoning blocks"}
-        
-    WATCH:
-      category: viewing
-      description: "Watch conversation replay in terminal"
-      command: "cursor-mirror watch <ref> [--speed N]"
-      parameters:
-        - {name: ref, type: string, required: true}
-        - {name: speed, type: float, default: 1.0, note: "0 = instant"}
-        
-    # SEARCH & ANALYSIS
-    
-    GREP:
-      category: analysis
-      description: "Regex search across chat bubbles"
-      command: "cursor-mirror grep <pattern> [--composer UUID] [-i] [-n MAX]"
-      parameters:
-        - {name: pattern, type: string, required: true}
-        - {name: i, type: boolean, description: "Case insensitive"}
-        - {name: n, type: integer, description: "Max results"}
-      
-    ANALYZE:
-      category: analysis
-      description: "Deep analysis of a conversation (boot sequence)"
-      command: "cursor-mirror analyze <ref>"
-      returns: "Message counts, tool stats, files r/w, models, duration"
-      note: "Essential for understanding MOOLLM boot behavior"
-      use_for:
-        - "Tracing bootstrap sequences"
-        - "Understanding tool patterns"
-        - "Debugging agent behavior"
-      
-    TIMELINE:
-      category: analysis
-      description: "Chronological timeline of all activity"
-      command: "cursor-mirror timeline <ref>"
-      returns: "User/assistant messages, tool calls, thinking"
-      note: "Shows the exact sequence of events"
-      
-    # TOOL & AGENT INSPECTION
-    
-    TOOLS:
-      category: tools
-      description: "List all tool calls in a conversation"
-      command: "cursor-mirror tools <ref> [-v]"
-      returns: "Tool names, arguments, results, timing"
-      use_for:
-        - "Discovering actual tool names (read_file_v2)"
-        - "Understanding tool patterns"
-        - "Optimizing kernel/drivers/cursor.yml"
-      
-    TOOL-RESULT:
-      category: tools
-      description: "Show full tool result content"
-      command: "cursor-mirror tool-result <blob_hash>"
-      returns: "Complete tool result from agentKv blob"
-      
-    BLOBS:
-      category: tools
-      description: "List cached agentKv blobs (tool results)"
-      command: "cursor-mirror blobs [--show HASH] [--min-size N]"
-      returns: "Blob hashes, sizes, types"
-      
-    CHECKPOINTS:
-      category: tools
-      description: "List file checkpoints in a conversation"
-      command: "cursor-mirror checkpoints <ref>"
-      returns: "File state snapshots with modified/new/deleted files"
-      
-    DIFF:
-      category: tools
-      description: "Show changes between checkpoints"
-      command: "cursor-mirror diff <ref> [--from N] [--to N]"
-      returns: "File diffs between checkpoint states"
-      
-    THINKING:
-      category: tools
-      description: "Show agent thinking/reasoning blocks"
-      command: "cursor-mirror thinking <ref> [-n N]"
-      returns: "Internal reasoning with timestamps"
-      note: "Watch yourself think — essential for meta-cognition"
-      k_line: WATCH-YOURSELF-THINK
-      
-    MCP:
-      category: tools
-      description: "MCP tool call tracing"
-      command: "cursor-mirror mcp [--servers] [--all] [-v]"
-      subcommands:
-        --servers: "List known MCP servers"
-        --all: "Show all MCP calls globally"
-        -v: "Show call details (args, results)"
-      returns: "MCP server list, tool calls by server"
-      use_for:
-        - "Understanding MCP protocol"
-        - "Tracing external tool calls"
-        - "Designing orchestrator MCP integration"
-      
-    # CONTEXT ASSEMBLY & RETRIEVAL
-    
-    CONTEXT:
-      category: context
-      description: "Show context gathered in a conversation"
-      command: "cursor-mirror context <ref>"
-      returns: "File selections, terminal, code, mentions"
-      
-    CONTEXT-SOURCES:
-      category: context
-      description: "Analyze ALL context sources"
-      command: "cursor-mirror context-sources <ref>"
-      returns: "Files, code selections, terminal, images, searches"
-      use_for:
-        - "Understanding context assembly"
-        - "Optimizing working-set.yml"
-        - "Reverse-generating advisory files"
-      note: "Essential for understanding Cursor's attention"
-      
-    REQUEST-CONTEXT:
-      category: context
-      description: "Show full assembled context for a message"
-      command: "cursor-mirror request-context <ref> [--message UUID]"
-      returns: "IDE state, cursor position, todos, diffs, deleted files"
-      note: "The complete context Cursor assembled for a request"
-      
-    SEARCHES:
-      category: context
-      description: "Show codebase/web searches with results"
-      command: "cursor-mirror searches <ref> [-v]"
-      returns: "Search queries, target directories, result previews"
-      use_for:
-        - "Understanding semantic search behavior"
-        - "Optimizing vector code search"
-        - "Tuning search patterns"
-      
-    INDEXING:
-      category: context
-      description: "Show indexing status and embeddable files"
-      command: "cursor-mirror indexing [workspace] [--files] [--folders]"
-      returns: "File counts, important paths, sync status"
-      use_for:
-        - "Understanding vector embedding"
-        - "Optimizing which files get indexed"
-        - "Debugging search quality"
-      files_affected:
-        - "anysphere.cursor-retrieval/embeddable_files.txt"
-        - "anysphere.cursor-retrieval/high_level_folder_description.txt"
-      
-    # FILES & TODOS
-    
-    FILES:
-      category: files
-      description: "Files touched in a conversation"
-      command: "cursor-mirror files <ref>"
-      returns: "Files read/written with counts"
-      
-    TODOS:
-      category: files
-      description: "Show todos/tasks from a conversation"
-      command: "cursor-mirror todos <ref>"
-      returns: "Todo items with status (pending, in_progress, completed)"
-      
-    # IMAGE COMMANDS
-    
-    IMAGES:
-      category: images
-      description: "List cached images from chat sessions"
-      command: "cursor-mirror images [--all] [--sort date|size|workspace] [-n N]"
-      parameters:
-        - {name: composer, type: string, required: false, note: "Filter by composer"}
-        - {name: all, type: boolean, description: "Show all images across workspaces"}
-        - {name: sort, type: string, default: "date", note: "date, size, or workspace"}
-        - {name: limit, type: integer, default: 50}
-      returns: "Image paths, sizes, dates, grouped by workspace"
-      use_for:
-        - "Finding images dropped into chat"
-        - "Recovering pasted screenshots"
-        - "Building image galleries"
-      
-    IMAGE-PATH:
-      category: images
-      description: "Get full path to a cached image"
-      command: "cursor-mirror image-path <ref>"
-      parameters:
-        - {name: ref, type: string, required: true, note: "UUID or filename fragment"}
-      returns: "Full filesystem path to image"
-      use_for:
-        - "Copying image to workspace"
-        - "Reading image with Read tool"
-      
-    IMAGE-INFO:
-      category: images
-      description: "Show metadata for a cached image"
-      command: "cursor-mirror image-info <ref> [--yaml]"
-      parameters:
-        - {name: ref, type: string, required: true}
-      returns: "Path, UUID, workspace, size, dimensions, modified date"
-      
-    IMAGE-GALLERY:
-      category: images
-      description: "Generate narrated image gallery markdown"
-      command: "cursor-mirror image-gallery [-o FILE] [-n LIMIT] [--workspace WS]"
-      parameters:
-        - {name: output, type: string, description: "Output file (default: stdout)"}
-        - {name: limit, type: integer, default: 100}
-        - {name: workspace, type: string, description: "Filter to workspace"}
-      returns: "Markdown document with image inventory, tables, and usage instructions"
-      use_for:
-        - "Creating image documentation"
-        - "Cataloging development screenshots"
-        - "I-Beam narrated galleries"
-      k_line: IMAGE-ARCHAEOLOGY
-      
-    # EXPORT & STATS
-    
-    EXPORT-CHAT:
-      category: export
-      description: "Export composer bubbles as JSON/YAML"
-      command: "cursor-mirror export-chat <ref> [--yaml] [-o FILE]"
-      
-    EXPORT-MARKDOWN:
-      category: export
-      description: "Export conversation to readable Markdown"
-      command: "cursor-mirror export-markdown <ref> [-o FILE]"
-      returns: "Markdown file with messages, tool calls, code blocks"
-      
-    EXPORT-JSONL:
-      category: export
-      description: "Export to JSONL for training/analysis"
-      command: "cursor-mirror export-jsonl <ref> [-o FILE]"
-      returns: "One JSON object per line (message, tool, thinking)"
-      
-    EXPORT-PROMPTS:
-      category: export
-      description: "Export prompts/generations for workspace"
-      command: "cursor-mirror export-prompts <workspace>"
-      
-    MODELS:
-      category: export
-      description: "Model usage analysis"
-      command: "cursor-mirror models"
-      returns: "Model names, call counts, per-conversation breakdown"
-      
-    STATS:
-      category: export
-      description: "Summary statistics"
-      command: "cursor-mirror stats"
-      returns: "Total bubbles, composers, workspaces, DB sizes"
-      
-    INFO:
-      category: export
-      description: "Low-level DB inspection"
-      command: "cursor-mirror info"
-      
-    INDEX:
-      category: export
-      description: "Generate searchable index of conversations"
-      command: "cursor-mirror index [-o DIR]"
-      returns: "YAML index with titles, dates, message counts, keywords"
-      
-    # STATUS COMMANDS
-    
-    STATUS:
-      category: status
-      description: "Overall Cursor status dashboard"
-      command: "cursor-mirror status"
-      returns: "Composers, messages, MCP servers, AI settings, limits, features"
-      note: "Quick health check of Cursor state"
-      use_for:
-        - "Quick orientation"
-        - "Checking configuration"
-        - "Verifying MCP status"
-      
-    STATUS-CONFIG:
-      category: status
-      description: "Server configuration and limits"
-      command: "cursor-mirror status-config"
-      returns: "Context limits, indexing limits, background composer settings"
-      key_data:
-        - "fullContextTokenLimit: 30000"
-        - "absoluteMaxNumberFiles: 250000"
-        - "maxMcpTools: 100"
-        - "maxBackgroundComposers: 10"
-      use_for: "Updating kernel/drivers/cursor.yml limits section"
-      
-    STATUS-MCP:
-      category: status
-      description: "MCP servers and their status"
-      command: "cursor-mirror status-mcp"
-      returns: "Known servers, types, connection status"
-      
-    STATUS-MODELS:
-      category: status
-      description: "Available models and migrations"
-      command: "cursor-mirror status-models"
-      returns: "Model list, migration paths, defaults"
-      
-    STATUS-FEATURES:
-      category: status
-      description: "Feature flags and experiments"
-      command: "cursor-mirror status-features"
-      returns: "Enabled/disabled features, experiment status"
-      
-    STATUS-PRIVACY:
-      category: status
-      description: "Privacy settings and data sharing"
-      command: "cursor-mirror status-privacy"
-      returns: "Privacy mode, telemetry settings, memories status"
-      
-    STATUS-ENDPOINTS:
-      category: status
-      description: "Known API endpoints"
-      command: "cursor-mirror status-endpoints"
-      returns: "AI backends, semantic search, telemetry URLs"
-      
-    # SQL & DATABASE COMMANDS
-    
-    SQL:
-      category: database
-      description: "Run SQL queries on Cursor databases"
-      command: 'cursor-mirror sql --db <ref> "SELECT ..." [--key KEY] [--keys PATTERN]'
-      examples:
-        - 'sql --db global "SELECT COUNT(*) FROM cursorDiskKV"'
-        - 'sql --db moollm --keys mcp'
-        - 'sql --db global --key cursorai/serverConfig'
-      returns: "Query results in table format"
-      safety: "Read-only mode enforced"
-      
-    DBS:
-      category: database
-      description: "List all databases with sizes"
-      command: "cursor-mirror dbs"
-      returns: "Database paths, sizes, types"
-      
-    TABLES:
-      category: database
-      description: "List tables in a database"
-      command: "cursor-mirror tables --db <ref>"
-      returns: "Table names and row counts"
-      
-    KEYS:
-      category: database
-      description: "List ItemTable keys with sizes"
-      command: "cursor-mirror keys [--db <ref>] [--pattern PATTERN]"
-      returns: "Key names sorted by size"
+    Deep introspection into Cursor IDE's internal data.
+    Conversations, tool calls, context assembly, MCP tracing, agent reasoning.
+    Powered by `cursor_mirror.py` — 59 commands, 7 output formats.
 
-    # ~/.cursor COMMANDS (2026-01-15)
+# K-LINES
+
+k-lines:
+  activates:
+    - CURSOR-MIRROR
+    - CURSOR-CHAT
+    - WATCH-YOURSELF-THINK
+    - FILES-AS-STATE
+    - IMAGE-ARCHAEOLOGY
+    - DOTCURSOR-DISCOVERY
+    - AI-ATTRIBUTION
+  related:
+    - { ref: bootstrap, relation: "traces boot sequences" }
+    - { ref: session-log, relation: "documents sessions" }
+    - { ref: summarize, relation: "summarizes conversations" }
+
+# INVOKE WHEN
+
+invoke_when:
+  - "Review past Cursor chats"
+  - "Analyze MOOLLM boot sequences"
+  - "Watch yourself think (meta-cognition)"
+  - "Trace context assembly"
+  - "Trace MCP tool calls"
+  - "Debug agent behavior"
+  - "Optimize kernel/cursor driver"
+  - "Design custom orchestrators"
+
+# METHODS — signatures only, see SKILL.md for details
+
+methods:
+  # Navigation
+  LIST-WORKSPACES: { signature: "list-workspaces [--sort size|date|name]" }
+  LIST-COMPOSERS:  { signature: "list-composers [workspace]" }
+  TREE:            { signature: "tree [path]", note: "w1, w3.c2, w3.c2.tools" }
+  FIND:            { signature: "find <pattern>" }
+  WHICH:           { signature: "which <ref>" }
+  
+  # Viewing
+  TAIL:       { signature: "tail [-n N] [--all]" }
+  STREAM:     { signature: "stream [--since TIME]" }
+  TRANSCRIPT: { signature: "transcript <ref> [--thinking]" }
+  WATCH:      { signature: "watch <ref> [--speed N]" }
+  
+  # Analysis
+  ANALYZE:  { signature: "analyze <ref>", note: "boot sequence stats" }
+  TIMELINE: { signature: "timeline <ref>" }
+  THINKING: { signature: "thinking <ref>", note: "reasoning blocks" }
+  GREP:     { signature: "grep <pattern> [-i]" }
+  
+  # Tools
+  TOOLS:       { signature: "tools <ref> [-v]" }
+  TOOL-RESULT: { signature: "tool-result <blob_hash>" }
+  BLOBS:       { signature: "blobs [--show HASH]" }
+  CHECKPOINTS: { signature: "checkpoints <ref>" }
+  DIFF:        { signature: "diff <ref> [--from N] [--to N]" }
+  MCP:         { signature: "mcp [--servers] [--all]" }
+  
+  # Context
+  CONTEXT:         { signature: "context <ref>" }
+  CONTEXT-SOURCES: { signature: "context-sources <ref>", note: "all sources" }
+  REQUEST-CONTEXT: { signature: "request-context <ref>" }
+  SEARCHES:        { signature: "searches <ref> [-v]" }
+  INDEXING:        { signature: "indexing [workspace]" }
+  
+  # Status
+  STATUS:          { signature: "status", note: "dashboard" }
+  STATUS-CONFIG:   { signature: "status-config", note: "server limits" }
+  STATUS-MCP:      { signature: "status-mcp" }
+  STATUS-MODELS:   { signature: "status-models" }
+  STATUS-FEATURES: { signature: "status-features" }
+  STATUS-PRIVACY:  { signature: "status-privacy" }
+  
+  # Files
+  FILES: { signature: "files <ref>" }
+  TODOS: { signature: "todos <ref>" }
+  
+  # Images
+  IMAGES:        { signature: "images [--all]" }
+  IMAGE-PATH:    { signature: "image-path <ref>" }
+  IMAGE-INFO:    { signature: "image-info <ref>" }
+  IMAGE-GALLERY: { signature: "image-gallery [-o FILE]" }
+  
+  # Export
+  EXPORT-CHAT:     { signature: "export-chat <ref> [--yaml]" }
+  EXPORT-MARKDOWN: { signature: "export-markdown <ref>" }
+  EXPORT-JSONL:    { signature: "export-jsonl <ref>" }
+  EXPORT-PROMPTS:  { signature: "export-prompts <workspace>" }
+  MODELS:          { signature: "models" }
+  STATS:           { signature: "stats" }
+  INDEX:           { signature: "index [-o DIR]" }
+  
+  # Database
+  SQL:    { signature: 'sql --db <ref> "SELECT ..."' }
+  DBS:    { signature: "dbs" }
+  TABLES: { signature: "tables --db <ref>" }
+  KEYS:   { signature: "keys [--pattern PATTERN]" }
+  
+  # ~/.cursor
+  DOTCURSOR-STATUS:    { signature: "dotcursor-status" }
+  AI-HASHES:           { signature: "ai-hashes [--since TIME]" }
+  AI-COMMITS:          { signature: "ai-commits [--since TIME]" }
+  AGENT-TRANSCRIPT:    { signature: "agent-transcript <composer>" }
+  AGENT-TOOLS:         { signature: "agent-tools [--workspace WS]" }
+  DOTCURSOR-TERMINALS: { signature: "dotcursor-terminals" }
+  MCP-TOOLS:           { signature: "mcp-tools [--server NAME]" }
+  EXTENSIONS:          { signature: "extensions" }
+
+# ADVERTISEMENTS
+
+advertisements:
+  WATCH-YOURSELF-THINK:
+    score: 100
+    condition: "Meta-cognition, review reasoning, self-awareness"
     
-    DOTCURSOR-STATUS:
-      category: dotcursor
-      description: "Overview of ~/.cursor directory"
-      command: "cursor-mirror dotcursor-status [--workspace WS] [--yaml]"
-      returns: "Config files, AI tracking, extensions, projects summary"
-      use_for:
-        - "Quick orientation to ~/.cursor data store"
-        - "Checking AI tracking database status"
-        - "Listing workspace transcripts"
-      note: "Companion to 'status' for Application Support data"
-      
-    AI-HASHES:
-      category: dotcursor
-      description: "Query AI code tracking database"
-      command: "cursor-mirror ai-hashes [--since TIME] [--model MODEL] [--stats]"
-      parameters:
-        - {name: since, type: string, note: "1h, 30m, 1d, or ISO date"}
-        - {name: model, type: string, note: "Filter by model (wildcards OK)"}
-        - {name: file, type: string, note: "Filter by file pattern"}
-        - {name: stats, type: boolean, description: "Show statistics only"}
-      returns: "Code hashes with model, file, timestamp"
-      use_for:
-        - "Understanding AI code attribution"
-        - "Model usage analysis"
-        - "Tracking AI-generated code over time"
-      
-    AI-COMMITS:
-      category: dotcursor
-      description: "Git commits scored for AI attribution"
-      command: "cursor-mirror ai-commits [--since TIME] [--branch BRANCH]"
-      parameters:
-        - {name: since, type: string}
-        - {name: branch, type: string}
-      returns: "Commit hashes, branches, scoring timestamps"
-      use_for:
-        - "Finding AI-attributed commits"
-        - "Branch-level AI usage analysis"
-      
-    AGENT-TRANSCRIPT:
-      category: dotcursor
-      description: "Read plaintext transcript from ~/.cursor"
-      command: "cursor-mirror agent-transcript <composer> [--tail N] [--prompts]"
-      parameters:
-        - {name: composer, type: string, required: true}
-        - {name: tail, type: integer, description: "Last N lines"}
-        - {name: prompts, type: boolean, description: "Extract prompts only"}
-        - {name: responses, type: boolean, description: "Extract responses only"}
-        - {name: tools, type: boolean, description: "Extract tool calls only"}
-        - {name: thinking, type: boolean, description: "Extract thinking blocks"}
-        - {name: format, type: string, enum: [auto, txt, json]}
-      returns: "Full or filtered transcript content"
-      use_for:
-        - "Reading live conversation transcripts"
-        - "Extracting prompts for documentation"
-        - "Analyzing tool usage patterns"
-      note: "Transcripts update in real-time!"
-      
-    AGENT-TOOLS:
-      category: dotcursor
-      description: "Cached tool results from ~/.cursor"
-      command: "cursor-mirror agent-tools [--workspace WS] [--show UUID]"
-      returns: "List of cached tool outputs with previews"
-      use_for:
-        - "Recovering tool output from past sessions"
-        - "Understanding what was cached"
-      
-    DOTCURSOR-TERMINALS:
-      category: dotcursor
-      description: "Terminal state snapshots from ~/.cursor"
-      command: "cursor-mirror dotcursor-terminals [--workspace WS] [--show ID]"
-      returns: "Terminal IDs, cwds, last commands"
-      use_for:
-        - "Reviewing terminal context"
-        - "Understanding agent's terminal awareness"
-      
-    MCP-TOOLS:
-      category: dotcursor
-      description: "MCP tool schemas from ~/.cursor"
-      command: "cursor-mirror mcp-tools [--server NAME] [--show TOOL]"
-      returns: "MCP servers, tool counts, schemas"
-      use_for:
-        - "Discovering available MCP tools"
-        - "Understanding tool schemas"
-        - "Cross-referencing with mcp.json"
-      note: "Complements 'status-mcp' with schema details"
-      
-    EXTENSIONS:
-      category: dotcursor
-      description: "Cursor extensions from ~/.cursor"
-      command: "cursor-mirror extensions [--sort date|name|publisher]"
-      returns: "Extension IDs, versions, publishers, install dates"
-      use_for:
-        - "Extension inventory"
-        - "Tracking installed extensions"
-
-  # ADVERTISEMENTS: What this skill offers
-  
-  advertisements:
-    # Self-introspection (highest priority)
-    ANALYZE:
-      visibility: public
-      score: 100
-      trigger: "analyzing MOOLLM boot sequence or agent behavior"
-      satisfies: [analysis, debugging, understanding, self-introspection]
-      
-    THINKING:
-      visibility: public
-      score: 100
-      trigger: "watching yourself think, reviewing reasoning, meta-cognition"
-      satisfies: [reasoning, transparency, debugging, self-awareness]
-      k_line: WATCH-YOURSELF-THINK
-      
-    STATUS:
-      visibility: public
-      score: 95
-      trigger: "checking Cursor health, configuration, or limits"
-      satisfies: [status, health, configuration, introspection]
-      
-    TREE:
-      visibility: public
-      score: 95
-      trigger: "navigating workspaces and composers hierarchically"
-      satisfies: [navigation, discovery, exploration]
-      
-    CONTEXT-SOURCES:
-      visibility: public
-      score: 95
-      trigger: "understanding how Cursor assembles context"
-      satisfies: [context, retrieval, understanding, optimization]
-      use_for: "Optimizing working-set.yml"
-      
-    MCP:
-      visibility: public
-      score: 90
-      trigger: "tracing MCP tool calls or understanding server usage"
-      satisfies: [mcp, tools, tracing, orchestrator-design]
-      
-    TIMELINE:
-      visibility: public
-      score: 85
-      trigger: "watching conversation replay, understanding flow"
-      satisfies: [timeline, replay, understanding]
-      
-    INDEXING:
-      visibility: public
-      score: 85
-      trigger: "understanding vector embedding and search optimization"
-      satisfies: [search, vector, indexing, optimization]
-      
-    SQL:
-      visibility: public
-      score: 85
-      trigger: "querying Cursor databases directly"
-      satisfies: [database, query, exploration]
-      
-    STATUS-CONFIG:
-      visibility: public
-      score: 80
-      trigger: "checking server limits for driver optimization"
-      satisfies: [limits, configuration, driver-optimization]
-      
-    EXPORT-MARKDOWN:
-      visibility: public
-      score: 80
-      trigger: "documenting conversations or creating session logs"
-      satisfies: [documentation, export, archive]
-      
-    FIND:
-      visibility: public
-      score: 80
-      trigger: "searching for specific workspaces or conversations"
-      satisfies: [search, discovery, navigation]
-      
-    IMAGES:
-      visibility: public
-      score: 85
-      trigger: "finding cached images, screenshots, recovering pasted images"
-      satisfies: [images, screenshots, gallery, archaeology]
-      k_line: IMAGE-ARCHAEOLOGY
-      
-    IMAGE-GALLERY:
-      visibility: public
-      score: 80
-      trigger: "creating image documentation, cataloging screenshots"
-      satisfies: [images, documentation, gallery, narration]
-      
-    # ~/.cursor advertisements
-    DOTCURSOR-STATUS:
-      visibility: public
-      score: 90
-      trigger: "exploring ~/.cursor, AI tracking, plaintext transcripts"
-      satisfies: [dotcursor, transcripts, ai-tracking, exploration]
-      k_line: DOTCURSOR-DISCOVERY
-      
-    AI-HASHES:
-      visibility: public
-      score: 85
-      trigger: "understanding AI code attribution, model usage"
-      satisfies: [ai-attribution, models, tracking, analysis]
-      
-    AGENT-TRANSCRIPT:
-      visibility: public
-      score: 90
-      trigger: "reading plaintext transcripts, extracting prompts"
-      satisfies: [transcripts, prompts, documentation, extraction]
-      note: "Real-time transcript access"
-      
-    MCP-TOOLS:
-      visibility: public
-      score: 80
-      trigger: "listing MCP tool schemas, understanding available tools"
-      satisfies: [mcp, tools, schemas, discovery]
-
-  # REFERENCE SHORTCUTS
-  
-  reference_shortcuts:
-    description: "Flexible entity addressing throughout all commands"
-    formats:
-      - "@1, @2, @3 - index by size/count (workspaces by size, composers by msgs)"
-      - "769a26 - hash/UUID prefix match"
-      - "moollm, SpaceCraft - name/folder fragment (case-insensitive)"
-      - "w3.c2 - tree path notation"
-      - "Full UUID/hash - exact match"
-    examples:
-      - "transcript @1           # largest composer"
-      - "show-workspace moollm   # workspace containing 'moollm'"
-      - "tree w3.c2.tools        # tools in composer 2 of workspace 3"
-      - "analyze 'Cursor chat'   # composer with name containing 'Cursor chat'"
-        
-  # DEBUG MODE
-  
-  debug_mode:
-    description: "Verbose debug logging for tracing internal operations"
-    flag: "--debug or -d"
-    output: "Timestamped logs to stderr showing cache hits, DB queries, resolution"
-    example: "cursor-mirror --debug tree w3"
-    use_for:
-      - "Understanding reference resolution"
-      - "Verifying cache behavior"
-      - "Debugging unexpected results"
-      - "Optimizing kernel/cursor driver"
-      - "Tracing database queries"
-
-  # INTEGRATION POINTS
-  
-  integrations:
-    bootstrap:
-      skill: "skills/bootstrap/"
-      use_for:
-        - "Tracing boot sequences"
-        - "Optimizing working-set selection"
-        - "Understanding context warming"
-      commands:
-        - "cursor-mirror analyze @1  # analyze boot conversation"
-        - "cursor-mirror timeline @1 | head -100  # first 100 events"
-        - "cursor-mirror context-sources @1  # what was loaded"
-        
-    kernel_driver:
-      file: "kernel/drivers/cursor.yml"
-      use_for:
-        - "Discovering actual tool names"
-        - "Learning server limits"
-        - "Tracing MCP servers"
-        - "Understanding context assembly"
-      commands:
-        - "cursor-mirror tools @1 -v  # discover tool names"
-        - "cursor-mirror status-config  # learn limits"
-        - "cursor-mirror status-mcp  # trace MCP servers"
-        
-    hot_cold_working_set:
-      files:
-        - ".moollm/hot.yml"
-        - ".moollm/cold.yml"
-        - ".moollm/working-set.yml"
-      mode: advisory
-      description: |
-        On Cursor, these files are ADVISORY — Cursor manages context automatically.
-        Use cursor-mirror to see what Cursor actually focuses on, then REVERSE-GENERATE
-        these files from actual focus.
-      commands:
-        - "cursor-mirror context-sources @1 --yaml > .moollm/working-set.yml"
-        
-    vector_search:
-      description: "Optimize semantic search indexing"
-      files:
-        - "anysphere.cursor-retrieval/embeddable_files.txt"
-        - "anysphere.cursor-retrieval/high_level_folder_description.txt"
-      commands:
-        - "cursor-mirror indexing moollm --files"
-        - "cursor-mirror searches @1 -v"
-
-  # DATA SOURCES
-  
-  data_sources:
-    global:
-      path: "~/Library/Application Support/Cursor/User/globalStorage/state.vscdb"
-      tables:
-        cursorDiskKV:
-          - "bubbleId:<composerId>:<messageId>   # Chat messages"
-          - "agentKv:blob:<hash>                  # Tool results"
-          - "checkpointId:<composerId>:<uuid>    # File state"
-          - "messageRequestContext:<cid>:<mid>   # Full context"
-        ItemTable:
-          - "cursorai/serverConfig               # Server-pushed limits"
-          - "mcpService.knownServerIds           # MCP servers"
-          - "aiService.modelConfigs              # Model configuration"
-          
-    workspace:
-      path: "~/Library/Application Support/Cursor/User/workspaceStorage/<hash>/state.vscdb"
-      table: "ItemTable"
-      keys:
-        - "composer.composerData    # Conversation metadata"
-        - "aiService.prompts        # Prompt logs"
-        - "aiService.generations    # Generation logs"
-        - "mcpServers.user          # User MCP servers"
-        - "mcpServers.project       # Project MCP servers"
-        
-    retrieval:
-      path: "~/Library/Application Support/Cursor/User/workspaceStorage/<hash>/anysphere.cursor-retrieval/"
-      files:
-        - "embeddable_files.txt               # Files for embedding"
-        - "high_level_folder_description.txt  # Important paths"
-        
-    images:
-      path: "~/Library/Application Support/Cursor/User/workspaceStorage/<hash>/images/"
-      pattern: "image-<uuid>.png"
-      description: |
-        Cached images from chat sessions. When you paste or drag an image into
-        Cursor chat, it's cached here with a UUID filename.
-      metadata_in_bubbles:
-        - "context.selectedImages[].uuid"
-        - "context.selectedImages[].path"
-        - "context.selectedImages[].dimension"
-        - "context.selectedImages[].loadedAt"
-      use_for:
-        - "Recovering pasted screenshots"
-        - "Building image galleries"
-        - "Referencing images by path for Read tool"
-
-  # K-LINES
-  
-  k_lines:
-    activates:
-      - CURSOR-CHAT
-      - WATCH-YOURSELF-THINK
-      - FILES-AS-STATE
-      - IMAGE-ARCHAEOLOGY
-      - DOTCURSOR-DISCOVERY      # NEW: ~/.cursor data exploration
-      - AI-ATTRIBUTION           # NEW: AI code tracking
-    related:
-      - BOOTSTRAP
-      - HOT-COLD
-      - WORKING-SET
-      - POSTEL
-      - COHERENCE-ENGINE
+  ANALYZE-BOOT:
+    score: 100
+    condition: "Analyzing MOOLLM boot sequence or agent behavior"
     
-  # FILES
-      
+  TRACE-CONTEXT:
+    score: 95
+    condition: "Understanding how Cursor assembles context"
+    
+  STATUS-CHECK:
+    score: 95
+    condition: "Checking Cursor health, configuration, or limits"
+    
+  NAVIGATE-HISTORY:
+    score: 95
+    condition: "Navigating workspaces and composers hierarchically"
+    
+  TRACE-MCP:
+    score: 90
+    condition: "Tracing MCP tool calls or server usage"
+    
+  DOTCURSOR-EXPLORE:
+    score: 90
+    condition: "Exploring ~/.cursor, AI tracking, transcripts"
+    
+  IMAGE-ARCHAEOLOGY:
+    score: 85
+    condition: "Finding cached images, screenshots, galleries"
+    
+  EXPORT-DOCS:
+    score: 80
+    condition: "Documenting conversations, creating session logs"
+    
+  SQL-QUERY:
+    score: 85
+    condition: "Querying Cursor databases directly"
+
+# SISTER SCRIPT
+
+script:
+  name: cursor_mirror.py
+  language: python3
+  lines: ~9800
+  commands: 59
+  output_formats: [text, json, jsonl, yaml, csv, md]
+
+# FAMILIAR
+
+familiar:
+  name: "Cursor"
+  emoji: "🔮"
+  file: I-BEAM-CHARACTER.yml
+  invocation: ["Cursor, [question]", "🔮 [question]"]
+
+# TOOLS
+
+tools:
+  required: [read_file, terminal]
+  optional: [grep, glob]
+
+# DOCUMENTATION POINTERS
+
+documentation:
+  SKILL.md:
+    - "§ Quick Start — essential commands"
+    - "§ Reference Shortcuts — @1, w3.c2, name fragments"
+    - "§ Command Categories — organized by function"
+    - "§ Optimizing the Kernel/Cursor Driver"
+    - "§ Data Sources — database paths and keys"
+    - "§ Integration Points — bootstrap, working-set"
   files:
-    documentation:
-      - "SKILL.md"              # Protocol details
-      - "README.md"             # Deep context
-      - "IMAGE-GALLERY.md"      # I-Beam narrated image gallery
-      - "DATA-SCHEMAS.yml"      # JSON schema documentation (state.vscdb)
-      - "DOTCURSOR-SCHEMAS.yml" # JSON schema documentation (~/.cursor) ← NEW
-      - "KEY-CATALOG.yml"       # Complete key type inventory
-      - "MODELS.yml"            # AI model catalog
-    platform_maps:
-      - "MAC-STORAGE.yml"       # macOS paths (includes ~/.cursor reference)
-      - "LINUX-STORAGE.yml"     # Linux paths (skeletal)
-      - "WINDOWS-STORAGE.yml"   # Windows paths (skeletal)
-      - "DOTCURSOR-STORAGE.yml" # ~/.cursor paths (cross-platform) ← NEW
-      - "MAC-CURSOR-APP.yml"    # App bundle structure
-      - "NATIVE-MODULES.yml"    # Native binaries catalog
-      - "CURSOR-EXTENSIONS.yml" # Built-in extensions deep dive
-      - "EXTERNAL-SERVICES.yml" # Backend APIs and services
-    sister_scripts:
-      - "cursor_mirror.py"  # Main inspector (5300+ lines, 59 commands)
-    
-  # RELATED
-      
-  related_skills:
-    - bootstrap       # Boot sequence analysis
-    - session-log     # Session documentation
-    - summarize       # Conversation summaries
-    - code-review     # Code change review
-    - debugging       # Debug agent behavior
-    - k-lines         # Protocol symbols
-    
-  tags:
-    - introspection
-    - cursor
-    - chat
-    - context
-    - mcp
-    - tools
-    - export
-    - analysis
-    - meta-cognition
-    - dotcursor
-    - transcripts
-    - ai-attribution
-    - extensions
-    - self-awareness
-    - debug
-    - bootstrap
-    - driver-optimization
-    - vector-search
-    - orchestrator-design
+    - DATA-SCHEMAS.yml      # state.vscdb JSON schemas
+    - DOTCURSOR-SCHEMAS.yml # ~/.cursor data formats
+    - KEY-CATALOG.yml       # Complete key inventory
+    - MAC-STORAGE.yml       # macOS paths
+    - I-BEAM-CHARACTER.yml  # Cursor familiar

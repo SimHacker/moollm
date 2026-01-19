@@ -1,0 +1,104 @@
+# consent-hierarchy.yml — The 5 Levels of Representation Rights
+#
+# Who can simulate whom, and under what terms?
+
+consent_hierarchy:
+  
+  # LEVEL 1: SELF-REPRESENTATION (Sovereign)
+  
+  1_self:
+    principle: "You own your digital self."
+    
+    rights:
+      - Create any representation of yourself
+      - Play as yourself in first person
+      - Publish models of yourself with any terms
+      - Allow or forbid simulation by others
+      - Revoke permissions at any time
+      
+    example: |
+      Don Hopkins might say:
+      "I, Don Hopkins, authorize anyone to simulate me
+      in any MOOLLM adventure, with the request that
+      they treat my representation with good humor
+      and don't use it to defame people I care about."
+      
+    mechanism:
+      file: "cards/don-hopkins.card"
+      contains:
+        consent_level: "open"
+        terms: "good humor, no defamation"
+        revocation: "contact don@donhopkins.com"
+
+  # LEVEL 2: EXPLICIT CONSENT (Published)
+  
+  2_explicit:
+    principle: "Authors of their own model."
+    
+    examples:
+      - Someone publishes a curated self-model
+      - Artist releases their style as a card
+      - Teacher publishes their pedagogical approach
+      
+    requirements:
+      - Clear terms of use
+      - Scope limitations
+      - Revocation mechanism
+      - Attribution expectations
+
+  # LEVEL 3: PUBLIC FIGURES (Tradition)
+  
+  3_public:
+    principle: "Public work is fair game. Persona requires care."
+    
+    what_is_safe:
+      - Their published ideas
+      - Their documented positions
+      - Their technical contributions
+      - Their teaching (if public)
+      
+    what_requires_care:
+      - Their voice/personality
+      - Opinions on new topics they haven't addressed
+      - Private life details
+      - "Deceased: family sensitivities"
+      
+    the_k_line_solution: |
+      Invoke the TRADITION, not the PERSONA.
+      "The Minsky tradition suggests..." — safe
+      "Minsky would say..." — less safe
+      "I am Minsky and I think..." — NO
+
+  # LEVEL 4: PRIVATE INDIVIDUALS
+  
+  4_private:
+    principle: "Higher bar. More care."
+    
+    rule: |
+      Unless you have explicit consent, default to:
+      - Fictional wrapper (inspired-by character)
+      - Clear disclaimer
+      - No identifying details
+      - No distribution without consent
+
+  # LEVEL 5: THE DECEASED
+  
+  5_deceased:
+    principle: "They cannot consent. Proceed with reverence."
+    
+    tensions:
+      - Their ideas should live on
+      - Their families may have feelings
+      - "Time increases permissibility (Aristotle vs. your grandmother)"
+      - Public legacy vs. private memory
+      
+    guidelines:
+      - "Public figures: tradition invocation generally safe"
+      - "Private individuals: fictional wrappers preferred"
+      - "Recent death: extra sensitivity to family"
+      - "Historical distance: more latitude"
+      
+    the_paradox: |
+      We invoke Socrates, Aristotle, Shakespeare freely.
+      We wouldn't invoke someone's recently deceased parent without care.
+      Time and fame create implicit license — but not unlimited.

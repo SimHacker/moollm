@@ -1,3 +1,11 @@
+---
+inherits: slideshow
+title: "Rooftop Telescope — Constellation Views"
+created: 2026-01-19
+images: 2
+style: ar-overlay-astronomical
+---
+
 # 🔭 Rooftop Telescope — Visual Gallery
 
 > *"The stars are K-lines. Touch one and wake a constellation."*

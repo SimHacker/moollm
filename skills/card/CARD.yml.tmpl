@@ -1,81 +1,138 @@
-# Skill Card Template (sniffable, K-line ads)
-# Keep header minimal and greppable; drop blocks you do not need.
+# CARD.yml — {{name}}
+#
+# This file IS the card. It advertises capabilities and triggers activation.
+# See SKILL.md for implementation details, examples/ for worked cases.
+#
+# AUDIENCES:
+#   - Empathic template: Fill {{placeholders}}, drop unused sections
+#   - LLMs: Scan top-down to decide if this skill applies
+#   - Humans: Understand what this skill does at a glance
+#
+# PRINCIPLE: Cards are ACTIVATION TRIGGERS, not handlers.
+#   But they can still contain lightweight handlers and buffs as
+#   an optimization (but they cost tokens).
+#   The card asks: "Does this situation call for me?"
+#   The SKILL.md answers: "Here's how to actually do it."
+
+# ─────────────────────────────────────────────────────────────────────────────
+# IDENTITY — Who is this card? (Required)
+# ─────────────────────────────────────────────────────────────────────────────
 
 card:
-  name: "{{card_name}}"            # Prefer K-line style if applicable
-  type: "{{card_type}}"            # character | tool | technique | knowledge | artifact | monster | party | collective | abstract
-  tier: "{{tier|core}}"            # core | standard | experimental
-  invoke_when: ["{{when}}"]        # coarse activation triggers
-  advertisement_names:
-    - "{{AD}}"                     # K-line ads; methods listed here can double as generic ads
-  related:
-    - "{{related_skill}}"          # key link(s)
-  tags: [moollm{{tag_sep}}{{tag}}] # add more tags as needed
+  id: {{id}}                       # URL-safe identifier (kebab-case)
+  name: "{{name}}"                 # Human-readable display name
+  type: [skill]                    # skill | character | item | monster | collective | buff
+  emoji: 🎯                        # Single emoji for quick recognition
+  tier: 1                          # 1=core, 2=standard, 3=experimental
+  tagline: "{{tagline}}"           # One-line pitch (appears in listings)
+  
   description: |
-    Brief paragraph; keep concise.
+    {{description}}
+    
+    Brief paragraph explaining what this skill does and why you'd use it.
+    Keep it scannable — 2-4 sentences max.
 
-# Optional: static state for properties/dispatch, instances overriding (remove if unused)
-state:
-  foo: "bar"
+# ─────────────────────────────────────────────────────────────────────────────
+# FILES INDEX — What else should LLM read if activated? (Recommended)
+# ─────────────────────────────────────────────────────────────────────────────
+# Purpose: Let LLM gather full context in one follow-up read.
+# List most important files first.
 
-# Optional: ethics block for constraints/annotations (remove if unused)
-ethics:
-  constraints:
-    - "Avoid X; prefer Y."
-  annotations:
-    audience: "general"
-    safety: "medium"
-    pii_handling: "avoid PII"
+files:
+  docs:
+    - SKILL.md                     # Full protocol, method implementations
+    - README.md                    # Human-friendly overview
+  examples/:                       # Worked examples with descriptive names
+    - basic-usage.yml              # Start here
+    - advanced-pattern.yml         # Complex case
 
-# Optional detailed ads (refine applicability; still concise, keep short)
-# Think of this as Self/CLOS/Dylan-style dynamic dispatch on a self-ish substrate:
-# generics are ads, implementations are methods, dispatch can vary by name, params,
-# environment, or actor (e.g., dog vs cat BOOP). Multiple dispatch patterns fit here.
-# Interface definitions for mcp, carrier pigeons, etc.
+# ─────────────────────────────────────────────────────────────────────────────
+# K-LINES — What concepts does this activate? (Required)
+# ─────────────────────────────────────────────────────────────────────────────
+# K-lines are semantic activation vectors (Minsky). UPPERCASE-DASHES.
+# When user mentions these concepts, this skill becomes relevant.
+
+k-lines:
+  activates:                       # Concepts THIS skill is the authority on
+    - {{K-LINE}}                   # Primary concept
+    - {{RELATED-CONCEPT}}          # Secondary concept
+  related:                         # Links to other skills
+    - { ref: other-skill, relation: "how they connect" }
+
+# ─────────────────────────────────────────────────────────────────────────────
+# INVOKE WHEN — Trigger conditions (Recommended)
+# ─────────────────────────────────────────────────────────────────────────────
+# Natural language situations that should activate this skill.
+# Helps LLM match user intent to skill.
+
+invoke_when:
+  - "{{situation}}"                # "User wants to X"
+  - "{{another-situation}}"        # "System needs to Y"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ADVERTISEMENTS — Primary activation signal (Required, BEFORE methods!)
+# ─────────────────────────────────────────────────────────────────────────────
+# Ads are the main way skills compete for activation.
+# Higher score = more likely to activate when condition matches.
+# Put ads BEFORE methods — LLM scans top-down!
+
 advertisements:
-  {{AD}}:
-    synonyms: ["{{AD_ALT}}"]       # short, non-exhaustive
-    score: 80                      # base score (optional)
-    condition: "When {{condition}}"# short precondition
-    score_if: "{{score_if}}"       # optional
-    guard: "{{guard}}"             # optional boolean-ish
-    effect: "{{effect}}"           # one-liner
-    kind: "{{kind|get/set/action}}"# optional hint for GET/SET/property ads
-    state_field: "{{field}}"       # tie to state when kind=get/set
-    delegate:
-      method: "{{method_name}}"    # bind to method (DWIM)
-      params:
-        arg: "{{value}}"
-      dispatch:                    # optional dynamic dispatch to more specific methods
-        prefix: "{{method_name}}"  # e.g., AD maps to AD-FOO/AD-BAR private methods
-        variants: []               # list of method-suffix variants to try (private)
-      from_state: false            # set true to pull effect/duration/etc from state
-    surfaces:                      # optional projections (keep short)
-      - type: mcp-tool
-        name: "{{tool_name}}"
-      - type: rest-route
-        path: "/api/example"
+  {{AD-NAME}}:                     # UPPERCASE-DASHES, matches method name
+    score: 90                      # 0-100, higher = stronger signal
+    condition: "{{condition}}"     # When does this ad apply?
+    
+  {{ANOTHER-AD}}:
+    score: 80
+    condition: "{{condition}}"
+    see: "SKILL.md § Section"      # Optional: point to details
 
-# Optional: tools used by this card (remove if unused)
-tools:
-  required: []
-  optional: []
+# ─────────────────────────────────────────────────────────────────────────────
+# METHODS — Signatures only (Required for callable skills)
+# ─────────────────────────────────────────────────────────────────────────────
+# Brief signatures here. Full implementations in SKILL.md.
+# Format: METHOD-NAME: { signature: "METHOD-NAME [required] (optional)" }
 
-# Methods: implement the ads; include only what you need
 methods:
-  METHOD-NAME:
-    description: "{{desc}}"
-    parameters: {}
-    output: chat
-    effect: "{{effect}}"
-    effect_js: "{{js lambda}}"
-    effect_py: "{{py lambda}}"
+  {{METHOD-NAME}}:                 # UPPERCASE-DASHES
+    signature: "{{METHOD-NAME}} [arg] (optional-arg)"
+    
+  {{ANOTHER-METHOD}}:
+    signature: "{{ANOTHER-METHOD}} [arg1] [arg2]"
 
-# Optional extended description (omit if not needed)
-description_long: |
-  Longer context if needed (keep modest).
+# ─────────────────────────────────────────────────────────────────────────────
+# STATE — What data does this skill track? (Optional)
+# ─────────────────────────────────────────────────────────────────────────────
+# Brief field list. Full schema in SKILL.md if complex.
 
-# Optional flavor (omit if not needed)
-flavor:
-  text: |
-    "Evocative quote or description."
+state:
+  fields: [field1, field2]         # List of state fields
+  # Or expanded:
+  # field1:
+  #   type: string
+  #   default: "value"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TOOLS — What capabilities does this skill need? (Optional)
+# ─────────────────────────────────────────────────────────────────────────────
+
+tools:
+  required: [read_file]            # Must have these to function
+  optional: [write_file, grep]     # Nice to have
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DOCUMENTATION POINTERS — Where to find more (Optional)
+# ─────────────────────────────────────────────────────────────────────────────
+# Guide the LLM to specific sections when needed.
+
+documentation:
+  SKILL.md:
+    - "§ Method Implementations"
+    - "§ State Schema"
+    - "§ Examples"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# LINEAGE — Intellectual heritage (Optional, for significant skills)
+# ─────────────────────────────────────────────────────────────────────────────
+
+lineage:
+  - { name: "Inspiration", source: "Author/System" }

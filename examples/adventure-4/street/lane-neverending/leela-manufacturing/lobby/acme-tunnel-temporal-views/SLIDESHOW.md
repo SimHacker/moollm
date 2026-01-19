@@ -1,3 +1,11 @@
+---
+inherits: slideshow
+title: "ACME Tunnel — Temporal Surveillance Views"
+created: 2026-01-19
+images: 4
+style: security-camera-temporal
+---
+
 # 📹 Camera ACM1 — ACME Tunnel Surveillance Gallery
 
 > *"The wall remains undefeated across all timelines."*
