@@ -138,7 +138,7 @@ A visual tour through the attic, rendered in seven legendary art styles — from
 
 **Prompt Coherence:** 93% — Hall of Fame worthy.
 
-📎 **Files:** [Prompt Sidecar](attic-2026-01-19-05-27-00-jaquays-tribute.yml) | [Mining Analysis](attic-2026-01-19-05-27-00-jaquays-tribute-mined.yml) | [Style Guide](../../skills/visualizer/styles/jennell-jaquays.yml)
+📎 **Files:** [Prompt Sidecar](attic-2026-01-19-05-27-00-jaquays-tribute.yml) | [Mining Analysis](attic-2026-01-19-05-27-00-jaquays-tribute-mined.yml) | [Style Guide](../../../../skills/visualizer/styles/jennell-jaquays.yml)
 
 ---
 
@@ -383,7 +383,7 @@ This applies to visual art too. The tribute image has:
 
 The Jennell Jaquays style analysis is now available as a reusable context file:
 
-**[`skills/visualizer/styles/jennell-jaquays.yml`](../../skills/visualizer/styles/jennell-jaquays.yml)**
+**[`skills/visualizer/styles/jennell-jaquays.yml`](../../../../skills/visualizer/styles/jennell-jaquays.yml)**
 
 Include this file in any `visualize.py` generation to apply Jaquays' distinctive style:
 
