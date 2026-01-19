@@ -136,6 +136,23 @@ methods:
     output: files (8 prompts + 8 images)
     invoked_by: [player]
     protocol: PHOTO-SET-8
+    
+  SLIDESHOW:
+    description: "Create/update VISUALIZATIONS.md gallery for directory"
+    parameters:
+      directory: "Target directory (default: current)"
+    output: file (VISUALIZATIONS.md)
+    invoked_by: [player, script, auto]
+    features:
+      - "Death-scrollable on mobile and desktop"
+      - "Inline images with titles and descriptions"
+      - "AI grokking analysis for each image"
+      - "Links to prompt and mining sidecars"
+      - "Cross-style comparisons"
+      - "Time-ordered gallery"
+    auto_trigger: |
+      Can be called automatically after every generate command
+      to keep the gallery up to date. GitHub renders it beautifully.
 
 # STATE
 
@@ -167,8 +184,9 @@ roadmap:
     - AI image generation (OpenAI, Google, Stability, Replicate)
     - LLM prompt synthesis (OpenAI, Google, Anthropic)
     - Context assembly from YAML files
-    - Metadata sidecars
+    - Metadata sidecars (YAML Jazz)
     - Photo-set-8 portfolios
+    - VISUALIZATIONS.md galleries (death-scrollable slideshows)
     
   planned:
     - AI video generation (Runway, Pika, etc.)
@@ -190,6 +208,11 @@ advertisements:
   PHOTO_SET:
     score: 88
     condition: "Need comprehensive visual coverage"
+  SLIDESHOW:
+    score: 85
+    condition: "Directory has images, need gallery for GitHub"
+    trigger: "After generating images, or on demand"
+    output: "VISUALIZATIONS.md — scrollable gallery with analysis"
 
 # RELATED
 
