@@ -79,6 +79,24 @@ script:
       description: "List available providers"
       usage: "visualize.py providers"
       
+    slideshow:
+      description: "Create/update VISUALIZATIONS.md gallery for directory"
+      usage: "visualize.py slideshow [DIRECTORY]"
+      examples:
+        - "visualize.py slideshow"             # Current directory
+        - "visualize.py slideshow pub/attic"   # Specific directory
+      output: "VISUALIZATIONS.md in target directory"
+      features:
+        - "Death-scrollable on mobile and desktop"
+        - "Adaptive layout, useful at any size"
+        - "Time-ordered image gallery"
+        - "Inline images with titles"
+        - "Brief descriptions and context"
+        - "AI grokking analysis for each image"
+        - "Links to prompt and mining sidecars"
+        - "Cross-image comparisons where applicable"
+      auto_trigger: "Can be called after every generate command"
+      
   options:
     --provider: "Image generation provider"
     --llm: "LLM for prompt synthesis"

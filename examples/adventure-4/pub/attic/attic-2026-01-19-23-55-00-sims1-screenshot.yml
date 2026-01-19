@@ -1,0 +1,58 @@
+# Prompt sidecar for attic-2026-01-19-23-55-00-sims1-screenshot.png
+# Generated: 2026-01-19T23:55:00
+# Provider: openai/gpt-image-1
+# Style: The Sims 1 (2000) - Maxis
+#
+# Regenerate: python3 skills/visualizer/visualize.py regenerate <this-file>
+
+sources:
+  - "ROOM.yml"                    # The attic room definition
+  - "acme-monster-manual.yml"     # The cursed grimoire (pie menu target)
+  - "probability-goggles.yml"     # Brass goggles
+  - "box-of-edge-cases.yml"       # Quantum container
+
+generation:
+  provider: openai
+  model: gpt-image-1
+  timestamp: "2026-01-19T23:55:00"
+  description: "sims1-screenshot-attic"
+  style: "The Sims 1 (Maxis, 2000)"
+  
+game_style:
+  game: "The Sims"
+  developer: "Maxis"
+  year: "2000"
+  art_type: "Isometric 3D pre-rendered sprites"
+  ui_era: "Classic Sims 1 control panel"
+  
+character:
+  name: "Captain Ashford"
+  costume: "Space Pirate in full regalia"
+  mood: "Confused"
+  plumbob: "Green (active Sim)"
+
+location:
+  lot: "Gezelligheid Grotto"
+  room: "The Dusty Attic"
+
+prompt: |
+  THE SIMS 1 (2000) SCREENSHOT — THE DUSTY ATTIC
+  
+  A confused SPACE PIRATE in full regalia:
+  - Tricorn hat with futuristic elements
+  - Long coat with brass buttons and glowing tech
+  - Eyepatch with digital display
+  - Green PLUMBOB floating above
+  - Thought bubble with question mark
+  
+  PIE MENU on the ACME Monster Manual:
+  - Read, Summon Monster, Bind Creature, Banish
+  - Examine Marginalia, Close Book, Hide Under Mattress, Burn
+  
+  Classic Sims 1 UI:
+  - Needs panel (8 bars)
+  - Control panel with speed/rotation
+  - Action queue
+  - Character portrait
+  
+  The attic in Sims 1 style with labeled objects.
