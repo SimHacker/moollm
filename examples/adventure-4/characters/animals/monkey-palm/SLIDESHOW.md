@@ -10,21 +10,25 @@ A visual tribute to Palm, the sovereign soul monkey — once an ACME Monkey's Pa
 
 ### *"The Philosopher at His Desk"*
 
-![Palm's oil painting portrait in Dutch Golden Age style](CHARACTER-2026-01-19-04-03-16-palm-portrait-oil-painting.png)
+**The portrait hangs in Palm's Study** — where it was painted, where it belongs.
+
+![Palm's oil painting portrait in Dutch Golden Age style](../../../pub/stage/palm-nook/study/study-2026-01-19-04-03-16-palm-portrait-oil-painting.png)
 
 **Style:** Dutch Golden Age masters — vivid, three-dimensional oil paint with rich textures, in a gorgeous but tasteful frame
 
-**The Scene:** Palm poses in his office/nook, seated at his desk surrounded by his "infinite number of typewriters." The monkey wears an expression of scholarly contentment. Several kittens play around him — the constant companions who keep him company during long writing sessions. The composition echoes Rembrandt's scholars and Vermeer's domestic scenes.
+**Location:** Above the Infinity Desk in [Palm's Study](../../../pub/stage/palm-nook/study/), catching the warm amber lamplight. The gold frame matches the mahogany wood of the furniture.
+
+**The Scene:** Palm poses in his study, seated at his desk surrounded by his "infinite number of typewriters." The monkey wears an expression of scholarly contentment. Several kittens play around him — the constant companions who keep him company during long writing sessions. The composition echoes Rembrandt's scholars and Vermeer's domestic scenes.
 
 **AI Grokking Analysis:** The generator understood "Dutch Golden Age" as a specific art historical movement, not just "old oil painting." The lighting has that characteristic warm golden glow from an unseen window. Palm's fur texture reads as actual oil paint with visible brushwork. The typewriters are rendered as period-appropriate objects (albeit anachronistic). The kittens add life without stealing focus.
 
-**The Frame:** The "gorgeous but not tacky" instruction produced an ornate gold frame that elevates without overwhelming. It belongs in a museum — or on Palm's wall.
+**The Frame:** The "gorgeous but not tacky" instruction produced an ornate gold frame that elevates without overwhelming. It belongs in a museum — or on Palm's wall. It hangs on Palm's wall.
 
 **The Philosophy Embedded:**
 > *"One monkey with infinite typewriters produces better work than infinite monkeys with one typewriter each. Quality comes from singular focus, not distributed randomness."*
 > — Palm's Theorem
 
-📎 **Files:** [Prompt Sidecar](CHARACTER-2026-01-19-04-03-16-palm-portrait-oil-painting.yml) | [Mining Analysis](CHARACTER-2026-01-19-04-03-16-palm-portrait-oil-painting-mined.yml)
+📎 **Files:** [Full Gallery in Palm's Study](../../../pub/stage/palm-nook/study/SLIDESHOW.md) | [Prompt Sidecar](../../../pub/stage/palm-nook/study/study-2026-01-19-04-03-16-palm-portrait-oil-painting.yml) | [Mining Analysis](../../../pub/stage/palm-nook/study/study-2026-01-19-04-03-16-palm-portrait-oil-painting-mined.yml)
 
 ---
 

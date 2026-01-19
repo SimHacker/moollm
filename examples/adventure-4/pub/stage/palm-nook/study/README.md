@@ -6,6 +6,18 @@
 
 ---
 
+## 🖼️ The Portrait
+
+Above the Infinity Desk hangs **Palm's Portrait** — a Dutch Golden Age oil painting commemorating his transformation from cursed ACME Monkey's Paw to sovereign soul.
+
+![Palm's oil painting portrait](study-2026-01-19-04-03-16-palm-portrait-oil-painting.png)
+
+*"The Philosopher at His Desk"* — Rembrandt's scholars meet Vermeer's domestic scenes. Palm poses surrounded by infinite typewriters, kittens playing at his feet. The gold frame catches the warm amber lamplight.
+
+📎 **[Full Gallery →](SLIDESHOW.md)**
+
+---
+
 ## 🌅 Overview
 
 A cozy writing nook within a nook. Mahogany desk against the wall, ergonomic monkey chair, and a bookshelf that knows what you need to read.
