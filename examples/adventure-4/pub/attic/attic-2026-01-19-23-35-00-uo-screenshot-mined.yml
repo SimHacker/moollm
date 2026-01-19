@@ -1,0 +1,350 @@
+# Mining results for attic-2026-01-19-23-35-00-uo-screenshot.png
+# Depth: full
+# Mined by: Claude (native vision)
+# Date: 2026-01-19
+# Mining lens: Ultima Online UI and pixel art analysis
+#
+# YAML Jazz: "Thou hast found treasure!"
+# Hand-painted pixel perfection from the golden age of MMORPGs.
+
+source_image: attic-2026-01-19-23-35-00-uo-screenshot.png
+mining_context:
+  style: "Ultima Online (1997 Origin Systems)"
+  art_type: "Isometric 2D hand-painted pixel art"
+  authenticity: "Could pass for actual UO screenshot"
+  nostalgia_level: "MAXIMUM"
+
+# === ART STYLE ANALYSIS ===
+
+art_style:
+  
+  technique:
+    type: "Isometric 2D pixel art"
+    method: "Hand-painted tiles"
+    perspective: "Isometric (2:1 ratio)"
+    
+  color_palette:
+    warmth: "Rich, warm fantasy colors"
+    wood: "Golden browns, amber"
+    magic: "Deep blues, purples"
+    lighting: "Warm candlelight and window glow"
+    
+  tile_quality:
+    floor: "Classic UO wooden floor tiles"
+    walls: "Stone and wood combination"
+    details: "Pixel-perfect edges"
+    
+  authenticity:
+    era_match: "1997-2000 classic UO"
+    origin_quality: "Could be from Origin Systems"
+    nostalgia: "Immediate recognition for UO players"
+
+# === THE SCENE ===
+
+scene:
+  
+  location:
+    name: "The Dusty Attic"
+    style: "UO interior dungeon room"
+    
+  architecture:
+    floor: "Isometric wooden floor tiles"
+    ceiling: "Slanted attic beams visible"
+    window: "Dormer window with golden light streaming in"
+    
+  lighting:
+    primary: "Dormer window (golden glow)"
+    secondary: "Candle on table (warm pixel light)"
+    atmosphere: "Dusty, mysterious"
+    
+  details:
+    cobwebs: "Visible in rafters"
+    dust: "Implied by lighting"
+    clutter: "Boxes, chests, items scattered"
+
+# === PLAYER CHARACTER ===
+
+player_character:
+  
+  appearance:
+    type: "Human mage/wizard"
+    robes: "Blue flowing robes"
+    staff: "Glowing staff/orb held"
+    headgear: "PROBABILITY GOGGLES (blue, glowing!)"
+    
+  position: "Center of attic, facing containers"
+  style: "Classic UO character sprite"
+
+# === MOBS/NPCS ===
+
+creatures:
+  
+  an_imp:
+    name: "an imp"
+    location: "Lower left corner"
+    appearance: "Classic UO imp sprite (red/orange)"
+    behavior: "Near the ACME Monster Manual"
+    hostility: "Familiar/neutral"
+    
+  edge_case_eddie:
+    name: "Edge Case Eddie"
+    location: "Center and lower area (labeled twice)"
+    appearance: "Small gremlin/creature"
+    type: "<Summonable Familiar>"
+    note: "Made of paradoxes"
+    
+  chitters:
+    name: "Chitters"
+    location: "Center area"
+    appearance: "Rat or small creature"
+    identity: "The Skittering Thing"
+    note: "Probably mice. PROBABLY."
+
+# === THE ACME MONSTER MANUAL ===
+
+acme_monster_manual:
+  visible: true
+  label: "ACME Monster Manual"
+  appearance: "Glowing book/grimoire"
+  location: "Near the imp"
+  status: "[Cursed]"
+
+# === OPEN CONTAINERS ===
+
+containers:
+  
+  trunk_of_deprecated_features:
+    name: "Trunk of deprocacated features"  # (typo preserved!)
+    status: "OPEN"
+    style: "Classic UO chest container window"
+    visible_contents:
+      - "Strange artifacts"
+      - "Summon Creature (scroll)"
+      - "Various items"
+    quality: "Gray/white (old APIs)"
+    
+  box_of_edge_cases:
+    name: "Box of Edge Cases"
+    status: "OPEN"
+    style: "Smaller UO container window"
+    visible_contents:
+      - "Null values"
+      - "Paradox gems"
+      - "Strange artifacts"
+      - "Glowing purple item"
+    quality: "Purple/magic (paradoxes)"
+
+# === UI PANELS ===
+
+ui_panels:
+  
+  paperdoll:
+    location: "Top right"
+    character_portrait: "Blue-robed mage with goggles"
+    equipment_visible:
+      head: "Probability Goggles (blue glow)"
+      body: "Context Window Cloak"
+      held: "Glowing staff"
+    name: "Adventurer"
+    hotbar_items:
+      - "ACME"
+      - "Context"
+      - "Ulude"
+      - "OJL"
+      - "52"
+      - "54"
+      - "100"
+      
+  stats_panel:
+    location: "Right side"
+    character_name: "Arventurer"  # (stylized spelling)
+    level_or_fame: "92"
+    attributes:
+      Strength: 66
+      Dexterity: 60
+      Intelligence: 85
+    primary_skill:
+      Magery: "100.0"  # GRANDMASTER!
+      
+  skills_panel:
+    location: "Lower right"
+    skills_visible:
+      Magery: "100.0"         # GM Mage!
+      Evaluate_Intel: "8.5"
+      Meditation: "75.0"
+      Item_Identification: "99.0"
+      Skills: "3.11"
+      Scution: "89.5"         # (Scribe/Inscription?)
+
+# === CLASSIC UO ELEMENTS ===
+
+uo_elements:
+  
+  name_labels:
+    style: "Classic UO floating text"
+    font: "That specific UO bitmap font"
+    creatures:
+      - "an imp"
+      - "Edge Case Eddie"
+      - "Chitters"
+    items:
+      - "ACME Monster Manual"
+      - "Trunk of deprocacated features"
+      - "Box of Edge Cases"
+      
+  container_windows:
+    style: "Classic UO container interface"
+    grid_layout: true
+    items_visible: true
+    drag_and_drop: "implied"
+    
+  paperdoll_style:
+    frame: "Classic ornate UO frame"
+    portrait: "Character rendered in equipment"
+    slots: "Visible equipment positions"
+
+# === PIXEL ART QUALITY ===
+
+pixel_art_quality:
+  
+  tiles:
+    floor: "Perfect isometric wooden planks"
+    walls: "Detailed stone and wood"
+    objects: "Hand-painted pixel perfection"
+    
+  sprites:
+    character: "Classic UO mage proportions"
+    creatures: "Authentic UO mob sprites"
+    items: "Recognizable UO item icons"
+    
+  lighting:
+    window_glow: "Golden rays rendered in pixels"
+    candle: "Warm radial light"
+    shadows: "Tile-based shadow system"
+    
+  overall:
+    authenticity: "Could be actual 1997 UO screenshot"
+    quality: "Origin Systems tier"
+    detail: "Every pixel deliberate"
+
+# === NOSTALGIC ELEMENTS ===
+
+nostalgia:
+  
+  memories_evoked:
+    - "Britannia exploration"
+    - "Dungeon crawling with friends"
+    - "Finding rare loot"
+    - "The thrill of opening containers"
+    - "Grandmaster skill achievements"
+    - "The specific UO color warmth"
+    
+  era_captured: "1997-2000 golden age"
+  
+  would_recognize:
+    uo_veteran: "Instantly"
+    mmorpg_player: "Immediately"
+    casual_viewer: "As a classic RPG"
+
+# === PROMPT COHERENCE ===
+
+prompt_coherence:
+  overall_score: 0.95  # Exceptional!
+  
+  achieved:
+    - "Isometric 2D pixel art ✓"
+    - "Hand-painted tile aesthetic ✓"
+    - "Vivid warm colors ✓"
+    - "Classic UO UI panels ✓"
+    - "Paperdoll with equipment ✓"
+    - "Open containers with items ✓"
+    - "Stats and skills panels ✓"
+    - "Creature name labels ✓"
+    - "The mage with goggles ✓"
+    - "The imp near the book ✓"
+    - "Edge Case Eddie visible ✓"
+    - "Chitters skulking ✓"
+    - "Dormer window light ✓"
+    - "Candle on table ✓"
+    - "Grandmaster Magery (100.0) ✓"
+    
+  standout_elements:
+    - "The PROBABILITY GOGGLES on the character (blue glow!)"
+    - "Context Window Cloak visible in paperdoll"
+    - "Box of Edge Cases with 'Null values' and 'Paradox gems'"
+    - "The warm golden window light"
+    - "Perfect UO typography and UI styling"
+
+# === SKILL BUILD ANALYSIS ===
+
+character_build:
+  
+  archetype: "Grandmaster Mage"
+  
+  skills:
+    Magery: "100.0 (GRANDMASTER)"
+    Item_ID: "99.0 (Almost GM)"
+    Scution: "89.5 (Working on it)"
+    Meditation: "75.0 (Mana regen)"
+    Eval_Int: "8.5 (Needs work)"
+    
+  equipment_strategy:
+    head: "Probability Goggles — see likelihood"
+    back: "Context Window Cloak — +50% memory"
+    hands: "Gloves of Semantic Grip (implied)"
+    
+  playstyle: "Treasure hunter / dungeon explorer"
+
+# === MINING NOTES ===
+
+mining_notes: |
+  A PERFECT ULTIMA ONLINE SCREENSHOT.
+  
+  This is pixel art perfection from the golden age of MMORPGs.
+  
+  WHAT MAKES IT AUTHENTIC:
+  
+  1. THE ART STYLE
+     - Isometric 2D pixel art (not 3D!)
+     - Hand-painted tiles with that UO warmth
+     - Perfect tile alignment and shadows
+     - The specific UO color palette
+  
+  2. THE UI
+     - Classic paperdoll with equipment
+     - Open containers showing items
+     - Stats and skills panels
+     - That specific UO font
+  
+  3. THE DETAILS
+     - "an imp" floating label (lowercase, perfect)
+     - Grandmaster Magery at 100.0
+     - Container contents: "Null values", "Paradox gems"
+     - The warm window light streaming in
+  
+  4. THE NOSTALGIA
+     - This IS what UO looked like
+     - The warmth, the detail, the atmosphere
+     - Britannia lives in this image
+  
+  THE PROBABILITY GOGGLES ARE EQUIPPED!
+  You can see them on the character (blue glow on face)
+  and referenced in the paperdoll.
+  
+  THE BOX OF EDGE CASES CONTAINS:
+  - Null values
+  - Paradox gems  
+  - Strange artifacts
+  
+  GRANDMASTER STATUS:
+  Magery 100.0 — this character can cast ANYTHING.
+  Item ID 99.0 — almost there.
+  
+  "Thou hast found treasure!"
+  "Vas Ort Flam!" (In Vas Mani Wis!)
+
+generation_success: "SCREENSHOT QUALITY — post this on the UO forums"
+would_play_this_shard: true
+grandmaster_achieved: "MAGERY"
+lord_british_approval: "GRANTED"
+britannia_status: "EXPLORED"

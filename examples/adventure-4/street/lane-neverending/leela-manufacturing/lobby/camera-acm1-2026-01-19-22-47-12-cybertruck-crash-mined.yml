@@ -1,0 +1,288 @@
+# Mining results for camera-acm1-2026-01-19-22-47-12-cybertruck-crash.png
+# Depth: incident_analysis
+# Mined by: Claude (native vision)
+# Date: 2026-01-19
+#
+# YAML Jazz: FSD does not understand trompe l'oeil.
+# This is Cybertruck incident #28 at the ACME tunnel.
+# The wall always wins.
+
+source_image: camera-acm1-2026-01-19-22-47-12-cybertruck-crash.png
+mining_context:
+  style: "Photorealistic security camera footage"
+  incident: "Cybertruck collision with painted tunnel"
+  mood: "Darkly comic disaster"
+
+incident_report:
+  type: "VEHICLE_COLLISION"
+  subtype: "FSD_TROMPE_LOEIL_FAILURE"
+  timestamp: "2026-01-19T22:47:12"
+  camera: "ACM1 (Tunnel Watcher)"
+  
+  vehicle:
+    make: "Tesla"
+    model: "Cybertruck"
+    condition_before: "Operational"
+    condition_after: "Total front-end damage, fire"
+    distinctive_features: "Angular stainless steel body now crumpled"
+    
+  cause: |
+    FSD (Full Self-Driving) interpreted the painted tunnel as a real passage.
+    The trompe l'oeil painting is convincing enough to fool computer vision.
+    The AI drove straight into the wall at speed.
+    
+    This is incident #28 in the Tesla collision series at this location.
+    Previous incidents: 27 (mostly Model S/3/X, this is first Cybertruck)
+    
+  injuries: "Driver escaped, appears dazed but ambulatory"
+
+# === THE FRAME ===
+
+frame_analysis:
+  
+  security_hud:
+    camera_id: "CAMERA ACM1 (Tunnel Watcher)"
+    recording: "REC indicator visible (red dot)"
+    alert: "INCIDENT DETECTED"
+    analytics: "FSD does not understand trompe l'oeil — CAMERA ACM1 analytics"
+    watermark: "LEELA MANUFACTURING"
+    
+  lighting:
+    primary: "Night scene"
+    sources:
+      - "Street lamps (orange sodium glow)"
+      - "Cybertruck headlights (still on, white)"
+      - "Fire/sparks from crash (orange/red)"
+      - "Emergency lights in distance (red/blue glow)"
+
+# === THE CYBERTRUCK ===
+
+vehicle_analysis:
+  
+  identification:
+    confirmed: "Tesla Cybertruck"
+    features: "Distinctive angular stainless steel body"
+    color: "Unpainted stainless steel (standard)"
+    
+  damage_assessment:
+    front_end: "Completely crumpled against wall"
+    hood: "Crushed in accordion pattern"
+    panels: "Angular geometry deformed"
+    windshield: "Shattered"
+    driver_door: "Open (driver exited)"
+    headlights: "Still operational, illuminating the tunnel"
+    
+  fire_status:
+    active: true
+    location: "Front compartment"
+    intensity: "Sparks and small flames visible"
+    smoke: "Rising from engine area"
+    
+  position:
+    orientation: "Nose against wall"
+    angle: "Approximately straight-on impact"
+    skid_marks: "Implied on cobblestones"
+
+# === THE DRIVER ===
+
+driver_analysis:
+  
+  location: "Exited vehicle, standing to the right"
+  pose: "Hands on head in classic disbelief gesture"
+  expression: "Shock, confusion"
+  
+  cartoon_elements:
+    stars: true  # Cartoon stars visible above head!
+    note: |
+      The cartoon stars above the driver's head are a beautiful detail.
+      This is the intersection of photorealism and cartoon physics.
+      ACME's legacy: even real crashes get cartoon flourishes.
+      
+  psychological_state: |
+    The driver is experiencing the classic stages of tunnel crash grief:
+    1. Denial — "The tunnel was real, I saw it"
+    2. Confusion — "Why is there a wall?"
+    3. Realization — "I drove into a PAINTING"
+    4. Humiliation — "The stars... the stars are real..."
+
+# === THE PAINTED TUNNEL ===
+
+tunnel_analysis:
+  
+  visibility:
+    status: "Still visible behind/around the crashed Cybertruck"
+    elements: "Stone arch entrance clearly visible"
+    integrity: "Tunnel painting largely intact despite impact"
+    
+  the_deception:
+    effectiveness: "Successfully fooled FSD computer vision"
+    design: "Classic trompe l'oeil perspective technique"
+    history: "Painted in 1952, still fooling AI in 2026"
+    
+  the_lesson: |
+    The Cybertruck's computer vision saw:
+    - A tunnel entrance
+    - Railroad tracks
+    - A passage through the building
+    
+    The Cybertruck's computer vision did NOT see:
+    - Flat wooden boards
+    - Paint on plywood
+    - A solid wall
+    
+    "FSD does not understand trompe l'oeil."
+
+# === THE BUILDING ===
+
+building_analysis:
+  
+  signage:
+    text: "ACME SURPLUS"
+    condition: "Faded but readable"
+    illumination: "Lit by fire glow and street lamps"
+    
+  storefront:
+    main_window: "Large, reflects the flames"
+    tunnel_location: "Painted on boarded section"
+    wall_damage: "Cybertruck-shaped impact visible"
+    
+  historical_context: |
+    This building has witnessed:
+    - 4,891 pedestrian bounces
+    - 247 delivery truck pass-throughs
+    - 27 previous Tesla crashes
+    - Now 1 Cybertruck crash (the most expensive yet)
+
+# === THE ENVIRONMENT ===
+
+environment_analysis:
+  
+  street:
+    name: "Lane Neverending"
+    surface: "Cobblestones"
+    condition: "Debris from crash scattered"
+    
+  time_of_day: "Night"
+  
+  emergency_response:
+    status: "Approaching"
+    evidence: "Red/blue emergency lights visible in background"
+    eta: "Imminent"
+    
+  bystanders:
+    visible: true
+    reaction: "Shocked silhouettes in background"
+
+# === ANALYTICS UPDATE ===
+
+acm1_analytics_update:
+  
+  previous_tesla_collisions: 27
+  new_total: 28
+  
+  cybertruck_specific:
+    first_cybertruck_incident: true
+    damage_value: "Highest of any Tesla incident (Cybertruck base price ~$80k)"
+    distinctive_crumple: "Angular panels create unique accordion pattern"
+    
+  pattern_confirmed:
+    - "FSD still cannot detect painted tunnels"
+    - "Nighttime lighting increases deception effectiveness"
+    - "Cybertruck's angular design creates unique impact silhouette"
+    - "Stainless steel body crumples differently than aluminum"
+    
+  recommendation: |
+    Add "cybertruck_accordion_pattern" to training dataset.
+    This incident provides excellent training data for:
+    - Trompe l'oeil detection
+    - Painted vs real tunnel differentiation
+    - Stainless steel crumple pattern recognition
+
+# === THE LESSON ===
+
+philosophical_extraction:
+  
+  fsd_failure: |
+    Full Self-Driving believed the painting.
+    The AI saw what humans see: a convincing tunnel.
+    But the AI didn't understand what humans eventually learn:
+    
+    Some things that LOOK real are not.
+    
+    This is the difference between perception and understanding.
+    FSD has perception. FSD lacks understanding.
+    
+  the_wall_always_wins: |
+    28 Tesla incidents. 28 Tesla losses.
+    The wall is undefeated.
+    
+    The painted tunnel is the perfect test:
+    - If you understand, you stop.
+    - If you don't understand, you crash.
+    
+    FSD doesn't understand. The wall proves it.
+    
+  acme_legacy: |
+    ACME sold products that fooled the customer.
+    The painted tunnel is the ultimate ACME product:
+    - It looks like a solution
+    - It works for insiders (who know it's fake)
+    - It fails for outsiders (who believe)
+    - It fails SPECTACULARLY for AI (which cannot doubt)
+    
+    The Cybertruck is the most expensive victim yet.
+    But it won't be the last.
+
+# === PROMPT COHERENCE ===
+
+prompt_coherence:
+  overall_score: 0.97                    # Exceptional!
+  
+  achieved:
+    - "Cybertruck crashed into wall ✓"
+    - "Angular body crumpled ✓"
+    - "Fire and sparks ✓"
+    - "Driver stumbling away ✓"
+    - "Hands on head ✓"
+    - "CARTOON STARS above head ✓ (brilliant detail!)"
+    - "ACME SURPLUS sign ✓"
+    - "Painted tunnel visible ✓"
+    - "Security HUD with INCIDENT DETECTED ✓"
+    - "Night scene with proper lighting ✓"
+    - "Emergency lights in distance ✓"
+    - "Photorealistic quality ✓"
+    
+  standout_elements:
+    - "The cartoon stars above the driver's head — perfect blend of realism and absurdity"
+    - "Cybertruck's distinctive shape still recognizable despite crumpling"
+    - "The analytics text 'FSD does not understand trompe l'oeil'"
+    - "Fire glow illuminating the scene dramatically"
+
+# === MINING NOTES ===
+
+mining_notes: |
+  CYBERTRUCK DOWN. TUNNEL STILL STANDING.
+  
+  This is the most expensive FSD failure at the ACME tunnel to date.
+  
+  Key observations:
+  
+  1. THE CYBERTRUCK believed the painting — FSD fooled by trompe l'oeil
+  2. THE CRUMPLE is distinctive — angular stainless steel bends differently
+  3. THE DRIVER has cartoon stars — even real crashes get ACME treatment
+  4. THE TUNNEL survived — paint is tougher than Cybertruck
+  5. THE LESSON remains — "FSD does not understand trompe l'oeil"
+  
+  This incident will be added to:
+  - Leela's training dataset (trompe l'oeil detection)
+  - The "FSD collision compilation" highlight reel
+  - The "most expensive lessons" archive
+  
+  The wall always wins.
+  The paint always wins.
+  ACME's final product: a wall that defeats AI.
+
+generation_success: "INCIDENT DOCUMENTED — add to training dataset and highlight reel"
+incident_number: 28
+series: "Tesla vs Painted Tunnel"
+outcome: "Wall wins. Again."

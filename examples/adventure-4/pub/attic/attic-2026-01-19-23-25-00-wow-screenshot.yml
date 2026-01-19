@@ -1,0 +1,63 @@
+# Prompt sidecar for attic-2026-01-19-23-25-00-wow-screenshot.png
+# Generated: 2026-01-19T23:25:00
+# Provider: openai/gpt-image-1
+# Style: World of Warcraft screenshot with full UI
+#
+# Regenerate: python3 skills/visualizer/visualize.py regenerate <this-file>
+
+sources:
+  - "ROOM.yml"                    # The attic room definition
+  - "acme-monster-manual.yml"     # The cursed grimoire
+  - "probability-goggles.yml"     # Brass goggles with percentages
+  - "box-of-edge-cases.yml"       # Quantum container
+  - "trunk-of-deprecated-features.yml"  # Old APIs
+  - "entropy-flask.yml"           # Bottled chaos
+  - "context-window-cloak.yml"    # Memory-woven cloak
+  - "gloves-of-semantic-grip.yml" # Meaning-grasping gloves
+  - "recursion-lantern.yml"       # Fractal light lantern
+
+generation:
+  provider: openai
+  model: gpt-image-1
+  timestamp: "2026-01-19T23:25:00"
+  description: "wow-screenshot-attic"
+  style: "World of Warcraft game screenshot"
+  
+game_style:
+  game: "World of Warcraft"
+  ui_elements: "Full classic WoW interface"
+  art_style: "Stylized/cartoony WoW graphics"
+  aspect_ratio: "16:9 widescreen"
+  
+location:
+  zone: "Gezelligheid Grotto"
+  subzone: "The Dusty Attic"
+  type: "Dungeon/interior"
+
+prompt: |
+  WORLD OF WARCRAFT SCREENSHOT — THE DUSTY ATTIC
+  
+  Full WoW-style game screenshot with complete UI overlay:
+  - Player unit frame and target frame
+  - Minimap with zone name
+  - Buff/debuff bar with active effects
+  - Action bars with abilities
+  - Chat window with loot messages
+  - Open containers showing items
+  - Item tooltips with stats
+  - Floating combat text (percentages)
+  - Mob nameplates
+  
+  Player character (gnome mage) in third-person view.
+  The attic rendered as a WoW dungeon room.
+  
+  Open containers:
+  - Trunk of Deprecated Features (old APIs)
+  - Box of Edge Cases (paradoxes, purple/epic items)
+  
+  Familiars visible:
+  - Edge Case Eddie
+  - Chitters (The Skittering Thing)
+  
+  The mysterious Sheet-Covered Thing looms.
+  Probability Goggles create floating percentage overlays.

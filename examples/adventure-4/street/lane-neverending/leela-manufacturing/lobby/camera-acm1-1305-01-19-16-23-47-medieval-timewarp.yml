@@ -1,0 +1,68 @@
+# Prompt sidecar for camera-acm1-1305-01-19-16-23-47-medieval-timewarp.png
+# Generated: 1305-01-19T16:23:47 (TEMPORAL FILTER ACTIVE)
+# Provider: openai/gpt-image-1
+# Filter: ANCIENT — Age: 10/10 (Medieval, ~1300 AD)
+# Style: MONTY PYTHON AND THE HOLY GRAIL
+#
+# Regenerate: python3 skills/visualizer/visualize.py regenerate <this-file>
+
+sources:
+  - "../camera-acm1.yml"           # The camera that sees through time
+  - "../../pub/rooftop/filter-box.yml"  # The ancient filter
+
+generation:
+  provider: openai
+  model: gpt-image-1
+  timestamp: "1305-01-19T16:23:47"  # Medieval timestamp
+  modern_equivalent: "2026-01-19T16:23:47"
+  description: "medieval-timewarp"
+  
+temporal_filter:
+  name: "ancient"
+  age: 10  # Maximum — ~1000 years back
+  accuracy: 7
+  style: "Monty Python and the Holy Grail"
+  
+camera:
+  id: "ACM1"
+  name: "Tunnel Watcher"
+  mode: "TEMPORAL OBSERVATION"
+  note: "Same camera, different era. Leela was always watching."
+
+prompt: |
+  SECURITY CAMERA FOOTAGE — Camera ACM1 (Tunnel Watcher)
+  TEMPORAL FILTER APPLIED: ANCIENT — Age: 10/10 (Medieval, ~1300 AD)
+  Style: MONTY PYTHON AND THE HOLY GRAIL
+
+  THE VIEW:
+  The same location as the modern ACME Surplus building, but the ANCIENT filter
+  reveals what this spot looked like in MEDIEVAL TIMES — 700 years ago!
+
+  Monty Python and the Holy Grail visual style:
+  - Slightly desaturated, earthy browns and grays
+  - Muddy, gritty medieval England aesthetic
+  - Absurdist humor in every detail
+  - That specific 1975 Terry Gilliam look
+
+  THE BUILDING (Medieval version):
+  Instead of ACME Surplus, there stands a crooked medieval SHOPPE:
+  - Weathered wooden timber frame construction
+  - Thatched roof, badly maintained
+  - A hand-painted sign reads 'YE OLDE ACME SURPLUS'
+  - A painted CASTLE GATE on the wall — medieval trompe l'oeil!
+
+  THE STREET:
+  - Muddy medieval lane (the original Lane Neverending)
+  - Peasants in dirty medieval garb
+  - A knight approaching the painted gate with lance raised
+  - Chickens, carts, medieval chaos
+
+  SECURITY CAMERA HUD:
+  - 'ACM1' camera designation
+  - Year: 1304
+  - 'TEMPORAL FILTER: ANCIENT'
+  - 'LEELA MANUFACTURING' watermark
+  - 'YE OLDE INCIDENT DETECTION'
+
+  STYLE: Monty Python and the Holy Grail aesthetic
+  MOOD: Absurdist medieval comedy. The lesson is eternal.

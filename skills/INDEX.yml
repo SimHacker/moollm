@@ -218,9 +218,10 @@ skills:
     
   - name: image-mining
     path: skills/image-mining
-    description: "Mine pixels for atoms — extract resources from images"
-    tier: 1
-    tags: [resources, camera]
+    description: "Mine pixels for atoms — extract semantic resources from images"
+    tier: 2
+    protocol: MINE
+    tags: [vision, extraction, resources, automation]
     
   - name: character
     path: skills/character
@@ -311,10 +312,10 @@ skills:
     
   - name: visualizer
     path: skills/visualizer
-    description: "Image generation familiar — composes prompts from context"
-    tier: 1
+    description: "Context-driven visual generation — compose, synthesize, render"
+    tier: 2
     protocol: VISUALIZE
-    tags: [images, prompts]
+    tags: [images, generation, automation, tools]
     
   - name: storytelling-tools
     path: skills/storytelling-tools

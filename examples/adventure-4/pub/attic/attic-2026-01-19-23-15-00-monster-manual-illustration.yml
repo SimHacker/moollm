@@ -1,0 +1,63 @@
+# Prompt sidecar for attic-2026-01-19-23-15-00-monster-manual-illustration.png
+# Generated: 2026-01-19T23:15:00
+# Provider: openai/gpt-image-1
+# Style: D&D Monster Manual (1st Edition, 1977-1983)
+#
+# Regenerate: python3 skills/visualizer/visualize.py regenerate <this-file>
+
+sources:
+  - "ROOM.yml"                    # The attic room definition
+  - "acme-monster-manual.yml"     # The cursed grimoire
+  - "probability-goggles.yml"     # Brass goggles with percentages
+  - "recursion-lantern.yml"       # Fractal light lantern
+  - "context-window-cloak.yml"    # Memory-woven cloak
+  - "gloves-of-semantic-grip.yml" # Meaning-grasping gloves
+  - "entropy-flask.yml"           # Bottled chaos
+  - "box-of-edge-cases.yml"       # Quantum container
+  - "trunk-of-deprecated-features.yml"  # Old APIs
+
+generation:
+  provider: openai
+  model: gpt-image-1
+  timestamp: "2026-01-19T23:15:00"
+  description: "monster-manual-illustration"
+  style: "D&D Monster Manual 1st Edition (1977-1983)"
+  
+art_style:
+  reference: "David C. Sutherland III, David A. Trampier"
+  technique: "Pen and ink crosshatching"
+  palette: "Black and white with sepia/parchment tones"
+  era: "1st Edition AD&D (1977-1983)"
+  
+location:
+  name: "The Dusty Attic"
+  subtitle: "Adventurer's Storage — Mind the Edge Cases"
+  type: "Dungeon room / Storage space"
+
+prompt: |
+  D&D MONSTER MANUAL STYLE ILLUSTRATION
+  Location: THE DUSTY ATTIC — Adventurer's Storage & Cursed Item Repository
+  Style: Classic 1st Edition AD&D Monster Manual art (1977-1983)
+
+  ILLUSTRATION STYLE:
+  - Black and white with sepia/parchment undertones
+  - Detailed pen and ink crosshatching
+  - That specific David C. Sutherland III / David A. Trampier look
+  - Dramatic lighting from dormer window
+  - Aged paper texture
+
+  THE ATTIC CHAMBER:
+  Cramped, dusty, slanted ceilings, exposed beams, cobwebs.
+  Hand-lettered sign: 'ADVENTURER'S STORAGE'
+
+  KEY ELEMENTS:
+  - THE ACME MONSTER MANUAL (open, glowing, imp reading it)
+  - PROBABILITY GOGGLES (brass, floating percentages)
+  - RECURSION LANTERN (hanging, fractal light)
+  - THE SHEET-COVERED THING (mysterious, hand visible?)
+  - ENTROPY FLASK (swirling colors)
+  - BOX OF EDGE CASES (labeled CAUTION)
+  - TRUNK OF DEPRECATED FEATURES (old APIs inside)
+
+  ATMOSPHERE: Mysterious, dangerous, full of potential.
+  MOOD: Classic D&D dungeon room illustration.

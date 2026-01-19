@@ -1,0 +1,61 @@
+# Prompt sidecar for attic-2026-01-19-23-35-00-uo-screenshot.png
+# Generated: 2026-01-19T23:35:00
+# Provider: openai/gpt-image-1
+# Style: Ultima Online screenshot (1997 era)
+#
+# Regenerate: python3 skills/visualizer/visualize.py regenerate <this-file>
+
+sources:
+  - "ROOM.yml"                    # The attic room definition
+  - "probability-goggles.yml"     # Brass goggles with percentages
+  - "box-of-edge-cases.yml"       # Quantum container
+  - "acme-monster-manual.yml"     # The cursed grimoire
+  - "trunk-of-deprecated-features.yml"  # Old APIs
+  - "context-window-cloak.yml"    # Memory-woven cloak
+
+generation:
+  provider: openai
+  model: gpt-image-1
+  timestamp: "2026-01-19T23:35:00"
+  description: "uo-screenshot-attic"
+  style: "Ultima Online (1997 Origin Systems)"
+  
+game_style:
+  game: "Ultima Online"
+  era: "1997-2000 (classic era)"
+  art_type: "Isometric 2D pixel art"
+  technique: "Hand-painted tiles"
+  perspective: "Isometric"
+  palette: "Warm, vivid, fantasy colors"
+  
+location:
+  shard: "Gezelligheid"
+  region: "The Grotto"
+  subzone: "The Dusty Attic"
+
+prompt: |
+  ULTIMA ONLINE SCREENSHOT — THE DUSTY ATTIC
+  
+  Authentic 1997-era Ultima Online game screenshot:
+  - Isometric 2D pixel art (NOT 3D!)
+  - Hand-painted, tile-based graphics
+  - Vivid, rich colors with classic UO palette
+  - Full UI: paperdoll, containers, stats, skills
+  
+  The attic rendered as UO interior:
+  - Wooden floor tiles
+  - Slanted ceiling beams
+  - Dormer window with light
+  - Candles, cobwebs, boxes
+  
+  Mobs visible:
+  - "an imp" (near Monster Manual)
+  - "Edge Case Eddie" (gremlin)
+  - "Chitters" (rat creature)
+  
+  Open containers:
+  - Trunk of Deprecated Features
+  - Box of Edge Cases
+  
+  Character: Blue-robed mage with Probability Goggles
+  Grandmaster Magery (100.0)!

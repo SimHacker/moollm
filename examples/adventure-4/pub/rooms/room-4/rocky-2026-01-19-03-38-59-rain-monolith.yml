@@ -1,0 +1,36 @@
+# Sidecar for rocky-2026-01-19-03-38-59-rain-monolith.png
+# Generated: 2026-01-19T03:38:59.710455
+#
+# This file is a regenerable recipe. Edit and re-run:
+#   visualize.py regenerate rocky-2026-01-19-03-38-59-rain-monolith.yml
+#
+
+# === SOURCES ===
+# Reference paths to context files (not embedded)
+sources:
+  - examples/adventure-4/pub/rooms/room-4/rocky.yml
+
+# === GENERATION PARAMETERS ===
+generation:
+  provider: openai
+  model: gpt-image-1
+  size: 1024x1024
+  verbosity: normal
+  generated_at: 2026-01-19T03:38:59.710455
+
+# === SYNTHESIZED PROMPT ===
+# Edit this to regenerate with tweaks!
+prompt: |
+  A MASSIVE granite boulder dominates the frame, at least 30 feet tall, ancient and weathered. PHOTOREALISTIC outdoor nature scene. Heavy rain falling, Blade Runner-esque drizzle catching light. The boulder sits in a primordial forest clearing — moss-covered ground, towering redwoods fading into mist. 
+  
+  LIGHTING: Breathtaking. Shafts of golden light break through storm clouds, illuminating the rain drops. The boulder's surface glistens wet, mica flecks sparkling like stars. Volumetric god rays pierce the canopy.
+  
+  The boulder has a presence, a consciousness — 4.5 billion years of patient observation. No face, no anthropomorphization — just pure geological majesty. The kind of rock that makes you feel small and transient.
+  
+  Cinematic composition, wide angle, low camera position looking up at the monolith. Rain streaks visible in the foreground. Mist curling at the base. 
+  
+  Style: Roger Deakins cinematography meets Ansel Adams landscape photography. Hyperrealistic, 8K detail, dramatic chiaroscuro lighting.
+
+# === ADDITIONAL METADATA ===
+provider: openai
+model: gpt-image-1

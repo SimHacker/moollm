@@ -883,5 +883,48 @@
 
 > *Emoji snow becomes a pub ceremony with its own worm.*
 
-**`(this)`** Confetti-Crawler graduates to full character; inherits Rip Taylor spirit; assets relocated and tests consolidated
+**`ebca742`** Confetti-Crawler graduates to full character; inherits Rip Taylor spirit; assets relocated and tests consolidated
 > The worm-emoji sprayer, themes, demos, and tests move into the confetti-crawler character home under adventure-4. Old `skills/card/examples` copies removed. Sprayer gains drift/strip/erode controls, block-scalar awareness, verbose logging, and a single test harness output. The familiar now channels Rip Taylor’s Gong Show confetti energy and calls its sister script instead of burning LLM cycles. 🪱🎉🧊🌈
+
+---
+
+### Era 30: The Visualizer Awakens
+
+> *Images from words. Words from images. The generative-reflective loop closes.*
+
+**`(this)`** Visualizer skill implemented! Image generation + mining pipeline with YAML Jazz sidecars
+> THE BIG ONE. `visualize.py` generates images from context files. `mine.py` extracts semantic resources from images. Bigendian naming puts files next to their sources. YAML sidecars are "regenerable recipes" — edit and re-run. Consolidate attic from `pub/rooms/attic/` to `pub/attic/`. Generated 20+ images across multiple art styles:
+
+**Rooftop Telescope:**
+- K-line constellation through AR lens (Bluetooth telescope!)
+- LLOOOOMM constellation with alien spectrum filter
+- Mined for pie menus, mined for Mind Mirror (Leary's circumplex!)
+
+**ACME Tunnel Temporal Views:**
+- Present day: tourist approaching painted tunnel
+- Cybertruck crash: FSD meets cartoon physics (Incident #28!)
+- Medieval timewarp: Monty Python Holy Grail knight charging painted gate
+- Blade Runner 2089: replicant fleeing, wall still wins
+
+**Palm's Portrait:**
+- Dutch Golden Age oil painting: Palm at his infinite typewriters, kittens playing
+
+**The Dusty Attic — THREE ART STYLES:**
+- D&D Monster Manual (1977): Pen & ink, the IMP reading the cursed book, THE HAND under sheet
+- World of Warcraft: Full UI with containers, tooltips, floating percentages, Grandmaster Mage
+- Ultima Online: Gorgeous isometric pixel art, paperdoll, skills panel, GM Magery 100.0!
+
+**Rocky & Friends:**
+- Group hug selfie with all characters
+- Cats on Rocky in glass hothouse
+- Dogs on Rocky expressing personalities
+- Puppies Playing Poker (oil painting, Pepper on Goliath's head!)
+- Jungle rain monolith with all 20 animals
+- Rocky & Theo spirograph (Logo Turtle orbiting the sun)
+
+Every image has:
+- `.png` — the generated image
+- `.yml` — prompt sidecar (regenerable recipe)
+- `-mined.yml` — semantic extraction in YAML Jazz
+
+The generative-reflective loop: visualize → mine → reflect → iterate. 🎨📸🔮✨

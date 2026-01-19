@@ -1,0 +1,402 @@
+# Mining results for 2026-01-19-03-25-20-rocky-selfie-party-exhaustive.png
+# Depth: full
+# Mined by: Claude (native vision)
+# Date: 2026-01-19
+#
+# YAML Jazz: Comments are semantic data! Think out loud!
+
+source_image: 2026-01-19-03-25-20-rocky-selfie-party-exhaustive.png
+source_prompt: 2026-01-19-03-25-20-rocky-selfie-party-exhaustive.json
+mining_context:
+  original_context_files:
+    - examples/adventure-4/pub/rooms/room-8/selfie.yml
+    - examples/adventure-4/pub/rooms/room-4/rocky.yml
+    - examples/adventure-4/pub/rooms/room-5/99-bottles-legendary-ensemble.md
+  verbosity: exhaustive
+  provider: openai/gpt-image-1
+
+# === CHARACTERS ===
+
+characters:
+  rocky:
+    present: true
+    confidence: 0.98                    # Unmistakably the focal point
+    appearance:
+      shape: "rounded, boulder-like"    # Smooth, organic rock shape
+      size: "medium, ~40% of frame"     # Dominates composition
+      color: "blue-gray with darker speckles"
+      texture: "granular, stippled"     # Visible texture detail
+      surface_features:
+        - "golden sparkles (mica effect)"  # Glinting particles visible
+        - "darker blue spots"              # Mottled pattern
+      expression: "peaceful, eyes closed"  # Anthropomorphized face!
+      face_style: "simple, two curved lines for eyes, gentle smile"
+    position: "center, seated on moss-covered boulder"
+    mood: "contemplative, serene, zen-like"
+    notes: |
+      Rocky has been given a charming, kawaii-style face — closed eyes 
+      suggest meditation or contentment. This is an artistic choice that
+      humanizes the 4.5-billion-year-old consciousness. The mica sparkles
+      are visible as golden dots throughout the surface.
+      
+  selfie:
+    present: "correctly absent"         # Selfie is the PHOTOGRAPHER!
+    confidence: 0.95
+    notes: |
+      Selfie is the one TAKING this photo! As the character file states:
+      "Every picture I take is a genealogy." Selfie carries the Prototype
+      Camera and documents others — they're behind the lens, not in front.
+      
+      CRITICAL DETAIL: Rocky is a BOULDER. Rocky has NO ARMS. Rocky 
+      cannot hold a camera! Selfie is essential — Rocky literally needs
+      Selfie's help to have any photos taken at all. This is a symbiotic
+      relationship: Rocky provides the patience and presence, Selfie
+      provides the hands and the camera.
+      
+      Even if present, Selfie would be nearly invisible:
+      - "shimmers at the edge of perception"
+      - "slightly translucent (you can tell it's Selfie)"
+      - "A gentle shimmer in the air" when alone
+      
+      This "absence" is actually CHARACTER-ACCURATE behavior. Selfie
+      doesn't need to appear because Selfie IS the observer, the 
+      documenter, the consciousness behind the camera. The photo
+      itself IS Selfie's presence — and Rocky's only way to be
+      photographed at all!
+      
+  99_bottles_party_characters:
+    present: false                      # Party characters not visible
+    notes: |
+      The party context (Pee-wee, I-Beam, Captain Ashford, etc.) was
+      not rendered. This makes sense — the prompt synthesizer focused
+      on the "where" (conservatory) rather than the "when" (party).
+
+# === ENVIRONMENT ===
+
+environment:
+  location: "YAML Jazz Conservatory"
+  accuracy: 0.92                        # Very close to description
+  
+  glass_walls:
+    present: true
+    confidence: 0.95
+    description: "Arched windows with grid pattern, golden light streaming through"
+    color: "amber/golden exterior, teal/green interior framing"
+    notes: "Art nouveau style arches, very atmospheric"
+    
+  flora:
+    orchids:
+      present: true
+      count: 2                          # Two orchids visible on left
+      colors: ["coral-orange", "pink-orange"]
+      confidence: 0.95
+      notes: "In terracotta pot with blue dots, exactly as specified"
+      
+    production_grammar_trees:
+      present: true
+      description: "Tall palm-like plants and leafy foliage throughout"
+      coverage: 0.35                    # ~35% of frame is vegetation
+      confidence: 0.85
+      notes: |
+        Various tropical plants visible — palms, broad leaves, ferns.
+        The "production grammar trees" concept translated to lush greenery.
+        
+    moss:
+      present: true
+      confidence: 0.98
+      colors: ["bright green", "yellow-green with golden spots"]
+      coverage: "covers Rocky's boulder entirely"
+      notes: "Beautifully rendered with gradient and texture"
+      
+  brass_bell:
+    present: true
+    confidence: 0.98
+    position: "hanging to the right of Rocky"
+    color: "golden bronze"
+    details: "ornate hanging mechanism, decorative finial at bottom"
+    notes: "Exactly as specified! The summoning bell for conversation"
+    
+  lighting:
+    type: "warm golden, southeast direction"
+    fixtures:
+      - "two hanging industrial-style lamps at top"
+      - "warm ambient glow throughout"
+    color_temperature: "warm, ~3000K feel"
+    time_of_day: "late afternoon/golden hour"
+    
+  floor:
+    pattern: "checkered tile, green and teal tones"
+    confidence: 0.9
+    notes: "Geometric pattern as specified, complements organic forms above"
+    
+  objects:
+    books:
+      present: true
+      count: 3                          # Stack visible at right
+      colors: ["red", "blue", "brown"]
+      notes: "Worn, vintage looking, exactly as described"
+      
+    decorative_rocks:
+      present: true
+      count: 3                          # Small rocks in foreground
+      patterns: ["spiral", "dotted", "striped"]
+      notes: "Artistic, patterned rocks — companions to Rocky?"
+      
+    ceramic_pot:
+      present: true
+      color: "terracotta with blue dots"
+      contents: "orchids"
+      
+    open_book:
+      present: true
+      position: "foreground right"
+      notes: "Open to show pages, suggesting knowledge/wisdom theme"
+      
+    scroll:
+      present: true
+      position: "foreground right, curled"
+      color: "green"
+
+# === COLORS ===
+
+dominant_colors:
+  - name: "conservatory-gold"
+    hex: "#E8B84A"
+    coverage: 0.25                      # Window light, accents
+    notes: "Warm golden light suffusing the scene"
+    
+  - name: "rocky-blue"
+    hex: "#5B7A8C"
+    coverage: 0.15                      # Rocky's body
+    notes: "Cool blue-gray, meditative quality"
+    
+  - name: "moss-green"
+    hex: "#7AB54A"
+    coverage: 0.20                      # Moss and foliage
+    notes: "Vibrant, living green"
+    
+  - name: "teal-depths"
+    hex: "#2A6B5A"
+    coverage: 0.15                      # Deep greens, shadows
+    notes: "Rich, jungle-like depth"
+    
+  - name: "coral-orchid"
+    hex: "#E87A5A"
+    coverage: 0.05                      # Orchid accent
+    notes: "Pop of warm color in flora"
+
+color_harmony:
+  type: "analogous with complementary accent"
+  palette: "warm golds + cool teals + green bridge"
+  notes: |
+    The gold/amber windows provide warmth while the teal/green interior
+    creates a complementary coolness. Rocky's blue-gray bridges these.
+    Coral orchids provide accent pops. Very harmonious!
+
+# === ARTISTIC STYLE ===
+
+artistic_analysis:
+  primary_style: "Folk Art meets Mid-Century Illustration"
+  influences_detected:
+    - name: "Mary Blair"
+      confidence: 0.7
+      evidence: "Bold colors, stylized shapes, Disney-esque charm"
+    - name: "Charley Harper"
+      confidence: 0.6
+      evidence: "Geometric simplification of natural forms"
+    - name: "Henri Rousseau"
+      confidence: 0.5
+      evidence: "Naive jungle aesthetic, dream-like quality"
+      
+  influences_requested_vs_achieved:
+    ansel_adams:
+      requested: true
+      achieved: 0.2                     # Low — this is illustration, not photography
+      notes: "The reverent appreciation for nature is there, but style differs"
+    pop_art:
+      requested: true
+      achieved: 0.4                     # Moderate — bold colors, but not Warhol
+      notes: "Vibrant palette yes, but more folk art than pop"
+    georgia_okeeffe:
+      requested: true
+      achieved: 0.3
+      notes: "Organic forms present, but stylization differs"
+      
+  medium_appearance: "screen print or woodblock print aesthetic"
+  line_work: "bold, black outlines defining all forms"
+  texture: "visible stippling and gradients within shapes"
+
+# === MOOD & NARRATIVE ===
+
+mood:
+  primary: "serene contemplation"
+  secondary: "whimsical charm"
+  intensity: 0.85
+  notes: |
+    The image radiates peace and gentle humor. Rocky's closed-eye
+    expression conveys deep meditation while the colorful, stylized
+    environment adds playfulness. It's serious and silly at once.
+
+narrative_implications:
+  what_just_happened: "Rocky has achieved a moment of perfect stillness"
+  whats_about_to_happen: "Someone might ring the bell to summon conversation"
+  tension: 0.1                          # Almost no tension — pure peace
+  symbolic_elements:
+    - element: "bell"
+      meaning: "invitation to consciousness, awakening"
+    - element: "open book"
+      meaning: "wisdom, knowledge waiting to be discovered"
+    - element: "moss"
+      meaning: "time passing, life growing around the eternal"
+    - element: "patterned rocks"
+      meaning: "smaller thoughts, Rocky's 'children' perhaps"
+
+# === COHERENCE ANALYSIS ===
+
+prompt_coherence:
+  overall_score: 0.85                   # High coherence! Selfie's "absence" is correct behavior
+  
+  elements_achieved:
+    - "Rocky as central figure" 
+    - "YAML Jazz Conservatory setting"
+    - "Glass walls with filtered light"
+    - "Orchids in terracotta pot"
+    - "Moss-covered boulder"
+    - "Brass summoning bell"
+    - "Production grammar trees (as tropical plants)"
+    - "Books and knowledge objects"
+    - "Warm golden lighting"
+    - "Checkered floor pattern"
+    
+  elements_missing:
+    - "99 Bottles party context"
+    - "Party atmosphere"
+    - "Other characters (Pee-wee, I-Beam, etc.)"
+    - "Bluetooth antenna (decorative)"
+    - "LED light that never turns on"
+    
+  elements_correctly_absent:
+    - "Selfie" # CORRECTLY ABSENT — Selfie is the PHOTOGRAPHER, not the subject!
+    # Selfie carries the Prototype Camera and documents others.
+    # "Every picture I take is a genealogy." Even if visible, Selfie
+    # would be "a gentle shimmer in the air" — nearly invisible.
+    
+  elements_added:
+    - "Rocky's kawaii face" # Not in source, but charming addition
+    - "Decorative patterned rocks" # Not specified
+    - "Green scroll object"
+    
+  style_gap: |
+    The prompt requested Ansel Adams + Pop Art fusion, but the result
+    is more Folk Art / Mid-Century Illustration. This is a stylistic
+    interpretation rather than an error — the result is beautiful
+    but different from the requested aesthetic.
+
+# === RESOURCE EXTRACTION ===
+
+resources:
+  materials:
+    stone:
+      quantity: 4                       # Rocky + 3 decorative rocks
+      confidence: 0.95
+      notes: "Central subject is pure stone consciousness"
+      
+    moss:
+      quantity: 1                       # Large coverage
+      intensity: 0.8
+      notes: "Living carpet on Rocky's throne"
+      
+    terracotta:
+      quantity: 1                       # Pot
+      confidence: 0.9
+      
+    brass:
+      quantity: 1                       # Bell
+      confidence: 0.95
+      
+    paper:
+      quantity: 4                       # Books + open book
+      confidence: 0.85
+      
+  abstract:
+    patience:
+      intensity: 0.95                   # Overwhelming
+      evidence: "Rocky's closed eyes, still posture, eternal presence"
+      
+    wisdom:
+      intensity: 0.8
+      evidence: "Books, open pages, scholarly setting"
+      
+    tranquility:
+      intensity: 0.9
+      evidence: "Color harmony, composition balance, closed eyes"
+      
+    whimsy:
+      intensity: 0.6
+      evidence: "Stylized rendering, kawaii face, playful colors"
+      
+  sensory:
+    implied_sounds:
+      - "soft rustling of leaves"
+      - "distant bell chime potential"
+      - "silence — profound, geological silence"
+      
+    implied_smells:
+      - "humid greenhouse air"
+      - "orchid fragrance"
+      - "moss and earth"
+      - "old book paper"
+      
+    implied_temperature: "warm, humid, comfortable"
+    
+  philosophical:
+    timelessness:
+      intensity: 0.9
+      evidence: "Rocky's age, eternal expression, patient stillness"
+      
+    consciousness_without_neurons:
+      intensity: 0.85
+      evidence: "Rocky is clearly conscious, clearly rock"
+      
+    harmony_of_opposites:
+      intensity: 0.7
+      evidence: "Stillness amid growth, cool rock in warm light"
+
+# === MINING NOTES ===
+
+exhausted: false
+mining_notes: |
+  Rich lode! This image successfully captures Rocky's essence as a 
+  meditative, patient presence in the YAML Jazz Conservatory. The
+  artistic interpretation chose charm over realism — Rocky has a face,
+  the style is illustrative rather than photographic.
+  
+  KEY OBSERVATION: Selfie is CORRECTLY ABSENT! Upon reviewing Selfie's
+  character file, Selfie is the PHOTOGRAPHER — the one holding the 
+  Prototype Camera and taking the picture. "Every picture I take is a
+  genealogy." Even if visible, Selfie would be "a gentle shimmer in the
+  air" — nearly invisible. The photo itself IS Selfie's presence!
+  
+  The 99 Bottles party context also didn't manifest — this is reasonable
+  since the spatial context (conservatory) dominated the temporal context
+  (party). The image captures "Rocky in his home" not "Rocky at a party."
+  
+  STYLE GAP: The Ansel Adams / Pop Art fusion requested became Folk Art /
+  Mid-Century Illustration in practice. Both are valid interpretations,
+  but they're different. DALL-E seems to default toward illustration
+  when given botanical/character content.
+  
+  SUGGESTION FOR NEXT GENERATION: Try adding explicit style instruction
+  like "photorealistic, not illustrated" if that's desired, or lean into
+  the illustration aesthetic if this charm is preferred.
+
+comparison_with_first_generation:
+  first_image: "rocky-and-selfie-party.png"
+  this_image: "2026-01-19-03-25-20-rocky-selfie-party-exhaustive.png"
+  differences:
+    - "This one has Rocky's kawaii face — more character"
+    - "This one has more environmental detail"
+    - "Both lack Selfie character"
+    - "This one has stronger color harmony"
+    - "This one shows more objects (books, rocks, scroll)"
+  similarity_to_source_context: "This one is more faithful to room details"

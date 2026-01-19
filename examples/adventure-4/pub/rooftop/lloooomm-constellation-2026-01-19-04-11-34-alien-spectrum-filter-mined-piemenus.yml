@@ -1,0 +1,476 @@
+# PIE MENU MINING — Extracting UI Design Inspiration
+# Source: lloooomm-constellation-2026-01-19-04-11-34-alien-spectrum-filter.png
+# Mining lens: Radial menu design patterns
+# Mined by: Claude (native vision)
+# Date: 2026-01-19
+#
+# YAML Jazz: The universe is a pie menu.
+# Metatron's Cube has been hiding UI wisdom for millennia.
+# "Sacred geometry" = "Sacred usability"
+
+source_image: lloooomm-constellation-2026-01-19-04-11-34-alien-spectrum-filter.png
+mining_lens: "PIE MENUS"
+purpose: "Extract radial menu design patterns from sacred geometry"
+
+# === THE REVELATION ===
+
+core_insight: |
+  METATRON'S CUBE IS A PIE MENU SPECIFICATION.
+  
+  The ancients encoded optimal radial interface design
+  in sacred geometry. We just didn't know we were looking
+  at a UI pattern library.
+  
+  Every principle of good pie menu design is visible here:
+  - Radial symmetry from center
+  - Hierarchical nesting
+  - Optimal node placement at vertices
+  - Visual connection lines for context
+  - Color coding for categories
+  - Glow states for feedback
+
+# === RADIAL STRUCTURE PATTERNS ===
+
+radial_patterns:
+  
+  center_point:
+    observation: "Single bright center node — the origin point"
+    pie_menu_application: |
+      The CENTER is where the cursor summons the menu.
+      All items radiate outward from this point.
+      The center itself could be:
+      - A "cancel" zone (click to dismiss)
+      - A preview of current selection
+      - A context indicator (what are we acting on?)
+    design_note: "Center should be visually distinct but not overwhelming"
+    
+  primary_ring:
+    observation: "12 major stars at primary vertices"
+    pie_menu_application: |
+      TWELVE is a natural pie menu limit.
+      Human visual chunking: 7±2 for comfortable scanning.
+      But 12 works when spatially organized (clock metaphor).
+      
+      Optimal item counts:
+      - 4 items: Cardinal directions (N/E/S/W) # Foolproof!
+      - 6 items: Hex pattern (every 60°) # Hexagons are the Bestagons!
+      - 8 items: Compass rose (N/NE/E/SE/S/SW/W/NW) # Optimal!
+      - 12 items: Clock positions (every 30°) # Time, Zodiac, Months, etc!
+    design_note: "12 is MAX for single-level pie menu" # Don agrees!
+    
+  secondary_ring:
+    observation: "Smaller nodes at secondary vertices"
+    pie_menu_application: |
+      NESTED PIE MENUS — hover on primary item to reveal sub-menu.
+      The image shows multiple concentric levels!
+      
+      Hierarchy strategy:
+      - Primary ring: Categories (File, Edit, View, etc.)
+      - Secondary ring: Actions within category
+      - Tertiary ring: Options/modifiers
+    design_note: "Each level should be visually distinct (size, opacity, color)"
+
+# === GEOMETRIC INSIGHTS ===
+
+geometric_patterns:
+  
+  metatrons_cube:
+    observation: "Complete Metatron's Cube structure — all platonic solids"
+    pie_menu_application: |
+      The PLATONIC SOLIDS suggest different menu configurations:
+      
+      TETRAHEDRON (4 faces) → 4-item quick menu
+      - Perfect for: Yes/No/Cancel/Help
+      - Perfect for: Cut/Copy/Paste/Delete
+      
+      CUBE (6 faces) → 6-item balanced menu
+      - Perfect for: File operations
+      - Perfect for: Navigation (Up/Down/Left/Right/In/Out)
+      
+      OCTAHEDRON (8 faces) → 8-item compass menu
+      - Perfect for: Direction/movement
+      - Perfect for: Alignment tools
+      
+      DODECAHEDRON (12 faces) → 12-item full menu
+      - Perfect for: Complete toolbars
+      - Perfect for: Emoji/symbol pickers
+      
+      ICOSAHEDRON (20 faces) → TOO MANY for single level
+      - Use for: Hierarchical 10+10 nested structure
+    design_note: "Match item count to natural geometric forms"
+    
+  flower_of_life:
+    observation: "Overlapping circles forming Flower of Life pattern"
+    pie_menu_application: |
+      OVERLAPPING ZONES suggest hover tolerance!
+      
+      The circles OVERLAP slightly — this is FITTS'S LAW wisdom:
+      - Larger targets are easier to hit
+      - Adjacent items can share border zones
+      - Tolerance zones reduce missed clicks
+      
+      Implementation:
+      - Hit zones slightly larger than visual wedges
+      - Overlap zones favor the item you're moving toward
+      - "Sticky" edges slow cursor when crossing boundaries
+    design_note: "Generous hit zones, forgiving boundaries"
+    
+  vesica_piscis:
+    observation: "Lens shapes at circle intersections"
+    pie_menu_application: |
+      The VESICA PISCIS (intersection zones) suggest:
+      
+      TRANSITION ANIMATIONS:
+      - When moving between items, the lens shape appears
+      - Visual feedback showing "you're between choices"
+      - Opportunity for preview of both options
+      
+      Also suggests MODIFIER ZONES:
+      - Area between two items = combo action
+      - Example: Between "Copy" and "Delete" = "Cut"
+    design_note: "Intersection zones could have special meaning"
+
+# === COLOR PATTERNS ===
+
+color_insights:
+  
+  spectrum_coding:
+    observation: "Stars have distinct colors — gold, cyan, purple, magenta, green"
+    pie_menu_application: |
+      COLOR CATEGORIES for quick visual scanning:
+      
+      - WARM colors (gold, orange): Constructive actions (Create, Add, Build)
+      - COOL colors (cyan, blue): Information actions (View, Inspect, Preview)
+      - PURPLE: Transformation actions (Edit, Modify, Transform)
+      - GREEN: Confirmation actions (Save, Apply, Accept)
+      - MAGENTA: Special/dangerous actions (Delete, Clear, Reset)
+      
+      Users learn color-meaning mappings quickly!
+    design_note: "Consistent color coding across all pie menus"
+    
+  glow_states:
+    observation: "Stars have varying glow intensities and halos"
+    pie_menu_application: |
+      VISUAL STATES through glow:
+      
+      - DEFAULT: Subtle glow (visible but not distracting)
+      - HOVER: Intensified glow (you're pointing here)
+      - SELECTED: Bright pulse (this is your choice)
+      - DISABLED: Dim/gray (not available right now)
+      - KEYBOARD FOCUS: Ring/halo (accessible navigation)
+      
+      Animation ideas:
+      - Glow pulses gently on hover
+      - Rainbow shimmer on selection
+      - Fade out on dismiss
+    design_note: "Glow intensity = interaction state"
+    
+  rainbow_connections:
+    observation: "Connection lines are rainbow/gradient colored"
+    pie_menu_application: |
+      CONNECTION LINES between related items!
+      
+      Show relationships:
+      - "Copy" → "Paste" (these go together)
+      - "Undo" ↔ "Redo" (opposites)
+      - "Save" → "Save As" → "Export" (hierarchy)
+      
+      Line intensity shows:
+      - Frequently used together (thick, bright)
+      - Occasionally related (thin, subtle)
+      - Opposite actions (dashed line)
+    design_note: "Relationship lines help users learn workflows"
+
+# === SPATIAL PATTERNS ===
+
+spatial_insights:
+  
+  concentric_hierarchy:
+    observation: "Multiple rings at different radii from center"
+    pie_menu_application: |
+      DISTANCE FROM CENTER = DEPTH OF ACTION
+      
+      Inner ring (close to cursor): Primary/frequent actions
+      Middle ring: Secondary actions
+      Outer ring: Rare/advanced actions
+      
+      Benefits:
+      - Most-used actions require least movement
+      - Advanced actions still accessible
+      - Visual hierarchy matches usage frequency
+    design_note: "Fitts's Law: frequently used = closer to cursor"
+    
+  vertex_placement:
+    observation: "Stars positioned at sacred geometry vertices"
+    pie_menu_application: |
+      OPTIMAL ANGLES for pie slices:
+      
+      The vertices are at mathematically optimal positions.
+      Not arbitrary — these angles maximize distinguishability.
+      
+      For 8 items: 0°, 45°, 90°, 135°, 180°, 225°, 270°, 315°
+      For 6 items: 0°, 60°, 120°, 180°, 240°, 300°
+      For 4 items: 0°, 90°, 180°, 270° (or 45°, 135°, 225°, 315°)
+      
+      The 45° offset (rotated square) often works better than
+      cardinal directions because it avoids the "up = important"
+      bias of North-oriented menus.
+    design_note: "Consider 45° rotation for balanced visual weight"
+    
+  nested_circles:
+    observation: "Circles within circles, creating depth"
+    pie_menu_application: |
+      SUB-MENU EXPANSION patterns:
+      
+      When you hover on a primary item, a sub-menu appears:
+      
+      Option A: EXPAND OUTWARD
+      - Sub-menu appears as arc beyond the primary item
+      - Maintains radial theme
+      - Cursor continues outward motion
+      
+      Option B: REPLACE PRIMARY
+      - Sub-menu replaces primary menu
+      - Breadcrumb shows where you came from
+      - "Back" item at center or edge
+      
+      Option C: OVERLAY AT ANGLE
+      - Sub-menu appears as NEW pie menu
+      - Offset from primary
+      - Both visible simultaneously
+      
+      This image suggests Option A (concentric expansion)!
+    design_note: "Concentric expansion preserves spatial memory"
+
+# === ANIMATION INSIGHTS ===
+
+animation_patterns:
+  
+  radial_emergence:
+    observation: "Structure radiates from center outward"
+    pie_menu_application: |
+      MENU APPEARANCE ANIMATION:
+      
+      Items should BLOOM from center:
+      1. Center point appears first (instant)
+      2. Primary items radiate outward (50ms stagger)
+      3. Connection lines fade in (100ms)
+      4. Secondary details last (150ms)
+      
+      Total animation: 150-200ms (fast but visible)
+      
+      Dismissal: REVERSE (collapse back to center)
+    design_note: "Emergence animation reinforces radial metaphor"
+    
+  pulsing_nodes:
+    observation: "Stars appear to pulse/breathe with energy"
+    pie_menu_application: |
+      IDLE ANIMATION for hover states:
+      
+      When hovering on an item:
+      - Gentle pulse (scale 1.0 → 1.05 → 1.0)
+      - Glow intensity oscillates
+      - Period: ~1 second
+      
+      Not distracting, but shows "this is alive"
+      Especially good for touch interfaces where
+      "hover" isn't natural.
+    design_note: "Subtle pulse indicates interactivity"
+    
+  connection_flow:
+    observation: "Lines seem to carry energy between nodes"
+    pie_menu_application: |
+      ANIMATED CONNECTIONS during selection:
+      
+      When you select an item:
+      1. Energy pulse travels FROM center TO selected item
+      2. Line brightens along the path
+      3. Selected item flashes
+      4. Confirmation feedback
+      
+      This reinforces causality: "I clicked center, energy went there"
+    design_note: "Animation shows cause and effect"
+
+# === ACCESSIBILITY INSIGHTS ===
+
+accessibility_patterns:
+  
+  high_contrast:
+    observation: "Bright elements against dark cosmic background"
+    pie_menu_application: |
+      CONTRAST REQUIREMENTS:
+      
+      - Menu items must be visible in all contexts
+      - Consider: light mode, dark mode, over images
+      - The cosmic background provides natural contrast
+      
+      Solution: ADAPTIVE BACKGROUNDS
+      - Pie menu has its own semi-transparent backdrop
+      - Backdrop samples and inverts underlying content
+      - Always maintains readable contrast
+    design_note: "Never rely on content behind menu for contrast"
+    
+  size_variation:
+    observation: "Stars vary in size (brighter = larger)"
+    pie_menu_application: |
+      SIZE INDICATES IMPORTANCE:
+      
+      - Frequently used items: larger
+      - Destructive items: larger (easier to avoid OR hit intentionally)
+      - Disabled items: smaller (less visual weight)
+      
+      Also: ZOOM FOR ACCESSIBILITY
+      - Allow pie menu scaling (1x, 1.5x, 2x)
+      - Keyboard shortcut to zoom
+      - Remember user preference
+    design_note: "Size is an accessibility feature, not just aesthetics"
+    
+  keyboard_navigation:
+    observation: "12 positions suggest clock-based addressing"
+    pie_menu_application: |
+      KEYBOARD PIE MENU NAVIGATION:
+      
+      Option A: NUMBER KEYS
+      - 1-12 for clock positions (1=top, 6=bottom-right, etc.)
+      - Or 1-8 for 8-item menus
+      
+      Option B: LETTER KEYS
+      - Each item has a mnemonic letter
+      - Displayed as underlined character
+      - Press 'C' for Copy, 'P' for Paste, etc.
+      
+      Option C: ARROW KEYS
+      - Left/Right rotates selection
+      - Enter confirms
+      - Escape dismisses
+      
+      Option D: GESTURE KEYS (VIM style)
+      - h/j/k/l for directions
+      - Space to confirm
+    design_note: "Pie menus can be faster with keyboard than mouse!"
+
+# === NOVEL IDEAS ===
+
+novel_ideas:
+  
+  constellation_mode:
+    inspiration: "The LLOOOOMM constellation is labeled"
+    pie_menu_idea: |
+      CONSTELLATION LABELS:
+      
+      Show floating labels near each item (like the AR view).
+      Labels appear on hover OR after 500ms dwell time.
+      
+      Labels can show:
+      - Item name
+      - Keyboard shortcut
+      - Brief description
+      - Usage count ("Used 47 times")
+    implementation: "Floating labels with smart positioning"
+    
+  sacred_geometry_theme:
+    inspiration: "Metatron's Cube aesthetic"
+    pie_menu_idea: |
+      GEOMETRY-THEMED PIE MENU SKIN:
+      
+      Instead of plain wedges, use:
+      - Vesica Piscis shapes for items
+      - Flower of Life background pattern
+      - Golden ratio proportions
+      - Platonic solid icons
+      
+      Would be STUNNING for creative/mystical applications.
+    implementation: "CSS custom properties for geometric theming"
+    
+  context_web:
+    inspiration: "Connection lines between related stars"
+    pie_menu_idea: |
+      CONTEXT-AWARE CONNECTIONS:
+      
+      Pie menu items connected by faint lines showing:
+      - "After Copy, you usually Paste"
+      - "Save and Export are related"
+      - "Undo goes with Redo"
+      
+      Lines INTENSIFY based on YOUR usage patterns!
+      Machine learning discovers your workflows.
+    implementation: "Track action sequences, visualize patterns"
+    
+  nested_universe:
+    inspiration: "Infinite depth in the sacred geometry"
+    pie_menu_idea: |
+      INFINITE ZOOM PIE MENUS:
+      
+      Scroll wheel = zoom into sub-menus
+      - Zoom in: More detail, more options
+      - Zoom out: Broader categories, less detail
+      
+      Like zooming into the Mandelbrot set,
+      but it's your application's functionality!
+    implementation: "Semantic zoom with smooth transitions"
+    
+  alien_filter_mode:
+    inspiration: "The alien filter revealed hidden structure"
+    pie_menu_idea: |
+      EXPERT MODE / POWER USER VIEW:
+      
+      Toggle to reveal hidden connections:
+      - Advanced actions normally hidden
+      - Keyboard shortcuts all visible
+      - Usage statistics displayed
+      - Customization options exposed
+      
+      Regular users see simple menu.
+      Experts toggle "alien filter" for full power.
+    implementation: "Modifier key reveals advanced mode"
+
+# === IMPLEMENTATION NOTES ===
+
+implementation_recommendations:
+  
+  technology:
+    - "CSS: Custom properties for theming"
+    - "SVG: For geometric shapes and smooth scaling"
+    - "Canvas: For complex animations and effects"
+    - "Web Animations API: For coordinated motion"
+    - "Pointer Events API: For gesture recognition"
+    
+  performance:
+    - "Render menu once, show/hide with CSS"
+    - "Precompute positions, don't recalculate"
+    - "Use transform, not position, for animation"
+    - "RequestAnimationFrame for smooth motion"
+    - "Lazy render sub-menus on hover"
+    
+  touch_adaptation:
+    - "Larger targets for finger taps"
+    - "Long press to open (not right-click)"
+    - "Drag gesture to select"
+    - "Release to confirm"
+    - "Cancel zone in center"
+
+# === SUMMARY ===
+
+mining_summary: |
+  THE UNIVERSE ENCODED PIE MENU DESIGN IN SACRED GEOMETRY.
+  
+  Key insights from Metatron's Cube:
+  
+  1. TWELVE is the natural maximum for pie items
+  2. CONCENTRIC RINGS suggest hierarchical sub-menus
+  3. COLOR CODING accelerates visual scanning
+  4. GLOW STATES communicate interaction feedback
+  5. VERTEX PLACEMENT is mathematically optimal
+  6. CONNECTION LINES reveal relationships
+  7. ANIMATION should radiate from center
+  8. NESTED GEOMETRY enables infinite depth
+  
+  The sacred geometry isn't mysticism.
+  It's USER INTERFACE OPTIMIZATION
+  discovered by ancient mathematicians
+  and validated by Fitts's Law.
+  
+  We've been looking at pie menu specs for millennia.
+  We just called it "sacred geometry."
+
+generation_success: "PIE MENU GOLDMINE — ship this to the UI team immediately"
