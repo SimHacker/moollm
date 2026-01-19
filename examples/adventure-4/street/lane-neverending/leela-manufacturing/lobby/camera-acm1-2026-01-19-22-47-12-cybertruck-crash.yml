@@ -1,0 +1,79 @@
+# Prompt sidecar for camera-acm1-2026-01-19-22-47-12-cybertruck-crash.png
+# Generated: 2026-01-19T22:47:12
+# Provider: openai/gpt-image-1
+# Incident: CYBERTRUCK COLLISION WITH PAINTED TUNNEL
+#
+# Regenerate: python3 skills/visualizer/visualize.py regenerate <this-file>
+
+sources:
+  - "../camera-acm1.yml"  # The camera that captured this incident
+
+generation:
+  provider: openai
+  model: gpt-image-1
+  timestamp: "2026-01-19T22:47:12"
+  description: "cybertruck-crash"
+  
+incident:
+  type: "FSD_COLLISION"
+  vehicle: "Tesla Cybertruck"
+  target: "Painted tunnel (trompe l'oeil)"
+  result: "Total front-end damage, fire, driver escaped"
+  cause: "FSD does not understand trompe l'oeil"
+  
+camera:
+  id: "ACM1"
+  name: "Tunnel Watcher"
+  alert: "INCIDENT DETECTED"
+  analytics_note: "FSD does not understand trompe l'oeil"
+
+prompt: |
+  SECURITY CAMERA FOOTAGE — Camera ACM1 (Tunnel Watcher)
+  INCIDENT CAPTURE: CYBERTRUCK COLLISION WITH PAINTED TUNNEL
+  Location: ACME Surplus Building, 4 Lane Neverending
+  Time: Night, street lights illuminating the scene
+
+  PHOTOREALISTIC SURVEILLANCE PHOTO.
+
+  THE SCENE:
+  A Tesla CYBERTRUCK has just CRASHED into the painted tunnel on the boarded-up 
+  storefront of the abandoned ACME Surplus building. The vehicle is crumpled 
+  against the FLAT WALL where the trompe l'oeil tunnel is painted.
+
+  THE CYBERTRUCK:
+  - Distinctive angular stainless steel body
+  - Front end CRUMPLED against the wall
+  - The geometric panels bent and deformed
+  - Smoke and small flames emerging from the front
+  - Headlights still on, illuminating the painted tunnel
+  - The angular hood crushed in accordion pattern
+  - Shattered windshield
+  - Driver door open, driver stumbling away in shock
+  - The distinctive triangular profile now mangled
+
+  THE PAINTED TUNNEL:
+  - Still perfectly visible on the boarded-up window
+  - Railroad tracks painted leading into fake darkness
+  - Arched stone entrance (painted, not real)
+  - The Cybertruck believed it was a real tunnel
+  - FSD FAILURE — the AI drove straight into painted wall
+
+  THE DRIVER:
+  - Stumbling away from the vehicle
+  - Hands on head in disbelief
+  - Looking back at the painted tunnel
+  - Realizing they drove into a PAINTING
+  - Cartoon stars circling their head
+
+  SECURITY CAMERA HUD:
+  - 'ACM1' in top left corner
+  - 'REC' indicator flashing red
+  - Timestamp: 2026-01-19 22:47:12
+  - 'LEELA MANUFACTURING' watermark
+  - 'INCIDENT DETECTED' alert overlay
+  - 'FSD does not understand trompe l'oeil — CAMERA ACM1 analytics'
+
+  PHOTOREALISTIC STYLE with security camera aesthetic.
+  Night scene, fire glow, emergency lights approaching.
+
+  MOOD: Darkly comic disaster. The most expensive lesson about painted tunnels.

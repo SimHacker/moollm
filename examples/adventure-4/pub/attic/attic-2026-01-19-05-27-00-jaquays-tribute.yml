@@ -1,0 +1,146 @@
+# Sidecar for attic-2026-01-19-05-27-00-jaquays-tribute.png
+# Generated: 2026-01-19T05:27:00
+#
+# TRIBUTE TO JENNELL JAQUAYS (1956-2024)
+# Legendary fantasy artist and game designer
+# "Jaquaysing" — non-linear, multi-path, player agency
+#
+# This file is a regenerable recipe. Edit and re-run:
+#   visualize.py regenerate attic-2026-01-19-05-27-00-jaquays-tribute.yml
+
+# === SOURCES ===
+# Reference paths to context files (not embedded)
+sources:
+  - ROOM.yml
+  - acme-monster-manual.yml
+  - probability-goggles.yml
+  - recursion-lantern.yml
+  - box-of-edge-cases.yml
+  - ../../skills/visualizer/styles/jennell-jaquays.yml
+
+# === GENERATION PARAMETERS ===
+generation:
+  provider: openai
+  model: gpt-image-1
+  size: 1024x1024
+  verbosity: exhaustive
+  generated_at: 2026-01-19T05:27:00
+
+# === TRIBUTE CONTEXT ===
+tribute:
+  artist: "Jennell Jaquays"
+  years: "1956-2024"
+  style_period: "Judges Guild color period (1978-1981)"
+  philosophy: |
+    Non-linear composition with multiple visual paths through the scene.
+    Nested spaces within spaces. The sense of a larger dungeon beyond.
+    Creatures with personality. Wonder and danger in equal measure.
+  
+  signature_elements:
+    palette:
+      - "Deep blues for shadows and magic"
+      - "Warm browns and ochres for aged wood"
+      - "Vivid reds and oranges for danger"
+      - "Eldritch purple for magical items"
+      - "Golden highlights on artifacts"
+    
+    composition:
+      - "Multi-focal — multiple visual paths"
+      - "Nested spaces suggesting more beyond frame"
+      - "Non-linear like her dungeon designs"
+      - "Crosshatch-influenced texturing"
+    
+    creatures:
+      - "Monsters with personality and character"
+      - "Imps, liches, dragons as beings, not just threats"
+      - "Whimsy alongside menace"
+    
+    mood:
+      - "Wonder and danger equally"
+      - "Promise of treasure, certainty of peril"
+      - "Archaeological adventure feel"
+      - "Discovery of ancient secrets"
+  
+  key_works:
+    - "Dark Tower (Judges Guild, 1980)"
+    - "Caverns of Thracia (Judges Guild, 1979)"
+    - "The Dungeoneer fanzine (1976-1979)"
+    - "Griffin Mountain (Chaosium, 1981)"
+    - "Dragon Mountain cover (TSR)"
+
+# === SYNTHESIZED PROMPT ===
+# This prompt captures Jaquays' distinctive style
+prompt: |
+  A fantasy illustration in the distinctive style of Jennell Jaquays, 
+  legendary fantasy artist (1956-2024), specifically her Judges Guild 
+  color period (1978-1981). Acrylic painting with saturated fantasy 
+  colors: deep blues for shadows, warm browns and ochres for aged wood, 
+  golden highlights on magical items.
+  
+  THE SCENE: A cramped, atmospheric attic with slanted wooden ceilings 
+  and exposed beams. Dust motes dance in light from a glowing iron 
+  lantern hanging from the rafters. The lantern casts geometric 
+  fractal light patterns on the walls.
+  
+  COMPOSITION: Non-linear, multi-focal - multiple visual paths through 
+  the scene, like Jaquays' famous dungeon designs. Nested spaces 
+  suggesting more beyond the frame.
+  
+  KEY ELEMENTS:
+  - An old leather-bound spellbook lies open on a dusty trunk, glowing 
+    with soft purple light
+  - A small friendly IMP sits atop the book, reading with curiosity, 
+    one claw tracing the illustrations
+  - Brass and leather goggles with crystalline lenses rest nearby, 
+    with floating golden percentage numbers drifting up like dust 
+    motes: 73%, 12%, 7%
+  - Wooden boxes labeled EDGE CASES spill paradoxical objects: a bottle 
+    containing its own label, a map of itself
+  - A large shape under a dusty white sheet in the corner - mysterious
+  - Cobwebs in every corner, grimy dormer window with light filtering through
+  - A hatch in the ceiling leads up, a ladder in the floor leads down - 
+    the dungeon continues
+  
+  MOOD: Wonder and adventure, the promise of discovery. Whimsical 
+  fantasy in the classic tabletop RPG tradition. The imp adds 
+  personality - Jaquays' creatures always feel like characters, 
+  not just monsters.
+  
+  STYLE: Professional fantasy illustration quality. Rich 
+  crosshatch-influenced texturing. Cover-worthy composition. 
+  Tribute to a legend.
+
+# === JAQUAYS STYLE GUIDE (for regeneration) ===
+# Include this file as context to maintain style consistency
+style_reference: "../../skills/visualizer/styles/jennell-jaquays.yml"
+
+style_summary: |
+  JENNELL JAQUAYS STYLE — JUDGES GUILD PERIOD
+  
+  COMPOSITION: Non-linear, "Jaquaysed" — multiple visual paths. 
+  Nested spaces (dungeon within dungeon). Multiple focal points.
+  The sense of more beyond the frame.
+  
+  PALETTE: Rich, saturated colors. Deep blues for shadow/magic. 
+  Warm browns/ochres for stone and wood. Vivid reds for danger. 
+  Purple for eldritch. Gold for magical highlights.
+  
+  LIGHTING: Dramatic single source (torch, lantern, spell). 
+  Strong rim lighting. Glowing eyes in shadows. Ethereal glow 
+  around magical items.
+  
+  CREATURES: Monsters with personality. Liches, dragons, imps 
+  as characters, not just threats.
+  
+  TEXTURE: Crosshatch influence even in color work. Detailed 
+  fabric, scales, stonework. Every surface has material identity.
+  
+  MOOD: Wonder and danger equally. Archaeological adventure. 
+  The thrill of discovery. Respect for the weird.
+
+k_lines:
+  - JAQUAYS_TRIBUTE
+  - JUDGES_GUILD_STYLE
+  - FANTASY_ILLUSTRATION
+  - NON_LINEAR_COMPOSITION
+  - ATTIC_SCENE

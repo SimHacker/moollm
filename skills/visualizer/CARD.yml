@@ -1,42 +1,165 @@
 # CARD.yml — Visualizer
 #
-# Semantic image generation with rich metadata.
-# "Compose prompts from YAML context."
+# Context-driven visual generation.
+# "Compose context, synthesize prompts, render images."
 
 card:
   id: visualizer
   name: "Visualizer"
-  type: [skill, images, creative]
+  type: [skill, images, creative, automation]
   emoji: 🎨
   rarity: uncommon
   
   description: |
-    Generate image prompts from YAML context. Compose
-    artistic traditions, invoke styles, create visual
-    sidecars with semantic metadata.
+    Full-stack visual generation: assemble context from YAML files,
+    synthesize perfect prompts via LLM, render through image APIs.
+    
+    Currently: AI image generation (OpenAI, Google, Stability, Replicate)
+    Future: Video, SVG, D3 charts, graphs, diagrams
+
+# ENVIRONMENT VARIABLES
+
+environment:
+  # Image Generation
+  OPENAI_API_KEY:
+    enables: [openai_images, openai_llm]
+    models_images: [gpt-image-1, dall-e-3]
+    models_llm: [gpt-4o, gpt-4o-mini]
+    
+  GOOGLE_API_KEY:
+    enables: [google_images, google_llm]
+    models_images: [imagen-4, imagen-4-fast, imagen-3]
+    models_llm: [gemini-2.0-flash, gemini-1.5-pro]
+    
+  STABILITY_API_KEY:
+    enables: [stability_images]
+    models: [sd3.5-large, sd3.5-turbo, sdxl]
+    
+  REPLICATE_API_TOKEN:
+    enables: [replicate_images]
+    models: [flux-1.1-pro, flux-pro, flux-schnell]
+    
+  # LLM Only (for prompt synthesis)
+  ANTHROPIC_API_KEY:
+    enables: [anthropic_llm]
+    models: [claude-3.5-sonnet, claude-3-opus]
+    note: "Prompt synthesis only (no image generation)"
+
+# TOOLS
 
 tools:
   required: [read_file, write_file]
-tier: 1
+  optional: [run_terminal_cmd]
+
+tier: 2  # May execute scripts
+
+# SISTER SCRIPT
+
+script:
+  name: visualize.py
+  path: skills/visualizer/visualize.py
+  
+  commands:
+    generate:
+      description: "Compose context and generate image"
+      usage: "visualize.py FILE1 [FILE2 ...] --provider PROVIDER"
+      examples:
+        - "visualize.py character.yml room.yml -p openai"
+        - "cat mood.yml | visualize.py player.yml - -p google"
+        - "echo 'mood: triumphant' | visualize.py *.yml - -p openai"
+        
+    compose:
+      description: "Just synthesize prompt (no generation)"
+      usage: "visualize.py compose FILE1 [FILE2 ...]"
+      examples:
+        - "visualize.py compose character.yml room.yml"
+        - "visualize.py compose *.yml --style 'Avedon, Caravaggio'"
+        
+    providers:
+      description: "List available providers"
+      usage: "visualize.py providers"
+      
+    slideshow:
+      description: "Create/update SLIDESHOW.md gallery for directory"
+      usage: "visualize.py slideshow [DIRECTORY]"
+      examples:
+        - "visualize.py slideshow"             # Current directory
+        - "visualize.py slideshow pub/attic"   # Specific directory
+        - "visualize.py slideshow --from ../other/dir"  # Include images from elsewhere
+      output: "SLIDESHOW.md in target directory"
+      features:
+        - "Death-scrollable on mobile and desktop"
+        - "Adaptive layout, useful at any size"
+        - "Time-ordered image gallery"
+        - "Inline images with titles"
+        - "Brief descriptions and context"
+        - "AI grokking analysis for each image"
+        - "Links to prompt and mining sidecars"
+        - "Cross-image comparisons where applicable"
+      auto_trigger: "Can be called after every generate command"
+      
+  options:
+    --provider: "Image generation provider"
+    --llm: "LLM for prompt synthesis"
+    --style: "Artistic style/tradition to emphasize"
+    --prompt-only: "Output prompt without generating"
+    --raw-prompt: "Skip LLM synthesis, use literal prompt"
+    
+  composability: |
+    Accepts any number of files + "-" for stdin.
+    Unix-composable: pipe dynamic content into static context.
+
+# METHODS
 
 methods:
   VISUALIZE:
-    description: "Generate image prompt"
-    parameters: { subject: "What to visualize", style: "Art style" }
-    output: file (prompt + metadata)
-    invoked-by: [player]
+    description: "Generate image from context"
+    parameters:
+      context: "YAML files, room, character, metadata"
+      provider: "openai | google | stability | replicate"
+      style: "Artistic style/tradition"
+    output: file (image + sidecar)
+    invoked_by: [player, script]
     
   COMPOSE:
-    description: "Combine artistic traditions"
-    parameters: { traditions: "Which styles to blend" }
-    output: chat (prompt design)
-    invoked-by: [player]
+    description: "Synthesize prompt from context (no generation)"
+    parameters:
+      context: "YAML files to merge"
+      style: "Style emphasis"
+    output: text (prompt)
+    invoked_by: [player]
     
-  RENDER:
-    description: "Create visual sidecar"
-    parameters: { for: "What entity", prompt: "Image prompt" }
-    output: file (VISUAL.yml)
-    invoked-by: [player, system]
+  PHOTO-SET-8:
+    description: "Create 8-image portfolio"
+    parameters:
+      subject: "What to photograph"
+      types: "Two complementary categories"
+    output: files (8 prompts + 8 images)
+    invoked_by: [player]
+    protocol: PHOTO-SET-8
+    
+  SLIDESHOW:
+    description: "Create/update SLIDESHOW.md gallery for directory"
+    parameters:
+      directory: "Target directory (default: current)"
+      from: "Optional: include images from other directories"
+    output: file (SLIDESHOW.md)
+    invoked_by: [player, script, auto]
+    features:
+      - "Death-scrollable on mobile and desktop"
+      - "Inline images with titles and descriptions"
+      - "AI grokking analysis for each image"
+      - "Links to prompt and mining sidecars"
+      - "Cross-style comparisons"
+      - "Time-ordered gallery"
+      - "Add/remove/rearrange images manually"
+      - "Regenerate from sidecar prompts"
+      - "Include images from other directories"
+    auto_trigger: |
+      Can be called automatically after every generate command
+      to keep the gallery up to date. GitHub renders it beautifully.
+
+# STATE
 
 state:
   visual:
@@ -44,19 +167,102 @@ state:
     style: { type: string }
     traditions: { type: array }
     metadata: { type: object }
+  last_generation:
+    provider: { type: string }
+    model: { type: string }
+    output_path: { type: path }
+
+# SPECIALIZATIONS
 
 specializations:
   - photographer
   - painter
   - illustrator
   - concept-artist
+  - video-director     # Future
+  - chart-designer     # Future
+
+# ROADMAP
+
+roadmap:
+  current:
+    - AI image generation (OpenAI, Google, Stability, Replicate)
+    - LLM prompt synthesis (OpenAI, Google, Anthropic)
+    - Context assembly from YAML files
+    - Metadata sidecars (YAML Jazz)
+    - Photo-set-8 portfolios
+    - SLIDESHOW.md galleries (death-scrollable, add/remove/rearrange)
+    
+  planned:
+    - AI video generation (Runway, Pika, etc.)
+    - SVG generation
+    - D3 charts and graphs
+    - Mermaid diagrams
+    - Image editing/inpainting
+    - Style transfer
+
+# ADVERTISEMENTS
 
 advertisements:
-  CREATE-IMAGE:
+  GENERATE_IMAGE:
+    score: 95
+    condition: "Need to render image from context"
+  SYNTHESIZE_PROMPT:
     score: 90
-    condition: "Need visual representation"
-  DESIGN-PROMPT:
+    condition: "Have context, need perfect prompt"
+  PHOTO_SET:
+    score: 88
+    condition: "Need comprehensive visual coverage"
+  SLIDESHOW:
     score: 85
-    condition: "Crafting prompt for image generation"
+    condition: "Directory has images, need gallery for GitHub"
+    trigger: "After generating images, or on demand"
+    output: "SLIDESHOW.md — scrollable gallery with analysis"
+    actions: "add, remove, rearrange, clear, regenerate from prompts"
 
-see-also: [skills/card, skills/storytelling-tools]
+# STYLE GUIDES
+# Reusable style contexts for consistent generation
+
+styles:
+  directory: skills/visualizer/styles/
+  
+  available:
+    jennell-jaquays:
+      file: styles/jennell-jaquays.yml
+      description: "Fantasy illustration legend (1956-2024)"
+      periods:
+        - "Dungeoneer B&W (1976-1979)"
+        - "Judges Guild color (1978-1981)"
+        - "TSR professional (1980-1997)"
+        - "Late maximalist (1985-2000)"
+      signature:
+        - "Non-linear composition"
+        - "Creatures with personality"
+        - "Nested spaces"
+        - "Wonder + danger"
+      usage: "visualize.py scene.yml styles/jennell-jaquays.yml -d exhaustive"
+      tribute: "In memory of a pioneer. Her dungeons go on forever."
+  
+  usage_pattern: |
+    Include a style guide as additional context:
+    
+      visualize.py your-scene.yml styles/jennell-jaquays.yml
+    
+    Or with raw-prompt that references the style:
+    
+      visualize.py your-scene.yml --raw-prompt "In the style of..."
+    
+    Style guides contain:
+    - Artist biography and philosophy
+    - Period variants with characteristics
+    - Prompt templates ready to use
+    - Signature elements checklist
+
+# RELATED
+
+see_also:
+  - skills/image-mining      # Extract resources FROM images
+  - skills/storytelling-tools
+  - skills/mind-mirror       # Personality → visual expression
+  - skills/room              # Environment context
+  - skills/character         # Character context

@@ -1,0 +1,314 @@
+# Mining results for attic-2026-01-19-23-25-00-wow-screenshot.png
+# Depth: full
+# Mined by: Claude (native vision)
+# Date: 2026-01-19
+# Mining lens: World of Warcraft UI analysis
+#
+# YAML Jazz: FOR THE HORDE! (or Alliance, I don't judge)
+# This screenshot has EVERYTHING — containers, tooltips, nameplates, loot!
+
+source_image: attic-2026-01-19-23-25-00-wow-screenshot.png
+mining_context:
+  style: "World of Warcraft game screenshot"
+  ui_completeness: "FULL — all major elements present"
+  authenticity: "Could pass for actual game footage"
+
+# === UI ELEMENT ANALYSIS ===
+
+ui_elements:
+
+  player_character:
+    race: "Gnome"
+    class: "Mage or Warlock (implied)"
+    view: "Third-person, back to camera"
+    position: "Center of attic"
+    gear: "Robes, visible equipment"
+    
+  unit_frames:
+    player_frame:
+      location: "Top left area"
+      visible: true
+      
+    target_frame:
+      location: "Left side"
+      target_name: "Edge Cost Eddie"
+      target_type: "<Summonable Familiar>"
+      portrait: "Small creature"
+      stats_visible: true
+      
+  minimap:
+    location: "Top right corner"
+    zone_displayed: true
+    tracking_icons: visible
+    
+  buff_bar:
+    location: "Top area"
+    visible_buffs:
+      - "Probability Vision (goggles)"
+      - "Various ability icons"
+    debuffs:
+      - "Probability Anxiety (minor curse)"
+
+# === ACTION BARS ===
+
+action_bars:
+  
+  main_bar:
+    location: "Bottom center"
+    slots: 12
+    visible_abilities:
+      - "Glowing spell icons"
+      - "Cooldown animations"
+      - "Various attic item abilities"
+      
+  secondary_bars:
+    location: "Above main bar and sides"
+    visible: true
+    more_abilities: true
+    
+  pet_bar:
+    implied: true
+    for: "Imp familiar"
+
+# === OPEN CONTAINERS ===
+
+containers:
+  
+  box_of_edge_cases:
+    status: "OPEN"
+    location: "Center/right of screen"
+    title_visible: "Box of Edge Cases"
+    item_quality: "Purple/Epic glow"
+    contents_visible:
+      - "Multiple glowing purple items"
+      - "Paradoxical objects"
+    slot_behavior: "Some slots flicker (quantum!)"
+    
+  trunk_of_deprecated_features:
+    status: "OPEN"
+    location: "Right side"
+    title_visible: "Trunk of D..." (partially visible)
+    contents: "Old APIs and legacy features"
+
+# === ITEM TOOLTIP ===
+
+item_tooltip:
+  
+  item_name: "Probability Goggles"
+  quality: "Uncommon (green) or Rare (blue)"
+  bind_type: "Binds when equipped"
+  slot: "Head"
+  
+  stats:
+    - "+18 Intelligence"
+    - "+18 Spirit"
+    
+  effects:
+    equip_1: "Allows probability overlays on everything"
+    equip_2: "Occasionally see your own probability"
+    
+  curse:
+    name: "Minor Curse: Probability Anxiety"
+    effect: "See probabilities even when not wearing"
+    
+  flavor_text: '"There''s a 25% chance this bread is stale."'
+  
+  maker: "HEISENBERG OPTICS — Est. 1927"
+  
+  item_level: "~40-50 range (implied)"
+  required_level: "35-40 (implied)"
+
+# === FLOATING COMBAT TEXT ===
+
+floating_text:
+  
+  percentages_visible:
+    - "73%"
+    - "75%"
+    - "25%"
+    - "12%"
+    - "01%"
+    - "76%"
+  source: "Probability Goggles effect"
+  style: "Classic WoW floating combat text"
+  
+  loot_text:
+    visible: "+1 Box of Edge Cases"
+    style: "Yellow loot notification"
+
+# === NAMEPLATES ===
+
+nameplates:
+  
+  edge_case_eddie:
+    name: "Edge Cost Eddie"
+    type: "<Summonable Familiar>"
+    color: "Yellow (friendly)"
+    
+  chitters:
+    name: "Chitters"
+    subtitle: "The Skittering Thing"
+    color: "Neutral or hostile (implied)"
+    
+  sheet_covered_thing:
+    name: "The Sheet Covered Thing"
+    status: "Unknown/mysterious"
+    health_bar: "Not visible (not engaged)"
+
+# === CHAT WINDOW ===
+
+chat_window:
+  
+  location: "Bottom left"
+  tabs_visible: true
+  
+  messages:
+    loot: "You receive loot: Probability Goggles!"
+    various: "Multiple colored messages"
+    system: "Edge Case Eddie appears!"
+    say: '"What the singe codes..."'
+    
+  style: "Classic WoW chat formatting"
+
+# === THE ATTIC ENVIRONMENT ===
+
+environment:
+  
+  atmosphere:
+    lighting: "Warm, dusty, dungeon-like"
+    dust_particles: visible
+    cobwebs: implied
+    
+  architecture:
+    floor: "Wooden planks, WoW texture style"
+    beams: "Exposed rafters"
+    style: "Classic WoW interior dungeon"
+    
+  objects:
+    boxes: "Scattered around"
+    trunks: "Multiple containers"
+    mysterious_thing: "Sheet-covered object visible"
+
+# === FAMILIAR NPCS ===
+
+npcs_visible:
+  
+  edge_case_eddie:
+    appearance: "Small creature made of paradoxes"
+    behavior: "Curious, peeking"
+    status: "Friendly familiar"
+    
+  chitters:
+    appearance: "The skittering thing"
+    note: "Probably mice. PROBABLY."
+    
+  imp:
+    implied: "Near Monster Manual"
+    pet_bar: "Suggests summoned familiar"
+
+# === WOW AUTHENTICITY SCORE ===
+
+authenticity:
+  
+  overall_score: 0.94  # Extremely convincing!
+  
+  ui_accuracy:
+    unit_frames: "Authentic WoW style"
+    action_bars: "Correct layout and glow"
+    tooltips: "Proper formatting and stats"
+    containers: "Standard WoW bag windows"
+    chat: "Correct tab and color system"
+    
+  art_style:
+    characters: "WoW stylized proportions"
+    environment: "WoW dungeon textures"
+    lighting: "WoW interior warmth"
+    particles: "Dust and magic effects"
+    
+  could_fool:
+    casual_viewer: "Definitely"
+    wow_player: "For a few seconds"
+    screenshot_hunter: "Would double-take"
+
+# === LOOT TABLE ===
+
+visible_loot:
+  
+  collected:
+    - name: "[Probability Goggles]"
+      quality: "Uncommon/Rare"
+      slot: "Head"
+      
+  in_containers:
+    box_of_edge_cases:
+      - "[Null Value (Not Null)]"
+      - "[Array of Length -1]"
+      - "[Schrödinger Bool]"
+      - "Other paradoxical items"
+      
+    trunk_of_deprecated:
+      - "[Deprecated API v1.0]"
+      - "[Legacy Callback]"
+      - "[Old Session Token]"
+
+# === QUEST PROGRESS ===
+
+quest_tracker:
+  
+  quest_name: "Mind the Edge Cases"
+  objectives:
+    - text: "Explore the Dusty Attic"
+      status: "Complete ✓"
+    - text: "Find the ACME Monster Manual"
+      status: "Complete ✓"
+    - text: "Open the Trunk of Deprecated Features"
+      status: "Complete ✓"
+    - text: "Investigate the Sheet-Covered Thing"
+      status: "Incomplete (0/1)"
+    - text: "Return to the Rooftop"
+      status: "Pending"
+
+# === MINING NOTES ===
+
+mining_notes: |
+  A PERFECT WORLD OF WARCRAFT SCREENSHOT.
+  
+  This image captures the full WoW experience:
+  
+  1. UI COMPLETENESS — All major elements present
+     - Unit frames, action bars, minimap
+     - Open containers with visible items
+     - Item tooltip with full stats and flavor text
+     - Chat window with loot notifications
+     - Floating combat text (percentages!)
+  
+  2. THE PROBABILITY GOGGLES EFFECT
+     - Percentages floating EVERYWHERE
+     - 73%, 75%, 25%, 12%...
+     - The goggles are working!
+  
+  3. OPEN CONTAINERS
+     - Box of Edge Cases: Purple/epic items glowing
+     - Trunk of Deprecated Features: Old APIs visible
+  
+  4. THE FAMILIARS
+     - Edge Case Eddie is targeted
+     - Chitters the Skittering Thing has a nameplate
+     - The Sheet Covered Thing awaits investigation
+  
+  5. THE TOOLTIP
+     - Full WoW-style stat block
+     - The curse is documented!
+     - The flavor text survives!
+     - HEISENBERG OPTICS credited!
+  
+  This is peak WoW dungeon exploration energy.
+  You KNOW something good (or terrible) is in that sheet-covered thing.
+  
+  "Mind the edge cases."
+  "You receive loot: [Probability Goggles]"
+
+generation_success: "SCREENSHOT QUALITY — post this on the WoW subreddit"
+would_farm_this_dungeon: true
+sheet_covered_thing_status: "STILL NOT INVESTIGATED"
+chitters_threat_level: "PROBABLY mice. PROBABLY."

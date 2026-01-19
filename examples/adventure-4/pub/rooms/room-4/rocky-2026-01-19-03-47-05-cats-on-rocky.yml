@@ -1,0 +1,62 @@
+# Sidecar for rocky-2026-01-19-03-47-05-cats-on-rocky.png
+# Generated: 2026-01-19T03:47:05.587606
+#
+# This file is a regenerable recipe. Edit and re-run:
+#   visualize.py regenerate rocky-2026-01-19-03-47-05-cats-on-rocky.yml
+#
+
+# === SOURCES ===
+# Reference paths to context files (not embedded)
+sources:
+  - examples/adventure-4/pub/rooms/room-4/rocky.yml
+
+# === GENERATION PARAMETERS ===
+generation:
+  provider: openai
+  model: gpt-image-1
+  size: 1024x1024
+  verbosity: normal
+  generated_at: 2026-01-19T03:47:05.587606
+
+# === SYNTHESIZED PROMPT ===
+# Edit this to regenerate with tweaks!
+prompt: |
+  PHOTOREALISTIC. A magnificent glass conservatory flooded with gorgeous vivid sunlight streaming through tall Victorian windows. Lush tropical vegetation — orchids, ferns, palms — creating a jungle paradise.
+  
+  CENTER: A large, smooth, sun-warmed granite boulder (Rocky) sits on a bed of soft moss.
+  
+  THE CATS (10 total, doing cat things):
+  
+  ADULT CATS:
+  - TERPIE: A beautiful calico cat stretched out luxuriously on top of Rocky, soaking up the warmth, eyes half-closed in bliss
+  - STROOPWAFEL: A ginger tabby rubbing their cheek against Rocky's side, marking territory, tail up with happiness
+  
+  KITTENS (8 tiny fuzzballs, various colors, all being chaotic):
+  - One kitten batting at a fern frond that brushes Rocky's surface
+  - Two kittens wrestling playfully on Rocky's mossy base
+  - One kitten perched on Rocky's highest point, surveying the kingdom
+  - One kitten sniffing curiously at Rocky's mica sparkles
+  - One kitten stretching claws against Rocky's rough side (scratching post!)
+  - One kitten curled in a perfect circle in a moss patch near Rocky
+  - One kitten mid-pounce, attacking a sunbeam on Rocky's surface
+  
+  DETAILS:
+  - Cats in various poses: stretching, grooming, playing, napping, exploring
+  - Fur catching the golden sunlight, whiskers glowing
+  - Some kittens are tabby, some calico, some solid colors
+  - Rocky is patient, warm, utterly unbothered — the ultimate cat furniture
+  
+  SETTING:
+  - Victorian glass conservatory, ornate iron framework
+  - Streaming golden sunlight with visible dust motes and god rays
+  - Lush orchids in bloom — purple, white, coral
+  - Ferns, palms, moss, trailing vines
+  - Warm, dappled light patterns on everything
+  
+  MOOD: Warm, playful, peaceful. A sun-drenched sanctuary where cats have claimed the ancient boulder as their throne.
+  
+  STYLE: National Geographic meets Dutch Golden Age still life. Hyperrealistic fur textures, exquisite lighting, every whisker visible. 8K detail.
+
+# === ADDITIONAL METADATA ===
+provider: openai
+model: gpt-image-1

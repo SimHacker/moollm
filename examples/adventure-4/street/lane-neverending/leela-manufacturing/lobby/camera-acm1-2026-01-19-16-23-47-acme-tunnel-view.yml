@@ -1,0 +1,102 @@
+# Prompt sidecar for camera-acm1-2026-01-19-16-23-47-acme-tunnel-view.png
+# Generated: 2026-01-19T16:23:47
+# Provider: openai/gpt-image-1
+#
+# Regenerate: python3 skills/visualizer/visualize.py regenerate <this-file>
+
+sources:
+  - "../camera-acm1.yml"  # The camera that took this photo
+
+generation:
+  provider: openai
+  model: gpt-image-1
+  timestamp: "2026-01-19T16:23:47"
+  description: "acme-tunnel-view"
+  
+camera:
+  id: "ACM1"
+  name: "Tunnel Watcher"
+  location: "Lobby window, Leela Manufacturing"
+  target: "ACME Surplus building, 4 Lane Neverending"
+  resolution: "1080p"
+  fps: 30
+  purpose: "Daily reminder of what failure looks like"
+  
+location:
+  building: "Leela Manufacturing"
+  room: "Lobby"
+  street: "Lane Neverending"
+  city: "Amsterdam (Adventure-4 variant)"
+
+prompt: |
+  SECURITY CAMERA FOOTAGE — Camera ACM1 (Tunnel Watcher)
+  Location: Leela Manufacturing Lobby Window, facing north
+  Target: ACME Surplus Building, 4 Lane Neverending
+  Time: Daytime, late afternoon golden hour
+
+  THE VIEW:
+  Security camera perspective, 1080p quality, slight surveillance camera aesthetic.
+  Looking out the lobby window across Lane Neverending (a narrow Amsterdam-style street)
+  at the shuttered ACME Surplus building.
+
+  THE ACME BUILDING:
+  An old industrial/commercial building, clearly abandoned but not demolished.
+  Sign reads 'ACME SURPLUS' in faded red letters.
+  Windows boarded up with weathered plywood.
+
+  THE PAINTED TUNNEL:
+  On the right side of the building, on a BOARDED-UP WINDOW, someone has painted
+  a PERFECT TROMPE L'OEIL TUNNEL — a Road Runner style cartoon tunnel entrance!
+
+  The painted tunnel shows:
+  - Perfect perspective of a tunnel going into darkness
+  - Railroad tracks leading in
+  - Arched stone entrance
+  - So realistic it looks 3D
+  - But it's clearly painted on FLAT BOARDS
+
+  THE EVIDENCE OF FAILURE:
+  Around the painted tunnel:
+  - Coyote-shaped silhouette pressed into the wall (cartoon style)
+  - Tourist-shaped splat mark nearby
+  - A Tesla Model S accordion pattern impact (car-shaped crumple impression)
+  - Dust and debris from multiple impacts
+  - The paint is slightly chipped from collisions
+
+  THE FRONT WINDOW:
+  The large unboarded front window shows glimpses of the interior:
+  - Dusty shelves with ACME products
+  - Faint smoke visible inside
+  - Anvils stacked haphazardly
+  - Boxes labeled 'ACME' with product names
+  - Signs of recent activity (someone's been breaking in)
+
+  THE STREET:
+  Lane Neverending — narrow, cobblestone, Amsterdam style.
+  A confused tourist is currently approaching the tunnel, hand extended...
+  About to learn the lesson.
+
+  In the distance, an ACME delivery truck approaches — it will pass THROUGH.
+  (Cartoon physics works for insiders, not customers.)
+
+  CAMERA OVERLAY:
+  Security camera HUD elements:
+  - 'ACM1' in corner
+  - Timestamp: 2026-01-19 16:23:47
+  - 'REC' indicator
+  - Resolution: 1080p
+  - Leela Manufacturing logo watermark
+
+  LIGHTING:
+  Late afternoon golden hour, warm light hitting the ACME building.
+  Long shadows. The tunnel painting looks extra convincing in this light.
+  That's why so many Teslas crash at this hour.
+
+  STYLE:
+  Security camera footage aesthetic.
+  Slightly desaturated, surveillance quality.
+  HUD overlays visible.
+  Real enough to be evidence, weird enough to be Looney Tunes.
+
+  MOOD: Darkly comic. This is a monument to failure. Every frame is a lesson.
+  'This is what happens when you ship products that don't work.'

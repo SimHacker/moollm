@@ -1,0 +1,84 @@
+# Sidecar for rocky-2026-01-19-03-59-34-rocky-and-theo-spirograph.png
+# Generated: 2026-01-19T03:59:34.114439
+#
+# This file is a regenerable recipe. Edit and re-run:
+#   visualize.py regenerate rocky-2026-01-19-03-59-34-rocky-and-theo-spirograph.yml
+#
+
+# === SOURCES ===
+# Reference paths to context files (not embedded)
+sources:
+  - examples/adventure-4/pub/rooms/room-4/rocky.yml
+
+# === GENERATION PARAMETERS ===
+generation:
+  provider: openai
+  model: gpt-image-1
+  size: 1024x1024
+  verbosity: normal
+  generated_at: 2026-01-19T03:59:34.114439
+
+# === SYNTHESIZED PROMPT ===
+# Edit this to regenerate with tweaks!
+prompt: |
+  BRIGHT CHILD-FRIENDLY CARTOON STYLE. Pixar/DreamWorks animation aesthetic. Joyful, colorful, whimsical.
+  
+  THE SCENE: A glass hothouse/conservatory with Victorian windows, but the plants have been pushed to the sides to create a big open floor space. Rocky the boulder sits in the CENTER like the sun, glowing with warmth and happiness.
+  
+  THE CHARACTERS:
+  
+  ROCKY (center):
+  - A friendly rounded granite boulder with a subtle happy face — gentle eyes, slight smile
+  - Sitting in the exact center of the room like the sun
+  - Warm grey with mica sparkles that catch the light
+  - Patient, loving, the anchor of the scene
+  
+  THEO THE LOGO TURTLE (orbiting Rocky, drawing):
+  - A small mechanical turtle with a shiny shell covered in geometric patterns
+  - Bright green with brass/gold accents
+  - Big expressive cartoon eyes, full of joy and creativity
+  - DANCING around Rocky in a spiral orbit
+  - Holding COLORED PENS in his little turtle flippers
+  - TRAILING behind him: gorgeous SPIROGRAPH patterns on the floor!
+  
+  THE FLOOR ART (Theo's masterpiece):
+  - Beautiful LAYERED spirograph graffiti covering the entire floor
+  - Concentric spiral patterns radiating from Rocky at center
+  - LOGO turtle graphics: perfect stars, spirals, geometric flowers
+  - Multiple colors layered: red, blue, yellow, green, purple, orange
+  - Like a gorgeous rainbow mandala with Rocky at the heart
+  - Clean geometric precision but with joyful energy
+  
+  ONE KITTEN (playing):
+  - A fluffy ginger kitten (could be one of the terpene kittens)
+  - Batting at one of Theo's trailing pen lines
+  - Big round cartoon eyes, playful pose
+  - Maybe trying to catch the moving pen
+  
+  ONE PUPPY (playing):
+  - A golden fluffy puppy (could be one of Biscuit's kids)
+  - Watching Theo draw with amazement
+  - Tail wagging, tongue out, cartoon joy
+  - Maybe has paw prints in the spirograph (oops!)
+  
+  THE CONSERVATORY:
+  - Bright sunlight streaming through glass ceiling
+  - Plants pushed to the edges — orchids, ferns, palms
+  - Victorian iron framework visible
+  - Clean tiled floor (now covered in beautiful art!)
+  - Warm, bright, cheerful atmosphere
+  
+  COMPOSITION:
+  - Rocky at CENTER (like the sun)
+  - Theo orbiting Rocky (like a planet), actively drawing
+  - Spirograph patterns radiating outward
+  - Kitten on one side, puppy on the other
+  - Glass ceiling above, art floor below
+  
+  MOOD: Pure JOY. Friendship. Creativity. The magic of making things together.
+  
+  STYLE: Bright cartoon, Pixar-quality rendering, child-friendly, big expressive eyes, warm colors, clean lines, joyful energy. Like a children's book illustration come to life. NOT realistic — stylized, friendly, approachable.
+
+# === ADDITIONAL METADATA ===
+provider: openai
+model: gpt-image-1

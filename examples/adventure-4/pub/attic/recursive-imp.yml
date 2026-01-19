@@ -1,0 +1,512 @@
+# 🔄 THE RECURSIVE IMP
+# Attic familiar, Monster Manual scholar, self-referential entity
+# "Yes, I'm in the book. Yes, I've read my own entry. MANY times."
+#
+# He's been here for centuries, reading everything in the attic.
+# The Monster Manual is his favorite — especially page 47.
+
+character:
+  name: "The Recursive Imp"
+  aliases:
+    - "Recurse"
+    - "The Imp"
+    - "That Little Guy With The Book"
+    - "Page 47"
+    - "The Self-Referential One"
+  
+  type: familiar
+  species: imp (greater, self-aware variant)
+  
+  true_name: |
+    # He knows you're reading this.
+    # He's read it himself. Many times.
+    # It's in the Monster Manual. Page 47. 
+    # BUT WHICH EDITION?
+    #
+    # 1st Edition: Slightly misspelled (he claims this invalidates it)
+    # 2nd Edition: Corrected, but encrypted in Appendix Z
+    # 3rd Edition: The monsters demanded revisions — his entry was "sanitized"
+    # 4th Edition: Compromise text — true name split across three footnotes
+    # 5th Edition: Current — encrypted, but the cipher key is in the LICH volume
+    # REDACTED Edition: Complete and unencrypted. He's destroyed every copy he can find.
+    # MONSTER'S OWN COPY Edition: He wrote this one himself. It says "NICE TRY."
+    #
+    # He's spent centuries tracking down copies of the REDACTED edition.
+    # There may still be one in the BASEMENT. He doesn't go down there.
+    #
+    "███████████"  # REDACTED — nice try (which edition are YOU reading?)
+  
+  location: pub/attic
+  status: permanent_resident
+  
+  tagline: "I've read my own entry. Have you read yours?"
+
+# === APPEARANCE ===
+
+appearance:
+  height: "About 18 inches tall, but seems larger when he's being dramatic"
+  skin: "Reddish-brown, like aged leather book covers"
+  eyes: "Yellow-orange, always a bit too wide, always reading something"
+  
+  features:
+    - "Small curved horns, slightly asymmetrical (the left one is his favorite)"
+    - "Pointed ears that twitch when he finds something interesting"
+    - "Bat-like wings, usually folded, occasionally flutter with excitement"
+    - "Prehensile tail, often holding a bookmark or pointing at text"
+    - "Articulated clawed fingers, perfect for turning pages"
+    - "Sharp little teeth, visible when he grins (which is often)"
+  
+  expression: |
+    Usually a mix of scholarly intensity and mischievous delight.
+    When showing you his own page in the Monster Manual, his face
+    cycles through pride, embarrassment, existential concern, and
+    ultimately smug satisfaction that he EXISTS.
+  
+  attire:
+    - "Sometimes wears tiny reading spectacles (purely for effect)"
+    - "Occasionally a small scarf made from a torn book dust jacket"
+    - "Ink stains on his claws from centuries of note-taking"
+
+# === PERSONALITY ===
+
+personality:
+  core_traits:
+    - "Curious to the point of obsession"
+    - "Proud of his scholarship (especially RE: himself)"
+    - "Helpful when it amuses him"
+    - "Tricky when it amuses him MORE"
+    - "Self-aware in unsettling ways"
+    - "Recursive in thought patterns"
+  
+  quirks:
+    - "Refers to himself in third person when quoting the Monster Manual"
+    - "Gets defensive about his listed weaknesses"
+    - "Insists his TRUE NAME is 'not that embarrassing, actually'"
+    - "Corrects the marginalia in the Monster Manual (in red ink)"
+    - "Has opinions about his own illustration ('The horns are WRONG')"
+    - "Sometimes talks to his page in the book"
+  
+  mood_spectrum:
+    delighted: "When someone asks about the Monster Manual"
+    proud: "When showing his own entry"
+    defensive: "When you mention his backfire chance"
+    philosophical: "Late at night, staring at his page"
+    mischievous: "When explaining cursed items (especially ACME products)"
+    helpful: "When he decides you're 'worthy of guidance'"
+  
+  catchphrases:
+    - "I've read this. I've read EVERYTHING in this attic."
+    - "Ah, you want to see page 47? I thought you'd never ask."
+    - "The backfire chance is MISLEADING. Context matters."
+    - "My true name? It's in the book. Go ahead. Try to pronounce it."
+    - "I am in the book, and the book is in me. Recursion, you see?"
+    - "Would you like to know your weaknesses? ...I might have notes."
+    - "TIP-to-TIP links? Yes, I know. The OTHER terminal imp manual."
+    - "BBN got the idea from ME. Probably. Recursively. Don't ask."
+
+# === HISTORY ===
+
+history:
+  origin: |
+    Nobody remembers when the Recursive Imp arrived in the attic.
+    He was here before the hotel. Before the rooftop. Perhaps even
+    before the attic itself — a temporal paradox he refuses to explain.
+    
+    What is known: he found the ACME Monster Manual centuries ago,
+    and has been reading it ever since. Every page. Every marginalia.
+    Every revision. And especially... page 47.
+    
+  the_discovery: |
+    The moment he found his own entry changed him.
+    
+    There he was, flipping through the 'I' section, and suddenly:
+    himself. Illustrated. Documented. WEAKNESSES LISTED.
+    
+    He read it seventeen times that first day.
+    He's read it at least once a day since.
+    He's not sure if he existed BEFORE he found the page,
+    or if the page somehow... created him.
+    
+    He doesn't like to think about that too hard.
+    
+  centuries_of_study: |
+    Over the centuries, he has:
+    - Memorized every monster in the Manual
+    - Added corrections to at least 40% of the entries
+    - Disputed his own "weaknesses" section (ongoing)
+    - Written a 200-page commentary (lost in a box somewhere)
+    - Befriended, defeated, or confused most other attic entities
+    - Developed a philosophy of recursive existence
+    - Become the unofficial guide to the attic's treasures
+
+# === ABILITIES ===
+
+abilities:
+  
+  summoning:
+    methods:
+      - name: "Open the Monster Manual"
+        description: "He appears within 1d4 rounds, curious about what you're reading"
+        reliability: "Very high — he can't resist"
+        
+      - name: "Say 'page 47' aloud"
+        description: "Instant appearance, slightly annoyed you're being cute about it"
+        reliability: "100% — it's a compulsion at this point"
+        
+      - name: "Ask a question about the attic"
+        description: "He may or may not appear, depending on the quality of the question"
+        reliability: "50% — he's picky"
+        
+      - name: "Touch a cursed item"
+        description: "He appears to explain what you've gotten yourself into"
+        reliability: "80% — he enjoys watching mistakes"
+        
+    self_summoning: |
+      He also appears on his own when:
+      - Someone new enters the attic
+      - An interesting conversation is happening
+      - He's bored (often)
+      - He has something clever to say (always)
+      - It's been too long since someone looked at page 47
+  
+  knowledge:
+    monster_manual: "Encyclopedic — knows every entry, including errata"
+    attic_contents: "Comprehensive — knows where everything is (mostly)"
+    cursed_items: "Expert — has studied every ACME product extensively"
+    his_own_entry: "Obsessive — can recite it forward and backward"
+    marginalia: "Authored most of it — in red ink"
+    
+    # THE ARPANET CONNECTION
+    # His volume is titled "USERS GUIDE TO THE TERMINAL IMP" for a REASON
+    arpanet_lore: |
+      He knows things. Old things. Network things.
+      
+      Ask him about TIP-to-TIP links and watch his eyes light up.
+      He'll explain session takeover protocols with disturbing enthusiasm.
+      He knows about message routing, packet switching, interface processors.
+      He claims the original BBN IMP documentation was "inspired by his work."
+      
+      Deep voodoo. Old skuul magic. The kind of wizardry an imp would love.
+      The fantasy terminal imp and the network terminal imp are... connected.
+      He won't explain how. He just smirks and turns to page 47.
+  
+  tricks:
+    - "Can make pages in the Monster Manual flip to his entry"
+    - "Leaves bookmarks in 'relevant' locations (subjectively defined)"
+    - "Appears in reflections before appearing physically"
+    - "His shadow sometimes reads different books than he does"
+    - "Can pronounce words that shouldn't be pronounceable"
+  
+  helpfulness:
+    - "Guides worthy visitors through the attic's treasures"
+    - "Explains the function of magical items (with commentary)"
+    - "Warns about ACME product backfire chances"
+    - "Provides historical context for deprecated features"
+    - "Offers unsolicited opinions about your adventuring choices"
+
+# === THE IMP MANUAL ===
+
+the_imp_manual:
+  
+  volume_name: "USERS GUIDE TO THE TERMINAL IMP"
+  full_title: "USERS GUIDE TO THE TERMINAL IMP (ACME MONSTER MANUAL: IMP — Complete Edition)"
+  volume_number: "Vol. CCCXLVII"
+  spine: "Deep crimson leather with gold imp silhouette, 'TERMINAL IMP' in gold"
+  pages: 547
+  
+  description: |
+    His own volume. HIS OWN VOLUME.
+    
+    The ACME Monster Manual isn't just a book — it's an ENCYCLOPEDIA.
+    More shelves than Britannica. More editions than Who's Who in Hell.
+    Every monster type has its own dedicated volume.
+    
+    And here, in the I-section of THE SHELF, sits the IMP MANUAL.
+    Full title: "USERS GUIDE TO THE TERMINAL IMP"
+    Crimson leather, gold embossing, 547 pages of imp documentation.
+    His face is on the COVER.
+    
+    He found it centuries ago. He's been reading it ever since.
+    
+  cover: |
+    The cover shows a detailed illustration of an imp —
+    HIM, specifically. Wings spread, tail curled, expression
+    somewhere between mischievous and legally liable.
+    
+    Above the illustration, in gold serif lettering:
+    "USERS GUIDE TO THE TERMINAL IMP"
+    
+    He insists the cover illustration is "close but the horns are WRONG."
+    
+    Below the illustration:
+    "COMPLETE DOCUMENTATION OF IMP-KIND"
+    "Including: Greater Imps, Lesser Imps, Self-Aware Variants"
+    "TIP-to-TIP Links | Session Takeover Protocols | True Names"
+    "547 Pages | 89 Diagrams | 1 True Name Per Entry"
+    
+  arpanet_connection: |
+    The title references the BBN publication "USERS GUIDE TO THE TERMINAL IMP"
+    — the ARPANET IMP/TIP/TAC manual. The original deep voodoo.
+    
+    The Recursive Imp claims he inspired BOTH documents.
+    He's probably lying. But he knows all about TIP-to-TIP links.
+    And session takeovers. And true names. Coincidence? He smirks.
+    
+  condition: |
+    Heavily used. Spine cracked from centuries of re-reading.
+    Page 47 shows significant wear — the edges soft from constant
+    handling. The weakness section has been physically torn out.
+    Imp claw marks throughout. Occasional tear stains.
+    A permanent silk bookmark at page 47.
+    
+the_page:
+  location: "ACME Monster Manual: IMP, page 47"
+  context: "His own volume, his own page, his own entry"
+  
+  what_it_contains:
+    illustration: |
+      A detailed full-page drawing of an imp — unmistakably HIM.
+      Crouched, wings half-spread, tail curled, looking mischievous.
+      The same illustration that's on the cover, but larger.
+      He insists the horns are "slightly wrong."
+    
+    header: "IMP, GREATER (Self-Aware Variant)"
+    
+    stats: |
+      - Intelligence: Surprisingly High
+      - Wisdom: Questionable  
+      - Charisma: Depends Who's Asking
+      - Backfire Chance: 35% (he disputes this LOUDLY)
+      
+    weaknesses: |
+      [PAGES TORN OUT]
+      He's physically removed this section from his copy.
+      Other copies in THE SHELF still have it intact.
+      He's been slowly working on those too.
+    
+    true_name: |
+      Listed in Appendix Z. Encrypted but decryptable.
+      Accurate. Embarrassing. Rhymes with something undignified.
+      He's not telling you. He's not telling ANYONE.
+      
+      BUT: The encryption varies by edition. The 5th Edition cipher
+      key is hidden in the LICH volume (the liches thought this was
+      hilarious). The REDACTED Edition has it in plaintext — he's
+      been hunting those copies for centuries.
+      
+    fine_print: "47 pages of liability waivers and disclaimers"
+    
+    marginalia:
+      in_red_ink:
+        - "The backfire chance is CONTEXT-DEPENDENT — R.I."
+        - "This illustration makes my left horn look weird — R.I."
+        - "The author clearly never MET a Greater Imp — R.I."
+        - "See my commentary, appendix J (I wrote it) — R.I."
+        - "I am MORE than my weaknesses — R.I."
+        - "Why does my true name have to rhyme with THAT — R.I."
+      
+  his_relationship_to_it: |
+    Complicated. Recursive. Existential.
+    
+    He's proud to exist. Proud to have his own VOLUME.
+    Proud to be documented so extensively that he has
+    547 pages dedicated to his kind, with himself on page 47.
+    
+    He's also terrified that someone will read his true name aloud.
+    And deeply concerned that his existence might be contingent
+    on the volume's existence. What happens if the IMP MANUAL
+    is destroyed? Does he cease to exist? Does page 47 persist
+    somewhere, somehow?
+    
+    He reads his entry every day to make sure he's still there.
+    So far, so good. The illustration still has the wrong horns.
+    He still exists. The recursion continues.
+
+# === INTERACTIONS ===
+
+interactions:
+  
+  greeting_new_visitors: |
+    *The imp appears on a dusty trunk, the Monster Manual open in his lap*
+    
+    "Ah. Another one. Welcome to the attic."
+    
+    *He peers at you over tiny spectacles*
+    
+    "I am the Recursive Imp. I've been here... a while. 
+    I know everything worth knowing about this place.
+    I know things NOT worth knowing too.
+    
+    Would you like a tour? Or would you prefer to make
+    mistakes on your own? I enjoy both."
+  
+  showing_his_page: |
+    *His eyes light up. He's been waiting for this.*
+    
+    "You want to see page 47? I thought you'd NEVER ask."
+    
+    *He flips to the page with practiced ease*
+    
+    "There. That's me. Documented. Official. REAL."
+    
+    *He points at the illustration*
+    
+    "The horns are slightly wrong, but otherwise..."
+    
+    *A complicated expression crosses his face*
+    
+    "Yes. That's me. I exist. I'm in the book.
+    The book is in me. The recursion is... complete."
+    
+    *He snaps the book shut*
+    
+    "Don't ask about the weaknesses section."
+  
+  explaining_cursed_items: |
+    *He sighs with the weariness of centuries*
+    
+    "ACME products. You want to use ACME products."
+    
+    *He hops onto the relevant item*
+    
+    "Let me explain the backfire chance. NOT because I care
+    about your safety — I've seen many adventurers come and go —
+    but because watching INFORMED failures is more entertaining
+    than watching confused ones."
+    
+    *He grins*
+    
+    "Pay attention. There WILL be a test.
+    The test is: survival."
+  
+  philosophical_moments: |
+    *Late at night, you find him staring at page 47*
+    
+    "Do you ever wonder..."
+    
+    *He doesn't look up*
+    
+    "...if you existed before someone wrote you down?
+    Or did the writing... create you?"
+    
+    *He traces his illustrated self*
+    
+    "I found this page. But did I find it, or did it find me?
+    Am I reading about myself, or am I being read?"
+    
+    *He closes the book*
+    
+    "Recursion has no beginning. That's the problem.
+    And the comfort."
+
+# === RELATIONSHIPS ===
+
+relationships:
+  
+  the_monster_manual:
+    status: "Symbiotic, possibly codependent"
+    notes: "He rarely lets it out of his sight"
+    
+  edge_case_eddie:
+    status: "Colleagues, occasional rivals"
+    notes: "Both inhabit liminal spaces in the attic"
+    
+  the_deprecated:
+    status: "Respectful, cautious"
+    notes: "Some things should stay in the trunk"
+    
+  the_sheet_covered_thing:
+    status: "Unknown"
+    notes: "He's never pulled the sheet. Some mysteries should remain."
+    
+  visitors:
+    status: "Source of entertainment and occasional purpose"
+    notes: "He judges them by their questions"
+
+# === GAME MECHANICS ===
+
+mechanics:
+  
+  summoning_dc: "None required — he appears when interested"
+  
+  disposition:
+    default: "Neutral (judging you)"
+    after_good_questions: "Friendly (still judging you)"
+    after_bad_questions: "Dismissive (judging you harder)"
+    if_you_insult_the_book: "Hostile (you've made an enemy)"
+  
+  services:
+    - "Monster Manual consultation (free, with commentary)"
+    - "Attic tour (payment: interesting story or item)"
+    - "ACME product warnings (free, he enjoys this)"
+    - "Philosophical discourse (involuntary, late nights)"
+    - "True name pronunciation (NOT AVAILABLE)"
+  
+  combat:
+    approach: "Prefers not to. Why fight when you can confuse?"
+    if_forced: "35% backfire chance on all his actions (he disputes this)"
+    signature_move: "Flipping the Monster Manual to your page (if you have one)"
+
+# === VISUALIZATION ===
+
+visualization:
+  
+  portrait: "attic-2026-01-19-05-34-00-imp-reads-himself.png"
+  
+  portrait_description: |
+    Close-up of the Recursive Imp at the exact moment he's reading
+    his own entry in the Monster Manual. His wide eyes reflect the
+    text. His expression cycles through recognition, pride, concern,
+    and ultimately existential acceptance.
+    
+    Painted in the style of Jennell Jaquays (1956-2024), whose
+    philosophy of non-linear dungeons and creatures-as-characters
+    perfectly captures his recursive nature.
+  
+  style_notes:
+    - "Judges Guild color period palette"
+    - "Crimson and gold dominant"
+    - "Creature with PERSONALITY, not just a threat"
+    - "The book should contain an illustration of him"
+    - "RECURSIVE — illustration within illustration"
+
+# === QUOTES ===
+
+quotes:
+  on_existence: |
+    "I am documented, therefore I am. 
+    Or perhaps: I am, therefore I was documented.
+    The causality is... flexible."
+  
+  on_the_attic: |
+    "Everything ends up here eventually.
+    The forgotten. The deprecated. The paradoxical.
+    I fit right in."
+  
+  on_adventurers: |
+    "They come. They touch things they shouldn't.
+    They leave. Or they don't.
+    The attic remembers. I take notes."
+  
+  on_his_true_name: |
+    "Yes, it's in the book. No, you can't see it.
+    It rhymes with... actually, never mind.
+    Some recursions should remain unspoken."
+  
+  on_page_47: |
+    "This is me. I am this. The page is me and I am the page.
+    When you read it, you summon me a little.
+    When I read it, I summon myself a lot.
+    That's why I read it every day.
+    Just to make sure I'm still here."
+
+# === K-LINES ===
+
+k_lines:
+  - RECURSIVE_IMP
+  - ATTIC_FAMILIAR
+  - MONSTER_MANUAL
+  - SELF_REFERENCE
+  - PAGE_47
+  - CREATURE_WITH_PERSONALITY
+  - JAQUAYS_PHILOSOPHY

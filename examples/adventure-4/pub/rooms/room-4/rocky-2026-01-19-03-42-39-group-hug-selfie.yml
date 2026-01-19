@@ -1,0 +1,47 @@
+# Sidecar for rocky-2026-01-19-03-42-39-group-hug-selfie.png
+# Generated: 2026-01-19T03:42:39.173467
+#
+# This file is a regenerable recipe. Edit and re-run:
+#   visualize.py regenerate rocky-2026-01-19-03-42-39-group-hug-selfie.yml
+#
+
+# === SOURCES ===
+# Reference paths to context files (not embedded)
+sources:
+  - examples/adventure-4/pub/rooms/room-4/rocky.yml
+
+# === GENERATION PARAMETERS ===
+generation:
+  provider: openai
+  model: gpt-image-1
+  size: 1024x1024
+  verbosity: normal
+  generated_at: 2026-01-19T03:42:39.173467
+
+# === SYNTHESIZED PROMPT ===
+# Edit this to regenerate with tweaks!
+prompt: |
+  GROUP SELFIE! A joyful group photo taken by a shimmering translucent figure (Selfie, barely visible, holding the camera with one arm extended).
+  
+  CENTER: A MASSIVE smooth granite boulder (Rocky) dominates the frame — rotund, majestic, patient. Everyone is hugging Rocky or perched on Rocky's surface.
+  
+  THE CAST (arranged around Rocky):
+  - PEE-WEE HERMAN: Red bow tie, grey suit, manic grin, hugging Rocky's side with theatrical enthusiasm
+  - I-BEAM: A tall thin blinking cursor (▎), standing at attention next to Rocky, glowing softly
+  - LOGO TURTLE: A geometric turtle with clean lines, shell with spiral pattern, perched on Rocky's top
+  - SHUFFLE: A living deck of playing cards fanned out like a peacock tail, floating beside Rocky
+  - TERPIE: A calico cat curled contentedly on Rocky's mossy surface, eyes half-closed
+  - CONFETTI CRAWLER: A tiny sparkly caterpillar leaving a glitter trail across Rocky
+  - CAPTAIN ASHFORD: A distinguished Belter captain in worn space suit, arm around Rocky, warm smile
+  
+  SETTING: The conservatory at The Rusty Lantern pub — warm amber lighting, plants in background, cozy atmosphere. Party aftermath visible (empty bottles, confetti).
+  
+  MOOD: Pure joy, friendship, found family. Everyone belongs here.
+  
+  STYLE: Warm, inviting, slightly whimsical but grounded. Like a Pixar still meets a cozy pub photo. Soft lighting, rich colors, genuine emotion.
+  
+  COMPOSITION: Wide selfie angle, slight fish-eye distortion. Rocky fills most of the frame with friends arranged around and on top. Camera held by Selfie (visible as shimmer/translucent arm at edge of frame).
+
+# === ADDITIONAL METADATA ===
+provider: openai
+model: gpt-image-1

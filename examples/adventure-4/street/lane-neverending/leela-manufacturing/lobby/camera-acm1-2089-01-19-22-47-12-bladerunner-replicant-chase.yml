@@ -1,0 +1,69 @@
+# Prompt sidecar for camera-acm1-2089-01-19-22-47-12-bladerunner-replicant-chase.png
+# Generated: 2089-01-19T22:47:12 (TEMPORAL FILTER ACTIVE)
+# Provider: openai/gpt-image-1
+# Filter: FUTURE — Years Forward: 8/10 (~2089 AD)
+# Style: BLADE RUNNER / CYBERPUNK NOIR
+#
+# Regenerate: python3 skills/visualizer/visualize.py regenerate <this-file>
+
+sources:
+  - "../camera-acm1.yml"           # The camera that sees through time
+  - "../../pub/rooftop/filter-box.yml"  # The future filter
+
+generation:
+  provider: openai
+  model: gpt-image-1
+  timestamp: "2089-01-19T22:47:12"  # Future timestamp
+  modern_equivalent: "2026-01-19T22:47:12"
+  description: "bladerunner-replicant-chase"
+  
+temporal_filter:
+  name: "future"
+  years_forward: 8  # ~60+ years forward
+  optimism: 3       # Dystopian
+  style: "Blade Runner / Cyberpunk Noir"
+  
+camera:
+  id: "ACM1-vt.3"   # Upgraded future version
+  name: "Tunnel Watcher"
+  mode: "REPLICANT PURSUIT / TEMPORAL OBSERVATION"
+  corporation: "TYRELL-LEELA MANUFACTURING"  # The merger!
+
+incident:
+  type: "REPLICANT_PURSUIT"
+  target: "NEXUS-9"
+  status: "TUNNEL TRAP ACTIVE"
+  prediction: "Imminent impact with painted tunnel"
+
+prompt: |
+  SECURITY CAMERA FOOTAGE — Camera ACM1 (Tunnel Watcher)
+  TEMPORAL FILTER APPLIED: FUTURE — Years Forward: 8/10 (~2089 AD)
+  Style: BLADE RUNNER / CYBERPUNK NOIR
+
+  THE SCENE:
+  A REPLICANT fleeing from a BLADE RUNNER, running toward the painted tunnel.
+  The replicant thinks it's an escape route. The Blade Runner knows it's a trap.
+
+  THE REPLICANT (NEXUS-9):
+  - Running desperately toward the glowing tunnel
+  - About to smash into the wall
+  - Facial recognition targeting box visible
+
+  THE BLADE RUNNER:
+  - Pursuing in long coat, weapon drawn
+  - Calm, methodical, waiting for the bounce
+  - Knows the tunnel is fake
+
+  THE TUNNEL (2089 version):
+  - Bioluminescent cyan glow
+  - Holographic depth projection
+  - Looks MORE real than the 2026 version
+  - But still just paint on a wall
+  - "TUNNEL TRAP ACTIVE"
+
+  BLADE RUNNER AESTHETIC:
+  - Perpetual rain, neon reflections
+  - Holographic geisha billboard
+  - Japanese/English signage
+  - Spinner in dark sky
+  - Cyberpunk noir atmosphere

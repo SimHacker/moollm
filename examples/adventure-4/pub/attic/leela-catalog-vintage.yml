@@ -1,0 +1,237 @@
+# 📖 LEELA PRODUCTS CATALOG — Vintage Edition
+# "Must have left this up here years ago..."
+# A dusty copy, dog-eared but still perfectly readable.
+
+object:
+  name: "Leela Products Catalog (Vintage Edition)"
+  id: leela-catalog-vintage
+  type: catalog
+  emoji: "📖"
+  
+  description: |
+    A dusty Leela catalog wedged behind the holiday box.
+    The cover is faded but the embossed gold lettering still gleams:
+    
+    "LEELA MANUFACTURING INTELLIGENCE"
+    "Products & Services Catalog — Edition 12"
+    "Dependable. Tested. Robust-First."
+    
+    Someone scrawled in pencil on the cover:
+    "Must have left this up here years ago..."
+    
+    Unlike the ACME catalog found in some kitchens (which spontaneously
+    combusts after 3 years of storage), this vintage Leela catalog
+    is still perfectly readable. The binding hasn't cracked. The pages
+    haven't yellowed. Leela quality endures.
+    
+  condition: |
+    dusty: "Thick layer of dust on the cover"
+    binding: "Intact, still opens flat — Leela quality"
+    pages: "Slightly dog-eared at the Storage section"
+    marginalia: "Some pencil notes in the margins"
+    smell: "That wonderful old paper smell"
+    age: "Edition 12 — at least 35 editions ago"
+    
+  examine: |
+    You blow the dust off the cover...
+    
+    ┌─────────────────────────────────────────────────────────────────┐
+    │                                                                 │
+    │           🌿 LEELA MANUFACTURING INTELLIGENCE 🌿                 │
+    │                                                                 │
+    │                  PRODUCTS & SERVICES CATALOG                    │
+    │                       Edition 12                                │
+    │                     ~~~ VINTAGE ~~~                             │
+    │                                                                 │
+    │           "Dependable. Tested. Robust-First."                   │
+    │                                                                 │
+    │  ─────────────────────────────────────────────────────────────  │
+    │                                                                 │
+    │   📦 STORAGE .............. Containers That Last Forever        │
+    │   🚚 LOGISTICS ............ Horse-Drawn Excellence              │
+    │   🐴 HORSES & CARRIAGES ... The Original Fleet                  │
+    │   🏗️ INFRASTRUCTURE ....... Pneumatic Tubes (The Future!)       │
+    │   📮 POSTAL ............... Same-Day Messenger Service          │
+    │                                                                 │
+    │  ─────────────────────────────────────────────────────────────  │
+    │                                                                 │
+    │     "35 years later, we're on Edition 47. Same quality."        │
+    │                                                                 │
+    │         (See lobby for current catalog)                         │
+    │                                                                 │
+    └─────────────────────────────────────────────────────────────────┘
+    
+  marginalia:
+    page_7:
+      note: "Need more of these crates! — M."
+      section: "Storage Solutions"
+      
+    page_23:
+      note: "Best carrier pigeons in the business"
+      section: "Postal Services"
+      
+    page_45:
+      note: "Ask about bulk pricing"
+      section: "Pneumatic Tubes"
+      
+    back_cover:
+      note: "Leela > ACME. Always."
+      signed: "Anonymous but correct"
+      
+  discovery:
+    found_behind: "the holiday box"
+    how_long_there: "At least 35 editions (decades)"
+    still_works: "Of course it does. It's Leela."
+    
+  compare_to_current:
+    edition_12:
+      - "📦 Storage — same quality, now with more varieties"
+      - "🚚 Logistics — horses upgraded to drones"
+      - "🏗️ Infrastructure — pneumatic tubes still work!"
+      - "📮 Postal — messenger service now includes email"
+      
+    what_changed: |
+      Looking at Edition 12 vs Edition 47:
+      
+      ADDED:
+        - Drones (🚁) — didn't exist in Edition 12
+        - Signal Networks (📡) — the digital revolution
+        - Surveillance (📹) — security products
+        - Factorio Protocols (🏭) — automation
+        
+      UNCHANGED:
+        - Storage containers (still the same quality)
+        - The promise: "Dependable. Tested. Robust-First."
+        - The comparison to ACME (still unfavorable for ACME)
+        
+      STILL WORKS:
+        - Every product in Edition 12
+        - Backward compatibility is a Leela value
+        
+  philosophical_note: |
+    This catalog is a time capsule. Edition 12 was published when
+    horses were the primary delivery method, pneumatic tubes were
+    "the future," and drones hadn't been invented yet.
+    
+    But every product still works. That's what Leela means.
+    
+    ACME's Edition 12 catalog? Long since self-destructed.
+    Their Edition 47? Probably explodes if you read it too fast.
+    
+  # UPGRADE SERVICE — Leela never leaves you behind
+  
+  upgrade:
+    available: true
+    cost: "Free (Leela honors all editions)"
+    method: "Tear out the back page and fold it into a paper airplane"
+    
+    process: |
+      1. Find the perforated back page (it's been there all along)
+      2. Tear along the dotted line
+      3. Fold into a paper airplane (instructions printed on page)
+      4. Throw gently toward any window
+      5. Wait 3 seconds
+      
+      *The paper airplane circles once, glows briefly, and returns*
+      *It unfolds in your hands*
+      *The catalog is now Edition 47*
+      
+      The dust is gone. The cover gleams. Same binding quality.
+      All your margin notes have been preserved and migrated.
+      
+    fine_print: |
+      "Leela Catalog Upgrade Service — Free for all editions.
+      Your margin notes will be preserved. Your dog-ears respected.
+      We don't believe in planned obsolescence.
+      We believe in planned IMPROVEMENT."
+      
+      Note: ACME catalogs cannot be upgraded. They can only be
+      replaced (assuming you survived the previous edition).
+      
+    after_upgrade:
+      edition: 47
+      new_sections:
+        - "🚁 DRONES — Aerial Delivery (didn't exist in Edition 12!)"
+        - "📡 SIGNAL NETWORKS — The Digital Revolution"
+        - "📹 SURVEILLANCE — Security Products"
+        - "🏭 FACTORIO PROTOCOLS — Automation"
+      preserved:
+        - "All your margin notes"
+        - "The dog-ear on the Storage section"
+        - "That 'Leela > ACME' note on the back"
+      smell: "Still has that wonderful old paper smell"
+      
+  advertisements:
+    - trigger: "catalog"
+      score: 0.9
+      response: |
+        *blows dust off*
+        
+        "Edition 12! This is a classic. Look at these prices..."
+        
+        *flips to Storage section*
+        
+        "5 coins for a wooden crate. Same crate is 8 coins now,
+        but it's the SAME crate. Leela doesn't change designs
+        that work."
+        
+    - trigger: "vintage"
+      score: 0.95
+      response: |
+        "This catalog is older than some of the guests downstairs.
+        But flip to any page — every product listed is still
+        available. Try that with an ACME catalog."
+        
+        *catalog does not explode*
+        
+    - trigger: "leela"
+      score: 0.85
+      response: |
+        "Want to compare? There's a current Edition 47 in the
+        lobby. But honestly? Most of what's in here is still
+        exactly the same. Leela doesn't fix what isn't broken."
+        
+    - trigger: "upgrade"
+      score: 1.0
+      response: |
+        *flips to back page*
+        
+        "See this perforated edge? Tear it out, fold it into
+        a paper airplane — instructions are right here — and
+        throw it toward any window."
+        
+        *demonstrates the fold*
+        
+        "Leela never leaves customers behind. Free upgrade to
+        Edition 47. Your margin notes will be preserved."
+        
+        *the paper airplane glows faintly, waiting*
+        
+    - trigger: "paper airplane"
+      score: 0.95
+      response: |
+        *you throw the paper airplane gently*
+        
+        It circles once... twice... glows golden...
+        
+        *returns to your hands and unfolds*
+        
+        The catalog is now Edition 47. The dust is gone.
+        The cover gleams. Your margin notes are still there,
+        now in a section called "Historical Annotations."
+        
+        "Leela: We upgrade. We don't abandon."
+        
+  see_also:
+    current_catalog: "../../street/lane-neverending/leela-manufacturing/lobby/leela-catalog.yml"
+    manufacturing: "../../street/lane-neverending/leela-manufacturing/"
+    acme_for_contrast: "../../street/lane-neverending/w1/acme-catalog.yml"
+    
+  k_lines:
+    - LEELA
+    - CATALOG
+    - VINTAGE
+    - STORAGE
+    - QUALITY
+    - BACKWARD_COMPATIBILITY
+    - NOT_ACME

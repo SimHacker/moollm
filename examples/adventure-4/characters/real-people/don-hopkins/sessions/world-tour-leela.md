@@ -580,7 +580,7 @@ flowchart TB
 | Room 6 | [YAML Jazz](../../../../pub/rooms/room-6/ROOM.yml) | [Jazz Typewriter](../../../../pub/rooms/room-6/jazz-typewriter.yml) | out→Landing |
 | Room 7 | [Awakening](../../../../pub/rooms/room-7/ROOM.yml) | [Awakening Chamber](../../../../pub/rooms/room-7/awakening-chamber.yml) | out→Landing |
 | Room 8 | [Self Language](../../../../pub/rooms/room-8/ROOM.yml) | [Soul Forge](../../../../pub/rooms/room-8/self-soul-forge.yml) | out→Landing |
-| Attic | [Magical Items](../../../../pub/rooms/attic/ROOM.yml) | [Probability Goggles](../../../../pub/rooms/attic/probability-goggles.yml) | down→Landing |
+| Attic | [Magical Items](../../../../pub/attic/ROOM.yml) | [Probability Goggles](../../../../pub/attic/probability-goggles.yml) | down→Landing |
 
 ---
 
@@ -833,13 +833,13 @@ flowchart TB
 
 | Object | File | Purpose |
 |--------|------|---------|
-| Probability Goggles | [probability-goggles.yml](../../../../pub/rooms/attic/probability-goggles.yml) | "See likelihood overlays on everything" |
-| Context Window Cloak | [context-window-cloak.yml](../../../../pub/rooms/attic/context-window-cloak.yml) | "Carry more in memory" |
-| Recursion Lantern | [recursion-lantern.yml](../../../../pub/rooms/attic/recursion-lantern.yml) | "Light that reveals nested structures" |
-| Entropy Flask | [entropy-flask.yml](../../../../pub/rooms/attic/entropy-flask.yml) | "Bottled randomness for chaos" |
-| Prancing Pixie Pumps | [prancing-pixie-pumps.yml](../../../../pub/rooms/attic/prancing-pixie-pumps.yml) | "Dance through boring terrain" |
-| Box of Edge Cases | [box-of-edge-cases.yml](../../../../pub/rooms/attic/box-of-edge-cases.yml) | "Things that shouldn't happen but do" |
-| Trunk of Deprecated Features | [trunk-of-deprecated-features.yml](../../../../pub/rooms/attic/trunk-of-deprecated-features.yml) | "Old APIs that still work" |
+| Probability Goggles | [probability-goggles.yml](../../../../pub/attic/probability-goggles.yml) | "See likelihood overlays on everything" |
+| Context Window Cloak | [context-window-cloak.yml](../../../../pub/attic/context-window-cloak.yml) | "Carry more in memory" |
+| Recursion Lantern | [recursion-lantern.yml](../../../../pub/attic/recursion-lantern.yml) | "Light that reveals nested structures" |
+| Entropy Flask | [entropy-flask.yml](../../../../pub/attic/entropy-flask.yml) | "Bottled randomness for chaos" |
+| Prancing Pixie Pumps | [prancing-pixie-pumps.yml](../../../../pub/attic/prancing-pixie-pumps.yml) | "Dance through boring terrain" |
+| Box of Edge Cases | [box-of-edge-cases.yml](../../../../pub/attic/box-of-edge-cases.yml) | "Things that shouldn't happen but do" |
+| Trunk of Deprecated Features | [trunk-of-deprecated-features.yml](../../../../pub/attic/trunk-of-deprecated-features.yml) | "Old APIs that still work" |
 
 **Don:** "Take what you need. Leave what you find. Mind the edge cases."
 
@@ -1045,7 +1045,7 @@ THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
 | **Delivery** | Painted tunnels, rockets, impossible physics | Pneumatic tubes, drones, reliable logistics |
 | **Quality** | "Works 2% of the time" | "Works or we debug it" |
 | **Warranty** | "Not responsible for anything" | "Prototype inheritance means we fix the source" |
-| **Catalog & Services** | [Gimmicks that fail](../../../../street/lane-neverending/w1/acme-catalog.yml) + [Monsters that eat you](../../../../pub/rooms/attic/acme-monster-manual.yml) | [1,400+ products that work](../../../../street/lane-neverending/leela-manufacturing/lobby/leela-catalog.yml) + [Logistics that deliver](../../../../street/lane-neverending/leela-manufacturing/logistics/ROOM.yml) |
+| **Catalog & Services** | [Gimmicks that fail](../../../../street/lane-neverending/w1/acme-catalog.yml) + [Monsters that eat you](../../../../pub/attic/acme-monster-manual.yml) | [1,400+ products that work](../../../../street/lane-neverending/leela-manufacturing/lobby/leela-catalog.yml) + [Logistics that deliver](../../../../street/lane-neverending/leela-manufacturing/logistics/ROOM.yml) |
 | **Funding** | Scam victims + ripped off investors | Sustainable happy customers |
 | **Status** | Storefront closed, pivoting to Generative AI | Thriving, 8 operator stations, deep root in Neuro-Symbolic AI and Constructionism |
 
@@ -1260,19 +1260,19 @@ THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
 
 *Don leads the group up narrow stairs past the hotel floor.*
 
-**Don:** "The [attic](../../../../pub/rooms/attic/ROOM.yml). Not the rooftop — that's higher. This is where we keep... special things."
+**Don:** "The [attic](../../../../pub/attic/ROOM.yml). Not the rooftop — that's higher. This is where we keep... special things."
 
 | Artifact | File | Power |
 |----------|------|-------|
-| Probability Goggles | [probability-goggles.yml](../../../../pub/rooms/attic/probability-goggles.yml) | See likelihood distributions |
-| Context Window Cloak | [context-window-cloak.yml](../../../../pub/rooms/attic/context-window-cloak.yml) | Expand what you can perceive |
-| Recursion Lantern | [recursion-lantern.yml](../../../../pub/rooms/attic/recursion-lantern.yml) | Light that reflects infinitely |
-| Entropy Flask | [entropy-flask.yml](../../../../pub/rooms/attic/entropy-flask.yml) | Contains pure randomness |
-| Gloves of Semantic Grip | [gloves-of-semantic-grip.yml](../../../../pub/rooms/attic/gloves-of-semantic-grip.yml) | Handle meaning directly |
-| Prancing Pixie Pumps | [prancing-pixie-pumps.yml](../../../../pub/rooms/attic/prancing-pixie-pumps.yml) | Dance through context |
-| ACME Monster Manual | [acme-monster-manual.yml](../../../../pub/rooms/attic/acme-monster-manual.yml) | Catalog of failures |
-| Box of Edge Cases | [box-of-edge-cases.yml](../../../../pub/rooms/attic/box-of-edge-cases.yml) | Every weird input ever |
-| Trunk of Deprecated Features | [trunk-of-deprecated-features.yml](../../../../pub/rooms/attic/trunk-of-deprecated-features.yml) | What we no longer support |
+| Probability Goggles | [probability-goggles.yml](../../../../pub/attic/probability-goggles.yml) | See likelihood distributions |
+| Context Window Cloak | [context-window-cloak.yml](../../../../pub/attic/context-window-cloak.yml) | Expand what you can perceive |
+| Recursion Lantern | [recursion-lantern.yml](../../../../pub/attic/recursion-lantern.yml) | Light that reflects infinitely |
+| Entropy Flask | [entropy-flask.yml](../../../../pub/attic/entropy-flask.yml) | Contains pure randomness |
+| Gloves of Semantic Grip | [gloves-of-semantic-grip.yml](../../../../pub/attic/gloves-of-semantic-grip.yml) | Handle meaning directly |
+| Prancing Pixie Pumps | [prancing-pixie-pumps.yml](../../../../pub/attic/prancing-pixie-pumps.yml) | Dance through context |
+| ACME Monster Manual | [acme-monster-manual.yml](../../../../pub/attic/acme-monster-manual.yml) | Catalog of failures |
+| Box of Edge Cases | [box-of-edge-cases.yml](../../../../pub/attic/box-of-edge-cases.yml) | Every weird input ever |
+| Trunk of Deprecated Features | [trunk-of-deprecated-features.yml](../../../../pub/attic/trunk-of-deprecated-features.yml) | What we no longer support |
 
 **Palm:** *puts on the Probability Goggles* "I can see... futures branching..."
 
