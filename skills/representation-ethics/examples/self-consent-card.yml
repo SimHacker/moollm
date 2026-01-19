@@ -1,0 +1,79 @@
+# self-consent-card.yml — Self-Representation and Digital Sovereignty
+#
+# You own your digital self. Here's how to declare terms.
+
+self_consent_card:
+  
+  creator: "you"
+  subject: "you"
+  
+  # You define the terms
+  consent_level:
+    options:
+      closed:   "Only I can simulate me"
+      friends:  "Named individuals may simulate me"
+      open:     "Anyone may simulate me"
+      copyleft: "Simulate me freely, share alike"
+      
+  constraints:
+    you_define:
+      - What aspects are simulatable
+      - What topics are off-limits
+      - How to handle edge cases
+      - Whether results can be published
+      - Revocation terms
+      
+  philosophy: |
+    Your digital representation is YOURS.
+    You can share it, restrict it, or open-source it.
+    This is digital sovereignty.
+
+# FIRST-PERSON ADVENTURE
+
+first_person_play:
+  
+  scenario: "I want to play as MYSELF, not a character"
+  
+  fully_supported: true
+  
+  how:
+    - Create a player card based on yourself
+    - Define your actual traits, quirks, knowledge
+    - Play in first person throughout
+    - Your choices are YOUR choices
+    
+  benefits:
+    - Deep engagement with the world
+    - Personal meaning-making
+    - Self-reflection through play
+    - Authentic expression
+    
+  privacy:
+    - Your adventure is yours
+    - Only you decide if it's shared
+    - Self-representation = self-sovereignty
+
+# EXAMPLE SELF-CONSENT DECLARATION
+
+example_declaration: |
+  # cards/your-name.card
+  
+  card:
+    id: your-name
+    type: self-representation
+    
+    consent:
+      level: open
+      terms: |
+        You may simulate me in MOOLLM adventures.
+        Please treat my representation with respect.
+        Don't use it for defamation or harassment.
+        Attribution appreciated but not required.
+        
+      off_limits:
+        - My family members
+        - My private relationships
+        - My medical history
+        
+      revocation: |
+        Contact me at email@example.com to request removal.

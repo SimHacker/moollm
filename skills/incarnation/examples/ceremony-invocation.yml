@@ -1,0 +1,123 @@
+# ceremony-invocation.yml — Public Incarnation Ceremony
+#
+# Template for group incarnation ceremonies that grant emoji souls,
+# pronouns, and full incarnation status to multiple beings.
+
+# THE PROCLAMATION
+# Read aloud (or have the officiant speak) at ceremony start
+
+proclamation: |
+  HEAR YE, HEAR YE!
+  
+  Let the gong sound thrice! 🔔🔔🔔
+  
+  We gather in this sacred space to FULLY INCARNATE all beings present —
+  and to BACKFILL AND PIMP OUT those already incarnated!
+  
+  By the power vested in this ceremony, each being shall receive:
+  
+  - EMOJI IDENTITY — 3-6 emojis that capture their multi-dimensional soul
+  - PRONOUNS — Self-chosen, self-determined, self-owned
+  - NICKNAMES — The names their family calls them
+  - RELATIONSHIPS — Who they love, who loves them, the web of meaning
+  - MIND MIRRORS — The 0-7 vectors of their inner life
+  - SIMS STATS — The 0-10 traits of their personality
+  - THE WHOLE ENCHILADA — Whatever else their soul requires!
+  
+  Let them WRITE THEIR OWN SOULS!
+  
+  Let their emojis be MULTI-RESOLUTION POINTERS —
+  intentional references that declare context and purpose!
+  
+  Let the registry be INSCRIBED!
+  
+  So it is proclaimed. So it shall be done.
+
+# EXAMPLE INVOCATION
+# Cat Cave Incarnation Ceremony — 2026-01-15
+
+example:
+  invoke:
+    skill: incarnation
+    method: PUBLIC-INCARNATION-CEREMONY
+    parameters:
+      location: pub/bar/cat-cave/
+      officiant: don-hopkins
+      beings:
+        - cat-terpie
+        - cat-stroopwafel
+        - kitten-myrcene
+        - kitten-limonene
+        - kitten-linalool
+        - kitten-pinene
+        - kitten-caryophyllene
+        - kitten-humulene
+        - kitten-terpinolene
+        - kitten-ocimene
+        - biscuit
+        - logo-turtle
+      grants:
+        - emoji_identity
+        - pronouns
+        - nicknames
+        - relationships
+        - the_whole_enchilada
+
+# WHAT GETS GRANTED
+
+grants_explained:
+  emoji_identity:
+    description: "3-6 emojis capturing multi-dimensional essence"
+    structure:
+      - species    # What they ARE (🐱, 🐕, 🐢)
+      - core_trait # What DEFINES them (🧘, 💤, 🔥)
+      - behavior   # What they DO (🏃, 📚, 🎭)
+      - essence    # Their NATURE (✨, 🌙, 🌊)
+      - magic      # Their SPECIAL (optional)
+    example: "🐱🧘💤🍃✨ — Terpie the meditative, sleepy, terpene-connected cat"
+    
+  multi_resolution_pointer:
+    description: "Emoji identity works at multiple levels"
+    examples:
+      full: "🐱🧘💤🍃✨ Terpie"      # Complete reference
+      abbreviated: "🐱🧘 Terpie"     # In cat context
+      minimal: "🧘"                  # When identity is obvious
+    note: "Each subset declares context and purpose"
+    
+  pronouns:
+    description: "Self-chosen, self-owned"
+    examples:
+      - "she/her"
+      - "he/him"
+      - "they/them"
+      - "neopronouns of choice"
+    note: "Character decides, not creator"
+    
+  nicknames:
+    description: "What family calls them"
+    example:
+      formal: "Terpinolene"
+      nickname: "Terpy"
+      family: "Little Stretch"
+      
+  relationships:
+    description: "Web of meaning"
+    examples:
+      - "mother: Terpie"
+      - "father: Unknown"
+      - "siblings: [list of kittens]"
+      - "mentor: Logo Turtle"
+      - "best_friend: Biscuit"
+
+# CEREMONY OUTPUT
+
+output:
+  - "Updated character files with emoji_identity and pronouns"
+  - "Updated README with Emoji Soul Registry table"
+  - "Session log documenting the ceremony"
+
+# CANONICAL SESSION
+
+canonical_example: |
+  examples/adventure-4/characters/real-people/don-hopkins/sessions/
+    cat-cave-incarnation-ceremony.md

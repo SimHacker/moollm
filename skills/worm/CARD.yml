@@ -1,390 +1,148 @@
 # CARD.yml — Worm
 #
-# Two-pointer reversible cursor for filesystem traversal and data pipelines.
+# SNIFFABLE INTERFACE — see SKILL.md for full documentation
 # "Every EAT has a POOP. Every CHOMP has a BARF."
 
 card:
   id: worm
-  name: Worm
+  name: "Worm"
   type: [skill, cursor, traversal, pipeline]
   emoji: 🪱
   tier: 1
-  rarity: uncommon
-  
-  invoke_when:
-    - "crawl filesystem"
-    - "span structures"
-    - "ingest/emit data"
-    - "pipe between documents"
-    - "build data pipelines"
-    
-  advertisement_names:
-    - MOVE-WORM
-    - MOVE-HEAD
-    - MOVE-ASS
-    - NEXT-UNIT
-    - PREV-UNIT
-    - SELECT-RANGE
-    - TREE-UP
-    - TREE-DOWN
-    - TREE-NEXT
-    - TREE-PREV
-    - TREE-OPEN
-    - TREE-CLOSE
-    - TREE-HIDE
-    - TREE-SHOW
-    - EAT
-    - CHOMP
-    - POOP
-    - BARF
-    - STICK-UP-BUM
-  related:
-    - skills/data-flow     # Streaming data pipelines
-    - skills/context       # Context assembly
-    - skills/room          # Directory as room metaphor
-    - skills/adventure     # Worms traverse adventures
-    - skills/advertisement # Worm verbs as advertisements
-    
-  tags: [moollm, worm, cursor, pointer, pipeline, reversible, traversal]
+  tagline: "Two-pointer reversible cursor for traversal and pipelines."
   
   description: |
-    Two-pointer worm (head/tail) cursor that inchworms through directories 
-    and links. Ingest content (tokens become active in its "brain"), carry a
-    buffer, and emit data at head or tail. Pipe between documents, or into
-    an ethereal worm network where worms eat each other's output.
-    
-    Length = head–tail distance (zero-length = NOP cursor).
+    Two-pointer worm (head/tail) cursor that inchworms through directories
+    and links. Ingest content (tokens become active in its "brain"), carry
+    a buffer, and emit data at head or tail.
     
     The EAT/POOP/BARF/STICK-UP-BUM verbs form a reversible basis for
     undo/redo and serialize/deserialize operations.
-    
-  lineage: "LLOOOOMM worms (bulldozer, link-hopper, mapper, dream, tree)"
 
-tools:
-  required:
-    - read_file
-    - write_file
-    - list_dir
-  optional: []
+# FILES INDEX
+
+files:
+  docs:
+    - SKILL.md    # Full protocol documentation
+    - README.md   # Human landing page
+
+# K-LINES
+
+k-lines:
+  activates:
+    - WORM
+    - CURSOR
+    - TWO-POINTER
+    - EAT-POOP
+    - PIPELINE
+  related:
+    - { ref: data-flow, relation: "streaming data pipelines" }
+    - { ref: room, relation: "directory as room metaphor" }
+    - { ref: adventure, relation: "worms traverse adventures" }
+
+# INVOKE WHEN
+
+invoke_when:
+  - "Crawl filesystem"
+  - "Span structures"
+  - "Ingest/emit data"
+  - "Pipe between documents"
+  - "Build data pipelines"
+
+# METHODS — signatures only, see SKILL.md
+
+methods:
+  # Movement
+  MOVE-WORM:    { signature: "MOVE-WORM [head] (tail [follow|stay])" }
+  MOVE-HEAD:    { signature: "MOVE-HEAD [path]" }
+  MOVE-ASS:     { signature: "MOVE-ASS [path]", note: "move tail only" }
+  
+  # Unit navigation
+  NEXT-UNIT:    { signature: "NEXT-UNIT [unit] [count]", units: [char, word, sentence, paragraph, section, page] }
+  PREV-UNIT:    { signature: "PREV-UNIT [unit] [count]" }
+  SELECT-RANGE: { signature: "SELECT-RANGE [unit] [count]" }
+  
+  # Tree traversal
+  TREE-UP:      { signature: "TREE-UP" }
+  TREE-DOWN:    { signature: "TREE-DOWN [child]" }
+  TREE-NEXT:    { signature: "TREE-NEXT" }
+  TREE-PREV:    { signature: "TREE-PREV" }
+  TREE-OPEN:    { signature: "TREE-OPEN" }
+  TREE-CLOSE:   { signature: "TREE-CLOSE" }
+  TREE-HIDE:    { signature: "TREE-HIDE" }
+  TREE-SHOW:    { signature: "TREE-SHOW" }
+  
+  # Ingestion/emission (reversible basis)
+  EAT:          { signature: "EAT", note: "ingest at head, parse to brain" }
+  CHOMP:        { signature: "CHOMP [pattern]", note: "scan pattern, then ingest" }
+  POOP:         { signature: "POOP", note: "emit at tail" }
+  BARF:         { signature: "BARF", note: "emit at head" }
+  STICK-UP-BUM: { signature: "STICK-UP-BUM [data]", note: "inject data into worm" }
+
+# ADVERTISEMENTS
+
+advertisements:
+  MOVE-WORM:
+    score: 80
+    condition: "Reposition worm cursor"
+    
+  EAT:
+    score: 80
+    condition: "Ingest content at head"
+    
+  CHOMP:
+    score: 80
+    condition: "Scan for pattern then ingest"
+    
+  POOP:
+    score: 70
+    condition: "Emit buffer at tail"
+    
+  BARF:
+    score: 70
+    condition: "Emit buffer at head"
+    
+  TREE-NAVIGATE:
+    score: 60
+    condition: "Navigate tree structure"
+
+# STATE
 
 state:
   head: "."
   tail: "."
-  buffer: []            # interior ingestion buffer
-  payload: null         # last consumed chunk
-  digestive_format: "neutral"  # how payload is normalized internally
-  active_tokens: []     # tokens parsed into the worm's "brain"
-  scan_pattern: ""      # optional pattern to anchor ingestion
-  scan_mode: "pattern-then-chomp"  # how head scans text before ingest
-  emit_dir: ".moollm/worm-out"     # where YAML/object output can be written
-  reversible: true      # actions map to undo/redo serialize/deserialize basis
+  buffer: []
+  payload: null
+  digestive_format: "neutral"
+  active_tokens: []
+  scan_pattern: ""
+  emit_dir: ".moollm/worm-out"
+  reversible: true
 
-# Ads as generics; methods as implementations (Self/CLOS-style dispatch)
-advertisements:
-  MOVE-WORM:
-    score: 80
-    condition: "Need to reposition the worm cursor"
-    effect: "Advance head (optionally tail) to path or link target; abs or relative steps"
-    delegate:
-      method: MOVE-WORM
-      params:
-        head: "{{path|.}}"
-        tail: "{{tail|follow}}"
-        mode: "{{mode|abs}}"        # abs|rel
-        direction: "{{dir|.}}"      # up/down/in/out/left/right or link hop
-        offset: "{{offset|0}}"      # numeric step for rel moves
-  MOVE-HEAD:
-    score: 70
-    condition: "Move head independently"
-    effect: "Move head without moving tail; abs or relative steps"
-    delegate:
-      method: MOVE-HEAD
-      params:
-        head: "{{path|.}}"
-        mode: "{{mode|abs}}"
-        direction: "{{dir|.}}"
-        offset: "{{offset|0}}"
-  MOVE-ASS:
-    score: 70
-    condition: "Move tail independently"
-    effect: "Move tail without moving head; abs or relative steps"
-    delegate:
-      method: MOVE-ASS
-      params:
-        tail: "{{path|.}}"
-        mode: "{{mode|abs}}"
-        direction: "{{dir|.}}"
-        offset: "{{offset|0}}"
-  NEXT-UNIT:
-    score: 65
-    condition: "Advance head by unit (char/word/sentence/paragraph/section/page)"
-    effect: "Move head forward by count units; tail unchanged"
-    delegate:
-      method: NEXT-UNIT
-      params:
-        unit: "{{unit|word}}"
-        count: "{{count|1}}"
-  PREV-UNIT:
-    score: 65
-    condition: "Move head backward by unit"
-    effect: "Move head backward by count units; tail unchanged"
-    delegate:
-      method: PREV-UNIT
-      params:
-        unit: "{{unit|word}}"
-        count: "{{count|1}}"
-  SELECT-RANGE:
-    score: 65
-    condition: "Select N units starting at head"
-    effect: "Selects range into buffer/payload (units: char|word|sentence|paragraph|section|page)"
-    delegate:
-      method: SELECT-RANGE
-      params:
-        unit: "{{unit|word}}"
-        count: "{{count|1}}"
-  TREE-UP:
-    score: 60
-    condition: "Move to parent node"
-    effect: "Head moves to parent; tail unchanged"
-    delegate:
-      method: TREE-UP
-      params: {}
-  TREE-DOWN:
-    score: 60
-    condition: "Move to child node (by index/name)"
-    effect: "Head moves to child"
-    delegate:
-      method: TREE-DOWN
-      params:
-        child: "{{child|0}}"
-  TREE-NEXT:
-    score: 60
-    condition: "Move to next sibling"
-    effect: "Head moves to next sibling"
-    delegate:
-      method: TREE-NEXT
-      params: {}
-  TREE-PREV:
-    score: 60
-    condition: "Move to previous sibling"
-    effect: "Head moves to previous sibling"
-    delegate:
-      method: TREE-PREV
-      params: {}
-  TREE-OPEN:
-    score: 60
-    condition: "Open/expand current node"
-    effect: "Marks node as open/expanded"
-    delegate:
-      method: TREE-OPEN
-      params: {}
-  TREE-CLOSE:
-    score: 60
-    condition: "Close/collapse current node"
-    effect: "Marks node as closed/collapsed"
-    delegate:
-      method: TREE-CLOSE
-      params: {}
-  TREE-HIDE:
-    score: 55
-    condition: "Hide current subtree"
-    effect: "Marks subtree hidden (view-level)"
-    delegate:
-      method: TREE-HIDE
-      params: {}
-  TREE-SHOW:
-    score: 55
-    condition: "Show previously hidden subtree"
-    effect: "Unhides subtree (view-level)"
-    delegate:
-      method: TREE-SHOW
-      params: {}
-  EAT:
-    score: 80
-    condition: "Need to ingest content at head"
-    effect: "Consume content; parse tokens into brain; normalize buffer (pattern-aware)"
-    delegate:
-      method: EAT
-      params: {}
-  CHOMP:
-    score: 80
-    condition: "Scan for pattern then ingest following text/object"
-    effect: "Head scans text for pattern, chomps following text into brain/parser"
-    delegate:
-      method: CHOMP
-      params:
-        pattern: "{{pattern|{{scan_pattern}}}}"
-        emit_dir: "{{emit_dir|.moollm/worm-out}}"
-  POOP:
-    score: 70
-    condition: "Emit buffer/payload at tail"
-    effect: "Append/write payload or selected tokens at tail; can emit YAML file to emit_dir"
-    delegate:
-      method: POOP
-      params: {}
-  BARF:
-    score: 70
-    condition: "Emit buffer/payload at head"
-    effect: "Write payload or selected tokens at head"
-    delegate:
-      method: BARF
-      params: {}
-  STICK-UP-BUM:
-    score: 65
-    condition: "Inject external data into worm"
-    effect: "Normalize provided data into payload/buffer"
-    delegate:
-      method: STICK-UP-BUM
-      params:
-        data: "{{data|...}}"
+# VARIANTS
 
-methods:
-  MOVE-WORM:
-    description: "Move head; optionally drag tail or leave tail"
-    parameters:
-      head: "New head path (abs) or base for rel"
-      tail: "tail|follow|stay"
-      mode: "abs|rel"
-      direction: "up/down/in/out/left/right or link hop"
-      offset: "numeric step for rel moves"
-    output: chat
-    effect: "Updates head (and tail if follow), supports rel moves and link hops"
-
-  MOVE-HEAD:
-    description: "Move head only"
-    parameters:
-      head: "New head path (abs) or base for rel"
-      mode: "abs|rel"
-      direction: "up/down/in/out/left/right or link hop"
-      offset: "numeric step for rel moves"
-    output: chat
-    effect: "Moves head independently; supports rel directions; tail stays put"
-
-  MOVE-ASS:
-    description: "Move tail only"
-    parameters:
-      tail: "New tail path (abs) or base for rel"
-      mode: "abs|rel"
-      direction: "up/down/in/out/left/right or link hop"
-      offset: "numeric step for rel moves"
-    output: chat
-    effect: "Moves tail independently; supports rel directions; head stays put"
-
-  EAT:
-    description: "Read content at head; optional pattern anchor; parse tokens into brain; normalize"
-    parameters: {}
-    output: chat
-    effect: "Reads file/dir summary; if scan_pattern set, anchor then ingest; stores in buffer/payload (normalized); updates active_tokens"
-
-  CHOMP:
-    description: "Scan for pattern, then chomp following text/object into brain/parser"
-    parameters:
-      pattern: "Pattern to anchor ingestion (defaults to scan_pattern)"
-      emit_dir: "Where to drop emitted YAML/object output"
-    output: chat
-    effect: "Finds pattern at head, ingests following text/object, updates buffer/active_tokens; may stage YAML for emission to emit_dir"
-
-  POOP:
-    description: "Write buffer/payload at tail (append by default); can emit selected tokens or YAML to emit_dir"
-    parameters: {}
-    output: chat
-    effect: "Appends buffer/payload or chosen tokens to tail target (NOP if empty); may emit YAML/object to emit_dir"
-
-  BARF:
-    description: "Write buffer/payload at head; can emit selected tokens"
-    parameters: {}
-    output: chat
-    effect: "Writes buffer/payload or chosen tokens to head target"
-
-  STICK-UP-BUM:
-    description: "Inject caller-provided data into tail; normalize"
-    parameters:
-      data: "Data to stash"
-    output: chat
-    effect: "Stores provided data as payload/buffer (normalized)"
-
-  NEXT-UNIT:
-    description: "Advance head by unit"
-    parameters:
-      unit: "char|word|sentence|paragraph|section|page|line"
-      count: "How many units to move forward"
-    output: chat
-    effect: "Moves head forward by units; tail unchanged"
-
-  PREV-UNIT:
-    description: "Move head backward by unit"
-    parameters:
-      unit: "char|word|sentence|paragraph|section|page|line"
-      count: "How many units to move back"
-    output: chat
-    effect: "Moves head backward by units; tail unchanged"
-
-  SELECT-RANGE:
-    description: "Select a range starting at head into buffer/payload"
-    parameters:
-      unit: "char|word|sentence|paragraph|section|page|line"
-      count: "How many units to select"
-    output: chat
-    effect: "Captures selection into buffer/payload; does not move tail unless caller sets it"
-
-  TREE-UP:
-    description: "Move head to parent node"
-    parameters: {}
-    output: chat
-    effect: "Head moves to parent; tail unchanged"
-
-  TREE-DOWN:
-    description: "Move head to a child node"
-    parameters:
-      child: "Child index/name (default 0)"
-    output: chat
-    effect: "Head moves to requested child"
-
-  TREE-NEXT:
-    description: "Move head to next sibling"
-    parameters: {}
-    output: chat
-    effect: "Head moves to next sibling"
-
-  TREE-PREV:
-    description: "Move head to previous sibling"
-    parameters: {}
-    output: chat
-    effect: "Head moves to previous sibling"
-
-  TREE-OPEN:
-    description: "Expand current node"
-    parameters: {}
-    output: chat
-    effect: "Marks node as open/expanded (view-level)"
-
-  TREE-CLOSE:
-    description: "Collapse current node"
-    parameters: {}
-    output: chat
-    effect: "Marks node as closed/collapsed (view-level)"
-
-  TREE-HIDE:
-    description: "Hide current subtree (view-level)"
-    parameters: {}
-    output: chat
-    effect: "Marks subtree hidden"
-
-  TREE-SHOW:
-    description: "Show previously hidden subtree (view-level)"
-    parameters: {}
-    output: chat
-    effect: "Unhides subtree"
-
-# Worm variants (YAML jazz; inspiration pointers)
 variants:
-  bulldozer: "Moves and overwrites as it goes"
-  link-hopper: "Prefers symlinks/links; hops like an inchworm"
-  mapper: "Maps directory trees; leaves markers"
-  dream: "Synthesizes data at speed-of-light; ephemeral payloads"
-  tree: "Climbs hierarchies, maintains parent/child context"
+  bulldozer:   "Moves and overwrites as it goes"
+  link-hopper: "Prefers symlinks; hops like inchworm"
+  mapper:      "Maps directory trees; leaves markers"
+  dream:       "Synthesizes at speed-of-light; ephemeral"
+  tree:        "Climbs hierarchies; parent/child context"
 
-credits:
-  inspiration:
-    - "LLOOOOMM worms (bulldozer, link-hopper, mapper, dream, tree)"
-    - "Inchworm cursors in editors"
+# TOOLS
+
+tools:
+  required: [read_file, write_file, list_dir]
+  optional: []
+
+# DOCUMENTATION POINTERS
+
+documentation:
+  SKILL.md:
+    - "§ Movement Methods"
+    - "§ Tree Traversal"
+    - "§ Reversible Basis (EAT/POOP/BARF)"
+    - "§ Variants (bulldozer, mapper, dream)"
+
+# LINEAGE
+
+lineage: [LLOOOOMM worms, Inchworm cursors]

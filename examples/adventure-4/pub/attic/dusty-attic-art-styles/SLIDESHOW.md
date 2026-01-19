@@ -1,3 +1,11 @@
+---
+inherits: slideshow
+title: "The Dusty Attic — Art Styles Gallery"
+created: 2026-01-19
+images: 7
+style: multi-style-comparison
+---
+
 # 🖼️ The Dusty Attic — Visual Gallery
 
 > *"Take what you need. Leave what you find. Mind the edge cases."*

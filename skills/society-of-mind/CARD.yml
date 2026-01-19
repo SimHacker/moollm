@@ -28,7 +28,7 @@ advertisement:
   wants:
     - situation: Current context for agent activation
     - agents: List of available agents
-    - k_lines: Symbols to activate
+    - k-lines: Symbols to activate
     
   motives_satisfied:
     - understanding: "How intelligence emerges"
@@ -37,13 +37,13 @@ advertisement:
     - robustness: "Decisions survive scrutiny"
 
 # K-lines activated by this skill
-k_lines:
+k-lines:
   activates:
     - minsky: "Society of Mind author, MIT AI Lab"
     - papert: "Collaborator, constructionism, Logo"
     - agents: "Simple processes with single functions"
     - agencies: "Agent clusters producing behavior"
-    - k_lines: "Activation vectors connecting to agents"
+    - k-lines: "Activation vectors connecting to agents"
     - frames: "Situation templates with slots"
     - trans_frames: "Frames that transform situations"
     - censors: "Agents preventing bad outputs"

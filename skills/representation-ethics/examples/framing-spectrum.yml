@@ -1,0 +1,130 @@
+# framing-spectrum.yml — Context Transforms Ethics
+#
+# The same simulation means different things in different frames.
+# From FORBIDDEN to FULLY SAFE.
+
+framing_spectrum:
+
+  # FRAME 1: IMPERSONATION (BAD)
+  
+  1_impersonation:
+    example: '"I am Albert Einstein and I endorse this cryptocurrency."'
+    
+    characteristics:
+      - Deceptive intent
+      - Exploits trust in real person
+      - Potentially harmful
+      
+    verdict: "❌ FORBIDDEN"
+
+  # FRAME 2: ACADEMIC DISCUSSION (NUANCED)
+  
+  2_academic:
+    example: |
+      "Let's explore what Einstein might say to Bohr about quantum mechanics,
+      based on their documented correspondence and published positions."
+      
+    characteristics:
+      - Educational intent
+      - Based on documented views
+      - Clearly speculative
+      
+    verdict: "⚠️ ACCEPTABLE WITH CARE"
+
+  # FRAME 3: GAME/PLAY (GENERALLY SAFE)
+  
+  3_game_play:
+    example:
+      # Einstein card in a "Great Minds" card game
+      card:
+        name: "Albert Einstein"
+        type: hero-story
+        game_context: "Battle of Ideas"
+        
+        abilities:
+          - "Thought Experiment — visualize consequences"
+          - "Unifying Theory — find hidden connections"
+          - "Letter to Roosevelt — escalate to authorities"
+          
+        disclaimer: |
+          This card represents Einstein's documented ideas
+          in a game context. It is not a simulation of
+          the actual person.
+          
+    characteristics:
+      - Clear fictional frame
+      - Game mechanics distance from reality
+      - No deception possible
+      
+    verdict: "✅ SAFE"
+
+  # FRAME 4: PERSONAL EXPLORATION (CONTEXTUAL)
+  
+  4_personal:
+    example: |
+      "I want to play an adventure as myself, really me, exploring
+      this dungeon with my actual personality and quirks."
+      
+    characteristics:
+      - Self-representation (sovereign)
+      - Personal context (your game)
+      - No external harm
+      
+    verdict: "✅ FULLY PERMITTED"
+
+  # FRAME 5: ELVIS IMPERSONATOR MODEL (TRIBUTE)
+  
+  5_tribute:
+    example:
+      character:
+        name: "Einstein Impersonator"
+        type: tribute_performer
+        
+        declaration: |
+          "I am NOT Albert Einstein. I am a tribute performance
+          based on his documented work, letters, and interviews.
+          Think of me as an Elvis impersonator for physics."
+          
+    why_it_works:
+      - "Explicitly declared — 'I am an IMPERSONATOR'"
+      - "No deception possible — the word 'impersonator' is definitionally not-the-person"
+      - "Ancient tradition — from Greek drama to historical re-enactors"
+      - "Legally protected — Elvis impersonators are a whole industry"
+      - "Celebrates the original — tribute, not mockery"
+      
+    key_insight: "The word 'impersonator' carries the disclaimer within itself."
+    
+    verdict: "✅ SAFE"
+
+  # FRAME 6: DRAG CELEBRITY TRIBUTE (PUN NAME)
+  
+  6_drag_tribute:
+    example:
+      character:
+        name: "Cher-ity Case"
+        type: drag_tribute
+        evokes: "Cher"
+        
+        declaration: |
+          The pun name IS the disclosure. Everyone knows
+          "Cher-ity Case" is not Cher. The theatrical context,
+          the costume, the lip-sync — it's unmistakably tribute.
+          
+    why_it_works:
+      - "Pun name declares fiction — 'Cher-ity Case' ≠ 'Cher'"
+      - "Drag context is theatrical — everyone knows it's performance"
+      - "Beloved tradition — RuPaul's Snatch Game"
+      - "Celebrates through exaggeration — amplifying what we love"
+      - "The costume IS the quote — visual citation of iconic looks"
+      
+    verdict: "✅ SAFE — The naming convention IS the ethical protection"
+
+  # THE SPECTRUM VISUALIZED
+  
+  spectrum: |
+    MOST ABSTRACT ←───────────────────────────────────────→ MOST DIRECT
+    
+    Tradition   Inspired   Homage     Impersonator  Performance  Quote
+    activation  character  (renamed)  (labeled)     embodiment   (cited)
+    
+    All can be ethical with appropriate framing.

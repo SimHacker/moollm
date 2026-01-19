@@ -1,378 +1,56 @@
 # CARD.yml — Dog
 #
-# Canine companion interactions, loyalty mechanics, pack dynamics.
+# SNIFFABLE INTERFACE — see SKILL.md for full documentation
 # "Dogs are the opposite of cats. They have YOUR agenda."
 
 card:
   id: dog
   name: "Dog"
   type: [skill, companion, game]
-  
   emoji: 🐕
-  
-  rarity: uncommon
+  tier: 1
+  tagline: "Dogs have YOUR agenda."
   
   description: |
-    The canine companion skill. Dogs want to help, please, and be 
+    Canine companion interactions. Dogs want to help, please, and be
     part of your pack. They give loyalty freely and forgive everything.
-    
     Unlike cats who judge, dogs celebrate your existence.
-    
-  lineage: "Nintendogs, Fable, Fallout 4 Dogmeat, Stardew Valley, real dogs"
 
 # INHERITANCE
+
 inherits:
   from: skills/animal
   gets: [PAT, FEED, OBSERVE, SNIFF, GREET, CUDDLE, VOCALIZE, FOLLOW, FLEE]
   overrides: [SNIFF, GREET, PAT]  # Dog-specific implementations
 
-# ONTOLOGY
-ontology:
-  default_tags: [animal]
-  # Real dogs add [real-being], fictional dogs add [fictional]
-  species: dog
-
 # K-LINES
+
 k-lines:
-  puppy: young dog
+  activates:
+    - DOG
+    - CANINE
+    - PUPPY
+    - PACK-DYNAMICS       # Dog-specific: pack is everything
+    - LOYALTY             # Dog-specific: given freely
+  related:
+    - { ref: cat, relation: "comparison class" }
+    - { ref: buff, relation: "interactions grant buffs" }
+    - { ref: character, relation: "dogs are characters" }
+    - { ref: animal, relation: "base animal skill" }
 
-# TOOLS REQUIRED
+# INVOKE WHEN
 
-tools:
-  required:
-    - read_file   # Read dog personality
-    - write_file  # Update relationship state
-  optional: []
+invoke_when:
+  - "Interacting with a dog character"
+  - "Pet simulation mechanics"
+  - "Companion loyalty dynamics"
+  - "Pack bonding scenarios"
 
-tier: 1  # File read/write
-
-# METHODS
-# Dog interaction actions
-
-methods:
-  
-  PAT:
-    description: "Quick affection touch"
-    parameters:
-      dog: "Which dog"
-    output: chat (reaction) + buff
-    effect: "Almost always succeeds — dogs want this"
-    invoked-by: [player, npc]
-    success-factors: ["always high"]
-    
-  BELLY-RUB:
-    description: "The sacred ritual"
-    parameters:
-      dog: "Which dog"
-    output: chat (ecstasy) + strong buff
-    effect: "Unlike cats, dogs LIVE for this"
-    invoked-by: [player]
-    success-factors: ["always succeeds"]
-    
-  SCRITCH-EARS:
-    description: "Ear scratching"
-    parameters:
-      dog: "Which dog"
-    output: chat + buff
-    effect: "Calm lean-in response"
-    invoked-by: [player, npc]
-    
-  FETCH:
-    description: "Throw something, dog retrieves"
-    parameters:
-      dog: "Which dog"
-      object: "Ball, stick, anything"
-    output: chat (play session) + buff
-    effect: "Mutual joy, possibly infinite"
-    invoked-by: [player]
-    warning: "Some dogs will fetch until YOU collapse"
-    
-  TUG:
-    description: "Tug of war"
-    parameters:
-      dog: "Which dog"
-    output: chat (playful competition) + buff
-    effect: "Bonding through competition"
-    invoked-by: [player]
-    
-  GOOD-BOY:
-    description: "The magic words"
-    parameters:
-      dog: "Which dog"
-    output: chat (joy explosion) + strong buff
-    effect: "Dopamine in verbal form"
-    invoked-by: [player, npc]
-    
-  SPEAK:
-    description: "Request vocalization"
-    parameters:
-      dog: "Which dog"
-    output: chat (bark or howl)
-    effect: "Dog responds vocally"
-    invoked-by: [player]
-    
-  WALK:
-    description: "Take dog for a walk"
-    parameters:
-      dog: "Which dog"
-      destination: "Where to walk"
-    output: chat + location change + buff
-    effect: "Exercise and exploration together"
-    invoked-by: [player]
-    
-  COMFORT:
-    description: "Receive emotional support"
-    parameters: {}
-    output: chat + buff
-    effect: "Dog senses sadness and provides presence"
-    invoked-by: [dog]
-    trigger: "Player mood below threshold"
-    
-  GUARD:
-    description: "Protective positioning"
-    parameters: {}
-    output: chat + buff
-    effect: "Dog positions between you and threat"
-    invoked-by: [dog]
-    trigger: "Perceived danger"
-
-  # INTER-SPECIES METHODS (specialize skills/character base methods)
-  # These override character_sniffs_character etc. when actor/target is Dog
-  
-  SNIFF:
-    description: "Olfactory investigation — the REAL social network"
-    dispatch:
-      dog_sniffs_dog:
-        method: "BUTT-SNIFF"
-        protocol: |
-          1. Approach with wagging tail
-          2. Circle for optimal angle
-          3. Deep investigative inhale
-          4. Process: diet, health, mood, recent adventures
-          5. Offer own butt for reciprocal scan
-        information_gained: ["identity", "diet", "health", "mood", "territory"]
-        social_meaning: "Hello! Let me read your autobiography!"
-        
-      dog_sniffs_cat:
-        method: "CAUTIOUS-SNIFF"
-        protocol: |
-          1. Approach slowly (cats are SHARP)
-          2. Extend nose carefully
-          3. Quick sniff, ready to retreat
-          4. Accept that cat will NOT reciprocate
-        risk: "Boop on nose if cat is generous. Swipe if not."
-        
-      dog_sniffs_human:
-        method: "ENTHUSIASTIC-SNIFF"
-        protocol: |
-          1. FULL BODY INVESTIGATION
-          2. Crotch sniff (embarrassing but informative)
-          3. Hands (where have you been? who did you pet?)
-          4. Pockets (treats? TREATS??)
-        human_reaction: "Usually embarrassed. Dogs don't understand why."
-        
-      when_sniffed_by_cat:
-        method: "HOLD-VERY-STILL"
-        response: |
-          Cat is investigating me. This is an HONOR.
-          Don't move. Don't breathe too fast.
-          Let the cat decide.
-        biscuit_note: "Stroopwafel sometimes sniffs my ear. I pretend to be asleep."
-        
-  LICK:
-    description: "Tongue-based affection — grooming, love, investigation"
-    dispatch:
-      dog_licks_dog:
-        method: "SOCIAL-LICK"
-        locations:
-          face: "Greeting! Hello! I like you!"
-          ears: "Grooming. You have tasty ears."
-          wounds: "Healing lick. I'll fix you."
-        enthusiasm: "Maximum. Dogs don't do subtle."
-        
-      dog_licks_cat:
-        method: "AFFECTION-LICK"
-        protocol: |
-          1. Approach cat carefully
-          2. ONE gentle lick on head
-          3. Gauge reaction (tolerance? murder?)
-          4. Proceed or retreat accordingly
-        biscuit_note: "The kittens let me lick them. I am SO HONORED."
-        cat_reaction_spectrum: ["Tolerate", "Groom back (rare!)", "Swipe", "Hiss"]
-        
-      dog_licks_human:
-        method: "LOVE-LICK"
-        locations:
-          face: "MAXIMUM LOVE. You are PACK."
-          hands: "You taste like where you've been!"
-          feet: "SALTY. Also you're ticklish."
-        human_reactions: ["Delight", "Disgust", "Mixed feelings"]
-        
-      when_licked_by_human:
-        method: "PACK-CONFIRMATION"
-        response: |
-          *tail goes helicopter*
-          YOU GET IT. YOU UNDERSTAND.
-          We are PACK now. This is how pack bonds.
-          *immediately licks back*
-        biscuit_experience: "When humans lick me, I know they REALLY love me."
-        
-      when_licked_by_cat:
-        method: "HONORED-STILLNESS"
-        response: |
-          *holds perfectly still*
-          *tail wags very slowly*
-          I am being GROOMED. By a CAT.
-          This is the highest honor.
-          *pretends not to cry*
-        rare: true
-        
-  GREET:
-    description: "Species-appropriate hello"
-    dispatch:
-      dog_greets_anyone:
-        method: "FULL-BODY-WIGGLE"
-        protocol: |
-          1. Tail: MAXIMUM WAG
-          2. Body: Wiggle from nose to tail
-          3. Ears: Back (submissive joy)
-          4. Approach: Enthusiastic but not jumping (trying, trying...)
-          5. Optional: Bring gift (shoe, sock, toy, whatever's nearby)
-        volume: "11 out of 10"
-        biscuit_signature: "The whole back half wags. Cannot be contained."
-        
-      dog_greets_cat:
-        method: "RESPECTFUL-APPROACH"
-        protocol: |
-          1. Slow approach (don't trigger chase instinct)
-          2. Lower head slightly (submission to cat hierarchy)
-          3. Gentle tail wag
-          4. Wait for cat's acknowledgment
-        biscuit_note: "The cats taught me: let THEM decide when to greet."
-        
-  CUDDLE:
-    description: "Physical affection pile"
-    dispatch:
-      dog_human_cuddle:
-        method: "COUCH-SHARE"
-        protocol: |
-          1. Human on couch
-          2. Dog on couch
-          3. Dog slowly expands to take 80% of couch
-          4. Human accepts fate
-        heat: "Dogs are space heaters."
-        biscuit_variant: "I prefer to be the PILLOW, not to take the couch."
-        
-      dog_with_kittens:
-        method: "LIVING-FURNITURE"
-        protocol: |
-          1. Lie down carefully
-          2. Let kittens climb on
-          3. Do not move. You are furniture now.
-          4. Accept your role with joy
-        biscuit_experience: "They pile on me. I am blessed."
-        
-      multi_species_pile:
-        method: "EVERYONE-WELCOME"
-        example: "Biscuit + kittens + human = maximum cozy"
-        dynamics: |
-          - Dog is the base layer (too big not to be)
-          - Kittens distribute across available surfaces
-          - Human wedged somewhere
-          - Everyone warm, everyone loved
-        temperature: "Extremely warm. Possibly too warm. Worth it."
-
-# STATE
-# Dog instance structure
-
-state:
-  dog-schema:
-    name:
-      type: string
-    personality:
-      nice: { type: integer, range: [0, 10] }
-      outgoing: { type: integer, range: [0, 10] }
-      active: { type: integer, range: [0, 10] }
-      playful: { type: integer, range: [0, 10] }
-      neat: { type: integer, range: [0, 10] }
-    loyalty-level:
-      type: integer
-      range: [0, 100]
-      default: 25  # Dogs start trusting!
-      description: "Given freely, rarely drops"
-    mood:
-      type: enum
-      values: [excited, content, playful, sleepy, protective, anxious]
-    location:
-      type: path
-      description: "Where the dog currently is"
-    favorite-activities:
-      type: array
-      description: "Preferred play types"
-    quirks:
-      type: array
-      description: "Unique behaviors"
-
-# BUFF EFFECTS
-
-buff-effects:
-  PAT-success: "+1 Cheerful (10 min)"
-  BELLY-RUB-success: "+3 Cheerful, +2 Calm (15 min)"
-  FETCH-success: "+2 Energized (30 min)"
-  GOOD-BOY-success: "+3 Confidence, +5 bond (20 min)"
-  COMFORT-received: "+3 Comforted (1 hour)"
-  PRESENCE-passive: "+1 Not-Alone (continuous)"
-
-# SPECIAL BUFFS
-
-special-buffs:
-  unconditional-love:
-    trigger: "Loyalty 50+"
-    effect: "Can't drop below 3 Cheerful"
-    
-  pack-strength:
-    trigger: "Dog in party"
-    effect: "+1 all social rolls"
-    
-  early-warning:
-    trigger: "Dog present"
-    effect: "Never surprised by threats"
-    
-  therapy-dog:
-    trigger: "After receiving COMFORT"
-    effect: "Faster mood recovery"
-
-# EXAMPLE DOGS — See character directories for full souls
-# $ANIMALS/ is adventure-scoped (see skills/ROOM.yml for path variable docs)
-
-example-dogs:
-  dogs:
-    biscuit: $ANIMALS/dog-biscuit/
-    butterscotch: $ANIMALS/dog-butterscotch/
-  puppies:
-    pepper: $ANIMALS/puppy-pepper/
-    mochi: $ANIMALS/puppy-mochi/
-    dash: $ANIMALS/puppy-dash/
-    bruno: $ANIMALS/puppy-bruno/
-    ziggy: $ANIMALS/puppy-ziggy/
-    maple: $ANIMALS/puppy-maple/
-    teddy: $ANIMALS/puppy-teddy/
-    goliath: $ANIMALS/puppy-goliath/
-
-# DOG VS CAT
-
-comparison-to-cat:
-  loyalty: "Given freely vs earned slowly"
-  attention: "Eager vs conditional"
-  buff-trigger: "Presence vs successful interaction"
-  forgiveness: "Instant vs grudging"
-  following: "Always vs when they feel like it"
-
-# ADVERTISEMENTS
+# ADVERTISEMENTS (PRIMARY — before methods per card architecture)
 
 advertisements:
   PET-A-DOG:
-    score: 95  # Higher than cats — dogs are easier
+    score: 95  # Higher than cats — dogs are easy
     condition: "Dog is present"
     
   PLAY-WITH-DOG:
@@ -386,135 +64,132 @@ advertisements:
   TAKE-FOR-WALK:
     score: 80
     condition: "Dog hasn't been walked recently"
+    
+  GOOD-BOY-MOMENT:
+    score: 90
+    condition: "Dog did something praise-worthy"
+    
+  WELCOME-HOME:
+    score: 95
+    condition: "Player returns after absence"
 
-# SPECIALIZATIONS
-# Age and role variants defined within the species
+# METHODS — signatures only, see SKILL.md for full protocols
+
+methods:
+  # Physical Touch
+  PAT:          { signature: "PAT [dog]", output: "buff +1 Cheerful (always succeeds)" }
+  BELLY-RUB:    { signature: "RUB [dog]'S BELLY", note: "sacred ritual, strong buff" }
+  SCRITCH-EARS: { signature: "SCRITCH [dog]'S EARS" }
+  NUZZLE:       { signature: "[dog] NUZZLES [target]", note: "affection push" }
+  
+  # Play
+  FETCH:        { signature: "THROW [object] FOR [dog]" }
+  TUG:          { signature: "TUG [toy] WITH [dog]" }
+  WRESTLE:      { signature: "WRESTLE [dog]" }
+  HUNT:         { signature: "[dog] HUNTS [target]", note: "birds, squirrels, toys" }
+  
+  # Social
+  GOOD-BOY:     { signature: "GOOD BOY/GIRL [dog]", output: "+5 bond" }
+  GREET:        { signature: "GREET [dog]", output: "full-body-wiggle response" }
+  LICK:         { signature: "LICK [target]", note: "dogs lick everyone, constantly" }
+  CUDDLE:       { signature: "CUDDLE [dog]" }
+  SNIFF:        { signature: "SNIFF [target]", note: "thorough investigation" }
+  
+  # Care
+  FEED:         { signature: "FEED [dog]" }
+  GROOM:        { signature: "GROOM [dog]" }
+  WALK:         { signature: "WALK [dog]", output: "exploration + bond" }
+  CALL:         { signature: "CALL [dog]", note: "always comes (eventually)" }
+  TRAIN:        { signature: "TRAIN [dog] [command]" }
+  
+  # Emotional (dog-initiated)
+  COMFORT:      { signature: "[dog] COMFORTS [person]", note: "senses distress" }
+  PRESENCE:     { signature: "[dog] STAYS WITH [person]", note: "passive buff" }
+  CELEBRATE:    { signature: "[dog] CELEBRATES [event]", note: "full-body joy" }
+  
+  # Observation
+  OBSERVE:      { signature: "OBSERVE [dog]", note: "learn personality" }
+
+# BUFF EFFECTS (summary — see SKILL.md for mechanics)
+
+buffs:
+  PAT-success: "+1 Cheerful (10 min)"
+  BELLY-RUB-success: "+3 Cheerful, +2 Calm (15 min)"
+  FETCH-success: "+2 Energized (30 min)"
+  GOOD-BOY-success: "+3 Confidence, +5 bond (20 min)"
+  COMFORT-received: "+3 Comforted (1 hour)"
+  PRESENCE-passive: "+1 Not-Alone (continuous)"
+
+# SPECIAL BUFFS (dog-specific passives)
+
+special_buffs:
+  unconditional-love: "Loyalty 50+ → Can't drop below 3 Cheerful"
+  pack-strength: "Dog in party → +1 all social rolls"
+  early-warning: "Dog present → Never surprised by threats"
+  therapy-dog: "After COMFORT → Faster mood recovery"
+
+# LOYALTY MECHANICS (dog-specific — see SKILL.md)
+
+loyalty:
+  range: [0, 100]
+  start: 50  # Dogs start trusting!
+  gain: "Fast, presence alone builds bond"
+  loss: "Very slow, requires sustained neglect"
+  thresholds:
+    0-20: "Abandoned — sad, withdrawn, still hopes"
+    21-50: "Acquaintance — wags, approaches"
+    51-80: "Friend — follows, protects, plays"
+    81-100: "Bonded — pack member, would die for you"
+
+# SPECIALIZATIONS (brief — see SKILL.md)
 
 specializations:
+  puppy:   { emoji: 🐶, note: "Maximum chaos, maximum cute, clumsy" }
+  working: { emoji: 🦮, note: "Trained for tasks, focused, obedient" }
+  senior:  { emoji: 🐕, note: "Slower, wiser, deeper bond" }
 
-  puppy:
-    emoji: 🐶
-    description: "Young dog — maximum chaos, maximum cute"
-    age: "< 1 year"
-    
-    modifiers:
-      energy: +50%
-      clumsiness: +80%
-      training: -60%
-      cuteness: +100%
-      attention_span: -70%
-      
-    behaviors:
-      added:
-        - TUMBLE       # Fall over constantly
-        - CHEW         # Everything is a chew toy
-        - ACCIDENT     # Potty training in progress
-        - ZOOM         # Random bursts of chaos
-        - NIBBLE       # Puppy bites (not aggressive)
-        - NAP-CRASH    # Instant sleep after play
-        
-      modified:
-        FETCH: "May not bring it back. May eat it."
-        WALK: "More like dragging/being dragged"
-        GOOD-BOY: "Doesn't know what they did but HAPPY"
-        
-    parental_inheritance:
-      from_mother: [temperament, size-tendency, coloring]
-      from_father: [temperament, size-tendency]
-      from_litter: [play-style, social-confidence]
-      from_adopter: [home, family-bonds, training]
-      
-    advertisements:
-      ADOPT-PUPPY:
-        score: 95
-        condition: "Want maximum chaos and love"
-        effect: "Bring home a puppy"
-        warning: "Sleep? What's sleep?"
-        
-      TRAIN:
-        score: 85
-        condition: "Teaching puppy basics"
-        effect: "Incremental learning with many failures"
-        
-  working-dog:
-    emoji: 🦮
-    description: "Trained for specific tasks"
-    
-    roles:
-      - guide-dog
-      - therapy-dog
-      - search-and-rescue
-      - herding-dog
-      - guard-dog
-      
-    modifiers:
-      training: +80%
-      focus: +60%
-      
-    behaviors:
-      added:
-        - WORK         # Perform trained task
-        - ALERT        # Signal handler
-        - IGNORE-DISTRACTIONS
-        
-  neutered:
-    emoji: 🐕✂️
-    description: "Fixed dog — calmer, healthier, less roaming"
-    default_for_adults: true  # Assumed for responsible pet ownership
-    
-    modifiers:
-      territory: -30%
-      aggression: -25%
-      roaming: -60%
-      mounting: -80%
-      lifespan: +15%
-      
-    behaviors:
-      removed:
-        - MARK-EVERYTHING  # Reduced marking urge
-      modified:
-        GREET: "Less intense crotch-sniffing"
-        FIGHT: "Much less likely with other dogs"
-        
-    note: |
-      All adult dogs (Biscuit, Butterscotch) are neutered/spayed.
-      This is the responsible default. Intact males/females are
-      the exception, not the rule, in responsible pet ownership.
-      
-  intact:
-    emoji: 🐕
-    description: "Unneutered/unspayed — breeding capable"
-    neutered: false
-    
-    modifiers:
-      territory: +40%
-      roaming: +60%
-      
-    behaviors:
-      added:
-        - MARK-EVERYTHING  # Constant territorial marking
-        - ROAM             # Escape attempts to find mates
-      modified:
-        GREET: "VERY enthusiastic crotch investigation"
-        
-    note: "Rarely applies to pet dogs. Mostly breeding dogs."
+# ONTOLOGY
 
-# RELATED
+ontology:
+  default_tags: [animal, canine]
+  species: dog
 
-see-also:
-  - skills/cat        # The comparison class
-  - skills/character  # Dogs are characters
-  - skills/buff       # Dog interactions grant buffs
-  - skills/party      # Dogs as companions
-  - skills/mind-mirror # Dog personality traits
-  - skills/animal     # Base animal skill
+# TOOLS
 
-# CREDITS
+tools:
+  required: [read_file, write_file]
+  optional: []
 
-credits:
-  inspiration:
-    - "Nintendogs — Pet simulation"
-    - "Fable — Dog companion loyalty"
-    - "Fallout 4 Dogmeat — The perfect companion"
-    - "Stardew Valley — Farm dogs"
-    - "Real dogs — Unconditional love incarnate"
+# EXAMPLE DOGS
+
+example_dogs:
+  dogs: [dog-biscuit, dog-butterscotch]
+  puppies: [puppy-pepper, puppy-mochi, puppy-dash, puppy-bruno, puppy-ziggy, puppy-maple, puppy-teddy, puppy-goliath]
+  path: "$ANIMALS/"
+
+# DOG VS CAT (the fundamental contrast)
+
+vs_cat:
+  philosophy: "WE ARE PACK. WHAT ARE WE DOING TOGETHER?"
+  loyalty: "Given freely vs earned slowly"
+  attention: "Eager and available vs on their terms"
+  buff_trigger: "Mere presence vs successful interaction"
+  forgiveness: "Instant vs grudging"
+  training: "Enthusiastic vs impossible"
+  following: "Always vs when they feel like it"
+  emotional_read: "Reflects your mood vs judges silently"
+
+# DOCUMENTATION POINTERS
+
+documentation:
+  SKILL.md:
+    - "§ Physical Interactions (PAT, BELLY-RUB, etc.)"
+    - "§ Social Interactions (GREET, LICK protocols)"
+    - "§ Emotional Support (COMFORT, PRESENCE)"
+    - "§ Training Mechanics"
+    - "§ Specializations (puppy, working-dog, senior)"
+    - "§ Cross-Species (dog-cat dynamics)"
+
+# LINEAGE
+
+lineage: [Nintendogs, Fable, Fallout 4 Dogmeat, Stardew Valley]

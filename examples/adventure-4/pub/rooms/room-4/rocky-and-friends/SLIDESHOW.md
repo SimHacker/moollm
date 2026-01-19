@@ -1,3 +1,11 @@
+---
+inherits: slideshow
+title: "Rocky and Friends — Visual Gallery"
+created: 2026-01-19
+images: 8
+style: multi-style-nature-portrait
+---
+
 # 🪨 Room 4: Rocky's Gallery
 
 > *"Rocky has always been here. Rocky will always be here. Rocky IS here."*

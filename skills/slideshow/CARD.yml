@@ -1,0 +1,316 @@
+# CARD.yml — Slideshow
+#
+# Present images in linear narrative form.
+# "The camera is the pickaxe. The slideshow is the museum."
+
+card:
+  id: slideshow
+  name: "Slideshow"
+  type: [skill, presentation, narrative, images]
+  emoji: 🎞️
+  rarity: uncommon
+  
+  description: |
+    Present generated images as linear visual narratives.
+    Synthesize metadata (prompts, mined resources) into stories.
+    Create scrollable galleries for GitHub, social media, documentation.
+    
+    Visualizer CREATES. Slideshow PRESENTS.
+
+# MOOLLM K-LINES
+
+k-lines:
+  related:
+    - { ref: visualizer, meaning: "Creates the images we present" }
+    - { ref: image-mining, meaning: "Extracts resources we summarize" }
+    - { ref: storytelling-tools, meaning: "Narrative structure and arc" }
+    - { ref: yaml-jazz, meaning: "Metadata as semantic fuel" }
+    - { ref: room, meaning: "Spatial context for scenes" }
+    - { ref: character, meaning: "Who appears in images" }
+
+# TOOLS
+
+tools:
+  required: [read_file, write_file]
+  optional: [run_terminal_cmd]
+
+tier: 1  # Reading/writing markdown, no execution
+
+# TEMPLATES
+#
+# Two templates: README.md (landing page) and SLIDESHOW.md (story)
+# GitHub renders README.md automatically — use it as the front door.
+
+templates:
+  README.md.tmpl:
+    purpose: "GitHub landing page — metadata, links, motivation"
+    philosophy: |
+      README.md = Front door (shown on GitHub automatically)
+      SLIDESHOW.md = Pure story (no metadata clutter)
+    placeholders:
+      header:
+        - "{{emoji}} — Gallery emoji"
+        - "{{title}} — Gallery title"
+        - "{{tagline}} — One-line hook"
+        - "{{overview}} — 2-3 sentence intro"
+      gallery_info:
+        - "{{slide_count}} — Number of images"
+        - "{{date}} — Creation date"
+        - "{{style}} — Narrative style"
+        - "{{primary_location}} — Main setting"
+      characters:
+        - "{{#each characters}} — Featured characters loop"
+        - "{{name}}, {{emoji}}, {{link}}, {{role_in_gallery}}"
+      locations:
+        - "{{#each locations}} — Locations loop"
+        - "{{name}}, {{link}}, {{description}}"
+      story:
+        - "{{story_summary}} — Fresh synthesis motivating the reader"
+      technical:
+        - "{{mining_layers}} — Which AI layers mined"
+        - "{{generator}} — Who created this"
+    instructions: "See template file for full documentation"
+    
+  SLIDESHOW.md.tmpl:
+    purpose: "Pure story template — narrative without metadata"
+    philosophy: |
+      The story flows uninterrupted.
+      All metadata lives in README.md landing page.
+    placeholders:
+      front_matter:
+        - "{{title}} — Gallery title"
+        - "{{date}} — Creation date (YYYY-MM-DD)"
+        - "{{image_count}} — Number of images"
+        - "{{style}} — Style descriptor"
+      header:
+        - "{{emoji}} — Header emoji"
+        - "{{opening_quote}} — Evocative opener"
+        - "{{overview}} — 2-3 sentence description"
+      per_image:
+        - "{{index}} — Shot number"
+        - "{{location}} — Where in the world"
+        - "{{time}} — Time of shot"
+        - "{{caption}} — Brief caption"
+        - "{{filename}} — Image filename"
+        - "{{subjects}} — Array of who/what appears"
+        - "{{prompt_file}} — Prompt sidecar path"
+        - "{{mined_file}} — Mining sidecar path"
+      footer:
+        - "{{style_notes}} — Artistic direction notes"
+        - "{{closing_quote}} — Tagline"
+    instructions: "See template file for full documentation"
+
+# METHODS
+
+methods:
+  CREATE:
+    description: "Create SLIDESHOW.md for a directory of images"
+    parameters:
+      directory: "Directory containing images (default: current)"
+      title: "Gallery title"
+      style: "Narrative style (timeline, journey, comparison, random)"
+    output: file (SLIDESHOW.md)
+    invoked_by: [player, script, auto]
+    note: "Often followed by LANDING to create README.md"
+    
+  LANDING:
+    description: "Create README.md landing page for GitHub display"
+    signature: "LANDING [directory] (FOR [slideshow])"
+    parameters:
+      directory: "Directory containing SLIDESHOW.md"
+      slideshow: "Path to SLIDESHOW.md (default: ./SLIDESHOW.md)"
+    output: file (README.md)
+    philosophy: |
+      GitHub renders README.md automatically, not SLIDESHOW.md.
+      Use README.md as the front door:
+        - Title, tagline, metadata table
+        - Featured characters (with links)
+        - Featured locations (with links)
+        - Fresh story summary (not copy-paste from SLIDESHOW)
+        - Link into the actual story
+      
+      The SLIDESHOW.md stays pure narrative — no clutter.
+    inputs:
+      - "SLIDESHOW.md — the story to summarize"
+      - "-mined.yml files — character/location details"
+      - "Character directories — for linking"
+      - "Room directories — for linking"
+    invoked_by: [player, script, auto]
+    typically_after: [CREATE, ORGANIZE]
+    
+  UPDATE:
+    description: "Add new images to existing SLIDESHOW.md"
+    parameters:
+      directory: "Directory containing SLIDESHOW.md"
+      images: "New images to add (or auto-detect)"
+    output: file (updated SLIDESHOW.md)
+    invoked_by: [player, script, auto]
+    
+  SUMMARIZE:
+    description: "Create summary from prompt and mining sidecars"
+    parameters:
+      image: "Image file path"
+      prompt_sidecar: "Associated .yml prompt file"
+      mining_sidecar: "Associated -mined.yml file"
+    output: text (narrative description)
+    invoked_by: [CREATE, UPDATE]
+    
+  ORGANIZE:
+    description: "Move SLIDESHOW.md and images into named subdirectory"
+    parameters:
+      slideshow: "Path to SLIDESHOW.md"
+      name: "Subdirectory name (lowercase-dashed)"
+    output: directory (reorganized files)
+    invoked_by: [player]
+    
+  COMPARE:
+    description: "Cross-image comparison section"
+    parameters:
+      images: "Images to compare"
+      criteria: "Comparison criteria (style, mood, subject, etc.)"
+    output: text (comparison section)
+    invoked_by: [CREATE, UPDATE]
+
+# SLIDESHOW STRUCTURE
+
+structure:
+  front_matter:
+    inherits: slideshow
+    title: string
+    created: datetime
+    images_count: number
+    
+  sections:
+    - header: "# Title and intro quote"
+    - overview: "Brief description of the gallery"
+    - gallery: "Image entries with descriptions"
+    - stats: "Summary table"
+    - style_notes: "Artistic direction"
+    - connections: "James Burke style links"
+    
+  entry_format: |
+    ## 📍 Shot N: Location (Time)
+    
+    ### *"Caption quote"*
+    
+    ![Alt text](image-file.png)
+    
+    **Location:** Where this was taken
+    
+    **Who's Here:**
+    - 👩 Character 1 description
+    - 🐒 Character 2 description
+    
+    📎 **Files:** [Prompt](prompt.yml) | [Resources](prompt-mined.yml)
+
+# INHERITANCE
+
+inheritance:
+  pattern: |
+    SLIDESHOW.md files should declare inheritance:
+    
+    ```yaml
+    ---
+    inherits: slideshow
+    title: "Gallery Title"
+    created: 2026-01-19
+    ---
+    ```
+    
+    This enables:
+    - Consistent structure
+    - Auto-update capabilities
+    - Gallery discovery
+    - Cross-slideshow linking
+
+# ORGANIZATION PATTERN
+
+organization:
+  pattern: |
+    When a directory accumulates images, ORGANIZE them:
+    
+    BEFORE:
+      pub/
+        SLIDESHOW.md
+        image-1.png
+        image-1.yml
+        image-1-mined.yml
+        image-2.png
+        ...
+    
+    AFTER:
+      pub/
+        dons-pub-photos-2026-01-19/
+          SLIDESHOW.md
+          image-1.png
+          image-1.yml
+          image-1-mined.yml
+          image-2.png
+          ...
+    
+  naming: "lowercase-dashes, descriptive, date-suffixed if temporal"
+
+# ADVERTISEMENTS
+
+advertisements:
+  PRESENT-IMAGES:
+    score: 90
+    condition: "Directory has images needing gallery"
+    
+  UPDATE-GALLERY:
+    score: 85
+    condition: "New images added to directory with SLIDESHOW.md"
+    
+  ORGANIZE-GALLERY:
+    score: 80
+    condition: "SLIDESHOW.md has many images, needs own directory"
+    
+  SUMMARIZE-METADATA:
+    score: 75
+    condition: "Images have sidecars, need narrative synthesis"
+
+# STATE
+
+state:
+  current_slideshow:
+    path: { type: path }
+    image_count: { type: number }
+    last_updated: { type: datetime }
+  pending_images:
+    paths: { type: array }
+
+# OUTPUT TARGETS
+
+targets:
+  github:
+    description: "GitHub markdown rendering"
+    features:
+      - "Inline images"
+      - "Collapsible sections"
+      - "Tables"
+      - "Emoji support"
+    note: "Primary target — death-scrollable on mobile and desktop"
+    
+  social:
+    description: "Social media friendly excerpts"
+    features:
+      - "Tweet-sized summaries"
+      - "Single image + caption"
+      - "Thread structure"
+      
+  presentation:
+    description: "Slide deck generation"
+    features:
+      - "One image per slide"
+      - "Speaker notes from metadata"
+    future: true
+
+# RELATED
+
+see-also:
+  - skills/visualizer        # Creates the images we present
+  - skills/image-mining      # Extracts resources we summarize
+  - skills/storytelling-tools
+  - skills/markdown
+  - skills/room
+  - skills/character

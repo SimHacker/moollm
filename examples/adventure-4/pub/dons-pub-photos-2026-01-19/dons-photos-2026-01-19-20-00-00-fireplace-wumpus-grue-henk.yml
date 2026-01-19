@@ -1,0 +1,152 @@
+# Don's Pub Photos — Shot 7: The Fireplace
+# First-person phone camera, IMPOSSIBLE GUESTS
+# "You'll never believe who showed up..."
+# CONTEXT FULLY EXPANDED from maze/wumpus.yml, maze/grue.yml, pub/fireplace.yml
+
+prompt:
+  style: |
+    iPhone photo, first-person POV, warm fireplace lighting.
+    The impossible photo — creatures of darkness and caves, civilized.
+    Slightly unbelievable, dreamlike quality, but presented as candid.
+    "I swear this actually happened" energy.
+    Warm fire glow vs shadows. Surreal coziness.
+
+  scene: |
+    THE HEARTH, main pub floor, 8:00 PM.
+    
+    ═══════════════════════════════════════════════════════════
+    THE FIREPLACE ENVIRONMENT (from pub/fireplace.yml)
+    ═══════════════════════════════════════════════════════════
+    
+    THE FIREPLACE ITSELF:
+    - LARGE STONE fireplace dominating one wall
+    - Crackling warmly, fire always just right
+    - Never seems to need tending (magic? love?)
+    - Blackened stones with centuries of soot
+    - Names and dates carved into mantle
+      (adventurers who warmed themselves before heading into darkness)
+    
+    THE MANTLE (cluttered with curios):
+    - SHIP IN A BOTTLE: Gift from a sailor who never returned
+    - MYSTERIOUS KEY: No one knows what it opens (plot hook)
+    - SMALL PORTRAIT: Bartender's grandmother? Or something else?
+    - TIP JAR: Contains exactly 7 gold at all times (mystery)
+    
+    THE HEARTHSTONE:
+    - Worn smooth by countless boots
+    - ODD SYMBOL carved into it...
+    - (It's a teleportation rune. Say the right word...)
+    - (The bartender knows. Information costs.)
+    
+    WORN ARMCHAIRS:
+    - Several arranged around the fire
+    - Leather, ancient, comfortable
+    - One chair is MUCH larger than the others (Wumpus-sized)
+    
+    ATMOSPHERE:
+    - Fire crackles, sparks drift up the chimney
+    - Warmth seeps into bones after the cold of the maze
+    - For a moment, everything feels safe
+    - (But you know better than to trust that feeling)
+    
+    ═══════════════════════════════════════════════════════════
+    FEATURED CHARACTERS (explicit visual descriptions)
+    ═══════════════════════════════════════════════════════════
+    
+    THE WUMPUS (in an armchair, barely fitting):
+    - MASSIVE creature, fills the entire armchair and then some
+    - LEATHERY HIDE, glistening slightly in firelight
+    - Dark greenish-brown coloration, ancient texture
+    - Too many TEETH — but currently smiling politely
+    - One huge MILKY EYE, ancient and knowing
+    - OLD ARROW SCAR visible on hide (from past hunters)
+    - Currently wearing... READING GLASSES? (perched on nose ridge)
+    - TINY TEACUP held delicately in enormous clawed hands
+    - Inexplicably wearing a HAT (jaunty angle)
+    - Looking at camera with surprisingly GENTLE expression
+    - Smells like sulfur, wet dog, and regret (you can almost see it)
+    - The creature from Hunt the Wumpus (1973), civilized tonight
+    - "Oddly polite before eating you" — but tonight, just polite
+    - Invited guest. Standing invitation from tribunal.
+    
+    THE GRUE (in the shadows BESIDE the fire):
+    - Exists where firelight doesn't quite reach
+    - BARELY VISIBLE — mostly just:
+      * GLOWING EYES in the darkness
+      * SO MANY TEETH (gleaming in shadow)
+      * A suggestion of form, more darkness than creature
+    - One SHADOWY APPENDAGE raised in GREETING
+    - Waving at camera. Friendly. Tonight.
+    - "It is pitch black. You are likely to be... having tea?"
+    - NOT eating anyone tonight. Special occasion.
+    - The firelight holds it at bay, but it's comfortable there
+    - The ABSENCE OF LIGHT given form
+    - GRM high score holder on Pac-Man (how? who knows)
+    
+    HENK (in his usual chair, completely unbothered):
+    - Older Dutch man, 60s-70s, worn coat
+    - Espresso #6 in hand, raised in slight toast
+    - Weathered face, knowing eyes
+    - COMPLETELY UNBOTHERED by the cosmic horror guests
+    - He's seen weirder. He always has.
+    - Giving camera a slight nod of acknowledgment
+    - The Constant. Was here before Marieke.
+    - "Philosophy is just comedy without timing"
+    
+    LILY (Linalool, on Henk's lap):
+    - Soft grey kitten with LAVENDER-TINTED ears
+    - Curled up peacefully, eyes half-closed
+    - INEXPLICABLY COMFORTABLE even with monsters present
+    - She senses they mean no harm tonight
+    - The empath kitten who always knows
+    - Purring softly, spa soundtrack frequency
+    - They understand something together
+    
+    W.W. JACOBS (ghost, hovering in another chair):
+    - TRANSLUCENT Victorian-era gentleman
+    - The author of "The Monkey's Paw" (1902)
+    - Ghostly form, slightly glowing silver
+    - Proper suit, mutton chops, dignified bearing
+    - Watching from another armchair
+    - Expression: FINALLY AT PEACE
+    - 122 years of his curse causing suffering
+    - Tonight he watched someone break it with kindness
+    - Spectral teacup in ghostly hands
+    - Panel member from the tribunal
+    
+    ═══════════════════════════════════════════════════════════
+    ATMOSPHERIC DETAILS
+    ═══════════════════════════════════════════════════════════
+    
+    - Crackling flames, warm orange glow
+    - Ancient hearthstone with mysterious inscriptions
+    - Smoke curling up the chimney
+    - The intersection of light and dark
+    - Warmth vs the cold of the maze these creatures came from
+    - Other patrons giving wide berth (sensible)
+    - Stroopwafel supervising from a safe distance
+    - The cats accepted the Wumpus. That matters.
+
+  mood: |
+    Surreal coziness. The impossible made comfortable.
+    Mortal enemies (adventurer, wumpus, grue) sharing a fireside moment.
+    The magic of the Grotto: even monsters are welcome.
+    The Dutch concept of gezelligheid: cozy togetherness.
+    Even primordial darkness can be invited in from the cold.
+    Fire crackles. Sparks drift. Everything feels safe.
+    (But you know better. Tonight, safety is real.)
+
+  technical:
+    aspect_ratio: 4:3
+    style: phone_camera_candid
+    time_of_day: "8:00 PM"
+    camera_position: first-person from entrance to fireside area
+
+sources_expanded:
+  wumpus: maze/wumpus.yml (physical descriptions, personality quirks)
+  grue: maze/grue.yml (exists in darkness, teeth, nature)
+  henk: pub/guest-book.yml
+  lily: characters/animals/kitten-linalool/CHARACTER.yml
+  ww_jacobs: pub/guest-book.yml, marathon-session.md (tribunal panel)
+  fireplace: pub/fireplace.yml (full object details)
+  pub_room: pub/ROOM.yml (venues/the_fireside section)

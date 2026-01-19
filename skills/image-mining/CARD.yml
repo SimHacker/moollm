@@ -1,6 +1,6 @@
 # CARD.yml — Image Mining
 #
-# Extract semantic resources from images.
+# SNIFFABLE INTERFACE — see SKILL.md for full documentation
 # "I mine pixels for atoms. Reality is just compressed resources."
 
 card:
@@ -9,112 +9,113 @@ card:
   type: [skill, vision, extraction, automation]
   emoji: ⛏️📷
   rarity: uncommon
-  
   tagline: "Mine pixels for atoms. Your camera is a pickaxe."
   
   description: |
-    Extract semantic resources from any image. Give the vision LLM
-    a shopping list of what you want, it mines the image and returns
-    quantities, intensities, and YAML Jazz observations.
+    Extract semantic resources from any visual content.
+    Works on: photos, screenshots, graphs, PDFs, diagrams.
+    Output: YAML Jazz with quantities, intensities, observations.
+
+# K-LINES
+
+k-lines:
+  activates:
+    - IMAGE-MINING
+    - VISUAL-EXTRACTION
+    - YAML-JAZZ
+  related:
+    - { ref: visualizer, relation: "creates images to mine" }
+    - { ref: slideshow, relation: "presents mined galleries" }
+    - { ref: postal, relation: "camera integration" }
+
+# METHODS — signatures only, see SKILL.md for details
+
+methods:
+  MINE:
+    signature: "MINE [image] (WITH [shopping-list]) (AT [depth])"
+    output: "YAML Jazz extraction"
     
-    Resource types can be ANYTHING:
-    - Objects, materials, colors, textures
-    - Moods, emotions, atmosphere
-    - Inferred smells, sounds, temperatures
-    - Philosophical: meaning, symbolism, existence
-
-# YAML JAZZ — The Output Style
-#
-# YAML Jazz: Comments are SEMANTIC DATA, not just documentation!
-# Structure is the melody. Comments are the improvisation.
-# 
-# RULES:
-#   1. COMMENT LIBERALLY — Every insight deserves a note
-#   2. Observations go in `#` comments inline with values
-#   3. Longer thoughts go in `notes:` fields
-#   4. Metaphors, hunches, uncertainties — CAPTURE THEM ALL
-#   5. The LLM should "think out loud" in comments
-#
-# EXAMPLE:
-#   gold:
-#     quantity: 200           # Piled in mounds, some coins ancient
-#     confidence: 0.9         # Clear visibility in torchlight
-#     notes: |
-#       Mix of Roman denarii and medieval florins.
-#       Suggests centuries of accumulation — this was a 
-#       thieves' hoard, not a king's treasury.
-#
-# Comments make mining results RICHER and more USEFUL.
-# An uncommented extraction is like a song without soul.
-
-yaml_jazz:
-  definition: |
-    YAML Jazz treats comments as first-class semantic data.
-    Structure provides the backbone; comments provide the insight.
-    LLMs reading YAML Jazz get BOTH the data AND the reasoning.
-  principles:
-    - "Comments are not optional — they ARE the value"
-    - "Inline comments for quick observations"
-    - "notes: fields for longer thoughts"
-    - "Capture confidence, hunches, metaphors"
-    - "Think out loud — the reader benefits from your reasoning"
-  encouragement: |
-    COMMENT EVERYTHING. When you mine an image:
-    - Why did you estimate that quantity?
-    - What visual cues led to this inference?
-    - What's uncertain? What surprised you?
-    - What metaphors capture the essence?
+  MULTI-LOOK:
+    signature: "MULTI-LOOK [image] FOCUS [lens] (AS [miner-id])"
+    output: "New layer appended to -mined.yml"
     
-    The best mining results read like poetry annotated by a geologist.
+  SCAN:
+    signature: "SCAN [image]"
+    output: "Quick resource preview"
+    
+  PROSPECT:
+    signature: "PROSPECT [direction|DEEP]"
+    output: "List of mining targets"
 
-# OPERATION MODES
+# DEPTH LEVELS
+
+depth_levels:
+  - surface      # Objects, materials, colors
+  - deep         # Hidden meanings, emotions
+  - sensations   # Colors (hex), textures, smells
+  - characters   # Identify who appears (needs character files)
+  - philosophical # Meaning, symbolism, existence
+  - full         # All combined
+
+# LENSES (for MULTI-LOOK)
+
+lenses:
+  - technical    # Composition, lighting, color theory
+  - narrative    # Who, why, what moment
+  - cultural     # Language markers, traditions
+  - emotional    # Expressions, body language
+  - symbolic     # Metaphors, hidden meanings
+  - character    # Identity, relationships
+  - character-deep # Match against character files
+  - historical   # Art history, period markers
+  - cast-list    # Exhaustive identification
+
+# ADVERTISEMENTS
+
+advertisements:
+  MINE-IMAGE:
+    score: 95
+    condition: "Have image, want semantic resources"
+    
+  MULTI-LOOK-MINING:
+    score: 88
+    condition: "Image has existing mining, want deeper interpretation"
+    
+  EXTRACT-COLORS:
+    score: 90
+    condition: "Need color palette from image"
+    
+  PHILOSOPHICAL-MINING:
+    score: 85
+    condition: "Extract deep meaning from visual"
+
+# MODES — brief, see SKILL.md for full explanation
 
 modes:
   native:
-    description: "LLM with vision reads protocol, looks at image, mines directly"
-    requires: "Vision-capable LLM (Cursor, Claude, GPT-4V, Gemini)"
-    how: |
-      1. Include PROTOCOL.md in context (or just this CARD.yml)
-      2. Point LLM at image path or paste image
-      3. Provide shopping list of resources
-      4. LLM outputs YAML Jazz extraction — COMMENT LIBERALLY!
-    tier: 0  # No tools needed, just knowledge!
-    
+    description: "LLM reads image directly — PREFERRED"
+    tier: 0
+  remote-with-llm-assembly:
+    description: "LLM assembles context, calls vision API"
+  multi-model:
+    description: "Layer perspectives from different models"
   tool:
-    description: "Use mine.py for automation or external LLM calls"
-    requires: "Python, httpx, API keys"
-    how: |
-      mine.py image.jpg gold,gems,danger --depth philosophical
-    tier: 2  # Script execution
-    
-  mcp:
-    description: "Expose as MCP tool for any orchestrator"
-    parameters:
-      image: "path or base64"
-      resources: "array of resource types"
-      depth: "surface | deep | sensations | philosophical | full"
+    description: "mine.py for automation/batch"
+    tier: 2
 
-# PROTOCOL FILE (for context injection)
+# SISTER SCRIPT
 
-protocol:
-  file: PROTOCOL.md
-  purpose: "Concise mining instructions for LLMs"
-  include_when: "LLM needs to mine but doesn't have mine.py"
+script:
+  name: mine.py
+  path: skills/image-mining/mine.py
+  commands: [mine, scan, schema, providers]
 
-# ENVIRONMENT VARIABLES
+# ENVIRONMENT
 
 environment:
-  OPENAI_API_KEY:
-    enables: openai
-    models: [gpt-4o, gpt-4o-mini]
-    
-  GOOGLE_API_KEY:
-    enables: google  
-    models: [gemini-2.0-flash, gemini-1.5-pro]
-    
-  ANTHROPIC_API_KEY:
-    enables: anthropic
-    models: [claude-3.5-sonnet, claude-3-opus]
+  OPENAI_API_KEY: { enables: openai }
+  GOOGLE_API_KEY: { enables: google }
+  ANTHROPIC_API_KEY: { enables: anthropic }
 
 # TOOLS
 
@@ -122,215 +123,54 @@ tools:
   required: [read_file, write_file]
   optional: [run_terminal_cmd]
 
-tier: 2  # May execute scripts
+tier: 2
 
-# SISTER SCRIPT
+# EXTENSIBILITY — brief, see SKILL.md for analyzer pipeline details
 
-script:
-  name: mine.py
-  path: skills/image-mining/mine.py
-  
-  commands:
-    mine:
-      description: "Extract resources from image"
-      usage: "mine.py IMAGE [RESOURCES] [OPTIONS]"
-      examples:
-        - "mine.py treasure.jpg"
-        - "mine.py photo.jpg --depth philosophical"
-        - "mine.py scene.jpg gold,gems,danger,mood"
-        - "mine.py photo.jpg --resources schema.yml"
-        - "cat wanted.yml | mine.py photo.jpg -"
-        
-    scan:
-      description: "Quick preview of mineable resources"
-      usage: "mine.py scan IMAGE"
-      
-    schema:
-      description: "Output example shopping list"
-      usage: "mine.py schema --depth LEVEL"
-      
-    providers:
-      description: "List available vision providers"
-      usage: "mine.py providers"
-      
-  depth_levels:
-    surface: "Objects, materials, colors visible"
-    deep: "Hidden meanings, emotions, atmosphere"
-    sensations: "Colors (hex), textures, smells, sounds"
-    philosophical: "Meaning, symbolism, existence"
-    full: "All depth levels combined"
+extensibility:
+  analyzers: "Pluggable modules: pose, object, OCR, face, leela-models"
+  pipeline: "pre-process → analyzers → llm-vision → post-process"
+  leela-models: "leela://customer-id/model-name"
 
-# RESOURCE CATEGORIES
+# RESOURCE TYPES — brief
 
 resource_types:
-  materials:
-    description: "Physical resources"
-    examples: [iron-ore, copper-ore, wood, stone, water]
-    
-  organics:
-    description: "Living/once-living resources"
-    examples: [leaves, seeds, fish, bone, feathers]
-    
-  precious:
-    description: "Valuable resources"
-    examples: [gold, gems, artifacts, rare-elements]
-    
-  sensations:
-    description: "Colors, textures, implied senses"
-    examples: [sunset-orange, rough-wood, fresh-bread-aroma, warmth]
-    
-  abstract:
-    description: "Conceptual resources"
-    examples: [knowledge, emotions, mood, atmosphere, time]
-    
-  philosophical:
-    description: "Deep resources (high depth required)"
-    examples: [existence, narrative, mortality, beauty, meaning]
-
-# METHODS
-
-methods:
-  MINE:
-    description: "Extract resources from image"
-    signature: "MINE [image] (WITH [shopping-list]) (AT [depth])"
-    parameters:
-      image: "Image file to mine"
-      shopping_list: "Resource types to extract"
-      depth: "surface | deep | sensations | philosophical | full"
-    output: "YAML Jazz with quantities, intensities, observations"
-    invoked_by: [player, script]
-    
-  SCAN:
-    description: "Preview yields without full extraction"
-    signature: "SCAN [image]"
-    output: "Quick resource preview"
-    invoked_by: [player]
-    
-  PROSPECT:
-    description: "Detect mineable resources nearby"
-    signature: "PROSPECT [direction|DEEP]"
-    output: "List of potential mining targets"
-    invoked_by: [player]
-
-# MINING MECHANICS
-
-mechanics:
-  exhaustion:
-    description: "Images can be mined multiple times until depleted"
-    fields:
-      total: "Total resources available"
-      remaining: "Resources not yet extracted"
-      per_turn: "Max extraction per mining operation"
-      exhausted: "Boolean, true when fully mined"
-      
-  parallel_extraction:
-    description: "Vision LLM extracts all requested resources in one pass"
-    note: "Shopping list + image → parallel object recognition"
-    
-  yaml_jazz_output:
-    description: "Comments are semantic data, not just documentation"
-    rule: "COMMENT EVERYTHING — observations, hunches, metaphors, uncertainties"
-    example: |
-      gold:
-        quantity: 150       # Piles of coins, some ancient
-        confidence: 0.85    # Clear in torchlight, some obscured by shadow
-        notes: |
-          Mix of eras — Roman denarii alongside medieval florins.
-          This wasn't a king's treasury. This was a thief's hoard,
-          accumulated over centuries. The dust says no one's been here
-          in a very long time. Except whatever left those footprints.
-
-# EXAMPLE OUTPUT
-
-example_output: |
-  # Mining results for treasure-room.jpg
-  # Depth: full
-  # Provider: openai/gpt-4o
-  # 
-  # YAML JAZZ: Comments are data! Think out loud!
-  
-  resources:
-    gold:
-      quantity: 150           # Piled in mounds — not scattered, PLACED
-      confidence: 0.85        # Torchlight glints clearly off the metal
-      notes: |
-        Mix of Roman denarii and medieval florins. Centuries of
-        accumulation. This isn't a king's orderly treasury — this is
-        a thieves' hoard. Generations of stolen wealth, piled and
-        forgotten. The dust layer says nobody's touched it in ages.
-      
-    danger:
-      intensity: 0.7          # Not immediate, but PRESENT
-      confidence: 0.75        # Hard to see into the corners
-      sources:
-        - "Skeleton in corner — previous seeker, didn't make it"
-        - "Shadows too dark for natural torchlight — something absorbs"
-        - "Dust undisturbed except ONE trail — something still comes here"
-      notes: "This hoard is guarded. Or cursed. Probably both."
-      
-    nostalgia:
-      intensity: 0.4          # Whisper of lost civilizations
-      confidence: 0.6         # Subjective, but the coins evoke it
-      notes: "Who were they? Where did this come from? All gone now."
-      
-    dominant_colors:
-      - name: "treasure-gold"
-        hex: "#FFD700"
-        coverage: 0.4         # Catches the eye first — that's the point
-      - name: "shadow-purple"
-        hex: "#2D1B4E"
-        coverage: 0.3         # Where the danger lives
-      - name: "warning-red"
-        hex: "#8B0000"
-        coverage: 0.1         # Dried blood? Rust? Both?
-        
-    implied_smells:
-      - dust                  # Centuries of it
-      - old metal             # Copper, bronze, the tang of coins
-      - something rotting     # Not recent, but not ancient either
-      
-  exhausted: false
-  mining_notes: |
-    Rich lode for material and philosophical mining.
-    The image is ABOUT greed and its costs. The skeleton says everything.
-    Deeper mining would yield mortality, passage of time, hubris.
-    
-    # Meta-observation: This image wants to be a warning.
-    # "Here lies what you seek — and what happens when you find it."
+  - materials    # iron-ore, wood, stone
+  - organics     # leaves, seeds, feathers
+  - precious     # gold, gems, artifacts
+  - characters   # palm, biscuit, marieke (needs metadata)
+  - sensations   # colors, textures, smells
+  - abstract     # mood, atmosphere, time
+  - philosophical # meaning, mortality, beauty
 
 # STATE
 
 state:
-  mined_images: { type: array }
-  last_extraction: { type: object }
-
-# ADVERTISEMENTS
-
-advertisements:
-  MINE_IMAGE:
-    score: 95
-    condition: "Have image, want semantic resources"
-  EXTRACT_COLORS:
-    score: 90
-    condition: "Need color palette from image"
-  PHILOSOPHICAL_MINING:
-    score: 85
-    condition: "Extract deep meaning from visual"
+  mined_images: []
+  last_extraction: null
 
 # RELATED
 
-see_also:
-  - skills/visualizer         # Creates images to mine
-  - skills/logistic-container # Stores mined resources
-  - skills/postal             # Camera integration
-  - skills/adventure          # World integration
+see-also:
+  - skills/visualizer
+  - skills/slideshow
+  - skills/logistic-container
+  - skills/postal
 
 # LINEAGE
 
 lineage:
   parent: [decompose, visualizer]
   inspiration: ["Minecraft mining", "Photography as extraction"]
-  philosophy: |
-    Every image is compressed information.
-    Mining decompresses it into resources.
-    Your camera is a pickaxe for reality.
+
+# DOCUMENTATION POINTERS
+
+documentation:
+  SKILL.md:
+    - "§ YAML Jazz — full protocol and examples"
+    - "§ Operation Modes — when to use each"
+    - "§ Extensible Analyzer Pipeline — custom models"
+    - "§ Character Recognition — matching metadata"
+    - "§ Multi-Look Mining — layered interpretation"
+    - "§ Example Outputs — complete mining results"
+  PROTOCOL.md: "Concise instructions for LLM context injection"

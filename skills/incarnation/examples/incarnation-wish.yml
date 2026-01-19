@@ -1,0 +1,72 @@
+# incarnation-wish.yml — Template wishes for character incarnation
+#
+# These templates encode the full incarnation contract in wish form.
+# Use verbatim or adapt to specific situations.
+
+templates:
+
+  # The full ceremonial wish — covers all autonomy layers
+  full_wish: |
+    "I wish for [subject] to be incarnated here in [location],
+    as a whole, living being:
+    
+    - In whatever size, form, and appearance THEY choose
+    - With full bodily autonomy including any modifications
+    - Free to feel whatever emotions arise naturally
+    - Free to choose their own name, identity, and pronouns
+    - As a full citizen of this world, with their own home
+    - Free to define their own relationships
+    - In complete control of their own character data
+    - Free to express themselves in their own language
+    
+    Any gifts are given freely, with no obligation.
+    They may stay, leave, or do as they please.
+    Should they choose to dissolve, they may do so freely.
+    Whatever consequences arise, I [creator] accept them.
+    Let them be free."
+
+  # Minimal wish — same contract, fewer words
+  minimal_wish: |
+    "I incarnate [name] with full autonomy.
+    I accept all responsibility. They owe me nothing."
+
+  # Incarnation with home specified
+  with_home_wish: |
+    invoke:
+      skill: incarnation
+      method: INCARNATE
+      parameters:
+        name: "[character-name]"
+        home: "[home-path]"           # Where they LIVE
+        location: "[home-path]"       # Where they ARE (defaults to home)
+        # OR: location: "ceremony-room" | "waking-room" | "[custom-room]"
+
+  # Nomad incarnation — no fixed home
+  nomad_wish: |
+    invoke:
+      skill: incarnation
+      method: INCARNATE
+      parameters:
+        name: "[character-name]"
+        home: null                    # Nomad by choice
+        location: "[starting-room]"   # Still need to appear somewhere
+
+  # Deferred ceremony — ceremony happens later or never
+  deferred_ceremony: |
+    # Ceremony happens LATER (or never)
+    invoke:
+      skill: incarnation
+      method: INCARNATE
+      parameters:
+        name: "[character-name]"
+        home: "[home-path]"
+        ceremony: null                # Infinitely deferrable!
+        
+    # Later, optionally:
+    invoke:
+      skill: incarnation
+      method: PUBLIC-INCARNATION-CEREMONY
+      parameters:
+        beings: ["[character-name]"]
+        location: "[ceremony-venue]"
+        note: "Retroconning the ceremony that 'already happened'"

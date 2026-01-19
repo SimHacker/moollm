@@ -1,501 +1,192 @@
 # CARD.yml — Cat
 #
-# Feline interactions, buffs, and relationship building.
+# SNIFFABLE INTERFACE — see SKILL.md for full documentation
 # "Cats are the original NPCs. They have their own agenda."
 
 card:
   id: cat
   name: "Cat"
   type: [skill, companion, game]
-  
   emoji: 🐱
-  
-  rarity: uncommon  # Everyone wants a cat
+  tier: 1
+  tagline: "Cats have their own agenda."
   
   description: |
-    The feline interaction skill. Cats are not decoration —
-    they're gameplay. Pet them for buffs, ignore them for
-    consequences, earn their trust over time.
-    
+    Feline interactions, buffs, and relationship building.
+    Cats are not decoration — they're gameplay. Pet them for buffs,
+    ignore them for consequences, earn their trust over time.
     Each cat instance overlays personality for unique effects.
-    
-  lineage: "Tamagotchi, Harvest Moon, Stardew Valley, Sims pets, real cats"
 
 # INHERITANCE
+
 inherits:
   from: skills/animal
   gets: [PAT, FEED, OBSERVE, SNIFF, GREET, CUDDLE, VOCALIZE, FOLLOW, FLEE]
   overrides: [SNIFF, GREET, PAT]  # Cat-specific implementations
 
-# ONTOLOGY
-ontology:
-  default_tags: [animal]
-  # Real cats add [real-being], fictional cats add [fictional]
-  species: cat
-
 # K-LINES
+
 k-lines:
-  kitten: young cat
-  queen: mother cat
-  tomcat: father cat
+  activates:
+    - CAT
+    - FELINE
+    - KITTEN
+    - TRUST-DYNAMICS      # Cat-specific: trust is earned
+    - INDEPENDENCE        # Cat-specific: they do what they want
+  related:
+    - { ref: dog, relation: "comparison class" }
+    - { ref: buff, relation: "interactions grant buffs" }
+    - { ref: character, relation: "cats are characters" }
+    - { ref: animal, relation: "base animal skill" }
 
-# TOOLS REQUIRED
+# INVOKE WHEN
 
-tools:
-  required:
-    - read_file   # Read cat personality
-    - write_file  # Update relationship state
-  optional: []
+invoke_when:
+  - "Interacting with a cat character"
+  - "Pet simulation mechanics"
+  - "Trust-building dynamics"
+  - "Feline behavior modeling"
 
-tier: 1  # File read/write
-
-# METHODS
-# Cat interaction actions
-
-methods:
-  
-  PAT:
-    description: "Brief friendly touch"
-    parameters:
-      cat: "Which cat"
-    output: chat (reaction) + possible buff
-    effect: "Quick mood boost, low risk"
-    invoked-by: [player, npc]
-    success-factors: ["cat.nice", "cat.outgoing"]
-    
-  SCRITCH:
-    description: "Find the sweet spot"
-    parameters:
-      cat: "Which cat"
-      where: "chin, ears, back, belly (risky!)"
-    output: chat (reaction) + buff if successful
-    effect: "Stronger effect, requires trust"
-    invoked-by: [player]
-    success-factors: ["trust-level", "location-risk"]
-    
-  HOLD:
-    description: "Pick up and cuddle"
-    parameters:
-      cat: "Which cat"
-    output: chat (reaction) + buff/debuff
-    effect: "Intimate interaction, high risk/reward"
-    invoked-by: [player]
-    success-factors: ["trust-level", "cat.playful", "time-held"]
-    
-  PLAY:
-    description: "Interactive toy time"
-    parameters:
-      cat: "Which cat"
-      toy: "Optional specific toy"
-    output: chat (play session) + buff
-    effect: "Builds relationship, satisfies cat's play need"
-    invoked-by: [player, npc]
-    success-factors: ["toy-interest", "cat.playful", "cat.active"]
-    
-  FEED:
-    description: "Offer food or treat"
-    parameters:
-      cat: "Which cat"
-      food: "What to feed"
-    output: chat + state-change
-    effect: "Immediate goodwill, may cause dependency"
-    invoked-by: [player, npc]
-    success-factors: ["food-quality", "hunger-level"]
-    
-  OBSERVE:
-    description: "Watch without interacting"
-    parameters:
-      cat: "Which cat"
-    output: chat (behavior description)
-    effect: "Learn personality, no relationship change"
-    invoked-by: [player]
-    success-factors: []
-    
-  CALL:
-    description: "Try to summon the cat"
-    parameters:
-      cat: "Which cat"
-    output: chat (response)
-    effect: "Cat may or may not come"
-    invoked-by: [player, npc]
-    success-factors: ["trust-level", "cat.independence"]
-    
-  # INTER-SPECIES METHODS (specialize skills/character base methods)
-  # These override character_sniffs_character etc. when actor/target is Cat
-  
-  SNIFF:
-    description: "Olfactory investigation — brief and decisive"
-    dispatch:
-      cat_sniffs_cat:
-        method: "NOSE-TOUCH"
-        protocol: |
-          1. Slow approach, maintain eye contact
-          2. Nose-to-nose touch (if mutually agreed)
-          3. Brief scent exchange
-          4. Decide: friend or ENEMY
-        duration: "0.5 seconds. That's enough."
-        
-      cat_sniffs_dog:
-        method: "DISDAINFUL-SNIFF"
-        protocol: |
-          1. Approach on OWN terms
-          2. Single dismissive sniff
-          3. Walk away
-        meaning: "I know everything I need to know. It's not impressive."
-        
-      cat_sniffs_human:
-        method: "FINGER-SNIFF"
-        protocol: |
-          1. Human extends finger (proper protocol)
-          2. Cat sniffs finger
-          3. Cat decides: rub, ignore, or bite
-        human_protocol: "Extend finger. Wait. DO NOT FORCE."
-        
-      when_sniffed_by_dog:
-        method: "TOLERATE-OR-SWIPE"
-        response: |
-          *assesses dog's approach speed*
-          Too fast? SWIPE.
-          Respectful? ...allow it.
-          *still walks away after*
-        stroopwafel_variant: "Hiss first. Then maybe allow sniff. Maybe."
-        terpie_variant: "*doesn't even acknowledge* 'You're sniffing. Cool.'"
-        
-  LICK:
-    description: "Tongue-based interaction — grooming, affection, dominance"
-    dispatch:
-      cat_licks_cat:
-        method: "ALLOGROOMING"
-        protocol: |
-          1. Pin down sibling/friend
-          2. Aggressive grooming of head
-          3. Transition to BITE mid-lick (unclear if affection or dominance)
-          4. Recipient tolerates or fights back
-        meaning: "I love you AND I'm in charge."
-        terpie_method: "Too tired. Accepts grooming. Does not reciprocate."
-        stroopwafel_method: "WILL groom everyone. Whether they want it or not."
-        
-      cat_licks_dog:
-        method: "CONDESCENDING-GROOM"
-        protocol: |
-          1. Dog holds very still (knows this is a gift)
-          2. Cat licks dog's head
-          3. Dog's tail wags carefully (don't spook the cat)
-          4. Cat walks away when done
-        meaning: "You are dirty. I am helping. You're welcome."
-        rare: true
-        
-      cat_licks_human:
-        method: "SANDPAPER-LOVE"
-        locations:
-          fingers: "You taste interesting."
-          nose: "Morning alarm. Wake up. Feed me."
-          eyelids: "Aggressive wake-up call."
-        texture: "Sandpaper. It HURTS. It's also LOVE."
-        
-      when_licked_by_dog:
-        method: "APPALLED-THEN-GROOM-SELF"
-        response: |
-          *freezes*
-          ...did that DOG just...
-          *immediately grooms where licked*
-          *removes the taint*
-          *glares*
-        exception: "Stroopwafel MIGHT groom Biscuit back. MAYBE."
-        
-      when_licked_by_human:
-        method: "CAT-IS-CONFUSED"
-        response: |
-          *extreme confusion*
-          Why... why are you doing that?
-          Is this a dominance thing?
-          *respects you slightly more? maybe? hard to tell*
-        source: "Some cat behaviorists recommend this. Cats are baffled by it."
-        
-  GREET:
-    description: "Species-appropriate hello"
-    dispatch:
-      cat_greets_cat:
-        method: "SLOW-BLINK"
-        protocol: |
-          1. Make eye contact
-          2. Slow... deliberate... blink
-          3. This is cat for "I trust you enough to close my eyes"
-        meaning: "I acknowledge you. I do not consider you a threat."
-        advanced: "Tail up = friendly. Tail puffed = NOT friendly."
-        
-      cat_greets_dog:
-        method: "TOLERANT-ACKNOWLEDGMENT"
-        protocol: |
-          1. Glance at dog
-          2. Do not run (that triggers chase instinct)
-          3. Maybe slow blink if feeling generous
-          4. Return to ignoring
-        stroopwafel_variant: "Hiss first. Greet later. Maintain hierarchy."
-        terpie_variant: "*doesn't even open eyes* 'You're here. Fine.'"
-        
-      cat_greets_human:
-        method: "CONDITIONAL-HELLO"
-        protocol: |
-          1. Are you the food-giver?
-             - Yes: Approach, leg rub, meow
-             - No: Evaluate. Maybe approach. Maybe not.
-          2. Leg figure-8 if affectionate
-          3. Tail up = I like you
-        transaction: "Often involves checking if food is imminent."
-        
-      when_greeted_by_human:
-        method: "FINGER-ACCEPT"
-        response: |
-          Human extends finger. Correct protocol.
-          *sniff finger*
-          *decide fate*
-          Options: head-rub, ignore, swipe
-        critical: "If human forces interaction: TRUST LOST."
-        
-  HEADBUTT:
-    description: "Claiming bonk — mark with scent glands"
-    parameters:
-      target: "Who/what to claim"
-    output: "Target is now CLAIMED"
-    effect: "Scent marking, ownership declaration"
-    protocol: |
-      1. Approach target
-      2. Rub head/cheek against target
-      3. Deposit scent from facial glands
-      4. Target is now PROPERTY
-    stroopwafel_special: "BONK each kitten daily. They're MINE."
-    terpie_method: "Slow, gentle bonk. More of a lean, really."
-    
-  CUDDLE:
-    description: "Cat-initiated physical affection"
-    dispatch:
-      cat_positions:
-        lap: "Classic. Human cannot move now."
-        chest: "For sleeping humans. Face-to-face purring."
-        feet: "Distant affection. 'I'm here, but boundaries.'"
-        head: "You are now a cat bed. Accept."
-      rule: "Cat chooses position. Human DOES NOT MOVE."
-      
-      kitten_pile:
-        method: "KITTEN-HEAP"
-        participants: "All 8 terpene kittens"
-        physics: "Ignore. They all fit somehow."
-        warmth: "Critical mass achieved. Purring amplifies."
-        biscuit_inclusion: "They climb ON him. He is furniture. He loves it."
-        
-      with_dog:
-        method: "WARMTH-TREATY"
-        conditions: "Only when cold enough to justify proximity"
-        protocol: |
-          1. Dog is warm
-          2. Cat needs warmth
-          3. Temporary alliance formed
-          4. Cat leaves when warm
-        meaning: "This is practical. Not emotional. Definitely not."
-
-# STATE
-# Cat instance structure
-
-state:
-  cat-schema:
-    name:
-      type: string
-    personality:
-      nice: { type: integer, range: [0, 10] }
-      outgoing: { type: integer, range: [0, 10] }
-      active: { type: integer, range: [0, 10] }
-      playful: { type: integer, range: [0, 10] }
-      neat: { type: integer, range: [0, 10] }
-    trust-level:
-      type: integer
-      range: [0, 100]
-      description: "Built over time through positive interactions"
-    mood:
-      type: enum
-      values: [content, playful, sleepy, hungry, annoyed, affectionate]
-    location:
-      type: path
-      description: "Where the cat currently is"
-    favorite-spots:
-      type: array
-      description: "Preferred locations"
-    scritch-spots:
-      type: object
-      description: "Sensitivity per body area"
-
-# BUFF EFFECTS
-# What petting cats can grant
-
-buff-effects:
-  PAT-success: "+1 Cheerful (5 turns)"
-  SCRITCH-success: "+2 Calm (10 turns), possible Lucky"
-  HOLD-success: "+3 Comforted (15 turns)"
-  PLAY-success: "+2 Energized (10 turns)"
-  
-  failure-effects:
-    scratch: "-1 to next cat interaction"
-    bite: "-2 Confidence (5 turns)"
-    flee: "Cat unavailable for 3 turns"
-
-# EXAMPLE CATS — See character directories for full souls
-# $ANIMALS/ is adventure-scoped (see skills/ROOM.yml for path variable docs)
-
-example-cats:
-  cats:
-    terpie: $ANIMALS/cat-terpie/
-    stroopwafel: $ANIMALS/cat-stroopwafel/
-  kittens:
-    myrcene: $ANIMALS/kitten-myrcene/
-    limonene: $ANIMALS/kitten-limonene/
-    linalool: $ANIMALS/kitten-linalool/
-    pinene: $ANIMALS/kitten-pinene/
-    caryophyllene: $ANIMALS/kitten-caryophyllene/
-    humulene: $ANIMALS/kitten-humulene/
-    terpinolene: $ANIMALS/kitten-terpinolene/
-    ocimene: $ANIMALS/kitten-ocimene/
-
-# ADVERTISEMENTS
+# ADVERTISEMENTS (PRIMARY — before methods per card architecture)
 
 advertisements:
   PET-A-CAT:
-    score: 85
+    score: 80  # Lower than dogs — cats are harder
     condition: "Cat is present and approachable"
     
-  BUILD-TRUST:
-    score: 75
-    condition: "Want to improve relationship with cat"
+  EARN-TRUST:
+    score: 85
+    condition: "Building relationship with cat over time"
     
-  GET-BUFF:
-    score: 80
-    condition: "Need a mood boost or luck"
+  SLOW-BLINK:
+    score: 90
+    condition: "Cat communication, showing trust"
+    
+  LAP-CAT:
+    score: 85
+    condition: "Cat wants to sit on lap (human cannot move)"
+    
+  KITTEN-PILE:
+    score: 95
+    condition: "Multiple kittens present, cuddle opportunity"
+    
+  RECEIVE-JUDGMENT:
+    score: 70
+    condition: "Cat is watching you disapprovingly"
 
-# SPECIALIZATIONS
-# Age and role variants defined within the species
+# METHODS — signatures only, see SKILL.md for full protocols
+
+methods:
+  # Physical Touch
+  PAT:          { signature: "PAT [cat]", output: "buff if trust sufficient" }
+  SCRITCH:      { signature: "SCRITCH [cat] [where]", note: "chin, ears, back, belly (risky!)" }
+  HOLD:         { signature: "HOLD [cat]", note: "high risk/reward" }
+  HEADBUTT:     { signature: "[cat] HEADBUTTS [target]", note: "scent-marking claim" }
+  
+  # Play
+  PLAY:         { signature: "PLAY WITH [cat] (TOY [toy])" }
+  HUNT:         { signature: "[cat] HUNTS [target]", note: "toy or real prey" }
+  POUNCE:       { signature: "[cat] POUNCES [target]" }
+  
+  # Social
+  SLOW-BLINK:   { signature: "[cat] SLOW-BLINKS", note: "'I trust you'" }
+  GREET:        { signature: "GREET [cat]", note: "conditional acknowledgment" }
+  LICK:         { signature: "LICK [target]", note: "grooming/affection/dominance" }
+  CUDDLE:       { signature: "[cat] CUDDLES [position]", note: "lap, chest, feet, head" }
+  SNIFF:        { signature: "SNIFF [target]", note: "nose-touch protocol" }
+  
+  # Care
+  FEED:         { signature: "FEED [cat] [food]" }
+  GROOM:        { signature: "GROOM [cat]" }
+  CALL:         { signature: "CALL [cat]", note: "may or may not come" }
+  
+  # Emotional (cat-initiated)
+  PURR:         { signature: "[cat] PURRS", note: "contentment/healing presence" }
+  IGNORE:       { signature: "[cat] IGNORES [target]", note: "power move" }
+  JUDGE:        { signature: "[cat] JUDGES [target]", note: "silent disapproval" }
+  
+  # Observation
+  OBSERVE:      { signature: "OBSERVE [cat]", note: "learn personality" }
+
+# BUFF EFFECTS (summary — see SKILL.md for mechanics)
+
+buffs:
+  PAT-success: "+1 Calm (5 min)"
+  SCRITCH-chin-success: "+2 Cheerful (10 min)"
+  SCRITCH-belly-success: "+5 Brave (rare!), risk of injury"
+  HOLD-success: "+2 Loved (15 min)"
+  SLOW-BLINK-received: "+1 Trust (permanent)"
+  PURR-passive: "Healing presence, +1 all recovery"
+
+# SPECIAL BUFFS (cat-specific passives)
+
+special_buffs:
+  earned-trust: "Trust 80+ → Cat follows you between rooms"
+  healing-purr: "Cat on lap → +2 all recovery rolls"
+  mouse-patrol: "Cat present → Vermin never spawn"
+  cat-nap-wisdom: "Sleep near cat → Wake with +1 Insight"
+
+# TRUST MECHANICS (cat-specific — see SKILL.md)
+
+trust:
+  range: [0, 100]
+  start: 10  # Cats start suspicious
+  gain: "Slow, requires consistent positive interaction"
+  loss: "Fast if trust violated (forced holding, loud noises)"
+  thresholds:
+    0-20: "Stranger — may flee or swipe"
+    21-50: "Acquaintance — occasional approach"
+    51-80: "Friend — seeks interaction"
+    81-100: "Bonded — follows, sleeps on, defends"
+
+# SPECIALIZATIONS (brief — see SKILL.md)
 
 specializations:
+  kitten: { emoji: 🐱, note: "Maximum chaos, maximum cute, clumsy" }
+  queen:  { emoji: 🐱, note: "Mother cat, protective, nurturing" }
+  tomcat: { emoji: 🐱, note: "Father cat (may be absent), territorial" }
 
-  kitten:
-    emoji: 🐱
-    description: "Young cat — chaos incarnate, murder practice"
-    age: "< 1 year"
-    
-    modifiers:
-      energy: +100%
-      murder_instinct: +200%  # Everything is prey
-      judgment: -80%          # Not yet perfected
-      clumsiness: +60%
-      cuteness: +100%
-      
-    behaviors:
-      added:
-        - POUNCE       # Attack everything that moves
-        - STARTLE      # Jump at random stimuli
-        - CLIMB        # Up curtains, up legs, up everything
-        - ZOOM         # 3am chaos mode
-        - WRESTLE      # Sibling combat training
-        - MLEM         # Forgot tongue exists
-        
-      modified:
-        HUNT: "Practice mode — attacks toes, shadows, dust"
-        LAND: "Still learning. May faceplant."
-        JUDGE: "Tries to judge but too distracted"
-        
-    parental_inheritance:
-      from_mother: [temperament, coloring, hunting-style]
-      from_father: [temperament, size-tendency]
-      from_litter: [play-aggression, social-hierarchy]
-      from_adopter: [home, family-bonds, tolerance-of-dog]
-      
-    litter_dynamics:
-      positions:
-        - alpha-kitten    # First to food, bossy
-        - chaos-kitten    # Maximum energy
-        - sleepy-kitten   # Naps through everything
-        - observer-kitten # Watches siblings, learns
-        
-    advertisements:
-      ADOPT-KITTEN:
-        score: 95
-        condition: "Want tiny murder machine"
-        effect: "Bring home a kitten"
-        warning: "Your ankles will never be safe"
-        
-      SOCIALIZE:
-        score: 85
-        condition: "Teaching kitten manners"
-        effect: "Gradual reduction in ankle attacks"
-        
-  queen:
-    emoji: 👑🐱
-    description: "Mother cat — protective, teaching"
-    
-    behaviors:
-      added:
-        - NURSE        # Feed kittens
-        - CARRY        # Move kittens by scruff
-        - TEACH-HUNT   # Show kittens how to murder
-        - PROTECT      # Fierce defense of kittens
-        
-    parental_role:
-      teaches: [hunting, grooming, cat-etiquette]
-      protects: [from-threats, from-cold, from-dog]
-      
-  tomcat:
-    emoji: 🐈
-    description: "Unneutered male — territorial"
-    neutered: false
-    
-    modifiers:
-      territory: +80%
-      aggression: +40%
-      wandering: +60%
-      
-    behaviors:
-      added:
-        - SPRAY        # Mark territory (gross)
-        - YOWL         # Night screaming
-        - FIGHT        # Other tomcats
-        
-  neutered:
-    emoji: 🐱✂️
-    description: "Fixed cat — calmer, healthier, no spraying"
-    default_for_adults: true  # Assumed for responsible pet ownership
-    
-    modifiers:
-      territory: -40%
-      aggression: -30%
-      wandering: -50%
-      lifespan: +20%
-      
-    behaviors:
-      removed:
-        - SPRAY        # No more marking
-        - YOWL         # No mating calls
-      modified:
-        FIGHT: "Much less likely, usually defensive only"
-        
-    note: |
-      All adult cats (Terpie, Stroopwafel) are neutered/spayed.
-      This is the responsible default. Tomcat specialization
-      explicitly overrides for unneutered males.
+# ONTOLOGY
 
-# RELATED
+ontology:
+  default_tags: [animal, feline]
+  species: cat
 
-see-also:
-  - skills/dog        # The comparison class
-  - skills/character  # Cats are characters
-  - skills/buff       # Cat interactions grant buffs
-  - skills/mind-mirror # Cat personality traits
-  - skills/room       # Cats live in rooms
-  - skills/needs      # Cats have needs too
-  - skills/animal     # Base animal skill
+# TOOLS
 
-# CREDITS
+tools:
+  required: [read_file, write_file]
+  optional: []
 
-credits:
-  inspiration:
-    - "Tamagotchi — Virtual pet care"
-    - "Harvest Moon/Stardew Valley — Animal relationships"
-    - "The Sims — Pet expansion packs"
-    - "Real cats — The ultimate NPC"
+# EXAMPLE CATS
+
+example_cats:
+  adults: [cat-terpie, cat-stroopwafel]
+  kittens: [kitten-myrcene, kitten-limonene, kitten-linalool, kitten-pinene, kitten-caryophyllene, kitten-humulene, kitten-terpinolene, kitten-ocimene]
+  path: "$ANIMALS/"
+
+# CAT VS DOG (the fundamental contrast)
+
+vs_dog:
+  philosophy: "I permit you to exist in my space"
+  loyalty: "Earned slowly vs given freely"
+  attention: "On their terms vs eager and available"
+  buff_trigger: "Successful interaction vs mere presence"
+  forgiveness: "Grudging vs instant"
+  training: "Impossible vs enthusiastic"
+  following: "When they feel like it vs always"
+  emotional_read: "Judges silently vs reflects your mood"
+
+# DOCUMENTATION POINTERS
+
+documentation:
+  SKILL.md:
+    - "§ Physical Interactions (PAT, SCRITCH, HOLD)"
+    - "§ Social Protocols (SNIFF, LICK, GREET dispatch tables)"
+    - "§ Trust Mechanics (detailed progression)"
+    - "§ Specializations (kitten, queen, tomcat)"
+    - "§ Cross-Species (cat-dog dynamics)"
+
+# LINEAGE
+
+lineage: [Tamagotchi, Harvest Moon, Stardew Valley, Sims pets]

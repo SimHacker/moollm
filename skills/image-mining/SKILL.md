@@ -22,6 +22,34 @@ Your camera isn't just a recorder — it's a **PICKAXE FOR VISUAL REALITY**.
 
 ---
 
+## 📑 Index
+
+**Quick Start**
+- [The Core Insight](#the-core-insight)
+- [Preferred Mode: Native LLM Vision](#preferred-mode-native-llm-vision)
+
+**Operation Modes**
+- [When to Use Remote API](#when-to-use-remote-api)
+- [What Can Be Mined](#what-can-be-mined)
+
+**Extensibility**
+- [Extensible Analyzer Pipeline](#extensible-analyzer-pipeline)
+- [Leela Customer Models](#leela-customer-models)
+- [Adding Your Own Analyzer](#adding-your-own-analyzer)
+
+**Protocols**
+- [YAML Jazz Output Style](#yaml-jazz-output-style)
+- [How Mining Works](#how-mining-works)
+- [Character Recognition](#character-recognition)
+- [Multi-Look Mining](#multi-look-mining)
+
+**Reference**
+- [Depth Levels](#depth-levels)
+- [Resource Categories](#resource-categories)
+- [Example Outputs](#example-outputs)
+
+---
+
 ## The Core Insight
 
 ```
@@ -41,9 +69,128 @@ Just like the Kitchen Counter breaks down:
 
 ---
 
-## Two Image Sources
+## Preferred Mode: Native LLM Vision
 
-### 1. Generated Images (AI creates from prompt)
+> *"The LLM IS the context assembler. Don't script what it does naturally."*
+
+When mining images, **prefer native LLM vision** (Cursor/Claude reading images directly):
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    NATIVE MODE (PREFERRED)                       │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  Cursor/Claude already has:                                     │
+│    ✓ The room YAML (spatial context)                           │
+│    ✓ Character files (who might appear)                        │
+│    ✓ Previous mining passes (what's been noticed)              │
+│    ✓ The prompt.yml (what was intended)                        │
+│    ✓ The whole codebase (cultural references)                  │
+│                                                                 │
+│  Just READ the image. The context is already there.            │
+│  No bash commands. No sister scripts. Just LOOK.               │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Why Native Beats Remote API
+
+| Aspect | Native (Cursor/Claude) | Remote API (mine.py) |
+|--------|------------------------|----------------------|
+| Context | Already loaded | Must be assembled |
+| Prior mining | Visible in chat | Passed via stdin |
+| Room context | Just read the file | Python parses YAML |
+| Synthesis | LLM does it naturally | Script concatenates |
+| Iteration | Conversational | Re-run command |
+
+### When to Use Remote API
+
+Use `mine.py` or remote API calls when:
+- **Multi-perspective mining** — different models see different things!
+- **Batch processing** — mining 100 images overnight
+- **CI/CD** — automated pipelines with no LLM orchestrator
+- **Rate limiting** — your LLM can't do vision but can call one that does
+
+**Multi-perspective is the killer use case:** Claude sees narrative, GPT-4V sees objects, Gemini sees spatial relationships. Layer them all for rich interpretation.
+
+Even then, have the **orchestrating LLM assemble the context**:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                REMOTE API WITH LLM ASSEMBLY                      │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  1. LLM reads context files (room, characters, prior mining)   │
+│  2. LLM synthesizes: "What to look for in this image"          │
+│  3. LLM calls remote vision API with image + synthesized prompt│
+│  4. LLM post-processes response into YAML Jazz                 │
+│                                                                 │
+│  The SMART WORK happens in the orchestrating LLM.              │
+│  Remote API just does vision with good instructions.           │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Native Mode Workflow
+
+```bash
+# DON'T do this:
+python mine.py image.png --context room.yml --characters chars/ --prior mined.yml
+
+# DO this (in Cursor/Claude):
+# 1. Read the image
+# 2. Read room.yml, character files, prior -mined.yml
+# 3. Look at the image with all that context
+# 4. Write YAML Jazz output
+```
+
+The LLM context window IS the context assembly mechanism. Use it.
+
+---
+
+## What Can Be Mined
+
+Image mining works on **ANY visual content**, not just AI-generated images:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    MINEABLE SOURCES                              │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  🎨 AI-Generated Images                                         │
+│     - DALL-E, Midjourney, Stable Diffusion outputs              │
+│     - Has prompt.yml sidecar with generation context            │
+│                                                                 │
+│  📸 Real Photos                                                  │
+│     - Phone camera, DSLR, scanned prints                        │
+│     - No prompt — mine what you see                             │
+│                                                                 │
+│  📊 Graphs and Charts                                            │
+│     - Data visualizations, dashboards                           │
+│     - Extract trends, outliers, relationships                   │
+│                                                                 │
+│  🖥️ Screenshots                                                  │
+│     - UI states, error messages, configurations                 │
+│     - Mine the interface, not just pixels                       │
+│                                                                 │
+│  📝 Text Images                                                  │
+│     - Scanned documents, handwritten notes, signs               │
+│     - OCR + semantic extraction                                 │
+│                                                                 │
+│  📄 PDFs                                                         │
+│     - Documents, papers, invoices                               │
+│     - Cursor may already support — try it!                      │
+│                                                                 │
+│  🗺️ Maps and Diagrams                                            │
+│     - Architecture diagrams, floor plans, mind maps             │
+│     - Extract spatial relationships                             │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Source Examples
+
+**Generated Image (has context):**
 
 ```yaml
 postal:
@@ -57,7 +204,7 @@ postal:
       prompt: "Rich iron ore vein in cavern wall, glittering..."
 ```
 
-### 2. Real Photos (Upload from phone/camera)
+**Real Photo (mine what you see):**
 
 ```yaml
 postal:
@@ -68,11 +215,229 @@ postal:
   attachments:
     - type: image
       action: upload
-      source: "camera_roll"      # Or file upload
+      source: "camera_roll"
       file: "treasure-room.jpg"
 ```
 
-**Both become mineable resources!**
+**Screenshot (extract UI state):**
+
+```yaml
+# Mine the error dialog
+resources:
+  error-type: "permission-denied"
+  affected-file: "/etc/passwd"
+  suggested-action: "run as sudo"
+  stack-depth: 3
+```
+
+**Graph (extract data relationships):**
+
+```yaml
+# Mine the sales chart
+resources:
+  trend: "upward"
+  peak-month: "december"
+  anomaly: "march-dip"
+  yoy-growth: "23%"
+```
+
+**All become mineable resources!**
+
+---
+
+## Extensible Analyzer Pipeline
+
+> *"Different images need different tools. The CLI is a pipeline, not a monolith."*
+
+The `mine.py` CLI supports pluggable analyzers that run before, during, or after LLM vision:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    ANALYZER PIPELINE                             │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  1. PRE-PROCESSORS                                              │
+│     resize, normalize, enhance, format conversion               │
+│                                                                 │
+│  2. CUSTOM ANALYZERS (parallel or sequential)                   │
+│     ├── pose-detection (MediaPipe, OpenPose)                   │
+│     ├── object-detection (YOLO, Detectron2)                    │
+│     ├── ocr-extraction (Tesseract, PaddleOCR)                  │
+│     ├── face-analysis (expression, demographics)                │
+│     └── leela-customer-models (your trained models!)           │
+│                                                                 │
+│  3. LLM VISION                                                  │
+│     Receives ALL prior results as context                       │
+│     Synthesizes semantic interpretation                         │
+│                                                                 │
+│  4. POST-PROCESSORS                                             │
+│     format, validate, merge into final YAML Jazz                │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Example: Multi-Analyzer Pipeline
+
+```bash
+mine.py fashion-shoot.jpg \
+  --analyzer pose-detection \
+  --analyzer face-analysis \
+  --analyzer leela://acme/gesture-classifier \
+  --depth philosophical
+```
+
+This runs:
+1. **pose-detection** — Extracts body keypoints, gesture classification
+2. **face-analysis** — Detects expressions, demographics
+3. **leela://acme/gesture-classifier** — Customer's trained model from Leela registry
+4. **LLM vision** — Gets ALL the above as context, synthesizes final interpretation
+
+### Leela Customer Models
+
+Pull customer-specific models trained on the Leela platform:
+
+```bash
+# From Leela model registry
+mine.py widget-photo.jpg --analyzer leela://customer-id/defect-detector-v3
+
+# Local model file
+mine.py widget-photo.jpg --analyzer ./models/my-classifier.pt
+```
+
+Output merges into the mining YAML:
+
+```yaml
+leela_analysis:
+  model: "acme-widget-defect-v3"
+  customer: "acme-corp"
+  detections:
+    - class: "hairline_crack"
+      confidence: 0.91
+      severity: "minor"
+      location: "top_left_quadrant"
+```
+
+### Adding Your Own Analyzer
+
+```python
+# analyzers/my_analyzer.py
+
+def analyze(image_path: str, config: dict) -> dict:
+    """Run analysis, return structured data for YAML output."""
+    # Your model inference here
+    return {
+        "my_analysis": {
+            "detected": ["thing1", "thing2"],
+            "confidence": 0.95
+        }
+    }
+
+def can_handle(image_path: str, context: dict) -> bool:
+    """Return True if this analyzer should run on this image."""
+    # Auto-detect logic, or return False for explicit-only
+    return "manufacturing" in context.get("tags", [])
+```
+
+Register in `analyzers/registry.yml`:
+
+```yaml
+analyzers:
+  my-analyzer:
+    module: "analyzers.my_analyzer"
+    auto-detect: true
+    requires: ["torch", "my-model-package"]
+```
+
+### Why Pipeline Beats Monolith
+
+| Approach | Pros | Cons |
+|----------|------|------|
+| **Monolith** | Simple | Can't add domain models |
+| **Pipeline** | Extensible, composable | Slightly more complex |
+
+The LLM is great at semantic synthesis, but it can't run your custom pose detection model. The pipeline lets each tool do what it's best at:
+
+- **Custom models** → Precise detection, trained on your data
+- **LLM vision** → Semantic interpretation, narrative synthesis
+- **Together** → The best of both worlds
+
+---
+
+## YAML Jazz Output Style
+
+> *"Comments are SEMANTIC DATA, not just documentation!"*
+
+YAML Jazz is the output format for mining results. Structure provides the backbone; comments provide the insight.
+
+### The Rules
+
+1. **COMMENT LIBERALLY** — Every insight deserves a note
+2. **Inline comments** for quick observations
+3. **`notes:` fields** for longer thoughts
+4. **Capture confidence, hunches, metaphors**
+5. **Think out loud** — the reader benefits from your reasoning
+
+### Example Output
+
+```yaml
+# Mining results for treasure-room.jpg
+# Depth: full | Provider: openai/gpt-4o
+
+resources:
+  gold:
+    quantity: 150           # Piled in mounds — not scattered, PLACED
+    confidence: 0.85        # Torchlight glints clearly off the metal
+    notes: |
+      Mix of Roman denarii and medieval florins. Centuries of
+      accumulation. This isn't a king's orderly treasury — this is
+      a thieves' hoard. Generations of stolen wealth, piled and
+      forgotten. The dust layer says nobody's touched it in ages.
+    
+  danger:
+    intensity: 0.7          # Not immediate, but PRESENT
+    confidence: 0.75        # Hard to see into the corners
+    sources:
+      - "Skeleton in corner — previous seeker, didn't make it"
+      - "Shadows too dark for natural torchlight — something absorbs"
+      - "Dust undisturbed except ONE trail — something still comes here"
+    notes: "This hoard is guarded. Or cursed. Probably both."
+    
+  nostalgia:
+    intensity: 0.4          # Whisper of lost civilizations
+    confidence: 0.6         # Subjective, but the coins evoke it
+    notes: "Who were they? Where did this come from? All gone now."
+    
+  dominant_colors:
+    - name: "treasure-gold"
+      hex: "#FFD700"
+      coverage: 0.4         # Catches the eye first — that's the point
+    - name: "shadow-purple"
+      hex: "#2D1B4E"
+      coverage: 0.3         # Where the danger lives
+      
+  implied_smells:
+    - dust                  # Centuries of it
+    - old metal             # Copper, bronze, the tang of coins
+    - something rotting     # Not recent, but not ancient either
+    
+exhausted: false
+mining_notes: |
+  Rich lode for material and philosophical mining.
+  The image is ABOUT greed and its costs. The skeleton says everything.
+  
+  # Meta-observation: This image wants to be a warning.
+  # "Here lies what you seek — and what happens when you find it."
+```
+
+### Why Comments Matter
+
+An uncommented extraction is like a song without soul. The best mining results read like **poetry annotated by a geologist**.
+
+When you mine, capture:
+- Why you estimated that quantity
+- What visual cues led to this inference
+- What's uncertain, what surprised you
+- Metaphors that capture the essence
 
 ---
 
@@ -756,10 +1121,284 @@ resource_economy:
 ## Dovetails With
 
 - **[Visualizer](../visualizer/)** — Images to mine
+- **[Slideshow](../slideshow/)** — Present mined images as narratives
 - **[Logistic Container](../logistic-container/)** — Resource storage
 - **[Postal](../postal/)** — Camera integration, delivery
 - **[Kitchen Counter](../../examples/adventure-4/kitchen/counter.yml)** — DECOMPOSE pattern
 - **[Adventure](../adventure/)** — World integration
+
+---
+
+## Character Recognition
+
+> *"Who's in the picture? Match against your cast list."*
+
+When mining images with known characters, the LLM matches visual features against character metadata.
+
+### How It Works
+
+1. **Load character files** from `characters/` directory
+2. **Extract visual descriptors** — species, clothing, accessories, typical poses
+3. **Match against figures** in the image
+4. **Report confidence, pose, expression, interactions**
+
+### Context Sources
+
+- `characters/*.yml` — character definitions with visual descriptors
+- `characters/*/CARD.yml` — character cards with appearance
+- Room context — who's expected here?
+- Prior mining — who was identified before?
+
+### Example Output
+
+```yaml
+characters_detected:
+  - id: palm
+    name: "Palm"
+    confidence: 0.95
+    location: "center-left"
+    pose: "seated at desk"
+    expression: "scholarly contentment"
+    accessories: ["tiny espresso", "typewriter"]
+    interacting_with: ["kittens", "biscuit"]
+    notes: "Matches Dutch Golden Age portrait style"
+    
+  - id: marieke
+    name: "Marieke"
+    confidence: 0.92
+    location: "behind bar"
+    pose: "waving"
+    expression: "warm welcome"
+    accessories: ["apron with LEKKER text"]
+    
+  - id: unknown-1
+    confidence: 0.0
+    location: "background-right"
+    description: "Figure in shadow, can't identify"
+    possible_matches: ["henk", "wumpus"]
+```
+
+### Tips
+
+- **Provide character files in context** before mining
+- **Include signature accessories** — Palm's espresso, Biscuit's collar
+- **Note relationships** — who stands near whom
+- **Flag unknown figures** for investigation
+- Use `--depth characters` or the `cast-list` lens
+
+---
+
+## Multi-Look Mining
+
+> *"One eye sees objects. Two eyes see depth. Many eyes see truth."*
+
+**Multi-Look Mining** layers interpretations from different perspectives, building up rich semantic sediment like geological strata. Each mining pass adds a new layer of meaning.
+
+### The Technique
+
+```yaml
+# Layer 1: OpenAI GPT-4o
+# Focus: General resource extraction
+layer_1_openai:
+  miner: "gpt-4o"
+  focus: "objects, materials, colors, mood"
+  findings:
+    atmosphere: { intensity: 0.8 }
+    objects: { quantity: 10 }
+    # ... general observations ...
+
+# Layer 2: Claude (Cursor built-in)
+# Focus: Character expression, cultural markers, narrative POV
+layer_2_cursor_claude:
+  miner: "claude-opus-4"
+  focus: "character-expression, cultural-markers, narrative-pov"
+  what_layer_1_missed:
+    - "The SECOND cat on the windowsill"
+    - "The apron text is Dutch (LEKKER)"
+    - "The espresso cup is monkey-sized (intentional)"
+  deeper_resonance:
+    theme: "home is where they wave when you walk in"
+
+# Layer 3: Gemini
+# Focus: Art historical references, compositional analysis
+layer_3_gemini:
+  miner: "gemini-pro-vision"
+  focus: "art-history, composition, color-theory"
+  # ... yet another perspective ...
+```
+
+### Why Multi-Look Works
+
+Different LLMs — and different PROMPTS to the same LLM — notice different things:
+
+| Miner | Strengths | Typical Focus |
+|-------|-----------|---------------|
+| OpenAI GPT-4o | General coverage | Objects, counts, colors |
+| Claude | Nuance, context | Expression, culture, narrative |
+| Gemini | Technical | Composition, art history |
+| Human | Domain expertise | What MATTERS to the use case |
+
+**The sum is greater than the parts.** Each layer adds perspectives the others missed.
+
+### The Paintbrush Metaphor
+
+Think of multi-look mining like painting in layers:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    IMAGE INTERPRETATION                          │
+├─────────────────────────────────────────────────────────────────┤
+│  Layer N+1  →  Specialized focus (your choice)                   │
+│  Layer N    →  New questions raised by Layer N-1                 │
+│  ...                                                            │
+│  Layer 3    →  Art history, composition                          │
+│  Layer 2    →  Character, culture, narrative                     │
+│  Layer 1    →  Objects, materials, basic resources               │
+│  ─────────────────────────────────────────────────────────────  │
+│  ORIGINAL IMAGE                                                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+Each pass reads the PREVIOUS layers before adding its own. The new miner knows what's already been noticed, so it can focus on **what's missing** or offer **alternative interpretations**.
+
+### Multi-Look Protocol
+
+When mining an image with multi-look:
+
+1. **Read existing mining data** (if any)
+2. **Choose your focus** — what perspective will you add?
+3. **Look at the image** with that lens
+4. **Note what prior layers missed** — explicitly!
+5. **Add your layer** with clear attribution
+6. **Suggest next focus** — what should Layer N+1 examine?
+
+### Focus Lenses
+
+Different passes should use different lenses:
+
+| Lens | What It Sees |
+|------|-------------|
+| **Technical** | Composition, lighting, depth of field, color theory |
+| **Narrative** | Who took this? Why? What moment is this? |
+| **Cultural** | Language markers, traditions, historical context |
+| **Emotional** | Expressions, body language, mood |
+| **Symbolic** | Metaphors, allegories, hidden meanings |
+| **Character** | Identity, relationships, motivations |
+| **Historical** | Art history references, period markers |
+| **Economic** | Value, ownership, class markers |
+| **Phenomenological** | What does it FEEL like to be there? |
+
+### Example: Progressive Revelation
+
+**Image:** Marieke waving from behind the bar with Palm the monkey
+
+**Layer 1 (OpenAI):**
+- Objects: woman, monkey, cat, bottles, espresso machine
+- Mood: warm, welcoming
+- Relationships: 3 beings present
+
+**Layer 2 (Claude):**
+- The wave is for a FRIEND, not a stranger
+- LEKKER is untranslatable Dutch — this IS gezelligheid
+- There are TWO cats (Layer 1 missed the windowsill one)
+- The espresso cup is monkey-sized — someone made that for Palm
+- This is a family portrait disguised as a snapshot
+
+**Layer 3 (Art History):**
+- Composition echoes Dutch Golden Age tavern scenes
+- The espresso machine is Art Nouveau (1890-1910 aesthetic)
+- Lighting mimics Vermeer's characteristic window glow
+
+**Layer 4 (Phenomenology):**
+- Temperature: warm, heated by espresso machine and bodies
+- Smell: coffee, old wood, cat fur
+- Sound: the hiss of steam, soft background conversation
+- Touch: worn wood bar top, smooth copper
+
+**Each layer enriches the total understanding.**
+
+### Storing Multi-Look Data
+
+Append new layers to the same `-mined.yml` file:
+
+```yaml
+# Original mining from Layer 1
+resources:
+  atmosphere: ...
+  objects: ...
+
+exhausted: false
+mining_notes: "Initial extraction complete"
+
+# ═══════════════════════════════════════════════════════════════
+# MULTI-LOOK MINING — Layer 2
+# ═══════════════════════════════════════════════════════════════
+
+layer_2_cursor_claude:
+  miner: "claude-opus-4"
+  focus: "character, culture, narrative"
+  date: "2026-01-19"
+  
+  character_analysis:
+    marieke:
+      expression: "genuine warmth"
+      notes: "Duchenne smile — reaches her eyes"
+  
+  what_layer_1_missed:
+    - "Second cat on windowsill"
+    - "LEKKER cultural significance"
+  
+  exhausted: false
+  next_suggested_focus: "art history, lighting analysis"
+
+# ═══════════════════════════════════════════════════════════════
+# MULTI-LOOK MINING — Layer 3
+# ═══════════════════════════════════════════════════════════════
+
+layer_3_art_history:
+  miner: "human/don"
+  focus: "art historical references"
+  # ... and so on ...
+```
+
+### When to Multi-Look
+
+Use multi-look mining when:
+
+- **Rich images** — complex scenes with many elements
+- **Narrative importance** — images central to a story
+- **Comparison needed** — seeing how different perspectives interpret
+- **Building context** — accumulating knowledge about a location/character
+- **Training data** — creating rich examples for future mining
+
+### The Exhaustion Paradox
+
+Unlike single-pass mining, multi-look mining **doesn't exhaust** the image — it **deepens** it:
+
+```yaml
+# Single-pass: extracts and depletes
+pass_1:
+  resources: { gold: 50 }
+  remaining: { gold: 0 }
+  exhausted: true
+
+# Multi-look: adds and enriches
+layer_1:
+  resources: { gold: 50 }
+  exhausted: false  # Still more to see!
+  
+layer_2:
+  resources: { narrative: 1, meaning: 1 }
+  what_layer_1_missed: ["gold coins are Roman denarii"]
+  exhausted: false  # STILL more!
+  
+layer_3:
+  resources: { art_history: 1 }
+  references: ["Pieter Claesz vanitas still life"]
+  exhausted: false  # ALWAYS more to see
+```
+
+**Images are never truly exhausted. There's always another perspective.**
 
 ---
 

@@ -1,367 +1,83 @@
 # CARD.yml — Room
 #
-# Directories as activation contexts where cards come to life.
+# SNIFFABLE INTERFACE — see SKILL.md for full documentation
 # "A room is a directory with atmosphere."
 
 card:
   id: room
   name: "Room"
   type: [skill, spatial, foundational]
-  
   emoji: 🚪
-  
-  rarity: epic  # Central concept
+  tier: 1
+  tagline: "A room is a directory with atmosphere."
   
   description: |
     The foundational spatial metaphor. Directories ARE rooms.
     Rooms have contents, exits, atmosphere. Cards activate
     when played in rooms. Navigation is movement.
 
-# TOOLS REQUIRED
+# FILES INDEX — Activate together for full context
 
-tools:
-  required:
-    - read_file
-    - write_file
-    - list_dir
-  optional: []
+files:
+  docs:
+    - SKILL.md              # Full protocol documentation
+    - README.md             # Human landing page
+    - TOPOLOGY.yml          # Compass rose, navigation patterns
+  templates:
+    - ROOM.yml.tmpl         # Template for new rooms
 
-tier: 1
+# K-LINES
+
+k-lines:
+  activates:
+    - ROOM
+    - SPATIAL
+    - NAVIGATION
+    - DIRECTORY-AS-ROOM
+    - BUILDER-COMMANDS
+  related:
+    - { ref: adventure, relation: "room-based exploration" }
+    - { ref: character, relation: "characters have locations" }
+    - { ref: memory-palace, relation: "spatial organization" }
+
+# INVOKE WHEN
+
+invoke_when:
+  - "Navigate between locations"
+  - "Create new rooms/spaces"
+  - "Describe or examine a location"
+  - "World-building (@DIG, @OPEN, etc.)"
 
 # METHODS — Player Actions
 
 methods:
-  
-  LOOK:
-    description: "Describe the room"
-    parameters:
-      room: "Which room (default: current)"
-    output: chat (narrative description)
-    effect: "Read ROOM.yml, narrate atmospherically"
-    invoked-by: [player, character]
-    
-  ENTER:
-    description: "Move into a room"
-    parameters:
-      room: "Destination"
-    output: chat + state-change
-    effect: "Update location, trigger room events"
-    invoked-by: [player, character]
-    
-  EXIT:
-    description: "Leave through an exit"
-    parameters:
-      direction: "Which exit"
-    output: chat + state-change
-    effect: "Move to connected room"
-    invoked-by: [player, character]
-    
-  CONTENTS:
-    description: "List what's in the room"
-    parameters: {}
-    output: chat
-    effect: "Show objects, characters, exits"
-    invoked-by: [player]
-    
-  ADVERTISE:
-    description: "Show what actions are available"
-    parameters: {}
-    output: chat
-    effect: "Collect and display all advertisements"
-    invoked-by: [player]
+  LOOK:     { signature: "LOOK (AT [thing])" }
+  ENTER:    { signature: "ENTER [room]" }
+  EXIT:     { signature: "EXIT [direction]" }
+  CONTENTS: { signature: "CONTENTS" }
+  ADVERTISE: { signature: "ADVERTISE", note: "show available actions" }
 
-# TINYMUD-STYLE BUILDER COMMANDS
-# 
-# These are the classic MUD world-building commands.
-# Prefix with @ to invoke builder mode.
-# See: TinyMUD (1989), TinyMUCK, LambdaMOO
+# BUILDER COMMANDS (TinyMUD-style, @-prefixed)
 
-builder-commands:
-  
-  DIG:
-    description: "Create a new room (TinyMUD @dig)"
-    usage: "@DIG [room name]"
-    parameters:
-      name: "Name for the new room"
-      direction: "Optional: auto-create exit in this direction"
-      return-exit: "Optional: auto-create return exit"
-    output: directory + ROOM.yml
-    effect: |
-      Creates new room directory with ROOM.yml skeleton.
-      If direction given, creates exit from current room.
-      If return-exit given, creates exit back.
-    example: |
-      @DIG Secret Garden
-      @DIG Treasure Room NORTH (creates N exit + S return)
-    invoked-by: [builder, designer]
-    
-  OPEN:
-    description: "Create an exit to another room (TinyMUD @open)"
-    usage: "@OPEN [direction] TO [destination]"
-    parameters:
-      direction: "Exit name/direction (NORTH, door, portal, etc.)"
-      destination: "Path to target room"
-      bidirectional: "Also create return exit? (default: false)"
-    output: state-change (ROOM.yml exits updated)
-    effect: "Adds exit to current room's ROOM.yml"
-    example: |
-      @OPEN NORTH TO ../maze/
-      @OPEN 'secret door' TO ../treasure/ BIDIRECTIONAL
-    invoked-by: [builder, designer]
-    
-  LINK:
-    description: "Link existing exit to a room (TinyMUD @link)"
-    usage: "@LINK [exit] TO [destination]"
-    parameters:
-      exit: "Which exit to link"
-      destination: "Where it should go"
-    output: state-change
-    effect: "Updates exit destination"
-    invoked-by: [builder]
-    
-  UNLINK:
-    description: "Remove exit destination (leave exit but nowhere)"
-    usage: "@UNLINK [exit]"
-    parameters:
-      exit: "Which exit to unlink"
-    output: state-change
-    effect: "Exit becomes 'nowhere' (for puzzles, locked doors)"
-    invoked-by: [builder]
-    
-  DESCRIBE:
-    description: "Set room description (TinyMUD @describe)"
-    usage: "@DESCRIBE [text] or @DESCRIBE HERE=[text]"
-    parameters:
-      text: "The description text"
-      field: "Which field (description, examine, atmosphere)"
-    output: state-change (ROOM.yml updated)
-    effect: "Updates room's description in ROOM.yml"
-    example: |
-      @DESCRIBE A musty library filled with ancient tomes...
-      @DESCRIBE examine=The bookshelves reach to the ceiling.
-    invoked-by: [builder]
-    
-  NAME:
-    description: "Rename room or object (TinyMUD @name)"
-    usage: "@NAME [new name] or @NAME [object]=[new name]"
-    parameters:
-      target: "What to rename (default: current room)"
-      name: "New name"
-    output: state-change
-    effect: "Updates name field, potentially renames directory"
-    invoked-by: [builder]
-    
-  LOCK:
-    description: "Set access control on exit or room"
-    usage: "@LOCK [exit] = [condition]"
-    parameters:
-      target: "Exit or room to lock"
-      condition: "Lock condition (key, puzzle, character, etc.)"
-    output: state-change
-    effect: "Adds lock condition to exit"
-    example: |
-      @LOCK NORTH = has(brass-key)
-      @LOCK door = puzzle-solved(riddle-1)
-    invoked-by: [builder]
-    
-  UNLOCK:
-    description: "Remove lock from exit"
-    usage: "@UNLOCK [exit]"
-    effect: "Removes lock condition"
-    invoked-by: [builder]
-    
-  TELEPORT:
-    description: "Move instantly to any room (TinyMUD @teleport)"
-    usage: "@TELEPORT [destination] or @TELEPORT [object] TO [destination]"
-    parameters:
-      target: "What to move (default: self)"
-      destination: "Where to go"
-    output: state-change
-    effect: "Instant movement, no exit required"
-    note: "Builder power — skips locks, narratives"
-    invoked-by: [builder]
-    
-  SET:
-    description: "Set room properties/flags"
-    usage: "@SET [property]=[value]"
-    parameters:
-      property: "What to set"
-      value: "Value to set"
-    output: state-change
-    effect: "Updates ROOM.yml property"
-    example: |
-      @SET atmosphere.lighting=dim
-      @SET type=metaphysical
-      @SET framing.mode=performance
-    invoked-by: [builder]
+builder_commands:
+  DIG:       { usage: "@DIG [name] (DIRECTION)", note: "create room" }
+  OPEN:      { usage: "@OPEN [dir] TO [dest]", note: "create exit" }
+  LINK:      { usage: "@LINK [exit] TO [dest]" }
+  UNLINK:    { usage: "@UNLINK [exit]" }
+  DESCRIBE:  { usage: "@DESCRIBE [text]" }
+  NAME:      { usage: "@NAME [new-name]" }
+  LOCK:      { usage: "@LOCK [exit] = [condition]" }
+  UNLOCK:    { usage: "@UNLOCK [exit]" }
+  TELEPORT:  { usage: "@TELEPORT [dest]", note: "builder power" }
+  SET:       { usage: "@SET [prop]=[value]" }
 
-# WORLD GENERATION COMMANDS
-    
-world-generation:
-  
-  GENERATE:
-    description: "Invoke world generation patterns"
-    usage: "@GENERATE [pattern] [parameters]"
-    parameters:
-      pattern: "Generation pattern to use"
-      size: "Optional size/complexity"
-      theme: "Optional theme"
-    output: multiple directories + files
-    effect: "Creates structured room networks"
-    patterns:
-      maze:
-        description: "Generate a maze of interconnected rooms"
-        parameters: [width, height, complexity, theme]
-        example: "@GENERATE maze 5x5 twisty"
-        
-      dungeon:
-        description: "Generate dungeon with rooms, corridors, treasure"
-        parameters: [rooms, depth, difficulty]
-        example: "@GENERATE dungeon rooms=10 difficulty=medium"
-        
-      building:
-        description: "Generate building with floors, rooms, stairs"
-        parameters: [floors, rooms-per-floor, type]
-        example: "@GENERATE building floors=3 type=tavern"
-        
-      neighborhood:
-        description: "Generate connected outdoor locations"
-        parameters: [size, type, density]
-        example: "@GENERATE neighborhood size=small type=village"
-        
-      tree:
-        description: "Generate branching structure (conversation, choices)"
-        parameters: [depth, branching-factor]
-        example: "@GENERATE tree depth=4 branches=3"
-        
-    invoked-by: [designer, worldgen]
-    
-  CONNECT:
-    description: "Auto-connect rooms based on proximity/theme"
-    usage: "@CONNECT [room1] TO [room2] [strategy]"
-    parameters:
-      rooms: "Rooms to connect (or 'ALL' for auto)"
-      strategy: "How to connect (grid, random, thematic)"
-    effect: "Creates sensible exits between rooms"
-    example: |
-      @CONNECT maze/ grid
-      @CONNECT dungeon/ random sparse
-    invoked-by: [designer]
-    
-  POPULATE:
-    description: "Add NPCs and objects to rooms"
-    usage: "@POPULATE [room] WITH [pattern]"
-    parameters:
-      room: "Which room(s)"
-      pattern: "What to add (npcs, treasure, furniture, etc.)"
-      density: "How much"
-    effect: "Creates character and object files in rooms"
-    example: |
-      @POPULATE maze/ WITH monsters density=sparse
-      @POPULATE pub/ WITH patrons count=5
-    invoked-by: [designer]
-    
-  THEME:
-    description: "Apply theme to existing rooms"
-    usage: "@THEME [room] AS [theme]"
-    parameters:
-      room: "Which room(s)"
-      theme: "Theme to apply"
-    effect: "Updates descriptions, objects, NPCs to match theme"
-    example: |
-      @THEME dungeon/ AS gothic-horror
-      @THEME pub/ AS space-cantina
-    invoked-by: [designer]
+# WORLD GENERATION (brief — see SKILL.md)
 
-# STANDARD METHODS (for skill invocation)
-
-methods-standard:
-  
-  CREATE:
-    description: "Create a new room (programmatic)"
-    parameters:
-      name: "Room name"
-      description: "What the room is"
-      exits: "Where it connects"
-    output: directory + file (ROOM.yml)
-    effect: "Create room directory with definition"
-    invoked-by: [designer, world-generation]
-
-# STATE
-
-state:
-  room-schema:
-    id:
-      type: string
-    name:
-      type: string
-    type:
-      type: array
-      description: "Room types (physical, metaphysical, container, etc.)"
-    description:
-      type: string
-    atmosphere:
-      type: object
-      description: "Lighting, sound, feeling"
-    exits:
-      type: object
-      description: "Direction → destination mapping"
-    contents:
-      type: array
-      description: "Objects and characters present"
-    advertisements:
-      type: object
-      description: "Actions the room offers"
-
-# ROOM TYPES
-
-room-types:
-  physical: "Normal navigable space"
-  metaphysical: "Conceptual space (characters/, personas/)"
-  container: "Nested room (cat-cave, bag of holding)"
-  vehicle: "Room that can move (TARDIS, Logo turtle)"
-  repository: "Storage space for collections"
-
-# ANTI-PATTERNS — DO NOT DO THESE
-
-anti-patterns:
-  
-  ascii-maps:
-    prohibition: FORBIDDEN
-    reason: |
-      DO NOT create ASCII art maps of room layouts!
-      
-      Problems:
-      - Indentation is fragile and LLMs are terrible at it
-      - Wastes tokens on visual formatting that breaks easily
-      - High maintenance cost — every change requires careful re-alignment
-      - The exits table in ROOM.yml IS the authoritative map
-      - Navigation tables are more reliable and readable
-      
-      INSTEAD:
-      - Use markdown tables for navigation (| Direction | Destination |)
-      - Trust ROOM.yml exits as the source of truth
-      - Use prose descriptions for atmosphere
-      - Let readers navigate by following links
-      
-    bad-example: |
-      # DON'T DO THIS:
-      ```
-                  NORTH
-                    │
-        WEST ◄──── ROOM ────► EAST
-                    │
-                  SOUTH
-      ```
-      
-    good-example: |
-      # DO THIS:
-      | Direction | Destination |
-      |-----------|-------------|
-      | North | [characters/](../characters/) |
-      | South | [personas/](../personas/) |
-      | East | [skills/](../skills/) |
-      | West | [start/](../start/) |
+world_generation:
+  GENERATE:  { usage: "@GENERATE [pattern] [params]", patterns: [maze, dungeon, building, neighborhood, tree] }
+  CONNECT:   { usage: "@CONNECT [strategy]" }
+  POPULATE:  { usage: "@POPULATE WITH [pattern]" }
+  THEME:     { usage: "@THEME AS [theme]" }
 
 # ADVERTISEMENTS
 
@@ -374,30 +90,54 @@ advertisements:
     score: 85
     condition: "Need a new room for content"
     
+  BUILD-WORLD:
+    score: 85
+    condition: "World-building with @DIG, @OPEN, etc."
+    
   UNDERSTAND-LOCATION:
     score: 80
     condition: "Confused about where things are"
 
-# RELATED
+# ROOM TYPES
 
-see-also:
-  - skills/adventure         # Room-based exploration
-  - skills/memory-palace     # Spatial organization
-  - skills/card              # Cards activate in rooms
-  - skills/character         # Characters have locations
-  - skills/world-generation  # Procedural room creation
-  - skills/representation-ethics  # Room-based framing
+types:
+  physical:    "Normal navigable space"
+  metaphysical: "Conceptual space (characters/, personas/)"
+  container:   "Nested room (cat-cave, bag of holding)"
+  vehicle:     "Room that can move (TARDIS, Logo turtle)"
+  repository:  "Storage space for collections"
 
-# CREDITS
+# STATE SCHEMA (brief — see SKILL.md)
 
-credits:
-  lineage:
-    - "Colossal Cave (1976) — Room-based exploration"
-    - "MUD (1978) — Multi-user dungeons"
-    - "TinyMUD (1989) — @dig, @open, @link builder commands"
-    - "TinyMUCK — Extended building language"
-    - "LambdaMOO (1990) — Programmable rooms"
-    - "Unix — Directories as navigable spaces"
-  builder-commands:
-    - "Jim Aspnes — TinyMUD creator, builder command syntax"
-    - "Pavel Curtis — LambdaMOO, object-oriented rooms"
+state:
+  fields: [id, name, type, description, atmosphere, exits, contents, advertisements]
+
+# ANTI-PATTERNS (brief — see SKILL.md)
+
+anti_patterns:
+  ascii_maps: "FORBIDDEN — fragile, high maintenance, wastes tokens"
+  instead: "Use markdown tables | Direction | Destination |"
+
+# TOOLS
+
+tools:
+  required: [read_file, write_file, list_dir]
+  optional: []
+
+# DOCUMENTATION POINTERS
+
+documentation:
+  SKILL.md:
+    - "§ Builder Commands (@DIG, @OPEN, @LINK, etc.)"
+    - "§ World Generation Patterns"
+    - "§ Room Types"
+    - "§ State Schema"
+    - "§ Anti-Patterns (ASCII maps)"
+  TOPOLOGY.yml: "Compass rose, direction aliases"
+
+# LINEAGE
+
+lineage:
+  - { name: "Colossal Cave", year: 1976 }
+  - { name: "TinyMUD", year: 1989, note: "@dig, @open, @link" }
+  - { name: "LambdaMOO", year: 1990, note: "programmable rooms" }

@@ -1,3 +1,11 @@
+---
+inherits: slideshow
+title: "Palm's Portrait Gallery"
+created: 2026-01-19
+images: 1
+style: dutch-golden-age
+---
+
 # 🐵 Palm's Portrait Gallery
 
 > *"One Monkey, Infinite Typewriters"*
@@ -12,7 +20,7 @@ A visual tribute to Palm, the sovereign soul monkey — once an ACME Monkey's Pa
 
 **The portrait hangs in Palm's Study** — where it was painted, where it belongs.
 
-![Palm's oil painting portrait in Dutch Golden Age style](../../../pub/stage/palm-nook/study/study-2026-01-19-04-03-16-palm-portrait-oil-painting.png)
+![Palm's oil painting portrait in Dutch Golden Age style](../../../pub/stage/palm-nook/study/palm-portrait-session/study-2026-01-19-04-03-16-palm-portrait-oil-painting.png)
 
 **Style:** Dutch Golden Age masters — vivid, three-dimensional oil paint with rich textures, in a gorgeous but tasteful frame
 
@@ -28,7 +36,7 @@ A visual tribute to Palm, the sovereign soul monkey — once an ACME Monkey's Pa
 > *"One monkey with infinite typewriters produces better work than infinite monkeys with one typewriter each. Quality comes from singular focus, not distributed randomness."*
 > — Palm's Theorem
 
-📎 **Files:** [Full Gallery in Palm's Study](../../../pub/stage/palm-nook/study/SLIDESHOW.md) | [Prompt Sidecar](../../../pub/stage/palm-nook/study/study-2026-01-19-04-03-16-palm-portrait-oil-painting.yml) | [Mining Analysis](../../../pub/stage/palm-nook/study/study-2026-01-19-04-03-16-palm-portrait-oil-painting-mined.yml)
+📎 **Files:** [Full Gallery in Palm's Study](../../../pub/stage/palm-nook/study/palm-portrait-session/SLIDESHOW.md) | [Prompt Sidecar](../../../pub/stage/palm-nook/study/palm-portrait-session/study-2026-01-19-04-03-16-palm-portrait-oil-painting.yml) | [Mining Analysis](../../../pub/stage/palm-nook/study/palm-portrait-session/study-2026-01-19-04-03-16-palm-portrait-oil-painting-mined.yml)
 
 ---
 

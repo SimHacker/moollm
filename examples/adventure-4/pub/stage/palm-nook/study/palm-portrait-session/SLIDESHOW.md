@@ -1,3 +1,11 @@
+---
+inherits: slideshow
+title: "Palm's Study — Portrait Gallery"
+created: 2026-01-19
+images: 1
+style: dutch-golden-age
+---
+
 # 🖼️ Palm's Study — Visual Gallery
 
 > *"One Monkey, Infinite Typewriters"*

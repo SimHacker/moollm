@@ -27,6 +27,82 @@
 
 ---
 
+## How to Submit Work (The PRPUSH Protocol)
+
+**When user says "PRPUSH" — the full solo dev cycle:**
+
+### What It Does
+
+1. **Stage & Commit** — `git add -A && git commit`
+2. **Push** — `git push -u origin HEAD`
+3. **Create PR** — synthesized description from all commits since last merge
+4. **Self-Review** — optionally approve the PR (solo dev workflow)
+5. **Merge** — `gh pr merge --merge` (NO SQUASH! Keep all history!)
+6. **Append to CHANGES.md** — document the batch with connections
+
+### The Command
+
+```bash
+# Full workflow (human runs this):
+gh pr create --title "Title" --body "$(cat <<'EOF'
+## Summary
+...synthesized from commits...
+
+## Commits
+- abc1234 feat: thing one
+- def5678 fix: thing two
+
+## Connections
+<!-- James Burke style: how do these connect? -->
+EOF
+)"
+
+# Then merge (keep history!):
+gh pr merge --merge   # NOT --squash!
+```
+
+### Why No Squash?
+
+**Squash loses history.** Every commit tells a story. Every fix has context.
+Future debugging needs `git bisect`. Future archaeology needs granular commits.
+
+The PR batches commits *logically* without destroying them *physically*.
+
+### Solo Dev Self-Review
+
+For solo work, you can approve and merge your own PRs:
+
+```bash
+# Create PR
+gh pr create --title "Add streaming engine" --body "..."
+
+# Self-review (optional, for the record)
+gh pr review --approve --body "LGTM — reviewed own work"
+
+# Merge (preserving all commits!)
+gh pr merge --merge
+```
+
+### Connections Section
+
+Every PRPUSH batch should document James Burke connections:
+
+> **How do these changes connect?**
+> - Streaming → SSE parsing → Cursor interception
+> - Provider abstraction → future Anthropic/Google support
+> - Backpressure → WebSocket prep
+
+The PR description AND the CHANGES.md entry should tell the story.
+
+### Tweet-Sized Summary
+
+End each batch with a one-liner that captures the essence:
+
+> Streaming engine is live. AsyncGenerators all the way down — no callbacks,
+> no buffers, just yields. The SSE format matches Cursor's internals.
+
+---
+
 ## PR Description Protocol
 
 **When creating a Pull Request:**
