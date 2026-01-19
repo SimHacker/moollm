@@ -220,6 +220,44 @@ advertisements:
     output: "SLIDESHOW.md — scrollable gallery with analysis"
     actions: "add, remove, rearrange, clear, regenerate from prompts"
 
+# STYLE GUIDES
+# Reusable style contexts for consistent generation
+
+styles:
+  directory: skills/visualizer/styles/
+  
+  available:
+    jennell-jaquays:
+      file: styles/jennell-jaquays.yml
+      description: "Fantasy illustration legend (1956-2024)"
+      periods:
+        - "Dungeoneer B&W (1976-1979)"
+        - "Judges Guild color (1978-1981)"
+        - "TSR professional (1980-1997)"
+        - "Late maximalist (1985-2000)"
+      signature:
+        - "Non-linear composition"
+        - "Creatures with personality"
+        - "Nested spaces"
+        - "Wonder + danger"
+      usage: "visualize.py scene.yml styles/jennell-jaquays.yml -d exhaustive"
+      tribute: "In memory of a pioneer. Her dungeons go on forever."
+  
+  usage_pattern: |
+    Include a style guide as additional context:
+    
+      visualize.py your-scene.yml styles/jennell-jaquays.yml
+    
+    Or with raw-prompt that references the style:
+    
+      visualize.py your-scene.yml --raw-prompt "In the style of..."
+    
+    Style guides contain:
+    - Artist biography and philosophy
+    - Period variants with characteristics
+    - Prompt templates ready to use
+    - Signature elements checklist
+
 # RELATED
 
 see_also:

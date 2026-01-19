@@ -1,0 +1,120 @@
+# 🎨 VISUALIZER STYLE GUIDES
+# Reusable artist/style contexts for consistent image generation
+#
+# Usage:
+#   visualize.py your-scene.yml styles/jennell-jaquays.yml -d exhaustive
+#
+# Each style guide contains:
+#   - Artist biography and philosophy
+#   - Period variants with specific characteristics
+#   - Color palettes, composition rules, signature elements
+#   - Prompt templates ready to use
+#   - Example prompts for different scenarios
+
+styles:
+
+  # === FANTASY ILLUSTRATION ===
+  
+  jennell-jaquays:
+    file: jennell-jaquays.yml
+    artist: "Jennell Jaquays"
+    years: "1956-2024"
+    category: fantasy-illustration
+    
+    tribute: |
+      Pioneer of tabletop RPG design and fantasy illustration.
+      Her name became a verb: "Jaquaysing the dungeon."
+      Hall of Fame inductee (2017), Kate Wilhelm Solstice Award (2024).
+    
+    periods:
+      dungeoneer_bw:
+        years: "1976-1979"
+        style: "Pen & ink, heavy crosshatching"
+        mood: "Whimsical but grounded D&D aesthetics"
+        
+      judges_guild_color:
+        years: "1978-1981"
+        style: "Acrylic, saturated fantasy colors"
+        mood: "Wonder and danger equally"
+        exemplars: ["Dark Tower", "Caverns of Thracia"]
+        
+      tsr_professional:
+        years: "1980-1997"
+        style: "Polished professional fantasy"
+        mood: "Cover-worthy epic drama"
+        exemplars: ["Dragon Mountain", "Dragon Magazine covers"]
+        
+      late_maximalist:
+        years: "1985-2000"
+        style: "Incredible detail density, Easter eggs"
+        mood: "Horror-comedy mashup, apocalyptic fever-dream"
+        exemplars: ["Last Party (1988)"]
+    
+    signature_elements:
+      - "Non-linear composition — multiple visual paths"
+      - "Creatures with personality, not just threats"
+      - "Nested spaces suggesting more beyond frame"
+      - "Deep blues, warm browns, eldritch purples"
+      - "Crosshatch influence even in color work"
+      - "The HAND — reaching, grasping, beckoning"
+    
+    best_for:
+      - "Dungeon scenes and underground environments"
+      - "Fantasy creatures with character"
+      - "Lich encounters and tomb-raiding adventures"
+      - "Module cover illustrations"
+      - "Tabletop RPG aesthetics"
+    
+    usage:
+      basic: "visualize.py scene.yml styles/jennell-jaquays.yml"
+      period: "Include period preference in --style flag"
+      exhaustive: "visualize.py scene.yml styles/jennell-jaquays.yml -d exhaustive"
+
+# === FUTURE STYLES ===
+# Planned additions:
+
+planned:
+  # Fantasy Illustration
+  - larry-elmore     # Classic Dragonlance, TSR covers
+  - jeff-easley      # TSR, Dragon Magazine
+  - keith-parkinson  # D&D, fantasy landscapes
+  - brom             # Dark fantasy, Gothic
+  - frank-frazetta   # Conan, pulp fantasy
+  
+  # Game Art
+  - blizzard         # WoW, Diablo, Hearthstone
+  - pixel-art        # 16-bit, 32-bit styles
+  - isometric        # Ultima, strategy games
+  
+  # Fine Art Traditions
+  - dutch-golden-age # Vermeer, Rembrandt
+  - baroque          # Caravaggio, dramatic lighting
+  - art-nouveau      # Mucha, organic forms
+  - expressionism    # Bold color, emotion
+  
+  # Photography
+  - avedon           # High fashion, stark backgrounds
+  - leibovitz        # Editorial, storytelling
+  - cinematic        # Film stills, movie posters
+
+# === HOW TO CREATE A STYLE GUIDE ===
+
+template: |
+  A good style guide includes:
+  
+  1. BIOGRAPHY — Who the artist is/was
+  2. PHILOSOPHY — How they approach their work
+  3. PERIODS — Evolution of style over time
+  4. PALETTE — Specific color choices
+  5. COMPOSITION — How they arrange elements
+  6. SIGNATURE ELEMENTS — Recurring motifs
+  7. PROMPT TEMPLATES — Ready-to-use style blocks
+  8. EXAMPLES — How to apply to different scenarios
+  
+  See jennell-jaquays.yml for a complete example.
+
+k_lines:
+  - STYLE_GUIDES
+  - ARTIST_REFERENCES
+  - VISUALIZER
+  - PROMPT_TEMPLATES

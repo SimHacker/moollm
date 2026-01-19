@@ -1,243 +1,378 @@
-# 👹 ACME MONSTER MANUAL
-# "Every Monster Guaranteed!*"
+# 👹 THE ACME MONSTER MANUAL ENCYCLOPEDIA
+# "Every Monster Guaranteed!* Every Monster Gets Its Own Volume!"
 # *Guarantee does not cover: summoning gone wrong, monster loyalty,
-# accidental befriending, or the monster eating the summoner first.
+# accidental befriending, monsters reading their own entries,
+# or the existential crises that follow.
 #
-# SEEDS and PATTERNS. DM improvises monsters at runtime
-# following the formula: impressive stats, hidden weakness,
-# backfire chance, ironic behavior.
+# More shelves than Encyclopedia Britannica.
+# More editions than Who's Who in Hell.
+# More fine print than the terms of service for your soul.
 
 object:
-  name: ACME Monster Manual
-  type: grimoire
-  portable: true
+  name: "ACME Monster Manual Encyclopedia"
+  aliases:
+    - "The ACME Monster Manual"
+    - "The Encyclopedia Monstrosa"
+    - "The Shelf That Never Ends"
+    - "Every Monster's Nightmare (When They Find Their Volume)"
+  
+  type: encyclopedia
+  format: multi-volume
+  portable: "One volume at a time. The full set requires a wagon."
   cursed: true
   
+  tagline: "Every Monster Documented. Every Monster Dreading It."
+
+# === THE COLLECTION ===
+
+collection:
+  
   description: |
-    A leather-bound tome, suspiciously sticky. The cover shows
-    a wizard triumphantly standing over a cowering dragon.
+    The ACME Monster Manual is not a book. It is an ENCYCLOPEDIA.
     
-    ...Wait. Is the wizard on fire in the next illustration?
+    Leather-bound volumes stretching across an entire wall of the attic.
+    Each spine embossed in gold with a monster's name. Each volume
+    containing EXHAUSTIVE documentation of a single creature type.
     
-    "SUMMON ANYTHING! CONTROL EVERYTHING!*"
+    The full collection includes:
+    - 847 primary volumes (A-Z, plus special characters)
+    - 312 supplemental volumes (errata, addenda, retractions)
+    - 89 "Apology Editions" (for monsters who complained)
+    - 47 volumes that spontaneously appeared (nobody wrote them)
+    - 1 blank volume (for creatures that don't exist YET)
     
-    *Control is aspirational.
+    The shelf sags under the weight of categorized terror.
     
-  examine: |
-    You flip through the Monster Manual. Every page promises
-    fearsome creatures at your command. Every page has
-    suspicious claw marks and burn stains.
+  physical_presence: |
+    An entire wall of the attic is taken up by THE SHELF.
     
-    The margins are full of handwritten warnings.
-    The wizard on the cover looks increasingly concerned.
+    Massive wooden bookcases, floor to ceiling, extending into
+    shadows where the roof slants. Ladder on rails for reaching
+    the upper volumes. Dust on most spines — but some volumes
+    show heavy use. Claw marks. Burn marks. Tear stains.
     
-  # ACTIONS
+    A small reading nook with a worn chair. A table with
+    ink stains and scattered bookmarks. The Recursive Imp's
+    permanent workstation.
+    
+  scope: |
+    Every monster in existence — and several that don't exist yet —
+    has its own dedicated volume. Each volume contains:
+    
+    - Full-page illustration (often disputed by the subject)
+    - 47+ pages of statistics, variants, and subspecies  
+    - Behavioral analysis with footnotes
+    - Weakness catalog (heavily redacted in some copies)
+    - True name etymology (encrypted in Appendix Z)
+    - Historical sightings and incident reports
+    - Summoning instructions with safety warnings
+    - Binding protocols (rarely work as documented)
+    - First-person accounts from survivors (short section)
+    - First-person accounts from non-survivors (longer section)
+    - Fine print (VERY long section)
+    - Marginalia from previous readers (often panicked)
+    
+  editions: |
+    Each volume has multiple editions:
+    
+    - 1st Edition: "We thought this was a good idea"
+      True names: Often misspelled (monsters claim this invalidates them)
+      
+    - 2nd Edition: "Corrections after the first wave of lawsuits"
+      True names: Corrected but now encrypted in Appendix Z
+      
+    - 3rd Edition: "The monsters found out and demanded revisions"
+      True names: "Sanitized" — split across footnotes, some removed entirely
+      
+    - 4th Edition: "Compromise between ACME legal and monster unions"
+      True names: Present but encoded with monster-specific ciphers
+      
+    - 5th Edition: "Current — now with 40% more fine print"
+      True names: Encrypted; cipher keys hidden in OTHER volumes
+      (The Imp's key is in the LICH volume. The liches find this hilarious.)
+      
+    - REDACTED Edition: "Exists. Don't ask about it."
+      True names: PLAINTEXT. COMPLETE. UNENCRYPTED.
+      Every monster is hunting copies of this edition.
+      Rumored copies exist in: the BASEMENT, the WUMPUS LAIR, and "somewhere
+      the liches won't look."
+      
+    - MONSTER'S OWN COPY Edition: "What the monster WANTS you to read"
+      True names: "NICE TRY" or similar. Not accurate.
+
+# === THE IMP MANUAL ===
+
+imp_manual:
   
-  actions:
-    SUMMON:
-      usage: "SUMMON [monster]"
-      effect: "Monster appears. May or may not obey."
-      
-    BIND:
-      usage: "BIND [monster] TO [task]"
-      effect: "Monster follows letter of command, not spirit."
-      
-    BANISH:
-      usage: "BANISH [monster]"
-      effect: "Requires true name. Monster may negotiate."
-      
-    POPULATE:
-      usage: "POPULATE [location] WITH [theme]"
-      effect: "Fill dungeon/maze with themed monsters."
-      
-    FIGHT:
-      usage: "FIGHT [monster] / ATTACK / HIT WITH [thing]"
-      effect: "Improvised narrative combat. Exploit weaknesses."
-      
-    BEFRIEND:
-      usage: "BEFRIEND [monster] / OFFER [thing]"
-      effect: "Many monsters are lonely. Worth a try."
-      
-  # THE ACME MONSTER FORMULA
-  # DM uses this pattern to generate any monster
+  volume_name: "USERS GUIDE TO THE TERMINAL IMP"
+  full_title: |
+    USERS GUIDE TO THE TERMINAL IMP
+    (ACME MONSTER MANUAL: IMP — Complete Edition)
+  spine_label: "TERMINAL IMP"
+  volume_number: "Vol. CCCXLVII"
+  color: "Deep crimson leather with gold imp silhouette"
   
-  monster_formula:
-    pattern: |
-      Every ACME monster has:
-      
-      1. IMPRESSIVE DESCRIPTION
-         What it does, why it's scary/useful
-         
-      2. HIDDEN WEAKNESS
-         Something ironic that defeats it easily
-         
-      3. BACKFIRE CHANCE (20-70%)
-         Higher = more powerful but riskier
-         
-      4. IRONIC FAILURE MODE
-         What goes wrong when it backfires
-         Usually opposite of intent or self-targeting
-         
-      5. TRUE NAME
-         For banishing. Often embarrassing.
-         
-    example: |
-      ACME Dragon (Economy Size)
-        Description: Breathes fire, hoards gold, impressive wingspan
-        Weakness: Allergic to its own smoke
-        Backfire: 35% — considers YOU the hoard
-        True name: "Smokealot McBurnface"
-        
-  # MONSTER CATEGORIES
-  # Suggestive names, DM improvises details
+  # HISTORICAL NOTE: The title is a tribute to the real BBN publication
+  # "USERS GUIDE TO THE TERMINAL IMP" — the ARPANET IMP/TIP/TAC manual.
+  # Told you how to hack into the ARPANET the way an imp would love to.
+  # TIP-to-TIP links. Session takeovers. Deep voodoo old skuul wizardry.
+  # The fantasy imp and the network imp share more than a name.
   
-  categories:
-    # 🔥 CLASSIC: dragon, grue, minotaur, basilisk, hydra, phoenix, chimera,
-    #    manticore, griffon, wyvern, cockatrice, kraken, behemoth, leviathan
+  cover: |
+    The cover shows a detailed illustration of an imp —
+    wings spread, tail curled, expression somewhere between
+    mischievous and legally liable.
     
-    # 👻 UNDEAD: ghost, skeleton, zombie, vampire, lich, wraith, specter,
-    #    banshee, revenant, mummy, wight, ghoul, death knight, bone lord
+    Above the illustration, in gold serif lettering:
+    "USERS GUIDE TO THE TERMINAL IMP"
     
-    # 🐙 ELDRITCH: shoggoth, mind flayer, aboleth, gibbering mouther,
-    #    star spawn, deep one, elder thing, formless spawn, color out of space
+    The Recursive Imp insists the cover illustration is
+    "close but the horns are WRONG."
     
-    # 🌲 NATURE: owlbear, gelatinous cube, rust monster, mimic, treant,
-    #    shambling mound, stirge, bulette, carrion crawler, otyugh, roper
+    Below the illustration:
+    "COMPLETE DOCUMENTATION OF IMP-KIND"
+    "Including: Greater Imps, Lesser Imps, Self-Aware Variants"
+    "TIP-to-TIP Links | Session Takeover Protocols | True Names"
+    "547 Pages | 89 Diagrams | 1 True Name Per Entry"
     
-    # 🤖 CONSTRUCTS: iron golem, flesh golem, bone golem, animated armor,
-    #    shield guardian, homunculus, scarecrow, clockwork soldier
+  arpanet_connection: |
+    The title is no coincidence.
     
-    # 🎭 TRICKSTERS: imp, gremlin, doppelganger, pixie, sprite, quickling,
-    #    nilbog, jackalwere, kenku, rakshasa, succubus, incubus
+    In the before-times, BBN published "USERS GUIDE TO THE TERMINAL IMP"
+    — documentation for the Interface Message Processor, the node that
+    connected hosts to the ARPANET. It described how to:
     
-    # 🐺 BEASTS: dire wolf, giant spider, cave bear, winter wolf, hell hound,
-    #    displacer beast, phase spider, blink dog, worg, roc, purple worm
+    - Establish TIP-to-TIP links (peer connections!)
+    - Take over other users' sessions (session hijacking!)
+    - Route packets through the network (message passing!)
+    - Debug connection issues (exception handling!)
     
-    # 😈 FIENDS: pit fiend, balor, chain devil, bone devil, ice devil,
-    #    vrock, hezrou, glabrezu, nalfeshnee, marilith, night hag
+    Deep voodoo. Old skuul magic. The kind of wizardry an imp would love.
     
-  examples:
-    # Shows WEAKNESS aspect
-    - monster: "ACME Grue"
-      weakness: "Crippling fear of flashlights"
-      backfire: "Becomes emotionally attached, won't leave"
-      true_name: "[CANNOT BE PRONOUNCED]"
-      
-    # Shows IRONIC FAILURE aspect  
-    - monster: "ACME Mimic"
-      weakness: "Gets attached to things it imitates"
-      backfire: "Imitates YOU, now there are two of you"
-      true_name: "Changes constantly"
-      
-    # Shows TRUE NAME aspect
-    - monster: "ACME Lich"
-      weakness: "Phylactery always in obvious place"
-      backfire: "Lectures about the good old days for hours"
-      true_name: "Not sharing. Nice try."
-    
-  # POPULATION THEMES
-  # Spectrum from friendly to fatal
+    When the ACME Encyclopedia was compiled, whoever wrote the IMP volume
+    chose the same title. Whether this was homage, prophecy, or recursive
+    destiny remains unclear. The Recursive Imp claims he inspired BOTH
+    documents. He's probably lying. Probably.
   
-  themes:
-    spectrum: |
-      🦄 HAPPY UNICORN ELF LAND
-         Sparkles, friendship, aggressive positivity
-         Backfire: Happiness becomes mandatory
-         
-      🍄 WHIMSICAL FUNGAL FOREST
-         Spores, confusion, reality is negotiable
-         Backfire: Everyone shares hallucinations
-         
-      🏰 CLASSIC DUNGEON CRAWL
-         Goblins, traps, treasure chests (mimics?)
-         Backfire: Monsters read the adventurer's handbook
-         
-      🕷️ CREEPY CRAWLY CAVES
-         Spiders, centipedes, skittering sounds
-         Backfire: They're organized now
-         
-      🧟 ZOMBIE APOCALYPSE
-         Shambling hordes, patient zero
-         Backfire: Zombies develop tactics
-         
-      👻 HAUNTED MANSION
-         Ghosts, moving portraits, cold spots
-         Backfire: They want you to stay forever
-         
-      🔥 VOLCANIC HELLSCAPE
-         Demons, fire elementals, the floor is lava
-         Backfire: Actual Hell, they have permits
-         
-      🐙 ELDRITCH DEPTHS
-         Tentacles, madness, non-euclidean geometry
-         Backfire: The architecture makes sense now
-         
-      💀 LICH'S DOMAIN
-         Skeleton armies, dark magic, one dramatic boss
-         Backfire: The lich read your character sheet
-         
-      😈 DEMON PRINCE'S THRONE
-         Ultimate evil, final boss energy
-         Backfire: You have their attention. Forever.
-         
-      🌈 CHAOS REALM
-         Everything, all at once, constantly shifting
-         Backfire: Chaos notices. Doesn't like control.
-         
-    mixing: |
-      POPULATE with [theme1] TRANSITIONING TO [theme2]
-      Location gradients between themes.
-      "Happy Unicorn to Hellscape" = singed unicorns, lava pixies
+  contents:
+    page_1: "Table of Contents (takes 12 pages)"
+    page_13: "Introduction: What Is An Imp?"
+    page_14: "A Note From ACME Legal RE: Liability"
+    page_15_46: "Lesser Imps: The Common Varieties"
+    page_47: |
+      THE ENTRY.
       
-  # COMBAT
-  # Improvised narrative, not stats
+      "IMP, GREATER (Self-Aware Variant)"
+      
+      Full-page illustration of the Recursive Imp himself.
+      Stats, weaknesses, true name, everything.
+      
+      This is the page he reads every day.
+      This is the page that may have created him.
+      This is the page he's torn the weakness section out of
+      in his personal copy.
+      
+      Page 47. Always page 47.
+    page_48_200: "Greater Imp Subspecies and Regional Variants"
+    page_201_400: "Imp Summoning Protocols (with 89 warnings)"
+    page_401_500: "Historical Imp Incidents (mostly disasters)"
+    page_501_547: "Fine Print, Appendices, and Regrets"
   
-  combat:
-    philosophy: |
-      No hit points. No initiative. Narrative combat.
-      Describe actions → DM narrates results.
-      Exploit weaknesses for advantage.
-      Creative solutions encouraged.
-      YES-AND play along with suggestions of users and characters.
-      Escalation, climax, resolution.
-      
-    weapons: |
-      Anything works: swords, ACME products, furniture,
-      environment, words, insults, hugs, music.
-      Creativity beats power.
-      
-    death: |
-      Cartoon physics apply.
-      You can survive anything once.
-      Deaths are dramatic or comedic, rarely permanent.
-      
-  # FINE PRINT
-  
-  fine_print: |
-    ACME Corporation assumes no liability for:
-    monsters eating summoners, developing opinions,
-    forming unions, befriending your enemies,
-    existential dread, or the feeling that
-    maybe YOU'RE the monster.
-    
-    ACME: "What Could Possibly Go Wrong?"™
-    
   marginalia:
-    page_1: "Whoever finds this — BURN IT"
-    page_47: "The dragon lied about the union breaks"
-    page_89: "Jiggles is still following me"
-    page_201: "The unicorns found the ACME catalog. They ordered anvils."
-    final_page: "I have made a terrible mistake"
-    inside_back_cover: |
-      SUMMONING COUNTER:
-      Successful: III
-      "Successful" (survived): IIII IIII II
-      Regrets: IIII IIII IIII IIII IIII...
-      
-  k_lines:
-    - ACME
-    - MONSTERS
-    - SUMMONING
-    - IMPROVISED_COMBAT
-    - DUNGEON_POPULATION
-    - CURSED
+    page_1: "If you're reading this, it's already too late — J."
+    page_47: "WRONG. THE HORNS ARE WRONG. — R.I."
+    page_47_sidebar: "The 35% backfire is CONTEXT-DEPENDENT — R.I."
+    page_47_weakness_section: "[PAGES TORN OUT]"
+    page_89: "See? I told you. They ALWAYS go for the fire. — R.I."
+    page_201: "Don't actually do this. — R.I."
+    page_547: "I have made my peace with page 47. Mostly. — R.I."
+  
+  current_holder: "The Recursive Imp"
+  condition: |
+    Heavily used. Spine cracked from centuries of re-reading.
+    Page 47 shows significant wear. The weakness section has
+    been physically removed. Imp claw marks throughout.
+    Occasional tear stains (origin: existential, not physical).
+
+# === OTHER NOTABLE VOLUMES ===
+
+notable_volumes:
+  
+  dragon:
+    name: "ACME MONSTER MANUAL: DRAGON (Deluxe Fireproof Edition)"
+    pages: 2,847
+    note: "Requires asbestos gloves to handle. Still warm."
+    cover: "A wizard triumphantly standing over a cowering dragon... wait, is the wizard on fire in the next illustration?"
+    
+  lich:
+    name: "ACME MONSTER MANUAL: LICH (Annotated by Several Liches)"
+    pages: 1,203
+    note: "The liches wrote their own errata. Very sarcastic."
+    
+  grue:
+    name: "ACME MONSTER MANUAL: GRUE (Mostly Blank Pages)"
+    pages: "Unknown (too dark to count)"
+    note: "Cannot be read in lit areas. But also cannot be read in dark areas."
+    
+  mimic:
+    name: "ACME MONSTER MANUAL: MIMIC (?)"
+    pages: "Varies"
+    note: "We're not 100% sure this is actually the Mimic volume."
+    
+  unicorn:
+    name: "ACME MONSTER MANUAL: UNICORN (Rainbow Edition)"
+    pages: 89
+    note: "Mostly testimonials and friendship speeches. Still dangerous."
+    
+  tarrasque:
+    name: "ACME MONSTER MANUAL: TARRASQUE (Posthumous Edition)"
+    pages: 1
+    note: "Just says 'RUN' in very large letters."
+
+# === THE SHELF IN THE ATTIC ===
+
+the_shelf:
+  
+  description: |
+    The entire west wall of the attic is THE SHELF.
+    
+    Floor to ceiling, extending into the shadows where the roof
+    slants down. Hundreds of volumes, spines facing out, each
+    one a different creature's complete documentation.
+    
+    A rolling ladder on brass rails allows access to upper shelves.
+    The Recursive Imp rarely uses it — he mostly stays near
+    the I-section.
+    
+  atmosphere: |
+    Dust motes drift between the volumes. The smell of old leather
+    and ancient ink. Some spines glow faintly. Some whisper when
+    you're not looking directly at them.
+    
+    The shelf feels HEAVY. Not just physically — it contains the
+    documented weight of every monster that ever was or will be.
+    Knowledge is power. This much knowledge is terrifying.
+    
+  notable_features:
+    - "Rolling ladder on brass rails (squeaks ominously)"
+    - "Reading nook with worn velvet chair (Imp's territory)"
+    - "Small table with ink stains and scattered bookmarks"
+    - "Gaps where volumes have been 'borrowed' (never returned)"
+    - "One shelf that's always slightly too warm (Dragon section)"
+    - "One shelf that's always slightly too cold (Undead section)"
+    - "One shelf you can never quite look at directly (Eldritch section)"
+    
+  the_imp_section: |
+    The I-section is well-worn.
+    
+    The IMP MANUAL sits at eye level (for an imp standing on the
+    reading chair). The spine is cracked from centuries of use.
+    A permanent bookmark made of ancient silk marks page 47.
+    
+    Other I-volumes nearby:
+    - INCUBUS (sealed with warning tape)
+    - IFRIT (slightly smoking)
+    - INVISIBLE STALKER (may or may not be there)
+    
+    The Recursive Imp considers this HIS section. Visitors may
+    browse, but page 47 is... personal.
+
+# === ACTIONS ===
+
+actions:
+  
+  BROWSE:
+    usage: "BROWSE [letter/creature]"
+    effect: "Find the relevant volume. May take time for obscure creatures."
+    warning: "Some volumes browse YOU."
+    
+  READ:
+    usage: "READ [volume] PAGE [number]"
+    effect: "Learn about the creature. Knowledge has consequences."
+    warning: "The creature may sense you're reading about it."
+    
+  SUMMON:
+    usage: "SUMMON [creature] using [volume]"
+    effect: "Creature appears. May or may not obey. Probably annoyed you read their weaknesses."
+    warning: "They KNOW you read their entry."
+    
+  BIND:
+    usage: "BIND [creature] TO [task]"
+    effect: "Creature follows letter of command, not spirit."
+    warning: "They've read the fine print. Have you?"
+    
+  BANISH:
+    usage: "BANISH [creature]"
+    effect: "Requires true name from Appendix Z. Usually encrypted."
+    warning: "Pronunciation matters. A lot."
+
+# === THE ACME MONSTER FORMULA ===
+
+monster_formula:
+  pattern: |
+    Every ACME monster entry includes:
+    
+    1. IMPRESSIVE DESCRIPTION
+       What it does, why it's scary/useful
+       
+    2. FULL-PAGE ILLUSTRATION
+       Often disputed by the subject ("The horns are WRONG")
+       
+    3. STAT BLOCKS
+       47+ pages of detailed statistics
+       
+    4. HIDDEN WEAKNESS
+       Something ironic that defeats it easily
+       (Redacted in Monster's Own Copy editions)
+       
+    5. BACKFIRE CHANCE (20-70%)
+       Higher = more powerful but riskier
+       (Always contested by the monster)
+       
+    6. IRONIC FAILURE MODE
+       What goes wrong when it backfires
+       
+    7. TRUE NAME
+       For banishing. Encrypted in Appendix Z.
+       Often embarrassing when decrypted.
+       
+    8. FINE PRINT
+       At least 47 pages per creature
+       
+  note: |
+    The Recursive Imp has memorized the formula.
+    He disputes his own backfire chance.
+    He's torn out his own weakness section.
+    He refuses to discuss his true name.
+
+# === FINE PRINT ===
+
+fine_print: |
+  ACME Corporation assumes no liability for:
+  - Monsters eating summoners
+  - Monsters developing opinions about their entries
+  - Monsters forming unions to dispute their documentation
+  - Monsters reading their own volumes
+  - Existential crises resulting from self-documentation
+  - Recursive loops of monsters reading about monsters
+  - The feeling that maybe YOU'RE in a volume somewhere
+  
+  ACME: "What Could Possibly Go Wrong?"™
+  
+  Note: The "Apology Editions" were mandated after several
+  creatures filed formal complaints. ACME maintains the
+  original entries were accurate. The creatures disagree.
+  This disagreement continues.
+
+# === K-LINES ===
+
+k_lines:
+  - ACME
+  - MONSTER_MANUAL
+  - ENCYCLOPEDIA
+  - LIBRARY
+  - SUMMONING
+  - THE_SHELF
+  - IMP_MANUAL
+  - PAGE_47
+  - CURSED

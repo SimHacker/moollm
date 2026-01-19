@@ -12,10 +12,22 @@ room:
   description: |
     A cramped, dusty attic with slanted ceilings and exposed beams.
     Cobwebs in the corners. That unmistakable attic smell of old
-    wood, mothballs, and forgotten things.
+    wood, mothballs, ancient leather, and forgotten things.
     
-    Boxes and trunks stacked haphazardly. Old furniture draped
-    in sheets. Things that didn't fit anywhere else ended up here.
+    The west wall is dominated by THE SHELF — floor to ceiling
+    bookcases containing the complete ACME Monster Manual Encyclopedia.
+    Hundreds of leather-bound volumes, each one a different creature's
+    complete documentation. More shelves than Britannica. More editions
+    than Who's Who in Hell. A rolling ladder on brass rails provides
+    access to upper volumes.
+    
+    In the I-section, a small reading nook: worn velvet chair, ink-
+    stained table, scattered bookmarks. The Recursive Imp's territory.
+    He's probably there now, reading page 47 of the IMP MANUAL.
+    
+    Boxes and trunks stacked haphazardly around the other walls.
+    Old furniture draped in sheets. Things that didn't fit anywhere
+    else ended up here — including an imp who found his own volume.
     
     Slanted roof beams disappear into shadow. Dust motes dance in
     shafts of light from a grimy dormer window.
@@ -28,8 +40,10 @@ room:
     > "ADVENTURER'S STORAGE"
     > "Take what you need. Leave what you find."
     > "Mind the edge cases."
+    > "Page 47 is PRIVATE." — R.I.
     
     Something skitters in the darkness. Probably mice. Probably.
+    Or maybe just the Recursive Imp, looking for a bookmark.
     
   exits:
     down:
@@ -48,9 +62,27 @@ room:
     capacity: infinite
     accepts: [furniture, antiques, forgotten-things, holiday-decorations, adventure-gear]
       
+  # === PERMANENT RESIDENT ===
+  resident:
+    name: "The Recursive Imp"
+    file: recursive-imp.yml
+    status: permanent
+    location: "Usually atop the Monster Manual, or nearby"
+    summoning:
+      - "Open the Monster Manual"
+      - "Say 'page 47' aloud"
+      - "Ask an interesting question"
+      - "He appears on his own when bored"
+    specialty: "Monster Manual scholarship, self-reference"
+    favorite_page: 47
+    note: "He's been here for centuries. He knows everything. ESPECIALLY about himself."
+
   objects:
     # === CURSED LITERATURE ===
     - acme-monster-manual.yml     # CURSED! Summon monsters! What could go wrong?
+    
+    # === RESIDENT CHARACTER ===
+    - recursive-imp.yml           # The Recursive Imp — attic familiar, page 47 enthusiast
     
     # === ADVENTURE WEARABLES (weird buffs) ===
     - probability-goggles.yml     # See likelihood overlays
@@ -76,6 +108,33 @@ room:
     - leela-catalog-vintage.yml   # "Must have left this up here years ago..."
     
   furniture:
+    
+    the_shelf:
+      description: |
+        The entire west wall is THE SHELF — floor to ceiling bookcases
+        containing the complete ACME Monster Manual Encyclopedia.
+      contents: |
+        847 primary volumes (A-Z, plus special characters)
+        312 supplemental volumes (errata, addenda, retractions)
+        89 "Apology Editions" (for monsters who complained)
+        47 volumes that spontaneously appeared (nobody wrote them)
+        1 blank volume (for creatures that don't exist YET)
+      features:
+        - "Rolling ladder on brass rails (squeaks ominously)"
+        - "Reading nook with worn velvet chair"
+        - "Ink-stained table with scattered bookmarks"
+        - "The I-section shows heavy use (Imp territory)"
+      atmosphere: |
+        Some spines glow faintly. Some whisper when you're not
+        looking directly at them. The shelf feels HEAVY — not just
+        physically. It contains the documented weight of every
+        monster that ever was or will be.
+      notable_volumes:
+        imp_manual: "Volume CCCXLVII — crimson leather, gold imp silhouette"
+        dragon_manual: "Deluxe Fireproof Edition — still warm"
+        lich_manual: "Annotated by Several Liches — very sarcastic"
+        mimic_manual: "We're not 100% sure this is actually the Mimic volume"
+    
     boxes:
       description: "Cardboard boxes, some labeled, most not"
       contents: "Who knows until you look"
@@ -89,6 +148,7 @@ room:
     broken_chair:
       description: "A chair with one leg shorter than the others"
       usable: "If you don't mind wobbling"
+      note: "Not the reading chair — that's in the Imp's nook"
       
     dusty_mirror:
       description: "A full-length mirror, very dusty"
@@ -98,6 +158,7 @@ room:
     sheet_covered_thing:
       description: "Something large under a dusty sheet"
       what_is_it: "Remove the sheet to find out"
+      note: "Even the Recursive Imp won't look under here"
       
     holiday_box:
       description: "Box of holiday decorations"

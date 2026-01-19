@@ -20,10 +20,39 @@ A ladder in the floor leads down to the hotel landing.
 
 ---
 
+## 🔄 Permanent Resident
+
+### The Recursive Imp
+
+![The Recursive Imp reading about himself](attic-2026-01-19-05-34-00-imp-reads-himself.png)
+
+| Attribute | Value |
+|-----------|-------|
+| **Name** | The Recursive Imp (aliases: "Recurse", "Page 47") |
+| **File** | [recursive-imp.yml](recursive-imp.yml) |
+| **Location** | Attic (permanent) |
+| **Specialty** | Monster Manual scholarship, self-reference |
+| **Favorite Page** | 47 (his own entry) |
+
+*"I've read my own entry. Have you read yours?"*
+
+He's been here for centuries, reading everything in the attic. The Monster Manual is his favorite — especially page 47, which contains his own entry. He can be summoned by opening the book, saying "page 47" aloud, or asking an interesting question about the attic. He also appears on his own when he feels like it.
+
+**Services offered:**
+- Monster Manual consultation (with commentary)
+- Attic tours (payment: interesting story)
+- ACME product warnings (free — he enjoys this)
+- Philosophical discourse (involuntary, late nights)
+
+**Do NOT ask about:** His true name. His weaknesses. His "backfire chance" (he disputes the 35% figure).
+
+---
+
 ## 👻 Summonable Familiars
 
 | Familiar | Invocation | Tradition |
 |----------|------------|-----------|
+| **The Recursive Imp** | Open the Monster Manual / Say "page 47" | Self-referential scholarship — knows his own page by heart |
 | **The Deprecated** | Open the Trunk | Old APIs that still work — backward compatibility wisdom |
 | **Edge Case Eddie** | Peek in the Box | Things that shouldn't happen but do — undefined behavior lore |
 | **The Dust Motes** | Watch them dance | The forgotten tradition — what was left behind |
@@ -34,11 +63,39 @@ A ladder in the floor leads down to the hotel landing.
 
 ---
 
-## ⚠️ Cursed Items
+## 📚 THE SHELF — ACME Monster Manual Encyclopedia
 
-| Item | File | Warning |
-|------|------|---------|
-| **ACME Monster Manual** | [acme-monster-manual.yml](acme-monster-manual.yml) | CURSED! Summon monsters! What could go wrong? |
+The entire west wall is dominated by THE SHELF — floor to ceiling bookcases containing the complete ACME Monster Manual Encyclopedia.
+
+| Metric | Value |
+|--------|-------|
+| **Primary Volumes** | 847 (A-Z, plus special characters) |
+| **Supplemental Volumes** | 312 (errata, addenda, retractions) |
+| **Apology Editions** | 89 (for monsters who complained) |
+| **Spontaneous Volumes** | 47 (nobody wrote them) |
+| **Blank Volume** | 1 (for creatures that don't exist YET) |
+
+*More shelves than Encyclopedia Britannica. More editions than Who's Who in Hell.*
+
+**Notable Volumes:**
+
+| Volume | Description |
+|--------|-------------|
+| **IMP MANUAL** | "USERS GUIDE TO THE TERMINAL IMP" — Vol. CCCXLVII, 547 pages, the Recursive Imp's favorite |
+| **DRAGON** | Deluxe Fireproof Edition — still warm to the touch |
+| **LICH** | Annotated by Several Liches — very sarcastic |
+| **MIMIC** | We're not 100% sure this is actually the Mimic volume |
+| **TARRASQUE** | Just says "RUN" in very large letters |
+
+**File:** [acme-monster-manual.yml](acme-monster-manual.yml)
+
+**Warning:** CURSED! Every volume can summon its subject. The subjects know when you read their entries. They have opinions about their illustrations.
+
+---
+
+## ⚠️ Other Cursed Items
+
+*(THE SHELF contains hundreds of cursed volumes. These are the OTHER cursed items.)*
 
 ---
 
