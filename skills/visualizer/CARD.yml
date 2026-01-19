@@ -80,12 +80,13 @@ script:
       usage: "visualize.py providers"
       
     slideshow:
-      description: "Create/update VISUALIZATIONS.md gallery for directory"
+      description: "Create/update SLIDESHOW.md gallery for directory"
       usage: "visualize.py slideshow [DIRECTORY]"
       examples:
         - "visualize.py slideshow"             # Current directory
         - "visualize.py slideshow pub/attic"   # Specific directory
-      output: "VISUALIZATIONS.md in target directory"
+        - "visualize.py slideshow --from ../other/dir"  # Include images from elsewhere
+      output: "SLIDESHOW.md in target directory"
       features:
         - "Death-scrollable on mobile and desktop"
         - "Adaptive layout, useful at any size"
@@ -138,10 +139,11 @@ methods:
     protocol: PHOTO-SET-8
     
   SLIDESHOW:
-    description: "Create/update VISUALIZATIONS.md gallery for directory"
+    description: "Create/update SLIDESHOW.md gallery for directory"
     parameters:
       directory: "Target directory (default: current)"
-    output: file (VISUALIZATIONS.md)
+      from: "Optional: include images from other directories"
+    output: file (SLIDESHOW.md)
     invoked_by: [player, script, auto]
     features:
       - "Death-scrollable on mobile and desktop"
@@ -150,6 +152,9 @@ methods:
       - "Links to prompt and mining sidecars"
       - "Cross-style comparisons"
       - "Time-ordered gallery"
+      - "Add/remove/rearrange images manually"
+      - "Regenerate from sidecar prompts"
+      - "Include images from other directories"
     auto_trigger: |
       Can be called automatically after every generate command
       to keep the gallery up to date. GitHub renders it beautifully.
@@ -186,7 +191,7 @@ roadmap:
     - Context assembly from YAML files
     - Metadata sidecars (YAML Jazz)
     - Photo-set-8 portfolios
-    - VISUALIZATIONS.md galleries (death-scrollable slideshows)
+    - SLIDESHOW.md galleries (death-scrollable, add/remove/rearrange)
     
   planned:
     - AI video generation (Runway, Pika, etc.)
@@ -212,7 +217,8 @@ advertisements:
     score: 85
     condition: "Directory has images, need gallery for GitHub"
     trigger: "After generating images, or on demand"
-    output: "VISUALIZATIONS.md — scrollable gallery with analysis"
+    output: "SLIDESHOW.md — scrollable gallery with analysis"
+    actions: "add, remove, rearrange, clear, regenerate from prompts"
 
 # RELATED
 
