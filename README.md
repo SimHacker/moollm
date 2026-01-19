@@ -153,8 +153,7 @@ Results live in `SLIDESHOW.md` files — GitHub-renderable galleries with inline
 - [The Dusty Attic](./examples/adventure-4/pub/attic/dusty-attic-art-styles/SLIDESHOW.md) — 8 art styles, Recursive Imp sequence, ACME Monster Manual, Jennell Jaquays tribute
 - [Rocky and Friends](./examples/adventure-4/pub/rooms/room-4/rocky-and-friends/SLIDESHOW.md) — Emotional support boulder, exhaustive party scene, all characters gathered
 - [Telescope Constellation Views](./examples/adventure-4/pub/rooftop/telescope-constellation-views/SLIDESHOW.md) — K-Line Constellation, AR overlay views, LLOOOOMM stars
-- [Palm Portrait Session](./examples/adventure-4/pub/stage/palm-nook/study/palm-portrait-session/SLIDESHOW.md) — Dutch Golden Age portrait of Palm the monkey
-- [Palm's Character Gallery](./examples/adventure-4/characters/animals/monkey-palm/SLIDESHOW.md) — Character-level gallery linking to study portrait
+- [Palm Portrait Session](./examples/adventure-4/pub/stage/palm-nook/study/palm-portrait-session/SLIDESHOW.md) — Dutch Golden Age portrait of Palm the monkey, in his study where it hangs
 - [ACME Tunnel Temporal Views](./examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/acme-tunnel-temporal-views/SLIDESHOW.md) — ACME tunnel surveillance, temporal camera glitches
 - [Don's Pub Photos](./examples/adventure-4/pub/dons-pub-photos-2026-01-19/SLIDESHOW.md) — Bar scenes, Fluxx game, arcade, fireplace, group photos
 

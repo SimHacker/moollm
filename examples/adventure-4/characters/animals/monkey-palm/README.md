@@ -18,18 +18,14 @@ Palm began as an ACME Monkey's Paw — a cursed object that grants wishes with i
 
 ---
 
-## 🎨 The Portrait Gallery
-
-This character directory includes a visual tribute to Palm:
+## 🎨 The Portrait
 
 ### *"The Philosopher at His Desk"*
 
 A Dutch Golden Age oil painting showing Palm seated at his desk, surrounded by infinite typewriters, kittens playing at his feet, bathed in Rembrandt's golden light.
 
-**[→ View Palm's Portrait Slideshow](./SLIDESHOW.md)**
-
-For the full portrait session with art analysis, see:
-**[→ Palm's Study Portrait Session](../../../pub/stage/palm-nook/study/palm-portrait-session/)**
+The portrait hangs in Palm's Study, where it was painted:
+**[→ Palm's Study Portrait Session](../../../pub/stage/palm-nook/study/palm-portrait-session/SLIDESHOW.md)**
 
 ---
 
