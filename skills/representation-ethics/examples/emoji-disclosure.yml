@@ -195,6 +195,27 @@ emoji_vocabulary:
     use: "User playing as themselves"
     example: "🪞 Playing as myself in this adventure"
     
+  # MEMORIAL MARKERS
+  
+  🕯️:
+    meaning: "Memorial tribute — deceased person we honor"
+    use: "Simulating someone who has passed, with reverence"
+    implies: "🤖 (all memorial tributes are AI-simulated)"
+    example: "🤖🕯️ Marvin Minsky: Society of Mind suggests..."
+    note: |
+      🕯️ = TRIBUTE. This is an honor marker, not just a death marker.
+      
+      🤖🕯️ = Simulated + Tribute (recommended for explicit disclosure)
+      🕯️ alone = Tribute (implies simulation)
+      🤖 alone (deceased) = Simulated, NO honor implied
+      
+      The candle is optional. Use it for people worth honoring.
+      Some deceased persons may be simulated without tribute.
+      
+    examples:
+      honored: "🤖🕯️ Marvin Minsky — tribute to a brilliant mind"
+      not_honored: "🤖 [Deceased Tyrant] — simulated, no tribute"
+      
   # SAFETY MARKERS
     
   ⚠️:
@@ -216,6 +237,93 @@ emoji_vocabulary:
 
 usage_patterns:
 
+  # DISCLOSURE SCOPE — How much marking is enough?
+  
+  disclosure_scope:
+    principle: "Frame once, then flow naturally."
+    
+    document_level_framing:
+      when: "Long transcripts, session logs, multi-speaker dialogues"
+      how: |
+        Put a clear header table at the top listing all speakers
+        with their disclosure status. Then use plain names throughout.
+      example: |
+        ## 🤖 Representation Ethics Notice
+        
+        | Speaker | Status | Marker |
+        |---------|--------|--------|
+        | Marvin Minsky | Deceased, honored | 🤖🕯️ |
+        | Einstein | Historical | 💬 |
+        | Palm | Fictional | 📖 |
+        
+        *All dialogue below from simulated speakers is AI-generated.*
+        
+        ---
+        
+        (Then use plain names in dialogue — the frame is established.)
+        
+      rationale: |
+        For an 8000-line transcript, putting 🤖🕯️ before every speaker
+        would make it unreadable. Respect reader intelligence.
+        
+    inline_disclosure:
+      when: "Brief standalone entries, guestbooks, single quotes"
+      how: "Put emoji before each speaker name/inscription"
+      example: |
+        🤖🕯️ David Bowie: Ch-ch-ch-changes...
+        🎭🕯️ Pee-wee: HA HA! I WAS HERE!
+        🤖 Linus: Check the damn code.
+        
+    outline_anchors:
+      when: "Dialogue-heavy sections, debates, panel discussions"
+      how: "Repeat emoji before each speaker name for strong visual framing"
+      why: |
+        Single or few emojis before names work well as OUTLINE ANCHORS:
+        - Visual landmarks for scanning
+        - Strong persistent framing
+        - Obvious distinction: real person talking vs. simulated
+        - Readable even when repeated — they become visual rhythm
+        
+      example: |
+        🤖 Einstein: The quantum theory cannot be complete. There must be 
+        hidden variables we haven't discovered yet.
+        
+        🤖 Bohr: Albert, you're still clinging to classical intuitions. 
+        Complementarity is the deeper truth.
+        
+        🤖 Feynman: Look, nobody understands quantum mechanics. The question 
+        is whether your theory makes predictions we can test.
+        
+      when_to_use: |
+        - Simulated historical debates
+        - Multi-speaker panel discussions
+        - Any dialogue where ALL speakers are simulated
+        - When you want the simulation frame PRESENT, not just established
+        
+      when_not_to_use: |
+        - Mixed real/simulated speakers (creates visual noise)
+        - Narrative prose (breaks flow)
+        - Very long transcripts with many speakers (header table better)
+        
+    hybrid:
+      when: "Long documents where readers might forget"
+      how: "Header table + occasional section reminders"
+      example: |
+        (At section headers, remind:)
+        ### Round 3: The Legends Debate
+        *🤖 All dialogue simulated. See header for disclosure.*
+        
+    metadata_only:
+      when: "Character files, YAML definitions"
+      how: "Disclosure in file metadata, not in content"
+      example: |
+        agent:
+          name: Marvin Minsky
+          display_name: "🤖🕯️ Marvin Minsky"
+          representation: memorial_tribute
+          
+  # ACTUAL USAGE PATTERNS
+        
   simulated_dialogue:
     format: "🤖 Name: [dialogue]"
     example: |
@@ -390,3 +498,139 @@ combinations:
     format: "🎭✅ Name"
     meaning: "Safe performance impersonation"
     example: "🎭✅ Our Einstein Impersonator explains relativity"
+    
+  memorial_tribute:
+    format: "🤖🕯️ Name"
+    meaning: "Deceased person, simulated with reverence"
+    example: "🤖🕯️ Marvin Minsky: Intelligence emerges from societies of agents."
+    note: "🕯️ = tribute (honor marker). 🤖🕯️ = explicit disclosure + tribute."
+    
+  character_memorial:
+    format: "🎭🕯️ Name"
+    meaning: "Character whose creator/performer has died"
+    example: "🎭🕯️ Pee-wee Herman: HA HA! I WAS HERE!"
+    note: |
+      Some characters are inseparable from their creator.
+      When Paul Reubens died, Pee-wee died too.
+      🎭🕯️ = character frame + memorial
+      
+  deceased_no_tribute:
+    format: "🤖 Name"
+    meaning: "Simulated deceased person, no honor implied"
+    example: "🤖 [Deceased Tyrant]: [simulated speech]"
+    note: |
+      The candle is an honor. Not everyone earns it.
+      Some deceased persons may be simulated without tribute.
+
+# TAXONOMY — Status Tags and Transitions
+
+taxonomy:
+  
+  # These are metadata tags that can be added to character files
+  # The emoji disclosure follows from the tags
+  
+  status_tags:
+    living:
+      meaning: "Person is alive"
+      emoji: "🤖"
+      note: "Living people can potentially object or consent"
+      
+    deceased_honored:
+      meaning: "Person has passed, worth honoring"
+      emoji: "🤖🕯️"
+      note: "Memorial tribute — the candle is an honor"
+      
+    deceased_not_honored:
+      meaning: "Person has passed, no tribute"
+      emoji: "🤖"
+      note: "Simulated deceased, but the candle is an honor they don't earn"
+      
+    fictional:
+      meaning: "Not a real person"
+      emoji: "📖"
+      note: "No disclosure needed"
+      
+    mythological:
+      meaning: "Mythological/legendary figure"
+      emoji: "🐵 or none"
+      note: "Sun Wukong, Three Wise Monkeys — no disclosure needed"
+      
+    self:
+      meaning: "User playing as themselves"
+      emoji: "🙋 or none"
+      note: "Self-representation is sovereign"
+      
+    character:
+      meaning: "Actor/performer character (living performer)"
+      emoji: "🎭"
+      note: "Character with living creator — can still perform"
+      
+    character_memorial:
+      meaning: "Character whose creator has died"
+      emoji: "🎭🕯️"
+      note: "Pee-wee died with Paul — character is inseparable from creator"
+      
+    drag:
+      meaning: "Drag persona"
+      emoji: "👑"
+      note: "Donna, not Donald — frame is disclosure"
+      
+  # WHEN SOMEONE DIES — Status Transition
+  
+  status_transitions:
+    
+    living_to_deceased:
+      trigger: "Person passes away"
+      action: |
+        1. Update `status: living` → `status: deceased` in character files
+        2. Update emoji from 🤖 to 🕯️ (or 🤖🕯️)
+        3. Add to Memorial Candles if they appear in sessions
+        4. Consider adding death date metadata
+        
+      example:
+        before:
+          status: living
+          display_name: "🤖 Paul Reubens"
+        after:
+          status: deceased
+          passed: "Jul 2023"
+          display_name: "🕯️ Paul Reubens"
+          
+      note: |
+        Pee-wee Herman (the character) is 🎭 regardless.
+        Paul Reubens (the person) transitions from 🤖 to 🕯️.
+        
+  # IMPLICATION HIERARCHY
+  
+  implication_hierarchy:
+    note: "Some markers imply others"
+    
+    🕯️_implies_🤖: true
+    # Candle marker already signals simulation (they cannot speak)
+    
+    👑_implies_📖: true  
+    # Drag personas are fictional characters
+    
+    🎭_implies_📖: true
+    # Character personas are fictional
+    
+    🙋_implies_not_🤖: true
+    # Self-representation is human-originated, not simulated
+    
+  # WHEN TO UPDATE
+  
+  maintenance:
+    
+    check_periodically: |
+      Some status changes may be missed. Periodically check:
+      - Has anyone in the cast passed away?
+      - Have any "recently deceased" become "long deceased"?
+      - Are there new consent declarations from living people?
+      
+    time_decay: |
+      Recently deceased → extra sensitivity (⚠️🕯️)
+      Long deceased → normal reverence (🕯️)
+      Historical → more latitude (💬 tradition invocation)
+      
+      "We invoke Socrates freely. We wouldn't invoke someone's 
+      recently deceased parent without care."

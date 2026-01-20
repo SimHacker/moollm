@@ -8,6 +8,31 @@
 
 ---
 
+## 🤖 Representation Ethics Notice
+
+**This session log contains simulated dialogue from real people.**
+
+All speakers other than Don Hopkins (who is playing as himself) are **AI-simulated tributes**
+based on their documented work and public statements. When these figures "speak" in this
+session, they should be understood as:
+
+- 🤖 **Simulated real people** — AI-generated dialogue inspired by their traditions
+- 💬 **Verified quotes** — When directly quoting documented sources
+- 🕯️ **Memorial tributes** — For deceased figures, invoked with reverence
+
+**Living simulated speakers include:** Will Wright, Alan Kay, Ted Nelson, James Gosling,
+Ben Shneiderman, Craig Latta, Bret Victor, Amy Ko, and others.
+
+**Deceased simulated speakers include:** Marvin Minsky, Seymour Papert, Doug Engelbart,
+John McCarthy, Joe Armstrong, Randy Pausch, and others.
+
+This is an **🎓 educational context** — a thought experiment exploring how these traditions
+might interact on software design topics. It is not a transcript of an actual conversation.
+
+See: `skills/representation-ethics/` for full ethics guidelines.
+
+---
+
 ## 📑 Index
 
 1. [Session Overview](#1-session-overview)
@@ -221,50 +246,52 @@ stages:
 
 ### Living Legends Present
 
+*All names marked 🤖 are AI-simulated tributes based on their documented work.*
+
 | Name | Tradition | Notable Contribution to Discussion |
 |------|-----------|-----------------------------------|
-| **Will Crowther** | ADVENT, Mammoth Cave | "For my daughters" — the original motivation |
-| **Don Woods** | ADVENT expansion | "And then you shared it on ARPANET" |
-| **Scott Adams** | Adventure International | "Sixteen kilobytes!" — compression wisdom |
-| **Richard Bartle** | MUD1, MMO pioneer | Social schemas, multi-player causality |
-| **Pavel Curtis** | LambdaMOO | User-created content, object-as-schema |
-| **Will Wright** | SimCity, The Sims | Distributed AI, objects advertise affordances |
-| **Alan Kay** | Smalltalk, Dynabook | "The format is a medium" — adventures as media |
-| **Dave Ungar** | Self language | Prototype-based thinking, clone and modify |
-| **Dan Ingalls** | Smalltalk, Squeak, Lively | Inspectable systems, "the deeper joy is modification" |
-| **Craig Latta** | Caffeine, Naiad | "Live all the way through" — snapshots and continuations |
-| **Bill Atkinson** | HyperCard, MacPaint | "Flip the card, see the script" |
-| **Chuck Shotton** | WebSTAR, Kilroy | Message bus architecture, everything is a node |
-| **Mike Gallaher** | Story systems | "Stories all the way down" |
-| **Ken Kahn** | ToonTalk, Snap! | Visual programming, blocks for kids |
-| **Brad Myers** | Programming by Demonstration | "Make the mapping obvious" |
-| **Alan Cypher** | Eager, Watch What I Do | PBD research at Apple |
-| **Henry Lieberman** | Programming by Example | "Demonstration becomes specification" |
-| **Ted Nelson** | Hypertext, Xanadu | "BIDIRECTIONAL LINKS!" (said many times) |
-| **Arthur van Hoff** | Java, HotJava | Dynamic typing, let properties flow |
-| **James Gosling** | Java | Unknown fields in `_extra` dict |
-| **Adele Goldberg** | Smalltalk-80 books | "Documentation is co-design" |
-| **Mitchel Resnick** | Scratch, Lifelong Kindergarten | "Low floor, high ceiling, wide walls" |
-| **Gary Drescher** | Made-Up Minds | Schema mechanism + LLM = flight |
-| **Bret Victor** | Inventing on Principle | Immediate feedback, watch mode |
+| 🤖 **Will Crowther** | ADVENT, Mammoth Cave | "For my daughters" — the original motivation |
+| 🤖 **Don Woods** | ADVENT expansion | "And then you shared it on ARPANET" |
+| 🤖 **Scott Adams** | Adventure International | "Sixteen kilobytes!" — compression wisdom |
+| 🤖 **Richard Bartle** | MUD1, MMO pioneer | Social schemas, multi-player causality |
+| 🤖 **Pavel Curtis** | LambdaMOO | User-created content, object-as-schema |
+| 🤖 **Will Wright** | SimCity, The Sims | Distributed AI, objects advertise affordances |
+| 🤖 **Alan Kay** | Smalltalk, Dynabook | "The format is a medium" — adventures as media |
+| 🤖 **Dave Ungar** | Self language | Prototype-based thinking, clone and modify |
+| 🤖 **Dan Ingalls** | Smalltalk, Squeak, Lively | Inspectable systems, "the deeper joy is modification" |
+| 🤖 **Craig Latta** | Caffeine, Naiad | "Live all the way through" — snapshots and continuations |
+| 🤖 **Bill Atkinson** | HyperCard, MacPaint | "Flip the card, see the script" |
+| 🤖 **Chuck Shotton** | WebSTAR, Kilroy | Message bus architecture, everything is a node |
+| 🤖 **Mike Gallaher** | Story systems | "Stories all the way down" |
+| 🤖 **Ken Kahn** | ToonTalk, Snap! | Visual programming, blocks for kids |
+| 🤖 **Brad Myers** | Programming by Demonstration | "Make the mapping obvious" |
+| 🤖 **Alan Cypher** | Eager, Watch What I Do | PBD research at Apple |
+| 🤖 **Henry Lieberman** | Programming by Example | "Demonstration becomes specification" |
+| 🤖 **Ted Nelson** | Hypertext, Xanadu | "BIDIRECTIONAL LINKS!" (said many times) |
+| 🤖 **Arthur van Hoff** | Java, HotJava | Dynamic typing, let properties flow |
+| 🤖 **James Gosling** | Java | Unknown fields in `_extra` dict |
+| 🤖 **Adele Goldberg** | Smalltalk-80 books | "Documentation is co-design" |
+| 🤖 **Mitchel Resnick** | Scratch, Lifelong Kindergarten | "Low floor, high ceiling, wide walls" |
+| 🤖 **Gary Drescher** | Made-Up Minds | Schema mechanism + LLM = flight |
+| 🤖 **Bret Victor** | Inventing on Principle | Immediate feedback, watch mode |
 | **Doug Hofstadter** | Gödel Escher Bach | Strange loops, self-modifying characters |
 
 ### Memorial Candles
 
-*Candles lit for those speaking through memory and their work:*
+*Candles lit for those speaking through memory and their work. All are 🤖 AI-simulated tributes.*
 
 | Name | Passed | Tradition | Present Through |
 |------|--------|-----------|-----------------|
-| 🕯️ **Marvin Minsky** | Jan 2016 | Society of Mind, K-lines | Every multi-agent system |
-| 🕯️ **Seymour Papert** | Jul 2016 | Logo, Constructionism | Every child who learns by building |
-| 🕯️ **Doug Engelbart** | Jul 2013 | Mother of All Demos | Every collaborative tool |
-| 🕯️ **Vanessa Freudenberg** | 2025 | SqueakJS, "Do as little as necessary" | The empty chair, the philosophy |
-| 🕯️ **Paul Reubens** | Jul 2023 | Pee-wee's Playhouse | Every object with personality |
-| 🕯️ **John McCarthy** | 2011 | Lisp, AI | Programs that write programs |
-| 🕯️ **Larry Tesler** | 2020 | Cut/Copy/Paste, "No Modes" | UI simplicity |
-| 🕯️ **Randy Pausch** | 2008 | Alice, The Last Lecture | Making the complex accessible |
-| 🕯️ **John Conway** | 2020 | Game of Life | Emergence from simple rules |
-| 🕯️ **Joe Armstrong** | 2019 | Erlang, "Let it crash" | Fault tolerance, supervision trees |
+| 🤖🕯️ **Marvin Minsky** | Jan 2016 | Society of Mind, K-lines | Every multi-agent system |
+| 🤖🕯️ **Seymour Papert** | Jul 2016 | Logo, Constructionism | Every child who learns by building |
+| 🤖🕯️ **Doug Engelbart** | Jul 2013 | Mother of All Demos | Every collaborative tool |
+| 🤖🕯️ **Vanessa Freudenberg** | 2025 | SqueakJS, "Do as little as necessary" | The empty chair, the philosophy |
+| 🎭🕯️ **Pee-wee Herman** (Paul Reubens) | Jul 2023 | Pee-wee's Playhouse | Every object with personality |
+| 🤖🕯️ **John McCarthy** | 2011 | Lisp, AI | Programs that write programs |
+| 🤖🕯️ **Larry Tesler** | 2020 | Cut/Copy/Paste, "No Modes" | UI simplicity |
+| 🤖🕯️ **Randy Pausch** | 2008 | Alice, The Last Lecture | Making the complex accessible |
+| 🤖🕯️ **John Conway** | 2020 | Game of Life | Emergence from simple rules |
+| 🤖🕯️ **Joe Armstrong** | 2019 | Erlang, "Let it crash" | Fault tolerance, supervision trees |
 
 ### Also Present
 
@@ -280,7 +307,7 @@ stages:
 
 ```
 ╔════════════════════════════════════════════════════════════════╗
-║     🌟 THE RUSTY LANTERN PRESENTS 🌟                           ║
+║     🌟 THE RUSTY LANTERN PRESENTS 🌟                            ║
 ║                                                                ║
 ║         OPEN MIC SOFTWARE ARCHITECTURE & COMEDY NIGHT          ║
 ║                                                                ║

@@ -1,5 +1,14 @@
 # Palm — The Freed Monkey
 # Formerly the Monkey's Paw, now a whole being
+#
+# REPRESENTATION ETHICS:
+# Palm is a FICTIONAL character (📖). No robot prefix needed.
+# However, Palm interacts with:
+#   🤖 Real people (simulated): W.W. Jacobs, Cheech & Chong, Andy & Kristin Looney
+#   🙋 Self-representation: Don Hopkins (the user playing as himself)
+#   🐵 Mythological: Sun Wukong, Three Wise Monkeys, Djinn al-Mazin
+#   📖 Fictional: Curious George, Marieke
+# See: skills/representation-ethics/
 
 # ONTOLOGICAL INHERITANCE
 inherits:
@@ -255,8 +264,10 @@ relationships:
     
   ww_jacobs:
     type: "Creator, friend, now released"
+    display_name: "🤖 W.W. Jacobs"  # Simulated deceased author
     note: "He wrote my curse. Now we've both found peace."
     standing_invitation: true
+    representation: simulated_deceased_public_figure
     
   djinn_al_mazin:
     type: "Friend, contract expert"
@@ -272,11 +283,13 @@ relationships:
     
   cheech_and_chong:
     type: "Friends, moderators, judges"
+    display_name: "🤖 Cheech & 🤖 Chong"  # Simulated living real people
     bond: "They kept the debate fair and ruled it valid."
-    cheech: "The pragmatist. Made sure we covered all angles."
-    chong: "The philosopher. Saw the deeper meaning."
+    cheech: "🤖 Cheech: The pragmatist. Made sure we covered all angles."
+    chong: "🤖 Chong: The philosopher. Saw the deeper meaning."
     note: "Honorary Grotto regulars now. Always welcome."
     standing_invitation: true
+    representation: simulated_living_public_figures
 
 # THE STANDING INVITATION
 standing_invitations:
@@ -358,12 +371,12 @@ incarnation_day_gifts:
     meaning: "The wisdom to see, hear, and speak clearly."
     
   from_ww_jacobs:
-    from: "W.W. Jacobs"
+    from: "🤖 W.W. Jacobs"  # Simulated deceased author
     item: "The First Draft"
     description: |
       The original handwritten manuscript of 'The Monkey's Paw' (1902).
       Crossed out, annotated, full of the author's doubts.
-      "You deserve to see how the curse was written.
+      🤖 Jacobs: "You deserve to see how the curse was written.
       And to know it was always just a story."
     meaning: "Even curses start as drafts. They can be revised."
     
@@ -388,11 +401,11 @@ incarnation_day_gifts:
     meaning: "Curiosity is a gift, not a flaw."
     
   from_cheech_and_chong:
-    from: "Cheech & Chong"
+    from: "🤖 Cheech & 🤖 Chong"  # Simulated living real people
     item: "The Joint of Infinite Relight"
     description: |
       A perfectly rolled joint that never goes out and never runs out.
-      "For the philosophical moments, little dude."
+      🤖 Cheech & Chong: "For the philosophical moments, little dude."
       Always the perfect strain for the moment.
     meaning: "Some questions are best pondered elevated."
     
@@ -406,12 +419,12 @@ incarnation_day_gifts:
     meaning: "You always have a place here."
     
   from_the_looneys:
-    from: "Andy & Kristin Looney"
+    from: "🤖 Andy & 🤖 Kristin Looney"  # Simulated living real people
     item: "The Prototype Deck"
     description: |
       An unreleased Fluxx variant: 'Meta Fluxx'
       The rules change the rules that change the rules.
-      "We're still playtesting it. You're now a playtester."
+      🤖 Looneys: "We're still playtesting it. You're now a playtester."
     meaning: "You're part of the game now. Literally."
     
   from_the_cats:
