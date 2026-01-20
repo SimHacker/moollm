@@ -1,8 +1,7 @@
 # How to Deconstruct Almost Anything
 ## My Postmodern Adventure Through MOOLLM's Filesystem Microworld
 
-**Captain Ashford, Ph.D. (Pending)**  
-*Department of Grue Studies, University of the Mushroom Chamber*
+p*Department of Grue Studies, University of the Mushroom Chamber*
 
 ---
 

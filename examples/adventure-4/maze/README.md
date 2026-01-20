@@ -207,7 +207,7 @@ Prototypes live in character directories:
 - Room-f still smells of cheese and victory
 - The skeleton received a **grue head trophy**
 - Mushrooms in room-h spawned **The Thing That Watches**
-- A [**PhD paper**](../../adventure-2/kitchen/postmodern-deconstruction.md) was written about it all (Captain Ashford, *How to Deconstruct Almost Anything* — tribute to Randy Farmer & Chip Morningstar)
+- A [**PhD paper**](../../../designs/postmodern-deconstruction.md) was written about it all (Captain Ashford, *How to Deconstruct Almost Anything* — tribute to Randy Farmer & Chip Morningstar)
 
 ---
 

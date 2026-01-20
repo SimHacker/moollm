@@ -275,7 +275,7 @@ The counter can break things down. Not just "disassemble" — *decompose*.
 
 *See also:*
 - *[How to Deconstruct Almost Anything](http://www.fudco.com/chip/deconstr.html) — Chip Morningstar's legendary essay on the collision of engineering and postmodern literary criticism.*
-- *[Captain Ashford's Deconstruction Paper](../adventure-2/kitchen/postmodern-deconstruction.md) — Our own PhD-level analysis of adventure-2, applying Morningstar's methods to grues, lamps, and the filesystem-as-world.*
+- *[Captain Ashford's Deconstruction Paper](../../designs/postmodern-deconstruction.md) — Our own PhD-level analysis of adventure-2, applying Morningstar's methods to grues, lamps, and the filesystem-as-world.*
 
 *If you're going to decompose reality, you might as well understand the theory.*
 
