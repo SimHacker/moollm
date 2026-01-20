@@ -5,6 +5,20 @@
 
 ---
 
+## Start Here
+
+**What this is:** A filesystem-incarnated skill framework where skills are runnable programs and the LLM is the universal interpreter.
+
+**Core thesis:** One text can be code, data, or graphics (Axis of Eval). The LLM pivots it.
+
+**What's new vs "skills as docs":** Instantiation, delegation, persistence, K-lines.
+
+**Why it matters:** You get living systems — playable, editable, auditable — not just prompt snippets.
+
+**If you read only 3 sections:** [The Word](#the-word) → [Axis of Eval](#the-axis-of-eval-code-graphics-data) → [CARD.yml](#cardyml-the-skill-interface)
+
+---
+
 ## 📚 Document Index
 
 ### Core Concepts
