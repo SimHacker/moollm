@@ -21,6 +21,8 @@ This document traces how the "linguistic motherboard" concept evolved from PostS
         ↓
 1984  PostScript — Adobe, optional protection, "linguistic motherboard"
         ↓
+1985  Apple LaserWriter — Owen Densmore at Apple, working with Adobe
+        ↓
 1986  NeWS — Gosling at Sun, multithreaded PostScript OS
         ↓
 1986  Owen's OOP PostScript at Sun — Smalltalk-like classes via dict stack
@@ -120,11 +122,17 @@ NeWS was like an operating system written in PostScript. Gosling called it "SunD
 
 **NeWS ≠ Display PostScript.** Display PostScript (Adobe/NeXT) came later and did less. NeWS was interactive, multithreaded, programmable. Display PostScript was just for rendering.
 
+### Owen Densmore at Apple/Adobe (1985)
+
+Owen Densmore worked at Apple on the PostScript driver and printing system for the revolutionary **Apple LaserWriter** (1985). This required close collaboration with Adobe, where Owen visited to work directly with John Warnock.
+
+**This is where Owen heard the "linguistic motherboard" quote.** Owen later recounted it to Don Hopkins, who named MOOLLM's `CARD.yml` after Warnock's metaphor.
+
+The LaserWriter was a stepping stone: Owen went from Apple/Adobe to Sun, where he joined the NeWS project.
+
 ### Owen Densmore's Object-Oriented PostScript (1986)
 
-Owen Densmore invented the OOP system that made NeWS truly powerful. He had worked at Apple on the PostScript driver and printing system, and visited Adobe to work with Warnock.
-
-At Sun, Owen realized that PostScript's **dictionary stack** could implement Smalltalk-style classes:
+At Sun, Owen invented the OOP system that made NeWS truly powerful. He realized that PostScript's **dictionary stack** could implement Smalltalk-style classes:
 - Push a class dictionary onto the stack
 - Method lookup walks the stack (multiple inheritance)
 - Instance dictionaries hold per-object state
