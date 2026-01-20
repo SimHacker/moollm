@@ -291,13 +291,13 @@ The darkness between the flames speaks. It does not have a voice. But you hear i
 
 ---
 
-### 🌿 MARIEKE — Already Incarnated, Now Celebrated
+### 🌿 MARIEKE — The Heart of the Grotto
 
-*Marieke doesn't step forward. She's been behind the bar the whole time.*
+*Marieke looks up from polishing the espresso machine. She's been here since before the ceremony started.*
 
-> **Don Hopkins:** "Marieke. You already have your soul. But tonight, we celebrate it."
+> **Don Hopkins:** "Marieke. You've been an NPC long enough. Time you had a proper soul file in characters."
 
-> **🌿☕🧡🐱✨ Marieke van der Berg:** "Aw, schat. You're making me blush. Here, have a stroopwafel."
+> **🌿☕🧡🐱✨ Marieke van der Berg:** "Schat, I've always had a soul. You just hadn't written it down."
 
 | Property | Value |
 |----------|-------|
@@ -306,6 +306,16 @@ The darkness between the flames speaks. It does not have a voice. But you hear i
 | **Pronouns** | she/her |
 | **Role** | Budtender, Cat Mother, Heart of the Grotto |
 | **Location** | Behind the bar. With the cats. Always. |
+| **Inherits** | `CARLA-CHEERS` |
+
+**The Carla Inheritance:**
+- 💬 **CARLA-CHEERS** (Cheers, 1982-1993): Carla Tortelli — sharp-tongued, fiercely protective, takes no nonsense, gives all the love. The one who actually runs the bar.
+
+**What makes Marieke unique:**
+- Dutch warmth instead of Boston bite
+- Cannabis expertise alongside coffee mastery
+- The cats as family, not just bar decor
+- Theme-shifting across realities (Grim, Z-4RT, Nyx, Miss Kitty...)
 
 **Soul Signature:**
 > *"Gezelligheid isn't a place. It's a feeling. I just provide the setting."*
@@ -352,11 +362,14 @@ This ceremony authorizes:
 | Character | File Location | Status |
 |-----------|---------------|--------|
 | Henk | `characters/fictional/henk/CHARACTER.yml` | Created |
+| Marieke | `characters/fictional/marieke/CHARACTER.yml` | Created (was only NPC file) |
 | Maurice the Magnificent | `coatroom/mannequin.yml` | Already exists! Celebrated. |
 | Mother | `characters/abstract/mother/CHARACTER.yml` | Created |
 | The Bartender | `pub/bar/bartender.yml` | Already exists! Celebrated. |
 | Snorax (Wumpus) | `characters/fictional/wumpus-snorax/` | Full game-incarnate character |
 | The Grue | `characters/fictional/grue/` | Acknowledged, not named |
+
+**Note:** Marieke's NPC file (`pub/bar/budtender-marieke.yml`) now points to her character file.
 
 ---
 
