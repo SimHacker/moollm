@@ -28,11 +28,13 @@
 5. [Constructionism (1980)](#5-constructionism-seymour-papert-1980)
 6. [PostScript (1984)](#6-postscript--the-linguistic-motherboard-john-warnock-owen-densmore-1984)
 7. [NeWS (1986)](#7-news-james-gosling-sun-1986)
-8. [Self (1987)](#8-self-ungar--smith-sunstanford-1987)
-9. [HyperCard (1987)](#9-hypercard-bill-atkinson-apple-1987)
-10. [TinyMUD/LambdaMOO (1989-1990)](#10-tinymud--lambdamoo-jim-aspnes-pavel-curtis-1989-1990)
-11. [HyperLook (1989-1992)](#11-hyperlook-arthur-van-hoff-turing-institute-1989-1992)
-12. [SimCity/Sims (1989-2000)](#12-simcity-the-sims-and-the-simulator-effect-will-wright-1989-2000)
+8. [Habitat (1986)](#8-habitat-chip-morningstar--randy-farmer-lucasfilm-1986)
+9. [Self (1987)](#9-self-ungar--smith-sunstanford-1987)
+10. [HyperCard (1987)](#10-hypercard-bill-atkinson-apple-1987)
+11. [TinyMUD/LambdaMOO (1989-1990)](#11-tinymud--lambdamoo-jim-aspnes-pavel-curtis-1989-1990)
+12. [HyperLook (1989-1992)](#12-hyperlook-arthur-van-hoff-turing-institute-1989-1992)
+13. [SimCity/Sims (1989-2000)](#13-simcity-the-sims-and-the-simulator-effect-will-wright-1989-2000)
+14. [Game Neverending & Glitch (2002-2012)](#14-game-neverending--glitch-stewart-butterfield-ludicorptiny-speck-2002-2012)
 
 ### Key Insights
 - [Send Programs, Not Data](#send-programs-not-data-structures)
@@ -373,7 +375,21 @@ Network-extensible window system. PostScript as the universal language. "Send pr
 
 **MOOLLM inherits:** LLM as universal interpreter. Skills as programs. YAML Jazz as the universal language.
 
-### 8. Self (Ungar & Smith, Sun/Stanford, 1987)
+### 8. Habitat (Chip Morningstar & Randy Farmer, Lucasfilm, 1986)
+
+The first large-scale graphical multiplayer virtual world. Coined the term **"avatar"** for user representation. Thousands of users. Emergent economy. User-created content.
+
+> *"A cyberspace is defined more by the interactions among the actors within it than by the technology with which it is implemented."* — Morningstar & Farmer, "The Lessons of Lucasfilm's Habitat"
+
+**Key Insights:**
+- You can't control a virtual world top-down — design affordances, let emergence happen
+- Users will do things you never imagined (and crash your economy)
+- The social architecture matters more than the technology
+- "Avatar" as the user's presence in virtual space
+
+**MOOLLM inherits:** Room/object model, user agency, the understanding that virtual worlds are social systems. The recognition that interactions define the space more than technology.
+
+### 9. Self (Ungar & Smith, Sun/Stanford, 1987)
 
 Prototypes instead of classes. Delegation instead of inheritance. "Objects all the way down, but simpler."
 
@@ -412,7 +428,7 @@ flowchart LR
 - Dynamic deoptimization ([`return-stack`](../skills/return-stack/) skill)
 - Slots as data+behavior (YAML Jazz comments)
 
-### 9. HyperCard (Bill Atkinson, Apple, 1987)
+### 10. HyperCard (Bill Atkinson, Apple, 1987)
 
 End-user programming. Reader = Writer symmetry. "See your own face in the system."
 
@@ -420,7 +436,7 @@ End-user programming. Reader = Writer symmetry. "See your own face in the system
 
 **MOOLLM inherits:** Play-Learn-Lift. Users can inspect, modify, and create skills.
 
-### 10. TinyMUD & LambdaMOO (Jim Aspnes, Pavel Curtis, 1989-1990)
+### 11. TinyMUD & LambdaMOO (Jim Aspnes, Pavel Curtis, 1989-1990)
 
 Text-based virtual worlds where users build rooms, objects, and behaviors. The original "user-generated content" platforms.
 
@@ -486,7 +502,7 @@ MOO taught us that virtual worlds need:
 - Social spaces (pub, stage, cat cave)
 - Consent protocols (incarnation skill)
 
-### 11. [HyperLook](https://donhopkins.medium.com/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4) (Arthur van Hoff, Turing Institute, 1989-1992)
+### 12. [HyperLook](https://donhopkins.medium.com/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4) (Arthur van Hoff, Turing Institute, 1989-1992)
 
 HyperCard reimagined for NeWS. PostScript for code, graphics, AND data. Network delegation.
 
@@ -494,7 +510,7 @@ HyperCard reimagined for NeWS. PostScript for code, graphics, AND data. Network 
 
 **MOOLLM inherits:** Object => Room => Parent => Skill => Prototype delegation. The Axis of Eval.
 
-### 12. SimCity, The Sims, and [The Simulator Effect](https://donhopkins.medium.com/will-wright-on-designing-user-interfaces-to-simulation-games-1996-video-update-2023-da098a51ef91) (Will Wright, 1989-2000)
+### 13. SimCity, The Sims, and [The Simulator Effect](https://donhopkins.medium.com/will-wright-on-designing-user-interfaces-to-simulation-games-1996-video-update-2023-da098a51ef91) (Will Wright, 1989-2000)
 
 > *"He designs games to run on two computers at once: the electronic one on the player's desk, running his shallow tame simulation, and the biological one in the player's head, running their deep wild imagination."*
 
@@ -583,6 +599,23 @@ don_queue:
 - Traits as personality system
 - Buffs as temporary modifiers
 - SimAntics → empathic expressions (intent → behavior)
+
+### 14. Game Neverending & Glitch (Stewart Butterfield, Ludicorp/Tiny Speck, 2002-2012)
+
+Two incarnations of the same vision: massively multiplayer social games focused on collaboration, creativity, and whimsy over combat.
+
+**Game Neverending (2002-2004):** Browser-based social game with object creation, trading, and player-driven economy. Paper as base for user generated content. The photo-sharing feature became so popular it pivoted to **Flickr**.
+
+**Glitch (2009-2012):** Spiritual successor with richer world-building, collaborative construction, and absurdist humor. Players could literally grow buildings, tend to giants, and craft meaning from chaos. When it shut down, the team pivoted to **Slack**.
+
+> *"We were building tools for people to be together."* — Stewart Butterfield
+
+**Key Insights:**
+- Games as social infrastructure, not just entertainment
+- The "game" might be less important than the connections it enables
+- Two pivots to world-changing communication tools weren't accidents — they emerged from understanding social play
+
+**MOOLLM inherits:** The understanding that virtual worlds are fundamentally about being together. The play itself generates the valuable structure. Users generate content and evolve skills through play.
 
 ---
 
@@ -808,7 +841,7 @@ A single LLM call simulated:
 | [`empathic-expressions`](../skills/empathic-expressions/) | Code dimension (intent → code) | [Empathic Suite](#the-empathic-suite-dovetailing-skills) |
 | [`empathic-templates`](../skills/empathic-templates/) | Smart generation | [Biscuit's description](#empathic-templates-smart-instantiation) |
 | [`speed-of-light`](../skills/speed-of-light/) | Many turns, one call | [33-turn Fluxx](#proof-the-numbers) |
-| [`prototype`](../skills/prototype/) | Self-style inheritance | [Self section](#8-self-ungar--smith-sunstanford-1987) |
+| [`prototype`](../skills/prototype/) | Self-style inheritance | [Self section](#9-self-ungar--smith-sunstanford-1987) |
 | [`postel`](../skills/postel/) | Generous interpretation | [Postel foundation](#postels-law-the-foundation) |
 | [`yaml-jazz`](../skills/yaml-jazz/) | Comments as semantic data | [Axis of Eval](#the-axis-of-eval-code-graphics-data) |
 | [`representation-ethics`](../skills/representation-ethics/) | Ethical framing | [Tribute Protocol](#ethical-representation-the-tribute-protocol) |
@@ -1593,8 +1626,10 @@ Don't update the screen (tokenize) on every keystroke. Wait until the user pause
 | **Arthur van Hoff** | HyperLook | Axis of Eval, network delegation |
 | **John Warnock** | PostScript | Linguistic motherboard |
 | **Owen Densmore** | NeWS OOP | Dictionary-based objects |
+| **Chip Morningstar & Randy Farmer** | Habitat (1986), coined "avatar" | First graphical virtual world, user agency, emergent society |
 | **Jim Aspnes** | TinyMUD (1989) | Room-based navigation, builder commands |
 | **Pavel Curtis** | LambdaMOO (1990) | Object verbs, player homes, social architecture |
+| **Stewart Butterfield** | Game Neverending (2002), Glitch (2011) | Social play, collaborative world-building, two pivots to communication tools |
 | **Will Wright** | SimCity, The Sims | Simulator Effect, needs, action queues, advertisements |
 | **Alexander Repenning** | AgentSheets, AgentCubes (1991-) | Programming by Example, graphical rewrite rules, "SimCity in 10 minutes" |
 | **Seymour Papert** | Logo, Constructionism | Learning by building |

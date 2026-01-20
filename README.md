@@ -100,10 +100,13 @@ MOOLLM stands on decades of work:
 | **Marvin Minsky** | K-lines, Society of Mind | Names as activation vectors |
 | **Seymour Papert** | Logo, Constructionism | Learn by building inspectable things |
 | **Alan Kay** | Smalltalk, Dynabook | Objects, messaging, "computer as medium" |
+| **Chip Morningstar & Randy Farmer** | Habitat (1986), "avatar" | First graphical virtual world, user agency |
+| **Stewart Butterfield** | Game Neverending (2002), Glitch (2011) | Social play, collaborative world-building |
 | **Will Wright** | The Sims | Needs, advertisements, autonomous selection |
 | **Dave Ungar** | Self language | Prototypes, delegation, clone-don't-instantiate |
 | **Ted Nelson** | Hypertext, Xanadu | Two-way links, intertwingularity |
 | **Bill Atkinson** | HyperCard | Reader = Writer, end-user programming |
+| **Pavel Curtis** | LambdaMOO | User-built rooms, programmable world |
 | **Don Hopkins** | Pie menus, SimCity, The Sims | All of the above, synthesized |
 
 > 📚 Full genealogy: [MOOLLM Eval Incarnate Framework](./designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#the-intellectual-genealogy)

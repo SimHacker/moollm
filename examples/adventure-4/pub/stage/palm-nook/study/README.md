@@ -57,6 +57,7 @@ The infinite typewriters hum in harmony — Don's gift, Dasher-inspired navigati
 |----------|-------------|
 | [Palm on Being Palm](palm-on-being-palm.md) | Philosophical reflections on capuchin consciousness |
 | [Tribute to Tognazzini](tribute-to-tognazzini.md) | On interface design and the human-computer connection |
+| [How to Incarnate Almost Anything](../../../../../designs/postmodern-deconstruction.md) | Captain Ashford's lit crit masterpiece — tribute to Chip Morningstar |
 
 ---
 

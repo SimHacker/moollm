@@ -69,6 +69,7 @@ Palm is:
 
 - [Palm on Being Palm](study/palm-on-being-palm.md) — Philosophical reflections
 - [Tribute to Tognazzini](study/tribute-to-tognazzini.md) — On interface design
+- [How to Incarnate Almost Anything](../../../../designs/postmodern-deconstruction.md) — Captain Ashford's lit crit masterpiece
 
 ---
 
