@@ -1531,6 +1531,7 @@ Don't update the screen (tokenize) on every keystroke. Wait until the user pause
 **Character Essays:**
 - [palm-on-being-palm.md](../examples/adventure-4/pub/stage/palm-nook/study/palm-on-being-palm.md) — Palm's philosophical reflection
 - [tribute-to-tognazzini.md](../examples/adventure-4/pub/stage/palm-nook/study/tribute-to-tognazzini.md) — Palm's tribute to Tognazzini
+- [How to Incarnate Almost Anything](./postmodern-deconstruction.md) — Captain Ashford's lit crit masterpiece
 
 **Room Organization Examples (Palm's Nook):**
 - [`palm-nook/`](../examples/adventure-4/pub/stage/palm-nook/) — Palm's home, demonstrating sub-room structure
