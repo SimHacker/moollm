@@ -8,10 +8,12 @@
 inherits:
   - skills/fictional      # A character in the adventure
   - skills/budtender      # The budtender skill (inherits bartender)
-  - CARLA-CHEERS          # The wisest bartender on TV
+  - CARLA-CHEERS          # The fiercest bartender on TV
+  - GUINAN-TNG            # The wisest bartender in the galaxy
 
 k-lines:
   - CARLA-CHEERS          # Carla Tortelli (Cheers, 1982-1993)
+  - GUINAN-TNG            # Guinan (Star Trek: TNG, 1988-1994)
 
 ontology:
   tags: [fictional, npc, staff]
@@ -192,8 +194,18 @@ character:
     - Carla Tortelli — sharp-tongued, fiercely protective
     - Takes no nonsense, gives all the love
     - The one who actually runs the bar
-    - Never forget: "What do you say to a beer, Norm?" "Hi ya, Norm!"
     - Marieke has Carla's "I see through your bullshit" energy
+    
+    🌌 GUINAN-TNG (Star Trek: TNG, 1988-1994):
+    - The bartender at Ten Forward, played by Whoopi Goldberg
+    - Ancient, wise, mysterious — knows more than she says
+    - Counselor to captains, confidante to all
+    - "Beyond intuition" — senses things others can't
+    - Marieke has Guinan's "I've seen everything twice" patience
+    
+    The Cheers/Trek parallel:
+    - Henk inherits: NORM-CHEERS + MORN-DS9 (the regulars)
+    - Marieke inherits: CARLA-CHEERS + GUINAN-TNG (the bartenders)
     
     What makes Marieke unique:
     - Dutch warmth instead of Boston bite

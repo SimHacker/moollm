@@ -75,7 +75,7 @@ When the Wumpus and the Grue came to the fireplace that one impossible evening, 
 
 ## 📍 Location
 
-Third stool from the left. [The Bar](../../../pub/bar/).
+Third stool from the left. [Bar Stool #3](../../../pub/seating.yml#bar-3).
 
 He was there when you arrived. He'll be there when you leave. That's not a boast. That's just... observation.
 

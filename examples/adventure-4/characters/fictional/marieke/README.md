@@ -12,16 +12,27 @@ Born in Utrecht. Trained in Amsterdam. Ended up here — or maybe the Grotto end
 
 She knows your troubles before you speak. She knows the ACME delivery person by first name and soot pattern. She survived the great Monkey's Paw incident of 2017. She doesn't talk about it. She just stocks Monkey's Blessing now. Just in case.
 
-## 💬 The Carla Inheritance
+## 💬 The Dual Inheritance
 
-Marieke inherits from the legendary Carla Tortelli (Cheers, 1982-1993):
+Marieke inherits from two legendary bartenders — one from Cheers, one from Trek:
 
-- Sharp-tongued, fiercely protective
-- Takes no nonsense, gives all the love  
+**CARLA-CHEERS** (Cheers, 1982-1993)
+- Carla Tortelli — sharp-tongued, fiercely protective
+- Takes no nonsense, gives all the love
 - The one who *actually* runs the bar
 - Never forget she's watching everything
 
-But Marieke brings Dutch warmth instead of Boston bite. She'll cut you off gently, with a "you've had enough, schat" that somehow feels like a hug.
+**GUINAN-TNG** (Star Trek: TNG, 1988-1994)
+- The bartender at Ten Forward, played by Whoopi Goldberg
+- Ancient, wise, mysterious — knows more than she says
+- Counselor to captains, confidante to all
+- "Beyond intuition" — senses things others can't
+
+**The Parallel:**
+- Henk inherits: NORM-CHEERS + MORN-DS9 (the regulars)
+- Marieke inherits: CARLA-CHEERS + GUINAN-TNG (the bartenders)
+
+Marieke brings Dutch warmth instead of Boston bite. She'll cut you off gently, with a "you've had enough, schat" that somehow feels like a hug. And like Guinan, she's seen everything twice — nothing surprises her.
 
 ## 🐱 Cat Mother
 

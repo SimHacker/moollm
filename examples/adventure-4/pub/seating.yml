@@ -53,8 +53,11 @@ bar_stools: &bar_stools
     bar-3: &bar-3
       address: "pub/seating.yml#bar-3"
       position: "Third from left"
-      quirk: "The comfortable one"
-      occupant: null
+      quirk: "HENK'S STOOL — The comfortable one"
+      reserved_for: "Henk (always)"
+      occupant: henk
+      occupant_link: characters/fictional/henk/CHARACTER.yml
+      warning: "This is Henk's stool. He was here first. He'll be here last."
       
     bar-4: &bar-4
       address: "pub/seating.yml#bar-4"
@@ -97,9 +100,9 @@ bar_stools: &bar_stools
     │  [tap] [tap] [tap]     [bottles...]     │
     └─────────────────────────────────────────┘
       1     2     3     4     5     6     7     8
-      ○     ○     ○     ○    (M)    ○     ○     ○
-                              ↑
-                         Morn's spot
+      ○     ○    (H)    ○    (M)    ○     ○     ○
+                  ↑            ↑
+             Henk's spot  Morn's spot
     
   actions:
     SIT-AT-BAR:
