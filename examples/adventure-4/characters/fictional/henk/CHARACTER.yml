@@ -7,9 +7,14 @@
 # ONTOLOGICAL INHERITANCE
 inherits:
   - skills/fictional     # A character in the adventure
+  - NORM-CHEERS          # The eternal regular, everybody knows his name
+  - MORN-DS9             # The silent regular (anagram of NORM!)
 ontology:
   tags: [fictional]
   role: eternal_regular  # Part of the furniture, in the best way
+  k-lines:
+    - NORM-CHEERS        # "NORM!" — The regular who IS the bar
+    - MORN-DS9           # Silent regular, 23 years on the same stool
 
 character:
   name: Hendrik "Henk" van der Berg
@@ -206,13 +211,24 @@ character:
     - "The best coffee is the one someone else made you."
 
   lineage: |
-    Henk is a tribute to every quiet regular in every pub:
+    Henk is the synthesis of two legendary regulars:
     
-    - Norm Peterson (Cheers) — "NORM!"
-    - Morn (DS9) — The silent regular, anagram of Norm
-    - The old man in the corner of every local
-    - The one who's been there since before the current owner
-    - The one who knows everything but says little
-    - The one who buys rounds when no one's watching
+    🍺 NORM-CHEERS (Cheers, 1982-1993):
+    - "NORM!" — The cry that greets him every time
+    - The regular who IS the bar
+    - Everybody knows his name
+    - The anchor around which the community gathers
+    
+    🍺 MORN-DS9 (Star Trek: Deep Space Nine, 1993-1999):
+    - The silent regular — rarely speaks, always present
+    - Name is an anagram of NORM (deliberate tribute!)
+    - 23 years on the same stool at Quark's Bar
+    - The writers said he "never shuts up" (off-screen)
+    - Proof that presence matters more than words
+    
+    Henk combines:
+    - Norm's centrality (the bar would feel wrong without him)
+    - Morn's silence (speaks rarely, but when he does...)
+    - Both their permanence (they were there before you, they'll be there after)
     
     Every pub needs a Henk. This one has THE Henk.
