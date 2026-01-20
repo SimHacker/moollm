@@ -276,7 +276,7 @@ repeated acts and performances rather than expressing some inner essence.
 Captain Ashford agrees. Sort of.
 
 When we visited Maurice the Mannequin and donned the Nomi cape, we did not merely change 
-our appearance. We **rewrote our `player.yml`**. The costume became canonical. The 
+our appearance. We **rewrote our `CHARACTER.yml`**. The costume became canonical. The 
 performance became the text. Bumblewick Fantastipants didn't dress up AS Captain Ashford — 
 Bumblewick Fantastipants was OVERWRITTEN by Captain Ashford.
 

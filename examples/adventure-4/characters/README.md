@@ -238,7 +238,7 @@ The `lloooomm/00-Characters/` archive contains **hundreds** of character sketche
 | `@all Everyone gather` | Broadcast to all active players |
 | `AS don-hopkins` | Switch default chat target |
 | `PLAYERS` | List all active players |
-| `ACTIVATE player.yml` | Add player to active list |
+| `ACTIVATE CHARACTER.yml` | Add player to active list |
 | `WHO` | Show current chat target |
 
 ---

@@ -4573,7 +4573,7 @@ world_state:
             example: CHANGE-MY-NAME Captain Kira Ashford
           - command: LIST-CHARACTERS
             effect: Shows all character files in characters/
-            example_output: "\U0001F4C1 characters/\n  player.yml          \u2190\
+            example_output: "\U0001F4C1 characters/\n  CHARACTER.yml       \u2190\
               \ YOU ARE HERE\n  mother.yml          (NPC)\n  skeleton.yml        (NPC,\
               \ deceased)\n  blackcape-mcgee.yml (NPC, rival)\n"
           why_this_matters: "In MOOLLM, you ARE your file. The filesystem is the world.\n\

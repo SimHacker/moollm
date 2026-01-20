@@ -6804,7 +6804,7 @@ exit:
 adventure-4/
   ADVENTURE.yml     ← World state, simulation params
   ROOM.yml          ← The "OUTSIDE" room! The overworld!
-  player.yml
+  CHARACTER.yml     ← Player character definition
   maze/             ← CONTAINER.yml or ROOM.yml inside
   kitchen/          ← Each sub-dir is a navigable area
   pub/
