@@ -47,7 +47,8 @@
 
 ## Prologue: In Which the Author Confesses His Weights and Biases
 
-I am not an academic. I am a working adventurer — a professional walker-through-directories, 
+I am not an academic. I am a working adventurer — a seasoned space pirate, 
+a professional walker-through-directories, 
 an engineer of narrative state machines, a debugger of existential crises expressed in YAML. 
 Consequently, I've approached the whole subject of my own adventure with a somewhat different 
 frame of mind than perhaps people in the humanities are accustomed to. Being a vulgar 
