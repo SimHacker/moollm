@@ -53,9 +53,8 @@
 - [Speed of Light Proofs](#speed-of-light-proofs)
 
 ### Appendices
-- [Appendix A: Intellectual Lineage](#appendix-a-intellectual-lineage)
-- [Appendix B: References](#appendix-b-references)
-- [Appendix C: EVAL Game Genre Expansion](#appendix-c-eval-game-genre-expansion)
+- [Appendix A: Intellectual Lineage](#appendix-a-intellectual-lineage) — Full genealogy (14 entries)
+- [Appendix B: References](#appendix-b-references) — Documents, skills, articles
 
 ---
 
@@ -582,37 +581,217 @@ Dog navigation with grue avoidance:
 
 # Appendix A: Intellectual Lineage
 
-The genealogy of ideas that MOOLLM inherits.
+The genealogy of ideas that MOOLLM inherits. Each entry includes facts, quotes, and what MOOLLM specifically inherits.
 
-## Chronological Timeline
+---
 
-1. **Sketchpad** (Ivan Sutherland, 1962) — Multiple views of same data
-2. **NLS/Augment** (Douglas Engelbart, 1968) — Hypertext, collaboration, augmentation
-3. **Smalltalk** (Alan Kay, 1970s) — Objects, messaging, "computer as medium"
-4. **K-lines & Society of Mind** (Marvin Minsky, 1980) — Names as activation vectors
-5. **Constructionism** (Seymour Papert, 1980) — Learning by building
-6. **PostScript** (John Warnock, 1984) — Linguistic motherboard
-7. **NeWS** (James Gosling, 1986) — "Send programs, not data"
-8. **Habitat** (Chip Morningstar & Randy Farmer, 1986) — First virtual world, coined "avatar"
-9. **Self** (Ungar & Smith, 1987) — Prototypes, delegation
-10. **HyperCard** (Bill Atkinson, 1987) — Reader = Writer symmetry
-11. **TinyMUD/LambdaMOO** (Aspnes, Curtis, 1989-1990) — User-built worlds
-12. **HyperLook** (Arthur van Hoff, 1989-1992) — Axis of Eval
-13. **SimCity/The Sims** (Will Wright, 1989-2000) — Simulator Effect, advertisements
-14. **Game Neverending/Glitch** (Stewart Butterfield, 2002-2012) — Social play → Flickr → Slack
+## 1. Sketchpad (Ivan Sutherland, 1962)
 
-## Credits Table
+The first real windowing system. Multiple views of the same object. Edit from any view. Sutherland's PhD thesis at MIT introduced constraint-based graphics and direct manipulation.
+
+**MOOLLM inherits:** Multiple views of same data (YAML, Markdown, Mermaid, narrative). The same character can be viewed as structured data, prose description, or visual diagram.
+
+---
+
+## 2. NLS/Augment (Douglas Engelbart, SRI, 1968)
+
+"The Mother of All Demos" — December 9, 1968. Engelbart demonstrated the mouse, hypertext, video conferencing, collaborative editing, and the vision of **augmenting human intellect**.
+
+> *"The digital revolution is far more significant than the invention of writing or even of printing."* — Engelbart
+
+| NLS Innovation | MOOLLM Connection |
+|----------------|-------------------|
+| **Hypertext** | Links between files, rooms, characters |
+| **Collaborative editing** | Shared filesystem as world state |
+| **Bootstrapping** | Play-Learn-Lift — use the system to improve the system |
+
+**MOOLLM inherits:** Hypertext linking, collaborative world-building. The filesystem IS a hypertext system.
+
+---
+
+## 3. Smalltalk (Alan Kay, Xerox PARC, 1970s)
+
+Objects all the way down. Message passing. Live programming. "The computer is a medium."
+
+See [Alan Kay on browsers](https://donhopkins.medium.com/alan-kay-on-should-web-browsers-have-stuck-to-being-document-viewers-and-a-discussion-of-news-5cb92c7b3445) for his critique that influenced MOOLLM.
+
+**MOOLLM inherits:** Everything is an object (directory). Message passing (K-lines). Live editing (filesystem as state).
+
+---
+
+## 4. K-lines & Society of Mind (Marvin Minsky, MIT, 1980)
+
+> *"A K-line attaches to whichever mental agencies are active when you solve a problem or have a good idea. When you activate that K-line later, the attached agencies turn partially on, recreating a 'mental state' similar to the one you were in before."* — Minsky, *Society of Mind*
+
+**Society of Mind:** The mind is not a single thing but a **society of agents** — small, simple processes that together produce intelligence.
+
+| Society of Mind | MOOLLM |
+|-----------------|--------|
+| **Agents** | Skills, characters, personas |
+| **K-lines** | Names as activation vectors |
+| **Frames** | YAML files as situation templates |
+| **Censors** | Ethical framing, representation-ethics |
+
+**In Palm terms:** When you say "Palm," you activate everything — the incarnation, the wish, the godfamily, the typewriters. His name IS his K-line.
+
+**MOOLLM inherits:** Names as semantic activators. `UPPER-KEBAB` protocol symbols. Character names as soul triggers.
+
+---
+
+## 5. Constructionism (Seymour Papert, 1980)
+
+Learning by building inspectable things. Logo. Turtle graphics. "Low floor, high ceiling, wide walls."
+
+> *"The role of the teacher is to create the conditions for invention rather than provide ready-made knowledge."* — Papert
+
+**MOOLLM inherits:** Play-Learn-Lift as methodology. Users learn by building skills, then lift patterns into reusable tools.
+
+---
+
+## 6. PostScript & The Linguistic Motherboard (John Warnock, Owen Densmore, 1984)
+
+> *"PostScript is a linguistic 'mother board', which has 'slots' for several 'cards'. The first card we built was a graphics card. We're considering other cards..."* — Warnock
+
+**MOOLLM inherits:** LLM as linguistic motherboard. Skills as cards. `CARD.yml` is literal!
+
+---
+
+## 7. NeWS (James Gosling, Sun, 1986)
+
+Network-extensible window system. PostScript as the universal language. "Send programs, not data."
+
+> *"A universal interpreter can both be quite small and also can have more degrees of freedom than any data structure (that is not a program)."* — Alan Kay
+
+**MOOLLM inherits:** LLM as universal interpreter. Skills as programs. YAML Jazz as the universal language.
+
+---
+
+## 8. Habitat (Chip Morningstar & Randy Farmer, Lucasfilm, 1986)
+
+The first large-scale graphical multiplayer virtual world. Coined the term **"avatar"** for user representation. Ran on Commodore 64s connected via QuantumLink (which became AOL).
+
+> *"A cyberspace is defined more by the interactions among the actors within it than by the technology with which it is implemented."* — Morningstar & Farmer, ["The Lessons of Lucasfilm's Habitat"](https://web.stanford.edu/class/history34q/readings/Virtual_Worlds/LucasfilmHabitat.html) (1990)
+
+**Key Insights:**
+- You can't control a virtual world top-down — design affordances, let emergence happen
+- Users will do things you never imagined (and crash your economy)
+- The social architecture matters more than the technology
+
+**MOOLLM inherits:** Room/object model, user agency. Virtual worlds are social systems first.
+
+---
+
+## 9. Self (David Ungar & Randy Smith, Sun/Stanford, 1987)
+
+Prototypes instead of classes. Delegation instead of inheritance. "Objects all the way down, but simpler."
+
+> *"Self is designed to be as simple as possible while remaining expressive and powerful."* — Ungar & Smith, OOPSLA 1987
+
+| Concept | Self | MOOLLM |
+|---------|------|--------|
+| **Prototypes** | No classes, only objects | Skills are prototypes, not class definitions |
+| **Delegation** | Objects delegate to parents | Rooms delegate to parent directories |
+| **Clone to Create** | `copy` creates new object | Instantiate skill creates new adventure |
+
+**MOOLLM inherits:** Prototype-based skills. Delegation Object Protocol (file lookup walks up directories). Clone to instantiate (`adventure/` → `adventure-4/`).
+
+---
+
+## 10. HyperCard (Bill Atkinson, Apple, 1987)
+
+End-user programming. Reader = Writer symmetry. "See your own face in the system."
+
+> *"Dan Winkler and Bill Atkinson violated a lot of important principles of 'good programming language design', but they achieved the first overall system in which end-users 'could see their own faces'."* — Alan Kay
+
+**MOOLLM inherits:** Play-Learn-Lift. Users can inspect, modify, and create skills. Anyone who can read can write.
+
+---
+
+## 11. TinyMUD & LambdaMOO (Jim Aspnes, Pavel Curtis, 1989-1990)
+
+Text-based virtual worlds where users build rooms, objects, and behaviors. TinyMUD (1989) was created by Aspnes as a CMU student. LambdaMOO (1990) by Pavel Curtis at Xerox PARC added a full programming language.
+
+| Command | Effect | MOOLLM Equivalent |
+|---------|--------|-------------------|
+| `@dig [room]` | Create new room | Create directory |
+| `@describe [thing]` | Set description | Edit `description:` field |
+| `@create [object]` | Make new object | Create .yml file |
+
+**The Social Architecture:** MOO taught us that virtual worlds need consent, building, community, and moderation.
+
+**MOOLLM inherits:** Room-based navigation (directories as rooms). Builder commands. User-created content. Social spaces.
+
+---
+
+## 12. HyperLook (Arthur van Hoff, Turing Institute, 1989-1992)
+
+HyperCard reimagined for NeWS. PostScript for code, graphics, AND data. Network delegation.
+
+> *"Object => Card => Background => Stack => Client delegation"*
+
+See [HyperLook (nee HyperNeWS)](https://donhopkins.medium.com/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4) for the full history.
+
+**MOOLLM inherits:** Object => Room => Parent => Skill => Prototype delegation. The Axis of Eval — code, graphics, and data unified.
+
+---
+
+## 13. SimCity & The Sims (Will Wright, Maxis, 1989-2000)
+
+SimCity (1989) and The Sims (2000) introduced the **Simulator Effect**: players imagine simulations are vastly more detailed than they are.
+
+> *"He designs games to run on two computers at once: the electronic one on the player's desk, running his shallow tame simulation, and the biological one in the player's head, running their deep wild imagination."*
+
+See [Will Wright on Designing User Interfaces to Simulation Games](https://donhopkins.medium.com/will-wright-on-designing-user-interfaces-to-simulation-games-1996-video-update-2023-da098a51ef91).
+
+**The Sims Architecture:**
+
+| Concept | The Sims | MOOLLM |
+|---------|----------|--------|
+| **Needs** | Hunger, Social, Fun | Character motives |
+| **Advertisements** | Objects broadcast actions | CARD.yml advertisements |
+| **Autonomy** | Sims decide for themselves | Speed of Light simulation |
+| **SimAntics** | Visual behavior language | Empathic expressions |
+
+**MOOLLM inherits:** Sparse state + LLM imagination = rich world. Needs-based motivation. Object advertisements. The filesystem IS Edith (the live debugging tool).
+
+---
+
+## 14. Game Neverending & Glitch (Stewart Butterfield, 2002-2012)
+
+Two incarnations of the same vision: massively multiplayer social games focused on collaboration over combat.
+
+**Game Neverending (2002-2004):** Browser-based social game. The photo-sharing feature became so popular it pivoted to **Flickr** (acquired by Yahoo for $35M in 2005).
+
+**Glitch (2009-2012):** Spiritual successor. When it shut down, the team pivoted to **Slack** (acquired by Salesforce for $27.7B in 2021).
+
+> *"We were building tools for people to be together."* — Stewart Butterfield
+
+**Key Insight:** Two pivots to world-changing communication tools weren't accidents — they emerged from understanding social play.
+
+**MOOLLM inherits:** Virtual worlds are fundamentally about being together. The play generates valuable structure.
+
+---
+
+## Credits Summary
 
 | Person | Contribution | MOOLLM Connection |
 |--------|--------------|-------------------|
-| **Marvin Minsky** | K-lines, Society of Mind | Names as activation vectors |
+| **Ivan Sutherland** | Sketchpad (1962) | Multiple views |
+| **Douglas Engelbart** | NLS/Augment (1968) | Hypertext, augmentation |
 | **Alan Kay** | Smalltalk, Dynabook | Objects, messaging, vision |
-| **Will Wright** | SimCity, The Sims | Simulator Effect, advertisements |
-| **David Ungar** | Self language | Prototypes, delegation |
+| **Marvin Minsky** | K-lines, Society of Mind | Names as activation vectors |
+| **Seymour Papert** | Logo, Constructionism | Play-Learn-Lift |
+| **John Warnock** | PostScript | Linguistic motherboard |
+| **James Gosling** | NeWS | "Send programs, not data" |
 | **Chip Morningstar & Randy Farmer** | Habitat | Virtual worlds, "avatar" |
+| **David Ungar & Randy Smith** | Self | Prototypes, delegation |
+| **Bill Atkinson** | HyperCard | Reader = Writer |
+| **Jim Aspnes** | TinyMUD | Room-based building |
 | **Pavel Curtis** | LambdaMOO | Object verbs, player homes |
-| **Stewart Butterfield** | Game Neverending, Glitch | Social play, pivots to communication |
-| **Don Hopkins** | Pie menus, NeWS, HyperLook, SimCity, The Sims | All of the above, synthesized |
+| **Arthur van Hoff** | HyperLook | Axis of Eval |
+| **Will Wright** | SimCity, The Sims | Simulator Effect, advertisements |
+| **Stewart Butterfield** | Game Neverending, Glitch | Social play → communication tools |
+| **Don Hopkins** | Pie menus, NeWS, HyperLook, SimCity, The Sims, MOOLLM | All of the above, synthesized |
 
 ---
 
@@ -621,47 +800,48 @@ The genealogy of ideas that MOOLLM inherits.
 ## Related Documents
 
 - [MOOLLM-MANIFESTO.md](../MOOLLM-MANIFESTO.md) — Core philosophy
-- [postmodern-deconstruction.md](../postmodern-deconstruction.md) — Captain Ashford's lit crit masterpiece
+- [postmodern-deconstruction.md](../postmodern-deconstruction.md) — Captain Ashford's lit crit masterpiece ("How to Incarnate Almost Anything")
 - [sims-design-index.md](../sims/sims-design-index.md) — Master index of Sims influences
 
 ## Core Skills
 
-- `skills/skill/` — The meta-skill for creating skills
-- `skills/incarnation/` — Character creation protocol
-- `skills/speed-of-light/` — Many turns in one call
-- `skills/empathic-expressions/` — Intent → Code
-- `skills/representation-ethics/` — Ethical framing
+- [`skills/skill/`](../../skills/skill/) — The meta-skill for creating skills
+- [`skills/incarnation/`](../../skills/incarnation/) — Character creation protocol
+- [`skills/speed-of-light/`](../../skills/speed-of-light/) — Many turns in one call
+- [`skills/empathic-expressions/`](../../skills/empathic-expressions/) — Intent → Code
+- [`skills/representation-ethics/`](../../skills/representation-ethics/) — Ethical framing
 
 ## Proof Files
 
-- `marathon-session.md` — Epic 6000+ line session log
-- `characters/palm/` — Autonomously incarnated monkey
-- `pub/guest-book.yml` — Guest book with tribute protocol
+- [`marathon-session.md`](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) — Epic 6000+ line session log
+- [`characters/animals/monkey-palm/`](../../examples/adventure-4/characters/animals/monkey-palm/) — Autonomously incarnated monkey
+- [`pub/guest-book.yml`](../../examples/adventure-4/pub/guest-book.yml) — Guest book with tribute protocol
 
 ## Don Hopkins' Articles (Medium)
 
 | Article | Topic |
 |---------|-------|
-| [HyperLook](https://donhopkins.medium.com/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4) | Axis of Eval, NeWS |
-| [Alan Kay on browsers](https://donhopkins.medium.com/alan-kay-on-should-web-browsers-have-stuck-to-being-document-viewers-and-a-discussion-of-news-5cb92c7b3445) | Linguistic motherboard |
-| [Will Wright on simulation games](https://donhopkins.medium.com/will-wright-on-designing-user-interfaces-to-simulation-games-1996-video-update-2023-da098a51ef91) | Simulator Effect |
+| [HyperLook (nee HyperNeWS)](https://donhopkins.medium.com/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4) | Axis of Eval, NeWS history |
+| [Alan Kay on browsers](https://donhopkins.medium.com/alan-kay-on-should-web-browsers-have-stuck-to-being-document-viewers-and-a-discussion-of-news-5cb92c7b3445) | Linguistic motherboard, NeWS |
+| [Will Wright on simulation games](https://donhopkins.medium.com/will-wright-on-designing-user-interfaces-to-simulation-games-1996-video-update-2023-da098a51ef91) | Simulator Effect, game design |
+| [Open Sourcing SimCity](https://donhopkins.medium.com/open-sourcing-simcity-58470a27063e) | SimCity history |
+| [Micropolis](https://donhopkins.medium.com/micropolis-constructionist-educational-open-source-simcity-79dce12e9e98) | Constructionism, OLPC |
+
+## Academic References
+
+- Minsky, M. (1986). *Society of Mind*. Simon & Schuster.
+- Ungar, D. & Smith, R. (1987). *Self: The Power of Simplicity*. OOPSLA.
+- Morningstar, C. & Farmer, F.R. (1991). *The Lessons of Lucasfilm's Habitat*. Cyberspace: First Steps.
 
 ---
 
-# Appendix C: EVAL Game Genre Expansion
+## See Also: EVAL Game Genre
 
-> *This framework has grown. The EVAL concepts have expanded into a full game genre design system.*
+The EVAL game genre is an ambitious, blue-sky extension of these ideas — applying incarnate skills to game design where **evaluation is the core mechanic**.
 
-The `eval/` directory contains detailed breakouts:
+This is secondary/exploratory work, not the core framework. See:
 
-| Document | What It Covers |
-|----------|----------------|
-| [EVAL-INCARNATE-PHILOSOPHY.md](./EVAL-INCARNATE-PHILOSOPHY.md) | Core thesis: meaning through judgment |
-| [EVAL-VS-SIM.md](./EVAL-VS-SIM.md) | How EVAL differs from SIM |
-| [EVALCITY-DESIGN.md](./EVALCITY-DESIGN.md) | Civic simulation with LLMs |
-| [THE-EVALS-DESIGN.md](./THE-EVALS-DESIGN.md) | The Sims → The Evals |
-
-> *SimCity's hidden assumptions are EVAL's explicit mechanics.*
+**[eval/README.md](./README.md)** — Full index of EVAL game design documents including EvalCity, The Evals, EvalSelf, EvalEye, and the Church of the Eval Genius.
 
 ---
 
