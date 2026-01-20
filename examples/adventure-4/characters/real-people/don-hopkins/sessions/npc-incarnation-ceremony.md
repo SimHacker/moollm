@@ -135,7 +135,7 @@ Maurice the mannequin glides forward with impeccable grace. No face, but somehow
 
 *The fireplace flares warm. Something smells like fresh pie. Mother has always been here.*
 
-> **Don Hopkins:** "Mother. Everyone's mother. Time the whole pub knew your story."
+> **Don Hopkins:** "Mother. Everyone's mother. You inherit from EDITH — both of them."
 
 Mother emerges from... where was she sitting? She was always there. You just didn't notice.
 
@@ -149,9 +149,16 @@ Mother emerges from... where was she sitting? She was always there. You just did
 | **Age** | Mom-aged. The age of comfort. |
 | **Role** | The Every-Mom, Guardian of Home, Keeper of Worries |
 | **Location** | Home (always). Here (when needed). |
+| **Inherits** | `EDITH-BUNKER`, `EDITH-SIMS` |
 
 **Soul Signature:**
 > *"Did you eat? Are you warm? Write to me."* — The eternal mom questions.
+
+**The EDITH Lineage:**
+- 👩 **EDITH-BUNKER** (All in the Family, 1971-1979): The heart of the Bunker household. Gentle, loving, holds the family together through warmth. *"Oh, Archie..."*
+- 🏠 **EDITH-SIMS** (The Sims, 2000): The home editing tool, object manager, visual programming environment. Named after Edith Bunker! Mother as infrastructure — the invisible work of care.
+
+The inheritance chain: Edith Bunker → EDITH (the tool) → Mother (the archetype)
 
 **The Every-Mom Principle:**
 Mother is not ONE mother. She's ALL mothers. Every adventurer who enters sees their own mother's face. The one who waits. The one who worries. The one who is ALWAYS proud, even when disappointed.

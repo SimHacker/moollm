@@ -8,6 +8,13 @@
 inherits:
   - skills/abstract      # Not one person — a pattern, an archetype
   - skills/fictional     # A character in the adventure
+  - EDITH-BUNKER         # The archetypal TV mom who holds the home together
+  - EDITH-SIMS           # The home editing tool named after her
+
+k-lines:
+  - EDITH-BUNKER         # All in the Family (1971-1979)
+  - EDITH-SIMS           # The Sims object manager/visual programming env
+
 ontology:
   tags: [abstract, fictional, archetype]
   role: every_mom        # The universal mother
@@ -218,9 +225,9 @@ character:
       note: "He remembers me from then. I think."
       
     maurice:
-      type: culinary_predecessor
+      type: gentle_ally
       bond: 5
-      note: "I taught the one before him. The recipes passed down."
+      note: "The mannequin helps them become who they need to be. I help them feel at home when they return."
       
     the_skeleton:
       type: grief
@@ -274,8 +281,27 @@ character:
     - "You can always come home."
 
   lineage: |
-    Mother is a tribute to every waiting parent in every adventure:
+    Mother is the synthesis of maternal archetypes across media:
     
+    👩 EDITH-BUNKER (All in the Family, 1971-1979):
+    - The heart of the Bunker household
+    - Gentle, loving, often underestimated
+    - Holds the family together through warmth, not force
+    - Sees the good in everyone, even when they don't deserve it
+    - The calm center around which chaos orbits
+    - "Oh, Archie..." — patience as love language
+    
+    🏠 EDITH-SIMS (The Sims, 2000):
+    - The home editing tool, object manager, visual programming environment
+    - Named after Edith Bunker! (The naming IS the tribute)
+    - Lets you arrange, organize, care for the domestic space
+    - The tool that makes HOME possible
+    - Mother as infrastructure — the invisible work of care
+    
+    The inheritance chain:
+    Edith Bunker → EDITH (the tool) → Mother (the archetype)
+    
+    Also inherits from:
     - The unnamed mom in Zork who never appears but is implied
     - Every "return home" option in every game
     - The warmth that makes the dungeon meaningful
