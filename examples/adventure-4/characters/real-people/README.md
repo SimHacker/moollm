@@ -190,6 +190,261 @@ These are **tribute incarnations** -- fictional explorations based on documented
 | 👩👠🌈🎤❤️ heklina | `lloooomm/00-Characters/heklina/` | SF drag legend, Trannyshack/Mother founder, gone too soon |
 | 👨🎸🚶🌃⚡ lou-reed | `lloooomm/00-Characters/lou-reed/` | "Walk on the Wild Side", Velvet Underground, NYC incarnate |
 
+---
+
+## 🧬 MOOLLM Founders' Gallery
+
+> *These are the giants on whose shoulders MOOLLM stands. Each person here directly shaped the ideas, architectures, and philosophies that make MOOLLM possible.*
+
+### 🖥️ The Graphical Pioneers (1960s)
+
+#### 👨🖼️✏️🥽✨ Ivan Sutherland — Father of Computer Graphics (1962)
+
+**Sketchpad** (MIT, 1962) was the first real windowing system. Multiple views of the same object. Edit from any view. Direct manipulation before the term existed.
+
+> *"I didn't set out to build the first graphics system. I was just trying to make computers easier to use."*
+
+**Why Sutherland is FOUNDATIONAL to MOOLLM:**
+- 🖼️ **Multiple views of same data** — YAML, Markdown, Mermaid, narrative are all views of the same character
+- ✏️ **Edit from any view** — Change Palm's traits in YAML or prose, same character
+- 🔗 **Constraints, not commands** — Define relationships, let the system figure out details
+
+**The VR prophecy:** Sutherland's "Sword of Damocles" (1968) was the first VR headset. He saw embodied computing before anyone else.
+
+---
+
+#### 👨🖱️💡📺🌐 Douglas Engelbart — Augmenting Human Intellect (1968)
+
+**"The Mother of All Demos"** (Stanford Research Institute, December 9, 1968) — in 90 minutes, Engelbart demonstrated: the mouse, hypertext, video conferencing, collaborative editing, and the vision of **augmenting human intellect**.
+
+> *"The digital revolution is far more significant than the invention of writing or even of printing."*
+
+**Why Engelbart is FOUNDATIONAL to MOOLLM:**
+- 🔗 **Hypertext** — Files link to files, rooms link to rooms, characters reference characters
+- 👥 **Collaborative editing** — Shared filesystem as world state
+- 🔄 **Bootstrapping** — Play-Learn-Lift: use the system to improve the system
+
+**The vision that guides us:** Engelbart didn't just invent tools — he invented the *philosophy* of using tools to augment human capability. MOOLLM is this philosophy applied to LLMs.
+
+---
+
+### 🧠 The Object-Oriented Revolutionaries (1970s-80s)
+
+#### 👨💻🔮🚀🎯 Alan Kay — Objects All The Way Down
+
+**Smalltalk** (Xerox PARC, 1970s) — Objects. Message passing. Live programming. "The computer is a medium."
+
+> *"The best way to predict the future is to invent it."*
+> *"A universal interpreter can both be quite small and also can have more degrees of freedom than any data structure (that is not a program)."*
+
+**Why Kay is FOUNDATIONAL to MOOLLM:**
+- 🔵 **Everything is an object** — Every directory is an object in MOOLLM
+- 📨 **Message passing** — K-lines are messages that activate context
+- 🖥️ **The computer as medium** — Not a tool FOR thinking, but a medium that SHAPES thinking
+- 🧒 **The Dynabook vision** — Computing for children, for everyone, for learning
+
+**The browser critique:** Kay argued browsers should be operating systems, not apps — running "real objects" safely. MOOLLM applies this: the LLM is an OS that runs skills, not an app that processes prompts.
+
+See: [Alan Kay on browsers](https://donhopkins.medium.com/alan-kay-on-should-web-browsers-have-stuck-to-being-document-viewers-and-a-discussion-of-news-5cb92c7b3445)
+
+---
+
+#### 👨🧠🔗🤖📚 Marvin Minsky — Society of Mind (1980)
+
+**K-lines** and the **Society of Mind** — the mind is not a single thing but a **society of agents**. Small, simple processes that together produce intelligence.
+
+> *"A K-line attaches to whichever mental agencies are active when you solve a problem or have a good idea. When you activate that K-line later, the attached agencies turn partially on, recreating a 'mental state' similar to the one you were in before."*
+
+**Why Minsky is FOUNDATIONAL to MOOLLM:**
+- 🔑 **Names as activation vectors** — When you say "Palm," you activate his entire soul
+- 🏛️ **Society of agents** — Skills, characters, personas are all agents
+- 🎭 **Frames** — YAML files are situation templates
+- ⚠️ **Censors** — Ethical framing inherits like any other property
+
+**The K-line protocol:** `UPPER-KEBAB` names (like `YAML-JAZZ`, `POSTEL`, `SPEED-OF-LIGHT`) are K-lines — invoking them activates entire constellations of associated context.
+
+---
+
+#### 👨🐢📐🧒✨ Seymour Papert — Learning by Building (1980)
+
+**Constructionism** — learning by building inspectable things. Logo. Turtle graphics. "Low floor, high ceiling, wide walls."
+
+> *"The role of the teacher is to create the conditions for invention rather than provide ready-made knowledge."*
+
+**Why Papert is FOUNDATIONAL to MOOLLM:**
+- 🔄 **Play-Learn-Lift** — Papert's constructionism as methodology
+- 🐢 **Logo turtle** — Vehicles in MOOLLM can draw on floors like Logo turtles
+- 👶 **Children as philosophers** — The system should be simple enough for anyone to understand
+
+**The Mindstorms legacy:** Papert saw that children aren't just learning math — they're learning to think about thinking. MOOLLM is the same: you don't just use skills, you learn how skills work.
+
+---
+
+### 📟 The PostScript/NeWS Era (1984-1992)
+
+#### 👨📜💡🖨️✨ John Warnock & Owen Densmore — The Linguistic Motherboard (1984)
+
+**PostScript** (Adobe, 1984) — a programming language for graphics. Code and data unified.
+
+> *"PostScript is a linguistic 'mother board', which has 'slots' for several 'cards'. The first card we built was a graphics card. We're considering other cards..."*
+
+**Why PostScript is FOUNDATIONAL to MOOLLM:**
+- 🃏 **CARD.yml is literal** — Skills are cards that plug into the LLM motherboard
+- 🔄 **Code = Graphics = Data** — The Axis of Eval comes directly from PostScript
+
+---
+
+#### 👨☕💻🌍🔧 James Gosling — Send Programs, Not Data (1986)
+
+**NeWS** (Network Extensible Window System, Sun Microsystems, 1986) — PostScript as the universal network language. "Send programs, not data."
+
+> *"A universal interpreter can both be quite small and also can have more degrees of freedom than any data structure (that is not a program)."* — Alan Kay on NeWS
+
+**Why NeWS is FOUNDATIONAL to MOOLLM:**
+- 📤 **"Send programs, not data structures"** — Skills are programs the LLM runs, not prompts it processes
+- 🌐 **Network as computer** — MOOLLM skills work across tools, models, contexts
+- 🔧 **Universal interpreter** — The LLM interprets YAML Jazz like NeWS interpreted PostScript
+
+---
+
+#### 👨🃏📐🎨✨ Arthur van Hoff — The Axis of Eval (1989-1992)
+
+**HyperLook** (Turing Institute, 1989-1992) — HyperCard reimagined for NeWS. PostScript for code, graphics, AND data. Network delegation.
+
+> *"Object => Card => Background => Stack => Client delegation"*
+
+**Why HyperLook is FOUNDATIONAL to MOOLLM:**
+- 🔺 **The Axis of Eval** — Code, Graphics, Data unified by one interpreter
+- 📂 **Delegation chain** — Object => Room => Parent => Skill => Prototype
+- 🎴 **Cards as interfaces** — CARD.yml is named after this
+
+See: [HyperLook (nee HyperNeWS)](https://donhopkins.medium.com/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4)
+
+---
+
+### 🌐 The Virtual World Builders (1986-1990)
+
+#### 👨🏠🎮🌍✨ Chip Morningstar & Randy Farmer — The First Virtual World (1986)
+
+**Habitat** (Lucasfilm, 1986) — The first large-scale graphical multiplayer virtual world. Ran on Commodore 64s connected via QuantumLink (which became AOL). Coined the term **"avatar"** for user representation.
+
+> *"A cyberspace is defined more by the interactions among the actors within it than by the technology with which it is implemented."* — ["The Lessons of Lucasfilm's Habitat"](https://web.stanford.edu/class/history34q/readings/Virtual_Worlds/LucasfilmHabitat.html) (1990)
+
+**Why Habitat is FOUNDATIONAL to MOOLLM:**
+- 🏠 **Room/object model** — Directories are rooms, files are objects
+- 👥 **User agency** — Can't control a virtual world top-down; design affordances, let emergence happen
+- 🤝 **Social architecture > Technology** — The interactions define the space
+- 🎭 **Avatar concept** — Characters as user presence in virtual space
+
+**The hard-won wisdom:** Morningstar and Farmer learned that users will do things you never imagined (and crash your economy). MOOLLM inherits this humility — design for emergence, not control.
+
+---
+
+#### 👨📜🏰🔧✨ Jim Aspnes — TinyMUD (1989)
+
+**TinyMUD** (Carnegie Mellon, 1989) — Text-based virtual world where users build rooms, objects, and behaviors. Created by Aspnes as a student project, it spawned an entire genre.
+
+**Why TinyMUD is FOUNDATIONAL to MOOLLM:**
+- 🏗️ **Builder commands** — `@dig`, `@describe`, `@create`, `@link`
+- 📂 **User-generated content** — Players build the world
+- 🏠 **Room-based navigation** — Directories as rooms
+
+---
+
+#### 👨💻🏛️🔧✨ Pavel Curtis — LambdaMOO (1990)
+
+**LambdaMOO** (Xerox PARC, 1990) — TinyMUD with a real programming language. Objects have verbs (methods). Players have homes. The original "user-generated content" platform.
+
+> *"A MOO is a place where you can be anyone, build anything, and the only limit is your imagination."*
+
+**Why LambdaMOO is FOUNDATIONAL to MOOLLM:**
+- 📜 **Object verbs** — CARD.yml methods are like MOO verbs
+- 🏠 **Player homes** — Character directories
+- 🔗 **Inheritance** — Objects delegate to parents like directories delegate up the tree
+- ⚖️ **Governance** — MOO taught us virtual worlds need consent, community, moderation
+
+---
+
+### 🧬 The Prototype Revolution (1987)
+
+#### 👨🪞🧬🔄💭 David Ungar & Randy Smith — Self Language (1987)
+
+**Self** (Sun/Stanford, 1987) — Prototypes instead of classes. Delegation instead of inheritance. "Objects all the way down, but simpler."
+
+> *"Self is designed to be as simple as possible while remaining expressive and powerful."* — OOPSLA 1987
+
+**Why Self is FOUNDATIONAL to MOOLLM:**
+- 🧬 **Prototypes, not classes** — Skills are prototypes, not class definitions
+- 📂 **Delegation** — Rooms delegate to parent directories
+- 🔄 **Clone to create** — `adventure/` → `adventure-4/` is prototype instantiation
+- 🔧 **Slots** — YAML keys can be data or behavior
+
+**The elegant insight:** Self proved you don't need classes — just objects that delegate to other objects. MOOLLM applies this to the filesystem.
+
+---
+
+#### 👨🎨🖼️🃏✨ Bill Atkinson — Reader = Writer (1987)
+
+**HyperCard** (Apple, 1987) — End-user programming. Anyone who can read a stack can edit it.
+
+> *"Dan Winkler and Bill Atkinson violated a lot of important principles of 'good programming language design', but they achieved the first overall system in which end-users 'could see their own faces'."* — Alan Kay
+
+**Why HyperCard is FOUNDATIONAL to MOOLLM:**
+- ✏️ **Reader = Writer symmetry** — Anyone who can play can edit
+- 🔄 **Play-Learn-Lift** — Users inspect, modify, and create skills
+- 👤 **See your own face** — The system reflects you back to yourself
+
+---
+
+### 🎮 The Simulation Masters (1989-2012)
+
+#### 👨🏠🎮🌍🔬 Will Wright — The Simulator Effect (1989-2000)
+
+**SimCity** (1989) and **The Sims** (2000) — Games that revealed the **Simulator Effect**: players imagine simulations are vastly more detailed than they actually are.
+
+> *"He designs games to run on two computers at once: the electronic one on the player's desk, running his shallow tame simulation, and the biological one in the player's head, running their deep wild imagination."*
+
+**Why Wright is FOUNDATIONAL to MOOLLM:**
+- 🧠 **Simulator Effect** — YAML is sparse; the LLM fills in the richness
+- 📋 **Needs** — Character motives drive behavior
+- 📣 **Advertisements** — Objects broadcast what they can do (CARD.yml)
+- 🤖 **Autonomy** — Characters make their own decisions at Speed of Light
+- 🔧 **SimAntics** — Visual behavior language → Empathic Expressions
+
+**The Two Computers:** Wright understood that the electronic computer runs simple rules, but the biological computer (player's brain) fills gaps with meaning. MOOLLM applies this: sparse YAML + rich LLM = living world.
+
+See: [Will Wright on Designing User Interfaces to Simulation Games](https://donhopkins.medium.com/will-wright-on-designing-user-interfaces-to-simulation-games-1996-video-update-2023-da098a51ef91)
+
+---
+
+#### 👨🎮💬🌐✨ Stewart Butterfield — Social Play (2002-2012)
+
+**Game Neverending** (2002-2004) and **Glitch** (2009-2012) — Two incarnations of the same vision: massively multiplayer social games focused on collaboration over combat.
+
+> *"We were building tools for people to be together."*
+
+**Why Butterfield is FOUNDATIONAL to MOOLLM:**
+- 👥 **Virtual worlds are about being together** — The play generates the valuable structure
+- 🔄 **Pivots reveal truth** — Game Neverending → Flickr ($35M to Yahoo). Glitch → Slack ($27.7B to Salesforce). The social connection was the real product.
+- ✨ **Whimsy matters** — Absurdist humor, collaborative construction, meaning from chaos
+
+---
+
+### 📚 The Understanding Pioneers
+
+#### 👨📖🖼️💭✨ Scott McCloud — The Theory of Sequential Art (1993)
+
+**Understanding Comics** (1993) — Theory as art. The gutter between panels. Masking.
+
+> *"The art of comics is as subtractive as it is additive."*
+
+**Why McCloud is FOUNDATIONAL to MOOLLM:**
+- 🎭 **Masking** — Abstract characters against realistic backgrounds increase projective identification. The Sims used this. MOOLLM uses sparse YAML.
+- 🔲 **The gutter** — What happens between panels? The reader's imagination fills it in. What happens between YAML keys? The LLM fills it in.
+- 📖 **Theory as art** — Understanding Comics explains comics using comics. MOOLLM docs are MOOLLM skills.
+
+---
+
 ### Media & Systems Thinkers
 
 #### 👨📺🌐🔥💬 Marshall McLuhan — Prophet of the Electronic Age
