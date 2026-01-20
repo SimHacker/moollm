@@ -91,8 +91,9 @@ SHOOT 3 → room-d → room-e → room-f
 | `SIMULATE GAME` | LLM plays as current character |
 | `OVERDRIVE` | Fast simulation, montage style |
 
-See [wumpus.yml](./wumpus.yml) for complete game rules (807 lines).
-See [wumpus-bas.md](./wumpus-bas.md) for original 1973 BASIC source.
+See [wumpus.yml](./wumpus.yml) for maze game state.
+Full game rules: [characters/fictional/wumpus-snorax/](../characters/fictional/wumpus-snorax/)
+Original 1973 BASIC: [wumpus-basic-source.md](../characters/fictional/wumpus-snorax/wumpus-basic-source.md)
 
 ---
 
@@ -183,15 +184,20 @@ Everything you need to survive. Flat prices, no limits.
 
 ## Prototype Files
 
-Game mechanics are defined in shared prototypes:
+Game mechanics are defined in character directories (the character IS the game):
 
-| File | Lines | Purpose |
-|------|-------|---------|
-| [wumpus.yml](./wumpus.yml) | 807 | Complete game + wumpus creature |
-| [superbats.yml](./superbats.yml) | 346 | Bat colony behavior |
-| [bottomless-pit.yml](./bottomless-pit.yml) | 213 | Pit hazard mechanics |
-| [grue.yml](./grue.yml) | 239 | Darkness creature |
-| [CONTAINER.yml](./CONTAINER.yml) | 115 | Shared maze properties |
+| File | Purpose |
+|------|---------|
+| [wumpus.yml](./wumpus.yml) | Maze game state (inherits from wumpus-snorax) |
+| [grue.yml](./grue.yml) | Maze game state (inherits from grue) |
+| [CONTAINER.yml](./CONTAINER.yml) | Shared maze properties |
+
+Prototypes live in character directories:
+
+| Character | Hazards |
+|-----------|---------|
+| [wumpus-snorax/](../characters/fictional/wumpus-snorax/) | SUPERBATS.yml, BOTTOMLESS-PIT.yml |
+| [grue/](../characters/fictional/grue/) | Darkness mechanics |
 
 ---
 

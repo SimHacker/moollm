@@ -89,9 +89,10 @@ files:
   - CHARACTER.yml          # This file — the soul
   - GAME.yml               # Full game rules and mechanics
   - DODECAHEDRON.yml       # The canonical 20-cave topology
-  - wumpus-bas.md          # Original 1973 BASIC source code
-  - HAZARDS.yml            # Pits, bats, and grue integration
-  - ARROWS.yml             # Crooked arrow mechanics
+  - wumpus-basic-source.md # Original 1973 BASIC source code
+  - hazards/               # Hunt the Wumpus hazards:
+    - SUPERBATS.yml        #   Super-bats (relocate player randomly)
+    - BOTTOMLESS-PIT.yml   #   Pits (instant death)
   - README.md              # Human landing page
   
   instances:               # Where Snorax manifests
