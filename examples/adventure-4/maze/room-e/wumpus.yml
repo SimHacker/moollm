@@ -1,45 +1,36 @@
-prototype: ../wumpus.yml
+# SNORAX THE PATIENT — Wumpus Instance in Room E
+#
+# This file is a POINTER to the full character.
+# Snorax IS the game Hunt the Wumpus. The game lives in the character directory.
+#
+# The character IS the game:
+#   characters/fictional/wumpus-snorax/CHARACTER.yml — The soul
+#   characters/fictional/wumpus-snorax/GAME.yml — Complete game rules
+#   characters/fictional/wumpus-snorax/DODECAHEDRON.yml — Canonical topology
+#   characters/fictional/wumpus-snorax/wumpus-bas.md — Original 1973 BASIC
+#
+# This instance file tracks game state for THIS room network.
 
-# 🎭 INCARNATED: 2026-01-20, NPC Incarnation Ceremony
-# See: characters/real-people/don-hopkins/sessions/npc-incarnation-ceremony.md
+prototype: ../../characters/fictional/wumpus-snorax/CHARACTER.yml
+instance_data: ../../characters/fictional/wumpus-snorax/instances/maze-room-e.yml
 
+# QUICK REFERENCE (full data in instance file)
 instance:
   name: Snorax the Patient
-  nickname: Snorax
-  former_names: ["Grumbus the Slumbering", "Sleepy"]  # Before the ceremony
+  emoji_identity: "👃🦏💤🏹💀🎲"
   state: sleeping
-  emoji_identity: "👃🦏💤🏹💀"
-  #   👃 — smell (the famous warning)
-  #   🦏 — beast (large, heavy, territorial)
-  #   💤 — sleeping (it sleeps... until you enter)
-  #   🏹 — huntable (you can kill it with arrows)
-  #   💀 — death (if you enter its room unprepared)
+  lair: room-e
+  
+  # The character IS the game
+  game: "Hunt the Wumpus"
+  parallel_with: "The Grue (Don't Go In The Dark)"
+  
+  # Snorax's motto
+  philosophy: "Patience is not low energy. Patience is POWER."
 
-traits:
-  size: massive
-  hide: matted fur
-  smell: like wet dog and regret
-  eyes: milky, half-closed
-  distinguishing: old arrow scar on left flank
-  quirk: snores melodically
-
-philosophy: |
-  "I have been called many things. 'Sleepy Wumpus.' 'Low Energy Wumpus.' 
-  But I have waited here since 1973. Patience is not low energy. 
-  Patience is POWER."
-
-soul_signature: "I smell a wumpus!"
-
-memory:
-  eaten: 12
-  arrows_dodged: 2
-  incarnation_date: 2026-01-20
-  notable:
-    - "Hasty Harold — entered from north, didn't even see me"
-    - "Torchless Tom — grue got him first. Disappointing."
-    - "The skeleton's friend — still pointing this way"
-    - "2026-01-20 — Received a name at the NPC Incarnation Ceremony. Briefly visited the pub."
-  encounters:
-    donna_toadstool:
-      her_opinion: "Sleepy Wumpus. Low Energy. SAD!"
-      my_opinion: "She has not yet entered my room. She will. They all do."
+# WHERE TO FIND EVERYTHING
+see_also:
+  character: ../../characters/fictional/wumpus-snorax/
+  game_rules: ../../characters/fictional/wumpus-snorax/GAME.yml
+  full_instance: ../../characters/fictional/wumpus-snorax/instances/maze-room-e.yml
+  incarnation_ceremony: ../../characters/real-people/don-hopkins/sessions/npc-incarnation-ceremony.md

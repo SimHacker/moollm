@@ -1,0 +1,133 @@
+# THE DODECAHEDRON — Snorax's Native Territory
+#
+# The canonical Hunt the Wumpus map: 20 caves as vertices of a dodecahedron.
+# Each cave connects to exactly 3 others.
+# This is THE official layout from Gregory Yob's 1973 design.
+
+topology:
+  name: "The Dodecahedron"
+  type: platonic_solid
+  
+  description: |
+    Gregory Yob chose the dodecahedron because it was his favorite
+    Platonic solid, and because he had once made a kite shaped like one.
+    
+    20 vertices, each connected to exactly 3 others.
+    No grid. No compass directions. Just numbered caves and tunnels.
+    
+  invoke: "CREATE-WUMPUS-MAP" or "GENERATE DODECAHEDRON"
+
+# CAVE ADJACENCY — From the original BASIC DATA statements (lines 130-160)
+
+adjacency:
+  1: [2, 5, 8]
+  2: [1, 3, 10]
+  3: [2, 4, 12]
+  4: [3, 5, 14]
+  5: [1, 4, 6]
+  6: [5, 7, 15]
+  7: [6, 8, 17]
+  8: [1, 7, 9]
+  9: [8, 10, 18]
+  10: [2, 9, 11]
+  11: [10, 12, 19]
+  12: [3, 11, 13]
+  13: [12, 14, 20]
+  14: [4, 13, 15]
+  15: [6, 14, 16]
+  16: [15, 17, 20]
+  17: [7, 16, 18]
+  18: [9, 17, 19]
+  19: [11, 18, 20]
+  20: [13, 16, 19]
+
+# VISUAL LAYOUT — 2D projection of the dodecahedron
+
+map_ascii: |
+  
+           1
+         / | \
+        2  5  8
+       /|  |  |\
+     10 3  4  7 9
+     |  |\ /|  | |
+    11 12-+-14 17 18
+     |  | X |  |  |
+    19-13-+-15-16-+
+      \  20   /
+       \___|_/
+  
+  (Not to scale — dodecahedra are 3D!)
+
+# GAME SETUP — How to initialize a game
+
+setup:
+  
+  location_array: |
+    L(1) = Player
+    L(2) = Wumpus
+    L(3) = Pit 1
+    L(4) = Pit 2
+    L(5) = Bats 1
+    L(6) = Bats 2
+    
+  randomization: |
+    1. Place all 6 elements in random caves
+    2. Ensure no overlaps (each element in unique cave)
+    3. Ensure player start is safe:
+       - Not in wumpus cave
+       - Not in pit cave
+       - Not adjacent to wumpus (no immediate warning)
+       
+  recommended_placements:
+    wumpus: "Deep in the network, not adjacent to start"
+    pits: "Spread apart, creating multiple danger zones"
+    bats: "Near interesting areas, adding chaos"
+    player: "Cave 1 or edge cave, safe start"
+
+# INSTANCE GENERATION — Creating a new game
+
+generate:
+  
+  create_rooms: |
+    For each cave (1-20):
+      - Create room file: cave-{n}.yml
+      - Set exits to adjacent caves
+      - Leave empty (no hazards yet)
+      
+  place_hazards: |
+    1. Random cave for wumpus (avoid player start)
+    2. Random cave for pit 1 (avoid player, wumpus)
+    3. Random cave for pit 2 (avoid all above)
+    4. Random cave for bats 1 (avoid all above)
+    5. Random cave for bats 2 (avoid all above)
+    6. Player starts in remaining safe cave
+    
+  validate: |
+    - All 6 locations are unique
+    - Player is not adjacent to wumpus
+    - Player is not in pit or bat cave
+    - At least one arrow is in inventory
+
+# PLAYING IN EXISTING NETWORKS
+
+alternative_networks:
+  
+  adventure_maze:
+    description: "Use the existing adventure-4 maze instead"
+    how: |
+      Snorax already has an instance in maze/room-e.
+      The maze rooms have exits defined.
+      Play proceeds using maze topology, not dodecahedron.
+      
+  custom_network:
+    description: "Any room network with adjacency"
+    requirements:
+      - Each room must have exits to other rooms
+      - At least 7 rooms for all hazards
+      - Adjacency must be bidirectional
+      
+  pub_dungeon:
+    description: "Transform the pub into a wumpus arena"
+    rooms: ["main", "bar", "kitchen", "basement", "attic", "rooftop", "garden"]
+    flavor: "Hunt the Wumpus, but with beer and cats"

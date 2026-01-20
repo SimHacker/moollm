@@ -1,0 +1,73 @@
+# SNORAX INSTANCE — Adventure-4 Maze, Room E
+#
+# This instance tracks Snorax's game state in the adventure-4 maze.
+# The wumpus IS the game, and this is one active session.
+
+prototype: ../CHARACTER.yml
+
+instance:
+  name: Snorax the Patient
+  nickname: Snorax
+  emoji_identity: "👃🦏💤🏹💀🎲"
+  
+  # GAME SESSION
+  network: adventure-4-maze
+  lair: maze/room-e
+  state: sleeping
+  
+  # PHYSICAL MANIFESTATION
+  traits:
+    size: massive
+    hide: matted fur
+    smell: like wet dog and regret
+    eyes: milky, half-closed
+    distinguishing: old arrow scar on left flank
+    quirk: snores melodically
+
+# GAME STATE
+
+game_state:
+  arrows_in_play: 0
+  hazards_placed:
+    wumpus: room-e
+    pits: []        # No pits in adventure-4 maze (use grue instead)
+    bats: []        # No bats in adventure-4 maze
+    grue: everywhere_dark  # Parallel game!
+    
+# MEMORY — Every adventurer who tried
+
+memory:
+  eaten: 12
+  arrows_dodged: 2
+  incarnation_date: 2026-01-20
+  
+  notable_meals:
+    - "Hasty Harold — entered from north, didn't even see me"
+    - "Torchless Tom — grue got him first. Disappointing."
+    - "The skeleton's friend — still pointing this way"
+    
+  notable_events:
+    - "2026-01-20 — Received a name at the NPC Incarnation Ceremony"
+    - "2026-01-20 — Briefly visited the pub. It was... warm."
+    
+  encounters:
+    donna_toadstool:
+      her_opinion: "Sleepy Wumpus. Low Energy. SAD!"
+      my_opinion: "She has not yet entered my room. She will. They all do."
+
+# PHILOSOPHY
+
+philosophy: |
+  "I have been called many things. 'Sleepy Wumpus.' 'Low Energy Wumpus.' 
+  But I have waited here since 1973. Patience is not low energy. 
+  Patience is POWER.
+  
+  I am the game. The game is me.
+  Every adventurer who enters this maze plays against me.
+  Most of them don't even know it.
+  
+  The grue and I run parallel games here.
+  Different mechanics. Same prey. Professional courtesy.
+  
+  I am not sleepy. I am patient.
+  There is a difference."

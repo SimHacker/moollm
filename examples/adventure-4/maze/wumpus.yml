@@ -1,24 +1,24 @@
-# THE WUMPUS — Hunt the Wumpus (1973) by Gregory Yob
-# "I smell a wumpus!"
-# PROTOTYPE: Instances inherit behavior, override with instance data.
+# THE WUMPUS — REDIRECT TO CHARACTER DIRECTORY
+#
+# 🎲 THE CHARACTER IS THE GAME
+#
+# Snorax the Patient IS Hunt the Wumpus.
+# The game rules, topology, and source code all live in the character directory.
+#
+# This file is a LEGACY POINTER. The full character is at:
+#   characters/fictional/wumpus-snorax/CHARACTER.yml — The soul
+#   characters/fictional/wumpus-snorax/GAME.yml — Complete game rules
+#   characters/fictional/wumpus-snorax/DODECAHEDRON.yml — Canonical topology
+#   characters/fictional/wumpus-snorax/wumpus-bas.md — Original 1973 BASIC
+#
+# Instance files track game state per room network:
+#   room-e/wumpus.yml → points to characters/fictional/wumpus-snorax/instances/maze-room-e.yml
+#
+# The wumpus IS the game. The game IS the wumpus.
 
-# LLM GAME CONTROL — Manipulate by file operations, not ROOM.yml edits
-#
-# WUMPUS WAKES AND MOVES: mv room-e/wumpus.yml room-f/wumpus.yml
-#   → Wumpus now in room-f. Smell warnings shift to room-f adjacents.
-#   → Add to memory: { moved_from: room-e, reason: "arrow missed" }
-#
-# WUMPUS KILLED: rm room-e/wumpus.yml
-#   → No wumpus. Victory! Create room-e/wumpus-corpse.yml for loot.
-#
-# RESET GAME: rm */wumpus.yml && cp templates/wumpus-fresh.yml room-e/wumpus.yml
-#   → Wumpus back to starting lair, memory cleared.
-#
-# NEW GAME RANDOM PLACEMENT: Create wumpus.yml in any dark room
-#   → Different game each time!
-#
-# Instance files are game state. ROOM.yml is room structure.
-# Keep concerns separated. Easy reset, easy save, easy diff.
+redirect: ../characters/fictional/wumpus-snorax/CHARACTER.yml
+
+# LEGACY PROTOTYPE BELOW — Kept for reference but character directory is authoritative
 
 # INSTANCE DEFAULTS — Override in room-specific wumpus.yml
 defaults:

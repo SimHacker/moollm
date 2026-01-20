@@ -1,21 +1,22 @@
-# THE GRUE — It Is Pitch Black
-# You are likely to be eaten.
-# PROTOTYPE: The grue has no instances — it IS the darkness.
-
-# LLM GAME CONTROL — The grue is DIFFERENT from other hazards
+# THE GRUE — REDIRECT TO CHARACTER DIRECTORY
 #
-# NO INSTANCE FILES NEEDED — The grue exists everywhere dark.
-# Any room with lighting: none becomes grue territory automatically.
+# 🎲 THE CHARACTER IS THE GAME
 #
-# GRUE-PROOF A ROOM: Set grue_safe: true in ROOM.yml
-#   → Room-h does this (The Eye watches)
-#   → Or add light source to room
+# The Grue IS the game "Don't Go In The Dark".
+# The darkness, the countdown, the fear — all live in the character directory.
 #
-# TRACK GRUE KILLS: Update this file's memory section
-#   → The grue remembers ALL its meals across ALL rooms
+# This file is a LEGACY POINTER. The full character is at:
+#   characters/fictional/grue/CHARACTER.yml — The non-soul
+#   characters/fictional/grue/README.md — Human landing page
 #
-# The grue is singular. It doesn't move — it simply IS.
+# The grue has no instances — it exists EVERYWHERE DARK.
 # When your lamp dies, it's already there. It was always there.
+#
+# The grue IS the game. The game IS the grue.
+
+redirect: ../characters/fictional/grue/CHARACTER.yml
+
+# LEGACY PROTOTYPE BELOW — Kept for reference but character directory is authoritative
 
 # ONTOLOGICAL INHERITANCE
 inherits:
