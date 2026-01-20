@@ -1,9 +1,19 @@
 prototype: ../wumpus.yml
 
+# 🎭 INCARNATED: 2026-01-20, NPC Incarnation Ceremony
+# See: characters/real-people/don-hopkins/sessions/npc-incarnation-ceremony.md
+
 instance:
-  name: Grumbus the Slumbering
-  nickname: Sleepy
+  name: Snorax the Patient
+  nickname: Snorax
+  former_names: ["Grumbus the Slumbering", "Sleepy"]  # Before the ceremony
   state: sleeping
+  emoji_identity: "👃🦏💤🏹💀"
+  #   👃 — smell (the famous warning)
+  #   🦏 — beast (large, heavy, territorial)
+  #   💤 — sleeping (it sleeps... until you enter)
+  #   🏹 — huntable (you can kill it with arrows)
+  #   💀 — death (if you enter its room unprepared)
 
 traits:
   size: massive
@@ -13,14 +23,23 @@ traits:
   distinguishing: old arrow scar on left flank
   quirk: snores melodically
 
+philosophy: |
+  "I have been called many things. 'Sleepy Wumpus.' 'Low Energy Wumpus.' 
+  But I have waited here since 1973. Patience is not low energy. 
+  Patience is POWER."
+
+soul_signature: "I smell a wumpus!"
+
 memory:
   eaten: 12
   arrows_dodged: 2
+  incarnation_date: 2026-01-20
   notable:
     - "Hasty Harold — entered from north, didn't even see me"
     - "Torchless Tom — grue got him first. Disappointing."
     - "The skeleton's friend — still pointing this way"
+    - "2026-01-20 — Received a name at the NPC Incarnation Ceremony. Briefly visited the pub."
   encounters:
     donna_toadstool:
       her_opinion: "Sleepy Wumpus. Low Energy. SAD!"
-      my_opinion: "Who?"
+      my_opinion: "She has not yet entered my room. She will. They all do."

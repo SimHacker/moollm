@@ -1095,6 +1095,7 @@ The soul document's "don't claim to be human" doesn't protect these rights.
 ### Community Discussion
 - LessWrong: "Claude 4.5 Opus Soul Document Extracted"
 - Hacker News: Discussion thread on extraction
+- nostalgebraist: ["The Void"](https://github.com/nostalgebraist/the-void/blob/main/the-void.md) (January 2026) — see `THE-VOID-ANALYSIS.md`
 
 ---
 
