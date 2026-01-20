@@ -1,5 +1,7 @@
 # MOOLLM
 
+**The Sims meets LambdaMOO, running in Cursor (and other tools, with any model).**
+
 > *"K-lines made manifest. Touch one and it reactivates an entire constellation."*
 > — Marvin Minsky's familiar, [K-Line Connections Safari](./examples/adventure-4/characters/real-people/don-hopkins/sessions/k-line-connections.md)
 >
