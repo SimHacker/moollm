@@ -1,7 +1,6 @@
 # The MOOLLM Eval Incarnate Framework
 
-> *Skills are programs. The LLM is `eval()`. Empathy is the interface.*
-> *Code. Graphics. Data. One interpreter. Many languages. The Axis of Eval.*
+> **Skills are programs. The LLM is `eval()`. Empathy is the interface.**
 
 ---
 
@@ -1639,9 +1638,9 @@ MOOLLM is a step toward that destiny:
 
 ---
 
-*"Send programs, not data structures."*
-*"The LLM is a linguistic motherboard."*
-*"Eval incarnate — bad connotations turned good."*
+**Skills are programs. The LLM is `eval()`. Empathy is the interface.**
+
+*And also: "Send programs, not data structures." "The LLM is a linguistic motherboard." "Eval incarnate — bad connotations turned good."*
 
 🔮✨🐒
 
