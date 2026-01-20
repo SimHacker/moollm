@@ -120,10 +120,40 @@ bar_stools: &bar_stools
         - "character.location = pub/seating.yml#bar-N"
         - "seating.yml#bar-N.occupant = character.id"
         
+    CLAIM-NORMS-STOOL:
+      description: "Sit in stool 3 (Norm's spot)"
+      check: "Is Norm here?"
+      if_present:
+        penalty: "Norm sighs theatrically, the entire bar shouts 'NORM!' at YOU, and you must buy him a beer."
+        humiliation: "You are now 'Fake Norm' for the rest of the evening."
+      if_absent:
+        allowed: true
+        etiquette: "Raise a glass to the empty doorway. 'To Norm, wherever he may be.'"
+        bartender_nod: "Grim nods approvingly. 'He'd want that stool warm.'"
+        
+    CLAIM-HENKS-STOOL:
+      description: "Sit in stool 4 (Henk's spot — THE center)"
+      check: "Is Henk here? (Yes. Henk is ALWAYS here.)"
+      if_present:
+        penalty: "Henk doesn't move. Henk doesn't speak. Henk just LOOKS at you."
+        consequence: "You feel the weight of every regular who ever sat here."
+        humiliation: "Lily the kitten hisses. You have made an enemy for life."
+        resolution: "You find yourself standing. You don't remember getting up."
+      if_absent:
+        allowed: false
+        note: "This condition cannot occur. Henk is eternal."
+        
     CLAIM-MORNS-STOOL:
-      description: "Sit in stool 5"
-      risk: "Social faux pas if Morn is present or expected"
-      check: "Is Morn here? Is it Morn's drinking time?"
+      description: "Sit in stool 5 (Morn's spot)"
+      check: "Is Morn here?"
+      if_present:
+        penalty: "Morn says nothing. Morn NEVER says anything. But somehow everyone knows."
+        humiliation: "The entire bar falls silent. Then someone whispers: 'They sat in Morn's seat.'"
+        consequence: "You are not served for 10 minutes. No one explains why."
+      if_absent:
+        allowed: true
+        etiquette: "Leave room for his drink on the bar. He'll be back."
+        bartender_nod: "Grim sets an empty glass where Morn's drink would go. Respect."
 
 # THE TABLES — URL: seating.yml#table-N
 
