@@ -1,26 +1,37 @@
-prototype: ../wumpus.yml
+# SNORAX THE PATIENT — Wumpus Instance in Room E
+#
+# This file is a POINTER to the full character.
+# Snorax IS the game Hunt the Wumpus. The game lives in the character directory.
+#
+# The character IS the game:
+#   characters/fictional/wumpus-snorax/CHARACTER.yml — The soul
+#   characters/fictional/wumpus-snorax/GAME.yml — Complete game rules
+#   characters/fictional/wumpus-snorax/DODECAHEDRON.yml — Canonical topology
+#   characters/fictional/wumpus-snorax/wumpus-basic-source.md — Original 1973 BASIC
+#   characters/fictional/wumpus-snorax/hazards/ — Pits and bats
+#
+# This instance file tracks game state for THIS room network.
 
+prototype: ../../characters/fictional/wumpus-snorax/CHARACTER.yml
+instance_data: ../../characters/fictional/wumpus-snorax/instances/maze-room-e.yml
+
+# QUICK REFERENCE (full data in instance file)
 instance:
-  name: Grumbus the Slumbering
-  nickname: Sleepy
+  name: Snorax the Patient
+  emoji_identity: "👃🦏💤🏹💀🎲"
   state: sleeping
+  lair: room-e
+  
+  # The character IS the game
+  game: "Hunt the Wumpus"
+  parallel_with: "The Grue (Don't Go In The Dark)"
+  
+  # Snorax's motto
+  philosophy: "Patience is not low energy. Patience is POWER."
 
-traits:
-  size: massive
-  hide: matted fur
-  smell: like wet dog and regret
-  eyes: milky, half-closed
-  distinguishing: old arrow scar on left flank
-  quirk: snores melodically
-
-memory:
-  eaten: 12
-  arrows_dodged: 2
-  notable:
-    - "Hasty Harold — entered from north, didn't even see me"
-    - "Torchless Tom — grue got him first. Disappointing."
-    - "The skeleton's friend — still pointing this way"
-  encounters:
-    donna_toadstool:
-      her_opinion: "Sleepy Wumpus. Low Energy. SAD!"
-      my_opinion: "Who?"
+# WHERE TO FIND EVERYTHING
+see_also:
+  character: ../../characters/fictional/wumpus-snorax/
+  game_rules: ../../characters/fictional/wumpus-snorax/GAME.yml
+  full_instance: ../../characters/fictional/wumpus-snorax/instances/maze-room-e.yml
+  incarnation_ceremony: ../../characters/real-people/don-hopkins/sessions/npc-incarnation-ceremony.md

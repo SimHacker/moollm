@@ -263,4 +263,9 @@ Now every character that's forged here knows: **they come from someone, not some
 ---
 
 *"Objects all the way down."*
-— Dave Ungar
+— 💬 Dave Ungar (verified quote)
+
+---
+
+*Note: Dave Ungar is honored through documented quotes (💬) and tradition invocation,
+not simulated speech. See `skills/representation-ethics/`.*

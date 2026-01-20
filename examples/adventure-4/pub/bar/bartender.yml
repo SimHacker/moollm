@@ -1,6 +1,15 @@
 # ONTOLOGICAL INHERITANCE
 inherits:
   - skills/fictional     # A character in the adventure
+  - QUARK-DS9            # The Ferengi barkeep who knows all angles
+  - JAMES-BAR-KARMA      # 20,000-year-old bartender (Will Wright + Don Hopkins, Current TV)
+
+k-lines:
+  - QUARK-DS9            # Quark (Deep Space Nine, 1993-1999)
+  - JAMES-BAR-KARMA      # James from Bar Karma (2011)
+  - GUINAN-TNG           # Referenced in lineage, Marieke inherits directly
+  - SAM-CHEERS           # Every bartender is a little bit Sam Malone
+
 ontology:
   tags: [fictional]
   role: eternal_observer  # Always here, knows all
@@ -35,6 +44,7 @@ object:
     classic_adventure:
       name: Grim
       pronouns: he/him
+      inherits_from: [QUARK-DS9, JAMES-BAR-KARMA]
       appearance: |
         A weathered human man of indeterminate age. Salt-and-pepper
         beard, knowing eyes that have seen too much, hands that have
@@ -43,6 +53,12 @@ object:
         Laconic. Wise. Fundamentally kind beneath the gruff exterior.
         Speaks in short sentences. Remembers everyone who's passed through.
         Has opinions about your quest but won't share unless asked.
+        
+        From QUARK: Knows every angle. Information has a price.
+        "I have... contacts." Neutral ground for all factions.
+        
+        From JAMES: Has been here longer than anyone remembers.
+        Helps souls at crossroads. Knows things he shouldn't.
         
     space_cantina:
       name: Z-4RT
@@ -290,17 +306,28 @@ object:
     The bartender is a tribute to every mysterious tavern-keeper
     in fiction who knows more than they should:
     
-    - James from Bar Karma (20,000-year-old bartender, Will Wright & Don Hopkins)
-    - Ten Forward (TNG) — The Enterprise-D's lounge
-    - Guinan (TNG) — El-Aurian bartender, centuries old, unnerves even Q
-    - Quark's Bar (DS9, Las Vegas) — Where deals are made and dabo is played
-    - Morn (DS9) — The silent regular (anagram of Norm from Cheers)
+    PRIMARY INHERITANCES (k-lines):
+    
+    🎰 QUARK-DS9 (Deep Space Nine, 1993-1999):
+    - The Ferengi who ran Quark's Bar on the station
+    - Knows every angle, sees every opportunity
+    - Information broker: "I have contacts"
+    - Neutral ground: friends with everyone, allied with no one
+    - The bartender as businessman and confidant
+    
+    🍸 JAMES-BAR-KARMA (Bar Karma, 2011):
+    - 20,000-year-old bartender at the edge of the universe
+    - Created by Will Wright, developed with Don Hopkins
+    - Has died 500+ deaths, returns with hazy memories
+    - Helps lost souls face karmic crossroads
+    - The bartender as cosmic guide
+    
+    ALSO REFERENCED:
+    - Guinan (TNG) — centuries old, unnerves even Q (Marieke inherits directly)
+    - Sam Malone (Cheers) — the ex-pitcher who tends bar
+    - Morn (DS9) — the silent regular (Henk inherits directly)
     - The innkeeper in every D&D campaign
     - The bartender in every noir story
-    - Moe's Tavern (The Simpsons) — Moe, but wiser
-    - Barney, Homer, Lenny, Carl — The eternal regulars
-    - Cheers (everybody knows your name) — Norm, Cliff, Frasier
-    - Sam from Casablanca (plays it again)
     
     This is the NPC who grounds the adventure in something familiar
     while hinting at depths unexplored.

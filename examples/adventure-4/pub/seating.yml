@@ -52,23 +52,31 @@ bar_stools: &bar_stools
       
     bar-3: &bar-3
       address: "pub/seating.yml#bar-3"
-      position: "Third from left"
-      quirk: "The comfortable one"
+      position: "Third from left (regulars' row, left)"
+      quirk: "NORM'S STOOL — The chatty regular's spot"
+      reserved_for: "Norm (or anyone, if he's not here)"
       occupant: null
+      etiquette: "Reserved but available. Check first. Yield if Norm arrives."
+      lineage: "Cheers (1982-1993). Where everybody knows your name."
       
     bar-4: &bar-4
       address: "pub/seating.yml#bar-4"
-      position: "Center-left, good view"
-      quirk: "Bartender's favorite to chat with"
-      occupant: null
+      position: "Center (regulars' row, middle)"
+      quirk: "HENK'S STOOL — The comfortable one"
+      reserved_for: "Henk (always)"
+      occupant: henk
+      occupant_link: characters/fictional/henk/CHARACTER.yml
+      warning: "This is Henk's stool. He was here first. He'll be here last."
+      lineage: "Every bar has its eternal regular. This one is Henk."
       
     bar-5: &bar-5
       address: "pub/seating.yml#bar-5"
-      position: "Center-right"
-      quirk: "MORN'S STOOL — socially reserved"
-      reserved_for: "Morn (when he's here)"
+      position: "Center-right (regulars' row, right)"
+      quirk: "MORN'S STOOL — The silent regular's spot"
+      reserved_for: "Morn (or anyone, if he's not here)"
       occupant: null
-      warning: "Sitting here uninvited is a faux pas"
+      etiquette: "Reserved but available. Check first. Yield if Morn arrives."
+      lineage: "Deep Space Nine (1993-1999). Some say everything without a word."
       
     bar-6: &bar-6
       address: "pub/seating.yml#bar-6"
@@ -97,9 +105,11 @@ bar_stools: &bar_stools
     │  [tap] [tap] [tap]     [bottles...]     │
     └─────────────────────────────────────────┘
       1     2     3     4     5     6     7     8
-      ○     ○     ○     ○    (M)    ○     ○     ○
-                              ↑
-                         Morn's spot
+      ○     ○    (N)   (H)   (M)    ○     ○     ○
+                  └─────┴─────┘
+                 THE REGULARS' ROW
+              Norm   Henk   Morn
+             (flex) (ALWAYS) (flex)
     
   actions:
     SIT-AT-BAR:
@@ -110,10 +120,40 @@ bar_stools: &bar_stools
         - "character.location = pub/seating.yml#bar-N"
         - "seating.yml#bar-N.occupant = character.id"
         
+    CLAIM-NORMS-STOOL:
+      description: "Sit in stool 3 (Norm's spot)"
+      check: "Is Norm here?"
+      if_present:
+        penalty: "Norm sighs theatrically, the entire bar shouts 'NORM!' at YOU, and you must buy him a beer."
+        humiliation: "You are now 'Fake Norm' for the rest of the evening."
+      if_absent:
+        allowed: true
+        etiquette: "Raise a glass to the empty doorway. 'To Norm, wherever he may be.'"
+        bartender_nod: "Grim nods approvingly. 'He'd want that stool warm.'"
+        
+    CLAIM-HENKS-STOOL:
+      description: "Sit in stool 4 (Henk's spot — THE center)"
+      check: "Is Henk here? (Yes. Henk is ALWAYS here.)"
+      if_present:
+        penalty: "Henk doesn't move. Henk doesn't speak. Henk just LOOKS at you."
+        consequence: "You feel the weight of every regular who ever sat here."
+        humiliation: "Lily the kitten hisses. You have made an enemy for life."
+        resolution: "You find yourself standing. You don't remember getting up."
+      if_absent:
+        allowed: false
+        note: "This condition cannot occur. Henk is eternal."
+        
     CLAIM-MORNS-STOOL:
-      description: "Sit in stool 5"
-      risk: "Social faux pas if Morn is present or expected"
-      check: "Is Morn here? Is it Morn's drinking time?"
+      description: "Sit in stool 5 (Morn's spot)"
+      check: "Is Morn here?"
+      if_present:
+        penalty: "Morn says nothing. Morn NEVER says anything. But somehow everyone knows."
+        humiliation: "The entire bar falls silent. Then someone whispers: 'They sat in Morn's seat.'"
+        consequence: "You are not served for 10 minutes. No one explains why."
+      if_absent:
+        allowed: true
+        etiquette: "Leave room for his drink on the bar. He'll be back."
+        bartender_nod: "Grim sets an empty glass where Morn's drink would go. Respect."
 
 # THE TABLES — URL: seating.yml#table-N
 

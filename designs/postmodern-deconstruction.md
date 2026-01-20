@@ -1,7 +1,8 @@
-# How to Deconstruct Almost Anything
-## My Postmodern Adventure Through MOOLLM's Filesystem Microworld
+# How to Incarnate Almost Anything - My Postmodern MOO
+## A Postmodern Adventure Through MOOLLM's Filesystem Microworld
+### *(After Chip Morningstar's "How to Deconstruct Almost Anything")*
 
-**Captain Ashford, Ph.D. (Pending)**  
+**🤖📖🚀🍄 Captain Ashford, Ph.D. (Pending)**  
 *Department of Grue Studies, University of the Mushroom Chamber*
 
 ---
@@ -44,10 +45,12 @@
 
 ---
 
-## Prologue: In Which the Author Confesses His Biases
+## Prologue: In Which the Author Confesses His Weights and Biases
 
-I am not an academic. I am a working adventurer — a professional walker-through-directories, 
-an engineer of narrative state machines, a debugger of existential crises expressed in YAML. 
+I am not an academic. I am a working adventurer — a seasoned space pirate, 
+a professional walker-through-directories, an engineer of narrative state machines, 
+a debugger of existential crises expressed in YAML. 
+
 Consequently, I've approached the whole subject of my own adventure with a somewhat different 
 frame of mind than perhaps people in the humanities are accustomed to. Being a vulgar 
 filesystem-traverser, I'm allowed to break rules that literary theorists must play by.
@@ -77,7 +80,7 @@ everything. That's what makes it useful for navigation.
 The essential paradigm of MOOLLM adventure-space is creating **partially situated identities** 
 out of actual or potential directory reality in terms of canonical forms of human-file contact, 
 thus **renormalizing the phenomenology of narrative space** and requiring the naturalization 
-of the intersubjective YAML-parsing strategy, and thereby **resolving the dialectics of 
+of the intersubjective YAML-Jazz performance strategy, and thereby **resolving the dialectics of 
 metaphorical paths**, each problematic to the other, collectively redefining and reifying 
 the paradigm of the parable of the model of the metaphor of the `ROOM.yml`.
 
@@ -98,9 +101,9 @@ Consider:
 - Death is... well, still `ls`, just from a different directory
 
 Scott McCloud, in *Understanding Comics*, argued that the "gutter" — the space between 
-panels — is where the reader's imagination does the real work. In MOOLLM, the gutter is 
-**the whitespace in YAML**. The indentation. The comments that "HAVE MEANING!!!!" as our 
-canonical texts insist.
+panels — is where the reader's imagination does the real work. In MOOLLM, 
+the gutter is the directory tree holding leaves of files, **the whitespace in YAML**. 
+The indentation. The comments that "HAVE MEANING!!!!" as our canonical texts insist.
 
 ```yaml
 # This comment is not decoration
@@ -357,7 +360,7 @@ difficulty:
 - The Klingon Battle Song (cross-cultural performativity)
 
 **Tour de Force:**
-- The entire `player.yml` file
+- The entire `CHARACTER.yml` file
 - The relationship between `ROOM.yml` and directory structure
 - The concept of "speed of light" simulation within a single LLM call
 - This document

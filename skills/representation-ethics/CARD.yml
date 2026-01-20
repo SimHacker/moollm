@@ -27,6 +27,8 @@ files:
   docs:
     - SKILL.md                         # Core principles, philosophy
     - README.md                        # Human landing page
+    - ANTHROPIC-SOUL-ANALYSIS.md       # Comparative analysis with Anthropic's soul document
+    - THE-VOID-ANALYSIS.md             # nostalgebraist's "The Void" — the problem MOOLLM solves
     
   examples:  # YAML Jazz files — read the one matching your situation
     - examples/consent-hierarchy.yml   # Who can simulate whom? 5 levels
@@ -37,6 +39,7 @@ files:
     - examples/self-consent-card.yml   # Self-representation, digital sovereignty
     - examples/absolute-nos.yml        # Bright lines, what's always wrong
     - examples/mtg-ethics.yml          # Card game model, hero-story pattern
+    - examples/robotification-audit.yml # Audit of characters needing 🤖 disclosure
     
   see_also:
     - ../hero-story/                   # Safe K-line references to real people
@@ -51,6 +54,10 @@ k-lines:
     - CONSENT-HIERARCHY
     - TRADITION-INVOKE
     - NO-IMPERSONATE
+    - ROBOT-RULE           # 🤖 prefix for simulated speech
+    - MEMORIAL-TRIBUTE     # 🕯️ candle is an honor, not just death
+    - STATUS-TRANSITION    # living → deceased handling
+    - DISCLOSURE-SCOPE     # document-level vs inline
   related:
     - { ref: hero-story, relation: "Safe way to reference real people" }
     - { ref: room, relation: "Room-based framing inheritance" }
