@@ -1,4 +1,4 @@
-# How to Incarnate Almost Anything
+# How to Incarnate Almost Anything - My Postmodern MOO
 ## A Postmodern Adventure Through MOOLLM's Filesystem Microworld
 ### *(After Chip Morningstar's "How to Deconstruct Almost Anything")*
 
@@ -45,7 +45,7 @@
 
 ---
 
-## Prologue: In Which the Author Confesses His Biases
+## Prologue: In Which the Author Confesses His Weights and Biases
 
 I am not an academic. I am a working adventurer — a professional walker-through-directories, 
 an engineer of narrative state machines, a debugger of existential crises expressed in YAML. 
