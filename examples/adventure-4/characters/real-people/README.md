@@ -338,27 +338,6 @@ See: ["Object Oriented Programming in NeWS"](https://donhopkins.com/home/montere
 
 ---
 
-#### 👨📗✂️🖨️✨ Glenn Reid — The Distillery and PDF (1989)
-
-Glenn Reid (brother of Brian Reid, the Scribe inventor and PostScript historian) was Adobe employee #40. He wrote books on PostScript including *Thinking in PostScript* and *PostScript Language Program Design*.
-
-**The Distillery:** Glenn created a PostScript program that optimized other PostScript programs by **partial evaluation** — redefining the imaging operators to record their calls, running the program, and emitting a flat optimized version with all loops unrolled.
-
-> *"Even though the program that computes the display may be quite complicated, the distilled graphical output is very simple and low level, with all the loops unrolled."*
-
-This technique became **Acrobat Distiller** and led to **PDF** — PostScript's imaging model without the Turing-complete programming language.
-
-**TouchType:** Glenn also created TouchType for NeXT (1990), a "font appreciation" app for manipulating individual characters. The concept later appeared in Adobe Illustrator's "Touch Type Tool" — with a space added to the name.
-
-**Why Glenn is FOUNDATIONAL to MOOLLM:**
-- ⚡ **Partial evaluation** — Speed of Light simulates many turns internally, emits results once (like Distillery)
-- 📄 **PDF = PostScript - Programming** — Shows what you lose when you strip out the interpreter
-- 📚 **Documentation matters** — His books taught a generation how to think in PostScript
-
-See: [Glenn Reid's blog](http://glennreid.blogspot.com/)
-
----
-
 #### 👨🃏📐🎨✨ Arthur van Hoff — The Axis of Eval (1989-1992)
 
 **HyperLook** (Turing Institute, 1989-1992) — HyperCard reimagined for NeWS. PostScript for code, graphics, AND data. Network delegation.

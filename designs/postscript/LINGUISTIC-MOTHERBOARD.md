@@ -23,13 +23,13 @@ This document traces how the "linguistic motherboard" concept evolved from PostS
         ↓
 1986  NeWS — Gosling at Sun, multithreaded PostScript OS
         ↓
-1986  Owen's OOP PostScript — Smalltalk-like classes via dict stack
+1986  Owen's OOP PostScript at Sun — Smalltalk-like classes via dict stack
         ↓
-1988  The NeWS Toolkit (TNT) — Densmore/Hopkins
+1988  The NeWS Toolkit (TNT) — Densmore/Gosling/Hopkins at Sun
         ↓
-1989  HyperLook — van Hoff/Hopkins at Turing Institute
+1989  HyperLook — Arthur van Hoff/Hopkins at Turing Institute
         ↓
-1989  SimCity for NeWS — Hopkins ports Wright's game
+1989  SimCity for NeWS/HyperLook — Hopkins ports Wright's game
         ↓
 1993  PDF — PostScript minus Turing-completeness
         ↓

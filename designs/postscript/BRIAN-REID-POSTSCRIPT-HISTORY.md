@@ -1,15 +1,71 @@
-# PostScript and Interpress: A Comparison
+# The Definitive History of PostScript
 
-> **Primary Source Document**
-> 
-> From: Brian Reid <reid@Glacier>
-> Date: March 2, 1985
-> Source: fa.laser-lovers mailing list
-> 
-> Brian Reid, Computer Systems Laboratory, Stanford University
-> decwrl!glacier!reid | 415/323-6100
+> **Primary Source: Brian Reid's 1985 "laser-lovers" Post**
 
 ---
+
+## Introduction
+
+This document preserves the definitive first-person account of PostScript's origins, written by **Brian Reid** on March 2, 1985 — just 11 months after Adobe shipped its first PostScript manual.
+
+### Why This Document Matters
+
+Brian Reid was uniquely positioned to write this history:
+
+- **He was there.** As a consultant to Xerox PARC during the Interpress design, he worked directly with the principals.
+- **His thesis advisor was Bob Sproull** — one of the three architects of Interpress (with Butler Lampson and John Warnock).
+- **He saw JAM at Stanford in 1981** — the direct predecessor to both Interpress and PostScript.
+- **fa.laser-lovers was the Hacker News of 1985** — this wasn't a casual post but a definitive statement to the technical community.
+
+### The Lightning Strike for MOOLLM
+
+John Warnock described PostScript as:
+
+> *"PostScript is a linguistic 'mother board', which has 'slots' for several 'cards'. The first card we built was a graphics card. We're considering other cards..."*
+
+This quote, passed from **Warnock → Owen Densmore → Don Hopkins**, directly inspired MOOLLM's `CARD.yml` naming. Skills are cards. The LLM is the linguistic motherboard.
+
+### Key Insight
+
+Brian Reid identifies the fundamental philosophical difference:
+
+> *"Interpress takes the stance that the language system must guarantee certain useful properties, while PostScript takes the stance that the language system must provide the user with the means to achieve those properties if he wants them."*
+
+MOOLLM takes the PostScript stance. Optional protection. Empowerment over enforcement.
+
+---
+
+## Document Index
+
+- [Part I: History](#part-i-history) — From Evans & Sutherland to Adobe
+- [Part II: Comparison](#part-ii-comparison) — PostScript vs. Interpress
+  - [Lexical Considerations](#lexical-considerations)
+  - [Syntactic Considerations](#syntactic-considerations)
+  - [Semantics](#semantics)
+  - [Implementation Issues](#implementation-issues)
+- [About the Authors](#about-the-authors) — Brian Reid and Glenn Reid
+
+---
+
+## Original Email Metadata
+
+| Field | Value |
+|-------|-------|
+| **From** | Brian Reid <reid@Glacier> |
+| **Date** | March 2, 1985, 1:08:05 AM |
+| **To** | fa.laser-lovers mailing list |
+| **Subject** | PostScript and Interpress: a comparison |
+| **Views** | 2,603 (as of archival) |
+
+**Author affiliation:**
+Brian Reid, Computer Systems Laboratory, Stanford University
+decwrl!glacier!reid | 415/323-6100
+
+---
+
+# ══════════════════════════════════════════════════════════════════
+# BEGIN ORIGINAL EMAIL — Brian Reid's exact words follow
+# ══════════════════════════════════════════════════════════════════
 
 This essay offers a comparison of two modern schemes for controlling what laser printers print. One scheme, called PostScript, is offered by Adobe Systems, Inc.; the other scheme, called Interpress, is offered by the Xerox Corporation. A discussion of these two schemes has provoked a considerable amount of interest in this forum recently. I have for some time been promising (threatening?) to provide my interpretation of the difference between the two systems. It is long enough and detailed enough that you will certainly never want to read another word on the topic after you read it, but given the nature of computer mail systems you almost certainly will be given the opportunity.
 
@@ -137,7 +193,7 @@ An Interpress file consists of a series of bodies. Each body is executed complet
 
 By contrast, a PostScript file has no static structure, so there is no convenient place to build automatic firewalls. PostScript provides, instead, two pairs of operators by which a PostScript user can build his own firewalls wherever he wants them. There is an operator called SAVE, and another operator called RESTORE. The RESTORE operator restores the execution state of the machine back to what it was when the last SAVE operator was executed. Thus, if a PostScript user wants to have pages that are firewalled against each other, then he puts a SAVE operator at the beginning of the page and a RESTORE operator at the end of the page. If the PostScript user wants to play tricks, and build PostScript files that do bizarre things with the execution state between pages, he is free to do so by leaving out the SAVE and RESTORE.
 
-> By now you can probably see the fundamental philosophical difference between PostScript and Interpress. Interpress takes the stance that the language system must guarantee certain useful properties, while PostScript takes the stance that the language system must provide the user with the means to achieve those properties if he wants them. With very few exceptions, both languages provide the same facilities, but in Interpress the protection mechanisms are mandatory and in PostScript they are optional. Debates over the relative merits of mandatory and optional protection systems have raged for years not only in the programming language community but also among owners of motorcycle helmets. While the Interpress language mandates a particular organization, the PostScript language provides the tools (structuring conventions and SAVE/RESTORE) to duplicate that organization exactly, with all of the attendant benefits. However, the PostScript user need not employ those tools.
+By now you can probably see the fundamental philosophical difference between PostScript and Interpress. Interpress takes the stance that the language system must guarantee certain useful properties, while PostScript takes the stance that the language system must provide the user with the means to achieve those properties if he wants them. With very few exceptions, both languages provide the same facilities, but in Interpress the protection mechanisms are mandatory and in PostScript they are optional. Debates over the relative merits of mandatory and optional protection systems have raged for years not only in the programming language community but also among owners of motorcycle helmets. While the Interpress language mandates a particular organization, the PostScript language provides the tools (structuring conventions and SAVE/RESTORE) to duplicate that organization exactly, with all of the attendant benefits. However, the PostScript user need not employ those tools.
 
 Before taking a stand on this issue, you must remember that neither Interpress nor PostScript is engineered to be a general-purpose programming language, but rather to be a scheme for the description of page images, so it is not necessarily valid to apply programming language lore to these two systems.
 
@@ -165,9 +221,48 @@ Given that Xerox has been working on Interpress for about twice as long as Adobe
 
 ---
 
-**Brian Reid**
+Brian Reid
 re...@SU-Glacier.ARPA
 Computer Systems Laboratory
 Stanford University
 415/323-6100
 decwrl!glacier!reid
+
+# ══════════════════════════════════════════════════════════════════
+# END ORIGINAL EMAIL
+# ══════════════════════════════════════════════════════════════════
+
+---
+
+## About the Authors
+
+### Brian Reid
+
+**Brian Reid** wrote this definitive history from a unique vantage point: he was a consultant to Xerox PARC during the Interpress design, and his thesis advisor at CMU was Bob Sproull — one of the three principal architects of Interpress.
+
+**Notable contributions:**
+- **Scribe** (1980) — One of the first document preparation systems with semantic markup (bold, italic as concepts, not formatting). Influenced LaTeX and HTML.
+- **Usenet backbone maps** — Created the iconic ASCII maps showing UUCP network topology.
+- **Gatekeeper** — Early anonymous FTP archive at Digital/DEC Research.
+
+Brian Reid is not a direct MOOLLM inspiration, but his 1985 post is the definitive historical record of PostScript's origins and philosophy.
+
+### Glenn Reid
+
+**Glenn Reid** (Brian's brother) was Adobe employee #40 and a key figure in the PostScript ecosystem.
+
+**Notable contributions:**
+- **PostScript books** — *Thinking in PostScript* and *PostScript Language Program Design* taught a generation how to program in PostScript.
+- **The Distillery** — A PostScript program that optimized other PostScript programs by partial evaluation: redefine the imaging operators to record their calls, run the program, emit a flat optimized version. This technique became **Acrobat Distiller** and led to **PDF**.
+- **TouchType** (NeXT, 1990) — A "font appreciation" app for manipulating individual characters. The concept later appeared in Adobe Illustrator's "Touch Type Tool."
+
+Glenn Reid is not a direct MOOLLM inspiration, but his Distillery technique (partial evaluation) conceptually parallels MOOLLM's "Speed of Light" — simulate many turns internally, emit results once.
+
+**Glenn's blog:** [glennreid.blogspot.com](http://glennreid.blogspot.com/)
+
+---
+
+## See Also
+
+- [The Linguistic Motherboard](./LINGUISTIC-MOTHERBOARD.md) — How PostScript's "motherboard with slots for cards" became MOOLLM's CARD.yml
+- [MOOLLM Founders' Gallery](../../examples/adventure-4/characters/real-people/README.md) — The people who directly inspired MOOLLM
