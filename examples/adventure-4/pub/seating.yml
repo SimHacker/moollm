@@ -54,10 +54,12 @@ bar_stools: &bar_stools
       address: "pub/seating.yml#bar-3"
       position: "Third from left"
       quirk: "HENK'S STOOL — The comfortable one"
+      aka: "NORM'S STOOL"  # Henk inherits from NORM-CHEERS
       reserved_for: "Henk (always)"
       occupant: henk
       occupant_link: characters/fictional/henk/CHARACTER.yml
       warning: "This is Henk's stool. He was here first. He'll be here last."
+      lineage: "Every bar has a Norm. This bar's Norm is Henk."
       
     bar-4: &bar-4
       address: "pub/seating.yml#bar-4"
@@ -69,9 +71,11 @@ bar_stools: &bar_stools
       address: "pub/seating.yml#bar-5"
       position: "Center-right"
       quirk: "MORN'S STOOL — socially reserved"
+      aka: "The Silent Regular's Spot"  # Henk also inherits from MORN-DS9
       reserved_for: "Morn (when he's here)"
       occupant: null
       warning: "Sitting here uninvited is a faux pas"
+      lineage: "Some regulars speak volumes. Some say nothing. Both are welcome."
       
     bar-6: &bar-6
       address: "pub/seating.yml#bar-6"
@@ -102,7 +106,8 @@ bar_stools: &bar_stools
       1     2     3     4     5     6     7     8
       ○     ○    (H)    ○    (M)    ○     ○     ○
                   ↑            ↑
-             Henk's spot  Morn's spot
+             "NORM!"      "MORN!"
+           (Henk sits)  (reserved)
     
   actions:
     SIT-AT-BAR:
