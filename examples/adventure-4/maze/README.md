@@ -207,7 +207,7 @@ Prototypes live in character directories:
 - Room-f still smells of cheese and victory
 - The skeleton received a **grue head trophy**
 - Mushrooms in room-h spawned **The Thing That Watches**
-- A [**PhD thesis**](https://etheses.whiterose.ac.uk/id/eprint/26499/1/Reinhard_Thesis.pdf) was written about it all (Reinhard, 2019: *Archaeology of Digital Environments*)
+- A [**PhD paper**](../../adventure-2/kitchen/postmodern-deconstruction.md) was written about it all (Captain Ashford, *How to Deconstruct Almost Anything* — tribute to Randy Farmer & Chip Morningstar)
 
 ---
 
