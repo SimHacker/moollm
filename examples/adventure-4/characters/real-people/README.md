@@ -282,28 +282,80 @@ See: [Alan Kay on browsers](https://donhopkins.medium.com/alan-kay-on-should-web
 
 ### 📟 The PostScript/NeWS Era (1984-1992)
 
-#### 👨📜💡🖨️✨ John Warnock & Owen Densmore — The Linguistic Motherboard (1984)
+#### 👨📜💡🖨️✨ John Warnock — The Linguistic Motherboard (1984)
 
-**PostScript** (Adobe, 1984) — a programming language for graphics. Code and data unified.
+**PostScript** (Adobe, 1984) — a programming language for graphics. Code and data unified. Warnock and Chuck Geschke left Xerox PARC in December 1982 to start Adobe, bringing the JAM graphics model with a Unix-style optional (not mandatory) protection philosophy.
 
 > *"PostScript is a linguistic 'mother board', which has 'slots' for several 'cards'. The first card we built was a graphics card. We're considering other cards..."*
+> 
+> — John Warnock, as recounted by Owen Densmore to Don Hopkins
 
-**Why PostScript is FOUNDATIONAL to MOOLLM:**
+**The lineage:** Burroughs B5500 stack architecture (1962) → E&S Design System (Warnock/Gaffney, 1975) → JAM "John And Martin" (Warnock/Newell, PARC 1978) → Interpress (1982) → PostScript (1984).
+
+**Why Warnock is FOUNDATIONAL to MOOLLM:**
 - 🃏 **CARD.yml is literal** — Skills are cards that plug into the LLM motherboard
 - 🔄 **Code = Graphics = Data** — The Axis of Eval comes directly from PostScript
+- 🔓 **Optional protection** — "The language must provide the user with the means to achieve properties if he wants them" (vs. mandatory enforcement)
+
+See: [Brian Reid's PostScript History](../../designs/postscript/BRIAN-REID-POSTSCRIPT-HISTORY.md) | [The Linguistic Motherboard](../../designs/postscript/LINGUISTIC-MOTHERBOARD.md)
 
 ---
 
-#### 👨☕💻🌍🔧 James Gosling — Send Programs, Not Data (1986)
+#### 👨☕💻🌍🔧 James Gosling — NeWS: The Multithreaded PostScript OS (1986)
 
-**NeWS** (Network Extensible Window System, Sun Microsystems, 1986) — PostScript as the universal network language. "Send programs, not data."
+**NeWS** (Network Extensible Window System, Sun Microsystems, 1986) — NOT just "PostScript for displays." NeWS was a complete multithreaded operating system written in PostScript, with lightweight processes, garbage collection, networking, event handling, and arbitrarily shaped windows.
+
+> *"There is really nothing new here. It's just putting it together in a different way."* — Gosling
+
+**NeWS ≠ Display PostScript.** Display PostScript (Adobe/NeXT) came later and did far less. NeWS was interactive, multithreaded, programmable. Display PostScript was just for rendering. "Display PostScript is Fake NeWS."
 
 > *"A universal interpreter can both be quite small and also can have more degrees of freedom than any data structure (that is not a program)."* — Alan Kay on NeWS
 
 **Why NeWS is FOUNDATIONAL to MOOLLM:**
 - 📤 **"Send programs, not data structures"** — Skills are programs the LLM runs, not prompts it processes
-- 🌐 **Network as computer** — MOOLLM skills work across tools, models, contexts
+- 🧵 **Lightweight processes** — Led to Java's Green threads
 - 🔧 **Universal interpreter** — The LLM interprets YAML Jazz like NeWS interpreted PostScript
+
+---
+
+#### 👨🎨🔵📐✨ Owen Densmore — Object-Oriented PostScript (1986)
+
+Owen Densmore invented the OOP system that made NeWS truly powerful. He worked at Apple on the PostScript driver and printing system, visited Adobe to work with John Warnock, then joined Sun where he worked with Don Hopkins on NeWS and The NeWS Toolkit (TNT).
+
+**The key insight:** PostScript's **dictionary stack** could implement Smalltalk-style classes:
+- Push a class dictionary onto the stack
+- Method lookup walks the stack (multiple inheritance!)
+- Instance dictionaries hold per-object state
+
+> *"Owen and I discussed his 'crazy' idea at a poolside table at the now-demolished Hyatt Palo Alto, on El Camino. I told him that it made sense to me, we scribbled furiously on napkins, and I helped him see how he might adopt some learnings from Smalltalk."* — Tom Stambaugh
+
+**Why Owen is FOUNDATIONAL to MOOLLM:**
+- 📚 **Dict stack = delegation** — MOOLLM's directory delegation mirrors Owen's dict stack inheritance
+- 🔄 **Multiple inheritance** — Characters and skills can inherit from multiple parents
+- 🤝 **Don's collaborator** — They co-created TNT, the foundation for HyperLook and SimCity
+
+See: ["Object Oriented Programming in NeWS"](https://donhopkins.com/home/monterey86.pdf) (Owen Densmore, 1986)
+
+---
+
+#### 👨📗✂️🖨️✨ Glenn Reid — The Distillery and PDF (1989)
+
+Glenn Reid (brother of Brian Reid, the Scribe inventor and PostScript historian) was Adobe employee #40. He wrote books on PostScript including *Thinking in PostScript* and *PostScript Language Program Design*.
+
+**The Distillery:** Glenn created a PostScript program that optimized other PostScript programs by **partial evaluation** — redefining the imaging operators to record their calls, running the program, and emitting a flat optimized version with all loops unrolled.
+
+> *"Even though the program that computes the display may be quite complicated, the distilled graphical output is very simple and low level, with all the loops unrolled."*
+
+This technique became **Acrobat Distiller** and led to **PDF** — PostScript's imaging model without the Turing-complete programming language.
+
+**TouchType:** Glenn also created TouchType for NeXT (1990), a "font appreciation" app for manipulating individual characters. The concept later appeared in Adobe Illustrator's "Touch Type Tool" — with a space added to the name.
+
+**Why Glenn is FOUNDATIONAL to MOOLLM:**
+- ⚡ **Partial evaluation** — Speed of Light simulates many turns internally, emits results once (like Distillery)
+- 📄 **PDF = PostScript - Programming** — Shows what you lose when you strip out the interpreter
+- 📚 **Documentation matters** — His books taught a generation how to think in PostScript
+
+See: [Glenn Reid's blog](http://glennreid.blogspot.com/)
 
 ---
 
