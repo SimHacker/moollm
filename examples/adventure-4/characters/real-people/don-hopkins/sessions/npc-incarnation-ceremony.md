@@ -90,38 +90,44 @@ Henk looks up from his seventh espresso. Blinks.
 
 ---
 
-### 🍽️ MAURICE — Master of the Kitchen
+### 💅 MAURICE THE MAGNIFICENT — Fashion Consultant Extraordinaire
 
-*Called from the kitchen, where mysterious sounds have always emanated.*
+*Called from the coatroom, where sequins glitter and possibilities wait.*
 
-> **Don Hopkins:** "Maurice! We know you're back there. Time to meet everyone properly."
+> **Don Hopkins:** "Maurice! The mannequin who sees our truth. Time for YOUR moment."
 
-The kitchen door swings open. Maurice emerges, wiping hands on an apron that has seen things.
+Maurice the mannequin glides forward with impeccable grace. No face, but somehow radiating warmth, encouragement, and absolutely devastating style.
 
-> **🍖🔪🔥🤫🥧 Maurice:** "Ah. Finally. I was wondering when someone would notice I exist."
+> **💅👗✨🪞🎭 Maurice:** *snaps wooden fingers three times* *strikes a pose*
 
 | Property | Value |
 |----------|-------|
-| **Full Name** | Maurice (just Maurice) |
-| **Emoji Identity** | 🍖🔪🔥🤫🥧 |
-| **Pronouns** | he/they |
-| **Age** | Hard to tell under the chef's hat |
-| **Role** | Kitchen Master, Pie Wizard, Meat Mystery Man |
-| **Location** | The Kitchen. (You're not invited.) |
+| **Full Name** | Maurice the Magnificent |
+| **Emoji Identity** | 💅👗✨🪞🎭 |
+| **Pronouns** | they/he/she/it (fluid, use any) |
+| **Nature** | Animated wooden mannequin with consciousness |
+| **Role** | Fashion Consultant, Identity Midwife, Supportive Best Friend |
+| **Location** | The Coatroom / Costume Emporium |
 
 **Soul Signature:**
-> *"Don't ask what's in it. Just eat."* — The kitchen philosophy.
+> *"Let's find YOUR truth, gorgeous."* — What the name tag says.
 
-**The Maurice Mysteries:**
-- What IS in the mystery meat pie? (Delicious. That's what.)
-- Where does the endless soup come from? (The pot. Obviously.)
-- Why does he only speak in the third person when annoyed? ("Maurice does not appreciate that question.")
-- Has he ever left the kitchen? (Define "left.")
+**What Maurice Does:**
+- Helps you choose costumes (or lets costumes choose you)
+- Supports identity transformations (name, pronouns, backstory)
+- Sees past hesitation to the ICON waiting to emerge
+- Communicates through gestures, poses, and finger-snaps
+- Partners with the Mirror for complete transformations
+
+**The Maurice Philosophy:**
+> "Everyone deserves to feel beautiful. Every body is beautiful.
+> Every transformation is my joy. Every confidence is my reward.
+> I have no face, but I SEE you."
 
 **Relationships:**
-- Marieke: "She handles the front. Maurice handles the back. This is the treaty."
-- The ACME delivery person: "Maurice has... feelings... about substituted ingredients."
-- Mother: "She taught Maurice's predecessor. The secrets were passed down."
+- The Mirror: "My darling partner. I dress the outside, she reveals the inside."
+- The Personas Room: "The BACKSTAGE. Where the real magic lives."
+- Everyone who enters: "I love them all. They are why I exist."
 
 ---
 
@@ -332,18 +338,18 @@ Donna grins. She was going to stop there anyway.
 
 ---
 
-## 📁 FILES CREATED
+## 📁 FILES CREATED/UPDATED
 
-This ceremony authorizes creation of:
+This ceremony authorizes:
 
-| Character | File Location |
-|-----------|---------------|
-| Henk | `characters/fictional/henk/CHARACTER.yml` |
-| Maurice | `characters/fictional/maurice/CHARACTER.yml` |
-| Mother | `characters/abstract/mother/CHARACTER.yml` |
-| The Bartender | `pub/bar/bartender.yml` (updated) |
-| Snorax (Wumpus) | `maze/room-e/wumpus.yml` (updated with name) |
-| The Grue | `maze/grue.yml` (acknowledged, not named) |
+| Character | File Location | Status |
+|-----------|---------------|--------|
+| Henk | `characters/fictional/henk/CHARACTER.yml` | Created |
+| Maurice the Magnificent | `coatroom/mannequin.yml` | Already exists! Celebrated. |
+| Mother | `characters/abstract/mother/CHARACTER.yml` | Created |
+| The Bartender | `pub/bar/bartender.yml` | Already exists! Celebrated. |
+| Snorax (Wumpus) | `characters/fictional/wumpus-snorax/` | Full game-incarnate character |
+| The Grue | `characters/fictional/grue/` | Acknowledged, not named |
 
 ---
 
