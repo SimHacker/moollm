@@ -52,30 +52,31 @@ bar_stools: &bar_stools
       
     bar-3: &bar-3
       address: "pub/seating.yml#bar-3"
-      position: "Third from left"
+      position: "Third from left (regulars' row, left)"
+      quirk: "NORM'S STOOL — The chatty regular's spot"
+      reserved_for: "Norm (or anyone, if he's not here)"
+      occupant: null
+      etiquette: "Reserved but available. Check first. Yield if Norm arrives."
+      lineage: "Cheers (1982-1993). Where everybody knows your name."
+      
+    bar-4: &bar-4
+      address: "pub/seating.yml#bar-4"
+      position: "Center (regulars' row, middle)"
       quirk: "HENK'S STOOL — The comfortable one"
-      aka: "NORM'S STOOL"  # Henk inherits from NORM-CHEERS
       reserved_for: "Henk (always)"
       occupant: henk
       occupant_link: characters/fictional/henk/CHARACTER.yml
       warning: "This is Henk's stool. He was here first. He'll be here last."
-      lineage: "Every bar has a Norm. This bar's Norm is Henk."
-      
-    bar-4: &bar-4
-      address: "pub/seating.yml#bar-4"
-      position: "Center-left, good view"
-      quirk: "Bartender's favorite to chat with"
-      occupant: null
+      lineage: "Every bar has its eternal regular. This one is Henk."
       
     bar-5: &bar-5
       address: "pub/seating.yml#bar-5"
-      position: "Center-right"
-      quirk: "MORN'S STOOL — socially reserved"
-      aka: "The Silent Regular's Spot"  # Henk also inherits from MORN-DS9
-      reserved_for: "Morn (when he's here)"
+      position: "Center-right (regulars' row, right)"
+      quirk: "MORN'S STOOL — The silent regular's spot"
+      reserved_for: "Morn (or anyone, if he's not here)"
       occupant: null
-      warning: "Sitting here uninvited is a faux pas"
-      lineage: "Some regulars speak volumes. Some say nothing. Both are welcome."
+      etiquette: "Reserved but available. Check first. Yield if Morn arrives."
+      lineage: "Deep Space Nine (1993-1999). Some say everything without a word."
       
     bar-6: &bar-6
       address: "pub/seating.yml#bar-6"
@@ -104,10 +105,11 @@ bar_stools: &bar_stools
     │  [tap] [tap] [tap]     [bottles...]     │
     └─────────────────────────────────────────┘
       1     2     3     4     5     6     7     8
-      ○     ○    (H)    ○    (M)    ○     ○     ○
-                  ↑            ↑
-             "NORM!"      "MORN!"
-           (Henk sits)  (reserved)
+      ○     ○    (N)   (H)   (M)    ○     ○     ○
+                  └─────┴─────┘
+                 THE REGULARS' ROW
+              Norm   Henk   Morn
+             (flex) (ALWAYS) (flex)
     
   actions:
     SIT-AT-BAR:
