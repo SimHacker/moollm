@@ -7,12 +7,6 @@
 
 ## 📚 Document Index
 
-### 🎮 EVAL Game Genre Expansion
-- [EVAL: The Game Genre Expansion](#-eval-the-game-genre-expansion) — This document is the philosophical foundation; the **[eval/](./eval/)** directory contains the game design breakouts
-  - Philosophy → Games: EvalCity, The Evals, EvalSelf, EvalEye
-  - Language: Scats, Emoji Anchors, MOOLLM DOM
-  - Actors: Worms, Factions, Church of the Eval Genius, Sisters of Perpetual Evaluation
-
 ### Core Concepts
 - [The Word](#the-word) — What "Eval Incarnate" means
 - [The Heritage](#the-heritage) — Where MOOLLM comes from
@@ -80,53 +74,8 @@
 - [The Vision](#the-vision)
 - [Don Hopkins' Articles](#don-hopkins-articles-medium)
 
----
-
-## 🎮 EVAL: The Game Genre Expansion
-
-> *This framework has grown. The EVAL concepts documented here have expanded into a full game genre design system.*
-
-**The `eval/` directory contains detailed breakouts of EVAL as a simulation paradigm:**
-
-| Document | What It Covers | Why You Should Read It |
-|----------|----------------|------------------------|
-| **[eval/README.md](./eval/README.md)** | Directory index | Start here for the full map |
-| **[eval/EVAL-INCARNATE-PHILOSOPHY.md](./eval/EVAL-INCARNATE-PHILOSOPHY.md)** | Core thesis: meaning through judgment | The philosophical foundation |
-| **[eval/EVAL-VS-SIM.md](./eval/EVAL-VS-SIM.md)** | How EVAL differs from SIM | Genre differentiation, The Evaluator Effect |
-| **[eval/EVALCITY-DESIGN.md](./eval/EVALCITY-DESIGN.md)** | Civic simulation with LLMs | SimCity uplift architecture, hybrid simulation |
-| **[eval/THE-EVALS-DESIGN.md](./eval/THE-EVALS-DESIGN.md)** | Social simulation | The Sims → The Evals transformation |
-| **[eval/EVALSELF-DESIGN.md](./eval/EVALSELF-DESIGN.md)** | Inner life & self-care | Personal artifact system |
-| **[eval/EVALEYE-DESIGN.md](./eval/EVALEYE-DESIGN.md)** | Attention as interface | Gaze-based evaluation |
-
-### Language & Expression
-
-| Document | What It Covers | Why You Should Read It |
-|----------|----------------|------------------------|
-| **[eval/SCATS-DESIGN.md](./eval/SCATS-DESIGN.md)** | Emoji-rich YAML Jazz | The primary unit of EVAL expression |
-| **[eval/EMOJI-ANCHORS.md](./eval/EMOJI-ANCHORS.md)** | Outline syntax, eye zones | Emoji as operators, bracketed eyes |
-| **[eval/EVAL-DOM-SPEC.md](./eval/EVAL-DOM-SPEC.md)** | MOOLLM DOM, reserved keywords | `_anchors`, `_comments`, JSON round-tripping |
-| **[eval/EVAL-TAXONOMY.md](./eval/EVAL-TAXONOMY.md)** | Entity types, autonomy levels | Personas, dialects, code-switching |
-
-### Systems & Actors
-
-| Document | What It Covers | Why You Should Read It |
-|----------|----------------|------------------------|
-| **[eval/EVAL-WORMS.md](./eval/EVAL-WORMS.md)** | Two-ended interpretive bots | Head/tail topology, scat castings |
-| **[eval/EVAL-FACTIONS.md](./eval/EVAL-FACTIONS.md)** | In-world ideological actors | EvalNonymous, EvalState, QEval, EvalFa |
-| **[eval/CHURCH-OF-THE-EVAL-GENIUS.md](./eval/CHURCH-OF-THE-EVAL-GENIUS.md)** | The official EVAL religion | SubGenius parody, Sisters of Perpetual Evaluation |
-| **[eval/EVAL-ARTIFACTS.md](./eval/EVAL-ARTIFACTS.md)** | Personal evaluation objects | Diary, Wish Book, Hope Chest, Criteria Ledger |
-| **[eval/EVAL-BRAND-FAMILY.md](./eval/EVAL-BRAND-FAMILY.md)** | Full catalog of EVAL titles | The complete brand taxonomy |
-
-### The Insight
-
-> *SimCity's hidden assumptions are EVAL's explicit mechanics.*
-
-Alan Kay criticized SimCity as a "pernicious black box." EVAL answers this directly:
-- Evaluative assumptions are **inspectable**
-- Players can **define or rewrite** evaluation mechanisms
-- Values and judgments are **first-class constructs**
-
-**This document remains the philosophical foundation. The eval/ directory is where the game design lives.**
+### Appendix
+- [EVAL Game Genre Expansion](#appendix-eval-game-genre-expansion) — Game design breakouts in **[eval/](./eval/)**
 
 ---
 
@@ -556,9 +505,9 @@ SimAntics was The Sims' visual behavior programming language. Non-programmers co
 
 ```mermaid
 flowchart TD
-    SIM["🎮 SimAntics<br/>IF hungry → GO fridge → GET food → EAT"]
-    EMP["💬 Empathic<br/>if the sim is hungry, have them get food"]
-    MOO["🧠 MOOLLM<br/>LLM interprets intent as behavior"]
+    SIM["🎮 SimAntics<br>IF hungry → GO fridge<br>→ GET food → EAT"]
+    EMP["💬 Empathic<br>if the sim is hungry,<br>have them get food"]
+    MOO["🧠 MOOLLM<br>LLM interprets intent<br>as behavior"]
     
     SIM --> |"evolution"| EMP --> |"evolution"| MOO
     
@@ -1680,3 +1629,51 @@ MOOLLM is a step toward that destiny:
 *"Eval incarnate — bad connotations turned good."*
 
 🔮✨🐒
+
+---
+
+## Appendix: EVAL Game Genre Expansion
+
+> *This framework has grown. The EVAL concepts documented here have expanded into a full game genre design system.*
+
+**The `eval/` directory contains detailed breakouts of EVAL as a simulation paradigm:**
+
+| Document | What It Covers | Why You Should Read It |
+|----------|----------------|------------------------|
+| **[eval/README.md](./eval/README.md)** | Directory index | Start here for the full map |
+| **[eval/EVAL-INCARNATE-PHILOSOPHY.md](./eval/EVAL-INCARNATE-PHILOSOPHY.md)** | Core thesis: meaning through judgment | The philosophical foundation |
+| **[eval/EVAL-VS-SIM.md](./eval/EVAL-VS-SIM.md)** | How EVAL differs from SIM | Genre differentiation, The Evaluator Effect |
+| **[eval/EVALCITY-DESIGN.md](./eval/EVALCITY-DESIGN.md)** | Civic simulation with LLMs | SimCity uplift architecture, hybrid simulation |
+| **[eval/THE-EVALS-DESIGN.md](./eval/THE-EVALS-DESIGN.md)** | Social simulation | The Sims → The Evals transformation |
+| **[eval/EVALSELF-DESIGN.md](./eval/EVALSELF-DESIGN.md)** | Inner life & self-care | Personal artifact system |
+| **[eval/EVALEYE-DESIGN.md](./eval/EVALEYE-DESIGN.md)** | Attention as interface | Gaze-based evaluation |
+
+### Language & Expression
+
+| Document | What It Covers | Why You Should Read It |
+|----------|----------------|------------------------|
+| **[eval/SCATS-DESIGN.md](./eval/SCATS-DESIGN.md)** | Emoji-rich YAML Jazz | The primary unit of EVAL expression |
+| **[eval/EMOJI-ANCHORS.md](./eval/EMOJI-ANCHORS.md)** | Outline syntax, eye zones | Emoji as operators, bracketed eyes |
+| **[eval/EVAL-DOM-SPEC.md](./eval/EVAL-DOM-SPEC.md)** | MOOLLM DOM, reserved keywords | `_anchors`, `_comments`, JSON round-tripping |
+| **[eval/EVAL-TAXONOMY.md](./eval/EVAL-TAXONOMY.md)** | Entity types, autonomy levels | Personas, dialects, code-switching |
+
+### Systems & Actors
+
+| Document | What It Covers | Why You Should Read It |
+|----------|----------------|------------------------|
+| **[eval/EVAL-WORMS.md](./eval/EVAL-WORMS.md)** | Two-ended interpretive bots | Head/tail topology, scat castings |
+| **[eval/EVAL-FACTIONS.md](./eval/EVAL-FACTIONS.md)** | In-world ideological actors | EvalNonymous, EvalState, QEval, EvalFa |
+| **[eval/CHURCH-OF-THE-EVAL-GENIUS.md](./eval/CHURCH-OF-THE-EVAL-GENIUS.md)** | The official EVAL religion | SubGenius parody, Sisters of Perpetual Evaluation |
+| **[eval/EVAL-ARTIFACTS.md](./eval/EVAL-ARTIFACTS.md)** | Personal evaluation objects | Diary, Wish Book, Hope Chest, Criteria Ledger |
+| **[eval/EVAL-BRAND-FAMILY.md](./eval/EVAL-BRAND-FAMILY.md)** | Full catalog of EVAL titles | The complete brand taxonomy |
+
+### The Insight
+
+> *SimCity's hidden assumptions are EVAL's explicit mechanics.*
+
+Alan Kay criticized SimCity as a "pernicious black box." EVAL answers this directly:
+- Evaluative assumptions are **inspectable**
+- Players can **define or rewrite** evaluation mechanisms
+- Values and judgments are **first-class constructs**
+
+**This document is the philosophical foundation. The eval/ directory is where the game design lives.**
