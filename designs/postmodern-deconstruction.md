@@ -80,7 +80,7 @@ everything. That's what makes it useful for navigation.
 The essential paradigm of MOOLLM adventure-space is creating **partially situated identities** 
 out of actual or potential directory reality in terms of canonical forms of human-file contact, 
 thus **renormalizing the phenomenology of narrative space** and requiring the naturalization 
-of the intersubjective YAML-parsing strategy, and thereby **resolving the dialectics of 
+of the intersubjective YAML-Jazz performance strategy, and thereby **resolving the dialectics of 
 metaphorical paths**, each problematic to the other, collectively redefining and reifying 
 the paradigm of the parable of the model of the metaphor of the `ROOM.yml`.
 
@@ -101,9 +101,9 @@ Consider:
 - Death is... well, still `ls`, just from a different directory
 
 Scott McCloud, in *Understanding Comics*, argued that the "gutter" — the space between 
-panels — is where the reader's imagination does the real work. In MOOLLM, the gutter is 
-**the whitespace in YAML**. The indentation. The comments that "HAVE MEANING!!!!" as our 
-canonical texts insist.
+panels — is where the reader's imagination does the real work. In MOOLLM, 
+the gutter is the directory tree holding leaves of files, **the whitespace in YAML**. 
+The indentation. The comments that "HAVE MEANING!!!!" as our canonical texts insist.
 
 ```yaml
 # This comment is not decoration
@@ -360,7 +360,7 @@ difficulty:
 - The Klingon Battle Song (cross-cultural performativity)
 
 **Tour de Force:**
-- The entire `player.yml` file
+- The entire `CHARACTER.yml` file
 - The relationship between `ROOM.yml` and directory structure
 - The concept of "speed of light" simulation within a single LLM call
 - This document
