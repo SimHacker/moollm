@@ -1,0 +1,182 @@
+# 📜 THE POSTMODERN PAPER
+# A well-worn copy of Captain Ashford's legendary lit crit treatise
+# Found in the attic, clearly much-loved (and much-abused)
+
+object:
+  id: postmodern-paper
+  name: "Dog-Eared Academic Paper"
+  full_title: "How to Deconstruct Almost Anything — My Postmodern Adventure Through MOOLLM's Filesystem Microworld"
+  author: "Captain Ashford, Ph.D. (Pending)"
+  affiliation: "Department of Grue Studies, University of the Mushroom Chamber"
+  
+  # PHYSICAL DESCRIPTION — this copy has LIVED
+  description: |
+    A photocopied academic paper, clearly rescued from some grad student's 
+    apartment circa 2026. The pages are:
+    
+    - **Dog-eared** at multiple sections (someone's bookmarks)
+    - **Coffee-stained** on pages 3, 7, and 12 (espresso rings, overlapping)
+    - **Bong-water splashed** on page 47 (the smell lingers)
+    - **Marginalia everywhere** in at least three different handwritings
+    - **Underlined passages** with aggressive enthusiasm
+    - **A dried flower** pressed between pages 22-23 (a dandelion, flattened)
+    
+    The cover page has a Post-It note that says: "THIS EXPLAINS EVERYTHING"
+    (The Post-It is also coffee-stained.)
+    
+  condition: "Well-loved. Battle-scarred. Enlightening."
+  portable: true
+  value: priceless_to_the_right_buyer
+  
+  # CANONICAL SOURCE — this is an INSTANCE
+  prototype: ../../../adventure-2/kitchen/postmodern-deconstruction.md
+  instance_notes: |
+    This is a physical copy of the paper that exists in adventure-2's kitchen.
+    Someone printed it, annotated it extensively, and eventually left it here.
+    The attic collects things that matter.
+
+# THE STAINS — each tells a story
+
+stains:
+  coffee_page_3:
+    substance: espresso
+    age: weeks
+    pattern: "Perfect ring from mug bottom"
+    annotation_nearby: "HABITAT!!! → see Morningstar/Farmer"
+    
+  coffee_page_7:
+    substance: drip_coffee
+    age: months  
+    pattern: "Splash pattern, mug knocked over"
+    annotation_nearby: "the menu IS the meal"
+    
+  coffee_page_12:
+    substance: cold_brew
+    age: days
+    pattern: "Deliberate — mug set down while reading"
+    annotation_nearby: "filesystem = consciousness???"
+    
+  bong_water_page_47:
+    substance: suspicious_herbal_water
+    age: indeterminate
+    pattern: "Splash from nearby accident"
+    smell: present
+    annotation_nearby: "whoa"
+    note: "Page 47 is about recursion. Of course."
+
+# THE MARGINALIA — three distinct readers
+
+marginalia:
+  reader_1:
+    ink: blue_ballpoint
+    style: academic
+    sample_notes:
+      - page: 5
+        text: "cf. Barthes, Death of the Author"
+      - page: 18
+        text: "But IS the yaml the world? Or the READING of yaml?"
+      - page: 31
+        text: "Need to cite this in my dissertation"
+        
+  reader_2:
+    ink: red_sharpie  
+    style: enthusiastic
+    sample_notes:
+      - page: 12
+        text: "YES!!!"
+      - page: 29
+        text: "THIS. THIS RIGHT HERE."
+      - page: 41
+        text: "I need to show this to everyone"
+        
+  reader_3:
+    ink: pencil
+    style: skeptical
+    sample_notes:
+      - page: 8
+        text: "Is this a joke? Can't tell"
+      - page: 23
+        text: "Surely this is satire"
+      - page: 47
+        text: "ok I get it now" 
+        adjacent_stain: bong_water
+
+# THE DOG-EARS — bookmarks left by readers
+
+dog_ears:
+  - page: 1
+    reason: "Opening confession of biases"
+  - page: 14
+    reason: "The YAML Jazz section"
+  - page: 27
+    reason: "Randy Farmer acknowledgment"
+  - page: 33
+    reason: "The grue section (obviously)"
+  - page: 47
+    reason: "The recursion epiphany"
+  - page: 52
+    reason: "The conclusion (barely readable through stains)"
+
+# INTERACTIONS
+
+actions:
+  READ:
+    effect: |
+      You read Captain Ashford's postmodern adventure. 
+      It's... surprisingly coherent for something this stained.
+      The marginalia adds layers of interpretation.
+      You're not sure if you understand it better or worse now.
+    grants:
+      - "+1 understanding of MOOLLM philosophy"
+      - "+1 appreciation for Randy Farmer"
+      - "permanent coffee craving"
+      
+  EXAMINE-STAINS:
+    effect: |
+      Each stain tells a story of late-night reading sessions.
+      Someone loved this paper. Multiple someones.
+      The bong water stain on page 47 is particularly evocative.
+    insight: "Knowledge is absorbed through all senses, apparently."
+    
+  SMELL:
+    effect: |
+      Coffee. Old paper. Something herbal.
+      The smell of enlightenment, or at least of trying.
+    warning: "Page 47 is particularly pungent."
+    
+  TAKE:
+    effect: "You add the paper to your inventory."
+    note: "It's yours now. Add your own stains. Continue the tradition."
+    
+  ADD-ANNOTATION:
+    requires: "writing implement"
+    effect: "You become Reader #4."
+    prompt: "What margin note do you add, and to which passage?"
+
+# LORE
+
+lore: |
+  This paper has been passed around since Captain Ashford wrote it
+  during adventure-2, while eating mushrooms in the kitchen.
+  
+  It's a tribute to Chip Morningstar's 1991 essay about attending
+  a postmodern conference, and to Randy Farmer and Chip's pioneering
+  work on Lucasfilm's Habitat.
+  
+  The paper argues that MOOLLM's filesystem-as-microworld approach
+  isn't so different from Habitat's avatar-as-representation insight:
+  both recognize that virtual spaces are defined by interaction,
+  not implementation.
+  
+  Someone — maybe multiple someones — found this paper in the kitchen,
+  photocopied it, annotated it extensively, and eventually left their
+  copy here in the attic. The attic keeps what matters.
+  
+  The dried dandelion between pages 22-23 remains unexplained.
+
+inspiration:
+  - "Chip Morningstar's original 'How to Deconstruct Almost Anything'"
+  - "Every academic paper that's been loved to death"
+  - "The marginalia tradition"
+  - "That one copy of Gödel, Escher, Bach everyone owns"
+  - "The smell of used bookstores"
