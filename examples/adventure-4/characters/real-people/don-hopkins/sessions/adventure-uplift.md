@@ -6802,13 +6802,14 @@ exit:
 
 ```
 adventure-4/
-  ADVENTURE.yml     ← World state, simulation params
-  ROOM.yml          ← The "OUTSIDE" room! The overworld!
-  player.yml
-  maze/             ← CONTAINER.yml or ROOM.yml inside
-  kitchen/          ← Each sub-dir is a navigable area
+  ADVENTURE.yml                ← World state, simulation params
+  ROOM.yml                     ← The "OUTSIDE" room! The overworld!
+  character/.../CHARACTER.yml  ← Player character definition
+  maze/                        ← CONTAINER.yml or ROOM.yml inside
+  kitchen/                     ← Each sub-dir is a navigable area
   pub/
-  start/
+  garden/
+  street/
 ```
 
 ### The Outside Room
