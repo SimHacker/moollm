@@ -207,7 +207,7 @@ Prototypes live in character directories:
 - Room-f still smells of cheese and victory
 - The skeleton received a **grue head trophy**
 - Mushrooms in room-h spawned **The Thing That Watches**
-- A **PhD paper** was written about it all
+- A [**PhD thesis**](https://etheses.whiterose.ac.uk/id/eprint/26499/1/Reinhard_Thesis.pdf) was written about it all (Reinhard, 2019: *Archaeology of Digital Environments*)
 
 ---
 
