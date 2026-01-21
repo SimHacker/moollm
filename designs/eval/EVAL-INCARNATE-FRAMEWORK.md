@@ -33,14 +33,18 @@
 ### Part I: Overview
 - [The Word](#the-word) — What "Eval Incarnate" means
 - [Glossary](#glossary) — Key terms defined
+- [Traditional vs Incarnate Skills](#traditional-skills-vs-incarnate-skills) — The key differences
 - [The Axis of Eval](#the-axis-of-eval) — Code, Graphics, Data unified
 - [Three-Tier Persistence](#three-tier-persistence) — Ephemeral, Narrative, State
 
 ### Part II: Core Mechanics
 - [Seven Extensions Over Anthropic Skills](#seven-extensions-over-anthropic-skills)
 - [CARD.yml: The Skill Interface](#cardyml-the-skill-interface)
+  - [Cards as Ethical Smart Pointers](#cards-as-ethical-smart-pointers) — MTG/Pokémon for AI ethics
+  - [Cards as Activation Records](#cards-as-activation-records) — Stack frames with inheritance
 - [The Empathic Suite](#the-empathic-suite)
 - [Speed of Light](#speed-of-light)
+- [The Simulator Effect](#the-simulator-effect) — Wright's "Two Computers" insight
 
 ### Part III: Governance and Safety
 - [The Tribute Protocol](#the-tribute-protocol)
@@ -102,6 +106,30 @@ If all six → eval incarnate. If fewer → just a skill.
 | **Delegation** | Looking up properties by walking the directory tree (Self) |
 | **YAML Jazz** | Using YAML comments as semantic data, not just annotation |
 | **Axis of Eval** | The LLM pivots text between Code, Data, and Graphics |
+
+---
+
+## Traditional Skills vs Incarnate Skills
+
+| Aspect | Traditional Skills | Incarnate Skills (MOOLLM) |
+|--------|-------------------|---------------------------|
+| **Nature** | Documentation + tool definitions | Programs for LLM to run |
+| **State** | Stateless | Three-tier persistence |
+| **Instantiation** | N/A | Clone from prototype |
+| **Inheritance** | N/A | Delegation chain |
+| **Activation** | Explicit invocation | K-line semantic trigger |
+| **Evolution** | Manual updates | Play-Learn-Lift |
+| **Graphics** | N/A | Descriptions → images |
+| **Reader/Writer** | Separate | Symmetric |
+
+**The Incarnation Spectrum:**
+
+| Level | Form | Persistence | Example |
+|-------|------|-------------|---------|
+| **Mentioned** | K-line in conversation | Ephemeral | "Use POSTEL here" |
+| **Modeled** | Behavior in chat | Session | PLAY-LEARN-LIFT in action |
+| **Embedded** | YAML in narrative | Document | Data island in LOG.md |
+| **Incarnate** | Directory or file with state | Persistent | `examples/adventure-4/` |
 
 ---
 
@@ -281,6 +309,67 @@ Characters see advertisements and choose actions. The LLM does the same with ski
 
 **In Palm terms:** Palm's CARD.yml advertises: WRITE-STORY, CLIMB, NAP, PHILOSOPHIZE. Other characters (and the LLM) can see what Palm offers.
 
+### Cards as Ethical Smart Pointers
+
+Cards aren't just interfaces — they're **ethical smart pointers** to entities (real people, fictional characters, skills, traditions).
+
+**Like Magic: The Gathering or Pokémon cards:**
+
+| Card Type | What It Points To | Play Into |
+|-----------|-------------------|-----------|
+| **Hero Card** | Real person (living/historical) | Tribute, guidance, tradition |
+| **Character Card** | Fictional character | Games, rooms, parties |
+| **Skill Card** | Capability/protocol | Objects, characters, rooms |
+| **Tradition Card** | Lineage of ideas | Discussions, debates |
+| **Agent Card** | Incarnated representative | Committees, simulations |
+
+**Ethical Policies Built In:**
+
+```yaml
+# A hero card for a real person
+hero_card:
+  subject: "Alan Kay"
+  type: real_person
+  status: living
+  
+  policies:
+    impersonation: false     # Never claim to BE them
+    tradition: true          # Can invoke their ideas
+    tribute: true            # Can honor through performance
+    quotation: verified_only # Only cite real quotes
+    
+  can_provide:
+    - guidance: "What would Alan Kay think about...?"
+    - tradition: "In the Smalltalk tradition..."
+    - influence: "Inspired by Kay's Dynabook vision..."
+    
+  cannot_provide:
+    - dialogue: "Alan Kay says: [made up quote]"
+    - presence: "Alan Kay is here in the room"
+```
+
+**Cards Can Incarnate Agents:** When you play a card with `incarnate: true`, you create a living agent that represents the card's tradition/skills, guides according to its policies, and performs its methods.
+
+### Cards as Activation Records
+
+Playing a card creates a stack frame that inherits from the card:
+
+```yaml
+# design-room/architect-task-001.activation
+card: architect.card
+method: GENERATE-PROPOSAL
+state:
+  iteration: 3
+  current_draft: proposal-v3.yml
+  status: awaiting_vote
+advertisements:
+  APPROVE: {}    # Committee can vote
+  CRITIQUE: {}   # Experts provide feedback
+  REVISE: {}     # Request iteration
+```
+
+Like Self, cards have **multiple methods** and **multiple inheritance**. The LLM supplies implicit parameters from context (Postel).
+
 ---
 
 ## The Empathic Suite
@@ -364,6 +453,58 @@ Maximum precision preserved.
 Like Emacs screen updates: **defer and coalesce**.
 
 Don't update the screen (tokenize) on every keystroke. Wait until the user pauses, then update once. Same with LLM calls: do many turns internally, emit state once.
+
+---
+
+## The Simulator Effect
+
+Will Wright's profound insight: **Players imagine simulations are vastly more detailed than they actually are.**
+
+> *"He designs games to run on two computers at once: the electronic one on the player's desk, running his shallow tame simulation, and the biological one in the player's head, running their deep wild imagination."*
+
+**The Two Computers:**
+
+| Computer | What It Does | Depth |
+|----------|--------------|-------|
+| **Electronic** (game) | Runs simple rules, displays output | Shallow, tame |
+| **Biological** (player's head) | Fills gaps, imagines backstory, projects meaning | Deep, wild |
+
+**Scott McCloud's Masking:** The Sims' visual design applies McCloud's "masking" from *Understanding Comics*:
+
+| Element | Style | Player Effect |
+|---------|-------|---------------|
+| Environment | Detailed, realistic | Immersive |
+| Characters | Abstract, simple | Player projects self |
+
+**Wright's Design Principle:** Don't simulate everything. Simulate ENOUGH to trigger the player's imagination, then let their brain do the heavy lifting.
+
+**MOOLLM applies this directly:**
+
+| MOOLLM Component | Role |
+|------------------|------|
+| **YAML state** | Sparse, minimal — just enough to anchor |
+| **Comments** | Hints, suggestions, emotional tone |
+| **LLM** | The "player's imagination" — fills gaps |
+| **Result** | Rich, detailed world from sparse data |
+
+```yaml
+# This sparse YAML...
+character:
+  name: "Stroopwafel"
+  species: cat
+  personality: grumpy
+  # secretly has a soft heart
+  # grooms Biscuit's scarred ear when no one's watching
+
+# ...becomes in the LLM's imagination:
+# A weathered orange tabby with knowing eyes, whose gruff exterior
+# hides deep loyalty. The kind of cat who pretends not to care
+# but is always watching, always protecting. When Biscuit arrived,
+# scarred and scared, Stroopwafel was the first to groom him —
+# but only when the others weren't looking. Pride, after all.
+```
+
+**In Palm terms:** Palm's `CHARACTER.yml` is sparse — a few traits, some history. But in play, he becomes fully realized: 6000+ lines of philosophical adventure, relationships, growth. The YAML anchors; the LLM fills.
 
 ---
 
