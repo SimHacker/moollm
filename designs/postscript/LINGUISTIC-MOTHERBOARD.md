@@ -33,6 +33,8 @@ This document traces how the "linguistic motherboard" concept evolved from PostS
         ↓
 1989  SimCity for NeWS/HyperLook — Hopkins ports Wright's game
         ↓
+1992  ScriptX — Kaleida Labs (Apple/IBM), Hopkins, OOP multimedia
+        ↓
 1993  PDF — PostScript minus Turing-completeness
         ↓
 1997  Apple acquires NeXT — Display PostScript → Quartz
@@ -158,6 +160,18 @@ Don Hopkins joined van Hoff at Turing Institute. Using PdB and TNT, they built H
 Don then ported SimCity to NeWS using HyperLook.
 
 See: [HyperLook (nee HyperNeWS nee GoodNeWS)](https://donhopkins.medium.com/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4)
+
+### Kaleida ScriptX (1992-1996)
+
+**Kaleida Labs** was an Apple/IBM joint venture to create cross-platform multimedia. Their language **ScriptX** was object-oriented, prototype-based (like Self), with multimedia primitives.
+
+Don Hopkins worked at Kaleida Labs. In 1994, Will Wright visited Don's office there and demoed an early version of "Dollhouse" (which became The Sims):
+
+> *"Will dropped by my office at Kaleida Labs, plugged his hard drive into my Mac, and gave me a demo of an early version of Dollhouse that I couldn't believe was remotely possible on the regular old computer I used every day."*
+
+**DreamScape:** Don created adventure-map navigation for ScriptX multimedia — another stepping stone toward MOOLLM's room-based exploration.
+
+Kaleida shut down in 1996, but the thread continued: Don joined Maxis, worked on The Sims with Will.
 
 ---
 
