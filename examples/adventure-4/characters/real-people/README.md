@@ -565,23 +565,21 @@ Some heroes have recently left us. Their work lives on:
 🎮 M.U.L.E. creator, Seven Cities of Gold, multiplayer pioneer. **The Sims was dedicated to her memory.** 🏳️‍⚧️ Trans woman who transitioned late in life and spoke openly about her experiences.
 
 ### 👩🐉🎮🗺️✨ Jennell Jaquays (1956-2024)
+- 🎨 Fantasy artist: The Dungeoneer, Dragon Magazine, Judges Guild (Dark Tower, Caverns of Thracia)
+- 🗺️ Game designer: Quake II, Quake III Arena (id Software)
+- 📐 Her name became a verb: **"Jaquaysing"** — non-linear, multi-path dungeon design
+- 🏆 Hall of Fame (Academy of Adventure Gaming Arts & Design, 2017)
+- 🏳️‍⚧️ Trans pioneer. Wife of Rebecca Heineman
+- 💔 Died January 10, 2024
 
-Legendary fantasy artist, game designer, and level designer. Her name became a verb: **"Jaquaysing"** — creating scenarios with myriad paths, non-linear, multi-solution, respecting player agency.
-
-**Artwork & Publications:**
-- 🎨 **The Dungeoneer** fanzine (1976-1979) — bold pen & ink, heavy crosshatching
-- 🎨 **Dragon Magazine** — premiere issue contributor, cover of issue #21
-- 🎨 **Judges Guild** — Dark Tower (1980), Caverns of Thracia (1979), saturated acrylic color work
-- 🎨 **Chaosium** — Griffin Mountain (1981)
-- 🎨 **TSR** — Dragon Mountain cover, Dragon Dice
-
-**Art Style:** Non-linear composition with multiple visual paths through the scene (like her dungeon designs!). Creatures with personality — monsters as characters, not just threats. Deep blues for magic, warm ochres for stone, vivid reds for danger.
-
-**Game Design:** Quake II, Quake III Arena (id Software). Hall of Fame inductee (Academy of Adventure Gaming Arts & Design, 2017). Kate Wilhelm Solstice Award (posthumous, 2024).
-
-🏳️‍⚧️ Trans pioneer. Wife of Rebecca Heineman. Died January 10, 2024.
-
-**MOOLLM Tribute:** [jennell-jaquays.yml](../../../skills/visualizer/styles/jennell-jaquays.yml) style analysis + [tribute image in the attic](../../pub/attic/dusty-attic-art-styles/)
+### 👩💻🔌⚡🏳️‍⚧️ Lynn Conway (1938-2024)
+- 🔌 Co-invented VLSI chip design with Carver Mead — the "Mead-Conway revolution"
+- ⚡ Invented dynamic instruction scheduling (out-of-order execution) at IBM
+- 🚫 Fired from IBM in 1968 for announcing her gender transition
+- 🔧 Rebuilt career "in stealth" at Xerox PARC, developed MOSIS (fabless design paradigm)
+- 🏆 National Inventors Hall of Fame (2023), IEEE James Clerk Maxwell Medal (2015)
+- 🏳️‍⚧️ Trans pioneer. IBM apologized in 2020
+- 💔 Died June 9, 2024
 
 ### 👩🎮👾🏆⚡ Rebecca Heineman (1963-2025)
 - 🏆 First U.S. National Space Invaders Champion (1980, age 16)
