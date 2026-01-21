@@ -211,6 +211,8 @@ These are **tribute incarnations** -- fictional explorations based on documented
 
 **The VR prophecy:** Sutherland's "Sword of Damocles" (1968) was the first VR headset. He saw embodied computing before anyone else.
 
+**The constraints lineage:** Sketchpad's constraint system (1962) → ThingLab → Brad Myers' Garnet → OpenLaszlo → Svelte → MOOLLM. Today this is called "reactive programming" — React pretends to do it, Svelte does it properly. Sutherland's insight that you declare relationships and let the system figure out details runs through all constraint-based UI systems. MOOLLM's Leela platform uses Svelte.
+
 ---
 
 #### 👨🖱️💡📺🌐 Douglas Engelbart — Augmenting Human Intellect (1968)
@@ -233,6 +235,8 @@ These are **tribute incarnations** -- fictional explorations based on documented
 #### 👨💻🔮🚀🎯 Alan Kay — Objects All The Way Down
 
 **Smalltalk** (Xerox PARC, 1970s) — Objects. Message passing. Live programming. "The computer is a medium."
+
+**Kay was in the room.** He attended Engelbart's Mother of All Demos (1968) and Papert's Logo demonstrations. These experiences shaped his vision of computing for children and the Dynabook. At PARC, Kay worked with Dan Ingalls (who implemented Smalltalk's heart) and Adele Goldberg.
 
 > *"The best way to predict the future is to invent it."*
 > *"A universal interpreter can both be quite small and also can have more degrees of freedom than any data structure (that is not a program)."*
@@ -262,6 +266,8 @@ See: [Alan Kay on browsers](https://donhopkins.medium.com/alan-kay-on-should-web
 - ⚠️ **Censors** — Ethical framing inherits like any other property
 
 **The K-line protocol:** `UPPER-KEBAB` names (like `YAML-JAZZ`, `POSTEL`, `SPEED-OF-LIGHT`) are K-lines — invoking them activates entire constellations of associated context.
+
+**The Minsky-Papert partnership:** Minsky and Seymour Papert were MIT collaborators for decades. They co-authored "Perceptrons" (1969) — the controversial critique that (unfairly) put neural networks on ice for a generation. But their deeper collaboration was on learning, children, and minds. Henry Minsky (Marvin's son) continues this thread at Leela AI with Don Hopkins.
 
 ---
 
@@ -316,7 +322,7 @@ See: [Brian Reid's PostScript History](../../designs/postscript/BRIAN-REID-POSTS
 
 > *"A universal interpreter can both be quite small and also can have more degrees of freedom than any data structure (that is not a program)."* — Alan Kay on NeWS
 
-**Don Hopkins connection:** Don worked at UniPress on Gosling Emacs as a college intern, and at UMD HCIL on HyperTies (Ben Shneiderman's hypertext authoring tool). Later at Sun, Don worked with Gosling on NeWS and TNT.
+**Don Hopkins connection:** Don worked at UniPress on Gosling Emacs as a college intern, at UMD HCIL on HyperTies (Ben Shneiderman's hypertext authoring tool), and at CMU on Garnet (Brad Myers' constraint-based UI system). Later at Sun, Don worked with Gosling on NeWS and TNT.
 
 **Why NeWS is FOUNDATIONAL to MOOLLM:**
 - 📤 **"Send programs, not data structures"** — Skills are programs the LLM runs, not prompts it processes
@@ -414,11 +420,15 @@ See: [HyperLook (nee HyperNeWS)](https://donhopkins.medium.com/hyperlook-nee-hyp
 
 **The hard-won wisdom:** Morningstar and Farmer learned that users will do things you never imagined (and crash your economy). MOOLLM inherits this humility — design for emergence, not control.
 
+**The virtual world lineage:** Habitat (1986) → TinyMUD (1989) → LambdaMOO (1990) → Game Neverending (2002) → Second Life (2003) → Glitch (2009). Stewart Butterfield's Glitch was a spiritual descendant of Habitat's vision — whimsy, collaboration, user-generated meaning.
+
 ---
 
 #### 👨📜🏰🔧✨ Jim Aspnes — TinyMUD (1989)
 
 **TinyMUD** (Carnegie Mellon, 1989) — Text-based virtual world where users build rooms, objects, and behaviors. Created by Aspnes as a student project, it spawned an entire genre.
+
+**The CMU connection:** Aspnes created TinyMUD at the same campus where Brad Myers was developing Garnet and Dan Ingalls would later work on Squeak. CMU was a crucible for user-interface innovation.
 
 **Why TinyMUD is FOUNDATIONAL to MOOLLM:**
 - 🏗️ **Builder commands** — `@dig`, `@describe`, `@create`, `@link`
@@ -439,6 +449,8 @@ See: [HyperLook (nee HyperNeWS)](https://donhopkins.medium.com/hyperlook-nee-hyp
 - 🔗 **Inheritance** — Objects delegate to parents like directories delegate up the tree
 - ⚖️ **Governance** — MOO taught us virtual worlds need consent, community, moderation
 
+**The PARC connection:** Curtis created LambdaMOO at Xerox PARC — the same lab that gave us Smalltalk (Kay, Ingalls), Self (Ungar), Ethernet, and GUIs. The object-oriented virtual world was a natural extension of PARC's "objects all the way down" philosophy.
+
 ---
 
 ### 🧬 The Prototype Revolution (1987)
@@ -457,6 +469,8 @@ See: [HyperLook (nee HyperNeWS)](https://donhopkins.medium.com/hyperlook-nee-hyp
 
 **The elegant insight:** Self proved you don't need classes — just objects that delegate to other objects. MOOLLM applies this to the filesystem.
 
+**The Smalltalk → Self → JavaScript thread:** Self was born from Smalltalk at Xerox PARC. Ungar took Kay's "objects all the way down" and removed classes entirely. Brendan Eich later took Self's prototypes into JavaScript. The thread runs: Smalltalk → Self → JavaScript → Node → web frameworks → MOOLLM's prototype-based skills.
+
 ---
 
 #### 👨🎨🖼️🃏✨ Bill Atkinson — Reader = Writer (1987)
@@ -464,6 +478,10 @@ See: [HyperLook (nee HyperNeWS)](https://donhopkins.medium.com/hyperlook-nee-hyp
 **HyperCard** (Apple, 1987) — End-user programming. Anyone who can read a stack can edit it.
 
 > *"Dan Winkler and Bill Atkinson violated a lot of important principles of 'good programming language design', but they achieved the first overall system in which end-users 'could see their own faces'."* — Alan Kay
+
+**The hypertext family tree:** HyperCard wasn't alone — Ben Shneiderman's HyperTies (UMD, 1983) was an earlier hypertext system where Don Hopkins worked as an intern. Ted Nelson's Xanadu vision (1960s) inspired them all. The thread runs: Nelson → Engelbart → HyperTies → HyperCard → HyperLook → Bongo → OpenLaszlo → the web → MOOLLM.
+
+**The reactive programming thread:** Brad Myers' Garnet (CMU) → David Temkin's OpenLaszlo → Svelte → MOOLLM. At Laszlo Systems, Don Hopkins worked with Henry Minsky (Marvin's son) and Oliver Steele (inventor of the "Instance Substitution Principle"). This thread of constraints, prototypes, and reactive UI runs directly into MOOLLM — and Leela's platform is built on Svelte.
 
 **Why HyperCard is FOUNDATIONAL to MOOLLM:**
 - ✏️ **Reader = Writer symmetry** — Anyone who can play can edit
@@ -488,6 +506,8 @@ See: [HyperLook (nee HyperNeWS)](https://donhopkins.medium.com/hyperlook-nee-hyp
 - 🔧 **SimAntics** — Visual behavior language → Empathic Expressions
 
 **The Two Computers:** Wright understood that the electronic computer runs simple rules, but the biological computer (player's brain) fills gaps with meaning. MOOLLM applies this: sparse YAML + rich LLM = living world.
+
+**The Wright-Hopkins collaboration:** Don ported SimCity to Unix, NeWS, and X11. He worked on The Sims, creating pie menus, architectural editing tools, the VitaBoy character animation system, and content creation tools (SimShow, Transmogrifier, RugOMatic, FreeTheSims). Will demoed early "Dollhouse" (pre-Sims) at Don's office at Kaleida Labs in 1994.
 
 See: [Will Wright on Designing User Interfaces to Simulation Games](https://donhopkins.medium.com/will-wright-on-designing-user-interfaces-to-simulation-games-1996-video-update-2023-da098a51ef91)
 
