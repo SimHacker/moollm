@@ -2,8 +2,9 @@
 #
 # "Commits should tell the story of why, not just what."
 #
-# Git commits that capture intent, reasoning, and narrative context
-# by linking to the thinking that produced them.
+# A SHOWCASE FOR SKILL COMPOSABILITY
+# This skill composes cursor-mirror + git + shell to create something new.
+# It demonstrates how MOOLLM skills are building blocks, not silos.
 
 skill:
   name: thoughtful-commitment
@@ -17,8 +18,70 @@ skill:
     that capture the full context: what the user asked, what the LLM
     was thinking, and why the changes matter.
     
-    Links git history to cursor-mirror thinking blocks, creating
-    complete provenance from intent to implementation.
+    **This skill is a composition of cursor-mirror + git + shell.**
+    It showcases how MOOLLM skills combine like LEGO bricks.
+
+# COMPOSABILITY — Skills as Building Blocks
+
+composability:
+  principle: "Skills compose. thoughtful-commitment doesn't reinvent introspection — it uses cursor-mirror."
+  
+  composed_from:
+    cursor-mirror:
+      role: "Reflective introspection engine"
+      what_it_provides:
+        - "Chat history (all messages, thinking, tool calls)"
+        - "SQLite database access (direct queries)"
+        - "Transcript files (plaintext, greppable)"
+        - "Thinking blocks (LLM reasoning)"
+        - "Tool call patterns (what actions were taken)"
+        - "Context assembly (what files were gathered)"
+        - "MCP server tracing"
+        - "Activity timelines with timestamps"
+      commands_used:
+        - "timeline <composer>     # Full event sequence"
+        - "thinking <composer>     # Reasoning blocks"
+        - "tools <composer>        # Tool call history"
+        - "analyze <composer>      # Session statistics"
+        - "tgrep <pattern>         # Search transcripts"
+        - "agent-transcript <id>   # Raw plaintext"
+        - "tail --limit N          # Recent messages"
+        - "tree                    # Navigate workspaces"
+        - "status                  # Health dashboard"
+        - "sql --db <ref> 'query'  # Direct SQL"
+    
+    git:
+      role: "Version control substrate"
+      what_it_provides:
+        - "Commit history"
+        - "File diffs"
+        - "Blame annotations"
+        - "Branch topology"
+      commands_used:
+        - "git status / diff / log"
+        - "git add / commit / push"
+        - "git show / blame"
+        - "git log --numstat"
+    
+    shell:
+      role: "Data processing pipeline"
+      what_it_provides:
+        - "Text processing (grep, awk, sed, sort, uniq)"
+        - "Metrics extraction (wc, cut)"
+        - "Python one-liners for complex analysis"
+      patterns_used:
+        - "grep -c pattern file           # Count matches"
+        - "sort | uniq -c | sort -rn      # Frequency histogram"
+        - "awk '{sum+=$1} END{print sum}' # Aggregation"
+        - "python3 -c 'import json...'    # JSON processing"
+
+  how_composition_works: |
+    1. cursor-mirror provides RAW DATA (transcripts, databases, events)
+    2. shell commands TRANSFORM data (count, filter, aggregate)
+    3. git provides VERSION CONTEXT (commits, diffs, history)
+    4. thoughtful-commitment SYNTHESIZES into narrative commits
+    
+    Each skill does one thing well. Composition creates new capabilities.
 
 # INTERFACE
 
@@ -33,7 +96,7 @@ allowed_tools:
 protocol: THOUGHTFUL-COMMITMENT
 
 related:
-  - cursor-mirror      # Source of thinking blocks, CHAT-CATALOG for outlines
+  - cursor-mirror      # Primary composition partner — introspection engine
   - session-log        # Where narrative lives
   - plain-text         # Why text matters
   - yaml-jazz          # Comments as meaning
@@ -52,6 +115,7 @@ tags:
   - narrative
   - provenance
   - introspection
+  - composability
 
 # METHODS
 
@@ -313,29 +377,89 @@ commit_message_protocol:
       - New: System preference detection (prefers-color-scheme)
       - Fixed: Contrast issues in sidebar with dark backgrounds
 
-# INTEGRATION
+# CURSOR-MIRROR INTEGRATION — The Reflection Engine
 
-integrations:
-  cursor_mirror:
-    description: "Read thinking blocks from Cursor's SQLite"
-    methods:
-      - "cursor_mirror.py thinking <composer>"
-      - "cursor_mirror.py timeline <composer>"
-      - "cursor_mirror.py tools <composer>"
-    
-  git:
-    description: "Git operations for commits and history"
-    commands:
-      - "git commit -m '...'"
-      - "git log --format='...'"
-      - "git show <commit>"
-      - "git blame <file>"
-      
-  session_log:
-    description: "Session logs can reference commits"
-    pattern: |
-      ## Commit: abc123
-      [Link to thinking](cursor-mirror://abc123/events/140-148)
+cursor_mirror_capabilities:
+  description: "cursor-mirror is a 59-command introspection toolkit for Cursor IDE"
+  
+  data_sources:
+    sqlite_databases:
+      - "~/Library/Application Support/Cursor/User/workspaceStorage/*/state.vscdb"
+      - "Contains: bubbles (messages), composers (chats), context, tools"
+    plaintext_transcripts:
+      - "~/.cursor/projects/*/agent-transcripts/*.txt"
+      - "Contains: full conversation with [Thinking], [Tool call], [Tool result] markers"
+    ai_tracking:
+      - "~/.cursor/ai-*.jsonl"
+      - "Contains: AI code attribution, model usage"
+  
+  navigation_commands:
+    - "tree                    # Hierarchical workspace/composer browser"
+    - "tree w9.c2              # Drill into workspace 9, composer 2"
+    - "find <pattern>          # Search by name across all data"
+    - "which <ref>             # Resolve any reference to full details"
+    - "tail --limit 50         # Recent messages across all chats"
+  
+  viewing_commands:
+    - "timeline <ref>          # Chronological event stream"
+    - "thinking <ref>          # Extract reasoning blocks"
+    - "tools <ref>             # All tool calls with args"
+    - "transcript <ref>        # Full readable conversation"
+    - "agent-transcript <ref>  # Raw plaintext transcript"
+  
+  analysis_commands:
+    - "analyze <ref>           # Deep stats: tools, models, duration"
+    - "tgrep <pattern>         # Regex search across transcripts"
+    - "context-sources <ref>   # What files/code was gathered"
+    - "searches <ref>          # Codebase/web search queries"
+  
+  database_access:
+    - "sql --db <ref> 'query'  # Run SQL directly"
+    - "dbs                     # List all databases"
+    - "tables --db <ref>       # Show tables"
+    - "keys                    # List ItemTable keys"
+  
+  output_formats:
+    - "text (default), json, jsonl, yaml, csv, md"
+    - "Use -f json for programmatic processing"
+
+# GIT INTEGRATION
+
+git_integration:
+  description: "Git as the universal substrate for state and history"
+  commands:
+    status: "git status --short"
+    diff: "git diff --stat / --numstat"
+    log: "git log --oneline / --format='%H %s'"
+    show: "git show --stat <commit>"
+    blame: "git blame <file>"
+    commit: "git commit -m '$(cat <<EOF ... EOF)'"
+
+# SHELL INTEGRATION — Data Processing Pipeline
+
+shell_patterns:
+  counting:
+    - "wc -l file                    # Line count"
+    - "wc -c file                    # Byte count"
+    - "grep -c 'pattern' file        # Match count"
+  
+  frequency_analysis:
+    - "sort | uniq -c | sort -rn     # Histogram"
+    - "cut -d' ' -f1 | sort | uniq -c"
+  
+  text_extraction:
+    - "grep 'pattern' file           # Filter lines"
+    - "grep -o 'pattern' file        # Extract matches only"
+    - "sed 's/old/new/' file         # Transform"
+    - "awk '{print $1, $3}'          # Select columns"
+  
+  aggregation:
+    - "awk '{sum+=$1} END{print sum}'"
+    - "awk 'NR==1{min=max=$1} {if($1<min)min=$1; if($1>max)max=$1} END{print min,max}'"
+  
+  python_inline:
+    - "python3 -c 'import json,sys; data=json.load(sys.stdin); ...'"
+    - "python3 -c 'from collections import Counter; ...'"
 
 # AUTOMATION
 

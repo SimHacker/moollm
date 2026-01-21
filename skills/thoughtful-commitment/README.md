@@ -4,6 +4,41 @@
 
 Git commits that capture intent, reasoning, and narrative context by linking to the thinking that produced them.
 
+## A Showcase for Skill Composability
+
+**This skill demonstrates how MOOLLM skills compose like LEGO bricks.**
+
+thoughtful-commitment doesn't reinvent introspection — it *uses* cursor-mirror.
+It doesn't reinvent version control — it *uses* git.
+It doesn't reinvent data processing — it *uses* shell pipelines.
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│              thoughtful-commitment                          │
+│                   (this skill)                              │
+├─────────────────────────────────────────────────────────────┤
+│ COMPOSES:                                                   │
+│                                                             │
+│  cursor-mirror ──→ Raw introspection data                   │
+│       │            • Chat history & thinking blocks         │
+│       │            • SQLite databases (direct SQL!)         │
+│       │            • Plaintext transcripts (greppable)      │
+│       │            • Tool call patterns                     │
+│       │            • 59 commands, 6 output formats          │
+│       ↓                                                     │
+│  shell ──────────→ Data transformation                      │
+│       │            • grep, awk, sort, uniq, wc              │
+│       │            • python3 -c for complex analysis        │
+│       │            • Frequency histograms                   │
+│       │            • Aggregation & statistics               │
+│       ↓                                                     │
+│  git ────────────→ Version control substrate                │
+│                    • Commit history & diffs                 │
+│                    • Blame annotations                      │
+│                    • Branch topology                        │
+└─────────────────────────────────────────────────────────────┘
+```
+
 ## The Problem
 
 Most commits look like this:
@@ -213,9 +248,46 @@ Tracing a character's evolution:
 - `HISTORY` shows the narrative journey
 - Each commit captures a moment of intent
 
+## What cursor-mirror Can Access
+
+thoughtful-commitment leverages cursor-mirror's full introspection capabilities:
+
+| Data Source | What You Can Search | Commands |
+|-------------|---------------------|----------|
+| **Chat History** | All messages, user/assistant turns | `timeline`, `tail`, `transcript` |
+| **Thinking Blocks** | LLM reasoning (the "why") | `thinking` |
+| **Tool Calls** | Every action taken, with args | `tools`, `tool-result` |
+| **SQLite Databases** | Raw data, custom queries | `sql --db <ref> "SELECT..."` |
+| **Plaintext Transcripts** | Full conversations, greppable | `agent-transcript`, `tgrep` |
+| **Context Assembly** | What files/code were gathered | `context-sources`, `searches` |
+| **MCP Servers** | External tool usage | `mcp`, `mcp-tools` |
+
+### Example: Mining a Session
+
+```bash
+# Find the session
+cursor-mirror tree                          # Navigate workspaces
+cursor-mirror tail --limit 20               # Recent activity
+
+# Extract data
+cursor-mirror timeline e8587ace             # Full event stream
+cursor-mirror thinking e8587ace             # Reasoning blocks
+cursor-mirror tools e8587ace                # Tool call patterns
+
+# Search transcripts
+cursor-mirror tgrep "thoughtful"            # Find pattern
+cursor-mirror agent-transcript e8587ace     # Raw plaintext
+
+# Direct SQL
+cursor-mirror sql --db moollm "SELECT COUNT(*) FROM bubbles"
+
+# Process with shell
+cursor-mirror tools e8587ace | grep Shell | wc -l
+```
+
 ## Related Skills
 
-- [cursor-mirror](../cursor-mirror/) — Source of thinking blocks
+- [cursor-mirror](../cursor-mirror/) — The reflection engine (59 commands!)
 - [session-log](../session-log/) — Where narrative lives
 - [plain-text](../plain-text/) — Why text matters
 
