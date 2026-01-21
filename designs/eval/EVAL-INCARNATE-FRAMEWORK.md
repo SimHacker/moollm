@@ -20,52 +20,52 @@
 
 ### Guided Reading Paths
 
-**Building skills:** The Word → Axis of Eval → CARD.yml → Seven Extensions → Three-Tier Persistence
+**Building skills:** [The Word](#the-word) → [Axis of Eval](#the-axis-of-eval) → [CARD.yml](#cardyml-the-skill-interface) → [Seven Extensions](#seven-extensions-over-anthropic-skills) → [Three-Tier Persistence](#three-tier-persistence)
 
-**Building worlds:** Rooms → Home vs Location → Vehicles → Guest Book
+**Building worlds:** [Rooms](#vehicles-portable-rooms) → [Home vs Location](#home-vs-location) → [Boundary Types](#boundary-types) → [Vehicles](#vehicles-portable-rooms) → [Guest Book](#the-guest-book-pattern)
 
-**Ethics focus:** Tribute Protocol → Ethical Framing Inheritance → Representation Spectrum
+**Ethics focus:** [Tribute Protocol](#the-tribute-protocol) → [Ethical Framing Inheritance](#ethical-framing-inheritance) → [Representation Spectrum](#the-representation-spectrum)
 
 ---
 
 ## Document Index
 
 ### Part I: Overview
-- [The Word](#the-word) — What "Eval Incarnate" means
-- [Glossary](#glossary) — Key terms defined
-- [Traditional vs Incarnate Skills](#traditional-skills-vs-incarnate-skills) — The key differences
-- [The Axis of Eval](#the-axis-of-eval) — Code, Graphics, Data unified
-- [Three-Tier Persistence](#three-tier-persistence) — Ephemeral, Narrative, State
+- [The Word](#the-word) — The thesis in one paragraph: skills are programs, LLM is eval()
+- [Glossary](#glossary) — Instantiate, Persist, Incarnate, Delegate: the four verbs
+- [Traditional vs Incarnate Skills](#traditional-skills-vs-incarnate-skills) — Prompts vs programs: the paradigm shift
+- [The Axis of Eval](#the-axis-of-eval) — Code, Graphics, Data unified by one interpreter
+- [Three-Tier Persistence](#three-tier-persistence) — Ephemeral (runtime), Narrative (append-only), State (mutable)
 
 ### Part II: Core Mechanics
-- [Seven Extensions Over Anthropic Skills](#seven-extensions-over-anthropic-skills)
-- [CARD.yml: The Skill Interface](#cardyml-the-skill-interface)
-  - [Cards as Ethical Smart Pointers](#cards-as-ethical-smart-pointers) — MTG/Pokémon for AI ethics
-  - [Cards as Activation Records](#cards-as-activation-records) — Stack frames with inheritance
-- [The Empathic Suite](#the-empathic-suite) — Philosophy, Dovetailing, Code-Switching
-  - [Empathic Expressions](#empathic-expressions-the-big-tent) — The Big Tent
-  - [Comment Intelligence](#comment-intelligence) — Meta vs Concrete
-  - [Code-Switching Support](#code-switching-support) — Cross-language context
-- [Speed of Light](#speed-of-light)
-- [The Simulator Effect](#the-simulator-effect) — Wright's "Two Computers" insight
+- [Seven Extensions Over Anthropic Skills](#seven-extensions-over-anthropic-skills) — What MOOLLM adds: instantiation, persistence, K-lines, empathy, speed, cards, ethics
+- [CARD.yml: The Skill Interface](#cardyml-the-skill-interface) — Machine-readable interface with advertisements
+  - [Cards as Ethical Smart Pointers](#cards-as-ethical-smart-pointers) — MTG/Pokémon for AI ethics: tap, summon, activate
+  - [Cards as Activation Records](#cards-as-activation-records) — Stack frames with inheritance, like Lisp but for skills
+- [The Empathic Suite](#the-empathic-suite) — Five skills that leverage LLM's natural language superpowers
+  - [Empathic Expressions](#empathic-expressions-the-big-tent) — The Big Tent: any format the LLM can grok
+  - [Comment Intelligence](#comment-intelligence) — Meta-comments vs concrete comments, the LLM knows the difference
+  - [Code-Switching Support](#code-switching-support) — Cross-language context, multilingual by default
+- [Speed of Light](#speed-of-light) — Many turns, one call: 33-turn Fluxx, 21-turn Cat Prowl
+- [The Simulator Effect](#the-simulator-effect) — Wright's "Two Computers" insight: sparse rules + rich imagination
 
 ### Part III: Governance and Safety
-- [The Tribute Protocol](#the-tribute-protocol)
-- [Ethical Framing Inheritance](#ethical-framing-inheritance)
-- [Boundary Types](#boundary-types) — Counters, Stages, Walls
-  - [The Tardis Pattern](#the-tardis-pattern) — Larger on the inside
-- [Vehicles: Portable Rooms](#vehicles-portable-rooms) — Rooms that move
-- [Home vs Location](#home-vs-location)
-- [The Guest Book Pattern](#the-guest-book-pattern)
+- [The Tribute Protocol](#the-tribute-protocol) — How to honor real people: three-beat acknowledgment
+- [Ethical Framing Inheritance](#ethical-framing-inheritance) — Ethics flows down the directory tree like CSS
+- [Boundary Types](#boundary-types) — Counters, Stages, Walls: social, visual, physical
+  - [The Tardis Pattern](#the-tardis-pattern) — Larger on the inside: real/virtual/mixed structure
+- [Vehicles: Portable Rooms](#vehicles-portable-rooms) — Rooms that move: wagons, spaceships, stomachs
+- [Home vs Location](#home-vs-location) — Where you live vs where you are: identity != position
+- [The Guest Book Pattern](#the-guest-book-pattern) — Append-only memory: who visited, what happened
 
 ### Part IV: Evidence
-- [Palm: The Canonical Example](#palm-the-canonical-example)
-- [Speed of Light Proofs](#speed-of-light-proofs)
+- [Palm: The Canonical Example](#palm-the-canonical-example) — A monkey who wrote his own soul
+- [Speed of Light Proofs](#speed-of-light-proofs) — Receipts: Fluxx, Cat Prowl, Biscuit's Maze Run
 
 ### Appendices
-- [Appendix A: Intellectual Lineage](#appendix-a-intellectual-lineage) — Full genealogy (14 entries)
-- [Appendix B: References](#appendix-b-references) — Documents, skills, articles
-- [The Vision](#the-vision) — Licklider's destiny
+- [Appendix A: Intellectual Lineage](#1-sketchpad-ivan-sutherland-1962) — Sutherland → Engelbart → Kay → Minsky → Wright → MOOLLM (14 entries)
+- [Appendix B: References](#related-documents) — PostScript lineage, real people, core skills, proof files
+- [The Vision](#the-vision) — Licklider's "interactive intellectual amplifiers": we're finally there
 
 ---
 
@@ -87,18 +87,31 @@ The pun: "Evil incarnate" → "Eval incarnate". Bad connotations, good outcomes.
 
 ### The Eval Incarnate Checklist
 
-A skill is "eval incarnate" if it has:
+A skill becomes more "incarnate" as it adopts more extensions. Here's what to prioritize:
 
-1. **Interface** — CARD.yml defines what it can do
-2. **Instantiation** — clone from prototype creates living instance
-3. **Persistence** — state survives across sessions (three tiers)
-4. **Delegation** — inherits from parent directories/prototypes
-5. **K-line** — invoking its name activates context
-6. **Ethics framing** — inherits ethical constraints from scope
+| # | Extension | What It Means | Priority |
+|---|-----------|---------------|----------|
+| 1 | **CARD.yml** | Machine-readable interface, advertisements | **Strongly suggested** |
+| 2 | **README.md** | Human-readable documentation | **Strongly suggested** |
+| 3 | **Sniffability** | LLM can understand important structure in top of file at a glance | **Strongly suggested** |
+| 4 | **Empathy** | Postel's Law, YAML Jazz, natural formats | **Strongly suggested** |
+| 5 | **K-line** | Invoking its name activates context | **Strongly suggested** |
+| 6 | **Instantiation** | Clone from prototype creates living instance | For entities |
+| 7 | **Persistence** | State survives across sessions (three tiers) | For entities |
+| 8 | **Speed of Light** | Many turns in one call when needed | When performance matters |
+| 9 | **Ethics framing** | Inherits ethical constraints from scope | For sensitive contexts |
 
-If all six → eval incarnate. If fewer → just a skill.
+**The first five are best practices for ANY skill.** The rest depend on what you're building.
 
-**In Palm terms:** Palm has all six. His CARD.yml defines what he can do. He was cloned from the character prototype. His state persists in `CHARACTER.yml`. He inherits from `characters/` and `pub/stage/`. His name "Palm" activates his entire soul. He was born with full ethics framing via the incarnation protocol.
+**Not all skills need all nine.** There's a spectrum:
+
+- **Fully incarnate** (Palm): All seven — living entity with state, identity, ethics
+- **Functional skill** (speed-of-light): Interface + K-line + maybe empathic templates — does a job, creates artifacts, edits files, runs scripts, invokes other skills
+- **Ambient skill** (no-ai-slop, postel): Always-on constraint — no instantiation, no persistence, just applies
+
+**Delegation** is implicit in all MOOLLM skills — directories inherit from parents like CSS cascades.
+
+**In Palm terms:** Palm has all seven. His CARD.yml defines what he can do. He was cloned from the character prototype. His state persists in `CHARACTER.yml`. He inherits from `characters/` and `pub/stage/`. His name "Palm" activates his entire soul. He was born with full ethics framing via the incarnation protocol. He benefits from empathic templates (his personality renders naturally) and speed of light (he can take many actions in one call).
 
 ---
 
