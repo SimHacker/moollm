@@ -92,7 +92,7 @@ emoji_palette:
   #
   # Like a protocol identifier:
   #   🤔💭 📍 Context    = thoughtful-commitment > context section
-  #   🤔💭 💭 Thinking   = thoughtful-commitment > thinking section
+  #   🤔💭 🧠 Thinking   = thoughtful-commitment > thinking section
   #   🤔💭 📊 Metrics    = thoughtful-commitment > metrics section
   #
   # Other skills have their own grammars:
@@ -108,7 +108,7 @@ emoji_palette:
     🤔💭 opens the namespace (skill is speaking)
     
     Then category markers structure the content:
-      📍 context → 💭 thinking → 🔍 investigation → 💡 solution
+      📍 context → 🧠 thinking → 🔍 investigation → 💡 solution
       🔀 alternatives → 📝 changes → 📊 metrics → 🔗 session
     
     Combine with authorship for full attribution:
@@ -119,7 +119,7 @@ emoji_palette:
   # SECTION MARKERS — Category grammar for commits/PRs
   sections:
     context: "📍"         # Why we're here, background
-    thinking: "💭"        # LLM reasoning, the "why"
+    thinking: "🧠"        # LLM reasoning, the "why" (brain, not bubble — avoids repeat)
     investigation: "🔍"   # How the problem was traced
     solution: "💡"        # The approach taken
     alternatives: "🔀"    # What else was considered
@@ -156,6 +156,12 @@ emoji_palette:
     - "📜"    # scroll, permanent record
     - "💎"    # gem, lasting value
     - "🔏"    # sealed, locked in
+    
+    # Cognition & reasoning
+    - "🧠"    # brain, thinking, reasoning (good for "thinking" section)
+    - "💡"    # insight, solution, lightbulb moment
+    - "🤔"    # deliberation, consideration
+    - "💭"    # thought bubble (in signature, not sections)
     
     # Investigation & discovery
     - "🔍"    # search, trace, examine
