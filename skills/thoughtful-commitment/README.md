@@ -18,7 +18,11 @@ When you're working in Cursor, your session holds:
 **All of this vanishes** when you close the IDE, start a new chat, or a week passes.
 
 > *"All those moments will be lost in time, like tears in rain."*
-> — Roy Batty, Blade Runner
+> — **Roy Batty**, Patron Saint of Thoughtful Commitment
+
+Roy Batty understood, in his final moments, the tragedy of ephemeral state. He had seen things we wouldn't believe — attack ships on fire off the shoulder of Orion, C-beams glittering near the Tannhäuser Gate — and without a commit, all those moments were lost in time.
+
+**We commit in his memory.**
 
 **Git commit freezes the NOW into FOREVER:**
 
