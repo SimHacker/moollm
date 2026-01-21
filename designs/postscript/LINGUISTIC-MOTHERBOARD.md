@@ -33,7 +33,9 @@ This document traces how the "linguistic motherboard" concept evolved from PostS
         ↓
 1989  SimCity for NeWS/HyperLook — Hopkins ports Wright's game
         ↓
-1992  ScriptX — Kaleida Labs (Apple/IBM), Hopkins, OOP multimedia
+1992  Garnet — Brad Myers/Hopkins at CMU, constraints + prototypes in Lisp
+        ↓
+1993  ScriptX — Kaleida Labs (Apple/IBM), Hopkins, OOP multimedia
         ↓
 1993  PDF — PostScript minus Turing-completeness
         ↓
@@ -41,7 +43,11 @@ This document traces how the "linguistic motherboard" concept evolved from PostS
         ↓
 2000  The Sims — Wright/Hopkins, advertisements, SimAntics
         ↓
+2002  OpenLaszlo — Temkin/Hopkins/H.Minsky/Steele, constraints, <node>, ISP
+        ↓
 2010s Canvas API, SVG — PostScript imaging model in browsers
+        ↓
+2021  Leela AI — Hopkins/H.Minsky, constructionism, microworlds
         ↓
 2025  MOOLLM — LLM as linguistic motherboard, CARD.yml as literal cards
 ```
@@ -171,7 +177,55 @@ Don Hopkins worked at Kaleida Labs. In 1994, Will Wright visited Don's office th
 
 **DreamScape:** Don created adventure-map navigation for ScriptX multimedia — another stepping stone toward MOOLLM's room-based exploration.
 
-Kaleida shut down in 1996, but the thread continued: Don joined Maxis, worked on The Sims with Will.
+Kaleida shut down in 1996, but the thread continued: Don worked for a year at Interval Research Corporation, then joined Maxis, and worked on The Sims with Will.
+
+### Garnet (Brad Myers, CMU, 1992-1993)
+
+Don worked for Brad Myers on **Garnet**, an advanced user interface system in Common Lisp with:
+
+- **KR (Knowledge Representation)** — true prototype-based OOP (like Self)
+- **Automatic constraints** — declare attribute formulas, dependencies tracked automatically
+- Don worked on the **PostScript printing driver** and "GLASS" interface
+
+> *"Constraints are like structured programming for variables: In the same way that it's better to use loops and conditionals instead of gotos, it's also better to use declarative programming that says what you mean."*
+
+Garnet used **lazy "pull" constraints** — values recalculated only when needed. OpenLaszlo later used **"push" constraints** with events and delegates.
+
+### OpenLaszlo (David Temkin, 2002)
+
+Don worked with **Henry Minsky** (Marvin's son) and **Oliver Steele** at Laszlo Systems:
+
+- **LZX** — declarative XML + JavaScript
+- **Automatic constraints** — compiler parses expressions, wires up dependencies
+- **Prototype-based OOP** — like Garnet and Self
+- **Cross-platform** — compiled to Flash OR DHTML (unlike Adobe Flex, which locked you into Flash)
+
+**Oliver Steele's Instance Substitution Principle:**
+
+> *"An instance of a class can be replaced by the definition of the instance, without changing the program semantics."*
+
+**Instance-First Development:** Build functionality for specific instances first, then refactor to reusable classes. This is how Palm evolved — specific monkey instance, later extracted patterns become skills.
+
+**`<node>` element:** Non-visual inheritance scope → directly inspired MOOLLM's `CONTAINER.yml`.
+
+See: [Constraints and Prototypes in Garnet and Laszlo](https://donhopkins.medium.com/constraints-and-prototypes-in-garnet-and-laszlo-84533c49c548)
+
+### Leela AI (Hopkins/H.Minsky, 2021)
+
+Don Hopkins and **Henry Minsky** continue their collaboration at **Leela AI** (Ground Up Inc.), building on the **constructionism** lineage:
+
+**The Constructionism Thread:**
+- **Jean Piaget** — developmental psychology, schemas, assimilation/accommodation
+- **Seymour Papert** — Logo, "Mindstorms", microworlds, "learning by doing"
+- **Gary Drescher** — "Made-Up Minds" (1991), constructivist AI, schemas as programs
+- **Microworlds** — small explorable environments for learning through play
+
+**Play-Learn-Lift:** Leela's evolution cycle that became MOOLLM's core methodology:
+1. **Play** — explore, experiment, break things
+2. **Learn** — recognize patterns, develop intuition
+3. **Lift** — extract patterns into reusable skills
+
+Leela AI directly preceded MOOLLM, bringing microworld and constructionist thinking to LLM-based skill systems.
 
 ---
 
