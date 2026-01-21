@@ -785,7 +785,7 @@ Some heroes have recently left us. Their work lives on:
 
 ## ✅ Real People Already Incarnated Here
 
-- **👨🥧🎮🐈💻 don-hopkins/** — Living tribute, can speak for himself! 🎉
+- **👨🥧🎮🐈💻 [don-hopkins/](don-hopkins/)** — Living tribute, can speak for himself! 🎉
 
 ---
 

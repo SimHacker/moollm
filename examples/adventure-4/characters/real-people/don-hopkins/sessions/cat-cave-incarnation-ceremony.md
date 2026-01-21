@@ -140,8 +140,8 @@ pub/bar/cat-cave/
 characters/animals/dog-biscuit/
 └── CHARACTER.yml           # 🐕💛🏠🍪💕 he/him (expanded)
 
-pub/rooms/room-4/
-└── logo-turtle.yml         # 🐢📐🎨🏰✨ they/them (with Rocky!)
+pub/rooms/room-1/
+└── logo-turtle.yml         # 🐢📐🎨🏰✨ he/him Theo (visits Rocky in Room 4!)
 ```
 
 ---
