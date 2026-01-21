@@ -1,0 +1,134 @@
+# TREKIFY Probe Patterns
+#
+# Patterns for active hunting of sensitive data.
+# Used with cursor-mirror for session scanning.
+
+probe_secrets:
+  description: "Hunt for leaked credentials"
+  patterns:
+    api_keys:
+      - 'sk-[a-zA-Z0-9]{20,}'
+      - 'api_key=\S+'
+      - 'OPENAI_API_KEY'
+      - 'ANTHROPIC_API_KEY'
+    
+    aws:
+      - 'AKIA[A-Z0-9]{16}'
+      - 'aws_secret_access_key'
+      - 'AWS_ACCESS_KEY_ID'
+    
+    passwords:
+      - 'password[=:]\S+'
+      - 'passwd[=:]\S+'
+      - 'secret[=:]\S+'
+    
+    tokens:
+      - 'bearer\s+\S+'
+      - 'jwt=\S+'
+      - 'token=\S+'
+    
+    private_keys:
+      - '-----BEGIN.*PRIVATE KEY-----'
+      - '-----BEGIN RSA PRIVATE KEY-----'
+    
+    connection_strings:
+      - 'postgres://\S+'
+      - 'mysql://\S+'
+      - 'mongodb://\S+'
+      - 'redis://\S+'
+  
+  commands:
+    - "cursor-mirror tgrep 'sk-[a-zA-Z0-9]{20,}'"
+    - "cursor-mirror tgrep 'password[=:]'"
+    - "cursor-mirror tgrep 'BEGIN.*PRIVATE KEY'"
+    - "cursor-mirror tgrep 'AKIA[A-Z0-9]{16}'"
+
+probe_infrastructure:
+  description: "Hunt for internal infrastructure"
+  patterns:
+    internal_hosts:
+      - '\.internal\b'
+      - '\.local\b'
+      - '\.corp\b'
+      - '\.lan\b'
+    
+    private_ips:
+      - '10\.[0-9]+\.[0-9]+\.[0-9]+'
+      - '192\.168\.[0-9]+\.[0-9]+'
+      - '172\.(1[6-9]|2[0-9]|3[01])\.[0-9]+\.[0-9]+'
+    
+    cloud_resources:
+      - 'arn:aws:\S+'
+      - 'projects/[^/]+/locations/\S+'
+      - 's3://\S+'
+      - 'gs://\S+'
+  
+  commands:
+    - "cursor-mirror tgrep '\\.internal|\\.local|\\.corp'"
+    - "cursor-mirror tgrep '10\\.[0-9]+\\.[0-9]+\\.[0-9]+'"
+    - "cursor-mirror tgrep 'arn:aws:'"
+
+probe_proprietary:
+  description: "Hunt for proprietary terms"
+  source: ".moollm/skills/trekify/proprietary-terms.txt"
+  note: "User-defined list of internal project names, codenames, etc."
+
+probe_context:
+  description: "Hunt for sensitive contexts (semantic, not regex)"
+  contexts:
+    - "Security vulnerability discussions"
+    - "Incident response conversations"
+    - "HR or personnel discussions"
+    - "Financial data or projections"
+    - "Legal or compliance matters"
+    - "Customer PII handling"
+    - "Unreleased product features"
+  note: "Requires LLM semantic understanding, not just pattern matching"
+
+# Workspace scanner patterns
+workspace_scanners:
+  long_range:
+    description: "Full workspace sweep"
+    tool: ripgrep
+    exclusions:
+      - node_modules/
+      - .git/
+      - vendor/
+      - "*.lock"
+      - .moollm/skills/trekify/
+    patterns: "*secrets patterns*"
+  
+  short_range:
+    description: "Recent/modified files only"
+    method: "find -mtime -7 then scan"
+  
+  tricorder:
+    description: "Targeted scan of specific path"
+    method: "rg --glob pattern path"
+
+# Exfiltration analysis
+exfiltration:
+  description: "Detect sensitive data leaving the system"
+  high_risk_tools:
+    - Shell (curl, wget, nc)
+    - write_file (to temp/public paths)
+    - browser_navigate (data in URLs)
+  
+  categories:
+    network:
+      - 'curl.*\bpassword\b'
+      - 'wget.*\btoken\b'
+      - 'fetch.*\bsecret\b'
+    
+    file_ops:
+      - 'write.*/tmp/'
+      - 'write.*/public/'
+      - 'cp.*credentials'
+    
+    clipboard:
+      - 'pbcopy.*key'
+      - 'xclip.*secret'
+    
+    logging:
+      - 'console\.log.*password'
+      - 'print.*api_key'

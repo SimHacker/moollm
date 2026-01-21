@@ -44,6 +44,16 @@ skill:
     **This skill is a composition of cursor-mirror + git + shell.**
     It showcases how MOOLLM skills combine like LEGO bricks.
 
+# FILES — Page-in on demand
+files:
+  docs:
+    - SKILL.md                         # Full protocol
+    - README.md                        # Landing page (HN-friendly)
+  examples:
+    - examples/git-commands.yml        # Git archaeology commands (load for BLAME, ARCHAEOLOGY)
+    - examples/commit-messages.yml     # Example commits by perspective (load for COMMIT, NARRATIVE)
+    - examples/shell-patterns.yml      # Shell pipelines (load for DEEP-COMMIT)
+
 # EMOJI PALETTE — Visual Signatures & Section Markers
 #
 # Use these to sign thoughts, label sections, and attribute authorship.

@@ -1,0 +1,103 @@
+# Shell Data Processing Patterns
+#
+# Common shell pipelines for analyzing cursor-mirror output.
+# Load on-demand for DEEP-COMMIT, analytics methods.
+
+counting:
+  description: "Basic counts"
+  patterns:
+    - cmd: "wc -l file"
+      note: "Line count"
+    - cmd: "wc -c file"
+      note: "Byte count"
+    - cmd: "wc -w file"
+      note: "Word count"
+    - cmd: "grep -c 'pattern' file"
+      note: "Match count"
+
+frequency_analysis:
+  description: "Histograms and distributions"
+  patterns:
+    - cmd: "sort | uniq -c | sort -rn"
+      note: "Frequency histogram (descending)"
+    - cmd: "cut -d' ' -f1 | sort | uniq -c"
+      note: "First field frequency"
+    - cmd: "awk '{print $1}' | sort | uniq -c | sort -rn | head -10"
+      note: "Top 10 most frequent"
+
+text_extraction:
+  description: "Filtering and transforming"
+  patterns:
+    - cmd: "grep 'pattern' file"
+      note: "Filter lines matching pattern"
+    - cmd: "grep -o 'pattern' file"
+      note: "Extract matches only"
+    - cmd: "grep -v 'pattern' file"
+      note: "Exclude lines matching pattern"
+    - cmd: "sed 's/old/new/g' file"
+      note: "Replace all occurrences"
+    - cmd: "awk '{print $1, $3}'"
+      note: "Select columns 1 and 3"
+    - cmd: "awk -F: '{print $1}'"
+      note: "Split on colon, print first field"
+
+aggregation:
+  description: "Summing and statistics"
+  patterns:
+    - cmd: "awk '{sum+=$1} END{print sum}'"
+      note: "Sum of first column"
+    - cmd: "awk 'NR==1{min=max=$1} {if($1<min)min=$1; if($1>max)max=$1} END{print min,max}'"
+      note: "Min and max"
+    - cmd: "awk '{sum+=$1; count++} END{print sum/count}'"
+      note: "Average"
+
+python_inline:
+  description: "Complex processing with Python one-liners"
+  patterns:
+    - cmd: "python3 -c 'import json,sys; data=json.load(sys.stdin); print(len(data))'"
+      note: "Count JSON array items"
+    - cmd: "python3 -c 'from collections import Counter; import sys; print(Counter(sys.stdin.read().split()).most_common(10))'"
+      note: "Top 10 words"
+    - cmd: "python3 -c 'import sys; lines=[int(l) for l in sys.stdin]; print(f\"median: {sorted(lines)[len(lines)//2]}\")'"
+      note: "Median of numbers"
+
+cursor_mirror_pipelines:
+  description: "Common cursor-mirror analysis patterns"
+  patterns:
+    - cmd: "cursor-mirror tools <composer> | grep Shell | wc -l"
+      note: "Count shell commands"
+    - cmd: "cursor-mirror tools <composer> | awk '{print $1}' | sort | uniq -c | sort -rn"
+      note: "Tool frequency histogram"
+    - cmd: "cursor-mirror thinking <composer> | wc -c"
+      note: "Total thinking characters"
+    - cmd: "cursor-mirror timeline <composer> | grep -c '\\[Event'"
+      note: "Total events"
+    - cmd: "cursor-mirror tgrep 'pattern' | wc -l"
+      note: "Pattern occurrences across transcripts"
+
+deep_commit_workflow:
+  description: "Full analytics extraction for DEEP-COMMIT"
+  steps:
+    - step: "Raw metrics"
+      commands:
+        - "wc -l transcript"
+        - "grep -c '\\[Tool call\\]' transcript"
+        - "grep -c '\\[Thinking\\]' transcript"
+        - "grep -c '^user:' transcript"
+    
+    - step: "Tool distribution"
+      commands:
+        - "grep '\\[Tool call\\]' transcript | sed 's/.*\\[Tool call\\] //' | cut -d' ' -f1 | sort | uniq -c | sort -rn"
+    
+    - step: "Thinking analysis"
+      commands:
+        - "grep -A1 '\\[Thinking\\]' transcript | grep -v '\\[Thinking\\]' | awk '{print length}' | sort -n"
+    
+    - step: "Activity bursts"
+      commands:
+        - "grep timestamp transcript | cut -d'T' -f2 | cut -d':' -f1-2 | sort | uniq -c"
+    
+    - step: "Git metrics"
+      commands:
+        - "git log --numstat <range> | awk '/^[0-9]/{add+=$1; del+=$2} END{print add, del}'"
+        - "git diff --stat <range>"

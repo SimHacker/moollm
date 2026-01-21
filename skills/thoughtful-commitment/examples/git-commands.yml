@@ -1,0 +1,131 @@
+# Git Time Travel Commands
+#
+# Reference for git archaeology, topology, and planning.
+# Load on-demand for BLAME, ARCHAEOLOGY, PLAN-MERGE methods.
+
+archaeology:
+  description: "Understanding the past"
+  
+  blame:
+    description: "Who wrote each line, and when, and why?"
+    commands:
+      - cmd: "git blame <file>"
+        note: "Line-by-line attribution"
+      - cmd: "git blame -L 10,20 <file>"
+        note: "Specific line range"
+      - cmd: "git blame -w <file>"
+        note: "Ignore whitespace"
+      - cmd: "git blame --since='2 weeks ago' <file>"
+        note: "Recent changes only"
+      - cmd: "git blame <commit>^ -- <file>"
+        note: "Blame BEFORE a commit"
+    use_for: "Finding who introduced a bug, understanding design decisions"
+  
+  log_archaeology:
+    description: "Trace a file or function through time"
+    commands:
+      - cmd: "git log --oneline <file>"
+        note: "Commits touching file"
+      - cmd: "git log -p <file>"
+        note: "Show patches"
+      - cmd: "git log -S '<pattern>' --oneline"
+        note: "Commits adding/removing pattern (pickaxe)"
+      - cmd: "git log -G '<regex>' --oneline"
+        note: "Commits where pattern changed"
+      - cmd: "git log --follow <file>"
+        note: "Track through renames"
+      - cmd: "git log --all --oneline -- <path>"
+        note: "Even deleted files"
+    use_for: "Understanding evolution of a feature, finding when something broke"
+  
+  show:
+    description: "Inspect any point in time"
+    commands:
+      - cmd: "git show <commit>"
+        note: "Full commit details"
+      - cmd: "git show <commit>:<file>"
+        note: "File at that moment"
+      - cmd: "git show <commit> --stat"
+        note: "What files changed"
+      - cmd: "git show <commit> --name-only"
+        note: "Just file names"
+    use_for: "Examining specific historical states"
+  
+  diff_time_travel:
+    description: "Compare across time"
+    commands:
+      - cmd: "git diff <commit1> <commit2>"
+        note: "Between any two points"
+      - cmd: "git diff <commit>..HEAD"
+        note: "Since a commit"
+      - cmd: "git diff <branch1>...<branch2>"
+        note: "What would merge bring"
+      - cmd: "git diff --stat <range>"
+        note: "Summary only"
+    use_for: "Understanding what changed between versions"
+
+topology:
+  description: "Visualize the multiverse of branches"
+  commands:
+    - cmd: "git log --graph --oneline --all"
+      note: "ASCII branch visualization"
+    - cmd: "git branch -a"
+      note: "All branches"
+    - cmd: "git branch --contains <commit>"
+      note: "Which branches have this?"
+    - cmd: "git merge-base <branch1> <branch2>"
+      note: "Common ancestor"
+    - cmd: "git rev-list --count <branch>"
+      note: "Commits in branch"
+  use_for: "Planning merges, understanding project structure"
+
+planning:
+  merge_planning:
+    description: "Understand what a merge will do BEFORE doing it"
+    commands:
+      - cmd: "git log main..feature --oneline"
+        note: "Commits to merge"
+      - cmd: "git diff main...feature"
+        note: "Changes to merge"
+      - cmd: "git merge --no-commit --no-ff <branch>"
+        note: "Dry run (then git merge --abort)"
+      - cmd: "git log --merges"
+        note: "History of merges"
+    use_for: "Reviewing PRs, understanding merge impact"
+  
+  cherry_pick_planning:
+    description: "Surgical extraction of specific commits"
+    commands:
+      - cmd: "git log --oneline <branch>"
+        note: "Find commits to pick"
+      - cmd: "git show <commit>"
+        note: "Inspect before picking"
+      - cmd: "git cherry-pick --no-commit <hash>"
+        note: "Preview (then reset)"
+      - cmd: "git cherry -v <upstream> <branch>"
+        note: "What's not yet upstream?"
+    use_for: "Backporting fixes, selective feature extraction"
+  
+  rebase_planning:
+    description: "Plan history rewriting"
+    commands:
+      - cmd: "git log --oneline main..HEAD"
+        note: "Commits to rebase"
+      - cmd: "git rebase --onto <new> <old> <branch>"
+        note: "Transplant commits"
+    use_for: "Cleaning history before merge"
+
+pr_archaeology:
+  description: "Trace the intent through PRs"
+  commands:
+    - cmd: "gh pr list --state merged"
+      note: "Merged PRs"
+    - cmd: "gh pr view <num>"
+      note: "PR details"
+    - cmd: "gh pr diff <num>"
+      note: "What the PR changed"
+    - cmd: "gh pr checks <num>"
+      note: "CI results"
+    - cmd: "git log --merges --grep='#123'"
+      note: "Find merge commit for PR"
+  use_for: "Understanding why code exists, tracing decisions"

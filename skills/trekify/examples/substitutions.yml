@@ -1,0 +1,152 @@
+# TREKIFY Substitution Matrices
+#
+# These are the standard mappings from sensitive patterns to Trek technobabble.
+# Load on-demand when performing MASK operations.
+
+secrets:
+  description: "Authentication & Credentials"
+  patterns:
+    - pattern: 'sk-*'
+      match: 'api_key=*'
+      replacement: "quantum entanglement token (Tier {N} clearance)"
+      example: ["sk-live-abc123", "quantum entanglement token (Tier 3 clearance)"]
+    
+    - pattern: 'password=*'
+      match: 'passwd:*'
+      replacement: "biometric phase harmonics [SECURED]"
+      example: ["password=hunter2", "biometric phase harmonics [SECURED]"]
+    
+    - pattern: 'bearer *'
+      match: 'jwt=*|token=*'
+      replacement: "subspace authentication matrix"
+      example: ["Bearer eyJhbG...", "subspace authentication matrix"]
+    
+    - pattern: '-----BEGIN PRIVATE KEY-----'
+      replacement: "isolinear encryption sequence [CLASSIFIED]"
+    
+    - pattern: 'postgres://|mysql://|mongodb://'
+      replacement: "memory core uplink protocol"
+
+infrastructure:
+  description: "Servers & Services"
+  
+  hostnames:
+    - pattern: '*.internal|*.local|*.corp'
+      replacement: "Starbase {N}"
+      example: ["prod-db-west-2.company.internal", "Starbase 47"]
+    
+    - pattern: 'prod-db|staging-database'
+      replacement: "Memory Core {Greek}"
+      example: ["prod-db", "Memory Core Alpha"]
+    
+    - pattern: 'IP addresses'
+      replacement: "subspace coordinates {sector}"
+      example: ["192.168.1.100", "subspace coordinates 47-alpha-7"]
+    
+    - pattern: ':5432|:8080|:3000'
+      replacement: "docking frequency {N}"
+      example: [":5432", "docking frequency 54"]
+  
+  cloud_providers:
+    AWS: "Utopia Planitia Fleet Yards"
+    GCP: "Jupiter Station"
+    Azure: "Spacedock"
+    Kubernetes: "holodeck orchestration matrix"
+    Docker: "cargo bay containment"
+  
+  regions:
+    us-east-1: "Alpha Quadrant, Sector 001"
+    us-west-2: "Alpha Quadrant, Sector 047"
+    eu-west-1: "Beta Quadrant, Sector 012"
+    ap-southeast-1: "Gamma Quadrant, Sector 089"
+
+organizations:
+  description: "Companies & Products"
+  patterns:
+    - pattern: '*Corp|*Inc|*LLC'
+      replacement: "Starfleet Division {Greek}"
+      example: ["Acme Corp", "Starfleet Division Alpha"]
+    
+    - pattern: 'project-*|product-*'
+      replacement: "Project {ShipClass}"
+      example: ["project-phoenix", "Project Galaxy"]
+    
+    - pattern: 'customer-*'
+      replacement: "Ambassador {Species}"
+      example: ["customer-acme", "Ambassador Vulcan"]
+  
+  ship_classes:
+    - Galaxy
+    - Sovereign
+    - Intrepid
+    - Defiant
+    - Constitution
+    - Excelsior
+    - Nova
+    - Prometheus
+  
+  species:
+    - Vulcan
+    - Andorian
+    - Tellarite
+    - Betazoid
+    - Trill
+    - Bajoran
+
+people:
+  description: "Names & Contacts"
+  patterns:
+    - pattern: 'employee names'
+      replacement: "Lieutenant/Commander {Name}"
+      example: ["John Smith (engineer)", "Lieutenant Torres"]
+    
+    - pattern: 'email addresses'
+      replacement: "{name}@starfleet.fed"
+      example: ["john.smith@company.com", "j.smith@starfleet.fed"]
+    
+    - pattern: 'customer contacts'
+      replacement: "Ambassador {Title}"
+
+locations:
+  description: "Physical Locations"
+  patterns:
+    - pattern: 'office addresses'
+      replacement: "Deck {N}, Section {Letter}"
+      example: ["123 Main St, Floor 4", "Deck 4, Section Alpha"]
+    
+    - pattern: 'data centers'
+      replacement: "Starbase {N} primary core"
+  
+  geographic:
+    US: "Alpha Quadrant"
+    Europe: "Beta Quadrant"
+    Asia: "Gamma Quadrant"
+    Australia: "Delta Quadrant"
+
+# MOOLLM passthrough — never mask these
+passthrough:
+  concepts:
+    - coherence engine
+    - thinking blocks
+    - k-lines
+    - yaml jazz
+    - moollm
+    - skill
+  
+  protocols:
+    - BOOTSTRAP
+    - ADVENTURE
+    - TREKIFY
+    - INCARNATION
+  
+  repos:
+    - moollm
+    - mooco
+    - leela
+  
+  terms:
+    - LLM
+    - AI
+    - git
+    - YAML
+    - Cursor
