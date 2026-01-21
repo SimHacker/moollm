@@ -384,6 +384,7 @@ See: ["Object Oriented Programming in NeWS"](https://donhopkins.com/home/montere
 - **Dynamic compilation** of Java button handlers in the browser — pioneering!
 - IDEs call compilers constantly now, but Marimba did it first
 - Completed the circle: edit behaviors at runtime like HyperTalk and PostScript/PdB
+- **Danny Goodman** wrote the Bongo manual — also wrote the legendary HyperCard manuals!
 
 **The lineage:** HyperCard (Mac) → HyperLook (NeWS) → Bongo (Java) — same vision, three platforms.
 
