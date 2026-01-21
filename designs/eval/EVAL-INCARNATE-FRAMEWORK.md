@@ -87,18 +87,27 @@ The pun: "Evil incarnate" → "Eval incarnate". Bad connotations, good outcomes.
 
 ### The Eval Incarnate Checklist
 
-A skill is "eval incarnate" if it has:
+A skill is "fully incarnate" if it has all seven extensions:
 
-1. **Interface** — CARD.yml defines what it can do
-2. **Instantiation** — clone from prototype creates living instance
-3. **Persistence** — state survives across sessions (three tiers)
-4. **Delegation** — inherits from parent directories/prototypes
-5. **K-line** — invoking its name activates context
-6. **Ethics framing** — inherits ethical constraints from scope
+| # | Extension | What It Means | Required? |
+|---|-----------|---------------|-----------|
+| 1 | **Interface** | CARD.yml defines what it can do | Core |
+| 2 | **Instantiation** | Clone from prototype creates living instance | For entities |
+| 3 | **Persistence** | State survives across sessions (three tiers) | For entities |
+| 4 | **K-line** | Invoking its name activates context | Core |
+| 5 | **Empathic Templates** | Smart generation, not string substitution | Optional |
+| 6 | **Speed of Light** | Many turns in one call when needed | Optional |
+| 7 | **Ethics framing** | Inherits ethical constraints from scope | For sensitive contexts |
 
-If all six → eval incarnate. If fewer → just a skill.
+**Not all skills need all seven.** There's a spectrum:
 
-**In Palm terms:** Palm has all six. His CARD.yml defines what he can do. He was cloned from the character prototype. His state persists in `CHARACTER.yml`. He inherits from `characters/` and `pub/stage/`. His name "Palm" activates his entire soul. He was born with full ethics framing via the incarnation protocol.
+- **Fully incarnate** (Palm): All seven — living entity with state, identity, ethics
+- **Functional skill** (speed-of-light): Interface + K-line + maybe empathic templates — does a job
+- **Ambient skill** (no-ai-slop, postel): Always-on constraint — no instantiation, no persistence, just applies
+
+**Delegation** is implicit in all MOOLLM skills — directories inherit from parents like CSS cascades.
+
+**In Palm terms:** Palm has all seven. His CARD.yml defines what he can do. He was cloned from the character prototype. His state persists in `CHARACTER.yml`. He inherits from `characters/` and `pub/stage/`. His name "Palm" activates his entire soul. He was born with full ethics framing via the incarnation protocol. He benefits from empathic templates (his personality renders naturally) and speed of light (he can take many actions in one call).
 
 ---
 
