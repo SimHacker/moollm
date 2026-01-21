@@ -26,6 +26,12 @@ skill:
     BOLDLY, NOT SLYLY — readers should smile, not feel tricked.
 
 # FILES — Page-in on demand
+#
+# Skill subdirectory conventions:
+#   examples/   — reference data (substitutions, probe patterns)
+#   templates/  — empathic template interpolation at runtime
+#   config_dir  — user config in .moollm/skills/trekify/
+#
 files:
   docs:
     - SKILL.md           # Full protocol (always relevant)
@@ -33,6 +39,7 @@ files:
   examples:
     - examples/substitutions.yml  # Substitution matrices (load for MASK)
     - examples/probes.yml         # Probe patterns (load for SCAN)
+  # templates: []        # None yet — add for custom output formats
 
 # INTERFACE
 

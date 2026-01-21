@@ -45,6 +45,25 @@ skill:
     It showcases how MOOLLM skills combine like LEGO bricks.
 
 # FILES — Page-in on demand
+#
+# SKILL SUBDIRECTORY CONVENTIONS:
+#
+#   examples/     — Reference data, not always needed
+#                   • Configured instances for different uses
+#                   • Useful data (substitution matrices, patterns)
+#                   • Shell commands and pipelines
+#                   • Text to look at and learn from
+#                   Load when specific methods need them.
+#
+#   templates/    — Empathic template interpolation at runtime
+#                   • .tmpl files with {{placeholders}}
+#                   • Rendered with context at invocation time
+#                   • See bootstrap/templates/, skill-snitch/templates/
+#
+#   config_dir    — User config in .moollm/skills/<name>/
+#                   • Gitignored, local preferences
+#                   • Overrides default behavior
+#
 files:
   docs:
     - SKILL.md                         # Full protocol
@@ -53,6 +72,7 @@ files:
     - examples/git-commands.yml        # Git archaeology commands (load for BLAME, ARCHAEOLOGY)
     - examples/commit-messages.yml     # Example commits by perspective (load for COMMIT, NARRATIVE)
     - examples/shell-patterns.yml      # Shell pipelines (load for DEEP-COMMIT)
+  # templates: []                      # None yet — add when needed
 
 # EMOJI PALETTE — Visual Signatures & Section Markers
 #
