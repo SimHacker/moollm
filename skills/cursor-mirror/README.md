@@ -484,7 +484,7 @@ flowchart TB
     Outward --> Output
 ```
 
-I-Beam (`I-BEAM-CHARACTER.yml`) is a tall, blinking text cursor embodied — every platform has one, so I-Beam is universal. Also answers to "Cursor" and "Chat". Instead of:
+I-Beam (`characters/I-BEAM-CHARACTER.yml`) is a tall, blinking text cursor embodied — every platform has one, so I-Beam is universal. Also answers to "Cursor" and "Chat". Instead of:
 
 ```bash
 $ python3 cursor_mirror.py status-config --yaml
@@ -538,7 +538,7 @@ Want me to generate an optimized working-set.yml?
 | Personality | None | Voice, quirks, humor (Clippy disasters) |
 | Platform | Tied to one tool | Abstracts across orchestrators |
 
-The character is defined in YAML (`I-BEAM-CHARACTER.yml`), with:
+The character is defined in YAML (`characters/I-BEAM-CHARACTER.yml`), with:
 - **Methods**: EXPLAIN, PROBE, ANALYZE, TRACE, SEARCH, REMEMBER, REFLECT, TEACH
 - **Advertisements**: Trigger phrases that activate each method
 - **Personality**: Voice, quirks, catchphrases
@@ -598,7 +598,7 @@ This is I-Beam's superpower: **self-reflection via cursor-mirror**. Even without
 ```bash
 # Incarnate I-Beam for this project
 mkdir .moollm/i-beam
-cp skills/cursor-mirror/I-BEAM-CHARACTER.yml .moollm/i-beam/CHARACTER.yml
+cp skills/cursor-mirror/characters/I-BEAM-CHARACTER.yml .moollm/i-beam/CHARACTER.yml
 ```
 
 Now I-Beam can remember:
@@ -854,7 +854,7 @@ This is **constructionist debugging** applied to AI development itself. The sess
 
 cursor-mirror can discover, catalog, and analyze images dropped into Cursor chats. The `Read` tool sees them; I-Beam narrates their significance.
 
-See: **[IMAGE-GALLERY.md](./IMAGE-GALLERY.md)** — a curated gallery of 25+ images with context analysis.
+See: **[IMAGE-GALLERY.md](./gallery/IMAGE-GALLERY.md)** — a curated gallery of 25+ images with context analysis.
 
 | Category | Count | Highlight |
 |----------|-------|-----------|
@@ -875,10 +875,10 @@ See: **[IMAGE-GALLERY.md](./IMAGE-GALLERY.md)** — a curated gallery of 25+ ima
 | `cursor_mirror.py` | ~9800 | CLI tool (59 commands, 7 output formats) |
 | `SKILL.md` | 524 | Protocol documentation |
 | `CARD.yml` | 744 | Machine-readable interface |
-| `DATA-SCHEMAS.yml` | 700+ | JSON schema documentation |
-| `KEY-CATALOG.yml` | 412 | Complete key inventory |
-| `I-BEAM-CHARACTER.yml` | 520 | Spirit familiar character |
-| `IMAGE-GALLERY.md` | 440+ | Image archaeology gallery |
+| `reference/DATA-SCHEMAS.yml` | 700+ | JSON schema documentation |
+| `reference/KEY-CATALOG.yml` | 412 | Complete key inventory |
+| `characters/I-BEAM-CHARACTER.yml` | 520 | Spirit familiar character |
+| `gallery/IMAGE-GALLERY.md` | 440+ | Image archaeology gallery |
 
 ## License
 

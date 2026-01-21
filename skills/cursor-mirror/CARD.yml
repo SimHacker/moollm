@@ -213,7 +213,7 @@ script:
 familiar:
   name: "Cursor"
   emoji: "🔮"
-  file: I-BEAM-CHARACTER.yml
+  file: characters/I-BEAM-CHARACTER.yml
   invocation: ["Cursor, [question]", "🔮 [question]"]
 
 # TOOLS
@@ -232,9 +232,36 @@ documentation:
     - "§ Optimizing the Kernel/Cursor Driver"
     - "§ Data Sources — database paths and keys"
     - "§ Integration Points — bootstrap, working-set"
-  files:
-    - DATA-SCHEMAS.yml      # state.vscdb JSON schemas
-    - DOTCURSOR-SCHEMAS.yml # ~/.cursor data formats
-    - KEY-CATALOG.yml       # Complete key inventory
-    - MAC-STORAGE.yml       # macOS paths
-    - I-BEAM-CHARACTER.yml  # Cursor familiar
+  
+  # Organized subdirectories
+  reference:
+    - reference/DATA-SCHEMAS.yml      # state.vscdb JSON schemas
+    - reference/DOTCURSOR-SCHEMAS.yml # ~/.cursor data formats
+    - reference/KEY-CATALOG.yml       # Complete key inventory
+    - reference/TOOLS-CATALOG.yml     # Tool signatures and parameters
+    - reference/MODELS.yml            # AI model reference
+    - reference/ORCHESTRATION.yml     # Feature config and limits
+    - reference/CURSOR-EXTENSIONS.yml # Extension inventory
+    - reference/EXTERNAL-SERVICES.yml # API endpoints
+    - reference/NATIVE-MODULES.yml    # Node.js native modules
+    
+  storage:
+    - storage/MAC-STORAGE.yml         # macOS paths
+    - storage/LINUX-STORAGE.yml       # Linux paths
+    - storage/WINDOWS-STORAGE.yml     # Windows paths
+    - storage/DOTCURSOR-STORAGE.yml   # ~/.cursor (cross-platform)
+    - storage/MAC-CURSOR-APP.yml      # macOS app bundle
+    
+  templates:
+    - templates/cursor_mirror_config.yml  # Default config
+    - templates/default-ignore.yml        # Ignore patterns
+    - templates/snitch-ignore.yml         # Security scanner ignore
+    
+  examples:
+    - examples/patterns.yml           # Audit pattern examples
+    
+  characters:
+    - characters/I-BEAM-CHARACTER.yml # Cursor familiar
+    
+  gallery:
+    - gallery/IMAGE-GALLERY.md        # Image archaeology
