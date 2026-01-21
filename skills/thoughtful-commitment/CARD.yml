@@ -43,6 +43,93 @@ skill:
     **This skill is a composition of cursor-mirror + git + shell.**
     It showcases how MOOLLM skills combine like LEGO bricks.
 
+# EMOJI PALETTE — Visual Signatures & Section Markers
+#
+# Use these to sign thoughts, label sections, and attribute authorship.
+# Human content goes at top. LLM-generated content is clearly marked.
+
+emoji_palette:
+  
+  # AUTHORSHIP — Who wrote this?
+  authorship:
+    human: "👤"           # Human-written content (place at top)
+    llm: "🤖"             # LLM-generated content
+    pair: "👤🤖"          # Human-AI collaboration
+    review: "👁️"          # Human-reviewed LLM output
+    edited: "✏️"          # Human-edited LLM draft
+  
+  # SKILL SIGNATURE — This skill's identity
+  signature: "🎯📝"       # Thoughtful Commitment's mark
+  
+  # SECTION MARKERS — Label parts of commits/PRs
+  sections:
+    context: "📍"         # Why we're here, background
+    thinking: "💭"        # LLM reasoning, the "why"
+    investigation: "🔍"   # How the problem was traced
+    solution: "💡"        # The approach taken
+    alternatives: "🔀"    # What else was considered
+    changes: "📝"         # Mechanical list of modifications
+    metrics: "📊"         # Counts, stats, measurements
+    session: "🔗"         # Link to cursor-mirror
+    warning: "⚠️"         # Caveats, risks, concerns
+    todo: "📌"            # Follow-up work
+  
+  # FACETS — Label different aspects
+  facets:
+    technical: "⚙️"       # Code, APIs, implementation
+    narrative: "📖"       # Story, characters, world
+    process: "🔄"         # Investigation, decision-making
+    provenance: "🏷️"      # Attribution, traceability
+    emotional: "💫"       # Character feelings, stakes
+    temporal: "⏳"        # Timeline, history, evolution
+  
+  # QUALITY SIGNALS — Trust indicators
+  quality:
+    verified: "✅"        # Tested, confirmed working
+    experimental: "🧪"    # Untested, may break
+    deprecated: "🚫"      # Don't use, will be removed
+    wip: "🚧"             # Work in progress
+  
+  # USAGE EXAMPLE
+  example_pr_structure: |
+    👤 **Human Summary** (always at top)
+    Quick description of intent in my own words.
+    
+    ---
+    
+    🤖🎯📝 **LLM-Generated Analysis**
+    
+    📍 **Context**
+    Why this change was needed...
+    
+    💭 **Thinking**
+    The reasoning behind the approach...
+    
+    🔍 **Investigation**  
+    How the issue was traced...
+    
+    💡 **Solution**
+    What was implemented...
+    
+    🔀 **Alternatives Considered**
+    - Option A — rejected because...
+    - Option B — rejected because...
+    
+    📝 **Changes**
+    - Modified auth/session.ts
+    - Added test coverage
+    
+    📊 **Metrics**
+    | Metric | Value |
+    |--------|-------|
+    | Files | 3 |
+    | Lines | +47/-12 |
+    
+    🔗 **Session**: cursor-mirror://e8587ace
+    
+    ---
+    👁️ *Human-reviewed and approved*
+
 # COMPOSABILITY — Skills as Building Blocks
 
 composability:
@@ -531,6 +618,7 @@ methods:
           Like variadic args in classic languages: func(a, b, ...rest)
           The LLM naturally captures this, but worth noting the parallel.
           Your conversational preamble, asides, and context all contribute.
+          The user can write the seed and details for the narrative.
     returns:
       commit_id: string
       message: string
