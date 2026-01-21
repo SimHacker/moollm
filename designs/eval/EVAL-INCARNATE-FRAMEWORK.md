@@ -42,13 +42,19 @@
 - [CARD.yml: The Skill Interface](#cardyml-the-skill-interface)
   - [Cards as Ethical Smart Pointers](#cards-as-ethical-smart-pointers) — MTG/Pokémon for AI ethics
   - [Cards as Activation Records](#cards-as-activation-records) — Stack frames with inheritance
-- [The Empathic Suite](#the-empathic-suite)
+- [The Empathic Suite](#the-empathic-suite) — Philosophy, Dovetailing, Code-Switching
+  - [Empathic Expressions](#empathic-expressions-the-big-tent) — The Big Tent
+  - [Comment Intelligence](#comment-intelligence) — Meta vs Concrete
+  - [Code-Switching Support](#code-switching-support) — Cross-language context
 - [Speed of Light](#speed-of-light)
 - [The Simulator Effect](#the-simulator-effect) — Wright's "Two Computers" insight
 
 ### Part III: Governance and Safety
 - [The Tribute Protocol](#the-tribute-protocol)
 - [Ethical Framing Inheritance](#ethical-framing-inheritance)
+- [Boundary Types](#boundary-types) — Counters, Stages, Walls
+  - [The Tardis Pattern](#the-tardis-pattern) — Larger on the inside
+- [Vehicles: Portable Rooms](#vehicles-portable-rooms) — Rooms that move
 - [Home vs Location](#home-vs-location)
 - [The Guest Book Pattern](#the-guest-book-pattern)
 
@@ -376,7 +382,23 @@ Like Self, cards have **multiple methods** and **multiple inheritance**. The LLM
 
 The Empathic Suite is a family of skills that embrace the LLM's native strengths: understanding intent, navigating idea space, generating coherent output.
 
-> *"Stop fighting the LLM's nature. Let it understand and generate — that's what it's GREAT at."*
+### The Philosophy
+
+> *"Stop fighting the LLM's nature. Stop pretending it's a parser. Let it **understand** and **generate** — that's what it's GREAT at."*
+
+Traditional systems fight the LLM:
+- Strict parsers reject imperfect input
+- Multiple API calls lose precision
+- Tokenization destroys nuance
+- Context window treated as limitation
+
+**MOOLLM embraces the LLM:**
+- Generous interpretation understands intent
+- Speed of light keeps computation internal
+- Empathic expressions leverage semantic understanding
+- Context window is a **stage** where all actors perform
+
+### The Suite
 
 | Skill | Role | Connection |
 |-------|------|------------|
@@ -385,6 +407,49 @@ The Empathic Suite is a family of skills that embrace the LLM's native strengths
 | `postel` | Generous interpretation | Foundation for all empathic skills |
 | `yaml-jazz` | Comments as data | Semantic structure |
 | `speed-of-light` | Internal simulation | Minimizes tokenization |
+
+### How They Dovetail
+
+```mermaid
+flowchart TD
+    subgraph SUITE[EMPATHIC_SUITE]
+        EE["EMPATHIC-EXPRESSIONS<br>interpret intent"]
+        ET["EMPATHIC-TEMPLATES<br>smart instantiation"]
+        PO["POSTEL<br>generous interpretation"]
+        YJ["YAML-JAZZ<br>comments as data"]
+        
+        EE --> ET
+        EE --> PO
+        ET --> YJ
+    end
+    
+    SOL["SPEED-OF-LIGHT<br>Work in vectors<br>Preserve precision<br>Minimize boundaries"]
+    
+    SUITE --> SOL
+```
+
+### Empathic Expressions: The Big Tent
+
+One skill that handles ALL empathic language interpretation:
+
+| Empathic... | Input | Output |
+|-------------|-------|--------|
+| **SQL** | "get users who signed up last week" | `SELECT * FROM users WHERE created_at > NOW() - INTERVAL 7 DAY` |
+| **Python** | "sort by date newest first" | `sorted(items, key=lambda x: x.date, reverse=True)` |
+| **JavaScript** | "when button clicked show modal" | Event handlers with proper binding |
+| **Bash** | "find big old files and compress" | `find . -size +100M -mtime +30 -exec gzip {} \;` |
+| **YAML** | "grumpy but secretly kind" | Proper trait structure with YAML Jazz |
+| **Natural** | "make it faster" | Identifies bottleneck, optimizes |
+
+**The LLM as Code Processor:**
+
+| Role | Function |
+|------|----------|
+| **Pseudocode Interpreter** | Executes high-level intent |
+| **Empathic Pretty Printer** | Formats with understanding |
+| **Generous Linter** | Catches errors, suggests fixes kindly |
+| **Intent Compiler** | Translates intent → working code |
+| **De-pseudo-ifier** | Converts vague to precise |
 
 ### Empathic Templates: Smart Instantiation
 
@@ -418,6 +483,42 @@ description: |
 | Pseudocode | Edge case handling |
 
 **Critical:** Never makes unwarranted assumptions. When truly ambiguous, **asks for clarification**.
+
+### Comment Intelligence
+
+The LLM distinguishes meta-comments (instructions for generation) from concrete comments (for the output):
+
+| Type | Indicators | Action |
+|------|------------|--------|
+| **Meta** | `# TEMPLATE:`, `# INSTRUCTION:` | **Stripped** |
+| **Concrete** | `# This explains...`, explanatory | **Preserved** |
+
+### Code-Switching Support
+
+The LLM tracks transitions between languages, preserving context:
+
+````markdown
+First query the data:
+```sql
+SELECT * FROM users WHERE active = true
+```
+
+Then process in Python:
+```python
+# Uses 'users' from above SQL context
+filtered = [u for u in users if u.age > 18]
+```
+
+Finally display in Svelte:
+```svelte
+<!-- Uses 'filtered' from Python context -->
+{#each filtered as user}
+  <UserCard {user} />
+{/each}
+```
+````
+
+**Context preserved across all three languages.** The LLM maintains the semantic thread even as syntax changes.
 
 ---
 
@@ -601,6 +702,107 @@ character:
 ```
 
 **In Palm terms:** Palm's home is `characters/palm/`. His location (where he currently is) is `pub/stage/palm-nook/study/`. The file never moves; only the `location:` property changes.
+
+---
+
+## Boundary Types
+
+Not all boundaries are walls. Some are social, some visual, some physical:
+
+| Boundary | Type | Who Can Cross | Interaction Across |
+|----------|------|---------------|-------------------|
+| `pub/bar/` | **Social** (counter) | Staff, cats, dogs | Customers can see/order from bartender |
+| `pub/stage/` | **Visual** (raised) | Performers | Audience can see/heckle performers |
+| `pub/bar/cat-cave/` | **Physical** (enclosed) | Cats only (+ Biscuit exception) | Privacy, no interaction |
+
+```yaml
+# pub/bar/ROOM.yml — Social boundary, not physical wall
+boundary:
+  type: counter  # Not a wall — interaction across is allowed
+  access:
+    - staff
+    - cats
+    - dogs
+  interaction_across:
+    - customers can ORDER from bartender
+    - customers can TALK to budtender
+    - customers can SEE behind the bar
+
+# pub/bar/cat-cave/ROOM.yml
+boundary:
+  type: enclosed  # Physical walls, real privacy
+  access:
+    default: cats_only
+    exceptions:
+      - biscuit  # Adopted, honorary cat cave resident
+  properties:
+    privacy: true
+    security: true
+```
+
+### The Tardis Pattern
+
+Some spaces are "larger on the inside" — internal structure exceeds apparent footprint:
+
+```yaml
+# Tardis effect: larger inside than outside
+interior:
+  type: tardis  # Implied vastness beyond what fits
+  structure:
+    real:       # Actual sub-directories
+      - napping-nooks/
+      - scratching-posts/
+    virtual:    # Implied by names and paths, not actual dirs
+      - cozy-corner#spot-1
+      - sunny-window#perch
+      - secret-tunnels  # Exists in narrative, not filesystem
+```
+
+| Structure | What It Is | Example |
+|-----------|------------|---------|
+| **Real** | Actual sub-directories with their own `ROOM.yml` | `napping-nooks/` |
+| **Virtual** | Implied by names, paths, anchors, narrative | `secret-tunnels` |
+| **Mixed** | Some structure is files, some is imagination | Cat cave |
+
+---
+
+## Vehicles: Portable Rooms
+
+Vehicles are rooms that move. They inherit all room properties but add mobility:
+
+```yaml
+# characters/don/pocket/magic-carpet.yml
+vehicle:
+  type: carpet
+  portable: true      # Can be pocketed, carried
+  capacity: 4         # Passengers
+  movement:
+    in_room: true     # Can move around within a room
+    through_exits: true
+    magic: true       # Can teleport
+    
+  # Logo turtle integration
+  turtle:
+    enabled: true
+    draws_on: floor   # Leaves trail in room
+    
+  contents:           # Objects inside the vehicle
+    - picnic-basket.yml
+    - lamp.yml
+```
+
+| Action | Effect |
+|--------|--------|
+| `TOSS lamp INTO carpet` | Object enters vehicle |
+| `EMBARK carpet` | Character enters vehicle |
+| `DRIVE carpet NORTH` | Vehicle moves through exit |
+| `DRIVE carpet AROUND` | Vehicle moves within room (turtle draws) |
+| `TOSS lamp OUT` | Object exits to current room |
+| `DISEMBARK` | Character exits to current room |
+| `POCKET carpet` | Vehicle (with contents!) goes in inventory |
+| `DROP carpet` | Vehicle appears in room |
+
+**Vehicles can be Tardis-like:** A carpet might unfold into a flying palace. A bag of holding is a vehicle. A pokeball is a vehicle.
 
 ---
 
