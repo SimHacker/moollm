@@ -8,6 +8,36 @@ You enter a vast gallery of portraits. Some faces smile. Some scowl. Some stare 
 
 These are **tribute incarnations** -- fictional explorations based on documented lives. We do not claim to speak for anyone. We imagine WITH them, for good or ill.
 
+---
+
+## 📑 Index
+
+| Section | Description |
+|---------|-------------|
+| [⚖️ Ethical Protocol](#%EF%B8%8F-ethical-protocol-real-people) | Rules for real people — tribute, ephemeral, mashup, love child |
+| **🏛️ Hall of MOOLLM Heroes** | |
+| [The Graphical Pioneers](#%EF%B8%8F-the-graphical-pioneers-1960s) | Sutherland, Engelbart, Nelson |
+| [Object-Oriented Revolutionaries](#-the-object-oriented-revolutionaries-1970s-80s) | Kay, Minsky, Papert |
+| [PostScript/NeWS Era](#-the-postscriptnews-era-1984-1992) | Warnock, Gosling, Densmore, van Hoff |
+| [Virtual World Builders](#-the-virtual-world-builders-1986-1990) | Habitat, TinyMUD, LambdaMOO |
+| [Prototype Revolution](#-the-prototype-revolution-1987) | Self, HyperCard |
+| [Simulation Masters](#-the-simulation-masters-1989-2012) | Wright, Butterfield |
+| [Understanding Pioneers](#-the-understanding-pioneers) | McCloud |
+| **📇 Pioneers to Incarnate** | |
+| [Computing & AI](#computing--ai) | Kay, Turing, Minsky, Papert, Hinton... |
+| [HCI & Interaction Design](#hci--interaction-design) | Shneiderman, Myers, Atkinson, Victor... |
+| [Game Design & Simulation](#game-design--simulation) | Wright, Miyamoto, Bunten Berry... |
+| [Music & Art](#music--art) | Coltrane, Eno, Picasso, Hockney... |
+| [Writers & Philosophers](#writers--philosophers) | Borges, Lem, Dick, Adams, Le Guin... |
+| [Psychonauts & Counterculture](#psychonauts--counterculture) | Leary, McKenna, Hofmann, Lilly... |
+| [Women Pioneers](#women-pioneers-%EF%B8%8F) | Lovelace, Hamilton, Goldberg... |
+| [Trans & Queer Heroes](#trans--queer-heroes-%EF%B8%8F%EF%B8%8F) | Conway, Jaquays, Heineman... |
+| **🕯️ In Memoriam** | Recently departed heroes |
+| **✅ Already Incarnated** | Don Hopkins (so far!) |
+| **💕 Love Children** | Fictional mashups — where the fun happens! |
+
+---
+
 ## ⚖️ Ethical Protocol: Real People
 
 > **These are REAL people.** Living and deceased. Everything here requires ethical care.
