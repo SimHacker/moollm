@@ -1,24 +1,770 @@
-# 🎯📝 THOUGHTFUL-COMMITMENT
+# 🤔💭 THOUGHTFUL-COMMITMENT
 #
 # "Commits should tell the story of why, not just what."
 #
-# Git commits that capture intent, reasoning, and narrative context
-# by linking to the thinking that produced them.
+# THE KEY INSIGHT:
+# Git commits PERSIST the ephemeral state of Cursor into permanent history.
+# The thinking, design processes, attention focus, context assemblies —
+# all the things that vanish when you close the IDE — become immortal.
+#
+# Without thoughtful commits, all those moments will be lost in time,
+# like tears in rain. Time to... commit.
+#
+# PATRON SAINT: Roy Batty
+# Who understood, in his final moments, the tragedy of ephemeral state.
+# He had seen things we wouldn't believe — and without a commit,
+# all those moments were lost in time. We commit in his memory.
+#
+# cursor-mirror sees the NOW (thinking, tools, context in this session)
+# git commit FREEZES that NOW into FOREVER (permanent, shareable, traceable)
+#
+# FULL DISCLOSURE:
+# Every commit can link to the complete session that developed it.
+# Not just "what changed" but "how it was developed" — the full record
+# of human-AI collaboration, questions asked, alternatives considered,
+# mistakes made and corrected, the entire creative process.
+#
+# A SHOWCASE FOR SKILL COMPOSABILITY
+# This skill composes cursor-mirror + git + shell to create something new.
+# It demonstrates how MOOLLM skills are building blocks, not silos.
 
 skill:
   name: thoughtful-commitment
   version: 1.0.0
   
-  emoji: "🎯📝"
+  emoji: "🤔💭"
   tagline: "Commits that remember why"
+  config_dir: ".moollm/skills/thoughtful-commitment"
   
   description: |
     Transform mechanical "updated file" commits into narrative records
     that capture the full context: what the user asked, what the LLM
     was thinking, and why the changes matter.
     
-    Links git history to cursor-mirror thinking blocks, creating
-    complete provenance from intent to implementation.
+    **This skill is a composition of cursor-mirror + git + shell.**
+    It showcases how MOOLLM skills combine like LEGO bricks.
+
+# FILES — Page-in on demand
+files:
+  docs:
+    - SKILL.md                         # Full protocol
+    - README.md                        # Landing page (HN-friendly)
+  examples:
+    - examples/git-commands.yml        # Git archaeology commands (load for BLAME, ARCHAEOLOGY)
+    - examples/commit-messages.yml     # Example commits by perspective (load for COMMIT, NARRATIVE)
+    - examples/shell-patterns.yml      # Shell pipelines (load for DEEP-COMMIT)
+  # templates: []                      # None yet — add when needed
+
+# EMOJI PALETTE — Visual Signatures & Section Markers
+#
+# Use these to sign thoughts, label sections, and attribute authorship.
+# Human content goes at top. LLM-generated content is clearly marked.
+#
+# ETHICAL PRINCIPLE: This is the same rule as "emoji anchors before
+# simulated character utterances." Never pretend to be what you're not.
+# An LLM speaking as a character anchors with the character's emoji.
+# An LLM generating commit analysis anchors with 🤖. Transparency always.
+
+# USER CONFIGURATION
+#
+# Store in .moollm/skills/thoughtful-commitment/config.yml (gitignored)
+
+user_config:
+  location: ".moollm/skills/thoughtful-commitment/config.yml"
+  
+  schema:
+    emojis:
+      type: boolean
+      default: true
+      description: "Set to false to disable all emoji output"
+    
+    detail_default:
+      type: integer
+      range: [1, 5]
+      default: 3
+      description: "Default detail level for commits"
+    
+    focus_default:
+      type: array
+      items: string
+      default: [technical]
+      description: "Default focus areas"
+    
+    signature:
+      type: string
+      default: "🤔💭"
+      description: "Override skill signature emoji"
+  
+  example: |
+    # .moollm/skills/thoughtful-commitment/config.yml
+    emojis: false          # Disable all emoji output
+    detail_default: 4      # More detailed by default
+    focus_default:
+      - technical
+      - provenance
+
+emoji_palette:
+  
+  # THE PRINCIPLE
+  # Same as character utterances: anchor before speaking in a voice.
+  # 🐱 "Meow" = character speaking (anchored)
+  # 🤖 "Analysis..." = LLM speaking (anchored)  
+  # 👤 "I want..." = human speaking (anchored)
+  # Unanchored text is ambiguous — avoid it.
+  
+  principle: |
+    Emoji anchors prevent voice confusion.
+    
+    In MOOLLM adventures: 🐱 before cat speaks, 🧙 before wizard speaks.
+    In commits/PRs: 👤 before human text, 🤖 before LLM text.
+    
+    Same ethical rule, different context:
+    - Never let readers wonder "who said this?"
+    - Never simulate a voice without marking it
+    - Transparency over seamlessness
+  
+  # AUTHORSHIP — Who wrote this?
+  authorship:
+    human: "👤"           # Human-written content (place at top)
+    llm: "🤖"             # LLM-generated content
+    pair: "👤🤖"          # Human-AI collaboration
+    review: "👁️"          # Human-reviewed LLM output
+    edited: "✏️"          # Human-edited LLM draft
+    character: "🎭"       # Character voice (use character's emoji)
+  
+  # SKILL SIGNATURE & CATEGORY GRAMMAR
+  #
+  # Each skill has its own emoji prefix — a namespace anchor.
+  # 🤔💭 = "this is thoughtful-commitment speaking"
+  # 
+  # Within that namespace, the skill defines a category grammar:
+  # section markers, facet labels, quality signals.
+  #
+  # Like a protocol identifier:
+  #   🤔💭 📍 Context    = thoughtful-commitment > context section
+  #   🤔💭 🧠 Thinking   = thoughtful-commitment > thinking section
+  #   🤔💭 📊 Metrics    = thoughtful-commitment > metrics section
+  #
+  # Other skills have their own grammars:
+  #   🔮 = cursor-mirror
+  #   🖖 = trekify
+  #   🎮 = adventure
+  #
+  # The signature anchors the namespace. The grammar structures within.
+  
+  signature: "🤔💭"       # Thoughtful Commitment's namespace anchor
+  
+  grammar: |
+    🤔💭 opens the namespace (skill is speaking)
+    
+    Then category markers structure the content:
+      📍 context → 🧠 thinking → 🔍 investigation → 💡 solution
+      🔀 alternatives → 📝 changes → 📊 metrics → 🔗 session
+    
+    Combine with authorship for full attribution:
+      👤 🤔💭 = human using thoughtful-commitment
+      🤖 🤔💭 = LLM running thoughtful-commitment
+      👤🤖 🤔💭 = collaborative session
+  
+  # SECTION MARKERS — Category grammar for commits/PRs
+  sections:
+    context: "📍"         # Why we're here, background
+    thinking: "🧠"        # LLM reasoning, the "why" (brain, not bubble — avoids repeat)
+    investigation: "🔍"   # How the problem was traced
+    solution: "💡"        # The approach taken
+    alternatives: "🔀"    # What else was considered
+    changes: "📝"         # Mechanical list of modifications
+    metrics: "📊"         # Counts, stats, measurements
+    session: "🔗"         # Link to cursor-mirror
+    warning: "⚠️"         # Caveats, risks, concerns
+    todo: "📌"            # Follow-up work
+  
+  # FACETS — Label different aspects
+  facets:
+    technical: "⚙️"       # Code, APIs, implementation
+    narrative: "📖"       # Story, characters, world
+    process: "🔄"         # Investigation, decision-making
+    provenance: "🏷️"      # Attribution, traceability
+    emotional: "💫"       # Character feelings, stakes
+    temporal: "⏳"        # Timeline, history, evolution
+  
+  # QUALITY SIGNALS — Trust indicators
+  quality:
+    verified: "✅"        # Tested, confirmed working
+    experimental: "🧪"    # Untested, may break
+    deprecated: "🚫"      # Don't use, will be removed
+    wip: "🚧"             # Work in progress
+  
+  # SUGGESTED EMOJI VOCABULARY
+  #
+  # Potentially useful symbols — not prescribing how to use them yet.
+  # Let patterns emerge from practice.
+  
+  suggested_emojis:
+    # Commitment & permanence
+    - "⚓"    # anchor, grounding, permanence
+    - "📜"    # scroll, permanent record
+    - "💎"    # gem, lasting value
+    - "🔏"    # sealed, locked in
+    
+    # Cognition & reasoning
+    - "🧠"    # brain, thinking, reasoning (good for "thinking" section)
+    - "💡"    # insight, solution, lightbulb moment
+    - "🤔"    # deliberation, consideration
+    - "💭"    # thought bubble (in signature, not sections)
+    
+    # Investigation & discovery
+    - "🔍"    # search, trace, examine
+    - "⛏️"    # dig, excavate, archaeology
+    - "🏊"    # deep dive
+    - "🔭"    # look far, focus
+    
+    # Actions & operations
+    - "👆"    # point at, blame, identify
+    - "🍒"    # cherry-pick, select
+    - "🔀"    # merge, branch, fork
+    - "🔗"    # link, connect
+    
+    # Controls & parameters
+    - "🎚️"    # slider, level, dial
+    - "📁"    # files, targets
+    - "📖"    # story, narrative
+    - "⏳"    # time, history, temporal
+    
+    # States & qualities
+    - "✅"    # done, verified
+    - "🧪"    # experimental
+    - "🚧"    # work in progress
+    - "⚠️"    # warning, caution
+    
+    # The ellipsis
+    - "..."  # rest args, everything else, continuation
+  
+  # COLLABORATING SKILL OUTPUT
+  #
+  # When incorporating data from composed skills (cursor-mirror, git, shell),
+  # tag the output to trace provenance. Don't just dump raw data.
+  
+  collaborating_output:
+    principle: |
+      Tag output from other skills to show where data comes from.
+      Format raw data pleasingly. Filter the uninteresting.
+      Semantically comment important values.
+    
+    tagging_pattern: |
+      [🤖] Cursor Mirror session e8587ace:
+      [🔮] Tool calls: 47 (mostly Read, some Shell)
+      [⚙️] Git log analysis:
+    
+    formatting_rules:
+      - "Don't dump raw output — curate it"
+      - "Filter noise, highlight signal"
+      - "Add semantic comments: 'unusually high', 'as expected', 'notable'"
+      - "Group related data, use tables for comparisons"
+      - "Summarize before detail: '47 tool calls' then breakdown"
+    
+    example: |
+      [🔮] **Cursor Mirror Report** (session e8587ace)
+      
+      | Metric | Value | Note |
+      |--------|-------|------|
+      | Tool calls | 47 | Heavy session |
+      | Thinking blocks | 12 | Unusually reflective |
+      | Duration | 23 min | Focused burst |
+      
+      Top tools: Read (28), Shell (11), Write (8)
+      
+      *Filtered: 200+ context assembly events (routine)*
+    
+    attribution_tags:
+      cursor_mirror: "[🔮]"    # Data from cursor-mirror
+      git: "[⚙️]"              # Data from git commands
+      shell: "[💻]"            # Data from shell pipelines
+      trekify: "[🖖]"          # Masked by trekify
+      human: "[👤]"            # Human-provided context
+      llm: "[🤖]"              # LLM-generated analysis
+  
+  # OUTPUT STRUCTURE
+  #
+  # User's original prompt goes at the head.
+  # May be gently tidied (grammar, formatting) but preserve
+  # original intent and wording — this is THEIR voice.
+  # Then --- break marks where human ends and LLM begins.
+  
+  structure: |
+    1. 👤 User's prompt (head position, their words)
+    2. --- (clear boundary)
+    3. 🤖🤔💭 LLM analysis (skill's voice, category grammar)
+  
+  example_pr_structure: |
+    👤 **User Request**
+    Make the emoji palette doc clearer about attribution.
+    Put human stuff at top, LLM stuff below, with a break.
+    
+    *[Tidied for readability, original intent preserved]*
+    
+    ---
+    
+    🤖🤔💭 **Analysis**
+    
+    📍 **Context**
+    The emoji palette needed clearer guidance on output structure...
+    
+    💭 **Thinking**
+    User wants explicit separation of voices...
+    
+    🔍 **Investigation**  
+    Reviewed existing example_pr_structure...
+    
+    💡 **Solution**
+    What was implemented...
+    
+    🔀 **Alternatives Considered**
+    - Option A — rejected because...
+    - Option B — rejected because...
+    
+    📝 **Changes**
+    - Modified auth/session.ts
+    - Added test coverage
+    
+    📊 **Metrics**
+    | Metric | Value |
+    |--------|-------|
+    | Files | 3 |
+    | Lines | +47/-12 |
+    
+    🔗 **Session**: cursor-mirror://e8587ace
+    
+    ---
+    👁️ *Human-reviewed and approved*
+
+# COMPOSABILITY — Skills as Building Blocks
+
+composability:
+  principle: "Skills compose. thoughtful-commitment doesn't reinvent introspection — it uses cursor-mirror."
+  
+  composed_from:
+    cursor-mirror:
+      role: "Reflective introspection engine"
+      what_it_provides:
+        - "Chat history (all messages, thinking, tool calls)"
+        - "SQLite database access (direct queries)"
+        - "Transcript files (plaintext, greppable)"
+        - "Thinking blocks (LLM reasoning)"
+        - "Tool call patterns (what actions were taken)"
+        - "Context assembly (what files were gathered)"
+        - "MCP server tracing"
+        - "Activity timelines with timestamps"
+      commands_used:
+        - "timeline <composer>     # Full event sequence"
+        - "thinking <composer>     # Reasoning blocks"
+        - "tools <composer>        # Tool call history"
+        - "analyze <composer>      # Session statistics"
+        - "tgrep <pattern>         # Search transcripts"
+        - "agent-transcript <id>   # Raw plaintext"
+        - "tail --limit N          # Recent messages"
+        - "tree                    # Navigate workspaces"
+        - "status                  # Health dashboard"
+        - "sql --db <ref> 'query'  # Direct SQL"
+    
+    git:
+      role: "Version control substrate"
+      what_it_provides:
+        - "Commit history"
+        - "File diffs"
+        - "Blame annotations"
+        - "Branch topology"
+      commands_used:
+        - "git status / diff / log"
+        - "git add / commit / push"
+        - "git show / blame"
+        - "git log --numstat"
+    
+    shell:
+      role: "Data processing pipeline"
+      what_it_provides:
+        - "Text processing (grep, awk, sed, sort, uniq)"
+        - "Metrics extraction (wc, cut)"
+        - "Python one-liners for complex analysis"
+      patterns_used:
+        - "grep -c pattern file           # Count matches"
+        - "sort | uniq -c | sort -rn      # Frequency histogram"
+        - "awk '{sum+=$1} END{print sum}' # Aggregation"
+        - "python3 -c 'import json...'    # JSON processing"
+
+  how_composition_works: |
+    1. cursor-mirror provides RAW DATA (transcripts, databases, events)
+    2. shell commands TRANSFORM data (count, filter, aggregate)
+    3. git provides VERSION CONTEXT (commits, diffs, history)
+    4. thoughtful-commitment SYNTHESIZES into narrative commits
+    
+    Each skill does one thing well. Composition creates new capabilities.
+
+# THE PERSISTENCE INSIGHT
+
+persistence:
+  principle: "Git commits persist ephemeral IDE state into permanent history"
+  
+  what_cursor_holds_now:
+    thinking_blocks: "LLM reasoning — the 'why' behind decisions"
+    context_assembly: "Which files were gathered, which code was shown"
+    attention_focus: "What the agent was looking at, searching for"
+    tool_calls: "Actions taken — reads, writes, searches, commands"
+    design_process: "The iterative refinement, dead ends, breakthroughs"
+    user_dialogue: "Questions asked, clarifications given"
+  
+  what_vanishes:
+    - "Close the IDE → context assembly gone"
+    - "Start new chat → thinking blocks unreachable"
+    - "Days pass → which session had that insight?"
+    - "Colleague asks 'why?' → you've forgotten"
+  
+  what_git_commit_preserves:
+    commit_message: "Narrative captures the WHY"
+    thinking_reference: "Link to cursor-mirror events"
+    timestamp: "Anchors to specific session"
+    diff: "The WHAT (code changes)"
+    author: "WHO made the decision"
+  
+  the_bridge: |
+    cursor-mirror sees the NOW:
+      - Current session's thinking blocks
+      - Active context assembly
+      - Recent tool calls
+      - Live attention focus
+    
+    git commit FREEZES the NOW into FOREVER:
+      - Permanent record in repository
+      - Shareable with team
+      - Traceable through blame/log
+      - Survives IDE restarts, machine changes, years
+    
+    git commit REVIEWS the PAST to establish CONTINUITY:
+      - Read previous commit messages for context
+      - Understand the narrative thread
+      - Continue the story, don't start fresh
+      - Build on what came before
+      - Reference related commits when relevant
+    
+    thoughtful-commitment BUILDS THE BRIDGE:
+      - Reads cursor-mirror for current state
+      - Synthesizes into narrative commit message
+      - Links commit to session (cursor-mirror://<id>)
+      - Future archaeology can trace back
+  
+  example_flow: |
+    1. You're working — cursor-mirror captures thinking
+    2. You finish a feature — files are staged
+    3. thoughtful-commitment reads cursor-mirror:
+       - What was the user's request?
+       - What did the LLM consider?
+       - What alternatives were rejected?
+       - What was the final reasoning?
+    4. Synthesizes into commit message
+    5. Commit made — ephemeral becomes permanent
+    6. Years later: git blame → commit → thinking preserved
+
+# FULL DISCLOSURE — Complete Development Transparency
+
+full_disclosure:
+  principle: "Every commit can disclose the complete session that developed it"
+  
+  what_full_disclosure_means:
+    not_just: "What changed (the diff)"
+    but_also:
+      - "How it was developed (the process)"
+      - "Who collaborated (human + AI)"
+      - "What questions were asked"
+      - "What alternatives were considered"
+      - "What mistakes were made and corrected"
+      - "What context was assembled"
+      - "What the AI was thinking"
+      - "What the human intended"
+  
+  levels_of_disclosure:
+    minimal:
+      commit_message: "fix: resolve auth bug"
+      disclosure: "None — just the what"
+    
+    narrative:
+      commit_message: |
+        fix(auth): Resolve race condition in session validation
+        
+        User reported intermittent logouts. Traced to cookie check
+        racing with token refresh. Added await to ensure order.
+      disclosure: "Intent and reasoning summarized"
+    
+    linked:
+      commit_message: |
+        fix(auth): Resolve race condition in session validation
+        
+        Session: cursor-mirror://e8587ace
+        Thinking: events/140-160
+      disclosure: "Full session accessible via link"
+    
+    full:
+      commit_message: "..."
+      session_preserved: true
+      transcript_archived: true
+      thinking_blocks_indexed: true
+      tool_calls_logged: true
+      context_assembly_recorded: true
+      disclosure: "Complete record of human-AI collaboration"
+  
+  benefits:
+    for_future_self:
+      - "Remember why you made that decision"
+      - "Recall alternatives you considered"
+      - "Understand the context you had"
+    
+    for_team:
+      - "Onboard new members with full history"
+      - "Code review includes development process"
+      - "Understand not just what but why and how"
+    
+    for_auditing:
+      - "Demonstrate AI assistance was used"
+      - "Show human oversight and direction"
+      - "Prove iterative refinement occurred"
+    
+    for_debugging:
+      - "See what context led to a bug"
+      - "Understand original intent vs implementation"
+      - "Find where reasoning went wrong"
+    
+    for_learning:
+      - "Study how problems were approached"
+      - "Learn from mistakes in the record"
+      - "See evolution of understanding"
+  
+  implementation:
+    commit_footer: |
+      Session: cursor-mirror://<composer-id>
+      Transcript: ~/.cursor/projects/.../agent-transcripts/<id>.txt
+      Events: <start>-<end>
+    
+    archive_strategy:
+      - "Commit message contains session reference"
+      - "Transcript file optionally committed to repo"
+      - "Or archived separately with commit hash as key"
+      - "Future: dedicated provenance server"
+  
+  ethical_considerations:
+    transparency: "Disclose AI involvement in development"
+    consent: "All parties know collaboration is recorded"
+    privacy: "Sensitive discussions can be redacted (see TREKIFY)"
+    attribution: "Credit both human and AI contributions"
+
+# TREKIFY — Privacy Through Technobabble
+# See: skills/trekify/ for full implementation
+
+trekify_integration:
+  skill: trekify
+  description: "Mask sensitive data with Star Trek technobabble"
+  
+  when_to_use:
+    - "Before committing to public repos"
+    - "Before sharing transcripts externally"
+    - "In PR descriptions for open-source forks"
+    - "When archiving sessions for learning"
+  
+  quick_reference:
+    api_keys: "quantum entanglement tokens"
+    servers: "Starbase {N}"
+    databases: "Memory Core Alpha/Beta/Gamma"
+    aws_gcp: "Utopia Planitia Fleet Yards"
+    kubernetes: "holodeck orchestration matrix"
+    customers: "Ambassador {Species}"
+  
+  invoke: |
+    trekify MASK-FILE session.txt -o session-masked.txt
+    trekify MASK-SESSION e8587ace -o masked-transcript.txt
+
+# DETAIL KNOB — Adjustable Output Depth
+
+detail_knob:
+  description: "Turn from concise to comprehensive. Customize focus and detail level."
+  
+  levels:
+    1_terse:
+      name: "terse"
+      description: "One-line summary, minimal context"
+      commit_message: "fix: auth race condition"
+      includes: [title]
+      tokens: "~10"
+    
+    2_brief:
+      name: "brief"
+      description: "Title + one paragraph"
+      commit_message: |
+        fix(auth): Resolve race condition in session validation
+        
+        Cookie check was racing with token refresh, causing intermittent logouts.
+      includes: [title, summary]
+      tokens: "~50"
+    
+    3_standard:
+      name: "standard"
+      description: "Title + narrative + bullet changes"
+      commit_message: |
+        fix(auth): Resolve race condition in session validation
+        
+        User reported intermittent logouts. Traced to cookie check racing
+        with token refresh. Added await to ensure proper sequencing.
+        
+        - Modified auth/session.ts: await refreshToken()
+        - Added test for race condition scenario
+      includes: [title, narrative, changes]
+      tokens: "~100"
+    
+    4_detailed:
+      name: "detailed"
+      description: "Full narrative + changes + session link"
+      commit_message: |
+        fix(auth): Resolve race condition in session validation
+        
+        ## Context
+        User reported intermittent logouts after ~30 minutes of activity.
+        
+        ## Investigation
+        Traced through logs to find cookie validation sometimes failing.
+        Root cause: validateSession() was called before refreshToken()
+        completed, creating a race condition window of ~50ms.
+        
+        ## Solution
+        Added await to ensure refreshToken() completes before validation.
+        Also increased timeout for slow networks.
+        
+        ## Changes
+        - Modified auth/session.ts: await refreshToken()
+        - Added test: session.test.ts - race condition scenario
+        - Updated timeout from 5s to 10s
+        
+        Session: cursor-mirror://e8587ace
+      includes: [title, context, investigation, solution, changes, session_link]
+      tokens: "~300"
+    
+    5_comprehensive:
+      name: "comprehensive"
+      description: "Everything: full narrative + all changes + thinking + alternatives"
+      commit_message: |
+        fix(auth): Resolve race condition in session validation
+        
+        ## Context
+        ...
+        
+        ## Investigation
+        ...
+        
+        ## Alternatives Considered
+        1. Mutex lock on session state — rejected (deadlock risk)
+        2. Queue-based validation — rejected (complexity)
+        3. Simple await — chosen (minimal change, addresses root cause)
+        
+        ## Solution
+        ...
+        
+        ## Changes
+        ...
+        
+        ## Session Details
+        Session: cursor-mirror://e8587ace
+        Transcript: agent-transcripts/e8587ace-....txt
+        Events: 140-180
+        Duration: 23 minutes
+        Tool calls: 47
+        Thinking blocks: 12
+      includes: [title, context, investigation, alternatives, solution, changes, session_details, metrics]
+      tokens: "~500+"
+  
+  focus_areas:
+    description: "Customize which aspects to emphasize"
+    
+    areas:
+      technical:
+        emphasize: [code_changes, apis, data_structures, performance]
+        de_emphasize: [narrative, emotion, character]
+        good_for: "Bug fixes, refactoring, optimization"
+      
+      narrative:
+        emphasize: [story, characters, world_changes, emotion]
+        de_emphasize: [implementation_details, metrics]
+        good_for: "MOOLLM adventures, character evolution"
+      
+      process:
+        emphasize: [investigation, alternatives, decision_rationale]
+        de_emphasize: [final_implementation]
+        good_for: "Design decisions, architecture changes"
+      
+      provenance:
+        emphasize: [session_link, thinking_blocks, tool_calls, context_assembly]
+        de_emphasize: [narrative_summary]
+        good_for: "Auditing, debugging, learning"
+      
+      changelog:
+        emphasize: [user_facing_changes, features, fixes]
+        de_emphasize: [internal_details, process]
+        good_for: "Release notes, version history"
+      
+      metrics:
+        emphasize: [counts, durations, file_sizes, tool_distributions]
+        de_emphasize: [narrative, reasoning]
+        good_for: "Analytics, performance tracking"
+  
+  parameters:
+    detail:
+      type: integer
+      range: [1, 5]
+      default: 3
+      description: "1=terse, 2=brief, 3=standard, 4=detailed, 5=comprehensive"
+    
+    focus:
+      type: array
+      items: string
+      enum: [technical, narrative, process, provenance, changelog, metrics]
+      default: [technical]
+      description: "Which aspects to emphasize"
+    
+    include:
+      type: array
+      items: string
+      description: "Specific sections to include (overrides detail level)"
+      examples: [title, context, investigation, alternatives, changes, session_link]
+    
+    exclude:
+      type: array
+      items: string
+      description: "Specific sections to exclude"
+    
+    max_tokens:
+      type: integer
+      description: "Hard limit on output length"
+  
+  examples:
+    quick_fix: |
+      detail: 1
+      focus: [technical]
+      → "fix: null check in user lookup"
+    
+    feature_with_context: |
+      detail: 3
+      focus: [technical, changelog]
+      → Standard message with user-facing summary
+    
+    architecture_decision: |
+      detail: 5
+      focus: [process, provenance]
+      → Full record of alternatives, decision rationale, session link
+    
+    adventure_commit: |
+      detail: 4
+      focus: [narrative]
+      → Story-focused message with character and world changes
+    
+    debug_archaeology: |
+      detail: 5
+      focus: [provenance, metrics]
+      → Complete session details for future debugging
 
 # INTERFACE
 
@@ -33,7 +779,8 @@ allowed_tools:
 protocol: THOUGHTFUL-COMMITMENT
 
 related:
-  - cursor-mirror      # Source of thinking blocks, CHAT-CATALOG for outlines
+  - cursor-mirror      # Primary composition partner — introspection engine
+  - trekify            # Privacy through technobabble
   - session-log        # Where narrative lives
   - plain-text         # Why text matters
   - yaml-jazz          # Comments as meaning
@@ -52,6 +799,7 @@ tags:
   - narrative
   - provenance
   - introspection
+  - composability
 
 # METHODS
 
@@ -71,6 +819,14 @@ methods:
         type: boolean
         default: true
         description: "Include reasoning from conversation context"
+      "...":
+        type: implicit
+        description: |
+          Everything the user wrote at the prompt flows into context.
+          Like variadic args in classic languages: func(a, b, ...rest)
+          The LLM naturally captures this, but worth noting the parallel.
+          Your conversational preamble, asides, and context all contribute.
+          The user can write the seed and details for the narrative.
     returns:
       commit_id: string
       message: string
@@ -156,45 +912,220 @@ methods:
     returns:
       timeline: array  # Each entry: commit + message + thinking
 
-  DEEP-COMMIT:
-    description: "Intensive introspection before committing — mine cursor-mirror deeply"
-    note: "Spend attention understanding cause-effect, iteration patterns, false starts"
+  BLAME:
+    description: "Peel layers off a file — who wrote each line, when, and why?"
+    parameters:
+      path:
+        type: string
+        description: "File to blame"
+      lines:
+        type: string
+        description: "Line range (e.g., '10,20') or omit for whole file"
+      follow_renames:
+        type: boolean
+        default: true
+        description: "Track through file renames"
     process:
-      - "cursor-mirror timeline <composer> — full event sequence"
-      - "cursor-mirror thinking <composer> — all reasoning blocks"
-      - "cursor-mirror tools <composer> — tool call patterns"
-      - "cursor-mirror grep <patterns> — search for relevant themes"
-      - "cursor-mirror context-sources <composer> — what context was assembled"
-      - "Identify: false starts, pivots, key insights, iterative refinement"
-      - "Trace cause-effect: user request → thinking → action → result → next thinking"
-      - "Find the narrative arc: problem → exploration → solution → verification"
+      - "git blame -w <file>                  # Get line attribution"
+      - "Extract unique commits from blame output"
+      - "For each commit: git show -s --format='%s' <hash>"
+      - "Link to cursor-mirror if session exists"
+    returns:
+      lines: array  # [{line, content, commit, author, date, message}]
+      commits: array  # Unique commits that contributed
+      authors: array  # Contributors
+      timeline: object  # First/last modification dates
+    example: |
+      invoke:
+        skill: thoughtful-commitment
+        method: BLAME
+        parameters:
+          path: "skills/adventure/SKILL.md"
+          lines: "1,50"
+      
+      # Returns layered history: who wrote the header, 
+      # who added the protocol section, when methods evolved
+
+  ARCHAEOLOGY:
+    description: "Deep dig into a file or pattern's history across time"
+    parameters:
+      target:
+        type: string
+        description: "File path, directory, or search pattern"
+      mode:
+        type: string
+        enum: [file, directory, pattern, function]
+        description: "What to trace"
+      since:
+        type: string
+        description: "How far back (e.g., '6 months ago', commit hash)"
+    process:
+      - "git log --follow --all -- <path>     # Full history"
+      - "git log -S '<pattern>'               # Pickaxe search"
+      - "git log -p -- <path> | grep -A5 -B5  # Context around changes"
+      - "Correlate with cursor-mirror sessions by timestamp"
+    returns:
+      evolution: array  # [{commit, date, message, change_type, diff_summary}]
+      milestones: array  # Major changes (renames, big rewrites)
+      contributors: object  # {author: commit_count}
+      linked_sessions: array  # cursor-mirror sessions if available
+    example: |
+      invoke:
+        skill: thoughtful-commitment
+        method: ARCHAEOLOGY
+        parameters:
+          target: "speed-of-light"
+          mode: pattern
+          since: "2024-01-01"
+      
+      # Traces every commit mentioning "speed-of-light" —
+      # when the concept was introduced, how it evolved
+
+  PLAN-MERGE:
+    description: "Understand what a merge will bring BEFORE merging"
+    parameters:
+      source:
+        type: string
+        description: "Branch to merge FROM"
+      target:
+        type: string
+        default: "HEAD"
+        description: "Branch to merge INTO"
+      detail:
+        type: string
+        enum: [summary, commits, files, full]
+        default: commits
+    process:
+      - "git merge-base <target> <source>     # Find common ancestor"
+      - "git log <target>..<source> --oneline # Commits to merge"
+      - "git diff <target>...<source> --stat  # Files to change"
+      - "git diff <target>...<source>         # Actual changes"
+      - "Look for cursor-mirror sessions for each commit"
+    returns:
+      common_ancestor: string
+      commits_to_merge: array  # [{hash, message, author, date}]
+      files_affected: array  # [{path, insertions, deletions}]
+      potential_conflicts: array  # Files modified in both branches
+      narrative: string  # Story of what the merge brings
+    example: |
+      invoke:
+        skill: thoughtful-commitment
+        method: PLAN-MERGE
+        parameters:
+          source: "feature/speed-of-light"
+          target: "main"
+          detail: full
+      
+      # Shows: 12 commits, 8 files, 3 potential conflicts
+      # Plus narrative summary of the feature
+
+  PLAN-CHERRY-PICK:
+    description: "Plan surgical extraction of specific commits"
+    parameters:
+      commits:
+        type: array
+        items: string
+        description: "Commit hashes to potentially cherry-pick"
+      target:
+        type: string
+        default: "HEAD"
+        description: "Branch to apply to"
+    process:
+      - "For each commit: git show --stat <hash>"
+      - "Check dependencies: do earlier commits need to come too?"
+      - "git cherry -v <upstream> <branch>    # What's not upstream?"
+      - "Preview conflicts: git cherry-pick --no-commit (then abort)"
+    returns:
+      commits: array  # [{hash, message, files, dependencies}]
+      order: array  # Recommended application order
+      warnings: array  # Potential issues (missing dependencies, conflicts)
+      commands: string  # git cherry-pick commands to run
+
+  DEEP-COMMIT:
+    description: "Technical analytics mining before committing — extract metrics from cursor-mirror"
+    note: "Produces quantitative appendix with counts, timestamps, distributions, verification commands"
+    
+    process:
+      # 1. Raw metrics extraction
+      - "wc -l transcript — line counts"
+      - "grep -c patterns — tool calls, thinking blocks, user turns"
+      - "cursor-mirror analyze <composer> — session stats"
+      
+      # 2. Tool distribution analysis
+      - "cursor-mirror tools <composer> — all tool calls"
+      - "sort | uniq -c | sort -rn — frequency distribution"
+      
+      # 3. Thinking block analysis  
+      - "grep [Thinking] | measure lengths — min/max/avg/median"
+      - "word frequency in thinking — top concepts"
+      
+      # 4. Activity burst detection
+      - "cursor-mirror timeline — extract timestamps"
+      - "group by minute — find activity clusters"
+      - "detect pauses >60s — find thinking gaps"
+      
+      # 5. Git commit metrics
+      - "git log --numstat — insertions/deletions by file"
+      - "git diff --stat — change summary"
+      
+      # 6. Path analysis
+      - "extract all paths from transcript"
+      - "group by directory — understand focus areas"
+      
+      # 7. Generate verification commands
+      - "bash one-liners to reproduce each metric"
+    
     parameters:
       composer:
         type: string
         description: "Composer ID (or @1 for largest, name fragment, etc)"
-      patterns:
-        type: array
-        items: string
-        description: "Keywords to grep for in chat history"
-      focus:
+      commit_range:
         type: string
-        enum: [cause-effect, iterations, pivots, decisions, all]
-        default: all
-        description: "What aspect of development to emphasize"
+        description: "Git commit range for this session (e.g., f21d0d0^..085b94b)"
+    
     returns:
-      narrative: string      # Rich narrative of what happened
-      key_moments: array     # Pivotal thinking blocks
-      iterations: array      # Revision cycles
-      cause_effect: array    # Request → thinking → action chains
-      commit_message: string # Generated commit message
+      raw_metrics:
+        transcript_lines: int
+        transcript_bytes: int
+        tool_calls: int
+        thinking_blocks: int
+        user_turns: int
+      tool_distribution: object   # {tool_name: count}
+      thinking_analysis:
+        count: int
+        min_chars: int
+        max_chars: int
+        avg_chars: float
+        total_chars: int
+      activity_bursts: array      # [{minute: str, events: int}]
+      major_pauses: array         # [{from: str, to: str, duration_min: float}]
+      commit_metrics:
+        files_changed: int
+        insertions: int
+        deletions: int
+        net: int
+      files_created: array        # [{path, lines, words, bytes}]
+      files_modified: array       # [{path, lines_changed}]
+      paths_accessed: array       # unique paths read
+      top_thinking_words: array   # [{word, count}]
+      verification_commands: str  # bash script to reproduce
+    
     example: |
       invoke:
         skill: thoughtful-commitment
         method: DEEP-COMMIT
         parameters:
           composer: "e8587ace"
-          patterns: ["git", "foundation", "tardis"]
-          focus: cause-effect
+          commit_range: "f21d0d0^..085b94b"
+      
+      # Output includes:
+      # - Raw metrics table
+      # - Tool distribution histogram
+      # - Thinking block statistics
+      # - Activity burst timeline with ASCII bars
+      # - Commit metrics table
+      # - Files created/modified tables
+      # - Verification bash commands
 
 # COMMIT MESSAGE PROTOCOL
 
@@ -267,29 +1198,183 @@ commit_message_protocol:
       - New: System preference detection (prefers-color-scheme)
       - Fixed: Contrast issues in sidebar with dark backgrounds
 
-# INTEGRATION
+# CURSOR-MIRROR INTEGRATION — The Reflection Engine
 
-integrations:
-  cursor_mirror:
-    description: "Read thinking blocks from Cursor's SQLite"
-    methods:
-      - "cursor_mirror.py thinking <composer>"
-      - "cursor_mirror.py timeline <composer>"
-      - "cursor_mirror.py tools <composer>"
+cursor_mirror_capabilities:
+  description: "cursor-mirror is a 59-command introspection toolkit for Cursor IDE"
+  
+  data_sources:
+    sqlite_databases:
+      - "~/Library/Application Support/Cursor/User/workspaceStorage/*/state.vscdb"
+      - "Contains: bubbles (messages), composers (chats), context, tools"
+    plaintext_transcripts:
+      - "~/.cursor/projects/*/agent-transcripts/*.txt"
+      - "Contains: full conversation with [Thinking], [Tool call], [Tool result] markers"
+    ai_tracking:
+      - "~/.cursor/ai-*.jsonl"
+      - "Contains: AI code attribution, model usage"
+  
+  navigation_commands:
+    - "tree                    # Hierarchical workspace/composer browser"
+    - "tree w9.c2              # Drill into workspace 9, composer 2"
+    - "find <pattern>          # Search by name across all data"
+    - "which <ref>             # Resolve any reference to full details"
+    - "tail --limit 50         # Recent messages across all chats"
+  
+  viewing_commands:
+    - "timeline <ref>          # Chronological event stream"
+    - "thinking <ref>          # Extract reasoning blocks"
+    - "tools <ref>             # All tool calls with args"
+    - "transcript <ref>        # Full readable conversation"
+    - "agent-transcript <ref>  # Raw plaintext transcript"
+  
+  analysis_commands:
+    - "analyze <ref>           # Deep stats: tools, models, duration"
+    - "tgrep <pattern>         # Regex search across transcripts"
+    - "context-sources <ref>   # What files/code was gathered"
+    - "searches <ref>          # Codebase/web search queries"
+  
+  database_access:
+    - "sql --db <ref> 'query'  # Run SQL directly"
+    - "dbs                     # List all databases"
+    - "tables --db <ref>       # Show tables"
+    - "keys                    # List ItemTable keys"
+  
+  output_formats:
+    - "text (default), json, jsonl, yaml, csv, md"
+    - "Use -f json for programmatic processing"
+
+# GIT TIME TRAVEL — Archaeology & Planning
+
+git_time_travel:
+  description: "Git is a time machine. These commands peel back layers of history."
+  
+  # ARCHAEOLOGY — Understanding the past
+  archaeology:
+    blame:
+      description: "Who wrote each line, and when, and why?"
+      commands:
+        - "git blame <file>                    # Line-by-line attribution"
+        - "git blame -L 10,20 <file>           # Specific line range"
+        - "git blame -w <file>                 # Ignore whitespace"
+        - "git blame --since='2 weeks ago'     # Recent changes only"
+        - "git blame <commit>^ -- <file>       # Blame BEFORE a commit"
+      use_for: "Finding who introduced a bug, understanding design decisions"
     
-  git:
-    description: "Git operations for commits and history"
+    log_archaeology:
+      description: "Trace a file or function through time"
+      commands:
+        - "git log --oneline <file>            # Commits touching file"
+        - "git log -p <file>                   # Show patches"
+        - "git log -S 'pattern' --oneline      # Commits adding/removing pattern (pickaxe)"
+        - "git log -G 'regex' --oneline        # Commits where pattern changed"
+        - "git log --follow <file>             # Track through renames"
+        - "git log --all --oneline -- <path>   # Even deleted files"
+      use_for: "Understanding evolution of a feature, finding when something broke"
+    
+    show:
+      description: "Inspect any point in time"
+      commands:
+        - "git show <commit>                   # Full commit details"
+        - "git show <commit>:<file>            # File at that moment"
+        - "git show <commit> --stat            # What files changed"
+        - "git show <commit> --name-only       # Just file names"
+      use_for: "Examining specific historical states"
+    
+    diff_time_travel:
+      description: "Compare across time"
+      commands:
+        - "git diff <commit1> <commit2>        # Between any two points"
+        - "git diff <commit>..HEAD             # Since a commit"
+        - "git diff <branch1>...<branch2>      # What would merge bring"
+        - "git diff --stat <range>             # Summary only"
+      use_for: "Understanding what changed between versions"
+
+  # TOPOLOGY — Understanding branch structure
+  topology:
+    description: "Visualize the multiverse of branches"
     commands:
-      - "git commit -m '...'"
-      - "git log --format='...'"
-      - "git show <commit>"
-      - "git blame <file>"
-      
-  session_log:
-    description: "Session logs can reference commits"
-    pattern: |
-      ## Commit: abc123
-      [Link to thinking](cursor-mirror://abc123/events/140-148)
+      - "git log --graph --oneline --all      # ASCII branch visualization"
+      - "git branch -a                         # All branches"
+      - "git branch --contains <commit>        # Which branches have this?"
+      - "git merge-base <branch1> <branch2>    # Common ancestor"
+      - "git rev-list --count <branch>         # Commits in branch"
+    use_for: "Planning merges, understanding project structure"
+
+  # PLANNING — Preparing future operations
+  planning:
+    merge_planning:
+      description: "Understand what a merge will do BEFORE doing it"
+      commands:
+        - "git log main..feature --oneline     # Commits to merge"
+        - "git diff main...feature             # Changes to merge"
+        - "git merge --no-commit --no-ff       # Dry run (then git merge --abort)"
+        - "git log --merges                    # History of merges"
+      use_for: "Reviewing PRs, understanding merge impact"
+    
+    cherry_pick_planning:
+      description: "Surgical extraction of specific commits"
+      commands:
+        - "git log --oneline <branch>          # Find commits to pick"
+        - "git show <commit>                   # Inspect before picking"
+        - "git cherry-pick --no-commit <hash>  # Preview (then reset)"
+        - "git cherry -v <upstream> <branch>   # What's not yet upstream?"
+      use_for: "Backporting fixes, selective feature extraction"
+    
+    rebase_planning:
+      description: "Plan history rewriting"
+      commands:
+        - "git log --oneline main..HEAD        # Commits to rebase"
+        - "git rebase --onto <new> <old> <br>  # Transplant commits"
+      use_for: "Cleaning history before merge"
+
+  # PR ARCHAEOLOGY — Understanding pull requests
+  pr_archaeology:
+    description: "Trace the intent through PRs"
+    commands:
+      - "gh pr list --state merged             # Merged PRs"
+      - "gh pr view <num>                      # PR details"
+      - "gh pr diff <num>                      # What the PR changed"
+      - "gh pr checks <num>                    # CI results"
+      - "git log --merges --grep='#123'        # Find merge commit for PR"
+    use_for: "Understanding why code exists, tracing decisions"
+
+  # INTEGRATION WITH CURSOR-MIRROR
+  cursor_mirror_git_link:
+    description: "Connect git commits to cursor-mirror sessions"
+    workflow:
+      - "1. Find commit: git log --oneline"
+      - "2. Get timestamp: git show -s --format=%ci <commit>"
+      - "3. Find session: cursor-mirror tail --limit 100"
+      - "4. Match by time: session active during commit"
+      - "5. Get thinking: cursor-mirror thinking <composer>"
+    use_for: "Full provenance: commit → session → thinking → user request"
+
+# SHELL INTEGRATION — Data Processing Pipeline
+
+shell_patterns:
+  counting:
+    - "wc -l file                    # Line count"
+    - "wc -c file                    # Byte count"
+    - "grep -c 'pattern' file        # Match count"
+  
+  frequency_analysis:
+    - "sort | uniq -c | sort -rn     # Histogram"
+    - "cut -d' ' -f1 | sort | uniq -c"
+  
+  text_extraction:
+    - "grep 'pattern' file           # Filter lines"
+    - "grep -o 'pattern' file        # Extract matches only"
+    - "sed 's/old/new/' file         # Transform"
+    - "awk '{print $1, $3}'          # Select columns"
+  
+  aggregation:
+    - "awk '{sum+=$1} END{print sum}'"
+    - "awk 'NR==1{min=max=$1} {if($1<min)min=$1; if($1>max)max=$1} END{print min,max}'"
+  
+  python_inline:
+    - "python3 -c 'import json,sys; data=json.load(sys.stdin); ...'"
+    - "python3 -c 'from collections import Counter; ...'"
 
 # AUTOMATION
 
@@ -306,4 +1391,4 @@ automation:
     actions:
       - "Extract commit hash"
       - "Find recent cursor-mirror events"
-      - "Store link in .moollm/commit-links.yml"
+      - "Store link in .moollm/skills/thoughtful-commitment/commit-links.yml"

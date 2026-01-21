@@ -1,0 +1,250 @@
+# 🖖 TREKIFY
+#
+# "Captain, I've routed all sensitive data through the privacy buffers."
+#
+# Privacy through technobabble. Replace sensitive information with
+# Star Trek terminology adapted to the MOOLLM universe.
+# Delivered with Geordi La Forge's competent mellifluence.
+#
+# PATRON ENGINEER: Geordi La Forge
+#
+# See SKILL.md for full substitution matrices, examples, and implementation.
+
+skill:
+  name: trekify
+  version: 1.0.0
+  emoji: "🖖"
+  tagline: "Privacy through technobabble"
+  config_dir: ".moollm/skills/trekify"
+  
+  description: |
+    Transform sensitive information into plausible-sounding Star Trek
+    technobabble that maintains narrative flow while protecting secrets.
+    
+    COMPOSES WITH: cursor-mirror (probing), ripgrep (scanning)
+    
+    BOLDLY, NOT SLYLY — readers should smile, not feel tricked.
+
+# FILES — Page-in on demand
+files:
+  docs:
+    - SKILL.md           # Full protocol (always relevant)
+    - README.md          # Landing page
+  examples:
+    - examples/substitutions.yml  # Substitution matrices (load for MASK)
+    - examples/probes.yml         # Probe patterns (load for SCAN)
+  # templates: []        # None yet — add for custom output formats
+
+# INTERFACE
+
+tier: 2
+protocol: TREKIFY
+
+allowed_tools:
+  - read_file
+  - write_file
+  - run_terminal_cmd
+  - grep
+
+related:
+  - cursor-mirror          # COMPOSES: Active probing for sensitive patterns
+  - thoughtful-commitment  # Uses TREKIFY for commit privacy
+  - session-log            # Session logs may need masking
+  - plain-text             # All masked output stays plain text
+
+tags:
+  - privacy
+  - security
+  - masking
+  - redaction
+  - star-trek
+  - composability
+
+# PASSTHROUGH — What NOT to Trekify
+
+passthrough:
+  rule: "If it's in MOOLLM docs → passthrough. If it's YOUR secrets → TREKIFY!"
+  always_pass:
+    - "MOOLLM concepts, skill names, protocols, k-lines"
+    - "Public repos: moollm, mooco, leela"
+    - "Standard terms: LLM, git, YAML, Cursor"
+
+# QUICK REFERENCE — Substitutions
+
+substitutions_quick:
+  secrets:
+    api_keys: "quantum entanglement token"
+    passwords: "biometric phase harmonics"
+    tokens: "subspace authentication matrix"
+    private_keys: "isolinear encryption sequence"
+  
+  infrastructure:
+    servers: "Starbase {N}"
+    databases: "Memory Core Alpha/Beta/Gamma"
+    ip_addresses: "subspace coordinates"
+    ports: "docking frequency"
+    aws: "Utopia Planitia Fleet Yards"
+    gcp: "Jupiter Station"
+    kubernetes: "holodeck orchestration matrix"
+  
+  organizations:
+    companies: "Starfleet Division {Greek}"
+    products: "Project {ShipClass}"
+    customers: "Ambassador {Species}"
+  
+  people:
+    employees: "Lieutenant/Commander {Name}"
+    emails: "{name}@starfleet.fed"
+
+# USER CONFIG
+
+config:
+  location: ".moollm/skills/trekify/config.yml"
+  gitignored: true
+  options:
+    - "enabled: true/false"
+    - "sensitivity: off/low/medium/high/paranoid"
+    - "passthrough: [terms to never mask]"
+    - "taboo: {pattern: replacement}"
+    - "categories: {secrets: true, infrastructure: true, ...}"
+
+# METHODS
+
+methods:
+
+  # Core Masking
+  MASK:
+    description: "Apply TREKIFY masking to text"
+    parameters: {text: string, sensitivity: enum, categories: array}
+    returns: {masked_text: string, substitutions: array, substitution_key: string}
+
+  MASK-FILE:
+    description: "Apply masking to a file"
+    parameters: {path: string, output_path: string, sensitivity: enum}
+    returns: {substitutions_count: int, output_path: string}
+
+  MASK-SESSION:
+    description: "Mask a cursor-mirror session transcript"
+    composes_with: cursor-mirror
+    parameters: {composer: string, output_path: string}
+    returns: {masked_path: string, substitutions: array}
+
+  SCAN:
+    description: "Scan text for sensitive patterns without masking"
+    parameters: {text: string, report_level: enum}
+    returns: {findings: array, risk_assessment: string}
+
+  UNMASK:
+    description: "Reverse masking with substitution key"
+    parameters: {masked_text: string, substitution_key: string}
+    returns: {original_text: string}
+
+  CONFIGURE:
+    description: "Add custom substitution patterns"
+    parameters: {category: string, pattern: string, replacement: string}
+
+  # Active Probing (cursor-mirror composition)
+  PROBE:
+    description: "Hunt for sensitive patterns in a session"
+    composes_with: cursor-mirror
+    parameters: {composer: string, probes: array}
+    returns: {findings: array, risk_score: string}
+
+  PROBE-SECRETS:
+    description: "Hunt for leaked credentials"
+    composes_with: cursor-mirror
+    hunts: [api_keys, passwords, tokens, private_keys, connection_strings]
+
+  PROBE-INFRASTRUCTURE:
+    description: "Hunt for internal infrastructure"
+    composes_with: cursor-mirror
+    hunts: [hostnames, private_ips, cloud_resources]
+
+  PROBE-PROPRIETARY:
+    description: "Hunt for proprietary terms"
+    composes_with: cursor-mirror
+    source: ".moollm/skills/trekify/proprietary-terms.txt"
+
+  PROBE-CONTEXT:
+    description: "Hunt for sensitive contexts via LLM"
+    composes_with: cursor-mirror
+    contexts: [security, incidents, hr, financial, legal]
+
+  PROBE-AND-MASK:
+    description: "Probe + auto-mask findings"
+    composes_with: cursor-mirror
+    parameters: {composer: string, output_path: string}
+
+  # Workspace Scanners
+  LONG-RANGE-SCAN:
+    description: "Scan entire workspace for sensitive patterns"
+    metaphor: "Long range sensors detecting quantum signatures!"
+    uses: ripgrep
+    parameters: {workspace: string, categories: array}
+    returns: {findings_by_category: object, high_risk_files: array}
+
+  SHORT-RANGE-SCAN:
+    description: "Focused scan on directory or file type"
+    metaphor: "Elevated readings in Section 7!"
+    parameters: {target: string, focus: enum}
+    focus_modes: [config, source, docs, scripts, all]
+
+  TRICORDER:
+    description: "Detailed analysis of specific file"
+    metaphor: "Tricorder readings indicate credential signatures!"
+    parameters: {target: string, mode: enum, include_git_history: bool}
+    returns: {analysis: object, history: object, suggested_replacements: array}
+
+  SCAN-AND-REPORT:
+    description: "Full scan with comprehensive report"
+    metaphor: "Full sensor sweep of the sector."
+    parameters: {workspace: string, report_format: enum, output_path: string}
+
+  # Exfiltration Analysis
+  EXFILTRATION-SCAN:
+    description: "Detect data leaving via tool calls"
+    metaphor: "Unauthorized subspace transmissions!"
+    composes_with: cursor-mirror
+    parameters: {composer: string, categories: array}
+    detects: [network, api, file, clipboard, environment, logging]
+
+  EXFILTRATION-WATCH:
+    description: "Real-time monitoring for exfiltration"
+    metaphor: "Red alert! Continuous sensor sweep."
+    parameters: {watch_mode: enum, alert_level: enum, action_on_detect: enum}
+
+  TOOL-AUDIT:
+    description: "Audit tool calls for security"
+    composes_with: cursor-mirror
+    parameters: {composer: string, tools: array}
+    returns: {timeline: array, risk_score: string}
+
+# WORKFLOWS
+
+workflows:
+  before_commit: "SCAN → MASK-FILE → commit masked → store key securely"
+  before_sharing: "cursor-mirror transcript → MASK-SESSION → review → share"
+  full_audit: "LONG-RANGE-SCAN → TRICORDER high-risk → PROBE-AND-MASK sessions"
+
+# ADVERTISEMENTS
+
+advertisements:
+  MASK:
+    score: 100
+    condition: "Need to mask sensitive data for sharing"
+  PROBE:
+    score: 100
+    condition: "Hunt for secrets in session history"
+  LONG-RANGE-SCAN:
+    score: 90
+    condition: "Security audit of workspace"
+  EXFILTRATION-SCAN:
+    score: 95
+    condition: "Check if data might have leaked"
+
+invoke_when:
+  - "Sharing session transcripts"
+  - "Committing to public repos"
+  - "Security audit needed"
+  - "Before publishing logs or docs"
+  - "Checking for leaked credentials"

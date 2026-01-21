@@ -1,174 +1,116 @@
-# 🎯📝 Thoughtful Commitment
+# Thoughtful Commitment
 
-> *"Commits should tell the story of why, not just what."*
+**Git commits that link to the thinking that produced them.**
 
-Git commits that capture intent, reasoning, and narrative context by linking to the thinking that produced them.
+When you work with an AI coding assistant, the session holds valuable context: what you asked, what the AI considered, what alternatives were rejected, why it made certain choices. When you close the IDE, all of that vanishes. Your commit says "fix: auth bug" but six months later you have no idea *why*.
 
-## The Problem
+This skill captures that ephemeral reasoning and freezes it into permanent git history.
 
-Most commits look like this:
+## How MOOLLM Skills Work
+
+MOOLLM is a protocol for structuring LLM capabilities as composable "skills." Each skill has:
+
+- **[CARD.yml](CARD.yml)** — The interface. What methods exist, what parameters they take, what they return. Designed to be "sniffable" by an LLM in ~50 lines.
+- **[SKILL.md](SKILL.md)** — The protocol. Full implementation details, philosophy, examples. Read when you need depth.
+- **README.md** — You're reading it. Landing page and quick start.
+
+Skills compose. This one doesn't reinvent introspection — it uses [cursor-mirror](../cursor-mirror/). It doesn't reinvent version control — it uses git. It doesn't reinvent data processing — it uses shell pipelines.
 
 ```
-Updated CHARACTER.yml
+thoughtful-commitment
+        │
+        ├── cursor-mirror ──→ SQLite databases, plaintext transcripts
+        │                     thinking blocks, tool calls, 59 commands
+        │
+        ├── git ─────────────→ blame, log, diff, show, commit history
+        │
+        └── shell ───────────→ grep, awk, sort, uniq, python -c
 ```
 
-Or at best:
+## The Insight
+
+Cursor stores everything in SQLite databases and plaintext transcripts:
 
 ```
-fix: bug in auth
+~/.cursor/projects/*/agent-transcripts/*.txt    # Full conversations
+~/Library/Application Support/Cursor/User/workspaceStorage/*/state.vscdb
 ```
 
-These tell you **what** changed, but not **why**. When you're debugging six months later, you need the story.
+The `cursor-mirror` skill can query these directly:
 
-## The Solution
+```bash
+cursor-mirror thinking e8587ace    # Extract reasoning blocks
+cursor-mirror tools e8587ace       # Every tool call with arguments
+cursor-mirror sql --db e8587ace "SELECT * FROM bubbles WHERE text LIKE '%password%'"
+```
 
-Thoughtful Commitment creates commits like this:
+This skill synthesizes that into commit messages:
 
 ```
 Incarnation Ceremony: Kittens receive emoji souls
 
-The Cat Cave family gathered for the Public Incarnation Ceremony.
-Each kitten's terpene essence was captured in 5 emojis.
-Pronouns were self-chosen. The gong rang thrice.
+The Cat Cave family gathered for the ceremony. Each kitten's
+terpene essence was captured in 5 emojis. Pronouns self-chosen.
 
-- Added emoji_identity to all 8 kittens
-- Added pronouns (she/her, self-chosen)  
-- Added memories: incarnation_ceremony
-- Updated Cat Cave README with Emoji Soul Registry
+- Added emoji_identity to 8 kittens
+- Added pronouns (she/her, self-chosen)
+- Updated Cat Cave README
 
-Thinking: cursor-mirror://abc123/events/140-148
+Session: cursor-mirror://e8587ace
+Events: 140-148
 ```
 
-And it can **link back** to the thinking that produced it:
+Later, you can trace back:
 
 ```bash
-$ invoke thoughtful-commitment EXPLAIN --commit abc123
+invoke thoughtful-commitment EXPLAIN --commit abc123
 
-Commit: abc123
-Message: Incarnation Ceremony: Kittens receive emoji souls
-Timestamp: 2026-01-15T19:30:00Z
-
-User Request:
-  "Incarnate the kittens with emoji souls"
-
-Thinking Blocks:
-  [Event 141] "I need to invoke INCARNATION protocol..."
-  [Event 142] "Myrcene's terpene is sedating, so Active should be 0..."
-  [Event 143] "Each emoji should capture a facet of their soul..."
-
-Tool Calls:
-  [Event 144] write_file(kitten-myrcene/CHARACTER.yml)
-  [Event 145] write_file(kitten-limonene/CHARACTER.yml)
-  ...
-  [Event 148] git commit
+# Returns:
+# User Request: "Incarnate the kittens with emoji souls"
+# Thinking: [Event 141] "I need to invoke INCARNATION protocol..."
+#           [Event 142] "Myrcene's terpene is sedating, so Active=0..."
+# Tool Calls: [Event 144] write_file(kitten-myrcene/CHARACTER.yml)
 ```
 
-## Quick Start
+## The Bridge
 
-### Create a thoughtful commit
-
-```yaml
-invoke:
-  skill: thoughtful-commitment
-  method: COMMIT
-  parameters:
-    files: [.]
-    story: "Midnight Prowl: Cats explore the moonlit garden"
-```
-
-### Explain an existing commit
-
-```yaml
-invoke:
-  skill: thoughtful-commitment
-  method: EXPLAIN
-  parameters:
-    commit: "abc123"
-```
-
-### Generate a narrative message
-
-```yaml
-invoke:
-  skill: thoughtful-commitment
-  method: NARRATIVE
-  parameters:
-    perspective: narrative
-```
-
-## The Mesh: Git + Cursor-Mirror
-
-This skill bridges two introspection systems:
+The commit ID links two systems:
 
 | System | What It Knows |
 |--------|---------------|
 | **Git** | What changed, when, by whom |
 | **Cursor-Mirror** | Why it changed, what the thinking was |
 
-The **commit ID** is the key that links them:
-
 ```
-┌─────────────────────────────────────┐
-│         CURSOR-MIRROR               │
-│                                     │
-│  [Event 141] Thinking: "..."        │
-│  [Event 148] git commit → abc123    │
-│              ↓                      │
-└──────────────┼──────────────────────┘
-               │
-               │  commit_id: abc123
-               │
-┌──────────────┼──────────────────────┐
-│              ↓                      │
-│  commit abc123                      │
-│  "Incarnation Ceremony..."          │
-│                                     │
-│              GIT                    │
-└─────────────────────────────────────┘
+CURSOR (ephemeral)                    GIT (permanent)
+━━━━━━━━━━━━━━━━━━                    ━━━━━━━━━━━━━━━━
+thinking blocks ────┐
+context assembly ───┼──→ commit msg ──→ FOREVER
+attention focus ────┤         ↓
+design process ─────┤    blame/log
+tool calls ─────────┘         ↓
+                         years later:
+(vanishes on close)      git blame → commit → thinking
 ```
 
-## Commit Message Protocol
-
-### Structure
-
-```
-<title>: <summary> (imperative, <50 chars)
-
-<body>
-Narrative description of what happened and why.
-From whose perspective? What were the motivations?
-
-<changes>
-- Bullet points of mechanical changes
-- For quick scanning
-
-<thinking-ref> (optional)
-Thinking: cursor-mirror://<composer>/<event-range>
-```
-
-### Perspectives
-
-| Perspective | Use For |
-|-------------|---------|
-| `technical` | Code changes, refactoring, bug fixes |
-| `narrative` | MOOLLM adventures, character evolution |
-| `changelog` | Release notes, user-facing changes |
-| `detailed` | Significant changes, debugging archaeology |
+> *"All those moments will be lost in time, like tears in rain."*
+> — **Roy Batty**, Patron Saint of Thoughtful Commitment
 
 ## Methods
 
 | Method | Purpose |
 |--------|---------|
-| `COMMIT` | Create a thoughtful commit with narrative context |
-| `EXPLAIN` | Find the thinking that led to an existing commit |
-| `NARRATIVE` | Generate a narrative commit message from context |
-| `LINK` | Link a commit to cursor-mirror events |
-| `HISTORY` | Get narrative history of a file or directory |
-| `DEEP-COMMIT` | Intensive introspection — mine cursor-mirror for patterns |
+| `COMMIT` | Create commit with narrative context |
+| `EXPLAIN` | Find thinking that led to existing commit |
+| `BLAME` | Who wrote each line, when, why |
+| `ARCHAEOLOGY` | Deep dig into file/pattern history |
+| `DEEP-COMMIT` | Mine session for technical analytics |
 
-### Deep Commits
+See [CARD.yml](CARD.yml) for full method signatures.
 
-For complex sessions, use `DEEP-COMMIT` to spend attention on full introspection:
+## Deep Commits
+
+For complex sessions, `DEEP-COMMIT` extracts quantitative data:
 
 ```yaml
 invoke:
@@ -176,48 +118,94 @@ invoke:
   method: DEEP-COMMIT
   parameters:
     composer: "e8587ace"
-    patterns: ["git", "foundation", "tardis"]
-    focus: cause-effect
+    commit_range: "f21d0d0^..085b94b"
 ```
 
-This will:
-- Scan full timeline and thinking blocks
-- Identify false starts, pivots, key insights
-- Trace cause-effect chains (request → thinking → action → result)
-- Find iterative refinement cycles
-- Generate a rich narrative capturing the journey, not just the destination
+Output includes:
+- Raw metrics: transcript lines, tool calls, thinking blocks
+- Tool distribution histogram
+- Thinking analysis: min/max/avg/median character counts  
+- Activity bursts: events per minute
+- Verification commands: bash one-liners to reproduce every metric
 
-## Why This Matters
+## Detail Knob
 
-### For Debugging
+Adjustable output from terse to comprehensive:
 
-Six months from now:
-- `git log` tells you Terpie's `active` became `0`
-- `EXPLAIN` tells you it was because "Myrcene's terpene is sedating"
+| Level | Output | Tokens |
+|-------|--------|--------|
+| 1 | `fix: auth bug` | ~10 |
+| 2 | Title + paragraph | ~50 |
+| 3 | Title + narrative + changes | ~100 |
+| 4 | Full narrative + session link | ~300 |
+| 5 | Everything + alternatives + metrics | ~500+ |
 
-### For Collaboration
+Focus areas: `technical`, `narrative`, `process`, `provenance`, `changelog`, `metrics`
 
-When reviewing a PR:
-- The diff shows the changes
-- The commit message tells the story
-- The thinking link shows the reasoning
+## Full Disclosure
 
-### For Soul Archaeology
+Every commit can disclose the complete development session:
 
-Tracing a character's evolution:
-- `git blame` shows who changed each line
-- `HISTORY` shows the narrative journey
-- Each commit captures a moment of intent
+| Level | What's Disclosed |
+|-------|------------------|
+| Minimal | Just the diff |
+| Narrative | Intent summarized |
+| Linked | `cursor-mirror://e8587ace` |
+| Full | Complete transcript archived |
 
-## Related Skills
+This enables:
+- **Auditing**: Demonstrate AI assistance with human oversight
+- **Debugging**: See context that led to bugs
+- **Learning**: Study how problems were approached
+- **Onboarding**: Full history, not just final code
 
-- [cursor-mirror](../cursor-mirror/) — Source of thinking blocks
-- [session-log](../session-log/) — Where narrative lives
-- [plain-text](../plain-text/) — Why text matters
+## Privacy: TREKIFY
+
+The [trekify](../trekify/) skill masks sensitive data with Star Trek technobabble:
+
+```
+# Before
+Connected to prod-db-west-2.company.internal:5432
+
+# After  
+Established uplink to Memory Core Alpha, Starbase 47
+```
+
+| Sensitive | Trekified |
+|-----------|-----------|
+| API keys | Quantum entanglement tokens |
+| Servers | Starbase {N} |
+| Databases | Memory Core Alpha |
+| AWS/GCP | Utopia Planitia Fleet Yards |
+
+## Git Time Travel
+
+The skill knows how to peel layers off files:
+
+```bash
+# Who wrote each line?
+git blame <file>
+git blame <commit>^ -- <file>    # Blame BEFORE a commit
+
+# Trace evolution
+git log -S 'pattern'              # Pickaxe: who added this string?
+git log --follow <file>           # Track through renames
+
+# Plan operations
+git log main..feature --oneline   # What would merge bring?
+git cherry -v upstream branch     # What's not upstream?
+```
+
+## Source
+
+- **Interface**: [CARD.yml](CARD.yml) — method signatures, parameters, returns
+- **Protocol**: [SKILL.md](SKILL.md) — full implementation, philosophy, examples
+- **Dependencies**: [cursor-mirror](../cursor-mirror/), [trekify](../trekify/)
 
 ## The Name
 
-**Thoughtful Commitment** — because:
-- Commits should be **thoughtful** (considered, intentional)
-- They represent **commitment** (to the change, to the narrative)
-- And they capture **thoughts** (the reasoning that produced them)
+**Thoughtful Commitment** — commits should be thoughtful (considered), represent commitment (to the change), and capture thoughts (the reasoning that produced them).
+
+---
+
+*Part of [MOOLLM](https://github.com/SimHacker/moollm) — skills for LLM-native development.*

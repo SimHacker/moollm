@@ -182,7 +182,7 @@ parameters:
 **Process:**
 1. Validate commit exists
 2. Validate events exist in cursor-mirror
-3. Store link in `.moollm/commit-links.yml`
+3. Store link in `.moollm/skills/thoughtful-commitment/commit-links.yml`
 
 **Output:**
 ```yaml
@@ -225,93 +225,98 @@ timeline:
 
 ### DEEP-COMMIT
 
-Intensive introspection mode — spend attention mining cursor-mirror for patterns.
+Technical analytics mining — extract quantitative metrics from cursor-mirror and git.
 
 **When to use:**
-- Complex multi-session development
-- Major architectural changes
-- When you want to capture the full journey, not just the destination
-- Iterative refinement with false starts and pivots
+- PR descriptions needing detailed appendices
+- Post-mortem analysis of development sessions
+- Documenting complex multi-hour sessions
+- Generating reproducible verification commands
 
 **Process:**
-1. **Timeline scan** — `cursor-mirror timeline <composer>` for full event sequence
-2. **Thinking extraction** — `cursor-mirror thinking <composer>` for reasoning blocks
-3. **Tool pattern analysis** — `cursor-mirror tools <composer>` for action patterns
-4. **Theme search** — `cursor-mirror grep <patterns>` for relevant discussions
-5. **Context archaeology** — `cursor-mirror context-sources` for what was read
-6. **Pattern recognition:**
-   - False starts and abandoned approaches
-   - Pivots and course corrections
-   - Key insights and "aha" moments
-   - Iterative refinement cycles
-7. **Cause-effect tracing:**
-   - User request → thinking → action → result → next thinking
-8. **Narrative arc construction:**
-   - Problem statement
-   - Exploration phase
-   - Solution emergence
-   - Verification
+
+~~~bash
+# 1. Raw metrics extraction
+TRANSCRIPT="path/to/transcript.txt"
+wc -l "$TRANSCRIPT"                           # line count
+wc -c "$TRANSCRIPT"                           # byte count
+grep -c "^\[Tool call\]" "$TRANSCRIPT"        # tool calls
+grep -c "^\[Thinking\]" "$TRANSCRIPT"         # thinking blocks
+grep -c "^user:" "$TRANSCRIPT"                # user turns
+
+# 2. Tool distribution
+grep "^\[Tool call\]" "$TRANSCRIPT" | cut -d' ' -f3 | sort | uniq -c | sort -rn
+
+# 3. Thinking block analysis
+grep "^\[Thinking\]" "$TRANSCRIPT" | while read l; do echo ${#l}; done | \
+  sort -n | awk 'BEGIN{sum=0} {a[NR]=$1; sum+=$1} END{
+    printf "Count: %d\nMin: %d\nMax: %d\nAvg: %.0f\nMedian: %d\n", 
+           NR, a[1], a[NR], sum/NR, a[int(NR/2)]
+  }'
+
+# 4. Activity bursts
+cursor-mirror timeline <composer> 2>&1 | \
+  grep -E "^[0-9]{4}-" | cut -d: -f1-2 | uniq -c
+
+# 5. Git commit metrics
+git log --oneline <range>
+git diff --numstat <range> | awk '{ins+=$1; del+=$2} END{print ins, del}'
+
+# 6. Word frequency in thinking
+grep "^\[Thinking\]" "$TRANSCRIPT" | tr '[:upper:]' '[:lower:]' | \
+  tr -cs '[:alpha:]' '\n' | sort | uniq -c | sort -rn | head -20
+~~~
 
 **Input:**
-```yaml
+~~~yaml
 method: DEEP-COMMIT
 parameters:
   composer: string       # Composer ID (@1, name fragment, hash)
-  patterns: [string]     # Keywords to grep for
-  focus: enum            # cause-effect | iterations | pivots | decisions | all
-```
+  commit_range: string   # Git range (e.g., "f21d0d0^..085b94b")
+~~~
 
 **Output:**
-```yaml
-narrative: |
-  Started with a question about Chris Crawford's interactive storytelling.
-  Explored MOOLLM's character systems, found the speed-of-light pattern.
-  Key pivot: "Git IS the engine" — files are state, commits are narrative.
-  Iterated through three versions of the elevator pitch.
-  False start: tried to separate git-workflow from thoughtful-commitment.
-  Resolution: they complement each other, different scopes.
-  
-key_moments:
-  - event: 42
-    type: insight
-    content: "The TARDIS property — git is a time machine"
-  - event: 67
-    type: pivot
-    content: "Don't build an engine, build a medium"
-    
-iterations:
-  - attempt: 1
-    approach: "Detailed git tool design"
-    outcome: "Too mechanical, missing the why"
-  - attempt: 2
-    approach: "Focus on commit messages as narrative"
-    outcome: "Better, but still tool-centric"
-  - attempt: 3
-    approach: "thoughtful-commitment as skill"
-    outcome: "Captures the philosophy"
-    
-cause_effect:
-  - request: "Deep dive on MOOLLM and Crawford"
-    thinking: "Need to understand character systems first"
-    action: "Read kernel/README.md, skills/INDEX.yml"
-    result: "Found coherence-engine, speed-of-light"
-    next: "These patterns address Crawford's challenges"
+~~~markdown
+## Appendix: Technical Analytics — Session <composer>
 
-commit_message: |
-  Git as Foundation: The TARDIS awakens
-  
-  [rich narrative generated from deep analysis...]
-```
+### Raw Metrics
+Transcript: 8,890 lines | 390.7 KB
+Tool Calls: 85 total
+Thinking:   74 blocks | 11.1 KB
 
-**Example invocation:**
-```
-User: "Make a deep commitment for this session"
+### Tool Distribution
+36x Shell
+23x Read
+11x StrReplace
+...
 
-LLM: [Runs full cursor-mirror analysis]
-     [Identifies 3 key insights, 2 pivots, 4 iteration cycles]
-     [Traces cause-effect chains through 47 events]
-     [Generates rich narrative commit message]
-```
+### Activity Bursts (events/minute)
+16:46  16 events  ████████████████
+20:08  10 events  ██████████
+20:22  12 events  ████████████
+
+### Commit Metrics
+| Commit | Files | +Lines | -Lines |
+|--------|-------|--------|--------|
+| f21d0d0 | 7 | 1,515 | 0 |
+...
+
+### Verification Commands
+~~~bash
+# Reproduce these metrics:
+wc -l "$TRANSCRIPT"
+grep -c "^\[Tool call\]" "$TRANSCRIPT"
+...
+~~~
+~~~
+
+**Example session e8587ace produced:**
+- 8,890 transcript lines
+- 85 tool calls (36 Shell, 23 Read, 11 StrReplace)
+- 75 thinking blocks (avg 151 chars)
+- 3 commits (+1,656 net lines)
+- 4 files created (1,526 lines total)
+- Activity burst at 20:22 (12 events/min during meta-commit)
 
 ## Implementation Notes
 
@@ -334,10 +339,10 @@ python3 cursor_mirror.py thinking <composer> --before <commit-event-id>
 
 ### Storage of Links
 
-Links are stored in `.moollm/commit-links.yml`:
+Links are stored in `.moollm/skills/thoughtful-commitment/commit-links.yml`:
 
 ```yaml
-# .moollm/commit-links.yml
+# .moollm/skills/thoughtful-commitment/commit-links.yml
 links:
   abc123:
     composer: def456

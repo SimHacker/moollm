@@ -10,6 +10,7 @@ card:
   emoji: 🪱
   tier: 1
   tagline: "Two-pointer reversible cursor for traversal and pipelines."
+  config_dir: ".moollm/skills/worm"
   
   description: |
     Two-pointer worm (head/tail) cursor that inchworms through directories
@@ -116,7 +117,7 @@ state:
   digestive_format: "neutral"
   active_tokens: []
   scan_pattern: ""
-  emit_dir: ".moollm/worm-out"
+  emit_dir: ".moollm/skills/worm/out"
   reversible: true
 
 # VARIANTS

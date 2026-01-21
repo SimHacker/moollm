@@ -41,7 +41,7 @@ The worm's verbs form a reversible basis for undo/redo:
 ```
 "Move the worm to skills/adventure/"
 "EAT the CARD.yml"
-"POOP what you learned to .moollm/worm-out/"
+"POOP what you learned to .moollm/skills/worm/out/"
 ```
 
 ## Movement
@@ -104,7 +104,7 @@ tail: "."           # Current tail position
 buffer: []          # Ingested content
 payload: null       # Last consumed chunk
 active_tokens: []   # Parsed tokens in worm's "brain"
-emit_dir: ".moollm/worm-out"
+emit_dir: ".moollm/skills/worm/out"
 reversible: true    # Enable undo/redo basis
 ```
 

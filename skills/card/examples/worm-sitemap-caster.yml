@@ -21,7 +21,7 @@ card:
 state:
   head: "."
   tail: "."
-  emit_dir: ".moollm/worm-out"
+  emit_dir: ".moollm/skills/worm/out"
   max_depth: 3
   include_patterns: ["*.md","*.yml","*.html"]
   exclude_patterns: [".git","node_modules","dist"]
@@ -45,7 +45,7 @@ advertisements:
     delegate:
       method: EMIT-SITEMAP
       params:
-        emit_dir: "{{emit_dir|.moollm/worm-out}}"
+        emit_dir: "{{emit_dir|.moollm/skills/worm/out}}"
 
 methods:
   RUN-WORM:
