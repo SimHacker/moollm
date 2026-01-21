@@ -156,6 +156,46 @@ methods:
     returns:
       timeline: array  # Each entry: commit + message + thinking
 
+  DEEP-COMMIT:
+    description: "Intensive introspection before committing — mine cursor-mirror deeply"
+    note: "Spend attention understanding cause-effect, iteration patterns, false starts"
+    process:
+      - "cursor-mirror timeline <composer> — full event sequence"
+      - "cursor-mirror thinking <composer> — all reasoning blocks"
+      - "cursor-mirror tools <composer> — tool call patterns"
+      - "cursor-mirror grep <patterns> — search for relevant themes"
+      - "cursor-mirror context-sources <composer> — what context was assembled"
+      - "Identify: false starts, pivots, key insights, iterative refinement"
+      - "Trace cause-effect: user request → thinking → action → result → next thinking"
+      - "Find the narrative arc: problem → exploration → solution → verification"
+    parameters:
+      composer:
+        type: string
+        description: "Composer ID (or @1 for largest, name fragment, etc)"
+      patterns:
+        type: array
+        items: string
+        description: "Keywords to grep for in chat history"
+      focus:
+        type: string
+        enum: [cause-effect, iterations, pivots, decisions, all]
+        default: all
+        description: "What aspect of development to emphasize"
+    returns:
+      narrative: string      # Rich narrative of what happened
+      key_moments: array     # Pivotal thinking blocks
+      iterations: array      # Revision cycles
+      cause_effect: array    # Request → thinking → action chains
+      commit_message: string # Generated commit message
+    example: |
+      invoke:
+        skill: thoughtful-commitment
+        method: DEEP-COMMIT
+        parameters:
+          composer: "e8587ace"
+          patterns: ["git", "foundation", "tardis"]
+          focus: cause-effect
+
 # COMMIT MESSAGE PROTOCOL
 
 commit_message_protocol:

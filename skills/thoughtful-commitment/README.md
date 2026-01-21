@@ -164,6 +164,28 @@ Thinking: cursor-mirror://<composer>/<event-range>
 | `NARRATIVE` | Generate a narrative commit message from context |
 | `LINK` | Link a commit to cursor-mirror events |
 | `HISTORY` | Get narrative history of a file or directory |
+| `DEEP-COMMIT` | Intensive introspection — mine cursor-mirror for patterns |
+
+### Deep Commits
+
+For complex sessions, use `DEEP-COMMIT` to spend attention on full introspection:
+
+```yaml
+invoke:
+  skill: thoughtful-commitment
+  method: DEEP-COMMIT
+  parameters:
+    composer: "e8587ace"
+    patterns: ["git", "foundation", "tardis"]
+    focus: cause-effect
+```
+
+This will:
+- Scan full timeline and thinking blocks
+- Identify false starts, pivots, key insights
+- Trace cause-effect chains (request → thinking → action → result)
+- Find iterative refinement cycles
+- Generate a rich narrative capturing the journey, not just the destination
 
 ## Why This Matters
 

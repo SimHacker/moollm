@@ -223,6 +223,96 @@ timeline:
     summary: "Created basic character files"
 ```
 
+### DEEP-COMMIT
+
+Intensive introspection mode — spend attention mining cursor-mirror for patterns.
+
+**When to use:**
+- Complex multi-session development
+- Major architectural changes
+- When you want to capture the full journey, not just the destination
+- Iterative refinement with false starts and pivots
+
+**Process:**
+1. **Timeline scan** — `cursor-mirror timeline <composer>` for full event sequence
+2. **Thinking extraction** — `cursor-mirror thinking <composer>` for reasoning blocks
+3. **Tool pattern analysis** — `cursor-mirror tools <composer>` for action patterns
+4. **Theme search** — `cursor-mirror grep <patterns>` for relevant discussions
+5. **Context archaeology** — `cursor-mirror context-sources` for what was read
+6. **Pattern recognition:**
+   - False starts and abandoned approaches
+   - Pivots and course corrections
+   - Key insights and "aha" moments
+   - Iterative refinement cycles
+7. **Cause-effect tracing:**
+   - User request → thinking → action → result → next thinking
+8. **Narrative arc construction:**
+   - Problem statement
+   - Exploration phase
+   - Solution emergence
+   - Verification
+
+**Input:**
+```yaml
+method: DEEP-COMMIT
+parameters:
+  composer: string       # Composer ID (@1, name fragment, hash)
+  patterns: [string]     # Keywords to grep for
+  focus: enum            # cause-effect | iterations | pivots | decisions | all
+```
+
+**Output:**
+```yaml
+narrative: |
+  Started with a question about Chris Crawford's interactive storytelling.
+  Explored MOOLLM's character systems, found the speed-of-light pattern.
+  Key pivot: "Git IS the engine" — files are state, commits are narrative.
+  Iterated through three versions of the elevator pitch.
+  False start: tried to separate git-workflow from thoughtful-commitment.
+  Resolution: they complement each other, different scopes.
+  
+key_moments:
+  - event: 42
+    type: insight
+    content: "The TARDIS property — git is a time machine"
+  - event: 67
+    type: pivot
+    content: "Don't build an engine, build a medium"
+    
+iterations:
+  - attempt: 1
+    approach: "Detailed git tool design"
+    outcome: "Too mechanical, missing the why"
+  - attempt: 2
+    approach: "Focus on commit messages as narrative"
+    outcome: "Better, but still tool-centric"
+  - attempt: 3
+    approach: "thoughtful-commitment as skill"
+    outcome: "Captures the philosophy"
+    
+cause_effect:
+  - request: "Deep dive on MOOLLM and Crawford"
+    thinking: "Need to understand character systems first"
+    action: "Read kernel/README.md, skills/INDEX.yml"
+    result: "Found coherence-engine, speed-of-light"
+    next: "These patterns address Crawford's challenges"
+
+commit_message: |
+  Git as Foundation: The TARDIS awakens
+  
+  [rich narrative generated from deep analysis...]
+```
+
+**Example invocation:**
+```
+User: "Make a deep commitment for this session"
+
+LLM: [Runs full cursor-mirror analysis]
+     [Identifies 3 key insights, 2 pivots, 4 iteration cycles]
+     [Traces cause-effect chains through 47 events]
+     [Generates rich narrative commit message]
+```
+
 ## Implementation Notes
 
 ### Finding Cursor-Mirror Events for a Commit
