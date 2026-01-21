@@ -367,16 +367,29 @@ See: ["Object Oriented Programming in NeWS"](https://donhopkins.com/home/montere
 
 ---
 
-#### 👨🃏📐🎨✨ Arthur van Hoff — The Axis of Eval (1989-1992)
+#### 👨🃏📐🎨✨ Arthur van Hoff — HyperLook → Java → Bongo (1989-1997)
 
-**HyperLook** (Turing Institute, 1989-1992) — HyperCard reimagined for NeWS. PostScript for code, graphics, AND data. Network delegation.
+**HyperLook** (Turing Institute, 1989-1992) — HyperCard reimagined for NeWS. PostScript for code, graphics, AND data. Network delegation. Don Hopkins ported SimCity to HyperLook.
 
 > *"Object => Card => Background => Stack => Client delegation"*
 
-**Why HyperLook is FOUNDATIONAL to MOOLLM:**
+**After HyperLook:** Van Hoff joined Gosling at Sun on the Oak/Java team:
+- Wrote the **Java compiler in Java**
+- Created **AWT** (Abstract Window Toolkit)
+- **HotJava** — the first Java browser, major inspiration
+
+**Marimba & Bongo (1996):** Co-founded Marimba with the Java team. Created **Bongo** — HyperCard/HyperLook for Java:
+- Visual authoring tool with "presentations" (like HyperCard stacks)
+- **Live code** — edit and compile Java event handlers at runtime
+- Used his own Java compiler for the runtime magic
+
+**The lineage:** HyperCard (Mac) → HyperLook (NeWS) → Bongo (Java) — same vision, three platforms.
+
+**Why van Hoff is FOUNDATIONAL to MOOLLM:**
 - 🔺 **The Axis of Eval** — Code, Graphics, Data unified by one interpreter
 - 📂 **Delegation chain** — Object => Room => Parent => Skill => Prototype
 - 🎴 **Cards as interfaces** — CARD.yml is named after this
+- ☕ **HyperLook → Bongo → MOOLLM** — The visual authoring lineage continues
 
 See: [HyperLook (nee HyperNeWS)](https://donhopkins.medium.com/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4)
 
