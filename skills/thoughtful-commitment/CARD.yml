@@ -524,6 +524,13 @@ methods:
         type: boolean
         default: true
         description: "Include reasoning from conversation context"
+      "...":
+        type: implicit
+        description: |
+          Everything the user wrote at the prompt flows into context.
+          Like variadic args in classic languages: func(a, b, ...rest)
+          The LLM naturally captures this, but worth noting the parallel.
+          Your conversational preamble, asides, and context all contribute.
     returns:
       commit_id: string
       message: string
