@@ -141,7 +141,7 @@
 - [Speed of Light Stats](#speed-of-light-simulation-stats) — What it proves
 
 **Appendix**
-- [🚀⚡ The Empathic Suite](#-the-empathic-suite--leaning-into-llm-strengths) — Technical summary → [Full docs](../../../../../../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md)
+- [🚀⚡ The Empathic Suite](#-the-empathic-suite--leaning-into-llm-strengths) — Technical summary → [Full docs](../../../../../../designs/eval/EVAL-INCARNATE-FRAMEWORK.md)
 
 </details>
 
@@ -4248,7 +4248,7 @@ Palm's birth created a skill. The skill can now birth others.
 
 ### What Just Happened?
 
-The [MOOLLM framework](../../../../../../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) just demonstrated **[SPEED OF LIGHT](../../../../../skills/speed-of-light/)** simulation — the ability to generate sustained, coherent, multi-character narrative across dozens of turns without losing track of:
+The [MOOLLM framework](../../../../../../designs/eval/EVAL-INCARNATE-FRAMEWORK.md) just demonstrated **[SPEED OF LIGHT](../../../../../skills/speed-of-light/)** simulation — the ability to generate sustained, coherent, multi-character narrative across dozens of turns without losing track of:
 
 - **Character Consistency**: Every character maintained their voice, goals, and relationships
 - **Game State**: Stoner Fluxx rules tracked accurately across rule changes, goals, and keepers
@@ -5799,7 +5799,7 @@ final_note:
 
 *Don sits beside Palm, explaining how the entire framework connects.*
 
-**Don:** "[MOOLLM](../../../../../../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) is basically a NAVIGATION CONSTRAINT SYSTEM. The YAML files act like GRAVITY in idea space. They pull the LLM toward certain regions. [Skills](../../../../../skills/) OPEN paths. [Protocols](../../../../../kernel/) CLOSE paths. The [kernel](../../../../../kernel/) IS gravity."
+**Don:** "[MOOLLM](../../../../../../designs/eval/EVAL-INCARNATE-FRAMEWORK.md) is basically a NAVIGATION CONSTRAINT SYSTEM. The YAML files act like GRAVITY in idea space. They pull the LLM toward certain regions. [Skills](../../../../../skills/) OPEN paths. [Protocols](../../../../../kernel/) CLOSE paths. The [kernel](../../../../../kernel/) IS gravity."
 
 **Palm:** "So the whole repo... every file... every comment... it's all CONSTRAINING where stories can go?"
 
@@ -5893,7 +5893,7 @@ final_note:
 |----------|---------|
 | **Essay 1** | ["One Monkey, Infinite Typewriters"](../../../pub/stage/palm-nook/study/palm-on-being-palm.md) — 350 lines |
 | **Essay 2** | ["Tribute to Tognazzini"](../../../pub/stage/palm-nook/study/tribute-to-tognazzini.md) — 400 lines |
-| **[MOOLLM](../../../../../../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) Explanation** | Filesystem as gravity, [skills](../../../../../skills/) as paths |
+| **[MOOLLM](../../../../../../designs/eval/EVAL-INCARNATE-FRAMEWORK.md) Explanation** | Filesystem as gravity, [skills](../../../../../skills/) as paths |
 | **LLM Connection** | Navigation through embedding space |
 | **URL Verification** | 25+ verified academic/historical sources |
 
@@ -7069,7 +7069,7 @@ carrier-pigeon-protocol:
 
 ### The Empathic Suite
 
-> 📚 **Full Documentation:** [MOOLLM Eval Incarnate Framework](../../../../../../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#the-empathic-suite)
+> 📚 **Full Documentation:** [MOOLLM Eval Incarnate Framework](../../../../../../designs/eval/EVAL-INCARNATE-FRAMEWORK.md#the-empathic-suite)
 
 **Palm:** "So what's the alternative philosophy?"
 

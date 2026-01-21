@@ -135,7 +135,7 @@ The whole thing is open source:
 
 - **GitHub:** https://github.com/SimHacker/moollm
 - **Epic Session Log:** `examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md` — 6,700 lines of adventure
-- **The Framework Manifesto:** `designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md`
+- **The Framework Manifesto:** `designs/eval/EVAL-INCARNATE-FRAMEWORK.md`
 - **Palm's Essays:** `examples/adventure-4/pub/stage/palm-nook/study/`
 
 I'd love to hear what you think. The kid who played your adventures on the Apple ][ is now building adventures that the computer can *understand*. Full circle, 45 years later.
@@ -164,4 +164,4 @@ P.P.S. — I named my framework philosophy after your quote: "I never saw proble
   - [On Being Palm](https://github.com/SimHacker/moollm/blob/main/examples/adventure-4/pub/stage/palm-nook/study/palm-on-being-palm.md)
   - [Tribute to Tognazzini](https://github.com/SimHacker/moollm/blob/main/examples/adventure-4/pub/stage/palm-nook/study/tribute-to-tognazzini.md)
 - Session Log: https://github.com/SimHacker/moollm/blob/main/examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md
-- Framework Manifesto: https://github.com/SimHacker/moollm/blob/main/designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md
+- Framework Manifesto: https://github.com/SimHacker/moollm/blob/main/designs/eval/EVAL-INCARNATE-FRAMEWORK.md

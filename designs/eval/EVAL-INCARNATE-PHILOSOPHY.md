@@ -206,7 +206,7 @@ The pun is intentional. It signals:
 
 - [EVAL-VS-SIM.md](./EVAL-VS-SIM.md) — Genre comparison
 - [THE-EVALS-DESIGN.md](./THE-EVALS-DESIGN.md) — Social simulation
-- [../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Technical framework
+- [EVAL-INCARNATE-FRAMEWORK.md](./EVAL-INCARNATE-FRAMEWORK.md) — Technical framework
 
 ---
 

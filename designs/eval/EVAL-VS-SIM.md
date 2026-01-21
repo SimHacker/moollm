@@ -253,7 +253,7 @@ From SIM to EVAL is a paradigm shift:
 - [EVAL-INCARNATE-PHILOSOPHY.md](./EVAL-INCARNATE-PHILOSOPHY.md) — Core philosophy
 - [EVAL-BRAND-FAMILY.md](./EVAL-BRAND-FAMILY.md) — Title catalog
 - [../sims/sims-design-index.md](../sims/sims-design-index.md) — Sims heritage
-- [../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Technical framework
+- [EVAL-INCARNATE-FRAMEWORK.md](./EVAL-INCARNATE-FRAMEWORK.md) — Technical framework
 
 ---
 

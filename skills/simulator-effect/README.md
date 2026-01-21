@@ -21,7 +21,7 @@
 | [speed-of-light/](../speed-of-light/) | One call, many turns -- imagination does the rendering |
 | [needs/](../needs/) | Sims motives as numeric seeds for imagined behavior |
 | [sims-astrology](../../designs/sims/sims-astrology.md) | The Astrillogical Effect -- zero code, maximum perceived effect |
-| [MOOLLM-EVAL-INCARNATE-FRAMEWORK](../../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#the-simulator-effect) | Full theory |
+| [EVAL-INCARNATE-FRAMEWORK](../../designs/eval/EVAL-INCARNATE-FRAMEWORK.md#the-simulator-effect) | Full theory |
 
 **Quick Links:**
 - [Full Specification](SKILL.md) -- complete protocol
@@ -254,7 +254,7 @@ MOOLLM (2025)
 ## See Also
 
 - [sims-astrology.md](../../designs/sims/sims-astrology.md) -- The Astrillogical Effect
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#the-simulator-effect](../../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#the-simulator-effect) -- Full theory
+- [EVAL-INCARNATE-FRAMEWORK.md#the-simulator-effect](../../designs/eval/EVAL-INCARNATE-FRAMEWORK.md#the-simulator-effect) -- Full theory
 - [k-lines/](../k-lines/) -- The mechanism
 - [adversarial-committee/](../adversarial-committee/) -- Many-voiced antidote to mode-collapse
 - [yaml-jazz/](../yaml-jazz/) -- Comments as imagination seeds

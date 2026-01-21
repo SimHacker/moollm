@@ -74,7 +74,7 @@ Marvin Minsky (Society of Mind, K-lines, 1985)
 | **Dr. Milan Singh Minsky** | VP Product | Technology startups, RayVio (UV-C LED) |
 | **Sheung Li** | VP Applications | Machine vision in manufacturing, product/marketing |
 | **Dr. Steve Kommrusch** | Senior AI Research Scientist | Deep learning, CPU/chip design (AMD, HP, National Semiconductor) |
-| **Don Hopkins** | AI Architect | [The Sims](../../designs/sims/sims-design-index.md), [NeWS](../../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#7-news-james-gosling-sun-1986), [MOOLLM](../moollm/), pie menus |
+| **Don Hopkins** | AI Architect | [The Sims](../../designs/sims/sims-design-index.md), [NeWS](../../designs/postscript/LINGUISTIC-MOTHERBOARD.md), [MOOLLM](../moollm/), pie menus |
 
 ---
 
@@ -320,7 +320,7 @@ Manufacturing intelligence responsibly means manufacturing *informed* consent.
 
 ### Ethics
 - [representation-ethics/](../representation-ethics/) -- Responsible AI
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) -- Full philosophy
+- [EVAL-INCARNATE-FRAMEWORK.md](../../designs/eval/EVAL-INCARNATE-FRAMEWORK.md) -- Full philosophy
 
 ---
 

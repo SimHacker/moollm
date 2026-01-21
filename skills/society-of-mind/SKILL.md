@@ -393,5 +393,5 @@ agents:
 - [adversarial-committee/README.md](../adversarial-committee/README.md) -- Committee as deliberating society
 - [needs/README.md](../needs/README.md) -- Sims motive system
 - [simulator-effect/README.md](../simulator-effect/README.md) -- Implication over simulation
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#4-k-lines--society-of-mind-marvin-minsky-mit-1980) -- K-lines section
+- [EVAL-INCARNATE-FRAMEWORK.md](../../designs/eval/EVAL-INCARNATE-FRAMEWORK.md#appendix-a-intellectual-lineage) -- K-lines section
 - [sims-astrology.md](../../designs/sims/sims-astrology.md) -- Astrillogical Effect case study

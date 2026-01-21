@@ -564,14 +564,6 @@ Some heroes have recently left us. Their work lives on:
 ### 👩🎮🏳️‍⚧️👥💔 Dani Bunten Berry (1949-1998)
 🎮 M.U.L.E. creator, Seven Cities of Gold, multiplayer pioneer. **The Sims was dedicated to her memory.** 🏳️‍⚧️ Trans woman who transitioned late in life and spoke openly about her experiences.
 
-### 👩🐉🎮🗺️✨ Jennell Jaquays (1956-2024)
-- 🎨 Fantasy artist: The Dungeoneer, Dragon Magazine, Judges Guild (Dark Tower, Caverns of Thracia)
-- 🗺️ Game designer: Quake II, Quake III Arena (id Software)
-- 📐 Her name became a verb: **"Jaquaysing"** — non-linear, multi-path dungeon design
-- 🏆 Hall of Fame (Academy of Adventure Gaming Arts & Design, 2017)
-- 🏳️‍⚧️ Trans pioneer. Wife of Rebecca Heineman
-- 💔 Died January 10, 2024
-
 ### 👩💻🔌⚡🏳️‍⚧️ Lynn Conway (1938-2024)
 - 🔌 Co-invented VLSI chip design with Carver Mead — the "Mead-Conway revolution"
 - ⚡ Invented dynamic instruction scheduling (out-of-order execution) at IBM
@@ -580,6 +572,14 @@ Some heroes have recently left us. Their work lives on:
 - 🏆 National Inventors Hall of Fame (2023), IEEE James Clerk Maxwell Medal (2015)
 - 🏳️‍⚧️ Trans pioneer. IBM apologized in 2020
 - 💔 Died June 9, 2024
+
+### 👩🐉🎮🗺️✨ Jennell Jaquays (1956-2024)
+- 🎨 Fantasy artist: The Dungeoneer, Dragon Magazine, Judges Guild (Dark Tower, Caverns of Thracia)
+- 🗺️ Game designer: Quake II, Quake III Arena (id Software)
+- 📐 Her name became a verb: **"Jaquaysing"** — non-linear, multi-path dungeon design
+- 🏆 Hall of Fame (Academy of Adventure Gaming Arts & Design, 2017)
+- 🏳️‍⚧️ Trans pioneer. Wife of Rebecca Heineman
+- 💔 Died January 10, 2024
 
 ### 👩🎮👾🏆⚡ Rebecca Heineman (1963-2025)
 - 🏆 First U.S. National Space Invaders Champion (1980, age 16)

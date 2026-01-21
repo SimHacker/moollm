@@ -25,7 +25,7 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 
 **The key insight:** Skills aren't documentation. They're programs. The LLM is `eval()`.
 
-> 📚 Full explanation: [MOOLLM Eval Incarnate Framework](../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md)
+> 📚 Full explanation: [MOOLLM Eval Incarnate Framework](../designs/eval/EVAL-INCARNATE-FRAMEWORK.md)
 
 ---
 

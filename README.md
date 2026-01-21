@@ -20,7 +20,7 @@ The filesystem is a place. Directories are rooms. Files are objects. The LLM is 
 | 📖 **[QUICKSTART.md](./QUICKSTART.md)** | Get playing in 2 minutes |
 | 🎮 **[examples/adventure-4/](./examples/adventure-4/)** | The richest microworld — pub, NPCs, incarnated characters |
 | 🧠 **[skills/](./skills/)** | ~80 skills — the building blocks |
-| 📜 **[designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md)** | The deep dive — intellectual genealogy |
+| 📜 **[designs/eval/EVAL-INCARNATE-FRAMEWORK.md](./designs/eval/EVAL-INCARNATE-FRAMEWORK.md)** | The deep dive — intellectual genealogy |
 
 ---
 
@@ -87,7 +87,7 @@ Traditional multi-agent: API call → tokenize → process → detokenize → AP
 | 6 | **CARD.yml** | Machine-readable interface with advertisements |
 | 7 | **Ethical Framing** | Room-based inheritance of performance context |
 
-> 📚 Full explanation: [MOOLLM Eval Incarnate Framework](./designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md)
+> 📚 Full explanation: [MOOLLM Eval Incarnate Framework](./designs/eval/EVAL-INCARNATE-FRAMEWORK.md)
 
 ---
 
@@ -109,7 +109,7 @@ MOOLLM stands on decades of work:
 | **Pavel Curtis** | LambdaMOO | User-built rooms, programmable world |
 | **Don Hopkins** | Pie menus, SimCity, The Sims | All of the above, synthesized |
 
-> 📚 Full genealogy: [MOOLLM Eval Incarnate Framework](./designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#the-intellectual-genealogy)
+> 📚 Full genealogy: [MOOLLM Eval Incarnate Framework](./designs/eval/EVAL-INCARNATE-FRAMEWORK.md#appendix-a-intellectual-lineage)
 
 ---
 
@@ -119,7 +119,7 @@ MOOLLM stands on decades of work:
 
 | Document | What It Covers |
 |----------|----------------|
-| [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) | **The deep dive.** Intellectual genealogy, Axis of Eval, architecture |
+| [EVAL-INCARNATE-FRAMEWORK.md](./designs/eval/EVAL-INCARNATE-FRAMEWORK.md) | **The deep dive.** Intellectual genealogy, Axis of Eval, architecture |
 | [MOOLLM-MANIFESTO.md](./designs/MOOLLM-MANIFESTO.md) | Core philosophy |
 | [CHANGES.md](./designs/CHANGES.md) | James Burke narrative of 500+ commits |
 | [sims-design-index.md](./designs/sims/sims-design-index.md) | All The Sims → MOOLLM documents |
