@@ -230,6 +230,26 @@ These are **tribute incarnations** -- fictional explorations based on documented
 
 ---
 
+#### 👨🔗📚🌀💢 Ted Nelson — EVERYTHING IS DEEPLY INTERTWINGLED (1965)
+
+**Xanadu** (Project started 1960) and **hypertext** (term coined 1963) — Nelson saw the fundamental truth: information is not hierarchical, it's a **tangled web of connections**. He invented the concepts of hypertext, transclusion (quoting by reference, not copy), and intertwingularity.
+
+> *"EVERYTHING IS DEEPLY INTERTWINGLED. In an important sense there are no 'subjects' at all; there is only all knowledge, since the cross-connections among the many topics of this world simply cannot be divided up neatly."* — Computer Lib/Dream Machines (1974)
+
+**Why Nelson is FOUNDATIONAL to MOOLLM:**
+- 🔗 **Hypertext** — Files reference files, rooms link to rooms, characters cite each other
+- 📎 **Transclusion** — MOOLLM's inheritance is "include by reference" — change the source, all copies update
+- 🌀 **Intertwingularity** — Skills, characters, rooms, state are all deeply intertwingled
+- 💢 **The glorious rage** — Nelson's frustration with "the computer priesthood" echoes in MOOLLM's Reader = Writer philosophy
+
+**The Engelbart-Nelson duality:** Engelbart demonstrated hypertext (1968). Nelson *named* it (1963) and articulated *why* it mattered. Engelbart was the engineer; Nelson was the prophet. Both are foundational.
+
+**Xanadu's unfulfilled promises:** Two-way links. Version control. Micropayments for transclusion. The web gave us one-way links and "404 Not Found." MOOLLM's filesystem-as-truth approach is closer to Xanadu's vision — files ARE the links, and the filesystem tracks versions.
+
+See: [Computer Lib/Dream Machines](https://archive.org/details/computer-lib-dream-machines) | [Project Xanadu](https://xanadu.com/)
+
+---
+
 ### 🧠 The Object-Oriented Revolutionaries (1970s-80s)
 
 #### 👨💻🔮🚀🎯 Alan Kay — Objects All The Way Down
@@ -428,7 +448,7 @@ See: [HyperLook (nee HyperNeWS)](https://donhopkins.medium.com/hyperlook-nee-hyp
 
 **TinyMUD** (Carnegie Mellon, 1989) — Text-based virtual world where users build rooms, objects, and behaviors. Created by Aspnes as a student project, it spawned an entire genre.
 
-**The CMU connection:** Aspnes created TinyMUD at the same campus where Brad Myers was developing Garnet and Dan Ingalls would later work on Squeak. CMU was a crucible for user-interface innovation.
+**The CMU connection:** Aspnes created TinyMUD at the same campus where Brad Myers was developing Garnet. CMU was a crucible for user-interface innovation.
 
 **Why TinyMUD is FOUNDATIONAL to MOOLLM:**
 - 🏗️ **Builder commands** — `@dig`, `@describe`, `@create`, `@link`
@@ -481,7 +501,7 @@ See: [HyperLook (nee HyperNeWS)](https://donhopkins.medium.com/hyperlook-nee-hyp
 
 **The hypertext family tree:** HyperCard wasn't alone — Ben Shneiderman's HyperTies (UMD, 1983) was an earlier hypertext system where Don Hopkins worked as an intern. Ted Nelson's Xanadu vision (1960s) inspired them all. The thread runs: Nelson → Engelbart → HyperTies → HyperCard → HyperLook → Bongo → OpenLaszlo → the web → MOOLLM.
 
-**The reactive programming thread:** Brad Myers' Garnet (CMU) → David Temkin's OpenLaszlo → Svelte → MOOLLM. At Laszlo Systems, Don Hopkins worked with Henry Minsky (Marvin's son) and Oliver Steele (inventor of the "Instance Substitution Principle"). This thread of constraints, prototypes, and reactive UI runs directly into MOOLLM — and Leela's platform is built on Svelte.
+**The reactive programming thread:** Brad Myers' Garnet (CMU) → Oliver Steele's OpenLaszlo → Svelte → MOOLLM. At Laszlo Systems, Don Hopkins worked with Henry Minsky (Marvin's son) and Oliver Steele (inventor of the "Instance Substitution Principle"). This thread of constraints, prototypes, and reactive UI runs directly into MOOLLM — and Leela's platform is built on Svelte.
 
 **Why HyperCard is FOUNDATIONAL to MOOLLM:**
 - ✏️ **Reader = Writer symmetry** — Anyone who can play can edit
