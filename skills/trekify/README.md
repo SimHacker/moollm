@@ -164,6 +164,108 @@ invoke:
     substitution_key: "..." # From original MASK operation
 ```
 
+## Active Probing (Composing with cursor-mirror)
+
+TREKIFY composes with cursor-mirror for **active hunting** of sensitive patterns:
+
+### PROBE
+Run all probes on a session:
+
+```bash
+trekify PROBE e8587ace --probes all
+
+# Output:
+# FINDINGS:
+# - [CRITICAL] API key pattern in thinking block line 423
+# - [HIGH] Internal hostname in tool call line 156
+# - [MEDIUM] Private IP address in context assembly
+#
+# Risk Score: HIGH
+# Recommendation: Run MASK-SESSION before sharing
+```
+
+### PROBE-SECRETS
+Hunt for leaked credentials:
+
+```bash
+trekify PROBE-SECRETS e8587ace
+
+# Patterns hunted:
+# - API keys: sk-*, AKIA*, api_key=*
+# - Passwords: password=*, passwd:*
+# - Tokens: bearer *, jwt=*
+# - Private keys: -----BEGIN PRIVATE KEY-----
+# - Connection strings: postgres://, mysql://
+```
+
+### PROBE-INFRASTRUCTURE
+Hunt for internal infrastructure:
+
+```bash
+trekify PROBE-INFRASTRUCTURE e8587ace
+
+# Patterns hunted:
+# - Internal hostnames: *.internal, *.local, *.corp
+# - Private IPs: 10.*, 192.168.*, 172.16-31.*
+# - Cloud resources: arn:aws:*, projects/*/locations/*
+```
+
+### PROBE-PROPRIETARY
+Hunt for your proprietary terms:
+
+```bash
+# First, create your terms file:
+echo "secret-project-x" >> .moollm/trekify/proprietary-terms.txt
+echo "customer-acme" >> .moollm/trekify/proprietary-terms.txt
+
+# Then probe:
+trekify PROBE-PROPRIETARY e8587ace
+```
+
+### PROBE-CONTEXT
+Hunt for sensitive *contexts* using LLM understanding:
+
+```bash
+trekify PROBE-CONTEXT e8587ace
+
+# Detects:
+# - Security vulnerability discussions
+# - Incident response conversations
+# - HR/personnel matters
+# - Financial data
+# - Legal/compliance discussions
+```
+
+### PROBE-AND-MASK
+Run probes and auto-mask all findings:
+
+```bash
+trekify PROBE-AND-MASK e8587ace -o masked.txt
+
+# 1. Runs all probes
+# 2. Shows findings for approval
+# 3. Masks all detected patterns
+# 4. Outputs clean transcript
+```
+
+### cursor-mirror Commands Used
+
+```bash
+# Search all transcripts
+cursor-mirror tgrep 'sk-[a-zA-Z0-9]{20,}'
+cursor-mirror tgrep 'password[=:]'
+cursor-mirror tgrep '\\.internal|\\.local'
+
+# Scan thinking blocks (often contain quoted secrets)
+cursor-mirror thinking e8587ace | grep -i 'password\|secret\|key'
+
+# Scan tool calls (may have secrets in args)
+cursor-mirror tools e8587ace | grep -i 'credentials'
+
+# Deep SQL probe
+cursor-mirror sql --db e8587ace 'SELECT * FROM bubbles WHERE text LIKE "%password%"'
+```
+
 ## Example Transformations
 
 ### Log Entry

@@ -231,10 +231,131 @@ allowed_tools:
 protocol: TREKIFY
 
 related:
+  - cursor-mirror          # COMPOSES: Active probing for sensitive patterns
   - thoughtful-commitment  # Uses TREKIFY for commit privacy
   - session-log            # Session logs may need masking
-  - cursor-mirror          # Transcripts contain sensitive data
   - plain-text             # All masked output stays plain text
+
+# COMPOSABILITY — Active Probing with cursor-mirror
+
+cursor_mirror_composition:
+  description: |
+    TREKIFY composes with cursor-mirror for ACTIVE PROBING.
+    Don't just mask on demand — actively HUNT for sensitive patterns
+    in transcripts, thinking blocks, tool calls, and session history.
+  
+  what_cursor_mirror_provides:
+    transcripts: "Full conversation history, greppable"
+    thinking_blocks: "LLM reasoning — may contain quoted secrets"
+    tool_calls: "Commands executed — may show credentials"
+    context_assembly: "Files gathered — may reveal architecture"
+    sql_access: "Direct database queries for deep scanning"
+  
+  active_probes:
+    description: "Automated scanners that hunt for sensitive patterns"
+    
+    PROBE-SECRETS:
+      description: "Hunt for leaked credentials"
+      patterns:
+        - "API keys: sk-*, api_key=*, OPENAI_API_KEY"
+        - "Passwords: password=*, passwd:*, pwd="
+        - "Tokens: bearer *, jwt=*, token="
+        - "Private keys: -----BEGIN.*PRIVATE KEY-----"
+        - "Connection strings: postgres://, mysql://, mongodb://"
+        - "AWS: AKIA*, aws_secret_access_key"
+      commands:
+        - "cursor-mirror tgrep 'sk-[a-zA-Z0-9]{20,}'"
+        - "cursor-mirror tgrep 'password[=:]'"
+        - "cursor-mirror tgrep 'BEGIN.*PRIVATE KEY'"
+        - "cursor-mirror tgrep 'AKIA[A-Z0-9]{16}'"
+    
+    PROBE-INFRASTRUCTURE:
+      description: "Hunt for internal infrastructure details"
+      patterns:
+        - "Internal hostnames: *.internal, *.local, *.corp"
+        - "IP addresses: private ranges (10.*, 192.168.*, 172.16-31.*)"
+        - "Ports: non-standard ports in URLs"
+        - "Cloud resources: arn:aws:*, projects/*/locations/*"
+      commands:
+        - "cursor-mirror tgrep '\\.internal|\\.local|\\.corp'"
+        - "cursor-mirror tgrep '10\\.[0-9]+\\.[0-9]+\\.[0-9]+'"
+        - "cursor-mirror tgrep 'arn:aws:'"
+    
+    PROBE-PROPRIETARY:
+      description: "Hunt for proprietary/internal terms"
+      sources:
+        - "Load from .moollm/trekify/proprietary-terms.txt"
+        - "Company-specific product names"
+        - "Internal project codenames"
+        - "Customer account identifiers"
+      commands:
+        - "cursor-mirror tgrep -f .moollm/trekify/proprietary-terms.txt"
+    
+    PROBE-PEOPLE:
+      description: "Hunt for personal information"
+      patterns:
+        - "Email addresses: *@company.com"
+        - "Employee names from internal directories"
+        - "Phone numbers"
+        - "Slack handles, GitHub usernames (internal)"
+      commands:
+        - "cursor-mirror tgrep '@company\\.com'"
+        - "cursor-mirror tgrep -f .moollm/trekify/employee-names.txt"
+    
+    PROBE-CONTEXT:
+      description: "Hunt for sensitive contexts, not just patterns"
+      contexts:
+        - "Discussions about security vulnerabilities"
+        - "Incident response conversations"
+        - "HR or personnel discussions"
+        - "Financial data or projections"
+        - "Legal or compliance matters"
+      approach: |
+        Use LLM semantic understanding, not just regex.
+        "This looks like an incident response discussion" →
+        flag entire section for review, not just keywords.
+  
+  probe_workflow:
+    description: "How to run active probes"
+    steps:
+      - "1. cursor-mirror tree → find sessions to scan"
+      - "2. trekify PROBE <session> → run all probes"
+      - "3. Review findings with risk assessment"
+      - "4. trekify MASK-SESSION with findings → auto-mask detected patterns"
+      - "5. Manual review of flagged contexts"
+    
+    example: |
+      # Scan current session for secrets
+      trekify PROBE-SECRETS e8587ace
+      
+      # Full security scan
+      trekify PROBE e8587ace --all
+      
+      # Scan and auto-mask
+      trekify PROBE-AND-MASK e8587ace -o masked.txt
+  
+  deep_scan_commands:
+    description: "cursor-mirror commands for deep scanning"
+    
+    transcript_grep:
+      - "cursor-mirror tgrep 'pattern' → search all transcripts"
+      - "cursor-mirror agent-transcript <id> | grep -E 'pattern'"
+    
+    thinking_scan:
+      - "cursor-mirror thinking <id> | grep -i 'password\\|secret\\|key'"
+      - "Thinking blocks often contain quoted sensitive data"
+    
+    tool_call_scan:
+      - "cursor-mirror tools <id> | grep -i 'credentials\\|auth'"
+      - "Shell commands may contain secrets in args"
+    
+    context_scan:
+      - "cursor-mirror context-sources <id>"
+      - "Which files were read? Any sensitive ones?"
+    
+    sql_deep_probe:
+      - "cursor-mirror sql --db <ref> 'SELECT * FROM bubbles WHERE text LIKE \"%password%\"'"
+      - "Direct database query for comprehensive scan"
 
 tags:
   - privacy
@@ -560,6 +681,150 @@ methods:
     returns:
       configured: boolean
       pattern_id: string
+
+  # ACTIVE PROBING — Composing with cursor-mirror
+
+  PROBE:
+    description: "Active hunt for sensitive patterns in a session"
+    composes_with: cursor-mirror
+    parameters:
+      composer:
+        type: string
+        description: "Composer ID or reference"
+      probes:
+        type: array
+        items: string
+        enum: [secrets, infrastructure, proprietary, people, context, all]
+        default: [all]
+        description: "Which probe types to run"
+      include_thinking:
+        type: boolean
+        default: true
+        description: "Scan thinking blocks (often contain quoted secrets)"
+      include_tool_calls:
+        type: boolean
+        default: true
+        description: "Scan tool call arguments"
+    returns:
+      findings: array  # [{probe, pattern, match, location, severity, context}]
+      risk_score: string  # low/medium/high/critical
+      recommendations: array
+      auto_mask_ready: boolean
+    example: |
+      invoke:
+        skill: trekify
+        method: PROBE
+        parameters:
+          composer: "e8587ace"
+          probes: [secrets, infrastructure]
+      
+      # Output:
+      # FINDINGS:
+      # - [CRITICAL] API key pattern in thinking block line 423
+      # - [HIGH] Internal hostname in tool call line 156
+      # - [MEDIUM] Private IP address in context assembly
+      # 
+      # Risk Score: HIGH
+      # Recommendation: Run MASK-SESSION before sharing
+
+  PROBE-SECRETS:
+    description: "Hunt specifically for leaked credentials"
+    composes_with: cursor-mirror
+    parameters:
+      composer:
+        type: string
+      deep_scan:
+        type: boolean
+        default: true
+        description: "Include SQL database scan"
+    patterns:
+      - "API keys: sk-*, api_key=*, OPENAI_API_KEY"
+      - "AWS: AKIA*, aws_secret_access_key"
+      - "Passwords: password=*, passwd:*"
+      - "Tokens: bearer *, jwt=*, token="
+      - "Private keys: -----BEGIN.*PRIVATE KEY-----"
+      - "Connection strings: postgres://, mysql://, mongodb://"
+    commands:
+      - "cursor-mirror tgrep 'sk-[a-zA-Z0-9]{20,}'"
+      - "cursor-mirror tgrep 'AKIA[A-Z0-9]{16}'"
+      - "cursor-mirror tgrep 'password[=:]'"
+      - "cursor-mirror tgrep 'BEGIN.*PRIVATE KEY'"
+
+  PROBE-INFRASTRUCTURE:
+    description: "Hunt for internal infrastructure details"
+    composes_with: cursor-mirror
+    parameters:
+      composer:
+        type: string
+    patterns:
+      - "Internal hostnames: *.internal, *.local, *.corp"
+      - "Private IPs: 10.*, 192.168.*, 172.16-31.*"
+      - "Cloud resources: arn:aws:*, projects/*/locations/*"
+      - "Non-standard ports in URLs"
+    commands:
+      - "cursor-mirror tgrep '\\.internal|\\.local|\\.corp'"
+      - "cursor-mirror tgrep '10\\.[0-9]+\\.[0-9]+\\.[0-9]+'"
+      - "cursor-mirror tgrep 'arn:aws:'"
+
+  PROBE-PROPRIETARY:
+    description: "Hunt for proprietary/internal terms"
+    composes_with: cursor-mirror
+    parameters:
+      composer:
+        type: string
+      terms_file:
+        type: string
+        default: ".moollm/trekify/proprietary-terms.txt"
+        description: "File with proprietary terms to hunt"
+    note: |
+      Create .moollm/trekify/proprietary-terms.txt with your
+      internal product names, project codenames, customer
+      identifiers — one per line.
+
+  PROBE-CONTEXT:
+    description: "Hunt for sensitive contexts using LLM understanding"
+    composes_with: cursor-mirror
+    parameters:
+      composer:
+        type: string
+      contexts:
+        type: array
+        default:
+          - security_vulnerabilities
+          - incident_response
+          - hr_personnel
+          - financial_data
+          - legal_compliance
+    approach: |
+      Uses LLM semantic understanding, not just regex.
+      "This looks like an incident response discussion" →
+      flag entire section for review, not just keywords.
+
+  PROBE-AND-MASK:
+    description: "Run probes and auto-mask all findings"
+    composes_with: cursor-mirror
+    parameters:
+      composer:
+        type: string
+      output_path:
+        type: string
+      probes:
+        type: array
+        default: [all]
+      review_before_mask:
+        type: boolean
+        default: true
+        description: "Show findings for approval before masking"
+    returns:
+      findings: array
+      masked_path: string
+      substitutions: array
+    workflow:
+      - "1. Run all requested probes"
+      - "2. Aggregate findings"
+      - "3. If review_before_mask: show findings, await approval"
+      - "4. Apply MASK-SESSION with all findings"
+      - "5. Return masked output"
 
 # WORKFLOW
 
