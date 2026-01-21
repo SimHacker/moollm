@@ -74,6 +74,173 @@ Cat Council: Biscuit accepted into family
 
 ## Method Specifications
 
+---
+
+## Primary Introspection — Start Here
+
+These are the entry points. Get the timeline, then drill down.
+
+### TIMELINE
+
+**The master view.** Shows all events with timestamps, types, and IDs.
+
+**Input:**
+```yaml
+method: TIMELINE
+parameters:
+  composer: string     # Composer ID (@1, name fragment, hash)
+  limit: int           # How many events (default: 50)
+  filter: string       # Event type filter (thinking, tool, user, all)
+  since: string        # Time filter ("1 hour ago", event ID)
+```
+
+**Process:**
+```bash
+cursor-mirror timeline <composer> --limit <n>
+```
+
+**Output:**
+```
+🤔💭 ⏱️ Session Timeline — e8587ace
+
+#141  16:46:12  📍 user      "Refactor auth module"
+#142  16:46:15  🪟 context   3 files, ~4.2k tokens
+#143  16:46:18  🧠 thinking  "Need to check for race conditions..."
+#144  16:46:22  🔧 tool      Read auth/session.ts
+#145  16:46:25  📤 result    247 lines loaded
+#146  16:46:30  🧠 thinking  "Found race condition on line 47..."
+#147  16:46:35  💡 insight   "Adding await fixes sequencing"
+#148  16:46:40  🔧 tool      Write auth/session.ts
+#149  16:46:45  📝 change    +3 -1 lines
+
+→ Drill down: CONTEXT-FOCUS #142 | THINKING #143 | TOOLS #144
+```
+
+**Drill-down commands:**
+- `CONTEXT-FOCUS #142` — What went into context at that point?
+- `THINKING #143` — Full text of that thinking block
+- `TOOLS #144-148` — Tool calls in that range
+- `EXPLAIN #149` — Why was that change made?
+
+The timeline is the **map**. Everything else is **zooming in**.
+
+---
+
+### CONTEXT-FOCUS
+
+Analyze what went into the context window for a specific call. Shows the cursor state — what files, snippets, conversation, and rules were assembled.
+
+**Input:**
+```yaml
+method: CONTEXT-FOCUS
+parameters:
+  composer: string     # Composer ID
+  event_id: string     # Optional: specific event (default: latest)
+```
+
+**Process:**
+```bash
+# Get context sources for a composer
+cursor-mirror context-sources <composer>
+
+# Analyze what was in context at a specific event
+cursor-mirror timeline <composer> --before <event_id> --type context
+```
+
+**Output:**
+```
+🤔💭 🪟 Context Window Analysis — event #142
+
+Files read into context:
+  auth/session.ts      247 lines   ████████████░░░░  58%
+  auth/types.ts         89 lines   ████░░░░░░░░░░░░  21%
+  tests/auth.test.ts   156 lines   ██████░░░░░░░░░░  37%
+
+Snippets:
+  session.ts:45-67 (highlighted by user)
+  
+Conversation turns: 12
+Rules loaded: .cursorrules, workspace rules
+
+Estimated tokens: ~4,200
+
+Focus: auth module, session handling
+```
+
+The 🪟 tag marks context window analysis — showing what the LLM "saw" for this call.
+
+---
+
+### THINKING
+
+Show reasoning blocks for an event or range.
+
+**Input:**
+```yaml
+method: THINKING
+parameters:
+  composer: string
+  event_id: string     # Specific event
+  range: string        # Or range like "143-146"
+```
+
+**Process:**
+```bash
+cursor-mirror thinking <composer> --event <id>
+```
+
+**Output:**
+```
+🤔💭 🧠 Thinking Block #143
+
+"I need to understand the current structure of the auth module before 
+making changes. Let me read the session handling code first.
+
+The user mentioned a race condition — I should look for any async 
+operations that might not be properly awaited. Common patterns to 
+check: cookie operations, token refresh, database calls..."
+
+(247 chars, 16:46:18)
+```
+
+---
+
+### TOOLS
+
+Show tool calls for an event or session.
+
+**Input:**
+```yaml
+method: TOOLS
+parameters:
+  composer: string
+  event_id: string     # Specific event, or omit for all
+  tool_filter: string  # Filter by tool name (Read, Write, Shell, etc.)
+```
+
+**Process:**
+```bash
+cursor-mirror tools <composer>
+cursor-mirror tools <composer> --filter Read
+```
+
+**Output:**
+```
+🤔💭 🔧 Tool Calls — session e8587ace
+
+#144  Read     auth/session.ts           247 lines
+#148  Write    auth/session.ts           +3 -1
+#150  Read     auth/types.ts              89 lines
+#152  Shell    git diff --staged         +3 -1 lines
+#153  Write    tests/auth.test.ts        +45 new
+
+Distribution: Read 42% | Write 28% | Shell 18% | Grep 12%
+```
+
+---
+
+## Commit Operations
+
 ### COMMIT
 
 Create a thoughtful commit with narrative context.
@@ -189,49 +356,6 @@ parameters:
 linked: true
 reference: "cursor-mirror://abc123/events/140-148"
 ```
-
-### CONTEXT-FOCUS
-
-Analyze what went into the context window for a specific call. Shows the cursor state — what files, snippets, conversation, and rules were assembled.
-
-**Input:**
-```yaml
-method: CONTEXT-FOCUS
-parameters:
-  composer: string     # Composer ID
-  event_id: string     # Optional: specific event (default: latest)
-```
-
-**Process:**
-```bash
-# Get context sources for a composer
-cursor-mirror context-sources <composer>
-
-# Analyze what was in context at a specific event
-cursor-mirror timeline <composer> --before <event_id> --type context
-```
-
-**Output:**
-```
-🤔💭 🪟 Context Window Analysis — event 147
-
-Files read into context:
-  - auth/session.ts (247 lines)
-  - auth/types.ts (89 lines)
-  - tests/auth.test.ts (156 lines)
-
-Snippets:
-  - session.ts:45-67 (race condition area)
-  
-Conversation turns: 12
-Rules loaded: .cursorrules, workspace rules
-
-Estimated tokens: ~4,200
-
-Focus: auth module, session handling
-```
-
-The 🪟 tag marks context window analysis — showing what the LLM "saw" for this call.
 
 ### HISTORY
 
@@ -481,12 +605,15 @@ Adjustable output from terse to comprehensive:
 ### Section Markers
 | Emoji | Section |
 |-------|---------|
+| ⏱️ | Timeline (master view, all events) |
 | 📍 | Context (background, why we're here) |
 | 🪟 | Context Window (what inputs were assembled) |
 | 🧠 | Thinking |
+| 🔧 | Tool call |
+| 📤 | Tool result |
 | 🔍 | Investigation |
-| 💡 | Solution |
-| 🔀 | Alternatives |
+| 💡 | Solution / Insight |
+| 🔀 | Alternatives / Decision |
 | 📝 | Changes |
 | 📊 | Metrics |
 | 🔗 | Session link |
@@ -504,6 +631,7 @@ Every line of reasoning prefixed with `🤔💭 <tag>`:
 
 | Tag | Meaning | Example |
 |-----|---------|---------|
+| ⏱️ | Timeline | `🤔💭 ⏱️ Session e8587ace, 47 events` |
 | 📍 | Prompt/context | `🤔💭 📍 User asked to refactor auth` |
 | 🪟 | Context window | `🤔💭 🪟 Loaded 3 files, ~4k tokens` |
 | 🧠 | Thinking | `🤔💭 🧠 Need to check for race conditions` |

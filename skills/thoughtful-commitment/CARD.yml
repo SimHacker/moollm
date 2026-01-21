@@ -46,6 +46,25 @@ tags: [git, commits, narrative, provenance, introspection, composability]
 
 # ADVERTISEMENTS — When to invoke this skill
 advertisements:
+  # Primary Introspection
+  - id: TIMELINE
+    trigger: "user wants to see session events"
+    conditions:
+      - "user asks what happened"
+      - "user wants session overview"
+      - "user wants to understand flow"
+    score: 0.95
+    note: "Start here — master view, then drill down"
+    
+  - id: CONTEXT-FOCUS
+    trigger: "user wants to see context window"
+    conditions:
+      - "user asks what was in context"
+      - "user wants to see inputs"
+      - "user asks what LLM saw"
+    score: 0.95
+    
+  # Commit Operations
   - id: COMMIT
     trigger: "user wants to commit with context"
     conditions:
@@ -60,6 +79,7 @@ advertisements:
       - "user wants reasoning behind change"
     score: 0.8
     
+  # Git Archaeology
   - id: BLAME
     trigger: "user asks who wrote code and why"
     conditions:
@@ -77,6 +97,72 @@ advertisements:
 # METHODS — Signatures only, see SKILL.md for details
 methods:
 
+  # ═══════════════════════════════════════════════════════════════════
+  # PRIMARY INTROSPECTION — Start here, drill down from timeline
+  # ═══════════════════════════════════════════════════════════════════
+  
+  TIMELINE:
+    description: "Show all events with timestamps, types, and IDs — the master view"
+    composes_with: cursor-mirror
+    params: [composer, limit, filter, since]
+    returns: [events]  # Each: {id, timestamp, type, summary}
+    output_tag: "⏱️"
+    drill_down: "Use event IDs with CONTEXT-FOCUS, THINKING, TOOLS"
+    example_output: |
+      🤔💭 ⏱️ Session Timeline — e8587ace
+      
+      #141  16:46:12  📍 user      "Refactor auth module"
+      #142  16:46:15  🪟 context   3 files, ~4.2k tokens
+      #143  16:46:18  🧠 thinking  "Need to check for race conditions..."
+      #144  16:46:22  🔧 tool      Read auth/session.ts
+      #145  16:46:25  📤 result    247 lines loaded
+      #146  16:46:30  🧠 thinking  "Found race condition on line 47..."
+      #147  16:46:35  💡 insight   "Adding await fixes sequencing"
+      #148  16:46:40  🔧 tool      Write auth/session.ts
+      #149  16:46:45  📝 change    +3 -1 lines
+      
+      → Drill down: CONTEXT-FOCUS #142, THINKING #143, TOOLS #144
+  
+  CONTEXT-FOCUS:
+    description: "Analyze what went into context window for a call"
+    composes_with: cursor-mirror
+    params: [composer, event_id]
+    returns: [files_read, snippets, conversation, rules, total_tokens]
+    output_tag: "🪟"
+    example_output: |
+      🤔💭 🪟 Context Window — event #142
+      
+      Files:
+        auth/session.ts     247 lines
+        auth/types.ts        89 lines
+        tests/auth.test.ts  156 lines
+      
+      Snippets:
+        session.ts:45-67 (highlighted by user)
+      
+      Conversation: 12 turns
+      Rules: .cursorrules, workspace
+      
+      Total: ~4,200 tokens
+  
+  THINKING:
+    description: "Show reasoning blocks for an event or range"
+    composes_with: cursor-mirror
+    params: [composer, event_id, range]
+    returns: [thinking_blocks]
+    output_tag: "🧠"
+  
+  TOOLS:
+    description: "Show tool calls for an event or session"
+    composes_with: cursor-mirror
+    params: [composer, event_id, tool_filter]
+    returns: [tool_calls]  # Each: {id, tool, args, result_summary}
+    output_tag: "🔧"
+
+  # ═══════════════════════════════════════════════════════════════════
+  # COMMIT OPERATIONS — Create and analyze commits
+  # ═══════════════════════════════════════════════════════════════════
+  
   COMMIT:
     description: "Create thoughtful commit with narrative context"
     params: [files, story, detail, focus, include_thinking]
@@ -91,6 +177,20 @@ methods:
     description: "Generate narrative commit message from context"
     params: [diff_summary, perspective, detail]
     returns: [message, sections]
+
+  DEEP-COMMIT:
+    description: "Mine session for technical analytics"
+    params: [composer, commit_range]
+    returns: [raw_metrics, tool_distribution, thinking_analysis, verification_commands]
+
+  LINK:
+    description: "Link commit to cursor-mirror events"
+    params: [commit, events]
+    returns: [linked, reference]
+
+  # ═══════════════════════════════════════════════════════════════════
+  # GIT ARCHAEOLOGY — Dig into repository history
+  # ═══════════════════════════════════════════════════════════════════
     
   BLAME:
     description: "Who wrote each line, when, and why?"
@@ -106,6 +206,10 @@ methods:
     description: "Narrative timeline of a path"
     params: [path, depth, include_thinking]
     returns: [timeline]
+
+  # ═══════════════════════════════════════════════════════════════════
+  # GIT PLANNING — Plan future operations
+  # ═══════════════════════════════════════════════════════════════════
     
   PLAN-MERGE:
     description: "Understand what merge will bring"
@@ -116,23 +220,6 @@ methods:
     description: "Plan surgical commit extraction"
     params: [commits, target]
     returns: [commits, order, warnings, commands]
-    
-  DEEP-COMMIT:
-    description: "Mine session for technical analytics"
-    params: [composer, commit_range]
-    returns: [raw_metrics, tool_distribution, thinking_analysis, verification_commands]
-
-  LINK:
-    description: "Link commit to cursor-mirror events"
-    params: [commit, events]
-    returns: [linked, reference]
-
-  CONTEXT-FOCUS:
-    description: "Analyze what went into context for a call"
-    composes_with: cursor-mirror
-    params: [composer, event_id]
-    returns: [files_read, snippets, conversation, rules, total_tokens]
-    output_tag: "🪟"
 
 # USER CONFIG — Override defaults
 user_config:
@@ -162,6 +249,7 @@ thought_stream:
   format: "🤔💭 <category> <content>"
   
   tags:
+    timeline: "⏱️"     # Event timeline (master view)
     prompt: "📍"       # User's request / background context
     context: "🪟"      # Context window assembly (what went in)
     thinking: "🧠"     # LLM reasoning
