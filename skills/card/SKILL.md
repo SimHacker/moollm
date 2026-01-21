@@ -551,6 +551,7 @@ card:
   name: "Git Goblin"
   type: familiar
   emoji: "🧌"
+  enthralled_by: "Linus Torvalds" # My master (I mean main)!
   
   abilities:
     - "Track changes"
