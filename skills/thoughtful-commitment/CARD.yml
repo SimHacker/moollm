@@ -82,10 +82,41 @@ emoji_palette:
     edited: "✏️"          # Human-edited LLM draft
     character: "🎭"       # Character voice (use character's emoji)
   
-  # SKILL SIGNATURE — This skill's identity
-  signature: "🎯📝"       # Thoughtful Commitment's mark
+  # SKILL SIGNATURE & CATEGORY GRAMMAR
+  #
+  # Each skill has its own emoji prefix — a namespace anchor.
+  # 🎯📝 = "this is thoughtful-commitment speaking"
+  # 
+  # Within that namespace, the skill defines a category grammar:
+  # section markers, facet labels, quality signals.
+  #
+  # Like a protocol identifier:
+  #   🎯📝 📍 Context    = thoughtful-commitment > context section
+  #   🎯📝 💭 Thinking   = thoughtful-commitment > thinking section
+  #   🎯📝 📊 Metrics    = thoughtful-commitment > metrics section
+  #
+  # Other skills have their own grammars:
+  #   🔮 = cursor-mirror
+  #   🖖 = trekify
+  #   🎮 = adventure
+  #
+  # The signature anchors the namespace. The grammar structures within.
   
-  # SECTION MARKERS — Label parts of commits/PRs
+  signature: "🎯📝"       # Thoughtful Commitment's namespace anchor
+  
+  grammar: |
+    🎯📝 opens the namespace (skill is speaking)
+    
+    Then category markers structure the content:
+      📍 context → 💭 thinking → 🔍 investigation → 💡 solution
+      🔀 alternatives → 📝 changes → 📊 metrics → 🔗 session
+    
+    Combine with authorship for full attribution:
+      👤 🎯📝 = human using thoughtful-commitment
+      🤖 🎯📝 = LLM running thoughtful-commitment
+      👤🤖 🎯📝 = collaborative session
+  
+  # SECTION MARKERS — Category grammar for commits/PRs
   sections:
     context: "📍"         # Why we're here, background
     thinking: "💭"        # LLM reasoning, the "why"
