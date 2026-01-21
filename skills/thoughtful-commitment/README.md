@@ -70,6 +70,60 @@ Transcript: agent-transcripts/e8587ace-9c40-4f0f-8bb3-e432c120fd91.txt
 Events: 140-160
 ```
 
+## Detail Knob
+
+Turn from **concise** to **comprehensive**. Customize focus and detail.
+
+### Detail Levels (1-5)
+
+| Level | Name | Output | Tokens |
+|-------|------|--------|--------|
+| 1 | terse | `fix: auth bug` | ~10 |
+| 2 | brief | Title + one paragraph | ~50 |
+| 3 | standard | Title + narrative + bullet changes | ~100 |
+| 4 | detailed | Full narrative + investigation + session link | ~300 |
+| 5 | comprehensive | Everything + alternatives + metrics + thinking | ~500+ |
+
+### Focus Areas
+
+| Focus | Emphasizes | Good For |
+|-------|------------|----------|
+| `technical` | Code changes, APIs, performance | Bug fixes, refactoring |
+| `narrative` | Story, characters, emotion | MOOLLM adventures |
+| `process` | Investigation, alternatives, rationale | Architecture decisions |
+| `provenance` | Session link, thinking, tool calls | Auditing, debugging |
+| `changelog` | User-facing changes, features | Release notes |
+| `metrics` | Counts, durations, distributions | Analytics |
+
+### Examples
+
+```yaml
+# Quick fix
+detail: 1
+focus: [technical]
+→ "fix: null check in user lookup"
+
+# Feature with context  
+detail: 3
+focus: [technical, changelog]
+→ Standard message with user-facing summary
+
+# Architecture decision record
+detail: 5
+focus: [process, provenance]
+→ Full alternatives, rationale, session link
+
+# Adventure commit
+detail: 4
+focus: [narrative]
+→ Story-focused with character changes
+
+# Debug archaeology
+detail: 5
+focus: [provenance, metrics]
+→ Complete session for future debugging
+```
+
 ## A Showcase for Skill Composability
 
 **This skill demonstrates how MOOLLM skills compose like LEGO bricks.**

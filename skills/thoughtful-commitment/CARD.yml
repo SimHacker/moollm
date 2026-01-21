@@ -245,6 +245,192 @@ full_disclosure:
     privacy: "Sensitive discussions can be redacted"
     attribution: "Credit both human and AI contributions"
 
+# DETAIL KNOB — Adjustable Output Depth
+
+detail_knob:
+  description: "Turn from concise to comprehensive. Customize focus and detail level."
+  
+  levels:
+    1_terse:
+      name: "terse"
+      description: "One-line summary, minimal context"
+      commit_message: "fix: auth race condition"
+      includes: [title]
+      tokens: "~10"
+    
+    2_brief:
+      name: "brief"
+      description: "Title + one paragraph"
+      commit_message: |
+        fix(auth): Resolve race condition in session validation
+        
+        Cookie check was racing with token refresh, causing intermittent logouts.
+      includes: [title, summary]
+      tokens: "~50"
+    
+    3_standard:
+      name: "standard"
+      description: "Title + narrative + bullet changes"
+      commit_message: |
+        fix(auth): Resolve race condition in session validation
+        
+        User reported intermittent logouts. Traced to cookie check racing
+        with token refresh. Added await to ensure proper sequencing.
+        
+        - Modified auth/session.ts: await refreshToken()
+        - Added test for race condition scenario
+      includes: [title, narrative, changes]
+      tokens: "~100"
+    
+    4_detailed:
+      name: "detailed"
+      description: "Full narrative + changes + session link"
+      commit_message: |
+        fix(auth): Resolve race condition in session validation
+        
+        ## Context
+        User reported intermittent logouts after ~30 minutes of activity.
+        
+        ## Investigation
+        Traced through logs to find cookie validation sometimes failing.
+        Root cause: validateSession() was called before refreshToken()
+        completed, creating a race condition window of ~50ms.
+        
+        ## Solution
+        Added await to ensure refreshToken() completes before validation.
+        Also increased timeout for slow networks.
+        
+        ## Changes
+        - Modified auth/session.ts: await refreshToken()
+        - Added test: session.test.ts - race condition scenario
+        - Updated timeout from 5s to 10s
+        
+        Session: cursor-mirror://e8587ace
+      includes: [title, context, investigation, solution, changes, session_link]
+      tokens: "~300"
+    
+    5_comprehensive:
+      name: "comprehensive"
+      description: "Everything: full narrative + all changes + thinking + alternatives"
+      commit_message: |
+        fix(auth): Resolve race condition in session validation
+        
+        ## Context
+        ...
+        
+        ## Investigation
+        ...
+        
+        ## Alternatives Considered
+        1. Mutex lock on session state — rejected (deadlock risk)
+        2. Queue-based validation — rejected (complexity)
+        3. Simple await — chosen (minimal change, addresses root cause)
+        
+        ## Solution
+        ...
+        
+        ## Changes
+        ...
+        
+        ## Session Details
+        Session: cursor-mirror://e8587ace
+        Transcript: agent-transcripts/e8587ace-....txt
+        Events: 140-180
+        Duration: 23 minutes
+        Tool calls: 47
+        Thinking blocks: 12
+      includes: [title, context, investigation, alternatives, solution, changes, session_details, metrics]
+      tokens: "~500+"
+  
+  focus_areas:
+    description: "Customize which aspects to emphasize"
+    
+    areas:
+      technical:
+        emphasize: [code_changes, apis, data_structures, performance]
+        de_emphasize: [narrative, emotion, character]
+        good_for: "Bug fixes, refactoring, optimization"
+      
+      narrative:
+        emphasize: [story, characters, world_changes, emotion]
+        de_emphasize: [implementation_details, metrics]
+        good_for: "MOOLLM adventures, character evolution"
+      
+      process:
+        emphasize: [investigation, alternatives, decision_rationale]
+        de_emphasize: [final_implementation]
+        good_for: "Design decisions, architecture changes"
+      
+      provenance:
+        emphasize: [session_link, thinking_blocks, tool_calls, context_assembly]
+        de_emphasize: [narrative_summary]
+        good_for: "Auditing, debugging, learning"
+      
+      changelog:
+        emphasize: [user_facing_changes, features, fixes]
+        de_emphasize: [internal_details, process]
+        good_for: "Release notes, version history"
+      
+      metrics:
+        emphasize: [counts, durations, file_sizes, tool_distributions]
+        de_emphasize: [narrative, reasoning]
+        good_for: "Analytics, performance tracking"
+  
+  parameters:
+    detail:
+      type: integer
+      range: [1, 5]
+      default: 3
+      description: "1=terse, 2=brief, 3=standard, 4=detailed, 5=comprehensive"
+    
+    focus:
+      type: array
+      items: string
+      enum: [technical, narrative, process, provenance, changelog, metrics]
+      default: [technical]
+      description: "Which aspects to emphasize"
+    
+    include:
+      type: array
+      items: string
+      description: "Specific sections to include (overrides detail level)"
+      examples: [title, context, investigation, alternatives, changes, session_link]
+    
+    exclude:
+      type: array
+      items: string
+      description: "Specific sections to exclude"
+    
+    max_tokens:
+      type: integer
+      description: "Hard limit on output length"
+  
+  examples:
+    quick_fix: |
+      detail: 1
+      focus: [technical]
+      → "fix: null check in user lookup"
+    
+    feature_with_context: |
+      detail: 3
+      focus: [technical, changelog]
+      → Standard message with user-facing summary
+    
+    architecture_decision: |
+      detail: 5
+      focus: [process, provenance]
+      → Full record of alternatives, decision rationale, session link
+    
+    adventure_commit: |
+      detail: 4
+      focus: [narrative]
+      → Story-focused message with character and world changes
+    
+    debug_archaeology: |
+      detail: 5
+      focus: [provenance, metrics]
+      → Complete session details for future debugging
+
 # INTERFACE
 
 tier: 2
