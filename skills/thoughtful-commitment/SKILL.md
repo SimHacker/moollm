@@ -182,7 +182,7 @@ parameters:
 **Process:**
 1. Validate commit exists
 2. Validate events exist in cursor-mirror
-3. Store link in `.moollm/commit-links.yml`
+3. Store link in `.moollm/skills/thoughtful-commitment/commit-links.yml`
 
 **Output:**
 ```yaml
@@ -339,10 +339,10 @@ python3 cursor_mirror.py thinking <composer> --before <commit-event-id>
 
 ### Storage of Links
 
-Links are stored in `.moollm/commit-links.yml`:
+Links are stored in `.moollm/skills/thoughtful-commitment/commit-links.yml`:
 
 ```yaml
-# .moollm/commit-links.yml
+# .moollm/skills/thoughtful-commitment/commit-links.yml
 links:
   abc123:
     composer: def456

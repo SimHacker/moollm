@@ -88,7 +88,7 @@ substitutions_quick:
 # USER CONFIG
 
 config:
-  location: ".moollm/trekify/config.yml"
+  location: ".moollm/skills/trekify/config.yml"
   gitignored: true
   options:
     - "enabled: true/false"
@@ -152,7 +152,7 @@ methods:
   PROBE-PROPRIETARY:
     description: "Hunt for proprietary terms"
     composes_with: cursor-mirror
-    source: ".moollm/trekify/proprietary-terms.txt"
+    source: ".moollm/skills/trekify/proprietary-terms.txt"
 
   PROBE-CONTEXT:
     description: "Hunt for sensitive contexts via LLM"

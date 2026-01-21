@@ -31,7 +31,7 @@ state:
   active_tokens: [] # tokens parsed into the worm's "brain"
   scan_pattern: ""      # optional pattern to anchor ingestion
   scan_mode: "pattern-then-chomp"
-  emit_dir: ".moollm/worm-out"
+  emit_dir: ".moollm/skills/worm/out"
 
 advertisements:
   MOVE-WORM:
@@ -73,7 +73,7 @@ advertisements:
       method: CHOMP
       params:
         pattern: "{{pattern|{{scan_pattern}}}}"
-        emit_dir: "{{emit_dir|.moollm/worm-out}}"
+        emit_dir: "{{emit_dir|.moollm/skills/worm/out}}"
   POOP:
     effect: "Emit buffer/payload at tail (append/write); can emit chosen tokens"
     delegate:

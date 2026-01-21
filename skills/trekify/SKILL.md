@@ -156,7 +156,7 @@ cursor-mirror tgrep 'arn:aws:'
 ```
 
 #### PROBE-PROPRIETARY
-Hunt for proprietary/internal terms loaded from `.moollm/trekify/proprietary-terms.txt`
+Hunt for proprietary/internal terms loaded from `.moollm/skills/trekify/proprietary-terms.txt`
 
 #### PROBE-CONTEXT
 Hunt for sensitive contexts using LLM semantic understanding:
@@ -211,7 +211,7 @@ rg --files -g '*credentials*' -g '*secrets*'
 rg --files -g '*.pem' -g '*.key'
 ```
 
-**Exclusions:** `node_modules/`, `.git/`, `vendor/`, `*.lock`, `.moollm/trekify/`
+**Exclusions:** `node_modules/`, `.git/`, `vendor/`, `*.lock`, `.moollm/skills/trekify/`
 
 ### Short Range Scanners
 
@@ -292,10 +292,10 @@ cursor-mirror tools <id> -f json | jq '.[] | select(.tool=="Shell")'
 
 ## User Configuration
 
-Store in `.moollm/trekify/config.yml` (gitignored):
+Store in `.moollm/skills/trekify/config.yml` (gitignored):
 
 ```yaml
-# .moollm/trekify/config.yml
+# .moollm/skills/trekify/config.yml
 # This file is gitignored — your secrets stay local
 
 enabled: true
@@ -329,7 +329,7 @@ extra_trek: true       # Add stardates, more technobabble
 
 **Loading order:**
 1. Built-in defaults from skill
-2. Override with `.moollm/trekify/config.yml`
+2. Override with `.moollm/skills/trekify/config.yml`
 3. Override with method parameters
 
 ---

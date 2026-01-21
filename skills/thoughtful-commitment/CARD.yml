@@ -53,6 +53,44 @@ skill:
 # An LLM speaking as a character anchors with the character's emoji.
 # An LLM generating commit analysis anchors with 🤖. Transparency always.
 
+# USER CONFIGURATION
+#
+# Store in .moollm/skills/thoughtful-commitment/config.yml (gitignored)
+
+user_config:
+  location: ".moollm/skills/thoughtful-commitment/config.yml"
+  
+  schema:
+    emojis:
+      type: boolean
+      default: true
+      description: "Set to false to disable all emoji output"
+    
+    detail_default:
+      type: integer
+      range: [1, 5]
+      default: 3
+      description: "Default detail level for commits"
+    
+    focus_default:
+      type: array
+      items: string
+      default: [technical]
+      description: "Default focus areas"
+    
+    signature:
+      type: string
+      default: "🤔💭"
+      description: "Override skill signature emoji"
+  
+  example: |
+    # .moollm/skills/thoughtful-commitment/config.yml
+    emojis: false          # Disable all emoji output
+    detail_default: 4      # More detailed by default
+    focus_default:
+      - technical
+      - provenance
+
 emoji_palette:
   
   # THE PRINCIPLE
@@ -1341,4 +1379,4 @@ automation:
     actions:
       - "Extract commit hash"
       - "Find recent cursor-mirror events"
-      - "Store link in .moollm/commit-links.yml"
+      - "Store link in .moollm/skills/thoughtful-commitment/commit-links.yml"

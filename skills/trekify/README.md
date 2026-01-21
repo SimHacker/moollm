@@ -215,8 +215,8 @@ Hunt for your proprietary terms:
 
 ```bash
 # First, create your terms file:
-echo "secret-project-x" >> .moollm/trekify/proprietary-terms.txt
-echo "customer-acme" >> .moollm/trekify/proprietary-terms.txt
+echo "secret-project-x" >> .moollm/skills/trekify/proprietary-terms.txt
+echo "customer-acme" >> .moollm/skills/trekify/proprietary-terms.txt
 
 # Then probe:
 trekify PROBE-PROPRIETARY e8587ace
@@ -505,10 +505,10 @@ and updated orchestration manifests in Sectors 001 and 012.
 
 ## Configuration
 
-Store your personal taboo table in `.moollm/trekify/config.yml` (gitignored):
+Store your personal taboo table in `.moollm/skills/trekify/config.yml` (gitignored):
 
 ```yaml
-# .moollm/trekify/config.yml
+# .moollm/skills/trekify/config.yml
 # This file is gitignored — your secrets stay local
 
 enabled: true
@@ -540,7 +540,7 @@ categories:
 extra_trek: true       # Add stardates, more technobabble
 ```
 
-**Loading order:** Built-in defaults → `.moollm/trekify/config.yml` → method parameters
+**Loading order:** Built-in defaults → `.moollm/skills/trekify/config.yml` → method parameters
 
 ## Workflow
 

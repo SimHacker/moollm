@@ -153,7 +153,7 @@ state:
   active_tokens: []   # Parsed tokens in worm's "brain"
   scan_pattern: ""    # Pattern for CHOMP anchoring
   scan_mode: "pattern-then-chomp"
-  emit_dir: ".moollm/worm-out"  # Where YAML output goes
+  emit_dir: ".moollm/skills/worm/out"  # Where YAML output goes
   reversible: true    # Enable undo/redo verb basis
 ```
 
@@ -242,5 +242,5 @@ Head moved to skills/bootstrap/ (tail stayed at adventure/)
 Chomped methods section (8 methods found)
 
 > POOP
-Emitted to .moollm/worm-out/methods-comparison.yml
+Emitted to .moollm/skills/worm/out/methods-comparison.yml
 ```
