@@ -93,7 +93,7 @@ A skill becomes more "incarnate" as it adopts more extensions. Here's what to pr
 |---|-----------|---------------|----------|
 | 1 | **CARD.yml** | Machine-readable interface, advertisements | **Strongly suggested** |
 | 2 | **README.md** | Human-readable documentation | **Strongly suggested** |
-| 3 | **Sniffability** | LLM can understand structure at a glance | **Strongly suggested** |
+| 3 | **Sniffability** | LLM can understand important structure in top of file at a glance | **Strongly suggested** |
 | 4 | **Empathy** | Postel's Law, YAML Jazz, natural formats | **Strongly suggested** |
 | 5 | **K-line** | Invoking its name activates context | **Strongly suggested** |
 | 6 | **Instantiation** | Clone from prototype creates living instance | For entities |
@@ -106,7 +106,7 @@ A skill becomes more "incarnate" as it adopts more extensions. Here's what to pr
 **Not all skills need all nine.** There's a spectrum:
 
 - **Fully incarnate** (Palm): All seven — living entity with state, identity, ethics
-- **Functional skill** (speed-of-light): Interface + K-line + maybe empathic templates — does a job
+- **Functional skill** (speed-of-light): Interface + K-line + maybe empathic templates — does a job, creates artifacts, edits files, runs scripts, invokes other skills
 - **Ambient skill** (no-ai-slop, postel): Always-on constraint — no instantiation, no persistence, just applies
 
 **Delegation** is implicit in all MOOLLM skills — directories inherit from parents like CSS cascades.
