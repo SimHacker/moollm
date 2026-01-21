@@ -1,0 +1,185 @@
+# CARD.yml — PostgreSQL Optimization
+#
+# Unconventional PostgreSQL performance techniques.
+# "Beyond the obvious: creative query optimization."
+
+card:
+  id: postgres-optimization
+  name: "PostgreSQL Optimization"
+  type: [skill, database, performance]
+  
+  emoji: 🐘
+  
+  rarity: uncommon  # Beyond standard DBA techniques
+  
+  description: |
+    Unconventional PostgreSQL optimization techniques that go beyond
+    "just add an index." Covers constraint exclusion, function-based
+    indexes with virtual columns, and hash index uniqueness tricks.
+    
+    Play this card when you need creative solutions to database
+    performance problems, especially with ad-hoc queries or large values.
+
+# TOOLS REQUIRED
+
+tools:
+  required:
+    - read_file      # Read schemas, queries
+    - run_terminal_cmd  # Run psql, EXPLAIN ANALYZE
+  optional:
+    - grep           # Search for query patterns
+
+tier: 2
+
+# METHODS
+
+methods:
+  
+  ANALYZE-QUERY:
+    description: "Profile a slow query with EXPLAIN ANALYZE"
+    parameters:
+      query: "SQL query to analyze"
+      concern: "What's the perceived problem"
+    output: chat (analysis)
+    effect: "Identify bottleneck type"
+    invoked-by: [player]
+    
+  CHECK-CONSTRAINTS:
+    description: "Evaluate if constraint_exclusion can help"
+    parameters:
+      table: "Table with check constraints"
+      query_pattern: "Typical query pattern"
+    output: chat (recommendation)
+    effect: "Identify impossible conditions"
+    invoked-by: [player]
+    
+  LOWER-CARDINALITY:
+    description: "Find opportunities for lower-cardinality indexes"
+    parameters:
+      column: "High-cardinality column (e.g., timestamp)"
+      query_granularity: "How queries actually filter (e.g., day, month)"
+    output: chat (index suggestion)
+    effect: "Propose function-based index"
+    invoked-by: [player]
+    
+  HASH-UNIQUE:
+    description: "Evaluate hash index for large unique values"
+    parameters:
+      table: "Table with large text column"
+      column: "Column needing uniqueness"
+    output: chat (tradeoff analysis)
+    effect: "Compare B-Tree vs Hash exclusion"
+    invoked-by: [player]
+    
+  VIRTUAL-COLUMN:
+    description: "Create virtual generated column for consistent expression access"
+    parameters:
+      table: "Target table"
+      expression: "The expression to virtualize"
+      column_name: "Name for the virtual column"
+    output: DDL
+    effect: "Generate ALTER TABLE statement"
+    invoked-by: [player]
+    
+  COMPARE-INDEXES:
+    description: "Compare index sizes and performance"
+    parameters:
+      indexes: "List of indexes to compare"
+    output: chat (comparison table)
+    effect: "Show size vs performance tradeoffs"
+    invoked-by: [player]
+
+# STATE
+
+state:
+  optimization-session:
+    target_table:
+      type: string
+    query_patterns:
+      type: array
+      description: "How the table is typically queried"
+    current_indexes:
+      type: array
+    proposed_changes:
+      type: array
+    measured_improvement:
+      type: object
+
+# TECHNIQUES
+
+techniques:
+  constraint-exclusion:
+    problem: "Full table scans on queries with impossible conditions"
+    solution: "SET constraint_exclusion TO 'on'"
+    when: "Ad-hoc query environments, BI tools, data warehouses"
+    cost: "Extra planning overhead"
+    
+  function-based-index:
+    problem: "Large indexes on high-cardinality columns"
+    solution: "Index on expression with lower cardinality"
+    when: "Queries filter at coarser granularity than stored data"
+    cost: "Must match expression exactly in queries"
+    
+  virtual-generated-column:
+    problem: "Function-based indexes require exact expression match"
+    solution: "Virtual column guarantees consistent expression"
+    when: "Multiple users/queries need same expression"
+    cost: "PostgreSQL 18+ required for virtual columns"
+    
+  hash-index-uniqueness:
+    problem: "Large B-Tree indexes on big text columns"
+    solution: "Exclusion constraint with hash index"
+    when: "Unique constraint on large values, no FK references needed"
+    cost: "No foreign keys, limited ON CONFLICT support"
+
+# ADVERTISEMENTS
+
+advertisements:
+  SLOW-QUERY:
+    score: 85
+    condition: "Query is slower than expected"
+    
+  LARGE-INDEX:
+    score: 90
+    condition: "Index size is approaching table size"
+    
+  AD-HOC-QUERIES:
+    score: 80
+    condition: "Users writing ad-hoc queries against table with constraints"
+    
+  UNIQUE-LARGE-VALUES:
+    score: 95
+    condition: "Need uniqueness on large text values like URLs"
+
+# PATTERNS
+
+patterns:
+  index-size-ratio:
+    warning: "Index > 50% of table size"
+    action: "Evaluate lower-cardinality alternatives"
+    
+  timestamp-to-date:
+    pattern: "Index on timestamptz, queries by day/month"
+    solution: "date_trunc() function-based index"
+    
+  impossible-query:
+    pattern: "WHERE clause contradicts CHECK constraint"
+    solution: "Enable constraint_exclusion"
+
+# RELATED
+
+see-also:
+  - skills/debugging          # Query performance debugging
+  - skills/plan-then-execute  # Methodical optimization approach
+
+# CREDITS
+
+credits:
+  source:
+    title: "Unconventional PostgreSQL Optimizations"
+    author: "Haki Benita"
+    url: "https://hakibenita.com/postgresql-unconventional-optimizations"
+    date: "2026-01-20"
+  inspiration:
+    - "PostgreSQL documentation"
+    - "Hacker News discussion"

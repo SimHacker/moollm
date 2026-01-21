@@ -43,6 +43,9 @@ invoke_when:
   - "Debug agent behavior"
   - "Optimize kernel/cursor driver"
   - "Design custom orchestrators"
+  - "Outline conversation topics"
+  - "Plan commit messages by section"
+  - "Summarize session for documentation"
 
 # METHODS — signatures only, see SKILL.md for details
 
@@ -65,6 +68,31 @@ methods:
   TIMELINE: { signature: "timeline <ref>" }
   THINKING: { signature: "thinking <ref>", note: "reasoning blocks" }
   GREP:     { signature: "grep <pattern> [-i]" }
+  
+  # Cataloging
+  CHAT-CATALOG:
+    signature: "chat-catalog <ref> [--depth N] [--detail brief|normal|full]"
+    description: "Numbered outline of conversation topics, prompts, and thoughts"
+    note: "For commit message planning, session summaries, navigation"
+    parameters:
+      ref: "Composer reference (hash, name, @N, wN.cN)"
+      depth: "Nesting depth (default: 3 = parts/sections/items)"
+      detail: "Conciseness level (brief=titles, normal=summaries, full=excerpts)"
+    output: |
+      # Session Topic Outline: <title>
+      **Composer:** <id> | **Date:** <date> | **Duration:** <duration>
+      
+      ## Part I: <topic>
+      **1. <section>**
+      - a. <item>
+      - b. <item>
+      **2. <section>**
+      ...
+    use_cases:
+      - "Plan commit messages covering conversation sections"
+      - "Navigate long sessions by topic"
+      - "Generate session summaries"
+      - "Identify key decisions and artifacts"
   
   # Tools
   TOOLS:       { signature: "tools <ref> [-v]" }
@@ -127,6 +155,10 @@ methods:
 # ADVERTISEMENTS
 
 advertisements:
+  CHAT-CATALOG:
+    score: 100
+    condition: "Outline conversation topics, plan commits, summarize session"
+    
   WATCH-YOURSELF-THINK:
     score: 100
     condition: "Meta-cognition, review reasoning, self-awareness"

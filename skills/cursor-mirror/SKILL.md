@@ -151,6 +151,7 @@ All commands accept flexible references instead of raw UUIDs:
 | `timeline` | Chronological event stream |
 | `thinking` | Agent reasoning blocks (meta-cognition) |
 | `grep` | Regex search across bubbles |
+| `chat-catalog` | Numbered topic outline for commit planning |
 
 ### 4. Tool & Agent Inspection
 
@@ -238,6 +239,95 @@ cursor-mirror mcp-tools --server cursor-ide-browser
 ```
 
 See `DOTCURSOR-STORAGE.yml` for cross-platform paths and `DOTCURSOR-SCHEMAS.yml` for data formats.
+
+---
+
+## CHAT-CATALOG: Conversation Topic Outlines
+
+Generate a numbered/nested outline of conversation topics for:
+- **Commit planning** — Reference sections by number when writing commits
+- **Session navigation** — Find your way through long conversations
+- **Summaries** — Quick overview of what was discussed
+- **Artifact tracking** — Identify files created and decisions made
+
+### Usage
+
+```bash
+# Basic catalog (normal detail)
+cursor-mirror chat-catalog @1
+
+# Brief titles only
+cursor-mirror chat-catalog @1 --detail brief
+
+# Full excerpts
+cursor-mirror chat-catalog @1 --detail full
+
+# Limit nesting depth
+cursor-mirror chat-catalog @1 --depth 2
+```
+
+### Output Format
+
+```markdown
+# Session Topic Outline: <conversation title>
+
+**Composer:** `abc123` | **Date:** 2026-01-21 | **Duration:** ~2 hours
+
+---
+
+## Part I: <major theme>
+
+**1. <topic>**
+- a. <subtopic or key point>
+- b. <subtopic or key point>
+
+**2. <topic>**
+- a. <subtopic>
+- b. <subtopic>
+
+---
+
+## Part II: <major theme>
+
+**3. <topic>**
+...
+
+---
+
+## Artifacts Created
+
+| Section | Files |
+|---------|-------|
+| 11 | `designs/GIT-AS-FOUNDATION.md` |
+| 14 | `skills/thoughtful-commitment/*` |
+
+---
+
+**To request a commit message, say:** "Write commit for section 11"
+```
+
+### Detail Levels
+
+| Level | Content |
+|-------|---------|
+| `brief` | Topic titles only, minimal text |
+| `normal` | Topic titles + 1-line summaries (default) |
+| `full` | Topic titles + summaries + key excerpts |
+
+### Integration with thoughtful-commitment
+
+The CHAT-CATALOG output is designed to work with the [thoughtful-commitment](../thoughtful-commitment/) skill:
+
+```yaml
+# Workflow
+workflow:
+  1_catalog: "cursor-mirror chat-catalog @1"
+  2_identify: "User identifies sections to commit"
+  3_commit: "thoughtful-commitment COMMIT --sections 11,14"
+  4_link: "Commit message references catalog sections"
+```
+
+This creates a **traceability chain**: Conversation → Catalog → Commit → Git history
 
 ---
 
