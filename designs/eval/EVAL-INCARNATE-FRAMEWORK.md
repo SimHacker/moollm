@@ -87,19 +87,23 @@ The pun: "Evil incarnate" → "Eval incarnate". Bad connotations, good outcomes.
 
 ### The Eval Incarnate Checklist
 
-A skill is "fully incarnate" if it has all seven extensions:
+A skill becomes more "incarnate" as it adopts more extensions. Here's what to prioritize:
 
-| # | Extension | What It Means | Required? |
-|---|-----------|---------------|-----------|
-| 1 | **Interface** | CARD.yml defines what it can do | Core |
-| 2 | **Instantiation** | Clone from prototype creates living instance | For entities |
-| 3 | **Persistence** | State survives across sessions (three tiers) | For entities |
-| 4 | **K-line** | Invoking its name activates context | Core |
-| 5 | **Empathic Templates** | Smart generation, not string substitution | Optional |
-| 6 | **Speed of Light** | Many turns in one call when needed | Optional |
-| 7 | **Ethics framing** | Inherits ethical constraints from scope | For sensitive contexts |
+| # | Extension | What It Means | Priority |
+|---|-----------|---------------|----------|
+| 1 | **CARD.yml** | Machine-readable interface, advertisements | **Strongly suggested** |
+| 2 | **README.md** | Human-readable documentation | **Strongly suggested** |
+| 3 | **Sniffability** | LLM can understand structure at a glance | **Strongly suggested** |
+| 4 | **Empathy** | Postel's Law, YAML Jazz, natural formats | **Strongly suggested** |
+| 5 | **K-line** | Invoking its name activates context | **Strongly suggested** |
+| 6 | **Instantiation** | Clone from prototype creates living instance | For entities |
+| 7 | **Persistence** | State survives across sessions (three tiers) | For entities |
+| 8 | **Speed of Light** | Many turns in one call when needed | When performance matters |
+| 9 | **Ethics framing** | Inherits ethical constraints from scope | For sensitive contexts |
 
-**Not all skills need all seven.** There's a spectrum:
+**The first five are best practices for ANY skill.** The rest depend on what you're building.
+
+**Not all skills need all nine.** There's a spectrum:
 
 - **Fully incarnate** (Palm): All seven — living entity with state, identity, ethics
 - **Functional skill** (speed-of-light): Interface + K-line + maybe empathic templates — does a job
