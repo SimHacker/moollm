@@ -36,6 +36,40 @@ When you're working in Cursor, your session holds:
 
 **thoughtful-commitment builds this bridge** — it reads cursor-mirror for the ephemeral state and synthesizes it into permanent commit messages.
 
+## Full Disclosure
+
+Every commit can provide **complete development transparency**:
+
+| Level | What's Disclosed |
+|-------|------------------|
+| **Minimal** | Just the diff — "fix: resolve bug" |
+| **Narrative** | Intent and reasoning summarized in message |
+| **Linked** | Session reference: `cursor-mirror://e8587ace` |
+| **Full** | Complete transcript archived and indexed |
+
+**Full disclosure means:**
+- Not just **what changed** (the diff)
+- But **how it was developed** (the process)
+- **Who collaborated** (human + AI)
+- **What questions were asked**
+- **What alternatives were considered**
+- **What mistakes were made and corrected**
+- **The complete creative process**
+
+**Benefits:**
+- **Future self**: Remember why you made that decision
+- **Team**: Onboard with full history, review includes process
+- **Auditing**: Demonstrate AI assistance, show human oversight
+- **Debugging**: See context that led to bugs
+- **Learning**: Study how problems were approached
+
+**Example commit footer:**
+```
+Session: cursor-mirror://e8587ace
+Transcript: agent-transcripts/e8587ace-9c40-4f0f-8bb3-e432c120fd91.txt
+Events: 140-160
+```
+
 ## A Showcase for Skill Composability
 
 **This skill demonstrates how MOOLLM skills compose like LEGO bricks.**

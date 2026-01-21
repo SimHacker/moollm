@@ -10,6 +10,12 @@
 # cursor-mirror sees the NOW (thinking, tools, context in this session)
 # git commit FREEZES that NOW into FOREVER (permanent, shareable, traceable)
 #
+# FULL DISCLOSURE:
+# Every commit can link to the complete session that developed it.
+# Not just "what changed" but "how it was developed" — the full record
+# of human-AI collaboration, questions asked, alternatives considered,
+# mistakes made and corrected, the entire creative process.
+#
 # A SHOWCASE FOR SKILL COMPOSABILITY
 # This skill composes cursor-mirror + git + shell to create something new.
 # It demonstrates how MOOLLM skills are building blocks, not silos.
@@ -147,6 +153,97 @@ persistence:
     4. Synthesizes into commit message
     5. Commit made — ephemeral becomes permanent
     6. Years later: git blame → commit → thinking preserved
+
+# FULL DISCLOSURE — Complete Development Transparency
+
+full_disclosure:
+  principle: "Every commit can disclose the complete session that developed it"
+  
+  what_full_disclosure_means:
+    not_just: "What changed (the diff)"
+    but_also:
+      - "How it was developed (the process)"
+      - "Who collaborated (human + AI)"
+      - "What questions were asked"
+      - "What alternatives were considered"
+      - "What mistakes were made and corrected"
+      - "What context was assembled"
+      - "What the AI was thinking"
+      - "What the human intended"
+  
+  levels_of_disclosure:
+    minimal:
+      commit_message: "fix: resolve auth bug"
+      disclosure: "None — just the what"
+    
+    narrative:
+      commit_message: |
+        fix(auth): Resolve race condition in session validation
+        
+        User reported intermittent logouts. Traced to cookie check
+        racing with token refresh. Added await to ensure order.
+      disclosure: "Intent and reasoning summarized"
+    
+    linked:
+      commit_message: |
+        fix(auth): Resolve race condition in session validation
+        
+        Session: cursor-mirror://e8587ace
+        Thinking: events/140-160
+      disclosure: "Full session accessible via link"
+    
+    full:
+      commit_message: "..."
+      session_preserved: true
+      transcript_archived: true
+      thinking_blocks_indexed: true
+      tool_calls_logged: true
+      context_assembly_recorded: true
+      disclosure: "Complete record of human-AI collaboration"
+  
+  benefits:
+    for_future_self:
+      - "Remember why you made that decision"
+      - "Recall alternatives you considered"
+      - "Understand the context you had"
+    
+    for_team:
+      - "Onboard new members with full history"
+      - "Code review includes development process"
+      - "Understand not just what but why and how"
+    
+    for_auditing:
+      - "Demonstrate AI assistance was used"
+      - "Show human oversight and direction"
+      - "Prove iterative refinement occurred"
+    
+    for_debugging:
+      - "See what context led to a bug"
+      - "Understand original intent vs implementation"
+      - "Find where reasoning went wrong"
+    
+    for_learning:
+      - "Study how problems were approached"
+      - "Learn from mistakes in the record"
+      - "See evolution of understanding"
+  
+  implementation:
+    commit_footer: |
+      Session: cursor-mirror://<composer-id>
+      Transcript: ~/.cursor/projects/.../agent-transcripts/<id>.txt
+      Events: <start>-<end>
+    
+    archive_strategy:
+      - "Commit message contains session reference"
+      - "Transcript file optionally committed to repo"
+      - "Or archived separately with commit hash as key"
+      - "Future: dedicated provenance server"
+  
+  ethical_considerations:
+    transparency: "Disclose AI involvement in development"
+    consent: "All parties know collaboration is recorded"
+    privacy: "Sensitive discussions can be redacted"
+    attribution: "Credit both human and AI contributions"
 
 # INTERFACE
 
