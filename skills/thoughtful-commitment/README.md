@@ -41,6 +41,13 @@ Roy Batty understood, in his final moments, the tragedy of ephemeral state. He h
 └─────────────────────────────────────────────────────────────┘
 ```
 
+**Git commit reviews the PAST for CONTINUITY:**
+- Read previous commit messages for context
+- Understand the narrative thread
+- Continue the story, don't start fresh
+- Build on what came before
+- Reference related commits when relevant
+
 **thoughtful-commitment builds this bridge** — it reads cursor-mirror for the ephemeral state and synthesizes it into permanent commit messages.
 
 ## Full Disclosure
