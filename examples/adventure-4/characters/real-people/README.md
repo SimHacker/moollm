@@ -318,6 +318,28 @@ See: [Brian Reid's PostScript History](../../designs/postscript/BRIAN-REID-POSTS
 
 ---
 
+#### 👨📂🗃️🌐✨ David S. H. Rosenthal — Filesystem as Object Hierarchy (1986-1993)
+
+**NeWS co-author** with James Gosling at Sun. Created ICCCM (the X11 inter-client conventions — we forgive him). Later became a digital preservation pioneer with LOCKSS at Stanford.
+
+With Owen Densmore, patented **filesystem OOP** — implementing Smalltalk-style class hierarchies directly in the Unix filesystem:
+
+**[US Patent 5187786A](https://patents.google.com/patent/US5187786A/en):** *"Method and apparatus for implementing a class hierarchy of objects in a hierarchical file system"*
+
+- Directories as class and instance containers
+- Shell path as dictionary stack (!)
+- Method lookup via path traversal
+- No new file attributes required
+
+**Why Rosenthal is FOUNDATIONAL to MOOLLM:**
+- 📂 **Filesystem = object hierarchy** — MOOLLM's delegation model is this exact pattern
+- 🔍 **Path as method lookup** — `skills/room/` inherits from `skills/`
+- 🗃️ **Digital preservation** — His LOCKSS work informs MOOLLM's "filesystem as truth" philosophy
+
+Blog: [blog.dshr.org](https://blog.dshr.org/) | See: [X Window System At 40](https://blog.dshr.org/2024/07/x-window-system-at-40.html)
+
+---
+
 #### 👨🎨🔵📐✨ Owen Densmore — Object-Oriented PostScript (1986)
 
 Owen Densmore invented the OOP system that made NeWS truly powerful. He worked at Apple on the PostScript driver and printing system for the revolutionary Laser Writer, visited Adobe to work with John Warnock, then joined Sun where he worked with Don Hopkins on NeWS and The NeWS Toolkit (TNT).

@@ -43,7 +43,7 @@ This document traces how the "linguistic motherboard" concept evolved from PostS
         ↓
 2000  The Sims — Wright/Hopkins, advertisements, SimAntics
         ↓
-2002  OpenLaszlo — Temkin/Hopkins/H.Minsky/Steele, constraints, <node>, ISP
+2002  OpenLaszlo — Temkin/Henry Minsky/Oliver Steele/Hopkins, constraints, <node>, ISP
         ↓
 2010s Canvas API, SVG — PostScript imaging model in browsers
         ↓
