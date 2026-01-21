@@ -556,6 +556,8 @@ c37a70c  Technical style default, burke mode optional
 
 3. **CARD vs. SKILL:** The CARD is a sniffable interface for quick identification. Philosophy goes at the rear end of SKILL.md, where dogs sniff 🐕.
 
+4. **The Rear End Principle:** An extension of sniffable-python and sniffability in general: the *end* of a file is a special place. Dogs sniff there. LLMs read there. Humans scroll there when they're curious. If you want something discovered—philosophy, easter eggs, credits, acknowledgments—put it at the rear. The front is for identification; the rear is for intimacy.
+
 4. **Style Calibration:** Technical is the default. James Burke disco ball storytelling is an option (`style: burke`), not the baseline.
 
 5. **Composition Over Monolith:** Sister scripts invoked via shell, not imported as libraries. Shell pipelines as universal glue. Transparency and loose coupling.
