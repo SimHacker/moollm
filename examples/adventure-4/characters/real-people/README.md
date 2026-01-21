@@ -320,7 +320,7 @@ See: [Brian Reid's PostScript History](../../designs/postscript/BRIAN-REID-POSTS
 
 #### 👨🎨🔵📐✨ Owen Densmore — Object-Oriented PostScript (1986)
 
-Owen Densmore invented the OOP system that made NeWS truly powerful. He worked at Apple on the PostScript driver and printing system, visited Adobe to work with John Warnock, then joined Sun where he worked with Don Hopkins on NeWS and The NeWS Toolkit (TNT).
+Owen Densmore invented the OOP system that made NeWS truly powerful. He worked at Apple on the PostScript driver and printing system for the revolutionary Laser Writer, visited Adobe to work with John Warnock, then joined Sun where he worked with Don Hopkins on NeWS and The NeWS Toolkit (TNT).
 
 **The key insight:** PostScript's **dictionary stack** could implement Smalltalk-style classes:
 - Push a class dictionary onto the stack
@@ -565,7 +565,23 @@ Some heroes have recently left us. Their work lives on:
 🎮 M.U.L.E. creator, Seven Cities of Gold, multiplayer pioneer. **The Sims was dedicated to her memory.** 🏳️‍⚧️ Trans woman who transitioned late in life and spoke openly about her experiences.
 
 ### 👩🐉🎮🗺️✨ Jennell Jaquays (1956-2024)
-🐉 Legendary game designer, iconic D&D modules (Dark Tower, Caverns of Thracia), worked at id Software on Quake. 🏳️‍⚧️ Trans pioneer. Died January 2024.
+
+Legendary fantasy artist, game designer, and level designer. Her name became a verb: **"Jaquaysing"** — creating scenarios with myriad paths, non-linear, multi-solution, respecting player agency.
+
+**Artwork & Publications:**
+- 🎨 **The Dungeoneer** fanzine (1976-1979) — bold pen & ink, heavy crosshatching
+- 🎨 **Dragon Magazine** — premiere issue contributor, cover of issue #21
+- 🎨 **Judges Guild** — Dark Tower (1980), Caverns of Thracia (1979), saturated acrylic color work
+- 🎨 **Chaosium** — Griffin Mountain (1981)
+- 🎨 **TSR** — Dragon Mountain cover, Dragon Dice
+
+**Art Style:** Non-linear composition with multiple visual paths through the scene (like her dungeon designs!). Creatures with personality — monsters as characters, not just threats. Deep blues for magic, warm ochres for stone, vivid reds for danger.
+
+**Game Design:** Quake II, Quake III Arena (id Software). Hall of Fame inductee (Academy of Adventure Gaming Arts & Design, 2017). Kate Wilhelm Solstice Award (posthumous, 2024).
+
+🏳️‍⚧️ Trans pioneer. Wife of Rebecca Heineman. Died January 10, 2024.
+
+**MOOLLM Tribute:** [jennell-jaquays.yml](../../../skills/visualizer/styles/jennell-jaquays.yml) style analysis + [tribute image in the attic](../../pub/attic/dusty-attic-art-styles/)
 
 ### 👩🎮👾🏆⚡ Rebecca Heineman (1963-2025)
 - 🏆 First U.S. National Space Invaders Champion (1980, age 16)
@@ -586,6 +602,6 @@ Some heroes have recently left us. Their work lives on:
 
 ---
 
-## ✅ Already Incarnated Here
+## ✅ Real People Already Incarnated Here
 
 - **👨🥧🎮🐈💻 don-hopkins/** — Living tribute, can speak for himself! 🎉
