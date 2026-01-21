@@ -375,13 +375,15 @@ See: ["Object Oriented Programming in NeWS"](https://donhopkins.com/home/montere
 
 **After HyperLook:** Van Hoff joined Gosling at Sun on the Oak/Java team:
 - Wrote the **Java compiler in Java**
-- Created **AWT** (Abstract Window Toolkit)
-- **HotJava** — the first Java browser, major inspiration
+- Created **AWT** (we forgive him — wrapping native widgets pleased nobody)
+- **HotJava** — first Java browser (inspiring, but no runtime scripting)
 
 **Marimba & Bongo (1996):** Co-founded Marimba with the Java team. Created **Bongo** — HyperCard/HyperLook for Java:
-- Visual authoring tool with "presentations" (like HyperCard stacks)
-- **Live code** — edit and compile Java event handlers at runtime
-- Used his own Java compiler for the runtime magic
+- Visual authoring with "presentations" (like HyperCard stacks)
+- **The trick:** Since Arthur wrote the Java compiler, he knew how to call it at runtime
+- **Dynamic compilation** of Java button handlers in the browser — pioneering!
+- IDEs call compilers constantly now, but Marimba did it first
+- Completed the circle: edit behaviors at runtime like HyperTalk and PostScript/PdB
 
 **The lineage:** HyperCard (Mac) → HyperLook (NeWS) → Bongo (Java) — same vision, three platforms.
 
