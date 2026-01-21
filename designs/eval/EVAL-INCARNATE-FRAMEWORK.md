@@ -918,6 +918,11 @@ The simulation included **verified facts** (Wikipedia links) woven into fiction:
 | **Rooms Traversed** | 13 |
 | **Total Cat Actions** | 187 |
 | **Garden Deposits** | 10 (one per cat) |
+| **Files Modified** | 14 |
+| **Lines Added** | 458 |
+
+**Average Concurrent Actions per Turn:** 7.3
+**Maximum Concurrent Actions:** 10 (Turns 5-8)
 
 ### Biscuit's Maze Run
 
@@ -1196,11 +1201,22 @@ Two incarnations of the same vision: massively multiplayer social games focused 
 
 ## Core Skills
 
-- [`skills/skill/`](../../skills/skill/) — The meta-skill for creating skills
-- [`skills/incarnation/`](../../skills/incarnation/) — Character creation protocol
-- [`skills/speed-of-light/`](../../skills/speed-of-light/) — Many turns in one call
-- [`skills/empathic-expressions/`](../../skills/empathic-expressions/) — Intent → Code
-- [`skills/representation-ethics/`](../../skills/representation-ethics/) — Ethical framing
+| Skill | Role | Proof |
+|-------|------|-------|
+| [`incarnation`](../../skills/incarnation/) | Gold-standard character creation | Palm's birth |
+| [`skill`](../../skills/skill/) | Meta-skill for skill creation | 80+ skills created |
+| [`card`](../../skills/card/) | Skills as playable cards | Advertisements |
+| [`empathic-expressions`](../../skills/empathic-expressions/) | Code dimension (intent → code) | Empathic Suite |
+| [`empathic-templates`](../../skills/empathic-templates/) | Smart generation | Biscuit's description |
+| [`speed-of-light`](../../skills/speed-of-light/) | Many turns, one call | 33-turn Fluxx |
+| [`prototype`](../../skills/prototype/) | Self-style inheritance | Delegation |
+| [`postel`](../../skills/postel/) | Generous interpretation | Foundation |
+| [`yaml-jazz`](../../skills/yaml-jazz/) | Comments as semantic data | Axis of Eval |
+| [`representation-ethics`](../../skills/representation-ethics/) | Ethical framing | Tribute Protocol |
+| [`adventure`](../../skills/adventure/) | Room-based narrative | adventure-4 |
+| [`room`](../../skills/room/) | TinyMUD-style building | MOO commands |
+| [`needs`](../../skills/needs/) | Character motivation | Sims needs |
+| [`action-queue`](../../skills/action-queue/) | Sims-style task ordering | Advertisements |
 
 ## Proof Files
 
