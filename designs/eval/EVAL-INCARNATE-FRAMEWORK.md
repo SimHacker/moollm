@@ -1146,6 +1146,15 @@ Two incarnations of the same vision: massively multiplayer social games focused 
 - [postmodern-deconstruction.md](../postmodern-deconstruction.md) — Captain Ashford's lit crit masterpiece ("How to Incarnate Almost Anything")
 - [sims-design-index.md](../sims/sims-design-index.md) — Master index of Sims influences
 
+### PostScript Lineage
+
+- [LINGUISTIC-MOTHERBOARD.md](../postscript/LINGUISTIC-MOTHERBOARD.md) — PostScript → NeWS → HyperLook → SimCity → The Sims → MOOLLM
+- [BRIAN-REID-POSTSCRIPT-HISTORY.md](../postscript/BRIAN-REID-POSTSCRIPT-HISTORY.md) — Definitive 1985 history of PostScript origins
+
+### Real People Inspirations
+
+- [real-people/README.md](../../examples/adventure-4/characters/real-people/README.md) — MOOLLM Founders' Gallery (16 entries)
+
 ## Core Skills
 
 - [`skills/skill/`](../../skills/skill/) — The meta-skill for creating skills
@@ -1169,6 +1178,7 @@ Two incarnations of the same vision: massively multiplayer social games focused 
 | [Will Wright on simulation games](https://donhopkins.medium.com/will-wright-on-designing-user-interfaces-to-simulation-games-1996-video-update-2023-da098a51ef91) | Simulator Effect, game design |
 | [Open Sourcing SimCity](https://donhopkins.medium.com/open-sourcing-simcity-58470a27063e) | SimCity history |
 | [Micropolis](https://donhopkins.medium.com/micropolis-constructionist-educational-open-source-simcity-79dce12e9e98) | Constructionism, OLPC |
+| [Constraints and Prototypes in Garnet and Laszlo](https://donhopkins.medium.com/constraints-and-prototypes-in-garnet-and-laszlo-84533c49c548) | Garnet, OpenLaszlo, Instance-First Development |
 
 ## Academic References
 
