@@ -19,7 +19,7 @@ These are **tribute incarnations** -- fictional explorations based on documented
 | [The Graphical Pioneers](#%EF%B8%8F-the-graphical-pioneers-1960s) | Sutherland, Engelbart, Nelson |
 | [Object-Oriented Revolutionaries](#-the-object-oriented-revolutionaries-1970s-80s) | Kay, Minsky, Papert |
 | [PostScript/NeWS Era](#-the-postscriptnews-era-1984-1992) | Warnock, Gosling, Densmore, van Hoff |
-| [Virtual World Builders](#-the-virtual-world-builders-1986-1990) | Habitat, TinyMUD, LambdaMOO |
+| [Virtual World Builders](#-the-virtual-world-builders-1978-1990) | MUD1, Habitat, TinyMUD, LambdaMOO |
 | [Prototype Revolution](#-the-prototype-revolution-1987) | Self, HyperCard |
 | [Simulation Masters](#-the-simulation-masters-1989-2012) | Wright, Butterfield |
 | [Understanding Pioneers](#-the-understanding-pioneers) | McCloud |
@@ -311,9 +311,43 @@ See: [HyperLook (nee HyperNeWS)](https://donhopkins.medium.com/hyperlook-nee-hyp
 
 ---
 
-### 🌐 The Virtual World Builders (1986-1990)
+### 🌐 The Virtual World Builders (1978-1990)
 
-#### 👨🏠🎮🌍✨ Chip Morningstar & Randy Farmer — The First Virtual World (1986)
+#### 👨🎮🏰🐉✨ Richard Bartle & Roy Trubshaw — MUD1 (1978)
+
+**MUD1** (Essex University, 1978) — The first multi-user dungeon. Bartle and Trubshaw created networked multiplayer gaming. Players could explore, fight, chat, and build together in a shared text world.
+
+> *"Virtual worlds aren't about the technology; they're about the people."* — Richard Bartle
+
+**Bartle's Books:**
+- 📖 **"Designing Virtual Worlds"** (2003) — THE textbook. 750 pages of hard-won wisdom about building worlds where players live.
+- 📖 **"MMOs from the Inside Out"** (2015) — The philosophy of virtual world design. Why worlds matter.
+
+**Bartle's Taxonomy of Player Types** (1996):
+| Type | Motivation | In MOOLLM |
+|------|------------|-----------|
+| ♠️ **Killers** | Acting on players | Adversarial characters, PvP |
+| ♥️ **Socializers** | Interacting with players | Soul-chat, relationships, godfamily |
+| ♦️ **Achievers** | Acting on the world | Quests, goals, completionism |
+| ♣️ **Explorers** | Interacting with the world | Room navigation, skill discovery |
+
+**Bartle's Laws:**
+1. *"Virtual worlds that are more like games will always be more popular than those that aren't."*
+2. *"Virtual worlds will tend to become more game-like over time."*
+3. *"The more freedom you give players, the more responsibility you have to manage."*
+
+**Why MUD1 is FOUNDATIONAL to MOOLLM:**
+- 🏰 **Multi-user shared space** — Multiple players in the same world simultaneously
+- 🐉 **Emergent gameplay** — Players create meaning through interaction
+- 📜 **Wizards and builders** — User hierarchy, world-building permissions
+- 🎭 **Identity and personas** — Players become their characters
+- ⚔️ **Verbs and actions** — Commands like `look`, `take`, `say`, `kill`
+
+**The MUD → MOO lineage:** MUD (Bartle, 1978) → AberMUD (1987) → TinyMUD (Aspnes, 1989) → TinyMUCK (1990) → MOO (Curtis, 1990) → LambdaMOO (1990). The "MOO" in "MOOLLM" honors this heritage — Multi-user Object-Oriented meets LLM.
+
+---
+
+#### 👨🏠🎮🌍✨ Chip Morningstar & Randy Farmer — Habitat (1986)
 
 **Habitat** (Lucasfilm, 1986) — The first large-scale graphical multiplayer virtual world. Ran on Commodore 64s connected via QuantumLink (which became AOL). Coined the term **"avatar"** for user representation.
 
@@ -327,7 +361,7 @@ See: [HyperLook (nee HyperNeWS)](https://donhopkins.medium.com/hyperlook-nee-hyp
 
 **The hard-won wisdom:** Morningstar and Farmer learned that users will do things you never imagined (and crash your economy). MOOLLM inherits this humility — design for emergence, not control.
 
-**The virtual world lineage:** Habitat (1986) → TinyMUD (1989) → LambdaMOO (1990) → Game Neverending (2002) → Second Life (2003) → Glitch (2009). Stewart Butterfield's Glitch was a spiritual descendant of Habitat's vision — whimsy, collaboration, user-generated meaning.
+**The virtual world lineage:** MUD1 (1978) → Habitat (1986) → TinyMUD (1989) → LambdaMOO (1990) → Game Neverending (2002) → Second Life (2003) → Glitch (2009). Stewart Butterfield's Glitch was a spiritual descendant of Habitat's vision — whimsy, collaboration, user-generated meaning. The "MOO" in "MOOLLM" honors this entire heritage.
 
 ---
 
