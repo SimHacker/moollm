@@ -2,6 +2,11 @@
 #
 # These are the standard mappings from sensitive patterns to Trek technobabble.
 # Load on-demand when performing MASK operations.
+#
+# USER CUSTOMIZATION:
+# Override or extend these in your .moollm/skills/trekify/config.yml
+# Your config can add custom taboo→replacement mappings, additional
+# passthrough terms, and category toggles. See README.md for format.
 
 secrets:
   description: "Authentication & Credentials"
@@ -124,7 +129,7 @@ locations:
     Australia: "Delta Quadrant"
 
 # MOOLLM passthrough — never mask these
-passthrough:
+passthrough: # Not exclusive lists, but typical examples:
   concepts:
     - coherence engine
     - thinking blocks
@@ -142,7 +147,6 @@ passthrough:
   repos:
     - moollm
     - mooco
-    - leela
   
   terms:
     - LLM
