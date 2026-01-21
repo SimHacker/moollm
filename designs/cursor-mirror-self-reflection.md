@@ -56,6 +56,7 @@ Like Last.fm scrobbles the music you're listening to, cursor-mirror enables **th
 | JSON | `/api/scrobbles` | Dashboard widgets |
 | WebSocket | `/ws/live` | Real-time browser display |
 | Twitter | `@cursor_thoughts` | "🧠 22:45:03 — Processing user request for banana hunt 🍌" |
+| Twitch | `twitch.tv/cursor_thoughts` | Live coding with thought overlay |
 | Slack | `#cursor-stream` | Team visibility into AI reasoning |
 
 **Privacy note:** Obviously you'd want TREKIFY 🖖 running on this before publishing. "Now thinking about `<CLASSIFIED DILITHIUM MATRIX>`..."
