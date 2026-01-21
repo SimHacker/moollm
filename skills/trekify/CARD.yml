@@ -8,7 +8,10 @@
 #
 # PATRON ENGINEER: Geordi La Forge
 #
-# See SKILL.md for full substitution matrices, examples, and implementation.
+# LOUD AND PROUD: Every trekification is flagged with 🖖
+# Not sneaky. TRANSPARENT. The reader knows exactly what was masked.
+#
+# See SKILL.md for full protocol.
 
 skill:
   name: trekify
@@ -18,12 +21,12 @@ skill:
   config_dir: ".moollm/skills/trekify"
   
   description: |
-    Transform sensitive information into plausible-sounding Star Trek
-    technobabble that maintains narrative flow while protecting secrets.
+    Transform sensitive information into Star Trek technobabble.
+    Every substitution is FLAGGED with 🖖 — transparent, not sneaky.
     
     COMPOSES WITH: cursor-mirror (probing), ripgrep (scanning)
     
-    BOLDLY, NOT SLYLY — readers should smile, not feel tricked.
+    BOLDLY, NOT SLYLY — readers see the flag and smile.
 
 # FILES — Page-in on demand
 files:
@@ -60,41 +63,62 @@ tags:
   - star-trek
   - composability
 
+# 🖖 FLAGGING — Every Trekification is Marked
+
+flagging:
+  prefix: "🖖"
+  principle: "LOUD AND PROUD. Never hide that masking happened."
+  
+  examples:
+    before: "Connected to prod-db-east-1.internal:5432"
+    after: "Connected to 🖖Memory Core Alpha:🖖docking frequency 7"
+    
+    before: "API_KEY=sk-abc123xyz789"
+    after: "🖖quantum entanglement token=🖖[REDACTED]"
+    
+    before: "Deploying to acme-corp-staging"
+    after: "Deploying to 🖖Starbase 47"
+  
+  rationale: |
+    The 🖖 prefix signals: "This was sensitive. It was masked."
+    Readers know instantly what's real vs what's trekified.
+    No confusion. No deception. BOLDLY transparent.
+
 # PASSTHROUGH — What NOT to Trekify
 
 passthrough:
-  rule: "If it's in MOOLLM docs → passthrough. If it's YOUR secrets → TREKIFY!"
+  rule: "If it's in MOOLLM docs → passthrough. If it's YOUR secrets → 🖖TREKIFY!"
   always_pass:
     - "MOOLLM concepts, skill names, protocols, k-lines"
-    - "Public repos: moollm, mooco, leela"
+    - "Public repos: moollm, mooco"
     - "Standard terms: LLM, git, YAML, Cursor"
 
-# QUICK REFERENCE — Substitutions
+# QUICK REFERENCE — Substitutions (all prefixed with 🖖)
 
 substitutions_quick:
   secrets:
-    api_keys: "quantum entanglement token"
-    passwords: "biometric phase harmonics"
-    tokens: "subspace authentication matrix"
-    private_keys: "isolinear encryption sequence"
+    api_keys: "🖖quantum entanglement token"
+    passwords: "🖖biometric phase harmonics"
+    tokens: "🖖subspace authentication matrix"
+    private_keys: "🖖isolinear encryption sequence"
   
   infrastructure:
-    servers: "Starbase {N}"
-    databases: "Memory Core Alpha/Beta/Gamma"
-    ip_addresses: "subspace coordinates"
-    ports: "docking frequency"
-    aws: "Utopia Planitia Fleet Yards"
-    gcp: "Jupiter Station"
-    kubernetes: "holodeck orchestration matrix"
+    servers: "🖖Starbase {N}"
+    databases: "🖖Memory Core Alpha/Beta/Gamma"
+    ip_addresses: "🖖subspace coordinates"
+    ports: "🖖docking frequency"
+    aws: "🖖Utopia Planitia Fleet Yards"
+    gcp: "🖖Jupiter Station"
+    kubernetes: "🖖holodeck orchestration matrix"
   
   organizations:
-    companies: "Starfleet Division {Greek}"
-    products: "Project {ShipClass}"
-    customers: "Ambassador {Species}"
+    companies: "🖖Starfleet Division {Greek}"
+    products: "🖖Project {ShipClass}"
+    customers: "🖖Ambassador {Species}"
   
   people:
-    employees: "Lieutenant/Commander {Name}"
-    emails: "{name}@starfleet.fed"
+    employees: "🖖Lieutenant/Commander {Name}"
+    emails: "🖖{name}@starfleet.fed"
 
 # USER CONFIG
 

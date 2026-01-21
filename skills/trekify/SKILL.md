@@ -1,25 +1,36 @@
-# TREKIFY Protocol
+# 🖖 TREKIFY Protocol
 
 > *"Captain, I've routed all sensitive data through the privacy buffers."*
 
-Privacy through technobabble. Transform sensitive information into Star Trek terminology while maintaining narrative flow.
+Privacy through technobabble. Transform sensitive information into Star Trek terminology — **every substitution flagged with 🖖**.
+
+## The 🖖 Flag
+
+**LOUD AND PROUD.** Every trekified term is prefixed with 🖖.
+
+```
+Before: Connected to prod-db-east-1.internal:5432
+After:  Connected to 🖖Starbase 47:🖖docking frequency 54
+
+Before: API_KEY=sk-abc123xyz789
+After:  🖖quantum entanglement token=🖖[REDACTED]
+
+Before: Deploying to acme-corp-staging
+After:  Deploying to 🖖Starbase 12
+```
+
+**Why flag?** The reader knows EXACTLY what was masked. No confusion. No deception. BOLDLY transparent. They see 🖖 and smile — not feel tricked.
+
+---
 
 ## Philosophy
 
-### The Principle
-
-Sensitive data should be masked, but `[REDACTED]` breaks narrative flow. TREKIFY replaces secrets with contextually appropriate technobabble that maintains readability while clearly signaling "this was masked."
-
-The substitutions are consistent and reversible (with the key). The tone is professional, not campy or parodic.
-
 ### Boldly, Not Slyly
 
-TREKIFY is **BOLD**, not SLY. We're not hiding that we masked things. We're GLEEFULLY and PLAYFULLY replacing sensitive data with contextually appropriate technobabble.
-
-The reader should **SMILE** when they notice. Not feel tricked.
+TREKIFY is **BOLD**, not SLY. The 🖖 flag makes masking OBVIOUS.
 
 **Principles:**
-- Don't pretend masking didn't happen
+- 🖖 prefix on EVERY substitution — no hiding
 - Use obviously Trek terminology
 - Let readers feel clever for noticing
 - Consistent substitutions aid comprehension

@@ -74,6 +74,173 @@ Cat Council: Biscuit accepted into family
 
 ## Method Specifications
 
+---
+
+## Primary Introspection — Start Here
+
+These are the entry points. Get the timeline, then drill down.
+
+### TIMELINE
+
+**The master view.** Shows all events with timestamps, types, and IDs.
+
+**Input:**
+```yaml
+method: TIMELINE
+parameters:
+  composer: string     # Composer ID (@1, name fragment, hash)
+  limit: int           # How many events (default: 50)
+  filter: string       # Event type filter (thinking, tool, user, all)
+  since: string        # Time filter ("1 hour ago", event ID)
+```
+
+**Process:**
+```bash
+cursor-mirror timeline <composer> --limit <n>
+```
+
+**Output:**
+```
+🤔💭 ⏱️ Session Timeline — e8587ace
+
+#141  16:46:12  📍 user      "Refactor auth module"
+#142  16:46:15  🪟 context   3 files, ~4.2k tokens
+#143  16:46:18  🧠 thinking  "Need to check for race conditions..."
+#144  16:46:22  🔧 tool      Read auth/session.ts
+#145  16:46:25  📤 result    247 lines loaded
+#146  16:46:30  🧠 thinking  "Found race condition on line 47..."
+#147  16:46:35  💡 insight   "Adding await fixes sequencing"
+#148  16:46:40  🔧 tool      Write auth/session.ts
+#149  16:46:45  📝 change    +3 -1 lines
+
+→ Drill down: CONTEXT-FOCUS #142 | THINKING #143 | TOOLS #144
+```
+
+**Drill-down commands:**
+- `CONTEXT-FOCUS #142` — What went into context at that point?
+- `THINKING #143` — Full text of that thinking block
+- `TOOLS #144-148` — Tool calls in that range
+- `EXPLAIN #149` — Why was that change made?
+
+The timeline is the **map**. Everything else is **zooming in**.
+
+---
+
+### CONTEXT-FOCUS
+
+Analyze what went into the context window for a specific call. Shows the cursor state — what files, snippets, conversation, and rules were assembled.
+
+**Input:**
+```yaml
+method: CONTEXT-FOCUS
+parameters:
+  composer: string     # Composer ID
+  event_id: string     # Optional: specific event (default: latest)
+```
+
+**Process:**
+```bash
+# Get context sources for a composer
+cursor-mirror context-sources <composer>
+
+# Analyze what was in context at a specific event
+cursor-mirror timeline <composer> --before <event_id> --type context
+```
+
+**Output:**
+```
+🤔💭 🪟 Context Window Analysis — event #142
+
+Files read into context:
+  auth/session.ts      247 lines   ████████████░░░░  58%
+  auth/types.ts         89 lines   ████░░░░░░░░░░░░  21%
+  tests/auth.test.ts   156 lines   ██████░░░░░░░░░░  37%
+
+Snippets:
+  session.ts:45-67 (highlighted by user)
+  
+Conversation turns: 12
+Rules loaded: .cursorrules, workspace rules
+
+Estimated tokens: ~4,200
+
+Focus: auth module, session handling
+```
+
+The 🪟 tag marks context window analysis — showing what the LLM "saw" for this call.
+
+---
+
+### THINKING
+
+Show reasoning blocks for an event or range.
+
+**Input:**
+```yaml
+method: THINKING
+parameters:
+  composer: string
+  event_id: string     # Specific event
+  range: string        # Or range like "143-146"
+```
+
+**Process:**
+```bash
+cursor-mirror thinking <composer> --event <id>
+```
+
+**Output:**
+```
+🤔💭 🧠 Thinking Block #143
+
+"I need to understand the current structure of the auth module before 
+making changes. Let me read the session handling code first.
+
+The user mentioned a race condition — I should look for any async 
+operations that might not be properly awaited. Common patterns to 
+check: cookie operations, token refresh, database calls..."
+
+(247 chars, 16:46:18)
+```
+
+---
+
+### TOOLS
+
+Show tool calls for an event or session.
+
+**Input:**
+```yaml
+method: TOOLS
+parameters:
+  composer: string
+  event_id: string     # Specific event, or omit for all
+  tool_filter: string  # Filter by tool name (Read, Write, Shell, etc.)
+```
+
+**Process:**
+```bash
+cursor-mirror tools <composer>
+cursor-mirror tools <composer> --filter Read
+```
+
+**Output:**
+```
+🤔💭 🔧 Tool Calls — session e8587ace
+
+#144  Read     auth/session.ts           247 lines
+#148  Write    auth/session.ts           +3 -1
+#150  Read     auth/types.ts              89 lines
+#152  Shell    git diff --staged         +3 -1 lines
+#153  Write    tests/auth.test.ts        +45 new
+
+Distribution: Read 42% | Write 28% | Shell 18% | Grep 12%
+```
+
+---
+
+## Commit Operations
+
 ### COMMIT
 
 Create a thoughtful commit with narrative context.
@@ -404,17 +571,286 @@ Output: Found in commit abc123 (2026-01-15)
 - `WHY-REQUIRED` — Tool calls explain themselves; commits should too
 - `APPEND-ONLY` — Commit history is append-only by nature
 
-## The Philosophy
+---
 
-> Every commit is a **crystallized moment** of intent.
-> 
-> Git remembers **what** changed.
-> Cursor-mirror remembers **why** you thought it should.
-> Thoughtful Commitment **links them together**.
->
-> Six months from now, you can trace any property back to:
-> - The user request that triggered it
-> - The reasoning that shaped it
-> - The commit that recorded it
->
-> That's **soul archaeology** powered by version control.
+## Reference: Detail Knob
+
+Adjustable output from terse to comprehensive:
+
+| Level | Name | Tokens | Output |
+|-------|------|--------|--------|
+| 1 | terse | ~10 | `fix: auth bug` |
+| 2 | brief | ~50 | Title + paragraph |
+| 3 | standard | ~100 | Title + narrative + changes |
+| 4 | detailed | ~300 | Full sections + session link |
+| 5 | comprehensive | ~500+ | Everything + alternatives + metrics |
+
+**Focus areas:** `technical`, `narrative`, `process`, `provenance`, `changelog`, `metrics`
+
+---
+
+## Reference: Emoji Palette
+
+### Attribution
+| Emoji | Meaning |
+|-------|---------|
+| 👤 | Human-written (place at top) |
+| 🤖 | LLM-generated |
+| 👤🤖 | Collaboration |
+| 👁️ | Human-reviewed |
+
+### Skill Signature
+`🤔💭` — Thoughtful Commitment namespace anchor
+
+### Section Markers
+| Emoji | Section |
+|-------|---------|
+| ⏱️ | Timeline (master view, all events) |
+| 📍 | Context (background, why we're here) |
+| 🪟 | Context Window (what inputs were assembled) |
+| 🧠 | Thinking |
+| 🔧 | Tool call |
+| 📤 | Tool result |
+| 🔍 | Investigation |
+| 💡 | Solution / Insight |
+| 🔀 | Alternatives / Decision |
+| 📝 | Changes |
+| 📊 | Metrics |
+| 🔗 | Session link |
+
+### Output Structure
+```
+👤 User's prompt (head position, their words)
+---
+🤖🤔💭 LLM analysis (skill's voice)
+```
+
+### Thought Stream
+
+Every line of reasoning prefixed with `🤔💭 <tag>`:
+
+| Tag | Meaning | Example |
+|-----|---------|---------|
+| ⏱️ | Timeline | `🤔💭 ⏱️ Session e8587ace, 47 events` |
+| 📍 | Prompt/context | `🤔💭 📍 User asked to refactor auth` |
+| 🪟 | Context window | `🤔💭 🪟 Loaded 3 files, ~4k tokens` |
+| 🧠 | Thinking | `🤔💭 🧠 Need to check for race conditions` |
+| 🔧 | Tool call | `🤔💭 🔧 Read auth/session.ts` |
+| 📤 | Tool result | `🤔💭 📤 Found race condition on line 47` |
+| 💡 | Insight | `🤔💭 💡 Adding await fixes sequencing` |
+| 🔀 | Decision | `🤔💭 🔀 Chose await over mutex (simpler)` |
+| 📝 | Change | `🤔💭 📝 Modified auth/session.ts` |
+| ⚠️ | Warning | `🤔💭 ⚠️ This might break legacy clients` |
+
+**Example stream:**
+```
+🤔💭 📍 User asked to refactor the auth module
+🤔💭 🧠 Need to understand current structure first
+🤔💭 🔧 Read auth/session.ts
+🤔💭 📤 Found race condition in line 47
+🤔💭 🧠 The cookie check races with token refresh
+🤔💭 💡 Adding await will fix the sequencing
+🤔💭 🔀 Chose await over mutex (simpler, addresses root cause)
+🤔💭 📝 Modified auth/session.ts
+🤔💭 🧠 Should add a test for this edge case
+🤔💭 🔧 Write auth/session.test.ts
+🤔💭 📤 Test file created
+🤔💭 💡 Ready to commit with full context
+```
+
+The stream shows the reasoning process — amazing and revealing.
+Every thought is tagged. Every tool call visible. Fully transparent.
+
+---
+
+## Reference: Git Time Travel
+
+### Archaeology Commands
+
+```bash
+# BLAME — Who wrote each line?
+git blame <file>
+git blame -L 10,20 <file>           # Specific range
+git blame <commit>^ -- <file>       # Blame BEFORE a commit
+
+# LOG — Trace evolution
+git log --oneline <file>
+git log -S 'pattern'                # Pickaxe: who added this?
+git log --follow <file>             # Track through renames
+
+# SHOW — Inspect any point
+git show <commit>:<file>            # File at that moment
+git show <commit> --stat            # What changed
+```
+
+### Planning Commands
+
+```bash
+# MERGE PLANNING
+git log main..feature --oneline     # Commits to merge
+git diff main...feature             # Changes to merge
+git merge-base main feature         # Common ancestor
+
+# CHERRY-PICK PLANNING
+git cherry -v upstream branch       # What's not upstream?
+git show <commit>                   # Inspect before picking
+```
+
+---
+
+## Reference: Cursor-Mirror Integration
+
+cursor-mirror provides 59 commands for introspection:
+
+```bash
+# Navigation
+cursor-mirror tree                  # Browse workspaces
+cursor-mirror tail --limit 20       # Recent activity
+
+# Extraction
+cursor-mirror timeline <composer>   # Full event stream
+cursor-mirror thinking <composer>   # Reasoning blocks
+cursor-mirror tools <composer>      # Tool call history
+
+# Search
+cursor-mirror tgrep 'pattern'       # Search transcripts
+cursor-mirror sql --db <ref> 'query' # Direct SQL
+
+# Analysis
+cursor-mirror analyze <composer>    # Session statistics
+```
+
+---
+
+## Reference: Shell Patterns
+
+```bash
+# Counting
+wc -l file                          # Lines
+grep -c 'pattern' file              # Matches
+
+# Frequency
+sort | uniq -c | sort -rn           # Histogram
+
+# Extraction
+grep -o 'pattern' file              # Matches only
+awk '{print $1, $3}'                # Select columns
+
+# Aggregation
+awk '{sum+=$1} END{print sum}'      # Sum
+```
+
+---
+
+## Reference: Trekify Integration
+
+For privacy, compose with [trekify](../trekify/) to mask sensitive data:
+
+```bash
+trekify MASK-SESSION e8587ace -o masked.txt
+```
+
+| Sensitive | Trekified |
+|-----------|-----------|
+| API keys | Quantum entanglement tokens |
+| Servers | Starbase {N} |
+| Databases | Memory Core Alpha |
+
+---
+
+# Philosophy (The Rear End 🐕)
+
+Where dogs sniff. The deep stuff.
+
+## The Persistence Insight
+
+> *"All those moments will be lost in time, like tears in rain."*
+> — **Roy Batty**, Patron Saint of Thoughtful Commitment
+
+**Git commits PERSIST ephemeral IDE state into permanent history.**
+
+When you're working in Cursor, your session holds:
+- **Thinking blocks** — the LLM's reasoning
+- **Context assembly** — what files were gathered
+- **Tool calls** — every action taken
+- **Design process** — iterations, dead ends
+
+**All of this vanishes** when you close the IDE.
+
+Git commit FREEZES the NOW into FOREVER:
+- Permanent record in repository
+- Shareable with team
+- Traceable through blame/log
+- Survives years
+
+## Full Disclosure
+
+Every commit can disclose the complete development session:
+
+| Level | What's Disclosed |
+|-------|------------------|
+| Minimal | Just the diff |
+| Narrative | Intent summarized |
+| Linked | `cursor-mirror://e8587ace` |
+| Full | Complete transcript archived |
+
+**Benefits:**
+- Future self: Remember why you made decisions
+- Team: Onboard with full history
+- Auditing: Demonstrate AI assistance
+- Debugging: See context that led to bugs
+
+## Composition Philosophy
+
+### Why Sister Scripts?
+
+`cursor_mirror.py` is a "sister script" — standalone, invoked via shell, outputting text.
+
+**NOT a library. NOT an import. A PROCESS you talk to via stdin/stdout.**
+
+This matters because:
+- The LLM invokes it the same way a human would
+- Output is inspectable, greppable, pipeable
+- No hidden state, no tight coupling
+- The skill doesn't "own" cursor-mirror; it USES it
+
+Sister scripts are tools in your belt, not organs in your body.
+
+### Why Shell as Glue?
+
+Shell pipelines are the universal connector:
+```
+cursor-mirror (Python) → grep (C) → awk (C) → git (C)
+```
+
+The LLM thinks in shell because:
+- Lingua franca of Unix tools
+- Pipes are dataflow made visible
+- Each stage independently testable
+- You can see the data at every step
+
+**Shell isn't primitive — it's COMPOSABLE.**
+
+### Why Not Monolith?
+
+A monolithic tool would:
+- Hide the data flow
+- Couple components tightly
+- Be hard to debug
+- Not compose with other skills
+
+By composing cursor-mirror + shell + git:
+- Transparent data flow
+- Loose coupling
+- Reuse across skills
+- Debuggable (run each stage manually)
+
+### The Pattern
+
+```
+skill = ORCHESTRATION     (knows WHAT to do)
+sister_scripts = CAPABILITY   (knows HOW)
+shell = GLUE              (connects them)
+```
+
+The skill is the conductor. The tools are the orchestra.

@@ -1,16 +1,16 @@
 # 🤔💭 THOUGHTFUL-COMMITMENT
-#
+# 🦎🐍
 # "Commits should tell the story of why, not just what."
 #
 # Git commits PERSIST ephemeral Cursor state into permanent history.
 # cursor-mirror sees the NOW. git commit FREEZES it into FOREVER.
 
 skill:
-  name: thoughtful-commitment
+  name: thoughtful-commitment # 🧪🔗🚛🛠🚛
   version: 1.0.0
   emoji: "🤔💭"
   tagline: "Commits that remember why"
-  config_dir: ".moollm/skills/thoughtful-commitment"
+  config_dir: ".moollm/skills/thoughtful-commitment" # 🧱🚧
   
   description: |
     Transform mechanical commits into narrative records.
@@ -23,24 +23,24 @@ files:
     - README.md                        # Landing page
   examples:
     - examples/git-commands.yml        # Git archaeology
-    - examples/commit-messages.yml     # Example commits
-    - examples/shell-patterns.yml      # Data pipelines
+    - examples/commit-messages.yml # Example commits 🚛⛓
+    - examples/shell-patterns.yml # Data pipelines 🧪🧪🛰🧪
 
 # INTERFACE
-tier: 2
+tier: 2 # 🦎🥥🦜
 protocol: THOUGHTFUL-COMMITMENT
-
+# 🍂🦂
 allowed_tools:
   - read_file
   - write_file
-  - list_dir
+  - list_dir # 🛠🚛🔗
   - run_terminal_cmd
   - grep
 
 related:
   - cursor-mirror      # Introspection engine
   - trekify            # Privacy masking
-  - session-log        # Narrative storage
+  - session-log # Narrative storage ✨📡
 
 tags: [git, commits, narrative, provenance, introspection, composability]
 
@@ -48,19 +48,19 @@ tags: [git, commits, narrative, provenance, introspection, composability]
 advertisements:
   # Primary Introspection
   - id: TIMELINE
-    trigger: "user wants to see session events"
-    conditions:
-      - "user asks what happened"
+    trigger: "user wants to see session events" # 🔧
+    conditions: # 🐸🌴
+      - "user asks what happened" # 🍌
       - "user wants session overview"
       - "user wants to understand flow"
     score: 0.95
     note: "Start here — master view, then drill down"
     
   - id: CONTEXT-FOCUS
-    trigger: "user wants to see context window"
+    trigger: "user wants to see context window" # 🐒
     conditions:
-      - "user asks what was in context"
-      - "user wants to see inputs"
+      - "user asks what was in context" # ✨🧫🧫
+      - "user wants to see inputs" # 📈
       - "user asks what LLM saw"
     score: 0.95
     
@@ -68,21 +68,21 @@ advertisements:
   - id: COMMIT
     trigger: "user wants to commit with context"
     conditions:
-      - "staged changes exist"
+      - "staged changes exist" # 🦧🦥🍌
       - "user asks for thoughtful/narrative commit"
     score: 0.9
-    
+# ⚗💡🐒
   - id: EXPLAIN
     trigger: "user asks why a commit was made"
-    conditions:
+    conditions: # 🔧
       - "commit hash provided"
-      - "user wants reasoning behind change"
+      - "user wants reasoning behind change" # 🍂
     score: 0.8
     
   # Git Archaeology
   - id: BLAME
     trigger: "user asks who wrote code and why"
-    conditions:
+    conditions: # 🌴🥥🦥
       - "file path provided"
       - "user wants attribution + reasoning"
     score: 0.85
@@ -91,21 +91,21 @@ advertisements:
     trigger: "user wants history of file/pattern"
     conditions:
       - "target path or pattern provided"
-      - "user exploring evolution"
+      - "user exploring evolution" # 🧠💡
     score: 0.8
 
 # METHODS — Signatures only, see SKILL.md for details
 methods:
 
   # PRIMARY INTROSPECTION — Start here, drill down from timeline
-  
+# 🧮🧪🧫
   TIMELINE:
     description: "Show all events with timestamps, types, and IDs — the master view"
     composes_with: cursor-mirror
     params: [composer, limit, filter, since]
     returns: [events]  # Each: {id, timestamp, type, summary}
     output_tag: "⏱️"
-    drill_down: "Use event IDs with CONTEXT-FOCUS, THINKING, TOOLS"
+    drill_down: "Use event IDs with CONTEXT-FOCUS, THINKING, TOOLS" # 🍃
     example_output: |
       🤔💭 ⏱️ Session Timeline — e8587ace
       
@@ -126,7 +126,7 @@ methods:
     composes_with: cursor-mirror
     params: [composer, event_id]
     returns: [files_read, snippets, conversation, rules, total_tokens]
-    output_tag: "🪟"
+    output_tag: "🪟" # 🛠
     example_output: |
       🤔💭 🪟 Context Window — event #142
       
@@ -171,7 +171,7 @@ methods:
     
   NARRATIVE:
     description: "Generate narrative commit message from context"
-    params: [diff_summary, perspective, detail]
+    params: [diff_summary, perspective, detail] # 🛞🏭🔧
     returns: [message, sections]
 
   DEEP-COMMIT:
@@ -184,17 +184,17 @@ methods:
     params: [commit, events]
     returns: [linked, reference]
 
-  # GIT ARCHAEOLOGY
-    
-  BLAME:
+# GIT ARCHAEOLOGY 🌈🥥🍃
+# 🐸🦎🦥🌿
+  BLAME: # 🚚🧱🛠
     description: "Who wrote each line, when, and why?"
     params: [path, lines, follow_renames]
-    returns: [lines, commits, authors, timeline]
+    returns: [lines, commits, authors, timeline] # ⛓🚛🪝
     
   ARCHAEOLOGY:
     description: "Deep dig into file/pattern history"
-    params: [target, mode, since]
-    returns: [evolution, milestones, contributors, linked_sessions]
+    params: [target, mode, since] # 🔭
+    returns: [evolution, milestones, contributors, linked_sessions] # 🐍
     
   HISTORY:
     description: "Narrative timeline of a path"
@@ -203,22 +203,22 @@ methods:
 
   # GIT PLANNING
     
-  PLAN-MERGE:
-    description: "Understand what merge will bring"
+  PLAN-MERGE: # 📈
+    description: "Understand what merge will bring" # 🛰
     params: [source, target, detail]
-    returns: [commits_to_merge, files_affected, potential_conflicts, narrative]
-    
+    returns: [commits_to_merge, files_affected, potential_conflicts, narrative] # 🚛🧰🧰🏭🌳🦂🐍
+# 🥥🦥🦥
   PLAN-CHERRY-PICK:
     description: "Plan surgical commit extraction"
     params: [commits, target]
     returns: [commits, order, warnings, commands]
 
-# USER CONFIG — Override defaults
+# USER CONFIG — Override defaults ⚗📈🧪🔭 🔧🚚🛠🧰
 user_config:
   location: ".moollm/skills/thoughtful-commitment/config.yml"
-  schema:
+  schema: # 📊✨💻📈
     emojis: { type: boolean, default: true }
-    detail_default: { type: integer, range: [1,5], default: 3 }
+    detail_default: { type: integer, range: [1,5], default: 3 } # 🐍🌈🐸
     focus_default: { type: array, default: [technical] }
 
 # QUICK REFERENCE
@@ -235,15 +235,15 @@ focus_areas: [technical, narrative, process, provenance, changelog, metrics]
 signature: "🤔💭"
 
 # THOUGHT STREAM TAGGING
-# Every line of output prefixed with: <signature> <category>
-# Creates a visual stream showing the reasoning process
+# Every line of output prefixed with: <signature> <category> 🦥🌈
+# Creates a visual stream showing the reasoning process 🧠📡
 thought_stream:
-  format: "🤔💭 <category> <content>"
-  
+  format: "🤔💭 <category> <content>" # 🔩🛠
+# 🐸
   tags:
     timeline: "⏱️"     # Event timeline (master view)
-    prompt: "📍"       # User's request / background context
-    context: "🪟"      # Context window assembly (what went in)
+    prompt: "📍" # User's request / background context 📈💡🔭
+    context: "🪟" # Context window assembly (what went in) 🚛🚜🚛🔗
     thinking: "🧠"     # LLM reasoning
     tool: "🔧"         # Tool call
     result: "📤"       # Tool result

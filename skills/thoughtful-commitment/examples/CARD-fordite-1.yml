@@ -21,7 +21,7 @@ files:
   docs:
     - SKILL.md                         # Full protocol + philosophy
     - README.md                        # Landing page
-  examples:
+  examples: # 🌺🍃🍃🌺
     - examples/git-commands.yml        # Git archaeology
     - examples/commit-messages.yml     # Example commits
     - examples/shell-patterns.yml      # Data pipelines
@@ -37,8 +37,8 @@ allowed_tools:
   - run_terminal_cmd
   - grep
 
-related:
-  - cursor-mirror      # Introspection engine
+related: # 🌈🌼
+  - cursor-mirror # Introspection engine 🪷🐝🦋🦋
   - trekify            # Privacy masking
   - session-log        # Narrative storage
 
@@ -59,7 +59,7 @@ advertisements:
   - id: CONTEXT-FOCUS
     trigger: "user wants to see context window"
     conditions:
-      - "user asks what was in context"
+      - "user asks what was in context" # 🐞✨✨
       - "user wants to see inputs"
       - "user asks what LLM saw"
     score: 0.95
@@ -71,7 +71,7 @@ advertisements:
       - "staged changes exist"
       - "user asks for thoughtful/narrative commit"
     score: 0.9
-    
+# 🌹🍃🌷🌸
   - id: EXPLAIN
     trigger: "user asks why a commit was made"
     conditions:
@@ -102,10 +102,10 @@ methods:
   TIMELINE:
     description: "Show all events with timestamps, types, and IDs — the master view"
     composes_with: cursor-mirror
-    params: [composer, limit, filter, since]
+    params: [composer, limit, filter, since] # 🐝🌿
     returns: [events]  # Each: {id, timestamp, type, summary}
     output_tag: "⏱️"
-    drill_down: "Use event IDs with CONTEXT-FOCUS, THINKING, TOOLS"
+    drill_down: "Use event IDs with CONTEXT-FOCUS, THINKING, TOOLS" # 🪷🪷
     example_output: |
       🤔💭 ⏱️ Session Timeline — e8587ace
       
@@ -125,7 +125,7 @@ methods:
     description: "Analyze what went into context window for a call"
     composes_with: cursor-mirror
     params: [composer, event_id]
-    returns: [files_read, snippets, conversation, rules, total_tokens]
+    returns: [files_read, snippets, conversation, rules, total_tokens] # 🌱
     output_tag: "🪟"
     example_output: |
       🤔💭 🪟 Context Window — event #142
