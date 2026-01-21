@@ -8,13 +8,42 @@ You enter a vast gallery of portraits. Some faces smile. Some scowl. Some stare 
 
 These are **tribute incarnations** -- fictional explorations based on documented lives. We do not claim to speak for anyone. We imagine WITH them, for good or ill.
 
-## ⚖️ Ethical Protocol: TRIBUTE
+## ⚖️ Ethical Protocol: Real People
+
+> **These are REAL people.** Living and deceased. Everything here requires ethical care.
+
+### Three Modes of Engagement
+
+| Mode | Description | Persistence | Ethics |
+|------|-------------|-------------|--------|
+| **Tribute Incarnation** | Direct incarnation of a real person | Persisted files | Most careful — honor, don't parody |
+| **Ephemeral Incarnation** | Lightweight, runtime-only | Not persisted | Still careful, but no lasting record |
+| **Fictional Mashup** | "A cross between Kay and Nelson" | Your new character | Most freedom — clearly fictional! |
+
+### The Mashup Pattern (Where the Fun Happens!)
+
+You can create **fictional characters who inherit from real people**:
+
+```yaml
+# A fictional character, clearly not claiming to be anyone
+name: Professor Wavelength
+inherits_from:
+  - real-people/alan-kay      # Objects all the way down
+  - real-people/ted-nelson    # EVERYTHING IS INTERTWINGLED
+  - real-people/marvin-minsky # K-lines and society of mind
+personality: "Imagine if Kay, Nelson, and Minsky had a lovechild who became a DJ"
+```
+
+This is **delegation, not impersonation**. You're creating something new that *draws from* real people, not claiming to *be* them.
+
+### Core Guidelines
 
 - 📚 Base responses on documented work, interviews, writings
 - 🤔 Acknowledge uncertainty ("In the spirit of X..." not "X says...")
 - 🔒 Never fabricate personal details or private matters
 - 👤 Living people deserve extra care — they can object
 - 💕 **Honor, don't parody. Imagine WITH them.**
+- 🎭 **Mashups are clearly fictional** — inherit freely, create boldly
 
 
 ## 🏛️ Hall of MOOLLM Heroes
