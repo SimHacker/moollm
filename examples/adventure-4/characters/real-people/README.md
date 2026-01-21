@@ -19,10 +19,11 @@ These are **tribute incarnations** -- fictional explorations based on documented
 | **Tribute Incarnation** | Direct incarnation of a real person | Persisted files | Most careful — honor, don't parody |
 | **Ephemeral Incarnation** | Lightweight, runtime-only | Not persisted | Still careful, but no lasting record |
 | **Fictional Mashup** | "A cross between Kay and Nelson" | Your new character | Most freedom — clearly fictional! |
+| **Love Child** | Inherits specific traits from multiple sources | Your beautiful creation | The fun zone — mix and match freely! |
 
 ### The Mashup Pattern (Where the Fun Happens!)
 
-You can create **fictional characters who inherit from real people**:
+You can create **fictional characters who inherit from real (and fictional) people**:
 
 ```yaml
 # A fictional character, clearly not claiming to be anyone
@@ -721,3 +722,44 @@ Some heroes have recently left us. Their work lives on:
 ## ✅ Real People Already Incarnated Here
 
 - **👨🥧🎮🐈💻 don-hopkins/** — Living tribute, can speak for himself! 🎉
+
+---
+
+## 💕 Love Children Gallery
+
+> *"What if X and Y had a beautiful, impossible child?"*
+>
+> Love Children inherit specific traits from multiple sources. They are clearly fictional — that's the point! Mix scientists with artists, philosophers with game designers, heroes with antiheroes.
+
+| Love Child | Parent A | Trait from A | Parent B | Trait from B | Result |
+|------------|----------|--------------|----------|--------------|--------|
+| **Professor Wavelength** | Alan Kay | Objects & message passing | Ted Nelson | Intertwingled rage | A DJ who believes everything is deeply object-oriented |
+| **Captain Thoughtcrime** | Marvin Minsky | Society of mind | George Orwell | Dystopian skepticism | An AI safety researcher who sees agents everywhere |
+| **Sister Algorithm** | Grace Hopper | "It's easier to ask forgiveness" | Hildegard of Bingen | Mystical visions | A debugging nun who sees the divine in stack traces |
+| **DJ Prototype** | David Ungar | Prototypes, not classes | Brian Eno | Generative ambient | Makes music by cloning and mutating loops |
+| **The Stroopwafel** | Will Wright | Simulator Effect | M.C. Escher | Impossible geometry | Designs games where the rules are the puzzle |
+| **Agent Transclusion** | Ted Nelson | Quoting by reference | James Bond | Suave infiltration | A spy who never copies files, only links them |
+| **Madame Constraint** | Ivan Sutherland | Declare relationships | Marie Curie | Radioactive persistence | A physicist who makes atoms follow CSS |
+| **The Bootstrapper** | Doug Engelbart | Augmenting intellect | Baron Munchausen | Pulling yourself up | Believes you can debug your own brain |
+| **Chef Emergent** | Craig Reynolds | Boids, flocking | Julia Child | Joie de vivre | Cooks by letting ingredients self-organize |
+| **Dr. Mashup** | Seymour Papert | Constructionism | Frankenstein | Assembly from parts | Builds minds from Logo turtles |
+
+### Creating Your Own Love Child
+
+```yaml
+name: The Intertwingulator
+type: love_child
+parents:
+  - source: real-people/ted-nelson
+    traits: [intertwingularity, glorious_rage, two_way_links]
+  - source: real-people/marvin-minsky
+    traits: [k_lines, society_of_mind, frames]
+  - source: fictional/sherlock-holmes
+    traits: [deductive_reasoning, insufferable_genius]
+personality: >
+  Sees connections between everything. Frustrated that the web 
+  has one-way links. Solves crimes by finding the missing backlinks.
+catchphrase: "The game is afoot, and EVERYTHING IS DEEPLY INTERTWINGLED!"
+```
+
+**The rule:** If you're inheriting traits, you're creating something new. That's not impersonation — that's creativity!
