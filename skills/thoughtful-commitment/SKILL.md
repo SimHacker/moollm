@@ -1,25 +1,25 @@
 ---
 name: thoughtful-commitment
-description: "Git commits that capture intent, reasoning, and narrative context"
+description: "Git commits that capture context and intent"
 license: MIT
 tier: 2
 allowed-tools: [read_file, write_file, list_dir, run_terminal_cmd, grep]
 protocol: THOUGHTFUL-COMMITMENT
 related: [cursor-mirror, session-log, plain-text, yaml-jazz, git-workflow]
-tags: [git, commits, narrative, provenance, introspection]
+tags: [git, commits, provenance, introspection]
 ---
 
 # Thoughtful Commitment
 
-> *"Commits should tell the story of why, not just what."*
+> *Commits that capture context, not just changes.*
 
 ## Purpose
 
-Transform mechanical commits into narrative records that capture full context:
-- What the user asked
-- What the LLM was thinking
-- Why the changes matter
-- Links to cursor-mirror thinking blocks
+Git commits with traceability:
+- What changed (git diff)
+- Why it changed (cursor-mirror thinking)
+- Who asked for it (user request)
+- Session link for full context
 
 ## The Core Insight
 
@@ -243,17 +243,25 @@ Distribution: Read 42% | Write 28% | Shell 18% | Grep 12%
 
 ### COMMIT
 
-Create a thoughtful commit with narrative context.
+Create a thoughtful commit.
 
 **Input:**
 ```yaml
 method: COMMIT
 parameters:
   files: [string]          # Files to commit (or '.' for all)
-  story: string            # Narrative of what happened
+  summary: string          # What changed (auto-detect if omitted)
   include_thinking: bool   # Link to cursor-mirror (default: true)
-  perspective: enum        # technical | narrative | changelog | detailed
+  style: enum              # technical (default) | changelog | pr | burke
 ```
+
+**Styles:**
+| Style | Use | Output |
+|-------|-----|--------|
+| `technical` | **Default.** Concise, factual | `fix: race condition in auth` + bullets |
+| `changelog` | Release notes | User-facing changes grouped by type |
+| `pr` | Pull request body | Summary, changes, test plan |
+| `burke` | James Burke storytelling | Facet-to-facet connections, disco ball |
 
 **Process:**
 1. Stage specified files (`git add`)
@@ -308,16 +316,17 @@ tool_calls:
     args: {message: "..."}
 ```
 
-### NARRATIVE
+### MESSAGE
 
-Generate a narrative commit message from current context.
+Generate a commit message from current context.
 
 **Input:**
 ```yaml
-method: NARRATIVE
+method: MESSAGE
 parameters:
   diff_summary: string?    # Optional (auto-detect from staged)
-  perspective: enum        # technical | narrative | changelog | detailed
+  style: enum              # technical (default) | changelog | pr | burke
+  detail: int              # 1-5 (default: 3)
 ```
 
 **Process:**
@@ -575,17 +584,32 @@ Output: Found in commit abc123 (2026-01-15)
 
 ## Reference: Detail Knob
 
-Adjustable output from terse to comprehensive:
+Two axes: **style** (what kind of output) and **detail** (how verbose).
 
-| Level | Name | Tokens | Output |
-|-------|------|--------|--------|
-| 1 | terse | ~10 | `fix: auth bug` |
-| 2 | brief | ~50 | Title + paragraph |
-| 3 | standard | ~100 | Title + narrative + changes |
-| 4 | detailed | ~300 | Full sections + session link |
-| 5 | comprehensive | ~500+ | Everything + alternatives + metrics |
+### Styles
 
-**Focus areas:** `technical`, `narrative`, `process`, `provenance`, `changelog`, `metrics`
+| Style | Use | Default for |
+|-------|-----|-------------|
+| `technical` | **Default.** Factual, concise | git commits |
+| `changelog` | User-facing release notes | CHANGELOG.md |
+| `pr` | Pull request summary | GitHub PRs |
+| `burke` | James Burke storytelling mode | Special occasions |
+
+### Detail Levels
+
+| Level | Name | Tokens | Example (technical style) |
+|-------|------|--------|---------------------------|
+| 1 | terse | ~10 | `fix: auth race condition` |
+| 2 | brief | ~30 | Title + one sentence |
+| 3 | standard | ~80 | Title + changes list |
+| 4 | detailed | ~200 | Title + context + changes + session link |
+| 5 | comprehensive | ~400+ | Full analysis + alternatives + metrics |
+
+**Default:** `style: technical`, `detail: 3`
+
+### Burke Mode
+
+When `style: burke`, output jumps facet-to-facet like a James Burke *Connections* episode — making unexpected connections between changes. Use sparingly for big PRs or retrospectives.
 
 ---
 

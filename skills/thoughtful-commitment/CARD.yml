@@ -1,20 +1,19 @@
 # 🤔💭 THOUGHTFUL-COMMITMENT
 #
-# "Commits should tell the story of why, not just what."
-#
-# Git commits PERSIST ephemeral Cursor state into permanent history.
-# cursor-mirror sees the NOW. git commit FREEZES it into FOREVER.
+# Git commits that capture context, not just changes.
+# cursor-mirror sees NOW. git commit FREEZES it.
 
 skill:
   name: thoughtful-commitment
   version: 1.0.0
   emoji: "🤔💭"
-  tagline: "Commits that remember why"
+  tagline: "Commits that capture context"
   config_dir: ".moollm/skills/thoughtful-commitment"
   
   description: |
-    Transform mechanical commits into narrative records.
+    Git commits with intent and traceability.
     Composes cursor-mirror + git + shell.
+    Default: concise technical style.
 
 # FILES
 files:
@@ -160,19 +159,21 @@ methods:
   # COMMIT OPERATIONS
   
   COMMIT:
-    description: "Create thoughtful commit with narrative context"
-    params: [files, story, detail, focus, include_thinking]
+    description: "Create thoughtful commit"
+    params: [files, summary, style, detail, include_thinking]
     returns: [commit_id, message, thinking_link]
+    defaults: { style: technical, detail: 3 }
     
   EXPLAIN:
     description: "Find thinking that led to existing commit"
     params: [commit]
     returns: [commit_message, thinking_blocks, user_request, tool_calls]
     
-  NARRATIVE:
-    description: "Generate narrative commit message from context"
-    params: [diff_summary, perspective, detail]
-    returns: [message, sections]
+  MESSAGE:
+    description: "Generate commit message from context"
+    params: [diff_summary, style, detail]
+    returns: [message]
+    defaults: { style: technical, detail: 3 }
 
   DEEP-COMMIT:
     description: "Mine session for technical analytics"
@@ -219,17 +220,21 @@ user_config:
   schema:
     emojis: { type: boolean, default: true }
     detail_default: { type: integer, range: [1,5], default: 3 }
-    focus_default: { type: array, default: [technical] }
+    style_default: { type: string, default: technical }
 
 # QUICK REFERENCE
-detail_levels:
-  1: "terse (~10 tokens)"
-  2: "brief (~50 tokens)"
-  3: "standard (~100 tokens)"
-  4: "detailed (~300 tokens)"
-  5: "comprehensive (~500+ tokens)"
+styles:
+  technical: "Default. Concise, factual commits"
+  changelog: "User-facing release notes"
+  pr: "Pull request summary (summary, changes, test plan)"
+  burke: "James Burke mode — facet-to-facet storytelling"
 
-focus_areas: [technical, narrative, process, provenance, changelog, metrics]
+detail_levels:
+  1: "terse (~10 tokens): fix: race condition"
+  2: "brief (~30 tokens): title + sentence"
+  3: "standard (~80 tokens): title + changes (DEFAULT)"
+  4: "detailed (~200 tokens): + context + session link"
+  5: "comprehensive (~400+ tokens): full analysis"
 
 # EMOJI SIGNATURE
 signature: "🤔💭"
