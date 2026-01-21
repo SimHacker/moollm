@@ -400,6 +400,68 @@ composability:
     
     Each skill does one thing well. Composition creates new capabilities.
 
+  # THE THOUGHT PROCESS BEHIND COMPOSITION
+  #
+  # Why sister scripts? Why shell? Why not build it all into one tool?
+  
+  composition_philosophy:
+    
+    why_sister_scripts: |
+      cursor_mirror.py is a "sister script" — a standalone tool that lives
+      alongside the skill, invoked via shell, outputting text.
+      
+      NOT a library. NOT an import. A PROCESS you talk to via stdin/stdout.
+      
+      This matters because:
+      - The LLM can invoke it the same way a human would
+      - Output is inspectable, greppable, pipeable
+      - No hidden state, no magic, no tight coupling
+      - Works across languages (Python script, shell pipeline, whatever)
+      - The skill doesn't "own" cursor-mirror; it USES it
+      
+      Sister scripts are tools in your belt, not organs in your body.
+    
+    why_shell_as_glue: |
+      Shell pipelines are the universal glue. They connect:
+      - cursor-mirror (Python) → grep (C) → awk (C) → git (C)
+      
+      The LLM thinks in shell because:
+      - It's the lingua franca of Unix tools
+      - Pipes are dataflow made visible
+      - Each stage is independently testable
+      - Errors are localized (which stage failed?)
+      - You can see the data at every step
+      
+      Shell isn't primitive — it's COMPOSABLE.
+    
+    why_not_monolith: |
+      A monolithic "thoughtful-commit-tool" that does everything would:
+      - Hide the data flow
+      - Couple introspection to commit-making
+      - Be hard to debug
+      - Not compose with other skills
+      - Require maintaining duplicate functionality
+      
+      By composing cursor-mirror + shell + git, we get:
+      - Transparent data flow (you can see each step)
+      - Loose coupling (swap any component)
+      - Reuse (cursor-mirror serves many skills)
+      - Debuggability (run each stage manually)
+      - Evolution (improve components independently)
+    
+    the_pattern: |
+      skill = ORCHESTRATION
+      sister_scripts = CAPABILITY
+      shell = GLUE
+      
+      thoughtful-commitment ORCHESTRATES:
+        cursor-mirror → extract thinking
+        shell pipelines → transform data
+        git → commit with narrative
+      
+      The skill is the conductor. The tools are the orchestra.
+      The skill knows WHAT to do. The tools know HOW.
+
 # THE PERSISTENCE INSIGHT
 
 persistence:
