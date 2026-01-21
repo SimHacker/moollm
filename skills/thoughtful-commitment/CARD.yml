@@ -190,6 +190,50 @@ emoji_palette:
     # The ellipsis
     - "..."  # rest args, everything else, continuation
   
+  # COLLABORATING SKILL OUTPUT
+  #
+  # When incorporating data from composed skills (cursor-mirror, git, shell),
+  # tag the output to trace provenance. Don't just dump raw data.
+  
+  collaborating_output:
+    principle: |
+      Tag output from other skills to show where data comes from.
+      Format raw data pleasingly. Filter the uninteresting.
+      Semantically comment important values.
+    
+    tagging_pattern: |
+      [🤖] Cursor Mirror session e8587ace:
+      [🔮] Tool calls: 47 (mostly Read, some Shell)
+      [⚙️] Git log analysis:
+    
+    formatting_rules:
+      - "Don't dump raw output — curate it"
+      - "Filter noise, highlight signal"
+      - "Add semantic comments: 'unusually high', 'as expected', 'notable'"
+      - "Group related data, use tables for comparisons"
+      - "Summarize before detail: '47 tool calls' then breakdown"
+    
+    example: |
+      [🔮] **Cursor Mirror Report** (session e8587ace)
+      
+      | Metric | Value | Note |
+      |--------|-------|------|
+      | Tool calls | 47 | Heavy session |
+      | Thinking blocks | 12 | Unusually reflective |
+      | Duration | 23 min | Focused burst |
+      
+      Top tools: Read (28), Shell (11), Write (8)
+      
+      *Filtered: 200+ context assembly events (routine)*
+    
+    attribution_tags:
+      cursor_mirror: "[🔮]"    # Data from cursor-mirror
+      git: "[⚙️]"              # Data from git commands
+      shell: "[💻]"            # Data from shell pipelines
+      trekify: "[🖖]"          # Masked by trekify
+      human: "[👤]"            # Human-provided context
+      llm: "[🤖]"              # LLM-generated analysis
+  
   # OUTPUT STRUCTURE
   #
   # User's original prompt goes at the head.
