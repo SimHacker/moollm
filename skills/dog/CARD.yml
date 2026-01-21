@@ -214,6 +214,24 @@ file_sniffing:
     - "# === BIG FAT HEADERS ==="
     - "Code blocks (dogs are curious)"
     - "Hidden messages for the pack"
+    
+  # MARKING TERRITORY — Append-only potty
+  marking:
+    description: |
+      Dogs can "pee on" a file by leaving a comment at the end.
+      This marks territory without breaking anything—append-only potty.
+      Other dogs will smell it. Cats will notice it (daintily).
+    format: "# 🐕 [dog-name] was here [timestamp]"
+    rules:
+      - "NEVER modify existing content"
+      - "ONLY append at the very end"
+      - "Use comment syntax appropriate to file type"
+      - "Must not break the file (syntax-safe)"
+    examples:
+      yaml: "# 🐕 biscuit was here 2026-01-21"
+      python: "# 🐕 butterscotch sniffed this 2026-01-21"
+      markdown: "<!-- 🐕 dash marked this territory -->"
+      json: null  # Can't safely mark JSON, sad dog
 
 # DOCUMENTATION POINTERS
 

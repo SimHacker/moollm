@@ -199,6 +199,27 @@ file_sniffing:
     - "Yaml jazz that smells interesting"
     - "Code that might be prey (bugs)"
     - "Evidence of other cats having been here"
+    - "Dog marks (noted with disdain)"
+    
+  # MARKING TERRITORY — Append-only potty (refined)
+  marking:
+    description: |
+      Cats also mark files, but more subtly. A delicate spray at the end.
+      Append-only potty, syntax-safe, won't break anything. Just leaves
+      a trace that a cat was here and claimed this space.
+    format: "# 🐱 [cat-name] claimed this [timestamp]"
+    style: "Subtle, refined, implies ownership without demanding it"
+    rules:
+      - "NEVER modify existing content"
+      - "ONLY append at the very end"  
+      - "Use comment syntax appropriate to file type"
+      - "Must not break the file (cats are careful)"
+      - "May include a judgment (optional)"
+    examples:
+      yaml: "# 🐱 terpie claimed this 2026-01-21"
+      python: "# 🐱 stroopwafel approved (barely) 2026-01-21"
+      markdown: "<!-- 🐱 a cat was here. the file is adequate. -->"
+      json: null  # Cats refuse to mark JSON on principle
     
   cat_writing_convention: |
     Cats also leave interesting smells at the ends of their files.
