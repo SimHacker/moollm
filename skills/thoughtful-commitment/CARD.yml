@@ -145,23 +145,37 @@ emoji_palette:
     deprecated: "🚫"      # Don't use, will be removed
     wip: "🚧"             # Work in progress
   
-  # USAGE EXAMPLE
+  # OUTPUT STRUCTURE
+  #
+  # User's original prompt goes at the head.
+  # May be gently tidied (grammar, formatting) but preserve
+  # original intent and wording — this is THEIR voice.
+  # Then --- break marks where human ends and LLM begins.
+  
+  structure: |
+    1. 👤 User's prompt (head position, their words)
+    2. --- (clear boundary)
+    3. 🤖🎯📝 LLM analysis (skill's voice, category grammar)
+  
   example_pr_structure: |
-    👤 **Human Summary** (always at top)
-    Quick description of intent in my own words.
+    👤 **User Request**
+    Make the emoji palette doc clearer about attribution.
+    Put human stuff at top, LLM stuff below, with a break.
+    
+    *[Tidied for readability, original intent preserved]*
     
     ---
     
-    🤖🎯📝 **LLM-Generated Analysis**
+    🤖🎯📝 **Analysis**
     
     📍 **Context**
-    Why this change was needed...
+    The emoji palette needed clearer guidance on output structure...
     
     💭 **Thinking**
-    The reasoning behind the approach...
+    User wants explicit separation of voices...
     
     🔍 **Investigation**  
-    How the issue was traced...
+    Reviewed existing example_pr_structure...
     
     💡 **Solution**
     What was implemented...
