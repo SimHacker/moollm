@@ -301,7 +301,12 @@ See: [Brian Reid's PostScript History](../../designs/postscript/BRIAN-REID-POSTS
 
 ---
 
-#### 👨☕💻🌍🔧 James Gosling — NeWS: The Multithreaded PostScript OS (1986)
+#### 👨☕💻🌍🔧 James Gosling — From MockLisp to Java (1982-1995)
+
+**Gosling's Language Journey:**
+- **Gosling Emacs** (UniPress, early 1980s) — with MockLisp, a scripting language that took the worst parts of Lisp (the parentheses) and none of the good parts
+- **NeWS** (Sun, 1986) — PostScript as OS, redemption through a real language
+- **Java** (Sun, 1995) — Green threads from NeWS, "write once run anywhere"
 
 **NeWS** (Network Extensible Window System, Sun Microsystems, 1986) — NOT just "PostScript for displays." NeWS was a complete multithreaded operating system written in PostScript, with lightweight processes, garbage collection, networking, event handling, and arbitrarily shaped windows.
 
@@ -311,9 +316,11 @@ See: [Brian Reid's PostScript History](../../designs/postscript/BRIAN-REID-POSTS
 
 > *"A universal interpreter can both be quite small and also can have more degrees of freedom than any data structure (that is not a program)."* — Alan Kay on NeWS
 
+**Don Hopkins connection:** Don worked at UniPress on Gosling Emacs as a college intern, and at UMD HCIL on HyperTies (Ben Shneiderman's hypertext authoring tool). Later at Sun, Don worked with Gosling on NeWS and TNT.
+
 **Why NeWS is FOUNDATIONAL to MOOLLM:**
 - 📤 **"Send programs, not data structures"** — Skills are programs the LLM runs, not prompts it processes
-- 🧵 **Lightweight processes** — Led to Java's Green threads
+- 🧵 **Lightweight processes** — NeWS's green threads led directly to Java's threading model
 - 🔧 **Universal interpreter** — The LLM interprets YAML Jazz like NeWS interpreted PostScript
 
 ---
