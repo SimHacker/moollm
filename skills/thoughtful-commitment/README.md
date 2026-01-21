@@ -168,7 +168,7 @@ Thinking: cursor-mirror://<composer>/<event-range>
 
 ### Deep Commits
 
-For complex sessions, use `DEEP-COMMIT` to spend attention on full introspection:
+For complex sessions, use `DEEP-COMMIT` to mine technical analytics:
 
 ```yaml
 invoke:
@@ -176,16 +176,20 @@ invoke:
   method: DEEP-COMMIT
   parameters:
     composer: "e8587ace"
-    patterns: ["git", "foundation", "tardis"]
-    focus: cause-effect
+    commit_range: "f21d0d0^..085b94b"
 ```
 
-This will:
-- Scan full timeline and thinking blocks
-- Identify false starts, pivots, key insights
-- Trace cause-effect chains (request → thinking → action → result)
-- Find iterative refinement cycles
-- Generate a rich narrative capturing the journey, not just the destination
+This will extract and report:
+- **Raw metrics** — transcript lines, tool calls, thinking blocks
+- **Tool distribution** — frequency histogram of tools used
+- **Thinking analysis** — min/max/avg/median character counts
+- **Activity bursts** — events per minute with ASCII visualization
+- **Commit metrics** — files changed, insertions, deletions
+- **Files created/modified** — with line/word/byte counts
+- **Top thinking words** — concept frequency analysis
+- **Verification commands** — bash one-liners to reproduce every metric
+
+Output is a markdown appendix suitable for PR descriptions.
 
 ## Why This Matters
 

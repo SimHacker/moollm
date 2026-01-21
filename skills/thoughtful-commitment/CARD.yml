@@ -157,44 +157,90 @@ methods:
       timeline: array  # Each entry: commit + message + thinking
 
   DEEP-COMMIT:
-    description: "Intensive introspection before committing — mine cursor-mirror deeply"
-    note: "Spend attention understanding cause-effect, iteration patterns, false starts"
+    description: "Technical analytics mining before committing — extract metrics from cursor-mirror"
+    note: "Produces quantitative appendix with counts, timestamps, distributions, verification commands"
+    
     process:
-      - "cursor-mirror timeline <composer> — full event sequence"
-      - "cursor-mirror thinking <composer> — all reasoning blocks"
-      - "cursor-mirror tools <composer> — tool call patterns"
-      - "cursor-mirror grep <patterns> — search for relevant themes"
-      - "cursor-mirror context-sources <composer> — what context was assembled"
-      - "Identify: false starts, pivots, key insights, iterative refinement"
-      - "Trace cause-effect: user request → thinking → action → result → next thinking"
-      - "Find the narrative arc: problem → exploration → solution → verification"
+      # 1. Raw metrics extraction
+      - "wc -l transcript — line counts"
+      - "grep -c patterns — tool calls, thinking blocks, user turns"
+      - "cursor-mirror analyze <composer> — session stats"
+      
+      # 2. Tool distribution analysis
+      - "cursor-mirror tools <composer> — all tool calls"
+      - "sort | uniq -c | sort -rn — frequency distribution"
+      
+      # 3. Thinking block analysis  
+      - "grep [Thinking] | measure lengths — min/max/avg/median"
+      - "word frequency in thinking — top concepts"
+      
+      # 4. Activity burst detection
+      - "cursor-mirror timeline — extract timestamps"
+      - "group by minute — find activity clusters"
+      - "detect pauses >60s — find thinking gaps"
+      
+      # 5. Git commit metrics
+      - "git log --numstat — insertions/deletions by file"
+      - "git diff --stat — change summary"
+      
+      # 6. Path analysis
+      - "extract all paths from transcript"
+      - "group by directory — understand focus areas"
+      
+      # 7. Generate verification commands
+      - "bash one-liners to reproduce each metric"
+    
     parameters:
       composer:
         type: string
         description: "Composer ID (or @1 for largest, name fragment, etc)"
-      patterns:
-        type: array
-        items: string
-        description: "Keywords to grep for in chat history"
-      focus:
+      commit_range:
         type: string
-        enum: [cause-effect, iterations, pivots, decisions, all]
-        default: all
-        description: "What aspect of development to emphasize"
+        description: "Git commit range for this session (e.g., f21d0d0^..085b94b)"
+    
     returns:
-      narrative: string      # Rich narrative of what happened
-      key_moments: array     # Pivotal thinking blocks
-      iterations: array      # Revision cycles
-      cause_effect: array    # Request → thinking → action chains
-      commit_message: string # Generated commit message
+      raw_metrics:
+        transcript_lines: int
+        transcript_bytes: int
+        tool_calls: int
+        thinking_blocks: int
+        user_turns: int
+      tool_distribution: object   # {tool_name: count}
+      thinking_analysis:
+        count: int
+        min_chars: int
+        max_chars: int
+        avg_chars: float
+        total_chars: int
+      activity_bursts: array      # [{minute: str, events: int}]
+      major_pauses: array         # [{from: str, to: str, duration_min: float}]
+      commit_metrics:
+        files_changed: int
+        insertions: int
+        deletions: int
+        net: int
+      files_created: array        # [{path, lines, words, bytes}]
+      files_modified: array       # [{path, lines_changed}]
+      paths_accessed: array       # unique paths read
+      top_thinking_words: array   # [{word, count}]
+      verification_commands: str  # bash script to reproduce
+    
     example: |
       invoke:
         skill: thoughtful-commitment
         method: DEEP-COMMIT
         parameters:
           composer: "e8587ace"
-          patterns: ["git", "foundation", "tardis"]
-          focus: cause-effect
+          commit_range: "f21d0d0^..085b94b"
+      
+      # Output includes:
+      # - Raw metrics table
+      # - Tool distribution histogram
+      # - Thinking block statistics
+      # - Activity burst timeline with ASCII bars
+      # - Commit metrics table
+      # - Files created/modified tables
+      # - Verification bash commands
 
 # COMMIT MESSAGE PROTOCOL
 
