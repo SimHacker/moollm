@@ -127,6 +127,13 @@ methods:
     params: [commit, events]
     returns: [linked, reference]
 
+  CONTEXT-FOCUS:
+    description: "Analyze what went into context for a call"
+    composes_with: cursor-mirror
+    params: [composer, event_id]
+    returns: [files_read, snippets, conversation, rules, total_tokens]
+    output_tag: "🪟"
+
 # USER CONFIG — Override defaults
 user_config:
   location: ".moollm/skills/thoughtful-commitment/config.yml"
@@ -155,7 +162,8 @@ thought_stream:
   format: "🤔💭 <category> <content>"
   
   tags:
-    prompt: "📍"       # User's request / context
+    prompt: "📍"       # User's request / background context
+    context: "🪟"      # Context window assembly (what went in)
     thinking: "🧠"     # LLM reasoning
     tool: "🔧"         # Tool call
     result: "📤"       # Tool result

@@ -190,6 +190,49 @@ linked: true
 reference: "cursor-mirror://abc123/events/140-148"
 ```
 
+### CONTEXT-FOCUS
+
+Analyze what went into the context window for a specific call. Shows the cursor state — what files, snippets, conversation, and rules were assembled.
+
+**Input:**
+```yaml
+method: CONTEXT-FOCUS
+parameters:
+  composer: string     # Composer ID
+  event_id: string     # Optional: specific event (default: latest)
+```
+
+**Process:**
+```bash
+# Get context sources for a composer
+cursor-mirror context-sources <composer>
+
+# Analyze what was in context at a specific event
+cursor-mirror timeline <composer> --before <event_id> --type context
+```
+
+**Output:**
+```
+🤔💭 🪟 Context Window Analysis — event 147
+
+Files read into context:
+  - auth/session.ts (247 lines)
+  - auth/types.ts (89 lines)
+  - tests/auth.test.ts (156 lines)
+
+Snippets:
+  - session.ts:45-67 (race condition area)
+  
+Conversation turns: 12
+Rules loaded: .cursorrules, workspace rules
+
+Estimated tokens: ~4,200
+
+Focus: auth module, session handling
+```
+
+The 🪟 tag marks context window analysis — showing what the LLM "saw" for this call.
+
 ### HISTORY
 
 Get narrative history of a file or directory.
@@ -438,7 +481,8 @@ Adjustable output from terse to comprehensive:
 ### Section Markers
 | Emoji | Section |
 |-------|---------|
-| 📍 | Context |
+| 📍 | Context (background, why we're here) |
+| 🪟 | Context Window (what inputs were assembled) |
 | 🧠 | Thinking |
 | 🔍 | Investigation |
 | 💡 | Solution |
@@ -461,6 +505,7 @@ Every line of reasoning prefixed with `🤔💭 <tag>`:
 | Tag | Meaning | Example |
 |-----|---------|---------|
 | 📍 | Prompt/context | `🤔💭 📍 User asked to refactor auth` |
+| 🪟 | Context window | `🤔💭 🪟 Loaded 3 files, ~4k tokens` |
 | 🧠 | Thinking | `🤔💭 🧠 Need to check for race conditions` |
 | 🔧 | Tool call | `🤔💭 🔧 Read auth/session.ts` |
 | 📤 | Tool result | `🤔💭 📤 Found race condition on line 47` |
