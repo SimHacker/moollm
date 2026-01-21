@@ -63,6 +63,23 @@ Like Last.fm scrobbles the music you're listening to, cursor-mirror enables **th
 
 The timeline tables below are essentially a scrobble log—every event timestamped and annotated, ready for syndication to whoever wants to watch an AI think.
 
+**But it's not just read-only.** Every scrobble that ends in ✅ is a real commit, pushed to git in real-time. Your audience can:
+
+```bash
+# Watch the stream
+git fetch --all && git log --oneline -10
+
+# Fork the timeline at any commit
+git checkout -b my-fork abc123
+
+# Play in their own parallel world
+# Make different decisions, explore alternate paths
+```
+
+The multiverse is open source. Fork at any commit. Branch from any thought. The Twitch chat becomes a git repo where viewers can `git cherry-pick` the ideas they like into their own timelines.
+
+**Live coding as collaborative worldbuilding.**
+
 ---
 
 ## Act I: Origins and Awakening (16:46 - 17:11)
