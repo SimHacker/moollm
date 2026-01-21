@@ -72,6 +72,26 @@ Midnight Prowl: Cats explore the moonlit garden
 Cat Council: Biscuit accepted into family
 ```
 
+### Context Gathering
+
+Before writing commits or PRs, gather existing messages to match style and avoid repetition:
+
+```bash
+# Recent commit messages (style reference)
+git log --oneline -20
+git log origin/main..HEAD --format='%s%n%b%n---'
+
+# PR descriptions
+gh pr view --json title,body
+gh pr list --state merged -L 10 --json number,title
+
+# Combined context
+git log origin/main..HEAD --oneline && \
+git diff origin/main --stat | tail -5
+```
+
+See `examples/git-commands.yml` → `context_gathering` for complete reference.
+
 ## Method Specifications
 
 ---
