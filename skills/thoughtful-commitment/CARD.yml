@@ -1,4 +1,4 @@
-# 🎯📝 THOUGHTFUL-COMMITMENT
+# 🤔💭 THOUGHTFUL-COMMITMENT
 #
 # "Commits should tell the story of why, not just what."
 #
@@ -32,7 +32,7 @@ skill:
   name: thoughtful-commitment
   version: 1.0.0
   
-  emoji: "🎯📝"
+  emoji: "🤔💭"
   tagline: "Commits that remember why"
   
   description: |
@@ -85,15 +85,15 @@ emoji_palette:
   # SKILL SIGNATURE & CATEGORY GRAMMAR
   #
   # Each skill has its own emoji prefix — a namespace anchor.
-  # 🎯📝 = "this is thoughtful-commitment speaking"
+  # 🤔💭 = "this is thoughtful-commitment speaking"
   # 
   # Within that namespace, the skill defines a category grammar:
   # section markers, facet labels, quality signals.
   #
   # Like a protocol identifier:
-  #   🎯📝 📍 Context    = thoughtful-commitment > context section
-  #   🎯📝 💭 Thinking   = thoughtful-commitment > thinking section
-  #   🎯📝 📊 Metrics    = thoughtful-commitment > metrics section
+  #   🤔💭 📍 Context    = thoughtful-commitment > context section
+  #   🤔💭 💭 Thinking   = thoughtful-commitment > thinking section
+  #   🤔💭 📊 Metrics    = thoughtful-commitment > metrics section
   #
   # Other skills have their own grammars:
   #   🔮 = cursor-mirror
@@ -102,19 +102,19 @@ emoji_palette:
   #
   # The signature anchors the namespace. The grammar structures within.
   
-  signature: "🎯📝"       # Thoughtful Commitment's namespace anchor
+  signature: "🤔💭"       # Thoughtful Commitment's namespace anchor
   
   grammar: |
-    🎯📝 opens the namespace (skill is speaking)
+    🤔💭 opens the namespace (skill is speaking)
     
     Then category markers structure the content:
       📍 context → 💭 thinking → 🔍 investigation → 💡 solution
       🔀 alternatives → 📝 changes → 📊 metrics → 🔗 session
     
     Combine with authorship for full attribution:
-      👤 🎯📝 = human using thoughtful-commitment
-      🤖 🎯📝 = LLM running thoughtful-commitment
-      👤🤖 🎯📝 = collaborative session
+      👤 🤔💭 = human using thoughtful-commitment
+      🤖 🤔💭 = LLM running thoughtful-commitment
+      👤🤖 🤔💭 = collaborative session
   
   # SECTION MARKERS — Category grammar for commits/PRs
   sections:
@@ -145,6 +145,26 @@ emoji_palette:
     deprecated: "🚫"      # Don't use, will be removed
     wip: "🚧"             # Work in progress
   
+  # METHOD EMOJIS — Commands have signatures too
+  methods:
+    commit: "⚓"          # Anchor the now into forever
+    explain: "🔍"         # Trace back through history
+    blame: "👆"           # Who wrote this line?
+    archaeology: "⛏️"     # Dig through layers of time
+    deep_commit: "🏊"     # Deep dive into session
+    plan_merge: "🔀"      # Understand branch topology
+    plan_cherry_pick: "🍒" # Surgical commit extraction
+    history: "📜"         # Narrative timeline
+    link: "🔗"            # Connect commit to session
+  
+  # PARAMETER EMOJIS — Knobs and dials
+  parameters:
+    detail: "🎚️"         # Level slider (1-5)
+    focus: "🔭"           # What aspects to emphasize
+    files: "📁"           # Target files/directories
+    story: "📖"           # Narrative seed from user
+    rest: "..."          # Everything else user wrote
+  
   # OUTPUT STRUCTURE
   #
   # User's original prompt goes at the head.
@@ -155,7 +175,7 @@ emoji_palette:
   structure: |
     1. 👤 User's prompt (head position, their words)
     2. --- (clear boundary)
-    3. 🤖🎯📝 LLM analysis (skill's voice, category grammar)
+    3. 🤖🤔💭 LLM analysis (skill's voice, category grammar)
   
   example_pr_structure: |
     👤 **User Request**
@@ -166,7 +186,7 @@ emoji_palette:
     
     ---
     
-    🤖🎯📝 **Analysis**
+    🤖🤔💭 **Analysis**
     
     📍 **Context**
     The emoji palette needed clearer guidance on output structure...
