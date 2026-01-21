@@ -17,6 +17,9 @@ When you're working in Cursor, your session holds:
 
 **All of this vanishes** when you close the IDE, start a new chat, or a week passes.
 
+> *"All those moments will be lost in time, like tears in rain."*
+> — Roy Batty, Blade Runner
+
 **Git commit freezes the NOW into FOREVER:**
 
 ```
