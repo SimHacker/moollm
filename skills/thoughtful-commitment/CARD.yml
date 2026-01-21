@@ -147,20 +147,40 @@ focus_areas: [technical, narrative, process, provenance, changelog, metrics]
 
 # EMOJI SIGNATURE
 signature: "🤔💭"
-sections:
-  context: "📍"
-  thinking: "🧠"
-  investigation: "🔍"
-  solution: "💡"
-  changes: "📝"
-  metrics: "📊"
-  session: "🔗"
+
+# THOUGHT STREAM TAGGING
+# Every line of output prefixed with: <signature> <category>
+# Creates a visual stream showing the reasoning process
+thought_stream:
+  format: "🤔💭 <category> <content>"
+  
+  tags:
+    prompt: "📍"       # User's request / context
+    thinking: "🧠"     # LLM reasoning
+    tool: "🔧"         # Tool call
+    result: "📤"       # Tool result
+    insight: "💡"      # Key realization
+    decision: "🔀"     # Choice made
+    change: "📝"       # File modification
+    warning: "⚠️"      # Caveat / risk
+  
+  example_stream: |
+    🤔💭 📍 User asked to refactor the auth module
+    🤔💭 🧠 Need to understand current structure first
+    🤔💭 🔧 Read auth/session.ts
+    🤔💭 📤 Found race condition in line 47
+    🤔💭 🧠 The cookie check races with token refresh
+    🤔💭 💡 Adding await will fix the sequencing
+    🤔💭 🔀 Chose await over mutex (simpler)
+    🤔💭 📝 Modified auth/session.ts
+    🤔💭 🧠 Should add a test for this
+    🤔💭 🔧 Write auth/session.test.ts
 
 # OUTPUT STRUCTURE
 output_structure: |
   1. 👤 User's prompt (head position)
   2. ---
-  3. 🤖🤔💭 LLM analysis
+  3. 🤔💭 🧠 / 🔧 / 💡 ... thought stream
 
 # COMPOSES WITH
 composes_with:

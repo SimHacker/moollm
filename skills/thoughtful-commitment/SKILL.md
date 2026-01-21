@@ -454,6 +454,40 @@ Adjustable output from terse to comprehensive:
 🤖🤔💭 LLM analysis (skill's voice)
 ```
 
+### Thought Stream
+
+Every line of reasoning prefixed with `🤔💭 <tag>`:
+
+| Tag | Meaning | Example |
+|-----|---------|---------|
+| 📍 | Prompt/context | `🤔💭 📍 User asked to refactor auth` |
+| 🧠 | Thinking | `🤔💭 🧠 Need to check for race conditions` |
+| 🔧 | Tool call | `🤔💭 🔧 Read auth/session.ts` |
+| 📤 | Tool result | `🤔💭 📤 Found race condition on line 47` |
+| 💡 | Insight | `🤔💭 💡 Adding await fixes sequencing` |
+| 🔀 | Decision | `🤔💭 🔀 Chose await over mutex (simpler)` |
+| 📝 | Change | `🤔💭 📝 Modified auth/session.ts` |
+| ⚠️ | Warning | `🤔💭 ⚠️ This might break legacy clients` |
+
+**Example stream:**
+```
+🤔💭 📍 User asked to refactor the auth module
+🤔💭 🧠 Need to understand current structure first
+🤔💭 🔧 Read auth/session.ts
+🤔💭 📤 Found race condition in line 47
+🤔💭 🧠 The cookie check races with token refresh
+🤔💭 💡 Adding await will fix the sequencing
+🤔💭 🔀 Chose await over mutex (simpler, addresses root cause)
+🤔💭 📝 Modified auth/session.ts
+🤔💭 🧠 Should add a test for this edge case
+🤔💭 🔧 Write auth/session.test.ts
+🤔💭 📤 Test file created
+🤔💭 💡 Ready to commit with full context
+```
+
+The stream shows the reasoning process — amazing and revealing.
+Every thought is tagged. Every tool call visible. Fully transparent.
+
 ---
 
 ## Reference: Git Time Travel
