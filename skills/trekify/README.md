@@ -266,6 +266,114 @@ cursor-mirror tools e8587ace | grep -i 'credentials'
 cursor-mirror sql --db e8587ace 'SELECT * FROM bubbles WHERE text LIKE "%password%"'
 ```
 
+## Workspace Scanners
+
+TREKIFY can scan your entire workspace like the Enterprise's sensor systems:
+
+### LONG-RANGE-SCAN
+Scan the **entire workspace** for sensitive patterns.
+
+> *"Captain, long range sensors are detecting quantum signatures throughout the sector!"*
+
+```bash
+trekify LONG-RANGE-SCAN --categories secrets,infrastructure
+
+# Output:
+# LONG RANGE SCAN COMPLETE
+# Files scanned: 1,247
+# Sectors analyzed: 23 directories
+#
+# QUANTUM SIGNATURES DETECTED:
+# - [CRITICAL] config/prod.env: 3 credential patterns
+# - [HIGH] scripts/deploy.sh: hardcoded API key
+# - [MEDIUM] docs/setup.md: example with real-looking password
+```
+
+**Commands used:**
+```bash
+rg -i 'password[=:]' -g '*.{yml,yaml,json,env}'
+rg 'sk-[a-zA-Z0-9]{20,}' .
+rg 'AKIA[A-Z0-9]{16}' .
+rg 'BEGIN.*PRIVATE KEY' .
+```
+
+### SHORT-RANGE-SCAN
+**Focused scan** on specific directory or file type.
+
+> *"Short range sensors show elevated readings in Section 7!"*
+
+```bash
+trekify SHORT-RANGE-SCAN config/ --focus config
+
+# Output:
+# SHORT RANGE SCAN: config/
+# Files: 12 configuration files
+#
+# FINDINGS:
+# - config/database.yml:23 — connection string with password
+# - config/secrets.yml:7 — API key (appears to be example)
+# - config/.env.production:* — CRITICAL: 5 live credentials
+```
+
+**Focus modes:** `config`, `source`, `docs`, `scripts`, `all`
+
+### TRICORDER
+**Detailed analysis** of a specific file or pattern.
+
+> *"Tricorder readings indicate multiple credential signatures, Captain."*
+
+```bash
+trekify TRICORDER config/prod.env
+
+# TRICORDER ANALYSIS: config/prod.env
+# ====================================
+# Purpose: Production environment configuration
+# Risk Level: CRITICAL
+#
+# LINE-BY-LINE ANALYSIS:
+#
+# Line 3: DATABASE_URL=postgres://admin:s3cr3t@prod-db:5432/app
+#   [CRITICAL] Connection string with embedded password
+#   Introduced: commit a1b2c3d by j.smith, 2024-01-15
+#   Suggested: Memory Core uplink via biometric phase harmonics
+#
+# Line 7: API_KEY=sk-live-abc123def456
+#   [CRITICAL] Live API key
+#   Suggested: quantum entanglement token (Tier 3 clearance)
+#
+# RECOMMENDATION: This file should be in .gitignore!
+```
+
+**Tricorder modes:**
+- `file` — Analyze a specific file
+- `pattern` — Find all occurrences of a pattern
+- `trace` — Track when pattern was introduced (git blame)
+- `semantic` — LLM-powered context analysis
+
+### SCAN-AND-REPORT
+Full workspace scan with comprehensive report.
+
+> *"All hands, initiating full sensor sweep of the sector."*
+
+```bash
+trekify SCAN-AND-REPORT --report-format markdown -o security-report.md
+
+# Generates:
+# - Executive summary
+# - Findings by severity (critical/high/medium/low)
+# - File-by-file analysis
+# - Recommended actions
+# - Auto-mask commands
+```
+
+### Vector Search
+Not just regex — find things that **look like** secrets:
+
+- Files similar to .env but not named .env
+- Base64-encoded strings that might be credentials
+- Comments with "TODO: remove before commit"
+- Test fixtures with real-looking data
+
 ## Example Transformations
 
 ### Log Entry

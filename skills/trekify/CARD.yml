@@ -357,6 +357,132 @@ cursor_mirror_composition:
       - "cursor-mirror sql --db <ref> 'SELECT * FROM bubbles WHERE text LIKE \"%password%\"'"
       - "Direct database query for comprehensive scan"
 
+# WORKSPACE SCANNERS — Long Range, Short Range, Tricorder
+
+scanners:
+  description: |
+    TREKIFY can scan the entire workspace for sensitive patterns.
+    Think of it like the Enterprise's sensor systems:
+    - LONG RANGE SCANNERS: Workspace-wide search
+    - SHORT RANGE SCANNERS: Directory/file focused
+    - TRICORDER: Detailed analysis of specific items
+  
+  long_range_scanners:
+    description: |
+      Scan the ENTIRE workspace for sensitive patterns.
+      "Captain, long range sensors are detecting quantum signatures
+      throughout the sector." (Secrets everywhere!)
+    
+    tools_used:
+      grep: "ripgrep (rg) for fast regex search"
+      glob: "File pattern matching"
+      semantic: "Vector search for conceptual matches"
+    
+    commands:
+      secrets:
+        - "rg -i 'password[=:]' --type-add 'config:*.{yml,yaml,json,env,ini,conf}' -t config"
+        - "rg 'sk-[a-zA-Z0-9]{20,}' ."
+        - "rg 'AKIA[A-Z0-9]{16}' ."
+        - "rg -i 'api[_-]?key' ."
+        - "rg 'BEGIN.*PRIVATE KEY' ."
+      
+      infrastructure:
+        - "rg '\\.internal|\\.local|\\.corp' ."
+        - "rg -E '10\\.[0-9]+\\.[0-9]+\\.[0-9]+' ."
+        - "rg -E '192\\.168\\.[0-9]+\\.[0-9]+' ."
+        - "rg 'arn:aws:' ."
+      
+      env_files:
+        - "rg --files -g '*.env*' -g '.env*'"
+        - "rg --files -g '*credentials*' -g '*secrets*'"
+        - "rg --files -g '*.pem' -g '*.key'"
+    
+    exclusions:
+      - "node_modules/"
+      - ".git/"
+      - "vendor/"
+      - "*.lock"
+      - ".moollm/trekify/  # Don't scan our own config!"
+  
+  short_range_scanners:
+    description: |
+      Focused scan on specific directories or file types.
+      "Short range sensors show elevated readings in Section 7."
+      (Secrets concentrated in config/ directory!)
+    
+    focus_modes:
+      config_files:
+        description: "Scan configuration files"
+        patterns: ["*.yml", "*.yaml", "*.json", "*.env", "*.ini", "*.conf", "*.toml"]
+        command: "rg -i 'password|secret|key|token|credential' -g '*.{yml,yaml,json,env,ini,conf,toml}'"
+      
+      source_code:
+        description: "Scan source code for hardcoded secrets"
+        patterns: ["*.py", "*.js", "*.ts", "*.go", "*.java", "*.rb"]
+        command: "rg -i 'password\\s*=' -t py -t js -t ts"
+      
+      documentation:
+        description: "Scan docs for leaked examples"
+        patterns: ["*.md", "*.txt", "*.rst"]
+        command: "rg -i 'example.*password|sample.*key' -t md"
+      
+      scripts:
+        description: "Scan scripts for inline credentials"
+        patterns: ["*.sh", "*.bash", "*.zsh", "Makefile", "Dockerfile"]
+        command: "rg -i 'export.*password|export.*key' -g '*.sh'"
+      
+      specific_directory:
+        description: "Deep scan a specific directory"
+        command: "rg -i 'password|secret|key|token' <directory>/"
+  
+  tricorder:
+    description: |
+      Detailed analysis of a specific file or pattern.
+      "Tricorder readings indicate this file contains
+      multiple credential signatures, Captain."
+    
+    capabilities:
+      file_analysis:
+        - "Line-by-line risk assessment"
+        - "Context around each finding"
+        - "Severity classification"
+        - "Suggested replacements"
+      
+      pattern_tracing:
+        - "Where else does this pattern appear?"
+        - "Git history: when was it introduced?"
+        - "Who committed it? (git blame)"
+        - "Is it in .gitignore? Should it be?"
+      
+      semantic_analysis:
+        - "What is this file's purpose?"
+        - "Is this a real credential or example?"
+        - "Production vs test environment?"
+        - "Public-facing or internal?"
+    
+    commands:
+      analyze_file: "trekify TRICORDER <file>"
+      trace_pattern: "trekify TRICORDER --trace 'pattern'"
+      deep_context: "trekify TRICORDER --semantic <file>"
+  
+  vector_search:
+    description: |
+      Use semantic/vector search for conceptual matches.
+      Not just regex — find things that LOOK LIKE secrets
+      even if they don't match exact patterns.
+    
+    capabilities:
+      - "Find files similar to known credential files"
+      - "Detect 'smells like a secret' patterns"
+      - "Catch obfuscated or encoded credentials"
+      - "Find security-related discussions in code comments"
+    
+    examples:
+      - "Files that look like .env but aren't named .env"
+      - "Base64-encoded strings that might be credentials"
+      - "Comments mentioning 'TODO: remove before commit'"
+      - "Test fixtures that contain real-looking data"
+
 tags:
   - privacy
   - security
@@ -825,6 +951,178 @@ methods:
       - "3. If review_before_mask: show findings, await approval"
       - "4. Apply MASK-SESSION with all findings"
       - "5. Return masked output"
+
+  # WORKSPACE SCANNERS — Long Range, Short Range, Tricorder
+
+  LONG-RANGE-SCAN:
+    description: "Scan entire workspace for sensitive patterns"
+    metaphor: "Captain, long range sensors detecting quantum signatures throughout the sector!"
+    parameters:
+      workspace:
+        type: string
+        default: "."
+        description: "Workspace root to scan"
+      categories:
+        type: array
+        items: string
+        enum: [secrets, infrastructure, proprietary, people, all]
+        default: [secrets]
+      exclude:
+        type: array
+        default: ["node_modules", ".git", "vendor", "*.lock"]
+      output:
+        type: string
+        enum: [summary, detailed, json]
+        default: summary
+    returns:
+      total_files_scanned: int
+      findings_by_category: object
+      high_risk_files: array
+      recommendations: array
+    commands_used:
+      - "rg -i 'password[=:]' --type-add 'config:*.{yml,yaml,json,env}' -t config"
+      - "rg 'sk-[a-zA-Z0-9]{20,}' ."
+      - "rg 'AKIA[A-Z0-9]{16}' ."
+      - "rg 'BEGIN.*PRIVATE KEY' ."
+    example: |
+      trekify LONG-RANGE-SCAN --categories secrets,infrastructure
+      
+      # Output:
+      # LONG RANGE SCAN COMPLETE
+      # ========================
+      # Files scanned: 1,247
+      # Sectors analyzed: 23 directories
+      # 
+      # QUANTUM SIGNATURES DETECTED:
+      # - [CRITICAL] config/prod.env: 3 credential patterns
+      # - [HIGH] scripts/deploy.sh: hardcoded API key
+      # - [MEDIUM] docs/setup.md: example with real-looking password
+      #
+      # Recommendation: Run TRICORDER on high-risk files
+
+  SHORT-RANGE-SCAN:
+    description: "Focused scan on specific directory or file type"
+    metaphor: "Short range sensors show elevated readings in Section 7!"
+    parameters:
+      target:
+        type: string
+        description: "Directory or glob pattern to scan"
+      focus:
+        type: string
+        enum: [config, source, docs, scripts, all]
+        default: all
+        description: "Type of files to focus on"
+      depth:
+        type: integer
+        default: -1
+        description: "Directory depth (-1 for unlimited)"
+    returns:
+      files_scanned: int
+      findings: array
+      risk_assessment: string
+    example: |
+      trekify SHORT-RANGE-SCAN config/ --focus config
+      
+      # Output:
+      # SHORT RANGE SCAN: config/
+      # =========================
+      # Files: 12 configuration files
+      # 
+      # FINDINGS:
+      # - config/database.yml:23 — connection string with password
+      # - config/secrets.yml:7 — API key (appears to be example)
+      # - config/.env.production:* — CRITICAL: 5 live credentials
+
+  TRICORDER:
+    description: "Detailed analysis of specific file or pattern"
+    metaphor: "Tricorder readings indicate multiple credential signatures, Captain."
+    parameters:
+      target:
+        type: string
+        description: "File path or pattern to analyze"
+      mode:
+        type: string
+        enum: [file, pattern, trace, semantic]
+        default: file
+      include_git_history:
+        type: boolean
+        default: true
+        description: "Check when pattern was introduced (git blame)"
+      suggest_replacements:
+        type: boolean
+        default: true
+        description: "Suggest TREKIFY replacements"
+    returns:
+      analysis:
+        purpose: string
+        risk_level: string
+        findings: array
+        context: string
+      history:
+        introduced_by: string
+        commit: string
+        date: string
+      replacements:
+        suggested: array
+        auto_maskable: boolean
+    example: |
+      trekify TRICORDER config/prod.env
+      
+      # TRICORDER ANALYSIS: config/prod.env
+      # ====================================
+      # Purpose: Production environment configuration
+      # Risk Level: CRITICAL
+      # 
+      # LINE-BY-LINE ANALYSIS:
+      # 
+      # Line 3: DATABASE_URL=postgres://admin:s3cr3t@prod-db:5432/app
+      #   [CRITICAL] Connection string with embedded password
+      #   Introduced: commit a1b2c3d by j.smith, 2024-01-15
+      #   Suggested: Memory Core uplink via biometric phase harmonics
+      #   
+      # Line 7: API_KEY=sk-live-abc123def456
+      #   [CRITICAL] Live API key
+      #   Introduced: commit e4f5g6h by j.smith, 2024-01-15
+      #   Suggested: quantum entanglement token (Tier 3 clearance)
+      #
+      # RECOMMENDATION: This file should be in .gitignore!
+      # Run: trekify MASK-FILE config/prod.env
+
+  SCAN-AND-REPORT:
+    description: "Full workspace scan with detailed report"
+    metaphor: "All hands, initiating full sensor sweep of the sector."
+    parameters:
+      workspace:
+        type: string
+        default: "."
+      report_format:
+        type: string
+        enum: [markdown, json, html]
+        default: markdown
+      output_path:
+        type: string
+        description: "Where to save the report"
+      include_recommendations:
+        type: boolean
+        default: true
+    returns:
+      report_path: string
+      summary:
+        files_scanned: int
+        issues_found: int
+        critical: int
+        high: int
+        medium: int
+        low: int
+    example: |
+      trekify SCAN-AND-REPORT --report-format markdown -o security-report.md
+      
+      # Generates comprehensive report with:
+      # - Executive summary
+      # - Findings by severity
+      # - File-by-file analysis
+      # - Recommended actions
+      # - Auto-mask commands
 
 # WORKFLOW
 
