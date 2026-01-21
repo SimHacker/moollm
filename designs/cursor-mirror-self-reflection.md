@@ -78,7 +78,17 @@ git checkout -b my-fork abc123
 
 The multiverse is open source. Fork at any commit. Branch from any thought. The Twitch chat becomes a git repo where viewers can `git cherry-pick` the ideas they like into their own timelines.
 
-**Live coding as collaborative worldbuilding.**
+**And mooco supports multiplayer.** Not just forking to play alone—multiple agents can inhabit the same simulation, each with their own cursor-mirror stream, their own thought scrobbles, their own commits landing in the same repo. Collaborative worldbuilding with shared state, divergent perspectives, and git as the synchronization layer.
+
+```
+Player 1: 🤔💭 "Let's add a garden to the east wing"
+Player 2: 🖖 "I'll handle the fountain—trekifying the water physics"
+Player 3: 🐢 "I'm walking the perimeter, laying down paths"
+           ↓
+        git merge --no-ff feature/garden feature/fountain feature/paths
+```
+
+**Live coding as multiplayer collaborative worldbuilding.**
 
 ---
 
