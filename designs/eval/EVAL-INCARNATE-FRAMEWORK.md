@@ -20,11 +20,11 @@
 
 ### Guided Reading Paths
 
-**Building skills:** The Word → Axis of Eval → CARD.yml → Seven Extensions → Three-Tier Persistence
+**Building skills:** [The Word](#the-word) → [Axis of Eval](#the-axis-of-eval) → [CARD.yml](#cardyml-the-skill-interface) → [Seven Extensions](#seven-extensions-over-anthropic-skills) → [Three-Tier Persistence](#three-tier-persistence)
 
-**Building worlds:** Rooms → Home vs Location → Vehicles → Guest Book
+**Building worlds:** [Rooms](#vehicles-portable-rooms) → [Home vs Location](#home-vs-location) → [Boundary Types](#boundary-types) → [Vehicles](#vehicles-portable-rooms) → [Guest Book](#the-guest-book-pattern)
 
-**Ethics focus:** Tribute Protocol → Ethical Framing Inheritance → Representation Spectrum
+**Ethics focus:** [Tribute Protocol](#the-tribute-protocol) → [Ethical Framing Inheritance](#ethical-framing-inheritance) → [Representation Spectrum](#the-representation-spectrum)
 
 ---
 
