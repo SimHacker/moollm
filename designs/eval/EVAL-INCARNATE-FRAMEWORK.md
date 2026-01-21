@@ -31,41 +31,41 @@
 ## Document Index
 
 ### Part I: Overview
-- [The Word](#the-word) — What "Eval Incarnate" means
-- [Glossary](#glossary) — Key terms defined
-- [Traditional vs Incarnate Skills](#traditional-skills-vs-incarnate-skills) — The key differences
-- [The Axis of Eval](#the-axis-of-eval) — Code, Graphics, Data unified
-- [Three-Tier Persistence](#three-tier-persistence) — Ephemeral, Narrative, State
+- [The Word](#the-word) — The thesis in one paragraph: skills are programs, LLM is eval()
+- [Glossary](#glossary) — Instantiate, Persist, Incarnate, Delegate: the four verbs
+- [Traditional vs Incarnate Skills](#traditional-skills-vs-incarnate-skills) — Prompts vs programs: the paradigm shift
+- [The Axis of Eval](#the-axis-of-eval) — Code, Graphics, Data unified by one interpreter
+- [Three-Tier Persistence](#three-tier-persistence) — Ephemeral (runtime), Narrative (append-only), State (mutable)
 
 ### Part II: Core Mechanics
-- [Seven Extensions Over Anthropic Skills](#seven-extensions-over-anthropic-skills)
-- [CARD.yml: The Skill Interface](#cardyml-the-skill-interface)
-  - [Cards as Ethical Smart Pointers](#cards-as-ethical-smart-pointers) — MTG/Pokémon for AI ethics
-  - [Cards as Activation Records](#cards-as-activation-records) — Stack frames with inheritance
-- [The Empathic Suite](#the-empathic-suite) — Philosophy, Dovetailing, Code-Switching
-  - [Empathic Expressions](#empathic-expressions-the-big-tent) — The Big Tent
-  - [Comment Intelligence](#comment-intelligence) — Meta vs Concrete
-  - [Code-Switching Support](#code-switching-support) — Cross-language context
-- [Speed of Light](#speed-of-light)
-- [The Simulator Effect](#the-simulator-effect) — Wright's "Two Computers" insight
+- [Seven Extensions Over Anthropic Skills](#seven-extensions-over-anthropic-skills) — What MOOLLM adds: instantiation, persistence, K-lines, empathy, speed, cards, ethics
+- [CARD.yml: The Skill Interface](#cardyml-the-skill-interface) — Machine-readable interface with advertisements
+  - [Cards as Ethical Smart Pointers](#cards-as-ethical-smart-pointers) — MTG/Pokémon for AI ethics: tap, summon, activate
+  - [Cards as Activation Records](#cards-as-activation-records) — Stack frames with inheritance, like Lisp but for skills
+- [The Empathic Suite](#the-empathic-suite) — Five skills that leverage LLM's natural language superpowers
+  - [Empathic Expressions](#empathic-expressions-the-big-tent) — The Big Tent: any format the LLM can grok
+  - [Comment Intelligence](#comment-intelligence) — Meta-comments vs concrete comments, the LLM knows the difference
+  - [Code-Switching Support](#code-switching-support) — Cross-language context, multilingual by default
+- [Speed of Light](#speed-of-light) — Many turns, one call: 33-turn Fluxx, 21-turn Cat Prowl
+- [The Simulator Effect](#the-simulator-effect) — Wright's "Two Computers" insight: sparse rules + rich imagination
 
 ### Part III: Governance and Safety
-- [The Tribute Protocol](#the-tribute-protocol)
-- [Ethical Framing Inheritance](#ethical-framing-inheritance)
-- [Boundary Types](#boundary-types) — Counters, Stages, Walls
-  - [The Tardis Pattern](#the-tardis-pattern) — Larger on the inside
-- [Vehicles: Portable Rooms](#vehicles-portable-rooms) — Rooms that move
-- [Home vs Location](#home-vs-location)
-- [The Guest Book Pattern](#the-guest-book-pattern)
+- [The Tribute Protocol](#the-tribute-protocol) — How to honor real people: three-beat acknowledgment
+- [Ethical Framing Inheritance](#ethical-framing-inheritance) — Ethics flows down the directory tree like CSS
+- [Boundary Types](#boundary-types) — Counters, Stages, Walls: social, visual, physical
+  - [The Tardis Pattern](#the-tardis-pattern) — Larger on the inside: real/virtual/mixed structure
+- [Vehicles: Portable Rooms](#vehicles-portable-rooms) — Rooms that move: wagons, spaceships, stomachs
+- [Home vs Location](#home-vs-location) — Where you live vs where you are: identity != position
+- [The Guest Book Pattern](#the-guest-book-pattern) — Append-only memory: who visited, what happened
 
 ### Part IV: Evidence
-- [Palm: The Canonical Example](#palm-the-canonical-example)
-- [Speed of Light Proofs](#speed-of-light-proofs)
+- [Palm: The Canonical Example](#palm-the-canonical-example) — A monkey who wrote his own soul
+- [Speed of Light Proofs](#speed-of-light-proofs) — Receipts: Fluxx, Cat Prowl, Biscuit's Maze Run
 
 ### Appendices
-- [Appendix A: Intellectual Lineage](#appendix-a-intellectual-lineage) — Full genealogy (14 entries)
-- [Appendix B: References](#appendix-b-references) — Documents, skills, articles
-- [The Vision](#the-vision) — Licklider's destiny
+- [Appendix A: Intellectual Lineage](#1-sketchpad-ivan-sutherland-1962) — Sutherland → Engelbart → Kay → Minsky → Wright → MOOLLM (14 entries)
+- [Appendix B: References](#related-documents) — PostScript lineage, real people, core skills, proof files
+- [The Vision](#the-vision) — Licklider's "interactive intellectual amplifiers": we're finally there
 
 ---
 
