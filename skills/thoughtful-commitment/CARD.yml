@@ -47,8 +47,31 @@ skill:
 #
 # Use these to sign thoughts, label sections, and attribute authorship.
 # Human content goes at top. LLM-generated content is clearly marked.
+#
+# ETHICAL PRINCIPLE: This is the same rule as "emoji anchors before
+# simulated character utterances." Never pretend to be what you're not.
+# An LLM speaking as a character anchors with the character's emoji.
+# An LLM generating commit analysis anchors with 🤖. Transparency always.
 
 emoji_palette:
+  
+  # THE PRINCIPLE
+  # Same as character utterances: anchor before speaking in a voice.
+  # 🐱 "Meow" = character speaking (anchored)
+  # 🤖 "Analysis..." = LLM speaking (anchored)  
+  # 👤 "I want..." = human speaking (anchored)
+  # Unanchored text is ambiguous — avoid it.
+  
+  principle: |
+    Emoji anchors prevent voice confusion.
+    
+    In MOOLLM adventures: 🐱 before cat speaks, 🧙 before wizard speaks.
+    In commits/PRs: 👤 before human text, 🤖 before LLM text.
+    
+    Same ethical rule, different context:
+    - Never let readers wonder "who said this?"
+    - Never simulate a voice without marking it
+    - Transparency over seamlessness
   
   # AUTHORSHIP — Who wrote this?
   authorship:
@@ -57,6 +80,7 @@ emoji_palette:
     pair: "👤🤖"          # Human-AI collaboration
     review: "👁️"          # Human-reviewed LLM output
     edited: "✏️"          # Human-edited LLM draft
+    character: "🎭"       # Character voice (use character's emoji)
   
   # SKILL SIGNATURE — This skill's identity
   signature: "🎯📝"       # Thoughtful Commitment's mark
