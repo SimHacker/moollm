@@ -1,0 +1,278 @@
+# 🤔💭 THOUGHTFUL-COMMITMENT
+#
+# "Commits should tell the story of why, not just what."
+#
+# Git commits PERSIST ephemeral Cursor state into permanent history.
+# cursor-mirror sees the NOW. git commit FREEZES it into FOREVER.
+
+skill:
+  name: thoughtful-commitment
+  version: 1.0.0
+  emoji: "🤔💭"
+  tagline: "Commits that remember why"
+  config_dir: ".moollm/skills/thoughtful-commitment"
+  
+  description: |
+    Transform mechanical commits into narrative records.
+    Composes cursor-mirror + git + shell.
+
+# FILES
+files:
+  docs:
+    - SKILL.md                         # Full protocol + philosophy
+    - README.md                        # Landing page
+  examples: # 🌺🍃🍃🌺
+    - examples/git-commands.yml        # Git archaeology
+    - examples/commit-messages.yml     # Example commits
+    - examples/shell-patterns.yml      # Data pipelines
+
+# INTERFACE
+tier: 2
+protocol: THOUGHTFUL-COMMITMENT
+
+allowed_tools:
+  - read_file
+  - write_file
+  - list_dir
+  - run_terminal_cmd
+  - grep
+
+related: # 🌈🌼
+  - cursor-mirror # Introspection engine 🪷🐝🦋🦋
+  - trekify            # Privacy masking
+  - session-log        # Narrative storage
+
+tags: [git, commits, narrative, provenance, introspection, composability]
+
+# ADVERTISEMENTS — When to invoke this skill
+advertisements:
+  # Primary Introspection
+  - id: TIMELINE
+    trigger: "user wants to see session events"
+    conditions:
+      - "user asks what happened"
+      - "user wants session overview"
+      - "user wants to understand flow"
+    score: 0.95
+    note: "Start here — master view, then drill down"
+    
+  - id: CONTEXT-FOCUS
+    trigger: "user wants to see context window"
+    conditions:
+      - "user asks what was in context" # 🐞✨✨
+      - "user wants to see inputs"
+      - "user asks what LLM saw"
+    score: 0.95
+    
+  # Commit Operations
+  - id: COMMIT
+    trigger: "user wants to commit with context"
+    conditions:
+      - "staged changes exist"
+      - "user asks for thoughtful/narrative commit"
+    score: 0.9
+# 🌹🍃🌷🌸
+  - id: EXPLAIN
+    trigger: "user asks why a commit was made"
+    conditions:
+      - "commit hash provided"
+      - "user wants reasoning behind change"
+    score: 0.8
+    
+  # Git Archaeology
+  - id: BLAME
+    trigger: "user asks who wrote code and why"
+    conditions:
+      - "file path provided"
+      - "user wants attribution + reasoning"
+    score: 0.85
+    
+  - id: ARCHAEOLOGY
+    trigger: "user wants history of file/pattern"
+    conditions:
+      - "target path or pattern provided"
+      - "user exploring evolution"
+    score: 0.8
+
+# METHODS — Signatures only, see SKILL.md for details
+methods:
+
+  # PRIMARY INTROSPECTION — Start here, drill down from timeline
+  
+  TIMELINE:
+    description: "Show all events with timestamps, types, and IDs — the master view"
+    composes_with: cursor-mirror
+    params: [composer, limit, filter, since] # 🐝🌿
+    returns: [events]  # Each: {id, timestamp, type, summary}
+    output_tag: "⏱️"
+    drill_down: "Use event IDs with CONTEXT-FOCUS, THINKING, TOOLS" # 🪷🪷
+    example_output: |
+      🤔💭 ⏱️ Session Timeline — e8587ace
+      
+      #141  16:46:12  📍 user      "Refactor auth module"
+      #142  16:46:15  🪟 context   3 files, ~4.2k tokens
+      #143  16:46:18  🧠 thinking  "Need to check for race conditions..."
+      #144  16:46:22  🔧 tool      Read auth/session.ts
+      #145  16:46:25  📤 result    247 lines loaded
+      #146  16:46:30  🧠 thinking  "Found race condition on line 47..."
+      #147  16:46:35  💡 insight   "Adding await fixes sequencing"
+      #148  16:46:40  🔧 tool      Write auth/session.ts
+      #149  16:46:45  📝 change    +3 -1 lines
+      
+      → Drill down: CONTEXT-FOCUS #142, THINKING #143, TOOLS #144
+  
+  CONTEXT-FOCUS:
+    description: "Analyze what went into context window for a call"
+    composes_with: cursor-mirror
+    params: [composer, event_id]
+    returns: [files_read, snippets, conversation, rules, total_tokens] # 🌱
+    output_tag: "🪟"
+    example_output: |
+      🤔💭 🪟 Context Window — event #142
+      
+      Files:
+        auth/session.ts     247 lines
+        auth/types.ts        89 lines
+        tests/auth.test.ts  156 lines
+      
+      Snippets:
+        session.ts:45-67 (highlighted by user)
+      
+      Conversation: 12 turns
+      Rules: .cursorrules, workspace
+      
+      Total: ~4,200 tokens
+  
+  THINKING:
+    description: "Show reasoning blocks for an event or range"
+    composes_with: cursor-mirror
+    params: [composer, event_id, range]
+    returns: [thinking_blocks]
+    output_tag: "🧠"
+  
+  TOOLS:
+    description: "Show tool calls for an event or session"
+    composes_with: cursor-mirror
+    params: [composer, event_id, tool_filter]
+    returns: [tool_calls]  # Each: {id, tool, args, result_summary}
+    output_tag: "🔧"
+
+  # COMMIT OPERATIONS
+  
+  COMMIT:
+    description: "Create thoughtful commit with narrative context"
+    params: [files, story, detail, focus, include_thinking]
+    returns: [commit_id, message, thinking_link]
+    
+  EXPLAIN:
+    description: "Find thinking that led to existing commit"
+    params: [commit]
+    returns: [commit_message, thinking_blocks, user_request, tool_calls]
+    
+  NARRATIVE:
+    description: "Generate narrative commit message from context"
+    params: [diff_summary, perspective, detail]
+    returns: [message, sections]
+
+  DEEP-COMMIT:
+    description: "Mine session for technical analytics"
+    params: [composer, commit_range]
+    returns: [raw_metrics, tool_distribution, thinking_analysis, verification_commands]
+
+  LINK:
+    description: "Link commit to cursor-mirror events"
+    params: [commit, events]
+    returns: [linked, reference]
+
+  # GIT ARCHAEOLOGY
+    
+  BLAME:
+    description: "Who wrote each line, when, and why?"
+    params: [path, lines, follow_renames]
+    returns: [lines, commits, authors, timeline]
+    
+  ARCHAEOLOGY:
+    description: "Deep dig into file/pattern history"
+    params: [target, mode, since]
+    returns: [evolution, milestones, contributors, linked_sessions]
+    
+  HISTORY:
+    description: "Narrative timeline of a path"
+    params: [path, depth, include_thinking]
+    returns: [timeline]
+
+  # GIT PLANNING
+    
+  PLAN-MERGE:
+    description: "Understand what merge will bring"
+    params: [source, target, detail]
+    returns: [commits_to_merge, files_affected, potential_conflicts, narrative]
+    
+  PLAN-CHERRY-PICK:
+    description: "Plan surgical commit extraction"
+    params: [commits, target]
+    returns: [commits, order, warnings, commands]
+
+# USER CONFIG — Override defaults
+user_config:
+  location: ".moollm/skills/thoughtful-commitment/config.yml"
+  schema:
+    emojis: { type: boolean, default: true }
+    detail_default: { type: integer, range: [1,5], default: 3 }
+    focus_default: { type: array, default: [technical] }
+
+# QUICK REFERENCE
+detail_levels:
+  1: "terse (~10 tokens)"
+  2: "brief (~50 tokens)"
+  3: "standard (~100 tokens)"
+  4: "detailed (~300 tokens)"
+  5: "comprehensive (~500+ tokens)"
+
+focus_areas: [technical, narrative, process, provenance, changelog, metrics]
+
+# EMOJI SIGNATURE
+signature: "🤔💭"
+
+# THOUGHT STREAM TAGGING
+# Every line of output prefixed with: <signature> <category>
+# Creates a visual stream showing the reasoning process
+thought_stream:
+  format: "🤔💭 <category> <content>"
+  
+  tags:
+    timeline: "⏱️"     # Event timeline (master view)
+    prompt: "📍"       # User's request / background context
+    context: "🪟"      # Context window assembly (what went in)
+    thinking: "🧠"     # LLM reasoning
+    tool: "🔧"         # Tool call
+    result: "📤"       # Tool result
+    insight: "💡"      # Key realization
+    decision: "🔀"     # Choice made
+    change: "📝"       # File modification
+    warning: "⚠️"      # Caveat / risk
+  
+  example_stream: |
+    🤔💭 📍 User asked to refactor the auth module
+    🤔💭 🧠 Need to understand current structure first
+    🤔💭 🔧 Read auth/session.ts
+    🤔💭 📤 Found race condition in line 47
+    🤔💭 🧠 The cookie check races with token refresh
+    🤔💭 💡 Adding await will fix the sequencing
+    🤔💭 🔀 Chose await over mutex (simpler)
+    🤔💭 📝 Modified auth/session.ts
+    🤔💭 🧠 Should add a test for this
+    🤔💭 🔧 Write auth/session.test.ts
+
+# OUTPUT STRUCTURE
+output_structure: |
+  1. 👤 User's prompt (head position)
+  2. ---
+  3. 🤔💭 🧠 / 🔧 / 💡 ... thought stream
+
+# COMPOSES WITH
+composes_with:
+  cursor-mirror: "introspection (thinking, tools, transcripts)"
+  git: "version control (commits, blame, log)"
+  shell: "data processing (grep, awk, pipelines)"
+  trekify: "privacy masking"
