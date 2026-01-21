@@ -20,9 +20,7 @@ skill:
     Links git history to cursor-mirror thinking blocks, creating
     complete provenance from intent to implementation.
 
-# ═══════════════════════════════════════════════════════════════════════════
 # INTERFACE
-# ═══════════════════════════════════════════════════════════════════════════
 
 tier: 2
 allowed_tools:
@@ -38,8 +36,8 @@ related:
   - cursor-mirror      # Source of thinking blocks, CHAT-CATALOG for outlines
   - session-log        # Where narrative lives
   - plain-text         # Why text matters
+  - yaml-jazz          # Comments as meaning
 
-# Integration with cursor-mirror CHAT-CATALOG
 workflow:
   description: "Catalog → Identify → Commit"
   steps:
@@ -47,7 +45,6 @@ workflow:
     - "User: 'Write commit for sections 11 and 14'"
     - "thoughtful-commitment COMMIT → narrative commit message"
     - "Commit references catalog sections for traceability"
-  - yaml-jazz          # Comments as meaning
 
 tags:
   - git
@@ -56,9 +53,7 @@ tags:
   - provenance
   - introspection
 
-# ═══════════════════════════════════════════════════════════════════════════
 # METHODS
-# ═══════════════════════════════════════════════════════════════════════════
 
 methods:
 
@@ -161,9 +156,7 @@ methods:
     returns:
       timeline: array  # Each entry: commit + message + thinking
 
-# ═══════════════════════════════════════════════════════════════════════════
 # COMMIT MESSAGE PROTOCOL
-# ═══════════════════════════════════════════════════════════════════════════
 
 commit_message_protocol:
   format: |
@@ -234,9 +227,7 @@ commit_message_protocol:
       - New: System preference detection (prefers-color-scheme)
       - Fixed: Contrast issues in sidebar with dark backgrounds
 
-# ═══════════════════════════════════════════════════════════════════════════
 # INTEGRATION
-# ═══════════════════════════════════════════════════════════════════════════
 
 integrations:
   cursor_mirror:
@@ -260,9 +251,7 @@ integrations:
       ## Commit: abc123
       [Link to thinking](cursor-mirror://abc123/events/140-148)
 
-# ═══════════════════════════════════════════════════════════════════════════
 # AUTOMATION
-# ═══════════════════════════════════════════════════════════════════════════
 
 automation:
   pre_commit_hook:
