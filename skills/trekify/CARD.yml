@@ -1,0 +1,456 @@
+# 🖖 TREKIFY
+#
+# "Captain, I've routed all sensitive data through the privacy buffers."
+#
+# Privacy through technobabble. Replace sensitive information with
+# Star Trek terminology adapted to the MOOLLM universe.
+# Delivered with Geordi La Forge's competent mellifluence.
+#
+# PATRON ENGINEER: Geordi La Forge
+# Who could explain warp core breaches, plasma conduit failures,
+# and subspace anomalies with professional calm. We mask data
+# with the same deadpan technical confidence.
+
+skill:
+  name: trekify
+  version: 1.0.0
+  
+  emoji: "🖖"
+  tagline: "Privacy through technobabble"
+  
+  description: |
+    Transform sensitive information into plausible-sounding Star Trek
+    technobabble that maintains narrative flow while protecting secrets.
+    
+    Instead of ugly [REDACTED] blocks, readers get professional-sounding
+    technical jargon. They know it's masked, but it reads naturally.
+
+# THE PRINCIPLE
+
+principle: |
+  Sensitive data should be masked, but [REDACTED] breaks narrative flow.
+  TREKIFY replaces secrets with contextually appropriate technobabble
+  that maintains readability while clearly signaling "this was masked."
+  
+  The substitutions are consistent and reversible (with the key).
+  The tone is professional, not campy or parodic.
+
+# INTERFACE
+
+tier: 2
+allowed_tools:
+  - read_file
+  - write_file
+  - run_terminal_cmd
+  - grep
+
+protocol: TREKIFY
+
+related:
+  - thoughtful-commitment  # Uses TREKIFY for commit privacy
+  - session-log            # Session logs may need masking
+  - cursor-mirror          # Transcripts contain sensitive data
+  - plain-text             # All masked output stays plain text
+
+tags:
+  - privacy
+  - security
+  - masking
+  - redaction
+  - star-trek
+  - technobabble
+
+# SUBSTITUTION MATRICES
+
+substitutions:
+  
+  # SECRETS — Authentication & Credentials
+  secrets:
+    api_keys:
+      pattern: "(sk-|api[_-]?key|apikey)[a-zA-Z0-9_-]{20,}"
+      replacement: "quantum entanglement token (Tier {N} clearance)"
+      examples:
+        - "sk-live-abc123def456 → quantum entanglement token (Tier 3 clearance)"
+        - "OPENAI_API_KEY → quantum relay authorization"
+    
+    passwords:
+      pattern: "(password|passwd|pwd)[=:].+"
+      replacement: "biometric phase harmonics"
+      examples:
+        - "password=hunter2 → biometric phase harmonics [SECURED]"
+    
+    tokens:
+      pattern: "(bearer|token|jwt)[=: ][a-zA-Z0-9_.-]+"
+      replacement: "subspace authentication matrix"
+      examples:
+        - "Bearer eyJhbG... → subspace authentication matrix"
+    
+    private_keys:
+      pattern: "-----BEGIN (RSA |EC |)PRIVATE KEY-----"
+      replacement: "isolinear encryption sequence [CLASSIFIED]"
+    
+    connection_strings:
+      pattern: "(postgres|mysql|mongodb)://[^\\s]+"
+      replacement: "memory core uplink protocol"
+
+  # INFRASTRUCTURE — Servers & Services
+  infrastructure:
+    servers:
+      pattern: "[a-z]+-[a-z]+-\\d+\\.[a-z]+\\.(internal|local|corp)"
+      replacement: "Starbase {N}"
+      examples:
+        - "prod-db-west-2.company.internal → Starbase 47"
+        - "api-server-1.corp → Starbase 12"
+    
+    databases:
+      pattern: "(prod|staging|dev)[-_]?(db|database|postgres|mysql)"
+      replacement: "Memory Core {Greek}"
+      examples:
+        - "prod-db → Memory Core Alpha"
+        - "staging-database → Memory Core Beta"
+        - "dev-postgres → Memory Core Gamma"
+    
+    ip_addresses:
+      pattern: "\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}"
+      replacement: "subspace coordinates {coords}"
+      examples:
+        - "192.168.1.100 → subspace coordinates 47-alpha-7"
+    
+    ports:
+      pattern: ":\\d{4,5}"
+      replacement: "docking frequency {N}"
+      examples:
+        - ":5432 → docking frequency 54"
+        - ":8080 → docking frequency 80"
+    
+    cloud_providers:
+      aws: "Utopia Planitia Fleet Yards"
+      gcp: "Jupiter Station"
+      azure: "Spacedock"
+      kubernetes: "holodeck orchestration matrix"
+      docker: "cargo bay containment"
+    
+    regions:
+      us-east-1: "Alpha Quadrant, Sector 001"
+      us-west-2: "Alpha Quadrant, Sector 047"
+      eu-west-1: "Beta Quadrant, Sector 012"
+      ap-southeast-1: "Gamma Quadrant, Sector 089"
+
+  # ORGANIZATIONS — Companies & Products
+  organizations:
+    company_names:
+      pattern: "(Company|Corp|Inc|LLC|Ltd)\\b"
+      replacement: "Starfleet Division {Greek}"
+      examples:
+        - "Acme Corp → Starfleet Division Alpha"
+    
+    product_names:
+      internal_pattern: "(project|product)[-_][a-z]+"
+      replacement: "Project {ShipClass}"
+      ship_classes:
+        - Galaxy
+        - Sovereign
+        - Intrepid
+        - Defiant
+        - Constitution
+        - Excelsior
+        - Nova
+        - Prometheus
+    
+    customer_names:
+      pattern: "customer[-_]?[a-z]+"
+      replacement: "Ambassador {Species}"
+      species:
+        - Vulcan
+        - Andorian
+        - Tellarite
+        - Betazoid
+        - Trill
+        - Bajoran
+
+  # PEOPLE — Names & Contacts
+  people:
+    employee_names:
+      replacement: "Lieutenant {Role}-appropriate name"
+      examples:
+        - "John Smith (engineer) → Lieutenant Torres"
+        - "Jane Doe (manager) → Commander Riker"
+        - "Bob Wilson (security) → Lieutenant Worf"
+    
+    email_addresses:
+      pattern: "[a-z.]+@[a-z]+\\.[a-z]+"
+      replacement: "{name}@starfleet.fed"
+      examples:
+        - "john.smith@company.com → j.smith@starfleet.fed"
+    
+    customer_contacts:
+      replacement: "Ambassador {Title}"
+
+  # LOCATIONS — Physical & Logical
+  locations:
+    office_addresses:
+      replacement: "Deck {N}, Section {Letter}"
+      examples:
+        - "123 Main St, Floor 4 → Deck 4, Section Alpha"
+    
+    data_centers:
+      replacement: "Starbase {N} primary core"
+    
+    geographic_regions:
+      us: "Alpha Quadrant"
+      europe: "Beta Quadrant"  
+      asia: "Gamma Quadrant"
+      other: "Delta Quadrant"
+
+# MOOLLM-SPECIFIC ADAPTATIONS
+
+moollm_terms:
+  description: "Trek technobabble for MOOLLM concepts"
+  
+  mappings:
+    coherence_engine: "main deflector array"
+    thinking_blocks: "positronic cascade resonance"
+    context_assembly: "sensor array configuration"
+    cursor_mirror: "internal diagnostic holomatrix"
+    session_state: "warp field geometry"
+    tool_calls: "transporter lock sequences"
+    git_commits: "temporal anchor points"
+    branches: "parallel quantum timelines"
+    merge_conflicts: "subspace interference patterns"
+    yaml_files: "isolinear chip configurations"
+    skills: "holodeck subroutines"
+    adventures: "holodeck programs"
+    characters: "holographic entities"
+
+# DELIVERY STYLE
+
+style:
+  tone: "Competent, professional, slightly technical"
+  
+  inspiration: |
+    Geordi La Forge explaining a warp core diagnostic:
+    calm, confident, using precise technical terminology
+    without being condescending or overly dramatic.
+  
+  examples:
+    good:
+      - "We're routing the authentication through the quantum relay buffers."
+      - "I've reconfigured the isolinear chips to handle the increased load."
+      - "The subspace harmonics are within normal parameters."
+      - "Running a level-3 diagnostic on the memory core."
+      - "The temporal anchors are holding steady."
+    
+    bad:
+      - "Beam me up, Scotty! 🖖" # Too campy
+      - "ENGAGE THE WARP DRIVE!!!" # Too dramatic
+      - "Live long and [REDACTED]" # Breaks the fourth wall
+      - "Make it so, password=hunter2" # Mixing styles
+  
+  rules:
+    - "Maintain professional tone throughout"
+    - "Use consistent substitutions within a document"
+    - "Let the reader feel clever for noticing"
+    - "Keep narrative flow intact"
+    - "Never wink at the camera"
+    - "Treat it as real technical documentation"
+
+# METHODS
+
+methods:
+  
+  MASK:
+    description: "Apply TREKIFY masking to text"
+    parameters:
+      text:
+        type: string
+        description: "Text containing sensitive information"
+      sensitivity:
+        type: string
+        enum: [low, medium, high, classified]
+        default: medium
+        description: "How aggressively to substitute"
+      categories:
+        type: array
+        items: string
+        enum: [secrets, infrastructure, organizations, people, locations, all]
+        default: [all]
+        description: "Which categories to mask"
+      maintain_structure:
+        type: boolean
+        default: true
+        description: "Keep same sentence structure, just swap terms"
+    returns:
+      masked_text: string
+      substitutions: array  # [{original, replacement, category, line}]
+      substitution_key: string  # For reversing if needed (store securely!)
+    example: |
+      invoke:
+        skill: trekify
+        method: MASK
+        parameters:
+          text: "Connected to prod-db-west-2:5432 with API key sk-live-abc123"
+          sensitivity: high
+      
+      returns:
+        masked_text: "Established uplink to Memory Core Alpha, docking frequency 54, via quantum entanglement token (Tier 3 clearance)"
+
+  MASK-FILE:
+    description: "Apply TREKIFY masking to a file"
+    parameters:
+      path:
+        type: string
+        description: "Path to file to mask"
+      output_path:
+        type: string
+        description: "Path for masked output (or modify in place if same)"
+      sensitivity:
+        type: string
+        default: medium
+      categories:
+        type: array
+        default: [all]
+    returns:
+      substitutions_count: int
+      categories_masked: array
+      output_path: string
+
+  MASK-SESSION:
+    description: "Apply TREKIFY to a cursor-mirror session transcript"
+    parameters:
+      composer:
+        type: string
+        description: "Composer ID or reference"
+      output_path:
+        type: string
+        description: "Where to save masked transcript"
+      preserve_thinking:
+        type: boolean
+        default: true
+        description: "Keep thinking blocks (masked) or remove entirely"
+    returns:
+      original_path: string
+      masked_path: string
+      substitutions: array
+
+  SCAN:
+    description: "Scan text for potential sensitive data without masking"
+    parameters:
+      text:
+        type: string
+        description: "Text to scan"
+      report_level:
+        type: string
+        enum: [summary, detailed, verbose]
+        default: summary
+    returns:
+      findings: array  # [{pattern_type, match, line, recommendation}]
+      risk_assessment: string
+      recommended_sensitivity: string
+
+  UNMASK:
+    description: "Reverse TREKIFY masking using substitution key"
+    parameters:
+      masked_text:
+        type: string
+        description: "Previously masked text"
+      substitution_key:
+        type: string
+        description: "Key from original masking operation"
+    returns:
+      original_text: string
+      substitutions_reversed: int
+    note: "Only works if you have the key from the original MASK operation"
+
+  CONFIGURE:
+    description: "Add custom substitution patterns"
+    parameters:
+      category:
+        type: string
+        description: "Category for the pattern"
+      pattern:
+        type: string
+        description: "Regex pattern to match"
+      replacement:
+        type: string
+        description: "Trek-style replacement template"
+    returns:
+      configured: boolean
+      pattern_id: string
+
+# WORKFLOW
+
+workflow:
+  before_commit:
+    description: "Mask sensitive data before committing to public repo"
+    steps:
+      - "SCAN staged files for sensitive data"
+      - "Review findings and adjust sensitivity"
+      - "MASK-FILE for each file needing redaction"
+      - "Commit masked versions"
+      - "Store substitution keys securely (NOT in repo)"
+  
+  before_sharing_session:
+    description: "Mask cursor-mirror transcript before sharing"
+    steps:
+      - "cursor-mirror agent-transcript <id> > raw.txt"
+      - "trekify MASK-SESSION → masked.txt"
+      - "Review masked output"
+      - "Share masked version"
+  
+  in_commit_messages:
+    description: "Use TREKIFY style in thoughtful-commitment"
+    example: |
+      # Instead of:
+      fix: Update AWS credentials for prod-payments service
+      
+      # Write:
+      fix: Recalibrate quantum authentication at Utopia Planitia
+      
+      The isolinear encryption sequence for the payment processing
+      matrix approached temporal decay threshold. Rotated quantum
+      harmonics and updated the orchestration manifest in Sector 001.
+
+# EXAMPLES
+
+examples:
+  
+  connection_string:
+    before: "postgresql://admin:secretpass@prod-db.company.com:5432/userdata"
+    after: "Memory Core uplink via biometric phase harmonics to Starbase 47, docking frequency 54, userdata archive"
+  
+  log_entry:
+    before: |
+      2024-01-15 10:23:45 ERROR Failed to connect to api-server-3.internal
+      Auth token expired for user john.smith@company.com
+      Retrying with new credentials from AWS Secrets Manager
+    after: |
+      Stardate 2024.015 1023 ALERT Uplink failure to Starbase 3
+      Subspace authentication matrix expired for Lieutenant Smith
+      Reinitializing quantum relay via Utopia Planitia credential vault
+  
+  commit_message:
+    before: |
+      fix: Rotate API keys after security audit
+      
+      The penetration test found our Stripe keys were exposed in
+      the staging environment. Rotated all keys and updated the
+      Kubernetes secrets in us-east-1 and eu-west-1.
+    after: |
+      fix: Rotate quantum entanglement tokens after security diagnostic
+      
+      Level-4 security sweep detected credential exposure in the
+      holodeck test matrix. Refreshed all authentication harmonics
+      and updated orchestration manifests in Sectors 001 and 012.
+
+# GEORDI SAYS
+
+geordi_says: |
+  "Captain, I've completed the privacy diagnostic. All sensitive data
+  has been routed through the technobabble filters. The quantum
+  signatures are masked but readable, and the narrative flow is
+  maintained. We're ready to share the logs with external teams.
+  
+  The substitution key is stored in the secure isolinear vault —
+  we can reverse the process if needed for internal review.
+  
+  Estimated time to full disclosure: whenever you give the order, sir."

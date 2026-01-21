@@ -86,34 +86,25 @@ Events: 140-160
 
 ## TREKIFY Protocol
 
-For privacy, replace sensitive data with **Star Trek technobabble** adapted to MOOLLM. Delivered with Geordi La Forge's competent mellifluence.
+For privacy, use the **[trekify](../trekify/)** skill to mask sensitive data with Star Trek technobabble.
+
+```bash
+# Mask a session transcript
+trekify MASK-SESSION e8587ace -o masked-transcript.txt
+
+# Mask any file
+trekify MASK-FILE session.txt -o session-masked.txt
+```
 
 | Sensitive | Trekified |
 |-----------|-----------|
 | API keys | Quantum entanglement tokens |
-| Server names | Starbase 47 |
-| Database | Memory Core Beta |
+| Servers | Starbase {N} |
+| Databases | Memory Core Alpha/Beta/Gamma |
 | AWS/GCP | Utopia Planitia Fleet Yards |
-| Kubernetes | Holodeck orchestration matrix |
-| IP addresses | Subspace coordinates |
-| Customer names | Ambassador Acme |
+| Customers | Ambassador {Species} |
 
-**Before:**
-```
-Connected to prod-db-west-2.company.internal:5432
-Using API key: sk-live-abc123def456
-```
-
-**After:**
-```
-Established uplink to Memory Core Beta, Starbase 47
-Authenticated via quantum entanglement token (Tier 3 clearance)
-```
-
-> *"Captain, I've run a level-3 diagnostic on the commit history.
-> The quantum signatures are stable, and I've routed all sensitive
-> data through the privacy buffers. We're ready to push."*
-> — Geordi La Forge, probably
+See **[trekify skill](../trekify/)** for full documentation.
 
 ## Detail Knob
 
