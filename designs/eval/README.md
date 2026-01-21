@@ -79,8 +79,8 @@ Alan Kay criticized SimCity as a "pernicious black box" — its ideology is bake
 
 The documents in this directory crystallize ideas from:
 
+- [EVAL-INCARNATE-FRAMEWORK.md](./EVAL-INCARNATE-FRAMEWORK.md) — **The master framework document** (Skills are programs. The LLM is eval(). Empathy is the interface.)
 - [eval-incarnate-design-chatgpt.txt](./eval-incarnate-design-chatgpt.txt) — 8500+ line conversation with ChatGPT developing these concepts
-- [../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Technical framework (the master document)
 - [../MOOLLM-MANIFESTO.md](../MOOLLM-MANIFESTO.md) — Core MOOLLM philosophy
 
 ---
