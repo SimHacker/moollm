@@ -151,6 +151,21 @@ Tom Stambaugh helped Owen see how to adapt Smalltalk patterns:
 
 > *"Owen and I discussed his 'crazy' idea at a poolside table at the now-demolished Hyatt Palo Alto, on El Camino. I told him that it made sense to me, we scribbled furiously on napkins, and I helped him see how he might adopt some learnings from Smalltalk."*
 
+### Filesystem as Object Hierarchy (1993)
+
+Owen Densmore and David S. H. Rosenthal (both NeWS authors) patented a method to implement object-oriented class hierarchies directly in a hierarchical file system:
+
+**[US Patent 5187786A](https://patents.google.com/patent/US5187786A/en):** *"Method and apparatus for implementing a class hierarchy of objects in a hierarchical file system"*
+
+- Directories as class and instance containers
+- Path files coordinate inheritance and method lookup
+- Shell path as dictionary stack (!)
+- No new file attributes required
+
+This formalized the NeWS/Smalltalk OOP patterns into filesystem semantics — shell scripts with OOP inheritance.
+
+**Direct MOOLLM connection:** MOOLLM's delegation model (parent directories define inherited properties) is this exact pattern. The filesystem IS the object hierarchy.
+
 ### The NeWS Toolkit (TNT) (1989-1991)
 
 Don Hopkins worked with Owen Densmore and James Gosling at Sun to create TNT ("The NeWS Toolkit") — a complete UI toolkit in NeWS PostScript. Classes for windows, buttons, menus, canvases, pie menus, tabbed windows, even an X11 window manager.
@@ -317,6 +332,7 @@ MOOLLM takes the same stance. The LLM provides capabilities. How you use them is
 - [HyperLook article](https://donhopkins.medium.com/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4) — Don Hopkins on Medium
 - [Owen Densmore's OOP paper](https://donhopkins.com/home/monterey86.pdf) — 1986 Monterey conference
 - [The NeWS Book](https://donhopkins.com/home/The_NeWS_Book_1989.pdf) — Chapter 6: Object-Oriented PostScript
+- [US Patent 5187786A](https://patents.google.com/patent/US5187786A/en) — Densmore/Rosenthal filesystem OOP
 - [PSIBER Space Deck](https://medium.com/@donhopkins/the-shape-of-psiber-space-oct...) — Don's visual PostScript debugger
 
 ---
@@ -333,6 +349,7 @@ MOOLLM takes the same stance. The LLM provides capabilities. How you use them is
 | Butler Lampson | Interpress | Protection semantics |
 | James Gosling | NeWS | Multithreaded PostScript |
 | Owen Densmore | OOP PostScript, TNT | Classes via dict stack |
+| David S. H. Rosenthal | NeWS co-author, filesystem OOP patent | Shell path as dict stack |
 | Brian Reid | History documentation | Laser-lovers post |
 | Glenn Reid | Distillery, books | Partial evaluation → PDF |
 | Arthur van Hoff | PdB, HyperLook | C-to-PostScript, later Java |
