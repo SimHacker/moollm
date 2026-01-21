@@ -97,9 +97,7 @@ advertisements:
 # METHODS — Signatures only, see SKILL.md for details
 methods:
 
-  # ═══════════════════════════════════════════════════════════════════
   # PRIMARY INTROSPECTION — Start here, drill down from timeline
-  # ═══════════════════════════════════════════════════════════════════
   
   TIMELINE:
     description: "Show all events with timestamps, types, and IDs — the master view"
@@ -159,9 +157,7 @@ methods:
     returns: [tool_calls]  # Each: {id, tool, args, result_summary}
     output_tag: "🔧"
 
-  # ═══════════════════════════════════════════════════════════════════
-  # COMMIT OPERATIONS — Create and analyze commits
-  # ═══════════════════════════════════════════════════════════════════
+  # COMMIT OPERATIONS
   
   COMMIT:
     description: "Create thoughtful commit with narrative context"
@@ -188,9 +184,7 @@ methods:
     params: [commit, events]
     returns: [linked, reference]
 
-  # ═══════════════════════════════════════════════════════════════════
-  # GIT ARCHAEOLOGY — Dig into repository history
-  # ═══════════════════════════════════════════════════════════════════
+  # GIT ARCHAEOLOGY
     
   BLAME:
     description: "Who wrote each line, when, and why?"
@@ -207,9 +201,7 @@ methods:
     params: [path, depth, include_thinking]
     returns: [timeline]
 
-  # ═══════════════════════════════════════════════════════════════════
-  # GIT PLANNING — Plan future operations
-  # ═══════════════════════════════════════════════════════════════════
+  # GIT PLANNING
     
   PLAN-MERGE:
     description: "Understand what merge will bring"
