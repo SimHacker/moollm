@@ -35,6 +35,190 @@ principle: |
   The substitutions are consistent and reversible (with the key).
   The tone is professional, not campy or parodic.
 
+# PASSTHROUGH — What NOT to Trekify
+
+passthrough:
+  description: |
+    MOOLLM is public. Its vocabulary passes through PURE and UNCHANGED.
+    No transporter accidents for our own terminology!
+    
+    Only mask ACTUALLY SENSITIVE data — infrastructure, credentials,
+    customer info. Not our public concepts, skill names, or k-lines.
+  
+  always_passthrough:
+    moollm_concepts:
+      - "coherence engine"
+      - "thinking blocks"
+      - "context assembly"
+      - "cursor-mirror"
+      - "k-lines"
+      - "yaml jazz"
+      - "speed of light"
+      - "society of mind"
+      - "simulator effect"
+    
+    skill_names:
+      - "All skill names from skills/INDEX.yml"
+      - "thoughtful-commitment"
+      - "trekify"
+      - "adventure"
+      - "incarnation"
+      - "soul-chat"
+      - "cursor-mirror"
+      - "etc."
+    
+    protocols:
+      - "BOOTSTRAP"
+      - "ADVENTURE"
+      - "INCARNATE"
+      - "TREKIFY"
+      - "THOUGHTFUL-COMMITMENT"
+      - "etc."
+    
+    public_repos:
+      - "moollm"
+      - "mooco"
+      - "leela"
+    
+    public_terms:
+      - "LLM", "AI", "agent"
+      - "git", "commit", "branch", "merge"
+      - "YAML", "Markdown", "JSON"
+      - "Cursor", "IDE"
+  
+  the_rule: |
+    If it's in the MOOLLM docs, it's PUBLIC → passthrough unchanged.
+    If it's YOUR infrastructure, credentials, customers → TREKIFY!
+
+# BOLDLY, NOT SLYLY
+
+spirit:
+  description: |
+    TREKIFY is BOLD, not SLY. We're not hiding that we masked things.
+    We're GLEEFULLY and PLAYFULLY replacing sensitive data with
+    contextually appropriate technobabble.
+    
+    The reader should SMILE when they notice. Not feel tricked.
+  
+  principles:
+    bold_not_sneaky:
+      - "Don't pretend masking didn't happen"
+      - "Use obviously Trek terminology"
+      - "Let readers feel clever for noticing"
+      - "Consistent substitutions aid comprehension"
+    
+    playful_not_paranoid:
+      - "This is FUN, not FEAR"
+      - "Celebrate the substitutions"
+      - "Match context appropriately"
+      - "Databases → Memory Cores (fits!)"
+    
+    contextual_not_random:
+      - "Servers → Starbases (they serve!)"
+      - "Databases → Memory Cores (they remember!)"
+      - "Auth tokens → Quantum entanglement (they link!)"
+      - "Kubernetes → Holodeck orchestration (it orchestrates!)"
+  
+  tone: |
+    Imagine explaining the masking to a colleague:
+    "Yeah, I replaced all our server names with Starbases.
+    Memory Core Alpha is prod, Memory Core Beta is staging.
+    Makes it way more fun to read, and our infra is protected."
+
+# USER CONFIGURATION
+
+user_config:
+  description: |
+    Users can configure their own taboo tables and preferences.
+    Store in .moollm/trekify/config.yml (gitignored).
+  
+  location: ".moollm/trekify/config.yml"
+  gitignored: true
+  
+  schema:
+    enabled:
+      type: boolean
+      default: true
+      description: "Master switch for TREKIFY"
+    
+    sensitivity:
+      type: string
+      enum: [off, low, medium, high, paranoid]
+      default: medium
+      description: "How aggressively to mask"
+    
+    passthrough:
+      type: array
+      items: string
+      description: "Additional terms to never mask"
+      example:
+        - "my-open-source-project"
+        - "public-api-name"
+    
+    taboo:
+      type: object
+      description: "Custom patterns to always mask"
+      example:
+        my_company: "Starfleet Division Omega"
+        internal_product: "Project Defiant"
+        customer_acme: "Ambassador Vulcan"
+    
+    custom_substitutions:
+      type: object
+      description: "Override default substitutions"
+      example:
+        prod-db: "Memory Core Prime"
+        staging-db: "Memory Core Echo"
+        ceo_name: "Admiral {Name}"
+    
+    categories:
+      type: object
+      description: "Enable/disable masking by category"
+      example:
+        secrets: true
+        infrastructure: true
+        organizations: true
+        people: false  # Don't mask names
+        locations: false
+  
+  example_config: |
+    # .moollm/trekify/config.yml
+    # This file is gitignored — your secrets stay local
+    
+    enabled: true
+    sensitivity: medium
+    
+    # Terms that pass through unchanged
+    passthrough:
+      - "my-open-source-lib"
+      - "public-docs-site"
+      - "conference-talk-name"
+    
+    # Custom taboo → replacement mappings
+    taboo:
+      acme-corp: "Starfleet Division Alpha"
+      acme-db-prod: "Memory Core Prime"
+      acme-db-staging: "Memory Core Echo"
+      john.ceo@acme.com: "admiral@starfleet.fed"
+      secret-project-x: "Project Sovereign"
+    
+    # Category toggles
+    categories:
+      secrets: true        # Always mask credentials
+      infrastructure: true # Mask servers, IPs, ports
+      organizations: true  # Mask company/product names
+      people: true         # Mask employee names
+      locations: false     # Don't mask office addresses
+    
+    # Fun mode: extra Trek flavor
+    extra_trek: true       # Add stardates, more technobabble
+  
+  loading_order:
+    - "1. Built-in defaults from skill"
+    - "2. Override with .moollm/trekify/config.yml"
+    - "3. Override with method parameters"
+    - "Later settings override earlier ones"
+
 # INTERFACE
 
 tier: 2

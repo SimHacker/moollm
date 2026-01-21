@@ -4,6 +4,34 @@
 
 Privacy through technobabble. Replace sensitive information with Star Trek terminology adapted to the MOOLLM universe. Delivered with Geordi La Forge's competent mellifluence.
 
+## Passthrough: What NOT to Trekify
+
+MOOLLM is public. Its vocabulary passes through **pure and unchanged**. No transporter accidents!
+
+**Always passthrough:**
+- MOOLLM concepts: coherence engine, thinking blocks, k-lines, yaml jazz
+- Skill names: thoughtful-commitment, trekify, adventure, incarnation
+- Protocols: BOOTSTRAP, ADVENTURE, TREKIFY
+- Public repos: moollm, mooco
+- Standard terms: LLM, git, YAML, Cursor
+
+**Only mask ACTUALLY sensitive data:**
+- Your infrastructure (servers, IPs, ports)
+- Your credentials (API keys, passwords, tokens)
+- Your customers (names, contacts, accounts)
+- Your internal products (codenames, projects)
+
+## Boldly, Not Slyly
+
+TREKIFY is **bold**, not sneaky. We're not hiding that we masked things — we're **gleefully and playfully** replacing sensitive data with contextually appropriate technobabble.
+
+The reader should **smile** when they notice. Not feel tricked.
+
+- Databases → Memory Cores *(they remember!)*
+- Servers → Starbases *(they serve!)*
+- Auth tokens → Quantum entanglement *(they link!)*
+- Kubernetes → Holodeck orchestration *(it orchestrates!)*
+
 ## The Problem
 
 Sharing sessions, logs, and commits often requires redaction:
@@ -199,6 +227,45 @@ and updated orchestration manifests in Sectors 001 and 012.
 - "Beam me up, Scotty! 🖖" (too campy)
 - "ENGAGE THE WARP DRIVE!!!" (too dramatic)
 - "Make it so, password=hunter2" (mixing styles)
+
+## Configuration
+
+Store your personal taboo table in `.moollm/trekify/config.yml` (gitignored):
+
+```yaml
+# .moollm/trekify/config.yml
+# This file is gitignored — your secrets stay local
+
+enabled: true
+sensitivity: medium
+
+# Terms that pass through unchanged (your public stuff)
+passthrough:
+  - "my-open-source-lib"
+  - "public-docs-site"
+  - "conference-talk-name"
+
+# Custom taboo → replacement mappings
+taboo:
+  acme-corp: "Starfleet Division Alpha"
+  acme-db-prod: "Memory Core Prime"
+  acme-db-staging: "Memory Core Echo"
+  john.ceo@acme.com: "admiral@starfleet.fed"
+  secret-project-x: "Project Sovereign"
+
+# Category toggles
+categories:
+  secrets: true        # Always mask credentials
+  infrastructure: true # Mask servers, IPs, ports
+  organizations: true  # Mask company/product names
+  people: true         # Mask employee names
+  locations: false     # Don't mask office addresses
+
+# Fun mode: extra Trek flavor
+extra_trek: true       # Add stardates, more technobabble
+```
+
+**Loading order:** Built-in defaults → `.moollm/trekify/config.yml` → method parameters
 
 ## Workflow
 
