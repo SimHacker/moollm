@@ -43,6 +43,9 @@ Start at: **[skills/README.md](./skills/README.md)**
 ### 5) Meet the giants
 🏛️ **[Hall of MOOLLM Heroes](./examples/adventure-4/characters/real-people/README.md#-hall-of-moollm-heroes)** — The people who made this possible
 
+### 6) Meet the animals
+🐾 **[Animal Sanctuary](./examples/adventure-4/characters/animals/)** — Palm the monkey, Biscuit the dog, 8 terpene-named kittens, 8 puppies, Confetti Crawler the worm
+
 ---
 
 ## 🧠 90-Second Mental Model
@@ -167,6 +170,7 @@ Full genealogy: **[Appendix A: Intellectual Lineage](./designs/eval/EVAL-INCARNA
 | **[examples/adventure-4/pub/](./examples/adventure-4/pub/)** | The pub (room root) |
 | **[examples/adventure-4/characters/](./examples/adventure-4/characters/)** | 🚉 Grand Central Station of Souls |
 | **[examples/adventure-4/characters/real-people/](./examples/adventure-4/characters/real-people/)** | 🏛️ Hall of Heroes + 💕 Love Children |
+| **[examples/adventure-4/characters/animals/](./examples/adventure-4/characters/animals/)** | 🐾 Animal Sanctuary — Palm, Biscuit, 8 terpene kittens, 8 puppies, Confetti Crawler |
 
 ---
 
