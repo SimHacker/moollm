@@ -151,9 +151,9 @@ Tom Stambaugh helped Owen see how to adapt Smalltalk patterns:
 
 > *"Owen and I discussed his 'crazy' idea at a poolside table at the now-demolished Hyatt Palo Alto, on El Camino. I told him that it made sense to me, we scribbled furiously on napkins, and I helped him see how he might adopt some learnings from Smalltalk."*
 
-### The NeWS Toolkit (TNT) (1988)
+### The NeWS Toolkit (TNT) (1989-1991)
 
-Don Hopkins worked with Owen Densmore at Sun to create TNT — a complete UI toolkit in NeWS PostScript. Classes for windows, buttons, menus, canvases.
+Don Hopkins worked with Owen Densmore and James Gosling at Sun to create TNT ("The NeWS Toolkit") — a complete UI toolkit in NeWS PostScript. Classes for windows, buttons, menus, canvases, pie menus, tabbed windows, even an X11 window manager.
 
 This was the toolkit that Don later used for HyperLook and SimCity.
 
@@ -163,21 +163,9 @@ Arthur van Hoff at the Turing Institute in Glasgow created PdB ("Pure dead Brill
 
 Don Hopkins joined van Hoff at Turing Institute. Using PdB and TNT, they built HyperLook — HyperCard for NeWS. Networked, programmable, with PostScript graphics.
 
-Don then ported SimCity to NeWS using HyperLook.
+Don dogfooded and pushed HyperLook by simultaneously porting SimCity to NeWS.
 
 See: [HyperLook (nee HyperNeWS nee GoodNeWS)](https://donhopkins.medium.com/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4)
-
-### Kaleida ScriptX (1992-1996)
-
-**Kaleida Labs** was an Apple/IBM joint venture to create cross-platform multimedia. Their language **ScriptX** was object-oriented, prototype-based (like Self), with multimedia primitives.
-
-Don Hopkins worked at Kaleida Labs. In 1994, Will Wright visited Don's office there and demoed an early version of "Dollhouse" (which became The Sims):
-
-> *"Will dropped by my office at Kaleida Labs, plugged his hard drive into my Mac, and gave me a demo of an early version of Dollhouse that I couldn't believe was remotely possible on the regular old computer I used every day."*
-
-**DreamScape:** Don created adventure-map navigation for ScriptX multimedia — another stepping stone toward MOOLLM's room-based exploration.
-
-Kaleida shut down in 1996, but the thread continued: Don worked for a year at Interval Research Corporation, then joined Maxis, and worked on The Sims with Will.
 
 ### Garnet (Brad Myers, CMU, 1992-1993)
 
@@ -190,6 +178,18 @@ Don worked for Brad Myers on **Garnet**, an advanced user interface system in Co
 > *"Constraints are like structured programming for variables: In the same way that it's better to use loops and conditionals instead of gotos, it's also better to use declarative programming that says what you mean."*
 
 Garnet used **lazy "pull" constraints** — values recalculated only when needed. OpenLaszlo later used **"push" constraints** with events and delegates.
+
+### Kaleida ScriptX (1993-1996)
+
+**Kaleida Labs** was an Apple/IBM joint venture to create cross-platform multimedia. Their language **ScriptX** was object-oriented, prototype-based (like Self), with multimedia primitives.
+
+Don Hopkins worked at Kaleida Labs. In 1994, Will Wright visited Don's office there and demoed an early version of "Dollhouse" (which became The Sims):
+
+> *"Will dropped by my office at Kaleida Labs, plugged his hard drive into my Mac, and gave me a demo of an early version of Dollhouse that I couldn't believe was remotely possible on the regular old computer I used every day."*
+
+**DreamScape:** Don created adventure-map navigation for ScriptX multimedia — another stepping stone toward MOOLLM's room-based exploration.
+
+Kaleida shut down in 1996, but the thread continued: Don worked for a year at Interval Research Corporation, then joined Maxis, and worked on The Sims with Will.
 
 ### OpenLaszlo (David Temkin, 2002)
 
@@ -210,9 +210,9 @@ Don worked with **Henry Minsky** (Marvin's son) and **Oliver Steele** at Laszlo 
 
 See: [Constraints and Prototypes in Garnet and Laszlo](https://donhopkins.medium.com/constraints-and-prototypes-in-garnet-and-laszlo-84533c49c548)
 
-### Leela AI (Hopkins/H.Minsky, 2021)
+### Leela AI (Hopkins/Henry Minsky, 2021)
 
-Don Hopkins and **Henry Minsky** continue their collaboration at **Leela AI** (Ground Up Inc.), building on the **constructionism** lineage:
+Don Hopkins and **Henry Minsky** continue their collaboration at **Leela AI** (via Ground Up Software), building on the **constructionism** lineage:
 
 **The Constructionism Thread:**
 - **Jean Piaget** — developmental psychology, schemas, assimilation/accommodation
@@ -277,12 +277,12 @@ PostScript's stencil/paint imaging model is now universal.
 
 ### The Sims (2000)
 
-Will Wright's The Sims used concepts Don Hopkins helped develop:
+Will Wright's The Sims used concepts that Will Wright, Jamie Doornbos, Eric Bowman, Patrick J Barrett III, and Don Hopkins developed:
 - **Needs** — character motives
 - **Advertisements** — objects broadcast available actions
 - **SimAntics** — visual behavior programming
 
-Don worked on The Sims, bringing lessons from NeWS and HyperLook.
+Don worked on The Sims, bringing lessons from NeWS and HyperLook, and creating an ecosystem of user created content development and programming tools (Pie menus, direct manipulation architectural editing tools, VitaBoy character animation system and pipeline, SimShow, Transmogrifier, RugOMatic, FreeTheSims, etc).
 
 ### MOOLLM (2025)
 
@@ -297,7 +297,7 @@ MOOLLM completes the circle:
 | Networking card | Tool definitions |
 | Optional protection | Ethical framing inheritance |
 
-**CARD.yml is a literal reference to Warnock's metaphor.**
+**CARD.yml is a literal reference to Warnock's metaphor, as well as evoking Baseball, Star Wars, Pokemon, Magic the Gathering, and Fluxx cards.**
 
 ---
 
