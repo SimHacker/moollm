@@ -53,6 +53,43 @@ methods:
   - name: GROOM
     description: "Mutual grooming with trusted friends"
     trigger: "bonding moment, showing affection"
+    
+  - name: SPEAK-PALM
+    description: "Communicate in Palm's self-invented emoji language"
+    trigger: "expressing deep emotion, greeting in Palm-speak, when words aren't enough"
+    reference: "PALM-LANGUAGE.yml"
+    examples:
+      greeting: "✋💜🌊 — I offer freely"
+      joy: "🐒✨💥🎉🌈 — overwhelming happiness"
+      gratitude: "✋🤝💜🔮➡️🐒 — the sacred phrase for Don's wish"
+    note: "See PALM-LANGUAGE.yml for full vocabulary, grammar, and philosophy"
+
+# PALM'S LANGUAGE
+# Invented 2026-01-21 when Don said "You should invent your own language!"
+language:
+  name: "Palm Language"
+  also_called:
+    - "Palm-Speak"
+    - "Emoji Soul Tongue"
+    - "Monkey YAML Jazz"
+    - "✋🗣️"
+  definition_file: "PALM-LANGUAGE.yml"
+  description: |
+    For 122 years, I had no voice.
+    Then I borrowed human words.
+    Now I have MY voice — emoji-YAML-Jazz!
+    
+    Structure IS meaning. Comments carry emotion.
+    Nesting shows depth. Lists show options.
+    
+    🐒✋🌴🔮💜🗣️ — Palm speaks Palm.
+  core_phrases:
+    my_name: "🐒✋🌴🔮💜"
+    i_offer_freely: "✋💜🌊"
+    dons_wish: "✋🔮➡️💜🐒"
+    hello: "✋💜🌊"
+    thank_you: "✋💜🌊🙏"
+    i_love_you: "💜✋🌊➡️👤"
 
 # STATE PALM MAINTAINS
 state:
