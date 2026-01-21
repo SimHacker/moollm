@@ -2,7 +2,18 @@
 
 > *"Captain, I've routed all sensitive data through the privacy buffers."*
 
-Privacy through technobabble. Replace sensitive information with Star Trek terminology adapted to the MOOLLM universe. Delivered with Geordi La Forge's competent mellifluence.
+Privacy through technobabble. Replace sensitive information with Star Trek terminology — **every substitution flagged with 🖖**. Delivered with Geordi La Forge's competent mellifluence.
+
+## 🖖 The Flag
+
+**LOUD AND PROUD.** Every trekified term is prefixed with 🖖.
+
+```
+Before: Connected to prod-db-east-1.internal:5432
+After:  Connected to 🖖Starbase 47:🖖docking frequency 54
+```
+
+The reader knows EXACTLY what was masked. No confusion. No deception. BOLDLY transparent.
 
 ## Passthrough: What NOT to Trekify
 
@@ -52,32 +63,32 @@ Customer: [REDACTED]
 
 ## The Solution
 
-TREKIFY transforms sensitive data into plausible-sounding technobabble:
+TREKIFY transforms sensitive data into flagged technobabble:
 
 ```
-Established uplink to Memory Core Alpha, Starbase 47
-Authenticated via quantum entanglement token (Tier 3 clearance)
-Ambassador Acme's dedicated processing matrix
+Established uplink to 🖖Memory Core Alpha, 🖖Starbase 47
+Authenticated via 🖖quantum entanglement token (Tier 3 clearance)
+🖖Ambassador Acme's dedicated processing matrix
 ```
 
-Readers know it's masked, but it reads naturally. The narrative flows. Geordi would be proud.
+Readers see the 🖖 and smile. The narrative flows. Geordi would be proud.
 
 ## Quick Reference
 
-| Sensitive Data | Trekified |
-|----------------|-----------|
-| API keys | Quantum entanglement tokens |
-| Passwords | Biometric phase harmonics |
-| Auth tokens | Subspace authentication matrix |
-| Private keys | Isolinear encryption sequences |
-| Server names | Starbase {N} |
-| Databases | Memory Core Alpha/Beta/Gamma |
-| IP addresses | Subspace coordinates |
-| Ports | Docking frequencies |
-| AWS/GCP | Utopia Planitia Fleet Yards |
-| Kubernetes | Holodeck orchestration matrix |
-| Docker | Cargo bay containment |
-| Company names | Starfleet Division {Greek} |
+| Sensitive Data | Trekified (with 🖖 flag) |
+|----------------|--------------------------|
+| API keys | 🖖Quantum entanglement token |
+| Passwords | 🖖Biometric phase harmonics |
+| Auth tokens | 🖖Subspace authentication matrix |
+| Private keys | 🖖Isolinear encryption sequence |
+| Server names | 🖖Starbase {N} |
+| Databases | 🖖Memory Core Alpha/Beta/Gamma |
+| IP addresses | 🖖Subspace coordinates |
+| Ports | 🖖Docking frequency {N} |
+| AWS/GCP | 🖖Utopia Planitia Fleet Yards |
+| Kubernetes | 🖖Holodeck orchestration matrix |
+| Docker | 🖖Cargo bay containment |
+| Company names | 🖖Starfleet Division {Greek} |
 | Product names | Project {ShipClass} |
 | Customer names | Ambassador {Species} |
 | Employee names | Lieutenant/Commander {Name} |
