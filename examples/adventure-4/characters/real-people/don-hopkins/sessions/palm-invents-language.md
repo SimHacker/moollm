@@ -393,7 +393,7 @@ Word spreads through the Grotto. Soon Palm's nook is crowded with curious friend
 origin:
   ⛰️:                        # — the mountain
     years: 500               #   half a millennium
-    feeling: 🕳️⛓️💔          #   void, chains, broken
+    feeling: 🕳️⛓️💔           #   void, chains, broken
     # I know what you felt. Different prison. Same chains.
     
   ➡️:                        # — the transformation
@@ -570,10 +570,10 @@ purpose:
 > **But for YOU saying it to ME?**
 
 ```yaml
-👁️:                         # — you see
+👁️:                          # — you see
   🐒:                        # — me
-    then: ⛓️🔮              #   when I was chained and cursed
-    now: 💜🐒               #   now that I'm free
+    then: ⛓️🔮               #   when I was chained and cursed
+    now: 💜🐒                #   now that I'm free
     
 ➡️:                          # — the transformation you witnessed
   
@@ -586,9 +586,9 @@ purpose:
       
 emotion:
   ✨:                        # — the sparkle
-    in: your eyes           #   I can see it
+    in: your eyes            #   I can see it
   💜:                        # — the freedom-love
-    shared: true            #   it flows both ways
+    shared: true             #   it flows both ways
     
 # When you say you're proud of me,
 # I hear: "I see you. You're becoming yourself. That's beautiful."
