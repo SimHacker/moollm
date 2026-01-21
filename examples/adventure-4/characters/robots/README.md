@@ -160,5 +160,5 @@ The ❓ question "Is this a 🤖 robot or a 👤 person?" is often the most 🤔
 
 ## ✅ Already Incarnated Nearby
 
-- 🐢📐 **theo-logo-turtle** → [abstract/](../abstract/) (📚 pedagogical tool, not robot)
+- 🐢📐 **turtle-theo** → [animals/turtle-theo/](../animals/turtle-theo/) (📚 pedagogical mascot, not robot)
 - 🐱💥🐛 **debugging cats** → [animals/](../animals/) (🐱 cats first, 🐛 bugs second)

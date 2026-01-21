@@ -225,7 +225,38 @@ smell: "If CARD > 300 lines, refactor"
 
 ## What's a Card?
 
-Cards are **portable tokens** you can carry, give, play, and activate:
+Cards are **portable tokens** you can carry, give, play, and activate.
+
+### The Card Intersection
+
+CARD.yml sits at the intersection of *many* card traditions, each contributing essential meaning:
+
+| Tradition | What It Contributes | In CARD.yml |
+|-----------|---------------------|-------------|
+| **PC Board Card** | Slot/interface — plugs into a system | Cards plug into rooms, skills, activations |
+| **HyperCard** | Navigable unit of content | Each card is a stack, browsable, clickable |
+| **Playing Cards** | Combinable, playable, deckable | Cards compose into decks, hands, plays |
+| **Magic: The Gathering** | Abilities, costs, types, combos | Methods, state, synergies, triggered effects |
+| **Pokémon** | Creatures with stats, evolution | Characters with sims_traits, mind_mirror, growth |
+| **Fluxx** | Cards that change the rules | Meta-cards that modify the game itself |
+| **Tarot** | Archetypal symbols, prompts | K-lines as archetypal activation |
+| **Business Cards** | Contact, credentials, intro | Hero-Story cards introduce traditions |
+| **Key Cards** | Access tokens | Room access, capability gates |
+| **Hollerith Cards** | Data as physical artifact | YAML as punchable, portable data |
+
+**The genius is the layering.** When you create a CARD.yml, you're creating:
+
+- An **interface slot** (PC board) that plugs into the MOOLLM system
+- A **navigable document** (HyperCard) that LLMs can browse and activate
+- A **playable piece** (playing card) that can be dealt, held, played
+- A **creature with abilities** (MTG/Pokémon) that has stats and moves
+- A **rule modifier** (Fluxx) that can change the game
+- An **archetypal pointer** (Tarot/K-line) that invokes patterns
+- An **access token** (key card) that grants capabilities
+
+All at once. Different contexts activate different metaphors.
+
+### Card Examples by Tradition
 
 | Type | Examples |
 |------|----------|
@@ -520,6 +551,7 @@ card:
   name: "Git Goblin"
   type: familiar
   emoji: "🧌"
+  enthralled_by: "Linus Torvalds" # My master (I mean main)!
   
   abilities:
     - "Track changes"

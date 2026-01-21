@@ -332,7 +332,7 @@ flowchart TB
 | Telescope | Rooftop | [telescope.yml](../../../../pub/rooftop/telescope.yml) | Shows LLOOOOMM constellation |
 | LLOOOOMM Stars | Rooftop | [lloooomm-constellation.yml](../../../../pub/rooftop/lloooomm-constellation.yml) | Eight stars for eight letters |
 | Infinite Typewriters | Palm's Study | [infinite-typewriters.yml](../../../../pub/stage/palm-nook/study/infinite-typewriters.yml) | Dasher-powered story navigation |
-| 🐢 Logo Turtle | Room 4 | [logo-turtle.yml](../../../../pub/rooms/room-4/logo-turtle.yml) | Constructionism mascot (with Rocky!) |
+| 🐢 Logo Turtle | Room 1 | [logo-turtle.yml](../../../../pub/rooms/room-1/logo-turtle.yml) | Constructionism mascot (visits Rocky in Room 4!) |
 | Ultimate Machine | Room 2 | [ultimate-machine.yml](../../../../pub/rooms/room-2/ultimate-machine.yml) | Minsky's self-turning-off machine |
 | Clone-O-Matic | Room 8 | [clone-o-matic.yml](../../../../pub/rooms/room-8/clone-o-matic.yml) | Prototype cloning device |
 | Transmogrifier | Room 8 | [transmogrifier.yml](../../../../pub/rooms/room-8/transmogrifier.yml) | Type transformation |
@@ -575,7 +575,7 @@ flowchart TB
 | **Landing** | [Rooms Hub](../../../../pub/rooms/ROOM.yml) | Ice Machine, Soda Machine, Signage | up→Attic, down→Pub, rooms 2-8 |
 | Room 2 | [Minsky/Mind](../../../../pub/rooms/room-2/ROOM.yml) | [Ultimate Machine](../../../../pub/rooms/room-2/ultimate-machine.yml) | out→Landing |
 | Room 3 | [Mirrors](../../../../pub/rooms/room-3/ROOM.yml) | [Thinking Mirror](../../../../pub/rooms/room-3/thinking-mirror.yml) | out→Landing |
-| Room 4 | [Garden Conservatory](../../../../pub/rooms/room-4/ROOM.yml) | [🐢 Logo Turtle](../../../../pub/rooms/room-4/logo-turtle.yml) + Rocky | out→Landing |
+| Room 4 | [Garden Conservatory](../../../../pub/rooms/room-4/ROOM.yml) | Rocky (🐢 Logo Turtle visits from Room 1) | out→Landing |
 | Room 5 | [Speed Games](../../../../pub/rooms/room-5/ROOM.yml) | [Ensemble Stage](../../../../pub/rooms/room-5/ensemble-stage.yml) | out→Landing |
 | Room 6 | [YAML Jazz](../../../../pub/rooms/room-6/ROOM.yml) | [Jazz Typewriter](../../../../pub/rooms/room-6/jazz-typewriter.yml) | out→Landing |
 | Room 7 | [Awakening](../../../../pub/rooms/room-7/ROOM.yml) | [Awakening Chamber](../../../../pub/rooms/room-7/awakening-chamber.yml) | out→Landing |
@@ -606,7 +606,7 @@ flowchart TB
 
 | Object | File | Purpose |
 |--------|------|---------|
-| 🐢 Logo Turtle | [logo-turtle.yml](../../../../pub/rooms/room-4/logo-turtle.yml) | "Build to learn — I draw what you think" |
+| 🐢 Logo Turtle | [logo-turtle.yml](../../../../pub/rooms/room-1/logo-turtle.yml) | "Build to learn — I draw what you think" (lives in Room 1, visits Rocky) |
 | Orchid of Postel | [orchid-of-postel.yml](../../../../pub/rooms/room-4/orchid-of-postel.yml) | "Be liberal in what you accept..." |
 | YAML Jazz Trees | [yaml-jazz-trees.yml](../../../../pub/rooms/room-4/yaml-jazz-trees.yml) | Production grammar forest |
 

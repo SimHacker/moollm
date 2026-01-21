@@ -156,7 +156,7 @@ These entities teach by existing:
 
 | Mascot | What It Teaches | How It Teaches |
 |--------|-----------------|----------------|
-| 🐢📐✨ **theo-logo-turtle** | Programming, geometry | "Be the turtle. Walk the path." |
+| 🐢📐✨ **[turtle-theo](../animals/turtle-theo/)** | Programming, geometry | "Be the turtle. Walk the path." |
 | 🥚💬❤️ **moollmagotchi** | Conversation as care | Virtual pet that needs you to talk to it |
 | 🐢⚡💀 **shelley-turtle** | Creation and responsibility | Mary Shelley meets Logo — creates monsters |
 | 🐑⚡💤 **electric-sheep** | The nature of dreams | What do androids dream of? This. |
@@ -222,7 +222,7 @@ Any noun can become a character. The pattern:
 
 | Entity | Status | Notes |
 |--------|--------|-------|
-| **👤🎮🧬❓✨ player/** | Active | The abstract YOU, whoever you are — generic hero template, prototype |
+| **👤🎮🧬❓✨ [player/](player/)** | Active | The abstract YOU, whoever you are — generic hero template, prototype |
 
 ### ⚠️ The Prototype Paradox
 
