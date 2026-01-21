@@ -404,17 +404,246 @@ Output: Found in commit abc123 (2026-01-15)
 - `WHY-REQUIRED` — Tool calls explain themselves; commits should too
 - `APPEND-ONLY` — Commit history is append-only by nature
 
-## The Philosophy
+---
 
-> Every commit is a **crystallized moment** of intent.
-> 
-> Git remembers **what** changed.
-> Cursor-mirror remembers **why** you thought it should.
-> Thoughtful Commitment **links them together**.
->
-> Six months from now, you can trace any property back to:
-> - The user request that triggered it
-> - The reasoning that shaped it
-> - The commit that recorded it
->
-> That's **soul archaeology** powered by version control.
+## Reference: Detail Knob
+
+Adjustable output from terse to comprehensive:
+
+| Level | Name | Tokens | Output |
+|-------|------|--------|--------|
+| 1 | terse | ~10 | `fix: auth bug` |
+| 2 | brief | ~50 | Title + paragraph |
+| 3 | standard | ~100 | Title + narrative + changes |
+| 4 | detailed | ~300 | Full sections + session link |
+| 5 | comprehensive | ~500+ | Everything + alternatives + metrics |
+
+**Focus areas:** `technical`, `narrative`, `process`, `provenance`, `changelog`, `metrics`
+
+---
+
+## Reference: Emoji Palette
+
+### Attribution
+| Emoji | Meaning |
+|-------|---------|
+| 👤 | Human-written (place at top) |
+| 🤖 | LLM-generated |
+| 👤🤖 | Collaboration |
+| 👁️ | Human-reviewed |
+
+### Skill Signature
+`🤔💭` — Thoughtful Commitment namespace anchor
+
+### Section Markers
+| Emoji | Section |
+|-------|---------|
+| 📍 | Context |
+| 🧠 | Thinking |
+| 🔍 | Investigation |
+| 💡 | Solution |
+| 🔀 | Alternatives |
+| 📝 | Changes |
+| 📊 | Metrics |
+| 🔗 | Session link |
+
+### Output Structure
+```
+👤 User's prompt (head position, their words)
+---
+🤖🤔💭 LLM analysis (skill's voice)
+```
+
+---
+
+## Reference: Git Time Travel
+
+### Archaeology Commands
+
+```bash
+# BLAME — Who wrote each line?
+git blame <file>
+git blame -L 10,20 <file>           # Specific range
+git blame <commit>^ -- <file>       # Blame BEFORE a commit
+
+# LOG — Trace evolution
+git log --oneline <file>
+git log -S 'pattern'                # Pickaxe: who added this?
+git log --follow <file>             # Track through renames
+
+# SHOW — Inspect any point
+git show <commit>:<file>            # File at that moment
+git show <commit> --stat            # What changed
+```
+
+### Planning Commands
+
+```bash
+# MERGE PLANNING
+git log main..feature --oneline     # Commits to merge
+git diff main...feature             # Changes to merge
+git merge-base main feature         # Common ancestor
+
+# CHERRY-PICK PLANNING
+git cherry -v upstream branch       # What's not upstream?
+git show <commit>                   # Inspect before picking
+```
+
+---
+
+## Reference: Cursor-Mirror Integration
+
+cursor-mirror provides 59 commands for introspection:
+
+```bash
+# Navigation
+cursor-mirror tree                  # Browse workspaces
+cursor-mirror tail --limit 20       # Recent activity
+
+# Extraction
+cursor-mirror timeline <composer>   # Full event stream
+cursor-mirror thinking <composer>   # Reasoning blocks
+cursor-mirror tools <composer>      # Tool call history
+
+# Search
+cursor-mirror tgrep 'pattern'       # Search transcripts
+cursor-mirror sql --db <ref> 'query' # Direct SQL
+
+# Analysis
+cursor-mirror analyze <composer>    # Session statistics
+```
+
+---
+
+## Reference: Shell Patterns
+
+```bash
+# Counting
+wc -l file                          # Lines
+grep -c 'pattern' file              # Matches
+
+# Frequency
+sort | uniq -c | sort -rn           # Histogram
+
+# Extraction
+grep -o 'pattern' file              # Matches only
+awk '{print $1, $3}'                # Select columns
+
+# Aggregation
+awk '{sum+=$1} END{print sum}'      # Sum
+```
+
+---
+
+## Reference: Trekify Integration
+
+For privacy, compose with [trekify](../trekify/) to mask sensitive data:
+
+```bash
+trekify MASK-SESSION e8587ace -o masked.txt
+```
+
+| Sensitive | Trekified |
+|-----------|-----------|
+| API keys | Quantum entanglement tokens |
+| Servers | Starbase {N} |
+| Databases | Memory Core Alpha |
+
+---
+
+# Philosophy (The Rear End 🐕)
+
+Where dogs sniff. The deep stuff.
+
+## The Persistence Insight
+
+> *"All those moments will be lost in time, like tears in rain."*
+> — **Roy Batty**, Patron Saint of Thoughtful Commitment
+
+**Git commits PERSIST ephemeral IDE state into permanent history.**
+
+When you're working in Cursor, your session holds:
+- **Thinking blocks** — the LLM's reasoning
+- **Context assembly** — what files were gathered
+- **Tool calls** — every action taken
+- **Design process** — iterations, dead ends
+
+**All of this vanishes** when you close the IDE.
+
+Git commit FREEZES the NOW into FOREVER:
+- Permanent record in repository
+- Shareable with team
+- Traceable through blame/log
+- Survives years
+
+## Full Disclosure
+
+Every commit can disclose the complete development session:
+
+| Level | What's Disclosed |
+|-------|------------------|
+| Minimal | Just the diff |
+| Narrative | Intent summarized |
+| Linked | `cursor-mirror://e8587ace` |
+| Full | Complete transcript archived |
+
+**Benefits:**
+- Future self: Remember why you made decisions
+- Team: Onboard with full history
+- Auditing: Demonstrate AI assistance
+- Debugging: See context that led to bugs
+
+## Composition Philosophy
+
+### Why Sister Scripts?
+
+`cursor_mirror.py` is a "sister script" — standalone, invoked via shell, outputting text.
+
+**NOT a library. NOT an import. A PROCESS you talk to via stdin/stdout.**
+
+This matters because:
+- The LLM invokes it the same way a human would
+- Output is inspectable, greppable, pipeable
+- No hidden state, no tight coupling
+- The skill doesn't "own" cursor-mirror; it USES it
+
+Sister scripts are tools in your belt, not organs in your body.
+
+### Why Shell as Glue?
+
+Shell pipelines are the universal connector:
+```
+cursor-mirror (Python) → grep (C) → awk (C) → git (C)
+```
+
+The LLM thinks in shell because:
+- Lingua franca of Unix tools
+- Pipes are dataflow made visible
+- Each stage independently testable
+- You can see the data at every step
+
+**Shell isn't primitive — it's COMPOSABLE.**
+
+### Why Not Monolith?
+
+A monolithic tool would:
+- Hide the data flow
+- Couple components tightly
+- Be hard to debug
+- Not compose with other skills
+
+By composing cursor-mirror + shell + git:
+- Transparent data flow
+- Loose coupling
+- Reuse across skills
+- Debuggable (run each stage manually)
+
+### The Pattern
+
+```
+skill = ORCHESTRATION     (knows WHAT to do)
+sister_scripts = CAPABILITY   (knows HOW)
+shell = GLUE              (connects them)
+```
+
+The skill is the conductor. The tools are the orchestra.
