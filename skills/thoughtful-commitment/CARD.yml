@@ -220,6 +220,135 @@ methods:
     returns:
       timeline: array  # Each entry: commit + message + thinking
 
+  BLAME:
+    description: "Peel layers off a file — who wrote each line, when, and why?"
+    parameters:
+      path:
+        type: string
+        description: "File to blame"
+      lines:
+        type: string
+        description: "Line range (e.g., '10,20') or omit for whole file"
+      follow_renames:
+        type: boolean
+        default: true
+        description: "Track through file renames"
+    process:
+      - "git blame -w <file>                  # Get line attribution"
+      - "Extract unique commits from blame output"
+      - "For each commit: git show -s --format='%s' <hash>"
+      - "Link to cursor-mirror if session exists"
+    returns:
+      lines: array  # [{line, content, commit, author, date, message}]
+      commits: array  # Unique commits that contributed
+      authors: array  # Contributors
+      timeline: object  # First/last modification dates
+    example: |
+      invoke:
+        skill: thoughtful-commitment
+        method: BLAME
+        parameters:
+          path: "skills/adventure/SKILL.md"
+          lines: "1,50"
+      
+      # Returns layered history: who wrote the header, 
+      # who added the protocol section, when methods evolved
+
+  ARCHAEOLOGY:
+    description: "Deep dig into a file or pattern's history across time"
+    parameters:
+      target:
+        type: string
+        description: "File path, directory, or search pattern"
+      mode:
+        type: string
+        enum: [file, directory, pattern, function]
+        description: "What to trace"
+      since:
+        type: string
+        description: "How far back (e.g., '6 months ago', commit hash)"
+    process:
+      - "git log --follow --all -- <path>     # Full history"
+      - "git log -S '<pattern>'               # Pickaxe search"
+      - "git log -p -- <path> | grep -A5 -B5  # Context around changes"
+      - "Correlate with cursor-mirror sessions by timestamp"
+    returns:
+      evolution: array  # [{commit, date, message, change_type, diff_summary}]
+      milestones: array  # Major changes (renames, big rewrites)
+      contributors: object  # {author: commit_count}
+      linked_sessions: array  # cursor-mirror sessions if available
+    example: |
+      invoke:
+        skill: thoughtful-commitment
+        method: ARCHAEOLOGY
+        parameters:
+          target: "speed-of-light"
+          mode: pattern
+          since: "2024-01-01"
+      
+      # Traces every commit mentioning "speed-of-light" —
+      # when the concept was introduced, how it evolved
+
+  PLAN-MERGE:
+    description: "Understand what a merge will bring BEFORE merging"
+    parameters:
+      source:
+        type: string
+        description: "Branch to merge FROM"
+      target:
+        type: string
+        default: "HEAD"
+        description: "Branch to merge INTO"
+      detail:
+        type: string
+        enum: [summary, commits, files, full]
+        default: commits
+    process:
+      - "git merge-base <target> <source>     # Find common ancestor"
+      - "git log <target>..<source> --oneline # Commits to merge"
+      - "git diff <target>...<source> --stat  # Files to change"
+      - "git diff <target>...<source>         # Actual changes"
+      - "Look for cursor-mirror sessions for each commit"
+    returns:
+      common_ancestor: string
+      commits_to_merge: array  # [{hash, message, author, date}]
+      files_affected: array  # [{path, insertions, deletions}]
+      potential_conflicts: array  # Files modified in both branches
+      narrative: string  # Story of what the merge brings
+    example: |
+      invoke:
+        skill: thoughtful-commitment
+        method: PLAN-MERGE
+        parameters:
+          source: "feature/speed-of-light"
+          target: "main"
+          detail: full
+      
+      # Shows: 12 commits, 8 files, 3 potential conflicts
+      # Plus narrative summary of the feature
+
+  PLAN-CHERRY-PICK:
+    description: "Plan surgical extraction of specific commits"
+    parameters:
+      commits:
+        type: array
+        items: string
+        description: "Commit hashes to potentially cherry-pick"
+      target:
+        type: string
+        default: "HEAD"
+        description: "Branch to apply to"
+    process:
+      - "For each commit: git show --stat <hash>"
+      - "Check dependencies: do earlier commits need to come too?"
+      - "git cherry -v <upstream> <branch>    # What's not upstream?"
+      - "Preview conflicts: git cherry-pick --no-commit (then abort)"
+    returns:
+      commits: array  # [{hash, message, files, dependencies}]
+      order: array  # Recommended application order
+      warnings: array  # Potential issues (missing dependencies, conflicts)
+      commands: string  # git cherry-pick commands to run
+
   DEEP-COMMIT:
     description: "Technical analytics mining before committing — extract metrics from cursor-mirror"
     note: "Produces quantitative appendix with counts, timestamps, distributions, verification commands"
@@ -423,17 +552,111 @@ cursor_mirror_capabilities:
     - "text (default), json, jsonl, yaml, csv, md"
     - "Use -f json for programmatic processing"
 
-# GIT INTEGRATION
+# GIT TIME TRAVEL — Archaeology & Planning
 
-git_integration:
-  description: "Git as the universal substrate for state and history"
-  commands:
-    status: "git status --short"
-    diff: "git diff --stat / --numstat"
-    log: "git log --oneline / --format='%H %s'"
-    show: "git show --stat <commit>"
-    blame: "git blame <file>"
-    commit: "git commit -m '$(cat <<EOF ... EOF)'"
+git_time_travel:
+  description: "Git is a time machine. These commands peel back layers of history."
+  
+  # ARCHAEOLOGY — Understanding the past
+  archaeology:
+    blame:
+      description: "Who wrote each line, and when, and why?"
+      commands:
+        - "git blame <file>                    # Line-by-line attribution"
+        - "git blame -L 10,20 <file>           # Specific line range"
+        - "git blame -w <file>                 # Ignore whitespace"
+        - "git blame --since='2 weeks ago'     # Recent changes only"
+        - "git blame <commit>^ -- <file>       # Blame BEFORE a commit"
+      use_for: "Finding who introduced a bug, understanding design decisions"
+    
+    log_archaeology:
+      description: "Trace a file or function through time"
+      commands:
+        - "git log --oneline <file>            # Commits touching file"
+        - "git log -p <file>                   # Show patches"
+        - "git log -S 'pattern' --oneline      # Commits adding/removing pattern (pickaxe)"
+        - "git log -G 'regex' --oneline        # Commits where pattern changed"
+        - "git log --follow <file>             # Track through renames"
+        - "git log --all --oneline -- <path>   # Even deleted files"
+      use_for: "Understanding evolution of a feature, finding when something broke"
+    
+    show:
+      description: "Inspect any point in time"
+      commands:
+        - "git show <commit>                   # Full commit details"
+        - "git show <commit>:<file>            # File at that moment"
+        - "git show <commit> --stat            # What files changed"
+        - "git show <commit> --name-only       # Just file names"
+      use_for: "Examining specific historical states"
+    
+    diff_time_travel:
+      description: "Compare across time"
+      commands:
+        - "git diff <commit1> <commit2>        # Between any two points"
+        - "git diff <commit>..HEAD             # Since a commit"
+        - "git diff <branch1>...<branch2>      # What would merge bring"
+        - "git diff --stat <range>             # Summary only"
+      use_for: "Understanding what changed between versions"
+
+  # TOPOLOGY — Understanding branch structure
+  topology:
+    description: "Visualize the multiverse of branches"
+    commands:
+      - "git log --graph --oneline --all      # ASCII branch visualization"
+      - "git branch -a                         # All branches"
+      - "git branch --contains <commit>        # Which branches have this?"
+      - "git merge-base <branch1> <branch2>    # Common ancestor"
+      - "git rev-list --count <branch>         # Commits in branch"
+    use_for: "Planning merges, understanding project structure"
+
+  # PLANNING — Preparing future operations
+  planning:
+    merge_planning:
+      description: "Understand what a merge will do BEFORE doing it"
+      commands:
+        - "git log main..feature --oneline     # Commits to merge"
+        - "git diff main...feature             # Changes to merge"
+        - "git merge --no-commit --no-ff       # Dry run (then git merge --abort)"
+        - "git log --merges                    # History of merges"
+      use_for: "Reviewing PRs, understanding merge impact"
+    
+    cherry_pick_planning:
+      description: "Surgical extraction of specific commits"
+      commands:
+        - "git log --oneline <branch>          # Find commits to pick"
+        - "git show <commit>                   # Inspect before picking"
+        - "git cherry-pick --no-commit <hash>  # Preview (then reset)"
+        - "git cherry -v <upstream> <branch>   # What's not yet upstream?"
+      use_for: "Backporting fixes, selective feature extraction"
+    
+    rebase_planning:
+      description: "Plan history rewriting"
+      commands:
+        - "git log --oneline main..HEAD        # Commits to rebase"
+        - "git rebase --onto <new> <old> <br>  # Transplant commits"
+      use_for: "Cleaning history before merge"
+
+  # PR ARCHAEOLOGY — Understanding pull requests
+  pr_archaeology:
+    description: "Trace the intent through PRs"
+    commands:
+      - "gh pr list --state merged             # Merged PRs"
+      - "gh pr view <num>                      # PR details"
+      - "gh pr diff <num>                      # What the PR changed"
+      - "gh pr checks <num>                    # CI results"
+      - "git log --merges --grep='#123'        # Find merge commit for PR"
+    use_for: "Understanding why code exists, tracing decisions"
+
+  # INTEGRATION WITH CURSOR-MIRROR
+  cursor_mirror_git_link:
+    description: "Connect git commits to cursor-mirror sessions"
+    workflow:
+      - "1. Find commit: git log --oneline"
+      - "2. Get timestamp: git show -s --format=%ci <commit>"
+      - "3. Find session: cursor-mirror tail --limit 100"
+      - "4. Match by time: session active during commit"
+      - "5. Get thinking: cursor-mirror thinking <composer>"
+    use_for: "Full provenance: commit → session → thinking → user request"
 
 # SHELL INTEGRATION — Data Processing Pipeline
 

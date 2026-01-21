@@ -248,6 +248,58 @@ Tracing a character's evolution:
 - `HISTORY` shows the narrative journey
 - Each commit captures a moment of intent
 
+## Git Time Travel
+
+thoughtful-commitment knows how to peel layers off files and trace intent through history:
+
+### Archaeology Commands
+
+```bash
+# BLAME — Who wrote each line, when, and why?
+git blame <file>                      # Line-by-line attribution
+git blame -L 10,20 <file>             # Specific range
+git blame <commit>^ -- <file>         # Blame BEFORE a commit
+
+# LOG ARCHAEOLOGY — Trace evolution
+git log --oneline <file>              # Commits touching file
+git log -p <file>                     # With patches
+git log -S 'pattern'                  # Pickaxe: who added this string?
+git log -G 'regex'                    # Where did regex match change?
+git log --follow <file>               # Track through renames
+
+# SHOW — Inspect any point in time
+git show <commit>:<file>              # File at that moment
+git show <commit> --stat              # What changed
+```
+
+### Planning Operations
+
+```bash
+# MERGE PLANNING — Understand before merging
+git log main..feature --oneline       # Commits to merge
+git diff main...feature               # Changes to merge
+git merge-base main feature           # Common ancestor
+
+# CHERRY-PICK PLANNING — Surgical extraction
+git cherry -v upstream branch         # What's not upstream?
+git show <commit>                     # Inspect before picking
+
+# PR ARCHAEOLOGY — Trace through PRs
+gh pr view <num>                      # PR details and discussion
+gh pr diff <num>                      # What the PR changed
+git log --merges --grep='#123'        # Find merge commit
+```
+
+### Methods for Time Travel
+
+| Method | Purpose |
+|--------|---------|
+| `BLAME` | Peel layers off a file — who, when, why for each line |
+| `ARCHAEOLOGY` | Deep dig into file/pattern history |
+| `PLAN-MERGE` | Understand what a merge brings before merging |
+| `PLAN-CHERRY-PICK` | Plan surgical commit extraction |
+| `HISTORY` | Narrative timeline of a path |
+
 ## What cursor-mirror Can Access
 
 thoughtful-commitment leverages cursor-mirror's full introspection capabilities:
