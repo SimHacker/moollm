@@ -12,7 +12,7 @@ Explore on GitHub — no install needed:
 |------------|------------------|
 | 🔥 [examples/adventure-4/](./examples/adventure-4/) | The richest microworld — pub, NPCs, Palm the monkey |
 | 🧠 [skills/](./skills/) | ~80 skills — all the building blocks |
-| 📜 [designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) | The deep dive |
+| 📜 [designs/eval/EVAL-INCARNATE-FRAMEWORK.md](./designs/eval/EVAL-INCARNATE-FRAMEWORK.md) | The deep dive |
 
 Every directory has a README. Every YAML is literate and commented.
 
@@ -133,7 +133,7 @@ object:
 | Goal | Read This |
 |------|-----------|
 | Understand the vision | [README.md](./README.md) |
-| Deep architecture dive | [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) |
+| Deep architecture dive | [EVAL-INCARNATE-FRAMEWORK.md](./designs/eval/EVAL-INCARNATE-FRAMEWORK.md) |
 | All skills | [skills/](./skills/) |
 | All protocols | [PROTOCOLS.yml](./PROTOCOLS.yml) |
 

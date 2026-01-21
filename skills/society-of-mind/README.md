@@ -23,7 +23,7 @@
 | [needs/](../needs/) | Competing motives as competing agents |
 | [leela-ai/](../leela-ai/) | Leela applies Society of Mind to manufacturing |
 | [manufacturing-intelligence/](../manufacturing-intelligence/) | Reading 4: "Intelligence from agents" |
-| [MOOLLM-EVAL-INCARNATE-FRAMEWORK](../../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#4-k-lines--society-of-mind-marvin-minsky-mit-1980) | Full theory |
+| [EVAL-INCARNATE-FRAMEWORK](../../designs/eval/EVAL-INCARNATE-FRAMEWORK.md#appendix-a-intellectual-lineage) | Full theory |
 
 **Quick Links:**
 - [Full Specification](SKILL.md) -- complete protocol
@@ -465,7 +465,7 @@ treatment:
 - [needs/](../needs/) -- Sims motive competition
 - [mind-mirror/](../mind-mirror/) -- B-brain self-observation
 - [character/](../character/) -- Characters as societies
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](../../designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#4-k-lines--society-of-mind-marvin-minsky-mit-1980) -- Full K-lines section
+- [EVAL-INCARNATE-FRAMEWORK.md](../../designs/eval/EVAL-INCARNATE-FRAMEWORK.md#appendix-a-intellectual-lineage) -- Full K-lines section
 
 ---
 

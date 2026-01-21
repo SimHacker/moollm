@@ -18,7 +18,7 @@ card:
     The meta-skill for creating, understanding, and debugging skills.
     Every skill you encounter was forged here.
     
-    MOOLLM's seven extensions (see designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md):
+    MOOLLM's seven extensions (see designs/eval/EVAL-INCARNATE-FRAMEWORK.md):
     1. **Instantiation**: Skills as prototypes that create instances
     2. **Three-Tier Persistence**: Platform → Narrative → State
     3. **K-lines**: Names as semantic activation vectors (Minsky)
@@ -101,7 +101,7 @@ methods:
   COMPOSE:     { signature: "COMPOSE [skills] AS [name]" }
 
 # MOOLLM'S seven extenstions to Anthropic's skill model
-# (see designs/MOOLLM-EVAL-INCARNATE-FRAMEWORK.md)
+# (see designs/eval/EVAL-INCARNATE-FRAMEWORK.md)
 
 innovations:
   1-instantiation: "Skills as prototypes that create instances"

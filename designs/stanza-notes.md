@@ -74,7 +74,7 @@ His key example: Ruby on Rails exists because Ruby's language features (metaprog
 | Stanza's View | MOOLLM's View |
 |---------------|---------------|
 | Languages enable libraries | [Skills](../skills/) enable capabilities |
-| `eval()` is the interpreter | The LLM is `eval()` ([Incarnate Framework](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md)) |
+| `eval()` is the interpreter | The LLM is `eval()` ([Incarnate Framework](./eval/EVAL-INCARNATE-FRAMEWORK.md)) |
 | Ruby features → Rails magic | LLM understanding → Skill magic |
 | "Code reads like instructions to a coworker" | Commands *are* instructions to a coworker |
 | Syntax enables abstraction | Understanding enables abstraction |
@@ -151,7 +151,7 @@ When a framework has one voice, you get:
 - Diversity of thought is treated as error
 - Newcomers must conform or leave
 
-The problem isn't having opinions. It's having *only one*. See [Incarnate Skills vs Anthropic Skills](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#incarnate-skills-vs-anthropic-skills) for how MOOLLM invites multiple perspectives.
+The problem isn't having opinions. It's having *only one*. See [Incarnate Skills vs Anthropic Skills](./eval/EVAL-INCARNATE-FRAMEWORK.md#seven-extensions-over-anthropic-skills) for how MOOLLM invites multiple perspectives.
 
 ### LLMs: The Statistical Centroid Problem
 

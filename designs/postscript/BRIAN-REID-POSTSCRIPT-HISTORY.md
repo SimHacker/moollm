@@ -1,0 +1,268 @@
+# The Definitive History of PostScript
+
+> **Primary Source: Brian Reid's 1985 "laser-lovers" Post**
+
+---
+
+## Introduction
+
+This document preserves the definitive first-person account of PostScript's origins, written by **Brian Reid** on March 2, 1985 — just 11 months after Adobe shipped its first PostScript manual.
+
+### Why This Document Matters
+
+Brian Reid was uniquely positioned to write this history:
+
+- **He was there.** As a consultant to Xerox PARC during the Interpress design, he worked directly with the principals.
+- **His thesis advisor was Bob Sproull** — one of the three architects of Interpress (with Butler Lampson and John Warnock).
+- **He saw JAM at Stanford in 1981** — the direct predecessor to both Interpress and PostScript.
+- **fa.laser-lovers was the Hacker News of 1985** — this wasn't a casual post but a definitive statement to the technical community.
+
+### The Lightning Strike for MOOLLM
+
+John Warnock described PostScript as:
+
+> *"PostScript is a linguistic 'mother board', which has 'slots' for several 'cards'. The first card we built was a graphics card. We're considering other cards..."*
+
+This quote, passed from **Warnock → Owen Densmore → Don Hopkins**, directly inspired MOOLLM's `CARD.yml` naming. Skills are cards. The LLM is the linguistic motherboard.
+
+### Key Insight
+
+Brian Reid identifies the fundamental philosophical difference:
+
+> *"Interpress takes the stance that the language system must guarantee certain useful properties, while PostScript takes the stance that the language system must provide the user with the means to achieve those properties if he wants them."*
+
+MOOLLM takes the PostScript stance. Optional protection. Empowerment over enforcement.
+
+---
+
+## Document Index
+
+- [Part I: History](#part-i-history) — From Evans & Sutherland to Adobe
+- [Part II: Comparison](#part-ii-comparison) — PostScript vs. Interpress
+  - [Lexical Considerations](#lexical-considerations)
+  - [Syntactic Considerations](#syntactic-considerations)
+  - [Semantics](#semantics)
+  - [Implementation Issues](#implementation-issues)
+- [About the Authors](#about-the-authors) — Brian Reid and Glenn Reid
+
+---
+
+## Original Email Metadata
+
+| Field | Value |
+|-------|-------|
+| **From** | Brian Reid <reid@Glacier> |
+| **Date** | March 2, 1985, 1:08:05 AM |
+| **To** | fa.laser-lovers mailing list |
+| **Subject** | PostScript and Interpress: a comparison |
+| **Views** | 2,603 (as of archival) |
+
+**Author affiliation:**
+Brian Reid, Computer Systems Laboratory, Stanford University
+decwrl!glacier!reid | 415/323-6100
+
+---
+
+# ══════════════════════════════════════════════════════════════════
+# BEGIN ORIGINAL EMAIL — Brian Reid's exact words follow
+# ══════════════════════════════════════════════════════════════════
+
+This essay offers a comparison of two modern schemes for controlling what laser printers print. One scheme, called PostScript, is offered by Adobe Systems, Inc.; the other scheme, called Interpress, is offered by the Xerox Corporation. A discussion of these two schemes has provoked a considerable amount of interest in this forum recently. I have for some time been promising (threatening?) to provide my interpretation of the difference between the two systems. It is long enough and detailed enough that you will certainly never want to read another word on the topic after you read it, but given the nature of computer mail systems you almost certainly will be given the opportunity.
+
+---
+
+To a first order, PostScript and Interpress are indistinguishable. What I mean by that is that by comparison with all other current techniques for page image representation, the two can be considered to be nearly identical. I believe that it is worth looking at how they got to be that way; their similarities and differences can best be understood with a proper historical perspective.
+
+---
+
+## Part I: History
+
+The Evans and Sutherland Computer Corporation has for quite a number of years sold very expensive, very powerful graphics devices for CAD/CAM and for real-time simulation. The CAD/CAM machine is called The Picture System; the simulation machines are custom-built for each application. Custom simulation graphics machines are used for such purposes as providing the windshield graphics for military flight simulation systems--emulating what a pilot would see if he were looking out the window of a real airplane. These graphics systems use a very clever graphics model, developed by Ivan Sutherland and others, which is based on coordinate system transformations and line drawing.
+
+Although the Evans and Sutherland company is primarily in Salt Lake City, they had a small research office in Mountain View (California) in the early 1970's. John Warnock was in charge of it, and John Gaffney worked for Warnock. One of the activities of the Mountain View office was to develop software for producing 3-dimensional graphical databases both for the Picture System and for the simulation machines. Working with Warnock, Gaffney had by 1975 programmed and documented and released the first version of a programming language that was called "The Evans and Sutherland Design System".
+
+Gaffney came to E&S from graduate school at the University of Illinois, where he had used the Burroughs B5500 and B6500 computers. Their stack-oriented architectures made a big impression on him. He combined the execution semantics of the Burroughs machines with the evolving Evans and Sutherland imaging models, to produce the Design System. Like all successful software systems, the Design System slowly evolved as it was used, and many people contributed to that evolution.
+
+John Warnock joined Xerox PARC in 1978 to work for Chuck Geschke. There he teamed up with Martin Newell in producing an interpreted graphics system called JAM. "JAM" stands for "John And Martin". JAM had the same postfix execution semantics as Gaffney's Design System, and was based on the Evans and Sutherland imaging model, but augmented the E&S imaging model by providing a much more extensive set of graphics primitives. Like the later versions of the Design System, JAM was "token based" rather than "command line based", which means that the JAM interpreter reads a stream of input tokens and processes each token completely before moving to the next. Newell and Warnock implemented JAM on various Xerox workstations; by 1981 JAM was available at Stanford on the Xerox Alto computers, where I first saw it.
+
+In the meantime, various people at Xerox were building a series of experimental raster printers. The first of these was called XGP, the Xerox Graphics Printer, and had a resolution of 192 dots to the inch. Xerox made XGP's available to certain universities, and by 1972 they were in use at Carnegie-Mellon, Stanford, MIT, Caltech, and the University of Toronto. Each of those organizations produced its own hardware and software interfaces. The XGP is historically interesting only because it is the first raster printer to gain substantial use by computer scientists, and was the arena in which a lot of mistakes were made and a lot of lessons learned.
+
+To replace the XGP, Xerox PARC developed a new printer called EARS, and then another newer printer called Dover. After the agony of converting software from XGP to EARS, various Xerox people realized that applications programs generating files for the XGP or for EARS should not be tied to the device properties of the printer itself. Bob Sproull and William Newman, of Xerox PARC, developed a relatively device-independent page image description scheme, called "Press format", which was used to instruct raster printers what to print.
+
+As part of an extensive grant program to selected universities, Xerox donated Dover printers and made documentation of the Press format available under a nondisclosure agreement. As far as I know, that nondisclosure agreement has never been lifted, though information about Press format has been widely enough distributed that by 1982 researchers at the Swiss Federal Institute of Technology (EPFL) at Lausanne had given conference papers about their own independent implementation of Press format.
+
+Press format was a smashing success; it revolutionized laser printing technology in the academic and research communities, and stimulated a large number of people to think about issues of device-independent print graphics. Nevertheless, Press format had its limitations, and various people felt the need to revise the basic design.
+
+Sproull left Xerox in 1978 to become a professor of computer science at CMU. Newman returned home to England to become an independent consultant. Martin Newell left Xerox to join Cadlinc Corp. Warnock and Geschke remained at Xerox.
+
+While at CMU, Sproull began making plans for a new version of Press that would combine the graphics model of JAM with the page image description properties of Press. Sproull returned to Xerox for a sabbatical leave in 1982, and enlisted the help of Butler Lampson in the creation of the new page image description language that Warnock dubbed "Interpress". The name caught on.
+
+While it is difficult to separate the contributions made by Sproull and Lampson, it is not incorrect to say that Lampson and Warnock produced the execution model of Interpress while Sproull and Warnock produced the imaging model. It is also approximately correct to characterize this first version of Interpress as being derived from the graphics model and execution model of JAM with additional protection and security mechanisms derived from experience with programming languages like Euclid and Cedar, and a careful silence on the issue of fonts. The trio worked under Geschke's direction, and Geschke was responsible for refereeing disagreements and for making certain that the resulting design was acceptable to the rest of Xerox.
+
+My own involvement with the Interpress effort is difficult to explain. Sproull was my thesis adviser at CMU; we had discussed many of the issues in page description languages at length. As a consultant to PARC during the Interpress design work, my primary activity was one of writing or rewriting the Interpress materials. I also represented a "consumer" point of view rather than a "designer" point of view, and often complained about aspects of the evolving language.
+
+I feel uncomfortable discussing the issues involved in the transition of Interpress from an artifact of the research lab to a marketable product. I shall therefore not discuss them. During this transition phase Geschke and Warnock left PARC (December 1982) to start Adobe Systems, Sproull returned to CMU (June 1983), and Lampson left PARC to join DEC Research (November 1983).
+
+Warnock had various philosophical differences with the final Interpress design, and he voiced those differences to the rest of the Interpress group at every opportunity. At Adobe, Geschke and Warnock saw the opportunity to try again, with a design group composed of people who shared his ideology. They enlisted Doug Brotz, a Xerox PARC researcher who had had no involvement with any of the Press/JAM/Interpress world, to join them in developing a new page description language named PostScript, based on combining the execution model and imaging model of JAM with a protection structure more reminiscent of C or the Unix shell than of Euclid or Cedar. While not at all a copy of JAM, PostScript resembles JAM more than it resembles Interpress. PostScript also embraced various Unix notions, such as the use of text streams to convey information.
+
+On March 15, 1984, Adobe shipped its first PostScript manual to a potential customer. That PostScript manual was printed on a PostScript printer using a Times Roman font licensed from Allied corporation and digitized by Adobe.
+
+At that time all aspects of the Interpress project were still very proprietary, and it appeared to me that Xerox had no interest in releasing them. However, on April 25, 1984, I received a Xerox press release announcing the availability of Interpress documentation. I finally managed to get my hands on a copy of the Interpress documentation in February of 1985, and was quite surprised to discover that the Interpress documentation had not been printed on an Interpress printer, but was instead printed on a Press format printer, using the same Times-like and Helvetica-like fonts that I had become familiar with at CMU and Stanford on the Dover printers.
+
+---
+
+## Part II: Comparison
+
+Part I outlined the history of PostScript and of Interpress, as I have been able to determine it. With that historical background, I now offer a comparison of the two languages.
+
+While there are quite a number of extant schemes for the description of printed images, most of them are better described as "data structures" than as "languages". In particular, only PostScript and Interpress are directly executable.
+
+Languages can be compared at several different levels. Languages have a lexical representation, a syntax, a semantic model, an intended style of usage, and implementation considerations.
+
+### Lexical Considerations
+
+The lexical properties of a language define the way the tokens of the language are represented in terms of bits, bytes, or characters. The FORTRAN language was defined in terms of a particular character set, which the implementor was expected to use. The ALGOL language was defined in terms of keywords and symbols, and the language definition left the implementor free to choose how he would represent those keywords in terms of characters available on his computer. For example, the FORTRAN definition of a "DIMENSION" statement is that it is the letter "D" followed by the letter "I" followed by the letter "M", etc. The ALGOL definition of the "BEGIN" keyword was merely that it was a keyword; the ALGOL standard document used boldface to identify keywords. When ALGOL is implemented on computers whose character sets include boldface, the implementors normally use the boldface characters as a way of identifying keywords. When ALGOL is implemented on other computers, the implementors choose other schemes for identifying keywords, such as putting them in quotes or putting them in all capital letters.
+
+Both PostScript and Interpress have an operator called MOVETO, and in both languages it does exactly the same thing, which is identical to what the MOVETO operator did on the Evans and Sutherland hardware that spawned this graphics model. Let's look at how that operator would be represented in the two languages.
+
+The PostScript language is defined in terms of characters, like FORTRAN. The definition of the PostScript operator "MOVETO" is the letter "M" followed by the letter "O" followed by the letter "V", etc. The Interpress language is defined in terms of keywords; the definition of the Interpress operator "MOVETO" is that it is a keyword in the ALGOL sense. The Interpress 2.1 standard suggests that MOVETO can be represented with the serial number 25 in a standard encoding that the standard provides, but the definition of the MOVETO keyword is independent of the choice of encoding.
+
+Since PostScript is defined in terms of sequences of characters, it is always possible to assume that a PostScript file can be transmitted over any link capable of sending characters, and can be stored in any device capable of holding characters. Since Interpress is defined more abstractly, it is not necessarily possible to make any assumptions at all about a particular Interpress file. However, any Interpress encoding can be translated into any other Interpress encoding, so it is always possible to take an Interpress file and translate it into a stream of characters which will then have properties identical to PostScript's. Conversely, it is always possible to translate a PostScript program into a tokenized keyword form, though the PostScript standard does not suggest any particular tokenization scheme.
+
+It is worth mentioning that the word "token" is slightly overloaded here. A "tokenization scheme" is a means of doing data compression, wherein a sequence of characters is called a "token" and is replaced by a token number, which will occupy less space. However, a language can have tokens without having a tokenization scheme. Both PostScript and Interpress have an execution semantics that is defined in terms of things called "tokens". The Interpress tokens are normally represented by tokenization schemes--i.e. replaced with integers--while the PostScript tokens are normally left as sequences of characters. In later sections of this message the word "token" will be used to mean either the PostScript kind of token or the Interpress kind of token; by the time they get to the interpreter they are roughly the same thing.
+
+The Interpress 2.1 standard defines a particular encoding of Interpress, and gives bit and byte formats, decimal integer operator numbers, and so forth. This encoding is a full binary encoding, using all 8 bits of each byte, which means that it cannot always be sent over a serial character link. The Interpress standard encoding of a page description normally occupies a smaller number of bytes than the equivalent PostScript character representation. This is possible because binary encodings make more efficient use of the bits.
+
+Interpress files are clearly intended to be transmitted via XNS protocols over Ethernet. In its current form, without further processing or re-encoding, Interpress is not suitable for transmission over character-protocol lines. PostScript files are clearly intended to be transmitted over character-protocol lines. Like all character stream protocols, PostScript can also be transmitted over Ethernet, but a PostScript file will use more bytes than the corresponding Interpress file.
+
+Text files such as PostScript sources are highly redundant (i.e. they make inefficient use of their bits) and can be run through data compression programs (such as the Unix "compact" program) to reduce the amount of space they occupy in storage and during transfer. Data compression techniques will probably not yield much further compression of Interpress files, because the information is already quite tightly packed. After compression of both, the PostScript and Interpress representations of an image will likely occupy approximately the same number of bits.
+
+### Syntactic Considerations
+
+The syntactic issues (or issues of syntax, if you will) of a language are the means by which an interpreter for the language distinguishes variables from operators from constants from function calls from quoted strings, and by which it determines whether or not a certain sequence of characters or tokens is in fact a "legal" construct in the language.
+
+As languages in general go, both PostScript and Interpress are remarkably free of syntax. As token-oriented postfix languages, each token of the language is "executed" as soon as it is identified, and that execution will either succeed or fail depending on the state of the execution environment at that point.
+
+Nevertheless, both languages have a small amount of syntax, though they differ radically in the nature and application of this syntax. In fact, the primary area in which the PostScript language and the Interpress language are incontrovertibly and irrevocably different is in their syntax.
+
+As explained above (Lexical Issues) PostScript is defined in terms of character sequences. A PostScript program is a series of character tokens, separated by white space characters. That program is fed to an interpreter to be executed; the interpreter reads in the characters and assembles them into words (i.e. tokens), then looks up the tokens in dictionaries to determine their meaning. In this regard PostScript is similar to many other programming or command languages: if the PostScript interpreter sees the command "MOVETO", it finds the current definition of that string, and then performs whatever action is requested in that definition.
+
+By contrast, Interpress is defined in terms of byte codes, which behave more like the instruction codes of a hardware interpreter than like a traditional programming language. Instead of the letters "MOVETO", an Interpress file will have a byte whose binary value is 25; the number 25 is then used to index an operation code table which directs the interpreter to the program implementing the MOVETO operation.
+
+The byte codes of Interpress can be viewed as a compiled form of the character codes of PostScript. One could imagine a translator that passed over a PostScript file, looked up each name, and produced an output file whose contents was the binary identification of the thing found during the lookup. In fact, the Interpress standard document explains that the two forms are equivalent, and the Introduction to Interpress document explains how to write a program to convert one to another.
+
+There is, however, a crucial difference between the PostScript and Interpress naming schemes that makes them very different, and makes impossible the above-mentioned imagined compiler to translate PostScript into Interpress. That difference is best understood as a semantic difference, and will be explained in the next section.
+
+Returning to syntactic issues, an Interpress file has what is called "static structure" or "lexical structure". This means that you can look at an Interpress file and make structural assumptions about what you find there. For example, an Interpress file is defined to be a sequence of "bodies"; each body is a sequence of operators and operands. The first body is the "preamble", or setup code; all following bodies correspond to printed pages. If an Interpress file has 11 bodies, then it will print as 10 pages.
+
+By contrast, a PostScript file has no fixed lexical structure; it is just a stream of tokens to be processed by the interpreter. PostScript prints a page whenever the SHOWPAGE operator is executed. If a PostScript file contains a loop from 1 to 10, with a SHOWPAGE operator inside the loop, then it will print 10 pages even though there is only one actual call to SHOWPAGE in the file. However, since PostScript is a textual language, and since it has a "comment" facility like the C /\*....\*/ or Pascal {...}, it is possible for the creator of a PostScript file to represent whatever additional information is desired. It is a slight misnomer to call this a comment facility, because the normal use of the word "comment" in programming languages implies that the contents of the comment are irrelevant. PostScript comments are irrelevant in the sense that they do not affect the image produced by a PostScript file, but they do convey machine-readable information about the structure of the document.
+
+A PostScript client is free to choose any structuring scheme that he wants, and the tool that he has available to implement this structuring scheme is the PostScript comment. There is a particular "standard" structuring convention documented along with PostScript by which page boundaries and other lexical information can be marked. A PostScript file that follows that convention is called a "conforming" file, but it is a convention and not a rule; the printed image produced by a nonconforming PostScript file will be identical to that produced by the equivalent conforming PostScript file. Conversely, the structure of a PostScript file, as represented by the structuring convention, is completely independent of the appearance of the page images--the actual PostScript text appears to be a series of comments as far as the structuring systems are concerned.
+
+The technique of mixing two different languages in one file, so that a processor for one language sees the text of the other language as comments, is not new. Perhaps the most widely-known instance of this scheme is Don Knuth's "WEB" system, in which Pascal and TEX are woven together in such a way that the Pascal program looks like a comment to the TEX interpreter and the TEX source looks like a comment to the Pascal compiler.
+
+This absence of fixed lexical structure in PostScript is a two-edged sword. On the one hand, it offers more flexibility in creating page images, especially repetitive ones; on the other hand, it provides more opportunities to make mistakes.
+
+One final syntactic issue is perhaps worth mentioning, though it could also be considered a semantic issue. Interpress does not support "variables" so much as it supports "registers", in the hardware sense. All storage in Interpress is accessed by address and not by name. What would be called a "local variable" in a programming language is represented in Interpress by an integer subscript into the procedure's frame. All programming languages must ultimately reduce their variable names into memory locations; Interpress asks that this translation be performed by the creator of the Interpress file and not by the interpreter. An obvious benefit of this approach is efficiency--no name lookups need be performed as the file is being printed. An obvious drawback of this approach is the restricted name space available to the programmer and the extra care that must be taken to manage addresses instead of names. By contrast, PostScript supports ordinary named variables.
+
+### Semantics
+
+Since both Interpress and Postscript derive their semantics from the same source, it stands to reason that the semantics would be similar. Both use similar graphical semantics, the same imaging model, and both use very similar execution semantics. The differences are minor, though one could imagine that the consequences of those differences might be major.
+
+There are two substantive differences between the graphical semantics of PostScript and Interpress 2.1, namely that Interpress has no facility for describing curves, and the Interpress standard is completely silent on the issue of fonts.
+
+A curve can of course be approximated with a series of line segments, and if the line segments are short enough the resulting appearance will be identical, but many classes of curved lines, such as those appearing in fonts, can be described very succinctly in terms of the PostScript CURVETO operator while requiring a tedious collection of short line segments to describe in Interpress. Because of the importance of fonts to printed images, this seemingly minor omission could possibly have major consequences.
+
+On the issue of fonts, the Interpress standard states only that a font is an operator that will be executed for you when appropriate, and that the operators for that font are defined "in the Environment". A PostScript font is just an ordinary PostScript defined operator, and the PostScript manual gives explicit instructions for creating user-defined fonts and making those font definitions be part of a PostScript file. One could imagine that it is possible to write an Interpress composed operator (in Interpress, of course) to behave like a user-defined font, but the Interpress implementations do not currently have any mechanism for recognizing that an operator is in fact a user-defined font and should therefore receive any kind of special treatment. This is not a deficiency in Interpress, just a silence, accompanied by a deficiency in current implementations (this and other implementation issues are discussed in the last section).
+
+There are three consequential differences between PostScript execution semantics and Interpress execution semantics: user-defined operators, the nature of the "firewalls" between pieces of the program, and error recovery.
+
+In Interpress, a user-defined operator is syntactically different from an intrinsic operator, and requires an explicit "DO" operator to call it. In PostScript a user-defined operator is syntactically identical to an intrinsic operator, and in fact any intrinsic operation can be redefined by simply making a new entry for that operator's name in the appropriate dictionary. This is stylistically similar to the difference in lexical structure: Interpress guarantees that if a byte code 25--the MOVETO operator--is found in a file, that it will when executed perform a standard MOVETO. PostScript guarantees nothing because it enforces nothing. If you want to redefine the meaning of MOVETO, then you can do so, and when the characters "M O V E T O" are found in a PostScript file, the redefined operator will be executed instead. To execute a PostScript user-defined operator you just include its name, the same way you execute any other operator. To execute an Interpress user-defined operator, you execute the DO operator (or a variation of it), after pushing onto the stack the thing that you want to execute.
+
+Analogously with the static structural issues, The PostScript user-defined-operator scheme offers more flexibility than Interpress but carries with it more dangers. Like the old saw about giving one enough rope to hang himself, the additional flexibility of the PostScript scheme requires discipline on the part of the user. Furthermore, just as PostScript has a convention for the voluntary inclusion of static structure in a file, it has a mechanism by which a PostScript program can reference the true built-in version of an operator and not the current, possibly user-redefined, version of an operator. From the point of view of language design, this scheme is not terribly elegant, but it is quite practical, as it provides a mechanism for the solution of all of the problems associated with operator redefinition and the prevention thereof.
+
+It is this ability to redefine builtin operators that makes the compilation of a textual Postscript file into an encoded Interpress file (mentioned above under Syntax) impossible. A static analysis cannot determine the operator that will be executed when the textual token is interpreted. By contrast, it is easy to translate Interpress into PostScript, because all of Interpress' semantic capabilities have direct equivalents in PostScript, and the lexical translation is straightforward.
+
+Interpress has a distinction between "bodies" and "operators". A "body" is a sequence of Interpress tokens. The Interpress operator "MAKESIMPLECO" (make simple composed operator) translates a body into an operator. Like all other Interpress operators that reference bodies--referred to in the Interpress standard as "body operators"--the MAKESIMPLECO operator is prefix and not postfix. This was done to make it easier for small computers to implement Interpress interpreters; it has the interesting side-effect of making it impossible for an Interpress program to generate and then execute a piece of Interpress source code. I would guess that the entire reason for the distinction between Interpress bodies and operators is to enable a clean prefix implementation of body operators while at the same time permitting the more conventional postfix use of expressions of type "operator".
+
+By contrast, PostScript represents operator bodies as arrays of PostScript tokens. The PostScript lexical scanner processes a body by building an array out of the tokens that it finds in the input stream; that body is then handled as an ordinary data value in the language, and it can be stored into variables, executed, modified, searched or searched for, etc. The translation of a body into something like an Interpress operator consists merely of returning the address where the body is stored; that can be handled by the PostScript type system and does not require a special conversion operator. Consequently, a PostScript program is able to generate an array of PostScript operators, however it so chooses, and then declare that array to be a new PostScript operator and have it be executed just like any other PostScript operator.
+
+The second important semantic difference between PostScript and Interpress is the set of mechanisms that they offer for protecting one piece of the file from side effects in another. As you might be able to guess if you have read this far, the Interpress protection mechanism is static and mandatory while the PostScript protection mechanism is dynamic and optional. This kind of mechanism is often referred to as a "firewall".
+
+An Interpress file consists of a series of bodies. Each body is executed completely independently of each other body. In particular, at the beginning of each page body, the execution environment is restored to the state that it had at the end of execution of the preamble, so that each page body is executed as if it were the only page in the document. There is absolutely nothing that the code in one Interpress page can do that will have any effect on the execution of the code in any other Interpress page, and the Interpress language guarantees that independence. This permits, for example, the pages to be executed or printed in any order, front to back or back to front, or in folios of 16 pages at a time, with complete confidence that the appearance of the pages will not change.
+
+By contrast, a PostScript file has no static structure, so there is no convenient place to build automatic firewalls. PostScript provides, instead, two pairs of operators by which a PostScript user can build his own firewalls wherever he wants them. There is an operator called SAVE, and another operator called RESTORE. The RESTORE operator restores the execution state of the machine back to what it was when the last SAVE operator was executed. Thus, if a PostScript user wants to have pages that are firewalled against each other, then he puts a SAVE operator at the beginning of the page and a RESTORE operator at the end of the page. If the PostScript user wants to play tricks, and build PostScript files that do bizarre things with the execution state between pages, he is free to do so by leaving out the SAVE and RESTORE.
+
+By now you can probably see the fundamental philosophical difference between PostScript and Interpress. Interpress takes the stance that the language system must guarantee certain useful properties, while PostScript takes the stance that the language system must provide the user with the means to achieve those properties if he wants them. With very few exceptions, both languages provide the same facilities, but in Interpress the protection mechanisms are mandatory and in PostScript they are optional. Debates over the relative merits of mandatory and optional protection systems have raged for years not only in the programming language community but also among owners of motorcycle helmets. While the Interpress language mandates a particular organization, the PostScript language provides the tools (structuring conventions and SAVE/RESTORE) to duplicate that organization exactly, with all of the attendant benefits. However, the PostScript user need not employ those tools.
+
+Before taking a stand on this issue, you must remember that neither Interpress nor PostScript is engineered to be a general-purpose programming language, but rather to be a scheme for the description of page images, so it is not necessarily valid to apply programming language lore to these two systems.
+
+The third area in which there are significant semantic differences between PostScript and Interpress is in error handling and error recovery. The Interpress 2.1 standard is slightly vague as to what happens when various error conditions occur; one assumes that the implementors of Interpress printers will do something reasonable. The PostScript language provides a user-extensible error-recovery mechanism that is keyed on PostScript's ability to redefine intrinsic operators. Whenever an error of any kind occurs in PostScript, be it the printer out of paper, the file asking for a font that doesn't exist, or a division by zero, the PostScript interpreter responds by executing an "error operator". If the error operator has not been redefined, then some standard action is taken; sometimes the standard action is to do nothing, while sometimes the standard action is to abort or to retry. The standard action is merely the execution of the error operator.
+
+The Interpress documentation does not offer much explanation, one way or another, of error handling. The Interpress standard describes certain kinds of error conditions that can occur, such as "appearance error" or "master error", but does not specify exactly what will happen if those errors occur. I assume that the reason the standard is vague is to provide leeway to the implementors in error handling. The Interpress language standard does not describe any technique by which an Interpress master can control or modify the error recovery actions.
+
+When a PostScript error occurs, an error operator is executed. There is a set of built-in error operators provided as part of PostScript, and documented like all other operators. If a PostScript user wants to change the error handling of a PostScript printer, he simply changes the dictionary entry for the relevant error operator. Depending on the relative position of that redefinition with respect to SAVE and RESTORE operators in the PostScript file, the redefinition will have a certain lifetime. A SAVE and RESTORE pair is wrapped around each separate file printed by a PostScript printer, so that the redefinition does not carry over to other jobs. The manager of an installation can change the overall default of the printer by sending it a redefinition, during printer startup, before entering the SAVE/RESTORE loop around each print job.
+
+Like so much of PostScript's flexibility, the ability to redefine operators is a two-edged sword. Redefining an operator can be used to advantage by clever and knowledgeable users, and it can be used as a technique for fixing bugs in a PostScript implementation. For example, if an accounting package were not provided as part of a PostScript implementation, the owners of a PostScript printer could add page accounting to their printer by downloading a redefinition of the SHOWPAGE operator that kept accounting information. However, a user might be able to disable that accounting by doing yet another redefinition that disabled the installation's accounting. To circumvent this class of problem, PostScript provides a mechanism for declaring certain objects to be read-only, or execute-only. The management of a shared PostScript printer can specify that part of its power-up or restart sequence is to load a configuration file; that configuration file can redefine certain operators--for the purpose of bug fixing or accounting or any other reason--and then, if desired, mark the redefined operators read-only so that they cannot be further redefined. As a language mechanism this is very clumsy, but as an operational technique it is effective.
+
+### Implementation Issues
+
+The implementation considerations are the most difficult to review and compare, because it is next to impossible to determine the reason for some annoying property of an implementation; it is also not entirely proper to criticize a language for the state of its implementation. Nevertheless, the history of programming languages has repeatedly shown that good implementations of languages have longer-lasting impact than good designs. For example, I quite commonly encounter people who choose to run VMS on their Vax systems instead of Unix and who offer the explanation that they do this because the VMS implementation of Fortran is so good that their programs will run a lot faster. Naturally, other people have other reasons; this is just an example.
+
+The Interpress documentation is peppered with "fine print" explaining the possible limitations of various possible Interpress printers, and a chapter of the Interpress standard is devoted to a discussion of the various ways to subset Interpress so that stripped-down versions of the language can be implemented. Indeed, as of today (March 1, 1985) I am not aware of the existence of any printer that implements the full Interpress 2.1 language defined in the standard. Certainly none is offered now as a product, and if one has been announced the announcement has not yet reached me. The Xerox 8044 "Star" printer and the 5700 and 2700 printers all implement various subsets of Interpress. Perhaps there are others. The only one of these that I have used to any extent is the 8044. It implements a textual subset of Interpress, with the capability of a certain amount of line graphics, and has some unknown capacity for more sophisticated graphics. It does not implement very many of the features that distinguish Interpress from the older Press format, and in fact has some surprising limitations. For example, Interpress provides the ability to get rounded ends on line segments. The 8044 implementation of Interpress that I experimented with faked the circular arcs with sections of a 9-sided polygon. The Interpress standard promises the ability to rotate the coordinate system through arbitrary angles; all of the existing implementations of Interpress limit coordinate system rotations to multiples of 90 degrees.
+
+Xerox quite likely has been developing true Interpress printers, which implement the full documented language, but none has been demonstrated or announced.
+
+By contrast, the PostScript documentation makes no mention of any subset, or of any implementation restrictions. The entire PostScript language was fully implemented before any PostScript documentation was distributed or any printers shipped. There are four PostScript printers announced and demonstrated by three OEM vendors: the Apple LaserWriter (300 dots/inch) the QMS 1200A (300 dots/inch), the Mergenthaler P300 phototypesetter (2540, 1270, or 635 dots/inch), and the Mergenthaler P101 phototypesetter (1270 or 635 dots/inch). The Apple printer has been shipped to customers, the QMS printers are in Beta test, and the Mergenthaler machines will be shipped to customers by Fall of 1985.
+
+All implementations of PostScript printers can print any PostScript file, with no restrictions save the availability of fonts as licensed to that manufacturer. Circles come out as circles. A PostScript file that has been proof-printed on an Apple LaserWriter can be typeset on a Mergenthaler P101 without making any changes to the file. Naturally all device-independent page representation schemes have this ability as their goal, and many claim to be able to do it, or claim that they could do it if they had all of the necessary fonts available in all of the requisite sizes. The current set of PostScript printers actually do it.
+
+Given that Xerox has been working on Interpress for about twice as long as Adobe has been working on PostScript, and many of the graphics techniques necessary for the implementation are copiously described in the open literature, I find it surprising that there are no true Interpress printers on the market. I am puzzled by this, and as a student of programming languages I am very interested in learning whether or not there are any properties of the Interpress language itself that are somehow contributing to this difficulty, or whether this is just the usual sluggishness that one expects from all large companies.
+
+---
+
+Brian Reid
+re...@SU-Glacier.ARPA
+Computer Systems Laboratory
+Stanford University
+415/323-6100
+decwrl!glacier!reid
+
+# ══════════════════════════════════════════════════════════════════
+# END ORIGINAL EMAIL
+# ══════════════════════════════════════════════════════════════════
+
+---
+
+## About the Authors
+
+### Brian Reid
+
+**Brian Reid** wrote this definitive history from a unique vantage point: he was a consultant to Xerox PARC during the Interpress design, and his thesis advisor at CMU was Bob Sproull — one of the three principal architects of Interpress.
+
+**Notable contributions:**
+- **Scribe** (1980) — One of the first document preparation systems with semantic markup (bold, italic as concepts, not formatting). Influenced LaTeX and HTML.
+- **Usenet backbone maps** — Created the iconic ASCII maps showing UUCP network topology.
+- **Gatekeeper** — Early anonymous FTP archive at Digital/DEC Research.
+
+Brian Reid is not a direct MOOLLM inspiration, but his 1985 post is the definitive historical record of PostScript's origins and philosophy.
+
+### Glenn Reid
+
+**Glenn Reid** (Brian's brother) was Adobe employee #40 and a key figure in the PostScript ecosystem.
+
+**Notable contributions:**
+- **PostScript books** — *Thinking in PostScript* and *PostScript Language Program Design* taught a generation how to program in PostScript.
+- **The Distillery** — A PostScript program that optimized other PostScript programs by partial evaluation: redefine the imaging operators to record their calls, run the program, emit a flat optimized version. This technique became **Acrobat Distiller** and led to **PDF**.
+- **TouchType** (NeXT, 1990) — A "font appreciation" app for manipulating individual characters. The concept later appeared in Adobe Illustrator's "Touch Type Tool."
+
+Glenn Reid is not a direct MOOLLM inspiration, but his Distillery technique (partial evaluation) conceptually parallels MOOLLM's "Speed of Light" — simulate many turns internally, emit results once.
+
+**Glenn's blog:** [glennreid.blogspot.com](http://glennreid.blogspot.com/)
+
+---
+
+## See Also
+
+- [The Linguistic Motherboard](./LINGUISTIC-MOTHERBOARD.md) — How PostScript's "motherboard with slots for cards" became MOOLLM's CARD.yml
+- [MOOLLM Founders' Gallery](../../examples/adventure-4/characters/real-people/README.md) — The people who directly inspired MOOLLM
