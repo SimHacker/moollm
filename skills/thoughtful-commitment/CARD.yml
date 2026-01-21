@@ -1,0 +1,280 @@
+# 🎯📝 THOUGHTFUL-COMMITMENT
+#
+# "Commits should tell the story of why, not just what."
+#
+# Git commits that capture intent, reasoning, and narrative context
+# by linking to the thinking that produced them.
+
+skill:
+  name: thoughtful-commitment
+  version: 1.0.0
+  
+  emoji: "🎯📝"
+  tagline: "Commits that remember why"
+  
+  description: |
+    Transform mechanical "updated file" commits into narrative records
+    that capture the full context: what the user asked, what the LLM
+    was thinking, and why the changes matter.
+    
+    Links git history to cursor-mirror thinking blocks, creating
+    complete provenance from intent to implementation.
+
+# ═══════════════════════════════════════════════════════════════════════════
+# INTERFACE
+# ═══════════════════════════════════════════════════════════════════════════
+
+tier: 2
+allowed_tools:
+  - read_file
+  - write_file
+  - list_dir
+  - run_terminal_cmd
+  - grep
+
+protocol: THOUGHTFUL-COMMITMENT
+
+related:
+  - cursor-mirror      # Source of thinking blocks, CHAT-CATALOG for outlines
+  - session-log        # Where narrative lives
+  - plain-text         # Why text matters
+
+# Integration with cursor-mirror CHAT-CATALOG
+workflow:
+  description: "Catalog → Identify → Commit"
+  steps:
+    - "cursor-mirror chat-catalog @1  → numbered topic outline"
+    - "User: 'Write commit for sections 11 and 14'"
+    - "thoughtful-commitment COMMIT → narrative commit message"
+    - "Commit references catalog sections for traceability"
+  - yaml-jazz          # Comments as meaning
+
+tags:
+  - git
+  - commits
+  - narrative
+  - provenance
+  - introspection
+
+# ═══════════════════════════════════════════════════════════════════════════
+# METHODS
+# ═══════════════════════════════════════════════════════════════════════════
+
+methods:
+
+  COMMIT:
+    description: "Create a thoughtful commit with narrative context"
+    parameters:
+      files:
+        type: array
+        items: string
+        description: "Files to commit (or '.' for all staged)"
+      story:
+        type: string
+        description: "The narrative of what happened and why"
+      include_thinking:
+        type: boolean
+        default: true
+        description: "Include reasoning from conversation context"
+    returns:
+      commit_id: string
+      message: string
+      thinking_link: string  # Reference to cursor-mirror events
+    example: |
+      invoke:
+        skill: thoughtful-commitment
+        method: COMMIT
+        parameters:
+          files: [characters/animals/cat-terpie/CHARACTER.yml]
+          story: "Incarnation Ceremony: Terpie receives emoji soul"
+          include_thinking: true
+
+  EXPLAIN:
+    description: "Find the thinking that led to an existing commit"
+    parameters:
+      commit:
+        type: string
+        description: "Commit hash (full or abbreviated)"
+    returns:
+      commit_message: string
+      timestamp: string
+      thinking_blocks: array
+      user_request: string
+      tool_calls: array
+    example: |
+      invoke:
+        skill: thoughtful-commitment
+        method: EXPLAIN
+        parameters:
+          commit: "abc123"
+
+  NARRATIVE:
+    description: "Generate a narrative commit message from context"
+    parameters:
+      diff_summary:
+        type: string
+        description: "Summary of changes (or auto-detect from staged)"
+      perspective:
+        type: string
+        enum: [technical, narrative, changelog, detailed]
+        default: narrative
+    returns:
+      message: string
+      sections:
+        title: string
+        body: string
+        changes: array
+    example: |
+      invoke:
+        skill: thoughtful-commitment
+        method: NARRATIVE
+        parameters:
+          perspective: narrative
+
+  LINK:
+    description: "Link a commit to cursor-mirror events"
+    parameters:
+      commit:
+        type: string
+        description: "Commit hash"
+      events:
+        type: array
+        items: string
+        description: "Event IDs from cursor-mirror"
+    returns:
+      linked: boolean
+      reference: string
+
+  HISTORY:
+    description: "Get narrative history of a file or directory"
+    parameters:
+      path:
+        type: string
+        description: "File or directory to trace"
+      depth:
+        type: integer
+        default: 10
+        description: "Number of commits to include"
+      include_thinking:
+        type: boolean
+        default: true
+    returns:
+      timeline: array  # Each entry: commit + message + thinking
+
+# ═══════════════════════════════════════════════════════════════════════════
+# COMMIT MESSAGE PROTOCOL
+# ═══════════════════════════════════════════════════════════════════════════
+
+commit_message_protocol:
+  format: |
+    <title>: <summary> (imperative, <50 chars)
+    
+    <body>
+    Narrative description of what happened and why.
+    From whose perspective? What were the motivations?
+    What changed emotionally/functionally, not just mechanically?
+    
+    <changes>
+    - Bullet points of mechanical changes
+    - For quick scanning
+    
+    <thinking-ref> (optional)
+    Thinking: cursor-mirror://<composer>/<event-range>
+    
+  perspectives:
+    technical: |
+      Focus on implementation details, APIs, data structures.
+      Good for code changes, refactoring, bug fixes.
+      
+    narrative: |
+      Focus on story, characters, world changes.
+      Good for MOOLLM adventures, character evolution.
+      
+    changelog: |
+      Focus on user-facing changes, features, fixes.
+      Good for release notes, version history.
+      
+    detailed: |
+      Everything: technical + narrative + reasoning.
+      Good for significant changes, debugging archaeology.
+
+  examples:
+    narrative: |
+      Incarnation Ceremony: Kittens receive emoji souls
+      
+      The Cat Cave family gathered for the Public Incarnation Ceremony.
+      Each kitten's terpene essence was captured in 5 emojis.
+      Pronouns were self-chosen. The gong rang thrice.
+      
+      - Added emoji_identity to all 8 kittens
+      - Added pronouns (she/her, self-chosen)
+      - Added memories: incarnation_ceremony
+      - Updated Cat Cave README with Emoji Soul Registry
+      
+      Thinking: cursor-mirror://abc123/events/140-148
+      
+    technical: |
+      fix(auth): Resolve race condition in session validation
+      
+      The session cookie was being checked before the token refresh
+      completed, causing intermittent logouts. Added await to ensure
+      refresh completes before validation.
+      
+      - Modified auth/session.ts: await refreshToken()
+      - Added test: session.test.ts - race condition scenario
+      - Updated timeout from 5s to 10s for slow networks
+      
+    changelog: |
+      feat: Add dark mode toggle to settings
+      
+      Users can now switch between light and dark themes.
+      Preference is saved to localStorage and respected on reload.
+      
+      - New: Settings > Appearance > Theme toggle
+      - New: System preference detection (prefers-color-scheme)
+      - Fixed: Contrast issues in sidebar with dark backgrounds
+
+# ═══════════════════════════════════════════════════════════════════════════
+# INTEGRATION
+# ═══════════════════════════════════════════════════════════════════════════
+
+integrations:
+  cursor_mirror:
+    description: "Read thinking blocks from Cursor's SQLite"
+    methods:
+      - "cursor_mirror.py thinking <composer>"
+      - "cursor_mirror.py timeline <composer>"
+      - "cursor_mirror.py tools <composer>"
+    
+  git:
+    description: "Git operations for commits and history"
+    commands:
+      - "git commit -m '...'"
+      - "git log --format='...'"
+      - "git show <commit>"
+      - "git blame <file>"
+      
+  session_log:
+    description: "Session logs can reference commits"
+    pattern: |
+      ## Commit: abc123
+      [Link to thinking](cursor-mirror://abc123/events/140-148)
+
+# ═══════════════════════════════════════════════════════════════════════════
+# AUTOMATION
+# ═══════════════════════════════════════════════════════════════════════════
+
+automation:
+  pre_commit_hook:
+    description: "Optionally validate commit messages"
+    checks:
+      - "Title exists and is <50 chars"
+      - "Body provides context (not just 'updated file')"
+      - "Changes are listed"
+    
+  post_commit_hook:
+    description: "Optionally link to cursor-mirror after commit"
+    actions:
+      - "Extract commit hash"
+      - "Find recent cursor-mirror events"
+      - "Store link in .moollm/commit-links.yml"
