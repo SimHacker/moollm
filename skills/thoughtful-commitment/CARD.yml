@@ -2,6 +2,14 @@
 #
 # "Commits should tell the story of why, not just what."
 #
+# THE KEY INSIGHT:
+# Git commits PERSIST the ephemeral state of Cursor into permanent history.
+# The thinking, design processes, attention focus, context assemblies —
+# all the things that vanish when you close the IDE — become immortal.
+#
+# cursor-mirror sees the NOW (thinking, tools, context in this session)
+# git commit FREEZES that NOW into FOREVER (permanent, shareable, traceable)
+#
 # A SHOWCASE FOR SKILL COMPOSABILITY
 # This skill composes cursor-mirror + git + shell to create something new.
 # It demonstrates how MOOLLM skills are building blocks, not silos.
@@ -82,6 +90,63 @@ composability:
     4. thoughtful-commitment SYNTHESIZES into narrative commits
     
     Each skill does one thing well. Composition creates new capabilities.
+
+# THE PERSISTENCE INSIGHT
+
+persistence:
+  principle: "Git commits persist ephemeral IDE state into permanent history"
+  
+  what_cursor_holds_now:
+    thinking_blocks: "LLM reasoning — the 'why' behind decisions"
+    context_assembly: "Which files were gathered, which code was shown"
+    attention_focus: "What the agent was looking at, searching for"
+    tool_calls: "Actions taken — reads, writes, searches, commands"
+    design_process: "The iterative refinement, dead ends, breakthroughs"
+    user_dialogue: "Questions asked, clarifications given"
+  
+  what_vanishes:
+    - "Close the IDE → context assembly gone"
+    - "Start new chat → thinking blocks unreachable"
+    - "Days pass → which session had that insight?"
+    - "Colleague asks 'why?' → you've forgotten"
+  
+  what_git_commit_preserves:
+    commit_message: "Narrative captures the WHY"
+    thinking_reference: "Link to cursor-mirror events"
+    timestamp: "Anchors to specific session"
+    diff: "The WHAT (code changes)"
+    author: "WHO made the decision"
+  
+  the_bridge: |
+    cursor-mirror sees the NOW:
+      - Current session's thinking blocks
+      - Active context assembly
+      - Recent tool calls
+      - Live attention focus
+    
+    git commit FREEZES the NOW into FOREVER:
+      - Permanent record in repository
+      - Shareable with team
+      - Traceable through blame/log
+      - Survives IDE restarts, machine changes, years
+    
+    thoughtful-commitment BUILDS THE BRIDGE:
+      - Reads cursor-mirror for current state
+      - Synthesizes into narrative commit message
+      - Links commit to session (cursor-mirror://<id>)
+      - Future archaeology can trace back
+  
+  example_flow: |
+    1. You're working — cursor-mirror captures thinking
+    2. You finish a feature — files are staged
+    3. thoughtful-commitment reads cursor-mirror:
+       - What was the user's request?
+       - What did the LLM consider?
+       - What alternatives were rejected?
+       - What was the final reasoning?
+    4. Synthesizes into commit message
+    5. Commit made — ephemeral becomes permanent
+    6. Years later: git blame → commit → thinking preserved
 
 # INTERFACE
 

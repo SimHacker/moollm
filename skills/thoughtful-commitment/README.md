@@ -4,6 +4,38 @@
 
 Git commits that capture intent, reasoning, and narrative context by linking to the thinking that produced them.
 
+## The Key Insight
+
+**Git commits persist ephemeral IDE state into permanent history.**
+
+When you're working in Cursor, your session holds:
+- **Thinking blocks** — the LLM's reasoning, the "why" behind decisions
+- **Context assembly** — which files were gathered, what code was shown
+- **Attention focus** — what you were searching for, looking at
+- **Design process** — the iterations, dead ends, breakthroughs
+- **Tool calls** — every read, write, search, command
+
+**All of this vanishes** when you close the IDE, start a new chat, or a week passes.
+
+**Git commit freezes the NOW into FOREVER:**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  CURSOR (ephemeral)              GIT (permanent)            │
+│                                                             │
+│  thinking blocks ──────┐                                    │
+│  context assembly ─────┼──→ commit message ──→ FOREVER      │
+│  attention focus ──────┤         ↓                          │
+│  design process ───────┤    blame/log/show                  │
+│  tool calls ───────────┘         ↓                          │
+│                             years later:                    │
+│  (vanishes on close)        "why was this written?"         │
+│                             → trace back to thinking        │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**thoughtful-commitment builds this bridge** — it reads cursor-mirror for the ephemeral state and synthesizes it into permanent commit messages.
+
 ## A Showcase for Skill Composability
 
 **This skill demonstrates how MOOLLM skills compose like LEGO bricks.**
