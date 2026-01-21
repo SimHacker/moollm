@@ -18,8 +18,8 @@ These are **tribute incarnations** -- fictional explorations based on documented
 |------|-------------|-------------|--------|
 | **Tribute Incarnation** | Direct incarnation of a real person | Persisted files | Most careful — honor, don't parody |
 | **Ephemeral Incarnation** | Lightweight, runtime-only | Not persisted | Still careful, but no lasting record |
-| **Fictional Mashup** | "A cross between Kay and Nelson" | Your new character | Most freedom — clearly fictional! |
-| **Love Child** | Inherits specific traits from multiple sources | Your beautiful creation | The fun zone — mix and match freely! |
+| **Fictional Mashup** | "A cross between Kay and Nelson" | Your new character | Most freedom — clearly fictional! Weighted average. |
+| **Love Child** | Inherits specific traits from multiple sources | Your beautiful creation | The fun zone — mix and match freely! Import and combine specific skills from different people, more refined than just averaging. |
 
 ### The Mashup Pattern (Where the Fun Happens!)
 
