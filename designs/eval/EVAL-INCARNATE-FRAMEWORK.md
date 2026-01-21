@@ -65,6 +65,7 @@
 ### Appendices
 - [Appendix A: Intellectual Lineage](#appendix-a-intellectual-lineage) — Full genealogy (14 entries)
 - [Appendix B: References](#appendix-b-references) — Documents, skills, articles
+- [The Vision](#the-vision) — Licklider's destiny
 
 ---
 
@@ -887,6 +888,21 @@ A single LLM call simulated:
 | **Characters** | 8+ |
 | **Proof** | Complex game state, humor maintained |
 
+**The Looney Labs Visit:** Andy & Kristin Looney (actual Fluxx creators) "visited" the pub using the Tribute Protocol:
+
+1. **Invocation**: "Let's imagine the creators of Fluxx walked in..."
+2. **Performance**: 33 turns of Stoner Fluxx with fact-checked details
+3. **Acknowledgment**: "That was a tribute to brilliant game designers"
+
+The simulation included **verified facts** (Wikipedia links) woven into fiction:
+- Fluxx first published: 1997
+- Looney Labs founded: 1996
+- Both worked at NASA Goddard
+- Andy: software programmer (Hubble!)
+- Kristin solved Rubik's Cube on "That's Incredible" at age 16
+
+**Accuracy fix during session:** Andy wears a lab coat, not a beard! Shaved hallucinated beard and donned lab coat mid-narrative.
+
 ### 21-Turn Cat Prowl
 
 10 cats explored the maze simultaneously:
@@ -1054,15 +1070,38 @@ End-user programming. Reader = Writer symmetry. "See your own face in the system
 
 Text-based virtual worlds where users build rooms, objects, and behaviors. TinyMUD (1989) was created by Aspnes as a CMU student. LambdaMOO (1990) by Pavel Curtis at Xerox PARC added a full programming language.
 
+> *"A MOO is a place where you can be anyone, build anything, and the only limit is your imagination."*
+
+**TinyMUD Builder Commands:**
+
 | Command | Effect | MOOLLM Equivalent |
 |---------|--------|-------------------|
 | `@dig [room]` | Create new room | Create directory |
+| `@open [exit]` | Create exit between rooms | Add to `exits:` in `ROOM.yml` |
 | `@describe [thing]` | Set description | Edit `description:` field |
 | `@create [object]` | Make new object | Create .yml file |
+| `@link [exit] [room]` | Connect exit to destination | Update exit target |
+| `@lock [thing]` | Set access control | Add `access:` restrictions |
+| `@teleport` | Move instantly | Change `location:` |
+| `@set [prop]` | Set property | Edit YAML field |
 
-**The Social Architecture:** MOO taught us that virtual worlds need consent, building, community, and moderation.
+**LambdaMOO Innovations:**
 
-**MOOLLM inherits:** Room-based navigation (directories as rooms). Builder commands. User-created content. Social spaces.
+| Concept | LambdaMOO | MOOLLM |
+|---------|-----------|--------|
+| **Rooms** | Containers with descriptions and exits | Directories with ROOM.yml |
+| **Objects** | Things with properties and verbs | .yml files with state and methods |
+| **Verbs** | Code attached to objects | Methods in CARD.yml |
+| **Properties** | Data on objects | YAML fields, files |
+| **Inheritance** | Objects delegate to parents | Directory delegation |
+
+**The Social Architecture:** MOO taught us that virtual worlds need:
+- **Consent** — players control their space
+- **Building** — users create content
+- **Community** — shared spaces and norms
+- **Moderation** — governance for the commons
+
+**MOOLLM inherits:** Room-based navigation (directories as rooms). Builder commands. Object properties and verbs. User-created content. Delegation-based inheritance. Social spaces (pub, stage, cat cave). Consent protocols (incarnation skill).
 
 ---
 
@@ -1195,6 +1234,20 @@ The EVAL game genre is an ambitious, blue-sky extension of these ideas — apply
 This is secondary/exploratory work, not the core framework. See:
 
 **[eval/README.md](./README.md)** — Full index of EVAL game design documents including EvalCity, The Evals, EvalSelf, EvalEye, and the Church of the Eval Genius.
+
+---
+
+## The Vision
+
+> *"The destiny of computing is to become interactive intellectual amplifiers for all humanity pervasively networked worldwide."* — J.C.R. Licklider
+
+MOOLLM is a step toward that destiny:
+- **Interactive:** Play-Learn-Lift, reader=writer symmetry
+- **Intellectual amplifiers:** LLM as universal interpreter
+- **For all humanity:** Skills anyone can use and create
+- **Pervasively networked:** Filesystem as shared state
+
+**Incarnate skills** make this possible. They are not just documentation. They are not just data structures. They are **programs for the mind** — human and artificial alike.
 
 ---
 
