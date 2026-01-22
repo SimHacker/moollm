@@ -9,11 +9,15 @@
 # This ROOM.yml makes Richard's character directory into a BUILDING that exists
 # on Lane Neverending. The character lives inside their own directory structure:
 #
-#   richard-bartle/           ← THIS FILE: The building (ROOM.yml)
-#   ├── study/                ← The famous study (has its own ROOM.yml)
+#   richard-bartle/
+#   ├── ROOM.yml              ← THIS FILE: The house (13 Lane Neverending)
 #   ├── CHARACTER.yml         ← Richard himself
 #   ├── CARD.yml              ← Richard's playable card
-#   └── pets/heuristic/       ← Heuristic lives here too
+#   ├── study/
+#   │   ├── ROOM.yml          ← The Study (room inside the house)
+#   │   ├── CHARACTER.yml     ← The Study as room-character-vehicle (TARDIS!)
+#   │   └── CARD.yml          ← The Study's playable card
+#   └── pets/heuristic/       ← Heuristic lives here too (usually in the Study)
 #
 # The link is bidirectional:
 #   - FROM Lane Neverending E2: north exit → here
