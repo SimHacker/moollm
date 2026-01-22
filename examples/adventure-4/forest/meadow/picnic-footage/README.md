@@ -27,6 +27,7 @@ massive fluffy clouds, and perfect picnic weather.
 | [05 - Taco Flowers](frame-05-taco-flowers.yml) | 12:30:00 | Macro of exotic taco-shaped blooms and bumblebees | ✅ MINED |
 | [06 - Uninvited Guest](frame-06-uninvited-guest.yml) | 13:00:00 | ACME truck bursts from a Painted Tunnel oak | ✅ MINED |
 | [07 - Unsolicited Delivery](frame-07-unsolicited-delivery.yml) | 13:01:12 | Donna's 'gifts' spill into the meadow | ✅ MINED |
+| [08 - Containment](frame-08-containment.yml) | 13:06:42 | Richard and Don neutralize the anomalies | ✅ MINED |
 
 ### Generated Imagery
 
@@ -37,6 +38,7 @@ massive fluffy clouds, and perfect picnic weather.
 - **Frame 05:** `frame-05-taco-flowers-...-taco-flowers.png`
 - **Frame 06:** `frame-06-uninvited-guest-...-drama.png`
 - **Frame 07:** `frame-07-unsolicited-delivery-...-delivery-chaos.png`
+- **Frame 08:** `frame-08-containment-...-containment.png`
 
 ---
 
@@ -55,6 +57,8 @@ massive fluffy clouds, and perfect picnic weather.
 | **The Intruder** | Red **ACME Van-Guard** (1973), battered and smoking, emerging from an oak tree. |
 | **Painted Tunnel** | Manifested on an ancient oak; shows a low-res desert road. |
 | **ACME Goods** | **Dehydrated Feast** (expanding protein cubes), **Inflatable Donna Decoy**, and a **Pocket Black Hole** (sucking in the cheese!). |
+| **Containment** | **Pocket Dimension** (amethyst keychain) swallows the black hole; **Self-Healing Module** (green) patches the tree. |
+| **Draconic Power** | Heuristic incinerates the decoy with a **blue-spark blast**; scales confirmed as **'Hammered Copper Amber'**. |
 
 
 ---
