@@ -79,11 +79,12 @@ DON'S MINE TO OURS ←──────→ DONNA ARRIVES
 
 | Metric | Count |
 |--------|-------|
-| Total Slideshows | 12 |
-| Total Images (main narratives) | 32+ |
+| Total Slideshows | 11 |
+| Total Images (main narratives) | 40+ |
 | Self-Captioning Images | 15+ |
 | Parallel Timelines | 4 |
-| Cross-References | 20+ |
+| Cross-References | 50+ |
+| Ping-Pong Frame Links | 20 |
 
 ---
 

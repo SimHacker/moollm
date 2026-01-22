@@ -201,17 +201,47 @@ The LOG is for quick reference. The TRANSCRIPT is for reading.
 
 ## 🎞️ Visual Galleries
 
-Encapsulated image galleries with narrative slideshows. Each inherits from the [slideshow skill](../../skills/slideshow/).
+**[📋 SLIDESHOW INDEX](./SLIDESHOW-INDEX.md)** — Complete navigation hub for all visual narratives.
+
+**[🌀 MASTER SYNTHESIS](./MASTER-SYNTHESIS-SLIDESHOW.md)** — All timelines woven together chronologically.
+
+### 🎬 The Main Narratives (Interlinked!)
+
+Four parallel timelines running simultaneously, cross-referenced frame-by-frame:
+
+| Timeline | Slideshow | Images | Syncs With |
+|----------|-----------|--------|------------|
+| **A** | [The ACME Heist](./street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/SLIDESHOW.md) | 10 | Donna's Selfies (1:1 frame sync) |
+| **B** | [Donna's Surveillance Selfies](./characters/fictional/donna-toadstool/selfies/SLIDESHOW.md) | 11 | Heist (parallel view) → Don's Arc |
+| **C** | [Post-Heist Fellowship](./pub/photos/post-heist-fellowship/SLIDESHOW.md) | 4 | All characters gather |
+| **D** | [Don's MINE to OURS](./characters/real-people/don-hopkins/selfies/SLIDESHOW.md) | 7 | Donna arrives Frame 4! |
+
+**How to read**: Start with the Heist. Jump to Donna's matching selfie to see her reaction. Continue to the pub. Follow Don's transformation arc.
+
+### 👤 Character Selfie Series
+
+| Character | Slideshow | Images | Description |
+|-----------|-----------|--------|-------------|
+| [Richard Bartle](./characters/real-people/richard-bartle/study/selfies/SLIDESHOW.md) | Selfies from Essex | 8 | Study portraits with Heuristic the dragon |
+| [Donna Toadstool](./characters/fictional/donna-toadstool/selfies/SLIDESHOW.md) | Surveillance Selfies | 11 | The heist from the control room |
+| [Don Hopkins](./characters/real-people/don-hopkins/selfies/SLIDESHOW.md) | MINE to OURS | 7 | Transformation → Alliance |
+
+### 🍺 Pub Galleries
 
 | Gallery | Location | Images | Description |
 |---------|----------|--------|-------------|
-| [Don's Pub Photos](./pub/photos/dons-pub-photos-2026-01-19/SLIDESHOW.md) | The Rusty Lantern | 8 | Facebook-style photo tour: Marieke, Palm, cats, Fluxx game, Pee-wee, impossible guests |
-| [Rocky and Friends](./pub/rooms/room-4/rocky-and-friends/SLIDESHOW.md) | Room 4 | 8+ | Rocky the emotional support boulder with all the cats, dogs, and friends |
-| [Dusty Attic Art Styles](./pub/attic/dusty-attic-art-styles/SLIDESHOW.md) | The Attic | 7 | Same room rendered in 7 legendary art styles |
-| [Telescope Constellation Views](./pub/rooftop/telescope-constellation-views/SLIDESHOW.md) | Rooftop | 2 | K-Line constellation through AR telescope lens |
-| [Palm's Portrait Session](./pub/stage/palm-nook/study/palm-portrait-session/SLIDESHOW.md) | Palm's Study | 1 | Dutch Golden Age oil painting tribute |
-| [ACME Tunnel Temporal Views](./street/lane-neverending/leela-manufacturing/lobby/acme-tunnel-temporal-views/SLIDESHOW.md) | Manufacturing Lobby | 4 | Security camera footage across timelines |
-| [Palm's Portrait Gallery](./characters/animals/monkey-palm/SLIDESHOW.md) | Character File | — | Links to Palm's portrait in the study |
+| [Don's Pub Photos](./pub/photos/dons-pub-photos-2026-01-19/SLIDESHOW.md) | The Rusty Lantern | 8 | Facebook-style photo tour |
+| [Rocky and Friends](./pub/rooms/room-4/rocky-and-friends/SLIDESHOW.md) | Room 4 | 8+ | Rocky the emotional support boulder |
+| [Dusty Attic Art Styles](./pub/attic/dusty-attic-art-styles/SLIDESHOW.md) | The Attic | 7 | Same room in 7 art styles |
+| [Telescope Views](./pub/rooftop/telescope-constellation-views/SLIDESHOW.md) | Rooftop | 2 | K-Line constellation |
+| [Palm's Portrait](./pub/stage/palm-nook/study/palm-portrait-session/SLIDESHOW.md) | Palm's Study | 1 | Dutch Golden Age tribute |
+
+### 🏭 Industrial Galleries
+
+| Gallery | Location | Images | Description |
+|---------|----------|--------|-------------|
+| [ACME Heist Footage](./street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/SLIDESHOW.md) | Leela Lobby | 10 | Surveillance of the break-in |
+| [ACME Tunnel Views](./street/lane-neverending/leela-manufacturing/lobby/acme-tunnel-temporal-views/SLIDESHOW.md) | Leela Lobby | 4 | Temporal tunnel perspectives |
 
 ### Multi-Look Mining
 

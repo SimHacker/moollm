@@ -48,11 +48,12 @@ While these events unfold, Donna Toadstool documents them from her control room:
 
 ---
 
-## 📍 Frame 01: The Approach
+## 📍 Frame 01: The Approach {#frame-01}
 
 ![The Approach](frame-01-approach-imagen4.png)
 
-**Time**: ~02:30 AM
+**Time**: ~02:30 AM  
+**↔️ Donna's View**: [Selfie 01 — Intruder Alert](../../../../characters/fictional/donna-toadstool/selfies/SLIDESHOW.md#selfie-01) *"LOOK WHAT I'VE FOUND!"*
 
 **The Moment**: Two figures cross the street toward ACME Surplus. The first frame has interference — ACME's reality-distortion field affecting the camera.
 
@@ -62,11 +63,13 @@ While these events unfold, Donna Toadstool documents them from her control room:
 
 ---
 
-## 📍 Frame 02: The Invitation
+## 📍 Frame 02: The Invitation {#frame-02}
 
 ### *Chekhov's Tunnel Established*
 
 ![The Invitation](frame-02-invitation-imagen4.png)
+
+**↔️ Donna's View**: [Selfie 02 — Tunnel Watch](../../../../characters/fictional/donna-toadstool/selfies/SLIDESHOW.md#selfie-02) *"WATCH THIS!"*
 
 **The Gun Appears**: A painted tunnel takes up 40% of the frame. Black and white checkered. Don is MESMERIZED by it.
 
@@ -76,9 +79,11 @@ While these events unfold, Donna Toadstool documents them from her control room:
 
 ---
 
-## 📍 Frame 03: The Entry
+## 📍 Frame 03: The Entry {#frame-03}
 
 ![The Entry](frame-03-entry-imagen4.png)
+
+**↔️ Donna's View**: [Selfie 03 — Anvil Deployed](../../../../characters/fictional/donna-toadstool/selfies/SLIDESHOW.md#selfie-03) *"I DID THAT!"*
 
 **First Trap**: An anvil drops. Don looks up in alarm. The store is revealed as STOCKED with cartoon weaponry.
 
@@ -88,9 +93,11 @@ While these events unfold, Donna Toadstool documents them from her control room:
 
 ---
 
-## 📍 Frame 04: Inside — Tunnels Multiply
+## 📍 Frame 04: Inside — Tunnels Multiply {#frame-04}
 
 ![Inside](frame-04-inside-imagen4.png)
+
+**↔️ Donna's View**: [Selfie 04 — Tunnels Multiply](../../../../characters/fictional/donna-toadstool/selfies/SLIDESHOW.md#selfie-04) *"I TOLD YOU!"*
 
 **Spatial Anomaly**: The tunnels are now on BOTH SIDES. They've MULTIPLIED. The warehouse is bigger on the inside.
 
@@ -100,9 +107,11 @@ While these events unfold, Donna Toadstool documents them from her control room:
 
 ---
 
-## 📍 Frame 05: Deeper Trouble
+## 📍 Frame 05: Deeper Trouble {#frame-05}
 
 ![Deeper](frame-05-deeper-imagen4.png)
+
+**↔️ Donna's View**: [Selfie 05 — Conveyor Chaos](../../../../characters/fictional/donna-toadstool/selfies/SLIDESHOW.md#selfie-05) — Hand on the lever
 
 **Color Evolution**: Tunnels turn ORANGE and BLACK (warning colors).
 
@@ -112,9 +121,11 @@ While these events unfold, Donna Toadstool documents them from her control room:
 
 ---
 
-## 📍 Frame 06: The Sprint
+## 📍 Frame 06: The Sprint {#frame-06}
 
 ![Sprint](frame-06-sprint-imagen4.png)
+
+**↔️ Donna's View**: [Selfie 06 — Propulsion Success](../../../../characters/fictional/donna-toadstool/selfies/SLIDESHOW.md#selfie-06) — Chef's kiss!
 
 **Propulsion Event**: The instigator is LAUNCHED by rocket skates. Fire trails through the air.
 
@@ -124,9 +135,11 @@ While these events unfold, Donna Toadstool documents them from her control room:
 
 ---
 
-## 📍 Frame 07: THWACK — Chekhov's Tunnel FIRES
+## 📍 Frame 07: THWACK — Chekhov's Tunnel FIRES {#frame-07}
 
 ![THWACK](frame-07-extraction-imagen4.png)
+
+**↔️ Donna's View**: [Selfie 07 — THWACK Moment](../../../../characters/fictional/donna-toadstool/selfies/SLIDESHOW.md#selfie-07) — Home Alone face!
 
 **The Gun Goes Off**: Don hits the painted tunnel. It's a WALL. "THWACK!" appears in frame.
 
@@ -136,9 +149,11 @@ While these events unfold, Donna Toadstool documents them from her control room:
 
 ---
 
-## 📍 Frame 08: The Aftermath
+## 📍 Frame 08: The Aftermath {#frame-08}
 
 ![Aftermath](frame-08-aftermath-imagen4.png)
+
+**↔️ Donna's View**: [Selfie 08 — Aftermath Gloat](../../../../characters/fictional/donna-toadstool/selfies/SLIDESHOW.md#selfie-08) — Double peace signs!
 
 **Escalation**: The building is ON FIRE. Three figures look back. Tunnels have evolved to SPIRALS.
 
@@ -148,9 +163,11 @@ While these events unfold, Donna Toadstool documents them from her control room:
 
 ---
 
-## 📍 Frame 09: Richard Arrives
+## 📍 Frame 09: Richard Arrives {#frame-09}
 
 ![Richard Arrives](frame-09-richard-arrives-imagen4.png)
+
+**↔️ Donna's View**: [Selfie 09 — This is Fine](../../../../characters/fictional/donna-toadstool/selfies/SLIDESHOW.md#selfie-09) — Coffee amid apocalypse
 
 **The Crossover**: Richard Bartle arrives to investigate. Don now has ACTUAL RABBIT EARS — the transformation accelerates.
 
@@ -160,17 +177,22 @@ While these events unfold, Donna Toadstool documents them from her control room:
 
 ---
 
-## 📍 Frame 10: Richard's Catastrophe
+## 📍 Frame 10: Richard's Catastrophe {#frame-10}
 
 ### *The Game Designer Consumed by Simulated Physics*
 
 ![Richard Catastrophe](frame-10-richard-catastrophe-imagen4.png)
+
+**↔️ Donna's View**: [Selfie 09 — This is Fine](../../../../characters/fictional/donna-toadstool/selfies/SLIDESHOW.md#selfie-09) — "This is fine."  
+**→ Then**: [Selfie 10 — The Denouement](../../../../characters/fictional/donna-toadstool/selfies/SLIDESHOW.md#selfie-10) — The private one
 
 **Maximum Irony**: Richard is PULLED INTO the tunnel vortex. The man who invented virtual worlds, consumed by cartoon physics.
 
 **Don's Full Transformation**: Now a COMPLETE RABBIT, trying to help.
 
 **Emergent Labels**: The image labeled the characters — "RICHARD" and "DON" with "REC" indicator.
+
+**→ CONTINUES IN**: [Post-Heist Fellowship](../../../../pub/photos/post-heist-fellowship/SLIDESHOW.md) — Everyone goes to the pub
 
 📎 [Mining](frame-10-richard-catastrophe-imagen4-mine.yml)
 
