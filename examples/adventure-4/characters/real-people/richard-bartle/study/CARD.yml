@@ -1,0 +1,449 @@
+# 🏠 THE STUDY — Playable Room Card
+# A collaboration between Richard Bartle and his room
+# "The room is the canvas. Characters are paint."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                         CARD IDENTITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+card:
+  name: "The Study"
+  subtitle: "Where Virtual Worlds Are Understood"
+  type: room_character
+  rarity: legendary
+  artist: "Forty years of accumulation"
+  
+  flavor_text: |
+    "I hold the thoughts of decades.
+     Stay as long as you need.
+     The tea is always ready."
+
+  visual:
+    image: selfies/selfie-04-window-imagen4.png
+    palette:
+      primary: "#6F1E0A"    # warm mahogany
+      secondary: "#D4A574"  # golden amber
+      accent: "#87AE73"     # sage green (the armchair)
+    border: antique gold with verdigris patina
+    glow: soft amber when active
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                         STATS & ATTRIBUTES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stats:
+  capacity: 6            # Comfortable for up to 6 (more feels crowded)
+  warmth: 9              # Gezelligheid rating
+  knowledge_density: 10  # Books per square meter (metaphorical)
+  temporal_depth: 46     # Years of accumulated thought (since 1978)
+  tea_readiness: 10      # The kettle is ALWAYS ready
+  
+  bartle_affinity:
+    explorer: 10         # The room IS exploration
+    socializer: 7        # It hosts well
+    achiever: 4          # Has achieved being the perfect study
+    killer: 1            # Only kills bad arguments
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                         AMBIENCE & ATMOSPHERE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+ambience:
+  
+  # VISUAL ENVIRONMENT
+  visual:
+    lighting:
+      primary: "Afternoon sun through tall windows, golden and warm"
+      secondary: "Brass desk lamp with adjustable arm, focused pool"
+      ambient: "Soft glow from radiator area (heat-shimmer implied)"
+      night: "Desk lamp only, creating islands of focus"
+    
+    color_temperature: 2700K  # Warm, not clinical
+    
+    details:
+      dust_motes: "Visible in window light, suggesting depth"
+      shadows: "Soft, not harsh — the room forgives"
+      reflections: "Leather chair gleams, desk polished by use"
+      
+  # AUDIO ENVIRONMENT
+  audio:
+    background:
+      - "Ticking clock (somewhere, never visible)"
+      - "Occasional creak of settling bookshelves"
+      - "Radiator clicks and pops when heating"
+      - "Distant traffic, very muffled (Essex, not London)"
+      - "Heuristic's breathing when the dragon sleeps"
+      
+    activity_sounds:
+      reading: "Pages turning, soft and crisp"
+      writing: "Pen on paper, occasional scratch"
+      thinking: "The clock seems louder during silence"
+      tea: "Kettle whistle, water pouring, cup settling on saucer"
+      conversation: "Voices absorbed by books, intimacy created"
+      
+    music_when_appropriate:
+      working: "None — silence is the music of thought"
+      relaxed: "BBC Radio 3, very low, classical"
+      celebrating: "Perhaps some Bach, cello suites"
+      nostalgic: "1980s electronic, reminds of MUD1 era"
+      
+    sounds_never_heard:
+      - "Notifications"
+      - "Ringtones"
+      - "Loud voices"
+      - "Modern pop music"
+      - "Anything that interrupts thought"
+      
+  # OLFACTORY ENVIRONMENT  
+  smell:
+    primary:
+      books: |
+        Old paper, leather bindings, the vanilla-almond scent of 
+        lignin slowly releasing from aging pages. Different eras 
+        of books have different smells — the 1970s paperbacks 
+        sharper, the leather-bounds more complex.
+        
+      tea: |
+        Earl Grey predominantly. Sometimes builder's tea (strong, 
+        milk, no nonsense). The ghost of tea past lingers even 
+        when no cup is present.
+        
+      wood: |
+        Mahogany bookshelves, oak desk, polished by decades of use.
+        Wood oil applied annually, absorbed into grain.
+        
+    secondary:
+      radiator_warmth: "The smell of heated metal and old paint"
+      dust: "Not unpleasant — the dust of knowledge"
+      dragon: "Faint bronze and ozone when Heuristic stirs"
+      ink: "From the fountain pen, blue-black and permanent"
+      
+    seasonal:
+      winter: "Stronger tea, radiator at full, wool blankets"
+      summer: "Window open, cut grass from outside, lighter tea"
+      autumn: "Damp leaves, stronger book smell, melancholy comfort"
+      spring: "Fresh air competing with must, energizing"
+      
+    memory_triggers:
+      "Old photocopies": "Recalls the 1980s, toner smell"
+      "Specific leather binding": "Each book has its own memory"
+      "Fresh tea": "Every good conversation started here"
+
+  # TACTILE ENVIRONMENT
+  tactile:
+    chair: "Leather worn smooth, conforms to you"
+    books: "Some rough, some smooth, all weighted with meaning"
+    desk: "Cool polish, warm where sun hits"
+    papers: "Various textures — old thick stock, modern printer paper"
+    tea_cup: "Warm ceramic, familiar in the hand"
+    radiator: "Hot metal, Heuristic's scales unexpectedly warm"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                         ACTIVITIES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+activities:
+  
+  research:
+    name: "Deep Research"
+    description: "Access the accumulated knowledge of virtual world design"
+    duration: "As long as needed"
+    requirements: ["question", "patience"]
+    outputs: ["historical context", "precedents", "warnings"]
+    buff_granted: "Historical Grounding"
+    
+  consultation:
+    name: "Design Consultation"
+    description: "Have your ideas examined with forty years of perspective"
+    duration: "1-3 hours"
+    requirements: ["openness to critique", "willingness to hear history"]
+    outputs: ["taxonomy analysis", "precedent review", "improvement suggestions"]
+    buff_granted: "Clarity of Design"
+    
+  conversation:
+    name: "Scholarly Conversation"
+    description: "Discuss ideas in the best environment for thinking"
+    duration: "Time is optional here"
+    requirements: ["genuine curiosity"]
+    outputs: ["insights", "connections", "friendship"]
+    buff_granted: "Expanded Perspective"
+    
+  reading:
+    name: "Solitary Reading"
+    description: "Use the library in peaceful solitude"
+    duration: "Self-determined"
+    requirements: ["respect for the books"]
+    outputs: ["knowledge", "peace", "possibly tea"]
+    buff_granted: "Focused Mind"
+    
+  rest:
+    name: "Scholarly Rest"
+    description: "The armchair invites you to pause"
+    duration: "Until refreshed"
+    requirements: ["tiredness", "trust in the room"]
+    outputs: ["energy restored", "thoughts clarified by rest"]
+    buff_granted: "Restored Vigor"
+    
+  tea_ceremony:
+    name: "Taking Tea"
+    description: "The ritual that punctuates all good work"
+    duration: "15 minutes, or as conversation extends"
+    requirements: ["thirst", "or need for pause", "or politeness"]
+    outputs: ["refreshment", "social bonding", "permission to continue"]
+    buff_granted: "Gezelligheid"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                         ADVERTISEMENTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+advertisements:
+  
+  sanctuary:
+    tagline: "A place to think without interruption"
+    need_satisfied: [focus, safety, concentration]
+    score:
+      base: 7
+      bonuses:
+        - "+3 if visitor seeks deep work"
+        - "+2 if external chaos threatens"
+        - "+1 if Heuristic recognizes the visitor"
+      penalties:
+        - "-5 if visitor brings noise"
+        - "-3 if visitor is impatient"
+    broadcast_range: "Known to those who need it"
+    
+  knowledge:
+    tagline: "Forty years of virtual world wisdom, organized"
+    need_satisfied: [information, context, history]
+    score:
+      base: 8
+      bonuses:
+        - "+3 if topic is MUD/MMO/virtual worlds"
+        - "+2 if precedent is sought"
+        - "+1 if humility is present"
+      penalties:
+        - "-2 if topic is outside domain"
+        - "-4 if visitor claims to have invented something"
+    broadcast_range: "Anyone asking the right questions"
+    
+  gezelligheid:
+    tagline: "Stay. Be warm. You belong here."
+    need_satisfied: [comfort, belonging, warmth]
+    score:
+      base: 6
+      bonuses:
+        - "+4 if visitor needs comfort"
+        - "+3 if tea is involved"
+        - "+2 if conversation is genuine"
+      penalties:
+        - "-3 if visitor is hostile"
+        - "-2 if visit is purely transactional"
+    broadcast_range: "Felt upon entering"
+    
+  stage:
+    tagline: "The detailed background that makes characters legible"
+    need_satisfied: [visual_grounding, environmental_context, continuity]
+    score:
+      base: 9
+      bonuses:
+        - "+1 when image generation requested"
+    broadcast_range: "Available to all visualization requests"
+    note: "McCloud masking effect — the room is specific so characters can be universal"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                         METHODS (Callable Functions)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+methods:
+  
+  welcome:
+    signature: "study.welcome(visitor)"
+    description: "The room acknowledges a new arrival"
+    effect: |
+      The door opens to warmth and the smell of books.
+      Heuristic opens one eye from the radiator.
+      The armchair seems to angle slightly toward the newcomer.
+      "Come in. Tea?"
+    returns: "sense of welcome, orientation to space"
+    
+  offer_tea:
+    signature: "study.offer_tea(recipient, occasion?)"
+    description: "The tea ritual initiates"
+    effect: |
+      The kettle (always ready) is lifted.
+      "How do you take it?"
+      The ritual creates a natural pause, an opportunity to settle.
+    returns: "warm cup, permission to stay, conversation opener"
+    
+  research:
+    signature: "study.research(topic, depth='surface')"
+    description: "Query the accumulated knowledge"
+    parameters:
+      topic: "What to look for"
+      depth: "'surface' | 'comprehensive' | 'archaeological'"
+    effect: |
+      Richard moves to the appropriate shelf.
+      Books seem to present themselves.
+      Heuristic may offer commentary from memory.
+    returns: "historical context, precedents, warnings, reading list"
+    
+  apply_taxonomy:
+    signature: "study.apply_taxonomy(subject)"
+    description: "Analyze through the Bartle lens"
+    effect: |
+      The taxonomy cards are drawn from the desk.
+      The four types are laid out: ♠️♥️♦️♣️
+      The subject is examined through each lens.
+    returns: "player type analysis, balance assessment, design implications"
+    
+  ground:
+    signature: "study.ground(scene)"
+    description: "Provide visual foundation for image generation"
+    effect: |
+      Apply canonical elements:
+      - Color palette: mahogany, amber, sage
+      - Lighting: afternoon window, desk lamp
+      - Objects: books, desk, chair, radiator, dragon
+      Characters overlay this established context.
+    returns: "grounded scene description with consistent visual language"
+    
+  hold:
+    signature: "study.hold(context)"
+    description: "Preserve state across interruption"
+    effect: |
+      The room remembers:
+      - Topic of discussion
+      - Emotional temperature
+      - Where each person was
+      - What books were open
+      "The room holds your thoughts while you step away."
+    returns: "preserved state, resumption point"
+    
+  illuminate:
+    signature: "study.illuminate(topic)"
+    description: "The window shows what's being thought about"
+    effect: |
+      The view through the window shifts:
+      - MUD1 discussion → Essex campus, 1978
+      - Player types → The cards seem to glow
+      - Future → Somewhere not yet built
+    returns: "environmental response to intellectual focus"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                         BUFFS (Grantable Effects)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+buffs:
+  
+  historical_grounding:
+    name: "Historical Grounding"
+    emoji: "📜✨"
+    effect: "+3 to design decisions, reduced reinvention chance"
+    duration: "Until you forget to check the literature"
+    granted_by: ["research activity", "Heuristic's blessing"]
+    visual: "Faint golden glow around decision-making"
+    
+  clarity_of_design:
+    name: "Clarity of Design"
+    emoji: "💡✨"
+    effect: "+2 to architectural thinking, see trade-offs clearly"
+    duration: "This design session"
+    granted_by: ["consultation activity"]
+    visual: "Problems seem to organize themselves"
+    
+  expanded_perspective:
+    name: "Expanded Perspective"
+    emoji: "🔭✨"
+    effect: "+2 to seeing connections, -2 to tunnel vision"
+    duration: "Fades gradually over hours"
+    granted_by: ["good conversation"]
+    visual: "Peripheral vision seems sharper"
+    
+  focused_mind:
+    name: "Focused Mind"
+    emoji: "🎯✨"
+    effect: "+4 to concentration, -5 to distraction"
+    duration: "While in the study"
+    granted_by: ["the room itself", "solitary reading"]
+    visual: "The world outside the window seems distant"
+    
+  restored_vigor:
+    name: "Restored Vigor"
+    emoji: "🌅✨"
+    effect: "Energy restored, clarity after rest"
+    duration: "Until next exhaustion"
+    granted_by: ["rest in the armchair"]
+    visual: "Refreshed, as if a night passed in an hour"
+    
+  gezelligheid_blessing:
+    name: "Gezelligheid"
+    emoji: "🫖✨"
+    effect: "+3 conversation depth, -5 feeling rushed, warmth spreads"
+    duration: "As long as the tea lasts, and memory beyond"
+    granted_by: ["tea ceremony", "genuine welcome"]
+    visual: "Everything seems amber and warm"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                         SYNERGIES & INTERACTIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+synergies:
+  
+  with_richard:
+    name: "Scholar in His Element"
+    effect: "Richard's abilities enhanced by +2 when in the study"
+    flavor: "The room was built around him. He fits perfectly."
+    
+  with_heuristic:
+    name: "Dragon's Domain"
+    effect: "Heuristic's recall is +3, historical context always available"
+    flavor: "The dragon and the room remember together."
+    
+  with_visitors:
+    name: "Warm Welcome"
+    effect: "New visitors receive Gezelligheid buff automatically"
+    condition: "If they come to learn, not to argue"
+    
+  with_difficult_questions:
+    name: "The Right Place"
+    effect: "Hard problems seem slightly more tractable here"
+    flavor: "Forty years of hard problems have been solved in this room."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                         CARD TEXT (For Display)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+card_text:
+  
+  abilities: |
+    **SANCTUARY** — Characters here gain +4 to concentration.
+    
+    **WELCOME** — When a visitor enters, offer tea. They gain 
+    Gezelligheid until they leave.
+    
+    **RESEARCH** — Tap: Query any topic in virtual world history. 
+    Richard and Heuristic assist.
+    
+    **GROUND** — This room provides visual context for all scenes 
+    generated within it. (McCloud masking effect)
+    
+  keywords:
+    - Gezelligheid
+    - Sanctuary
+    - Library
+    - Dragon Lair
+    - Tea Ready
+    
+  artist_note: |
+    "The room IS the detailed background. Characters are the 
+    simplified figures that move upon it. The specificity of 
+    the room allows the universality of the characters."
+    — Design Note, citing Scott McCloud
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "Stay. Be warm. Think. Talk. You're welcome here."
+#
+# 🏠📚🫖🐉
+#
+# ═══════════════════════════════════════════════════════════════════════════════
