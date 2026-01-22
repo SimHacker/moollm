@@ -36,7 +36,7 @@ These scenes follow:
 
 ---
 
-## 📍 Scene 01: The Gathering
+## 📍 Scene 01: The Gathering {#scene-01}
 
 ### *"Nobody's talking about what happened. They don't need to."*
 
@@ -56,7 +56,7 @@ These scenes follow:
 
 ---
 
-## 📍 Scene 02: The Group Selfie
+## 📍 Scene 02: The Group Selfie {#scene-02}
 
 ### *"BACK ON"*
 
@@ -72,9 +72,11 @@ These scenes follow:
 
 ---
 
-## 📍 Scene 03: Reviewing the Feed
+## 📍 Scene 03: Reviewing the Feed {#scene-03}
 
 ### *"She documelated ALL of this??"*
+
+**↔️ What Don Sees**: [Donna's Full Selfie Series](../../../characters/fictional/donna-toadstool/selfies/SLIDESHOW.md)
 
 ![Reviewing Feed](pub-scene-03-reviewing-feed-imagen4.png)
 
@@ -88,7 +90,7 @@ These scenes follow:
 
 ---
 
-## 📍 Scene 04: The Open Mic
+## 📍 Scene 04: The Open Mic {#scene-04}
 
 ### *"Let me tell you MY side of the story."*
 

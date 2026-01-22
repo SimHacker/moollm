@@ -36,7 +36,7 @@ This series intersects with:
 
 ---
 
-## 📍 Selfie 1: The Punk-Hippie Synthesis
+## 📍 Selfie 1: The Punk-Hippie Synthesis {#selfie-01}
 
 ### *"Hippie and punk aren't opposites. They're RELATIVES."*
 
@@ -62,7 +62,7 @@ This series intersects with:
 
 ---
 
-## 📍 Selfie 2: Operation Inflation
+## 📍 Selfie 2: Operation Inflation {#selfie-02}
 
 ### *"SMASH THE PATRIARCHY... WITH CONFETTI"*
 
@@ -85,7 +85,7 @@ This series intersects with:
 
 ---
 
-## 📍 Selfie 3: The Treasure Swim
+## 📍 Selfie 3: The Treasure Swim {#selfie-03}
 
 ### *"MINE! MINE! MINE! IT'S ALL MINE!!!"*
 
@@ -112,14 +112,15 @@ This series intersects with:
 
 ---
 
-## 📍 Selfie 4: The Confrontation
+## 📍 Selfie 4: The Confrontation {#selfie-04}
 
 ### *"OH NO!" vs "MINE! MINE!"*
 
 ![Donna Arrives](2026-01-23-05-05-00-donna-arrives-imagen4.png)
 
 **Time**: ~05:05 AM  
-**Location**: The Vault — NOW COMPROMISED
+**Location**: The Vault — NOW COMPROMISED  
+**↔️ Donna's Arc**: She was last seen in [Selfie 10 — The Denouement](../../../fictional/donna-toadstool/selfies/SLIDESHOW.md#selfie-10) — now she's HERE!
 
 **The Moment**: Don is swimming in treasure. Then: a RUMBLING. The painted tunnel swirls. And through it bursts DONNA TOADSTOOL. Phone already out. Already taking a selfie.
 
@@ -128,15 +129,13 @@ This series intersects with:
 - "OH NO!" — Don's dialogue
 - "MINE!" "MINE!" — Donna's claims (twice!)
 
-**The Connection**: This is where Don's story meets Donna's. She's been watching him through the heist. Now she's HERE.
-
-→ **See also**: [Donna's Heist Selfies](../../../fictional/donna-toadstool/selfies/SLIDESHOW.md) — her perspective on all this
+**The Collision**: This is where Don's story and Donna's story MERGE. She watched him through the [entire heist](../../../../street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/SLIDESHOW.md). Now she's HERE. Two timelines, one vault.
 
 📎 **Files**: [Definition](2026-01-23-05-05-00-donna-arrives.yml) | [Prompt](2026-01-23-05-05-00-donna-arrives-prompt.txt) | [Mining](2026-01-23-05-05-00-donna-arrives-imagen4-mine.yml)
 
 ---
 
-## 📍 Selfie 5: The Tug-of-War
+## 📍 Selfie 5: The Tug-of-War {#selfie-05}
 
 ### *"IT'S MINE!"*
 
@@ -155,7 +154,7 @@ This series intersects with:
 
 ---
 
-## 📍 Selfie 6: The Realization
+## 📍 Selfie 6: The Realization {#selfie-06}
 
 ### *"...We're both Daffy Duck."*
 
@@ -174,7 +173,7 @@ This series intersects with:
 
 ---
 
-## 📍 Selfie 7: The OURS Accord
+## 📍 Selfie 7: The OURS Accord {#selfie-07}
 
 ### *"From MINE to OURS"*
 
