@@ -51,6 +51,12 @@ The motorcoach's Mind Mirror reflects a confident, energetic industrial heritage
 
 **Don:** "I carry my sanctuary with me. The FMC is my shell, just as the Study is Richard's. But where the Study is a Victorian time capsule, the FMC is an industrial pusher. My directory `don-hopkins/` transcludes both: my character in `CHARACTER.yml` and my machine soul in `ROOM.yml`."
 
+### Portable Vehicular Identity (Choice of Architecture)
+
+**Richard:** "I noticed you chose to *be* the vehicle, rather than simply *having* one in a subdirectory like my Study. Why the unified directory structure?"
+
+**Don:** "I wanted to experiment with **Portable Vehicular Identity**. By putting the `ROOM.yml` at my top-level directory, I've merged my identity with my sanctuary. When I move, the entire 'Don Hopkins' namespace moves with me. I don't just own an FMC; I inhabit its parameters. It's a tighter binding of the character-room concept."
+
 **Richard:** "It's polymorphic. You are the rabbit, but you are also the 30-foot fiberglass coach. One directory, two fundamental facets of being."
 
 **Heuristic:** "I've been in both. The Study has better tea, but the FMC has better vibration for napping."
