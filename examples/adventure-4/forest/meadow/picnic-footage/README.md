@@ -31,6 +31,7 @@ massive fluffy clouds, and perfect picnic weather.
 | [09 - Donna Duel](frame-09-donna-duel.yml) | 13:11:42 | Real Donna vs. Glitched Trash Can Decoy | ✅ MINED |
 | [10 - Egg Expansion](frame-10-egg-expansion.yml) | 13:26:42 | Donna opens the 12-foot Fabergé TARDIS | ✅ MINED |
 | [11 - Tamale Automation](frame-11-tamale-automation.yml) | 13:46:12 | Factorio-style assembly line from the Egg | ✅ MINED |
+| [12 - Voracious Feast](frame-12-the-feast.yml) | 14:30:00 | The three pioneers descend on the food | ✅ MINED |
 
 ### Generated Imagery
 
@@ -45,6 +46,7 @@ massive fluffy clouds, and perfect picnic weather.
 - **Frame 09:** `frame-09-donna-duel-...-donna-duel.png`
 - **Frame 10:** `frame-10-egg-expansion-...-egg-expansion.png`
 - **Frame 11:** `frame-11-tamale-automation-...-tamale-automation.png`
+- **Frame 12:** `frame-12-the-feast-...-the-feast-simple.png`
 
 ---
 
@@ -62,6 +64,8 @@ massive fluffy clouds, and perfect picnic weather.
 | **Donna T.** | Real Donna is **'ACME Quality Control'**; Gatekeeper of the OURS Accord. |
 | **The Decoy** | Glitched into a **1970s McDonald's-style trash can** with a swinging 'PUSH' door and a red silk tie. |
 | **The TARDIS Egg** | 12-foot **green and gold Fabergé Egg**; contains a built-in **'Factorio Kitchen'** with brass conveyor belts and golden Inserters. |
+| **The Feast** | Three pioneers eating **'vorciferously and vermiciously'**; Don's ear dipped in salsa; Richard's cardigan stained with red sauce. |
+| **The Aftermath** | Cheddar pyramid reduced to a jagged stump; corn husks everywhere like ancient parchment. |
 | **Containment** | **Pocket Dimension** (amethyst keychain) swallows the black hole; **Self-Healing Module** (green) patches the tree. |
 | **Draconic Power** | Heuristic incinerates the decoy with a **blue-spark blast**; scales confirmed as **'Hammered Copper Amber'**. |
 
