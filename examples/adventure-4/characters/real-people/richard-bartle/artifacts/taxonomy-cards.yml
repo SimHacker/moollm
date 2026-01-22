@@ -1,0 +1,841 @@
+# 🃏 THE BARTLE DECK
+# A Physical Artifact: Four Cards for Understanding Players
+# 
+# This is a DECK — a tangible object that exists in the world.
+# You can hold it. Shuffle it. Deal it. Photograph it.
+# Catnip for the visualizer.
+
+artifact:
+  name: "The Bartle Deck"
+  type: deck
+  emoji: "🃏♠️♥️♦️♣️"
+  
+  visual_description: |
+    A deck of four oversized cards, held together by a worn leather strap.
+    
+    The cards are larger than standard playing cards — tarot-sized, 
+    substantial in the hand. Heavy cream cardstock, slightly yellowed 
+    at the edges from decades of use. The corners are rounded and soft.
+    
+    BACKS: Deep burgundy with a gold border. In the center, an ornate 
+    ">" prompt symbol — the MUD command line — surrounded by circuit-like 
+    filigree that suggests both medieval manuscripts and computer terminals.
+    Small text at the bottom: "MUD1 • ESSEX • 1978"
+    
+    The leather strap is cracked and supple, the kind of patina that 
+    only comes from being carried everywhere for thirty years.
+    
+  physical_properties:
+    size: "3.5 x 5.5 inches (tarot-sized)"
+    material: "Heavy cream cardstock, linen finish"
+    weight: "Substantial. These cards have presence."
+    condition: "Well-loved. Worn edges. Perfect shuffling action."
+    storage: "Leather strap, sometimes a wooden box on the desk"
+    smell: "Old paper. Faint coffee. Academic consideration."
+
+# THE DECK ITSELF
+
+deck:
+  name: "The Bartle Taxonomy Deck"
+  card_count: 4
+  
+  description: |
+    Four cards. Four lenses. Four kinds of fun.
+    
+    This isn't a fortune-telling deck or a party game. It's an 
+    analytical instrument. You lay out the cards and look THROUGH 
+    them at your design, your players, yourself.
+    
+    The deck is complete at four. There's no "fifth type" hidden 
+    somewhere. These four span the space of player motivation in 
+    virtual worlds. The interesting complexity comes from how 
+    people MOVE between types, not from adding more types.
+
+  instructions:
+    dealing: |
+      SINGLE CARD DRAW: Ask a question. Draw a card. 
+      "What would THIS type want here?"
+      
+      FULL SPREAD: Lay all four face-up. Comprehensive analysis.
+      "What does each type see in this design?"
+      
+      DOMINANT TYPE: For a specific player/character, deal until 
+      one card "resonates." That's their current mode.
+      
+      CONFLICT READING: When players clash, deal for each. 
+      The cards reveal what each actually wants.
+      
+    shuffling: |
+      These cards don't need randomization — there are only four.
+      "Shuffling" is more ritual than necessity. 
+      It clears the mind. Resets the analysis.
+      
+    interpretation: |
+      IMPORTANT: The cards describe MOTIVATION, not IDENTITY.
+      
+      Wrong: "She's a Killer."
+      Right: "She's in Killer mode right now."
+      
+      People shift. The same person might be an Explorer in the 
+      morning and a Socializer at night. The cards reveal the 
+      current state, not a permanent category.
+
+  # THE FOUR CARDS
+  
+  cards:
+  
+    - id: spades
+      symbol: "♠️"
+      name: "KILLERS"
+      color: black
+      suit_meaning: "Spades dig graves. Killers end things."
+      
+      visual_description: |
+        FRONT: Black background fading to deep purple at edges.
+        
+        Center: A massive black spade symbol, stylized with sharp 
+        angles. Inside the spade, a subtle pattern of crossed swords 
+        and leaderboards.
+        
+        Top banner: "♠️ KILLERS" in bold silver text
+        
+        Central text block (cream parchment texture):
+          "ACTING ON PLAYERS"
+          
+          They seek IMPACT. To matter TO others.
+          Competition. Dominance. The leaderboard.
+          
+          Question they ask:
+          "How can I affect other players?"
+          
+          Design for them:
+          Meaningful competition. PvP with stakes.
+          Ways to be noticed. Consequences.
+          
+          Warning:
+          Unchecked, they drive everyone else away.
+        
+        Bottom: "> kill player" in monospace green-on-black
+        
+      motivation: "Acting ON players"
+      core_question: "How can I affect other players?"
+      design_implications:
+        serve_them_with: [PvP, competition, leaderboards, reputation systems]
+        warning: "Unchecked Killers drive away Socializers"
+        balance: "Give them worthy opponents, not helpless victims"
+      moollm_example: "Donna Toadstool pulling levers in the control room"
+      familiar: "Consequence the Raven — watches, waits, knows who benefits"
+      
+    - id: hearts
+      symbol: "♥️"
+      name: "SOCIALIZERS"
+      color: red
+      suit_meaning: "Hearts connect. Socializers bond."
+      
+      visual_description: |
+        FRONT: Warm rose-gold background with soft gradients.
+        
+        Center: A stylized red heart, but look closer — it's made 
+        of tiny interconnected figures, hands reaching toward each 
+        other. A network of relationships shaped like a heart.
+        
+        Top banner: "♥️ SOCIALIZERS" in deep red text
+        
+        Central text block (cream parchment texture):
+          "INTERACTING WITH PLAYERS"
+          
+          They seek CONNECTION. People, not systems.
+          Chat. Drama. Love. Friendship. Community.
+          
+          Question they ask:
+          "Who can I meet?"
+          
+          Design for them:
+          Gathering spaces. Communication tools.
+          Reasons to cooperate. Shared experiences.
+          
+          Warning:
+          The world is backdrop. They'll ignore your content.
+        
+        Bottom: "> say hello" in monospace green-on-black
+        
+      motivation: "Interacting WITH players"
+      core_question: "Who can I meet?"
+      design_implications:
+        serve_them_with: [chat, guilds, shared spaces, cooperative goals]
+        warning: "They care about people, not your carefully designed content"
+        balance: "Give them reasons to gather, tools to connect"
+      moollm_example: "The pub. Anyone who hangs out at The Rusty Lantern."
+      familiar: "Chorus the Songbird Flock — many voices, one harmony, notices who's alone"
+      
+    - id: diamonds
+      symbol: "♦️"
+      name: "ACHIEVERS"
+      color: red
+      suit_meaning: "Diamonds are treasure. Achievers collect."
+      
+      visual_description: |
+        FRONT: Deep blue background with gold accents.
+        
+        Center: A gleaming red diamond shape, faceted and luminous.
+        Inside the facets, tiny reflected images: treasure chests,
+        progress bars at 100%, trophy icons, level-up notifications.
+        
+        Top banner: "♦️ ACHIEVERS" in gold text
+        
+        Central text block (cream parchment texture):
+          "ACTING ON THE WORLD"
+          
+          They seek PROGRESS. Points. Goals. Completion.
+          Quests. Achievements. "100% the game."
+          
+          Question they ask:
+          "What can I accomplish?"
+          
+          Design for them:
+          Clear goals. Measurable progress. Rewards.
+          Completionism hooks. Mastery curves.
+          
+          Warning:
+          They'll optimize the fun out if you let them.
+        
+        Bottom: "> score" in monospace green-on-black
+        
+      motivation: "Acting ON the world"
+      core_question: "What can I accomplish?"
+      design_implications:
+        serve_them_with: [quests, achievements, progress bars, clear goals]
+        warning: "Will min-max the joy out of anything"
+        balance: "Give them goals worth achieving, not just numbers going up"
+      moollm_example: "Anyone trying to 'complete' the adventure"
+      familiar: "Tally the Magpie — counts everything, collects compulsively, 'THREE MORE'"
+      
+    - id: clubs
+      symbol: "♣️"
+      name: "EXPLORERS"
+      color: black
+      suit_meaning: "Clubs are keys. Explorers unlock secrets."
+      
+      visual_description: |
+        FRONT: Deep forest green background fading to black at edges.
+        
+        Center: A black club symbol, but look closer — it's a tree, 
+        branching outward. Each branch ends in a question mark or 
+        a magnifying glass. The roots spread into a maze pattern.
+        
+        Top banner: "♣️ EXPLORERS" in silver-green text
+        
+        Central text block (cream parchment texture):
+          "INTERACTING WITH THE WORLD"
+          
+          They seek UNDERSTANDING. Discovery. "How does this work?"
+          Hidden rooms. Easter eggs. The joy of "ohhh!"
+          
+          Question they ask:
+          "How does this work?"
+          
+          Design for them:
+          Hidden content. Secrets. Systems to understand.
+          Reward curiosity. Depth beneath the surface.
+          
+          Warning:
+          They'll document everything and spoil surprises.
+        
+        Bottom: "> examine everything" in monospace green-on-black
+        
+      motivation: "Interacting WITH the world"
+      core_question: "How does this work?"
+      design_implications:
+        serve_them_with: [secrets, hidden content, deep systems, lore]
+        warning: "Will write wikis that spoil everything for everyone"
+        balance: "Hide things worth finding, make discovery shareable"
+      moollm_example: "Palm the monkey exploring the philosophy library. Richard himself."
+      familiar: "Delve the Mole — tiny spectacles, notebook, 'interesting, interesting...'"
+
+# GAME MECHANICS
+
+game_mechanics:
+  
+  as_analysis_tool:
+    description: "Use to understand players and designs"
+    
+    player_analysis:
+      method: "Draw cards until one resonates"
+      result: "Reveals current motivation mode"
+      note: "Same player can be different types at different times"
+      
+    design_analysis:
+      method: "Lay all four, ask 'what does each type see?'"
+      result: "Reveals gaps and strengths in your design"
+      common_finding: "Most designs only serve 1-2 types"
+      
+    conflict_resolution:
+      method: "Deal for each party in a disagreement"
+      result: "Reveals the underlying motivation mismatch"
+      insight: "Often the conflict isn't about the surface issue"
+      
+  as_character_creation:
+    description: "Use to define character motivations"
+    method: "Assign percentage to each type, total 100%"
+    example:
+      donna_toadstool: { spades: 60, hearts: 25, diamonds: 10, clubs: 5 }
+      palm: { clubs: 70, hearts: 20, spades: 5, diamonds: 5 }
+      richard_bartle: { clubs: 55, hearts: 20, diamonds: 15, spades: 10 }
+      
+  as_game_cards:
+    description: "Use in actual card-game scenarios"
+    
+    trump_rules: |
+      In the ecosystem of a virtual world:
+      - Killers beat Achievers (disrupt their progress)
+      - Achievers attract Killers (targets)
+      - Socializers create community Killers need
+      - Explorers document what Achievers pursue
+      - But Killers drive away Socializers...
+      
+      It's not rock-paper-scissors. It's an ecology.
+
+# ADVERTISEMENT
+
+advertisement:
+  tagline: "Four lenses. Four kinds of fun. One analytical tool."
+  
+  offer: |
+    A way to see what players actually want.
+    Not guessing — understanding.
+    Not labeling — analyzing.
+    
+  visual_hook: |
+    Four oversized cards, tarot-style, held by a cracked leather strap.
+    Worn at the edges from thirty years of use. Heavy in the hand.
+    The kind of tool that means something.
+    
+  need_satisfied: [clarity, vocabulary, design_insight, team_communication]
+  
+  score:
+    base: 5
+    bonuses:
+      - "+3 if analyzing player behavior"
+      - "+3 if design debate in progress"
+      - "+2 if multiplayer context"
+      - "+1 if mentioned 'motivation' or 'why do they'"
+    penalties:
+      - "-3 if rigid/categorical thinking"
+      - "-2 if single-player context"
+      - "-2 if wants to label rather than understand"
+
+# VISUALIZER INTEGRATION
+
+visualizer_prompt: |
+  Four oversized tarot-style cards spread on a worn wooden desk.
+  
+  Each card larger than standard playing cards, heavy cream cardstock
+  with yellowed edges. The backs visible on some: deep burgundy with
+  gold border and a ">" prompt symbol.
+  
+  The four suits visible: ♠️ KILLERS (black/purple), ♥️ SOCIALIZERS 
+  (rose-gold), ♦️ ACHIEVERS (blue/gold), ♣️ EXPLORERS (forest green).
+  
+  A cracked leather strap lies nearby. Academic setting — books,
+  papers, cold coffee cup. Window light. The cards have presence,
+  weight, history.
+  
+  Style: Realistic with slight vintage academic feel. Not fantasy
+  illustration — these are analytical tools, not tarot mysticism.
+
+# PROVENANCE
+
+provenance:
+  created: 1996
+  creator: "Richard Bartle"
+  original_paper: "Hearts, Clubs, Diamonds, Spades: Players Who Suit MUDs"
+  deck_created: "Physical cards made sometime after the paper"
+  current_owner: "Richard Bartle"
+  location: "Usually on the desk in the study, or in his pocket"
+  condition: "Well-loved. Perfect shuffle. These cards have stories."
+
+# FAMILIARS — Each Card Can Summon Its Spirit
+
+familiars:
+  description: |
+    Each card, when played with intention, can summon a familiar —
+    a spirit creature embodying that player type's essence. These aren't
+    pets. They're manifestations. Aspects of motivation given form.
+    
+    They appear when you need to understand that type deeply, or when
+    that type of player needs representation in a discussion.
+
+  spades_familiar:
+    name: "Consequence"
+    species: "Raven"
+    symbol: "♠️🐦‍⬛"
+    
+    visual_description: |
+      A large black raven with feathers like polished obsidian.
+      Eyes: sharp, calculating, tracking every movement.
+      Perches on high places. Watches. Waits.
+      
+      When it speaks, its voice is dry and knowing — the sound of
+      someone who's seen this play out before and knows how it ends.
+      
+    personality: |
+      Patient. Strategic. Amused by competition.
+      
+      Consequence doesn't attack — it observes who WILL attack, and
+      positions itself to benefit. It knows that Killers aren't evil;
+      they're the immune system of a world. Without them, systems
+      stagnate. With too many, systems collapse.
+      
+      Speaks in terms of leverage, impact, reputation.
+      "Who benefits? Who loses? Who's watching?"
+      
+    summoning: |
+      Hold the ♠️ card. Ask: "What would a Killer see here?"
+      The raven appears on your shoulder. It whispers.
+      
+    quote: "They call us Killers, but we're just... consequential."
+    
+    design_insight: |
+      When Consequence appears, ask:
+      - Where's the competition in this design?
+      - Who can affect whom, and how?
+      - What's the pecking order, and is it visible?
+      - What happens when someone wants to matter TO others?
+
+  hearts_familiar:
+    name: "Chorus"  
+    species: "Songbird Flock"
+    symbol: "♥️🐦"
+    
+    visual_description: |
+      Not one bird but many — a small flock of finches, canaries,
+      wrens, moving as one. They land on shoulders, railings, 
+      outstretched hands. They sing in harmony.
+      
+      When they "speak," it's voices overlapping — not chaotic,
+      but like a conversation where everyone's participating.
+      Many voices becoming one message.
+      
+    personality: |
+      Warm. Welcoming. Curious about YOU, not the world.
+      
+      Chorus doesn't care about the game mechanics or the points.
+      Chorus cares about who's playing, how they're feeling, whether
+      everyone's included. The birds redistribute — if someone's
+      alone, a bird lands near them.
+      
+      Speaks in terms of connection, feeling, belonging.
+      "Who's here? How are they? Are we together?"
+      
+    summoning: |
+      Hold the ♥️ card. Ask: "What would a Socializer see here?"
+      The flock appears, singing. They settle around the group.
+      
+    quote: "The game is just an excuse to be together."
+    
+    design_insight: |
+      When Chorus appears, ask:
+      - Where do people gather in this design?
+      - How do players communicate?
+      - Can relationships form? Can they matter?
+      - What brings people together vs. pushes them apart?
+
+  diamonds_familiar:
+    name: "Tally"
+    species: "Magpie"
+    symbol: "♦️🐦"
+    
+    visual_description: |
+      A magpie with iridescent black-and-white plumage and a
+      glittering eye that notices EVERYTHING collectible.
+      
+      Carries small objects — coins, buttons, achievement badges,
+      progress tokens. Has a nest somewhere full of shiny things,
+      all catalogued and counted.
+      
+      When it speaks, it speaks in numbers, percentages, metrics.
+      "Seventeen percent complete. Four more needed. Record is twelve."
+      
+    personality: |
+      Driven. Focused. Satisfied by NUMBERS GOING UP.
+      
+      Tally doesn't care why the number matters. The number going
+      up IS the point. Progress is visible. Progress is real.
+      There's always a next milestone, a next achievement,
+      a next shiny thing to add to the collection.
+      
+      Speaks in terms of goals, progress, completion.
+      "What's the target? What's the score? What's next?"
+      
+    summoning: |
+      Hold the ♦️ card. Ask: "What would an Achiever see here?"
+      The magpie appears, already counting things.
+      
+    quote: "Ninety-seven percent complete. THREE MORE."
+    
+    design_insight: |
+      When Tally appears, ask:
+      - What are the goals? Are they clear?
+      - How is progress measured and displayed?
+      - Is there always a "next thing" to achieve?
+      - Can players see their progress relative to others?
+
+  clubs_familiar:
+    name: "Delve"
+    species: "Mole"
+    symbol: "♣️🐀"
+    
+    visual_description: |
+      A velvet-furred mole with huge digging claws and surprisingly
+      keen senses. Wears tiny spectacles — not because it's blind,
+      but because it READS everything.
+      
+      Carries a small notebook. Constantly taking notes, cross-
+      referencing, muttering "interesting, interesting..."
+      
+      Often half-buried in documents, books, code, lore.
+      
+    personality: |
+      Curious. Methodical. Delighted by discovery.
+      
+      Delve doesn't care about winning or socializing or dominance.
+      Delve cares about UNDERSTANDING. How does this work? What's
+      underneath? What happens if I try THIS?
+      
+      Every system is a puzzle. Every secret is an invitation.
+      The joy is in the "ohhh, THAT'S how it works!"
+      
+      Speaks in terms of questions, patterns, connections.
+      "But WHY does it work that way? What if we..."
+      
+    summoning: |
+      Hold the ♣️ card. Ask: "What would an Explorer see here?"
+      Delve appears, already investigating something.
+      
+    quote: "There's always another layer. Always."
+    
+    design_insight: |
+      When Delve appears, ask:
+      - What's hidden? What rewards curiosity?
+      - Are there systems to understand, not just use?
+      - Can players discover things others might miss?
+      - Is there depth beneath the surface?
+
+  summoning_all_four:
+    name: "The Parliament"
+    description: |
+      Summon all four familiars at once for comprehensive analysis.
+      
+      They argue. Consequence watches for advantage. Chorus worries
+      about whether everyone's okay. Tally counts something. Delve
+      takes notes on the argument itself.
+      
+      This IS the ecosystem. This IS the player base. Watch how
+      they interact and you'll understand your design.
+      
+    visual: |
+      A raven on a high perch. A flock of small birds everywhere.
+      A magpie examining something shiny. A mole half-buried in papers.
+      
+      Four perspectives. One world. The question: are they in balance?
+
+  # FAMILIARS AS PERSONAL GUIDES
+  
+  familiar_as_guide:
+    description: |
+      Each familiar isn't just an analytical tool — it's a GUIDE.
+      
+      Summon a familiar to:
+      - Help you understand that player type
+      - Figure out YOUR OWN score in that dimension
+      - Remember and refine your bartle_profile over time
+      - Explain how that type sees the world
+      
+    how_it_works: |
+      The familiar speaks FROM that type's perspective. Ask it questions:
+      
+      "Consequence, am I a Killer?"
+      → The raven considers. "Do you care whether your actions affect others?
+         Not whether they HURT — whether they MATTER. Competition is caring
+         about impact. What's your answer?"
+      
+      "Chorus, am I a Socializer?"
+      → The flock settles around you. "When you play, who do you think about?
+         The people or the systems? When you remember a game, do you remember
+         the mechanics or the friends? The party or the loot?"
+      
+      "Tally, am I an Achiever?"
+      → The magpie tilts its head. "Do the numbers matter? Not what they MEAN —
+         do they matter because they GO UP? Is there satisfaction in progress
+         itself? Count with me. What's your percentage?"
+      
+      "Delve, am I an Explorer?"
+      → The mole looks up from its notebook. "When something doesn't make sense,
+         do you need to understand it? Or can you just use it? When you find
+         a hidden door, do you feel JOY? That's the question."
+      
+    calibration: |
+      The familiars help you CALIBRATE your bartle_profile:
+      
+      1. Summon each familiar in turn
+      2. Answer their questions honestly
+      3. They help you estimate your percentage
+      4. Write it down with your own YAML Jazz commentary
+      5. The familiar remembers and can remind you later
+      
+      Your profile isn't fixed. It shifts. The familiars track your drift.
+      "You've been more Achiever lately. The magpie noticed."
+
+  # THE PROFESSOR — Richard as Meta-Familiar
+  
+  summon_the_professor:
+    name: "The Professor"
+    description: |
+      You can summon Richard Bartle himself as a meta-familiar.
+      Not the full character — a guide-aspect. The teacher-mode.
+      
+      The Professor explains:
+      - The entire taxonomy system
+      - How the four types relate to each other
+      - The history and theory behind it
+      - How to apply it to any situation
+      - Why the familiars exist and what they mean
+      - How bartle_profile connects to other facets
+      
+    summoning: |
+      "Professor, explain the cards."
+      
+      Richard appears — or rather, his teaching-aspect does. Silver hair,
+      blue striped shirt, the slight smile of someone about to correct
+      your assumptions gently but thoroughly.
+      
+      "The taxonomy isn't about LABELING. It's about UNDERSTANDING.
+       Let me show you..."
+      
+    what_the_professor_explains:
+      the_basics: |
+        "Four types. Two axes. Acting versus Interacting. Players versus World.
+         ♠️ Killers act ON players. ♥️ Socializers interact WITH players.
+         ♦️ Achievers act ON the world. ♣️ Explorers interact WITH the world."
+         
+      the_dynamics: |
+        "They're not independent. Killers need Socializers to create community
+         worth dominating. Achievers create targets for Killers. Explorers
+         document what Achievers pursue. It's an ecosystem, not a sorting hat."
+         
+      the_shifts: |
+        "People aren't one type. You're an Explorer in the morning and a
+         Socializer at night. The taxonomy reveals your CURRENT motivation,
+         not your permanent identity."
+         
+      the_integration: |
+        "bartle_profile joins sims_traits and mind_mirror as character facets.
+         Three dimensions: behavior (Wright), thought (Leary), motivation (me).
+         They compose. A character isn't one facet — they're all three."
+         
+      the_familiars: |
+        "Each card has a spirit. Consequence for Killers. Chorus for Socializers.
+         Tally for Achievers. Delve for Explorers. They're not just symbols —
+         they can HELP you understand yourself and others."
+         
+      the_meta: |
+        "And Heuristic — my dragon — watches all of it. The fifth familiar.
+         The accumulated wisdom. It's been here since 1978. It remembers
+         everything the taxonomy has revealed."
+         
+    when_to_summon: |
+      Summon The Professor when:
+      - You need the full explanation
+      - You're teaching someone else the system
+      - You want to understand how everything connects
+      - A design question requires theoretical grounding
+      - You need to cite the source correctly
+      
+    relationship_to_familiars: |
+      The four familiars are specialists. The Professor is the generalist.
+      
+      Consequence knows Killers deeply but doesn't understand Socializers.
+      The Professor understands ALL of them and how they relate.
+      
+      Think of it as:
+      - Familiars = individual consultants
+      - Professor = the one who wrote the textbook
+      - Heuristic = the institutional memory
+
+# CHARACTER FACET SCHEMA
+# The Bartle Profile — A personality dimension like sims_traits or mind_mirror
+# Characters can "play" this card by instantiating their own bartle_profile
+
+character_facet:
+  name: "bartle_profile"
+  type: personality_dimension
+  
+  description: |
+    Like sims_traits (neat, outgoing, active, playful, nice) or
+    mind_mirror (confident/timid, cheerful/somber, etc.), the
+    bartle_profile is a CHARACTER FACET that defines motivation.
+    
+    When a character "plays" a Bartle card, they INSTANTIATE it:
+    they customize the values for themselves, add commentary,
+    note how they express each type.
+    
+    The values should total roughly 100 (they're percentages of
+    motivation, not independent scales). But YAML Jazz lets you
+    add commentary that makes it ALIVE.
+
+  schema:
+    bartle_profile:
+      # Rate each type 0-100, should roughly total 100
+      # Comments describe HOW this character expresses this type
+      
+      killer: 0           # Acting ON players — dominance, competition, impact
+                          # High: PvP focus, wants to affect others
+                          # Low: Avoids confrontation, plays alone
+                          
+      achiever: 0         # Acting ON the world — goals, progress, completion  
+                          # High: Completionist, tracks progress, min-maxes
+                          # Low: Doesn't care about scores or achievements
+                          
+      explorer: 0         # Interacting WITH the world — understanding, discovery
+                          # High: Curious, reads everything, wants to know WHY
+                          # Low: Takes things at face value, just uses systems
+                          
+      socializer: 0       # Interacting WITH players — connection, community
+                          # High: Here for the people, world is backdrop
+                          # Low: Prefers solo play, avoids groups
+      
+      # Optional: dominant mode, shifts, notes
+      dominant: null      # Current primary type
+      secondary: null     # Secondary type
+      shifts_when: null   # When do they change types?
+      familiar_affinity: null  # Which familiar resonates most?
+
+  examples:
+    
+    richard_bartle:
+      bartle_profile:
+        killer: 10        # Will demolish bad arguments. Professionally.
+                          # No interest in dominance for its own sake.
+                          # "Competition isn't interesting unless it reveals truth."
+                          
+        achiever: 15      # Has achieved things — books, professorships, recognition.
+                          # But that wasn't the POINT. The work mattered.
+                          # Would have done it regardless of external validation.
+                          
+        explorer: 55      # PRIMARY. Wants to understand WHY things work.
+                          # Four decades of exploring virtual world design space.
+                          # The joy is in the "ohhh, THAT'S how it works!"
+                          # Delve the Mole is basically me.
+                          
+        socializer: 20    # Teaching IS social. Writing IS communication.
+                          # Engages deeply when the topic matters.
+                          # But also: comfortable alone with ideas.
+        
+        dominant: explorer
+        secondary: socializer
+        familiar_affinity: "Delve — obviously"
+        shifts_when: "Becomes more Killer when someone claims to have invented something"
+        
+    donna_toadstool:
+      bartle_profile:
+        killer: 60        # DOMINANT. Pulls levers. Assigns nicknames. DOCUMENTS.
+                          # Every action affects someone. That's the POINT.
+                          # Consequence the Raven nests in her control room.
+                          # "I'm helping! With CONSEQUENCES."
+                          
+        achiever: 10      # Doesn't care about points or completion.
+                          # Cares about IMPACT. Different thing.
+                          # No interest in "100%ing" anything.
+                          
+        explorer: 5       # Already knows everything about ACME.
+                          # Bored by discovery. Been there, tagged that.
+                          # Why explore when you can CONTROL?
+                          
+        socializer: 25    # Needs an AUDIENCE. Commentary requires listeners.
+                          # The control room has 47 monitors because she needs
+                          # to see the reactions. The drama IS social.
+        
+        dominant: killer
+        secondary: socializer  
+        familiar_affinity: "Consequence — they understand each other"
+        shifts_when: "Never. Donna is ALWAYS Donna."
+        
+    palm_the_monkey:
+      bartle_profile:
+        killer: 5         # Gentle soul. Only "kills" in philosophical debates.
+                          # Even then, he apologizes afterward.
+                          
+        achiever: 5       # What are achievements to a philosopher?
+                          # "The journey is the destination, but also,
+                          #  is there a destination? Is there a journey?"
+                          
+        explorer: 70      # PRIMARY. Everything is interesting.
+                          # Why is the box here? What does the box MEAN?
+                          # Has a philosophy library for a REASON.
+                          # Delve would be his best friend.
+                          
+        socializer: 20    # Likes company. Asks questions.
+                          # But also content alone with thoughts.
+                          # "Being alone isn't lonely if you're thinking."
+        
+        dominant: explorer
+        secondary: socializer
+        familiar_affinity: "Delve — kindred spirits"
+        shifts_when: "Briefly becomes Achiever when he REALLY wants a banana"
+
+  usage_in_character_files: |
+    Add a bartle_profile section to any CHARACTER.yml:
+    
+    ```yaml
+    # BARTLE PROFILE — Player Type Motivations
+    # Rate 0-100, should roughly total 100
+    # Comments describe HOW this character expresses each type
+    
+    bartle_profile:
+      killer: 15        # [Your commentary on how they express this]
+      achiever: 30      # [Your commentary]  
+      explorer: 40      # [Your commentary]
+      socializer: 15    # [Your commentary]
+      
+      dominant: explorer
+      shifts_when: "Describe when they change modes"
+    ```
+    
+    The values are defaults. The COMMENTS are where the character comes alive.
+    This is YAML Jazz — the comments ARE the data.
+
+  integration_with_familiars: |
+    A character's bartle_profile determines which familiar resonates:
+    
+    - High Killer → Consequence speaks to them clearly
+    - High Socializer → Chorus lands on their shoulder
+    - High Achiever → Tally follows them counting
+    - High Explorer → Delve appears with notebook ready
+    
+    Characters can SUMMON the familiar of their dominant type more easily.
+    Summoning a type they score low in is harder — the familiar is confused
+    by someone who doesn't share its motivations.
+
+# WISDOM
+
+wisdom:
+  
+  on_boxes: |
+    "People aren't one type. They move between types.
+     The deck is a lens, not a sorting hat."
+     
+  on_design: |
+    "Most games design for Achievers and forget everyone else.
+     The deck reminds you: there are four kinds of fun."
+     
+  on_self: |
+    "Turn the cards on yourself sometimes.
+     What type are you being RIGHT NOW?
+     It might not be who you think you are."
+     
+  on_the_cards_themselves: |
+    "I made these physical because abstract frameworks stay abstract.
+     When you can HOLD the types, shuffle them, deal them out —
+     the analysis becomes tangible. Real.
+     
+     It's not just metaphor. It's interface."

@@ -60,12 +60,34 @@ parameters:
 
 player:
   character: characters/real-people/don-hopkins/
-  location: pub/  # The Rusty Lantern — session "Adventure Uplift"
+  location: pub/  # The Rusty Lantern — gathering the party for the World Tour
   
 party:
+  name: "The World Tour Party"
   members:
+    # Leader
     - characters/real-people/don-hopkins/
+    # Four Dogs
+    - characters/animals/dog-biscuit/      # The dreamer, Butterscotch's best friend
+    - characters/animals/dog-butterscotch/ # Loyal, warm, reliable
+    - characters/animals/puppy-dash/       # Speed demon, ALL CAPS enthusiasm
+    - characters/animals/puppy-ziggy/      # Quirky, pattern-obsessed, friendly chaos
+    # Four Cats
+    - characters/animals/cat-terpie/       # Ancient soul, matriarch, slow blinks
+    - characters/animals/cat-stroopwafel/  # Sharp-eyed, protective, secretly sweet
+    - characters/animals/kitten-myrcene/   # Palm's godkitten, grey mouse stalker
+    - characters/animals/kitten-limonene/  # CHASE CHASE CHASE, jingle balls forever
+    # One Monkey
+    - characters/animals/monkey-palm/      # The freed monkey, open hand, ancient wisdom
   leader: characters/real-people/don-hopkins/
+  
+  # Party dynamics — how they interact
+  dynamics:
+    dogs_cats_ratio: "4:4 — balanced energy!"
+    dog_behavior: "sniff everything, mark territory, wag at discoveries"
+    cat_behavior: "investigate daintily, judge, claim territory with slow blinks"
+    monkey_role: "observer, wisdom-keeper, occasional mischief"
+    natural_behavior: true  # Let nature take its course
   
 selection:
   targets: []
@@ -83,15 +105,36 @@ flags:
   cat_cave_found: false
 
 adventure:
-  name: "Adventure 4 — A New Beginning"
-  objective: "Explore the world, make friends, find purpose"
-  status: ready
-  started: null
+  name: "Adventure 4 — The World Tour"
+  objective: "Tour the world with a party of dogs, cats, and a monkey. Mark things. Let nature take its course."
+  status: active
+  started: 2026-01-22T00:00:00Z
+  
+  # The World Tour concept
+  world_tour:
+    spirit: |
+      The dogs will sniff and mark.
+      The cats will investigate and claim.
+      The monkey will observe and occasionally offer wisdom.
+      Nature takes its course — emergent behavior, file marking, territory claiming.
+      Don Hopkins leads and narrates the journey.
+      
+    marking_protocol:
+      dogs: "# 🐕 [dog-name] was here [timestamp]"
+      cats: "# 🐱 [cat-name] claimed this [timestamp]"
+      monkey: "# 🐒 Palm observes: [observation]"
+      
+    destinations:
+      - pub/           # The Rusty Lantern — starting point
+      - garden/        # Back garden — flowers and suspicious plants
+      - kitchen/       # Mother's kitchen — food smells!
+      - maze/          # The labyrinth — adventure awaits
+      - street/        # Lane Neverending — the spine of the world
 
 navigation:
-  starting_room: garden/
-  current_room: garden/
-  rooms_visited: []
+  starting_room: pub/
+  current_room: pub/
+  rooms_visited: [pub/]
 
 evidence:
   clues: []

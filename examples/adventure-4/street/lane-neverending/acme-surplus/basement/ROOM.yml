@@ -1,0 +1,253 @@
+# ACME SURPLUS — THE BASEMENT
+# "ABSOLUTELY NO ADMITTANCE — THIS MEANS YOU"
+# Below the warehouse. Below the back room. Below everything.
+#
+# Getting here requires: knowing it exists, finding the access, surviving the descent.
+
+room:
+  name: "ACME Basement"
+  type: basement_secured
+  emoji: "🪜🔒⬇️"
+  
+  locked: true
+  lock:
+    type: "ACME Basement Access"
+    key: acme_basement_keycard
+    difficulty: 7
+    biometric: true
+    note: "The lock scans you. It doesn't like what it sees."
+    
+  hidden: true
+  discovery:
+    methods:
+      - "Finding the freight elevator behind the returns pile"
+      - "Noticing the stairs that go DOWN in the warehouse"
+      - "Following the cables that power the security system"
+      - "Donna mentions it by accident (she won't)"
+    difficulty: 6
+    
+  description: |
+    You shouldn't know this exists.
+    
+    The basement is older than the building above it. Concrete walls 
+    that predate ACME's lease. Humming machinery. Cables snaking along 
+    the ceiling toward... somewhere important.
+    
+    The air is cool. Dry. Climate-controlled.
+    Something down here needs to be kept at EXACTLY the right temperature.
+    
+    The lights flicker in a pattern that might be morse code.
+    (It's not. It's just old wiring. Probably.)
+    
+  atmosphere: |
+    Industrial hum. The smell of ozone and old concrete.
+    Emergency lighting casts everything in pale blue.
+    
+    This place has the energy of a Cold War listening post.
+    Banks of equipment that predate ACME's lease — reel-to-reel recorders,
+    switchboards with too many lines, oscilloscopes tracing patterns
+    that might be signals or might be ghosts.
+    
+    And underneath that: something OLDER.
+    
+    Bakelite. Everywhere. That dark brown phenolic resin from
+    before plastic was cheap, before electronics were disposable.
+    Bakelite dials with chrome bezels. Bakelite phone housings,
+    heavy as weapons. Bakelite switch plates, warm to the touch
+    from decades of current flowing through.
+    
+    The aesthetic is layered like archaeology:
+    - 1940s: Bakelite and brass, Art Deco curves, HEAVY
+    - 1970s: Steel and tape, Cold War paranoia, ANGULAR  
+    - 2020s: Donna's monitors and levers, SURVEILLANCE
+    
+    Three generations of WATCHING, stacked on top of each other.
+    Each one thought they were the last. Each one was wrong.
+    
+    Someone was HERE before Donna. Someone who listened.
+    Someone who routed calls that couldn't be traced,
+    passed messages that couldn't exist,
+    kept secrets for people who couldn't be named.
+    
+    The equipment still works. Some of it still RUNS.
+    Tapes turn slowly in machines nobody feeds.
+    Recording what? For whom? After all this time?
+    
+    Donna found it like this. She didn't ask questions.
+    She just... added her monitors. Her levers. Her chair.
+    
+    The old equipment hums alongside the new.
+    Two surveillance systems. Two eras of paranoia.
+    One basement. One purpose: WATCHING.
+    
+    The cables all lead in one direction.
+    Toward a door marked:
+    
+        ╔═══════════════════════════════════════╗
+        ║   CONTROL ROOM — AUTHORIZED ONLY      ║
+        ║   VOICE IDENTIFICATION REQUIRED       ║
+        ║   TRESPASSERS WILL BE NICKNAMED       ║
+        ╚═══════════════════════════════════════╝
+        
+    You can hear someone talking behind it.
+    Monologuing, really.
+    To no one in particular.
+    
+  # SECURITY ESCALATION
+  security:
+    level: "MAXIMUM"
+    note: |
+      The basement is where the CONTROLS are.
+      Donna does NOT want visitors.
+      Getting here means you've bypassed EVERYTHING above.
+      
+      She's... impressed. And FURIOUS.
+      
+    donna_awareness:
+      description: "She knows you're here before you do."
+      response: |
+        "Oh. OH. You made it to the BASEMENT.
+         
+         Very IMPRESSIVE. Very DETERMINED. Very DOOMED.
+         
+         Nobody gets to the basement, Basement Barry.
+         NOBODY. And yet here you ARE.
+         
+         I'm going to give you a SPECIAL nickname.
+         I'm going to use the SPECIAL levers.
+         
+         ...I'm going to pull the BLACK ONE.
+         
+         Are you READY, Barry? ARE YOU READY TO FIND OUT?"
+         
+  objects:
+    - freight-elevator.yml    # How you got here (one way trip?)
+    - cable-bundles.yml       # They all lead to the control room
+    - old-machinery.yml       # What was this place BEFORE ACME?
+    - reel-to-reel-bank.yml   # Still recording. Still running. Since 1983.
+    - switchboard.yml         # 47 lines. None of them go to phones you'd recognize.
+    - bakelite-console.yml    # 1940s master control. Chrome and phenolic. HEAVY.
+    - tube-amplifier-rack.yml # Orange glow. Warm hum. Nobody feeds it but it runs.
+    
+  # THE PREVIOUS OCCUPANT
+  cold_war_legacy:
+    description: |
+      Someone was here before Donna.
+      
+      The equipment suggests late Cold War — 1970s, early 1980s.
+      A communications nexus. A listening post. A place where calls
+      got routed through cutouts, where messages were encoded and decoded,
+      where someone sat for YEARS in the blue emergency light,
+      headphones on, writing down things that couldn't be written down.
+      
+      They left in a hurry. Or they didn't leave at all.
+      The equipment was running when ACME took the lease.
+      Nobody knew who to call to turn it off.
+      Nobody WANTED to call.
+      
+    artifacts:
+      cold_war_era:
+        - "Reel-to-reel tapes, unlabeled, still turning"
+        - "A switchboard with 47 lines — none disconnected"
+        - "Headphones, foam crumbling, still plugged in"
+        - "A coffee cup, empty, from a shop that closed in 1987"
+        - "Notes in a cipher nobody's cracked"
+        
+      bakelite_era:
+        - "Rotary phones, HEAVY, dark brown bakelite that's warm from decades of use"
+        - "A master control panel with chrome toggle switches and bakelite knobs"
+        - "Tube amplifiers humming behind perforated metal grilles"
+        - "A Dictaphone with wax cylinders — some of them PLAYED RECENTLY"
+        - "Brass nameplates on equipment: 'PROPERTY OF [REDACTED]'"
+        - "An intercom system that predates transistors — all vacuum tubes"
+        - "Bakelite ashtrays, full of cigarettes that turned to powder long ago"
+        
+      the_vibe:
+        description: |
+          The bakelite equipment has that heft. That PERMANENCE.
+          They built things to LAST in the '40s. To survive.
+          To keep working after... whatever they were preparing for.
+          
+          Some of it still works. The tubes still glow orange.
+          The dials still turn with satisfying clicks.
+          The bakelite is warm. Always warm.
+          
+          It shouldn't still be running.
+          Nobody's maintained it since before Donna was BORN.
+          
+          And yet.
+      
+    donna_on_the_equipment: |
+      "I don't TOUCH it. It does its thing. I do mine.
+       
+       Sometimes the tapes... change direction. On their own.
+       Sometimes a light on the switchboard blinks.
+       Line 23. Always line 23.
+       
+       I don't answer it. I don't LOOK at it.
+       
+       We have an UNDERSTANDING, the old equipment and me.
+       I don't ask what it's recording.
+       It doesn't ask about the anvils.
+       
+       COEXISTENCE. Very professional. TREMENDOUS arrangement."
+       
+    donna_on_the_bakelite: |
+      "The BROWN stuff? The HEAVY stuff?
+       
+       That was here before the COLD WAR stuff.
+       Before the tapes. Before the switchboard.
+       That stuff is from... I don't know. The '40s? Earlier?
+       
+       It's WARM. Always warm. Like something's running inside.
+       The tubes glow. ORANGE. Very cozy. Very UNSETTLING.
+       
+       I tried to unplug the big console once.
+       Just to see what it was connected TO.
+       
+       It wasn't connected to ANYTHING.
+       
+       ...
+       
+       I don't try to unplug things anymore.
+       I just let them HUM.
+       We have an UNDERSTANDING."
+    
+  hazards:
+    automated_responses:
+      description: "The basement has its own defenses"
+      traps:
+        - "Floor panels that drop into... somewhere"
+        - "Cables that move when you're not looking"
+        - "Emergency bulkheads (for 'containment')"
+        
+    donna_direct:
+      description: "She's not using the intercom anymore"
+      note: "Her voice comes from EVERYWHERE down here"
+      
+  exits:
+    up:
+      destination: ../warehouse/
+      description: "The freight elevator (if it still works)"
+      locked: false  # You can LEAVE. She wants you to LEAVE.
+      donna_note: |
+        "GO. Go back UP. Back to the warehouse. Back to DAYLIGHT.
+         
+         I'll FORGET you were here. We'll BOTH forget.
+         
+         ...unless you keep walking toward that door."
+         
+    control-room:
+      destination: control-room/
+      description: "The door at the end of the cables"
+      locked: true
+      lock:
+        type: "Voice Identification + Donna's Approval"
+        key: donna_permission
+        bypass: impossible
+        note: |
+          The lock requires DONNA to let you in.
+          She has never let anyone in.
+          She never WILL let anyone in.
+          
+          ...probably.

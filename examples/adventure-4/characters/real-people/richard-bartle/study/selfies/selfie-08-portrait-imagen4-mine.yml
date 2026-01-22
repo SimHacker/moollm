@@ -1,0 +1,241 @@
+# selfie-08-portrait-imagen4-mine.yml
+# Image Mining: Deep Analysis
+# Mined by: Cursor Claude Vision
+# Source: selfie-08-portrait-imagen4.png
+
+mining:
+  source: selfie-08-portrait-imagen4.png
+  depth: deep
+  mined_at: 2026-01-22T02:50:00Z
+
+# CHARACTERS
+
+characters:
+  - name: Richard Bartle (seated)
+    position: center-foreground, seated in chair
+    expression: dignified, warm half-smile
+    pose: seated, holding open book
+    clothing: 
+      - navy blue blazer
+      - light blue dress shirt, open collar
+    hair: silver-white, distinguished
+    features: clean-shaven, gentle eyes
+    age_apparent: 60s-70s
+    confidence: 0.9
+    role_in_image: "The subject of the portrait"
+    
+  - name: Don Hopkins (standing)
+    position: behind and right of chair
+    expression: warm, supportive smile
+    pose: hand resting on chair back
+    clothing:
+      - blue v-neck sweater
+      - light shirt underneath
+    hair: silver-gray
+    features: wire-rimmed glasses, mustache
+    age_apparent: 60s-70s
+    confidence: 0.85
+    role_in_image: "The supportive friend/colleague"
+    
+  - name: Heuristic  # dragon
+    position: left background, on bookshelf
+    expression: dignified, watchful
+    pose: seated regally on books
+    coloring: dark bronze-green patina
+    style: more sculptural in this image
+    confidence: 0.95
+    role_in_image: "The guardian, the witness"
+
+# THE BOOK — central object
+
+book:
+  title: "DESIGNING VIRTUAL WORLDS"
+  subtitle: visible on spine
+  color: deep red/burgundy cover
+  author_visible: partial, left side
+  condition: new, pristine
+  significance: "Richard's magnum opus"
+  
+  meta: |
+    This book, published 2003, remains THE definitive text
+    on virtual world design. Seeing it in Richard's hands
+    in a portrait is deeply appropriate.
+
+# ENVIRONMENT
+
+environment:
+  location: scholar's study, formal portrait setting
+  
+  chair:
+    type: burgundy leather wingback
+    style: Chesterfield, brass studs
+    condition: distinguished, well-used
+    significance: "The seat of authority"
+    
+  bookshelves:
+    coverage: full background
+    depth: soft focus, atmospheric
+    colors: warm browns, varied spines
+    
+  lighting:
+    type: formal portrait lighting
+    direction: soft front/side
+    quality: warm but professional
+    mood: dignified, commemorative
+
+# COLOR PALETTE
+
+palette:
+  dominant:
+    - { color: burgundy, hex: "#722F37", usage: chair, book }
+    - { color: navy blue, hex: "#1E3A5F", usage: Richard's blazer }
+    - { color: warm brown, hex: "#8B4513", usage: bookshelves }
+    
+  accent:
+    - { color: silver, hex: "#C0C0C0", usage: hair }
+    - { color: light blue, hex: "#87CEEB", usage: shirts }
+    - { color: bronze-green, hex: "#7B8B6F", usage: dragon }
+
+# COMPOSITION
+
+composition:
+  style: formal portrait, oil painting influence
+  tradition: academic/institutional portraiture
+  
+  arrangement:
+    - seated subject (primary)
+    - standing supporter (secondary)
+    - guardian figure (tertiary)
+    
+  eye_line:
+    richard: direct to viewer
+    don: toward richard, supportive
+    dragon: watching over both
+    
+  triangular_composition:
+    apex: dragon
+    base: richard and don
+    
+  formality_level: high
+
+# ART HISTORICAL REFERENCES
+
+historical_references:
+  - reference: "British academic portraits"
+    connection: scholar with book, formal pose
+    tradition: Oxford/Cambridge commissioned portraits
+    artists: [Thomas Lawrence, Joshua Reynolds]
+    
+  - reference: "Dutch Golden Age"
+    connection: warm interior, books, dignified pose
+    specific: Rembrandt's scholar portraits
+    
+  - reference: "Norman Rockwell"
+    connection: warm American illustration style
+    specific: "The Connoisseur" energy
+    
+  - reference: "Official author photos"
+    connection: holding one's own book
+    tradition: dust jacket convention
+    
+  - reference: "Institutional commemorative portraits"
+    connection: "honoring a founder"
+    setting: university, society, foundation
+
+# EMOTIONAL RESONANCE
+
+emotional:
+  primary_mood: dignity, legacy, quiet pride
+  secondary: friendship, mentorship, commemoration
+  
+  richard_affect:
+    expression: "I made something that mattered"
+    subtext: "And I'm at peace with my contribution"
+    
+  don_affect:
+    expression: "I'm proud to stand beside this man"
+    subtext: "Recognition of a colleague's impact"
+    
+  dragon_affect:
+    expression: "I have witnessed; I approve"
+    
+  viewer_feeling: "I'm in the presence of history"
+
+# SYMBOLIC ELEMENTS
+
+symbolism:
+  book_in_hands:
+    meaning: "This is my legacy"
+    object: "Designing Virtual Worlds"
+    weight: literal and metaphorical
+    
+  formal_chair:
+    meaning: "Earned seat of authority"
+    
+  hand_on_chair:
+    meaning: "Support, collegial bond"
+    gesture: "I stand with you"
+    
+  dragon_as_gargoyle:
+    meaning: "Ancient wisdom approves"
+    guardian: "protecting the legacy"
+    
+  bookshelves_as_backdrop:
+    meaning: "A life of reading, thinking, writing"
+
+# NARRATIVE MOMENT
+
+narrative:
+  moment: "The commemorative portrait"
+  
+  occasion: |
+    Perhaps: MUD1's 50th anniversary
+    Or: University honor
+    Or: Simply: friends wanted to capture this
+    
+  formality: high — this is an OFFICIAL image
+  
+  caption_suggestion: |
+    "Richard Bartle, with 'Designing Virtual Worlds'
+    and friends who understand why it matters."
+    — Essex, 2026
+
+# COMPARISON TO SERIES
+
+series_context:
+  position: finale, the dignified conclusion
+  
+  contrast_with:
+    - selfie_01: warm casual → formal dignified
+    - selfie_02: chaotic photobomb → composed portrait  
+    - selfie_07: maximum silly → maximum serious
+    
+  progression: |
+    The series moves from casual friendship through
+    teaching and wonder to this: formal commemoration.
+    It's the right ending.
+
+# TECHNICAL NOTES
+
+technical:
+  generation_model: Google Imagen 4
+  prompt_adherence: 0.9
+  
+  notable_achievements:
+    - "BOOK TITLE READABLE — 'Designing Virtual Worlds'"
+    - "Formal portrait composition achieved"
+    - "Oil painting aesthetic without losing warmth"
+    - "Two distinct but unified human figures"
+    - "Dragon integration feels natural"
+    
+  text_rendering: |
+    Getting the book title legible is remarkable.
+    Image models often struggle with text.
+    This is a technical achievement.
+    
+  standout: |
+    This is the "serious" image of the series.
+    Printable, frameable, gift-worthy.
+    The one you'd put on a website or in a book.
+    
+  series_role: "The conclusion, the capstone"

@@ -1,0 +1,536 @@
+# 2026-01-22-world-tour-party-edit-decisions.yml
+# Editorial Decision Timeline — Step by step reasoning for each file edit
+#
+# WHY THIS FILE? WHY THIS EDIT? WHAT ALTERNATIVES EXISTED?
+# This is the "show your work" for the World Tour Party session.
+
+session:
+  request: |
+    BOOT MOOLLM as Don Hopkins in the pub, and gather a party of four dogs 
+    four cats and one monkey, to take a tour around the world and mark things 
+    and let nature take its course.
+    
+  key_requirements:
+    - Boot MOOLLM (follow boot sequence)
+    - Play as Don Hopkins
+    - Location: the pub
+    - Party: 4 dogs + 4 cats + 1 monkey = 10 total members
+    - Activity: world tour, marking things, emergent behavior
+
+# DECISION 1: Which file holds party state?
+
+decision_1:
+  question: "Where should party membership be recorded?"
+  
+  options_considered:
+    
+    option_a:
+      file: "ADVENTURE.yml"
+      approach: "Record party.members[] in the central simulation state"
+      pros:
+        - "ADVENTURE.yml IS the simulation — reading it loads the world"
+        - "All state in one place — easy to see party at a glance"
+        - "Matches existing schema (party.members was already defined)"
+        - "No new files needed"
+      cons:
+        - "Party info not portable — lives only in this adventure"
+        - "Character files don't know they're in a party"
+        
+    option_b:
+      file: "Create new PARTY.yml file"
+      approach: "Separate party manifest"
+      pros:
+        - "Party becomes portable — can be reused in other adventures"
+        - "Cleaner separation of concerns"
+      cons:
+        - "Another file to maintain"
+        - "ADVENTURE.yml would need to reference it"
+        - "More complexity for a simple operation"
+        
+    option_c:
+      file: "Edit each CHARACTER.yml"
+      approach: "Add party: membership field to each character"
+      pros:
+        - "Characters know their own party membership"
+        - "Distributed state — no central point of failure"
+      cons:
+        - "10 file edits instead of 1"
+        - "Party composition requires scanning all characters"
+        - "Coordination problem — who's canonical?"
+        
+  decision: "Option A — Edit ADVENTURE.yml"
+  
+  reasoning: |
+    The adventure skill's state schema (in skills/adventure/CARD.yml) already
+    defines party.members[] as an array of character paths. The file header
+    says "This file IS the simulation" — so adding party members here is
+    the canonical location.
+    
+    MOOLLM principle: FILES-AS-STATE means state lives in files, but that
+    doesn't mean EVERY file. It means the RIGHT file. ADVENTURE.yml is
+    the simulation manifest — party composition belongs there.
+    
+    The skills/party/CARD.yml spec shows party-schema expects:
+    - name (string)
+    - members (array of paths)
+    - leader (path)
+    - location (path)
+    - shared-inventory (array)
+    - inter-party-relationships (object)
+    
+    ADVENTURE.yml already had party.members and party.leader — I just
+    needed to expand them.
+
+# DECISION 2: Which dogs to include?
+
+decision_2:
+  question: "Which 4 dogs from the available characters?"
+  
+  available_dogs:
+    adults:
+      - dog-biscuit      # Has full CHARACTER.yml, dreams/, JOURNAL.md
+      - dog-butterscotch # Has full CHARACTER.yml
+    puppies:
+      - puppy-bruno
+      - puppy-dash
+      - puppy-goliath
+      - puppy-maple
+      - puppy-mochi
+      - puppy-pepper
+      - puppy-teddy
+      - puppy-ziggy
+      
+  selection_criteria:
+    - "Mix of adults and puppies for variety"
+    - "Adults for stability, puppies for chaos"
+    - "Characters with existing development preferred"
+    - "Personality diversity"
+    
+  chosen:
+    - dog-biscuit:
+        reason: "Most developed dog character — has dreams/, journal, incarnation file"
+        personality: "Dreamer, Butterscotch's best friend"
+        
+    - dog-butterscotch:
+        reason: "Biscuit's companion — including both maintains their bond"
+        personality: "Loyal, warm, reliable"
+        
+    - puppy-dash:
+        reason: "Name suggests speed/energy — good for 'let nature take its course'"
+        personality: "Speed demon, ALL CAPS enthusiasm"
+        
+    - puppy-ziggy:
+        reason: "Name suggests quirky patterns — interesting behavior potential"
+        personality: "Pattern-obsessed, friendly chaos"
+        
+  not_chosen:
+    - puppy-bruno: "Generic — no strong reason to include over others"
+    - puppy-goliath: "Name suggests size, but all puppies are small"
+    - puppy-maple: "Sweet name but no distinguishing hook"
+    - puppy-mochi: "Food-themed — could have been good but Dash/Ziggy more dynamic"
+    - puppy-pepper: "Spicy name but less action-oriented than Dash"
+    - puppy-teddy: "Cuddly connotation — less about exploration"
+    
+  reasoning: |
+    The request was for 4 dogs. I chose 2 adults + 2 puppies because:
+    
+    1. Adults provide stability — Biscuit and Butterscotch are established
+       characters with existing backstory and relationships.
+       
+    2. Puppies provide energy — per skills/dog/CARD.yml, puppies are
+       "Maximum chaos, maximum cute, clumsy" which fits "let nature take
+       its course."
+       
+    3. Biscuit + Butterscotch are described as "best friends" — keeping
+       them together respects their relationship.
+       
+    4. Dash + Ziggy have action-oriented names that suggest movement and
+       exploration — perfect for a world tour.
+
+# DECISION 3: Which cats to include?
+
+decision_3:
+  question: "Which 4 cats from the available characters?"
+  
+  available_cats:
+    adults:
+      - cat-terpie        # Matriarch, Palm's god-spouse
+      - cat-stroopwafel   # Sharp-eyed, Palm's god-spouse
+    kittens:
+      - kitten-myrcene
+      - kitten-limonene
+      - kitten-linalool
+      - kitten-pinene
+      - kitten-caryophyllene
+      - kitten-humulene
+      - kitten-terpinolene
+      - kitten-ocimene
+      
+  selection_criteria:
+    - "MUST include Terpie and Stroopwafel — they're Palm's godfamily"
+    - "Palm is in the party, so his family should be represented"
+    - "Mix of adults and kittens mirrors dog selection"
+    - "Kittens with described personalities from Palm's CHARACTER.yml"
+    
+  chosen:
+    - cat-terpie:
+        reason: "REQUIRED — Palm's god-spouse (mother), matriarch of cats"
+        personality: "Ancient soul, silver-streaked, slow blinks"
+        relationship: "Palm's godfamily"
+        
+    - cat-stroopwafel:
+        reason: "REQUIRED — Palm's god-spouse (father), judge"
+        personality: "Sharp-eyed, protective, secretly sweet"
+        relationship: "Palm's godfamily"
+        
+    - kitten-myrcene:
+        reason: "Palm's godkitten — described in Palm's CHARACTER.yml"
+        personality: "Stalks grey mouse toys, first to climb on Palm's head"
+        relationship: "Palm's first godkitten mentioned"
+        
+    - kitten-limonene:
+        reason: "Palm's godkitten — most energetic per Palm's file"
+        personality: "CHASE CHASE CHASE, jingle balls, keeps Palm young"
+        relationship: "Palm's most energetic godkitten"
+        
+  not_chosen:
+    - kitten-linalool: "Gentle personality — less visible in action tour"
+    - kitten-pinene: "Acrobatic but Limonene already covers energy"
+    - kitten-caryophyllene: "Guard kitten — protective but static"
+    - kitten-humulene: "Destroyer — might be too chaotic"
+    - kitten-terpinolene: "Catnip guardian — specific role doesn't fit tour"
+    - kitten-ocimene: "Brings weird gifts — interesting but passive"
+    
+  reasoning: |
+    The cat selection was constrained by Palm's godfamily relationships:
+    
+    1. Palm's CHARACTER.yml (lines 759-851) defines his godfamily:
+       - God-spouses: Terpie and Stroopwafel
+       - Godkittens: All 8 kittens (Myrcene through Ocimene)
+       
+    2. Including Palm without his family would be incomplete — they're
+       described as deeply bonded. The cats chose him. He is family.
+       
+    3. I included BOTH adult cats (Terpie and Stroopwafel) because:
+       - They're the cat parents — leading the kittens
+       - They represent different cat personalities (serene vs judge)
+       - They're both Palm's god-spouses
+       
+    4. For the 2 kittens, I chose:
+       - Myrcene: First-mentioned, first to climb on Palm's head
+       - Limonene: "Most energetic, keeps me young" — best for action
+       
+    This creates a family unit: the cat matriarch/patriarch plus two
+    of their most dynamic kittens.
+
+# DECISION 4: Which monkey to include?
+
+decision_4:
+  question: "Which monkey? (There's only one)"
+  
+  available_monkeys:
+    - monkey-palm: "The freed monkey, 122 years wise"
+    
+  chosen:
+    - monkey-palm:
+        reason: "ONLY monkey available — and perfect for the session"
+        personality: "Open hand offering, ancient wisdom, freed from curse"
+        
+  reasoning: |
+    Palm is the only monkey character in the adventure. This was an
+    easy decision — but Palm is also PERFECT for a world tour:
+    
+    1. Palm was freed by Don's wish — they have a special bond.
+       The CHARACTER.yml says: "He wished for ME, not from me."
+       
+    2. Palm's role as "observer, wisdom-keeper, occasional mischief"
+       complements the dogs (sniffing/marking) and cats (judging/claiming).
+       
+    3. Palm's godfamily (Terpie, Stroopwafel, kittens) is in the party —
+       keeping family together.
+       
+    4. Palm's marking protocol fits the world tour concept:
+       "# 🐒 Palm observes: [observation]"
+       Different from dogs and cats — he OBSERVES rather than claims.
+
+# DECISION 5: What metadata to add to party?
+
+decision_5:
+  question: "What additional party fields beyond members[]?"
+  
+  fields_added:
+    
+    party_name:
+      value: "The World Tour Party"
+      why: |
+        The party schema allows a name field. Naming creates identity.
+        "The World Tour Party" describes the mission.
+        
+    comments_on_members:
+      approach: "YAML Jazz — add # comments after each member path"
+      examples:
+        - "- characters/animals/dog-biscuit/      # The dreamer, Butterscotch's best friend"
+        - "- characters/animals/puppy-dash/       # Speed demon, ALL CAPS enthusiasm"
+      why: |
+        MOOLLM principle: COMMENTS-MATTER / YAML-JAZZ
+        Comments are semantic data. The LLM reads them.
+        
+        Adding personality snippets to each member:
+        1. Reminds the DM of each character's role
+        2. Can be read without loading individual CHARACTER.yml files
+        3. Documents the selection reasoning inline
+        
+    party_dynamics:
+      fields:
+        - dogs_cats_ratio: "4:4 — balanced energy!"
+        - dog_behavior: "sniff everything, mark territory, wag at discoveries"
+        - cat_behavior: "investigate daintily, judge, claim territory with slow blinks"
+        - monkey_role: "observer, wisdom-keeper, occasional mischief"
+        - natural_behavior: true
+      why: |
+        The user said "let nature take its course."
+        
+        This section documents WHAT nature means for this party:
+        - Dogs sniff and mark (per skills/dog/CARD.yml file_sniffing)
+        - Cats judge and claim (per skills/cat/CARD.yml file_sniffing)
+        - Palm observes (per his CHARACTER.yml identity)
+        
+        natural_behavior: true is a flag that tells the DM to let
+        emergent behavior happen rather than scripting everything.
+
+# DECISION 6: Update adventure metadata
+
+decision_6:
+  question: "What adventure-level changes to reflect the world tour?"
+  
+  changes_made:
+    
+    adventure_name:
+      before: "Adventure 4 — A New Beginning"
+      after: "Adventure 4 — The World Tour"
+      why: "Rename to match the session's purpose"
+      
+    adventure_objective:
+      before: "Explore the world, make friends, find purpose"
+      after: "Tour the world with a party of dogs, cats, and a monkey. Mark things. Let nature take its course."
+      why: "Capture the specific goal from user request"
+      
+    adventure_status:
+      before: "ready"
+      after: "active"
+      why: "The adventure is now running, not waiting to start"
+      
+    adventure_started:
+      before: "null"
+      after: "2026-01-22T00:00:00Z"
+      why: "Timestamp when adventure began"
+      
+    new_world_tour_section:
+      added: true
+      fields:
+        - spirit: "Narrative description of what the tour means"
+        - marking_protocol: "How each species marks territory"
+        - destinations: "List of planned locations"
+      why: |
+        The user's request had specific elements:
+        - "tour around the world" → destinations list
+        - "mark things" → marking_protocol for dogs/cats/monkey
+        - "let nature take its course" → spirit description
+        
+        Adding this section documents the RULES of the world tour
+        so future turns can reference them.
+
+# DECISION 7: Update navigation state
+
+decision_7:
+  question: "Where does the adventure start?"
+  
+  changes_made:
+    
+    starting_room:
+      before: "garden/"
+      after: "pub/"
+      why: |
+        User said "in the pub" — The Rusty Lantern is the gathering point.
+        The original starting_room was garden/ from a previous session.
+        Changed to match user's stated location.
+        
+    current_room:
+      before: "garden/"
+      after: "pub/"
+      why: "Current room should match starting room at session start"
+      
+    rooms_visited:
+      before: "[]"
+      after: "[pub/]"
+      why: "The party is IN the pub, so it's been 'visited'"
+      
+  reasoning: |
+    Navigation state tracks WHERE the party is. The user explicitly
+    said "in the pub" so I updated:
+    
+    1. starting_room — where THIS session begins
+    2. current_room — where the party IS right now
+    3. rooms_visited — breadcrumb trail of exploration
+    
+    Note: I did NOT change player.location because that was already
+    "pub/" — it was correct from a previous session.
+
+# DECISION 8: What NOT to edit
+
+decision_8:
+  question: "What files were intentionally NOT edited?"
+  
+  not_edited:
+    
+    individual_character_files:
+      files:
+        - "characters/animals/dog-biscuit/CHARACTER.yml"
+        - "characters/animals/cat-terpie/CHARACTER.yml"
+        - "etc..."
+      why: |
+        Party membership is recorded in ADVENTURE.yml, not in each
+        character's file. The character files define WHO the character
+        is — not what party they're currently in.
+        
+        MOOLLM principle: State ownership matters.
+        - CHARACTER.yml owns: personality, inventory, relationships
+        - ADVENTURE.yml owns: party composition, current quest
+        
+        If I edited each character to add "party: World Tour Party",
+        that would be duplicating state. ADVENTURE.yml is canonical.
+        
+    room_files:
+      files:
+        - "pub/ROOM.yml"
+        - "garden/ROOM.yml"
+      why: |
+        Rooms don't change because a party entered them.
+        The party's LOCATION changes — recorded in ADVENTURE.yml.
+        The room remains static.
+        
+        Exception: If the party MARKS a file (dog pees, cat claims),
+        THEN we'd edit that file. But that hasn't happened yet.
+        
+    skill_files:
+      files:
+        - "skills/dog/CARD.yml"
+        - "skills/cat/CARD.yml"
+        - "skills/adventure/CARD.yml"
+      why: |
+        Skills are definitions, not state.
+        We READ skills to understand capabilities.
+        We WRITE adventure state, not skill definitions.
+        
+    don_hopkins_character:
+      file: "characters/real-people/don-hopkins/CHARACTER.yml"
+      why: |
+        Don's character file already had location: pub/
+        Nothing about his CHARACTER changed — just his party.
+        Party membership is in ADVENTURE.yml.
+
+# TIMELINE OF EDITS
+
+timeline:
+  
+  edit_1:
+    file: "ADVENTURE.yml"
+    tool: "StrReplace"
+    what: "Expanded party.members from 1 to 10"
+    before: |
+      party:
+        members:
+          - characters/real-people/don-hopkins/
+        leader: characters/real-people/don-hopkins/
+    after: |
+      party:
+        name: "The World Tour Party"
+        members:
+          # Leader
+          - characters/real-people/don-hopkins/
+          # Four Dogs
+          - characters/animals/dog-biscuit/      # The dreamer...
+          - characters/animals/dog-butterscotch/ # Loyal, warm...
+          - characters/animals/puppy-dash/       # Speed demon...
+          - characters/animals/puppy-ziggy/      # Quirky...
+          # Four Cats
+          - characters/animals/cat-terpie/       # Ancient soul...
+          - characters/animals/cat-stroopwafel/  # Sharp-eyed...
+          - characters/animals/kitten-myrcene/   # Palm's godkitten...
+          - characters/animals/kitten-limonene/  # CHASE CHASE...
+          # One Monkey
+          - characters/animals/monkey-palm/      # The freed monkey...
+        leader: characters/real-people/don-hopkins/
+        dynamics: {...}
+    lines_changed: "~25 lines (was 4 lines)"
+    
+  edit_2:
+    file: "ADVENTURE.yml"
+    tool: "StrReplace"
+    what: "Updated adventure metadata and navigation"
+    before: |
+      adventure:
+        name: "Adventure 4 — A New Beginning"
+        objective: "Explore the world, make friends, find purpose"
+        status: ready
+        started: null
+      navigation:
+        starting_room: garden/
+        current_room: garden/
+        rooms_visited: []
+    after: |
+      adventure:
+        name: "Adventure 4 — The World Tour"
+        objective: "Tour the world with a party of dogs, cats..."
+        status: active
+        started: 2026-01-22T00:00:00Z
+        world_tour:
+          spirit: |
+            The dogs will sniff and mark...
+          marking_protocol:
+            dogs: "# 🐕 [dog-name] was here..."
+            cats: "# 🐱 [cat-name] claimed this..."
+            monkey: "# 🐒 Palm observes..."
+          destinations: [pub/, garden/, kitchen/, maze/, street/]
+      navigation:
+        starting_room: pub/
+        current_room: pub/
+        rooms_visited: [pub/]
+    lines_changed: "~30 lines (was 8 lines)"
+
+# SUMMARY
+
+summary:
+  
+  total_files_edited: 1
+  file_edited: "examples/adventure-4/ADVENTURE.yml"
+  total_edits: 2
+  lines_changed: "~55 lines added/modified"
+  
+  why_minimal_edits: |
+    MOOLLM principle: MINIMAL-DIFF — Change only what's necessary.
+    
+    The user's request ("gather a party, tour, mark things") only
+    required changes to ADVENTURE.yml because:
+    
+    1. Party membership → ADVENTURE.yml owns this
+    2. Quest objective → ADVENTURE.yml owns this
+    3. Current location → ADVENTURE.yml owns this
+    
+    No character files needed editing because joining a party
+    doesn't change WHO the character is.
+    
+    No room files needed editing because the party entering
+    doesn't change what the room IS.
+    
+    One file. Two edits. All state centralized. Clean.
+    
+  key_principles_followed:
+    - MINIMAL-DIFF: "Only edit what needs to change"
+    - FILES-AS-STATE: "State lives in files, the right files"
+    - YAML-JAZZ: "Comments carry personality data"
+    - COHERENCE-ENGINE: "Understand relationships before editing"
+
+# 🐒 Palm observes: The edit was surgical. One file. Two cuts. The party exists.
+# 🐕 Biscuit sniffed this decision log 2026-01-22 — smells like good reasoning!
+# 🐱 Stroopwafel judges: adequate. *barely perceptible nod*

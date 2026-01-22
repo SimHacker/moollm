@@ -1,0 +1,42 @@
+# Sidecar for selfie-09-this-is-fine-imagen4.png
+# Generated: 2026-01-22T04:18:28.434740
+#
+# This file is a regenerable recipe. Edit and re-run:
+#   visualize.py regenerate selfie-09-this-is-fine-imagen4.yml
+#
+
+# === SOURCES ===
+# Reference paths to context files (not embedded)
+sources:
+  - examples/adventure-4/characters/fictional/donna-toadstool/selfies/selfie-09-this-is-fine.yml
+
+# === GENERATION PARAMETERS ===
+generation:
+  provider: google
+  model: imagen-4.0-generate-001
+  size: 1024x1024
+  verbosity: normal
+  generated_at: 2026-01-22T04:18:28.434740
+
+# === SYNTHESIZED PROMPT ===
+# Edit this to regenerate with tweaks!
+prompt: |
+  Pixar-adjacent stylized CGI selfie. Flamboyant cartoon security guard character with ORANGE skin, elaborate blonde pompadour, rotund body in navy suit with red tie, MANY MUSHROOM PINS on lapel, PINK HEART-SHAPED GLASSES.
+  
+  EXPRESSION: "THIS IS FINE" MEME ENERGY — calm, unbothered smile while DRINKING COFFEE from a mug. Completely relaxed posture despite chaos.
+  
+  BACKGROUND: Security monitors showing ABSOLUTE CHAOS:
+  - One monitor: Figure being PULLED INTO a swirling blue vortex/tunnel
+  - One monitor: A RABBIT in tie-dye hoodie
+  - One monitor: Building on FIRE
+  - Everything is on fire and crazy but she's FINE
+  
+  POSE: Casually sipping coffee, one hand on mug, relaxed posture. "Just another day at the office" energy.
+  
+  MOOD: Complete calm amid apocalyptic chaos. The "this is fine" dog meme but as Donna.
+  
+  Style: Control room, fire reflections, monitors showing disaster, Donna COMPLETELY UNBOTHERED.
+
+# === ADDITIONAL METADATA ===
+provider: google
+model: imagen-4.0-generate-001

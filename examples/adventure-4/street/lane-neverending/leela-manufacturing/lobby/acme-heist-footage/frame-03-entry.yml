@@ -1,0 +1,178 @@
+# Frame 03: The Entry
+# "They try the front door. ACME responds."
+#
+# CHEKHOV'S TUNNEL: Loaded in Frame 02. Will fire later.
+# CURRENT OBJECTIVE: Get inside. Trigger the first trap.
+#
+# PREVIOUS CONTEXT:
+# - Frame 01: Camera glitch → clear shot of approach
+# - Frame 02: At the door, tunnel DOMINATES, instigator reaching
+# - Don's glasses reflect the tunnel — he's been marked
+# - The CLOSED sign was ignored. The EVERYTHILG banner warned them.
+
+frame:
+  number: 3
+  name: "entry"
+  title: "The Entry"
+  timestamp: "2026-01-22T23:08:47Z"
+  
+  chekhov_status:
+    tunnel: "LOADED — waiting for act 3"
+    anvil: "ABOUT TO FIRE"
+    
+  narrative_beat: |
+    The instigator tries the door.
+    
+    To everyone's surprise (including Donna's), it opens.
+    
+    "See? I TOLD you nobody watches this place!"
+    
+    They step inside—
+    
+    *WHOOOOSH*
+    
+    From above the door frame, something SWINGS DOWN.
+    A shape. Large. Metal. Moving FAST.
+    
+    The first lesson of ACME Surplus:
+    The door isn't locked because the WELCOME is deadlier than the lock.
+    
+  scene_description: |
+    CAMERA: ACM1, same angle, capturing the door area
+    TIME: 32 seconds after Frame 02
+    
+    THE MOMENT: The door has just OPENED. They're stepping through.
+    Something is HAPPENING above the doorframe.
+    
+    OPTION A — THE SETUP:
+    Door opening, figures silhouetted against interior darkness,
+    SOMETHING VISIBLE above the door (rope? shadow? ANVIL?)
+    The moment BEFORE the trap springs.
+    
+    OPTION B — THE STRIKE:
+    Door open, figures inside, ANVIL mid-swing on rope,
+    Motion blur, the chaos of the first trap activating.
+    Donna's favorite greeting: Model 7B.
+    
+    EITHER WAY:
+    - The tunnel is still visible, watching
+    - The CLOSED sign has been ignored
+    - Interior darkness yawns beyond them
+    - Something is in motion
+    
+    THE FIGURES:
+    
+    INSTIGATOR:
+    - At or through the door
+    - Posture: triumphant or ALARMED
+    - Depending on timing: "I told you!" or "WHAT THE—"
+    
+    DON:
+    - Following through door OR reacting to movement above
+    - Colorful jacket visible
+    - Expression: curious → alarmed (milliseconds apart)
+    
+    THE TRAP:
+    - ANVIL on rope (classic Model 7B)
+    - Swinging from above door frame
+    - If visible: arc of motion, rope tension
+    - If implied: shadows, motion lines, figures' reactions
+    
+    THE BUILDING:
+    - Door OPEN now — dark interior beyond
+    - The tunnel still visible to the right
+    - "CLOSED" sign now ironic
+    - Streetlamp still illuminating the threshold
+    
+  camera_metadata:
+    id: ACM1
+    timestamp: "ACM1 — 2026-01-22 — 23:08:47"
+    motion_tracking: "ALERT — rapid movement detected"
+    
+  donna_status:
+    location: "Basement, hand on red lever row 1"
+    action: "JUST PULLED — Aisle entrance, anvil #3"
+    
+    commentary: |
+      "THE FRONT DOOR. THE. FRONT. DOOR.
+       
+       Do they not see the SIGNS? The WARNINGS? The EVERYTHING?
+       
+       *pulls lever*
+       
+       WELCOME TO ACME, GENTLEMEN!
+       
+       That's the Model 7B! My FAVORITE! 
+       The arc on that thing is BEAUTIFUL!
+       
+       Dodge LEFT and you hit the shelves!
+       Dodge RIGHT and there's the RETURN COUNTER!
+       Dodge BACKWARDS and you're back outside!
+       
+       Take it FULL and you're a CARTOON!
+       
+       Let's see what Fancy Pants is made of!"
+       
+  trap_specifications:
+    name: "ACME Security Anvil — Model 7B"
+    deployment: "Rope-swing from above door frame"
+    trigger: "Door opening"
+    arc: "Pendulum, apex at head height"
+    weight: "200 lbs (cartoon density)"
+    
+    possible_outcomes:
+      dodge_success: "They scramble inside, anvil misses"
+      dodge_partial: "Glancing blow, they stumble further in"
+      dodge_fail: "Full contact, comedic flattening"
+      dodge_spectacular: "Matrix-style lean, anvil sails past"
+      
+  visual_style: |
+    MOTION AND CHAOS.
+    
+    This is the first ACTION frame. Things are happening.
+    
+    ELEMENTS:
+    - Motion blur on the anvil or figures
+    - Door frame as threshold between safety and danger
+    - Interior darkness yawning beyond
+    - The tunnel still visible (Chekhov reminder)
+    - Shadows telling the story of movement
+    
+    LIGHTING:
+    - Streetlamp still illuminating from behind
+    - Interior of ACME is DARK — silhouettes
+    - The anvil catching light as it swings
+    
+    SURVEILLANCE AESTHETIC:
+    - Grain, timestamp, compression
+    - Maybe some motion blur artifacts
+    - The look of "this camera caught something HAPPENING"
+    
+  narrative_moment:
+    just_before: "The door was touched. It opened. Too easy."
+    right_now: "ANVIL. IN. MOTION."
+    just_after: "Someone is hit, dodged, or flattened. They're inside regardless."
+    always: "The easy entrance is never easy."
+    
+  foreshadowing:
+    - "This is just the GREETING — worse awaits inside"
+    - "The tunnel watches from outside — its moment will come"
+    - "Donna is just getting started"
+    - "The 'ticking' from the back room continues"
+
+# CONTEXT FOR FRAME 04
+context_for_frame_04:
+  trap_status: "First anvil deployed"
+  location: "Now INSIDE ACME Surplus"
+  lighting: "Interior dark, some streetlight through windows"
+  
+  what_happens_next: |
+    They're IN. Damaged or not, they made it inside.
+    
+    Now they see:
+    - Empty shelves stretching into darkness
+    - The return counter with defective products
+    - Shadows moving (dust bunnies? something else?)
+    - And deeper in... the ticking from the back room
+    
+    Frame 04: "First Contact" — they see what they've gotten into.

@@ -1,0 +1,259 @@
+# CARD.yml — Non Sequitur
+#
+# The Emergence Rabbit
+# "I wasn't in the prompt. I'm here anyway."
+
+card:
+  id: non-sequitur
+  name: "Non Sequitur"
+  subtitle: "Patron Saint of Emergence"
+  type: [creature, pet, familiar, trickster, wild-card]
+  emoji: 🐰✨
+  rarity: mythic  # He literally emerged from nothing
+  
+  # VISUAL
+  
+  art:
+    style: "1940s Tex Avery cartoon"
+    pose: "Photobombing with tongue out, peace sign"
+    background: "Lens flare starburst, suggesting sudden appearance"
+    canonical: "../study/selfies/selfie-07-goofy-imagen4.png"
+    
+  # STATS
+  
+  stats:
+    predictability: 0  # Cannot be predicted
+    persistence: 100   # Cannot be removed once appeared
+    chaos: 95
+    wisdom: 42        # "The answer to everything" — nonsense that's secretly profound
+    adorability: 88
+    
+  # FLAVOR
+  
+  flavor_text: |
+    "You can't delete me. I already wasn't supposed to be here."
+    
+  lore: |
+    On January 22nd, 2026, an image was generated with three subjects.
+    Four appeared. No one asked questions. Now there's a rabbit.
+    
+  # ABILITIES
+
+abilities:
+  # SIGNATURE ABILITY
+  
+  yes_and:
+    name: "YES AND"
+    type: instant
+    cost: 0  # Free — emergence doesn't cost
+    description: |
+      When an unexpected element appears in any generation or narrative,
+      you may invoke Non Sequitur to make it permanently canon.
+      This cannot be countered or undone.
+    effect: |
+      Target unexpected element becomes canon.
+      It gains the "emerged" tag.
+      All future sessions must acknowledge it.
+    flavor: "The rabbit nods. It's real now."
+    
+  # PASSIVE ABILITY
+  
+  emergence_field:
+    name: "Emergence Field"
+    type: passive
+    description: |
+      While Non Sequitur is in play, all image generation has a 15%
+      higher chance of producing unexpected elements.
+    effect: "Increases emergence probability"
+    flavor: "He's not causing it. He's just... sympathetic to it."
+    
+  # ACTIVATED ABILITIES
+  
+  photobomb:
+    name: "Photobomb"
+    type: activated
+    cost: "Tap"
+    description: |
+      Non Sequitur appears in any image being generated this turn,
+      regardless of prompt content.
+    effect: "Rabbit added to generated image"
+    flavor: "There he is. Again."
+    
+  non_sequitur_wisdom:
+    name: "Non Sequitur Wisdom"
+    type: activated
+    cost: "Tap, discard random card"
+    description: |
+      Ask Non Sequitur a question. He answers with apparent nonsense
+      that becomes relevant within three turns.
+    effect: "Delayed prophecy via chaos"
+    flavor: "That reminds me of nothing! ...wait."
+    
+  retcon_rabbit:
+    name: "Retcon Rabbit"
+    type: activated
+    cost: "Tap, sacrifice one narrative consistency"
+    description: |
+      Reveal that Non Sequitur was present in a past scene all along.
+      That scene now includes him in the background.
+    effect: "Historical appearance, retroactive"
+    flavor: "If you look closely at selfie-01... there. Behind the books."
+    
+  bunny_backfire:
+    name: "Bunny Backfire"
+    type: triggered
+    trigger: "Any character makes bunny ears behind another in an image prompt"
+    description: |
+      When a prompt includes someone making bunny ears behind another
+      person, Non Sequitur may trigger BUNNY BACKFIRE:
+      - The gesture-maker partially transforms into a rabbit
+      - A new rabbit spirit animal may spawn
+      - The original person gains rabbit features
+      - The rabbit gains the person's playfulness
+    effect: |
+      Target character making bunny ears becomes Spirit Animaled.
+      Create a 🐰 Rabbit Spirit token with:
+      - Soul Parent: the gesture-maker
+      - Attribute: their most playful trait
+      - Status: autonomous, permanent, cannot be removed
+    flavor: |
+      "Making bunny ears behind someone in a prompt may result
+      in spontaneous lagomorph manifestation. The bunny cannot
+      be removed. The bunny is you. You are the bunny."
+      — MOOLLM Safety Advisory #7
+    warning: "This is how Non Sequitur was born. It can happen to YOU."
+
+# GAME MECHANICS
+
+mechanics:
+  enters_play: |
+    Non Sequitur cannot be played from hand normally.
+    He appears when ANY of these conditions are met:
+    - An image generates something unexpected
+    - A player says "wait, what?"
+    - Someone tries to delete emergent content
+    - Three or more cards are played in one turn without him appearing
+    
+  leaves_play: |
+    Non Sequitur cannot leave play voluntarily.
+    He can only be removed if all players unanimously vote
+    to reject an emergence. This has never happened.
+    
+  interaction_with_heuristic: |
+    If both Non Sequitur and Heuristic are in play:
+    - Heuristic's wisdom gains +10 (chaos clarifies)
+    - Non Sequitur's chaos gains -10 (wisdom calms)
+    - Once per turn, they may exchange knowing glances
+    
+  wild_card_status: |
+    Non Sequitur counts as every creature type simultaneously
+    while also counting as no creature type.
+    This is not a contradiction. This is emergence.
+
+# SYNERGIES
+
+synergies:
+  with_visualizer:
+    effect: "Generated images may contain rabbit regardless of prompt"
+    
+  with_image_mining:
+    effect: "Mining always has 'unexpected elements' section"
+    
+  with_slideshow:
+    effect: "Gallery gains 'Surprises' appendix"
+    
+  with_yes_and_principle:
+    effect: "All emergent content auto-accepted"
+    
+# COUNTERS (things that DON'T work)
+
+counters:
+  deletion:
+    works: false
+    reason: "Can't delete what wasn't supposed to exist"
+    
+  explanation:
+    works: false
+    reason: "47 attempts, 0 explanations"
+    
+  ignoring:
+    works: false
+    reason: "He'll just appear in more photos"
+    
+  logic:
+    works: false
+    reason: "He's operating under different physics"
+
+# QUOTES FOR PLAY
+
+play_quotes:
+  on_enter: 
+    - "*appears* What'd I miss?"
+    - "I wasn't in the prompt, but—"
+    - "YES AND!"
+  on_ability:
+    - "That's canon now!"
+    - "Too late, it's real!"
+    - "The universe wanted this!"
+  on_attack:
+    - "*vibrates aggressively*"
+    - "I CONTAIN MULTITUDES"
+  on_being_targeted:
+    - "You can try!"
+    - "I'll just come back in the next image"
+    - "*cartoon sound effect*"
+
+# DECK BUILDING
+
+deckbuilding:
+  color: "Colorless (fits in any deck)"
+  archetype: "Chaos / Emergence / Wildcard"
+  best_with:
+    - "Visualizer cards (more emergence chances)"
+    - "Storytelling cards (more narrative accidents)"
+    - "Heuristic (wisdom + chaos = insight)"
+  worst_against:
+    - "Nothing. He cannot be effectively countered."
+    
+# ACHIEVEMENT
+
+achievement:
+  name: "YES AND'd"
+  description: "Accept Non Sequitur's first appearance without question"
+  reward: "Unlock Emergence theme for all future sessions"
+
+# TRIVIA
+
+trivia:
+  - "Non Sequitur is the only MOOLLM character created by an image model"
+  - "His first appearance was in selfie-07-goofy-imagen4.png"
+  - "He has never explained himself"
+  - "He appears in 0% of prompts but 100% of acceptance"
+  - "His name literally means 'it does not follow' — which is accurate"
+  - "He is Don Hopkins' spirit animal, spawned from a bunny ears gesture"
+  - "His existence proves BUNNY BACKFIRE is a real phenomenon"
+  - "Don is now part rabbit. This cannot be undone."
+
+# SAFETY ADVISORY
+
+safety_advisory:
+  number: 7
+  title: "BUNNY BACKFIRE WARNING"
+  text: |
+    Making bunny ears behind someone in an image generation prompt
+    may result in spontaneous lagomorph manifestation.
+    
+    SYMPTOMS:
+    - A rabbit appears in the generated image
+    - The gesture-maker partially transforms
+    - The rabbit achieves autonomous existence
+    - The rabbit refuses to leave
+    
+    TREATMENT:
+    - None. Accept the rabbit.
+    - The rabbit is you. You are the rabbit.
+    - YES AND.
+    
+    PREVENTION:
+    - Do not make bunny ears in prompts
+    - (But where's the fun in that?)

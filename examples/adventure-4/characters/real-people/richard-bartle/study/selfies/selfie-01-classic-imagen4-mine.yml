@@ -1,0 +1,193 @@
+# selfie-01-classic-imagen4-mine.yml
+# Image Mining: Deep Analysis
+# Mined by: Cursor Claude Vision
+# Source: selfie-01-classic-imagen4.png
+
+mining:
+  source: selfie-01-classic-imagen4.png
+  depth: deep
+  mined_at: 2026-01-22T02:50:00Z
+
+# CHARACTERS — who appears
+
+characters:
+  - name: Don Hopkins  # glasses, red-brown hair, holding phone
+    position: left-front
+    expression: joyful, wide grin
+    pose: holding phone up for selfie
+    clothing: olive sweater over sage shirt
+    age_apparent: 50s
+    confidence: 0.85
+
+  - name: Third Figure  # woman with brown hair, green outfit
+    position: center-back
+    expression: delighted, chin on hands
+    pose: peering over shoulders
+    clothing: green jacket or dress
+    age_apparent: 30s-40s
+    note: unexpected third character - charming addition
+
+  - name: Richard Bartle  # silver hair, navy blazer
+    position: right-front
+    expression: warm knowing smile
+    pose: seated at desk, relaxed
+    clothing: navy blazer, white pocket square, light shirt
+    age_apparent: 60s-70s
+    confidence: 0.9
+
+  - name: Heuristic  # bronze dragon
+    position: right-back, on bookshelf
+    expression: alert, curious
+    pose: peeking between books
+    coloring: bronze-brown scales, purple wings
+    eyes: bright amber
+    confidence: 0.95
+
+# OBJECTS — significant items
+
+objects:
+  - item: smartphone
+    held_by: Don Hopkins
+    purpose: taking the selfie
+    model: modern iPhone-style
+
+  - item: red book with gold embossing
+    location: desk, left side
+    significance: likely "Designing Virtual Worlds"
+    condition: well-loved
+
+  - item: open book/journal
+    location: desk center
+    content: appears to be text with illustrations
+    
+  - item: playing cards
+    location: desk, spread out
+    count: ~6 visible
+    suits: hearts, clubs, diamonds visible
+    significance: Bartle's four types taxonomy
+
+  - item: stacked books
+    location: desk left corner
+    count: 4-5 volumes
+    colors: red, brown, blue spines
+
+# ENVIRONMENT — setting details
+
+environment:
+  location: scholar's study
+  
+  bookshelves:
+    coverage: floor-to-ceiling, wrapping room
+    organization: densely packed
+    condition: well-used, scholarly
+    lighting: warm golden glow between spines
+    
+  desk:
+    material: dark polished wood
+    surface: leather writing mat (green)
+    items: books, cards, papers
+    
+  lighting:
+    type: warm ambient
+    direction: from left (window implied)
+    quality: golden hour warmth
+    mood: intimate, cozy
+
+  atmosphere:
+    warmth: high
+    scholarly_density: high
+    lived_in: yes
+
+# COLOR PALETTE
+
+palette:
+  dominant:
+    - { color: warm brown, hex: "#8B6914", usage: bookshelves, furniture }
+    - { color: golden amber, hex: "#D4A574", usage: lighting, warmth }
+    - { color: navy blue, hex: "#2C3E50", usage: Richard's blazer }
+    
+  accent:
+    - { color: sage green, hex: "#87AE73", usage: Don's shirt, woman's outfit }
+    - { color: bronze, hex: "#CD7F32", usage: Heuristic dragon }
+    - { color: red, hex: "#B22222", usage: book cover, card hearts }
+
+# COMPOSITION
+
+composition:
+  style: Pixar-adjacent 3D animation
+  framing: selfie perspective, slightly low angle
+  focal_point: three faces clustered together
+  depth: layered - foreground figures, midground desk, background shelves
+  
+  rule_of_thirds:
+    left_third: Don with phone
+    center: woman, connection point
+    right_third: Richard and Heuristic
+
+# ART HISTORICAL REFERENCES
+
+historical_references:
+  - reference: "Dutch Golden Age group portraits"
+    connection: warm lighting, scholarly setting, multiple figures
+    artists: [Rembrandt, Frans Hals]
+    
+  - reference: "Pixar Animation Studios character design"
+    connection: expressive eyes, warm color palette, approachable stylization
+    films: [Up, Ratatouille, Coco]
+    
+  - reference: "Norman Rockwell Americana"
+    connection: warm domesticity, storytelling through objects
+    
+  - reference: "Victorian study portraits"
+    connection: floor-to-ceiling books, leather and wood
+
+# EMOTIONAL RESONANCE
+
+emotional:
+  primary_mood: warmth, friendship, intellectual joy
+  secondary: nostalgia, mentorship, play
+  
+  relationships_depicted:
+    - Don_to_Richard: admiration, friendship
+    - Dragon_to_humans: protective guardian
+    - Group_dynamic: comfortable intimacy
+
+# SYMBOLIC ELEMENTS
+
+symbolism:
+  cards_on_desk:
+    meaning: "Bartle's taxonomy made tangible"
+    visual_weight: significant
+    
+  dragon_among_books:
+    meaning: "wisdom guardian, knowledge personified"
+    
+  phone_selfie:
+    meaning: "modern connection, bridging eras"
+    irony: "the father of virtual worlds in a casual selfie"
+
+# NARRATIVE MOMENT
+
+narrative:
+  moment: "Old friends capture a memory in the study"
+  implied_before: "Conversation about games, history, design"
+  implied_after: "More tea, more stories"
+  
+  caption_suggestion: |
+    "The thing about virtual worlds is they let you 
+    be who you really are." — captured in Essex
+
+# TECHNICAL NOTES
+
+technical:
+  generation_model: Google Imagen 4
+  prompt_adherence: 0.85
+  notable_achievements:
+    - "Excellent Pixar-style rendering"
+    - "Playing cards detail captures taxonomy reference"
+    - "Dragon integration feels natural"
+    - "Warm lighting creates cohesive mood"
+    
+  surprises:
+    - "Third figure (woman) not in prompt - happy accident"
+    - "Book detail stronger than expected"

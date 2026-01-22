@@ -1,0 +1,65 @@
+# Sidecar for selfie-05-tug-of-war-imagen4.png
+# Generated: 2026-01-22T04:54:52.015376
+#
+# This file is a regenerable recipe. Edit and re-run:
+#   visualize.py regenerate selfie-05-tug-of-war-imagen4.yml
+#
+
+# === SOURCES ===
+# Reference paths to context files (not embedded)
+sources:
+  - examples/adventure-4/characters/real-people/don-hopkins/selfies/selfie-05-tug-of-war.yml
+
+# === GENERATION PARAMETERS ===
+generation:
+  provider: google
+  model: imagen-4.0-generate-001
+  size: 1024x1024
+  verbosity: normal
+  generated_at: 2026-01-22T04:54:52.015376
+
+# === SYNTHESIZED PROMPT ===
+# Edit this to regenerate with tweaks!
+prompt: |
+  Abstract Pixar-adjacent 3D render, cartoon tug-of-war scene:
+  
+  TWO CHARACTERS in intense standoff over a FABERGÉ EGG:
+  
+  LEFT — DON (rabbit):
+  - Grey anthropomorphic rabbit in tie-dye hoodie
+  - Both paws GRIPPING one side of ornate Fabergé egg
+  - Leaning BACK, pulling with all strength
+  - Expression: determined, teeth gritted, "IT'S MINE!"
+  - Feet braced against gold coins
+  - Pearls still around neck from earlier
+  
+  RIGHT — DONNA:
+  - Flamboyant character with orange skin, blonde pompadour
+  - Navy suit, red tie, pink heart-shaped glasses
+  - Both hands GRIPPING other side of same egg
+  - Leaning BACK, pulling opposite direction
+  - Expression: equally fierce, "NO IT'S MINE!"
+  - Mushroom pins visible
+  
+  THE EGG (CENTER):
+  - Ornate green and gold Fabergé Imperial Egg
+  - Being PULLED from both sides
+  - Possibly slightly stretched (cartoon physics)
+  - Glowing/sparkling from the strain
+  - THE PRIZE they're fighting over
+  
+  THE CHAOS:
+  - Gold coins SCATTERING from their struggle
+  - Gems flying through the air
+  - Cash bills swirling around them
+  - Motion lines showing the pulling force
+  - Orange/black tunnel still visible behind Donna
+  - Treasure pile disturbed by their battle
+  
+  MOOD: Cartoon rivalry at PEAK INTENSITY! Neither will let go! $33 million at stake! Looney Tunes tug-of-war energy! Comedy standoff! "MINE!" vs "MINE!"
+  
+  Action lines, exaggerated pulling poses, eyes locked on each other, maximum cartoon tension before something GIVES!
+
+# === ADDITIONAL METADATA ===
+provider: google
+model: imagen-4.0-generate-001

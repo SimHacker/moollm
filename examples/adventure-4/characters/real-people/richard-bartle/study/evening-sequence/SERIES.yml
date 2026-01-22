@@ -1,0 +1,74 @@
+# 🌙 Evening Sequence — Iterative Narrative Series
+#
+# PRINCIPLE: Each image sees the full context of all previous images.
+# Like telephone, but with memory. Like conversation, but visual.
+#
+# METHOD:
+#   1. Write YAML skeleton (narrative intent)
+#   2. Synthesize environmental context into rich prompt
+#   3. Generate image
+#   4. Mine image with MULTIPLE LENSES (colored fordite layers)
+#   5. Let emergence inform next image
+#   6. Repeat — each image richer than the last
+#
+# STYLE: Abstract Pixar-adjacent CGI, warm evening light, scholarly atmosphere
+# CHARACTERS: Richard, Don, Heuristic, Non Sequitur (appears when he wants)
+# LOCATION: Richard's study, evening descending into night
+# THEME: "An evening of old friends, dragons, and unexpected rabbits"
+
+series:
+  name: "Evening Sequence"
+  subtitle: "What Happens When Don Visits the Study"
+  
+  date: "2026-01-22"
+  
+  style_guide: |
+    VISUAL LANGUAGE:
+    - Abstract CGI rendering, Pixar-adjacent but more painterly
+    - Warm incandescent lighting, deepening as series progresses
+    - Rich textures: aged leather, bronze scales, glowing screens
+    - Cartoony proportions allowed (especially for Non Sequitur)
+    - The room is a character — shelves should feel alive with history
+    
+    CONTINUITY ELEMENTS:
+    - Window view changes with each frame (showing what Richard thinks about)
+    - Tea cups accumulate (narrative time marker)
+    - Heuristic's position shifts slightly — always watching
+    - Books migrate from shelves to piles as discussion deepens
+    
+    COLOR PALETTE:
+    - Warm amber and gold (incandescent bulbs)
+    - Bronze and verdigris (Heuristic's scales)
+    - Deep burgundy and forest green (old books)
+    - Cream and pink (Non Sequitur's chaos injection)
+    
+  narrative_arc:
+    frame_01: "Arrival — Don enters the study at golden hour"
+    frame_02: "The Question — Don asks about something he's been thinking about"
+    frame_03: "The Cards — Richard deals out the Bartle taxonomy"
+    frame_04: "Heuristic Speaks — The dragon decides to contribute"
+    frame_05: "The Uninvited Guest — Non Sequitur appears (because of course)"
+    frame_06: "The Tangent — Conversation goes somewhere unexpected"
+    frame_07: "The Insight — Something clicks. Eyes widen."
+    frame_08: "Night Falls — The study in blue darkness, still talking"
+
+  accumulated_context: []  # This grows with each frame
+  
+  fordite_lenses:
+    - historical     # Art history, visual references
+    - emotional      # Mood, feeling, atmosphere
+    - narrative      # Story implications, before/after
+    - symbolic       # Hidden meanings, metaphors
+    - relational     # Character dynamics, power, attention
+    
+  protocol: |
+    FOR EACH FRAME:
+    
+    1. SKELETON — Write frame-NN.yml with narrative intent
+    2. CONTEXT SYNTHESIS — Read all previous frames, mines, room, characters
+    3. PROMPT CRYSTALLIZATION — Write frame-NN-prompt.txt (rich, specific, ~400 tokens)
+    4. IMAGE GENERATION — Run visualizer with --raw-prompt
+    5. MINING LAYERS — Apply 2-3 lenses from fordite_lenses
+    6. EMERGENCE CAPTURE — Note what appeared that wasn't asked for
+    7. CONTEXT UPDATE — Add this frame's data to accumulated_context
+    8. PROCEED — Next frame sees everything

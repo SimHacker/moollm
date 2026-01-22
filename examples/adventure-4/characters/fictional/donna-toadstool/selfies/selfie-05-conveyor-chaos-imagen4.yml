@@ -1,0 +1,40 @@
+# Sidecar for selfie-05-conveyor-chaos-imagen4.png
+# Generated: 2026-01-22T04:03:27.354301
+#
+# This file is a regenerable recipe. Edit and re-run:
+#   visualize.py regenerate selfie-05-conveyor-chaos-imagen4.yml
+#
+
+# === SOURCES ===
+# Reference paths to context files (not embedded)
+sources:
+  - examples/adventure-4/characters/fictional/donna-toadstool/selfies/selfie-05-conveyor-chaos.yml
+
+# === GENERATION PARAMETERS ===
+generation:
+  provider: google
+  model: imagen-4.0-generate-001
+  size: 1024x1024
+  verbosity: normal
+  generated_at: 2026-01-22T04:03:27.354301
+
+# === SYNTHESIZED PROMPT ===
+# Edit this to regenerate with tweaks!
+prompt: |
+  Pixar-adjacent stylized CGI selfie. Flamboyant cartoon security guard character with ORANGE skin, elaborate blonde pompadour, rotund body in navy suit with red tie, MUSHROOM PIN on lapel, PINK HEART-SHAPED GLASSES.
+  
+  EXPRESSION: GLEEFUL CONDUCTOR — making train conductor gesture with one hand pulling imaginary whistle, other hand on lever. "CHOO CHOO!" energy.
+  
+  BACKGROUND: Security monitors showing CONVEYOR BELT with figure riding it, arms out for balance, boxes falling. One monitor shows another figure with arms raised in alarm.
+  
+  POSE: One hand pulling imaginary train whistle, other hand on a brass lever. Conductor of chaos.
+  
+  FILTER EFFECTS: Sparkles, neon glow, ring light on face.
+  
+  MOOD: Running the ride. The heist has become HER attraction and she's the operator.
+  
+  Style: Control room, warm lighting, multiple monitors showing warehouse chaos.
+
+# === ADDITIONAL METADATA ===
+provider: google
+model: imagen-4.0-generate-001

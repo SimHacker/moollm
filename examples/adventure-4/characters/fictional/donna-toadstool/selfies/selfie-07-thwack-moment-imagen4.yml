@@ -1,0 +1,40 @@
+# Sidecar for selfie-07-thwack-moment-imagen4.png
+# Generated: 2026-01-22T04:08:50.407751
+#
+# This file is a regenerable recipe. Edit and re-run:
+#   visualize.py regenerate selfie-07-thwack-moment-imagen4.yml
+#
+
+# === SOURCES ===
+# Reference paths to context files (not embedded)
+sources:
+  - examples/adventure-4/characters/fictional/donna-toadstool/selfies/selfie-07-thwack-moment.yml
+
+# === GENERATION PARAMETERS ===
+generation:
+  provider: google
+  model: imagen-4.0-generate-001
+  size: 1024x1024
+  verbosity: normal
+  generated_at: 2026-01-22T04:08:50.407751
+
+# === SYNTHESIZED PROMPT ===
+# Edit this to regenerate with tweaks!
+prompt: |
+  Pixar-adjacent stylized CGI selfie. Flamboyant cartoon security guard character with ORANGE skin, elaborate blonde pompadour, rotund body in navy suit with red tie, MUSHROOM PINS on lapel, PINK HEART-SHAPED GLASSES (possibly askew).
+  
+  EXPRESSION: HOME ALONE FACE — hands on both cheeks, mouth WIDE OPEN in shocked amazement. Classic Macaulay Culkin pose. Cannot believe what she just witnessed.
+  
+  BACKGROUND: Security monitor showing a figure SPLAYED against a painted tunnel wall. Impact stars visible.
+  
+  POSE: Both hands on cheeks, pushing face into shocked expression. "OH MY GOD!" energy.
+  
+  FILTER EFFECTS: Sparkles, dramatic lighting, impact effects.
+  
+  MOOD: Disbelief and joy combined. Someone finally hit the tunnel. Dreams coming true.
+  
+  Style: Control room, monitor showing the THWACK moment, pure cartoon shock reaction.
+
+# === ADDITIONAL METADATA ===
+provider: google
+model: imagen-4.0-generate-001

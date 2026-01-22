@@ -165,6 +165,17 @@ Large windows look out onto [Lane Neverending](../../):
 
 ---
 
+## Video Archives
+
+Footage captured by Leela cameras is stored here:
+
+| Archive | Camera | Content |
+|---------|--------|---------|
+| 📁 [ACME Heist Footage](acme-heist-footage/) | ACM1 | 10 frames of the break-in at ACME Surplus (2026-01-22) |
+| 📁 [ACME Tunnel Temporal Views](acme-tunnel-temporal-views/) | ACM1 | Temporal anomaly documentation |
+
+---
+
 ## Address
 
 **Leela Manufacturing Intelligence**  

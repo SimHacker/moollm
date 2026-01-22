@@ -1,0 +1,132 @@
+# Frame 01: Arrival
+# "Don enters the study at golden hour"
+#
+# THE FIRST FRAME — establishes everything that follows.
+# No previous context to draw from. We ARE the context now.
+
+frame:
+  number: 1
+  name: "arrival"
+  title: "The Arrival"
+  
+  narrative_beat: |
+    Don Hopkins pushes open the door that wasn't there a moment ago.
+    The study opens before him — books, golden light, the smell of
+    old paper and cold tea. Richard looks up from his desk.
+    
+    From the radiator, Heuristic opens one eye.
+    "Ah. The other one."
+    
+    This is the moment before the conversation. Everything is possible.
+    
+  scene_description: |
+    CAMERA: Just inside the doorway, looking into the study
+    TIME: Golden hour — late afternoon sun streaming through the window
+    
+    THE DOOR: Behind us (implied), just opened
+    THE STUDY: Fully visible — shelves, desk, radiator, reading chair
+    THE LIGHT: Warm amber, sun angling through window, dust motes visible
+    
+    RICHARD: At his desk, turning in chair, expression welcoming but curious
+            "Looking for something specific, or just exploring?"
+    
+    DON: Just entering frame (from our POV), silhouette catching doorway light
+         One hand possibly still on the door
+         Posture of someone arriving, not yet settled
+    
+    HEURISTIC: Draped along radiator, bronze scales catching warm light
+               One eye open, watching. Evaluating.
+               Not hostile. Just... observing.
+    
+    THE WINDOW: Shows Essex campus in soft focus — a real place this time
+                Richard's mind is grounded in welcome, not wandering
+    
+    DETAILS TO INCLUDE:
+    - Tea cup on desk (full, still steaming — freshly made)
+    - "Designing Virtual Worlds" visible on desk
+    - Taxonomy cards face-down in a neat stack
+    - Reading lamp OFF (natural light is enough)
+    - Empty reading chair (inviting occupation)
+    
+    DETAILS TO EXCLUDE:
+    - Non Sequitur (he hasn't appeared yet — that comes later)
+    - Any chaos or disorder (this is BEFORE the conversation)
+    - Night elements (it's golden hour, not evening yet)
+    
+  characters_present:
+    - richard-bartle: "At desk, welcoming, curious"
+    - don-hopkins: "Just arrived, silhouette in doorway"
+    - heuristic: "On radiator, watching, one eye open"
+    
+  environment_cues:
+    light_quality: "Golden hour amber, warm and welcoming"
+    atmosphere: "Anticipation, possibility, the moment before"
+    sound: "Door closing, chair turning, dragon rumble"
+    smell: "Paper, tea, old books, radiator warmth"
+    
+  visual_style: |
+    Abstract Pixar-adjacent CGI rendering.
+    
+    Warm color palette — amber, gold, bronze, burgundy.
+    Soft volumetric light from window (god rays through dust).
+    Rich textures on everything (leather, wood, scales, paper).
+    
+    NOT photorealistic — stylized and warm.
+    Characters should feel like beloved animation, not uncanny valley.
+    
+    Composition: Rule of thirds. Don at left entering, Richard center-right,
+    Heuristic lower right as anchor. Window as light source upper right.
+    
+  narrative_moment:
+    just_before: "Don stood in the hallway. The door appeared."
+    right_now: "Threshold crossing. The study opens like a book."
+    just_after: "Richard will gesture to the reading chair. Tea will be offered."
+    always: "Old friends meeting in the space where ideas live."
+
+# CONTEXT SYNTHESIS NOTES
+# This prompt will include:
+# - Room description from ROOM.yml
+# - Richard's visual description from CHARACTER.yml
+# - Heuristic's physical form from CHARACTER.yml
+# - Don's visual markers (Hawaiian shirt energy even if not visible)
+# - The emotional weight of "old friends reuniting in the sacred space"
+
+context_synthesis:
+  room_elements:
+    - "Large wooden desk, well-worn, covered in papers"
+    - "Window showing Essex campus (grounded, not dreaming)"
+    - "Shelves organized by era: Prehistory through Warnings"
+    - "Genesis shelf 1978-1985 — Heuristic's favorite perch"
+    - "Leather reading chair, worn, inviting"
+    - "Radiator — old, warm, dragon-adjacent"
+    
+  richard_visual:
+    - "Man in 60s, silver-white hair swept back"
+    - "Blue-striped collared shirt, open at neck"
+    - "Friendly but thoughtful expression"
+    - "Mid-turn in chair, hands perhaps pausing mid-gesture"
+    
+  heuristic_visual:
+    - "Size of large dog, but longer, serpentine"
+    - "Bronze scales aged to verdigris in places"
+    - "Golden eyes, half-lidded (one open)"
+    - "Vestigial wings folded"
+    - "Draped along radiator, catching warmth"
+    
+  don_visual:
+    - "Silhouette in doorway, backlit by corridor"
+    - "Large presence, casual posture"
+    - "Glasses catching light"
+    - "One hand possibly still on door"
+    - "The energy of arrival, anticipation"
+    
+  accumulated_context: null  # First frame — we ARE the context
+  
+  emergent_space: |
+    Leave room for:
+    - Unexpected details in the book titles
+    - Heuristic's exact pose
+    - What the dust motes form
+    - Any shadows that look like something
+    
+    COMMIT TO WHAT EMERGES. YES AND.

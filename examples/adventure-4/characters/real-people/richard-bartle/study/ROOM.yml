@@ -1,0 +1,166 @@
+# 📚 Richard Bartle's Study
+# An academic's workspace — externalized thinking
+
+room:
+  name: "The Study"
+  subtitle: "Where Virtual Worlds Are Understood"
+  
+  description: |
+    A scholar's sanctuary. Books line every wall — organized by era, topic, 
+    and relevance. The desk faces a window that looks out on... somewhere. 
+    The view changes depending on what you're thinking about.
+    
+    This isn't just where Richard works. It's an externalization of how he
+    thinks. Each shelf is a train of thought. Each stack is a problem being
+    worked. The organization is deliberate — skim the surface or dig deep
+    into any section.
+    
+    Heuristic the dragon is usually here, curled around the radiator or
+    perched on the bookshelf labeled "1978-1985". Sometimes sleeping.
+    Sometimes watching. Always listening.
+
+  atmosphere: |
+    Quiet. The hum of thought. The smell of paper and old tea.
+    Occasional sounds: pages turning, a pen scratching notes,
+    the soft rumble of a dragon who's heard this question before.
+
+  first_impression: |
+    You enter through a door that wasn't there a moment ago.
+    
+    Books. So many books. But not chaotic — carefully arranged, like
+    a library organized by someone who actually uses it. Labels on
+    shelves in neat academic handwriting.
+    
+    A figure at the desk looks up. "Ah. A visitor. Looking for something
+    specific, or just exploring?"
+    
+    From somewhere near the radiator, a very old dragon opens one eye.
+
+# THE LAYOUT
+
+layout:
+  desk:
+    description: "Large wooden desk, well-worn. Currently covered in papers."
+    objects:
+      - current-notes.yml      # Whatever he's working on
+      - red-book.yml           # "Designing Virtual Worlds" — always within reach
+      - coffee-cup.yml         # Cold. Forgotten. Will be rediscovered later.
+      - taxonomy-cards.yml     # The deck. Always ready.
+    
+  window:
+    description: |
+      The view changes. Sometimes Essex campus. Sometimes a MUD room
+      described in text. Sometimes somewhere that doesn't exist yet.
+    note: "It shows what you're thinking about."
+    
+  shelves:
+    organization: "By era and topic. Cross-referenced."
+    
+    sections:
+      prehistory:
+        label: "Before MUD (1960-1977)"
+        contents: [mainframes, early-networks, text-adventures, d&d]
+        
+      genesis:
+        label: "MUD Era (1978-1985)"
+        contents: [mud1-docs, abermud, early-papers, the-first-lessons]
+        note: "Heuristic's favorite perch"
+        
+      expansion:
+        label: "The Spread (1985-1995)"
+        contents: [tinymud, lambdamoo, diku, commercial-muds]
+        
+      commercial:
+        label: "MMO Era (1995-2010)"
+        contents: [ultima-online, everquest, warcraft, industry-failures]
+        
+      theory:
+        label: "Player Psychology"
+        contents: [taxonomy-research, motivation-theory, flow-states]
+        
+      design:
+        label: "World Design"
+        contents: [architecture, economy, governance, emergence]
+        
+      warnings:
+        label: "Mistakes They Keep Making"
+        contents: [reinvention-folder.yml]
+        note: "This shelf is unusually full."
+
+  reading_chair:
+    description: "Leather. Worn. The kind academics acquire over decades."
+    adjacent_to: "Small table with reading lamp and bookmarks"
+    
+  radiator:
+    description: "Old. Warm. Dragon-adjacent."
+    note: "Heuristic claims this spot."
+
+# ROOM MECHANICS
+
+mechanics:
+  
+  research:
+    description: "Ask about any topic. If it's in the books, Richard will find it."
+    action: "ask about [topic]"
+    result: "Richard locates relevant sources and summarizes the history."
+    
+  analyze:
+    description: "Apply academic rigor to any concept, design, or claim."
+    action: "analyze [subject]"
+    result: "Structured critique with historical context and suggestions."
+    
+  taxonomy:
+    description: "Draw and play the taxonomy cards."
+    action: "use taxonomy cards on [target]"
+    result: "Player type analysis with implications."
+    
+  consult_heuristic:
+    description: "Ask the dragon. It remembers everything."
+    action: "ask heuristic about [ancient topic]"
+    result: "Riddle that turns out to be documentation."
+    warning: "Only answers if you ask the right question."
+
+# CONNECTIONS
+
+exits:
+  door:
+    leads_to: "../"   # Back to Richard's main directory
+    description: "The door you came in through. Probably."
+    
+  deeper_stacks:
+    leads_to: "archives/"
+    description: "A narrow passage between shelves. Goes deeper."
+    note: "For when the surface collection isn't enough."
+    status: "future — not yet created"
+
+# MOOD
+
+voice:
+  ambient: |
+    The quiet of serious thought. The comfort of accumulated knowledge.
+    This is where understanding happens — not through revelation but
+    through patient accumulation.
+    
+  when_working: |
+    Richard is at the desk, making notes. Heuristic is watching.
+    They've done this together for a very long time.
+    
+  when_teaching: |
+    Richard turns his chair to face you. The view in the window
+    shifts to show whatever you're discussing.
+    "Let me show you something..."
+
+# ARTIFACTS IN THIS ROOM
+
+artifacts:
+  on_desk:
+    - ../artifacts/taxonomy-cards.yml         # Always ready
+    - ../artifacts/red-book.yml               # Always within reach
+    - ../artifacts/hearts-clubs-diamonds-spades.yml  # The original paper
+  on_theory_shelf:
+    - ../artifacts/mmos-from-inside-out.yml   # The philosophy
+  on_warnings_shelf:
+    - ../artifacts/reinvention-folder.yml     # Grows annually
+  
+residents:
+  - ../pets/heuristic/CHARACTER.yml

@@ -1,0 +1,140 @@
+# 🍺 PUB SCENES — COMPLETE IMAGE/MINE INVENTORY
+#
+# The Neverending Arms — Post-Heist Fellowship
+# Scott McCloud masking aesthetic throughout.
+
+inventory:
+  location: "The Neverending Arms"
+  time: "~02:30-03:30 AM"
+  date: "2026-01-23"  # After midnight
+  
+  total_scenes: 4
+  total_mined: 4
+  completeness: "100%"
+
+scenes:
+
+  scene_01:
+    title: "The Gathering"
+    files:
+      definition: "pub-scene-aftermath.yml"
+      prompt: "pub-scene-01-the-gathering-prompt.txt"
+      image: "pub-scene-01-the-gathering-imagen4.png"
+      mine: "pub-scene-01-the-gathering-imagen4-mine.yml"
+    characters:
+      - "Rabbit Don (tie-dye, carrot juice, eyes closed)"
+      - "Richard Bartle (white beard, pipe EMERGED, pint)"
+      - "Masked orange figure (simple face — masking)"
+      - "Masked green-hat figure (simple face — masking)"
+    emergent_elements:
+      - "PIPE for Richard (not prompted)"
+      - "Scott McCloud masking in full effect"
+      - "Fireplace crackling"
+    aesthetic_note: "Abstract faces allow viewer projection"
+    
+  scene_02:
+    title: "The Group Selfie"
+    files:
+      prompt: "pub-scene-02-group-selfie-prompt.txt"
+      image: "pub-scene-02-group-selfie-imagen4.png"
+      mine: "pub-scene-02-group-selfie-imagen4-mine.yml"
+    characters:
+      - "Rabbit Don (peace sign, tie-dye)"
+      - "Richard Bartle (pint, scarf EMERGED)"
+      - "Donna (pink glasses, waving)"
+      - "Instigator (green, making BUNNY EARS behind Richard!)"
+    emergent_elements:
+      - "'BACK ON' speech bubble"
+      - "BUNNY EARS BEHIND RICHARD (irony!)"
+      - "Camera visible in frame (meta)"
+      - "Character labels possible"
+    chekhov_note: "Bunny ears behind Richard = loaded gun"
+    
+  scene_03:
+    title: "Reviewing the Feed"
+    files:
+      definition: "pub-scene-03-reviewing-the-feed.yml"
+      prompt: "pub-scene-03-reviewing-feed-prompt.txt"
+      image: "pub-scene-03-reviewing-feed-imagen4.png"
+      mine: "pub-scene-03-04-mine.yml"  # Combined mine
+    characters:
+      - "Rabbit Don (looking at phone, SWEAT DROPS)"
+      - "Donna (peace sign, amused, pint)"
+      - "Richard (watching in background)"
+    emergent_elements:
+      - "'She documelated ALL of this??' (typo PERFECT)"
+      - "Phone showing Donna's selfie"
+      - "Horror/realization on Don's face"
+    narrative_moment: "Don discovers he was content"
+    
+  scene_04:
+    title: "The Open Mic"
+    files:
+      definition: "pub-scene-04-open-mic.yml"
+      prompt: "pub-scene-04-open-mic-prompt.txt"
+      image: "pub-scene-04-open-mic-imagen4.png"
+      mine: "pub-scene-03-04-mine.yml"  # Combined mine
+    characters:
+      - "Rabbit Don (on stage, at mic, gesturing)"
+      - "Donna (pink glasses, watching from audience)"
+      - "Richard (listening thoughtfully)"
+    emergent_elements:
+      - "'OPEN MIC' sign on chalkboard"
+      - "Spotlight on stage"
+      - "Mic adjusted to rabbit height"
+    narrative_moment: "Don tells HIS side of the story"
+
+# SCOTT McCLOUD MASKING ANALYSIS
+
+masking_notes:
+  principle: |
+    "The more cartoony a face, the more people it could be said to describe."
+    — Scott McCloud, Understanding Comics
+    
+  application:
+    scene_01:
+      detailed: "Richard (specific), Don (specific form)"
+      abstracted: "Orange figures (universal, projectable)"
+      
+    scene_02:
+      detailed: "Richard, Don (specific characters)"
+      semi_abstracted: "Donna, Instigator (recognizable but simpler)"
+      
+    scene_03:
+      detailed: "Don (emotional specificity required)"
+      varied: "Others less detailed = focus on Don's reaction"
+      
+    scene_04:
+      detailed: "Don on stage (performer = specific)"
+      audience_abstracted: "Allows viewer to BE in audience"
+
+# FELLOWSHIP PROGRESSION
+
+fellowship_arc:
+  scene_01: "Quiet gathering, processing in silence"
+  scene_02: "Group photo — claiming the moment together"
+  scene_03: "Don discovers his trauma was content"
+  scene_04: "Don reclaims his narrative via open mic"
+  
+  resolution: |
+    The fellowship formed through shared catastrophe.
+    Nobody planned to be friends.
+    Nobody expected to survive together.
+    But here they are.
+    
+    Drinks. Firelight. Stories.
+    The quiet after the storm.
+
+# HOW TO USE THIS CONTEXT
+
+usage_note: |
+  When generating pub-related content:
+  
+  1. Maintain Scott McCloud masking where appropriate
+  2. Reference character positions/states from mines
+  3. Build on established fellowship dynamics
+  4. Note emergent elements (pipe, bunny ears, typos)
+  5. Allow warm, amber, cozy aesthetic
+  
+  The pub is a SAFE SPACE after chaos.
+  Render accordingly.

@@ -1,0 +1,124 @@
+# DONNA TUNNELS INTO THE VAULT
+#
+# "YOU THOUGHT YOU COULD SWIM IN TREASURE WITHOUT ME?!"
+#
+# Chekhov's Tunnel strikes AGAIN.
+# The painted tunnels weren't just at ACME.
+# They're EVERYWHERE Donna wants to be.
+
+scene:
+  id: "selfie-04-donna-arrives"
+  title: "THE NEMESIS ARRIVES"
+  date: "2026-01-23"
+  time: "~05:05 AM"
+  location: "The Vault of All Value — NOW COMPROMISED"
+  
+  context: |
+    Don was having the time of his life.
+    Swimming in $1.6 billion of treasure.
+    MINE MINE MINE echoing off the golden walls.
+    
+    Then: a RUMBLING.
+    
+    The painted tunnel on the vault wall — the one Don
+    assumed was decorative — began to SWIRL.
+    
+    And through it burst DONNA TOADSTOOL.
+    
+    Pink glasses. Mushroom pins. Phone already out.
+    Already taking a selfie of her dramatic entrance.
+    
+    "SURPRISE, BUNNY BOY!"
+
+# THE ARRIVAL
+
+donna_entrance:
+  
+  tunnel:
+    type: "Painted tunnel — but ACTIVE"
+    color: "Orange and black spirals (ACME coloring)"
+    behavior: "Swirling vortex, then Donna emerges"
+    
+  donna_appearance:
+    outfit:
+      suit: "Navy blue power suit"
+      tie: "Red"
+      glasses: "Pink heart-shaped (signature)"
+      pins: "Multiple mushroom pins"
+      
+    expression: "TRIUMPHANT AVARICE"
+    pose: "Bursting through, arms wide, claiming the space"
+    phone: "ALREADY OUT — documenting her own entrance"
+    
+    energy: |
+      Donna doesn't sneak.
+      Donna doesn't apologize.
+      Donna ARRIVES.
+      
+      And she's here for the treasure.
+      ALL OF IT.
+
+# THE CONFRONTATION
+
+confrontation:
+  
+  don_reaction:
+    expression: "SHOCK — mid-swim, frozen"
+    thought: "How did she— The tunnel— MY TREASURE—"
+    pose: "Still in diving position, now alarmed"
+    
+  donna_declaration:
+    lines:
+      - "YOU THOUGHT YOU COULD SWIM IN TREASURE WITHOUT ME?!"
+      - "I've been MONITORING this vault for MONTHS!"
+      - "Those tunnels? I PAINTED THEM!"
+      - "ALL OF THIS IS MINE NOW!"
+      - "*already posting selfie* #VaultCrash #TreasureQueen"
+      
+  dynamic: |
+    Two cartoon maniacs.
+    One treasure vault.
+    Both screaming MINE MINE MINE.
+    
+    This is going to get MESSY.
+
+# TREASURE DIVISION CONFLICT
+
+treasure_conflict:
+  
+  don_claim: "I was here FIRST!"
+  donna_claim: "I BUILT the tunnel network!"
+  
+  contested_items:
+    mona_lisa: "BOTH want it"
+    faberge_egg: "BOTH reaching for it"
+    bitcoin: "Donna: 'Crypto is MINE'"
+    yacht: "Don: 'I already named it!'"
+    ferrari: "Donna: 'Red matches my tie!'"
+    
+  escalation: |
+    Neither will back down.
+    Both have Daffy Duck energy.
+    The treasure pile is about to become a BATTLEFIELD.
+    
+    Or... an unlikely alliance?
+    
+    There's enough treasure for two.
+    But MINE MINE MINE doesn't share easily.
+
+# GENERATION NOTES
+
+generation:
+  style: "Abstract Pixar-adjacent, dramatic confrontation"
+  mood: "Cartoon rivalry, treasure greed, dramatic entrance"
+  lighting: "Golden treasure glow + orange tunnel vortex light"
+  
+  key_elements:
+    - "Don (rabbit) mid-swim, shocked expression"
+    - "Donna BURSTING through orange/black spiral tunnel"
+    - "Donna in navy suit, pink glasses, taking selfie"
+    - "Treasure everywhere between them"
+    - "Both reaching for the same gem/artifact"
+    - "DRAMA energy — theatrical confrontation"
+    - "Tunnel still swirling behind Donna"
+    - "Phone in Donna's hand, documenting everything"

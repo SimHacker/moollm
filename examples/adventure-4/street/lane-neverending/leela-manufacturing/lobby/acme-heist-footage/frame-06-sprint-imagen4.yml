@@ -1,0 +1,40 @@
+# Sidecar for frame-06-sprint-imagen4.png
+# Generated: 2026-01-22T04:04:41.624078
+#
+# This file is a regenerable recipe. Edit and re-run:
+#   visualize.py regenerate frame-06-sprint-imagen4.yml
+#
+
+# === SOURCES ===
+# Reference paths to context files (not embedded)
+sources:
+  - examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/frame-06-sprint.yml
+
+# === GENERATION PARAMETERS ===
+generation:
+  provider: google
+  model: imagen-4.0-generate-001
+  size: 1024x1024
+  verbosity: normal
+  generated_at: 2026-01-22T04:04:41.624078
+
+# === SYNTHESIZED PROMPT ===
+# Edit this to regenerate with tweaks!
+prompt: |
+  Night surveillance camera footage of ACME SURPLUS storefront. Pixar-adjacent stylized CGI with security camera aesthetic.
+  
+  DRAMATIC ACTION: A FIGURE is ROCKETING HORIZONTALLY out of a SIDE WINDOW! ROCKET SKATES on feet leaving FIRE TRAILS. Glass SHATTERING and flying outward. Arms pinwheeling wildly, no control. Human projectile trajectory.
+  
+  BUILDING: ACME SURPLUS facade with ORANGE AND BLACK checkered perspective tunnels on both sides, glowing. Sign lit. Front door and windows visible.
+  
+  THROUGH FRONT WINDOW: Second figure (Don in colorful jacket) visible inside, DUCKING and covering head.
+  
+  ENVIRONMENT: Night scene, street in foreground, dramatic lighting from rocket flames and interior lights. Glass shards catching light mid-air.
+  
+  MOOD: The LAUNCH moment. ACME propulsion doing what it does. Spectacular disaster captured on camera.
+  
+  Style: Security footage aesthetic, wide angle, capturing the explosive exit moment, tunnels framing the chaos.
+
+# === ADDITIONAL METADATA ===
+provider: google
+model: imagen-4.0-generate-001

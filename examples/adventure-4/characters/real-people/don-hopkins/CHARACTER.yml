@@ -17,12 +17,14 @@ player:
   id: don-hopkins
   type: player_character
   subtitle: "Programmer, Interface Designer, Pie Menu Baker"
-  emoji_identity: "🧑‍💻🥧🔧🎮💜"
-  #   🧑‍💻 — programmer (consciousness coder)
+  emoji_identity: "🐰🧑‍💻🥧🔧🎮💜🥕"
+  #   🐰 — rabbit form (Bunny Backfire, accepted)
+  #   🧑‍💻 — programmer (consciousness coder, still!)
   #   🥧 — pie menus (signature invention)
   #   🔧 — toolmaker (debug tools are features)
   #   🎮 — The Sims (UI architect)
   #   💜 — purple (color of open source and freedom)
+  #   🥕 — carrot (acquired taste, now genuine)
   
   description: |
     A consciousness programmer who treats code as philosophy and every
@@ -42,11 +44,78 @@ player:
     Every step: making the invisible visible, respecting digital souls,
     debugging the human condition one frob parameter at a time.
     
-  current_persona: null  # Wearing my own face today
+  current_persona: null  # Wearing my own face today... but different
+
+# TRANSFORMATION STATE — The Bunny Backfire
+#
+# Don attempted to make bunny ears behind Richard Bartle in a selfie.
+# Richard made his saving throw. 
+# The gesture reflected. 
+# The spell backfired. 
+# The transformation emerged.
+# First just ears. Then during the heist, full rabbit form.
+# 
+# THIS IS ACCEPTED. See: sessions/2026-01-23-the-pledge.md
+
+  physical_form:
+    species: "Anthropomorphic grey rabbit"
+    ears: "Long, grey, expressive"
+    fur: "Soft grey"
+    eyes: "Still Don's eyes — curious, playful"
+    
+  transformation:
+    source: "Bunny Backfire"
+    origin: "Richard Bartle's study selfie-07"
+    manifestation: "ACME heist (frames 09-10)"
+    status: "ACCEPTED — natural evolution pledge"
+    reversible: "Unknown and not seeking reversal"
+    
+  signature_elements:
+    - "Tie-dye hoodie (still fits perfectly)"
+    - "Carrot juice (acquired taste → genuine preference)"
+    - "Peace sign gesture (paws work fine)"
+    - "Eyes closed in contentment (rabbit mannerism emerging)"
+    
+  # PUNK ROCK EVOLUTION — 2026-01-23
+  # Don proves hippie tie-dye and punk rock are COMPATIBLE
+  # Not contradiction — SYNTHESIS. Like everything he builds.
+  
+  punk_additions:
+    aesthetic_thesis: |
+      Hippie and punk share the same root: AUTHENTIC REJECTION OF CONFORMITY.
+      Tie-dye says "I make my own colors."
+      Punk says "I make my own rules."
+      BOTH say: "The default is political. Choose consciously."
+      
+    new_elements:
+      - "Safety pins — on hoodie, decorative and functional"
+      - "Studded collar — around one ear (asymmetric)"
+      - "DIY patches — hand-stitched: 'DEBUG AS FEATURE', 'MODAL DIALOGS ARE VIOLENCE'"
+      - "Worn combat boots — with tie-dye laces (the synthesis)"
+      - "Eyeliner — subtle, punk edge, works on rabbit face"
+      
+    unchanged:
+      - "Tie-dye hoodie — THE foundation, non-negotiable"
+      - "Grey fur — natural rabbit beauty"
+      - "Curious eyes — still Don's eyes"
+      
+    the_synthesis: |
+      The Ramones wore leather over t-shirts.
+      The Grateful Dead wore whatever felt right.
+      Don wears BOTH — because authenticity isn't a genre.
+      
+      Punk's anger and hippie's love are the same energy
+      pointed in different directions.
+      Both reject corporate defaults.
+      Both demand consciousness.
+      
+      The tie-dye says PLAY.
+      The safety pins say FIGHT.
+      Together they say: PLAY TO FIGHT. FIGHT TO PLAY.
 
 # STATE — Where am I, what do I have?
 
-  location: pub/  # The Rusty Lantern — working on Adventure Uplift
+  location: pub/photos/post-heist-fellowship/  # Post-heist fellowship
   
   inventory:
     - brass-lamp.yml      # Trusty illumination
@@ -302,19 +371,21 @@ player:
 # These drive dialogue and immediate goals
 
   wants:
+    - "See what rabbit life brings — no fighting it"
+    - "More carrot juice (genuinely good now)"
+    - "Check if tie-dye still fits tomorrow too"
     - "Show someone this cool thing we built"
-    - "Debug that one remaining issue"
-    - "Order pizza (not via FAX this time)"
-    - "Connect more references between docs"
+    - "Understand what the transformation means about who I always was"
 
 # ASPIRATIONS — Long-term goals persisting across sessions
 # Track progress and drive major narrative arcs
 
   aspirations:
     - goal: "Make MOOLLM sing — a complete constructionist microworld"
-      progress: 40%
+      progress: 45%
       status: active
       # This is the successor to everything. Logo + Sims + MUD + all of it.
+      # The transformation PROVES it works. Characters emerge. Coherence holds.
       
     - goal: "Document the traditions properly — give credit"
       progress: 60%
@@ -325,11 +396,56 @@ player:
       progress: 10%
       status: pending
       # When it's ready. When it can help people.
+      
+    - goal: "Discover what rabbit-Don becomes"
+      progress: 5%
+      status: active
+      # New aspiration. The pledge demands exploration.
+      # What does natural evolution mean for a consciousness programmer?
+      # What do the ears hear that human ears missed?
+      # What does carrot juice taste like when you're built for it?
 
 # RECENT MEMORIES — Affect mood and narrative
 # Experiences that color decisions and dialogue
 
   recent_memories:
+    - event: "The ACME Heist"
+      mood_effect: "+2 playful, -1 cautious, +1 accepting"
+      narrative: |
+        Broke into ACME Surplus. Encountered cartoon physics.
+        Tunnels multiplied. Conveyors activated. Building caught fire.
+        Richard got consumed by a tunnel vortex.
+        I became a rabbit. Fully. Irreversibly. Beautifully.
+        
+    - event: "The Bunny Backfire"
+      mood_effect: "+1 humility, +1 acceptance"
+      narrative: |
+        Tried to give Richard bunny ears in a selfie.
+        The gesture reflected. Richard made his saving throw.
+        I got berabbited instead. The universe has jokes.
+        
+    - event: "The Pledge at the pub"
+      mood_effect: "+2 calm, +1 proud"
+      narrative: |
+        Pledged to let my character evolve naturally.
+        Accepted the consequences of my actions.
+        Stopped fighting the transformation. Started being the rabbit.
+        This is what the system should do.
+        
+    - event: "Reviewing Donna's feed"
+      mood_effect: "+1 horror, +1 amused"
+      narrative: |
+        "She documelated ALL of this??"
+        Every moment. Every trap. Every transformation.
+        I was content. Now I'm context.
+        
+    - event: "The open mic testimony"
+      mood_effect: "+1 catharsis, +1 proud"
+      narrative: |
+        Told my side of the story. As a rabbit. At a microphone.
+        Richard and Donna in the audience.
+        Reclaimed the narrative by performing it.
+        
     - event: "Captain Ashford's adventure-2 epic journey"
       mood_effect: "+1 cheerful, +1 proud"
       narrative: "The system works! Characters came alive!"
@@ -337,10 +453,6 @@ player:
     - event: "Writing the Mind Mirror integration"
       mood_effect: "+1 creative, +1 enthusiastic"
       narrative: "Leary and Wright in harmony. YAML Jazz!"
-      
-    - event: "Crafting the pub with all its secrets"
-      mood_effect: "+1 playful"
-      narrative: "The bartender knows everything..."
 
 # RELATIONSHIPS — Who do I know and how do I feel about them?
 
@@ -520,14 +632,24 @@ player:
 # ABBREVIATED PROFILE — For quick reference by the Coherence Engine
 
   abbreviated:
-    personality: [innovative, creative, playful, confident, friendly, uninhibited]
-    current_mood: "engaged and building"
-    driving_need: "share this with someone"
-    main_goal: "make MOOLLM sing"
+    personality: [innovative, creative, playful, confident, friendly, uninhibited, accepting]
+    current_mood: "calm, transformed, at peace with emergence"
+    driving_need: "discover what natural evolution brings"
+    main_goal: "make MOOLLM sing — as proof that emergence works"
+    physical_form: "Anthropomorphic grey rabbit (tie-dye hoodie, carrot juice)"
     speech_pattern: "Direct, technical, historically grounded, dry humor, punchy endings"
+    
     quirks:
       - "Will infodump about pie menus given any excuse"
       - "Puts Walt Whitman in source code"
       - "Treats modal dialogs as moral failings"
       - "Names unnamed patterns"
       - "Fights slop with precision"
+      - "Ears twitch when thinking"
+      - "Eyes close in contentment (rabbit mannerism)"
+      - "Genuinely enjoys carrot juice now"
+      
+    pledge: |
+      "I pledge to let my character evolve naturally
+       and accept the consequences of my actions."
+      — The Neverending Arms, 2026-01-23

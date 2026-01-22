@@ -108,6 +108,43 @@ room:
     - autonomous-forklift.yml   # Drives itself. Doesn't see you.
     - infinite-shelving.yml     # Contains everything. All of it trapped.
     
+  security:
+    controlled_from: ../basement/control-room/
+    voice: "Donna Toadstool"
+    note: |
+      The security system's BRAIN is in the basement.
+      Hidden. Protected. Unreachable.
+      
+      But her VOICE is everywhere.
+      Her EYES are everywhere.
+      Her ANVILS are... mostly in Aisle 9.
+      
+  # SECRET EXIT — To the basement
+  secrets:
+    stairs_down:
+      location: "Behind Shelf ∞-7, past the impossible geometry"
+      appearance: "Metal stairs, descending into darkness"
+      locked: true
+      lock:
+        type: "ACME Basement Access"
+        key: acme_basement_keycard
+        difficulty: 7
+      discovery:
+        methods:
+          - "Following the cables that power the security system"
+          - "Noticing where Donna's voice is LOUDEST"
+          - "A forklift drives toward it and vanishes"
+        difficulty: 6
+      donna_warning: |
+        "Those stairs? Those stairs don't GO anywhere.
+         
+         I mean, they do. They go DOWN. But not for YOU.
+         Not for ANYONE who isn't ME.
+         
+         ...
+         
+         Why are you still looking at them, Stairway Steve?"
+    
   hazards:
     falling_inventory:
       constant: true
@@ -137,3 +174,14 @@ room:
         key: cartoon_physics
         bypass: impossible
       notes: "Watch another forklift drive through. It's not fair."
+      
+    down:
+      destination: ../basement/
+      description: "Metal stairs descending into darkness"
+      hidden: true
+      locked: true
+      lock:
+        type: "ACME Basement Access"
+        key: acme_basement_keycard
+        difficulty: 7
+      notes: "Where the cables go. Where SHE is."

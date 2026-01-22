@@ -134,7 +134,7 @@ LLM_ENV_KEYS = {
 # Default models
 DEFAULT_IMAGE_MODELS = {
     ImageProvider.OPENAI: "gpt-image-1",
-    ImageProvider.GOOGLE: "imagen-3",
+    ImageProvider.GOOGLE: "imagen-4.0-generate-001",
     ImageProvider.STABILITY: "sd3.5-large",
     ImageProvider.REPLICATE: "black-forest-labs/flux-1.1-pro",
 }
@@ -142,7 +142,7 @@ DEFAULT_IMAGE_MODELS = {
 DEFAULT_LLM_MODELS = {
     LLMProvider.OPENAI: "gpt-4o-mini",
     LLMProvider.GOOGLE: "gemini-2.0-flash",
-    LLMProvider.ANTHROPIC: "claude-3-5-sonnet-20241022",
+    LLMProvider.ANTHROPIC: "claude-sonnet-4-20250514",
 }
 
 # Verbosity levels for prompt synthesis
@@ -1104,16 +1104,27 @@ def _gen_google(prompt: str, model: str, size: str) -> GenerationResult:
     api_key = os.environ.get("GOOGLE_API_KEY")
     width, height = map(int, size.split("x"))
     
+    # Determine aspect ratio
+    if width == height:
+        aspect = "1:1"
+    elif width < height:
+        aspect = "9:16"
+    else:
+        aspect = "16:9"
+    
     try:
         with httpx.Client(timeout=120.0) as client:
+            # Imagen 4 uses predict endpoint with instances/parameters format
             response = client.post(
-                f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateImages",
+                f"https://generativelanguage.googleapis.com/v1beta/models/{model}:predict",
                 params={"key": api_key},
                 headers={"Content-Type": "application/json"},
                 json={
-                    "prompt": prompt,
-                    "number_of_images": 1,
-                    "aspect_ratio": "1:1" if width == height else ("9:16" if width < height else "16:9"),
+                    "instances": [{"prompt": prompt}],
+                    "parameters": {
+                        "sampleCount": 1,
+                        "aspectRatio": aspect,
+                    }
                 }
             )
             response.raise_for_status()
@@ -1128,8 +1139,9 @@ def _gen_google(prompt: str, model: str, size: str) -> GenerationResult:
     except Exception as e:
         return GenerationResult(success=False, error=str(e))
     
-    if "images" in data and data["images"]:
-        image_b64 = data["images"][0].get("bytesBase64Encoded")
+    # Imagen 4 returns predictions[].bytesBase64Encoded
+    if "predictions" in data and data["predictions"]:
+        image_b64 = data["predictions"][0].get("bytesBase64Encoded")
         if image_b64:
             return GenerationResult(
                 success=True,

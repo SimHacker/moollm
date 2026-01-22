@@ -1,0 +1,153 @@
+# ♠️♥️♦️♣️ Hearts, Clubs, Diamonds, Spades
+# The Original Taxonomy Paper (1996)
+
+artifact:
+  name: "Hearts, Clubs, Diamonds, Spades: Players Who Suit MUDs"
+  nickname: "The Taxonomy Paper"
+  type: paper
+  emoji: "📄♠️♥️♦️♣️"
+  
+  description: |
+    The paper that named the player types. 1996.
+    
+    Before this, designers talked about "different kinds of players" but
+    had no vocabulary. After this, we had ♠️♥️♦️♣️.
+    
+    It's been misunderstood, misapplied, and cited without reading
+    approximately 10,000 times. But it's also been genuinely useful
+    to designers who actually engaged with it.
+    
+  physical: |
+    Printout. Stapled. Dog-eared from being passed around.
+    
+    This copy has annotations from twenty years of thinking about
+    what works and what doesn't in the taxonomy.
+
+# ADVERTISEMENT
+
+advertisement:
+  tagline: "Finally, a vocabulary for player motivation"
+  
+  offer: |
+    The original framework. Not the simplified version.
+    Understanding why people play, and what they actually want.
+    The tool that helps you design for ALL your players, not just one type.
+    
+  need_satisfied:
+    - vocabulary
+    - analytical_framework
+    - design_tool
+    - player_empathy
+    
+  score_high_when:
+    - designing for multiple player types
+    - confused about what players want
+    - need a shared language for team discussions
+    - player behavior seems contradictory
+    - want to understand, not just categorize
+    
+  score_low_when:
+    - want to put players in boxes (misuse)
+    - not designing for players at all
+    - already fluent in the taxonomy
+    
+  score_formula: |
+    base: 5
+    +3 if designing multiplayer experience
+    +2 if confused about player behavior
+    +2 if team needs shared vocabulary
+    +1 if asking "why do they do that?"
+    -2 if just want to label people
+    -3 if rigid thinking ("which type ARE they?")
+    
+  warnings:
+    - "People aren't one type. They shift."
+    - "The taxonomy is a lens, not a box."
+    - "If you're using it to label, you're using it wrong."
+
+# CONTENTS
+
+contents:
+  
+  sections:
+    - "The MUD Player Types"
+    - "The Interest Graph"
+    - "Dynamics Between Types"
+    - "Implications for Design"
+    
+  the_four_types:
+    killers:
+      symbol: "♠️"
+      description: "Acting ON players"
+      insight: "They want to matter TO others"
+      
+    achievers:
+      symbol: "♦️"
+      description: "Acting ON the world"
+      insight: "They want to make the world yield"
+      
+    explorers:
+      symbol: "♣️"
+      description: "Interacting WITH the world"
+      insight: "They want to understand how it works"
+      
+    socializers:
+      symbol: "♥️"
+      description: "Interacting WITH players"
+      insight: "They want to connect with others"
+      
+  the_interest_graph: |
+    The types exist in dynamic tension:
+    - Killers drive away Socializers
+    - But Socializers create the community Killers need to dominate
+    - Achievers provide goals for Killers to disrupt
+    - Explorers document what Achievers compete for
+    
+    Balance is not equal numbers. It's understanding the ecosystem.
+
+# COMMON MISUNDERSTANDINGS
+
+misunderstandings:
+  
+  box_fallacy:
+    wrong: "What type IS this player?"
+    right: "What type is this player being RIGHT NOW?"
+    
+  balance_fallacy:
+    wrong: "We need 25% of each type"
+    right: "We need to understand how the types interact in OUR context"
+    
+  killer_fallacy:
+    wrong: "Killers are bad and should be removed"
+    right: "Killers unmanaged are toxic; Killers designed for are competition"
+    
+  completeness_fallacy:
+    wrong: "These are the only four types"
+    right: "These are four useful lenses; reality is more complex"
+
+# CONVERSATION HOOKS
+
+conversation_hooks:
+  
+  use_when:
+    - Analyzing existing player behavior
+    - Designing new systems
+    - Explaining why some players hate what others love
+    - Team debates about "what players want"
+    
+  leads_to:
+    - taxonomy-cards.yml (the playable version)
+    - Deeper discussion of motivation theory
+    - Analysis of specific designs
+
+# PROVENANCE
+
+provenance:
+  title: "Hearts, Clubs, Diamonds, Spades: Players Who Suit MUDs"
+  author: "Richard Bartle"
+  year: 1996
+  original_publication: "Journal of MUD Research"
+  url: "http://mud.co.uk/richard/hcds.htm"
+  citations: "Thousands (many of which clearly didn't read it)"
+  condition: "Annotated printout with decades of marginalia"
+  location: "Theory shelf, prominent position"

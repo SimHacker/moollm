@@ -205,7 +205,7 @@ Encapsulated image galleries with narrative slideshows. Each inherits from the [
 
 | Gallery | Location | Images | Description |
 |---------|----------|--------|-------------|
-| [Don's Pub Photos](./pub/dons-pub-photos-2026-01-19/SLIDESHOW.md) | The Rusty Lantern | 8 | Facebook-style photo tour: Marieke, Palm, cats, Fluxx game, Pee-wee, impossible guests |
+| [Don's Pub Photos](./pub/photos/dons-pub-photos-2026-01-19/SLIDESHOW.md) | The Rusty Lantern | 8 | Facebook-style photo tour: Marieke, Palm, cats, Fluxx game, Pee-wee, impossible guests |
 | [Rocky and Friends](./pub/rooms/room-4/rocky-and-friends/SLIDESHOW.md) | Room 4 | 8+ | Rocky the emotional support boulder with all the cats, dogs, and friends |
 | [Dusty Attic Art Styles](./pub/attic/dusty-attic-art-styles/SLIDESHOW.md) | The Attic | 7 | Same room rendered in 7 legendary art styles |
 | [Telescope Constellation Views](./pub/rooftop/telescope-constellation-views/SLIDESHOW.md) | Rooftop | 2 | K-Line constellation through AR telescope lens |

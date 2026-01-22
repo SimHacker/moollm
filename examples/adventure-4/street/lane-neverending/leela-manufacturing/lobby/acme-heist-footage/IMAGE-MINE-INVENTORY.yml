@@ -1,0 +1,186 @@
+# 🎬 HEIST FOOTAGE — COMPLETE IMAGE/MINE INVENTORY
+#
+# All frames generated and mined with full YAML Jazz context.
+# Use these mines as context for future narrative generation.
+
+inventory:
+  series: "The Heist — ACME Surplus Break-In Footage"
+  camera: "ACM1 (Leela Cam)"
+  date: "2026-01-22"
+  
+  total_frames: 10
+  total_mined: 10
+  completeness: "100%"
+
+frames:
+
+  frame_01:
+    title: "The Approach"
+    files:
+      definition: "frame-01-approach.yml"
+      prompt: "frame-01-approach-prompt.txt"
+      image: "frame-01-approach-imagen4.png"
+      mine: "frame-01-approach-imagen4-mine.yml"
+      # Also: Take 2 files for the glitch
+    emergent_elements:
+      - "Camera glitch (ACME interference)"
+    key_context: "Two figures cross street toward ACME"
+    
+  frame_02:
+    title: "The Invitation"
+    files:
+      definition: "frame-02-invitation.yml"
+      prompt: "frame-02-invitation-prompt.txt"
+      image: "frame-02-invitation-imagen4.png"
+      mine: "frame-02-invitation-imagen4-mine.yml"
+    emergent_elements:
+      - "Chekhov's Tunnel established (40% of frame)"
+      - "'EVERYTHILG' typo on banner"
+    key_context: "Don mesmerized by painted tunnel"
+    
+  frame_03:
+    title: "The Entry"
+    files:
+      definition: "frame-03-entry.yml"
+      prompt: "frame-03-entry-prompt.txt"
+      image: "frame-03-entry-imagen4.png"
+      mine: "frame-03-entry-imagen4-mine.yml"
+    emergent_elements:
+      - "Anvil deployment captured"
+      - "'ACM1' camera self-identification"
+      - "Store revealed as STOCKED"
+    key_context: "First trap springs, Don sees anvil"
+    
+  frame_04:
+    title: "First Contact (Inside)"
+    files:
+      definition: "frame-04-inside.yml"
+      prompt: "frame-04-inside-prompt.txt"
+      image: "frame-04-inside-imagen4.png"
+      mine: "frame-04-inside-imagen4-mine.yml"
+    emergent_elements:
+      - "TUNNELS MULTIPLY — now on BOTH sides"
+      - "Warehouse bigger on inside"
+      - "Don's psychedelic jacket = TARGET"
+    key_context: "Spatial anomaly, tunnels replicate"
+    
+  frame_05:
+    title: "Deeper Trouble"
+    files:
+      definition: "frame-05-deeper.yml"
+      prompt: "frame-05-deeper-prompt.txt"
+      image: "frame-05-deeper-imagen4.png"
+      mine: "frame-05-deeper-imagen4-mine.yml"
+    emergent_elements:
+      - "Tunnels turn ORANGE/BLACK (warning colors)"
+      - "Conveyor belt activated"
+      - "Instigator surfing boxes"
+    key_context: "Chaos begins, color evolution"
+    
+  frame_06:
+    title: "The Sprint"
+    files:
+      definition: "frame-06-sprint.yml"
+      prompt: "frame-06-sprint-prompt.txt"
+      image: "frame-06-sprint-imagen4.png"
+      mine: "frame-06-sprint-imagen4-mine.yml"
+    emergent_elements:
+      - "TIMESTAMP emerged: '03:17:22'"
+      - "ROCKET LAUNCH — massive flame trail"
+      - "Human projectile achieved"
+    key_context: "Propulsion success, Don ducking"
+    
+  frame_07:
+    title: "The Extraction"
+    files:
+      definition: "frame-07-extraction.yml"
+      prompt: "frame-07-extraction-prompt.txt"
+      image: "frame-07-extraction-imagen4.png"
+      mine: "frame-07-extraction-imagen4-mine.yml"
+    emergent_elements:
+      - "'THWACK!' — emergent sound effect"
+      - "Timestamp: '# 20:47:32 10/26'"
+      - "Brick wall visible through paint"
+    key_context: "CHEKHOV'S TUNNEL FIRED"
+    
+  frame_08:
+    title: "The Aftermath"
+    files:
+      definition: "frame-08-aftermath.yml"
+      prompt: "frame-08-aftermath-prompt.txt"
+      image: "frame-08-aftermath-imagen4.png"
+      mine: "frame-08-aftermath-imagen4-mine.yml"
+    emergent_elements:
+      - "BUILDING FULLY ON FIRE — escalation"
+      - "Timestamp: '03:17 AM 10-27-24'"
+      - "Tunnels evolved to SPIRALS"
+      - "THREE survivors (not two)"
+    key_context: "Fire, spiral tunnels, survivors watching"
+    
+  frame_09:
+    title: "Richard Arrives"
+    files:
+      definition: "frame-09-richard-arrives.yml"
+      prompt: "frame-09-richard-arrives-prompt.txt"
+      image: "frame-09-richard-arrives-imagen4.png"
+      mine: "frame-09-richard-arrives-imagen4-mine.yml"
+    emergent_elements:
+      - "Don has ACTUAL RABBIT EARS — transformation begins"
+      - "Tunnels now CONCENTRIC CIRCLES"
+      - "Timestamp: '23:47:18'"
+    key_context: "Richard investigates, Don transforms"
+    
+  frame_10:
+    title: "Richard's Catastrophe"
+    files:
+      definition: "frame-10-richard-catastrophe.yml"
+      prompt: "frame-10-richard-catastrophe-prompt.txt"
+      image: "frame-10-richard-catastrophe-imagen4.png"
+      mine: "frame-10-richard-catastrophe-imagen4-mine.yml"
+    emergent_elements:
+      - "IMAGE LABELED CHARACTERS: 'RICHARD' and 'DON'"
+      - "'REC' indicator"
+      - "Timestamp: '03:27 AM'"
+      - "Tunnel CONSUMES Richard (active vortex)"
+      - "Don is FULL RABBIT trying to help"
+    key_context: "Maximum catastrophe, academic irony"
+
+# ACCUMULATED EMERGENT PHENOMENA
+
+emergent_summary:
+  tunnel_evolution:
+    - "Frame 1-3: Black/white checkered"
+    - "Frame 4: MULTIPLIED (both sides)"
+    - "Frame 5-6: Orange/black warning colors"
+    - "Frame 7: One FIRED (THWACK)"
+    - "Frame 8: SPIRALS"
+    - "Frame 9-10: CONCENTRIC CIRCLES → ACTIVE VORTEX"
+    
+  self_captioning:
+    - "'THWACK!' (Frame 7)"
+    - "Character labels 'RICHARD' 'DON' (Frame 10)"
+    
+  timestamps:
+    - "'03:17:22' (Frame 6)"
+    - "'# 20:47:32 10/26' (Frame 7)"
+    - "'03:17 AM 10-27-24' (Frame 8)"
+    - "'23:47:18' (Frame 9)"
+    - "'03:27 AM' (Frame 10)"
+    
+  transformations:
+    - "Don: Human → Rabbit features → FULL RABBIT"
+    - "Building: Standing → Damaged → ON FIRE"
+    - "Richard: Observer → CONSUMED"
+
+# HOW TO USE THIS CONTEXT
+
+usage_note: |
+  When generating new heist-related content:
+  
+  1. Read relevant frame mines for visual continuity
+  2. Reference emergent elements (tunnel state, Don's form, etc.)
+  3. Build on established timestamps/aesthetic
+  4. Maintain character labels when appropriate
+  5. Allow new emergence while respecting established canon
+  
+  The mines are MEMORY — use them as context for coherence.

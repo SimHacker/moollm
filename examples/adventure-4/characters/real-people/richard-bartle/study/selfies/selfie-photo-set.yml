@@ -1,0 +1,196 @@
+# 📸 SELFIE PHOTO-SET — Don, Richard, and Heuristic in the Study
+# Summoned by Selfie! 8 cartoony abstract variations.
+# "Say PROTOTYPE!"
+
+photo_set:
+  name: "Study Selfie Series"
+  subject: "Don Hopkins, Richard Bartle, and Heuristic the Dragon"
+  location: "Richard Bartle's Academic Study"
+  style: "Cartoony, abstract, playful, warm"
+  count: 8
+
+# === THE CHARACTERS ===
+
+characters:
+  don_hopkins:
+    name: "Don Hopkins"
+    role: "The one holding the camera (selfie angle)"
+    physical:
+      age: "60s"
+      build: "Friendly, approachable, programmer energy"
+      hair: "Grey-white, casual"
+      face: "Warm smile, eyes crinkled with genuine delight"
+      glasses: "Yes, slightly askew from leaning in"
+      clothing: "Comfortable tech-casual — maybe a interesting t-shirt"
+    expression: "Grinning, genuinely happy, excited about the moment"
+    pose: "Arm extended holding phone/camera, leaning toward the others"
+    
+  richard_bartle:
+    name: "Richard Bartle"
+    role: "The scholar, slightly bemused by selfie culture"
+    physical:
+      age: "60s"
+      hair: "Silver-white, swept back from forehead"
+      face: "Blue-grey eyes, that knowing slight smile"
+      clothing: "Blue-striped collared shirt, open at neck, navy blazer"
+      bearing: "English academic — dignified but warm"
+    expression: "Slight smile, one eyebrow raised, tolerating the selfie with amusement"
+    pose: "Seated at desk, half-turned toward camera, maybe holding taxonomy cards"
+    
+  heuristic:
+    name: "Heuristic the Dragon"
+    role: "Ancient knowledge guardian, photobombing from behind"
+    physical:
+      size: "Large dog-sized, serpentine, long"
+      scales: "Deep bronze, verdigris patina in places — like old books"
+      eyes: "Golden, half-lidded normally but BOTH OPEN for the photo"
+      wings: "Vestigial, folded"
+      position: "Draped over bookshelf or curled near radiator"
+    expression: "Eyes WIDE OPEN (rare!), curious about this 'selfie' thing"
+    pose: "Head poking into frame from behind, or peering over Richard's shoulder"
+
+# === THE ROOM ===
+
+setting:
+  name: "Richard Bartle's Study"
+  atmosphere: "Warm, scholarly, lived-in, magical-realist"
+  
+  elements:
+    books: "EVERYWHERE — lined walls, organized by era, some stacked on desk"
+    desk: "Large wooden desk, papers, the Red Book, taxonomy cards spread"
+    window: "Shows something abstract — maybe a text adventure, maybe MUD1"
+    lighting: "Warm afternoon light, desk lamp glow, cozy"
+    radiator: "Old, warm, dragon-adjacent"
+    shelves: "Labeled in academic handwriting: '1978-1985', 'Mistakes They Keep Making'"
+    
+  mood: |
+    The warmth of accumulated knowledge. The comfort of old friendships.
+    Two pioneers of virtual worlds, a dragon who remembers everything,
+    and the joy of a moment captured.
+
+# === THE 8 SHOTS ===
+
+shots:
+  1_classic_selfie:
+    name: "The Classic"
+    description: "Standard selfie angle — Don's arm extended, all three in frame"
+    composition: "Don in foreground holding camera, Richard behind at desk, Heuristic peeking over bookshelf"
+    style: "Warm cartoon illustration, Pixar-adjacent, friendly"
+    mood: "Pure joy, three friends"
+    special: "Taxonomy cards visible on desk, Red Book prominent"
+    
+  2_heuristic_photobomb:
+    name: "The Photobomb"
+    description: "Heuristic has positioned itself directly in front of the camera"
+    composition: "Giant dragon face takes up 60% of frame, Don and Richard visible around it"
+    style: "Exaggerated cartoon, fish-eye lens effect"
+    mood: "Hilarious, the dragon wanted the spotlight"
+    special: "Heuristic's golden eyes HUGE and curious, maybe slightly smug"
+    
+  3_the_taxonomy_spread:
+    name: "The Taxonomy Spread"
+    description: "Richard holds up the four cards, showing off the deck"
+    composition: "Medium shot, Richard center holding ♠️♥️♦️♣️ cards fanned out, Don and Heuristic on either side"
+    style: "Bold colors, the cards POP with their suit colors"
+    mood: "Proud, showing the work"
+    special: "Cards large and detailed — Killers purple, Socializers rose, Achievers blue, Explorers green"
+    
+  4_the_window_view:
+    name: "The Window View"
+    description: "Shot includes the magical window showing a MUD room"
+    composition: "Wide shot of the study, window shows green text on black — a text adventure"
+    style: "Mixed media — cartoon room, pixel/ASCII window"
+    mood: "Where virtual worlds were born"
+    special: "Window text readable: '> You are in a cozy study. A DRAGON is here.'"
+    
+  5_heuristic_teaching:
+    name: "The Lesson"
+    description: "Heuristic is clearly explaining something, Don and Richard listening"
+    composition: "Heuristic center, illuminated, Don and Richard on either side paying attention"
+    style: "Warm glow around Heuristic, knowledge-transfer visual"
+    mood: "The dragon speaks, you listen"
+    special: "Maybe a speech bubble with a riddle: 'The path was walked before...'"
+    
+  6_the_bookshelf_labels:
+    name: "The Organized Chaos"
+    description: "Focus on the labeled bookshelves with our trio"
+    composition: "Wide shot showing shelf labels: 'Before MUD', 'MUD Era', 'Mistakes They Keep Making'"
+    style: "Detailed background, characters smaller but expressive"
+    mood: "40+ years of accumulated wisdom, organized"
+    special: "'Mistakes They Keep Making' shelf is notably FULL"
+    
+  7_the_goofy_one:
+    name: "The Outtake"
+    description: "Everyone making silly faces — even Heuristic"
+    composition: "Close group shot, faces distorted with laughter"
+    style: "Maximum cartoon energy, squash and stretch"
+    mood: "Unguarded joy, friendship"
+    special: "Don making bunny ears behind Richard, Heuristic's tongue out, Richard mid-laugh"
+    
+  8_the_portrait:
+    name: "The Portrait"
+    description: "Formal-ish portrait, but with warmth"
+    composition: "Classical portrait arrangement — Richard seated, Don standing beside, Heuristic draped regally"
+    style: "Oil painting aesthetic but cartoony, gilt frame implied"
+    mood: "Dignified but with knowing smiles"
+    special: "Like an academic portrait but everyone's in on the joke"
+
+# === STYLE NOTES ===
+
+style_guide:
+  overall: "Cartoony, warm, abstract, NOT photorealistic"
+  
+  influences:
+    - "Pixar character design (warmth, expressiveness)"
+    - "Oliver Jeffers (whimsy, hand-drawn feel)"
+    - "Studio Ghibli (warmth, detail in environments)"
+    - "Hergé/Tintin (clean lines, expressive faces)"
+    
+  color_palette:
+    warm: "Amber, gold, cream (the study)"
+    cool: "Bronze, verdigris, deep blue (Heuristic, books)"
+    accents: "Red (the book), purple/rose/blue/green (taxonomy cards)"
+    
+  avoid:
+    - "Photorealism"
+    - "Uncanny valley"
+    - "Dark or scary dragon depictions"
+    - "Generic stock photo feel"
+    
+  embrace:
+    - "Exaggerated expressions"
+    - "Warm lighting"
+    - "Book-filled environments"
+    - "The absurdity of a dragon in a study"
+    - "Genuine affection between characters"
+
+# === VISUALIZER PROMPT FOR BATCH ===
+
+batch_prompt_template: |
+  Cartoony, warm illustration in a whimsical storybook style.
+  
+  THREE CHARACTERS taking a selfie in a scholar's study:
+  
+  1. DON HOPKINS: 60s, grey-white hair, glasses slightly askew, huge warm grin,
+     comfortable clothes, holding the camera/phone with arm extended for selfie.
+     Programmer energy, genuine delight.
+  
+  2. RICHARD BARTLE: 60s, silver-white hair swept back, blue-grey eyes, slight
+     knowing smile with one eyebrow raised, blue-striped shirt open at collar,
+     navy blazer. English academic bearing. Tolerating the selfie with amusement.
+  
+  3. HEURISTIC THE DRAGON: Large dog-sized bronze dragon with verdigris patina,
+     serpentine body, golden eyes WIDE OPEN (unusual!), vestigial wings folded.
+     Ancient and wise but curious about this 'selfie' concept.
+  
+  SETTING: Academic study FILLED with books on every wall, organized by era.
+  Large wooden desk with papers, a RED BOOK, and four oversized playing cards
+  (♠️♥️♦️♣️ in purple, rose, blue, green). Window showing something magical.
+  Old radiator. Warm afternoon light. Cozy, scholarly, lived-in.
+  
+  STYLE: Pixar-adjacent warmth, Oliver Jeffers whimsy, NOT photorealistic.
+  Exaggerated expressions. Rich warm colors. The joy of old friends.
+  Abstract, cartoony, playful.
+  
+  MOOD: Three pioneers of virtual worlds — two humans and a concept made manifest —
+  capturing a moment of genuine friendship and shared history.

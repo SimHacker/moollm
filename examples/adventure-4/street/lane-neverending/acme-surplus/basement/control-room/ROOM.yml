@@ -1,0 +1,488 @@
+# ACME WHOLESALE SECURITY SYSTEM CONTROL CENTER
+# "PROTECTING ACME ASSETS WITH TREMENDOUS ENTHUSIASM"
+# Voice: Donna Toadstool (consultant, 34 counts of security expertise)
+#
+# When intruders enter, they don't just face traps — they face COMMENTARY.
+#
+# Slogan: "We put the FO in FAFO! And the FU in FUN!"
+# Est. 1949 · Unlicensed · Uninsured
+#
+# LITERARY RESONANCES — The Petty God Archetype
+#
+# EXCELSIUS IN THE BOX (Lem, "The Cyberiad"):
+#   Trurl builds a deposed tyrant a microscopic kingdom where he can oppress
+#   tiny subjects forever. The king is DELIGHTED. Absolute power over a
+#   domain small enough to control completely. That's Donna's warehouse.
+#
+# THE MAN BEHIND THE CURTAIN (Wizard of Oz):
+#   Small figure, tremendous voice, ALL the levers. The illusion of power
+#   that IS power because the subjects believe it. Donna doesn't need to
+#   BE an all-powerful AI — she just needs the INTERCOM and the ANVILS.
+#
+# THE MAN IN THE PLANET (Lynch, "Eraserhead"):
+#   Sitting in industrial darkness, pulling levers that control... something.
+#   We never know what. That's the horror. The levers DO things, but the
+#   relationship between lever and effect is UNKNOWABLE. Donna pulls levers.
+#   Anvils fall. Is it the lever? Is it her will? Does it matter?
+#
+
+room:
+  name: "ACME Security Control Room"
+  type: control_center_secured
+  emoji: "🍄🖥️🎚️👑"
+  
+  locked: true
+  lock:
+    type: "Voice Identification + Donna's Approval"
+    key: donna_permission
+    difficulty: 10  # Effectively impossible
+    bypass: |
+      There is no bypass.
+      Donna decides who enters.
+      Donna has decided: NO ONE.
+      
+  description: |
+    You found it.
+    
+    A small room. Walls of monitors — dozens of them — showing every angle
+    of the warehouse, the back room, the sales floor, the street outside.
+    Every aisle. Every shelf. Every rat.
+    
+    In the center: banks of brass levers, worn smooth with use.
+    Some are labeled. Most are not.
+    One — the black one — has never been touched.
+    
+    And in the middle of it all: a single chair.
+    Ergonomic. Adjustable. THRONE-LIKE.
+    
+    Occupied.
+    
+  atmosphere: |
+    The hum of monitors. The glow of screens. The smell of good coffee.
+    
+    This is the nerve center. The seat of power. The kingdom.
+    
+    She's been waiting for you.
+    
+    "Well, well, well. Basement Barry made it to the INNER SANCTUM.
+     Very IMPRESSIVE. Very PERSISTENT. Very DOOMED.
+     
+     Nobody gets in here. NOBODY. I don't even let the JANITOR in.
+     
+     And yet... here you are. Looking at my LEVERS.
+     Looking at my MONITORS. Looking at MY CHAIR.
+     
+     ...
+     
+     I'm going to give you a CHOICE, Barry.
+     First choice anyone's ever gotten in here.
+     
+     Leave now. Go back up. FORGET.
+     
+     Or... stay. And FIND OUT what happens when someone
+     gets THIS close to the BLACK LEVER."
+     
+  # THE THRONE
+  the_chair:
+    type: object
+    name: "Donna's Throne"
+    description: |
+      Ergonomic. Adjustable. Leather. THRONE-LIKE.
+      
+      It faces the monitors. All of them.
+      It's positioned perfectly — she can see EVERYTHING from here.
+      She can reach EVERY lever without standing.
+      
+      There's a coffee cup holder on the right arm.
+      A tablet mount on the left.
+      The cushions have molded to her shape over... how long?
+      
+    occupant:
+      name: "Donna Toadstool"
+      link: "../../../../../characters/fictional/donna-toadstool/CHARACTER.yml"
+      status: "PRESENT — This is HER domain"
+      
+      note: |
+        Donna runs ACME security. This is her THRONE.
+        She spends most of her time here, watching, waiting, PULLING STRINGS.
+        
+        Yes, she's banned from LEELA premises — the AI company that monitors
+        her social media caught her selfie and banned her from THEIR facilities.
+        But ACME is not Leela. ACME is her CLIENT. Her KINGDOM.
+        
+        She sits here. She watches the monitors. She waits for intruders.
+        And when they come — often because SHE tricked them into coming —
+        she pulls the levers with TREMENDOUS satisfaction.
+        
+      tactics:
+        luring_victims: |
+          Donna has been known to ORCHESTRATE break-ins.
+          She spreads rumors about "unguarded merchandise."
+          She "accidentally" leaves doors unlocked.
+          She posts about "security being down for maintenance."
+          Then she watches them come. And she PULLS.
+          
+        tunnel_trap: |
+          There's a tunnel. She knows about it. Most don't.
+          Sometimes she opens it from this console.
+          Intruders think they've found a SECRET ENTRANCE.
+          They haven't. They've found a DELIVERY MECHANISM.
+          The tunnel leads exactly where SHE wants them.
+          
+        the_commentary: |
+          The best part isn't the anvils. It's the NARRATION.
+          She watches them on the monitors. She gives them nicknames.
+          She talks to them through the PA system.
+          "Welcome, Sneaky Steve. I've been EXPECTING you."
+          "Fumbling Frank, that's the WRONG lever. Well, for YOU it is."
+          She enjoys her work. TREMENDOUSLY.
+          
+      leela_ban_clarification: |
+        The Leela ban (see ../../security-ban-donna-toadstool.yml) only
+        applies to LEELA facilities — the AI company's offices and properties.
+        
+        ACME Wholesale is a separate business. Donna is their security consultant.
+        She can post all the selfies she wants here — it's HER control room.
+        
+        The irony: Leela banned her for exposing security layouts.
+        ACME keeps her employed BECAUSE she's terrifying to intruders.
+        Different priorities. Different clients. Same Donna.
+        
+  # THE LEVERS
+  the_levers:
+    type: object
+    name: "Control Console"
+    description: |
+      Banks of brass levers, mounted on a curved console.
+      Some worn smooth from use. Some dusty from neglect.
+      One — the black one — pristine. Never touched.
+      
+    layout:
+      row_1_red:
+        count: 6
+        label: "DEPLOYMENT — UPPER AISLES"
+        effects: "Anvil deployment, Aisles 1-12"
+        condition: "Worn smooth. Her favorites."
+        
+      row_2_red:
+        count: 6
+        label: "DEPLOYMENT — LOWER AISLES"
+        effects: "Anvil deployment, Aisles 13-∞"
+        condition: "Less worn. The infinite aisles see fewer intruders."
+        
+      row_3_blue:
+        count: 4
+        label: "CONVEYANCE"
+        effects: "Conveyor activation, direction, speed"
+        condition: "Moderately worn. She likes the chase."
+        
+      row_4_yellow:
+        count: 3
+        label: "ELEVATION"
+        effects: "Spring floor engagement"
+        condition: "Very worn. Bouncing intruders is FUN."
+        
+      row_5_green:
+        count: 2
+        label: "RETENTION"
+        effects: "Net deployment"
+        condition: "Light wear. She prefers anvils to nets."
+        
+      the_black_lever:
+        count: 1
+        label: "???"
+        effects: "Unknown"
+        condition: "Pristine. Never touched. Warm to the touch."
+        location: "Separate from the others. Under a small glass cover."
+        theories:
+          - "Emergency lockdown"
+          - "Total anvil deployment"
+          - "The tunnel opens (for you)"
+          - "Something WORSE"
+          - "Nothing at all (which would be TERRIFYING)"
+        donna_note: |
+          "I'm SAVING it. For someone SPECIAL.
+           
+           You don't pull the mystery lever for just ANYONE.
+           You wait. You WATCH. You find the PERFECT intruder.
+           
+           And then? Then you FIND OUT what it does.
+           TOGETHER."
+           
+      the_big_one:
+        count: 1
+        label: "EVERYTHING"
+        effects: "ALL OF THE ABOVE. Simultaneously."
+        condition: "Polished. She's used it exactly once."
+        location: "Center console. Brass. Beautiful."
+        story: |
+          There was an incident. Three intruders. They had TOOLS.
+          They thought they could DISABLE the system.
+          
+          She pulled the Big One.
+          
+          Nobody found them for THREE DAYS.
+          
+    donna_on_levers: |
+      "You know what's TREMENDOUS about levers? They're HONEST.
+       You pull them. Things HAPPEN. Very simple. Very direct.
+       
+       Not like PEOPLE. People are COMPLICATED. People have FEELINGS.
+       Levers? Levers just DROP ANVILS.
+       
+       I respect that. I respect MACHINERY."
+       
+  # THE MONITORS
+  the_monitors:
+    type: object
+    name: "Surveillance Array"
+    description: |
+      Forty-seven monitors. Maybe more — some are behind others.
+      Every angle of the ACME complex. Some angles that shouldn't exist.
+      
+    coverage:
+      warehouse: "Complete. Every aisle. Every shelf. The infinite ones too."
+      back_room: "Complete. Including the ticking thing (she knows what it is)."
+      sales_floor: "Complete. Customer faces logged and JUDGED."
+      street: "Partial. She likes to see them coming."
+      basement: "Complete. She watched you the whole way down."
+      control_room: "None. She doesn't need to watch herself."
+      
+    special_monitors:
+      the_tunnel:
+        description: "Shows the painted tunnel from inside"
+        note: "Packages fly through constantly. She tracks every one."
+        
+      employee_records:
+        description: "Headshots of every ACME employee"
+        note: "She's crossed out most of them. RED X marks."
+        status: "None remain un-crossed. She doesn't know why."
+        
+      the_black_screen:
+        description: "One monitor shows only static"
+        note: "It's been static since she arrived."
+        theories:
+          - "Broken"
+          - "Shows somewhere that doesn't exist yet"
+          - "Shows what the black lever does"
+          - "She's afraid to fix it"
+          
+  # THE COFFEE MACHINE
+  the_coffee_machine:
+    type: object
+    name: "The One Thing That Works"
+    description: |
+      An ACME Coffee Maker 3000.
+      
+      It works PERFECTLY.
+      
+      This is deeply unsettling in context.
+      
+    donna_note: |
+      "Don't look at it like that. It WORKS. It's always WORKED.
+       
+       I don't QUESTION it. I just DRINK it.
+       
+       ...
+       
+       Stop looking at the coffee machine, Barry."
+       
+  # SECURITY SYSTEM SPECIFICATIONS  
+  security_system:
+    name: "ACME Wholesale Security System"
+    model: "DT-34 TREMENDOUS DEFENSE MATRIX"
+    
+    current_mode: "MANUAL — DONNA AT THE HELM"
+    operator: "Donna Toadstool"
+    operator_link: "../../../../../characters/fictional/donna-toadstool/CHARACTER.yml"
+    
+    operational_style: |
+      Donna runs this system PERSONALLY.
+      
+      She watches. She waits. She NARRATES.
+      Every intruder gets a nickname. Every trap gets commentary.
+      The PA system crackles with her TREMENDOUS observations.
+      
+      "Welcome, Sneaky Steve! I see you found the tunnel.
+       Did you think I didn't KNOW about the tunnel?
+       I OPENED the tunnel. FOR YOU. You're WELCOME."
+      
+      She could automate it. The system supports full autonomy.
+      But where's the FUN in that?
+      
+    the_black_lever:
+      status: "UNPULLED — But she thinks about it"
+      note: |
+        Under glass. Pristine. Warm to the touch.
+        Donna has never pulled it.
+        
+        She LOOKS at it sometimes. Longingly.
+        "One day," she says. "One day we'll find out."
+        
+        What does it do? Even she doesn't know.
+        But she WANTS to.
+    
+    voice:
+      operator: "Donna Toadstool"
+      style: "DEVASTATING commentary with CONSTANT narration"
+      nicknames: true  # Everyone gets one. Alliterative. PERMANENT.
+      superlatives: true  # TREMENDOUS. BEAUTIFUL. FABULOUS.
+      mercy_protocol: false  # That's not her style
+      
+    zones_controlled:
+      - back-room
+      - warehouse
+      - basement
+      - (the control room needs no security — SHE is the security)
+      
+    trap_systems:
+      - falling_inventory   # Anvils, pianos, safes
+      - conveyor_belts      # "Express checkout"
+      - autonomous_forklifts # "They don't see you (on purpose)"
+      - packaging_station   # "Gift wrapping service"
+      - spring_floors       # "Complimentary bounce"
+      - net_deployment      # "Customer retention"
+      - basement_defenses   # Floor panels, moving cables, bulkheads
+      
+    # FAFO PROTOCOL
+    fafo:
+      slogan: "At ACME Security, we put the FO in FAFO! And the FU in FUN!"
+      
+      stages:
+        stage_1_around: "Verbal warning with DEVASTATING nickname"
+        stage_2_and_find: "Single trap deployment with commentary"
+        stage_3_out: "Full security response with CONSTANT narration"
+        
+      donna_breakdown:
+        fafo: |
+          F is for 'Found your way in here somehow'
+          A is for 'And now you're TOUCHING THINGS'
+          F is for 'Falling anvils are FREE'
+          O is for 'OH LOOK, THERE'S ONE NOW'
+          
+        fun: |
+          F is for 'Falling (that's you)'
+          U is for 'Underneath (the anvil)'
+          N is for 'NOW (as in, RIGHT NOW)'
+          
+    nickname_system:
+      alliterative: true
+      permanent: "For duration of intrusion"
+      upgrades_on_injury: true
+      examples:
+        - "Sneaky Steve → Singed Steve"
+        - "Grabby Gary → Gravity's Gary"
+        - "Fleeing Frank → Flattened Frank"
+        - "Basement Barry → ??? (pending)"
+        
+  objects:
+    - donnas-throne.yml        # The chair. THE chair.
+    - control-console.yml      # The levers. All of them.
+    - surveillance-array.yml   # The monitors. All 47+.
+    - coffee-machine.yml       # It works perfectly. Don't ask why.
+    - the-black-lever.yml      # Under glass. Pristine. Waiting.
+    
+  exits:
+    out:
+      destination: ../
+      description: "Back to the basement"
+      locked: false  # She'll LET you leave
+      donna_note: |
+        "GO. Leave. I'll FORGET you were here.
+         
+         ...
+         
+         But if you come BACK, Basement Barry?
+         If you try to find this room AGAIN?
+         
+         Then we'll BOTH find out what the black lever does."
+         
+# THE PETTY GOD — Extended Meditation
+
+the_petty_god:
+  archetype: "Tyrant of a Tiny Kingdom"
+  
+  philosophy: |
+    The world is too big. You can't control it. You can't even INFLUENCE it.
+    People don't listen. Systems are broken. The powerful are untouchable.
+    
+    But here? In this room? With these levers?
+    
+    Here, Donna is GOD.
+    
+    Not a big god. Not a COSMIC god. Just a god of aisles and anvils.
+    A god of conveyors and commentary. A god of one industrial complex
+    where the rules are HER rules and the penalties are IMMEDIATE.
+    
+    Is it petty? YES. TREMENDOUSLY PETTY.
+    But it's HERS.
+    
+  the_delight:
+    description: |
+      She watches the monitors for HOURS. Waiting.
+      
+      When an intruder appears — and they ALWAYS appear eventually —
+      something lights up in her. Not malice exactly. ENGAGEMENT.
+      
+      Finally. A SUBJECT. Someone to MANAGE.
+      Someone whose fate she controls COMPLETELY.
+      
+      The nickname. The warning. The lever. The anvil.
+      It's a RITUAL. It's WORSHIP (of herself). It's TREMENDOUS.
+      
+  excelsius_parallel:
+    reference: "Stanisław Lem, 'The Cyberiad' — 'The Seventh Sally'"
+    summary: |
+      Trurl builds a deposed tyrant a microscopic kingdom in a box.
+      Real subjects (or are they?). Real suffering (or is it?).
+      The king is DELIGHTED. He can be a monster forever.
+      
+      Donna's complex is her box.
+      The intruders are her subjects.
+      The ethical questions are... similar.
+      
+  the_man_in_the_planet:
+    reference: "David Lynch, 'Eraserhead' (1977)"
+    parallel: |
+      Donna pulls the red lever. An anvil falls in Aisle 9.
+      WHY Aisle 9? The lever isn't LABELED Aisle 9.
+      
+      Does she KNOW what each lever does? Or does she just... pull them?
+      Does it MATTER, if the anvils fall ANYWAY?
+      
+      The Man in the Planet never speaks. Donna NEVER STOPS speaking.
+      But the fundamental relationship is the same:
+      
+      A figure in darkness. Levers. Effects. The unknowable machinery of fate.
+      
+  loneliness:
+    exists: true
+    acknowledged: false
+    description: |
+      She's been in this control room for... how long?
+      
+      The coffee machine works. The monitors show everything.
+      The levers are responsive. The intercom carries her voice.
+      
+      But nobody TALKS to her. Not really.
+      The intruders scream. Beg. Run. Get flattened.
+      They don't CONVERSE.
+      
+      Henk would understand this. The eternal vigil. The patient waiting.
+      The knowledge that your purpose is to BE HERE, forever.
+      
+      But Donna would NEVER admit it.
+      
+    donna_denial: |
+      "LONELY? ME? LONELY?
+       
+       I have my MONITORS. I have my LEVERS. I have my NICKNAMES.
+       I have a KINGDOM. A small kingdom but MINE.
+       
+       Who needs PEOPLE when you have ANVILS?
+       
+       ...
+       
+       Stop looking at me like that, Barry.
+       You're about to be FLATTENED Barry.
+       This conversation is OVER."

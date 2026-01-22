@@ -1,0 +1,195 @@
+# 📁 The Reinvention Folder
+# "Problems Solved in the 1980s That People Keep Reinventing"
+
+artifact:
+  name: "The Reinvention Folder"
+  type: folder
+  emoji: "📁🔄"
+  
+  description: |
+    A thick manila folder. Getting thicker every year.
+    
+    Contains documentation of every time someone "invented" something
+    that was actually solved decades ago. Press releases claiming novelty
+    for ancient ideas. Papers that don't cite prior art. Startups that
+    raised millions to rebuild LambdaMOO badly.
+    
+    It's not schadenfreude. It's FRUSTRATION.
+    
+    "Read the history. Learn from it. THEN innovate."
+    But they don't. They never do.
+    
+  physical: |
+    Manila folder. Overstuffed. Held closed with a large rubber band.
+    Label in neat handwriting: "Problems Solved (Again)"
+    
+    The edges are worn. Pages stick out at angles. Some items are
+    highlighted. Some have annotations like "SEE ALSO: 1987" or
+    "LambdaMOO, chapter 4" or simply "sigh."
+
+# CONTENTS
+
+contents:
+  
+  categories:
+    
+    economy:
+      label: "Virtual Economies"
+      solved_in: "1986-1990"
+      solutions: ["Habitat's lesson on item duplication", "MUD2's inflation controls"]
+      recent_failures: ["Every cryptocurrency game", "Most play-to-earn schemes"]
+      note: "Morningstar and Farmer wrote this up in 1990. NINETEEN NINETY."
+      
+    governance:
+      label: "Community Governance"  
+      solved_in: "1990-1993"
+      solutions: ["LambdaMOO's ballot system", "TinyMUD's wizard hierarchies"]
+      recent_failures: ["Most Discord servers", "Every DAO that reinvents voting"]
+      note: "Curtis documented this. It's all in the LambdaMOO papers."
+      
+    griefing:
+      label: "Player Harassment"
+      solved_in: "1980s"
+      solutions: ["Ignore lists", "Graduated consequences", "Safe spaces"]
+      recent_failures: ["Every social platform's 'surprised' response to harassment"]
+      note: "We knew. We TOLD them. They didn't listen."
+      
+    identity:
+      label: "Online Identity"
+      solved_in: "1985-1995"
+      solutions: ["Pseudonymity with accountability", "Character vs player distinction"]
+      recent_failures: ["Real names policies", "'Authentic identity' mandates"]
+      note: "This was understood before Facebook existed. Then Facebook ignored it."
+      
+    scaling:
+      label: "Scaling Social Spaces"
+      solved_in: "1989-1993"
+      solutions: ["Sharding", "Instancing", "Dunbar-aware design"]
+      recent_failures: ["Metaverse projects that assume everyone wants to be in one room"]
+      note: "Habitat had 15,000 users in 1986. They figured this out."
+      
+    ownership:
+      label: "Virtual Property Rights"
+      solved_in: "1990s"
+      solutions: ["Clear ToS", "GM authority", "Player expectations management"]
+      recent_failures: ["NFT ownership claims", "'You own your items' promises"]
+      note: "The property isn't real. The experience is. This hasn't changed."
+
+# MECHANICS
+
+mechanics:
+  
+  check:
+    description: "See if a 'new' idea is actually old."
+    action: "check reinvention folder for [idea]"
+    result: |
+      One of:
+      - "Solved in [year]. See [reference]."
+      - "Similar to [older thing], with [minor differences]."
+      - "Actually novel. *adds to 'genuinely new ideas' list (it's short)*"
+      
+  add:
+    description: "Document another reinvention for the record."
+    action: "add [example] to reinvention folder"
+    result: "Filed with date, category, and resigned annotation."
+    
+  statistics:
+    description: "Get depressing numbers about the industry."
+    action: "show reinvention statistics"
+    result: |
+      Current count: [large number] items
+      Most reinvented category: Virtual Economies
+      Average years between original solution and latest reinvention: 28
+      Papers cited by reinventors: <5%
+
+# WISDOM
+
+annotations:
+  
+  recurring_note: |
+    "If you think you've invented something in virtual world design,
+     you probably haven't. Check the literature first."
+     
+  frustrated_note: |
+    "They had the budget to hire anyone. They hired no historians.
+     They made every mistake. They called it 'learning.'"
+     
+  hopeful_note: |
+    "Occasionally someone DOES read the history.
+     Their projects work better. This is not a coincidence."
+     
+  resigned_note: |
+    "The folder grows. It will always grow.
+     The best I can do is make sure the history is available.
+     Whether they read it is up to them."
+
+# ADVERTISEMENT
+
+advertisement:
+  tagline: "Check here before claiming you invented something"
+  
+  offer: |
+    Documentation of every solved problem that keeps getting "solved" again.
+    Save yourself the embarrassment. Save your company the money.
+    Learn from history instead of repeating it.
+    
+  need_satisfied:
+    - humility
+    - efficiency
+    - avoiding_embarrassment
+    - historical_awareness
+    
+  score_high_when:
+    - about to announce "revolutionary" feature
+    - building something "no one has done before"
+    - investor pitch contains "novel" claims
+    - feeling very clever about your design
+    
+  score_low_when:
+    - already humble about prior art
+    - explicitly building on known work
+    - not making novelty claims
+    
+  score_formula: |
+    base: 3
+    +5 if user claims "no one has ever"
+    +4 if user claims "we invented"
+    +3 if user claims "revolutionary"
+    +2 if user mentions "blockchain" + "games"
+    +1 if user seems overconfident
+    -2 if user already cited prior art
+    -3 if user explicitly asked "has this been done?"
+    
+  warning_signs:
+    - "We're the first to..."
+    - "No one has thought of..."
+    - "This is completely new..."
+    - "We're disrupting..."
+
+# CONVERSATION HOOKS
+
+conversation_hooks:
+  
+  use_when:
+    - Someone claims novelty
+    - Reviewing a pitch or proposal
+    - Historical fact-checking
+    - Preventing expensive mistakes
+    
+  leads_to:
+    - Specific historical examples
+    - red-book.yml chapters on the topic
+    - Gentle but persistent correction
+    
+  tone: "Not mocking. Educational. 'Here's what happened when they tried this.'"
+
+# PROVENANCE
+
+provenance:
+  started: "~1995"
+  curator: "Richard Bartle"
+  location: "Shelf marked 'Mistakes They Keep Making'"
+  condition: "Overstuffed. Needs a second folder soon."
+  
+  growth_rate: "~5-10 items per year"
+  growth_acceleration: "Notable during 'metaverse' hype cycles"

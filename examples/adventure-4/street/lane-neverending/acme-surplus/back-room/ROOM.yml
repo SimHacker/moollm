@@ -102,8 +102,22 @@ room:
         
   objects:
     # Sparse — let DM deploy from catalog as needed
-    - the-ticking.yml     # Placeholder for the mystery
+    - the-ticking.yml     # Something ticks in the darkness. Nobody knows what. Nobody wants to.
     - returns-pile.yml    # Defective products — potential trap sources
+    
+  security:
+    controlled_from: ../basement/control-room/
+    voice: "Donna Toadstool"
+    note: |
+      When intruders enter, they don't just face traps.
+      They face COMMENTARY. Devastating, personalized commentary.
+      And nicknames. TREMENDOUS nicknames.
+      
+      The VOICE comes from somewhere below.
+      The basement. The control room. HER domain.
+      
+      "Welcome to ACME Security, Sneaky Steve. You're not supposed to be here.
+       And I can see EVERYTHING you're doing."
     
   exits:
     out:

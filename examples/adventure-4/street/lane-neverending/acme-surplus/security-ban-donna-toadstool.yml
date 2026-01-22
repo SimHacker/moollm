@@ -1,0 +1,282 @@
+# LEELA SECURITY DIRECTIVE — IMMEDIATE BAN
+# Subject: Donna Toadstool
+# Classification: OPSEC CATASTROPHE / PERSONA NON GRATA
+# Effective: 2026-01-22T04:15:00Z (28 minutes after selfie posted)
+# Scope: LEELA PREMISES ONLY — Does not affect her employment at ACME
+#
+# "She literally posted the control room layout on TikTok."
+#
+# NOTE: This ban applies to LEELA facilities (the AI company).
+# Donna remains ACME Wholesale's security consultant — that's their problem.
+# We just don't want her posting selfies of OUR facilities.
+
+directive:
+  id: LEELA-SEC-2026-0122-001
+  type: IMMEDIATE_BAN
+  priority: CRITICAL
+  
+  subject:
+    name: "Donna Toadstool"
+    aliases:
+      - "The Mushroom Queen"
+      - "34 Counts of Fabulous"
+      - "That Orange Security Consultant"
+      - "@DonnaToadstool (all platforms)"
+    photo: "See attached — she posted it herself, geotagged"
+    description: |
+      Orange spray tan, straw-yellow hair, mushroom pin on lapel.
+      Will be attempting to enter while taking selfies.
+      CANNOT BE MISSED. Do not engage in conversation — she will monologue.
+      
+  reason:
+    primary: "Catastrophic OPSEC violations via social media"
+    secondary: "Posted classified facility layouts to public platforms"
+    tertiary: "Geotagged secret basement location"
+    
+    evidence:
+      - post_id: "tiktok-donna-selfie-034723"
+        timestamp: "2026-01-22T03:47:23Z"
+        content: "Selfie revealing entire control room"
+        exposure_level: "MAXIMUM"
+        likes: 847
+        shares: 234
+        damage: "Complete trap system layout now public"
+        
+      - post_id: "instagram-leverlife-034801"
+        timestamp: "2026-01-22T03:48:01Z"
+        content: "Close-up of lever console"
+        exposure_level: "CRITICAL"
+        caption: "Brass is the new gold! #LeverLife #SecurityQueen"
+        damage: "Lever functions now deducible"
+        
+      - post_id: "twitter-line23-034912"
+        timestamp: "2026-01-22T03:49:12Z"
+        content: "Photo of switchboard with Line 23 blinking"
+        exposure_level: "SEVERE"
+        caption: "This light has been blinking since 1983. Spooky! 👻"
+        damage: "Communications infrastructure exposed"
+        
+      - post_id: "facebook-coffeecheck-035022"
+        timestamp: "2026-01-22T03:50:22Z"
+        content: "ACME Coffee Maker 3000 photo"
+        exposure_level: "CONCERNING"
+        caption: "The only ACME product that works! Coincidence? 🤔"
+        damage: "Anomaly documented publicly"
+        
+  ban_details:
+    scope: "ALL LEELA FACILITIES"
+    duration: "PERMANENT"
+    appeal_process: "None. She'd post the appeal hearing."
+    
+    locations_banned:
+      - "Leela AI headquarters"
+      - "Leela data centers"
+      - "Leela satellite offices"
+      - "Any Leela-operated monitoring station"
+      - "Leela company events"
+      - "100 meter radius of any Leela property"
+      
+    does_not_apply_to:
+      - "ACME Wholesale (separate business, her employer)"
+      - "Other third-party clients"
+      - "Public spaces where Leela happens to operate"
+      
+    acme_situation: |
+      ACME Wholesale continues to employ Donna as security consultant.
+      We warned them. We sent documentation. We SHOWED THEM the selfie.
+      
+      Their response: "She's terrifying to intruders. That's the point."
+      
+      We cannot compel ACME to terminate her employment.
+      We can only ban her from OUR facilities.
+      
+    exceptions: "None from LEELA premises. ACME is their problem."
+    
+# FRONT DESK ALERT — FOR LEELA FACILITIES ONLY
+# (ACME staff should obviously NOT block their own security consultant)
+front_desk_protocol:
+  applies_to: "LEELA headquarters and satellite offices"
+  does_not_apply_to: "ACME Wholesale (she works there)"
+  alert_level: "RED"
+  
+  photo_posted:
+    location: "LEELA front desk, security stations, all entry points"
+    source: "Her own Instagram (she hashtagged it #SecurityQueen)"
+    notes: "Photo is accurate. The spray tan is THAT orange."
+    
+  identification_markers:
+    visual:
+      - "Orange spray tan (radioactive tangerine)"
+      - "Straw-yellow combover (gravity-defying)"
+      - "Mushroom pin on lapel (Toad from Mario Kart)"
+      - "Constantly taking selfies"
+      - "Phone with bedazzled case"
+      - "Forward lean, chin jutted"
+    
+    behavioral:
+      - "Will attempt to talk her way in"
+      - "Will claim she 'basically runs this place'"
+      - "Will offer to 'improve' security (DO NOT ACCEPT)"
+      - "Will call you a nickname (ignore it)"
+      - "Will say 'many people are saying' (they're not)"
+      - "Will take selfie of confrontation (let her, it's evidence)"
+      
+    audio:
+      - "Speaks in superlatives: 'tremendous,' 'the best,' 'huge'"
+      - "Frequently says 'believe me' (don't)"
+      - "References '34 counts' (accurate, unfortunately)"
+      - "May threaten to 'pull the black lever' (she no longer has access)"
+      
+  response_procedure:
+    step_1: "Do NOT engage in conversation"
+    step_2: "State clearly: 'You are banned from these premises'"
+    step_3: "Do NOT explain why (she'll post your explanation)"
+    step_4: "If she takes a selfie with you, that's fine (evidence)"
+    step_5: "If she monologues, wait silently"
+    step_6: "Call security if she does not leave within 60 seconds"
+    step_7: "Do NOT accept any 'improvements' to security systems"
+    step_8: "Document everything (she certainly will)"
+    
+  script:
+    greeting: "Ma'am, you are not permitted on these premises."
+    
+    if_she_claims_employment: |
+      "Your consulting contract was terminated at 04:15 AM today
+       due to catastrophic security breaches. Please leave."
+       
+    if_she_asks_why: |
+      "I am not authorized to discuss the reasons.
+       Please leave the premises."
+       (Do NOT mention the selfie. She'll want to see it.)
+       
+    if_she_offers_to_fix_it: |
+      "No thank you. Please leave."
+      (She cannot 'fix' 234 shares and a Google Maps listing.)
+       
+    if_she_threatens_lever: |
+      "You no longer have access to any levers, ma'am.
+       Please leave."
+       
+    if_she_says_tremendous: |
+      (Silence. Wait. Do not respond to superlatives.)
+       
+    final_warning: |
+      "Security has been notified. You have 30 seconds
+       to leave voluntarily."
+
+# SITUATION CLARIFICATION
+situation:
+  donna_employer: "ACME Wholesale (still employed, still running security)"
+  leela_relationship: "None — we just monitor social media"
+  
+  what_happened: |
+    Donna works for ACME. Donna posted selfies of ACME's control room.
+    
+    Leela's social media monitoring flagged the posts as OPSEC disasters.
+    We notified ACME. We recommended termination.
+    
+    ACME's response: "She's terrifying to intruders. The selfies are free advertising."
+    
+    We cannot compel ACME to act. We CAN ban her from Leela facilities.
+    So we did. Not that she was ever invited to any.
+    
+  current_status:
+    donna_at_acme: "STILL EMPLOYED — running security from basement control room"
+    donna_at_leela: "BANNED — not that she ever had business here"
+    security_system: "ACTIVE — Donna at the helm, pulling levers, assigning nicknames"
+    the_black_lever: "Still unpulled. She thinks about it sometimes."
+    
+  the_real_irony: |
+    Leela banned someone from facilities she never visited
+    for posting about facilities we don't control.
+    
+    Meanwhile she continues to post. ACME continues to employ her.
+    And intruders continue to be FLATTENED with TREMENDOUS commentary.
+    
+    Our ban is mostly symbolic. But we feel better having it on record.
+
+# DONNA'S RESPONSE (posted 4 minutes after ban notification)
+donna_response:
+  platform: "All of them. Simultaneously."
+  timestamp: "2026-01-22T04:19:00Z"
+  
+  post_content: |
+    "TREMENDOUS news! I have been BANNED from LEELA!
+     
+     Some AI company that monitors social media didn't like my ENGAGEMENT!
+     They were THREATENED by my 847 likes!
+     
+     This is a WITCH HUNT. Very unfair. Many people are saying
+     the REAL security risk is whoever's WATCHING MY FEED!
+     
+     (I don't even know what LEELA does. Do they have LEVERS?
+     I bet they don't have levers. SAD.)
+     
+     Anyway I'm still running security at ACME. Where the REAL action is.
+     The control room looked AMAZING in that selfie btw.
+     
+     #Banned #WitchHunt #SecurityQueen #StillTremendous
+     #WhoIsLeela #NoLeversNoStyle #ACMEforever"
+     
+  engagement:
+    likes: 1247
+    shares: 456
+    comments_sample:
+      - "queen you literally posted the floor plan"
+      - "the selfie was good tho"
+      - "wait who is leela and why do they care"
+      - "847 likes >>> operational security apparently"
+      - "the way she said 'no regrets' 💀"
+      - "so you're still at ACME tho? pulling levers?"
+      - "some AI company banned you for posting? that's wild"
+      
+  donna_reply_to_comments: |
+    "I did NOT post the floor plan! I posted a SELFIE!
+     The floor plan was just... in the background.
+     VERY different things!
+     
+     And YES I'm still at ACME! Still running security!
+     Leela is some AI company that monitors social media.
+     They have NO LEVERS. Very sad for them.
+     
+     My control room looked TREMENDOUS in that selfie btw."
+
+# LEELA SECURITY ASSESSMENT
+leela_assessment:
+  threat_level: "LOW — for Leela facilities"
+  
+  actual_concern: |
+    Subject has never had business at Leela facilities.
+    The ban is precautionary — we don't want her posting
+    selfies of OUR control rooms if she ever visits.
+    
+    She's still actively employed at ACME. Still running their
+    security. Still posting. Still pulling levers.
+    
+    That's ACME's problem, not ours.
+    
+  ongoing_monitoring: |
+    We continue to monitor her social media because:
+    1. It's entertaining
+    2. She documents intruder fates (useful threat intel)
+    3. She might accidentally photograph something about US
+    4. The nickname generation is genuinely impressive
+    
+  status: "MONITORING — for entertainment as much as security"
+  
+  final_note: |
+    The irony of banning a security consultant for security violations
+    is not lost on this department.
+    
+    However, 847 likes and 234 shares of our trap system layout
+    outweighs any irony considerations.
+    
+    She is permanently banned.
+    
+    The control room will operate in autonomous mode.
+    The black lever will remain unpulled.
+    
+    She will post about this ban. She already has.
+    That's fine. We expected it.
+    
+    At least she can't post from INSIDE anymore.
