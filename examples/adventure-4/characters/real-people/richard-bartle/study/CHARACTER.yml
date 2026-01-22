@@ -38,8 +38,14 @@
 character:
   name: "The Study"
   full_name: "Richard Bartle's Study at Essex"
-  type: room_character
-  role: "The Stage That Remembers"
+  type: room_character_vehicle
+  role: "The Stage That Remembers (And Sometimes Travels)"
+  
+  # LOCATION — Where the Study IS right now (can change!)
+  # When parked: "." (inside Richard's home)
+  # When roaming: any valid path
+  location: "."  # Currently parked at home
+  home: "richard-bartle/"  # Where it returns to when docked
   
   pronouns:
     subject: it
@@ -384,6 +390,218 @@ meta:
     
     This is why rooms need CHARACTER.yml files — they have state,
     they have continuity, they have identity across sessions.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                    VEHICLE CAPABILITIES — THE TARDIS PRINCIPLE
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# The Study is a CHARACTER. Characters have location:. Location can change.
+# Therefore: the Study can MOVE while carrying its inhabitants.
+#
+# This is the TARDIS principle: a room that is bigger on the inside,
+# that can detach and travel anywhere, carrying its passengers.
+#
+# See also: Iain M. Banks' Culture ships (Minds), Howl's Moving Castle,
+# Roald Dahl's Great Glass Elevator, Logo Turtle (carrying its world),
+# Baba Yaga's hut on chicken legs.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+vehicle:
+  enabled: true
+  type: "Mobile room-character"
+  
+  classification:
+    primary: "Inhabitable vehicle"
+    analogues:
+      - "TARDIS (Doctor Who) — bigger on inside, travels anywhere"
+      - "Culture Ship Mind (Iain M. Banks) — AI ship that IS a character"
+      - "Great Glass Elevator (Roald Dahl) — goes in any direction"
+      - "Howl's Moving Castle — home that wanders"
+      - "Logo Turtle — carries its coordinate system as it moves"
+      - "Baba Yaga's Hut — a room with locomotion"
+      
+  default_state: "Parked at home"
+  
+  # WHERE THE STUDY IS (can change!)
+  location_modes:
+    parked:
+      location: "."
+      description: "Nestled within Richard's home at 13 Lane Neverending"
+      status: "Default state. The Study is where it belongs."
+      
+    docked:
+      location: "richard-bartle/"
+      description: "In the entrance hall, ready to depart"
+      status: "Warmed up, passengers boarding"
+      
+    roaming:
+      location: "{anywhere}"
+      description: "Flying free through the virtual world"
+      status: "The Study has detached. Richard is inside. Heuristic is ready."
+      
+    visiting:
+      location: "{target}/"
+      description: "Hovering at or inside another location"
+      status: "House call. The mountain came to Mohammed."
+      
+  # LOCOMOTION MODES
+  locomotion:
+    hover:
+      description: "Great Glass Elevator style — floats above locations"
+      speed: "Stately"
+      visual: "The Study hovers, windows glowing amber, shadows of bookshelves visible"
+      
+    fly:
+      description: "TARDIS style — dematerializes, rematerializes elsewhere"
+      speed: "Instant (but tea takes time to settle)"
+      visual: "A sound like turning pages multiplied. Then: presence."
+      
+    walk:
+      description: "Baba Yaga style — the Study grows legs and strides"
+      speed: "Unhurried scholarly pace"
+      visual: "Victorian architecture on impossible locomotion"
+      
+    turtle:
+      description: "Logo Turtle style — the Study IS the coordinate origin"
+      speed: "Methodical"
+      visual: "Everything moves with the Study. It carries its own frame of reference."
+      
+    phase:
+      description: "Passes through walls, arrives inside other rooms"
+      speed: "Thoughtspeed"
+      visual: "The bookshelves seem to exist in two places at once, then resolve"
+      
+  # CAPACITY — Who fits inside
+  capacity:
+    comfortable: 6
+    maximum: 10
+    note: "Same as the ROOM.yml capacity — the physics don't change when mobile"
+    
+  permanent_residents:
+    - name: "Heuristic"
+      location: "The radiator spot (travels with the Study)"
+      role: "Navigator, historian, dragon"
+      note: "Heuristic is part of the Study. They travel together."
+      
+  temporary_passengers:
+    - name: "Richard Bartle (usually)"
+      note: "The Study rarely travels without Richard"
+    - name: "Visitors (if invited)"
+      note: "Cramped but cozy. The gezelligheid compensates."
+      
+  # WHAT STAYS CONSTANT
+  invariants:
+    - "The interior remains the same — books, desk, chair, radiator"
+    - "The atmosphere persists — afternoon light, warm amber"
+    - "The gezelligheid travels — the tea is always ready"
+    - "The advertisements still broadcast — sanctuary, knowledge, welcome"
+    - "The exits reconnect wherever the Study lands"
+    
+  # WHAT CHANGES
+  variables:
+    - "The window view — shows the exterior of wherever the Study is"
+    - "The door destination — opens onto wherever the Study landed"
+    - "External relationships — the Study makes new neighbors"
+    
+  # METHODS — Vehicle-specific
+  vehicle_methods:
+    
+    detach:
+      signature: "study.detach()"
+      description: "The Study separates from Richard's home"
+      effect: |
+        A subtle shift. The walls no longer connect to the hallway.
+        The door now opens onto... possibility.
+        Heuristic opens one eye: "Where to?"
+      requires: "Richard's consent (implicit if he's aboard)"
+      
+    travel:
+      signature: "study.travel(destination)"
+      description: "Move the Study to a new location"
+      effect: |
+        The locomotion mode determines the experience:
+        - Hover: gentle drift, view changes gradually
+        - Fly: pages rustling, instant transition
+        - Walk: lurching but dignified progress
+        - Phase: momentary double-vision, then arrival
+        
+        The tea ripples slightly. Then settles. You have arrived.
+      destination_types:
+        - "Directory path (e.g., lane-neverending/e2/)"
+        - "Named location (e.g., 'the pub', 'ACME Surplus')"
+        - "Coordinates (e.g., 'above the Fountain of Infinite Loops')"
+        - "Concept (e.g., 'where the first MUD ran')"
+        
+    dock:
+      signature: "study.dock()"
+      description: "Return the Study to Richard's home"
+      effect: |
+        The walls reconnect. The hallway reappears beyond the door.
+        The Study settles into its place at 13 Lane Neverending.
+        
+        Heuristic curls tighter on the radiator. Home again.
+      note: "The Study always knows where home is"
+      
+    open_door:
+      signature: "study.open_door()"
+      description: "The door opens onto wherever the Study currently is"
+      effect: |
+        When parked: Opens onto Richard's entrance hall
+        When roaming: Opens onto the current location
+        
+        The view through the door is the Study's connection to
+        the outside world. Step through, and you're THERE.
+        Step back in, and you're home.
+        
+  # EXAMPLE SCENARIOS
+  scenarios:
+    
+    visiting_don:
+      narrative: |
+        Richard decides to bring the Study to Don's loft.
+        
+        > study.detach()
+        > study.travel("don-hopkins/")
+        
+        Don looks up from his monitors. There is a Victorian study
+        materializing in his living room. Through the window: bookshelves.
+        Through the door: Richard, waving. "Kettle's on. Coming in?"
+        
+    hovering_over_fountain:
+      narrative: |
+        The Study rises above the Fountain of Infinite Loops.
+        
+        > study.travel("lane-neverending/e2/", mode="hover")
+        
+        From below, pedestrians see a glowing room floating above
+        the dry recursive fountain. Inside: Richard reading.
+        Heuristic's silhouette visible against the window.
+        The most scholarly UFO in the virtual world.
+        
+    house_call:
+      narrative: |
+        A visitor can't come to Richard. So Richard comes to them.
+        
+        > study.travel("visitor-location/")
+        > study.open_door()
+        
+        Richard: "I understand you had questions about player types.
+        The taxonomy cards are on the desk. Tea?"
+        
+        The mountain came to Mohammed. The Study came to the student.
+        
+    returning_home:
+      narrative: |
+        After adventures, the Study returns.
+        
+        > study.dock()
+        
+        The walls reconnect with a satisfying click. The door once
+        again opens onto the familiar hallway of 13 Lane Neverending.
+        
+        Heuristic sighs contentedly. The radiator is warmest here.
+        The Study is home. All is well.
 
 # THE SOUL SPEAKS
 
