@@ -18,8 +18,10 @@ All timelines woven together chronologically. 32+ images across 4 parallel narra
 | Slideshow | Images | Description |
 |-----------|--------|-------------|
 | [The ACME Heist](street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/SLIDESHOW.md) | 10 | Leela Cam surveillance of the break-in |
+| [The Study Arrives](street/lane-neverending/leela-manufacturing/lobby/study-arrival-footage/SLIDESHOW.md) | 6 | First landing of mobile room-character-vehicles |
+| [The Great Picnic](forest/meadow/picnic-footage/SLIDESHOW.md) | 21 | Journey to the Forest Meadow and back again |
 | [The Neverending Arms](pub/photos/post-heist-fellowship/SLIDESHOW.md) | 4 | Post-heist fellowship at the pub |
-| [ACME Tunnel Views](street/lane-neverending/leela-manufacturing/lobby/acme-tunnel-temporal-views/SLIDESHOW.md) | — | Temporal tunnel perspectives |
+| [ACME Tunnel Views](street/lane-neverending/leela-manufacturing/lobby/acme-tunnel-temporal-views/SLIDESHOW.md) | 4 | Temporal tunnel perspectives |
 
 ### The Pub
 
@@ -52,6 +54,8 @@ All timelines woven together chronologically. 32+ images across 4 parallel narra
 | Slideshow | Images | Description |
 |-----------|--------|-------------|
 | [Selfies from Essex](characters/real-people/richard-bartle/study/selfies/SLIDESHOW.md) | 8 | Study portraits with Heuristic |
+| [Study Arrival](street/lane-neverending/leela-manufacturing/lobby/study-arrival-footage/SLIDESHOW.md) | 6 | TARDIS materialization in Leela lobby |
+| [The Great Picnic](forest/meadow/picnic-footage/SLIDESHOW.md) | 21 | High-drag meadow feast and tornado |
 
 ---
 
@@ -71,6 +75,15 @@ DON'S MINE TO OURS ←──────→ DONNA ARRIVES
        │
        ▼
    THE OURS ACCORD
+       │
+       ▼
+ STUDY ARRIVAL (Lobby) ←──→ THE FMC ARRIVES
+       │
+       ▼
+ THE GREAT PICNIC (Meadow)
+       │
+       ▼
+  THE RETURN TO ORIGIN
 ```
 
 ---
@@ -79,12 +92,12 @@ DON'S MINE TO OURS ←──────→ DONNA ARRIVES
 
 | Metric | Count |
 |--------|-------|
-| Total Slideshows | 11 |
-| Total Images (main narratives) | 40+ |
-| Self-Captioning Images | 15+ |
-| Parallel Timelines | 4 |
-| Cross-References | 50+ |
-| Ping-Pong Frame Links | 20 |
+| Total Slideshows | 13 |
+| Total Images (main narratives) | 65+ |
+| Self-Captioning Images | 25+ |
+| Parallel Timelines | 6 |
+| Cross-References | 100+ |
+| Ping-Pong Frame Links | 40 |
 
 ---
 
