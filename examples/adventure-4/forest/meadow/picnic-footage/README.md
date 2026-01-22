@@ -35,6 +35,8 @@ massive fluffy clouds, and perfect picnic weather.
 | [13 - Don't Selfie](frame-13-don-selfie.yml) | 14:45:00 | Rabbit-Don with a salsa-tipped ear and tamale | ✅ MINED |
 | [14 - Richard's Selfie](frame-14-richard-selfie.yml) | 14:50:00 | Scholarly spaghetti slurping in the sun | ✅ MINED |
 | [15 - Donna's Selfie](frame-15-donna-selfie.yml) | 14:55:00 | The Quality Control Queen and her Cheddar Crown | ✅ MINED |
+| [16 - Transmogrification](frame-16-transmogrification.yml) | 15:25:00 | Donna enters the FMC to change | ✅ MINED |
+| [17 - The Entrance](frame-17-the-entrance.yml) | 15:40:00 | Donna Toadstool emerges in full 34-count regalia | ✅ MINED |
 
 ### Generated Imagery
 
@@ -53,6 +55,7 @@ massive fluffy clouds, and perfect picnic weather.
 - **Frame 13:** `frame-13-don-selfie-...-don-selfie.png`
 - **Frame 14:** `frame-14-richard-selfie-...-richard-selfie.png`
 - **Frame 15:** `frame-15-donna-selfie-...-donna-selfie.png`
+- **Frame 17:** `frame-17-the-entrance-...-donna-entrance.png`
 
 ---
 
@@ -68,8 +71,10 @@ massive fluffy clouds, and perfect picnic weather.
 | **The Dragon** | Now the **'Gourmet Guardian'**; capable of **Blue-Spark Ignition** and **Internal Heat** pulses. |
 | **Taco Flowers** | Yellow-gold petals with **'toasted-brown' edges**; crimson 'meat' stamens; green 'lettuce' base. |
 | **Donna T.** | Real Donna is **'ACME Quality Control'**; Gatekeeper of the OURS Accord; wears **pink heart glasses**. |
+| **Donna (Drag)** | **Nuclear Tangerine** skin; **Straw-Yellow Combover** (sentient); **Too-Long Red Tie**; **'Reverse Raccoon'** eye circles. |
 | **The Decoy** | Glitched into a **1970s McDonald's-style trash can** with a swinging 'PUSH' door and a red silk tie. |
 | **The TARDIS Egg** | 12-foot **green and gold Fabergé Egg**; contains a built-in **'Factorio Kitchen'** with brass conveyor belts and golden Inserters. |
+| **Physics** | **'Narcissistic Gravity'** confirmed — flowers literally lean toward Donna when she's in character. |
 | **Selfie Details** | Don's **'Salsa Ear'** (left tip red); Richard's **gold-rimmed glasses** and **sauce-splattered navy cardigan**. |
 | **The Feast** | Three pioneers eating **'vorciferously and vermiciously'**; Don's ear dipped in salsa; Richard's cardigan stained with red sauce. |
 | **The Aftermath** | Cheddar pyramid reduced to a jagged stump; corn husks everywhere like ancient parchment. |
