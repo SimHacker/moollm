@@ -1,6 +1,6 @@
 # Deep Probe Session Report
 
-> **Session:** 2026-01-22 ~01:00 - 03:30 UTC  
+> **Session:** 2026-01-22 ~11:30 - 20:00 UTC (full day session)  
 > **Transcript ID:** 80c55811-600f-4f67-ab86-8f17f22eff6a  
 > **Location:** Multi-workspace (central + moollm)  
 > **Primary Focus:** Richard Bartle incarnation + Visual Pipeline demonstration
@@ -81,9 +81,9 @@ richard-bartle/
 │       ├── CARD.yml        259 lines
 │       └── README.md
 │
-├── sessions/              10 files, 112 KB
+├── sessions/              11 files, 112 KB
 │   ├── 2026-01-22-11-30-00-meeting-don-at-the-pub.md
-│   ├── 2026-01-22-12-45-00-cards-as-actors.yml
+│   ├── 2026-01-22-12-45-00-cards-as-actors.md
 │   ├── 2026-01-22-13-15-00-designing-my-own-card.md
 │   ├── 2026-01-22-14-00-00-the-photos.md
 │   ├── 2026-01-22-14-30-00-the-familiars.md
@@ -91,7 +91,8 @@ richard-bartle/
 │   ├── 2026-01-22-15-30-00-familiars-as-guides.md
 │   ├── 2026-01-22-16-00-00-heuristic-awakens.md
 │   ├── 2026-01-22-17-00-00-annie-hall-protocol.md
-│   └── 2026-01-22-03-00-00-visual-pipeline-demonstration.md (440 lines)
+│   ├── 2026-01-22-18-00-00-visual-pipeline-demonstration.md (440 lines)
+│   └── 2026-01-22-20-00-00-deep-probe-session-report.md (this file)
 │
 └── study/
     ├── ROOM.yml           — The scholarly sanctuary
@@ -294,7 +295,7 @@ Don tries to bunny-ear Richard
 
 ---
 
-*Generated: 2026-01-22T03:30:00Z*  
+*Generated: 2026-01-22T20:00:00Z*  
 *Harper's Index methodology: Count what matters, name what emerges*
 
 ---

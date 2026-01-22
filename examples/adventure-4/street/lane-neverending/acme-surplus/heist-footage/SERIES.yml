@@ -1,0 +1,167 @@
+# 🎥 THE HEIST — ACME Surplus Break-In Footage
+# 
+# SOURCE: ACM1 "Leela Cam" — Lobby window camera, Leela Manufacturing
+# POINTING AT: ACME Surplus (across the street, 4 Lane Neverending)
+# CAPTURES: Everything. The whole disaster. 8 frames of FAFO.
+#
+# PARTICIPANTS:
+#   - Don Hopkins (lured in under false pretenses, unwarned)
+#   - ??? (the instigator who invited Don)
+#   - Donna Toadstool (watching from basement, pulling levers, DELIGHTED)
+#   - Various ACME products (deployed with prejudice)
+#
+# PROTOCOL: ITERATIVE NARRATIVE — ONE AT A TIME
+#   Each frame sees the full context of all previous frames.
+#   What emerges informs what happens next.
+#   Commit to what appears. YES AND.
+#
+# STYLE: Surveillance footage aesthetic — security cam grain, timestamp,
+#        slightly degraded, voyeuristic distance. Night vision green optional.
+#        The Leela Cam is WATCHING.
+#
+# THEME: "Many people are saying this was the worst heist in history."
+#        — Donna Toadstool (live commentary from the control room)
+
+series:
+  name: "The Heist"
+  subtitle: "ACME Surplus Break-In — As Captured by ACM1"
+  
+  date: "2026-01-22"
+  time: "~23:00 UTC"
+  
+  camera:
+    id: ACM1
+    name: "The Tunnel Watcher"
+    location: "Leela Manufacturing lobby window"
+    pointing_at: "ACME Surplus front facade"
+    purpose: "Monitor painted tunnel, track ACME activity"
+    view: "North-facing, captures 4 Lane Neverending north side"
+    
+  style_guide: |
+    VISUAL LANGUAGE:
+    - Security camera aesthetic — wide angle, slight fisheye
+    - Timestamp overlay: "ACM1 — 2026-01-22 — 23:XX:XX"
+    - Night vision green or sodium streetlight amber
+    - Grain, compression artifacts, surveillance feel
+    - Distance — we're across the street, voyeuristic
+    
+    COMPOSITION:
+    - ACME storefront dominates frame
+    - Street between camera and building
+    - Painted tunnel visible on facade
+    - Occasional pedestrian for scale
+    - The sense of WATCHING something we shouldn't
+    
+    WHAT WE SEE:
+    - The exterior: approach, entry attempts, escapes
+    - Through windows: glimpses of interior chaos
+    - The painted tunnel: packages flying through (not them)
+    - Consequences: characters ejected, bouncing, flattened
+    
+    WHAT WE DON'T SEE (but know):
+    - Donna in her basement throne, WATCHING, NARRATING
+    - The levers being pulled
+    - The internal journey (only what escapes outside)
+    
+  narrative_arc:
+    frame_01: "The Approach — Two figures cross the street toward ACME"
+    frame_02: "The Invitation — One gestures toward the building, the other hesitates"
+    frame_03: "The Entry — They try the front door (anvil pending)"
+    frame_04: "First Contact — Something happens. We see the flash."
+    frame_05: "Deeper Trouble — Through windows: chaos. Conveyors? Bouncing?"
+    frame_06: "The Sprint — One figure ROCKETS out the side window"
+    frame_07: "The Extraction — Emergency exit, smoking slightly"
+    frame_08: "The Aftermath — They're across the street. Alive. Changed."
+    
+  antagonist:
+    name: "Donna Toadstool"
+    location: "Basement control room"
+    status: "WATCHING. NARRATING. PULLING LEVERS."
+    mood: "DELIGHTED — finally, worthy subjects"
+    
+    sample_narration:
+      frame_01: "Well well WELL. Look who's crossing MY street."
+      frame_02: "Oh this is going to be TREMENDOUS."
+      frame_03: "The front door! THE FRONT DOOR! Amateurs."
+      frame_04: "WELCOME to ACME! — *pulls red lever*"
+      frame_05: "WHERE do you THINK you're GOING, Hoppy Hopkins?"
+      frame_06: "ROCKET SKATES! My FAVORITE!"
+      frame_07: "Running? RUNNING? Nobody RUNS from the Mushroom Queen!"
+      frame_08: "...Come back ANY TIME. I'll be HERE."
+      
+  participants:
+    don_hopkins:
+      status: "UNWARNED — thinks this is a fun exploration"
+      prepared_for: "Interesting adventure"
+      actual_experience: "ACME FAFO protocol"
+      nickname_pending: "Hoppy Hopkins? Doomed Don? We'll see."
+      
+    the_instigator:
+      status: "GUILTY — invited Don without disclosure"
+      motivation: "Adventure? Mischief? Content?"
+      culpability: "MAXIMUM"
+      
+  protocol: |
+    FOR EACH FRAME:
+    
+    1. SKELETON — Write frame-NN.yml with narrative beat
+    2. CONTEXT SYNTHESIS — Read all previous frames + emergent details
+    3. PROMPT — Write surveillance-aesthetic prompt (~350 tokens)
+    4. GENERATE — Run visualizer with --raw-prompt
+    5. MINE — Extract what emerged (multiple fordite layers)
+    6. DONNA COMMENTARY — What is she saying right now?
+    7. CONSEQUENCES — What happens next because of what we saw?
+    8. PROCEED — Next frame sees EVERYTHING
+    
+    ONE AT A TIME. Let it breathe. Let emergence happen.
+    
+  accumulated_context: []
+  
+  fordite_lenses:
+    - surveillance    # What the camera captures
+    - donna_pov       # What she sees and says
+    - acme_products   # What activated and why
+    - consequences    # Physical/emotional aftermath
+    - comedy_timing   # Is it funny? It should be funny.
+
+# PARALLEL TIMELINE — DONNA'S SELFIES
+#
+# Donna is documenting the SAME EVENTS from inside the control room.
+# Her selfies are HER property, stored in HER character directory.
+# They sync with heist frames but exist in their own timeline.
+#
+# The story can be told by INTERLEAVING:
+#   heist frame 01 → donna selfie 01 → heist frame 02 → donna selfie 02 → ...
+#
+# Two cameras. Two owners. One disaster.
+
+parallel_timeline:
+  name: "Donna's Real-Time Selfies"
+  owner: "Donna Toadstool"
+  location: "../../../../characters/fictional/donna-toadstool/selfies/"
+  
+  relationship: |
+    The heist footage is OBJECTIVE — what the Leela Cam sees.
+    Donna's selfies are SUBJECTIVE — her POV, her captions, her filter.
+    
+    Same moments. Different angles. Different truths.
+    
+    Interleave for NARRATIVE PARALLAX:
+    - Frame shows action (external)
+    - Selfie shows reaction (internal)
+    - Together they reveal the full picture
+    
+  sync_points:
+    frame_01: "selfie-01-intruder-alert — 'LOOK WHAT I'VE FOUND!'"
+    frame_02: "selfie-02-tunnel-watch — 'WATCH THIS!' + TUNNEL STATUS: ACTIVE"
+    frame_03: "selfie-03-anvil-deployed — 'I DID THAT!' + ANVIL DEPLOYED"
+    frame_04: "selfie-04-pending — (tunnel multiplication reaction)"
+    frame_05: "selfie-05-pending — (deeper chaos celebration)"
+    frame_06: "selfie-06-pending — (rocket skates moment)"
+    frame_07: "selfie-07-pending — (victory lap?)"
+    frame_08: "selfie-08-pending — (aftermath gloating)"
+    
+  emergent_phenomenon: |
+    Every Donna selfie SELF-CAPTIONS.
+    The images generate their own text overlays.
+    The universe recognizes content creator energy.
