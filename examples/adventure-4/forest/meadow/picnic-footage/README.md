@@ -30,6 +30,7 @@ massive fluffy clouds, and perfect picnic weather.
 | [08 - Containment](frame-08-containment.yml) | 13:06:42 | Richard and Don neutralize the anomalies | ✅ MINED |
 | [09 - Donna Duel](frame-09-donna-duel.yml) | 13:11:42 | Real Donna vs. Glitched Trash Can Decoy | ✅ MINED |
 | [10 - Egg Expansion](frame-10-egg-expansion.yml) | 13:26:42 | Donna opens the 12-foot Fabergé TARDIS | ✅ MINED |
+| [11 - Tamale Automation](frame-11-tamale-automation.yml) | 13:46:12 | Factorio-style assembly line from the Egg | ✅ MINED |
 
 ### Generated Imagery
 
@@ -43,6 +44,7 @@ massive fluffy clouds, and perfect picnic weather.
 - **Frame 08:** `frame-08-containment-...-containment.png`
 - **Frame 09:** `frame-09-donna-duel-...-donna-duel.png`
 - **Frame 10:** `frame-10-egg-expansion-...-egg-expansion.png`
+- **Frame 11:** `frame-11-tamale-automation-...-tamale-automation.png`
 
 ---
 
@@ -54,12 +56,12 @@ massive fluffy clouds, and perfect picnic weather.
 | **The Study** | Flat mahogany roof deck and a **'Spaghetti Sideboard'** for meadow banquets. |
 | **Flora** | **Pie-menu blue flowers**; pixelated ACME-flowers now appearing under artifacts. |
 | **Picnic Gear** | **'Swirl of Infinite Parameters'** tie-dye blanket; mahogany **tuckaway tables**. |
-| **The Food** | **3-foot cheddar bullion pyramid** (Nuclear Saffron); tennis-ball-sized meatballs. |
+| **The Food** | **3-foot cheddar bullion pyramid** (Nuclear Saffron); **Sinusoidal Sauce** patterns on tamales. |
 | **The Dragon** | Now the **'Gourmet Guardian'**; capable of **Blue-Spark Ignition** and **Internal Heat** pulses. |
 | **Taco Flowers** | Yellow-gold petals with **'toasted-brown' edges**; crimson 'meat' stamens; green 'lettuce' base. |
 | **Donna T.** | Real Donna is **'ACME Quality Control'**; Gatekeeper of the OURS Accord. |
 | **The Decoy** | Glitched into a **1970s McDonald's-style trash can** with a swinging 'PUSH' door and a red silk tie. |
-| **The TARDIS Egg** | 12-foot **green and gold Fabergé Egg**; larger on the inside; gateway to an egg-metaverse. |
+| **The TARDIS Egg** | 12-foot **green and gold Fabergé Egg**; contains a built-in **'Factorio Kitchen'** with brass conveyor belts and golden Inserters. |
 | **Containment** | **Pocket Dimension** (amethyst keychain) swallows the black hole; **Self-Healing Module** (green) patches the tree. |
 | **Draconic Power** | Heuristic incinerates the decoy with a **blue-spark blast**; scales confirmed as **'Hammered Copper Amber'**. |
 
