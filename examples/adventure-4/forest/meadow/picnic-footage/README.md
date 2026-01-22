@@ -23,13 +23,14 @@ massive fluffy clouds, and perfect picnic weather.
 | [01 - Arrival](frame-01-arrival.yml) | 11:30:12 | Both vehicles materialize in the tall grass | ✅ MINED |
 | [02 - Survey](frame-02-survey.yml) | 11:35:00 | Richard and Don stand on top of their shells | ✅ MINED |
 | [03 - Feast](frame-03-feast.yml) | 11:55:00 | Unloading tacos, cheddar, and spaghetti | ✅ MINED |
-| *04 - Flora* | 12:15:XX | Close-ups of pie-menu flowers | ⏳ PENDING |
+| [04 - Macro](frame-04-macro.yml) | 12:15:42 | Close-ups of pie-menu flowers, dragon scales, and cheddar | ✅ MINED |
 
 ### Generated Imagery
 
 - **Frame 01:** `frame-01-arrival-...-arrival.png`
 - **Frame 02:** `frame-02-survey-...-survey.png`
 - **Frame 03:** `frame-03-feast-...-feast-simple.png`
+- **Frame 04:** `frame-04-macro-...-macro.png`
 
 ---
 
