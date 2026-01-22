@@ -1,0 +1,303 @@
+# Frame 01: The Materialization
+# "A Victorian study appears in an industrial lobby"
+#
+# THE SIMS CUTAWAY — outer walls drop, interior revealed
+# Camera: LOB1 (primary), ACM1 pivoting (secondary)
+# Time: Morning. The first mobile room-character landing in Leela history.
+
+frame:
+  number: 1
+  name: "materialization"
+  title: "The Study Arrives"
+  timestamp: "2026-01-23T10:15:42Z"
+  
+  narrative_beat: |
+    LOB1 detects an anomaly.
+    
+    In the center of the Leela Manufacturing lobby, the air shimmers.
+    Not a ripple — more like reality checking its notes, then agreeing
+    that yes, this is supposed to happen.
+    
+    A room appears.
+    
+    Not crashes into existence. Not teleports with a bang.
+    APPEARS. Like it was always there, and we just started noticing.
+    
+    But the walls — the outer walls — are transparent. Dropped.
+    Like The Sims when you enter a house.
+    
+    Through the opened walls, we see:
+    - Bookshelves reaching to the ceiling
+    - A worn leather armchair with someone in it
+    - A radiator with something glowing on it (dragon?)
+    - Standing figure in Hawaiian shirt
+    - Warm amber light contrasting with lobby fluorescence
+    
+    ACM1, normally watching the tunnel, PIVOTS.
+    Its motorized mount whirs. It has to see this.
+    
+    Alex at reception freezes mid-sentence.
+    
+  scene_description: |
+    CAMERAS: LOB1 (interior wide), ACM1 (pivoting from window)
+    ANGLE: LOB1 wide shot, slightly elevated; ACM1 turning to face interior
+    TIME: Morning — natural light through lobby windows, interior warm
+    
+    THE LOBBY (context):
+    Polished concrete floor. Exposed brick walls. Green plants.
+    The Leela logo glowing on the wall behind reception.
+    Scale model under glass to the right.
+    Catalog dispenser visible background left.
+    Industrial-modern aesthetic. Professional. Welcoming.
+    
+    THE STUDY (center of attention):
+    A Victorian room has appeared in the middle of the industrial space.
+    
+    THE SIMS EFFECT:
+    Outer walls are TRANSPARENT — not invisible, but see-through.
+    You can see the wall SHAPE as a faint outline, but the interior
+    is fully visible. Like architectural X-ray vision. Like a dollhouse
+    with the front removed. Like The Sims when you're playing.
+    
+    VISIBLE THROUGH THE DROPPED WALLS:
+    
+    - BOOKSHELVES: Floor-to-ceiling, packed with volumes. 
+      Old leather spines. Gold lettering catching the light.
+      Some horizontal stacks where vertical ran out.
+      One shelf is entirely dragons (figures, not books).
+      
+    - THE ARMCHAIR: Worn leather, high back, brass studs.
+      RICHARD BARTLE is seated in it, tea cup in hand.
+      Silver-white hair. Blue cardigan. The posture of someone
+      who is completely at home, even though "home" just moved.
+      Expression: scholarly curiosity, not alarm.
+      
+    - THE RADIATOR: Cast iron, Victorian. Actually warm.
+      HEURISTIC the dragon draped across it.
+      Small, amber-scaled, one eye open.
+      Body language: "We've arrived. Wake me when it matters."
+      
+    - THE STANDING FIGURE: DON HOPKINS
+      Hawaiian shirt (the pattern should scream "HOPKINS")
+      Bunny ears (yes, really — long story)
+      Glasses catching the mix of warm Study light and cool lobby light
+      Hand reaching toward the door, about to open it.
+      Expression: "Want to see something cool?"
+      
+    - THE DOOR: Victorian paneled wood.
+      Currently closed. About to open onto the lobby.
+      When it opens, the inside and outside will meet.
+      
+    - AMBIENT DETAILS:
+      A small tea table with pot and cups
+      Papers on a desk (taxonomy diagrams?)
+      The smell of old books (implied visually — dust motes in light)
+      Warm amber glow vs. industrial white
+      
+    THE LOBBY REACTIONS:
+    
+    - ALEX AT RECEPTION:
+      Frozen mid-gesture. Was helping a visitor.
+      Mouth slightly open. Professional facade cracking.
+      Hand still pointing at the directory board.
+      The visitor they were helping is also frozen.
+      
+    - ACM1 CAMERA:
+      Visible in the window frame, PIVOTING.
+      Motor whirring. The tunnel can wait.
+      First time in months it's looked away from ACME.
+      
+    - THE SCALE MODEL:
+      Under glass nearby.
+      Its tiny cameras are also pointing at the Study.
+      Even the model is paying attention.
+      
+    LIGHTING:
+    The Study emits warm amber light — lamps, firelight implied.
+    The lobby has cool industrial white from windows and fixtures.
+    Where they meet: golden hour collision.
+    The Study is a warm island in a cool sea.
+    
+    TIMESTAMP OVERLAY:
+    "LOB1 — 2026-01-23 — 10:15:42"
+    "ANOMALY DETECTED — CLASSIFYING..."
+    "CLASSIFICATION: VISITOR_VEHICLE (ROOM-CHARACTER)"
+    
+  prompt_for_visualizer: |
+    Security camera footage, wide angle, lobby of modern industrial building.
+    
+    In the center of the polished concrete lobby, a Victorian study has 
+    MATERIALIZED. The outer walls are TRANSPARENT like The Sims cutaway view — 
+    you can see INSIDE the room while it sits in the lobby.
+    
+    VISIBLE THROUGH THE DROPPED WALLS:
+    - Floor-to-ceiling bookshelves packed with old leather-bound volumes
+    - A worn leather armchair with an ELDERLY MAN seated, holding tea cup
+      (silver-white hair, blue cardigan, scholarly posture)
+    - A cast-iron radiator with a SMALL AMBER DRAGON draped across it
+    - A STANDING MAN in loud Hawaiian shirt with RABBIT EARS, hand on door
+    - Warm amber lamplight contrasting with cool lobby fluorescence
+    - Persian rug, tea table, mahogany furniture
+    
+    THE LOBBY CONTEXT:
+    - Polished concrete floor, exposed brick walls
+    - Modern reception desk visible to the right, RECEPTIONIST frozen in surprise
+    - Green plants, professional signage, industrial-modern aesthetic
+    - Security camera visible in window, PIVOTING to face the room
+    
+    THE CONTRAST:
+    Victorian warmth inside dropped walls vs. industrial cool outside.
+    The room is a time capsule that just landed in a tech company lobby.
+    
+    STYLE: Security camera aesthetic — wide angle, timestamp overlay 
+    "LOB1 — 2026-01-23 — 10:15:42", slight surveillance grain.
+    The look of footage that will be played in meetings forever.
+    
+    MOOD: Surreal calm. The impossible has happened. Everyone is processing.
+    
+  camera_metadata:
+    primary:
+      id: LOB1
+      resolution: "4K"
+      framerate: "30fps"
+      overlay: "LOB1 — 2026-01-23 — 10:15:42"
+      status: "RECORDING — ANOMALY DETECTED"
+      classification_pending: "VISITOR_VEHICLE"
+      
+    secondary:
+      id: ACM1
+      resolution: "1080p"
+      framerate: "30fps"
+      overlay: "ACM1 — PIVOTING — TUNNEL ABANDONED"
+      status: "REDIRECTING FOCUS"
+      first_time_since: "Installation day"
+      
+  characters_visible:
+    
+    richard_bartle:
+      position: "Seated in armchair inside the Study"
+      posture: "Relaxed, scholarly, holding tea"
+      expression: "Mild curiosity — this is interesting"
+      clothing: "Blue cardigan, collared shirt, comfortable"
+      activity: "Observing the lobby through dropped walls"
+      internal_monologue: |
+        "The tea is still warm. 
+         The books are still organized.
+         Only the view has changed.
+         Fascinating."
+         
+    don_hopkins:
+      position: "Standing by Study door, hand on handle"
+      posture: "About to open door, presenting"
+      expression: "Delighted — showing off"
+      clothing: "Hawaiian shirt (loud pattern), bunny ears"
+      activity: "Ready to step out and give tour"
+      internal_monologue: |
+        "Wait until Richard sees the catalog.
+         Wait until he meets Eventually.
+         Wait until he understands what we built here."
+         
+    heuristic:
+      position: "Draped on radiator inside Study"
+      posture: "Contented loaf, one eye open"
+      expression: "Unimpressed by travel, pleased by warmth"
+      activity: "Maintaining optimal temperature"
+      internal_monologue: |
+        "We have arrived.
+         The radiator is warm.
+         Everything else is details."
+         
+    alex:
+      position: "Behind reception desk"
+      posture: "Frozen mid-gesture"
+      expression: "Professional confusion"
+      activity: "Was helping visitor, now processing anomaly"
+      will_say: "Mr. Hopkins! You've... brought a room."
+      
+  environment_notes:
+    time_of_day: "Morning (~10:15)"
+    lighting: |
+      EXTERIOR (lobby): Cool industrial white, morning sun through windows
+      INTERIOR (Study): Warm amber, lamp-glow, firelight implied
+      WHERE THEY MEET: Golden hour collision
+    atmosphere: "Surreal calm — the impossible is being politely ignored"
+    ambient_sound: |
+      Before: Lobby hum, distant keyboards, elevator ding
+      During materialization: Soft WHOMP of displaced air
+      After: Silence, then whispered "...is that a dragon?"
+      
+  the_sims_wall_mechanics: |
+    THE CUTAWAY EFFECT:
+    
+    In The Sims, when you enter a house, the exterior walls become
+    transparent so you can see your characters inside. The walls still
+    EXIST — you see their outlines — but they don't OBSTRUCT vision.
+    
+    The Study's materialization uses this same visual language:
+    
+    1. OUTER WALLS — Visible as faint outlines, fully transparent
+       - You can see the SHAPE of the room's exterior
+       - But you can see THROUGH to the interior
+       - Like looking at a dollhouse from above
+       
+    2. INNER WALLS — Fully opaque and visible
+       - The bookshelf-walls that divide spaces remain solid
+       - Any interior partitions are visible
+       - This creates depth and complexity
+       
+    3. FURNITURE — Fully visible and solid
+       - Armchair, radiator, bookshelves all present
+       - Lit by interior lighting (warm amber)
+       - Casting shadows within the space
+       
+    4. INHABITANTS — Fully visible
+       - Richard in chair, Don standing, Heuristic on radiator
+       - Lit by the same interior lighting
+       - Going about their business inside a room that just appeared
+       
+    The effect is: a CROSS-SECTION VIEW of a Victorian study
+    superimposed on an industrial lobby. Two architectural languages
+    colliding. Two lighting schemes mixing. One impossible moment.
+    
+  fordite_lenses:
+    surveillance: "What the cameras capture — anomaly, classification, pivot"
+    architectural: "Victorian vs. industrial — mahogany meets concrete"  
+    character: "Who's inside, what they're doing, how they're reacting"
+    physics: "The materialization — how does it LOOK when a room appears?"
+    humor: "Dragon on radiator, bunny ears on tour guide, tea unspilled"
+    
+  key_visual_elements:
+    must_include:
+      - "The Study visible through dropped/transparent outer walls"
+      - "Richard in armchair with tea (silver hair, blue cardigan)"
+      - "Don in Hawaiian shirt with bunny ears, hand on door"
+      - "Heuristic the dragon on the radiator"
+      - "Bookshelves floor-to-ceiling"
+      - "Warm amber light inside vs. cool industrial outside"
+      - "Alex at reception, frozen"
+      - "Security camera timestamp overlay"
+      
+    nice_to_have:
+      - "ACM1 camera visible pivoting in window"
+      - "Scale model with tiny cameras also pointing at Study"
+      - "Catalog dispenser visible in background"
+      - "Dust motes in the amber light"
+      - "Tea steam rising (thermal contrast)"
+      - "The door about to open"
+      
+  what_happens_next: |
+    Don opens the door.
+    
+    The inside meets the outside.
+    Victorian air mingles with industrial air.
+    Richard sets down his tea (carefully) and stands.
+    
+    "Welcome to Leela Manufacturing," says Alex, recovering.
+    
+    Don leads Richard to the catalog dispenser.
+    The Study hovers politely, waiting.
+    Heuristic doesn't move. The radiator is warm everywhere.
+    
+    Frame 02: THE EXIT — They step out into the lobby.
+    Frame 03: THE CATALOG — Don shows Richard the green leather volumes.
+    Frame 04: THE TOUR BEGINS — Elevator to Floor 2.

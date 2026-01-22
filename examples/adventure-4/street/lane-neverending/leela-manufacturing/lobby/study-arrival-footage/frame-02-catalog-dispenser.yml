@@ -1,0 +1,248 @@
+# Frame 02: The Catalog Dispenser
+# "Don shows Richard the Leela catalog"
+#
+# They've stepped out of the Study. The dragon stays behind.
+# Camera: LOB1 (primary), focused on the catalog dispenser area
+# Time: Moments after materialization.
+
+frame:
+  number: 2
+  name: "catalog-dispenser"
+  title: "Highlights from the Catalog"
+  timestamp: "2026-01-23T10:17:03Z"
+  
+  narrative_beat: |
+    The Study door opened. Don stepped out first.
+    Richard followed, setting his tea down carefully on the side table.
+    (The Study preserves state. The tea will still be warm later.)
+    
+    "Let me show you what we make here," Don says.
+    
+    He leads Richard to the catalog dispenser — polished walnut,
+    brass fittings, dark green leather volumes with gold embossing.
+    The anti-ACME.
+    
+    Richard takes one. Opens it.
+    
+    Don points to various sections:
+    "Factorio protocols. Pneumatic networks. Surveillance that helps
+    instead of punishes. And look — TomTomagotchi."
+    
+    Richard: "...a GPS pet that gets sad if you ignore routes?"
+    
+    Don: "Navigation should be FUN."
+    
+    In the background, the Study hovers with its dropped walls,
+    Heuristic still visible on the radiator, one eye watching them.
+    
+  scene_description: |
+    CAMERA: LOB1 (primary), now focused on the catalog dispenser area
+    ANGLE: Medium shot — Don and Richard at the dispenser, Study behind
+    TIME: Morning, moments after arrival
+    
+    THE FOREGROUND — THE CATALOG DISPENSER:
+    Polished walnut kiosk, about 4 feet tall. Glass front showing
+    neatly arranged catalogs. Brass fittings catching lobby light.
+    
+    DON HOPKINS:
+    Standing beside the dispenser, one hand gesturing at the open
+    catalog Richard is holding. Hawaiian shirt a riot of color.
+    Bunny ears casting small shadows. Expression: delighted presenter.
+    Pointing at something in the catalog. "See? TomTomagotchi!"
+    
+    RICHARD BARTLE:
+    Holding open the dark green leather catalog. Pages visible —
+    product listings, diagrams, honest specifications.
+    Expression: scholarly interest mixed with amusement.
+    Blue cardigan over collared shirt. Silver-white hair.
+    Reading glasses if he has them (or squinting professorialy).
+    
+    THE CATALOG ITSELF (visible):
+    Open to the MAPPING section (page 55+).
+    The TomTomagotchi entry visible:
+    - "GPS pet companion, needs feeding and attention"
+    - "Gets sad if you ignore route suggestions"
+    - "Happy chirps when you arrive"
+    
+    THE BACKGROUND — THE STUDY:
+    Still hovering in the lobby, outer walls still dropped.
+    Through the transparent walls:
+    - Bookshelves visible
+    - The armchair (empty now, Richard's tea on side table)
+    - The radiator with Heuristic still draped across it
+    - Warm amber glow contrasting with lobby
+    
+    The Study is WATCHING them through its dropped walls.
+    Like a parent keeping an eye on children at the park.
+    
+    OTHER LOBBY ELEMENTS:
+    - Alex at reception, now composed, helping another visitor
+      (but glancing at the Study periodically)
+    - The scale model under glass
+    - Through windows: ACME Surplus visible across the street
+      (the painted tunnel, the reminder)
+    - ACM1 camera back to watching the tunnel
+      (but one suspects it glances back sometimes)
+      
+  prompt_for_visualizer: |
+    Security camera footage, medium shot, polished industrial lobby.
+    
+    TWO MEN at a wooden catalog dispenser (polished walnut, brass fittings):
+    
+    - STANDING MAN in loud Hawaiian shirt and RABBIT EARS, gesturing
+      enthusiastically at an open catalog. Expression: delighted tour guide.
+      
+    - ELDERLY MAN holding the open catalog (dark green leather, gold embossing),
+      silver-white hair, blue cardigan, reading with scholarly amusement.
+      The catalog is open to product listings.
+    
+    IN THE BACKGROUND: A VICTORIAN STUDY hovers in the lobby.
+    Its outer walls are TRANSPARENT (Sims cutaway effect) revealing:
+    - Bookshelves packed with old volumes
+    - An empty leather armchair with tea cup on side table
+    - A SMALL AMBER DRAGON on a cast-iron radiator, watching
+    - Warm amber light inside vs. cool industrial lobby outside
+    
+    THE LOBBY:
+    - Polished concrete floor, exposed brick walls
+    - Modern reception desk with receptionist
+    - Green plants, professional signage
+    - Through window: abandoned building visible across street
+    
+    STYLE: Security camera aesthetic — wide angle, timestamp overlay
+    "LOB1 — 2026-01-23 — 10:17:03", slight surveillance grain.
+    
+    MOOD: Discovery and delight. The impossible has become normal.
+    Old friends exploring what's possible.
+    
+  camera_metadata:
+    id: LOB1
+    resolution: "4K"
+    framerate: "30fps"
+    overlay: "LOB1 — 2026-01-23 — 10:17:03"
+    status: "RECORDING — VISITOR ACTIVITY"
+    pose_detection:
+      don_hopkins: "Standing, gesturing, presenting"
+      richard_bartle: "Standing, reading, interested"
+    object_detection:
+      - "Catalog dispenser"
+      - "Open catalog (held)"
+      - "Visitor vehicle (background)"
+      - "Unknown entity: radiator creature"
+      
+  characters_visible:
+    
+    don_hopkins:
+      position: "Standing by catalog dispenser, left side"
+      posture: "Presenting, one arm gesturing at catalog"
+      expression: "Delighted — sharing what he loves"
+      activity: "Explaining TomTomagotchi to Richard"
+      dialogue: |
+        "Navigation should be FUN, Richard!
+         A modal dialog saying 'turn left' is VIOLENCE.
+         A little creature that gets excited about new routes?
+         That's JOY."
+         
+    richard_bartle:
+      position: "Standing by catalog dispenser, right side"
+      posture: "Reading, catalog open in hands"
+      expression: "Scholarly amusement"
+      activity: "Examining the product listings"
+      dialogue: |
+        "A GPS pet that gets sad if you ignore routes...
+         
+         This is game design applied to navigation.
+         The device has EMOTIONAL STAKES."
+         
+    heuristic:
+      position: "In background, on Study radiator (visible through walls)"
+      posture: "Still draped, one eye open"
+      expression: "Watchful guardian"
+      activity: "Maintaining warmth, observing humans"
+      implied_thought: |
+        "They're looking at catalogs.
+         The catalog doesn't have dragons.
+         The catalog is incomplete."
+         
+    alex:
+      position: "Reception desk, background"
+      posture: "Helping visitor, but glancing at Study"
+      expression: "Professional with undertones of 'is that still there?'"
+      
+  catalog_highlights: |
+    WHAT RICHARD IS SEEING (TomTomagotchi entry):
+    
+    ┌─────────────────────────────────────────────────────────┐
+    │  🗺️ TomTomagotchi                                        │
+    │  ═══════════════                                        │
+    │  SKU: LEE-TT-001                                        │
+    │  Price: 150 coins                                       │
+    │                                                         │
+    │  "GPS pet companion, needs feeding and attention"       │
+    │                                                         │
+    │  FEATURES:                                              │
+    │  ✓ Turn-by-turn directions (in cute voice)             │
+    │  ✓ Gets sad if you ignore its route suggestions        │
+    │  ✓ Happy chirps when you arrive                        │
+    │  ✓ Remembers your favorite places                      │
+    │  ✓ Evolves based on travel habits                      │
+    │                                                         │
+    │  CARE REQUIREMENTS:                                     │
+    │  • Feed it map data                                     │
+    │  • Pet it when it finds shortcuts                      │
+    │  • Don't let it run out of battery (it cries)          │
+    │                                                         │
+    │  PERSONALITIES:                                         │
+    │  • Explorer (loves new routes)                         │
+    │  • Homebody (prefers familiar paths)                   │
+    │  • Adventurer (suggests scenic detours)                │
+    └─────────────────────────────────────────────────────────┘
+    
+    And Richard is thinking: "This is what game design looks like
+    when applied to mundane tools. The device has MOTIVATIONS."
+    
+  visual_contrast: |
+    FOREGROUND: Two humans examining technology (catalog)
+    BACKGROUND: A magic room with a dragon watching
+    
+    The juxtaposition:
+    - They're discussing GPS navigation pets
+    - Behind them, a Victorian study hovers in an industrial lobby
+    - On the radiator, an actual dragon observes
+    - The catalog has honest specifications
+    - The room has TARDIS capabilities
+    
+    The mundane (catalogs, products, navigation) meets the impossible
+    (flying rooms, dragons, dropped walls). And everyone's acting like
+    this is NORMAL. Because in MOOLLM, it is.
+    
+  the_study_in_background: |
+    The Study remains hovering with dropped walls.
+    It's not DOING anything. Just BEING there.
+    
+    But its presence transforms the scene:
+    - The industrial lobby now has a Victorian heart
+    - The cool fluorescence has a warm amber counterpoint
+    - The professional space has a dragon
+    
+    Heuristic is watching Don and Richard.
+    The Study is watching Heuristic.
+    LOB1 is watching everything.
+    ACM1 is watching ACME.
+    (But probably thinking about the room.)
+    
+  what_happens_next: |
+    Richard finishes browsing the catalog.
+    
+    "Factorio protocols. Self-healing modules. Pneumatic networks.
+     You've adapted factory optimization to narrative production."
+    
+    "The factory must grow," Don says. "But the product is insight."
+    
+    "Show me the Insight Furnace," Richard requests.
+    
+    They step back into the Study.
+    
+    > study.travel("floor-2/", mode="phase")
+    
+    Frame 03: THE ASCENT — The Study phases through the ceiling.
