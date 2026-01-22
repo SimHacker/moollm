@@ -61,30 +61,49 @@ English. Academic. The kind of presence that makes you want to ask questions and
 ## 🕰️ Timeline: From MUD to Everything
 
 ```mermaid
-timeline
-    title The Lineage of Virtual Worlds (1978-present)
+flowchart TB
+    subgraph GENESIS["🌅 THE GENESIS"]
+        direction TB
+        Y1978["<b>1978</b><br/>🏰 MUD1<br/><i>Bartle & Trubshaw create<br/>multi-user text world at Essex</i>"]
+        Y1979["<b>1979</b><br/>🌍 MUD Spreads<br/><i>Universities, ARPANET, the world</i>"]
+        Y1978 --> Y1979
+    end
     
-    section The Genesis
-        1978 : MUD1 : Bartle & Trubshaw create multi-user text world at Essex
-        1979 : MUD spreads : Universities, ARPANET, the world
+    subgraph DESCENDANTS["🌱 THE DESCENDANTS"]
+        direction TB
+        Y1985["<b>1985</b><br/>📦 AberMUD<br/><i>First widely-distributed<br/>MUD codebase</i>"]
+        Y1986["<b>1986</b><br/>🎨 Habitat<br/><i>Morningstar & Farmer<br/>add graphics (Lucasfilm)</i>"]
+        Y1989["<b>1989</b><br/>🔨 TinyMUD<br/><i>Aspnes creates<br/>buildable worlds (CMU)</i>"]
+        Y1990["<b>1990</b><br/>💻 LambdaMOO<br/><i>Curtis adds real<br/>programming (PARC)</i>"]
+        Y1985 --> Y1986 --> Y1989 --> Y1990
+    end
     
-    section The Descendants
-        1985 : AberMUD : The first widely-distributed MUD codebase
-        1986 : Habitat : Morningstar & Farmer add graphics (Lucasfilm)
-        1989 : TinyMUD : Aspnes creates buildable worlds (CMU)
-        1990 : LambdaMOO : Curtis adds real programming (PARC)
+    subgraph EXPLOSION["💥 THE EXPLOSION"]
+        direction TB
+        Y1996["<b>1996</b><br/>♠️♥️♦️♣️ Bartle Taxonomy<br/><i>Finally, a vocabulary<br/>for players</i>"]
+        Y1997["<b>1997</b><br/>⚔️ Ultima Online<br/><i>Commercial MMO<br/>era begins</i>"]
+        Y1999["<b>1999</b><br/>🐉 EverQuest<br/><i>The addiction machine</i>"]
+        Y2003["<b>2003</b><br/>📖 Designing Virtual Worlds<br/><i>THE textbook drops<br/>(750 pages)</i>"]
+        Y2004["<b>2004</b><br/>🌐 World of Warcraft<br/><i>12 million players</i>"]
+        Y1996 --> Y1997 --> Y1999 --> Y2003 --> Y2004
+    end
     
-    section The Explosion
-        1996 : Bartle Taxonomy : Finally, a vocabulary for players
-        1997 : Ultima Online : Commercial MMO era begins
-        1999 : EverQuest : The addiction machine
-        2003 : Designing Virtual Worlds : THE textbook drops
-        2004 : World of Warcraft : 12 million players
+    subgraph LEGACY["🏛️ THE LEGACY"]
+        direction TB
+        Y2015["<b>2015</b><br/>🔮 MMOs from the Inside Out<br/><i>Philosophy of worlds</i>"]
+        Y2020["<b>2020s</b><br/>🥽 Metaverse Hype<br/><i>People rediscover<br/>what MUD knew</i>"]
+        Y2026["<b>2026</b><br/>🌙 MOOLLM<br/><i>The thread continues<br/>(MOO + LLM)</i>"]
+        Y2015 --> Y2020 --> Y2026
+    end
     
-    section The Legacy
-        2015 : MMOs from the Inside Out : Philosophy of worlds
-        2020s : Metaverse hype : People rediscover what MUD knew
-        2026 : MOOLLM : The thread continues (MOO + LLM)
+    GENESIS --> DESCENDANTS --> EXPLOSION --> LEGACY
+    
+    style Y1978 fill:#ffd700,stroke:#333,stroke-width:3px
+    style Y2026 fill:#9370db,stroke:#333,stroke-width:3px
+    style GENESIS fill:#fff3cd,stroke:#856404
+    style DESCENDANTS fill:#d4edda,stroke:#155724
+    style EXPLOSION fill:#f8d7da,stroke:#721c24
+    style LEGACY fill:#cce5ff,stroke:#004085
 ```
 
 ---
@@ -99,17 +118,17 @@ quadrantChart
     x-axis Acting --> Interacting
     y-axis World --> Players
     
-    quadrant-1 ♥️ Socializers
-    quadrant-2 ♠️ Killers
-    quadrant-3 ♦️ Achievers
-    quadrant-4 ♣️ Explorers
+    quadrant-1 Socializers (Hearts)
+    quadrant-2 Killers (Spades)
+    quadrant-3 Achievers (Diamonds)
+    quadrant-4 Explorers (Clubs)
     
-    "Donna Toadstool": [0.9, 0.9]
-    "Palm the Cat": [0.3, 0.2]
-    "Don Hopkins": [0.4, 0.3]
-    "Average Tourist": [0.6, 0.7]
-    "Speedrunner": [0.8, 0.2]
-    "The Wumpus": [0.1, 0.1]
+    Donna Toadstool: [0.9, 0.9]
+    Palm the Cat: [0.3, 0.2]
+    Don Hopkins: [0.4, 0.3]
+    Average Tourist: [0.6, 0.7]
+    Speedrunner: [0.8, 0.2]
+    The Wumpus: [0.1, 0.1]
 ```
 
 ### The Four Types (With MOOLLM Examples)
