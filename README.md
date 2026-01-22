@@ -191,6 +191,41 @@ SPEED-OF-LIGHT [n]      # Simulate n turns at once
 
 ---
 
+## 🎞️ Visual Galleries (Slideshows)
+
+The adventure includes **image-based narrative slideshows** — generated, mined, and cross-referenced:
+
+**[📋 Full Slideshow Index](./examples/adventure-4/SLIDESHOW-INDEX.md)** | **[🌀 Master Synthesis](./examples/adventure-4/MASTER-SYNTHESIS-SLIDESHOW.md)**
+
+### Main Narratives (4 Parallel Timelines)
+
+| Timeline | Slideshow | Images | Description |
+|----------|-----------|--------|-------------|
+| **A** | [The ACME Heist](./examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/SLIDESHOW.md) | 10 | Surveillance footage of the break-in |
+| **B** | [Donna's Selfies](./examples/adventure-4/characters/fictional/donna-toadstool/selfies/SLIDESHOW.md) | 11 | The heist from the control room |
+| **C** | [Post-Heist Fellowship](./examples/adventure-4/pub/photos/post-heist-fellowship/SLIDESHOW.md) | 4 | Everyone gathers at the pub |
+| **D** | [Don's MINE to OURS](./examples/adventure-4/characters/real-people/don-hopkins/selfies/SLIDESHOW.md) | 7 | Transformation → Alliance |
+
+### Character Portraits
+
+| Character | Slideshow | Description |
+|-----------|-----------|-------------|
+| [Richard Bartle](./examples/adventure-4/characters/real-people/richard-bartle/study/selfies/SLIDESHOW.md) | Selfies from Essex | Study portraits with Heuristic |
+| [Palm the Monkey](./examples/adventure-4/pub/stage/palm-nook/study/palm-portrait-session/SLIDESHOW.md) | Portrait Session | Dutch Golden Age tribute |
+
+### Pub Galleries
+
+| Gallery | Description |
+|---------|-------------|
+| [Don's Pub Photos](./examples/adventure-4/pub/photos/dons-pub-photos-2026-01-19/SLIDESHOW.md) | Facebook-style photo tour |
+| [Rocky and Friends](./examples/adventure-4/pub/rooms/room-4/rocky-and-friends/SLIDESHOW.md) | Emotional support boulder |
+| [Dusty Attic Art](./examples/adventure-4/pub/attic/dusty-attic-art-styles/SLIDESHOW.md) | Same room in 7 art styles |
+| [Telescope Views](./examples/adventure-4/pub/rooftop/telescope-constellation-views/SLIDESHOW.md) | K-Line constellation |
+
+**How they work**: Each slideshow inherits from [skills/slideshow/](./skills/slideshow/). Images are generated via [skills/visualizer/](./skills/visualizer/) and mined via [skills/image-mining/](./skills/image-mining/).
+
+---
+
 ## 🤝 Contributing
 
 1. **Play an adventure** — Your session becomes shareable literature  
