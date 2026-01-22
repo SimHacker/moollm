@@ -28,6 +28,7 @@ massive fluffy clouds, and perfect picnic weather.
 | [06 - Uninvited Guest](frame-06-uninvited-guest.yml) | 13:00:00 | ACME truck bursts from a Painted Tunnel oak | ✅ MINED |
 | [07 - Unsolicited Delivery](frame-07-unsolicited-delivery.yml) | 13:01:12 | Donna's 'gifts' spill into the meadow | ✅ MINED |
 | [08 - Containment](frame-08-containment.yml) | 13:06:42 | Richard and Don neutralize the anomalies | ✅ MINED |
+| [09 - Donna Duel](frame-09-donna-duel.yml) | 13:11:42 | Real Donna vs. Glitched Trash Can Decoy | ✅ MINED |
 
 ### Generated Imagery
 
@@ -39,6 +40,7 @@ massive fluffy clouds, and perfect picnic weather.
 - **Frame 06:** `frame-06-uninvited-guest-...-drama.png`
 - **Frame 07:** `frame-07-unsolicited-delivery-...-delivery-chaos.png`
 - **Frame 08:** `frame-08-containment-...-containment.png`
+- **Frame 09:** `frame-09-donna-duel-...-donna-duel.png`
 
 ---
 
@@ -48,15 +50,14 @@ massive fluffy clouds, and perfect picnic weather.
 | :--- | :--- |
 | **The FMC** | Equipped with **flexible solar panels** and a custom **'Carrot Cooler'** in the doorway. |
 | **The Study** | Flat mahogany roof deck and a **'Spaghetti Sideboard'** for meadow banquets. |
-| **Flora** | **Pie-menu blue flowers** grow in radial clusters; red poppies provide color anchors. |
+| **Flora** | **Pie-menu blue flowers**; pixelated ACME-flowers now appearing under artifacts. |
 | **Picnic Gear** | **'Swirl of Infinite Parameters'** tie-dye blanket; mahogany **tuckaway tables**. |
 | **The Food** | **3-foot cheddar bullion pyramid** (Nuclear Saffron); tennis-ball-sized meatballs. |
-| **The Dragon** | Now the **'Gourmet Guardian'** of the spaghetti; capable of **Blue-Spark Ignition** and **Internal Heat** pulses. |
+| **The Dragon** | Now the **'Gourmet Guardian'**; capable of **Blue-Spark Ignition** and **Internal Heat** pulses. |
 | **Taco Flowers** | Yellow-gold petals with **'toasted-brown' edges**; crimson 'meat' stamens; green 'lettuce' base. |
-| **Bees** | **'Giant Meadow Fuzzy'** bumblebees with overflowing neon-orange pollen baskets. |
-| **The Intruder** | Red **ACME Van-Guard** (1973), battered and smoking, emerging from an oak tree. |
-| **Painted Tunnel** | Manifested on an ancient oak; shows a low-res desert road. |
-| **ACME Goods** | **Dehydrated Feast** (expanding protein cubes), **Inflatable Donna Decoy**, and a **Pocket Black Hole** (sucking in the cheese!). |
+| **Donna T.** | Real Donna is **'ACME Quality Control'**; features glowing green hair highlights. |
+| **The Decoy** | Glitched into a **1970s McDonald's-style trash can** with a swinging 'PUSH' door and a red silk tie. |
+| **The Fight** | Slapstick brawl; the Decoy bounces back like a weighted **punching bag**. |
 | **Containment** | **Pocket Dimension** (amethyst keychain) swallows the black hole; **Self-Healing Module** (green) patches the tree. |
 | **Draconic Power** | Heuristic incinerates the decoy with a **blue-spark blast**; scales confirmed as **'Hammered Copper Amber'**. |
 
