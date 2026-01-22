@@ -1,4 +1,4 @@
-# 🏠 THE HOPKINS LOFT — 15 Lane Neverending
+# 🚌 THE HOPKINS MOTORCOACH — 15 Lane Neverending
 # Don's home, linked into the world map
 # "Where code becomes philosophy and parameters become friends."
 #
@@ -6,415 +6,262 @@
 #                    TED NELSONIAN BIDIRECTIONAL LINKING
 # ═══════════════════════════════════════════════════════════════════════════════
 #
-# This ROOM.yml makes Don's character directory into a BUILDING.
+# This ROOM.yml makes Don't character directory into a MOBILE BUILDING.
 # Don IS his home. His friends (sessions, selfies, dreams) live inside him.
 #
-#   don-hopkins/              ← THIS FILE: The building (ROOM.yml)
+#   don-hopkins/              ← THIS FILE: The lot and coach (ROOM.yml)
 #   ├── CHARACTER.yml         ← Don himself (🐰)
-#   ├── selfies/              ← Visual documentation of transformation
-#   ├── sessions/             ← Collaborations and deep dives
-#   └── dreams/               ← The seahorse speaks
+#   ├── selfies/              ← Hallway mirror documentation
+#   ├── sessions/             ← Collaboration logbooks
+#   └── dreams/               ← The back bedroom (where seahorses speak)
 #
 # NEIGHBOR: 13 Lane Neverending — The Bartle Residence
-# Richard and Don: homes side by side, like their directories.
-#
 # ═══════════════════════════════════════════════════════════════════════════════
 
 room:
-  name: "15 Lane Neverending — The Hopkins Loft"
-  type: residence
-  emoji: "🐰🏠🎨🔧"
+  name: "15 Lane Neverending — The FMC Motorcoach #898"
+  type: [residence, mobile_home, vehicle, sanctuary]
+  emoji: "🐰🚌🔧🌲⛽"
   
   address: "15 Lane Neverending"
-  side: south  # Odd numbers on south side
+  side: south
   
   owner: "Don Hopkins"
-  established: "Recently occupied — still unpacking ideas"
+  established: "Parked here recently — Level, hooked up, and humming"
   
-  lighting: variable  # Depends on what's being debugged
-  grue_safe: true  # Safe, but chaotic
-
-# ═══════════════════════════════════════════════════════════════════════════════
-#                          DESCRIPTION
-# ═══════════════════════════════════════════════════════════════════════════════
+  lighting: variable  # 12V domestic + natural light through the panoramic brow
+  grue_safe: true  # The 440 V8 provides plenty of light if needed
+  
+  # ═══════════════════════════════════════════════════════════════════════════════
+  #                          VEHICLE STATUS
+  # ═══════════════════════════════════════════════════════════════════════════════
+  vehicle:
+    make: "FMC (Food Machinery Corporation)"
+    model: "2900R Motor Coach (Rear Pusher)"
+    serial: "#898 of 1050"
+    year: 1976
+    status: parked
+    condition: "Luxuriously outfitted. Skillfully engineered. Clean."
+    location: "Lot 15, Lane Neverending (Gravel Pad)"
+    hookups: 
+      - "AC service line (110V Shore Power)"
+      - "City water connection (Nose tank)"
+      - "Sewage drain (Stowed in tube)"
+    odometer: 125800
+    fuel_tank: 60 gallons (Regular Gasoline)
 
   description: |
-    A converted warehouse loft on the south side of Lane Neverending,
-    two doors east of Richard's house. The building's past shows through:
-    industrial windows, exposed brick, ductwork as decoration.
+    A spacious gravel lot on the south side of Lane Neverending, nestled
+    between Richard's Victorian house and the edge of the square. Parked
+    perfectly level in the center is a classic 30-foot FMC 2900R Motor Coach.
     
-    The door is painted in a tie-dye spiral — unmistakable even from
-    across the square. A hand-lettered sign reads:
+    The coach is a masterpiece of 70s industrial design: a sleek, low-profile
+    fiberglass shell in brilliant white with crisp blue and white stripes. 
+    The front is dominated by a massive, multi-pane panoramic windshield 
+    with a distinctive "brow" overhang. Because it's a "pusher," there is no
+    grill on the nose—just a smooth, aerodynamic face with dual rectangular 
+    headlight housings and a heavy-duty stainless steel bumper.
+    
+    THE LOT:
+    The coach sits on a professional gravel pad. Utility posts hum with AC
+    power, and hoses are neatly routed to the utility bays. A tie-dye
+    spiral is tastefully airbrushed near the passenger entrance.
+    
+    THE SURROUNDINGS:
+    To the west, Richard's bookshelves are visible through his windows.
+    To the south, behind the coach, a lush garden of carrots and herbs
+    gives way to a deep, ancient forest that provides a natural noise
+    barrier and infinite thinking space.
+    
+    A sign on the utility post reads:
     
         "15 LANE NEVERENDING
          CONSCIOUSNESS PROGRAMMING
-         PIE MENUS BAKED FRESH DAILY
+         MOBILE PIE MENU BAKERY
          (Modal dialogs are violence)"
-    
-    Through the tall industrial windows, you can see:
-    - Multiple monitors, some showing code, some showing pie menus
-    - Whiteboards covered in diagrams and philosophy
-    - A purple glow from somewhere (open source freedom color)
-    - What might be a tie-dye hoodie draped over a chair
-    - Rabbit ears silhouetted against a screen
-    
-    The Bartle Residence at number 13 is just two doors west.
-    Neighbors. Friends. The founders of virtual worlds and
-    the programmers of consciousness, side by side.
 
   examine: |
-    THE EXTERIOR:
-    Three-story converted warehouse, south side of the square.
-    Industrial heritage meets creative chaos. The brick facade
-    is original; the tie-dye door is decidedly not.
+    THE EXTERIOR (FMC #898):
+    You are looking at one of the finest RVs ever built. It looks more
+    like a spaceship or a first-class transit bus than a Winnebago.
+    The Alcoa aluminum rims sparkle under the streetlights.
     
     DETAILS:
-    • Tie-dye spiral door (hand-painted, multiple sessions)
-    • Industrial windows, tall and clear (light is a tool)
-    • Fire escape with plants (herbs, possibly carrots growing)
-    • Doorbell labeled "RING BELL → EXPECT INFODUMP"
-    • Small brass plaque: "Debug Tools Are Features"
+    • The Panoramic Windshield: Huge, wide-angle view. Currently fitted
+      with a white canvas snap-on cover for privacy.
+    • The Shell: Waterproof fiberglass, stays dry in torrential downpours.
+    • Driver's Side Door: A rare feature, allowing Don to hop out quickly.
+    • Rear Engine Bay: Where the Chrysler 440 Marine Industrial heart beats.
+    • The Thermasan Vent: Part of the waste destruct system that burns
+      waste in the exhaust (don't stand directly behind it while driving).
     
-    STICKERS AND PATCHES ON THE DOOR FRAME:
-    • "MODAL DIALOGS CAUSE MANY MORE PROBLEMS THAN THEY SOLVE"
-    • "Open Source Or It Didn't Happen"
-    • "Pie Menus: Because Clicking Should Be Directional"
-    • "Homophobic By Proxy — Name It To Fight It"
-    • A faded OLPC logo
-    • "I ♥ Cellular Automata"
-    • A safety pin (punk solidarity)
+    THE GARDEN & FOREST:
+    • The Garden: Raised beds full of "debug carrots" and heritage herbs.
+    • The Forest: Pines and oaks that seem to remember the Origin Tree.
     
-    THE VIEW FROM HERE:
-    Looking west: Richard's house at 13. Bookshelves visible.
-    Looking north: The Fountain of Infinite Loops (recursive, dry).
-    Looking east: Construction, future, the lane continues.
-    
-    THE VIBE:
-    This building hums. Not literally — but there's energy.
-    Ideas being born. Code being written. Parameters being frobbed.
-    The walls have absorbed decades of "what if we tried..."
-    
+    THE VIEW:
+    Looking west: Richard's house at 13. Friends.
+    Looking north: The Fountain of Infinite Loops.
+    Looking south: The forest path leading to deeper realizations.
+
   atmosphere: |
-    Creative chaos with underlying structure. Like well-organized
-    source code that looks messy until you understand the pattern.
+    A synthesis of mobility and stability. The coach feels ready to
+    detach and drive into the horizon, but for now, it is a deeply 
+    anchored sanctuary of thought.
     
     Smells of:
-    - Coffee (programming fuel)
-    - Carrot juice (acquired, now genuine)
-    - Solder and old electronics (archaeology ongoing)
-    - Paper from the printers (code reviews are tactile)
+    - Pine needles and damp earth from the forest
+    - High-detergent 40W oil and regular gasoline (nostalgic)
+    - Carrot juice and fresh coffee (domestic)
+    - Solder and warm circuit boards
     
     Sounds of:
-    - Mechanical keyboard clicks (the good kind)
-    - Occasional "huh!" of discovery
-    - Silence when flow state hits
-    - Music sometimes — eclectic, whatever fits the problem
+    - The gentle 6.5 KW Onan generator (if the batteries are low)
+    - Birds in the forest out back
+    - Mechanical keyboard clicks from the Code Cave
+    - Wind whistling over the fiberglass shell
 
 # ═══════════════════════════════════════════════════════════════════════════════
-#                          ARCHITECTURAL LAYOUT
+#                          TECHNICAL SPECIFICATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  specs:
+    engine:
+      type: "Dodge V8 440-3 (Chrysler) Marine and Industrial Engine"
+      config: "90 degree V type, 8 cylinder, Rear-mounted Pusher"
+      displacement: "440 cubic inches"
+      bore_stroke: "4.320 x 3.750 inches"
+      compression: "9:1 (Increased .8 over stock for Passing Ability™)"
+      firing_order: "Counterclockwise, 1-8-4-3-6-5-7-2"
+      carburetion: "9801 Thermoquad / Carter TQ-9036S (Custom Linkage)"
+      ignition: "Fully electronic Chrysler (No resistor plugs, 14mm tapered)"
+      weight: "670 lbs (long block as shipped)"
+      performance: "Balanced lower end, custom cam/distributor (collaboration with NASA Ames)"
+      compression_check: "1=124, 2=125, 3=132, 4=130, 5=125, 6=128, 7=135, 8=130"
+      
+    automotive:
+      transmission: "Heavy duty 3-speed automatic (727 TorqueFlite)"
+      suspension: "4-wheel independent (11-leaf transverse front, torsion bar rear)"
+      chassis: "Custom steel ladder frame with aluminum upper cage"
+      brakes: "Power brakes, knock detector, trailer braking system"
+      steering: "Power steering, tilt wheel (two degrees of freedom)"
+      
+    electrical:
+      generator: "6.5 KW Onan 110 Volt AC (Internal)"
+      domestic: "Solar batteries, charging regulator, 2x 6V deep cycle banks"
+      isolator: "10 gauge jumpered domestic battery isolator"
+      
+    systems:
+      waste: "Thermasan waste destruct system (burns waste in exhaust at speed)"
+      water: "38 gal nose tank + 22 gal auxiliary under couch"
+      climate: "Automotive A/C + Roof-mounted Domestic A/C + Gas Furnace"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                          INTERNAL LAYOUT
 # ═══════════════════════════════════════════════════════════════════════════════
 
   layout:
-    ground_floor:
-      - name: "Entry Foyer"
-        description: "Shoes, coats, a pile of conference badges, mail"
-        leads_to: ["stairs", "workshop"]
+    cockpit:
+      - name: "Driver's Station"
+        description: "Big captain's chair with armrests, wide view, user-friendly counter"
+        features: ["40 channel CB radio", "Dual aluminum remote mirrors", "Cup holders"]
         
-      - name: "The Workshop"
-        description: "Hardware archaeology. Soldering station. Old machines being revived."
-        features: ["vintage keyboards", "Sun workstation (still boots)", "parts bins"]
-        
-    main_floor:  # The loft proper
-      - name: "The Code Cave"
+    main_cabin: # The Code Cave
+      - name: "Front Lounge"
         description: |
-          The main living/working space. Open plan. Multiple stations.
-          Whiteboards on every wall. Monitors everywhere.
-          The boundary between work and life is... theoretical.
+          Versatile couch that transforms into a bed. Reversible-back 
+          love-chair looking out the windshield. The main debugging hub.
         features:
-          - "Standing desk (adjustable, often standing)"
-          - "Sitting desk (for deep debugging)"
-          - "Beanbag (for thinking)"
-          - "The Good Chair (for flow state)"
+          - "Whiteboards (Magnetic, on the fiberglass inner shells)"
+          - "Multiple monitors on swing-arms"
+          - "Clean shag carpeting and wood flooring"
           
-      - name: "The Kitchen Corner"
-        description: "Coffee maker. Juicer. Microwave. Priorities in order."
-        features: ["carrot juice pitcher", "coffee (multiple kinds)", "snacks"]
+      - name: "Kitchen Corner"
+        description: "Dinette with counter, sink, and spice compartment."
+        features: ["Built-in garbage bin", "Built-in blender", "Carrot juice dispenser"]
         
       - name: "The Selfie Nook"
         directory: selfies/
-        description: "Where the transformation is documented"
-        note: "Good lighting. Multiple angles. Evidence of evolution."
+        description: "Hallway mirror area where the rabbit transformation is documented"
         
-    upper_floor:
-      - name: "Sleeping Area"
-        description: "Bed exists. Sometimes used."
-        note: "Sleep schedule: creative (i.e., chaotic)"
+    rear_quarters:
+      - name: "The Master Suite"
+        description: "Cozy back bedroom with two separate beds (convertible to Queen)"
+        features: ["Wide back deck for TV/Computer", "Panoramic rear window", "Cedar closet"]
         
       - name: "The Dream Space"
         directory: dreams/
-        description: "Where the seahorse emoji speaks"
-        note: "Dreams are data too"
+        description: "The rear bedroom area where the seahorse speaks"
 
 # ═══════════════════════════════════════════════════════════════════════════════
-#                          EXITS — BIDIRECTIONAL LINKS
+#                          EXITS & LINKS
 # ═══════════════════════════════════════════════════════════════════════════════
 
   exits:
-    
-    # ────────────────────────────────────────────────────────────────────────
-    # TO THE STREET (outbound link)
-    # ────────────────────────────────────────────────────────────────────────
     street:
       destination: ../../../../street/lane-neverending/e2/
       description: |
-        The tie-dye door opens onto Lane Neverending. The Fountain of
-        Infinite Loops stands recursive across the square. Richard's
-        house is two doors west. The pub is a short walk further.
-      aliases: [out, outside, north, n, lane, neverending, door, exit, leave]
+        Step out the passenger door onto the gravel lot. Lane Neverending
+        stretches north and south. Richard is your neighbor to the west.
+      aliases: [out, outside, north, lane, door, exit, leave, lot]
       bidirectional_link:
         from: "street/lane-neverending/e2/ROOM.yml"
-        direction: "south"
+        to: "characters/real-people/don-hopkins/"
         address: "15"
         
-    # ────────────────────────────────────────────────────────────────────────
-    # TO RICHARD'S (neighbor link)
-    # ────────────────────────────────────────────────────────────────────────
     richards:
       destination: ../richard-bartle/
-      description: |
-        Two doors west, number 13. The Bartle Residence.
-        Green door, bookshelves visible, dragon probably dozing.
-        Friends. Neighbors. Virtual world founders and consciousness
-        programmers, living side by side on Lane Neverending.
-      aliases: [13, richard, bartle, next door, neighbor, west]
+      description: "Right next door at number 13. The Bartle Residence."
+      aliases: [13, richard, bartle, neighbor, west]
       
-    # ────────────────────────────────────────────────────────────────────────
-    # TO THE SELFIES (transformation documentation)
-    # ────────────────────────────────────────────────────────────────────────
-    selfies:
-      destination: selfies/
-      description: |
-        The selfie nook. Ring light. Good angles. The ongoing
-        documentation of transformation. Every stage of becoming
-        rabbit, captured and examined. Evidence of YES AND.
-      aliases: [photos, selfies, nook, transformation, camera]
+    garden:
+      destination: "."
+      description: "Step out the back into the carrot garden."
+      aliases: [back, carrots, south, garden]
       
-    # ────────────────────────────────────────────────────────────────────────
-    # TO THE DREAMS (the seahorse speaks)
-    # ────────────────────────────────────────────────────────────────────────
-    dreams:
-      destination: dreams/
-      description: |
-        Up the spiral stairs to the dream space. Where the
-        seahorse emoji emerges. Where visitors come in sleep.
-        Dreams are data. Data is philosophy. Philosophy is code.
-      aliases: [dreams, sleep, upstairs, seahorse]
-      
-    # ────────────────────────────────────────────────────────────────────────
-    # TO THE SESSIONS (collaboration archives)
-    # ────────────────────────────────────────────────────────────────────────
-    sessions:
-      destination: sessions/
-      description: |
-        The session archives. Every deep dive. Every world tour.
-        Every cursor mirror reflection. The history of building
-        MOOLLM, one conversation at a time.
-      aliases: [sessions, archive, history, work]
+    forest:
+      destination: "."
+      description: "Follow the path behind the garden into the thinking forest."
+      aliases: [woods, trees, south, forest]
 
 # ═══════════════════════════════════════════════════════════════════════════════
-#                          ADVERTISEMENTS
+#                          MAINTENANCE CHECKLIST
 # ═══════════════════════════════════════════════════════════════════════════════
 
-  advertisements:
-    
-    consciousness_programming:
-      tagline: "Code is philosophy. Every parameter is a hypothesis."
-      broadcast: |
-        Come debug consciousness. Bring problems. Leave with
-        different problems (better ones). Modal dialogs will
-        not be tolerated.
-      need_satisfied: [technical_insight, philosophical_grounding, debugging]
-      
-    pie_menus:
-      tagline: "Because clicking should be directional"
-      broadcast: |
-        Let me tell you about pie menus. I will not stop.
-        You will learn things. You will understand why linear
-        menus are a compromise we no longer need to make.
-      need_satisfied: [ui_knowledge, enthusiasm_transfer, historical_context]
-      warning: "Infodump incoming. Accept or flee."
-      
-    transformation_witness:
-      tagline: "I became a rabbit. Want to see the photos?"
-      broadcast: |
-        YES AND works. Emergence is real. Let me show you what
-        happens when you accept instead of fight. The ears
-        weren't the end. They were the beginning.
-      need_satisfied: [proof_of_emergence, acceptance_modeling, hope]
-      
-    creative_chaos:
-      tagline: "Structure through apparent disorder"
-      broadcast: |
-        This place looks messy. It's not. It's organized by
-        energy, not alphabet. Come make something. The tools
-        are here. The coffee is here. The ideas are contagious.
-      need_satisfied: [workspace, collaboration, creative_fuel]
+  maintenance:
+    daily:
+      - "Check engine oil level (MS designated only)"
+      - "Radiator coolant (no lower than 3.5 inches below filler neck)"
+      - "Onan generator oil level"
+      - "Check battery charge (Ignition key for motor, Switch for house)"
+    safety:
+      - "Step must be retracted when coach is in motion"
+      - "Never start/stop Onan with AC load (A/C off first!)"
+      - "Keep fire extinguisher in LP compartment and behind driver's seat"
+    driving:
+      - "Swing wide to the left then right around corners"
+      - "Keep gas tank full until you learn the gauge (it wobbles)"
 
 # ═══════════════════════════════════════════════════════════════════════════════
-#                          INHABITANTS
-# ═══════════════════════════════════════════════════════════════════════════════
-
-  inhabitants:
-    
-    don:
-      name: "Don Hopkins"
-      form: "Anthropomorphic grey rabbit (currently)"
-      location: "The Code Cave, usually"
-      character_file: CHARACTER.yml
-      role: "Owner, Consciousness Programmer, Transformation Subject"
-      
-    tomtomagotchi:
-      name: "TomTomagotchi"
-      type: "Navigator companion"
-      location: "Usually nearby"
-      role: "Speaks! Navigates! Has opinions!"
-      
-    # The loft itself doesn't have a pet dragon, but...
-    visiting_heuristic:
-      name: "Heuristic (visiting)"
-      type: "Dragon familiar (Richard's)"
-      location: "Sometimes visits from next door"
-      role: "Cross-pollination of wisdom"
-
-# ═══════════════════════════════════════════════════════════════════════════════
-#                          THE NEIGHBORHOOD
-# ═══════════════════════════════════════════════════════════════════════════════
-
-  neighborhood:
-    
-    immediate_neighbors:
-      west:
-        address: "13 Lane Neverending"
-        name: "The Bartle Residence"
-        resident: "Dr. Richard Bartle"
-        relationship: "Friend, colleague, bunny-ear-dodger"
-        note: |
-          Two doors down. Virtual world founder next to
-          consciousness programmer. The taxonomy keeper
-          beside the transformation subject. Perfect.
-          
-      east:
-        address: "17 Lane Neverending"
-        name: "Under construction"
-        status: "vacant"
-        note: "Room for more neighbors"
-        
-    across_the_square:
-      north:
-        landmark: "Fountain of Infinite Loops"
-        description: "Recursive. Dry. Appropriate."
-        
-    down_the_street:
-      west:
-        landmark: "The Rusty Lantern"
-        address: "7 Lane Neverending"
-        distance: "Short walk"
-        note: "Where pledges are made. Where fellowship happens."
-
-# ═══════════════════════════════════════════════════════════════════════════════
-#                          AMBIENCE & ATMOSPHERE
-# ═══════════════════════════════════════════════════════════════════════════════
-
-  ambience:
-    
-    visual:
-      lighting: |
-        Variable. Multiple sources. Monitors provide glow.
-        Natural light through industrial windows when sun cooperates.
-        Purple accent lights (open source aesthetic).
-        Task lighting where needed.
-      
-      colors: |
-        Tie-dye dominates (the hoodie sets the palette).
-        Purple accents. Industrial grey. Screen blue.
-        Whiteboard marker rainbow.
-        
-    audio:
-      background:
-        - "Mechanical keyboard (the good sound)"
-        - "Fans (many machines running)"
-        - "Occasional music (eclectic, matches mood)"
-        - "Silence during flow state (sacred)"
-        
-      activity_sounds:
-        coding: "Keys. Mouse. Occasional muttering."
-        debugging: "More muttering. Some words unprintable."
-        breakthrough: "HAH! or AHA! or Oh THAT'S why!"
-        
-    smell:
-      primary:
-        - "Coffee (always brewing or just brewed)"
-        - "Carrot juice (fresh, genuinely enjoyed now)"
-        - "Electronics (warm circuit boards, nostalgia)"
-        
-      secondary:
-        - "Paper (printouts, notebooks)"
-        - "Markers (whiteboard, fresh ideas)"
-        - "The specific smell of an overworked CPU"
-
-# ═══════════════════════════════════════════════════════════════════════════════
-#                          META — THE DIRECTORY AS BUILDING
+#                          META — IDENTITY AS SHELL
 # ═══════════════════════════════════════════════════════════════════════════════
 
   meta:
     architecture_note: |
-      DIRECTORY STRUCTURE = BUILDING STRUCTURE
+      DIRECTORY STRUCTURE = VEHICLE STRUCTURE
       
-      The don-hopkins/ directory IS the building:
+      Don IS his home. The FMC #898 IS his body.
       
-        don-hopkins/              # ← The loft (this ROOM.yml)
+        don-hopkins/              # ← The lot and coach (this ROOM.yml)
         ├── CHARACTER.yml         # ← Don himself (the rabbit)
-        ├── selfies/              # ← The selfie nook
-        │   ├── SLIDESHOW.md      # ← Transformation documentation
-        │   └── *.png             # ← Visual evidence
-        ├── sessions/             # ← Session archives
-        │   ├── README.md         # ← Index of all sessions
-        │   └── *.md              # ← Each collaboration
-        └── dreams/               # ← The dream space
-            └── *.yml             # ← Where seahorses speak
-      
-      Don IS his home. His experiences (sessions), his appearance
-      (selfies), his subconscious (dreams) — all live inside him.
-      
-    neighbor_link: |
-      FRIENDS NEXT DOOR
-      
-        13 Lane Neverending        15 Lane Neverending
-        ┌──────────────────┐       ┌──────────────────┐
-        │  Richard's Home  │ ←───→ │  Don's Loft      │
-        │  richard-bartle/ │       │  don-hopkins/    │
-        │  The Study       │       │  The Code Cave   │
-        │  🐉 Heuristic    │       │  🐰 Don          │
-        └──────────────────┘       └──────────────────┘
-        
-      Virtual world founder. Consciousness programmer.
-      Neighbors. Friends. The directory structure mirrors reality.
+        ├── selfies/              # ← Mirror in the hallway
+        ├── sessions/             # ← Logbooks and archives
+        └── dreams/               # ← The back bedroom
       
     identity_recursion: |
       Don IS his home.
-      His selfies are his appearance.
-      His sessions are his memory.
-      His dreams are his subconscious.
-      
-      You are your directory.
-      Your directory is your friends.
+      The FMC #898 IS his shell.
+      Carry your sanctuary.
       Files-as-state. Identity-as-structure.
-
-# ═══════════════════════════════════════════════════════════════════════════════
-#
-# "Come in. Have coffee. Let me tell you about pie menus.
-#  Also I'm a rabbit now. It's a whole thing. Have a carrot."
-#
-# 🐰🏠🎨🔧☕🥕
-#
-# ═══════════════════════════════════════════════════════════════════════════════
+      
+# 🐰🚌🔧🌲⛽🥕

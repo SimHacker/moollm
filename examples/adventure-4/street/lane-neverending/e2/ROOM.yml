@@ -21,11 +21,11 @@ room:
     dark green door, bookshelves visible. Home of Dr. Richard Bartle,
     founder of MUD1. A brass dragon dozes inside.
     
-    Number 15 — THE HOPKINS LOFT. Converted warehouse, tie-dye
-    spiral door unmistakable. Home of Don Hopkins, consciousness
-    programmer. Multiple monitors glow within. A rabbit silhouette
-    moves past the window.
-    
+    Number 15 — THE HOPKINS MOTORCOACH. Classic FMC 2900R, blue and
+    white stripes, parked on a professional gravel pad. Home of Don
+    Hopkins, consciousness programmer. Fully hooked up to utilities.
+    A rabbit silhouette moves past the wide windshield.
+
     Neighbors. Friends. Virtual world founder and transformation
     subject, side by side on Lane Neverending.
     
@@ -48,10 +48,11 @@ room:
       dark green door, bookshelves visible through bay windows. Home of
       Dr. Richard Bartle, founder of MUD1, creator of player types.
       A brass dragon dozes inside. Tea is probably being made.
-    • 15 Lane Neverending — THE HOPKINS LOFT. Converted warehouse,
-      tie-dye spiral door, industrial windows. Home of Don Hopkins,
-      consciousness programmer. Multiple monitors glow. A rabbit
-      silhouette moves within. Sign reads: "Modal dialogs are violence."
+    • 15 Lane Neverending — THE HOPKINS MOTORCOACH. Classic 30-foot
+      FMC 2900R, blue/white stripes, parked on a gravel pad with full
+      utility hook-ups. Home of Don Hopkins, consciousness programmer.
+      Rabbit ears visible through the panoramic windshield. Sign:
+      "Mobile Pie Menu Bakery (Modal dialogs are violence)."
     
     THE SQUARE:
     A few more benches. A public notice board with peeling posters.
@@ -95,31 +96,31 @@ room:
       notable: "Home of the founder of virtual worlds"
       
     # ────────────────────────────────────────────────────────────────────────
-    # 15 LANE NEVERENDING — The Hopkins Loft (SOUTH SIDE)
+    # 15 LANE NEVERENDING — The Hopkins Motorcoach (SOUTH SIDE)
     # Bidirectional link to Don Hopkins' home
     # ────────────────────────────────────────────────────────────────────────
     15:
       destination: ../../../characters/real-people/don-hopkins/
       description: |
-        A converted warehouse loft, two doors east of Richard's house.
-        The door is painted in a tie-dye spiral — unmistakable.
-        Industrial windows reveal:
+        A classic 30-foot FMC 2900R Motorcoach parked on a gravel lot,
+        two doors east of Richard's house. Blue and white stripes with
+        a tie-dye spiral near the door. Fully hooked up to utilities.
+        The panoramic windshield reveals:
         
         - Multiple monitors glowing with code and pie menus
         - Whiteboards covered in philosophy
-        - A tie-dye hoodie draped over a chair
-        - Rabbit ears silhouetted against a screen
+        - A rabbit silhouette (Don) moving past the dashboard
         
-        A sign by the door reads:
-        "CONSCIOUSNESS PROGRAMMING — PIE MENUS BAKED FRESH DAILY"
+        A sign on the utility post reads:
+        "MOBILE PIE MENU BAKERY — BAKED FRESH DAILY"
         
         Stickers warn: "MODAL DIALOGS ARE VIOLENCE"
         
         This is the home of Don Hopkins, consciousness programmer,
         pie menu inventor, and current rabbit.
-      aliases: [hopkins, don, 15, loft, rabbit, pie]
+      aliases: [hopkins, don, 15, coach, fmc, motorcoach, rabbit, pie]
       side: south
-      notable: "Home of the consciousness programmer (currently a rabbit)"
+      notable: "Home of the consciousness programmer (in a vintage FMC #898)"
       
   objects:
     - infinite-fountain.yml
@@ -149,11 +150,11 @@ room:
         notable: "Home of Dr. Richard Bartle, founder of MUD1"
         inhabitants: ["Richard Bartle", "Heuristic (dragon)", "Non-Sequitur (capybara)"]
         
-      - name: "The Hopkins Loft"
+      - name: "The Hopkins Motorcoach"
         address: "15 Lane Neverending"
         directory: ../../../characters/real-people/don-hopkins/
         status: occupied
-        notable: "Home of Don Hopkins, consciousness programmer"
+        notable: "Home of Don Hopkins, FMC #898 owner"
         inhabitants: ["Don Hopkins (rabbit)", "TomTomagotchi"]
     
   # Flyweight instances — shared prototype, minimal instance data
