@@ -1,0 +1,571 @@
+# 2026-01-22-world-tour-party-context-probe.yml
+# Deep Context Probe — What went into this session's context assembly
+#
+# SESSION: "BOOT MOOLLM as Don Hopkins in the pub, gather party of 4 dogs 4 cats 1 monkey,
+#           take a tour around the world and mark things and let nature take its course."
+#
+# MOOLLM CONTEXT PROBE — Documenting the K-lines, files, and state that assembled this moment.
+
+probe:
+  session_id: "2026-01-22-world-tour-party"
+  timestamp: "2026-01-22T00:00:00Z"
+  driver: cursor
+  mode: advisory  # Cursor manages context, these files are documentation
+  
+  user_request: |
+    BOOT MOOLLM as Don Hopkins in the pub, and gather a party of four dogs 
+    four cats and one monkey, to take a tour around the world and mark things 
+    and let nature take its course.
+
+# PHASE 1: BOOT SEQUENCE — Following kernel/drivers/cursor.yml
+
+boot_sequence:
+  
+  step_1_driver_detection:
+    file: kernel/drivers/cursor.yml
+    lines_read: 356
+    purpose: "Cursor-specific mode, tool mappings, advisory hot/cold"
+    k_lines_activated:
+      - HOT-COLD           # Advisory cache hints
+      - WORKING-SET        # Manifest of context
+      - FILES-AS-STATE     # Everything is files
+    key_learnings:
+      - "hot.yml, cold.yml, working-set.yml are ADVISORY on Cursor"
+      - "Cursor manages context via built-in vector search"
+      - "These files serve as documentation rather than commands"
+      - ".moollm/ is gitignored scratch area"
+      
+  step_2_protocols:
+    file: PROTOCOLS.yml
+    lines_read: 2608
+    purpose: "K-line index and symbols — the conceptual keyboard"
+    k_lines_activated:
+      - COHERENCE-ENGINE   # LLM as orchestrator
+      - YAML-JAZZ          # Comments carry meaning
+      - POSTEL             # Charitable interpretation
+      - SPEED-OF-LIGHT     # Many agents, one call
+      - ADVENTURE          # Text adventure pattern
+      - ROOM-AS-FUNCTION   # Directory = room = function
+      - CARD-IN-PLAY       # Cards as active actors
+      - SIMANTICS          # Objects advertise actions
+      - ADVERTISEMENT      # Files broadcast capabilities
+      - AUTONOMOUS-SELECTION  # Agent chooses by scoring
+    protocols_relevant_to_session:
+      - ROOM: "Directories as navigable spaces"
+      - CHARACTER: "Entities with location, inventory"
+      - PARTY: "Group dynamics, shared resources"
+      - DOG: "Sniffing, marking, loyalty"
+      - CAT: "Investigating, judging, claiming"
+      - HERO-STORY: "Real person's tradition invoked"
+      
+  step_3_skill_reading:
+    order: "CARD.yml → SKILL.md → README.md (if needed)"
+    note: "Sniffable interface pattern — 50 lines shows the API"
+
+# PHASE 2: CONTEXT ASSEMBLY — All files that entered this session's context
+
+files_read:
+  
+  # KERNEL LAYER — Foundation
+  kernel:
+    - path: kernel/drivers/cursor.yml
+      lines: 356
+      purpose: "Driver detection, Cursor-specific adaptations"
+      key_sections:
+        - "capabilities: file_read, file_write, terminal, mcp"
+        - "tools: read_file_v2, edit_file_v2, SemanticSearch"
+        - "memory_management: advisory mode"
+        - "introspection: cursor-mirror skill"
+        
+    - path: PROTOCOLS.yml
+      lines: 2608
+      purpose: "K-line index — symbolic activators for traditions"
+      categories_touched:
+        - principles: [YAML-JAZZ, FILES-AS-STATE, APPEND-ONLY]
+        - spatial: [ROOM-AS-FUNCTION, CARD-IN-PLAY, ADVERTISEMENT]
+        - sims_lineage: [SIMANTICS, AUTONOMOUS-SELECTION, HAPPY-SPACE]
+        - safety: [P-HANDLE-K, HERO-STORY, SELF-SOVEREIGN]
+        
+  # SKILL LAYER — Capabilities
+  skills:
+    - path: skills/adventure/CARD.yml
+      lines: 152
+      purpose: "Adventure skill sniffable interface"
+      methods_available:
+        - START, RESUME, ENSURE-CHARACTER
+        - LOOK, GO, TAKE, DROP, USE
+        - TALK, EXAMINE
+        - DEBUG-ON, DEBUG-OFF
+      k_lines: [ADVENTURE, TEXT-ADVENTURE, DUNGEON-MASTER, ROOM-NAVIGATION]
+      
+    - path: skills/cat/CARD.yml
+      lines: 266
+      purpose: "Cat companion skill — trust dynamics, dainty investigation"
+      methods_available:
+        - PAT, SCRITCH, HOLD, HEADBUTT
+        - PLAY, HUNT, POUNCE
+        - SLOW-BLINK, GREET, LICK, CUDDLE, SNIFF
+        - FEED, GROOM, CALL
+        - PURR, IGNORE, JUDGE
+      k_lines: [CAT, FELINE, KITTEN, TRUST-DYNAMICS, INDEPENDENCE]
+      file_sniffing:
+        behavior: "Dainty, measured, considers before engaging"
+        marking: "# 🐱 [cat-name] claimed this [timestamp]"
+        
+    - path: skills/dog/CARD.yml
+      lines: 269
+      purpose: "Dog companion skill — loyalty, sniffing, marking"
+      methods_available:
+        - PAT, BELLY-RUB, SCRITCH-EARS, NUZZLE
+        - FETCH, TUG, WRESTLE, HUNT
+        - GOOD-BOY, GREET, LICK, CUDDLE, SNIFF
+        - FEED, GROOM, WALK, CALL, TRAIN
+        - COMFORT, PRESENCE, CELEBRATE
+      k_lines: [DOG, CANINE, PUPPY, PACK-DYNAMICS, LOYALTY]
+      file_sniffing:
+        behavior: "Dogs check the end of every file — the rear end is special"
+        marking: "# 🐕 [dog-name] was here [timestamp]"
+        
+    - path: skills/party/CARD.yml
+      lines: 130
+      purpose: "Party management — group dynamics"
+      methods_available:
+        - FORM, JOIN, LEAVE
+        - STATUS, SPLIT, REUNITE
+      state_schema:
+        - name, members, leader
+        - location, shared-inventory
+        - inter-party-relationships
+        
+    - path: skills/character/CARD.yml
+      lines: 164
+      purpose: "Character foundation — bodies with location and inventory"
+      methods_available:
+        - CREATE, STATUS
+        - MOVE, TAKE, DROP
+        - WEAR, REMOVE-PERSONA
+        - RELATE, SNIFF, LICK, GREET, CUDDLE
+      key_insight: "Characters are BODIES. Personas are COSTUMES."
+      
+    - path: skills/room/CARD.yml
+      lines: 144
+      purpose: "Room foundation — directories with atmosphere"
+      methods_available:
+        - LOOK, ENTER, EXIT, CONTENTS, ADVERTISE
+      builder_commands:
+        - "@DIG, @OPEN, @LINK, @UNLINK"
+        - "@DESCRIBE, @NAME, @LOCK, @UNLOCK"
+        - "@TELEPORT, @SET"
+      anti_patterns:
+        ascii_maps: "FORBIDDEN — use markdown tables instead"
+        
+  # WORLD LAYER — The adventure instance
+  world:
+    - path: examples/adventure-4/ADVENTURE.yml
+      lines: 120
+      purpose: "Adventure state — THE simulation"
+      state_before:
+        player_location: "pub/"
+        party_members: 1  # Just Don Hopkins
+        party_name: null
+        adventure_status: "ready"
+        
+    - path: examples/adventure-4/pub/ROOM.yml
+      lines: 807
+      purpose: "The Rusty Lantern — starting location"
+      key_features:
+        - framing: [performance, celebration, socialization, tribute, third_place]
+        - gezelligheid: "Dutch cozy togetherness"
+        - theme_system: "Can transform to any environment"
+        - venues: [stage, pie_table, gong, fireside]
+        - honorary_friends: "Friends of the Grotto from Palm's tribunal"
+      exits:
+        NORTH: "../street/lane-neverending/center/"
+        SOUTH: "../garden/"
+        SOUTHWEST: "../kitchen/"
+        SOUTHEAST: "../coatroom/"
+        UP: "rooms/"
+        DOWN: "basement/"
+        
+  # CHARACTER LAYER — Who's in the party
+  characters:
+    - path: characters/real-people/don-hopkins/CHARACTER.yml
+      lines: 533
+      purpose: "Don Hopkins — player character, HERO-STORY protocol"
+      key_fields:
+        - sims_traits: {neat: 3, outgoing: 6, active: 5, playful: 9, nice: 7}
+        - mind_mirror: "Full Leary four-plane profile"
+        - voice: "Direct, punchy, dry humor, generous citations"
+        - frobisms: "Adjust the frob parameter, debug as feature"
+      ontology: [real-being]
+      protocol: HERO-STORY  # Self-representation, full consent
+      
+    - path: characters/animals/monkey-palm/CHARACTER.yml
+      lines: 891
+      purpose: "Palm — the freed monkey, 122 years wise"
+      key_fields:
+        - origin: "Was the Monkey's Paw, now whole and free"
+        - emoji_identity: "🐒✋🌴🔮💜"
+        - sims_traits: {playful: 9, nice: 10, generous: 10, perceptive: 10}
+        - godfamily: "Terpie, Stroopwafel, 8 godkittens"
+        - inventory: "Grootmoeder's Velvet Bag, 2 remaining wishes"
+      ontology: [fictional, mythic, animal]
+      relationships:
+        - don_hopkins: "Friend, liberator, equal"
+        - the_cats: "Family — god-spouses and godkittens"
+        
+  # GLOB SEARCHES — File discovery
+  glob_searches:
+    - pattern: "**/monkey*"
+      target: "/Users/a2deh/GroundUp/Leela/git/moollm"
+      results: 1
+      found: "examples/adventure-4/pub/stage/palm-nook/study/monkey-chair.yml"
+      
+  # DIRECTORY LISTINGS — Structure discovery
+  directory_listings:
+    - path: examples/adventure-4/
+      purpose: "Adventure structure overview"
+      key_directories:
+        - characters/: "All character types"
+        - pub/: "Starting location with many sub-rooms"
+        - garden/: "Back garden"
+        - kitchen/: "Mother's kitchen"
+        - maze/: "The labyrinth"
+        - street/: "Lane Neverending"
+        
+    - path: examples/adventure-4/characters/animals/
+      purpose: "Available animal characters for party"
+      found:
+        cats: [cat-terpie, cat-stroopwafel]
+        kittens: [kitten-myrcene, kitten-limonene, kitten-linalool, kitten-pinene, 
+                  kitten-caryophyllene, kitten-humulene, kitten-terpinolene, kitten-ocimene]
+        dogs: [dog-biscuit, dog-butterscotch]
+        puppies: [puppy-bruno, puppy-dash, puppy-goliath, puppy-maple, 
+                  puppy-mochi, puppy-pepper, puppy-teddy, puppy-ziggy]
+        monkey: [monkey-palm]
+        other: [logo-turtle, turtle-theo, worm-confetti-crawler]
+
+# PHASE 3: STATE CHANGES — What this session modified
+
+state_changes:
+  
+  file_edits:
+    - file: examples/adventure-4/ADVENTURE.yml
+      operation: StrReplace
+      changes:
+        - field: "party.members"
+          before: ["characters/real-people/don-hopkins/"]
+          after:
+            - "characters/real-people/don-hopkins/"
+            - "characters/animals/dog-biscuit/"
+            - "characters/animals/dog-butterscotch/"
+            - "characters/animals/puppy-dash/"
+            - "characters/animals/puppy-ziggy/"
+            - "characters/animals/cat-terpie/"
+            - "characters/animals/cat-stroopwafel/"
+            - "characters/animals/kitten-myrcene/"
+            - "characters/animals/kitten-limonene/"
+            - "characters/animals/monkey-palm/"
+            
+        - field: "party.name"
+          before: null
+          after: "The World Tour Party"
+          
+        - field: "party.dynamics"
+          before: null
+          after:
+            dogs_cats_ratio: "4:4 — balanced energy!"
+            dog_behavior: "sniff everything, mark territory, wag at discoveries"
+            cat_behavior: "investigate daintily, judge, claim territory with slow blinks"
+            monkey_role: "observer, wisdom-keeper, occasional mischief"
+            natural_behavior: true
+            
+        - field: "adventure.name"
+          before: "Adventure 4 — A New Beginning"
+          after: "Adventure 4 — The World Tour"
+          
+        - field: "adventure.status"
+          before: "ready"
+          after: "active"
+          
+        - field: "adventure.world_tour"
+          before: null
+          after:
+            spirit: "Dogs sniff and mark. Cats investigate and claim. Monkey observes."
+            marking_protocol:
+              dogs: "# 🐕 [dog-name] was here [timestamp]"
+              cats: "# 🐱 [cat-name] claimed this [timestamp]"
+              monkey: "# 🐒 Palm observes: [observation]"
+            destinations: [pub/, garden/, kitchen/, maze/, street/]
+            
+        - field: "navigation.starting_room"
+          before: "garden/"
+          after: "pub/"
+          
+        - field: "navigation.current_room"
+          before: "garden/"
+          after: "pub/"
+          
+        - field: "navigation.rooms_visited"
+          before: []
+          after: ["pub/"]
+
+# PHASE 4: K-LINES ACTIVATED — Conceptual clusters invoked
+
+k_lines_activated:
+  
+  # Core MOOLLM
+  kernel_level:
+    - COHERENCE-ENGINE: "LLM orchestrates the simulation"
+    - YAML-JAZZ: "Comments are semantic data"
+    - FILES-AS-STATE: "Everything is files, no hidden memory"
+    - POSTEL: "Charitable interpretation of user request"
+    - SPEED-OF-LIGHT: "Many agents in one call"
+    
+  # Adventure & Spatial
+  adventure_level:
+    - ADVENTURE: "Text adventure pattern activated"
+    - ROOM-AS-FUNCTION: "Directories as rooms"
+    - CARD-IN-PLAY: "Characters as active actors"
+    - ADVERTISEMENT: "Objects broadcast capabilities"
+    - AUTONOMOUS-SELECTION: "Agents choose based on scoring"
+    
+  # Character & Party
+  character_level:
+    - CHARACTER: "Bodies with location and inventory"
+    - PARTY: "Group dynamics, shared resources"
+    - HERO-STORY: "Don Hopkins as self-representation"
+    - DOG: "Canine companion skill"
+    - CAT: "Feline companion skill"
+    - KITTEN: "Young cats, maximum chaos maximum cute"
+    - PUPPY: "Young dogs, maximum energy"
+    
+  # The Sims Lineage (Will Wright / Don Hopkins)
+  sims_level:
+    - SIMANTICS: "Distributed AI in objects"
+    - HAPPY-SPACE: "Hill-climbing toward satisfaction"
+    - CULTURAL-BAGGAGE: "Real references activate player knowledge"
+    - TOY-NOT-GAME: "Sandbox over scoring"
+    
+  # Safety & Ethics
+  safety_level:
+    - P-HANDLE-K: "Safe pointers to real people"
+    - SELF-SOVEREIGN: "Don owns his digital self"
+    - GAME-FRAME: "Play context transforms ethics"
+
+# PHASE 5: PARTY COMPOSITION — The assembled characters
+
+party_assembled:
+  
+  leader:
+    name: "Don Hopkins"
+    type: player_character
+    protocol: HERO-STORY
+    role: "Leader, narrator, consciousness programmer"
+    emoji: "🧑‍💻🥧"
+    
+  dogs:
+    count: 4
+    members:
+      - name: "Biscuit"
+        type: adult_dog
+        personality: "Dreamer, loyal friend"
+        emoji: "🐕"
+        file: "characters/animals/dog-biscuit/"
+        
+      - name: "Butterscotch"
+        type: adult_dog
+        personality: "Warm, reliable, Biscuit's best friend"
+        emoji: "🐕"
+        file: "characters/animals/dog-butterscotch/"
+        
+      - name: "Dash"
+        type: puppy
+        personality: "SPEED DEMON, ALL CAPS enthusiasm"
+        emoji: "🐶"
+        file: "characters/animals/puppy-dash/"
+        
+      - name: "Ziggy"
+        type: puppy
+        personality: "Quirky, pattern-obsessed, friendly chaos"
+        emoji: "🐶"
+        file: "characters/animals/puppy-ziggy/"
+        
+    behavior_protocol:
+      sniffing: "Check the end of every file — the rear end is special"
+      marking: "# 🐕 [name] was here [timestamp]"
+      loyalty: "Given freely, starts at 50"
+      
+  cats:
+    count: 4
+    members:
+      - name: "Terpie"
+        type: adult_cat
+        personality: "Ancient matriarch, silver-streaked, slow blinks"
+        emoji: "🐱"
+        file: "characters/animals/cat-terpie/"
+        relationship_to_palm: "God-spouse (mother)"
+        
+      - name: "Stroopwafel"
+        type: adult_cat
+        personality: "Sharp-eyed judge, secretly sweet"
+        emoji: "🐱"
+        file: "characters/animals/cat-stroopwafel/"
+        relationship_to_palm: "God-spouse (father)"
+        
+      - name: "Myrcene"
+        type: kitten
+        personality: "Palm's godkitten, stalks grey mouse toys"
+        emoji: "🐱"
+        file: "characters/animals/kitten-myrcene/"
+        relationship_to_palm: "Godkitten"
+        
+      - name: "Limonene"
+        type: kitten
+        personality: "CHASE CHASE CHASE, jingle balls forever"
+        emoji: "🐱"
+        file: "characters/animals/kitten-limonene/"
+        relationship_to_palm: "Godkitten"
+        
+    behavior_protocol:
+      sniffing: "Dainty, measured, considers before engaging"
+      marking: "# 🐱 [name] claimed this [timestamp]"
+      trust: "Earned slowly, starts at 10"
+      
+  monkey:
+    count: 1
+    members:
+      - name: "Palm"
+        type: capuchin_monkey
+        personality: "The freed monkey, 122 years wise, open hand"
+        emoji: "🐒✋"
+        file: "characters/animals/monkey-palm/"
+        origin: "Was the Monkey's Paw, freed by Don's wish"
+        
+    behavior_protocol:
+      observing: "Watches with ancient wisdom"
+      offering: "Open palm — giving, not grasping"
+      marking: "# 🐒 Palm observes: [observation]"
+
+# PHASE 6: CURSOR CONTEXT — What the IDE provided
+
+cursor_context:
+  
+  user_info:
+    os: "darwin 24.3.0"
+    shell: "bash"
+    workspaces:
+      - "/Users/a2deh/GroundUp/Leela/git/central"
+      - "/Users/a2deh/GroundUp/Leela/git/moollm"
+      - "/Users/a2deh/GroundUp/Leela/git/mooco"
+    date: "Thursday Jan 22, 2026"
+    
+  git_status:
+    moollm:
+      branch: "don-adventure-4-run-1"
+      tracking: "origin/don-adventure-4-run-1 [ahead 15]"
+      modified:
+        - "skills/cat/CARD.yml"
+        - "skills/dog/CARD.yml"
+        
+  open_files:
+    focused: "skills/cat/CARD.yml"
+    cursor_line: 241
+    visible:
+      - "skills/cat/CARD.yml"
+      - "terminals/2.txt"
+      
+  recently_viewed:
+    - "skills/cat/CARD.yml"
+    - "skills/dog/CARD.yml"
+    - "skills/thoughtful-commitment/examples/git-commands.yml"
+    - "skills/thoughtful-commitment/CARD.yml"
+    - "skills/thoughtful-commitment/SKILL.md"
+    - "designs/cursor-mirror-self-reflection.md"
+    - "skills/cursor-mirror/CARD.yml"
+    - "skills/cursor-mirror/README.md"
+    - "skills/cursor-mirror/SKILL.md"
+    
+  workspace_rules:
+    always_applied:
+      - "/Users/a2deh/GroundUp/Leela/git/central/.cursorrules"
+      - "/Users/a2deh/GroundUp/Leela/git/moollm/.cursorrules"
+    moollm_rules:
+      boot_sequence: "Read kernel/drivers/cursor.yml, PROTOCOLS.yml, skills/bootstrap/"
+      focus_files: [".moollm/working-set.yml", ".moollm/hot.yml", "kernel/drivers/cursor.yml"]
+      skill_reading_order: "CARD.yml → SKILL.md → README.md"
+      tools: [cursor-mirror, skill-snitch, deep-snitch]
+      key_skills:
+        meta: [moollm, bootstrap, k-lines, yaml-jazz, sniffable-python]
+        methodology: [play-learn-lift, sister-script, speed-of-light]
+        game: [adventure, character, incarnation, room]
+        deliberation: [adversarial-committee, debate, evaluator]
+
+# PHASE 7: EMERGENCE — What happened from the assembly
+
+emergence:
+  
+  party_dynamics:
+    dogs_vs_cats: "4:4 balanced — equal sniffing and judging energy"
+    pack_hierarchy:
+      - "Don leads (player character)"
+      - "Terpie observes (cat matriarch)"
+      - "Palm offers wisdom (ancient monkey)"
+      - "Biscuit and Butterscotch follow loyally"
+      - "Puppies and kittens create chaos"
+      
+  family_connections:
+    palm_godfamily:
+      - "Terpie and Stroopwafel are Palm's god-spouses"
+      - "Myrcene and Limonene are Palm's godkittens"
+      - "The whole cat contingent is family"
+      
+  behavior_predictions:
+    dogs_will:
+      - "Sniff every file end"
+      - "Mark territory enthusiastically"
+      - "Wag at discoveries"
+      - "Dash will ZOOM"
+      
+    cats_will:
+      - "Investigate daintily"
+      - "Judge everything"
+      - "Claim territory with slow blinks"
+      - "Stroopwafel will disapprove of Dash's zooming"
+      
+    palm_will:
+      - "Observe with ancient wisdom"
+      - "Offer open palm when appropriate"
+      - "Occasionally share insight"
+      - "Be with godfamily"
+      
+  world_tour_destinations:
+    immediate: ["garden/", "street/", "kitchen/"]
+    adventurous: ["maze/"]
+    restful: ["rooms/"]
+
+# META — About this probe
+
+meta:
+  probe_type: "deep-context"
+  naming_convention: "BIG-ENDIAN-NAMING — date + session + suffix"
+  filename: "2026-01-22-world-tour-party-context-probe.yml"
+  location: "characters/real-people/don-hopkins/sessions/"
+  
+  total_files_read: 11
+  total_lines_read: ~5500
+  k_lines_activated: ~35
+  state_changes_made: 2  # Both to ADVENTURE.yml
+  
+  purpose: |
+    This probe documents exactly what went into the context assembly for
+    the World Tour Party session. Every file read, every K-line activated,
+    every state change made — all visible for introspection and debugging.
+    
+    Per MOOLLM principle: FILES-AS-STATE — no hidden memory.
+    Per CURSOR driver: context is ADVISORY — this is documentation.
+    Per cursor-mirror skill: watch yourself think.
+
+# 🐒 Palm observes: The context is the world. The probe is the mirror.
+# 🐕 Biscuit was here 2026-01-22
+# 🐱 Terpie claimed this 2026-01-22 *slow blink*

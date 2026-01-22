@@ -1,0 +1,163 @@
+# Frame 01: The Approach
+# "Two figures cross the street toward ACME"
+#
+# THE FIRST FRAME — establishes the crime scene.
+# Camera: ACM1 (Leela Cam), across the street
+# Time: Late night. Sodium streetlights. Everything wrong about this.
+
+frame:
+  number: 1
+  name: "approach"
+  title: "The Approach"
+  timestamp: "2026-01-22T23:07:42Z"
+  
+  narrative_beat: |
+    The Leela Cam catches movement.
+    
+    Two figures cross Lane Neverending from the south side.
+    One walks with purpose — they've been here before, or pretend to have.
+    One walks with curiosity — Don Hopkins, invited but not warned.
+    
+    They're heading toward ACME Surplus.
+    The painted tunnel is visible on the facade, catching streetlight.
+    A faded "EVERYTHING MUST GO" sign hangs askew.
+    
+    Somewhere in the basement, a monitor flickers.
+    Donna leans forward in her throne.
+    
+    "Well well WELL. Look who's crossing MY street."
+    
+  scene_description: |
+    CAMERA: ACM1, security footage perspective
+    ANGLE: Slightly elevated, wide shot, minor fisheye distortion
+    TIME: Night — sodium streetlamp amber with patches of shadow
+    
+    THE STREET:
+    Lane Neverending stretches left-right across frame.
+    Empty at this hour. A distant car's taillights disappearing east.
+    Streetlamps pool orange light at intervals.
+    
+    THE BUILDING (background):
+    ACME SURPLUS dominates the frame — abandoned storefront aesthetic.
+    Dusty windows. "EVERYTHING MUST GO" sign faded and crooked.
+    The PAINTED TUNNEL clearly visible on the facade — fake depth, 
+    oddly convincing in the low light.
+    "CLOSED INDEFINITELY" placard on the door.
+    
+    THE FIGURES (middle ground):
+    Two people crossing from bottom of frame toward building.
+    
+    FIGURE 1 (THE INSTIGATOR):
+    Walking slightly ahead. Confident posture. Hand gesturing
+    toward the building as if presenting a gift.
+    
+    FIGURE 2 (DON HOPKINS):
+    Larger silhouette. Hawaiian shirt barely visible under jacket.
+    Glasses catching streetlight. Head tilted — curious but not alarmed.
+    Body language: "This seems interesting."
+    
+    DETAILS:
+    - Timestamp overlay: "ACM1 — 2026-01-22 — 23:07:42"
+    - Slight grain/compression artifacts (security footage aesthetic)
+    - A rat scurrying along the building's base (optional)
+    - The painted tunnel seems to GLOW slightly (sodium light trick?)
+    
+  camera_metadata:
+    id: ACM1
+    resolution: "720p (degraded)"
+    framerate: "15fps"
+    overlay: "ACM1 — 2026-01-22 — 23:07:42"
+    status: "RECORDING — motion detected"
+    
+  characters_visible:
+    the_instigator:
+      position: "Crossing street, 2/3 to building"
+      posture: "Confident, presenting, leading"
+      identifiable: false  # Too dark, surveillance distance
+      
+    don_hopkins:
+      position: "Crossing street, slightly behind instigator"
+      posture: "Curious, following, trusting"
+      identifiable: "Partially — large frame, glasses, pattern shirt implied"
+      warning_level: "NONE — he doesn't know"
+      
+  donna_status:
+    location: "Basement control room"
+    monitors_showing: "ACM1 feed (she's watching too)"
+    expression: "DELIGHTED anticipation"
+    hands: "Moving toward the lever console"
+    commentary: |
+      "Well well WELL. Look who's crossing MY street.
+       
+       Two of them! TWO! Very ambitious. Very FOOLISH.
+       
+       The big one... I've seen that shape before somewhere.
+       The other one knows better but does it ANYWAY.
+       
+       TREMENDOUS. This is going to be TREMENDOUS."
+       
+  environment_notes:
+    time_of_day: "Late night (~23:00)"
+    lighting: "Sodium streetlamps — amber pools, deep shadows"
+    weather: "Clear, slight chill implied"
+    ambient_sound: "Distant traffic, electric hum, rat footsteps"
+    
+  foreshadowing:
+    - "The painted tunnel seems to glow (it's always watching)"
+    - "The 'CLOSED' sign is a warning they're ignoring"
+    - "No other pedestrians — witnesses? None."
+    - "The building seems to LEAN toward them (perspective trick?)"
+    
+  visual_style: |
+    Security camera aesthetic — wide angle, surveillance distance.
+    
+    COLOR PALETTE:
+    - Sodium amber from streetlights
+    - Deep shadow black between pools
+    - Building facade in muted browns and grays
+    - Painted tunnel with uncanny depth
+    
+    GRAIN/ARTIFACTS:
+    - Slight horizontal scan lines
+    - Compression blocks in dark areas
+    - Timestamp burned into frame
+    - The look of footage that will be EVIDENCE
+    
+  narrative_moment:
+    just_before: "Don received an invitation. 'Come see ACME. It'll be fun.'"
+    right_now: "Crossing the point of no return. The building waits."
+    just_after: "They will reach the door. They will try to enter."
+    always: "Every heist starts with someone crossing a street."
+    
+  donna_foreshadowing: |
+    "You know what I LOVE about this moment?
+     
+     They think they're the PREDATORS. They think they're SNEAKING.
+     But I've been watching them since they left the pub.
+     I SAW them planning. I HEARD them laughing.
+     
+     Now they're on MY side of the street.
+     
+     And they don't even know I'm HERE."
+
+# CONTEXT FOR NEXT FRAME
+context_for_frame_02:
+  established:
+    - Two figures approaching ACME
+    - Don is one of them (unwarned)
+    - Late night, sodium light aesthetic
+    - Donna watching from basement
+    - Painted tunnel visible on facade
+    - Building appears abandoned
+    
+  questions_to_answer:
+    - Does Don hesitate at all?
+    - What does the instigator say/gesture?
+    - Do they notice the painted tunnel?
+    - Any ACME products visible from outside?
+    
+  emergent_space:
+    - What details appear in the storefront we didn't plan?
+    - Does anything move inside the building?
+    - What does Don's body language tell us?
+    - Is there anyone else on the street?

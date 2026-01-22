@@ -1415,4 +1415,59 @@ layer_3:
 
 ---
 
+## The Name: Why "Image MINE"
+
+The name contains a **DELIBERATE DOUBLE PUN**:
+
+### 1. MINE (verb) — to extract valuable resources
+
+Like a miner extracting gold from rock, we extract semantic treasures from pixels. The image is the ore. The YAML Jazz is the refined output.
+
+```
+📷 Image  →  ⛏️ MINE  →  💎 Precious Resources
+```
+
+### 2. MINE (possessive) — IT'S ALL MINE!!!
+
+Like Daffy Duck lunging at treasure in "Ali Baba Bunny" (1957):
+
+> *"IT'S MINE! MINE! MINE! I'M RICH! I'M A HAPPY MISER!"*
+>
+> — Daffy Duck, diving into a pile of gold
+
+When you mine an image, you **CLAIM** it. The mined YAML is YOUR interpretation. The resources become YOURS. The meaning belongs to the miner.
+
+### The Energy
+
+Think of Daffy in the treasure cave:
+- Eyes become dollar signs 💰
+- Dives headfirst into gold pile
+- Hugs coins to chest possessively
+- "MINE MINE MINE MINE MINE!!!"
+
+**That's image mining energy.**
+
+Every image is a treasure cave waiting to be discovered. Every mining pass is Daffy diving into the pile. The YAML Jazz output is your documented claim:
+
+```yaml
+# THIS INTERPRETATION IS MINE
+# THESE RESOURCES ARE MINE  
+# THIS MEANING BELONGS TO ME
+# I MINED IT, I OWN IT
+#
+# 🦆💰 "MINE MINE MINE!!!" 💰🦆
+```
+
+### The Result
+
+"Image Mine" = both:
+- The **extracted treasure** (resources from mining)
+- The **possessive claim** (this meaning is MINE)
+
+The pun is the point. The greed is the feature.
+
+**Mine your images. Claim your meaning. All YAML Jazz is YOURS.**
+
+---
+
 *See YAML frontmatter at top of this file for full specification.*

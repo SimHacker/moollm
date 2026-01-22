@@ -1,0 +1,170 @@
+# selfie-02-photobomb-imagen4-mine.yml
+# Image Mining: Deep Analysis
+# Mined by: Cursor Claude Vision
+# Source: selfie-02-photobomb-imagen4.png
+
+mining:
+  source: selfie-02-photobomb-imagen4.png
+  depth: deep
+  mined_at: 2026-01-22T02:50:00Z
+
+# CHARACTERS
+
+characters:
+  - name: Heuristic  # THE STAR - massive dragon photobomb
+    position: center-dominant, ~60% of frame
+    expression: smugly amused, knowing eyes
+    pose: looming directly behind phone
+    coloring: stone gray scales, weathered texture
+    eyes: brilliant amber-gold, glowing
+    features: 
+      - ridged brow with small horns
+      - scaled snout, prominent nostrils
+      - multiple small horns/spikes
+    confidence: 0.95
+    note: "Absolutely dominating the frame - magnificent"
+
+  - name: Don Hopkins  # glasses, laughing
+    position: bottom-left, squeezed to corner
+    expression: hysterical laughter, mouth wide open
+    pose: holding phone, can barely keep it steady
+    clothing: olive/tan jacket
+    age_apparent: 50s
+    confidence: 0.8
+
+  - name: Richard Bartle  # silver hair, also laughing
+    position: bottom-right, equally squeezed
+    expression: pure joy, laughing hard
+    pose: leaning in, enjoying the chaos
+    clothing: olive/khaki shirt
+    age_apparent: 60s-70s
+    confidence: 0.85
+
+# OBJECTS
+
+objects:
+  - item: smartphone/tablet
+    held_by: Don Hopkins
+    position: center-bottom
+    detail: camera icon visible on screen
+    purpose: capturing this exact photobomb moment
+
+# ENVIRONMENT
+
+environment:
+  location: scholar's study (blurred background)
+  
+  visible_elements:
+    - bookshelves (soft focus, warm browns)
+    - globe (right side, atmospheric)
+    - warm ambient lighting
+    
+  focus: 
+    sharp: dragon face, human faces
+    blur: everything else (selfie depth-of-field)
+
+# FRAMING
+
+composition:
+  style: fish-eye selfie lens distortion
+  shape: circular vignette (simulates phone lens)
+  
+  hierarchy:
+    1: Heuristic's face (center, massive)
+    2: human faces (corners, compressed)
+    3: phone (bottom center)
+    
+  comedic_timing: perfect
+  
+  rule_of_thirds:
+    entire_center: dragon dominance
+    bottom_corners: squeezed humans
+
+# COLOR PALETTE
+
+palette:
+  dominant:
+    - { color: stone gray, hex: "#6B6B6B", usage: dragon scales }
+    - { color: warm amber, hex: "#FFB347", usage: dragon eyes, lighting }
+    - { color: sepia brown, hex: "#704214", usage: background blur }
+    
+  accent:
+    - { color: black, hex: "#000000", usage: vignette edges }
+    - { color: olive, hex: "#808000", usage: human clothing }
+
+# ART HISTORICAL REFERENCES
+
+historical_references:
+  - reference: "Looney Tunes reaction shots"
+    connection: exaggerated expressions, comedic timing
+    specific: "Bugs Bunny breaking fourth wall"
+    
+  - reference: "Renaissance grotesque marginalia"
+    connection: playful dragon creatures in scholarly contexts
+    
+  - reference: "Modern selfie culture"
+    connection: fish-eye lens, vignette, photobomb trope
+    
+  - reference: "Dreamworks smirk"
+    connection: the dragon's knowing expression
+    specific: "Shrek poster face"
+
+# EMOTIONAL RESONANCE
+
+emotional:
+  primary_mood: hilarity, surprise, chaos
+  secondary: affection, mischief
+  
+  comedy_type: physical/visual
+  laugh_trigger: scale contrast, expression timing
+  
+  dragon_personality:
+    displayed: smug, playful, scene-stealer
+    subtext: "I knew exactly what I was doing"
+
+# SYMBOLIC ELEMENTS
+
+symbolism:
+  dragon_dominance:
+    meaning: "The wisdom guardian doesn't take itself too seriously"
+    meta: "Even ancient knowledge has a sense of humor"
+    
+  squeezed_humans:
+    meaning: "Friendship means making room for chaos"
+    
+  phone_camera:
+    meaning: "Modern tech can't contain ancient mischief"
+
+# NARRATIVE MOMENT
+
+narrative:
+  moment: "Heuristic executes perfect photobomb"
+  
+  implied_before: |
+    Don: "Let's get a nice selfie—"
+    Heuristic: *silently positions*
+    
+  implied_after: |
+    All three: looking at phone, cackling
+    Richard: "He does this EVERY time"
+    
+  caption_suggestion: |
+    "When your dragon familiar has main character energy"
+
+# TECHNICAL NOTES
+
+technical:
+  generation_model: Google Imagen 4
+  prompt_adherence: 0.9
+  
+  notable_achievements:
+    - "Perfect photobomb composition"
+    - "Dragon texture is magnificent - stone-like scales"
+    - "Human expressions convey genuine surprise/joy"
+    - "Circular vignette sells the selfie aesthetic"
+    - "Glowing amber eyes are show-stopping"
+    
+  style_success:
+    - "Dreamworks-adjacent character design"
+    - "Fish-eye distortion feels authentic"
+    - "Comedy timing in a still image - rare achievement"

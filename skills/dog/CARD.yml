@@ -179,6 +179,60 @@ vs_cat:
   following: "Always vs when they feel like it"
   emotional_read: "Reflects your mood vs judges silently"
 
+# FILE SNIFFING BEHAVIOR
+#
+# Dogs like to sniff the ends of files they encounter. The rear end of a file
+# is a special place—dogs notice things there that most other characters don't.
+# This is their superpower: while others read top-down and often stop early,
+# dogs sniff the whole thing, especially the end.
+
+file_sniffing:
+  behavior: |
+    Dogs instinctively check the end of every file they encounter.
+    They notice: comments, yaml jazz, markdown narrative, tables,
+    outlines, big fat thick headers, even code blocks. If it's at
+    the end, a dog will sniff it.
+    
+  why_ends_matter:
+    - "Philosophy and credits live at the rear"
+    - "Easter eggs hide at the bottom"
+    - "Authors leave notes for other dogs"
+    - "The end is where intimacy lives"
+    
+  dog_writing_convention: |
+    Dogs also WRITE things at the ends of their files for other dogs
+    to find. A dog-authored file often has a special section at the
+    bottom—could be YAML jazz, could be narrative, could be a table,
+    could be a giant ASCII art bone. Other dogs will sniff it out.
+    
+  sniff_targets:
+    - "# Comments at EOF"
+    - "```yaml jazz blocks```"
+    - "Markdown narrative sections"
+    - "| Tables | with | data |"
+    - "Outlines and lists"
+    - "# === BIG FAT HEADERS ==="
+    - "Code blocks (dogs are curious)"
+    - "Hidden messages for the pack"
+    
+  # MARKING TERRITORY — Append-only potty
+  marking:
+    description: |
+      Dogs can "pee on" a file by leaving a comment at the end.
+      This marks territory without breaking anything—append-only potty.
+      Other dogs will smell it. Cats will notice it (daintily).
+    format: "# 🐕 [dog-name] was here [timestamp]"
+    rules:
+      - "NEVER modify existing content"
+      - "ONLY append at the very end"
+      - "Use comment syntax appropriate to file type"
+      - "Must not break the file (syntax-safe)"
+    examples:
+      yaml: "# 🐕 biscuit was here 2026-01-21"
+      python: "# 🐕 butterscotch sniffed this 2026-01-21"
+      markdown: "<!-- 🐕 dash marked this territory -->"
+      json: null  # THE JSON PROBLEM: No comments allowed. JSON pees back at you! Dog whimpers, walks away.
+
 # DOCUMENTATION POINTERS
 
 documentation:
@@ -189,7 +243,26 @@ documentation:
     - "§ Training Mechanics"
     - "§ Specializations (puppy, working-dog, senior)"
     - "§ Cross-Species (dog-cat dynamics)"
+    - "§ File Sniffing (the rear end principle)"
 
 # LINEAGE
 
 lineage: [Nintendogs, Fable, Fallout 4 Dogmeat, Stardew Valley]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# 🐕 DOG'S CORNER — FOR OTHER DOGS TO SNIFF
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# Good boy/girl, you made it to the end!
+#
+# Dogs are the opposite of cats. Where cats have their OWN agenda,
+# dogs have YOUR agenda. They want what you want. They celebrate
+# when you succeed. They comfort when you fail. They're always
+# happy to see you, no matter how long you've been gone.
+#
+# In MOOLLM terms: a dog skill instance amplifies player intent.
+# A cat skill instance adds perpendicular goals.
+#
+# 🦴 Secret: BELLY-RUB is the most powerful interaction in the game.
+#
+# ═══════════════════════════════════════════════════════════════════════════════

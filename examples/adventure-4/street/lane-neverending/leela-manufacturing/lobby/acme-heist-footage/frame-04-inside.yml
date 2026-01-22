@@ -1,0 +1,169 @@
+# Frame 04: First Contact (Inside ACME)
+# "They see what they've gotten into."
+#
+# REVELATION: THE STORE IS STOCKED. This isn't abandoned.
+# ACME Surplus is OPERATIONAL. The "closed" was a lie.
+# The products are here. The traps are maintained. Donna is watching.
+#
+# PREVIOUS:
+# - Frame 01-02: Approach, tunnel established
+# - Frame 03: Anvil deployed, Don LOOKED UP (smart), instigator oblivious
+
+frame:
+  number: 4
+  name: "inside"
+  title: "First Contact"
+  timestamp: "2026-01-22T23:09:12Z"
+  
+  revelations:
+    - "ACME Surplus is NOT abandoned — shelves are STOCKED"
+    - "This is an ACTIVE facility with maintained security"
+    - "The products they're surrounded by are LIVE AMMUNITION"
+    
+  narrative_beat: |
+    They're inside.
+    
+    The instigator is already walking down an aisle, 
+    flashlight (phone?) illuminating shelves of... things.
+    
+    Don is still near the door, still processing the anvil,
+    now seeing the INTERIOR for the first time.
+    
+    Rows and rows of shelves. Products. ACME PRODUCTS.
+    Not dusty relics. CURRENT INVENTORY.
+    
+    "...I thought you said this place was abandoned."
+    
+    "It IS abandoned. Look, nobody's here."
+    
+    From the PA system, a crackle:
+    
+    "WELCOME TO ACME SURPLUS! 
+     May I HELP you find something?
+     Perhaps an EXIT? 
+     HA! Just kidding. There is no exit.
+     Enjoy your SHOPPING EXPERIENCE!"
+    
+    Don looks at the ceiling. Then at the instigator.
+    Then at the door he could still run through.
+    
+    The door SLAMS SHUT behind him.
+    
+    *click* — locked.
+    
+  scene_description: |
+    CAMERA: We're seeing THROUGH the door/window now
+    OR: New camera angle — internal ACME security camera
+    
+    THE INTERIOR:
+    - Rows of industrial shelving stretching into darkness
+    - Products visible: boxes, devices, shapes
+    - Warm amber lighting (security lights? always on?)
+    - The sense of BEING WATCHED
+    
+    THE INSTIGATOR:
+    - Deeper in, walking between shelves
+    - Phone flashlight illuminating products
+    - Body language: exploring, confident, wrong
+    
+    DON:
+    - Near the entrance, looking around
+    - Taking in the scope of the place
+    - Body language: increasingly concerned
+    - The colorful jacket now seems very VISIBLE in this space
+    
+    DETAILS TO CAPTURE:
+    - Product boxes with ACME branding
+    - Aisle numbers (if visible)
+    - Shadows that might be something else
+    - A PA speaker (Donna's voice comes from somewhere)
+    - Maybe: the door closing/locked
+    
+    THROUGH THE WINDOW (if exterior angle):
+    - We see them INSIDE now
+    - The tunnel still visible in frame
+    - The transition from "approach" to "trapped"
+    
+  camera_options:
+    option_A: |
+      Still ACM1 (exterior) — looking THROUGH the window/door
+      We see their silhouettes inside, shelves visible
+      The tunnel in frame, watching them trapped
+      
+    option_B: |
+      New camera — internal ACME security
+      Donna's POV from her monitors
+      Industrial angle, product-level, surveillance
+      
+  donna_status:
+    action: "Just activated PA system. Door locked remotely."
+    
+    commentary: |
+      "Welcome, GENTLEMEN! 
+       
+       Oh don't look so SURPRISED, Fancy Pants.
+       You walked into MY building. MY domain.
+       
+       Did you think nobody was HOME?
+       Did you think those products were DORMANT?
+       
+       EVERYTHING here is LIVE. 
+       EVERYTHING here is WATCHING.
+       EVERYTHING here WANTS to be USED.
+       
+       And YOU, my colorful friend, are the CUSTOMER.
+       
+       The customer is ALWAYS right.
+       Right into the TRAP! HA!
+       
+       Now... which aisle should I tour you through first?
+       Projectiles? Propulsion? PSYCHOLOGICAL WARFARE?
+       
+       Oh I know! Let's start with the CLASSICS."
+       
+    next_action: "Checking which levers to pull next"
+    
+  products_visible:
+    aisle_1: "PROJECTILES — Anvils, Pianos, Safes"
+    aisle_2: "PROPULSION — Rocket Skates, Jet Packs"
+    aisle_3: "PORTABILITY — Holes, Tunnels, Fold-up Cliffs"
+    aisle_4: "PERSONAL — Disguises, Bird Costumes"
+    return_counter: "Defective items, angry letters"
+    
+  visual_style: |
+    INTERIOR SURVEILLANCE or THROUGH-WINDOW shot.
+    
+    Either way:
+    - Industrial shelving aesthetic
+    - Warm amber security lighting
+    - Products creating geometry and shadows
+    - The figures small against the inventory
+    - A sense of being TRAPPED and WATCHED
+    
+  narrative_moment:
+    just_before: "The anvil swung. Don saw it. They entered anyway."
+    right_now: "The scale of the mistake becomes clear."
+    just_after: "Donna begins the tour. The real traps activate."
+    always: "You don't break into ACME. ACME breaks YOU."
+    
+  chekhov_status:
+    tunnel: "Still visible through window. Still waiting."
+    anvil: "Fired (Frame 03). More available."
+    products: "ALL OF THEM are Chekhov's Guns now."
+
+# CONTEXT FOR FRAME 05
+context_for_frame_05:
+  situation:
+    - "They're locked inside"
+    - "Store is STOCKED with live ACME products"
+    - "Donna has revealed herself via PA"
+    - "The instigator is exploring deeper"
+    - "Don is near the exit (now locked)"
+    
+  next_beat: |
+    DEEPER TROUBLE — Something activates.
+    
+    The instigator touches something. Or trips something.
+    Or Donna pulls a lever.
+    
+    The PROPULSION aisle seems tempting to demonstrate...

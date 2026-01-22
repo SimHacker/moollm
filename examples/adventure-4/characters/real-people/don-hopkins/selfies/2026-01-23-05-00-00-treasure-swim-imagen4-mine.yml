@@ -1,0 +1,408 @@
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                                                                           ║
+# ║   🦆💰 TREASURE VAULT MINING RECEIPT 💰🦆                                  ║
+# ║                                                                           ║
+# ║   "MINE! MINE! MINE! IT'S ALL MINE!!!"                                    ║
+# ║                                                                           ║
+# ║   Image: selfie-03-treasure-swim-imagen4.png                              ║
+# ║   Miner: Don Hopkins (Rabbit Form)                                        ║
+# ║   Date: 2026-01-23 ~05:00 AM                                              ║
+# ║   Location: The Vault of All Value                                        ║
+# ║                                                                           ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+mining_receipt:
+  receipt_number: "MINE-2026-0123-001"
+  miner: "Don Hopkins"
+  miner_form: "Anthropomorphic Grey Rabbit in Tie-Dye"
+  expression: "PURE CARTOON AVARICE — mouth agape, eyes wild"
+  
+# ═══════════════════════════════════════════════════════════════════════════
+# SECTION 1: PRECIOUS METALS
+# ═══════════════════════════════════════════════════════════════════════════
+
+precious_metals:
+  
+  gold_coins:
+    visible_count: "~10,000+"              # Mountains of them
+    estimated_weight: "2,500 kg"
+    unit_value: "$1,800/oz"
+    subtotal: "$144,675,000"
+    notes: "Classic Scrooge McDuck piles — extends to ceiling"
+    confidence: 0.95
+    
+  gold_bars:
+    visible_count: 47                       # Stacked in background
+    weight_per_bar: "400 oz (12.4 kg)"
+    unit_value: "$720,000/bar"
+    subtotal: "$33,840,000"
+    notes: "Standard LBMA good delivery bars, immaculately stacked"
+    confidence: 0.92
+    
+  silver_coins:
+    visible_count: "~500"                   # Mixed in with gold
+    estimated_weight: "15 kg"
+    subtotal: "$12,000"
+    notes: "Scattered throughout, dull gleam among the gold"
+    
+# ─────────────────────────────────────────────────────────────────────────────
+  precious_metals_subtotal: "$178,527,000"
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SECTION 2: GEMSTONES
+# ═══════════════════════════════════════════════════════════════════════════
+
+gemstones:
+
+  diamonds:
+    visible_count: 23                       # Large, visible crystals
+    average_carats: 5
+    quality: "VS1, D color (appears flawless)"
+    unit_value: "$75,000/stone"
+    subtotal: "$1,725,000"
+    notes: "Scattered like gravel — casual opulence"
+    
+  rubies:
+    visible_count: 8                        # Glowing red
+    average_carats: 3
+    quality: "Pigeon blood red"
+    unit_value: "$50,000/stone"
+    subtotal: "$400,000"
+    notes: "Deep red glow, possibly Burmese origin"
+    
+  emeralds:
+    visible_count: 6                        # Deep green
+    average_carats: 4
+    quality: "Colombian, minimal inclusions"
+    unit_value: "$40,000/stone"
+    subtotal: "$240,000"
+    notes: "Forest green, exceptional clarity"
+    
+  sapphires:
+    visible_count: 5                        # Ocean blue
+    average_carats: 3
+    quality: "Kashmir blue"
+    unit_value: "$30,000/stone"
+    subtotal: "$150,000"
+    
+  misc_gems:
+    description: "Assorted — appears to be amethyst, topaz, others"
+    estimated_count: 50+
+    subtotal: "$100,000"
+    
+# ─────────────────────────────────────────────────────────────────────────────
+  gemstones_subtotal: "$2,615,000"
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SECTION 3: CURRENCY
+# ═══════════════════════════════════════════════════════════════════════════
+
+currency:
+
+  usd_cash:
+    bundles_visible: 15                     # $100 bills, banded
+    bills_per_bundle: 100
+    denomination: "$100"
+    subtotal: "$150,000"
+    notes: "Fresh, crisp, sequential serial numbers (suspicious)"
+    location: "Bottom left, also floating in air"
+    
+  floating_bills:
+    count: 12                               # In the air around Don
+    denomination: "$100"
+    subtotal: "$1,200"
+    notes: "Caught in updraft of Don's manic dive"
+    
+  ancient_coins:
+    description: "Mixed Roman denarii, Greek drachma visible"
+    estimated_count: 200
+    historical_value: "$500/coin average"
+    subtotal: "$100,000"
+    notes: "Numismatic value exceeds metal content"
+    
+# ─────────────────────────────────────────────────────────────────────────────
+  currency_subtotal: "$251,200"
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SECTION 4: CRYPTOCURRENCY
+# ═══════════════════════════════════════════════════════════════════════════
+
+cryptocurrency:
+
+  bitcoin_physical:
+    visible_count: 4                        # Gold coins with ₿ logo!
+    description: "Physical Bitcoin commemorative coins"
+    notes: "Large gold coins with prominent ₿ symbol"
+    
+    # If redeemable for actual BTC:
+    btc_value: "1 BTC each"
+    btc_price: "$95,000"                    # Current approx
+    subtotal: "$380,000"
+    
+    # Meta-note:
+    meta: |
+      Physical Bitcoin coins are usually commemorative,
+      but in this cartoon economy, we're counting them
+      as REAL. Mine it all. MINE!
+    
+# ─────────────────────────────────────────────────────────────────────────────
+  cryptocurrency_subtotal: "$380,000"
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SECTION 5: LUXURY VEHICLES
+# ═══════════════════════════════════════════════════════════════════════════
+
+luxury_vehicles:
+
+  red_ferrari:
+    model: "Ferrari 488 GTB (or similar)"
+    color: "Rosso Corsa red"
+    condition: "Pristine, half-buried in gold"
+    value: "$280,000"
+    notes: "Tiny but perfectly rendered — classic supercar silhouette"
+    location: "Bottom right, emerging from coin pile"
+    
+  white_yacht:
+    type: "Luxury motor yacht"
+    length: "~80 ft equivalent"
+    style: "Classic white, multi-deck"
+    value: "$4,500,000"
+    notes: "Floating on gold coins like it's water — cartoon physics"
+    location: "Center, riding the golden waves"
+    
+# ─────────────────────────────────────────────────────────────────────────────
+  vehicles_subtotal: "$4,780,000"
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SECTION 6: FINE ART
+# ═══════════════════════════════════════════════════════════════════════════
+
+fine_art:
+
+  mona_lisa:
+    artist: "Leonardo da Vinci"
+    status: "THE Mona Lisa (or excellent forgery)"
+    visible: true
+    location: "Bottom left, propped against coins"
+    official_value: "PRICELESS"
+    insurance_estimate: "$850,000,000"
+    notes: |
+      The most valuable painting in the world.
+      Either this is a heist of unprecedented proportions,
+      or Don has entered a dimension where masterpieces
+      are as common as gold coins.
+      
+      For receipt purposes: listing at insurance value.
+    subtotal: "$850,000,000"
+    
+# ─────────────────────────────────────────────────────────────────────────────
+  fine_art_subtotal: "$850,000,000"
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SECTION 7: JEWELRY & ACCESSORIES
+# ═══════════════════════════════════════════════════════════════════════════
+
+jewelry:
+
+  pearl_necklaces:
+    count: 3                                # Strings visible
+    quality: "South Sea, large"
+    average_length: "18 inches"
+    unit_value: "$25,000"
+    subtotal: "$75,000"
+    location: "Draped over gold bars, around Don's neck"
+    
+  diamond_necklaces:
+    count: 2
+    description: "Multi-carat pendants on gold chains"
+    subtotal: "$150,000"
+    
+  pocket_watches:
+    count: 4                                # Visible among coins
+    type: "Antique gold, appears valuable"
+    average_value: "$15,000"
+    subtotal: "$60,000"
+    notes: "Patek Philippe energy — old money vibes"
+    
+  gemstone_necklace_on_don:
+    description: "Colorful beaded necklace tangled in ears"
+    materials: "Appears to be turquoise, coral, mixed gems"
+    subtotal: "$5,000"
+    notes: "Don is WEARING the treasure now"
+    
+# ─────────────────────────────────────────────────────────────────────────────
+  jewelry_subtotal: "$290,000"
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SECTION 8: COLLECTIBLES & ARTIFACTS
+# ═══════════════════════════════════════════════════════════════════════════
+
+collectibles:
+
+  faberge_egg:
+    visible: true
+    description: "Green and gold, ornate"
+    style: "Imperial Russian, possibly 'The Memory of Azov'"
+    location: "Right side, nestled in coins"
+    value: "$33,000,000"
+    notes: "Only 50 Imperial eggs exist. This is SIGNIFICANT."
+    confidence: 0.88
+    
+  legal_documents:
+    visible_count: 2
+    description: "Scrolls/certificates on left side"
+    apparent_content: "Deeds, stock certificates, or similar"
+    speculative_value: "$10,000,000"
+    notes: "Could be deed to valuable property, mineral rights, etc."
+    
+# ─────────────────────────────────────────────────────────────────────────────
+  collectibles_subtotal: "$43,000,000"
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SECTION 9: THE RABBIT HIMSELF
+# ═══════════════════════════════════════════════════════════════════════════
+
+the_miner:
+
+  don_hopkins:
+    form: "Anthropomorphic grey rabbit"
+    outfit: "Tie-dye hoodie — now GILDED with gold dust"
+    expression: "MAXIMUM DAFFY DUCK — mouth agape in ecstasy"
+    eyes: "Wide, wild, possibly seeing dollar signs"
+    pose: "Superman dive into treasure"
+    
+    currently_wearing:
+      - "Gold coins stuck in fur"
+      - "Gems tangled in ears"
+      - "Pearl necklace acquired mid-dive"
+      - "Cash bills adhered to hoodie"
+      
+    value_absorbed: |
+      Don himself has become PART of the treasure.
+      The gold dust on his fur, the gems in his ears,
+      the pearls around his neck — he's not just mining,
+      he's MERGING with the hoard.
+      
+    priceless_quality: "Joy — the expression is worth more than gold"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║                         GRAND TOTAL                                       ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+# ═══════════════════════════════════════════════════════════════════════════
+
+grand_total:
+  
+  line_items:
+    precious_metals:    "$178,527,000"
+    gemstones:          "$2,615,000"
+    currency:           "$251,200"
+    cryptocurrency:     "$380,000"
+    luxury_vehicles:    "$4,780,000"
+    fine_art:           "$850,000,000"      # THE MONA LISA THO
+    jewelry:            "$290,000"
+    collectibles:       "$43,000,000"
+    
+  # ─────────────────────────────────────────────────────────────────────────
+  
+  subtotal: "$1,079,843,200"
+  
+  # ─────────────────────────────────────────────────────────────────────────
+  
+  adjustments:
+    cartoon_physics_bonus: "+10%"           # It's more fun in cartoons
+    daffy_duck_energy_multiplier: "×1.5"    # MINE MINE MINE!!!
+    miner_enthusiasm_premium: "+$1,000,000" # Look at that face
+    
+  adjusted_total: "$1,619,764,800"
+  
+  # ─────────────────────────────────────────────────────────────────────────
+  
+  taxes:
+    cartoon_universe: "0%"                  # No taxes in treasure vaults
+    
+  # ═══════════════════════════════════════════════════════════════════════════
+  
+  FINAL_TOTAL: "$1,619,764,800"
+  
+  in_words: |
+    ONE BILLION, SIX HUNDRED NINETEEN MILLION,
+    SEVEN HUNDRED SIXTY-FOUR THOUSAND,
+    EIGHT HUNDRED DOLLARS
+    
+  # ═══════════════════════════════════════════════════════════════════════════
+
+# ═══════════════════════════════════════════════════════════════════════════
+# MINING NOTES
+# ═══════════════════════════════════════════════════════════════════════════
+
+mining_notes:
+  
+  extraction_status: "ACTIVE — miner currently swimming in lode"
+  exhaustion_risk: "LOW — treasure regenerates in cartoon universes"
+  
+  philosophical_observation: |
+    This image contains more value than most humans will see
+    in a lifetime. And Don is SWIMMING in it.
+    
+    But note: the most valuable element is Don's EXPRESSION.
+    The joy. The abandon. The pure cartoon avarice.
+    
+    Scrooge McDuck swam in money because he loved money.
+    Daffy Duck dove into treasure because he was POSSESSED by greed.
+    Don swims because he's EMBODYING THE PUN.
+    
+    "Image Mine" — the treasure is his.
+    "MINE MINE MINE" — he claims it all.
+    
+    This image is a receipt for the concept itself.
+    
+  meta_recursion: |
+    We are mining an image of mining.
+    The receipt documents the documentation of treasure.
+    The YAML Jazz is itself a valuable artifact.
+    
+    🦆💰 MINE MINE MINE 💰🦆
+
+# ═══════════════════════════════════════════════════════════════════════════
+# RECEIPT FOOTER
+# ═══════════════════════════════════════════════════════════════════════════
+
+receipt_footer:
+  
+  certification: |
+    This mining receipt certifies that the above valuables
+    have been identified, catalogued, and CLAIMED
+    by the miner Don Hopkins (Rabbit Form).
+    
+    All values are estimates based on visual inspection.
+    Cartoon physics may affect actual realized value.
+    The Mona Lisa valuation assumes this is THE original.
+    
+  witnessed_by:
+    - "Daffy Duck (in spirit)"
+    - "Scrooge McDuck (inspirational)"
+    - "The Coherence Engine"
+    
+  miner_signature: "🐰✊ Don Hopkins — MINE!!!"
+  
+  timestamp: "2026-01-23T05:00:00Z"
+  
+  closing_statement: |
+    
+    ╔══════════════════════════════════════════════════════════╗
+    ║                                                          ║
+    ║   "IT'S MINE! I'M RICH! I'M A HAPPY MISER!"             ║
+    ║                                                          ║
+    ║                    — Daffy Duck, 1957                    ║
+    ║                    — Don Hopkins, 2026                   ║
+    ║                                                          ║
+    ╚══════════════════════════════════════════════════════════╝

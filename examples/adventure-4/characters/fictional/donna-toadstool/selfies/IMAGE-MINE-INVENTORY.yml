@@ -1,0 +1,241 @@
+# 🍄 DONNA'S SELFIES — COMPLETE IMAGE/MINE INVENTORY
+#
+# All selfies generated and mined with full YAML Jazz context.
+# Use these mines as context for future narrative generation.
+
+inventory:
+  series: "Donna's Selfie Collection"
+  camera_app: "SELFIE_SPY.exe v34.0"
+  owner: "Donna Toadstool, The Mushroom Queen"
+  
+  total_selfies: 11  # Including OPSEC disaster
+  total_mined: 11
+  completeness: "100%"
+
+selfies:
+
+  opsec_disaster:
+    title: "The OPSEC Disaster (Pre-Heist)"
+    date: "2026-01-22 03:47:23"
+    files:
+      definition: "opsec-disaster-2026-01-22.yml"
+      prompt: "opsec-disaster-prompt.yml"
+      prompt_condensed: "opsec-disaster-prompt-condensed.txt"
+      image: "opsec-disaster-2026-01-22-imagen4.png"
+      mine: "opsec-disaster-2026-01-22-imagen4-mine.yml"
+    emergent_elements:
+      - "'OPSEC: 100%' HUD"
+      - "IP addresses floating (AR overlay)"
+      - "'STATIC' label on mystery monitor"
+      - "Equipment tally HUD"
+      - "THE THRONE (ornate gold chair)"
+    consequences: "847 likes, 234 shares, banned from Leela"
+    
+  selfie_01:
+    title: "Intruder Alert"
+    syncs_with: "frame-01-approach"
+    files:
+      definition: "selfie-01-intruder-alert.yml"
+      prompt: "selfie-01-intruder-alert-prompt.txt"
+      image: "selfie-01-intruder-alert-imagen4.png"
+      mine: "selfie-01-intruder-alert-imagen4-mine.yml"
+    emergent_caption: "LOOK WHAT I'VE FOUND!"
+    key_elements:
+      - "First self-captioning image"
+      - "Bedazzled phone visible"
+      
+  selfie_02:
+    title: "Tunnel Watch"
+    syncs_with: "frame-02-invitation"
+    files:
+      definition: "selfie-02-tunnel-watch.yml"
+      prompt: "selfie-02-tunnel-watch-prompt.txt"
+      image: "selfie-02-tunnel-watch-imagen4.png"
+      mine: "selfie-02-tunnel-watch-imagen4-mine.yml"
+    emergent_caption: "WATCH THIS!"
+    emergent_text: "'TUNNEL STATUS: ACTIVE'"
+    key_elements:
+      - "Reveals tunnel is CONTROLLABLE system"
+      - "Brass levers visible"
+      
+  selfie_03:
+    title: "Anvil Deployed"
+    syncs_with: "frame-03-entry"
+    files:
+      prompt: "selfie-03-anvil-deployed-prompt.txt"
+      image: "selfie-03-anvil-deployed-imagen4.png"
+      mine: "selfie-03-anvil-deployed-imagen4-mine.yml"
+    emergent_caption: "I DID THAT!"
+    emergent_text: "'ANVIL DEPLOYED'"
+    key_elements:
+      - "Self-incriminating confession"
+      - "Don visible on monitor"
+      - "Double mushroom pins"
+      
+  selfie_04:
+    title: "Tunnels Multiply"
+    syncs_with: "frame-04-inside"
+    files:
+      definition: "selfie-04-tunnels-multiply.yml"
+      prompt: "selfie-04-tunnels-multiply-prompt.txt"
+      image: "selfie-04-tunnels-multiply-imagen4.png"
+      mine: "selfie-04-tunnels-multiply-imagen4-mine.yml"
+    emergent_captions:
+      - "I TOLD YOU!"
+      - "I TOLD YOU THE TUNNELS MULTIPLY"
+    key_elements:
+      - "TWO speech bubbles (first time)"
+      - "PINK HEART GLASSES appear"
+      - "Both tunnel monitors visible"
+      
+  selfie_05:
+    title: "Conveyor Chaos"
+    syncs_with: "frame-05-deeper"
+    files:
+      definition: "selfie-05-conveyor-chaos.yml"
+      prompt: "selfie-05-conveyor-chaos-prompt.txt"
+      image: "selfie-05-conveyor-chaos-imagen4.png"
+      mine: "selfie-05-conveyor-chaos-imagen4-mine.yml"
+    emergent_caption: null  # Visual only
+    key_elements:
+      - "Hand on lever — CONDUCTOR"
+      - "Pink glasses continuous"
+      - "Conveyor visible on monitors"
+      
+  selfie_06:
+    title: "Propulsion Success"
+    syncs_with: "frame-06-sprint"
+    files:
+      definition: "selfie-06-propulsion-success.yml"
+      prompt: "selfie-06-propulsion-success-prompt.txt"
+      image: "selfie-06-propulsion-success-imagen4.png"
+      mine: "selfie-06-propulsion-success-imagen4-mine.yml"
+    emergent_caption: null  # Visual peak
+    key_elements:
+      - "CHEF'S KISS gesture"
+      - "Fist pump with sparkle trail"
+      - "ROCKET LAUNCHES on monitors"
+      - "TWO mushroom pins"
+      
+  selfie_07:
+    title: "THWACK Moment"
+    syncs_with: "frame-07-extraction"
+    files:
+      definition: "selfie-07-thwack-moment.yml"
+      prompt: "selfie-07-thwack-moment-prompt.txt"
+      image: "selfie-07-thwack-moment-imagen4.png"
+      mine: "selfie-07-thwack-moment-imagen4-mine.yml"
+    emergent_caption: null  # Visual HOME ALONE
+    key_elements:
+      - "HOME ALONE FACE — hands on cheeks"
+      - "Impact visible on monitor"
+      - "THREE mushroom pins"
+      
+  selfie_08:
+    title: "Aftermath Gloat"
+    syncs_with: "frame-08-aftermath"
+    files:
+      definition: "selfie-08-aftermath-gloat.yml"
+      prompt: "selfie-08-aftermath-gloat-prompt.txt"
+      image: "selfie-08-aftermath-gloat-imagen4.png"
+      mine: "selfie-08-aftermath-gloat-imagen4-mine.yml"
+    emergent_caption: null  # Visual VICTORY
+    key_elements:
+      - "DOUBLE PEACE SIGNS"
+      - "Fire on ALL monitors"
+      - "FOUR+ mushroom pins"
+      - "Gold bar + blue badges"
+      
+  selfie_09:
+    title: "This is Fine"
+    syncs_with: "frames 09-10"
+    files:
+      definition: "selfie-09-this-is-fine.yml"
+      prompt: "selfie-09-this-is-fine-prompt.txt"
+      image: "selfie-09-this-is-fine-imagen4.png"
+      mine: "selfie-09-this-is-fine-imagen4-mine.yml"
+    emergent_caption: null  # "This is Fine" meme
+    key_elements:
+      - "SIPPING COFFEE amid apocalypse"
+      - "Vortex consuming Richard on monitor"
+      - "Tie-dye RABBIT on monitor"
+      - "Fire everywhere"
+      
+  selfie_10:
+    title: "The Denouement"
+    syncs_with: "pub scene (post-heist)"
+    posted: false  # She keeps this one private
+    files:
+      definition: "selfie-10-denouement.yml"
+      prompt: "selfie-10-denouement-prompt.txt"
+      image: "selfie-10-denouement-imagen4.png"
+      mine: "selfie-10-denouement-imagen4-mine.yml"
+    emergent_caption: null  # No caption — it's real
+    key_elements:
+      - "Glasses still on but expression GENUINE"
+      - "CARDIGAN — costume removed"
+      - "Contemplative, not performing"
+      - "Rabbit ears visible in background"
+      - "The selfie she doesn't post"
+
+# CHARACTER PROGRESSION THROUGH SELFIES
+
+progression:
+  accessories:
+    selfies_1_3: "1 mushroom pin"
+    selfie_4: "1 mushroom pin + PINK GLASSES appear"
+    selfie_5: "1 mushroom pin + pink glasses"
+    selfie_6: "2 mushroom pins + pink glasses"
+    selfie_7: "3 mushroom pins + pink glasses"
+    selfie_8: "4+ mushroom pins + badges + pink glasses"
+    selfie_9: "Many mushroom pins + pink glasses"
+    selfie_10: "Pink glasses on, CARDIGAN replaces suit"
+    
+  self_captioning:
+    - "01: 'LOOK WHAT I'VE FOUND!'"
+    - "02: 'WATCH THIS!' + 'TUNNEL STATUS: ACTIVE'"
+    - "03: 'I DID THAT!' + 'ANVIL DEPLOYED'"
+    - "04: 'I TOLD YOU!' + 'I TOLD YOU THE TUNNELS MULTIPLY'"
+    - "05-10: Visual peak, no more captions needed"
+    
+  emotional_arc:
+    - "01-03: Excitement, triumph"
+    - "04: Vindication"
+    - "05: Conductor energy"
+    - "06: Peak satisfaction"
+    - "07: Shock/joy"
+    - "08: Total victory"
+    - "09: Transcendence ('This is fine')"
+    - "10: Resolution (genuine, private)"
+
+# HEISENBERGIAN GENDER FLUIDITY
+
+gender_rendering_note: |
+  Across 11 renders, Donna appears with significant variation:
+  
+  - OPSEC disaster: Masculine authority, combover emphasis
+  - Triumph selfies: Power poses, claiming space
+  - Pink glasses era: Femme sparkle on masc frame
+  - Chef's kiss: Gesture softening the suit
+  - Home Alone: Vulnerability emerging
+  - "This is fine": Calm amid masculine framing
+  - Denouement: Cardigan softness, genuine expression
+  
+  This variation is COHERENT DRAG PERFORMANCE.
+  Each render = one configuration of the quantum drag king.
+  All are canonical. All are Donna.
+  
+  See: GENDER-FLUIDITY-REFLECTION.md
+
+# HOW TO USE THIS CONTEXT
+
+usage_note: |
+  When generating Donna-related content:
+  
+  1. Check current accessory state (glasses, pins, outfit)
+  2. Reference her emotional arc position
+  3. Note the self-captioning pattern (early: text, late: visual)
+  4. Allow gender presentation to vary (it's intentional)
+  5. Build on established OPSEC violation patterns
+  
+  The mines are CHARACTER MEMORY — use for coherence.

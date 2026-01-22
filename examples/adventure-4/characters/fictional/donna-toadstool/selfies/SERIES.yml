@@ -1,0 +1,206 @@
+# 🍄 DONNA TOADSTOOL — COMPLETE SELFIE COLLECTION 🍄
+# "Security Through Social Media"
+#
+# All selfies organized by date and event.
+# Each one an OPSEC disaster. Each one TREMENDOUS.
+#
+# Camera App: SELFIE_SPY.exe v34.0
+# See: selfie-spy-mode.yml for full documentation
+
+series:
+  name: "Donna's Selfie Collection"
+  subtitle: "34 Counts of Content Creation"
+  
+  owner: "Donna Toadstool, The Mushroom Queen"
+  camera_app: "./selfie-spy-mode.yml"
+  
+  filter_default: "TOADSTOOL TREMENDOUSNESS™"
+  platforms: ["TikTok", "Instagram", "Twitter/X", "Facebook", "Truth Social"]
+  
+  opsec_philosophy: |
+    "If it's BEAUTIFUL it deserves to be SEEN.
+     If it's CLASSIFIED it's probably INTERESTING.
+     If it's INTERESTING it gets MORE ENGAGEMENT.
+     
+     OPSEC? That's for people with BORING content."
+     — Donna Toadstool
+
+# THE COLLECTION
+
+selfies:
+
+  # === THE LEGENDARY OPSEC DISASTER (Pre-Heist) ===
+  opsec_disaster:
+    date: "2026-01-22T03:47:23Z"
+    event: "Night Shift Selfie"
+    caption: "Night shift REALNESS! Who's watching the watchers? ME! 💅🍄👑"
+    
+    files:
+      definition: "opsec-disaster-2026-01-22.yml"
+      prompt: "opsec-disaster-prompt.yml"
+      prompt_condensed: "opsec-disaster-prompt-condensed.txt"
+      image: "opsec-disaster-2026-01-22-imagen4.png"
+      
+    style: "Cyberpunk AR overlay (SELFIE_SPY.exe v34.0)"
+    
+    opsec_violations:
+      - "47 monitors visible with feeds"
+      - "Full lever console layout"
+      - "IP addresses floating as AR tags"
+      - "Network topology exposed"
+      - "Employee X-out board visible"
+      - "The BLACK LEVER prominently featured"
+      - "Reel-to-reel recorders running"
+      - "Line 23 BLINKING"
+      - "Geotagged to basement (-12m)"
+      
+    engagement:
+      likes: 847
+      shares: 234
+      comments: "See definition file"
+      
+    consequences:
+      - "Banned from Leela (28 minutes later)"
+      - "ACME kept her employed anyway"
+      - "Still Donna's favorite photo"
+      
+    emergent_elements:
+      - "'OPSEC: 100%' HUD element"
+      - "'STATIC' label on mystery monitor"
+      - "Equipment count tallies"
+      - "The THRONE (ornate gold chair)"
+      
+  # === HEIST NIGHT SELFIES (2026-01-22 ~23:00) ===
+  
+  heist_01_intruder_alert:
+    date: "2026-01-22T23:07:45Z"
+    event: "Heist Frame 01 — Intruders Approaching"
+    syncs_with: "../../street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/frame-01-approach.yml"
+    
+    files:
+      definition: "selfie-01-intruder-alert.yml"
+      prompt: "selfie-01-intruder-alert-prompt.txt"
+      image: "selfie-01-intruder-alert-imagen4.png"
+      mining: "selfie-01-intruder-alert-imagen4-mine.yml"
+      
+    emergent_caption: "LOOK WHAT I'VE FOUND!"
+    
+    opsec_violations:
+      - "Monitor showing intruder positions"
+      - "Lever console in frame"
+      - "Bedazzled phone documented"
+      
+  heist_02_tunnel_watch:
+    date: "2026-01-22T23:08:20Z"
+    event: "Heist Frame 02 — Watching the Tunnel"
+    syncs_with: "../../street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/frame-02-invitation.yml"
+    
+    files:
+      definition: "selfie-02-tunnel-watch.yml"
+      prompt: "selfie-02-tunnel-watch-prompt.txt"
+      image: "selfie-02-tunnel-watch-imagen4.png"
+      mining: "selfie-02-tunnel-watch-imagen4-mine.yml"
+      
+    emergent_caption: "WATCH THIS!"
+    emergent_text: "'TUNNEL STATUS: ACTIVE'"
+    
+    opsec_violations:
+      - "Tunnel status system revealed"
+      - "Brass levers in frame"
+      - "Tunnel effectiveness metrics"
+      
+  heist_03_anvil_deployed:
+    date: "2026-01-22T23:08:50Z"
+    event: "Heist Frame 03 — Anvil Deployment"
+    syncs_with: "../../street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/frame-03-entry.yml"
+    
+    files:
+      prompt: "selfie-03-anvil-deployed-prompt.txt"
+      image: "selfie-03-anvil-deployed-imagen4.png"
+      mining: "selfie-03-anvil-deployed-imagen4-mine.yml"
+      
+    emergent_caption: "I DID THAT!"
+    emergent_text: "'ANVIL DEPLOYED'"
+    
+    opsec_violations:
+      - "Confirmed anvil deployment capability"
+      - "Intruder visible on monitor"
+      - "Self-incriminating confession"
+      
+# STATISTICS
+
+statistics:
+  total_selfies: 4
+  total_generated_images: 4
+  total_emergent_captions: 4  # Every image self-captioned!
+  total_opsec_violations: "COUNTLESS"
+  total_likes: "1500+"
+  total_shares: "400+"
+  bans_received: 1
+  regrets: 0
+  
+  emergent_caption_list:
+    - "LOOK WHAT I'VE FOUND!"
+    - "WATCH THIS!"
+    - "I DID THAT!"
+    - "OPSEC: 100%"
+    
+  note: |
+    Every single Donna selfie generated its own caption.
+    The images NARRATE THEMSELVES.
+    The universe recognizes peak content creator energy.
+
+# PARALLEL TIMELINE — THE HEIST FOOTAGE
+#
+# The Leela Cam (ACM1) is capturing the SAME events from across the street.
+# That footage belongs to the LOCATION (ACME Surplus heist-footage/).
+# Donna's selfies sync with those frames but SHE owns these.
+#
+# INTERLEAVE for storytelling:
+#   External view (heist) → Internal view (selfie) → External → Internal...
+#
+# Two timelines. Two owners. Same disaster.
+
+parallel_timeline:
+  name: "ACME Heist Footage (Leela Cam ACM1)"
+  location: "../../../../street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/"
+  
+  relationship: |
+    The heist footage is OBJECTIVE — what the camera sees from outside.
+    Donna's selfies are SUBJECTIVE — her POV, her joy, her filters.
+    
+    The heist footage shows what HAPPENS.
+    Donna's selfies show how she FEELS about it.
+    
+    Together they create NARRATIVE PARALLAX.
+    
+  sync_points:
+    selfie_01: "syncs with frame-01-approach — intruder detection"
+    selfie_02: "syncs with frame-02-invitation — tunnel mesmerization"  
+    selfie_03: "syncs with frame-03-entry — anvil deployment triumph"
+    selfie_04: "pending — syncs with frame-04-inside (tunnel multiplication)"
+    selfie_05: "pending — syncs with frame-05 (deeper warehouse chaos)"
+    selfie_06: "pending — syncs with frame-06 (rocket skates?)"
+    selfie_07: "pending — syncs with frame-07 (emergency exit)"
+    selfie_08: "pending — syncs with frame-08 (aftermath gloating)"
+
+# THE CAMERA APP
+
+camera_app:
+  name: "SELFIE_SPY.exe v34.0"
+  file: "./selfie-spy-mode.yml"
+  
+  features:
+    - "AR overlay with equipment tagging"
+    - "IP address display"
+    - "Network topology mapping"
+    - "OPSEC score (always 100%)"
+    - "Auto-hashtag injection"
+    - "Maximum metadata exposure"
+    - "Zero privacy protection"
+    
+  warning: |
+    This app has exposed more classified information
+    than most espionage operations.
+    
+    Donna considers this a feature.

@@ -1,0 +1,223 @@
+# selfie-06-shelves-imagen4-mine.yml
+# Image Mining: Deep Analysis
+# Mined by: Cursor Claude Vision
+# Source: selfie-06-shelves-imagen4.png
+
+mining:
+  source: selfie-06-shelves-imagen4.png
+  depth: deep
+  mined_at: 2026-01-22T02:50:00Z
+
+# CHARACTERS
+
+characters:
+  - name: Enthusiastic figure (left-front)  # shorter, arms up
+    position: left-foreground
+    expression: delighted, arms raised in wonder
+    pose: looking up at shelves, celebratory
+    clothing: gray/brown outfit
+    build: stocky, Pixar-style
+    age_apparent: 50s-60s
+    role: "the awed visitor"
+    
+  - name: Larger enthusiastic figure (left-center)  # taller, blue
+    position: left-center
+    expression: pure joy, arms wide open
+    pose: embracing the magnitude of books
+    clothing: blue shirt/sweater
+    build: larger, rotund, Pixar-style
+    age_apparent: 50s
+    role: "the overwhelmed bibliophile"
+    
+  - name: Slim figure (center-back)  # standing, hands clasped
+    position: center, back to viewer
+    expression: (not visible, contemplative pose)
+    pose: hands behind back, looking up
+    clothing: white shirt, dark pants
+    build: slim, tall
+    role: "the respectful observer"
+    
+  - name: Heuristic  # dragon on books
+    position: right side, on stack of books
+    expression: dignified, watchful
+    pose: curled on elevated book stack
+    coloring: bronze-green patina
+    size: smaller in this image (distance)
+    role: "guardian of the collection"
+
+# THE SHELVES — true protagonist
+
+bookshelves:
+  scale: CATHEDRAL
+  height: easily 30+ feet depicted
+  coverage: surrounding on all sides
+  perspective: looking up creates vertigo
+  
+  labels_visible:
+    - sign: "MISTAKES THEY KEEP MAKING"
+      location: left section
+      condition: overstuffed, sagging slightly
+      meaning: "The documentation of repeated errors"
+      humor: "Still being added to"
+      
+    - sign: "MUD ERA"
+      location: right section
+      meaning: "Historical archives, the founding documents"
+      
+  organization:
+    - dense, scholarly
+    - varied heights and colors
+    - some areas more worn than others
+    
+  lighting:
+    - warm amber from above
+    - golden pools between sections
+    - dramatic shadows adding depth
+
+# ENVIRONMENT
+
+environment:
+  location: "The Library" — expanded/idealized study
+  scale: museum/cathedral rather than home office
+  
+  architectural_elements:
+    - floor: polished wood
+    - ceiling: implied high above
+    - brass rails: between sections
+    
+  atmosphere:
+    - reverent
+    - overwhelming
+    - temple of knowledge
+
+# COLOR PALETTE
+
+palette:
+  dominant:
+    - { color: mahogany brown, hex: "#8B4513", usage: shelves, wood }
+    - { color: golden amber, hex: "#DAA520", usage: lighting }
+    - { color: deep burgundy, hex: "#722F37", usage: book spines }
+    
+  accent:
+    - { color: cream, hex: "#FFFDD0", usage: label signs }
+    - { color: blue, hex: "#4169E1", usage: character clothing }
+    - { color: bronze-green, hex: "#7B8B6F", usage: dragon patina }
+
+# COMPOSITION
+
+composition:
+  style: Pixar animation, wide establishing shot
+  
+  perspective: 
+    type: extreme low angle, looking up
+    effect: makes shelves feel infinite
+    
+  scale_contrast:
+    shelves: massive, overwhelming
+    humans: small, ant-like
+    message: "Knowledge is vast; we are humbled"
+    
+  depth:
+    - foreground: two delighted figures
+    - midground: slim figure, dragon
+    - background: towering shelves receding
+    
+  leading_lines: 
+    - vertical shelf edges draw eye up
+    - floor pattern creates depth
+
+# ART HISTORICAL REFERENCES
+
+historical_references:
+  - reference: "Library of Congress / Trinity College Dublin"
+    connection: towering scholarly architecture
+    specific: Long Room aesthetic
+    
+  - reference: "Monsters Inc. door warehouse"
+    connection: Pixar infinite scale, overwhelming collection
+    specific: "That vertigo of too-many-things"
+    
+  - reference: "Beauty and the Beast library"
+    connection: Disney scale, reader's paradise
+    
+  - reference: "Borges' Library of Babel"
+    connection: infinite repository of knowledge
+    literary: "hexagonal galleries, incomprehensible"
+    
+  - reference: "German Romantic paintings"
+    connection: tiny humans dwarfed by architecture
+    artists: [Caspar David Friedrich]
+
+# EMOTIONAL RESONANCE
+
+emotional:
+  primary_mood: awe, overwhelm, bibliophile joy
+  secondary: humility, aspiration, lifetime-not-enough
+  
+  viewer_response:
+    immediate: "I want to go there"
+    deeper: "I could never read all of this"
+    resolution: "And that's okay — it's here"
+    
+  character_emotions:
+    raised_arms_figure: "LOOK AT ALL OF THIS!"
+    wide_arms_figure: "I want to embrace it all!"
+    back_turned_figure: "Let me just... absorb this"
+
+# SYMBOLIC ELEMENTS
+
+symbolism:
+  mistakes_section:
+    meaning: "We document our errors to learn from them"
+    humor: "It's the biggest section"
+    wisdom: "Failure is the largest teacher"
+    
+  mud_era_section:
+    meaning: "Foundation, history, where it all began"
+    
+  cathedral_scale:
+    meaning: "Knowledge as sacred"
+    implication: "This study is a temple"
+    
+  dragon_as_guardian:
+    meaning: "Ancient wisdom watches over collection"
+    
+  tiny_humans:
+    meaning: "We are small; knowledge is vast"
+    comfort: "But we are welcome here"
+
+# NARRATIVE MOMENT
+
+narrative:
+  moment: "First-time visitors enter the library"
+  
+  implied_dialogue: |
+    Figure 1: "I knew he had books but THIS—"
+    Figure 2: "LOOK AT THE MISTAKES SECTION!"
+    Figure 3: (silently processing)
+    Heuristic: *satisfied dragon smile*
+    
+  caption_suggestion: |
+    "The 'Mistakes They Keep Making' section
+    needs a bigger shelf. Again."
+
+# TECHNICAL NOTES
+
+technical:
+  generation_model: Google Imagen 4
+  prompt_adherence: 0.9
+  
+  notable_achievements:
+    - "LABELS RENDERED! 'Mistakes They Keep Making' readable!"
+    - "MUD ERA section labeled correctly"
+    - "Cathedral scale achieved beautifully"
+    - "Pixar character style consistent"
+    - "Dragon placement perfect"
+    
+  humor_success:
+    - "The sagging 'Mistakes' shelf — *chef's kiss*"
+    - "Character poses convey perfect reactions"
+    
+  standout: |
+    The text rendering of shelf labels is rare for image models.
+    This image succeeded where many would fail.

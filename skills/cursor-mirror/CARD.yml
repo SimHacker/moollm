@@ -213,8 +213,31 @@ script:
 familiar:
   name: "Cursor"
   emoji: "🔮"
-  file: I-BEAM-CHARACTER.yml
+  file: characters/I-BEAM-CHARACTER.yml
   invocation: ["Cursor, [question]", "🔮 [question]"]
+
+# OUTPUTS — What cursor-mirror produces
+
+outputs:
+  config_dir: ".moollm/skills/cursor-mirror/"
+  
+  probe_cache:
+    path: ".moollm/skills/cursor-mirror/probe-cache.yml"
+    generates: "cursor-mirror status --yaml"
+    note: "Cached status for fast boot"
+    
+  exports:
+    transcripts: ".moollm/skills/cursor-mirror/transcripts/*.md"
+    galleries: ".moollm/skills/cursor-mirror/galleries/*.md"
+    indexes: ".moollm/skills/cursor-mirror/index/"
+    
+  formats:
+    - text    # Human-readable tables (default)
+    - json    # Compact JSON for APIs
+    - jsonl   # JSON Lines for streaming
+    - yaml    # YAML Jazz for configs
+    - csv     # Spreadsheets (union of all keys)
+    - md      # Smart markdown (tables + outlines)
 
 # TOOLS
 
@@ -222,19 +245,173 @@ tools:
   required: [read_file, terminal]
   optional: [grep, glob]
 
-# DOCUMENTATION POINTERS
+# DATA SOURCES — Where Cursor stores everything
+# See storage/*.yml for platform-specific paths
 
-documentation:
-  SKILL.md:
-    - "§ Quick Start — essential commands"
-    - "§ Reference Shortcuts — @1, w3.c2, name fragments"
-    - "§ Command Categories — organized by function"
-    - "§ Optimizing the Kernel/Cursor Driver"
-    - "§ Data Sources — database paths and keys"
-    - "§ Integration Points — bootstrap, working-set"
-  files:
-    - DATA-SCHEMAS.yml      # state.vscdb JSON schemas
-    - DOTCURSOR-SCHEMAS.yml # ~/.cursor data formats
-    - KEY-CATALOG.yml       # Complete key inventory
-    - MAC-STORAGE.yml       # macOS paths
-    - I-BEAM-CHARACTER.yml  # Cursor familiar
+data_sources:
+  # Application Support (structured SQLite)
+  app_support:
+    macos: "~/Library/Application Support/Cursor/"
+    linux: "~/.config/Cursor/"
+    windows: "%APPDATA%\\Cursor\\"
+    
+    databases:
+      global:
+        path: "User/globalStorage/state.vscdb"
+        size: "~9 GB"
+        tables:
+          cursorDiskKV:              # Primary chat storage
+            keys:
+              - "bubbleId:*:*"       # Chat messages (50k+ keys)
+              - "agentKv:*:*"        # Tool results cache (25k+ keys)
+              - "checkpointId:*:*"   # File snapshots (10k+ keys)
+              - "messageRequestContext:*:*"  # Context assembly
+          ItemTable:                 # Config and state
+            keys:
+              - "cursorai/*"         # Server config, feature flags
+              - "mcpService.*"       # MCP server registry
+              - "aiCodeTracking*"    # AI attribution data
+              
+      workspace:
+        pattern: "User/workspaceStorage/<hash>/state.vscdb"
+        contains:
+          - "composer.composerData"  # Conversation metadata
+          - "aiService.prompts"      # Prompt history
+          - "aiService.generations"  # Generation log
+          - "history.entries"        # Editor history
+          
+    indexing:
+      pattern: "User/workspaceStorage/<hash>/anysphere.cursor-retrieval/"
+      files:
+        - "embeddable_files.txt"              # Files sent to embedding server
+        - "high_level_folder_description.txt" # Important paths for retrieval
+        
+    images:
+      pattern: "User/workspaceStorage/<hash>/images/*.png"
+      note: "Cached images from chats — findable via IMAGE-GALLERY"
+
+  # ~/.cursor (plaintext projects data)
+  dotcursor:
+    path: "~/.cursor/"
+    
+    config:
+      - "argv.json"           # CLI args, crash reporter
+      - "mcp.json"            # Global MCP server definitions
+      - "settings.json"       # Terminal profiles
+      - "ide_state.json"      # Cross-workspace MRU
+      
+    ai_tracking:
+      path: "ai-tracking/ai-code-tracking.db"
+      size: "~80 MB"
+      tables:
+        - "ai_code_hashes"    # 274k+ rows — every AI-generated line
+        - "scored_commits"    # Git commits with AI attribution %
+        - "tracking_state"    # Tracking start time
+        
+    extensions:
+      path: "extensions/"
+      size: "~1.3 GB"
+      manifest: "extensions/extensions.json"
+      pattern: "extensions/<publisher>.<name>-<version>[-<platform>]/"
+      
+    projects:
+      pattern: "projects/<workspace-path-dashed>/"
+      contents:
+        agent_transcripts:
+          pattern: "agent-transcripts/<composer-uuid>.txt"
+          note: "REAL-TIME plaintext transcripts — updated as you chat!"
+          format: |
+            user:
+            <user_query>prompt</user_query>
+            
+            assistant:
+            [Thinking] reasoning...
+            [Tool call] ToolName
+            [Tool result] output...
+            
+        agent_tools:
+          pattern: "agent-tools/<uuid>.txt"
+          note: "Cached tool outputs"
+          
+        terminals:
+          pattern: "terminals/<id>.txt"
+          note: "Terminal state snapshots (ext-* = external terminals)"
+          format: |
+            ---
+            pid: 12345
+            cwd: /path/to/dir
+            last_command: ls -la
+            ---
+            ...output...
+            
+        mcps:
+          pattern: "mcps/<server-name>/tools/<tool>.json"
+          note: "MCP tool schemas per server"
+
+  # Key patterns for SQL queries
+  key_patterns:
+    bubbles: "bubbleId:<composerId>:<messageId>"
+    tools: "agentKv:<composerId>:<toolCallId>"
+    checkpoints: "checkpointId:<uuid>:<filePath>"
+    context: "messageRequestContext:<composerId>:<messageId>"
+
+# DOCUMENTATION — Organized by purpose
+
+files:
+  # Core (always read)
+  core:
+    - CARD.yml       # This file — sniffable interface
+    - SKILL.md       # Full protocol, command reference, K-REF format
+    - README.md      # Landing page for humans, I-Beam familiar docs
+    
+  # Sister script
+  script:
+    - cursor_mirror.py  # 59 commands, ~9800 lines, Python 3.8+
+    
+  # Reference docs — technical schemas and catalogs
+  reference/:
+    DATA-SCHEMAS.yml:       # bubble, composer, tool_call, context schemas
+      contents: [bubble, composer, prompt, generation, tool_call, context]
+      size: "700+ lines"
+    DOTCURSOR-SCHEMAS.yml:  # ~/.cursor JSON formats
+      contents: [ai_code_hashes, agent_transcript, mcp_cache]
+    KEY-CATALOG.yml:        # Complete cursorDiskKV + ItemTable inventory
+      contents: [bubbleId, agentKv, checkpointId, aiCodeTracking, ...]
+      total_keys: "102,724 documented"
+    TOOLS-CATALOG.yml:      # All 29 Cursor agent tools with schemas
+      contents: [read_file, write, search_replace, grep, mcp_*, ...]
+      total_calls_analyzed: "19,789"
+    MODELS.yml:             # AI model registry and routing
+    ORCHESTRATION.yml:      # Feature flags, server limits, config cache
+    CURSOR-EXTENSIONS.yml:  # Extension inventory and paths
+    EXTERNAL-SERVICES.yml:  # API endpoints (repo42, etc.)
+    NATIVE-MODULES.yml:     # Node.js native module inventory
+    
+  # Storage paths — platform-specific locations
+  storage/:
+    MAC-STORAGE.yml:        # ~/Library/Application Support/Cursor/
+    LINUX-STORAGE.yml:      # ~/.config/Cursor/
+    WINDOWS-STORAGE.yml:    # %APPDATA%\Cursor\
+    DOTCURSOR-STORAGE.yml:  # ~/.cursor/ (cross-platform)
+    MAC-CURSOR-APP.yml:     # /Applications/Cursor.app bundle
+    
+  # Config templates — copy and customize
+  templates/:
+    cursor_mirror_config.yml:  # Default configuration
+    default-ignore.yml:        # Paths/patterns to skip in scans
+    snitch-ignore.yml:         # Security scanner false positive filters
+    
+  # Examples — reference patterns
+  examples/:
+    patterns.yml:           # Audit pattern definitions (regex, glob, literal)
+    
+  # Character definitions
+  characters/:
+    I-BEAM-CHARACTER.yml:   # I-Beam familiar — 826 lines of personality
+      methods: [EXPLAIN, PROBE, ANALYZE, TRACE, SEARCH, REMEMBER, REFLECT, TEACH]
+      clippy_disasters: 12  # Why Clippy is unavailable
+      
+  # Gallery
+  gallery/:
+    IMAGE-GALLERY.md:       # Curated gallery of 25+ session images
+      categories: [Sims Code, MOOLLM Diagrams, People, Infrastructure, DevTools]

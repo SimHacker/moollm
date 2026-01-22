@@ -129,3 +129,62 @@ pr_archaeology:
     - cmd: "git log --merges --grep='#123'"
       note: "Find merge commit for PR"
   use_for: "Understanding why code exists, tracing decisions"
+
+# CONTEXT GATHERING — Get commit and PR history for writing new messages
+context_gathering:
+  description: "Dump recent history for context when writing commits/PRs"
+  
+  commit_messages:
+    description: "Recent commit messages for style matching"
+    commands:
+      - cmd: "git log --oneline -20"
+        note: "Last 20 commits, one line each"
+      - cmd: "git log --format='%s' -20"
+        note: "Just subjects"
+      - cmd: "git log --format='%B' -5"
+        note: "Full messages, last 5"
+      - cmd: "git log <base>..HEAD --oneline"
+        note: "Commits in this branch"
+      - cmd: "git log origin/main..HEAD --format='%s%n%b%n---'"
+        note: "Branch commits with full body"
+    use_for: "Match commit style, avoid repetition, understand recent work"
+    
+  pr_messages:
+    description: "PR descriptions for context"
+    commands:
+      - cmd: "gh pr view --json title,body"
+        note: "Current PR title and body"
+      - cmd: "gh pr list --state open --json number,title,body"
+        note: "All open PRs"
+      - cmd: "gh pr list --state merged -L 10 --json number,title,body"
+        note: "Recent merged PRs"
+      - cmd: "gh pr view <num> --json title,body,commits"
+        note: "Specific PR with commits"
+    use_for: "Match PR style, see what's already documented"
+    
+  combined_context:
+    description: "Get both for comprehensive context"
+    commands:
+      - cmd: |
+          echo "=== RECENT COMMITS ===" && \
+          git log origin/main..HEAD --oneline && \
+          echo && echo "=== BRANCH DIFF STATS ===" && \
+          git diff origin/main --stat | tail -5
+        note: "Commits + file change summary"
+      - cmd: |
+          echo "=== COMMITS ===" && \
+          git log --format='%h %s' -10 && \
+          echo && echo "=== OPEN PRs ===" && \
+          gh pr list --state open --json number,title -q '.[] | "#\(.number) \(.title)"'
+        note: "Recent commits + open PRs"
+    use_for: "Full picture before writing commit/PR message"
+    
+  style_examples:
+    description: "Find exemplary messages to emulate"
+    commands:
+      - cmd: "git log --oneline --grep='refactor' -5"
+        note: "How refactors are described"
+      - cmd: "git log --oneline --grep='fix' -5"
+        note: "How fixes are described"
+      - cmd: "gh pr list --state merged -L 5 --json title -q '.[].title'"
+        note: "Recent PR title style"

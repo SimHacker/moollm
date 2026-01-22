@@ -1,0 +1,191 @@
+# Frame 02: The Invitation
+# "One gestures toward the building, the other hesitates"
+#
+# PREVIOUS CONTEXT:
+# - Frame 01 Take 1: Camera glitched (ACME proximity interference)
+# - Frame 01 Take 2: Clear shot — two figures crossing toward ACME
+#   - Don in patterned shirt, following
+#   - Instigator in dark clothes, pointing
+#   - ACME SURPLUS visible, CLOSED sign, painted tunnel glowing
+#
+# NOW: They've reached the sidewalk. Decision point.
+
+frame:
+  number: 2
+  name: "invitation"
+  title: "The Invitation"
+  timestamp: "2026-01-22T23:08:15Z"
+  
+  previous_context:
+    frame_01_take_1: "Camera interference — ACME proximity field active"
+    frame_01_take_2: "Clear shot of two figures crossing street"
+    don_status: "Following, curious, unwarned"
+    instigator_status: "Leading, confident, pointing"
+    building_status: "Waiting. Watching. Ready."
+    donna_status: "Hand on lever console. DELIGHTED."
+    
+  narrative_beat: |
+    They've reached the sidewalk.
+    
+    The instigator turns to Don, gesturing grandly at the building.
+    "Look at this place! ACME Surplus! Abandoned for years!
+    Nobody's watching. Nobody cares. We just... go in. See what's there."
+    
+    Don looks at the building. The faded signs. The painted tunnel.
+    The "CLOSED" sign that seems very emphatic.
+    
+    He looks at the instigator.
+    He looks at his patterned shirt.
+    He thinks about how this seems like a GREAT adventure.
+    
+    "...Is there a plan?"
+    
+    "The plan is we GO IN."
+    
+    Don looks at the painted tunnel again. It seems to... shimmer.
+    
+    "What's that tunnel thing?"
+    
+    "Decoration. Optical illusion. Very vintage."
+    
+    In the basement, Donna chuckles.
+    "Oh honey. You wish it was just decoration."
+    
+  scene_description: |
+    CAMERA: ACM1, same angle but they're now ON the sidewalk
+    TIME: 33 seconds after Frame 01 Take 2
+    
+    THE FIGURES — NOW IN FRONT OF BUILDING:
+    
+    THE INSTIGATOR:
+    - Standing near the entrance, turned toward Don
+    - One arm extended toward the building in grand gesture
+    - Body language: "Look at this treasure! It's OURS!"
+    - Face possibly visible now (closer to camera)
+    
+    DON:
+    - Slightly back, looking at the building
+    - Head tilted — examining the painted tunnel
+    - Patterned shirt clearly visible in building's ambient light
+    - Body language: considering, curious, not quite convinced
+    - Glasses reflecting the tunnel's strange glow
+    
+    THE BUILDING:
+    - Closer now, more detail visible
+    - The "CLOSED" sign very prominent
+    - The painted tunnel DOMINATES — that hexagonal depth
+    - Dark windows, but is something moving inside?
+    - The streetlight catches the "EVERYTHING MUST GO" banner
+    
+    THE TUNNEL:
+    - From this angle, it looks even MORE like a real passage
+    - The depth perspective is hypnotic
+    - Is it... glowing? Or is that just the streetlight?
+    - Don is STARING at it
+    
+    DETAILS:
+    - A rat crossing the sidewalk (ACME wildlife)
+    - Shadows from the figures cast long on building facade
+    - The chain-link fence continues to the right
+    - Maybe a flicker in one of the dark windows?
+    
+  camera_metadata:
+    id: ACM1
+    timestamp: "ACM1 — 2026-01-22 — 23:08:15"
+    motion_tracking: "LOCKED ON — two subjects, sidewalk level"
+    
+  characters_visible:
+    the_instigator:
+      position: "On sidewalk, near entrance, turned toward Don"
+      posture: "Grand gesture — presenting the building"
+      expression: "Eager, confident, possibly reckless"
+      dialogue_implied: "Come on, it'll be amazing!"
+      
+    don_hopkins:
+      position: "On sidewalk, slightly back from instigator"
+      posture: "Examining, considering, head tilted"
+      focus: "THE PAINTED TUNNEL — can't stop looking at it"
+      expression: "Curious but... is that hesitation?"
+      dialogue_implied: "What's that tunnel thing?"
+      
+  donna_status:
+    location: "Basement control room"
+    monitors: "ACM1 feed, also internal cameras (dark but ready)"
+    action: "Fingers drumming on console. Anticipating."
+    
+    commentary: |
+      "Look at Fancy Shirt over there. Staring at my tunnel.
+       
+       Does he SENSE something? Most people don't even notice it.
+       But he's STARING. Like he can feel it staring BACK.
+       
+       Smart instincts. Terrible friends.
+       
+       Mr. Grand Gesture over there has no IDEA what he's leading
+       his buddy into. But Fancy Shirt... he feels it.
+       
+       This is going to be INTERESTING.
+       
+       ...
+       
+       Oh look, he's going to follow anyway. EXCELLENT."
+       
+    nickname_update:
+      don: "Fancy Shirt Freddy? No... Tunnel-Watcher Tim? He SEES things."
+      instigator: "Gesture Gary. Final answer. That arm wave was TREMENDOUS."
+      
+  visual_style: |
+    Same surveillance aesthetic, but CLOSER.
+    
+    The figures are on the sidewalk now — larger in frame.
+    The building looms behind them. The tunnel dominates.
+    
+    LIGHTING:
+    - Sodium streetlight still primary
+    - But now building's ambient light adds detail
+    - The tunnel catches light in an impossible way
+    - Don's glasses reflect SOMETHING (the tunnel?)
+    
+    COMPOSITION:
+    - Two figures frame the entrance
+    - The tunnel is positioned like a third character
+    - The "CLOSED" sign acts as visual warning
+    - Shadows on the building tell a story
+    
+    GRAIN/ARTIFACTS:
+    - Still surveillance aesthetic
+    - But cleaner than take 1 — camera has stabilized
+    - Maybe a slight flicker at the tunnel? (ACME interference)
+    
+  narrative_moment:
+    just_before: "They crossed the street. The camera followed. Donna waited."
+    right_now: "The invitation. The choice. The point of no return approaching."
+    just_after: "Don will say yes. They will approach the door."
+    always: "Every heist has a moment where someone should say 'maybe not.'"
+    
+  foreshadowing:
+    - "Don is staring at the tunnel. The tunnel is staring back."
+    - "The 'CLOSED' sign is a warning they're about to ignore."
+    - "Something might be moving in those dark windows."
+    - "Donna's fingers are on the levers."
+    - "The rat knows something. It's leaving."
+
+# CONTEXT FOR FRAME 03
+context_for_frame_03:
+  accumulated:
+    - "Camera glitch → clear shot → now at sidewalk"
+    - "Instigator gesturing grandly at building"
+    - "Don examining the painted tunnel with unusual attention"
+    - "Building waiting: CLOSED sign, dark windows, tunnel glowing"
+    - "Donna ready: hand on levers, nicknames assigned"
+    
+  what_happens_next: |
+    The decision is made. They approach the door.
+    
+    Will they:
+    - Try the front door? (ANVIL TRAP)
+    - Go for the side window? (ROCKET SKATES)
+    - Notice the "DO NOT ENTER" signs?
+    - Actually READ the CLOSED sign?
+    
+    Frame 03: "The Entry" — they try to get in.

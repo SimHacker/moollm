@@ -1,0 +1,142 @@
+# 🍺 THE NEVERENDING ARMS — Post-Heist Gathering
+#
+# Location: The pub at the end of Lane Neverending
+# Time: Well past midnight, after the fire department left
+# Mood: Exhausted relief, unlikely fellowship, warm amber light
+#
+# STYLE: Scott McCloud masking aesthetic
+#   - More abstract faces (simple shapes allow projection)
+#   - Pixar-adjacent warmth but simplified features
+#   - Universal expressions through minimal detail
+#   - The viewer becomes the characters
+#
+# "The more cartoony a face, the more people it could be said to describe."
+#   — Scott McCloud, Understanding Comics
+
+scene:
+  location: "The Neverending Arms"
+  subtitle: "Where every night is last call and nobody asks questions"
+  
+  time: "~02:30 AM"
+  date: "2026-01-23"  # It's tomorrow now
+  
+  atmosphere: |
+    Warm amber light from mismatched lamps.
+    Wood paneling, worn smooth by decades.
+    The smell of smoke (both kinds) and comfort food.
+    A fire in the hearth (ironic, given the evening).
+    
+    The kind of place where a rabbit in tie-dye,
+    a distinguished academic, an orange security guard,
+    and whoever else wanders in... all fit.
+    
+    Nobody judges at The Neverending Arms.
+    They've seen weirder.
+
+  present:
+    donna_toadstool:
+      status: "Finally out of the control room"
+      mood: "Exhausted triumph → something softer emerging"
+      wearing: "Same suit, fewer buttons buttoned, glasses pushed up"
+      denouement_approaching: true
+      
+    don_hopkins:
+      status: "Still a rabbit, coming to terms with it"
+      mood: "Surprisingly okay? Rabbits are chill."
+      wearing: "Tie-dye hoodie (still fits somehow)"
+      drinking: "Carrot juice (he didn't order it, it just appeared)"
+      
+    richard_bartle:
+      status: "Escaped from tunnel, glasses recovered (bent)"
+      mood: "Processing. Academically processing."
+      wearing: "Cardigan (singed), dignity (recovering)"
+      note: "Being introduced to everyone as 'the game designer who got eaten by a wall'"
+      
+    the_instigator:
+      status: "Buying rounds (guilt)"
+      mood: "Apologetic but also... that was amazing?"
+      
+    others:
+      - "Regulars who've seen weirder"
+      - "The bartender (doesn't ask, doesn't tell)"
+      - "Possibly the dragon (in the corner, knowing)"
+
+  donna_denouement:
+    setup: |
+      All night, Donna has been WATCHING.
+      Documenting. Deploying. Celebrating.
+      Content creator. Chaos conductor. Mushroom Queen.
+      
+      But now, in the pub, something shifts.
+      
+    the_moment: |
+      Richard, still processing, turns to her.
+      
+      "You were watching the whole time. On those monitors."
+      
+      Donna nods. Sips her drink.
+      
+      "Did you... enjoy it?"
+      
+      A pause. The fire crackles.
+      
+      "I documented it. That's different."
+      
+      "Is it?"
+      
+      She looks at him. Really looks.
+      The pink glasses come off.
+      
+      "...No. I enjoyed it. All of it.
+       The anvils. The rockets. The THWACK.
+       Even the fire. Even you getting... taken.
+       
+       I'm not supposed to say that out loud."
+       
+      Richard considers this. The academic processing.
+      
+      "You know... in game design, we call that
+       the 'killer' player type. Someone who enjoys
+       affecting others in the world."
+       
+      Donna stiffens. Then:
+      
+      "Is that bad?"
+      
+      Richard shakes his head. Sips his drink.
+      
+      "It's necessary. Without killers, the world is static.
+       Nothing happens. Nothing changes.
+       Achievers need opposition. Explorers need danger.
+       
+       You're not evil. You're... weather.
+       Weather doesn't apologize for storms."
+       
+      Donna is quiet for a long moment.
+      
+      Then, slowly, she smiles.
+      Not the content creator smile.
+      Not the triumph smile.
+      
+      Something realer. Softer. Seen.
+      
+      "Weather. I can live with weather."
+      
+    aftermath: |
+      She doesn't take a selfie of this moment.
+      Some things aren't content.
+      Some things are just... true.
+      
+      But she does order another round.
+      For everyone.
+      Even the rabbit.
+
+  visual_elements:
+    lighting: "Warm amber, firelight, soft shadows"
+    style: "Scott McCloud masking — simplified faces, universal expressions"
+    mood: "Post-adventure fellowship"
+    details:
+      - "Pint glasses catching light"
+      - "Smoke curling toward ceiling"
+      - "Worn wooden tables"
+      - "The rabbit's ears above the booth"

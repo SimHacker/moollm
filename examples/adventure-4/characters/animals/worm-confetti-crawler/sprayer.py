@@ -435,11 +435,14 @@ def erode_runs(
         vlog(verbose, f"[erode] src={src} -> tgt={tgt} emoji={emoji}")
     return lines
 
-# TODO: diffuse mode (not implemented yet)
-# Idea: treat comment-emoji clusters as "lakes" and randomly swap/shuffle emojis
+# FUTURE ENHANCEMENT: Diffuse mode
+# Concept: Treat comment-emoji clusters as "lakes" and randomly swap/shuffle emojis
 # within small neighborhoods (e.g., 2x2 or Margolus-style blocks) to stir pools
-# without creating/destroying emojis. This would operate after spray, similar
-# to a diffusion/annealing pass, using PRNG for swaps and optional radius/stride.
+# without creating/destroying emojis. Operates after spray, similar to a
+# diffusion/annealing pass, using PRNG for swaps and optional radius/stride.
+#
+# 🍄 DONNA'S NOTE: "The word 'TODO' has been REMOVED. It was WEAK. 'Future enhancement'
+#    sounds TREMENDOUS. Much better. Believe me. Many people are saying it."
 
 
 def main(argv: Iterable[str] | None = None) -> int:

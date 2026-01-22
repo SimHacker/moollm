@@ -1,0 +1,43 @@
+# Sidecar for frame-05-deeper-imagen4.png
+# Generated: 2026-01-22T04:02:02.024077
+#
+# This file is a regenerable recipe. Edit and re-run:
+#   visualize.py regenerate frame-05-deeper-imagen4.yml
+#
+
+# === SOURCES ===
+# Reference paths to context files (not embedded)
+sources:
+  - examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/frame-05-deeper.yml
+
+# === GENERATION PARAMETERS ===
+generation:
+  provider: google
+  model: imagen-4.0-generate-001
+  size: 1024x1024
+  verbosity: normal
+  generated_at: 2026-01-22T04:02:02.024077
+
+# === SYNTHESIZED PROMPT ===
+# Edit this to regenerate with tweaks!
+prompt: |
+  Night surveillance camera footage of ACME SURPLUS storefront. Pixar-adjacent stylized CGI with security camera aesthetic — timestamp overlay, slight grain, wide angle.
+  
+  EXTERIOR: Building facade with painted checkered perspective tunnels on BOTH SIDES of the entrance, slightly GLOWING with eerie light. "ACME SURPLUS" sign lit. Street visible in foreground.
+  
+  THROUGH THE WINDOWS — THE MAIN ACTION:
+  Interior chaos visible through large front windows. A CONVEYOR BELT is RUNNING — industrial orange/metal, boxes moving along it. ONE FIGURE is ON the conveyor belt, being carried toward the back of the warehouse, arms flailing.
+  
+  SECOND FIGURE (Don in colorful jacket) visible deeper inside, arms raised in alarm, watching his friend get conveyed away.
+  
+  SHELVES with ACME boxes visible. Some products FALLING. Industrial lighting FLICKERING dramatically.
+  
+  LIGHTING: Night exterior, sodium streetlight amber. Interior bright through windows, industrial fixtures, some flickering.
+  
+  MOOD: The heist has become a RIDE. Chaos glimpsed through windows. The building is ACTIVE.
+  
+  Style: Security footage aesthetic, surveillance voyeurism, watching something go wrong from across the street.
+
+# === ADDITIONAL METADATA ===
+provider: google
+model: imagen-4.0-generate-001

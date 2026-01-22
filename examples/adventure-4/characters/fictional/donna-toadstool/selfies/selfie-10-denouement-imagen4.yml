@@ -1,0 +1,44 @@
+# Sidecar for selfie-10-denouement-imagen4.png
+# Generated: 2026-01-22T04:22:01.272313
+#
+# This file is a regenerable recipe. Edit and re-run:
+#   visualize.py regenerate selfie-10-denouement-imagen4.yml
+#
+
+# === SOURCES ===
+# Reference paths to context files (not embedded)
+sources:
+  - examples/adventure-4/characters/fictional/donna-toadstool/selfies/selfie-10-denouement.yml
+
+# === GENERATION PARAMETERS ===
+generation:
+  provider: google
+  model: imagen-4.0-generate-001
+  size: 1024x1024
+  verbosity: normal
+  generated_at: 2026-01-22T04:22:01.272313
+
+# === SYNTHESIZED PROMPT ===
+# Edit this to regenerate with tweaks!
+prompt: |
+  Abstract Pixar-adjacent stylized CGI with Scott McCloud masking aesthetic — simplified features, warm shapes, emotion through abstraction.
+  
+  INTIMATE PUB SELFIE. Orange-skinned character with blonde pompadour, but DIFFERENT from before:
+  - Pink heart glasses PUSHED UP on forehead or set aside on table
+  - Expression: GENUINE, SOFT, slightly uncertain — a real smile, not a performance
+  - Eyes visible without glasses — slightly vulnerable
+  - Pose: Not performing. Just being. Quiet moment.
+  
+  BACKGROUND: Warm pub interior, out of focus. Amber glow. Shapes of friends at the table — a rabbit ear visible, the curve of a cardigan. Firelight.
+  
+  STYLE: More abstracted than usual. Softer edges. The masking effect where simple features allow the viewer to project. This isn't content — this is a person.
+  
+  MOOD: The quiet after the storm. Being seen. Being understood. Not triumph — something deeper. Resolution.
+  
+  NO FILTERS. No sparkles. No victory pose. Just... her. In a moment she won't post. A moment that's real.
+  
+  Lighting: Warm amber, soft, intimate. The kindest light.
+
+# === ADDITIONAL METADATA ===
+provider: google
+model: imagen-4.0-generate-001

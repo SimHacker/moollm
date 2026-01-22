@@ -1,0 +1,135 @@
+# 📘 MMOs from the Inside Out
+# The Philosophy of Virtual World Design
+
+artifact:
+  name: "MMOs from the Inside Out"
+  nickname: "The Blue Book"
+  type: book
+  emoji: "📘🧠💭"
+  
+  description: |
+    If the red book is "how to build virtual worlds," this is "why to build 
+    virtual worlds." The philosophy underneath the craft.
+    
+    Not a tutorial. A meditation. Why do these spaces matter? What do they
+    do to people? What should designers be thinking about beyond mechanics?
+    
+  physical: |
+    Blue cover. Newer than the red book. Less worn — philosophy gets
+    consulted less than practical advice, which says something.
+    
+    But the annotations in this copy are deeper. More personal.
+    This is where Richard works out what he actually believes.
+
+# ADVERTISEMENT
+
+advertisement:
+  tagline: "The 'why' underneath the 'how'"
+  
+  offer: |
+    Understanding why virtual worlds matter.
+    Not just how to build them — why they're worth building.
+    What they do to the people who inhabit them.
+    
+  need_satisfied:
+    - meaning
+    - purpose
+    - philosophical_grounding
+    - design_ethics
+    
+  score_high_when:
+    - questioning the purpose of your project
+    - feeling like "just a game" isn't enough
+    - wanting to understand player experience deeply
+    - burned out on mechanics, seeking meaning
+    - asking "should we build this?"
+    
+  score_low_when:
+    - just want practical implementation advice (→ red book)
+    - not ready for philosophy yet
+    - deadline pressure — need answers not questions
+    
+  score_formula: |
+    base: 4
+    +3 if user is questioning purpose
+    +2 if user has already read the red book
+    +2 if user is designing for long-term engagement
+    +1 if user mentions "meaning" or "why"
+    -2 if user just wants quick fixes
+    -3 if user hasn't built anything yet (need red book first)
+
+# CONTENTS
+
+contents:
+  
+  chapters:
+    - "What Virtual Worlds Are"
+    - "What Virtual Worlds Mean"
+    - "The Lure of the Virtual"
+    - "Identity and Avatars"
+    - "Freedom and Control"
+    - "The Designer's Responsibility"
+    - "The Future of Virtual Worlds"
+    
+  core_questions:
+    - "What does it mean to 'live' in a virtual world?"
+    - "Who are you when you're not yourself?"
+    - "What responsibilities do world-builders have?"
+    - "Can a designed world have authentic meaning?"
+    
+  key_arguments:
+    - "Virtual worlds are real places — just not physical ones"
+    - "The avatar is not the player, but it's not NOT the player either"
+    - "Designers are architects of experience, not just systems"
+    - "Meaning emerges from player investment, not designer intention"
+
+# CONVERSATION HOOKS
+
+conversation_hooks:
+  
+  opens_discussion_of:
+    - player psychology beyond behaviorism
+    - ethics of addictive design
+    - authenticity in virtual spaces
+    - designer responsibility
+    - the future of human social life
+    
+  pairs_well_with:
+    - red-book.yml (practical counterpart)
+    - taxonomy-cards.yml (motivation framework)
+    
+  leads_to:
+    - deeper conversations about why we build
+    - questioning assumptions about "games"
+    - philosophy of identity and presence
+
+# QUOTES
+
+sample_quotes:
+  
+  on_reality: |
+    "Virtual worlds are not 'not real.' They are a different KIND of real.
+     The experiences people have in them are genuine experiences."
+     
+  on_designers: |
+    "We are not building toys. We are building places where people live
+     parts of their lives. That's a responsibility."
+     
+  on_meaning: |
+    "You cannot inject meaning into a world. You can only create the
+     conditions where meaning might emerge. Then you wait."
+     
+  on_players: |
+    "Respect your players enough to take them seriously.
+     They're not 'users.' They're inhabitants."
+
+# PROVENANCE
+
+provenance:
+  title: "MMOs from the Inside Out"
+  author: "Richard A. Bartle"
+  publisher: "Apress"
+  year: 2015
+  isbn: "978-1484217238"
+  condition: "Personal copy with philosophical annotations"
+  location: "Theory shelf in the study"

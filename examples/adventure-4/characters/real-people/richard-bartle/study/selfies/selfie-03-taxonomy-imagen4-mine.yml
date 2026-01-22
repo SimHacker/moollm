@@ -1,0 +1,231 @@
+# selfie-03-taxonomy-imagen4-mine.yml
+# Image Mining: Deep Analysis
+# Mined by: Cursor Claude Vision
+# Source: selfie-03-taxonomy-imagen4.png
+
+mining:
+  source: selfie-03-taxonomy-imagen4.png
+  depth: deep
+  mined_at: 2026-01-22T02:50:00Z
+
+# CHARACTERS
+
+characters:
+  - name: Richard Bartle  # center, holding cards
+    position: center-dominant
+    expression: proud, delighted showman
+    pose: holding four cards fanned out, presenting
+    clothing: navy blazer over white/cream shirt
+    age_apparent: 60s-70s
+    hair: silver-white, distinguished
+    confidence: 0.95
+    role_in_image: "The magician revealing his trick"
+
+  - name: Heuristic  # dragon behind Richard
+    position: right-center-back, over shoulder
+    expression: watchful, supportive
+    pose: head visible over Richard's shoulder
+    coloring: bronze-copper scales
+    eyes: amber, attentive
+    confidence: 0.9
+
+  - name: Don Hopkins  # left edge, pointing
+    position: far-left, partial view
+    expression: excited, pointing at cards
+    pose: enthusiastic gesture toward Richard
+    clothing: tan/brown jacket
+    age_apparent: 50s
+    confidence: 0.75
+    role_in_image: "The amazed audience"
+
+# THE FOUR CARDS — central subject
+
+cards:
+  - suit: spade
+    color: purple/violet
+    position: leftmost in fan
+    design: ornate flourishes, playing card style
+    bartle_type: Killer
+    meaning: "Acting ON players"
+    
+  - suit: heart
+    color: rose/pink
+    position: left-center
+    design: ornate flourishes, romantic styling
+    bartle_type: Socializer
+    meaning: "Interacting WITH players"
+    
+  - suit: diamond
+    color: sky blue
+    position: right-center
+    design: geometric patterns, crystalline
+    bartle_type: Achiever
+    meaning: "Acting ON the world"
+    
+  - suit: club
+    color: green
+    position: rightmost
+    design: organic vine patterns
+    bartle_type: Explorer
+    meaning: "Interacting WITH the world"
+
+  card_style:
+    aesthetic: tarot-meets-playing-card
+    quality: ornate, magical, significant
+    size: larger than standard (for visual impact)
+
+# ENVIRONMENT
+
+environment:
+  location: scholar's study
+  
+  bookshelves:
+    coverage: floor-to-ceiling background
+    lighting: warm amber glow
+    depth: creates scholarly atmosphere
+    
+  foreground:
+    stacked_books: visible at bottom
+    desk_edge: implied
+
+# COLOR PALETTE
+
+palette:
+  dominant:
+    - { color: warm brown, hex: "#8B4513", usage: bookshelves, background }
+    - { color: navy blue, hex: "#1E3A5F", usage: Richard's blazer }
+    - { color: cream white, hex: "#FFFDD0", usage: cards, shirt }
+    
+  card_colors:
+    - { suit: spade, hex: "#663399", name: purple }
+    - { suit: heart, hex: "#FF69B4", name: rose }
+    - { suit: diamond, hex: "#87CEEB", name: sky blue }
+    - { suit: club, hex: "#228B22", name: forest green }
+
+# COMPOSITION
+
+composition:
+  style: warm cartoon illustration, storybook quality
+  
+  focal_point: the four cards
+  focal_hierarchy:
+    1: cards (bright, centered)
+    2: Richard's face (proud presenter)
+    3: dragon (supportive presence)
+    4: Don (enthusiastic response)
+    
+  framing: portrait orientation, medium shot
+  
+  gesture_lines:
+    - Don's pointing arm → cards
+    - Richard's presenting hands → viewer
+    - Dragon's gaze → Richard
+
+# ART HISTORICAL REFERENCES
+
+historical_references:
+  - reference: "Stage magician portrait"
+    connection: presentation pose, reveal moment
+    tradition: Victorian magic posters
+    
+  - reference: "Tarot card illustration tradition"
+    connection: ornate suit symbols, mystical quality
+    artists: [Pamela Colman Smith, Lady Frieda Harris]
+    
+  - reference: "Dutch Golden Age scholars"
+    connection: warm interior, books, objects of study
+    
+  - reference: "Disney/Pixar mentor characters"
+    connection: warm, wise elder sharing knowledge
+    specific: [Carl from Up, Ego from Ratatouille]
+
+# EMOTIONAL RESONANCE
+
+emotional:
+  primary_mood: pride, revelation, teaching joy
+  secondary: wonder, appreciation, legacy
+  
+  richard_affect:
+    surface: "Look what I made"
+    depth: "This taxonomy helps people understand themselves"
+    
+  viewer_feeling: "I want to know which card I am"
+
+# SYMBOLIC ELEMENTS
+
+symbolism:
+  four_cards:
+    meaning: "Complete player psychology taxonomy"
+    significance: "Simple framework, infinite application"
+    visual_power: "Abstract concepts made tangible"
+    
+  cards_as_magic:
+    meaning: "Game design as spellcraft"
+    implication: "Understanding players is a form of magic"
+    
+  dragon_over_shoulder:
+    meaning: "Wisdom endorses this knowledge"
+    
+  don_pointing:
+    meaning: "Every student should be this excited"
+
+# NARRATIVE MOMENT
+
+narrative:
+  moment: "Richard presents the taxonomy"
+  
+  implied_dialogue: |
+    Richard: "Four simple categories. Which are you?"
+    Don: "THAT'S why I always want to explore everything!"
+    Heuristic: *nods sagely*
+    
+  educational_beat: true
+  
+  caption_suggestion: |
+    "Hearts, Clubs, Diamonds, Spades — 
+    four cards, infinite players"
+
+# BARTLE TAXONOMY METADATA
+
+bartle_taxonomy:
+  created: 1996
+  paper: "Hearts, Clubs, Diamonds, Spades: Players Who Suit MUDs"
+  
+  types:
+    killer:
+      suit: spade
+      axis: "Acting ON players"
+      joy: competition, dominance, impact
+      
+    socializer:
+      suit: heart
+      axis: "Interacting WITH players"
+      joy: connection, community, relationships
+      
+    achiever:
+      suit: diamond
+      axis: "Acting ON the world"
+      joy: goals, rewards, progression
+      
+    explorer:
+      suit: club
+      axis: "Interacting WITH the world"
+      joy: discovery, understanding, secrets
+
+# TECHNICAL NOTES
+
+technical:
+  generation_model: Google Imagen 4
+  prompt_adherence: 0.95
+  
+  notable_achievements:
+    - "Four cards rendered with distinct colors - perfect!"
+    - "Suit symbols clearly visible"
+    - "Tarot-card aesthetic achieved"
+    - "Richard's presenter pose captures the moment"
+    - "Color coordination between cards and characters"
+    
+  this_is_the_one:
+    - "Best card representation in the series"
+    - "Educational value through visual design"
+    - "Would work as actual card game box art"

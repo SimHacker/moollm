@@ -1,0 +1,40 @@
+# Sidecar for selfie-08-aftermath-gloat-imagen4.png
+# Generated: 2026-01-22T04:11:34.130873
+#
+# This file is a regenerable recipe. Edit and re-run:
+#   visualize.py regenerate selfie-08-aftermath-gloat-imagen4.yml
+#
+
+# === SOURCES ===
+# Reference paths to context files (not embedded)
+sources:
+  - examples/adventure-4/characters/fictional/donna-toadstool/selfies/selfie-08-aftermath-gloat.yml
+
+# === GENERATION PARAMETERS ===
+generation:
+  provider: google
+  model: imagen-4.0-generate-001
+  size: 1024x1024
+  verbosity: normal
+  generated_at: 2026-01-22T04:11:34.130873
+
+# === SYNTHESIZED PROMPT ===
+# Edit this to regenerate with tweaks!
+prompt: |
+  Pixar-adjacent stylized CGI selfie. Flamboyant cartoon security guard character with ORANGE skin, elaborate blonde pompadour, rotund body in navy suit with red tie, MULTIPLE MUSHROOM PINS on lapel, PINK HEART-SHAPED GLASSES.
+  
+  EXPRESSION: VICTORY POSE — double peace signs or hands raised in triumph. SMUG satisfaction. "I won" energy. Huge grin.
+  
+  BACKGROUND: Security monitors showing FIRE and CHAOS — building burning, smoke, figures outside. The control room possibly has smoke or emergency lights.
+  
+  POSE: Victory stance — peace signs, thumbs up, or "I'm #1" gesture. Maximum gloat energy.
+  
+  FILTER EFFECTS: Sparkles, celebration, possibly fire reflections.
+  
+  MOOD: TOTAL VICTORY. Mission accomplished. Best night ever. Also maybe should evacuate but first: content.
+  
+  Style: Control room in slight chaos, monitors showing the burning building, Donna completely unbothered and triumphant.
+
+# === ADDITIONAL METADATA ===
+provider: google
+model: imagen-4.0-generate-001

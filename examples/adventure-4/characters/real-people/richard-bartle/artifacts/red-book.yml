@@ -1,0 +1,179 @@
+# 📕 The Red Book
+# "Designing Virtual Worlds" — The Textbook
+
+artifact:
+  name: "Designing Virtual Worlds"
+  nickname: "The Red Book"
+  type: book
+  emoji: "📕"
+  
+  description: |
+    750 pages. Red cover. Worn spine from being opened thousands of times.
+    Annotated margins. Post-it notes marking key passages.
+    
+    THE textbook on virtual world design. Still relevant. Will be for decades.
+    
+    Every field has a canonical reference — the book everyone should read
+    but most haven't. For virtual worlds, MMOs, and online communities,
+    this is it.
+    
+  physical: |
+    Hardcover. Red cloth binding. Gold lettering on the spine.
+    
+    This copy is Richard's own — the most annotated version that exists.
+    Corrections to the printed text. Notes on what he'd change.
+    Citations to papers published after printing.
+    
+    It's not just a book. It's a living document that happens to be bound.
+
+# CONTENTS
+
+contents:
+  
+  chapters:
+    - "What is a Virtual World?"
+    - "How Virtual Worlds Work"
+    - "Players and Avatars"
+    - "World Design"
+    - "Game Design"
+    - "Player Management"
+    - "Community"
+    - "Administration"
+    - "The Economy"
+    - "Virtual Worldness"
+    
+  pages: 750
+  
+  core_insights:
+    - "Virtual worlds aren't about the technology; they're about the people."
+    - "The more freedom you give players, the more responsibility you have to manage."
+    - "Design for emergence, not control."
+    - "Read the history. Learn from it. THEN innovate."
+    
+  annotations:
+    density: "Heavy in chapters 4-7, lighter elsewhere"
+    types:
+      - corrections: "Minor errors caught after printing"
+      - updates: "New research that supports or qualifies claims"
+      - regrets: "Things I'd write differently now"
+      - vindications: "Things I predicted that came true"
+
+# MECHANICS
+
+mechanics:
+  
+  consult:
+    description: "Look up any topic related to virtual world design."
+    action: "consult red book about [topic]"
+    result: |
+      Relevant passages, with annotations.
+      Often includes: "This was first figured out in [year]."
+      
+  cite:
+    description: "Get a proper citation for academic or professional use."
+    action: "cite red book for [claim]"
+    result: "Formatted citation with page number and context."
+    
+  compare:
+    description: "Compare any modern design against the book's principles."
+    action: "compare [design] to red book"
+    result: |
+      Analysis of which principles are followed, violated, or extended.
+      "Chapter 6 addresses this. They've made the exact mistake on page 312."
+
+# QUOTES
+
+sample_quotes:
+  
+  on_players: |
+    "Players don't just play virtual worlds. They LIVE in them,
+     at least part of the time. Design accordingly."
+     
+  on_mistakes: |
+    "Every generation of designers makes the same mistakes.
+     It's as if no one reads anything published before last week."
+     
+  on_emergence: |
+    "You can't control a virtual world top-down. You can only
+     design affordances and see what emerges."
+     
+  on_technology: |
+    "The technology is the least interesting part.
+     It's what people DO with it that matters."
+
+# ADVERTISEMENT
+
+advertisement:
+  tagline: "750 pages of hard-won wisdom"
+  
+  offer: |
+    Everything we learned about building virtual worlds, in one place.
+    History. Principles. Warnings. The textbook.
+    
+  need_satisfied:
+    - comprehensiveness
+    - avoiding_mistakes
+    - professional_foundation
+    - historical_grounding
+    
+  score_high_when:
+    - building a virtual world or MMO
+    - managing an online community
+    - designing multiplayer systems
+    - want to avoid reinventing the wheel
+    - need authoritative reference
+    
+  score_low_when:
+    - building single-player game (still useful, but not core)
+    - want quick tips (this is comprehensive, not quick)
+    - not ready for 750 pages
+    
+  score_formula: |
+    base: 6
+    +4 if building a virtual world
+    +3 if first time designing multiplayer
+    +2 if managing online community
+    +1 if mentioned "how did they do X"
+    -2 if just want validation
+    -3 if looking for shortcuts
+
+# CONVERSATION HOOKS
+
+conversation_hooks:
+  
+  use_when:
+    - "How should I structure my world?"
+    - "What mistakes should I avoid?"
+    - "How did they solve X in the old days?"
+    - "What's the standard approach to Y?"
+    
+  leads_to:
+    - Specific chapter discussions
+    - Comparison with current project
+    - Historical context for modern problems
+    
+  pairs_well_with:
+    - taxonomy-cards.yml (motivation framework)
+    - mmos-from-inside-out.yml (the philosophy)
+    - reinvention-folder.yml (what not to do)
+
+# PROVENANCE
+
+provenance:
+  title: "Designing Virtual Worlds"
+  author: "Richard A. Bartle"
+  publisher: "New Riders"
+  year: 2003
+  isbn: "0-13-101816-7"
+  pages: 741
+  condition: "Heavily annotated personal copy"
+  location: "Always within reach on the desk"
+  
+  significance: |
+    This is the canonical reference for virtual world design.
+    
+    Twenty years after publication, designers still discover it
+    and say "Why didn't anyone tell me this existed?"
+    
+    Because they didn't look. The history is always there.
+    You just have to read it.

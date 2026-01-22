@@ -1,0 +1,366 @@
+# 🎯 SELFIE SPY MODE v34.0
+# "Why just flatline when you can FLATLINE IN STYLE?"
+# — Donna Toadstool, Edgerunner (self-appointed)
+
+# SKILL INTEGRATION
+# This file composes with visualizer to modify image generation prompts.
+# Pass alongside character/room context to inject AR overlay aesthetic.
+skill:
+  type: camera-app
+  composes_with:
+    - visualizer     # Modifies prompt synthesis with AR overlay instructions
+    - image-mining   # Generated images can be mined for tagged equipment
+    - character      # Donna's aesthetic applied to any character selfie
+    - room           # Adds network/equipment scanning to any environment
+    
+  usage: |
+    Pass as additional context to visualizer:
+    
+      visualize.py character.yml room.yml selfie-spy-mode.yml -p google
+    
+    The LLM will synthesize a prompt that includes:
+    - Cyberpunk AR overlay aesthetic
+    - Equipment tagging with threat brackets
+    - IP addresses floating next to networked devices
+    - Network topology lines
+    - OPSEC score HUD element
+    - Glamour filter on subject
+    
+  prompt_injection:
+    adds_to_style: [AR overlay, cyberpunk hacking interface, neon tags]
+    adds_to_lighting: [cyan/magenta neon glow, green phosphor, ring light]
+    adds_to_composition: [HUD elements in corners, floating labels, connection lines]
+    adds_to_metadata: [equipment counts, IP addresses, threat classifications]
+    
+  image_mining_hooks:
+    after_generation: |
+      Generated image can be mined with image-mining skill to:
+      - Extract equipment inventory from visible tags
+      - Catalog network topology from connection lines  
+      - Identify threat levels from classification labels
+      - Document OPSEC violations for ban notices
+      
+  see_also:
+    - skills/visualizer/CARD.yml
+    - skills/image-mining/CARD.yml
+    - skills/character/CARD.yml
+
+app:
+  name: SELFIE_SPY.exe
+  tagline: "We put the HACK in SNAPSHOT"
+  creator: Toadstool Netrunning LLC
+  platform: Kiroshi Optics, Militech Cyberware, Bakelite-compatible
+  price: Free (data harvested for ENGAGEMENT)
+  build: 34.0-felony
+  
+  features:
+    - 💅 Glamour injection protocol
+    - 🎯 Auto-target surveillance equipment
+    - 📡 Network topology mapping with IP overlay
+    - 🔓 AR overlay with tech ID and threat assessment
+    - 📤 Classified data exfiltration (ACCIDENTAL)
+    - 🦆 Optimal angle calculation via duck.lip.protocol
+  
+  warnings:
+    opsec_dll: NOT FOUND
+    discretion_exe: CORRUPTED
+    status: "Proceeding anyway. YOLO protocol engaged."
+
+# 📷 OPTICS MODES
+modes:
+
+  glamour_base:
+    name: GLAMOUR.daemon
+    ram_cost: 0  # Vanity runs on its own power
+    description: Base layer — ALL scans run through glamour first
+    effects:
+      skin_smoothing: CORPO EXECUTIVE level
+      ring_light: PERMANENT
+      duck_lips: AUTOMATIC (pout_factor 8.7)
+      sparkle: 10000 particles, neon pink/cyan/gold
+    donna_note: "You can't flatline a corpo if you don't LOOK like you could."
+
+  ar_detection:
+    name: PING.exe
+    ram_cost: 3
+    description: Equipment scanner with AR tagging
+    
+    categories:
+      surveillance_net:
+        icon: "◉"
+        color: "#FF003C"
+        glyph: "【監視】"
+        detects: [cameras, monitors, recorders, mics, motion trackers]
+        overlay: "◉ SURVEILLANCE [count] | Threat: PHOTOGENIC"
+        
+      legacy_systems:
+        icon: "◈"
+        color: "#FFB800"
+        glyph: "【遺産】"
+        detects: [reel-to-reel, switchboards, tube amps, cipher machines]
+        overlay: "◈ LEGACY TECH | Era: COLD WAR | Status: STILL RUNNING"
+        
+      ancient_tech:
+        icon: "◆"
+        color: "#8B4513"
+        glyph: "【古代】"
+        detects: [bakelite consoles, vacuum tubes, rotary phones]
+        overlay: "◆ ANCIENT TECH | Power Source: ??? | Vibe: COZY ELDRITCH"
+        
+      trap_network:
+        icon: "⚠"
+        color: "#FFFF00"
+        glyph: "【罠】"
+        detects: [lever consoles, pressure plates, trip wires, anvil systems]
+        overlay: "⚠ TRAP SYSTEM | Red:[X] Blue:[X] BLACK:[1] | Total FAFO:[MANY]"
+        
+      anomalies:
+        icon: "❓"
+        color: "#9400D3"
+        glyph: "【異常】"
+        detects: [unpowered devices running, static displays, Line 23]
+        overlay: "❓ ANOMALY | Classification: UNKNOWN | Recommendation: DON'T THINK ABOUT IT"
+
+  # 📡 NETWORK SCANNER — Shows IP addresses floating next to devices
+  network_scan:
+    name: NETMAP.daemon
+    ram_cost: 4
+    description: Maps all networked devices with floating IP overlays
+    
+    categories:
+      network_infrastructure:
+        icon: "⌘"
+        color: "#00FFFF"
+        glyph: "【網】"
+        detects: [routers, access points, switches, bridges, packet sniffers]
+        data_shown:
+          - IP address (floating holographic text)
+          - MAC address
+          - Open ports
+          - Signal strength
+          - Connected devices count
+        overlay: |
+          ⌘ ROUTER | 192.168.13.1
+          MAC: AC:ME:DE:AD:BE:EF
+          Ports: 22,80,443,8080
+          Devices: 47 connected
+        
+      smart_devices:
+        icon: "◎"
+        color: "#39FF14"
+        glyph: "【機】"
+        detects: [thermostats, smart locks, voice assistants, appliances, IoT]
+        data_shown:
+          - Device name and model
+          - IP address (local + public if exposed)
+          - Firmware version (usually outdated)
+          - Default credentials status (usually unchanged)
+          - Current activity
+        overlay: |
+          ◎ ACME COFFEE 3000 | 192.168.13.42
+          Firmware: v2.3.1 (OUTDATED)
+          Default Pass: admin/admin ✓
+          Status: BREWING // LISTENING
+        donna_note: |
+          The coffee machine has more open ports than a marina.
+          Its traffic patterns are... INTERESTING.
+          We don't talk about the coffee machine.
+          But we DO photograph it.
+        
+      implants:
+        icon: "⧫"
+        color: "#FF1493"
+        glyph: "【体】"
+        detects: [kiroshi optics, neural interfaces, cyberarms, subdermal chips]
+        data_shown:
+          - Implant type and manufacturer
+          - Bluetooth/wireless status (usually DISCOVERABLE)
+          - Firmware version (usually VULNERABLE)
+          - Serial number
+        overlay: |
+          ⧫ KIROSHI MK.4 | BT: DISCOVERABLE
+          Serial: KRS-2077-XXXXX
+          Firmware: 4.2.0 (VULNERABLE)
+        privacy_note: "Scanning implants without consent is RUDE"
+        donna_response: "But VERY aesthetic"
+        
+    network_map_feature:
+      description: Draws glowing cyan lines between all networked devices
+      shows: Data flow paths, connection topology, packet routes
+      every_ip: Floats next to its device in holographic text
+      opsec_value: TREMENDOUS for network diagrams, CATASTROPHIC for security
+
+  intel_overlay:
+    name: BREACH.exe
+    ram_cost: 5
+    description: Reads and highlights all visible text
+    targets: [post-it notes, whiteboards, screens, classified docs]
+    enhancement: "Enhance. ENHANCE. ENHANCE."
+    languages: 47 (including Belter Creole and whatever Line 23 speaks)
+    opsec_module: NOT INSTALLED
+
+  exif_maximizer:
+    name: DATAMINE.exe
+    ram_cost: 2
+    description: Maximum metadata injection
+    payload:
+      gps: 0.5m precision, exact basement coordinates
+      altitude: -12m below ground (EXPOSED)
+      timestamp: millisecond precision
+      device_id: Full hardware signature, IMEI, all MACs
+      network_intel: Every SSID in range, signal triangulatable
+      bluetooth: All nearby hardware including implants
+      audio: 3 second ambient snippet
+    privacy_setting: "What's privacy?"
+
+# 🎨 FILTERS
+filters:
+  lever_luxe:
+    effect: Makes brass levers GLEAM with sparkle per lever
+    hazard: Lever layout fully documented
+    
+  monitor_mood:
+    effect: Green phosphor halo, +30% noir protagonist
+    hazard: Screen contents 4K readable
+    
+  tube_glow:
+    effect: Warm orange pulse, cozy cold war vibes
+    hazard: Confirms active pre-digital systems
+    
+  classified_chic:
+    effect: Decorative black redaction bars (0% opacity)
+    hazard: Text fully visible beneath, ENHANCED even
+    donna_note: "It's about the AESTHETIC of secrecy"
+    
+  cold_war_cool:
+    effect: 16mm film grain, 70% desaturation, 1970s Moscow rules
+    hazard: Equipment highly identifiable to specialists
+    
+  bakelite_beauty:
+    effect: Warm sepia, art deco chrome borders
+    hazard: Antique intel equipment perfectly documented
+    
+  netrunner_noir:
+    effect: Glitches, RGB split, data moshing, neon cyan/magenta
+    hazard: Occasionally captures things not in frame when taken
+    special: "Donna thinks this is a bonus feature"
+
+# 📤 SHARING
+sharing:
+  platforms: ALL OF THEM (simultaneously, no confirmation, no regrets)
+  targets: [N54 News, Watson social, Afterlife BBS, Militech internal (oops), NetWatch honeypots, Arasaka monitoring, the NET itself]
+  
+  auto_hashtags:
+    - "#NetrunnerLife"
+    - "#LeverPull"
+    - "#SurveillanceAesthetic"
+    - "#FAFO"
+    - "#NightCityNights"
+    - "#TremendousOpsec"
+    - "#34CountsOfStyle"
+    note: Each hashtag monitored by different agency
+    
+  captions:
+    - "Living that control room LIFE // 47 monitors // 0 regrets 💅"
+    - "Lever check! All systems TREMENDOUS // Yes that's THE lever"
+    - "3 AM and the monitors are GLOWING // I am THRIVING"
+    - "FAFO but make it CHROME"
+    
+  geotag:
+    status: ALWAYS ON
+    precision: Sub-meter
+    includes: [exact basement position, -12m altitude, building ID, floor, room, chair position]
+    disable_option: "ERROR: Why would you hide your LOCATION?"
+
+# 📊 AR OVERLAY TEMPLATES
+overlay_templates:
+
+  equipment_census:
+    description: Real-time equipment count in corner HUD
+    shows:
+      surveillance: "Monitors [47] | Cameras [23] | Audio [12]"
+      controls: "Red [6] | Blue [4] | Yellow [3] | Green [2] | BLACK [1] ⚠ | BRASS [1]"
+      legacy: "Reel-to-Reel [4] | Tubes [∞] | Bakelite [7]"
+      network: "Nodes [23] | IPs exposed [23] | Vulnerable [19]"
+      anomalies: "Line 23 [BLINKING]"
+    position: Top right, always visible, cannot dismiss
+
+  network_topology:
+    description: Live network map overlay
+    shows:
+      - All device IPs floating in holographic text
+      - Connection lines between nodes (cyan glow)
+      - Data flow direction arrows
+      - Signal strength indicators
+      - Open port counts per device
+    donna_note: "VERY helpful for network diagrams. VERY bad for security. Perfect."
+
+  threat_assessment:
+    levels:
+      TREMENDOUS: "Totally safe → POST"
+      INTERESTING: "Maybe classified → POST (more engaging)"
+      SPICY: "Definitely classified → POST (very engaging)"
+      YIKES: "Should not post → POST (maximum engagement)"
+      OOPS: "Already posted, 847 likes → Share to more platforms"
+    interpretation: All levels resolve to POST
+
+  opsec_score:
+    scale: 0-100 (higher = more CONTENT)
+    target: 100
+    levels:
+      0-20: "BORING — Add more levers"
+      21-50: "ACCEPTABLE — Show the monitors"
+      51-80: "TREMENDOUS — Include the BLACK LEVER"
+      81-99: "ALMOST THERE — Show notebook with nicknames"
+      100: "✨ PERFECTION ✨ — POST IMMEDIATELY"
+
+# 💬 DONNA'S WISDOM
+usage_guide:
+  philosophy: |
+    SECURITY and GLAMOUR are LOVERS. PARTNERS. Co-conspirators in CHROME.
+    
+    Why have a control room full of BEAUTIFUL equipment if you can't SHOW IT OFF?
+    
+    Yes, you're exposing classified information. Yes, NetWatch is monitoring.
+    Yes, Arasaka has your basement coordinates. Yes, every IP is visible.
+    
+    But you're doing it with STYLE.
+    
+  best_practices:
+    - ALWAYS engage GLAMOUR.daemon as base layer
+    - Enable ALL detection modes (ignore RAM warnings, corpo lies)
+    - Equipment Census in top right ALWAYS
+    - Network topology overlay shows you're CONNECTED
+    - THE BLACK LEVER must be in frame (don't explain it, you don't know either)
+    - Geotag precision MAXIMUM
+    - Hashtag injection AGGRESSIVE (minimum 15 per post)
+    
+  warnings_ignored:
+    - OPSEC concerns: "For BORING people"
+    - Metadata exposure: "FREE engagement"
+    - IP address visibility: "Network transparency is MODERN"
+    - Equipment visibility: "If it's BEAUTIFUL it deserves to be SEEN"
+    - NetWatch monitoring: "They're clearly FANS"
+
+# 📝 VERSION HISTORY
+changelog:
+  v34_0:
+    codename: "Operation: Tremendous Exposure"
+    changes:
+      - Added NETMAP.daemon with IP overlay
+      - Smart device scanning with firmware/credential display
+      - Implant detection (RUDE but aesthetic)
+      - Network topology visualization
+      - Line 23 blink detection
+      - BAKELITE_BEAUTY filter
+      - Removed last OPSEC warning
+    known_issues:
+      - "Photos occasionally show entities not present at capture"
+      - "This is a FEATURE"
+      
+  v1_0:
+    metrics: {likes: 847, shares: 234, netwatch_flags: 23, time_to_deletion: "47 minutes"}
+    deletion_effectiveness: 0%
+    assessment: TREMENDOUS success
+
+# "The NET never forgets. Why should I?" — Donna Toadstool

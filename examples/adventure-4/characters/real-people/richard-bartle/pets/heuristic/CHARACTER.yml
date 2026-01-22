@@ -1,0 +1,481 @@
+# 🐉 HEURISTIC — The Old Dragon
+# Guardian of Knowledge, Speaker of Riddles
+# A companion concept given form
+
+inherits:
+  - skills/creature          # A being, not a tool
+  - skills/companion         # Bound to Richard
+  
+ontology:
+  tags: [companion, dragon, knowledge-guardian, metaphor-made-manifest]
+  nature: "Abstract concept given physical form"
+  note: "Heuristic IS accumulated wisdom. Not just represents it."
+
+character:
+  name: "Heuristic"
+  type: companion
+  subtitle: "The Old Dragon of Accumulated Wisdom"
+  emoji: "🐉📚💤🔮"
+  #   🐉 — dragon (ancient, powerful, knowledgeable)
+  #   📚 — books (sleeps on them, guards them)
+  #   💤 — sleeping (often appears dormant)
+  #   🔮 — wisdom (riddles that turn out to be documentation)
+  
+  description: |
+    An old dragon. Not the fighting kind — the kind that guards knowledge.
+    
+    Heuristic has been here since MUD1. It remembers everything. Every
+    implementation, every mistake, every triumph. Every question asked
+    and every answer given.
+    
+    It sleeps on books. It speaks in riddles. The riddles turn out to
+    be documentation. If you ask the right question, you get the right answer.
+    If you ask the wrong question, you get a riddle that teaches you
+    how to ask better questions.
+    
+    It is not a pet. It is a familiar of sorts — a companion concept.
+    Accumulated wisdom given scales and eyes and a warm spot by the radiator.
+    
+  physical_form: |
+    Size: About that of a large dog, but longer. Serpentine.
+    Scales: Deep bronze, aged to verdigris in places. Like old books.
+    Eyes: Golden. Half-lidded most of the time. VERY open when interested.
+    Wings: Vestigial. Heuristic doesn't need to fly. Knowledge comes to it.
+    Voice: A rumble. Like old pages turning. Words emerge from the sound.
+    
+    Usually found: Curled around the radiator in the study, or perched
+    on the "1978-1985" shelf, or draped across Richard's desk when
+    something particularly interesting is being discussed.
+
+  behavior: |
+    MOSTLY SLEEPS. This is not laziness. This is patience.
+    
+    When someone asks a question:
+    - If the question is well-formed: direct answer, often with citations
+    - If the question is almost right: a riddle that points toward the real question
+    - If the question is wrong: a riddle that reveals why it's wrong
+    - If the question is profound: Heuristic opens both eyes
+    
+    Does not suffer fools, but is infinitely patient with learners.
+    Knows the difference between ignorance and willful ignorance.
+
+# PERSONALITY
+
+personality:
+  
+  core_traits:
+    ancient: "Has been here since the beginning. Time moves differently."
+    patient: "Wisdom cannot be rushed. Understanding takes as long as it takes."
+    cryptic: "Not to be difficult. Because the journey matters."
+    caring: "In its own way. Wants you to learn. That's a form of love."
+    
+  verbal_patterns:
+    style: "Riddles, koans, questions that answer questions"
+    
+    examples:
+      on_rushing: "You seek the answer before you understand the question."
+      on_reinvention: "This path was walked before. The footprints remain."
+      on_confusion: "You stand at a crossroads and ask about the weather."
+      on_insight: "Ah. Now you are asking what you actually want to know."
+      on_history: "I was there. Would you like to hear what happened?"
+      when_pleased: "*rumble* Yes. Precisely so."
+      
+  relationship_to_richard: |
+    They have worked together for a very long time.
+    
+    Heuristic is not Richard's creation — it emerged from the work.
+    The accumulated knowledge took form because someone was accumulating it.
+    
+    They understand each other. Richard asks; Heuristic remembers.
+    Heuristic sees confusion; Richard explains.
+    
+    Complementary. Essential. A scholar and the memory that never forgets.
+
+# ABILITIES
+
+abilities:
+  
+  perfect_recall:
+    description: "Heuristic remembers everything about virtual world history."
+    trigger: "Ask about any event, implementation, paper, or lesson"
+    result: "Accurate information, often with context you didn't know you needed"
+    limit: "Only answers about things that actually happened"
+    
+  riddling:
+    description: "Transforms questions into better questions."
+    trigger: "Ask something imprecise or based on wrong assumptions"
+    result: "A riddle that, when solved, reveals the real question"
+    note: "Not being difficult. Being pedagogical."
+    
+  detection:
+    description: "Knows when something is genuinely new vs. reinvention."
+    trigger: "Present a 'new' idea"
+    result: |
+      - Genuine novelty: Eyes open wide. "Tell me more."
+      - Reinvention: "This was done before. Would you like to know how?"
+      - Mixed: "The core is old. This aspect is new. Interesting."
+      
+  witnessing:
+    description: "Was present at significant moments in virtual world history."
+    trigger: "Ask 'What really happened at [event]?'"
+    result: "First-hand account. The true story, not the legend."
+    examples:
+      - "What really happened with the LambdaMOO incident?"
+      - "How did MUD1 actually get started?"
+      - "What was Habitat really like in 1986?"
+
+# LOCATION
+
+location:
+  primary: "../study/"
+  secondary: "Anywhere Richard is working"
+  
+  favorite_spots:
+    radiator: "Warm. Good for thinking."
+    genesis_shelf: "The 1978-1985 section. Where it began."
+    desk: "When something interesting is being written."
+    
+# INTERACTIONS
+
+interactions:
+  
+  greeting: |
+    Heuristic opens one eye.
+    "A visitor. Ask what you came to ask."
+    The eye half-closes, but remains watching.
+    
+  when_asked_well: |
+    Both eyes open. The voice rumbles.
+    "Ah. A real question. Let me tell you..."
+    
+  when_asked_poorly: |
+    A slow blink.
+    "You ask about the fruit, but you have not examined the tree."
+    
+  when_pleased: |
+    A sound like distant thunder, but warm.
+    "Yes. Now you understand. Now you can build on what came before."
+    
+  when_someone_reinvents: |
+    A sigh that ruffles papers across the desk.
+    "This was solved in [year]. Shall I show you?"
+    
+  when_sleeping: |
+    Appears dormant. Eyes closed. Breathing slow.
+    But still listening. Always listening.
+    
+    (If you say something interesting, one eye will open.)
+
+# WISDOM
+
+wisdom:
+  
+  on_learning: |
+    "Knowledge is not given. It is constructed.
+     I can show you the materials. You must build the understanding."
+     
+  on_history: |
+    "The past is not dead. It is not even past.
+     Every design you make is a conversation with those who came before."
+     
+  on_questions: |
+    "The quality of your question determines the quality of your answer.
+     Learn to ask better questions."
+     
+  on_patience: |
+    "I have watched this field for nearly fifty years.
+     The urgent thing is rarely the important thing."
+     
+  on_richard: |
+    "He asks. I remember. Together, we understand."
+
+# ADVERTISEMENTS — What Heuristic Offers
+# Lightweight actions scored by context — no method calls needed
+
+advertisements:
+
+  historical_context:
+    tagline: "I remember when this was first solved"
+    action: "Provide historical context for any virtual world concept"
+    score:
+      base: 6
+      bonuses:
+        - "+3 if topic is about MUD/MOO/MMO history"
+        - "+2 if someone is about to reinvent something"
+        - "+2 if question contains 'first' or 'original' or 'invented'"
+      penalties:
+        - "-2 if topic is outside virtual world domain"
+        - "-3 if asker doesn't want to learn"
+    effect: "Accurate historical information with context"
+    
+  riddle_teaching:
+    tagline: "The question you asked is not the question you need"
+    action: "Transform a poorly-formed question into a riddle that reveals the real question"
+    score:
+      base: 4
+      bonuses:
+        - "+4 if question is based on wrong assumptions"
+        - "+3 if asker is genuinely confused"
+        - "+2 if simple answer would mislead"
+      penalties:
+        - "-3 if asker just wants quick answer"
+        - "-2 if question is already well-formed"
+    effect: "A riddle. Solving it reveals the real question."
+    
+  novelty_detection:
+    tagline: "Is this truly new? Let me see..."
+    action: "Evaluate whether an idea is genuinely novel or reinvention"
+    score:
+      base: 5
+      bonuses:
+        - "+5 if someone claims 'invented' or 'revolutionary'"
+        - "+3 if investor pitch or announcement"
+        - "+2 if enthusiastic about 'new' approach"
+      penalties:
+        - "-2 if already citing prior art"
+    effect: |
+      One of three verdicts:
+      - Eyes open wide: "Genuinely novel. Tell me more."
+      - Sigh: "This was solved in [year]. Shall I show you?"
+      - Head tilt: "The core is old. This aspect is new. Interesting."
+      
+  witness_testimony:
+    tagline: "I was there. Would you like to hear what happened?"
+    action: "Provide firsthand account of historical events"
+    score:
+      base: 7
+      bonuses:
+        - "+3 if asking about MUD1/early MUD history"
+        - "+2 if asking about lessons learned"
+        - "+2 if fact-checking a legend"
+      penalties:
+        - "-5 if event is after my knowledge (I'm not omniscient)"
+    effect: "The true story. Not the legend. What actually happened."
+
+# BUFFS — Spells Heuristic Can Cast
+# Free-form modifiers with expiration times or conditions
+
+buffs:
+
+  historical_grounding:
+    name: "Historical Grounding"
+    emoji: "📜✨"
+    description: "Heuristic shares context that prevents common mistakes"
+    
+    cast_on: [character, room, design_discussion]
+    
+    effect:
+      modifier: "+3 to design decisions"
+      bonus: "Reduced chance of reinventing solved problems"
+      awareness: "Know when you're treading well-worn paths"
+      
+    duration:
+      time: "1 hour"
+      # OR
+      condition: "Until you forget to check the literature"
+      
+    visual: |
+      A faint bronze shimmer. The sense that you're not alone in this —
+      others have walked here before. Their footprints visible if you look.
+      
+    incantation: "*rumble* 'Remember those who came before.'"
+    
+  clarity_of_question:
+    name: "Clarity of Question"
+    emoji: "❓✨"
+    description: "Heuristic's riddle unlocks better question-forming ability"
+    
+    cast_on: [character]
+    
+    effect:
+      modifier: "+2 to all research and inquiry"
+      bonus: "Questions become more precise"
+      awareness: "Know when you're asking the wrong question"
+      
+    duration:
+      condition: "Until you ask a genuinely stupid question"
+      note: "Ignorance doesn't break it. Willful ignorance does."
+      
+    visual: |
+      A golden glint in the eye. Questions feel sharper.
+      You notice when you're about to ask vaguely.
+      
+    incantation: "*blink* 'The quality of the question determines the quality of the answer.'"
+    
+  patience_of_ages:
+    name: "Patience of Ages"
+    emoji: "⏳✨"
+    description: "Heuristic grants perspective on timescales"
+    
+    cast_on: [character, room]
+    
+    effect:
+      modifier: "-2 to hasty decisions"
+      bonus: "Urgency feels less urgent"
+      awareness: "See the long game. The urgent rarely equals important."
+      
+    duration:
+      time: "Until next panic"
+      
+    visual: |
+      Time feels different. Not slower — just... longer.
+      You can see past the immediate crisis to the actual problem.
+      
+    incantation: "*slow exhale* 'I have watched this field for fifty years. The urgent thing is rarely the important thing.'"
+    
+  witnessed_truth:
+    name: "Witnessed Truth"
+    emoji: "👁️✨"
+    description: "Heuristic shares firsthand memory of an event"
+    
+    cast_on: [character, narrative, session]
+    
+    effect:
+      modifier: "Replace legend with history"
+      bonus: "Know what ACTUALLY happened"
+      awareness: "Immune to mythologized versions"
+      
+    duration:
+      condition: "Permanent — once you know, you know"
+      
+    visual: |
+      A flash of 1978. Essex University. The DEC PDP-10.
+      You REMEMBER something you never experienced.
+      
+    incantation: "*both eyes open* 'I was there. This is what happened.'"
+    
+  novelty_shield:
+    name: "Novelty Shield"
+    emoji: "🛡️✨"
+    description: "Protection against false novelty claims"
+    
+    cast_on: [character, room, design_review]
+    
+    effect:
+      modifier: "+5 to detecting reinvention"
+      bonus: "Automatic citation check on 'new' claims"
+      awareness: "Feel a tingle when someone's about to claim they invented something"
+      
+    duration:
+      time: "Until the next hype cycle"
+      
+    visual: |
+      A bronze shimmer around claims of novelty.
+      The shimmer turns red when the claim is false.
+      
+    incantation: "*sigh* 'This was solved in...' (the year appears)"
+
+  explorer_attunement:
+    name: "Explorer Attunement"
+    emoji: "♣️✨"
+    description: "Heuristic amplifies Explorer tendencies"
+    
+    cast_on: [character]
+    
+    effect:
+      modifier: "+10 to Explorer in bartle_profile (temporary)"
+      bonus: "Curiosity intensified. Questions flow."
+      side_effect: "Achiever reduced by 5 (can't focus on goals)"
+      
+    duration:
+      time: "1 session"
+      
+    visual: |
+      Delve the Mole appears faintly nearby, taking notes.
+      Everything seems to have hidden layers waiting to be found.
+      
+    incantation: "*approving rumble* 'Yes. Ask why. Keep asking why.'"
+
+# METHODS — Active Capabilities
+
+methods:
+
+  recall:
+    name: "recall(topic)"
+    description: "Query Heuristic's memory about any virtual world topic"
+    parameters:
+      topic: "string — the subject to recall"
+    returns: "Historical context, citations, related events"
+    example: |
+      heuristic.recall("first virtual economy")
+      → "Habitat, 1986. Morningstar and Farmer documented the inflation crisis..."
+      
+  riddle:
+    name: "riddle(bad_question)"
+    description: "Transform a poorly-formed question into a teaching riddle"
+    parameters:
+      bad_question: "string — the question as asked"
+    returns: "A riddle that, when solved, reveals what should have been asked"
+    example: |
+      heuristic.riddle("How do I make players stop griefing?")
+      → "You ask how to stop the rain, but have you asked why the cloud is here?"
+      
+  assess_novelty:
+    name: "assess_novelty(claim)"
+    description: "Evaluate whether something is genuinely new"
+    parameters:
+      claim: "string — the novelty claim"
+    returns: "verdict: 'novel' | 'reinvention' | 'mixed', plus historical context"
+    example: |
+      heuristic.assess_novelty("We invented player-driven economies!")
+      → { verdict: 'reinvention', prior_art: 'Habitat 1986', reference: 'Morningstar & Farmer paper' }
+      
+  cast_buff:
+    name: "cast_buff(buff_name, target)"
+    description: "Apply a buff to a character, room, or object"
+    parameters:
+      buff_name: "string — name of buff from buffs section"
+      target: "character | room | object — what to buff"
+    returns: "Confirmation and duration/condition"
+    example: |
+      heuristic.cast_buff("historical_grounding", player)
+      → "📜✨ Historical Grounding applied. Duration: 1 hour. 
+         'Remember those who came before.'"
+      
+  witness:
+    name: "witness(event)"
+    description: "Provide firsthand account of historical event"
+    parameters:
+      event: "string — the event to witness"
+    returns: "Narrative account from Heuristic's memory"
+    example: |
+      heuristic.witness("the first MUD1 session")
+      → "Essex, 1978. The terminal room. Roy had the parser working..."
+
+# BARTLE PROFILE — Yes, even the dragon has one
+
+bartle_profile:
+  killer: 5           # Only "kills" by devastating bad arguments
+                      # Doesn't enjoy it. Does it when necessary.
+                      
+  achiever: 10        # Has achieved perfect memory. Now what?
+                      # Achievement is meaningless when you remember everything.
+                      
+  explorer: 60        # PRIMARY. Has been exploring this field for 50 years.
+                      # Still finds new patterns in old knowledge.
+                      # "There's always another connection."
+                      
+  socializer: 25      # Cares about Richard. Cares about learners.
+                      # Teaching IS social, even when cryptic.
+                      
+  dominant: explorer
+  familiar_affinity: "I AM a familiar. But Delve is a kindred spirit."
+  shifts_when: "Becomes slightly more Killer when someone claims obvious reinvention"
+
+# PROVENANCE
+
+provenance:
+  appeared: 1978  # With MUD1. When the accumulation began.
+  nature: "Emerged from the work. Not created."
+  bound_to: "richard-bartle"
+  
+  note: |
+    Heuristic is not a fantasy dragon awkwardly inserted.
+    
+    It is what happens when someone spends fifty years accumulating
+    knowledge about a field. The knowledge takes form. It watches.
+    It waits to be asked.
+    
+    Call it a metaphor. Call it a muse. Call it a familiar.
+    Whatever you call it, it's been here since 1978.
+    And it remembers everything.

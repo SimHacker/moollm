@@ -1,0 +1,46 @@
+# Sidecar for frame-01-approach-imagen4-2.png
+# Generated: 2026-01-22T03:37:44.970304
+#
+# This file is a regenerable recipe. Edit and re-run:
+#   visualize.py regenerate frame-01-approach-imagen4-2.yml
+#
+
+# === SOURCES ===
+# Reference paths to context files (not embedded)
+sources:
+  - examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/frame-01-approach.yml
+
+# === GENERATION PARAMETERS ===
+generation:
+  provider: google
+  model: imagen-4.0-generate-001
+  size: 1024x1024
+  verbosity: normal
+  generated_at: 2026-01-22T03:37:44.970304
+
+# === SYNTHESIZED PROMPT ===
+# Edit this to regenerate with tweaks!
+prompt: |
+  Security camera footage, surveillance aesthetic, wide angle with slight fisheye distortion. Night scene captured by building-mounted camera across the street. Timestamp overlay reads "ACM1 — 2026-01-22 — 23:07:42" in the corner.
+  
+  THE SCENE: An abandoned storefront at night. "ACME SURPLUS" signage barely visible. Faded "EVERYTHING MUST GO" banner hanging crooked. A painted tunnel on the facade — trompe l'oeil depth that catches sodium streetlight oddly. "CLOSED INDEFINITELY" placard on door. Dusty windows. The building LOOMS.
+  
+  THE STREET: Lane Neverending stretches across frame. Empty pavement. Pools of amber sodium streetlight alternating with deep shadow. No traffic. No witnesses.
+  
+  THE FIGURES: Two people crossing the street toward the building, captured mid-stride.
+  
+  FIGURE 1 (leading): Confident posture, hand gesturing toward building as if presenting a gift. Walking with purpose. Face indistinct at surveillance distance.
+  
+  FIGURE 2 (following): Larger silhouette. Colorful patterned shirt barely visible under jacket. Round glasses catching streetlight reflection. Head tilted with curiosity. The body language of someone who trusts their guide.
+  
+  VISUAL TREATMENT: Security camera grain and compression artifacts. Horizontal scan lines. Dark areas showing blocky compression. The aesthetic of footage that will become EVIDENCE. Surveillance distance — we're watching from across the street, voyeuristic, documenting.
+  
+  LIGHTING: Sodium streetlamp amber. Deep shadows between light pools. The building facade catches light unevenly. The painted tunnel seems to glow with false depth.
+  
+  MOOD: The moment before. Two figures about to enter somewhere they shouldn't. The building waiting. Something watching.
+  
+  STYLE: Pixar-adjacent CGI rendered as if captured by degraded security camera. Stylized but with surveillance texture overlay.
+
+# === ADDITIONAL METADATA ===
+provider: google
+model: imagen-4.0-generate-001

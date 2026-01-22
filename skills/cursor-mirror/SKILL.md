@@ -10,14 +10,14 @@ author: Don Hopkins, Leela AI
 license: MIT
 state:
   creates:
-    - MAC-STORAGE.yml
-    - DATA-SCHEMAS.yml
-    - DOTCURSOR-STORAGE.yml   # ~/.cursor paths (cross-platform)
-    - DOTCURSOR-SCHEMAS.yml   # ~/.cursor data formats
-    - KEY-CATALOG.yml
-    - CURSOR-EXTENSIONS.yml
-    - EXTERNAL-SERVICES.yml
-    - MODELS.yml
+    - storage/MAC-STORAGE.yml
+    - reference/DATA-SCHEMAS.yml
+    - storage/DOTCURSOR-STORAGE.yml   # ~/.cursor paths (cross-platform)
+    - reference/DOTCURSOR-SCHEMAS.yml # ~/.cursor data formats
+    - reference/KEY-CATALOG.yml
+    - reference/CURSOR-EXTENSIONS.yml
+    - reference/EXTERNAL-SERVICES.yml
+    - reference/MODELS.yml
   scripts:
     - cursor_mirror.py  # 59-command CLI inspector (5300+ lines)
 tools:
@@ -238,7 +238,7 @@ cursor-mirror agent-transcript 9861c0a4 --prompts
 cursor-mirror mcp-tools --server cursor-ide-browser
 ```
 
-See `DOTCURSOR-STORAGE.yml` for cross-platform paths and `DOTCURSOR-SCHEMAS.yml` for data formats.
+See `storage/DOTCURSOR-STORAGE.yml` for cross-platform paths and `reference/DOTCURSOR-SCHEMAS.yml` for data formats.
 
 ---
 
