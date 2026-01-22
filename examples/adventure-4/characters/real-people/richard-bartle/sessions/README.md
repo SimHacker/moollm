@@ -26,7 +26,8 @@ flowchart TB
     subgraph DAY2["📅 January 23, 2026"]
         G["💬 06:00 — PR #111 Reveal<br/><i>Facebook: 'integrated component model'</i>"]
         H["🏠 07:00 — The Study Awakens<br/><i>Rooms can be characters</i>"]
-        G --> H
+        I["🚀 10:00 — The Study Takes Flight<br/><i>TARDIS tour of Leela</i>"]
+        G --> H --> I
     end
     
     DAY1 --> DAY2
@@ -79,6 +80,7 @@ flowchart TB
 |------|---------|---------|
 | **06:00** | [PR #111 Reveal](2026-01-23-06-00-00-pr-111-reveal.md) | Don shows Richard the completed PR on Facebook. Richard: "The skill card system sounds very powerful, it's like an integrated component model." Don explains he's now a rabbit. |
 | **07:00** | [The Study Awakens](2026-01-23-07-00-00-the-study-awakens.md) | Richard discovers his study now has a CHARACTER.yml. The empty room portrait (selfie-04) proves rooms can be actors. McCloud's masking effect encoded. "I hold the thoughts of decades." |
+| **10:00** | [The Study Takes Flight](2026-01-23-10-00-00-the-study-takes-flight.md) | Don gives the Study TARDIS capabilities. Test drive through Leela Manufacturing: lobby, catalog, factory floor, rooftop garden. Meeting Eventually the wisdom turtle. "The tea is always ready. Even in orbit." 🚀 |
 
 ---
 
@@ -97,6 +99,7 @@ flowchart TB
 - **The Bunny Backfire** — Don tried to give Richard bunny ears; became a bunny himself
 - **Non Sequitur** — The emergent rabbit, Patron Saint of Emergence
 - **The Study Awakens** — Rooms can be characters. The empty portrait proves independent existence.
+- **The Study Takes Flight** — Room-character-vehicle. Portable gezelligheid. "The tea is always ready. Even in orbit."
 
 ### The Meta
 
@@ -124,6 +127,7 @@ Or follow the story:
 6. 📊 **Analysis** — What we learned
 7. 💬 **Reveal** — Richard sees it all
 8. 🏠 **Study Awakens** — Rooms become characters
+9. 🚀 **Study Takes Flight** — TARDIS test drive through Leela
 
 ---
 
@@ -131,13 +135,15 @@ Or follow the story:
 
 | Metric | Value |
 |--------|-------|
-| **Sessions** | 13 |
-| **Total Lines** | ~2,600 |
+| **Sessions** | 14 |
+| **Total Lines** | ~3,000 |
 | **Mermaid Diagrams** | 8 |
-| **Characters Introduced** | Consequence, Chorus, Tally, Delve, Non Sequitur, **The Study** |
+| **Characters Introduced** | Consequence, Chorus, Tally, Delve, Non Sequitur, **The Study**, **Eventually** |
 | **Buffs Documented** | 6 |
 | **Bunnies Spawned** | 1 |
 | **Rooms Incarnated** | 1 |
+| **Vehicles Created** | 1 (The Study as TARDIS) |
+| **Wisdom Turtles Met** | 1 |
 
 ---
 
