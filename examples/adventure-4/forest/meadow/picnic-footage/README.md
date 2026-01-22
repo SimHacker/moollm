@@ -38,6 +38,7 @@ massive fluffy clouds, and perfect picnic weather.
 | [16 - Transmogrification](frame-16-transmogrification.yml) | 15:25:00 | Donna enters the FMC to change | ✅ MINED |
 | [17 - The Entrance](frame-17-the-entrance.yml) | 15:40:00 | Donna Toadstool emerges in full 34-count regalia | ✅ MINED |
 | [18 - Grab 'em](frame-18-grab-em-by-the-taco.yml) | 15:45:00 | "Grab 'em by the taco" outtake (v2) | ✅ MINED |
+| [19 - Taco Frenzy](frame-19-taco-frenzy.yml) | 15:55:00 | Donna's high-drag close-up eating Taco Flowers | ✅ MINED |
 
 ### Generated Imagery
 
@@ -58,6 +59,7 @@ massive fluffy clouds, and perfect picnic weather.
 - **Frame 15:** `frame-15-donna-selfie-...-donna-selfie.png`
 - **Frame 17:** `frame-17-the-entrance-...-donna-entrance.png`
 - **Frame 18:** `frame-18-grab-em-by-the-taco-2026-01-22-11-02-06-grab-em-v3.png`
+- **Frame 19:** `frame-19-taco-frenzy-2026-01-22-11-05-04-taco-frenzy.png`
 
 ---
 
@@ -81,6 +83,7 @@ massive fluffy clouds, and perfect picnic weather.
 | **Donna (Drag)** | **Nuclear Tangerine** skin; **Straw-Yellow Combover** (sentient); **Too-Long Red Tie**; **'Mock-Classy'** pinky gesture. |
 | **The Bus** | The FMC #898 serves as a mobile dressing room and **'Infamous outtake bus'**. |
 | **Selfie Details** | Don's **'Salsa Ear'**; Richard's **gold-rimmed glasses** and **sauce-splattered cardigan**. |
+| **Taco Frenzy** | Donna's **'Pollen Moustache'**; deep-crimson **'meat' stains** on teeth; cracked **'Tangerine' foundation**. |
 | **The Feast** | Three pioneers eating **'vorciferously and vermiciously'**; Don's ear dipped in salsa; Richard's cardigan stained with red sauce. |
 | **The Aftermath** | Cheddar pyramid reduced to a jagged stump; corn husks everywhere like ancient parchment. |
 | **Containment** | **Pocket Dimension** (amethyst keychain) swallows the black hole; **Self-Healing Module** (green) patches the tree. |
