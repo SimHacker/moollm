@@ -1,0 +1,28 @@
+# ⚙️ CHRYSLER 440-3 V8
+# Marine & Industrial heart.
+
+object:
+  name: "Chrysler 440-3 V8 Engine"
+  type: engine
+  emoji: "⚙️"
+  
+  description: |
+    A remanufactured and tuned Dodge V8 440-3 (Chrysler) Marine and 
+    Industrial Engine. Balanced lower end, custom cam from NASA Ames,
+    and heavy-duty everything.
+    
+  specs:
+    piston_displacement: "440 cubic inches"
+    compression_ratio: "9:1"
+    carburetor: "9801 Thermoquad"
+    ignition: "Fully electronic Chrysler"
+    weight: "670 lbs"
+    cooling: "25 quarts"
+    
+  actions:
+    CHECK_OIL:
+      description: "Check the 40 weight high detergent oil level."
+      effect: "It's at the FULL mark. Ready for passing ability."
+    TUNE_LINKAGE:
+      description: "Adjust the primary and secondary throttle stops."
+      effect: "The Thermoquad breathes perfectly."

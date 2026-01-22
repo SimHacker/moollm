@@ -162,42 +162,49 @@ room:
 
   layout:
     cockpit:
-      - name: "Driver's Station"
-        description: "Big captain's chair with armrests, wide view, user-friendly counter"
-        features: ["40 channel CB radio", "Dual aluminum remote mirrors", "Cup holders"]
+      directory: cockpit/
+      description: "Driver's Station with captain's chairs and panoramic view."
         
     main_cabin: # The Code Cave
-      - name: "Front Lounge"
-        description: |
-          Versatile couch that transforms into a bed. Reversible-back 
-          love-chair looking out the windshield. The main debugging hub.
-        features:
-          - "Whiteboards (Magnetic, on the fiberglass inner shells)"
-          - "Multiple monitors on swing-arms"
-          - "Clean shag carpeting and wood flooring"
+      directory: lounge/
+      description: "Versatile lounge, dining tables, and full kitchen unit."
           
-      - name: "Kitchen Corner"
-        description: "Dinette with counter, sink, and spice compartment."
-        features: ["Built-in garbage bin", "Built-in blender", "Carrot juice dispenser"]
+    the_hallway:
+      directory: hallway/
+      description: "Transition zone with cedar closet and selfie mirror."
         
-      - name: "The Selfie Nook"
-        directory: selfies/
-        description: "Hallway mirror area where the rabbit transformation is documented"
+    the_bathroom:
+      directory: bathroom/
+      description: "Spacious bathroom with the 8-inch mini-tub shower."
         
-    rear_quarters:
-      - name: "The Master Suite"
-        description: "Cozy back bedroom with two separate beds (convertible to Queen)"
-        features: ["Wide back deck for TV/Computer", "Panoramic rear window", "Cedar closet"]
+    the_rear:
+      directory: bedroom/
+      description: "Master suite with convertible beds and computer deck."
         
-      - name: "The Dream Space"
-        directory: dreams/
-        description: "The rear bedroom area where the seahorse speaks"
+    engine_compartment:
+      directory: engine-bay/
+      description: "The heart of the pusher: Chrysler 440 and Onan generator."
 
 # ═══════════════════════════════════════════════════════════════════════════════
 #                          EXITS & LINKS
 # ═══════════════════════════════════════════════════════════════════════════════
 
   exits:
+    in:
+      destination: lounge/
+      description: "Step through the passenger door into the lounge."
+      aliases: [enter, lounge, inside]
+      
+    cockpit:
+      destination: cockpit/
+      description: "Take the driver's seat."
+      aliases: [front, driver]
+      
+    engine:
+      destination: engine-bay/
+      description: "Open the rear hatch to the engine compartment."
+      aliases: [back, motor]
+      
     street:
       destination: ../../../../street/lane-neverending/e2/
       description: |
@@ -254,9 +261,15 @@ room:
       
         don-hopkins/              # ← The lot and coach (this ROOM.yml)
         ├── CHARACTER.yml         # ← Don himself (the rabbit)
+        ├── cockpit/              # ← Driver's Station
+        ├── lounge/               # ← Main living / Code Cave
+        ├── hallway/              # ← Transition / Cedar Closet
+        ├── bathroom/             # ← Shower / Mini-tub
+        ├── bedroom/              # ← Master Suite / Dream Space
+        ├── engine-bay/           # ← The heart of the pusher
         ├── selfies/              # ← Mirror in the hallway
         ├── sessions/             # ← Logbooks and archives
-        └── dreams/               # ← The back bedroom
+        └── dreams/               # ← The back bedroom area
       
     identity_recursion: |
       Don IS his home.

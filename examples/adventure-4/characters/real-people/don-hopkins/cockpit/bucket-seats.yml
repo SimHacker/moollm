@@ -1,0 +1,26 @@
+# 💺 FRONT BUCKET SEATS
+# First-class seating for the pilot and navigator.
+
+object:
+  name: "Front Bucket Seats"
+  type: furniture
+  emoji: "💺"
+  
+  description: |
+    Two large, plush captain's chairs with adjustable armrests and 
+    tufted chenille fabric. They are mounted on swivel bases, allowing
+    them to turn around and join the lounge area when parked.
+    
+  features:
+    - "High back with head restraints"
+    - "Swivel base (360 degrees)"
+    - "Adjustable armrests"
+    - "Tufted comfort"
+    
+  actions:
+    SIT:
+      description: "Take a seat in the captain's chair."
+      effect: "You feel like you're in control of a very luxurious mission."
+    SWIVEL:
+      description: "Turn the seat to face the lounge."
+      effect: "The cockpit now feels like part of the living room."

@@ -1,0 +1,29 @@
+# 🛌 THE MASTER SUITE — The Back Bedroom
+# Where deep thoughts turn into dreams.
+
+room:
+  name: "FMC #898 — The Master Suite"
+  type: bedroom
+  emoji: "🛌💻🪟"
+  
+  description: |
+    The cozy back bedroom. It features two separate beds that can be 
+    joined into an enormous queen-sized bed. A wide back deck and 
+    large counter provide ample room for a computer station and TV.
+    
+    A panoramic window at the very rear offers a view of the forest
+    behind Lot 15.
+
+  exits:
+    front:
+      destination: ../hallway/
+      description: "Step forward into the hallway."
+      aliases: [hallway, hall, front]
+    dreams:
+      destination: ../dreams/
+      description: "Close your eyes and enter the dream space."
+      aliases: [sleep, dream, rest]
+
+objects:
+  - convertible-beds.yml
+  - computer-deck.yml

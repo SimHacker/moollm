@@ -1,0 +1,17 @@
+# 📡 CB RADIO
+# 40 channels of 1970s social networking.
+
+object:
+  name: "CB Radio"
+  type: communication
+  emoji: "📡"
+  
+  description: |
+    A classic 40-channel CB radio mounted under the dash. 
+    The microphone hangs on a curly cord.
+    
+  actions:
+    BROADCAST:
+      usage: "BROADCAST [message]"
+      description: "Send a message to other travelers."
+      effect: "Breaker breaker, this is the Rabbit at 15 Lane Neverending..."

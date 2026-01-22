@@ -1,0 +1,22 @@
+# 🛋️ VERSATILE SOFA-LOUNGE
+# A couch, a bed, a thinking hub.
+
+object:
+  name: "Versatile Sofa-Lounge"
+  type: furniture
+  emoji: "🛋️"
+  
+  description: |
+    A long, comfortable sofa covered in woven velvet fabric. 
+    It can be configured in multiple ways: a standard couch,
+    an L-shaped lounge, or extended into a very long bed.
+    
+  features:
+    - "Transforms to bed"
+    - "L-shape configuration"
+    - "Woven velvet fabric"
+    
+  actions:
+    CONVERT:
+      description: "Change the configuration of the sofa."
+      effect: "The lounge is now optimized for sleeping."

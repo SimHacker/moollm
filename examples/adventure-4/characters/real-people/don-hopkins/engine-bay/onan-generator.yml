@@ -1,0 +1,21 @@
+# ⚡ ONAN GENERATOR
+# Power for the unhooked life.
+
+object:
+  name: "Onan 6.5 KW Generator"
+  type: generator
+  emoji: "⚡"
+  
+  description: |
+    A 6.5 KW Onan 110 Volt AC generator. It provides domestic power
+    when the shore line isn't connected.
+    
+  features:
+    - "6.5 KW output"
+    - "110V AC"
+    - "Automatic start support"
+    
+  actions:
+    START:
+      description: "Start the generator (ensure AC load is off)."
+      effect: "The Onan coughs into life and settles into a steady hum."
