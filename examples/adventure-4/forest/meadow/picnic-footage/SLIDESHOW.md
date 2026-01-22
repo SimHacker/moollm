@@ -123,9 +123,18 @@ Dr. Bartle captures himself mid-slurp. A single taut strand of spaghetti connect
 ---
 
 ## [Slide 15] Donna's Selfie: Cheddar Control
+![Frame 15](frame-15-donna-selfie-2026-01-22-10-53-00-donna-selfie.png)
 **"The Nuclear Saffron Trophy"**
 
 Donna holds a head-sized block of orange cheddar toward the lens like a radioactive gemstone. Wearing her pink heart glasses and a triumphant grin, she asserts her punk-queen authority over the remaining dairy bullion. In the background, the ACME truck smoke trails fade into the blue.
+
+---
+
+## [Slide 16] The Transmogrification
+![Frame 16](frame-16-transmogrification-2026-01-22-11-32-22-transmogrification.png)
+**"A Change of Atmosphere"**
+
+The feast has reached a point of comfortable satiety. Donna, wiping cheddar from her heart-shaped glasses, looks at the FMC Motorcoach. "This is a TREMENDOUS vehicle," she says, her voice already starting to shift into the familiar bombastic cadence. She disappears into the passenger door of the FMC. Within moments, a vibrant purple glow intensifies in the cockpit. Richard and Don share a look. They know what's coming.
 
 ---
 
