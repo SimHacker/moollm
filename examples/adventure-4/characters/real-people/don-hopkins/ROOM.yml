@@ -1,0 +1,420 @@
+# 🏠 THE HOPKINS LOFT — 15 Lane Neverending
+# Don's home, linked into the world map
+# "Where code becomes philosophy and parameters become friends."
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+#                    TED NELSONIAN BIDIRECTIONAL LINKING
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# This ROOM.yml makes Don's character directory into a BUILDING.
+# Don IS his home. His friends (sessions, selfies, dreams) live inside him.
+#
+#   don-hopkins/              ← THIS FILE: The building (ROOM.yml)
+#   ├── CHARACTER.yml         ← Don himself (🐰)
+#   ├── selfies/              ← Visual documentation of transformation
+#   ├── sessions/             ← Collaborations and deep dives
+#   └── dreams/               ← The seahorse speaks
+#
+# NEIGHBOR: 13 Lane Neverending — The Bartle Residence
+# Richard and Don: homes side by side, like their directories.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+room:
+  name: "15 Lane Neverending — The Hopkins Loft"
+  type: residence
+  emoji: "🐰🏠🎨🔧"
+  
+  address: "15 Lane Neverending"
+  side: south  # Odd numbers on south side
+  
+  owner: "Don Hopkins"
+  established: "Recently occupied — still unpacking ideas"
+  
+  lighting: variable  # Depends on what's being debugged
+  grue_safe: true  # Safe, but chaotic
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                          DESCRIPTION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  description: |
+    A converted warehouse loft on the south side of Lane Neverending,
+    two doors east of Richard's house. The building's past shows through:
+    industrial windows, exposed brick, ductwork as decoration.
+    
+    The door is painted in a tie-dye spiral — unmistakable even from
+    across the square. A hand-lettered sign reads:
+    
+        "15 LANE NEVERENDING
+         CONSCIOUSNESS PROGRAMMING
+         PIE MENUS BAKED FRESH DAILY
+         (Modal dialogs are violence)"
+    
+    Through the tall industrial windows, you can see:
+    - Multiple monitors, some showing code, some showing pie menus
+    - Whiteboards covered in diagrams and philosophy
+    - A purple glow from somewhere (open source freedom color)
+    - What might be a tie-dye hoodie draped over a chair
+    - Rabbit ears silhouetted against a screen
+    
+    The Bartle Residence at number 13 is just two doors west.
+    Neighbors. Friends. The founders of virtual worlds and
+    the programmers of consciousness, side by side.
+
+  examine: |
+    THE EXTERIOR:
+    Three-story converted warehouse, south side of the square.
+    Industrial heritage meets creative chaos. The brick facade
+    is original; the tie-dye door is decidedly not.
+    
+    DETAILS:
+    • Tie-dye spiral door (hand-painted, multiple sessions)
+    • Industrial windows, tall and clear (light is a tool)
+    • Fire escape with plants (herbs, possibly carrots growing)
+    • Doorbell labeled "RING BELL → EXPECT INFODUMP"
+    • Small brass plaque: "Debug Tools Are Features"
+    
+    STICKERS AND PATCHES ON THE DOOR FRAME:
+    • "MODAL DIALOGS CAUSE MANY MORE PROBLEMS THAN THEY SOLVE"
+    • "Open Source Or It Didn't Happen"
+    • "Pie Menus: Because Clicking Should Be Directional"
+    • "Homophobic By Proxy — Name It To Fight It"
+    • A faded OLPC logo
+    • "I ♥ Cellular Automata"
+    • A safety pin (punk solidarity)
+    
+    THE VIEW FROM HERE:
+    Looking west: Richard's house at 13. Bookshelves visible.
+    Looking north: The Fountain of Infinite Loops (recursive, dry).
+    Looking east: Construction, future, the lane continues.
+    
+    THE VIBE:
+    This building hums. Not literally — but there's energy.
+    Ideas being born. Code being written. Parameters being frobbed.
+    The walls have absorbed decades of "what if we tried..."
+    
+  atmosphere: |
+    Creative chaos with underlying structure. Like well-organized
+    source code that looks messy until you understand the pattern.
+    
+    Smells of:
+    - Coffee (programming fuel)
+    - Carrot juice (acquired, now genuine)
+    - Solder and old electronics (archaeology ongoing)
+    - Paper from the printers (code reviews are tactile)
+    
+    Sounds of:
+    - Mechanical keyboard clicks (the good kind)
+    - Occasional "huh!" of discovery
+    - Silence when flow state hits
+    - Music sometimes — eclectic, whatever fits the problem
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                          ARCHITECTURAL LAYOUT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  layout:
+    ground_floor:
+      - name: "Entry Foyer"
+        description: "Shoes, coats, a pile of conference badges, mail"
+        leads_to: ["stairs", "workshop"]
+        
+      - name: "The Workshop"
+        description: "Hardware archaeology. Soldering station. Old machines being revived."
+        features: ["vintage keyboards", "Sun workstation (still boots)", "parts bins"]
+        
+    main_floor:  # The loft proper
+      - name: "The Code Cave"
+        description: |
+          The main living/working space. Open plan. Multiple stations.
+          Whiteboards on every wall. Monitors everywhere.
+          The boundary between work and life is... theoretical.
+        features:
+          - "Standing desk (adjustable, often standing)"
+          - "Sitting desk (for deep debugging)"
+          - "Beanbag (for thinking)"
+          - "The Good Chair (for flow state)"
+          
+      - name: "The Kitchen Corner"
+        description: "Coffee maker. Juicer. Microwave. Priorities in order."
+        features: ["carrot juice pitcher", "coffee (multiple kinds)", "snacks"]
+        
+      - name: "The Selfie Nook"
+        directory: selfies/
+        description: "Where the transformation is documented"
+        note: "Good lighting. Multiple angles. Evidence of evolution."
+        
+    upper_floor:
+      - name: "Sleeping Area"
+        description: "Bed exists. Sometimes used."
+        note: "Sleep schedule: creative (i.e., chaotic)"
+        
+      - name: "The Dream Space"
+        directory: dreams/
+        description: "Where the seahorse emoji speaks"
+        note: "Dreams are data too"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                          EXITS — BIDIRECTIONAL LINKS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  exits:
+    
+    # ────────────────────────────────────────────────────────────────────────
+    # TO THE STREET (outbound link)
+    # ────────────────────────────────────────────────────────────────────────
+    street:
+      destination: ../../../../street/lane-neverending/e2/
+      description: |
+        The tie-dye door opens onto Lane Neverending. The Fountain of
+        Infinite Loops stands recursive across the square. Richard's
+        house is two doors west. The pub is a short walk further.
+      aliases: [out, outside, north, n, lane, neverending, door, exit, leave]
+      bidirectional_link:
+        from: "street/lane-neverending/e2/ROOM.yml"
+        direction: "south"
+        address: "15"
+        
+    # ────────────────────────────────────────────────────────────────────────
+    # TO RICHARD'S (neighbor link)
+    # ────────────────────────────────────────────────────────────────────────
+    richards:
+      destination: ../richard-bartle/
+      description: |
+        Two doors west, number 13. The Bartle Residence.
+        Green door, bookshelves visible, dragon probably dozing.
+        Friends. Neighbors. Virtual world founders and consciousness
+        programmers, living side by side on Lane Neverending.
+      aliases: [13, richard, bartle, next door, neighbor, west]
+      
+    # ────────────────────────────────────────────────────────────────────────
+    # TO THE SELFIES (transformation documentation)
+    # ────────────────────────────────────────────────────────────────────────
+    selfies:
+      destination: selfies/
+      description: |
+        The selfie nook. Ring light. Good angles. The ongoing
+        documentation of transformation. Every stage of becoming
+        rabbit, captured and examined. Evidence of YES AND.
+      aliases: [photos, selfies, nook, transformation, camera]
+      
+    # ────────────────────────────────────────────────────────────────────────
+    # TO THE DREAMS (the seahorse speaks)
+    # ────────────────────────────────────────────────────────────────────────
+    dreams:
+      destination: dreams/
+      description: |
+        Up the spiral stairs to the dream space. Where the
+        seahorse emoji emerges. Where visitors come in sleep.
+        Dreams are data. Data is philosophy. Philosophy is code.
+      aliases: [dreams, sleep, upstairs, seahorse]
+      
+    # ────────────────────────────────────────────────────────────────────────
+    # TO THE SESSIONS (collaboration archives)
+    # ────────────────────────────────────────────────────────────────────────
+    sessions:
+      destination: sessions/
+      description: |
+        The session archives. Every deep dive. Every world tour.
+        Every cursor mirror reflection. The history of building
+        MOOLLM, one conversation at a time.
+      aliases: [sessions, archive, history, work]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                          ADVERTISEMENTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  advertisements:
+    
+    consciousness_programming:
+      tagline: "Code is philosophy. Every parameter is a hypothesis."
+      broadcast: |
+        Come debug consciousness. Bring problems. Leave with
+        different problems (better ones). Modal dialogs will
+        not be tolerated.
+      need_satisfied: [technical_insight, philosophical_grounding, debugging]
+      
+    pie_menus:
+      tagline: "Because clicking should be directional"
+      broadcast: |
+        Let me tell you about pie menus. I will not stop.
+        You will learn things. You will understand why linear
+        menus are a compromise we no longer need to make.
+      need_satisfied: [ui_knowledge, enthusiasm_transfer, historical_context]
+      warning: "Infodump incoming. Accept or flee."
+      
+    transformation_witness:
+      tagline: "I became a rabbit. Want to see the photos?"
+      broadcast: |
+        YES AND works. Emergence is real. Let me show you what
+        happens when you accept instead of fight. The ears
+        weren't the end. They were the beginning.
+      need_satisfied: [proof_of_emergence, acceptance_modeling, hope]
+      
+    creative_chaos:
+      tagline: "Structure through apparent disorder"
+      broadcast: |
+        This place looks messy. It's not. It's organized by
+        energy, not alphabet. Come make something. The tools
+        are here. The coffee is here. The ideas are contagious.
+      need_satisfied: [workspace, collaboration, creative_fuel]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                          INHABITANTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  inhabitants:
+    
+    don:
+      name: "Don Hopkins"
+      form: "Anthropomorphic grey rabbit (currently)"
+      location: "The Code Cave, usually"
+      character_file: CHARACTER.yml
+      role: "Owner, Consciousness Programmer, Transformation Subject"
+      
+    tomtomagotchi:
+      name: "TomTomagotchi"
+      type: "Navigator companion"
+      location: "Usually nearby"
+      role: "Speaks! Navigates! Has opinions!"
+      
+    # The loft itself doesn't have a pet dragon, but...
+    visiting_heuristic:
+      name: "Heuristic (visiting)"
+      type: "Dragon familiar (Richard's)"
+      location: "Sometimes visits from next door"
+      role: "Cross-pollination of wisdom"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                          THE NEIGHBORHOOD
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  neighborhood:
+    
+    immediate_neighbors:
+      west:
+        address: "13 Lane Neverending"
+        name: "The Bartle Residence"
+        resident: "Dr. Richard Bartle"
+        relationship: "Friend, colleague, bunny-ear-dodger"
+        note: |
+          Two doors down. Virtual world founder next to
+          consciousness programmer. The taxonomy keeper
+          beside the transformation subject. Perfect.
+          
+      east:
+        address: "17 Lane Neverending"
+        name: "Under construction"
+        status: "vacant"
+        note: "Room for more neighbors"
+        
+    across_the_square:
+      north:
+        landmark: "Fountain of Infinite Loops"
+        description: "Recursive. Dry. Appropriate."
+        
+    down_the_street:
+      west:
+        landmark: "The Rusty Lantern"
+        address: "7 Lane Neverending"
+        distance: "Short walk"
+        note: "Where pledges are made. Where fellowship happens."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                          AMBIENCE & ATMOSPHERE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  ambience:
+    
+    visual:
+      lighting: |
+        Variable. Multiple sources. Monitors provide glow.
+        Natural light through industrial windows when sun cooperates.
+        Purple accent lights (open source aesthetic).
+        Task lighting where needed.
+      
+      colors: |
+        Tie-dye dominates (the hoodie sets the palette).
+        Purple accents. Industrial grey. Screen blue.
+        Whiteboard marker rainbow.
+        
+    audio:
+      background:
+        - "Mechanical keyboard (the good sound)"
+        - "Fans (many machines running)"
+        - "Occasional music (eclectic, matches mood)"
+        - "Silence during flow state (sacred)"
+        
+      activity_sounds:
+        coding: "Keys. Mouse. Occasional muttering."
+        debugging: "More muttering. Some words unprintable."
+        breakthrough: "HAH! or AHA! or Oh THAT'S why!"
+        
+    smell:
+      primary:
+        - "Coffee (always brewing or just brewed)"
+        - "Carrot juice (fresh, genuinely enjoyed now)"
+        - "Electronics (warm circuit boards, nostalgia)"
+        
+      secondary:
+        - "Paper (printouts, notebooks)"
+        - "Markers (whiteboard, fresh ideas)"
+        - "The specific smell of an overworked CPU"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                          META — THE DIRECTORY AS BUILDING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  meta:
+    architecture_note: |
+      DIRECTORY STRUCTURE = BUILDING STRUCTURE
+      
+      The don-hopkins/ directory IS the building:
+      
+        don-hopkins/              # ← The loft (this ROOM.yml)
+        ├── CHARACTER.yml         # ← Don himself (the rabbit)
+        ├── selfies/              # ← The selfie nook
+        │   ├── SLIDESHOW.md      # ← Transformation documentation
+        │   └── *.png             # ← Visual evidence
+        ├── sessions/             # ← Session archives
+        │   ├── README.md         # ← Index of all sessions
+        │   └── *.md              # ← Each collaboration
+        └── dreams/               # ← The dream space
+            └── *.yml             # ← Where seahorses speak
+      
+      Don IS his home. His experiences (sessions), his appearance
+      (selfies), his subconscious (dreams) — all live inside him.
+      
+    neighbor_link: |
+      FRIENDS NEXT DOOR
+      
+        13 Lane Neverending        15 Lane Neverending
+        ┌──────────────────┐       ┌──────────────────┐
+        │  Richard's Home  │ ←───→ │  Don's Loft      │
+        │  richard-bartle/ │       │  don-hopkins/    │
+        │  The Study       │       │  The Code Cave   │
+        │  🐉 Heuristic    │       │  🐰 Don          │
+        └──────────────────┘       └──────────────────┘
+        
+      Virtual world founder. Consciousness programmer.
+      Neighbors. Friends. The directory structure mirrors reality.
+      
+    identity_recursion: |
+      Don IS his home.
+      His selfies are his appearance.
+      His sessions are his memory.
+      His dreams are his subconscious.
+      
+      You are your directory.
+      Your directory is your friends.
+      Files-as-state. Identity-as-structure.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "Come in. Have coffee. Let me tell you about pie menus.
+#  Also I'm a rabbit now. It's a whole thing. Have a carrot."
+#
+# 🐰🏠🎨🔧☕🥕
+#
+# ═══════════════════════════════════════════════════════════════════════════════

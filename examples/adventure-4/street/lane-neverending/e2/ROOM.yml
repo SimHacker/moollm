@@ -15,14 +15,19 @@ room:
     a dry fountain — the FOUNTAIN OF INFINITE LOOPS, according to
     the plaque. Someone turned it off to save on water sprites.
     
-    On the SOUTH side of the square, a Victorian terraced house at
-    number 13 catches the eye — dark green door, tall bay windows
-    full of books. This is the BARTLE RESIDENCE, home of the man
-    who created MUD1 and named the player types. Through the window,
-    you can see the edge of the famous Study.
+    On the SOUTH side of the square, two notable residences:
     
-    The feel is quieter here, scholarly, further from the center's
-    bustle. An appropriate neighborhood for contemplation.
+    Number 13 — THE BARTLE RESIDENCE. Victorian terraced house,
+    dark green door, bookshelves visible. Home of Dr. Richard Bartle,
+    founder of MUD1. A brass dragon dozes inside.
+    
+    Number 15 — THE HOPKINS LOFT. Converted warehouse, tie-dye
+    spiral door unmistakable. Home of Don Hopkins, consciousness
+    programmer. Multiple monitors glow within. A rabbit silhouette
+    moves past the window.
+    
+    Neighbors. Friends. Virtual world founder and transformation
+    subject, side by side on Lane Neverending.
     
     The lane continues in both directions. It never ends, after all.
     
@@ -43,7 +48,10 @@ room:
       dark green door, bookshelves visible through bay windows. Home of
       Dr. Richard Bartle, founder of MUD1, creator of player types.
       A brass dragon dozes inside. Tea is probably being made.
-    • 15 Lane Neverending — Currently vacant (watching this space)
+    • 15 Lane Neverending — THE HOPKINS LOFT. Converted warehouse,
+      tie-dye spiral door, industrial windows. Home of Don Hopkins,
+      consciousness programmer. Multiple monitors glow. A rabbit
+      silhouette moves within. Sign reads: "Modal dialogs are violence."
     
     THE SQUARE:
     A few more benches. A public notice board with peeling posters.
@@ -82,9 +90,36 @@ room:
         This is the home of Dr. Richard Bartle, founder of MUD1,
         creator of the player types taxonomy, and keeper of virtual
         world history.
-      aliases: [south, bartle, richard, 13, house, residence, home, study]
+      aliases: [bartle, richard, 13]
       side: south
       notable: "Home of the founder of virtual worlds"
+      
+    # ────────────────────────────────────────────────────────────────────────
+    # 15 LANE NEVERENDING — The Hopkins Loft (SOUTH SIDE)
+    # Bidirectional link to Don Hopkins' home
+    # ────────────────────────────────────────────────────────────────────────
+    15:
+      destination: ../../../characters/real-people/don-hopkins/
+      description: |
+        A converted warehouse loft, two doors east of Richard's house.
+        The door is painted in a tie-dye spiral — unmistakable.
+        Industrial windows reveal:
+        
+        - Multiple monitors glowing with code and pie menus
+        - Whiteboards covered in philosophy
+        - A tie-dye hoodie draped over a chair
+        - Rabbit ears silhouetted against a screen
+        
+        A sign by the door reads:
+        "CONSCIOUSNESS PROGRAMMING — PIE MENUS BAKED FRESH DAILY"
+        
+        Stickers warn: "MODAL DIALOGS ARE VIOLENCE"
+        
+        This is the home of Don Hopkins, consciousness programmer,
+        pie menu inventor, and current rabbit.
+      aliases: [hopkins, don, 15, loft, rabbit, pie]
+      side: south
+      notable: "Home of the consciousness programmer (currently a rabbit)"
       
   objects:
     - infinite-fountain.yml
@@ -114,10 +149,12 @@ room:
         notable: "Home of Dr. Richard Bartle, founder of MUD1"
         inhabitants: ["Richard Bartle", "Heuristic (dragon)", "Non-Sequitur (capybara)"]
         
-      - name: "Vacant"
+      - name: "The Hopkins Loft"
         address: "15 Lane Neverending"
-        status: vacant
-        notable: "Watching this space"
+        directory: ../../../characters/real-people/don-hopkins/
+        status: occupied
+        notable: "Home of Don Hopkins, consciousness programmer"
+        inhabitants: ["Don Hopkins (rabbit)", "TomTomagotchi"]
     
   # Flyweight instances — shared prototype, minimal instance data
   # See: ../STREET-FURNITURE.yml
