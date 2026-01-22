@@ -1,0 +1,69 @@
+# 🌸 THE FLOWERLY MEADOW
+# A bright, peaceful sanctuary in the heart of the forest.
+# "Where the only schedule is the movement of clouds."
+
+room:
+  name: "The Forest Meadow"
+  type: meadow
+  emoji: "🌸🌿🌲🦋⛅"
+  
+  zone: FOREST
+  lighting: natural
+  grue_safe: true  # Sun is high, flowers are bright.
+  
+  description: |
+    A sun-drenched meadow hidden deep within an ancient forest. 
+    The grass is waist-high in places, thick with wildflowers: 
+    poppies, lavender, daisies, and small blue flowers that look like
+    pie menus.
+    
+    The air is sweet with the scent of pine and pollen. High above,
+    the sky is a brilliant azure, filled with massive, fluffy white
+    clouds that move with stately indifference.
+    
+    The meadow is perfectly level, as if waiting for visitors to 
+    land and stay a while.
+
+  examine: |
+    THE MEADOW:
+    An emerald sea of grass and color. You can see the distinct 
+    layers of the flora:
+    • Wildflowers: A chaotic but harmonious mix of colors.
+    • Herbs: Wild rosemary and thyme growing near the tree line.
+    • Fauna: Butterflies (blue and orange) dancing between petals.
+    
+    THE FOREST WALL:
+    Ancient oaks and towering pines surround the meadow on all sides,
+    creating a natural cathedral. The shadows are deep and inviting.
+    
+    THE SKY:
+    A masterpiece of atmospheric rendering. The clouds look like
+    piles of mashed potatoes or freshly sheared wool. 
+
+  atmosphere: |
+    Deep peace and radical hospitality. The world feels vast and
+    intimate at the same time.
+    
+    Smells of:
+    - Wildflowers and crushed grass
+    - Warm pine resin
+    - Upcoming rain (faint, distant)
+    - Fresh air
+    
+    Sounds of:
+    - Rustling leaves
+    - Buzzing bees
+    - Distant birdcall
+    - The absolute absence of industrial machinery
+
+  exits:
+    forest:
+      destination: ../
+      description: "Follow the narrow path back into the deep woods."
+      aliases: [woods, trees, south, path]
+    sky:
+      destination: "."
+      description: "Look up at the fluffy clouds."
+      aliases: [up, clouds, clouds]
+
+# 🌸🌿🌲🦋⛅
