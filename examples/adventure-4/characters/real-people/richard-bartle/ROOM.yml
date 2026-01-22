@@ -1,0 +1,305 @@
+# 🏡 THE BARTLE RESIDENCE — 13 Lane Neverending
+# Richard's home, linked into the world map
+# "Where virtual worlds are born in thought before they exist in code."
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+#                    TED NELSONIAN BIDIRECTIONAL LINKING
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# This ROOM.yml makes Richard's character directory into a BUILDING that exists
+# on Lane Neverending. The character lives inside their own directory structure:
+#
+#   richard-bartle/           ← THIS FILE: The building (ROOM.yml)
+#   ├── study/                ← The famous study (has its own ROOM.yml)
+#   ├── CHARACTER.yml         ← Richard himself
+#   ├── CARD.yml              ← Richard's playable card
+#   └── pets/heuristic/       ← Heuristic lives here too
+#
+# The link is bidirectional:
+#   - FROM Lane Neverending E2: north exit → here
+#   - FROM here: street exit → Lane Neverending E2
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+room:
+  name: "13 Lane Neverending — The Bartle Residence"
+  type: residence
+  emoji: "🏡📚🐉"
+  
+  address: "13 Lane Neverending"
+  side: south  # Odd numbers on south side
+  
+  owner: "Dr. Richard Bartle"
+  established: "Since before addresses were fashionable"
+  
+  lighting: warm
+  grue_safe: true  # Very safe here
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                          DESCRIPTION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  description: |
+    A modest Victorian terraced house on the south side of Lane Neverending,
+    facing the FOUNTAIN OF INFINITE LOOPS across the square. Brick facade,
+    white trim, a door painted a sensible dark green.
+    
+    The brass number plate reads "13" — a number that brought bad luck to
+    some, but here marks the birthplace of understanding virtual worlds.
+    
+    The house has a scholarly quiet about it. Through the tall front window,
+    you can see the edge of bookshelves. Somewhere inside, a kettle is
+    probably about to whistle.
+    
+    A small plaque by the door (you have to look closely):
+    
+        "Where thoughts become worlds,
+         and worlds become understood."
+    
+    To the NORTH, the Fountain of Infinite Loops bubbles (when the water
+    sprites aren't on strike). The pub at number 7 is a short walk west.
+
+  examine: |
+    THE EXTERIOR:
+    Victorian terraced house, three stories, south side of the square.
+    The brick has mellowed to a warm amber over time — or perhaps
+    the house absorbed the afternoon light and kept it.
+    
+    DETAILS:
+    • Green door with brass fittings (polished but not ostentatious)
+    • Bay window on ground floor (the study is visible)
+    • Chimney that produces thin smoke (radiator, or dragon?)
+    • Small front garden (mostly books-and-tea-colored plants)
+    • A bell pull (actual bell, not electric)
+    
+    THE PLAQUE:
+    A small brass plaque, easily missed:
+    
+        "Founder, MUD1 (1978)
+         If you're reading this, come in for tea."
+    
+    THE VIEW:
+    Looking across at the Fountain of Infinite Loops, where a recursive
+    figure pours water forever. Or would, if the sprites worked.
+    An appropriate view for someone who thinks about systems.
+    
+    THE NEIGHBORS:
+    • 11 (west): The curiosity shop (hours: "whenever")
+    • 15 (east): Currently vacant (watching this space)
+    • 12 (across): Was once a bakery (smell lingers)
+    
+  atmosphere: |
+    The house radiates a particular kind of quiet. Not silence — there's
+    always a distant ticking clock, a rustle of pages, the purr of a
+    dragon dozing. But quiet in the sense of "thinking happens here."
+    
+    The bricks seem to have absorbed forty-six years of contemplation.
+    The windows have watched the street evolve from pixels to polygons.
+    The door has welcomed visitors who came with questions and left
+    with taxonomy.
+    
+    It's the kind of house where you lower your voice automatically.
+    Not from fear, but from respect.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                          ARCHITECTURAL LAYOUT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  layout:
+    ground_floor:
+      - name: "Entrance Hall"
+        description: "Coats, umbrellas, a table for keys and mail"
+        leads_to: ["study", "stairs", "kitchen"]
+        
+      - name: "The Study"
+        directory: study/
+        description: "The famous study — books, armchair, Heuristic, wisdom"
+        note: "Has its own ROOM.yml, CHARACTER.yml, and CARD.yml"
+        
+      - name: "Kitchen"
+        description: "Where the tea comes from"
+        features: ["kettle (always ready)", "sensible mugs", "biscuit tin"]
+        
+    first_floor:
+      - name: "Bedroom"
+        description: "Private quarters"
+        locked: true
+        note: "Visitors do not enter here"
+        
+      - name: "Bathroom"
+        description: "Facilities"
+        locked: true
+        
+    second_floor:
+      - name: "Attic"
+        description: "Storage of decades — boxes, memories, early printouts"
+        contents: ["MUD1 source printouts", "conference memorabilia", "artifacts"]
+        note: "An archaeological dig waiting to happen"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                          EXITS — BIDIRECTIONAL LINKS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  exits:
+    
+    # ────────────────────────────────────────────────────────────────────────
+    # TO THE STREET (outbound link)
+    # ────────────────────────────────────────────────────────────────────────
+    street:
+      destination: ../../../../street/lane-neverending/e2/
+      description: |
+        The front door opens onto Lane Neverending. Across the square,
+        the Fountain of Infinite Loops stands dry and recursive.
+        The pub is a short walk west. The frontier is east.
+      aliases: [out, outside, north, n, lane, neverending, door, exit, leave]
+      bidirectional_link:
+        from: "street/lane-neverending/e2/ROOM.yml"
+        direction: "south"
+        address: "13"
+        
+    # ────────────────────────────────────────────────────────────────────────
+    # TO THE STUDY (inbound to subdirectory)
+    # ────────────────────────────────────────────────────────────────────────
+    study:
+      destination: study/
+      description: |
+        Through the entrance hall, a door stands ajar. Beyond it:
+        bookshelves, the green armchair, afternoon light, and the
+        faint sound of dragon breathing.
+        
+        This is the Study. Where understanding happens.
+      aliases: [in, inside, study, books, richard, deeper]
+      
+    # ────────────────────────────────────────────────────────────────────────
+    # TO THE KITCHEN (for tea)
+    # ────────────────────────────────────────────────────────────────────────
+    kitchen:
+      destination: null  # Not yet built out
+      description: |
+        Down the hall, the kitchen. The kettle is always ready.
+        This is where tea begins before it becomes gezelligheid.
+      aliases: [kitchen, tea, kettle]
+      note: "Kitchen not yet modeled — abstracted into study's tea ritual"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                          ADVERTISEMENTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  advertisements:
+    
+    welcome:
+      tagline: "Visitors who come to learn are welcome"
+      broadcast: |
+        If you have questions about virtual worlds, player types,
+        game design history, or why things are the way they are:
+        ring the bell. Tea will be offered.
+      need_satisfied: [knowledge, mentorship, historical_context]
+      
+    history:
+      tagline: "Where MUD1 was understood before it was built"
+      broadcast: |
+        The first virtual world was born here in thought.
+        The taxonomy that names all player types was written here.
+        The books that explain everything — they're on these shelves.
+      need_satisfied: [precedent, scholarship, primary_sources]
+      
+    sanctuary:
+      tagline: "A quiet place in a noisy world"
+      broadcast: |
+        Lane Neverending has its chaos — painted tunnels, rocket skates,
+        construction. Here, there is quiet. Here, there is tea.
+        The kettle doesn't judge. The armchair doesn't rush.
+      need_satisfied: [peace, reflection, gezelligheid]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                          INHABITANTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  inhabitants:
+    
+    richard:
+      name: "Dr. Richard Bartle"
+      location: "Usually the study"
+      character_file: CHARACTER.yml
+      card_file: CARD.yml
+      role: "Owner, Scholar, Host"
+      
+    heuristic:
+      name: "Heuristic"
+      type: "Dragon Familiar"
+      location: "The study radiator, or nearby"
+      character_file: pets/heuristic/CHARACTER.yml
+      role: "Memory keeper, Defender of honor"
+      
+    non_sequitur:
+      name: "Non-Sequitur"
+      type: "Capybara Familiar"
+      location: "Wandering, or in the study"
+      character_file: pets/non-sequitur/CHARACTER.yml
+      role: "Conversation derailment, Unexpected connections"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                          META — THE DIRECTORY AS BUILDING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+  meta:
+    architecture_note: |
+      DIRECTORY STRUCTURE = BUILDING STRUCTURE
+      
+      The richard-bartle/ directory IS the building:
+      
+        richard-bartle/           # ← The house (this ROOM.yml)
+        ├── CHARACTER.yml         # ← Richard himself
+        ├── CARD.yml              # ← Richard's playable interface
+        ├── README.md             # ← Introduction to Richard
+        ├── study/                # ← The study (room within room)
+        │   ├── ROOM.yml          # ← Study's spatial definition
+        │   ├── CHARACTER.yml     # ← Study as character
+        │   ├── CARD.yml          # ← Study's playable interface
+        │   └── selfies/          # ← Visual documentation
+        ├── pets/                 # ← The familiars
+        │   ├── heuristic/
+        │   └── non-sequitur/
+        ├── sessions/             # ← Historical records
+        └── artifacts/            # ← Notable objects
+      
+      This is MOOLLM's files-as-state principle applied to architecture:
+      the filesystem IS the floorplan.
+      
+    bidirectional_linking: |
+      TED NELSONIAN HYPERTEXT
+      
+      Links go both ways:
+      
+        Lane Neverending E2        13 Lane Neverending
+        ┌──────────────────┐       ┌──────────────────┐
+        │  exits:          │       │  exits:          │
+        │    13:           │ ←───→ │    street:       │
+        │      → richard/  │       │      → e2/       │
+        └──────────────────┘       └──────────────────┘
+      
+      You can walk TO the house from the street.
+      You can walk FROM the house to the street.
+      The link is first-class in both directions.
+      
+    files_as_architecture: |
+      ROOMS WITHIN ROOMS
+      
+      The house (this ROOM.yml) contains rooms (study/ROOM.yml).
+      Each room can be:
+      - Navigable (exits)
+      - Characterful (has its own CHARACTER.yml)
+      - Playable (has its own CARD.yml)
+      - Visualizable (has selfies/)
+      
+      It's turtles all the way down.
+      Or dragons, in this case.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "Come in. Have tea. Ask your question.
+#  The answer is probably in one of these books."
+#
+# 🏡📚🫖🐉
+#
+# ═══════════════════════════════════════════════════════════════════════════════
