@@ -1,40 +1,52 @@
 # ⛏️ MINING REPORT: Frame 03 — Stepping Out
-# Extracting emergent details from the rendered image.
+# Grounded in reality: analyzed from frame-03-exit-2026-01-22-09-58-33-exit.png
 
 metadata:
   frame: 3
-  source_image: frame-03-exit-imagen4.png
+  source_image: frame-03-exit-2026-01-22-09-58-33-exit.png
   timestamp: "2026-01-23T10:15:57Z"
   camera: LOB1
 
 fordite_layers:
 
-  - layer: threshold_physics
+  - layer: character_presence
+    richard: |
+      Crossing the threshold. His navy blue cardigan has a visible 
+      cable-knit texture. He holds the white tea cup steadily as he 
+      transitions from wood to concrete.
+    don: |
+      Fully in the lobby now. His grey-white rabbit ears are alert and 
+      slightly fuzzy. The tomato-red hibiscus shirt is the dominant 
+      splash of color in the cool grey lobby. He is gesturing 
+      enthusiastically toward the rest of the building.
+    heuristic: |
+      Visible deep inside the Study, still on the radiator. The dragon 
+      is now curled in a ball, eyes closed, ignoring the world outside.
+
+  - layer: threshold_geometry
     detail: |
-      The transition between mahogany and concrete is a literal
-      seam in reality. There is a slight 'shimmer' at the door's 
-      threshold, like heat haze.
-    visual_evidence: "Richard's trailing foot looks slightly distorted as it crosses the line."
+      The boundary between the Study's burgundy Persian rug and the 
+      lobby's high-gloss grey floor is perfectly straight. The Study 
+      door is heavy mahogany with an ornate brass handle.
+    visual_evidence: "Sharp transition in flooring material at the doorframe."
 
-  - layer: character_detail
-    don: "His tie-dye laces are glowing purple (UV reactive?). He looks ready to sprint through the factory."
-    richard: "Holding a small, gold-embossed leather notebook. Emergent detail: the title says 'PLAYER TAXONOMY — VOL IV'."
-    alex: "Wearing a name tag that says 'Welcome' (as mentioned in the ROOM.yml). She looks genuinely glad to see them."
-
-  - layer: the_dragon_factor
+  - layer: lobby_evolution
     detail: |
-      Heuristic has tucked his head under his tail. 
-      The LOB1 system has updated its classification.
-      LABEL: [ENTITY: ANOMALY_SLEEPING]
-      THREAT_LEVEL: ZERO
-    note: "The AI is becoming comfortable with the dragon."
+      The lobby's background features a sleek digital directory sign 
+      glowing with blue text. Large, architectural-scale potted palms 
+      frame the transition area.
+    note: "The digital sign adds a 'high-tech' counterpoint to the Study's 'low-tech' mahogany."
 
-  - layer: lighting_collision
-    detail: "The cool lobby light is being partially blocked by the open Study door, creating a long, dark mahogany-shaped shadow that reaches almost to the reception desk."
+  - layer: emergent_objects
+    detail: |
+      A small stack of three leather-bound books is resting on the 
+      Study's floor just inside the door, as if they were set down 
+      during the 'packing' for this trip.
+    visual_evidence: "Three distinct spines (green, red, brown) visible near the rug's edge."
 
 narrative_consequences:
-  - "The 'transclusion threshold' at the door is stable."
-  - "Richard is bringing his latest research notes into the Leela context."
-  - "Alex's name ('Welcome') is now visually canonized."
+  - "Richard's cable-knit cardigan is now canon texture."
+  - "The 'Transition Books' near the door imply the Study is a working environment."
+  - "The high-gloss floor reflects the golden 'home' light, extending the Study's influence into the lobby."
 
-# 🏠🚪🐉
+# 🏠🚪🐉🧶📚

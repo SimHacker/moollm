@@ -37,6 +37,17 @@ dropped walls, the camera observed:
 | [02 - Reveal](frame-02-reveal.yml) | 10:15:47 | Solid presence, Richard and Don looking out | ✅ MINED |
 | [03 - Exit](frame-03-exit.yml) | 10:15:57 | They step out into the lobby; Alex greets them | ✅ MINED |
 | [04 - Catalog](frame-04-catalog-dispenser.yml) | 10:17:42 | Browsing the TomTomagotchi and Factorio sections | ✅ MINED |
+| [05 - FMC Arrives](frame-05-fmc-arrival.yml) | 10:22:15 | Don summons the FMC #898 to the lobby | ✅ MINED |
+| [06 - Two Vehicles](frame-06-two-vehicles.yml) | 10:27:00 | Both pioneers beckoning from their shells | ✅ MINED |
+
+### Generated Imagery
+
+- **Frame 01:** `frame-01-materialization-...-materialization-simple.png`
+- **Frame 02:** `frame-02-reveal-...-reveal-no-names.png`
+- **Frame 03:** `frame-03-exit-...-exit.png`
+- **Frame 04:** `frame-04-catalog-dispenser-...-catalog.png`
+- **Frame 05:** `frame-05-fmc-arrival-...-fmc-arrival.png`
+- **Frame 06:** `frame-06-two-vehicles-...-two-vehicles-simple.png`
 
 ---
 
@@ -58,6 +69,19 @@ Outer walls become transparent.
 Inner contents fully visible.
 Two architectures collide.
 ```
+
+---
+
+## Mined Insights (YES AND)
+
+| Category | Emerging Canon |
+| :--- | :--- |
+| **Richard's Wear** | Navy blue cable-knit cardigan, gold-rimmed reading glasses. |
+| **Don's Look** | Tomato-red Hibiscus shirt, fuzzy grey-white ears, combat boots with tie-dye laces. |
+| **The Study** | Burgundy/gold Persian rug, brass globe in the corner, stack of 3 books near the door. |
+| **The Lobby** | High-gloss grey floors (reflective), architectural potted palms, blue digital directory. |
+| **Social** | Yellow-vested 'Maintenance Crew' are part of the lobby ecosystem. |
+
 
 ---
 

@@ -1,9 +1,9 @@
 # ⛏️ MINING REPORT: Frame 01 — The Materialization
-# Extracting emergent details from the rendered image.
+# Grounded in reality: analyzed from frame-01-materialization-2026-01-22-09-56-24-materialization-simple.png
 
 metadata:
   frame: 1
-  source_image: frame-01-materialization-imagen4.png
+  source_image: frame-01-materialization-2026-01-22-09-56-24-materialization-simple.png
   timestamp: "2026-01-23T10:15:42Z"
   camera: LOB1 (Front Eye)
 
@@ -11,39 +11,44 @@ fordite_layers:
 
   - layer: architectural_collision
     detail: |
-      The juxtaposition of 19th-century mahogany and 21st-century polished
-      concrete is stark. The Study isn't just "in" the lobby; it's 
-      transcluding its own reality into the space. The "Sims walls" 
-      effect creates a perfect cross-section.
-    visual_evidence: "Mahogany floor meets concrete with no transition gap."
+      The Study appears as a self-contained island of mahogany and books
+      resting on a sleek, light-grey industrial floor. The high ceilings 
+      of the lobby dwarf the room, making it look like a precious 
+      artifact under display.
+    visual_evidence: "Sharp line where Victorian wood meets modern grey tiles/concrete."
 
   - layer: character_presence
-    richard: "Unfazed. The steam from his tea is captured in 4K, rising in a steady plume."
-    don: "The bunny ears are distinctly tilted forward in excitement. The Hawaiian shirt pattern is 'Hawaiian-Industrial' (gears and palm trees)."
-    heuristic: "The dragon's scales have a metallic amber sheen that catches the lobby's fluorescent lights through the transparent walls."
-    alex: "Hands are halfway to a 'what the...?' gesture. Perfect comedic timing."
+    richard: |
+      Seated deeply in the leather wingback chair. He's wearing a 
+      comfortable-looking blue cardigan. He holds his tea cup with both 
+      hands, looking perfectly at ease with the displacement.
+    don: |
+      Standing in a dynamic pose near the door. The rabbit ears are 
+      prominent and greyish-white. The Hawaiian shirt has a vibrant 
+      red-orange pattern that vibrates against the Study's mahogany.
+    heuristic: |
+      Sitting upright on a white cast-iron radiator. The dragon's 
+      amber scales catch the interior lamp-glow. It looks remarkably 
+      solid and attentive.
+    alex: "Alex is partially visible in the background, obscured by the Study's frame, adding to the voyeuristic feel."
 
-  - layer: anomaly_detection_ui
+  - layer: emergent_objects
     detail: |
-      The LOB1 overlay has drawn a bounding box around the dragon.
-      LABEL: [ENTITY: UNKNOWN_REPTILE (GLOWING)]
-      PROBABILITY: 0.98
-      ACTION: LOG_EVENT
-    note: "The AI doesn't know it's a dragon, but it knows it's an anomaly."
+      A brass globe stands in the corner of the Study, reflecting the 
+      dual light sources. The bookshelves are not just full; they are 
+      teeming with colorful spines that suggest a vast taxonomy of knowledge.
+    note: "The globe implies that the Study carries its own map of the world."
 
   - layer: lighting_synthesis
     detail: |
-      The warm amber light from the Study's desk lamp spills out onto
-      the concrete, creating a 'golden hour' puddle in the middle of
-      the sterile lobby.
-    emergent_detail: "Dust motes from the old books are visible in the amber beam."
-
-  - layer: camera_mechanics
-    detail: "ACM1 is visible in the background window, its lens reflecting the Study. It is physically mid-rotation."
+      The 'Sims walls' effect creates a beautiful cross-section of 
+      color temperatures. The interior is a rich, saturated gold, 
+      while the lobby outside is a sterile, airy white/blue.
+    emergent_detail: "The Study's shadow on the lobby floor is unusually long and dark."
 
 narrative_consequences:
-  - "The Study is now anchored in the Leela namespace."
-  - "The dragon is officially on the security logs."
-  - "Alex will need to update the visitor registration form to include 'Rooms'."
+  - "The globe is now a canon artifact — perhaps it maps the microworld?"
+  - "Richard's blue cardigan is the definitive Bartle-wear for this sequence."
+  - "The 'island' nature of the Study emphasizes its role as a vehicle."
 
-# 🏠👁️🐉
+# 🏠👁️🐉🗺️

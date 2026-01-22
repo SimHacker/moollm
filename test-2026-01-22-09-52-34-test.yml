@@ -1,0 +1,28 @@
+# Sidecar for test-2026-01-22-09-52-34-test.png
+# Generated: 2026-01-22T09:52:34.595113
+#
+# This file is a regenerable recipe. Edit and re-run:
+#   visualize.py regenerate test-2026-01-22-09-52-34-test.yml
+#
+
+# === SOURCES ===
+# Reference paths to context files (not embedded)
+sources:
+  - test.yml
+
+# === GENERATION PARAMETERS ===
+generation:
+  provider: google
+  model: imagen-4.0-generate-001
+  size: 1024x1024
+  verbosity: normal
+  generated_at: 2026-01-22T09:52:34.595113
+
+# === SYNTHESIZED PROMPT ===
+# Edit this to regenerate with tweaks!
+prompt: |
+  A small amber dragon sitting on a radiator.
+
+# === ADDITIONAL METADATA ===
+provider: google
+model: imagen-4.0-generate-001

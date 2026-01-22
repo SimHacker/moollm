@@ -1,8 +1,5 @@
 # Frame 02: The Reveal
-# "The Study is fully solid, walls still dropped, ready to interact."
-#
-# Camera: LOB1
-# Time: +5 seconds from materialization.
+# Ninja-edited with emergent details from Frame 01 ground truth.
 
 frame:
   number: 2
@@ -11,54 +8,34 @@ frame:
   timestamp: "2026-01-23T10:15:47Z"
   
   narrative_beat: |
-    The shimmering stops. The Study is now 100% solid. 
-    It sits firmly on the lobby floor, its Victorian mahogany floor
-    perfectly aligned with the Leela concrete.
-    
-    The "Sims cutaway" view remains active on LOB1, providing a 
-    god-view of the inhabitants.
-    
-    Dr. Richard Bartle is carefully placing his tea cup on a 
-    small mahogany side table. He looks toward the open (dropped) 
-    side of the room at Alex, acknowledging the receptionist with 
-    a polite nod through the "invisible" wall.
-    
-    Don Hopkins is leaning against the doorframe, rabbit ears 
-    twitching. He's looking at Richard, gesturing toward the lobby.
-    
-    Heuristic the dragon has fully opened both eyes and is 
-    studying the LOB1 camera directly. It knows it's being watched.
+    The Study is now fully anchored. Don has turned toward Richard,
+    pointing at the door he's about to open. Richard is standing up 
+    from his leather wingback chair, still clutching his tea cup.
+    The brass globe in the corner glints.
     
   scene_description: |
-    The Study is now a physical object in the space. 
-    The contrast is sharp: the dark wood and old paper of the Study 
-    against the glass and brick of the lobby.
-    
-    - RICHARD BARTLE: Standing up from the armchair. Cardigan looks 
-      tangible. He's reaching for a taxonomy book.
-    - DON HOPKINS: "I told you it would work, Richard." He's wearing 
-      a 'Leela Visitor' pass that has spontaneously appeared on his 
-      Hawaiian shirt.
-    - THE RADIATOR: Steam is rising from Heuristic's spot. The dragon 
-      looks warm and satisfied.
-    
-    LOB1 OVERLAY:
-    "STABLE OBJECT DETECTED"
-    "ID: BARTLE_STUDY_001"
-    "PASSENGERS: 3 (2 HUMAN-ISH, 1 REPTILIAN_ANOMALY)"
+    - RICHARD BARTLE: Standing up, wearing his signature blue cardigan.
+    - DON HOPKINS: Smiling, grey-white rabbit ears alert, vibrant 
+      red-orange Hawaiian shirt.
+    - HEURISTIC: Sitting on the white radiator, watching the lobby.
+    - THE STUDY: Dark mahogany walls, colorful bookshelves, brass globe.
+    - THE LOBBY: Modern glass and grey floors, dwarf the small Study.
     
   prompt_for_visualizer: |
-    LOB1 Security footage, wide angle. The Victorian Study is now fully solid in the Leela lobby. Walls are still transparent in The Sims cutaway style.
+    A fully solid Victorian study sitting in the center of a vast, modern 
+    industrial lobby with grey floors. The walls of the study are 
+    transparent like a dollhouse. 
     
-    VIEW INSIDE:
-    - Dr. RICHARD BARTLE (silver hair, blue cardigan) is standing up from his leather armchair, looking with amusement at the lobby.
-    - DON HOPKINS (rabbit ears, Hawaiian shirt) has one hand on the doorknob, looking back at Richard.
-    - The AMBER DRAGON (Heuristic) is sitting upright on the radiator, looking directly at the security camera.
-    - Bookshelves are crisp and detailed.
+    INSIDE THE STUDY:
+    - Dr. RICHARD BARTLE (elderly, silver hair, blue cardigan) is standing 
+      up from a rich brown leather wingback armchair, holding a cup of tea.
+    - DON HOPKINS (with long grey-white rabbit ears and a vibrant 
+      red-orange Hawaiian shirt) is standing by the dark wood door, 
+      looking at Richard and gesturing toward the lobby.
+    - A SMALL AMBER DRAGON is perched on a white cast-iron radiator.
+    - A BRASS GLOBE stands in the corner.
+    - Floor-to-ceiling bookshelves with thousands of colorful spines.
+    - Warm golden interior light vs cool daylight through the lobby windows.
     
-    LOBBY VIEW:
-    - ALEX (receptionist) has picked up a crystal communicator, about to call security, but stops when Don waves.
-    - The industrial lighting reflects off the Study's windows.
-    - Green bounding boxes from the security system highlight the inhabitants.
-    
-    STYLE: Surveillance camera, high detail, 10:15:47 timestamp. Warm Study light is now dominating the center of the frame.
+    STYLE: Wide angle, high detail, sharp focus. The room looks like a 
+    perfectly preserved time capsule.
