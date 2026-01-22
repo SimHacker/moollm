@@ -31,12 +31,12 @@ dropped walls, the camera observed:
 
 ## The Footage
 
-| Frame | Timestamp | Description |
-|-------|-----------|-------------|
-| [01 - Materialization](frame-01-materialization.yml) | 10:15:42 | The Study appears with dropped walls (Sims cutaway) |
-| [02 - Catalog Dispenser](frame-02-catalog-dispenser.yml) | 10:17:03 | Don shows Richard the Leela catalog |
-| *03 - Pending* | 10:22:XX | The Study phases through ceiling |
-| *04 - Pending* | 10:XX:XX | Factory floor arrival |
+| Frame | Timestamp | Description | Status |
+|-------|-----------|-------------|--------|
+| [01 - Materialization](frame-01-materialization.yml) | 10:15:42 | The Study appears with dropped walls (Sims cutaway) | ✅ MINED |
+| [02 - Reveal](frame-02-reveal.yml) | 10:15:47 | Solid presence, Richard and Don looking out | ✅ MINED |
+| [03 - Exit](frame-03-exit.yml) | 10:15:57 | They step out into the lobby; Alex greets them | ✅ MINED |
+| [04 - Catalog](frame-04-catalog-dispenser.yml) | 10:17:42 | Browsing the TomTomagotchi and Factorio sections | ✅ MINED |
 
 ---
 

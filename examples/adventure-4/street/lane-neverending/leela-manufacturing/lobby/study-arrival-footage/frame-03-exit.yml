@@ -1,0 +1,58 @@
+# Frame 03: The Exit
+# "Don and Richard step out of the Victorian sanctuary into the Leela lobby."
+#
+# Camera: LOB1
+# Time: +15 seconds from materialization.
+
+frame:
+  number: 3
+  name: "exit"
+  title: "Stepping Out"
+  timestamp: "2026-01-23T10:15:57Z"
+  
+  narrative_beat: |
+    Don opens the heavy wooden Study door. It swings open into
+    the lobby space with a satisfying mahogany creak.
+    
+    Don steps out first, his combat boots (with tie-dye laces) 
+    clacking on the polished concrete. Richard follows, adjusting 
+    his cardigan, looking around the industrial space with 
+    polite curiosity.
+    
+    Alex at the reception desk has stood up, professional 
+    composure fully restored. "Welcome back, Mr. Hopkins. 
+    And welcome to Dr. Bartle... and your... home."
+    
+    Inside the Study (still visible through dropped walls), 
+    Heuristic stays on the radiator. It has no intention of 
+    leaving the warmth for a cold concrete floor.
+    
+  scene_description: |
+    - THE DOORWAY: A portal between two worlds. The warm amber 
+      light of the Study spills out in a triangle across the 
+      grey floor.
+    - DON: Waving to Alex. "Alex! This is Richard. He's touring 
+      the factory today."
+    - RICHARD: Stepping over the threshold. He's looking at 
+      the Leela logo on the wall.
+    - BACKGROUND: The Study hovers, a silent companion. Heuristic
+      is curled up, watching them leave.
+    
+    LOB1 OVERLAY:
+    "EVENT: PASSENGER_DISEMBARK"
+    "VISITORS: AUTHORIZED"
+    "ROOM_STATUS: DOCKED_AND_OPEN"
+    
+  prompt_for_visualizer: |
+    LOB1 Security footage, medium shot. The door of the Victorian Study is OPEN.
+    
+    ACTION:
+    - DON HOPKINS (rabbit, Hawaiian shirt) has just stepped out onto the polished concrete floor of the Leela lobby. He is gesturing for Richard to follow.
+    - Dr. RICHARD BARTLE is in the process of stepping through the door from the Study to the lobby. One foot on mahogany, one foot on concrete.
+    - ALEX (receptionist) is standing at the desk, smiling and nodding.
+    
+    INSIDE STUDY (Background):
+    - The amber dragon is still on the radiator, curled in a ball.
+    - The interior remains warm and detailed through the open door and dropped walls.
+    
+    STYLE: Surveillance camera detail, 10:15:57 timestamp. Sharp shadows from the Study door.

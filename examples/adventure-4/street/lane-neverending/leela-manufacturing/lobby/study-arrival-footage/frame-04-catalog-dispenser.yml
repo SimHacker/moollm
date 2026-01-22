@@ -1,0 +1,50 @@
+# Frame 04: The Catalog Dispenser
+# "Don shows Richard the highlights from the Leela catalog."
+#
+# Camera: LOB1
+# Time: +2 minutes from materialization.
+
+frame:
+  number: 4
+  name: "catalog-dispenser"
+  title: "Highlights from the Catalog"
+  timestamp: "2026-01-23T10:17:42Z"
+  
+  narrative_beat: |
+    Don has led Richard to the Leela Catalog Dispenser. 
+    Richard is holding an open Edition 47 catalog, bound in 
+    dark green leather. He's studying the 'TomTomagotchi' entry.
+    
+    Don is gesturing toward the catalog with a delighted grin. 
+    "It has emotional stakes, Richard! It's navigation as a game!"
+    
+    Alex is in the background, now helping a normal visitor who 
+    is staring at the Study with open-mouthed confusion.
+    
+    Inside the Study (visible in background), Heuristic has 
+    un-curled slightly and is watching the visitor from the radiator.
+    
+  scene_description: |
+    - THE DISPENSER: Polished walnut kiosk with brass fittings. 
+      Edition 47 catalogs stacked neatly inside.
+    - DON: One hand on the dispenser, the other pointing at 
+      Richard's open catalog. Hawaiian shirt colors popping.
+    - RICHARD: Reading with scholarly amusement. He's found the 
+      'Factorio Protocols' section too.
+    - THE STUDY: Parked nearby, walls dropped, glowing warm amber.
+    
+    LOB1 OVERLAY:
+    "ENTITY: RICHARD_BARTLE (RESEARCHING)"
+    "OBJECT: LEELA_CATALOG_ED_47"
+    "STATUS: TOUR_IN_PROGRESS"
+    
+  prompt_for_visualizer: |
+    LOB1 Security footage, medium shot focused on the Catalog Dispenser (polished walnut, brass fittings). 
+    
+    ACTION:
+    - Dr. RICHARD BARTLE stands holding an open, dark green leather catalog. He is wearing reading glasses and has a look of focused interest.
+    - DON HOPKINS (rabbit, Hawaiian shirt) is beside him, pointing at a page in the catalog and smiling broadly.
+    - In the background, the Victorian Study is still visible with its "Sims style" dropped walls.
+    - A confused human visitor is visible in the distance, staring at the Study.
+    
+    STYLE: Surveillance camera detail, 10:17:42 timestamp. High contrast between the dark green catalog and the bright lobby.

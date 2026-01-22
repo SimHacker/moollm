@@ -1,0 +1,64 @@
+# Frame 02: The Reveal
+# "The Study is fully solid, walls still dropped, ready to interact."
+#
+# Camera: LOB1
+# Time: +5 seconds from materialization.
+
+frame:
+  number: 2
+  name: "reveal"
+  title: "Solid Presence"
+  timestamp: "2026-01-23T10:15:47Z"
+  
+  narrative_beat: |
+    The shimmering stops. The Study is now 100% solid. 
+    It sits firmly on the lobby floor, its Victorian mahogany floor
+    perfectly aligned with the Leela concrete.
+    
+    The "Sims cutaway" view remains active on LOB1, providing a 
+    god-view of the inhabitants.
+    
+    Dr. Richard Bartle is carefully placing his tea cup on a 
+    small mahogany side table. He looks toward the open (dropped) 
+    side of the room at Alex, acknowledging the receptionist with 
+    a polite nod through the "invisible" wall.
+    
+    Don Hopkins is leaning against the doorframe, rabbit ears 
+    twitching. He's looking at Richard, gesturing toward the lobby.
+    
+    Heuristic the dragon has fully opened both eyes and is 
+    studying the LOB1 camera directly. It knows it's being watched.
+    
+  scene_description: |
+    The Study is now a physical object in the space. 
+    The contrast is sharp: the dark wood and old paper of the Study 
+    against the glass and brick of the lobby.
+    
+    - RICHARD BARTLE: Standing up from the armchair. Cardigan looks 
+      tangible. He's reaching for a taxonomy book.
+    - DON HOPKINS: "I told you it would work, Richard." He's wearing 
+      a 'Leela Visitor' pass that has spontaneously appeared on his 
+      Hawaiian shirt.
+    - THE RADIATOR: Steam is rising from Heuristic's spot. The dragon 
+      looks warm and satisfied.
+    
+    LOB1 OVERLAY:
+    "STABLE OBJECT DETECTED"
+    "ID: BARTLE_STUDY_001"
+    "PASSENGERS: 3 (2 HUMAN-ISH, 1 REPTILIAN_ANOMALY)"
+    
+  prompt_for_visualizer: |
+    LOB1 Security footage, wide angle. The Victorian Study is now fully solid in the Leela lobby. Walls are still transparent in The Sims cutaway style.
+    
+    VIEW INSIDE:
+    - Dr. RICHARD BARTLE (silver hair, blue cardigan) is standing up from his leather armchair, looking with amusement at the lobby.
+    - DON HOPKINS (rabbit ears, Hawaiian shirt) has one hand on the doorknob, looking back at Richard.
+    - The AMBER DRAGON (Heuristic) is sitting upright on the radiator, looking directly at the security camera.
+    - Bookshelves are crisp and detailed.
+    
+    LOBBY VIEW:
+    - ALEX (receptionist) has picked up a crystal communicator, about to call security, but stops when Don waves.
+    - The industrial lighting reflects off the Study's windows.
+    - Green bounding boxes from the security system highlight the inhabitants.
+    
+    STYLE: Surveillance camera, high detail, 10:15:47 timestamp. Warm Study light is now dominating the center of the frame.
