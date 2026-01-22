@@ -32,6 +32,9 @@ massive fluffy clouds, and perfect picnic weather.
 | [10 - Egg Expansion](frame-10-egg-expansion.yml) | 13:26:42 | Donna opens the 12-foot Fabergé TARDIS | ✅ MINED |
 | [11 - Tamale Automation](frame-11-tamale-automation.yml) | 13:46:12 | Factorio-style assembly line from the Egg | ✅ MINED |
 | [12 - Voracious Feast](frame-12-the-feast.yml) | 14:30:00 | The three pioneers descend on the food | ✅ MINED |
+| [13 - Don't Selfie](frame-13-don-selfie.yml) | 14:45:00 | Rabbit-Don with a salsa-tipped ear and tamale | ✅ MINED |
+| [14 - Richard's Selfie](frame-14-richard-selfie.yml) | 14:50:00 | Scholarly spaghetti slurping in the sun | ✅ MINED |
+| [15 - Donna's Selfie](frame-15-donna-selfie.yml) | 14:55:00 | The Quality Control Queen and her Cheddar Crown | ✅ MINED |
 
 ### Generated Imagery
 
@@ -47,6 +50,9 @@ massive fluffy clouds, and perfect picnic weather.
 - **Frame 10:** `frame-10-egg-expansion-...-egg-expansion.png`
 - **Frame 11:** `frame-11-tamale-automation-...-tamale-automation.png`
 - **Frame 12:** `frame-12-the-feast-...-the-feast-simple.png`
+- **Frame 13:** `frame-13-don-selfie-...-don-selfie.png`
+- **Frame 14:** `frame-14-richard-selfie-...-richard-selfie.png`
+- **Frame 15:** `frame-15-donna-selfie-...-donna-selfie.png`
 
 ---
 
@@ -61,9 +67,10 @@ massive fluffy clouds, and perfect picnic weather.
 | **The Food** | **3-foot cheddar bullion pyramid** (Nuclear Saffron); **Sinusoidal Sauce** patterns on tamales. |
 | **The Dragon** | Now the **'Gourmet Guardian'**; capable of **Blue-Spark Ignition** and **Internal Heat** pulses. |
 | **Taco Flowers** | Yellow-gold petals with **'toasted-brown' edges**; crimson 'meat' stamens; green 'lettuce' base. |
-| **Donna T.** | Real Donna is **'ACME Quality Control'**; Gatekeeper of the OURS Accord. |
+| **Donna T.** | Real Donna is **'ACME Quality Control'**; Gatekeeper of the OURS Accord; wears **pink heart glasses**. |
 | **The Decoy** | Glitched into a **1970s McDonald's-style trash can** with a swinging 'PUSH' door and a red silk tie. |
 | **The TARDIS Egg** | 12-foot **green and gold Fabergé Egg**; contains a built-in **'Factorio Kitchen'** with brass conveyor belts and golden Inserters. |
+| **Selfie Details** | Don's **'Salsa Ear'** (left tip red); Richard's **gold-rimmed glasses** and **sauce-splattered navy cardigan**. |
 | **The Feast** | Three pioneers eating **'vorciferously and vermiciously'**; Don's ear dipped in salsa; Richard's cardigan stained with red sauce. |
 | **The Aftermath** | Cheddar pyramid reduced to a jagged stump; corn husks everywhere like ancient parchment. |
 | **Containment** | **Pocket Dimension** (amethyst keychain) swallows the black hole; **Self-Healing Module** (green) patches the tree. |
