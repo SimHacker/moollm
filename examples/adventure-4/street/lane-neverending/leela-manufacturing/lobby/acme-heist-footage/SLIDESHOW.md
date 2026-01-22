@@ -50,16 +50,22 @@ While these events unfold, Donna Toadstool documents them from her control room:
 
 ## 📍 Frame 01: The Approach {#frame-01}
 
-![The Approach](frame-01-approach-imagen4.png)
+### Take 1: The Glitch
+
+![The Approach - Take 1](frame-01-approach-imagen4.png)
+
+### Take 2: Cleaner Signal
+
+![The Approach - Take 2](frame-01-approach-imagen4-2.png)
 
 **Time**: ~02:30 AM  
 **↔️ Donna's View**: [Selfie 01 — Intruder Alert](../../../../characters/fictional/donna-toadstool/selfies/SLIDESHOW.md#selfie-01) *"LOOK WHAT I'VE FOUND!"*
 
 **The Moment**: Two figures cross the street toward ACME Surplus. The first frame has interference — ACME's reality-distortion field affecting the camera.
 
-**Emergent**: Glitchy camera feed accepted as canon. The building doesn't want to be filmed clearly.
+**Emergent**: Glitchy camera feed accepted as canon. The building doesn't want to be filmed clearly. Take 2 shows what the camera *tried* to capture.
 
-📎 [Take 2 (cleaner)](frame-01-approach-imagen4-2.png) | [Mining](frame-01-approach-imagen4-mine.yml)
+📎 [Mining - Take 1](frame-01-approach-imagen4-mine.yml) | [Mining - Take 2](frame-01-approach-imagen4-2-mine.yml)
 
 ---
 
