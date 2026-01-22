@@ -18,6 +18,8 @@ massive fluffy clouds, and perfect picnic weather.
 
 ## The Footage
 
+**[🎞️ VIEW THE FULL SLIDESHOW](SLIDESHOW.md)**
+
 | Frame | Timestamp | Description | Status |
 |-------|-----------|-------------|--------|
 | [01 - Arrival](frame-01-arrival.yml) | 11:30:12 | Both vehicles materialize in the tall grass | ✅ MINED |
