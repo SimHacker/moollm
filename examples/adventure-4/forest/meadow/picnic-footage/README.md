@@ -25,6 +25,7 @@ massive fluffy clouds, and perfect picnic weather.
 | [03 - Feast](frame-03-feast.yml) | 11:55:00 | Unloading tacos, cheddar, and spaghetti | ✅ MINED |
 | [04 - Macro](frame-04-macro.yml) | 12:15:42 | Close-ups of pie-menu flowers, dragon scales, and cheddar | ✅ MINED |
 | [05 - Taco Flowers](frame-05-taco-flowers.yml) | 12:30:00 | Macro of exotic taco-shaped blooms and bumblebees | ✅ MINED |
+| [06 - Uninvited Guest](frame-06-uninvited-guest.yml) | 13:00:00 | ACME truck bursts from a Painted Tunnel oak | ✅ MINED |
 
 ### Generated Imagery
 
@@ -33,6 +34,7 @@ massive fluffy clouds, and perfect picnic weather.
 - **Frame 03:** `frame-03-feast-...-feast-simple.png`
 - **Frame 04:** `frame-04-macro-...-macro.png`
 - **Frame 05:** `frame-05-taco-flowers-...-taco-flowers.png`
+- **Frame 06:** `frame-06-uninvited-guest-...-drama.png`
 
 ---
 
@@ -48,6 +50,10 @@ massive fluffy clouds, and perfect picnic weather.
 | **The Dragon** | Now the **'Gourmet Guardian'** of the spaghetti. |
 | **Taco Flowers** | Yellow-gold petals with **'toasted-brown' edges**; crimson 'meat' stamens; green 'lettuce' base. |
 | **Bees** | **'Giant Meadow Fuzzy'** bumblebees with overflowing neon-orange pollen baskets. |
+| **The Intruder** | Red **ACME Van-Guard** (1973), battered and smoking, emerging from an oak tree. |
+| **Painted Tunnel** | Manifested on an ancient oak; shows a low-res desert road. |
+| **Blue Spark** | Heuristic's defensive ignition point at the tip of his snout. |
+| **Provisions** | Richard uses a 'Cardigan Napkin'; the Study has a new 'Spaghetti Sideboard'. |
 
 
 ---
