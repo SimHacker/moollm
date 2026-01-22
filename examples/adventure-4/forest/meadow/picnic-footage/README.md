@@ -26,6 +26,7 @@ massive fluffy clouds, and perfect picnic weather.
 | [04 - Macro](frame-04-macro.yml) | 12:15:42 | Close-ups of pie-menu flowers, dragon scales, and cheddar | ✅ MINED |
 | [05 - Taco Flowers](frame-05-taco-flowers.yml) | 12:30:00 | Macro of exotic taco-shaped blooms and bumblebees | ✅ MINED |
 | [06 - Uninvited Guest](frame-06-uninvited-guest.yml) | 13:00:00 | ACME truck bursts from a Painted Tunnel oak | ✅ MINED |
+| [07 - Unsolicited Delivery](frame-07-unsolicited-delivery.yml) | 13:01:12 | Donna's 'gifts' spill into the meadow | ✅ MINED |
 
 ### Generated Imagery
 
@@ -35,6 +36,7 @@ massive fluffy clouds, and perfect picnic weather.
 - **Frame 04:** `frame-04-macro-...-macro.png`
 - **Frame 05:** `frame-05-taco-flowers-...-taco-flowers.png`
 - **Frame 06:** `frame-06-uninvited-guest-...-drama.png`
+- **Frame 07:** `frame-07-unsolicited-delivery-...-delivery-chaos.png`
 
 ---
 
@@ -47,13 +49,12 @@ massive fluffy clouds, and perfect picnic weather.
 | **Flora** | **Pie-menu blue flowers** grow in radial clusters; red poppies provide color anchors. |
 | **Picnic Gear** | **'Swirl of Infinite Parameters'** tie-dye blanket; mahogany **tuckaway tables**. |
 | **The Food** | **3-foot cheddar bullion pyramid** (Nuclear Saffron); tennis-ball-sized meatballs. |
-| **The Dragon** | Now the **'Gourmet Guardian'** of the spaghetti. |
+| **The Dragon** | Now the **'Gourmet Guardian'** of the spaghetti; capable of **Blue-Spark Ignition** and **Internal Heat** pulses. |
 | **Taco Flowers** | Yellow-gold petals with **'toasted-brown' edges**; crimson 'meat' stamens; green 'lettuce' base. |
 | **Bees** | **'Giant Meadow Fuzzy'** bumblebees with overflowing neon-orange pollen baskets. |
 | **The Intruder** | Red **ACME Van-Guard** (1973), battered and smoking, emerging from an oak tree. |
 | **Painted Tunnel** | Manifested on an ancient oak; shows a low-res desert road. |
-| **Blue Spark** | Heuristic's defensive ignition point at the tip of his snout. |
-| **Provisions** | Richard uses a 'Cardigan Napkin'; the Study has a new 'Spaghetti Sideboard'. |
+| **ACME Goods** | **Dehydrated Feast** (expanding protein cubes), **Inflatable Donna Decoy**, and a **Pocket Black Hole** (sucking in the cheese!). |
 
 
 ---
