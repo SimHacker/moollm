@@ -39,6 +39,8 @@ dropped walls, the camera observed:
 | [04 - Catalog](frame-04-catalog-dispenser.yml) | 10:17:42 | Browsing the TomTomagotchi and Factorio sections | ✅ MINED |
 | [05 - FMC Arrives](frame-05-fmc-arrival.yml) | 10:22:15 | Don summons the FMC #898 to the lobby | ✅ MINED |
 | [06 - Two Vehicles](frame-06-two-vehicles.yml) | 10:27:00 | Both pioneers beckoning from their shells | ✅ MINED |
+| [07 - The Loading](frame-07-loading.yml) | 10:35:42 | Dolly and Lolly deliver the Leela haul | ✅ MINED |
+| [08 - Feast Loading](frame-08-loading-food.yml) | 10:45:12 | Tacos, hams, spaghetti, and cheddar pyramid | ✅ MINED |
 
 ### Generated Imagery
 
@@ -48,6 +50,8 @@ dropped walls, the camera observed:
 - **Frame 04:** `frame-04-catalog-dispenser-...-catalog.png`
 - **Frame 05:** `frame-05-fmc-arrival-...-fmc-arrival.png`
 - **Frame 06:** `frame-06-two-vehicles-...-two-vehicles-simple.png`
+- **Frame 07:** `frame-07-loading-...-loading.png`
+- **Frame 08:** `frame-08-loading-food-...-food-loading.png`
 
 ---
 
@@ -81,6 +85,10 @@ Two architectures collide.
 | **The Study** | Burgundy/gold Persian rug, brass globe in the corner, stack of 3 books near the door. |
 | **The Lobby** | High-gloss grey floors (reflective), architectural potted palms, blue digital directory. |
 | **Social** | Yellow-vested 'Maintenance Crew' are part of the lobby ecosystem. |
+| **Logistics** | Dolly (Industrial Amber, fluffy dice) and Lolly (Candy-Shell Magenta, pearls) are the facility's Lift Queens. |
+| **Leela Products** | Pocket Dimension Container (amethyst glow), Omniscient Orb (silver with blue 'eye'). |
+| **The Feast** | Tacos in silver trays, 3-foot cheddar bullion pyramid, glazed hams, spaghetti & meatballs. |
+| **Provisions** | Richard uses a 'Cardigan Napkin'; the Study has a new 'Spaghetti Sideboard'. |
 
 
 ---
