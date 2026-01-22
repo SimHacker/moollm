@@ -40,6 +40,7 @@ massive fluffy clouds, and perfect picnic weather.
 | [18 - Grab 'em](frame-18-grab-em-by-the-taco.yml) | 15:45:00 | "Grab 'em by the taco" outtake (v2) | ✅ MINED |
 | [19 - Taco Frenzy](frame-19-taco-frenzy.yml) | 15:55:00 | Donna's high-drag close-up eating Taco Flowers | ✅ MINED |
 | [20 - Great Slurp](frame-20-the-great-slurp.yml) | 16:30:00 | Tornado whisks entire picnic into the sky | ✅ MINED |
+| [21 - The Return](frame-21-the-return.yml) | 18:00:00 | 360° fisheye return to Lane Neverending | ✅ MINED |
 
 ### Generated Imagery
 
@@ -62,6 +63,7 @@ massive fluffy clouds, and perfect picnic weather.
 - **Frame 18:** `frame-18-grab-em-by-the-taco-2026-01-22-11-02-06-grab-em-v3.png`
 - **Frame 19:** `frame-19-taco-frenzy-2026-01-22-11-05-04-taco-frenzy.png`
 - **Frame 20:** `frame-20-the-great-slurp-2026-01-22-11-11-04-the-great-slurp.png`
+- **Frame 21:** `frame-21-the-return-2026-01-22-11-14-44-the-return.png`
 
 ---
 
