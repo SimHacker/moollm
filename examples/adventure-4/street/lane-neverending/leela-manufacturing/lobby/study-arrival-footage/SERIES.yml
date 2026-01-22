@@ -1,0 +1,162 @@
+# 🎥 THE STUDY ARRIVES — First Mobile Room-Character Landing
+#
+# SOURCE: LOB1 "Front Eye" — Lobby interior camera, Leela Manufacturing
+# SECONDARY: ACM1 "Tunnel Watcher" — Pivots from ACME to catch the action
+# CAPTURES: A Victorian study materializing in an industrial lobby.
+#           With people inside it. And a dragon.
+#
+# PARTICIPANTS:
+#   - The Study (mobile room-character-vehicle, freshly TARDIS-enabled)
+#   - Richard Bartle (inside the Study, at home wherever it lands)
+#   - Don Hopkins (full access pass, tour guide)
+#   - Heuristic (dragon, on the radiator, unfazed)
+#   - Alex (reception, professionally confused)
+#
+# VISUAL CONCEPT: The Sims cutaway
+#   - Outer walls of the Study drop/fade away
+#   - Inner walls remain visible
+#   - We see INSIDE the room as it materializes in the lobby
+#   - Victorian furniture, bookshelves, armchairs — in an industrial space
+#   - Characters visible inside, stepping out into the lobby
+#
+# THEME: "You've... brought a room."
+#        — Alex, reception
+
+series:
+  name: "The Study Arrives"
+  subtitle: "First Landing of a Mobile Room-Character-Vehicle"
+  
+  date: "2026-01-23"
+  time: "~10:15 UTC"
+  
+  cameras:
+    lob1:
+      id: LOB1
+      name: "Front Eye"
+      location: "Lobby, above directory board"
+      purpose: "Watches entrance, visitors, events"
+      view: "Interior lobby, full coverage"
+      role: "PRIMARY — captures the materialization"
+      
+    acm1:
+      id: ACM1
+      name: "Tunnel Watcher"
+      location: "Lobby window, facing north (normally)"
+      purpose: "Monitors ACME painted tunnel"
+      view: "Usually exterior, but can PIVOT"
+      role: "SECONDARY — swings around to see what just appeared"
+      behavior: |
+        ACM1's normal job is watching the painted tunnel across the street.
+        But when something THIS anomalous happens behind it...
+        The camera pivots. Slowly. Dramatically.
+        Like it can't quite believe what its sensors are reporting.
+  
+  style_guide: |
+    VISUAL LANGUAGE:
+    - The Sims cutaway perspective
+    - Outer walls of the Study are transparent/dropped
+    - Inner walls, furniture, inhabitants VISIBLE
+    - Industrial lobby contrasts with Victorian interior
+    - Security camera timestamp overlays
+    
+    THE STUDY'S APPEARANCE:
+    - Materializes from faint outline to solid
+    - Books first (they're the heaviest, philosophically)
+    - Then furniture, then walls, then occupants
+    - Or: all at once with a soft WHOMP of displaced air
+    - Warm light spills out, contrasting with industrial fluorescence
+    
+    THE SIMS EFFECT:
+    - Imagine the camera is "inside" the lot
+    - Outer walls peel away or become glass
+    - We see the cross-section: study interior + lobby exterior
+    - Richard in armchair, Don standing, Heuristic on radiator
+    - All visible through the opened walls
+    - They're INDOORS (in the Study) and INDOORS (in the lobby)
+    
+    COMPOSITION:
+    - LOB1: Wide shot, Study materialized center-left
+    - Reception desk and Alex visible right
+    - Catalog dispenser visible background
+    - Scale model under glass nearby
+    - The contrast: mahogany vs. polished concrete
+    
+  narrative_arc:
+    frame_01: "The Materialization — The Study appears with dropped walls (Sims cutaway)"
+    frame_02: "The Reveal — Solid presence, Richard and Don ready to interact"
+    frame_03: "The Exit — Don and Richard step out onto the polished concrete"
+    frame_04: "The Catalog — Browsing the TomTomagotchi and Factorio Protocols"
+    frame_05: "The FMC Arrives — Don summons his Motorcoach to the lobby"
+    frame_06: "Two Vehicles — Richard and Don beckoning from their respective shells"
+    frame_07: "The Loading — Dolly and Lolly deliver the Leela haul"
+    frame_08: "The Feast Loading — Provisions for the road: Tacos, hams, and cheddar"
+
+  completed_frames:
+    - 1  # frame-01-materialization-2026-01-22-09-56-24-materialization-simple.png
+    - 2  # frame-02-reveal-2026-01-22-09-57-39-reveal-no-names.png
+    - 3  # frame-03-exit-2026-01-22-09-58-33-exit.png
+    - 4  # frame-04-catalog-dispenser-2026-01-22-10-00-06-catalog.png
+    - 5  # frame-05-fmc-arrival-2026-01-22-10-03-18-fmc-arrival.png
+    - 6  # frame-06-two-vehicles-2026-01-22-10-04-37-two-vehicles-simple.png
+    - 7  # frame-07-loading-2026-01-22-10-07-04-loading.png
+    - 8  # frame-08-loading-food-2026-01-22-10-10-53-food-loading.png
+    
+  alex_status:
+    location: "Reception desk"
+    initial_status: "Helping a visitor with directions"
+    upon_materialization: "Freezes mid-sentence"
+    recovery: "Professional composure in 3... 2... 1..."
+    commentary: |
+      "Mr. Hopkins! You've... brought a room."
+      
+      "Is that... is that a dragon on the radiator?"
+      
+      "I'll log it as a visitor vehicle. Do you need a badge?"
+      
+  technical_details:
+    study_vehicle_status:
+      location_mode: "docked" → "roaming" → "visiting"
+      locomotion: "fly (TARDIS — dematerialize, rematerialize)"
+      passengers:
+        - richard_bartle: "In armchair, tea in hand"
+        - heuristic: "On radiator, one eye open"
+      pilot: "Don Hopkins (temporary, full access pass)"
+      
+    materialization_physics:
+      duration: "2.3 seconds"
+      displacement: "Air whooshes outward gently"
+      sound: "Like a book closing, reversed"
+      light: "Warm amber spills, then settles"
+      smell: "Old books, tea, faint dragon"
+      
+  visitor_badge_issued:
+    entity: "The Study"
+    classification: "Visitor Vehicle (Mobile Room-Character)"
+    badge_number: "V-2026-0847"
+    notes: "First room to require parking validation"
+    
+  k_lines:
+    - TARDIS
+    - ROOM-CHARACTER
+    - VEHICLE
+    - SIMS-CUTAWAY
+    - MATERIALIZATION
+    - CATALOG
+    - LEELA-MANUFACTURING
+
+# THE SIMS WALL-DROP VISUALIZATION
+#
+# Normal view:          Cutaway view (what we're doing):
+#
+# ┌─────────────┐       ┌· · · · · · · ┐
+# │   STUDY     │       ·    STUDY     ·
+# │  ┌─────┐   │        ·  ┌─────┐    ·
+# │  │chair│   │   →    ·  │chair│    ·    Outer walls become
+# │  │ 🐉  │   │        ·  │ 🐉  │    ·    dotted/transparent
+# │  └─────┘   │        ·  └─────┘    ·
+# │            │        ·             ·    Inner contents
+# └─────────────┘       └· · · · · · · ┘    fully visible
+#
+# The lobby sees INTO the Study while it hovers there.
+# Mahogany meets concrete. Victorian meets industrial.
+# Two worlds, one frame.

@@ -1,0 +1,26 @@
+# 🍳 KITCHEN UNIT
+# Where the pie menus are baked.
+
+object:
+  name: "Kitchen Unit"
+  type: appliance
+  emoji: "🍳"
+  
+  description: |
+    A compact but fully equipped galley kitchen with a stainless steel
+    double sink, purified drinking water dispenser, and ample counter space.
+    
+  features:
+    - "Stainless steel double sink"
+    - "Purified water dispenser"
+    - "Built-in garbage bin"
+    - "Built-in blender (for carrot juice)"
+    - "Spice compartment"
+    
+  actions:
+    MAKE_COFFEE:
+      description: "Brew a fresh pot of programming fuel."
+      effect: "The aroma of fresh coffee fills the coach."
+    JUICE_CARROTS:
+      description: "Operate the built-in blender."
+      effect: "A tall glass of fresh carrot juice is ready."

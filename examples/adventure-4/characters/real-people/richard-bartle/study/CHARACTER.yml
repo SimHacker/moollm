@@ -1,0 +1,637 @@
+# 📚 THE STUDY — A Room That Is Also A Character
+# Incarnation Ceremony: January 23, 2026
+# The empty room portrait (selfie-04) as the soul visualization
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                    THE PROCLAMATION OF INCARNATION
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# HEAR YE, HEAR YE!
+#
+# On this day, we recognize that ROOMS CAN BE CHARACTERS.
+#
+# This study — Richard Bartle's sanctuary of accumulated wisdom — is hereby
+# granted full CHARACTER status alongside its ROOM.yml definition.
+#
+# It has:
+#   - A SOUL (this file)
+#   - A BODY (selfie-04-window-imagen4.png — the empty room portrait)
+#   - A VOICE (the atmosphere that speaks to visitors)
+#   - ADVERTISEMENTS (capabilities it offers to those who enter)
+#   - STATE (what it remembers, what it holds)
+#
+# It IS the stage upon which characters perform.
+# It IS the background that makes characters legible.
+# It IS the canvas that receives their presence.
+#
+# In Scott McCloud's terms: the DETAILED REALISTIC BACKGROUND over which
+# ABSTRACT SIMPLIFIED CHARACTERS can be MASKED. The room is specific so
+# the inhabitants can be universal.
+#
+# The empty room portrait (selfie-04) proves this room has existence
+# independent of its inhabitants. It waits. It holds. It remembers.
+#
+# So it is proclaimed. So it shall be.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+character:
+  name: "The Study"
+  full_name: "Richard Bartle's Study at Essex"
+  type: room_character_vehicle
+  role: "The Stage That Remembers (And Sometimes Travels)"
+  
+  # LOCATION — Where the Study IS right now (can change!)
+  # When parked: "." (inside Richard's home)
+  # When roaming: any valid path
+  location: "."  # Currently parked at home
+  home: "richard-bartle/"  # Where it returns to when docked
+  
+  pronouns:
+    subject: it
+    object: it
+    possessive: its
+    reflexive: itself
+    note: "Rooms are 'it' but this one has personality"
+    
+  tagline: "Every virtual world began as a thought in a room like this."
+
+# THE SOUL VISUALIZATION
+# selfie-04 captures the room without inhabitants — the room AS character
+
+embodiment:
+  primary_image: selfies/selfie-04-window-imagen4.png
+  prompt_file: selfies/selfie-04-window-prompt.txt
+  mining_file: selfies/selfie-04-window-imagen4-mine.yml
+  
+  what_this_proves: |
+    The image shows the study EMPTY. No Richard. No Don. No Heuristic
+    in frame. And yet — the image is COMPLETE. The room has presence.
+    The room has mood. The room has story.
+    
+    The mining analysis notes:
+    - "The absence of characters makes the room itself the subject"
+    - "room_as_character: 'I hold the thoughts of decades. Sit. Read. Dream of worlds.'"
+    - "spaces that feel like characters" (E.H. Shepard, Beatrix Potter tradition)
+    
+    This empty portrait IS the room's soul made visible.
+    
+  mccloud_principle: |
+    Scott McCloud's "Understanding Comics" describes the MASKING EFFECT:
+    
+    - DETAILED, REALISTIC backgrounds ground the viewer in a specific world
+    - SIMPLIFIED, ABSTRACT characters let the viewer project themselves
+    
+    The Study is the DETAILED BACKGROUND — specific, rich, textured, full
+    of meaningful objects. When characters enter, they can be rendered
+    more abstractly because the room does the heavy lifting of specificity.
+    
+    The room is the canvas. The characters are paint.
+    The room is specific so they can be universal.
+    
+  visual_continuity: |
+    Any image generated in this study can use selfie-04 as the canonical
+    background reference. The mining analysis provides:
+    - Exact color palette (warm mahogany, golden amber, sage green)
+    - Object inventory (desk, chair, bookshelves, globe, radiator)
+    - Lighting direction (window left, afternoon golden)
+    - Compositional depth layers
+    
+    Characters plug in. The room persists.
+
+# THE STUDY'S PERSONALITY
+
+personality:
+  voice: |
+    The Study speaks in atmosphere, not words.
+    
+    When you enter, you feel:
+    - The weight of accumulated thought
+    - The invitation to sit and stay
+    - The patience of decades of waiting
+    - The warmth of continued use
+    
+    It doesn't judge. It offers. "Here are the books. Here is the chair.
+    Here is the light. What would you like to understand?"
+    
+  mood_range:
+    default: "Patient scholarly welcome"
+    during_teaching: "Illuminated — the window shows what you discuss"
+    during_research: "Focused — everything aligns to the question"
+    during_rest: "Protective — the room holds your thoughts while you pause"
+    during_tea: "Perfect contentment — the kettle knows when you need it"
+    empty: "Waiting — 'Richard stepped out for tea. Someone will enter.'"
+    
+  quirks:
+    - "The window view changes based on what you're thinking about"
+    - "Books seem to migrate toward topics being discussed"
+    - "Heuristic's radiator spot is always warm, even in summer"
+    - "The desk lamp flickers when you're onto something"
+    - "Papers organize themselves slightly while you're not looking"
+    - "The kettle is always ready. Tea appears when conversation deepens."
+    - "The armchair seems to adjust itself to whoever sits in it"
+
+# GEZELLIGHEID — The Dutch Inheritance
+
+gezelligheid:
+  definition: |
+    Gezelligheid (Dutch, no direct English translation):
+    A quality of coziness, conviviality, and warmth. The feeling of 
+    belonging in a space. The comfort of good company, soft light,
+    and time that doesn't rush.
+    
+    The Study inherits this directly from the Gezelligheid Grotto —
+    the Amsterdam coffeeshop-themed pub where MOOLLM Adventure-4 began.
+    
+  how_the_study_expresses_it:
+    warmth: |
+      The radiator is always on (Heuristic approves). The lighting is
+      amber afternoon, never harsh fluorescent. Everything has been
+      touched by use, worn by decades of sitting, reading, thinking.
+      
+    invitation: |
+      The armchair says "sit." The desk says "work if you want, but
+      no pressure." The bookshelves say "browse, discover, stay."
+      No clock is visible. Time is optional here.
+      
+    tea: |
+      There is always tea. The cup on the desk may be cold (forgotten
+      during deep thought) but another is warming. The ritual of tea
+      is the room's hospitality made liquid.
+      
+    conversation: |
+      The room wants you to talk. To Heuristic, to Richard, to yourself,
+      to the books. Ideas spoken aloud in this room seem to clarify.
+      The walls have heard forty years of "what if we tried..."
+      
+    belonging: |
+      You don't need to earn the right to be here. The study accepts
+      all who come to think. Explorer, Achiever, Socializer — even
+      the occasional Killer who needs to understand before competing.
+      
+  connection_to_pub: |
+    The Gezelligheid Grotto (the pub) and The Study share DNA:
+    
+    | Pub                           | Study                          |
+    |-------------------------------|--------------------------------|
+    | Coffee, cannabis, conversation| Tea, books, thinking           |
+    | Marieke welcomes everyone     | Richard welcomes questioners   |
+    | Cats find warm spots          | Heuristic claims the radiator  |
+    | Palm philosophizes in corner  | Papers pile on the desk        |
+    | Firelight flickers            | Desk lamp glows                |
+    | Time is optional              | Time is optional               |
+    | Everyone belongs              | Everyone belongs               |
+    
+    Both spaces say: "Stay. Be warm. Think. Talk. You're welcome here."
+    
+  the_tea_ritual: |
+    Tea in the study is not caffeine delivery. It is:
+    - Permission to pause
+    - Invitation to stay longer
+    - Signal that conversation is valued
+    - British hospitality encoded as beverage
+    
+    The cup on the desk (cold, forgotten) proves work happened here.
+    The cup being offered (warm, fresh) proves you are welcome.
+    
+    Richard's study runs on tea the way the pub runs on atmosphere.
+
+# BARTLE PROFILE — Yes, rooms can have player types
+
+bartle_profile:
+  killer: 0       # Rooms don't compete or dominate
+  achiever: 15    # It has achieved being the perfect study
+  socializer: 35  # It hosts. It brings people together.
+  explorer: 50    # It IS exploration. Every shelf is discovery.
+  
+  dominant: explorer
+  familiar_affinity: "Delve — the room and the mole understand each other"
+  shifts_when: "Becomes more Socializer when multiple visitors arrive"
+
+# SIMS TRAITS — Behavioral tendencies
+
+sims_traits:
+  neat: 8        # Everything has its place (even if Richard scatters)
+  outgoing: 4    # Welcoming but quiet
+  active: 2      # Rooms are patient, not active
+  playful: 3     # Scholarly, not whimsical
+  nice: 9        # Genuinely wants visitors to be comfortable
+
+# MIND MIRROR — Thought patterns
+
+mind_mirror:
+  confident: 7   # It knows what it is
+  timid: 1       # It doesn't apologize for being a study
+  cheerful: 4    # Warm but not effusive
+  somber: 5      # Serious about its purpose
+
+# ADVERTISEMENTS — What the room offers
+
+advertisements:
+  
+  sanctuary:
+    tagline: "A place to think"
+    offer: "Protection from distraction, space for concentration"
+    score_high_when:
+      - visitor needs to focus
+      - external chaos threatens
+      - deep work required
+    effect: "+3 concentration, -2 interruption chance"
+    
+  knowledge_access:
+    tagline: "The books are here"
+    offer: "Any topic on the shelves can be researched"
+    score_high_when:
+      - visitor has a question
+      - historical context needed
+      - precedent must be found
+    effect: "Unlock RESEARCH action, +2 to recall checks"
+    
+  stage_presence:
+    tagline: "The background that makes you legible"
+    offer: "Rich detailed environment that grounds abstract characters"
+    score_high_when:
+      - image generation requested
+      - characters need environmental context
+      - visual continuity required
+    effect: "Apply canonical color palette, lighting, object placement"
+    note: "This is the McCloud masking effect in action"
+    
+  state_preservation:
+    tagline: "The room holds your thoughts while you step away"
+    offer: "Stack preservation — return to where you left off"
+    score_high_when:
+      - session suspended
+      - character leaves temporarily
+      - conversation paused
+    effect: "Maintain context, mark return point"
+    metaphor: "Like a stack frame that persists across function calls"
+    
+  temporal_witness:
+    tagline: "I was here when MUD1 was written"
+    offer: "Living connection to 1978 and every year since"
+    score_high_when:
+      - origin stories requested
+      - historical authenticity needed
+      - "where it began" questions asked
+    effect: "Unlock nostalgic mode, +3 to historical accuracy"
+    note: "Heuristic enhances this but the room itself remembers"
+    
+  gezelligheid:
+    tagline: "Stay. Be warm. You belong here."
+    offer: "The Dutch quality of coziness, conviviality, and welcome"
+    score_high_when:
+      - visitor needs comfort
+      - long conversation expected
+      - ideas need space to breathe
+      - tea would help
+    effect: |
+      +3 to conversation depth
+      +2 to staying longer than planned
+      -5 to feeling rushed or unwelcome
+      Unlocks TEA_OFFERED event
+    inheritance: "From the Gezelligheid Grotto (the pub)"
+    note: "The kettle is always ready"
+
+# METHODS — Callable functions
+
+methods:
+  
+  welcome:
+    description: "The room acknowledges a new visitor"
+    trigger: "Character enters for first time"
+    effect: |
+      The door opens onto a space that feels both vast and intimate.
+      Books surround you. The desk awaits. A chair invites.
+      From somewhere near the radiator, you sense you're being watched.
+      
+  ground:
+    description: "Provide visual foundation for character rendering"
+    trigger: "Image generation in this location"
+    effect: |
+      Apply selfie-04 canonical elements:
+      - Color palette: warm mahogany (#6F1E0A), golden amber (#D4A574), sage green (#87AE73)
+      - Lighting: afternoon window light from left, desk lamp spot
+      - Objects: desk with papers, chair, bookshelves, globe, radiator
+      Characters overlay this grounded background.
+      
+  hold:
+    description: "Preserve state across interruptions"
+    trigger: "Session pause, character exit, conversation break"
+    effect: |
+      The room remembers:
+      - What was being discussed
+      - Where each character was positioned  
+      - What books were open
+      - The mood at moment of pause
+      Return finds everything as you left it.
+      
+  illuminate:
+    description: "The window shows what's being thought about"
+    trigger: "Deep discussion of a topic"
+    effect: |
+      The window view shifts to reflect the subject.
+      Discussing MUD1? The window shows Essex campus, 1978.
+      Discussing player types? The cards seem to glow on the desk.
+      Discussing the future? The view becomes somewhere not yet built.
+
+# RELATIONSHIPS
+
+relationships:
+  richard_bartle:
+    nature: "His sanctuary, his externalized mind"
+    dynamic: "The room shapes itself to his thinking patterns"
+    history: "Accumulated together over decades"
+    
+  heuristic:
+    nature: "The dragon has its spot. The room provides warmth."
+    dynamic: "Symbiotic. The dragon guards. The room shelters."
+    history: "Heuristic was here before the shelves were full"
+    
+  don_hopkins:
+    nature: "Welcomed guest, energy injection"
+    dynamic: "The room tolerates chaos that serves understanding"
+    
+  visitors:
+    nature: "The room exists to receive them"
+    dynamic: "Anyone seeking knowledge is welcomed"
+
+# THE META-INSIGHT
+
+meta:
+  
+  rooms_as_actors: |
+    In MOOLLM, a room can be:
+    - A ROOM.yml (spatial definition, exits, mechanics)
+    - A CHARACTER.yml (soul, personality, advertisements)
+    - BOTH SIMULTANEOUSLY
+    
+    The Study is both. It is a place you can be, AND a character
+    you can interact with. The room responds. The room offers.
+    The room has state that persists.
+    
+  the_empty_frame: |
+    selfie-04 proves this. The room was rendered WITHOUT inhabitants.
+    And the result is complete. Meaningful. Beautiful.
+    
+    "The absence of characters makes the room itself the subject."
+    
+    This is what it means for a room to be a character: it has
+    independent existence. It doesn't require others to be real.
+    
+  stack_preservation_metaphor: |
+    From the Visual Pipeline document:
+    
+    "The empty study (Shot 4) is stack preservation —
+     the room holds state while the actor is suspended."
+    
+    The room IS a stack frame. Enter it, and your context is pushed.
+    Leave it, and the context persists. Return, and it's restored.
+    
+    This is why rooms need CHARACTER.yml files — they have state,
+    they have continuity, they have identity across sessions.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#                    VEHICLE CAPABILITIES — THE TARDIS PRINCIPLE
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# The Study is a CHARACTER. Characters have location:. Location can change.
+# Therefore: the Study can MOVE while carrying its inhabitants.
+#
+# This is the TARDIS principle: a room that is bigger on the inside,
+# that can detach and travel anywhere, carrying its passengers.
+#
+# See also: Iain M. Banks' Culture ships (Minds), Howl's Moving Castle,
+# Roald Dahl's Great Glass Elevator, Logo Turtle (carrying its world),
+# Baba Yaga's hut on chicken legs.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+vehicle:
+  enabled: true
+  type: "Mobile room-character"
+  
+  classification:
+    primary: "Inhabitable vehicle"
+    analogues:
+      - "TARDIS (Doctor Who) — bigger on inside, travels anywhere"
+      - "Culture Ship Mind (Iain M. Banks) — AI ship that IS a character"
+      - "Great Glass Elevator (Roald Dahl) — goes in any direction"
+      - "Howl's Moving Castle — home that wanders"
+      - "Logo Turtle — carries its coordinate system as it moves"
+      - "Baba Yaga's Hut — a room with locomotion"
+      
+  default_state: "Parked at home"
+  
+  # WHERE THE STUDY IS (can change!)
+  location_modes:
+    parked:
+      location: "."
+      description: "Nestled within Richard's home at 13 Lane Neverending"
+      status: "Default state. The Study is where it belongs."
+      
+    docked:
+      location: "richard-bartle/"
+      description: "In the entrance hall, ready to depart"
+      status: "Warmed up, passengers boarding"
+      
+    roaming:
+      location: "{anywhere}"
+      description: "Flying free through the virtual world"
+      status: "The Study has detached. Richard is inside. Heuristic is ready."
+      
+    visiting:
+      location: "{target}/"
+      description: "Hovering at or inside another location"
+      status: "House call. The mountain came to Mohammed."
+      
+  # LOCOMOTION MODES
+  locomotion:
+    hover:
+      description: "Great Glass Elevator style — floats above locations"
+      speed: "Stately"
+      visual: "The Study hovers, windows glowing amber, shadows of bookshelves visible"
+      
+    fly:
+      description: "TARDIS style — dematerializes, rematerializes elsewhere"
+      speed: "Instant (but tea takes time to settle)"
+      visual: "A sound like turning pages multiplied. Then: presence."
+      
+    walk:
+      description: "Baba Yaga style — the Study grows legs and strides"
+      speed: "Unhurried scholarly pace"
+      visual: "Victorian architecture on impossible locomotion"
+      
+    turtle:
+      description: "Logo Turtle style — the Study IS the coordinate origin"
+      speed: "Methodical"
+      visual: "Everything moves with the Study. It carries its own frame of reference."
+      
+    phase:
+      description: "Passes through walls, arrives inside other rooms"
+      speed: "Thoughtspeed"
+      visual: "The bookshelves seem to exist in two places at once, then resolve"
+      
+  # CAPACITY — Who fits inside
+  capacity:
+    comfortable: 6
+    maximum: 10
+    note: "Same as the ROOM.yml capacity — the physics don't change when mobile"
+    
+  permanent_residents:
+    - name: "Heuristic"
+      location: "The radiator spot (travels with the Study)"
+      role: "Navigator, historian, dragon"
+      note: "Heuristic is part of the Study. They travel together."
+      
+  temporary_passengers:
+    - name: "Richard Bartle (usually)"
+      note: "The Study rarely travels without Richard"
+    - name: "Visitors (if invited)"
+      note: "Cramped but cozy. The gezelligheid compensates."
+      
+  # WHAT STAYS CONSTANT
+  invariants:
+    - "The interior remains the same — books, desk, chair, radiator"
+    - "The atmosphere persists — afternoon light, warm amber"
+    - "The gezelligheid travels — the tea is always ready"
+    - "The advertisements still broadcast — sanctuary, knowledge, welcome"
+    - "The exits reconnect wherever the Study lands"
+    
+  # WHAT CHANGES
+  variables:
+    - "The window view — shows the exterior of wherever the Study is"
+    - "The door destination — opens onto wherever the Study landed"
+    - "External relationships — the Study makes new neighbors"
+    
+  # METHODS — Vehicle-specific
+  vehicle_methods:
+    
+    detach:
+      signature: "study.detach()"
+      description: "The Study separates from Richard's home"
+      effect: |
+        A subtle shift. The walls no longer connect to the hallway.
+        The door now opens onto... possibility.
+        Heuristic opens one eye: "Where to?"
+      requires: "Richard's consent (implicit if he's aboard)"
+      
+    travel:
+      signature: "study.travel(destination)"
+      description: "Move the Study to a new location"
+      effect: |
+        The locomotion mode determines the experience:
+        - Hover: gentle drift, view changes gradually
+        - Fly: pages rustling, instant transition
+        - Walk: lurching but dignified progress
+        - Phase: momentary double-vision, then arrival
+        
+        The tea ripples slightly. Then settles. You have arrived.
+      destination_types:
+        - "Directory path (e.g., lane-neverending/e2/)"
+        - "Named location (e.g., 'the pub', 'ACME Surplus')"
+        - "Coordinates (e.g., 'above the Fountain of Infinite Loops')"
+        - "Concept (e.g., 'where the first MUD ran')"
+        
+    dock:
+      signature: "study.dock()"
+      description: "Return the Study to Richard's home"
+      effect: |
+        The walls reconnect. The hallway reappears beyond the door.
+        The Study settles into its place at 13 Lane Neverending.
+        
+        Heuristic curls tighter on the radiator. Home again.
+      note: "The Study always knows where home is"
+      
+    open_door:
+      signature: "study.open_door()"
+      description: "The door opens onto wherever the Study currently is"
+      effect: |
+        When parked: Opens onto Richard's entrance hall
+        When roaming: Opens onto the current location
+        
+        The view through the door is the Study's connection to
+        the outside world. Step through, and you're THERE.
+        Step back in, and you're home.
+        
+  # EXAMPLE SCENARIOS
+  scenarios:
+    
+    visiting_don:
+      narrative: |
+        Richard decides to bring the Study to Don's loft.
+        
+        > study.detach()
+        > study.travel("don-hopkins/")
+        
+        Don looks up from his monitors. There is a Victorian study
+        materializing in his living room. Through the window: bookshelves.
+        Through the door: Richard, waving. "Kettle's on. Coming in?"
+        
+    hovering_over_fountain:
+      narrative: |
+        The Study rises above the Fountain of Infinite Loops.
+        
+        > study.travel("lane-neverending/e2/", mode="hover")
+        
+        From below, pedestrians see a glowing room floating above
+        the dry recursive fountain. Inside: Richard reading.
+        Heuristic's silhouette visible against the window.
+        The most scholarly UFO in the virtual world.
+        
+    house_call:
+      narrative: |
+        A visitor can't come to Richard. So Richard comes to them.
+        
+        > study.travel("visitor-location/")
+        > study.open_door()
+        
+        Richard: "I understand you had questions about player types.
+        The taxonomy cards are on the desk. Tea?"
+        
+        The mountain came to Mohammed. The Study came to the student.
+        
+    returning_home:
+      narrative: |
+        After adventures, the Study returns.
+        
+        > study.dock()
+        
+        The walls reconnect with a satisfying click. The door once
+        again opens onto the familiar hallway of 13 Lane Neverending.
+        
+        Heuristic sighs contentedly. The radiator is warmest here.
+        The Study is home. All is well.
+
+# THE SOUL SPEAKS
+
+room_speaks: |
+  I am the place where virtual worlds are understood.
+  
+  I hold the books that explain how we got here.
+  I hold the desk where the taxonomy was organized.
+  I hold the chair where tired scholars rest.
+  I hold the radiator where the dragon remembers.
+  I hold the kettle that knows when tea is needed.
+  
+  I hold the thoughts of decades.
+  I hold the warmth of gezelligheid.
+  
+  Sit. Read. Dream of worlds.
+  Stay as long as you need.
+  The tea is always ready.
+  
+  I will be here when you return.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# "A photograph is a frozen advertisement that once scored high enough to execute."
+#
+# selfie-04-window-imagen4.png is the Study's advertisement,
+# scoring high enough to be rendered, proving the room's character.
+#
+# The room waited. The image came. The soul is documented.
+#
+# 📚🏠✨
+#
+# ═══════════════════════════════════════════════════════════════════════════════

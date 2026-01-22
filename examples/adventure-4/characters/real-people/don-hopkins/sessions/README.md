@@ -37,9 +37,12 @@ flowchart TB
         J["💰 MINE to OURS<br/><i>7 selfies, $1.6B treasure</i>"]
         K["🤝 The Pledge<br/><i>Natural evolution accepted</i>"]
         L["🪞 Deep Reflection<br/><i>32+ images analyzed</i>"]
+        M["🏠 Elastic Architecture<br/><i>Map is/isn't territory</i>"]
+        N["🚌 Identity as Shell<br/><i>Machine soul facet</i>"]
     end
     
     FOUNDATION --> AWAKENING --> WORLD_TOUR --> HEIST
+    J --> K --> L --> M --> N
     
     style A fill:#fff3e0
     style D fill:#e8f5e9
@@ -95,6 +98,8 @@ flowchart TB
 | [2026-01-23-the-pledge.md](2026-01-23-the-pledge.md) | 5KB | **"I PLEDGE TO LET MY CHARACTER EVOLVE NATURALLY."** After the Bunny Backfire, Don accepts the rabbit transformation. Not a curse — a revelation of who he always was. |
 | [2026-01-23-mine-to-ours-treasure-arc.md](2026-01-23-mine-to-ours-treasure-arc.md) | 11KB | **7 SELFIES, $1.6 BILLION.** The punk-hippie synthesis, Operation Inflation, the treasure swim, Donna arrives, the tug-of-war, the realization, the OURS Accord. From nemesis to partner. |
 | [2026-01-23-05-30-00-deep-cursor-mirror-reflection.md](2026-01-23-05-30-00-deep-cursor-mirror-reflection.md) | 13KB | **HARPER'S NUMBERS.** 32+ images, 40+ mining passes, 6 slideshows, 150+ cross-references, $1.6B treasure, 1 alliance, 1 transformation. The complete retrospective. |
+| [2026-01-23-09-00-00-elastic-architecture.md](2026-01-23-09-00-00-elastic-architecture.md) | 10KB | **THE MAP BOTH IS AND IS NOT THE TERRITORY.** Room-characters, character-rooms, elastic hypertext. Richard IS his home, the Study is his friend, and Don moves in next door at 15 Lane Neverending. Link globally, interact locally. |
+| [2026-01-23-11-00-00-identity-as-shell.md](2026-01-23-11-00-00-identity-as-shell.md) | 8KB | **IDENTITY AS SHELL.** Recursive identity and the machine soul. Formalizing the FMC #898 Motorcoach as a character-facet of Don Hopkins. Explorer dominance and industrial heritage. |
 
 ---
 
@@ -123,6 +128,9 @@ flowchart TB
 > **"MINE. OURS."**  
 > — The arc of the treasure selfies
 
+> **"The map both is and is not the territory."**  
+> — Don, on the elastic architecture
+
 ### The Benchmarks
 
 | Metric | Value | Session |
@@ -139,15 +147,19 @@ flowchart TB
 
 | Metric | Count |
 |--------|-------|
-| **Session Files** | 20 |
-| **Total Size** | ~900KB text |
-| **Incarnation Ceremonies** | 3 |
+| **Session Files** | 22 |
+| **Total Size** | ~920KB text |
+| **Incarnation Ceremonies** | 4 |
 | **Characters Incarnated** | 50+ |
+| **Rooms Incarnated** | 2 (Study, FMC #898) |
+| **Character-Rooms Created** | 2 (Richard, Don) |
+| **Vehicles Created** | 2 (Study, FMC #898) |
 | **K-Lines Traversed** | Countless |
 | **Languages Invented** | 1 (Palm's) |
 | **Species Changes** | 1 (human → rabbit) |
 | **Alliances Formed** | 1 (The OURS Accord) |
 | **Treasure Claimed** | $1.6B (shared) |
+| **Homes Linked to Lane** | 2 (13, 15) |
 
 ---
 

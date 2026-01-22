@@ -1,0 +1,38 @@
+# 🛋️ THE LOUNGE — The Code Cave
+# Where life, work, and pie menus happen.
+
+room:
+  name: "FMC #898 — The Lounge"
+  type: living_room
+  emoji: "🛋️🥧💻"
+  
+  description: |
+    The main living area of the coach. On the left side is a long, 
+    versatile sofa-lounge. On the right, a Fore 'N Aft travel seat
+    provides comfortable couch-like seating for two while traveling,
+    and converts to an L-shaped sofa or dining area when parked.
+    
+    The kitchen unit is integrated along the side wall, featuring
+    compact but high-quality appliances. The ceiling has a purple
+    glow from custom lighting.
+
+  atmosphere: |
+    A perfect synthesis of a 1970s luxury motorhome and a 2020s 
+    hacker space. It smells of fresh coffee and carrot juice.
+    
+  exits:
+    front:
+      destination: ../cockpit/
+      description: "Step forward into the cockpit."
+      aliases: [cockpit, driver station, front]
+    back:
+      destination: ../hallway/
+      description: "Step back into the hallway."
+      aliases: [hallway, back, rear]
+
+objects:
+  - sofa-lounge.yml
+  - dining-table.yml
+  - kitchen-unit.yml
+  - refrigerator.yml
+  - oven-range.yml

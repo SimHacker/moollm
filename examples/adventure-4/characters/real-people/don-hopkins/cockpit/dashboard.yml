@@ -1,0 +1,27 @@
+# 📟 THE DASHBOARD
+# Instrument cluster and control panel for the 440 Pusher.
+
+object:
+  name: "FMC Dashboard"
+  type: instrumentation
+  emoji: "📟"
+  
+  description: |
+    A wraparound dashboard with a full array of gauges: fuel, speed,
+    oil pressure, water temperature, and tachometer. A purple backlight
+    illuminates the cluster.
+    
+    A user-friendly counter extends over the dashboard, providing
+    plenty of room for cups and small devices.
+    
+  features:
+    - "Knock detector gauge"
+    - "Tilt steering wheel (two degrees of freedom)"
+    - "Brake warning light"
+    - "Tinted safety windshield"
+    - "Remote control for giant aluminum mirrors"
+    
+  actions:
+    EXAMINE_GAUGES:
+      description: "Check the health of the systems."
+      effect: "The 440 V8 is humming perfectly at idle."

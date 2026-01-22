@@ -15,8 +15,19 @@ room:
     a dry fountain — the FOUNTAIN OF INFINITE LOOPS, according to
     the plaque. Someone turned it off to save on water sprites.
     
-    A few storefronts line the square, some occupied, some not.
-    The feel is quieter here, further from the center's bustle.
+    On the SOUTH side of the square, two notable residences:
+    
+    Number 13 — THE BARTLE RESIDENCE. Victorian terraced house,
+    dark green door, bookshelves visible. Home of Dr. Richard Bartle,
+    founder of MUD1. A brass dragon dozes inside.
+    
+    Number 15 — THE HOPKINS MOTORCOACH. Classic FMC 2900R, blue and
+    white stripes, parked on a professional gravel pad. Home of Don
+    Hopkins, consciousness programmer. Fully hooked up to utilities.
+    A rabbit silhouette moves past the wide windshield.
+
+    Neighbors. Friends. Virtual world founder and transformation
+    subject, side by side on Lane Neverending.
     
     The lane continues in both directions. It never ends, after all.
     
@@ -27,10 +38,21 @@ room:
     The water sprites went on strike. Now it's just decorative.
     A plaque: "Dedicated to all those stuck in while(true){}"
     
-    STOREFRONTS:
+    NORTH SIDE (even numbers):
     • 12 Lane Neverending — Something that was once a bakery (smell lingers)
     • 14 Lane Neverending — A curiosity shop (hours: "whenever")
     • 16 Lane Neverending — Shuttered, but a light flickers inside
+    
+    SOUTH SIDE (odd numbers):
+    • 13 Lane Neverending — THE BARTLE RESIDENCE. Victorian terraced house,
+      dark green door, bookshelves visible through bay windows. Home of
+      Dr. Richard Bartle, founder of MUD1, creator of player types.
+      A brass dragon dozes inside. Tea is probably being made.
+    • 15 Lane Neverending — THE HOPKINS MOTORCOACH. Classic 30-foot
+      FMC 2900R, blue/white stripes, parked on a gravel pad with full
+      utility hook-ups. Home of Don Hopkins, consciousness programmer.
+      Rabbit ears visible through the panoramic windshield. Sign:
+      "Mobile Pie Menu Bakery (Modal dialogs are violence)."
     
     THE SQUARE:
     A few more benches. A public notice board with peeling posters.
@@ -48,8 +70,92 @@ room:
       description: "The lane continues east, toward the edge of... something."
       aliases: [e, forward]
       
+    # ────────────────────────────────────────────────────────────────────────
+    # 13 LANE NEVERENDING — The Bartle Residence (SOUTH SIDE)
+    # Bidirectional link to Richard Bartle's home
+    # ────────────────────────────────────────────────────────────────────────
+    13:
+      destination: ../../../characters/real-people/richard-bartle/
+      description: |
+        A modest Victorian terraced house on the south side of the square.
+        Dark green door, brass "13" plate, tall bay windows showing
+        bookshelves within. A small plaque by the door reads:
+        
+        "Where thoughts become worlds,
+         and worlds become understood."
+        
+        Through the window, you can see the edge of the famous Study.
+        A brass dragon dozes on what might be a radiator.
+        The smell of tea drifts from somewhere inside.
+        
+        This is the home of Dr. Richard Bartle, founder of MUD1,
+        creator of the player types taxonomy, and keeper of virtual
+        world history.
+      aliases: [bartle, richard, 13]
+      side: south
+      notable: "Home of the founder of virtual worlds"
+      
+    # ────────────────────────────────────────────────────────────────────────
+    # 15 LANE NEVERENDING — The Hopkins Motorcoach (SOUTH SIDE)
+    # Bidirectional link to Don Hopkins' home
+    # ────────────────────────────────────────────────────────────────────────
+    15:
+      destination: ../../../characters/real-people/don-hopkins/
+      description: |
+        A classic 30-foot FMC 2900R Motorcoach parked on a gravel lot,
+        two doors east of Richard's house. Blue and white stripes with
+        a tie-dye spiral near the door. Fully hooked up to utilities.
+        The panoramic windshield reveals:
+        
+        - Multiple monitors glowing with code and pie menus
+        - Whiteboards covered in philosophy
+        - A rabbit silhouette (Don) moving past the dashboard
+        
+        A sign on the utility post reads:
+        "MOBILE PIE MENU BAKERY — BAKED FRESH DAILY"
+        
+        Stickers warn: "MODAL DIALOGS ARE VIOLENCE"
+        
+        This is the home of Don Hopkins, consciousness programmer,
+        pie menu inventor, and current rabbit.
+      aliases: [hopkins, don, 15, coach, fmc, motorcoach, rabbit, pie]
+      side: south
+      notable: "Home of the consciousness programmer (in a vintage FMC #898)"
+      
   objects:
     - infinite-fountain.yml
+    
+  buildings:
+    north:
+      - name: "Former Bakery"
+        address: "12 Lane Neverending"
+        status: closed
+        notable: "Smell still lingers"
+        
+      - name: "Curiosity Shop"
+        address: "14 Lane Neverending"
+        status: open
+        hours: "whenever"
+        
+      - name: "Shuttered Storefront"
+        address: "16 Lane Neverending"
+        status: mysterious
+        notable: "Light flickers inside"
+        
+    south:
+      - name: "The Bartle Residence"
+        address: "13 Lane Neverending"
+        directory: ../../../characters/real-people/richard-bartle/
+        status: occupied
+        notable: "Home of Dr. Richard Bartle, founder of MUD1"
+        inhabitants: ["Richard Bartle", "Heuristic (dragon)", "Non-Sequitur (capybara)"]
+        
+      - name: "The Hopkins Motorcoach"
+        address: "15 Lane Neverending"
+        directory: ../../../characters/real-people/don-hopkins/
+        status: occupied
+        notable: "Home of Don Hopkins, FMC #898 owner"
+        inhabitants: ["Don Hopkins (rabbit)", "TomTomagotchi"]
     
   # Flyweight instances — shared prototype, minimal instance data
   # See: ../STREET-FURNITURE.yml
