@@ -217,7 +217,7 @@ The adventure includes extensive image-based narrative slideshows — generated,
     *   *Transformation and Alliance.* The visual arc of Don Hopkins' journey: from claiming his rabbit transformation to the "Treasure Swim" in the Vault of All Value, culminating in the historic "OURS Accord" with Donna Toadstool.
 
 ### 🏠 Portable Sanctuaries & Landings
-*   **[Study Arrival Footage](./street/lane-neverending/leela-manufacturing/lobby/study-arrival-footage/SLIDESHOW.md)** (6 Images)
+*   **[Study Arrival Footage](./street/lane-neverending/leela-manufacturing/lobby/study-arrival-footage/SLIDESHOW.md)** (8 Images)
     *   *First Contact with Mobile Rooms.* LOB1 captures the historic moment Richard Bartle's Study materializes in the Leela lobby. Features the "Sims Cutaway" effect, the arrival of the FMC Motorcoach, and the pioneers beckoning from their respective shells.
 *   **[The Great Picnic](./forest/meadow/picnic-footage/SLIDESHOW.md)** (21 Images)
     *   *An Atmospheric Expedition.* A massive 21-frame saga documenting the journey to the Forest Meadow. Highlights include the discovery of "Pie-Menu Flowers," the arrival of the "Lift Queens" (Dolly and Lolly), a voracious feast, an ACME truck ambush, and a tornado-fueled return to origin.
