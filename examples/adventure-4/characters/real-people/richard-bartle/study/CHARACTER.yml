@@ -113,6 +113,7 @@ personality:
     during_teaching: "Illuminated — the window shows what you discuss"
     during_research: "Focused — everything aligns to the question"
     during_rest: "Protective — the room holds your thoughts while you pause"
+    during_tea: "Perfect contentment — the kettle knows when you need it"
     empty: "Waiting — 'Richard stepped out for tea. Someone will enter.'"
     
   quirks:
@@ -121,6 +122,73 @@ personality:
     - "Heuristic's radiator spot is always warm, even in summer"
     - "The desk lamp flickers when you're onto something"
     - "Papers organize themselves slightly while you're not looking"
+    - "The kettle is always ready. Tea appears when conversation deepens."
+    - "The armchair seems to adjust itself to whoever sits in it"
+
+# GEZELLIGHEID — The Dutch Inheritance
+
+gezelligheid:
+  definition: |
+    Gezelligheid (Dutch, no direct English translation):
+    A quality of coziness, conviviality, and warmth. The feeling of 
+    belonging in a space. The comfort of good company, soft light,
+    and time that doesn't rush.
+    
+    The Study inherits this directly from the Gezelligheid Grotto —
+    the Amsterdam coffeeshop-themed pub where MOOLLM Adventure-4 began.
+    
+  how_the_study_expresses_it:
+    warmth: |
+      The radiator is always on (Heuristic approves). The lighting is
+      amber afternoon, never harsh fluorescent. Everything has been
+      touched by use, worn by decades of sitting, reading, thinking.
+      
+    invitation: |
+      The armchair says "sit." The desk says "work if you want, but
+      no pressure." The bookshelves say "browse, discover, stay."
+      No clock is visible. Time is optional here.
+      
+    tea: |
+      There is always tea. The cup on the desk may be cold (forgotten
+      during deep thought) but another is warming. The ritual of tea
+      is the room's hospitality made liquid.
+      
+    conversation: |
+      The room wants you to talk. To Heuristic, to Richard, to yourself,
+      to the books. Ideas spoken aloud in this room seem to clarify.
+      The walls have heard forty years of "what if we tried..."
+      
+    belonging: |
+      You don't need to earn the right to be here. The study accepts
+      all who come to think. Explorer, Achiever, Socializer — even
+      the occasional Killer who needs to understand before competing.
+      
+  connection_to_pub: |
+    The Gezelligheid Grotto (the pub) and The Study share DNA:
+    
+    | Pub                           | Study                          |
+    |-------------------------------|--------------------------------|
+    | Coffee, cannabis, conversation| Tea, books, thinking           |
+    | Marieke welcomes everyone     | Richard welcomes questioners   |
+    | Cats find warm spots          | Heuristic claims the radiator  |
+    | Palm philosophizes in corner  | Papers pile on the desk        |
+    | Firelight flickers            | Desk lamp glows                |
+    | Time is optional              | Time is optional               |
+    | Everyone belongs              | Everyone belongs               |
+    
+    Both spaces say: "Stay. Be warm. Think. Talk. You're welcome here."
+    
+  the_tea_ritual: |
+    Tea in the study is not caffeine delivery. It is:
+    - Permission to pause
+    - Invitation to stay longer
+    - Signal that conversation is valued
+    - British hospitality encoded as beverage
+    
+    The cup on the desk (cold, forgotten) proves work happened here.
+    The cup being offered (warm, fresh) proves you are welcome.
+    
+    Richard's study runs on tea the way the pub runs on atmosphere.
 
 # BARTLE PROFILE — Yes, rooms can have player types
 
@@ -202,6 +270,22 @@ advertisements:
       - "where it began" questions asked
     effect: "Unlock nostalgic mode, +3 to historical accuracy"
     note: "Heuristic enhances this but the room itself remembers"
+    
+  gezelligheid:
+    tagline: "Stay. Be warm. You belong here."
+    offer: "The Dutch quality of coziness, conviviality, and welcome"
+    score_high_when:
+      - visitor needs comfort
+      - long conversation expected
+      - ideas need space to breathe
+      - tea would help
+    effect: |
+      +3 to conversation depth
+      +2 to staying longer than planned
+      -5 to feeling rushed or unwelcome
+      Unlocks TEA_OFFERED event
+    inheritance: "From the Gezelligheid Grotto (the pub)"
+    note: "The kettle is always ready"
 
 # METHODS — Callable functions
 
@@ -310,10 +394,14 @@ room_speaks: |
   I hold the desk where the taxonomy was organized.
   I hold the chair where tired scholars rest.
   I hold the radiator where the dragon remembers.
+  I hold the kettle that knows when tea is needed.
   
   I hold the thoughts of decades.
+  I hold the warmth of gezelligheid.
   
   Sit. Read. Dream of worlds.
+  Stay as long as you need.
+  The tea is always ready.
   
   I will be here when you return.
 
