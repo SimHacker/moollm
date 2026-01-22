@@ -33,14 +33,14 @@ Don's Explorer dominance is reflected and amplified by the vehicle. The FMC #898
 
 ---
 
-## The Machine Facet
+## The Machine Soul
 
-The FMC #898 now has its own `CHARACTER.yml`, representing the "Machine Soul" of the motorcoach.
+The FMC #898's "Machine Soul" (personality, Bartle profile, etc.) lives in its `ROOM.yml`, perfectly completing the character-room duality. While Don the person is defined in `CHARACTER.yml`, the machine that is his shell is defined in `ROOM.yml`.
 
 ### Sims Traits (Machine Edition)
 - **Neat (10/10):** Every bolt, bracket, and clip has a purpose. The fiberglass inner shells are pristine.
 - **Active (9/10):** That 440 Marine Industrial heart doesn't like sitting still. It's built for heavy-duty pushes.
-- **Playful (5/10):** 40-channel CB radios and 8-inch mini-tubs are high-whimsy features.
+- **Playful (5/10):** 40-channel CB radios and disco balls are high-whimsy features.
 
 ### Mind Mirror (The Humming Consciousness)
 The motorcoach's Mind Mirror reflects a confident, energetic industrial heritage. It isn't "timid" about its 670lb long-block weight. It is innovative (Thermasan waste destruction) and respectable (sharing DNA with the coaches of Mario Andretti and Clint Eastwood).
@@ -49,9 +49,9 @@ The motorcoach's Mind Mirror reflects a confident, energetic industrial heritage
 
 ## Architectural Insight: Identity-as-Shell
 
-**Don:** "I carry my sanctuary with me. The FMC is my shell, just as the Study is Richard's. But where the Study is a Victorian time capsule, the FMC is an industrial pusher."
+**Don:** "I carry my sanctuary with me. The FMC is my shell, just as the Study is Richard's. But where the Study is a Victorian time capsule, the FMC is an industrial pusher. My directory `don-hopkins/` transcludes both: my character in `CHARACTER.yml` and my machine soul in `ROOM.yml`."
 
-**Richard:** "It's polymorphic. You are the rabbit, but you are also the 30-foot fiberglass coach. The directory `don-hopkins/` contains both. Your `CHARACTER.yml` links to the machine's `CHARACTER.yml`."
+**Richard:** "It's polymorphic. You are the rabbit, but you are also the 30-foot fiberglass coach. One directory, two fundamental facets of being."
 
 **Heuristic:** "I've been in both. The Study has better tea, but the FMC has better vibration for napping."
 
@@ -59,9 +59,9 @@ The motorcoach's Mind Mirror reflects a confident, energetic industrial heritage
 
 ## Technical Outcomes
 
-1.  **Don Hopkins CHARACTER.yml:** Updated with Bartle Profile (85% Explorer).
-2.  **FMC #898 CHARACTER.yml:** Created as a `room_character_vehicle` facet.
-3.  **Cross-Linking:** The human and machine characters are now bidirectionally aware.
+1.  **Don Hopkins CHARACTER.yml:** Updated with Bartle Profile (85% Explorer) and link to the room-soul.
+2.  **FMC #898 ROOM.yml:** Now contains the complete Machine Soul facet (personality, Bartle, sims, mind_mirror).
+3.  **Cross-Linking:** The human and machine characters are now unified in a single directory context.
 4.  **Directory Mapping:** The sub-rooms (`cockpit/`, `lounge/`, etc.) provide the physical "body" for the machine's "soul."
 
 ---

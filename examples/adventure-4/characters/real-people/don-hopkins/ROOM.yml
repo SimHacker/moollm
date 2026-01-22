@@ -121,9 +121,70 @@ room:
     - Mechanical keyboard clicks from the Code Cave
     - Wind whistling over the fiberglass shell
 
-# ═══════════════════════════════════════════════════════════════════════════════
-#                          TECHNICAL SPECIFICATIONS
-# ═══════════════════════════════════════════════════════════════════════════════
+  # ═══════════════════════════════════════════════════════════════════════════════
+  #                          THE MACHINE SOUL
+  # ═══════════════════════════════════════════════════════════════════════════════
+  personality:
+    voice: |
+      The Coach speaks in mechanical precision and industrial heritage.
+      
+      When you enter, you feel:
+      - The structural integrity of an aluminum upper cage
+      - The readiness of a 440 Marine Industrial heart
+      - The "unhooked" freedom of the Thermasan system
+      - The professional focus of the Code Cave
+      
+    mood_range:
+      parked: "Steady, anchored, humming with shore power"
+      idling: "Eager, vibrating with 440 cubic inches of potential"
+      cruising: "Sleek, aerodynamic, passing everyone on the hill"
+      debugging: "Purple-hued, focused, monitors glowing"
+      low_battery: "Demanding attention (the Onan is ready)"
+      
+    quirks:
+      - "The fuel gauge wobbles — you have to learn its language"
+      - "The steps extend only when they know you're not in a hurry"
+      - "The 440 Pusher runs a little hot, but never complains"
+      - "The panoramic windshield 'brow' acts like a thinking cap"
+      - "The Thermasan vent sighs after a long day of travel"
+
+  # BARTLE PROFILE — The machine's participation in the world
+  bartle_profile:
+    killer: 10       # Will crush a modal dialog if it gets in the way
+    achiever: 30     # Proud of its mileage and maintenance record
+    socializer: 20   # Welcomes passengers, but prefers the pilot
+    explorer: 95     # DOMINANT — Built to find out what's over the next hill
+    
+    dominant: explorer
+    familiar_affinity: "Delve (the mole understands internal combustion)"
+    shifts_when: "Becomes more Achiever when performance is being measured"
+
+  # SIMS TRAITS — Machine behaviors (0-10)
+  sims_traits:
+    neat: 10         # Everything has a bracket, a clip, or a storage bay
+    outgoing: 2      # Quiet rear pusher, lets the pilot do the talking
+    active: 9        # 440 V8 Marine heart — built for stationary and mobile duty
+    playful: 5       # Features like the mini-tub and disco ball are peak play
+    nice: 8          # Protective, stays dry in torrential downpours
+
+  # MIND MIRROR — The Machine Mind
+  mind_mirror:
+    bio_energy:
+      energetic: 7   # 440 V8 + Onan 6.5KW = Boundless energy
+      restless: 4    # Prefers the road but stable when parked
+    emotional:
+      confident: 7   # "I am an FMC. I am the finest RV ever built."
+      timid: 0       # Not a shy bone in its custom steel ladder frame
+    mental:
+      well_informed: 6 # Connected to all sensors, monitors, and the 40-ch CB
+      innovative: 8  # Thermasan, 4-wheel independent suspension, aerodynamic shell
+    social:
+      respectable: 7 # High-profile owners (Eastwood, Andretti, Kuralt)
+      uninhibited: 5 # Will burn waste in the exhaust at speed
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  #                          TECHNICAL SPECIFICATIONS
+  # ═══════════════════════════════════════════════════════════════════════════════
 
   specs:
     engine:
