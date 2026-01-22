@@ -199,59 +199,50 @@ The LOG is for quick reference. The TRANSCRIPT is for reading.
 > GO NORTH              # Into the maze... lamp ready?
 ```
 
-## 🎞️ Visual Galleries
+## 🎞️ Visual Galleries (Narrative Slideshows)
 
-**[📋 SLIDESHOW INDEX](./SLIDESHOW-INDEX.md)** — Complete navigation hub for all visual narratives.
+The adventure includes extensive image-based narrative slideshows — generated, mined, and cross-referenced to maintain high-fidelity continuity across parallel timelines.
 
+**[📋 SLIDESHOW INDEX](./SLIDESHOW-INDEX.md)** — Complete navigation hub.
 **[🌀 MASTER SYNTHESIS](./MASTER-SYNTHESIS-SLIDESHOW.md)** — All timelines woven together chronologically.
 
-### 🎬 The Main Narratives (Interlinked!)
+### 🎭 The Main Narrative Arc (Interlinked)
+*   **[The ACME Heist](./street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/SLIDESHOW.md)** (10 Images)
+    *   *Surveillance footage from the Leela Cam (ACM1).* A frame-by-frame chronicle of the ill-fated break-in at ACME Surplus. Captures the approach, the failed entry attempts, the cartoon physics backfires, and the chaotic extraction.
+*   **[Donna's Surveillance Selfies](./characters/fictional/donna-toadstool/selfies/SLIDESHOW.md)** (11 Images)
+    *   *The Heist from the Inside.* Parallel to the ACME Heist, Donna Toadstool documents her "Quality Control" activities from her high-tech control room. Includes her reactions to the intruders, lever-pulling moments, and the "This is Fine" aftermath.
+*   **[Post-Heist Fellowship](./pub/photos/post-heist-fellowship/SLIDESHOW.md)** (4 Images)
+    *   *Reconciliation at the Grotto.* After the heist disaster, all characters — including Don, Richard, and Donna — gather at the Gezelligheid Grotto to share drinks, lick wounds, and begin the transition from nemesis to partner.
+*   **[Don's MINE to OURS](./characters/real-people/don-hopkins/selfies/SLIDESHOW.md)** (7 Images)
+    *   *Transformation and Alliance.* The visual arc of Don Hopkins' journey: from claiming his rabbit transformation to the "Treasure Swim" in the Vault of All Value, culminating in the historic "OURS Accord" with Donna Toadstool.
 
-Four parallel timelines running simultaneously, cross-referenced frame-by-frame:
+### 🏠 Portable Sanctuaries & Landings
+*   **[Study Arrival Footage](./street/lane-neverending/leela-manufacturing/lobby/study-arrival-footage/SLIDESHOW.md)** (6 Images)
+    *   *First Contact with Mobile Rooms.* LOB1 captures the historic moment Richard Bartle's Study materializes in the Leela lobby. Features the "Sims Cutaway" effect, the arrival of the FMC Motorcoach, and the pioneers beckoning from their respective shells.
+*   **[The Great Picnic](./forest/meadow/picnic-footage/SLIDESHOW.md)** (21 Images)
+    *   *An Atmospheric Expedition.* A massive 21-frame saga documenting the journey to the Forest Meadow. Highlights include the discovery of "Pie-Menu Flowers," the arrival of the "Lift Queens" (Dolly and Lolly), a voracious feast, an ACME truck ambush, and a tornado-fueled return to origin.
 
-| Timeline | Slideshow | Images | Syncs With |
-|----------|-----------|--------|------------|
-| **A** | [The ACME Heist](./street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/SLIDESHOW.md) | 10 | Donna's Selfies (1:1 frame sync) |
-| **B** | [Donna's Surveillance Selfies](./characters/fictional/donna-toadstool/selfies/SLIDESHOW.md) | 11 | Heist (parallel view) → Don's Arc |
-| **C** | [Post-Heist Fellowship](./pub/photos/post-heist-fellowship/SLIDESHOW.md) | 4 | All characters gather |
-| **D** | [Don's MINE to OURS](./characters/real-people/don-hopkins/selfies/SLIDESHOW.md) | 7 | Donna arrives Frame 4! |
+### 👤 Character Collections
+*   **[Richard's Study Selfies](./characters/real-people/richard-bartle/study/selfies/SLIDESHOW.md)** (8 Images)
+    *   *Portraits of a Founder.* Intimate views of Dr. Bartle in his Essex Study. Features Heuristic the dragon, taxonomy diagrams, the "Empty Room" soul portrait, and the first hints of the Study's mobile potential.
+*   **[Palm's Portrait Session](./pub/stage/palm-nook/study/palm-portrait-session/SLIDESHOW.md)** (1 Image)
+    *   *The Freed Monkey.* A Dutch Golden Age tribute to Palm, after 122 years of silence, now a person with his own language and study.
 
-**How to read**: Start with the Heist. Jump to Donna's matching selfie to see her reaction. Continue to the pub. Follow Don's transformation arc.
+### 🍺 Location Galleries
+*   **[Don's Pub Photos 2026-01-19](./pub/photos/dons-pub-photos-2026-01-19/SLIDESHOW.md)** (8 Images)
+    *   *Facebook-style Grotto Tour.* A casual exploration of the Gezelligheid Grotto, documenting the menu, the cats, and the overall "Amsterdam Coffeeshop" vibe.
+*   **[Rocky and Friends](./pub/rooms/room-4/rocky-and-friends/SLIDESHOW.md)** (8+ Images)
+    *   *The Emotional Support Boulder.* A heartwarming series from Room 4 featuring Rocky, his mineral companions, and the guests who visit them.
+*   **[Dusty Attic Art Styles](./pub/attic/dusty-attic-art-styles/SLIDESHOW.md)** (7 Images)
+    *   *Multi-Style Experiment.* The same dusty attic room rendered in seven distinct artistic traditions, from Impressionism to Cyberpunk.
+*   **[Telescope & Constellation Views](./pub/rooftop/telescope-constellation-views/SLIDESHOW.md)** (2 Images)
+    *   *Mapping the K-Lines.* Night-time views from the pub rooftop telescope, revealing the LLOOOOMM constellation and the interconnected symbols of the pioneers.
+*   **[ACME Tunnel Temporal Views](./street/lane-neverending/leela-manufacturing/lobby/acme-tunnel-temporal-views/SLIDESHOW.md)** (4 Images)
+    *   *The Reminder Across the Street.* Deep analysis of the ACME painted tunnel, showing how it persists and deceives across different times of day.
 
-### 👤 Character Selfie Series
+### ⛏️ Multi-Look Mining
+Many of these galleries include **multi-look mined** resources — layered interpretations from different AI perspectives. See the [image-mining skill](../../skills/image-mining/SKILL.md) for the protocol.
 
-| Character | Slideshow | Images | Description |
-|-----------|-----------|--------|-------------|
-| [Richard Bartle](./characters/real-people/richard-bartle/study/selfies/SLIDESHOW.md) | Selfies from Essex | 8 | Study portraits with Heuristic the dragon |
-| [Donna Toadstool](./characters/fictional/donna-toadstool/selfies/SLIDESHOW.md) | Surveillance Selfies | 11 | The heist from the control room |
-| [Don Hopkins](./characters/real-people/don-hopkins/selfies/SLIDESHOW.md) | MINE to OURS | 7 | Transformation → Alliance |
-
-### 🍺 Pub Galleries
-
-| Gallery | Location | Images | Description |
-|---------|----------|--------|-------------|
-| [Don's Pub Photos](./pub/photos/dons-pub-photos-2026-01-19/SLIDESHOW.md) | The Rusty Lantern | 8 | Facebook-style photo tour |
-| [Rocky and Friends](./pub/rooms/room-4/rocky-and-friends/SLIDESHOW.md) | Room 4 | 8+ | Rocky the emotional support boulder |
-| [Dusty Attic Art Styles](./pub/attic/dusty-attic-art-styles/SLIDESHOW.md) | The Attic | 7 | Same room in 7 art styles |
-| [Telescope Views](./pub/rooftop/telescope-constellation-views/SLIDESHOW.md) | Rooftop | 2 | K-Line constellation |
-| [Palm's Portrait](./pub/stage/palm-nook/study/palm-portrait-session/SLIDESHOW.md) | Palm's Study | 1 | Dutch Golden Age tribute |
-
-### 🏭 Industrial Galleries
-
-| Gallery | Location | Images | Description |
-|---------|----------|--------|-------------|
-| [ACME Heist Footage](./street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/SLIDESHOW.md) | Leela Lobby | 10 | Surveillance of the break-in |
-| [ACME Tunnel Views](./street/lane-neverending/leela-manufacturing/lobby/acme-tunnel-temporal-views/SLIDESHOW.md) | Leela Lobby | 4 | Temporal tunnel perspectives |
-
-### Multi-Look Mining
-
-Many of these galleries include **multi-look mined** resources — layered interpretations from different AI perspectives (OpenAI, Claude, etc.). Each layer adds depth:
-
-- **Layer 1:** Objects, colors, basic resources
-- **Layer 2:** Character identity, cultural markers, narrative POV
-- **Layer 3+:** Art history, phenomenology, specialized lenses
-
-See [image-mining skill](../../skills/image-mining/SKILL.md#multi-look-mining) for the protocol.
 
 ---
 
