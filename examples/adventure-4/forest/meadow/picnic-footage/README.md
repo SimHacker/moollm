@@ -22,13 +22,14 @@ massive fluffy clouds, and perfect picnic weather.
 |-------|-----------|-------------|--------|
 | [01 - Arrival](frame-01-arrival.yml) | 11:30:12 | Both vehicles materialize in the tall grass | ✅ MINED |
 | [02 - Survey](frame-02-survey.yml) | 11:35:00 | Richard and Don stand on top of their shells | ✅ MINED |
-| *03 - Flora* | 11:45:XX | Close-ups of pie-menu flowers | ⏳ PENDING |
-| *04 - Unpacking*| 12:00:XX | Tacos and cheddar in the sun | ⏳ PENDING |
+| [03 - Feast](frame-03-feast.yml) | 11:55:00 | Unloading tacos, cheddar, and spaghetti | ✅ MINED |
+| *04 - Flora* | 12:15:XX | Close-ups of pie-menu flowers | ⏳ PENDING |
 
 ### Generated Imagery
 
 - **Frame 01:** `frame-01-arrival-...-arrival.png`
 - **Frame 02:** `frame-02-survey-...-survey.png`
+- **Frame 03:** `frame-03-feast-...-feast-simple.png`
 
 ---
 
@@ -36,11 +37,13 @@ massive fluffy clouds, and perfect picnic weather.
 
 | Category | Emerging Canon |
 | :--- | :--- |
-| **The FMC** | Now equipped with a roof-mounted **solar panel array** behind the A/C unit. |
-| **The Study** | Its flat mahogany roof is a stable **observation deck**. |
-| **Flora** | Small blue flowers grow in radial clusters, resembling **pie menus**. |
-| **Atmosphere** | **Saturated azure sky** with deep-shadowed billowy clouds. |
-| **Heuristic** | Stepped out into the grass to sniff the poppies. |
+| **The FMC** | Equipped with **flexible solar panels** and a custom **'Carrot Cooler'** in the doorway. |
+| **The Study** | Flat mahogany roof deck and a **'Spaghetti Sideboard'** for meadow banquets. |
+| **Flora** | **Pie-menu blue flowers** grow in radial clusters; red poppies provide color anchors. |
+| **Picnic Gear** | **'Swirl of Infinite Parameters'** tie-dye blanket; mahogany **tuckaway tables**. |
+| **The Food** | **3-foot cheddar bullion pyramid** (Nuclear Saffron); tennis-ball-sized meatballs. |
+| **The Dragon** | Now the **'Gourmet Guardian'** of the spaghetti. |
+
 
 ---
 
