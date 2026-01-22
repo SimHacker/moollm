@@ -24,6 +24,7 @@ massive fluffy clouds, and perfect picnic weather.
 | [02 - Survey](frame-02-survey.yml) | 11:35:00 | Richard and Don stand on top of their shells | ✅ MINED |
 | [03 - Feast](frame-03-feast.yml) | 11:55:00 | Unloading tacos, cheddar, and spaghetti | ✅ MINED |
 | [04 - Macro](frame-04-macro.yml) | 12:15:42 | Close-ups of pie-menu flowers, dragon scales, and cheddar | ✅ MINED |
+| [05 - Taco Flowers](frame-05-taco-flowers.yml) | 12:30:00 | Macro of exotic taco-shaped blooms and bumblebees | ✅ MINED |
 
 ### Generated Imagery
 
@@ -31,6 +32,7 @@ massive fluffy clouds, and perfect picnic weather.
 - **Frame 02:** `frame-02-survey-...-survey.png`
 - **Frame 03:** `frame-03-feast-...-feast-simple.png`
 - **Frame 04:** `frame-04-macro-...-macro.png`
+- **Frame 05:** `frame-05-taco-flowers-...-taco-flowers.png`
 
 ---
 
@@ -44,6 +46,8 @@ massive fluffy clouds, and perfect picnic weather.
 | **Picnic Gear** | **'Swirl of Infinite Parameters'** tie-dye blanket; mahogany **tuckaway tables**. |
 | **The Food** | **3-foot cheddar bullion pyramid** (Nuclear Saffron); tennis-ball-sized meatballs. |
 | **The Dragon** | Now the **'Gourmet Guardian'** of the spaghetti. |
+| **Taco Flowers** | Yellow-gold petals with **'toasted-brown' edges**; crimson 'meat' stamens; green 'lettuce' base. |
+| **Bees** | **'Giant Meadow Fuzzy'** bumblebees with overflowing neon-orange pollen baskets. |
 
 
 ---
