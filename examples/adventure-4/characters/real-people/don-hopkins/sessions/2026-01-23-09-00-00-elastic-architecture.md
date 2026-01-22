@@ -2,7 +2,7 @@
 ## Room-Characters, Character-Rooms, and the Map That Is and Is Not the Territory
 
 **Session:** 2026-01-23 ~09:00 UTC  
-**Location:** The Hopkins Loft, 15 Lane Neverending  
+**Location:** The Hopkins Motorcoach, 15 Lane Neverending  
 **Participants:** Don Hopkins 🐰, with Richard Bartle 🐉 conceptually next door  
 **Topic:** The architectural insights that emerged from incarnating homes
 
@@ -89,21 +89,11 @@ Heuristic ⊂ Study ⊂ Richard
 
 Don gets the same treatment. Now both homes exist on the map:
 
-```
-LANE NEVERENDING E2 (Fountain Square)
-        │
-   ┌────┴────┬────────────┐
-   │         │            │
-  13        14           15
-   │                      │
-   ↓                      ↓
-┌──────────┐        ┌──────────┐
-│ RICHARD  │        │   DON    │
-│  🏡📚🐉  │  ←──→  │  🏠🐰🎨  │
-│Victorian │        │ Warehouse│
-│ terraced │        │   loft   │
-│The Study │        │Code Cave │
-└──────────┘        └──────────┘
+```mermaid
+graph TD
+    Lane[LANE NEVERENDING E2<br/>Fountain Square] --> |13| Richard[13: RICHARD<br/>🏡📚🐉<br/>Victorian House<br/>The Study]
+    Lane --> |15| Don[15: DON<br/>🚌🐰🔧<br/>FMC Motorcoach<br/>Code Cave]
+    Richard <--> |Neighbor Link| Don
 ```
 
 Virtual world founder and consciousness programmer.
@@ -145,7 +135,7 @@ MOOLLM:    "The map both is and is not the territory"
 | Exit network | Yes (YAML) | No (just pointers) |
 | The virtual world | No (imagined) | **YES** |
 
-The symbols ARE the world. The YAML IS the room. The link IS the door.
+The symbols ARE the world. The YAML IS the room. The link IS the door. The door is ajar.
 
 ### Insight 3: Link Globally, Interact Locally
 
@@ -189,12 +179,9 @@ location: ~                          # Home (Unix agrees!)
 
 ```
 Visitor> go 15
-You arrive at the Hopkins Loft. Don isn't here.
+You arrive at the Hopkins Motorcoach. Don isn't here.
 But his selfies are on the wall. His sessions are archived.
-His dreams are upstairs. His PRESENCE lingers.
-
-Visitor> leave note
-Note left on keyboard: "Find me at the pub."
+His dreams are in the master suite. His PRESENCE lingers.
 ```
 
 ### Characters Exist in Multiple Layers
@@ -237,24 +224,38 @@ MOOLLM:            Map ←───independent───→ Storage
                            the world
 ```
 
+## The Nelsonian Insight: Intertwinglement and Transclusion
+
+Ted Nelson's concepts provide the perfect vocabulary for what we've built:
+
+- **Transclusion:** The ability to include part of one document in another by reference. Richard's house at 13 Lane Neverending *transcludes* Richard's character. The Study *transcludes* the dragon. They are not merely "inside" one another; they are present in multiple contexts simultaneously.
+- **Intertwinglement:** "Everything is deeply intertwingled." The directory structure, the street map, and the character state are all separate strands woven together into a single, elastic experience.
+
 ---
 
-## Summary: The Three Principles
+## Summary: The Nelsonian Principles of MOOLLM
 
-### 1. Identity Recursion
-- Richard IS his home
-- His Study is his friend
-- His dragon lives inside his friend inside himself
+### 1. Transclusive Identity (Identity Recursion)
+- Richard IS his home (The Bartle Residence transcludes the man).
+- The Study is his friend (A character transcluded into a room).
+- His dragon lives inside his friend inside himself.
+- **Transclusion:** One being exists inside another without losing its own identity.
 
 ### 2. Location Independence  
-- Directory path ≠ street address ≠ current location
-- All three can change independently
-- Links bridge them all
+- Directory path ≠ street address ≠ current location.
+- All three can change independently.
+- Links bridge them all, allowing the home to move while the address stays.
 
-### 3. Elastic Hypertext
-- Link globally (exits span the world)
-- Interact locally (you're always somewhere specific)
-- Be home (sometimes that somewhere is yourself)
+### 3. Deep Intertwinglement (Elastic Hypertext)
+- **"Everything is deeply intertwingled."** — Ted Nelson.
+- Link globally (exits span the entire repo).
+- Interact locally (you're always in a transcluded context).
+- Be home (the ultimate intertwinglement: location = self).
+
+### 4. The Door is Ajar
+- The map both is and is not the territory.
+- Symbolic representation is the only ground truth in a virtual world.
+- The YAML is the room; the link is the passage.
 
 ---
 
@@ -285,4 +286,4 @@ MOOLLM:            Map ←───independent───→ Storage
 ---
 
 *Session captured: 2026-01-23T09:00:00Z*
-*Location: 15 Lane Neverending (home = self)*
+*Location: 15 Lane Neverending (FMC #898 — home = self)*

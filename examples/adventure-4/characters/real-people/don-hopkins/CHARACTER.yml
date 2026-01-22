@@ -139,12 +139,38 @@ player:
   home_vehicle:
     name: "The Hopkins Motorcoach (FMC #898)"
     type: "FMC 2900R Motor Coach"
+    character_file: "FMC-898.yml"  # The machine-facet of Don's personality
     engine: "Dodge V8 440-3 Chrysler Marine & Industrial"
     serial: "#898 of 1050"
     status: "Parked on Lot 15, Lane Neverending"
     features: ["Panoramic windshield", "Thermasan waste destruct", "Code Cave lounge"]
     motto: "The factory must grow, but the home must move."
     link: "ROOM.yml"
+
+# BARTLE PROFILE — The taxonomy of the transformation subject
+# Rate 0-100: represents percentage of each type
+# The profile is dynamic! It shifts based on current activity.
+
+  bartle_profile:
+    killer: 15            # Low — will fight for principles, not dominance.
+                          # Will "kill" a bad feature or a modal dialog.
+                          # Inner voice: "That dialog needs to die."
+                          
+    achiever: 40          # Moderate — likes shipping things that work.
+                          # Achievement through implementation and open source.
+                          # Inner voice: "It's not real until it's public."
+                          
+    socializer: 60        # High — collaboration is the goal.
+                          # Sharing ideas, infodumping, building communities.
+                          # Inner voice: "Wait, tell me more about that..."
+                          
+    explorer: 85          # DOMINANT — always looking for the edge.
+                          # New architectures, weird parameters, rabbit holes.
+                          # Inner voice: "I wonder what happens if I frob this..."
+                          
+    dominant: explorer
+    familiar_affinity: "Delve — the mole knows the deepest roots"
+    shifts_when: "Becomes more Socializer during world tours and pub sessions"
 
 # THE SIMS PERSONALITY TRAITS (Will Wright, 2000)
 # Behavioral tendencies — relatively stable
