@@ -191,36 +191,35 @@ SPEED-OF-LIGHT [n]      # Simulate n turns at once
 
 ---
 
-## 🎞️ Visual Galleries (Slideshows)
+## 🎞️ Visual Galleries (Narrative Slideshows)
 
-The adventure includes **image-based narrative slideshows** — generated, mined, and cross-referenced:
+The adventure includes extensive image-based narrative slideshows — generated, mined, and cross-referenced to maintain high-fidelity continuity across parallel timelines.
 
 **[📋 Full Slideshow Index](./examples/adventure-4/SLIDESHOW-INDEX.md)** | **[🌀 Master Synthesis](./examples/adventure-4/MASTER-SYNTHESIS-SLIDESHOW.md)**
 
-### Main Narratives (4 Parallel Timelines)
+### 🎭 The Main Narrative Arc
+*   **[The ACME Heist](./examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/SLIDESHOW.md)** (10 Images)
+    *   *Surveillance footage from the Leela Cam (ACM1).* A frame-by-frame chronicle of the ill-fated break-in at ACME Surplus. Captures the approach, the failed entry attempts, the cartoon physics backfires, and the chaotic extraction.
+*   **[Donna's Surveillance Selfies](./examples/adventure-4/characters/fictional/donna-toadstool/selfies/SLIDESHOW.md)** (11 Images)
+    *   *The Heist from the Inside.* Parallel to the ACME Heist, Donna Toadstool documents her "Quality Control" activities from her high-tech control room. Includes her reactions to the intruders, lever-pulling moments, and the "This is Fine" aftermath.
+*   **[Post-Heist Fellowship](./examples/adventure-4/pub/photos/post-heist-fellowship/SLIDESHOW.md)** (4 Images)
+    *   *Reconciliation at the Grotto.* After the heist disaster, all characters — including Don, Richard, and Donna — gather at the Gezelligheid Grotto to share drinks, lick wounds, and begin the transition from nemesis to partner.
+*   **[Don's MINE to OURS](./examples/adventure-4/characters/real-people/don-hopkins/selfies/SLIDESHOW.md)** (7 Images)
+    *   *Transformation and Alliance.* The visual arc of Don Hopkins' journey: from claiming his rabbit transformation to the "Treasure Swim" in the Vault of All Value, culminating in the historic "OURS Accord" with Donna Toadstool.
 
-| Timeline | Slideshow | Images | Description |
-|----------|-----------|--------|-------------|
-| **A** | [The ACME Heist](./examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/SLIDESHOW.md) | 10 | Surveillance footage of the break-in |
-| **B** | [Donna's Selfies](./examples/adventure-4/characters/fictional/donna-toadstool/selfies/SLIDESHOW.md) | 11 | The heist from the control room |
-| **C** | [Post-Heist Fellowship](./examples/adventure-4/pub/photos/post-heist-fellowship/SLIDESHOW.md) | 4 | Everyone gathers at the pub |
-| **D** | [Don's MINE to OURS](./examples/adventure-4/characters/real-people/don-hopkins/selfies/SLIDESHOW.md) | 7 | Transformation → Alliance |
+### 🏠 Portable Sanctuaries & Landings
+*   **[Study Arrival Footage](./examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/study-arrival-footage/SLIDESHOW.md)** (6 Images)
+    *   *First Contact with Mobile Rooms.* LOB1 captures the historic moment Richard Bartle's Study materializes in the Leela lobby. Features the "Sims Cutaway" effect, the arrival of the FMC Motorcoach, and the pioneers beckoning from their respective shells.
+*   **[The Great Picnic](./examples/adventure-4/forest/meadow/picnic-footage/SLIDESHOW.md)** (21 Images)
+    *   *An Atmospheric Expedition.* A massive 21-frame saga documenting the journey to the Forest Meadow. Highlights include the discovery of "Pie-Menu Flowers," the arrival of the "Lift Queens" (Dolly and Lolly), a voracious feast, an ACME truck ambush, and a tornado-fueled return to origin.
 
-### Character Portraits
-
-| Character | Slideshow | Description |
-|-----------|-----------|-------------|
-| [Richard Bartle](./examples/adventure-4/characters/real-people/richard-bartle/study/selfies/SLIDESHOW.md) | Selfies from Essex | Study portraits with Heuristic |
-| [Palm the Monkey](./examples/adventure-4/pub/stage/palm-nook/study/palm-portrait-session/SLIDESHOW.md) | Portrait Session | Dutch Golden Age tribute |
-
-### Pub Galleries
-
-| Gallery | Description |
-|---------|-------------|
-| [Don's Pub Photos](./examples/adventure-4/pub/photos/dons-pub-photos-2026-01-19/SLIDESHOW.md) | Facebook-style photo tour |
-| [Rocky and Friends](./examples/adventure-4/pub/rooms/room-4/rocky-and-friends/SLIDESHOW.md) | Emotional support boulder |
-| [Dusty Attic Art](./examples/adventure-4/pub/attic/dusty-attic-art-styles/SLIDESHOW.md) | Same room in 7 art styles |
-| [Telescope Views](./examples/adventure-4/pub/rooftop/telescope-constellation-views/SLIDESHOW.md) | K-Line constellation |
+### 👤 Character & Location Galleries
+*   **[Richard Bartle: Essex Study](./examples/adventure-4/characters/real-people/richard-bartle/study/selfies/SLIDESHOW.md)** (8 Images) — Portraits with Heuristic the dragon.
+*   **[Palm the Monkey: Portrait Session](./examples/adventure-4/pub/stage/palm-nook/study/palm-portrait-session/SLIDESHOW.md)** (1 Image) — Dutch Golden Age tribute.
+*   **[Rocky and Friends](./examples/adventure-4/pub/rooms/room-4/rocky-and-friends/SLIDESHOW.md)** (8+ Images) — Emotional support boulders.
+*   **[Dusty Attic Art Styles](./examples/adventure-4/pub/attic/dusty-attic-art-styles/SLIDESHOW.md)** (7 Images) — Multi-style experiments.
+*   **[Telescope & Constellation Views](./examples/adventure-4/pub/rooftop/telescope-constellation-views/SLIDESHOW.md)** (2 Images) — Mapping the K-Lines.
+*   **[ACME Tunnel Temporal Views](./examples/adventure-4/street/lane-neverending/leela-manufacturing/lobby/acme-tunnel-temporal-views/SLIDESHOW.md)** (4 Images) — Deceptive perspectives.
 
 **How they work** — An iterative pipeline maintaining narrative coherence:
 
