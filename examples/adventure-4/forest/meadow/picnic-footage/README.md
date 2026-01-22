@@ -37,7 +37,7 @@ massive fluffy clouds, and perfect picnic weather.
 | [15 - Donna's Selfie](frame-15-donna-selfie.yml) | 14:55:00 | The Quality Control Queen and her Cheddar Crown | ✅ MINED |
 | [16 - Transmogrification](frame-16-transmogrification.yml) | 15:25:00 | Donna enters the FMC to change | ✅ MINED |
 | [17 - The Entrance](frame-17-the-entrance.yml) | 15:40:00 | Donna Toadstool emerges in full 34-count regalia | ✅ MINED |
-| [18 - Grab 'em](frame-18-grab-em-by-the-taco.yml) | 15:45:00 | "Grab 'em by the taco" outtake at the FMC bus | ✅ MINED |
+| [18 - Grab 'em](frame-18-grab-em-by-the-taco.yml) | 15:45:00 | "Grab 'em by the taco" outtake (v2) | ✅ MINED |
 
 ### Generated Imagery
 
@@ -57,7 +57,7 @@ massive fluffy clouds, and perfect picnic weather.
 - **Frame 14:** `frame-14-richard-selfie-...-richard-selfie.png`
 - **Frame 15:** `frame-15-donna-selfie-...-donna-selfie.png`
 - **Frame 17:** `frame-17-the-entrance-...-donna-entrance.png`
-- **Frame 18:** `frame-18-grab-em-by-the-taco-...-grab-em-simple.png`
+- **Frame 18:** `frame-18-grab-em-by-the-taco-2026-01-22-11-02-06-grab-em-v3.png`
 
 ---
 
