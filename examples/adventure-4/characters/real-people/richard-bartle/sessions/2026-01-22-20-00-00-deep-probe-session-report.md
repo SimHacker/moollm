@@ -83,7 +83,7 @@ richard-bartle/
 │
 ├── sessions/              11 files, 112 KB
 │   ├── 2026-01-22-11-30-00-meeting-don-at-the-pub.md
-│   ├── 2026-01-22-12-45-00-cards-as-actors.yml
+│   ├── 2026-01-22-12-45-00-cards-as-actors.md
 │   ├── 2026-01-22-13-15-00-designing-my-own-card.md
 │   ├── 2026-01-22-14-00-00-the-photos.md
 │   ├── 2026-01-22-14-30-00-the-familiars.md

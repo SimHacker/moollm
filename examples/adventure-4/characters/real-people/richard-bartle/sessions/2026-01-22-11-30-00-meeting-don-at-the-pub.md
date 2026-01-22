@@ -204,14 +204,14 @@ richard-bartle/
 ├── writings/         # Excerpts, notes
 └── sessions/         # Conversations like this one
     ├── 2026-01-22-11-30-00-meeting-don-at-the-pub.md  # (this file)
-    └── 2026-01-22-12-45-00-cards-as-actors.yml        # (the technical discussion)
+    └── 2026-01-22-12-45-00-cards-as-actors.md         # (the technical discussion)
 ```
 
 ### Session Continued
 
 After this conversation, Richard and Don moved into a deeper technical discussion about the card system architecture, prototypes, actors, and stack frames.
 
-**Next:** [2026-01-22-12-45-00-cards-as-actors.yml](2026-01-22-12-45-00-cards-as-actors.yml)
+**Next:** [Cards as Actors](2026-01-22-12-45-00-cards-as-actors.md)
 
 ---
 

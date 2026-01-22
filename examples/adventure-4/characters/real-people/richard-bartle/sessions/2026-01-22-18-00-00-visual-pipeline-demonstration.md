@@ -11,86 +11,82 @@
 
 What we demonstrated tonight, step by step:
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                     MOOLLM VISUAL PIPELINE                                  │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                             │
-│  1. NARRATIVE CONVERSATION                                                  │
-│     ├─ Chat with simulated characters (Richard, Heuristic)                  │
-│     ├─ HERO-STORY protocol for ethical real-person simulation               │
-│     └─ Characters have agency, make choices, self-represent                 │
-│                                    ↓                                        │
-│  2. INCARNATION                                                             │
-│     ├─ CHARACTER.yml — soul file with physical/personality traits           │
-│     ├─ CARD.yml — playable card with advertisements & methods               │
-│     ├─ README.md — social media page, prototype inheritance                 │
-│     ├─ ROOM.yml — personal space with objects, atmosphere                   │
-│     └─ Pets, artifacts, sessions — full world-building                      │
-│                                    ↓                                        │
-│  3. ADVERTISEMENT & METHOD DESIGN                                           │
-│     ├─ Dragon gets capabilities (OFFER-WISDOM, PHOTOBOMB, COMFORT)          │
-│     ├─ Advertisements score based on context                                │
-│     ├─ Methods dispatch when triggered                                      │
-│     └─ Characters become ACTORS in Hewitt/Kay sense                         │
-│                                    ↓                                        │
-│  4. VISUAL PROMPT CRYSTALLIZATION                                           │
-│     ├─ Read ROOM.yml for environment (books, desk, light, radiator)         │
-│     ├─ Read CHARACTER.yml for physical descriptions                         │
-│     ├─ Read narrative context (what just happened in session)               │
-│     ├─ Synthesize detailed visualizer_prompt in YAML                        │
-│     └─ "Rich luxurious high quality corinthian leather" prompts             │
-│                                    ↓                                        │
-│  5. PROMPT SYNTHESIS (LLM Layer)                                            │
-│     ├─ Anthropic/OpenAI expands YAML into detailed prose                    │
-│     ├─ Includes art style notes, color palette, composition                 │
-│     └─ Output: -prompt.txt files                                            │
-│                                    ↓                                        │
-│  6. IMAGE RENDERING (Diffusion Layer)                                       │
-│     ├─ Google Imagen 4 / DALL-E / Stable Diffusion                          │
-│     ├─ Condensed prompts (token limits)                                     │
-│     └─ Output: -imagen4.png files                                           │
-│                                    ↓                                        │
-│  7. CONTEXT-AWARE IMAGE MINING                                              │
-│     ├─ Vision model analyzes generated images                               │
-│     ├─ BUT WITH FULL CONTEXT:                                               │
-│     │   ├─ Original YAML definitions                                        │
-│     │   ├─ The prompts that generated them                                  │
-│     │   ├─ Character files (who SHOULD appear)                              │
-│     │   ├─ Room files (what SHOULD be there)                                │
-│     │   └─ Narrative arc (what this moment MEANS)                           │
-│     ├─ Knows what to LOOK FOR                                               │
-│     ├─ Knows where elements CAME FROM                                       │
-│     └─ Output: -mine.yml deep analysis                                      │
-│                                    ↓                                        │
-│  8. YAML FORDITE — LAYERED INTERPRETATION                                   │
-│     ├─ Layer 0: Definition (.yml)                                           │
-│     ├─ Layer 1: Synthesized prompt (-prompt.txt)                            │
-│     ├─ Layer 2: Rendered image (-imagen4.png)                               │
-│     ├─ Layer 3: Mining extraction (-mine.yml)                               │
-│     │   ├─ Characters detected                                              │
-│     │   ├─ Objects found                                                    │
-│     │   ├─ Colors extracted                                                 │
-│     │   ├─ Art historical references                                        │
-│     │   ├─ Emotional resonance                                              │
-│     │   ├─ Symbolic elements                                                │
-│     │   └─ Narrative moments (past/present/future/eternal)                  │
-│     └─ Each layer adds facets, like geological fordite                      │
-│                                    ↓                                        │
-│  9. SLIDESHOW SYNTHESIS                                                     │
-│     ├─ SLIDESHOW.md — death-scrollable narrative                            │
-│     ├─ README.md — GitHub landing page                                      │
-│     ├─ Temporal arcs for each image                                         │
-│     └─ The whole becomes greater than parts                                 │
-│                                    ↓                                        │
-│  10. META-INSIGHT: PHOTOS AS ACTORS                                         │
-│      ├─ Each photo IS an advertisement that executed                        │
-│      ├─ Incoming arc = "Just Before" (activation condition)                 │
-│      ├─ Execution = "Right Now" (method dispatch)                           │
-│      ├─ Outgoing arc = "Just After" (side effects, triggers)                │
-│      └─ Invariant = "Always" (prototype pattern)                            │
-│                                                                             │
-└─────────────────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph S1["1. 💬 NARRATIVE CONVERSATION"]
+        N1["Chat with simulated characters"]
+        N2["HERO-STORY protocol"]
+        N3["Characters have agency"]
+    end
+    
+    subgraph S2["2. 🎭 INCARNATION"]
+        I1["CHARACTER.yml — soul file"]
+        I2["CARD.yml — playable card"]
+        I3["ROOM.yml — personal space"]
+        I4["Pets, artifacts, sessions"]
+    end
+    
+    subgraph S3["3. 📢 ADVERTISEMENT DESIGN"]
+        A1["Dragon gets capabilities"]
+        A2["Ads score based on context"]
+        A3["Characters become ACTORS"]
+    end
+    
+    subgraph S4["4. ✨ PROMPT CRYSTALLIZATION"]
+        P1["Read ROOM.yml, CHARACTER.yml"]
+        P2["Synthesize visualizer_prompt"]
+        P3["Rich detailed prompts"]
+    end
+    
+    subgraph S5["5. 🤖 PROMPT SYNTHESIS"]
+        PS1["LLM expands YAML to prose"]
+        PS2["Art style, palette, composition"]
+        PS3["Output: -prompt.txt"]
+    end
+    
+    subgraph S6["6. 🖼️ IMAGE RENDERING"]
+        R1["Imagen 4 / DALL-E / SD"]
+        R2["Condensed prompts"]
+        R3["Output: -imagen4.png"]
+    end
+    
+    subgraph S7["7. 🔍 CONTEXT-AWARE MINING"]
+        M1["Vision model + FULL CONTEXT"]
+        M2["Knows what to LOOK FOR"]
+        M3["Output: -mine.yml"]
+    end
+    
+    subgraph S8["8. 🪨 YAML FORDITE"]
+        F1["Layer 0: Definition .yml"]
+        F2["Layer 1: Prompt .txt"]
+        F3["Layer 2: Image .png"]
+        F4["Layer 3: Mining .yml"]
+    end
+    
+    subgraph S9["9. 📖 SLIDESHOW SYNTHESIS"]
+        SS1["SLIDESHOW.md narrative"]
+        SS2["Temporal arcs"]
+        SS3["Whole > parts"]
+    end
+    
+    subgraph S10["10. 📸 PHOTOS AS ACTORS"]
+        PA1["Each photo = executed ad"]
+        PA2["Just Before → Right Now → Just After"]
+        PA3["Invariant = Always"]
+    end
+    
+    S1 --> S2 --> S3 --> S4 --> S5 --> S6 --> S7 --> S8 --> S9 --> S10
+    
+    style S1 fill:#e3f2fd
+    style S2 fill:#e8f5e9
+    style S3 fill:#fff3e0
+    style S4 fill:#fce4ec
+    style S5 fill:#f3e5f5
+    style S6 fill:#e0f7fa
+    style S7 fill:#fff8e1
+    style S8 fill:#efebe9
+    style S9 fill:#e8eaf6
+    style S10 fill:#fbe9e7
 ```
 
 ---
@@ -101,21 +97,37 @@ What we demonstrated tonight, step by step:
 
 This is **improv**, not revision.
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                      YES AND PRINCIPLE                          │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│  Traditional approach:                                          │
-│    Generate → "That's not what I wanted" → Retry → Retry →     │
-│    → Eventually get "correct" image → Use it                    │
-│                                                                 │
-│  MOOLLM approach:                                               │
-│    Generate → "What did we get?" → YES, that's canon now →      │
-│    → AND what does it mean? → AND how does it change things?    │
-│    → AND what new stories does it enable?                       │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph TRAD["❌ Traditional Approach"]
+        direction TB
+        T1["Generate image"]
+        T2["'That's not what I wanted'"]
+        T3["Retry..."]
+        T4["Retry..."]
+        T5["Eventually get 'correct' image"]
+        T6["Use it"]
+        T1 --> T2 --> T3 --> T4 --> T5 --> T6
+    end
+    
+    subgraph MOOLLM["✅ MOOLLM Approach"]
+        direction TB
+        M1["Generate image"]
+        M2["'What did we get?'"]
+        M3["YES, that's canon now"]
+        M4["AND what does it mean?"]
+        M5["AND how does it change things?"]
+        M6["AND what new stories?"]
+        M1 --> M2 --> M3 --> M4 --> M5 --> M6
+    end
+    
+    style TRAD fill:#ffebee
+    style MOOLLM fill:#e8f5e9
+    style T2 fill:#ffcdd2
+    style M3 fill:#c8e6c9
+    style M4 fill:#c8e6c9
+    style M5 fill:#c8e6c9
+    style M6 fill:#c8e6c9
 ```
 
 **YES:** The rabbit appeared in Shot 7. We didn't ask for it. It's there.
@@ -214,10 +226,16 @@ Heuristic the dragon is the same — with OFFER-WISDOM, PHOTOBOMB, COMFORT adver
 
 ### 6. The Pipeline is Reversible (and Committed)
 
-```
-Narrative → YAML → Prompt → Image → Mining → Narrative
-    ↑                                            │
-    └────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    A["💬 Narrative"] --> B["📄 YAML"]
+    B --> C["✍️ Prompt"]
+    C --> D["🖼️ Image"]
+    D --> E["⛏️ Mining"]
+    E --> A
+    
+    style A fill:#e3f2fd
+    style E fill:#e3f2fd
 ```
 
 The mined narrative feeds back into future conversations. The slideshow becomes a session artifact that future sessions can reference.
@@ -284,54 +302,51 @@ richard-bartle/study/selfies/
 
 The pipeline isn't linear — it's a **self-modifying feedback loop**:
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                        NARRATIVE FLUXX ENGINE                               │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                             │
-│    ┌──────────────┐                                                         │
-│    │  MICROWORLD  │ ◄────────────────────────────────────────┐              │
-│    │  STATE       │                                          │              │
-│    │  ─────────── │                                          │              │
-│    │  Characters  │                                          │              │
-│    │  Rooms       │                                          │              │
-│    │  Objects     │                                          │              │
-│    │  Rules       │ ◄── RULES CAN CHANGE                     │              │
-│    └──────┬───────┘                                          │              │
-│           │                                                  │              │
-│           ▼                                                  │              │
-│    ┌──────────────┐                                          │              │
-│    │  VISUALIZE   │  "Deal me a card"                        │              │
-│    │  ─────────── │                                          │              │
-│    │  Generate    │                                          │              │
-│    │  image from  │                                          │              │
-│    │  current     │                                          │              │
-│    │  state       │                                          │              │
-│    └──────┬───────┘                                          │              │
-│           │                                                  │              │
-│           ▼                                                  │              │
-│    ┌──────────────┐                                          │              │
-│    │  MINE        │  "Resolve the card"                      │              │
-│    │  ─────────── │                                          │              │
-│    │  What did    │                                          │              │
-│    │  we get?     │                                          │              │
-│    │  Surprises?  │                                          │              │
-│    │  New info?   │                                          │              │
-│    └──────┬───────┘                                          │              │
-│           │                                                  │              │
-│           ▼                                                  │              │
-│    ┌──────────────┐                                          │              │
-│    │  INTEGRATE   │  "Apply the effect"                      │              │
-│    │  ─────────── │                                          │              │
-│    │  Update      │                                          │              │
-│    │  characters  │──────────────────────────────────────────┘              │
-│    │  Update      │                                                         │
-│    │  rooms       │  ◄── The rabbit in Shot 7 is now CANON                  │
-│    │  Update      │  ◄── "Mistakes They Keep Making" shelf EXISTS           │
-│    │  RULES       │  ◄── Heuristic's PHOTOBOMB advertisement confirmed      │
-│    └──────────────┘                                                         │
-│                                                                             │
-└─────────────────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph FLUXX["🎲 NARRATIVE FLUXX ENGINE"]
+        direction TB
+        
+        subgraph STATE["🌍 MICROWORLD STATE"]
+            S1["Characters"]
+            S2["Rooms"]
+            S3["Objects"]
+            S4["Rules ⚡ CAN CHANGE"]
+        end
+        
+        subgraph VIZ["🎴 VISUALIZE"]
+            V1["'Deal me a card'"]
+            V2["Generate image from current state"]
+        end
+        
+        subgraph MINE["⛏️ MINE"]
+            M1["'Resolve the card'"]
+            M2["What did we get?"]
+            M3["Surprises? New info?"]
+        end
+        
+        subgraph INT["🔄 INTEGRATE"]
+            I1["'Apply the effect'"]
+            I2["Update characters"]
+            I3["Update rooms"]
+            I4["Update RULES"]
+        end
+        
+        STATE --> VIZ
+        VIZ --> MINE
+        MINE --> INT
+        INT -->|"feedback loop"| STATE
+    end
+    
+    CANON["🐰 Rabbit in Shot 7 = CANON<br/>📚 'Mistakes' shelf EXISTS<br/>📸 PHOTOBOMB confirmed"]
+    INT --> CANON
+    
+    style STATE fill:#e8f5e9
+    style VIZ fill:#e3f2fd
+    style MINE fill:#fff8e1
+    style INT fill:#fce4ec
+    style CANON fill:#f3e5f5
+    style S4 fill:#ffcdd2
 ```
 
 ### Like Fluxx, the Rules Change
