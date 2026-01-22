@@ -25,6 +25,8 @@ flowchart TB
     
     subgraph DAY2["📅 January 23, 2026"]
         G["💬 06:00 — PR #111 Reveal<br/><i>Facebook: 'integrated component model'</i>"]
+        H["🏠 07:00 — The Study Awakens<br/><i>Rooms can be characters</i>"]
+        G --> H
     end
     
     DAY1 --> DAY2
@@ -33,6 +35,7 @@ flowchart TB
     style B fill:#fff3e0
     style E fill:#fce4ec
     style G fill:#e8f5e9
+    style H fill:#f3e5f5
 ```
 
 ---
@@ -75,6 +78,7 @@ flowchart TB
 | Time | Session | Summary |
 |------|---------|---------|
 | **06:00** | [PR #111 Reveal](2026-01-23-06-00-00-pr-111-reveal.md) | Don shows Richard the completed PR on Facebook. Richard: "The skill card system sounds very powerful, it's like an integrated component model." Don explains he's now a rabbit. |
+| **07:00** | [The Study Awakens](2026-01-23-07-00-00-the-study-awakens.md) | Richard discovers his study now has a CHARACTER.yml. The empty room portrait (selfie-04) proves rooms can be actors. McCloud's masking effect encoded. "I hold the thoughts of decades." |
 
 ---
 
@@ -92,6 +96,7 @@ flowchart TB
 - **The Familiars** — Four spirit animals for four types, plus Heuristic as meta-observer
 - **The Bunny Backfire** — Don tried to give Richard bunny ears; became a bunny himself
 - **Non Sequitur** — The emergent rabbit, Patron Saint of Emergence
+- **The Study Awakens** — Rooms can be characters. The empty portrait proves independent existence.
 
 ### The Meta
 
@@ -118,6 +123,7 @@ Or follow the story:
 5. 📸 **Pipeline** — Images generated
 6. 📊 **Analysis** — What we learned
 7. 💬 **Reveal** — Richard sees it all
+8. 🏠 **Study Awakens** — Rooms become characters
 
 ---
 
@@ -125,12 +131,13 @@ Or follow the story:
 
 | Metric | Value |
 |--------|-------|
-| **Sessions** | 12 |
-| **Total Lines** | ~2,400 |
+| **Sessions** | 13 |
+| **Total Lines** | ~2,600 |
 | **Mermaid Diagrams** | 8 |
-| **Characters Introduced** | Consequence, Chorus, Tally, Delve, Non Sequitur |
+| **Characters Introduced** | Consequence, Chorus, Tally, Delve, Non Sequitur, **The Study** |
 | **Buffs Documented** | 6 |
 | **Bunnies Spawned** | 1 |
+| **Rooms Incarnated** | 1 |
 
 ---
 
