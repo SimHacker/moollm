@@ -117,18 +117,16 @@ quadrantChart
     title Player Type Motivations
     x-axis Acting --> Interacting
     y-axis World --> Players
-    
-    quadrant-1 Socializers (Hearts)
-    quadrant-2 Killers (Spades)
-    quadrant-3 Achievers (Diamonds)
-    quadrant-4 Explorers (Clubs)
-    
-    Donna Toadstool: [0.9, 0.9]
-    Palm the Cat: [0.3, 0.2]
-    Don Hopkins: [0.4, 0.3]
-    Average Tourist: [0.6, 0.7]
+    quadrant-1 Socializers
+    quadrant-2 Killers
+    quadrant-3 Achievers
+    quadrant-4 Explorers
+    Donna: [0.9, 0.9]
+    Palm: [0.3, 0.2]
+    Don: [0.4, 0.3]
+    Tourist: [0.6, 0.7]
     Speedrunner: [0.8, 0.2]
-    The Wumpus: [0.1, 0.1]
+    Wumpus: [0.1, 0.1]
 ```
 
 ### The Four Types (With MOOLLM Examples)
