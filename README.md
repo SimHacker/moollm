@@ -222,7 +222,18 @@ The adventure includes **image-based narrative slideshows** — generated, mined
 | [Dusty Attic Art](./examples/adventure-4/pub/attic/dusty-attic-art-styles/SLIDESHOW.md) | Same room in 7 art styles |
 | [Telescope Views](./examples/adventure-4/pub/rooftop/telescope-constellation-views/SLIDESHOW.md) | K-Line constellation |
 
-**How they work**: Each slideshow inherits from [skills/slideshow/](./skills/slideshow/). Images are generated via [skills/visualizer/](./skills/visualizer/) and mined via [skills/image-mining/](./skills/image-mining/).
+**How they work** — An iterative pipeline maintaining narrative coherence:
+
+1. **YAML Jazz skeleton** — Define the scene's narrative context, characters, objects
+2. **Prompt synthesis** — Assemble rich visual prompt from environment + history
+3. **Image generation** — [skills/visualizer/](./skills/visualizer/) renders the scene (Imagen, DALL-E, etc.)
+4. **Image mining** — [skills/image-mining/](./skills/image-mining/) extracts semantic treasure from the result
+5. **YES AND** — Accept emergent elements as canon (self-captioning, unexpected details)
+6. **Iterate** — Each new image sees the FULL context of all previous images + mining results
+
+The coherence engine: Visual consistency across 40+ images (Don's tie-dye, Donna's pink glasses, tunnel evolution) emerges from carrying forward the mined context. Frame-to-frame links allow ping-pong navigation between parallel timelines.
+
+Each slideshow inherits from [skills/slideshow/](./skills/slideshow/).
 
 ---
 
