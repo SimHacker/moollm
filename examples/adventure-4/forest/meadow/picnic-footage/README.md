@@ -39,6 +39,7 @@ massive fluffy clouds, and perfect picnic weather.
 | [17 - The Entrance](frame-17-the-entrance.yml) | 15:40:00 | Donna Toadstool emerges in full 34-count regalia | ✅ MINED |
 | [18 - Grab 'em](frame-18-grab-em-by-the-taco.yml) | 15:45:00 | "Grab 'em by the taco" outtake (v2) | ✅ MINED |
 | [19 - Taco Frenzy](frame-19-taco-frenzy.yml) | 15:55:00 | Donna's high-drag close-up eating Taco Flowers | ✅ MINED |
+| [20 - Great Slurp](frame-20-the-great-slurp.yml) | 16:30:00 | Tornado whisks entire picnic into the sky | ✅ MINED |
 
 ### Generated Imagery
 
@@ -60,6 +61,7 @@ massive fluffy clouds, and perfect picnic weather.
 - **Frame 17:** `frame-17-the-entrance-...-donna-entrance.png`
 - **Frame 18:** `frame-18-grab-em-by-the-taco-2026-01-22-11-02-06-grab-em-v3.png`
 - **Frame 19:** `frame-19-taco-frenzy-2026-01-22-11-05-04-taco-frenzy.png`
+- **Frame 20:** `frame-20-the-great-slurp-2026-01-22-11-11-04-the-great-slurp.png`
 
 ---
 
