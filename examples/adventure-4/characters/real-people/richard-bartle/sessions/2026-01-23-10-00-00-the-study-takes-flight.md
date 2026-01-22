@@ -214,7 +214,7 @@ A tourist approaches. Bounces off.
 **Richard:** The wall is selectively permeable.
 
 **Don:** That's the difference between ACME and Leela. ACME built solutions
-that only work for insiders. Leela builds sight that works for everyone.
+that only work for insiders. Leela builds insight that works for everyone.
 
 **Alex:** *(calling from reception)* The Study is... hovering very politely.
 Should I offer it a visitor badge?
@@ -344,10 +344,40 @@ The turtle — Eventually — opens one ancient eye.
 
 **Eventually:** ...all capabilities... were new... once...
 
-A long pause. The turtle returns to basking.
+A long pause. Richard looks at the turtle. Looks at the Study hovering nearby.
+Looks back at the turtle.
 
-**Don:** That's about twenty words more than they usually say in a day.
-You're honored.
+**Richard:** *(sudden recognition)* You carry your home on your back.
+
+**Eventually:** ...yes...
+
+**Richard:** So do I, now.
+
+The turtle's eye focuses on Richard with new interest. A very long pause.
+Geological time passing between two beings who understand something fundamental.
+
+**Eventually:** ...then... you... know...
+
+**Richard:** Know what?
+
+**Eventually:** ...home... is... not... where... you... are...
+
+**Richard:** *(waiting)*
+
+**Eventually:** ...home... is... what... you... carry...
+
+Heuristic raises his head from the Study radiator. Even the dragon is listening.
+
+**Don:** *(quietly)* Two mobile home-dwellers recognizing each other.
+
+**Richard:** *(to Eventually)* How long have you been traveling?
+
+**Eventually:** ...I... arrived... here... eventually...
+
+Another long pause. The turtle returns to basking.
+
+**Don:** That's about fifty words more than they usually say in a month.
+You're VERY honored.
 
 ---
 
@@ -448,8 +478,22 @@ follows.
 - **ACM1 Tunnel Watcher**: Sees what ACME can't explain.
 - **Floor 2**: Where seeing happens. 47 cameras.
 - **The Insight Furnace**: Neural → Symbolic → Causal.
-- **Eventually**: The wisdom turtle. Very patient.
+- **Eventually**: The wisdom turtle. Fellow mobile-home dweller.
 - **The Origin Cutting**: Memory in wood.
+
+---
+
+## The Turtle's Wisdom
+
+> **Eventually:** "...home... is... not... where... you... are..."
+>
+> **Eventually:** "...home... is... what... you... carry..."
+
+Two beings who carry their homes on their backs recognized each other
+on the rooftop garden. The turtle has known this truth for geological time.
+Richard learned it this morning.
+
+The Study is not just a vehicle. It's a *shell*.
 
 ---
 
@@ -460,6 +504,8 @@ follows.
 >
 > **Don:** "That's the point. Portable gezelligheid. Identity that
 > travels."
+>
+> **Eventually:** "...yes..."
 >
 > **Heuristic:** "Warmth. Warmth is what matters."
 
