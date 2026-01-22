@@ -37,6 +37,7 @@ massive fluffy clouds, and perfect picnic weather.
 | [15 - Donna's Selfie](frame-15-donna-selfie.yml) | 14:55:00 | The Quality Control Queen and her Cheddar Crown | ✅ MINED |
 | [16 - Transmogrification](frame-16-transmogrification.yml) | 15:25:00 | Donna enters the FMC to change | ✅ MINED |
 | [17 - The Entrance](frame-17-the-entrance.yml) | 15:40:00 | Donna Toadstool emerges in full 34-count regalia | ✅ MINED |
+| [18 - Grab 'em](frame-18-grab-em-by-the-taco.yml) | 15:45:00 | "Grab 'em by the taco" outtake at the FMC bus | ✅ MINED |
 
 ### Generated Imagery
 
@@ -56,6 +57,7 @@ massive fluffy clouds, and perfect picnic weather.
 - **Frame 14:** `frame-14-richard-selfie-...-richard-selfie.png`
 - **Frame 15:** `frame-15-donna-selfie-...-donna-selfie.png`
 - **Frame 17:** `frame-17-the-entrance-...-donna-entrance.png`
+- **Frame 18:** `frame-18-grab-em-by-the-taco-...-grab-em-simple.png`
 
 ---
 
@@ -65,17 +67,20 @@ massive fluffy clouds, and perfect picnic weather.
 | :--- | :--- |
 | **The FMC** | Equipped with **flexible solar panels** and a custom **'Carrot Cooler'** in the doorway. |
 | **The Study** | Flat mahogany roof deck and a **'Spaghetti Sideboard'** for meadow banquets. |
-| **Flora** | **Pie-menu blue flowers**; pixelated ACME-flowers now appearing under artifacts. |
+| **Flora** | **Pie-menu blue flowers**; pixelated ACME-flowers; yellow-gold **Taco Flowers** (*Anthotaco bellus*). |
 | **Picnic Gear** | **'Swirl of Infinite Parameters'** tie-dye blanket; mahogany **tuckaway tables**. |
 | **The Food** | **3-foot cheddar bullion pyramid** (Nuclear Saffron); **Sinusoidal Sauce** patterns on tamales. |
 | **The Dragon** | Now the **'Gourmet Guardian'**; capable of **Blue-Spark Ignition** and **Internal Heat** pulses. |
 | **Taco Flowers** | Yellow-gold petals with **'toasted-brown' edges**; crimson 'meat' stamens; green 'lettuce' base. |
-| **Donna T.** | Real Donna is **'ACME Quality Control'**; Gatekeeper of the OURS Accord; wears **pink heart glasses**. |
-| **Donna (Drag)** | **Nuclear Tangerine** skin; **Straw-Yellow Combover** (sentient); **Too-Long Red Tie**; **'Reverse Raccoon'** eye circles. |
-| **The Decoy** | Glitched into a **1970s McDonald's-style trash can** with a swinging 'PUSH' door and a red silk tie. |
-| **The TARDIS Egg** | 12-foot **green and gold Fabergé Egg**; contains a built-in **'Factorio Kitchen'** with brass conveyor belts and golden Inserters. |
-| **Physics** | **'Narcissistic Gravity'** confirmed — flowers literally lean toward Donna when she's in character. |
-| **Selfie Details** | Don's **'Salsa Ear'** (left tip red); Richard's **gold-rimmed glasses** and **sauce-splattered navy cardigan**. |
+| **Bees** | **'Giant Meadow Fuzzy'** bumblebees with overflowing neon-orange pollen baskets. |
+| **The Intruder** | Red **ACME Van-Guard** (1973), battered and smoking, emerging from an oak tree. |
+| **Painted Tunnel** | Manifested on an ancient oak; shows a low-res desert road. |
+| **ACME Goods** | **Dehydrated Feast**, **Inflatable Donna Decoy**, and a **Pocket Black Hole**. |
+| **Containment** | **Pocket Dimension** (amethyst keychain) swallows the black hole; **Self-Healing Module** (green) patches the tree. |
+| **Draconic Power** | Heuristic incinerates the decoy with a **blue-spark blast**; scales are **'Hammered Copper Amber'**. |
+| **Donna (Drag)** | **Nuclear Tangerine** skin; **Straw-Yellow Combover** (sentient); **Too-Long Red Tie**; **'Mock-Classy'** pinky gesture. |
+| **The Bus** | The FMC #898 serves as a mobile dressing room and **'Infamous outtake bus'**. |
+| **Selfie Details** | Don's **'Salsa Ear'**; Richard's **gold-rimmed glasses** and **sauce-splattered cardigan**. |
 | **The Feast** | Three pioneers eating **'vorciferously and vermiciously'**; Don's ear dipped in salsa; Richard's cardigan stained with red sauce. |
 | **The Aftermath** | Cheddar pyramid reduced to a jagged stump; corn husks everywhere like ancient parchment. |
 | **Containment** | **Pocket Dimension** (amethyst keychain) swallows the black hole; **Self-Healing Module** (green) patches the tree. |
