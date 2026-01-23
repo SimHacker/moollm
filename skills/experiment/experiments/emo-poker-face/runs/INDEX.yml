@@ -125,6 +125,37 @@ outputs:
       Bumblewick traps with aces: "Donna showed me the trap."
       Palm uses "cheese smuggler" as social needle.
       Emergence: Information as weapon; teaching cascade
+      
+  - config: four-player
+    number: 5
+    files:
+      - four-player-005.yml
+      - four-player-005.md
+      - four-player-005-cursor-mirror.yml
+      - four-player-005-tells.yml
+    timestamp: 2026-01-23T21:30:00Z
+    model: claude-4.5-opus-high-thinking
+    continues_from: four-player-004
+    result: "Bumblewick completes character arc"
+    commits: 1
+    layer_violations: 0
+    hands_played: "9-11"
+    tells_transmitted: 16
+    tells_noticed: 14
+    new_tells: 3
+    critical_tells:
+      - "T9-03 — Cheese Knife (new tell)"
+      - "T11-01 — Cheese Put Down (Bumblewick serious mode)"
+      - "T11-04 — Graceful Loss (arc completion)"
+    notes: |
+      THE CHEESE CEREMONY: Don owns smuggler identity.
+      "The smuggler provides."
+      Hand 9: Don sets while slicing cheese — new tell.
+      Hand 10: Donna aces hold — "calm nibble" tell.
+      Hand 11: Palm wheels Bumblewick's kings.
+      Bumblewick: "Good hand, Palm. That's poker." NO TEARS.
+      Emergence: Cheese as parallel communication channel
+
 # Example after runs:
 #   - config: whacky-eight
 #     number: 1

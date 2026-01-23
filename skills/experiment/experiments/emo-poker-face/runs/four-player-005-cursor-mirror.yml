@@ -1,0 +1,130 @@
+# Cursor Mirror Analysis: four-player-005 (DELTA from 004)
+# Generated: 2026-01-23T22:00:00Z
+# Format: Abbreviated
+
+meta:
+  session_id: 92704dd9
+  continues_from: four-player-004
+
+# DELTA FROM RUN 004
+
+delta:
+  hands_played: "+3 (hands 9-11)"
+  commits: "+1"
+  tension_level: "BROKEN → Camaraderie"
+  
+  stacks_change:
+    bumblewick: "-725 (3750 → 3025)"
+    don: "+800 (825 → 1625)"
+    donna: "-475 (1250 → 775)"
+    palm: "+25 (500 → 525)"
+
+# STANDOUT EVENTS
+
+standouts:
+  - event: "The Cheese Ceremony"
+    what: "Don owns 'smuggler' identity, shares wheel"
+    dialog: '"The smuggler provides."'
+    why_notable: "Tension dissolved into generosity"
+    
+  - event: "Cheese Knife Tell"
+    what: "Don slices cheese with a set"
+    dialog: '"The CHEESE KNIFE. That\'s your new tell!"'
+    why_notable: "New behavioral signature identified"
+    
+  - event: "Cheese Put Down Tell"
+    what: "Bumblewick sets down cheese = serious hand"
+    who_noticed: [donna, don]
+    why_notable: "Cross-character tell reading"
+    
+  - event: "Palm's Wheel"
+    what: "A-2-3-4-5 against Bumblewick's kings"
+    why_notable: "Variance justice for Palm's earlier beats"
+    
+  - event: "Bumblewick's Graceful Loss"
+    what: "'Good hand, Palm. That\'s poker.'"
+    why_notable: "CHARACTER ARC COMPLETED — no tears"
+    don_reaction: '"THAT is how you handle a bad beat."'
+    donna_reaction: "Actual tears — 'He didn\'t cry.'"
+
+# KEY STATS
+
+stats:
+  new_tells_established: 3
+  character_arcs_completed: 1
+  table_mood: "Family"
+  cheese_consumed: "Significant"
+
+# TELLS TAXONOMY UPDATE
+
+new_tells:
+  - name: "Cheese Knife Active"
+    transmitter: don
+    meaning: "Confident, likely strong hand"
+    discovered_by: donna
+    
+  - name: "Cheese Put Down"
+    transmitter: bumblewick
+    meaning: "Serious mode, real hand"
+    discovered_by: [donna, don]
+    
+  - name: "Calm Nibble"
+    transmitter: donna
+    meaning: "Real hand, not nervous"
+    discovered_by: palm
+
+# CHARACTER ARCS
+
+bumblewick_arc_complete:
+  hand_1: "Trembling, apologizing, won with aces"
+  hand_4: "Lost gracefully — 'Good hand, Don'"
+  hand_7: "Trapped successfully — 'Donna showed me the trap'"
+  hand_11: |
+    Lost kings to wheel.
+    "Good hand, Palm. That's poker."
+    NO TEARS.
+    Picks up cheese.
+    Nibbles.
+    
+  arc: "Terror → Learning → Teaching → Graceful Loss"
+  status: "COMPLETE"
+  
+  witnesses:
+    don: "THAT is how you handle a bad beat."
+    donna: "He didn't cry. I didn't teach him that."
+
+# SOCIAL DYNAMICS
+
+social_evolution:
+  start_of_night:
+    - "Donna eliminated, pride wounded"
+    - "Palm using 'cheese smuggler' as needle"
+    - "Don hiding secret"
+    - "Bumblewick scared of everything"
+    
+  end_of_session:
+    - "Don hosting generously, identity owned"
+    - "Palm content, wheel justice"
+    - "Donna proud of Bumblewick, part of group"
+    - "Bumblewick mature, graceful, accepted"
+    
+  transformation: "Competition → Community"
+
+# FINAL STATE
+
+final_state:
+  stacks: { bumblewick: 3025, don: 1625, donna: 775, palm: 525 }
+  eliminated: []
+  chip_leader: bumblewick
+  mood: "Content family gathering"
+  cheese_status: "Shared abundantly"
+
+# QUOTES
+
+quotes:
+  ceremony: '"The smuggler provides."'
+  tell_discovery: '"The CHEESE KNIFE. That\'s your new tell."'
+  graceful_loss: '"Good hand, Palm. That\'s poker."'
+  recognition: '"THAT is how you handle a bad beat."'
+  pride: '"He didn\'t cry. HE didn\'t cry."'
+  balance: '"The universe remembered."'

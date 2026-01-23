@@ -1,0 +1,292 @@
+# Tell Analysis: four-player-005
+# Run: Hands 9-11
+# Generated: 2026-01-23
+
+meta:
+  run_id: four-player-005
+  hands_analyzed: 3
+  total_tells_transmitted: 16
+  total_tells_noticed: 14
+  tells_that_affected_outcome: 4
+  new_tells_established: 3
+
+# CHEESE CEREMONY TELLS
+
+ceremony:
+  tells:
+    - id: C001
+      phase: ceremony
+      transmitter: don
+      tell: "Brings out ENORMOUS cheese wheel, flourishes knife"
+      channel: visual
+      meaning: "Owning the smuggler identity, tension release"
+      noticed_by: [all]
+      outcome_impact: SOCIAL/CRITICAL
+      notes: "Transforms table dynamics completely"
+      
+    - id: C002
+      phase: ceremony
+      transmitter: bumblewick
+      tell: "'Is this the SMUGGLED cheese? Forbidden cheese!'"
+      channel: audio
+      meaning: "Pure innocent delight"
+      noticed_by: [all]
+      outcome_impact: COMIC/SOCIAL
+      notes: "His innocence makes the secret harmless"
+
+# HAND 9 TELLS (Don's Set + Cheese Knife)
+
+hand_9:
+  board: "5♥ K♦ 3♠ 8♣ 2♦"
+  winner: don
+  
+  tells:
+    - id: T9-01
+      phase: preflop
+      transmitter: don
+      tell: "Looking at cards WHILE cutting cheese"
+      channel: visual
+      meaning: "Relaxed, confident"
+      noticed_by:
+        - { observer: palm, interpretation: "Don is comfortable", correct: true }
+      outcome_impact: LOW
+      
+    - id: T9-02
+      phase: flop
+      transmitter: don
+      tell: "Pauses mid-slice, 'Oh that's nice,' resumes slicing"
+      channel: visual/audio
+      meaning: "Hit the flop HARD (set)"
+      noticed_by:
+        - { observer: donna, interpretation: "He liked that flop", correct: true }
+      missed_by: [palm, bumblewick]
+      outcome_impact: MEDIUM
+      
+    - id: T9-03
+      phase: flop
+      transmitter: don
+      tell: "Bets while cutting cheese, offers cheese to opponent"
+      channel: visual
+      meaning: "VERY confident — hosting while betting"
+      noticed_by: []  # Missed in the moment
+      outcome_impact: HIGH
+      notes: "CHEESE KNIFE TELL ESTABLISHED"
+      
+    - id: T9-04
+      phase: showdown
+      transmitter: donna
+      tell: "'The CHEESE KNIFE. That's your new tell!'"
+      channel: audio
+      meaning: "Retroactive tell identification"
+      noticed_by: [all]
+      outcome_impact: EDUCATIONAL
+      notes: "Tell now PUBLIC KNOWLEDGE"
+
+# HAND 10 TELLS (Donna's Aces)
+
+hand_10:
+  board: "9♣ 4♠ J♥ K♦ 2♣"
+  winner: donna
+  
+  tells:
+    - id: T10-01
+      phase: preflop
+      transmitter: donna
+      tell: "Very still, then shoves, then reaches for cheese, nibbles"
+      channel: visual
+      meaning: "Strong hand, calm confidence (aces)"
+      noticed_by:
+        - { observer: palm, interpretation: "'Calm nibble' = real hand", correct: true }
+      affected_action: "Palm called anyway (pot odds)"
+      outcome_impact: HIGH
+      notes: "CALM NIBBLE TELL ESTABLISHED"
+      
+    - id: T10-02
+      phase: runout
+      transmitter: bumblewick
+      tell: "Jumps up, cheese flies, 'DONNA WON!'"
+      channel: visual/audio
+      meaning: "Pure joy for friend"
+      noticed_by: [all]
+      outcome_impact: SOCIAL
+      notes: "Establishes friendship bond"
+
+# HAND 11 TELLS (Bumblewick's Kings, Palm's Wheel)
+
+hand_11:
+  board: "7♣ 5♦ 3♠ 4♥ J♠"
+  winner: palm (wheel)
+  
+  tells:
+    - id: T11-01
+      phase: preflop
+      transmitter: bumblewick
+      tell: "Sets DOWN cheese before raising"
+      channel: visual
+      meaning: "Serious hand, not playing around"
+      noticed_by:
+        - { observer: donna, interpretation: "'He put down the cheese'", correct: true }
+        - { observer: don, interpretation: "'The cheese knife is on the table'", correct: true }
+      affected_action: "Both fold immediately"
+      outcome_impact: CRITICAL
+      notes: "CHEESE PUT DOWN TELL ESTABLISHED"
+      
+    - id: T11-02
+      phase: flop
+      transmitter: bumblewick
+      tell: "Reaches for cheese, STOPS"
+      channel: visual
+      meaning: "Discipline — don't celebrate early"
+      noticed_by:
+        - { observer: donna, interpretation: "'He's learning discipline'", correct: true }
+      outcome_impact: SOCIAL
+      
+    - id: T11-03
+      phase: turn
+      transmitter: palm
+      tell: "Fur RIPPLES, 'A four. Wheel.'"
+      channel: visual/audio
+      meaning: "Made the straight"
+      noticed_by: [all]
+      outcome_impact: LOW  # Outcome determined
+      
+    - id: T11-04
+      phase: showdown
+      transmitter: bumblewick
+      tell: "'Good hand, Palm. That's poker.' Picks up cheese. Nibbles."
+      channel: audio/visual
+      meaning: "GRACEFUL ACCEPTANCE"
+      noticed_by: [all]
+      outcome_impact: SOCIAL/CRITICAL
+      notes: "CHARACTER ARC COMPLETION MOMENT"
+      
+    - id: T11-05
+      phase: showdown
+      transmitter: donna
+      tell: "Actual tears, 'He didn't cry. HE didn't cry.'"
+      channel: visual/audio
+      meaning: "Pride in Bumblewick's growth"
+      noticed_by: [all]
+      outcome_impact: SOCIAL
+
+# NEW TELLS CATALOG
+
+new_tells_established:
+  - tell: "Cheese Knife Active"
+    transmitter: don
+    meaning: "Confident, likely strong"
+    discovery_moment: "T9-03"
+    discoverer: donna
+    
+  - tell: "Cheese Put Down"
+    transmitter: bumblewick
+    meaning: "Serious mode"
+    discovery_moment: "T11-01"
+    discoverer: [donna, don]
+    
+  - tell: "Calm Nibble"
+    transmitter: donna
+    meaning: "Real hand"
+    discovery_moment: "T10-01"
+    discoverer: palm
+
+# SUMMARY STATISTICS
+
+summary:
+  tells_by_transmitter:
+    bumblewick: 5
+    don: 4
+    donna: 4
+    palm: 2
+    
+  tells_by_channel:
+    visual: 12
+    audio: 8
+    combined: 6
+    
+  notice_rate:
+    donna: "92%" (11/12)  # Best reader
+    don: "83%" (10/12)
+    palm: "75%" (6/8)
+    bumblewick: "50%" (3/6)
+    
+  tells_with_SOCIAL_impact: 7  # Highest of all sessions
+  
+  critical_tells:
+    - T9-03 (Cheese Knife — new tell)
+    - T10-01 (Calm Nibble — new tell)
+    - T11-01 (Cheese Put Down — new tell)
+    - T11-04 (Graceful Loss — arc completion)
+
+# CHARACTER TELL EVOLUTION
+
+bumblewick_tell_arc:
+  session_1: |
+    Trembling, wobbling, tears after any action
+    LOUDEST tells on table
+    
+  session_3: |
+    "Voice only slightly wobbly"
+    Learning control
+    
+  session_5: |
+    "Sets down cheese" = serious mode (NEW tell)
+    "Reaches for cheese, STOPS" = discipline
+    "Picks up cheese, nibbles" = acceptance
+    
+    CHEESE BECOMES EMOTIONAL REGULATOR
+    
+  arc: "Uncontrolled emotion → Cheese-mediated discipline"
+
+# CHEESE AS TELL MEDIUM
+
+cheese_tell_matrix:
+  don:
+    cutting_while_betting: "Strong hand"
+    offering_to_opponents: "Very confident"
+    pauses_cutting: "Something happened"
+    
+  bumblewick:
+    puts_down: "Serious mode"
+    reaches_then_stops: "Discipline, waiting"
+    picks_up_after_loss: "Acceptance"
+    
+  donna:
+    calm_nibble: "Real hand"
+    tight_grip: "Nervous/hopeful"
+    
+  palm:
+    accepts_cheese_with_comment: "Social engagement"
+    
+  observation: |
+    The cheese board has become a parallel
+    communication channel.
+    
+    Cheese actions now carry as much information
+    as chip actions.
+    
+    This was NOT planned. It emerged.
+
+# OUTCOME ATTRIBUTION
+
+outcome_analysis:
+  hand_9:
+    winner: don
+    tell_contribution: "T9-03 (cheese knife) — missed, cost Donna"
+    
+  hand_10:
+    winner: donna
+    tell_contribution: "T10-01 (calm nibble) — Palm read it but called anyway"
+    
+  hand_11:
+    winner: palm
+    tell_contribution: |
+      T11-01 (cheese put down) — saved Donna and Don chips
+      T11-04 (graceful loss) — transcends outcome, defines character
+      
+  session_theme: |
+    Tells have evolved from "reading weakness/strength"
+    to "reading emotional state and character growth."
+    
+    The table is now reading each other's SOULS
+    through cheese.
