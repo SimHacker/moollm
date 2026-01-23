@@ -1012,6 +1012,199 @@ selection_algorithms:
 
 # RUNTIME CONFIGURATION
 
+# DECK EXHAUSTION & GAME TERMINATION
+
+deck_exhaustion:
+
+  what_happens: |
+    When pointer reaches len(shuffle) — deck is empty!
+    Standard Fluxx: Shuffle the discard pile to form a new deck.
+    
+  reshuffle_protocol:
+    trigger: "pointer >= len(shuffle) AND player needs to draw"
+    steps:
+      1: "Collect all cards in discard pile"
+      2: "Reset their indices into a new shuffle array"
+      3: "Fisher-Yates shuffle the new array"
+      4: "Reset pointer to 0"
+      5: "Continue dealing"
+    
+    implementation: |
+      def reshuffle_discard():
+        # discard contains master indices of discarded cards
+        new_shuffle = discard.copy()
+        fisher_yates(new_shuffle)
+        shuffle = new_shuffle
+        pointer = 0
+        discard = []
+        
+        # History note: mark this as a reshuffle point
+        game_events.append({
+          "type": "reshuffle",
+          "turn": current_turn,
+          "cards_reshuffled": len(new_shuffle)
+        })
+        
+  what_if_discard_empty_too: |
+    Extremely rare! All cards are in hands, in play, or removed.
+    
+    Options:
+    1. WAIT — Player cannot draw until cards return to discard
+    2. SKIP — Skip the draw, continue with play phase
+    3. FORCE_DISCARD — Everyone discards down to hand limit
+    4. END_ROUND — Declare the round over, score keepers
+    
+    In simulation: LLM chooses based on narrative needs.
+
+forever_game:
+
+  is_it_possible: |
+    YES. Fluxx can theoretically run FOREVER.
+    
+    Conditions for eternal game:
+    - No player can complete the current goal
+    - Goal keeps changing but never to one achievable
+    - Keepers keep getting stolen/discarded before goals complete
+    - Rules create equilibrium that prevents wins
+    
+    This is actually part of Fluxx's charm/chaos.
+    
+  why_it_happens:
+    - "Goal requires keepers that keep getting discarded"
+    - "Steal actions cycle keepers forever"
+    - "Hand limits prevent accumulating winning combos"
+    - "Creepers block wins, can't be removed"
+    - "Players play defensively, blocking each other"
+    
+  detection: |
+    Signs of a forever game:
+    - 50+ turns without a winner
+    - Same goal cycling through 3+ times
+    - Deck reshuffled 5+ times
+    - All players stuck with uncompletable goals
+    
+    detection_heuristics:
+      turn_limit: 100  # Suspicious after this
+      reshuffle_limit: 10  # Very suspicious
+      goal_cycle_limit: 5  # Same goal 5 times = stuck
+      
+  interventions:
+  
+    narrative_intervention:
+      description: "Let the LLM break the deadlock dramatically"
+      how: |
+        The Cosmic Dealer notices the stalemate.
+        
+        BOOP a game-changing card to the top:
+        - Rules Reset (clear the rule stack)
+        - A Goal that CAN be completed
+        - The exact Keeper someone needs
+        
+        Narrate it as cosmic intervention:
+        "The universe grows tired of waiting.
+         Somewhere in the shuffling, fate aligns..."
+         
+    chaos_escalation:
+      description: "Inject chaos until something breaks"
+      how: |
+        Switch dealer to CHAOS_INCARNATE mode.
+        Escalate until equilibrium shatters.
+        SOMETHING will happen.
+        
+    mercy_rule:
+      description: "Declare a winner by alternate means"
+      options:
+        - "Most keepers wins"
+        - "Fewest creepers wins"
+        - "Highest karma wins"
+        - "Random selection (the universe chooses)"
+        - "Everybody wins (it's about the journey)"
+        
+    time_limit:
+      description: "Real-world time constraint"
+      options:
+        - turns: 100  # End after 100 turns
+        - reshuffles: 5  # End after 5 reshuffles
+        - real_minutes: 60  # Real-world time limit
+      on_limit: "Apply mercy rule"
+      
+  philosophical_note: |
+    A forever game isn't a BUG. It's a FEATURE.
+    
+    In simulation, the forever game is interesting data:
+    - What dynamics prevent resolution?
+    - Which characters thrive in chaos?
+    - What stories emerge from stalemate?
+    
+    Sometimes the game IS the journey.
+    Sometimes you learn more from eternal play
+    than from quick victories.
+    
+    The Cosmic Dealer watches forever games with interest.
+    They reveal the system's attractors.
+
+game_termination:
+
+  normal_win:
+    condition: "A player meets the current Goal's requirements"
+    process:
+      1: "Detect win condition met"
+      2: "Check for Creeper blocks"
+      3: "Announce winner"
+      4: "Record final state"
+      5: "Archive play history to all cards involved"
+      
+  alternate_endings:
+  
+    collective_win:
+      condition: "Goal specifies shared victory"
+      example: "Peace on Earth — everyone with Peace keeper wins"
+      
+    collective_loss:
+      condition: "Impossible state reached"
+      example: "All players have Creepers, no removal cards exist"
+      
+    timeout:
+      condition: "Turn/time limit reached"
+      resolution: "Mercy rule or narrative conclusion"
+      
+    narrative_conclusion:
+      condition: "LLM determines story has reached natural end"
+      example: |
+        The game has been running for 80 turns.
+        Palm and Don have been trading the same Keeper
+        back and forth for 20 turns. It's clearly a
+        friendly competition now, not a real game.
+        
+        "Palm sets down her cards and smiles.
+         'I think we're done here, old friend.'
+         Don nods. 'Same time next week?'
+         
+         GAME ENDS: Narrative conclusion.
+         Winner: The friendship."
+         
+    abandonment:
+      condition: "Players agree to stop"
+      resolution: "Record state, can resume later"
+      
+  post_game:
+    actions:
+      - "Update all card play_history records"
+      - "Archive game state to session file"
+      - "Generate summary statistics"
+      - "Create highlight reel (if images generated)"
+      - "Update player karma for next game"
+      
+    statistics_tracked:
+      - "Total turns"
+      - "Cards drawn"
+      - "Goals that appeared"
+      - "Rules in play at end"
+      - "Keeper distribution"
+      - "BOOP count (dealer interventions)"
+      - "Reshuffles"
+      - "Memorable moments"
+
 runtime:
 
   default_mode: "random"
