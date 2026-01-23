@@ -285,21 +285,73 @@ hand_2_preflop:
         
     - actor: bumblewick
       position: SB
-      action: "..."
-      stack_after: 2400
+      decision_pause:
+        duration: "47 seconds of visible agony"
+        observable: |
+          Frozen. Completely frozen.
+          Staring at his stack. Staring at Donna. At Don.
+          "I... I have to decide?" Voice tiny.
+          Hands on chips. Not moving.
+        thinking: |
+          FIVE HUNDRED. Donna raised to FIVE HUNDRED.
+          She's STARING at me. Again.
+          Don called! Don knows things! Palm folded.
+          I have an ace but the other card is just a three.
+          If I call I'm in for 500. That's... that's a lot.
+          But I have SO MANY chips. 2400! That's more than everyone!
+          Last time I won by calling. Maybe I should call again?
+          But Donna is STARING. She WANTS me to call.
+          That means I shouldn't call? Or should I?
+          I don't know. I DON'T KNOW.
+          
+          ...wait.
+          
+          Last time she raised with nothing and I had kings.
+          This time she raised BIGGER. Does that mean she has MORE nothing?
+          Or MORE something?
+          Don looked at me after he called. That look said "be careful."
+          Or did it say "you've got this"?
+          
+          The ace is looking at me. The little three is looking at me.
+          They're suited. That's pretty. Mother liked pretty things.
+          
+          I'm going to fold. I should fold. Folding is safe.
+          
+          But...
+          
+          What if I win again?
+          
+      action: "calls 350 🪙 more (completing to 500)"
+      stack_after: 2050
       observable: |
-        Frozen. Completely frozen.
-        Staring at his stack. Staring at Donna. At Don.
-        "I... I have to decide?" Voice tiny.
-        Hands on chips. Not moving.
+        Exhales. Long exhale. Like deflating.
+        "I call." Voice barely above whisper.
+        Pushes chips forward with both hands. Shaking again.
+        Eyes close. "I call."
+        Opens eyes. Still won't look at Donna.
       thinking: |
-        FIVE HUNDRED. Donna raised to FIVE HUNDRED.
-        She's STARING at me. Again.
-        Don called! Don knows things! Palm folded.
-        I have an ace but the other card is just a three.
-        If I call I'm in for 500. That's... that's a lot.
-        But I have SO MANY chips. 2400! That's more than everyone!
-        Last time I won by calling. Maybe I should call again?
-        But Donna is STARING. She WANTS me to call.
-        That means I shouldn't call? Or should I?
-        I don't know. I DON'T KNOW.
+        I did it. I CALLED.
+        I'm in the pot with Don and Donna.
+        Palm folded. Palm who knows things folded.
+        WHY DID I CALL?
+        Because... because last time worked?
+        The ace is pretty. Suited is pretty.
+        Maybe pretty things win.
+        I'm going to throw up.
+
+  preflop_complete:
+    pot: 1500  # 150+150+150+500+350+200? Let me recalculate
+    # don: 150 + 350 = 500
+    # palm: 150 (folded, dead)
+    # bumblewick: 25 (sb) + 125 (call) + 350 (call raise) = 500
+    # donna: 50 (bb) + 450 (raise to 500) = 500
+    # Total: 500 + 150 + 500 + 500 = 1650
+    pot_corrected: 1650
+    
+    remaining_players: [don, bumblewick, donna]
+    
+    stacks:
+      don: 100  # almost all-in
+      palm: 850  # folded, watching
+      bumblewick: 2050  # called, terrified
+      donna: 350  # pot committed
