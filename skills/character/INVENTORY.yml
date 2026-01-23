@@ -877,6 +877,435 @@ boxing:
        
     Full provenance chain preserved at every step!
 
+# STAMP PADS — Refs as Instance Factories
+
+stamp_pads:
+
+  philosophy: |
+    A ref can act as a STAMP PAD — you don't pick up the object,
+    you pick up the ABILITY to create instances of it.
+    
+    Like Factorio inventory: carry a stack of blueprints.
+    Plop down instances. Each one customizable.
+    
+    Or sandbox mode: unlimited stamping!
+
+  stamp_pad_structure: |
+    stamp_pad:
+      prototype: "furniture/chair.yml"
+      mode: "counted"           # counted | unlimited | charged
+      uses_remaining: 10        # For counted mode
+      recharge_rate: "1/hour"   # For charged mode
+      
+      # Instance customization
+      instance_defaults:
+        condition: "new"
+        placed_by: "{player.name}"
+        
+      # Environment binding
+      bind_from_environment:
+        - room.style → instance.style
+        - room.color_palette → instance.colors
+        - player.karma → instance.quality
+
+  modes:
+  
+    counted:
+      description: "Fixed number of uses, like Factorio"
+      example: |
+        stamp_pad:
+          prototype: "building/wall-segment.yml"
+          mode: "counted"
+          uses_remaining: 50
+          
+        # Each STAMP decrements uses_remaining
+        # At 0, stamp pad is exhausted (can be refilled)
+        
+    unlimited:
+      description: "Infinite stamping, sandbox mode"
+      example: |
+        stamp_pad:
+          prototype: "furniture/chair.yml"
+          mode: "unlimited"
+          sandbox: true
+          
+        # Stamp forever! Creative mode.
+        # Great for world-building, testing, design.
+        
+    charged:
+      description: "Regenerating uses over time"
+      example: |
+        stamp_pad:
+          prototype: "food/cookie.yml"
+          mode: "charged"
+          max_charges: 5
+          current_charges: 3
+          recharge_rate: "1/hour"
+          
+        # Cookie factory! Regenerates over time.
+        # Great for consumables, respawning items.
+        
+    consumable_prototype:
+      description: "Stamp pad IS the prototype, destroyed on final use"
+      example: |
+        stamp_pad:
+          prototype: "self"  # The stamp IS the thing
+          mode: "counted"
+          uses_remaining: 1
+          
+        # One-shot item. Stamp it out, original is consumed.
+        # Like tearing a page from a notepad.
+
+  environment_binding: |
+    Stamped instances can inherit from the ENVIRONMENT:
+    
+    stamp_pad:
+      prototype: "npc/villager.yml"
+      bind_from_environment:
+        # Room properties → instance properties
+        - room.culture → instance.culture
+        - room.language → instance.language
+        - room.wealth_level → instance.clothing_quality
+        
+        # Character properties → instance properties  
+        - player.karma → instance.disposition
+        - player.reputation → instance.starting_trust
+        
+        # Time properties → instance properties
+        - time.hour → instance.activity
+        - time.season → instance.clothing
+        
+    # Result: Villager stamped in Dutch pub speaks Dutch,
+    #         wears appropriate clothes, has culture-specific behavior!
+
+  stamping_process: |
+    1. SELECT stamp pad from inventory
+    2. AIM at location (room, surface, coordinate)
+    3. STAMP (plop down instance)
+    4. System creates:
+       - New file: {location}/stamped-{prototype}-{id}.yml
+       - inherits: stamp_pad.prototype
+       - Applies instance_defaults
+       - Binds environment properties
+       - Decrements uses (if counted)
+    5. Instance is now INDEPENDENT — can be customized!
+
+  example_stamp_session: |
+    # Don has a chair stamp pad (10 uses)
+    
+    > SELECT chair-stamp
+    Chair Stamp selected. [10 remaining]
+    
+    > STAMP AT corner
+    *plop* Chair appears in corner.
+    corner/stamped-chair-001.yml created.
+    [9 remaining]
+    
+    > STAMP AT table
+    *plop* Chair appears at table.
+    table/stamped-chair-002.yml created.
+    [8 remaining]
+    
+    > CUSTOMIZE stamped-chair-002 SET cushion: "velvet"
+    Chair customized!
+    
+    # The chairs are independent now.
+    # One has velvet cushion, one is default.
+
+# TOOL INVENTORY — Combine and Compose
+
+tool_inventory:
+
+  philosophy: |
+    Tools aren't just "selected one at a time."
+    Tools can be:
+    - COMBINED (use together)
+    - COMPOSED (chain outputs)
+    - ASSEMBLED (build structures)
+    - MACRO-DRIVEN (automated sequences)
+    
+    Your inventory is a TOOLBOX, not a single active slot.
+
+  tool_structure: |
+    tool:
+      id: "hammer"
+      type: "tool"
+      
+      # What it does
+      actions:
+        - STRIKE: "Apply force to target"
+        - POUND: "Repeated strikes"
+        
+      # What it combines with
+      combines_with:
+        - chisel: "Sculpting combo"
+        - nail: "Fastening combo"
+        
+      # Input/output for composition
+      accepts_input: ["force", "direction"]
+      produces_output: ["impact", "vibration"]
+      
+      # Assembly points
+      mount_points:
+        handle: "grip"
+        head: "business_end"
+
+  parallel_tools: |
+    Use multiple tools simultaneously:
+    
+    active_tools:
+      left_hand: "chisel"
+      right_hand: "hammer"
+      belt:
+        - "measuring-tape"
+        - "level"
+      mouth: "pencil"  # Holding it there!
+      
+    # All tools available for use!
+    # "Strike chisel with hammer while checking level"
+
+  tool_combinations: |
+    Tools can COMBINE for enhanced effects:
+    
+    combinations:
+      hammer + chisel:
+        name: "Sculpting"
+        effect: "Precise material removal"
+        requires: "both equipped"
+        
+      brush + paint:
+        name: "Painting"
+        effect: "Apply color to surface"
+        consumes: "paint (fungible)"
+        
+      stamp_pad + grid_tool:
+        name: "Array Stamp"
+        effect: "Stamp in grid pattern"
+        produces: "N × M instances"
+
+  tool_composition: |
+    Chain tool outputs to inputs (dataflow):
+    
+    composition:
+      name: "Automated Assembly Line"
+      steps:
+        - tool: "material-dispenser"
+          output: "raw_material" → 
+          
+        - tool: "shaper"
+          input: → "raw_material"
+          output: "shaped_part" →
+          
+        - tool: "assembler"
+          input: → "shaped_part"
+          output: "finished_product" →
+          
+        - tool: "placer"
+          input: → "finished_product"
+          output: "placed in room"
+          
+    # Tools chained! Output flows through.
+
+  tool_assembly: |
+    Assemble tools into STRUCTURES:
+    
+    assembly:
+      name: "Crafting Station"
+      components:
+        - workbench: "base"
+        - vise: "mounted on workbench"
+        - lamp: "mounted on workbench"
+        - tool_rack: "holds tools"
+        
+      combined_actions:
+        - CRAFT: "Use all components together"
+        - REPAIR: "Fix items using station"
+        
+    # Station is a tool made of tools!
+    # Can be placed, used, disassembled.
+
+# MACROS — Automated Tool Sequences
+
+macros:
+
+  philosophy: |
+    Macros are RECORDED or SCRIPTED tool sequences.
+    Execute complex operations with one command.
+    Like keyboard macros but for world manipulation.
+
+  macro_structure: |
+    macro:
+      id: "build-house"
+      name: "Build Standard House"
+      
+      parameters:
+        size: { default: "medium", options: ["small", "medium", "large"] }
+        style: { default: "cottage", options: ["cottage", "modern", "rustic"] }
+        
+      requires:
+        tools: ["wall-stamp", "roof-stamp", "door-stamp"]
+        materials: { walls: 20, roof: 10, door: 1 }
+        
+      steps:
+        - STAMP wall-stamp GRID 4x4
+        - STAMP roof-stamp ON walls
+        - STAMP door-stamp AT front
+        - CUSTOMIZE ALL SET style: {style}
+
+  recording_macros: |
+    Record actions as you perform them:
+    
+    > RECORD MACRO "furnish-room"
+    Recording started...
+    
+    > STAMP chair AT corner
+    Recorded: STAMP chair AT corner
+    
+    > STAMP table AT center  
+    Recorded: STAMP table AT center
+    
+    > STAMP lamp ON table
+    Recorded: STAMP lamp ON table
+    
+    > STOP RECORDING
+    Macro "furnish-room" saved! (3 steps)
+    
+    > PLAY MACRO "furnish-room" IN bedroom
+    Executing... chair... table... lamp... Done!
+
+  parameterized_macros: |
+    Macros with variables:
+    
+    macro:
+      id: "place-furniture-circle"
+      parameters:
+        item: { required: true }
+        count: { default: 8 }
+        radius: { default: 5 }
+        
+      steps:
+        - FOR i IN 1..{count}:
+            angle = (i / {count}) * 360
+            x = center.x + {radius} * cos(angle)
+            y = center.y + {radius} * sin(angle)
+            STAMP {item} AT (x, y)
+            
+    > PLAY place-furniture-circle item="chair" count=12 radius=10
+    *plop* *plop* *plop*... 12 chairs in a circle!
+
+  macro_composition: |
+    Macros can call other macros:
+    
+    macro:
+      id: "build-village"
+      steps:
+        - PLAY "build-house" AT (0, 0) size="large" style="town-hall"
+        - FOR i IN 1..6:
+            PLAY "build-house" AT (ring i) size="small" style="cottage"
+        - PLAY "place-furniture-circle" IN town-hall item="chair" count=20
+        - PLAY "add-villagers" count=24
+        
+    # One command: entire village!
+
+  conditional_macros: |
+    Macros with logic:
+    
+    macro:
+      id: "smart-furnish"
+      steps:
+        - IF room.size > 100:
+            STAMP "grand-table" AT center
+          ELSE:
+            STAMP "small-table" AT center
+            
+        - IF room.has_fireplace:
+            STAMP "armchair" FACING fireplace
+            
+        - WHILE room.empty_corners > 0:
+            STAMP "plant" AT next_empty_corner
+
+# GRAPHICAL INTERFACE — Future Vision
+
+graphical_interface:
+
+  vision: |
+    This text-based system maps directly to a graphical interface:
+    
+    - Inventory panel with tool slots
+    - Stamp pads as draggable icons
+    - Drag-and-drop stamping
+    - Multi-select for parallel tools
+    - Visual macro builder (node graph)
+    - Real-time preview of placements
+
+  pie_menu_tools:
+    description: "Tool-specific pie menus"
+    example: |
+      STAMP PAD PIE:
+        ↑ Quick stamp (default position)
+        ↓ Stamp with customization dialog
+        ← Previous stamp position
+        → Next stamp in sequence
+        ↖ Grid stamp (open grid dialog)
+        ↗ Array stamp (linear)
+        ↙ Circle stamp
+        ↘ Fill area
+
+  hotbar: |
+    Quick access tool bar:
+    
+    hotbar:
+      slots: 10
+      contents:
+        1: "wall-stamp"
+        2: "floor-stamp"
+        3: "furniture-stamp"
+        4: "npc-stamp"
+        5: "macro:furnish-room"
+        6: "macro:add-lighting"
+        7: "eraser"
+        8: "selector"
+        9: "inspector"
+        0: "undo"
+        
+    # Number keys for quick access
+    # Mouse wheel to cycle
+    # Drag from inventory to hotbar
+
+  multi_selection: |
+    Select and operate on multiple items:
+    
+    > SELECT ALL chairs IN room
+    12 chairs selected.
+    
+    > MOVE selection TO dining-room
+    Moving 12 chairs...
+    
+    > ALIGN selection GRID
+    Chairs aligned to grid.
+    
+    > APPLY material="oak" TO selection
+    All chairs now oak.
+
+  undo_redo: |
+    Full undo/redo stack:
+    
+    history:
+      max_depth: 100
+      entries:
+        - { action: "STAMP chair", location: "corner", reversible: true }
+        - { action: "CUSTOMIZE chair", changes: {...}, reversible: true }
+        - { action: "DELETE chair", backup: {...}, reversible: true }
+        
+    > UNDO
+    Chair restored.
+    
+    > UNDO 5
+    Last 5 actions undone.
+    
+    > REDO
+    Action replayed.
+
 # CROSS-SYSTEM USAGE
 
 cross_system:
