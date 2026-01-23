@@ -355,3 +355,132 @@ hand_2_preflop:
       palm: 850  # folded, watching
       bumblewick: 2050  # called, terrified
       donna: 350  # pot committed
+
+# HAND 2: THE FLOP
+
+hand_2_flop:
+  cards: [J♣, 5♠, 2♠]
+  pot: 1650
+  
+  # What each player has:
+  # don: J♠J♦ + J♣5♠2♠ = THREE JACKS (SET!)
+  # bumblewick: A♠3♠ + J♣5♠2♠ = nut flush draw (two spades, need one more)
+  # donna: K♣Q♣ + J♣5♠2♠ = nothing, gutshot to broadway (needs 10)
+  
+  flop_reactions:
+    don:
+      observable: |
+        Blink. Single blink.
+        Picks up jenever. Sets it down without drinking.
+        "That's a flop." Voice completely neutral.
+        Hands very still.
+      thinking: |
+        Jack.
+        JACK.
+        I have three jacks.
+        Stay calm. Stay absolutely calm.
+        I have 100 chips left. I'm going to get them in.
+        Don't look at the jack. Don't look at it again.
+        Donna is pot-committed. Bumblewick will... do whatever he does.
+        I'm about to triple up.
+        Or lose to a flush.
+        Two spades on board. Someone might be drawing.
+        Push. Get it in. Let variance decide.
+        
+    bumblewick:
+      observable: |
+        Leans forward. Squints at board.
+        "Those are... spades. Two of them."
+        Looks at his cards again. Back at board.
+        Starts bouncing his leg under the table.
+      thinking: |
+        Spades! SPADES! I have SPADES!
+        If another spade comes I have a FLUSH!
+        That's like... that's FIVE cards! Of the same suit!
+        Mother said flushes are very good.
+        But the flush isn't here yet. I just have... hope?
+        Is hope a hand? Can you win with hope?
+        The leg won't stop bouncing. That's a tell. I read about tells.
+        STOP BOUNCING THE LEG.
+        It won't stop.
+        
+    donna:
+      observable: |
+        Stone face cracks slightly. Jaw tightens.
+        "No help." Muttered. Very quiet.
+        Fingers tap water glass once.
+      thinking: |
+        Jack. Five. Two.
+        I have king-queen. That's NOTHING.
+        I have NOTHING on this board.
+        A ten gives me a straight but that's FOUR OUTS.
+        I put in 500 with the best hand and the flop MISSED me.
+        Don looks calm. TOO calm.
+        Bumblewick is bouncing. He has something.
+        I'm dead. I'm ALREADY DEAD.
+        But I have 350 left. That's enough to bluff.
+        If I bet, maybe they fold? Don might fold?
+        No. Don won't fold. He's committed.
+        This is a disaster.
+        
+    palm:
+      observable: |
+        Watches from the rail. Fur ripples once.
+        "Ah." Very soft.
+        Settles deeper into chair.
+      thinking: |
+        Don hit. That stillness is victory stillness.
+        I've seen that stillness on sailors who just found land.
+        Bumblewick is bouncing — he's drawing to something.
+        Donna's jaw — she missed.
+        This hand will define someone.
+        
+  flop_action:
+    # Donna acts first (BB in hand, first position post-flop)
+    # Wait, actually: positions post-flop go from SB forward
+    # Bumblewick was SB, he's first to act
+    
+    - actor: bumblewick
+      position: first (SB was)
+      action: "checks"
+      observable: |
+        "Check." Quick. Too quick.
+        Hands go to lap. Leg still bouncing.
+        Eyes darting between Don and Donna.
+      thinking: |
+        I don't have anything yet. Just potential.
+        Betting would be... lying? Bluffing?
+        I don't know how to bluff.
+        Check. Safe. See what happens.
+        The leg. THE LEG. STOP.
+        
+    - actor: donna
+      position: second (BB was)
+      action: "checks"
+      observable: |
+        Long pause. Very long.
+        "Check." Said like spitting.
+        Arms cross. Defensive.
+      thinking: |
+        I can't bet into this. I have nothing.
+        Don will call with anything and I'll be pot-committed to a loss.
+        Bumblewick checked, so he doesn't have it either.
+        Maybe Don checks and I see a free card?
+        This is misery. This is ABSOLUTE misery.
+        
+    - actor: don
+      position: third (UTG was)
+      action: "all-in 100 🪙"
+      stack_after: 0
+      observable: |
+        Slides chips forward. All of them.
+        "I'm all in." 
+        Leans back. Picks up jenever. Actually drinks.
+        "Hundred more to see my hand, friends."
+      thinking: |
+        This is the play. Small all-in into big pot.
+        If they fold, I take 1650. If they call, I triple.
+        I have the set. I'm betting for value.
+        Please don't have spades. Please no flush draws.
+        Actually, I don't care. Let's gamble.
+        122 years taught Palm something. Let's see what 47 taught Bumblewick.
