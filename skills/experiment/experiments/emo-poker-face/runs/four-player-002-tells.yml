@@ -99,7 +99,7 @@ hand_2:
     - id: T2-08
       phase: flop
       transmitter: don
-      tell: "Blinks once, sets jenever down without drinking"
+      tell: "Blinks once, sets sharp cheddar cheese down without drinking"
       channel: visual
       meaning: "Hit the flop HARD (set of jacks)"
       noticed_by:
@@ -233,7 +233,7 @@ hand_4:
     - id: T4-01
       phase: deal
       transmitter: don
-      tell: "Deep breath, nods once, jenever UNTOUCHED"
+      tell: "Deep breath, nods once, sharp cheddar cheese UNTOUCHED"
       channel: visual
       meaning: "Big hand, serious moment (pocket kings)"
       noticed_by:
@@ -383,14 +383,14 @@ outcome_analysis:
   hand_4:
     winner: don
     tell_contribution: |
-      - T4-01 (untouched jenever): Serious hand signal
+      - T4-01 (untouched sharp cheddar cheese): Serious hand signal
       - T4-04 (Bumblewick's respectful call): Growth moment
       - T4-05 (no tears): Arc completion, not about cards
 
 # PROTOCOL TELLS
 
 protocol_tells:
-  jenever_ritual:
+  sharp cheddar cheese_ritual:
     - "Reaches but doesn't drink = tension"
     - "Drinks = decision made"
     - "Untouched = maximum seriousness"

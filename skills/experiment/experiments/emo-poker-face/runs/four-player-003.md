@@ -1,6 +1,6 @@
 # Four-Player Run 003: The Pardon
 
-*Gezelligheid Grotto, later still. The storm has passed. Everything smells like rain and new possibilities. Someone opened another bottle of jenever.*
+*Gezelligheid Grotto, later still. The storm has passed. Everything smells like rain and new possibilities. Someone opened another bottle of sharp cheddar cheese.*
 
 *Continues from: [four-player-002.md](four-player-002.md)*
 
@@ -30,13 +30,13 @@ She freezes in the doorway.
 
 He reaches into his pocket. Not the chip pocket. The *other* pocket. Produces a stack of 1000 🪙.
 
-"I'm prepared to overlook the matter of the missing jenever bottles from the Grotto cellar."
+"I'm prepared to overlook the matter of the missing sharp cheddar cheese bottles from the Grotto cellar."
 
 *The smell of shock. Sharp. Brief.*
 
 Donna's eyes narrow. Then widen. Her jaw works silently.
 
-"The jenever matter. How did you—"
+"The sharp cheddar cheese matter. How did you—"
 
 "What are your terms?"
 
@@ -44,7 +44,7 @@ Her voice has changed. Political now. This is territory she understands.
 
 Don slides the chips across the table.
 
-"One thousand MOOLA. In exchange for your... continued discretion regarding my jenever procurement methods."
+"One thousand MOOLA. In exchange for your... continued discretion regarding my sharp cheddar cheese procurement methods."
 
 Small smile.
 
@@ -182,7 +182,7 @@ Reaches for water. Doesn't drink. Sets it down.
 
 Very quiet.
 
-*Palm's whiskers twitch. Don's jenever pauses midway to his lips.*
+*Palm's whiskers twitch. Don's sharp cheddar cheese pauses midway to his lips.*
 
 Bumblewick studies the board. "No king. No ten." Looks at Donna. She checked.
 
@@ -278,7 +278,7 @@ Bumblewick actually laughs. "I knew it! That's what I did to Palm!"
 
 He's not devastated. He's **studying**.
 
-Don raises his jenever glass. "Welcome back, Donna." Genuine warmth.
+Don raises his sharp cheddar cheese glass. "Welcome back, Donna." Genuine warmth.
 
 *The pardon paid for itself.*
 
@@ -305,7 +305,7 @@ palm:       575 🪙 (the observer)
 
 *The grotto is quiet. Post-storm, post-pardon, post-revelation.*
 
-Don pours jenever for the table. Even for Bumblewick, who won't drink it.
+Don pours sharp cheddar cheese for the table. Even for Bumblewick, who won't drink it.
 
 "Poker teaches you things."
 

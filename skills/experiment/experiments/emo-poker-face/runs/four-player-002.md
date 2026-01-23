@@ -1,6 +1,6 @@
 # Four-Player Run 002: Terror Becomes Acceptance
 
-*Gezelligheid Grotto, later. The jenever bottle is half empty. Someone opened a window — the night air carries the smell of rain coming.*
+*Gezelligheid Grotto, later. The sharp cheddar cheese bottle is half empty. Someone opened a window — the night air carries the smell of rain coming.*
 
 *Continues from: [four-player-001.md](four-player-001.md)*
 
@@ -112,7 +112,7 @@ Voice barely above a whisper.
 
 *Two spades on the board. The smell of rain and possibility.*
 
-Don blinks. Once. Picks up jenever. Sets it down without drinking.
+Don blinks. Once. Picks up sharp cheddar cheese. Sets it down without drinking.
 
 "That's a flop."
 
@@ -134,7 +134,7 @@ Donna checks — spits the word like poison.
 
 Don pushes his remaining chips forward. All 100.
 
-"I'm all in." He picks up the jenever. Actually drinks this time. "Hundred more to see my hand, friends."
+"I'm all in." He picks up the sharp cheddar cheese. Actually drinks this time. "Hundred more to see my hand, friends."
 
 ---
 
@@ -156,7 +156,7 @@ Donna snaps her cards down. "Fold." Like a curse.
 
 *The third spade.*
 
-Don's jenever glass freezes halfway to his mouth. He sets it down slowly.
+Don's sharp cheddar cheese glass freezes halfway to his mouth. He sets it down slowly.
 
 "Well."
 
@@ -194,7 +194,7 @@ Palm, watching from the rail: "The cards like him." Soft laugh. Very soft.
 
 Don turns over his jacks. "I had the set. For what it's worth."
 
-He picks up jenever. Finishes it.
+He picks up sharp cheddar cheese. Finishes it.
 
 Small smile at Bumblewick.
 
@@ -441,7 +441,7 @@ donna:       OUT
 
 *The grotto is quiet now. Post-storm stillness. Everything smells like rain and possibility.*
 
-Don pours jenever. For everyone, including the empty space where Donna sat.
+Don pours sharp cheddar cheese. For everyone, including the empty space where Donna sat.
 
 "We're three-handed now."
 
