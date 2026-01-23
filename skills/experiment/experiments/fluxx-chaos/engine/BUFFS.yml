@@ -1,0 +1,453 @@
+# Buff System
+# Overlay modifiers that can enhance any card
+# "Cards are objects. Buffs are decorators."
+
+buff_system:
+  name: "Card Buff Overlay System"
+  emoji: "✨🃏⬆️"
+  
+  philosophy: |
+    A buff is a MODIFIER that sits on top of a card.
+    The card underneath is unchanged — the buff adds properties.
+    
+    Like enchantments in Magic, or equipment in RPGs.
+    But for ANY card, from ANY source, in ANY game system.
+    
+    Buffs can be:
+    - Generic (applies to card types)
+    - Specific (applies to one card by path#id)
+    - Conditional (applies when conditions met)
+    - Stackable (multiple buffs on one card)
+    
+    The buff map is SEPARATE from the cards.
+    Apply a buff map to ANY card set. Mix and match.
+
+# BUFF STRUCTURE
+
+buff_structure:
+
+  schema: |
+    buff:
+      id: "buff-identifier"
+      name: "Display Name"
+      emoji: "✨"
+      
+      # TARGETING — What cards does this buff affect?
+      targets:
+        # Generic targeting
+        type: "keeper"                    # All keepers
+        category: "food"                  # All food cards
+        tag: "dutch"                      # All cards with tag
+        
+        # Specific targeting
+        cards:
+          - "fluxx-4.0:bread"             # Specific card
+          - "amsterdam:stroopwafel"       # Another specific
+          - "moollm:yaml_jazz#keeper"     # Card by path#id
+          
+        # Pattern targeting
+        pattern: "*:cheese*"              # Wildcard match
+        
+      # MODIFICATIONS — What does the buff do?
+      modifies:
+        add:
+          special_ability: "New ability text"
+          tags: ["buffed", "enhanced"]
+        multiply:
+          draw_bonus: 2                   # 2x draw effects
+        replace:
+          flavor: "New flavor text"
+        append:
+          text: "\n\n[BUFFED: Additional effect here]"
+          
+      # CONDITIONS — When is the buff active?
+      conditions:
+        player_karma: "> 0"               # Only for good karma
+        game_state: "chaos_level > 5"     # Only in chaos
+        owner: "don"                      # Only when Don has it
+        always: true                      # Always active
+        
+      # DURATION
+      duration:
+        permanent: true                   # Lasts forever
+        turns: 3                          # Lasts N turns
+        until: "card_played"              # Until specific event
+        
+      # STACKING
+      stacking:
+        stackable: true                   # Can stack with other buffs
+        max_stacks: 3                     # Maximum instances
+        stacks_with: ["other-buff-id"]    # Compatible buffs
+
+# BUFF MAPS
+
+buff_maps:
+
+  what_is_a_buff_map: |
+    A buff map is a COLLECTION of buffs that can be applied
+    to any card set. Like a filter or lens over the cards.
+    
+    You can have multiple buff maps:
+    - "chaos-buffs" for high-entropy games
+    - "karma-buffs" for consequence-heavy games
+    - "moollm-enhancements" for tech-themed overlays
+    - "player-specific-buffs" for personalized games
+    
+  map_structure: |
+    buff_map:
+      id: "map-identifier"
+      name: "Display Name"
+      description: "What this map does"
+      
+      # Buffs in this map
+      buffs:
+        - { buff definition }
+        - { buff definition }
+        
+      # Can inherit from other maps
+      extends:
+        - "base-buffs"
+        - "moollm-buffs"
+        
+      # Conflicts with other maps
+      conflicts:
+        - "peaceful-buffs"  # Can't use both
+        
+  applying_maps: |
+    In run config:
+    
+    run_config:
+      deck:
+        sources: [...]
+        buff_maps:
+          - "buff-maps/chaos-buffs.yml"
+          - "buff-maps/moollm-enhancements.yml"
+          
+    At instantiation, all matching buffs are applied.
+
+# EXAMPLE BUFF MAPS
+
+examples:
+
+  chaos_buffs:
+    id: "chaos-buffs"
+    name: "Chaos Enhancement Pack"
+    description: "Make everything more chaotic"
+    
+    buffs:
+      - id: "chaos-draw"
+        name: "Chaotic Draw"
+        targets:
+          type: "action"
+          pattern: "*draw*"
+        modifies:
+          append:
+            text: "\n\n[CHAOS] Also draw 1 random card from another player's hand."
+        conditions:
+          game_state: "chaos_level > 3"
+          
+      - id: "keeper-instability"
+        name: "Keeper Instability"
+        targets:
+          type: "keeper"
+        modifies:
+          add:
+            special_ability: "At end of each round, 10% chance this Keeper moves to random player."
+        duration:
+          permanent: true
+          
+      - id: "goal-flux"
+        name: "Goal Flux"
+        targets:
+          type: "goal"
+        modifies:
+          add:
+            condition: "This Goal is only valid for 3 turns, then discards itself."
+            
+  moollm_enhancements:
+    id: "moollm-enhancements"
+    name: "MOOLLM Tech Overlays"
+    description: "Add MOOLLM flavor to any card set"
+    
+    buffs:
+      - id: "k-line-resonance"
+        name: "K-Line Resonance"
+        targets:
+          type: "keeper"
+          category: "concept"
+        modifies:
+          add:
+            k_line_bonus: |
+              When played by a character who EMBODIES this concept,
+              draw 1 extra card.
+              
+      - id: "yaml-jazz-enhancement"
+        name: "YAML Jazz Enhancement"
+        targets:
+          cards:
+            - "moollm:yaml_jazz"
+        modifies:
+          add:
+            special_ability: |
+              When played, look at the top 3 cards of the deck.
+              You may add a COMMENT (annotation) to any of them.
+              Comments are visible to all but carry no game effect.
+              (Unless they're semantically meaningful...)
+              
+      - id: "cursor-mirror-meta"
+        name: "Cursor Mirror Meta-Ability"
+        targets:
+          cards:
+            - "moollm:cursor_mirror"
+        modifies:
+          add:
+            meta_ability: |
+              Once per game, you may "review the transcript" —
+              ask the DM to summarize what happened in the last 5 turns.
+              (The card watches. The card remembers.)
+              
+  karma_consequences:
+    id: "karma-consequences"
+    name: "Karmic Consequence Pack"
+    description: "Cards respond to player karma"
+    
+    buffs:
+      - id: "karma-sensitive-draw"
+        name: "Karma-Sensitive Draw"
+        targets:
+          pattern: "*draw*"
+        modifies:
+          add:
+            karma_modifier: |
+              Positive karma: May look at top card before drawing.
+              Negative karma: Draw blind, discard random card from hand.
+              
+      - id: "stealing-consequences"
+        name: "Stealing Consequences"
+        targets:
+          pattern: "*steal*"
+        modifies:
+          append:
+            text: "\n\n[KARMA] After stealing, lose 2 karma. If karma < -5, draw a Creeper."
+            
+  player_personalization:
+    id: "don-special-buffs"
+    name: "Don's Personal Buffs"
+    description: "Buffs that only apply when Don is playing"
+    
+    buffs:
+      - id: "cheese-affinity"
+        name: "Cheese Affinity"
+        targets:
+          pattern: "*cheese*"
+        modifies:
+          add:
+            don_bonus: "When Don plays this, also draw 1 card."
+        conditions:
+          owner: "don"
+          
+      - id: "yaml-mastery"
+        name: "YAML Mastery"
+        targets:
+          cards:
+            - "moollm:yaml_jazz"
+            - "moollm:k_line"
+        modifies:
+          add:
+            don_mastery: |
+              When Don plays this, it counts as TWO Keepers for Goals.
+              (He invented this stuff.)
+        conditions:
+          owner: "don"
+
+# CARD INSTANTIATION
+
+instantiation:
+
+  philosophy: |
+    At experiment start, we DON'T just reference cards.
+    We INSTANTIATE local copies of every card we're using.
+    
+    This means:
+    - Cards are copied into the experiment folder
+    - Buffs are applied at copy time
+    - Each instance can be modified independently
+    - Full provenance chain preserved
+    
+    The source cards (in plugins) are TEMPLATES.
+    The instances (in experiment) are LIVE CARDS.
+    
+  process: |
+    1. LOAD source cards from all plugins
+    2. APPLY buff maps to matching cards
+    3. INSTANTIATE each card as local file
+    4. BUILD master array with local paths
+    5. SHUFFLE and play with local instances
+    
+  structure: |
+    experiment/
+      fluxx-chaos/
+        runs/
+          moollm-ultimate-001/
+            state.yml              # Game state
+            master/                # Instantiated cards
+              000-bread.yml        # Local instance
+              001-peace.yml
+              ...
+              100-stroopwafel.yml  # With buffs applied!
+              120-yaml-jazz.yml    # With enhancements!
+              
+  instance_file: |
+    # Instantiated Card
+    # Source: cards/amsterdam-expansion.yml#stroopwafel
+    # Buffs applied: [chaos-buffs, moollm-enhancements]
+    # Instance: moollm-ultimate-001/100
+    
+    card:
+      id: "instance:moollm-ultimate-001:100"
+      source: "amsterdam-expansion:stroopwafel"
+      
+      # Original properties
+      name: "Stroopwafel"
+      type: "keeper"
+      emoji: "🧇"
+      
+      # Buffed properties
+      buffs_applied:
+        - "keeper-instability"
+        - "k-line-resonance"
+        
+      # Merged text (original + buff additions)
+      text: |
+        [Original] A Dutch caramel waffle cookie.
+        
+        [BUFF: Keeper Instability] At end of each round, 
+        10% chance this Keeper moves to random player.
+        
+        [BUFF: K-Line Resonance] When played by a character 
+        who embodies this concept, draw 1 extra card.
+        
+      # Instance-specific state
+      play_history: []
+      annotations: {}
+      current_owner: null
+
+# CROSS-SYSTEM PORTABILITY
+
+portability:
+
+  any_moollm_card: |
+    ANY card in MOOLLM can be used in Fluxx!
+    
+    Just reference it:
+    
+    deck:
+      include:
+        - "moollm:skills/character/CARD.yml#palm"  # Use Palm as a Keeper!
+        - "moollm:skills/adventure/room-card.yml"  # Room as playable card!
+        
+    At instantiation, the card is:
+    1. Loaded from MOOLLM
+    2. Mapped to Fluxx card type (Keeper, Action, etc)
+    3. Given generic behaviors if not specified
+    4. Instantiated into the game
+    
+  type_mapping: |
+    MOOLLM Type → Fluxx Type:
+    
+    CHARACTER.yml    → Keeper (person/entity)
+    ROOM.yml         → Keeper (place) or Action (go there)
+    SKILL.md         → New Rule (enables behavior)
+    pattern/*.yml    → Action (do the pattern)
+    item/*.yml       → Keeper (have the thing)
+    
+  generic_behaviors: |
+    If a MOOLLM card doesn't have Fluxx-specific effects,
+    apply generic behaviors:
+    
+    Keeper (default):
+      text: "You have {name}. It exists."
+      goals: "Can be required by generated Goals."
+      
+    Action (for executable things):
+      text: "Do the thing described by {name}."
+      effect: "DM interprets based on card description."
+      
+    New Rule (for patterns/skills):
+      text: "While in play, {description} applies."
+      
+  fluxx_in_moollm: |
+    Fluxx cards can appear in MOOLLM contexts too!
+    
+    A room can contain a "Bread" keeper as a prop.
+    A character can have "Draw 2" as an ability.
+    
+    The card object model is the same.
+    Only the CONTEXT changes.
+    
+  example_cross_system:
+    fluxx_using_moollm: |
+      # In Fluxx run config
+      deck:
+        include:
+          - "moollm:skills/play-learn-lift/CARD.yml"
+            as_type: "new_rule"
+            text_override: |
+              Play-Learn-Lift Protocol: When you play a card,
+              explain what you learned. If others agree it's
+              insightful, draw 1 card.
+              
+    moollm_using_fluxx: |
+      # In a MOOLLM room
+      room:
+        props:
+          - ref: "fluxx-4.0:bread"
+            context: "Stale bread on the counter"
+            interaction: |
+              You can pick up the Bread.
+              It's a Fluxx Keeper now in your inventory.
+              Maybe useful in a game later?
+
+# BUFF APPLICATION AT RUNTIME
+
+runtime:
+
+  when_buffs_apply:
+    at_instantiation: "Buffs baked into card text"
+    at_draw: "Conditional buffs checked"
+    at_play: "Play-triggered buffs activate"
+    at_turn_end: "Duration-based buffs tick down"
+    
+  buff_resolution: |
+    When a card is accessed:
+    
+    1. Load base card (from instance)
+    2. Check active buffs (from buff map)
+    3. Evaluate conditions (karma, game state, owner)
+    4. Merge active buff modifications
+    5. Return buffed card view
+    
+    The instance file stores APPLIED buffs.
+    Runtime evaluation handles CONDITIONAL buffs.
+    
+  stacking_order: |
+    When multiple buffs affect same property:
+    
+    1. ADD operations stack (all additions apply)
+    2. MULTIPLY operations chain (2x × 2x = 4x)
+    3. REPLACE operations: last one wins
+    4. APPEND operations: all append in order
+    
+  example_resolution: |
+    Card: Stroopwafel
+    Buffs: [chaos-instability, karma-bonus, player-don-bonus]
+    Owner: Don
+    Karma: +5
+    Chaos: 7
+    
+    Resolution:
+    1. chaos-instability: ACTIVE (chaos > 3) → add instability
+    2. karma-bonus: ACTIVE (karma > 0) → add draw bonus
+    3. player-don-bonus: ACTIVE (owner = don) → add personal bonus
+    
+    Final card has all three buff effects merged.
