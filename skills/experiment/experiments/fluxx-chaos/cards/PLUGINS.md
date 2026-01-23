@@ -331,14 +331,151 @@ Plugins in `cards/` directory are automatically available:
 
 ```
 cards/
-├── actions.yml          # Base actions
-├── new-rules.yml        # Base rules
-├── amsterdam-expansion.yml
-├── moollm-characters.yml
-├── stoner-expansion.yml  # 😉
-└── PLUGINS.md           # This file
+├── actions.yml              # Base actions
+├── new-rules.yml            # Base rules
+├── amsterdam-expansion.yml  # Dutch culture, gezelligheid
+├── consciousness-expansion.yml  # Altered states, creativity
+├── moollm-tech-pack.yml     # AI, LLM, k-lines, philosophy
+├── moollm-characters.yml    # MOOLLM cast as Keepers
+├── chaos-dealer-plugin.yml  # 🌀 ENGINE-MODIFYING PLUGIN
+└── PLUGINS.md               # This file
 ```
 
 ---
 
-*"The card game of ever-changing rules... and now, ever-changing cards."*
+## Engine-Modifying Plugins (Advanced)
+
+Some plugins don't just add cards — they **modify the game engine itself**.
+
+### The Cosmic Dealer
+
+The `chaos-dealer-plugin.yml` is a perfect example. It introduces:
+
+1. **Dealer Modes** — How cards are selected (Random, Dramatic, Karma, Ironic, Chaos)
+2. **Cards that switch modes** — "Invoke the Karma Dealer" changes selection algorithm
+3. **New win conditions** — "Win if dealer is in CHAOS mode AND you have exactly 1 Keeper"
+
+### Extension Points
+
+Engine-modifying plugins use defined (or implied) extension points:
+
+```yaml
+extension_points:
+  PICK_CARD:     # Called when drawing a card
+  PICK_FROM:     # Determines card source
+  SHOULD_RESHUFFLE:  # Deck empty decision
+  APPLY_NARRATIVE_WEIGHT:  # Dramatic selection
+```
+
+### Self-Contained Design
+
+The key principle: **plugins are self-contained**. The chaos dealer plugin:
+
+- Defines ALL its dealer modes
+- Includes ALL cards that use them
+- Documents ALL integration rules
+- Requires NO changes to base engine
+
+```yaml
+# chaos-dealer-plugin.yml
+
+plugin:
+  engine_integration:
+    modifies: "engine/DEALER.yml"
+    extension_points_used:
+      - PICK_CARD
+      - APPLY_NARRATIVE_WEIGHT
+    requires_dealer_awareness: true
+    
+dealer_mode_cards:
+  invoke_karma_dealer:
+    name: "Invoke the Karma Dealer"
+    effect:
+      set_dealer_mode: "karma"
+    # The LLM interprets what "karma mode" means
+    # based on the mode definition in this same file
+```
+
+### LLM as Runtime
+
+The critical insight: **The LLM interprets card effects at runtime**.
+
+We don't need to hard-code "karma mode". We define it in YAML Jazz:
+
+```yaml
+karma:
+  name: "Karma Mode"
+  description: "The universe remembers. The universe BALANCES."
+  algorithm: |
+    Track each player's karma score.
+    Good deeds = better draws. Bad deeds = worse draws.
+```
+
+The LLM reads this and BECOMES the karma dealer. No code required.
+
+### Creating Engine-Modifying Plugins
+
+1. **Define your mechanic** in plain language (YAML Jazz)
+2. **Create cards that invoke it** (with `effect:` that references your mechanic)
+3. **Document how it integrates** (what extension points, what state)
+4. **Let the LLM interpret** (flavor text IS specification)
+
+```yaml
+# Example: Time Travel Plugin (hypothetical)
+
+plugin:
+  id: "time-travel"
+  engine_integration:
+    creates_extension_point: "UNDO_TURN"
+    
+time_rules:
+  temporal_anomaly:
+    name: "Temporal Anomaly"
+    text: "Once per game, undo the last complete turn."
+    effect:
+      invoke_extension: "UNDO_TURN"
+    # The LLM figures out what "undo a turn" means
+    # by tracking game state and reverting it
+```
+
+### The Cosmic Dealer Modes
+
+| Mode | Emoji | Selection Strategy |
+|------|-------|-------------------|
+| Random | 🎲 | True random (fair) |
+| Dramatic | 🎭 | Maximum narrative impact |
+| Karma | ⚖️ | Weighted by player behavior |
+| Ironic | 🎪 | Give them what they DON'T need |
+| Humorous | 🤡 | Implausible coincidences |
+| Chaos Incarnate | 🌀💀🌀 | THE DEALER HAS GONE MAD |
+
+Cards can switch modes mid-game:
+
+```yaml
+invoke_chaos_incarnate:
+  name: "INVOKE CHAOS INCARNATE"
+  emoji: "🌀💀🌀"
+  effect:
+    set_dealer_mode: "chaos_incarnate"
+  flavor: "AAAAYYYYYEEEEE!!!!!"
+  warning: "This cannot be undone easily"
+```
+
+---
+
+## Design Philosophy
+
+> "Cards are the API. The LLM is the runtime. Flavor text is specification."
+
+Fluxx Chaos takes this to the extreme:
+
+1. **No hard-coded rules** — Everything defined in YAML
+2. **Plugins can modify anything** — Even how cards are drawn
+3. **The LLM interprets intent** — Not just text, but MEANING
+4. **Self-modifying games** — Cards that change the rules for drawing cards
+
+This is **YAML Jazz** applied to game design: structure AND meaning, data AND documentation, specification AND soul.
+
+---
+
+*"The card game of ever-changing rules... and now, ever-changing REALITIES."*

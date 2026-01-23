@@ -1,0 +1,410 @@
+# The Cosmic Dealer Engine
+# "The universe shuffles. But does it shuffle FAIRLY?"
+# 
+# A spooky omniscient card dealer who knows the entire game state
+# and can choose cards for DRAMATIC EFFECT instead of randomly.
+
+dealer:
+  name: "The Cosmic Dealer"
+  emoji: "🎴👁️"
+  
+  philosophy: |
+    In a normal card game, the deck is shuffled and cards drawn blindly.
+    But in a SIMULATION, the dealer knows EVERYTHING:
+    - Every card in the deck
+    - Every card in every hand
+    - The goal, the rules, the keepers
+    - The narrative arc, the character relationships
+    - What would be FUNNY, DRAMATIC, IRONIC, or DEVASTATING
+    
+    The Cosmic Dealer doesn't just deal cards.
+    The Cosmic Dealer deals DESTINY.
+
+# DEALER MODES
+
+modes:
+
+  random:
+    name: "Random (Fair)"
+    emoji: "🎲"
+    description: "True random selection from remaining cards"
+    algorithm: |
+      1. List all cards not in play, not in hands, not discarded
+      2. Select uniformly at random
+      3. No peeking, no drama, just probability
+    when_to_use:
+      - "Default mode for fair gameplay"
+      - "When testing without narrative bias"
+      - "Calibration runs"
+    fairness: 1.0
+    drama: 0.0
+    
+  explicit_deck:
+    name: "Explicit Deck"
+    emoji: "📚"
+    description: "Pre-shuffled deck stored as ordered list"
+    algorithm: |
+      1. At game start, shuffle all cards into ordered list
+      2. Draw from top of list
+      3. Discards go to bottom (or separate pile)
+      4. Reshuffles are actual reshuffles of remaining cards
+    when_to_use:
+      - "Reproducible games (same seed = same game)"
+      - "Debugging specific card sequences"
+      - "Tournament play"
+    state:
+      deck_order: []      # Card IDs in draw order
+      discard_pile: []    # Discarded cards
+      reshuffle_on_empty: true
+    fairness: 1.0
+    drama: 0.0
+    
+  dramatic:
+    name: "Dramatic Selection"
+    emoji: "🎭"
+    description: "Choose cards for MAXIMUM NARRATIVE IMPACT"
+    algorithm: |
+      1. Assess current narrative state
+      2. Identify dramatic opportunities:
+         - Character about to win? Draw their nemesis card
+         - Tension low? Draw a chaos card
+         - Relationship moment? Draw card that tests it
+      3. Select card that maximizes drama score
+      4. Document the "coincidence" in narrative
+    when_to_use:
+      - "Narrative-focused sessions"
+      - "When entertainment > fairness"
+      - "Photo opportunity moments"
+    drama_factors:
+      - "Proximity to winning (closer = more dramatic)"
+      - "Character relationships (test alliances)"
+      - "Unresolved tension (exploit it)"
+      - "Callback potential (reference earlier events)"
+    fairness: 0.3
+    drama: 1.0
+    
+  karma:
+    name: "Karma Mode"
+    emoji: "⚖️"
+    description: "The universe remembers. The universe BALANCES."
+    algorithm: |
+      1. Track each player's karma score:
+         - Positive: generous plays, helping others
+         - Negative: stealing, blocking, betrayals
+      2. Card selection weighted by karma:
+         - Good karma → helpful cards more likely
+         - Bad karma → obstacles, creepers, counters
+      3. Karma slowly decays toward neutral
+    when_to_use:
+      - "Teaching consequences"
+      - "Long-running campaigns"
+      - "When Donna has been too aggressive"
+    karma_tracking:
+      generous_play: +2      # Giving cards, helping win
+      steal_action: -3       # Taking from others
+      block_action: -2       # Preventing wins
+      betray_alliance: -5    # Breaking established trust
+      sacrifice_for_other: +5
+    fairness: 0.5
+    drama: 0.7
+    
+  ironic:
+    name: "Ironic Selection"
+    emoji: "🎪"
+    description: "Give them EXACTLY what they don't want"
+    algorithm: |
+      1. Analyze what each player needs
+      2. Identify cards that would be perfect... for someone else
+      3. Ensure the wrong person draws the right card
+      4. Maximum "if only YOU had drawn that!"
+    when_to_use:
+      - "Comedy sessions"
+      - "When frustration is funny"
+      - "Peewee-centric games"
+    irony_types:
+      - "Goal you can't complete draws to you"
+      - "Perfect keeper goes to your opponent"
+      - "Creeper finds the leader"
+      - "Counter card to someone with nothing to counter"
+    fairness: 0.1
+    drama: 0.8
+    humor: 1.0
+    
+  humorous:
+    name: "Implausible Coincidence"
+    emoji: "🤡"
+    description: "What are the ODDS? (We know. We set them.)"
+    algorithm: |
+      1. Track running gags and patterns
+      2. Set up comedic payoffs:
+         - Same card drawn three times in a row
+         - Goals that require ONLY what just got discarded
+         - Creepers finding the same player repeatedly
+      3. Time punchlines for maximum comedic effect
+    when_to_use:
+      - "Light-hearted sessions"
+      - "When narrative needs levity"
+      - "Peewee dealer mode"
+    gag_patterns:
+      running_gag: "Same outcome repeating (rule of 3)"
+      callback: "Card from 5 hands ago becomes relevant"
+      reversal: "Tables turn on the confident player"
+      escalation: "Each coincidence more implausible"
+    fairness: 0.2
+    drama: 0.5
+    humor: 1.0
+    
+  chaos_incarnate:
+    name: "CHAOS INCARNATE"
+    emoji: "🌀💀🌀"
+    description: "MAXIMUM ENTROPY. THE DEALER HAS GONE MAD."
+    algorithm: |
+      1. IGNORE all strategy, narrative, karma
+      2. Select cards to maximize CHAOS:
+         - Rule changes every turn
+         - Goals flip constantly  
+         - Creepers everywhere
+         - Hand limits violated (somehow)
+      3. The only goal is DISORDER
+      4. Dealer may switch modes MID-DRAW
+    when_to_use:
+      - "Endgame chaos spiral"
+      - "When Peewee plays a Chaos card"
+      - "Testing system limits"
+      - "NEVER (always)"
+    chaos_priorities:
+      - "More rules = better"
+      - "Goals that are almost but not quite achievable"
+      - "Actions that cascade into more actions"
+      - "Creepers finding new homes constantly"
+    fairness: 0.0
+    drama: 0.9
+    chaos: 1.0
+    warning: "May cause narrative collapse"
+
+  prescient:
+    name: "Prescient (Knows Outcomes)"
+    emoji: "🔮"
+    description: "Dealer knows what WILL happen and works backward"
+    algorithm: |
+      1. Determine desired outcome (who should win, how)
+      2. Calculate card sequences that lead there
+      3. Deal cards to orchestrate the predetermined ending
+      4. Maintain illusion of free will
+    when_to_use:
+      - "Scripted demos"
+      - "Tutorial games with specific lessons"
+      - "Photo shoots needing specific moments"
+    danger: "Players may sense the rails"
+    fairness: 0.0
+    drama: 0.8
+    determinism: 1.0
+
+# EXTENSION POINTS
+
+extension_points:
+
+  PICK_CARD:
+    name: "Card Selection Hook"
+    description: "Called whenever a card needs to be drawn"
+    signature: |
+      PICK_CARD(
+        player: Player,           # Who is drawing
+        reason: DrawReason,       # Why (turn draw, action effect, etc)
+        context: GameState,       # Full game state
+        constraints: Constraints  # Any restrictions (type, etc)
+      ) → Card
+    default_behavior: "random from available"
+    can_be_overridden_by:
+      - "Dealer mode selection"
+      - "Chaos cards in play"
+      - "Character special abilities"
+      - "Active New Rules"
+      
+  PICK_FROM:
+    name: "Selection Source Hook"  
+    description: "Called to determine WHERE to pick from"
+    signature: |
+      PICK_FROM(
+        source: CardSource,       # Deck, discard, hand, etc
+        context: GameState
+      ) → Card[]
+    sources:
+      deck: "Undrawn cards"
+      discard: "Discard pile"
+      hand: "Someone's hand"
+      play: "Keepers/Creepers in play"
+      anywhere: "Dealer chooses source"
+      
+  SHOULD_RESHUFFLE:
+    name: "Reshuffle Decision Hook"
+    description: "Called when deck is empty"
+    signature: |
+      SHOULD_RESHUFFLE(
+        discard_pile: Card[],
+        context: GameState
+      ) → Boolean
+    default_behavior: "true if discard non-empty"
+    
+  APPLY_NARRATIVE_WEIGHT:
+    name: "Narrative Weighting Hook"
+    description: "Modifies card selection probability by narrative value"
+    signature: |
+      APPLY_NARRATIVE_WEIGHT(
+        card: Card,
+        player: Player,
+        context: GameState
+      ) → Float  # Weight multiplier
+    factors:
+      - "How dramatic would this be?"
+      - "Does it create a callback?"
+      - "Does it test a relationship?"
+      - "Is there ironic potential?"
+
+# STATE TRACKING
+
+state_tracking:
+
+  card_locations:
+    description: "Where every card currently is"
+    schema:
+      deck: Card[]           # Available to draw
+      discard: Card[]        # Discarded
+      hands: {PlayerId: Card[]}
+      keepers: {PlayerId: Card[]}
+      creepers: {PlayerId: Card[]}
+      goals: Card[]          # Current goal(s)
+      rules: Card[]          # Active rules
+      removed: Card[]        # Out of game entirely
+      
+  player_karma:
+    description: "Karma scores per player"
+    schema:
+      player_id: float       # Negative = bad, positive = good
+    decay_rate: 0.1          # Per hand toward neutral
+    
+  dramatic_state:
+    description: "Narrative tracking for dramatic selection"
+    schema:
+      tension_level: float   # 0-1
+      recent_events: Event[] # Last N significant events
+      running_gags: Gag[]    # Active comedic patterns
+      unresolved: Tension[]  # Narrative threads
+      callbacks_available: Card[]  # Cards that would create callbacks
+      
+  chaos_level:
+    description: "Current chaos intensity"
+    schema:
+      rules_in_play: int
+      recent_rule_changes: int
+      goal_changes_this_game: int
+      creeper_count: int
+      hands_size_variance: float
+    thresholds:
+      calm: "<3 rules, <2 changes"
+      normal: "3-5 rules, 2-4 changes"
+      chaotic: "6+ rules, 5+ changes"
+      CHAOS_INCARNATE: "10+ rules, goals changing every turn"
+
+# DEALER SELECTION LOGIC
+
+selection_algorithms:
+
+  dramatic_selection:
+    steps:
+      1_assess_state:
+        - "Who is closest to winning?"
+        - "What alliances exist?"
+        - "What tension is unresolved?"
+        - "What would be FUNNY?"
+        
+      2_score_candidates:
+        for_each_available_card:
+          drama_score: |
+            + proximity_to_victory_impact(card, leader)
+            + relationship_test_value(card, alliances)
+            + irony_potential(card, current_player)
+            + callback_value(card, recent_events)
+            + chaos_contribution(card, chaos_level)
+            
+      3_select:
+        method: "weighted random by drama_score"
+        # Not deterministic — high drama cards MORE LIKELY
+        # But not guaranteed — maintains some uncertainty
+        
+      4_document:
+        log: "Dealer chose {card} for {player} — {reason}"
+        narrative_note: "What a coincidence that..."
+
+  karma_selection:
+    steps:
+      1_calculate_karma:
+        - "Sum player's recent actions"
+        - "Apply decay toward neutral"
+        - "Categorize: saint / good / neutral / bad / villain"
+        
+      2_weight_by_karma:
+        saint: "Helpful cards 3x more likely"
+        good: "Helpful cards 1.5x more likely"
+        neutral: "No modification"
+        bad: "Obstacles 1.5x more likely"
+        villain: "Creepers and counters 3x more likely"
+        
+      3_select:
+        method: "weighted random with karma modifiers"
+        
+      4_narrative:
+        good_karma: "The universe smiles on {player}..."
+        bad_karma: "Perhaps {player} shouldn't have stolen that card..."
+
+  ironic_selection:
+    steps:
+      1_identify_needs:
+        for_each_player:
+          - "What goal could they complete?"
+          - "What keeper do they need?"
+          - "What would help them most?"
+          
+      2_find_ironic_matches:
+        - "Perfect goal → give to player who CAN'T complete it"
+        - "Missing keeper → give to their opponent"
+        - "Creeper → give to the leader"
+        
+      3_select:
+        method: "maximize irony score"
+        
+      4_deliver:
+        narration: "Of COURSE that's who drew it..."
+
+# RUNTIME CONFIGURATION
+
+runtime:
+
+  default_mode: "random"
+  
+  mode_switching:
+    allowed: true
+    triggers:
+      - "Chaos cards"
+      - "DM decision"
+      - "Chaos level thresholds"
+      - "Narrative beats"
+      
+  blending:
+    description: "Modes can be blended for nuance"
+    example:
+      weights:
+        dramatic: 0.6
+        karma: 0.3
+        random: 0.1
+      result: "Mostly dramatic, karma-informed, slight randomness"
+      
+  transparency:
+    to_players: false      # Players don't see dealer reasoning
+    to_narrative: true     # Narrative can reference "coincidences"
+    to_logs: true          # Full reasoning in game logs
+    
+  seed:
+    description: "For reproducible games"
+    usage: "Set seed for explicit_deck mode"
+    format: "any string or number"

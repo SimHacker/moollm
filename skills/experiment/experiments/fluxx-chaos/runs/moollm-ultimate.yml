@@ -28,8 +28,22 @@ deck:
     - "cards/consciousness-expansion.yml"  # 16 cards: Altered states, creativity
     - "cards/moollm-tech-pack.yml"         # 32 cards: AI, LLM, k-lines, philosophy
     - "cards/moollm-characters.yml"        # 24 cards: The MOOLLM cast
+    - "cards/chaos-dealer-plugin.yml"      # 16 cards: COSMIC DEALER ENGINE
     
-  total_cards: ~192  # Base 100 + 92 expansion cards
+  total_cards: ~208  # Base 100 + 108 expansion cards
+  
+  # THE COSMIC DEALER
+  dealer:
+    starting_mode: "dramatic"    # Start with narrative selection
+    modes_available:
+      - random
+      - dramatic
+      - karma
+      - ironic
+      - humorous
+      - chaos_incarnate
+    karma_tracking: true
+    mode_switching_cards: true   # Chaos dealer cards are in deck
   
   modules:
     creepers: true      # Include Creepers (Alignment Failure, Context Collapse)

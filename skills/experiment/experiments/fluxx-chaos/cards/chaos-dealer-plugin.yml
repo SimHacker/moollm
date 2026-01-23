@@ -1,0 +1,379 @@
+# Chaos Dealer Plugin
+# Self-contained expansion that modifies the Cosmic Dealer mid-game
+# 
+# THIS IS A DEMONSTRATION of how plugins can come with their own
+# rules that modify core game mechanics in amazing ways!
+
+plugin:
+  id: "chaos-dealer"
+  name: "Chaos Dealer Plugin"
+  author: "The Cosmic Dealer Itself"
+  version: "1.0"
+  compatible_with: "all"
+  theme: "Dealer mode manipulation, cosmic chaos"
+  card_count: 16
+  
+  flavor: |
+    "Who shuffles the shuffler?"
+    
+    These cards don't just change the game — they change HOW the
+    game changes. They reach into the dealer engine itself and
+    twist the probability knobs.
+    
+    When you play one of these, you're not just playing a card.
+    You're playing GOD.
+    
+  warning: |
+    This plugin modifies the DEALER extension point.
+    Games may become unpredictable, unfair, hilarious, or all three.
+    The Cosmic Dealer is not responsible for narrative whiplash.
+
+  engine_integration:
+    modifies: "engine/DEALER.yml"
+    extension_points_used:
+      - PICK_CARD
+      - APPLY_NARRATIVE_WEIGHT
+    requires_dealer_awareness: true
+
+# ═══════════════════════════════════════════════════════════════
+# DEALER MODE CARDS — Change how cards are selected
+# ═══════════════════════════════════════════════════════════════
+
+dealer_mode_cards:
+
+  invoke_fair_dealer:
+    name: "Invoke the Fair Dealer"
+    type: "New Rule"
+    emoji: "🎲⚖️"
+    category: "dealer_mode"
+    text: |
+      Switch dealer to RANDOM mode.
+      All cards drawn fairly until another dealer card is played.
+    effect:
+      set_dealer_mode: "random"
+    flavor: "Sometimes you just want honest odds."
+    image_prompt: "Balanced scales holding dice, serene cosmic backdrop"
+    stackable: false
+    replaces: "dealer_mode"
+    
+  invoke_dramatic_dealer:
+    name: "Invoke the Dramatic Dealer"
+    type: "New Rule"
+    emoji: "🎭👁️"
+    category: "dealer_mode"
+    text: |
+      Switch dealer to DRAMATIC mode.
+      Cards are drawn for maximum narrative impact!
+    effect:
+      set_dealer_mode: "dramatic"
+    flavor: "The universe loves a good story."
+    image_prompt: "Theater masks merged with all-seeing eye, spotlight beams"
+    stackable: false
+    replaces: "dealer_mode"
+    
+  invoke_karma_dealer:
+    name: "Invoke the Karma Dealer"
+    type: "New Rule"
+    emoji: "⚖️👻"
+    category: "dealer_mode"
+    text: |
+      Switch dealer to KARMA mode.
+      The universe remembers your deeds. Be good.
+    effect:
+      set_dealer_mode: "karma"
+    flavor: "What goes around... gets drawn."
+    image_prompt: "Cosmic scales weighing good and evil deeds, spectral dealer"
+    stackable: false
+    replaces: "dealer_mode"
+    
+  invoke_ironic_dealer:
+    name: "Invoke the Ironic Dealer"
+    type: "New Rule"
+    emoji: "🎪🙃"
+    category: "dealer_mode"
+    text: |
+      Switch dealer to IRONIC mode.
+      You'll get exactly what you don't need!
+    effect:
+      set_dealer_mode: "ironic"
+    flavor: "Of COURSE you drew that."
+    image_prompt: "Laughing jester dealing cards, twisted probability spirals"
+    stackable: false
+    replaces: "dealer_mode"
+    
+  invoke_chaos_incarnate:
+    name: "INVOKE CHAOS INCARNATE"
+    type: "New Rule"
+    emoji: "🌀💀🌀"
+    category: "dealer_mode"
+    text: |
+      Switch dealer to CHAOS INCARNATE mode.
+      THE DEALER HAS GONE MAD.
+      Maximum entropy. No mercy. No logic.
+    effect:
+      set_dealer_mode: "chaos_incarnate"
+    flavor: "AAAAYYYYYEEEEE!!!!!"
+    image_prompt: "Screaming void with cards spiraling into chaos, reality fracturing"
+    stackable: false
+    replaces: "dealer_mode"
+    warning: "This cannot be undone easily"
+
+# ═══════════════════════════════════════════════════════════════
+# DEALER MODIFIER CARDS — Adjust dealer behavior
+# ═══════════════════════════════════════════════════════════════
+
+dealer_modifier_cards:
+
+  the_thumb_on_the_scale:
+    name: "Thumb on the Scale"
+    type: "Action"
+    emoji: "👍⚖️"
+    target: "self"
+    text: |
+      Your next 3 draws are weighted toward cards you need.
+      The dealer knows. The dealer provides.
+    effect:
+      temporary_modifier:
+        target: "self"
+        duration: "3 draws"
+        weight_helpful: 2.0
+    flavor: "A little nudge from the cosmos."
+    image_prompt: "Giant thumb pressing down on cosmic scales, cards floating toward player"
+    
+  tip_the_dealer:
+    name: "Tip the Dealer"
+    type: "Action"
+    emoji: "💰🎴"
+    target: "self"
+    text: |
+      Discard 2 cards to look at the top 5 cards of the deck.
+      Choose 1 to draw. Shuffle the rest back.
+    effect:
+      cost: "discard 2"
+      peek: 5
+      choose: 1
+      shuffle_rest: true
+    flavor: "The dealer has favorites."
+    image_prompt: "Hand slipping coins to shadowy dealer, cards fanning out"
+    
+  bribe_the_universe:
+    name: "Bribe the Universe"
+    type: "Action"
+    emoji: "💎🌌"
+    target: "chosen_player"
+    text: |
+      Give a Keeper to another player.
+      Their next draw is guaranteed to be an Action or New Rule.
+    effect:
+      cost: "give 1 keeper"
+      target_receives:
+        guaranteed_type: ["action", "new_rule"]
+        duration: "1 draw"
+    flavor: "The cosmos can be persuaded."
+    image_prompt: "Glowing keeper offered to swirling cosmos, grateful universe"
+    
+  cosmic_audit:
+    name: "Cosmic Audit"
+    type: "Action"
+    emoji: "📋👁️"
+    target: "all"
+    text: |
+      The Dealer reveals all karma scores.
+      Players with negative karma draw Creepers first.
+    effect:
+      reveal: "karma_scores"
+      if_negative_karma:
+        forced_draw: "creeper"
+        from: "deck or discard"
+    flavor: "The universe is keeping receipts."
+    image_prompt: "Cosmic ledger opening, karma scores floating beside each player"
+    
+  shuffle_the_shuffler:
+    name: "Shuffle the Shuffler"
+    type: "Action"
+    emoji: "🔀🎴"
+    text: |
+      Randomly change the current dealer mode.
+      Roll a cosmic die. Accept your fate.
+    effect:
+      random_dealer_mode: true
+      modes_pool: ["random", "dramatic", "karma", "ironic", "humorous"]
+      # Note: chaos_incarnate NOT in pool — must be explicitly invoked
+    flavor: "Even the dealer doesn't know what's next."
+    image_prompt: "Dealer being spun on cosmic roulette wheel, modes orbiting"
+    chaos_level: "high"
+
+# ═══════════════════════════════════════════════════════════════
+# CREEPERS — Cards that affect dealer negatively
+# ═══════════════════════════════════════════════════════════════
+
+creepers:
+
+  the_marked_deck:
+    name: "The Marked Deck"
+    type: "Creeper"
+    emoji: "🃏❌"
+    text: |
+      While you have this, the dealer is HOSTILE to you.
+      Your draws are weighted toward unhelpful cards.
+    effect:
+      continuous:
+        target: "owner"
+        weight_unhelpful: 2.0
+    prevents_winning: true
+    exception: "Unless you also have 'Tip the Dealer' active"
+    flavor: "The universe has a grudge."
+    image_prompt: "Deck of cards with sinister marks, glowing red, targeting player"
+    transfer_rule: "Passes to whoever steals from you"
+    
+  dealers_curse:
+    name: "Dealer's Curse"
+    type: "Creeper"
+    emoji: "💀🎴"
+    text: |
+      When drawn, immediately change dealer to IRONIC mode.
+      You cannot win while the dealer is in IRONIC mode.
+    effect:
+      on_draw:
+        set_dealer_mode: "ironic"
+      prevents_winning:
+        condition: "dealer_mode == ironic"
+    flavor: "The dealer remembers that time you..."
+    image_prompt: "Skull-faced dealer pointing accusingly, ironic grin"
+
+# ═══════════════════════════════════════════════════════════════
+# GOALS — Win conditions involving dealer mechanics
+# ═══════════════════════════════════════════════════════════════
+
+goals:
+
+  chaos_mastery:
+    name: "Chaos Mastery"
+    type: "Goal"
+    emoji: "🌀👑"
+    text: |
+      Win if the dealer is in CHAOS INCARNATE mode
+      AND you have exactly 1 Keeper AND 1 Creeper.
+    requires:
+      dealer_mode: "chaos_incarnate"
+      keeper_count: 1
+      creeper_count: 1
+    flavor: "Embrace the void. Become the void."
+    image_prompt: "Figure meditating in chaos storm, perfectly balanced"
+    
+  karmic_balance:
+    name: "Karmic Balance"
+    type: "Goal"
+    emoji: "☯️✨"
+    text: |
+      Win if the dealer is in KARMA mode
+      AND your karma score is exactly 0 (neutral).
+    requires:
+      dealer_mode: "karma"
+      karma_score: 0
+    flavor: "Neither saint nor sinner. Just... even."
+    image_prompt: "Perfect yin-yang with player at center, karma scales balanced"
+    
+  dramatic_finale:
+    name: "The Dramatic Finale"
+    type: "Goal"
+    emoji: "🎭🏆"
+    text: |
+      Win if the dealer is in DRAMATIC mode
+      AND this is the winning play that creates a "callback"
+      to an earlier event in the game.
+    requires:
+      dealer_mode: "dramatic"
+      callback_present: true
+    flavor: "The story comes full circle."
+    image_prompt: "Stage curtains parting to reveal triumphant ending, earlier scenes in flashback"
+    dm_interpretation: |
+      The DM/LLM determines if a "callback" is present:
+      - Winning with a card that was stolen earlier
+      - Completing a goal with keepers from different players
+      - Reversing an earlier loss
+      Any narrative echo qualifies.
+
+# ═══════════════════════════════════════════════════════════════
+# SPECIAL RULES — How this plugin integrates
+# ═══════════════════════════════════════════════════════════════
+
+integration_rules:
+
+  dealer_mode_stacking:
+    description: "Only one dealer mode active at a time"
+    behavior: "Latest dealer mode card replaces previous"
+    exception: "Chaos Incarnate can only be replaced by Fair Dealer"
+    
+  karma_tracking_init:
+    description: "When this plugin is used, karma tracking activates"
+    initial_karma: 0
+    events_tracked:
+      - { event: "steal_card", karma: -2 }
+      - { event: "give_card", karma: +2 }
+      - { event: "block_win", karma: -3 }
+      - { event: "help_opponent", karma: +3 }
+      - { event: "play_creeper_on_other", karma: -4 }
+      - { event: "sacrifice_to_help", karma: +5 }
+      
+  llm_extension_point:
+    description: "How the LLM interprets dealer behavior"
+    protocol: |
+      When PICK_CARD is called:
+      1. Check current dealer_mode from game state
+      2. Apply mode-specific selection algorithm
+      3. Document reasoning in narrative
+      4. If unclear, LLM interprets "dramatically appropriate"
+      
+  narrative_integration:
+    description: "How dealer choices appear in narrative"
+    examples:
+      dramatic: |
+        "And wouldn't you know it — of ALL the cards in the deck,
+        Bumblewick draws the very Goal that Palm just discarded.
+        The universe has a sense of humor."
+      karma: |
+        "Donna reaches for the deck. Perhaps the cosmos remembers
+        that stealing incident from Hand 3. She draws... another Creeper."
+      ironic: |
+        "Don, who has been preaching about generosity, draws
+        'Steal a Keeper'. The universe winks."
+
+# ═══════════════════════════════════════════════════════════════
+# DEMONSTRATION NOTES
+# ═══════════════════════════════════════════════════════════════
+
+demonstration:
+
+  what_this_shows: |
+    This plugin demonstrates how Fluxx expansions can:
+    
+    1. DEFINE NEW MECHANICS
+       - Dealer modes don't exist in base Fluxx
+       - This plugin creates them wholesale
+       
+    2. MODIFY CORE SYSTEMS
+       - The PICK_CARD extension point lets cards
+         change how OTHER cards are drawn
+         
+    3. BE SELF-CONTAINED
+       - All rules for dealer mechanics are HERE
+       - No changes needed to base game
+       - Just add plugin, modes become available
+       
+    4. LET LLM INTERPRET
+       - "Dramatic" and "Ironic" are subjective
+       - The LLM decides what qualifies
+       - Card text provides guidance, not code
+       
+    5. CREATE META-GAMEPLAY
+       - Players can strategize around dealer modes
+       - "I'll play Fair Dealer before my big move"
+       - Adds layer without adding complexity
+       
+  design_principles:
+    - "Cards are the API"
+    - "Extension points are implicit"
+    - "The LLM is the runtime"
+    - "Flavor text IS specification"
+    - "If it would be fun, it's valid"
