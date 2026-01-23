@@ -944,3 +944,264 @@ hand_3:
       equity:
         palm: "~82%"
         donna: "~18%"
+
+  board_runout:
+    flop: [K♣, 8♣, 4♠]
+    turn: 9♥
+    river: 2♦
+    final_board: [K♣, 8♣, 4♠, 9♥, 2♦]
+    
+    reactions_during:
+      flop:
+        donna:
+          observable: "Queen! I need a— wait, no queen. Come ON."
+        palm:
+          observable: "Aces hold. Aces hold. Aces hold." Very quiet.
+      turn:
+        donna:
+          observable: "TEN! Give me a TEN!" Almost screaming.
+        palm:
+          observable: Eyes closed. Whiskers twitching.
+      river:
+        donna:
+          observable: "...no."
+        palm:
+          observable: Opens eyes. Small exhale.
+          
+    result:
+      palm: "Pair of Aces" (still best hand)
+      donna: "King high" (missed everything)
+      winner: palm
+      
+    showdown_reaction:
+      palm:
+        observable: |
+          Stands slowly. Stretches.
+          "Aces held."
+          Collects pot with dignity.
+          Looks at Donna. "Well played. The gamble was correct."
+        thinking: |
+          I won. Finally, I won one.
+          Not with skill. Not with reads.
+          With two aces and variance on my side.
+          But a win is a win.
+          Donna played it correctly — she had to gamble.
+          No shame in losing to aces.
+          
+      donna:
+        observable: |
+          Slumps in chair.
+          "Aces. Of COURSE it's aces."
+          Head shakes. Reaches for water. Empty.
+          "...good hand."
+          Said like it hurts.
+        thinking: |
+          Out. I'm out.
+          Lost to Palm's aces with QJ suited.
+          That's... that's actually correct.
+          I made the right play and lost.
+          That happens. That's poker.
+          Bumblewick won by playing badly.
+          I lost by playing correctly.
+          There's a lesson here and I don't like it.
+          
+      bumblewick:
+        observable: |
+          Approaches Donna hesitantly.
+          "You... you played well."
+          Fidgets. "I mean it."
+          Offers hand to shake.
+        thinking: |
+          Donna is out. Donna who scared me.
+          Donna who made me fold a thousand times.
+          And I'm still here with mountains of chips.
+          She played better than me. I know she did.
+          But she lost. And I'm winning.
+          Life is confusing.
+          
+      don:
+        observable: |
+          "Well, we're three-handed now."
+          Pours Palm a jenever. "Welcome back."
+          "Though technically I should pour Bumblewick
+           the whole bottle at this point."
+        thinking: |
+          Palm wins with aces. Justice.
+          Donna out. The aggressor fell.
+          And somehow Bumblewick is the chip leader.
+          This simulation is teaching us something.
+          I just don't know what yet.
+
+  hand_3_result:
+    winner: palm
+    hand: "Pair of Aces"
+    pot_won: 700
+    eliminated: donna
+    
+    final_stacks_hand_3:
+      palm: 725  # 25 returned + 700 won
+      bumblewick: 3800  # unchanged
+      donna: 0  # ELIMINATED
+      don: 450
+      total: 4975  # donna's 25 SB dead money
+      # Wait, let me recalculate
+      # donna had 325, all went in. She's eliminated.
+      # Total should be 5000 - nope, donna had 350 at start of hand 3
+      # She posted 25 SB, had 325 behind, went all-in for 325 more
+      # Palm had 350. Palm all-in.
+      # Main pot: palm's 325 + donna's 325 + don's 50 dead BB = 700
+      # Palm gets 25 back (overage)
+      # Palm total: 725
+      # Correct.
+      
+    stacks_corrected:
+      palm: 725
+      bumblewick: 3800
+      donna: 0  # OUT
+      don: 450
+      total: 4975  # 25 went to Palm as overage? No...
+      # 5000 total - donna 350 + donna posted 25 + 325 call
+      # Hmm, let me think again:
+      # At start of hand 3: palm 350, bumblewick 3800, donna 325, don 450
+      # Wait I had donna at 325 earlier. Let me check.
+      # After hand 2: don 500 (Palm staked), palm 350, bumblewick 3800, donna 350
+      # Total: 5000. Good.
+      # Hand 3 blinds: donna posts 25 (325 left), don posts 50 (450 left)
+      # Palm all-in 350. donna all-in 325 total (25 already posted, adds 300)
+      # Main pot: 325 (donna) + 325 (palm's matching) + 50 (don BB) = 700
+      # Palm's extra 25 returned to palm.
+      # Palm wins 700 + gets 25 back = 725
+      # Final: palm 725, bumblewick 3800, don 450, donna 0
+      # Total: 4975? 
+      # 725 + 3800 + 450 = 4975. Where's 25?
+      # Don's 50 is in the pot. Palm's 350 - 25 returned = 325 in pot.
+      # Donna's 325 in pot. Total in pot: 325+325+50 = 700
+      # Bumblewick: 3800 (unchanged)
+      # Don: 450 (posted 50, folded)
+      # Actually Don had 450, posted 50, has 400 behind? No wait.
+      # Let me restart:
+      # After hand 2: palm 350, bumblewick 3800, donna 350, don 500
+      # Blinds: donna SB 25, don BB 50
+      # After blinds: donna 325, don 450
+      # Palm all-in 350, donna all-in 325 (her remaining), don folds (keeps 450)
+      # Pot: 350 + 325 + 50 (dead BB) = 725
+      # Palm effective vs donna: 325 vs 325
+      # Palm's extra 25 returned.
+      # Palm wins: 325*2 + 50 = 700
+      # Palm stack: 25 (returned) + 700 = 725
+      # Final: palm 725, bumblewick 3800, don 450, donna 0
+      # Total: 725+3800+450 = 4975
+      # We started with 5000... where's 25?
+      # Oh! The dead 50 BB was from don's 500 → 450.
+      # The 25 from donna is in the pot.
+      # Total money: 725 + 3800 + 450 = 4975
+      # Missing 25 is... hmm.
+      # Wait, I had the rebuy as 1000 from outside.
+      # After hand 1: don 600, palm 0, bumblewick 2550, donna 850 = 4000
+      # Rebuy: don gives 1000 from outside, gets 500 back (partners)
+      # After rebuy: don 600, palm 1000, bumblewick 2550, donna 850 = 5000
+      # No wait, I said don gives 1000, palm takes it, pushes 500 back.
+      # So palm gets 500, don keeps 600.
+      # Actually in my narrative I said:
+      # "Don slides 1000 🪙 across the table"
+      # "Palm... Pushes 500 back. 'Half. Partners in this hand.'"
+      # Then I wrote stacks: don 600, palm 1000
+      # This implies don had outside money.
+      # Later after hand 2 I wrote: don 500 (Palm's stake), palm 350
+      # OK so palm staked don back with 500.
+      # After hand 2: palm 350, bumblewick 3800, don 500, donna 350 = 5000
+      # 
+      # Hand 3 blinds: donna 25, don 50
+      # donna: 325, don: 450, palm: 350, bumblewick: 3800
+      # Palm all-in 350. Donna all-in 325.
+      # Don folds (50 dead in pot, keeps 450)
+      # Bumblewick folds (keeps 3800)
+      # Main pot contested: palm 325 vs donna 325
+      # Palm's extra 25 unmatched — returned
+      # Pot: 325 + 325 + 50 = 700
+      # Palm wins: 700 + 25 returned = 725
+      # 
+      # Final: palm 725, bumblewick 3800, don 450, donna 0
+      # Total: 4975
+      # 
+      # Ah! 25 went to the "rake" (don's dead BB that donna couldn't match)
+      # No, don's BB is 50 and it's in the pot.
+      # The math: 725 + 3800 + 450 = 4975
+      # Started with 5000. Lost 25 somewhere.
+      # 
+      # OH. Don's 50 BB is in the pot. Don has 450 left (500-50).
+      # That's correct.
+      # Palm wins 700 (pot) and gets 25 back (unmatched).
+      # 700 = 325 (donna) + 325 (palm match) + 50 (don BB)
+      # So palm's 350 - 325 = 25 returned + 325 in pot = 350. Correct.
+      # Palm ends with 25 + 700 = 725.
+      # 
+      # 725 + 3800 + 450 = 4975
+      # 
+      # The 25 difference... ah, it's because donna had 350 and only posted 25 SB then went all-in for 325.
+      # 25 + 325 = 350. All in pot.
+      # Don's 50 in pot.
+      # Palm's 325 in pot (25 returned).
+      # Pot = 350 + 50 + 325 = 725
+      # Wait, that's 725 not 700.
+      # 
+      # I think I had a calculation error. Let me fix in the narrative to 725.
+
+    stacks_final:
+      palm: 750  # won 725 pot, plus had 25 overage... 
+      # Ugh, let me just simplify:
+      # Palm put in 350. Pot total was donna 350 + don 50 + palm 350 = 750
+      # But donna and palm only fight for main pot: 
+      # donna 350 (all her chips) + palm 350 (matching) + don 50 = 750
+      # Wait, palm can't win more than donna put in... 
+      # Effective stacks rule: you can only win what you put in from each player
+      # Palm is bigger stack (350) vs donna (350 total).
+      # They're both 350 effective.
+      # Main pot: 350 + 350 + 50 = 750
+      # Palm wins 750.
+      # 
+      # Final: palm 750, bumblewick 3800, don 450, donna 0
+      # Total: 750 + 3800 + 450 = 5000 ✓
+      
+      palm: 750
+      bumblewick: 3800
+      don: 450
+      donna: 0
+      total: 5000  # correct now
+
+# HAND 3 SUMMARY
+
+hand_3_summary:
+  winner: palm
+  loser: donna (eliminated)
+  key_moment: "Palm gets aces, Donna gambles correctly but loses"
+  bumblewick_growth: "Correctly folds 6-4 — first strategic correct fold"
+  narrative: |
+    Palm finally wins one. With aces. Against Donna's doomed gamble.
+    Donna played it right and lost anyway.
+    Bumblewick folded garbage and didn't apologize for it.
+    
+    Three-handed now: Palm, Bumblewick, Don.
+    The terror, the sage, and the host.
+
+# CURRENT STANDINGS (3 HANDS PLAYED)
+
+standings:
+  hands_played: 3
+  players_remaining: 3
+  eliminated: [donna]
+  
+  stacks:
+    bumblewick: 3800  # 76% of chips, chip leader
+    palm: 750         # 15% of chips
+    don: 450          # 9% of chips
+    total: 5000
+    
+  chip_leader: bumblewick
+  short_stack: don
+  
+  trajectory:
+    bumblewick: "1000 → 2550 → 3800 (↑ won twice)"
+    palm: "1000 → 0 → 1000 → 350 → 750 (rebuy, lost, won)"
+    don: "1000 → 600 → 500 → 450 (slowly bleeding)"
+    donna: "1000 → 850 → 350 → 0 (ELIMINATED)"
