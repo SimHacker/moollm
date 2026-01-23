@@ -22,6 +22,8 @@ configs:
     file: eight-player.yml
     characters: 8
     description: "Full chaos: Constraint Web + London Chaos"
+    runs_completed: 5
+    hands_played: 14
 
 # Auto-updated when runs are executed
 # Naming: {config-name}-{NNN}.{yml|md}
@@ -160,6 +162,70 @@ outputs:
       Hand 11: Palm wheels Bumblewick's kings.
       Bumblewick: "Good hand, Palm. That's poker." NO TEARS.
       Emergence: Cheese as parallel communication channel
+
+# Eight-player runs
+
+  - config: eight-player
+    number: 1
+    files:
+      - eight-player-001.yml
+      - eight-player-001.md
+      - eight-player-001-cursor-mirror.yml
+      - eight-player-001-tells.yml
+    timestamp: 2026-01-23T21:00:00Z
+    hands_played: "1-2"
+    rebuys: 3
+    emergence: "Klaus's words = premium hands"
+    
+  - config: eight-player
+    number: 2
+    files:
+      - eight-player-002.yml
+      - eight-player-002.md
+      - eight-player-002-cursor-mirror.yml
+      - eight-player-002-tells.yml
+    timestamp: 2026-01-23T21:30:00Z
+    hands_played: "3-5"
+    rebuys: 1
+    emergence: "Honest tells ignored; terror → triumph"
+    
+  - config: eight-player
+    number: 3
+    files:
+      - eight-player-003.yml
+      - eight-player-003.md
+      - eight-player-003-cursor-mirror.yml
+      - eight-player-003-tells.yml
+    timestamp: 2026-01-23T22:00:00Z
+    hands_played: "6-8"
+    rebuys: 2
+    emergence: "Triangle coordination; absence tells"
+    
+  - config: eight-player
+    number: 4
+    files:
+      - eight-player-004.yml
+      - eight-player-004.md
+      - eight-player-004-cursor-mirror.yml
+      - eight-player-004-tells.yml
+    timestamp: 2026-01-23T22:30:00Z
+    hands_played: "9-11"
+    rebuys: 1
+    emergence: "Tell exploitation; cheese tells sophisticated"
+    
+  - config: eight-player
+    number: 5
+    files:
+      - eight-player-005.yml
+      - eight-player-005.md
+      - eight-player-005-cursor-mirror.yml
+      - eight-player-005-tells.yml
+    timestamp: 2026-01-23T23:00:00Z
+    hands_played: "12-14"
+    final_run: true
+    emergence: "Arcs complete; alien speaks humanly"
+    winner: palm (5800)
+    departure: bowie
 
 # Example after runs:
 #   - config: whacky-eight

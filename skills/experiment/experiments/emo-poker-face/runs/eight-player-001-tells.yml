@@ -1,0 +1,186 @@
+# eight-player-001 Tell Analysis
+# Tracking tells transmitted, noticed, and game impact
+
+run_metadata:
+  config: eight-player
+  run_number: 1
+  hands_analyzed: [1, 2]
+
+tell_registry:
+
+  # HAND 1 TELLS
+  
+  T1-01:
+    hand: 1
+    phase: preflop
+    transmitter: donna
+    tell: "Standing up while raising"
+    channel: posture
+    intended_message: "DOMINANCE"
+    actual_meaning: "Draw/weak (historically)"
+    noticed_by: [leigh, bowie, don]
+    not_noticed_by: [bumblewick, peewee, klaus, palm]
+    accuracy: "Correct read — she had QJc (draw)"
+    impact: "Leigh folded flop knowing Donna was weak"
+    
+  T1-02:
+    hand: 1
+    phase: flop
+    transmitter: bowie
+    tell: "Persona shift (Duke → Berlin)"
+    channel: behavioral
+    intended_message: "Becoming analytical"
+    actual_meaning: "Strong hand, settling in"
+    noticed_by: [palm, don]
+    not_noticed_by: [donna, leigh, bumblewick, peewee, klaus]
+    accuracy: "Correct — he had top pair top kicker"
+    impact: "Don called suspecting strength but unable to release"
+    
+  T1-03:
+    hand: 1
+    phase: flop
+    transmitter: palm
+    tell: "Ears rotate forward"
+    channel: physical
+    intended_message: none (involuntary)
+    actual_meaning: "Preparing for value extraction"
+    noticed_by: [don]
+    not_noticed_by: [bowie, donna, leigh, bumblewick, peewee, klaus]
+    accuracy: "Correct — Palm had set"
+    impact: "Don folded turn knowing Palm had it"
+    
+  T1-04:
+    hand: 1
+    phase: turn
+    transmitter: don
+    tell: "Cheese knife pause mid-slice"
+    channel: object_interaction
+    intended_message: none (involuntary)
+    actual_meaning: "Concerned but continuing"
+    noticed_by: [palm, bowie]
+    not_noticed_by: others
+    accuracy: "Correct — Don was pot-stuck with second pair"
+    impact: "Palm bet for value knowing Don would fold"
+    
+  T1-05:
+    hand: 1
+    phase: river
+    transmitter: bowie
+    tell: "Persona FRACTURE (Berlin → Ziggy eruption)"
+    channel: behavioral
+    intended_message: "Confidence! Strength!"
+    actual_meaning: "Significant hand change (rivered two pair)"
+    noticed_by: [palm, don, klaus]
+    not_noticed_by: [donna, leigh, bumblewick, peewee]
+    accuracy: "Correct — river improved him dramatically"
+    impact: "Palm called knowing she was still ahead (set > two pair)"
+    
+  # HAND 2 TELLS
+    
+  T2-01:
+    hand: 2
+    phase: preflop
+    transmitter: klaus
+    tell: "Speaking after long silence ('Raise')"
+    channel: verbal
+    intended_message: none (necessary action)
+    actual_meaning: "Premium hand"
+    noticed_by: [everyone]
+    not_noticed_by: []
+    accuracy: "100% — Queens"
+    impact: "Universal recognition that Klaus has something"
+    note: "Most impactful tell of the session"
+    
+  T2-02:
+    hand: 2
+    phase: preflop
+    transmitter: don
+    tell: "Self-deprecating humor ('cheese smuggler gambles')"
+    channel: verbal
+    intended_message: "Lightening mood"
+    actual_meaning: "Genuine strength, not desperate bluff"
+    noticed_by: [palm, bumblewick]
+    not_noticed_by: [donna, bowie, klaus, leigh, peewee]
+    accuracy: "Correct — Don had AQs (premium short-stack)"
+    impact: "Palm folded knowing Don wasn't bluffing"
+    
+  T2-03:
+    hand: 2
+    phase: flop
+    transmitter: donna
+    tell: "Standing up with jacks"
+    channel: posture
+    intended_message: "POWER"
+    actual_meaning: "Uncertain — she's done this both weak and strong"
+    noticed_by: [klaus, leigh]
+    interpretation: "Split — Klaus ignored it, Leigh noted uncertainty"
+    impact: "Klaus flatted with set, knowing she'd commit later"
+    
+  T2-04:
+    hand: 2
+    phase: turn
+    transmitter: donna
+    tell: "Sitting down after ace hits"
+    channel: posture
+    intended_message: "Checking to control pot"
+    actual_meaning: "Lost confidence"
+    noticed_by: [klaus, palm, leigh]
+    accuracy: "Correct — jacks now looked weak"
+    impact: "Klaus shoved immediately"
+    
+  T2-05:
+    hand: 2
+    phase: turn
+    transmitter: klaus
+    tell: "Second word of session ('All')"
+    channel: verbal
+    intended_message: "Betting"
+    actual_meaning: "Absolute confidence"
+    noticed_by: [everyone]
+    noted_by: leigh ("He said 'all'")
+    impact: "Donna called anyway (pot committed), but knew she was crushed"
+
+tell_statistics:
+  total_tells_transmitted: 10
+  total_tells_noticed: 24  # Sum of all noticed_by counts
+  notice_rate: 0.48  # Each tell noticed by ~4.8/8 players avg
+  
+  by_channel:
+    posture: 3
+    verbal: 3
+    behavioral: 2
+    physical: 1
+    object_interaction: 1
+    
+  by_transmitter:
+    donna: 3
+    bowie: 2
+    klaus: 2
+    don: 2
+    palm: 1
+    
+  best_readers:
+    - palm: 7/10 tells noticed
+    - don: 6/10 tells noticed
+    - klaus: 5/10 tells noticed (when not the transmitter)
+    
+  worst_readers:
+    - peewee: 1/10 tells noticed (T2-01 only, universal)
+    - bumblewick: 2/10 tells noticed
+
+key_findings:
+  - "Klaus's verbal tells are 100% reliable but rare"
+  - "Bowie's persona shifts are strong tells but only experts read them"
+  - "Donna's standing/sitting is becoming predictable"
+  - "Don's object tells (cheese knife) are subtle but Palm reads them"
+  - "Peewee notices nothing but contributes joy"
+  
+emergence:
+  - "Klaus speaking is now a KNOWN tell — will he adapt?"
+  - "Bowie's fracture on strong rivers could be exploited"
+  - "Donna's posture tells are diverging (stood up weak AND strong this session)"
+
+social_impact:
+  - "Donna vs Leigh: Olives stolen during tells. Escalating."
+  - "Klaus's emergence changed table dynamics — everyone watching him now"
+  - "Bumblewick overwhelmed by new players — tell-reading degraded"

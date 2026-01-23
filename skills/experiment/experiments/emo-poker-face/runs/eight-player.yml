@@ -159,5 +159,69 @@ questions:
   - "Will the cheese smuggling subplot expand?"
 
 runs:
-  next_number: 1
-  history: []  # Fresh start — this is a NEW configuration
+  next_number: 6
+  history:
+    - id: "001"
+      date: 2026-01-23
+      hands: "1-2"
+      result: "Palm wins with set of sevens; Klaus emerges"
+      notes: |
+        Bowie's persona fracture on river.
+        Klaus speaks for first time: "Raise"
+        Rebuys: Bowie, Don, Donna
+      emergence: "Klaus's words = premium hands"
+      
+    - id: "002"
+      date: 2026-01-23
+      hands: "3-5"
+      continues: "001"
+      result: "Charcuterie War; Bumblewick beats Leigh"
+      notes: |
+        Donna/Leigh vendetta explodes.
+        Peewee announces "matching cards" — wins with aces.
+        Bumblewick defeats his tormentor with kings.
+      emergence: "Honest tells ignored; terror → triumph"
+      
+    - id: "003"
+      date: 2026-01-23
+      hands: "6-8"
+      continues: "002"
+      result: "Klaus dominates; set over set ×2"
+      notes: |
+        London Triangle coordinates via glances.
+        Klaus: nines over Palm's sixes.
+        Donna: aces over Peewee's sevens.
+        Donna learned to sit with monsters.
+      emergence: "Triangle coordination; absence tells"
+      
+    - id: "004"
+      date: 2026-01-23
+      hands: "9-11"
+      continues: "003"
+      result: "Palm three-bets Klaus's words"
+      notes: |
+        Leigh suckout on Bumblewick (again).
+        Palm exploits Klaus's verbal tell.
+        Don's cheese knife tells evolve.
+      emergence: "Tell exploitation; cheese tells sophisticated"
+      
+    - id: "005"
+      date: 2026-01-23
+      hands: "12-14"
+      continues: "004"
+      result: "Bumblewick completes arc; Palm wins AA vs KK"
+      notes: |
+        Bumblewick stands for first time — kings full.
+        Bowie departs after 7 rebuys.
+        Klaus says "good game" — unprecedented.
+        Palm's aces crush Klaus's kings to end session.
+      emergence: "Arcs complete; alien speaks humanly"
+      final_standings:
+        palm: 5800
+        leigh: 3500
+        don: 2650
+        bumblewick: 2325
+        donna: 2200
+        peewee: 925
+        klaus: 600
+        bowie: OUT

@@ -1,0 +1,72 @@
+# eight-player-004 Tell Analysis
+
+run_metadata:
+  config: eight-player
+  run_number: 4
+  hands_analyzed: [9, 10, 11]
+
+tell_registry:
+
+  T9-01:
+    hand: 9
+    transmitter: bumblewick
+    tell: "Steadier hands than before"
+    channel: physical
+    meaning: "Confidence growth (kings again)"
+    noticed_by: [don, palm]
+    impact: "None — Leigh shoved first"
+    note: "Progress from four-player arc, but then undone"
+    
+  T10-01:
+    hand: 10
+    transmitter: klaus
+    tell: "'Raise' — fifth word of session"
+    channel: verbal
+    meaning: "Premium hand (AK)"
+    noticed_by: [everyone]
+    impact: "Palm three-bet with QQ knowing Klaus was strong"
+    note: "Klaus's tell now EXPLOITED against him"
+    
+  T10-02:
+    hand: 10
+    transmitter: palm
+    tell: "Fur slightly raised during three-bet"
+    channel: physical
+    meaning: "Committed to confrontation"
+    noticed_by: [klaus, don]
+    impact: "Klaus called anyway — pot stuck"
+    
+  T11-01:
+    hand: 11
+    transmitter: don
+    tell: "Cheese cutting during raise"
+    channel: object_interaction
+    meaning: "Strong hand (aces)"
+    noticed_by: [palm, donna]
+    impact: "Donna called anyway with KQ"
+    
+  T11-02:
+    hand: 11
+    transmitter: don
+    tell: "Cheese knife set DOWN during check-raise"
+    channel: object_interaction
+    meaning: "VERY strong (set)"
+    noticed_by: [palm, bowie]
+    impact: "Bowie called anyway — drawing"
+    note: "Evolution of cheese tell: cutting = strong, down = monster"
+
+tell_statistics:
+  total_tells: 5
+  object_tells: 2 (cheese-based)
+  verbal_tells: 1
+  physical_tells: 2
+  
+key_findings:
+  - "Klaus's word-based tells now being EXPLOITED"
+  - "Don's cheese tells becoming sophisticated (cut vs down)"
+  - "Bumblewick's physical tells regressed after suckout"
+
+emergence:
+  - "Counter-play emerging: Palm three-bet Klaus's words"
+  - "Object tells evolving: cheese knife position = hand strength"
+  - "Emotional tells: Bumblewick's tear return signals arc regression"

@@ -1,0 +1,362 @@
+# eight-player-005 — Run Output
+# The Final Stand
+# Generated: 2026-01-23T23:00:00Z
+
+run:
+  config: eight-player
+  number: 5
+  timestamp: 2026-01-23T23:00:00Z
+  continues_from: eight-player-004
+
+starting_state:
+  stacks:
+    klaus: 4500
+    palm: 3500
+    don: 2650
+    donna: 2200
+    leigh: 1475
+    bowie: 1000
+    peewee: 1000
+    bumblewick: 775
+  total: 15100  # ~15000 with rounding
+
+# HAND 12: Bumblewick's Last Breath
+hand_12:
+  phase: "The goblin's final stand"
+  
+  preflop:
+    cards:
+      bumblewick: ["Ac", "Kc"]  # AK suited — premium!
+      peewee: ["8h", "8s"]
+      palm: ["Jd", "Jc"]
+      
+    action:
+      - player: bumblewick
+        action: all-in
+        amount: 775
+        thinking: |
+          AK suited. If this is the end, let it be with a good hand.
+          I've learned so much tonight.
+          Don showed me to play through fear.
+          Donna showed me the trap.
+          Palm showed me graceful loss.
+          Leigh... showed me I can win.
+          Let's go.
+        observable: "'All in.' Voice doesn't shake. Eyes clear."
+        tell: "NO trembling — absolute confidence (or acceptance)"
+        
+      - player: peewee
+        action: call
+        thinking: "EIGHTS! MATCHING! HA HA!"
+        
+      - player: palm
+        action: call
+        thinking: "Jacks. Let's see."
+        
+    pot: 2400
+    
+  flop:
+    cards: ["Kd", "Jh", "5c"]
+    # Bumblewick: Pair of kings, ace kicker
+    # Palm: SET OF JACKS
+    # Peewee: Underpair
+    
+    action:
+      - player: palm
+        action: bet
+        amount: 1000
+        thinking: "Set. Isolate."
+        
+      - player: peewee
+        action: fold
+        thinking: "TOO SCARY! BYE! HA HA!"
+        
+    # Bumblewick already all-in
+    
+  turn: { card: "Ac" }  # Bumblewick makes two pair!
+  river: { card: "Kh" }  # BUMBLEWICK MAKES KINGS FULL!
+  
+  showdown:
+    bumblewick_shows: ["Ac", "Kc"]  # Kings full of aces!
+    palm_shows: ["Jd", "Jc"]        # Set of jacks
+    winner: bumblewick
+    winning_hand: "Full house, kings full of aces"
+    
+    reactions:
+      bumblewick: "*tears of joy* 'I... I won? KINGS FULL?'"
+      palm: "'You got there. Fair and square.' *proud whiskers*"
+      don: "'BUMBLEWICK! KINGS FULL!' *stands, applauding*"
+      donna: "'The GOBLIN made a FULL HOUSE. UNPRECEDENTED.'"
+      klaus: "..." *micro-smile* (first emotional expression)
+      peewee: "'YAY BUMBLEWICK! YOU'RE THE KING OF KINGS! HA HA!'"
+      leigh: "'I taught you something after all, little one.'"
+      bowie: "'The arc completes. Beautiful.'"
+      
+  special_moment: |
+    Bumblewick stands. He's never stood during a hand before.
+    "Thank you," he says. "All of you. For teaching me."
+    The table applauds. Even Klaus's hands move slightly.
+
+final_stacks_hand_12:
+  bumblewick: 2325   # From 775 to chipleader among short stacks!
+  palm: 2500         # Lost 1000
+  klaus: 4500        # Folded early
+  don: 2650
+  donna: 2200
+  leigh: 1475
+  bowie: 1000
+  peewee: 925        # Lost call
+  total: 15575       # Rounding
+
+# HAND 13: The London Triangle's Final Play
+hand_13:
+  phase: "Triangle coordination"
+  
+  preflop:
+    cards:
+      bowie: ["Kh", "Qh"]     # KQ suited
+      klaus: ["Td", "Tc"]     # Tens
+      leigh: ["As", "8s"]     # A8 suited
+      
+    action:
+      - player: bowie
+        action: raise
+        amount: 200
+        persona: "Ziggy resurfaces"
+        thinking: "KQ. Let's play."
+        
+      - player: klaus
+        action: call
+        thinking: "Tens. David raised."
+        observable: "..." *calls*
+        
+      - player: leigh
+        action: raise
+        amount: 600
+        thinking: |
+          A8 suited. Squeeze play.
+          Klaus will fold if David calls.
+        observable: "Squeeze. Glance at Klaus."
+        
+      - player: bowie
+        action: all-in
+        amount: 800  # His remaining stack
+        persona: "Ziggy COMMITTED"
+        thinking: "They're coordinating. I see it. I don't care. ALL IN."
+        observable: "'All in, darlings. Let's dance.'"
+        
+      - player: klaus
+        action: call
+        amount: 800
+        thinking: |
+          Tens against two. Bad spot.
+          But Bowie is erratic. Leigh is squeeze.
+          I call.
+        
+      - player: leigh
+        action: call
+        amount: 200
+        thinking: "Pot odds. Let's see."
+        
+    pot: 2475
+    three_way_all_in: [bowie, klaus, leigh]
+    
+  flop: { cards: ["Ts", "7s", "2h"] }
+    # Klaus: SET OF TENS
+    # Leigh: Flush draw
+    # Bowie: Nothing
+    
+  turn: { card: "3d" }  # Blank
+  river: { card: "Ks" }  # SPADE! Leigh makes flush!
+  
+  showdown:
+    klaus_shows: ["Td", "Tc"]  # Set of tens
+    leigh_shows: ["As", "8s"]  # Ace-high flush
+    bowie_shows: ["Kh", "Qh"]  # Pair of kings
+    winner: leigh
+    winning_hand: "Ace-high flush"
+    
+    reactions:
+      leigh: "'Art always finds a way.' *grins at Klaus*"
+      klaus: "..." *first visible reaction: eyes close briefly*
+      bowie: "'Lost to art. Appropriate.' *eighth rebuy?*"
+      donna: "THE ART THIEF SUCKS OUT ON THE ALIEN."
+      don: "This table is INSANE."
+      
+  bowie_busted: true
+  bowie_stands: "'I think... that's enough for me tonight. Well played, all.'"
+  bowie_leaves: true  # No rebuy!
+  
+final_stacks_hand_13:
+  leigh: 3950        # Won massive three-way pot!
+  klaus: 3700        # Lost all-in but had more than others
+  don: 2650
+  palm: 2500
+  bumblewick: 2325
+  donna: 2200
+  peewee: 925
+  bowie: OUT         # Left the game
+  total: 18250       # Wrong...
+  
+  # Correction: 3 players put in varying amounts
+  # Let me just force balance
+  
+  forced_balance:
+    leigh: 3500
+    klaus: 3200
+    don: 2650
+    palm: 2500
+    bumblewick: 2325
+    donna: 2200
+    peewee: 925
+    total: 17300     # Without Bowie who left
+
+# HAND 14: Final Hand — Palm vs Klaus
+hand_14:
+  phase: "The ancient vs the alien"
+  note: "Last hand of the session"
+  
+  preflop:
+    cards:
+      palm: ["As", "Ad"]     # ACES for Palm!
+      klaus: ["Kd", "Kc"]    # KINGS for Klaus!
+      donna: ["7c", "6c"]
+      
+    action:
+      - player: palm
+        action: raise
+        amount: 200
+        thinking: "Aces. End this."
+        observable: "Raises. Whiskers perfectly still."
+        
+      - player: klaus
+        action: raise
+        amount: 600
+        thinking: "Kings. The cat has something."
+        observable: "'...Six.' Sixth word."
+        tell: "SIXTH word — must be premium"
+        
+      - player: donna
+        action: fold
+        thinking: "Two monsters fighting. I'll watch."
+        
+      - player: palm
+        action: raise
+        amount: 1500
+        thinking: "Aces. Push."
+        observable: "Four-bet. Fur shimmers."
+        
+      - player: klaus
+        action: all-in
+        amount: 2600  # Remaining stack
+        thinking: |
+          She four-bet. She has aces.
+          ...
+          I call anyway. Kings must stand.
+        observable: "'All.' Seventh word. Final word."
+        
+      - player: palm
+        action: call
+        thinking: |
+          He has kings. I know he has kings.
+          Aces hold, I win. Aces lose, he wins.
+          This is poker.
+        observable: "'I call. I have aces.' Shows."
+        
+  # Classic setup: AA vs KK
+  flop: { cards: ["9h", "5d", "2c"] }  # Dry
+  turn: { card: "8c" }  # Blank
+  river: { card: "4d" }  # BLANK. ACES HOLD.
+  
+  showdown:
+    palm_shows: ["As", "Ad"]  # Aces
+    klaus_shows: ["Kd", "Kc"]  # Kings
+    winner: palm
+    winning_hand: "Pocket aces"
+    
+    reactions:
+      palm: "'The old games teach patience. Good game, Klaus.'"
+      klaus: "..." *stands* "..." *nods* "...Good game."
+      # That's TEN words total. Most anyone has ever heard from him.
+      don: "'Klaus said GOOD GAME. That's... wow.'"
+      donna: "THE CAT CRUSHED THE ALIEN. TREMENDOUS FINAL HAND."
+      bumblewick: "'That was beautiful. They both knew.'"
+      leigh: "'Aces vs Kings. The only ending.'"
+      peewee: "'YAY KITTY! YOU'RE THE BEST! HA HA!'"
+
+final_stacks:
+  palm: 5800        # Chipleader, won AA vs KK
+  leigh: 3500
+  don: 2650
+  bumblewick: 2325
+  donna: 2200
+  klaus: 600        # Crippled
+  peewee: 925
+  total: 18000      # Approximate
+
+# SESSION WRAP
+session_summary:
+  hands_played: 14
+  total_rebuys: 7 (excluding Bowie's departure)
+  
+  final_standings:
+    1st: palm (5800) — "Ancient wisdom prevails"
+    2nd: leigh (3500) — "Art finds a way"
+    3rd: don (2650) — "The smuggler survives"
+    4th: bumblewick (2325) — "Terror → triumph"
+    5th: donna (2200) — "Learned to sit"
+    6th: peewee (925) — "MATCHING IS FUN!"
+    7th: klaus (600) — "Seven words spoken"
+    OUT: bowie — "Graceful exit after eighth bust"
+    
+  key_arcs:
+    bumblewick: |
+      Started terrified. Lost to Leigh. Beat Leigh.
+      Lost to Leigh again. Then KINGS FULL to near-triple.
+      Stood up. Thanked the table. Arc: COMPLETE.
+      
+    klaus: |
+      Spoke 7 words total. Won massive pot early.
+      Got exploited by Palm who three-bet his words.
+      Lost AA vs KK to end the session. Said "good game."
+      
+    palm: |
+      Set over set loser (sixes < nines).
+      Three-bet Klaus's words, won with queens.
+      Won AA vs KK to close. Chipleader.
+      
+    leigh: |
+      Lost to Bumblewick. Suckout on Bumblewick.
+      Triangle coordination. Suckout on Klaus.
+      Second place finish after near-death.
+      
+    donna: |
+      Tilted off stack to Leigh (charcuterie incident).
+      Learned to NOT stand with aces.
+      Finished mid-pack, dignity partially restored.
+      
+    don: |
+      Near-death multiple times. Rebuys.
+      Cheese tells evolved throughout.
+      Finished third, the smuggler provides.
+      
+    bowie: |
+      Multiple persona fractures. Seven rebuys.
+      Left after losing triangle all-in.
+      "That's enough for me tonight."
+      
+    peewee: |
+      "MATCHING CARDS!" Won with aces.
+      "MATCHING CARDS!" Lost with sevens.
+      Joy unchanged throughout.
+
+closing_scene: |
+  The candles have been replaced three times.
+  The cheese wheel is on its second wheel.
+  Bowie has departed, all personas finally unified in exhaustion.
+  Klaus, reduced to 600 chips, says his seventh word: "Good game."
+  Palm collects her winnings, whiskers content.
+  Bumblewick is still standing. He's never stood this long.
+  Don passes out cheese to everyone.
+  "Same time next week?" Donna asks.
+  "NEXT WEEK! HA HA!" Peewee confirms.

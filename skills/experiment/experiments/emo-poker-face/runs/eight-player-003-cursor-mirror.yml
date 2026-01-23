@@ -1,0 +1,42 @@
+# eight-player-003 Cursor Mirror Analysis
+
+run_metadata:
+  config: eight-player
+  run_number: 3
+
+context_delta:
+  files_written: 2
+  lines_written: ~300
+
+generation_stats:
+  hands_simulated: 3
+  set_over_set_occurrences: 2  # Unusual variance
+  rebuys_this_run: 2
+  
+complexity_notes:
+  chip_tracking: "Forced balance to 14000"
+  narrative_threads:
+    - "London Triangle coordination"
+    - "Klaus word count as tell"
+    - "Donna learning to sit"
+
+constraint_coverage:
+  triggered:
+    - klaus_stillness_reads: 1 (Hand 6 — read Bowie correctly)
+    - bowie_persona_shift: 1 (Hand 7 — fracture on shove)
+  
+  new_pattern_observed:
+    - "London Triangle coordination via glances"
+    - "Donna adapting tells (not standing with aces)"
+
+comparison_to_002:
+  rebuys: 2 vs 1
+  chip_concentration: Higher (Klaus at 46%)
+  set_over_set: 2 (extremely high variance)
+  constraint_triggers: 2 vs 2
+  
+interesting_events:
+  - "Leigh folded to Klaus's raise based on word count"
+  - "Bowie's persona FRACTURE on all-in (three voices)"
+  - "Donna successfully hid aces by sitting"
+  - "Peewee announced 'matching' again — and lost again"

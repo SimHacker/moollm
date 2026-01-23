@@ -1,0 +1,92 @@
+# eight-player-003 Tell Analysis
+
+run_metadata:
+  config: eight-player
+  run_number: 3
+  hands_analyzed: [6, 7, 8]
+
+tell_registry:
+
+  T6-01:
+    hand: 6
+    transmitter: klaus
+    tell: "Glance toward Leigh before calling"
+    channel: eye_contact
+    meaning: "London Triangle activation — coordination signal"
+    noticed_by: [leigh, don, palm]
+    impact: "Leigh later folded based on Klaus's raise"
+    
+  T6-02:
+    hand: 6
+    transmitter: klaus
+    tell: "'...Seven fifty' — third words of session"
+    channel: verbal
+    meaning: "Monster hand (set of nines)"
+    noticed_by: [everyone]
+    impact: "Leigh folded immediately, others called anyway"
+    
+  T6-03:
+    hand: 6
+    transmitter: leigh
+    tell: "Nod toward Klaus while folding"
+    channel: gesture
+    meaning: "Acknowledgment of Klaus's strength signal"
+    noticed_by: [don, palm, bowie]
+    impact: "Confirmed London Triangle coordination"
+    
+  T6-04:
+    hand: 6
+    transmitter: klaus
+    tell: "'All' — fourth word"
+    channel: verbal
+    meaning: "Extreme confidence"
+    noticed_by: [everyone]
+    impact: "Palm called anyway (pot committed)"
+    
+  T7-01:
+    hand: 7
+    transmitter: bowie
+    tell: "Persona fracture — three voices at once"
+    channel: vocal
+    meaning: "Desperation + strong hand + identity crisis"
+    noticed_by: [palm, klaus, don]
+    impact: "Don called anyway — short stack race"
+    note: "Most dramatic tell yet"
+    
+  T8-01:
+    hand: 8
+    transmitter: donna
+    tell: "NOT standing with aces (absence tell)"
+    channel: posture_absence
+    meaning: "Learning from past mistakes"
+    noticed_by: [bumblewick, palm]
+    impact: "Bumblewick noted the change — folded later"
+    
+  T8-02:
+    hand: 8
+    transmitter: peewee
+    tell: "'MATCHING' announcement (again)"
+    channel: verbal
+    meaning: "Has a pocket pair (sevens)"
+    noticed_by: [everyone]
+    acted_on_by: [donna] (she had better set)
+    note: "Peewee's tells are 100% accurate, still ignored"
+
+tell_statistics:
+  total_tells: 7
+  verbal_tells: 3
+  posture_tells: 1 (absence)
+  gesture_tells: 1
+  eye_contact_tells: 1
+  vocal_tells: 1
+  
+key_findings:
+  - "Klaus's word count is now tracked by everyone"
+  - "London Triangle coordinates via micro-signals"
+  - "Donna adapting — learning to NOT tell"
+  - "Peewee's honesty still treated as noise"
+
+emergence:
+  - "Absence tells becoming important (Donna NOT standing)"
+  - "Inter-character tell coordination (London Triangle)"
+  - "Bowie's persona fracture becoming extreme under pressure"

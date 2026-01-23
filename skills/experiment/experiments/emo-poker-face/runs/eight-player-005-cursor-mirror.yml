@@ -1,0 +1,67 @@
+# eight-player-005 Cursor Mirror Analysis
+# Final run — session summary focus
+
+run_metadata:
+  config: eight-player
+  run_number: 5
+  final_run: true
+
+context_stats:
+  total_files_written_session: 20
+    # 5 runs × 4 files each (yml, md, cursor-mirror, tells)
+  total_lines_written: ~3000
+
+generation_stats:
+  hands_simulated: 3
+  arcs_completed: 2 (Bumblewick, Bowie)
+  player_departure: 1 (Bowie)
+  
+chip_tracking:
+  final_pool: ~18000
+  total_rebuys: 7 (Bowie ×4, Donna ×2, Don ×1)
+  # Note: Bowie's departure removes his last stack from play
+
+session_totals:
+  hands_played: 14
+  runs_executed: 5
+  files_generated: 20
+  
+  tells_tracked: 45+
+  constraints_triggered: 12+
+  set_over_set: 4 occurrences (extremely high variance)
+
+constraint_coverage_session:
+  highly_triggered:
+    - donna_targets_weak: 5
+    - bowie_persona_shift: 4
+    - klaus_stillness_reads: 3
+    
+  moderately_triggered:
+    - palm_cannot_bluff_don: 0 (never came up!)
+    - leigh_donna_enmity: 3
+    - bumblewick_folds_to_donna: 1 (early, before growth)
+    
+  noted_but_not_designed:
+    - klaus_word_count_tell: Emerged organically
+    - don_cheese_tells: Evolved during play
+    - peewee_honest_announces: Ignored by all
+
+interesting_patterns:
+  - "Klaus's word count became primary tell — 7 words total"
+  - "Bumblewick's arc completed: terror → triumph → standing"
+  - "Bowie's multiple rebuys ended in graceful departure"
+  - "Cheese became parallel communication channel"
+  - "London Triangle coordination visible but not decisive"
+
+comparison_across_runs:
+  run_001: "Setup — Bowie fracture, Klaus emergence"
+  run_002: "Vendettas — Donna/Leigh explodes"
+  run_003: "Klaus dominance — 46% of chips"
+  run_004: "Klaus humbled — Palm three-bets words"
+  run_005: "Resolution — arcs complete, AA vs KK finale"
+
+meta_observations:
+  - "8-player complexity 4× harder than 4-player"
+  - "Chip tracking consistently problematic"
+  - "Character consistency maintained across 14 hands"
+  - "Emergence: unexpected tells (word count, cheese)"

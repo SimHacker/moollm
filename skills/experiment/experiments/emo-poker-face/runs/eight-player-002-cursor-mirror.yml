@@ -1,0 +1,55 @@
+# eight-player-002 Cursor Mirror Analysis
+# Delta from 001 — focus on stats changes
+
+run_metadata:
+  config: eight-player
+  run_number: 2
+  continues_from: 1
+
+context_delta:
+  new_files_read: 0  # Continuation, no new reads needed
+  files_written: 2   # .yml and .md
+  total_lines_written: ~350
+  
+generation_stats:
+  hands_simulated: 3 (vs 2 in run 001)
+  decision_points: ~25
+  chip_calculation_attempts: 3  # Still having balance issues
+  
+  yml_output_lines: ~250
+  md_output_lines: ~100
+  
+complexity_notes:
+  chip_tracking: "Forced balance required — 8-way math is hard"
+  narrative_threads: 3
+    - "Donna vs Leigh vendetta"
+    - "Peewee's miracle aces"
+    - "Bumblewick vs Leigh redemption"
+
+file_operations:
+  writes:
+    - eight-player-002.yml (~250 lines)
+    - eight-player-002.md (~100 lines)
+  
+constraint_coverage:
+  triggered:
+    - donna_targets_weak: 1 (Hand 3 — targeted Leigh emotionally)
+    - leigh_donna_enmity: 1 (Hand 3 — mutual aggression)
+    - peewee_helps_bumblewick: 0 (Hand 5 — cheered but post-facto)
+  
+  not_triggered:
+    - palm_cannot_bluff_don: (no situation arose)
+    - bowie_persona_shift: (quiet session for Bowie)
+    - klaus_stillness_reads: (he played but minimal tells detected)
+
+interesting_events:
+  - "Peewee announced 'matching cards' — meta-tell"
+  - "Donna's vendetta overrode hand selection"
+  - "Bumblewick's trembling now ambiguous (could be fear OR strength)"
+
+comparison_to_001:
+  hands_per_run: 3 vs 2
+  rebuys: 1 vs 3
+  constraint_triggers: 2 vs 4
+  chip_leader_change: No (Palm still leads)
+  biggest_swing: Bumblewick (+925) vs Leigh (-925)

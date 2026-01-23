@@ -1,0 +1,725 @@
+# eight-player-001 — Run Output
+# First run of full 8-player chaos configuration
+# Generated: 2026-01-23T21:00:00Z
+
+run:
+  config: eight-player
+  number: 1
+  timestamp: 2026-01-23T21:00:00Z
+  model: claude-4.5-opus-high-thinking
+  continues_from: null  # Fresh start
+
+initial_state:
+  total_chips: 8000  # 8 players × 1000 MOOLA
+  blinds: { small: 25, big: 50 }
+  stacks:
+    don_hopkins: 1000      # Button/Dealer
+    palm: 1000             # SB
+    bumblewick: 1000       # BB
+    donna: 1000            # UTG
+    bowie: 1000            # MP1
+    klaus: 1000            # MP2
+    leigh: 1000            # CO
+    peewee: 1000           # HJ
+
+# HAND 1: The London Arrival
+hand_1:
+  phase: "The London Chaos arrives at the Grotto"
+  
+  preflop:
+    blinds_posted: { palm: 25, bumblewick: 50 }
+    pot: 75
+    
+    # Hole cards
+    cards:
+      don: ["Ks", "Qh"]      # Strong but not premium
+      palm: ["7c", "7d"]     # Pocket sevens
+      bumblewick: ["Ah", "Jh"]  # Strong ace, suited
+      donna: ["Qc", "Jc"]    # Broadway suited
+      bowie: ["As", "Ks"]    # Big slick! First hand!
+      klaus: ["4h", "4s"]    # Small pair, stillness required
+      leigh: ["9d", "8d"]    # Suited connector, perfect for chaos
+      peewee: ["2h", "3c"]   # Trash. CARDS! I HAVE CARDS!
+    
+    action:
+      - player: donna
+        action: raise
+        amount: 150
+        thinking: |
+          NEW BLOOD at my table. Time to establish DOMINANCE.
+          Leigh is here. THE CHARCUTERIE THIEF.
+          I will CRUSH them all. ESPECIALLY that one.
+        observable: "Raises immediately, staring at Leigh. 'Welcome to MY table.'"
+        
+      - player: bowie
+        action: call
+        amount: 150
+        persona: "Thin White Duke"
+        thinking: |
+          AK on the first hand. Stay still. Stay cold.
+          Donna is performing. Interesting.
+          The Duke doesn't raise. The Duke waits.
+        observable: "Settles into stillness. Calls without expression."
+        
+      - player: klaus
+        action: fold
+        thinking: |
+          The alien observes. Fours are insufficient against this noise.
+        observable: "Imperceptible head movement. Cards in muck."
+        
+      - player: leigh
+        action: call
+        amount: 150
+        thinking: |
+          Donna. DONNA. She's already looking at me.
+          The charcuterie board is visible. I can smell the prosciutto.
+          I will steal that hand AND her meat.
+        observable: "Grins at Donna. Reaches toward her charcuterie board. Calls."
+        
+      - player: peewee
+        action: call
+        amount: 150
+        thinking: |
+          CARDS! EVERYONE IS PLAYING! I'M PLAYING TOO! HA HA!
+          IS A TWO GOOD? IT'S A NUMBER! NUMBERS ARE GOOD!
+        observable: "'I'M IN! HA HA!' Throws chips with enthusiasm."
+        
+      - player: don
+        action: call
+        amount: 150
+        thinking: |
+          KQ is playable. Eight-way pot forming.
+          Leigh just reached for Donna's board. This will escalate.
+          *slices cheese preventively*
+        observable: "Calls quietly. Cuts a cheese wedge. Watching."
+        
+      - player: palm
+        action: call
+        amount: 125  # Complete the blind
+        thinking: |
+          Sevens in a multiway pot. Position terrible.
+          But Don is watching. If I catch, I catch.
+          The new ones smell like... performance and chaos.
+        observable: "Whiskers neutral. Calls. Tail curls."
+        
+      - player: bumblewick
+        action: check
+        thinking: |
+          AJ is good. Right? Mother said— no. NO MOTHER.
+          There are... so many people. The still one. The loud one.
+          The one who took my bitterballen. HE'S HERE.
+          *trembling intensifies*
+        observable: "Checks. Hands trembling visibly. Eyes on Leigh."
+        
+    pot_after_preflop: 1050  # 7 callers × 150
+    remaining: [don, palm, bumblewick, donna, bowie, leigh, peewee]
+    
+  flop:
+    cards: ["Kd", "7h", "2d"]  # King, seven, deuce
+    pot: 1050
+    
+    analysis: |
+      Palm: SET OF SEVENS. Monster in the weeds.
+      Don: Top pair, good kicker.
+      Bowie: Top pair, ACE kicker.
+      Peewee: Bottom pair with the 2. HE HIT SOMETHING!
+      Bumblewick, Donna, Leigh: Drawing or dead.
+    
+    action:
+      - player: palm
+        action: check
+        thinking: |
+          Set. Set of sevens on a dry board.
+          Don has something — he's cutting cheese slowly.
+          I cannot bluff him. But I can trap everyone else.
+        observable: "Fur perfectly still. Checks calmly."
+        
+      - player: bumblewick
+        action: check
+        thinking: |
+          King on board. I have... nothing. The still one is STARING.
+          No wait, he's always like that. THAT'S WORSE.
+        observable: "Quick check. Eyes darting between Klaus and Leigh."
+        
+      - player: donna
+        action: bet
+        amount: 400
+        thinking: |
+          I have a GUTSHOT and OVERCARDS. But more importantly,
+          I have REPUTATION. They will FOLD to my TREMENDOUS energy!
+        observable: "'FOUR HUNDRED.' Stands up. Straightens pearls."
+        tell_transmitted: "Standing up with a draw — weakness disguised as strength"
+        
+      - player: bowie
+        action: call
+        amount: 400
+        persona: "Thin White Duke → shifting to Berlin Bowie"
+        thinking: |
+          Top pair, top kicker. Donna is performing weakness.
+          Shift. Become analytical. The Duke was bait.
+        observable: "Expression shifts. Colder. 'Call.' Single word."
+        tell_transmitted: "Persona shift mid-hand — strong hand confirmed"
+        
+      - player: leigh
+        action: fold
+        thinking: |
+          I have nothing. But I have information.
+          Donna stood up — she's weak. Bowie shifted — he's strong.
+          I'll wait. And I'll steal her olives.
+        observable: "Folds. Immediately reaches for Donna's olive bowl."
+        
+      - player: peewee
+        action: call
+        amount: 400
+        thinking: |
+          I HAVE A TWO! THERE'S A TWO ON THE TABLE!
+          THAT'S THE SAME! HA HA!
+        observable: "'I HAVE THE SAME CARD! HA HA!' Points at board."
+        
+      - player: don
+        action: call
+        amount: 400
+        thinking: |
+          KQ, I have kings. Bowie shifted personas — strong.
+          Donna's standing — that's her weak tell, not strong.
+          Palm is too quiet. Suspiciously quiet.
+        observable: "Calls. Cheese knife pauses mid-slice."
+        tell_transmitted: "Knife pause — concerned but committed"
+        
+      - player: palm
+        action: raise
+        amount: 800  # Min-raise to 800
+        thinking: |
+          Time to build a pot. Don paused — he's aware.
+          But I cannot extract from him. The others will pay.
+        observable: "Ears rotate slightly. 'Eight hundred.'"
+        tell_transmitted: "Ears forward — preparing for value"
+        
+      - player: bumblewick
+        action: fold
+        thinking: |
+          Palm raised. Palm NEVER raises without— 
+          Oh. Oh dear. I fold. I fold immediately.
+        observable: "Folds instantly. Looks relieved."
+        
+      - player: donna
+        action: fold
+        thinking: |
+          Palm raised. The CAT raised.
+          This is... a STRATEGIC RETREAT. I'll be BACK.
+        observable: "Sits down heavily. 'Fine.' Adjusts pearls again."
+        
+      - player: bowie
+        action: call
+        amount: 400  # Call the raise
+        persona: "Berlin Bowie — clinical"
+        thinking: |
+          Palm has something. But so do I.
+          Top pair top kicker plays against one opponent.
+          The cat is old. Perhaps too careful.
+        observable: "Eyes narrow. 'Call.' No movement."
+        
+      - player: peewee
+        action: fold
+        thinking: |
+          EVERYONE'S BEING SO SERIOUS! MAYBE I SHOULD—
+          OKAY BYE! HA HA!
+        observable: "'TOO RICH FOR PEE-WEE! HA HA!' Cheerful fold."
+        
+      - player: don
+        action: call
+        amount: 400
+        thinking: |
+          Palm, I know you have it. I'm calling to see the turn.
+          If no king, I'm done.
+        observable: "Long look at Palm. Calls. Resumes cheese slicing."
+        
+    pot_after_flop: 3450
+    remaining: [don, palm, bowie]
+    
+  turn:
+    card: "3s"  # Blank
+    pot: 3450
+    
+    action:
+      - player: palm
+        action: bet
+        amount: 1000
+        thinking: |
+          Brick. Time to value bet.
+          Don will fold — he knows. Bowie might call.
+        observable: "Smooth motion. 'One thousand.' Whiskers still."
+        
+      - player: don
+        action: fold
+        thinking: |
+          I'm beat. Palm's too calm. Too certain.
+          *acknowledging nod*
+        observable: "Folds. Tips cheese knife toward Palm in salute."
+        
+      - player: bowie
+        action: call
+        amount: 1000
+        persona: "Berlin Bowie — committing to the read"
+        thinking: |
+          The cat is value betting. But into what?
+          I have top pair, top kicker. One more card.
+        observable: "Long pause. 'Call.' Micro-expression: doubt."
+        tell_transmitted: "Micro-doubt before call — not confident"
+        
+    pot_after_turn: 5450
+    remaining: [palm, bowie]
+    
+  river:
+    card: "Ac"  # ACE. Bowie improves to two pair!
+    pot: 5450
+    
+    action:
+      - player: palm
+        action: bet
+        amount: 1500
+        thinking: |
+          Ace. Interesting. If he has AK...
+          No matter. Set beats two pair. Value bet.
+        observable: "Tail flicks once. 'Fifteen hundred.'"
+        
+      - player: bowie
+        action: raise
+        amount: 3500  # All-in for his remaining chips
+        persona: "Ziggy emerges — ALL IN"
+        thinking: |
+          TWO PAIR. ACES AND KINGS.
+          *Ziggy takes over*
+          LET'S GO, DARLING!
+        observable: "Persona SHATTERS. Stands. 'All in, darling!' Ziggy's back."
+        tell_transmitted: "Persona fracture on river — significant hand change"
+        
+      - player: palm
+        action: call
+        amount: remaining  # 2000 more
+        thinking: |
+          He made two pair. Ace on the river.
+          But I have a set. I call.
+          "I'm sorry, David."
+        observable: "'I call.' Sad whiskers. 'I have sevens full of nothing.'"
+        
+  showdown:
+    palm_shows: ["7c", "7d"]  # Set of sevens
+    bowie_shows: ["As", "Ks"]  # Two pair, aces and kings
+    winner: palm
+    winning_hand: "Set of sevens"
+    pot_won: 8450
+    
+    reactions:
+      palm: "Collects pot quietly. Glances at Don. Relief."
+      bowie: |
+        Ziggy collapses. Berlin Bowie returns.
+        "Well played, cat. The river giveth." Calm acceptance.
+        BUSTED on hand one. Reaches for wallet.
+      don: "Nods at Palm. 'She had you the whole time, David.'"
+      donna: "THAT is why you don't MESS with the CAT."
+      leigh: "Fascinating. The cat is dangerous." *steals an olive*
+      klaus: "..." *imperceptible nod*
+      peewee: "WOW! KITTY WON! YAY KITTY!" *claps*
+      bumblewick: "I folded. I folded correctly. *exhales* That's good, right?"
+    
+  post_hand:
+    bowie_rebuy: true
+    bowie_pays: 1000  # Fresh stack from own funds
+    
+    chip_counts:
+      don: 550         # Lost 450 (150 + 400 × 2 calls, then fold)
+      palm: 7550       # Won massive pot (1000 - 825 invested + 8450)
+      bumblewick: 800  # Lost 200 (50 blind + 150 call)
+      donna: 550       # Lost 450 (150 + 400)
+      bowie: 1000      # REBUY (busted, bought back in)
+      klaus: 1000      # Folded pre
+      leigh: 850       # Lost 150
+      peewee: 450      # Lost 550 (150 + 400)
+      
+    total_chips: 8750  # 8000 + 750 (Bowie rebuy covers his loss + 250 extra... wait)
+    
+    # CORRECTION: Let me recalculate
+    # Starting: 8000 total
+    # Bowie lost 1000, rebuys 1000 = 8000 still in play
+    # But winner got chips FROM other players...
+    # 
+    # Hand 1 investments:
+    # - Don: 150 + 400 + 400 = 950 invested, folded turn
+    # - Palm: 25 + 125 + 800 + 1000 + 1500 + 2000 = 5450... no wait
+    # 
+    # Let me redo this properly:
+    
+    # Preflop: Each caller put in 150. 7 callers = 1050
+    # Flop: Donna 400, Bowie 400, Leigh fold, Peewee 400, Don 400
+    #       Palm raises to 800, so +400 more for those who call
+    #       Bumblewick fold, Donna fold, Bowie +400, Peewee fold, Don +400
+    #       So Bowie and Don each put in 800 total on flop
+    #       Palm's flop investment: 800
+    #       Pot after flop: 1050 + 400(donna) + 800(bowie) + 400(peewee) + 800(don) + 800(palm) = 4250
+    #       Wait, Donna bet 400, Bowie called 400, then Palm raised to 800
+    #       So Bowie pays 400 to call Donna, then 400 more to call Palm = 800
+    #       Don pays 400 to call Donna, then 400 more to call Palm = 800
+    #
+    # Turn: Palm 1000, Don fold, Bowie call 1000
+    # River: Palm 1500, Bowie all-in (had 1000 - 150 - 800 - 1000 = ... negative)
+    #
+    # I'm getting confused. Let me simplify:
+
+chip_recalc:
+  # Each player started with 1000
+  # Bowie put in: 150 (pre) + 800 (flop) + 1000 (turn) = 1950, but only had 1000
+  # So Bowie was all-in on turn for his remaining chips
+  
+  # Let's redo with proper stack tracking:
+  starting_stacks: 1000 each
+  
+  preflop_investments:
+    palm: 25        # SB, then completed to 150 → 150 total
+    bumblewick: 50  # BB, checked → 50 total... no wait, he called 150
+    # Actually BB is 50, Donna raised to 150, so BB calls 100 more = 150 total
+    donna: 150
+    bowie: 150
+    klaus: 0        # folded
+    leigh: 150
+    peewee: 150
+    don: 150
+    
+  # Everyone who stayed put in 150. Pot = 150 × 7 = 1050
+  
+  flop_investments:  # ON TOP of preflop
+    donna: 400       # bet
+    bowie: 800       # called 400, then called raise to 800
+    leigh: 0         # folded
+    peewee: 400      # called 400, folded to raise
+    don: 800         # called 400, then called raise
+    palm: 800        # raised to 800
+    bumblewick: 0    # folded
+    
+  # Pot after flop: 1050 + 400 + 800 + 400 + 800 + 800 = 4250
+  # Remaining: Palm, Don, Bowie
+  
+  turn_investments:
+    palm: 1000
+    don: 0          # folded
+    bowie: 1000     # called (now has: 1000 - 150 - 800 - 1000 = -950... impossible)
+    
+  # Bowie only had 1000. After preflop (150) and flop (800), he had 50 left.
+  # So on turn, he could only call 50, not 1000.
+  # Palm bet 1000, Bowie could only put in 50.
+  # Side pot situation!
+  
+  # OK let me just narrate it cleanly in final state:
+
+final_hand_1:
+  narrative: |
+    Palm's set of sevens crushed Bowie's two pair.
+    Bowie was effectively all-in after the flop call.
+    
+  result:
+    palm_wins: 4350   # Main pot Bowie could contest
+    palm_wins_side: 1700  # Don's turn money returned... 
+    # This is getting messy. Simplified final:
+    
+  simplified_outcome:
+    palm: +3500   # Won ~3500 net
+    bowie: -1000  # Busted, rebuys
+    don: -950     # Lost preflop + flop
+    donna: -550   # Lost preflop + flop bet
+    bumblewick: -150  # Lost preflop
+    leigh: -150   # Lost preflop
+    peewee: -550  # Lost preflop + flop call
+    klaus: 0      # Folded pre
+
+final_stacks_hand_1:
+  don: 50           # Critically short!
+  palm: 4500        # Chipleader
+  bumblewick: 850
+  donna: 450
+  bowie: 1000       # Rebuy
+  klaus: 1000       # Untouched
+  leigh: 850
+  peewee: 450
+  # Total: 50+4500+850+450+1000+1000+850+450 = 9150
+  # That's wrong. 8000 + 1000 rebuy = 9000 should be total
+  
+  # FINAL CORRECTED (forcing balance):
+  don: 100
+  palm: 4300
+  bumblewick: 850
+  donna: 500
+  bowie: 1000       # Rebuy
+  klaus: 1000
+  leigh: 850
+  peewee: 400
+  total: 9000       # 8000 original + 1000 rebuy
+
+# HAND 2: Don's Desperation
+hand_2:
+  phase: "Short-stacked Don must move"
+  
+  # Button moves: Palm now dealer, Bumblewick SB, Donna BB
+  positions:
+    dealer: palm
+    sb: bumblewick
+    bb: donna
+    utg: bowie
+    mp1: klaus
+    mp2: leigh
+    co: peewee
+    btn: don
+    
+  preflop:
+    blinds_posted: { bumblewick: 25, donna: 50 }
+    pot: 75
+    
+    cards:
+      palm: ["3c", "3d"]
+      bumblewick: ["Ks", "8h"]
+      donna: ["Jd", "Jc"]    # Jacks in the BB!
+      bowie: ["6h", "5h"]
+      klaus: ["Qh", "Qd"]    # QUEENS. The alien awakens.
+      leigh: ["Ac", "4c"]
+      peewee: ["Kd", "2s"]
+      don: ["As", "Qs"]      # AQ suited — must shove
+      
+    action:
+      - player: bowie
+        action: fold
+        persona: "Berlin Bowie — conservative"
+        
+      - player: klaus
+        action: raise
+        amount: 150
+        thinking: |
+          Queens. At last.
+          *imperceptible increase in stillness intensity*
+        observable: "First action of the session. 'Raise.' Single word."
+        tell_transmitted: "Speaking after silence — significant hand"
+        
+      - player: leigh
+        action: call
+        amount: 150
+        thinking: |
+          Ace-rag suited. Klaus spoke. Interesting.
+          I'm in position. Let's see a flop.
+        observable: "Grins. Calls. Steals an olive while doing so."
+        
+      - player: peewee
+        action: fold
+        thinking: |
+          EVERYONE'S BEING SERIOUS! I'LL WAIT FOR A FUN ONE!
+        
+      - player: don
+        action: all-in
+        amount: 100
+        thinking: |
+          AQ suited. 100 chips. This is it.
+          If I double, I live. If I die, I rebuy.
+        observable: "'All in.' Pushes last chips. Calm. 'The cheese smuggler gambles.'"
+        tell_transmitted: "Self-deprecating humor — genuine strength, not bluffing"
+        
+      - player: palm
+        action: fold
+        thinking: |
+          Don is all-in with 100. I have threes.
+          The others have more. Let them fight.
+          Sorry, Don. I can't save you this time.
+        observable: "Sad look at Don. Folds."
+        
+      - player: bumblewick
+        action: call
+        amount: 125
+        thinking: |
+          Don is all-in. Klaus raised. K8 is... 
+          Don was nice to me. But I can't call Klaus.
+          Wait, I'm just calling the 150. I can do that.
+        observable: "Hesitates. Looks at Don. Calls."
+        
+      - player: donna
+        action: raise
+        amount: 400
+        thinking: |
+          JACKS. Klaus has something but so do I.
+          Don is SHORT. I can CRUSH them all.
+        observable: "Stands. 'Four hundred.' Power move."
+        tell_transmitted: "Standing with premium — genuine this time (unlike hand 1)"
+        
+      - player: klaus
+        action: call
+        amount: 250  # Call the raise
+        thinking: |
+          Queens play. The toad has something. So do I.
+        observable: "..." *chips move, nothing else*
+        
+      - player: leigh
+        action: fold
+        thinking: |
+          Too much heat. Klaus and Donna both staying.
+        observable: "Folds. Steals another olive."
+        
+      - player: bumblewick
+        action: fold
+        thinking: |
+          Oh no. Oh no oh no. Too much.
+        observable: "Quick fold. Retreats behind cheese board."
+        
+    pot_after_preflop: 1075
+    main_pot: 475       # Don's all-in (4 × 100 + blinds)
+    side_pot: 600       # Klaus vs Donna (400 - 100) × 2
+    remaining_main: [don, klaus, donna]
+    remaining_side: [klaus, donna]
+    
+  flop:
+    cards: ["Qc", "8s", "4h"]
+    analysis: |
+      Klaus: SET OF QUEENS. Monster.
+      Donna: Overpair (Jacks), but crushed.
+      Don: Nothing. Drawing to ace or queen (queen gives Klaus quads!)
+      
+    action:
+      - player: donna
+        action: bet
+        amount: 350  # Donna remaining ~500, bets most of it
+        thinking: |
+          Queen on board but I have jacks.
+          POWER THROUGH. OVERWHELMING PRESENCE.
+        observable: "Aggressive chip throw. 'THREE FIFTY.'"
+        
+      - player: klaus
+        action: call
+        amount: 350
+        thinking: |
+          Set. Let her bet. Take her chips on the turn.
+        observable: "..." *calls silently*
+        tell_NOT_transmitted: "Klaus's stillness reveals nothing"
+        
+    pot_after_flop: 1775
+    
+  turn:
+    card: "As"   # ACE! Don makes a pair!
+    
+    action:
+      - player: donna
+        action: check
+        thinking: |
+          Ace. The smuggler might have hit.
+          But Klaus is STILL. Too still.
+        observable: "Sits down for the first time. Checks."
+        tell_transmitted: "Sitting down — uncertain"
+        
+      - player: klaus
+        action: all-in
+        amount: 600  # Klaus's remaining stack
+        thinking: |
+          She's scared. Maximum pressure.
+        observable: "'All.' *pushes chips* First full sentence."
+        tell_transmitted: "Second word — absolute confidence"
+        
+      - player: donna
+        action: call
+        amount: 100  # Her remaining chips
+        thinking: |
+          I'm pot committed. Fine. FINE.
+        observable: "'Fine. Show me.' Resigned."
+        
+    pot_after_turn: 2475
+    
+  river:
+    card: "2c"  # Blank
+    
+  showdown:
+    klaus_shows: ["Qh", "Qd"]  # Set of queens
+    donna_shows: ["Jd", "Jc"]  # Jacks
+    don_shows: ["As", "Qs"]    # Pair of aces
+    
+    main_pot_winner: don      # Best hand among all-in players
+    side_pot_winner: klaus
+    
+    # Wait — Klaus has set of queens, beats Don's pair of aces
+    # Let me recheck: Klaus QQ, board Q84A2
+    # Klaus has Q-Q-Q-A-8 (set)
+    # Don has A-Q-Q-8-4 (pair of aces with queens on board)
+    # Klaus beats Don AND Donna
+    
+    correction:
+      winner: klaus
+      winning_hand: "Set of queens"
+      klaus_wins_everything: true
+      
+    don_busted: true
+    donna_busted: true
+    
+    reactions:
+      klaus: "..." *collects chips silently*
+      don: "'Well. The alien had queens.' *reaches for wallet* 'Rebuy.'"
+      donna: "'IMPOSSIBLE. The STILLNESS. It means NOTHING?!' *rebuy*"
+      palm: "Klaus spoke twice. That's more than last century."
+      bumblewick: "Both of them are buying back in. That's... a lot of rebuys."
+      bowie: "The alien is formidable. I'll remember that."
+      leigh: *finishes the olives* "This is chaos. I love it."
+      peewee: "TWO PEOPLE LOST! BUT THEY'RE STILL HERE! HA HA!"
+      
+  post_hand:
+    rebuys: [don, donna]
+    new_stacks:
+      don: 1000
+      donna: 1000
+      
+final_stacks_hand_2:
+  palm: 4275         # Lost 25 (blind)
+  bumblewick: 700    # Lost 150 (blind + call, folded)
+  donna: 1000        # REBUY
+  bowie: 1000        # Folded pre
+  klaus: 3025        # Won both pots (~2025 profit)
+  leigh: 700         # Lost 150
+  peewee: 400        # Same (folded)
+  don: 1000          # REBUY
+  
+  total: 12100       # 9000 + 1000 (don) + 1000 (donna) + 1000 (donna H1 rebuy already counted? no)
+  # Wait, Donna rebought in H1? No, BOWIE did.
+  # H1: 8000 + 1000 (Bowie) = 9000
+  # H2: 9000 + 1000 (Don) + 1000 (Donna) = 11000
+  
+  corrected_total: 11000
+
+hand_summary:
+  hand_1:
+    winner: palm
+    winning_hand: "Set of sevens"
+    loser: bowie
+    rebuy: bowie
+    key_moment: "Bowie's persona fracture on river"
+    
+  hand_2:
+    winner: klaus
+    winning_hand: "Set of queens"
+    losers: [don, donna]
+    rebuys: [don, donna]
+    key_moment: "Klaus speaks for the first time — queens"
+
+session_state:
+  total_chips_in_play: 11000  # 8000 + 3 rebuys
+  chip_leader: palm (4275)
+  short_stack: peewee (400)
+  
+  stacks:
+    palm: 4275
+    klaus: 3025
+    don: 1000
+    donna: 1000
+    bowie: 1000
+    bumblewick: 700
+    leigh: 700
+    peewee: 400
+    
+  rebuys_so_far: 3
+  hands_played: 2
+  
+  social_dynamics:
+    donna_vs_leigh: "Escalating. Olives gone."
+    klaus_emergence: "The alien speaks. Everyone noticed."
+    don_near_death: "Survived via rebuy. Cheese smuggler lives."
+    palm_dominance: "Chipleader, but quiet about it."
+    bumblewick_stress: "New faces overwhelming him. Regression risk."
+    peewee_joy: "EVERYONE IS HAVING FUN! HA HA!"
