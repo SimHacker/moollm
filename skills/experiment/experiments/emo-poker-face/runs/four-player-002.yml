@@ -1205,3 +1205,184 @@ standings:
     palm: "1000 → 0 → 1000 → 350 → 750 (rebuy, lost, won)"
     don: "1000 → 600 → 500 → 450 (slowly bleeding)"
     donna: "1000 → 850 → 350 → 0 (ELIMINATED)"
+
+# HAND 4: THREE-HANDED — THE FINAL ACT?
+
+hand_4:
+  setup:
+    # Button moves: Bumblewick → Donna (skip, eliminated) → Don
+    button: don
+    small_blind: palm  # 25 (has 750)
+    big_blind: bumblewick  # 50 (has 3800)
+    first_to_act: don  # BTN in 3-handed
+    
+    blinds_posted:
+      palm: -25  # stack: 725
+      bumblewick: -50  # stack: 3750
+      pot: 75
+
+  deal:
+    cards:
+      don: [K♥, K♦]  # POCKET KINGS
+      palm: [7♠, 7♣]  # pocket sevens
+      bumblewick: [A♣, Q♥]  # ace-queen offsuit — STRONG
+
+  reactions:
+    don:
+      observable: |
+        Deep breath. Nods once.
+        "Alright then." 
+        Jenever untouched for once.
+      thinking: |
+        Kings.
+        I have kings.
+        Bumblewick won with kings on hand 1.
+        Poetic, if I can take them all here.
+        I have 450. Time to make a stand.
+        The universe gives you these moments.
+        Take them.
+        
+    palm:
+      observable: |
+        Tail curls. Uncurls. Curls again.
+        "Sevens. The thinking man's hand."
+        Soft smile.
+      thinking: |
+        Pocket sevens. Middle of the road.
+        Don has something — he's being too still.
+        Bumblewick has the chips to call anything.
+        I just won a hand. Don't get greedy.
+        But 725 isn't nothing. I can gamble once more.
+        See the flop. Set-mine.
+        
+    bumblewick:
+      observable: |
+        Looks at cards. Looks at cards again.
+        Stands up. Sits down.
+        "Okay. Okay okay okay."
+        Deep breath.
+      thinking: |
+        Ace-queen. That's good. That's really good.
+        Not as good as kings or aces but GOOD.
+        I'm the big stack. I should... assert?
+        Is that the word? Assert my position?
+        Don is looking at me. Palm is looking at me.
+        They want my chips. I have all the chips.
+        Maybe I should raise. Maybe raising is what chip leaders do.
+        This feels different from before.
+        Before I was scared. Now I'm... still scared.
+        But also something else.
+        
+  preflop_action:
+    - actor: don
+      position: BTN
+      action: "all-in 450 🪙"
+      stack_after: 0
+      observable: |
+        All chips in. Single motion.
+        "I'm all in."
+        Leans back. Picks up jenever. Finally drinks.
+        "Let's see what we're made of."
+      thinking: |
+        Kings. All-in from the button.
+        This is the spot.
+        If they fold, I take 75. Not nothing.
+        If they call... well, I'm ahead of most hands.
+        Bumblewick might call with anything. He's been lucky.
+        Palm might set-mine. But 450 might be too much.
+        Let's dance.
+        
+    - actor: palm
+      position: SB
+      action: "folds"
+      stack_after: 725
+      observable: |
+        Cards placed down.
+        "Too rich for sevens."
+        Nods at Don. "Run good."
+        Watches Bumblewick intensely.
+      thinking: |
+        Don has something big. Kings or aces.
+        Sevens don't survive this.
+        I just doubled up. Keep the chips.
+        Let Don and Bumblewick fight.
+        If Don wins, we're even.
+        If Bumblewick wins... he's unstoppable.
+        
+    - actor: bumblewick
+      position: BB
+      decision_pause:
+        duration: "23 seconds"
+        observable: |
+          Staring at Don. Staring at chips.
+          Hands on his stack. Counting. Recounting.
+          "I have to decide if I..."
+          Trails off.
+        thinking: |
+          Don went all-in. Don has kings or aces.
+          I have ace-queen. 
+          If Don has aces, I'm crushed.
+          If Don has kings, I'm... not good.
+          But I have SO MANY CHIPS.
+          450 is nothing to me. I have 3750!
+          If I call and lose, I still have 3300.
+          If I call and WIN, Don is eliminated.
+          
+          Wait.
+          If I WIN, Don is ELIMINATED.
+          Don. Who was nice to me. Who protected me.
+          Do I want Don eliminated?
+          
+          ...
+          
+          This is poker.
+          Poker is about winning.
+          Don put his chips in. He chose to risk them.
+          I can call. I SHOULD call.
+          Ace-queen is good enough to gamble.
+          
+          But Don.
+          
+      action: "calls 400 🪙 (to match all-in)"
+      stack_after: 3350
+      observable: |
+        Pushes chips forward slowly.
+        "I call."
+        Voice steady. Controlled.
+        Looks at Don. Not with apology. With... respect.
+        "You taught me that poker is about choices."
+      thinking: |
+        I called. With ace-queen. Against Don's range.
+        This is the biggest call I've ever made.
+        Not in chips. In meaning.
+        I'm not apologizing this time.
+        Don wants to gamble. I'll gamble with him.
+        May the cards decide.
+
+  preflop_result:
+    pot: 925  # 450 (don) + 400 (bumble) + 75 (blinds)
+    # Wait: 450 (don) + 400 (bumble call to 450 with 50 already posted)
+    # Bumble posted 50, calls 400 more = 450 total
+    # Palm folded 25.
+    # Pot: 450 + 450 + 25 = 925
+    
+    all_in_showdown:
+      don: [K♥, K♦]  # cowboys
+      bumblewick: [A♣, Q♥]  # big slick lite
+      equity:
+        don: "~70%"
+        bumblewick: "~30%"
+        
+    commentary:
+      palm:
+        observable: |
+          "Kings versus ace-queen."
+          Whisker twitch.
+          "Don is ahead. But Bumblewick..."
+          Trails off.
+        thinking: |
+          Classic race. Don SHOULD win.
+          But should doesn't mean will.
+          Bumblewick needs an ace or a queen.
+          Three of each in the deck.
+          The cards love him lately.
