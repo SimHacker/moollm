@@ -1,70 +1,35 @@
-# Photo Prompt: H05 — Donna's Slowplay Reveal
-# Source: four-player-003.yml, Hand 5, Showdown
+# Sidecar for H05-donna-slowplay-reveal.png
+# Generated: 2026-01-23T20:48:30.484695
+#
+# This file is a regenerable recipe. Edit and re-run:
+#   visualize.py regenerate H05-donna-slowplay-reveal.yml
+#
 
-photo:
-  id: "H05-donna-slowplay-reveal"
-  title: "Set"
-  
-source:
-  run: "../runs/four-player-003.yml"
-  hand: 5
-  phase: "showdown"
-  moment: "Donna reveals her slowplayed queens after Bumblewick folds"
-  
-scene:
-  ref: "../SCENE.yml#setting"
-  lighting: "relief"
-  time: "Post-pardon glow"
-  
-camera:
-  angle: "face_close"
-  subject: "donna"
-  position: "Across table, focus on Donna's face and cards"
-  shows:
-    - "Donna turning over Q♦ Q♣"
-    - "Her first genuine smile since returning"
-    - "Board with Q♠ visible"
-    - "Bumblewick's folded cards in background"
-  depth: "Donna sharp, background soft"
+# === SOURCES ===
+# Reference paths to context files (not embedded)
+sources:
+  - H05-donna-slowplay-reveal.yml
+  - SCENE.yml
 
-subject:
-  character: "donna"
-  ref: "../SCENE.yml#characters.donna_toadstool"
-  cards: [Q♦, Q♣]  # Revealing
-  tells_active:
-    - "First smile — mouth curved, eyes softened"
-    - "Shoulders relaxed"
-    - "Cards turned with deliberate grace"
-    - "Chin raised slightly — pride"
-  emotion: "Quiet triumph"
-  internal: "I'm BACK. Playing real poker."
-  dialog: '"Set."'
+# === GENERATION PARAMETERS ===
+generation:
+  provider: google
+  model: imagen-4.0-generate-001
+  size: 1024x1024
+  verbosity: detailed
+  generated_at: 2026-01-23T20:48:30.484695
+
+# === SYNTHESIZED PROMPT ===
+# Edit this to regenerate with tweaks!
+prompt: |
+  A face close-up shot, focusing on Bumblewick, a young adult goblin with pale green, slightly mottled skin. His large, watery eyes are brimming with tears, reflecting the warm amber candlelight of the Gezelligheid Grotto. His ears, large and expressive, droop downwards, emphasizing his sadness. Small trembling hands are visible at the very bottom of the frame. He is wearing an oversized vest with an excessive number of pockets. The vest is a patchwork of browns and greens, with mismatched buttons and frayed edges, suggesting it might be scavenged. The soft, inclusive warmth of the camaraderie lighting mood highlights the textures of his skin and the delicate tracery of veins visible near his temples.
   
-observers:
-  bumblewick:
-    ref: "../SCENE.yml#characters.bumblewick"
-    expression: "Realization, admiration"
-    tells: "Eyes wide, ears perking UP (not drooping)"
-    dialog: '"That\'s what I did to Palm!"'
-    
-  don:
-    ref: "../SCENE.yml#characters.don_hopkins"
-    expression: "Approval, warmth"
-    tells: "Slight nod, cheese in hand"
-    
-  palm:
-    ref: "../SCENE.yml#characters.palm"
-    expression: "Respect"
-    tells: "Slow blink (cat approval)"
+  A detailed shot of hands and cards, highlighting the tension of a poker game. Don Hopkins' weathered hands, aged from his 60s, are deftly handling clay chips – stacks of white, red, blue, and black – while simultaneously reaching for the ornate silver cheese knife resting on a large wooden cheese board. A sharp cheddar wedge sits beside the knife. The worn playing cards, with a traditional back pattern, are fanned out in front of him. Bumblewick's much smaller, trembling hands hover near his own cards. The surface of the round wooden pie table, crafted from dark oak, is worn smooth by generations of elbows. A sparkling water bottle sits beside Donna Toadstool's cards, and a teacup is near Palm the cat. The lighting emphasizes the textures – the grain of the wood, the smoothness of the chips, the rough edges of the cheese. The warm amber candlelight casts long, dramatic shadows, hinting at the high stakes of the game.
+  
+  An over-the-shoulder view from behind Donna Toadstool, a middle-aged toad/humanoid politician. Her squat, dignified form is partially visible, clad in a formal blazer adorned with a strand of pearls. The pearls are large and lustrous, reflecting the candlelight. Her mottled brown-green skin has a slightly bumpy texture. Her large, prominent eyes are focused intently on Don Hopkins, creating a sense of tension. We can see Don Hopkins' warm, weathered features in profile, his gray, slightly wild hair catching the light. He is leaning back in his chair, a comfortable cardigan with rolled sleeves visible. His fingers are tapping twice on his chips, revealing his focused state. His cards are partially visible, held close to his chest. On the table, the clay chips are stacked high. The background is a blur of the cozy underground pub/speakeasy, the Gezelligheid Grotto, with its low vaulted stone ceiling, candle sconces casting warm pools of light, and rough-hewn stone walls with moss in the crevices. The atmosphere is intimate and slightly smoky, with the distinct smell of aged cheese, old wood, and candle wax permeating the air.
+  
+  A wide shot of the poker table, showing all four players: Don Hopkins at seat 1, Palm the cat at seat 2, Bumblewick at seat 3, and Donna Toadstool at seat 4. The round wooden pie table, approximately five feet in diameter and made of dark oak, is the focal point. Don Hopkins, the host, sits near the cheese board, a large wooden board displaying a sharp cheddar wheel and the ornate silver cheese knife. Palm, a silver tabby cat with luminescent fur and darker stripes, sits on an elevated cushion to reach the table. His gold, ancient eyes observe the game with wisdom. Bumblewick, the nervous goblin, requires a booster seat to participate. Donna Toadstool, the politician, maintains a formal posture, her blazer and pearls conveying a mayoral air. Worn playing cards and clay chips in stacks of white, red, blue, and black are scattered across the table. Sparkling water bottles and tea cups are positioned near each player. The lighting is warm amber candlelight, creating a Dutch gezellig aesthetic. The low vaulted stone ceiling is visible above, with candle sconces casting warm pools of light. The floor is worn flagstones, scattered with sawdust. The rough-hewn stone walls have moss growing in the crevices. The atmosphere is intimate and slightly smoky, the air thick with the smell of aged cheese, old wood, and candle wax. The scene is lit to create a mood of relief, with a warmer, more even glow illuminating the players' faces and the details of the setting.
 
-table_state:
-  pot: "Won by Donna"
-  board: [Q♠, 7♥, 2♦, 3♣]  # Turn where she shoved
-  chips:
-    donna: "Rebuilding stack"
-    bumblewick: "Still large (folded correctly)"
-    don: "Medium"
-    palm: "Small"
-  cheese: "Being passed around"
-
-mood: "The return of a competitor"
+# === ADDITIONAL METADATA ===
+provider: google
+model: imagen-4.0-generate-001

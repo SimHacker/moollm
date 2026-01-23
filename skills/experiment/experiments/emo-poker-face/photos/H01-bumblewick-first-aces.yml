@@ -1,74 +1,41 @@
-# Photo Prompt: H01 — Bumblewick's First Aces
-# Source: four-player-001.yml, Hand 1, Preflop
+# Sidecar for H01-bumblewick-first-aces.png
+# Generated: 2026-01-23T20:47:18.360978
+#
+# This file is a regenerable recipe. Edit and re-run:
+#   visualize.py regenerate H01-bumblewick-first-aces.yml
+#
 
-photo:
-  id: "H01-bumblewick-first-aces"
-  title: "The Trembling Raise"
-  
-source:
-  run: "../runs/four-player-001.yml"
-  hand: 1
-  phase: "preflop"
-  moment: "Bumblewick looks at pocket aces for the first time"
-  
-scene:
-  ref: "../SCENE.yml#setting"
-  lighting: "tension"
-  time: "Early evening, bright candles"
-  
-camera:
-  angle: "over_shoulder"
-  subject: "bumblewick"
-  position: "Behind and slightly above Bumblewick"
-  shows: 
-    - "Bumblewick's cards (A♠ A♥) visible to camera"
-    - "His trembling green hands holding cards"
-    - "Other three players visible across table"
-    - "Chip stacks (Bumblewick smallest)"
-  depth: "Cards sharp, opponents soft focus"
+# === SOURCES ===
+# Reference paths to context files (not embedded)
+sources:
+  - H01-bumblewick-first-aces.yml
+  - SCENE.yml
 
-subject:
-  character: "bumblewick"
-  ref: "../SCENE.yml#characters.bumblewick"
-  cards: [A♠, A♥]
-  tells_active:
-    - "Hands visibly trembling"
-    - "Large ears drooped at 45 degrees"
-    - "Eyes wide, slightly watery"
-    - "Shoulders hunched forward"
-  emotion: "Terrified excitement"
-  internal: "These are the best cards! But what do I DO?"
+# === GENERATION PARAMETERS ===
+generation:
+  provider: google
+  model: imagen-4.0-generate-001
+  size: 1024x1024
+  verbosity: detailed
+  generated_at: 2026-01-23T20:47:18.360978
+
+# === SYNTHESIZED PROMPT ===
+# Edit this to regenerate with tweaks!
+prompt: |
+  An over-the-shoulder shot, positioned behind and slightly above Bumblewick, a young adult goblin with pale green, slightly mottled skin, capturing a moment of intense, terrified excitement in a cozy underground pub speakeasy named Gezelligheid Grotto. Bumblewick, small in stature and requiring a booster seat, hunches slightly forward, his small green hands visibly trembling as he holds two cards, the Ace of Spades and the Ace of Hearts, clearly visible to the camera. His large, expressive ears droop at a 45-degree angle, betraying his nervousness. His large, watery eyes are wide with a mix of fear and exhilaration, threatening to spill over. He wears an oversized vest with too many pockets, the fabric a muted brown with subtle green stitching, the buttons mismatched and slightly askew.
   
-opponents:
-  don:
-    ref: "../SCENE.yml#characters.don_hopkins"
-    position: "Directly across"
-    expression: "Curious, slightly amused"
-    tells: "Head tilted, soft smile"
-    action: "Holding cheese knife, paused"
-    
-  palm:
-    ref: "../SCENE.yml#characters.palm"
-    position: "Left of Don"
-    expression: "Alert, observing"
-    tells: "Whiskers angled forward, ears rotated toward Bumblewick"
-    action: "Perfectly still on cushion"
-    
-  donna:
-    ref: "../SCENE.yml#characters.donna_toadstool"
-    position: "Right of Don"
-    expression: "Skeptical, studying"
-    tells: "Eyes narrowed, one eyebrow raised"
-    action: "Adjusting pearls"
+  The worn, dark oak round pie table, approximately five feet in diameter, is the focal point. The table's surface, smoothed by generations of elbows, holds worn playing cards with a traditional back pattern dealt face down in front of each player. To Bumblewick's left, directly across the table, sits Don Hopkins, a stocky human male in his 60s. Don sports a comfortable cardigan with rolled-up sleeves, revealing weathered forearms. His gray, slightly wild hair complements his warm, weathered features and expressive eyes. A cheese knife, ornate and silver, rests on a large wooden cheese board featuring a wheel of sharp cheddar. Don's expression is curious, slightly amused, his head tilted with a soft smile as he pauses mid-slice with the cheese knife.
+  
+  To Don's right, sits Donna Toadstool, a middle-aged (toad years) toad/humanoid with mottled brown-green, slightly bumpy skin. Her dignified, squat build is accentuated by a formal blazer and a string of pearls. Reading glasses hang on a chain around her neck. Her large, prominent eyes are narrowed, one eyebrow raised in skepticism as she studies Bumblewick. Her wide mouth is set in a subtle expression of disdain. She adjusts her pearls, a tell indicating she is thinking. A glass of sparkling water sits untouched before her.
+  
+  To Don's left, sits Palm, a 122-year-old silver tabby cat with darker stripes, appearing ageless. His fur possesses a luminescent quality. He sits on a cushion to reach the table, his long tail curled smoothly around his paws. His gold eyes, reflecting ancient wisdom, are alert and observing Bumblewick, his whiskers angled forward and his ears rotated slightly in the goblin's direction. His fur is perfectly still.
+  
+  The clay chips are arranged in stacks of varying sizes in front of each player, colors include white, red, blue, and black. Bumblewick's stack is the smallest, arranged nervously. Don's stack is medium-sized and neatly organized. Donna's stack is the largest, formed into aggressive towers. Palm's stack is medium, precise and orderly. A small pot of chips sits in the center of the table, representing the blinds.
+  
+  The setting is the Gezelligheid Grotto, a cozy underground pub/speakeasy with an intimate, slightly smoky atmosphere evoking a Dutch gezellig aesthetic. The low, vaulted stone ceiling is adorned with candle sconces, casting warm amber candlelight in pools of shadow. The walls are made of rough-hewn stone with moss growing in the crevices. The floor is covered in worn flagstones with scattered sawdust. The air smells of aged cheese, old wood, and candle wax.
+  
+  The lighting is designed to create tension, with deep shadows and a single candle highlighting Bumblewick's terrified expression. The camera depth of field keeps the cards sharp, while blurring the opponents slightly. This is the moment before everything changes, captured with rich visual detail.
 
-table_state:
-  pot: "Small, just blinds"
-  chips:
-    bumblewick: "Smallest stack, nervous arrangement"
-    don: "Medium stack, neat"
-    palm: "Medium stack, precise"
-    donna: "Large stack, aggressive towers"
-  cards: "Two cards face down in front of each player"
-  cheese: "Full wheel, fresh, knife resting on board"
-
-mood: "The moment before everything changes"
+# === ADDITIONAL METADATA ===
+provider: google
+model: imagen-4.0-generate-001

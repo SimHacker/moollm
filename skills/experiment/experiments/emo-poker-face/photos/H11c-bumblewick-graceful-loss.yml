@@ -1,81 +1,41 @@
-# Photo Prompt: H11c — Bumblewick's Graceful Loss
-# Source: four-player-005.yml, Hand 11, Showdown
+# Sidecar for H11c-bumblewick-graceful-loss.png
+# Generated: 2026-01-23T20:48:28.412473
+#
+# This file is a regenerable recipe. Edit and re-run:
+#   visualize.py regenerate H11c-bumblewick-graceful-loss.yml
+#
 
-photo:
-  id: "H11c-bumblewick-graceful-loss"
-  title: "That's Poker"
-  
-source:
-  run: "../runs/four-player-005.yml"
-  hand: 11
-  phase: "showdown"
-  moment: "Bumblewick accepts his loss with grace, picks up cheese, nibbles"
-  
-scene:
-  ref: "../SCENE.yml#setting"
-  lighting: "camaraderie"
-  time: "Late session, warm"
-  
-camera:
-  angle: "face_close"
-  subject: "bumblewick"
-  position: "Eye level, intimate"
-  shows:
-    - "Bumblewick's face — composed, mature"
-    - "His hand reaching for cheese"
-    - "NO TEARS on his face"
-    - "Other players watching with pride"
-  depth: "Bumblewick sharp, others soft"
+# === SOURCES ===
+# Reference paths to context files (not embedded)
+sources:
+  - H11c-bumblewick-graceful-loss.yml
+  - SCENE.yml
 
-subject:
-  character: "bumblewick"
-  ref: "../SCENE.yml#characters.bumblewick"
-  cards: [K♦, K♣]  # Lost with kings
-  tells_active:
-    - "NO TEARS (arc completion)"
-    - "Eyes dry, clear"
-    - "Small smile forming"
-    - "Hand reaching for cheese (acceptance)"
-    - "Ears level, not drooped"
-    - "Deep breath, shoulders relaxed"
-  emotion: "Mature acceptance"
-  internal: "I lost. With kings. But I played it right."
-  dialog: '"Good hand, Palm. That\'s poker."'
-  action: "Picks up cheese wedge, nibbles"
-  
-observers:
-  don:
-    ref: "../SCENE.yml#characters.don_hopkins"
-    expression: "Pride, respect"
-    tells: 
-      - "Eyes slightly shining"
-      - "Cutting EXTRA LARGE wedge for Bumblewick"
-    dialog: '"THAT is how you handle a bad beat."'
-    
-  donna:
-    ref: "../SCENE.yml#characters.donna_toadstool"
-    expression: "Actual tears (pride)"
-    tells:
-      - "Tears visible on cheeks"
-      - "Hand at chest"
-    dialog: '"He didn\'t cry. HE didn\'t cry."'
-    
-  palm:
-    ref: "../SCENE.yml#characters.palm"
-    expression: "Warm respect"
-    tells:
-      - "Slow blink"
-      - "Pushing pot aside, looking at Bumblewick"
-    internal: "The wheel gave justice. This gives more."
+# === GENERATION PARAMETERS ===
+generation:
+  provider: google
+  model: imagen-4.0-generate-001
+  size: 1024x1024
+  verbosity: detailed
+  generated_at: 2026-01-23T20:48:28.412473
 
-table_state:
-  pot: "Going to Palm, but secondary to moment"
-  chips: "Bumblewick diminished but unbowed"
-  cheese: 
-    bumblewick: "PICKING UP, bringing to mouth"
-    don: "Cutting extra wedge, offering"
+# === SYNTHESIZED PROMPT ===
+# Edit this to regenerate with tweaks!
+prompt: |
+  A dramatically lit, intimate scene inside "Gezelligheid Grotto," a cozy underground pub/speakeasy. The atmosphere is thick with the scent of aged cheese, old wood, and candle wax, lending a Dutch "gezellig" aesthetic. Four players are engrossed in a tense poker game around a round wooden pie table, its dark oak surface worn smooth by generations of elbows.
   
-mood: "The completion of a character arc"
+  Seated at seat 1, closest to the viewer, is Don Hopkins, the host, a stocky human male in his 60s. He wears a comfortable cardigan with rolled-up sleeves. His face is warm and weathered, creased with experience and expressive eyes. His gray hair is slightly wild. Before him sits a large wooden cheese board, dominated by a sharp cheddar wheel and an ornate silver cheese knife glinting in the candlelight. His fingers tap twice on a stack of clay chips (white, red, blue, and black). He maintains direct eye contact with another player, face betraying nothing.
+  
+  To Don's left, at seat 2, sits Palm, an ageless silver tabby cat of 122 years. She's perched regally on a plush cushion to elevate her to table height. Her fur shimmers with a subtle luminescence and features darker stripes. Her long tail is perfectly still. Her ancient golden eyes are fixed intently on the cards in front of her. Her whiskers are angled forward slightly, revealing a hint of alert interest.
+  
+  At seat 3 sits Bumblewick, a young adult goblin, the equivalent of early 20s in human years. He's a small creature with pale green, slightly mottled skin. He needs a booster seat to reach the table. He wears an oversized vest with too many pockets, suggesting a nervous practicality. His large, watery eyes dart about the table, wide with apprehension. His ears, large and expressive, droop noticeably, betraying his anxiety. His small hands, trembling slightly, clutch his cards.
+  
+  At seat 4 sits Donna Toadstool, a middle-aged toad/humanoid with a dignified, almost mayoral air. Her skin is mottled brown-green and slightly bumpy. She wears a formal blazer and a string of pearls. A pair of reading glasses hangs on a chain around her neck. She sits with perfect posture, her back straight, her hands folded neatly in front of her. Her large, prominent eyes narrow as she stares intently at her opponents. She adjusts her pearls with a controlled hand gesture. Her mouth, wide and expressive, hints at potential disdain.
+  
+  The table is laden with objects of the game. Worn playing cards with a traditional back pattern are scattered around the table. Stacks of clay chips in white, red, blue, and black create colorful accents. Sparkling water bottles and delicate tea cups are interspersed among the chips, reflecting the warm candlelight.
+  
+  The room itself is illuminated by warm amber candlelight from sconces mounted on the low vaulted stone ceiling. Pools of deep shadow stretch across the worn flagstone floor, scattered with sawdust. The walls are rough-hewn stone, with patches of moss growing in the crevices. The overall effect is one of deep camaraderie amidst the tension of the game, the lighting creating a sense of relief while highlighting the potential for revelation with dramatic side light. The camera is positioned over Don's shoulder, showing his cards and his opponents, emphasizing the strategic dynamic of the game. The depth of field is shallow, drawing attention to the players' faces and hands, rendering the background slightly out of focus to maintain an intimate, slightly smoky atmosphere.
 
-# This is the most important photo.
-# It captures the moment Bumblewick became a poker player.
+# === ADDITIONAL METADATA ===
+provider: google
+model: imagen-4.0-generate-001

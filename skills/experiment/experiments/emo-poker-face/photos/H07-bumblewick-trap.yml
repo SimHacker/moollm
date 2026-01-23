@@ -1,75 +1,41 @@
-# Photo Prompt: H07 — Bumblewick's Trap
-# Source: four-player-004.yml, Hand 7, Turn
+# Sidecar for H07-bumblewick-trap.png
+# Generated: 2026-01-23T20:47:53.358312
+#
+# This file is a regenerable recipe. Edit and re-run:
+#   visualize.py regenerate H07-bumblewick-trap.yml
+#
 
-photo:
-  id: "H07-bumblewick-trap"
-  title: "Donna Showed Me the Trap"
-  
-source:
-  run: "../runs/four-player-004.yml"
-  hand: 7
-  phase: "turn"
-  moment: "Bumblewick check-raises Don, executing the trap Donna taught him"
-  
-scene:
-  ref: "../SCENE.yml#setting"
-  lighting: "tension"
-  time: "Deep into the session"
-  
-camera:
-  angle: "over_shoulder"
-  subject: "bumblewick"
-  position: "Behind Bumblewick, showing his confident posture"
-  shows:
-    - "Bumblewick's cards (A♦ A♠) tucked but visible"
-    - "His STEADY hands pushing chips"
-    - "Don across table, realizing"
-    - "Board: A♣ 7♠ 4♦ J♦"
-  depth: "Hands and chips sharp, Don in focus"
+# === SOURCES ===
+# Reference paths to context files (not embedded)
+sources:
+  - H07-bumblewick-trap.yml
+  - SCENE.yml
 
-subject:
-  character: "bumblewick"
-  ref: "../SCENE.yml#characters.bumblewick"
-  cards: [A♦, A♠]
-  tells_active:
-    - "Hands STEADY (not trembling)"
-    - "Ears level (not drooped)"
-    - "Direct eye contact with Don"
-    - "Shoulders back, posture improved"
-  emotion: "Confident, proud"
-  internal: "This is what trapping feels like. It feels... good?"
-  dialog: '"Raise. Six hundred."'
-  
-target:
-  character: "don"
-  ref: "../SCENE.yml#characters.don_hopkins"
-  expression: "Recognition, respect"
-  tells:
-    - "Cheese knife set down (acknowledging seriousness)"
-    - "Head tilted, evaluating"
-    - "Small smile forming"
-  internal: '"You have the ace."'
-  
-observers:
-  donna:
-    ref: "../SCENE.yml#characters.donna_toadstool"
-    expression: "Pride, recognition"
-    tells: "Slight nod, watching her student"
-    internal: "He's doing what I taught him"
-    
-  palm:
-    ref: "../SCENE.yml#characters.palm"
-    expression: "Impressed"
-    tells: "Whisker twitch (approval)"
+# === GENERATION PARAMETERS ===
+generation:
+  provider: google
+  model: imagen-4.0-generate-001
+  size: 1024x1024
+  verbosity: detailed
+  generated_at: 2026-01-23T20:47:53.358312
 
-table_state:
-  pot: "Growing, about to win"
-  board: [A♣, 7♠, 4♦, J♦]
-  chips:
-    bumblewick: "Large, pushing forward confidently"
-    don: "Folding posture"
-    donna: "Watching (folded)"
-    palm: "Watching (folded)"
-  cheese: "Bumblewick's wedge UNTOUCHED (focusing)"
+# === SYNTHESIZED PROMPT ===
+# Edit this to regenerate with tweaks!
+prompt: |
+  Over-the-shoulder shot, positioned slightly behind Bumblewick, focusing on his poised hands and the chips he's pushing forward. The composition emphasizes Bumblewick's newfound confidence, with Don Hopkins visible across the table reacting to the raise. The dim, intimate lighting of the Gezelligheid Grotto casts dramatic shadows, highlighting the tension of the moment.
+  
+  Bumblewick, a young adult goblin equivalent to his early 20s, is the primary focus. His pale green, slightly mottled skin is visible in the candlelight. He sits on a booster seat to reach the round, dark oak pie table. He's wearing an oversized vest with too many pockets; the fabric is a muted brown with subtle green stitching. His large, expressive ears are held level, a sign of his composure, and his large, watery eyes are making direct eye contact with Don. His small hands are surprisingly steady as they push a substantial stack of clay chips forward – a mix of white, red, blue, and black. The cards tucked in front of him, Ace of Diamonds and Ace of Spades, are subtly visible. His shoulders are back, and his posture is noticeably improved from his usual nervous slump.
+  
+  Across the table, Don Hopkins, a human male in his 60s, is caught in a moment of realization. His stocky build is partially obscured by a comfortable cardigan with rolled sleeves, a warm, earth-toned brown. His weathered face, etched with lines of experience, shows a dawning respect. His gray, slightly wild hair is illuminated by the warm amber candlelight. His expressive eyes convey a mix of surprise and acknowledgment. He’s set down his ornate silver cheese knife beside a large wooden cheese board holding a sharp cheddar wheel. A small smile is forming on his face, and his head is tilted slightly as he evaluates Bumblewick's play. His chips are folded, indicating his impending fold.
+  
+  The table itself is round, approximately five feet in diameter, and worn smooth by generations of elbows. The worn playing cards, with a traditional back pattern, are spread across the center of the table, displaying the community cards: Ace of Clubs, Seven of Spades, Four of Diamonds, and Jack of Diamonds. Stacks of clay chips in various colors (white, red, blue, and black) are scattered around the table, though most are pushed toward the center. Several sparkling water bottles and teacups are also present. Bumblewick's wedge of cheese remains untouched, a testament to his focused state.
+  
+  To Bumblewick's right, Donna Toadstool, a middle-aged toad/humanoid with a mayoral air, observes the scene with pride. Her mottled brown-green, slightly bumpy skin is visible in the dim light. She’s wearing a formal blazer and pearls. Her large, prominent eyes are fixed on Bumblewick, and a slight nod conveys her approval. Her sparkling water glass remains untouched.
+  
+  To Don's left, Palm, a silver tabby cat of 122 years, sits on an elevated cushion to reach the table. His silver fur, marked with darker stripes, has a luminescent quality. His gold eyes are ancient and wise. A slight twitch of his whiskers indicates his amusement and approval of Bumblewick’s play. His fur is perfectly still, signaling his understanding of the strength of Bumblewick's hand.
+  
+  The scene is bathed in warm amber candlelight, creating pools of shadow and highlighting the faces of the players. The atmosphere is intimate and slightly smoky, characteristic of the Dutch "gezellig" aesthetic. The rough-hewn stone walls of the underground pub, the Gezelligheid Grotto, are visible in the background, with moss growing in the crevices. The low vaulted stone ceiling is punctuated by candle sconces. The floor is made of worn flagstones, with scattered sawdust adding to the rustic charm. The air smells of aged cheese, old wood, and candle wax. The overall mood is one of tension and revelation, as the student becomes dangerous, executing a trap learned from his mentor. The camera angle emphasizes Bumblewick's confidence and Don's surprised reaction.
 
-mood: "The student becomes dangerous"
+# === ADDITIONAL METADATA ===
+provider: google
+model: imagen-4.0-generate-001

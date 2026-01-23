@@ -1,68 +1,47 @@
-# Photo Prompt: H09 — Don's Cheese Knife Tell
-# Source: four-player-005.yml, Hand 9, Flop
+# Sidecar for H09-don-cheese-knife-set.png
+# Generated: 2026-01-23T20:47:53.641316
+#
+# This file is a regenerable recipe. Edit and re-run:
+#   visualize.py regenerate H09-don-cheese-knife-set.yml
+#
 
-photo:
-  id: "H09-don-cheese-knife-set"
-  title: "The Smuggler Provides"
-  
-source:
-  run: "../runs/four-player-005.yml"
-  hand: 9
-  phase: "flop"
-  moment: "Don bets while actively slicing cheese — he has a set"
-  
-scene:
-  ref: "../SCENE.yml#setting"
-  lighting: "camaraderie"
-  time: "Post-ceremony warmth"
-  
-camera:
-  angle: "hands_detail"
-  subject: "don"
-  position: "Low angle, focusing on Don's hands"
-  shows:
-    - "Don's left hand pushing chips"
-    - "Don's right hand holding cheese knife mid-slice"
-    - "Sharp cheddar wheel, wedge being cut"
-    - "His cards (5♣ 5♦) peeking from table edge"
-    - "Board: 5♥ K♦ 3♠"
-  depth: "Hands extremely sharp, face soft but visible"
+# === SOURCES ===
+# Reference paths to context files (not embedded)
+sources:
+  - H09-don-cheese-knife-set.yml
+  - SCENE.yml
 
-subject:
-  character: "don"
-  ref: "../SCENE.yml#characters.don_hopkins"
-  cards: [5♣, 5♦]
-  tells_active:
-    - "MULTITASKING — cheese and chips simultaneously"
-    - "Relaxed shoulders, casual posture"
-    - "Soft smile, crinkled eyes"
-    - "Humming softly"
-  emotion: "Contentment, quiet confidence"
-  internal: "Set of fives. Let them hang themselves."
-  dialog: '"I\'ll bet. 200. And does anyone want more cheddar?"'
+# === GENERATION PARAMETERS ===
+generation:
+  provider: google
+  model: imagen-4.0-generate-001
+  size: 1024x1024
+  verbosity: detailed
+  generated_at: 2026-01-23T20:47:53.641316
+
+# === SYNTHESIZED PROMPT ===
+# Edit this to regenerate with tweaks!
+prompt: |
+  A face close camera angle focusing on Bumblewick, a young adult goblin equivalent to early 20s, in a cozy underground pub called Gezelligheid Grotto. The lighting mood is tension, with deep shadows and a single candle providing a stark highlight. Bumblewick’s skin is pale green, slightly mottled, and his large, watery eyes are wide with fear. Tears streak his face. His ears, large and expressive, droop dramatically, conveying his nervousness. He sits on a booster seat to reach the round, dark oak pie table, its surface worn smooth by generations of elbows.
   
-observers:
-  donna:
-    ref: "../SCENE.yml#characters.donna_toadstool"
-    expression: "Considering, has top pair"
-    tells: "Leaning forward, interested"
-    
-  palm:
-    ref: "../SCENE.yml#characters.palm"
-    expression: "Missed, but content"
-    tells: "Accepting cheese offer"
-    
-  bumblewick:
-    ref: "../SCENE.yml#characters.bumblewick"
-    expression: "Happy, cheese in mouth"
-    tells: "Munching, watching"
+  His small hands tremble visibly as he holds a set of worn playing cards with a traditional back pattern. He's wearing an oversized vest with too many pockets, the fabric a drab mix of browns and greens. The vest seems several sizes too large, adding to his vulnerable appearance.
+  
+  The environment around him is an intimate, slightly smoky space, permeated with the smell of aged cheese, old wood, and candle wax. The ceiling is low and vaulted stone, with candle sconces casting warm amber candlelight that creates dramatic pools of shadow. The walls are rough-hewn stone, with moss visible in the crevices, adding to the underground, grotto-like atmosphere. The floor is worn flagstones, scattered with sawdust.
+  
+  An over-the-shoulder camera angle now, positioned behind Bumblewick, showing his cards and his opponents at the poker table in Gezelligheid Grotto. The lighting shifts slightly to camaraderie, with a softer, more inclusive warmth illuminating the scene. The camera focuses on Bumblewick’s hand, revealing the cards he holds: a mediocre hand, causing his nervousness. His ears are flattened against his head.
+  
+  Across the table sits Don Hopkins, a human male in his 60s. He has a stocky, comfortable build, his face filled with warm, weathered features and expressive eyes. His gray, slightly wild hair completes his approachable look. He wears a comfortable cardigan with rolled sleeves, revealing his forearms. He’s leaned back slightly in his chair, a relaxed posture, and in his hand, he holds an ornate silver cheese knife, actively cutting a sharp cheddar wedge from a large cheese wheel on a wooden board. Clay chips in stacks of white, red, blue, and black are arranged in front of him. His eyes crinkle with a soft smile.
+  
+  To Bumblewick's right sits Donna Toadstool, a middle-aged humanoid toad, radiating a mayoral air. She is squat and dignified, dressed in a formal blazer and wearing pearls. Her skin is mottled brown-green, slightly bumpy. Her large, prominent eyes stare intently at Bumblewick, displaying a hint of disdain. She adjusts her pearls, a tell indicating she is thinking. A sparkling water glass sits untouched beside her. Reading glasses hang from a chain around her neck.
+  
+  Beside Don Hopkins sits Palm, a silver tabby cat of 122 years, appearing ageless. Palm sits on a velvet cushion to reach the table. His fur has a luminescent quality, with darker stripes visible against the silver. His gold eyes possess ancient wisdom. His long tail is curled around his paws, indicating a relaxed state. A stack of chips sits neatly in front of him. His whiskers are angled forward, showing alert attention.
+  
+  A wide angle shot of the table now. The lighting shifts to relief, providing a warmer, more even glow. All four players are visible, their chips and cards spread out on the table. The camera captures the full atmosphere of the Gezelligheid Grotto, emphasizing its cozy, intimate setting. The round wooden pie table, approximately five feet in diameter, anchors the scene.
+  
+  The table is laden with the elements of the game: worn playing cards, clay chips in stacks of white, red, blue, and black. A large wooden board displays a sharp cheddar wheel and an ornate silver cheese knife. Sparkling water bottles and tea cups are scattered amongst the chips and cards. The ambient lighting emphasizes the smell of aged cheese, old wood, and candle wax, enhancing the Dutch gezellig aesthetic of the pub.
+  
+  Bumblewick's nervousness is palpable, contrasting with Don Hopkins' relaxed demeanor, Donna Toadstool's controlled intensity, and Palm's serene wisdom. The camera angle captures Bumblewick accepting a bad beat and reaching for a nearby cube of cheese as comfort. The cheese cube is a vibrant orange, contrasting with his green skin. His drooped ears and tear-streaked face are a clear indication of his emotional state. He's nibbling at the cheese cube, his small hands still trembling slightly.
 
-table_state:
-  pot: "Building"
-  board: [5♥, K♦, 3♠]
-  chips:
-    don: "Pushing 200 with one hand"
-    donna: "About to raise"
-  cheese: "ACTIVE — being sliced and distributed"
-
-mood: "Hospitality hiding a monster"
+# === ADDITIONAL METADATA ===
+provider: google
+model: imagen-4.0-generate-001
