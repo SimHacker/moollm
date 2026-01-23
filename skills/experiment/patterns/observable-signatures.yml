@@ -1,0 +1,275 @@
+# Pattern: Observable Signatures
+#
+# Consistent observable behaviors for different states.
+# Characters have "tells" that persist across the simulation.
+
+pattern:
+  id: observable-signatures
+  name: "Observable Signatures"
+  type: character-behavior
+  
+  description: |
+    Characters exhibit consistent observable behaviors ("tells") 
+    tied to internal states. These signatures:
+    - Must persist across the simulation (consistency)
+    - Are visible in the external layer
+    - Can be read (correctly or incorrectly) in the observation layer
+    - May be deliberately manipulated (bluffing, masking)
+    
+    The key is CONSISTENCY: same character, same state, same tell.
+
+# SIGNATURE STRUCTURE
+
+signature_structure:
+  
+  per_character:
+    description: "Each character defines their observable signatures"
+    format: |
+      {character_id}:
+        signatures:
+          {state_name}:
+            face: "Facial expression pattern"
+            body: "Body language pattern"
+            voice: "Verbal/vocal pattern"
+            timing: "Decision speed pattern"
+            environment: "Object interaction pattern"
+    example: |
+      don_hopkins:
+        signatures:
+          confident:
+            face: "Relaxed, slight smile, direct eye contact"
+            body: "Leaning back, open posture, chip stacks neat"
+            voice: "Conversational, makes jokes, quotes philosophers"
+            timing: "Quick decisions, no hesitation"
+            environment: "Pours drink, shares food"
+          uncertain:
+            face: "Eyes moving, slight furrow"
+            body: "Leans forward, fidgets with chips"
+            voice: "Asks questions, less joking"
+            timing: "Pauses before acting"
+            environment: "Reaches for drink more often"
+
+  state_categories:
+    description: "Common internal states that have signatures"
+    universal:
+      - confident: "Feeling strong, in control"
+      - uncertain: "Unsure, processing"
+      - nervous: "Anxious, worried"
+      - deceptive: "Hiding true state"
+      - relaxed: "At ease, baseline"
+    domain_specific:
+      poker:
+        - strong_hand: "Good cards, expects to win"
+        - weak_hand: "Bad cards, hopes to escape"
+        - bluffing: "Weak hand, projecting strength"
+        - trapped: "Strong hand, projecting weakness"
+      conversation:
+        - interested: "Engaged with topic"
+        - bored: "Disengaged"
+        - lying: "Speaking untrue"
+        - withholding: "Knows more than saying"
+
+# SIGNATURE TYPES
+
+signature_types:
+
+  involuntary:
+    description: "Genuine tells the character can't fully control"
+    examples:
+      - "Micro-expressions (flash of emotion)"
+      - "Physiological (blushing, sweating, trembling)"
+      - "Voice changes (pitch, speed)"
+      - "Pupil dilation"
+    note: "Characters may not know they have these"
+    
+  habitual:
+    description: "Learned behaviors tied to states"
+    examples:
+      - "Chip tricks when confident"
+      - "Touching face when lying"
+      - "Specific phrase when uncertain"
+    note: "Character may be aware but not actively control"
+    
+  performed:
+    description: "Deliberate signals (can be honest or deceptive)"
+    examples:
+      - "Dramatic sigh to suggest weakness"
+      - "Confident chip riffle to intimidate"
+      - "Verbal statement about hand strength"
+    note: "Observers must assess authenticity"
+    
+  masked:
+    description: "Attempting to hide true state"
+    examples:
+      - "Forcing calm expression when excited"
+      - "Slowing down normally quick decisions"
+      - "Maintaining conversation when wanting to fold"
+    note: "Masking often imperfect — cracks show"
+
+# CONSISTENCY RULES
+
+consistency_rules:
+
+  same_state_same_tell:
+    rule: "A character showing 'nervous' in round 1 should show similar nervous tells in round 4"
+    enforcement: |
+      Define tells explicitly in character profile.
+      Check output against defined tells.
+      Flag inconsistency as failure mode.
+      
+  tell_evolution:
+    rule: "Tells can evolve but changes must be explained"
+    valid_evolution:
+      - "Character learns to mask a tell (growth)"
+      - "Character's tell intensifies under pressure"
+      - "Substance use affects tells (drink → sloppier)"
+    invalid_evolution:
+      - "Tell changes randomly between rounds"
+      - "Character has opposite tell for same state"
+      
+  tell_interference:
+    rule: "Multiple simultaneous states create complex signatures"
+    example: |
+      # Character is bluffing (weak hand) but also nervous (high stakes)
+      # Their signature should show BOTH:
+      observable:
+        face: "Confident expression (bluffing) but eyes darting (nervous)"
+        body: "Power pose (bluffing) but finger tapping (nervous)"
+
+# HOW TO DEFINE
+
+definition_format:
+
+  in_experiment: |
+    # In EXPERIMENT.md character_requirements
+    
+    character_requirements:
+      defined_for_experiment:
+        signatures:
+          {state_1}:
+            description: "What this state means"
+            channels: [face, body, voice, timing, environment]
+          {state_2}:
+            # ...
+            
+  in_character_profile: |
+    # In RELATIONSHIPS.yml or CHARACTER.yml
+    
+    character_profiles:
+      {character_id}:
+        signatures:
+          nervous:
+            face: "Wide eyes, frequent blinking"
+            body: "Trembling, hunched shoulders"
+            voice: "Stammering, apologetic"
+            timing: "Long pauses, second-guessing"
+            environment: "Knocks things over, spills drink"
+          # ...
+          
+  with_complexity: |
+    # Advanced: signature strength and reliability
+    
+    {character_id}:
+      signatures:
+        confident:
+          face: 
+            signal: "Relaxed smile"
+            strength: 0.8  # How obvious
+            reliability: 0.9  # How consistently produced
+          body:
+            signal: "Open posture"
+            strength: 0.6
+            reliability: 0.95
+          # Some characters have stronger/weaker tells
+          # Some tells are more reliable than others
+
+# USING IN SIMULATION
+
+simulation_usage:
+
+  generating_observable: |
+    Given character's internal state, generate matching observable:
+    
+    1. Identify character's current state(s)
+    2. Look up defined signatures for those states
+    3. Generate observable: block using those signatures
+    4. If multiple states, blend signatures appropriately
+    5. If masking, show imperfect masking (cracks)
+    
+  generating_reads: |
+    Other characters observe and interpret:
+    
+    1. Observer sees target's observable: block
+    2. Observer matches against known signatures
+    3. Observer may (mis)interpret based on:
+       - Familiarity with target
+       - Relationship history
+       - Own biases and experience
+       - How good they are at reading people
+    4. Generate reads: block with interpretation
+
+# FAILURE MODES
+
+failure_modes:
+
+  tell_inconsistency:
+    description: "Same character, same state, different tell"
+    example: |
+      Round 1: Klaus touches chin when uncertain
+      Round 3: Klaus scratches head when uncertain (different!)
+    severity: "major"
+    detection: "Compare tells across rounds for same character+state"
+    
+  universal_tells:
+    description: "All characters have the same nervous fidget"
+    example: "Everyone taps chips when nervous"
+    severity: "moderate"  
+    detection: "Compare signature definitions across characters"
+    
+  tell_absent:
+    description: "Character state doesn't produce defined signature"
+    example: "Character is nervous but no nervous tells appear"
+    severity: "minor to major"
+    detection: "Check thinking: state against observable: content"
+    
+  impossible_read:
+    description: "Observer reads tell that wasn't produced"
+    example: "Observer notes 'hand trembling' when no trembling was in observable:"
+    severity: "critical (layer bleed)"
+    detection: "Cross-reference reads: against observable:"
+
+# EXAMPLES
+
+examples:
+
+  well_defined_signatures: |
+    bumblewick_fantastipants:
+      signatures:
+        terrified:  # His baseline
+          face: "Wide eyes, lip quivering"
+          body: "Trembling, clutching chips to chest"
+          voice: "Squeaking, apologizing"
+          timing: "Freezes, then acts impulsively"
+          environment: "Spills tea, drops cards"
+        secretly_confident:  # When he actually has good cards
+          face: "Same terrified face (can't hide it)"
+          body: "STILL trembling (indistinguishable)"
+          voice: "Still apologizing (no change)"
+          timing: "Same freeze pattern"
+          # KEY: Bumblewick's tells are IDENTICAL whether strong or weak
+          # This makes him hard to read — but also he can't bluff
+          
+  complex_signatures: |
+    david_bowie:
+      signatures:
+        # Bowie's tells depend on which PERSONA is active
+        ziggy_confident:
+          face: "Theatrical smile, one eyebrow raised"
+          body: "Dramatic gestures, sprawling posture"
+          voice: "Playful, references to Mars"
+        thin_white_duke_confident:
+          face: "Minimal expression, cold stare"
+          body: "Rigid, controlled, minimal movement"
+          voice: "Clipped, precise, European affect"
+        # Same state, different persona = different signature
+        # Readers must identify persona FIRST to read tell

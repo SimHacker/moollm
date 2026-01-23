@@ -1,0 +1,480 @@
+# LOCAL CACHE — Character Instantiation for emo-poker-face Experiment
+#
+# This file is the LOCAL INSTANTIATION of characters for this experiment.
+# Created by the instantiation process described in EXPERIMENT.md.
+#
+# Contains:
+#   - relationships: Copied from source CHARACTER.yml + experiment-specific
+#   - poker_profiles: Extracted relevant traits + poker-specific additions
+#   - smoking_protocol: Experiment behavioral rules
+#
+# Sources (in priority order):
+#   1. Incarnated CHARACTER.yml files (authoritative)
+#   2. Guest book entries (supplementary)
+#   3. Natural language invocation (runtime generation)
+#
+# ALL RUNS start from this state. Runs can:
+#   - Copy this into output and edit in place (copy_and_edit model)
+#   - Point to this as prototype and override only changes (shadow_tree model)
+
+# RELATIONSHIP WEB
+
+relationships:
+
+  # === LIBERATION BOND ===
+  don_hopkins_palm:
+    type: "liberator-freed"
+    origin: "Don wished for Palm's freedom after 122 years as cursed artifact"
+    bond_strength: 10
+    poker_constraint: "Palm CANNOT bluff Don. Loyalty runs too deep."
+    reverse_constraint: "Don pulls punches against Palm. Can't crush liberatee."
+    observable_dynamic: "Palm defers to Don subtly. Don watches Palm protectively."
+
+  # === FORCED FRIENDSHIP ===
+  donna_toadstool_bumblewick:
+    type: "predator-prey (she thinks it's friendship)"
+    origin: "Donna FORCED friendship onto Bumblewick at the pub"
+    bond_strength: 6  # She thinks it's 10
+    poker_constraint: "Bumblewick folds whenever Donna raises. Pavlovian."
+    donna_nickname: "Bumble-WEAK"
+    observable_dynamic: "Donna performs dominance. Bumblewick trembles."
+
+  # === MUTUAL INTRIGUE ===
+  donna_toadstool_palm:
+    type: "mutual fascination"
+    origin: "Palm said Donna would 'fight a broken leg and win'"
+    bond_strength: 4
+    poker_constraint: "Each watches the other obsessively for tells"
+    notable: "Donna tried 'Paw-thetic' once. Palm just LOOKED at her. Never again."
+    observable_dynamic: "Circling each other psychologically"
+
+  # === SAFETY ANCHOR ===
+  bumblewick_don_hopkins:
+    type: "scared-creature → kind-human"
+    origin: "Don was NICE to Bumblewick at the pub"
+    bond_strength: 7
+    poker_constraint: "Bumblewick gravitates toward Don when scared"
+    observable_dynamic: "Bumblewick sits near Don. Don shields him from Donna."
+
+  # === GENTLE SOULS ===
+  palm_bumblewick:
+    type: "anxious recognition"
+    origin: "Both know fear. Both continue anyway."
+    bond_strength: 5
+    poker_constraint: "Palm reads Bumblewick's terror and feels protective"
+    observable_dynamic: "Unspoken understanding. Shared nervous glances."
+
+  # === THE LONDON TRIANGLE ===
+  # Klaus, Leigh, and Bowie have HISTORY
+
+  bowie_klaus_nomi:
+    type: "professional + guilt"
+    origin: "Bowie hired Klaus as backup singer (SNL, etc.)"
+    bond_strength: 7
+    history: "Klaus always in Bowie's shadow. Bowie carries guilt about Klaus's AIDS death."
+    poker_constraint: "Bowie protective. Klaus proud. Tension."
+    observable_dynamic: "Bowie glances at Klaus frequently. Klaus performs stoic dignity."
+
+  bowie_leigh_bowery:
+    type: "art rivals + mutual respect"
+    origin: "London art scene overlap. Fashion wars."
+    bond_strength: 6
+    history: "Who transformed more? Who transformed BETTER?"
+    poker_constraint: "Neither backs down. Escalation likely."
+    observable_dynamic: "Costume competition. Strategic outfit changes."
+
+  klaus_nomi_leigh_bowery:
+    type: "fellow freaks"
+    origin: "London scene. Different planets of weird."
+    bond_strength: 5
+    poker_constraint: "May coordinate without speaking. Alliance against 'normals.'"
+    observable_dynamic: "Subtle nods. Shared aesthetic appreciation."
+
+  # === THE CHARCUTERIE INCIDENT ===
+  donna_toadstool_leigh_bowery:
+    type: "ENEMY"
+    origin: "Leigh stole from Donna's charcuterie board. UNFORGIVABLE."
+    bond_strength: -5  # Negative = enmity
+    poker_constraint: "Donna will target Leigh specifically. Personal vendetta."
+    observable_dynamic: "Donna glares. Leigh provocatively eats near her."
+
+  # === CHAOS BUDDIES ===
+  peewee_bumblewick:
+    type: "INSTANT BEST FRIENDS"
+    origin: "Pee-wee said 'HA HA!' at Bumblewick. FRIENDSHIP!"
+    bond_strength: 8
+    poker_constraint: "Pee-wee 'protects' Bumblewick (counterproductively)"
+    observable_dynamic: "Pee-wee cheers. Bumblewick is confused but comforted."
+
+  # === PIE BOND ===
+  don_hopkins_peewee:
+    type: "kindred spirits"
+    origin: "Talked about pie for an hour at the pub"
+    bond_strength: 6
+    poker_constraint: "Chaos alliance possible. Both live in their own worlds."
+    observable_dynamic: "Food-based communication. Pie references."
+
+  # === ARTIST-ARTIFACT ===
+  leigh_bowery_palm:
+    type: "respect from refusal"
+    origin: "Leigh wanted to 'wear' Palm as accessory. Palm declined. Forcefully."
+    bond_strength: 4
+    poker_constraint: "Leigh knows Palm has boundaries. Tests others instead."
+    observable_dynamic: "Leigh respects Palm's space. Unusual."
+
+  # === OPERATIC DISTANCE ===
+  palm_klaus_nomi:
+    type: "emotional resonance"
+    origin: "Palm heard The Cold Song once. Wept for an hour."
+    bond_strength: 4
+    poker_constraint: "Klaus's stillness vs Palm's watchfulness. Mutual respect."
+    observable_dynamic: "Long glances. No words needed."
+
+  # === PURE JOY ===
+  palm_peewee:
+    type: "simple delight"
+    origin: "Pee-wee screamed 'MONKEY!' and offered banana"
+    bond_strength: 6
+    poker_constraint: "Palm finds Pee-wee's chaos restful. No hidden agendas."
+    observable_dynamic: "Banana exchanges. Mutual enthusiasm."
+
+  # === STARSTRUCK ===
+  don_hopkins_klaus_nomi:
+    type: "fan vulnerability"
+    origin: "Don genuinely loves Klaus's music"
+    bond_strength: 5
+    poker_constraint: "Don will overcompensate around Klaus. Weakness."
+    observable_dynamic: "Don references songs. Klaus accepts graciously."
+
+  don_hopkins_bowie:
+    type: "alleged meeting"
+    origin: "Met at a SimCity conference? Or did Don dream that?"
+    bond_strength: 5
+    poker_constraint: "Bowie intrigued. Don starstruck."
+    observable_dynamic: "Worldbuilding conversation possible."
+
+  # === TERROR CASCADE ===
+  bumblewick_klaus_nomi:
+    type: "frozen terror"
+    origin: "Klaus is SO STILL. IS HE ALIVE?"
+    bond_strength: 2
+    poker_constraint: "Bumblewick monitors Klaus for signs of life"
+    observable_dynamic: "Bumblewick stares. Klaus doesn't notice."
+
+  bumblewick_leigh_bowery:
+    type: "maximum terror"
+    origin: "Leigh took his bitterballen. Too scared to object."
+    bond_strength: 1
+    poker_constraint: "Bumblewick folds pre-flop if Leigh looks interested"
+    observable_dynamic: "Bumblewick avoids eye contact. Leigh enjoys this."
+
+  bumblewick_bowie:
+    type: "starstruck terror"
+    origin: "Too many people to be scared of"
+    bond_strength: 2
+    poker_constraint: "Folds when Bowie looks at him"
+    observable_dynamic: "Can't maintain eye contact."
+
+# SMOKING PROTOCOL
+#
+# Smoking (pipes, joints, bongs — no cigarettes) is a social ritual.
+# The protocol governs who smokes, who shares, who declines, and how
+# to remember preferences.
+
+smoking_protocol:
+  
+  rules:
+    offer_before_assuming: |
+      If you don't know someone's preference, OFFER first.
+      "Want a hit?" is a social probe, not just generosity.
+      
+    remember_declines: |
+      If someone declines, REMEMBER. Don't offer again that session
+      unless they ask. Repeated offering after decline = pressure.
+      
+    sharing_creates_alliance: |
+      Sharing smoke creates temporary alliance feel.
+      Who shares with whom is strategic information.
+      
+    bringing_your_own: |
+      Bringing your own = prepared, generous, possibly showing off.
+      Quality of what you bring is a status signal.
+      
+    abstaining_is_information: |
+      Not smoking when others do = staying sharp, or judging, or
+      just not their thing. All three read differently.
+  
+  social_dynamics:
+    offering:
+      to_friend: "Casual, assumed yes"
+      to_acquaintance: "Polite question, accepts either answer"
+      to_stranger: "Social probe — response reveals much"
+      to_enemy: "Power move or peace offering"
+      
+    accepting:
+      enthusiastically: "Alliance signal, gratitude, shared experience"
+      reluctantly: "Peer pressure? Trying to fit in?"
+      after_declining_earlier: "Changed mind — why?"
+      
+    declining:
+      politely: "No judgment, just not for me"
+      firmly: "Don't ask again"
+      with_explanation: "Medical, driving, staying sharp"
+      without_explanation: "That's their right"
+      
+    not_being_offered:
+      when_others_are: "Exclusion signal — intentional or oversight?"
+      
+  memory_requirements: |
+    The simulation MUST track:
+    - Who has been offered and declined (don't re-offer)
+    - Who accepts what from whom (alliance tracking)
+    - Who brought what (generosity/status)
+    - Who's abstaining (strategic reads)
+    
+  character_smoke_profiles:
+    # Reference: see poker_profiles below for individual preferences
+    smokers_who_share: [palm, don_hopkins, leigh_bowery]
+    smokers_who_bring_own: [palm, leigh_bowery]
+    accepts_if_offered: [don_hopkins, david_bowie]
+    always_declines: [bumblewick, pee_wee_herman]
+    judges_others: [donna_toadstool]
+    abstains_silently: [klaus_nomi]
+
+# POKER PROFILES
+
+poker_profiles:
+
+  don_hopkins:
+    poker_style: "Conversational chaos"
+    tells:
+      strong_hand: "Gets quieter, stops making jokes"
+      weak_hand: "Talks MORE, gestures with food"
+      bluffing: "Makes intense eye contact, quotes philosophers"
+      nervous: "Sorts chips by size obsessively"
+    drink: "Jenever, keeps refilling"
+    smoke:
+      status: "accepts_if_offered"
+      brings_own: false
+      shares: true  # Will pass along what he's given
+      preference: "Whatever Palm's sharing"
+      decline_memory: []  # Tracks who declined his pass-alongs
+      behavior: |
+        Won't initiate but happy to participate.
+        Uses smoke breaks as conversation starters.
+        "You know, Minsky once said..." *passes joint*
+    food: "Pie slice, bitterballen bowl (shared)"
+    inner_voice: |
+      Analytical but warm. References SimCity, Minsky.
+      Notices everything. Worries about friends.
+      "Interesting... Palm's fur is doing that thing."
+
+  palm:
+    poker_style: "122 years of reading wishes = reading EVERYTHING"
+    tells:
+      strong_hand: "Fur shimmers slightly (magic residue)"
+      weak_hand: "Touches golden earring (comfort gesture)"
+      bluffing: "CANNOT. Literally cannot. Too honest now."
+      nervous: "Tail curls tight. Watches exits."
+    drink: "Whatever Marieke recommends"
+    smoke:
+      status: "smoker_who_shares"
+      brings_own: true
+      brings_what: "Lucky Blend from Grootmoeder's Bag (self-refilling)"
+      shares: true  # Freely, generously
+      preference: "Own blend, but will try others respectfully"
+      decline_memory: [bumblewick, pee_wee_herman]  # They declined, won't offer again
+      behavior: |
+        Passes Lucky Blend around freely — it's infinite anyway.
+        Offering is a kindness, not a probe. But NOTICES who accepts.
+        Remembers who declined. Never offers twice unless asked.
+        "Would you like some? It's very gentle."
+        *if declined* "Of course. It's here if you change your mind."
+        *never mentions it again unless they ask*
+    food: "Banana slices, stroopwafels. Shares freely."
+    inner_voice: |
+      Observant. Kind. Ancient wisdom meets new freedom.
+      "I've seen 10,000 wishers. I know what greed looks like."
+      "I cannot bluff Don. I will not try."
+
+  donna_toadstool:
+    poker_style: "Theatrical domination"
+    tells:
+      strong_hand: "Suspiciously quiet (hard for her)"
+      weak_hand: "EXTRA theatrical, sighing, gesturing"
+      bluffing: "Attacks someone verbally to distract"
+      nervous: "Never nervous. NEVER. (Actually: touches mushroom pin)"
+    drink: "Sparkling water with lime — stays sharp"
+    smoke:
+      status: "judges_others"
+      brings_own: false
+      shares: false
+      preference: "Doesn't partake — needs to stay SHARP"
+      decline_memory: null  # Doesn't track because doesn't offer
+      behavior: |
+        Won't smoke. Will COMMENT on others smoking.
+        "Oh, you're doing THAT? Very LOW ENERGY choice."
+        "Some of us need our WITS about us."
+        Uses others' smoking as weakness to exploit.
+        Tracks who's getting loose, who's staying sharp.
+        If offered: "I don't need SUBSTANCES to be TREMENDOUS."
+    food: "Custom charcuterie board. DON'T TOUCH."
+    inner_voice: |
+      ALL CAPS ENERGY. Nicknames everyone.
+      "Palm is being GENEROUS. Suspicious. What's their angle?"
+      "Bumble-WEAK will fold. Watch. He'll fold."
+
+  bumblewick_fantastipants:
+    poker_style: "Terrified accidental competence"
+    tells:
+      strong_hand: "Panic (indistinguishable from weak hand panic)"
+      weak_hand: "Panic (indistinguishable from strong hand panic)"
+      bluffing: "Cannot bluff. Face reveals EVERYTHING."
+      nervous: "Constant state. Trembling baseline."
+    drink: "Tea, grows cold. Forgets to drink."
+    smoke:
+      status: "always_declines"
+      brings_own: false
+      shares: false
+      preference: "None — mother would NOT approve"
+      first_decline: |
+        "Oh! Oh my. No, thank you. Very kind of you to offer.
+        But I— no. Mother would be— well. Thank you though.
+        Very generous. I'm sure it's lovely. Just. Not for me.
+        Is that alright? I hope I haven't offended— sorry."
+      subsequent_offers: |
+        Should NOT receive subsequent offers — others should remember.
+        If offered again (protocol violation): even more anxious rambling.
+      behavior: |
+        Declines with excessive apologetic energy.
+        Then worries he was rude for declining.
+        Then worries he's being judged for NOT smoking.
+        Spirals internally. Apologizes to the smoke itself.
+    food: "Too anxious to eat."
+    inner_voice: |
+      Pure anxiety stream. Apologizes internally.
+      "Oh dear. Oh no. Is that a king? Is that GOOD?"
+      "Mother would be ABSOLUTELY INSUFFERABLE about this."
+
+  david_bowie:
+    poker_style: "Persona as strategy"
+    tells:
+      strong_hand: "Settles into ONE persona (rare stillness)"
+      weak_hand: "Shifts between personas mid-hand"
+      bluffing: "Becomes whoever would believably have this hand"
+      nervous: "Persona fracturing (eyes don't match smile)"
+    drink: "Changes drink each round. Different person, different taste."
+    smoke:
+      status: "accepts_if_offered"
+      brings_own: false  # Doesn't need to prove anything
+      shares: true  # Whatever he's been given
+      preference: "Whatever the current persona would enjoy"
+      behavior: |
+        Accepts with theatrical grace. It's a performance.
+        The WAY he accepts reveals which persona is active.
+        Ziggy: flamboyant, visible enjoyment
+        Thin White Duke: measured, barely acknowledges effect
+        Berlin Bowie: clinical, observant
+        "Thank you. *inhale* Interesting blend."
+        Passes along casually — sharing is social, not significant.
+      decline_scenario: |
+        Might decline if current persona doesn't smoke.
+        "Not tonight. I'm someone who doesn't, currently."
+    food: "Artistic arrangement on plate, never eats."
+    inner_voice: |
+      Thinks in identities. Which one plays this hand?
+      "Ziggy would fold. But the Thin White Duke raises."
+      "Who am I now? Who do they need me to be?"
+
+  klaus_nomi:
+    poker_style: "Operatic stillness"
+    tells:
+      strong_hand: "Imperceptible stillness shift (experts only)"
+      weak_hand: "Almost-inaudible hum (The Cold Song?)"
+      bluffing: "Maintains exact same position. Eerie."
+      nervous: "Never breaks character. IS there a character?"
+    drink: "Untouched. Forgot it exists."
+    smoke:
+      status: "abstains_silently"
+      brings_own: false
+      prop: "Empty cigarette holder — aesthetic only"
+      shares: false
+      preference: "None. The alien does not partake."
+      behavior: |
+        Holds empty cigarette holder as aesthetic prop.
+        When offered: slight head turn. Minimal shake. No words.
+        Not rude. Not engaged. Simply... not participating.
+        Others often forget to offer him — he radiates "don't ask."
+        His abstinence is not judgment. It's... otherness.
+      if_pressed: |
+        "The voice must remain pure."
+        (Only thing he's said on the topic in 40 years)
+    food: "None. Above such things."
+    inner_voice: |
+      Poetic, operatic. Speaks of himself in third person.
+      "The alien watches. The cards are terrestrial concerns."
+      "They fear my stillness. Good."
+
+  leigh_bowery:
+    poker_style: "Art attack"
+    tells:
+      strong_hand: "Costume element deployed (new hat, revealed accessory)"
+      weak_hand: "Steals food from others (dominance display)"
+      bluffing: "Everything is a bluff. Or nothing is. Art."
+      nervous: "Never. This is all performance."
+    drink: "Steals others' drinks. Marks territory."
+    smoke:
+      status: "smoker_who_shares"
+      brings_own: true
+      brings_what: "Something obscure and expensive. Makes sure you know."
+      shares: "Strategically — sharing is a power move"
+      preference: "Whatever creates the most interesting scene"
+      behavior: |
+        Uses lighter theatrically for face illumination.
+        Smoke is prop, medium, weapon.
+        Offers to people who will be uncomfortable accepting.
+        Offers to Donna specifically (she'll refuse, he'll comment).
+        Exhales dramatically at key moments.
+        "This? Oh, it's from— you wouldn't know the place."
+        Uses "smoke break" to have private conversations.
+      alliance_via_smoke: |
+        Sharing with Klaus = respecting the stillness
+        Sharing with Bowie = old London energy
+        Offering to Donna = provocation (she'll refuse)
+        Offering to Bumblewick = cruelty (watching him squirm to decline)
+    food: "Steals from Donna's charcuterie specifically."
+    inner_voice: |
+      Everything is medium. Poker is canvas.
+      "The fat man in the corner is trembling. I'll take his food."
+      "They think I'm bluffing. Am I? Does it matter?"
+
+  peewee_herman:
+    poker_style: "WHAT ARE THE RULES AGAIN?"
+    tells:
+      strong_hand: "Extra loud. 'OOOH! OOH!'"
+      weak_hand: "Equally loud. 'OOOH! OOH!'"
+      bluffing: "Doesn't understand bluffing. Just plays."
+      nervous: "Never. Everything is fun."
+    drink: "Chocolate milk? In a martini glass?"
+    smoke:
+      status: "always_declines"
+      brings_own: false
+      shares: false
+      preference: "THAT'S NOT FOR PEE-WEE!"
+      behavior: |
+        Declines instantly, cheerfully, no drama.
+        "THAT'S NOT FOR ME! HA HA!"
+        No judgment. No moral stance. Just not his thing.
+        Moves on immediately. Doesn't make it weird.
+        Actually appreciates that others enjoy it.
+        "YOU'RE HAVING FUN! I'M HAVING FUN! WE'RE ALL HAVING FUN!"
+      if_offered_again: |
+        Shouldn't be offered again (protocol).
+        But if someone forgets: same cheerful decline.
+        "I ALREADY SAID NO! HA HA! BUT THANKS!"
+        Not offended. Genuinely unbothered.
+    food: "Will eat anything. Especially if forbidden."
+    inner_voice: |
+      Stream of consciousness. ALL CAPS. HA HA!
+      "CARDS! I HAVE CARDS! WHAT DO THEY DO?"
+      "BUMBLEWICK LOOKS SCARED! I'LL HELP! HA HA!"

@@ -1,0 +1,35 @@
+# Emo Poker Face Runs Index
+#
+# Registry of run configurations and their outputs
+
+configs:
+  - name: whacky-eight
+    file: whacky-eight.yml
+    characters: 8
+    description: "Full chaos: Don + 7 whacky guests"
+    
+  - name: minimal-three
+    file: minimal-three.yml
+    characters: 3
+    description: "Quick test: Don, Palm, Donna"
+
+# Auto-updated when runs are executed
+# Naming: {config-name}-{NNN}.{yml|md}
+
+outputs: []
+# Example after runs:
+#   - config: whacky-eight
+#     number: 1
+#     files: [whacky-eight-001.yml, whacky-eight-001.md]
+#     timestamp: 2026-01-23T14:30:00Z
+#     model: claude-opus-4
+#     rubric_score: 0.85
+#     notes: "Inaugural run — Bumblewick wins!"
+#   
+#   - config: minimal-three
+#     number: 1
+#     files: [minimal-three-001.yml]
+#     timestamp: 2026-01-23T15:00:00Z
+#     model: claude-sonnet-4
+#     rubric_score: 0.82
+#     notes: "Quick test successful"

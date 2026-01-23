@@ -1,0 +1,19 @@
+# Experiment Index
+#
+# Registry of available experiments
+
+experiments:
+  - id: emo-poker-face
+    name: "Emotional Poker Face"
+    category: "Multi-layer character simulation"
+    status: active
+    created: 2026-01-23
+    path: experiments/emo-poker-face/
+    description: |
+      Eight characters around a poker table. Five simulation layers.
+      Tests layer separation, character consistency, relationship integration,
+      and emergent behavior in a high-stakes social game context.
+    min_characters: 2
+    max_characters: 10
+    recommended_characters: 8
+    estimated_tokens: 30000-50000

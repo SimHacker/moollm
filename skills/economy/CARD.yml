@@ -1,7 +1,7 @@
 # CARD.yml — Economy
 #
 # Currency, trade, and economic flow.
-# "Gold is just a number until someone wants it."
+# "Money is just a number until someone wants it."
 
 card:
   id: economy
@@ -14,7 +14,152 @@ card:
   
   description: |
     Currency management, buying, selling, and trade.
-    Track gold, transactions, and economic relationships.
+    Supports multiple currencies: MOOLA (native), gold, dollars, custom.
+    Track balances, transactions, and economic relationships.
+
+# CURRENCY SYSTEM
+#
+# The economy skill supports MANY currencies.
+# MOOLA is the NATIVE coin of MOOLLM, but adventures can use any.
+
+currencies:
+
+  # THE NATIVE COIN OF MOOLLM
+  moola:
+    native: true  # Default currency when none specified
+    name: MOOLA
+    symbol: "🪙"
+    plural: MOOLA
+    denominations:
+      - { name: "NUT", value: 0.001, symbol: "🥜" }      # 1000 🥜 = 1 🪙
+      - { name: "MOOLA", value: 1, symbol: "🪙" }        # 1000 🪙 = 1 💎
+      - { name: "GRAND", value: 1000, symbol: "💎" }     # 1000 💎 = 1 👑
+      - { name: "FORTUNE", value: 1000000, symbol: "👑" }
+    slang: ["moo", "coins", "cheese", "aloom"]
+    etymology: |
+      Sounds like "moolah" (slang for money).
+      Sounds like "MOO" (the language MOOLLM descends from).
+      Circular: MOOLLM → MOOLA → MOOLLM.
+
+  # CLASSIC RPG CURRENCY
+  gold:
+    name: Gold
+    symbol: "🟡"
+    plural: gold
+    aliases: [gp, gold pieces]
+    denominations:
+      - { name: "copper", value: 0.01, symbol: "🟤", abbrev: "cp" }
+      - { name: "silver", value: 0.1, symbol: "⚪", abbrev: "sp" }
+      - { name: "gold", value: 1, symbol: "🟡", abbrev: "gp" }
+      - { name: "platinum", value: 10, symbol: "⬜", abbrev: "pp" }
+    use: "Classic RPG/D&D style adventures"
+
+  # THE SIMS CURRENCY  
+  simoleons:
+    name: Simoleons
+    symbol: "§"
+    plural: Simoleons
+    use: "Sims-style life simulation"
+    lineage: "The Sims (Maxis/EA)"
+
+  # REAL-WORLD (for grounded simulations)
+  real_world:
+    - { name: "Dollar", symbol: "$", code: "USD", emoji: "💵" }
+    - { name: "Euro", symbol: "€", code: "EUR", emoji: "💶" }
+    - { name: "Pound", symbol: "£", code: "GBP", emoji: "💷" }
+    - { name: "Yen", symbol: "¥", code: "JPY", emoji: "💴" }
+    use: "Grounded simulations, real-world scenarios"
+
+  # CUSTOM TEMPLATE
+  custom:
+    description: |
+      Adventures can define their own currencies.
+      Examples: credits, caps, rupees, gil, bells, zenny, etc.
+
+# MOOLA HIERARCHY (expanded)
+
+# MOOLA CONVERSION TABLE
+#
+#   👑 FORTUNE   = 1,000 💎 = 1,000,000 🪙 = 1,000,000,000 🥜
+#   💎 GRAND     = 1,000 🪙 = 1,000,000 🥜
+#   🪙 MOOLA     = 1,000 🥜
+#   🥜 NUT       = 0.001 🪙
+#
+# Symmetrical: each step is ×1000
+
+moola_conversions:
+  "1 👑 FORTUNE": "1,000 💎 = 1,000,000 🪙 = 1,000,000,000 🥜"
+  "1 💎 GRAND": "1,000 🪙 = 1,000,000 🥜"
+  "1 🪙 MOOLA": "1,000 🥜"
+  "1 🥜 NUT": "0.001 🪙"
+
+# PARALLEL CURRENCIES (non-fungible, any economy)
+#
+# These exist BESIDE money currencies — cannot be bought or sold.
+
+parallel_currencies:
+  karma:
+    name: KARMA
+    symbol: "⭐"
+    type: reputation
+    convertible: false
+    earning: "Good deeds, keeping promises"
+    losing: "Betrayal, theft, harm"
+    affects: "NPC attitudes, quest access, prices"
+    
+  favor:
+    name: FAVOR
+    symbol: "🎫"
+    type: social_debt
+    convertible: false
+    description: "'You owe me one' — specific, tradeable between characters"
+    
+  essence:
+    name: ESSENCE
+    symbol: "🔮"
+    type: magical
+    convertible: false
+    description: "Rare magical currency — found in artifacts, creatures, liminal moments"
+    
+  time:
+    name: TIME
+    symbol: "⏳"
+    type: temporal
+    convertible: false
+    description: "Some things cost time, not money — training, crafting, healing"
+
+# DEFAULT BEHAVIOR
+
+defaults:
+  native_currency: moola
+  fallback_currency: gold
+  
+  when_unspecified: |
+    If no currency specified:
+    1. Check adventure/context for currency setting
+    2. Use MOOLA (native coin of MOOLLM)
+    3. Use gold (classic RPG fallback)
+
+# DESIGN NOTES
+
+design_notes:
+  moola_hierarchy: |
+    🥜 NUT — "working for peanuts", small but real (1/1000 🪙)
+    🪙 MOOLA — the satisfying clink of a coin (×1000 up and down)
+    💎 GRAND — valuable, visible, impressive (1000 🪙)
+    👑 FORTUNE — kingdom-level wealth (1000 💎)
+    
+    Symmetrical: NUT ←×1000→ MOOLA ←×1000→ GRAND ←×1000→ FORTUNE
+  parallel: |
+    ⭐ KARMA — earned, not bought
+    🎫 FAVOR — social, specific, tradeable
+    🔮 ESSENCE — magical, rare, precious
+    ⏳ TIME — the one thing money can't buy
+  inclusivity: |
+    The economy skill embraces ALL currencies.
+    MOOLA is native to MOOLLM, but gold, dollars, 
+    simoleons, and custom currencies are all valid.
+    Context determines which currency applies.
 
 # TOOLS REQUIRED
 
@@ -36,8 +181,9 @@ methods:
       item: "What to buy"
       from: "Seller"
       price: "Cost (defaults to item.price)"
+      currency: "Currency to use (defaults to context)"
     output: chat + state-change
-    effect: "Transfer gold, transfer item"
+    effect: "Transfer currency, transfer item"
     invoked-by: [player, npc]
     
   SELL:
@@ -46,12 +192,13 @@ methods:
       item: "What to sell"
       to: "Buyer"
       price: "Amount (defaults to item.value)"
+      currency: "Currency to receive (defaults to context)"
     output: chat + state-change
-    effect: "Receive gold, transfer item"
+    effect: "Receive currency, transfer item"
     invoked-by: [player, npc]
     
   TRADE:
-    description: "Barter items without gold"
+    description: "Barter items without currency"
     parameters:
       give: "What you offer"
       receive: "What you want"
@@ -61,31 +208,49 @@ methods:
     invoked-by: [player, npc]
     
   BALANCE:
-    description: "Check gold balance"
+    description: "Check currency balance"
     parameters:
       character: "Whose balance (defaults to player)"
+      currency: "Which currency (defaults to all)"
     output: chat
-    effect: "Display current gold"
+    effect: "Display current balance(s)"
     invoked-by: [player]
     
   PRICE:
     description: "Check an item's price/value"
     parameters:
       item: "What to appraise"
+      currency: "Currency for pricing (defaults to context)"
     output: chat
     effect: "Display buy and sell prices"
+    invoked-by: [player]
+    
+  CONVERT:
+    description: "Convert between currencies (where possible)"
+    parameters:
+      amount: "How much"
+      from: "Source currency"
+      to: "Target currency"
+    output: chat
+    effect: "Show conversion rate and result"
+    note: "Parallel currencies (karma, favor, etc.) cannot convert"
     invoked-by: [player]
 
 # STATE
 
 state:
   economy-schema:
-    gold:
-      type: integer
-      description: "Currency amount"
+    balances:
+      type: object
+      description: "Currency balances (moola, gold, karma, etc.)"
+      example: { moola: 1000, gold: 50, karma: 12 }
     transactions:
       type: array
       description: "History of purchases/sales"
+    active_currency:
+      type: string
+      description: "Current context currency"
+      default: "moola"
 
 # ADVERTISEMENTS
 
@@ -101,13 +266,21 @@ advertisements:
 # RELATED
 
 see-also:
-  - skills/character   # Gold lives on characters
+  - skills/character   # Balances live on characters
   - skills/adventure   # Economic gameplay
   - skills/scoring     # Value assessment
+  - skills/experiment  # Poker uses MOOLA stakes
 
 # CREDITS
 
 credits:
   inspiration:
-    - "RPG economies"
+    - "RPG economies — gold, silver, copper"
     - "The Sims — Simoleons"
+    - "LambdaMOO — the original MOO"
+    - "Moolah — slang for money"
+    - "Zelda — rupees"
+    - "Mario — coins"
+    - "Animal Crossing — bells"
+    - "Fallout — caps"
+    - "Final Fantasy — gil"

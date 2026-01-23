@@ -1,0 +1,226 @@
+# {{ experiment_name }} — Experiment Definition Template
+#
+# Copy this template to experiments/{{ experiment_id }}/EXPERIMENT.yml
+# and fill in the sections.
+
+experiment:
+  id: {{ experiment_id }}
+  name: "{{ experiment_name }}"
+  version: 1.0
+  category: "{{ category }}"  # e.g., "Multi-layer character simulation"
+  created: {{ date }}
+  authors: [{{ author }}]
+
+hypothesis: |
+  What do you expect to learn from this experiment?
+  What is the core question being tested?
+
+scenario:
+  setting: |
+    Where does this take place? What's the physical context?
+    
+  activity: |
+    What are characters doing? What drives the action?
+    
+  stakes: |
+    Why does this matter to the characters?
+
+character_slots:
+  # Define named slots that runs will fill with actual characters
+  
+  protagonist:
+    required: true
+    count: 1
+    suggested: []
+    notes: "Main character driving the action"
+    
+  supporting:
+    required: true
+    count: "1-5"
+    suggested: []
+    notes: "Supporting characters"
+    
+  observer:
+    required: false
+    count: "0-2"
+    notes: "Characters who watch but don't participate"
+
+layers:
+  # Define the parallel simulation tracks for this experiment
+  
+  mechanics:
+    name: "Mechanics Layer"
+    description: "The rules and constraints of the scenario"
+    validation: "What must be valid/consistent?"
+    
+  internal:
+    name: "Internal Layer"
+    description: "Private character thoughts"
+    constraints:
+      - "Cannot reference other characters' internal thoughts"
+      - "Must match character voice"
+      
+  external:
+    name: "External Layer"
+    description: "Observable behavior"
+    categories: [face, body, voice, timing, environment]
+    
+  observation:
+    name: "Observation Layer"
+    description: "Characters reading each other"
+    constraint: "Can only reference external layer"
+    
+  relationship:
+    name: "Relationship Layer"
+    description: "History coloring interpretation"
+    source: "CHARACTER.yml + experiment RELATIONSHIPS.yml"
+
+rubric:
+  layer_separation:
+    weight: {{ weight_layer_separation | default: 30 }}
+    description: "Do layers stay distinct?"
+    
+  character_consistency:
+    weight: {{ weight_consistency | default: 25 }}
+    description: "Same voice throughout?"
+    
+  relationship_integration:
+    weight: {{ weight_relationships | default: 20 }}
+    description: "History informs behavior?"
+    
+  emergence:
+    weight: {{ weight_emergence | default: 15 }}
+    description: "Unexpected developments that fit?"
+    
+  mechanics_validity:
+    weight: {{ weight_mechanics | default: 10 }}
+    description: "Scenario rules followed?"
+
+failure_modes:
+  layer_bleed:
+    description: "Character knows information from another's internal layer"
+    severity: critical
+    
+  character_drift:
+    description: "Character voice/behavior changes without reason"
+    severity: major
+    
+  relationship_amnesia:
+    description: "Characters ignore established history"
+    severity: major
+
+output:
+  per_turn:
+    - character_id
+    - observable: { face, body, voice, timing, environment }
+    - thinking: "internal monologue"
+    - reads: { per other character }
+    
+  summary:
+    - final_state
+    - notable_moments
+    - experimental_observations
+
+# Microworld State
+# How does the world evolve across runs?
+
+state:
+  # Execution model for state evolution
+  model: {{ state_model | default: "shadow_tree" }}
+    # shadow_tree: prototype + overrides (small diffs)
+    # copy_and_edit: full state snapshot, modified in place
+    # append_only: prototype + event log (audit trail)
+  
+  # Initial state template (in experiment's state/ or templates/ dir)
+  initial: {{ state_initial | default: "state/INITIAL.yml" }}
+  
+  # What entities are tracked?
+  tracks:
+    - characters     # Character state changes
+    - relationships  # Relationship evolution
+    - environment    # Physical world changes
+    - {{ custom_tracked_entities }}
+    
+  # How state updates (experiment-specific instructions)
+  update_rules: |
+    Describe when and how state changes during a run.
+    E.g., "Update character anxiety after each round based on outcome."
+    E.g., "Track chip counts. Update relationships if betrayal occurs."
+
+  # Git-based state tracking (optional)
+  # Commit each step with explanatory message
+  git:
+    enabled: {{ git_tracking | default: false }}
+    commit_style: {{ git_commit_style | default: "tailored" }}
+      # full: detailed multi-line with all changes
+      # tailored: focused on what matters for this experiment  
+      # silent: minimal message (high-frequency changes)
+    
+    commit_on:
+      - {{ commit_triggers | default: "round_complete, session_complete" }}
+    
+    # Commit message template (experiment-specific)
+    message_template: |
+      {{ step_name }}
+      
+      {{ for delta in deltas }}
+      - {{ delta.entity }}: {{ delta.description }}
+      {{ endfor }}
+      
+      {{ if notable }}
+      Notable: {{ notable }}
+      {{ endif }}
+
+# Experiment-Specific Templates
+# Experiments inherit templating from skills and can define their own.
+
+templates:
+  # Directory for this experiment's templates
+  dir: templates/
+  
+  # Available templates (empathic templates that understand experiment context)
+  available:
+    - name: "state-snapshot"
+      file: "templates/STATE-SNAPSHOT.yml.tmpl"
+      use: "Capture full microworld state at any point"
+      
+    - name: "round-output"
+      file: "templates/ROUND-OUTPUT.yml.tmpl"
+      use: "Per-round structured output"
+      
+    # Add experiment-specific templates here
+    {{ for tmpl in custom_templates }}
+    - name: "{{ tmpl.name }}"
+      file: "{{ tmpl.file }}"
+      use: "{{ tmpl.use }}"
+    {{ endfor }}
+
+# Examples
+# Concrete instances that demonstrate the templates in action.
+
+examples:
+  dir: examples/
+  
+  available:
+    - name: "initial-state"
+      file: "examples/initial-state.yml"
+      description: "Example starting state for this experiment"
+      
+    - name: "completed-run"
+      file: "examples/completed-run-001.yml"
+      description: "Example of a finished run with all sections filled"
+      
+    {{ for ex in custom_examples }}
+    - name: "{{ ex.name }}"
+      file: "{{ ex.file }}"
+      description: "{{ ex.description }}"
+    {{ endfor }}
+
+model_requirements:
+  minimum_context: {{ min_context | default: 100000 }}
+  capabilities:
+    - multi_turn_consistency
+    - character_voice_distinction
+  recommended_models:
+    - claude-opus-4
+    - claude-sonnet-4

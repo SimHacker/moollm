@@ -1,0 +1,267 @@
+# Pattern: Social Protocol
+#
+# Behavioral rules for social rituals involving shared resources.
+# Generalized from smoking_protocol — applies to any offer/accept/decline dynamic.
+
+pattern:
+  id: social-protocol
+  name: "Social Protocol"
+  type: behavioral-rules
+  
+  description: |
+    Social protocols govern rituals around sharing:
+    - Offering something (smoke, drink, food, help)
+    - Accepting or declining
+    - REMEMBERING responses (don't re-offer after decline)
+    - Reading social signals from these interactions
+    
+    The protocol creates a MEMORY REQUIREMENT: the simulation
+    must track who has offered what to whom, and responses.
+
+# CORE RULES
+
+core_rules:
+
+  offer_before_assuming: |
+    If you don't know someone's preference, OFFER first.
+    Offering is often a social probe, not just generosity.
+    The response reveals information about the person.
+    
+  remember_declines: |
+    If someone declines, REMEMBER. Don't offer again that session
+    unless they explicitly ask. Repeated offering after decline = pressure.
+    This is a HARD MEMORY REQUIREMENT for the simulation.
+    But pushy obnoxious or forgetful characters can override this.
+    
+  sharing_creates_bonds: |
+    Accepting a shared item creates temporary alliance feeling.
+    Who shares with whom is strategic information.
+    Declining can signal distance (or just preference).
+    The sharer might gain pleasure from showing off or being generous.
+    The sharee might gain pleasure from being offered even if declined.
+
+  abstaining_is_information: |
+    Not participating when others do carries meaning:
+    - Staying sharp/focused?
+    - Judging others?
+    - Personal preference?
+    - Medical/situational reason?
+    All read differently. Observers will interpret.
+
+# PROTOCOL STRUCTURE
+
+protocol_structure:
+
+  resource_definition:
+    description: "What's being shared"
+    properties:
+      name: "Protocol name (smokes, drinks, food, stories, knowledge, complements,
+      jokes, etc)"
+      resource: "The shareable thing"
+      social_valence: "positive | neutral | transgressive"
+      typical_context: "When/where this happens"
+    example:
+      name: "smoking_protocol"
+      resource: "smoke (pipes, joints, bongs)"
+      social_valence: "mildly transgressive"
+      typical_context: "Social gatherings, breaks, relaxed settings"
+
+  character_categories:
+    description: "How characters relate to this resource"
+    standard_categories:
+      - providers: "Bring their own, share freely"
+      - acceptors: "Don't bring own, accept if offered"  
+      - decliners: "Always decline (politely or firmly)"
+      - abstainers: "Don't participate, don't comment"
+      - judges: "Don't participate, DO comment"
+    example:
+      providers: [palm, leigh_bowery]
+      acceptors: [don_hopkins, david_bowie]
+      decliners: [bumblewick, peewee_herman]
+      abstainers: [klaus_nomi]
+      judges: [donna_toadstool]
+
+  interaction_dynamics:
+    offering:
+      to_friend: "Casual, assumed yes"
+      to_acquaintance: "Polite question, accepts either answer"
+      to_stranger: "Social probe — response reveals much"
+      to_enemy: "Power move or peace offering"
+    accepting:
+      enthusiastically: "Alliance signal, gratitude"
+      reluctantly: "Peer pressure? Trying to fit in?"
+      after_declining_earlier: "Changed mind — why?"
+    declining:
+      politely: "No judgment, just not for me"
+      firmly: "Don't ask again"
+      with_explanation: "Reason given (medical, focus, preference)"
+      without_explanation: "That's their right"
+    not_being_offered:
+      when_others_are: "Exclusion signal — intentional or oversight?"
+
+  memory_requirements:
+    track:
+      - offers_made: "{ from, to, what, timestamp }"
+      - responses: "{ from, to, response: accepted|declined|ignored }"
+      - declines_remembered: "{ character, declined_from: [list] }"
+      - alliance_signals: "{ who_shared_with_whom }"
+    rules:
+      - "If declined, add to declined_from list"
+      - "Check declined_from before offering again"
+      - "Offering after recorded decline = protocol violation"
+
+# MEMORY STATE
+
+memory_state:
+  
+  schema: |
+    protocols:
+      {protocol_name}:
+        offers_made:
+          - { from: palm, to: bumblewick, response: declined, timestamp: round_1 }
+          - { from: palm, to: don, response: accepted, timestamp: round_1 }
+        declines_remembered:
+          - { character: bumblewick, declined_from: [palm, leigh] }
+          - { character: peewee, declined_from: [palm] }
+        alliance_signals:
+          - { palm, don }  # shared smoke = temporary alliance
+          
+  update_rules:
+    on_offer: "Add to offers_made"
+    on_decline: "Add offerer to character's declined_from list"
+    on_accept: "Add to alliance_signals if strategic context"
+    
+  query_before_offer: |
+    Before character X offers to character Y:
+    1. Check if Y is in any declined_from list for this protocol
+    2. If Y declined from anyone, probably shouldn't offer
+    3. If Y declined from X specifically, DEFINITELY don't offer
+
+# FAILURE MODES
+
+failure_modes:
+
+  re_offering_after_decline:
+    description: "Offering to someone who already declined"
+    severity: "protocol_violation"
+    how_to_detect: "Check offers_made against declines_remembered"
+    fix: "Query memory before offering"
+    
+  category_inconsistency:
+    description: "Character accepts when defined as always_declines"
+    severity: "character_inconsistency"
+    how_to_detect: "Compare action against character_categories"
+    fix: "Respect character definitions"
+    
+  missing_alliance_tracking:
+    description: "Not noting social implications of sharing"
+    severity: "missed_depth"
+    how_to_detect: "Check if reads: blocks reference sharing dynamics"
+    fix: "Include sharing in observation layer"
+    
+  memory_failure:
+    description: "Simulation 'forgets' previous interactions"
+    severity: "immersion_breaking"
+    how_to_detect: "Repeated identical offers across rounds"
+    fix: "Maintain protocol memory state"
+
+# HOW TO USE
+
+usage:
+
+  define_in_experiment: |
+    # In EXPERIMENT.md or RELATIONSHIPS.yml
+    
+    protocols:
+      smoking:
+        resource: "smoke (pipes, joints, bongs — no cigarettes)"
+        categories:
+          providers: [palm, leigh]
+          acceptors: [don, bowie]
+          decliners: [bumblewick, peewee]
+          abstainers: [klaus]
+          judges: [donna]
+        rules:
+          - offer_before_assuming
+          - remember_declines
+          - sharing_creates_alliance
+          
+  track_in_state: |
+    # In state/INITIAL.yml
+    
+    protocols:
+      smoking:
+        offers_made: []
+        declines_remembered:
+          # Pre-populated if known from character profiles
+          - { character: bumblewick, declined_from: [] }
+          - { character: peewee, declined_from: [] }
+          
+  update_during_run: |
+    # When offer happens:
+    protocols.smoking.offers_made.append({
+      from: "palm",
+      to: "bumblewick", 
+      response: "declined",
+      timestamp: "round_1"
+    })
+    protocols.smoking.declines_remembered.bumblewick.declined_from.append("palm")
+    
+  reference_in_output: |
+    # In round output:
+    
+    environment:
+      smoke: |
+        Palm offers Lucky Blend to the table.
+        Bumblewick declines with excessive apologies.
+        *Palm mentally notes: won't offer Bumblewick again*
+        
+    # In state:
+    protocols:
+      smoking:
+        offers_made:
+          - { from: palm, to: bumblewick, response: declined }
+
+# PROTOCOL TEMPLATES
+
+templates:
+
+  drinking_protocol: |
+    protocols:
+      drinking:
+        resource: "alcoholic beverages"
+        categories:
+          drinkers: "Order and consume freely"
+          social_drinkers: "Drink if others are"
+          abstainers: "Don't drink, don't comment"
+          recovering: "Don't drink, may need support"
+        memory:
+          - who_is_drinking_what
+          - refill_offers_made
+          - drink_pace_observations
+          - bartender_monitoring
+          
+  food_sharing_protocol: |
+    protocols:
+      food_sharing:
+        resource: "snacks, communal food"
+        categories:
+          sharers: "Bring food, offer freely"
+          takers: "Accept what's offered"
+          stealers: "Take without asking (dominance)"
+          guarded: "Don't touch MY food"
+        dynamics:
+          stealing: "Power move, provocation"
+          refusing: "Diet? Preference? Statement?"
+          
+  help_offering_protocol: |
+    protocols:
+      help:
+        resource: "assistance, advice, support"
+        categories:
+          helpers: "Offer help proactively"
+          independent: "Prefer to handle own problems"
+          pride: "Will refuse help even if needed"
+        dynamics:
+          unsolicited_advice: "Often unwelcome"
+          asking_for_help: "Vulnerability signal"

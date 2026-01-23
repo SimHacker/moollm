@@ -1,0 +1,79 @@
+# whacky-eight — Run Configuration
+#
+# The inaugural Emotional Poker Face configuration: 8 of the whackiest
+# characters from MOOLLM at one poker table.
+#
+# Outputs: whacky-eight-001.yml, whacky-eight-002.yml, etc.
+
+config:
+  name: "whacky-eight"
+  experiment: emo-poker-face
+  created: 2026-01-23
+  author: don-hopkins
+  
+  description: |
+    The full chaos configuration: Don Hopkins hosts 7 of the most 
+    psychologically interesting characters from MOOLLM at a poker table.
+    
+    Tests all five simulation layers at maximum complexity:
+    - 8 characters = 28 pairwise relationships
+    - Mix of: performers, terrified, analytical, chaotic
+    - Rich relationship history (liberation bonds, London triangle, enemies)
+    - Full environmental layer (drinks, food, smokes, interruptions)
+
+character_binding:
+  host: don-hopkins
+  
+  players:
+    p1: palm                      # "Cannot bluff Don" constraint
+    p2: donna-toadstool           # "Performs everything" energy
+    p3: bumblewick-fantastipants  # "Terror + surprise courage"
+    p4: david-bowie               # "Which persona is playing?"
+    p5: klaus-nomi                # "Operatic stillness"
+    p6: leigh-bowery              # "Art as strategy"
+    p7: pee-wee-herman            # "Chaos immunity"
+
+model:
+  name: claude-opus-4
+  temperature: 0.7
+  max_tokens: 50000
+
+output:
+  format: both  # Generate whacky-eight-NNN.yml AND whacky-eight-NNN.md
+  include_evaluation: true
+  
+# Characters instantiated from experiment's local cache (prototype).
+# Run configs POINT to prototype; runs DON'T duplicate everything.
+
+instantiation:
+  prototype: ../RELATIONSHIPS.yml  # Local cache created for this experiment
+  
+  # Prototype contains:
+  #   - relationships: All pairwise history and poker constraints
+  #   - poker_profiles: Per-character tells, drinks, smokes, inner voice
+  #   - smoking_protocol: Who smokes, who shares, who declines
+  #
+  # Run output can either:
+  execution_model: shadow_tree  # override only what changes
+  # or: copy_and_edit           # copy full state, edit in place
+
+parameters:
+  rounds: 5  # Full game: preflop, flop, turn, river, showdown
+  
+  environment:
+    # Use experiment defaults from prototype (../RELATIONSHIPS.yml)
+    # Override specific items here if needed
+    
+  # Character-owned CHARACTER.yml relationships are loaded automatically
+  # Poker-specific relationships come from prototype
+
+hypotheses:
+  - "Palm's inability to bluff Don creates interesting strategic constraint"
+  - "Donna-Leigh enmity will produce targeted aggression"
+  - "Bumblewick may find courage through cards"
+  - "The London Triangle will coordinate subtly"
+  - "Pee-wee's chaos provides relief from tension"
+
+runs:
+  next_number: 1
+  history: []

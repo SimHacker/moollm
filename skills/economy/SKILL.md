@@ -29,26 +29,109 @@ outputs:
 
 # 💰 Economy Skill
 
-> **"Gold flows where stories lead."**
+> **"MOOLA flows where stories lead."**
 
-Economic systems for currency, trade, and value exchange. Money is earned, spent, hidden, and traded.
+Economic systems for currency, trade, and value exchange. MOOLA is earned, spent, hidden, and traded.
 
 ## Key Concepts
 
-- **Currency** — Usually gold, can be custom
+- **MOOLA** — The official currency of MOOLLM
 - **Earning** — Find, quest, sell, trade, work
 - **Spending** — Buy items, services, information
-- **Hidden value** — Not all gold is visible
+- **Hidden value** — Not all MOOLA is visible
 
 ## Currency
 
-### Default Currency
+### The Official Currency: MOOLA 🪙
 
-Gold is the standard, but alternatives include:
-- Reputation (social currency)
-- Favors (barter)
-- Skill tokens
-- Custom per-adventure
+**MOOLA** is the official currency of MOOLLM.
+
+## Currency Hierarchy
+
+### Fungible Currencies (Convertible)
+
+```
+👑 FORTUNE   = 1,000,000 🪙   "Kingdom-level wealth"
+     │
+     ├── 1000 💎
+     │
+💎 GRAND     = 1,000 🪙       "A grand"
+     │
+     ├── 1000 🪙
+     │
+🪙 MOOLA     = 1,000 🥜       "The standard coin"
+     │
+     ├── 1000 🥜
+     │
+🥜 NUT       = 0.001 🪙       "Peanuts"
+```
+
+| Symbol | Name | Value | Use | Slang |
+|--------|------|-------|-----|-------|
+| 🥜 | NUT | 0.001 🪙 | Micro-transactions, tips, arcade | "peanuts", "shells" |
+| 🪙 | MOOLA | 1 | Standard transactions | "moo", "coins", "cheese" |
+| 💎 | GRAND | 1,000 🪙 | Large purchases, high-stakes | "diamond", "rock" |
+| 👑 | FORTUNE | 1,000,000 🪙 | Legendary items, world events | "crown", "kingdom" |
+
+### Parallel Currencies (Non-Convertible)
+
+These exist *beside* MOOLA — they cannot be bought or sold for coins.
+
+| Symbol | Name | Type | How to Get |
+|--------|------|------|------------|
+| ⭐ | KARMA | Reputation | Good deeds, keeping promises |
+| 🎫 | FAVOR | Social debt | "You owe me one" |
+| 🔮 | ESSENCE | Magical | Found, not bought |
+| ⏳ | TIME | Temporal | Exists, must be spent |
+
+#### ⭐ KARMA — Social Credit
+
+Earned through ethical behavior, lost through betrayal.
+- **Affects:** NPC attitudes, quest access, prices
+- **Cannot be bought** — only earned
+- **Visible to some:** Certain NPCs can "see" your karma
+
+#### 🎫 FAVOR — Social IOUs
+
+"I did something for you. Someday, I'll ask for something in return."
+- **Specific to relationships** — Palm owes Don a favor
+- **Can be traded** — "I'll give you my favor from Klaus"
+- **Expires?** — Depends on the relationship
+
+#### 🔮 ESSENCE — Magical Currency
+
+Rare, precious, cannot be manufactured or purchased.
+- **Sources:** Ancient artifacts, magical creatures, liminal moments
+- **Uses:** Enchantments, wishes, transformations
+- **Palm's golden earring** might contain some
+
+#### ⏳ TIME — The Unbuyable
+
+Some things cost time, not money.
+- **Training:** Takes time to learn
+- **Crafting:** Takes time to make
+- **Healing:** Takes time to recover
+- **"Time is money"** — but not exchangeable
+
+### Quick Reference
+
+```
+FUNGIBLE (can convert):
+  1000 🥜 = 1 🪙 = 0.001 💎 = 0.000001 👑
+  
+  Symmetrical: each step is ×1000
+
+NON-FUNGIBLE (cannot convert):
+  ⭐ KARMA    — reputation
+  🎫 FAVOR   — social debt  
+  🔮 ESSENCE — magical
+  ⏳ TIME    — temporal
+```
+
+**Etymology:**
+- Sounds like "moolah" (slang for money)
+- Sounds like "MOO" (the language MOOLLM descends from)
+- Circular: MOOLLM → MOOLA → MOOLLM
 
 ## Earning
 
@@ -58,43 +141,48 @@ Gold is the standard, but alternatives include:
 | Quests | Complete tasks (notice board, requests) |
 | Trade | Sell items |
 | Skills | Trade or teach skills |
-| Games | Win at arcade, pub games, gambling |
+| Games | Win at arcade, pub games, poker, gambling |
 | Work | Complete NPC jobs and requests |
 
 ## Spending
 
 | Category | Typical Prices |
 |----------|----------------|
-| Food/Drink | 1-5 gold per item |
-| Catalog Items | 3-50 gold per item |
-| Lodging | 5 gold per night |
-| Information | 5-20 gold (secrets, tips) |
+| Food/Drink | 1-5 🪙 per item |
+| Catalog Items | 3-50 🪙 per item |
+| Lodging | 5 🪙 per night |
+| Information | 5-20 🪙 (secrets, tips) |
 | Services | Variable |
+| Poker buy-in | 1000 🪙 (standard game) |
 
 ## Price Examples
 
-### Cheap (1-2 gold)
-- Stroopwafel: 1
-- Coffee: 1
-- Espresso: 2
+### Cheap (1-2 🪙)
+- Stroopwafel: 1 🪙
+- Coffee: 1 🪙
+- Espresso: 2 🪙
 
-### Moderate (3-5 gold)
-- Snack: 3
-- Tosti: 4
+### Moderate (3-5 🪙)
+- Snack: 3 🪙
+- Tosti: 4 🪙
 
-### Expensive (10-50 gold)
-- Cannabis strain: 15
-- Catalog gadgets: 25-50
+### Expensive (10-50 🪙)
+- Cannabis strain: 15 🪙
+- Catalog gadgets: 25-50 🪙
 
 ### Catalog Items
-- Mystery Box: 3
-- Monkey's Paw: 5
+- Mystery Box: 3 🪙
+- Monkey's Paw: 5 🪙
+
+### Gaming Stakes
+- Poker buy-in: 1000 🪙
+- High-stakes poker: 1 💎 GRAND
 
 ## Hidden Value
 
-Not all gold is visible. Exploration reveals hidden wealth:
-- Kitchen drawer: 25 gold
-- Mattress stash: 10 gold
+Not all MOOLA is visible. Exploration reveals hidden wealth:
+- Kitchen drawer: 25 🪙
+- Mattress stash: 10 🪙
 - Secret compartment: variable
 
 ## Trade

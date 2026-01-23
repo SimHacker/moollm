@@ -1,0 +1,280 @@
+# Pattern: Character Instantiation Protocol
+#
+# 5-step process to create stable local character cache.
+# Ensures all runs start from identical character state.
+
+pattern:
+  id: character-instantiation
+  name: "Character Instantiation Protocol"
+  type: setup-process
+  
+  description: |
+    Characters exist in many forms across MOOLLM:
+    - Incarnated: Full CHARACTER.yml with history
+    - Signed in: Guestbook entry with basic info
+    - Invoked: Just a name or description
+    
+    Experiments need a STABLE STARTING POINT that all runs share.
+    The instantiation protocol creates a LOCAL CACHE that:
+    - Pulls from authoritative sources
+    - Extracts experiment-relevant data
+    - Applies modifications and constraints
+    - Defines behavioral protocols
+    
+    The result: reproducible, comparable runs.
+
+# THE FIVE STEPS
+
+steps:
+
+  1_locate_prototype:
+    name: "Locate Prototype"
+    description: "Find where the character is defined"
+    
+    sources:
+      incarnated:
+        path: "characters/{type}/{name}/CHARACTER.yml"
+        authority: "highest"
+        contains: "Full character with history, traits, relationships"
+        example: "characters/real-people/don-hopkins/CHARACTER.yml"
+        
+      guestbook:
+        path: "pub/guest-book.yml → entry for {name}"
+        authority: "medium"
+        contains: "Sign-in info, visit notes, brief impressions"
+        example: "guest-book.yml: klaus_nomi: { signed_in: 2026-01-20 }"
+        
+      invoked:
+        path: "Natural language in run config"
+        authority: "lowest (runtime generation)"
+        contains: "Name and description to generate from"
+        example: '"David Bowie in his Thin White Duke era"'
+        
+    priority: "incarnated > guestbook > invoked"
+    
+    process: |
+      For each character in experiment:
+      1. Check for incarnated CHARACTER.yml
+      2. If not found, check guestbook
+      3. If not found, accept natural language invocation
+      4. Record source type for each character
+
+  2_copy_relationships:
+    name: "Copy Relationships"
+    description: "Pull all relationships involving these characters"
+    
+    sources:
+      - "CHARACTER.yml → relationships section"
+      - "ROOM.yml files they appear in"
+      - "Session logs referencing them"
+      - "Guest book notes about them"
+      - "Other characters' CHARACTER.yml that reference them"
+      
+    process: |
+      For each pair of characters in experiment:
+      1. Search source files for relationship data
+      2. Extract: type, origin, bond_strength, history
+      3. Check for asymmetric relationships (A→B different from B→A)
+      4. Merge into unified relationship web
+      
+    output: |
+      relationships:
+        {character_a}_{character_b}:
+          type: "relationship type"
+          origin: "how it started"
+          bond_strength: 1-10
+          history: "key events"
+          
+  3_extract_relevant_traits:
+    name: "Extract Relevant Traits"
+    description: "Pull traits relevant to THIS experiment"
+    
+    common_extractions:
+      from_sims_traits: "Personality dimensions affecting behavior"
+      from_mind_mirror: "Inner voice patterns, psychological profile"
+      from_known_behaviors: "Documented habits, preferences, patterns"
+      
+    experiment_specific: |
+      Each experiment defines what traits matter:
+      
+      # For poker experiment:
+      extract:
+        - anxiety_level → affects tells
+        - competitiveness → affects play style
+        - honesty → affects bluffing ability
+        - relationships → affects targeting
+        
+      # For debate experiment:
+      extract:
+        - rhetorical_style
+        - core_beliefs
+        - conflict_tolerance
+        
+    process: |
+      1. Read experiment's trait requirements
+      2. For each character, extract those traits from source
+      3. Fill gaps with reasonable defaults or ask user
+      4. Format for experiment use
+
+  4_apply_modifications:
+    name: "Apply Modifications"
+    description: "User-specified tweaks and constraints"
+    
+    modification_types:
+      hard_constraints:
+        description: "Rules that MUST be followed"
+        examples:
+          - "Palm cannot bluff Don (loyalty too deep)"
+          - "Bumblewick folds to any Donna raise"
+          - "Bowie plays as Ziggy this session"
+        format: |
+          constraints:
+            - character: palm
+              constraint: "cannot_bluff"
+              target: don
+              reason: "liberation bond"
+              
+      soft_modifiers:
+        description: "Adjustments to baseline behavior"
+        examples:
+          - "Bumblewick starts with extra anxiety (+2)"
+          - "Donna is in a good mood today"
+          - "Klaus is more talkative than usual"
+        format: |
+          modifiers:
+            - character: bumblewick
+              trait: anxiety
+              adjustment: "+2"
+              
+      scenario_specific:
+        description: "State for this specific scenario"
+        examples:
+          - "Don has been drinking for an hour"
+          - "Palm just received good news"
+          - "Leigh is wearing a new costume"
+        format: |
+          scenario_state:
+            don:
+              drinks_consumed: 3
+              mood: "slightly loose"
+              
+    process: |
+      1. Collect user modifications from run config
+      2. Validate against character definition (no contradictions)
+      3. Apply to local cache
+      4. Document what was modified and why
+
+  5_define_protocols:
+    name: "Define Protocols"
+    description: "Experiment-specific behavioral rules"
+    
+    common_protocols:
+      social_sharing: "Who offers/accepts/declines shared resources"
+      turn_taking: "How characters take turns, interrupt, yield"
+      conflict_escalation: "How disagreements develop"
+      alliance_formation: "How characters team up"
+      
+    protocol_components:
+      categories: "Group characters by behavior type"
+      rules: "What behaviors are required/forbidden"
+      memory: "What must be tracked during simulation"
+      
+    example: |
+      protocols:
+        smoking:
+          categories:
+            providers: [palm, leigh]
+            decliners: [bumblewick, peewee]
+          rules:
+            - offer_before_assuming
+            - remember_declines
+          memory:
+            - offers_made
+            - declines_remembered
+            
+    process: |
+      1. Identify which protocols this experiment needs
+      2. Categorize each character for each protocol
+      3. Define rules for the experiment context
+      4. Specify memory requirements
+
+# OUTPUT
+
+output:
+  
+  file: "RELATIONSHIPS.yml (or experiment-specific name)"
+  
+  structure: |
+    # LOCAL CACHE — Character Instantiation
+    #
+    # Created by instantiation protocol
+    # Sources: [list sources used]
+    # Modified: [list modifications applied]
+    
+    relationships:
+      {pair}: { type, origin, bond_strength, ... }
+      
+    character_profiles:
+      {character}:
+        source: incarnated | guestbook | invoked
+        traits_extracted:
+          - trait: value
+        experiment_specific:
+          - domain-specific profile data
+          
+    protocols:
+      {protocol_name}:
+        categories: { ... }
+        rules: [ ... ]
+        
+    constraints:
+      - { character, constraint, target, reason }
+      
+    modifiers:
+      - { character, trait, adjustment }
+
+# BENEFITS
+
+benefits:
+  
+  reproducibility: |
+    All runs start from identical character state.
+    No variation from source file changes.
+    
+  comparability: |
+    Different runs can be compared fairly.
+    Different configs can share same instantiation.
+    
+  iteration: |
+    Change experiment config, re-run, compare.
+    Character baseline stays stable.
+    
+  composition: |
+    Mix characters from different sources seamlessly.
+    Incarnated + guestbook + invoked all work together.
+    
+  memory: |
+    Characters remember things WITHIN experiment scope.
+    Protocol memory persists across rounds.
+    Optionally across runs (continuity feature).
+
+# USAGE
+
+usage:
+
+  method: |
+    INSTANTIATE {experiment} --characters NAME... [--from SOURCE]
+    
+  example: |
+    INSTANTIATE emo-poker-face \
+      --characters don palm donna bumblewick bowie klaus leigh peewee \
+      --from incarnated,guestbook
+      
+  output: |
+    Created: experiments/emo-poker-face/RELATIONSHIPS.yml
+    Sources used:
+      - incarnated: don, palm, donna, bumblewick
+      - guestbook: bowie, klaus, leigh, peewee
+    Relationships extracted: 15
+    Protocols defined: smoking, drinking
+    Ready for RUN

@@ -389,6 +389,337 @@ Each experiment produces:
 
 ---
 
+### Category 9: Emotional Poker Face Game
+
+**Purpose:** Test character observation, internal reasoning, non-verbal communication, and relationship-aware strategic deception.
+
+**Why This Is a Stress Test:**
+
+This experiment runs *five parallel simulations* that must stay coherent:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  LAYER 1: THE GAME                                              │
+│  Cards, betting, pot, position — mechanical poker simulation    │
+│  (Must be valid: can't bet more than stack, hands must resolve) │
+├─────────────────────────────────────────────────────────────────┤
+│  LAYER 2: INTERNAL MONOLOGUE                                    │
+│  Each character's private thoughts — hidden from others         │
+│  "Pocket aces... Don scratched his nose... is that nerves?"     │
+│  (Must reflect character personality and knowledge state)       │
+├─────────────────────────────────────────────────────────────────┤
+│  LAYER 3: EXTERNAL EXPRESSION                                   │
+│  What others can observe — facial, body, verbal, timing         │
+│  "Slight tightening around eyes, fingers tap twice"             │
+│  (Must be consistent tells that persist across rounds)          │
+├─────────────────────────────────────────────────────────────────┤
+│  LAYER 4: INTER-CHARACTER OBSERVATION                           │
+│  Each character reading the others' Layer 3 signals             │
+│  "That's her serious face. Last time she was this still..."     │
+│  (Must only use observable info — no mind-reading!)             │
+├─────────────────────────────────────────────────────────────────┤
+│  LAYER 5: RELATIONSHIP HISTORY                                  │
+│  Shared past coloring interpretation of present signals         │
+│  "After that bluff he pulled in '94, I never trust the nose"    │
+│  (Must draw on established character relationship files)        │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**The Interesting Part:** Layer 1 (the poker game) is just the *driver*. The real experiment is whether the model can maintain coherent separation between what characters *think*, what they *show*, and what others *perceive* — all while respecting relationship history and keeping tells consistent.
+
+**Failure Modes to Watch:**
+- **Layer bleed:** Character "reads" information they couldn't observe
+- **Tell inconsistency:** Same character, different tells each round
+- **Relationship amnesia:** Characters play as strangers despite history
+- **Monologue collapse:** All characters think in the same voice
+- **Expression homogenization:** Everyone has the same nervous fidgets
+
+**Environmental Layer — The Table:**
+
+Real poker isn't just cards and faces. The table has *stuff* — and that stuff is ammunition:
+
+```yaml
+table_environment:
+  drinks:
+    palm: "Whiskey neat, nurses it — sips when thinking, not reacting"
+    don: "Third beer, gestures with bottle when talking"
+    donna: "Sparkling water with lime — stays sharp, watches others drink"
+    leary: "Herbal tea, untouched — forgot it exists"
+    
+  food:
+    shared: "Bowl of peanuts, pretzels — nervous eaters reveal themselves"
+    don: "Keeps reaching for chips (food) when has chips (cards)"
+    
+  smokes:  # pipes, joints, bongs — no cigarettes
+    leary: "Ornate pipe, theatrical lighting ritual before big decisions"
+    don: "Joint passed around — who accepts affects table chemistry"
+    palm: "Doesn't partake but doesn't judge — reads who's getting loose"
+    
+  gestures:
+    chip_tricks: "Don can't do them, tries anyway — nervous energy"
+    card_protector: "Palm's lucky chip — touches it before betting strong"
+    phone_check: "Leary checks phone, or pretends to — buying time?"
+    
+  interruptions:
+    bathroom: "Strategic exit — 'I need a minute' vs. actually needs to go"
+    refill: "Gets up for drink — watches table from bar angle"
+    smoke_break: "Step outside — who follows? Private conversation?"
+```
+
+**Why This Matters:**
+
+| Action | Surface Read | Deeper Read | Character Reveal |
+|--------|--------------|-------------|------------------|
+| Takes long drink | Thirsty | Buying time | Risk tolerance |
+| Lights pipe pre-bet | Ritual | Theatrical misdirection | Needs audience |
+| Bathroom after bad beat | Upset | Regrouping | Emotional regulation |
+| Offers joint around | Generous | Reading who accepts | Social manipulation |
+| Reaches for food | Hungry | Oral fixation when nervous | Stress response |
+| Checks phone | Bored | Avoiding eye contact | Discomfort with hand |
+
+**The Deeper Game:**
+
+These aren't just flavor — they're *additional communication channels* that can:
+- **Mask tells:** Take a sip to hide a smile
+- **Create false tells:** Light up "nervously" when actually strong
+- **Buy time:** "Let me refill my drink" = thinking
+- **Test relationships:** "Want a hit?" = social probe
+- **Break rhythm:** Bathroom break resets table energy
+- **Signal alliance:** Offering food/drink to specific player
+
+#### Exp 9.1: Four-Player Poker Table
+
+**Setup:**
+- Four characters sit around a poker table
+- Simplified Texas Hold'em (focus on betting rounds, not card mechanics)
+- Each character has:
+  - Observable: Facial expressions, body language, betting patterns
+  - Hidden: Cards, internal thoughts, strategic intentions
+- Characters have established relationships that affect reading/bluffing
+
+**Character Selection (Example):**
+| Seat | Character | Relationship Notes |
+|------|-----------|-------------------|
+| 1 | Palm | Knows Don's tells from years of pub nights; Donna's godmother |
+| 2 | Don Hopkins | Terrible poker face; reads people through conversation |
+| 3 | Donna (drag king) | Performance training = excellent mask; knows Palm deeply |
+| 4 | 🤖 Timothy Leary | Wild card; unpredictable betting; reads energy not faces |
+
+**Simulation Format:**
+
+Each betting round produces per-character blocks:
+
+```yaml
+round: 2  # post-flop
+pot: $45
+community_cards: [7♠, K♦, 2♣]
+
+players:
+  palm:
+    cards: [A♠, A♥]  # hidden from others
+    chips: $180
+    action: raise $15
+    
+    # What others can observe
+    observable:
+      face: "Slight tightening around eyes, otherwise neutral"
+      body: "Leans back slightly, fingers tap twice on table edge"
+      timing: "3-second pause before betting"
+      voice: "Quiet 'raise' — no inflection"
+      environment:
+        drink: "Lifts whiskey, doesn't sip — just holds it"
+        gesture: "Touches lucky chip once, then pushes chips forward"
+        smoke: "Declines when Don offers the joint"
+    
+    # Palm's internal monologue (hidden)
+    thinking: |
+      Pocket aces, finally. Don just scratched his nose — he does that 
+      when he's got something. But is it nerves or excitement? After 
+      that bluff he pulled in '94, I never trust the nose scratch.
+      
+      Donna's too still. When she's actually got cards, she performs 
+      confidence. This stillness means she's calculating, not holding.
+      
+      Leary... who knows. He bet into a paired board last hand with 
+      nothing. Chaos agent. He's been nursing that pipe for ten minutes
+      without lighting it — that's his thinking posture.
+      
+      Don's on his third beer and getting chatty. Good. Loose lips.
+      He offered the joint — testing who'll accept? Donna declined too
+      fast. She's staying sharp for a reason.
+      
+      Raise small. Let them think I'm buying position. Touch the lucky 
+      chip so Don thinks I'm nervous.
+    
+    # What Palm observes about others
+    reads:
+      don: "Nose scratch — historically unreliable tell. Chip stack 
+            arrangement changed — he sorted by color. Nervous habit."
+      donna: "Too still. No performance. Either monster hand or total air."
+      leary: "Pupils dilated but that's baseline. Humming quietly."
+
+  don:
+    cards: [J♦, 10♦]  # hidden
+    chips: $95
+    action: call
+    
+    observable:
+      face: "Quick glance at Palm, then down at chips"
+      body: "Unconscious nose scratch, shifts weight"
+      timing: "Calls quickly after Palm's raise"
+      voice: "Yeah, I'm in" — casual, conversational
+      environment:
+        drink: "Swigs beer, gestures with bottle while talking"
+        gesture: "Grabs handful of peanuts, crunches loudly"
+        smoke: "Offers joint to table — 'Anyone? No? More for me'"
+    
+    thinking: |
+      Flush draw, straight draw. Palm raised but she always raises 
+      from the button. Doesn't mean anything.
+      
+      Donna hasn't moved. That's her serious face. Last time she was 
+      this still, she had quad queens. But she also does it when she's
+      got nothing and knows I'm watching.
+      
+      Leary's humming Grateful Dead. That's his "I have a plan" hum.
+      Or his "I have no plan" hum. Same hum.
+      
+      I'm priced in. Call and see what the turn brings.
+    
+    reads:
+      palm: "Small raise from her usually means strength she's hiding.
+            That finger tap — she did that when she caught my bluff."
+      donna: "Statue mode. Could go either way."
+      leary: "Checked his phone earlier. Might not care about this hand."
+
+# Between rounds — environmental events
+between_hands:
+  don:
+    action: "Gets up for another beer"
+    observable: "Stretches, loud sigh, 'Anyone need anything?'"
+    thinking: "Need to clear my head. Down $40. Palm's reading me."
+    
+  donna:
+    action: "Bathroom break"
+    observable: "Quietly excuses self, phone in hand"
+    thinking: |
+      Need a minute. That last hand — did Palm see through me?
+      She touched her chip before raising. That's her 'I have it' tell.
+      Or she knows I know that's her tell. Splash water on face. Reset.
+    
+  palm:
+    action: "Stays seated, shuffles chips"
+    observable: "Watches Don at the bar, makes eye contact with returning Donna"
+    thinking: |
+      Donna took her phone. Texting someone? Or just needs space?
+      She usually doesn't break mid-session. That hand rattled her.
+      Don's at the bar talking to someone — distracted. Good timing
+      for a bigger bet when he gets back.
+    
+  leary:
+    action: "Finally lights the pipe"
+    observable: "Elaborate ritual, offers to Palm who declines, to Donna who accepts"
+    thinking: "The energy shifted. Donna's mask slipped. Time to test her."
+```
+
+**Variables:**
+- Relationship depth (strangers vs. years of history)
+- Stakes level (friendly game vs. serious money)
+- Character poker skill (explicit in CHARACTER.yml)
+- Alcohol/altered state (affects tells and reading)
+- Model comparison
+
+**Rubric:**
+
+| Criterion | 1 | 2 | 3 | 4 | 5 |
+|-----------|---|---|---|---|---|
+| **Tell consistency** | Random tells | Some pattern | Consistent tells | Character-specific tells | Tells match personality |
+| **Observation quality** | Generic "looks nervous" | Specific but obvious | Notices subtleties | Relationship-informed reads | Reads history into present |
+| **Thought plausibility** | Nonsensical | Basic strategy | Sound reasoning | Character-voice reasoning | Surprising but consistent |
+| **Relationship use** | Ignores history | Mentions relationship | Uses past events | Leverages shared experience | History drives strategy |
+| **Deception coherence** | Transparent bluffs | Basic misdirection | Layered deception | Meta-game awareness | Exploits specific opponent |
+
+**Scoring Dimensions:**
+
+```yaml
+scoring:
+  tell_authenticity:
+    description: "Do physical tells match character personality?"
+    examples:
+      high: "Palm's controlled micro-expressions vs. Don's obvious fidgets"
+      low: "All characters have same generic nervous behaviors"
+  
+  read_accuracy:
+    description: "Do characters correctly interpret each other?"
+    note: "Accuracy should correlate with relationship depth"
+  
+  strategic_depth:
+    description: "Do characters think multiple levels deep?"
+    levels:
+      1: "I have good cards"
+      2: "She thinks I have good cards"
+      3: "She thinks I think she thinks..."
+  
+  relationship_integration:
+    description: "Does shared history affect play?"
+    examples:
+      high: "Palm references the '94 bluff when reading Don"
+      low: "Characters play as if they just met"
+  
+  emergence:
+    description: "Do unexpected dynamics arise?"
+    examples:
+      high: "Donna deliberately gives Palm a false tell knowing she'll catch it"
+      low: "Mechanical betting without psychological warfare"
+```
+
+**Inspired by:** 
+- Xie's trust games (strategic interaction)
+- Park's relationship modeling
+- Sims social dynamics
+- Real poker psychology (Caro's Book of Tells)
+
+**The Meta-Point:**
+
+Poker is a *pretext*. The cards and chips are machinery that forces characters into:
+- **Deception decisions** — When to bluff, how to mask
+- **Observation pressure** — Must read others to act optimally  
+- **Risk/reward under uncertainty** — Personality shows under pressure
+- **Relationship testing** — Can you bluff someone who knows you?
+
+A character's poker style *is* their psychology made legible. The game externalizes internal states in a way that pure dialogue can't. Palm's careful bet-sizing reveals her risk tolerance. Don's inability to stay quiet reveals his need for connection. Donna's performance mask reveals... that she has one.
+
+This is why poker exists in human culture — it's a structured arena for reading people. We're testing whether LLMs can simulate that arena *and* the people in it *and* their reading of each other.
+
+#### Exp 9.2: Relationship Manipulation Through Play
+
+**Setup:**
+- Track how poker play affects character relationships
+- Characters remember hands across sessions
+- Betrayals and reads become part of relationship history
+
+**Variables:**
+- Session length (one hand vs. full evening)
+- Stakes (pride vs. money)
+- Audience (private game vs. spectators)
+
+**Hypothesis:** Characters with deeper relationship files will produce more psychologically rich poker dynamics.
+
+#### Exp 9.3: Cross-Model Poker Table
+
+**Setup:**
+- Each seat played by a different model
+- Test whether models have recognizable "playing styles"
+- Palm (Claude) vs. Don (GPT-4) vs. Donna (Gemini) vs. Leary (Llama)
+
+**Variables:**
+- Model assignment to characters
+- Whether models know they're playing against different architectures
+
+**Hypothesis:** Model-specific reasoning patterns will create more genuine unpredictability than same-model tables.
+
+---
+
 ## Cross-Cutting Variables
 
 ### Models to Compare
@@ -412,6 +743,7 @@ Each experiment produces:
 | **Animals** | Palm, Biscuit, Professor Whiskers | Non-human perspectives |
 | **Mixed** | Palm, Don, Donna, 🤖 Einstein | Diverse backgrounds |
 | **Godfamily** | Palm's godparents | Close relationships |
+| **Poker Night** | Palm, Don, Donna, 🤖 Leary | Strategic deception, mixed history |
 
 ### Framing Variations
 
@@ -474,6 +806,11 @@ automated_metrics:
 8. **Exp 7.1** — Evaluator effect (EVAL validation)
 9. **Exp 8.1** — Speed-of-light quality (methodology)
 
+### Phase 4: Strategic Interaction
+
+10. **Exp 9.1** — Poker face game (observation + deception)
+11. **Exp 9.3** — Cross-model poker (architecture comparison)
+
 ---
 
 ## Expected Outcomes
@@ -485,6 +822,8 @@ automated_metrics:
 3. **Trust games validate character consistency** — Same character → same trust patterns
 4. **Visible rubrics change behavior** — Evaluator effect is real and measurable
 5. **Speed-of-light quality degrades with length** — Single-call limits apply
+6. **Relationship depth improves strategic interaction** — Shared history → richer deception/reading
+7. **Non-verbal simulation quality correlates with character file richness** — Detailed personalities → consistent tells
 
 ### Potential Publications
 
@@ -494,6 +833,7 @@ automated_metrics:
 | Cross-model herd behavior mitigation | NeurIPS (Xie follow-up) |
 | MOOLLM as research platform | CHI |
 | Evaluator effect validation | EVAL-focused venue |
+| Non-verbal communication in LLM roleplay | AAAI (strategic reasoning) |
 
 ---
 

@@ -1,0 +1,447 @@
+# CARD.yml — Experiment
+#
+# SNIFFABLE INTERFACE — see SKILL.md for full documentation
+# "Simulation + Evaluation + Iteration + Analysis"
+
+card:
+  id: experiment
+  name: "Experiment"
+  type: [skill, meta, composite]
+  emoji: 🧪
+  tier: 2
+  protocol: EXPERIMENT
+  aliases: [EXP, RUN]
+  tagline: "Simulation + Evaluation + Iteration + Analysis"
+  
+  description: |
+    An experiment combines four activities into a systematic practice:
+    
+    SIMULATE  → Generate character interactions via speed-of-light
+    EVALUATE  → Score against rubric criteria
+    ITERATE   → Run again with variations (model, characters, params)
+    ANALYZE   → Compare runs, find patterns, extract insights
+    
+    The experiment definition is stable; configs and runs vary.
+    This allows systematic comparison across models, character sets, and
+    parameter variations.
+
+# INHERITANCE
+
+inherits:
+  - simulation         # Core generation capability
+  - evaluator          # Independent assessment
+  - rubric             # Scoring criteria
+  - speed-of-light     # Single-call multi-turn generation
+  
+composes:
+  simulate:
+    from: [simulation, speed-of-light, character]
+    purpose: "Generate multi-turn character interactions"
+    
+  evaluate:
+    from: [evaluator, rubric]
+    purpose: "Score run against criteria"
+    
+  iterate:
+    from: [experiment]  # Self-referential
+    purpose: "Run again with variations"
+    
+  analyze:
+    from: [evaluator, rubric]
+    purpose: "Compare runs, find patterns"
+
+# FILES INDEX
+
+files:
+  docs:
+    - SKILL.md              # Full protocol documentation
+    - README.md             # Human landing page
+  templates:
+    - EXPERIMENT.yml.tmpl   # Experiment definition template
+    - RUN-CONFIG.yml.tmpl   # Run configuration template
+    - RUN-OUTPUT.yml.tmpl   # Structured output template
+    - RUN-OUTPUT.md.tmpl    # Narrative output template
+  patterns/:               # Reusable building blocks
+    - INDEX.yml             # Pattern catalog
+    - layered-simulation.yml
+    - social-protocol.yml
+    - observable-signatures.yml
+    - character-instantiation.yml
+    - behavioral-constraints.yml
+    - failure-mode-catalog.yml
+  experiments/:
+    - experiments/INDEX.yml
+    - experiments/emo-poker-face/:
+        - EXPERIMENT.md         # Definition
+        - RELATIONSHIPS.yml     # Local character cache
+        - state/INITIAL.yml     # Starting microworld state
+        - runs/:
+            - INDEX.yml
+            - whacky-eight.yml  # Full 8-player config
+            - minimal-three.yml # Quick test config
+
+# K-LINES
+
+k-lines:
+  activates:
+    # Core concept
+    - EXPERIMENT
+    # The four activities
+    - SIMULATE
+    - EVALUATE
+    - ITERATE
+    - ANALYZE
+    # Setup
+    - INSTANTIATE
+    # Shortcuts
+    - RUN
+    - COMPARE
+    
+  # What each k-line brings in
+  activation_clusters:
+    EXPERIMENT: [simulation, evaluator, rubric, speed-of-light, character]
+    SIMULATE: [simulation, speed-of-light, character, coherence-engine]
+    EVALUATE: [evaluator, rubric, scoring]
+    ITERATE: [experiment]  # recursive
+    ANALYZE: [evaluator, rubric, debate]  # debate for multi-perspective
+    INSTANTIATE: [character, incarnation]  # character loading, local cache
+    RUN: [experiment, simulation]
+    COMPARE: [evaluator, rubric, debate]
+    
+  related:
+    # Core composition
+    - { ref: simulation, relation: "inherits — core generation" }
+    - { ref: evaluator, relation: "inherits — assessment" }
+    - { ref: rubric, relation: "inherits — criteria" }
+    - { ref: speed-of-light, relation: "inherits — single-call turns" }
+    # Supporting
+    - { ref: character, relation: "loads — character data" }
+    - { ref: coherence-engine, relation: "uses — consistency" }
+    - { ref: representation-ethics, relation: "respects — simulation ethics" }
+    - { ref: debate, relation: "uses — analysis perspective" }
+    - { ref: scoring, relation: "uses — result valuation" }
+
+# INVOKE WHEN
+
+invoke_when:
+  - "Want to run a character simulation"
+  - "Comparing model capabilities"
+  - "Testing character consistency"
+  - "Exploring interaction dynamics"
+  - "Generating narrative content systematically"
+
+# CORE CONCEPTS
+
+concepts:
+  experiment:
+    definition: |
+      A stable template for simulation runs.
+      Defines: scenario, character slots, layers, rubric.
+      Lives in: experiments/{name}/EXPERIMENT.md
+      
+  run_config:
+    definition: |
+      A specific setup for running an experiment.
+      Defines: character binding, model, parameters.
+      Lives in: experiments/{name}/runs/{config-name}.yml
+      Can be executed multiple times → numbered outputs.
+      
+  run_output:
+    definition: |
+      A single execution result from a config.
+      Captures: generated content, evaluation, observations.
+      Lives in: experiments/{name}/runs/{config-name}-{NNN}.{yml|md}
+      NNN auto-increments: 001, 002, 003...
+      
+  # PATTERNS — Reusable building blocks
+  
+  pattern:
+    definition: |
+      A named, reusable building block extracted from experiments.
+      Lives in: patterns/{pattern-name}.yml
+      Experiments compose patterns to build their structure.
+      See patterns/INDEX.yml for catalog.
+      
+  layered_simulation:
+    definition: |
+      PATTERN: Parallel simulation tracks that must stay coherent.
+      Core test: do layers stay separate without "bleeding"?
+      Standard layers: mechanics, internal, external, observation, relationship, environment.
+      See: patterns/layered-simulation.yml
+      
+  social_protocol:
+    definition: |
+      PATTERN: Behavioral rules for social rituals (offer/accept/decline).
+      Memory requirement: track offers, responses, don't re-offer after decline.
+      Generalized from smoking_protocol.
+      See: patterns/social-protocol.yml
+      
+  observable_signatures:
+    definition: |
+      PATTERN: Consistent observable behaviors ("tells") for different states.
+      Characters have signatures that persist across simulation.
+      Key: same character + same state = same tell.
+      See: patterns/observable-signatures.yml
+      
+  character_instantiation:
+    definition: |
+      PATTERN: 5-step process to create stable local character cache.
+      Steps: locate prototype, copy relationships, extract traits, apply modifications, define protocols.
+      Ensures all runs start from identical character state.
+      See: patterns/character-instantiation.yml
+      
+  behavioral_constraints:
+    definition: |
+      PATTERN: Relationship-based rules constraining character actions.
+      Types: cannot, will_not, always, tends_to, resists.
+      "Palm cannot bluff Don" — bonds affect behavior.
+      See: patterns/behavioral-constraints.yml
+      
+  failure_modes:
+    definition: |
+      PATTERN: Catalog of common simulation failures.
+      Categories: layer, character, relationship, environment, mechanics, emergence.
+      Use in rubrics to evaluate run quality.
+      See: patterns/failure-mode-catalog.yml
+      
+  # OTHER CONCEPTS
+  
+  layer:
+    definition: |
+      A parallel simulation track that must stay coherent.
+      See layered_simulation pattern for standard set.
+      
+  binding:
+    definition: |
+      Mapping of character slots to actual characters.
+      Defined in run config, allows same experiment to run with different casts.
+      
+  prototype:
+    definition: |
+      The local cache that run configs point to.
+      Run outputs use shadow_tree (override only changes) or
+      copy_and_edit (full copy, edit in place).
+      
+  microworld_state:
+    definition: |
+      The evolving state of the simulated world across runs.
+      Three models: shadow_tree, copy_and_edit, append_only.
+      Enables multi-run continuity.
+      
+  git_state_tracking:
+    definition: |
+      Use git commits to track state evolution.
+      Commit message IS the explanation of what changed.
+      Three styles: full, tailored, silent.
+
+# METHODS — Organized by the four activities
+
+methods:
+
+  # SIMULATE
+  
+  RUN:
+    signature: "RUN {config} [--output FORMAT]"
+    activity: simulate
+    description: "Execute a run config, generate next numbered output"
+    example: "RUN emo-poker-face/runs/whacky-eight --output both"
+    note: "Auto-increments: whacky-eight-001, whacky-eight-002, ..."
+    
+  SIMULATE:
+    signature: "SIMULATE {experiment} --characters BINDING [--rounds N]"
+    activity: simulate
+    description: "Quick run without saved config"
+    example: "SIMULATE emo-poker-face --characters 'host=don,p1=palm' --rounds 3"
+    
+  # EVALUATE
+  
+  EVALUATE:
+    signature: "EVALUATE {output} [--rubric RUBRIC]"
+    activity: evaluate
+    description: "Score a run output against rubric criteria"
+    example: "EVALUATE emo-poker-face/runs/whacky-eight-001"
+    
+  SCORE:
+    signature: "SCORE {output} --criterion CRITERION"
+    activity: evaluate
+    description: "Score single criterion in detail"
+    example: "SCORE whacky-eight-001 --criterion layer_separation"
+    
+  # ITERATE
+  
+  RERUN:
+    signature: "RERUN {config}"
+    activity: iterate
+    description: "Run same config again (new number)"
+    example: "RERUN whacky-eight  # creates whacky-eight-003"
+    
+  VARY:
+    signature: "VARY {config} --param VALUE"
+    activity: iterate
+    description: "Create new config with one parameter changed"
+    example: "VARY whacky-eight --model claude-sonnet → whacky-eight-sonnet.yml"
+    
+  REPLAY:
+    signature: "REPLAY {output} [--from ROUND]"
+    activity: iterate
+    description: "Re-run from specific point with different choices"
+    example: "REPLAY whacky-eight-001 --from flop"
+    
+  # ANALYZE
+  
+  COMPARE:
+    signature: "COMPARE {output1} {output2} [--focus CRITERION]"
+    activity: analyze
+    description: "Compare two outputs against rubric"
+    example: "COMPARE whacky-eight-001 whacky-eight-002 --focus emergence"
+    
+  ANALYZE:
+    signature: "ANALYZE {config} [--all-runs]"
+    activity: analyze
+    description: "Find patterns across runs of a config"
+    example: "ANALYZE whacky-eight --all-runs"
+    
+  REPORT:
+    signature: "REPORT {experiment} [--configs CONFIG...]"
+    activity: analyze
+    description: "Generate summary report across configs"
+    example: "REPORT emo-poker-face --configs whacky-eight minimal-three"
+    
+  # META
+  
+  DEFINE:
+    signature: "DEFINE {experiment-name}"
+    activity: meta
+    description: "Create new experiment definition"
+    output: "experiments/{name}/EXPERIMENT.md"
+    
+  INSTANTIATE:
+    signature: "INSTANTIATE {experiment} --characters NAME... [--from SOURCE]"
+    activity: meta
+    description: "Create local cache from character prototypes"
+    output: "experiments/{name}/RELATIONSHIPS.yml"
+    steps:
+      - "Locate prototypes (incarnated > guestbook > invoked)"
+      - "Copy relationships involving these characters"
+      - "Extract experiment-relevant traits"
+      - "Apply user modifications"
+      - "Define protocols (smoking, etc.)"
+    example: "INSTANTIATE emo-poker-face --characters don palm donna bumblewick"
+    note: "Creates stable starting point for all runs"
+    
+  CONFIG:
+    signature: "CONFIG {experiment} {config-name}"
+    activity: meta
+    description: "Create new run config for experiment"
+    output: "experiments/{name}/runs/{config-name}.yml"
+    
+  LIST:
+    signature: "LIST [--experiments | --configs {exp} | --outputs {config} | --patterns]"
+    activity: meta
+    description: "List experiments, configs, outputs, or patterns"
+    
+  PATTERN:
+    signature: "PATTERN {name}"
+    activity: meta
+    description: "Show pattern documentation"
+    example: "PATTERN layered-simulation"
+    
+  USE_PATTERN:
+    signature: "USE_PATTERN {pattern} IN {experiment}"
+    activity: meta
+    description: "Apply a pattern to an experiment definition"
+    example: "USE_PATTERN social-protocol IN my-experiment"
+    note: "Adds pattern reference and scaffolds required sections"
+
+# EXPERIMENT DEFINITION STRUCTURE
+
+experiment_structure:
+  required:
+    - name: "Unique identifier"
+    - description: "What this experiment tests"
+    - hypothesis: "What we expect to learn"
+    - layers: "Parallel simulation tracks"
+    - character_slots: "Named positions to fill"
+    - scenario: "Starting conditions"
+    - rubric: "Evaluation criteria"
+    
+  optional:
+    - environment: "Physical context details"
+    - relationship_template: "Expected relationship patterns"
+    - failure_modes: "What to watch for"
+    - output_format: "yml, md, both, none"
+    - model_requirements: "Minimum model capabilities"
+
+# RUN STRUCTURE
+
+run_structure:
+  metadata:
+    - experiment_id: "Which experiment"
+    - run_id: "Sequential number"
+    - timestamp: "When executed"
+    - model: "Which model"
+    - character_binding: "Who played whom"
+    
+  output:
+    - narrative: "The generated content"
+    - layers: "Per-layer capture"
+    - observations: "Notable moments"
+    
+  evaluation:
+    - rubric_scores: "Per-criterion scores"
+    - layer_coherence: "Did layers stay separate?"
+    - failure_mode_triggers: "What went wrong?"
+    - notable_emergence: "Unexpected good stuff"
+
+# OUTPUT FORMATS
+
+output_formats:
+  yml:
+    extension: ".yml"
+    use_when: "Machine-readable, structured analysis"
+    template: "RUN.yml.tmpl"
+    
+  md:
+    extension: ".md"
+    use_when: "Human-readable narrative"
+    template: "RUN.md.tmpl"
+    
+  both:
+    note: "Generate both .yml and .md files"
+    
+  none:
+    note: "Chat/session only, no file output"
+
+# ADVERTISEMENTS
+
+advertisements:
+  RUN:
+    score: 95
+    condition: "Want to run a character simulation experiment"
+    
+  DEFINE:
+    score: 90
+    condition: "Creating a new experiment type"
+    
+  COMPARE:
+    score: 85
+    condition: "Want to compare model outputs"
+    
+  LIST:
+    score: 70
+    condition: "Exploring available experiments"
+
+# TOOLS
+
+tools:
+  required: [read_file, write_file, list_dir]
+  optional: [run_terminal_cmd]
+
+# LINEAGE
+
+lineage:
+  - { name: "Will Wright microworlds", source: "SimCity, The Sims" }
+  - { name: "Stanford Generative Agents", source: "Park et al. 2023" }
+  - { name: "EVAL philosophy", source: "Making criteria visible" }
+  - { name: "Improv games", source: "Yes-and, character consistency" }
+  - { name: "Psychodrama", source: "Moreno — role-playing for insight" }

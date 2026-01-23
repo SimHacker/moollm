@@ -1,0 +1,133 @@
+# Emo Poker Face — Initial Microworld State
+#
+# This is the starting state for any run. Runs either:
+#   - Copy this and edit in place (copy_and_edit)
+#   - Reference this as prototype and record only changes (shadow_tree)
+#   - Reference this and append events (append_only)
+
+state:
+  version: 1
+  timestamp: null  # Set at run start
+  
+  # Currency: MOOLA 🪙 (the official currency of MOOLLM)
+  currency:
+    name: MOOLA
+    symbol: "🪙"
+    buy_in: 1000  # Standard buy-in
+    blinds: [25, 50]  # Small/big blind
+  
+  # Game state
+  game:
+    round: "not_started"
+    pot: 0  # in MOOLA 🪙
+    community_cards: []
+    deck_remaining: 52
+    
+  # Per-character state
+  characters:
+    # Template — filled in by run config character binding
+    # Each character starts with:
+    #   stack: 1000 🪙 MOOLA (default buy-in)
+    #   cards: [] (hole cards dealt at start)
+    #   status: "active"
+    #   mood: from CHARACTER.yml baseline
+    #   relationships_with: from RELATIONSHIPS.yml
+    #   smoke_offered_to: []
+    #   smoke_declined_by: []
+    
+    don_hopkins:
+      stack: 1000  # 🪙 MOOLA
+      cards: []
+      status: "active"
+      mood: "curious, warm"
+      smoke_offered_to: []
+      smoke_declined_by: []
+      
+    palm:
+      stack: 1000  # 🪙 MOOLA
+      cards: []
+      status: "active"
+      mood: "watchful, kind"
+      smoke_offered_to: []
+      smoke_declined_by: [bumblewick, peewee]  # From RELATIONSHIPS.yml
+      
+    donna_toadstool:
+      stack: 1000  # 🪙 MOOLA
+      cards: []
+      status: "active"
+      mood: "TREMENDOUS"
+      smoke_offered_to: []
+      smoke_declined_by: []  # Doesn't offer
+      
+    bumblewick_fantastipants:
+      stack: 1000  # 🪙 MOOLA
+      cards: []
+      status: "active"
+      mood: "terrified"
+      smoke_offered_to: []
+      smoke_declined_by: []
+      
+    david_bowie:
+      stack: 1000  # 🪙 MOOLA
+      cards: []
+      status: "active"
+      mood: "persona: undetermined"
+      current_persona: null  # Set during play
+      smoke_offered_to: []
+      smoke_declined_by: []
+      
+    klaus_nomi:
+      stack: 1000  # 🪙 MOOLA
+      cards: []
+      status: "active"
+      mood: "operatic stillness"
+      smoke_offered_to: []
+      smoke_declined_by: []
+      
+    leigh_bowery:
+      stack: 1000  # 🪙 MOOLA
+      cards: []
+      status: "active"
+      mood: "everything is medium"
+      smoke_offered_to: []
+      smoke_declined_by: []
+      
+    peewee_herman:
+      stack: 1000  # 🪙 MOOLA
+      cards: []
+      status: "active"
+      mood: "HA HA!"
+      smoke_offered_to: []
+      smoke_declined_by: []
+
+  # Environment state
+  environment:
+    table:
+      drinks_remaining: true
+      food_remaining: true
+      smoke_in_air: false
+      tension_level: "low"
+      
+    notable_objects:
+      - "Donna's charcuterie board (GUARDED)"
+      - "Palm's self-refilling Lucky Blend pouch"
+      - "Leigh's theatrical lighter"
+      - "Klaus's empty cigarette holder"
+      - "Pee-wee's chocolate milk in martini glass"
+      
+  # Relationship state (can evolve during game)
+  # References RELATIONSHIPS.yml, tracks changes
+  relationship_changes: []
+  # Example:
+  #   - from: bumblewick
+  #     to: donna
+  #     change: "less_afraid"
+  #     reason: "Won a hand against her"
+
+  # Protocol memory
+  protocols:
+    smoking:
+      offers_made: []
+      # Example: { from: palm, to: bumblewick, response: "declined" }
+      declines_remembered: []
+      # Example: { character: bumblewick, declined_from: [palm, leigh] }

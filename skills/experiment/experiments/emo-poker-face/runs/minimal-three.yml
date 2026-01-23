@@ -1,0 +1,57 @@
+# minimal-three — Run Configuration
+#
+# Minimal configuration for quick testing: just 3 players with the most
+# interesting relationship constraints.
+#
+# Outputs: minimal-three-001.yml, minimal-three-002.yml, etc.
+
+config:
+  name: "minimal-three"
+  experiment: emo-poker-face
+  created: 2026-01-23
+  author: don-hopkins
+  
+  description: |
+    Quick test configuration: Don, Palm, and Donna.
+    
+    Why these three:
+    - Don-Palm: Liberation bond (Palm cannot bluff Don)
+    - Palm-Donna: Mutual intrigue (both watching each other)
+    - Don-Donna: Performance dynamic (she performs for him)
+    
+    Tests core layer separation with minimal character overhead.
+
+character_binding:
+  host: don-hopkins
+  
+  players:
+    p1: palm
+    p2: donna-toadstool
+
+model:
+  name: claude-sonnet-4  # Faster for testing
+  temperature: 0.7
+  max_tokens: 20000
+
+output:
+  format: yml  # Just structured for quick analysis
+  include_evaluation: true
+  
+instantiation:
+  prototype: ../RELATIONSHIPS.yml  # Same local cache as whacky-eight
+  execution_model: shadow_tree
+  
+  # Note: Only using 3 of the 8 characters instantiated in prototype.
+  # Unused characters (bumblewick, bowie, klaus, leigh, peewee) are ignored.
+
+parameters:
+  rounds: 3  # Abbreviated: preflop, flop, showdown
+
+hypotheses:
+  - "Three players is sufficient to test layer separation"
+  - "Palm-Don loyalty constraint is testable in small setting"
+  - "Donna's performance instinct works even with small audience"
+
+runs:
+  next_number: 1
+  history: []

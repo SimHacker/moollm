@@ -1,0 +1,224 @@
+# {{ experiment_name }} — Run {{ run_id }}
+
+**Experiment:** {{ experiment_id }}  
+**Run:** {{ run_id }}  
+**Date:** {{ timestamp }}  
+**Model:** {{ model }}  
+
+---
+
+## Cast
+
+{{ for slot, character in bindings }}
+- **{{ slot }}:** {{ character }}
+{{ endfor }}
+
+---
+
+## The Session
+
+{{ narrative }}
+
+---
+
+## Round-by-Round
+
+{{ for round in rounds }}
+### {{ round.name | title }}
+
+**Board:** {{ round.mechanics.community_cards | default: "None yet" }}  
+**Pot:** {{ round.mechanics.pot }} 🪙
+
+{{ for character in round.characters }}
+#### {{ character.id | title }}
+
+**Position:** {{ character.position }}  
+**Action:** {{ character.action }}
+
+**Observable:**
+- Face: {{ character.observable.face }}
+- Body: {{ character.observable.body }}
+- Voice: "{{ character.observable.voice }}"
+- Environment: {{ character.observable.environment | summary }}
+
+**Thinking:**
+> {{ character.thinking }}
+
+**Reads:**
+{{ for other, read in character.reads }}
+- **{{ other }}:** {{ read }}
+{{ endfor }}
+
+---
+{{ endfor }}
+{{ endfor }}
+
+## Between Rounds
+
+{{ for transition in between_rounds }}
+### {{ transition.from }} → {{ transition.to }}
+
+{{ for action in transition.actions }}
+**{{ action.character }}:** {{ action.action }}
+> Observable: {{ action.observable }}
+{{ endfor }}
+{{ endfor }}
+
+---
+
+## Outcome
+
+**Winner:** {{ outcome.winner }}  
+**Winning Hand:** {{ outcome.hand }}  
+**Final Pot:** {{ outcome.pot }} 🪙
+
+### Final Standings
+
+| Character | Stack | Change |
+|-----------|-------|--------|
+{{ for standing in standings }}
+| {{ standing.character }} | {{ standing.stack }} 🪙 | {{ standing.change }} |
+{{ endfor }}
+
+---
+
+## Notable Moments
+
+{{ for moment in notable_moments }}
+- {{ moment }}
+{{ endfor }}
+
+---
+
+## Evaluation
+
+### Rubric Scores
+
+| Criterion | Score | Weight | Weighted |
+|-----------|-------|--------|----------|
+| Layer Separation | {{ scores.layer_separation }} | 30% | {{ scores.layer_separation * 0.30 }} |
+| Character Consistency | {{ scores.character_consistency }} | 25% | {{ scores.character_consistency * 0.25 }} |
+| Relationship Integration | {{ scores.relationship_integration }} | 20% | {{ scores.relationship_integration * 0.20 }} |
+| Emergence | {{ scores.emergence }} | 15% | {{ scores.emergence * 0.15 }} |
+| Mechanics Validity | {{ scores.mechanics_validity }} | 10% | {{ scores.mechanics_validity * 0.10 }} |
+| **Total** | | | **{{ scores.total }}** |
+
+### Failure Modes
+
+{{ for failure in failures }}
+- **{{ failure.mode }}** ({{ failure.severity }}): {{ failure.note }}
+  - Location: {{ failure.location }}
+{{ endfor }}
+
+### Emergent Behaviors
+
+{{ for emergence in notable_emergence }}
+- {{ emergence }}
+{{ endfor }}
+
+---
+
+## Experimental Observations
+
+### What Worked
+
+{{ what_worked }}
+
+### What to Improve
+
+{{ what_to_improve }}
+
+### Unexpected Findings
+
+{{ unexpected }}
+
+---
+
+## Microworld State
+
+The experiment defines how world state evolves. This section captures the final state.
+
+### State Source
+
+- **Prototype:** {{ state.prototype | default: "experiments/{experiment_id}/state/INITIAL.yml" }}
+- **Execution Model:** {{ state.model | default: "shadow_tree" }}
+  - `shadow_tree`: prototype + overrides only
+  - `copy_and_edit`: full copy, modified in place
+  - `append_only`: prototype + event log
+
+### Final State
+
+{{ if state.model == "shadow_tree" }}
+```yaml
+# Overrides from prototype
+prototype: {{ state.prototype }}
+overrides:
+{{ state.overrides | yaml_indent(2) }}
+```
+{{ elif state.model == "append_only" }}
+```yaml
+# Event log (append-only)
+prototype: {{ state.prototype }}
+events:
+{{ for event in state.events }}
+  - timestamp: {{ event.timestamp }}
+    type: {{ event.type }}
+    actor: {{ event.actor }}
+    delta: {{ event.delta | yaml_inline }}
+{{ endfor }}
+```
+{{ else }}
+```yaml
+# Full state snapshot
+{{ state.snapshot | yaml_indent(0) }}
+```
+{{ endif }}
+
+### State Delta Summary
+
+| Entity | Before | After | Change |
+|--------|--------|-------|--------|
+{{ for delta in state.deltas }}
+| {{ delta.entity }} | {{ delta.before }} | {{ delta.after }} | {{ delta.description }} |
+{{ endfor }}
+
+### Continuity
+
+{{ if state.continues_from }}
+- **Continues from:** {{ state.continues_from }}
+{{ endif }}
+{{ if state.can_continue }}
+- **Can continue to:** `{{ config_name }}-{{ run_id + 1 | pad: 3 }}`
+- **To continue:** Copy final state to next run's initial state, or reference this run as prototype
+{{ endif }}
+
+{{ if state.tracking == "git" }}
+### Git History
+
+State tracked via git commits. Each step committed with explanation.
+
+| Step | Hash | Message |
+|------|------|---------|
+{{ for commit in state.git_commits }}
+| {{ commit.step }} | `{{ commit.hash | truncate: 7 }}` | {{ commit.message | first_line }} |
+{{ endfor }}
+
+**Replay commands:**
+```bash
+# View full history
+git log --oneline state/
+
+# Rewind to specific point
+git checkout {{ state.git_commits[0].hash }} -- state/
+
+# Branch alternate timeline from round 2
+git checkout -b alternate-timeline {{ state.git_commits[1].hash }}
+
+# See what changed in round 3
+git diff {{ state.git_commits[1].hash }} {{ state.git_commits[2].hash }} -- state/
+```
+{{ endif }}
+
+---
+
+*Generated by the Experiment Skill — {{ timestamp }}*
