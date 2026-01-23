@@ -98,6 +98,33 @@ outputs:
       - Hand 5: Donna slowplays queens (NEW skill)
       - Bumblewick recognizes trap, folds correctly
       Emergence: Cross-character learning; absence tells
+      
+  - config: four-player
+    number: 4
+    files:
+      - four-player-004.yml
+      - four-player-004.md
+      - four-player-004-cursor-mirror.yml
+      - four-player-004-tells.yml
+    timestamp: 2026-01-23T20:30:00Z
+    model: claude-4.5-opus-high-thinking
+    continues_from: four-player-003
+    result: "Don runs hot; Bumblewick teaches"
+    commits: 1
+    layer_violations: 0
+    hands_played: "6-8"
+    tells_transmitted: 18
+    tells_noticed: 14
+    suckouts: 2
+    critical_tells:
+      - "R1-01 — Palm weaponizes 'cheese smuggler'"
+      - "T7-03 — Bumblewick's deliberate trap"
+    notes: |
+      Don sucks out twice (both on turn).
+      Palm busted twice, played perfectly both times.
+      Bumblewick traps with aces: "Donna showed me the trap."
+      Palm uses "cheese smuggler" as social needle.
+      Emergence: Information as weapon; teaching cascade
 # Example after runs:
 #   - config: whacky-eight
 #     number: 1
