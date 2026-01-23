@@ -1,0 +1,74 @@
+# Photo Prompt: H01 — Bumblewick's First Aces
+# Source: four-player-001.yml, Hand 1, Preflop
+
+photo:
+  id: "H01-bumblewick-first-aces"
+  title: "The Trembling Raise"
+  
+source:
+  run: "../runs/four-player-001.yml"
+  hand: 1
+  phase: "preflop"
+  moment: "Bumblewick looks at pocket aces for the first time"
+  
+scene:
+  ref: "../SCENE.yml#setting"
+  lighting: "tension"
+  time: "Early evening, bright candles"
+  
+camera:
+  angle: "over_shoulder"
+  subject: "bumblewick"
+  position: "Behind and slightly above Bumblewick"
+  shows: 
+    - "Bumblewick's cards (A♠ A♥) visible to camera"
+    - "His trembling green hands holding cards"
+    - "Other three players visible across table"
+    - "Chip stacks (Bumblewick smallest)"
+  depth: "Cards sharp, opponents soft focus"
+
+subject:
+  character: "bumblewick"
+  ref: "../SCENE.yml#characters.bumblewick"
+  cards: [A♠, A♥]
+  tells_active:
+    - "Hands visibly trembling"
+    - "Large ears drooped at 45 degrees"
+    - "Eyes wide, slightly watery"
+    - "Shoulders hunched forward"
+  emotion: "Terrified excitement"
+  internal: "These are the best cards! But what do I DO?"
+  
+opponents:
+  don:
+    ref: "../SCENE.yml#characters.don_hopkins"
+    position: "Directly across"
+    expression: "Curious, slightly amused"
+    tells: "Head tilted, soft smile"
+    action: "Holding cheese knife, paused"
+    
+  palm:
+    ref: "../SCENE.yml#characters.palm"
+    position: "Left of Don"
+    expression: "Alert, observing"
+    tells: "Whiskers angled forward, ears rotated toward Bumblewick"
+    action: "Perfectly still on cushion"
+    
+  donna:
+    ref: "../SCENE.yml#characters.donna_toadstool"
+    position: "Right of Don"
+    expression: "Skeptical, studying"
+    tells: "Eyes narrowed, one eyebrow raised"
+    action: "Adjusting pearls"
+
+table_state:
+  pot: "Small, just blinds"
+  chips:
+    bumblewick: "Smallest stack, nervous arrangement"
+    don: "Medium stack, neat"
+    palm: "Medium stack, precise"
+    donna: "Large stack, aggressive towers"
+  cards: "Two cards face down in front of each player"
+  cheese: "Full wheel, fresh, knife resting on board"
+
+mood: "The moment before everything changes"

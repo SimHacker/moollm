@@ -1,0 +1,81 @@
+# Photo Prompt: H11c — Bumblewick's Graceful Loss
+# Source: four-player-005.yml, Hand 11, Showdown
+
+photo:
+  id: "H11c-bumblewick-graceful-loss"
+  title: "That's Poker"
+  
+source:
+  run: "../runs/four-player-005.yml"
+  hand: 11
+  phase: "showdown"
+  moment: "Bumblewick accepts his loss with grace, picks up cheese, nibbles"
+  
+scene:
+  ref: "../SCENE.yml#setting"
+  lighting: "camaraderie"
+  time: "Late session, warm"
+  
+camera:
+  angle: "face_close"
+  subject: "bumblewick"
+  position: "Eye level, intimate"
+  shows:
+    - "Bumblewick's face — composed, mature"
+    - "His hand reaching for cheese"
+    - "NO TEARS on his face"
+    - "Other players watching with pride"
+  depth: "Bumblewick sharp, others soft"
+
+subject:
+  character: "bumblewick"
+  ref: "../SCENE.yml#characters.bumblewick"
+  cards: [K♦, K♣]  # Lost with kings
+  tells_active:
+    - "NO TEARS (arc completion)"
+    - "Eyes dry, clear"
+    - "Small smile forming"
+    - "Hand reaching for cheese (acceptance)"
+    - "Ears level, not drooped"
+    - "Deep breath, shoulders relaxed"
+  emotion: "Mature acceptance"
+  internal: "I lost. With kings. But I played it right."
+  dialog: '"Good hand, Palm. That\'s poker."'
+  action: "Picks up cheese wedge, nibbles"
+  
+observers:
+  don:
+    ref: "../SCENE.yml#characters.don_hopkins"
+    expression: "Pride, respect"
+    tells: 
+      - "Eyes slightly shining"
+      - "Cutting EXTRA LARGE wedge for Bumblewick"
+    dialog: '"THAT is how you handle a bad beat."'
+    
+  donna:
+    ref: "../SCENE.yml#characters.donna_toadstool"
+    expression: "Actual tears (pride)"
+    tells:
+      - "Tears visible on cheeks"
+      - "Hand at chest"
+    dialog: '"He didn\'t cry. HE didn\'t cry."'
+    
+  palm:
+    ref: "../SCENE.yml#characters.palm"
+    expression: "Warm respect"
+    tells:
+      - "Slow blink"
+      - "Pushing pot aside, looking at Bumblewick"
+    internal: "The wheel gave justice. This gives more."
+
+table_state:
+  pot: "Going to Palm, but secondary to moment"
+  chips: "Bumblewick diminished but unbowed"
+  cheese: 
+    bumblewick: "PICKING UP, bringing to mouth"
+    don: "Cutting extra wedge, offering"
+  
+mood: "The completion of a character arc"
+
+# This is the most important photo.
+# It captures the moment Bumblewick became a poker player.

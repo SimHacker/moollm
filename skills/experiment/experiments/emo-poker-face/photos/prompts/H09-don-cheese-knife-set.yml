@@ -1,0 +1,68 @@
+# Photo Prompt: H09 — Don's Cheese Knife Tell
+# Source: four-player-005.yml, Hand 9, Flop
+
+photo:
+  id: "H09-don-cheese-knife-set"
+  title: "The Smuggler Provides"
+  
+source:
+  run: "../runs/four-player-005.yml"
+  hand: 9
+  phase: "flop"
+  moment: "Don bets while actively slicing cheese — he has a set"
+  
+scene:
+  ref: "../SCENE.yml#setting"
+  lighting: "camaraderie"
+  time: "Post-ceremony warmth"
+  
+camera:
+  angle: "hands_detail"
+  subject: "don"
+  position: "Low angle, focusing on Don's hands"
+  shows:
+    - "Don's left hand pushing chips"
+    - "Don's right hand holding cheese knife mid-slice"
+    - "Sharp cheddar wheel, wedge being cut"
+    - "His cards (5♣ 5♦) peeking from table edge"
+    - "Board: 5♥ K♦ 3♠"
+  depth: "Hands extremely sharp, face soft but visible"
+
+subject:
+  character: "don"
+  ref: "../SCENE.yml#characters.don_hopkins"
+  cards: [5♣, 5♦]
+  tells_active:
+    - "MULTITASKING — cheese and chips simultaneously"
+    - "Relaxed shoulders, casual posture"
+    - "Soft smile, crinkled eyes"
+    - "Humming softly"
+  emotion: "Contentment, quiet confidence"
+  internal: "Set of fives. Let them hang themselves."
+  dialog: '"I\'ll bet. 200. And does anyone want more cheddar?"'
+  
+observers:
+  donna:
+    ref: "../SCENE.yml#characters.donna_toadstool"
+    expression: "Considering, has top pair"
+    tells: "Leaning forward, interested"
+    
+  palm:
+    ref: "../SCENE.yml#characters.palm"
+    expression: "Missed, but content"
+    tells: "Accepting cheese offer"
+    
+  bumblewick:
+    ref: "../SCENE.yml#characters.bumblewick"
+    expression: "Happy, cheese in mouth"
+    tells: "Munching, watching"
+
+table_state:
+  pot: "Building"
+  board: [5♥, K♦, 3♠]
+  chips:
+    don: "Pushing 200 with one hand"
+    donna: "About to raise"
+  cheese: "ACTIVE — being sliced and distributed"
+
+mood: "Hospitality hiding a monster"

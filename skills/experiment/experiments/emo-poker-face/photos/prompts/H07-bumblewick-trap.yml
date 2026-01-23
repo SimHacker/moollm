@@ -1,0 +1,75 @@
+# Photo Prompt: H07 — Bumblewick's Trap
+# Source: four-player-004.yml, Hand 7, Turn
+
+photo:
+  id: "H07-bumblewick-trap"
+  title: "Donna Showed Me the Trap"
+  
+source:
+  run: "../runs/four-player-004.yml"
+  hand: 7
+  phase: "turn"
+  moment: "Bumblewick check-raises Don, executing the trap Donna taught him"
+  
+scene:
+  ref: "../SCENE.yml#setting"
+  lighting: "tension"
+  time: "Deep into the session"
+  
+camera:
+  angle: "over_shoulder"
+  subject: "bumblewick"
+  position: "Behind Bumblewick, showing his confident posture"
+  shows:
+    - "Bumblewick's cards (A♦ A♠) tucked but visible"
+    - "His STEADY hands pushing chips"
+    - "Don across table, realizing"
+    - "Board: A♣ 7♠ 4♦ J♦"
+  depth: "Hands and chips sharp, Don in focus"
+
+subject:
+  character: "bumblewick"
+  ref: "../SCENE.yml#characters.bumblewick"
+  cards: [A♦, A♠]
+  tells_active:
+    - "Hands STEADY (not trembling)"
+    - "Ears level (not drooped)"
+    - "Direct eye contact with Don"
+    - "Shoulders back, posture improved"
+  emotion: "Confident, proud"
+  internal: "This is what trapping feels like. It feels... good?"
+  dialog: '"Raise. Six hundred."'
+  
+target:
+  character: "don"
+  ref: "../SCENE.yml#characters.don_hopkins"
+  expression: "Recognition, respect"
+  tells:
+    - "Cheese knife set down (acknowledging seriousness)"
+    - "Head tilted, evaluating"
+    - "Small smile forming"
+  internal: '"You have the ace."'
+  
+observers:
+  donna:
+    ref: "../SCENE.yml#characters.donna_toadstool"
+    expression: "Pride, recognition"
+    tells: "Slight nod, watching her student"
+    internal: "He's doing what I taught him"
+    
+  palm:
+    ref: "../SCENE.yml#characters.palm"
+    expression: "Impressed"
+    tells: "Whisker twitch (approval)"
+
+table_state:
+  pot: "Growing, about to win"
+  board: [A♣, 7♠, 4♦, J♦]
+  chips:
+    bumblewick: "Large, pushing forward confidently"
+    don: "Folding posture"
+    donna: "Watching (folded)"
+    palm: "Watching (folded)"
+  cheese: "Bumblewick's wedge UNTOUCHED (focusing)"
+
+mood: "The student becomes dangerous"

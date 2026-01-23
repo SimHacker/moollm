@@ -1,0 +1,70 @@
+# Photo Prompt: H05 — Donna's Slowplay Reveal
+# Source: four-player-003.yml, Hand 5, Showdown
+
+photo:
+  id: "H05-donna-slowplay-reveal"
+  title: "Set"
+  
+source:
+  run: "../runs/four-player-003.yml"
+  hand: 5
+  phase: "showdown"
+  moment: "Donna reveals her slowplayed queens after Bumblewick folds"
+  
+scene:
+  ref: "../SCENE.yml#setting"
+  lighting: "relief"
+  time: "Post-pardon glow"
+  
+camera:
+  angle: "face_close"
+  subject: "donna"
+  position: "Across table, focus on Donna's face and cards"
+  shows:
+    - "Donna turning over Q♦ Q♣"
+    - "Her first genuine smile since returning"
+    - "Board with Q♠ visible"
+    - "Bumblewick's folded cards in background"
+  depth: "Donna sharp, background soft"
+
+subject:
+  character: "donna"
+  ref: "../SCENE.yml#characters.donna_toadstool"
+  cards: [Q♦, Q♣]  # Revealing
+  tells_active:
+    - "First smile — mouth curved, eyes softened"
+    - "Shoulders relaxed"
+    - "Cards turned with deliberate grace"
+    - "Chin raised slightly — pride"
+  emotion: "Quiet triumph"
+  internal: "I'm BACK. Playing real poker."
+  dialog: '"Set."'
+  
+observers:
+  bumblewick:
+    ref: "../SCENE.yml#characters.bumblewick"
+    expression: "Realization, admiration"
+    tells: "Eyes wide, ears perking UP (not drooping)"
+    dialog: '"That\'s what I did to Palm!"'
+    
+  don:
+    ref: "../SCENE.yml#characters.don_hopkins"
+    expression: "Approval, warmth"
+    tells: "Slight nod, cheese in hand"
+    
+  palm:
+    ref: "../SCENE.yml#characters.palm"
+    expression: "Respect"
+    tells: "Slow blink (cat approval)"
+
+table_state:
+  pot: "Won by Donna"
+  board: [Q♠, 7♥, 2♦, 3♣]  # Turn where she shoved
+  chips:
+    donna: "Rebuilding stack"
+    bumblewick: "Still large (folded correctly)"
+    don: "Medium"
+    palm: "Small"
+  cheese: "Being passed around"
+
+mood: "The return of a competitor"

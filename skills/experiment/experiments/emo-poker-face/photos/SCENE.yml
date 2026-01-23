@@ -1,0 +1,134 @@
+# Scene Cache: Gezelligheid Grotto Poker Table
+# Canonical reference for all photo prompts
+
+setting:
+  name: "Gezelligheid Grotto"
+  type: "Cozy underground pub/speakeasy"
+  lighting: "Warm amber candlelight, pools of shadow"
+  atmosphere: "Intimate, slightly smoky, Dutch gezellig aesthetic"
+  
+  details:
+    walls: "Rough-hewn stone with moss in crevices"
+    ceiling: "Low vaulted stone, candle sconces"
+    floor: "Worn flagstones, scattered sawdust"
+    ambient: "Smell of aged cheese, old wood, candle wax"
+
+table:
+  shape: "Round wooden pie table, dark oak"
+  surface: "Worn smooth by generations of elbows"
+  diameter: "~5 feet"
+  
+  objects:
+    chips: "Clay chips in stacks, colors: white/red/blue/black"
+    cards: "Worn playing cards, traditional back pattern"
+    cheese_board: "Large wooden board with sharp cheddar wheel"
+    cheese_knife: "Ornate silver cheese knife"
+    drinks: "Sparkling water bottles, tea cups"
+    
+  positions:  # clockwise from camera
+    seat_1: "Don Hopkins (host, near cheese board)"
+    seat_2: "Palm (the cat, elevated cushion)"
+    seat_3: "Bumblewick (nervous goblin, booster seat)"
+    seat_4: "Donna Toadstool (politician, formal posture)"
+
+characters:
+  don_hopkins:
+    species: "Human male"
+    age: "60s"
+    build: "Stocky, comfortable"
+    face: "Warm weathered features, expressive eyes"
+    hair: "Gray, slightly wild"
+    clothing: "Comfortable cardigan, rolled sleeves"
+    signature_props: ["Cheese knife", "Sharp cheddar wedge"]
+    
+    tells:
+      relaxed: "Cutting/offering cheese, leaned back"
+      focused: "Fingers tap twice on chips"
+      strong_hand: "Cheese knife active, multitasking"
+      bluffing: "Direct eye contact, still hands"
+      
+    visual_cues:
+      happy: "Crinkled eyes, soft smile"
+      thinking: "Head tilted, hand on chin"
+      surprised: "Eyebrows up, mouth slightly open"
+
+  palm:
+    species: "Cat, silver tabby"
+    age: "122 years (appears ageless)"
+    size: "Large housecat, sits on cushion to reach table"
+    fur: "Silver with darker stripes, luminescent quality"
+    eyes: "Gold, ancient wisdom"
+    whiskers: "Long, expressive, angle with mood"
+    tail: "Long, curls/uncurls with emotion"
+    
+    tells:
+      relaxed: "Fur smooth, tail curled"
+      alert: "Whiskers angled forward"
+      strong_hand: "Fur perfectly still"
+      bad_beat: "Fur flattens completely"
+      amused: "Whisker twitch"
+      
+    visual_cues:
+      happy: "Slow blink, fur shimmer"
+      thinking: "Ears rotate slightly"
+      surprised: "Fur ripples once"
+
+  bumblewick:
+    species: "Goblin"
+    age: "Young adult (equivalent to early 20s)"
+    size: "Small, needs booster seat"
+    skin: "Pale green, slightly mottled"
+    ears: "Large, expressive, droop when sad"
+    eyes: "Large, watery, prone to tears"
+    hands: "Small, trembling when nervous"
+    clothing: "Oversized vest, too many pockets"
+    
+    tells:
+      nervous: "Trembling hands, ear droop"
+      excited: "Ears perk up, bouncing"
+      strong_hand: "Goes very still (learned)"
+      accepting: "Deep breath, reaches for cheese"
+      
+    visual_cues:
+      happy: "Ears up, slight bounce"
+      scared: "Wide eyes, ears flat"
+      proud: "Chest puffed, chin up"
+      sad: "Ears fully drooped, watery eyes"
+      
+    arc_visual:
+      early: "Constant trembling, tear-streaked"
+      late: "Composed, occasional ear twitch only"
+
+  donna_toadstool:
+    species: "Toad/humanoid"
+    age: "Middle-aged (toad years)"
+    build: "Squat, dignified"
+    skin: "Mottled brown-green, slightly bumpy"
+    eyes: "Large, prominent, excellent for staring"
+    mouth: "Wide, can express disdain perfectly"
+    clothing: "Formal blazer, pearls, mayoral air"
+    accessories: ["Sparkling water glass", "Reading glasses on chain"]
+    
+    tells:
+      aggressive: "Stands up, leans forward"
+      controlled: "Perfectly still, water untouched"
+      strong_hand: "Does NOT stand up (learned)"
+      thinking: "Adjusts pearls"
+      
+    visual_cues:
+      happy: "Rare smile, eyes soften"
+      angry: "Throat pouch inflates slightly"
+      surprised: "Eyes bulge more"
+      smug: "Chin raised, slight smirk"
+
+camera_angles:
+  over_shoulder: "Behind one character, showing their cards and opponents"
+  table_wide: "All four players visible, chips and cards"
+  face_close: "Single character face, emotional detail"
+  hands_detail: "Cards and hands, chip handling"
+  
+lighting_moods:
+  tension: "Deeper shadows, single candle highlight"
+  relief: "Warmer, more even glow"
+  revelation: "Dramatic side lighting"
+  camaraderie: "Soft, inclusive warmth"

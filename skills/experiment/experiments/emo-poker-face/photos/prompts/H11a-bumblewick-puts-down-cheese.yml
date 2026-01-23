@@ -1,0 +1,70 @@
+# Photo Prompt: H11a — Bumblewick Puts Down Cheese
+# Source: four-player-005.yml, Hand 11, Preflop
+
+photo:
+  id: "H11a-bumblewick-puts-down-cheese"
+  title: "Serious Mode"
+  
+source:
+  run: "../runs/four-player-005.yml"
+  hand: 11
+  phase: "preflop"
+  moment: "Bumblewick sees kings, deliberately sets down his cheese wedge"
+  
+scene:
+  ref: "../SCENE.yml#setting"
+  lighting: "tension"
+  time: "Late session"
+  
+camera:
+  angle: "face_close"
+  subject: "bumblewick"
+  position: "Slightly below eye level, looking up at Bumblewick"
+  shows:
+    - "Bumblewick's face — composed, determined"
+    - "His hand SETTING DOWN cheese wedge"
+    - "Cards (K♦ K♣) just peeked at"
+    - "His chip stack ready"
+  depth: "Face and cheese hand sharp"
+
+subject:
+  character: "bumblewick"
+  ref: "../SCENE.yml#characters.bumblewick"
+  cards: [K♦, K♣]
+  tells_active:
+    - "Deliberately setting down cheese"
+    - "Deep breath visible (chest expanding)"
+    - "Ears LEVEL (not drooped, not perked)"
+    - "Eyes focused, not watery"
+    - "Jaw set with determination"
+  emotion: "Focused resolve"
+  internal: "Kings. I know how to play kings now."
+  dialog: '"Raise. 500."'
+  
+observers:
+  donna:
+    ref: "../SCENE.yml#characters.donna_toadstool"
+    expression: "Recognition"
+    tells: "Eyebrows up, noting the cheese"
+    dialog: '"He put down the cheese."'
+    
+  don:
+    ref: "../SCENE.yml#characters.don_hopkins"
+    expression: "Understanding"
+    tells: "Own cheese knife paused"
+    internal: '"The cheese knife is on the table."'
+    
+  palm:
+    ref: "../SCENE.yml#characters.palm"
+    expression: "Calculating"
+    tells: "Short stack, considering options"
+
+table_state:
+  pot: "About to grow"
+  chips:
+    bumblewick: "Large stack, 500 pushed forward"
+  cheese: 
+    bumblewick: "DELIBERATELY SET DOWN on table"
+    others: "Various states of consumption"
+
+mood: "The tell everyone reads correctly"
