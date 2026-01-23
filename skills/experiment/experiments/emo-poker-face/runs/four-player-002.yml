@@ -484,3 +484,271 @@ hand_2_flop:
         Please don't have spades. Please no flush draws.
         Actually, I don't care. Let's gamble.
         122 years taught Palm something. Let's see what 47 taught Bumblewick.
+        
+    - actor: bumblewick
+      position: response
+      action: "calls 100 🪙"
+      stack_after: 1950
+      observable: |
+        Immediate. Almost no hesitation.
+        "Call." Firm. FIRM.
+        Pushes chips in. Looks at the board.
+        For once, not at the other players.
+      thinking: |
+        100 into a pot of 1750? That's... that's good odds?
+        I read about pot odds. I think this is them.
+        If a spade comes I win EVERYTHING.
+        This is only 100 chips. I have... 2050.
+        I can lose 100. I can AFFORD to lose 100.
+        This is what having chips means.
+        You can take chances.
+        Donna said I played the worst poker she'd ever seen.
+        But I won.
+        Maybe bad poker is GOOD poker?
+        No. That doesn't make sense.
+        But the call makes sense. I know it does.
+        A spade. I just need a spade.
+        The leg stopped bouncing.
+        
+    - actor: donna
+      position: response
+      action: "folds"
+      stack_after: 350
+      observable: |
+        Cards snap down. Violent motion.
+        "Fold." Like a curse.
+        Stands up. Sits back down.
+        "This is ridiculous."
+      thinking: |
+        I have NOTHING. King-high doesn't beat ANYTHING.
+        Don has something — probably a jack.
+        Bumblewick called IMMEDIATELY. He has a draw.
+        If I put in 100, I'm committed to the rest.
+        450 total for a hand I can't win?
+        No. No. Take the loss.
+        But Bumble-WEAK called and I folded?
+        HE'S WINNING BY PLAYING BADLY.
+        He doesn't know what he's doing and he's WINNING.
+        I hate everything about this.
+        
+    palm_observation:
+      observable: |
+        Small nod at Bumblewick's call.
+        Whisker twitch.
+      thinking: |
+        The little one called quickly. With confidence.
+        He has a draw — the spades, obviously. His leg told us.
+        But the QUICK call... that's new.
+        He calculated. Maybe unconsciously, but he calculated.
+        Don is ahead but vulnerable.
+        If a spade comes... redemption for one, disaster for another.
+        
+  flop_complete:
+    pot: 1850  # 1650 + 100 + 100
+    side_pot: null  # all players covered Don's all-in
+    remaining: [don (all-in), bumblewick]
+    donna: folded (350 behind, still in tournament)
+    
+    stacks:
+      don: 0  # all-in, can only win main pot
+      palm: 850  # watching
+      bumblewick: 1950
+      donna: 350
+
+# HAND 2: THE TURN
+
+hand_2_turn:
+  card: 8♠  # THE THIRD SPADE
+  board: [J♣, 5♠, 2♠, 8♠]
+  pot: 1850
+  
+  # New hand strengths:
+  # don: J♠J♦ = set of jacks (but spade on board makes him sick)
+  # bumblewick: A♠3♠ = ACE-HIGH FLUSH — THE NUTS
+  
+  turn_reactions:
+    don:
+      observable: |
+        Jenever glass freezes halfway to mouth.
+        Sets it down slowly.
+        "Well." Single word.
+        Eyes close briefly.
+      thinking: |
+        Spade.
+        Of course it's a spade.
+        Bumblewick's leg was telling us the whole time.
+        I'm dead. I have to be dead.
+        He called immediately with his draw. He got there.
+        Set over flush. Poker's cruelest beat.
+        At least I only lost 500 total.
+        *sigh*
+        The kid deserves it anyway.
+        
+    bumblewick:
+      observable: |
+        Stares at the 8♠.
+        Stares at his cards.
+        Stares at the board again.
+        Mouth opens. Closes.
+        "I..." Nothing else comes out.
+        Tears forming.
+      thinking: |
+        That's a spade.
+        A SPADE.
+        I have ACE SPADE.
+        ...
+        I have a FLUSH.
+        I have a FLUSH?
+        I HAVE A FLUSH!
+        ACE HIGH FLUSH! That's... that's the BEST flush!
+        Nobody can have a better flush than me!
+        I'm going to cry. Don't cry at the poker table.
+        But this is... this is...
+        I WON TWICE?
+        No. Wait. The hand isn't over.
+        But I'm going to win. I KNOW I'm going to win.
+        This is what knowing feels like.
+        I've never felt this before.
+        
+    donna:
+      observable: |
+        "ARE YOU KIDDING ME."
+        Stands up fully. Chair scrapes back.
+        "He has it AGAIN? HE HAS IT AGAIN?"
+        Grabs her water. Drinks the whole thing.
+      thinking: |
+        Spade. He called with a spade draw and HIT.
+        He's going to win AGAIN.
+        Don had him crushed and now Don is DEAD.
+        This little trembling DISASTER keeps backing into wins.
+        I can't. I literally cannot.
+        
+    palm:
+      observable: |
+        Soft laugh. Very soft.
+        "The cards like him."
+        Raises invisible glass to Bumblewick.
+      thinking: |
+        He got there. The flush.
+        Don's set is dead.
+        And Bumblewick is crying because he's happy.
+        Not because he's sad. Happy tears at a poker table.
+        I lost to a man who cries when he wins.
+        Somehow that feels appropriate.
+        
+  turn_action:
+    - actor: bumblewick
+      action: "checks (cannot bet — Don is all-in)"
+      observable: |
+        Tears streaming. Wipes face.
+        "I... check. I check. Is that right?"
+        "The bet is already... yes. Check."
+        Looks at Don with something like apology.
+      thinking: |
+        Don is all-in. I can't bet more.
+        We just have to see the river.
+        But I know. I KNOW.
+        Unless... unless two jacks come on the river?
+        No, that's not how cards work.
+        I'm going to win.
+        I'm going to win and Don is going to lose.
+        Don who was nice to me. Who protects me.
+        And I'm going to take his chips.
+        Why does winning feel like losing?
+        
+  # No river action needed — both players all-in or checking
+
+# HAND 2: THE RIVER
+
+hand_2_river:
+  card: 3♦
+  final_board: [J♣, 5♠, 2♠, 8♠, 3♦]
+  pot: 1850
+  
+  # Final hands:
+  # don: J♠J♦ = set of jacks — LOSES
+  # bumblewick: A♠3♠ = ace-high flush (plus he paired his 3!) — WINS
+  
+  showdown:
+    don_reveal:
+      cards: [J♠, J♦]
+      hand: "Set of Jacks"
+      observable: |
+        Cards turned over with resignation.
+        "I had the set. For what it's worth."
+        Picks up jenever. Actually finishes it.
+        Small smile at Bumblewick.
+        "You're getting good at this, kid."
+      thinking: |
+        Lost to a flush. Classic.
+        But Bumblewick called with odds and got there.
+        That's not luck. That's... poker.
+        *drinks*
+        At least Palm can stake me now.
+        
+    bumblewick_reveal:
+      cards: [A♠, 3♠]
+      hand: "Ace-high Flush"
+      observable: |
+        Hands still shaking. Cards turned over.
+        "I have... I have the... the flush."
+        Points at his cards. Points at board.
+        "See? All the same suit."
+        Full crying now. Not hiding it.
+        "I'm so sorry, Don. I'm so sorry."
+      thinking: |
+        I won. I WON.
+        Don lost and it's MY FAULT.
+        I took his chips AGAIN.
+        First Palm, now Don.
+        They'll hate me. They have to hate me.
+        But the cards... the cards were on my side.
+        Is that what believing in yourself feels like?
+        You get rewarded?
+        I don't understand. I don't understand anything.
+        But I won. Twice.
+        Maybe... maybe I can do things?
+        
+    donna_reaction:
+      observable: |
+        Hasn't sat down. Still standing.
+        "Ace-three. ACE-THREE SUITED."
+        "Called 500 with ace-three suited."
+        "Won a flush."
+        Sits down heavily. Puts head in hands.
+      thinking: |
+        He called my squeeze with ace-three suited.
+        That's OBJECTIVELY bad.
+        And he WON.
+        The universe is telling me something.
+        I don't like what it's saying.
+        
+    palm_reaction:
+      observable: |
+        Rises. Walks to Don.
+        "I'll stake you back, old friend."
+        Slides chips across. "500. Partners again."
+        To Bumblewick: "Two hands. Two wins. That's not luck."
+        "That's becoming someone."
+      thinking: |
+        The little one is transforming.
+        From terror to... what? Confidence? Belief?
+        He still cries. He still apologizes.
+        But he calls. He gets there. He wins.
+        Don lost with grace. That's liberation too.
+        Losing without losing yourself.
+        
+  hand_2_result:
+    winner: bumblewick
+    hand: "Ace-high Flush"
+    pot_won: 1850
+    
+    final_stacks_hand_2:
+      don: 500  # Palm's stake
+      palm: 350  # gave 500 to Don
+      bumblewick: 3800  # 1950 + 1850
+      donna: 350
+      total: 5000
+      
+    chip_leader: bumblewick
+    eliminated: none
