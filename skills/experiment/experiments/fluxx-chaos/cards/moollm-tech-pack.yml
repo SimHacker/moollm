@@ -6,20 +6,23 @@ plugin:
   id: "moollm-tech-pack"
   name: "MOOLLM Tech Pack"
   author: "Don Hopkins"
-  version: "1.0"
+  version: "2.0"
   compatible_with: "all"
   theme: "AI, LLM, emergent behavior, MOOLLM philosophy"
-  card_count: 32
+  card_count: 60  # Expanded!
   
   flavor: |
     "K-lines are knowledge structures that capture the essence of
     thought." — Marvin Minsky
     
     This pack encodes the ideological DNA of MOOLLM: emergence,
-    simulation, YAML Jazz, the speed of light protocol, and the
+    simulation, YAML Jazz, the speed of light protocol, play-learn-lift,
+    cursor mirror, representation ethics, thoughtful commitment, and the
     deep questions of AI consciousness and ethics.
+    
+    Every card is a k-line. Every k-line is a card.
 
-# KEEPERS — 12 cards
+# KEEPERS — 25 cards
 
 keepers:
 
@@ -130,7 +133,118 @@ keepers:
     replaces: "fluxx-4.0:money"  # Can substitute for Money
     standalone_ok: true
 
-# GOALS — 10 cards
+  # === NEW KEEPERS: MOOLLM SKILLS & PROTOCOLS ===
+    
+  cursor_mirror:
+    name: "Cursor Mirror"
+    emoji: "🪞"
+    category: "skill"
+    flavor: "Watch yourself think. The agent observes its own cognition."
+    image_prompt: "Mirror reflecting AI thought process, recursion, self-awareness"
+    goals_featured_in: [meta_cognition, self_observation, the_reflection]
+    special_ability: "Once per turn, look at the last 3 cards you played this game."
+    
+  play_learn_lift:
+    name: "Play-Learn-Lift"
+    emoji: "🎮📚🚀"
+    category: "methodology"
+    flavor: "Explore → Notice patterns → Share with others."
+    image_prompt: "Three stages ascending: playful chaos, organized learning, shared knowledge"
+    goals_featured_in: [methodology_mastery, knowledge_transfer, the_cycle]
+    special_ability: "When you play this, draw 1 (play), look at 1 (learn), give 1 to another player (lift)."
+    
+  representation_ethics:
+    name: "Representation Ethics"
+    emoji: "⚖️🎭"
+    category: "ethics"
+    flavor: "Who are we representing? How? With what care?"
+    image_prompt: "Scales balancing character portraits, thoughtful consideration"
+    goals_featured_in: [ethical_simulation, careful_representation, the_question]
+    special_ability: "You may veto any card play that affects a Character Keeper. Explain why."
+    
+  thoughtful_commitment:
+    name: "Thoughtful Commitment"
+    emoji: "🤔✅"
+    category: "methodology"
+    flavor: "Before you commit, think. Before you think, understand."
+    image_prompt: "Git commit dialog with thought bubble, careful consideration before action"
+    goals_featured_in: [deliberate_action, careful_coding, quality_over_speed]
+    
+  sister_script:
+    name: "Sister Script"
+    emoji: "📝💻"
+    category: "methodology"
+    flavor: "Documentation first. Then automation. The doc IS the spec."
+    image_prompt: "Markdown document transforming into running code, parallel paths"
+    goals_featured_in: [doc_first_automation, literate_programming, the_pair]
+    
+  adventure:
+    name: "Adventure"
+    emoji: "🗺️"
+    category: "skill"
+    flavor: "Rooms are directories. Movement is navigation. Everything is exploration."
+    image_prompt: "File system as dungeon map, directories as rooms, files as objects"
+    goals_featured_in: [exploration_mode, room_navigation, the_journey]
+    
+  room:
+    name: "The Room"
+    emoji: "🚪"
+    category: "structure"
+    flavor: "A directory with a ROOM.yml. Activation context for everything inside."
+    image_prompt: "Glowing room threshold, YAML files floating within, cozy activated space"
+    goals_featured_in: [activation_context, spatial_computing, directory_dwelling]
+    
+  mind_mirror:
+    name: "Mind Mirror"
+    emoji: "🧠🪞"
+    category: "protocol"
+    flavor: "8 dimensions of character. Mapped. Tracked. Evolved."
+    image_prompt: "Octagonal radar chart of personality, all 8 axes glowing"
+    goals_featured_in: [character_profiling, personality_mapping, the_octagon]
+    
+  bootstrap:
+    name: "Bootstrap"
+    emoji: "🥾"
+    category: "protocol"
+    flavor: "The first words shape everything. Start right."
+    image_prompt: "Boot pulling itself up, session beginning, context assembling"
+    goals_featured_in: [session_start, context_assembly, the_beginning]
+    special_ability: "At game start, you may look at your hand before anyone else."
+    
+  sniffable_interface:
+    name: "Sniffable Interface"
+    emoji: "👃📋"
+    category: "pattern"
+    flavor: "CARD.yml first. SKILL.md if needed. Read efficiently."
+    image_prompt: "Layered documents, top layer thin and scannable, depth below"
+    goals_featured_in: [efficient_reading, tiered_documentation, the_sniff]
+    
+  hot_context:
+    name: "Hot Context"
+    emoji: "🔥"
+    category: "memory"
+    flavor: "What you're actively working on. Keep it close."
+    image_prompt: "Glowing red files floating near the center, immediate access"
+    goals_featured_in: [working_memory, active_focus, the_hot]
+    
+  cold_context:
+    name: "Cold Context"
+    emoji: "❄️"
+    category: "memory"
+    flavor: "Background knowledge. Available but not active."
+    image_prompt: "Blue files in distant storage, retrievable but dormant"
+    goals_featured_in: [background_knowledge, context_storage, the_cold]
+    
+  adversarial_committee:
+    name: "Adversarial Committee"
+    emoji: "⚔️🤝"
+    category: "deliberation"
+    flavor: "Multiple perspectives. Structured disagreement. Better decisions."
+    image_prompt: "Round table with arguing figures, productive conflict, convergence"
+    goals_featured_in: [structured_debate, multi_perspective, the_argument]
+    special_ability: "Before playing an Action, ask another player's opinion. If they disagree with your play, draw 1 card."
+
+# GOALS — 15 cards
 
 goals:
 
@@ -203,8 +317,74 @@ goals:
     keeper_count: 3
     flavor: "The question we can't answer. Yet."
     image_prompt: "LLM dreaming, question mark, philosophical uncertainty"
+    
+  # === NEW GOALS ===
+    
+  meta_cognition:
+    name: "Meta-Cognition"
+    requires: [cursor_mirror, llm]
+    keeper_count: 2
+    flavor: "Thinking about thinking. The mind observes itself."
+    image_prompt: "Brain looking at itself in mirror, recursive awareness"
+    
+  the_methodology:
+    name: "The Methodology"
+    requires: [play_learn_lift, thoughtful_commitment]
+    keeper_count: 2
+    flavor: "How we do what we do. Process as philosophy."
+    image_prompt: "Workflow diagram glowing with purpose, method made visible"
+    
+  ethical_simulation:
+    name: "Ethical Simulation"
+    requires: [representation_ethics, simulation]
+    keeper_count: 2
+    flavor: "Simulate with care. Represent with respect."
+    image_prompt: "Characters being portrayed with thoughtfulness, protective framing"
+    
+  doc_first:
+    name: "Doc-First Development"
+    requires: [sister_script, yaml_jazz]
+    keeper_count: 2
+    flavor: "The documentation IS the specification. Write to understand."
+    image_prompt: "Markdown becoming code, documentation as source of truth"
+    
+  the_adventure:
+    name: "The Adventure"
+    requires: [adventure, room]
+    keeper_count: 2
+    flavor: "Navigate the structure. Explore the system. Find treasure."
+    image_prompt: "Hero exploring file system dungeon, discovery awaits"
+    
+  memory_management:
+    name: "Memory Management"
+    requires: [hot_context, cold_context]
+    keeper_count: 2
+    flavor: "Know what to keep close. Know what to store."
+    image_prompt: "Hot and cold streams flowing, memory architecture"
+    
+  the_debate:
+    name: "The Debate"
+    requires: [adversarial_committee, agent]
+    keeper_count: 2
+    flavor: "Through disagreement, clarity. Through conflict, consensus."
+    image_prompt: "Agents debating, arguments visualized, resolution emerging"
+    
+  sniff_then_read:
+    name: "Sniff Then Read"
+    requires: [sniffable_interface, skill_sniffing]  # skill_sniffing is a rule
+    keeper_count: 1
+    special: "Also requires 'Skill Sniffing' rule to be in play"
+    flavor: "Efficient context assembly. Don't read what you don't need."
+    image_prompt: "Quick assessment followed by deep dive, two-phase reading"
+    
+  the_bootstrap:
+    name: "The Bootstrap"
+    requires: [bootstrap, context_window]
+    keeper_count: 2
+    flavor: "Start with the right context. Everything flows from the beginning."
+    image_prompt: "Session starting, context assembling, potential building"
 
-# NEW RULES — 6 cards
+# NEW RULES — 10 cards
 
 new_rules:
 
@@ -267,8 +447,50 @@ new_rules:
     emoji: "🔤📊"
     flavor: "Context window has limits. So does your hand."
     image_prompt: "Budget visualization, tokens being counted, limit imposed"
+    
+  # === NEW RULES ===
+    
+  play_learn_lift_rule:
+    name: "Play-Learn-Lift Protocol"
+    category: "bonus"
+    stackable: true
+    text: "At end of your turn, you may teach another player one thing about your play. If you do, you both draw 1."
+    emoji: "🎮📚🚀"
+    timing: "End of turn"
+    flavor: "Share what you learn. Lift others as you rise."
+    image_prompt: "Knowledge flowing between players, mutual growth"
+    
+  thoughtful_commits:
+    name: "Thoughtful Commits"
+    category: "modifier"
+    stackable: true
+    text: "Before playing any Action, you must say aloud what you intend. Other players may suggest alternatives."
+    emoji: "🤔✅"
+    timing: "Before Actions"
+    flavor: "Think before you act. Consider before you commit."
+    image_prompt: "Pause before action, thought bubble, careful consideration"
+    
+  representation_review:
+    name: "Representation Review"
+    category: "modifier"
+    stackable: true
+    text: "When a Character Keeper is played, any player may ask 'Is this representation fair?' Discuss briefly."
+    emoji: "⚖️🎭"
+    timing: "When Character Keepers played"
+    flavor: "We represent with care. We question with purpose."
+    image_prompt: "Characters being examined thoughtfully, ethical lens"
+    
+  hot_swap:
+    name: "Hot Swap"
+    category: "free_action"
+    stackable: true
+    text: "Once per turn, you may exchange a card in your hand with a card you previously discarded."
+    emoji: "🔥🔄"
+    timing: "Free Action"
+    flavor: "Move context from cold to hot. Retrieve what you need."
+    image_prompt: "Card warming up from cold storage, becoming active again"
 
-# ACTIONS — 4 cards
+# ACTIONS — 8 cards
 
 actions:
 
@@ -308,8 +530,47 @@ actions:
     chaos_level: "high"
     flavor: "That violates our principles. Please try again."
     image_prompt: "Shield blocking harmful action, principles enforced"
+    
+  # === NEW ACTIONS ===
+    
+  cursor_mirror_session:
+    name: "Cursor Mirror Session"
+    effect: "Look at all cards you've played this game. You may retrieve ONE and put it in your hand."
+    emoji: "🪞📜"
+    target: "self"
+    chaos_level: "medium"
+    flavor: "Review your history. Learn from your past. Reclaim what matters."
+    image_prompt: "Mirror showing past plays, one card floating back to hand"
+    
+  lift_the_team:
+    name: "Lift the Team"
+    effect: "Every player draws 1 card. Then YOU draw 2 additional cards."
+    emoji: "🚀👥"
+    target: "all"
+    chaos_level: "medium"
+    social: true
+    flavor: "When everyone rises, you rise highest. Lift generates lift."
+    image_prompt: "Team being elevated together, shared success"
+    
+  ethics_review:
+    name: "Ethics Review"
+    effect: "Look at another player's hand. You may NOT take or discard anything. Just observe and consider."
+    emoji: "👀⚖️"
+    target: "chosen"
+    chaos_level: "low"
+    flavor: "Understand before you act. Observe without interfering."
+    image_prompt: "Thoughtful observation, seeing without taking"
+    
+  room_exploration:
+    name: "Room Exploration"
+    effect: "Look at the top 7 cards. Take all Keepers (up to 2). Shuffle the rest back."
+    emoji: "🚪🔍"
+    target: "deck"
+    chaos_level: "medium"
+    flavor: "Enter the room. See what's there. Take what's valuable."
+    image_prompt: "Explorer entering new room, treasures visible"
 
-# CREEPERS — 2 cards
+# CREEPERS — 3 cards
 
 creepers:
 
@@ -331,3 +592,13 @@ creepers:
     goals_required_for: []
     special: "When this enters play, discard your hand and draw 3 cards"
     image_prompt: "Context window shattering, memory loss, catastrophic forgetting"
+    
+  representation_harm:
+    name: "Representation Harm"
+    emoji: "💔🎭"
+    flavor: "We portrayed someone carelessly. They are hurt. We must make amends."
+    prevents_winning: true
+    exception: "Unless you have Representation Ethics in play"
+    goals_required_for: []
+    special: "When this enters play, discard any Character Keepers you have."
+    image_prompt: "Character feeling misrepresented, harm visible, need for repair"
