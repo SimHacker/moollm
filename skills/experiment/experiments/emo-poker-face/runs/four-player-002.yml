@@ -1386,3 +1386,165 @@ hand_4:
           Bumblewick needs an ace or a queen.
           Three of each in the deck.
           The cards love him lately.
+          
+  board_runout:
+    flop: [10♦, 6♠, 3♣]
+    turn: J♥
+    river: 4♦
+    final_board: [10♦, 6♠, 3♣, J♥, 4♦]
+    
+    reactions_during:
+      flop:
+        don:
+          observable: "Safe flop." Exhales.
+        bumblewick:
+          observable: Flinches. "No ace. No queen."
+        palm:
+          observable: "Kings still good."
+      turn:
+        don:
+          observable: "One more card."
+        bumblewick:
+          observable: "Come on... come on..."
+          thinking: "Jack. That doesn't help. I need an ace or a queen."
+        palm:
+          observable: "Broadway card but no straight possible yet."
+      river:
+        don:
+          observable: "Four." Closes eyes. Opens them.
+        bumblewick:
+          observable: "...oh."
+        palm:
+          observable: "Kings hold."
+          
+    result:
+      don: "Pair of Kings" (K♥K♦ — WINNER)
+      bumblewick: "Ace high" (A♣Q♥ — LOSES)
+      winner: don
+      
+    showdown_reaction:
+      don:
+        observable: |
+          Stands. Stretches.
+          "Kings hold."
+          Looks at Bumblewick.
+          "Thank you for the call. That was brave."
+          Collects chips with steady hands.
+        thinking: |
+          I won. I actually won one.
+          Bumblewick called correctly — ace-queen is good enough.
+          But the cards went my way this time.
+          Back to 925. Breathing room.
+          The kid is still chip leader but now we have a game.
+          
+      bumblewick:
+        observable: |
+          Nods slowly. Not crying this time.
+          "Good hand, Don."
+          Three words. Simple.
+          Leans back. Still has 3350.
+        thinking: |
+          I lost. I called and I lost.
+          That's... okay?
+          I still have chips. I still have SO MANY chips.
+          Losing one hand doesn't mean losing the game.
+          This is what they mean by "one hand at a time."
+          I think I'm learning. Slowly. But learning.
+          
+      palm:
+        observable: |
+          "Bumblewick, you played that correctly."
+          Gentle voice.
+          "The call was right. The cards weren't."
+        thinking: |
+          He's not apologizing for losing.
+          He's not devastated.
+          He called, lost, and accepted it.
+          This isn't the same creature from hand one.
+          Terror is becoming... strategy?
+          No. Becoming acceptance.
+          Acceptance of variance. The first lesson of poker.
+
+  hand_4_result:
+    winner: don
+    hand: "Pair of Kings"
+    pot_won: 925
+    
+    final_stacks_hand_4:
+      don: 925  # doubled up
+      palm: 725  # unchanged (folded preflop)
+      bumblewick: 3350  # lost 400
+      total: 5000
+      
+    eliminated: none
+    chip_leader: bumblewick (still)
+    
+# HAND 4 SUMMARY
+
+hand_4_summary:
+  winner: don
+  key_moment: "Bumblewick calls Don's all-in without apologizing"
+  growth: "Bumblewick loses with grace — no tears, no self-flagellation"
+  palm_insight: "Terror is becoming acceptance. The first lesson of poker."
+
+# STANDINGS AFTER HAND 4
+
+standings_hand_4:
+  hands_played: 4
+  players_remaining: 3
+  
+  stacks:
+    bumblewick: 3350  # 67% of chips
+    don: 925         # 18.5%
+    palm: 725        # 14.5%
+    total: 5000
+    
+  trajectory:
+    bumblewick: "1000 → 2550 → 3800 → 3350 (↓ first loss accepted gracefully)"
+    palm: "1000 → 0 → 1000 → 350 → 750 → 725 (steady)"
+    don: "1000 → 600 → 500 → 450 → 925 (doubled up!)"
+    
+  narrative: |
+    Bumblewick is still chip leader but Don fought back.
+    The dynamic has shifted. Don has chips to play with.
+    Palm is steady, watching, waiting.
+    
+    The terrified one learned to lose.
+    The host found his kings.
+    The sage observed and noted the transformation.
+
+# SESSION 002 SUMMARY (HANDS 2-4)
+
+session_summary:
+  run_id: four-player-002
+  hands_played: "2-4 (continuing from 001)"
+  
+  eliminations:
+    - donna (hand 3, lost A♥A♦ vs Q♠J♠ to palm)
+    
+  rebuys:
+    - palm: 1000 from Don (hand 2 start)
+    - don: 500 from Palm (hand 2 end)
+    
+  winners:
+    hand_2: bumblewick (flush over set)
+    hand_3: palm (aces over QJ)
+    hand_4: don (kings over AQ)
+    
+  key_moments:
+    - "Bumblewick calls 500 preflop with A3s (correct pot odds thinking emerges)"
+    - "Bumblewick's first correct fold (6-4 offsuit)"
+    - "Bumblewick calls Don's all-in without apologizing"
+    - "Bumblewick loses hand 4 gracefully — no tears"
+    
+  emergence:
+    - "Terror → Calculation (pot odds intuition)"
+    - "Terror → Strategy (knowing when to fold)"
+    - "Terror → Acceptance (losing without devastation)"
+    
+  layer_violations: 0
+  
+  continuation:
+    game_state: "Three-handed: Bumblewick 3350, Don 925, Palm 725"
+    next_hand: "Hand 5"
+    tension: "Don has momentum. Bumblewick is learning. Palm is watching."
