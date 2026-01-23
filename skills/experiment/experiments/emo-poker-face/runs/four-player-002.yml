@@ -752,3 +752,195 @@ hand_2_river:
       
     chip_leader: bumblewick
     eliminated: none
+    
+  hand_2_summary:
+    key_moment: "Bumblewick calls 500 with A3 suited — pot odds thinking emerges"
+    emergence: "The terrified one is learning math through intuition"
+    layer_violations: 0
+    donna_quote: "Called 500 with ace-three suited. Won a flush."
+
+# HAND 3: THE SHORT STACKS FIGHT BACK
+
+hand_3:
+  setup:
+    # Button moves: Palm → Bumblewick
+    button: bumblewick  # now with 3800
+    small_blind: donna  # 25 (has 350)
+    big_blind: don  # 50 (has 500)
+    first_to_act: palm  # UTG (has 350)
+    
+    blinds_posted:
+      donna: -25  # stack: 325
+      don: -50  # stack: 450
+      pot: 75
+      
+    stacks_pre_deal:
+      palm: 350  # short
+      bumblewick: 3800  # MOUNTAIN
+      donna: 325  # short
+      don: 450  # medium
+
+  deal:
+    cards:
+      palm: [A♥, A♦]  # POCKET ACES (finally!)
+      bumblewick: [6♥, 4♣]  # trash
+      donna: [Q♠, J♠]  # broadway suited
+      don: [10♦, 8♦]  # suited connector
+
+  reactions:
+    palm:
+      observable: |
+        Absolute stillness. Like a statue.
+        One ear flicks. Just one.
+        "Interesting."
+      thinking: |
+        Aces.
+        After losing everything, aces.
+        The universe has a sense of humor.
+        I have 350 behind. This hand decides if I stay alive.
+        Don't shimmer. DON'T shimmer.
+        The fur wants to shimmer. Control it.
+        Just play it straight. Raise. Get it in.
+        122 years, and it comes down to two aces.
+        
+    bumblewick:
+      observable: |
+        Glances at cards. Shrugs slightly.
+        Actually SHRUGS.
+        Looks at his mountain of chips.
+        Hums quietly. Is he... humming?
+      thinking: |
+        Six-four. Not suited. Not... anything.
+        Last hand I won with ace-three.
+        Maybe I should fold this one?
+        Yes. Fold. That's what you do with bad cards.
+        Wait, I KNOW what bad cards are now?
+        Progress!
+        The chips feel different when you have this many.
+        Like armor. I can afford to fold.
+        Folding isn't scared. Folding is STRATEGY.
+        
+    donna:
+      observable: |
+        Eyes narrow. Slight smile.
+        "Finally." Whispered.
+        Fingers tap chips. Counting.
+      thinking: |
+        Queen-jack suited. REAL cards.
+        I have 325. If I'm going to make a move, it's now.
+        Bumblewick has everything. I need to double through him.
+        But Palm acts first. Let's see what Palm does.
+        If Palm raises, I can jam over.
+        This might be my last hand. Make it count.
+        
+    don:
+      observable: |
+        Nods slowly at cards.
+        "Could be worse."
+        Still drinking jenever.
+      thinking: |
+        Ten-eight suited. Playable.
+        I have 450. Plenty to maneuver.
+        Palm looks... too still. That's the shimmer he's holding back.
+        Palm has something.
+        Let's see how this develops.
+
+  preflop_action:
+    - actor: palm
+      position: UTG
+      action: "all-in 350 🪙"
+      stack_after: 0
+      observable: |
+        Chips pushed forward. All of them.
+        "All in." Voice steady. Calm.
+        Fur FLAT. Completely controlled.
+        "Sometimes you have to risk it all to stay alive."
+      thinking: |
+        No games. No deception.
+        350 chips. Aces.
+        Anyone who calls is probably behind.
+        If I double up, I'm back in the game.
+        Don will see through me — he always does.
+        But the constraint works both ways:
+        I can't bluff him, but he KNOWS I'm not bluffing.
+        So he'll fold unless he has something real.
+        Bumblewick might call because... Bumblewick.
+        Donna will call with any decent hand — she's desperate too.
+        
+    - actor: bumblewick
+      position: BTN
+      action: "folds"
+      stack_after: 3800
+      observable: |
+        Quick fold. Cards in the muck.
+        "Good luck, everyone."
+        Said WITHOUT irony. Genuine.
+      thinking: |
+        Six-four doesn't call an all-in.
+        I learned that. I think.
+        Palm needs this pot. Palm deserves to win one.
+        I took everything from Palm and now Palm has aces.
+        I can tell. The flat fur. The stillness.
+        Palm ALWAYS has it when they're that still.
+        Let someone else gamble.
+        
+    - actor: donna
+      position: SB
+      action: "all-in 325 🪙"
+      stack_after: 0
+      observable: |
+        Stands up again. Of course.
+        "ALL IN." Competitive fury.
+        "Let's DO this, Palm."
+        Chips pushed forward.
+      thinking: |
+        Queen-jack suited against Palm's range?
+        Palm is tight. Palm is ALWAYS tight.
+        But I'm desperate. And QJ suited is my best hand all night.
+        If I fold, I have 300 and die slowly.
+        If I call and lose, I'm out.
+        If I call and WIN, I'm back in it.
+        GAMBLE.
+        
+    - actor: don
+      position: BB
+      action: "folds"
+      stack_after: 450
+      observable: |
+        Cards placed down softly.
+        "Not my fight."
+        Looks at Palm. Small nod.
+        "Good luck, old friend."
+      thinking: |
+        Palm has aces. I'd bet my stack on it.
+        The flat fur. The measured words.
+        Ten-eight doesn't beat aces.
+        Donna is gambling. She has to.
+        But Palm will take this one.
+        Justice, finally.
+        
+  preflop_result:
+    pot: 725  # 350 + 325 + 50 (BB dead)
+    # Wait, let me recalculate:
+    # Palm: 350 all-in
+    # Donna: 325 all-in (25 was already posted as SB)
+    # Don: 50 posted as BB, folded
+    # Pot: 350 + 325 + 50 = 725
+    
+    showdown_required: true
+    palm_vs_donna: true
+    side_pot: 25  # Palm's extra 25 returned if Donna can't match
+    main_pot: 700  # what both can win (325 + 325 + 50)
+    
+    # Actually: Palm 350, Donna all-in 325 total
+    # Donna only put in 325 total (including her 25 SB)
+    # Palm's extra 25 comes back to Palm
+    # Main pot: 325 + 325 + 50 = 700
+    # Palm gets 25 back
+    
+    all_in_showdown:
+      palm: [A♥, A♦]  # ROCKETS
+      donna: [Q♠, J♠]  # QJ suited
+      equity:
+        palm: "~82%"
+        donna: "~18%"
