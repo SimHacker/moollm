@@ -493,6 +493,54 @@ final_state:
     palm: "watchful → accepting → warmly defeated"
     don: "curious → knowing → paternal pride"
     donna: "aggressive → frustrated → seething → confused"
+
+# SESSION SUMMARY
+
+session:
+  round: 1
+  hands_played: 1
+  
+  winner: bumblewick
+  winning_hand: "Three Kings (set)"
+  pot_won: 2500
+  
+  eliminations:
+    - palm  # 0 chips, out unless rebuy
+    
+  notable_moments:
+    - "Bumblewick stopped shaking when he flopped a set"
+    - "Palm read the stillness but played anyway (pot odds)"
+    - "Don folded queens correctly, read the whole table"
+    - "Donna's 'WORST poker I've ever seen' speech"
+    - "Palm's 'You earned it' — grace in defeat"
+    - "Bumblewick apologizing for winning"
+    
+  layer_integrity:
+    violations: 0
+    notes: "Clean round. No mind-reading. Tells respected."
+    
+  relationship_changes:
+    - from: bumblewick
+      to: palm
+      change: "guilt → ???"
+      event: "Won all of Palm's chips"
+    - from: palm
+      to: bumblewick
+      change: "protective → proud"
+      event: "Saw him find courage"
+    - from: donna
+      to: bumblewick
+      change: "contempt → confused respect?"
+      event: "He won with 'bad' play"
+      
+  protocol_events:
+    smoking: "None this round — too focused on cards"
+    food: "Don's jenever poured for table post-hand"
+    
+  continuation:
+    palm_status: "Out unless rebuy"
+    next_hand: "Would be hand 2, short-handed"
+    tension_level: "Elevated — Donna processing"
       
   protocols:
     smoking:
