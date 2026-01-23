@@ -1,0 +1,61 @@
+# Run: four-player-001
+# Experiment: emo-poker-face
+# Started: 2026-01-23T18:00:00Z
+
+run:
+  id: four-player-001
+  experiment: emo-poker-face
+  timestamp: 2026-01-23T18:00:00Z
+  
+  characters:
+    host: don-hopkins
+    p1: palm
+    p2: bumblewick-fantastipants
+    p3: donna-toadstool
+    
+  seating:  # clockwise from dealer
+    - don-hopkins      # dealer, button
+    - palm             # small blind
+    - bumblewick       # big blind
+    - donna            # under the gun
+
+# INITIAL STATE
+
+state:
+  round: 0
+  phase: "setup"
+  pot: 0
+  community_cards: []
+  
+  characters:
+    don-hopkins:
+      stack: 1000
+      cards: []
+      status: active
+      mood: "warm, curious"
+    palm:
+      stack: 1000
+      cards: []
+      status: active
+      mood: "watchful, protective"
+    bumblewick:
+      stack: 1000
+      cards: []
+      status: active
+      mood: "terrified (baseline)"
+    donna:
+      stack: 1000
+      cards: []
+      status: active
+      mood: "TREMENDOUS"
+      
+  protocols:
+    smoking:
+      offers_made: []
+      declines_remembered: []
+      
+  environment:
+    drinks_on_table: true
+    food_available: true
+    smoke_in_air: false
+    tension: low
