@@ -71,25 +71,39 @@ Analyze generated image for:
 - Micro-expressions
 - Environmental tells (steam, shadows)
 
-## Photo Catalog Structure
+## Photo Catalog Structure (Flat, Big-Endian)
 
 ```
 photos/
-├── SCENE.yml           # Canonical scene cache
-├── TECHNIQUE.md        # This file
-├── prompts/            # Schematic YML prompts
-│   ├── H01-bumblewick-first-aces.yml
-│   └── ...
-├── resolved/           # Resolved full prompts
-│   ├── H01-bumblewick-first-aces.txt
-│   └── ...
-├── images/             # Generated images
-│   ├── H01-bumblewick-first-aces.png
-│   └── ...
-└── analysis/           # Tell mining results
-    ├── H01-bumblewick-first-aces-tells.yml
-    └── ...
+├── SCENE.yml                           # Canonical scene cache
+├── TECHNIQUE.md                        # This file
+├── H01-bumblewick-first-aces.yml       # Schematic prompt
+├── H01-bumblewick-first-aces.txt       # Resolved prompt
+├── H01-bumblewick-first-aces.png       # Generated image
+├── H01-bumblewick-first-aces-tells.yml # Tell mining results
+└── ...
 ```
+
+All files for one photo share the same base name (big-endian: H##-description).
+
+## Generating Images
+
+Use the visualizer skill to generate images from prompts:
+
+```bash
+# Set API key first
+export GOOGLE_API_KEY=...  # or OPENAI_API_KEY, etc.
+
+# Generate from YML context files
+cd skills/experiment/experiments/emo-poker-face/photos
+python3 ../../../../visualizer/visualize.py H01-bumblewick-first-aces.yml SCENE.yml -p google -v detailed
+
+# Or use the resolved .txt prompt directly
+python3 ../../../../visualizer/visualize.py SCENE.yml --raw-prompt "$(cat H01-bumblewick-first-aces.txt)" -p google
+```
+
+The image will be saved with the same base name (big-endian):
+- `H01-bumblewick-first-aces.yml` → `H01-bumblewick-first-aces.png`
 
 ## Key Moments to Photograph
 
