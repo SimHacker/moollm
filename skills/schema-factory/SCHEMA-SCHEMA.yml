@@ -1,0 +1,81 @@
+schema_schema:
+  id: drescher-schema-schema
+  version: 1
+  description: "Prescriptive structure for Drescher-style schemas and their evidence."
+
+  required_fields: [id, action, context, result]
+
+  fields:
+    id:
+      type: string
+      description: "Stable identifier for the schema."
+    action:
+      type: string
+      description: "Action the agent can perform."
+    context:
+      type: list
+      item_type: string
+      min_items: 1
+      description: "Required items for action success."
+    result:
+      type: list
+      item_type: string
+      min_items: 1
+      description: "Expected items after the action."
+    reliability:
+      type: number
+      min: 0
+      max: 1
+      description: "Estimated success probability."
+    evidence:
+      type: object
+      description: "Success/failure counts for this schema."
+      fields:
+        successes: { type: integer, min: 0 }
+        failures:  { type: integer, min: 0 }
+    extended_context:
+      type: map
+      value_type: object
+      description: "Context correlations for marginal attribution."
+    extended_results:
+      type: map
+      value_type: object
+      description: "Side-effect correlations."
+    synthetic_items:
+      type: list
+      item_type: object
+      description: "Hidden-state hypotheses inferred from outcomes."
+    composite_actions:
+      type: list
+      item_type: object
+      description: "Action sequences derived from schemas."
+    provenance:
+      type: object
+      description: "Sources, timestamps, or links."
+    notes:
+      type: string
+      description: "Short human note for context."
+
+  items:
+    allowed_states: [on, off, unknown]
+
+  deterministic_checks:
+    - required_fields_present
+    - types_valid
+    - reliability_in_range
+    - context_result_nonempty
+    - action_nonempty
+    - evidence_nonnegative
+
+  context_generation:
+    include:
+      - id
+      - action
+      - context
+      - result
+      - reliability
+      - extended_context
+      - extended_results
+
+  events:
+    emit_types: [schema_lint, schema_ingest, schema_compose, context_generate]

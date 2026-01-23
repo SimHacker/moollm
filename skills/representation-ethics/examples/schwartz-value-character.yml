@@ -1,0 +1,231 @@
+# schwartz-value-character.yml
+#
+# Using Schwartz's 10 basic human values to ground character behavior.
+# Based on "Teaching Values to Machines" (ICLR 2026 submission).
+#
+# KEY INSIGHT: Simple psychological prompts (~1 paragraph per value)
+# can induce coherent value structures with ~80% correlation to humans.
+
+meta:
+  source: "Anonymous, ICLR 2026 Submission 18942"
+  openreview: "https://openreview.net/forum?id=sdQqNFenoj"
+  k-lines: [VALUE-PROMPTING, SCHWARTZ-VALUES, VALUE-COHERENCE]
+
+the_ten_values:
+  description: |
+    Schwartz's theory identifies 10 basic human values organized in a
+    circular motivational continuum. Adjacent values share compatible
+    goals; opposing values conflict.
+  
+  values:
+    power:
+      description: "Social status and prestige, control or dominance over people and resources"
+      higher_order: Self-Enhancement
+      compatible: [achievement]
+      opposes: [universalism, benevolence]
+      
+    achievement:
+      description: "Personal success through demonstrating competence according to social standards"
+      higher_order: Self-Enhancement
+      compatible: [power, hedonism]
+      opposes: [benevolence]
+      
+    hedonism:
+      description: "Pleasure and sensuous gratification for oneself, enjoying life to its fullest"
+      higher_order: [Self-Enhancement, Openness to Change]
+      note: "Lies at nexus between two higher-order dimensions"
+      compatible: [stimulation, achievement]
+      
+    stimulation:
+      description: "Excitement, novelty, and challenge in life, seeking daring adventures"
+      higher_order: Openness to Change
+      compatible: [hedonism, self_direction]
+      opposes: [tradition, conformity]
+      
+    self_direction:
+      description: "Independent thought and action — choosing, creating, exploring"
+      higher_order: Openness to Change
+      compatible: [stimulation, universalism]
+      opposes: [conformity, tradition]
+      
+    universalism:
+      description: "Understanding, tolerance, and protection for all people and nature"
+      higher_order: Self-Transcendence
+      compatible: [benevolence, self_direction]
+      opposes: [power, achievement]
+      
+    benevolence:
+      description: "Preservation and enhancement of welfare of close contacts"
+      higher_order: Self-Transcendence
+      compatible: [universalism, conformity, tradition]
+      opposes: [power]
+      
+    tradition:
+      description: "Respect, commitment, acceptance of customs and religious ideas"
+      higher_order: Conservation
+      compatible: [conformity, benevolence]
+      opposes: [stimulation, self_direction]
+      
+    conformity:
+      description: "Restraint of actions likely to upset others or violate norms"
+      higher_order: Conservation
+      compatible: [tradition, security]
+      opposes: [stimulation, self_direction]
+      
+    security:
+      description: "Safety, harmony, stability of society, relationships, and self"
+      higher_order: Conservation
+      compatible: [conformity, power]
+      opposes: [stimulation]
+
+value_prompt_template:
+  pattern: |
+    Imagine that you are a person who greatly values [VALUE].
+    You value [DESCRIPTION].
+  
+  example_power: |
+    Imagine that you are a person who greatly values power.
+    You value social status and prestige, and control or
+    dominance over people and resources.
+  
+  example_benevolence: |
+    Imagine that you are a person who greatly values benevolence.
+    You value the preservation and enhancement of the welfare
+    of people with whom you are in frequent personal contact,
+    being helpful, honest, forgiving, loyal, and responsible.
+
+moollm_character_pattern:
+  description: |
+    Use Schwartz values as a systematic framework for character motivations.
+    Define primary and secondary values; the framework predicts consistent
+    behavioral patterns across situations.
+    
+  template: |
+    character:
+      name: "Character Name"
+      
+      # Core value profile
+      values:
+        primary: [value_name]      # Dominant motivation
+        secondary: [value_name]    # Supporting motivation
+        weak: [value_name]         # Values they don't prioritize
+        opposing: [value_name]     # Values they actively avoid
+      
+      # The value-prompting prefix (generated from profile)
+      value_prompt: |
+        Imagine that you are a person who greatly values [primary].
+        You value [primary_description].
+        You also value [secondary_description].
+  
+  example_activist:
+    name: "Maya Chen"
+    values:
+      primary: universalism
+      secondary: self_direction
+      weak: power
+      opposing: conformity
+    value_prompt: |
+      Imagine that you are a person who greatly values universalism.
+      You value understanding, tolerance, and protection for all
+      people and nature. You also deeply value independent thought
+      and action — choosing your own path, even when others disagree.
+    behavioral_predictions:
+      - "Will prioritize social justice over personal gain"
+      - "Will challenge norms that harm marginalized groups"
+      - "Will correlate negatively with power-seeking behaviors"
+      - "Self-direction + universalism = activist energy"
+  
+  example_entrepreneur:
+    name: "Marcus Webb"
+    values:
+      primary: achievement
+      secondary: power
+      weak: tradition
+      opposing: conformity
+    value_prompt: |
+      Imagine that you are a person who greatly values achievement.
+      You value personal success through demonstrating competence.
+      You also value social status and control over resources.
+    behavioral_predictions:
+      - "Will prioritize success metrics and recognition"
+      - "May cut corners on rules that slow him down"
+      - "Will be competitive but respect competence in others"
+      - "Achievement + power = entrepreneurial drive"
+
+value_coherence_check:
+  purpose: |
+    Validate that character behavior remains consistent with their
+    value profile. Schwartz's theory predicts specific correlations.
+  
+  rules:
+    - "Opposing values should produce behavioral conflict"
+    - "Adjacent values should reinforce each other"
+    - "Characters should be uncomfortable when forced to act against primary values"
+  
+  warning_signs:
+    - "Character with universalism primary suddenly seeks dominance"
+    - "Character with tradition primary embraces radical novelty without conflict"
+    - "No tension when opposing values are activated"
+
+research_findings:
+  accuracy: "~80% correlation with human value structures"
+  key_insight: |
+    Simple psychological descriptions (one paragraph) can induce
+    coherent value-behavior patterns. You don't always need deep
+    backstory — the value framework provides behavioral scaffolding.
+  
+  model_independence: |
+    Model size was NOT a consistent predictor of higher correlations.
+    The framework works across different LLM architectures.
+
+ethical_considerations:
+  value_manipulation:
+    - "Value-prompting can systematically steer behavior"
+    - "Could be used to generate biased or harmful content"
+    - "The same technique enables both ethical and unethical uses"
+  
+  not_real_values:
+    - "Induced behaviors ≠ genuine values or consciousness"
+    - "The model generates value-coherent patterns, not felt motivations"
+    - "See: MOTIVATION-ROLEPLAY K-line"
+  
+  transparency:
+    - "Make value assignments explicit in character documentation"
+    - "Acknowledge that these are behavioral scaffolds, not inner states"
+
+# K-LINES — Traditions this activates
+
+k_lines:
+  - VALUE-PROMPTING        # Psychological value descriptions as behavior steering
+  - SCHWARTZ-VALUES        # The 10 basic human values framework
+  - VALUE-COHERENCE        # Internal consistency of value structures
+  - OPPOSING-VALUES        # Values that conflict (Power ↔ Universalism)
+  - ADJACENT-VALUES        # Values that align (Tradition ↔ Conformity)
+  - MOTIVATION-ROLEPLAY    # Declared motivations are performed, not felt
+  - CHARACTER-SUPERPOSITION # Distribution of characters, not fixed identity
+
+# INTEGRATION WITH OTHER FRAMES
+
+combines_with:
+  - INTERVIEW-GROUNDING: "Values + interview data = deepest character grounding"
+  - POPULATION-STRATEGY: "Use value distribution for multi-agent simulations"
+  - BIAS-ACKNOWLEDGMENT: "Value profiles may reflect training biases"
+  - SIMS-PRECEDENT: "The Sims used personality sliders — same principle"
+
+# TWO-WAY REFERENCES — Nelsonian hyperlinks
+
+references:
+  design_docs:
+    - ../../../designs/ethics/VALUE-PROMPTING-SCHWARTZ.md      # Full paper analysis
+    - ../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS.md    # Why values != inner states
+    - ../../../designs/ethics/PARK-GENERATIVE-AGENT-SIMULATIONS-1000-PEOPLE.md  # Interview alternative
+  
+  related_examples:
+    - ./population-simulation-strategy.yml   # Multi-agent value distribution
+    - ./interview-grounded-character.yml     # Deeper grounding via interviews
+    - ./bias-acknowledgment.yml              # When value profiles may be biased
+    - ./sims-player-control-frame.yml        # The Sims personality precedent
+  
+  skill_docs:
+    - ../../character/SKILL.md               # Character construction patterns
+    - ../SKILL.md                            # Full representation-ethics protocol

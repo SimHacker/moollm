@@ -17,7 +17,10 @@ room:
     behind Lot 15, when at home.
 
     A medium sized disco ball hangs from the bedroom ceiling, which 
-    spins and bounce around on the road.
+    spins and bounces around on the road.
+    
+    A vent fan in the ceiling provides excellent ventilation. Essential
+    for hot boxing sessions and fart venting. The smoke swirls up and out into the night.
 
   exits:
     front:
@@ -25,9 +28,10 @@ room:
       description: "Step forward into the hallway."
       aliases: [hallway, hall, front]
     dreams:
-      destination: ../dreams/
+      destination: ../../dreams/
       description: "Close your eyes and enter the dream space."
       aliases: [sleep, dream, rest]
+      note: "Dreams are personal — they stay with Don at the lot level"
 
 objects:
   - convertible-beds.yml

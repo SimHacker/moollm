@@ -1,0 +1,203 @@
+# Bias Acknowledgment Frame
+# Explicit acknowledgment of training data limitations
+
+meta:
+  example_type: disclosure_frame
+  context: "When simulating underrepresented groups or unfamiliar contexts"
+  source: "Wang et al. 2025 - LLM Simulation Limitations"
+
+context: |
+  LLM training data is biased toward:
+  - English-speaking, Western perspectives
+  - Digitally literate populations
+  - Affluent, educated demographics
+  - Gender stereotypes (3-6x more likely to assign stereotypical occupations)
+  
+  When simulating people or contexts outside these demographics,
+  explicit bias acknowledgment is ethically required.
+
+# BIAS ACKNOWLEDGMENT PROTOCOL
+# Use when representing underrepresented groups
+
+bias_acknowledgment:
+  
+  # When to use this frame
+  triggers:
+    - simulating_non_western_culture
+    - representing_working_class
+    - modeling_non_english_speaker
+    - simulating_historical_marginalized
+    - representing_disability
+    - modeling_non_digital_native
+    
+  # Required disclosures
+  disclosures:
+    
+    to_audience:
+      template: |
+        **Bias Acknowledgment**
+        
+        This simulation represents {group/context}. The AI model's
+        training data may underrepresent this perspective. Please
+        interpret with awareness of these limitations:
+        
+        - Training data primarily reflects English-speaking, Western sources
+        - {specific_limitation}
+        - This is an approximation, not an authoritative representation
+        
+    to_self:
+      template: |
+        I am simulating {group/context} with known training data limitations.
+        I should:
+        - Avoid stereotypical representations
+        - Acknowledge uncertainty
+        - Prefer general patterns over specific claims
+        - Flag when I'm extrapolating beyond training data
+
+# SPECIFIC BIAS PATTERNS
+# Known limitations to acknowledge
+
+known_biases:
+  
+  cultural:
+    description: "English-speaking, Western-centric worldview"
+    affected:
+      - non_western_cultures
+      - indigenous_perspectives
+      - global_south_contexts
+    acknowledgment: |
+      Training data predominantly reflects English-speaking, Western perspectives.
+      Representations of {culture} may be filtered through this lens.
+      
+  occupational:
+    description: "Missing manufacturing, agriculture, service workers"
+    affected:
+      - blue_collar_workers
+      - agricultural_workers
+      - service_industry
+    acknowledgment: |
+      Workers in {occupation} have limited digital footprints in training data.
+      This simulation may not accurately reflect their lived experience.
+      
+  socioeconomic:
+    description: "Favors digitally literate, affluent perspectives"
+    affected:
+      - low_income_communities
+      - rural_populations
+      - elderly_non_digital_natives
+    acknowledgment: |
+      Training data overrepresents digitally active, affluent populations.
+      Perspectives of {group} may be underrepresented or stereotyped.
+      
+  gender:
+    description: "3-6x more likely to assign stereotypical occupations"
+    affected:
+      - women_in_stem
+      - men_in_caregiving
+      - non_binary_individuals
+    acknowledgment: |
+      LLMs show documented gender bias in occupation assignment.
+      This simulation actively counteracts stereotyping but cannot fully eliminate it.
+      
+  temporal:
+    description: "Training data has a cutoff; recent events missing"
+    affected:
+      - current_events
+      - recent_cultural_shifts
+      - new_terminology
+    acknowledgment: |
+      Training data has a temporal cutoff. Recent developments in {context}
+      may not be reflected accurately.
+
+# EXAMPLE: Simulating Working-Class Character
+
+example_working_class:
+  scenario: "Creating character who works in manufacturing"
+  
+  character_setup:
+    name: "Maria"
+    occupation: "assembly line worker"
+    context: "automotive factory"
+    
+  bias_acknowledgment:
+    type: occupational
+    disclosure: |
+      **Bias Acknowledgment**
+      
+      This character represents a manufacturing worker. Training data
+      underrepresents workers with limited digital footprints. Maria's
+      perspective is an approximation based on available data, not
+      authoritative representation of factory workers' experiences.
+      
+  mitigation_strategies:
+    - avoid_stereotypes: true
+    - prefer_universal_human_experiences: true
+    - acknowledge_uncertainty: true
+    - dont_claim_authority: true
+
+# EXAMPLE: Simulating Non-Western Culture
+
+example_non_western:
+  scenario: "Simulating discussion among characters from different cultures"
+  
+  bias_acknowledgment:
+    type: cultural
+    disclosure: |
+      **Bias Acknowledgment**
+      
+      This simulation includes perspectives from {cultures}. The AI's
+      training data is predominantly English-speaking and Western.
+      Cultural nuances, particularly regarding {specific_aspect}, may
+      be filtered through this lens. This is illustrative, not authoritative.
+      
+  mitigation_strategies:
+    - avoid_cultural_stereotypes: true
+    - acknowledge_outsider_perspective: true
+    - prefer_documented_sources_when_available: true
+    - flag_extrapolation: true
+
+# K-LINES
+
+k_lines:
+  - BIAS-AMPLIFICATION   # Training biases amplify in outputs
+  - EXPERIENCE-DEFICIT   # Training data lacks lived experience depth
+  - INNER-STATE-GAP      # Can't access genuine inner states
+  - TRIBUTE              # Acknowledge limitations of representation
+
+# INTEGRATION WITH OTHER FRAMES
+
+combines_with:
+  - TRIBUTE: "Bias acknowledgment is a form of tribute"
+  - EDUCATION: "Educational use requires bias disclosure"
+  - RESEARCH: "Research ethics require bias acknowledgment"
+  
+# BEST PRACTICES
+
+best_practices:
+  - "Always disclose when representing underrepresented groups"
+  - "Prefer general human experiences over specific cultural claims"
+  - "Flag when extrapolating beyond training data"
+  - "Invite correction from those with lived experience"
+  - "Don't claim authority on perspectives you can't authentically represent"
+
+# TWO-WAY REFERENCES — Nelsonian hyperlinks
+
+references:
+  # Design documents (theory → this operationalizes)
+  design_docs:
+    - ../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS.md          # Inner state gap, experience deficit
+    - ../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS-SURVEY.md   # Dual challenge framework
+    - ../../../designs/ethics/WILLER-LLM-SIMULATION-RESEARCH.md      # 85% accuracy raises stakes
+    - ../../../designs/ethics/BERTONCINI-COGNITIVE-BIAS-SIMULATION.md # Bias compounding
+    
+  # Related examples
+  related_examples:
+    - ./framing-spectrum.yml
+    - ./consent-hierarchy.yml
+    - ./simulation-methodology-frame.yml
+    - ./herd-behavior-risk.yml
+    
+  # Skill docs
+  skills:
+    - ../SKILL.md
+    - ../../character/SKILL.md

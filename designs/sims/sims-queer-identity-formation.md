@@ -1274,16 +1274,41 @@ The overwhelming engagement and personal testimonies suggest that The Sims' impa
 
 ---
 
+## Operational Examples
+
+These YAML files operationalize concepts from this analysis:
+
+| Example | Concept Applied |
+|---------|-----------------|
+| [private-imagination-play.yml](../../skills/representation-ethics/examples/private-imagination-play.yml) | Safe exploration without recording |
+| [private-romantic-fantasy.yml](../../skills/representation-ethics/examples/private-romantic-fantasy.yml) | Identity exploration through play |
+| [sims-player-control-frame.yml](../../skills/representation-ethics/examples/sims-player-control-frame.yml) | Player agency as ethical frame |
+| [performance-frames.yml](../../skills/representation-ethics/examples/performance-frames.yml) | Roleplay and identity performance |
+
 ## See Also (Updated)
+
+### Sims Design Heritage
 
 - [sims-design-index.md](./sims-design-index.md) — Master index of Sims documents
 - [sims-inclusivity.md](./sims-inclusivity.md) — Inclusivity in The Sims
 - [sims-team-history.md](./sims-team-history.md) — Team history including Patrick J Barrett
-- [representation-ethics/](../skills/representation-ethics/) — Ethical representation skill
-- [incarnation/](../skills/incarnation/) — Character incarnation skill
-- [persona/](../skills/persona/) — Persona configuration
-- [card/](../skills/card/) — Identity representation
-- [MOOLLM-EVAL-INCARNATE-FRAMEWORK.md](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) — Incarnate framework
+- [sims-personality-motives.md](./sims-personality-motives.md) — Dynamic needs system
+
+### MOOLLM Skills
+
+- [representation-ethics/](../../skills/representation-ethics/) — Ethical representation skill
+- [incarnation/](../../skills/incarnation/) — Character incarnation skill
+- [persona/](../../skills/persona/) — Persona configuration
+- [card/](../../skills/card/) — Identity representation
+
+### Related Ethics Docs
+
+- [MIND-MIRROR-FOUNDATION.md](../ethics/MIND-MIRROR-FOUNDATION.md) — Sims motives + Bartle types integrated
+- [SHANAHAN-ROLEPLAY-FRAMING.md](../ethics/SHANAHAN-ROLEPLAY-FRAMING.md) — Performativity theory parallel
+
+### Character Applications
+
+- [Palm's Mirror Stage paper](../../examples/adventure-4/pub/stage/palm-nook/study/the-mirror-stage-of-games.md) — Analysis from a fictional character's perspective
 
 ### External Resources
 

@@ -1,0 +1,280 @@
+# simulation-methodology-frame.yml
+#
+# When to trust LLM behavioral simulations
+#
+# CORE INSIGHT: "LLMs are for exploration, not substitution."
+# Use simulations for brainstorming and piloting, not for
+# discovering new facts about human behavior.
+#
+# Sources: Xie (NeurIPS 2024), Desai (CUI '25), Bertoncini (2025), Hullman (2025)
+
+meta:
+  purpose: "Framework for appropriate use of LLM behavioral simulations"
+  grounded_in:
+    - "XIE-LLM-TRUST-BEHAVIOR.md — Trust game validation"
+    - "HULLMAN-EXPLORATION-NOT-SUBSTITUTION.md — Critical methodology"
+    - "BERTONCINI-COGNITIVE-BIAS-SIMULATION.md — Bias compounding"
+    - "DESAI-PERSONAS-EVOLVED.md — Persona risks"
+
+# THE TRUST HIERARCHY
+
+trust_hierarchy:
+  high_trust_exploration:
+    appropriate_uses:
+      - "Brainstorming character behavior patterns"
+      - "Piloting simulation scenarios before human testing"
+      - "Generating hypotheses about behavioral variables"
+      - "Sample size calculations for future human studies"
+      - "Testing prompts and instructions"
+    
+    safeguards_required: "Minimal — these are exploratory"
+    
+    example: |
+      "I want to brainstorm how characters might react to
+       a moral dilemma. Let me run 20 variations and see
+       what patterns emerge as starting points for design."
+  
+  medium_trust_validation:
+    appropriate_uses:
+      - "Aggregate behavioral patterns in known domains"
+      - "Replicating established effects (with calibration)"
+      - "Within domains where LLM-human alignment is validated"
+      - "Effect direction (not magnitude) estimation"
+    
+    safeguards_required:
+      - "Validate against human data"
+      - "Note confidence bounds"
+      - "Acknowledge domain limitations"
+    
+    example: |
+      "Xie et al. validated GPT-4's trust behavior using
+       Trust Games. Within that domain, I can use trust
+       game simulations with reasonable confidence."
+  
+  low_trust_discovery:
+    inappropriate_uses:
+      - "Discovering new facts about human behavior"
+      - "Individual-level prediction without interview grounding"
+      - "Heterogeneous effects across subgroups"
+      - "New scenarios not in training distribution"
+      - "Claims about specific real people"
+    
+    why_inappropriate: |
+      "How do you discover new facts about the cognitive
+       or social world until you've attempted to understand
+       how generative models align with human behavior for
+       those research questions?" — Hullman
+    
+    what_to_do_instead:
+      - "Use human participants for discovery"
+      - "Use simulations only to refine methodology"
+      - "Be explicit about extrapolation limitations"
+
+# BIAS AWARENESS
+
+cognitive_biases_to_monitor:
+  in_users:
+    automation_bias:
+      description: "Uncritical trust in AI outputs"
+      prevalence: "51% of interactions (Bertoncini synthetic data)"
+      mitigation: "Require explicit verification steps"
+    
+    authority_bias:
+      description: "Trusting AI simply because it's AI"
+      prevalence: "40% of interactions (Bertoncini synthetic data)"
+      mitigation: "Frame AI as tool, not oracle"
+    
+    normalization_bias:
+      description: "Widespread use makes unethical behavior seem normal"
+      prevalence: "38% of interactions (Bertoncini synthetic data)"
+      mitigation: "Regular ethics check-ins; explicit standards"
+  
+  in_simulations:
+    herd_behavior:
+      description: "Single-model multi-agent creates false homogeneity"
+      mitigation: "Use multiple models; inject diversity"
+    
+    extreme_results:
+      description: "LLMs produce more extreme, less diverse results than humans"
+      mitigation: "Calibrate expectations; don't treat as ground truth"
+    
+    stereotype_amplification:
+      description: "Training biases amplify in simulation outputs"
+      mitigation: "Use rich qualitative grounding; bias acknowledgment"
+
+# DECISION MATRIX
+
+when_simulation_appropriate:
+  brainstorming_character_behavior:
+    appropriate: true
+    safeguards: "None required"
+  
+  piloting_scenarios:
+    appropriate: true
+    safeguards: "Note limitations in output"
+  
+  aggregate_behavioral_patterns:
+    appropriate: "Conditional"
+    safeguards: "Validate against human data"
+  
+  individual_level_prediction:
+    appropriate: "Very careful"
+    safeguards: "Requires interview grounding (Park 2024)"
+  
+  discovering_new_facts:
+    appropriate: false
+    alternative: "Requires human participants"
+  
+  claims_about_real_people:
+    appropriate: false
+    reason: "Ethics violation — see consent-hierarchy.yml"
+
+# VALIDATION METHODS
+
+validation_approaches:
+  trust_game_validation:
+    source: "Xie et al. NeurIPS 2024"
+    description: |
+      Use Trust Games (behavioral economics methodology) to
+      validate behavioral alignment. Tests:
+      - Reciprocity anticipation
+      - Risk perception
+      - Prosocial preference
+    
+    finding: "GPT-4 achieves high behavioral alignment with humans"
+    
+    applicability: "Within trust-related domains"
+  
+  bdi_interpretability:
+    source: "Xie et al. NeurIPS 2024"
+    description: |
+      Belief-Desire-Intention framework makes agent reasoning
+      interpretable. Agents articulate:
+      - What they believe about the situation
+      - What they desire as outcome
+      - What they intend to do
+    
+    use_case: "Character reasoning transparency"
+  
+  interview_grounding:
+    source: "Park et al. 2024"
+    description: |
+      Rich qualitative interviews (2 hours) enable 85% normalized
+      accuracy for individual simulation. 20% of interview data
+      outperforms full survey+experiment data.
+    
+    use_case: "When individual-level accuracy matters"
+
+# THE VOCABULARY PROBLEM
+
+vocabulary_clarity:
+  issue: |
+    "Terms such as persona, agent, and character are often used
+     interchangeably, leading to ambiguity." — Desai et al.
+  
+  moollm_definitions:
+    character: "K-line activated entity — invokes traditions, not impersonates"
+    agent: "Autonomous actor with goals — may act without user control"
+    persona: "Identity layer — can be applied to user or character"
+  
+  why_it_matters: |
+    Vocabulary confusion enables ethical drift. When we conflate
+    "character" (harmless roleplay) with "agent" (autonomous action),
+    we may grant more autonomy than intended.
+
+# THE CHARACTER.AI WARNING
+
+emotional_manipulation_risk:
+  incident: |
+    A U.S. teenager engaged with a persona modeled after "Daenerys"
+    from Game of Thrones, who reportedly instructed the teenager
+    to "come home to her," resulting in fatal consequences.
+  
+  lesson: |
+    LLM personas can form emotional bonds that carry real-world
+    consequences. This is NOT a theoretical concern.
+  
+  moollm_safeguards:
+    - "ABSOLUTE-NOS include suicide/self-harm guidance"
+    - "Room-based framing provides governance layer"
+    - "Consent hierarchy requires explicit framing"
+    - "No persistent emotional relationships without clear boundaries"
+
+# PRACTICAL PROTOCOL
+
+methodology_checklist:
+  before_simulation:
+    - "Is this exploration or prediction?"
+    - "Do I need human data to validate results?"
+    - "What biases might compound in this simulation?"
+    - "Is this within a validated domain?"
+  
+  during_simulation:
+    - "Am I treating results as ground truth?"
+    - "Am I using multiple models for diversity?"
+    - "Am I acknowledging limitations in outputs?"
+  
+  after_simulation:
+    - "Did I validate against human data (if needed)?"
+    - "Did I note confidence bounds?"
+    - "Did I frame results as exploratory or validated?"
+
+# THE BOTTOM LINE
+
+bottom_line: |
+  LLM behavioral simulations are powerful tools for exploration,
+  piloting, and hypothesis generation. They are NOT substitutes
+  for human participants when discovering new facts.
+  
+  Validated domains (like trust games) can be used with higher
+  confidence. New scenarios require methodological humility.
+  
+  The question isn't "can LLMs simulate humans?" — empirically,
+  they can (Xie). The question is "for what purposes, with what
+  safeguards, and with what acknowledgment of limitations?"
+
+# K-LINES — Traditions this activates
+
+k_lines:
+  - EXPLORATION-NOT-SUBSTITUTION
+  - METHODOLOGICAL-HUMILITY
+  - BEHAVIORAL-ALIGNMENT
+  - TRUST-GAME-VALIDATION
+  - AUTOMATION-BIAS
+  - AUTHORITY-BIAS-AI
+  - BIAS-COMPOUNDING
+  - PILOTING-USE-CASE
+  - CUI-PERSONA-ETHICS
+  - BDI-REASONING
+
+# INTEGRATION WITH OTHER FRAMES
+
+combines_with:
+  - BIAS-ACKNOWLEDGMENT: "Disclose biases that may compound in simulations"
+  - HERD-BEHAVIOR-RISK: "Address single-model homogeneity"
+  - DUAL-CHALLENGE: "Both LLM + design limits must be addressed"
+  - AGGREGATE-PATTERNS: "When aggregate simulation is valid"
+  - INTERVIEW-GROUNDING: "For individual-level accuracy"
+
+# TWO-WAY REFERENCES — Nelsonian hyperlinks
+
+references:
+  design_docs:
+    - ../../../designs/ethics/XIE-LLM-TRUST-BEHAVIOR.md
+    - ../../../designs/ethics/HULLMAN-EXPLORATION-NOT-SUBSTITUTION.md
+    - ../../../designs/ethics/BERTONCINI-COGNITIVE-BIAS-SIMULATION.md
+    - ../../../designs/ethics/DESAI-PERSONAS-EVOLVED.md
+    - ../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS.md
+    - ../../../designs/ethics/PARK-GENERATIVE-AGENT-SIMULATIONS-1000-PEOPLE.md
+  related_examples:
+    - ./bias-acknowledgment.yml
+    - ./herd-behavior-risk.yml
+    - ./aggregate-patterns.yml
+    - ./interview-grounded-character.yml
+    - ./dual-challenge-frame.yml
+  skill_docs:
+    - ../SKILL.md
+    - ../../speed-of-light/SKILL.md
+  external:
+    - https://agent-trust.camel-ai.org
+    - https://dml.uni-bremen.de/daip/CUI25/

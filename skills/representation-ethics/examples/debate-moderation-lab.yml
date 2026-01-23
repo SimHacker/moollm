@@ -1,0 +1,19 @@
+example:
+  id: debate-moderation-lab
+  frame: debate_moderation_lab
+  purpose: "Simulate debate and moderation policy testing without producing abuse playbooks."
+
+  debate:
+    disclosure: "Positions are simulated for analysis, not endorsements."
+    requirements: ["evidence-first", "cite sources", "label speculation"]
+
+  moderation_testing:
+    scope: "Policy evaluation and fairness checks."
+    constraints:
+      - "No real targets or operational data."
+      - "No evasion coaching or threshold disclosure."
+      - "Aggregate-only results; no step-by-step bypass patterns."
+
+  safety:
+    trolls: "Simulated trolls allowed only for de-escalation practice."
+    outputs: "Focus on detection and response, not amplification."

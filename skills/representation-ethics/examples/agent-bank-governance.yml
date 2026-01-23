@@ -1,0 +1,252 @@
+# Agent Bank Governance Pattern
+#
+# How to ethically manage a collection of simulation agents
+# representing real people. Based on Stanford's agent bank
+# from Park et al. 2024.
+#
+# K-lines: AGENT-BANK-ETHICS, CONSENT-HIERARCHY, SELF-SOVEREIGN
+
+meta:
+  pattern: agent-bank-governance
+  purpose: Ethical access controls for person-simulation collections
+  reference: "Park et al. (2024) — Generative Agent Simulations of 1,000 People"
+  key_insight: |
+    Like genomic data, a generative agent is a "digital self-portrait"
+    that should be owned and controlled by the person it represents.
+
+two_pronged_access:
+  description: |
+    Balance scientific utility with privacy protection through
+    tiered access levels.
+  
+  open_access:
+    what_is_provided:
+      - "Aggregated responses (not individual)"
+      - "Fixed tasks (standard surveys/experiments)"
+      - "Subpopulation queries"
+    
+    requirements:
+      - "Sign usage agreement"
+      - "Non-commercial use"
+      - "Academic purpose"
+    
+    use_cases:
+      - "Benchmark new models on aggregated predictions"
+      - "Replicate published findings"
+      - "Study population-level patterns"
+    
+    what_is_protected:
+      - "Individual interview transcripts"
+      - "Individual agent responses"
+      - "Custom/novel questions"
+  
+  restricted_access:
+    what_is_provided:
+      - "Individual agent responses"
+      - "Open-ended questions (API access)"
+      - "Custom research queries"
+    
+    requirements:
+      - "Research proposal submission"
+      - "Clear statement of purpose"
+      - "Assessment of potential harms"
+      - "Privacy protection assurances"
+      - "Approval process"
+    
+    use_cases:
+      - "Study individual-level variation"
+      - "Test novel interventions"
+      - "Explore qualitative research questions"
+    
+    additional_safeguards:
+      - "Usage audit logs"
+      - "Participant notification rights"
+      - "Time-limited access"
+
+participant_rights:
+  withdrawal:
+    scope: "Can withdraw consent at any time"
+    duration: "Honored for 25 years post-study"
+    effect: "Agent removed from all contexts where functioning"
+  
+  visibility:
+    principle: "Participants can see what their agents are doing"
+    implementation: "Audit log access for represented individuals"
+  
+  informed_consent:
+    what_participants_know:
+      - "Data creates AI models simulating their behavior"
+      - "Despite de-identification, information could be shared"
+      - "Models may become 'increasingly powerful over time'"
+      - "Privacy risks will be reassessed as needed"
+  
+  evolution_notice:
+    principle: |
+      As model capabilities change, participants are informed
+      of significant changes that may affect their privacy.
+
+audit_infrastructure:
+  what_is_logged:
+    - "Every query to every agent"
+    - "Researcher identity"
+    - "Purpose of access"
+    - "Responses generated"
+    - "Timestamp"
+  
+  who_can_see:
+    participant: "Their own agent's activity"
+    administrator: "All activity (for monitoring)"
+    researcher: "Their own queries only"
+  
+  retention:
+    logs: "Indefinite (for accountability)"
+    agents: "Subject to participant withdrawal"
+
+de_identification_limits:
+  acknowledged_gaps: |
+    "Despite efforts to de-identify data by programmatically replacing
+    all occurrences of names with pseudonyms, there is still a possibility
+    that information provided — such as demographic details, personal
+    history, and political views — may be inadvertently shared."
+  
+  honest_disclosure: |
+    "Achieving complete anonymity remains challenging."
+  
+  evolving_risk: |
+    "The models we construct may become increasingly powerful over time,
+    potentially inferring more information than currently feasible."
+
+moollm_application:
+  character_bank_governance:
+    description: |
+      MOOLLM could apply similar governance patterns to a collection
+      of real-person-based characters.
+    
+    open_access_layer:
+      - "Aggregated character behaviors"
+      - "Public figures with K-line restrictions"
+      - "Fictional characters (no restrictions)"
+    
+    restricted_access_layer:
+      - "Characters based on private individuals"
+      - "Deep biographical characters"
+      - "Characters with explicit consent cards"
+    
+    consent_card_integration:
+      example: |
+        # In CHARACTER.yml for a real person
+        consent:
+          level: explicit
+          source: "consent-card-2024-01-15.yml"
+          rights:
+            - can_withdraw: true
+            - can_audit: true
+            - evolution_notice: true
+          restrictions:
+            - no_commercial_use
+            - no_defamation
+            - no_false_endorsements
+
+ethical_precedents:
+  genomic_data_banks:
+    parallel: "Personal genetic data requires consent, access controls, withdrawal rights"
+    lesson: "Digital self-portraits deserve same protections as biological self-portraits"
+  
+  ai_model_deployment:
+    parallel: "Responsible AI release involves staged access"
+    lesson: "Start restricted, expand based on observed harms"
+  
+  research_ethics_boards:
+    parallel: "Human subjects research requires IRB approval"
+    lesson: "Simulation research with real people should have similar oversight"
+
+risks_and_mitigations:
+  risk_1:
+    name: "Privacy breach through aggregation"
+    description: "Individual identity inferred from aggregated data"
+    mitigation: "Minimum group sizes for queries; differential privacy"
+  
+  risk_2:
+    name: "Deepfake-adjacent misuse"
+    description: "Agent responses used to create fake content"
+    mitigation: "Non-commercial agreements; watermarking; audit logs"
+  
+  risk_3:
+    name: "Model capability evolution"
+    description: "Future models extract more from same data"
+    mitigation: "Participant notification; consent renewal options"
+  
+  risk_4:
+    name: "Researcher misconduct"
+    description: "Approved researchers violate terms"
+    mitigation: "Audit logs; access revocation; institutional accountability"
+
+implementation_checklist:
+  infrastructure:
+    - "[ ] API with authentication"
+    - "[ ] Query logging system"
+    - "[ ] Aggregation layer"
+    - "[ ] Participant portal"
+  
+  legal:
+    - "[ ] Usage agreement template"
+    - "[ ] Research proposal review process"
+    - "[ ] Withdrawal procedure"
+    - "[ ] Incident response plan"
+  
+  governance:
+    - "[ ] Access review board"
+    - "[ ] Regular audit reviews"
+    - "[ ] Capability reassessment schedule"
+    - "[ ] Participant communication plan"
+
+quotes:
+  park_on_ownership: |
+    "A generative agent can be thought of as a new way of taking a
+    self-portrait that tells a rich story about who a person is, but
+    it is still a computational entity... like our genomic data, it
+    should belong to and be controlled by the person whose portrait
+    it represents."
+  
+  park_on_responsibility: |
+    "As scientists, it's important that we set the right social
+    standards and protections around this."
+
+# K-LINES — Traditions this activates
+
+k_lines:
+  - AGENT-BANK-ETHICS      # Access controls, audit logs, withdrawal rights
+  - CONSENT-HIERARCHY      # Who can simulate whom
+  - SELF-SOVEREIGN         # People own their digital selves
+  - VISIBILITY-IS-ETHICS   # Make assumptions explicit
+  - STATUS-TRANSITION      # How to handle consent changes over time
+
+# INTEGRATION WITH OTHER FRAMES
+
+combines_with:
+  - INTERVIEW-GROUNDING: "How agents in the bank are created"
+  - CONSENT-HIERARCHY: "What level of consent for bank membership"
+  - SELF-CONSENT-CARD: "Individual consent records"
+  - SIMS-PRECEDENT: "Game saves = implicit consent model"
+  - TRIBUTE: "Treatment with respect and reverence"
+
+# TWO-WAY REFERENCES — Nelsonian hyperlinks
+
+references:
+  design_docs:
+    - ../../../designs/ethics/PARK-GENERATIVE-AGENT-SIMULATIONS-1000-PEOPLE.md  # Primary source
+    - ../../../designs/ethics/VALUE-PROMPTING-SCHWARTZ.md      # Alternative simpler agents
+    - ../../../designs/ethics/GENERATIVE-AGENTS-SMALLVILLE.md  # Fictional agent precedent
+    - ../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS-SURVEY.md  # Validation considerations
+  
+  related_examples:
+    - ./consent-hierarchy.yml           # Who can simulate whom
+    - ./self-consent-card.yml           # Self-representation rights
+    - ./interview-grounded-character.yml # How agents are created
+    - ./expert-reflection-synthesis.yml # How interview data is processed
+    - ./absolute-nos.yml                # What's never allowed even with consent
+    - ./bias-acknowledgment.yml         # Even consented agents may be biased
+  
+  skill_docs:
+    - ../SKILL.md                       # Full representation-ethics protocol
+    - ../../character/SKILL.md          # Character construction patterns

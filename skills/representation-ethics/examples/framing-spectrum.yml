@@ -128,3 +128,35 @@ framing_spectrum:
     activation  character  (renamed)  (labeled)     embodiment   (cited)
     
     All can be ethical with appropriate framing.
+
+# K-LINES — Traditions this activates
+
+k_lines:
+  - TRADITION-INVOKE       # Invoke traditions, don't impersonate
+  - NO-IMPERSONATE         # Frame 1 is forbidden
+  - ROLEPLAY-ALL-THE-WAY-DOWN  # Shanahan's insight
+  - MIND-MIRROR            # "Mirror of patterns, not window to souls"
+  - PROCEDURAL-RHETORIC    # Frame shapes meaning
+
+# TWO-WAY REFERENCES — Nelsonian hyperlinks
+
+references:
+  # Design documents (theory → this operationalizes)
+  design_docs:
+    - ../../../designs/ethics/SHANAHAN-ROLEPLAY-FRAMING.md  # Roleplay theory
+    - ../../../designs/ethics/MIND-MIRROR-FOUNDATION.md     # "Mirror, not window"
+    - ../../../designs/ethics/LAZAR-ETHICAL-COMPETENCE.md   # Reasonable pluralism
+    - ../../../designs/sims/sims-queer-identity-formation.md # Performance frames
+    
+  # Related examples
+  related_examples:
+    - ./consent-hierarchy.yml       # Permission by category
+    - ./emoji-disclosure.yml        # 🤖 disclosure
+    - ./snatch-game.yml            # Frame 6 (drag tribute) detail
+    - ./performance-frames.yml     # More frame types
+    - ./absolute-nos.yml           # Frame 1 (forbidden) detail
+    
+  # Skills
+  skill_docs:
+    - ../SKILL.md                   # Full ethics framework
+    - ../../hero-story/SKILL.md     # Safe K-line references

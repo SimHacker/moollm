@@ -1,0 +1,226 @@
+# Herd Behavior Risk
+# When multi-agent simulations converge problematically
+
+meta:
+  example_type: risk_framework
+  context: "Detecting and mitigating same-model agent convergence"
+  sources:
+    - "Wang et al. 2025 - Same-model herd behavior"
+    - "Park & Bernstein 2023 - Generative Agents"
+
+context: |
+  When multiple agents are powered by the same LLM, they share:
+  - Same foundational knowledge
+  - Same reasoning patterns
+  - Same biases
+  
+  This creates "herd behavior" — agents making identical decisions,
+  amplifying patterns rather than creating realistic diversity.
+
+# THE HERD BEHAVIOR PROBLEM
+# What happens and why it matters
+
+herd_behavior:
+  
+  definition: |
+    When multiple LLM-powered agents, using the same model,
+    converge on identical or highly similar decisions, creating
+    false homogeneity that doesn't reflect real human diversity.
+    
+  observed_examples:
+    - crypto_trading: |
+        CryptoTrade study: Multiple agents made identical trading
+        decisions, amplifying market movements rather than creating
+        realistic diverse behavior.
+        
+    - social_simulation: |
+        Same-model agents may coordinate in unrealistic ways,
+        all reaching the same conclusions simultaneously.
+        
+    - opinion_formation: |
+        Agents may converge on identical opinions when diversity
+        would be expected in human populations.
+        
+  why_it_matters:
+    - false_signal: "Convergence may look like consensus but isn't"
+    - amplification: "Can amplify market movements or social dynamics"
+    - unrealistic: "Humans don't converge this way"
+    - research_validity: "Undermines simulation validity"
+
+# DETECTION PATTERNS
+# How to recognize herd behavior
+
+detection:
+  
+  signals:
+    - identical_decisions: "Multiple agents make same choice simultaneously"
+    - parallel_reasoning: "Agents reach same conclusions via same path"
+    - coordinated_timing: "Actions happen in unrealistic sync"
+    - opinion_convergence: "Diversity collapses to single viewpoint"
+    - missing_outliers: "No agents take minority positions"
+    
+  metrics:
+    - decision_diversity_index: "Measure spread of agent decisions"
+    - timing_variance: "Measure spread of action timing"
+    - opinion_distribution: "Compare to expected human distribution"
+    - reasoning_similarity: "Compare reasoning paths"
+    
+  thresholds:
+    high_convergence_warning: |
+      If >80% of agents make identical decisions when
+      human populations would show 40-60% split, flag for review.
+
+# MITIGATION STRATEGIES
+# How to reduce herd behavior
+
+mitigation:
+  
+  # Strategy 1: Temperature Variation
+  temperature_variation:
+    description: "Use different temperature settings for different agents"
+    implementation:
+      - agent_1: { temperature: 0.7 }
+      - agent_2: { temperature: 0.9 }
+      - agent_3: { temperature: 1.1 }
+    effect: "Increases decision diversity"
+    
+  # Strategy 2: Persona Injection
+  persona_injection:
+    description: "Give agents distinct personality profiles"
+    implementation:
+      - agent_1: { personality: "risk_averse", background: "conservative" }
+      - agent_2: { personality: "adventurous", background: "progressive" }
+      - agent_3: { personality: "analytical", background: "moderate" }
+    effect: "Creates behavioral diversity from personality differences"
+    
+  # Strategy 3: Model Mixing
+  model_mixing:
+    description: "Use different LLMs for different agents"
+    implementation:
+      - agent_group_1: { model: "gpt-4" }
+      - agent_group_2: { model: "claude-3" }
+      - agent_group_3: { model: "gemini" }
+    effect: "Different model biases create natural diversity"
+    note: "Most effective but highest complexity"
+    
+  # Strategy 4: Diversity Injection
+  diversity_injection:
+    description: "Explicitly prompt for diverse perspectives"
+    implementation:
+      prompt_addition: |
+        Consider that different people would have different reactions.
+        Your response should reflect your specific character's unique
+        perspective, which may differ from others.
+    effect: "Encourages model to generate diverse outputs"
+    
+  # Strategy 5: Staggered Information
+  staggered_information:
+    description: "Give agents different information at different times"
+    implementation:
+      - agent_1: { info_delay: 0 }
+      - agent_2: { info_delay: 1_turn }
+      - agent_3: { info_delay: 2_turns }
+    effect: "Prevents synchronized decision-making"
+
+# SIMULATION FRAME WITH HERD DETECTION
+# How to frame a multi-agent simulation with herd behavior monitoring
+
+herd_aware_simulation:
+  name: "Diversity-Monitored Multi-Agent Simulation"
+  
+  setup:
+    agents:
+      count: 10
+      diversity_strategy: persona_injection
+      temperature_spread: [0.7, 0.8, 0.9, 1.0, 1.1]
+      
+    monitoring:
+      herd_detection: enabled
+      convergence_threshold: 0.8
+      alert_on_convergence: true
+      
+  runtime:
+    after_each_round:
+      - measure_decision_diversity
+      - measure_opinion_distribution
+      - flag_if_convergence_detected
+      
+    on_convergence_detected:
+      - log_warning
+      - inject_diversity_prompt
+      - consider_human_review
+      
+  disclosure: |
+    This simulation monitors for herd behavior — the tendency of
+    same-model agents to converge on identical decisions.
+    
+    Convergence warnings indicate that results may not reflect
+    realistic human diversity and should be interpreted cautiously.
+
+# EXAMPLE: Detecting Convergence
+
+example_detection:
+  scenario: "10 agents voting on a proposal"
+  
+  round_1_results:
+    votes:
+      for: 9
+      against: 1
+    diversity_index: 0.1
+    warning: "HIGH CONVERGENCE DETECTED"
+    
+  analysis: |
+    9/10 agents voted the same way. In a real human population,
+    this level of agreement is rare on controversial topics.
+    
+    Possible causes:
+    - Same-model bias
+    - Insufficient persona diversity
+    - Leading prompt wording
+    
+  recommended_action: |
+    - Review prompt for leading language
+    - Increase persona diversity
+    - Consider temperature variation
+    - Flag results as potentially non-representative
+
+# K-LINES — Traditions this activates
+
+k_lines:
+  - SAME-MODEL-HERD      # Single-model creates false homogeneity
+  - EMERGENCE-AWARE      # Monitor emergent patterns — herd behavior ≠ real emergence
+  - BIAS-AMPLIFICATION   # Training biases amplify
+  - AUTONOMY-DIAL        # Control over agent independence
+  - POPULATION-STRATEGY  # H-NP approach reduces herd behavior
+  - VALUE-COHERENCE      # Schwartz values create structured diversity
+
+# INTEGRATION WITH OTHER FRAMES
+
+combines_with:
+  - SMALLVILLE-SIMULATION: "Add herd detection to emergent simulations"
+  - AGGREGATE-PATTERNS: "Herd behavior undermines aggregate validity"
+  - AUTONOMY-SPECTRUM: "Higher autonomy = higher herd risk"
+  - POPULATION-STRATEGY: "H-NP (53% unprimed) reduces herd artifacts"
+  - SCHWARTZ-VALUES: "Value diversity creates behavioral diversity"
+
+# TWO-WAY REFERENCES — Nelsonian hyperlinks
+
+references:
+  design_docs:
+    - ../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS.md         # Same-model herd problem source
+    - ../../../designs/ethics/GENERATIVE-AGENTS-SMALLVILLE.md       # Emergence vs herd behavior
+    - ../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS-SURVEY.md  # Dual challenge framework
+    - ../../../designs/ethics/VALUE-PROMPTING-SCHWARTZ.md           # Population diversity strategies
+    - ../../../designs/ethics/PARK-GENERATIVE-AGENT-SIMULATIONS-1000-PEOPLE.md  # Individual grounding reduces herd
+  
+  related_examples:
+    - ./smallville-style-simulation.yml  # Where herd behavior can emerge
+    - ./aggregate-patterns.yml           # Why herd behavior matters
+    - ./autonomy-spectrum.yml            # Autonomy affects herd risk
+    - ./population-simulation-strategy.yml # H-NP reduces herd artifacts
+    - ./schwartz-value-character.yml     # Value diversity as mitigation
+    - ./bias-acknowledgment.yml          # Training biases amplify
+  
+  skill_docs:
+    - ../../speed-of-light/SKILL.md      # Multi-agent methodology
+    - ../SKILL.md                        # Full representation-ethics protocol

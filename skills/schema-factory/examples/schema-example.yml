@@ -1,0 +1,20 @@
+schemas:
+  - id: start-postgres
+    action: start-postgres
+    context: [postgres-installed]
+    result: [postgres-running]
+    reliability: 0.92
+    evidence: { successes: 23, failures: 2 }
+
+  - id: start-pyvision
+    action: start-pyvision
+    context: [postgres-running, gpu-available]
+    result: [pyvision-running]
+    reliability: 0.88
+    evidence: { successes: 19, failures: 3 }
+    extended_context:
+      gpu-available:
+        success_when_on: 18
+        success_when_off: 0
+        failure_when_on: 1
+        failure_when_off: 3

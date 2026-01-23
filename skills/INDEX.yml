@@ -167,6 +167,20 @@ skills:
     tier: 0
     tags: [meta, learning, drescher]
 
+  - name: mooco
+    path: skills/mooco
+    description: "Custom orchestrator design notes and skill interface expectations"
+    tier: 0
+    protocol: MOOCO
+    tags: [orchestration, design, context, safety]
+
+  - name: mooco-mirror
+    path: skills/mooco-mirror
+    description: "Parallel introspection for MOOCO sessions and cross-orchestrator comparison"
+    tier: 0
+    protocol: MOOCO-MIRROR
+    tags: [introspection, orchestration, traceability]
+
   # TIER 1: FILE-ONLY (No execution required)
 
   # --- METHODOLOGY ---

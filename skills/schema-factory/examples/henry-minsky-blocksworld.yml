@@ -1,0 +1,242 @@
+example:
+  id: henry-minsky-blocksworld
+  credits:
+    - "Henry Minsky — pyleela schema mechanism implementation"
+    - "Gary Drescher — Made-Up Minds (schema mechanism)"
+
+  context_notes: |
+    These are data examples inspired by the blocks/hand/eye microworld.
+    They show the kinds of items, contexts, results, and extended tables
+    the schema mechanism operates on. This is not code; it is structured data.
+    The examples are illustrative, not exhaustive. The same patterns
+    can be recombined for different microworlds.
+
+items:
+  # Atomic items from the sensorimotor system (SMS)
+  - name: hand1-at-home
+    state: off
+  - name: hand1-grasping
+    state: off
+  - name: hp0303
+    state: off
+  - name: h.tactr
+    state: off
+  - name: h.tactl
+    state: off
+  - name: eye-at-home
+    state: on
+  - name: vf0303
+    state: off
+  - name: fov22.01
+    state: off
+  - name: block1-visible
+    state: on
+  - name: block1-in-hand1
+    state: off
+  - name: block1-on-table
+    state: on
+  - name: hand1-near-block1
+    state: off
+  - name: eye-on-block1
+    state: off
+
+schemas:
+  # 1) Primitive action schema: move hand toward block
+  - id: hand1-reach-block1
+    action: hand1_forward
+    context:
+      - block1-visible
+      - hand1-at-home
+    result:
+      - hand1-near-block1
+    reliability: 0.76
+    evidence:
+      successes: 38
+      failures: 12
+    notes: "Reach is probabilistic: proximity sensors are noisy."
+
+  # 2) Grasp schema with extended context
+  - id: hand1-grasp-block1
+    action: hand1_grasp
+    context:
+      - hand1-near-block1
+      - block1-visible
+    result:
+      - block1-in-hand1
+    reliability: 0.83
+    evidence:
+      successes: 30
+      failures: 6
+    extended_context:
+      block1-visible:
+        success_when_on: 29
+        success_when_off: 1
+        failure_when_on: 5
+        failure_when_off: 1
+      hand1-near-block1:
+        success_when_on: 30
+        success_when_off: 0
+        failure_when_on: 6
+        failure_when_off: 0
+    notes: "Marginal attribution highlights proximity as prerequisite."
+
+  # 2b) Eye movement schema (visual attention)
+  - id: eye-foveate-block1
+    action: eye_forward
+    context:
+      - block1-visible
+      - eye-at-home
+    result:
+      - eye-on-block1
+    reliability: 0.86
+    evidence:
+      successes: 44
+      failures: 7
+    notes: "Visual attention primes later action selection."
+
+  # 3) Side-effect tracking (extended results)
+  - id: lift-block1
+    action: hand1_up
+    context:
+      - block1-in-hand1
+    result:
+      - block1-above-table
+    reliability: 0.91
+    evidence:
+      successes: 41
+      failures: 4
+    extended_results:
+      hand1-not-at-home:
+        on_after_success: 41
+        off_after_success: 0
+      block1-visible:
+        on_after_success: 40
+        off_after_success: 1
+    notes: "Side effects: hand leaves home; block remains visible."
+
+  # 3b) Place block back down (reversible action)
+  - id: place-block1
+    action: hand1_down
+    context:
+      - block1-in-hand1
+    result:
+      - block1-on-table
+      - hand1-not-at-home
+    reliability: 0.89
+    evidence:
+      successes: 33
+      failures: 4
+    notes: "Reverse action helps learn controllable state transitions."
+
+  # 3c) Implicit composite action schema (move hand to position)
+  - id: move-hand-to-hp0303
+    composite_action:
+      - hand1_right
+      - hand1_up
+    context:
+      - hand1-at-home
+    result:
+      - hp0303
+    reliability: 0.72
+    evidence:
+      successes: 18
+      failures: 7
+    notes: "Composite action can implicitly activate when the hand reaches hp0303."
+
+  # 3d) Tactile contact schema (palpable synthetic item host)
+  - id: touch-block-right
+    action: hand1_right
+    context:
+      - hp0303
+    result:
+      - h.tactr
+    reliability: 0.19
+    evidence:
+      successes: 9
+      failures: 38
+    synthetic_item:
+      name: block1-right-of-hand
+      host_schema: touch-block-right
+      rationale: "Local consistency suggests a hidden block position when touch succeeds."
+    notes: "Low global reliability, high local consistency → synthetic item."
+
+  # 3e) Cross-modal cue (visual context improves tactile success)
+  - id: touch-block-right-with-visual-cue
+    action: hand1_right
+    context:
+      - hp0303
+      - vf0303
+    result:
+      - h.tactr
+    reliability: 0.9
+    evidence:
+      successes: 27
+      failures: 3
+    extended_context:
+      vf0303:
+        success_when_on: 27
+        success_when_off: 0
+        failure_when_on: 3
+        failure_when_off: 0
+    notes: "Augmented context condition: visual cue predicts tactile success."
+
+  # 4) Synthetic item hypothesis from local consistency
+  - id: grasp-fails-sometimes
+    action: hand1_grasp
+    context:
+      - hand1-near-block1
+    result:
+      - block1-in-hand1
+    reliability: 0.42
+    evidence:
+      successes: 5
+      failures: 7
+    synthetic_item:
+      name: hand1-grip-aligned
+      host_schema: grasp-fails-sometimes
+      rationale: "Grasp succeeds when alignment is good; alignment is hidden."
+    notes: "Synthetic item stands for hidden alignment state."
+
+  # 4b) Overriding condition (local unreliability)
+  - id: grasp-overridden-by-slip
+    action: hand1_grasp
+    context:
+      - hand1-near-block1
+      - block1-visible
+    result:
+      - block1-in-hand1
+    reliability: 0.64
+    evidence:
+      successes: 14
+      failures: 8
+    overriding_conditions:
+      - block1-slippery
+    notes: "Override item explains sudden failures despite normal context."
+
+  # 5) Composite action (planned chain)
+  - id: pick-up-block1
+    composite_action:
+      - hand1_forward
+      - hand1_grasp
+      - hand1_up
+    context:
+      - block1-visible
+      - hand1-at-home
+    result:
+      - block1-in-hand1
+      - block1-above-table
+    reliability: 0.79
+    notes: "Composite action assembled from successful primitives."
+
+  # 6) Exploration schema (probe for hidden state)
+  - id: tap-block1
+    action: hand1_tap
+    context:
+      - block1-visible
+    result:
+      - block1-moves
+    reliability: 0.58
+    evidence:
+      successes: 11
+      failures: 8
+    notes: "Exploration action used to reveal hidden dynamics."

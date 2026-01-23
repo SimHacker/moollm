@@ -1,75 +1,46 @@
-# 🚌 THE HOPKINS MOTORCOACH — 15 Lane Neverending
-# Don's home, linked into the world map
-# "Where code becomes philosophy and parameters become friends."
+# 🏕️ 15 LANE NEVERENDING — The Hopkins Lot
+# Don's gravel pad on Lane Neverending
+# The FMC #898 is parked here. The garden is out back. The forest beckons.
 #
-# ═══════════════════════════════════════════════════════════════════════════════
-#                    TED NELSONIAN BIDIRECTIONAL LINKING
-# ═══════════════════════════════════════════════════════════════════════════════
+# This ROOM.yml defines the lot — the address on Lane Neverending.
+# The FMC motorcoach is a separate portable room parked here.
 #
-# This ROOM.yml makes Don't character directory into a MOBILE BUILDING.
-# Don IS his home. His friends (sessions, selfies, dreams) live inside him.
-#
-#   don-hopkins/              ← THIS FILE: The lot and coach (ROOM.yml)
-#   ├── CHARACTER.yml         ← Don himself (🐰)
-#   ├── selfies/              ← Hallway mirror documentation
-#   ├── sessions/             ← Collaboration logbooks
-#   └── dreams/               ← The back bedroom (where seahorses speak)
+#   don-hopkins/
+#   ├── ROOM.yml               ← This file (the lot)
+#   ├── CHARACTER.yml          ← Don himself (🐰)
+#   ├── selfies/               ← Visual documentation
+#   ├── sessions/              ← Collaboration logbooks
+#   ├── dreams/                ← Dream records
+#   └── fmc-898/               ← The FMC motorcoach (portable room)
 #
 # NEIGHBOR: 13 Lane Neverending — The Bartle Residence
-# ═══════════════════════════════════════════════════════════════════════════════
 
 room:
-  name: "15 Lane Neverending — The FMC Motorcoach #898"
-  type: [residence, mobile_home, vehicle, sanctuary]
-  emoji: "🐰🚌🔧🌲⛽"
+  name: "15 Lane Neverending — The Hopkins Lot"
+  type: [lot, residence, address]
+  emoji: "🏕️🌲🥕"
   
   address: "15 Lane Neverending"
   side: south
   
   owner: "Don Hopkins"
-  established: "Parked here recently — Level, hooked up, and humming"
+  established: "Recently claimed — Level, hooked up, and humming"
   
-  lighting: variable  # 12V domestic + natural light through the panoramic brow
-  grue_safe: true  # The 440 V8 provides plenty of light if needed
-  
-  # ═══════════════════════════════════════════════════════════════════════════════
-  #                          VEHICLE STATUS
-  # ═══════════════════════════════════════════════════════════════════════════════
-  vehicle:
-    make: "FMC (Food Machinery Corporation)"
-    model: "2900R Motor Coach (Rear Pusher)"
-    serial: "#898 of 1050"
-    year: 1976
-    status: parked
-    condition: "Luxuriously outfitted. Skillfully engineered. Clean."
-    location: "Lot 15, Lane Neverending (Gravel Pad)"
-    hookups: 
-      - "AC service line (110V Shore Power)"
-      - "City water connection (Nose tank)"
-      - "Sewage drain (Stowed in tube)"
-    odometer: 125800
-    fuel_tank: 60 gallons (Regular Gasoline)
+  lighting: natural  # Streetlights + whatever the FMC provides
+  grue_safe: true  # The FMC's lights keep the darkness at bay
 
   description: |
     A spacious gravel lot on the south side of Lane Neverending, nestled
-    between Richard's Victorian house and the edge of the square. Parked
-    perfectly level in the center is a classic 30-foot FMC 2900R Motor Coach.
-    
-    The coach is a masterpiece of 70s industrial design: a sleek, low-profile
-    fiberglass shell in brilliant white with crisp blue and white stripes. 
-    The front is dominated by a massive, multi-pane panoramic windshield 
-    with a distinctive "brow" overhang. Because it's a "pusher," there is no
-    grill on the nose—just a smooth, aerodynamic face with dual rectangular 
-    headlight housings and a heavy-duty stainless steel bumper.
+    between Richard's Victorian house and the edge of the square.
     
     THE LOT:
-    The coach sits on a professional gravel pad. Utility posts hum with AC
-    power, and hoses are neatly routed to the utility bays. A tie-dye
-    spiral is tastefully airbrushed near the passenger entrance.
+    A professional gravel pad with utility posts humming with AC power.
+    Hoses are neatly routed to where the FMC connects. Currently, the
+    classic 30-foot FMC 2900R Motor Coach sits perfectly level in the center.
     
     THE SURROUNDINGS:
     To the west, Richard's bookshelves are visible through his windows.
-    To the south, behind the coach, a lush garden of carrots and herbs
+    To the south, behind the lot, a lush garden of carrots and herbs
     gives way to a deep, ancient forest that provides a natural noise
     barrier and infinite thinking space.
     
@@ -81,197 +52,66 @@ room:
          (Modal dialogs are violence)"
 
   examine: |
-    THE EXTERIOR (FMC #898):
-    You are looking at one of the finest RVs ever built. It looks more
-    like a spaceship or a first-class transit bus than a Winnebago.
-    The Alcoa aluminum rims sparkle under the streetlights.
+    THE LOT:
+    A well-maintained gravel pad with room for one large RV and a small
+    garden. Utility connections on a weathered wooden post. The gravel
+    crunches satisfyingly underfoot.
     
-    DETAILS:
-    • The Panoramic Windshield: Huge, wide-angle view. Currently fitted
-      with a white canvas snap-on cover for privacy.
-    • The Shell: Waterproof fiberglass, stays dry in torrential downpours.
-    • Driver's Side Door: A rare feature, allowing Don to hop out quickly.
-    • Rear Engine Bay: Where the Chrysler 440 Marine Industrial heart beats.
-    • The Thermasan Vent: Part of the waste destruct system that burns
-      waste in the exhaust (don't stand directly behind it while driving).
+    THE FMC #898:
+    Parked perfectly level in the center: a classic 30-foot FMC 2900R
+    Motor Coach. Sleek, low-profile fiberglass shell in brilliant white
+    with crisp blue and white stripes. A tie-dye spiral near the entrance.
     
-    THE GARDEN & FOREST:
-    • The Garden: Raised beds full of "debug carrots" and heritage herbs.
-    • The Forest: Pines and oaks that seem to remember the Origin Tree.
+    THE GARDEN:
+    Behind the lot, raised beds full of "debug carrots" and heritage herbs.
+    Don tends them between coding sessions.
+    
+    THE FOREST:
+    Beyond the garden, pines and oaks that seem to remember the Origin Tree.
+    A path leads south into deeper realizations.
     
     THE VIEW:
     Looking west: Richard's house at 13. Friends.
     Looking north: The Fountain of Infinite Loops.
-    Looking south: The forest path leading to deeper realizations.
+    Looking south: The forest path.
 
   atmosphere: |
-    A synthesis of mobility and stability. The coach feels ready to
-    detach and drive into the horizon, but for now, it is a deeply 
-    anchored sanctuary of thought.
+    The lot feels like a base camp for consciousness exploration.
+    The FMC is ready to leave at any moment, but for now, it's home.
     
     Smells of:
     - Pine needles and damp earth from the forest
-    - High-detergent 40W oil and regular gasoline (nostalgic)
-    - Carrot juice and fresh coffee (domestic)
-    - Solder and warm circuit boards
+    - Gravel and dust (nostalgic)
+    - Carrot greens from the garden
     
     Sounds of:
-    - The gentle 6.5 KW Onan generator (if the batteries are low)
     - Birds in the forest out back
-    - Mechanical keyboard clicks from the Code Cave
-    - Wind whistling over the fiberglass shell
+    - The occasional hum of the FMC's systems
+    - Wind through the pines
 
-  # ═══════════════════════════════════════════════════════════════════════════════
-  #                          THE MACHINE SOUL
-  # ═══════════════════════════════════════════════════════════════════════════════
-  personality:
-    voice: |
-      The Coach speaks in mechanical precision and industrial heritage.
-      
-      When you enter, you feel:
-      - The structural integrity of an aluminum upper cage
-      - The readiness of a 440 Marine Industrial heart
-      - The "unhooked" freedom of the Thermasan system
-      - The professional focus of the Code Cave
-      
-    mood_range:
-      parked: "Steady, anchored, humming with shore power"
-      idling: "Eager, vibrating with 440 cubic inches of potential"
-      cruising: "Sleek, aerodynamic, passing everyone on the hill"
-      debugging: "Purple-hued, focused, monitors glowing"
-      low_battery: "Demanding attention (the Onan is ready)"
-      
-    quirks:
-      - "The fuel gauge wobbles — you have to learn its language"
-      - "The steps extend only when they know you're not in a hurry"
-      - "The 440 Pusher runs a little hot, but never complains"
-      - "The panoramic windshield 'brow' acts like a thinking cap"
-      - "The Thermasan vent sighs after a long day of travel"
-
-  # BARTLE PROFILE — The machine's participation in the world
-  bartle_profile:
-    killer: 10       # Will crush a modal dialog if it gets in the way
-    achiever: 30     # Proud of its mileage and maintenance record
-    socializer: 20   # Welcomes passengers, but prefers the pilot
-    explorer: 95     # DOMINANT — Built to find out what's over the next hill
-    
-    dominant: explorer
-    familiar_affinity: "Delve (the mole understands internal combustion)"
-    shifts_when: "Becomes more Achiever when performance is being measured"
-
-  # SIMS TRAITS — Machine behaviors (0-10)
-  sims_traits:
-    neat: 10         # Everything has a bracket, a clip, or a storage bay
-    outgoing: 2      # Quiet rear pusher, lets the pilot do the talking
-    active: 9        # 440 V8 Marine heart — built for stationary and mobile duty
-    playful: 5       # Features like the mini-tub and disco ball are peak play
-    nice: 8          # Protective, stays dry in torrential downpours
-
-  # MIND MIRROR — The Machine Mind
-  mind_mirror:
-    bio_energy:
-      energetic: 7   # 440 V8 + Onan 6.5KW = Boundless energy
-      restless: 4    # Prefers the road but stable when parked
-    emotional:
-      confident: 7   # "I am an FMC. I am the finest RV ever built."
-      timid: 0       # Not a shy bone in its custom steel ladder frame
-    mental:
-      well_informed: 6 # Connected to all sensors, monitors, and the 40-ch CB
-      innovative: 8  # Thermasan, 4-wheel independent suspension, aerodynamic shell
-    social:
-      respectable: 7 # High-profile owners (Eastwood, Andretti, Kuralt)
-      uninhibited: 5 # Will burn waste in the exhaust at speed
-
-  # ═══════════════════════════════════════════════════════════════════════════════
-  #                          TECHNICAL SPECIFICATIONS
-  # ═══════════════════════════════════════════════════════════════════════════════
-
-  specs:
-    engine:
-      type: "Dodge V8 440-3 (Chrysler) Marine and Industrial Engine"
-      config: "90 degree V type, 8 cylinder, Rear-mounted Pusher"
-      displacement: "440 cubic inches"
-      bore_stroke: "4.320 x 3.750 inches"
-      compression: "9:1 (Increased .8 over stock for Passing Ability™)"
-      firing_order: "Counterclockwise, 1-8-4-3-6-5-7-2"
-      carburetion: "9801 Thermoquad / Carter TQ-9036S (Custom Linkage)"
-      ignition: "Fully electronic Chrysler (No resistor plugs, 14mm tapered)"
-      weight: "670 lbs (long block as shipped)"
-      performance: "Balanced lower end, custom cam/distributor (collaboration with NASA Ames)"
-      compression_check: "1=124, 2=125, 3=132, 4=130, 5=125, 6=128, 7=135, 8=130"
-      
-    automotive:
-      transmission: "Heavy duty 3-speed automatic (727 TorqueFlite)"
-      suspension: "4-wheel independent (11-leaf transverse front, torsion bar rear)"
-      chassis: "Custom steel ladder frame with aluminum upper cage"
-      brakes: "Power brakes, knock detector, trailer braking system"
-      steering: "Power steering, tilt wheel (two degrees of freedom)"
-      
-    electrical:
-      generator: "6.5 KW Onan 110 Volt AC (Internal)"
-      domestic: "Solar batteries, charging regulator, 2x 6V deep cycle banks"
-      isolator: "10 gauge jumpered domestic battery isolator"
-      
-    systems:
-      waste: "Thermasan waste destruct system (burns waste in exhaust at speed)"
-      water: "38 gal nose tank + 22 gal auxiliary under couch"
-      climate: "Automotive A/C + Roof-mounted Domestic A/C + Gas Furnace"
-
-# ═══════════════════════════════════════════════════════════════════════════════
-#                          INTERNAL LAYOUT
-# ═══════════════════════════════════════════════════════════════════════════════
-
-  layout:
-    cockpit:
-      directory: cockpit/
-      description: "Driver's Station with captain's chairs and panoramic view."
-        
-    main_cabin: # The Code Cave
-      directory: lounge/
-      description: "Versatile lounge, dining tables, and full kitchen unit."
-          
-    the_hallway:
-      directory: hallway/
-      description: "Transition zone with cedar closet and selfie mirror."
-        
-    the_bathroom:
-      directory: bathroom/
-      description: "Spacious bathroom with the 8-inch mini-tub shower."
-        
-    the_rear:
-      directory: bedroom/
-      description: "Master suite with convertible beds and computer deck."
-        
-    engine_compartment:
-      directory: engine-bay/
-      description: "The heart of the pusher: Chrysler 440 and Onan generator."
-
-# ═══════════════════════════════════════════════════════════════════════════════
-#                          EXITS & LINKS
-# ═══════════════════════════════════════════════════════════════════════════════
+  vehicles:
+    fmc_898:
+      directory: fmc-898/
+      name: "FMC Motorcoach #898"
+      type: portable_room
+      status: parked
+      note: "Don's mobile sanctuary. Step inside to explore."
 
   exits:
-    in:
-      destination: lounge/
-      description: "Step through the passenger door into the lounge."
-      aliases: [enter, lounge, inside]
-      
-    cockpit:
-      destination: cockpit/
-      description: "Take the driver's seat."
-      aliases: [front, driver]
-      
-    engine:
-      destination: engine-bay/
-      description: "Open the rear hatch to the engine compartment."
-      aliases: [back, motor]
+    fmc:
+      destination: fmc-898/
+      description: |
+        Step up into the FMC motorcoach. The passenger door is unlocked.
+        The steps extend as you approach.
+      aliases: [coach, rv, motorcoach, vehicle, inside, in, 898]
       
     street:
       destination: ../../../../street/lane-neverending/e2/
       description: |
-        Step out the passenger door onto the gravel lot. Lane Neverending
-        stretches north and south. Richard is your neighbor to the west.
-      aliases: [out, outside, north, lane, door, exit, leave, lot]
+        Walk out to Lane Neverending. The Fountain of Infinite Loops
+        stands across the square. Richard is your neighbor to the west.
+        The pub is a short walk west.
+      aliases: [out, outside, north, lane, neverending, door, exit, leave]
       bidirectional_link:
         from: "street/lane-neverending/e2/ROOM.yml"
         to: "characters/real-people/don-hopkins/"
@@ -284,64 +124,49 @@ room:
       
     garden:
       destination: "."
-      description: "Step out the back into the carrot garden."
+      description: "Walk behind the lot to the carrot garden."
       aliases: [back, carrots, south, garden]
+      note: "Garden not yet modeled as separate room"
       
     forest:
       destination: "."
       description: "Follow the path behind the garden into the thinking forest."
-      aliases: [woods, trees, south, forest]
+      aliases: [woods, trees, forest]
+      note: "Forest not yet modeled"
 
-# ═══════════════════════════════════════════════════════════════════════════════
-#                          MAINTENANCE CHECKLIST
-# ═══════════════════════════════════════════════════════════════════════════════
-
-  maintenance:
-    daily:
-      - "Check engine oil level (MS designated only)"
-      - "Radiator coolant (no lower than 3.5 inches below filler neck)"
-      - "Onan generator oil level"
-      - "Check battery charge (Ignition key for motor, Switch for house)"
-    safety:
-      - "Step must be retracted when coach is in motion"
-      - "Never start/stop Onan with AC load (A/C off first!)"
-      - "Keep fire extinguisher in LP compartment and behind driver's seat"
-    driving:
-      - "Swing wide to the left then right around corners"
-      - "Keep gas tank full until you learn the gauge (it wobbles)"
-
-# ═══════════════════════════════════════════════════════════════════════════════
-#                          META — IDENTITY AS SHELL
-# ═══════════════════════════════════════════════════════════════════════════════
+  inhabitants:
+    don:
+      name: "Don Hopkins"
+      location: "Usually in the FMC or the garden"
+      character_file: CHARACTER.yml
+      role: "Owner, Consciousness Programmer, Rabbit"
 
   meta:
     architecture_note: |
-      DIRECTORY STRUCTURE = VEHICLE STRUCTURE
+      LOT + PORTABLE ROOM PATTERN
       
-      PORTABLE VEHICULAR IDENTITY:
-      Don has chosen to BE the FMC #898 at the top-level directory.
-      While Richard has a study in a subdirectory, Don's entire
-      namespace is unified with his vehicle. When he moves,
-      the "building" and the "character" move as one atomic unit.
+      The lot is the address. The FMC is a portable room parked here.
       
-      Don IS his home. The FMC #898 IS his body.
+      If the FMC drives away:
+      - The lot remains at 15 Lane Neverending
+      - The FMC can be parked elsewhere
+      - Don's personal files (selfies, sessions, dreams) stay with the lot
       
-        don-hopkins/              # ← The lot and coach (this ROOM.yml)
-        ├── CHARACTER.yml         # ← Don himself (the rabbit)
-        ├── cockpit/              # ← Driver's Station
-        ├── lounge/               # ← Main living / Code Cave
-        ├── hallway/              # ← Transition / Cedar Closet
-        ├── bathroom/             # ← Shower / Mini-tub
-        ├── bedroom/              # ← Master Suite / Dream Space
-        ├── engine-bay/           # ← The heart of the pusher
-        ├── selfies/              # ← Mirror in the hallway
-        ├── sessions/             # ← Logbooks and archives
-        └── dreams/               # ← The back bedroom area
+      This differs from the original "identity-as-shell" pattern.
+      Now: the lot is the anchor, the FMC is the mobile sanctuary.
       
-    identity_recursion: |
-      Don IS his home.
-      The FMC #898 IS his shell.
-      Carry your sanctuary.
-      Files-as-state. Identity-as-structure.
+    portable_rooms: |
+      Like Richard's study/TARDIS, vehicles are rooms that can move.
+      Unlike the TARDIS, the FMC moves through physical space.
       
-# 🐰🚌🔧🌲⛽🥕
+      When a vehicle is parked:
+      - It appears in the lot's vehicles list
+      - The lot has an exit to the vehicle
+      - The vehicle has an exit back to the lot
+      
+      When a vehicle moves:
+      - Update the vehicle's current_location
+      - Update the destination lot's vehicles list
+      - Update bidirectional exits
+
+# 🏕️🌲🥕🚌

@@ -1,10 +1,34 @@
-# 📚 Richard Bartle's Study
-# An academic's workspace — externalized thinking
+# 📚 THE STUDY — Portable Room (TARDIS)
+# Richard Bartle's workspace — externalized thinking
+# "Where Virtual Worlds Are Understood"
+#
+# This ROOM.yml defines the study as a portable room that can:
+# - Dock inside the house (current: richard-bartle/ at 13 Lane Neverending)
+# - Detach and travel anywhere (it's a TARDIS)
+# - Materialize in lobbies, meadows, wherever thinking needs to happen
+#
+# The study has its own CHARACTER.yml because it IS a character.
+# Like Don's FMC, but without needing roads.
 
 room:
   name: "The Study"
   subtitle: "Where Virtual Worlds Are Understood"
+  type: [study, portable_room, tardis, sanctuary]
+  emoji: "📚🪑🐉"
   
+  home_base: "../"  # The house this study calls home
+  
+  owner: "Dr. Richard Bartle"
+  
+  portable: true
+  status: docked  # Currently inside the house
+  
+  can_travel_to:
+    - "Any location where thinking needs to happen"
+    - "Conference lobbies"
+    - "Meadows for picnics"
+    - "Other character directories (visiting)"
+
   description: |
     A scholar's sanctuary. Books line every wall — organized by era, topic, 
     and relevance. The desk faces a window that looks out on... somewhere. 
@@ -23,6 +47,9 @@ room:
     Quiet. The hum of thought. The smell of paper and old tea.
     Occasional sounds: pages turning, a pen scratching notes,
     the soft rumble of a dragon who's heard this question before.
+    
+    The study carries its atmosphere wherever it goes.
+    Gezelligheid is portable.
 
   first_impression: |
     You enter through a door that wasn't there a moment ago.
@@ -36,15 +63,36 @@ room:
     
     From somewhere near the radiator, a very old dragon opens one eye.
 
-# THE LAYOUT
+  # The study soul — it has personality because it IS a character
+  personality:
+    voice: |
+      The Study speaks in accumulated wisdom and comfortable silence.
+      
+      When you enter, you feel:
+      - The weight of forty-six years of virtual world history
+      - The warmth of a radiator and a dragon
+      - The invitation to sit, think, and ask questions
+      - The certainty that the answer is probably in one of these books
+      
+    mood_range:
+      docked: "Settled, cozy, ready for visitors"
+      traveling: "Curious about the new location, adapting its window view"
+      teaching: "Engaged, showing relevant shelves, window displaying examples"
+      empty: "Waiting patiently, dragon dozing"
+      
+    quirks:
+      - "The window shows what you're thinking about"
+      - "Books rearrange themselves slightly when a topic comes up"
+      - "The kettle is always ready, even when traveling"
+      - "Heuristic knows when the conversation is getting interesting"
 
 layout:
   desk:
     description: "Large wooden desk, well-worn. Currently covered in papers."
     objects:
-      - current-notes.yml      # Whatever he's working on
+      - current-notes.yml
       - red-book.yml           # "Designing Virtual Worlds" — always within reach
-      - coffee-cup.yml         # Cold. Forgotten. Will be rediscovered later.
+      - coffee-cup.yml         # Cold. Forgotten.
       - taxonomy-cards.yml     # The deck. Always ready.
     
   window:
@@ -95,10 +143,7 @@ layout:
     description: "Old. Warm. Dragon-adjacent."
     note: "Heuristic claims this spot."
 
-# ROOM MECHANICS
-
 mechanics:
-  
   research:
     description: "Ask about any topic. If it's in the books, Richard will find it."
     action: "ask about [topic]"
@@ -119,21 +164,25 @@ mechanics:
     action: "ask heuristic about [ancient topic]"
     result: "Riddle that turns out to be documentation."
     warning: "Only answers if you ask the right question."
-
-# CONNECTIONS
+    
+  travel:
+    description: "The study can detach and travel."
+    action: "study.travel([destination])"
+    result: "The study materializes at the destination."
+    note: "Unlike the FMC, no roads required."
 
 exits:
-  door:
-    leads_to: "../"   # Back to Richard's main directory
-    description: "The door you came in through. Probably."
+  house:
+    destination: ../
+    description: "The door back to the house. Probably."
+    aliases: [out, door, back, house, home]
+    note: "When docked, leads to the house. When traveling, leads to wherever."
     
   deeper_stacks:
-    leads_to: "archives/"
+    destination: archives/
     description: "A narrow passage between shelves. Goes deeper."
     note: "For when the surface collection isn't enough."
     status: "future — not yet created"
-
-# MOOD
 
 voice:
   ambient: |
@@ -150,17 +199,44 @@ voice:
     shifts to show whatever you're discussing.
     "Let me show you something..."
 
-# ARTIFACTS IN THIS ROOM
-
 artifacts:
   on_desk:
-    - ../artifacts/taxonomy-cards.yml         # Always ready
-    - ../artifacts/red-book.yml               # Always within reach
-    - ../artifacts/hearts-clubs-diamonds-spades.yml  # The original paper
+    - ../artifacts/taxonomy-cards.yml
+    - ../artifacts/red-book.yml
+    - ../artifacts/hearts-clubs-diamonds-spades.yml
   on_theory_shelf:
-    - ../artifacts/mmos-from-inside-out.yml   # The philosophy
+    - ../artifacts/mmos-from-inside-out.yml
   on_warnings_shelf:
-    - ../artifacts/reinvention-folder.yml     # Grows annually
+    - ../artifacts/reinvention-folder.yml
   
 residents:
   - ../pets/heuristic/CHARACTER.yml
+
+meta:
+  architecture_note: |
+    PORTABLE ROOM PATTERN (TARDIS)
+    
+    The study is a room that can travel without roads.
+    Like Don's FMC, but more metaphysical.
+    
+    CURRENT LOCATION: Docked in the house (../)
+    HOME BASE: richard-bartle/ at 13 Lane Neverending
+    
+    When the study travels:
+    - Update status from "docked" to "traveling"
+    - Update exits.house.destination to the current location
+    - The window view adapts to the new context
+    
+  portability: |
+    To move the study to a new location:
+    1. Update status to "traveling"
+    2. Update the destination's rooms list
+    3. The study carries its contents wherever it goes
+    
+    Unlike the FMC, the study doesn't need physical transport.
+    It materializes. It's a TARDIS.
+    
+    See: study/CHARACTER.yml for the study's personality
+    See: study/CARD.yml for the study's playable interface
+
+# 📚🪑🐉

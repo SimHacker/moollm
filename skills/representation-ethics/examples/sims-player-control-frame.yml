@@ -1,0 +1,217 @@
+# The Sims Player Control Frame
+# Ethical framing based on The Sims' successful approach to simulation ethics
+
+meta:
+  example_type: simulation_frame
+  inspired_by: "The Sims (2000)"
+  heritage: "Will Wright, Maxis"
+  
+context: |
+  The Sims demonstrated that simulating people can be:
+  - Safe: when clearly gamified (cartoon characters)
+  - Empowering: LGBTQ+ players explored identity safely
+  - Revelatory: exposed assumptions about domestic life
+  
+  Key insight: Player agency makes simulation ethical.
+  The player decides what happens. The player is responsible.
+
+# THE SIMS PATTERN
+# What made The Sims ethically successful?
+
+sims_ethics_principles:
+  
+  # 1. PLAYER CONTROL
+  player_agency:
+    principle: "The player is always in control"
+    implementation:
+      - player_directs_actions: true
+      - player_chooses_relationships: true
+      - player_decides_outcomes: true
+      - simulation_serves_player: true
+      
+    moollm_equivalent:
+      frame: PLAYER_CONTROLLED
+      human_commitment: required
+      
+  # 2. GAMIFICATION AS SAFETY
+  gamification:
+    principle: "Cartoon characters reduce harm"
+    implementation:
+      - stylized_visuals: true
+      - obvious_fiction: true
+      - no_photorealism: true
+      - clear_game_frame: true
+      
+    moollm_equivalent:
+      abstraction_level: inspired_character
+      disclosure: GAME_FRAME
+      
+  # 3. IDENTITY EXPLORATION
+  identity_safe_space:
+    principle: "Safe space for self-discovery"
+    implementation:
+      - same_sex_relationships: always_available
+      - no_judgment: built_in
+      - player_defines_identity: true
+      
+    moollm_equivalent:
+      frame: PRIVATE_IMAGINATION_PLAY
+      consent: SELF_ONLY
+      
+  # 4. NO REAL PEOPLE
+  representation:
+    principle: "Sims are Sims, not real people"
+    implementation:
+      - generic_characters: true
+      - no_celebrity_sims: by_default
+      - player_creates_meaning: true
+      
+    moollm_equivalent:
+      real_people: PROHIBITED_BY_DEFAULT
+      inspired_characters: ALLOWED
+
+# PLAYER CONTROL FRAME
+# Use this when simulation should be player-directed
+
+player_control_frame:
+  name: "Player-Controlled Simulation"
+  type: sims_pattern
+  
+  agency:
+    mode: player_controlled
+    autonomous_behavior: minimal  # Characters have routines but player directs
+    
+  ethics:
+    responsibility: player
+    harm_potential: player_decision
+    consent_model: player_represents_all_characters
+    
+  disclosure:
+    to_player: |
+      You control this simulation. 
+      The characters act according to your direction.
+      What happens is your choice.
+
+# THE TORTURE QUESTION
+# The Sims allowed "torture chambers" — removing ladders from pools, etc.
+
+torture_ethics:
+  context: |
+    The Sims famously allowed players to create "torture chambers"
+    by removing ladders from pools, walling in Sims, starting fires.
+    
+    Is this ethical? The Sims said: yes, because:
+    1. They're fictional characters
+    2. Player has full control
+    3. No deception about their nature
+    4. Educational about consequences
+    
+  moollm_position:
+    fictional_characters: same_as_sims
+    simulated_real_people: DIFFERENT_RULES
+    
+    if_fictional:
+      torture_scenarios: player_choice
+      educational_value: "Consequences of neglect"
+      
+    if_real_person_inspired:
+      torture_scenarios: PROHIBITED
+      reason: "Representation ethics apply"
+
+# IDENTITY DISCOVERY FRAME
+# What made The Sims empowering for LGBTQ+ players
+
+identity_discovery_frame:
+  name: "Safe Identity Exploration"
+  type: sims_pattern
+  
+  context: |
+    For many LGBTQ+ players, The Sims was their first safe space
+    to explore identity, relationships, and self-expression.
+    
+    This happened because:
+    - No judgment from the game
+    - Player-defined relationships
+    - Private exploration
+    - Reversible choices
+    
+  moollm_implementation:
+    frame: PRIVATE_IMAGINATION_PLAY
+    consent: SELF_ONLY
+    recording: DISABLED
+    judgment: NONE
+    
+  principles:
+    - exploration_is_valuable: true
+    - no_external_judgment: true
+    - player_defines_meaning: true
+    - reversibility: enabled
+    - privacy_by_default: true
+
+# EXAMPLE: Same-Sex Romance (from The Sims)
+
+example_scenario:
+  name: "Exploring Relationships"
+  context: "Player creating a household with same-sex couple"
+  
+  sims_approach:
+    - player_creates_characters: true
+    - player_defines_relationship: true
+    - game_supports_all_relationships: true
+    - no_special_flag_needed: true
+    
+  moollm_approach:
+    frame: PRIVATE_IMAGINATION_PLAY
+    consent: SELF_ONLY
+    
+    character_template:
+      relationships:
+        - type: romantic
+          with: player_defined
+          constraint: none
+          
+  ethical_notes:
+    - "EA says LGBTQIA+ identities are a fact of life, not a toggle"
+    - "Game supports, doesn't judge"
+    - "Player agency preserved"
+
+# K-LINES ACTIVATED
+
+k_lines:
+  - SIMS-PRECEDENT       # The Sims showed this works
+  - PLAYER-AGENCY        # Player controls the simulation
+  - PRIVATE-IMAGINATION-PLAY  # Safe exploration space
+  - ABSTRACTION-SAFETY   # Cartoon characters reduce harm
+  - IDENTITY-EXPLORATION # Safe space for self-discovery
+
+# COMPARISON: Sims Ethics vs. Other Approaches
+
+comparison:
+  the_sims:
+    control: player_controlled
+    real_people: prohibited
+    judgment: none
+    consequence: educational
+    identity: empowering
+    
+  photorealistic_sim:
+    control: varies
+    real_people: dangerous
+    judgment: embedded
+    consequence: unclear
+    identity: potentially harmful
+    
+  moollm_recommendation:
+    control: player_controlled_or_explicit_hybrid
+    real_people: framed_with_consent
+    judgment: none_unless_requested
+    consequence: educational_framing
+    identity: supported
+
+# SEE ALSO
+
+references:
+  - ../../../designs/sims/sims-queer-identity-formation.md
+  - ../../../designs/sims/sims-inclusivity.md
+  - ../../../designs/ethics/GENERATIVE-AGENTS-SMALLVILLE.md
+  - ./private-imagination-play.yml

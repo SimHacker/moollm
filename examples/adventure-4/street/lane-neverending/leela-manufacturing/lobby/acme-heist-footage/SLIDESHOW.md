@@ -12,10 +12,10 @@ featuring:
   - Richard Bartle (arriving Frame 09)
   - Chekhov's Tunnels
 related_slideshows:
-  - "../../../../characters/fictional/donna-toadstool/selfies/SLIDESHOW.md"
-  - "../../../../characters/real-people/don-hopkins/selfies/SLIDESHOW.md"
-  - "../../../../pub/photos/post-heist-fellowship/SLIDESHOW.md"
-  - "../../../../MASTER-SYNTHESIS-SLIDESHOW.md"
+  - "../../../../../characters/fictional/donna-toadstool/selfies/SLIDESHOW.md"
+  - "../../../../../characters/real-people/don-hopkins/selfies/SLIDESHOW.md"
+  - "../../../../../pub/photos/post-heist-fellowship/SLIDESHOW.md"
+  - "../../../../../MASTER-SYNTHESIS-SLIDESHOW.md"
 ---
 
 # 🎬 The ACME Heist
@@ -26,7 +26,7 @@ Ten frames of surveillance footage documenting the break-in at ACME Surplus. Wha
 
 **Camera**: ACM1 (Leela Manufacturing, across the street)  
 **Date**: 2026-01-22  
-**Parallel Coverage**: [Donna's Selfies](../../../../characters/fictional/donna-toadstool/selfies/SLIDESHOW.md)
+**Parallel Coverage**: [Donna's Selfies](../../../../../characters/fictional/donna-toadstool/selfies/SLIDESHOW.md)
 
 ---
 
@@ -198,7 +198,7 @@ While these events unfold, Donna Toadstool documents them from her control room:
 
 **Emergent Labels**: The image labeled the characters — "RICHARD" and "DON" with "REC" indicator.
 
-**→ CONTINUES IN**: [Post-Heist Fellowship](../../../../pub/photos/post-heist-fellowship/SLIDESHOW.md) — Everyone goes to the pub
+**→ CONTINUES IN**: [Post-Heist Fellowship](../../../../../pub/photos/post-heist-fellowship/SLIDESHOW.md) — Everyone goes to the pub
 
 📎 [Mining](frame-10-richard-catastrophe-imagen4-mine.yml)
 
@@ -219,10 +219,10 @@ While these events unfold, Donna Toadstool documents them from her control room:
 
 ## 🔗 Continue the Story
 
-- **[Donna's View (Parallel) →](../../../../characters/fictional/donna-toadstool/selfies/SLIDESHOW.md)**
-- **[The Pub (After) →](../../../../pub/photos/post-heist-fellowship/SLIDESHOW.md)**
-- **[Don's Arc (Later) →](../../../../characters/real-people/don-hopkins/selfies/SLIDESHOW.md)**
-- **[MASTER SYNTHESIS →](../../../../MASTER-SYNTHESIS-SLIDESHOW.md)**
+- **[Donna's View (Parallel) →](../../../../../characters/fictional/donna-toadstool/selfies/SLIDESHOW.md)**
+- **[The Pub (After) →](../../../../../pub/photos/post-heist-fellowship/SLIDESHOW.md)**
+- **[Don's Arc (Later) →](../../../../../characters/real-people/don-hopkins/selfies/SLIDESHOW.md)**
+- **[MASTER SYNTHESIS →](../../../../../MASTER-SYNTHESIS-SLIDESHOW.md)**
 
 ---
 

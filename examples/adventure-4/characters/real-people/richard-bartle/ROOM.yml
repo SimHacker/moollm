@@ -2,32 +2,25 @@
 # Richard's home, linked into the world map
 # "Where virtual worlds are born in thought before they exist in code."
 #
-# ═══════════════════════════════════════════════════════════════════════════════
-#                    TED NELSONIAN BIDIRECTIONAL LINKING
-# ═══════════════════════════════════════════════════════════════════════════════
-#
-# This ROOM.yml makes Richard's character directory into a BUILDING that exists
-# on Lane Neverending. The character lives inside their own directory structure:
+# This ROOM.yml defines the house — the address on Lane Neverending.
+# The study is a separate portable room inside (like a TARDIS).
 #
 #   richard-bartle/
-#   ├── ROOM.yml              ← THIS FILE: The house (13 Lane Neverending)
-#   ├── CHARACTER.yml         ← Richard himself
-#   ├── CARD.yml              ← Richard's playable card
-#   ├── study/
-#   │   ├── ROOM.yml          ← The Study (room inside the house)
-#   │   ├── CHARACTER.yml     ← The Study as room-character-vehicle (TARDIS!)
-#   │   └── CARD.yml          ← The Study's playable card
-#   └── pets/heuristic/       ← Heuristic lives here too (usually in the Study)
+#   ├── ROOM.yml               ← This file (the house)
+#   ├── CHARACTER.yml          ← Richard himself
+#   ├── CARD.yml               ← Richard's playable card
+#   ├── study/                 ← The study (portable room)
+#   │   ├── ROOM.yml           ← Study's spatial definition
+#   │   ├── CHARACTER.yml      ← Study as room-character
+#   │   └── CARD.yml           ← Study's playable card
+#   ├── pets/                  ← The familiars
+#   └── sessions/              ← Historical records
 #
-# The link is bidirectional:
-#   - FROM Lane Neverending E2: north exit → here
-#   - FROM here: street exit → Lane Neverending E2
-#
-# ═══════════════════════════════════════════════════════════════════════════════
+# NEIGHBOR: 15 Lane Neverending — The Hopkins Lot
 
 room:
   name: "13 Lane Neverending — The Bartle Residence"
-  type: residence
+  type: [residence, house, address]
   emoji: "🏡📚🐉"
   
   address: "13 Lane Neverending"
@@ -36,12 +29,10 @@ room:
   owner: "Dr. Richard Bartle"
   established: "Since before addresses were fashionable"
   
+  portable: false  # The house stays put
+  
   lighting: warm
-  grue_safe: true  # Very safe here
-
-# ═══════════════════════════════════════════════════════════════════════════════
-#                          DESCRIPTION
-# ═══════════════════════════════════════════════════════════════════════════════
+  grue_safe: true
 
   description: |
     A modest Victorian terraced house on the south side of Lane Neverending,
@@ -85,12 +76,12 @@ room:
     THE VIEW:
     Looking across at the Fountain of Infinite Loops, where a recursive
     figure pours water forever. Or would, if the sprites worked.
-    An appropriate view for someone who thinks about systems.
     
     THE NEIGHBORS:
     • 11 (west): The curiosity shop (hours: "whenever")
-    • 15 (east): The Hopkins Motorcoach (FMC #898)
+    • 15 (east): The Hopkins Lot (FMC #898 parked there)
     • 12 (across): Was once a bakery (smell lingers)
+
   atmosphere: |
     The house radiates a particular kind of quiet. Not silence — there's
     always a distant ticking clock, a rustle of pages, the purr of a
@@ -104,9 +95,14 @@ room:
     It's the kind of house where you lower your voice automatically.
     Not from fear, but from respect.
 
-# ═══════════════════════════════════════════════════════════════════════════════
-#                          ARCHITECTURAL LAYOUT
-# ═══════════════════════════════════════════════════════════════════════════════
+  # The study is a portable room — it can travel while the house stays
+  vehicles:
+    the_study:
+      directory: study/
+      name: "The Study"
+      type: portable_room
+      status: docked  # Currently inside the house
+      note: "Can detach and travel. Has its own CHARACTER.yml — it's a TARDIS."
 
   layout:
     ground_floor:
@@ -117,7 +113,7 @@ room:
       - name: "The Study"
         directory: study/
         description: "The famous study — books, armchair, Heuristic, wisdom"
-        note: "Has its own ROOM.yml, CHARACTER.yml, and CARD.yml"
+        note: "Portable room. Has ROOM.yml, CHARACTER.yml, and CARD.yml"
         
       - name: "Kitchen"
         description: "Where the tea comes from"
@@ -127,7 +123,6 @@ room:
       - name: "Bedroom"
         description: "Private quarters"
         locked: true
-        note: "Visitors do not enter here"
         
       - name: "Bathroom"
         description: "Facilities"
@@ -137,17 +132,8 @@ room:
       - name: "Attic"
         description: "Storage of decades — boxes, memories, early printouts"
         contents: ["MUD1 source printouts", "conference memorabilia", "artifacts"]
-        note: "An archaeological dig waiting to happen"
-
-# ═══════════════════════════════════════════════════════════════════════════════
-#                          EXITS — BIDIRECTIONAL LINKS
-# ═══════════════════════════════════════════════════════════════════════════════
 
   exits:
-    
-    # ────────────────────────────────────────────────────────────────────────
-    # TO THE STREET (outbound link)
-    # ────────────────────────────────────────────────────────────────────────
     street:
       destination: ../../../../street/lane-neverending/e2/
       description: |
@@ -159,10 +145,7 @@ room:
         from: "street/lane-neverending/e2/ROOM.yml"
         direction: "south"
         address: "13"
-        
-    # ────────────────────────────────────────────────────────────────────────
-    # TO THE STUDY (inbound to subdirectory)
-    # ────────────────────────────────────────────────────────────────────────
+
     study:
       destination: study/
       description: |
@@ -173,23 +156,20 @@ room:
         This is the Study. Where understanding happens.
       aliases: [in, inside, study, books, richard, deeper]
       
-    # ────────────────────────────────────────────────────────────────────────
-    # TO THE KITCHEN (for tea)
-    # ────────────────────────────────────────────────────────────────────────
     kitchen:
       destination: null  # Not yet built out
       description: |
         Down the hall, the kitchen. The kettle is always ready.
         This is where tea begins before it becomes gezelligheid.
       aliases: [kitchen, tea, kettle]
-      note: "Kitchen not yet modeled — abstracted into study's tea ritual"
+      note: "Kitchen not yet modeled"
 
-# ═══════════════════════════════════════════════════════════════════════════════
-#                          ADVERTISEMENTS
-# ═══════════════════════════════════════════════════════════════════════════════
+    dons:
+      destination: ../don-hopkins/
+      description: "Right next door at number 15. The Hopkins Lot."
+      aliases: [15, don, hopkins, neighbor, east]
 
   advertisements:
-    
     welcome:
       tagline: "Visitors who come to learn are welcome"
       broadcast: |
@@ -214,12 +194,7 @@ room:
         The kettle doesn't judge. The armchair doesn't rush.
       need_satisfied: [peace, reflection, gezelligheid]
 
-# ═══════════════════════════════════════════════════════════════════════════════
-#                          INHABITANTS
-# ═══════════════════════════════════════════════════════════════════════════════
-
   inhabitants:
-    
     richard:
       name: "Dr. Richard Bartle"
       location: "Usually the study"
@@ -241,68 +216,32 @@ room:
       character_file: pets/non-sequitur/CHARACTER.yml
       role: "Conversation derailment, Unexpected connections"
 
-# ═══════════════════════════════════════════════════════════════════════════════
-#                          META — THE DIRECTORY AS BUILDING
-# ═══════════════════════════════════════════════════════════════════════════════
-
   meta:
     architecture_note: |
-      DIRECTORY STRUCTURE = BUILDING STRUCTURE
+      HOUSE + PORTABLE ROOM PATTERN
       
-      The richard-bartle/ directory IS the building:
+      The house is the address. The study is a portable room inside.
+      Parallel to Don's structure: lot + FMC.
       
-        richard-bartle/           # ← The house (this ROOM.yml)
-        ├── CHARACTER.yml         # ← Richard himself
-        ├── CARD.yml              # ← Richard's playable interface
-        ├── README.md             # ← Introduction to Richard
-        ├── study/                # ← The study (room within room)
-        │   ├── ROOM.yml          # ← Study's spatial definition
-        │   ├── CHARACTER.yml     # ← Study as character
-        │   ├── CARD.yml          # ← Study's playable interface
-        │   └── selfies/          # ← Visual documentation
-        ├── pets/                 # ← The familiars
-        │   ├── heuristic/
-        │   └── non-sequitur/
-        ├── sessions/             # ← Historical records
-        └── artifacts/            # ← Notable objects
+      If the study detaches and travels:
+      - The house remains at 13 Lane Neverending
+      - The study can appear elsewhere (like a TARDIS)
+      - Richard's personal files stay with the house
       
-      This is MOOLLM's files-as-state principle applied to architecture:
-      the filesystem IS the floorplan.
+      The study has its own CHARACTER.yml because it IS a character —
+      a room-vehicle with personality, voice, and opinions.
       
-    bidirectional_linking: |
-      TED NELSONIAN HYPERTEXT
+    portable_rooms: |
+      Like Don's FMC, the study is a portable room.
+      Unlike the FMC, it doesn't need roads — it's a TARDIS.
       
-      Links go both ways:
+      When docked:
+      - It appears in the house's vehicles list
+      - The house has an exit to the study
+      - The study has an exit back to the house
       
-        Lane Neverending E2        13 Lane Neverending
-        ┌──────────────────┐       ┌──────────────────┐
-        │  exits:          │       │  exits:          │
-        │    13:           │ ←───→ │    street:       │
-        │      → richard/  │       │      → e2/       │
-        └──────────────────┘       └──────────────────┘
-      
-      You can walk TO the house from the street.
-      You can walk FROM the house to the street.
-      The link is first-class in both directions.
-      
-    files_as_architecture: |
-      ROOMS WITHIN ROOMS
-      
-      The house (this ROOM.yml) contains rooms (study/ROOM.yml).
-      Each room can be:
-      - Navigable (exits)
-      - Characterful (has its own CHARACTER.yml)
-      - Playable (has its own CARD.yml)
-      - Visualizable (has selfies/)
-      
-      It's turtles all the way down.
-      Or dragons, in this case.
+      When traveling:
+      - Update the study's home_base or current_location
+      - It can materialize anywhere appropriate
 
-# ═══════════════════════════════════════════════════════════════════════════════
-#
-# "Come in. Have tea. Ask your question.
-#  The answer is probably in one of these books."
-#
 # 🏡📚🫖🐉
-#
-# ═══════════════════════════════════════════════════════════════════════════════

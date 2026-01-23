@@ -131,21 +131,26 @@ player:
     
   gold: 50                # Enough for pie. Always enough for pie.
 
-# MOBILE HOME & VEHICLE — The FMC Motorcoach #898
-# Identity-as-shell. Carry your sanctuary.
+# HOME & VEHICLE — The FMC Motorcoach #898
+# The lot is the anchor. The FMC is the mobile sanctuary.
 # 
 # ═══════════════════════════════════════════════════════════════════════════════
 
-  home_vehicle:
-    name: "The Hopkins Motorcoach (FMC #898)"
+  home:
+    type: "lot"
+    address: "15 Lane Neverending"
+    room_file: "ROOM.yml"  # The lot definition
+    
+  vehicle:
+    name: "FMC Motorcoach #898"
     type: "FMC 2900R Motor Coach"
-    soul_file: "ROOM.yml"  # The machine-soul lives in the room definition
+    directory: "fmc-898/"
+    room_file: "fmc-898/ROOM.yml"  # The vehicle as portable room
     engine: "Dodge V8 440-3 Chrysler Marine & Industrial"
     serial: "#898 of 1050"
-    status: "Parked on Lot 15, Lane Neverending"
+    status: "Parked on the lot at 15 Lane Neverending"
     features: ["Panoramic windshield", "Thermasan waste destruct", "Code Cave lounge"]
     motto: "The factory must grow, but the home must move."
-    link: "ROOM.yml"
 
 # BARTLE PROFILE — The taxonomy of the transformation subject
 # Rate 0-100: represents percentage of each type

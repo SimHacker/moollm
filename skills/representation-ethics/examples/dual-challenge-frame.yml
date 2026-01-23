@@ -1,0 +1,182 @@
+# Dual Challenge Frame
+# Based on Wang et al. Survey (2025) - arXiv:2501.08579
+# Both LLM inherent limitations AND design limitations must be addressed
+
+meta:
+  name: Dual Challenge Acknowledgment Frame
+  description: >
+    Explicit acknowledgment that reliable human simulation requires addressing
+    BOTH LLM inherent limitations (what models can't do) AND simulation design
+    limitations (how we structure the simulation).
+  source: Wang et al. "What Limits LLM-based Human Simulation: LLMs or Our Design?" (2025)
+  k_lines:
+    - DUAL-CHALLENGE
+    - FRAMEWORK-VALIDATION
+    - INNER-STATE-GAP
+    - BIAS-AMPLIFICATION
+
+# The dual challenge framework
+
+llm_inherent_limitations:
+  # These are fundamental to how LLMs work - can be mitigated but not eliminated
+  
+  bias:
+    description: "Training data biases distort simulation outputs"
+    types:
+      - cultural: "Western/English dominant in training data"
+      - gender: "3-6x more likely to generate stereotypes"
+      - occupational: "Manufacturing, agriculture underrepresented"
+      - socioeconomic: "Internet data favors digitally literate"
+    mitigation: "Explicit bias acknowledgment, diverse prompting, audit outputs"
+    moollm_response: "BIAS-AMPLIFICATION K-line, bias-acknowledgment.yml example"
+  
+  cognitive_inconsistency:
+    description: "Reasoning varies across scenarios unpredictably"
+    evidence: "Same prompt, different context = different reasoning patterns"
+    mitigation: "Reflection mechanisms, explicit reasoning chains"
+    moollm_response: "UNDERSTANDING-BEHAVIOR-GAP K-line, frame-based consistency"
+  
+  memory_constraints:
+    description: "Can't maintain long-term behavioral patterns"
+    evidence: "Persona drift across extended interactions"
+    mitigation: "External memory, session logs, character files"
+    moollm_response: "MEMORY-PERSISTENCE K-line, MOOCO session history"
+  
+  persona_drift:
+    description: "Character consistency degrades over interactions"
+    evidence: "Self-reported traits don't match behavior"
+    mitigation: "Re-grounding, character file re-injection"
+    moollm_response: "CHARACTER.yml re-reading, room-based framing"
+
+design_limitations:
+  # These are how we (humans) structure simulations - can be improved
+  
+  oversimplification:
+    description: "Complex psychological states reduced to basic categories"
+    example: "Emotions as 5-point scales instead of rich descriptions"
+    solution: "Qualitative descriptions in character files, narrative memory"
+    moollm_response: "YAML Jazz, rich personality sections"
+  
+  experience_gaps:
+    description: "Can't capture lived experiences"
+    example: "No way to encode 'grew up during war' as lived reality"
+    solution: "Narrative backstories, qualitative grounding"
+    moollm_response: "Character history sections, session accumulation"
+  
+  validation_gaps:
+    description: "No comprehensive authenticity metrics"
+    example: "How do we know if 'simulated Einstein' is authentic?"
+    solution: "Multi-level validation (expert + data + rule)"
+    moollm_response: "Human checkpoints, COMMIT phase in PLL"
+  
+  expert_integration:
+    description: "Hard to translate qualitative knowledge to parameters"
+    example: "Domain expert says 'feels wrong' but can't quantify"
+    solution: "Systematic translation methods, skill surfaces"
+    moollm_response: "Sniffable formats, CARD.yml as interface"
+
+# Example frame declaration
+
+simulation_frame:
+  name: "Dual-Challenge-Aware Simulation"
+  
+  acknowledges:
+    llm_limitations:
+      - "This simulation may exhibit cultural biases from training data"
+      - "Character consistency may drift in extended interactions"
+      - "Inner psychological states are performed, not felt"
+      - "Behavioral patterns are aggregate approximations"
+    
+    design_limitations:
+      - "Personality reduced to describable traits"
+      - "Life experiences encoded as narrative, not memory"
+      - "Validation is approximate, not definitive"
+  
+  mitigations:
+    active:
+      - "Character file re-grounding every N turns"
+      - "Bias acknowledgment at session start"
+      - "Human checkpoint for consequential decisions"
+      - "Session log for continuity review"
+    
+    documented:
+      - "Known biases listed in frame metadata"
+      - "Validation criteria explicit in ROOM.yml"
+      - "Expert knowledge in character file sources"
+
+# Usage guidance
+
+when_to_use:
+  - "Research simulations requiring authenticity claims"
+  - "Multi-session character development"
+  - "Simulations involving underrepresented groups"
+  - "Any simulation claiming to model specific individuals"
+
+when_not_needed:
+  - "Clearly fictional characters"
+  - "Single-turn interactions"
+  - "Game contexts with explicit play framing"
+  - "Educational demonstrations"
+
+# Validation checklist
+
+validation_checklist:
+  before_simulation:
+    - "[ ] Identify which LLM limitations are relevant"
+    - "[ ] Document known biases for this population/topic"
+    - "[ ] Define success criteria"
+    - "[ ] Establish human checkpoint schedule"
+  
+  during_simulation:
+    - "[ ] Monitor for persona drift"
+    - "[ ] Check for bias amplification"
+    - "[ ] Validate against known patterns"
+    - "[ ] Document unexpected behaviors"
+  
+  after_simulation:
+    - "[ ] Expert review of outputs"
+    - "[ ] Compare to real-world data if available"
+    - "[ ] Document limitations of this run"
+    - "[ ] Update frame based on learnings"
+
+# K-LINES — Traditions this activates
+
+k_lines:
+  - DUAL-CHALLENGE         # Both LLM + design limits must be addressed
+  - FRAMEWORK-VALIDATION   # Comprehensive evaluation criteria
+  - INNER-STATE-GAP        # LLMs can't access inner psychological states
+  - BIAS-AMPLIFICATION     # Training biases amplify in outputs
+  - EXPERIENCE-DEFICIT     # Training data lacks lived experience depth
+  - PRAGMATIC-CONSISTENCY  # Need coherence over time despite drift
+
+# INTEGRATION WITH OTHER FRAMES
+
+combines_with:
+  - BIAS-ACKNOWLEDGMENT: "Document the LLM limitation side"
+  - INTERVIEW-GROUNDING: "Address design limitation via rich data"
+  - VALUE-PROMPTING: "Address design limitation via psychological framework"
+  - EXPERIENCE-ACCUMULATION: "Address memory limitation via session history"
+  - EXPERT-REFLECTION: "Address validation via multi-perspective synthesis"
+
+# TWO-WAY REFERENCES — Nelsonian hyperlinks
+
+references:
+  design_docs:
+    - ../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS-SURVEY.md  # PRIMARY SOURCE
+    - ../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS.md         # Original ICLR blog
+    - ../../../designs/ethics/PARK-GENERATIVE-AGENT-SIMULATIONS-1000-PEOPLE.md  # Design solution: interviews
+    - ../../../designs/ethics/VALUE-PROMPTING-SCHWARTZ.md           # Design solution: values
+    - ../../../designs/ethics/GENERATIVE-AGENTS-SMALLVILLE.md       # Memory architecture
+  
+  related_examples:
+    - ./bias-acknowledgment.yml          # LLM limitation acknowledgment
+    - ./interview-grounded-character.yml # Design solution: rich grounding
+    - ./schwartz-value-character.yml     # Design solution: value framework
+    - ./experience-accumulation.yml      # Design solution: memory persistence
+    - ./expert-reflection-synthesis.yml  # Design solution: multi-perspective
+    - ./herd-behavior-risk.yml           # Same-model herd = LLM limitation
+    - ./aggregate-patterns.yml           # Individual limits = LLM limitation
+  
+  skill_docs:
+    - ../SKILL.md                        # Full representation-ethics protocol
+    - ../../character/SKILL.md           # Character consistency techniques

@@ -1,0 +1,256 @@
+# Autonomy Spectrum
+# From player-controlled to fully autonomous agents
+
+meta:
+  example_type: framework
+  context: "Choosing the right level of agent autonomy"
+  
+context: |
+  Agent autonomy exists on a spectrum from fully player-controlled
+  (like The Sims) to fully autonomous (like Smallville).
+  
+  Each level has different ethical implications.
+  This document helps choose the right level.
+
+# THE AUTONOMY DIAL
+# Explicit control over agent independence
+
+autonomy_spectrum:
+  
+  # Level 0: SCRIPTED
+  level_0_scripted:
+    name: "Scripted"
+    description: "Characters follow predetermined scripts"
+    
+    characteristics:
+      player_control: none_needed
+      agent_autonomy: none
+      emergence: impossible
+      predictability: complete
+      
+    ethical_profile:
+      responsibility: author
+      consent_needed: author_decision
+      harm_potential: author_controlled
+      
+    use_when:
+      - predetermined_narrative
+      - educational_demo
+      - reproducible_scenarios
+      
+    example: "Tutorial walkthrough"
+    
+  # Level 1: PLAYER-CONTROLLED (The Sims)
+  level_1_player_controlled:
+    name: "Player-Controlled"
+    description: "Player directs all significant actions"
+    
+    characteristics:
+      player_control: full
+      agent_autonomy: minimal  # Basic needs, routines only
+      emergence: player_created
+      predictability: high
+      
+    ethical_profile:
+      responsibility: player
+      consent_needed: player_represents_all
+      harm_potential: player_decision
+      
+    use_when:
+      - identity_exploration
+      - creative_play
+      - player_wants_control
+      
+    example: "The Sims gameplay"
+    k_line: PLAYER-AGENCY
+    
+  # Level 2: GUIDED AUTONOMY
+  level_2_guided:
+    name: "Guided Autonomy"
+    description: "Agents act autonomously within bounds, player can intervene"
+    
+    characteristics:
+      player_control: override_available
+      agent_autonomy: bounded
+      emergence: limited
+      predictability: moderate
+      
+    ethical_profile:
+      responsibility: shared
+      consent_needed: frame_disclosure
+      harm_potential: bounded_by_rules
+      
+    use_when:
+      - want_some_surprise
+      - testing_behaviors
+      - research_with_oversight
+      
+    example: "Sims with autonomy slider high"
+    k_line: AUTONOMY-DIAL
+    
+  # Level 3: CHECKPOINT AUTONOMY (MOOLLM recommended)
+  level_3_checkpoint:
+    name: "Checkpoint Autonomy"
+    description: "Agents autonomous between human checkpoints"
+    
+    characteristics:
+      player_control: at_checkpoints
+      agent_autonomy: between_checkpoints
+      emergence: monitored
+      predictability: moderate_low
+      
+    ethical_profile:
+      responsibility: hybrid
+      consent_needed: frame_plus_checkpoints
+      harm_potential: caught_at_checkpoints
+      
+    use_when:
+      - want_emergence_with_safety
+      - research_scenarios
+      - multi_agent_exploration
+      
+    example: "MOOLLM speed-of-light with thoughtful-commitment"
+    k_line: EMERGENCE-RISK
+    
+  # Level 4: OBSERVABLE AUTONOMY (Smallville)
+  level_4_observable:
+    name: "Observable Autonomy"
+    description: "Agents fully autonomous, human can observe and suggest"
+    
+    characteristics:
+      player_control: suggestion_only
+      agent_autonomy: full
+      emergence: unconstrained
+      predictability: low
+      
+    ethical_profile:
+      responsibility: unclear
+      consent_needed: extensive_disclosure
+      harm_potential: emergence_risk
+      
+    use_when:
+      - studying_emergence
+      - research_on_agent_behavior
+      - explicit_autonomy_desired
+      
+    example: "Stanford Smallville"
+    k_line: SAME-MODEL-HERD
+    
+  # Level 5: FULL AUTONOMY (Dangerous)
+  level_5_full:
+    name: "Full Autonomy"
+    description: "Agents act with no human oversight"
+    
+    characteristics:
+      player_control: none
+      agent_autonomy: unlimited
+      emergence: unconstrained_and_unobserved
+      predictability: none
+      
+    ethical_profile:
+      responsibility: absent
+      consent_needed: extensive
+      harm_potential: HIGH
+      
+    use_when:
+      - NEVER_RECOMMENDED
+      
+    warnings:
+      - "Researchers argue fully autonomous AI agents should not be developed"
+      - "See: arXiv:2502.02649 'Fully Autonomous AI Agents Should Not be Developed'"
+      
+    example: "Hypothetical — not recommended"
+
+# CHOOSING YOUR LEVEL
+# Decision framework
+
+choosing_autonomy:
+  
+  questions:
+    - question: "Do you need predictable outcomes?"
+      if_yes: "Level 0-1"
+      if_no: "Level 2+"
+      
+    - question: "Do you want player identity exploration?"
+      if_yes: "Level 1 (Player-Controlled)"
+      if_no: "Continue"
+      
+    - question: "Do you want to study emergence?"
+      if_yes: "Level 3-4"
+      if_no: "Level 1-2"
+      
+    - question: "Can you monitor the simulation?"
+      if_yes: "Level 3-4 acceptable"
+      if_no: "Level 0-2 only"
+      
+    - question: "Are you simulating real people?"
+      if_yes: "Level 0-2 only, with consent"
+      if_no: "Any level with appropriate framing"
+
+  moollm_recommendation: |
+    For most use cases, Level 3 (Checkpoint Autonomy) provides
+    the best balance of emergence and safety.
+    
+    - Agents can surprise you
+    - Humans catch problems at checkpoints
+    - Responsibility is clear
+    - Emergence is monitored
+
+# EXAMPLE: Applying the Spectrum
+
+example_applications:
+  
+  identity_exploration:
+    recommended_level: 1
+    reason: "Player should control their own exploration"
+    frame: PRIVATE_IMAGINATION_PLAY
+    
+  research_simulation:
+    recommended_level: 3
+    reason: "Want emergence but need oversight"
+    frame: CHECKPOINT_AUTONOMY
+    
+  game_npcs:
+    recommended_level: 2
+    reason: "Surprise without chaos"
+    frame: GUIDED_AUTONOMY
+    
+  studying_social_dynamics:
+    recommended_level: 4
+    reason: "Need unconstrained emergence"
+    frame: OBSERVABLE_AUTONOMY
+    warnings:
+      - "Monitor for herd behavior"
+      - "Disclose to observers"
+
+# K-LINES
+
+k_lines:
+  - AUTONOMY-DIAL        # Explicit control over independence
+  - PLAYER-AGENCY        # Who controls the simulation?
+  - EMERGENCE-AWARE      # Monitor emergent patterns — celebrate good, flag problematic
+  - SAME-MODEL-HERD      # Watch for convergent behavior
+  - SIMS-PRECEDENT       # Level 1 works
+
+# TWO-WAY REFERENCES — Nelsonian hyperlinks
+
+references:
+  # Design documents (theory → this operationalizes)
+  design_docs:
+    - ../../../designs/ethics/GENERATIVE-AGENTS-SMALLVILLE.md  # Levels 3-4 architecture
+    - ../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS.md    # Herd behavior at high autonomy
+    - ../../../designs/ethics/LAZAR-ETHICAL-COMPETENCE.md      # Scaffolding for agent behavior
+    - ../../../designs/sims/sims-queer-identity-formation.md   # Level 1 (Sims) heritage
+    - ../../../designs/sims/sims-personality-motives.md        # Needs/autonomy system
+    
+  # Related examples
+  related_examples:
+    - ./smallville-style-simulation.yml  # High autonomy example
+    - ./sims-player-control-frame.yml    # Low autonomy example
+    - ./herd-behavior-risk.yml           # Risk at high autonomy
+    - ./simulation-methodology-frame.yml # When each level appropriate
+    
+  # Skills
+  skill_docs:
+    - ../../speed-of-light/SKILL.md      # Multi-agent methodology
+    - ../SKILL.md                        # Full ethics framework

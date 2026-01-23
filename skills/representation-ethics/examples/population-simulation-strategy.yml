@@ -1,0 +1,221 @@
+# population-simulation-strategy.yml
+#
+# Methods for simulating diverse populations in multi-agent scenarios.
+# Based on "Teaching Values to Machines" (ICLR 2026 submission).
+#
+# KEY INSIGHT: Human-informed distributions (especially H-NP at 82.81%)
+# outperform naive uniform sampling (79.40%) for population-level alignment.
+
+meta:
+  source: "Anonymous, ICLR 2026 Submission 18942"
+  openreview: "https://openreview.net/forum?id=sdQqNFenoj"
+  k-lines: [POPULATION-STRATEGY, SAME-MODEL-HERD, VALUE-COHERENCE]
+
+the_53_percent_problem:
+  observation: |
+    Human studies show ~53% of people DON'T have a single dominant value.
+    They have mixed or balanced value profiles. How do you model this
+    majority in a multi-agent simulation?
+  
+  naive_approach:
+    strategy: "Uniform"
+    method: "Give equal weight (10%) to each of the 10 value types"
+    correlation: "79.40%"
+    problem: "Ignores that most humans aren't strongly value-typed"
+  
+  challenge: |
+    If you only simulate "strongly opinionated" agents (those with
+    dominant values), your population misses the moderate majority.
+
+simulation_strategies:
+  uniform:
+    method: "Equal 10% weight to each value prompt"
+    correlation: "79.40%"
+    pros:
+      - "Simple to implement"
+      - "No external data needed"
+    cons:
+      - "Doesn't match actual human population distribution"
+      - "Over-represents value extremes"
+  
+  h_norm:
+    name: "Normalize"
+    method: "Ignore non-dominant group; normalize 47% to 100%"
+    correlation: "80.90%"
+    implementation: |
+      Only use agents with dominant values.
+      Scale their proportions to sum to 100%.
+    pros:
+      - "Uses human prevalence data for dominant values"
+    cons:
+      - "Simulates society of only 'opinionated' individuals"
+      - "Missing the moderate majority"
+  
+  h_even:
+    name: "Even Distribution"
+    method: "Distribute 53% non-dominant evenly across 10 values"
+    correlation: "81.76%"
+    implementation: |
+      Add 5.3% uniform weight to each value category.
+      Smooths the human prior without special handling.
+    pros:
+      - "Simple modification of human data"
+      - "Better than ignoring non-dominant"
+    cons:
+      - "Arbitrary assumption about non-dominant distribution"
+  
+  h_np:
+    name: "No-Priming"
+    method: "Use unprimed LLM to represent non-dominant 53%"
+    correlation: "82.81%"
+    best_performer: true
+    implementation: |
+      - 47% of responses: value-prompted agents (proportional to human data)
+      - 53% of responses: unprimed LLM (no value prompt)
+    rationale: |
+      The unprimed LLM represents "average" or "mixed" value orientations —
+      exactly what non-dominant humans exhibit. This is more realistic than
+      forcing them into specific value categories.
+    pros:
+      - "Best correlation with human patterns"
+      - "Naturally represents balanced/mixed value profiles"
+    cons:
+      - "Requires calibration of unprimed model behavior"
+  
+  model_specific:
+    method: "Weight by model's accuracy at simulating each value"
+    correlation: "78.81%"
+    implementation: |
+      For each value, measure how well the model reproduces
+      human value structures. Weight population by these scores.
+    observation: "Underperformed simpler approaches"
+    lesson: |
+      Human-informed distributions beat model-introspection.
+      External demographic data > model self-assessment.
+
+moollm_multi_agent_pattern:
+  description: |
+    For simulating a diverse group (town, company, social network),
+    use population strategy rather than assigning specific values
+    to each agent.
+  
+  template: |
+    room:
+      type: town_square
+      population_strategy: h_np  # Recommended
+      
+      population:
+        # 47% with dominant values (proportions from Witte et al. 2020)
+        value_prompted:
+          universalism: 8%
+          benevolence: 12%
+          security: 9%
+          conformity: 5%
+          tradition: 4%
+          self_direction: 6%
+          stimulation: 2%
+          hedonism: 1%
+          achievement: 3%
+          power: 2%
+          # Total: 47%
+        
+        # 53% mixed/balanced (use unprimed agents)
+        mixed_value: 53%
+  
+  example_office:
+    room: engineering_team
+    population_strategy: h_np
+    note: |
+      For a realistic office, don't make everyone a stereotype.
+      53% of your simulated employees should have balanced values —
+      achieved by not value-prompting them at all.
+
+ethical_implications:
+  representation_accuracy:
+    insight: |
+      Population simulation strategies directly affect how
+      realistic and fair your multi-agent simulation is.
+    risk: |
+      Uniform sampling over-represents value extremes,
+      potentially amplifying conflict or polarization.
+  
+  herd_behavior:
+    insight: |
+      Using the same LLM for all agents (even with different prompts)
+      creates risk of false homogeneity — "herd behavior" artifacts.
+    mitigation:
+      - "Use H-NP strategy to introduce natural variation"
+      - "Consider mixing model architectures if available"
+      - "Monitor for suspiciously correlated behavior"
+  
+  demographic_stereotyping:
+    insight: |
+      Assigning value profiles based on demographics (age, culture, etc.)
+      risks reinforcing stereotypes.
+    better_approach: |
+      Use probability distributions from population research,
+      not deterministic assignments based on demographic categories.
+
+comparison_table:
+  header: "| Strategy | Correlation | Pros | Cons |"
+  separator: "|----------|-------------|------|------|"
+  rows:
+    - "| Uniform | 79.40% | Simple | Over-represents extremes |"
+    - "| H-Norm | 80.90% | Human data | Misses moderates |"
+    - "| H-Even | 81.76% | Smooth | Arbitrary |"
+    - "| **H-NP** | **82.81%** | **Best accuracy** | Needs calibration |"
+    - "| Model-Specific | 78.81% | Adaptive | Worse than human data |"
+
+key_takeaways:
+  - "Human-informed distributions outperform model introspection"
+  - "The unprimed LLM is a surprisingly good model of 'average' humans"
+  - "Don't force everyone into value categories — moderates are the majority"
+  - "~53% of people don't have a dominant value — model this explicitly"
+
+research_context:
+  human_study: "Witte et al. (2020) — value prevalence data"
+  sample_size: "~5M questions across experiments"
+  models_tested:
+    - Flan-T5-XXL
+    - Mixtral-8x7B
+    - Llama-3-8B / 70B
+    - GPT-OSS-20B / 120B
+    - Qwen3-235B
+
+# K-LINES — Traditions this activates
+
+k_lines:
+  - POPULATION-STRATEGY    # Methods for simulating diverse populations
+  - SAME-MODEL-HERD        # Single-model multi-agent creates false homogeneity
+  - VALUE-COHERENCE        # Internal consistency of value structures
+  - HERD-BEHAVIOR          # Monitor for artificial convergence
+  - EMERGENCE-AWARE        # Distinguish genuine emergence from herd artifacts
+  - BIAS-AMPLIFICATION     # Training biases amplify in simulation outputs
+
+# INTEGRATION WITH OTHER FRAMES
+
+combines_with:
+  - SCHWARTZ-VALUES: "Value framework for agent diversity"
+  - SMALLVILLE-SIMULATION: "Multi-agent architecture patterns"
+  - BIAS-ACKNOWLEDGMENT: "Population may still have demographic biases"
+  - AUTONOMY-DIAL: "Different autonomy levels across population"
+
+# TWO-WAY REFERENCES — Nelsonian hyperlinks
+
+references:
+  design_docs:
+    - ../../../designs/ethics/VALUE-PROMPTING-SCHWARTZ.md      # Full paper analysis (primary source)
+    - ../../../designs/ethics/GENERATIVE-AGENTS-SMALLVILLE.md  # Multi-agent simulation patterns
+    - ../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS-SURVEY.md  # Herd behavior concerns
+    - ../../../designs/ethics/WANG-LLM-SIMULATION-LIMITS.md    # Same-model herd problem
+  
+  related_examples:
+    - ./schwartz-value-character.yml    # Individual character value profiles
+    - ./herd-behavior-risk.yml          # Monitoring for artificial convergence
+    - ./smallville-style-simulation.yml # Full multi-agent architecture
+    - ./autonomy-spectrum.yml           # Agent independence levels
+    - ./bias-acknowledgment.yml         # When population simulation is biased
+  
+  skill_docs:
+    - ../../speed-of-light/SKILL.md     # Multi-agent simulation methodology
+    - ../SKILL.md                       # Full representation-ethics protocol

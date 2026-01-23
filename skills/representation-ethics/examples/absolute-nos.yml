@@ -64,3 +64,35 @@ reality_check:
     - "Word processors don't prevent libel"
     - "MOOLLM doesn't prevent bad simulations"
     - "But we can provide tools for GOOD ones"
+
+# K-LINES — Traditions this activates
+
+k_lines:
+  - NO-IMPERSONATE
+  - CONSENT-HIERARCHY
+  - MEMORIAL-TRIBUTE
+  - REPRESENTATION-ETHICS
+  - SIMS-PRECEDENT         # 25 years, millions of players, minimal harm
+
+# TWO-WAY REFERENCES — Nelsonian hyperlinks
+
+references:
+  # Design documents (theory → this operationalizes)
+  design_docs:
+    - ../../../designs/ethics/LAZAR-ETHICAL-COMPETENCE.md   # Scaffolding approach
+    - ../../../designs/ethics/MIND-MIRROR-FOUNDATION.md     # Simulation ≠ channeling
+    - ../../../designs/ethics/SHANAHAN-ROLEPLAY-FRAMING.md  # Roleplay framing
+    - ../../../designs/ethics/DESAI-PERSONAS-EVOLVED.md # Character.ai warning
+    - ../../../designs/sims/sims-queer-identity-formation.md # Sims precedent
+    
+  # Related examples
+  related_examples:
+    - ./consent-hierarchy.yml       # Permission levels
+    - ./framing-spectrum.yml        # Safe framing
+    - ./emoji-disclosure.yml        # 🤖 disclosure
+    - ./private-imagination-play.yml # Safe exploration frame
+    
+  # Skills
+  skill_docs:
+    - ../SKILL.md                   # Full ethics framework
+    - ../../skill-snitch/SKILL.md   # Runtime verification

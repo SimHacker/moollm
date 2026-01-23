@@ -102,3 +102,34 @@ consent_hierarchy:
       We invoke Socrates, Aristotle, Shakespeare freely.
       We wouldn't invoke someone's recently deceased parent without care.
       Time and fame create implicit license — but not unlimited.
+
+# K-LINES — Traditions this activates
+
+k_lines:
+  - CONSENT-HIERARCHY
+  - TRADITION-INVOKE
+  - NO-IMPERSONATE
+  - MIND-MIRROR          # "Mirror of patterns, not window to souls"
+  - MEMORIAL-TRIBUTE
+
+# TWO-WAY REFERENCES — Nelsonian hyperlinks
+
+references:
+  # Design documents (theory → this operationalizes)
+  design_docs:
+    - ../../../designs/ethics/MIND-MIRROR-FOUNDATION.md    # Leary's 1985 disclaimer
+    - ../../../designs/ethics/SHANAHAN-ROLEPLAY-FRAMING.md # "No true voice" → tradition instead
+    - ../../../designs/ethics/LAZAR-ETHICAL-COMPETENCE.md  # Understanding ≠ behavior
+    - ../../../designs/ethics/MOOLLM-VALIDATIONS-AND-CHALLENGES.md # Synthesis
+    
+  # Related examples
+  related_examples:
+    - ./framing-spectrum.yml
+    - ./emoji-disclosure.yml
+    - ./self-consent-card.yml
+    - ./performance-frames.yml
+    
+  # Character examples
+  character_examples:
+    - ../../../examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml  # Self-authored consent
+    - ../../../examples/adventure-4/pub/stage/palm-nook/study/on-being-simulated.md  # Palm's ethics paper
