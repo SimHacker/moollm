@@ -1,0 +1,558 @@
+# Character Inventory System
+# References, fungibles, stacks, and FUNGIFY
+# "Objects don't move. Ownership does."
+
+inventory_system:
+  name: "Character Inventory"
+  emoji: "🎒📦"
+  
+  philosophy: |
+    Inventory is a set of REFERENCES, not file copies.
+    
+    Your character's home directory is their "bag."
+    Items in it are either:
+    - References TO objects elsewhere (pointers)
+    - Instance files that INHERIT from prototypes
+    - Fungible stacks (count of identical things)
+    
+    Objects stay in their home. Picking up = creating a reference.
+    Dropping = creating a boxed instance at the destination.
+
+# REFERENCE TYPES
+
+reference_types:
+
+  direct_reference:
+    description: "Pointer from inventory to object's home location"
+    structure: |
+      # In character's inventory.yml or CHARACTER.yml
+      inventory:
+        - ref: "pub/bar/brass-lantern.yml"
+          acquired: "2026-01-23T10:00:00Z"
+          condition: "good"
+    behavior: |
+      The object stays at pub/bar/brass-lantern.yml
+      Character has a REFERENCE to it.
+      Object's `location` field points back: location: "characters/don/inventory"
+      
+  prototype_instance:
+    description: "Local file that inherits from a prototype"
+    structure: |
+      # characters/don/cookie-1.yml
+      object:
+        prototype: "pub/cookie-jar.yml#cookie"
+        instance_id: "cookie-1"
+        acquired: "2026-01-23T10:05:00Z"
+        bites_taken: 2
+    behavior: |
+      Instance file lives in character's directory.
+      Inherits all properties from prototype.
+      Can have instance-specific state (bites_taken).
+      
+  fungible_stack:
+    description: "Count of identical items with no instance data"
+    structure: |
+      # In inventory
+      - prototype: "economy/currencies/gold.yml"
+        count: 500
+    behavior: |
+      No individual instances — just a count.
+      All items are identical.
+      Can split/merge freely.
+
+# DISPENSERS
+
+dispensers:
+
+  what_is_a_dispenser: |
+    A dispenser is an object that lets you TAKE copies.
+    The original stays. You get a reference (or instance).
+    
+    Like a cookie jar, a catalog rack, or a pile of gold coins.
+    
+  dispenser_types:
+  
+    ref_dispenser:
+      description: "Dispenses lightweight references"
+      example: "Catalog rack, brochure stand, map holder"
+      on_take: |
+        1. Create ref in character's inventory
+        2. Ref points back to dispenser's template
+        3. Original dispenser unchanged
+        4. Ref has zero weight (it's just a pointer)
+        
+    instance_dispenser:
+      description: "Dispenses full object instances"
+      example: "Cookie jar, vending machine, treasure chest"
+      on_take: |
+        1. Create instance file in character's directory
+        2. Instance inherits from dispenser's template
+        3. Instance can have its own state
+        4. Original dispenser may decrement stock
+        
+    fungible_dispenser:
+      description: "Dispenses countable identical items"
+      example: "Gold pile, ore vein, infinite cookies"
+      on_take: |
+        1. Add to character's fungible stack
+        2. If no stack exists, create one
+        3. Original dispenser decrements (or infinite)
+        
+  dispenser_config: |
+    # pub/cookie-jar.yml
+    object:
+      name: "Cookie Jar"
+      type: "dispenser"
+      
+      dispenser_config:
+        mode: "instance"  # ref | instance | fungible
+        template: "cookie"
+        stock: 12         # null = infinite
+        respawn: "daily"  # how stock replenishes
+        
+      # Template for dispensed items
+      templates:
+        cookie:
+          name: "Cookie"
+          prototype: "food/cookie.yml"
+          weight: 0.1
+          nutrition: 5
+
+# FUNGIBLE STACKS
+
+fungibles:
+
+  concept: |
+    Fungible items are IDENTICAL and INTERCHANGEABLE.
+    You don't track individual instances — just a count.
+    
+    Gold coins, iron ore, arrows, cookies (if you don't care which).
+    
+  stack_structure: |
+    # Simple fungible stack
+    - prototype: "economy/currencies/gold.yml"
+      count: 1000
+      
+    # Stack with quality tiers
+    - prototype: "materials/iron-ore.yml"
+      count: 50
+      quality: "high"
+      
+    # Fungible stack in character inventory
+    inventory:
+      fungibles:
+        - { proto: "gold", count: 500 }
+        - { proto: "silver", count: 120 }
+        - { proto: "iron-ore", count: 45, quality: "medium" }
+        
+  operations:
+  
+    add_to_stack:
+      description: "Increase count of fungible"
+      operation: |
+        stack.count += amount
+      example: "Pick up 100 gold → gold stack now 600"
+      
+    remove_from_stack:
+      description: "Decrease count of fungible"
+      operation: |
+        assert stack.count >= amount
+        stack.count -= amount
+      example: "Pay 50 gold → gold stack now 550"
+      
+    split_stack:
+      description: "Create two stacks from one"
+      operation: |
+        new_stack = { proto: stack.proto, count: split_amount }
+        stack.count -= split_amount
+      example: "Split 500 gold into two piles of 250"
+      
+    merge_stacks:
+      description: "Combine identical stacks"
+      operation: |
+        assert stack_a.proto == stack_b.proto
+        stack_a.count += stack_b.count
+        delete stack_b
+      example: "Merge two gold piles into one"
+
+# NON-FUNGIBLE STACKS
+
+non_fungibles:
+
+  concept: |
+    Non-fungible stacks contain UNIQUE items.
+    Each item has its own properties, condition, history.
+    
+    A pile of coins where some are rare, some damaged.
+    A stack of letters each with different content.
+    
+  stack_structure: |
+    # Stack of unique items
+    pile:
+      - prototype: "gold"
+        count: 1
+        condition: "fair"
+        note: "Bent from being stepped on"
+        
+      - prototype: "gold"
+        count: 1
+        condition: "good"
+        
+      - prototype: "gold"
+        count: 1
+        condition: "mint"
+        rare: true
+        origin: "Dragon's hoard"
+        
+      - prototype: "silver"
+        count: 1
+        condition: "good"
+        
+  when_to_use: |
+    Use non-fungible stacks when:
+    - Items have individual condition
+    - Items have unique properties (rare, cursed, blessed)
+    - Provenance matters (who owned it before)
+    - Items are mechanically different despite same type
+    
+# FUNGIFY — Convert Between Representations
+
+fungify:
+
+  concept: |
+    FUNGIFY converts between representations:
+    
+    Non-fungible pile → Fungible stack (reduce resolution)
+    Fungible stack → Non-fungible pile (increase resolution)
+    
+    Like converting between PNG and JPEG — you can go either way,
+    but going to lower resolution loses information.
+    
+  advertisement: |
+    ╔════════════════════════════════════════════════════════════╗
+    ║                       🎯 FUNGIFY! 🎯                        ║
+    ╠════════════════════════════════════════════════════════════╣
+    ║  Tired of tracking individual gold coins?                  ║
+    ║  FUNGIFY your inventory today!                             ║
+    ║                                                            ║
+    ║  ✓ Reduce cognitive load                                   ║
+    ║  ✓ Smaller file sizes                                      ║
+    ║  ✓ Faster transactions                                     ║
+    ║  ✓ Works on any identical items!                           ║
+    ║                                                            ║
+    ║  Warning: Individual item properties will be lost.         ║
+    ║  "That special coin grandma gave you? Just gold now."      ║
+    ╚════════════════════════════════════════════════════════════╝
+    
+  operations:
+  
+    fungify_pile:
+      description: "Convert non-fungible pile to fungible stacks"
+      input: |
+        pile:
+          - { proto: "gold", count: 1, condition: "fair" }
+          - { proto: "gold", count: 1, condition: "good" }
+          - { proto: "gold", count: 1, condition: "mint", rare: true }
+          - { proto: "silver", count: 1, condition: "good" }
+      output: |
+        fungibles:
+          - { proto: "gold", count: 3 }
+          - { proto: "silver", count: 1 }
+      lost: |
+        - Individual conditions (fair, good, mint)
+        - Rare flag on the third gold
+        - Grandma's memory
+      command: "FUNGIFY pile"
+      
+    unfungify_stack:
+      description: "Convert fungible stack to non-fungible pile"
+      input: |
+        fungibles:
+          - { proto: "gold", count: 3 }
+      output: |
+        pile:
+          - { proto: "gold", count: 1, condition: "average" }
+          - { proto: "gold", count: 1, condition: "average" }
+          - { proto: "gold", count: 1, condition: "average" }
+      gained: |
+        - Individual item tracking
+        - Can now annotate each one
+        - Items can diverge in condition
+      command: "UNFUNGIFY gold"
+      
+    partial_fungify:
+      description: "Keep some items unique, fungify the rest"
+      input: |
+        pile:
+          - { proto: "gold", count: 1, condition: "fair" }
+          - { proto: "gold", count: 1, condition: "good" }
+          - { proto: "gold", count: 1, condition: "mint", rare: true, keep: true }
+          - { proto: "silver", count: 1, condition: "good" }
+      output: |
+        fungibles:
+          - { proto: "gold", count: 2 }
+          - { proto: "silver", count: 1 }
+        unique:
+          - { proto: "gold", count: 1, condition: "mint", rare: true }
+      command: "FUNGIFY pile KEEPING rare"
+      
+    smart_fungify:
+      description: "Group by prototype, create multiple fungible stacks"
+      input: |
+        pile:
+          - { proto: "gold", count: 1, quality: "high" }
+          - { proto: "gold", count: 1, quality: "low" }
+          - { proto: "gold", count: 1, quality: "high" }
+          - { proto: "silver", count: 1 }
+      output: |
+        fungibles:
+          - { proto: "gold", count: 2, quality: "high" }
+          - { proto: "gold", count: 1, quality: "low" }
+          - { proto: "silver", count: 1 }
+      note: "Groups by [proto, quality] to preserve some differentiation"
+      command: "FUNGIFY pile BY quality"
+
+# INVENTORY ORGANIZATION
+
+organization:
+
+  flat_inventory: |
+    # All items at top level
+    inventory:
+      - ref: "pub/brass-lantern.yml"
+      - proto: "gold", count: 500
+      - proto: "cookie", count: 3
+      
+  organized_inventory: |
+    # Subdirectories for organization
+    characters/don/
+      inventory/
+        weapons/
+          sword.yml
+        currency/
+          gold-pile.yml
+        consumables/
+          cookies.yml
+        refs/
+          acme-catalog.yml
+          
+    # Reference to organized item
+    inventory:
+      - ref: "inventory/weapons/sword.yml"
+      - ref: "inventory/currency/gold-pile.yml"
+      
+  inventory_file: |
+    # characters/don/inventory.yml — single file containing everything
+    
+    inventory:
+      # Direct references
+      refs:
+        - path: "pub/bar/brass-lantern.yml"
+          acquired: "2026-01-23"
+          
+      # Fungible stacks
+      fungibles:
+        - { proto: "economy/gold.yml", count: 500 }
+        - { proto: "materials/iron-ore.yml", count: 45 }
+        
+      # Unique items
+      unique:
+        - path: "./sword-of-truth.yml"
+        - path: "./grandmas-locket.yml"
+          
+      # Organized sections
+      sections:
+        weapons: [sword, dagger]
+        consumables: [potions: 5, cookies: 3]
+        
+    # Capacity
+    limits:
+      max_weight: 45
+      max_bulk: 10
+      refs_free: true
+
+# LOCATION TRACKING
+
+location:
+
+  object_location: |
+    Objects have a `location` field that tracks where they are:
+    
+    # pub/bar/brass-lantern.yml
+    object:
+      name: "Brass Lantern"
+      home: "pub/bar/"           # Where file lives (permanent)
+      location: "characters/don/inventory"  # Where object is (runtime)
+      
+    When picked up:
+      location → "characters/don/inventory"
+      
+    When dropped in kitchen:
+      location → "rooms/kitchen/"
+      
+    When returned home:
+      location → home (or null)
+      
+  bidirectional_tracking: |
+    Character knows what they have:
+      character.inventory → [refs to objects]
+      
+    Object knows where it is:
+      object.location → character's inventory
+      
+    Both must agree. If conflict, resolve by:
+    1. Check object's location (canonical)
+    2. Update character's inventory to match
+    
+  snap_home: |
+    Reset object to its home:
+    
+    COMMAND: RETURN brass-lantern HOME
+    
+    1. Remove from character's inventory
+    2. Set object.location = object.home
+    3. Object is now "back where it belongs"
+
+# BOXING — When Items Travel
+
+boxing:
+
+  when_boxing_happens: |
+    Boxing creates a LOCAL INSTANCE when:
+    - You drop a ref in a room (creates room/item.yml)
+    - You give a ref to another character
+    - You want to annotate/modify an item
+    
+  boxing_process: |
+    1. You have: ref → "pub/prototype.yml"
+    2. You drop in kitchen/
+    3. System creates: kitchen/boxed-prototype.yml
+    4. Boxed file inherits from original:
+    
+       # kitchen/boxed-prototype.yml
+       object:
+         inherits: "../pub/prototype.yml"
+         dropped_by: "don"
+         dropped_at: "2026-01-23T15:00:00Z"
+         location: "rooms/kitchen/"
+         annotations:
+           - "Don left this here for Palm"
+           
+  inheritance_chain: |
+    prototype → ref → boxed instance → further boxed
+    
+    Each layer can add properties.
+    Resolution: check instance first, then parent, up the chain.
+    
+  example: |
+    1. ACME catalog lives at: street/acme-catalog.yml (prototype)
+    2. Don tears one off: ref → street/acme-catalog.yml
+    3. Don drops in kitchen: kitchen/acme-catalog-001.yml (boxed)
+       - inherits: street/acme-catalog.yml
+       - dropped_by: don
+       - annotations: ["circled portable hole"]
+    4. Palm picks up: ref → kitchen/acme-catalog-001.yml
+    5. Palm drops in study: study/acme-catalog-002.yml (re-boxed)
+       - inherits: kitchen/acme-catalog-001.yml
+       - dropped_by: palm
+       - annotations: ["added rocket skates warning"]
+       
+    Full provenance chain preserved!
+
+# CROSS-SYSTEM USAGE
+
+cross_system:
+
+  fluxx_cards_as_inventory: |
+    Fluxx cards can be inventory items!
+    
+    inventory:
+      - ref: "fluxx-chaos/cards/amsterdam-expansion.yml#stroopwafel"
+        context: "Won this in a game"
+        usable: true  # Can play in future games
+        
+  moollm_objects_in_fluxx: |
+    Any MOOLLM object can be a Fluxx Keeper:
+    
+    deck:
+      include:
+        - "characters/don/sword-of-truth.yml"
+          as_type: "keeper"
+          name: "Don's Sword"
+          
+  universal_inventory: |
+    A character's inventory works across systems:
+    - Adventure game items
+    - Fluxx cards won/collected
+    - Generated Perfect Cards
+    - Mementos from sessions
+    
+    All stored as refs/instances in character's home directory.
+    Portable across contexts.
+
+# EXAMPLE: DON'S INVENTORY
+
+example_inventory:
+  
+  file: "characters/don-hopkins/inventory.yml"
+  
+  contents: |
+    # Don Hopkins' Inventory
+    # Updated: 2026-01-23T16:00:00Z
+    
+    inventory:
+    
+      # Direct references (zero weight)
+      refs:
+        - ref: "street/acme-catalog.yml"
+          acquired: "Adventure 1"
+          annotations: ["circled portable hole", "DO NOT order rocket skates"]
+          
+        - ref: "fluxx-chaos/generated-cards/moollm-ultimate-001/don_cosmic_gratitude.yml"
+          acquired: "Generated for karma +7.5"
+          context: "The universe noticed"
+          
+      # Fungible stacks
+      fungibles:
+        - proto: "economy/gold.yml"
+          count: 1247
+          
+        - proto: "economy/moola.yml"
+          count: 500
+          context: "Fluxx winnings"
+          
+        - proto: "food/stroopwafel.yml"
+          count: 3
+          note: "Save for Palm"
+          
+      # Unique items (each has its own file in don's directory)
+      unique:
+        - ref: "./brass-lantern.yml"
+          origin: "Starting inventory"
+          
+        - ref: "./yaml-jazz-original.yml"
+          origin: "Adventure 2, The Coatroom"
+          sessions_played: 47
+          sentimental: true
+          note: "The one that started it all"
+          
+        - ref: "./cheese-knife.yml"
+          origin: "Gift from Amsterdam"
+          tell_item: true  # Used as a tell in poker
+          
+      # Organized sections
+      sections:
+        fluxx_wins:
+          cards: 12
+          location: "./fluxx-collection/"
+          
+        mementos:
+          - "First session transcript"
+          - "Palm's thank-you note"
+          - "Bumblewick's graduation certificate"
+          
+    # Capacity (Don has generous limits)
+    capacity:
+      max_weight: 50
+      current_weight: 12
+      refs_free: true
