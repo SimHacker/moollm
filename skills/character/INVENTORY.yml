@@ -413,51 +413,469 @@ location:
     2. Set object.location = object.home
     3. Object is now "back where it belongs"
 
-# BOXING — When Items Travel
+# PICKUP MODES — How You Acquire Things
+
+pickup_modes:
+
+  philosophy: |
+    Two fundamentally different ways to pick something up:
+    
+    TAKE REFERENCE — You get a pointer to where it lives.
+                     Lightweight, zero weight, the object stays put.
+                     
+    TAKE OBJECT — You physically move the thing into your inventory.
+                  Has weight, the file relocates, you carry the REAL thing.
+    
+    Once something is BOXED (has its own file with properties),
+    picking it up preserves all that. Boxed stays boxed.
+
+  take_reference:
+    description: "Create a pointer, object stays in place"
+    weight: 0
+    what_you_get: "ref → object's current location"
+    object_moves: false
+    use_when:
+      - "Just need to access it"
+      - "Don't want to carry weight"
+      - "Shared resource (dispenser, catalog)"
+      - "Can't physically move it"
+    example: |
+      # You take a reference to the statue
+      inventory:
+        - ref: "plaza/bronze-statue.yml"
+          acquired: "2026-01-23"
+          note: "I know where it is"
+      
+      # Statue stays in plaza, you just know about it
+      # statue.location: "plaza/" (unchanged)
+      
+  take_object:
+    description: "Physically move the thing to your inventory"
+    weight: "object.weight"
+    what_you_get: "The actual file in your inventory directory"
+    object_moves: true
+    use_when:
+      - "You want to OWN it"
+      - "Need to protect it"
+      - "Want to modify it freely"
+      - "Taking it from a room permanently"
+    example: |
+      # You pick up the cookie (file moves!)
+      
+      # BEFORE:
+      # pub/cookie-jar/cookie-7.yml exists
+      # cookie-7.location: "pub/cookie-jar/"
+      
+      # AFTER:
+      # characters/don/cookie-7.yml exists (moved!)
+      # cookie-7.location: "characters/don/inventory"
+      # pub/cookie-jar/cookie-7.yml is GONE
+      
+  picking_up_boxed_items:
+    description: "Boxed items stay boxed — keep all properties!"
+    principle: |
+      If something already has a file (is "boxed"), picking it up
+      preserves everything. You're not creating a new ref — 
+      you're taking the actual box.
+      
+    example: |
+      # Palm dropped a catalog in kitchen (boxed with annotations)
+      # kitchen/acme-catalog-001.yml exists with:
+      #   inherits: street/acme-catalog.yml
+      #   annotations: ["circled portable hole"]
+      #   dropped_by: palm
+      
+      # Don picks it up as OBJECT (not ref):
+      # characters/don/acme-catalog-001.yml (moved!)
+      # All annotations preserved!
+      # Now Don has Palm's annotated copy.
+      
+      # If Don picks up as REF instead:
+      # inventory: [ref: "kitchen/acme-catalog-001.yml"]
+      # File stays in kitchen, Don just has pointer.
+
+# DROP MODES — How You Put Things Down
+
+drop_modes:
+
+  philosophy: |
+    Two fundamentally different ways to put something down:
+    
+    DROP AS BOX — Create a new boxed instance at destination.
+                  Inherits from what you had, adds local properties.
+                  
+    DROP AS BEAM — Relocate the actual file to destination.
+                   No inheritance, the thing itself moves.
+                   "Beam me down, Scotty."
+    
+    Choice matters for provenance, weight, and permanence.
+
+  drop_as_box:
+    description: "Create new instance that inherits from your item"
+    creates_new_file: true
+    inheritance: "New file inherits from original"
+    original: "Stays in your inventory (if you had the object)"
+    use_when:
+      - "Sharing something you want to keep"
+      - "Making a copy for someone"
+      - "Leaving a trace with your annotations"
+    example: |
+      # Don has: characters/don/magic-map.yml
+      # Don drops AS BOX in tavern:
+      
+      # Creates: tavern/magic-map-don-copy.yml
+      #   inherits: "characters/don/magic-map.yml"
+      #   dropped_by: "don"
+      #   dropped_at: "2026-01-23T16:00:00Z"
+      #   note: "Copy for the party"
+      
+      # Don STILL HAS his original!
+      # Tavern has a copy that inherits from Don's.
+      
+  drop_as_beam:
+    description: "Relocate actual file to destination"
+    creates_new_file: false
+    inheritance: "None — same file, new location"
+    original: "Moves to destination (gone from inventory)"
+    use_when:
+      - "Giving something away permanently"
+      - "Moving heavy objects"
+      - "Avoiding inheritance chains"
+      - "The thing should BE here now"
+    example: |
+      # Don has: characters/don/magic-map.yml
+      # Don drops AS BEAM in tavern:
+      
+      # File moves: tavern/magic-map.yml
+      # magic-map.location: "tavern/"
+      # characters/don/magic-map.yml is GONE
+      
+      # Don no longer has it. Tavern has the actual thing.
+      
+  drop_ref_modes:
+    description: "What happens when you drop a REFERENCE"
+    
+    drop_ref_as_box: |
+      # You have: ref → "plaza/statue.yml"
+      # You drop AS BOX in garden:
+      
+      # Creates: garden/statue-ref.yml
+      #   inherits: "plaza/statue.yml"
+      #   dropped_by: "don"
+      #   note: "I left this reference here"
+      
+      # Original statue still in plaza
+      # Garden has a boxed reference (can be annotated!)
+      
+    drop_ref_as_beam: |
+      # You have: ref → "kitchen/cookie.yml"  
+      # You drop AS BEAM in bedroom:
+      
+      # File moves: bedroom/cookie.yml
+      # cookie.location: "bedroom/"
+      # kitchen/cookie.yml is GONE
+      
+      # You used the ref to MOVE the actual object!
+      # "Beam it here" — ref becomes targeting system.
+
+# TRANSPORT MODES — For Heavy Things
+
+transport:
+
+  weight_limits: |
+    Characters have carrying capacity:
+    - max_weight: How much you can carry
+    - refs_free: References don't count
+    - current_weight: Sum of carried objects
+    
+    Heavy objects need special handling.
+    
+  forklift_mode:
+    description: "Use equipment to move heavy objects"
+    how: |
+      1. Summon forklift/cart/dolly
+      2. Load object onto transport
+      3. Move transport to destination
+      4. Unload object (BEAM to final location)
+    example: |
+      > SUMMON FORKLIFT
+      Forklift arrives.
+      
+      > LOAD bronze-statue ONTO forklift
+      Statue loaded. Forklift weight: 500kg
+      
+      > GO garden
+      You move to garden, forklift follows.
+      
+      > UNLOAD bronze-statue AS BEAM
+      Statue beamed to garden/bronze-statue.yml
+      
+  transporter_mode:
+    description: "Beam objects directly without carrying"
+    how: |
+      1. Take REFERENCE to object
+      2. Go to destination
+      3. BEAM reference (moves actual object here)
+    example: |
+      > TAKE REF TO piano
+      You now have a reference to the piano.
+      Weight carried: 0 (it's just a ref!)
+      
+      > GO concert-hall
+      You arrive at concert hall.
+      
+      > BEAM piano HERE
+      Piano materialized! concert-hall/grand-piano.yml
+      The ref is consumed, you have the actual piano.
+      
+  telekinesis: |
+    Some characters/abilities allow moving objects at distance:
+    
+    > TELEKINESE cookie FROM kitchen TO bedroom
+    
+    Equivalent to: take ref, beam to destination.
+    No physical carrying required.
+
+# PIE MENU — Pickup and Drop Gestures
+
+pie_menu:
+
+  philosophy: |
+    Natural directional gestures for pickup/drop control.
+    "Pick and flick" — direction gives meaning.
+    
+    ↑ UP    = Lightweight / Reference / Beam
+    ↓ DOWN  = Heavy / Object / Box
+    ← LEFT  = Cancel / Return
+    → RIGHT = Confirm / Execute
+    
+  pickup_pie:
+    trigger: "TAKE / PICK UP / GRAB"
+    slices:
+      up:
+        label: "Take Reference"
+        icon: "👆📎"
+        action: "take_reference"
+        description: "Just a pointer, zero weight"
+        
+      down:
+        label: "Take Object"
+        icon: "👇📦"
+        action: "take_object"
+        description: "Physical pickup, has weight"
+        
+      left:
+        label: "Examine First"
+        icon: "👈🔍"
+        action: "examine"
+        description: "Look before you grab"
+        
+      right:
+        label: "Quick Take (Default)"
+        icon: "👉✨"
+        action: "smart_take"
+        description: "System chooses best mode"
+        
+      up_left:
+        label: "Take & Annotate"
+        icon: "↖️📝"
+        action: "take_reference_annotated"
+        description: "Ref with immediate note"
+        
+      up_right:
+        label: "Take for Trade"
+        icon: "↗️🤝"
+        action: "take_for_trade"
+        description: "Ref, flagged for trading"
+        
+      down_left:
+        label: "Take & Protect"
+        icon: "↙️🛡️"
+        action: "take_object_protected"
+        description: "Object, marked safe"
+        
+      down_right:
+        label: "Take All"
+        icon: "↘️🎒"
+        action: "take_all_here"
+        description: "Grab everything takeable"
+        
+  drop_pie:
+    trigger: "DROP / PUT DOWN / LEAVE"
+    slices:
+      up:
+        label: "Beam Here"
+        icon: "👆⚡"
+        action: "drop_as_beam"
+        description: "Move actual file here"
+        
+      down:
+        label: "Box Here"
+        icon: "👇📦"
+        action: "drop_as_box"
+        description: "Create inheriting copy"
+        
+      left:
+        label: "Cancel"
+        icon: "👈❌"
+        action: "cancel"
+        description: "Keep holding it"
+        
+      right:
+        label: "Quick Drop (Default)"
+        icon: "👉✨"
+        action: "smart_drop"
+        description: "System chooses best mode"
+        
+      up_left:
+        label: "Beam & Return Home"
+        icon: "↖️🏠"
+        action: "beam_return_home"
+        description: "Send back to origin"
+        
+      up_right:
+        label: "Beam to Someone"
+        icon: "↗️👤"
+        action: "beam_to_player"
+        description: "Send directly to player"
+        
+      down_left:
+        label: "Box with Note"
+        icon: "↙️📝"
+        action: "drop_as_box_annotated"
+        description: "Copy with message"
+        
+      down_right:
+        label: "Hide Here"
+        icon: "↘️🙈"
+        action: "drop_hidden"
+        description: "Box, but hidden"
+
+  smart_defaults: |
+    System chooses when you don't specify:
+    
+    TAKE:
+    - Dispenser item → Reference (default, repeatable)
+    - Boxed item → Object (preserve annotations)
+    - Heavy item → Reference (can't carry)
+    - Unique item → Object (don't leave behind)
+    
+    DROP:
+    - Have reference → Box (create instance)
+    - Have object, giving away → Beam (transfer)
+    - Have object, sharing → Box (keep original)
+    - In your own space → Beam (organizing)
+
+# BOXING — Once Boxed, Stays Boxed
 
 boxing:
 
-  when_boxing_happens: |
-    Boxing creates a LOCAL INSTANCE when:
-    - You drop a ref in a room (creates room/item.yml)
-    - You give a ref to another character
-    - You want to annotate/modify an item
+  golden_rule: |
+    ONCE BOXED, ALWAYS BOXED.
     
-  boxing_process: |
-    1. You have: ref → "pub/prototype.yml"
-    2. You drop in kitchen/
-    3. System creates: kitchen/boxed-prototype.yml
-    4. Boxed file inherits from original:
+    A boxed item is a YAML file with properties.
+    Picking it up preserves ALL properties.
+    Dropping it preserves ALL properties.
     
-       # kitchen/boxed-prototype.yml
-       object:
-         inherits: "../pub/prototype.yml"
-         dropped_by: "don"
-         dropped_at: "2026-01-23T15:00:00Z"
-         location: "rooms/kitchen/"
-         annotations:
-           - "Don left this here for Palm"
-           
-  inheritance_chain: |
-    prototype → ref → boxed instance → further boxed
+    Boxing only happens when:
+    1. First time dropping a reference (creates file)
+    2. Explicitly requesting "BOX this"
     
-    Each layer can add properties.
-    Resolution: check instance first, then parent, up the chain.
+    After that, the box travels intact.
+
+  boxed_item_structure: |
+    # kitchen/acme-catalog-001.yml
+    object:
+      inherits: "street/acme-catalog.yml"
+      
+      # Box metadata
+      boxed_at: "2026-01-23T14:00:00Z"
+      boxed_by: "don"
+      boxed_from: "street/acme-dispenser.yml"
+      
+      # Accumulating history
+      provenance:
+        - { who: "don", where: "street", when: "14:00", action: "tore off" }
+        - { who: "don", where: "kitchen", when: "15:00", action: "dropped" }
+        - { who: "palm", where: "kitchen", when: "16:00", action: "picked up" }
+        - { who: "palm", where: "study", when: "17:00", action: "dropped" }
+        
+      # Custom properties added by handlers
+      annotations:
+        - "Don circled the portable hole"
+        - "Palm added warning about rocket skates"
+      condition: "slightly worn"
+      sentimental_value: 3
+      
+  picking_up_boxed: |
+    When you pick up a boxed item:
     
-  example: |
-    1. ACME catalog lives at: street/acme-catalog.yml (prototype)
-    2. Don tears one off: ref → street/acme-catalog.yml
-    3. Don drops in kitchen: kitchen/acme-catalog-001.yml (boxed)
-       - inherits: street/acme-catalog.yml
-       - dropped_by: don
-       - annotations: ["circled portable hole"]
-    4. Palm picks up: ref → kitchen/acme-catalog-001.yml
-    5. Palm drops in study: study/acme-catalog-002.yml (re-boxed)
-       - inherits: kitchen/acme-catalog-001.yml
-       - dropped_by: palm
-       - annotations: ["added rocket skates warning"]
+    AS REFERENCE:
+      - You get: ref → "kitchen/item.yml"
+      - File stays in kitchen
+      - All properties preserved (in the file)
+      
+    AS OBJECT:
+      - File MOVES to your inventory: you/item.yml
+      - All properties preserved (in the file)
+      - Kitchen no longer has it
+      
+    Either way, the box stays intact!
+    
+  dropping_boxed: |
+    When you drop a boxed item:
+    
+    AS BOX (creates new layer):
+      - Creates: destination/item-copy.yml
+      - inherits: your/item.yml
+      - Adds YOUR drop metadata
+      - You KEEP your original
+      - Destination gets an inheriting copy
+      
+    AS BEAM (moves actual file):
+      - File MOVES to: destination/item.yml
+      - No new inheritance
+      - All properties preserved
+      - You NO LONGER have it
+      
+  example_journey: |
+    THE JOURNEY OF A CATALOG:
+    
+    1. ORIGIN: street/acme-catalog.yml (prototype, dispenser)
+    
+    2. DON TAKES REF at street:
+       don.inventory: [ref → street/acme-catalog.yml]
+       (No file created yet, just pointer)
        
-    Full provenance chain preserved!
+    3. DON DROPS AS BOX in kitchen:
+       Creates: kitchen/acme-catalog-001.yml
+         inherits: street/acme-catalog.yml
+         boxed_by: don, annotations: ["circled hole"]
+       Don's ref is consumed.
+       
+    4. PALM TAKES AS OBJECT from kitchen:
+       File moves: palm.inventory/acme-catalog-001.yml
+       All annotations preserved!
+       Kitchen is now empty.
+       
+    5. PALM DROPS AS BEAM in study:
+       File moves: study/acme-catalog-001.yml
+       Still has Don's annotations!
+       Palm no longer has it.
+       
+    6. BUMBLEWICK TAKES AS REF from study:
+       bumblewick.inventory: [ref → study/acme-catalog-001.yml]
+       File stays in study.
+       
+    7. BUMBLEWICK DROPS AS BOX in garden:
+       Creates: garden/acme-catalog-002.yml
+         inherits: study/acme-catalog-001.yml
+         boxed_by: bumblewick, annotations: ["added doodles"]
+       Now there are TWO catalogs:
+       - study/acme-catalog-001.yml (Don's original box)
+       - garden/acme-catalog-002.yml (Bumblewick's copy)
+       
+    Full provenance chain preserved at every step!
 
 # CROSS-SYSTEM USAGE
 
