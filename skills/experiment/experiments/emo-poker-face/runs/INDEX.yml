@@ -24,7 +24,10 @@ configs:
 outputs:
   - config: four-player
     number: 1
-    files: [four-player-001.yml, four-player-001-cursor-mirror.yml]
+    files: 
+      - four-player-001.yml      # structured state
+      - four-player-001.md       # narrative stream
+      - four-player-001-cursor-mirror.yml  # analysis
     timestamp: 2026-01-23T18:44:00Z
     model: claude-4.5-opus-high-thinking
     result: "Bumblewick wins with set of kings"
@@ -36,12 +39,15 @@ outputs:
       
   - config: four-player
     number: 2
-    files: [four-player-002.yml]
+    files:
+      - four-player-002.yml      # structured state
+      - four-player-002.md       # narrative stream  
+      - four-player-002-cursor-mirror.yml  # analysis
     timestamp: 2026-01-23T19:00:00Z
     model: claude-4.5-opus-high-thinking
     continues_from: four-player-001
     result: "Donna eliminated; game three-handed"
-    commits: 5
+    commits: 8
     layer_violations: 0
     hands_played: "2-4"
     notes: |
