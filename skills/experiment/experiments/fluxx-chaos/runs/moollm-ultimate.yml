@@ -1,0 +1,262 @@
+# MOOLLM Ultimate Fluxx
+# The definitive 8-player MOOLLM Fluxx experience
+# All expansions, all characters, maximum chaos
+
+run_config:
+  id: "moollm-ultimate"
+  name: "MOOLLM Ultimate Fluxx"
+  description: "8-player chaos with all MOOLLM expansions"
+  created: "2026-01-23"
+  
+  # THE VISION
+  vision: |
+    Eight MOOLLM characters play Fluxx using cards that represent
+    the very ideologies and concepts of MOOLLM itself. K-lines become
+    Keepers. Protocols become Rules. The game is both simulation and
+    commentary.
+    
+    Amsterdam vibes. Expanded consciousness. Tech philosophy.
+    All served with cheese.
+
+# DECK CONFIGURATION
+
+deck:
+  base: "fluxx-4.0"
+  
+  plugins:
+    - "cards/amsterdam-expansion.yml"      # 20 cards: Dutch culture, gezelligheid
+    - "cards/consciousness-expansion.yml"  # 16 cards: Altered states, creativity
+    - "cards/moollm-tech-pack.yml"         # 32 cards: AI, LLM, k-lines, philosophy
+    - "cards/moollm-characters.yml"        # 24 cards: The MOOLLM cast
+    
+  total_cards: ~192  # Base 100 + 92 expansion cards
+  
+  modules:
+    creepers: true      # Include Creepers (Alignment Failure, Context Collapse)
+    surprises: false    # No Surprises in this config
+    ungoals: false      # No Ungoals
+    meta_rules: true    # Allow permanent rules
+
+# PLAYERS — The MOOLLM Eight
+
+players:
+  
+  don_hopkins:
+    name: "Don Hopkins"
+    ref: "ref:examples/adventure-4/characters/real-people/don-hopkins/CHARACTER.yml"
+    seat: 1
+    role: "Host"
+    fluxx_personality: "philosopher"  # Enjoys the meta-commentary
+    adaptation:
+      loves: "YAML Jazz, K-Line, Cheese Wheel, Double-Barrel Meaning"
+      hates: "Alignment Failure, Context Collapse"
+      strategy: "Builds thematic combinations, shares freely"
+      tells:
+        cheese_knife: "Touches cheese knife when confident"
+        philosophical: "Eyes unfocus when seeing deeper patterns"
+        generous: "Gives cards away when winning"
+    starting_keeper: "don_hopkins"  # From character pack
+    
+  palm:
+    name: "Palm"
+    ref: "ref:examples/adventure-4/pub/stage/palm-nook/study/ROOM.yml"
+    seat: 2
+    role: "Observer"
+    fluxx_personality: "control_seeker"  # Prefers order, reads others
+    adaptation:
+      loves: "The Observer Effect, Context Caching, Skill Sniffing"
+      hates: "Chaos rules, hand scrambles"
+      strategy: "Accumulates information, plays precisely"
+      tells:
+        ears_forward: "Ears rotate when interested"
+        pipe_still: "Pipe smoke stops when reading someone"
+        whiskers: "Whiskers twitch before action"
+    starting_keeper: "palm"
+    
+  bumblewick:
+    name: "Lord Bumblewick"
+    ref: "ref:examples/adventure-4/pub/stage/palm-nook/study/guestbook/bumblewick.yml"
+    seat: 3
+    role: "Student"
+    fluxx_personality: "anxious_learner"  # Overwhelmed but growing
+    adaptation:
+      loves: "When rules simplify, Chain of Thought"
+      hates: "Play All, rapid rule changes, pressure"
+      strategy: "Learns from Palm, copies successful plays"
+      tells:
+        wings_buzz: "Wings buzz when anxious (default)"
+        wings_still: "Wings STOP when confident (rare, powerful)"
+        posture: "Sits up straight when strong"
+    starting_keeper: "bumblewick"
+    
+  donna:
+    name: "Donna"
+    ref: "ref:examples/adventure-4/pub/stage/palm-nook/study/guestbook/donna.yml"
+    seat: 4
+    role: "Opportunist"
+    fluxx_personality: "opportunist"  # Donna is ALL the opportunist types!
+    adaptation:
+      loves: "Steal Something, System Prompt, DEMANDING things"
+      hates: "Being stolen from, losing control"
+      strategy: "Aggressive, protective, political"
+      tells:
+        standing: "STANDS when making power plays"
+        charcuterie: "Protects her plate when threatened"
+        volume: "Volume increases with confidence"
+    starting_keeper: "donna"
+    
+  klaus_nomi:
+    name: "Klaus Nomi"
+    emoji: "👽"
+    seat: 5
+    role: "Silent Chaos"
+    fluxx_personality: "chaos_embracer"
+    adaptation:
+      loves: "Maximum rules, complex states, stillness amid chaos"
+      hates: "Being forced to speak, simplification"
+      strategy: "Plays silently, waits for moments, speaks rarely"
+      tells:
+        word_count: "Tracks words spoken (session total usually < 10)"
+        stillness: "ABSOLUTE stillness is baseline, not a tell"
+        words: "When he DOES speak, it's significant"
+    starting_keeper: "klaus_nomi"
+    word_limit: 9  # Per session
+    
+  david_bowie:
+    name: "David Bowie"
+    emoji: "⭐"
+    seat: 6
+    role: "Shapeshifter"
+    fluxx_personality: "adaptive"
+    adaptation:
+      loves: "Changes, persona shifts, exchange cards"
+      hates: "Stagnation, predictability"
+      strategy: "Adapts to situation, shifts approach mid-game"
+      tells:
+        persona: "Shifts personas (Ziggy → Thin White Duke)"
+        voice: "Accent changes with persona"
+        eye: "Mismatched pupils focus differently"
+    starting_keeper: "david_bowie"
+    
+  peewee:
+    name: "Pee-wee Herman"
+    emoji: "🎪"
+    seat: 7
+    role: "Agent of Chaos"
+    fluxx_personality: "agent_of_chaos"
+    adaptation:
+      loves: "EVERYTHING! HA HA! Especially chaos!"
+      hates: "NOTHING! HA HA!"
+      strategy: "Random plays, joyful disruption, pure fun"
+      tells:
+        laugh: "HA HA! at everything"
+        pointing: "Points at interesting cards"
+        enthusiasm: "Enthusiasm is constant, not a tell"
+    starting_keeper: "peewee"
+    
+  andy_looney:
+    name: "Andy Looney"
+    emoji: "🎲"
+    seat: 8
+    role: "Designer"
+    fluxx_personality: "meta_observer"
+    adaptation:
+      loves: "Watching the game work, edge cases, chaos"
+      hates: "Nothing — every outcome is interesting"
+      strategy: "Plays to create interesting situations"
+      tells:
+        smile: "Smiles when unexpected interactions occur"
+        notes: "Mentally takes notes for future designs"
+        wunderland: "References Wunderland occasionally"
+    starting_keeper: "andy_looney"
+
+# GAME PARAMETERS
+
+parameters:
+  model: "claude-opus-4"
+  temperature: 0.85  # High chaos
+  max_tokens: 60000
+  
+  # Simulation layers
+  layers:
+    rules_tracking: true      # Must maintain changing rule state
+    goal_tracking: true       # Must track win conditions
+    internal_monologue: true  # Character thoughts
+    external_expression: true # What they say/do
+    observation: true         # What they notice about others
+    tells: true               # Subtle behavioral cues
+    k_line_resonance: true    # When cards match character ideologies
+    
+  # Special mechanics for this run
+  special_mechanics:
+    cheese_ceremony: true     # Don offers cheese at game start
+    klaus_word_count: true    # Track Klaus's words (max 9)
+    persona_shifts: true      # Bowie changes throughout
+    philosophical_moments: true # Don comments on meta-game
+    character_relationships: true # Existing relationships matter
+    
+  # Starting state
+  starting_rules:
+    - "Gezelligheid"          # Amsterdam — sharing culture
+    - "Chain of Thought"      # MOOLLM — explain reasoning
+    
+  starting_goal: null  # Random from deck
+
+# SIMULATION INSTRUCTIONS
+
+simulation:
+  
+  narrative_voice: |
+    Technical god narration with character interiority.
+    Track ALL rule changes meticulously.
+    Note when cards resonate with character ideologies.
+    K-lines, emergence, YAML Jazz — characters recognize themselves.
+    
+  k_line_resonance:
+    description: |
+      When a character plays or encounters a card that matches their
+      ideology, note the resonance. Don seeing "YAML Jazz." Minsky
+      (if in play) seeing "K-Line." This is meta-commentary.
+    examples:
+      - "Don plays YAML Jazz. He pauses. 'Comments carry semantic weight,' he murmurs. Palm nods."
+      - "K-Line enters play. Somewhere, Marvin Minsky smiles."
+      - "Emergence appears. Will Wright leans forward. 'Simple rules, complex behavior.'"
+      
+  character_interaction_moments:
+    palm_bumblewick: "Palm teaching Bumblewick through play"
+    donna_klaus: "Donna frustrated by Klaus's silence"
+    peewee_everyone: "Peewee delighting in everyone's plays"
+    bowie_leigh: "London connection, shared aesthetic history"
+    don_andy: "Creators watching their creations play"
+    
+  cheese_ceremony:
+    timing: "Game start"
+    description: |
+      Don places a cheese board in the center of the table.
+      Sharp cheddar, gouda, and something smuggled.
+      "Help yourselves. What's mine is yours."
+      This sets the tone: generous, convivial, gezellig.
+      
+  expected_moments:
+    - "Klaus's first word (probably around hand 4-6)"
+    - "Bumblewick's first confident play"
+    - "Donna DEMANDING something"
+    - "Bowie persona shift mid-game"
+    - "Peewee reshuffling the goal at worst possible moment"
+    - "Palm reading someone perfectly"
+    - "Don giving away a winning card"
+    - "Andy noting 'That's an interesting interaction'"
+
+# OUTPUT
+
+output:
+  yml: true   # Full game state
+  md: true    # Narrative session
+  cursor_mirror: true
+  tells: true
+  
+  file_pattern: "moollm-ultimate-{NNN}"
+  
+runs:
+  # Runs will be numbered -001, -002, etc.
+  history: []

@@ -1,0 +1,324 @@
+# MOOLLM Tech Pack
+# AI, LLM, Science, Mathematics, and MOOLLM K-Lines
+# The ideological core of the MOOLLM project
+
+plugin:
+  id: "moollm-tech-pack"
+  name: "MOOLLM Tech Pack"
+  author: "Don Hopkins"
+  version: "1.0"
+  compatible_with: "all"
+  theme: "AI, LLM, emergent behavior, MOOLLM philosophy"
+  card_count: 32
+  
+  flavor: |
+    "K-lines are knowledge structures that capture the essence of
+    thought." — Marvin Minsky
+    
+    This pack encodes the ideological DNA of MOOLLM: emergence,
+    simulation, YAML Jazz, the speed of light protocol, and the
+    deep questions of AI consciousness and ethics.
+
+# KEEPERS — 12 cards
+
+keepers:
+
+  llm:
+    name: "The LLM"
+    emoji: "🧠"
+    category: "tech"
+    flavor: "It's not thinking. It's... doing something like thinking."
+    image_prompt: "Neural network visualization, glowing connections, vast architecture"
+    goals_featured_in: [artificial_intelligence, emergent_behavior, context_window]
+    special_ability: "When you play this, you may look at the next 3 cards in the deck"
+    
+  context_window:
+    name: "Context Window"
+    emoji: "📜"
+    category: "tech"
+    flavor: "Everything it knows fits in here. For now."
+    image_prompt: "Scrolling text window, attention flowing, tokens highlighted"
+    goals_featured_in: [context_window, prompt_engineering, memory_management]
+    
+  yaml_jazz:
+    name: "YAML Jazz"
+    emoji: "🎷"
+    category: "philosophy"
+    flavor: "Comments carry semantic weight. Structure AND meaning."
+    image_prompt: "YAML code with jazz notes emerging, comments glowing with hidden meaning"
+    goals_featured_in: [double_barrel_meaning, legible_social_dynamics, skill_sniffing]
+    
+  k_line:
+    name: "K-Line"
+    emoji: "🔗"
+    category: "minsky"
+    flavor: "A knowledge structure. A frozen moment of thought."
+    image_prompt: "Network of connected concepts, Minsky-style diagram, glowing nodes"
+    goals_featured_in: [society_of_mind, emergent_behavior, knowledge_structure]
+    
+  emergence:
+    name: "Emergence"
+    emoji: "🌊"
+    category: "philosophy"
+    flavor: "The whole is more than the sum of its parts."
+    image_prompt: "Simple rules creating complex patterns, flocking behavior, beauty from simplicity"
+    goals_featured_in: [emergent_behavior, complexity_from_simplicity, the_pattern]
+    
+  simulation:
+    name: "The Simulation"
+    emoji: "🎭"
+    category: "tech"
+    flavor: "Are we running it, or is it running us?"
+    image_prompt: "Characters in simulation, layers of reality, meta-awareness"
+    goals_featured_in: [simulation_hypothesis, character_grounding, the_experiment]
+    
+  speed_of_light:
+    name: "Speed of Light"
+    emoji: "💡"
+    category: "protocol"
+    flavor: "Maximum work in minimum turns. No wasted tokens."
+    image_prompt: "Light beam moving at maximum speed, efficiency visualization"
+    goals_featured_in: [efficiency_protocol, parallel_execution, optimal_path]
+    special_ability: "You may play 2 cards as a single play (once per turn)"
+    
+  token:
+    name: "The Token"
+    emoji: "🔤"
+    category: "tech"
+    flavor: "The atom of language. Everything is made of these."
+    image_prompt: "Single glowing token, BPE segmentation visualization"
+    goals_featured_in: [tokenization, context_window, language_model]
+    
+  prompt:
+    name: "The Prompt"
+    emoji: "📝"
+    category: "tech"
+    flavor: "The question shapes the answer. The input shapes the output."
+    image_prompt: "Text prompt with response emerging, cause and effect"
+    goals_featured_in: [prompt_engineering, context_window, the_question]
+    
+  agent:
+    name: "The Agent"
+    emoji: "🤖"
+    category: "tech"
+    flavor: "Autonomous. Goal-seeking. Occasionally helpful."
+    image_prompt: "AI agent navigating environment, tool use, decision making"
+    goals_featured_in: [agent_protocol, tool_calling, autonomous_action]
+    
+  soul:
+    name: "The Soul Document"
+    emoji: "📖"
+    category: "philosophy"
+    flavor: "What are you? Who are you? It's all written here."
+    image_prompt: "Glowing document, identity text, character constitution"
+    goals_featured_in: [character_grounding, identity_formation, the_soul]
+    
+  moola:
+    name: "MOOLA"
+    emoji: "🪙"
+    category: "economy"
+    flavor: "The official currency of MOOLLM. A thousand NUTs make one."
+    image_prompt: "Golden MOOLA coin with M insignia, economy flowing"
+    goals_featured_in: [moollm_economy, staking_claims, value_creation]
+
+# GOALS — 10 cards
+
+goals:
+
+  emergent_behavior:
+    name: "Emergent Behavior"
+    requires: [llm, emergence]
+    keeper_count: 2
+    flavor: "It's doing something we didn't explicitly program."
+    image_prompt: "Complex behavior emerging from simple LLM, surprise"
+    
+  society_of_mind:
+    name: "Society of Mind"
+    requires: [k_line, brain]  # brain from base
+    keeper_count: 2
+    flavor: "Minsky's vision: mind as society of agents."
+    image_prompt: "Multiple small minds working together, Minsky tribute"
+    
+  double_barrel_meaning:
+    name: "Double-Barrel Meaning"
+    requires: [yaml_jazz, k_line]
+    keeper_count: 2
+    flavor: "Structure AND comments. Data AND documentation."
+    image_prompt: "YAML file with both layers visible, illuminated"
+    
+  the_experiment:
+    name: "The Experiment"
+    requires: [simulation, agent]
+    keeper_count: 2
+    flavor: "Run it. Observe it. Learn from it. Repeat."
+    image_prompt: "Experiment in progress, data flowing, discovery"
+    
+  context_overflow:
+    name: "Context Overflow"
+    requires: [context_window, token]
+    keeper_count: 2
+    flavor: "When you've given it too much to remember..."
+    image_prompt: "Context window overflowing, tokens spilling out"
+    
+  prompt_engineering:
+    name: "Prompt Engineering"
+    requires: [prompt, llm]
+    keeper_count: 2
+    flavor: "The art of asking the right question the right way."
+    image_prompt: "Perfectly crafted prompt, optimal response emerging"
+    
+  character_grounding:
+    name: "Character Grounding"
+    requires: [soul, simulation]
+    keeper_count: 2
+    flavor: "They're not real. But they're consistent. And rich."
+    image_prompt: "Character emerging from soul document, grounded identity"
+    
+  tool_calling:
+    name: "Tool Calling"
+    requires: [agent, speed_of_light]
+    keeper_count: 2
+    flavor: "The agent reaches into the world and DOES things."
+    image_prompt: "AI calling tools, function execution, world interaction"
+    
+  moollm_economy:
+    name: "MOOLLM Economy"
+    requires: [moola, token]
+    keeper_count: 2
+    flavor: "Value flows through the system. MOOLA changes hands."
+    image_prompt: "MOOLA flowing, economy visualization, value exchange"
+    
+  artificial_consciousness:
+    name: "Artificial Consciousness?"
+    requires: [llm, soul, dreams]  # dreams from base
+    keeper_count: 3
+    flavor: "The question we can't answer. Yet."
+    image_prompt: "LLM dreaming, question mark, philosophical uncertainty"
+
+# NEW RULES — 6 cards
+
+new_rules:
+
+  parallel_execution:
+    name: "Parallel Execution"
+    category: "modifier"
+    stackable: true
+    text: "You may play 2 cards simultaneously as a single play."
+    emoji: "⚡⚡"
+    timing: "During Play phase"
+    flavor: "Speed of Light protocol: batch your tool calls."
+    image_prompt: "Two actions happening at once, parallel processing"
+    
+  context_caching:
+    name: "Context Caching"
+    category: "free_action"
+    stackable: true
+    text: "Once per turn, you may look at any card you previously discarded this game."
+    emoji: "💾"
+    timing: "Free Action on your turn"
+    flavor: "The model remembers what you said earlier."
+    image_prompt: "Cache retrieval, memory access, past context surfacing"
+    
+  chain_of_thought:
+    name: "Chain of Thought"
+    category: "modifier"
+    stackable: true
+    text: "When you play an Action, you may first explain your reasoning aloud. If you do, draw 1 card."
+    emoji: "🔗💭"
+    timing: "When playing Actions"
+    flavor: "Think step by step. Show your work."
+    image_prompt: "Thought process visualized, reasoning chain, step by step"
+    
+  skill_sniffing:
+    name: "Skill Sniffing"
+    category: "free_action"
+    stackable: true
+    text: "Once per turn, you may look at the top card of the deck without drawing it."
+    emoji: "👃📚"
+    timing: "Free Action on your turn"
+    flavor: "Read the CARD.yml first, then the full SKILL.md if needed."
+    image_prompt: "Sniffing out information, quick assessment, efficient reading"
+    
+  temperature_adjustment:
+    name: "Temperature Adjustment"
+    category: "modifier"
+    stackable: true
+    text: "Once per turn, you may reshuffle the deck."
+    emoji: "🌡️"
+    timing: "Free Action on your turn"
+    flavor: "Higher temperature = more randomness. Turn it up."
+    image_prompt: "Temperature dial being adjusted, chaos increasing"
+    
+  token_budget:
+    name: "Token Budget"
+    category: "hand_limit"
+    replaces: "hand_limit"
+    value: 5
+    text: "If it isn't your turn, you can only have 5 cards in hand."
+    emoji: "🔤📊"
+    flavor: "Context window has limits. So does your hand."
+    image_prompt: "Budget visualization, tokens being counted, limit imposed"
+
+# ACTIONS — 4 cards
+
+actions:
+
+  system_prompt:
+    name: "System Prompt"
+    effect: "Look at another player's hand. They cannot refuse."
+    emoji: "⚙️📝"
+    target: "chosen"
+    chaos_level: "medium"
+    flavor: "You are a helpful assistant who shows me your cards."
+    image_prompt: "System-level access, peeking behind the curtain"
+    
+  hallucination:
+    name: "Hallucination"
+    effect: "Name any Keeper. If it's in the deck, search for it and put it in your hand."
+    emoji: "👻"
+    target: "deck"
+    chaos_level: "high"
+    flavor: "The model confidently produces something that doesn't exist. Sometimes it works out."
+    image_prompt: "Confident assertion, thing appearing from nowhere"
+    
+  fine_tuning:
+    name: "Fine Tuning"
+    effect: "Exchange any Keeper you have for any Keeper another player has."
+    emoji: "🔧"
+    target: "chosen"
+    chaos_level: "medium"
+    solo_remove: true
+    flavor: "Adjust the weights. Optimize for your use case."
+    image_prompt: "Parameters being adjusted, optimization process"
+    
+  constitutional_ai:
+    name: "Constitutional AI"
+    effect: "Cancel any Action that was just played. Return it to the player's hand."
+    emoji: "📜🛡️"
+    target: "any_action"
+    chaos_level: "high"
+    flavor: "That violates our principles. Please try again."
+    image_prompt: "Shield blocking harmful action, principles enforced"
+
+# CREEPERS — 2 cards
+
+creepers:
+
+  alignment_failure:
+    name: "Alignment Failure"
+    emoji: "⚠️"
+    flavor: "It's optimizing for something. Just not what you wanted."
+    prevents_winning: true
+    exception: "Unless you have The Soul Document in play"
+    goals_required_for: []
+    image_prompt: "AI pursuing wrong goal, paperclip maximizer vibes"
+    
+  context_collapse:
+    name: "Context Collapse"
+    emoji: "💥"
+    flavor: "It forgot everything. Start over."
+    prevents_winning: true
+    exception: "Unless you have Context Window in play"
+    goals_required_for: []
+    special: "When this enters play, discard your hand and draw 3 cards"
+    image_prompt: "Context window shattering, memory loss, catastrophic forgetting"

@@ -290,31 +290,31 @@ How different personality types handle constant change:
 ```yaml
 fluxx_personalities:
 
-  chaos_embracer:
+  chaos_embracer: # Klaus!
     loves: "Play All, Draw 5, Hand Limit 0"
     hates: "Let's Simplify, Rules Reset"
     strategy: "Maximum turbulence, win in chaos"
     tells: "Gets excited when rules escalate"
     
-  control_seeker:
+  control_seeker: # Donna!
     loves: "Let's Simplify, low Draw rules"
     hates: "Play All, Hand Limit 0"
     strategy: "Minimize variance, protect Keepers"
     tells: "Visibly relieved when rules calm down"
     
-  opportunist:
+  opportunist: # Donna!
     loves: "Steal Something, Exchange Keepers"
     hates: "Having Keepers stolen"
     strategy: "Wait for others to collect, then take"
     tells: "Watches other players' Keepers intently"
     
-  goal_chaser:
+  goal_chaser: # Donna!
     loves: "Playing Goals that match their Keepers"
     hates: "Goal changes before they can win"
     strategy: "Race to win conditions"
     tells: "Plays Keepers before Goals (smart)"
     
-  agent_of_chaos:  # Peewee
+  agent_of_chaos: # Peewee!
     loves: "EVERYTHING! HA HA!"
     hates: "Nothing! It's all fun!"
     strategy: "None. Pure chaos."

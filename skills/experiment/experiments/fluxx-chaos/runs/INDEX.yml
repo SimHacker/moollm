@@ -16,6 +16,21 @@ configs:
     file: minimal-three.yml
     players: 3
     description: "Quick test: Don, Palm, Peewee"
+    
+  - name: moollm-ultimate
+    file: moollm-ultimate.yml
+    players: 8
+    description: "THE ULTIMATE: All expansions, all characters, maximum ideology"
+    plugins:
+      - amsterdam-expansion      # Dutch culture, gezelligheid
+      - consciousness-expansion  # Altered states, creativity
+      - moollm-tech-pack        # AI, LLM, k-lines, philosophy
+      - moollm-characters       # The MOOLLM cast as Keepers
+    special:
+      - "Cheese ceremony at game start"
+      - "Klaus word limit (9 per session)"
+      - "K-line resonance tracking"
+      - "Character ideology recognition"
 
 # Output files per run:
 #   {config}-{NNN}.yml           - structured state

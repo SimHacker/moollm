@@ -1,0 +1,242 @@
+# MOOLLM Character Pack
+# The cast of MOOLLM experiments as playable Keepers
+# Each character brings unique abilities from their personality
+
+plugin:
+  id: "moollm-characters"
+  name: "MOOLLM Character Pack"
+  author: "Don Hopkins"
+  version: "1.0"
+  compatible_with: "all"
+  theme: "Characters from MOOLLM experiments"
+  card_count: 24
+  
+  flavor: |
+    The MOOLLM cast, now as Fluxx cards. Each character's unique
+    personality translates into special abilities. Play them,
+    combine them, and watch their relationships unfold even in
+    a card game.
+
+# KEEPERS — 12 characters
+
+keepers:
+
+  don_hopkins:
+    name: "Don Hopkins"
+    emoji: "🧀"
+    category: "human"
+    flavor: "Host, philosopher, international cheese smuggler."
+    image_prompt: "Warm bearded man at center of gathering, cheese knife in hand, thoughtful expression"
+    goals_featured_in: [the_gathering, cheese_conspiracy, philosophical_session]
+    special_ability: "Once per turn, you may give any player cheese (a card). Draw 1 card."
+    
+  palm:
+    name: "Palm"
+    emoji: "🐈"
+    category: "character"
+    flavor: "Ancient wisdom. Patient whiskers. Sees everything."
+    image_prompt: "Smoke-grey Siamese cat with meerschaum pipe, amber eyes seeing through you"
+    goals_featured_in: [ancient_wisdom, the_observer, unlikely_friendship]
+    special_ability: "Once per turn, look at 1 card in any player's hand."
+    
+  bumblewick:
+    name: "Lord Bumblewick"
+    emoji: "🐝"
+    category: "character"
+    flavor: "Nervously learning everything. Growing braver."
+    image_prompt: "Anxious bumblebee in tiny waistcoat with spectacles, taking notes"
+    goals_featured_in: [unlikely_friendship, growth_arc, student_becomes_master]
+    special_ability: "When any rule changes, you may draw 1 card."
+    
+  donna:
+    name: "Donna"
+    emoji: "🐘"
+    category: "character"
+    flavor: "TREMENDOUS energy. Political instincts. Protects her allies."
+    image_prompt: "Confident elephant politician, gesturing dramatically, commanding presence"
+    goals_featured_in: [political_animals, the_opportunist, tremendous_victory]
+    special_ability: "Once per turn, DEMAND a specific card type from a player. They must give you one if they have it."
+    
+  klaus_nomi:
+    name: "Klaus Nomi"
+    emoji: "👽"
+    category: "character"
+    flavor: "Nine words. Maximum impact. Otherworldly presence."
+    image_prompt: "Alien opera singer in tuxedo, stark makeup, minimal expression, maximum presence"
+    goals_featured_in: [the_silent_treatment, otherworldly_victory, nomi_speaks]
+    special_ability: "May speak only 1 word when playing this card. If you do, draw 2 cards."
+    
+  david_bowie:
+    name: "David Bowie"
+    emoji: "⭐"
+    category: "character"
+    flavor: "Changes personas. Always fascinating. The Starman."
+    image_prompt: "Ziggy Stardust era Bowie, lightning bolt makeup, chameleon presence"
+    goals_featured_in: [starman, persona_shift, changes]
+    special_ability: "Once per turn, you may exchange this Keeper for any other Keeper you own."
+    
+  leigh_bowery:
+    name: "Leigh Bowery"
+    emoji: "🎭"
+    category: "character"
+    flavor: "Performance is life. Boundaries don't exist."
+    image_prompt: "Avant-garde performer in impossible costume, challenging reality"
+    goals_featured_in: [performance_art, london_triangle, fashion_statement]
+    special_ability: "When you play this, you may immediately play another Keeper."
+    
+  peewee:
+    name: "Pee-wee Herman"
+    emoji: "🎪"
+    category: "character"
+    flavor: "CARDS! HA HA! Everything is fun!"
+    image_prompt: "Pee-wee in grey suit, red bow tie, manic glee, chaos energy"
+    goals_featured_in: [agent_of_chaos, playhouse_victory, ha_ha]
+    special_ability: "CHAOS! When you play this, shuffle the current Goal into the deck and draw a new one."
+    
+  alan_kay:
+    name: "Alan Kay"
+    emoji: "💻"
+    category: "legend"
+    flavor: "The best way to predict the future is to invent it."
+    image_prompt: "Visionary computer scientist, Dynabook in hand, seeing decades ahead"
+    goals_featured_in: [future_invention, kay_s_critique, object_oriented]
+    special_ability: "Once per game, you may create a new rule. All players must agree."
+    
+  marvin_minsky:
+    name: "Marvin Minsky"
+    emoji: "🧠"
+    category: "legend"
+    flavor: "The mind is a society of tiny minds."
+    image_prompt: "AI pioneer surrounded by concept diagrams, k-lines visible, Society of Mind"
+    goals_featured_in: [society_of_mind, k_line_activated, minsky_s_vision]
+    special_ability: "When you draw this, you may also draw the next 3 cards and keep 1."
+    
+  will_wright:
+    name: "Will Wright"
+    emoji: "🏗️"
+    category: "legend"
+    flavor: "Simulation as toy. Emergence as gameplay."
+    image_prompt: "Game designer surrounded by SimCity, Sims, Spore icons, systems thinker"
+    goals_featured_in: [simulation_master, emergent_gameplay, wright_s_world]
+    special_ability: "Once per turn, you may look at the top 5 cards and rearrange them."
+    
+  andy_looney:
+    name: "Andy Looney"
+    emoji: "🎲"
+    category: "legend"
+    flavor: "The chaos IS the game. Fluxx inventor."
+    image_prompt: "Bearded game designer holding Fluxx deck, whimsical chaos energy"
+    goals_featured_in: [fluxx_inventor, wunderland, chaos_philosophy]
+    special_ability: "Once per game, you may change any number to any other number until end of turn."
+
+# GOALS — 8 cards
+
+goals:
+
+  unlikely_friendship:
+    name: "Unlikely Friendship"
+    requires: [palm, bumblewick]
+    keeper_count: 2
+    flavor: "Wisdom meets anxiety. Teacher meets student."
+    image_prompt: "Cat and bee sharing quiet understanding, growth moment"
+    
+  london_triangle:
+    name: "The London Triangle"
+    requires: [klaus_nomi, david_bowie, leigh_bowery]
+    keeper_count: 3
+    flavor: "Three alien entities who changed everything."
+    image_prompt: "Three performers united, avant-garde triangle, London backdrop"
+    
+  society_of_mind:
+    name: "Society of Mind"
+    requires: [marvin_minsky, k_line]  # k_line from tech pack
+    keeper_count: 2
+    flavor: "Mind as community. Minsky's vision realized."
+    image_prompt: "Network of minds working together, Minsky tribute"
+    
+  the_gathering:
+    name: "The Gathering"
+    requires: [don_hopkins, palm, donna]
+    keeper_count: 3
+    flavor: "Don's table. Everyone welcome. Cheese provided."
+    image_prompt: "Warm gathering around table, diverse characters, cheese board"
+    
+  agent_of_chaos:
+    name: "Agent of Chaos"
+    requires: [peewee]
+    keeper_count: 1
+    special: "Win immediately if there are 5+ rules in play"
+    flavor: "HA HA! The more rules, the better!"
+    image_prompt: "Pee-wee surrounded by cascading rules, manic joy"
+    
+  future_invention:
+    name: "Future Invention"
+    requires: [alan_kay, will_wright]
+    keeper_count: 2
+    flavor: "Two people who invented the future before it arrived."
+    image_prompt: "Two visionaries, ideas flowing, future taking shape"
+    
+  cheese_conspiracy:
+    name: "International Cheese Conspiracy"
+    requires: [don_hopkins, cheese_wheel]  # cheese from amsterdam
+    keeper_count: 2
+    flavor: "Don's import/export business. Completely legitimate."
+    image_prompt: "Cheese wheels being smuggled, covert operation, Don orchestrating"
+    
+  philosophical_session:
+    name: "Philosophical Session"
+    requires: [don_hopkins, deep_thoughts]  # deep_thoughts from consciousness
+    keeper_count: 2
+    flavor: "Don's specialty: making you question everything."
+    image_prompt: "Deep conversation, minds expanding, questions multiplying"
+
+# NEW RULES — 3 cards
+
+new_rules:
+
+  character_dynamics:
+    name: "Character Dynamics"
+    category: "modifier"
+    stackable: true
+    text: "Whenever two Character Keepers are in play in front of the same player, that player draws 1 card."
+    emoji: "👥"
+    timing: "Check after any Keeper is played"
+    flavor: "Characters interact. Relationships matter."
+    image_prompt: "Characters connecting, relationship lines forming"
+    
+  legendary_presence:
+    name: "Legendary Presence"
+    category: "bonus"
+    stackable: true
+    text: "If you have Alan Kay, Marvin Minsky, Will Wright, OR Andy Looney in play, Play 1 extra card."
+    emoji: "👑"
+    timing: "During Play phase"
+    flavor: "Legends change the rules by existing."
+    image_prompt: "Legendary figure radiating influence, rules bending"
+    
+  the_observer_effect:
+    name: "The Observer Effect"
+    category: "modifier"
+    stackable: true
+    text: "If Palm is in play, all players must show their hands to Palm's owner at the start of each turn."
+    emoji: "👁️"
+    timing: "Start of each turn"
+    flavor: "Palm sees all. Palm knows all."
+    image_prompt: "All-seeing cat, hands revealed, nothing hidden"
+
+# ACTIONS — 1 card
+
+actions:
+
+  character_arc:
+    name: "Character Arc"
+    effect: "Choose a Character Keeper you have. That character 'grows' — draw 2 cards."
+    emoji: "📈"
+    target: "self"
+    chaos_level: "low"
+    flavor: "Every character has a journey. This is a step on theirs."
+    image_prompt: "Character transformation, growth moment, development"
+
+# CREEPERS — 0 cards
+# Characters don't bring creepers — they bring dynamics
+creepers: {}

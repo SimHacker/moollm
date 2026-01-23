@@ -1,0 +1,171 @@
+# Consciousness Expansion Pack
+# Inspired by Stoner Fluxx — altered states, creativity, and chill vibes
+# For mature players exploring expanded consciousness
+
+plugin:
+  id: "consciousness-expansion"
+  name: "Consciousness Expansion Pack"
+  author: "Don Hopkins"
+  version: "1.0"
+  compatible_with: "all"
+  theme: "Altered states, creativity, expanded perception"
+  card_count: 16
+  age_rating: "21+"
+  
+  flavor: |
+    "The psychedelic experience is only a glimpse of genuine mystical insight,
+    but a glimpse which can be matured and deepened." — Alan Watts
+    
+    This expansion explores consciousness, creativity, and the mellower
+    side of existence. Best played in comfortable settings with good friends.
+
+# KEEPERS — 6 cards
+
+keepers:
+
+  pipe:
+    name: "The Pipe"
+    emoji: "🪈"
+    category: "artifact"
+    flavor: "Pass it to the left."
+    image_prompt: "Ornate glass pipe, swirling colors, peaceful smoke"
+    goals_featured_in: [peace_pipe, creative_session, passing_time]
+    special_ability: "Once per turn, give this to another player. If you do, you both draw 1 card."
+    
+  munchies:
+    name: "Munchies"
+    emoji: "🍕"
+    category: "food"
+    flavor: "Everything tastes AMAZING right now."
+    image_prompt: "Spread of delicious snacks, pizza, chips, infinite variety"
+    goals_featured_in: [perfect_snack, couch_lock, late_night_run]
+    
+  good_vibes:
+    name: "Good Vibes"
+    emoji: "✨"
+    category: "abstract"
+    flavor: "You know that feeling? Yeah. That one."
+    image_prompt: "Warm glowing energy, peaceful colors, positive atmosphere"
+    goals_featured_in: [good_times, peaceful_moment, sharing_is_caring]
+    
+  comfy_couch:
+    name: "The Comfy Couch"
+    emoji: "🛋️"
+    category: "furniture"
+    flavor: "You're not getting up. Accept it."
+    image_prompt: "Impossibly comfortable couch, blankets, perfect indentation"
+    goals_featured_in: [couch_lock, movie_marathon, nap_time]
+    
+  playlist:
+    name: "The Perfect Playlist"
+    emoji: "🎵"
+    category: "audio"
+    flavor: "Every song is exactly right. How did they know?"
+    image_prompt: "Musical notes flowing, headphones, colorful soundwaves"
+    goals_featured_in: [perfect_moment, creative_session, deep_listening]
+    
+  deep_thoughts:
+    name: "Deep Thoughts"
+    emoji: "🤔"
+    category: "abstract"
+    flavor: "What if, like... we're all just thoughts thinking thoughts?"
+    image_prompt: "Fractal patterns, cosmic contemplation, mind expanding"
+    goals_featured_in: [philosophical_moment, creative_breakthrough, mind_blown]
+
+# GOALS — 6 cards
+
+goals:
+
+  peace_pipe:
+    name: "Peace Pipe"
+    requires: [pipe, peace]  # peace from base set
+    keeper_count: 2
+    flavor: "Sharing brings people together."
+    image_prompt: "Pipe being passed in circle, peaceful gathering"
+    
+  couch_lock:
+    name: "Couch Lock"
+    requires: [comfy_couch, munchies]
+    keeper_count: 2
+    flavor: "You're not going anywhere. And that's okay."
+    image_prompt: "Person melted into couch, surrounded by snacks, content"
+    
+  creative_session:
+    name: "Creative Session"
+    requires: [pipe, playlist]
+    keeper_count: 2
+    flavor: "The ideas just FLOW, man."
+    image_prompt: "Art being created, music playing, inspiration flowing"
+    
+  perfect_moment:
+    name: "The Perfect Moment"
+    requires: [good_vibes, playlist]
+    keeper_count: 2
+    flavor: "Time slows down. Everything is exactly right."
+    image_prompt: "Golden hour, perfect contentment, suspended in time"
+    
+  philosophical_moment:
+    name: "Philosophical Moment"
+    requires: [deep_thoughts, brain]  # brain from base set
+    keeper_count: 2
+    flavor: "DUDE. What if colors are different for everyone?"
+    image_prompt: "Mind expanding, cosmic realizations, infinite questions"
+    
+  sharing_is_caring:
+    name: "Sharing is Caring"
+    requires: [pipe, munchies, good_vibes]
+    keeper_count: 3
+    flavor: "Everything is better with friends."
+    image_prompt: "Friends sharing, laughing, genuine connection"
+
+# NEW RULES — 3 cards
+
+new_rules:
+
+  time_dilation:
+    name: "Time Dilation"
+    category: "modifier"
+    stackable: true
+    text: "At the start of each turn, the active player may choose to skip their turn entirely and draw 3 cards instead."
+    emoji: "⏰"
+    timing: "Before Draw phase"
+    flavor: "Has it been five minutes or five hours? ...Yes."
+    image_prompt: "Clock melting, time stretching, Salvador Dali vibes"
+    
+  puff_puff_pass:
+    name: "Puff Puff Pass"
+    category: "free_action"
+    stackable: true
+    text: "Once per turn, you may give The Pipe to the player on your left. If you do, you both draw 1 card."
+    emoji: "🔄"
+    timing: "Optional Free Action, only if you have The Pipe"
+    flavor: "The ancient protocol. Don't mess it up."
+    image_prompt: "Pipe being passed clockwise, ritual motion"
+    
+  enhanced_snacking:
+    name: "Enhanced Snacking"
+    category: "bonus"
+    stackable: true
+    text: "If you have Munchies in play, draw 1 extra card at the start of your turn."
+    emoji: "🍿➕"
+    timing: "During Draw phase"
+    flavor: "Food just hits different right now."
+    image_prompt: "Snacks multiplying, abundance, satisfaction"
+
+# ACTIONS — 1 card
+
+actions:
+
+  smoke_break:
+    name: "Smoke Break"
+    effect: "Everyone draws 1 card. Play resumes after a brief pause."
+    emoji: "💨"
+    chaos_level: "low"
+    social: true
+    flavor: "Take a moment. Breathe. Return refreshed."
+    image_prompt: "Peaceful pause, deep breath, return to center"
+
+# CREEPERS — 0 cards
+# Chill vibes only
+
+creepers: {}
