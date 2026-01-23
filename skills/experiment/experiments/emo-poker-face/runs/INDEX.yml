@@ -17,6 +17,11 @@ configs:
     file: four-player.yml
     characters: 4
     description: "Constraint stress test: Don, Palm, Bumblewick, Donna"
+    
+  - name: eight-player
+    file: eight-player.yml
+    characters: 8
+    description: "Full chaos: Constraint Web + London Chaos"
 
 # Auto-updated when runs are executed
 # Naming: {config-name}-{NNN}.{yml|md}
