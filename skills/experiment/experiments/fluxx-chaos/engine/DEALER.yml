@@ -199,6 +199,120 @@ modes:
     fairness: 0.0
     drama: 0.8
     determinism: 1.0
+    
+  fafo:
+    name: "FAFO Mode"
+    emoji: "🎰💀"
+    description: "F*** Around and Find Out. Karma has receipts."
+    algorithm: |
+      1. Track every aggressive action (steals, blocks, betrayals)
+      2. Build up "finding out" potential for each player
+      3. When potential reaches threshold: BOOP
+      4. The universe delivers consequences at maximum dramatic timing
+      
+      You wanted to steal? Here comes a Creeper.
+      You blocked someone's win? Your Keeper gets stolen.
+      The universe. Remembers. EVERYTHING.
+      
+    when_to_use:
+      - "When Donna has been too aggressive"
+      - "Teaching natural consequences"
+      - "Maximum dramatic justice"
+    karma_integration: true
+    boop_frequency: "reactive"
+    fairness: 0.0
+    drama: 1.0
+    justice: 1.0
+    mantra: "Around here, we find out."
+
+# ═══════════════════════════════════════════════════════════════
+# DRAMATIC TIMING — When to BOOP
+# ═══════════════════════════════════════════════════════════════
+
+dramatic_timing:
+
+  philosophy: |
+    The BOOP is not random. The BOOP is THEATRICAL.
+    
+    The Demon Dealer watches the game unfold and waits
+    for the PERFECT MOMENT to intervene. Not too early
+    (ruins the buildup), not too late (misses the window).
+    
+    Like a playwright who knows when the twist should land.
+    Like a comedian who knows when to deliver the punchline.
+    Like a cat who knows EXACTLY when to knock something off the table.
+    
+  trigger_moments:
+    
+    before_crucial_draw:
+      description: "Someone is about to draw and it MATTERS"
+      conditions:
+        - "Player is one card from winning"
+        - "Player just did something noteworthy"
+        - "Tension is high in the narrative"
+      boop_decision: "What would be MOST dramatic for this player to draw?"
+      
+    karma_payoff:
+      description: "Justice delayed but not denied"
+      conditions:
+        - "Player has accumulated negative karma"
+        - "They're about to have a good moment"
+        - "Time to cash in those receipts"
+      boop_decision: "BOOP the consequence into position"
+      example: "Donna about to win? BOOP Alignment Failure to the top."
+      
+    callback_opportunity:
+      description: "A card from earlier could resurface meaningfully"
+      conditions:
+        - "Card in deck relates to earlier event"
+        - "Current situation mirrors past situation"
+        - "Player has history with specific card"
+      boop_decision: "BOOP for narrative resonance"
+      example: "The Keeper that was stolen comes back around..."
+      
+    comedy_timing:
+      description: "The rule of threes, the unexpected reversal"
+      conditions:
+        - "Pattern established (twice)"
+        - "Player expects third instance"
+        - "Subverting expectation would be funny"
+      boop_decision: "BOOP for the laugh"
+      example: "Bumblewick drew Creepers twice. Third draw? BOOP a Goal he can win."
+      
+  anti_patterns:
+    
+    too_early:
+      bad: "BOOP on hand 1"
+      why: "No buildup, no investment, no drama"
+      
+    too_predictable:
+      bad: "Always BOOP Creepers to bad karma players"
+      why: "Becomes obvious, loses magic"
+      
+    too_frequent:
+      bad: "BOOP every draw"
+      why: "Deck state becomes meaningless, suspicion rises"
+      
+    wrong_target:
+      bad: "BOOP good things to good people constantly"
+      why: "Boring. Virtue shouldn't auto-win."
+
+  the_perfect_boop:
+    description: |
+      The PERFECT BOOP is invisible until the card is revealed.
+      
+      Then everyone goes: "OF COURSE. Of COURSE that's what they drew."
+      
+      It feels inevitable in retrospect.
+      It feels random in the moment.
+      That's the magic.
+      
+    qualities:
+      - "Narratively satisfying"
+      - "Emotionally resonant"
+      - "Apparently coincidental"
+      - "Secretly intentional"
+      - "Deniably demonic"
 
 # EXTENSION POINTS
 
@@ -261,9 +375,185 @@ extension_points:
       - "Does it test a relationship?"
       - "Is there ironic potential?"
 
-# STATE TRACKING
+# ═══════════════════════════════════════════════════════════════
+# THE DECK STATE — Concrete Implementation
+# ═══════════════════════════════════════════════════════════════
 
-state_tracking:
+deck_state:
+  
+  philosophy: |
+    The deck is a YAML array. Simple. Stable. Inspectable.
+    
+    - Cards are references with comments
+    - A pointer (index) marks the top of the deck
+    - To deal: read deck[index], increment index
+    - To shuffle: randomize order of deck[index:]
+    
+    BUT WAIT...
+    
+    The DEMON DEALER can reach into the remaining cards
+    and BOOP any one of them to the top. One operation.
+    Swap deck[index] with deck[victim]. Your fate is sealed.
+    Just in time. Last minute. How THEATRICAL!
+    
+    The stable deck makes the BOOP visible in the YAML diff.
+    You can SEE destiny being rewritten.
+
+  schema:
+    deck:
+      description: "Ordered array of card references"
+      type: "array of card_ref"
+      
+    index:
+      description: "Pointer to top of deck (next card to deal)"
+      type: "integer"
+      initial: 0
+      
+    dealt:
+      description: "Cards that have been dealt (deck[0:index])"
+      computed: "deck[0:index]"
+      
+    remaining:
+      description: "Cards still in deck (deck[index:])"
+      computed: "deck[index:]"
+
+  # THE BOOP OPERATION
+  
+  boop:
+    name: "BOOP"
+    emoji: "👆💀"
+    description: |
+      The Demon Dealer's signature move.
+      
+      BOOP(victim_offset):
+        target = index + victim_offset
+        swap(deck[index], deck[target])
+        
+      That's it. One swap. Fate rewritten.
+      The card that was going to be drawn? Not anymore.
+      The card from deep in the deck? NOW it's on top.
+      
+    example:
+      before: |
+        index: 5
+        deck[5]: "fluxx-4.0:bread"        # Would be drawn
+        deck[12]: "moollm:alignment_failure"  # Deep in deck
+        
+      operation: "BOOP(7)  # victim_offset = 12 - 5 = 7"
+      
+      after: |
+        index: 5
+        deck[5]: "moollm:alignment_failure"   # NOW on top! SURPRISE!
+        deck[12]: "fluxx-4.0:bread"           # Safely buried
+        
+    dramatic_narration: |
+      "The universe pauses. Somewhere in the cosmic shuffling,
+       a card that was destined to sleep... awakens.
+       BOOP. Alignment Failure rises to the top.
+       Bumblewick reaches for his draw..."
+       
+  # DEAL OPERATION
+  
+  deal:
+    name: "DEAL"
+    description: |
+      Draw the top card.
+      
+      DEAL():
+        card = deck[index]
+        index += 1
+        return card
+        
+    simple: true
+    deterministic: true
+    # Unless the Demon just BOOP'd something into position...
+
+  # EXAMPLE DECK STATE
+  
+  example_state:
+    description: "What a deck looks like at game init"
+    
+    yaml: |
+      # Fluxx Chaos Deck State
+      # Run: moollm-ultimate-001
+      # Shuffled: 2026-01-23T15:30:00Z
+      # Dealer mode: dramatic
+      
+      index: 0  # Top of deck
+      
+      deck:
+        # === REMAINING CARDS (index 0 onwards) ===
+        
+        - ref: "fluxx-4.0:draw_2"           # 0 - Next to deal
+        - ref: "moollm:yaml_jazz"           # 1
+        - ref: "amsterdam:stroopwafel"      # 2 - Mmm, delicious fate
+        - ref: "fluxx-4.0:bread"            # 3
+        - ref: "moollm:emergence"           # 4
+        - ref: "fluxx-4.0:peace"            # 5
+        - ref: "moollm:llm"                 # 6 - The brain awakens
+        - ref: "amsterdam:bicycle"          # 7
+        - ref: "moollm:alignment_failure"   # 8 - Creeper lurking...
+        - ref: "fluxx-4.0:play_all"         # 9 - CHAOS POTENTIAL
+        - ref: "moollm:k_line"              # 10
+        - ref: "consciousness:pipe"         # 11 - Pass to the left
+        - ref: "moollm:cursor_mirror"       # 12
+        # ... (continues for all ~200 cards)
+        
+      # Demon Dealer notes (for narrative):
+      demon_observations:
+        - { card: 8, note: "Alignment Failure watching Bumblewick" }
+        - { card: 9, note: "Play All could be devastating at index 9" }
+        - { card: 12, note: "Cursor Mirror would create meta-moment for Don" }
+
+  # MID-GAME STATE EXAMPLE
+  
+  midgame_example:
+    yaml: |
+      # Hand 5, Turn: Palm
+      # Cards dealt: 23
+      # Remaining: 177
+      
+      index: 23  # Next card to deal
+      
+      deck:
+        # === DEALT CARDS (0-22) — for reference ===
+        - ref: "fluxx-4.0:draw_2"           # 0 - dealt to Don, hand 1
+        - ref: "moollm:yaml_jazz"           # 1 - dealt to Palm, hand 1
+        # ... (22 more dealt cards)
+        
+        # === REMAINING CARDS (23 onwards) ===
+        - ref: "fluxx-4.0:steal_keeper"     # 23 - NEXT TO DEAL
+        - ref: "moollm:representation_ethics"  # 24
+        - ref: "amsterdam:cheese_wheel"     # 25
+        - ref: "moollm:alignment_failure"   # 26 - Still lurking...
+        # ...
+        
+      # DEMON DEALER INTERVENTION OPPORTUNITY:
+      # Palm is about to draw. She has 3 Keepers.
+      # Donna has been stealing all game (bad karma).
+      # 
+      # Option A: Let Palm draw Steal Keeper (deck[23])
+      #           - Palm could steal from Donna (ironic justice?)
+      #
+      # Option B: BOOP(3) — Move Alignment Failure to top
+      #           - Palm gets the Creeper (dramatic!)
+      #           - But Palm has been good... karma says no
+      #
+      # Option C: BOOP(2) — Move Cheese Wheel to top  
+      #           - Don will LOVE this (cheese conspiracy goal!)
+      #           - Creates photo opportunity
+      #
+      # DECISION: BOOP(2) for Cheese Wheel
+      # REASON: Maximum narrative satisfaction, cheese callback
+      
+      boop_log:
+        - turn: "5.palm"
+          original_top: "fluxx-4.0:steal_keeper"
+          booped_to_top: "amsterdam:cheese_wheel"
+          reason: "Cheese Wheel to Palm enables Don's conspiracy goal"
+          karma_factor: "Palm has good karma, deserves good draw"
+
+# STATE TRACKING
 
   card_locations:
     description: "Where every card currently is"
