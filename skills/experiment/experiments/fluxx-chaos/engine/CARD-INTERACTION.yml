@@ -1,0 +1,514 @@
+# Card Interaction System
+# Every card has a pie menu! Explore, learn, discover.
+#
+# "Tell me more about this..."
+
+card_interaction:
+  name: "Card Pie Menu System"
+  emoji: "🥧🃏"
+  
+  philosophy: |
+    Every card is a PORTAL, not just a game piece.
+    
+    Click on any card → pie menu appears with options to:
+    - Learn more about what the card represents
+    - See its connections to other cards
+    - Explore its k-line relationships
+    - Generate/view its artwork
+    - Hear its story
+    - Understand its strategy
+    
+    The game becomes an interactive encyclopedia.
+    Play is learning. Learning is play.
+
+# ═══════════════════════════════════════════════════════════════
+# THE PIE MENU
+# ═══════════════════════════════════════════════════════════════
+
+pie_menu:
+  
+  # Core slices (always present)
+  universal_slices:
+    
+    tell_me_more:
+      label: "Tell me more..."
+      emoji: "💬"
+      position: "N"  # North (top)
+      action: "expand_card_knowledge"
+      description: |
+        The LLM explains the card in depth:
+        - What it represents
+        - Why it's in the game
+        - Cultural/historical context
+        - How it connects to MOOLLM themes
+        - Interesting facts
+      prompt_template: |
+        Tell me more about the {card_type} card "{card_name}".
+        
+        Context:
+        - Flavor text: {flavor}
+        - Category: {category}
+        - From: {source_plugin}
+        
+        Explain:
+        1. What this card represents in the real world
+        2. Why it's meaningful in MOOLLM context
+        3. Any cultural, historical, or philosophical connections
+        4. K-line relationships to other concepts
+        5. Something surprising or delightful about it
+        
+    view_artwork:
+      label: "View artwork"
+      emoji: "🖼️"
+      position: "NE"
+      action: "display_or_generate_image"
+      description: |
+        Shows the card's artwork.
+        If not yet generated, creates it from image_prompt.
+      prompt_template: |
+        Generate card artwork:
+        {image_prompt}
+        
+        Style: Fluxx card art — bold, iconic, playful
+        
+    k_line_map:
+      label: "K-Line connections"
+      emoji: "🔗"
+      position: "E"
+      action: "show_connections"
+      description: |
+        Shows how this card connects to other concepts:
+        - Other cards it synergizes with
+        - Goals it contributes to
+        - Rules that affect it
+        - Thematic clusters
+      output_format: |
+        K-Line Map for "{card_name}"
+        ═══════════════════════════════════════════
+        
+        SYNERGIZES WITH:
+        - {related_keeper_1}: {why}
+        - {related_keeper_2}: {why}
+        
+        FEATURED IN GOALS:
+        - {goal_1}: requires this + {other}
+        - {goal_2}: requires this + {other}
+        
+        AFFECTED BY RULES:
+        - {rule_1}: {effect}
+        
+        THEMATIC CLUSTER: {cluster_name}
+        Related concepts: {concept_list}
+        
+    strategy_tips:
+      label: "Strategy tips"
+      emoji: "🎯"
+      position: "SE"
+      action: "explain_strategy"
+      description: |
+        How to use this card effectively:
+        - When to play it
+        - What to combine it with
+        - Common mistakes
+        - Advanced tactics
+      prompt_template: |
+        Give strategy tips for the {card_type} "{card_name}":
+        
+        Effect: {text}
+        
+        Explain:
+        1. When is the best time to play this?
+        2. What cards does it combo with?
+        3. What's a common mistake with this card?
+        4. Any advanced tactics?
+        5. How does this card change in different player counts?
+        
+    card_story:
+      label: "Card story"
+      emoji: "📖"
+      position: "S"
+      action: "narrate_story"
+      description: |
+        A short narrative about this card.
+        Origin story, a moment it created, or its perspective.
+      prompt_template: |
+        Tell a short story (2-3 paragraphs) about "{card_name}".
+        
+        You could tell:
+        - Its origin story (how it came to be a card)
+        - A memorable moment it created in a game
+        - The card's own perspective (if it were sentient)
+        - A legend about this card among players
+        
+        Flavor: {flavor}
+        
+    who_likes_this:
+      label: "Who likes this card?"
+      emoji: "❤️"
+      position: "SW"
+      action: "character_preferences"
+      description: |
+        Which MOOLLM characters love or hate this card?
+        Based on their personalities and tells.
+      prompt_template: |
+        Which MOOLLM characters would love or hate "{card_name}"?
+        
+        Consider:
+        - Don Hopkins (philosopher, cheese lover)
+        - Palm (wise, observant, patient)
+        - Bumblewick (anxious, learning, growing)
+        - Donna (aggressive, protective, political)
+        - Klaus Nomi (silent, otherworldly)
+        - Peewee (chaotic, delighted by everything)
+        - Andy Looney (meta-aware, game designer)
+        
+        For each relevant character, explain WHY they'd feel that way.
+        
+    mine_this_card:
+      label: "Mine for meaning"
+      emoji: "⛏️"
+      position: "W"
+      action: "semantic_mining"
+      description: |
+        Deep semantic mining of the card concept:
+        - Abstract resources
+        - Emotional resonances
+        - Philosophical depths
+        - Hidden connections
+      prompt_template: |
+        Mine the card "{card_name}" for semantic treasures.
+        
+        Extract:
+        - Abstract concepts it embodies
+        - Emotions it evokes
+        - Philosophical questions it raises
+        - Metaphorical meanings
+        - What it says about MOOLLM's worldview
+        
+    related_cards:
+      label: "Related cards"
+      emoji: "🃏🃏"
+      position: "NW"
+      action: "show_related"
+      description: |
+        Other cards that relate to this one:
+        - Same category
+        - Same plugin
+        - Synergistic goals
+        - Thematic siblings
+
+# ═══════════════════════════════════════════════════════════════
+# CARD-TYPE SPECIFIC SLICES
+# ═══════════════════════════════════════════════════════════════
+
+type_specific_slices:
+
+  keeper:
+    extra_slices:
+      - label: "Goals I complete"
+        emoji: "🏆"
+        action: "list_goals_for_keeper"
+        
+      - label: "My special ability"
+        emoji: "✨"
+        action: "explain_ability"
+        condition: "has_special_ability"
+        
+  goal:
+    extra_slices:
+      - label: "How to achieve this"
+        emoji: "📋"
+        action: "explain_goal_path"
+        
+      - label: "Probability estimate"
+        emoji: "📊"
+        action: "calculate_goal_probability"
+        
+  action:
+    extra_slices:
+      - label: "Timing advice"
+        emoji: "⏰"
+        action: "explain_timing"
+        
+      - label: "Combo potential"
+        emoji: "💥"
+        action: "list_combos"
+        
+  new_rule:
+    extra_slices:
+      - label: "Rule interactions"
+        emoji: "⚙️"
+        action: "explain_rule_interactions"
+        
+      - label: "Stack position"
+        emoji: "📚"
+        action: "explain_stacking"
+        
+  creeper:
+    extra_slices:
+      - label: "How to get rid of this"
+        emoji: "🚫"
+        action: "explain_removal"
+        
+      - label: "Goals that need me"
+        emoji: "💀🏆"
+        action: "list_creeper_goals"
+
+# ═══════════════════════════════════════════════════════════════
+# CONTEXT-AWARE SLICES
+# ═══════════════════════════════════════════════════════════════
+
+context_slices:
+
+  in_hand:
+    - label: "Should I play this now?"
+      emoji: "🤔"
+      action: "evaluate_play_timing"
+      prompt_template: |
+        Given the current game state:
+        - Current goal: {current_goal}
+        - My keepers: {my_keepers}
+        - Rules in play: {rules}
+        - Other players' keepers: {visible_keepers}
+        
+        Should I play "{card_name}" now? Explain pros and cons.
+        
+  in_play:
+    - label: "What's this doing for me?"
+      emoji: "📈"
+      action: "evaluate_card_value"
+      
+  in_discard:
+    - label: "Can I get this back?"
+      emoji: "🔄"
+      action: "list_retrieval_options"
+      
+  in_deck:
+    - label: "What are my odds?"
+      emoji: "🎲"
+      action: "calculate_draw_probability"
+
+# ═══════════════════════════════════════════════════════════════
+# MOOLLM-SPECIFIC SLICES
+# ═══════════════════════════════════════════════════════════════
+
+moollm_slices:
+
+  character_cards:
+    - label: "Full character profile"
+      emoji: "👤"
+      action: "show_character_yaml"
+      
+    - label: "Their tells"
+      emoji: "🎭"
+      action: "list_character_tells"
+      
+    - label: "Relationships"
+      emoji: "💕"
+      action: "show_relationships"
+      
+  tech_cards:
+    - label: "Real-world explanation"
+      emoji: "🔬"
+      action: "explain_tech_concept"
+      prompt_template: |
+        Explain the real-world concept behind "{card_name}":
+        
+        1. What is {concept} in AI/tech?
+        2. Why is it important?
+        3. How does MOOLLM use it?
+        4. Accessible analogy for non-technical people
+        
+    - label: "MOOLLM k-line"
+      emoji: "🔗"
+      action: "show_kline_definition"
+      
+  philosophy_cards:
+    - label: "Deep dive"
+      emoji: "🤿"
+      action: "philosophical_exploration"
+      prompt_template: |
+        Take me deeper into the philosophy of "{card_name}":
+        
+        - What worldview does this represent?
+        - What questions does it raise?
+        - How does it connect to other MOOLLM concepts?
+        - What would Marvin Minsky say about this?
+        - What would Will Wright say about this?
+
+# ═══════════════════════════════════════════════════════════════
+# INTERACTION EXAMPLES
+# ═══════════════════════════════════════════════════════════════
+
+examples:
+
+  yaml_jazz_card:
+    card: "YAML Jazz"
+    
+    tell_me_more_response: |
+      # YAML Jazz 🎷
+      
+      **What it represents:** YAML Jazz is Don Hopkins' philosophy that
+      YAML comments aren't just documentation — they carry SEMANTIC WEIGHT.
+      Structure provides the skeleton; comments provide the SOUL.
+      
+      **Why it's in MOOLLM:** This is a core k-line. Every YAML file in
+      MOOLLM uses comments as a parallel data channel. The comment
+      "# Watches other players' chip stacks obsessively" isn't just
+      describing the field — it's CHARACTER DATA the LLM uses.
+      
+      **Cultural connection:** Like jazz musicians improvising over
+      chord changes, YAML Jazz adds spontaneous meaning over rigid
+      structure. The structure is the chart; the comments are the solo.
+      
+      **K-line relationships:**
+      - Double-barrel meaning (data + documentation)
+      - Sniffable interfaces (CARD.yml → SKILL.md)
+      - Play-Learn-Lift (informal → captured → shared)
+      
+      **Surprising fact:** The saxophone emoji 🎷 was chosen because
+      jazz improvisation IS structured freedom — exactly like semantic
+      comments in strict YAML format.
+      
+    k_line_map_response: |
+      K-Line Map for "YAML Jazz"
+      ═══════════════════════════════════════════
+      
+      SYNERGIZES WITH:
+      - K-Line: Both are knowledge representation
+      - Soul Document: Comments ARE the soul
+      - Speed of Light: Efficient context assembly
+      
+      FEATURED IN GOALS:
+      - Double-Barrel Meaning: YAML Jazz + K-Line
+      - Society of Mind: YAML Jazz + Brain/LLM
+      
+      THEMATIC CLUSTER: Knowledge Representation
+      Related: K-Line, Context Window, Prompt, Token
+      
+      PHILOSOPHICAL DEPTH: Medium-High
+      This card embodies MOOLLM's approach to meaning.
+      
+  stroopwafel_card:
+    card: "Stroopwafel"
+    
+    tell_me_more_response: |
+      # Stroopwafel 🧇
+      
+      **What it represents:** A stroopwafel is a Dutch waffle cookie
+      made from two thin layers of baked dough with caramel syrup
+      in the middle. Traditionally, you place it on top of a hot
+      cup of coffee to warm the caramel.
+      
+      **Why it's in MOOLLM:** The Amsterdam expansion captures Dutch
+      culture, and stroopwafels are iconic. They also represent
+      GEZELLIGHEID — that untranslatable Dutch coziness of sharing
+      good things with good people.
+      
+      **Cultural connection:** Stroopwafels originated in Gouda in
+      the late 18th century. A baker made them from leftover crumbs
+      sweetened with syrup — waste became treasure.
+      
+      **K-line relationships:**
+      - Cheese Wheel: Both Dutch food keepers
+      - Gezelligheid rule: Sharing culture
+      - Don Hopkins: Known Amsterdam visitor
+      
+      **Pro tip:** In real life, a stroopwafel must be EXACTLY the
+      right size to cover a coffee cup. Too small and it falls in.
+      Too large and it doesn't warm evenly. Precision matters.
+      
+    who_likes_this_response: |
+      # Who Likes Stroopwafel?
+      
+      **Don Hopkins** ❤️❤️❤️
+      LOVES it. Reminds him of Amsterdam trips. Would absolutely
+      share with everyone at the table. Probably brought some.
+      
+      **Palm** ❤️
+      Appreciates the craftsmanship. The patience of warming it
+      on coffee appeals to his contemplative nature.
+      
+      **Bumblewick** ❤️❤️
+      The sweetness comforts his anxiety. Also, it's small enough
+      for a bee to enjoy. Takes notes on caramel physics.
+      
+      **Donna** 🤷
+      "It's FINE. I prefer POWER FOODS. But I won't say no."
+      
+      **Peewee** ❤️❤️❤️
+      "STROOPWAFEL! HA HA!" *bounces*
+      
+      **Klaus Nomi** 😐
+      *stares at stroopwafel for 30 seconds*
+      *takes one small bite*
+      *nods almost imperceptibly*
+
+# ═══════════════════════════════════════════════════════════════
+# TECHNICAL INTEGRATION
+# ═══════════════════════════════════════════════════════════════
+
+integration:
+
+  trigger_methods:
+    - "Click/tap on card"
+    - "Long press on card"
+    - "Right-click context menu"
+    - "Voice command: 'Tell me about [card]'"
+    - "Narrative prompt: 'What's that card?'"
+    
+  response_format:
+    - markdown: "For text display"
+    - yaml: "For structured data"
+    - speech: "For voice narration"
+    - image: "For artwork generation"
+    
+  caching:
+    - "Cache 'tell me more' responses per card"
+    - "Cache generated artwork"
+    - "Context-dependent responses always fresh"
+    
+  llm_context:
+    - "Current game state"
+    - "Player asking (for personalization)"
+    - "Previous queries (avoid repetition)"
+    - "Character personality (if in-character)"
+
+# ═══════════════════════════════════════════════════════════════
+# PIE MENU VISUAL DESIGN
+# ═══════════════════════════════════════════════════════════════
+
+visual_design:
+
+  layout:
+    style: "radial"
+    slices: 8
+    center: "card thumbnail"
+    
+  positions:
+    N:  "Tell me more"
+    NE: "View artwork"
+    E:  "K-Line connections"
+    SE: "Strategy tips"
+    S:  "Card story"
+    SW: "Who likes this?"
+    W:  "Mine for meaning"
+    NW: "Related cards"
+    
+  animation:
+    open: "expand from card center"
+    close: "collapse to card"
+    select: "slice highlights, expands"
+    
+  colors:
+    keeper: "#4CAF50"    # Green
+    goal: "#2196F3"      # Blue
+    action: "#FF9800"    # Orange
+    new_rule: "#9C27B0"  # Purple
+    creeper: "#F44336"   # Red
+    
+  accessibility:
+    - "Keyboard navigation (1-8 for slices)"
+    - "Screen reader labels"
+    - "High contrast mode"
+    - "Text-only fallback"
