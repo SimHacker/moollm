@@ -48,6 +48,98 @@ state:
       cards: [7♦, 2♠]  # trash hand
       status: active
       mood: "will bluff anyway"
+
+# STEP 2: PREFLOP BETTING
+
+actions:
+  - actor: donna
+    action: "raises to 150 🪙"
+    stack_after: 850
+    observable: |
+      Donna doesn't look at her cards again. Stares directly at Bumblewick.
+      "Let's see who has COURAGE at this table."
+      Chips pushed forward with theatrical contempt.
+    thinking: |
+      Garbage cards. Doesn't matter. Bumblewick will FOLD.
+      If he doesn't, I'll barrel the flop.
+      Palm is watching me. Don is smiling. Idiots.
+      
+  - actor: don
+    action: "calls 150 🪙"
+    stack_after: 850
+    observable: |
+      Slight nod. Reaches for jenever, pours himself a small glass.
+      "Sure, let's play." Chips slide forward casually.
+      Eyes move to Palm — checking on liberatee.
+    thinking: |
+      Queens. Donna's raising range is... everything.
+      She's targeting Bumblewick again. Poor kid.
+      Palm's fur is shimmering. That's the contentment tell.
+      Careful, old friend — I can read you too.
+      
+  - actor: palm
+    action: "raises to 400 🪙"
+    stack_after: 575
+    observable: |
+      Fur settles. Very still now. Paws arrange chips precisely.
+      "I'll make it four hundred." Voice calm, almost gentle.
+      Golden earring catches light as head tilts slightly.
+    thinking: |
+      AK suited. Should 3-bet here.
+      Don will know I'm strong. I cannot deceive him.
+      But I can play my hand honestly. That's still strategy.
+      Donna's raise smelled like air. Don called too quickly.
+      Bumblewick is shaking. What does he have?
+      
+  - actor: bumblewick
+    action: "calls 350 🪙 (completing big blind)"
+    stack_after: 600
+    observable: |
+      Hands VISIBLY trembling. Knocks over chip stack rebuilding it.
+      "I... I suppose I'll... yes. Call. Sorry. Is that right?"
+      Eyes dart to Don for reassurance. Then to Donna with fear.
+    thinking: |
+      KINGS. I have KINGS. The best hand I've ever had.
+      I should raise. I SHOULD raise. Real poker players raise.
+      But Palm just raised and Palm is ANCIENT and WISE.
+      And Donna is STARING at me. She'll eat me alive.
+      Just call. Survive. Maybe the flop helps. WHAT AM I THINKING.
+
+  # Action back to Donna (raised, now must call 250 more or fold)
+  - actor: donna
+    action: "folds"
+    stack_after: 850
+    observable: |
+      Sharp exhale through nose. Cards snap down face-down.
+      "Fine. Play with yourselves." Reaches for sparkling water.
+      Eyes never leave Bumblewick. Message clear: NEXT TIME.
+    thinking: |
+      Palm is serious. That earring thing means business.
+      7-2 can't survive this heat. TACTICAL RETREAT.
+      But Bumblewick CALLED? Bumblewick CALLED a 3-bet?
+      He has something. Terrified little creature has something.
+      I'll remember this, Bumble-WEAK.
+      
+  # Action back to Don (called 150, now must call 250 more)
+  - actor: don
+    action: "calls 250 🪙"
+    stack_after: 600
+    observable: |
+      Eyebrow raises slightly. Sips jenever.
+      "Palm's playing for real tonight." Chips added smoothly.
+      Glances at Bumblewick with subtle warmth.
+    thinking: |
+      Palm's shimmer was real. AK? AA? 
+      Queens might be in trouble here.
+      But pot odds are decent. And Bumblewick called too?
+      Something strange in the force tonight.
+      
+# PREFLOP COMPLETE
+preflop_summary:
+  pot: 1250  # 400 × 3 + 50 (Donna's dead money)
+  remaining_players: [don, palm, bumblewick]
+  donna: folded
+  tension_level: rising
       
   protocols:
     smoking:
