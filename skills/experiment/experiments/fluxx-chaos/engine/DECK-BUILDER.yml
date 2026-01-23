@@ -1,0 +1,518 @@
+# Deck Builder / Composition Engine
+# Fine-grained control over what cards end up in the game
+#
+# "Any card from anywhere. No card you don't want."
+
+deck_builder:
+  name: "Fluxx Deck Composition Engine"
+  
+  philosophy: |
+    A deck is not just "base + plugins".
+    A deck is a CURATED SELECTION:
+    - Include what you want
+    - Exclude what you don't
+    - Replace cards with themed variants
+    - Mix freely across sources
+    - Create stand-alone card sets
+    
+    Think of it like a playlist, not an album.
+
+# ═══════════════════════════════════════════════════════════════
+# COMPOSITION MODES
+# ═══════════════════════════════════════════════════════════════
+
+modes:
+
+  additive:
+    name: "Additive (Default)"
+    description: "Base deck + all plugins added on top"
+    behavior: |
+      1. Start with base deck
+      2. Add all cards from each plugin
+      3. No removals, no replacements
+    use_when: "Simple games, maximum variety"
+    
+  replacement:
+    name: "Replacement"
+    description: "Plugins can replace base cards with themed versions"
+    behavior: |
+      1. Start with base deck
+      2. For each plugin card with `replaces: base_card_id`:
+         - Remove base card
+         - Add plugin card in its place
+      3. Non-replacing cards still added
+    use_when: "Themed reskins, variant editions"
+    
+  selective:
+    name: "Selective"
+    description: "Cherry-pick specific cards from any source"
+    behavior: |
+      1. Start with empty deck
+      2. Include only explicitly listed cards
+      3. Full control, no defaults
+    use_when: "Curated experiences, teaching games"
+    
+  subtractive:
+    name: "Subtractive"
+    description: "Start full, remove what you don't want"
+    behavior: |
+      1. Start with base + all plugins
+      2. Remove cards in `exclude` list
+      3. Everything else stays
+    use_when: "Minor tweaks to standard setup"
+
+# ═══════════════════════════════════════════════════════════════
+# DECK CONFIGURATION SCHEMA
+# ═══════════════════════════════════════════════════════════════
+
+schema:
+
+  deck_config:
+    # SOURCES — Where cards come from
+    sources:
+      base: "cardsets/fluxx-4.0.yml"      # Or null for no base
+      plugins:
+        - path: "cards/amsterdam-expansion.yml"
+          mode: "add"                      # add | replace | selective
+          
+        - path: "cards/moollm-tech-pack.yml"
+          mode: "add"
+          exclude: [alignment_failure]     # Don't include this creeper
+          
+        - path: "cards/chaos-dealer-plugin.yml"
+          mode: "selective"
+          include: [invoke_dramatic_dealer, invoke_karma_dealer]
+          # Only these two cards from the plugin
+          
+    # DIRECT INCLUDES — Specific cards from anywhere
+    include:
+      - "fluxx-4.0:bread"                  # Specific card from base
+      - "fluxx-4.0:peace"
+      - "amsterdam-expansion:stroopwafel"
+      - "moollm-tech-pack:yaml_jazz"
+      
+    # EXCLUSIONS — Remove these no matter what
+    exclude:
+      - "fluxx-4.0:war"                    # Too violent for this game
+      - "fluxx-4.0:death"                  # Too dark
+      - "*:creepers"                       # Wildcard: no creepers from any source
+      
+    # REPLACEMENTS — Swap cards
+    replace:
+      - original: "fluxx-4.0:money"
+        with: "moollm-tech-pack:moola"     # Use MOOLA instead of Money
+        
+      - original: "fluxx-4.0:the_brain"
+        with: "moollm-tech-pack:llm"       # LLM replaces Brain
+        
+    # QUANTITIES — Multiple copies
+    quantities:
+      "amsterdam-expansion:stroopwafel": 2  # Two stroopwafels!
+      "fluxx-4.0:draw_2": 3                 # Extra Draw 2 cards
+      
+    # CUSTOM CARDS — Inline definitions
+    custom:
+      - id: "one_off_special"
+        name: "One-Off Special"
+        type: "keeper"
+        emoji: "🌟"
+        flavor: "Made just for this game"
+        # Full card definition inline
+
+# ═══════════════════════════════════════════════════════════════
+# CONFIGURATION EXAMPLES
+# ═══════════════════════════════════════════════════════════════
+
+examples:
+
+  # EXAMPLE 1: Simple additive (current default)
+  simple_additive:
+    description: "Base + plugins, everything included"
+    config:
+      sources:
+        base: "cardsets/fluxx-4.0.yml"
+        plugins:
+          - path: "cards/amsterdam-expansion.yml"
+          - path: "cards/moollm-characters.yml"
+          
+  # EXAMPLE 2: Themed replacement
+  moollm_edition:
+    description: "Base Fluxx but with MOOLLM theming"
+    config:
+      sources:
+        base: "cardsets/fluxx-4.0.yml"
+        plugins:
+          - path: "cards/moollm-tech-pack.yml"
+            mode: "replace"  # Cards with replaces: field swap out base cards
+            
+      replace:
+        - original: "fluxx-4.0:money"
+          with: "moollm-tech-pack:moola"
+        - original: "fluxx-4.0:the_brain"
+          with: "moollm-tech-pack:llm"
+        - original: "fluxx-4.0:dreams"
+          with: "moollm-tech-pack:simulation"
+          
+  # EXAMPLE 3: No creepers, no chaos
+  family_friendly:
+    description: "Calmer game for mixed groups"
+    config:
+      sources:
+        base: "cardsets/fluxx-4.0.yml"
+        plugins:
+          - path: "cards/amsterdam-expansion.yml"
+            exclude: [coffee_shop]  # Keep it PG
+            
+      exclude:
+        - "*:creepers"              # No creepers at all
+        - "fluxx-4.0:war"
+        - "fluxx-4.0:death"
+        - "*:chaos_level:maximum"   # No maximum chaos cards
+        
+  # EXAMPLE 4: Cherry-picked custom deck
+  curated_experience:
+    description: "Hand-selected cards for a specific narrative"
+    config:
+      mode: "selective"  # Start empty, add only what's listed
+      
+      include:
+        # Characters
+        - "moollm-characters:don_hopkins"
+        - "moollm-characters:palm"
+        - "moollm-characters:bumblewick"
+        - "moollm-characters:donna"
+        
+        # Tech concepts
+        - "moollm-tech-pack:yaml_jazz"
+        - "moollm-tech-pack:k_line"
+        - "moollm-tech-pack:emergence"
+        
+        # Amsterdam vibes
+        - "amsterdam-expansion:cheese_wheel"
+        - "amsterdam-expansion:stroopwafel"
+        - "amsterdam-expansion:gezelligheid"
+        
+        # Base essentials
+        - "fluxx-4.0:draw_2"
+        - "fluxx-4.0:draw_3"
+        - "fluxx-4.0:play_2"
+        - "fluxx-4.0:play_all"
+        
+      # Goals that work with included keepers
+      include_goals:
+        - "moollm-characters:unlikely_friendship"
+        - "amsterdam-expansion:dutch_breakfast"
+        - "moollm-tech-pack:society_of_mind"
+        
+  # EXAMPLE 5: Standalone card set (no base)
+  standalone_moollm:
+    description: "MOOLLM cards only — no Fluxx base"
+    config:
+      sources:
+        base: null  # No base deck!
+        plugins:
+          - path: "cards/moollm-tech-pack.yml"
+          - path: "cards/moollm-characters.yml"
+          
+      # Must include basic rules manually
+      include:
+        - "fluxx-4.0:draw_2"
+        - "fluxx-4.0:draw_3"
+        - "fluxx-4.0:play_2"
+        - "fluxx-4.0:play_3"
+        - "fluxx-4.0:play_all"
+        - "fluxx-4.0:hand_limit_2"
+        
+  # EXAMPLE 6: Maximum chaos
+  chaos_maximum:
+    description: "Everything that increases entropy"
+    config:
+      sources:
+        base: "cardsets/fluxx-4.0.yml"
+        plugins:
+          - path: "cards/chaos-dealer-plugin.yml"
+          - path: "cards/consciousness-expansion.yml"
+          
+      include:
+        - "*:chaos_level:high"
+        - "*:chaos_level:maximum"
+        
+      exclude:
+        - "*:stabilizing"  # No cards that reduce chaos
+        
+      quantities:
+        "fluxx-4.0:play_all": 3
+        "fluxx-4.0:rules_reset": 0  # Remove Rules Reset entirely
+        
+  # EXAMPLE 7: Photo session deck (specific moments)
+  photo_session:
+    description: "Cards that create good photo opportunities"
+    config:
+      mode: "selective"
+      
+      include:
+        # Characters for photos
+        - "moollm-characters:*"  # All character keepers
+        
+        # Cards that create tension/drama
+        - "fluxx-4.0:steal_a_keeper"
+        - "fluxx-4.0:exchange_keepers"
+        - "moollm-tech-pack:system_prompt"
+        
+        # Cards that create moments
+        - "amsterdam-expansion:kings_day"
+        - "consciousness-expansion:smoke_break"
+        
+      exclude:
+        - "*:solo_remove:true"  # No cards that need removal for photos
+
+# ═══════════════════════════════════════════════════════════════
+# CARD REFERENCE SYNTAX
+# ═══════════════════════════════════════════════════════════════
+
+reference_syntax:
+
+  specific_card:
+    format: "source:card_id"
+    examples:
+      - "fluxx-4.0:bread"
+      - "amsterdam-expansion:stroopwafel"
+      - "moollm-tech-pack:yaml_jazz"
+      
+  all_from_source:
+    format: "source:*"
+    examples:
+      - "moollm-characters:*"      # All cards from this plugin
+      - "fluxx-4.0:*"              # All base cards
+      
+  by_type:
+    format: "source:type:keeper|goal|action|rule|creeper"
+    examples:
+      - "fluxx-4.0:type:keeper"    # All base keepers
+      - "*:type:creeper"           # All creepers from anywhere
+      
+  by_category:
+    format: "source:category:name"
+    examples:
+      - "moollm-tech-pack:category:philosophy"
+      - "amsterdam-expansion:category:food"
+      
+  by_tag:
+    format: "*:tag:tagname"
+    examples:
+      - "*:tag:social"             # Cards tagged 'social'
+      - "*:tag:stealing"           # Cards involving stealing
+      
+  by_attribute:
+    format: "*:attribute:value"
+    examples:
+      - "*:chaos_level:high"       # High chaos cards
+      - "*:solo_remove:true"       # Cards removed for solo play
+      - "*:stackable:true"         # Stackable rules
+
+# ═══════════════════════════════════════════════════════════════
+# PLUGIN CARD ATTRIBUTES FOR COMPOSITION
+# ═══════════════════════════════════════════════════════════════
+
+card_attributes:
+
+  replaces:
+    description: "This card can replace a base card"
+    usage: |
+      In plugin card definition:
+      ```yaml
+      moola:
+        name: "MOOLA"
+        replaces: "fluxx-4.0:money"  # Can substitute for Money
+      ```
+    behavior: "When deck mode is 'replacement', this card swaps in"
+    
+  requires:
+    description: "This card only works with other specific cards"
+    usage: |
+      ```yaml
+      dutch_breakfast:
+        requires_any: [stroopwafel, cheese_wheel]
+        # Only include if at least one requirement is in deck
+      ```
+    behavior: "Deck builder validates requirements are met"
+    
+  conflicts_with:
+    description: "This card shouldn't be in deck with another"
+    usage: |
+      ```yaml
+      peaceful_victory:
+        conflicts_with: [war, death, destruction]
+      ```
+    behavior: "Deck builder warns or removes conflicts"
+    
+  standalone_ok:
+    description: "This card works without the full plugin"
+    usage: |
+      ```yaml
+      gezelligheid:
+        standalone_ok: true  # Can be cherry-picked into any deck
+      ```
+    behavior: "Safe to include without other plugin cards"
+    
+  requires_plugin_context:
+    description: "This card needs its plugin's other cards"
+    usage: |
+      ```yaml
+      chaos_mastery:
+        requires_plugin_context: true
+        # Only makes sense with dealer mode cards
+      ```
+    behavior: "Deck builder warns if included alone"
+
+# ═══════════════════════════════════════════════════════════════
+# DECK VALIDATION
+# ═══════════════════════════════════════════════════════════════
+
+validation:
+
+  checks:
+    goal_achievability:
+      description: "Can every Goal be completed?"
+      rule: "For each Goal, required Keepers must be in deck"
+      severity: "warning"
+      
+    minimum_cards:
+      description: "Enough cards for the player count?"
+      rule: "total_cards >= players * 10 + 20"
+      severity: "error"
+      
+    card_balance:
+      description: "Reasonable mix of card types?"
+      rule: |
+        keepers: 20-40%
+        goals: 10-20%
+        actions: 20-30%
+        new_rules: 15-25%
+        creepers: 0-10%
+      severity: "warning"
+      
+    orphaned_goals:
+      description: "Goals with missing requirements?"
+      rule: "All Goal requirements must be in deck"
+      severity: "error"
+      
+    duplicate_ids:
+      description: "Same card ID from multiple sources?"
+      rule: "No duplicate IDs (last one wins, warn)"
+      severity: "warning"
+      
+    conflict_check:
+      description: "Cards with conflicts_with in same deck?"
+      rule: "Warn about conflicting cards"
+      severity: "warning"
+
+  output:
+    format: |
+      Deck Validation Report
+      ═══════════════════════════════════════════
+      Total Cards: 127
+      
+      By Type:
+        Keepers:   42 (33%)  ✓
+        Goals:     18 (14%)  ✓
+        Actions:   35 (28%)  ✓
+        New Rules: 28 (22%)  ✓
+        Creepers:   4 (3%)   ✓
+        
+      Warnings:
+        ⚠ Goal "Tulip Mania" requires "money" but deck has "moola"
+          → Substitution may work (both are currency)
+          
+        ⚠ Creeper "Alignment Failure" excluded but 
+          "Constitutional AI" references it
+          
+      Errors: None
+      
+      Deck is VALID for play.
+
+# ═══════════════════════════════════════════════════════════════
+# RUNTIME COMPOSITION
+# ═══════════════════════════════════════════════════════════════
+
+runtime:
+
+  initialization:
+    steps:
+      1: "Load base deck (if any)"
+      2: "Process each plugin in order"
+      3: "Apply include list"
+      4: "Apply exclude list"
+      5: "Apply replacements"
+      6: "Apply quantities"
+      7: "Add custom cards"
+      8: "Validate final deck"
+      9: "Report composition"
+      
+  card_resolution:
+    description: "How card references are resolved"
+    order:
+      1: "Exact match (source:id)"
+      2: "Type match (source:type:X)"
+      3: "Wildcard match (*:whatever)"
+      4: "Tag match (*:tag:X)"
+      5: "Attribute match (*:attr:value)"
+      
+  conflict_resolution:
+    same_id: "Last source wins (with warning)"
+    replacement: "Replaced card removed, replacement added"
+    both_excluded_included: "Exclude wins"
+
+# ═══════════════════════════════════════════════════════════════
+# SHORTHAND PRESETS
+# ═══════════════════════════════════════════════════════════════
+
+presets:
+
+  minimal:
+    description: "Smallest playable deck"
+    config:
+      sources:
+        base: "cardsets/fluxx-4.0.yml"
+      include:
+        - "*:type:keeper:limit:10"
+        - "*:type:goal:limit:5"
+        - "fluxx-4.0:draw_2"
+        - "fluxx-4.0:draw_3"
+        - "fluxx-4.0:play_2"
+        
+  no_creepers:
+    description: "Base game without creepers"
+    config:
+      sources:
+        base: "cardsets/fluxx-4.0.yml"
+      exclude:
+        - "*:type:creeper"
+        
+  max_chaos:
+    description: "Everything that increases entropy"
+    config:
+      sources:
+        base: "cardsets/fluxx-4.0.yml"
+        plugins:
+          - path: "cards/chaos-dealer-plugin.yml"
+      include:
+        - "*:chaos_level:high"
+        - "*:chaos_level:maximum"
+        
+  moollm_only:
+    description: "Pure MOOLLM experience"
+    config:
+      sources:
+        base: null
+        plugins:
+          - path: "cards/moollm-tech-pack.yml"
+          - path: "cards/moollm-characters.yml"
+          - path: "cards/chaos-dealer-plugin.yml"
+      include:
+        # Borrow essential rules from base
+        - "fluxx-4.0:draw_2"
+        - "fluxx-4.0:draw_3"
+        - "fluxx-4.0:play_2"
+        - "fluxx-4.0:play_3"
+        - "fluxx-4.0:play_all"

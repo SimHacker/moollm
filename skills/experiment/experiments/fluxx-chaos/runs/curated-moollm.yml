@@ -1,0 +1,182 @@
+# Curated MOOLLM Fluxx
+# Demonstrating fine-grained deck composition
+# Cherry-picked cards, themed replacements, no creepers
+
+run_config:
+  id: "curated-moollm"
+  name: "Curated MOOLLM Fluxx"
+  description: "4-player focused game with hand-selected cards"
+  created: "2026-01-23"
+  
+  vision: |
+    A carefully composed deck that demonstrates the deck builder.
+    MOOLLM tech pack replaces key base cards for thematic consistency.
+    No creepers (family friendly). Characters + food + philosophy.
+
+# ═══════════════════════════════════════════════════════════════
+# DECK COMPOSITION — The new way!
+# ═══════════════════════════════════════════════════════════════
+
+deck:
+  composition_mode: "selective"  # Start empty, add only what we want
+  
+  # SOURCES with per-plugin configuration
+  sources:
+    base: "cardsets/fluxx-4.0.yml"
+    
+    plugins:
+      # Amsterdam — all cards EXCEPT coffee shop
+      - path: "cards/amsterdam-expansion.yml"
+        mode: "add"
+        exclude: [coffee_shop]  # Keep it PG
+        
+      # MOOLLM Tech — in REPLACEMENT mode
+      - path: "cards/moollm-tech-pack.yml"
+        mode: "replace"  # Cards with 'replaces:' will swap base cards
+        exclude:
+          - alignment_failure   # No creepers
+          - context_collapse    # No creepers
+          
+      # MOOLLM Characters — selective inclusion
+      - path: "cards/moollm-characters.yml"
+        mode: "selective"
+        include:
+          - don_hopkins
+          - palm
+          - bumblewick
+          - donna
+          - unlikely_friendship
+          - the_gathering
+          
+      # Chaos Dealer — just the dramatic dealer
+      - path: "cards/chaos-dealer-plugin.yml"
+        mode: "selective"
+        include:
+          - invoke_dramatic_dealer
+          - invoke_karma_dealer
+          - tip_the_dealer
+          
+  # GLOBAL EXCLUSIONS
+  exclude:
+    - "*:type:creeper"          # No creepers from ANY source
+    - "fluxx-4.0:war"           # Too aggressive
+    - "fluxx-4.0:death"         # Too dark
+    - "*:solo_remove:true"      # Keep multiplayer cards only
+    
+  # THEMED REPLACEMENTS
+  replace:
+    # MOOLLM tech pack has replaces: fields, but we can also do it here
+    - original: "fluxx-4.0:money"
+      with: "moollm-tech-pack:moola"
+    - original: "fluxx-4.0:the_brain"
+      with: "moollm-tech-pack:llm"
+    - original: "fluxx-4.0:dreams"
+      with: "moollm-tech-pack:simulation"
+      
+  # EXTRA COPIES
+  quantities:
+    "amsterdam-expansion:stroopwafel": 2      # Two stroopwafels!
+    "amsterdam-expansion:cheese_wheel": 2     # More cheese!
+    "fluxx-4.0:draw_2": 2                     # Keep game moving
+    
+  # VALIDATION SETTINGS
+  validation:
+    check_goal_achievability: true
+    warn_on_orphaned_goals: true
+    minimum_cards: 60
+
+# ═══════════════════════════════════════════════════════════════
+# PLAYERS
+# ═══════════════════════════════════════════════════════════════
+
+players:
+
+  don_hopkins:
+    name: "Don Hopkins"
+    seat: 1
+    starting_keeper: "don_hopkins"
+    
+  palm:
+    name: "Palm"
+    seat: 2
+    starting_keeper: "palm"
+    
+  bumblewick:
+    name: "Lord Bumblewick"
+    seat: 3
+    starting_keeper: "bumblewick"
+    
+  donna:
+    name: "Donna"
+    seat: 4
+    starting_keeper: "donna"
+
+# ═══════════════════════════════════════════════════════════════
+# GAME PARAMETERS
+# ═══════════════════════════════════════════════════════════════
+
+parameters:
+  model: "claude-opus-4"
+  temperature: 0.8
+  
+  # Dealer configuration
+  dealer:
+    starting_mode: "dramatic"
+    karma_tracking: true
+    
+  # Starting state
+  starting_rules:
+    - "amsterdam-expansion:gezelligheid"  # Sharing culture from the start
+    
+  # Layers enabled
+  layers:
+    rules_tracking: true
+    goal_tracking: true
+    internal_monologue: true
+    external_expression: true
+    tells: true
+    k_line_resonance: true
+
+# ═══════════════════════════════════════════════════════════════
+# EXPECTED DECK CONTENTS (approximate)
+# ═══════════════════════════════════════════════════════════════
+
+expected_composition:
+  # This is informational — actual composition computed at runtime
+  
+  keepers: ~35
+    # Base keepers minus replaced ones
+    # + Amsterdam keepers (minus coffee shop)
+    # + MOOLLM tech keepers (as replacements and additions)
+    # + 4 character keepers
+    
+  goals: ~15
+    # Base goals that work with our keepers
+    # + Amsterdam goals
+    # + MOOLLM goals (unlikely_friendship, the_gathering)
+    
+  actions: ~25
+    # Base actions
+    # + Amsterdam actions (kings_day)
+    # + MOOLLM actions (tip_the_dealer)
+    
+  new_rules: ~20
+    # Base rules
+    # + Amsterdam rules (gezelligheid, bike_lanes)
+    # + MOOLLM rules (chain_of_thought, etc)
+    # + Dealer mode cards (invoke_dramatic, invoke_karma)
+    
+  creepers: 0  # Explicitly excluded!
+  
+  total: ~95-100
+
+# ═══════════════════════════════════════════════════════════════
+# OUTPUT
+# ═══════════════════════════════════════════════════════════════
+
+output:
+  yml: true
+  md: true
+  deck_manifest: true  # Output final deck composition
+  
+  file_pattern: "curated-moollm-{NNN}"

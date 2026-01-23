@@ -31,6 +31,9 @@ keepers:
     image_prompt: "Neural network visualization, glowing connections, vast architecture"
     goals_featured_in: [artificial_intelligence, emergent_behavior, context_window]
     special_ability: "When you play this, you may look at the next 3 cards in the deck"
+    # DECK COMPOSITION
+    replaces: "fluxx-4.0:the_brain"  # Can substitute for The Brain
+    standalone_ok: true
     
   context_window:
     name: "Context Window"
@@ -71,6 +74,9 @@ keepers:
     flavor: "Are we running it, or is it running us?"
     image_prompt: "Characters in simulation, layers of reality, meta-awareness"
     goals_featured_in: [simulation_hypothesis, character_grounding, the_experiment]
+    # DECK COMPOSITION
+    replaces: "fluxx-4.0:dreams"  # Can substitute for Dreams
+    standalone_ok: true
     
   speed_of_light:
     name: "Speed of Light"
@@ -120,6 +126,9 @@ keepers:
     flavor: "The official currency of MOOLLM. A thousand NUTs make one."
     image_prompt: "Golden MOOLA coin with M insignia, economy flowing"
     goals_featured_in: [moollm_economy, staking_claims, value_creation]
+    # DECK COMPOSITION
+    replaces: "fluxx-4.0:money"  # Can substitute for Money
+    standalone_ok: true
 
 # GOALS — 10 cards
 
