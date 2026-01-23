@@ -900,3 +900,349 @@ card_memory:
       The story flows through the deck.
       Each card hands off to the next.
       The thread becomes narrative.
+
+# ═══════════════════════════════════════════════════════════════
+# DECK GALLERIES — The deck as photo album
+# ═══════════════════════════════════════════════════════════════
+
+deck_galleries:
+
+  philosophy: |
+    Every card play can generate an image.
+    Every image gets mined for semantic properties.
+    The deck accumulates a VISUAL HISTORY.
+    
+    Now you can browse it like a photo album:
+    - "Show me all the games this deck played"
+    - "Show me every time Palm drew a card"
+    - "Show me all the cheese moments"
+    - "Show me images with tension detected"
+    - "Show me cards where someone was smiling"
+    
+    The deck is a curated gallery of memories.
+    Filter by game, person, card, emotion, tell, anything.
+
+  image_accumulation:
+    description: "Images attached to play events"
+    
+    structure: |
+      card:
+        play_history:
+          - game_id: "moollm-ultimate-001"
+            deal_id: 47
+            drawn_by: "palm"
+            
+            # Images generated for this event
+            images:
+              - id: "img-001-047-draw"
+                type: "draw_moment"
+                timestamp: "2026-01-23T15:42:00Z"
+                prompt_used: "Palm draws Stroopwafel, eyes lighting up..."
+                
+                # Mined properties (from image-mining skill)
+                mined:
+                  tells:
+                    - "slight smile"
+                    - "eyes crinkle"
+                    - "leaning forward"
+                  hands:
+                    - "reaching gesture"
+                    - "fingertips visible"
+                  atmosphere: "warm, anticipatory"
+                  emotions: ["delight", "recognition"]
+                  social_dynamics: "personal moment, others watching"
+                  k_line_resonance: ["comfort_food", "dutch_culture"]
+                  
+              - id: "img-001-047-play"
+                type: "play_moment"
+                timestamp: "2026-01-23T15:45:00Z"
+                prompt_used: "Palm plays Stroopwafel triumphantly..."
+                mined:
+                  tells: ["confident posture", "dramatic placement"]
+                  atmosphere: "triumphant"
+                  emotions: ["satisfaction", "pride"]
+                  
+            next:
+              card: "amsterdam:cheese_wheel"
+              deal_id: 48
+
+  gallery_queries:
+    description: "Ways to browse the visual archive"
+    
+    by_game:
+      label: "Game slideshow"
+      description: "All images from a specific game, in order"
+      query: |
+        SELECT images FROM deck.play_history
+        WHERE game_id = {game_id}
+        ORDER BY deal_id, timestamp
+      example: |
+        "Show me the slideshow for game moollm-ultimate-001"
+        
+        → Returns 47 images in deal order
+        → Each image labeled with card, player, moment type
+        → Can play as animated slideshow or scroll gallery
+        
+    by_person:
+      label: "Player gallery"
+      description: "All images featuring a specific person"
+      query: |
+        SELECT images FROM deck.play_history
+        WHERE drawn_by = {player} OR played_by = {player}
+        ORDER BY game_id, deal_id
+      example: |
+        "Show me all photos of Palm"
+        
+        → Every draw moment, play moment, reaction shot
+        → Across all games
+        → "Palm's Greatest Hits"
+        
+    by_card:
+      label: "Card gallery"
+      description: "All images of a specific card being drawn/played"
+      query: |
+        SELECT images FROM {card}.play_history
+        ORDER BY game_id, deal_id
+      example: |
+        "Show me every time Stroopwafel was played"
+        
+        → The Stroopwafel's life in pictures
+        → Different players, different contexts
+        → "The Stroopwafel Chronicles"
+        
+    by_emotion:
+      label: "Emotion gallery"
+      description: "All images with a specific mined emotion"
+      query: |
+        SELECT images FROM deck.play_history
+        WHERE images.mined.emotions CONTAINS {emotion}
+      example: |
+        "Show me all moments of joy"
+        
+        → Every image where "joy" was detected
+        → Across all games, all players
+        → "Joy Collection"
+        
+    by_tell:
+      label: "Tell gallery"
+      description: "All images showing a specific tell"
+      query: |
+        SELECT images FROM deck.play_history
+        WHERE images.mined.tells CONTAINS {tell}
+      example: |
+        "Show me all the nervous moments"
+        "Show me when people lean forward"
+        "Show me hand-over-mouth moments"
+        
+    by_k_line:
+      label: "K-Line gallery"
+      description: "All images resonating with a concept"
+      query: |
+        SELECT images FROM deck.play_history
+        WHERE images.mined.k_line_resonance CONTAINS {concept}
+      example: |
+        "Show me all the dutch_culture moments"
+        "Show me emergence themes"
+        
+    by_atmosphere:
+      label: "Atmosphere gallery"
+      description: "All images with a specific mood"
+      query: |
+        SELECT images FROM deck.play_history
+        WHERE images.mined.atmosphere MATCHES {mood}
+      example: |
+        "Show me tense moments"
+        "Show me cozy vibes"
+        "Show me chaos"
+        
+    compound_queries:
+      label: "Complex filters"
+      description: "Combine multiple criteria"
+      examples:
+        - "Palm + joy + food keepers"
+        - "Don + stealing + smirking"
+        - "Bumblewick + creepers + anxiety tells"
+        - "Goals being completed + celebration"
+        - "Chaos incarnate dealer + dramatic timing"
+
+  slideshow_modes:
+    description: "How to present the galleries"
+    
+    modes:
+      chronological:
+        description: "In order of occurrence"
+        use_for: "Game replays, historical review"
+        
+      thematic:
+        description: "Grouped by theme/emotion"
+        use_for: "Mood boards, pattern discovery"
+        
+      comparative:
+        description: "Side-by-side across games/players"
+        use_for: "Same card, different contexts"
+        example: |
+          Left: Palm draws Stroopwafel (game 1)
+          Right: Don draws Stroopwafel (game 23)
+          "Same card, different stories"
+          
+      narrative:
+        description: "With generated captions/story"
+        use_for: "Shareable story format"
+        example: |
+          [Image: Palm's draw moment]
+          "Palm reached for the next card, not knowing
+          it would change everything..."
+          
+          [Image: Her reaction]
+          "The stroopwafel. Of course. She'd been
+          holding Cheese Wheel for three turns..."
+          
+      highlight_reel:
+        description: "Only memorable/marked moments"
+        use_for: "Best of" compilations"
+        filter: "memorable: true OR high_drama: true"
+        
+      player_spotlight:
+        description: "One player's journey through a game"
+        use_for: "Player profiles, character studies"
+        
+      card_biography:
+        description: "One card's life across all games"
+        use_for: "Card appreciation, deck lore"
+
+  auto_generated_albums:
+    description: "Albums the deck creates automatically"
+    
+    albums:
+      - name: "Greatest Hits"
+        filter: "memorable: true"
+        description: "Legendary moments across all games"
+        
+      - name: "The Cheese Collection"
+        filter: "card.category = 'food' AND card.name CONTAINS 'cheese'"
+        description: "Every cheese moment"
+        
+      - name: "Creeper Chronicles"
+        filter: "card.type = 'creeper'"
+        description: "All the times creepers appeared"
+        
+      - name: "Goal Completions"
+        filter: "event.result = 'completed_goal'"
+        description: "Triumphant moments"
+        
+      - name: "The Steals"
+        filter: "action = 'steal_keeper'"
+        description: "Every theft, every reaction"
+        
+      - name: "Palm's Portrait"
+        filter: "player = 'palm'"
+        description: "All images featuring Palm"
+        
+      - name: "Tension Gallery"
+        filter: "mined.atmosphere MATCHES 'tense|dramatic|nervous'"
+        description: "Edge-of-seat moments"
+        
+      - name: "Joy Collection"
+        filter: "mined.emotions CONTAINS 'joy'"
+        description: "Pure happiness"
+        
+      - name: "The Tells"
+        filter: "mined.tells IS NOT EMPTY"
+        description: "Body language anthology"
+
+  pie_menu_gallery_slices:
+    description: "Gallery access from card pie menu"
+    
+    slices:
+      card_photos:
+        label: "Photo album"
+        emoji: "📸"
+        position: "center_submenu"
+        action: "show_card_gallery"
+        description: |
+          All images of this card across all games.
+          "Show me the Stroopwafel's photo album"
+          
+      game_slideshow:
+        label: "Game slideshow"
+        emoji: "🎞️"
+        position: "center_submenu"
+        action: "play_game_slideshow"
+        description: |
+          Start a slideshow from this card's game.
+          Beginning at this card's moment.
+          
+      find_similar:
+        label: "Find similar moments"
+        emoji: "🔍"
+        position: "center_submenu"
+        action: "find_visually_similar"
+        description: |
+          Find other images with similar mined properties.
+          "Show me other moments that felt like this one"
+
+  export_formats:
+    description: "How to share galleries"
+    
+    formats:
+      - slideshow_video: "Animated MP4 with transitions"
+      - image_grid: "Contact sheet of all images"
+      - story_format: "Images with narrative captions"
+      - social_cards: "Single shareable images with context"
+      - pdf_album: "Printable photo book"
+      - yaml_manifest: "Machine-readable gallery data"
+      
+    sharing: |
+      "Export Palm's joy moments as a slideshow"
+      "Make a contact sheet of all cheese plays"
+      "Generate a story post for game 001"
+
+  example_session:
+    description: "Using the gallery system"
+    
+    dialogue: |
+      **You:** Show me the deck's photo album.
+      
+      **Deck:** I have 847 images from 47 games. 
+      
+      Featured albums:
+      - Greatest Hits (34 images)
+      - Palm's Portrait (156 images)  
+      - The Cheese Collection (67 images)
+      - Tension Gallery (89 images)
+      
+      Or search by: game, player, card, emotion, tell, k-line...
+      
+      **You:** Show me Palm + joy.
+      
+      **Deck:** Found 43 images of Palm in joyful moments.
+      
+      [Image 1] Game 001, Hand 7 — Drawing Stroopwafel
+      "Eyes lighting up, slight lean forward, recognition smile"
+      
+      [Image 2] Game 001, Hand 10 — Completing Gezellig Evening
+      "Full smile, hands raised, triumphant posture"
+      
+      [Image 3] Game 012, Hand 4 — Receiving Peace from Bumblewick
+      "Soft expression, head tilt, gratitude tells"
+      
+      ... (40 more)
+      
+      **You:** Now show me Don stealing things.
+      
+      **Deck:** Found 23 images of Don during steal actions.
+      
+      [Image 1] Game 001, Hand 8 — Stealing Palm's Bicycle
+      "Slight smirk, avoiding eye contact, quick hands"
+      
+      [Image 2] Game 015, Hand 12 — Stealing Cheese Wheel
+      "Direct eye contact with victim, confident posture"
+      
+      **You:** Make a slideshow of game 001.
+      
+      **Deck:** Creating slideshow: "MOOLLM Ultimate Game 001"
+      47 cards dealt, 94 images, runtime ~4 minutes
+      
+      [Generating transitions and captions...]
+      
+      Ready to play. Shall I narrate?
