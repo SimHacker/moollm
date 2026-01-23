@@ -1,5 +1,6 @@
 # Card Interaction System
 # Every card has a pie menu! Explore, learn, discover.
+# Cards REMEMBER. The deck tells stories.
 #
 # "Tell me more about this..."
 
@@ -20,6 +21,17 @@ card_interaction:
     
     The game becomes an interactive encyclopedia.
     Play is learning. Learning is play.
+    
+    AND CARDS REMEMBER.
+    
+    Each time you play, the deck accumulates history.
+    Who drew this card? Who played it? What happened?
+    Each card points to the next card dealt in that game.
+    Follow the thread and you can trace the entire narrative.
+    
+    The deck is a storyteller.
+    Each shuffle is a new chapter.
+    Each card carries the weight of all games before.
 
 # ═══════════════════════════════════════════════════════════════
 # THE PIE MENU
@@ -131,6 +143,9 @@ pie_menu:
       description: |
         A short narrative about this card.
         Origin story, a moment it created, or its perspective.
+        
+        NOW WITH MEMORY: If this card has play_history,
+        the story can draw from REAL events it participated in!
       prompt_template: |
         Tell a short story (2-3 paragraphs) about "{card_name}".
         
@@ -141,6 +156,12 @@ pie_menu:
         - A legend about this card among players
         
         Flavor: {flavor}
+        
+        IF play_history exists, PREFER real events:
+        {play_history_summary}
+        
+        Ground the story in what ACTUALLY happened.
+        "Remember when Palm drew me on hand 7..."
         
     who_likes_this:
       label: "Who likes this card?"
@@ -512,3 +533,370 @@ visual_design:
     - "Screen reader labels"
     - "High contrast mode"
     - "Text-only fallback"
+
+# ═══════════════════════════════════════════════════════════════
+# CARD MEMORY — The Deck Remembers
+# ═══════════════════════════════════════════════════════════════
+
+card_memory:
+
+  philosophy: |
+    Individual cards remember EVERYTHING.
+    
+    Each card accumulates a play_history — a list of every game
+    it participated in, who drew it, who played it, what context
+    surrounded it. And crucially: what card came NEXT in the deal.
+    
+    This creates THREADED LINKED LISTS through the deck.
+    
+    Pick up any card and say "tell me your story" — it can recount
+    every hand it's been in. Follow the `next` pointers and you
+    can reconstruct the entire narrative of any past game.
+    
+    The deck is not just cards. It's a LIBRARY of stories,
+    indexed by which card you happen to pick up.
+    
+    "This card was drawn by Palm on hand 7. She held it for three
+    turns before playing it to complete Gezellig Evening. The next
+    card dealt was Cheese Wheel, drawn by Don, who immediately
+    stole Palm's Bicycle with it..."
+
+  memory_structure:
+    description: "Each card definition accumulates play events"
+    
+    schema: |
+      card:
+        id: "amsterdam:stroopwafel"
+        # ... normal card fields ...
+        
+        play_history:
+          # Array of play events, newest first
+          - game_id: "moollm-ultimate-001"
+            deal_id: 47  # Position in deal sequence
+            
+            drawn_by: "palm"
+            drawn_at: "hand_7"
+            drawn_context:
+              deck_remaining: 23
+              goals_in_play: ["gezellig_evening"]
+              
+            played_by: "palm"
+            played_at: "hand_10"
+            played_context:
+              action: "play_keeper"
+              result: "completed_goal"
+              goal_completed: "gezellig_evening"
+              
+            # THE THREAD — pointer to next card dealt
+            next:
+              card: "amsterdam:cheese_wheel"
+              deal_id: 48
+              
+            # Optional narrative color
+            narrative: "The stroopwafel was warm from sitting on Palm's coffee"
+            memorable: true
+            
+          - game_id: "don-solo-session-23"
+            deal_id: 12
+            # ... previous game's history ...
+
+  threading:
+    description: "Linked list through deal order"
+    
+    structure: |
+      Each play event has a `next` pointer:
+      
+      stroopwafel[game-001].next → cheese_wheel[game-001]
+      cheese_wheel[game-001].next → deep_thoughts[game-001]
+      deep_thoughts[game-001].next → draw_2[game-001]
+      ...
+      
+      Follow the chain and you reconstruct the game!
+      
+    traversal: |
+      # To trace a game from any card:
+      
+      function trace_game(card, game_id):
+        events = []
+        current = card.find_event(game_id)
+        
+        while current:
+          events.append(current)
+          if current.next:
+            next_card = lookup(current.next.card)
+            current = next_card.find_event(game_id)
+          else:
+            current = null  # End of deck
+            
+        return events
+        
+    multiple_games: |
+      The deck carries MANY threads — one per game played.
+      
+      stroopwafel.play_history:
+        - game: "moollm-ultimate-001", next → cheese_wheel
+        - game: "don-solo-23", next → bicycle
+        - game: "palm-practice-7", next → bread
+        
+      Each thread is independent. Same deck, different stories.
+
+  deck_as_storyteller:
+    description: "The deck narrates its own history"
+    
+    capabilities:
+      - "Recount any game from start to finish"
+      - "Highlight memorable moments"
+      - "Identify recurring patterns (same cards drawn by same player)"
+      - "Note streaks and coincidences"
+      - "Remember legendary plays"
+      
+    narrative_example: |
+      **You:** Tell me about this deck.
+      
+      **The Deck:**
+      
+      I have been shuffled 47 times. I have seen 312 hands played.
+      
+      My most dramatic game was moollm-ultimate-001. Palm drew the
+      Stroopwafel on hand 7 — she held it while the Gezelligheid rule
+      was in play, warming it on her coffee (she does that). Three turns
+      later, Don played YAML Jazz — the card that started everything.
+      
+      My luckiest card is the Cheese Wheel. It has completed 12 goals
+      in 47 games. Something about cheese.
+      
+      My most stolen card is Bicycle. Every game. Someone steals the
+      Bicycle. Usually Don. He can't help himself.
+      
+      I remember when Bumblewick drew his first Creeper — Alignment
+      Failure, hand 4, game 23. He made that little buzzing sound.
+      Palm traded him Peace, and he calmed down.
+      
+      Every shuffle is a new story. I carry them all.
+
+  memory_slices:
+    description: "Additional pie menu slices for card memory"
+    
+    slices:
+      my_history:
+        label: "My history"
+        emoji: "📜"
+        position: "center_submenu"
+        action: "show_card_history"
+        description: |
+          List all games this card participated in.
+          Who drew it, who played it, what happened.
+        prompt_template: |
+          Show me the play history for "{card_name}":
+          
+          For each game, show:
+          - Game ID and date
+          - Who drew this card
+          - Who played it
+          - What resulted (goal completed? stolen? discarded?)
+          - Any memorable context
+          
+          Show most recent first. Highlight memorable moments.
+          
+      trace_forward:
+        label: "What came next?"
+        emoji: "➡️"
+        position: "center_submenu"
+        action: "follow_thread"
+        description: |
+          Follow the deal thread forward from this card.
+          "What card was dealt after me in game X?"
+        prompt_template: |
+          In game {game_id}, what happened after {card_name} was dealt?
+          
+          Follow the thread:
+          - Next card dealt
+          - Who drew it
+          - What they did with it
+          - Continue for 5 cards or until interesting event
+          
+      trace_backward:
+        label: "What came before?"
+        emoji: "⬅️"
+        position: "center_submenu"
+        action: "reverse_thread"
+        description: |
+          Trace backward through deal order.
+          "What card was dealt before me?"
+          (Requires reverse index)
+          
+      legendary_moments:
+        label: "Legendary moments"
+        emoji: "⭐"
+        position: "center_submenu"
+        action: "show_memorable"
+        description: |
+          This card's most memorable plays across all games.
+        prompt_template: |
+          What are {card_name}'s most legendary moments?
+          
+          Look through play_history for events marked "memorable: true"
+          or events with dramatic outcomes:
+          - Goal completions
+          - Crucial steals
+          - Surprising draws at perfect moments
+          - Dramatic reversals
+          
+          Tell each story briefly but vividly.
+          
+      game_reconstruction:
+        label: "Reconstruct game..."
+        emoji: "🎬"
+        position: "center_submenu"
+        action: "narrate_game"
+        description: |
+          Pick a game from this card's history and reconstruct
+          the entire game narrative by following threads.
+        prompt_template: |
+          Reconstruct game {game_id} starting from {card_name}.
+          
+          Follow the deal thread through the entire game.
+          Narrate what happened — who drew what, who played what,
+          what rules changed, what goals came and went, who won.
+          
+          Make it a STORY, not a log. The deck remembers drama.
+
+  memory_accumulation:
+    description: "How history gets written"
+    
+    when_recorded:
+      - "Card is dealt → record draw event"
+      - "Card is played → update event with play info"
+      - "Card causes effect → note in context"
+      - "Game ends → close event, mark memorable moments"
+      
+    what_gets_recorded:
+      always:
+        - "game_id"
+        - "deal_id (position in deal sequence)"
+        - "drawn_by"
+        - "drawn_at (which hand)"
+        - "next pointer"
+        
+      on_play:
+        - "played_by"
+        - "played_at"
+        - "action taken"
+        - "immediate result"
+        
+      optional:
+        - "narrative color (LLM-generated flavor)"
+        - "memorable flag"
+        - "player reactions"
+        - "tells exhibited"
+        
+    storage: |
+      History accumulates on the card DEFINITION.
+      Not on instances — on the source.
+      
+      This means the amsterdam-expansion.yml file grows over time.
+      Or: history is stored in a separate history.yml per deck.
+      Or: in a database that the LLM can query.
+      
+      The point is: the card TYPE remembers, not just instances.
+      When you pick up "Stroopwafel", you pick up ALL stroopwafel history.
+
+  thread_visualization:
+    description: "Visual representation of game threads"
+    
+    diagram: |
+      Game moollm-ultimate-001 thread:
+      
+      ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+      │ Stroopwafel  │ ──► │ Cheese Wheel │ ──► │ Deep Thoughts│ ──►
+      │ deal_id: 47  │     │ deal_id: 48  │     │ deal_id: 49  │
+      │ drawn: Palm  │     │ drawn: Don   │     │ drawn: Bumble│
+      └──────────────┘     └──────────────┘     └──────────────┘
+      
+      ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+      │ Draw 2       │ ──► │ YAML Jazz    │ ──► │ Peace        │ ──►
+      │ deal_id: 50  │     │ deal_id: 51  │     │ deal_id: 52  │
+      │ drawn: Klaus │     │ drawn: Don   │     │ drawn: Palm  │
+      └──────────────┘     └──────────────┘     └──────────────┘
+      
+      ... (continues through entire deck)
+      
+      Each box is a card. Each arrow is the "next" pointer.
+      The chain tells the story.
+      
+    navigation: |
+      UI could show this as:
+      - Linear timeline (scroll through game)
+      - Thread view (jump between cards)
+      - Story mode (narrated walkthrough)
+      - Highlights only (memorable moments)
+
+  collective_memory:
+    description: "Statistics and patterns across all games"
+    
+    deck_level_stats:
+      - "Total games played: 47"
+      - "Total hands dealt: 312"
+      - "Most drawn card: Peace (89 times)"
+      - "Least drawn card: Creeper War (3 times)"
+      - "Most goals completed by: Cheese Wheel (12)"
+      - "Most stolen: Bicycle (23 times)"
+      - "Longest held without playing: YAML Jazz, 7 hands, game 23"
+      
+    pattern_detection:
+      - "Palm always holds food keepers"
+      - "Don goes for Cheese + Bread combo"
+      - "Bumblewick attracts Creepers (17% vs expected 11%)"
+      - "Klaus rarely plays Actions immediately"
+      
+    narratives_generated:
+      - "The Legendary Cheese Heist (game 34)"
+      - "Palm's Perfect Storm (game 41)"
+      - "The Time Everyone Had Creepers (game 12)"
+      
+    prompt_template: |
+      Analyze this deck's collective memory:
+      
+      Look for:
+      - Recurring patterns (who draws what)
+      - Unusual streaks or coincidences
+      - Legendary moments worth naming
+      - Player tendencies revealed by history
+      - Cards that "want" to be together
+      
+      Make the deck feel like it has a PERSONALITY.
+
+  example_story_handoff:
+    description: "How cards hand off storytelling"
+    
+    scenario: |
+      You ask Stroopwafel: "What happened in game 001?"
+      
+      **Stroopwafel:**
+      "I was dealt on hand 7 to Palm. She was already holding
+      Cheese Wheel and had Gezelligheid in play. I could feel
+      where this was going..."
+      
+      **You:** "What happened next?"
+      
+      **Stroopwafel:**
+      "Next dealt was Cheese Wheel — but wait, Palm already had
+      that one. This was a DIFFERENT Cheese Wheel going to Don.
+      He immediately looked at Palm's keepers. Here, let Cheese
+      Wheel tell you what happened next..."
+      
+      **Cheese Wheel (Don's copy):**
+      "Don drew me on hand 8. He saw Palm had the Bicycle and
+      a Stroopwafel, and knew she was close to Gezellig Evening.
+      So he played me to steal her Bicycle instead of keeping me.
+      Brutal, but effective. Ask the Bicycle what happened next..."
+      
+      **Bicycle:**
+      "I was stolen on hand 8. Moving from Palm to Don. She made
+      that little sigh — she does that. But she drew Peace next,
+      which let her play the Stroopwafel with confidence. The
+      next card dealt was Peace, in fact. Let Peace tell you..."
+      
+      The story flows through the deck.
+      Each card hands off to the next.
+      The thread becomes narrative.
