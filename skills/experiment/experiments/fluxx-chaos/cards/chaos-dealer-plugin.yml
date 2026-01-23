@@ -35,9 +35,7 @@ plugin:
       - APPLY_NARRATIVE_WEIGHT
     requires_dealer_awareness: true
 
-# ═══════════════════════════════════════════════════════════════
 # DEALER MODE CARDS — Change how cards are selected
-# ═══════════════════════════════════════════════════════════════
 
 dealer_mode_cards:
 
@@ -118,9 +116,7 @@ dealer_mode_cards:
     replaces: "dealer_mode"
     warning: "This cannot be undone easily"
 
-# ═══════════════════════════════════════════════════════════════
 # DEALER MODIFIER CARDS — Adjust dealer behavior
-# ═══════════════════════════════════════════════════════════════
 
 dealer_modifier_cards:
 
@@ -203,9 +199,7 @@ dealer_modifier_cards:
     image_prompt: "Dealer being spun on cosmic roulette wheel, modes orbiting"
     chaos_level: "high"
 
-# ═══════════════════════════════════════════════════════════════
 # CREEPERS — Cards that affect dealer negatively
-# ═══════════════════════════════════════════════════════════════
 
 creepers:
 
@@ -241,9 +235,7 @@ creepers:
     flavor: "The dealer remembers that time you..."
     image_prompt: "Skull-faced dealer pointing accusingly, ironic grin"
 
-# ═══════════════════════════════════════════════════════════════
 # GOALS — Win conditions involving dealer mechanics
-# ═══════════════════════════════════════════════════════════════
 
 goals:
 
@@ -294,9 +286,7 @@ goals:
       - Reversing an earlier loss
       Any narrative echo qualifies.
 
-# ═══════════════════════════════════════════════════════════════
 # SPECIAL RULES — How this plugin integrates
-# ═══════════════════════════════════════════════════════════════
 
 integration_rules:
 
@@ -339,9 +329,7 @@ integration_rules:
         "Don, who has been preaching about generosity, draws
         'Steal a Keeper'. The universe winks."
 
-# ═══════════════════════════════════════════════════════════════
 # DEMONSTRATION NOTES
-# ═══════════════════════════════════════════════════════════════
 
 demonstration:
 

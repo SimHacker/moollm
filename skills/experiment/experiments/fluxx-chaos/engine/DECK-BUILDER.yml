@@ -17,9 +17,7 @@ deck_builder:
     
     Think of it like a playlist, not an album.
 
-# ═══════════════════════════════════════════════════════════════
 # COMPOSITION MODES
-# ═══════════════════════════════════════════════════════════════
 
 modes:
 
@@ -61,9 +59,7 @@ modes:
       3. Everything else stays
     use_when: "Minor tweaks to standard setup"
 
-# ═══════════════════════════════════════════════════════════════
 # DECK CONFIGURATION SCHEMA
-# ═══════════════════════════════════════════════════════════════
 
 schema:
 
@@ -119,9 +115,7 @@ schema:
         flavor: "Made just for this game"
         # Full card definition inline
 
-# ═══════════════════════════════════════════════════════════════
 # CONFIGURATION EXAMPLES
-# ═══════════════════════════════════════════════════════════════
 
 examples:
 
@@ -266,9 +260,7 @@ examples:
       exclude:
         - "*:solo_remove:true"  # No cards that need removal for photos
 
-# ═══════════════════════════════════════════════════════════════
 # CARD REFERENCE SYNTAX
-# ═══════════════════════════════════════════════════════════════
 
 reference_syntax:
 
@@ -310,9 +302,7 @@ reference_syntax:
       - "*:solo_remove:true"       # Cards removed for solo play
       - "*:stackable:true"         # Stackable rules
 
-# ═══════════════════════════════════════════════════════════════
 # PLUGIN CARD ATTRIBUTES FOR COMPOSITION
-# ═══════════════════════════════════════════════════════════════
 
 card_attributes:
 
@@ -365,9 +355,7 @@ card_attributes:
       ```
     behavior: "Deck builder warns if included alone"
 
-# ═══════════════════════════════════════════════════════════════
 # DECK VALIDATION
-# ═══════════════════════════════════════════════════════════════
 
 validation:
 
@@ -410,7 +398,6 @@ validation:
   output:
     format: |
       Deck Validation Report
-      ═══════════════════════════════════════════
       Total Cards: 127
       
       By Type:
@@ -431,9 +418,7 @@ validation:
       
       Deck is VALID for play.
 
-# ═══════════════════════════════════════════════════════════════
 # RUNTIME COMPOSITION
-# ═══════════════════════════════════════════════════════════════
 
 runtime:
 
@@ -463,9 +448,7 @@ runtime:
     replacement: "Replaced card removed, replacement added"
     both_excluded_included: "Exclude wins"
 
-# ═══════════════════════════════════════════════════════════════
 # SHORTHAND PRESETS
-# ═══════════════════════════════════════════════════════════════
 
 presets:
 

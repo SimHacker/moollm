@@ -22,9 +22,7 @@ card_object_model:
     
     It's turtles all the way down. And each turtle can have a hat.
 
-# ═══════════════════════════════════════════════════════════════
 # THE THREE LAYERS
-# ═══════════════════════════════════════════════════════════════
 
 layers:
 
@@ -145,9 +143,7 @@ layers:
           state:
             k_line_resonance: 1.0  # Don recognized his own ideology
 
-# ═══════════════════════════════════════════════════════════════
 # YAML DATA ISLANDS — Cards in Conversation
-# ═══════════════════════════════════════════════════════════════
 
 yaml_data_islands:
 
@@ -236,9 +232,7 @@ yaml_data_islands:
       
       The other players feel the history radiating from it.
 
-# ═══════════════════════════════════════════════════════════════
 # INHERITANCE MODEL
-# ═══════════════════════════════════════════════════════════════
 
 inheritance:
 
@@ -286,9 +280,7 @@ inheritance:
     
     1. Check instance → true ✓
 
-# ═══════════════════════════════════════════════════════════════
 # EMBEDDING IN GAME STATE
-# ═══════════════════════════════════════════════════════════════
 
 embedding:
 
@@ -372,9 +364,7 @@ embedding:
     - "Easy to serialize, save, restore"
     - "Diff-friendly for tracking changes"
 
-# ═══════════════════════════════════════════════════════════════
 # DYNAMIC CARD CREATION
-# ═══════════════════════════════════════════════════════════════
 
 dynamic_creation:
 
@@ -459,9 +449,7 @@ dynamic_creation:
       
       This Goal now exists! It reflects the story being told.
 
-# ═══════════════════════════════════════════════════════════════
 # CARD IDENTITY
-# ═══════════════════════════════════════════════════════════════
 
 identity:
 
@@ -486,9 +474,7 @@ identity:
     - "Annotations travel with REFERENCE (your notes move with your card)"
     - "State is per INSTANCE (warm/not warm is about THIS one)"
 
-# ═══════════════════════════════════════════════════════════════
 # FULL MOOLLM CARD-SHIP
-# ═══════════════════════════════════════════════════════════════
 
 full_cardship:
 

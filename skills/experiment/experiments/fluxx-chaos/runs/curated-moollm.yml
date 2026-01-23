@@ -13,9 +13,7 @@ run_config:
     MOOLLM tech pack replaces key base cards for thematic consistency.
     No creepers (family friendly). Characters + food + philosophy.
 
-# ═══════════════════════════════════════════════════════════════
 # DECK COMPOSITION — The new way!
-# ═══════════════════════════════════════════════════════════════
 
 deck:
   composition_mode: "selective"  # Start empty, add only what we want
@@ -85,9 +83,7 @@ deck:
     warn_on_orphaned_goals: true
     minimum_cards: 60
 
-# ═══════════════════════════════════════════════════════════════
 # PLAYERS
-# ═══════════════════════════════════════════════════════════════
 
 players:
 
@@ -111,9 +107,7 @@ players:
     seat: 4
     starting_keeper: "donna"
 
-# ═══════════════════════════════════════════════════════════════
 # GAME PARAMETERS
-# ═══════════════════════════════════════════════════════════════
 
 parameters:
   model: "claude-opus-4"
@@ -137,9 +131,7 @@ parameters:
     tells: true
     k_line_resonance: true
 
-# ═══════════════════════════════════════════════════════════════
 # EXPECTED DECK CONTENTS (approximate)
-# ═══════════════════════════════════════════════════════════════
 
 expected_composition:
   # This is informational — actual composition computed at runtime
@@ -170,9 +162,7 @@ expected_composition:
   
   total: ~95-100
 
-# ═══════════════════════════════════════════════════════════════
 # OUTPUT
-# ═══════════════════════════════════════════════════════════════
 
 output:
   yml: true
