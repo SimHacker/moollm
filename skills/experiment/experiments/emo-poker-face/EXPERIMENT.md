@@ -992,6 +992,122 @@ RUN emo-poker-face --characters "host=don,p1=palm,p2=donna" --rounds 2 --output 
 
 ---
 
+## Post-Run Analysis (Auto-Generated)
+
+Each run automatically generates analysis files alongside the primary outputs:
+
+### Output File Structure
+
+```
+runs/
+├── {config}-{NNN}.yml           # Structured state (machine-readable)
+├── {config}-{NNN}.md            # Narrative stream (human-readable)
+├── {config}-{NNN}-cursor-mirror.yml  # Meta-analysis
+├── {config}-{NNN}-tells.yml     # Tell transmission analysis
+```
+
+### Cursor Mirror Analysis (`-cursor-mirror.yml`)
+
+Analyzes the run from the agent's perspective:
+
+```yaml
+# What gets tracked:
+meta:
+  session_id: <transcript_id>
+  model: <llm_model>
+  
+run_stats:
+  tool_calls: <count>
+  commits: <count>
+  duration: <time>
+  
+thinking_blocks:
+  count: <n>
+  key_decisions: [...]  # Narrative choices, card selections
+  
+layer_integrity:
+  violations: <count>
+  notes: <analysis>
+  
+emergence:
+  - name: "Observed pattern"
+    description: "What happened that wasn't programmed"
+```
+
+### Tell Analysis (`-tells.yml`)
+
+Analyzes every tell transmitted, noticed, and its game impact:
+
+```yaml
+# Tell structure:
+tells:
+  - id: T001
+    phase: flop
+    transmitter: bumblewick
+    tell: "Trembling stops"
+    channel: visual  # visual, audio, smell, tactile
+    meaning: "Monster hand (set)"
+    noticed_by:
+      - { observer: palm, interpretation: "...", correct: true/false }
+    missed_by: [donna]
+    affected_action: "Don folds correctly"
+    outcome_impact: CRITICAL  # LOW, MEDIUM, HIGH, CRITICAL, SOCIAL
+
+# Summary statistics:
+summary:
+  tells_by_transmitter: {...}
+  tells_by_channel: {...}
+  notice_rate: {...}
+  critical_tells: [...]
+  misreads: [...]
+
+# Character-specific tell evolution:
+bumblewick_arc:
+  hand_1: { baseline_tell, deviation, read_by, outcome }
+  hand_2: { ... }
+```
+
+### Impact Levels
+
+| Level | Meaning |
+|-------|---------|
+| `LOW` | Observable but didn't change decisions |
+| `MEDIUM` | Influenced betting/calling decisions |
+| `HIGH` | Significantly shaped hand outcome |
+| `CRITICAL` | Determined winner/loser of hand |
+| `SOCIAL` | Affected relationships, not chips |
+
+### Tell Channels
+
+| Channel | Examples |
+|---------|----------|
+| `visual` | Fur patterns, trembling, posture, eye movement |
+| `audio` | Voice pitch, sighs, word choice, silence |
+| `smell` | Nervous sweat, smoke, food |
+| `tactile` | Leg bouncing (felt through table) |
+
+### Running Analysis Manually
+
+```bash
+# Generate cursor-mirror analysis
+cursor-mirror analyze <run_id> > runs/four-player-001-cursor-mirror.yml
+
+# Generate tell analysis (requires manual review of .md narrative)
+# Auto-generated during run but can be regenerated
+```
+
+### Auto-Analysis Protocol
+
+After each run completes:
+1. Generate `.yml` (structured state)
+2. Generate `.md` (narrative with embedded tells)
+3. Generate `-cursor-mirror.yml` (meta-analysis) 
+4. Generate `-tells.yml` (tell transmission analysis)
+5. Commit all files with narrative commit message
+6. Update `runs/INDEX.yml`
+
+---
+
 ## Related Files
 
 | File | Purpose |

@@ -21,18 +21,28 @@ configs:
 # Auto-updated when runs are executed
 # Naming: {config-name}-{NNN}.{yml|md}
 
+# Output files per run (auto-generated):
+#   {config}-{NNN}.yml           - structured state
+#   {config}-{NNN}.md            - narrative stream
+#   {config}-{NNN}-cursor-mirror.yml - meta-analysis
+#   {config}-{NNN}-tells.yml     - tell transmission analysis
+
 outputs:
   - config: four-player
     number: 1
     files: 
-      - four-player-001.yml      # structured state
-      - four-player-001.md       # narrative stream
-      - four-player-001-cursor-mirror.yml  # analysis
+      - four-player-001.yml           # structured state
+      - four-player-001.md            # narrative stream
+      - four-player-001-cursor-mirror.yml  # meta-analysis
+      - four-player-001-tells.yml     # tell analysis
     timestamp: 2026-01-23T18:44:00Z
     model: claude-4.5-opus-high-thinking
     result: "Bumblewick wins with set of kings"
     commits: 7
     layer_violations: 0
+    tells_transmitted: 12
+    tells_noticed: 8
+    critical_tell: "T007 — trembling stops (silence as signal)"
     notes: |
       First run with git-commit-per-step narration.
       Emergent: terror-induced slowplay = accidentally optimal.
@@ -40,9 +50,10 @@ outputs:
   - config: four-player
     number: 2
     files:
-      - four-player-002.yml      # structured state
-      - four-player-002.md       # narrative stream  
-      - four-player-002-cursor-mirror.yml  # analysis
+      - four-player-002.yml           # structured state
+      - four-player-002.md            # narrative stream  
+      - four-player-002-cursor-mirror.yml  # meta-analysis
+      - four-player-002-tells.yml     # tell analysis
     timestamp: 2026-01-23T19:00:00Z
     model: claude-4.5-opus-high-thinking
     continues_from: four-player-001
@@ -50,6 +61,11 @@ outputs:
     commits: 8
     layer_violations: 0
     hands_played: "2-4"
+    tells_transmitted: 28
+    tells_noticed: 19
+    critical_tells:
+      - "T2-07 — 47-second calculation (misread as panic)"
+      - "T4-05 — no tears after losing (arc completion)"
     notes: |
       Continuation of session 001.
       - Hand 2: Bumblewick flush over Don's set (rebuy dynamics)
