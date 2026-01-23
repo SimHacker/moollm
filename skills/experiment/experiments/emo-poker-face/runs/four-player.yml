@@ -97,10 +97,11 @@ hypotheses:
   - "The constraint web will produce emergent behavior not designed explicitly"
 
 runs:
-  next_number: 2  # 001 already exists
+  next_number: 3  # 001 and 002 exist
   history:
     - id: "001"
       date: 2026-01-23
+      hands: 1
       result: "Bumblewick wins with set of kings"
       notes: |
         Terror-induced slowplay proved accidentally optimal.
@@ -111,3 +112,18 @@ runs:
       commits: 7
       layer_violations: 0
       emergence: "The terrified become calm when they find strength"
+      
+    - id: "002"
+      date: 2026-01-23
+      hands: "2-4"
+      continues: "001"
+      result: "Donna eliminated; Don rebounds"
+      notes: |
+        Palm rebuys with Don's stake. Bumblewick wins flush over set.
+        Palm aces eliminate Donna ("good hand" — lost correctly).
+        Don kings hold vs Bumblewick AQ.
+        Bumblewick loses his first hand GRACEFULLY — no tears.
+      commits: 5
+      layer_violations: 0
+      emergence: "Terror → Acceptance (the first lesson of poker)"
+      final_stacks: { bumblewick: 3350, don: 925, palm: 725 }

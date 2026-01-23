@@ -33,6 +33,23 @@ outputs:
     notes: |
       First run with git-commit-per-step narration.
       Emergent: terror-induced slowplay = accidentally optimal.
+      
+  - config: four-player
+    number: 2
+    files: [four-player-002.yml]
+    timestamp: 2026-01-23T19:00:00Z
+    model: claude-4.5-opus-high-thinking
+    continues_from: four-player-001
+    result: "Donna eliminated; game three-handed"
+    commits: 5
+    layer_violations: 0
+    hands_played: "2-4"
+    notes: |
+      Continuation of session 001.
+      - Hand 2: Bumblewick flush over Don's set (rebuy dynamics)
+      - Hand 3: Palm aces eliminate Donna
+      - Hand 4: Don kings hold vs Bumblewick AQ
+      Emergence: "Terror → Acceptance" (Bumblewick's graceful loss)
 # Example after runs:
 #   - config: whacky-eight
 #     number: 1
