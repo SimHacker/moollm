@@ -19,35 +19,35 @@ run:
     - bumblewick       # big blind
     - donna            # under the gun
 
-# INITIAL STATE
+# STEP 1: DEAL HOLE CARDS
 
 state:
-  round: 0
-  phase: "setup"
-  pot: 0
+  round: 1
+  phase: "preflop"
+  pot: 75  # blinds posted: 25 + 50
   community_cards: []
   
   characters:
     don-hopkins:
       stack: 1000
-      cards: []
+      cards: [Q♠, Q♦]  # pocket queens - solid
       status: active
-      mood: "warm, curious"
+      mood: "pleased, masking it"
     palm:
-      stack: 1000
-      cards: []
+      stack: 975  # posted 25 small blind
+      cards: [A♣, K♣]  # big slick suited - strong
       status: active
-      mood: "watchful, protective"
+      mood: "content shimmer"
     bumblewick:
-      stack: 1000
-      cards: []
+      stack: 950  # posted 50 big blind
+      cards: [K♥, K♠]  # POCKET KINGS - doesn't know what to do
       status: active
-      mood: "terrified (baseline)"
+      mood: "PANIC (good cards make it worse)"
     donna:
       stack: 1000
-      cards: []
+      cards: [7♦, 2♠]  # trash hand
       status: active
-      mood: "TREMENDOUS"
+      mood: "will bluff anyway"
       
   protocols:
     smoking:
