@@ -377,6 +377,228 @@ example_resolved:
     wings. Palm's frozen pipe smoke. Two creatures suspended in
     amber light, one witnessing the other's transformation.
 
+# STEP 3: SEMANTIC MINING (POST-GENERATION)
+
+step_3_mining:
+  name: "Multi-Look Semantic Mining"
+  purpose: "Extract gold, gems, and treasure from generated images"
+  
+  overview: |
+    After the visualizer generates an image, we MINE it multiple times —
+    each pass looking for different semantic treasures. Like panning for
+    gold with increasingly fine meshes.
+    
+    The camera was our PICKAXE for capturing the scene.
+    Now we swing it again, and again, extracting layers of meaning.
+
+  principle: |
+    "One eye sees objects. Two eyes see depth. Many eyes see truth."
+    
+    Different mining passes notice different things:
+    - Pass 1 might see "eight figures at a table"  
+    - Pass 2 sees "Palm's pipe smoke has stopped — he's reading someone"
+    - Pass 3 sees "Bumblewick's wings are still for the first time"
+    - Pass 4 sees "the composition echoes The Card Players by Cézanne"
+    
+    Each layer enriches the total understanding.
+
+  # THE MULTI-LOOK MINING PROTOCOL FOR EXPERIMENTS
+
+  mining_passes:
+  
+    pass_1_inventory:
+      name: "Scene Inventory"
+      focus: "objects, materials, characters, locations"
+      purpose: "What IS in this image? Basic census."
+      shopping_list:
+        - characters_present
+        - objects_visible
+        - cards_in_frame
+        - environment_elements
+        - dominant_colors
+      output: "{base-name}-mined-01-inventory.yml"
+      
+    pass_2_tells:
+      name: "Tell Extraction"
+      focus: "behavioral cues, body language indicators"
+      purpose: "What are the TELLS? The subtext made visible."
+      shopping_list:
+        - eye_direction     # Where is each character looking?
+        - posture_signals   # Leaning forward = engaged, back = confident
+        - gesture_state     # Hands: fidgeting, still, protective
+        - facial_micro      # Micro-expressions: doubt, confidence, fear
+        - breath_indicators # Palm's frozen pipe smoke
+        - anomalies         # Bumblewick's wings NOT buzzing = significant
+      cross_reference: "ref:runs/{run}-tells.yml"
+      output: "{base-name}-mined-02-tells.yml"
+      
+    pass_3_hands:
+      name: "Hand Analysis"
+      focus: "hands, props, card handling, objects held"
+      purpose: "Hands reveal intention. What are they holding? How?"
+      shopping_list:
+        - hand_positions    # On table, under chin, hiding cards
+        - grip_tension      # Relaxed, tight, trembling
+        - card_handling     # Fanning, shuffling, stacking
+        - props_in_hands    # Pipe, chips, drinks, cheese knife
+        - gestures          # Pointing, waving, defensive
+        - tells_from_hands  # Fidgeting = nervous, still = confident
+      output: "{base-name}-mined-03-hands.yml"
+      
+    pass_4_relationships:
+      name: "Social Dynamics"
+      focus: "spatial relationships, attention flows, power dynamics"
+      purpose: "Who's looking at whom? Who has power? Who's excluded?"
+      shopping_list:
+        - eye_contact_map   # Who's looking at whom
+        - attention_flows   # Where is collective attention
+        - spatial_proximity # Who's close, who's distant
+        - body_orientation  # Facing toward = aligned, away = opposed
+        - power_indicators  # Who takes space, who shrinks
+        - alliances_visible # Who sits together, who's isolated
+      output: "{base-name}-mined-04-social.yml"
+      
+    pass_5_k_line_resonance:
+      name: "K-Line Resonance"
+      focus: "character ideology, theme recognition"
+      purpose: "When do characters encounter their own ideologies as cards?"
+      shopping_list:
+        - ideology_matches  # Don plays YAML Jazz — resonance!
+        - character_cards   # Character Keepers in play
+        - theme_emergence   # What themes are surfacing?
+        - meta_moments      # Andy watching his game be played
+        - narrative_echoes  # When game mirrors character arcs
+      moollm_specific: true
+      output: "{base-name}-mined-05-klines.yml"
+      
+    pass_6_experiment_specific:
+      name: "Experiment-Specific Mining"
+      focus: "game state, card positions, rule stack"
+      purpose: "Game-specific details only visible in context"
+      shopping_list:
+        fluxx_specific:
+          - current_goal    # Goal card visible?
+          - rule_stack      # What rules appear active
+          - keeper_layout   # Keepers in front of each player
+          - hand_sizes      # Rough card counts
+          - creepers        # Any creepers visible
+          - chaos_level     # Overall table chaos assessment
+        poker_specific:
+          - chip_stacks     # Relative wealth
+          - betting_round   # Pre-flop, flop, turn, river
+          - pot_size        # Center pile estimation
+          - board_cards     # Community cards visible
+      output: "{base-name}-mined-06-experiment.yml"
+      
+    pass_7_atmosphere:
+      name: "Atmospheric Sensation"
+      focus: "mood, implied senses, phenomenology"
+      purpose: "What does it FEEL like to be there?"
+      shopping_list:
+        - mood_intensity    # Tense, celebratory, contemplative
+        - implied_sounds    # Chip clicks, card shuffles, silence
+        - implied_smells    # Cheese, pipe smoke, candle wax
+        - temperature       # Warm candlelight vs cold tension
+        - time_sense        # Frozen moment vs flow
+        - presence          # Being there quality
+      depth: "sensations"
+      output: "{base-name}-mined-07-atmosphere.yml"
+      
+    pass_8_art_historical:
+      name: "Art Historical Context"
+      focus: "composition, references, technique"
+      purpose: "What traditions does this image echo?"
+      shopping_list:
+        - composition       # Rule of thirds, golden ratio
+        - lighting_style    # Rembrandt, Vermeer, Caravaggio
+        - color_palette     # Named palette or art movement
+        - historical_echoes # "Reminiscent of Cézanne's Card Players"
+        - genre_markers     # Dutch Golden Age, Baroque, etc.
+      output: "{base-name}-mined-08-arthistory.yml"
+
+  # CONSOLIDATED OUTPUT
+
+  consolidated_mining:
+    file: "{base-name}-mined.yml"
+    structure: |
+      # Multi-Look Mining Results
+      # Image: {base-name}.png
+      # Source: {run} / {session} / {moment}
+      
+      passes_completed: 8
+      
+      # ═══════════════════════════════════════════════════════════
+      # PASS 1: SCENE INVENTORY
+      # ═══════════════════════════════════════════════════════════
+      
+      inventory:
+        characters: [...]
+        objects: [...]
+        # ...
+        
+      # ═══════════════════════════════════════════════════════════
+      # PASS 2: TELL EXTRACTION
+      # ═══════════════════════════════════════════════════════════
+      
+      tells:
+        palm:
+          pipe_smoke: "frozen — not breathing"
+          ears: "rotated forward"
+          confidence: 0.9
+        bumblewick:
+          wings: "STILL — first time ever"
+          posture: "upright — strong hand signal"
+          confidence: 0.85
+        # ...
+        
+      # ═══════════════════════════════════════════════════════════
+      # PASS 3: HAND ANALYSIS
+      # ═══════════════════════════════════════════════════════════
+      
+      hands:
+        # ...
+        
+      # ... continues through all passes ...
+      
+      # ═══════════════════════════════════════════════════════════
+      # SYNTHESIS
+      # ═══════════════════════════════════════════════════════════
+      
+      synthesis:
+        key_observations:
+          - "Palm has recognized Bumblewick's growth"
+          - "Power dynamic shifting — student rising"
+          - "Donna watching the exchange with calculation"
+        
+        narrative_beat: |
+          This is the moment Bumblewick became a player.
+          Palm sees it. We see Palm see it. 
+          The image captures a transformation.
+        
+        recommended_captions:
+          short: "Palm reads Bumblewick's first confident play"
+          long: "The smoke freezes. The wings stop. Recognition."
+          
+      exhausted: false
+      next_recommended_pass: "philosophical — mortality/growth themes"
+
+  # FEEDBACK LOOP TO NARRATIVE
+
+  feedback_loop:
+    description: |
+      Mining results can feed BACK into the narrative/simulation:
+      
+      1. Tell detection → Update character tell profiles
+      2. Relationship mapping → Confirm/refine social dynamics
+      3. K-line resonance → Flag for narrative moments
+      4. Missed details → Regenerate with corrections
+      
+    example: |
+      Mining revealed: "Donna is STANDING — power play tell activated"
+      
+      This confirms the tell from runs/four-player-001-tells.yml
+      and should be logged in the session narrative.
+
 # IMPLEMENTATION NOTES
 
 implementation:
@@ -391,7 +613,8 @@ implementation:
     skeletal: "{base-name}.yml"
     resolved: "{base-name}.txt"
     image: "{base-name}.png"
-    tells: "{base-name}-tells.yml"  # Optional post-analysis
+    mined: "{base-name}-mined.yml"     # Consolidated mining results
+    tells: "{base-name}-tells.yml"     # Tell-specific extraction (from pass 2)
     
   coherence_techniques:
     - "Repeat COHERENCE CONTEXT verbatim across series"
@@ -407,9 +630,270 @@ implementation:
     - "What instant are we freezing?"
     - "Why THIS moment, THIS angle?"
     
+  master_miner_mindset:
+    - "What did the FIRST pass miss?"
+    - "What tells are visible in posture?"
+    - "What are the hands doing?"
+    - "Who's looking at whom?"
+    - "Does this resonate with character ideologies?"
+    - "What would it FEEL like to be there?"
+    - "What art traditions does this echo?"
+    
   common_mistakes:
     - "Including backstory in resolved prompt (VISUAL ONLY)"
     - "Changing character descriptions between shots"
     - "Forgetting lighting consistency"
     - "Over-describing (let the image breathe)"
     - "Under-specifying tells and expressions"
+    - "Mining only ONCE (always multi-look!)"
+    - "Skipping hand analysis (hands reveal everything)"
+    - "Ignoring k-line resonance (that's the MOOLLM magic)"
+
+# EXAMPLE: FLUXX MOMENT — FULL MULTI-LOOK MINING
+
+example_fluxx_mining:
+  
+  context:
+    image: "H05-don-plays-yaml-jazz.png"
+    moment: "Hand 5 — Don plays the YAML Jazz Keeper"
+    source_run: "moollm-ultimate-001"
+    
+  pass_1_inventory:
+    characters_present:
+      - don_hopkins: "center, seated, playing a card"
+      - palm: "left, watching Don intently"
+      - bumblewick: "right, taking notes"
+      - donna: "background, standing, arms crossed"
+      - klaus_nomi: "far left, motionless"
+      - david_bowie: "right of center, smiling"
+      - peewee: "background, bouncing"
+      - andy_looney: "far right, observing"
+    objects_visible:
+      - cards: "~40 visible (hands + table)"
+      - cheese_board: "center table, partially depleted"
+      - candles: "3 lit, warm glow"
+      - moola_stacks: "various sizes per player"
+    cards_identifiable:
+      - yaml_jazz: "being played by Don — saxophone emoji visible"
+      - current_goal: "partially visible — 'Emergent Behavior'"
+    dominant_colors:
+      - amber_gold: "#DAA520"  # Candlelight, cheese
+      - deep_blue: "#1E3A5F"  # Background shadows
+      - card_white: "#FAFAFA" # Cards catching light
+      
+  pass_2_tells:
+    don_hopkins:
+      eyes: "looking down at card with recognition"
+      hands: "gentle placement — reverence"
+      posture: "leaning forward slightly"
+      tell_active: "cheese_knife touch (confident)"
+      confidence: 0.9
+      notes: "He knows this card. It's HIS ideology."
+    palm:
+      ears: "rotated forward — maximum attention"
+      pipe_smoke: "curling upward — breathing, interested"
+      eyes: "on Don, not the card"
+      tell_active: "reading Don's reaction, not the play"
+      confidence: 0.85
+    bumblewick:
+      wings: "slow buzz — processing"
+      posture: "leaning in to see"
+      hands: "tiny notebook, writing"
+      tell_active: "taking notes on significant moment"
+      confidence: 0.8
+    donna:
+      posture: "STANDING — power position"
+      arms: "crossed — defensive or judging"
+      eyes: "scanning other players"
+      tell_active: "calculating, not playing"
+      confidence: 0.85
+    klaus_nomi:
+      movement: "none — absolute stillness"
+      expression: "unreadable"
+      word_count_this_image: 0
+      tell_active: "silence IS the tell"
+      confidence: 0.7
+    david_bowie:
+      expression: "knowing smile"
+      posture: "relaxed, one eyebrow raised"
+      eye: "heterochromia visible in candlelight"
+      tell_active: "persona recognition — sees the meta"
+      confidence: 0.8
+    peewee:
+      movement: "bouncing in seat"
+      expression: "DELIGHTED"
+      hands: "pointing at the card"
+      tell_active: "about to say HA HA"
+      confidence: 0.95
+    andy_looney:
+      expression: "subtle smile"
+      posture: "leaning back, observing"
+      hands: "steepled"
+      tell_active: "designer watching his game played"
+      confidence: 0.9
+      notes: "Meta-observation mode activated"
+      
+  pass_3_hands:
+    don_hopkins:
+      left_hand: "holding card gently between thumb and two fingers"
+      right_hand: "resting on cheese knife (tell)"
+      grip: "delicate — ceremonial"
+      notes: "Placing card like laying down truth"
+    palm:
+      paws: "wrapped around espresso cup"
+      pipe: "in mouth, not held"
+      notes: "Hands occupied — watching mode"
+    bumblewick:
+      hands: "both on notebook"
+      grip: "tight — anxious writing"
+      pen: "moving rapidly"
+      notes: "Documentation mode — capturing significance"
+    donna:
+      hands: "hidden under crossed arms"
+      notes: "Defensive — not showing cards or intentions"
+    klaus_nomi:
+      hands: "flat on table, symmetrical"
+      grip: "none — display position"
+      notes: "Hands as sculpture, not tools"
+    david_bowie:
+      left_hand: "holding cards loosely"
+      right_hand: "touching chin"
+      notes: "Contemplative pose, theatrical"
+    peewee:
+      hands: "pointing with both index fingers"
+      notes: "Can't contain excitement — full engagement"
+    andy_looney:
+      hands: "steepled under chin"
+      notes: "Classic observer position"
+      
+  pass_4_relationships:
+    attention_map:
+      primary_focus: "Don's card play"
+      secondary_focus: "Watching each other watch Don"
+    eye_contact_matrix:
+      don: "down at card"
+      palm: "at Don"
+      bumblewick: "at card"
+      donna: "scanning all"
+      klaus: "forward (undefined target)"
+      bowie: "at Don with smile"
+      peewee: "at card"
+      andy: "at the whole table (meta-observer)"
+    spatial_relationships:
+      inner_circle: [don, palm, bumblewick, bowie]
+      standing: [donna]
+      edges: [klaus, andy]
+      chaos_zone: [peewee]
+    power_dynamics:
+      center_of_attention: "Don (playing)"
+      power_stance: "Donna (standing)"
+      observer_position: "Andy (meta)"
+      student_position: "Bumblewick (notes)"
+      
+  pass_5_k_line_resonance:
+    moment_type: "IDEOLOGY RECOGNITION"
+    character: "don_hopkins"
+    card: "YAML Jazz"
+    resonance_level: 1.0  # Maximum — it's HIS ideology!
+    
+    internal_monologue: |
+      Don sees his own philosophy as a card.
+      "Comments carry semantic weight." He INVENTED this.
+      This is like seeing your reflection in the game.
+      
+    narrative_beat: |
+      The creator plays a card that represents his creation.
+      Andy watches. Both of them know what this means.
+      The game comments on itself.
+      
+    meta_observations:
+      - "Don plays YAML Jazz — meta-moment"
+      - "Andy watches — designer sees design played"
+      - "Bowie smiles — recognizes the performance"
+      - "Palm observes the OBSERVER — second-order meta"
+      
+  pass_6_experiment_specific:
+    game_state:
+      current_goal: "Emergent Behavior"
+      requires: [llm, emergence]
+      don_status: "Has neither — playing thematically, not optimally"
+    rule_stack_visible:
+      - "Gezelligheid (sharing culture)"
+      - "Chain of Thought (explain reasoning)"
+      - "At least 2 more (partially visible)"
+    keeper_counts:
+      don: 2
+      palm: 3
+      bumblewick: 1
+      donna: 2
+      klaus: 1
+      bowie: 3
+      peewee: 4  # Chaos accumulation
+      andy: 2
+    chaos_assessment: "medium-high — 6+ rules, Peewee energized"
+    
+  pass_7_atmosphere:
+    mood:
+      primary: "reverent wonder"
+      secondary: "building chaos"
+      intensity: 0.75
+    implied_sounds:
+      - "card placement (soft tap)"
+      - "Peewee's bouncing"
+      - "quill scratching (Bumblewick's notes)"
+      - "clock NOT ticking (suspended time)"
+    implied_smells:
+      - "sharp cheddar (cheese board)"
+      - "pipe tobacco (Palm)"
+      - "candle wax (amber/honey)"
+      - "old paper (cards)"
+    temperature: "warm — candlelight and bodies"
+    time_sense: "frozen moment — everyone processing significance"
+    
+  pass_8_art_historical:
+    composition: "circular focus with standing figure breaking frame"
+    lighting: "Rembrandt-style — single source, dramatic shadows"
+    palette: "Dutch Golden Age tavern scene meets modern"
+    historical_echoes:
+      - "Cézanne's Card Players (grouped tension)"
+      - "Vermeer's window light (concentrated glow)"
+      - "Caravaggio's chiaroscuro (dramatic darks)"
+    unique_elements:
+      - "Standing figure (Donna) breaks painting tradition"
+      - "Multiple species at table — surrealist edge"
+      - "Cards as sacred objects — devotional quality"
+      
+  synthesis:
+    key_discoveries:
+      - "K-Line resonance: Don plays his own ideology"
+      - "Meta-layer: Andy watches the game he designed"
+      - "Tell cascade: Palm reads Don, Bowie reads the room"
+      - "Donna's standing position signals calculation"
+      - "Bumblewick documenting = student witnessing master"
+      
+    narrative_significance: |
+      This is the moment MOOLLM becomes self-aware within the game.
+      The creator plays a card that represents creation itself.
+      Everyone reacts according to their relationship with meaning.
+      
+    recommended_captions:
+      short: "Don plays YAML Jazz. The game sees itself."
+      long: |
+        Comments carry semantic weight. The card says so.
+        Don knows. Andy knows. Palm watches them both know.
+        The cheese knife doesn't move.
+        
+    mining_notes: |
+      RICH LODE. This image contains:
+      - Material resources (objects, cards, cheese)
+      - Tell data (8 characters, all displaying)
+      - Relationship mapping (attention flows)
+      - K-line activation (maximum resonance)
+      - Meta-commentary (game about games)
+      
+      Recommended follow-up:
+      - Philosophical pass on "creation recognizing itself"
+      - Comparative mining with H04 (before) and H06 (after)
+      - Tell calibration from this high-signal moment
+      
+    exhausted: false
