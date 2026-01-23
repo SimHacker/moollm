@@ -1,0 +1,415 @@
+# Visual Prompt Synthesis Pattern
+# Two-step coherent image generation for experiments with characters and scenes
+# Maximizes visual coherency across a series of related images
+
+pattern:
+  id: "visual-prompt-synthesis"
+  name: "Two-Step Visual Prompt Synthesis"
+  category: "visualization"
+  version: "1.0"
+  
+  purpose: |
+    Generate coherent, evocative images from rich simulation context.
+    Ensures visual consistency across characters, rooms, and scenes.
+    Works like a master photographer planning every shot.
+
+# THE TWO-STEP PROTOCOL
+
+protocol:
+
+  overview: |
+    Step 1: SKELETAL PROMPT (YAML) — Capture everything with references
+    Step 2: RESOLVED PROMPT (TXT) — Synthesize focused visual narrative
+    
+    The skeletal prompt is RICH with context and pointers.
+    The resolved prompt is FOCUSED on what the camera sees.
+
+  step_1_skeletal:
+    name: "Skeletal YAML Prompt"
+    format: ".yml"
+    purpose: "Capture all visual aspects with references to source files"
+    
+    contents:
+      - "Metadata (photo ID, timestamp, source run/session)"
+      - "Scene references (room files, environment descriptions)"
+      - "Character references (all characters in frame)"
+      - "For each character: pose, expression, tells, props"
+      - "Camera specifications (angle, focus, framing)"
+      - "Lighting notes"
+      - "Narrative context (what just happened, emotional beat)"
+      - "Coherence references (other photos in series)"
+      
+    key_principle: |
+      Include EVERYTHING that might be relevant.
+      References are cheap — resolution happens in Step 2.
+      Better to over-specify than under-specify.
+
+  step_2_resolved:
+    name: "Resolved Text Prompt"
+    format: ".txt" 
+    purpose: "Synthesize focused visual narrative for image generation"
+    
+    process:
+      1: "Page in ALL referenced files"
+      2: "Extract only VISUAL information"
+      3: "Deduplicate repeated descriptions"
+      4: "Smooth into coherent narrative"
+      5: "Plan like a master photographer"
+      
+    structure:
+      - "COHERENCE CONTEXT (scene/character consistency notes)"
+      - "SCENE (environment, lighting, atmosphere)"
+      - "CHARACTERS (each one: appearance, pose, expression)"
+      - "COMPOSITION (camera angle, framing, focus)"
+      - "MOMENT (the specific instant being captured)"
+      
+    key_principle: |
+      Only what the CAMERA SEES.
+      No backstory, no internal thoughts, no references.
+      Pure visual poetry.
+
+# SKELETAL PROMPT TEMPLATE
+
+skeletal_template:
+
+  metadata:
+    photo_id: "unique-identifier"
+    series: "series-name"
+    sequence: 1  # Position in series
+    timestamp: "ISO timestamp or narrative moment"
+    
+  source:
+    run: "ref:runs/run-name-NNN.yml"
+    session: "ref:runs/run-name-NNN.md"
+    moment: "Description of what's happening"
+    hand: "Hand N, Phase X"  # For games
+    
+  scene:
+    room: "ref:path/to/ROOM.yml"
+    environment: "ref:path/to/SCENE.yml"
+    time_of_day: "afternoon"
+    lighting: "warm candlelight / harsh fluorescent / etc"
+    atmosphere: "tense / celebratory / contemplative"
+    background_elements:
+      - "element 1"
+      - "element 2"
+      
+  characters:
+    # List ALL characters in frame
+    
+    character_1:
+      ref: "ref:path/to/CHARACTER.yml"
+      in_frame: true  # Is this character visible?
+      position: "center / left / right / background"
+      
+      # Visual state at this moment
+      pose:
+        body: "leaning forward / relaxed / tense"
+        hands: "what hands are doing"
+        facing: "toward camera / away / profile"
+        
+      expression:
+        face: "smiling / frowning / neutral / specific emotion"
+        eyes: "where they're looking, what they convey"
+        mouth: "specific detail"
+        
+      tells:  # Character-specific tells active in this moment
+        - "tell 1 (ref:source)"
+        - "tell 2 (ref:source)"
+        
+      props:  # What they're holding/interacting with
+        - "prop 1"
+        - "prop 2"
+        
+      costume:
+        override: null  # Or specific costume for this shot
+        note: "any costume details different from default"
+        
+    character_2:
+      # Same structure...
+      
+  camera:
+    angle: "eye level / low angle / high angle / dutch angle"
+    shot_type: "close-up / medium / wide / establishing"
+    focus_subject: "character_1"
+    depth_of_field: "shallow (subject sharp, background blurred) / deep"
+    movement: "static / pan / zoom (for video, or implied motion)"
+    
+  lighting:
+    primary: "source and quality"
+    fill: "secondary light"
+    practical: "in-scene light sources (candles, lamps)"
+    mood: "what the lighting conveys"
+    
+  narrative_context:
+    just_happened: "What occurred immediately before"
+    emotional_beat: "The feeling of this moment"
+    significance: "Why this moment matters"
+    foreshadowing: "What this hints at (for photographer, not prompt)"
+    
+  coherence:
+    series_style: "Consistent style notes for all images in series"
+    previous_photos:
+      - "ref:photos/previous-photo.yml"
+    character_consistency:
+      - "character_1 always has X"
+      - "character_2 always wears Y"
+    environment_consistency:
+      - "Room always has Z"
+      - "Lighting is always warm amber"
+
+# RESOLVED PROMPT TEMPLATE
+
+resolved_template:
+
+  structure: |
+    ═══════════════════════════════════════════════════════════════
+    COHERENCE CONTEXT
+    ═══════════════════════════════════════════════════════════════
+    [Series consistency notes — repeated across all prompts in series]
+    - Environment constants
+    - Character appearance constants  
+    - Style/aesthetic constants
+    
+    ═══════════════════════════════════════════════════════════════
+    THE SCENE
+    ═══════════════════════════════════════════════════════════════
+    [Environment description — vivid, atmospheric, sensory]
+    
+    ═══════════════════════════════════════════════════════════════
+    THE CHARACTERS
+    ═══════════════════════════════════════════════════════════════
+    [Each character: appearance, current pose, expression, props]
+    
+    ═══════════════════════════════════════════════════════════════
+    THE COMPOSITION
+    ═══════════════════════════════════════════════════════════════
+    [Camera angle, framing, focus, depth of field]
+    
+    ═══════════════════════════════════════════════════════════════
+    THE MOMENT
+    ═══════════════════════════════════════════════════════════════
+    [The specific instant — action, expression, gesture, tension]
+
+  writing_style: |
+    Write like a master photographer describing their shot:
+    - Evocative but precise
+    - Sensory and atmospheric
+    - Focus on what's VISIBLE
+    - No backstory or internal thoughts
+    - Present tense, active voice
+    - Smooth narrative flow
+
+# EXAMPLE: SKELETAL PROMPT
+
+example_skeletal:
+  
+  file: "H03-palm-reads-bumblewick.yml"
+  
+  content: |
+    metadata:
+      photo_id: "H03-palm-reads-bumblewick"
+      series: "emo-poker-face-four-player"
+      sequence: 3
+      timestamp: "Hand 3, River"
+      
+    source:
+      run: "ref:runs/four-player-003.yml"
+      session: "ref:runs/four-player-003.md"
+      moment: "Palm has just noticed Bumblewick's first confident bet"
+      hand: "Hand 3, River phase"
+      
+    scene:
+      room: "ref:../../pub/stage/palm-nook/study/ROOM.yml"
+      environment: "ref:photos/SCENE.yml"
+      time_of_day: "late evening"
+      lighting: "warm candlelight with fireplace glow"
+      atmosphere: "intimate, tense moment of recognition"
+      background_elements:
+        - "Stone walls with amber light"
+        - "Pie menu board visible"
+        - "Other players in soft focus"
+        
+    characters:
+      
+      palm:
+        ref: "ref:characters/palm/CHARACTER.yml"
+        in_frame: true
+        position: "right-center"
+        
+        pose:
+          body: "Leaning back slightly, utterly still"
+          hands: "Pipe held motionless near mouth, forgotten"
+          facing: "Three-quarter toward Bumblewick"
+          
+        expression:
+          face: "Ancient knowing"
+          eyes: "Locked on Bumblewick, narrowed slightly"
+          mouth: "Hint of smile beneath whiskers"
+          
+        tells:
+          - "ref:runs/four-player-001-tells.yml#palm-ears (ears rotated forward)"
+          - "Pipe smoke has stopped — he's not breathing"
+          
+        props:
+          - "Carved meerschaum pipe"
+          - "Small stack of MOOLA"
+          
+      bumblewick:
+        ref: "ref:characters/bumblewick/CHARACTER.yml"
+        in_frame: true
+        position: "left-center"
+        
+        pose:
+          body: "Sitting UP for once, not hunched"
+          hands: "Pushing chips forward with unexpected certainty"
+          facing: "Toward center table"
+          
+        expression:
+          face: "Determined, almost defiant"
+          eyes: "Fixed on his chips, afraid to look at others"
+          mouth: "Set in firm line"
+          
+        tells:
+          - "ref:runs/four-player-003-tells.yml#bumblewick-posture (upright = strong hand)"
+          - "Wings NOT buzzing — unusual stillness"
+          
+        props:
+          - "Stack of chips being pushed"
+          - "Cards face-down on table"
+          
+    camera:
+      angle: "Slightly low, looking up at the moment"
+      shot_type: "Medium two-shot"
+      focus_subject: "Palm's face, Bumblewick in sharp secondary focus"
+      depth_of_field: "Medium — both characters sharp, background softened"
+      
+    lighting:
+      primary: "Candlelight from table center"
+      fill: "Fireplace warmth from right"
+      practical: "Candles visible on table"
+      mood: "Intimate, revelatory"
+      
+    narrative_context:
+      just_happened: "Bumblewick made his first confident bet"
+      emotional_beat: "Palm recognizing Bumblewick's growth"
+      significance: "The student becomes worthy"
+      
+    coherence:
+      series_style: "Warm amber tones, candlelit, intimate"
+      previous_photos:
+        - "ref:photos/H01-bumblewick-first-aces.yml"
+        - "ref:photos/H02-donna-stands.yml"
+      character_consistency:
+        - "Palm: Siamese cat, smoke-grey fur, meerschaum pipe, amber eyes"
+        - "Bumblewick: Bumblebee in waistcoat, tiny spectacles, perpetually worried"
+      environment_consistency:
+        - "Grotto: Stone walls, amber candlelight, carved table, pie menu visible"
+
+# EXAMPLE: RESOLVED PROMPT
+
+example_resolved:
+
+  file: "H03-palm-reads-bumblewick.txt"
+  
+  content: |
+    ═══════════════════════════════════════════════════════════════
+    COHERENCE CONTEXT — Emo Poker Face Series
+    ═══════════════════════════════════════════════════════════════
+    Setting: The Gezelligheid Grotto, a cozy underground pub carved 
+    from warm stone. Amber candlelight. A round table of aged oak 
+    with felt inlay. Pie menu chalkboard in background.
+    
+    Palm: Smoke-grey Siamese cat with knowing amber eyes. Wears 
+    nothing but carries a carved meerschaum pipe. Ancient, patient,
+    observant. Whiskers catch the candlelight.
+    
+    Bumblewick: Anxious bumblebee the size of a fist. Wears a tiny 
+    waistcoat with pocket watch. Round spectacles perch on fuzzy 
+    face. Wings usually buzz nervously.
+    
+    Style: Warm amber palette. Candlelit chiaroscuro. Intimate 
+    character study. Painterly quality with sharp focus on faces.
+    
+    ═══════════════════════════════════════════════════════════════
+    THE SCENE
+    ═══════════════════════════════════════════════════════════════
+    The Grotto at its most intimate. Late evening. Candles burn low,
+    pooling amber light on the felt table surface. Fireplace glow
+    warms the right side of the frame. Stone walls disappear into
+    soft shadow. The pie menu board is just visible in the background,
+    chalk text illegible but adding texture.
+    
+    ═══════════════════════════════════════════════════════════════
+    THE CHARACTERS
+    ═══════════════════════════════════════════════════════════════
+    PALM (right of center): The old Siamese cat has gone utterly 
+    still. His meerschaum pipe hangs forgotten near his mouth, smoke 
+    frozen in a thin vertical line — he's not even breathing. His 
+    amber eyes are locked on Bumblewick, narrowed slightly. Ears 
+    rotated forward in intense attention. The hint of a smile plays
+    beneath his whiskers. He's seeing something he's waited to see.
+    
+    BUMBLEWICK (left of center): For the first time, the anxious 
+    bumblebee sits UPRIGHT. His usual hunched posture is gone. His
+    tiny hands push a stack of chips forward with unexpected 
+    certainty. His expression is determined, almost defiant — jaw 
+    set in a firm line. But his eyes remain fixed on his chips,
+    afraid to look at anyone. Most remarkably: his wings are still.
+    No nervous buzzing. Just... presence.
+    
+    ═══════════════════════════════════════════════════════════════
+    THE COMPOSITION
+    ═══════════════════════════════════════════════════════════════
+    Medium two-shot from a slightly low angle, looking up at the
+    moment with respect. Palm on the right, Bumblewick on the left.
+    Both in sharp focus, background softened. The candlelight creates
+    a pool of intimacy around them. The other players exist only as
+    soft shadows at the edges.
+    
+    ═══════════════════════════════════════════════════════════════
+    THE MOMENT
+    ═══════════════════════════════════════════════════════════════
+    The instant of recognition. Palm's stillness is not boredom but
+    reverence. He's watching his student — the nervous little bee 
+    who couldn't bluff a blind man — make a confident play. The 
+    chips sliding across felt. The straightened spine. The still
+    wings. Palm's frozen pipe smoke. Two creatures suspended in
+    amber light, one witnessing the other's transformation.
+
+# IMPLEMENTATION NOTES
+
+implementation:
+
+  when_to_use:
+    - "Character simulation scenes (poker, Fluxx, any game)"
+    - "Session narrative illustrations"
+    - "Room and character portraits"
+    - "Any series of related images"
+    
+  file_organization:
+    skeletal: "{base-name}.yml"
+    resolved: "{base-name}.txt"
+    image: "{base-name}.png"
+    tells: "{base-name}-tells.yml"  # Optional post-analysis
+    
+  coherence_techniques:
+    - "Repeat COHERENCE CONTEXT verbatim across series"
+    - "Reference previous photos in skeletal prompts"
+    - "Maintain consistent character descriptions"
+    - "Lock environmental constants (lighting, palette, style)"
+    
+  master_photographer_mindset:
+    - "What does the camera SEE?"
+    - "Where is the light coming from?"
+    - "What's in focus? What's soft?"
+    - "What's the emotional temperature?"
+    - "What instant are we freezing?"
+    - "Why THIS moment, THIS angle?"
+    
+  common_mistakes:
+    - "Including backstory in resolved prompt (VISUAL ONLY)"
+    - "Changing character descriptions between shots"
+    - "Forgetting lighting consistency"
+    - "Over-describing (let the image breathe)"
+    - "Under-specifying tells and expressions"
