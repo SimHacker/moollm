@@ -1,0 +1,108 @@
+# chaos-eight — Fluxx Run Configuration
+#
+# All eight MOOLLM characters play Fluxx.
+# Maximum chaos meets maximum personalities.
+#
+# Outputs: chaos-eight-001.yml, chaos-eight-002.yml, etc.
+
+config:
+  name: "chaos-eight"
+  experiment: fluxx-chaos
+  created: 2026-01-23
+  author: don-hopkins
+  
+  description: |
+    The FULL cast plays Fluxx. Eight players, constant rule changes,
+    and every personality type colliding.
+    
+    Chaos spectrum:
+    - Control seekers: Palm, Klaus (both hate Play All)
+    - Chaos embracers: Leigh, Peewee (LOVE Play All)
+    - Adapters: Don, Bowie (flow with changes)
+    - Terrified: Bumblewick (fears everything)
+    - Aggressive: Donna (steals everything)
+
+character_binding:
+  host: don_hopkins
+  
+  players:
+    p1: palm                      # Ancient pattern recognition
+    p2: bumblewick_fantastipants  # Maximum terror
+    p3: donna_toadstool           # Steal Everything style
+    p4: david_bowie               # Persona per card type
+    p5: klaus_nomi                # Operatic stillness
+    p6: leigh_bowery              # Chaos art
+    p7: pee_wee_herman            # CARDS! HA HA!
+    
+  seating: clockwise_from_host
+
+model:
+  name: claude-4.5-opus-high-thinking
+  temperature: 0.8  # Higher for more chaos
+  max_tokens: 50000
+
+output:
+  format: both
+  include_evaluation: true
+  commit_each_step: true
+  commit_style: god_narration
+
+parameters:
+  deck: "standard"
+  creepers: true
+  
+  environment:
+    location: "Gezelligheid Grotto"
+    chaos_level: "maximum"
+    
+  character_adaptations:
+    
+    palm:
+      strategy: "Track all cards, predict goals"
+      chaos_response: "Accept with ancient calm"
+      tell: "Whiskers angle toward likely winner"
+      
+    bumblewick:
+      fears: ["play_all", "hand_limit_0", "steal_something", "trade_hands"]
+      growth_arc: "Discover joy in chaos"
+      tell: "Trembling when rules escalate"
+      
+    donna:
+      loves: ["steal_something", "taxation", "trade_hands"]
+      targets: [leigh, bumblewick]  # Rivalry priorities
+      tell: "Stands up before stealing"
+      
+    bowie:
+      personas:
+        ziggy: "Plays Actions with flair"
+        duke: "Plays Goals coldly"
+        berlin: "Plays New Rules clinically"
+      tell: "Persona shift reveals card type"
+      
+    klaus:
+      playstyle: "Perfect stillness"
+      tell: "Speaking = about to win"
+      chaos_response: "Stillness intensifies"
+      
+    leigh:
+      loves: ["chaos", "stealing_from_donna", "play_all"]
+      strategy: "Maximum disruption"
+      tell: "Costume changes between turns"
+      
+    peewee:
+      playstyle: "CARDS! I HAVE CARDS!"
+      strategy: "Random but lucky"
+      tell: "Announces everything"
+      note: "Will win by accident"
+
+hypotheses:
+  - "Klaus will win through stillness while everyone else creates chaos"
+  - "Leigh and Donna will feud via Steal Something targeting"
+  - "Peewee will accidentally trigger win conditions for others"
+  - "Bowie's persona shifts will become predictable tells"
+  - "Bumblewick will have a breakthrough moment of joy"
+  - "Palm will correctly predict the winner 3 turns early"
+
+runs:
+  next_number: 1
+  history: []

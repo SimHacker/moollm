@@ -1,0 +1,191 @@
+# Fluxx 4.0 New Rules
+# 24 cards — change how the game works
+# Source: looneylabs.com
+
+card_type: new_rule
+icon: "📜"
+play_rule: "Add to center. May replace conflicting rule."
+persist: true
+
+# Rule categories and conflict groups
+rule_categories:
+  draw_rules: [draw_2, draw_3, draw_4, draw_5]  # Mutually exclusive
+  play_rules: [play_2, play_3, play_4, play_all]  # Mutually exclusive
+  hand_limits: [hand_limit_0, hand_limit_1, hand_limit_2]  # Mutually exclusive
+  keeper_limits: [keeper_limit_2, keeper_limit_3, keeper_limit_4]  # Mutually exclusive
+
+cards:
+
+  # Draw rules (replace each other)
+  
+  draw_2:
+    name: "Draw 2"
+    category: "draw_rule"
+    replaces: "draw_rules"
+    effect: "Draw 2 cards per turn"
+    value: 2
+    
+  draw_3:
+    name: "Draw 3"
+    category: "draw_rule"
+    replaces: "draw_rules"
+    effect: "Draw 3 cards per turn"
+    value: 3
+    
+  draw_4:
+    name: "Draw 4"
+    category: "draw_rule"
+    replaces: "draw_rules"
+    effect: "Draw 4 cards per turn"
+    value: 4
+    
+  draw_5:
+    name: "Draw 5"
+    category: "draw_rule"
+    replaces: "draw_rules"
+    effect: "Draw 5 cards per turn"
+    value: 5
+    
+  # Play rules (replace each other)
+  
+  play_2:
+    name: "Play 2"
+    category: "play_rule"
+    replaces: "play_rules"
+    effect: "Play 2 cards per turn"
+    value: 2
+    
+  play_3:
+    name: "Play 3"
+    category: "play_rule"
+    replaces: "play_rules"
+    effect: "Play 3 cards per turn"
+    value: 3
+    
+  play_4:
+    name: "Play 4"
+    category: "play_rule"
+    replaces: "play_rules"
+    effect: "Play 4 cards per turn"
+    value: 4
+    
+  play_all:
+    name: "Play All"
+    category: "play_rule"
+    replaces: "play_rules"
+    effect: "Play ALL cards in hand each turn"
+    value: "all"
+    chaos_level: "maximum"
+    
+  # Hand limits (replace each other)
+  
+  hand_limit_0:
+    name: "Hand Limit 0"
+    category: "hand_limit"
+    replaces: "hand_limits"
+    effect: "No cards in hand between turns"
+    value: 0
+    timing: "Enforced at end of turn"
+    chaos_level: "high"
+    
+  hand_limit_1:
+    name: "Hand Limit 1"
+    category: "hand_limit"
+    replaces: "hand_limits"
+    effect: "Max 1 card in hand between turns"
+    value: 1
+    timing: "Enforced at end of turn"
+    
+  hand_limit_2:
+    name: "Hand Limit 2"
+    category: "hand_limit"
+    replaces: "hand_limits"
+    effect: "Max 2 cards in hand between turns"
+    value: 2
+    timing: "Enforced at end of turn"
+    
+  # Keeper limits (replace each other)
+  
+  keeper_limit_2:
+    name: "Keeper Limit 2"
+    category: "keeper_limit"
+    replaces: "keeper_limits"
+    effect: "Max 2 Keepers in play"
+    value: 2
+    
+  keeper_limit_3:
+    name: "Keeper Limit 3"
+    category: "keeper_limit"
+    replaces: "keeper_limits"
+    effect: "Max 3 Keepers in play"
+    value: 3
+    
+  keeper_limit_4:
+    name: "Keeper Limit 4"
+    category: "keeper_limit"
+    replaces: "keeper_limits"
+    effect: "Max 4 Keepers in play"
+    value: 4
+    
+  # Bonus rules (stack with others)
+  
+  double_agenda:
+    name: "Double Agenda"
+    category: "goal_modifier"
+    replaces: null  # Doesn't replace anything
+    effect: "Two Goals can be in play. Either one can win."
+    
+  first_play_random:
+    name: "First Play Random"
+    category: "play_modifier"
+    replaces: null
+    effect: "First card played each turn must be random"
+    
+  no_hand_bonus:
+    name: "No-Hand Bonus"
+    category: "bonus"
+    replaces: null
+    effect: "If you start turn with no cards, draw 3"
+    
+  poor_bonus:
+    name: "Poor Bonus"
+    category: "bonus"
+    replaces: null
+    effect: "If you have fewest Keepers, draw 1 extra"
+    
+  rich_bonus:
+    name: "Rich Bonus"
+    category: "bonus"
+    replaces: null
+    effect: "If you have most Keepers, play 1 extra"
+    
+  inflation:
+    name: "Inflation"
+    category: "modifier"
+    replaces: null
+    effect: "All numbers on cards increased by 1"
+    
+  party_bonus:
+    name: "Party Bonus"
+    category: "bonus"
+    replaces: null
+    effect: "If Party Keeper is in play, everyone draws 1 extra"
+    
+  get_on_with_it:
+    name: "Get On With It!"
+    category: "turn_modifier"
+    replaces: null
+    effect: "If no Goal, can discard entire hand and redraw"
+    
+  silver_lining:
+    name: "Silver Lining"
+    category: "creeper_modifier"
+    replaces: null
+    effect: "If you have a Creeper but no Keepers, draw 2 extra"
+    
+  you_also_need_a_potato:
+    name: "You Also Need a Potato"
+    category: "goal_modifier"
+    replaces: null
+    effect: "To win, must also have Radioactive Potato creeper"
+    creeper_related: true

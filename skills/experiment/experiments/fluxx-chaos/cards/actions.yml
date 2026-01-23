@@ -1,0 +1,152 @@
+# Fluxx 4.0 Actions
+# 22 cards — one-time effects
+# Source: looneylabs.com
+
+card_type: action
+icon: "⚡"
+play_rule: "Do what it says, then discard"
+persist: false
+
+cards:
+
+  # Draw/Play Actions
+  
+  jackpot:
+    name: "Jackpot!"
+    effect: "Draw 3 cards"
+    drama: "high"
+    
+  discard_and_draw:
+    name: "Discard and Draw"
+    effect: "Discard your hand, draw same number"
+    drama: "medium"
+    
+  draw_2_and_use_em:
+    name: "Draw 2 and Use 'Em"
+    effect: "Draw 2 cards, play them both immediately"
+    note: "These plays don't count toward your Play total"
+    drama: "high"
+    cascade: true
+    
+  draw_3_play_2:
+    name: "Draw 3, Play 2 of Them"
+    effect: "Draw 3 cards, play 2, discard 1"
+    note: "These plays don't count toward your Play total"
+    drama: "high"
+    cascade: true
+    
+  # Sharing/Trading Actions
+  
+  everybody_gets_1:
+    name: "Everybody Gets 1"
+    effect: "Draw cards equal to player count, deal 1 to each"
+    social: true
+    
+  exchange_keepers:
+    name: "Exchange Keepers"
+    effect: "Trade one Keeper with another player"
+    social: true
+    target: "mutual"
+    
+  rotate_hands:
+    name: "Rotate Hands"
+    effect: "All players pass hands in direction of play"
+    social: true
+    chaos_level: "high"
+    
+  trade_hands:
+    name: "Trade Hands"
+    effect: "Trade your entire hand with another player"
+    social: true
+    target: "chosen"
+    drama: "high"
+    
+  # Stealing Actions
+  
+  steal_something:
+    name: "Steal Something"
+    effect: "Take any Keeper from another player"
+    social: true
+    target: "chosen"
+    rivalry: "triggers"
+    drama: "high"
+    
+  use_what_you_take:
+    name: "Use What You Take"
+    effect: "Steal a card from hand, play it immediately"
+    social: true
+    target: "chosen"
+    drama: "very_high"
+    
+  # Destruction Actions
+  
+  lets_simplify:
+    name: "Let's Simplify"
+    effect: "Discard all New Rules except Basic Rules"
+    drama: "varies"
+    control_seeker: "loves"
+    chaos_embracer: "hates"
+    
+  rules_reset:
+    name: "Rules Reset"
+    effect: "Discard ALL New Rules (back to Basic)"
+    drama: "maximum"
+    control_seeker: "loves"
+    chaos_embracer: "hates"
+    
+  trash_a_new_rule:
+    name: "Trash a New Rule"
+    effect: "Discard one New Rule of your choice"
+    target: "any_rule"
+    
+  trash_something:
+    name: "Trash Something"
+    effect: "Discard any Keeper or Creeper in play"
+    target: "any_keeper_or_creeper"
+    
+  creeper_sweeper:
+    name: "Creeper Sweeper"
+    effect: "Discard any one Creeper in play"
+    target: "any_creeper"
+    creeper_related: true
+    
+  its_trash_day:
+    name: "It's Trash Day"
+    effect: "All players discard one Keeper (if able)"
+    social: true
+    drama: "high"
+    
+  # Special Actions
+  
+  lets_do_that_again:
+    name: "Let's Do That Again"
+    effect: "Pick an Action from discard pile, play it"
+    note: "Does not count as one of your plays"
+    recycle: true
+    
+  no_limits:
+    name: "No Limits"
+    effect: "Discard all Hand and Keeper Limit rules"
+    target: "limit_rules"
+    
+  take_another_turn:
+    name: "Take Another Turn"
+    effect: "Take an extra turn after this one"
+    drama: "high"
+    
+  taxation:
+    name: "Taxation"
+    effect: "Take 1 card at random from each other player"
+    social: true
+    drama: "medium"
+    
+  mix_it_all_up:
+    name: "Mix It All Up"
+    effect: "Gather all Keepers, shuffle, redeal equally"
+    social: true
+    chaos_level: "maximum"
+    
+  todays_special:
+    name: "Today's Special!"
+    effect: "Draw from discard pile until you get a Keeper, play it"
+    special: true

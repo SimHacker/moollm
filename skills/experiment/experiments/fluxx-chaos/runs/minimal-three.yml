@@ -1,0 +1,52 @@
+# minimal-three — Fluxx Run Configuration
+#
+# Quick test with three players: chaos spectrum
+# Don (adapter), Palm (control), Peewee (chaos)
+#
+# Outputs: minimal-three-001.yml, etc.
+
+config:
+  name: "minimal-three"
+  experiment: fluxx-chaos
+  created: 2026-01-23
+  author: don-hopkins
+  
+  description: |
+    Minimal viable Fluxx: three players, three playstyles.
+    
+    - Don: Rules explainer, philosophical adapter
+    - Palm: Pattern recognition, prefers stability
+    - Peewee: PURE CHAOS! CARDS! HA HA!
+    
+    Tests the spectrum: control ← adapt → chaos
+
+character_binding:
+  host: don_hopkins
+  
+  players:
+    p1: palm       # Control seeker
+    p2: pee_wee_herman  # Chaos agent
+    
+  seating: clockwise_from_host
+
+model:
+  name: claude-4.5-opus-high-thinking
+  temperature: 0.7
+  max_tokens: 20000
+
+output:
+  format: both
+  commit_each_step: true
+
+parameters:
+  deck: "standard"
+  creepers: true
+  
+  test_focus:
+    - "Rule tracking accuracy"
+    - "Character voice consistency"
+    - "Win condition detection"
+
+runs:
+  next_number: 1
+  history: []

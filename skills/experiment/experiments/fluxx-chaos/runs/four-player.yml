@@ -1,0 +1,88 @@
+# four-player — Fluxx Run Configuration
+#
+# The core group plays Fluxx. Character dynamics from poker carry over,
+# but the chaos of Fluxx creates new tensions.
+#
+# Outputs: four-player-001.yml, four-player-002.yml, etc.
+
+config:
+  name: "four-player"
+  experiment: fluxx-chaos
+  created: 2026-01-23
+  author: don-hopkins
+  
+  description: |
+    The core MOOLLM group discovers Fluxx. 
+    
+    Why these four:
+    - Don: Chaos-curious philosopher, will quote Minsky about rule changes
+    - Palm: 122 years of pattern recognition vs. constant rule mutation
+    - Bumblewick: Terror of Play All, Hand Limit 0
+    - Donna: Will steal EVERYTHING. "Steal Something" is her favorite card.
+    
+    Dynamics from poker carry over:
+    - Palm cannot deceive Don (but can steal from him!)
+    - Donna terrorizes Bumblewick (will target his Keepers)
+    - Don protects Bumblewick (may give him Keepers)
+
+character_binding:
+  host: don_hopkins  # Explains rules, provides cheese
+  
+  players:
+    p1: palm                      # Ancient wisdom vs. chaos
+    p2: bumblewick_fantastipants  # Terror of rule changes
+    p3: donna_toadstool           # "Steal Something" enthusiast
+    
+  seating: clockwise_from_host
+
+model:
+  name: claude-4.5-opus-high-thinking
+  temperature: 0.7
+  max_tokens: 30000
+
+output:
+  format: both  # Generate .yml AND .md
+  include_evaluation: true
+  commit_each_step: true
+  commit_style: god_narration
+
+instantiation:
+  prototype: ../cards/  # Card definitions
+  execution_model: shadow_tree
+
+parameters:
+  deck: "standard"  # Full Fluxx 4.0 deck
+  creepers: true    # Include Creepers
+  
+  environment:
+    location: "Gezelligheid Grotto"
+    cheese: true
+    explanation_level: "Don explains every rule"
+    
+  character_adaptations:
+    bumblewick:
+      fears: ["play_all", "hand_limit_0", "steal_something"]
+      growth_arc: "Learn to embrace chaos"
+      
+    donna:
+      loves: ["steal_something", "taxation", "trade_hands"]
+      playstyle: "Aggressive opportunist"
+      
+    palm:
+      special: "Perfect memory of all played cards"
+      strategy: "Pattern recognition despite chaos"
+      
+    don:
+      role: "Rules explainer, chaos philosopher"
+      quotes_when: "Rule changes significantly"
+
+hypotheses:
+  - "Bumblewick will panic when Play All is played"
+  - "Donna will prioritize stealing over winning"
+  - "Palm will accurately predict Goals from hand contents"
+  - "Don will enjoy the philosophical chaos"
+  - "Rule escalation will create character-defining moments"
+
+runs:
+  next_number: 1
+  history: []

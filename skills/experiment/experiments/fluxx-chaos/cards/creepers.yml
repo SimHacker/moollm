@@ -1,0 +1,66 @@
+# Fluxx 4.0 Creepers
+# 4 cards — bad cards that prevent winning (usually)
+# Source: looneylabs.com
+
+card_type: creeper
+icon: "💀"
+play_rule: "Must play IMMEDIATELY when drawn, then draw replacement"
+persist: true
+default_effect: "Prevents winning unless Goal requires this Creeper"
+
+cards:
+
+  war:
+    name: "War"
+    emoji: "⚔️"
+    flavor: "What is it good for?"
+    prevents_winning: true
+    exception: "Unless Goal requires War"
+    goals_required_for: [peace_no_war, war_equals_death]
+    note: "Peace (no War) requires NOT having this"
+    
+  death:
+    name: "Death"
+    emoji: "💀"
+    flavor: "The final frontier"
+    prevents_winning: true
+    exception: "Unless Goal requires Death"
+    goals_required_for: [death_by_chocolate, war_equals_death, all_that_is_certain]
+    
+  taxes:
+    name: "Taxes"
+    emoji: "🏛️"
+    flavor: "Inevitable"
+    prevents_winning: true
+    exception: "Unless Goal requires Taxes"
+    goals_required_for: [all_that_is_certain]
+    
+  radioactive_potato:
+    name: "Radioactive Potato"
+    emoji: "☢️"
+    flavor: "Hot potato, literally"
+    prevents_winning: true
+    exception: "Unless Goal requires it, or 'You Also Need a Potato' rule"
+    special_rule: "You Also Need a Potato makes this required to win"
+    note: "The hot potato everyone wants to get rid of"
+
+creeper_mechanics:
+  
+  draw_replacement:
+    rule: "When you draw a Creeper, play it immediately, then draw again"
+    note: "You don't choose to play it — you MUST"
+    
+  attachment:
+    rule: "Creepers attach to your tableau"
+    note: "They stay in front of you until removed"
+    
+  winning_block:
+    rule: "You cannot win if you have any Creepers"
+    exception: "Unless the current Goal requires that Creeper"
+    
+  passing:
+    rule: "Some cards let you pass Creepers to others"
+    actions: [mix_it_all_up]  # Shuffles Keepers, not Creepers
+    
+  removal:
+    cards: [trash_something, creeper_sweeper]

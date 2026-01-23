@@ -1,0 +1,173 @@
+# Fluxx 4.0 Goals
+# 29 cards — win conditions
+# Source: looneylabs.com
+
+card_type: goal
+icon: "🎯"
+play_rule: "Replace current Goal in center of table"
+persist: true  # Only one Goal active at a time
+
+cards:
+
+  # Keeper collection goals
+  
+  ten_cards_in_hand:
+    name: "10 Cards in Hand"
+    requires: { hand_size: 10 }
+    keeper_count: 0
+    special: "Win with hand size, not Keepers"
+    
+  five_keepers:
+    name: "5 Keepers"
+    requires: { keeper_count: 5 }
+    special: "Any 5 Keepers"
+    
+  # Thematic pair goals
+  
+  all_you_need_is_love:
+    name: "All You Need is Love"
+    requires: [love]
+    keeper_count: 1
+    special: "Just Love. That's all."
+    
+  appliances:
+    name: "Appliances"
+    requires: [television, toaster]
+    keeper_count: 2
+    
+  baked_goods:
+    name: "Baked Goods"
+    requires: [bread, cookies]
+    keeper_count: 2
+    
+  bed_time:
+    name: "Bed Time"
+    requires: [sleep, time]
+    keeper_count: 2
+    
+  brain_no_tv:
+    name: "Brain (no TV)"
+    requires: [brain]
+    forbids: [television]
+    keeper_count: 1
+    special: "Must have Brain, must NOT have Television"
+    
+  chocolate_cookies:
+    name: "Chocolate Cookies"
+    requires: [chocolate, cookies]
+    keeper_count: 2
+    
+  chocolate_milk:
+    name: "Chocolate Milk"
+    requires: [chocolate, milk]
+    keeper_count: 2
+    
+  death_by_chocolate:
+    name: "Death by Chocolate"
+    requires: [death, chocolate]
+    keeper_count: 1
+    creeper_required: true
+    special: "Requires the Death CREEPER"
+    
+  dreamland:
+    name: "Dreamland"
+    requires: [sleep, dreams]
+    keeper_count: 2
+    
+  hearts_and_minds:
+    name: "Hearts and Minds"
+    requires: [love, brain]
+    keeper_count: 2
+    
+  hippyism:
+    name: "Hippyism"
+    requires: [peace, love]
+    keeper_count: 2
+    
+  milk_and_cookies:
+    name: "Milk and Cookies"
+    requires: [milk, cookies]
+    keeper_count: 2
+    
+  night_and_day:
+    name: "Night and Day"
+    requires: [moon, sun]
+    keeper_count: 2
+    
+  peace_no_war:
+    name: "Peace (no War)"
+    requires: [peace]
+    forbids: [war]
+    keeper_count: 1
+    special: "Must have Peace, must NOT have War creeper"
+    
+  rocket_science:
+    name: "Rocket Science"
+    requires: [rocket, brain]
+    keeper_count: 2
+    
+  rocket_to_the_moon:
+    name: "Rocket to the Moon"
+    requires: [rocket, moon]
+    keeper_count: 2
+    
+  squishy_chocolate:
+    name: "Squishy Chocolate"
+    requires: [chocolate, sun]
+    keeper_count: 2
+    
+  time_is_money:
+    name: "Time is Money"
+    requires: [time, money]
+    keeper_count: 2
+    
+  toast:
+    name: "Toast"
+    requires: [bread, toaster]
+    keeper_count: 2
+    
+  war_equals_death:
+    name: "War = Death"
+    requires: [war, death]
+    keeper_count: 0
+    creeper_required: true
+    special: "Win with TWO Creepers"
+    
+  winning_the_lottery:
+    name: "Winning the Lottery"
+    requires: [money, dreams]
+    keeper_count: 2
+    
+  minds_eye:
+    name: "Mind's Eye"
+    requires: [brain, eye]
+    keeper_count: 2
+    
+  dough:
+    name: "Dough"
+    requires: [bread, money]
+    keeper_count: 2
+    
+  all_that_is_certain:
+    name: "All That Is Certain"
+    requires: [death, taxes]
+    keeper_count: 0
+    creeper_required: true
+    special: "Death and Taxes creepers"
+    
+  interstellar_spacecraft:
+    name: "Interstellar Spacecraft"
+    requires: [rocket, cosmos]
+    keeper_count: 2
+    
+  star_gazing:
+    name: "Star Gazing"
+    requires: [moon, sun, cosmos]
+    keeper_count: 3
+    special: "Requires THREE Keepers"
+    
+  party_snacks:
+    name: "Party Snacks"
+    requires: [party, cookies]
+    # OR party + chocolate OR party + bread
+    keeper_count: 2

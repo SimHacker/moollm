@@ -1,0 +1,76 @@
+# Fluxx Initial Game State
+# Template for new games
+
+game_setup:
+  deck_composition:
+    keepers: 19
+    goals: 29
+    new_rules: 24
+    actions: 22
+    creepers: 4
+    special: 2
+    total: 100
+    
+  starting_state:
+    cards_per_player: 3
+    basic_rules: { draw: 1, play: 1 }
+    goal: null
+    
+initial_state:
+  
+  zones:
+    draw_pile: "shuffled deck minus dealt cards"
+    discard_pile: []
+    goal: null
+    rules_in_play: [basic_rules]
+    
+  current_rules:
+    draw: 1
+    play: 1
+    hand_limit: null
+    keeper_limit: null
+    
+  modifiers: {}  # All false at start
+  
+  players: {}  # Populated based on run config
+
+# State after dealing example (4 players)
+
+example_dealt_state:
+  
+  zones:
+    draw_pile: 88  # 100 - 3×4 = 88
+    discard_pile: []
+    goal: null
+    rules_in_play: [basic_rules]
+    
+  players:
+    don_hopkins:
+      hand: ["?", "?", "?"]  # 3 cards dealt face down
+      keepers: []
+      creepers: []
+      
+    palm:
+      hand: ["?", "?", "?"]
+      keepers: []
+      creepers: []
+      
+    bumblewick:
+      hand: ["?", "?", "?"]
+      keepers: []
+      creepers: []
+      
+    donna:
+      hand: ["?", "?", "?"]
+      keepers: []
+      creepers: []
+
+# Creeper handling during deal
+
+creeper_dealt:
+  rule: "If Creeper dealt, player reveals it, places in front, draws replacement"
+  example: |
+    Bumblewick is dealt War, Cookies, Moon.
+    He reveals War (Creeper), places it in his tableau.
+    He draws one more card to replace it.
+    He now has: [Cookies, Moon, ?] in hand, [War] in tableau.

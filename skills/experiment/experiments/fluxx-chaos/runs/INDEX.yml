@@ -1,0 +1,26 @@
+# Fluxx Chaos Runs Index
+# Registry of run configurations and outputs
+
+configs:
+  - name: four-player
+    file: four-player.yml
+    players: 4
+    description: "Core group: Don, Palm, Bumblewick, Donna"
+    
+  - name: chaos-eight
+    file: chaos-eight.yml
+    players: 8
+    description: "Full chaos: All MOOLLM regulars"
+    
+  - name: minimal-three
+    file: minimal-three.yml
+    players: 3
+    description: "Quick test: Don, Palm, Peewee"
+
+# Output files per run:
+#   {config}-{NNN}.yml           - structured state
+#   {config}-{NNN}.md            - narrative stream
+#   {config}-{NNN}-cursor-mirror.yml - meta-analysis
+#   {config}-{NNN}-tells.yml     - play style analysis
+
+outputs: []  # Populated as runs are executed

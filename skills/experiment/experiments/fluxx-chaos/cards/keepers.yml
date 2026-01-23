@@ -1,0 +1,143 @@
+# Fluxx 4.0 Keepers
+# 19 cards — what you need to win
+# Source: looneylabs.com
+
+card_type: keeper
+icon: "🔑"
+play_rule: "Place face-up in front of you"
+persist: true
+
+cards:
+
+  brain:
+    name: "The Brain"
+    emoji: "🧠"
+    category: "body"
+    flavor: "For thinking deep thoughts"
+    goals_featured_in: [brain_no_tv, hearts_and_minds, minds_eye]
+    
+  bread:
+    name: "Bread"
+    emoji: "🍞"
+    category: "food"
+    flavor: "Staff of life"
+    goals_featured_in: [toast, baked_goods, dough]
+    
+  chocolate:
+    name: "Chocolate"
+    emoji: "🍫"
+    category: "food"
+    flavor: "The food of the gods"
+    goals_featured_in: [chocolate_cookies, chocolate_milk, death_by_chocolate, squishy_chocolate]
+    
+  cookies:
+    name: "Cookies"
+    emoji: "🍪"
+    category: "food"
+    flavor: "Delicious baked treats"
+    goals_featured_in: [chocolate_cookies, milk_and_cookies]
+    
+  cosmos:
+    name: "The Cosmos"
+    emoji: "🌌"
+    category: "space"
+    flavor: "The vast universe"
+    goals_featured_in: [interstellar_spacecraft, star_gazing]
+    
+  dreams:
+    name: "Dreams"
+    emoji: "💭"
+    category: "abstract"
+    flavor: "What happens when you sleep"
+    goals_featured_in: [dreamland]
+    
+  love:
+    name: "Love"
+    emoji: "❤️"
+    category: "abstract"
+    flavor: "All you need"
+    goals_featured_in: [all_you_need_is_love, hearts_and_minds]
+    
+  milk:
+    name: "Milk"
+    emoji: "🥛"
+    category: "food"
+    flavor: "Does a body good"
+    goals_featured_in: [chocolate_milk, milk_and_cookies]
+    
+  money:
+    name: "Money"
+    emoji: "💰"
+    category: "abstract"
+    flavor: "The root of all something"
+    goals_featured_in: [time_is_money, winning_the_lottery]
+    
+  moon:
+    name: "The Moon"
+    emoji: "🌙"
+    category: "space"
+    flavor: "Earth's companion"
+    goals_featured_in: [rocket_to_the_moon, night_and_day, star_gazing]
+    
+  peace:
+    name: "Peace"
+    emoji: "☮️"
+    category: "abstract"
+    flavor: "What we all want"
+    goals_featured_in: [peace_no_war, hippyism]
+    
+  rocket:
+    name: "The Rocket"
+    emoji: "🚀"
+    category: "space"
+    flavor: "For space travel"
+    goals_featured_in: [rocket_science, rocket_to_the_moon, interstellar_spacecraft]
+    
+  sleep:
+    name: "Sleep"
+    emoji: "😴"
+    category: "body"
+    flavor: "Perchance to dream"
+    goals_featured_in: [bed_time, dreamland]
+    
+  sun:
+    name: "The Sun"
+    emoji: "☀️"
+    category: "space"
+    flavor: "Our local star"
+    goals_featured_in: [night_and_day, star_gazing]
+    
+  television:
+    name: "Television"
+    emoji: "📺"
+    category: "appliance"
+    flavor: "The idiot box"
+    goals_featured_in: [brain_no_tv, appliances]
+    
+  time:
+    name: "Time"
+    emoji: "⏰"
+    category: "abstract"
+    flavor: "Keeps everything from happening at once"
+    goals_featured_in: [time_is_money, rocket_science]
+    
+  toaster:
+    name: "The Toaster"
+    emoji: "🍞"  # No toaster emoji, using bread
+    category: "appliance"
+    flavor: "For making toast"
+    goals_featured_in: [toast, appliances]
+    
+  eye:
+    name: "The Eye"
+    emoji: "👁️"
+    category: "body"
+    flavor: "Window to the soul"
+    goals_featured_in: [minds_eye]
+    
+  party:
+    name: "The Party"
+    emoji: "🎉"
+    category: "social"
+    flavor: "Let's celebrate!"
+    goals_featured_in: [party_snacks]
