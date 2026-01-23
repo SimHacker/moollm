@@ -24,13 +24,13 @@ delta:
 # STANDOUT EVENTS
 
 standouts:
-  - event: "The Pardon"
-    what: "Don frames rebuy as mutual blackmail to save Donna's pride"
+  - event: "The Bribe"
+    what: "Don bribes Donna to ignore his cheese smuggling ring"
     dialog: |
-      Don: "The matter of the missing sharp cheddar cheese bottles..."
-      Donna: "What are your terms?"
-      Don: "Mutual assured destruction, as they say."
-    why_notable: "Political arrangement preserved dignity"
+      Don: "I find myself in need of a political favor."
+      Donna: "What kind of favor?"
+      Don: "Continued discretion regarding my international sharp cheddar cheese smuggling operation."
+    why_notable: "Gave Donna real leverage — she thinks she has power, Don just wanted her back"
     
   - event: "Donna does NOT stand up"
     what: "Raises to 500 with queens, stays seated, controlled"
@@ -56,7 +56,7 @@ stats:
     donna: ["slowplay", "check-raise", "controlled aggression"]
     bumblewick: ["trap recognition", "confident fold"]
     
-  rebuy_mechanism: "political arrangement (mutual blackmail)"
+  rebuy_mechanism: "political bribe (Don's smuggling operation)"
   pride_preserved: true
 
 # EMERGENCE (NEW THIS RUN)
@@ -65,8 +65,8 @@ new_emergence:
   - name: "Cross-character learning"
     evidence: "Donna's slowplay mirrors Bumblewick's hand 1 strategy"
     
-  - name: "Pride-preserving rebuys"
-    evidence: "Framing as transaction, not charity"
+  - name: "Leverage-based rebuys"
+    evidence: "Don gave real blackmail material — Donna feels powerful, not pitied"
     
   - name: "Meta-awareness of traps"
     evidence: "Bumblewick names the pattern he fell into"

@@ -30,25 +30,23 @@ She freezes in the doorway.
 
 He reaches into his pocket. Not the chip pocket. The *other* pocket. Produces a stack of 1000 🪙.
 
-"I'm prepared to overlook the matter of the missing sharp cheddar cheese bottles from the Grotto cellar."
+"I find myself in need of a political favor."
 
-*The smell of shock. Sharp. Brief.*
+*The smell of interest. Sharp. Brief.*
 
-Donna's eyes narrow. Then widen. Her jaw works silently.
+Donna's eyes narrow. Then widen. Her jaw works silently. A politician being asked for a favor is a politician with leverage.
 
-"The sharp cheddar cheese matter. How did you—"
-
-"What are your terms?"
+"What kind of favor?"
 
 Her voice has changed. Political now. This is territory she understands.
 
 Don slides the chips across the table.
 
-"One thousand MOOLA. In exchange for your... continued discretion regarding my sharp cheddar cheese procurement methods."
+"One thousand MOOLA. In exchange for your... continued discretion regarding my international sharp cheddar cheese smuggling operation."
 
 Small smile.
 
-"Mutual assured destruction, as they say."
+"The Grotto has certain... import arrangements that the customs authorities might find interesting."
 
 ---
 
@@ -70,7 +68,7 @@ Donna reaches for the chips. Stops. Her hand hovers.
 
 She takes them.
 
-"The Grotto's secrets remain... mutual."
+"The Grotto's cheese imports remain... uninvestigated."
 
 Almost a smile. The first one since she lost.
 
