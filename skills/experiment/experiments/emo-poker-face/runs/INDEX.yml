@@ -72,6 +72,32 @@ outputs:
       - Hand 3: Palm aces eliminate Donna
       - Hand 4: Don kings hold vs Bumblewick AQ
       Emergence: "Terror → Acceptance" (Bumblewick's graceful loss)
+      
+  - config: four-player
+    number: 3
+    files:
+      - four-player-003.yml
+      - four-player-003.md
+      - four-player-003-cursor-mirror.yml
+      - four-player-003-tells.yml
+    timestamp: 2026-01-23T19:30:00Z
+    model: claude-4.5-opus-high-thinking
+    continues_from: four-player-002
+    result: "Donna returns via pardon; wins with set"
+    commits: 1
+    layer_violations: 0
+    hands_played: "5"
+    tells_transmitted: 14
+    tells_noticed: 11
+    critical_tells:
+      - "T5-04 — absence tell (Donna NOT standing)"
+      - "T5-12 — Bumblewick's 'OH' moment (pattern recognition)"
+    notes: |
+      The Pardon: Don frames rebuy as mutual blackmail.
+      - Donna returns via political arrangement
+      - Hand 5: Donna slowplays queens (NEW skill)
+      - Bumblewick recognizes trap, folds correctly
+      Emergence: Cross-character learning; absence tells
 # Example after runs:
 #   - config: whacky-eight
 #     number: 1
