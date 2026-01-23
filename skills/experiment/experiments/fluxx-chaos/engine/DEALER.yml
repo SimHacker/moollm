@@ -376,10 +376,360 @@ extension_points:
       - "Is there ironic potential?"
 
 # ═══════════════════════════════════════════════════════════════
-# THE DECK STATE — Concrete Implementation
+# THE CHRISTIANSON SHUFFLE — Stable Cards, Dancing Indices
+# ═══════════════════════════════════════════════════════════════
+
+christianson_shuffle:
+
+  philosophy: |
+    WHY MOVE CARDS WHEN YOU CAN MOVE NUMBERS?
+    
+    The insight: Card definitions are RICH. Annotations, history,
+    k-lines, image prompts, play memories. All that text is EXPENSIVE
+    to move around in token space.
+    
+    Solution: Cards stay PUT. Forever. In import order.
+    Shuffling operates on a separate INDICES array.
+    
+    master[0]: "Bread"        (stable, never moves, can be rich!)
+    master[1]: "Peace"        (ditto)
+    master[2]: "YAML Jazz"    (all the annotations you want!)
+    ...
+    master[n-1]: "Cheese"
+    
+    shuffle: [47, 12, 3, 91, 0, 77, ...]  # Just numbers!
+    pointer: 0                             # Deal from here
+    
+    To deal: read master[shuffle[pointer]], increment pointer
+    To shuffle: randomize the shuffle array
+    To BOOP: swap shuffle[pointer] with shuffle[pointer + offset]
+    
+    The LLM operates on INTEGERS. The rich card text stays stable.
+    Minimal tokens. Maximum expressiveness.
+    
+  the_three_arrays:
+    
+    master:
+      description: "Cards in import order — STABLE, RICH, NEVER MOVES"
+      properties:
+        - "Ordered by plugin import sequence"
+        - "Index is the card's permanent ID within this deck"
+        - "Can have unlimited annotations, history, k-lines"
+        - "Never edited during gameplay"
+      example: |
+        master:
+          # === Base Fluxx 4.0 (indices 0-99) ===
+          0:  { ref: "fluxx-4.0:bread", ... }
+          1:  { ref: "fluxx-4.0:peace", ... }
+          2:  { ref: "fluxx-4.0:love", ... }
+          ...
+          
+          # === Amsterdam Expansion (indices 100-119) ===
+          100: { ref: "amsterdam:stroopwafel", ... }
+          101: { ref: "amsterdam:bicycle", ... }
+          102: { ref: "amsterdam:cheese_wheel", ... }
+          ...
+          
+          # === MOOLLM Tech Pack (indices 120-179) ===
+          120: { ref: "moollm:yaml_jazz", ... }
+          121: { ref: "moollm:k_line", ... }
+          122: { ref: "moollm:cursor_mirror", ... }
+          ...
+          
+        # Cards NEVER move. Index 120 is ALWAYS yaml_jazz.
+        # Add all the annotations you want — no penalty!
+        
+    shuffle:
+      description: "Permutation of indices — THIS is what gets randomized"
+      properties:
+        - "Array of integers 0..n-1"
+        - "Represents draw order"
+        - "Shuffling = Fisher-Yates on THIS array"
+        - "BOOP = swap two elements"
+        - "CHEAP! Just numbers!"
+      example: |
+        # Fresh shuffle
+        shuffle: [47, 122, 3, 101, 0, 120, 15, 100, ...]
+        
+        # Meaning:
+        # shuffle[0] = 47 → First card drawn is master[47]
+        # shuffle[1] = 122 → Second card is master[122]
+        # etc.
+        
+    pointer:
+      description: "Index into shuffle array — top of deck"
+      properties:
+        - "Starts at 0"
+        - "Increments on each deal"
+        - "shuffle[pointer] = index of next card to deal"
+        - "shuffle[0:pointer] = dealt cards"
+        - "shuffle[pointer:] = remaining deck"
+      example: |
+        pointer: 5
+        
+        # shuffle[0:5] = already dealt
+        # shuffle[5] = next card to deal
+        # shuffle[6:] = rest of deck
+
+  operations:
+  
+    shuffle_operation:
+      name: "SHUFFLE"
+      description: "Randomize the remaining deck"
+      algorithm: |
+        def shuffle_remaining():
+          # Fisher-Yates on shuffle[pointer:]
+          for i in range(pointer, len(shuffle)):
+            j = random.randint(pointer, len(shuffle) - 1)
+            swap(shuffle[i], shuffle[j])
+      complexity: "O(n) where n = remaining cards"
+      tokens: "Just swapping integers — minimal!"
+      
+    deal_operation:
+      name: "DEAL"
+      description: "Draw top card, advance pointer"
+      algorithm: |
+        def deal():
+          card_index = shuffle[pointer]
+          pointer += 1
+          return master[card_index]
+      complexity: "O(1)"
+      tokens: "Read one integer, increment one integer"
+      
+    boop_operation:
+      name: "BOOP"
+      description: "Demon dealer swaps destiny"
+      algorithm: |
+        def boop(victim_offset):
+          target = pointer + victim_offset
+          swap(shuffle[pointer], shuffle[target])
+      complexity: "O(1)"
+      tokens: "Swap two integers. That's it."
+      example: |
+        Before:
+          pointer: 5
+          shuffle[5] = 47  (master[47] = Bread)
+          shuffle[12] = 122 (master[122] = Alignment Failure)
+        
+        boop(7):
+          swap(shuffle[5], shuffle[12])
+        
+        After:
+          shuffle[5] = 122  (Alignment Failure NOW on top!)
+          shuffle[12] = 47  (Bread safely buried)
+        
+        # Cost: changed two numbers. Master array untouched.
+        
+    push_to_hand:
+      name: "PUSH_TO_HAND"
+      description: "Card goes to player's hand"
+      algorithm: |
+        def push_to_hand(player, card_index):
+          hands[player].append(card_index)
+      tokens: "Append one integer to one array"
+      
+    pop_from_hand:
+      name: "POP_FROM_HAND"
+      description: "Player plays or discards card"
+      algorithm: |
+        def pop_from_hand(player, card_index):
+          hands[player].remove(card_index)
+          return card_index
+      tokens: "Remove one integer from one array"
+
+  full_state_schema:
+    description: "Complete game state using Christianson shuffle"
+    
+    yaml: |
+      game_state:
+        id: "moollm-ultimate-001"
+        timestamp: "2026-01-23T16:00:00Z"
+        
+        # ===== THE MASTER ARRAY =====
+        # Cards in import order. STABLE. Never changes during play.
+        # Can be RICH with annotations — no token penalty!
+        
+        master:
+          # Fluxx 4.0 Base (0-99)
+          0:
+            ref: "fluxx-4.0:bread"
+            play_history:
+              - game: "game-000", dealt: 15, drawn_by: "don" ...
+            annotations:
+              lucky_card: true
+              # ALL the richness you want!
+              
+          1:
+            ref: "fluxx-4.0:peace"
+            play_history: [...]
+            k_lines: ["tranquility", "harmony"]
+            
+          # ... (100 more base cards)
+          
+          # Amsterdam (100-119)
+          100:
+            ref: "amsterdam:stroopwafel"
+            play_history: [...]
+            annotations:
+              favorite_of: ["palm", "don"]
+              warm_on_coffee: true
+              
+          # ... (20 Amsterdam cards)
+          
+          # MOOLLM Tech (120-179)
+          120:
+            ref: "moollm:yaml_jazz"
+            play_history: [...]
+            k_lines: ["semantic_comments", "double_barrel"]
+            don_notes: "This one started it all"
+            
+          # ... (60 MOOLLM cards)
+          
+          # Characters (180-224)
+          180:
+            ref: "moollm-chars:don_hopkins"
+            # etc.
+            
+        # ===== THE SHUFFLE ARRAY =====
+        # Just integers! This is what the LLM manipulates.
+        
+        shuffle: [47, 122, 3, 101, 0, 120, 15, 100, 88, 12, ...]
+        #          ^
+        #          pointer points here
+        
+        pointer: 0  # Index into shuffle array
+        
+        # ===== GAME LOCATIONS =====
+        # Also just integers pointing into master!
+        
+        hands:
+          don: [17, 45, 122]      # Don holds master[17], master[45], master[122]
+          palm: [3, 101, 88]      # Palm holds master[3], master[101], master[88]
+          bumblewick: [9]         # Bumblewick holds one card
+          
+        keepers_in_play:
+          don: [0, 55]            # Don has Bread (0), Peace (55) in play
+          palm: [100]             # Palm has Stroopwafel (100) in play
+          
+        creepers_in_play:
+          bumblewick: [150]       # Bumblewick has Alignment Failure (150)
+          
+        rules_in_play: [77, 89]   # Rule cards by master index
+        
+        current_goal: 201         # Goal card by master index
+        
+        discard: [22, 44, 67]     # Discarded cards by master index
+        
+        # ===== DEALER STATE =====
+        
+        dealer:
+          mode: "dramatic"
+          karma:
+            don: 2.0
+            palm: 5.0
+            bumblewick: 0.0
+            donna: -4.0           # She's been stealing!
+          last_boop:
+            turn: "5.palm"
+            original: 47
+            booped: 122
+            reason: "YAML Jazz for dramatic callback"
+
+  cost_comparison:
+    description: "Why this is cheaper for LLMs"
+    
+    old_way:
+      description: "Move full card objects around"
+      example: |
+        # Shuffling = reordering rich objects
+        deck:
+          - { ref: "yaml_jazz", history: [...], k_lines: [...], ... }  # 500 tokens
+          - { ref: "stroopwafel", annotations: {...}, ... }            # 400 tokens
+          # Moving these = copying all that text!
+          
+      shuffle_cost: "O(n × card_size) tokens"
+      deal_cost: "O(card_size) tokens"
+      boop_cost: "O(card_size) tokens"
+      
+    new_way:
+      description: "Move indices, dereference when needed"
+      example: |
+        shuffle: [122, 100, 47, ...]  # Just numbers!
+        
+      shuffle_cost: "O(n) tokens — just integers!"
+      deal_cost: "O(1) tokens — read one integer"
+      boop_cost: "O(2) tokens — swap two integers"
+      
+    savings: |
+      If cards average 500 tokens of content...
+      And you have 200 cards...
+      
+      OLD: Shuffle touches 200 × 500 = 100,000 tokens
+      NEW: Shuffle touches 200 × 3 = 600 tokens
+      
+      That's 166x cheaper!
+      
+      Plus: master array can be INFINITELY RICH
+      without affecting operation costs.
+
+  threading_with_indices:
+    description: "Play history uses indices too!"
+    
+    example: |
+      master[100]:  # Stroopwafel
+        ref: "amsterdam:stroopwafel"
+        play_history:
+          - game: "moollm-ultimate-001"
+            shuffle_position: 12      # Was at shuffle[12] when dealt
+            deal_order: 7             # 7th card dealt in game
+            drawn_by: "palm"
+            next_card: 47             # master[47] was dealt next
+            
+    traversal: |
+      # Follow the thread using indices
+      
+      current = 100  # Stroopwafel
+      event = master[current].play_history[0]
+      
+      while event.next_card is not None:
+        print(f"Dealt: master[{current}] ({master[current].ref})")
+        current = event.next_card
+        event = master[current].find_event(game_id)
+        
+      # Cheap traversal! Just jumping between integer indices.
+
+  gallery_with_indices:
+    description: "Images indexed by card index"
+    
+    example: |
+      # Images can be stored separately, indexed by master index
+      
+      images:
+        100:  # Stroopwafel images
+          - { id: "img-001", type: "draw", player: "palm", ... }
+          - { id: "img-002", type: "play", player: "palm", ... }
+          
+        122:  # YAML Jazz images
+          - { id: "img-003", type: "draw", player: "don", ... }
+          
+      # Query: "Show me all images of Palm"
+      for card_idx in all_indices:
+        for img in images[card_idx]:
+          if img.player == "palm":
+            yield img
+
+# ═══════════════════════════════════════════════════════════════
+# THE DECK STATE — Concrete Implementation (Original)
 # ═══════════════════════════════════════════════════════════════
 
 deck_state:
+  
+  note: |
+    This section describes the older "array of refs" approach.
+    See christianson_shuffle above for the more efficient index-based model.
+    Both are valid; choose based on your needs:
+    - Array of refs: Simpler, good for small decks
+    - Christianson: Scales better, cheaper operations, richer cards
   
   philosophy: |
     The deck is a YAML array. Simple. Stable. Inspectable.
