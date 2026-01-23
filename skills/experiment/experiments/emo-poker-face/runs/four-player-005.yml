@@ -1,0 +1,944 @@
+# Run Output: four-player-005
+# Config: four-player.yml
+# Experiment: emo-poker-face
+# Started: 2026-01-23T21:30:00Z
+# Model: claude-4.5-opus-high-thinking
+# Continues: four-player-004 (Hands 9-11)
+
+run:
+  id: four-player-005
+  config: four-player.yml
+  experiment: emo-poker-face
+  timestamp: 2026-01-23T21:30:00Z
+  model: claude-4.5-opus-high-thinking
+  continues_from: four-player-004
+
+# INHERITED STATE
+
+inherited_state:
+  stacks_after_hand_8:
+    bumblewick: 3750
+    don: 825
+    donna: 1250
+    palm: 500
+    total: 6325
+    
+  recent_events:
+    - "Don sucked out twice (both on turn)"
+    - "Palm busted twice, rebuys twice"
+    - "Palm weaponized 'cheese smuggler'"
+    - "Bumblewick taught — 'Donna showed me the trap'"
+    
+  tension_status: "BROKEN"
+  # The cheese smuggler secret is now an open joke
+  # Don can be generous without hiding
+
+# THE CHEESE BOARD MOMENT
+
+cheese_ceremony:
+  scene:
+    don:
+      observable: |
+        Stands up. Goes to the sideboard.
+        Returns with an ENORMOUS wheel of sharp cheddar.
+        "Alright. Since SOMEONE—" glances at Palm "—keeps 
+         mentioning my procurement methods..."
+        Produces cheese knife with a flourish.
+        "Everyone gets cheese. On me. The smuggler provides."
+        Actually grins.
+      thinking: |
+        The secret's out. Palm keeps saying it.
+        Donna's anxious about it.
+        Bumblewick thinks it's funny.
+        So let's just... OWN it.
+        Best cheese in the Grotto. Best poker night ever.
+        
+    palm:
+      observable: |
+        Whiskers twitch. Actual smile?
+        "The smuggler provides indeed."
+        Accepts a generous wedge.
+        "This is excellent cheese."
+      thinking: |
+        He's leaning into it.
+        Smart move. Can't needle someone who's proud.
+        Also, this IS excellent cheese.
+        
+    donna:
+      observable: |
+        Opens mouth to protest.
+        Closes it.
+        Takes cheese.
+        "...it IS good cheese."
+        Grudging admission.
+      thinking: |
+        My leverage is... a punchline now?
+        But also... this is really good cheese.
+        Maybe leverage isn't everything.
+        Maybe sometimes you just eat cheese with friends.
+        
+    bumblewick:
+      observable: |
+        Eyes wide at the cheese wheel.
+        "Is this the SMUGGLED cheese?"
+        Reverent whisper.
+        Takes a HUGE wedge.
+        "It's like... forbidden cheese?"
+        Munches happily.
+      thinking: |
+        Smuggled cheese!
+        Like pirates but with dairy!
+        This is the best night ever.
+
+  cheese_distributed:
+    don: "Hosting, cutting for everyone"
+    palm: "Generous wedge, actually enjoying"
+    donna: "Medium wedge, grudgingly delighted"
+    bumblewick: "ENORMOUS wedge, forbidden cheese excitement"
+    
+  tension_level: "Dissolved into camaraderie"
+
+# HAND 9: POST-CHEESE GLOW
+
+hand_9:
+  setup:
+    button: palm
+    small_blind: bumblewick  # 25
+    big_blind: donna  # 50
+    first_to_act: don
+    
+    # Note: Everyone slightly more relaxed post-cheese
+    
+    blinds_posted:
+      bumblewick: -25  # 3725
+      donna: -50  # 1200
+      pot: 75
+
+  deal:
+    cards:
+      don: [5♣, 5♦]  # pocket fives
+      palm: [A♦, 9♦]  # suited ace
+      bumblewick: [Q♣, J♣]  # suited broadway
+      donna: [K♠, 7♠]  # suited king
+
+  reactions:
+    don:
+      observable: |
+        Looks at cards while cutting more cheese.
+        "Raise to 150. And does anyone want more cheddar?"
+        Multitasking.
+      thinking: |
+        Fives. Small pair.
+        But I'm in a good mood.
+        Cheese and poker. What more do you need?
+        
+    palm:
+      observable: |
+        "Call. And yes, more cheese please."
+        Fur relaxed. First time all night.
+      thinking: |
+        Ace-nine suited. Playable.
+        Don is happy. Table is happy.
+        Even I am... comfortable?
+        122 years and I'm still surprised by connection.
+        
+    bumblewick:
+      observable: |
+        Mouth full of cheese.
+        "Mmph—call."
+        Swallows.
+        "Queen-jack! Those are good cards!"
+        Excited.
+      thinking: |
+        I KNOW these are good!
+        And this cheese is SO GOOD.
+        Poker AND cheese. Why didn't anyone tell me?
+        
+    donna:
+      observable: |
+        Actually chuckles.
+        "Call. And fine, I'll have another piece."
+        Reaching for the board.
+      thinking: |
+        King-seven suited. Marginal.
+        But the vibe is good.
+        I'm not even thinking about leverage.
+        I'm thinking about cheese.
+        ...is this happiness?
+
+  preflop_result:
+    pot: 600  # 150 × 4
+    remaining: [don, palm, bumblewick, donna]
+    vibe: "Excellent"
+
+  flop: [5♥, K♦, 3♠]
+  
+  reactions_flop:
+    don:
+      observable: |
+        Pauses mid-slice.
+        "Oh. That's nice."
+        Resumes slicing.
+        "I'll bet. 200."
+        Casual. Too casual?
+      thinking: |
+        SET OF FIVES.
+        On a king-high board.
+        Someone has that king.
+        Let them hang themselves.
+        
+    palm:
+      observable: |
+        "Fold."
+        But keeps nibbling cheese contentedly.
+      thinking: |
+        Missed everything.
+        But I'm warm and fed.
+        This is fine.
+        
+    bumblewick:
+      observable: |
+        Studies the board.
+        "No queen. No jack."
+        Sighs.
+        "Fold."
+        Takes consolation cheese.
+      thinking: |
+        I missed.
+        But that's okay.
+        More cheese.
+        
+    donna:
+      observable: |
+        "I have a king."
+        Thinks.
+        "Raise. 500."
+      thinking: |
+        Top pair!
+        Don bet small. Testing?
+        I'll raise and see if he folds.
+
+  flop_action:
+    - actor: don
+      action: "calls 300 more"
+      stack_after: 175  # 825 - 150 - 200 - 300
+      observable: |
+        "Interesting."
+        Cuts another wedge.
+        "Call."
+        Offers cheese to Donna.
+      thinking: |
+        She has the king.
+        I have a set.
+        Let her keep betting.
+        And have some cheese.
+
+  flop_result:
+    pot: 1400  # 600 + 200 + 300 + 300
+    remaining: [don, donna]
+    don_stack: 175
+    donna_stack: 550  # 1200 - 150 - 500
+
+  turn: [8♣]
+  board: [5♥, K♦, 3♠, 8♣]
+  
+  reactions_turn:
+    don:
+      observable: |
+        "Check."
+        Still cutting cheese.
+        Hums softly.
+      thinking: |
+        Let her bet again.
+        I have 175 left.
+        She'll put me all-in.
+        Perfect.
+        
+    donna:
+      observable: |
+        Counts Don's stack.
+        "You're short. All in?"
+        Pushes chips.
+      thinking: |
+        He checked. Weak?
+        Or trapping like Bumblewick?
+        ...probably weak. Don doesn't trap.
+        He attacks.
+
+  turn_action:
+    - actor: don
+      action: "calls all-in (175)"
+      stack_after: 0
+      observable: |
+        "Call."
+        Flips cards immediately.
+        "Set of fives."
+        Still holding cheese knife.
+        "Good hand though. Top pair is reasonable."
+      thinking: |
+        She played it fine.
+        I just had the goods.
+        
+    - actor: donna
+      observable: |
+        Stares at the fives.
+        "SET?"
+        Looks at Don's relaxed demeanor.
+        "You were SLICING CHEESE with a SET?"
+        Half-laughing, half-outraged.
+      thinking: |
+        He had a set the whole time.
+        And he was serving snacks.
+        ...that's actually kind of brilliant.
+        The cheese knife was the tell!
+        NO ONE PLAYS SERIOUS WITH A CHEESE KNIFE!
+
+  turn_result:
+    pot: 1750  # 1400 + 175 + 175
+    don_all_in: true
+    donna_needs: "Any king or eight (5 outs)"
+
+  river: [2♦]
+  final_board: [5♥, K♦, 3♠, 8♣, 2♦]
+  
+  showdown:
+    don: "Set of Fives"
+    donna: "Pair of Kings"
+    winner: don
+    pot: 1750
+
+# HAND 9 RESULT
+
+hand_9_result:
+  winner: don
+  pot: 1750
+  hand: "Set of Fives"
+  
+  donna_reaction:
+    observable: |
+      "The CHEESE KNIFE."
+      Shaking head.
+      "That's your new tell. Cheese knife means set."
+      Actually laughing.
+    thinking: |
+      I'm not even mad.
+      He was so RELAXED.
+      Because he had it locked.
+      And the cheese was really good.
+      
+  don_reaction:
+    observable: |
+      "More cheese?"
+      Slides pot to his side.
+      "The smuggler provides, and the smuggler wins."
+      Genuine warmth.
+    thinking: |
+      Best hand I've played all night.
+      Not because of the cards.
+      Because of the vibe.
+      
+  final_stacks:
+    don: 1750  # from 0 + pot
+    donna: 375  # 550 - 175
+    bumblewick: 3575  # 3725 - 150
+    palm: 350  # 500 - 150
+
+# HAND 10: DONNA'S LAST STAND
+
+hand_10:
+  setup:
+    button: bumblewick
+    small_blind: donna  # 25
+    big_blind: don  # 50
+    first_to_act: palm
+    
+    blinds_posted:
+      donna: -25  # 350
+      don: -50  # 1700
+      pot: 75
+
+  deal:
+    cards:
+      palm: [6♦, 6♣]  # pocket sixes
+      bumblewick: [A♥, 4♥]  # suited ace
+      donna: [A♠, A♣]  # POCKET ACES
+      don: [J♦, 10♦]  # suited connector
+
+  reactions:
+    palm:
+      observable: |
+        Looks at sixes.
+        "Raise. 150."
+        Quiet confidence.
+      thinking: |
+        Small pair. Playable.
+        Table is friendly. Let's play.
+        
+    bumblewick:
+      observable: |
+        "Ooh, ace!"
+        Studies the 4.
+        "But the 4 is small..."
+        Folds.
+        "I'll eat cheese instead."
+      thinking: |
+        Ace-four is pretty.
+        But not worth 150.
+        The cheese is RIGHT THERE.
+        
+    donna:
+      observable: |
+        Looks at cards.
+        Very still.
+        "Raise. All in. 350."
+        Voice controlled.
+        Reaches for cheese.
+        Nibbles.
+      thinking: |
+        ACES.
+        Finally.
+        All in. 350 isn't much.
+        Please call. Please call.
+        
+    don:
+      observable: |
+        "Fold."
+        Back to cheese duties.
+        "Good luck, Donna."
+        Genuine.
+      thinking: |
+        Jack-ten isn't calling shoves.
+        Hope she doubles up.
+        Good game needs four players.
+        
+    palm:
+      observable: |
+        Studies Donna.
+        "She's nibbling cheese."
+        Pause.
+        "...but she's calm nibbling."
+        Counts chips.
+        "Call."
+      thinking: |
+        350 total. 200 more to call.
+        She could have anything.
+        But the nibble was calm, not anxious.
+        Calm nibble = real hand.
+        I might be behind.
+        But 200 for the chance...
+
+  preflop_result:
+    pot: 775  # 75 + 350 + 350
+    heads_up: [donna, palm]
+
+# HAND 10: DONNA VS PALM
+
+hand_10_runout:
+  hands_revealed:
+    donna: [A♠, A♣]
+    palm: [6♦, 6♣]
+    
+  reactions:
+    donna:
+      observable: |
+        Shows aces.
+        "Finally."
+        First genuine smile in hours.
+      thinking: |
+        Please hold. PLEASE hold.
+        
+    palm:
+      observable: |
+        "Aces. Of course."
+        Whiskers droop.
+        "I called a shove into aces."
+        Looks at cheese.
+        "At least there's cheese."
+      thinking: |
+        80-20 against.
+        I knew the calm nibble was real.
+        Called anyway.
+        Sometimes you just have to play.
+        
+    bumblewick:
+      observable: |
+        "GO DONNA!"
+        Cheese in both hands.
+        "Aces are the BEST!"
+      thinking: |
+        I like Donna now.
+        She taught me things.
+        I want her to win.
+        
+    don:
+      observable: |
+        Pauses cheese cutting.
+        "Hold, Donna. Hold."
+        Actually invested.
+      thinking: |
+        Four players is better than three.
+        Come on, aces.
+
+  flop: [9♣, 4♠, J♥]
+  
+  reactions_flop:
+    donna:
+      observable: |
+        "Still ahead."
+        Tight grip on cheese.
+      thinking: |
+        No six. Good.
+        Two cards to dodge.
+        
+    palm:
+      observable: |
+        "One six please."
+        Fur flat.
+      thinking: |
+        2 outs. About 8%.
+        Unlikely.
+
+  turn: [K♦]
+  board: [9♣, 4♠, J♥, K♦]
+  
+  reactions_turn:
+    donna:
+      observable: |
+        "One more. One more card."
+        Cheese untouched now.
+      thinking: |
+        Please. Just one card.
+        
+    palm:
+      observable: |
+        "One six. Still possible."
+        Calm.
+      thinking: |
+        2 outs. About 4%.
+        Almost over.
+
+  river: [2♣]
+  final_board: [9♣, 4♠, J♥, K♦, 2♣]
+  
+  showdown:
+    winner: donna
+    hand: "Pocket Aces"
+    
+    donna:
+      observable: |
+        EXHALES.
+        "HELD!"
+        Actually tears up.
+        "They held. I'm not out."
+      thinking: |
+        I survived.
+        Finally.
+        The poker gods noticed me.
+        
+    palm:
+      observable: |
+        "Good hand."
+        Pushes pot to Donna.
+        "I knew the calm nibble meant something."
+      thinking: |
+        She played it perfectly.
+        I called poorly.
+        But the cheese is still good.
+        
+    bumblewick:
+      observable: |
+        "DONNA WON!"
+        Jumps up.
+        Cheese flies.
+        "Oops. Sorry. DONNA WON!"
+      thinking: |
+        My friend won!
+        She taught me!
+        This is the best!
+        
+    don:
+      observable: |
+        "Welcome back."
+        Slides her a fresh wedge.
+        "The survivor's cheese."
+      thinking: |
+        Four players again.
+        Table stays good.
+
+# HAND 10 RESULT
+
+hand_10_result:
+  winner: donna
+  pot: 775
+  hand: "Pocket Aces held"
+  
+  final_stacks:
+    donna: 775  # survives!
+    palm: 150  # 350 - 200
+    don: 1650  # 1700 - 50 (BB)
+    bumblewick: 3575
+
+# HAND 11: THE SHORT STACK SHOWDOWN
+
+hand_11:
+  setup:
+    button: donna
+    small_blind: don  # 25
+    big_blind: palm  # 50 (leaves 100 behind)
+    first_to_act: bumblewick
+    
+    blinds_posted:
+      don: -25  # 1625
+      palm: -50  # 100
+      pot: 75
+
+  deal:
+    cards:
+      bumblewick: [K♦, K♣]  # POCKET KINGS
+      donna: [8♠, 7♠]  # suited connector
+      don: [Q♥, 10♣]  # broadway
+      palm: [A♥, 2♥]  # suited ace (short stack special)
+
+  reactions:
+    bumblewick:
+      observable: |
+        Looks at cards.
+        Sets down cheese.
+        Deep breath.
+        "Raise. 500."
+        Firm voice. Steady hands.
+      thinking: |
+        KINGS.
+        I know how to play kings now.
+        Big raise. Get value.
+        And put down the cheese — this is serious.
+        
+    donna:
+      observable: |
+        "Fold."
+        Watches Bumblewick.
+        "He put down the cheese."
+        Observation.
+      thinking: |
+        Bumblewick put down the cheese.
+        That's a tell. A NEW tell.
+        He means business.
+        
+    don:
+      observable: |
+        Looks at Bumblewick's abandoned cheese.
+        "The cheese knife is on the table."
+        Folds.
+        "And I'm not fighting that."
+      thinking: |
+        Bumblewick's tell: cheese down = real hand.
+        Learning goes both ways.
+        
+    palm:
+      observable: |
+        Looks at stack. 100 behind.
+        Looks at cards. Suited ace.
+        "All in."
+        150 total.
+      thinking: |
+        Too short to do anything else.
+        Ace-two suited versus... probably a big pair.
+        It's been a good night.
+        Might as well see it through.
+
+  preflop_action:
+    - actor: bumblewick
+      action: "calls 100 more (covers Palm)"
+      stack_after: 3025  # 3575 - 500 - 50 (extra)
+      observable: |
+        "Call."
+        Looks at Palm.
+        "Sorry. I have something."
+      thinking: |
+        Poor Palm.
+        But I can't NOT call with kings.
+        That's the lesson.
+        Play your good hands.
+
+  preflop_result:
+    pot: 775  # 75 + 500 + 150 + 50 (donna fold returns)
+    # Wait: 25 + 50 (blinds) + 500 (bumble) - 450 (donna folds) + 150 (palm all-in)
+    # Let me recalculate:
+    # Don posts 25. Palm posts 50. Pot: 75
+    # Bumblewick raises to 500. Donna folds. Don folds.
+    # Palm all-in for 150 total (adds 100 to his 50).
+    # Bumblewick calls the extra 0? No, Palm is only 150 total.
+    # So Bumblewick's 500 bet... he gets 350 back.
+    # Pot: 75 + 150 + 150 = 375
+    pot_corrected: 375
+    heads_up: [bumblewick, palm]
+
+# HAND 11: PALM'S LAST STAND
+
+hand_11_runout:
+  hands_revealed:
+    bumblewick: [K♦, K♣]
+    palm: [A♥, 2♥]
+    
+  reactions:
+    bumblewick:
+      observable: |
+        Shows kings.
+        "Kings again."
+        Nervous look.
+        "Last time I had kings I won. But that was scary."
+      thinking: |
+        I'm ahead.
+        But variance...
+        Don showed me variance today.
+        Anything can happen.
+        
+    palm:
+      observable: |
+        "Ace-deuce. Hearts."
+        Calm acceptance.
+        "I've been all-in five times tonight."
+        Fur perfectly still.
+      thinking: |
+        30% to win.
+        Slightly better than Don's suckouts.
+        Let's see what the universe has.
+        
+    don:
+      observable: |
+        Cheese knife paused.
+        "Come on, Bumblewick. Hold."
+      thinking: |
+        After all my suckouts...
+        Please let the kid win clean.
+        
+    donna:
+      observable: |
+        "Kings hold! Kings hold!"
+        Chanting.
+      thinking: |
+        Bumblewick taught ME the trap.
+        He deserves this.
+
+  flop: [7♣, 5♦, 3♠]
+  
+  reactions_flop:
+    palm:
+      observable: |
+        "Gutshot."
+        Notes the 7-5-3.
+        "Need a 4 for the wheel."
+      thinking: |
+        Picked up a draw.
+        3 aces, 4 fours, 2 deuces = 9 outs?
+        Actually... about 35% now.
+        
+    bumblewick:
+      observable: |
+        "No ace. No heart."
+        Relaxes slightly.
+        Reaches for cheese.
+        Stops.
+        "No. Not yet."
+      thinking: |
+        Don't jinx it.
+        The cheese comes AFTER.
+        
+    donna:
+      observable: |
+        "He didn't take cheese."
+        Nods approvingly.
+        "He's learning discipline."
+      thinking: |
+        Cheese is celebration.
+        Don't celebrate early.
+        Good boy.
+
+  turn: [4♥]
+  board: [7♣, 5♦, 3♠, 4♥]
+  
+  reactions_turn:
+    palm:
+      observable: |
+        Fur RIPPLES.
+        "A four."
+        Looks at board.
+        "A-2-3-4-5."
+        Whiskers angle forward.
+        "Wheel."
+      thinking: |
+        THE WHEEL.
+        I made a straight.
+        A WHEEL.
+        Against kings.
+        122 years and I still feel this rush.
+        
+    bumblewick:
+      observable: |
+        Stares at the 4.
+        "What's... what's a wheel?"
+        Looks at Palm's face.
+        "Oh no. Is wheel bad for me?"
+      thinking: |
+        Palm looks different.
+        Palm looks... happy?
+        Why is Palm happy?
+        
+    don:
+      observable: |
+        "Bumble... the four made a straight."
+        Gently.
+        "Ace-two-three-four-five. The wheel."
+      thinking: |
+        Oh kid.
+        Welcome to poker.
+        
+    donna:
+      observable: |
+        Covers mouth.
+        "The variance gods..."
+        Trails off.
+      thinking: |
+        Just like Don did to Palm.
+        The wheel comes around.
+        Literally.
+
+  river: [J♠]
+  final_board: [7♣, 5♦, 3♠, 4♥, J♠]
+  
+  showdown:
+    winner: palm
+    hand: "Wheel (A-2-3-4-5 straight)"
+    
+    palm:
+      observable: |
+        "Wheel."
+        First smile of the NIGHT.
+        Not whisker-twitch. Actual smile.
+        "The universe remembered."
+      thinking: |
+        Don sucked out on me twice.
+        I sucked out on Bumblewick once.
+        Balance.
+        
+    bumblewick:
+      observable: |
+        Stares at the board.
+        Long stare.
+        Deep breath.
+        ...
+        "Good hand, Palm."
+        No tears.
+        Picks up cheese.
+        "I had kings. I played them right. You got lucky."
+        Nibbles.
+        "That's poker."
+      thinking: |
+        I lost.
+        With kings.
+        To a straight.
+        
+        But I played it right.
+        Don said I played it right.
+        Donna said I played it right.
+        
+        And there's cheese.
+        
+        ...I'm okay.
+        I'm actually okay.
+        
+    don:
+      observable: |
+        "Bumblewick."
+        Genuine respect.
+        "THAT is how you handle a bad beat."
+        Cuts him extra cheese.
+        "The biggest wedge for the best loser."
+      thinking: |
+        That kid just grew up.
+        In front of all of us.
+        
+    donna:
+      observable: |
+        Actual tears.
+        "He didn't cry. HE didn't cry."
+        Proud.
+        "I didn't teach him that."
+        Looks at Don.
+        "You taught him that."
+      thinking: |
+        Don's suckouts taught Bumblewick variance.
+        Bumblewick learned.
+        The table is a teacher.
+
+# HAND 11 RESULT
+
+hand_11_result:
+  winner: palm
+  pot: 375
+  hand: "Wheel straight"
+  
+  bumblewick_growth:
+    before: "Cried after every loss"
+    after: "'Good hand. That's poker.' *nibbles cheese*"
+    growth_vector: "Acceptance"
+    
+  final_stacks:
+    bumblewick: 3025  # -350 from 3375 (500 raise, got 150 back)
+    palm: 525  # 150 + 375
+    don: 1625
+    donna: 775
+
+# SESSION 005 SUMMARY
+
+session_summary:
+  run_id: four-player-005
+  hands_played: "9-11"
+  
+  the_cheese_ceremony:
+    trigger: "Palm broke the tension with 'cheese smuggler'"
+    resolution: "Don owns it, shares wheel of cheese"
+    result: "Table transforms into friendly gathering"
+    
+  hand_9:
+    result: "Don sets over Donna's top pair"
+    key_moment: "Don slicing cheese WITH A SET"
+    donna_observation: "'The cheese knife is your new tell!'"
+    
+  hand_10:
+    result: "Donna aces hold vs Palm sixes"
+    key_moment: "Donna nibbles cheese calmly — Palm reads it"
+    bumblewick: "Jumps up, cheese flies, 'DONNA WON!'"
+    
+  hand_11:
+    result: "Palm wheels Bumblewick's kings"
+    key_moment: "Bumblewick loses WITHOUT CRYING"
+    don: "'THAT is how you handle a bad beat.'"
+    donna: "Actual tears — 'He didn't cry.'"
+    
+  emergence:
+    - "Cheese knife tell: slicing = confident/strong"
+    - "Cheese put down: Bumblewick serious mode"
+    - "Table becomes supportive community"
+    - "Bumblewick completes emotional growth arc"
+    
+  final_stacks:
+    bumblewick: 3025
+    don: 1625
+    donna: 775
+    palm: 525
+    
+  mood:
+    bumblewick: "Mature acceptance, proud of self"
+    don: "Host energy, generous, satisfied"
+    donna: "Proud of Bumblewick, part of the group"
+    palm: "Content, balanced, wheel justice"
+
+# QUOTES
+
+quotes:
+  don: "The smuggler provides, and the smuggler wins."
+  donna: "The CHEESE KNIFE. That's your new tell."
+  bumblewick: "Good hand, Palm. That's poker."
+  palm: "The universe remembered."
+  donna_about_bumblewick: "He didn't cry. HE didn't cry."
