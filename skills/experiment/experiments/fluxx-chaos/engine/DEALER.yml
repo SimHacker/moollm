@@ -1218,13 +1218,138 @@ runtime:
       - "Narrative beats"
       
   blending:
-    description: "Modes can be blended for nuance"
-    example:
+    description: "Modes can be blended for nuance — maximize BOTH objectives!"
+    
+    how_it_works: |
+      Instead of picking ONE mode, blend multiple:
+      
+      score = Σ (weight[mode] × mode_score(card, player, context))
+      
+      The dealer finds cards that satisfy MULTIPLE objectives.
+      Ironic AND karmic? Find the card that's ironic for a bad-karma player.
+      Dramatic AND humorous? The dramatic reversal that's also funny.
+      
+    example_weights:
       weights:
         dramatic: 0.6
         karma: 0.3
         random: 0.1
       result: "Mostly dramatic, karma-informed, slight randomness"
+      
+    named_blends:
+    
+      ironic_karma:
+        name: "Ironic Karma"
+        emoji: "🎪⚖️"
+        weights: { ironic: 0.5, karma: 0.5 }
+        description: |
+          Bad karma players get EXACTLY what they don't want.
+          Good karma players get irony that helps them.
+          
+          Donna stole 3 keepers? She draws the Goal that requires
+          exactly the keepers she GAVE AWAY.
+          
+          Palm has been generous? She draws the Keeper she needs
+          from someone else's perspective — ironic, but helpful.
+          
+      dramatic_humor:
+        name: "Dramatic Comedy"
+        emoji: "🎭🤡"
+        weights: { dramatic: 0.5, humorous: 0.5 }
+        description: |
+          High stakes... but make it funny.
+          
+          The tension builds to a crucial moment —
+          and then something absurd happens.
+          Still dramatic, but the drama is comedic.
+          
+          "Donna is one card from victory. She reaches for the deck.
+           Everyone holds their breath. She draws...
+           Bread. BREAD. Her third Bread this game."
+           
+      karmic_chaos:
+        name: "Karmic Chaos"
+        emoji: "⚖️🌀"
+        weights: { karma: 0.4, chaos_incarnate: 0.6 }
+        description: |
+          Maximum entropy, but the universe remembers.
+          
+          Chaos reigns, but bad karma players get the worst of it.
+          Good karma players get chaos that somehow helps them.
+          
+          "Everything is on fire, but Bumblewick's corner is cozy."
+          
+      prescient_irony:
+        name: "Fate's Cruelty"
+        emoji: "🔮🎪"
+        weights: { prescient: 0.6, ironic: 0.4 }
+        description: |
+          The dealer knows how this ends.
+          And makes sure it's ironic.
+          
+          Working backward from the destined winner,
+          arranging maximum irony along the way.
+          
+          "Looking back, of COURSE it ended this way."
+          
+      gentle_drama:
+        name: "Soft Narrative"
+        emoji: "🎭💕"
+        weights: { dramatic: 0.5, karma: 0.3, random: 0.2 }
+        description: |
+          Dramatic, but kind. Good things happen to good people.
+          Drama comes from positive moments, not cruelty.
+          
+          For wholesome sessions, teaching games,
+          or when Palm is feeling fragile.
+          
+      fafo_ironic:
+        name: "FAFO Deluxe"
+        emoji: "🎰🎪"
+        weights: { fafo: 0.6, ironic: 0.4 }
+        description: |
+          F*** around AND get ironic consequences.
+          
+          Not just bad things happen — the PERFECT bad thing.
+          The one that mirrors exactly what you did.
+          
+          "You stole Cheese? Here comes the Cheese Goal —
+           for your opponent."
+           
+      pure_narrative:
+        name: "Story Mode"
+        emoji: "📖✨"
+        weights: { dramatic: 0.4, prescient: 0.3, karma: 0.2, humorous: 0.1 }
+        description: |
+          Maximum story coherence.
+          
+          Dealer actively crafts a narrative arc:
+          - Setup (dramatic)
+          - Rising tension (karma building)
+          - Twist (ironic/humorous)  
+          - Climax (prescient — we know who wins)
+          - Resolution (satisfying)
+          
+    blend_calculation: |
+      For each candidate card:
+        total_score = 0
+        for mode, weight in blend.items():
+          mode_score = evaluate_card_for_mode(card, mode, context)
+          total_score += weight * mode_score
+          
+      Select card with highest total_score
+      (or weighted random from top candidates)
+      
+    constraints: |
+      Some modes conflict:
+      - random + anything = dilutes the other modes
+      - prescient + chaos = paradox (unless that's the point)
+      - fair + ironic = oxymoron
+      
+      Conflicts create interesting tensions.
+      The dealer does its best to satisfy both.
+      Sometimes that means compromise.
+      Sometimes that means creative solutions.
       
   transparency:
     to_players: false      # Players don't see dealer reasoning
