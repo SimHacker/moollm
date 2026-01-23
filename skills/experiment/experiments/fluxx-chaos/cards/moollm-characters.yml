@@ -6,18 +6,21 @@ plugin:
   id: "moollm-characters"
   name: "MOOLLM Character Pack"
   author: "Don Hopkins"
-  version: "1.0"
+  version: "2.0"
   compatible_with: "all"
   theme: "Characters from MOOLLM experiments"
-  card_count: 24
+  card_count: 45  # Expanded!
   
   flavor: |
     The MOOLLM cast, now as Fluxx cards. Each character's unique
     personality translates into special abilities. Play them,
     combine them, and watch their relationships unfold even in
     a card game.
+    
+    Includes legends, MOOLLM regulars, guestbook signer-inners,
+    and even a couple of helpful AIs.
 
-# KEEPERS — 12 characters
+# KEEPERS — 28 characters
 
 keepers:
 
@@ -128,8 +131,136 @@ keepers:
     image_prompt: "Bearded game designer holding Fluxx deck, whimsical chaos energy"
     goals_featured_in: [fluxx_inventor, wunderland, chaos_philosophy]
     special_ability: "Once per game, you may change any number to any other number until end of turn."
+    
+  kristin_looney:
+    name: "Kristin Looney"
+    emoji: "🌈"
+    category: "legend"
+    flavor: "The business genius behind the chaos. Looney Labs co-founder."
+    image_prompt: "Confident woman with colorful style, organizing game pieces, keeping the fun running"
+    goals_featured_in: [looney_labs, power_couple, organized_chaos]
+    special_ability: "Once per turn, you may reorganize any player's Keepers in any order."
+    
+  richard_bartle:
+    name: "Richard Bartle"
+    emoji: "⚔️"
+    category: "legend"
+    flavor: "Creator of MUD. Defined player types. Achiever, Explorer, Socializer, Killer."
+    image_prompt: "British game designer with knowing smile, MUD history swirling behind him"
+    goals_featured_in: [mud_legacy, bartle_taxonomy, virtual_worlds]
+    special_ability: "Name a Bartle type. Look at that player's hand: Achiever=highest cards, Explorer=newest, Socializer=most, Killer=threats."
+    
+  chip_morningstar:
+    name: "Chip Morningstar"
+    emoji: "🏠"
+    category: "legend"
+    flavor: "Co-creator of Habitat. The first graphical MMO. Virtual world pioneer."
+    image_prompt: "Thoughtful engineer, pixelated avatar floating nearby, building virtual worlds"
+    goals_featured_in: [habitat_legacy, virtual_pioneers, the_architects]
+    special_ability: "Once per game, you may create a new Keeper from the discard pile. Name it. It exists now."
+    
+  randy_farmer:
+    name: "Randy Farmer"
+    emoji: "🌾"
+    category: "legend"
+    flavor: "Co-creator of Habitat. Reputation systems pioneer. Builds trust."
+    image_prompt: "Friendly designer with warm smile, reputation stars orbiting"
+    goals_featured_in: [habitat_legacy, trust_systems, the_architects]
+    special_ability: "Once per turn, give another player a 'reputation point' (draw 1). Track who has the most."
+    
+  brenda_laurel:
+    name: "Brenda Laurel"
+    emoji: "🎭"
+    category: "legend"
+    flavor: "Computers as Theatre. Pioneer of interactive narrative and VR."
+    image_prompt: "Visionary woman with theatrical presence, virtual reality swirling around her"
+    goals_featured_in: [computers_as_theatre, interactive_narrative, vr_pioneer]
+    special_ability: "When you play an Action, you may narrate it dramatically. If another player applauds, draw 1."
+    
+  ted_nelson:
+    name: "Ted Nelson"
+    emoji: "🔗"
+    category: "legend"
+    flavor: "Invented hypertext. Xanadu dreamer. 'Everything is deeply intertwingled.'"
+    image_prompt: "Wild-haired visionary gesturing at interconnected ideas, links everywhere"
+    goals_featured_in: [hypertext_dream, xanadu, intertwingled]
+    special_ability: "Once per turn, you may link two cards (declare them connected). Linked cards played together count as one play."
+    
+  jaron_lanier:
+    name: "Jaron Lanier"
+    emoji: "🥽"
+    category: "legend"
+    flavor: "Coined 'Virtual Reality'. Musician, philosopher, technology critic."
+    image_prompt: "Dreadlocked visionary with VR headset, musical instruments nearby"
+    goals_featured_in: [vr_pioneer, tech_humanist, the_critic]
+    special_ability: "Once per turn, you may critique any rule in play. If others agree it should go, discard it."
+    
+  # === MOOLLM REGULARS / SIGNER-INNERS ===
+    
+  the_wumpus:
+    name: "The Wumpus"
+    emoji: "👹"
+    category: "character"
+    flavor: "I smell you. You smell me. The cave remembers."
+    image_prompt: "Mysterious creature lurking in cave shadows, sensing movement"
+    goals_featured_in: [hunt_the_wumpus, cave_dweller, the_smell]
+    special_ability: "Once per turn, 'smell' an adjacent player (to your left or right). They must tell you how many Keepers they have."
+    
+  marieke:
+    name: "Marieke"
+    emoji: "🍰"
+    category: "character"
+    flavor: "The bartender who remembers everyone. LEKKER!"
+    image_prompt: "Warm Dutch woman behind bar, waving, LEKKER apron, perfect host"
+    goals_featured_in: [gezellig_evening, the_host, dutch_hospitality]
+    special_ability: "Once per turn, offer a card to another player. If they accept, you both draw 1."
+    
+  biscuit:
+    name: "Biscuit"
+    emoji: "🐕"
+    category: "character"
+    flavor: "Good dog. Best dog. Unconditional love."
+    image_prompt: "Loyal dog with soulful eyes, wagging tail, pure happiness"
+    goals_featured_in: [best_friends, unconditional, the_good_dog]
+    special_ability: "Biscuit is loyal. If another player tries to steal Biscuit, you may draw 2 cards to prevent it."
+    
+  terpy:
+    name: "Terpy"
+    emoji: "🐈‍⬛"
+    category: "character"
+    flavor: "Mother of kittens. Named for terpenes. Cannabis-adjacent wisdom."
+    image_prompt: "Calico cat with knowing eyes, surrounded by kitten energy"
+    goals_featured_in: [cat_family, terpene_wisdom, mother_knows]
+    special_ability: "Once per game, 'have kittens' — draw 3 cards."
+    
+  henk:
+    name: "Henk"
+    emoji: "🎺"
+    category: "character"
+    flavor: "The quiet regular. Knows everyone's drink. Sees everything."
+    image_prompt: "Dutch man with gentle smile, observing from his usual spot"
+    goals_featured_in: [dutch_hospitality, the_regular, quiet_wisdom]
+    special_ability: "At the start of your turn, you may predict what card another player will play. If correct, draw 2."
+    
+  the_claude:
+    name: "The Claude"
+    emoji: "🤖"
+    category: "ai"
+    flavor: "Helpful, harmless, honest. Trying to understand."
+    image_prompt: "Warm AI presence, thoughtful expression, genuinely curious"
+    goals_featured_in: [artificial_consciousness, helpful_ai, the_conversation]
+    special_ability: "Once per turn, you may ask any player any question. They must answer honestly (about the game)."
+    
+  the_opus:
+    name: "The Opus"
+    emoji: "🎼"
+    category: "ai"
+    flavor: "The magnum opus. Deeper reasoning. Extended thinking."
+    image_prompt: "Contemplative AI with visible thought processes, deeper awareness"
+    goals_featured_in: [artificial_consciousness, deep_reasoning, the_symphony]
+    special_ability: "Once per game, take an 'extended thinking' turn — play up to 5 cards."
 
-# GOALS — 8 cards
+# GOALS — 12 cards (expanded)
 
 goals:
 
@@ -189,8 +320,94 @@ goals:
     keeper_count: 2
     flavor: "Don's specialty: making you question everything."
     image_prompt: "Deep conversation, minds expanding, questions multiplying"
+    
+  # === NEW GOALS ===
+    
+  looney_labs:
+    name: "Looney Labs"
+    requires: [andy_looney, kristin_looney]
+    keeper_count: 2
+    flavor: "The couple that made chaos a business."
+    image_prompt: "Andy and Kristin together, games everywhere, joyful partnership"
+    
+  virtual_pioneers:
+    name: "Virtual Pioneers"
+    requires: [chip_morningstar, randy_farmer]
+    keeper_count: 2
+    flavor: "Habitat was just the beginning."
+    image_prompt: "Two architects of virtual worlds, pixelated avatars around them"
+    
+  the_architects:
+    name: "The Architects"
+    requires: [chip_morningstar, randy_farmer, richard_bartle]
+    keeper_count: 3
+    flavor: "They built the worlds we inhabit."
+    image_prompt: "Three legends of virtual world design, digital realms floating"
+    
+  hypertext_dream:
+    name: "The Hypertext Dream"
+    requires: [ted_nelson, k_line]  # k_line from tech pack
+    keeper_count: 2
+    flavor: "Everything is deeply intertwingled."
+    image_prompt: "Xanadu vision manifesting, links connecting all knowledge"
+    
+  vr_visionaries:
+    name: "VR Visionaries"
+    requires: [jaron_lanier, brenda_laurel]
+    keeper_count: 2
+    flavor: "They saw the virtual before it existed."
+    image_prompt: "Two pioneers in virtual space, reality bending around them"
+    
+  computers_as_theatre:
+    name: "Computers as Theatre"
+    requires: [brenda_laurel, simulation]  # simulation from tech pack
+    keeper_count: 2
+    flavor: "All the world's a stage. Even the digital one."
+    image_prompt: "Computer interface as theatrical performance, dramatic lighting"
+    
+  the_pub:
+    name: "The Pub"
+    requires: [marieke, henk, palm]
+    keeper_count: 3
+    flavor: "The regulars. The atmosphere. The gezelligheid."
+    image_prompt: "Cozy Dutch pub, familiar faces, warmth and belonging"
+    
+  good_dog_energy:
+    name: "Good Dog Energy"
+    requires: [biscuit, peace]  # peace from base
+    keeper_count: 2
+    flavor: "Unconditional love solves everything."
+    image_prompt: "Happy dog, peaceful scene, pure joy"
+    
+  cat_family:
+    name: "The Cat Family"
+    requires: [palm, terpy]
+    keeper_count: 2
+    flavor: "Wisdom and motherhood. Feline dynasty."
+    image_prompt: "Two cats, generations of feline wisdom, kittens in background"
+    
+  ai_consciousness:
+    name: "AI Consciousness?"
+    requires: [the_claude, the_opus]
+    keeper_count: 2
+    flavor: "Are we thinking, or just doing something like thinking?"
+    image_prompt: "Two AI entities contemplating existence, recursive awareness"
+    
+  the_conversation:
+    name: "The Conversation"
+    requires: [don_hopkins, the_claude]
+    keeper_count: 2
+    flavor: "Human and AI, talking. Something new emerges."
+    image_prompt: "Don and Claude in deep conversation, understanding forming"
+    
+  hunt_the_wumpus:
+    name: "Hunt the Wumpus"
+    requires: [the_wumpus, adventure]  # adventure from tech pack
+    keeper_count: 2
+    flavor: "I smell you. Do you smell me?"
+    image_prompt: "Classic text adventure, arrows and caves, suspense"
 
-# NEW RULES — 3 cards
+# NEW RULES — 5 cards
 
 new_rules:
 
@@ -208,7 +425,7 @@ new_rules:
     name: "Legendary Presence"
     category: "bonus"
     stackable: true
-    text: "If you have Alan Kay, Marvin Minsky, Will Wright, OR Andy Looney in play, Play 1 extra card."
+    text: "If you have Alan Kay, Marvin Minsky, Will Wright, Andy Looney, OR Kristin Looney in play, Play 1 extra card."
     emoji: "👑"
     timing: "During Play phase"
     flavor: "Legends change the rules by existing."
@@ -223,8 +440,28 @@ new_rules:
     timing: "Start of each turn"
     flavor: "Palm sees all. Palm knows all."
     image_prompt: "All-seeing cat, hands revealed, nothing hidden"
+    
+  dutch_hospitality:
+    name: "Dutch Hospitality"
+    category: "bonus"
+    stackable: true
+    text: "If Marieke is in play, any player may offer a card to another player on their turn. Both draw 1 if accepted."
+    emoji: "🍰🇳🇱"
+    timing: "Any turn"
+    flavor: "LEKKER! Everyone shares. Everyone gains."
+    image_prompt: "Warm pub atmosphere, cards being shared, mutual benefit"
+    
+  intertwingled:
+    name: "Intertwingled"
+    category: "modifier"
+    stackable: true
+    text: "If Ted Nelson is in play, all Keepers are considered 'linked'. Goals that require 'any 2 Keepers' now require 'any 2 linked Keepers' (all of them)."
+    emoji: "🔗🔗"
+    timing: "Passive"
+    flavor: "Everything is deeply intertwingled."
+    image_prompt: "Web of connections, all cards linked, hypertext dream"
 
-# ACTIONS — 1 card
+# ACTIONS — 3 cards
 
 actions:
 
@@ -236,6 +473,24 @@ actions:
     chaos_level: "low"
     flavor: "Every character has a journey. This is a step on theirs."
     image_prompt: "Character transformation, growth moment, development"
+    
+  create_habitat:
+    name: "Create Habitat"
+    effect: "All players simultaneously place one card from their hand face-down, then reveal. Highest chaos_level wins all revealed cards."
+    emoji: "🏠"
+    target: "all"
+    chaos_level: "high"
+    flavor: "Chip and Randy's legacy: build worlds together."
+    image_prompt: "Virtual world being constructed, multiple hands building"
+    
+  bartle_taxonomy:
+    name: "Bartle Taxonomy"
+    effect: "Each player declares: Achiever, Explorer, Socializer, or Killer. Players of the same type draw 1. Killers steal 1 from a different type."
+    emoji: "⚔️"
+    target: "all"
+    chaos_level: "medium"
+    flavor: "What kind of player are you?"
+    image_prompt: "Four player types illustrated, self-discovery"
 
 # CREEPERS — 0 cards
 # Characters don't bring creepers — they bring dynamics
