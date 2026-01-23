@@ -140,6 +140,124 @@ preflop_summary:
   remaining_players: [don, palm, bumblewick]
   donna: folded
   tension_level: rising
+
+# STEP 3: THE FLOP
+
+flop:
+  cards: [K♦, 7♣, 3♥]
+  pot: 1250
+  
+  # What each player now has:
+  # don: Q♠Q♦ + K♦7♣3♥ = pair of queens (now an underpair to board king)
+  # palm: A♣K♣ + K♦7♣3♥ = pair of kings, ace kicker (TOP PAIR)
+  # bumblewick: K♥K♠ + K♦7♣3♥ = THREE KINGS (SET - MONSTER)
+  
+  board_reaction:
+    don:
+      observable: |
+        Slight pause. Fingers tap chip stack twice.
+        "Well. That's a king." Takes slow sip of jenever.
+        Posture unchanged but breathing slightly slower.
+      thinking: |
+        King on board. My queens are now... concerning.
+        Palm's shimmer intensified. They have something.
+        Bumblewick just STOPPED SHAKING. Why did he stop shaking?
+        That's... unusual. Very unusual.
+        
+    palm:
+      observable: |
+        Fur BRIGHTENS perceptibly. Tail uncurls slightly.
+        Golden earring sways as head tilts toward board.
+        "Interesting flop." Very measured tone.
+      thinking: |
+        King with my ace kicker. Strong.
+        Don saw my shimmer. He knows I connected.
+        I should bet. But Bumblewick...
+        Bumblewick stopped trembling. I've watched 10,000 wishers.
+        When the terrified become still, PAY ATTENTION.
+        
+    bumblewick:
+      observable: |
+        Trembling STOPS. Complete stillness. Eyes fixed on board.
+        Mouth opens, closes. No sound. 
+        Reaches for cold tea, misses cup entirely.
+        "Oh. Oh my." Barely a whisper.
+      thinking: |
+        Three kings. I have THREE KINGS.
+        That's... that's good? That's very good? 
+        Mother said three of a kind beats two of a kind.
+        I have the best hand. I HAVE THE BEST HAND.
+        What do I DO? If I bet they'll KNOW.
+        If I don't bet I'm WASTING it.
+        Palm is shimmering. Don is thinking. 
+        They're going to figure it out. They always figure it out.
+        Just breathe. Just breathe. DON'T SHAKE.
+        
+    donna:
+      observable: |
+        Leans forward from folded position. Eyes narrow.
+        "Why did Bumble-WEAK stop shaking?"
+        Finger taps table. Once. Twice.
+      thinking: |
+        He stopped shaking. He NEVER stops shaking.
+        That board hit him. Hit him HARD.
+        I folded 7-2 and there's a 7 on board. IRRELEVANT.
+        But Bumblewick has something and I'M NOT IN THE HAND.
+        Unacceptable. UNACCEPTABLE.
+
+  # Flop action (Palm acts first as small blind)
+  flop_action:
+    - actor: palm
+      action: "bets 500 🪙"
+      stack_after: 75
+      observable: |
+        Chips pushed forward with gentle precision.
+        "Five hundred." No explanation. No performance.
+        Watches Bumblewick, not the chips.
+      thinking: |
+        Value bet. Top pair is worth protecting.
+        But why is Bumblewick so still?
+        I should trust my read. But 122 years taught me:
+        the terrified who become calm have found something.
+        Don will fold or call. But Bumblewick...
+        
+    - actor: bumblewick
+      action: "calls 500 🪙"
+      stack_after: 100
+      observable: |
+        Hands shake AGAIN as reaching for chips. Relief?
+        "I... call." Voice cracks. Swallows hard.
+        Eyes down. Cannot look at anyone.
+        Chips pushed forward in messy pile.
+      thinking: |
+        Don't raise. If I raise they'll KNOW.
+        Palm bet big. Palm knows things.
+        But I have THREE KINGS. I should raise.
+        I CAN'T. I literally cannot. My arms won't move that way.
+        Call. Calling is safe. Calling is surviving.
+        Oh god the river is coming. What happens on the river?
+        
+    - actor: don
+      action: "folds"
+      stack_after: 600
+      observable: |
+        Cards placed down gently. Hands raised in mock surrender.
+        "Too rich for queens tonight." Open fold.
+        Leans back, pours more jenever, watches the remaining two.
+      thinking: |
+        Palm's shimmer plus that bet = has the king.
+        But BUMBLEWICK CALLED.
+        Bumblewick. Called. A 500 chip bet. Into a raised pot.
+        And he stopped shaking on the flop.
+        Oh. OH.
+        *sips jenever*
+        This is going to be interesting.
+
+flop_summary:
+  pot: 2250  # 1250 + 500 + 500
+  remaining: [palm, bumblewick]
+  don: folded (correctly read the danger)
+  donna: watching (seething)
       
   protocols:
     smoking:
