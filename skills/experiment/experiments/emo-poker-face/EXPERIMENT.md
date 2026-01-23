@@ -708,7 +708,7 @@ round:
         voice: "Let's make this interesting."
         timing: "Quick raise, no hesitation"
         environment:
-          drink: "Pours sharp cheddar cheese, doesn't drink yet"
+          snack: "Cuts sharp cheddar cheese, doesn't nibble yet"
           food: "Pushes bowl toward Palm"
           
       thinking: |

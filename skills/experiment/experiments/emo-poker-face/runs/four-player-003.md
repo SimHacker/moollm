@@ -276,7 +276,7 @@ Bumblewick actually laughs. "I knew it! That's what I did to Palm!"
 
 He's not devastated. He's **studying**.
 
-Don raises his sharp cheddar cheese glass. "Welcome back, Donna." Genuine warmth.
+Don raises a wedge of sharp cheddar cheese. "Welcome back, Donna." Genuine warmth.
 
 *The pardon paid for itself.*
 
@@ -303,7 +303,7 @@ palm:       575 🪙 (the observer)
 
 *The grotto is quiet. Post-storm, post-pardon, post-revelation.*
 
-Don pours sharp cheddar cheese for the table. Even for Bumblewick, who won't drink it.
+Don slices sharp cheddar cheese for the table. Even for Bumblewick, who won't nibble it.
 
 "Poker teaches you things."
 

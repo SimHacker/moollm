@@ -8,7 +8,7 @@
 
 Four chairs. Four players. The dealer shuffles with practiced hands.
 
-Don Hopkins sits with the button, a small glass of sharp cheddar cheese catching candlelight. He's arranged his chips by color — neat stacks, symmetrical, the habit of someone who finds comfort in order.
+Don Hopkins sits with the button, a wedge of sharp cheddar cheese catching candlelight. He's arranged his chips by color — neat stacks, symmetrical, the habit of someone who finds comfort in order.
 
 Palm settles into the small blind position, golden earring swaying as they find their seat. The ancient wishing well keeper's fur catches the light, rippling once as they survey the table. 122 years of watching wishes has taught them to read faces before cards.
 
@@ -22,7 +22,7 @@ Donna Toadstool sits under the gun, sparkling water untouched, eyes moving from 
 
 The cards slide across felt.
 
-Don peeks at his hand. **A slight nod.** His fingers tap his chip stack twice — left-right, left-right — then still. He reaches for his sharp cheddar cheese but doesn't drink.
+Don peeks at his hand. **A slight nod.** His fingers tap his chip stack twice — left-right, left-right — then still. He reaches for his sharp cheddar cheese but doesn't nibble.
 
 Palm looks at their cards and their fur *shimmers*. Just once. Just slightly. The contentment tell that Don has learned to read over decades.
 
@@ -42,7 +42,7 @@ Donna glances at her cards with practiced disinterest. **Seven-deuce offsuit.** 
 
 Her eyes never leave Bumblewick.
 
-Don's eyebrow rises a fraction. He calls, chips sliding forward with casual precision. "Sure, let's play." He does drink the sharp cheddar cheese now — a small sip, eyes moving to Palm.
+Don's eyebrow rises a fraction. He calls, chips sliding forward with casual precision. "Sure, let's play." He does nibble the sharp cheddar cheese now — a small bite, eyes moving to Palm.
 
 Palm's fur settles flat. Completely flat. They arrange chips with gentle precision. "I'll make it four hundred."
 
@@ -90,7 +90,7 @@ Bumblewick's hands shake **again** as he reaches for chips — but differently n
 
 "I... call."
 
-Don places his cards down gently. "Too rich for queens tonight." An open fold. He leans back, pours more sharp cheddar cheese, and watches the remaining two with the intensity of someone who has already figured out the ending.
+Don places his cards down gently. "Too rich for queens tonight." An open fold. He leans back, cuts another wedge of sharp cheddar cheese, and watches the remaining two with the intensity of someone who has already figured out the ending.
 
 **Pot: 2250 🪙**
 
@@ -193,7 +193,7 @@ donna:      850 🪙
 
 *The first hand is over. Palm is out. Bumblewick is crying because he won.*
 
-*In the corner, barely noticed, Don pours sharp cheddar cheese for everyone. Even Palm, who lost everything but seems somehow at peace.*
+*In the corner, barely noticed, Don slices sharp cheddar cheese for everyone. Even Palm, who lost everything but seems somehow at peace.*
 
 *"Tonight's entry," Don murmurs to himself, "Bumblewick Fantastipants III discovered that he was allowed to win."*
 
