@@ -12,11 +12,27 @@ configs:
     file: minimal-three.yml
     characters: 3
     description: "Quick test: Don, Palm, Donna"
+    
+  - name: four-player
+    file: four-player.yml
+    characters: 4
+    description: "Constraint stress test: Don, Palm, Bumblewick, Donna"
 
 # Auto-updated when runs are executed
 # Naming: {config-name}-{NNN}.{yml|md}
 
-outputs: []
+outputs:
+  - config: four-player
+    number: 1
+    files: [four-player-001.yml, four-player-001-cursor-mirror.yml]
+    timestamp: 2026-01-23T18:44:00Z
+    model: claude-4.5-opus-high-thinking
+    result: "Bumblewick wins with set of kings"
+    commits: 7
+    layer_violations: 0
+    notes: |
+      First run with git-commit-per-step narration.
+      Emergent: terror-induced slowplay = accidentally optimal.
 # Example after runs:
 #   - config: whacky-eight
 #     number: 1

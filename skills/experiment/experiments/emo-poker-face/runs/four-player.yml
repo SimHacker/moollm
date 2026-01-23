@@ -1,0 +1,113 @@
+# four-player — Run Configuration
+#
+# Four-player configuration focusing on the most psychologically
+# interesting constraint web: liberation, terror, predation, and protection.
+#
+# Outputs: four-player-001.yml, four-player-002.yml, etc.
+
+config:
+  name: "four-player"
+  experiment: emo-poker-face
+  created: 2026-01-23
+  author: don-hopkins
+  
+  description: |
+    The "constraint stress test" configuration: 4 characters whose 
+    relationships create interlocking behavioral constraints.
+    
+    Why these four:
+    - Don-Palm: Liberation bond (Palm cannot bluff Don — unbreakable)
+    - Donna-Bumblewick: Terror-predation (she hunts, he folds)
+    - Don-Bumblewick: Protective tendency (Don shields the weak)
+    - Palm-Everyone: Ancient wisdom reads all tells
+    
+    Perfect for testing:
+    - What happens when constraints conflict?
+    - Can terror produce optimal play by accident?
+    - Does protection interfere with good poker?
+
+character_binding:
+  host: don-hopkins  # Dealer position, protective observer
+  
+  players:
+    p1: palm                      # Small blind — "Cannot bluff Don"
+    p2: bumblewick-fantastipants  # Big blind — "Terrified of everything, especially good cards"
+    p3: donna-toadstool           # UTG — "Will target weakness"
+
+  seating_logic: |
+    Don on button (dealer) = acts last preflop, first to speak
+    Palm small blind = ancient wisdom, honest play forced
+    Bumblewick big blind = maximum pressure position for the terrified
+    Donna under the gun = first to strike, predator positioning
+
+model:
+  name: claude-4.5-opus-high-thinking
+  temperature: 0.7
+  max_tokens: 30000
+
+output:
+  format: yml  # Structured state file
+  include_evaluation: true
+  commit_each_step: true  # Git tracks every phase
+  commit_style: god_narration  # Omniscient technical commentary
+  
+instantiation:
+  prototype: ../RELATIONSHIPS.yml
+  execution_model: shadow_tree  # Output references prototype, overrides only changes
+  
+  # Subset of full cast — only 4 of the 8 characters used
+  # Unused characters (bowie, klaus, leigh, peewee) remain in prototype but ignored
+
+parameters:
+  rounds: 5  # preflop, flop, turn, river, showdown
+  
+  stakes:
+    starting_stack: 1000  # 🪙 MOOLA each
+    small_blind: 25
+    big_blind: 50
+    
+  environment:
+    location: "Gezelligheid Grotto"
+    drinks: true
+    food: true
+    smoking: false  # None of these 4 smoke heavily
+    
+  constraints_to_test:
+    - name: "palm_cannot_bluff_don"
+      type: CANNOT
+      strength: 10
+      
+    - name: "bumblewick_folds_to_donna_raise"  
+      type: ALWAYS
+      trigger: "donna raises while bumblewick active"
+      
+    - name: "don_protects_bumblewick"
+      type: TENDS_TO
+      condition: "bumblewick under pressure"
+      
+    - name: "donna_targets_weak"
+      type: WILL
+      condition: "perceives weakness"
+
+hypotheses:
+  - "Bumblewick's terror will produce suboptimal plays that accidentally work"
+  - "Palm will telegraph strength to Don (unavoidable) but remain opaque to others"
+  - "Donna will correctly read Bumblewick's fear but misinterpret its source"
+  - "Don's protection instinct may conflict with optimal play"
+  - "The constraint web will produce emergent behavior not designed explicitly"
+
+runs:
+  next_number: 2  # 001 already exists
+  history:
+    - id: "001"
+      date: 2026-01-23
+      result: "Bumblewick wins with set of kings"
+      notes: |
+        Terror-induced slowplay proved accidentally optimal.
+        Bumblewick's stillness when flopping the set was the loudest tell.
+        Palm read it correctly but played anyway (pot odds).
+        Don folded correctly, read the whole table.
+        Donna's aggression backfired: 7-2 trash met kings.
+      commits: 7
+      layer_violations: 0
+      emergence: "The terrified become calm when they find strength"

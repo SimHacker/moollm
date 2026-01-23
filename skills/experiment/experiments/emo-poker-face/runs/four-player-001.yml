@@ -1,11 +1,16 @@
-# Run: four-player-001
+# Run Output: four-player-001
+# Config: four-player.yml
 # Experiment: emo-poker-face
-# Started: 2026-01-23T18:00:00Z
+# Started: 2026-01-23T18:40:00Z
+# Model: claude-4.5-opus-high-thinking
+# Commits: 7 (git log for narrative)
 
 run:
   id: four-player-001
+  config: four-player.yml  # seed configuration
   experiment: emo-poker-face
-  timestamp: 2026-01-23T18:00:00Z
+  timestamp: 2026-01-23T18:40:00Z
+  model: claude-4.5-opus-high-thinking
   
   characters:
     host: don-hopkins
