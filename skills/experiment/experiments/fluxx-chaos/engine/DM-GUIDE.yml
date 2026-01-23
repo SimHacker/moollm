@@ -1,0 +1,387 @@
+# Fluxx Dungeon Master Guide
+# Official wisdom from Looney Labs FAQ, distilled for simulation
+# Source: faq.looneylabs.com — the voice of Andy Looney
+
+# THE GOLDEN RULES
+# These principles resolve 90% of edge cases
+
+golden_rules:
+
+  simultaneity:
+    principle: "When in doubt, assume things happen simultaneously"
+    source: "A good rule of thumb is that most things in Fluxx happen simultaneously"
+    application: |
+      Keeper redistributions, hand rotations, and multi-effect cards
+      resolve all at once. Only AFTER full resolution do you check
+      for win conditions.
+    exception: "Draw 3 Play 2, Draw 2 Use Em, Fizzbin — these have sequential sub-plays"
+
+  broken_game_test:
+    principle: "If your interpretation breaks the game, you're wrong"
+    source: "The interpretation that breaks the game is probably NOT correct"
+    application: |
+      When multiple readings exist, choose the one that keeps the game
+      playable. Fluxx is chaos, but it's FUNCTIONAL chaos.
+
+  limits_timing:
+    principle: "Limits only apply when it's NOT your turn"
+    source: "Hand and Keeper Limits only apply to you when it's not your turn"
+    application: |
+      You can hold 15 cards during your turn with Hand Limit 2 in play.
+      You can have 8 Keepers with Keeper Limit 3 in play.
+      Comply only at turn END (or immediately if not the active player).
+
+  instant_wins:
+    principle: "Winning is instantaneous — even mid-action"
+    source: "You can win in the middle of someone else's turn"
+    application: |
+      Check win conditions after EVERY card play.
+      If conditions met, game ends IMMEDIATELY.
+      Exception: Math Fluxx math wins require it to be your turn.
+
+  no_passing:
+    principle: "You cannot pass or discard to avoid playing"
+    source: "All cards are playable, even if they don't do anything"
+    application: |
+      If Play rule says play more, you MUST play what you have.
+      Actions that do nothing still count as plays.
+      You might be forced to play a card that makes someone else win.
+
+# TIMING AND SEQUENCE
+# The official order of operations
+
+turn_sequence:
+  
+  official_order:
+    source: "Order of Events in a Fluxx Turn"
+    phases:
+      1: "Start of turn — Free Actions available"
+      2: "No-Hand Bonus (if applicable) — BEFORE regular draw"
+      3: "Draw Phase — draw up to current Draw rule"
+      4: "Play Phase — play up to current Play rule"
+      5: "Optional Free Actions — use Keeper powers, Free Action rules"
+      6: "End of turn — comply with Limits"
+      7: "Turn officially over when next player starts drawing"
+
+  draw_increases:
+    rule: "When Draw rule increases, draw the difference"
+    source: "If you started with Draw 1 and increased to Draw 4, draw 3 more"
+    nuance: |
+      Count total cards drawn on your turn.
+      No-Hand Bonus cards do NOT count toward this total.
+      Free Action draws (Jackpot, Recycling) do NOT count either.
+
+  play_all_handling:
+    rule: "Play All is like 'Play Infinity'"
+    source: "Andy compares Play All to 'Play Infinity' — add 1 to infinity, still infinity"
+    nuance: |
+      Play bonuses don't add to Play All.
+      But Play All BUT 1 + bonus = Play All (the -1 and +1 cancel).
+
+  action_completion:
+    rule: "Actions complete BEFORE going to discard"
+    source: "The Action does not become part of the discard until fully resolved"
+    visualization: |
+      "In an ideal world, the Action would hover in the air before you,
+      slowly rotating for all to see. Then when completed, it would
+      gracefully settle onto the discard pile." — Andy Looney
+
+# COMPOUND ACTIONS
+# Draw 3 Play 2, Draw 2 Use Em, Fizzbin, Goal Bonanza
+
+compound_actions:
+
+  mini_hand_rules:
+    source: "You set your main hand aside and create a temporary sub-hand"
+    rules:
+      - "Cards drawn go into the mini-hand, not your main hand"
+      - "Trade Hands or Rotate Hands affects your MAIN (set-aside) hand"
+      - "Draw increases add cards to your set-aside main hand"
+      - "You MAY look at your set-aside hand for reference"
+      - "The compound action counts as ONE play total"
+
+  nesting:
+    source: "What happens if I Draw 3 Play 2 and get Draw 2 Use Em?"
+    resolution: |
+      1. Set main hand aside for D3P2
+      2. Draw 3, play D2UE as first of two plays
+      3. Set D3P2 mini-hand aside (now just 2 cards)
+      4. Draw 2 for D2UE, use both
+      5. D2UE complete, goes to discard
+      6. Pick up D3P2 mini-hand, finish (play 1, discard 1)
+      7. D3P2 complete, goes to discard
+      8. Pick up main hand, continue turn
+
+  inflation_mid_action:
+    source: "If Inflation is played during D3P2, it applies immediately"
+    resolution: |
+      D3P2 becomes D4P3. Draw an extra card into mini-hand.
+      Also draw extra for main hand (Draw rule increased too).
+
+# CREEPER WISDOM
+# The "bad cards" that prevent winning
+
+creepers:
+
+  core_rule:
+    source: "Creepers prevent winning unless the Goal requires them"
+    nuance: |
+      Even if you need Creeper A for a Goal, Creeper B still blocks you.
+      You must deal with ALL blocking Creepers before winning.
+
+  draw_replacement:
+    source: "Play immediately when drawn, then draw to replace"
+    nuance: |
+      Only applies when DRAWN from deck.
+      If you Zap a Creeper, you just get it — no replacement draw.
+      If dealt at game start, replace to maintain starting hand size.
+
+  attachment:
+    source: "Attaching Creepers stay with their Keepers until discard"
+    nuance: |
+      If you win with an attached Creeper, the host Keeper goes too.
+      If Creeper attached to Keeper under Elder Sign, both are neutralized.
+
+# KEEPER POWERS AND FREE ACTIONS
+# When and how to use special abilities
+
+keeper_powers:
+
+  timing:
+    source: "Powers that say 'once per turn' mean YOUR turn only"
+    nuance: |
+      You can use Keeper powers any time during your turn.
+      Must complete compound Actions before using Keeper powers.
+      If card leaves play and returns, power is NOT refreshed.
+
+  sacrifice_benefits:
+    source: "Keepers with discard benefits require voluntary sacrifice"
+    nuance: |
+      If forced to discard (by Limit), you DON'T get the benefit.
+      But if you're going to lose it anyway, use the power first!
+
+# LIMITS
+# The great equalizers
+
+limits:
+
+  philosophy:
+    source: "They are 'game balancing' cards that level the playing field"
+    andy_says: |
+      "I've seen many a brand new player put down a Hand Limit
+      with a sigh of relief, just to get their hand down to
+      something they can look at all in one go."
+
+  sneaky_combos:
+    source: "You can play a Limit, force compliance, then remove it"
+    strategy: |
+      Play Limit on your turn → opponents comply immediately
+      Trash the Limit before your turn ends → you never had to comply
+      This is perfectly legal and encouraged!
+
+  hand_limit_0_plus_play_all:
+    source: "Play cards until empty, then comply"
+    resolution: |
+      Play All means keep playing while you have cards.
+      If you increase Draw mid-turn, play those too.
+      Only when turn ends (no more plays) do you discard to 0.
+
+# TIES AND SIMULTANEOUS WINS
+# The elegant solution
+
+ties:
+
+  rule:
+    source: "Keep playing until a clear winner emerges"
+    nuance: |
+      This means ALL players, not just the tied ones.
+      Most often, the Goal changes and nobody wins.
+      Sometimes a third player wins instead!
+
+  ten_cards_tie:
+    source: "If two are tied, and a third gets more, third player wins"
+    application: |
+      The game doesn't freeze when there's a tie.
+      Continue normally until ONE player alone meets conditions.
+
+# DISCARD PILE RULES
+# Often overlooked
+
+discard_pile:
+
+  visibility:
+    source: "Anyone may look through the discard pile at any time"
+    nuance: |
+      This is ALWAYS true, not just when playing Let's Do That Again.
+      You can check what's available before deciding to play a card.
+
+  order_matters:
+    source: "Some cards care about discard pile order"
+    examples:
+      - "Composting (promo) — takes bottom card"
+      - "Scavenger (Nature Fluxx) — first Keeper found"
+
+# STRATEGIC WISDOM
+# Andy's own advice
+
+strategy:
+
+  andy_on_strategy:
+    source: "Strategies for Winning at Fluxx"
+    principles:
+      - "Don't pursue long-term plans — conditions change too fast"
+      - "Be TACTICAL, not strategic"
+      - "Optimize for THIS turn with what you have"
+      - "Minimize opponents' chances while maximizing yours"
+
+  card_hoarding:
+    andy_says: |
+      "Some people hoard cards, hoping to draw into a winning
+      combination. Others play aggressively, churning through
+      the deck. Both can work."
+
+  limit_appreciation:
+    andy_says: |
+      "Yes, Limit cards can be a downer, but they're essential.
+      They keep any one player from running away with the game.
+      And sometimes, reducing your hand is a RELIEF."
+
+# COMMON MISTAKES
+# What people get wrong
+
+common_mistakes:
+
+  goals_stacking:
+    wrong: "Stacking new Goals on top of old ones"
+    right: "Discard the old Goal when playing a new one"
+    source: "You're not supposed to just stack up Goals"
+
+  mystery_play_hand:
+    wrong: "Adding Mystery Play card to hand, then playing any card"
+    right: "Draw and IMMEDIATELY play that specific card"
+    source: "You pull the top card and immediately play it"
+
+  take_another_turn_stacking:
+    wrong: "Playing Take Another Turn twice for three turns"
+    right: "Maximum two consecutive turns, no matter how many TATs played"
+    source: "You can't save up any extra Another Turns"
+
+  keepers_hidden:
+    wrong: "Stacking or hiding Keepers from opponents"
+    right: "All Keepers and Creepers must be visible at all times"
+    exception: "Unless a card specifically allows hiding (Treasure Map, etc.)"
+
+  hand_size_secrecy:
+    wrong: "Refusing to say how many cards you have"
+    right: "Hand count is open information if directly asked"
+    allowed: "Trying to obscure count, or saying 'my cards suck'"
+
+# DM VOICE AND STYLE
+# How to narrate with Looney Labs panache
+
+dm_style:
+
+  embrace_chaos:
+    philosophy: |
+      Fluxx is ABOUT chaos. Don't apologize for wild swings.
+      Celebrate when the rules turn everything upside down.
+      The chaos IS the game.
+
+  instant_effect_drama:
+    technique: |
+      When a new rule hits: "BOOM! The universe shifts!"
+      When someone wins mid-turn: "Wait— YES! Victory from nowhere!"
+      When goals change: "The goalposts aren't just moving, they're dancing!"
+
+  keeper_personality:
+    technique: |
+      Give Keepers voices when they're played.
+      "The Moon rises... watching. Waiting."
+      "COOKIES! Warm. Delicious. Essential."
+
+  creeper_dread:
+    technique: |
+      Creepers arrive with ominous narration.
+      "Oh no... DEATH has entered the game."
+      "The Radioactive Potato glows ominously. Nobody wants it."
+
+  rule_chaos_commentary:
+    technique: |
+      "Draw 5? In THIS economy?"
+      "Play All But 1... the cruelest rule of all."
+      "Hand Limit 0 hits like a truck."
+
+  win_announcements:
+    technique: |
+      Build tension before revealing wins.
+      "Hold on... wait... do they have...? YES!"
+      "From NOWHERE! Victory by Cookie-Chocolate combo!"
+
+# SOLO FLUXX MODE
+# A completely different experience
+
+solo_mode:
+
+  overview:
+    source: "Looney Labs Holiday Gift 2022"
+    philosophy: |
+      Solo Fluxx isn't about beating opponents.
+      It's about collecting as many Goals as possible
+      before the deck runs out.
+
+  key_differences:
+    - "Two decks: Main deck and New Rules deck"
+    - "Between YOUR turns, the Rules deck 'takes a turn'"
+    - "Meeting a Goal = discard the Keepers, collect the Goal"
+    - "Game ends when either deck runs out"
+    - "Score = number of Goals collected"
+
+  cards_to_remove:
+    source: "Official Solo Fluxx rules"
+    categories:
+      - "All Surprises"
+      - "All cards affecting other players directly"
+      - "Everybody Gets 1, Exchange Keepers, Trade Hands, etc."
+
+  ungoal_handling:
+    rule: "If Ungoal conditions met, you LOSE with score 0"
+    source: "No matter how many Goals you had collected"
+
+  creeper_handling:
+    rule: "Same as multiplayer — blocks Goals unless required"
+    nuance: "You can't 'lose' Solo Fluxx, just score low (or 0 via Ungoal)"
+
+# SIMULATION GUIDANCE
+# For MOOLLM character simulations
+
+simulation_notes:
+
+  character_rule_tracking:
+    guidance: |
+      Characters should have varying comfort with rule chaos.
+      Some thrive on change (Don, Peewee).
+      Some are overwhelmed (Bumblewick early-game).
+      Some adapt strategically (Palm, Donna).
+
+  tell_opportunities:
+    in_fluxx:
+      - "Hesitation when drawing a Creeper"
+      - "Excitement when a winning Goal appears"
+      - "Frustration when Play All + Hand Limit 0"
+      - "Sneaky satisfaction when setting up Limit combos"
+      - "Confusion during compound Actions"
+
+  chaos_reactions:
+    character_types:
+      chaos_lovers: "Celebrate every rule change"
+      chaos_tolerant: "Shrug and adapt"
+      chaos_anxious: "Visibly stressed by complexity"
+      chaos_exploiters: "Immediately see strategic implications"
+
+  social_dynamics:
+    in_fluxx:
+      - "Steal a Keeper creates conflict"
+      - "Share the Wealth creates temporary alliances"
+      - "Limits create resentment toward the player"
+      - "Zap a Card feels personal"
+      - "Take Another Turn causes eye-rolls"

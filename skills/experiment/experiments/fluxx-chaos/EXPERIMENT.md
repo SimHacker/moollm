@@ -19,6 +19,9 @@ experiment:
     modules: "engine/MODULES.yml"       # Optional rule systems
     themes: "engine/THEMES.yml"         # Visual/narrative theming
     cardsets: "cardsets/"               # Pluggable card definitions
+    dm_guide: "engine/DM-GUIDE.yml"     # DM wisdom from Looney Labs FAQ
+    rulings: "engine/RULINGS.yml"       # Official edge case rulings
+    solo_mode: "engine/SOLO-MODE.yml"   # Solitaire variant rules
     
   # PATTERNS USED
   patterns_used:
@@ -44,7 +47,10 @@ fluxx-chaos/
 ├── engine/                # CORE GAME SYSTEM
 │   ├── CORE.yml           # Universal turn sequence, card behaviors
 │   ├── MODULES.yml        # Optional rules (Creepers, Surprises, etc.)
-│   └── THEMES.yml         # Visual and narrative theming
+│   ├── THEMES.yml         # Visual and narrative theming
+│   ├── DM-GUIDE.yml       # DM wisdom, style, panache from Looney Labs FAQ
+│   ├── RULINGS.yml        # Official edge case rulings (100+ FAQs)
+│   └── SOLO-MODE.yml      # Solitaire variant (Holiday Gift 2022)
 │
 ├── cardsets/              # PLUGGABLE CARD DEFINITIONS
 │   ├── TEMPLATE.yml       # Template for new card sets
@@ -65,6 +71,29 @@ fluxx-chaos/
 └── state/                 # STATE TEMPLATES
     └── INITIAL.yml
 ```
+
+### DM Guide — FAQ Wisdom
+
+The `DM-GUIDE.yml` captures official Looney Labs FAQ wisdom for running games with style:
+
+**Golden Rules:**
+- "When in doubt, assume things happen simultaneously"
+- "The interpretation that breaks the game is probably NOT correct"
+- "Limits only apply when it's NOT your turn"
+- "Winning is instantaneous — even mid-action"
+- "You cannot pass or discard to avoid playing"
+
+**Andy's Voice:**
+- Embrace chaos — "The chaos IS the game"
+- Instant effect drama — "BOOM! The universe shifts!"
+- Creeper dread — "Oh no... DEATH has entered the game."
+- Win announcements — "From NOWHERE! Victory by Cookie-Chocolate combo!"
+
+**Common Mistakes:**
+- Stacking Goals (wrong: discard the old one)
+- Mystery Play added to hand (wrong: play immediately)
+- Take Another Turn stacking (max 2 turns)
+- Hiding Keepers (must be visible unless card allows)
 
 ### How Modules Work
 
