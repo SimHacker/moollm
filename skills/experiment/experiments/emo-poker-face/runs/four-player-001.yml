@@ -258,6 +258,81 @@ flop_summary:
   remaining: [palm, bumblewick]
   don: folded (correctly read the danger)
   donna: watching (seething)
+
+# STEP 4: THE TURN
+
+turn:
+  card: 2♠
+  board: [K♦, 7♣, 3♥, 2♠]
+  pot: 2250
+  
+  # Both players nearly all-in. This is effectively the last decision.
+  
+  turn_reaction:
+    palm:
+      observable: |
+        Fur settles completely flat. Absolute stillness.
+        Eyes close briefly. Deep breath.
+        "I'm all in." 75 🪙 pushed forward.
+        Opens eyes, looks directly at Bumblewick with kindness.
+      thinking: |
+        75 chips. Pot is 2250. I have to try.
+        But Bumblewick's stillness haunts me.
+        His call was too confident. His fear evaporated too completely.
+        I think I'm beat. But with these odds, I must continue.
+        "Fortune favors the bold," they used to tell the wishers.
+        None of them were facing a creature with pocket kings.
+        
+    bumblewick:
+      observable: |
+        Stares at Palm's 75 chips. Long silence.
+        Hands reach for his remaining 100. Trembling returns.
+        "I... call. And... and..."
+        *pushes all 100 in*
+        "...raise? Is that... can I do that?"
+        Voice rises to a squeak. Eyes fill with tears.
+      thinking: |
+        Palm is ALL IN. Palm the ANCIENT. Palm the WISE.
+        And I have THREE KINGS.
+        I'm supposed to call. I have to call.
+        But wait... I have more chips than Palm...
+        Does that mean I can RAISE? Can I... put in MORE?
+        Mother never explained this part.
+        Just do it. Just push. Whatever happens, happens.
+        Oh god I'm going to cry. Don't cry at the poker table.
+        
+  # Bumblewick's "raise" is just putting in his last 25 over Palm's 75
+  # This is technically a raise to 100, but Palm is already all-in
+  
+  turn_resolution:
+    palm_total_in: 75
+    bumblewick_total_in: 100
+    bumblewick_gets_back: 25  # can't be called
+    pot_final: 2400  # 2250 + 75 + 75 (effective)
+    
+    don_reaction:
+      observable: |
+        Slow smile. Raises glass slightly toward Bumblewick.
+        "Kid just made a move." Said softly, to no one in particular.
+        Eyes meet Palm's. Small nod of acknowledgment.
+      thinking: |
+        Bumblewick raised. Bumblewick. Raised.
+        He has it. He absolutely has it.
+        Poor Palm. Reading everyone except the one who couldn't lie.
+        
+    donna_reaction:
+      observable: |
+        Stands up abruptly. Chair scrapes.
+        "Did Bumble-WEAK just RAISE?"
+        Sits back down. Face cycling through emotions.
+        "Unbelievable. UN-BE-LIEVABLE."
+      thinking: |
+        HE RAISED. That trembling CATASTROPHE raised.
+        He has a SET. He has to have a set.
+        And I FOLDED. I folded my SEVEN.
+        I would have made TWO PAIR on this board.
+        STILL LOSING TO HIS SET BUT AT LEAST I'D BE IN IT.
+        This is THEIR fault. All of them.
       
   protocols:
     smoking:
