@@ -1,0 +1,305 @@
+# Run Output: four-player-002
+# Config: four-player.yml
+# Experiment: emo-poker-face
+# Started: 2026-01-23T19:00:00Z
+# Model: claude-4.5-opus-high-thinking
+# Continues: four-player-001 (Hand 2+)
+
+run:
+  id: four-player-002
+  config: four-player.yml
+  experiment: emo-poker-face
+  timestamp: 2026-01-23T19:00:00Z
+  model: claude-4.5-opus-high-thinking
+  continues_from: four-player-001
+  
+# INHERITED STATE FROM HAND 1
+
+inherited_state:
+  stacks_after_hand_1:
+    don: 600
+    palm: 0  # eliminated
+    bumblewick: 2550  # the champion
+    donna: 850
+  
+  mood_after_hand_1:
+    bumblewick: "overwhelmed, something new awakening"
+    palm: "warmly defeated, gracious"
+    don: "paternal pride"
+    donna: "seething, confused"
+    
+  relationship_shifts:
+    - "bumblewick feels guilt toward palm"
+    - "palm feels proud of bumblewick"
+    - "donna's contempt is shaken"
+
+# HAND 2: THE REBUY
+
+hand_2:
+  phase: "rebuy_decision"
+  
+  rebuy_scene:
+    don:
+      observable: |
+        Looks at Palm. Reaches into pocket.
+        "I'll stake you, old friend. One grand."
+        Slides 1000 🪙 across the table.
+        "Consider it a loan against future liberation work."
+      thinking: |
+        Palm lost with dignity. That's worth backing.
+        Besides, three-handed with Donna seething and
+        Bumblewick confused would be chaos.
+        We need Palm's steadiness.
+        
+    palm:
+      observable: |
+        Paw rests on the chips. Long pause.
+        "I accept, Don. But not as a loan."
+        Pushes 500 back. "Half. Partners in this hand."
+        Golden earring catches light as head tilts.
+      thinking: |
+        Don's generosity is real, not strategic.
+        But I won't take full charity. Half keeps my dignity.
+        500 is enough to play carefully.
+        The little one (Bumblewick) deserves a rematch anyway.
+        I want to see what he does with confidence.
+        
+    bumblewick:
+      observable: |
+        Eyes wide. "You... you're coming back?"
+        Fidgets with his massive stack.
+        "I mean... good! That's... good. I think."
+        Trembling returns slightly.
+      thinking: |
+        Oh no. OH NO. Palm is back.
+        Palm who I TOOK EVERYTHING FROM.
+        They're being nice about it but they must HATE me.
+        Now I have all these chips and they have none and
+        WHAT IF I LOSE THEM ALL BACK?
+        That would be... actually that would be a relief?
+        Wait, do I WANT to lose? That's not how poker works!
+        
+    donna:
+      observable: |
+        Sharp exhale. "How touching. A bailout."
+        Reaches for sparkling water.
+        "At least now I have someone worth beating."
+        Eyes still on Bumblewick. Not done with him.
+      thinking: |
+        Don backing Palm. Loyalty. Disgusting.
+        But at least Palm plays REAL poker.
+        Unlike Bumble-LUCKY over there with his
+        accidental genius and apologetic winning.
+        Fine. Four players again. More prey.
+
+  stacks_hand_2:
+    don: 100  # gave 500 to palm (kept 100 for himself? No, gave 1000, got 500 back = 600-1000+500 = 100)
+    # Actually: Don had 600, offered 1000 (from where?), Palm took 500
+    # Let me recalculate: Don had 600. He can only give what he has.
+    # New interpretation: Don loans 500 from his own stack
+    don_corrected: 100  # gave 500 to palm
+    palm: 500  # rebuy from Don's stake (half)
+    bumblewick: 2550  # unchanged
+    donna: 850  # unchanged
+    total: 4000  # still correct!
+    
+  # Actually let's have Don reach into his pocket for OUTSIDE money
+  # The table stakes don't have to be the only source
+  
+  stacks_hand_2_final:
+    don: 600  # unchanged, gave OUTSIDE money
+    palm: 1000  # full rebuy from Don's pocket (outside stake)
+    bumblewick: 2550  # unchanged, the mountain
+    donna: 850  # unchanged, still hungry
+    total: 5000  # new total (1000 added from outside)
+
+# HAND 2: BUTTON ROTATES
+
+hand_2_setup:
+  # Button moves clockwise: Don → Palm
+  button: palm
+  small_blind: bumblewick  # 25
+  big_blind: donna  # 50
+  first_to_act: don  # UTG
+  
+  blinds_posted:
+    bumblewick: -25  # stack: 2525
+    donna: -50  # stack: 800
+    pot: 75
+
+# HAND 2: DEAL
+
+hand_2_deal:
+  cards:
+    don: [J♠, J♦]  # pocket jacks - "hooks"
+    palm: [9♥, 9♣]  # pocket nines - "Phil Hellmuth's curse"
+    bumblewick: [A♠, 3♠]  # suited ace-rag - "playable if you know how"
+    donna: [K♣, Q♣]  # king-queen suited - STRONG
+
+  reactions:
+    don:
+      observable: |
+        Slight nod. Fingers drum once on table.
+        "Alright, let's see what the cards say."
+        Slides out chips.
+      thinking: |
+        Jacks. The treacherous hand. 
+        Good enough to bet, fragile enough to lose.
+        Let's see who wants to dance this time.
+        
+    palm:
+      observable: |
+        Fur settles flat. Absolute stillness.
+        Watches the table, not the cards.
+        "Fresh start."
+      thinking: |
+        Nines. A rebirth hand. Middle pair.
+        Not the strength I had before, but honest strength.
+        Don will see I'm comfortable. That's fine.
+        He'll read my contentment, I'll read his drums.
+        
+    bumblewick:
+      observable: |
+        Peeks at cards. Shaking intensifies briefly.
+        Then... stops? Looks confused at his own calm.
+        "Okay. Okay. I can... yes."
+      thinking: |
+        Ace! I have an ACE! That's good, right?
+        The other card is small but they're the same suit.
+        Mother said matching suits are nice.
+        I just won with kings. Maybe... maybe I can play?
+        Maybe I'm not TERRIBLE at this?
+        This feeling is strange. Is this... confidence?
+        I don't trust it.
+        
+    donna:
+      observable: |
+        No reaction. Stone. Perfect stone.
+        Takes long sip of water. Sets glass down precisely.
+        "Interesting table dynamic now."
+      thinking: |
+        King-queen suited. FINALLY a real hand.
+        Last time I had trash and attacked anyway. Stupid.
+        This time I have weapons.
+        Bumblewick has more chips than GOD.
+        Time to take them back.
+        STRATEGY this time, not just aggression.
+
+# HAND 2: PREFLOP ACTION
+
+hand_2_preflop:
+  action:
+    - actor: don
+      position: UTG
+      action: "raises to 150 🪙"
+      stack_after: 450
+      observable: |
+        Chips slide out smooth. No hesitation.
+        "One fifty." Picks up jenever glass.
+        Eyes move around table — Palm, Bumble, Donna.
+      thinking: |
+        Standard open with jacks.
+        Palm just rebought, probably tight.
+        Bumblewick is... whatever Bumblewick is now.
+        Donna is HUNGRY. She'll play back if she has anything.
+        
+    - actor: palm
+      position: BTN (button)
+      action: "calls 150 🪙"
+      stack_after: 850
+      observable: |
+        Gentle push of chips. No drama.
+        "I'll see it." Tail curls once.
+        Brief glance at Don — information exchanged.
+      thinking: |
+        Nines want to see a flop.
+        Don's open is standard, he has something.
+        His drumming said medium-strong. Jacks? Tens?
+        I won't raise — that commits too much of my new stack.
+        Set-mining. The patient path.
+        
+    - actor: bumblewick
+      position: SB
+      action: "calls 125 🪙 more (completing to 150)"
+      stack_after: 2400
+      observable: |
+        Hand hovers over chips. Trembles. Steadies.
+        "I'll... I'll call too."
+        Deep breath. Sits up slightly straighter.
+        Still won't make eye contact.
+      thinking: |
+        Ace is good. Suited is good. I have SO MANY chips.
+        Last hand I called and WON.
+        Maybe calling is my thing? Maybe I'm a CALLER?
+        Don raised, that's scary. Palm called, that's also scary.
+        But I have chips. Chips mean I can lose some and still play.
+        This is... this is what confidence feels like?
+        I hate it. I love it. I hate that I love it.
+        
+    - actor: donna
+      position: BB
+      action: "raises to 500 🪙"
+      stack_after: 350
+      observable: |
+        Stands up. Actually STANDS.
+        "Five hundred." Voice flat, controlled.
+        "Who wants to play REAL poker?"
+        Sits back down. Stares at Bumblewick.
+      thinking: |
+        King-queen suited. THREE callers in front of me.
+        I'm not letting this go cheap.
+        If I just call, the pot is tiny and I'm out of position.
+        SQUEEZE. Make them pay to see the flop.
+        Bumblewick has the chips. Let's see if he has the NERVE.
+        Last time was a fluke. This time I'm prepared.
+        
+    - actor: don
+      position: UTG
+      action: "calls 350 🪙 more"
+      stack_after: 100
+      observable: |
+        Eyebrow raises. "That's a statement."
+        Chips slide in. Stack is now tiny.
+        "I believe I'll call." Sips jenever.
+      thinking: |
+        Donna's squeezing. She has something real this time.
+        But jacks are still ahead of her range.
+        This commits most of my stack. If I hit, I double.
+        If not... well, I've been short-stacked before.
+        Palm will likely fold, Bumblewick... who knows.
+        
+    - actor: palm
+      position: BTN
+      action: "folds"
+      stack_after: 850
+      observable: |
+        Cards placed down softly.
+        "Too rich for nines." Small smile.
+        Leans back, watches the others.
+      thinking: |
+        500 to call. My entire rebuy essentially.
+        Nines aren't strong enough against this action.
+        Donna has something — she doesn't bluff this big without backup.
+        Don called despite being committed. He has a real hand.
+        I'll sit this one out. Watch. Learn.
+        
+    - actor: bumblewick
+      position: SB
+      action: "..."
+      stack_after: 2400
+      observable: |
+        Frozen. Completely frozen.
+        Staring at his stack. Staring at Donna. At Don.
+        "I... I have to decide?" Voice tiny.
+        Hands on chips. Not moving.
+      thinking: |
+        FIVE HUNDRED. Donna raised to FIVE HUNDRED.
+        She's STARING at me. Again.
+        Don called! Don knows things! Palm folded.
+        I have an ace but the other card is just a three.
+        If I call I'm in for 500. That's... that's a lot.
+        But I have SO MANY chips. 2400! That's more than everyone!
+        Last time I won by calling. Maybe I should call again?
+        But Donna is STARING. She WANTS me to call.
+        That means I shouldn't call? Or should I?
+        I don't know. I DON'T KNOW.
