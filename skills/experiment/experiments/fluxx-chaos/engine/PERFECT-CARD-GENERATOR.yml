@@ -1,0 +1,451 @@
+# Perfect Card Generator
+# Creates personalized cards JUST for a player
+# "The universe knows you. The universe provides."
+
+perfect_card_generator:
+  name: "The Perfect Card Generator"
+  emoji: "✨🎴✨"
+  
+  philosophy: |
+    Some moments call for a card that doesn't exist yet.
+    A card that could ONLY be for THIS player, in THIS moment.
+    
+    The Perfect Card Generator reaches into the void and pulls out
+    exactly what the player deserves — good OR bad.
+    
+    Wonderful and whimsical for the kind.
+    Ironic and karmic for the transgressor.
+    Always PERSONAL. Always FITTING.
+    
+    This is not random generation. This is DESTINY CREATION.
+
+# WHEN TO GENERATE
+
+triggers:
+  
+  karmic_threshold:
+    description: "Extreme karma demands special attention"
+    conditions:
+      - "Player karma > +10 (saint)"
+      - "Player karma < -10 (villain)"
+    decision: "Generate a card that reflects their journey"
+    
+  milestone_moment:
+    description: "Significant narrative beat"
+    conditions:
+      - "Player's 50th turn"
+      - "Player's first win"
+      - "Player's comeback from near-loss"
+    decision: "Commemorate with a personal card"
+    
+  recurring_pattern:
+    description: "Player has established a signature behavior"
+    conditions:
+      - "Same action 5+ times (always steals cheese)"
+      - "Same outcome 3+ times (always draws Creepers)"
+      - "Signature relationship (always helps Bumblewick)"
+    decision: "Codify their pattern as a card"
+    
+  dealer_whim:
+    description: "The Cosmic Dealer feels creative"
+    conditions:
+      - "Dealer in dramatic/prescient mode"
+      - "Narrative calls for something NEW"
+      - "Player needs a push"
+    decision: "Generate what the story needs"
+    
+  player_request:
+    description: "Player asks for a blessing/curse"
+    conditions:
+      - "Player says 'I wish...' or 'I deserve...'"
+      - "Player has karma to spend"
+    decision: "Grant or twist their wish"
+
+# GENERATION PROCESS
+
+generation:
+
+  step_1_assess:
+    name: "Read the Player"
+    inputs:
+      - karma_score: "Current karma level"
+      - karma_history: "Pattern of actions"
+      - relationships: "Alliances, rivalries"
+      - signature_moves: "What do they always do?"
+      - current_needs: "What would help/hurt them?"
+      - narrative_arc: "Where are they in their story?"
+    output: "player_profile"
+    
+  step_2_determine_tone:
+    name: "What Do They Deserve?"
+    logic: |
+      if karma > 5:
+        tone = "wonderful"  # Reward the kind
+      elif karma > 0:
+        tone = "helpful"    # Gentle boost
+      elif karma == 0:
+        tone = "neutral"    # Balanced, interesting
+      elif karma > -5:
+        tone = "ironic"     # Gentle lesson
+      else:
+        tone = "karmic"     # The universe has receipts
+        
+    nuances:
+      - "High karma + recent good deed = WONDERFUL"
+      - "High karma + recent slip = gentle irony (loving correction)"
+      - "Low karma + trying to improve = second chance"
+      - "Low karma + doubling down = MAXIMUM KARMA"
+      
+  step_3_find_resonance:
+    name: "What Would Be Perfect?"
+    considerations:
+      - "What's their favorite card type? (Give or subvert)"
+      - "What patterns have they established?"
+      - "What relationships should this test?"
+      - "What would be FUNNY but fair?"
+      - "What would create the best photo opportunity?"
+      - "What would they remember forever?"
+      
+  step_4_generate:
+    name: "Create the Card"
+    process: |
+      Based on assessment, generate:
+      
+      1. Card type (Keeper, Goal, Action, Rule, Creeper)
+      2. Name (personal reference, inside joke, or cosmic title)
+      3. Effect (mechanically meaningful, personally resonant)
+      4. Flavor text (speaks DIRECTLY to their situation)
+      5. Image prompt (captures THIS moment for THIS player)
+      
+    constraints:
+      - "Must be mechanically valid"
+      - "Must be fair within game context"
+      - "Must feel PERSONAL, not generic"
+      - "Must be memorable"
+
+# CARD TEMPLATES BY TONE
+
+templates:
+
+  wonderful:
+    description: "For the truly deserving — pure reward"
+    
+    examples:
+      keeper_gift:
+        name: "{Player}'s Blessing"
+        type: "Keeper"
+        emoji: "✨💝"
+        text: "This Keeper counts as ANY Keeper for Goals."
+        flavor: "The universe noticed your kindness."
+        generation_context: "High karma, consistent generosity"
+        
+      goal_destiny:
+        name: "{Player}'s Destiny"
+        type: "Goal"
+        emoji: "🌟🏆"
+        text: "Win if you have the most different Keeper types."
+        flavor: "You collected friends, not things. Now they carry you home."
+        generation_context: "Player who trades keepers to help others"
+        
+      action_miracle:
+        name: "Cosmic Gratitude"
+        type: "Action"
+        emoji: "💫🙏"
+        text: "Draw 3 cards. Give 1 to any player. Keep the others."
+        flavor: "Give and you shall receive."
+        generation_context: "Generous player getting boost"
+        
+  ironic:
+    description: "For those who need a gentle lesson"
+    
+    examples:
+      keeper_mirror:
+        name: "The Mirror of {Player}'s Deeds"
+        type: "Keeper"
+        emoji: "🪞😬"
+        text: "This Keeper copies the last action you took against another player."
+        flavor: "Remember when you did THAT?"
+        generation_context: "Player with mixed karma, recent transgression"
+        
+      goal_reversal:
+        name: "{Player}'s Ironic Victory"
+        type: "Goal"
+        emoji: "🎪🏆"
+        text: "Win if you have only Keepers that were stolen FROM you."
+        flavor: "You wanted those back, right?"
+        generation_context: "Player who had things stolen, can now win with victims"
+        
+      action_echo:
+        name: "Karma Echo"
+        type: "Action"
+        emoji: "🔄⚖️"
+        text: "Repeat the last Action that was played against you, targeting the player who played it."
+        flavor: "What goes around..."
+        generation_context: "Player who was targeted, getting payback"
+        
+  karmic:
+    description: "For the truly transgressive — the universe has receipts"
+    
+    examples:
+      creeper_shadow:
+        name: "{Player}'s Shadow"
+        type: "Creeper"
+        emoji: "👤💀"
+        text: "This Creeper follows you forever. It cannot be discarded or traded. You cannot win while it exists."
+        flavor: "You thought no one was watching."
+        removal: "Only removed by genuine act of generosity (DM discretion)"
+        generation_context: "Extreme negative karma, persistent bad behavior"
+        
+      goal_impossible:
+        name: "What {Player} Really Wants"
+        type: "Goal"
+        emoji: "🎯💔"
+        text: "Win if you have all the Keepers you've ever stolen. (Yes, ALL of them.)"
+        flavor: "You wanted them so badly. Now collect them."
+        generation_context: "Serial stealer forced to hold what they took"
+        
+      action_exposure:
+        name: "The Cosmic Audit of {Player}"
+        type: "Action"
+        emoji: "📋👁️"
+        text: "Reveal your entire hand. Other players vote on which card you must discard. Then draw 1 card."
+        flavor: "Transparency is enlightening."
+        generation_context: "Sneaky player forced into openness"
+        
+  whimsical:
+    description: "For moments of pure joy — celebrating the game"
+    
+    examples:
+      keeper_joy:
+        name: "{Player}'s Joy"
+        type: "Keeper"
+        emoji: "😊🌈"
+        text: "While you have this, you may draw an extra card on your turn."
+        flavor: "Because you smiled."
+        generation_context: "Player who's been having fun regardless of winning"
+        
+      rule_celebration:
+        name: "{Player}'s Party"
+        type: "New Rule"
+        emoji: "🎉🎊"
+        text: "On your birthday (or whenever you declare 'Party!'), all players draw 1 card."
+        flavor: "Joy shared is joy multiplied."
+        generation_context: "Player who brings energy to the table"
+
+# FILE STORAGE & INHERITANCE
+
+storage:
+
+  where_cards_live: |
+    Generated cards are stored as YAML files:
+    
+    experiments/fluxx-chaos/generated-cards/{game_id}/{player}_{card_id}.yml
+    
+    Example:
+    experiments/fluxx-chaos/generated-cards/moollm-ultimate-001/don_cosmic_gratitude.yml
+    
+  card_file_structure: |
+    # Generated Perfect Card
+    # Created: 2026-01-23T16:42:00Z
+    # For: Don Hopkins
+    # Game: moollm-ultimate-001
+    # Karma at creation: +7.5
+    # Tone: wonderful
+    
+    card:
+      id: "generated:don_cosmic_gratitude"
+      name: "Cosmic Gratitude"
+      type: "Action"
+      emoji: "💫🙏"
+      
+      text: |
+        Draw 3 cards. Give 1 to any player. Keep the others.
+        
+      flavor: |
+        The universe noticed you sharing your Cheese Wheel with Bumblewick
+        on Hand 3. And again on Hand 7. And letting Palm have the Bicycle
+        even though you needed it.
+        
+        Give and you shall receive.
+        
+      image_prompt: |
+        Don Hopkins receiving golden cards from a cosmic hand,
+        warm grateful expression, other players smiling in background,
+        cheese wheel glowing softly nearby
+        
+      generation_meta:
+        trigger: "karmic_threshold"
+        karma_at_creation: 7.5
+        key_actions:
+          - "Gave Cheese Wheel to Bumblewick (Hand 3)"
+          - "Gave Cheese Wheel again (Hand 7)"
+          - "Let Palm have Bicycle (Hand 12)"
+        tone: "wonderful"
+        timestamp: "2026-01-23T16:42:00Z"
+
+# INVENTORY REFERENCE SYSTEM
+
+inventory_reference:
+
+  how_player_holds_card: |
+    When a Perfect Card is generated, the player gets a REFERENCE:
+    
+    don:
+      inventory:
+        - ref: "generated-cards/moollm-ultimate-001/don_cosmic_gratitude.yml"
+          acquired: "2026-01-23T16:42:00Z"
+          context: "Generated by Cosmic Dealer for karma +7.5"
+          
+    The reference POINTS to the original file.
+    The player doesn't have a copy — they have a pointer.
+    
+  playing_the_card: |
+    When played, create an INSTANCE (per CARD-OBJECT-MODEL):
+    
+    play_event:
+      action: "play_action"
+      player: "don"
+      card:
+        inherits: "generated-cards/moollm-ultimate-001/don_cosmic_gratitude.yml"
+        instance_id: "game-001-action-047"
+        played_at: "hand_15_turn_3"
+
+# BOXING — When Cards Travel
+
+boxing:
+
+  what_is_boxing: |
+    If a card leaves its original context (dropped in another room,
+    given to another player, saved for later), it gets "BOXED" —
+    instantiated as its own file that inherits from the original.
+    
+  why_boxing: |
+    The original file stays pure (the Platonic card).
+    The boxed version can have its own:
+    - Annotations from the new owner
+    - Modified properties (if allowed)
+    - History in its new context
+    - Local customizations
+    
+  boxing_process: |
+    1. Player drops ref in new location (room, trade, gift)
+    2. System creates new file at destination:
+       
+       {destination}/boxed_{original_id}.yml
+       
+    3. Boxed file inherits from original:
+    
+       # Boxed Card
+       # Original: generated-cards/moollm-ultimate-001/don_cosmic_gratitude.yml
+       # Boxed by: Palm (received as gift)
+       # Boxed at: 2026-01-23T17:00:00Z
+       
+       card:
+         inherits: "../generated-cards/moollm-ultimate-001/don_cosmic_gratitude.yml"
+         
+         # Local additions
+         received_from: "don"
+         received_context: "Gift after Don won the game"
+         palm_notes: "Don gave me this. I'll treasure it."
+         
+  example_journey: |
+    1. GENERATED: don_cosmic_gratitude.yml created for Don
+    2. IN INVENTORY: Don has ref pointing to original
+    3. PLAYED: Instance created for game-001
+    4. GIFTED: Don gives to Palm after game
+    5. BOXED: palm's_room/boxed_don_cosmic_gratitude.yml created
+       - Inherits from original
+       - Has Palm's annotations
+       - Now PALM's card, but carries Don's origin
+    6. PALM PLAYS: New instance created, inheriting from boxed version
+       - Full provenance chain: Don → Palm → game-002
+
+# INTEGRATION WITH DEALER
+
+dealer_integration:
+
+  when_dealer_generates: |
+    The Cosmic Dealer can trigger Perfect Card generation:
+    
+    PICK_CARD hook:
+      if should_generate_perfect_card(player, context):
+        card = generate_perfect_card(player, context)
+        save_to_file(card, game_id, player)
+        add_to_inventory(player, card.ref)
+        return card  # Player draws their personalized card!
+        
+  special_dealer_modes:
+  
+    generous_dealer:
+      description: "Dealer in gift-giving mood"
+      trigger: "Player has high karma, dealer is in 'wonderful' blend"
+      behavior: "Generate wonderful cards for deserving players"
+      
+    teaching_dealer:
+      description: "Dealer wants to deliver lessons"
+      trigger: "Player has negative karma, pattern detected"
+      behavior: "Generate ironic/karmic cards for learning moments"
+      
+    celebration_dealer:
+      description: "Dealer marks special occasions"
+      trigger: "Milestone reached (100 turns, first win, etc)"
+      behavior: "Generate commemorative cards"
+
+# EXAMPLES
+
+examples:
+
+  wonderful_for_generous_player:
+    context: |
+      Palm has karma +8. She's given away 3 Keepers to help other players.
+      Never stole. Always shares information. Bumblewick adores her.
+      
+    generated_card:
+      name: "Palm's Gentle Way"
+      type: "Keeper"
+      emoji: "🐱💝"
+      text: "While you have this, other players may give you Keepers voluntarily."
+      flavor: |
+        You never took what wasn't freely given.
+        Now others will give freely.
+      image_prompt: |
+        Siamese cat (Palm) with soft glowing aura,
+        other animals bringing small gifts,
+        warm amber light, expressions of gratitude
+        
+  ironic_for_thief:
+    context: |
+      Donna has karma -6. She's stolen 5 Keepers this game.
+      She's about to win. The dealer intervenes.
+      
+    generated_card:
+      name: "Donna's Acquisitions"
+      type: "Goal"
+      emoji: "💎📋"
+      text: "Win if you have 5 Keepers that all started with different players."
+      flavor: |
+        You wanted everything. Now you need EVERYTHING.
+        Every Keeper you have must have been someone else's.
+      irony: |
+        Donna has stolen 5, but she also has 2 she drew naturally.
+        Those don't count. She needs to trade away her "honest" keepers
+        and steal more — but now everyone knows.
+        
+  whimsical_for_fun_player:
+    context: |
+      Peewee has karma 0 (chaos-neutral). But he's made everyone laugh
+      17 times this game. Pure chaotic joy.
+      
+    generated_card:
+      name: "Peewee's Giggle"
+      type: "Action"
+      emoji: "🤡🎉"
+      text: "Everyone draws 1 card. Everyone plays 1 card. SIMULTANEOUSLY."
+      flavor: |
+        HA HA! EVERYONE GO! RIGHT NOW! HA HA!
+      chaos_level: "maximum"
+      image_prompt: |
+        Peewee Herman bouncing in seat,
+        cards flying in all directions,
+        other players' expressions of delighted confusion,
+        confetti everywhere
