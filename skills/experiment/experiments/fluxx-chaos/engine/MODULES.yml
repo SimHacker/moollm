@@ -1,0 +1,145 @@
+# Fluxx Rule Modules
+# Optional rule systems that can be enabled/disabled per game
+# Card sets declare which modules they use
+
+modules:
+
+  # CREEPERS MODULE
+  # Cards that prevent winning (usually)
+  # Introduced: Zombie Fluxx (2007)
+  
+  creepers:
+    name: "Creepers"
+    introduced: "Zombie Fluxx (2007)"
+    description: |
+      Bad cards that attach to your tableau and prevent winning.
+      Must be played IMMEDIATELY when drawn, then draw replacement.
+      
+    mechanics:
+      draw_behavior: "Play immediately, draw another card"
+      win_blocking: "Cannot win with Creepers (unless Goal requires them)"
+      attachment: "Stay in front of you until removed"
+      removal: [trash_something, creeper_sweeper]
+      
+    integration:
+      new_goals: "Goals that REQUIRE Creepers to win"
+      new_rules: "Rules that interact with Creepers (Silver Lining)"
+      
+  # SURPRISES MODULE
+  # Cards that can interrupt other players
+  # Introduced: Pirate Fluxx (2011)
+  
+  surprises:
+    name: "Surprises"
+    introduced: "Pirate Fluxx (2011)"
+    description: |
+      Cards that can be played on YOUR turn OR to interrupt others.
+      Adds timing complexity and defense options.
+      
+    mechanics:
+      dual_use: "Play on your turn as Action, OR play to counter"
+      interrupt_timing: "Can be played in response to other cards"
+      defense: "Can block steals, rule changes, etc."
+      
+    examples:
+      - "Belay That!" — Cancel any Action
+      - "I Don't Think So" — Cancel a New Rule
+      - "It's a Trap!" — Counter a steal
+      
+  # UNGOALS MODULE
+  # Win conditions where everyone loses
+  # Introduced: Zombie Fluxx (2007)
+  
+  ungoals:
+    name: "Ungoals"
+    introduced: "Zombie Fluxx (2007)"
+    description: |
+      Reverse Goals — if the condition is met, EVERYONE loses.
+      Creates tension and cooperative-avoidance dynamics.
+      
+    mechanics:
+      trigger: "If any player meets the Ungoal condition"
+      result: "Game ends, no winner"
+      prevention: "Players may cooperate to avoid Ungoal"
+      
+    examples:
+      - "The Zombie Apocalypse" — If Zombies exceed Keepers
+      - "Total Destruction" — If specific doom conditions met
+      
+  # META RULES MODULE
+  # Permanent rules that cannot be removed
+  # Various variants
+  
+  meta_rules:
+    name: "Meta Rules"
+    description: |
+      Rules set BEFORE the game starts that cannot be changed.
+      Identified by reversed card backs and orange stripes.
+      
+    mechanics:
+      timing: "Set before dealing"
+      persistence: "Cannot be trashed, zapped, or stolen"
+      visibility: "Face-up in meta zone"
+      
+    universal_meta_rules:
+      - combined_decks: "For mixing multiple Fluxx sets"
+      - cult_clash: "For Cthulhu Fluxx mashups"
+      - keep_going: "Continue after someone wins"
+      - learning_mode: "Simplified rules for new players"
+      - time_limit: "Game ends after N minutes"
+      
+  # COMBINED DECKS MODULE
+  # For mixing multiple Fluxx variants
+  
+  combined_decks:
+    name: "Combined Decks"
+    description: |
+      Rules for shuffling multiple Fluxx sets together.
+      Creates mega-Fluxx experiences.
+      
+    mechanics:
+      shuffle: "Combine all cards from multiple sets"
+      goal_compatibility: "Some Goals may be impossible"
+      keeper_pools: "Larger keeper variety"
+      chaos_level: "MAXIMUM"
+      
+    recommendations:
+      compatible: ["Star Fluxx + Firefly", "Zombie + Monster + Vampire"]
+      incompatible: ["Math Fluxx + Anatomy Fluxx (thematically)"]
+
+# MODULE DEPENDENCIES
+
+module_dependencies:
+  surprises:
+    requires: []
+    enhances: [creepers]  # Surprise counters for Creepers
+    
+  ungoals:
+    requires: [creepers]  # Ungoals often involve Creepers
+    
+  meta_rules:
+    requires: []
+    
+  combined_decks:
+    requires: []
+    conflicts: []  # Works with anything
+
+# DEFAULT MODULE SETS
+
+presets:
+  
+  classic:
+    modules: []
+    description: "Original Fluxx — no Creepers, no Surprises"
+    
+  standard:
+    modules: [creepers]
+    description: "Fluxx 4.0+ — includes Creepers"
+    
+  full:
+    modules: [creepers, surprises, ungoals, meta_rules]
+    description: "All modules enabled"
+    
+  chaos:
+    modules: [creepers, surprises, ungoals, meta_rules, combined_decks]
+    description: "Maximum chaos — multiple decks combined"

@@ -1,0 +1,516 @@
+# Fluxx 4.0 Card Set
+# The standard modern Fluxx — 100 cards
+# Source: looneylabs.com
+
+cardset:
+  id: "fluxx-4.0"
+  name: "Fluxx 4.0"
+  version: "4.0"
+  publisher: "Looney Labs"
+  year: 2011
+  sku: "LOO-001"
+  
+  modules:
+    creepers: true
+    surprises: false
+    ungoals: false
+    meta_rules: true  # Rules Escalation included
+    
+  card_count:
+    keepers: 19
+    goals: 29
+    new_rules: 24
+    actions: 22
+    creepers: 4
+    surprises: 0
+    ungoals: 0
+    meta_rules: 1
+    special: 1  # Basic Rules
+    total: 100
+    
+  theme:
+    primary_color: "#FFD700"  # Yellow/gold
+    accent_color: "#4169E1"   # Royal blue
+    style: "modern"
+    iconography: "emoji"
+    
+  visual_prompts:
+    setting: "Abstract, colorful space with floating objects"
+    aesthetic: "Bright, clean, iconic"
+    keeper_style: "Simple iconic objects on colored backgrounds"
+    goal_style: "Two keepers side by side with sparkle effects"
+    action_style: "Dynamic arrows and motion lines"
+    
+  narrative:
+    tone: "Playful, chaotic, celebratory"
+    humor_level: "moderate"
+    chaos_embrace: "full"
+
+iconography:
+  card_types:
+    keeper: "🔑"
+    goal: "🎯"
+    new_rule: "📜"
+    action: "⚡"
+    creeper: "💀"
+    meta_rule: "🔶"
+    
+  card_colors:
+    keeper: "#22C55E"      # Green
+    goal: "#EC4899"        # Pink/Magenta
+    new_rule: "#EAB308"    # Yellow
+    action: "#3B82F6"      # Blue
+    creeper: "#1F2937"     # Dark gray
+    meta_rule: "#F97316"   # Orange
+
+# KEEPERS — 19 cards
+
+keepers:
+
+  brain:
+    name: "The Brain"
+    emoji: "🧠"
+    category: "body"
+    flavor: "Use it!"
+    image_prompt: "A glowing pink brain, cartoon style, thinking waves emanating"
+    goals_featured_in: [brain_no_tv, hearts_and_minds, minds_eye, rocket_science]
+    
+  bread:
+    name: "Bread"
+    emoji: "🍞"
+    category: "food"
+    flavor: "Fresh baked"
+    image_prompt: "A perfect golden loaf of bread, steam rising, warm bakery feel"
+    goals_featured_in: [toast, baked_goods, dough]
+    
+  chocolate:
+    name: "Chocolate"
+    emoji: "🍫"
+    category: "food"
+    flavor: "Irresistible"
+    image_prompt: "Rich dark chocolate bar, broken pieces, glossy and tempting"
+    goals_featured_in: [chocolate_cookies, chocolate_milk, death_by_chocolate, squishy_chocolate]
+    
+  cookies:
+    name: "Cookies"
+    emoji: "🍪"
+    category: "food"
+    flavor: "Warm and chewy"
+    image_prompt: "Stack of chocolate chip cookies, crumbs, inviting warmth"
+    goals_featured_in: [chocolate_cookies, milk_and_cookies, baked_goods, party_snacks]
+    
+  cosmos:
+    name: "The Cosmos"
+    emoji: "🌌"
+    category: "space"
+    flavor: "Infinite vastness"
+    image_prompt: "Deep space nebula, swirling galaxies, stars, cosmic wonder"
+    goals_featured_in: [interstellar_spacecraft, star_gazing]
+    
+  dreams:
+    name: "Dreams"
+    emoji: "💭"
+    category: "abstract"
+    flavor: "Sweet dreams"
+    image_prompt: "Floating thought bubble with fantastical imagery inside, soft glow"
+    goals_featured_in: [dreamland, winning_the_lottery]
+    
+  eye:
+    name: "The Eye"
+    emoji: "👁️"
+    category: "body"
+    flavor: "I see you"
+    image_prompt: "Detailed realistic eye, iris with cosmic patterns, seeing all"
+    goals_featured_in: [minds_eye]
+    
+  love:
+    name: "Love"
+    emoji: "❤️"
+    category: "abstract"
+    flavor: "All you need"
+    image_prompt: "Glowing red heart, radiating warmth and light, universal symbol"
+    goals_featured_in: [all_you_need_is_love, hearts_and_minds, hippyism]
+    
+  milk:
+    name: "Milk"
+    emoji: "🥛"
+    category: "food"
+    flavor: "Cold and fresh"
+    image_prompt: "Tall glass of milk, droplets of condensation, pure white"
+    goals_featured_in: [chocolate_milk, milk_and_cookies]
+    
+  money:
+    name: "Money"
+    emoji: "💰"
+    category: "abstract"
+    flavor: "Cha-ching!"
+    image_prompt: "Bag of gold coins, green bills, wealth overflowing"
+    goals_featured_in: [time_is_money, winning_the_lottery, dough]
+    
+  moon:
+    name: "The Moon"
+    emoji: "🌙"
+    category: "space"
+    flavor: "Lunar beauty"
+    image_prompt: "Full moon in night sky, craters visible, silver glow"
+    goals_featured_in: [rocket_to_the_moon, night_and_day, star_gazing]
+    
+  party:
+    name: "The Party"
+    emoji: "🎉"
+    category: "social"
+    flavor: "Celebrate!"
+    image_prompt: "Colorful party scene, confetti, balloons, streamers everywhere"
+    goals_featured_in: [party_snacks]
+    special_ability: "Activates Party Bonus rule if in play"
+    
+  peace:
+    name: "Peace"
+    emoji: "☮️"
+    category: "abstract"
+    flavor: "Give it a chance"
+    image_prompt: "Peace symbol, flowers, doves, harmony vibes"
+    goals_featured_in: [peace_no_war, hippyism]
+    
+  rocket:
+    name: "The Rocket"
+    emoji: "🚀"
+    category: "space"
+    flavor: "Blast off!"
+    image_prompt: "Retro rocket ship, flames beneath, launching into stars"
+    goals_featured_in: [rocket_science, rocket_to_the_moon, interstellar_spacecraft]
+    
+  sleep:
+    name: "Sleep"
+    emoji: "😴"
+    category: "body"
+    flavor: "Zzzzz..."
+    image_prompt: "Peaceful sleeping figure, Z's floating above, cozy pillow"
+    goals_featured_in: [bed_time, dreamland]
+    
+  sun:
+    name: "The Sun"
+    emoji: "☀️"
+    category: "space"
+    flavor: "Bright and warm"
+    image_prompt: "Cheerful sun with rays, warm yellow and orange, life-giving"
+    goals_featured_in: [night_and_day, squishy_chocolate, star_gazing]
+    
+  television:
+    name: "Television"
+    emoji: "📺"
+    category: "appliance"
+    flavor: "What's on?"
+    image_prompt: "Retro TV set, colorful static or show playing, antenna"
+    goals_featured_in: [brain_no_tv, appliances]
+    
+  time:
+    name: "Time"
+    emoji: "⏰"
+    category: "abstract"
+    flavor: "Tick tock"
+    image_prompt: "Ornate clock, hands spinning, sand flowing, time passing"
+    goals_featured_in: [time_is_money, bed_time, rocket_science]
+    
+  toaster:
+    name: "The Toaster"
+    emoji: "🔌"  # No toaster emoji, using plug
+    category: "appliance"
+    flavor: "Pop!"
+    image_prompt: "Chrome toaster, toast popping up, warm kitchen scene"
+    goals_featured_in: [toast, appliances]
+
+# GOALS — 29 cards
+
+goals:
+
+  ten_cards_in_hand:
+    name: "10 Cards in Hand"
+    requires: []
+    special: "Win by having 10+ cards in hand"
+    keeper_count: 0
+    flavor: "Hoard those cards!"
+    image_prompt: "Fan of many cards in a hand, overflowing"
+    
+  five_keepers:
+    name: "5 Keepers"
+    requires: []
+    special: "Win with any 5 Keepers"
+    keeper_count: 5
+    flavor: "Collect 'em all!"
+    image_prompt: "Five random keepers arranged in a circle"
+    
+  all_you_need_is_love:
+    name: "All You Need is Love"
+    requires: [love]
+    keeper_count: 1
+    flavor: "Love, love, love"
+    image_prompt: "Giant heart surrounded by everything else fading away"
+    
+  appliances:
+    name: "Appliances"
+    requires: [television, toaster]
+    keeper_count: 2
+    flavor: "Modern conveniences"
+    image_prompt: "TV and toaster together in a kitchen"
+    
+  baked_goods:
+    name: "Baked Goods"
+    requires: [bread, cookies]
+    keeper_count: 2
+    flavor: "Fresh from the oven"
+    image_prompt: "Bread and cookies on a bakery counter"
+    
+  bed_time:
+    name: "Bed Time"
+    requires: [sleep, time]
+    keeper_count: 2
+    flavor: "Time for sleep"
+    image_prompt: "Clock showing bedtime, cozy bed waiting"
+    
+  brain_no_tv:
+    name: "Brain (no TV)"
+    requires: [brain]
+    forbids: [television]
+    keeper_count: 1
+    flavor: "Think, don't watch!"
+    image_prompt: "Brain shining bright, broken TV in background"
+    
+  chocolate_cookies:
+    name: "Chocolate Cookies"
+    requires: [chocolate, cookies]
+    keeper_count: 2
+    flavor: "Double delicious"
+    image_prompt: "Chocolate chip cookies with chocolate bar"
+    
+  chocolate_milk:
+    name: "Chocolate Milk"
+    requires: [chocolate, milk]
+    keeper_count: 2
+    flavor: "Mix it up!"
+    image_prompt: "Glass of chocolate milk being stirred"
+    
+  death_by_chocolate:
+    name: "Death by Chocolate"
+    requires: [chocolate]
+    creeper_required: death
+    keeper_count: 1
+    flavor: "Worth dying for"
+    image_prompt: "Skull made of chocolate, decadent and dark"
+    
+  dreamland:
+    name: "Dreamland"
+    requires: [sleep, dreams]
+    keeper_count: 2
+    flavor: "Sweet dreams"
+    image_prompt: "Sleeping figure with dream clouds above"
+    
+  dough:
+    name: "Dough"
+    requires: [bread, money]
+    keeper_count: 2
+    flavor: "Making that dough"
+    image_prompt: "Bread dough mixed with dollar bills"
+    
+  hearts_and_minds:
+    name: "Hearts and Minds"
+    requires: [love, brain]
+    keeper_count: 2
+    flavor: "Win them over"
+    image_prompt: "Heart and brain connected by light"
+    
+  hippyism:
+    name: "Hippyism"
+    requires: [peace, love]
+    keeper_count: 2
+    flavor: "Peace and love, man"
+    image_prompt: "Peace signs and hearts, tie-dye background"
+    
+  interstellar_spacecraft:
+    name: "Interstellar Spacecraft"
+    requires: [rocket, cosmos]
+    keeper_count: 2
+    flavor: "To infinity and beyond!"
+    image_prompt: "Rocket soaring through space, galaxies behind"
+    
+  milk_and_cookies:
+    name: "Milk and Cookies"
+    requires: [milk, cookies]
+    keeper_count: 2
+    flavor: "Classic combo"
+    image_prompt: "Glass of milk with plate of cookies"
+    
+  minds_eye:
+    name: "Mind's Eye"
+    requires: [brain, eye]
+    keeper_count: 2
+    flavor: "See with your mind"
+    image_prompt: "Eye in the center of a brain, all-seeing"
+    
+  night_and_day:
+    name: "Night and Day"
+    requires: [moon, sun]
+    keeper_count: 2
+    flavor: "The whole cycle"
+    image_prompt: "Split scene: moon on one side, sun on other"
+    
+  party_snacks:
+    name: "Party Snacks"
+    requires: [party, cookies]  # Note: OR chocolate OR bread
+    requires_or: [[party, chocolate], [party, bread]]
+    keeper_count: 2
+    flavor: "Munchies for everyone!"
+    image_prompt: "Party scene with snacks everywhere"
+    
+  peace_no_war:
+    name: "Peace (no War)"
+    requires: [peace]
+    forbids: [war]
+    keeper_count: 1
+    flavor: "War is over (if you want it)"
+    image_prompt: "Peace symbol triumphant, broken weapons below"
+    
+  rocket_science:
+    name: "Rocket Science"
+    requires: [rocket, brain]
+    keeper_count: 2
+    flavor: "It's not that hard"
+    image_prompt: "Rocket with equations floating around it"
+    
+  rocket_to_the_moon:
+    name: "Rocket to the Moon"
+    requires: [rocket, moon]
+    keeper_count: 2
+    flavor: "One small step..."
+    image_prompt: "Rocket landing on the moon"
+    
+  squishy_chocolate:
+    name: "Squishy Chocolate"
+    requires: [chocolate, sun]
+    keeper_count: 2
+    flavor: "Melting goodness"
+    image_prompt: "Chocolate bar melting in sunshine"
+    
+  star_gazing:
+    name: "Star Gazing"
+    requires: [moon, sun, cosmos]
+    keeper_count: 3
+    flavor: "Look up!"
+    image_prompt: "Person looking at sky with all celestial bodies visible"
+    
+  time_is_money:
+    name: "Time is Money"
+    requires: [time, money]
+    keeper_count: 2
+    flavor: "Spend wisely"
+    image_prompt: "Clock made of coins, money flowing like time"
+    
+  toast:
+    name: "Toast"
+    requires: [bread, toaster]
+    keeper_count: 2
+    flavor: "Golden brown"
+    image_prompt: "Perfect toast popping from toaster"
+    
+  war_equals_death:
+    name: "War = Death"
+    requires: []
+    creeper_required: [war, death]
+    keeper_count: 0
+    flavor: "Grim reality"
+    image_prompt: "War and death creepers together, dark imagery"
+    
+  winning_the_lottery:
+    name: "Winning the Lottery"
+    requires: [money, dreams]
+    keeper_count: 2
+    flavor: "The dream!"
+    image_prompt: "Lottery ticket raining money, dream clouds"
+    
+  all_that_is_certain:
+    name: "All That Is Certain"
+    requires: []
+    creeper_required: [death, taxes]
+    keeper_count: 0
+    flavor: "Nothing else is guaranteed"
+    image_prompt: "Death and Taxes creepers, inevitable doom"
+
+# NEW RULES — 24 cards (defined in separate file for clarity)
+# Imported from: ../cards/new-rules.yml
+
+new_rules:
+  import: "../cards/new-rules.yml"
+
+# ACTIONS — 22 cards (defined in separate file)
+# Imported from: ../cards/actions.yml
+
+actions:
+  import: "../cards/actions.yml"
+
+# CREEPERS — 4 cards
+
+creepers:
+
+  war:
+    name: "War"
+    emoji: "⚔️"
+    flavor: "What is it good for?"
+    prevents_winning: true
+    exception: "Unless Goal requires War"
+    goals_required_for: [war_equals_death]
+    goals_forbidden_by: [peace_no_war]
+    image_prompt: "Crossed swords, flames, destruction"
+    
+  death:
+    name: "Death"
+    emoji: "💀"
+    flavor: "The great equalizer"
+    prevents_winning: true
+    exception: "Unless Goal requires Death"
+    goals_required_for: [death_by_chocolate, war_equals_death, all_that_is_certain]
+    image_prompt: "Hooded figure, scythe, darkness"
+    
+  taxes:
+    name: "Taxes"
+    emoji: "🏛️"
+    flavor: "Inevitable"
+    prevents_winning: true
+    exception: "Unless Goal requires Taxes"
+    goals_required_for: [all_that_is_certain]
+    image_prompt: "Tax forms, government building, money being taken"
+    
+  radioactive_potato:
+    name: "Radioactive Potato"
+    emoji: "☢️"
+    flavor: "Hot potato!"
+    prevents_winning: true
+    exception: "Unless 'You Also Need a Potato' rule is in play"
+    special: "The hot potato everyone wants to pass"
+    image_prompt: "Glowing green potato, radiation symbol, dangerous"
+
+# META RULES — 1 card
+
+meta_rules:
+
+  rules_escalation:
+    name: "Rules Escalation"
+    effect: "Draw/Play rules STACK instead of replace"
+    example: "Draw 2 + Draw 3 = Draw 5"
+    chaos_level: "extreme"
+    setup: "Place face-up before dealing if using"
+    image_prompt: "Rules piling up, escalating chaos"
+
+# SPECIAL CARDS
+
+special:
+
+  basic_rules:
+    name: "Basic Rules"
+    permanent: true
+    rules:
+      draw: 1
+      play: 1
+    text: |
+      Draw 1, Play 1
+      Start with 3 cards.
+    image_prompt: "Simple card with Draw 1, Play 1 text, foundation stone"

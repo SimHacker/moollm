@@ -6,13 +6,20 @@
 experiment:
   id: fluxx-chaos
   name: "Fluxx Chaos"
-  version: 1.0
+  version: 2.0
   category: "Multi-layer character simulation"
   created: 2026-01-23
   authors: [don-hopkins]
-  tribute_to: "Looney Labs — Andrew Looney's brilliant game design"
-  game_source: "Fluxx 4.0 — looneylabs.com"
+  tribute_to: "Looney Labs — Andrew & Kristin Looney"
+  game_source: "Fluxx 4.0+ — looneylabs.com"
   
+  # MODULAR ARCHITECTURE
+  architecture:
+    engine: "engine/CORE.yml"           # Universal game rules
+    modules: "engine/MODULES.yml"       # Optional rule systems
+    themes: "engine/THEMES.yml"         # Visual/narrative theming
+    cardsets: "cardsets/"               # Pluggable card definitions
+    
   # PATTERNS USED
   patterns_used:
     - layered-simulation     # Character thought/expression layers
@@ -21,6 +28,88 @@ experiment:
     - character-instantiation
     - behavioral-constraints
     - failure-mode-catalog
+```
+
+---
+
+## Modular Architecture
+
+This experiment is designed for maximum reusability. Each component is pluggable:
+
+```
+fluxx-chaos/
+├── EXPERIMENT.md          # This file — experiment design
+├── HISTORY.md             # Fluxx history, philosophy, Looney Labs story
+│
+├── engine/                # CORE GAME SYSTEM
+│   ├── CORE.yml           # Universal turn sequence, card behaviors
+│   ├── MODULES.yml        # Optional rules (Creepers, Surprises, etc.)
+│   └── THEMES.yml         # Visual and narrative theming
+│
+├── cardsets/              # PLUGGABLE CARD DEFINITIONS
+│   ├── TEMPLATE.yml       # Template for new card sets
+│   ├── VARIANTS.yml       # Registry of all 40+ Fluxx editions
+│   ├── fluxx-4.0.yml      # Standard Fluxx 4.0 (100 cards)
+│   └── [other sets]       # Zombie, Pirate, Star Trek, etc.
+│
+├── cards/                 # SHARED CARD DEFINITIONS
+│   ├── new-rules.yml      # Reusable New Rule cards
+│   ├── actions.yml        # Reusable Action cards
+│   └── [others]           # Cards shared across sets
+│
+├── runs/                  # RUN CONFIGURATIONS
+│   ├── INDEX.yml
+│   ├── four-player.yml
+│   └── chaos-eight.yml
+│
+└── state/                 # STATE TEMPLATES
+    └── INITIAL.yml
+```
+
+### How Modules Work
+
+```yaml
+# In a run config, specify which modules to enable:
+parameters:
+  cardset: "fluxx-4.0"
+  modules:
+    creepers: true       # Bad cards that block winning
+    surprises: false     # Interrupt cards (Pirate Fluxx+)
+    ungoals: false       # Everyone-loses conditions (Zombie Fluxx+)
+    meta_rules: true     # Permanent rules
+  theme: "grotto"        # Visual/narrative style
+```
+
+### How Card Sets Work
+
+Each card set is a self-contained YAML file:
+
+```yaml
+cardset:
+  id: "zombie-fluxx"
+  name: "Zombie Fluxx"
+  modules: [creepers, ungoals]  # What this set uses
+  
+keepers:
+  zombie: { name: "Zombie", emoji: "🧟", ... }
+  shotgun: { name: "Shotgun", emoji: "🔫", ... }
+  
+goals:
+  zombie_baseball: { requires: [zombie, baseball_bat], ... }
+```
+
+### How Themes Work
+
+Themes define visual style and character voice:
+
+```yaml
+themes:
+  grotto:
+    colors: { primary: "#D97706", ... }
+    image_prompts:
+      global_style: "Candlelit pub, warm amber tones"
+    narrative:
+      tone: "Warm, convivial, slightly chaotic"
 ```
 
 ---

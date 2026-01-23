@@ -1,0 +1,236 @@
+# Fluxx Core Engine
+# The universal rules that apply to ALL Fluxx variants
+# Card sets, themes, and modules plug into this engine
+
+engine:
+  name: "fluxx-core"
+  version: "1.0"
+  description: "Universal Fluxx game engine — card sets plug in"
+
+# TURN SEQUENCE — Universal across all variants
+
+turn_sequence:
+  
+  phases:
+    1_start:
+      name: "Start of Turn"
+      actions:
+        - "Check for start-of-turn bonuses (No-Hand Bonus, etc.)"
+        - "Apply any persistent effects"
+      
+    2_draw:
+      name: "Draw Phase"
+      rule: "Draw cards equal to current Draw rule"
+      default: 1
+      mid_turn_adjustment: |
+        If Draw rule increases during your turn, draw more cards
+        to meet the new requirement (if you haven't drawn enough yet).
+      
+    3_play:
+      name: "Play Phase"  
+      rule: "Play cards equal to current Play rule"
+      default: 1
+      play_all_variant: "Play ALL cards in hand"
+      mid_turn_adjustment: |
+        If Play rule increases, you must play more cards.
+        Free Actions don't count toward play total.
+      
+    4_discard:
+      name: "Discard Phase"
+      rule: "Comply with Hand Limit (if any)"
+      timing: "Only enforced at END of turn, not during"
+      choice: "Player chooses which cards to discard"
+      
+    5_end:
+      name: "End of Turn"
+      actions:
+        - "Check Keeper Limit compliance"
+        - "Check for instant win conditions"
+        - "Pass turn clockwise"
+
+# CARD TYPE BEHAVIORS — How each type works
+
+card_types:
+
+  keeper:
+    color: "green"
+    icon: "🔑"
+    play_action: "Place face-up in front of you"
+    persist: true
+    zone: "player_tableau"
+    win_role: "Collect to match Goals"
+    
+  goal:
+    color: "pink/magenta"
+    icon: "🎯"
+    play_action: "Replace current Goal in center"
+    persist: true
+    zone: "center"
+    singleton: true  # Only one Goal (unless Double Agenda)
+    win_role: "Defines victory condition"
+    
+  new_rule:
+    color: "yellow"
+    icon: "📜"
+    play_action: "Add to center, may replace conflicting rule"
+    persist: true
+    zone: "center"
+    conflict_resolution: "New rule replaces old rule of same category"
+    immediate_effect: true
+    
+  action:
+    color: "blue"
+    icon: "⚡"
+    play_action: "Do what it says, then discard"
+    persist: false
+    zone: "discard"
+    
+  creeper:
+    color: "black/dark"
+    icon: "💀"
+    play_action: "Must play IMMEDIATELY when drawn"
+    draw_replacement: true  # Draw another card after playing
+    persist: true
+    zone: "player_tableau"
+    win_blocking: true  # Prevents winning unless Goal requires it
+    module: "creepers"  # Optional module
+    
+  surprise:
+    color: "purple"
+    icon: "❗"
+    play_action: "Can be played on YOUR turn OR to interrupt others"
+    persist: false
+    zone: "discard"
+    interrupt: true
+    module: "surprises"  # Optional module
+    
+  ungoal:
+    color: "red/dark pink"
+    icon: "☠️"
+    play_action: "Like Goal, but everyone LOSES if met"
+    persist: true
+    zone: "center"
+    anti_goal: true
+    module: "ungoals"  # Optional module
+    
+  meta_rule:
+    color: "orange"
+    icon: "🔶"
+    play_action: "Set before game starts, cannot be removed"
+    persist: true
+    zone: "meta"
+    immutable: true
+    module: "meta_rules"
+
+# WIN CONDITIONS
+
+victory:
+  
+  standard:
+    trigger: "Your Keepers match the current Goal"
+    instant: true  # Win immediately, even mid-turn
+    check_timing: "After every card play"
+    
+  creeper_block:
+    rule: "Cannot win if you have any Creepers"
+    exception: "Unless the Goal specifically requires that Creeper"
+    
+  tie_handling:
+    rule: "If multiple players meet Goal simultaneously, game continues"
+    until: "One player meets it alone"
+    
+  no_goal:
+    rule: "If no Goal is in play, no one can win"
+    
+  ungoal_loss:
+    trigger: "If Ungoal condition is met, everyone loses"
+    module: "ungoals"
+
+# RULE CATEGORIES — For conflict resolution
+
+rule_categories:
+  
+  draw_rules:
+    members: [draw_2, draw_3, draw_4, draw_5]
+    conflict: "mutually_exclusive"  # Later replaces earlier
+    
+  play_rules:
+    members: [play_2, play_3, play_4, play_all]
+    conflict: "mutually_exclusive"
+    
+  hand_limits:
+    members: [hand_limit_0, hand_limit_1, hand_limit_2]
+    conflict: "mutually_exclusive"
+    enforcement: "end_of_turn_only"
+    
+  keeper_limits:
+    members: [keeper_limit_2, keeper_limit_3, keeper_limit_4]
+    conflict: "mutually_exclusive"
+    enforcement: "end_of_turn_only"
+    
+  bonus_rules:
+    members: [no_hand_bonus, poor_bonus, rich_bonus, party_bonus, silver_lining]
+    conflict: "stackable"  # Multiple can be active
+    
+  modifiers:
+    members: [inflation, double_agenda, first_play_random, get_on_with_it]
+    conflict: "stackable"
+
+# GAME ZONES
+
+zones:
+  
+  draw_pile:
+    visibility: "hidden"
+    owner: "shared"
+    shuffle: "when_empty_from_discard"
+    
+  discard_pile:
+    visibility: "visible"
+    owner: "shared"
+    face: "up"
+    
+  center:
+    contains: [goal, new_rules]
+    visibility: "visible"
+    owner: "shared"
+    
+  player_tableau:
+    contains: [keepers, creepers]
+    visibility: "visible"
+    owner: "individual"
+    
+  player_hand:
+    visibility: "hidden"
+    owner: "individual"
+    
+  meta:
+    contains: [meta_rules]
+    visibility: "visible"
+    immutable: true
+
+# SPECIAL MECHANICS
+
+special_mechanics:
+
+  cascade_plays:
+    description: "Some Actions let you draw and play additional cards"
+    examples: [draw_2_and_use_em, draw_3_play_2]
+    counting: "The cascade counts as ONE play toward your total"
+    
+  free_actions:
+    description: "Bonus plays that don't count toward Play requirement"
+    trigger: "Specific card abilities or rule bonuses"
+    
+  reshuffling:
+    trigger: "Draw pile empty"
+    action: "Shuffle discard pile, make new draw pile"
+    continue: true
+    
+  jumping_in:
+    description: "New players can join anytime"
+    action: "Deal 3 cards, join at next turn"
+    
+  dropping_out:
+    description: "Players can leave anytime"
+    action: "Discard hand and all cards in play"

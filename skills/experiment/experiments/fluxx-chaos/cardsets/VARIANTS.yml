@@ -1,0 +1,386 @@
+# Fluxx Variants Registry
+# All known Fluxx editions for future card set definitions
+# Source: fluxx.fandom.com, looneylabs.com
+
+# Variants are organized by category and status
+
+variants:
+
+  # UNTHEMED EDITIONS
+  # The core Fluxx in various versions
+  
+  unthemed:
+    fluxx_1_0:
+      name: "Fluxx 1.0"
+      year: 1997
+      cards: 79
+      status: "vaulted"
+      modules: []
+      notes: "Original stripeless design"
+      
+    fluxx_2_0:
+      name: "Fluxx 2.0"
+      year: 1998
+      cards: 84
+      status: "vaulted"
+      modules: []
+      notes: "First colored stripes"
+      
+    fluxx_3_0:
+      name: "Fluxx 3.0"
+      year: 2005
+      cards: 100
+      status: "vaulted"
+      modules: [creepers]
+      notes: "Introduced Creepers via Creeper Pack"
+      
+    fluxx_4_0:
+      name: "Fluxx 4.0"
+      year: 2011
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      notes: "Current standard edition"
+      cardset_file: "fluxx-4.0.yml"
+      
+    fluxx_5_0:
+      name: "Fluxx 5.0"
+      year: 2017
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      notes: "Streamlined, cleaner design"
+      
+    fluxx_remixx:
+      name: "Fluxx Remixx"
+      year: 2023
+      cards: 56
+      status: "available"
+      modules: []
+      notes: "Simplified intro version, no Creepers"
+      
+  # LICENSED / POP CULTURE
+  
+  licensed:
+    adventure_time:
+      name: "Adventure Time Fluxx"
+      year: 2015
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      ip_holder: "Cartoon Network"
+      
+    batman:
+      name: "Batman Fluxx"
+      year: 2018
+      cards: 100
+      status: "vaulted"
+      modules: [creepers]
+      ip_holder: "DC Comics"
+      
+    cartoon_network:
+      name: "Cartoon Network Fluxx"
+      year: 2017
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      
+    firefly:
+      name: "Firefly Fluxx"
+      year: 2016
+      cards: 100
+      status: "vaulted"
+      modules: [creepers, surprises]
+      ip_holder: "Fox"
+      
+    jurassic_fluxx:
+      name: "Jurassic Fluxx"
+      year: 2024
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      ip_holder: "Universal"
+      
+    marvel_fluxx:
+      name: "Marvel Fluxx"
+      year: 2019
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      ip_holder: "Marvel/Disney"
+      
+    monty_python:
+      name: "Monty Python Fluxx"
+      year: 2008
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      ip_holder: "Python Pictures"
+      
+    spongebob:
+      name: "SpongeBob Fluxx"
+      year: 2020
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      ip_holder: "Nickelodeon"
+      
+    star_trek_tng:
+      name: "Star Trek TNG Fluxx"
+      year: 2018
+      cards: 100
+      status: "available"
+      modules: [creepers, surprises]
+      ip_holder: "CBS/Paramount"
+      
+    star_trek_tos:
+      name: "Star Trek TOS Fluxx"
+      year: 2014
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      ip_holder: "CBS/Paramount"
+      
+    star_trek_ds9:
+      name: "Star Trek DS9 Fluxx"
+      year: 2019
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      ip_holder: "CBS/Paramount"
+      
+    star_trek_voyager:
+      name: "Star Trek Voyager Fluxx"
+      year: 2021
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      ip_holder: "CBS/Paramount"
+      
+    hundred_acre_wood:
+      name: "Hundred Acre Wood Fluxx"
+      year: 2024
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      ip_holder: "Disney"
+      notes: "Winnie the Pooh themed"
+      
+  # GENRE THEMES
+  
+  genre:
+    cthulhu:
+      name: "Cthulhu Fluxx"
+      year: 2012
+      cards: 100
+      status: "available"
+      modules: [creepers, ungoals]
+      special: "Doom/Sanity mechanics"
+      
+    fantasy:
+      name: "Fantasy Fluxx"
+      year: 2019
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      
+    fairy_tale:
+      name: "Fairy Tale Fluxx"
+      year: 2016
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      
+    monster:
+      name: "Monster Fluxx"
+      year: 2019
+      cards: 100
+      status: "vaulted"
+      modules: [creepers]
+      
+    pirate:
+      name: "Pirate Fluxx"
+      year: 2011
+      cards: 100
+      status: "available"
+      modules: [creepers, surprises]
+      notes: "Introduced Surprises"
+      
+    star:
+      name: "Star Fluxx"
+      year: 2011
+      cards: 100
+      status: "available"
+      modules: [creepers, surprises]
+      
+    vampire:
+      name: "Vampire Fluxx"
+      year: 2020
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      
+    werewolf:
+      name: "Werewolf Fluxx"
+      year: 2020
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      
+    zombie:
+      name: "Zombie Fluxx"
+      year: 2007
+      cards: 100
+      status: "available"
+      modules: [creepers, ungoals]
+      notes: "First to add Creepers and Ungoals"
+      
+  # EDUCATIONAL
+  
+  educational:
+    anatomy:
+      name: "Anatomy Fluxx"
+      year: 2016
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      
+    astronomy:
+      name: "Astronomy Fluxx"
+      year: 2021
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      
+    chemistry:
+      name: "Chemistry Fluxx"
+      year: 2018
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      
+    ecology:
+      name: "Ecology Fluxx"
+      year: 2020
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      
+    math:
+      name: "Math Fluxx"
+      year: 2017
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      
+  # NATURE / ANIMALS
+  
+  nature:
+    camping:
+      name: "Camping Fluxx"
+      year: 2024
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      
+    cat:
+      name: "Cat Fluxx"
+      year: 2024
+      cards: 100
+      status: "available"
+      modules: []
+      notes: "No Creepers — cats are never bad"
+      
+    dog:
+      name: "Dog Fluxx"
+      year: 2024
+      cards: 100
+      status: "available"
+      modules: []
+      notes: "No Creepers — dogs are never bad"
+      
+    nature:
+      name: "Nature Fluxx"
+      year: 2019
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      
+  # ADULT / SPECIALTY
+  
+  specialty:
+    drinking:
+      name: "Drinking Fluxx"
+      year: 2015
+      cards: 100
+      status: "available"
+      modules: []
+      age: "21+"
+      
+    stoner:
+      name: "Stoner Fluxx"
+      year: 2018
+      cards: 100
+      status: "available"
+      modules: [creepers]
+      age: "21+"
+      
+  # UPCOMING
+  
+  upcoming:
+    mystery:
+      name: "Mystery Fluxx"
+      year: 2025
+      release_date: "May 6, 2025"
+      cards: 100
+      status: "announced"
+      modules: [creepers]
+      
+    word:
+      name: "Word Fluxx"
+      year: 2025
+      cards: 100
+      status: "announced"
+      modules: []
+
+# EXPANSION PACKS
+# Add-on card packs that work with any Fluxx
+
+expansions:
+  
+  creeper_pack:
+    name: "Creeper Pack"
+    year: 2011
+    cards: 16
+    adds: [creepers, goals, actions, new_rules]
+    compatible_with: "Any Fluxx without Creepers"
+    
+  fluxx_blanxx:
+    name: "Fluxx Blanxx"
+    year: 1998
+    cards: 10
+    adds: [keepers, creeper, goals, action, new_rule, surprise]
+    special: "Blank cards for customization"
+
+# COMBINING DECKS
+# Official guidance on mixing Fluxx sets
+
+combining:
+  
+  recommended_combos:
+    - sets: [zombie, vampire, werewolf]
+      name: "Monster Mash"
+      notes: "All horror themes combine well"
+      
+    - sets: [star, firefly]
+      name: "Sci-Fi Supreme"
+      notes: "Space exploration themes"
+      
+    - sets: [star_trek_tng, star_trek_tos, star_trek_ds9]
+      name: "Complete Trek"
+      notes: "All Star Trek sets"
+      
+  meta_rules_for_combining:
+    - combined_decks
+    - cult_clash  # For Cthulhu mashups
+    - keep_going  # Multiple wins possible
