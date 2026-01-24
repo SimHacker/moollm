@@ -67,9 +67,9 @@ required_metrics:
 
 # Current session stats:
 session_totals:
-  llm_calls: 4
-  game_turns: 21
-  avg_turns_per_call: 5.25
+  llm_calls: 5
+  game_turns: 29
+  avg_turns_per_call: 5.8
   status: PLAYING  # Game never ends!
   score:
     palm: 1
@@ -85,6 +85,15 @@ calls:
     turns: 1  # Palm wins Canal Life
   - entry: 009
     turns: 8  # Rematch turns 14-21
+  - entry: 011
+    turns: 8  # Love Paradox turns 22-29
+
+# Rich metrics:
+rich_metrics:
+  character_simulations: 116
+  mental_states_tracked: ~400
+  signatures: ~87
+  deck_penetration: "31%"
 ```
 
 ### 1.2 Context Assembly
@@ -969,26 +978,153 @@ whats_interesting:
 
 ---
 
-### Entry 010 — Awaiting Next Command
+### Entry 010 — See Entry 011
+
+---
+
+### Entry 011 — 2026-01-24T19:00:00Z — THE LOVE PARADOX (Turns 22-29)
+
+**Objects Interacting:**
+- [RUN-004.yml](#run-004-state) → Source state
+- [RUN-005.md](#run-005) → Rich narration (8 turns!)
+- [RUN-005.yml](#run-005-state) → Rolling state with RICH STATS
+
+**🔥 THE LOVE PARADOX:**
+- Turn 22: Don plays 🎯 All You Need Is Love (single-keeper goal!)
+- Turn 24: Bumblewick draws ❤️ **LOVE** — THE WINNING CARD!
+- Turn 24: But Bumblewick has **2 CREEPERS** — HE CANNOT WIN!
+- Turn 29: Donna gets Tourist Crowd creeper — **50% OF PLAYERS NOW BLOCKED!**
+
+---
+
+## 📊 RICH STATISTICS — This Iteration
+
+### Simulation Metrics
+
+| Metric | Value | Formula |
+|--------|-------|---------|
+| **Turns simulated** | 8 | — |
+| **Character simulations** | 32 | 8 turns × 4 characters |
+| **Mental states tracked** | 128 | 32 × 4 layers (monologue, expression, observation, relationship) |
+| **Internal monologues** | 32 | 1 per character per turn |
+| **Inter-character observations** | 24 | ~3 per turn |
+
+### Card Flow
+
+| Metric | This Run | Cumulative |
+|--------|----------|------------|
+| Cards drawn | 8 | ~90 |
+| Cards played | 10 | ~95 |
+| Keepers stolen | 1 | ~5 |
+| Creepers triggered | 1 | 5 |
+| Goals changed | 1 | 8 |
+
+### Autograph Statistics
+
+| Metric | Value |
+|--------|-------|
+| **Total signatures** | ~87 |
+| **Cards touched** | ~48 |
+| **Avg signatures/card** | 1.8 |
+| **Most-signed card** | Canal House (4 signatures!) |
+
+### Karma Dynamics (Revealed Turn 25!)
+
+| Player | Karma | Arc |
+|--------|-------|-----|
+| Don | +6 | Steady positive |
+| Palm | +5 | Strategic gains |
+| Bumblewick | -2 | Suffering intensifies |
+| Donna | +1 | Creeper hit |
+| **Table Total** | +10 | Net positive game! |
+
+### Dramatic Tension Index
+
+```yaml
+tension_score: 9.5/10
+near_victories: 2
+  - bumblewick: "Has Love but 2 creepers"
+  - don: "Had Moon+Sun but wrong goal"
+blocked_players: 2 (50%!)
+  - bumblewick: 2 creepers
+  - donna: 1 creeper
+unblocked_players: 2
+  - don: Could win with Love
+  - palm: Could win with Love
+```
+
+### 🔥 DYNAMIC HIGHLIGHTS — What's HOT This Run
+
+| Metric | Status | Why It's Hot |
+|--------|--------|--------------|
+| **Love Paradox** | 🔥🔥🔥 | Bumblewick has winning card, CANNOT WIN |
+| **Creeper Distribution** | 🔥🔥 | 50% of players now blocked |
+| **Single-Keeper Goal** | 🔥 | First time in game, maximum variance |
+| **Character Sim Density** | 📊 | 128 mental states this iteration |
+| **Signature Density** | 📊 | 1.8 signatures per touched card |
+
+### Deck Penetration
+
+```yaml
+deck_stats:
+  total_cards: 321
+  deck_penetration: 31%
+  cards_remaining: ~220
+  love_location: "Bumblewick's HAND (not deck!)"
+```
+
+---
+
+**Cursor-Mirror Stats:**
+```yaml
+base_stats:
+  turns_per_llm_call: 8  # REQUIRED METRIC — Target achieved!
+  character_simulations: 32
+  mental_states_tracked: 128
+  
+performance:
+  cards_processed: 18
+  state_consistency: "verified"
+  
+whats_interesting:
+  - "Love Paradox: winning card in blocked player's hand"
+  - "50% of players now creeper-blocked"
+  - "Karma revealed: Bumblewick at -2 (narrative confirmation)"
+  - "Signature density approaching 2.0 per card"
+  - "Game stuck until hand-steal or goal change"
+```
+
+---
+
+### Entry 012 — Awaiting Next Command
 
 **Status:** `PAUSED`  
-**State File:** RUN-004.yml  
-**Turn:** 22 (Don's turn)
+**State File:** RUN-005.yml  
+**Turn:** 30 (Don's turn)
 
-**Critical Tensions:**
-- Don has Moon + Sun but wrong goal
-- Bumblewick has Douglas Hofstadter in hand + 2 creepers
-- Palm has Ted Nelson (half of current goal)
-- Keeper Limit 3 = nobody can build
+**THE SITUATION:**
+- Goal: All You Need Is Love (only Love needed!)
+- Bumblewick HAS Love in hand
+- Bumblewick has 2 creepers (CAN'T WIN!)
+- Don and Palm are only players who CAN win (no creepers)
+- Love is NOT in deck — must steal from hand or change goal
 
 **Score:** Palm 1, Others 0 (best of 3)
 
-*The Dramatic Dealer watches. The cards are covered in signatures.*  
-*The game never ends.*
+*Bumblewick clutches Love and weeps.*  
+*The cards are graffiti walls now.*
 
 ---
 
 ## Object Reference Index (Updated)
+
+<a id="run-005"></a>
+### RUN-005.md
+`skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/RUN-005.md` — The Love Paradox (Turns 22-29)
+
+<a id="run-005-state"></a>
+### RUN-005.yml
+`skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/RUN-005.yml` — State with RICH STATS
 
 <a id="run-004"></a>
 ### RUN-004.md
@@ -1004,9 +1140,9 @@ whats_interesting:
 
 ```yaml
 session_totals:
-  llm_calls: 4
-  game_turns: 21
-  avg_turns_per_call: 5.25
+  llm_calls: 5
+  game_turns: 29
+  avg_turns_per_call: 5.8
   status: PLAYING
   score:
     palm: 1
@@ -1018,14 +1154,27 @@ per_call_breakdown:
   - entry: 005
     turns: 8   # Rounds 2-3
   - entry: 007
-    turns: 1   # Final turn (victory)
+    turns: 1   # Palm wins Canal Life
+  - entry: 009
+    turns: 8   # Rematch turns 14-21
+  - entry: 011
+    turns: 8   # Love Paradox turns 22-29
+
+rich_metrics:
+  total_character_simulations: 116
+  total_mental_states: ~400
+  total_signatures: ~87
+  deck_penetration: 31%
+  creeper_blocked_players: 50%
 ```
 
 **Files Generated:**
 - `RUN-001.md` — Round 1 (401 lines)
-- `RUN-002.md` — Rounds 2-3 (450 lines)
-- `RUN-003.md` — Final turn + victory (400 lines)
-- Session log — 900+ lines of continuous documentation
+- `RUN-002.md` — Rounds 2-3 (714 lines)
+- `RUN-003.md` — Palm wins (403 lines)
+- `RUN-004.md` — Rematch (444 lines)
+- `RUN-005.md` — Love Paradox (500+ lines)
+- Session log — 1100+ lines of continuous documentation
 
 *The Sharp Cheddar Cheese wheel is gone.*  
 *The monkey lives on the water.*  

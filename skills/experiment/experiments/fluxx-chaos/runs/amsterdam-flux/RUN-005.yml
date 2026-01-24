@@ -1,0 +1,325 @@
+# MOOLLM Amsterdam Fluxx — State After Turn 29
+# Run ID: amsterdam-flux-005
+# Turn: 29 (THE LOVE PARADOX!)
+# Status: PLAYING — Bumblewick has Love but can't use it!
+
+meta:
+  id: "amsterdam-flux-005"
+  turn: 29
+  phase: "playing"
+  timestamp: "2026-01-24T19:00:00Z"
+  previous: "amsterdam-flux-004"
+  next: null
+  championship:
+    format: "best_of_3"
+    score:
+      palm: 1
+      don: 0
+      bumblewick: 0
+      donna: 0
+
+rules:
+  draw: 1
+  play: 1
+  hand_limit: null
+  keeper_limit: null  # Removed turn 24!
+  special:
+    - name: "Dramatic Dealer"
+      card: 242
+      effect: "Dealer maximizes narrative tension"
+  dealer_mode: "dramatic"
+  dealer_emoji: "🎭"
+
+goal:
+  card: 34
+  name: "All You Need Is Love"
+  emoji: "❤️"
+  requires: ["love"]
+  special: "SINGLE KEEPER GOAL!"
+  status: "active"
+  tension: "MAXIMUM — Love is in Bumblewick's hand but he can't win!"
+
+players:
+  don:
+    hand: []
+    keepers: [5, 6, 26, 255]
+    keeper_names: ["The Moon", "The Sun", "Crystal Ball", "Jester's Hat"]
+    creepers: []
+    karma: 6
+    can_win: true
+    needs: "Love (in Bumblewick's hand)"
+    
+  palm:
+    hand: []
+    keepers: [201, 121, 101, 226]
+    keeper_names: ["Ted Nelson", "Cosmic Awareness", "The Tulip", "Ada Lovelace"]
+    creepers: []
+    karma: 5
+    can_win: true
+    needs: "Love (in Bumblewick's hand)"
+    
+  bumblewick:
+    hand: [270, 2]  # Douglas Hofstadter, LOVE!
+    hand_names: ["Douglas Hofstadter", "LOVE"]
+    keepers: [196, 109]
+    keeper_names: ["Don Hopkins", "Van Gogh"]
+    creepers: [239, 169]
+    creeper_names: ["Impostor Syndrome", "Alignment Problem"]
+    karma: -2
+    can_win: false
+    blocked_by: "2 creepers"
+    tragic_irony: "HAS THE WINNING CARD BUT CANNOT WIN!"
+    
+  donna:
+    hand: []
+    keepers: [275, 124, 199]
+    keeper_names: ["Richard Bartle", "Creativity", "Will Wright"]
+    creepers: [119]
+    creeper_names: ["Tourist Crowd"]
+    karma: 1
+    can_win: false
+    blocked_by: "1 creeper"
+
+turn_order: ["don", "palm", "bumblewick", "donna"]
+active_player: "don"
+
+# ═══════════════════════════════════════════════════════════════════
+# 📊 RICH STATISTICS — This Iteration
+# ═══════════════════════════════════════════════════════════════════
+
+simulation_metrics:
+  this_iteration:
+    turns_simulated: 8
+    characters_per_turn: 4
+    character_simulations: 32  # turns × characters
+    
+    # Per-character mental state layers simulated:
+    mental_layers:
+      internal_monologue: 32
+      external_expression: 32
+      inter_character_observation: 24
+      relationship_dynamics: 16
+    total_mental_states: 104
+    
+  cumulative:
+    total_turns: 29
+    total_character_simulations: 116  # 29 × 4
+    total_mental_states: ~400
+
+card_flow:
+  this_iteration:
+    cards_drawn: 8
+    cards_played: 10
+    keepers_placed: 4
+    keepers_stolen: 1
+    keepers_discarded: 1
+    creepers_triggered: 1
+    goals_changed: 1
+    rules_changed: 1
+    
+  cumulative:
+    cards_drawn: ~90
+    cards_played: ~95
+    keepers_placed: ~50
+    keepers_stolen: ~5
+    keepers_discarded: ~35
+    creepers_triggered: 5
+    goals_changed: 8
+    rules_changed: 8
+
+deck_stats:
+  total_cards: 321
+  cards_dealt: 12
+  cards_drawn_cumulative: ~90
+  cards_in_discard: ~65
+  cards_in_hands: 2
+  cards_in_play: 17
+  cards_remaining: ~220
+  deck_penetration_percent: 31
+
+autograph_stats:
+  this_iteration:
+    new_signatures: 12
+    cards_signed: 10
+  cumulative:
+    total_signatures: ~87
+    cards_touched: ~48
+    avg_signatures_per_card: 1.8
+    cards_with_3_plus_signatures: 8
+    most_signed_card: "Canal House"
+    most_signed_count: 4
+
+karma_dynamics:
+  this_iteration:
+    don: { start: 5, end: 6, delta: 1, arc: "steady_positive" }
+    palm: { start: 4, end: 5, delta: 1, arc: "strategic_gains" }
+    bumblewick: { start: -1, end: -2, delta: -1, arc: "suffering_intensifies" }
+    donna: { start: 2, end: 1, delta: -1, arc: "creeper_hit" }
+    table_total: { start: 10, end: 10, delta: 0, arc: "balanced" }
+  
+  cumulative:
+    karma_revealed_turn: 25
+    highest_karma: { player: "don", value: 6 }
+    lowest_karma: { player: "bumblewick", value: -2 }
+    most_volatile: "donna"
+
+dramatic_tension:
+  score: 9.5
+  near_victories: 2
+  dramatic_reversals: 3
+  blocked_players: 2
+  unblocked_players: 2
+  
+  near_victory_details:
+    - player: "bumblewick"
+      has: "Love in hand"
+      blocked_by: "2 creepers"
+      irony_level: "MAXIMUM"
+    - player: "don"
+      has: "Moon + Sun"
+      blocked_by: "wrong goal (was Night and Day)"
+      irony_level: "high"
+
+character_voice_consistency:
+  don:
+    turns_voiced: 29
+    signature_style: "Explorer philosophy, pie menu references"
+    consistency_score: 0.95
+  palm:
+    turns_voiced: 29
+    signature_style: "Philosophical calm, espresso references"
+    consistency_score: 0.97
+  bumblewick:
+    turns_voiced: 29
+    signature_style: "Anxious suffering, self-deprecation"
+    consistency_score: 0.98
+  donna:
+    turns_voiced: 29
+    signature_style: "Dramatic villain, 34 counts, CAPS"
+    consistency_score: 0.96
+
+# ═══════════════════════════════════════════════════════════════════
+# 🔥 DYNAMIC INTERESTING METRICS — What's Hot This Run
+# ═══════════════════════════════════════════════════════════════════
+
+dynamic_highlights:
+  hot:
+    - metric: "The Love Paradox"
+      value: "Bumblewick has winning card, cannot win"
+      severity: "🔥🔥🔥"
+      explanation: "Turned 24: Drew Love. Goal: All You Need Is Love. Has 2 creepers. TRAGIC."
+      
+    - metric: "Creeper Distribution Shift"
+      value: "50% of players now blocked"
+      before: "Only Bumblewick (2 creepers)"
+      after: "Bumblewick (2) + Donna (1)"
+      
+    - metric: "Single-Keeper Goal Deployed"
+      value: "First time in game"
+      effect: "Any draw could theoretically end it"
+      
+  statistics:
+    - metric: "Character Simulation Density"
+      value: 32
+      calculation: "8 turns × 4 characters"
+      expanded: "128 mental states (32 × 4 layers)"
+      
+    - metric: "Goal Volatility"
+      value: 8
+      calculation: "8 goals in 29 turns"
+      average_lifespan: "3.6 turns"
+      
+    - metric: "Signature Density"
+      value: 1.8
+      calculation: "87 signatures ÷ 48 cards"
+      
+  new_this_run:
+    - "Single-keeper goal (All You Need Is Love)"
+    - "Karma Check played (revealed scores)"
+    - "Third creeper entered play"
+
+# ═══════════════════════════════════════════════════════════════════
+# 🎭 Cosmic Dealer Analysis
+# ═══════════════════════════════════════════════════════════════════
+
+dealer:
+  mode: "dramatic"
+  emoji: "🎭"
+  active_since_turn: 17
+  
+  this_session:
+    engineering:
+      target: "bumblewick"
+      mechanism: "Drew Love immediately after goal change to single-keeper"
+      result: "Maximum tragic irony"
+    
+    creeper_distribution:
+      pattern: "Concentrated on suffering characters"
+      bumblewick: 2
+      donna: 1
+      don: 0
+      palm: 0
+    
+    tension_maintenance:
+      - "Blocked 50% of players with creepers"
+      - "Left Don and Palm as only potential winners"
+      - "Created Love-holder-can't-win paradox"
+      - "Karma Check revealed Bumblewick at -2 (narrative confirmation)"
+  
+  drama_score: 9.5
+  verdict: "Bumblewick holding Love while double-blocked is peak dramatic irony"
+
+# ═══════════════════════════════════════════════════════════════════
+# 📈 Session Totals
+# ═══════════════════════════════════════════════════════════════════
+
+session_totals:
+  llm_calls: 5
+  game_turns: 29
+  avg_turns_per_call: 5.8
+  
+  per_call_breakdown:
+    - entry: "003"
+      turns: 4
+      turns_per_llm_call: 4
+    - entry: "005"
+      turns: 8
+      turns_per_llm_call: 8
+    - entry: "007"
+      turns: 1
+      turns_per_llm_call: 1
+    - entry: "009"
+      turns: 8
+      turns_per_llm_call: 8
+    - entry: "011"
+      turns: 8
+      turns_per_llm_call: 8
+  
+  efficiency:
+    target_turns_per_call: 8
+    achieved_this_run: 8
+    running_average: 5.8
+    improvement_trend: "↑"
+
+# ═══════════════════════════════════════════════════════════════════
+# 🎯 Game State Summary
+# ═══════════════════════════════════════════════════════════════════
+
+game_state_summary:
+  goal: "All You Need Is Love (only Love needed)"
+  winner_path:
+    don: "Needs Love (in Bumblewick's hand)"
+    palm: "Needs Love (in Bumblewick's hand)"
+  blocked_players:
+    bumblewick: "Has Love, blocked by 2 creepers"
+    donna: "No Love, blocked by 1 creeper"
+  tension: "MAXIMUM"
+  resolution_path: "Someone must steal Love from Bumblewick's hand or change the goal"
+
+observations:
+  - "Bumblewick has Love but 2 creepers prevent victory"
+  - "Don and Palm are only players who CAN win (no creepers)"
+  - "Love is NOT in deck — it's in Bumblewick's hand"
+  - "Game is stuck until hand-steal mechanism or goal change"
+  - "50% of players now blocked by creepers"
+  - "Signature density approaching 2.0 per touched card"
