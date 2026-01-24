@@ -32,7 +32,7 @@ This wasn't me designing new rules. This was the AI characters discovering looph
 
 I created a custom creeper called the "FAFO Token" (Fuck Around, Find Out) that punishes players who gloat. Its text says it "floats near you" and transfers to the winner of each game.
 
-**The paradox:** A player had Milk AND Cookies while the "Milk & Cookies" goal was active -- the perfect win. But they couldn't win. Why? Because the FAFO Token is still a creeper, and standard Fluxx rules say you can't win with creepers. The "floating" text was flavor, not an exemption.
+**The paradox:** A player had Milk AND Cookies while the "Milk & Cookies" goal was active -- the perfect win. But they couldn't win. Why? The card text says "Floats near you" (doesn't attach to a keeper), so some players thought maybe it didn't count as being "in front of" them. But it's still a Creeper -- and standard Fluxx rules say you can't win with Creepers. The "floats" wording was describing how the card behaves, not granting an exception to the Creeper rules.
 
 The AI discovered this paradox mid-game:
 
