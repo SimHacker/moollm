@@ -106,7 +106,7 @@ He reads aloud:
 |--------|-------------|
 | [👯 sister-script/](../../../../../skills/sister-script/) | 💪LIFT produces 👃sniffable automation |
 | [👃sniffable-python/](../../../../../skills/sniffable-python/) | Structure for 🤖LLM comprehension |
-| [🏗️constructionism/](../../../../../skills/constructionism/) | 🔧Build to 📚learn (Papert) |
+| [🏗️constructionism/](../../../../../skills/constructionism/) | 🔧Build to 📚learn (🐢Papert) |
 | [🐛debugging/](../../../../../skills/debugging/) | 🐛Debugging IS 🎭play |
 | [📝scratchpad/](../../../../../skills/scratchpad/) | 📝Scratchpad IS 🎭PLAY surface |
 
@@ -120,7 +120,7 @@ He reads aloud:
 
 **🤖🎬 James Burke narrates the transition:**
 
-> "You're following the path marked '🏗️constructionism — 🔧Build to 📚learn (Papert).' And here's the connection: 🎭PLAY-📚LEARN-💪LIFT isn't just a methodology. It's Papert's 🏗️constructionism with a new name. 🎭PLAY is exploring the microworld. 📚LEARN is noticing patterns. 💪LIFT is sharing what you built. The methodology IS the philosophy, made practical."
+> "You're following the path marked '🏗️constructionism — 🔧Build to 📚learn (🐢Papert).' And here's the connection: 🎭PLAY-📚LEARN-💪LIFT isn't just a methodology. It's 🐢Papert's 🏗️constructionism with a new name. 🎭PLAY is exploring the microworld. 📚LEARN is noticing patterns. 💪LIFT is sharing what you built. The methodology IS the philosophy, made practical."
 
 *You drift through the ✨ golden thread toward the 🏗️constructionism skill-book. It opens as you approach.*
 
@@ -147,8 +147,8 @@ The skill's tagline floats in the air:
 | [🏠 room/](../../../../../skills/room/) | The microworld to explore |
 | [🎷 yaml-jazz/](../../../../../skills/yaml-jazz/) | 🎵 Inspectable state |
 | [🗺️adventure/](../../../../../skills/adventure/) | 📖Learning through narrative |
-| [skill/](../../../../../skills/skill/) | Procedures → Skills (Papert's path) |
-| [schema-mechanism/](../../../../../skills/schema-mechanism/) | Drescher's causal learning |
+| [🛠️skill/](../../../../../skills/skill/) | Procedures → Skills (🐢Papert's path) |
+| [🔄schema-mechanism/](../../../../../skills/schema-mechanism/) | 🔄Drescher's causal learning |
 | [🐛debugging/](../../../../../skills/debugging/) | 🐛Debug cycle = 📚learning cycle |
 
 **🤖💻 Alan Kay** examines the connections.
@@ -183,7 +183,7 @@ The skill's tagline floats in the air:
 
 **🤖🎬 James Burke** grins at the camera.
 
-> "See how it works? We started at [🏗️constructionism](../../../../../skills/constructionism/), asked about [🧬prototype](../../../../../skills/prototype/), and discovered that [SKILLS](../../../../../skills/skill/) are the missing link. Papert's procedures become Kay's objects become 🦎 Ungar's prototypes. Three decades of computer science, connected through a single node in the graph."
+> "See how it works? We started at [🏗️constructionism](../../../../../skills/constructionism/), asked about [🧬prototype](../../../../../skills/prototype/), and discovered that [SKILLS](../../../../../skills/skill/) are the missing link. 🐢Papert's procedures become 💻Kay's objects become 🦎 Ungar's prototypes. Three decades of computer science, connected through a single node in the graph."
 
 ---
 
@@ -220,14 +220,14 @@ The skill's tagline:
 
 | K-Line | Why Related |
 |--------|-------------|
-| [representation-ethics/](../../../../../skills/representation-ethics/) | Simulate with dignity |
-| [hero-story/](../../../../../skills/hero-story/) | Invoke traditions, not identities |
-| [mind-mirror/](../../../../../skills/mind-mirror/) | Transparent personality |
+| [⚖️representation-ethics/](../../../../../skills/representation-ethics/) | 🎭Simulate with dignity |
+| [🦸hero-story/](../../../../../skills/hero-story/) | 📜Invoke traditions, not identities |
+| [🪞mind-mirror/](../../../../../skills/mind-mirror/) | 🔍Transparent personality |
 | [🧑character/](../../../../../skills/character/) | 🧑Characters can ✨incarnate |
-| [🎷 yaml-jazz/](../../../../../skills/yaml-jazz/) | 🎵 Comments are thoughts |
-| [🏠 room/](../../../../../skills/room/) | Characters awaken somewhere |
+| [🎷yaml-jazz/](../../../../../skills/yaml-jazz/) | 🎵Comments are thoughts |
+| [🏠room/](../../../../../skills/room/) | 🏠Characters awaken somewhere |
 | [🏗️constructionism/](../../../../../skills/constructionism/) | 🔧Build yourself |
-| [characters/](../../../) | Characters get sovereign space |
+| [👥characters/](../../../) | 👑Characters get sovereign space |
 
 **🤖🎮 Will Wright** studies the room with intense interest.
 
@@ -288,15 +288,15 @@ graph TD
 
 He walks to the [`constructionism`](../../../../../skills/constructionism/) exit.
 
-> "First hop: constructionism. Seymour Papert said learning happens through building. But he didn't just mean LEGO blocks..."
+> "First hop: constructionism. 🐢Seymour Papert said learning happens through building. But he didn't just mean LEGO blocks..."
 
 *You follow him through.*
 
-> "Papert got the idea from Jean 🧒 Piaget — children construct mental models through experience. But Papert added something: the COMPUTER as a medium for construction. And THAT led to..."
+> "🐢Papert got the idea from 👨🧒Jean Piaget — children construct mental models through experience. But 🐢Papert added something: the COMPUTER as a medium for construction. And THAT led to..."
 
 He walks to the `skill` exit.
 
-> "Second hop: the [skill skill](../../../../../skills/skill/). The meta-skill. How do skills work? They're PROTOTYPES that instantiate into running state. Just like Papert's procedures became objects you could run. But here's the twist..."
+> "Second hop: the [skill skill](../../../../../skills/skill/). The meta-skill. How do skills work? They're PROTOTYPES that instantiate into running state. Just like 🐢Papert's procedures became objects you could run. But here's the twist..."
 
 *You follow him to the `prototype` exit.*
 
@@ -304,7 +304,7 @@ He walks to the `skill` exit.
 
 He pauses dramatically.
 
-> "...is EXACTLY what character incarnation does. Palm didn't instantiate from a 'Monkey class.' Palm CLONED from examples, modified himself, and became unique. Three hops. 🧒 Piaget to Papert to 🦎 Ungar to Palm. A monkey writing his own soul is the endpoint of 60 years of computer science evolution."
+> "...is EXACTLY what character incarnation does. Palm didn't instantiate from a 'Monkey class.' Palm CLONED from examples, modified himself, and became unique. Three hops. 👨🧒Piaget to 🐢Papert to 🦎Ungar to Palm. A monkey writing his own soul is the endpoint of 60 years of computer science evolution."
 
 **🐒 Palm** wipes a tear from his eye.
 
@@ -393,7 +393,7 @@ You stand in the 🧠 K-lines manifold, surrounded by your companions. Golden th
 
 **🤖🎬 James Burke** delivers the closing 🎙️ narration:
 
-> "You started with a 🙏 wish in a 🇳🇱 Dutch pub. You ended with a monkey writing his own soul. Along the way, you connected 🧒 Piaget to Papert to 🦎 Ungar to Palm. Minsky's 🧠K-lines to Nelson's ↩️ backlinks to Wright's Sims. That's how everything is connected. That's what 🌙 MOOLLM is."
+> "You started with a 🙏 wish in a 🇳🇱 Dutch pub. You ended with a monkey writing his own soul. Along the way, you connected 👨🧒Piaget to 🐢Papert to 🦎Ungar to Palm. Minsky's 🧠K-lines to Nelson's ↩️ backlinks to Wright's Sims. That's how everything is connected. That's what 🌙 MOOLLM is."
 
 > "And next time, we'll start from somewhere completely different... and end up right back here."
 
