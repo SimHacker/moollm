@@ -52,23 +52,25 @@ Economic systems for currency, trade, and value exchange. MOOLAH is earned, spen
 
 ## Currency Hierarchy
 
-### Fungible Currencies (Convertible)
+### Classic Metal Denominations (D&D Style)
 
-```
-👑 FORTUNE   = 1,000,000 🪙   "Kingdom-level wealth"
-     │
-     ├── 1000 💎
-     │
-💎 GRAND     = 1,000 🪙       "A grand"
-     │
-     ├── 1000 🪙
-     │
-🪙 MOOLAH     = 1,000 🥜       "The standard coin"
-     │
-     ├── 1000 🥜
-     │
-🥜 NUT       = 0.001 🪙       "Peanuts"
-```
+Standard adventure currency with metal-based tiers:
+
+| Symbol | Metal | Abbrev | Value in Gold | Value in Copper |
+|--------|-------|--------|---------------|-----------------|
+| 🪵 | Wood | wp | 0.001 gp | 0.1 cp |
+| 🟤 | Copper | cp | 0.01 gp | 1 cp |
+| ⚪ | Silver | sp | 0.1 gp | 10 cp |
+| 🟡 | Gold | gp | 1 gp | 100 cp |
+| ⬜ | Platinum | pp | 10 gp | 1,000 cp |
+
+**Conversion rates:**
+- 10 wp = 1 cp
+- 10 cp = 1 sp
+- 10 sp = 1 gp
+- 10 gp = 1 pp
+
+### Fungible Currencies (Convertible)
 
 | Symbol | Name | Value | Use | Slang |
 |--------|------|-------|-----|-------|
@@ -157,7 +159,7 @@ NON-FUNGIBLE (cannot convert):
 | Lodging | 5 🪙 per night |
 | Information | 5-20 🪙 (secrets, tips) |
 | Services | Variable |
-| Poker buy-in | 1000 🪙 (standard game) |
+| Poker buy-in | 1 💎 = 1000 🪙 (standard game) |
 
 ## Price Examples
 
@@ -179,7 +181,7 @@ NON-FUNGIBLE (cannot convert):
 - Monkey's Paw: 5 🪙
 
 ### Gaming Stakes
-- Poker buy-in: 1000 🪙
+- Poker buy-in: 1 💎 = 1000 🪙
 - High-stakes poker: 1 💎 GRAND
 
 ## Hidden Value
