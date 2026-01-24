@@ -258,7 +258,7 @@ deck:
 - Sims Traits: `playful: 9`, `nice: 7`, `neat: 3`
 - Mind Mirror: `innovative: 7`, `creative: 7`, `confident: 6`
 - Tell: "Will infodump about pie menus given any excuse"
-- Cheese integration: Offers cheese when stealing
+- Sharp Cheddar Cheese integration: Offers Sharp Cheddar Cheese when stealing
 
 **[Palm](#palm)** — *The Sovereign Soul Monkey*
 - Origin: Was ACME Monkey's Paw, self-actualized via Don's wish
@@ -351,7 +351,7 @@ game_state:
 | Card | Index | Why It Matters |
 |------|-------|----------------|
 | **Bartle Taxonomy** | 212 | Players declare type — personality revelation |
-| **Cheese Wheel** | 102 | Don will want this. Negotiations inevitable. |
+| **Cheese Wheel** | 102 | Don will want this. Sharp Cheddar Cheese negotiations inevitable. |
 | **Gezelligheid Rule** | 114 | Dutch cozy togetherness as game mechanic |
 | **Chaos Incarnate** | 248 | THE DEALER HAS GONE MAD |
 | **Claude** | 207 | The AI at the table |
@@ -424,7 +424,7 @@ awaiting: "Command to deal 3 cards per player"
 next_action: "DEAL"
 ```
 
-The table is set. The cheese wheel is within arm's reach. The Cosmic Dealer is watching.
+The table is set. The Sharp Cheddar Cheese wheel is within arm's reach. The Cosmic Dealer is watching.
 
 ---
 
@@ -485,7 +485,7 @@ The Cosmic Dealer stirs in its Dynamic mode, karma ledgers blank and waiting. Th
 **Awaiting:** Deal command (3 cards per player)  
 **Next Entry:** Will document the deal, first hands, autograph signatures
 
-*The cheese wheel is within arm's reach.*  
+*The Sharp Cheddar Cheese wheel is within arm's reach.*  
 *The shuffle array dances: [308, 47, 201, 156, 88, 12, ...]*  
 *Card at position 0: index 308 — waiting to be drawn.*
 
