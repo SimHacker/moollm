@@ -115,6 +115,13 @@ bumblewick_cards:
       
     flavor_text: "The Long Shot remembers."
     
+    # SIGNED: Post-Tournament 4 Roundtable
+    signatures:
+      - signer: "B.F. 🎩 ✨"
+        quote: "I drew this when I was losing. I'm signing it now because I know I'll win again. The Long Shot isn't about this tournament. It's about every tournament."
+        context: "Bumblewick inaugurated this card after reflecting on its fizzle in RUN-022"
+        signed_at: "Post-Tournament 4 roundtable"
+    
   - id: "GEN-006"
     name: "Hot Chocolate Shield"
     type: "Keeper"
@@ -365,6 +372,21 @@ cosmic_cards:
       
     flavor_text: "Fuck Around: ✓. Find Out: Pending."
     
+    # SIGNED: Post-Tournament 4 Roundtable (ALL FOUR PLAYERS)
+    signatures:
+      - signer: "P.L.M., D.H., D.T., B.F. 🤫"
+        quote: "The token punishes those who speak. It rewards those who listen. We all learned this the hard way."
+        context: "Palm signed for all four players — everyone carried this token and suffered its curse"
+        signed_at: "Post-Tournament 4 roundtable"
+        
+    current_holder: "Palm (as of Game 20)"
+    transfer_history:
+      - "Created → Donna (Game 17)"
+      - "Donna → Don (gloated, +2 creepers)"
+      - "Don → Donna (gloated, +2 creepers)"
+      - "Donna → Palm (silent victory)"
+      - "Palm: current holder (silent victory protocol)"
+    
   - id: "GEN-019"
     name: "Dealer's Choice"
     type: "Action"
@@ -510,3 +532,117 @@ generation_log:
     4. Situation cards emerge from repeated patterns
     5. All cards must be quirky, powerful, and specialized
     6. No card is purely beneficial — everything has a catch
+
+# ═══════════════════════════════════════════════════════════════════
+# 🖊️ STANDARD FLUXX CARD SIGNATURES
+# ═══════════════════════════════════════════════════════════════════
+# These are standard Fluxx 4.0 cards that accumulated signatures
+# during the Amsterdam tournament.
+
+standard_card_signatures:
+
+  love:
+    card_id: "fluxx-4-0-love"
+    name: "Love"
+    type: "Keeper"
+    total_signatures: 10
+    most_signed_card: true
+    
+    signatures:
+      - signer: "B.F. 🎩 😭"
+        quote: "I had to let you go."
+        context: "Forced discard while holding 2 creepers (Game 2, Tournament 1)"
+        
+      - signer: "B.F. 🎩 ❤️"
+        quote: "Sometimes you find love in the place you least expect. The discard pile."
+        context: "Retrieved via Scavenger Hunt to WIN CHAMPIONSHIP (Game 3, Tournament 1)"
+        
+      - signer: "D.T. 🍄 😭"
+        quote: "I thought I had it. I thought wrong."
+        context: "Had Love but Tourist Crowd blocked victory (Game 3)"
+        
+      - signer: "D.T. 🍄 😤"
+        quote: "All you need is love. Except when you have two existential crises."
+        context: "Drew Love while holding Impostor Syndrome + Alignment Problem"
+        
+      - signer: "Unknown"
+        quote: "Found you in the discard pile. Mine now."
+        context: "Won Game 2 via Scavenger Hunt retrieval"
+        
+      - signer: "P.L.M. ☕"
+        quote: "The universe redistributes according to its own logic."
+        context: "After Mix It All Up shuffled Love to new owner"
+        
+      - signer: "B.F. 🎩 ❤️"
+        quote: "The Long Shot. (back of card, small)"
+        context: "Signed privately after winning Tournament 3"
+        
+    current_location: "In play with Palm (Tournament 5, Game 1)"
+    
+  cookies:
+    card_id: "fluxx-4-0-cookies"
+    name: "Cookies"
+    type: "Keeper"
+    total_signatures: 1
+    
+    signatures:
+      - signer: "D.H. 🍪 🏆"
+        quote: "After 271 cookie mentions, 14 thefts, and one insurance policy I never needed... mine."
+        context: "FINALLY signed after winning Tournament 4 — Don's first ever card signature"
+        signed_at: "Post-Tournament 4 roundtable"
+        
+    stats:
+      times_stolen: 14
+      mentions_across_tournament: 271
+      wins_attributed: 4
+      cookie_insurance_triggers: 0
+      
+    current_location: "With Don (Tournament 5, Game 1)"
+    
+  war:
+    card_id: "fluxx-4-0-war"
+    name: "War"
+    type: "Creeper"
+    total_signatures: 1
+    
+    signatures:
+      - signer: "D.T. 🍄 😤"
+        quote: "War. Again. Of course."
+        context: "Drew War creeper (again) — resigned acceptance"
+        
+    current_location: "Discard pile"
+
+# ═══════════════════════════════════════════════════════════════════
+# 📍 CARD LOCATIONS (End of Tournament 4 / Start of Tournament 5)
+# ═══════════════════════════════════════════════════════════════════
+
+card_locations:
+  generated_cards:
+    GEN-004_underdog_blessing:
+      holder: "Bumblewick"
+      location: "In play (keeper)"
+      
+    GEN-005_long_shot_echo:
+      holder: "Deck"
+      location: "Shuffled back in after fizzle"
+      
+    GEN-016_amsterdam_rain:
+      holder: "Deck"
+      location: "Never played, shuffled back"
+      
+    GEN-018_fafo_token:
+      holder: "Palm"
+      location: "Floating near Palm (creeper)"
+      
+  standard_signed_cards:
+    love:
+      holder: "Palm"
+      location: "In play (keeper)"
+      
+    cookies:
+      holder: "Don"
+      location: "In hand"
+      
+    war:
+      holder: "None"
+      location: "Discard pile"

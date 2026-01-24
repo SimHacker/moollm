@@ -59,7 +59,7 @@ The Amsterdam Fluxx FAFO Tournament represents a comprehensive experiment in LLM
 | GEN-002 | Donna's Cosmic Revenge | Action | Epic | Donna | UNSIGNED |
 | GEN-003 | Melodramatic Wail | Action | Uncommon | Donna | UNSIGNED |
 | GEN-004 | Underdog's Blessing | Keeper | Legendary | Bumblewick | UNSIGNED |
-| GEN-005 | Long Shot Echo | Action | Legendary | Bumblewick | UNSIGNED |
+| GEN-005 | Long Shot Echo | Action | Legendary | Bumblewick | **SIGNED** ✓ |
 | GEN-006 | Hot Chocolate Shield | Keeper | Rare | Bumblewick | UNSIGNED |
 | GEN-007 | Cheerful Persistence | Action | Common | Bumblewick | UNSIGNED |
 | GEN-008 | Cookie Insurance | Keeper | Epic | Don | UNSIGNED |
@@ -72,7 +72,7 @@ The Amsterdam Fluxx FAFO Tournament represents a comprehensive experiment in LLM
 | GEN-015 | Calculated Risk | Action | Rare | Palm | UNSIGNED |
 | GEN-016 | Amsterdam Rain | Action | Epic | Cosmic | UNSIGNED |
 | GEN-017 | Café Chaos | Action | Uncommon | Cosmic | UNSIGNED |
-| GEN-018 | FAFO Token | Creeper | Legendary | Cosmic | UNSIGNED |
+| GEN-018 | FAFO Token | Creeper | Legendary | Cosmic | **SIGNED** ✓ |
 | GEN-019 | Dealer's Choice | Action | Legendary | Cosmic | UNSIGNED |
 | GEN-020 | Tournament Memory | Keeper | Legendary | Cosmic | UNSIGNED |
 | GEN-021 | Stolen Moments | Goal | Rare | Situation | UNSIGNED |
@@ -80,7 +80,9 @@ The Amsterdam Fluxx FAFO Tournament represents a comprehensive experiment in LLM
 | GEN-023 | Creeper Collector | Goal | Legendary | Situation | UNSIGNED |
 | GEN-024 | The Long Game | Goal | Epic | Situation | UNSIGNED |
 
-**FINDING: None of the 24 generated cards have in-game signatures!**
+**FINDING: 2 of 24 generated cards now have signatures (post-roundtable)!**
+- GEN-005 Long Shot Echo — signed by Bumblewick
+- GEN-018 FAFO Token — signed by all four players
 
 ### Complete Card Signature Registry
 
@@ -484,7 +486,7 @@ Result:
    ```yaml
    signature_protocol:
      - Every significant card play gets signed
-     - Format: "Quote. — Character Initials + Emoji"
+     - Format: "Quote. — Character Initials + Emojis"
      - Track cumulative signatures per card
    ```
 
@@ -701,7 +703,7 @@ signing_triggers:
     prompt: "Changing the game. Sign?"
 
 signature_format:
-  template: '"{quote}" — {initials} {emoji} {emotion_emoji}'
+  template: '"{quote}" — {initials} {emoji} {emotion_emojis}'
   examples:
     - '"I had to let you go." — B.F. 🎩 😭'
     - '"War. Again. Of course." — D.T. 🍄 😤'
