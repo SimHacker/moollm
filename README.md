@@ -34,7 +34,7 @@ If you read only 3 sections:
 🎮 **[examples/adventure-4/](./examples/adventure-4/)** — pub, rooms, NPCs, incarnated characters, logs, images, proofs
 
 ### 3) 🎴 NEW: Amsterdam Fluxx Championship
-🏆 **[skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/SCORE.md](./skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/SCORE.md)** — 4-hour LLM session, 5 tournaments, 24 generated cards, emergent mechanics, research-grade analysis
+🏆 **[skills/experiment/experiments/fluxx-chaos/](./skills/experiment/experiments/fluxx-chaos/)** — 4 characters, 5 tournaments, 20+ games, 116+ turns, 464+ character-turns of emergent narrative gameplay. 24 generated cards, 32 AI-generated artworks, research-grade analysis.
 
 ### 4) Get moving fast
 📖 **[QUICKSTART.md](./QUICKSTART.md)** — "get playing in 2 minutes"
