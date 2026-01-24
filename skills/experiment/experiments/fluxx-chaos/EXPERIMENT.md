@@ -481,12 +481,23 @@ The compiler expands `"standard fluxx 4.0"` into full rules. No need to repeat w
 
 ### Append-Only History
 
-**Never edit a state file in place.** Each game step:
+**Never edit a state file in place.** Each game step produces TWO outputs:
+
+| File | Purpose | Audience |
+|------|---------|----------|
+| `RUN-{N+1}.yml` | Rolling game state — machine-readable | LLM, tools, analysis |
+| `RUN-{N+1}.md` | Rolling narration — human-enjoyable prose | Humans, HN readers |
+
+**RULE: Always write BOTH files.** The `.yml` is the source of truth; the `.md` is the story.
+
+There is **never a final state** — you can always continue from any `RUN-{N}.yml`!
+
+Each game step:
 
 1. Read `RUN-{N}.yml`
 2. Simulate the turn (deal, draw, play, effects)
-3. Write `RUN-{N+1}.yml` (NEW FILE!)
-4. Write `RUN-{N+1}.md` (narration)
+3. Write `RUN-{N+1}.yml` — rolling state (NEW FILE!)
+4. Write `RUN-{N+1}.md` — rolling narration for humans (NEW FILE!)
 5. Optionally write sidecar files:
    - `RUN-{N+1}-analysis.yml` — deep pattern analysis, tells, emergence
    - `RUN-{N+1}-log.yml` — structured event log (hooks fired, karma changes)

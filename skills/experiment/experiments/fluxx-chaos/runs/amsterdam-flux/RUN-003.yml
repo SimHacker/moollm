@@ -1,7 +1,11 @@
-# MOOLLM Amsterdam Fluxx — Final State
+# MOOLLM Amsterdam Fluxx — State After Turn 13
 # Run ID: amsterdam-flux-003
-# Turn: 13 (GAME OVER)
-# Status: COMPLETE — Palm wins!
+# Turn: 13 (Palm wins! But the game could continue...)
+# Status: VICTORY — Palm wins Canal Life!
+#
+# NOTE: There is NEVER a "final" state. This game ended with a winner,
+# but you could: play another round, start a rematch, continue with
+# house rules, or fork an alternate timeline from any RUN-{N}.yml.
 
 meta:
   id: "amsterdam-flux-003"
@@ -205,8 +209,16 @@ session:
     - entry: "007"
       turns: 1
 
-# Final message:
+# Victory message (but never truly final!):
 epilogue: |
   The monkey lives on the water.
   The Sharp Cheddar Cheese is gone.
   The experiment succeeded.
+  
+  But the game could always continue:
+  - Rematch with same players?
+  - Add new players?
+  - Fork from RUN-002.yml and try different moves?
+  - Play "best of 3"?
+  
+  There is no final state. Only the latest state.
