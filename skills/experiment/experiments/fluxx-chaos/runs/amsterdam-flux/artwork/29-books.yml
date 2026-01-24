@@ -1,0 +1,29 @@
+# 29-books.yml — Structural Prompt (STEREO INPUT 1 of 2)
+card:
+  ref: "fluxx-4.0:books"
+  normalized_id: "fluxx-4-0-books"
+  type: keeper
+  name: "Books"
+  emoji: "📚"
+
+subject:
+  what: "A stack of beautiful books"
+  type: "leather-bound tomes, various sizes"
+  appearance: "rich leather, gold lettering"
+  details: "stacked artfully, pages visible"
+
+visual_composition:
+  hero: "the book stack"
+  background: "warm library atmosphere"
+  lighting: "reading lamp warmth"
+  atmosphere: "knowledge, adventure, worlds within"
+
+style:
+  art_style: "illustrated board game card art"
+  palette: "leather browns, gold accents, cream pages"
+  mood: "intellectual warmth"
+
+render_constraints:
+  render_as: "still life illustration"
+  subject_only: "the books alone"
+  text_in_image: "none, spines blank"
