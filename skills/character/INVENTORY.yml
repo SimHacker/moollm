@@ -7,15 +7,28 @@ inventory_system:
   emoji: "🎒📦"
   
   philosophy: |
-    Inventory is a set of REFERENCES, not file copies.
+    Inventory is USUALLY references, not file copies.
     
     Your character's home directory is their "bag."
     Items in it are either:
-    - References TO objects elsewhere (pointers)
-    - Instance files that INHERIT from prototypes
-    - Fungible stacks (count of identical things)
+    - References TO objects elsewhere (lightweight pointers)
+    - Instance files that INHERIT from prototypes (boxed)
+    - Actual object files (heavy! the real thing!)
+    - Fungible stacks (count of identical things, so pointer to prototype and count (or infinity))
+    - Text, lists, words, emojis, and yaml jazz expressions, even markup documents, can all be picked up, carried around, and used in any way!
     
-    Objects stay in their home. Picking up = creating a reference.
+    LIGHTWEIGHT: Taking a reference = creating a pointer. Zero weight.
+    HEAVY: Taking the actual file = moving it to your inventory. Carries weight.
+    
+    For heavy stuff, use transport modes instead of carrying:
+    - Forklift: mechanical assistance for big objects
+    - Scotty: use your communicator to ask Scotty to beam it to its destination or storage
+    - Telekinesis: move it without touching (if you have the gift)
+    - Exits: toss item through an exit or pneumatic tube into an adjecent or remote room
+    
+    Objects stay in their home unless you physically take them.
+    Picking up a reference = pointer to where it lives.
+    Picking up an object = it now lives in your bag.
     Dropping = creating a boxed instance at the destination.
 
 # REFERENCE TYPES

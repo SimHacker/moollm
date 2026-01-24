@@ -25,7 +25,59 @@
 
 Cards are portable capability tokens you can carry, play, and activate. They're **templates** — put them in play in a [room](../room/) to create live instances.
 
-**Origin:** Magic: The Gathering + K-lines + Hewitt Actors.
+**Origin:** HyperCard + Magic: The Gathering + Fluxx + K-lines + Hewitt Actors.
+
+## The Card Lineage
+
+Cards are *natural*. The metaphor appears independently across computing history:
+
+### HyperCard (1987)
+Bill Atkinson's revolution. Cards and stacks. Navigation by linking. Scripting with HyperTalk.
+- Inspired the World Wide Web (Tim Berners-Lee cited it)
+- Created the wiki concept
+- Launched Myst and countless experiences
+- Put programming in hands of artists and designers
+- *Deeply embedded in LLM training data*
+
+HyperCard cards have a **front** (visible interface) and **back** (hidden script). MOOLLM cards mirror this: `CARD.yml` is the sniffable interface, `SKILL.md` is the deeper content.
+
+**HyperTalk event handlers ARE our lifecycle hooks:**
+
+| HyperCard | MOOLLM | When |
+|-----------|--------|------|
+| `on openCard` | `ON-DRAW` | Card enters view |
+| `on closeCard` | `ON-DISCARD` | Card leaves |
+| `on mouseUp` | `ON-PLAY` | Card activated |
+| `on mouseEnter` | `ON-ENTER-HAND` | Card arrives |
+| `on mouseLeave` | `ON-LEAVE-HAND` | Card departs |
+
+Same pattern. Same idea. Bill Atkinson figured this out in 1987.
+
+### Magic: The Gathering (1993)
+Richard Garfield's collectible card game introduced:
+- Cards as portable, tradeable capabilities
+- Activation costs and timing
+- Stack-based resolution (the "stack")
+- Cards that modify other cards
+
+### Fluxx (1996)
+Looney Labs' meta-card game where cards change the rules:
+- No fixed rules — rules are cards
+- Goals change mid-game
+- Perfect chaos testing for simulations
+- See [experiment/fluxx-chaos/](../experiment/experiments/fluxx-chaos/)
+
+### Why Cards Work
+
+| Property | Benefit |
+|----------|---------|
+| **Discrete** | Clear boundaries, easy to reason about |
+| **Portable** | Can be carried, traded, given |
+| **Composable** | Stack, combine, interact |
+| **Two-sided** | Interface vs implementation |
+| **Collectible** | Build decks, create ensembles |
+
+The same pattern, different eras, all deeply understood by models trained on human knowledge.
 
 ## Quick Example
 
