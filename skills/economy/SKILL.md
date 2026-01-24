@@ -62,11 +62,13 @@ Standard adventure currency with metal-based tiers:
 | 🟡 | Gold | gp | 1 gp | 100 cp |
 | ⚪ | Silver | sp | 0.1 gp | 10 cp |
 | 🟤 | Copper | cp | 0.01 gp | 1 cp |
+| 🪵 | Wood | wp | 0.001 gp | 0.1 cp |
 
 **Conversion rates:**
-- 1 pp = 10 gp = 100 sp = 1,000 cp
-- 1 gp = 10 sp = 100 cp  
-- 1 sp = 10 cp
+- 1 pp = 10 gp = 100 sp = 1,000 cp = 10,000 wp
+- 1 gp = 10 sp = 100 cp = 1,000 wp
+- 1 sp = 10 cp = 100 wp
+- 1 cp = 10 wp
 
 ### Fungible Currencies (Convertible)
 
@@ -173,7 +175,7 @@ NON-FUNGIBLE (cannot convert):
 | Lodging | 5 🪙 per night |
 | Information | 5-20 🪙 (secrets, tips) |
 | Services | Variable |
-| Poker buy-in | 1000 🪙 (standard game) |
+| Poker buy-in | 1 💎 = 1000 🪙 (standard game) |
 
 ## Price Examples
 
@@ -195,7 +197,7 @@ NON-FUNGIBLE (cannot convert):
 - Monkey's Paw: 5 🪙
 
 ### Gaming Stakes
-- Poker buy-in: 1000 🪙
+- Poker buy-in: 1 💎 = 1000 🪙
 - High-stakes poker: 1 💎 GRAND
 
 ## Hidden Value
