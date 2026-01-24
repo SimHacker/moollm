@@ -65,25 +65,85 @@ Normalized ID format: `fluxx-4-0-bread`, `amsterdam-canal-house`
 
 ---
 
-## Stereo Prompt Format
+## Stereo Prompt Format — YIN/YANG Two-Phase
 
-Each card gets TWO prompts:
+Each card gets TWO complementary artifacts:
 
-1. **Positive Prompt:** What to include (eloquent visual imagery)
-2. **Negative Prompt:** What to avoid (anti-patterns, style conflicts)
+### Phase 1: YML (Structure) — The Skeleton
+
+A **referential YAML Jazz file** that points to everything relevant:
+- Card metadata (id, ref, type, name, emoji)
+- Character files with personality, tells, frobisms
+- Cardset visual identity references
+- Theme mood boards
+- Related cards and goals
+- Environmental context
+- Any resource that might inform the visual
+
+**Inclusive, expansive, pointing outward.** Gathers all the threads.
 
 ```yaml
-prompts:
-  fluxx-4-0-bread:
-    id: "fluxx-4-0-bread"
-    positive: |
-      A golden loaf of freshly baked bread on a rustic wooden board,
-      steam rising, warm morning light, artisan bakery aesthetic,
-      visible crust texture, flour dusting, Fluxx card game style,
-      bold colorful illustration, clean vector-like edges
-    negative: |
-      photorealistic, dark moody lighting, moldy, stale,
-      industrial factory, plastic packaging
+# Phase 1: Skeleton YML — points to everything
+fluxx-4-0-bread:
+  id: "fluxx-4-0-bread"
+  refs:
+    card: "RUN-000.yml#cards.0"
+    cardset: "cardsets/fluxx-4-0/VISUAL-IDENTITY.yml"
+    theme: "themes/keeper-warmth.yml"
+    goals_featuring: ["peace_and_bread", "toast"]
+    flavor_source: "The staff of life"
+  visual_context:
+    setting: "bakery, kitchen, morning"
+    lighting: "warm, golden hour, steam"
+    mood: "nourishment, comfort, home"
+  character_associations:
+    - "bumblewick: loves comfort food"
+    - "don: sharp cheddar cheese pairs well"
+```
+
+### Phase 2: MD (Prose) — The Flesh
+
+Transform the skeleton into **standalone evocative prose**:
+- No dependencies — everything stated explicitly
+- No references — all context resolved inline
+- Pure visual, emotional, impressional, gestural description
+- Tells and readings woven into imagery
+- The transformer reads ALL refs into context, then expresses
+
+**Self-contained, complete, ready for image generation.**
+
+```markdown
+<!-- Phase 2: Prose MD — standalone, no dependencies -->
+
+A magnificent golden-crusted artisan sourdough loaf emerges fresh 
+from a brick oven, steam rising in delicate wisps that catch the 
+warm morning light streaming through a cottage window. The crackled 
+caramelized crust bears the marks of a master baker's scoring knife, 
+revealing pillowy white interior. Scattered flour dust settles on a 
+weathered oak cutting board with decades of knife marks telling 
+stories of countless meals shared. A rustic bread knife with wooden 
+handle rests beside, waiting. The warmth radiates outward like 
+comfort itself — this is the staff of life, nourishment for body 
+and soul, the foundation upon which all good meals are built.
+
+Digital illustration in modern board game card art style. Clean bold 
+outlines with slight hand-drawn quality. Rich saturated colors with 
+painterly texture. Centered composition. Warm inviting aesthetic 
+suitable for tabletop gaming. Looney Labs whimsical family-friendly 
+energy. No text, no words, no letters.
+```
+
+### The Transformation
+
+```
+YML (skeleton)  ──────────────────►  MD (prose)
+    │                                    │
+    │  refs, pointers, structure         │  standalone, complete
+    │  inclusive, expansive              │  evocative, expressive
+    │  gathers threads                   │  weaves tapestry
+    │  WHAT to consider                  │  HOW it looks and feels
+    │                                    │
+    └────────── YIN ◐ ◑ YANG ────────────┘
 ```
 
 ---
