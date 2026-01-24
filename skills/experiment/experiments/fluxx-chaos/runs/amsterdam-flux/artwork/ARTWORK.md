@@ -168,6 +168,15 @@ The skeleton YML isn't built in one pass. **Image mining** is iterative and mult
 - What collecting this feels like
 - What losing this feels like
 
+**Pass 7: Body Language & Gesture**
+- Tells and ticks (nervous habits, comfort gestures)
+- Side-eyes and glances (suspicion, envy, admiration)
+- Poses and stances (power poses, defensive hunching, relaxed lean)
+- Cultural gesture references (planking! dabbing! peace signs! bunny ears!)
+- Hand positions (reaching, clutching, offering, stealing)
+- Facial micro-expressions (smirk, raised eyebrow, wide eyes)
+- Physical relationship to the card (cradling, brandishing, hiding)
+
 Each pass adds a **semantic layer** — like fordite paint building up in an auto factory, layer upon layer of different colors. When you slice through the accumulated meaning, you see beautiful stratified patterns of interconnected significance.
 
 The YML skeleton becomes **semantically thick** — not just data, but meaning-rich context that the prose transformer can draw upon.
@@ -184,9 +193,10 @@ flowchart TB
         P4[Pass 4: Narrative Threads]
         P5[Pass 5: Cross-References]
         P6[Pass 6: Emotional Palette]
+        P7[Pass 7: Body Language & Gesture]
         
-        P1 --> P2 --> P3 --> P4 --> P5 --> P6
-        P6 -.->|"iterate"| P1
+        P1 --> P2 --> P3 --> P4 --> P5 --> P6 --> P7
+        P7 -.->|"iterate"| P1
     end
 
     subgraph YML["📄 YML SKELETON (YIN)"]
@@ -229,13 +239,42 @@ fordite_layers:
   layer_4_narrative:    "Peace + Bread = victory, staff of life"
   layer_5_crossref:     "Similar: Cookies, Cake, Stroopwafel (food keepers)"
   layer_6_emotion:      "Comfort, nourishment, home, sharing"
+  layer_7_body:         "Cradling gesture, warm smile, offering hands, flour-dusted apron stance"
   
 # When sliced (transformed to prose), all layers visible:
 prose_slice: |
   The golden loaf speaks of comfort (layer 6) in a warm bakery 
   morning (layer 3), the staff of life (layer 4) that Bumblewick 
   would treasure (layer 2), a classic keeper (layer 1) that rhymes 
-  with other food treasures in the deck (layer 5).
+  with other food treasures in the deck (layer 5). The baker's 
+  hands cradle it like a newborn, flour-dusted apron testimony 
+  to honest work, warm smile inviting you to share (layer 7).
+
+# Body language examples for character cards:
+body_language_examples:
+  don_hopkins:
+    tells: "adjusts rabbit ears when excited, pie-menu hand gesture"
+    pose: "leaning forward eagerly, one hand offering cheese"
+    eyes: "twinkling mischief, corner-of-eye glance at code"
+    cultural_ref: "80s programmer slouch meets rabbit energy"
+    
+  bumblewick:
+    tells: "fidgets with waistcoat buttons when nervous"
+    pose: "defensive hunch, arms crossed, reluctant hero stance"
+    eyes: "side-eye at adventure, longing glance toward armchair"
+    cultural_ref: "hobbit doorway hesitation"
+    
+  donna:
+    tells: "dramatic hand gestures, counting on fingers (34 counts!)"
+    pose: "power stance, chest out, theatrical presentation"
+    eyes: "imperious glare, raised eyebrow judgment"
+    cultural_ref: "Divine meets reality TV villain"
+    
+  palm:
+    tells: "tiny espresso cup adjustment, philosophical hand wave"
+    pose: "relaxed lean, one leg crossed, confident calm"
+    eyes: "knowing smile, sees through everything"
+    cultural_ref: "zen master meets street philosopher"
 ```
 
 ---
