@@ -173,8 +173,9 @@ NON-FUNGIBLE (cannot convert):
 - Monkey's Paw: 5 🪙
 
 ### Gaming Stakes
-- Poker buy-in: 1 💎 = 1000 🪙
-- High-stakes poker: 1 💎 GRAND
+- Peanut Poker Buy-In: 1 🪙 = 1000 🥜
+- Normal Poker Buy-In: 1 💎 = 1000 🪙 = 1000000 🥜
+- High-stakes Poker Buy-In: 1 👑 = 1000 💎 = 1000000 🪙 = 1000000000 🥜
 
 ## Hidden Value
 
