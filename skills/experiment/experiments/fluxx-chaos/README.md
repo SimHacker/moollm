@@ -44,8 +44,7 @@ Four characters. Five tournaments. Twenty games. One hundred sixteen turns. Thou
 | Tournaments | **5** |
 | Games simulated | **20+** |
 | Total turns | **116+** |
-| **Character turns** | **464+** *(4 players × 116 turns)* |
-| Standard cards with art | 32 |
+cha| Standard cards with art | 32 |
 | Generated personal cards | **24** |
 | Card signatures | **13+** |
 | Cookie mentions | **271** |
@@ -133,14 +132,69 @@ fluxx-chaos/
 └─────────────────────────────────────────────┘
 ```
 
-## Key Innovation: Stereo Prompts
+## Key Innovation: Stereo Prompts + Self-Improving Pipeline
+
+### 1. Stereo Prompts
 
 Each card gets two prompts fed together to the image generator:
 
-1. **YAML skeleton** (`NN-name.yml`) — structured constraints
-2. **Prose description** (`NN-name.md`) — evocative atmosphere
+1. **YAML skeleton** (`NN-name.yml`) — structured constraints, facts, relationships
+2. **Prose description** (`NN-name.md`) — evocative atmosphere, emotional resonance
 
-This "stereo" approach gives the model both precision and poetry.
+This "stereo" approach gives the model both **precision and poetry**.
+
+### 2. Multi-Layer Image Mining
+
+After generation, each image gets analyzed:
+
+```
+Image Generated → Computer Vision Analysis → Mined Metadata
+     ↓                    ↓                       ↓
+  NN-name.png      "What's actually in       NN-name-mined.yml
+                    this image?"
+```
+
+The mining extracts: objects detected, colors, composition, mood, text presence (unwanted!), style consistency.
+
+### 3. Self-Improving QA Loop (LLM-Invented!)
+
+**The LLM spontaneously invented this protocol:**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  1. Compare mined metadata with original prompt goals       │
+│  2. Identify gaps: "Prompt said X, image shows Y"           │
+│  3. Diagnose: Why did this happen?                          │
+│  4. Rewrite prompts with learned corrections                │
+│  5. Regenerate image                                        │
+│  6. Mine again, re-evaluate                                 │
+│  7. Document what worked (Play → Learn → Lift)              │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**One image took THREE attempts to get perfect!** Each failure taught something:
+- Attempt 1: Unwanted text overlay (learned: avoid "card art" trigger words)
+- Attempt 2: Wrong composition (learned: specify focal point explicitly)
+- Attempt 3: Success!
+
+### 4. Play-Learn-Lift Strategy
+
+| Phase | What Happens |
+|-------|--------------|
+| **Play** | Generate images freely, accept failures |
+| **Learn** | Mine results, compare to intent, diagnose gaps |
+| **Lift** | Update prompt templates for ALL future cards |
+
+This isn't just generating images — it's **building institutional knowledge** about AI art generation that improves with every card.
+
+### Stats
+
+| Metric | Value |
+|--------|-------|
+| First-attempt success | **72%** |
+| Required regeneration | 28% |
+| Max attempts for one card | **3** |
+| Prompt lessons extracted | **5 major patterns** |
 
 ## What We Learned
 
@@ -150,6 +204,7 @@ See the [full analysis in the slideshow](runs/amsterdam-flux/artwork/SLIDESHOW.m
 - How to translate emotions into visual specifications
 - The difference between describing what you see vs. how good it is
 - When to use abstract symbols vs. specific instances
+- **How to build self-improving image generation pipelines**
 
 ---
 
