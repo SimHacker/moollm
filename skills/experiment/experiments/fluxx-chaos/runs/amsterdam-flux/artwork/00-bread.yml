@@ -1,0 +1,37 @@
+# 00-bread.yml — Skeleton Prompt (Phase 1)
+# Refs and pointers — gather all threads
+
+meta:
+  card_id: "fluxx-4-0-bread"
+  normalized_id: "00-bread"
+  created: "2026-01-24T20:00:00Z"
+
+# Card identity
+card:
+  ref: "fluxx-4.0:bread"
+  type: keeper
+  name: "Bread"
+  emoji: "🍞"
+  flavor: "You can't have a sandwich without it."
+  cardset: fluxx-4-0
+
+# Reference pointers (to be resolved in .md)
+refs:
+  card_data: "../RUN-000.yml#cards.0"
+  cardset_style: "{{~artwork_style.cardset_styles.fluxx-4-0}}"
+  type_mood: "{{~artwork_style.type_moods.keeper}}"
+  base_style: "{{~artwork_style.base_style}}"
+
+# Goals featuring this card
+goals_featuring:
+  - "peace_and_bread"
+  - "toast"
+
+# Visual context seeds
+visual_seeds:
+  - "freshly baked loaf"
+  - "golden crust"
+  - "steam rising"
+  - "rustic wooden board"
+  - "morning light"
+  - "flour dust"

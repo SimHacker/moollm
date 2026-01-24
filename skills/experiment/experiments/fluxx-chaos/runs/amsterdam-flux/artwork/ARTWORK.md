@@ -344,16 +344,98 @@ body_language_examples:
 
 ---
 
-## Files
+## File Naming Convention — FLAT + BIG-ENDIAN
+
+All artwork files live in **one flat directory**. Big-endian prefixes group related files lexically.
+
+### Naming Pattern
+
+```
+NN-short-desc.yml       # Skeleton prompt with refs (Phase 1)
+NN-short-desc.md        # Resolved standalone prose prompt (Phase 2)
+NN-short-desc.png       # Generated image
+NN-short-desc-mined.yml # Combined iterative mining YAML Jazz
+```
+
+### Examples
+
+```
+00-bread.yml            # Skeleton: refs to cardset, character associations
+00-bread.md             # Resolved: standalone evocative prose
+00-bread.png            # Generated artwork
+00-bread-mined.yml      # All 7 mining passes combined
+
+01-love.yml
+01-love.md
+01-love.png
+01-love-mined.yml
+
+02-moon.yml
+...
+```
+
+### Key Principles
+
+1. **FLAT** — No subdirectories. Everything in `artwork/`.
+2. **BIG-ENDIAN** — Prefix groups files lexically (00, 01, 02...)
+3. **IMPLICIT CONTAINMENT** — Prefix implies relationship, no folders needed.
+4. **SINGLE MINING FILE** — `-mined.yml` is ONE file per card, iteratively updated.
+   - Each mining pass INTEGRATES into the same file
+   - Does NOT create new files
+   - Structures information intelligently: grouped, categorized, layered
+
+### Global Files (No Prefix)
 
 | File | Purpose |
 |------|---------|
-| `ARTWORK.md` | This documentation |
-| `prompts-skeleton.yml` | Phase 1: Metadata + refs |
-| `prompts-resolved.yml` | Phase 2: Full visual prompts |
-| `images/` | Generated artwork (future) |
-| `cards/` | SVG cards (future) |
-| `deck.html` | Printable deck (future) |
+| `ARTWORK.md` | This documentation — style guide, protocol |
+| `STYLE.yml` | Shared visual identity (optional) |
+| `deck.html` | Printable deck layout (future) |
+
+### Per-Card Files (Prefixed)
+
+| Pattern | Purpose |
+|---------|---------|
+| `NN-desc.yml` | Skeleton prompt — refs, pointers, structure |
+| `NN-desc.md` | Resolved prompt — standalone prose for image gen |
+| `NN-desc.png` | Generated artwork — pure visual, no text |
+| `NN-desc-mined.yml` | Mining accumulator — all 7 passes integrated |
+
+### Mining File Protocol
+
+The `-mined.yml` file is **append-integrate**, not append-create:
+
+```yaml
+# 00-bread-mined.yml — SINGLE FILE, iteratively enriched
+
+meta:
+  card_id: "fluxx-4-0-bread"
+  mining_passes: 7
+  last_updated: "2026-01-24T20:00:00Z"
+
+# Pass 1: Card Identity
+identity:
+  ref: "fluxx-4.0:bread"
+  type: keeper
+  name: "Bread"
+  emoji: "🍞"
+  flavor: "You can't have a sandwich without it."
+
+# Pass 2: Character Associations (integrated)
+characters:
+  wants_this:
+    - bumblewick: "loves comfort food, cozy meals"
+    - don: "pairs with Sharp Cheddar Cheese"
+  tells: "Bumblewick reaches for bread first at any meal"
+
+# Pass 3: Environmental Context (integrated)
+environment:
+  setting: "warm bakery, cottage kitchen"
+  lighting: "morning light, golden hour"
+  atmosphere: "steam, flour dust, wood smoke"
+
+# ... passes 4-7 integrated into same file ...
+```
 
 ---
 
