@@ -417,18 +417,133 @@ character_mapping:
 
 Runs are configured in `runs/` with the following structure:
 
+```
+runs/
+├── INDEX.yml                  # Registry of all runs
+└── {run-name}/                # Each run is a directory
+    ├── RUN.yml                # CONFIG — sparse, declarative
+    ├── templates/
+    │   ├── RUN-000.yml.tmpl   # Template for initial state
+    │   └── RUN-000.md.tmpl    # Template for initial narration
+    ├── RUN-000.yml            # STATE 0 — compiled, pre-deal
+    ├── RUN-000.md             # Narration 0 — scene setting
+    ├── RUN-001.yml            # STATE 1 — after turn 1
+    ├── RUN-001.md             # Narration 1
+    └── ...                    # Full history preserved
+```
+
+---
+
+## Architecture Principles
+
+### Config vs State
+
+**RUN.yml (Config)** is sparse and declarative:
+- "Use standard fluxx 4.0 rules" — don't belabor the obvious
+- "Include these expansions" — just paths
+- "Enable these plugins" — just names
+- "These players are at the table" — with character_dir links
+
+**RUN-NNN.yml (State)** is dense and self-contained:
+- All cards fully expanded with all properties
+- All extension points and handlers inlined
+- All plugin state (karma, signatures, dealer mode)
+- Current game state (turn, phase, hands, keepers, goal)
+- The LLM does NOT need to look at other files
+
+### Template Compilation
+
+The game init handler acts as a **compiler**:
+
+1. Reads `RUN.yml` (config) + `templates/RUN-000.yml.tmpl`
+2. Resolves imports (cardsets, plugins, handlers)
+3. Expands **empathic expressions** `{{~query}}`:
+   - `{{~expand_deck("fluxx-4.0")}}` — inline all cards
+   - `{{~run_config.plugins | gather_extension_points}}` — inline handlers
+   - `{{~character_dir}}/archetype` — pull from character files
+4. Strips dev-only comments, keeps semantic comments
+5. Produces `RUN-000.yml` — fully self-contained initial state
+
+**Like a C++ constructor:** sparse declaration → rich instantiation.
+
+### Well-Known Games
+
+For well-known games like Fluxx and Chess, don't belabor the obvious:
+
 ```yaml
-run_config:
-  name: "config-name"
-  players: [list of characters]
-  deck: "standard"  # or custom
-  creepers: true/false
-  
+rules:
+  base: "standard fluxx 4.0"  # Compiler knows what this means
+  overrides:                   # Only specify deviations
+    hand_limit: 5
+```
+
+The compiler expands `"standard fluxx 4.0"` into full rules. No need to repeat what's well-documented elsewhere.
+
+### Append-Only History
+
+**Never edit a state file in place.** Each game step:
+
+1. Read `RUN-{N}.yml`
+2. Simulate the turn (deal, draw, play, effects)
+3. Write `RUN-{N+1}.yml` (NEW FILE!)
+4. Write `RUN-{N+1}.md` (narration)
+5. **Git commit** with descriptive message
+
+This creates an **event log** of the entire game:
+
+```bash
+git log --oneline runs/amsterdam-flux/
+f0c71e1 RUN.yml: Initial config
+a1b2c3d RUN-000.yml: Compiled initial state, 321 cards shuffled
+d4e5f6g RUN-001.yml: Deal complete, Don draws 🧠 Marvin Minsky
+g7h8i9j RUN-002.yml: Turn 1 - Palm plays Goal: Gezelligheid
+```
+
+### Benefits of Append-Only
+
+| Capability | How |
+|------------|-----|
+| **Full History** | Every state preserved forever |
+| **Easy Diff** | `diff RUN-003.yml RUN-004.yml` |
+| **Replay** | Continue from any state |
+| **Pattern Analysis** | `grep -h "karma:" RUN-*.yml` |
+| **Git Blame** | Who changed what, when |
+| **Fork Timelines** | `cp RUN-005.yml RUN-005-alternate.yml` |
+
+### Commit Message Protocol
+
+Each state file gets its own commit:
+
+```
+[{RUN-NAME}] RUN-{NNN}: {brief summary}
+
+Turn: {N}
+Phase: {dealing|playing|ended}
+Active Player: {name}
+
+Actions:
+- {player} drew {card}
+- {player} played {card} → {effect}
+
+State Changes:
+- Goal: {none → "Bread and Cheese"}
+- Karma: Palm +2 (generous play)
+
+Emergence:
+- {interesting pattern or behavior}
+```
+
+---
+
+## Run Output Files
+
+```yaml
 run_output:
-  yml: "config-name-NNN.yml"   # Structured state
-  md: "config-name-NNN.md"     # Narrative stream
-  cursor_mirror: "config-name-NNN-cursor-mirror.yml"
-  tells: "config-name-NNN-tells.yml"
+  state: "RUN-NNN.yml"           # Full game state
+  narration: "RUN-NNN.md"        # What happened, atmospheric
+  analysis: "RUN-NNN-analysis.yml"  # Optional deep analysis
+  tells: "RUN-NNN-tells.yml"     # Play style analysis
+  cursor_mirror: "RUN-NNN-cursor-mirror.yml"  # Meta-cognition
 ```
 
 ---
