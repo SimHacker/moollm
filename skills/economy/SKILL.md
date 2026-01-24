@@ -56,20 +56,20 @@ Economic systems for currency, trade, and value exchange. 🐄MOOLAH is earned, 
 
 | Symbol | Name | Value | Use |
 |--------|------|-------|-----|
-| 🥜 | NUT | 0.001 🪙 | Micro-transactions, tips, arcade |
-| 🪙 | 🐄MOOLAH | 1 | Standard transactions |
-| 💎 | GRAND | 1,000 🪙 | Large purchases, high-stakes |
-| 👑 | FORTUNE | 1,000,000 🪙 | Legendary items, world events |
+| 🥜 | 🥜 NUT | 0.001 🪙 | Micro-transactions, tips, arcade |
+| 🪙 | 🐄 MOOLAH | 1 | Standard transactions |
+| 💎 | 💎 GRAND | 1,000 🪙 | Large purchases, high-stakes |
+| 👑 | 👑 FORTUNE | 1,000,000 🪙 | Legendary items, world events |
 
 ### Metal Denominations (D&D Style)
 
 | Symbol | Metal | Abbrev | Value |
 |--------|-------|--------|-------|
-| 🪵 | Wood | wp | 0.001 gp |
-| 🟤 | Copper | cp | 0.01 gp |
-| ⚪ | Silver | sp | 0.1 gp |
-| 🟡 | Gold | gp | 1 gp |
-| ⬜ | Platinum | pp | 10 gp |
+| 🪵 | 🪵 Wood | wp | 0.001 gp |
+| 🟤 | 🟤 Copper | cp | 0.01 gp |
+| ⚪ | ⚪ Silver | sp | 0.1 gp |
+| 🟡 | 🟡 Gold | gp | 1 gp |
+| ⬜ | ⬜ Platinum | pp | 10 gp |
 
 ### Parallel Currencies (Non-Convertible)
 
@@ -77,10 +77,10 @@ These exist *beside* 🐄MOOLAH — they cannot be bought or sold for coins.
 
 | Symbol | Name | Type | How to Get |
 |--------|------|------|------------|
-| ⭐ | KARMA | Reputation | Good deeds, keeping promises |
-| 🎫 | FAVOR | Social debt | "You owe me one" |
-| 🔮 | ESSENCE | Magical | Found, not bought |
-| ⏳ | TIME | Temporal | Exists, must be spent |
+| ⭐ | ⭐ KARMA | Reputation | Good deeds, keeping promises |
+| 🎫 | 🎫 FAVOR | Social debt | "You owe me one" |
+| 🔮 | 🔮 ESSENCE | Magical | Found, not bought |
+| ⏳ | ⏳ TIME | Temporal | Exists, must be spent |
 
 #### ⭐ KARMA — Social Credit
 
