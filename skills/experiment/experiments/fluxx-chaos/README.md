@@ -1,6 +1,6 @@
 # Fluxx Chaos Experiment
 
-🎴 **AI characters playing Fluxx while rules constantly change — with dynamic card generation, cosmic karma, and emergent game mechanics**
+🎴 **AI characters playing Fluxx while rules constantly change — with dynamic card generation, AI artwork, cosmic karma, and emergent game mechanics**
 
 ## What Is This?
 
