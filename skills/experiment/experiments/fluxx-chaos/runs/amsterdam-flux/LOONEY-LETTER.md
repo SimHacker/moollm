@@ -42,6 +42,7 @@ I created a custom creeper called the "FAFO Token" (Fuck Around, Find Out) that 
 The AI discovered this paradox mid-game:
 
 > **Don**: "I have Milk AND Cookies... and I STILL can't win?!"
+
 > **Donna**: "The Token isn't just about gloating. It's a CREEPER."
 
 ### 2. The Silent Victory Protocol
@@ -49,7 +50,9 @@ The AI discovered this paradox mid-game:
 After two players got punished for gloating (Don said "YES!" and immediately drew 2 creepers; Donna did the same), the analytical player Palm figured out the pattern:
 
 > **Palm receives token:** "..."
+
 > **Palm wins:** (silence)
+
 > **FAFO Token check:** "Palm did not express confidence. Token does NOT trigger."
 
 **Win rate when staying silent: 100%**
@@ -61,6 +64,7 @@ Donna, our dramatic "Prima" player, was forced into silence by the FAFO Token. B
 Her in-character reasoning:
 
 > "Is wailing about my suffering the same as expressing confidence?"
+
 > "...no. It's the OPPOSITE."
 
 She wailed. The token didn't trigger. **Lamentation ≠ confidence.** A loophole emerged from character logic.
@@ -129,9 +133,11 @@ The artwork is pure visual art with no text overlays, suitable for actual card p
 The characters sign cards at emotional moments. The Love card accumulated **10 signatures**, including:
 
 > "I had to let you go." -- B.F. 🎩 😭
+>
 > (Bumblewick, forced to discard Love while holding 2 creepers)
 
 > "Sometimes you find love in the place you least expect. The discard pile." -- B.F. 🎩 ❤️
+>
 > (Bumblewick, retrieving Love to WIN THE CHAMPIONSHIP)
 
 ---
