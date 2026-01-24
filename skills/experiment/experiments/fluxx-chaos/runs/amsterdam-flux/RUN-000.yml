@@ -27,6 +27,95 @@ meta:
   status: "ready_to_deal"
   self_contained: true
 
+# ═══════════════════════════════════════════════════════════════════
+# ARTWORK STYLE — Shared visual language for all card illustrations
+# ═══════════════════════════════════════════════════════════════════
+# When generating card artwork, ALWAYS apply this shared style first,
+# then layer card-specific and cardset-specific details on top.
+# This ensures visual consistency across the entire deck.
+
+artwork_style:
+  name: "MOOLLM Amsterdam Flux Illustrated"
+  version: "1.0"
+  
+  # CORE VISUAL IDENTITY — Apply to ALL cards
+  base_style: |
+    Digital illustration in the style of modern board game card art,
+    clean bold outlines with slight hand-drawn quality,
+    rich saturated colors with painterly texture,
+    centered composition with strong focal point,
+    warm inviting aesthetic suitable for tabletop gaming,
+    slightly stylized proportions, not photorealistic,
+    professional card game illustration quality
+  
+  # TECHNICAL SPECS
+  render:
+    aspect_ratio: "1:1"
+    resolution: "1024x1024"
+    format: "png"
+    no_text: true  # PURE ARTWORK — no text, titles, or stats
+    no_borders: true  # Borders added in SVG composition phase
+  
+  # COLOR PALETTE — Consistent across all cardsets
+  palette:
+    primary: ["#FFD700", "#FF6B6B", "#4ECDC4", "#45B7D1"]  # Gold, Coral, Teal, Sky
+    accent: ["#96CEB4", "#FFEAA7", "#DDA0DD", "#98D8C8"]   # Sage, Cream, Plum, Mint
+    shadows: ["#2C3E50", "#34495E"]  # Deep blue-grays
+    highlights: ["#FFFEF0", "#FFF8E7"]  # Warm whites
+  
+  # LIGHTING — Consistent warm feel
+  lighting:
+    type: "warm studio light with soft shadows"
+    direction: "upper left 10 o'clock"
+    mood: "inviting, collectible, desirable"
+  
+  # CARDSET OVERLAYS — Layer on top of base_style
+  cardset_styles:
+    fluxx-4-0:
+      overlay: "Looney Labs house style, family-friendly whimsy, bold flat colors"
+      
+    amsterdam:
+      overlay: "Dutch Golden Age influenced, Vermeer side lighting, terracotta and delft blue accents"
+      
+    consciousness:
+      overlay: "Psychedelic undertones, subtle fractal patterns, consciousness-expanding energy"
+      
+    moollm-tech:
+      overlay: "Retro-futurism meets AI, synthwave color accents, neural network motifs"
+      
+    moollm-chars:
+      overlay: "Expressive character portraiture, personality radiating outward, warm humanity"
+      
+    cosmic-dealers:
+      overlay: "Tarot-influenced mysticism, cosmic star fields, karmic gold accents"
+  
+  # CARD TYPE MOODS — Additional layer
+  type_moods:
+    keeper:
+      mood: "warm, inviting, 'I want to collect this', treasure quality"
+    goal:
+      mood: "achievement, celebration, victory moment, dynamic energy"
+    action:
+      mood: "motion, chaos, things happening, kinetic energy"
+    new_rule:
+      mood: "authority, structure, law being established"
+    creeper:
+      mood: "ominous, unwanted, 'get this away from me', dark warning"
+
+  # PROMPT ASSEMBLY PROTOCOL
+  # When generating a card image prompt:
+  # 1. Start with base_style (universal)
+  # 2. Add cardset_styles[card.cardset].overlay
+  # 3. Add type_moods[card.type].mood
+  # 4. Add card-specific visual_refs from prompts-skeleton.yml
+  # 5. Add negative prompt (no text, no borders, anti-patterns)
+  # 
+  # Example assembly for amsterdam-tulip:
+  # = base_style 
+  # + "Dutch Golden Age influenced, Vermeer side lighting..."
+  # + "warm, inviting, 'I want to collect this'..."
+  # + "single perfect tulip, Rembrandt broken colors, 17th century still life..."
+
 # PLAYERS
 # Links to full character definitions in adventure-4
 

@@ -22,7 +22,7 @@
 │  2. RESOLVED PROMPTS PHASE                                           │
 │     └─ prompts-resolved.yml                                          │
 │        ├─ All refs expanded inline                                  │
-│        ├─ "Stereo" image prompts (positive + negative)              │
+│        ├─ "Stereo" image prompts (structure ymp + prose md)          │
 │        └─ Eloquent visual imagery descriptions                      │
 │                                                                       │
 │  3. IMAGE GENERATION (future)                                        │
