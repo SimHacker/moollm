@@ -89,6 +89,42 @@ Eight characters. One poker table. Five simulation layers.
 
 See: `experiments/emo-poker-face/EXPERIMENT.md`
 
+---
+
+## 🎴 Featured: Amsterdam Flux — Card Artwork Pipeline
+
+**AI characters playing Fluxx while an AI generates and refines card artwork.**
+
+This experiment demonstrates the full loop: characters play a card game → game state drives art generation → autonomous quality control → iterative refinement → comprehensive documentation.
+
+### The Slideshow
+
+**[📖 View Card Gallery →](experiments/fluxx-chaos/runs/amsterdam-flux/artwork/SLIDESHOW.md)**
+
+32 cards, each with:
+- **Pure artwork** — no text, no UI, no frames
+- **Stereo prompts** — YAML structure + evocative prose
+- **Image mining** — computer vision analysis of what the AI generated
+- **Generation history** — failures documented, lessons learned
+
+### Why It's Interesting
+
+| Achievement | What Happened |
+|-------------|---------------|
+| **72% first-attempt success** | Most prompts worked immediately |
+| **28% required iteration** | Failures taught us prompt engineering |
+| **Autonomous regeneration** | AI detected issues, rewrote prompts, tried again |
+| **Failure pattern recognition** | "board game card art" → triggers UI overlays |
+| **Documented learning** | Each failure became a lesson in `*-mined.yml` |
+
+### Quick Links
+
+- [**Card Gallery Slideshow**](experiments/fluxx-chaos/runs/amsterdam-flux/artwork/SLIDESHOW.md) — Full visual tour
+- [Artwork README](experiments/fluxx-chaos/runs/amsterdam-flux/artwork/README.md) — Quick reference + thumbnails
+- [Pipeline Protocol](experiments/fluxx-chaos/runs/amsterdam-flux/artwork/ARTWORK.md) — How the stereo prompts work
+- [Game Runs](experiments/fluxx-chaos/runs/amsterdam-flux/) — 15+ game simulation runs with narrative
+- [Prompt Engineering Analysis](experiments/fluxx-chaos/runs/amsterdam-flux/artwork/SLIDESHOW.md#analysis-failed-generations--prompt-engineering-lessons) — What works, what doesn't
+
 ## Microworld State
 
 Experiments track evolving state. Three models:
