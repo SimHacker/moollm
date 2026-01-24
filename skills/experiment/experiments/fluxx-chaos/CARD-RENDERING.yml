@@ -1,0 +1,618 @@
+# Card Rendering Specification
+# MOOLLM Trading Card System
+#
+# Composable SVG + PNG elements assembled into trading cards
+# Like Magic: The Gathering or Pokemon — artistic, collectible, playable
+#
+# Philosophy: Define elements once, compose infinitely
+
+meta:
+  version: "1.0"
+  format: "Trading Card"
+  dimensions:
+    width: 750   # pixels at 300dpi = 2.5 inches
+    height: 1050 # pixels at 300dpi = 3.5 inches
+    bleed: 36    # pixels for print bleed
+    safe_zone: 54 # keep critical content inside this margin
+    
+  export_formats:
+    - svg      # Vector, infinite scale
+    - png      # Raster, transparent
+    - webp     # Web optimized
+    - pdf      # Print ready
+    
+  two_sided: true
+  back_consistent_per_deck: true
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LAYER STACK — Bottom to Top Compositing Order
+# ═══════════════════════════════════════════════════════════════════════════════
+
+layer_stack:
+  # Compositing order (bottom → top)
+  layers:
+    0: background       # Solid color or texture
+    1: frame_base       # Card type border/frame
+    2: art_box          # Main illustration area
+    3: art_content      # The actual artwork (emoji, generated, custom)
+    4: frame_overlay    # Frame details that sit on top of art
+    5: text_boxes       # Name bar, rules box, flavor box
+    6: text_content     # Actual text rendered
+    7: symbols          # Type icons, mana cost, set symbol
+    8: badges           # Karma, rarity, special indicators
+    9: foil_effects     # Optional shine/holographic overlay
+    
+  # Each layer can be:
+  #   - SVG element (vector, scalable)
+  #   - PNG with transparency
+  #   - Procedurally generated
+  #   - AI-generated (with prompt)
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FRAME TEMPLATES — By Card Type
+# ═══════════════════════════════════════════════════════════════════════════════
+
+frame_templates:
+
+  keeper:
+    name: "Keeper Frame"
+    color_scheme:
+      primary: "#2E7D32"      # Forest green
+      secondary: "#81C784"    # Light green
+      accent: "#FFD700"       # Gold trim
+      text_bg: "#F1F8E9"      # Cream
+    frame_svg: "frames/keeper-frame.svg"
+    art_box:
+      x: 54
+      y: 120
+      width: 642
+      height: 420
+      shape: "rounded_rect"
+      corner_radius: 24
+    name_box:
+      x: 54
+      y: 54
+      width: 642
+      height: 60
+    rules_box:
+      x: 54
+      y: 560
+      width: 642
+      height: 280
+    flavor_box:
+      x: 54
+      y: 860
+      width: 642
+      height: 120
+    type_line:
+      x: 54
+      y: 540
+      width: 642
+      height: 24
+      
+  goal:
+    name: "Goal Frame"
+    color_scheme:
+      primary: "#AD1457"      # Deep pink
+      secondary: "#F48FB1"    # Light pink
+      accent: "#FFD700"       # Gold trim
+      text_bg: "#FCE4EC"      # Light pink cream
+    frame_svg: "frames/goal-frame.svg"
+    # Goal has special "requires" area
+    requires_box:
+      x: 54
+      y: 560
+      width: 642
+      height: 200
+      # Shows keeper symbols needed
+    art_box:
+      x: 54
+      y: 120
+      width: 642
+      height: 420
+      
+  action:
+    name: "Action Frame"
+    color_scheme:
+      primary: "#1565C0"      # Deep blue
+      secondary: "#64B5F6"    # Light blue
+      accent: "#FFD700"       # Gold trim
+      text_bg: "#E3F2FD"      # Light blue cream
+    frame_svg: "frames/action-frame.svg"
+    # Action has larger rules box, smaller art
+    art_box:
+      x: 54
+      y: 120
+      width: 642
+      height: 320
+    rules_box:
+      x: 54
+      y: 460
+      width: 642
+      height: 360
+      
+  new_rule:
+    name: "New Rule Frame"
+    color_scheme:
+      primary: "#F9A825"      # Amber
+      secondary: "#FFF176"    # Light yellow
+      accent: "#795548"       # Brown trim
+      text_bg: "#FFFDE7"      # Cream yellow
+    frame_svg: "frames/rule-frame.svg"
+    # Rules have persistent effect indicator
+    rule_type_badge:
+      x: 640
+      y: 54
+      size: 60
+      # Shows: draw, play, hand_limit, keeper_limit, special
+      
+  creeper:
+    name: "Creeper Frame"
+    color_scheme:
+      primary: "#212121"      # Near black
+      secondary: "#616161"    # Dark gray
+      accent: "#B71C1C"       # Blood red
+      text_bg: "#424242"      # Dark gray
+      text_color: "#FFFFFF"   # White text!
+    frame_svg: "frames/creeper-frame.svg"
+    # Creepers have warning stripe
+    warning_stripe:
+      pattern: "diagonal_hazard"
+      colors: ["#B71C1C", "#212121"]
+      
+  dealer_mode:
+    name: "Cosmic Dealer Frame"
+    color_scheme:
+      primary: "#4A148C"      # Deep purple
+      secondary: "#9C27B0"    # Purple
+      accent: "#FFD700"       # Gold stars
+      text_bg: "#F3E5F5"      # Light purple
+    frame_svg: "frames/dealer-frame.svg"
+    # Dealer cards have cosmic background
+    cosmic_overlay: "effects/starfield.png"
+    
+  character:
+    name: "Character Frame"
+    color_scheme:
+      primary: "#BF360C"      # Deep orange
+      secondary: "#FF8A65"    # Light orange
+      accent: "#FFD700"       # Gold
+      text_bg: "#FBE9E7"      # Cream orange
+    frame_svg: "frames/character-frame.svg"
+    # Character cards have portrait-focused art box
+    art_box:
+      x: 120
+      y: 100
+      width: 510
+      height: 450
+      shape: "oval"  # Portrait oval!
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SYMBOL LIBRARY — Reusable Icons
+# ═══════════════════════════════════════════════════════════════════════════════
+
+symbols:
+
+  # Card Type Icons (for type line)
+  type_icons:
+    keeper:
+      svg: "symbols/type-keeper.svg"
+      fallback_emoji: "🏆"
+      description: "Trophy/gem icon"
+    goal:
+      svg: "symbols/type-goal.svg"
+      fallback_emoji: "🎯"
+      description: "Target/bullseye"
+    action:
+      svg: "symbols/type-action.svg"
+      fallback_emoji: "⚡"
+      description: "Lightning bolt"
+    new_rule:
+      svg: "symbols/type-rule.svg"
+      fallback_emoji: "📜"
+      description: "Scroll"
+    creeper:
+      svg: "symbols/type-creeper.svg"
+      fallback_emoji: "👻"
+      description: "Ghost/skull"
+      
+  # Rule Type Badges
+  rule_badges:
+    draw:
+      svg: "symbols/rule-draw.svg"
+      fallback_emoji: "🃏"
+      color: "#1565C0"
+    play:
+      svg: "symbols/rule-play.svg"
+      fallback_emoji: "▶️"
+      color: "#2E7D32"
+    hand_limit:
+      svg: "symbols/rule-hand.svg"
+      fallback_emoji: "✋"
+      color: "#F9A825"
+    keeper_limit:
+      svg: "symbols/rule-keeper.svg"
+      fallback_emoji: "📦"
+      color: "#795548"
+    special:
+      svg: "symbols/rule-special.svg"
+      fallback_emoji: "✨"
+      color: "#9C27B0"
+      
+  # Karma Indicators
+  karma:
+    positive:
+      svg: "symbols/karma-plus.svg"
+      fallback: "+N"
+      color: "#4CAF50"
+    negative:
+      svg: "symbols/karma-minus.svg"
+      fallback: "-N"
+      color: "#F44336"
+    neutral:
+      svg: "symbols/karma-neutral.svg"
+      fallback: "⚖️"
+      color: "#9E9E9E"
+      
+  # Dealer Mode Icons
+  dealer_modes:
+    random:
+      svg: "symbols/dealer-random.svg"
+      emoji: "🎲"
+    dramatic:
+      svg: "symbols/dealer-dramatic.svg"
+      emoji: "🎭"
+    karma:
+      svg: "symbols/dealer-karma.svg"
+      emoji: "⚖️"
+    ironic:
+      svg: "symbols/dealer-ironic.svg"
+      emoji: "🎪"
+    comedy:
+      svg: "symbols/dealer-comedy.svg"
+      emoji: "🤡"
+    dynamic:
+      svg: "symbols/dealer-dynamic.svg"
+      emoji: "🌊"
+    fafo:
+      svg: "symbols/dealer-fafo.svg"
+      emoji: "🎰💀"
+    chaos:
+      svg: "symbols/dealer-chaos.svg"
+      emoji: "🌀💀🌀"
+    prescient:
+      svg: "symbols/dealer-prescient.svg"
+      emoji: "🔮"
+      
+  # Expansion/Set Symbols
+  set_symbols:
+    fluxx_4_0:
+      svg: "symbols/set-fluxx.svg"
+      name: "Base Fluxx"
+    amsterdam:
+      svg: "symbols/set-amsterdam.svg"
+      name: "Amsterdam"
+      # Windmill or tulip
+    consciousness:
+      svg: "symbols/set-consciousness.svg"
+      name: "Consciousness"
+      # Third eye or mandala
+    moollm_tech:
+      svg: "symbols/set-moollm-tech.svg"
+      name: "MOOLLM Tech"
+      # Neural network or prompt icon
+    moollm_characters:
+      svg: "symbols/set-moollm-chars.svg"
+      name: "MOOLLM Characters"
+      # Silhouette group
+    cosmic_dealers:
+      svg: "symbols/set-cosmic.svg"
+      name: "Cosmic Dealers"
+      # Starfield or fate wheel
+      
+  # Bartle Types
+  bartle:
+    achiever:
+      svg: "symbols/bartle-achiever.svg"
+      emoji: "🏆"
+      color: "#FFD700"
+    explorer:
+      svg: "symbols/bartle-explorer.svg"
+      emoji: "🔍"
+      color: "#2196F3"
+    socializer:
+      svg: "symbols/bartle-socializer.svg"
+      emoji: "🎭"
+      color: "#E91E63"
+    killer:
+      svg: "symbols/bartle-killer.svg"
+      emoji: "⚔️"
+      color: "#F44336"
+      
+  # Autograph Mode
+  autograph:
+    signature_area:
+      svg: "symbols/signature-lines.svg"
+      description: "Faint lines for signatures"
+    touch_counter:
+      svg: "symbols/touch-counter.svg"
+      description: "Small counter badge"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TEXT STYLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+typography:
+
+  fonts:
+    name:
+      family: "Beleren" # MTG-style, or fallback
+      fallback: "Palatino, Georgia, serif"
+      weight: "bold"
+      size: 36
+    type_line:
+      family: "Beleren"
+      fallback: "Palatino, Georgia, serif"
+      weight: "normal"
+      size: 18
+      style: "italic"
+    rules:
+      family: "MPlantin" # MTG-style body
+      fallback: "Plantin, Palatino, serif"
+      weight: "normal"
+      size: 22
+      line_height: 1.3
+    flavor:
+      family: "MPlantin"
+      fallback: "Plantin, Palatino, serif"
+      weight: "normal"
+      size: 18
+      style: "italic"
+      
+  special_formatting:
+    # In rules text, certain patterns get special treatment
+    card_references:
+      pattern: "\\[\\[(.+?)\\]\\]"  # [[Card Name]]
+      style: "bold"
+    keywords:
+      pattern: "(Karma|Autograph|Dealer|Goal|Keeper|Creeper|Action|Rule)"
+      style: "small-caps"
+    numbers:
+      pattern: "\\b(\\d+)\\b"
+      style: "bold"
+    emphasis:
+      pattern: "\\*(.+?)\\*"
+      style: "italic"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ART GENERATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+art_generation:
+
+  # Tier 1: Emoji Scaling
+  emoji_mode:
+    description: "Scale up card emoji as hero graphic"
+    method: "svg_render"
+    emoji_font: "Noto Color Emoji"
+    scale: 8.0  # Emoji scaled 8x
+    effects:
+      - drop_shadow
+      - subtle_glow
+    suitable_for: "prototyping, digital play"
+    
+  # Tier 2: Stylized Emoji
+  stylized_emoji:
+    description: "Emoji with artistic background and effects"
+    method: "composite"
+    layers:
+      - background_gradient
+      - pattern_overlay
+      - emoji_scaled
+      - lighting_effects
+    suitable_for: "polished digital, print-on-demand"
+    
+  # Tier 3: AI Generated
+  ai_generated:
+    description: "Full AI art generation per card"
+    method: "image_model"
+    prompt_template: |
+      Trading card game illustration for "{{name}}"
+      Style: {{art_style}}
+      Card type: {{type}} ({{type_description}})
+      Concept: {{flavor}}
+      Emoji hint: {{emoji}}
+      
+      High quality, centered composition, fantasy card game art,
+      dramatic lighting, detailed, professional illustration
+      
+    art_styles:
+      keeper: "warm, inviting, valuable object or character"
+      goal: "triumphant, aspirational, two elements combining"
+      action: "dynamic, energetic, moment of impact"
+      new_rule: "mystical, authoritative, glowing text/scroll"
+      creeper: "dark, unsettling, ominous presence"
+      character: "portrait style, personality showing through"
+      
+    suitable_for: "premium decks, collectible editions"
+    
+  # Tier 4: Custom Art
+  custom:
+    description: "Artist-commissioned illustrations"
+    method: "external"
+    asset_path: "art/custom/{{card_id}}.png"
+    suitable_for: "professional products"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CARD BACKS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+card_backs:
+
+  default:
+    name: "MOOLLM Standard Back"
+    svg: "backs/moollm-standard.svg"
+    layers:
+      - solid_color: "#1A237E"  # Deep blue
+      - pattern: "backs/pattern-circuits.svg"
+      - logo: "backs/moollm-logo.svg"
+      - border: "backs/border-ornate.svg"
+      
+  deck_variants:
+    fluxx_chaos:
+      name: "Fluxx Chaos Back"
+      primary_color: "#4A148C"  # Purple
+      pattern: "backs/pattern-swirl.svg"
+      logo: "backs/fluxx-logo.svg"
+      
+    amsterdam_flux:
+      name: "Amsterdam Flux Back"
+      primary_color: "#FF6F00"  # Orange
+      pattern: "backs/pattern-tulips.svg"
+      logo: "backs/amsterdam-logo.svg"
+      
+    turing_chess:
+      name: "Turing Chess Back"
+      primary_color: "#212121"  # Near black
+      pattern: "backs/pattern-chess.svg"
+      logo: "backs/turing-logo.svg"
+      
+  customization_hooks:
+    # Players can customize:
+    - primary_color
+    - pattern
+    - personal_logo
+    - name_text
+    # But NOT:
+    - overall_dimensions
+    - back_is_different_per_card  # Must be consistent for hidden info!
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SPECIAL EFFECTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+effects:
+
+  foil:
+    description: "Holographic foil effect"
+    svg_filter: "effects/foil-rainbow.svg"
+    applied_to: ["rare", "legendary", "character"]
+    
+  glow:
+    description: "Subtle outer glow"
+    css_filter: "drop-shadow(0 0 8px {{color}})"
+    applied_to: ["active_cards"]
+    
+  aged:
+    description: "Worn/vintage look"
+    overlay: "effects/aged-texture.png"
+    blend_mode: "multiply"
+    applied_to: ["cards_with_many_signatures"]
+    
+  legendary:
+    description: "Gold trim, extra shine"
+    frame_variant: "_legendary"
+    applied_to: ["touch_count > 10"]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COMPOSITION ENGINE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+composition:
+
+  # The compiler reads card data and produces composed images
+  
+  input:
+    card_data:
+      ref: "fluxx-4.0:bread"
+      type: "keeper"
+      name: "Bread"
+      emoji: "🍞"
+      flavor: "You can't have a sandwich without it."
+      text: null
+      special_ability: null
+      signatures: [{player: "don", turn: 3, message: "Staff of life!"}]
+      
+  process:
+    1: select_frame_template(card.type)
+    2: render_background()
+    3: generate_or_load_art(card.emoji, card.name, card.flavor)
+    4: place_art_in_box()
+    5: render_name(card.name)
+    6: render_type_line(card.type, card.set)
+    7: render_rules_text(card.text)
+    8: render_flavor_text(card.flavor)
+    9: place_symbols(card.type, card.karma_impact, card.set)
+    10: apply_effects(card.rarity, card.touch_count)
+    11: render_signatures_area(card.signatures)
+    12: composite_all_layers()
+    13: export_formats()
+    
+  output:
+    files:
+      - "cards/000-bread.svg"
+      - "cards/000-bread.png"
+      - "cards/000-bread-thumb.png"  # For deck views
+      
+# ═══════════════════════════════════════════════════════════════════════════════
+# BATCH GENERATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+batch:
+
+  # Generate all cards from game state
+  
+  input: "amsterdam-flux-000.yml"
+  
+  output_dir: "generated/amsterdam-flux/"
+  
+  generate:
+    - all_card_fronts: "cards/"
+    - deck_back: "back.svg"
+    - card_sheet: "sheet.pdf"  # For print
+    - sprite_atlas: "atlas.png"  # For web
+    - manifest: "manifest.json"  # Card metadata
+    
+  sprite_atlas:
+    columns: 16
+    rows: 17  # 263 cards + back
+    card_size: [150, 210]  # Thumbnail size
+    # Web app loads atlas + manifest, renders from sprites
+    
+  print_sheet:
+    cards_per_page: 9  # 3x3
+    page_size: "letter"  # or A4
+    cut_marks: true
+    bleed: true
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WEB RENDERER
+# ═══════════════════════════════════════════════════════════════════════════════
+
+web_renderer:
+
+  description: "In-browser card rendering"
+  
+  # Instead of pre-generating, render cards live
+  
+  technology: "SVG in DOM"
+  
+  advantages:
+    - "Dynamic updates (signatures appear in real-time)"
+    - "No image generation step"
+    - "Infinite zoom"
+    - "Animations native"
+    
+  components:
+    CardFrame: "React/Svelte component for frame"
+    CardArt: "Renders emoji or image"
+    CardText: "Handles text layout and overflow"
+    CardSymbols: "Positions badges and icons"
+    CardStack: "Deck/hand rendering"
+    
+  animations:
+    deal: "Card slides from deck to hand"
+    play: "Card moves to play area with flip"
+    steal: "Card drags from opponent"
+    shuffle: "Deck riffles"
+    signature: "Pen stroke animation when signed"
