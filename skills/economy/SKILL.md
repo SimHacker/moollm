@@ -33,7 +33,7 @@ outputs:
 
 ## 🪙 MOOLAH
 
-The official currency of MOOLLM is **MOOLAH** (🪙). It uses **PROOF OF MILK** consensus — udderly legen-dairy interga-lactic shit coin, without the bull.
+The official currency of MOOLLM is **MOOLAH** (🪙). It uses **PROOF OF 🐄MILK🥛** consensus — udderly legen-dairy interga-lactic shit coin, without the bull.
 
 Economic systems for currency, trade, and value exchange. MOOLAH is earned, spent, hidden, and traded.
 
@@ -127,8 +127,8 @@ NON-FUNGIBLE (cannot convert):
 ```
 
 **Etymology:**
-- Sounds like "moolah" (slang for money)
-- Sounds like "MOO" (the language MOOLLM descends from)
+- Sounds like "🐄moolah" (slang for money)
+- Sounds like "🐄MOO" (the language MOOLLM descends from)
 - Circular: MOOLLM → MOOLAH → MOOLLM
 
 ## Earning
