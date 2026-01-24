@@ -1,34 +1,45 @@
 # 12-music-mined.yml — Image Mining Results
-# Status: FAILED — Full card UI overlay
-# Action: REGENERATE with simplified prompt
+# Status: SUCCESS (v3 - abstract notes)
+# Previous: v1 FAILED (card UI), v2 OK but too specific (guitar)
 
 mining_date: "2026-01-24"
 image_file: "12-music.png"
-status: "FAILED"
-failure_reason: "Full card UI overlay rendered in image"
+status: "SUCCESS"
+regeneration: 3
 
-observed_issues:
-  - type: "card_ui_overlay"
-    description: "Complete card frame with title 'Sunburst Serenade'"
-  - type: "game_text"
-    description: "Cost, Card Type, Effect text, Flavor Text boxes"
-  - type: "stats_display"
-    description: "Performance tokens, dice roll mechanics visible"
+layer_1_composition:
+  name: "Visual Structure"
+  observations:
+    focal_point: "large golden treble clef, center-left"
+    flow: "musical staff curves diagonally across frame"
+    background: "atmospheric concert lighting, soft focus"
+    foreground: "silhouetted audience adds context"
 
-what_was_requested:
-  - "Pure artwork of electric guitar"
-  - "Still life painting style"
-  - "No UI elements"
+layer_2_notation:
+  name: "Musical Elements"
+  observations:
+    treble_clefs: ["large gold center", "pink left", "green right", "gold far right"]
+    notes: "quarter notes, eighth notes, beamed pairs"
+    colors: ["gold", "cyan", "pink", "orange", "purple", "blue", "green"]
+    staff_lines: "flowing curved lines connecting notes"
+    sparkles: "golden glitter around main clef"
 
-what_was_generated:
-  - "Guitar itself is well-rendered (sunburst Les Paul)"
-  - "But overlaid with complete card game interface"
-  - "Text includes gibberish game mechanics"
+layer_3_energy:
+  name: "Musical Expression"
+  observations:
+    movement: "notes seem to dance and flow"
+    mood: "joyful, celebratory, magical"
+    abstraction: "universal music, not specific instrument"
+    light_rays: "concert spotlight beams from above"
+    audience: "silhouettes suggest shared musical experience"
 
-lesson_learned: |
-  The prompt mentioned "board game card art" which the generator
-  interpreted as "make it look like a complete game card" rather
-  than "use that illustration style for the artwork".
-  
-  Simplify: describe only the subject and painting style,
-  remove all references to cards or games.
+quality_assessment:
+  text_present: false
+  ui_elements: false
+  frame_issues: false
+  overall: "Perfect abstract music concept — universal and joyful"
+
+evolution:
+  v1: "FAILED — full card UI overlay"
+  v2: "OK but specific — Les Paul guitar"
+  v3: "SUCCESS — abstract dancing notes, universal music concept"

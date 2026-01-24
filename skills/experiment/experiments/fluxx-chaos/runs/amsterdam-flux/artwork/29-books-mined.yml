@@ -1,42 +1,44 @@
 # 29-books-mined.yml — Image Mining Results
-# Status: FAILED — Full card UI overlay
-# Action: REGENERATE with simplified prompt
+# Status: SUCCESS (regenerated)
+# Previous: FAILED — Full card UI
 
 mining_date: "2026-01-24"
 image_file: "29-books.png"
-status: "FAILED"
-failure_reason: "Complete card UI with title and effect boxes"
+status: "SUCCESS"
+regeneration: 2
 
-observed_issues:
-  - type: "card_title"
-    description: "'KNOWLEDGE AWAITS' header bar"
-  - type: "type_box"
-    description: "'Type: X Object:' with gibberish rules"
-  - type: "effect_box"
-    description: "'Effect:' section with nonsense text"
-  - type: "flavor_text"
-    description: "'Flavor Text:' label visible"
-  - type: "book_spines"
-    description: "text on book spines (gibberish but present)"
+layer_1_composition:
+  name: "Visual Structure"
+  observations:
+    focal_point: "cascading book stack"
+    arrangement: "staggered staircase pattern"
+    background: "warm amber gradient"
+    surface: "wooden shelf/table"
 
-what_was_requested:
-  - "Stack of leather-bound books"
-  - "Library atmosphere"
-  - "Pure artwork"
+layer_2_books:
+  name: "Book Analysis"
+  observations:
+    count: "6 visible books"
+    colors: ["burgundy", "brown", "red", "green", "tan"]
+    bindings: "leather with gold tooling"
+    spines: "decorative patterns, minimal text"
+    pages: "cream colored, thick"
+    condition: "aged but well-preserved"
 
-what_was_generated:
-  - "Books are beautiful — varied leather colors"
-  - "Brass desk lamp — nice touch"
-  - "One open book at base — good composition"
-  - "BUT split-screen card layout with UI panels"
+layer_3_knowledge:
+  name: "Library Atmosphere"
+  observations:
+    mood: "scholarly, warm, inviting"
+    lighting: "warm lamp-like glow"
+    associations: ["wisdom", "history", "collected knowledge"]
+    texture: "rich leather, visible wear"
 
-composition_analysis:
-  books_quality: "excellent — rich textures, gold details"
-  lamp: "adds warm library atmosphere"
-  layout: "image split between books (top) and card UI (bottom)"
-  ruined_by: "card game interface panels"
+quality_assessment:
+  text_present: false  # spine text is decorative patterns
+  ui_elements: false  # no card panels!
+  frame_issues: false
+  overall: "Perfect library still life, warm and scholarly"
 
-lesson_learned: |
-  Same recurring issue — "board game" triggers card UI.
-  Also, books inherently have text on spines.
-  May need to specify "blank spines" or accept decorative patterns.
+fix_applied: |
+  Described as "still life painting, library scene".
+  No card UI generated, just classical book stack.

@@ -1,11 +1,13 @@
-# Music — Simple Visual Prompt
+# Music — Simple Visual Prompt (v3)
 
-A beautiful sunburst electric guitar (Les Paul style) displayed under dramatic spotlight.
+Musical notes dancing joyfully through the air.
 
-The guitar has a classic sunburst finish — honey amber at center fading to cherry red at edges. Gleaming chrome hardware. Strings catch the light.
+Treble clefs spiral gracefully. Quarter notes and eighth notes float and swirl in flowing patterns. Musical staffs curve like ribbons. The notes seem alive, expressing pure joy of sound.
 
-Warm stage lighting from above. Simple gradient background.
+Warm golden light illuminates the dancing notation. Deep purple and magenta accents add depth. The composition feels like visible sound — music you can see.
 
-Style: Illustrated, painterly, like a still life painting of a musical instrument.
+Centered composition with notes radiating outward from the middle. Abstract and universal — this is MUSIC itself, not any specific instrument.
 
-**This is pure artwork. A painting of just the guitar.**
+Style: Whimsical illustrated art, magical and expressive.
+
+**This is pure artwork. A painting of music made visible.**

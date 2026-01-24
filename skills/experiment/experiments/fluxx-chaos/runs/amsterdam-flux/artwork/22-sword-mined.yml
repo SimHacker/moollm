@@ -1,38 +1,47 @@
 # 22-sword-mined.yml — Image Mining Results
-# Status: FAILED — Massive description text overlays
-# Action: REGENERATE with simplified prompt
+# Status: SUCCESS (regenerated)
+# Previous: FAILED — Description text overlays
 
 mining_date: "2026-01-24"
 image_file: "22-sword.png"
-status: "FAILED"
-failure_reason: "Multiple text labels and descriptions overlaid"
+status: "SUCCESS"
+regeneration: 2
 
-observed_issues:
-  - type: "title_block"
-    description: "'Title: Sword of Fates Entwined' with subtitles"
-  - type: "feature_labels"
-    description: "'Sword Blade', 'Sword Hilt', 'Elements' sections"
-  - type: "description_text"
-    description: "Paragraphs of (gibberish) feature descriptions"
-  - type: "infographic_style"
-    description: "Looks like a product diagram or wiki page"
+layer_1_composition:
+  name: "Visual Structure"
+  observations:
+    focal_point: "sword hilt and upper blade, diagonal"
+    framing: "dramatic angle, hilt prominent"
+    background: "deep purple velvet draping"
+    lighting: "spotlight on crossguard, starburst"
 
-what_was_requested:
-  - "Legendary sword displayed vertically"
-  - "Stone wall background"
-  - "Pure artwork"
+layer_2_weapon:
+  name: "Sword Analysis"
+  observations:
+    blade: "polished steel with etched patterns"
+    crossguard: "massive gold filigree with gems"
+    gems:
+      - "large ruby center"
+      - "emeralds scattered"
+      - "sapphires in guard wings"
+      - "small diamonds throughout"
+    grip: "black leather wrapped"
+    pommel: "gold with blue gem"
 
-what_was_generated:
-  - "Sword is beautifully designed — Celtic knotwork, gems"
-  - "Stone wall setting — perfect"
-  - "BUT turned into an infographic with callouts"
+layer_3_heroic:
+  name: "Legendary Weapon Feel"
+  observations:
+    gold_halo: "circular glow behind guard — sacred weapon"
+    velvet_setting: "treated with reverence, display piece"
+    mood: "heroic, legendary, museum quality"
+    associations: ["Excalibur", "royal blade", "quest reward"]
 
-composition_analysis:
-  sword_quality: "excellent — intricate design, multiple gems"
-  blade: "silver with runes, good proportions"
-  hilt: "gold with ruby, elaborate crossguard"
-  ruined_by: "infographic-style labels covering entire image"
+quality_assessment:
+  text_present: false  # no labels!
+  ui_elements: false
+  frame_issues: false
+  overall: "Stunning sword portrait, no infographic elements"
 
-lesson_learned: |
-  Words like "heroic" and "legendary" may trigger
-  explanatory/wiki-style output. Keep description plain.
+fix_applied: |
+  Removed words like "legendary" and "heroic" from description.
+  Kept prompt purely visual. No callouts generated.

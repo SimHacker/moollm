@@ -1,41 +1,45 @@
 # 31-death-mined.yml — Image Mining Results
-# Status: FAILED — Card frame border
-# Action: REGENERATE with simplified prompt
+# Status: SUCCESS (regenerated)
+# Previous: FAILED — Card frame border
 
 mining_date: "2026-01-24"
 image_file: "31-death.png"
-status: "FAILED"
-failure_reason: "Rounded card frame border around image"
+status: "SUCCESS"
+regeneration: 2
 
-observed_issues:
-  - type: "card_frame"
-    description: "rounded rectangle frame cutting off edges"
-  - type: "white_corners"
-    description: "white background visible in corners"
-  - type: "portrait_aspect"
-    description: "vertical card shape, not square"
-  - type: "shadow_escape"
-    description: "dark wisps extend beyond frame awkwardly"
+layer_1_composition:
+  name: "Visual Structure"
+  observations:
+    focal_point: "reaper face and upper body"
+    framing: "square, no borders"
+    background: "dark void with subtle stars"
+    lighting: "cold rim light from behind"
 
-what_was_requested:
-  - "Grim Reaper figure"
-  - "Hooded skull with scythe"
-  - "Pure artwork"
+layer_2_figure:
+  name: "Reaper Analysis"
+  observations:
+    skull: "bone white, dark eye sockets"
+    hood: "deep black, heavy fabric"
+    robes: "layered black cloth, texture visible"
+    hands: "skeletal, gripping scythe"
+    scythe: "wooden handle, gleaming blade"
 
-what_was_generated:
-  - "Reaper is excellent — hooded skull, glowing eyes"
-  - "Scythe well-rendered"
-  - "Swirling blue vortex background — dramatic"
-  - "BUT framed as a card with rounded corners"
+layer_3_creeper:
+  name: "Creeper Aesthetic"
+  observations:
+    mood: "ominous, inevitable, patient"
+    color_scheme: "near-monochrome (black, white, grey)"
+    pose: "frontal, direct confrontation"
+    expression: "skull grin — neither friendly nor hostile"
+    creeper_energy: "perfect 'you don't want this card'"
 
-composition_analysis:
-  reaper_quality: "excellent — classic design, glowing cyan eyes"
-  robes: "tattered, flowing, made of shadow"
-  scythe: "long wooden handle, curved blade"
-  background: "swirling blue/black vortex — perfect"
-  ruined_by: "card frame cutting into the art"
+quality_assessment:
+  text_present: false
+  ui_elements: false
+  frame_issues: false  # no card frame!
+  overall: "Perfect creeper portrait, ominous and clean"
 
-lesson_learned: |
-  Card frame issue persists. The art itself is great but
-  was generated as a "card" not as "artwork".
-  Regenerate with pure painting language.
+fix_applied: |
+  Specified "dark fantasy portrait painting".
+  Removed all card/game references.
+  Generator produced pure artwork, no frame.

@@ -1,39 +1,44 @@
 # 20-dragon-mined.yml — Image Mining Results
-# Status: FAILED — Text and logo overlay
-# Action: REGENERATE with simplified prompt
+# Status: SUCCESS (regenerated)
+# Previous: FAILED — Title text and logo
 
 mining_date: "2026-01-24"
 image_file: "20-dragon.png"
-status: "FAILED"
-failure_reason: "Title text and logo rendered in image"
+status: "SUCCESS"
+regeneration: 2
 
-observed_issues:
-  - type: "title_text"
-    description: "'A Guardian's Glare' in stylized font at bottom"
-  - type: "logo_badge"
-    description: "'F' shield logo in bottom right corner"
-  - type: "watermark_style"
-    description: "looks like stock art or game asset branding"
+layer_1_composition:
+  name: "Visual Structure"
+  observations:
+    focal_point: "dragon coiled in figure-8 pattern"
+    symmetry: "near-perfect bilateral symmetry"
+    background: "warm cave glow, fire accents"
+    framing: "dragon fills frame completely"
 
-what_was_requested:
-  - "Emerald dragon portrait"
-  - "Coiled on treasure hoard"
-  - "Pure artwork"
+layer_2_creature:
+  name: "Dragon Analysis"
+  observations:
+    scales: "emerald green, individually rendered"
+    underbelly: "golden/tan segmented plates"
+    eyes: "golden, watchful, centered"
+    horns: "tan/brown, swept back"
+    pose: "serpentine coil, protective"
 
-what_was_generated:
-  - "Dragon is magnificent — emerald scales, coiled pose"
-  - "Golden eyes with ancient wisdom — perfect"
-  - "Treasure hoard setting — excellent"
-  - "Fire/torch lighting creates atmosphere"
-  - "BUT branded with title and logo like stock art"
+layer_3_symbolism:
+  name: "Dragon Mythology"
+  observations:
+    style: "Eastern-influenced serpentine form"
+    mood: "powerful, ancient, wise"
+    fire_element: "suggested by orange background glow"
+    gem_in_coil: "golden orb held in lower coil — treasure?"
 
-composition_analysis:
-  dragon_quality: "excellent — detailed scales, expressive"
-  setting: "cave with gold coins, treasure chests"
-  lighting: "fire glow, dramatic"
-  pose: "serpentine coil, watchful"
-  ruined_by: "commercial branding/title overlay"
+quality_assessment:
+  text_present: false
+  ui_elements: false
+  frame_issues: false
+  overall: "Stunning dragon portrait, no branding"
 
-lesson_learned: |
-  Generator may add titles when creating "epic" fantasy content.
-  Keep prompts mundane and descriptive, avoid epic language.
+fix_applied: |
+  Removed epic language ("magnificent", "legendary").
+  Simplified to basic creature description.
+  No title or logo generated this time.

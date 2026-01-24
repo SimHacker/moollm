@@ -1,38 +1,47 @@
 # 21-crown-mined.yml — Image Mining Results
-# Status: FAILED — Full card UI overlay
-# Action: REGENERATE with simplified prompt
+# Status: SUCCESS (regenerated)
+# Previous: FAILED — Full card UI
 
 mining_date: "2026-01-24"
 image_file: "21-crown.png"
-status: "FAILED"
-failure_reason: "Complete card UI with title and game text"
+status: "SUCCESS"
+regeneration: 2
 
-observed_issues:
-  - type: "card_title"
-    description: "'Type: Treasure: # Royal Regalia' header"
-  - type: "game_text"
-    description: "Gibberish mechanics text at bottom"
-    sample: "'This emdes by generations of mouaing might of the Kingdom'"
-  - type: "stat_display"
-    description: "Diplomacy rolls, gold coin references"
+layer_1_composition:
+  name: "Visual Structure"
+  observations:
+    focal_point: "crown on velvet cushion"
+    framing: "classic still life composition"
+    background: "warm brown gradient"
+    lighting: "museum spotlight from left"
 
-what_was_requested:
-  - "Royal crown on velvet cushion"
-  - "Still life of regalia"
-  - "Pure artwork"
+layer_2_regalia:
+  name: "Crown Analysis"
+  observations:
+    structure: "St. Edward's Crown style, arches meeting at orb"
+    gems:
+      - "large rubies on band"
+      - "sapphires alternating"
+      - "pearls along arches"
+      - "diamonds scattered"
+    velvet: "deep purple interior cap"
+    base: "ermine trim (white with black spots)"
+    cushion: "purple velvet with gold tassels"
 
-what_was_generated:
-  - "Crown itself is beautiful — gold, rubies, sapphires"
-  - "Velvet cushion and tassels — nice touch"
-  - "Royal purple background — appropriate"
-  - "BUT overlaid with complete card game interface"
+layer_3_royalty:
+  name: "Symbolic Analysis"
+  observations:
+    authority: "crown = sovereignty, legitimate rule"
+    wealth: "gems = kingdom's treasure"
+    tradition: "British Crown Jewels influence"
+    mood: "regal, weighty, historical"
 
-composition_analysis:
-  crown_quality: "excellent — detailed metalwork, gem facets"
-  cushion: "red velvet with gold tassels"
-  background: "purple drapes, regal atmosphere"
-  ruined_by: "card UI with nonsense game mechanics"
+quality_assessment:
+  text_present: false
+  ui_elements: false
+  frame_issues: false
+  overall: "Perfect royal still life, museum quality"
 
-lesson_learned: |
-  Same issue as music card — "board game" triggers card UI.
-  Describe as "painting" or "still life" only.
+fix_applied: |
+  Described as "still life painting" instead of "board game card".
+  Generator produced classical painting, not card UI.
