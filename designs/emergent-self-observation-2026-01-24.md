@@ -86,22 +86,122 @@ This is **Postel's Law in action**: liberal in what we accept from the generator
 
 ## Why This Matters
 
-### Traditional Pipeline
+### Traditional Pipeline (Fire and Forget)
+
+```mermaid
+flowchart LR
+    PROMPT[Prompt] --> GEN[Generator] --> IMAGE[Image] --> DONE[Done]
 ```
-prompt → generate → save → done
-```
+
 No feedback. No quality check. Bad images persist.
 
 ### Emergent Self-Observing Pipeline
-```
-prompt → generate → OBSERVE → quality gate
-                              ↓ fail
-                    diagnose → adjust → retry
-                              ↓ pass
-                    mine → save → done
+
+```mermaid
+flowchart TB
+    subgraph GENERATION["Phase 1: Generation"]
+        YML[Structure Prompt<br/>NN-desc.yml] --> COMBINE
+        MD[Prose Prompt<br/>NN-desc.md] --> COMBINE
+        COMBINE[Stereo Input] --> GEN[Image Generator]
+        GEN --> IMAGE[Generated Image<br/>NN-desc.png]
+    end
+    
+    subgraph OBSERVATION["Phase 2: Self-Observation"]
+        IMAGE --> LOOK[Agent Views Image]
+        LOOK --> CHECK{Quality Gate}
+    end
+    
+    subgraph REFLECTION["Phase 3: Reflection & Correction"]
+        CHECK -->|PASS| MINE[Proceed to Mining]
+        CHECK -->|FAIL| DIAGNOSE[Diagnose Failure]
+        DIAGNOSE --> ADJUST[Adjust Prompts]
+        ADJUST --> GEN
+    end
+    
+    subgraph MINING["Phase 4: Deep Analysis"]
+        MINE --> L1[Layer 1: Composition]
+        MINE --> L2[Layer 2: Lighting/Color]
+        MINE --> L3[Layer 3: Emotion/Style]
+        L1 & L2 & L3 --> MINED[Mining Results<br/>NN-desc-mined.yml]
+    end
+    
+    style OBSERVATION fill:#fff3e0
+    style REFLECTION fill:#ffebee
+    style MINING fill:#e8f5e9
 ```
 
 The agent became its own QA department.
+
+---
+
+## The Quality Gate Decision Tree
+
+When the agent observes a generated image, it asks these questions:
+
+```mermaid
+flowchart TD
+    START[View Generated Image] --> Q1{Is it the<br/>right subject?}
+    Q1 -->|No: shows person<br/>instead of chocolate| HALLUCINATION[Hallucination Detected]
+    Q1 -->|Yes| Q2{Any text or<br/>UI elements?}
+    
+    Q2 -->|Yes: card frames,<br/>labels, titles| UI_LEAK[UI Contamination]
+    Q2 -->|No| Q3{Style consistent<br/>with cardset?}
+    
+    Q3 -->|No: wrong aesthetic| STYLE_MISS[Style Mismatch]
+    Q3 -->|Yes| Q4{Appetizing/<br/>Appealing?}
+    
+    Q4 -->|No| QUALITY_LOW[Quality Issue]
+    Q4 -->|Yes| PASS[✓ PASS<br/>Proceed to Mining]
+    
+    HALLUCINATION --> SIMPLIFY[Drastically Simplify Prompt]
+    UI_LEAK --> REFRAME[Use 'painting' framing]
+    STYLE_MISS --> ADJUST_STYLE[Adjust style keywords]
+    QUALITY_LOW --> ENHANCE[Enhance descriptors]
+    
+    SIMPLIFY --> REGEN[Regenerate]
+    REFRAME --> REGEN
+    ADJUST_STYLE --> REGEN
+    ENHANCE --> REGEN
+    
+    REGEN --> START
+    
+    style PASS fill:#c8e6c9
+    style HALLUCINATION fill:#ffcdd2
+    style UI_LEAK fill:#ffcdd2
+```
+
+---
+
+## The Chocolate Correction Sequence
+
+The actual sequence of events during the chocolate card generation:
+
+```mermaid
+sequenceDiagram
+    participant A as Agent
+    participant G as Image Generator
+    participant I as Generated Image
+    
+    Note over A,I: Attempt 1: Complex Prompt
+    A->>G: "luxurious dark chocolate, gold foil,<br/>Dutch master still life, board game art..."
+    G->>I: [Person standing in river at sunset]
+    A->>I: Views image
+    A->>A: "That's not chocolate.<br/>That's a person in a river. WTF."
+    
+    Note over A,I: Attempt 2: Simplified Prompt
+    A->>G: "chocolate bar, partially unwrapped,<br/>simple background..."
+    G->>I: [Man's professional headshot]
+    A->>I: Views image
+    A->>A: "Still a person!<br/>Simplify even more."
+    
+    Note over A,I: Attempt 3: Minimal Prompt
+    A->>G: "A chocolate bar"
+    G->>I: [Beautiful chocolate bar with gold foil]
+    A->>I: Views image
+    A->>A: "CHOCOLATE! ✓<br/>Proceed to mining."
+    
+    A->>A: Mine image for composition,<br/>texture, color analysis
+```
 
 ---
 
@@ -202,8 +302,20 @@ That's... kind of amazing.
 
 ## Related Documentation
 
-- **[Self-Aware Image Pipeline Explained](./self-aware-image-pipeline-explained.md)** — Full mermaid diagrams and class explanation
-- **[ARTWORK.md](../skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/artwork/ARTWORK.md)** — Pipeline protocol with iterative feedback section
+**[Self-Aware Image Pipeline Explained](./self-aware-image-pipeline-explained.md)** — The full technical breakdown includes:
+- Complete pipeline flowchart with all phases
+- Why complex prompts fail (mindmap)
+- The simplification ladder diagram
+- Multi-dimensional perception model (4D++)
+- Postel's Law application diagram
+- Emergence conditions analysis
+- Complete pipeline summary
+
+**[ARTWORK.md](../skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/artwork/ARTWORK.md)** — The operational protocol includes:
+- Quality gates checklist
+- Iterative feedback protocol
+- Real example documentation
+- Prompt phrasing guidelines
 
 ---
 
