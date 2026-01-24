@@ -4,9 +4,7 @@
 # 
 # "The cards are laid out. The shuffle awaits. Let's see what we've built."
 #
-# ═══════════════════════════════════════════════════════════════════════════════
 # SELF-CONTAINED GAME STATE
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # This file contains EVERYTHING needed to run the game:
 #   - Extension point definitions (embedded below)
@@ -36,18 +34,14 @@ meta:
   status: "setup"  # setup | dealing | playing | complete
   self_contained: true  # All rules embedded, no external lookups needed
   
-# ═══════════════════════════════════════════════════════════════════════════════
 # EXTENSION POINTS — The Game Skeleton
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # These are the HOOKS where plugins attach behavior.
 # The game is nothing but extension points — plugins do all the work.
 
 extension_points:
 
-  # ─────────────────────────────────────────────────────────────────────────────
   # META LIFECYCLE — Compilation happens BEFORE game exists
-  # ─────────────────────────────────────────────────────────────────────────────
   
   EXPERIMENT-START:
     description: "Compiler that produces game state from config"
@@ -149,18 +143,14 @@ extension_points:
     signature: "(game_state, old_goal_idx, new_goal_idx) → modified_state"
     handlers: [goal_transition]
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # PLUGIN HANDLERS — The Game Behavior
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # These implement the actual behavior at each extension point.
 # Everything the game DOES is defined here.
 
 plugin_handlers:
 
-  # ─────────────────────────────────────────────────────────────────────────────
   # STATE COMPILER — Produces self-contained game state from configs
-  # ─────────────────────────────────────────────────────────────────────────────
   #
   # This runs at EXPERIMENT-START, before the game exists.
   # It's a COMPILER that transforms sparse configs into dense game state.
@@ -169,7 +159,6 @@ plugin_handlers:
     extension_point: EXPERIMENT-START
     description: "Compile experiment + run config into self-contained game state"
     
-    # ═══ COMPILATION PHASES ═══
     
     phases:
       
@@ -234,7 +223,6 @@ plugin_handlers:
           write("game-state-{run_id}.yml", output)
         # One file. Everything. No lookups.
     
-    # ═══ EMPATHIC TEMPLATES ═══
     #
     # Templates that expand based on context.
     # They "know" what they need and pull it in.
@@ -311,9 +299,7 @@ plugin_handlers:
         The template TRUSTS the compiler to understand.
         The compiler EMPATHIZES with the template's purpose.
 
-  # ─────────────────────────────────────────────────────────────────────────────
   # AUTOGRAPH MODE — Cards track every signature
-  # ─────────────────────────────────────────────────────────────────────────────
   
   autograph_init:
     extension_point: GAME-START
@@ -355,9 +341,7 @@ plugin_handlers:
         if card.touch_count > 10:
           mark_as_legendary(card)
 
-  # ─────────────────────────────────────────────────────────────────────────────
   # COSMIC DEALER — Fate with personality
-  # ─────────────────────────────────────────────────────────────────────────────
   
   dealer_init:
     extension_point: GAME-START
@@ -451,9 +435,7 @@ plugin_handlers:
       swap(shuffle.indices[pointer], shuffle.indices[pointer + offset])
       boop_log.append({turn, original, booped, reason})
 
-  # ─────────────────────────────────────────────────────────────────────────────
   # KARMA SYSTEM — The universe remembers
-  # ─────────────────────────────────────────────────────────────────────────────
   
   karma_tracker:
     extension_point: CARD-PLAY
@@ -483,9 +465,7 @@ plugin_handlers:
     extension_point: GAME-END
     description: "Report final karma standings"
 
-  # ─────────────────────────────────────────────────────────────────────────────
   # CORE GAME RULES — Fluxx basics
-  # ─────────────────────────────────────────────────────────────────────────────
   
   rule_checker:
     extension_point: TURN-START
@@ -530,9 +510,7 @@ plugin_handlers:
       if player.creepers and not goal.requires_creeper:
         return false
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # DECK COMPOSITION — Sources for card expansion
-# ═══════════════════════════════════════════════════════════════════════════════
 
 deck_config:
   mode: "additive"  # All plugins stacked on top of base
@@ -597,9 +575,7 @@ deck_config:
       with: "moollm-tech-pack:simulation"
       reason: "We simulate, we don't just dream"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # ENABLED PLUGINS
-# ═══════════════════════════════════════════════════════════════════════════════
 
 plugins_enabled:
 
@@ -623,7 +599,7 @@ plugins_enabled:
       
   cosmic_dealers:
     enabled: true
-    starting_mode: "dynamic"  # The Dynamic Dealer reads the room
+    starting_mode: "dynamic" # May be a string or an array combining multiple modes
     available_modes:
       - random: "🎲 Fair, blind draws"
       - dramatic: "🎭 Maximum narrative impact"
@@ -637,9 +613,7 @@ plugins_enabled:
       - individual: "👤 Personal per-player curses and blessings"
     note: "Dealer cards in deck can change the mode during play!"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # GAME START PROTOCOL — Full Deck Expansion
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # This protocol is an EXTENSION POINT — can be factored into a plugin.
 # The key principle: NO ELISIONS. Every card is FULLY EXPANDED as YAML .
@@ -764,9 +738,7 @@ game_start_protocol:
         master: "FULLY EXPANDED — ALL cards present"
         shuffle: "FULLY POPULATED — ALL indices present"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # MASTER ARRAY — Cards in Import Order (STABLE, RICH)
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # Using Christianson Shuffle: Cards NEVER MOVE. Indices dance.
 # This array can be infinitely annotated without affecting performance,
@@ -797,9 +769,7 @@ master_array:
     new_rules: 47   # 18%
     creepers:   8   # 3%
 
-  # ═══════════════════════════════════════════════════════════════════════════
   # MASTER CARDS — FULLY EXPANDED AT RUNTIME
-  # ═══════════════════════════════════════════════════════════════════════════
   #
   # IMPORTANT: When game starts, this contains ALL 263 cards.
   # The format below shows STRUCTURE. Game start POPULATES with real data.
@@ -810,9 +780,7 @@ master_array:
   #   Expanded: Full YAML with history, k-lines, images, etc.
   
   cards:
-    # ═══════════════════════════════════════════════════════════════════════
     # POPULATED BY GAME START PROTOCOL
-    # ═══════════════════════════════════════════════════════════════════════
     #
     # When you run GAME START, this section will contain:
     #   - ALL 263 cards from indices 0-262
@@ -900,9 +868,7 @@ master_array:
     # STATUS: AWAITING GAME START
     # Run game_start_protocol to populate this section.
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # SHUFFLE INDEX ARRAY — The Dancing Numbers
-# ═══════════════════════════════════════════════════════════════════════════════
 #
 # This is what gets randomized. Just integers!
 # The master array NEVER moves.
@@ -930,9 +896,7 @@ shuffle:
     dealt: "indices[:pointer]"
     reshuffle: "fisher_yates(indices[pointer:])"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # GAME ANALYSIS — Pre-Game Suggestions
-# ═══════════════════════════════════════════════════════════════════════════════
 
 analysis:
 
@@ -1055,9 +1019,7 @@ analysis:
       text: "When Character Keeper played, anyone may ask 'Is this fair?' Discuss."
       suggest: "Good for thoughtful play with legendary figures"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # READY STATE
-# ═══════════════════════════════════════════════════════════════════════════════
 
 ready_check:
   deck_config: "complete"
@@ -1070,9 +1032,7 @@ ready_check:
     - "Player roster selection"
     - "GAME START execution"
 
-# ═══════════════════════════════════════════════════════════════════════════════
 # NEXT STEPS — Run GAME START PROTOCOL
-# ═══════════════════════════════════════════════════════════════════════════════
 
 next_steps:
 
