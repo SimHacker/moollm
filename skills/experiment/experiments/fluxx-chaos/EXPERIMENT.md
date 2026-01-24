@@ -528,6 +528,43 @@ g7h8i9j RUN-002.yml: Turn 1 - Palm plays Goal: Gezelligheid
 | **Git Blame** | Who changed what, when |
 | **Fork Timelines** | `cp RUN-005.yml RUN-005-alternate.yml` |
 
+### 🔍 DIFF YOUR STEPS!
+
+**The killer feature of rolling `.yml` state files: DIFF THEM!**
+
+```bash
+# What changed between turns 2 and 3?
+diff RUN-002.yml RUN-003.yml
+
+# Example output:
+< turn: 2
+> turn: 3
+< goal: null
+> goal: "canal_life"
+<   don:
+<     keepers: [tool_use, castle]
+>   don:
+>     keepers: [tool_use, castle, canal_house]  # Don stole it!
+<   donna:
+<     keepers: [richard_bartle, canal_house]
+>   donna:
+>     keepers: [richard_bartle]  # Lost Canal House!
+```
+
+**Why this matters:**
+- See EXACTLY what changed each turn
+- Debug rule application ("did karma actually update?")
+- Verify keeper movements ("who has MOOLA now?")
+- Track creeper attachments
+- Audit goal changes
+
+**Pro tip: Side-by-side diff**
+```bash
+diff -y RUN-002.yml RUN-003.yml | less
+```
+
+**Note:** Diffing `.md` narration files doesn't make sense — prose isn't structured for comparison. Diff the `.yml` state; READ the `.md` story.
+
 ### Cursor-Mirror Sidecar Format
 
 The `RUN-{N}-cursor-mirror.yml` sidecar focuses on **Cursor performance, failure analysis, and context monitoring**.
