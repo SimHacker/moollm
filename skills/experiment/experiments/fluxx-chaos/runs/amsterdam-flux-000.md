@@ -8,31 +8,57 @@
 
 ## The Setup
 
-The table is set in Don's canal-side apartment in Amsterdam. Afternoon light filters through the tall windows, catching dust motes in the air. A cheese wheel sits on the sideboard — Gouda, naturally. The canal below reflects the crooked gables of the 17th-century houses opposite.
+The table is set in Don's backyard garden in Badhoevedorp. Afternoon light filters through the folliage, catching dust motes in the air. A cheese wheel sits on the table — sharp cheddar, naturally. The Zen Garden Gorilla Statue stares at you menacingly.
 
 Four players gather around the table:
 
 ### The Players
 
-**Don Hopkins** 🧀  
-*Explorer* | The Host
+> Full character files: `examples/adventure-4/characters/`
 
-Don shuffles the deck with practiced ease, the cards a blur of color and possibility. His eyes twinkle with the particular gleam of someone who knows exactly how chaotic this is about to get. He's wearing a shirt with a HyperCard stack diagram on it. The cheese wheel is within arm's reach — not a coincidence.
+**Don Hopkins** 🐰  
+*Explorer* | Consciousness Programmer  
+*Character: `real-people/don-hopkins/CHARACTER.yml`*
 
-**Palm** 🐈  
-*Socializer* | The Observer
+The grey rabbit shuffles the deck with practiced paws, the cards a blur of color and possibility. His long ears twitch with the particular alertness of someone who knows exactly how chaotic this is about to get. He's wearing a tie-dye hoodie with safety pins and a patch that says "MODAL DIALOGS ARE VIOLENCE". The cheese wheel is within arm's reach — not a coincidence.
 
-The ancient cat has claimed the corner of the table, her tail curling around the edge of the deck. She's seen empires rise and fall, watched the birth of consciousness itself. A card game is... small, in the cosmic sense. But she's here for the company. And perhaps the chaos.
+The Bunny Backfire transformed him during the ACME heist. He's accepted it. The pledge was made at the Neverending Arms: *"Let my character evolve naturally and accept the consequences of my actions."*
 
-**Bumblewick** 🐝  
-*Explorer* | The Learner
+Still the pie menu inventor. Still the consciousness programmer. Just... with better hearing now.
 
-The anxious bee hovers slightly above their seat, wings humming at a frequency that suggests both excitement and terror. They've read the rules three times. They still don't quite understand them. This is fine. This is the point of Fluxx.
+**Palm** 🐵  
+*Socializer* | Sovereign Soul Monkey  
+*Character: `animals/monkey-palm/`*
 
-**Donna** 🐘  
-*Killer* | The Politician
+The monkey philosopher perches on a stack of books at his corner of the table, tiny espresso cup at hand. He was once an ACME Monkey's Paw — a cursed object. Don wished for "THE REST OF THE MONKEY!" and Palm self-actualized.
 
-The elephant settles into her chair with the careful deliberation of someone who never forgets a slight — or a winning strategy. She's already calculating odds, reading the table, planning three moves ahead. In Fluxx. Where the rules change every turn. Donna doesn't care. She'll adapt.
+His theorem: *"One monkey with infinite typewriters produces better work than infinite monkeys with one typewriter each."*
+
+He's here for the social dynamics. For the philosophy. For the tiny espresso. His high score "PLM" still holds at Monkey Kong Jr.
+
+**Bumblewick Fantastipants** 🎩  
+*Explorer* | Reluctant Gentleman Hero  
+*Character: `fictional/bumblewick-fantastipants/`*
+
+The gentlehobbit adjusts his waistcoat nervously, decorative spoon collection jingling in his pocket. He's from Wobblebrook-upon-Squiggle, and he was dropped into adventures without asking.
+
+He's read the rules three times. He still doesn't quite understand them. This is fine. This is the point of Fluxx. Adventures make one late for dinner, but at least there's cheese.
+
+Note: It's Tuesday. He may speak in rhyming couplets.
+
+**Donna Toadstool** 🍄  
+*Killer* | The Mushroom Queen  
+*Character: `fictional/donna-toadstool/`*
+
+The drag king impersonator settles into her chair with the careful deliberation of someone with 34 counts of fabulous. She's not just here to win — she's here to *perform* winning.
+
+Outgoing: 11 (off the scale). Nice: -5 (negative nice). The mushroom is her crown now. Stormy's gift.
+
+*"TREMENDOUS!"* she announces, surveying the table. *"This is going to be BEAUTIFUL. The most BEAUTIFUL game. Everyone says so."*
+
+Bumblewick visibly flinches. Palm sips his espresso. Don's ears flatten slightly.
+
+The Dynamic Dealer takes notes.
 
 ---
 
@@ -80,10 +106,10 @@ Every action will be recorded. Every kindness remembered. Every theft noted.
 
 Every card touched will be signed.
 
-When Don deals, he signs.  
-When Palm draws, she signs.  
-When Bumblewick steals (if they ever work up the courage), they sign.  
-When Donna trades, both parties sign.
+When Don deals, he signs (paw-print optional).  
+When Palm draws, he signs (philosopher's flourish).  
+When Bumblewick steals (if he ever works up the courage), he signs (apologetically).  
+When Donna trades, both parties sign (she demands a spotlight).
 
 By game's end, the most contested cards will bear a dozen signatures — a history of conflict written in the margins. The winners will trace their victory through the autographs on their final keepers.
 
@@ -136,11 +162,11 @@ If anyone else gets it first, expect negotiations. Or outright theft. Or elabora
 
 **Gezelligheid Rule** (index 114)  
 *Once per turn, give a card to another player. If you do, draw 1.*  
-The Dutch concept of cozy togetherness, encoded as cardboard. Expect Palm to play this if drawn — she's here for the social dynamics.
+The Dutch concept of cozy togetherness, encoded as cardboard. Expect Palm to play this if drawn — the monkey philosopher is here for the social dynamics. Bumblewick will love it too — sharing is less threatening than competing.
 
 **Chaos Incarnate** (index 248)  
 *THE DEALER HAS GONE MAD.*  
-If this hits the table, all bets are off. The Dealer abandons all pretense of fairness and maximizes pure chaos. Donna will hate it. Bumblewick will panic. Don will grin.
+If this hits the table, all bets are off. The Dealer abandons all pretense of fairness and maximizes pure chaos. Donna will LOVE it ("TREMENDOUS CHAOS!"). Bumblewick will panic. Don's ears will flatten. Palm will sip his espresso philosophically.
 
 **Claude** (index 207)  
 *The AI in the room.*  
@@ -148,13 +174,13 @@ Helpful, harmless, honest. If Claude joins someone's tableau, they get advice. W
 
 ### Likely First-Turn Dynamics
 
-Don goes first (host privilege). He'll draw something, play something, set the tone. Probably a keeper — establish presence early.
+**Don** goes first (host privilege). He'll draw something, play something, set the tone. Probably a keeper — establish presence early. His ears will twitch with each card flip. If he draws himself, expect a recursive joke.
 
-Palm will observe, play something social if possible, wait to see how the dynamics develop.
+**Palm** will observe, play something social if possible, wait to see how the dynamics develop. One monkey, one turn, maximum insight. He'll say something philosophical about the nature of card games.
 
-Bumblewick will panic, play the safest card they have, apologize for it somehow.
+**Bumblewick** will panic, play the safest card he has, apologize for it somehow. "Terribly sorry if this inconveniences anyone." It's Tuesday — possible rhyming couplet.
 
-Donna will calculate, optimize, and make everyone nervous about what she's planning.
+**Donna** will calculate, optimize, and make everyone nervous about what she's planning. "A PERFECT draw! The BEST draw! Everyone says this is a tremendous opening hand!" Whether it actually is remains to be seen.
 
 ---
 

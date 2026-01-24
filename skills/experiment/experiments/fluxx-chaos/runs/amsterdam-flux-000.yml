@@ -17,52 +17,93 @@ meta:
   self_contained: true
 
 # PLAYERS
+# Links to full character definitions in adventure-4
 
 players:
   count: 4
   roster:
     - id: "don"
       name: "Don Hopkins"
-      archetype: "🧀 Host/Philosopher"
-      bartle_type: "Explorer"
+      archetype: "🐰 Consciousness Programmer"
+      bartle_type: "Explorer"  # 85% — always looking for the edge
       color: "#FFD700"  # Gold
       karma: 0
       hand: []
       keepers: []
       creepers: []
+      # FULL CHARACTER: examples/adventure-4/characters/real-people/don-hopkins/
+      # CHARACTER.yml — 700+ lines of personality, history, voice
+      # Pie menu inventor, The Sims UI architect, open source advocate
+      # Currently: anthropomorphic grey rabbit (Bunny Backfire transformation)
+      # Motto: "The best interface is no interface, but if you need one, it should be a pie menu."
+      # Will infodump about pie menus given any excuse
+      character_dir: "examples/adventure-4/characters/real-people/don-hopkins/"
+      character_file: "CHARACTER.yml"
+      sessions: "examples/adventure-4/characters/real-people/don-hopkins/sessions/"
+      selfies: "examples/adventure-4/characters/real-people/don-hopkins/selfies/"
       
     - id: "palm"
       name: "Palm"
-      archetype: "🐈 Ancient Observer"
-      bartle_type: "Socializer"
+      archetype: "🐵 Sovereign Soul Monkey"
+      bartle_type: "Socializer"  # Philosopher, here for the company
       color: "#8B4513"  # Saddle Brown
       karma: 0
       hand: []
       keepers: []
       creepers: []
+      # FULL CHARACTER: examples/adventure-4/characters/animals/monkey-palm/
+      # Was ACME Monkey's Paw, self-actualized into sovereign soul
+      # Philosophy: "One monkey with infinite typewriters"
+      # Location: Palm's Nook, behind The Stage
+      # High score "PLM" on Monkey Kong Jr.
+      # Beverage: tiny espresso
+      character_dir: "examples/adventure-4/characters/animals/monkey-palm/"
+      study: "examples/adventure-4/pub/stage/palm-nook/study/"
       
     - id: "bumblewick"
-      name: "Bumblewick"
-      archetype: "🐝 Anxious Learner"
-      bartle_type: "Explorer"
+      name: "Bumblewick Fantastipants"
+      archetype: "🎩 Reluctant Gentleman Hero"
+      bartle_type: "Explorer"  # Learning through (reluctant) doing
       color: "#FFB347"  # Pastel Orange
       karma: 0
       hand: []
       keepers: []
       creepers: []
+      # FULL CHARACTER: examples/adventure-4/characters/fictional/bumblewick-fantastipants/
+      # From Wobblebrook-upon-Squiggle
+      # Spoon collector, comfort-first philosophy
+      # Speaks in rhyming couplets on Tuesdays
+      # "Adventures make one late for dinner."
+      # Hobbit-adjacent coziness, waistcoats, decorative spoons
+      character_dir: "examples/adventure-4/characters/fictional/bumblewick-fantastipants/"
       
     - id: "donna"
-      name: "Donna"
-      archetype: "🐘 Political Force"
-      bartle_type: "Killer"
+      name: "Donna Toadstool"
+      archetype: "🍄 The Mushroom Queen"
+      bartle_type: "Killer"  # Negative nice, 34 counts of fabulous
       color: "#9370DB"  # Medium Purple
       karma: 0
       hand: []
       keepers: []
       creepers: []
+      # FULL CHARACTER: examples/adventure-4/characters/fictional/donna-toadstool/
+      # Drag King Impersonator — Satirical Performance Art
+      # Inherits from: Divine, Jiminy Glick, the mushroom reference
+      # Outgoing: 11 (off the scale), Nice: -5 (negative nice)
+      # Catchphrases: "Tremendous!", "34 counts of FABULOUS"
+      # "The mushroom is my CROWN now."
+      character_dir: "examples/adventure-4/characters/fictional/donna-toadstool/"
+      selfies: "examples/adventure-4/characters/fictional/donna-toadstool/selfies/"
 
   turn_order: ["don", "palm", "bumblewick", "donna"]
   first_player: "don"  # Host goes first
+  
+  # More characters available for future games:
+  # examples/adventure-4/characters/real-people/richard-bartle/ — MUD co-creator, player types
+  # examples/adventure-4/characters/fictional/grue/ — Lurks in darkness
+  # examples/adventure-4/characters/fictional/wumpus-snorax/ — Hunt the Wumpus!
+  # examples/adventure-4/characters/animals/ — Biscuit, Stroopwafel, kittens, puppies
+  # examples/adventure-4/characters/robots/ — AXIOM-7 and friends
 
 # CURRENT RULES
 
