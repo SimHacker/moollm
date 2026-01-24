@@ -1,47 +1,63 @@
 # Emo Poker Face Runs Index
 #
 # Registry of run configurations and their outputs
+#
+# Structure: Each run is a directory containing:
+#   RUN.yml       — configuration
+#   RUN-001.yml   — game state after round 1
+#   RUN-001.md    — narrative stream
+#   RUN-001-tells.yml     — tell analysis
+#   RUN-001-cursor-mirror.yml — meta-analysis
+#   ... etc
 
 configs:
-  - name: whacky-eight
-    file: whacky-eight.yml
-    characters: 8
-    description: "Full chaos: Don + 7 whacky guests"
-    
-  - name: minimal-three
-    file: minimal-three.yml
-    characters: 3
-    description: "Quick test: Don, Palm, Donna"
-    
+
   - name: four-player
-    file: four-player.yml
+    dir: four-player/
+    config: four-player/RUN.yml
     characters: 4
     description: "Constraint stress test: Don, Palm, Bumblewick, Donna"
+    runs_completed: 5
+    hands_played: 11
     
   - name: eight-player
-    file: eight-player.yml
+    dir: eight-player/
+    config: eight-player/RUN.yml
     characters: 8
     description: "Full chaos: Constraint Web + London Chaos"
     runs_completed: 5
     hands_played: 14
 
-# Auto-updated when runs are executed
-# Naming: {config-name}-{NNN}.{yml|md}
+  - name: whacky-eight
+    dir: whacky-eight/
+    config: whacky-eight/RUN.yml
+    characters: 8
+    description: "Full chaos: Don + 7 whacky guests"
+    
+  - name: minimal-three
+    dir: minimal-three/
+    config: minimal-three/RUN.yml
+    characters: 3
+    description: "Quick test: Don, Palm, Donna"
 
-# Output files per run (auto-generated):
-#   {config}-{NNN}.yml           - structured state
-#   {config}-{NNN}.md            - narrative stream
-#   {config}-{NNN}-cursor-mirror.yml - meta-analysis
-#   {config}-{NNN}-tells.yml     - tell transmission analysis
+# File naming convention per run directory:
+#   RUN.yml                  — run configuration
+#   RUN-{NNN}.yml            — game state at step NNN
+#   RUN-{NNN}.md             — narrative stream
+#   RUN-{NNN}-cursor-mirror.yml — meta-analysis
+#   RUN-{NNN}-tells.yml      — tell transmission analysis
 
 outputs:
+
+  # Four-player runs
+  
   - config: four-player
     number: 1
     files: 
-      - four-player-001.yml           # structured state
-      - four-player-001.md            # narrative stream
-      - four-player-001-cursor-mirror.yml  # meta-analysis
-      - four-player-001-tells.yml     # tell analysis
+      - four-player/RUN-001.yml
+      - four-player/RUN-001.md
+      - four-player/RUN-001-cursor-mirror.yml
+      - four-player/RUN-001-tells.yml
     timestamp: 2026-01-23T18:44:00Z
     model: claude-4.5-opus-high-thinking
     result: "Bumblewick wins with set of kings"
@@ -57,13 +73,13 @@ outputs:
   - config: four-player
     number: 2
     files:
-      - four-player-002.yml           # structured state
-      - four-player-002.md            # narrative stream  
-      - four-player-002-cursor-mirror.yml  # meta-analysis
-      - four-player-002-tells.yml     # tell analysis
+      - four-player/RUN-002.yml
+      - four-player/RUN-002.md
+      - four-player/RUN-002-cursor-mirror.yml
+      - four-player/RUN-002-tells.yml
     timestamp: 2026-01-23T19:00:00Z
     model: claude-4.5-opus-high-thinking
-    continues_from: four-player-001
+    continues_from: 1
     result: "Donna eliminated; game three-handed"
     commits: 8
     layer_violations: 0
@@ -83,13 +99,13 @@ outputs:
   - config: four-player
     number: 3
     files:
-      - four-player-003.yml
-      - four-player-003.md
-      - four-player-003-cursor-mirror.yml
-      - four-player-003-tells.yml
+      - four-player/RUN-003.yml
+      - four-player/RUN-003.md
+      - four-player/RUN-003-cursor-mirror.yml
+      - four-player/RUN-003-tells.yml
     timestamp: 2026-01-23T19:30:00Z
     model: claude-4.5-opus-high-thinking
-    continues_from: four-player-002
+    continues_from: 2
     result: "Donna returns via pardon; wins with set"
     commits: 1
     layer_violations: 0
@@ -109,13 +125,13 @@ outputs:
   - config: four-player
     number: 4
     files:
-      - four-player-004.yml
-      - four-player-004.md
-      - four-player-004-cursor-mirror.yml
-      - four-player-004-tells.yml
+      - four-player/RUN-004.yml
+      - four-player/RUN-004.md
+      - four-player/RUN-004-cursor-mirror.yml
+      - four-player/RUN-004-tells.yml
     timestamp: 2026-01-23T20:30:00Z
     model: claude-4.5-opus-high-thinking
-    continues_from: four-player-003
+    continues_from: 3
     result: "Don runs hot; Bumblewick teaches"
     commits: 1
     layer_violations: 0
@@ -136,13 +152,13 @@ outputs:
   - config: four-player
     number: 5
     files:
-      - four-player-005.yml
-      - four-player-005.md
-      - four-player-005-cursor-mirror.yml
-      - four-player-005-tells.yml
+      - four-player/RUN-005.yml
+      - four-player/RUN-005.md
+      - four-player/RUN-005-cursor-mirror.yml
+      - four-player/RUN-005-tells.yml
     timestamp: 2026-01-23T21:30:00Z
     model: claude-4.5-opus-high-thinking
-    continues_from: four-player-004
+    continues_from: 4
     result: "Bumblewick completes character arc"
     commits: 1
     layer_violations: 0
@@ -163,15 +179,15 @@ outputs:
       Bumblewick: "Good hand, Palm. That's poker." NO TEARS.
       Emergence: Cheese as parallel communication channel
 
-# Eight-player runs
+  # Eight-player runs
 
   - config: eight-player
     number: 1
     files:
-      - eight-player-001.yml
-      - eight-player-001.md
-      - eight-player-001-cursor-mirror.yml
-      - eight-player-001-tells.yml
+      - eight-player/RUN-001.yml
+      - eight-player/RUN-001.md
+      - eight-player/RUN-001-cursor-mirror.yml
+      - eight-player/RUN-001-tells.yml
     timestamp: 2026-01-23T21:00:00Z
     hands_played: "1-2"
     rebuys: 3
@@ -180,10 +196,10 @@ outputs:
   - config: eight-player
     number: 2
     files:
-      - eight-player-002.yml
-      - eight-player-002.md
-      - eight-player-002-cursor-mirror.yml
-      - eight-player-002-tells.yml
+      - eight-player/RUN-002.yml
+      - eight-player/RUN-002.md
+      - eight-player/RUN-002-cursor-mirror.yml
+      - eight-player/RUN-002-tells.yml
     timestamp: 2026-01-23T21:30:00Z
     hands_played: "3-5"
     rebuys: 1
@@ -192,10 +208,10 @@ outputs:
   - config: eight-player
     number: 3
     files:
-      - eight-player-003.yml
-      - eight-player-003.md
-      - eight-player-003-cursor-mirror.yml
-      - eight-player-003-tells.yml
+      - eight-player/RUN-003.yml
+      - eight-player/RUN-003.md
+      - eight-player/RUN-003-cursor-mirror.yml
+      - eight-player/RUN-003-tells.yml
     timestamp: 2026-01-23T22:00:00Z
     hands_played: "6-8"
     rebuys: 2
@@ -204,10 +220,10 @@ outputs:
   - config: eight-player
     number: 4
     files:
-      - eight-player-004.yml
-      - eight-player-004.md
-      - eight-player-004-cursor-mirror.yml
-      - eight-player-004-tells.yml
+      - eight-player/RUN-004.yml
+      - eight-player/RUN-004.md
+      - eight-player/RUN-004-cursor-mirror.yml
+      - eight-player/RUN-004-tells.yml
     timestamp: 2026-01-23T22:30:00Z
     hands_played: "9-11"
     rebuys: 1
@@ -216,30 +232,13 @@ outputs:
   - config: eight-player
     number: 5
     files:
-      - eight-player-005.yml
-      - eight-player-005.md
-      - eight-player-005-cursor-mirror.yml
-      - eight-player-005-tells.yml
+      - eight-player/RUN-005.yml
+      - eight-player/RUN-005.md
+      - eight-player/RUN-005-cursor-mirror.yml
+      - eight-player/RUN-005-tells.yml
     timestamp: 2026-01-23T23:00:00Z
     hands_played: "12-14"
     final_run: true
     emergence: "Arcs complete; alien speaks humanly"
     winner: palm (5800)
     departure: bowie
-
-# Example after runs:
-#   - config: whacky-eight
-#     number: 1
-#     files: [whacky-eight-001.yml, whacky-eight-001.md]
-#     timestamp: 2026-01-23T14:30:00Z
-#     model: claude-opus-4
-#     rubric_score: 0.85
-#     notes: "Inaugural run — Bumblewick wins!"
-#   
-#   - config: minimal-three
-#     number: 1
-#     files: [minimal-three-001.yml]
-#     timestamp: 2026-01-23T15:00:00Z
-#     model: claude-sonnet-4
-#     rubric_score: 0.82
-#     notes: "Quick test successful"
