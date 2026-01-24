@@ -176,19 +176,19 @@ Your game's design enabled discoveries I couldn't have made with a static rulese
 All materials are open source on GitHub:
 
 ### Main Analysis
-- **[📊 SCORE.md](https://github.com/SimHacker/moollm/blob/don-adventure-4-run-1/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/SCORE.md)** -- Research-grade scoring, rubrics, Harper numbers, post-tournament roundtable
+- **[📊 SCORE.md](https://github.com/SimHacker/moollm/blob/main/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/SCORE.md)** -- Research-grade scoring, rubrics, Harper numbers, post-tournament roundtable
 
 ### Card Gallery  
-- **[🎨 Artwork Slideshow](https://github.com/SimHacker/moollm/blob/don-adventure-4-run-1/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/artwork/SLIDESHOW.md)** -- 32 cards with AI-generated artwork
+- **[🎨 Artwork Slideshow](https://github.com/SimHacker/moollm/blob/main/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/artwork/SLIDESHOW.md)** -- 32 cards with AI-generated artwork
 
 ### Generated Cards
-- **[🃏 Generated Cards](https://github.com/SimHacker/moollm/blob/don-adventure-4-run-1/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/generated-cards.yml)** -- 24 personalized cards with signatures
+- **[🃏 Generated Cards](https://github.com/SimHacker/moollm/blob/main/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/generated-cards.yml)** -- 24 personalized cards with signatures
 
 ### Development Analysis
-- **[🔍 Cursor Mirror Analysis](https://github.com/SimHacker/moollm/blob/don-adventure-4-run-1/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/CURSOR-MIRROR-ANALYSIS.md)** -- 731 tool calls analyzed
+- **[🔍 Cursor Mirror Analysis](https://github.com/SimHacker/moollm/blob/main/skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/CURSOR-MIRROR-ANALYSIS.md)** -- 731 tool calls analyzed
 
 ### Experiment Root
-- **[📁 Fluxx Chaos Experiment](https://github.com/SimHacker/moollm/tree/don-adventure-4-run-1/skills/experiment/experiments/fluxx-chaos)** -- Full experiment with engine, cardsets, runs
+- **[📁 Fluxx Chaos Experiment](https://github.com/SimHacker/moollm/tree/main/skills/experiment/experiments/fluxx-chaos)** -- Full experiment with engine, cardsets, runs
 
 ### MOOLLM Framework
 - **[🐒 MOOLLM](https://github.com/SimHacker/moollm)** -- The skill framework that made this possible
