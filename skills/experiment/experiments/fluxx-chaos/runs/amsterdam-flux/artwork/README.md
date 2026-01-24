@@ -76,6 +76,57 @@ See [ARTWORK.md](ARTWORK.md) for the full protocol including:
 - Quality control and re-rolling
 - Lessons learned from failures
 
+## Prompt Engineering Recommendations
+
+*Based on 32 generations with 28% requiring regeneration — [full analysis in SLIDESHOW](SLIDESHOW.md#analysis-failed-generations--prompt-engineering-lessons)*
+
+### Quick Reference: What Works
+
+| DO ✅ | DON'T ❌ |
+|-------|----------|
+| "still life painting" | "board game card art" |
+| "portrait illustration" | "trading card style" |
+| "emerald scales, golden eyes" | "magnificent legendary dragon" |
+| "warm amber lighting" | "cozy nostalgic feeling" |
+| Film reel (no text) | Clapperboard (inherent text) |
+| Abstract symbol (notes) | Specific instance (guitar) |
+
+### The Five Failure Patterns
+
+1. **"Board game card art"** → Triggers full card UI with borders and text fields
+2. **Evaluative words** ("magnificent", "legendary") → Triggers text label overlays
+3. **Emotional language** ("warm memories") → Triggers quote/poem overlays
+4. **Objects with text fields** (signs, open books) → Text appears in those fields
+5. **Too-specific subjects** for abstract concepts → Loses universality
+
+### Recommended Prompt Structure
+
+```yaml
+subject:
+  what: "[concrete visual subject]"
+  appearance: "[colors, textures, materials]"
+style:
+  art_style: "still life / portrait / landscape painting"
+  palette: "[specific colors]"
+constraints:
+  format: "pure artwork painting"
+```
+
+### Emotion → Visual Translation
+
+| Instead of... | Use... |
+|---------------|--------|
+| "warm and cozy" | "amber side lighting, ~3000K color temp" |
+| "mysterious" | "rim lighting, deep shadows, cool palette" |
+| "joyful" | "bright saturated colors, high key lighting" |
+| "ominous" | "underlighting, red accents, dark void" |
+
+### Key Insight
+
+> *"Describe WHAT you see, not HOW GOOD it is. Visual descriptions only. Let the artwork speak for itself."*
+
+The failures weren't waste — they were tuition. Each taught us how to translate human intent into machine-readable visual specification.
+
 ---
 
 *Part of the [MOOLLM](https://github.com/SimHacker/moollm) project — AI agents playing games, learning, and making art.*
