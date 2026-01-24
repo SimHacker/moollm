@@ -203,6 +203,7 @@ All materials are open source on GitHub:
 4. **Card signing adds emotional weight** -- Physical artifacts gain meaning through accumulated history
 5. **Stereo prompting works for art** -- YAML structure + prose atmosphere = consistent card art
 6. **Self-improving pipelines emerge** -- The LLM invented its own QA process for image generation
+7. **Speed of Light drive works** -- With all these complex layers (rule tracking, goal awareness, character psychology, social dynamics, karma, signatures), the system still runs **30 turns × 4 characters = 120 character simulations per LLM iteration**. I haven't pushed it further yet, but there's headroom for more.
 
 ---
 
