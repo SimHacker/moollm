@@ -31,6 +31,10 @@ outputs:
 
 > **"MOOLAH flows where stories lead."**
 
+## 🪙 MOOLAH
+
+The official currency of MOOLLM is **MOOLAH** (🪙). It uses **PROOF OF MILK** consensus — udderly legen-dairy interga-lactic shit coin, without the bull.
+
 Economic systems for currency, trade, and value exchange. MOOLAH is earned, spent, hidden, and traded.
 
 ## Key Concepts
