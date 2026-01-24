@@ -55,6 +55,30 @@ workspace:
 
 **Boot sequence:** `BOOTSTRAP → DETECT-DRIVER(cursor) → WARM-CONTEXT → STARTUP(adventure)`
 
+### 1.1.1 Simulation Protocol — REQUIRED METRICS
+
+```yaml
+# RULE: Always report these in cursor-mirror stats
+required_metrics:
+  turns_per_llm_call: true  # How many game turns simulated per LLM API call
+  # This measures simulation efficiency and LLM throughput
+  # Higher = better utilization of context window
+  # Target: 4-8 turns per call for Fluxx complexity
+
+# Current session stats:
+session_totals:
+  llm_calls: 2
+  game_turns: 12
+  avg_turns_per_call: 6.0
+  
+# Per-call breakdown:
+calls:
+  - entry: 003
+    turns: 4  # Deal + Round 1
+  - entry: 005
+    turns: 8  # Rounds 2-3
+```
+
 ### 1.2 Context Assembly
 
 Files read during boot:
@@ -600,6 +624,7 @@ base_stats:
     grep_calls: 3
     write_calls: 1
     simulation_turns: 4
+    turns_per_llm_call: 4  # REQUIRED METRIC — Deal + Round 1
 
 whats_interesting:
   - "Card 308 (Pie Menu) dealt to Don first — statistically unlikely but narratively perfect"
@@ -716,7 +741,8 @@ base_stats:
     lines_processed: ~8000
     grep_queries: 2
   performance:
-    simulation_turns: 8 (turns 5-12)
+    simulation_turns: 8
+    turns_per_llm_call: 8  # REQUIRED METRIC — Rounds 2-3 (turns 5-12)
     cards_processed: 40+
     narrative_length: 500+ lines
 
