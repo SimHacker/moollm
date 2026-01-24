@@ -2,6 +2,10 @@
 
 > Currency and trade — gold flows where stories lead
 
+## 🪙 MOOLA
+
+The official currency of MOOLLM is **MOOLA** (🪙). It uses **PROOF OF MILK** consensus — udderly legen-dairy interga-lactic shit coin, without the bull.
+
 ## MOOLLM K-Lines
 
 | K-Line | Why Related |
