@@ -44,7 +44,9 @@ Four characters. Five tournaments. Twenty games. One hundred sixteen turns. Thou
 | Tournaments | **5** |
 | Games simulated | **20+** |
 | Total turns | **116+** |
-cha| Standard cards with art | 32 |
+| Characters | **4** |
+| **Character turns** | **464+** *(4 players × 116 turns)* |
+| Standard cards with art | 32 |
 | Generated personal cards | **24** |
 | Card signatures | **13+** |
 | Cookie mentions | **271** |
