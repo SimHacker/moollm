@@ -65,12 +65,14 @@ Files read during boot:
 | [PROTOCOLS.yml](#protocols) | K-line index (2600+ lines of protocol symbols) | 2608 |
 | [skills/bootstrap/CARD.yml](#bootstrap-card) | Boot skill interface | 182 |
 | [EXPERIMENT.md](#experiment) | Fluxx Chaos experiment design | 591 |
-| [runs/amsterdam-flux/RUN.yml](#run-config) | Run configuration | 163 |
+| [runs/amsterdam-flux/RUN.yml](#run-config) | Run configuration (sparse) | 163 |
+| [templates/RUN-000.yml.tmpl](#state-template) | State template (empathic expressions) | 175 |
+| [templates/RUN-000.md.tmpl](#narration-template) | Narration template | 79 |
 | [runs/amsterdam-flux/RUN-000.yml](#initial-state) | Compiled initial state | 3847 |
-| [runs/amsterdam-flux/RUN-000.md](#narration) | Initial narration | 229 |
+| [runs/amsterdam-flux/RUN-000.md](#narration) | Compiled initial narration | 229 |
 | [don-hopkins.yml](#character) | Character definition | 445 |
 
-**Total context assembled:** ~8,500 lines of YAML Jazz
+**Total context assembled:** ~8,700 lines of YAML Jazz
 
 ---
 
@@ -120,7 +122,7 @@ The LLM must track **all six layers simultaneously** while the foundation keeps 
 
 ```
 fluxx-chaos/
-├── EXPERIMENT.md          ← You are here (experiment design)
+├── EXPERIMENT.md          ← Experiment design document
 ├── engine/
 │   ├── CORE.yml           ← Universal turn sequence
 │   ├── MODULES.yml        ← Optional rules (Creepers, Surprises)
@@ -136,11 +138,67 @@ fluxx-chaos/
 │   ├── moollm-characters.yml
 │   └── cosmic-dealers.yml
 └── runs/
-    └── amsterdam-flux/    ← THIS RUN
-        ├── RUN.yml        ← Config (sparse)
-        ├── RUN-000.yml    ← State (dense, 321 cards)
-        └── RUN-000.md     ← Narration
+    └── amsterdam-flux/           ← THIS RUN
+        ├── RUN.yml               ← Config (sparse, declarative)
+        ├── templates/            ← COMPILATION TEMPLATES
+        │   ├── RUN-000.yml.tmpl  ← State template (empathic expressions)
+        │   └── RUN-000.md.tmpl   ← Narration template
+        ├── RUN-000.yml           ← Compiled state (dense, 321 cards)
+        ├── RUN-000.md            ← Compiled narration
+        ├── RUN-001.yml           ← State after turn 1 (future)
+        ├── RUN-001.md            ← Narration after turn 1 (future)
+        └── ...                   ← Append-only history
 ```
+
+### 2.4 The Compilation Model
+
+The run uses a **template compilation** pattern — like a C++ constructor:
+
+```
+RUN.yml (sparse config)
+    +
+templates/RUN-000.yml.tmpl (empathic expressions)
+    ↓ COMPILE
+RUN-000.yml (fully expanded, self-contained)
+```
+
+**Templates use empathic expressions** `{{~query}}` that ask the compiler to gather and inline context:
+
+```yaml
+# From RUN-000.yml.tmpl
+players:
+  {{#run_config.players}}
+  {{id}}:
+    name: "{{name}}"
+    archetype: "{{~character_dir}}/archetype"      # ← Compiler fetches this
+    bartle_type: "{{~character_dir}}/bartle_type"  # ← Compiler fetches this
+    personality: "{{~character_dir}}/personality_summary}}"
+  {{/run_config.players}}
+
+master_array:
+  cards:
+    {{~expand_deck("fluxx-4.0", start_index=0)}}   # ← Compiler expands all cards
+    {{~expand_deck("amsterdam", start_index={{~next_index}})}}
+```
+
+**The narration template** generates atmospheric prose:
+
+```yaml
+# From RUN-000.md.tmpl
+## The Setup
+{{~atmospheric_intro(narration.location, time_of_day="afternoon")}}
+
+{{#players}}
+### {{name}}
+{{~character_summary(character_dir)}}
+{{/players}}
+
+## Pre-Game Analysis
+{{~analyze_key_cards(master_array, count=5)}}
+{{~predict_first_turn(players, deck)}}
+```
+
+**Result:** Compiled state is **fully self-contained** — no external lookups needed during gameplay.
 
 ---
 
@@ -453,15 +511,23 @@ The Cosmic Dealer stirs in its Dynamic mode, karma ledgers blank and waiting. Th
 
 <a id="run-config"></a>
 ### RUN.yml
-`skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/RUN.yml` — Run config
+`skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/RUN.yml` — Run config (sparse, declarative)
+
+<a id="state-template"></a>
+### RUN-000.yml.tmpl
+`skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/templates/RUN-000.yml.tmpl` — State template with empathic expressions
+
+<a id="narration-template"></a>
+### RUN-000.md.tmpl
+`skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/templates/RUN-000.md.tmpl` — Narration template
 
 <a id="initial-state"></a>
 ### RUN-000.yml
-`skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/RUN-000.yml` — Initial state
+`skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/RUN-000.yml` — Compiled initial state (dense, self-contained)
 
 <a id="narration"></a>
 ### RUN-000.md
-`skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/RUN-000.md` — Initial narration
+`skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/RUN-000.md` — Compiled initial narration
 
 <a id="don-hopkins"></a>
 ### Don Hopkins
