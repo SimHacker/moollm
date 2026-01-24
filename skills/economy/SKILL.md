@@ -52,6 +52,22 @@ Economic systems for currency, trade, and value exchange. MOOLAH is earned, spen
 
 ## Currency Hierarchy
 
+### Classic Metal Denominations (D&D Style)
+
+Standard adventure currency with metal-based tiers:
+
+| Symbol | Metal | Abbrev | Value in Gold | Value in Copper |
+|--------|-------|--------|---------------|-----------------|
+| ⬜ | Platinum | pp | 10 gp | 1,000 cp |
+| 🟡 | Gold | gp | 1 gp | 100 cp |
+| ⚪ | Silver | sp | 0.1 gp | 10 cp |
+| 🟤 | Copper | cp | 0.01 gp | 1 cp |
+
+**Conversion rates:**
+- 1 pp = 10 gp = 100 sp = 1,000 cp
+- 1 gp = 10 sp = 100 cp  
+- 1 sp = 10 cp
+
 ### Fungible Currencies (Convertible)
 
 ```
