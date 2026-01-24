@@ -1,17 +1,361 @@
-# MOOLLM Amsterdam Flux — Game Setup
+# MOOLLM Amsterdam Flux — Game State
 # Run ID: amsterdam-flux-001
 # Status: PRE-GAME ANALYSIS (not yet running)
 # 
 # "The cards are laid out. The shuffle awaits. Let's see what we've built."
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# SELF-CONTAINED GAME STATE
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# This file contains EVERYTHING needed to run the game:
+#   - Extension point definitions (embedded below)
+#   - Plugin handlers (embedded below)
+#   - Game rules (embedded below)
+#   - Deck composition + all cards (fully expanded)
+#   - Player state, shuffle state, turn state
+#
+# The LLM does NOT need to look at other files.
+# All rules are in ONE PLACE.
+#
+# ARCHITECTURE PRINCIPLE:
+#   Game = Extension Points + Plugin Handlers
+#   Nothing more. Everything is an extension.
+#
+# When creating a new game state from experiment/run config:
+#   1. Copy all extension definitions into game state
+#   2. Copy all plugin handlers into game state  
+#   3. Expand all cards into master array
+#   4. Initialize shuffle, players, turn state
+#   Result: Fully self-contained game file
 
 meta:
   name: "MOOLLM Amsterdam Flux"
   id: "amsterdam-flux-001"
   created: "2026-01-23T16:00:00Z"
   status: "setup"  # setup | dealing | playing | complete
+  self_contained: true  # All rules embedded, no external lookups needed
   
 # ═══════════════════════════════════════════════════════════════════════════════
-# DECK COMPOSITION
+# EXTENSION POINTS — The Game Skeleton
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# These are the HOOKS where plugins attach behavior.
+# The game is nothing but extension points — plugins do all the work.
+
+extension_points:
+
+  # GAME LIFECYCLE
+  GAME-START:
+    description: "Called when game initializes"
+    signature: "(game_config) → game_state"
+    handlers: [deck_builder, autograph_init, dealer_init, player_init]
+    
+  GAME-END:
+    description: "Called when game concludes"
+    signature: "(game_state, winner) → final_state"
+    handlers: [autograph_summary, karma_summary, stats_collector]
+
+  # TURN LIFECYCLE  
+  TURN-START:
+    description: "Called at start of each turn"
+    signature: "(game_state, player) → modified_state"
+    handlers: [rule_checker, karma_decay]
+    
+  TURN-END:
+    description: "Called at end of each turn"
+    signature: "(game_state, player) → modified_state"
+    handlers: [win_checker, rule_enforcer]
+
+  # CARD OPERATIONS
+  CARD-DRAW:
+    description: "Called when card is drawn"
+    signature: "(game_state, player, card_idx) → modified_state"
+    handlers: [dealer_select, autograph_sign, creeper_check]
+    
+  CARD-PLAY:
+    description: "Called when card is played"
+    signature: "(game_state, player, card_idx, target?) → modified_state"
+    handlers: [autograph_sign, effect_resolver, karma_tracker]
+    
+  CARD-DISCARD:
+    description: "Called when card is discarded"
+    signature: "(game_state, player, card_idx) → modified_state"
+    handlers: [autograph_sign, discard_effects]
+    
+  CARD-STEAL:
+    description: "Called when card is stolen"
+    signature: "(game_state, thief, victim, card_idx) → modified_state"
+    handlers: [autograph_sign, karma_penalty, steal_effects]
+    
+  CARD-TRADE:
+    description: "Called when cards are traded"
+    signature: "(game_state, player_a, player_b, cards_a, cards_b) → modified_state"
+    handlers: [autograph_sign_both, trade_effects]
+
+  # DEALER OPERATIONS
+  DEALER-SELECT:
+    description: "Called when dealer chooses next card"
+    signature: "(game_state, player, reason) → card_idx"
+    handlers: [active_dealer_mode]  # dynamic, karma, dramatic, etc.
+    
+  DEALER-BOOP:
+    description: "Called when dealer intervenes"
+    signature: "(game_state, target_offset, reason) → modified_state"
+    handlers: [boop_executor, narrative_logger]
+
+  # RULE OPERATIONS
+  RULE-ADD:
+    description: "Called when new rule enters play"
+    signature: "(game_state, rule_card_idx) → modified_state"
+    handlers: [rule_validator, rule_conflict_resolver]
+    
+  RULE-REMOVE:
+    description: "Called when rule leaves play"
+    signature: "(game_state, rule_card_idx) → modified_state"
+    handlers: [rule_cleanup]
+
+  # GOAL OPERATIONS
+  GOAL-CHECK:
+    description: "Called to check if goal is met"
+    signature: "(game_state, player) → bool"
+    handlers: [goal_evaluator, creeper_blocker]
+    
+  GOAL-CHANGE:
+    description: "Called when goal changes"
+    signature: "(game_state, old_goal_idx, new_goal_idx) → modified_state"
+    handlers: [goal_transition]
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PLUGIN HANDLERS — The Game Behavior
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# These implement the actual behavior at each extension point.
+# Everything the game DOES is defined here.
+
+plugin_handlers:
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # AUTOGRAPH MODE — Cards track every signature
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  autograph_init:
+    extension_point: GAME-START
+    description: "Initialize signature tracking on all cards"
+    behavior: |
+      for card in master_array.cards:
+        card.signatures = []
+        card.touch_count = 0
+        
+  autograph_sign:
+    extension_points: [CARD-DRAW, CARD-PLAY, CARD-DISCARD, CARD-STEAL]
+    description: "Add signature when card is touched"
+    signer_prompt: "Say something relevant, interesting, personal, and witty, and sign your name to it, on the record!"
+    behavior: |
+      card.signatures.append({
+        player: active_player,
+        event: event_type,  # draw, play, discard, steal
+        turn: current_turn,
+        message: signer_prompt_response  # The witty comment!
+      })
+      card.touch_count += 1
+      
+  autograph_sign_both:
+    extension_point: CARD-TRADE
+    description: "Both parties sign on trade"
+    behavior: |
+      for card in cards_traded:
+        card.signatures.append({
+          players: [player_a, player_b],
+          event: "trade",
+          turn: current_turn
+        })
+        
+  autograph_summary:
+    extension_point: GAME-END
+    description: "Generate signature statistics"
+    behavior: |
+      for card in master_array.cards:
+        if card.touch_count > 10:
+          mark_as_legendary(card)
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # COSMIC DEALER — Fate with personality
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  dealer_init:
+    extension_point: GAME-START
+    description: "Initialize dealer state"
+    behavior: |
+      dealer_state = {
+        mode: "dynamic",  # Starting mode
+        karma: {player: 0 for player in players},
+        boop_log: []
+      }
+      
+  active_dealer_mode:
+    extension_point: DEALER-SELECT
+    description: "Select card based on current dealer personality"
+    modes:
+      random:
+        emoji: "🎲"
+        behavior: "return random.choice(remaining_deck)"
+        
+      dramatic:
+        emoji: "🎭"
+        behavior: |
+          score cards by:
+            + proximity_to_victory_impact
+            + relationship_test_value
+            + callback_potential
+          return weighted_random(cards, scores)
+          
+      karma:
+        emoji: "⚖️"
+        behavior: |
+          karma = player.karma_score
+          if karma > 0: weight helpful cards higher
+          if karma < 0: weight obstacles higher
+          return weighted_random(cards, karma_weights)
+          
+      ironic:
+        emoji: "🎪"
+        behavior: |
+          for card, calculate:
+            irony = how_much_player_doesnt_want_this(card)
+          return highest_irony(cards)
+          
+      comedy:
+        emoji: "🤡"
+        behavior: |
+          track running_gags, repeated_patterns
+          score by rule_of_three_potential, callback_humor
+          return best_comedy_card(cards)
+          
+      dynamic:
+        emoji: "🌊"
+        behavior: |
+          if near_victory: mode = dramatic
+          if tension_high_too_long: mode = comedy
+          if bad_karma_accumulated: mode = karma
+          if stalemate: mode = chaos
+          return mode.select(cards)
+          
+      fafo:
+        emoji: "🎰💀"
+        behavior: |
+          if player.finding_out_potential > threshold:
+            BOOP consequence to top
+          return dramatic.select(cards)
+          
+      chaos_incarnate:
+        emoji: "🌀💀🌀"
+        behavior: |
+          score by rule_change_potential, goal_disruption
+          occasionally switch modes MID-DRAW
+          return maximum_chaos_card(cards)
+          
+      prescient:
+        emoji: "🔮"
+        behavior: |
+          if not predetermined_winner:
+            predetermined_winner = select_narratively()
+          return card_that_advances_plan(cards)
+          
+      individual:
+        emoji: "👤"
+        behavior: |
+          apply per-player curses and blessings
+          return personalized_selection(player, cards)
+          
+  boop_executor:
+    extension_point: DEALER-BOOP
+    description: "Swap cards in shuffle array"
+    behavior: |
+      swap(shuffle.indices[pointer], shuffle.indices[pointer + offset])
+      boop_log.append({turn, original, booped, reason})
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # KARMA SYSTEM — The universe remembers
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  karma_tracker:
+    extension_point: CARD-PLAY
+    description: "Track karma-affecting actions"
+    karma_events:
+      generous_play: +2
+      steal_action: -3
+      block_action: -2
+      betray_alliance: -5
+      sacrifice_for_other: +5
+      
+  karma_penalty:
+    extension_point: CARD-STEAL
+    description: "Stealing costs karma"
+    behavior: |
+      thief.karma -= 3
+      
+  karma_decay:
+    extension_point: TURN-START
+    description: "Karma drifts toward neutral"
+    decay_rate: 0.1
+    behavior: |
+      for player in players:
+        player.karma *= (1 - decay_rate)
+        
+  karma_summary:
+    extension_point: GAME-END
+    description: "Report final karma standings"
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CORE GAME RULES — Fluxx basics
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  rule_checker:
+    extension_point: TURN-START
+    description: "Determine draw/play counts from active rules"
+    behavior: |
+      draw_count = rules.draw or 1
+      play_count = rules.play or 1
+      hand_limit = rules.hand_limit or null
+      keeper_limit = rules.keeper_limit or null
+      
+  win_checker:
+    extension_point: TURN-END
+    description: "Check if any player meets goal"
+    behavior: |
+      if current_goal:
+        for player in players:
+          if GOAL-CHECK(player):
+            if not CREEPER-BLOCKED(player):
+              trigger GAME-END(winner=player)
+              
+  creeper_check:
+    extension_point: CARD-DRAW
+    description: "Handle Creeper draws"
+    behavior: |
+      if card.type == "creeper":
+        immediately play to player's tableau
+        sign card (autograph mode)
+        draw replacement card
+        
+  goal_evaluator:
+    extension_point: GOAL-CHECK
+    description: "Check if player has required keepers"
+    behavior: |
+      required = goal.requires
+      player_keepers = player.keepers
+      return all(k in player_keepers for k in required)
+      
+  creeper_blocker:
+    extension_point: GOAL-CHECK
+    description: "Creepers prevent winning (usually)"
+    behavior: |
+      if player.creepers and not goal.requires_creeper:
+        return false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DECK COMPOSITION — Sources for card expansion
 # ═══════════════════════════════════════════════════════════════════════════════
 
 deck_config:
