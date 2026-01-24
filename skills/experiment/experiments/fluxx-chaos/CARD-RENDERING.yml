@@ -402,7 +402,7 @@ art_generation:
       - lighting_effects
     suitable_for: "polished digital, print-on-demand"
     
-  # Tier 3: AI Generated
+  # Tier 3: AI Generated (Legacy — see prompt_pipeline for full system)
   ai_generated:
     description: "Full AI art generation per card"
     method: "image_model"
@@ -432,6 +432,543 @@ art_generation:
     method: "external"
     asset_path: "art/custom/{{card_id}}.png"
     suitable_for: "professional products"
+
+# PROMPT PIPELINE — Multi-Stage Image Generation
+#
+# Philosophy: Images are not just outputs — they're semantic artifacts.
+# Generate with intention, mine for meaning, feed back into system.
+
+prompt_pipeline:
+
+  overview: |
+    Four-stage process transforms card data into rich visual artifacts:
+    
+    1. SKELETON    → Structure and references (what to show)
+    2. SYNTHESIS   → Resolve, curate, focus (how to show it)
+    3. GENERATION  → Image model execution (make it)
+    4. MINING      → Extract semantics back (what did we make?)
+    
+    The pipeline is bidirectional — generated images inform future cards,
+    character development, and narrative beats. Art generates meaning.
+
+  # STAGE 1: Skeleton and References
+  
+  stage_1_skeleton:
+    name: "Skeleton & References"
+    purpose: "Build structured prompt scaffold with semantic placeholders"
+    
+    inputs:
+      - card_data         # From game state YAML
+      - card_type         # keeper, goal, action, etc.
+      - expansion_context # Which deck/set
+      - character_links   # If card references a character
+      - related_cards     # Cards it pairs with (for goals)
+      
+    skeleton_template:
+      # The bones — filled in stage 2
+      
+      subject:
+        primary: "{{~card.name}}"          # The main thing
+        emoji_hint: "{{card.emoji}}"       # Visual seed
+        archetype: "{{~card_type_archetype}}"
+        
+      references:
+        visual_refs: []      # Art references to resolve
+        character_refs: []   # Character files to pull from
+        lore_refs: []        # Story/world context
+        mood_refs: []        # Emotional tone sources
+        
+      composition:
+        focus: null          # Where eye goes first
+        depth: null          # Foreground/mid/back
+        framing: null        # Close/medium/wide
+        angle: null          # Eye level, low, high, dutch
+        
+      tells:
+        # Visual storytelling elements
+        body_language: null  # What pose/gesture says
+        expression: null     # Face/mood readable
+        environment: null    # Setting as character
+        objects: null        # Props that tell story
+        
+      style:
+        genre: null          # Fantasy, sci-fi, etc.
+        medium: null         # Oil, digital, watercolor
+        influences: []       # Artists/games/films
+        era: null            # When does this feel like
+        
+    reference_types:
+      # How references are notated in skeleton
+      
+      character_ref:
+        syntax: "@character:{{id}}"
+        example: "@character:don-hopkins"
+        resolves_to: "Character YAML → visual description, traits"
+        
+      card_ref:
+        syntax: "@card:{{ref}}"
+        example: "@card:fluxx-4.0:bread"
+        resolves_to: "Other card data for combination art"
+        
+      mood_ref:
+        syntax: "@mood:{{emotion}}"
+        example: "@mood:triumphant"
+        resolves_to: "Curated mood board keywords"
+        
+      lore_ref:
+        syntax: "@lore:{{path}}"
+        example: "@lore:moollm/society-of-mind"
+        resolves_to: "World-building text → visual interpretation"
+        
+      style_ref:
+        syntax: "@style:{{name}}"
+        example: "@style:art-nouveau"
+        resolves_to: "Style guide → keywords, colors, shapes"
+        
+    example_skeleton:
+      # For card: Marvin Minsky (keeper)
+      
+      subject:
+        primary: "Marvin Minsky"
+        emoji_hint: "🧠"
+        archetype: "Keeper — valuable person/thing to possess"
+        
+      references:
+        visual_refs:
+          - "@photo:minsky-mit-1970s"     # Reference photo
+          - "@style:academic-portrait"
+        character_refs:
+          - "@character:marvin-minsky"    # If we have YAML
+        lore_refs:
+          - "@lore:society-of-mind"
+          - "@lore:k-lines"
+        mood_refs:
+          - "@mood:wise"
+          - "@mood:mischievous"
+          - "@mood:profound"
+          
+      composition:
+        focus: "eyes and forehead"        # Mind-focus
+        depth: "shallow — intimate"
+        framing: "medium close-up"
+        angle: "slight low — reverence"
+        
+      tells:
+        body_language: "leaning forward, engaged"
+        expression: "knowing smile, sparkling eyes"
+        environment: "fragments of ideas floating"
+        objects: "K-line diagram subtle in background"
+        
+      style:
+        genre: "intellectual portrait"
+        medium: "oil painting, rich darks"
+        influences: ["Rembrandt", "trading card portraiture"]
+        era: "timeless — past wisdom, future relevance"
+
+  # STAGE 2: Resolve, Synthesize, Curate
+  
+  stage_2_synthesis:
+    name: "Resolve & Synthesize"
+    purpose: "Expand references, curate for visual impact, focus the lens"
+    
+    operations:
+      
+      resolve_references:
+        description: "Expand all @refs into actual content"
+        process:
+          - "Load character YAML → extract visual_description, personality"
+          - "Load lore files → distill visual hooks"
+          - "Load mood boards → gather keywords"
+          - "Load style guides → pull techniques, palettes"
+          
+      synthesize_visuals:
+        description: "Merge references into coherent visual direction"
+        considerations:
+          - "What's the ONE thing this image says?"
+          - "What makes this card RECOGNIZABLE at thumbnail size?"
+          - "What visual rhymes with the card's gameplay?"
+          - "How does this fit the expansion's visual language?"
+          
+      curate_tells:
+        description: "Choose the moments that tell the story"
+        principles:
+          - "Show, don't explain"
+          - "The body knows before the mind"
+          - "Environment IS character"
+          - "Objects carry weight"
+          - "Empty space speaks"
+          
+      focus_impressions:
+        description: "What should the viewer FEEL?"
+        emotional_vectors:
+          keeper: "I want to have this / protect this"
+          goal: "I can achieve this / this completes me"
+          action: "This changes everything / moment of power"
+          new_rule: "The world just shifted / new truth"
+          creeper: "Unease / threat I must manage"
+          character: "I know this person / they're real"
+          
+    pose_library:
+      # Common poses and what they communicate
+      
+      power:
+        - "arms crossed, chin up"           # Confidence
+        - "leaning forward, hands on table" # Authority
+        - "one hand raised, palm out"       # Command/stop
+        - "seated, legs wide"               # Dominance
+        
+      wisdom:
+        - "hand on chin, gaze distant"      # Contemplation
+        - "slight smile, knowing eyes"      # Secret knowledge
+        - "book open, finger on page"       # Discovery
+        - "surrounded by symbols"           # Immersed in meaning
+        
+      action:
+        - "mid-motion blur"                 # Speed
+        - "just released — follow-through"  # Impact
+        - "about to strike — tension"       # Anticipation
+        - "dodge/lean — reactive"           # Survival
+        
+      connection:
+        - "reaching toward viewer"          # Invitation
+        - "two figures mirroring"           # Resonance
+        - "hands touching object together"  # Shared value
+        - "back-to-back"                    # Alliance
+        
+      mystery:
+        - "partially obscured face"         # Unknown
+        - "emerging from shadow"            # Revealing
+        - "looking away from viewer"        # Private
+        - "reflected in surface"            # Double nature
+        
+    visual_tells_dictionary:
+      # What objects/elements mean in card art
+      
+      light_sources:
+        "from above": "divine, judgment, revelation"
+        "from below": "unnatural, sinister, power"
+        "from behind": "mystery, silhouette, destiny"
+        "diffuse": "dreamlike, memory, possibility"
+        "harsh": "truth, exposure, conflict"
+        "warm": "comfort, home, value"
+        "cool": "intellect, distance, technology"
+        
+      hands:
+        "open palm up": "offering, receiving, peace"
+        "closed fist": "power, resistance, contained"
+        "pointing": "direction, accusation, focus"
+        "touching face": "thought, doubt, deception"
+        "clasped": "prayer, pleading, patience"
+        "reaching": "desire, connection, almost"
+        
+      eyes:
+        "direct gaze": "challenge, honesty, presence"
+        "averted": "shame, mystery, planning"
+        "upward": "hope, appeal, transcendence"
+        "closed": "peace, denial, meditation"
+        "narrowed": "suspicion, focus, cunning"
+        
+      background_elements:
+        "clear/empty": "focus, simplicity, purity"
+        "crowded": "chaos, wealth, overwhelm"
+        "geometric": "order, technology, abstract"
+        "organic": "nature, growth, life"
+        "ruins": "past, loss, foundation"
+        "construction": "future, building, progress"
+        
+    synthesis_output:
+      # The resolved, focused prompt components
+      
+      visual_brief:
+        one_sentence: "The essence in one line"
+        thumbnail_read: "What you see at 50px"
+        full_read: "What unfolds with study"
+        
+      scene_description:
+        setting: "Where and when"
+        subject: "Who/what, how positioned"
+        action: "What's happening"
+        atmosphere: "Light, mood, energy"
+        
+      style_direction:
+        primary_style: "Main artistic approach"
+        techniques: ["List of specific techniques"]
+        palette: ["Color keywords or hex codes"]
+        avoid: ["What NOT to do"]
+        
+      emotional_target:
+        immediate: "First reaction"
+        lingering: "What stays with you"
+        gameplay_resonance: "How feeling matches mechanics"
+
+  # STAGE 3: Generate
+  
+  stage_3_generation:
+    name: "Image Generation"
+    purpose: "Execute prompt through image model"
+    
+    prompt_assembly:
+      # How synthesis output becomes final prompt
+      
+      structure: |
+        [STYLE BLOCK]
+        {{style_direction.primary_style}}
+        Techniques: {{style_direction.techniques | join(", ")}}
+        Palette: {{style_direction.palette | join(", ")}}
+        
+        [SCENE BLOCK]
+        {{scene_description.setting}}
+        {{scene_description.subject}}
+        {{scene_description.action}}
+        {{scene_description.atmosphere}}
+        
+        [COMPOSITION BLOCK]
+        Framing: {{composition.framing}}
+        Focus: {{composition.focus}}
+        Depth: {{composition.depth}}
+        
+        [EMOTIONAL TARGET]
+        This image should make the viewer feel: {{emotional_target.immediate}}
+        Lingering impression: {{emotional_target.lingering}}
+        
+        [TECHNICAL]
+        Trading card game illustration, 750x1050 aspect ratio
+        High detail, centered composition, professional quality
+        
+        [AVOID]
+        {{style_direction.avoid | join(", ")}}
+        No text, no watermarks, no borders
+        
+    generation_params:
+      model: "configurable"  # DALL-E 3, Midjourney, SDXL, etc.
+      aspect_ratio: "5:7"    # Card proportions
+      quality: "high"
+      iterations: 4          # Generate options
+      
+    selection_criteria:
+      # How to pick from generated options
+      - "Clearest read at thumbnail"
+      - "Strongest emotional hit"
+      - "Best composition for card frame"
+      - "Most distinctive silhouette"
+      - "Least cliché interpretation"
+      
+    post_processing:
+      - "Color grade to match expansion palette"
+      - "Ensure safe zone clearance"
+      - "Add subtle vignette for frame integration"
+      - "Export at multiple resolutions"
+
+  # STAGE 4: Image Mining
+  
+  stage_4_mining:
+    name: "Semantic Mining"
+    purpose: "Extract meaning back from generated image"
+    
+    philosophy: |
+      The generated image is not just output — it's a new artifact
+      with its own semantic weight. What did the image model "decide"
+      that we didn't explicitly specify? What emerged? What does
+      this image TELL us that we can feed back into the system?
+      
+      This is the round-trip: Data → Prompt → Image → Data
+      
+    mining_operations:
+      
+      visual_inventory:
+        description: "Catalog what's actually in the image"
+        extracts:
+          - objects_present      # What things exist
+          - colors_dominant      # Actual palette used
+          - composition_actual   # How it was framed
+          - lighting_actual      # Light sources and quality
+          - textures             # Surface qualities
+          - negative_space       # What's NOT there
+          
+      emergent_semantics:
+        description: "Meanings that emerged we didn't plan"
+        questions:
+          - "What symbols appeared we didn't request?"
+          - "What relationships formed between elements?"
+          - "What story does this tell beyond our brief?"
+          - "What mood emerged vs. what we targeted?"
+          - "What surprised us?"
+          
+      character_insights:
+        description: "For character cards, what did we learn?"
+        extracts:
+          - personality_expressed  # What traits show
+          - age_impression        # How old they feel
+          - status_impression     # Social position
+          - trustworthiness       # Can we trust them?
+          - hidden_depths         # What's beneath surface
+          
+      gameplay_resonance:
+        description: "Does the image match the mechanics?"
+        assessment:
+          - "Does this LOOK like a keeper/goal/action?"
+          - "Does the energy match the card's effect?"
+          - "Would you want to play this card?"
+          - "Does it tell you what it does?"
+          
+      narrative_hooks:
+        description: "Story opportunities the image creates"
+        extracts:
+          - "What question does this image ask?"
+          - "What happened just before this moment?"
+          - "What happens next?"
+          - "Who else might be just outside the frame?"
+          - "What secret does this image hold?"
+          
+    mining_output:
+      # Structured data extracted from image
+      
+      image_facts:
+        dominant_colors: ["#hex1", "#hex2", "#hex3"]
+        composition_type: "central | rule-of-thirds | diagonal | etc"
+        energy_level: "0-10 scale"
+        complexity: "minimal | moderate | dense"
+        
+      emergent_tags:
+        # Tags we didn't specify but image earned
+        - "mysterious"
+        - "technological"
+        - "organic"
+        # etc.
+        
+      character_profile_updates:
+        # For character cards, amendments to character YAML
+        visual_age: "appears 60s"
+        visual_demeanor: "warm but guarded"
+        signature_elements: ["bushy eyebrows", "knowing smile"]
+        
+      narrative_seeds:
+        questions_raised: ["What is he looking at?"]
+        implied_backstory: "Long career, many battles"
+        future_hooks: ["The object in his hand..."]
+        
+      cross_references:
+        # Cards this image visually connects to
+        visual_siblings: ["card_ref_1", "card_ref_2"]
+        thematic_pairs: ["goal that needs this keeper"]
+        
+    feedback_loop:
+      # How mined data flows back into system
+      
+      to_card_data:
+        - "Update card with emergent_tags"
+        - "Add visual_signature for future consistency"
+        - "Record dominant_colors for expansion palette"
+        
+      to_character_files:
+        - "Amend CHARACTER.yml with visual discoveries"
+        - "Add narrative_seeds to character story hooks"
+        - "Update appearance section"
+        
+      to_future_generation:
+        - "Add to style reference library"
+        - "Record successful techniques"
+        - "Build visual vocabulary for this character/type"
+        
+      to_narrative:
+        - "Feed questions_raised to story generators"
+        - "Use cross_references for plot connections"
+        - "Mine implied_backstory for lore expansion"
+
+  # EXAMPLE: Full Pipeline Run
+  
+  example_run:
+    card: "moollm-inspirations:alan_kay"
+    
+    stage_1_output:
+      subject:
+        primary: "Alan Kay"
+        emoji_hint: "💻"
+        archetype: "Keeper — legendary figure to possess"
+      references:
+        visual_refs: ["@style:xerox-parc-aesthetic"]
+        character_refs: ["@lore:dynabook-vision"]
+        mood_refs: ["@mood:visionary", "@mood:playful"]
+      composition:
+        focus: "hands and eyes — builder and seer"
+        framing: "medium shot, slight tilt"
+      tells:
+        expression: "amused wisdom, seeing future"
+        objects: "prototype device, child's drawing"
+        
+    stage_2_output:
+      visual_brief:
+        one_sentence: "The inventor who saw children as the future"
+        thumbnail_read: "Warm figure, glowing device"
+        full_read: "Gentle eyes seeing decades ahead"
+      scene_description:
+        setting: "Xerox PARC, golden hour light, late 1970s feel"
+        subject: "Alan Kay, casual sweater, holding early tablet prototype"
+        action: "Paused mid-explanation, showing something to someone below frame"
+        atmosphere: "Warm, optimistic, the future being born"
+      style_direction:
+        primary_style: "Painterly realism, Norman Rockwell meets retrofuturism"
+        techniques: ["soft edges", "warm shadows", "period-accurate tech"]
+        palette: ["#F5DEB3", "#8B4513", "#87CEEB", "#FFD700"]
+        avoid: ["too slick", "corporate", "cold"]
+      emotional_target:
+        immediate: "I want to learn from this person"
+        lingering: "He knew something we're still figuring out"
+        gameplay_resonance: "Keeper I'd protect, gives me an edge"
+        
+    stage_3_output:
+      prompt_final: |
+        Painterly realism, Norman Rockwell meets retrofuturism
+        Soft edges, warm shadows, period-accurate technology
+        
+        Xerox PARC research lab, golden hour light streaming through windows
+        Late 1970s aesthetic, warm wood and early computer equipment
+        
+        Alan Kay in casual cream sweater, holding an early tablet prototype
+        that glows faintly with possibility. He's paused mid-explanation,
+        looking toward someone just below frame with amused, knowing eyes.
+        A child's drawing visible on a whiteboard behind him.
+        
+        Medium shot, slight Dutch tilt suggesting dynamic thinking.
+        Focus on his hands cradling the device and his seeing-the-future eyes.
+        
+        This image should make the viewer feel: I want to learn from this person
+        Lingering impression: He knew something we're still figuring out
+        
+        Trading card game illustration, professional quality
+        AVOID: too slick, corporate feeling, cold lighting
+        No text, no watermarks
+        
+      selected_image: "alan_kay_v3.png"  # Best of 4
+      
+    stage_4_output:
+      image_facts:
+        dominant_colors: ["#E8D4B8", "#6B4423", "#87CEEB"]
+        composition_type: "slightly off-center, active"
+        energy_level: 6
+        complexity: "moderate"
+      emergent_tags:
+        - "paternal"
+        - "hopeful"
+        - "craftsman"
+        - "time-traveler"
+      character_profile_updates:
+        visual_age: "mid-40s, timeless energy"
+        visual_demeanor: "playful authority"
+        signature_elements: ["that specific knowing smile", "hands that build"]
+      narrative_seeds:
+        questions_raised: ["What did that child draw?", "Who is he teaching?"]
+        implied_backstory: "Many prototypes before, many to come"
+        future_hooks: ["The Dynabook's journey continues..."]
+      cross_references:
+        visual_siblings: ["seymour_papert", "bret_victor"]
+        thematic_pairs: ["goal:the_future_invented"]
+        
+    feedback_applied:
+      - "Card updated with tags: paternal, hopeful, craftsman"
+      - "Alan Kay visual signature recorded for consistency"
+      - "Narrative hook 'What did that child draw?' added to lore queue"
+      - "Cross-reference to Papert noted for visual cohesion"
 
 # CARD BACKS
 
