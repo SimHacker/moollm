@@ -15,22 +15,47 @@ Four characters sit down in a cozy Amsterdam café to play Fluxx — a card game
 | Document | What It Is |
 |----------|------------|
 | **[📊 SCORE.md](SCORE.md)** | **Research-grade analysis** — rubrics, Harper numbers, card signatures, post-tournament roundtable |
+| **[🎨 Artwork Slideshow](artwork/SLIDESHOW.md)** | **32 AI-generated card images** — stereo prompts, image mining, 72% first-attempt success |
 | **[🔍 CURSOR-MIRROR-ANALYSIS.md](CURSOR-MIRROR-ANALYSIS.md)** | Deep dive into the development session — 731 tool calls analyzed |
-| **[🎨 Artwork Slideshow](artwork/SLIDESHOW.md)** | 32 cards with AI-generated artwork |
 | **[🃏 Generated Cards](generated-cards.yml)** | 24 dynamically created personal cards with signatures |
+| **[✉️ Looney Letter](LOONEY-LETTER.md)** | Letter to Looney Labs announcing our results |
 
 ---
 
-## The Art
+## 🎨 AI Image Generation Pipeline
 
-**[📖 View Card Gallery →](artwork/SLIDESHOW.md)**
+**[📖 View Full Card Gallery →](artwork/SLIDESHOW.md)**
 
-32 pieces of pure card artwork, generated through an iterative AI pipeline:
+**32 pieces of pure card artwork** generated through an innovative pipeline:
 
-- **Stereo prompts** — structured YAML + evocative prose
-- **Autonomous quality control** — AI detects failures and regenerates
-- **Image mining** — computer vision analysis of each result
-- **Documented learning** — each failure becomes a lesson
+| Stage | What Happens |
+|-------|--------------|
+| **Stereo Prompts** | YAML structure + prose atmosphere fed together |
+| **Image Generation** | AI renders the card (Imagen/DALL-E compatible) |
+| **Image Mining** | Computer vision extracts semantic treasure |
+| **Quality Control** | AI detects failures, regenerates autonomously |
+| **YES AND** | Emergent details become canon |
+
+### Stats
+
+| Metric | Value |
+|--------|-------|
+| Cards generated | 32 |
+| First-attempt success | **72%** |
+| Regenerations needed | 9 |
+| Total artwork storage | ~44MB |
+| Prompt pairs (YML+MD) | 64 files |
+
+### Sample Cards
+
+| Card | Emotion | Challenge |
+|------|---------|-----------|
+| **Love** ❤️ | Warmth, tenderness | Universal symbol without cliché |
+| **War** ⚔️ | Tension, conflict | Abstract vs. literal violence |
+| **Cookies** 🍪 | Comfort, desire | Don's obsession made visual |
+| **Death** 💀 | Finality, acceptance | Creeper that respects dignity |
+
+**[🖼️ See all 32 cards with generation history →](artwork/SLIDESHOW.md)**
 
 ---
 
