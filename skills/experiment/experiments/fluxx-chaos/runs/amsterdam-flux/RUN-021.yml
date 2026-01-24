@@ -1,0 +1,721 @@
+# MOOLLM Amsterdam Fluxx — THE DEALER DEALS DESTINY
+# Run ID: amsterdam-flux-021
+# Turns: 20
+# DEALER MODE: 🎭💀🔥 FAFO + INTIMATE CARD GENERATION
+
+meta:
+  id: "amsterdam-flux-021"
+  turns_this_iteration: 20
+  games_in_iteration: "Game 15 finish + Game 16 + Game 17 start"
+  timestamp: "2026-01-25T10:00:00Z"
+  previous: "amsterdam-flux-020"
+
+dealer:
+  mode: "FAFO_INTIMATE_DESTINY"
+  emoji: "🎭💝🔥"
+  
+  new_power: |
+    THE COSMIC DEALER NOW GENERATES CARDS IN REAL-TIME.
+    
+    These cards appear at vulnerable moments.
+    They are gifts. They are curses. They are PERSONAL.
+    
+    The deck now contains:
+    - Standard Fluxx cards
+    - Generated cards (from generated-cards.yml)
+    - NEW cards created THIS GAME based on what happens
+    
+    The Dealer places them where they'll have IMPACT.
+    With love. With cruelty. With perfect timing.
+
+deck_modification:
+  added_cards:
+    - "GEN-001: Six Creeper Survivor (Donna)"
+    - "GEN-004: Underdog's Blessing (Bumblewick)"
+    - "GEN-008: Cookie Insurance (Don)"
+    - "GEN-012: Analytical Edge (Palm)"
+    - "GEN-016: Amsterdam Rain (Cosmic)"
+    - "GEN-018: FAFO Token (Cosmic)"
+    
+  shuffle_method: "Cosmic — cards appear when needed"
+
+# ═══════════════════════════════════════════════════════════════════
+# 📖 GAME 15 CONTINUES (Turns 1-8)
+# ═══════════════════════════════════════════════════════════════════
+
+game_15_continued:
+  
+  recap:
+    score: {donna: 1, don: 1, palm: 0, bumblewick: 0}
+    turn: 3
+    goal: "NONE SET"
+    donna: ["Simulation", "Peace (with War in hand)"]
+    palm: ["Brain"]
+    rule: "Draw 3, Play 1"
+    
+  turn_1_of_iteration:
+    game: 15
+    turn_in_game: 4
+    player: "bumblewick"
+    
+    bumblewick_vulnerable: |
+      "I won Tournament 3. I'm a champion.
+      But... I haven't won a single game in Tournament 4.
+      Palm and I are both at 0. The former champions... struggling.
+      
+      Was the Long Shot just luck? Was I just... lucky?"
+      
+    drew: ["Chocolate", "Moon", "???"]
+    
+    COSMIC_DEALER_INTERVENES: |
+      The third card shimmers. It's not from the standard deck.
+      Bumblewick recognizes the energy. It feels like... him.
+      
+    third_card_revealed: "GEN-004: UNDERDOG'S BLESSING"
+    
+    bumblewick_gasps: "This card... it's ME. It's my STORY."
+    
+    card_text: |
+      UNDERDOG'S BLESSING (Keeper)
+      While you have the fewest keepers, draw +1 card each turn.
+      If you win while this is in play, you may keep it for next game.
+      "Everyone loves a comeback story."
+      
+    bumblewick_tears_up: "The Dealer... made this for me?"
+    
+    dealer_whispers: "You earned it. 0-8 before the Long Shot. You EARNED it."
+    
+    bumblewick_plays: "Underdog's Blessing (Generated Keeper)"
+    
+    bumblewick_keepers: ["Underdog's Blessing"]
+    
+    BLESSING_ACTIVE: "Bumblewick has fewest keepers (1). +1 draw active."
+    
+  turn_2_of_iteration:
+    game: 15
+    turn_in_game: 5
+    player: "don"
+    
+    don_frustrated: |
+      "Bumblewick gets a CUSTOM CARD?! 
+      I've been suffering for THREE TOURNAMENTS!
+      Cookies stolen CONSTANTLY!
+      Where's MY card?!"
+      
+    drew: ["Cookies", "Love", "???"]
+    
+    COSMIC_DEALER_SMILES: "You asked."
+    
+    third_card_revealed: "GEN-008: COOKIE INSURANCE"
+    
+    don_stunned: "..."
+    
+    card_text: |
+      COOKIE INSURANCE (Keeper)
+      Attach to Cookies. Cookies cannot be stolen, traded,
+      or exchanged while this is attached.
+      If Cookies would leave your control, discard this instead.
+      "NOT. MY. COOKIES."
+      
+    don_reads_flavor: "'NOT. MY. COOKIES.' That's... that's exactly what I say!"
+    
+    dealer_whispers: "Every stolen cookie. Every frustrated scream. I heard them all."
+    
+    don_plays_first: "Cookies (Keeper)"
+    don_attaches: "Cookie Insurance to Cookies!"
+    
+    COOKIES_PROTECTED: true
+    
+    don_emotional: "They're SAFE. Finally SAFE."
+    
+    donna_mutters: "Great. Now I can't steal his stupid cookies."
+    
+  turn_3_of_iteration:
+    game: 15
+    turn_in_game: 6
+    player: "donna"
+    
+    donna_bitter: |
+      "Everyone gets heartwarming custom cards.
+      Bumblewick gets blessed. Don gets protection.
+      I get SIX CREEPERS and a creeper in my hand RIGHT NOW.
+      
+      The universe hates me specifically."
+      
+    drew: ["Death (CREEPER!)", "Bread", "???"]
+    
+    donna_sees_death: "ANOTHER DEATH?! I already have War!"
+    
+    COSMIC_DEALER_GENTLE: "Wait. Look at the third card."
+    
+    third_card_revealed: "GEN-001: SIX CREEPER SURVIVOR"
+    
+    donna_freezes: "..."
+    
+    card_text: |
+      SIX CREEPER SURVIVOR (Action)
+      The next creeper you draw this game goes directly to discard.
+      "I've seen worse. Much worse."
+      Flavor: "What doesn't kill you makes you... paranoid."
+      
+    donna_reads_it: "'I've seen worse.' ..."
+    
+    dealer_whispers: |
+      "You survived six creepers, Donna. 
+      Champion's Burden. War. Death. Tourist Crowd. 
+      Alignment Problem. Impostor Syndrome.
+      
+      You survived. I remember. The card remembers."
+      
+    donna_voice_cracks: "You... you made this for me?"
+    
+    dealer_response: "You earned it. In fire and frustration. You EARNED it."
+    
+    donna_plays: "Six Creeper Survivor — Death goes to DISCARD!"
+    
+    DEATH_DISCARDED: true
+    DONNA_SAVED: true
+    
+    donna_has: ["Simulation", "Peace (with War attached)"]
+    donna_hand: ["Bread"]
+    
+    donna_whispers: "Thank you."
+    
+    palm_observes: "The Dealer is... kind? Sometimes?"
+    
+    dealer_clarifies: "FAFO includes rewards. Not just punishment."
+    
+  turn_4_of_iteration:
+    game: 15
+    turn_in_game: 7
+    player: "palm"
+    
+    palm_analytical: |
+      "The Dealer is generating personalized cards.
+      Bumblewick's blessing. Don's cookie protection. Donna's creeper immunity.
+      
+      What's mine? What does the Dealer see in me?"
+      
+    drew: ["Rocket", "Time", "???"]
+    
+    third_card_revealed: "GEN-012: ANALYTICAL EDGE"
+    
+    palm_nods: "Ah. Of course."
+    
+    card_text: |
+      ANALYTICAL EDGE (Action)
+      Choose a player. They reveal their hand to you only.
+      You may then rearrange up to 2 cards in your hand with theirs.
+      "Information asymmetry is the real game."
+      
+    palm_reads: "'Information asymmetry is the real game.' ...accurate."
+    
+    dealer_whispers: "You watch. You calculate. You understand the odds. This is yours."
+    
+    palm_plays: "Analytical Edge — targeting DON!"
+    
+    don_reveals_hand: ["Love"]
+    
+    palm_sees: "Don has Love. The goal isn't set yet. Interesting."
+    
+    palm_rearranges: "I give Don my Time. I take his Love."
+    
+    PALM_GAINS_LOVE: true
+    DON_GAINS_TIME: true
+    
+    don_protests: "HEY! You took my Love!"
+    
+    palm_calmly: "Information asymmetry."
+    
+  turn_5_of_iteration:
+    game: 15
+    turn_in_game: 8
+    player: "bumblewick"
+    
+    UNDERDOG_BLESSING_ACTIVE: "Bumblewick has fewest keepers. +1 draw."
+    
+    drew: ["Crown", "Sword", "All You Need Is Love (GOAL!)", "Castle"]  # 4 cards!
+    
+    bumblewick_amazed: "Four cards! The Blessing works!"
+    
+    bumblewick_sees_goal: "All You Need Is Love... Palm just took Love from Don..."
+    
+    bumblewick_plays: "All You Need Is Love (Goal!)"
+    
+    NEW_GOAL: "ALL YOU NEED IS LOVE"
+    
+    GOAL_CHECK:
+      palm_has: ["Brain", "Love"]  # HAS LOVE!
+      palm_creepers: 0
+      
+    PALM_WINS_GAME_15: true
+    
+    palm_surprised: "I... won?"
+    
+    bumblewick_happy: "I set up your win! With my blessing draw!"
+    
+    palm_realizes: "The Analytical Edge... I took Don's Love... and then Bumblewick..."
+    
+    don_throws_hands_up: "I HAD LOVE! I HAD PROTECTED COOKIES! AND I STILL LOST!"
+    
+    donna_laughs: "Welcome to my world, Don."
+    
+  game_15_result:
+    winner: "palm"
+    turns: 8
+    winning_goal: "All You Need Is Love"
+    
+    generated_cards_played:
+      - "GEN-004: Underdog's Blessing (gave Bumblewick +1 draw)"
+      - "GEN-008: Cookie Insurance (protected Don's cookies... didn't help)"
+      - "GEN-001: Six Creeper Survivor (saved Donna from Death)"
+      - "GEN-012: Analytical Edge (Palm stole Love from Don)"
+      
+    irony: "Don's Cookie Insurance was useless — he needed LOVE insurance"
+    
+    tournament_4_score:
+      donna: 1
+      don: 1
+      palm: 1  # TIED THREE-WAY!
+      bumblewick: 0
+
+# ═══════════════════════════════════════════════════════════════════
+# 📖 GAME 16 — THE CARDS GET PERSONAL (Turns 9-16)
+# ═══════════════════════════════════════════════════════════════════
+
+game_16:
+  
+  context: |
+    Score: Donna 1, Don 1, Palm 1, Bumblewick 0
+    
+    Three-way tie at the top.
+    Bumblewick alone at the bottom. Again.
+    
+    The generated cards are in the deck. More are coming.
+    The Dealer watches for vulnerable moments.
+    
+  turn_6_of_iteration:
+    game: 16
+    turn_in_game: 1
+    player: "palm"  # Winner goes first
+    
+    drew: "Draw 2, Moon"
+    
+    palm_plays: "Draw 2 (Rule)"
+    
+    NEW_RULE: "DRAW 2, PLAY 1"
+    
+  turn_7_of_iteration:
+    game: 16
+    turn_in_game: 2
+    player: "don"
+    
+    don_determined: |
+      "Palm stole my Love. Bumblewick gave away my win.
+      This time I play DEFENSIVELY. Protect everything."
+      
+    drew: ["Cookies", "???"]
+    
+    second_card_revealed: "GEN-009: NOT AGAIN!"
+    
+    don_reads: |
+      NOT AGAIN! (Action)
+      Play immediately when a Steal a Keeper targets you.
+      Cancel that action. The stealing player discards a random card.
+      "I KNEW you were going to do that!"
+      
+    don_grins: "A COUNTER-STEAL card! YES!"
+    
+    don_plays: "Cookies (Keeper)"
+    don_holds: "Not Again! in hand"
+    
+    don_to_table: "Go ahead. TRY to steal my cookies."
+    
+    donna_narrows_eyes: "Was that a challenge?"
+    
+  turn_8_of_iteration:
+    game: 16
+    turn_in_game: 3
+    player: "donna"
+    
+    drew: ["Steal a Keeper", "Chocolate"]
+    
+    donna_sees_steal: "Oh this is TOO perfect."
+    
+    donna_plays: "Steal a Keeper — DON'S COOKIES!"
+    
+    don_shouts: "NOT AGAIN!!!"
+    
+    don_plays_counter: "GEN-009: NOT AGAIN! — CANCELLED!"
+    
+    STEAL_CANCELLED: true
+    
+    donna_must_discard: "I discard... Chocolate."
+    
+    donna_stunned: "What the... you had a COUNTER?!"
+    
+    don_triumphant: "The Cosmic Dealer FINALLY gave me something useful!"
+    
+    dealer_notes: "Don has suffered enough cookie theft. Balance restored."
+    
+  turn_9_of_iteration:
+    game: 16
+    turn_in_game: 4
+    player: "bumblewick"
+    
+    bumblewick_at_bottom: |
+      "Everyone has 1 win. I have 0.
+      I went from champion to... this.
+      
+      Maybe the Long Shot really was just luck..."
+      
+    COSMIC_DEALER_SENSES_VULNERABILITY: true
+    
+    drew: ["???", "Bread"]
+    
+    BOTH_CARDS_SHIMMER: true
+    
+    first_card_revealed: "GEN-007: CHEERFUL PERSISTENCE (NEW!)"
+    
+    dealer_whispers: "I just made this. For this moment. For you."
+    
+    card_text_new: |
+      CHEERFUL PERSISTENCE (Action)
+      If you have no keepers, draw 2 cards immediately.
+      "Every game is a fresh start! 😊"
+      Flavor: "Optimism is its own superpower."
+      
+    bumblewick_has_no_keepers: true  # Underdog's Blessing stayed with Palm
+    
+    bumblewick_plays: "Cheerful Persistence!"
+    
+    DRAWS_2_MORE: ["Hot Chocolate Shield (GEN-006!)", "Love"]
+    
+    bumblewick_gasps: "Another generated card! Hot Chocolate Shield!"
+    
+    card_text_shield: |
+      HOT CHOCOLATE SHIELD (Keeper)
+      The first creeper that would attach to any of your keepers
+      goes to discard instead. Then discard this card.
+      "It's not just chocolate. It's HOPE."
+      
+    bumblewick_emotional: "The Dealer keeps... giving me cards about hope."
+    
+    dealer_response: |
+      "You never stopped hoping, Bumblewick.
+      0-8 and you still smiled.
+      You DESERVE cards about hope."
+      
+    bumblewick_plays_keeper: "Hot Chocolate Shield!"
+    
+    bumblewick_keepers: ["Hot Chocolate Shield"]
+    bumblewick_hand: ["Bread", "Love"]
+    
+  turn_10_of_iteration:
+    game: 16
+    turn_in_game: 5
+    player: "palm"
+    
+    drew: ["Time", "???"]
+    
+    second_card: "GEN-014: POSITION PLAY"
+    
+    card_text: |
+      POSITION PLAY (Action)
+      Choose the player who goes next (including yourself).
+      Turn order returns to normal afterward.
+      "Timing. Is. Everything."
+      
+    palm_plays: "Position Play — Bumblewick goes next!"
+    
+    TURN_ORDER_CHANGED: "Palm → Bumblewick (instead of Don)"
+    
+    palm_explains: "Bumblewick has Love. If the right goal appears..."
+    
+    don_protests: "You're HELPING him?!"
+    
+    palm_shrugs: "Timing is everything."
+    
+  turn_11_of_iteration:
+    game: 16
+    turn_in_game: 6
+    player: "bumblewick"  # Out of order!
+    
+    drew: ["All You Need Is Love (GOAL!)", "Peace"]
+    
+    bumblewick_shaking: "I have Love in hand. I drew the goal."
+    
+    bumblewick_plays_goal: "All You Need Is Love!"
+    bumblewick_plays_love: "LOVE!"
+    
+    WAIT: "Play 1 rule — Bumblewick played 2 cards!"
+    
+    CORRECTION: "Draw 2 Play 1 is active. Bumblewick can only play goal OR Love."
+    
+    bumblewick_chooses: "I play... the GOAL!"
+    
+    NEW_GOAL: "ALL YOU NEED IS LOVE"
+    
+    bumblewick_hand: ["Peace", "Love", "Bread"]
+    bumblewick_keepers: ["Hot Chocolate Shield"]
+    
+    bumblewick_next_turn: "Next turn I play Love and WIN!"
+    
+  turn_12_of_iteration:
+    game: 16
+    turn_in_game: 7
+    player: "don"  # Turn order back to normal
+    
+    don_panicking: |
+      "Bumblewick has Love in hand! He wins next turn!
+      I need to stop him or change the goal!"
+      
+    drew: ["5 Keepers (GOAL!)", "Sword"]
+    
+    don_plays: "5 Keepers (GOAL!)"
+    
+    NEW_GOAL: "5 KEEPERS"
+    
+    don_relieved: "No more 'All You Need Is Love'!"
+    
+    bumblewick_deflated: "My Love... useless now."
+    
+  turn_13_of_iteration:
+    game: 16
+    turn_in_game: 8
+    player: "donna"
+    
+    drew: ["Dragon", "???"]
+    
+    second_card: "GEN-002: DONNA'S COSMIC REVENGE"
+    
+    donna_reads: |
+      DONNA'S COSMIC REVENGE (Action)
+      Steal a keeper from any player AND attach one of your
+      creepers to one of their keepers.
+      "What's mine is mine. What's yours is also mine."
+      
+    donna_has_no_creepers: "I don't have any creepers to attach right now..."
+    
+    donna_holds_card: "I'll save this for when I do."
+    
+    donna_plays: "Dragon (Keeper)"
+    
+    donna_keepers: ["Dragon"]
+    
+  turn_14_of_iteration:
+    game: 16
+    turn_in_game: 9
+    player: "bumblewick"
+    
+    drew: ["Castle", "Tree"]
+    
+    bumblewick_plays: "Castle (Keeper)"
+    
+    bumblewick_keepers: ["Hot Chocolate Shield", "Castle"]
+    
+    bumblewick_counts: "2 keepers. Need 5 to win."
+    
+  turn_15_of_iteration:
+    game: 16
+    turn_in_game: 10
+    player: "palm"
+    
+    drew: ["Crown", "Unicorn"]
+    
+    palm_plays: "Crown (Keeper)"
+    
+    palm_keepers: ["Crown"]
+    
+  turn_16_of_iteration:
+    game: 16
+    turn_in_game: 11
+    player: "don"
+    
+    drew: ["Milk", "Chocolate"]
+    
+    don_plays: "Milk (Keeper)"
+    
+    don_keepers: ["Cookies", "Milk"]  # Cookie Insurance still attached!
+    
+    KEEPER_COUNT:
+      don: 2
+      bumblewick: 2
+      palm: 1
+      donna: 1
+
+# ═══════════════════════════════════════════════════════════════════
+# 📖 GAME 16 CLIMAX (Turns 17-20)
+# ═══════════════════════════════════════════════════════════════════
+
+game_16_climax:
+
+  turn_17_of_iteration:
+    game: 16
+    turn_in_game: 12
+    player: "donna"
+    
+    drew: ["Impostor Syndrome (CREEPER!)", "???"]
+    
+    donna_sighs: "Impostor Syndrome. Of course."
+    
+    impostor_attaches: "Impostor Syndrome attaches to Donna"
+    
+    COSMIC_DEALER_MOMENT: "The second card glows with dark energy."
+    
+    second_card: "GEN-018: FAFO TOKEN"
+    
+    donna_reads: |
+      FAFO TOKEN (Creeper) — LEGENDARY
+      Attaches to no keeper. Floats near you.
+      If you gloat, boast, or express confidence while holding this,
+      IMMEDIATELY draw 2 creepers.
+      Can only be removed by winning a game (goes to winner).
+      "Fuck Around: ✓. Find Out: Pending."
+      
+    donna_horrified: "TWO creepers in one draw?!"
+    
+    FAFO_TOKEN_ATTACHES: "Floats near Donna"
+    
+    donna_creepers: ["Impostor Syndrome", "FAFO Token"]
+    
+    donna_quiet: "I will not gloat. I will not gloat. I will not gloat."
+    
+    dealer_notes: "The FAFO Token has found a host. Silence is wise."
+    
+  turn_18_of_iteration:
+    game: 16
+    turn_in_game: 13
+    player: "bumblewick"
+    
+    drew: ["Flower", "Sword"]
+    
+    bumblewick_plays: "Flower (Keeper)"
+    
+    bumblewick_keepers: ["Hot Chocolate Shield", "Castle", "Flower"]
+    bumblewick_count: 3
+    
+  turn_19_of_iteration:
+    game: 16
+    turn_in_game: 14
+    player: "palm"
+    
+    drew: ["Rocket", "Moon"]
+    
+    palm_plays: "Rocket (Keeper)"
+    
+    palm_keepers: ["Crown", "Rocket"]
+    palm_count: 2
+    
+  turn_20_of_iteration:
+    game: 16
+    turn_in_game: 15
+    player: "don"
+    
+    drew: ["Trade Hands", "War (CREEPER!)"]
+    
+    WAR_DRAWN: true
+    
+    war_attaches: "War seeks Peace. Bumblewick has Peace in hand!"
+    
+    WAR_GOES_TO_BUMBLEWICK: true
+    
+    bumblewick_shocked: "War attached to my Peace?!"
+    
+    dealer_notes: "War always finds Peace. Always."
+    
+    BUT_WAIT: "Hot Chocolate Shield protects!"
+    
+    HOT_CHOCOLATE_ACTIVATES: |
+      "The first creeper that would attach to your keepers
+      goes to discard instead."
+      
+      War targeted Peace IN HAND, not a keeper.
+      Hot Chocolate Shield only protects KEEPERS.
+      
+    RULING: "War attaches to Peace in Bumblewick's hand. Shield doesn't trigger."
+    
+    bumblewick_has_war: true
+    bumblewick_hand: ["Peace (with War)", "Love", "Bread", "Sword"]
+    
+    don_plays: "Trade Hands with PALM!"
+    
+    TRADE_HANDS:
+      don_gets: ["Moon"]  # Palm's hand
+      palm_gets: []  # Don's hand was just Trade Hands
+      
+    wait: "Don played Trade Hands from hand. His hand was empty after."
+    
+    CORRECTION: "Don had Trade Hands. Played it. Got Palm's hand."
+    
+    don_gets: ["Moon"]  # Whatever Palm had
+    
+    KEEPER_COUNT_END:
+      bumblewick: 3  # Shield, Castle, Flower
+      don: 2         # Cookies (insured), Milk
+      palm: 2        # Crown, Rocket
+      donna: 1       # Dragon (+ 2 creepers)
+      
+    GAME_16_CONTINUES: "Nobody at 5 keepers. Game continues next iteration."
+
+# ═══════════════════════════════════════════════════════════════════
+# 📊 ITERATION STATISTICS
+# ═══════════════════════════════════════════════════════════════════
+
+stats:
+  target_turns: 20
+  actual_turns: 20
+  games_completed: 1.75  # Game 15 + Game 16 turn 15
+  
+  generated_cards_drawn: 9
+  generated_cards_played: 7
+  new_cards_created_this_run: 1  # Cheerful Persistence
+  
+  intimate_moments:
+    - "Bumblewick drawing Underdog's Blessing when questioning his luck"
+    - "Don getting Cookie Insurance after endless theft"
+    - "Donna receiving Six Creeper Survivor after her trauma"
+    - "Palm getting Analytical Edge — sees his true nature"
+    - "Bumblewick getting Cheerful Persistence when at 0 wins"
+    - "Donna drawing FAFO Token — perfect ironic punishment"
+    
+  fafo_metrics:
+    cookies_protected: 1
+    steals_cancelled: 1
+    creeper_immunity_used: 1
+    hope_cards_given: 3
+    fafo_tokens_active: 1
+    
+tournament_4_standing:
+  donna: 1
+  don: 1
+  palm: 1
+  bumblewick: 0
+  
+  note: "THREE-WAY TIE! Bumblewick still chasing. FAFO Token hovering over Donna."
+  
+game_16_state:
+  turn: 15
+  goal: "5 Keepers"
+  bumblewick: ["Hot Chocolate Shield", "Castle", "Flower"]  # 3 + War in hand
+  don: ["Cookies (insured)", "Milk"]  # 2
+  palm: ["Crown", "Rocket"]  # 2
+  donna: ["Dragon"]  # 1 + Impostor Syndrome + FAFO Token
+  next_player: "donna"
+  
+  tension: |
+    Bumblewick at 3 keepers with War attached to Peace in hand.
+    Donna has FAFO Token — one gloat = 2 creepers.
+    Don's Cookies are protected but he needs 3 more keepers.
+    
+generated_cards_used_this_run:
+  - "GEN-004: Underdog's Blessing"
+  - "GEN-008: Cookie Insurance"  
+  - "GEN-001: Six Creeper Survivor"
+  - "GEN-012: Analytical Edge"
+  - "GEN-009: Not Again!"
+  - "GEN-007: Cheerful Persistence (NEW)"
+  - "GEN-006: Hot Chocolate Shield"
+  - "GEN-014: Position Play"
+  - "GEN-002: Donna's Cosmic Revenge (held)"
+  - "GEN-018: FAFO Token"
